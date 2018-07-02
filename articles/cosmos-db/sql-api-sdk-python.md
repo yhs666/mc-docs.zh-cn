@@ -1,27 +1,24 @@
 ---
 title: Azure Cosmos DB：SQL Python API、SDK 和资源 | Azure
-description: 全面了解 SQL Python API 和 SDK，以及 Azure Cosmos DB Python SDK 各版本之间所做的更改。
+description: 了解有关 SQL Python API 的所有信息。
 services: cosmos-db
-documentationcenter: python
 author: rockboyfor
 manager: digimobile
 editor: cgronlun
-ms.assetid: 3ac344a9-b2fa-4a3f-a4cc-02d287e05469
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: python
-ms.topic: article
+ms.topic: reference
 origin.date: 05/08/2018
-ms.date: 06/11/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fc524e1f8584be4ba7897e853e3f61e787434b18
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: 1aea1150ac3000dca45ccd6d422930332dc69a0e
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867376"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070322"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>适用于 SQL API 的 Azure Cosmos DB Python SDK：发行说明和资源
 > [!div class="op_single_selector"]

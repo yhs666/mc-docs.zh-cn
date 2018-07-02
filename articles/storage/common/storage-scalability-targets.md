@@ -15,16 +15,15 @@ ms.workload: storage
 origin.date: 10/24/2017
 ms.date: 12/04/2017
 ms.author: v-nany
-ms.openlocfilehash: 065d909879fd45c4fffd4a8d5a319eebdc965905
-ms.sourcegitcommit: b7076a41bb1841914e08ee5ad8c8e194ba82eeaa
+ms.openlocfilehash: f513b4088d8aa6d204ed929720498757d133cba1
+ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
-ms.locfileid: "26044567"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37103023"
 ---
 # <a name="azure-storage-scalability-and-performance-targets"></a>Azure 存储可伸缩性和性能目标
 ## <a name="overview"></a>概述
-
 本文介绍 Azure 存储的可伸缩性和性能主题。 有关其他 Azure 限制的摘要，请参阅 [Azure 订阅和服务限制、配额与约束](../../azure-subscription-service-limits.md)。
 
 > [!NOTE]
@@ -59,12 +58,10 @@ ms.locfileid: "26044567"
 ## <a name="azure-table-storage-scale-targets"></a>Azure 表存储缩放目标
 [!INCLUDE [storage-table-scale-targets](../../../includes/storage-tables-scale-targets.md)]
 
-
 ## <a name="see-also"></a>另请参阅
 * [存储定价详细信息](https://www.azure.cn/pricing/details/storage/)
-
 * [Azure 订阅和服务限制、配额和约束](../../azure-subscription-service-limits.md)
 * [Azure 存储复制](../storage-redundancy.md)
 * [Azure 存储性能和可伸缩性清单](../storage-performance-checklist.md)
-* [Azure Storage: A Highly Available Cloud Storage Service with Strong Consistency](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)（Azure 存储：具有高度一致性的高可用云存储服务）
-<!--Update_Description: update content-->
+* [Azure Storage: A Highly Available Cloud Storage Service with Strong Consistency](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
+<!--Update_Description: update content-->（Azure 存储：具有高度一致性的高可用云存储服务）

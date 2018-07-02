@@ -15,17 +15,17 @@ ms.topic: article
 origin.date: 02/22/2017
 ms.date: 08/28/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 84181c8e147152345d81da3b45c64b1a63a8dba9
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.openlocfilehash: 6a8faf0262eeedfff246698cdbe4e9a3149775e3
+ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
-ms.locfileid: "21135089"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37103075"
 ---
 # <a name="cross-origin-resource-sharing-cors-support-for-the-azure-storage-services"></a>对 Azure 存储服务的跨域资源共享 (CORS) 支持
 从版本 2013-08-15 开始，Azure 存储服务支持 Blob、表、队列和文件服务的跨域资源共享 (CORS)。 CORS 是一项 HTTP 功能，使在一个域中运行的 Web 应用程序能够访问另一个域中的资源。 Web 浏览器实施一种称为[同源策略](http://www.w3.org/Security/wiki/Same_Origin_Policy)的安全限制，防止网页调用不同域中的 API；CORS 提供了一种安全的方法，允许一个域（源域）调用其他域中的 API。 有关 CORS 的详细信息，请参阅 [CORS 规范](http://www.w3.org/TR/cors/)。
 
-可分别为每个存储服务设置 CORS 规则，方式请参阅 [Set Blob Service Properties](https://msdn.microsoft.com/library/hh452235.aspx)（设置 Blob 服务属性）、[Set Queue Service Properties](https://msdn.microsoft.com/library/hh452232.aspx)（设置队列服务属性）和 [Set Table Service Properties](https://msdn.microsoft.com/library/hh452240.aspx)（设置表服务属性）。 为服务设置 CORS 规则后，会对从另一个域对服务发出的经过正确身份验证的请求进行评估，以根据你指定的规则确定是否允许该请求。
+可分别为每个存储服务设置 CORS 规则，方式请参阅 [Set Blob Service Properties](https://msdn.microsoft.com/library/hh452235.aspx)（设置 Blob 服务属性）、[Set Queue Service Properties](https://msdn.microsoft.com/library/hh452232.aspx)（设置队列服务属性）和 [Set Table Service Properties](https://msdn.microsoft.com/library/hh452240.aspx)（设置表服务属性）。 为服务设置 CORS 规则后，会对从另一个域向服务发出的经过适当授权的请求进行评估，以根据你指定的规则确定是否允许该请求。
 
 > [!NOTE]
 > 请注意，CORS 不是一种身份验证机制。 在启用 CORS 的情况下针对存储资源发出的任何请求必须具有适当的身份验证签名，或者必须是针对公共资源发出的。
@@ -79,7 +79,7 @@ CORS 规则在服务级别设置，因此需要分别为每个服务（Blob、�
 * **ExposedHeaders**：可以在 CORS 请求响应中发送并由浏览器向请求发出方公开的响应标头。 在上面的示例中，指示浏览器公开任何以 x-ms-meta 开头的标头。
 * **MaxAgeInSeconds**：浏览器应缓存预检 OPTIONS 请求的最长时间。
 
-Azure 存储服务支持为 **AllowedHeaders** 和 **ExposedHeaders** 两个元素指定带前缀的标头。 若要允许某个标头类别，可以为该类别指定一个通用前缀。 例如，如果指定 *x-ms-meta***作为带前缀的标头，将会建立一条与 x-ms-meta 开头的所有标头相匹配的规则。
+Azure 存储服务支持为 **AllowedHeaders** 和 **ExposedHeaders** 两个元素指定带前缀的标头。 若要允许某个标头类别，可以为该类别指定一个通用前缀。 例如，如果指定 *x-ms-meta** 作为带前缀的标头，将会建立一条与 x-ms-meta 开头的所有标头相匹配的规则。
 
 以下限制适用于 CORS 规则：
 
@@ -136,7 +136,7 @@ Azure 存储服务支持为 **AllowedHeaders** 和 **ExposedHeaders** 两个元�
 | 请求 |  |  | 响应 |  |
 | --- | --- | --- | --- | --- |
 | **方法** |**源** |**请求标头** |**规则匹配** |**结果** |
-| **PUT** |http://www.contoso.com |x-ms-blob-content-type |第一条规则 |成功 |
+| **PUT** |http://www.contoso.com |x-ms-blob-content-type |第一条规则 |Success |
 | **GET** |http://www.contoso.com |x-ms-blob-content-type |第二条规则 |成功 |
 | **GET** |http://www.contoso.com |x-ms-client-request-id |第二条规则 |失败 |
 
@@ -156,7 +156,7 @@ Azure 存储服务支持为 **AllowedHeaders** 和 **ExposedHeaders** 两个元�
 
 当浏览器或其他用户代理缓存 CORS 请求的响应时，源域将作为允许的来源缓存。 如果第二个域在缓存处于活动时对存储资源发出相同请求，用户代理会检索缓存的源域。 由于第二个域与缓存的域不匹配，因此原本应该成功的请求会失败。 在某些情况下，Azure 存储会将 Vary 标头设置为 **Origin**，以便在发出请求的域不同于缓存的来源时，指示用户代理将后续 CORS 请求发送到服务。
 
-在以下情况下，Azure 存储会针对实际 GET/HEAD 请求，将 *Vary* 标头设置为 **Origin** ：
+在以下情况下，Azure 存储会针对实际 GET/HEAD 请求，将 *Vary* 标头设置为 **Origin**：
 
 * 当请求来源与 CORS 规则定义的允许来源完全匹配时。 要想成为精确匹配项，CORS 规则不能包含 ' * ' 通配符。
 * 不存在与请求源匹配的规则，但为存储服务启用了 CORS。
@@ -169,7 +169,7 @@ Azure 存储服务支持为 **AllowedHeaders** 和 **ExposedHeaders** 两个元�
 
 | 请求 | 帐户设置和规则评估结果 |  |  | 响应 |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| **请求中存在 Origin 标头** |**为此服务指定了 CORS 规则** |**存在允许所有域 (*) 的匹配规则** |**存在精确匹配域的匹配规则** |**响应包含设置为 Origin 的 Vary 标头** |**响应包含 Access-Control-Allowed-Origin：“*”** |**响应包含 Access-Control-Exposed-Headers** |
+| **请求中存在 Origin 标头** |**为此服务指定了 CORS 规则** |**存在允许所有源 (*) 的匹配规则** |**存在精确匹配域的匹配规则** |**响应包含设置为 Origin 的 Vary 标头** |**响应包含 Access-Control-Allowed-Origin：“*”** |**响应包含 Access-Control-Exposed-Headers** |
 | 否 |否 |否 |否 |否 |否 |否 |
 | 否 |是 |否 |否 |是 |否 |否 |
 | 否 |是 |是 |否 |否 |是 |是 |

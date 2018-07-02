@@ -14,12 +14,12 @@ ms.topic: get-started-article
 origin.date: 03/26/2018
 ms.date: 06/11/2018
 ms.author: v-johch
-ms.openlocfilehash: ec74f9854df0a7fb2f627310d54638ff78dfe48e
-ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
+ms.openlocfilehash: 54cf71e72b7e1f40cf42a551ca4d2a8ea4d97ed0
+ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36270078"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37103053"
 ---
 # <a name="managing-azure-file-shares-with-azure-powershell"></a>使用 Azure PowerShell 管理 Azure 文件共享 
 [Azure 文件](storage-files-introduction.md)是 Microsoft 推出的易用云文件系统。 可以在 Windows、Linux 和 macOS 中装载 Azure 文件共享。 本指南介绍通过 PowerShell 来使用 Azure 文件共享的基本知识。 本文介绍如何执行以下操作：
@@ -36,7 +36,7 @@ ms.locfileid: "36270078"
 
 
 
-若要选择在本地安装并使用 PowerShell，则本指南需要 Azure PowerShell 模块 5.1.1 或更高版本。 若要找出正在运行的 Azure PowerShell 模块的版本，请执行 `Get-Module -ListAvailable AzureRM`。 如果需要进行升级，请参阅 [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount -Environment AzureChinaCloud` 以创建与 Azure 的连接。
+若要在本地安装并使用 PowerShell，则本指南需要 Azure PowerShell 模块 5.1.1 或更高版本。 若要找出正在运行的 Azure PowerShell 模块的版本，请执行 `Get-Module -ListAvailable AzureRM`。 如果需要进行升级，请参阅 [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount -Environment AzureChinaCloud` 以创建与 Azure 的连接。
 
 ## <a name="create-a-resource-group"></a>创建资源组
 资源组是在其中部署和管理 Azure 资源的逻辑容器。 如果还没有 Azure 资源组，可以使用 [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) cmdlet 新建一个。 
@@ -167,11 +167,11 @@ Start-AzureStorageFileCopy `
 Get-AzureStorageFile -Context $storageAcct.Context -ShareName "myshare2" -Path "myDirectory2" 
 ```
 
-虽然 `Start-AzureStorageFileCopy` cmdlet 可以方便地用于 Azure 文件共享和 Azure Blob 存储容器之间的临时文件移动，但我们仍建议你使用 AzCopy 进行较大型的移动（就要移动的文件的数量或大小而言）。 详细了解 [Windows 版 AzCopy](../common/storage-use-azcopy.md) 和 [Linux 版 AzCopy](../common/storage-use-azcopy-linux.md)。 AzCopy 必须安装在本地，在 Cloud Shell 中不可用 
+虽然 `Start-AzureStorageFileCopy` cmdlet 可以方便地用于 Azure 文件共享和 Azure Blob 存储容器之间的临时文件移动，但我们仍建议你使用 AzCopy 进行较大型的移动（就要移动的文件的数量或大小而言）。 详细了解 [Windows 版 AzCopy](../common/storage-use-azcopy.md) 和 [Linux 版 AzCopy](../common/storage-use-azcopy-linux.md)。 AzCopy 必须安装在本地，在 Cloud Shell 中不可用。 
 
 ## <a name="create-and-modify-share-snapshots"></a>创建和修改共享快照
 可以通过 Azure 文件共享执行的另一项有用的任务是创建共享快照。 快照保存的是 Azure 文件共享的某个时间点。 共享快照类似于你可能已经熟悉的操作系统技术，例如：
-- 适用于 Windows 文件系统（例如 NTFS 和 ReFS）的[卷影复制服务 (VSS)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd349801)
+- 适用于 Windows 文件系统（例如 NTFS 和 ReFS）的卷影复制服务 (VSS)
 - 适用于 Linux 系统的[逻辑卷管理器 (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) 快照。
 - 适用于 macOS 的 [Apple 文件系统 (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) 快照。 
 
@@ -246,5 +246,6 @@ Remove-AzureRmStorageAccount -ResourceGroupName $storageAcct.ResourceGroupName -
 ## <a name="next-steps"></a>后续步骤
 - [使用 Azure 门户管理文件共享](storage-how-to-use-files-portal.md)
 - [使用 Azure CLI 管理文件共享](storage-how-to-use-files-cli.md)
+- [使用存储资源管理器管理文件共享](storage-how-to-use-files-storage-explorer.md)
 - [规划 Azure 文件部署](storage-files-planning.md)
 <!--Update_Description: wording update-->

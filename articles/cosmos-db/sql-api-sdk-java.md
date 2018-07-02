@@ -1,27 +1,24 @@
 ---
 title: Azure Cosmos DB：SQL Java API、SDK 和资源 | Azure
-description: 了解有关 SQL Java API 和 SDK 的所有信息，包括 Azure Cosmos DB SQL Java SDK 各版本所做的更改。
+description: 了解有关 SQL Java API 的所有信息。
 services: cosmos-db
-documentationcenter: java
 author: rockboyfor
 manager: digimobile
 editor: cgronlun
-ms.assetid: 7861cadf-2a05-471a-9925-0fec0599351b
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: java
-ms.topic: article
+ms.topic: reference
 origin.date: 05/16/2018
-ms.date: 06/11/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d16f950bf971ac22006baa02982c8076193d729f
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: 6dd5b2dfea91ee01a34f9fca1f941c7fe365ab01
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867402"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070327"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>适用于 SQL API 的 Azure Cosmos DB Java SDK：发行说明和资源
 > [!div class="op_single_selector"]

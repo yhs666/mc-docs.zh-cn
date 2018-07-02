@@ -12,16 +12,16 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-origin.date: 04/06/2018
-ms.date: 05/15/2018
+origin.date: 06/15/2018
+ms.date: 06/29/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 204a9d7dffe97d59bd2b7f3ed6f81cd7cf0320dd
-ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
+ms.openlocfilehash: 518623842141d27273806ce94175750e5246439a
+ms.sourcegitcommit: c587cc1c53b1f92b45fae0d1ff8e1f7bd544bc55
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "34173342"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37103259"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>使用 Batch 应用程序包将应用程序部署到计算节点
 
@@ -96,10 +96,10 @@ Batch 服务使用关联的存储帐户存储应用程序包。 链接两个帐�
 建议专门创建一个存储帐户用作 Batch 帐户，并在此处选择该帐户。 创建存储帐户后，可以使用“存储帐户”窗口将其链接到 Batch 帐户。
 
 > [!NOTE] 
-> 目前无法将应用程序包用于配置了防火墙规则的 Azure 存储帐户。
+> 目前无法将应用程序包用于配置有[防火墙规则](../storage/common/storage-network-security.md)的 Azure 存储帐户。
 > 
->
-> Batch 服务使用 Azure 存储将应用程序包存储为块 blob。 块 blob 数据按[正常收费][storage_pricing]。 请务必考虑应用程序包的大小和数目，并定期删除过时的包以降低成本。
+
+Batch 服务使用 Azure 存储将应用程序包存储为块 blob。 对于块 blob 数据，将[按标准收费][storage_pricing]，但每个包的大小不能超过[最大块 blob 大小](../storage/common/storage-scalability-targets.md#azure-blob-storage-scale-targets)。 请务必考虑应用程序包的大小和数目，并定期删除过时的包以降低成本。
 > 
 > 
 
@@ -205,8 +205,8 @@ CloudPool myCloudPool =
     batchClient.PoolOperations.CreatePool(
         poolId: "myPool",
         targetDedicatedComputeNodes: 1,
-        virtualMachineSize: "small",
-        cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "4"));
+        virtualMachineSize: "standard_d1_v2",
+        cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "5"));
 
 // Specify the application and version to install on the compute nodes
 myCloudPool.ApplicationPackageReferences = new List<ApplicationPackageReference>

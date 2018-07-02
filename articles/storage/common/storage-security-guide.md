@@ -6,24 +6,23 @@ author: forester123
 manager: josefree
 ms.service: storage
 ms.topic: article
-origin.date: 03/06/2018
-ms.date: 06/11/2018
+origin.date: 05/31/2018
+ms.date: 07/02/2018
 ms.author: v-johch
-ms.openlocfilehash: 0ac21351ec4e053711ae1285d23e3e4de699431f
-ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
+ms.openlocfilehash: 0212dcf7f25f582c3eda720539e0be5b7499882d
+ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36270059"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37103097"
 ---
 # <a name="azure-storage-security-guide"></a>Azure 存储安全指南
-
-## <a name="overview"></a>概述
 
 Azure 存储提供一整套安全性功能，这些功能相辅相成，帮助开发人员构建安全的应用程序：
 
 - 所有写入 Azure 存储的数据，使用[存储服务加密 (SSE)](storage-service-encryption.md) 进行自动加密。 有关详细信息，请参阅[宣布推出针对 Azure Blob、文件、表和队列存储的默认加密](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/)。
-- 存储帐户本身可以通过基于角色的访问控制和 Azure Active Directory 来保护。 
+- Azure 存储支持使用 Azure Active Directory (Azure AD) 和基于角色的访问控制 (RBAC) 进行资源管理操作和数据操作，如下所示：   
+    - 可以将作用域为存储帐户的 RBAC 角色分配给安全主体，并使用 Azure AD 为密钥管理之类的资源管理操作授权。
 - 在应用程序和 Azure 之间传输数据时，可使用[客户端加密](storage-client-side-encryption.md)、HTTPS 或 SMB 3.0 保护数据。  
 - Azure 虚拟机使用的 OS 和数据磁盘可使用 [Azure 磁盘加密](../../security/azure-security-disk-encryption.md)进行加密。 
 - 在 Azure 存储中，可以使用[共享访问签名](storage-dotnet-shared-access-signature-part-1.md)授予数据对象的委派访问权限。
@@ -207,7 +206,7 @@ http://mystorage.blob.core.chinacloudapi.cn/mycontainer/myblob.txt (URL to the b
 &sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D (signature used for the authentication of the SAS)
 ```
 
-#### <a name="how-the-shared-access-signature-is-authenticated-by-the-azure-storage-service"></a>Azure 存储服务对共享访问签名进行身份验证的方式
+#### <a name="how-the-shared-access-signature-is-authorized-by-the-azure-storage-service"></a>Azure 存储服务如何对共享访问签名进行授权
 当存储服务收到请求时，它获取输入查询参数，并使用与调用程序相同的方法来创建签名。 然后比较这两个签名。 如果它们相符，则存储服务可以检查存储服务版本以确保它有效、检查当前日期和时间是在指定时段内、确保请求的访问权限对应于发出的请求，等等。
 
 以上述 URL 为例，如果 URL 指向文件而不是 Blob，此请求会失败，因为它指定共享访问签名适用于 Blob。 如果调用的 REST 命令是更新 Blob，则该命令会失败，因为共享访问签名指定只准许读访问权限。
@@ -245,7 +244,7 @@ http://mystorage.blob.core.chinacloudapi.cn/mycontainer/myblob.txt (URL to the b
   * [构造帐户 SAS](https://msdn.microsoft.com/library/mt584140.aspx)
 * 这些教程介绍了如何使用 .NET 客户端库创建共享访问签名和存储访问策略。
 
-  * [使用共享访问签名 (SAS)](../storage-dotnet-shared-access-signature-part-1.md)
+  * [使用共享访问签名 (SAS)](storage-dotnet-shared-access-signature-part-1.md)
   * [共享访问签名 - 第 2 部分：创建 SAS 并将 SAS 用于 Blob 服务](../blobs/storage-dotnet-shared-access-signature-part-2.md)
 
     本文包含 SAS 模型的说明、共享访问签名的示例，以及 SAS 用法最佳实践的建议。 此外还介绍了如何吊销授予的权限。
@@ -263,24 +262,12 @@ http://mystorage.blob.core.chinacloudapi.cn/mycontainer/myblob.txt (URL to the b
 
 若要获得安全的通信渠道，在调用 REST API 或访问存储中的对象时，应该始终使用 HTTPS。 此外， **共享访问签名**（可用于委派对 Azure 存储对象的访问权限）包含一个选项，用于指定在使用共享访问签名时只能使用 HTTPS 协议，以确保任何使用 SAS 令牌发出链接的人都使用正确的协议。
 
-在调用 REST API 来访问存储帐户中的对象时，可以通过为存储帐户启用[需要安全传输](../storage-require-secure-transfer.md)来强制使用 HTTPS。 在启用此功能后，使用 HTTP 的连接将被拒绝。
+在调用 REST API 来访问存储帐户中的对象时，可以通过为存储帐户启用[需要安全传输](storage-require-secure-transfer.md)来强制使用 HTTPS。 在启用此功能后，使用 HTTP 的连接将被拒绝。
 
 ### <a name="using-encryption-during-transit-with-azure-file-shares"></a>传输期间对 Azure 文件共享使用加密
-使用 REST API 时，Azure 文件支持 HTTPS，但经常用作附加到 VM 的 SMB 文件共享。 SMB 2.1 不支持加密，因此只允许在 Azure 中的相同区域内连接。 但是，SMB 3.0 支持加密，并且可以在 Windows Server 2012 R2、Windows 8、Windows 8.1 和 Windows 10 中使用，允许跨区域访问和桌面上的访问。
+[Azure 文件](../files/storage-files-introduction.md)支持通过 SMB 3.0 进行加密，以及在使用文件 REST API 时通过 HTTPS 进行加密。 在 Azure 文件共享所在的 Azure 区域（例如本地或另一 Azure 区域）之外进行装载时，始终需要使用带加密功能的 SMB 3.0。 SMB 2.1 不支持加密，因此默认情况下只允许在 Azure 中的相同区域内连接，但可以强制使用带加密功能的 SMB 3.0，只需对存储帐户[要求安全传输](storage-require-secure-transfer.md)即可。
 
-尽管 Azure 文件共享可以与 Unix 配合使用，但 Linux SMB 客户端尚不支持加密，因此只允许在 Azure 区域内访问。 Linux 的加密支持已经在负责 SMB 功能的 Linux 开发人员的路线图上。 当他们添加加密时，必须具有访问 Linux 上 Azure 文件共享的相同能力，就像对于 Windows 所做的一样。
-
-可以通过为存储帐户启用[需要安全传输](../storage-require-secure-transfer.md)来强制对 Azure 文件服务使用加密。 如果使用 REST API，则 HTTPs 是必需的。 对于 SMB，只有支持加密的 SMB 连接将会成功连接。
-
-#### <a name="resources"></a>资源
-* [Azure 文件简介](../files/storage-files-introduction.md)
-* [在 Windows 上开始使用 Azure 文件](../files/storage-how-to-use-files-windows.md)
-
-  本文概述 Azure 文件共享，以及如何在 Windows 上装载和使用这些文件共享。
-
-* [如何通过 Linux 使用 Azure 文件](../files/storage-how-to-use-files-linux.md)
-
-  此文介绍如何在 Linux 系统上装载 Azure 文件共享，以及上传/下载文件。
+带加密功能的 SMB 3.0 可以在[所有受支持的 Windows 和 Windows Server 操作系统](../files/storage-how-to-use-files-windows.md)中使用，但 Windows 7 和 Windows Server 2008 R2 除外，这二者只支持 SMB 2.1。 在 [macOS](../files/storage-how-to-use-files-mac.md) 和使用 Linux 内核 4.11 及更高版本的 [Linux](../files/storage-how-to-use-files-linux.md) 发行版上，SMB 3.0 也受支持。 针对 SMB 3.0 的加密支持也通过多个 Linux 发行版向后移植到旧版 Linux 内核。详情请参阅[了解 SMB 客户端要求](../files/storage-how-to-use-files-linux.md#smb-client-reqs)。
 
 ### <a name="using-client-side-encryption-to-secure-data-that-you-send-to-storage"></a>使用客户端加密来保护发送到存储的数据
 另一个可帮助确保在客户端应用程序与存储之间传输时数据安全的选项是客户端加密。 数据先经过加密，再传输到 Azure 存储。 从 Azure 存储检索数据时，在客户端上收到数据之后会将其解密。 即使数据在通过连接时已加密，但还是建议使用 HTTPS，因为它内置了数据完整性检查，有助于降低影响数据完整性的网络错误。
@@ -315,7 +302,7 @@ SSE 自动加密所有性能层（标准和高级）、所有部署模型（Azur
 * [在 Azure 存储中使用 Azure 密钥保管库加密和解密 blob](../blobs/storage-encrypt-decrypt-blobs-key-vault.md)
 
   此文说明如何配合 Azure Key Vault 使用客户端加密，包括如何使用 PowerShell 来创建 KEK 并将它存储在保管库中。
-* [Azure 存储的客户端加密和 Azure 密钥保管库](../storage-client-side-encryption.md)
+* [Azure 存储的客户端加密和 Azure 密钥保管库](storage-client-side-encryption.md)
 
   此文介绍客户端加密，并提供使用存储客户端库从四个存储服务加密和解密资源的示例。 此外介绍了 Azure 密钥保管库。
 
@@ -414,11 +401,11 @@ SSE 由 Azure 存储管理。 SSE 不是针对传输中数据安全性提供的�
 
 ![日志文件中字段的快照](./media/storage-security-guide/image3.png)
 
-我们对于 GetBlob 的条目及其身份验证方法感兴趣，因此需要查找操作类型“Get-Blob”的条目，并检查请求状态（第四</sup>列）和授权类型（第八</sup>列）。
+我们对于 GetBlob 的条目及其授权方法感兴趣，因此需要查找操作类型为“Get-Blob”的条目，并检查请求状态（第四</sup>列）和授权类型（第八</sup>列）。
 
-例如，在上述列表的前几列中，请求状态为“Success”且授权类型为“authenticated”。 这意味着已使用存储帐户密钥验证请求。
+例如，在上述列表的前几列中，请求状态为“Success”且授权类型为“authenticated”。 这意味着已使用存储帐户密钥对请求进行授权。
 
-#### <a name="how-are-my-blobs-being-authenticated"></a>如何对我的 Blob 进行身份验证？
+#### <a name="how-is-access-to-my-blobs-being-authorized"></a>如何授权对 blob 的访问？
 下面提供了我们感兴趣的三种用例。
 
 1. Blob 是公共的，可使用 URL 来访问（无需共享访问签名）。 在本例中，请求状态为“AnonymousSuccess”且授权类型为“anonymous”。
@@ -434,16 +421,16 @@ SSE 由 Azure 存储管理。 SSE 不是针对传输中数据安全性提供的�
 可使用 Microsoft Message Analyzer 查看和分析这些日志。 它包含搜索和筛选功能。 例如，你可能想要搜索 GetBlob 的实例，以查看其使用方式是否符合预期，即要确保其他人不会以不适当的方式访问存储帐户。
 
 #### <a name="resources"></a>资源
-* [存储分析](../storage-analytics.md)
+* [存储分析](storage-analytics.md)
 
   此文概述存储分析及其启用方法。
 * [Storage Analytics Log Format](https://msdn.microsoft.com/library/azure/hh343259.aspx)（存储分析日志格式）
 
   此文介绍存储分析日志格式，并详细说明其中的可用字段，包括身份验证类型（指示请求使用的身份验证类型）。
-* [在 Azure 门户中监视存储帐户](../storage-monitor-storage-account.md)
+* [在 Azure 门户中监视存储帐户](storage-monitor-storage-account.md)
 
   此文说明如何配置和监视存储帐户的指标与日志记录。
-* [使用 Azure 存储度量值和日志记录、AzCopy 及 Message Analyzer 进行端到端故障排除](../storage-e2e-troubleshooting.md)
+* [使用 Azure 存储度量值和日志记录、AzCopy 及 Message Analyzer 进行端到端故障排除](storage-e2e-troubleshooting.md)
 
   此文介绍如何使用存储分析进行故障排除，并说明如何使用 Microsoft Message Analyzer。
 * [Microsoft Message Analyzer Operating Guide](https://technet.microsoft.com/library/jj649776.aspx)（Microsoft Message Analyzer 操作指南）
@@ -491,7 +478,7 @@ Azure 存储允许启用 CORS – 跨域资源共享。 对于每个存储帐户
 #### <a name="resources"></a>资源
 有关 CORS 及其启用方法的详细信息，请参阅以下资源。
 
-* [Azure.com 上对 Azure 存储服务的跨域资源共享 (CORS) 支持](../storage-cors-support.md)
+* [Azure.com 上对 Azure 存储服务的跨域资源共享 (CORS) 支持](storage-cors-support.md)
 
   此文概要讲述了 CORS，并介绍了如何为不同的存储服务设置规则。
 * [Cross-Origin Resource Sharing (CORS) Support for the Azure Storage Services on MSDN](https://msdn.microsoft.com/library/azure/dn535601.aspx)（MSDN 上对 Azure 存储服务的跨域资源共享 (CORS) 支持）
@@ -515,8 +502,7 @@ Azure 存储允许启用 CORS – 跨域资源共享。 对于每个存储帐户
 
    Microsoft 允许每个客户决定是否启用 FIPS 模式。 我们相信，客户没有充分的理由违反政府法规，不按默认启用 FIPS 模式。
 
-   **资源**
-
+### <a name="resources"></a>资源
 * [为何建议不再使用“FIPS 模式”](https://blogs.technet.microsoft.com/secguide/2014/04/07/why-were-not-recommending-fips-mode-anymore/)
 
   此博客文章提供了 FIPS 概述，并说明了他们为什么默认不启用 FIPS 模式。
@@ -526,5 +512,4 @@ Azure 存储允许启用 CORS – 跨域资源共享。 对于每个存储帐户
 * [“系统加密：使用 FIPS 兼容的算法来加密、哈希和签名”在 Windows XP 和更高版本的 Windows 中的安全设置影响](https://support.microsoft.com/kb/811833)
 
   此文介绍如何在较旧的 Windows 计算机中使用 FIPS 模式。
-
 <!--Update_Description: wording update-->

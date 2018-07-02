@@ -3,32 +3,28 @@ title: 通过 Azure 门户管理 Azure Cosmos DB 帐户 | Azure
 description: 了解如何通过 Azure 门户管理 Azure Cosmos DB 帐户。 查找有关使用 Azure 门户查看、复制、删除和访问帐户的指南。
 keywords: Azure 门户, azure, Azure 世纪互联
 services: cosmos-db
-documentationcenter: ''
 author: rockboyfor
 manager: digimobile
 editor: cgronlun
-ms.assetid: 00fc172f-f86c-44ca-8336-11998dcab45c
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 11/28/2017
-ms.date: 04/23/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 193da196b4f11f3237fc5093ddb3a5d229257241
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 69aa68c4e4a768f3d13114de6134421dd57921db
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782042"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070168"
 ---
 # <a name="how-to-manage-an-azure-cosmos-db-account"></a>如何管理 Azure Cosmos DB 帐户
 了解如何在 Azure 门户中设置全局一致性、使用密钥，以及删除 Azure Cosmos DB 帐户。
 
 <a name="consistency"></a>
 ## <a name="manage-azure-cosmos-db-consistency-settings"></a>管理 Azure Cosmos DB 一致性设置
-根据应用程序的语义选择正确的一致性级别。 通过阅读[使用一致性级别最大限度地提高 Azure Cosmos DB 中的可用性和性能][consistency]，自行熟悉 Azure Cosmos DB 中提供的一致性级别。 Azure Cosmos DB 在适用于数据库帐户的每个一致性级别提供一致性、可用性和性能保证。 使用“强”一致性级别配置数据库帐户需要将数据局限在单个 Azure 区域，而不能使其全局可用。 另一方面，宽松的一致性级别 - 使用有限过期、会话或最终一致性可将任意数量的 Azure 区域与数据库帐户相关联。 以下简单步骤说明如何为数据库帐户选择默认的一致性级别。
+根据应用程序的语义选择正确的一致性级别。 通过阅读[使用一致性级别最大限度地提高 Azure Cosmos DB 中的可用性和性能][一致性]，自行熟悉 Azure Cosmos DB 中提供的一致性级别。 Azure Cosmos DB 在适用于数据库帐户的每个一致性级别提供一致性、可用性和性能保证。 使用“强”一致性级别配置数据库帐户需要将数据局限在单个 Azure 区域，而不能使其全局可用。 另一方面，宽松的一致性级别 - 使用有限过期、会话或最终一致性可将任意数量的 Azure 区域与数据库帐户相关联。 以下简单步骤说明如何为数据库帐户选择默认的一致性级别。
 
 ### <a name="to-specify-the-default-consistency-for-an-azure-cosmos-db-account"></a>指定 Azure Cosmos DB 帐户的默认一致性
 1. 在 [Azure 门户](https://portal.azure.cn/)中访问 Azure Cosmos DB 帐户。
@@ -68,7 +64,7 @@ ms.locfileid: "31782042"
 
 1. 更新应用程序代码中的访问密钥以引用 Azure Cosmos DB 帐户的辅助访问密钥。
 2. 为 Azure Cosmos DB 帐户重新生成主访问密钥。 在 [Azure 门户](https://portal.azure.cn/)中访问 Azure Cosmos DB 帐户。
-3. 在“Azure Cosmos DB 帐户”页上，单击“密钥”（或 MongoDB 帐户的“连接字符串”\**）。
+3. 在“Azure Cosmos DB 帐户”页上，单击“密钥”（或 MongoDB 帐户的“连接字符串”\*\*）。
 4. 在“密钥”/“连接字符串”页上，单击“重新生成”按钮，并单击“确定”确认要生成新密钥。
     ![重新生成访问密钥](./media/manage-account/regenerate-keys.png)
 5. 确认新的密钥可供使用后（大约在重新生成后的五分钟），请更新应用程序代码中的访问密钥以引用新的主访问密钥。
@@ -111,9 +107,6 @@ ms.locfileid: "31782042"
 [5]: ./media/manage-account/documentdb_change_consistency-1.png
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
-<!-- Not Available on [bcdr]: /best-practices-availability-paired-regions/ -->
-[consistency]: consistency-levels.md
-[azureregions]: https://www.azure.cn/support/service-dashboard/#services
-[offers]: https://www.azure.cn/pricing/details/cosmos-db/
+<!-- Not Available on [bcdr]: /best-practices-availability-paired-regions/ --> [一致性]：consistency-levels.md [azureregions]：https://www.azure.cn/support/service-dashboard/#services [套餐]：https://www.azure.cn/pricing/details/cosmos-db/
 
-<!-- Update_Description: update meta properties, wording update, update link -->
+<!-- Update_Description: update meta properties  -->

@@ -2,25 +2,22 @@
 title: 使用 Node.js 将 MongoDB 应用连接到 Azure Cosmos DB | Azure
 description: 了解如何将现有的 Node.js MongoDB 应用连接到 Azure Cosmos DB
 services: cosmos-db
-documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-ms.assetid: ''
 ms.service: cosmos-db
+ms.component: cosmosdb-mongo
 ms.custom: quick start connect, mvc, devcenter
-ms.workload: ''
-ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: quickstart
 origin.date: 06/19/2017
-ms.date: 04/23/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: c6dee4053d5471f3cbc91d1e5c697c4585583a2e
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 21c83520cfdc2ceb1204f5bfb9ec7a7b272a1af3
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31781961"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070298"
 ---
 # <a name="azure-cosmos-db-migrate-an-existing-nodejs-mongodb-web-app"></a>Azure Cosmos DB：迁移现有的 Node.js MongoDB Web 应用 
 
@@ -81,7 +78,7 @@ npm start
 
 ## <a name="log-in-to-azure"></a>登录 Azure
 
-如果使用已安装的 Azure CLI，请使用 [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az_login) 命令登录到 Azure 订阅，按屏幕说明操作。 如果使用 Azure Cloud Shell，可以跳过此步骤。
+如果使用已安装的 Azure CLI，请使用 [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az-login) 命令登录到 Azure 订阅，按屏幕说明操作。 如果使用 Azure Cloud Shell，可以跳过此步骤。
 
 ```azurecli
 az cloud set -n AzureChinaCloud
@@ -92,12 +89,13 @@ az login
 ## <a name="add-the-azure-cosmos-db-module"></a>添加 Azure Cosmos DB 模块
 
 如果使用已安装的 Azure CLI，请运行 `az` 命令，检查是否已安装 `cosmosdb` 组件。 如果 `cosmosdb` 在基本命令列表中，请继续执行下一个命令。
+<!-- Not Available on Azure Cloud Shell-->
 
 如果 `cosmosdb` 不在基本命令列表中，请重装 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
-使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create) 创建[资源组](../azure-resource-manager/resource-group-overview.md)。 Azure 资源组是在其中部署和管理 Azure 资源（例如 Web 应用、数据库和存储帐户）的逻辑容器。 
+使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create) 创建[资源组](../azure-resource-manager/resource-group-overview.md)。 Azure 资源组是在其中部署和管理 Azure 资源（例如 Web 应用、数据库和存储帐户）的逻辑容器。 
 
 以下示例在中国北部区域中创建一个资源组。 选择资源组的唯一名称。
 
@@ -109,7 +107,7 @@ az group create --name myResourceGroup --location "China North"
 
 ## <a name="create-an-azure-cosmos-db-account"></a>创建 Azure Cosmos DB 帐户
 
-使用 [az cosmosdb create](https://docs.azure.cn/zh-cn/cli/cosmosdb?view=azure-cli-latest#az_cosmosdb_create) 命令创建 Azure Cosmos DB 帐户。
+使用 [az cosmosdb create](https://docs.azure.cn/zh-cn/cli/cosmosdb?view=azure-cli-latest#az-cosmosdb-create) 命令创建 Azure Cosmos DB 帐户。
 
 在以下命令中，请将 `<cosmosdb-name>` 占位符替换成自己的唯一 Azure Cosmos DB 帐户名。 此唯一名称将用作 Azure Cosmos DB 终结点 (`https://<cosmosdb-name>.documents.azure.cn/`) 的一部分，因此需要在 Azure 中的所有 Azure Cosmos DB 帐户之间保持唯一。 
 

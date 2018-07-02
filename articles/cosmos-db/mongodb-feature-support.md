@@ -4,22 +4,19 @@ description: 了解 Azure Cosmos DB MongoDB API 为 MongoDB 3.4 提供的功能�
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
-documentationcenter: ''
-ms.assetid: 29b6547c-3201-44b6-9e0b-e6f56e473e24
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-mongo
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
 origin.date: 11/15/2017
-ms.date: 04/23/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: f81750492f3e4971360e727e11347bf78b8b2250
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 2846e1be951b2bb7b0a45fc4037014eb54424e80
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782222"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070197"
 ---
 # <a name="mongodb-api-support-for-mongodb-features-and-syntax"></a>MongoDB API 对 MongoDB 功能和语法的支持
 
@@ -319,7 +316,7 @@ Azure Cosmos 数据库尚不支持用户和角色。 Azure Cosmos DB 支持基�
 
 ## <a name="replication"></a>复制
 
-Azure Cosmos DB 支持在最低层进行自动的本机复制。 此逻辑还可以扩展，实现低延迟的全局复制。 Azure Cosmos DB 不支持手动复制命令。
+Azure Cosmos DB 支持在最低层进行自动的本机复制。 此逻辑还可以扩展，实现低延迟的多区域复制。 Azure Cosmos DB 不支持手动复制命令。
 
 ## <a name="sharding"></a>分片
 

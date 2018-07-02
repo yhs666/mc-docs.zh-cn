@@ -14,12 +14,12 @@ ms.workload: na
 origin.date: 10/10/2017
 ms.date: 12/18/2017
 ms.author: yiso
-ms.openlocfilehash: d48344d49c2c8fdc10a9d924cde2dadc0b311b08
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: 0efa11d842288d5c01106bb044ed67e0b1e23fec
+ms.sourcegitcommit: 039d75a641edc2edd13a9371251051c20fea2bb7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
-ms.locfileid: "26576212"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37103401"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>在 Azure IoT 中心设置 X.509 安全性
 
@@ -173,7 +173,7 @@ IoT 中心基于 X.509 证书的安全性需从 [X.509 证书链](https://en.wik
     
    此代码通过创建 X.509 设备的连接字符串连接到 IoT 中心。 成功连接后，此代码将温度和湿度事件发送到中心，并等待其响应。 
    
-7. 由于此应用程序访问 *.pfx* 文件，因此需要以“管理员”模式执行它。 生成 Visual Studio 解决方案。 以**管理员**身份打开新的命令窗口，导航到包含此解决方案的文件夹。 导航到解决方案文件夹中的 *bin/Debug* 路径。 在“管理员”命令窗口中运行应用程序 **SimulateX509Device.exe**。 应会看到，设备已成功连接到中心并在发送事件。 
+7. 由于此应用程序访问 *.pfx* 文件，因此可能需要以“管理员”模式执行它。 生成 Visual Studio 解决方案。 以**管理员**身份打开新的命令窗口，导航到包含此解决方案的文件夹。 导航到解决方案文件夹中的 *bin/Debug* 路径。 在“管理员”命令窗口中运行应用程序 **SimulateX509Device.exe**。 应会看到，设备已成功连接到中心并在发送事件。 
 
    ![运行设备应用](./media/iot-hub-security-x509-get-started/device-app-success.png)
 

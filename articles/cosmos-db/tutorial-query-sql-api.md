@@ -2,27 +2,23 @@
 title: 如何在 Azure Cosmos DB 中使用 SQL 进行查询？ | Azure
 description: 了解在 Azure Cosmos DB 中使用 SQL 进行查询
 services: cosmos-db
-documentationcenter: ''
 author: rockboyfor
 manager: digimobile
 editor: ''
 tags: ''
-ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: tutorial-develop, mvc
 ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: ''
 origin.date: 05/10/2017
-ms.date: 06/11/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: e7282ac0f47b87153482e104ff755bbc1abd434f
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: 66342ecfec889986fb4e0c86b1c8b73044f38f11
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867355"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070191"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-sql-api"></a>教程：使用 SQL API 查询 Azure Cosmos DB
 

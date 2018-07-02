@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/10/2018
-ms.date: 05/24/2018
+origin.date: 06/08/2018
+ms.date: 06/26/2018
 ms.author: v-junlch
 ms.reviewer: anwestg
-ms.openlocfilehash: b27ef021b469be50393ee7c1400ee113cbef260e
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 7efa7376450bdab258ce40de30c1416426461da5
+ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475046"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37027193"
 ---
 # <a name="configure-deployment-sources"></a>配置部署源
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*

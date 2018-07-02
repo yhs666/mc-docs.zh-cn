@@ -4,21 +4,18 @@ description: 了解 Azure Cosmos DB 最常见的五个用例：用户生成的�
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
-ms.assetid: eca68a58-1a8c-4851-8cf8-6e4d2b889905
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 05/07/2017
-ms.date: 06/11/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: aee7ce4f4aa5e39f4b45df7dfdb35c84111cb7cd
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: 170165b7d504d088a67c6776a5ef90e88a1a56f6
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867410"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070228"
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Azure Cosmos DB 常见用例
 本文概述了 Azure Cosmos DB 的几个常见用例。  本文中的建议可以作为使用 Cosmos DB 开发应用程序的一个起点。   
@@ -72,7 +69,7 @@ Azure Cosmos DB 广泛用于世纪互联旗下运行 Windows 应用商店和 XBo
 
 ![Azure Cosmos DB 零售目录参考体系结构](./media/use-cases/product-catalog.png)
 
-Azure Cosmos DB 通常用于事件寻源，可使用其[更改源](change-feed.md)功能为事件驱动的体系结构提供动力。 更改源使下游微服务能够可靠地以增量方式读取针对 Azure Cosmos DB 所做的插入和更新（例如订单事件）。 利用此功能可以提供一个持久性的事件存储作为状态不断变化的事件的消息中转站，并驱动许多微服务之间的订单处理工作流（可实现为[无服务器 Azure Functions](http://azure.com/serverless)）。
+Azure Cosmos DB 通常用于事件寻源，可使用其[更改源](change-feed.md)功能为事件驱动的体系结构提供动力。 更改源使下游微服务能够可靠地以增量方式读取针对 Azure Cosmos DB 所做的插入和更新（例如订单事件）。 利用此功能可以提供一个持久性的事件存储作为状态不断变化的事件的消息中转站，并驱动许多微服务之间的订单处理工作流。
 <!-- Not Available  [serverless Azure Functions](http://azure.com/serverless)). -->
 
 ![Azure Cosmos DB 订单管道参考体系结构](./media/use-cases/event-sourcing.png)

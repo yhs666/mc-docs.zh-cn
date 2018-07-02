@@ -6,17 +6,17 @@ services: cosmos-db
 author: rockboyfor
 manager: digimobile
 ms.service: cosmos-db
-ms.workload: data-services
-ms.topic: article
+ms.devlang: na
+ms.topic: conceptual
 origin.date: 05/07/2018
-ms.date: 06/11/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 341a79878150eb6def3528609620fa16dff781d5
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: ead49dcc8f060041644fd89814ed80698c55bc98
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34915928"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070268"
 ---
 # <a name="azure-cosmos-db-bulkexecutor-library-overview"></a>Azure Cosmos DB BulkExecutor 库概述
 
@@ -28,7 +28,7 @@ Azure Cosmos DB 是一种快速且灵活的多区域分布式数据库服务，�
 BulkExecutor 库有助于利用此大规模的吞吐量和存储。可以使用 BulkExecutor 库，通过批量导入和批量更新 API 在 Azure Cosmos DB 中执行批量操作。 可在以下部分详细了解 BulkExecutor 库的功能。 
 
 > [!NOTE] 
-> 目前，Bulkxecutor 库支持导入和更新操作，但该库仅受 Azure Cosmos DB SQL API 帐户支持。 有关该库的任何更新，请参阅 [.NET](sql-api-sdk-bulk-executor-dot-net.md) 和 [Java](sql-api-sdk-bulk-executor-java.md) 的发行说明。
+> 目前，BulkExecutor 库支持导入和更新操作，但该库仅受 Azure Cosmos DB SQL API 帐户支持。 有关该库的任何更新，请参阅 [.NET](sql-api-sdk-bulk-executor-dot-net.md) 和 [Java](sql-api-sdk-bulk-executor-java.md) 的发行说明。
 
 ## <a name="key-features-of-the-bulkexecutor-library"></a>BulkExecutor 库的主要功能  
 
@@ -56,5 +56,4 @@ BulkExecutor 库有助于利用此大规模的吞吐量和存储。可以使用 
 * 在 [.NET](sql-api-sdk-bulk-executor-dot-net.md) 和 [Java](sql-api-sdk-bulk-executor-java.md) 中查看 BulkExecutor SDK 信息和发行说明。
 * 批量执行程序库已集成到 Cosmos DB Spark 连接器中。若要进行详细的了解，请参阅 [Azure Cosmos DB Spark 连接器](spark-connector.md)一文。  
 * BulkExecutor 库也已集成到新版 [Azure Cosmos DB 连接器](https://aka.ms/bulkexecutor-adf-v2)中，可供 Azure 数据工厂复制数据。
-<!-- Update_Description: new articles on bulk executor overview ->
-<!--ms.date: 06/11/2018-->
+<!-- Update_Description: wording update -->

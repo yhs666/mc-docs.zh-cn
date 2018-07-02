@@ -1,25 +1,23 @@
 ---
 title: Azure Cosmos DB：批量执行程序 .NET API、SDK 和资源 | Azure
-description: 了解有关批量执行程序 .NET API 和 SDK 的所有信息，包括发布日期、停用日期和 Azure Cosmos DB 批量执行程序 .NET SDK 各版本之间所做的更改。
+description: 了解有关批量执行程序 .NET API 的所有信息。
 services: cosmos-db
-documentationcenter: .net
 author: rockboyfor
 manager: digimobile
 editor: cgronlun
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: reference
 origin.date: 05/07/2018
-ms.date: 06/11/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 5710431ce0a8ea961fba33971f4b16cfd6679a97
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: 6463144841d1aa1a41af8b8d267dc04a47b5c8e6
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34915933"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070121"
 ---
 # <a name="net-bulkexecutor-library-download-information"></a>.NET BulkExecutor 库：下载信息 
 
@@ -53,5 +51,4 @@ ms.locfileid: "34915933"
 [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/)（版本 >= 10.0.2）
 </li></ul></td></tr>
 </table></br>
-<!-- Update_Description: new articles on sql api sdk bulk executor with dot not -->
-<!--ms.date: 06/11/2018-->
+<!-- Update_Description: update meta properties -->

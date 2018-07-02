@@ -1,5 +1,5 @@
 ---
-title: 如何部署 Azure 文件 | Microsoft Docs
+title: 如何部署 Azure 文件 | Azure
 description: 了解如何从头至尾部署 Azure 文件。
 services: storage
 documentationcenter: ''
@@ -12,18 +12,19 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/08/2017
-ms.date: 10/23/2017
+origin.date: 05/22/2018
+ms.date: 07/02/2018
 ms.author: v-johch
-ms.openlocfilehash: a02de57793e4ec177cb16e35150e28865139c28d
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: d977036d2e857b958efdc6869a3709e495abd4f5
+ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29871500"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37103099"
 ---
 # <a name="how-to-deploy-azure-files"></a>如何部署 Azure 文件
-[Azure 文件](storage-files-introduction.md)在云中提供完全托管的文件共享，这些共享项可通过行业标准 SMB 协议进行访问。 本文介绍如何在组织内实际部署 Azure 文件。
+
+  [Azure 文件](storage-files-introduction.md)在云中提供完全托管的文件共享，这些共享项可通过行业标准 SMB 协议进行访问。 本文介绍如何在组织内实际部署 Azure 文件。
 
 强烈建议在按照本文中的步骤操作之前，阅读[规划 Azure 文件部署](storage-files-planning.md)。
 

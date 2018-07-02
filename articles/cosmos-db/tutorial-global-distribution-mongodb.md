@@ -3,27 +3,24 @@ title: MongoDB API 的 Azure Cosmos DB 多区域分发教程 | Azure
 description: 了解如何使用 MongoDB API 设置 Azure Cosmos DB 多区域分发。
 services: cosmos-db
 keywords: 多区域分发, MongoDB
-documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-ms.assetid: 8b815047-2868-4b10-af1d-40a1af419a70
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-mongo
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 05/10/2017
-ms.date: 04/23/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 007024f713aa21da29d52672012989fe77578000
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 882870552aa1a739c61499a44faf2387f69aae89
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31781985"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070339"
 ---
-# <a name="how-to-setup-azure-cosmos-db-multiple-region-distribution-using-the-mongodb-api"></a>如何使用 MongoDB API 设置 Azure Cosmos DB 多区域分发
+# <a name="set-up-azure-cosmos-db-multiple-region-distribution-using-the-mongodb-api"></a>使用 MongoDB API 设置 Azure Cosmos DB 多区域分发
 
 本文介绍如何使用 Azure 门户设置 Azure Cosmos DB 多区域分发，然后使用 MongoDB API 进行连接。
 
@@ -56,7 +53,7 @@ ms.locfileid: "31781985"
          "minWireVersion": 0,
          "maxWireVersion": 2,
          "tags": {
-            "region": "South India"
+            "region": "China North "
          },
          "hosts": [
             "vishi-api-for-mongodb-chinaeast.documents.azure.cn:10255",
@@ -64,7 +61,7 @@ ms.locfileid: "31781985"
          ],
          "setName": "globaldb",
          "setVersion": 1,
-         "primary": "vishi-api-for-mongodb-chinaeast.documents.azure.cn:10255",
+         "primary": "vishi-api-for-mongodb-chinanorth.documents.azure.cn:10255",
          "me": "vishi-api-for-mongodb-chinanorth.documents.azure.cn:10255"
       }
    ```
@@ -93,7 +90,7 @@ var tag = new Tag("region", "China East");
 collection = collection.WithReadPreference(new ReadPreference(ReadPreferenceMode.Secondary, new[] { new TagSet(new[] { tag }) }));
 ```
 
-本教程到此结束。 阅读 [Azure Cosmos DB 中的一致性级别](consistency-levels.md)，了解如何管理全局复制帐户的一致性。 若要深入了解 Azure Cosmos DB 中全局数据库复制的工作原理，请参阅[使用 Azure Cosmos DB 全局分发数据](distribute-data-globally.md)。
+本教程到此结束。 阅读 [Azure Cosmos DB 中的一致性级别](consistency-levels.md)，了解如何管理全局复制帐户的一致性。 有关 Azure Cosmos DB 中多区域数据库复制工作原理的详细信息，请参阅[使用 Cosmos DB 多区域分配数据](distribute-data-globally.md)。
 
 ## <a name="next-steps"></a>后续步骤
 

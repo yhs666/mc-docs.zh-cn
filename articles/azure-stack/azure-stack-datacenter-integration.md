@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/01/2018
-ms.date: 05/24/2018
+ms.date: 06/26/2018
 ms.author: v-junlch
 ms.reviewer: wfayed
-ms.openlocfilehash: 77b0f95304a57bd57b5eba53adac30f0081acd19
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: ea17616da87fac942625f967974df004f0b7ba4f
+ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475103"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37027230"
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>有关 Azure Stack 集成系统的数据中心集成注意事项
 如果你对 Azure Stack 集成系统感兴趣，应了解一些有关部署的重要规划注意事项，及系统如何融入数据中心。 本文提供这些注意事项的综合概述，帮助你在 Azure Stack 多节点系统方面做出重要的基础结构决策。 配合 OEM 硬件供应商将 Azure Stack 部署到数据中心时，了解这些注意事项会有所帮助。  
@@ -36,7 +36,8 @@ ms.locfileid: "34475103"
 ## <a name="capacity-planning-considerations"></a>容量规划注意事项
 评估 Azure Stack 解决方案的采购时，必须在硬件配置方面做出选择，因为它直接影响到 Azure Stack 解决方案的总体容量。 考虑因素包括 CPU、内存密度、存储配置和总体解决方案规模（例如服务器的数目）的一般选择。 不同于传统的虚拟化解决方案，简单地评估这些组件并不能很好地确定可用的容量。 第一个原因是 Azure Stack 构建为在解决方案自身内部托管基础结构或管理组件。 第二个原因是解决方案的某些容量保留用于支持复原；更新解决方案的软件时，必须将租户工作负荷的中断降到最低程度。 
 
-[Azure Stack 容量规划程序电子表格](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822)通过两种方法帮助你在规划容量时做出明智的决策：选择硬件产品/服务并尝试符合资源组合，或定义 Azure Stack 要运行的工作负荷，以查看可支持此操作的可用硬件 SKU。 最后，可以参考该电子表格做出 Azure Stack 规划和配置方面的决策。 
+
+  [Azure Stack 容量规划程序电子表格](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822)通过两种方法帮助你在规划容量时做出明智的决策：选择硬件产品/服务并尝试符合资源组合，或定义 Azure Stack 要运行的工作负荷，以查看可支持此操作的可用硬件 SKU。 最后，可以参考该电子表格做出 Azure Stack 规划和配置方面的决策。 
 
 该电子表格不能取代你自己的调查和分析。  Microsoft 对于该电子表格中提供的信息不做任何明示或暗示的声明或保证。
 
@@ -53,6 +54,7 @@ Azure Stack 是一个密封的系统，从权限和网络角度来看，其基�
 
 ### <a name="choose-identity-provider"></a>选择标识提供者
 需要考虑用于 Azure Stack 部署的标识提供者：Azure AD 或 AD FS。 部署之后无法切换标识提供者，除非重新部署整个系统。 如果你未拥有 Azure AD 帐户且使用的是云服务提供商提供给你的帐户，并且你决定切换提供商并使用其他 Azure AD 帐户，则此时你必须联系解决方案提供商让其根据你的成本为你重新部署解决方案。
+
 
 
 标识提供者选项与租户虚拟机、标识系统及其使用的帐户、它们能否加入 Active Directory 域等因素无关。两者是彼此独立的。
@@ -77,7 +79,7 @@ Azure Stack 是一个密封的系统，从权限和网络角度来看，其基�
 
 ## <a name="naming-decisions"></a>命名决策
 
-需要考虑如何规划 Azure Stack 命名空间，尤其是区域名称和外部域名。 公开终结点的 Azure Stack 部署的外部完全限定域名 (FQDN) 由以下两个名称组成：&lt;*区域*&gt;.&lt;*fqdn*&gt;。 例如 *east.cloud.fabrikam.com*。在此示例中，Azure Stack 门户将在以下 URL 中提供：
+需要考虑如何规划 Azure Stack 命名空间，尤其是区域名称和外部域名。 公开终结点的 Azure Stack 部署的外部完全限定域名 (FQDN) 由以下两个名称组成：&lt;*区域*&gt;.&lt;*fqdn*&gt;。 例如 *east.cloud.fabrikam.com*。 在此示例中，Azure Stack 门户将在以下 URL 中提供：
 
 - https://portal.east.cloud.fabrikam.com
 - https://adminportal.east.cloud.fabrikam.com
@@ -135,9 +137,9 @@ Azure Stack 是一个密封的系统，从权限和网络角度来看，其基�
 
 | 方案 | 连接方法 | 优点 | 缺点 | 适用范围 |
 | -- | -- | --| -- | --|
-| 单租户 Azure Stack、Intranet 部署 | 出站 NAT | 提供更快的带宽用于提高传输速度。 易于实施；不需要网关。 | 不加密流量；TOR 外部无隔离或加密。 | 同等信任所有租户的企业部署。<br><br>与 Azure 之间建立了 Azure ExpressRoute 线路的企业。 |
+| 单租户 Azure Stack、Intranet 部署 | 出站 NAT | 提供更快的带宽用于提高传输速度。 易于实施；不需要网关。 | 不加密流量；堆栈外部无隔离或加密。 | 同等信任所有租户的企业部署。<br><br>与 Azure 之间建立了 Azure ExpressRoute 线路的企业。 |
 | 多租户 Azure Stack、Intranet 部署 | 站点到站点 VPN | 从租户 VNet 到目标的流量是安全的。 | 带宽受限于站点到站点 VPN 隧道。<br><br>需要在虚拟网络中部署网关，在目标网络中部署 VPN 设备。 | 必须避免其他租户访问其部分租户流量的企业部署。 |
-| 单租户 Azure Stack、Internet 部署 | 出站 NAT | 提供更快的带宽用于提高传输速度。 | 不加密流量；TOR 外部无隔离或加密。 | 托管方案，其中的租户获取自身的 Azure Stack 部署，并与 Azure Stack 环境之间建立专用线路。 例如，ExpressRoute 和多重协议标签交换 (MPLS)。
+| 单租户 Azure Stack、Internet 部署 | 出站 NAT | 提供更快的带宽用于提高传输速度。 | 不加密流量；堆栈外部无隔离或加密。 | 托管方案，其中的租户获取自身的 Azure Stack 部署，并与 Azure Stack 环境之间建立专用线路。 例如，ExpressRoute 和多重协议标签交换 (MPLS)。
 | 多租户 Azure Stack、Internet 部署 | 站点到站点 VPN | 从租户 VNet 到目标的流量是安全的。 | 带宽受限于站点到站点 VPN 隧道。<br><br>需要在虚拟网络中部署网关，在目标网络中部署 VPN 设备。 | 托管方案，其中的提供商需要提供多租户云，使租户彼此不信任且必须加密流量。
 |  |  |  |  |  |
 
@@ -183,7 +185,7 @@ Azure Stack 解决方案随附的硬件生命周期主机是 Azure Stack 外部�
 - 在现有的基于 Windows 的文件服务器或第三方设备上需有外部 SMB 文件共享。
 - 应将此同一共享用于网络交换机与硬件生命周期主机的备份。 OEM 硬件供应商会帮助提供这些组件的备份和还原指导，因为这些操作在 Azure Stack 外部进行。 你要负责根据 OEM 供应商的建议来运行备份工作流。
 
-如果发生重大数据丢失，可以使用基础结构备份来重新植入部署数据，例如部署输入和标识符、服务帐户、CA 根证书、联合资源（在断开连接部署中）、计划、产品、订阅、配额、RBAC 策略与角色分配，以及 Key Vault 机密。
+如果发生重大数据丢失，可以使用基础结构备份来重新植入部署数据，例如部署输入和标识符、服务帐户、CA 根证书、联合资源（在断开连接部署中）、计划、套餐、订阅、配额、RBAC 策略与角色分配，以及 Key Vault 机密。
  
 ### <a name="protect-tenant-applications-on-iaas-virtual-machines"></a>保护 IaaS 虚拟机上的租户应用程序
 

@@ -12,16 +12,16 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/16/2018
-ms.date: 05/14/2018
+origin.date: 06/15/2018
+ms.date: 06/29/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4310fe165b4099326ed4e6f92acdd7f0800a7cd9
-ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
+ms.openlocfilehash: f575eb829340054e01306b6f4cb559ed714a8baa
+ms.sourcegitcommit: c587cc1c53b1f92b45fae0d1ff8e1f7bd544bc55
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "34173306"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37103248"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Batch 服务配额和限制
 
@@ -52,14 +52,12 @@ ms.locfileid: "34173306"
 | 每个计算节点的[并发任务](batch-parallel-node-tasks.md)数 |4 x 节点核心数 |
 | 每个 Batch 帐户的[应用程序](batch-application-packages.md)数 |20 个 |
 | 每个应用程序的应用程序包数 |40 |
-| 应用程序包大小（每个） |约 195GB<sup>1</sup> |
-| 启动任务最大大小 | 32,768 个字符<sup>2</sup> |
-| 最长任务生存期 | 7 天<sup>3</sup> |
+| 启动任务最大大小 | 32768 个字符<sup>1</sup> |
+| 最长任务生存期 | 7 天<sup>2</sup> |
 | 计算启用了节点间通信的池中的节点 | 100 |
 
-<sup>1</sup> 最大的块 Blob 大小的 Azure 存储限制<br />
-<sup>2</sup> 包括资源文件和环境变量<br />
-<sup>3</sup> 最长任务生存期（从添加到作业时算起到任务完成时结束）为 7 天。 已完成的任务会无限期保存；最长生存期内未完成的任务的数据不可访问。
+<sup>1</sup> 包括资源文件和环境变量<br />
+<sup>2</sup> 最长任务生存期（从添加到作业时算起到任务完成时结束）为 7 天。 已完成的任务会无限期保存；最长生存期内未完成的任务的数据不可访问。
 
 
 ## <a name="view-batch-quotas"></a>查看 Batch 配额

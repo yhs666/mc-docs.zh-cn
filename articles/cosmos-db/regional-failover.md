@@ -2,28 +2,24 @@
 title: Azure Cosmos DB 中的区域故障转移 | Azure
 description: 了解如何使用 Azure Cosmos DB 完成手动和自动故障转移。
 services: cosmos-db
-documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-ms.assetid: 446e2580-ff49-4485-8e53-ae34e08d997f
 ms.service: cosmos-db
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.devlang: na
+ms.topic: conceptual
 origin.date: 03/27/2018
-ms.date: 04/23/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a66dc01b8e3feb3833433a924b61073513bf4d1b
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 59794d3a751bcb3ceb6619045dfd76646da213b9
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31781956"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070157"
 ---
 # <a name="automatic-regional-failover-for-business-continuity-in-azure-cosmos-db"></a>Azure Cosmos DB 中用于保证业务连续性的自动区域性故障转移
-Azure Cosmos DB 可通过提供完全托管的[多区域数据库帐户](distribute-data-globally.md)来简化多区域数据分布。这些帐户在一致性、可用性和性能之间提供明确的折衷，并且全部附带了相应的保证。 Cosmos DB 帐户提供以下优势：高可用性，10 毫秒以下的延迟，[妥善定义的一致性级别](consistency-levels.md)，使用多宿主 API 实现透明的区域性故障转移，以及在多区域范围内弹性缩放吞吐量和存储。 
+Azure Cosmos DB 可通过提供完全托管的[多区域数据库帐户](distribute-data-globally.md)来简化多区域数据分布。这些帐户在一致性、可用性和性能之间提供明确的折衷，并且全部附带了相应的保证。 Cosmos DB 帐户提供以下优势：高可用性、个位数的毫秒延迟、[妥善定义的一致性级别](consistency-levels.md)、使用多宿主 API 实现透明的区域性故障转移，以及在中国范围内弹性缩放吞吐量和存储。 
 <!-- Notice: 全球 to 多个区域 -->
 
 Cosmos DB 支持显式和策略驱动型故障转移，方便用户在发生故障时控制端到端系统行为。 本文介绍：
@@ -36,7 +32,8 @@ Cosmos DB 支持显式和策略驱动型故障转移，方便用户在发生故�
 <!-- Not Available on >[!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Planet-Scale-NoSQL-with-DocumentDB/player]  -->
 
 <a name="ConfigureMultiRegionApplications"></a>
-## 配置多区域应用程序：在深入探讨故障转移模式之前，我们先介绍如何配置应用程序，以便在需要进行区域性故障转移时充分利用多区域可用性，确保足够的还原能力。
+## <a name="configuring-multi-region-applications"></a>配置多区域应用程序
+在深入探讨故障转移模式之前，我们先介绍如何配置应用程序，以便在需要进行区域性故障转移时充分利用多区域可用性，确保足够的还原能力。
 
 * 首先，在多个区域中部署应用程序
 * 为了确保从每个部署了应用程序的区域进行访问时的低延迟性，请通过一个受支持的 SDK 为每个区域配置相应的[首选区域列表](https://msdn.microsoft.com/library/microsoft.azure.documents.client.connectionpolicy.preferredlocations.aspx#P:Microsoft.Azure.Documents.Client.ConnectionPolicy.PreferredLocations)。
@@ -75,7 +72,8 @@ DocumentClient usClient = new DocumentClient(
 <!-- Notice: 全球 to 多个区域 -->
 
 <a name="AutomaticFailovers"></a>
-## 自动故障转移：在极少的情况下出现 Azure 区域性中断或数据中心中断时，Cosmos DB 会自动触发故障转移，转移受影响区域中存在的所有 Cosmos DB 帐户。 
+## <a name="automatic-failovers"></a>自动故障转移
+在极少的情况下出现 Azure 区域性中断或数据中心中断时，Cosmos DB 会自动触发故障转移，转移受影响区域中存在的所有 Cosmos DB 帐户。 
 
 **某个读取区域中断时会发生什么情况？**
 
@@ -125,7 +123,7 @@ do
 <a name="ManualFailovers"></a>
 ## <a name="manual-failovers"></a>手动故障转移
 
-除了自动故障转移，还可以通过动态方式将给定 Cosmos DB 帐户当前的写入区域手动更改为现有的读取区域之一。 可以通过 Azure 门户或以 [编程方式](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_CreateOrUpdate)启动手动故障转移。 
+除了自动故障转移，还可以通过动态方式将给定 Cosmos DB 帐户当前的写入区域手动更改为现有的读取区域之一。 可以通过 Azure 门户或以 [编程方式](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/databaseaccounts#DatabaseAccounts_CreateOrUpdate)启动手动故障转移。 
 
 手动故障转移可确保零收据丢失和零可用性丢失，并可针对指定的 Cosmos DB 帐户，将写入状态从旧写入区域恰当地转移到新写入区域。 与自动故障转移一样，在手动故障转移过程中，Cosmos DB SDK 可以自动处理写入区域更改，确保将调用自动重定向到新的写入区域。 管理故障转移不需在应用程序中更改代码或配置。 
 

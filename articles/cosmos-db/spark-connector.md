@@ -9,24 +9,24 @@ manager: digimobile
 ms.assetid: c4f46007-2606-4273-ab16-29d0e15c0736
 ms.service: cosmos-db
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 01/08/2018
-ms.date: 04/23/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: f5975add36a2fd9d5872196b95c7a1100ba17cf4
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: a2b0dce10478dfc36df76f82b835ccccccd9fbdd
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782179"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070240"
 ---
 <!-- Notice in meta : 全球 to 多个区域 -->
 # <a name="accelerate-real-time-big-data-analytics-with-the-spark-to-azure-cosmos-db-connector"></a>使用 Spark 到 Azure Cosmos DB 的连接器加速实时大数据分析
 
 Spark 到 Azure Cosmos DB 的连接器能使 Azure Cosmos DB 充当 Apache Spark 作业的输入源或输出接收器。 将 [Spark](http://spark.apache.org/) 连接到 [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) 后，可以使用 Azure Cosmos DB 快速保存和查询数据，更快地解决瞬息万变的数据科学问题。 Spark 到 Azure Cosmos DB 的连接器有效利用本机 Azure Cosmos DB 托管的索引。 针对快速变化的多区域分布的数据执行分析和向下推送谓词筛选时，这些索引可用于实现可更新的列（范围从物联网 (IoT) 到数据科学以及分析方案）。
 <!-- Notice: 全球 to 多个区域 -->
+<!-- Not Available on [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T135/player] -->
 <!-- Not Available  [Perform graph analytics using Spark and Apache TinkerPop Gremlin](spark-connector-graph.md) -->
 ## <a name="download"></a>下载
 
@@ -37,8 +37,7 @@ Spark 到 Azure Cosmos DB 的连接器能使 Azure Cosmos DB 充当 Apache Spark
 连接器利用以下组件：
 
 * 使用 [Azure Cosmos DB](http://documentdb.com)，客户可跨任意数量的地理区域弹性缩放吞吐量与存储。 该服务提供：
-   * 统包式[多区域分布](distribute-data-globally.md)和水平缩放
-<!-- Notice: 全球 to 多个区域 -->
+   * 统包式[多区域分布](distribute-data-globally.md)和水平缩放 <!-- Notice: 全球 to 多个区域 -->
    * 准确率达 99% 的有保证单一数位延迟
    * [多个妥善定义的一致性模型](consistency-levels.md)
    * 具有多宿主功能的有保证高可用性
@@ -353,4 +352,4 @@ order by percentile_approx(delay, 0.5)
 
 此外，还可以查看文章 [Apache Spark SQL、数据框架和数据集指南](http://spark.apache.org/docs/latest/sql-programming-guide.html)以及 [Azure HDInsight 上的 Apache Spark](../hdinsight/spark/apache-spark-jupyter-spark-sql.md)。
 
-<!--Update_Description: update meta properties, wording update, update link -->
+<!--Update_Description: update meta properties, wording update  -->

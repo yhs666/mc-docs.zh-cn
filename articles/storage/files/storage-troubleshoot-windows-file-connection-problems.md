@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 05/11/2018
 ms.date: 06/11/2018
 ms.author: v-johch
-ms.openlocfilehash: 27359ce0748672f69684951b3dd4b94de40388cf
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: 345be249dca710e060154598d8a778e92e737944
+ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867548"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37103104"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>在 Windows 中排查 Azure 文件问题
 
@@ -38,7 +38,7 @@ ms.locfileid: "34867548"
 
 ### <a name="cause-1-unencrypted-communication-channel"></a>原因 1：通信通道未加密
 
-出于安全原因，如果信道未加密，且未从 Azure 文件共享所驻留的数据中心尝试连接，则到 Azure 文件共享的连接将受阻。 仅当用户的客户端 OS 支持 SMB 加密时，才会提供信道加密。
+出于安全原因，如果信道未加密，且未从 Azure 文件共享所在的数据中心尝试连接，则到 Azure 文件共享的连接将受阻。 仅当用户的客户端 OS 支持 SMB 加密时，才会提供信道加密。
 
 Windows 8、Windows Server 2012 及更高版本的每次系统协商均要求其包含支持加密的 SMB 3.0。
 
@@ -99,8 +99,8 @@ Windows 8、Windows Server 2012 及更高版本的每次系统协商均要求其
 
 尝试将文件传输到 Azure 文件服务时，可能会出现性能下降的情况。
 
-- 如果没有特定的 I/O 大小下限要求，建议使用 1 MB 的 I/O 大小获得最佳性能。
--   如果知道使用写入进行扩展的文件的最终大小，并且当尚未在文件上写入的尾部包含零时软件没有兼容性问题，请提前设置文件大小，而不是使每次写入都成为扩展写入。
+- 如果没有特定的 I/O 大小下限要求，建议使用 1 MiB 的 I/O 大小以获得最佳性能。
+-   如果知道要通过写入进行扩展的文件的最终大小，并且软件在文件上未写入的尾部包含零时尚未出现兼容性问题，请提前设置文件大小，而不是使每次写入都成为扩展写入。
 -   使用正确的复制方法：
     -   为两个文件共享之间的任何传输使用 [AzCopy](../common/storage-use-azcopy.md?toc=%2fstorage%2ffiles%2ftoc.json)。
     -   在本地计算机上的文件共享之间使用 [Robocopy](https://blogs.msdn.microsoft.com/granth/2009/12/07/multi-threaded-robocopy-for-faster-copies/)。
@@ -118,7 +118,7 @@ Windows 8、Windows Server 2012 及更高版本的每次系统协商均要求其
 `HKEY_Local_MACHINE\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters\Policies {96c345ef-3cac-477b-8fcd-bea1a564241c} REG_DWORD 0x1`
 
 > [!Note]
-> 自 2015 年 12 月起，Azure Marketplace 中的 Windows Server 2012 R2 映像将默认安装修补程序 KB3114025。
+> 自 2015 年 12 月起，Azure 市场中的 Windows Server 2012 R2 映像将默认安装修补程序 KB3114025。
 
 <a id="shareismissing"></a>
 ## <a name="no-folder-with-a-drive-letter-in-my-computer"></a>“我的电脑”中没有带驱动器号的文件夹

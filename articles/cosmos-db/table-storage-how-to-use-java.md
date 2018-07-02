@@ -1,37 +1,34 @@
 ---
 title: 如何通过 Java 使用 Azure 表存储 | Azure
-description: 使用 Azure 表存储（一种 NoSQL 数据存储）将结构化数据存储在云中。
+description: 使用 Azure 表存储将结构化数据存储在云中。
 services: cosmos-db
-documentationcenter: java
 author: rockboyfor
 manager: digimobile
-ms.assetid: 45145189-e67f-4ca6-b15d-43af7bfd3f97
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-table
 ms.devlang: Java
-ms.topic: article
+ms.topic: sample
 origin.date: 04/05/2018
-ms.date: 04/23/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 757d4e3046327cb7f6cfefcef006a4a7073d59e9
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: bd9a85d9d76251aa61a05f961a369623270ff121
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782119"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070177"
 ---
 # <a name="how-to-use-azure-table-storage-from-java"></a>如何通过 Java 使用 Azure 表存储
 <!-- Not Available on Azure Cosmos DB Table API -->
 
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
+[!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
 ## <a name="overview"></a>概述
-本文演示如何使用 Azure 表存储服务执行常见任务。 这些示例用 Java 编写并使用[用于 Java 的 Microsoft Azure 存储 SDK][Microsoft Azure Storage SDK for Java]。 涉及的方案包括创建、列出和删除表，以及在表中插入、查询、修改和删除实体。 有关表的详细信息，请参阅 [后续步骤](#next-steps) 部分。
+本文演示如何使用 Azure 表存储服务执行常见任务。 这些示例用 Java 编写并使用 [Azure Storage SDK for Java][Azure Storage SDK for Java]。 涉及的方案包括创建、列出和删除表，以及在表中插入、查询、修改和删除实体。 有关表的详细信息，请参阅 [后续步骤](#next-steps) 部分。
 
 > [!NOTE]
-> SDK 提供给在 Android 设备上使用 Azure 存储的开发人员。 有关详细信息，请参阅[用于 Android 的 Microsoft Azure 存储 SDK][Microsoft Azure Storage SDK for Android]。
+> SDK 提供给在 Android 设备上使用 Azure 存储的开发人员。 有关详细信息，请参阅 [Azure Storage SDK for Android][Azure Storage SDK for Android]。
 >
 
 ## <a name="create-an-azure-service-account"></a>创建 Azure 服务帐户
@@ -45,7 +42,7 @@ ms.locfileid: "31782119"
 ## <a name="create-a-java-application"></a>创建 Java 应用程序
 在本指南中，将使用存储功能，这些功能可在本地 Java 应用程序中运行，或通过 Azure 的 Web 角色或辅助角色中运行的代码运行。
 
-若要使用本文中的示例，请安装 Java 开发工具包 (JDK)，并在 Azure 订阅中创建一个 Azure 存储帐户。 完成此操作后，请验证开发系统是否满足最低要求和 GitHub 上的 [适用于 Java 的世纪互联 Azure 存储 SDK][适用于 Java 的世纪互联 Azure 存储 SDK] 存储库中列出的依赖项。 如果系统满足这些要求，可以按照说明从该存储库将用于 Java 的 Azure 存储库下载并安装到你的系统中。 完成这些任务后，便可以创建一个 Java 应用程序，以使用本文中的示例。
+若要使用本文中的示例，请安装 Java 开发工具包 (JDK)，并在 Azure 订阅中创建一个 Azure 存储帐户。 完成此操作后，请验证开发系统是否满足 GitHub 上[用于 Java 的 Azure 存储 SDK][Azure Storage SDK for Java] 存储库中列出的最低要求和依赖项。 如果系统满足这些要求，可以按照说明从该存储库将用于 Java 的 Azure 存储库下载并安装到你的系统中。  完成这些任务后，便可以创建一个 Java 应用程序，以使用本文中的示例。
 
 ## <a name="configure-your-application-to-access-table-storage"></a>配置应用程序以访问表存储
 将下列 import 语句添加到需要在其中使用 Azure 存储 API 访问表的 Java 文件的顶部：
@@ -147,7 +144,7 @@ catch (Exception e)
 ```
 
 ## <a name="add-an-entity-to-a-table"></a>将实体添加到表
-实体将映射到使用实现了 **TableEntity** 的自定义类的 Java 对象。 为方便起见，TableServiceEntity 类实现 TableEntity，并使用反射将属性映射到以属性本身命名的 getter 和 setter 方法。 要将实体添加到表，首先要创建用于定义实体的属性的类。 以下代码定义了将客户的名字和姓氏分别用作行键和分区键的实体类。 实体的分区键和行键共同唯一地标识表中的实体。 查询分区键相同的实体的速度可以快于查询分区键不同的实体的速度。
+实体将映射到使用实现了 **TableEntity** 的自定义类的 Java 对象。 为方便起见，TableServiceEntity 类实现 TableEntity，并使用反射将属性映射到以属性本身命名的 getter 和 setter 方法。 要将实体添加到表，首先要创建用于定义实体的属性的类。 以下代码定义将客户的名字和姓氏分别用作行键和分区键的实体类。 实体的分区键和行键共同唯一地标识表中的实体。 查询分区键相同的实体的速度可以快于查询分区键不同的实体的速度。
 
 ```java
 public class CustomerEntity extends TableServiceEntity {
@@ -529,7 +526,7 @@ catch (Exception e)
 ```
 
 ## <a name="delete-an-entity"></a>删除条目
-可以在检索到实体后轻松将其删除。 检索到实体后，对要删除的实体调用 **TableOperation.delete** 。 然后对 CloudTable 对象调用 execute。 以下代码检索并删除一个客户实体。
+可以在检索到实体后轻松将其删除。 检索到实体后，对要删除的实体调用 **TableOperation.delete**。 然后对 CloudTable 对象调用 execute。 以下代码检索并删除一个客户实体。
 
 ```java
 try
@@ -593,7 +590,7 @@ catch (Exception e)
 
 * [Getting Started with Azure Table Service in Java](https://github.com/Azure-Samples/storage-table-java-getting-started)
 * [Azure 存储资源管理器](../vs-azure-tools-storage-manage-with-storage-explorer.md)是 Microsoft 免费提供的独立应用，适用于在 Windows、macOS 和 Linux 上以可视方式处理 Azure 存储数据。
-* [用于 Java 的 Microsoft Azure 存储 SDK][Microsoft Azure Storage SDK for Java]
+* [Azure Storage SDK for Java][Azure Storage SDK for Java]
 * [Azure 存储客户端 SDK 参考][Azure 存储客户端 SDK 参考]
 * [Azure Storage REST API（Azure 存储 REST API）][Azure Storage REST API]
 * [Azure 存储团队博客][Azure Storage Team Blog]
@@ -601,8 +598,8 @@ catch (Exception e)
 有关详细信息，请访问[面向 Java 开发人员的 Azure](https://docs.azure.cn/java/)。
 
 [Azure SDK for Java]: /develop/java/
-[Microsoft Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java
-[Microsoft Azure Storage SDK for Android]: https://github.com/azure/azure-storage-android
+[Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java
+[Azure Storage SDK for Android]: https://github.com/azure/azure-storage-android
 [Azure 存储客户端 SDK 参考]: http://azure.github.io/azure-storage-java/
 [Azure Storage REST API]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/

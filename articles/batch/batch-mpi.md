@@ -11,16 +11,16 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
-origin.date: 05/22/2017
-ms.date: 05/14/2018
+origin.date: 06/12/2018
+ms.date: 06/29/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ae3dde033b778790e481b1170e7c0e2eb05488f8
-ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
+ms.openlocfilehash: 35f09c8a615e91564f23e47abe02e7bab8952e28
+ms.sourcegitcommit: c587cc1c53b1f92b45fae0d1ff8e1f7bd544bc55
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "34173373"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37103255"
 ---
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>在 Batch 中使用多实例任务来运行消息传递接口 (MPI) 应用程序
 
@@ -63,8 +63,8 @@ CloudPool myCloudPool =
     myBatchClient.PoolOperations.CreatePool(
         poolId: "MultiInstanceSamplePool",
         targetDedicatedComputeNodes: 3
-        virtualMachineSize: "small",
-        cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "4"));
+        virtualMachineSize: "standard_d1_v2",
+        cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "5"));
 
 // Multi-instance tasks require inter-node communication, and those nodes
 // must run only one task at a time.
@@ -74,10 +74,7 @@ myCloudPool.MaxTasksPerComputeNode = 1;
 
 > [!NOTE]
 > 如果尝试在已禁用节点间通信，或 *maxTasksPerNode* 值大于 1 的池中运行多实例任务，则永远不排定任务 -- 它无限期停留在“活动”状态。 
->
-> 多实例任务只能在 2015 年 12 月 14 日之后创建的池中的节点上执行。
->
->
+
 
 ### <a name="use-a-starttask-to-install-mpi"></a>使用 StartTask 安装 MPI
 若要通过多实例任务运行 MPI 应用程序，首先需在池中的计算节点上安装 MPI 实现（例如 MS-MPI 或 Intel MPI）。 这是使用 [StartTask][net_starttask] 的好时机，每当节点加入池或重新启动时，它就会执行。 此代码片段创建一个 StartTask，将 MS-MPI 安装程序包指定为[资源文件][net_resourcefile]。 资源文件下载到节点之后，会执行启动任务的命令行。 在本示例中，命令行执行 MS-MPI 的无人参与安装。
@@ -107,8 +104,8 @@ await myCloudPool.CommitAsync();
   - [云服务的大小](../cloud-services/cloud-services-sizes-specs.md)（仅 Windows）
 - **VirtualMachineConfiguration** 池
 
-  - [Azure 中虚拟机的大小](../virtual-machines/linux/sizes.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) (Linux)
-  - [Azure 中虚拟机的大小](../virtual-machines/windows/sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) (Windows)
+  - [Azure 中虚拟机的大小](../virtual-machines/linux/sizes.md) (Linux)
+  - [Azure 中虚拟机的大小](../virtual-machines/windows/sizes.md) (Windows)
 
 > [!NOTE]
 > 若要充分利用 [Linux 计算节点](batch-linux-nodes.md)上的 RDMA，必须使用节点上的 **Intel MPI**。 
@@ -283,7 +280,7 @@ GitHub 上的 [MultiInstanceTasks][github_mpi] 代码示例演示了如何通过
 
 ### <a name="execution"></a>执行
 1. 从 GitHub 下载 [azure-batch-samples][github_samples_zip]。
-2. 在 Visual Studio 2015 或更新版本中，打开 MultiInstanceTasks **解决方案**。 `MultiInstanceTasks.sln` 解决方案文件位于：
+2. 在 Visual Studio 2017 中打开 MultiInstanceTasks **解决方案**。 `MultiInstanceTasks.sln` 解决方案文件位于：
 
     `azure-batch-samples\CSharp\ArticleProjects\MultiInstanceTasks\`
 3. 将 Batch 和存储帐户凭据输入到 **Microsoft.Azure.Batch.Samples.Common** 项目中的 `AccountSettings.settings`。

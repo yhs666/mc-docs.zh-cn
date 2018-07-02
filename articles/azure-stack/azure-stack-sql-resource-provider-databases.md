@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/01/2018
-ms.date: 05/24/2018
+origin.date: 06/11/2018
+ms.date: 06/26/2018
 ms.author: v-junlch
 ms.reviewer: jeffgo
-ms.openlocfilehash: 765afa0daf099f63312a7ca679c4c1315199d1ac
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: c439b98c2af36b1bc7855d4bb1f1300a9f32e04b
+ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34474980"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37027221"
 ---
 # <a name="create-sql-databases"></a>创建 SQL 数据库
-通过用户门户体验提供自助服务数据库。 用户需要包含产品/服务的订阅，该产品/服务应包含数据库服务。
+通过用户门户提供自助服务数据库。 Azure Stack 用户需要一个包含套餐的订阅，该套餐应包含 SQL 数据库服务。
 
 1. 登录到 [Azure Stack](azure-stack-poc.md) 用户门户（服务管理员还可以使用管理门户）。
 

@@ -2,26 +2,22 @@
 title: 使用 Azure Cosmos DB 模拟器进行本地开发 | Azure
 description: 利用 Azure Cosmos DB 模拟器，可以在本地免费开发和测试应用程序，无需创建 Azure 订阅。
 services: cosmos-db
-documentationcenter: ''
 keywords: Azure Cosmos DB 模拟器
 author: rockboyfor
 manager: digimobile
 editor: ''
-ms.assetid: 90b379a6-426b-4915-9635-822f1a138656
 ms.service: cosmos-db
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.devlang: na
+ms.topic: tutorial
 origin.date: 04/20/2018
-ms.date: 06/11/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7fe8f0a39a93fa9736083c8764db4f5b20f92a9c
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: 3b143f31d4a2f3b2de7b8b52f2b8514c529ccb82
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867504"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070348"
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>将 Azure Cosmos DB 模拟器用于本地开发和测试
 
@@ -70,12 +66,14 @@ Azure Cosmos DB 模拟器提供对 Azure Cosmos DB 服务的高保真模拟。 �
 ## <a name="differences-between-the-emulator-and-the-service"></a>模拟器和服务之间的差异 
 由于 Azure Cosmos DB 模拟器提供在本地开发人员工作站上运行的模拟环境，因此模拟器与云中的 Azure Cosmos DB 帐户之间的功能存在一些差异：
 
+* 目前，模拟器中的数据资源管理器仅支持 SQL API 集合和 MongoDB 集合，
 * Azure Cosmos DB 模拟器只支持一个固定的帐户和公开的主密钥。  在 Azure Cosmos DB 模拟器中无法重新生成密钥。
 * Azure Cosmos DB 模拟器不是可缩放的服务，并且不支持大量集合。
 * Azure Cosmos DB 模拟器不模拟不同的 [Azure Cosmos DB 一致性级别](consistency-levels.md)。
 * Azure Cosmos DB 模拟器不模拟[多区域复制](distribute-data-globally.md)。
-* Azure Cosmos DB 模拟器不支持服务配额替代，而 Azure Cosmos DB 服务支持（例如文档大小限制、增加的分区集合存储）。
+* Azure Cosmos DB 模拟器不支持服务配额替代，而 Azure Cosmos DB 服务支持（例如文档大小限制、增加的已分区集合存储）。
 * 由于 Azure Cosmos DB 模拟器副本不一定能反映 Azure Cosmos DB 服务的最新更改，因此请使用 [Azure Cosmos DB Capacity Planner](https://www.documentdb.com/capacityplanner) 准确估计应用程序的生产吞吐量 (RU) 需求。
+<!-- Not Available on Table, Graph, and Cassandra APIs are not yet supported -->
 
 ## <a name="system-requirements"></a>系统要求
 Azure Cosmos DB 模拟器具有以下硬件和软件要求：
@@ -83,8 +81,8 @@ Azure Cosmos DB 模拟器具有以下硬件和软件要求：
 * 软件要求
   * Windows Server 2012 R2、Windows Server 2016 或 Windows 10
 *   最低硬件要求
-  * 2 GB RAM
-  * 10 GB 可用硬盘空间
+  * 2-GB RAM
+  * 10-GB 可用硬盘空间
 
 ## <a name="installation"></a>安装
 可以从 [Microsoft 下载中心](https://aka.ms/cosmosdb-emulator)下载并安装 Azure Cosmos DB 模拟器，也可以在用于 Windows 的 Docker 上运行模拟器。 有关在用于 Windows 的 Docker 上使用模拟器的说明，请参阅[在 Docker 上运行](#running-on-docker)。 
@@ -102,11 +100,11 @@ Azure Cosmos DB 模拟器具有以下硬件和软件要求：
 
 默认情况下 Azure Cosmos DB 模拟器在本地计算机（“localhost”）上运行，侦听端口 8081。
 
-Azure Cosmos DB 模拟器默认安装到 `C:\Program Files\Azure Cosmos DB Emulator` 目录。 还可以从命令行启动和停止该模拟器。 有关详细信息，请参阅[命令行工具参考](#command-line)。
+默认情况下，Azure Cosmos DB 模拟器安装到 `C:\Program Files\Azure Cosmos DB Emulator` 目录。 还可以从命令行启动和停止该模拟器。 有关详细信息，请参阅[命令行工具参考](#command-line)。
 
 ## <a name="start-data-explorer"></a>启动数据资源管理器
 
-Azure Cosmos DB 模拟器启动时，会在浏览器中自动打开 Azure Cosmos DB 数据资源管理器。 地址显示为 [https://localhost:8081/_explorer/index.html](https://localhost:8081/_explorer/index.html)。 如果关闭浏览器并想要稍后重新打开，可在浏览器中打开 URL 或从 Windows 任务栏图标中的 Azure Cosmos DB 模拟器中启动，如下所示。
+Azure Cosmos DB 模拟器启动时，会在浏览器中自动打开 Azure Cosmos DB 数据资源管理器。 地址显示为 [https://localhost:8081/_explorer/index.html](https://localhost:8081/_explorer/index.html)。 如果关闭数据资源管理器后要重新打开它，可以在浏览器中打开该 URL 或通过 Windows 任务栏图标中的 Azure Cosmos DB 模拟器启动，如下所示。
 
 ![Azure Cosmos DB 本地模拟器数据资源管理器启动器](./media/local-emulator/database-local-emulator-data-explorer-launcher.png)
 
@@ -117,7 +115,7 @@ Azure Cosmos DB 模拟器启动时，会在浏览器中自动打开 Azure Cosmos
 > 在 Azure Cosmos DB 模拟器的一个版本中创建的数据不保证在使用不同版本时可以访问。 如果需要长期保存数据，建议将该数据存储在 Azure Cosmos DB 帐户中，而不是存储在 Azure Cosmos DB 模拟器中。 
 
 ## <a name="authenticating-requests"></a>对请求进行身份验证
-与云中的 Azure Cosmos DB 一样，针对 Azure Cosmos DB 模拟器的每个请求都必须进行身份验证。 Azure Cosmos DB 模拟器使用一个固定的帐户和公开的身份验证密钥进行主密钥身份验证。 此帐户和密钥是允许用于 Azure Cosmos DB 模拟器的唯一凭据。 它们具有以下特点：
+与云中的 Azure Cosmos DB 一样，针对 Azure Cosmos DB 模拟器发出的每个请求都必须进行身份验证。 Azure Cosmos DB 模拟器使用一个固定的帐户和公开的身份验证密钥进行主密钥身份验证。 此帐户和密钥是允许用于 Azure Cosmos DB 模拟器的唯一凭据。 它们具有以下特点：
 
     Account name: localhost:<port>
     Account key: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
@@ -455,7 +453,7 @@ cd $env:LOCALAPPDATA\CosmosDBEmulatorCert
 
 - 如果遇到连接问题，请[收集跟踪文件](#trace-files)、进行压缩并将其附加到电子邮件，发送至 [Azure 支持](https://www.azure.cn/support/contact/)。
 
-- 如果出现“服务不可用”消息，则可能表示模拟器无法初始化网络堆栈。 检查是否安装了 Pulse 安全客户端或 Juniper 网络客户端，因为这些客户端的网络筛选器驱动程序可能会导致问题。 卸载第三方网络筛选器驱动程序通常即可解决问题。
+- 如果出现“服务不可用”消息，则可能表示模拟器无法初始化网络堆栈。 检查是否安装了 Pulse 安全客户端或 Juniper 网络客户端，因为这些客户端的网络筛选器驱动程序可能会导致问题。 卸载第三方网络筛选器驱动程序通常可修复此问题。
 
 <a name="trace-files"></a>
 ### <a name="collect-trace-files"></a>收集跟踪文件
@@ -513,7 +511,7 @@ cd $env:LOCALAPPDATA\CosmosDBEmulatorCert
 
    我们通过向模拟器添加替代配置纠正了此问题。 我们现在应用的倍数为 1。 现在，分配用来执行各项服务的任务数等于主机上的核心数。
 
-   对于此版本来说，最重要的是解决此问题。 我们发现，许多开发/测试环境托管的模拟器有 1 到 2 个核心。
+   要不是因为我们为此版本做了其他事情，就会已解决此问题。 我们发现，许多开发/测试环境托管的模拟器有 1 到 2 个核心。
 
 2. 模拟器不再要求安装 Microsoft Visual C++ 2015 Redistributable。
 
@@ -545,4 +543,4 @@ cd $env:LOCALAPPDATA\CosmosDBEmulatorCert
 > [!div class="nextstepaction"]
 > [导出 Azure Cosmos DB 模拟器证书](local-emulator-export-ssl-certificates.md)
 
-<!--Update_Description: update meta properties, wording update, update link -->
+<!--Update_Description: update meta properties, wording update  -->

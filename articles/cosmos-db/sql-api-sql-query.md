@@ -3,25 +3,22 @@ title: Azure Cosmos DB 的 SQL 查询 | Azure
 description: 了解 Azure Cosmos DB 的 SQL 语法、数据库概念和 SQL 查询。 SQL 可在 Azure Cosmos DB 中作为 JSON 查询语言使用。
 keywords: sql 语法, sql 查询, sql 查询, json 查询语言, 数据库概念和 sql 查询, 聚合函数
 services: cosmos-db
-documentationcenter: ''
 author: rockboyfor
 manager: digimobile
 editor: monicar
-ms.assetid: a73b4ab3-0786-42fd-b59b-555fce09db6e
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 03/26/2018
-ms.date: 04/23/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 10c97e805f0143c803c3dae6c731a6d21c8d526e
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 0827163dc273fb3c9b1405f122a50e3e42dfa756
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782219"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070342"
 ---
 # <a name="sql-queries-for-azure-cosmos-db"></a>Azure Cosmos DB 的 SQL 查询
 
@@ -1388,29 +1385,29 @@ Cosmos DB 还支持使用许多内置函数进行常见操作，这些函数可�
 
 | 使用情况 | 说明 |
 |----------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ABS (num_expr) | 返回指定数值表达式的绝对（正）值。 |
-| CEILING (num_expr) | 返回大于或等于指定数值表达式的最小整数值。 |
-| FLOOR (num_expr) | 返回小于或等于指定数值表达式的最大整数。 |
-| EXP (num_expr) | 返回指定数值表达式的指数。 |
-| LOG (num_expr [,base])) | 返回指定数值表达式的自然对数，或使用指定底数的对数 |
-| LOG10 (num_expr) | 返回指定数值表达式以 10 为底的对数值。 |
-| ROUND (num_expr) | 返回一个数值，四舍五入到最接近的整数值。 |
-| TRUNC (num_expr) | 返回一个数值，截断到最接近的整数值。 |
-| SQRT (num_expr) | 返回指定数值表达式的平方根。 |
-| SQUARE (num_expr) | 返回指定数值表达式的平方。 |
-| POWER (num_expr, num_expr) | 返回指定数值表达式相对指定值的幂。 |
-| SIGN (num_expr) | 返回指定数值表达式的符号值 (-1, 0, 1)。 |
-| ACOS (num_expr) | 返回角度（弧度），其余弦是指定的数值表达式；也被称为反余弦。 |
-| ASIN (num_expr) | 返回角度（弧度），其正弦是指定的数值表达式。 也被称为反正弦。 |
-| ATAN (num_expr) | 返回角度（弧度），其正切是指定的数值表达式。 这也被称为反正切。 |
-| ATN2 (num_expr) | 返回正 x 轴与射线（原点到点 (y, x)）之间的角度（弧度），其中 x 和 y 是两个指定的浮点表达式的值。 |
-| COS (num_expr) | 返回指定表达式中指定角度的三角余弦（弧度）。 |
-| COT (num_expr) | 返回指定数值表达式中指定角度的三角余切。 |
-| DEGREES (num_expr) | 返回指定角度（弧度）的相应角度（度）。 |
-| PI () | 返回 PI 的常数值。 |
-| RADIANS (num_expr) | 返回输入的数值表达式（度）的弧度。 |
-| SIN (num_expr) | 返回指定表达式中指定角度的三角正弦（弧度）。 |
-| TAN (num_expr) | 返回指定表达式中输入表达式的正切。 |
+| [[ABS (num_expr)](sql-api-sql-query-reference.md#bk_abs) | 返回指定数值表达式的绝对（正）值。 |
+| [CEILING (num_expr)](sql-api-sql-query-reference.md#bk_ceiling) | 返回大于或等于指定数值表达式的最小整数值。 |
+| [FLOOR (num_expr)](sql-api-sql-query-reference.md#bk_floor) | 返回小于或等于指定数值表达式的最大整数。 |
+| [EXP (num_expr)](sql-api-sql-query-reference.md#bk_exp) | 返回指定数值表达式的指数。 |
+| [LOG (num_expr [,base])](sql-api-sql-query-reference.md#bk_log) | 返回指定数值表达式的自然对数，或使用指定底数的对数 |
+| [LOG10 (num_expr)](sql-api-sql-query-reference.md#bk_log10) | 返回指定数值表达式以 10 为底的对数值。 |
+| [ROUND (num_expr)](sql-api-sql-query-reference.md#bk_round) | 返回一个数值，四舍五入到最接近的整数值。 |
+| [TRUNC (num_expr)](sql-api-sql-query-reference.md#bk_trunc) | 返回一个数值，截断到最接近的整数值。 |
+| [SQRT (num_expr)](sql-api-sql-query-reference.md#bk_sqrt) | 返回指定数值表达式的平方根。 |
+| [SQUARE (num_expr)](sql-api-sql-query-reference.md#bk_square) | 返回指定数值表达式的平方。 |
+| [POWER (num_expr, num_expr)](sql-api-sql-query-reference.md#bk_power) | 返回指定数值表达式相对指定值的幂。 |
+| [SIGN (num_expr)](sql-api-sql-query-reference.md#bk_sign) | 返回指定数值表达式的符号值 (-1, 0, 1)。 |
+| [ACOS (num_expr)](sql-api-sql-query-reference.md#bk_acos) | 返回角度（弧度），其余弦是指定的数值表达式；也被称为反余弦。 |
+| [ASIN (num_expr)](sql-api-sql-query-reference.md#bk_asin) | 返回角度（弧度），其正弦是指定的数值表达式。 也被称为反正弦。 |
+| [ATAN (num_expr)](sql-api-sql-query-reference.md#bk_atan) | 返回角度（弧度），其正切是指定的数值表达式。 这也被称为反正切。 |
+| [ATN2 (num_expr)](sql-api-sql-query-reference.md#bk_atn2) | 返回正 x 轴与射线（原点到点 (y, x)）之间的角度（弧度），其中 x 和 y 是两个指定的浮点表达式的值。 |
+| [COS (num_expr)](sql-api-sql-query-reference.md#bk_cos) | 返回指定表达式中指定角度的三角余弦（弧度）。 |
+| [COT (num_expr)](sql-api-sql-query-reference.md#bk_cot) | 返回指定数值表达式中指定角度的三角余切。 |
+| [DEGREES (num_expr)](sql-api-sql-query-reference.md#bk_degrees) | 返回指定角度（弧度）的相应角度（度）。 |
+| [PI ()](sql-api-sql-query-reference.md#bk_pi) | 返回 PI 的常数值。 |
+| [RADIANS (num_expr)](sql-api-sql-query-reference.md#bk_radians) | 返回输入的数值表达式（度）的弧度。 |
+| [SIN (num_expr)](sql-api-sql-query-reference.md#bk_sin) | 返回指定表达式中指定角度的三角正弦（弧度）。 |
+| [TAN (num_expr)](sql-api-sql-query-reference.md#bk_tan) | 返回指定表达式中输入表达式的正切。 |
 
 例如，现在可以运行以下查询：
 

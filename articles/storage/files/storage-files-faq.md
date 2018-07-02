@@ -1,5 +1,5 @@
 ---
-title: Azure 文件常见问题解答 | Microsoft 文档
+title: Azure 文件常见问题解答 | Azure
 description: 查看有关 Azure 文件的常见问题解答。
 services: storage
 documentationcenter: ''
@@ -11,18 +11,18 @@ ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-origin.date: 12/04/2017
-ms.date: 01/22/2018
+origin.date: 05/31/2018
+ms.date: 07/02/2018
 ms.author: v-nany
-ms.openlocfilehash: 6362c00bef78f2c076f1d7851516b7f7453586f7
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: 7cd662db3e13a3606e8e0221995f66b490af1f0e
+ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867520"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37103027"
 ---
-# <a name="frequently-asked-questions-about-azure-files"></a>有关 Azure 文件的常见问题解答
-[Azure 文件](storage-files-introduction.md)在云中提供可以通过行业标准的[服务器消息块 (SMB) 协议](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)（也称为通用 Internet 文件系统，简称 CIFS）访问的完全托管文件共享。 你可以在云或 Windows、Linux 和 macOS 的本地部署同时装载 Azure 文件共享。 另外，你也可以使用 Azure 文件同步（预览版）在 Windows Server 计算机上缓存 Azure 文件共享，以在靠近使用数据的位置实现快速访问。
+# <a name="frequently-asked-questions-faq-about-azure-files"></a>有关 Azure 文件的常见问题解答 (FAQ)
+[Azure 文件](storage-files-introduction.md)在云端提供完全托管的文件共享，这些共享项可通过行业标准的[服务器消息块 (SMB) 协议](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)进行访问。 你可以在云或 Windows、Linux 和 macOS 的本地部署同时装载 Azure 文件共享。 另外，你也可以使用 Azure 文件同步（预览版）在 Windows Server 计算机上缓存 Azure 文件共享，以在靠近使用数据的位置实现快速访问。
 
 
 ## <a name="general"></a>常规
@@ -98,6 +98,9 @@ ms.locfileid: "34867520"
 **能否对共享中的文件夹指定只读或只写权限？**  
     如果使用 SMB 装载文件共享，则不具有文件夹级的控制权限。 但是，如果使用 REST API 或客户端库创建共享访问签名，则可以在共享内的文件夹上指定只读或只写权限。
 
+* <a id="ip-restrictions"></a>
+**是否对 Azure 文件共享实现 IP 限制？**  
+    是的。 可以在存储帐户级别对 Azure 文件共享的权限进行限制。 有关详细信息，请参阅[配置 Azure 存储防火墙和虚拟网络](../common/storage-network-security.md?toc=%2fstorage%2ffiles%2ftoc.json)。
 
 * <a id="data-compliance-policies"></a>
 **Azure 文件支持哪些数据符合性策略？**  
@@ -105,29 +108,107 @@ ms.locfileid: "34867520"
 
 ## <a name="on-premises-access"></a>本地访问
 * <a id="expressroute-not-required"></a>
-**必须使用 Azure ExpressRoute 才能连接到 Azure 文件吗？**  
+**必须使用 Azure ExpressRoute 才能在本地连接到 Azure 文件或使用 Azure 文件同步吗？**  
     否。 ExpressRoute 不是访问 Azure 文件共享的必要条件。 如果要直接在本地装载 Azure 文件共享，则只需打开端口 445（TCP 出站）即可进行 Internet 访问（这是 SMB 用于进行通信的端口）。 如果正在使用 Azure 文件同步，则只需端口 443（TCP 出站）即可进行 HTTPS 访问（无需 SMB）。 但是，你可以将 ExpressRoute 与这些访问选项中任意一项一起使用。
 
 * <a id="mount-locally"></a>
 **如何才能在本地计算机上装载 Azure 文件共享？**  
     可以使用 SMB 协议装载文件共享，只要端口 445（TCP 出站）处于打开状态，且客户端支持 SMB 3.0 协议（例如，如果使用的是 Windows 10 或 Windows Server 2016）。 如果端口 445 被组织的策略或 ISP 阻止，则可使用 Azure 文件同步访问 Azure 文件共享。
 
+## <a name="backup"></a>Backup
+* <a id="backup-share"></a>
+**如何备份我的 Azure 文件共享？**  
+    可以使用定期[共享快照](storage-snapshots-files.md)来防止意外删除。 此外，也可以使用 AzCopy、RoboCopy 或能够备份已装载文件共享的第三方备份工具。 Azure 备份提供 Azure 文件的备份。 深入了解[通过 Azure 备份服务备份 Azure 文件共享](https://docs.microsoft.com/en-us/azure/backup/backup-azure-files)。
 
+## <a name="share-snapshots"></a>共享快照
+### <a name="share-snapshots-general"></a>共享快照：常规问题
+* <a id="what-are-snaphots"></a>
+**什么是文件共享快照？**  
+    可以使用 Azure 文件共享快照创建只读版本的文件共享。 另外，也可以使用 Azure 文件将早期版本的内容复制回 Azure 或本地中的同一个共享或备用位置中，以做进一步修改。 若要了解有关共享快照的详细信息，请参阅[共享快照概述](storage-snapshots-files.md)。
+
+* <a id="where-are-snapshots-stored"></a>
+**共享快照存储在何处？**  
+    共享快照与文件共享存储在同一个存储帐户中。
+
+* <a id="snapshot-perf-impact"></a>
+**使用共享快照是否会产生任何性能影响？**  
+    共享快照没有任何性能开销。
+
+* <a id="snapshot-consistency"></a>
+**共享快照是否与应用程序一致？**  
+    否，共享快照与应用程序不一致。 执行共享快照前，用户必须将应用程序中的写入刷新到共享中。
+
+* <a id="snapshot-limits"></a>
+**对我可使用的共享快照数有限制吗？**  
+    是的。 Azure 文件可以最多保留 200 张共享快照。 共享快照不计入共享配额，因此，对所有共享快照使用的总空间没有单独的共享限制。 存储帐户限制仍然适用。 在达到 200 个共享快照之后，必须删除旧的共享快照才可创建新的共享快照。
+* <a id="snapshot-cost"></a>
+**共享快照的费用是多少？**  
+    快照按标准事务和标准存储收费。 快照在本质上是递增的。 基本快照即是共享本身。 所有的后续快照均是递增的，并且只会存储与之前快照的不同之处。 这意味着，如果工作负荷改动极小，则帐单上显示的增量更改也很小。 有关标准 Azure 文件的定价信息，请参阅[定价页](https://azure.microsoft.com/pricing/details/storage/files/)。 目前，查看共享快照已用大小的方法是比较计费的容量与使用的容量。 我们致力于开发改进报告的工具。
+
+
+### <a name="create-share-snapshots"></a>创建共享快照
+* <a id="file-snaphsots"></a>
+**是否可以创建单个文件的共享快照？**  
+    可在文件共享级别上创建共享快照。 你可以从文件共享快照还原单个文件，但是不能创建文件级别的共享快照。 但是，如果你已执行共享级别的共享快照，并且想要列出已更改特定文件的共享快照，则可以在已装载 Windows 的共享上的“以前的版本”下执行此操作。 
+    
+* <a id="encypted-snapshots"></a>
+**是否可以创建加密文件共享的共享快照？**  
+    可以对已启用静态加密的 Azure 文件共享执行共享快照。 可以从共享快照中将文件还原到加密文件共享中。 如果共享已加密，则共享快照也会加密。
+
+* <a id="geo-redundant-snaphsots"></a>
+**共享快照具有异地冗余吗？**  
+    共享快照与捕获它们的 Azure 文件共享具有相同的冗余。 如果已为帐户选择异地冗余存储，则共享快照也会在配对区域中进行冗余存储。
+
+### <a name="manage-share-snapshots"></a>管理共享快照
+* <a id="browse-snapshots-linux"></a>
+**是否可以在 Linux 中浏览共享快照？**  
+    可以使用 Azure CLI 2.0 在 Linux 上创建、列出、浏览和还原共享快照。
+
+* <a id="copy-snapshots-to-other-storage-account"></a>
+**是否可以将共享快照复制到不同的存储帐户？**  
+    可以将文件从共享快照复制到其他位置，但不能复制到共享快照本身。
+
+### <a name="restore-data-from-share-snapshots"></a>从共享快照还原数据
+* <a id="promote-share-snapshot"></a>
+**是否可以将共享快照提升到基本共享中？**  
+    只能将数据从共享快照复制到任何其他目标位置， 不能将共享快照提升到基本共享中。
+
+* <a id="restore-snapshotted-file-to-other-share"></a>
+**是否可以将数据从共享快照还原到不同的存储帐户？**  
+    是的。 可以将共享快照文件复制到原始位置或备用位置，其中包括位于同一区域或不同区域的相同/不同的存储帐户。 你还可以将文件复制到本地位置或任何其他云。    
+  
+### <a name="clean-up-share-snapshots"></a>清除共享快照
+* <a id="delete-share-keep-snapshots"></a>
+**是否可以删除共享，而不删除共享快照？**  
+    如果共享上有活动的共享快照，则无法删除此共享。 你可以使用一个 API 将共享快照连同共享一起删除。 此外，也可以在 Azure 门户中删除共享快照和共享。
+
+* <a id="delete-share-with-snapshots"></a>
+**如果删除存储帐户，共享快照会怎样？**  
+    删除存储帐户后，共享快照也将被删除。
 
 ## <a name="billing-and-pricing"></a>计费和定价
 * <a id="vm-file-share-network-traffic"></a>
 **Azure VM 与 Azure 文件共享之间的网络流量是否作为外部带宽计入订阅费用？**  
     如果文件共享和 VM 位于同一 Azure 区域，则它们之间的流量是不会额外收费的。 如果文件共享和 VM 位于不同的区域，则它们之间的流量会作为外部带宽收费。
 
+* <a id="share-snapshot-price"></a>
+**共享快照的费用是多少？**  
+     在预览版期间，共享快照容量可免费使用， 但会收取标准存储出口和事务费用。 公开发布后，共享快照的容量和事务均将收费。
+     
+     共享快照在本质上是递增的。 基本共享快照即是共享本身。 所有的后续共享快照均是递增的，并且只会存储与之前共享快照的不同之处。 你只需为更改的内容付费。 如果你的共享包含 100 GiB 数据，但自执行上次共享快照以来只更改了 5 GiB 数据，则共享快照只额外使用了 5 GiB 数据，而你要为 105 GiB 付费。 有关事务和标准出口费用的更多信息，请参阅[定价页](https://azure.cn/pricing/details/storage/files/)。
 
 ## <a name="scale-and-performance"></a>缩放和性能
 * <a id="files-scale-limits"></a>
 **Azure 文件存在哪些缩放限制？**  
     有关 Azure 文件的可伸缩性和性能目标的信息，请参阅 [Azure 文件可伸缩性和性能目标](storage-files-scale-targets.md)。
 
-* <a id="need-larger-share"></a>
-**我需要大于 Azure 文件目前提供的文件共享的文件共享。我是否可以增加 Azure 文件共享的大小？**  
-    否。 Azure 文件共享的上限是 5 TiB。 当前，这是硬限制，无法调整。 我们正致力于寻找将共享大小提升至 100 TiB 的解决方案，但当前尚无可供分享的时间表。
+* 
+  <a id="need-larger-share">
+    </a>
+  
+
+  **我需要大于 Azure 文件目前提供的文件共享的文件共享。我是否可以增加 Azure 文件共享的大小？**  
+  否。 Azure 文件共享的上限是 5 TiB。 当前，这是硬限制，无法调整。 我们正致力于寻找将共享大小提升至 100 TiB 的解决方案，但当前尚无可供分享的时间表。
 
 * <a id="open-handles-quota"></a>
 **多少个客户端可以同时访问同一文件？**   

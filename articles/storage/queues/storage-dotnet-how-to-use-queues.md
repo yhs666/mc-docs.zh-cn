@@ -1,5 +1,5 @@
 ---
-title: 通过 .NET 开始使用 Azure 队列存储 | Microsoft Docs
+title: 通过 .NET 开始使用 Azure 队列存储 | Azure
 description: Azure 队列用于在应用程序组件之间进行可靠的异步消息传送。 应用程序组件可以利用云消息传送进行独立缩放。
 services: storage
 author: forester123
@@ -7,15 +7,15 @@ manager: josefree
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: hero-article
-origin.date: 04/16/2018
-ms.date: 06/11/2018
+origin.date: 06/13/2018
+ms.date: 07/02/2018
 ms.author: v-johch
-ms.openlocfilehash: 54a3d2e1b0be2078f33f2236dfebc9641c43b7c4
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: 6fac7618ad7ebfb7e4e8692e300b557c0bb19889
+ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867577"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37103040"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>通过 .NET 开始使用 Azure 队列存储
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -37,8 +37,6 @@ Azure 队列存储用于在应用程序组件之间进行云消息传送。 在�
 * [适用于 .NET 的 Azure Configuration Manager](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
 * 一个 [Azure 存储帐户](../common/storage-create-storage-account.md?toc=%2fstorage%2fqueues%2ftoc.json#create-a-storage-account)
 
-[!INCLUDE [storage-dotnet-client-library-version-include](../../../includes/storage-dotnet-client-library-version-include.md)]
-
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
@@ -56,7 +54,7 @@ using Microsoft.WindowsAzure.Storage.Queue; // Namespace for Queue storage types
 
 ### <a name="copy-your-credentials-from-the-azure-portal"></a>从 Azure 门户复制凭据
 
-此示例代码需要对存储帐户访问进行身份验证。 请为应用程序提供连接字符串形式的存储帐户凭据，以便进行身份验证。 若要查看存储帐户凭据，请执行以下操作：
+此示例代码需要对存储帐户访问进行授权。 若要授权，请以连接字符串的形式向应用程序提供存储帐户凭据。 若要查看存储帐户凭据，请执行以下操作：
 
 1. 导航到 [Azure 门户](https://portal.azure.cn)。
 2. 找到自己的存储帐户。
@@ -295,5 +293,4 @@ queue.Delete();
 [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
 [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
 [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
-
 <!--Update_Description: wording update-->

@@ -11,12 +11,12 @@ ms.author: v-johch
 origin.date: 04/06/2018
 ms.date: 05/07/2018
 ms.topic: quickstart
-ms.openlocfilehash: 1a6f197d03393c49ae762999f16e1f1a2a25e476
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: 646a6fb3934f56c5b849cc7af4a81d13a0af8484
+ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33815508"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37103083"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -48,7 +48,7 @@ ms.locfileid: "33815508"
 接下来，请使用 Azure CLI 2.0 创建一个安全令牌。
 
 ## <a name="create-a-shared-access-signature"></a>创建共享访问签名
-在浏览器中运行的代码可以使用共享访问签名 (SAS) 对发往 Blob 存储的请求进行身份验证。 使用 SAS 时，客户端可以在没有帐户访问密钥或连接字符串的情况下进行身份验证。 有关 SAS 的详细信息，请参阅[使用共享访问签名 (SAS)](../common/storage-dotnet-shared-access-signature-part-1.md)。
+在浏览器中运行的代码可以使用共享访问签名 (SAS) 对发往 Blob 存储的请求进行授权。 使用 SAS 时，客户端可以在没有帐户访问密钥或连接字符串的情况下授权对存储资源的访问。 有关 SAS 的详细信息，请参阅[使用共享访问签名 (SAS)](../common/storage-dotnet-shared-access-signature-part-1.md)。
 
 可以将 Azure CLI 与 Azure 存储资源管理器配合使用来创建 SAS。 下表对使用 CLI 生成 SAS 时需要提供值的参数进行了说明。
 

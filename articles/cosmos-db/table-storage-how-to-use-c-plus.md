@@ -1,30 +1,27 @@
 ---
-title: 如何通过 C++ 使用 Azure 表存储和 Azure Cosmos DB | Azure
-description: 使用 Azure 表存储（一种 NoSQL 数据存储）将结构化数据存储在云中。
+title: 如何通过 C++ 使用 Azure 表存储或 Azure Cosmos DB 表 API | Azure
+description: 使用 Azure 表存储或 Azure Cosmos DB 表 API 将结构化数据存储在云中。
 services: cosmos-db
-documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-ms.assetid: f191f308-e4b2-4de9-85cb-551b82b1ea7c
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.component: cosmosdb-table
+ms.devlang: cpp
+ms.topic: sample
 origin.date: 04/05/2018
-ms.date: 04/23/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 66471548ba723c9f677b91252b5eb13154b4da6c
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 3d33e89330b778056b5f228a89da19281c6ff0fc
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782157"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070238"
 ---
 # <a name="how-to-use-azure-table-storage-with-c"></a>如何配合使用 C++ 和 Azure 表存储
 <!-- Not Available on Azure Cosmos DB Table API -->
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
+[!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
 ## <a name="overview"></a>概述
 本指南将演示如何使用 Azure 表存储服务执行常见方案。 示例采用 C++ 编写，并使用了[适用于 C++ 的 Azure 存储客户端库](https://github.com/Azure/azure-storage-cpp/blob/master/README.md)。 涉及的方案包括**创建和删除表**以及**使用表实体**。
@@ -49,6 +46,7 @@ ms.locfileid: "31782157"
 若要安装适用于 C++ 的 Azure 存储客户端库，可使用以下方法：
 
 * **Linux：** 按照适用于 C++ 的 [Azure 存储客户端库自述文件](https://github.com/Azure/azure-storage-cpp/blob/master/README.md)页中提供的说明进行操作。  
+<!--URL is correct with https://github.com/ .md-->
 * **Windows：** 在 Visual Studio 中，单击“工具”>“NuGet 包管理器”>“程序包管理器控制台”。 在 [NuGet 包管理器控制台](http://docs.nuget.org/docs/start-here/using-the-package-manager-console)中，键入以下命令，并按 Enter。  
 
      Install-Package wastorage
@@ -70,9 +68,8 @@ Azure 存储客户端或 Cosmos DB 客户端使用连接字符串来存储用于
 // Define the Storage connection string with your values.
 const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_storage_account;AccountKey=your_storage_account_key;EndpointSuffix=core.chinacloudapi.cn"));
 ```
-
-<!-- Not Available on ## Set up an Azure Cosmos DB connection string -->
-以下示例假设已使用此方法获取存储连接字符串。  
+<!-- ConnectionString is Correct with EndpointSuffix=core.chinacloudapi.cn-->
+<!-- Not Available on ## Set up an Azure Cosmos DB connection string --> 以下示例假设已使用此方法获取存储连接字符串。  
 
 ## <a name="retrieve-your-connection-string"></a>检索连接字符串
 可使用 **cloud_storage_account** 类来表示存储帐户信息。 要从存储连接字符串中检索存储帐户信息，可以使用 **parse** 方法。
@@ -463,8 +460,7 @@ if (table.delete_table_if_exists())
   - 将“符合模式”设置为“否”。
 
 ## <a name="next-steps"></a>后续步骤
-单击以下链接详细了解 Azure Cosmos DB 中的 Azure 存储： 
-<!-- Not Avaiable on Table API -->
+单击以下链接详细了解 Azure Cosmos DB 中的 Azure 存储：<!-- Not Avaiable on Table API -->
 
 <!-- Not Available on * [Introduction to the Table API](table-introduction.md) -->
 * [Azure 存储资源管理器](../vs-azure-tools-storage-manage-with-storage-explorer.md)是免费的独立应用，适用于在 Windows、macOS 和 Linux 上以可视方式处理 Azure 存储数据。

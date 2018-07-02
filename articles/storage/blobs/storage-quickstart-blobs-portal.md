@@ -10,12 +10,12 @@ ms.topic: quickstart
 origin.date: 04/09/2018
 ms.date: 06/11/2018
 ms.author: v-nany
-ms.openlocfilehash: 64c7d0a6c4902007f2d858af7e329cabd074db45
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: 3501ee7ccc6ed221957e036d0e1bcedd5b89d511
+ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867438"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37103038"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-the-azure-portal"></a>快速入门：使用 Azure 门户上传、下载和列出 Blob
 

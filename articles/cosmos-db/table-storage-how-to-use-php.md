@@ -1,31 +1,28 @@
 ---
-title: 如何通过 PHP 使用 Azure 存储表服务或 Azure Cosmos DB 表 API | Azure
-description: 了解如何通过 PHP 使用表服务 API 来创建和删除表以及插入、删除和查询表。
+title: 如何通过 PHP 使用 Azure 存储表服务 | Azure
+description: 使用 Azure 表存储将结构化数据存储在云中。
 services: cosmos-db
-documentationcenter: php
 author: rockboyfor
 manager: digimobile
-ms.assetid: 1e57f371-6208-4753-b2a0-05db4aede8e3
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-table
 ms.devlang: php
-ms.topic: article
+ms.topic: sample
 origin.date: 04/05/2018
-ms.date: 04/23/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: a1aa172b7bd933cb02663759fc06951a73fbbaa8
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: ef77b09f700038efe1a9d3b4faee97c88cd85217
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782009"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070244"
 ---
 # <a name="how-to-use-azure-storage-table-service-from-php"></a>如何通过 PHP 使用 Azure 存储表服务
 <!-- Not Available on  Cosmos DB Table API -->
 
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
+[!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
 ## <a name="overview"></a>概述
 本指南介绍如何使用 Azure 存储表服务执行常见任务。 示例采用 PHP 编写，并使用了 [Azure 存储表 PHP 客户端库][download]。 涉及的方案包括**创建和删除表**以及**在表中插入、删除和查询实体**。 有关 Azure 表服务的详细信息，请参阅[后续步骤](#next-steps)部分。
@@ -67,8 +64,7 @@ php composer.phar install
 或者转到 GitHub 上的 [Azure 存储表 PHP 客户端库](https://github.com/Azure/azure-storage-php/tree/master/azure-storage-table)，然后克隆源代码。
 
 ## <a name="add-required-references"></a>添加所需引用
-若要使用存储表服务，必须：
-<!-- Not Available on Azure Cosmos DB APIs -->
+若要使用存储表服务，必须：<!-- Not Available on Azure Cosmos DB APIs -->
 
 * 使用 [require_once][require_once]语句引用 autoloader 文件，并
 * 引用所用的任何类。
@@ -98,8 +94,7 @@ $connectionString = "DefaultEndpointsProtocol=[http|https];AccountName=[yourAcco
 UseDevelopmentStorage = true
 ```
 
-若要创建 Azure 表服务客户端，需要使用 **TableRestProxy** 类。 方法：
-<!-- Not Available on  Azure Cosmos DB client -->
+若要创建 Azure 表服务客户端，需要使用 **TableRestProxy** 类。 可以：<!-- Not Available on  Azure Cosmos DB client -->
 
 * 将连接字符串直接传递给此类或
 * 使用 CloudConfigurationManager (CCM) 检查多个外部源以获取连接字符串：
@@ -180,7 +175,8 @@ catch(ServiceException $e){
 
 有关表属性和类型的信息，请参阅 [了解表服务数据模型][table-data-model]。
 
-**TableRestProxy** 类提供了用于插入实体的两个替代方法：**insertOrMergeEntity** 和 **insertOrReplaceEntity**。 要使用这些方法，请创建一个新的 **Entity** ，并将其作为参数传递到上述任一方法。 如果条目不存在，则每种方法都会插入条目。 在实体已存在的情况下，如果属性已存在，则 **insertOrMergeEntity** 更新属性值；如果属性不存在，则该方法添加新属性，而 **insertOrReplaceEntity** 会完全替换现有实体。 下面的示例演示如何使用 **insertOrMergeEntity**。 如果实体具有 `PartitionKey`“tasksSeattle”并且 `RowKey`“1”不存在，则将插入该实体。 但是，如果之前已插入该实体（如上面的示例所示），则将更新 `DueDate` 属性并添加 `Status` 属性。 系统还将更新 `Description` 和 `Location` 属性，但使用的值实际上会使其保持不变。 如果并非如示例所示添加后两个属性，而这两个数学已存在于目标条目上，则其现有值保持不变。
+
+  **TableRestProxy** 类提供了用于插入实体的两个替代方法：**insertOrMergeEntity** 和 **insertOrReplaceEntity**。 要使用这些方法，请创建一个新的 **Entity** ，并将其作为参数传递到上述任一方法。 如果条目不存在，则每种方法都会插入条目。 在实体已存在的情况下，如果属性已存在，则 **insertOrMergeEntity** 更新属性值；如果属性不存在，则该方法添加新属性，而 **insertOrReplaceEntity** 会完全替换现有实体。 下面的示例演示如何使用 **insertOrMergeEntity**。 如果实体具有 `PartitionKey`“tasksSeattle”并且 `RowKey`“1”不存在，则将插入该实体。 但是，如果之前已插入该实体（如上面的示例所示），则将更新 `DueDate` 属性并添加 `Status` 属性。 系统还将更新 `Description` 和 `Location` 属性，但使用的值实际上会使其保持不变。 如果并非如示例所示添加后两个属性，而这两个数学已存在于目标条目上，则其现有值保持不变。
 
 ```php
 require_once 'vendor/autoload.php';

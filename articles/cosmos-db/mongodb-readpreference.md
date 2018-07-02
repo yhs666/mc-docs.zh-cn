@@ -2,25 +2,22 @@
 title: 在 Azure Cosmos DB MongoDB API 中使用 MongoDB 读取首选项 | Azure
 description: 了解如何在 Azure Cosmos DB MongoDB API 中使用 MongoDB 读取首选项
 services: cosmos-db
-documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-ms.assetid: ''
 ms.service: cosmos-db
+ms.component: cosmosdb-mongo
 ms.custom: ''
-ms.workload: ''
-ms.tgt_pltfrm: na
-ms.devlang: ''
-ms.topic: article
+ms.devlang: nodejs
+ms.topic: conceptual
 origin.date: 02/26/2018
-ms.date: 04/23/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 9a09e1ea95ec266c0528c50c084d05c8993ee09a
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: a95e36be42820fc2c67ed350450c6902a3e4084a
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31781927"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070255"
 ---
 # <a name="how-to-globally-distribute-reads-using-read-preference-with-the-azure-cosmos-db-mongodb-api"></a>如何在 Azure Cosmos DB MongoDB API 中使用读取首选项全局分配读取操作 
 
@@ -157,4 +154,4 @@ MongoDB 提供以下读取首选项模式供客户端使用：
 * [将 MongoDB 数据导入 Azure Cosmos DB](mongodb-migrate.md)
 * [设置全局复制的 Azure Cosmos DB 帐户并将其与 MongoDB API 配合使用](tutorial-global-distribution-mongodb.md)
 * [通过模拟器在本地开发](local-emulator.md)
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties -->

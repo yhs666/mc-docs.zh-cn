@@ -13,14 +13,14 @@ metadata:
   ms.devlang: na
   ms.topic: landing-page
   origin.date: 04/26/2018
-  ms.date: 06/11/2018
+  ms.date: 07/02/2018
   ms.author: v-yeche
-  ms.openlocfilehash: d17163c70d6fe7a9629ea0ebd45a229aa37cf844
-  ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+  ms.openlocfilehash: 8afc5c998e113d09056f5e58e13f7e37fcefeba6
+  ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 06/08/2018
-  ms.locfileid: "34867323"
+  ms.lasthandoff: 06/28/2018
+  ms.locfileid: "37070161"
 abstract:
   description: Azure Cosmos DB 是多区域分布式多模型数据库服务。 使用这些快速入门、教程和示例，可通过常用 API 和编程模型开发文档数据库和宽列数据库。 然后了解在受益于全面 SLA 的同时，如何在任意数量的 Azure 区域之间复制数据，以及如何缩放吞吐量而不受你的存储影响。
 sections:
@@ -88,8 +88,8 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: 使用 Azure Cosmos DB 开发应用 &#58; <a href="/cosmos-db/tutorial-develop-sql-api-dotnet">SQL</a> | <a href="/cosmos-db/tutorial-develop-mongodb-nodejs">MongoDB</a> |  |  |
-    - html: 将数据导入 Azure Cosmos DB &#58; <a href="/cosmos-db/import-data">SQL</a> | <a href="/cosmos-db/mongodb-migrate">MongoDB</a> | |
-    - html: 使用 Azure Cosmos DB 查询数据：<a href="/cosmos-db/tutorial-query-sql-api">SQL</a> | <a href="/cosmos-db/tutorial-query-mongodb">MongoDB</a> | |
-    - html: 使用 Azure Cosmos DB 进行全局数据库复制：<a href="/cosmos-db/tutorial-global-distribution-sql-api">SQL</a> | <a href="/cosmos-db/tutorial-global-distribution-mongodb">MongoDB</a> | |
+    - html: 使用 Azure Cosmos DB 开发应用：<a href="/cosmos-db/tutorial-develop-sql-api-dotnet">SQL</a> | <a href="/cosmos-db/tutorial-develop-mongodb-nodejs">MongoDB</a>
+    - html: 将数据导入 Azure Cosmos DB：<a href="/cosmos-db/import-data">SQL</a> | <a href="/cosmos-db/mongodb-migrate">MongoDB</a>
+    - html: 使用 Azure Cosmos DB 查询数据：<a href="/cosmos-db/tutorial-query-sql-api">SQL</a> | <a href="/cosmos-db/tutorial-query-mongodb">MongoDB</a>
+    - html: 使用 Azure Cosmos DB 进行全局数据库复制：<a href="/cosmos-db/tutorial-global-distribution-sql-api">SQL</a> | <a href="/cosmos-db/tutorial-global-distribution-mongodb">MongoDB</a>
     - html: <a href="local-emulator">使用模拟器本地开发应用程序</a>

@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 05/15/2017
 ms.date: 10/23/2017
 ms.author: v-johch
-ms.openlocfilehash: 9e35b9fbb4ba0fe865fab1a467e0fd8c893120ab
-ms.sourcegitcommit: fea4940a09cecbae36256410227e701e5f0aab6d
+ms.openlocfilehash: 484b148d58bc07574347a55e2ba338ae29a79a40
+ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2017
-ms.locfileid: "23456364"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37103078"
 ---
 # <a name="shared-access-signatures-part-2-create-and-use-a-sas-with-blob-storage"></a>共享访问签名，第 2 部分：创建 SAS 并将 SAS 用于 Blob 存储
 
@@ -39,12 +39,12 @@ ms.locfileid: "23456364"
 应用程序 2：客户端应用程序。 使用第一个应用程序创建的共享访问签名访问容器和 Blob 资源。 仅使用共享访问签名访问容器和 Blob 资源--它不包括存储帐户访问密钥。
 
 ## <a name="part-1-create-a-console-application-to-generate-shared-access-signatures"></a>第 1 部分：创建控制台应用程序，生成共享访问签名
-首先，确保安装了用于 .NET 的 Azure 存储客户端库。 可以安装包含该客户端库最新程序集的 [NuGet 包](http://nuget.org/packages/WindowsAzure.Storage/ "NuGet 包")。 这是确保具有最新修补程序的建议方法。 还可以下载作为客户端库组成部分的[用于 .NET 的 Azure SDK](/downloads/) 最新版本。
+首先，确保安装了 Azure .NET 存储客户端库。 可以安装包含该客户端库最新程序集的 [NuGet 包](http://nuget.org/packages/WindowsAzure.Storage/ "NuGet 包")。 这是确保具有最新修补程序的建议方法。 还可以通过下载包含该客户端库的最新 [Azure SDK for .NET](/downloads/)版本来下载该客户端库。
 
 在 Visual Studio 中，创建一个新的 Windows 控制台应用程序并将其命名为 **GenerateSharedAccessSignatures**。 使用以下方法之一添加对 [Microsoft.WindowsAzure.ConfigurationManager](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager) 和 [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage/) 的引用：
 
 * 使用 Visual Studio 中的 [NuGet 包管理器](https://docs.nuget.org/consume/installing-nuget)。 选择“项目” > “管理 NuGet 包”，联机搜索每个包 （Microsoft.WindowsAzure.ConfigurationManager 和 WindowsAzure.Storage）并进行安装。
-* 另外，还可以在安装的 Azure SDK 中找到这些程序集，然后添加对它们的引用：
+* 另外，还可以在安装的 Azure SDK 中找到这些程序集，并添加对它们的引用：
   * Microsoft.WindowsAzure.Configuration.dll
   * Microsoft.WindowsAzure.Storage.dll
 
@@ -73,7 +73,7 @@ using Microsoft.WindowsAzure.Storage.Blob;
 ### <a name="generate-a-shared-access-signature-uri-for-a-container"></a>为容器生成共享访问签名 URI
 首先添加一个方法，用于在新容器上生成共享访问签名。 在此用例中，该签名不与存储访问策略相关联，它在 URI 上携带信息，指示它的到期时间以及授予的权限。
 
-首先，向 Main() 方法添加代码，以便验证对存储帐户的访问并创建新容器：
+首先，向 Main() 方法添加代码，以便授权对存储帐户的访问并创建新容器：
 
 ```csharp
 static void Main(string[] args)
@@ -183,7 +183,7 @@ https://storageaccount.blob.core.chinacloudapi.cn/sascontainer/sasblob.txt?sv=20
 
 可以使一个或多个约束作用于共享访问签名，使其余的约束作用于存储访问策略。 但只能在其中一个位置指定开始时间、到期时间和权限。 例如，不能同时在共享访问签名和存储访问策略上指定权限。
 
-向容器添加一个存储的访问策略时，必须获取容器的现有权限，添加新的访问策略，并设置容器的权限。
+向容器添加访问策略时，必须获取容器的现有权限，添加新的访问策略，并设置容器的权限。
 
 添加一个新方法，该方法在窗口上创建一个新的存储访问策略并返回该策略的名称：
 

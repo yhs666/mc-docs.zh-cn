@@ -2,25 +2,22 @@
 title: 适用于 Azure Cosmos DB 的 C++ 教程 | Azure
 description: 本 C++ 教程使用 Azure Cosmos DB 认可的 C++ SDK 创建 C++ 数据库和控制台应用程序。 Azure Cosmos DB 是多区域规模的数据库服务。
 services: cosmos-db
-documentationcenter: cpp
 author: rockboyfor
 manager: digimobile
 editor: ''
-ms.assetid: b8756b60-8d41-4231-ba4f-6cfcfe3b4bab
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: cpp
-ms.topic: article
-origin.date: 12/25/2016
-ms.date: 04/23/2018
+ms.topic: tutorial
+origin.date: 06/05/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: b0cf27c9552137d1752bf5115130eb45ccb66145
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 5fb08a1ec6ee7c6d01472a40f0c2a0a1c284479d
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782093"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070162"
 ---
 # <a name="azure-cosmos-db-c-console-application-tutorial-for-the-sql-api"></a>Azure Cosmos DB：SQL API 的 C++ 控制台 应用程序教程
 > [!div class="op_single_selector"]
@@ -48,8 +45,7 @@ ms.locfileid: "31782093"
 * 删除 C++ Azure Cosmos DB 数据库
 
 没有时间？ 不必担心！ 可在 [GitHub](https://github.com/stalker314314/DocumentDBCpp)上获取完整的解决方案。 有关快速说明，请参阅 [Get the complete solution](#GetSolution) （获取完整解决方案）。
-<!-- Should Be https://github.com/stalker314314/DocumentDBCpp for https://github.com/stalker314314/sql-apiCpp-->
-现在，让我们开始吧！
+<!-- Should Be https://github.com/stalker314314/DocumentDBCpp for https://github.com/stalker314314/sql-apiCpp--> 现在，让我们开始吧！
 
 ## <a name="prerequisites-for-the-c-tutorial"></a>C++ 教程的先决条件
 请确保具有以下资源：
@@ -299,4 +295,4 @@ Azure Cosmos DB 支持删除 JSON 文档，为此，可以复制以下代码并�
 * 在 [Azure Cosmos DB 文档页](/cosmos-db/)的“开发”部分了解有关编程模型的详细信息。
 
 [create-account]: create-sql-api-dotnet.md#create-account
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update meta propreties, wording update -->

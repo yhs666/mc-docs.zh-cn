@@ -1,20 +1,20 @@
 ---
-title: 静态数据的 Azure 存储服务加密 | Microsoft Docs
+title: 静态数据的 Azure 存储服务加密 | Azure
 description: 使用 Azure 存储服务加密功能可在存储数据时在服务端加密 Azure Blob 存储，并在检索数据时解密数据。
 services: storage
 author: yunan2016
 manager: digimobile
 ms.service: storage
 ms.topic: article
-origin.date: 03/14/2018
-ms.date: 03/20/2018
+origin.date: 06/12/2018
+ms.date: 07/02/2018
 ms.author: v-nany
-ms.openlocfilehash: 5dcc05e99d6f6268f558490d5b320c75d41de36b
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.openlocfilehash: 5b76dcbb56badc58624ac599f97acb1c51991779
+ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30155512"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37103087"
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>静态数据的 Azure 存储服务加密
 
@@ -41,7 +41,7 @@ ms.locfileid: "30155512"
 
 **问：若已有经典存储帐户。能否对其启用存储服务加密？**
 
-答：默认对所有存储帐户（经典和资源管理器）启用存储服务加密。
+答：将对所有存储帐户（经典和资源管理器）启用存储服务加密。
 
 **问：如何在经典存储帐户中加密数据？**
 
@@ -53,7 +53,7 @@ ms.locfileid: "30155512"
 
 **问：如何在资源管理器存储帐户中加密数据？**
 
-答：默认已对所有存储帐户（经典存储帐户和资源管理存储帐户）启用存储服务加密。 但是，现有数据不会加密。 要加密现有数据，可将它们复制为另一个名称或复制到另一个容器，并删除未加密的版本。 
+答：将对所有存储帐户（经典和资源管理器）启用存储服务加密，启用加密前创建的存储帐户中的任何已有文件都会由后台加密进程以追溯方式进行加密。
 
 **问：是否可以使用 Azure PowerShell 和 Azure CLI 创建存储帐户并启用存储服务加密？**
 
@@ -66,7 +66,7 @@ ms.locfileid: "30155512"
 
 **问：创建存储帐户时，是否会默认启用存储服务加密？**
 
-答：默认已对所有存储帐户启用使用 Microsoft 托管密钥的存储服务帐户- Azure 资源管理器帐户和经典存储帐户。 对所有服务启用 - Blob 存储、表存储、队列存储和 Azure 文件。
+答：是的，将会为所有存储帐户和所有 Azure 存储服务启用存储服务加密。
 
 **问：此功能与 Azure 磁盘加密有何不同？**
 
@@ -91,4 +91,3 @@ ms.locfileid: "30155512"
 
 ## <a name="next-steps"></a>后续步骤
 Azure 存储提供一整套安全性功能，这些功能相辅相成，帮助开发人员构建安全的应用程序。 有关详细信息，请参阅[存储安全指南](../storage-security-guide.md)。
-

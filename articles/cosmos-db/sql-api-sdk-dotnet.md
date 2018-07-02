@@ -1,27 +1,24 @@
 ---
 title: Azure Cosmos DB：SQL .NET API、SDK 和资源 | Azure
-description: 了解有关 SQL .NET API 和 SDK 的所有信息，包括发布日期、停用日期和 Azure Cosmos DB .NET SDK 各版本之间所做的更改。
+description: 了解有关 SQL .NET API 的所有信息。
 services: cosmos-db
-documentationcenter: .net
 author: rockboyfor
 manager: digimobile
 editor: cgronlun
-ms.assetid: 8e239217-9085-49f5-b0a7-58d6e6b61949
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: reference
 origin.date: 03/09/2018
-ms.date: 06/11/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 59a7de233ffa6697e7dbee3d22e5a97f1ced6feb
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: 6dc8826b8be64898a3e53d830e5e05648019406c
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867343"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070102"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>适用于 SQL API 的 Azure Cosmos DB .NET SDK：下载和发行说明
 > [!div class="op_single_selector"]
@@ -63,4 +60,4 @@ ms.locfileid: "34867343"
 
 ## <a name="see-also"></a>另请参阅
 若要了解有关 Cosmos DB 的详细信息，请参阅 [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) 服务页。
-<!-- Update_Description: update meta properties, wording update, update link -->
+<!-- Update_Description: update meta properties, wording update -->

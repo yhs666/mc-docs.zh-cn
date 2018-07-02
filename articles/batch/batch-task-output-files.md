@@ -11,14 +11,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 origin.date: 06/16/2017
-ms.date: 05/15/2018
+ms.date: 06/29/2018
 ms.author: v-junlch
-ms.openlocfilehash: 7bc0647da2f95cc7dfed6fb3ae869e89406d2eba
-ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
+ms.openlocfilehash: f2859110e23f975b7d7023cf4bdeb43909cea1ce
+ms.sourcegitcommit: c587cc1c53b1f92b45fae0d1ff8e1f7bd544bc55
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "34173340"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37103244"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>使用 Batch 服务 API 将任务数据持久保存到 Azure 存储
 
@@ -181,7 +181,7 @@ string containerName = job.OutputStorageContainerName();
 
 [PersistOutputs][github_persistoutputs] 示例项目是 GitHub 上的 [Azure Batch 代码示例][github_samples]之一。 此 Visual Studio 解决方案演示如何使用适用于 .NET 的 Batch 客户端库将任务输出保存到持久性存储。 若要运行该示例，请遵循以下步骤：
 
-1. 在 **Visual Studio 2015 或更新版本**中打开该项目。
+1. 在 **Visual Studio 2017** 中打开该项目。
 2. 将 Batch 和存储**帐户凭据**添加到 Microsoft.Azure.Batch.Samples.Common 项目中的 **AccountSettings.settings**。
 3. **生成**（但不要运行）该解决方案。 根据提示还原所有 NuGet 包。
 4. 使用 Azure 门户上传 **PersistOutputsTask** 的[应用程序包](batch-application-packages.md)。 在 .zip 包中包含 `PersistOutputsTask.exe` 及其依赖程序集，将应用程序 ID 设置为“PersistOutputsTask”，将应用程序包版本设置为“1.0”。
@@ -197,4 +197,4 @@ string containerName = job.OutputStorageContainerName();
 [github_persistoutputs]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/PersistOutputs
 [github_samples]: https://github.com/Azure/azure-batch-samples
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

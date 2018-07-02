@@ -2,32 +2,28 @@
 title: 利用生存时间使 Azure Cosmos DB 中的数据过期 | Azure
 description: 通过 TTL 功能，Azure Cosmos DB 能够在一段时间后将文档自动从系统中清除。
 services: cosmos-db
-documentationcenter: ''
 keywords: 生存时间
 author: rockboyfor
 manager: digimobile
-ms.assetid: 25fcbbda-71f7-414a-bf57-d8671358ca3f
 ms.service: cosmos-db
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.devlang: na
+ms.topic: conceptual
 origin.date: 08/29/2017
-ms.date: 06/11/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 09a131a394ad6db760d69b078db36f7bff1ebda4
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: 5746c27cd322b566fe42ac244b74e66ddba0a395
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867418"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070118"
 ---
 # <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>利用生存时间使 Azure Cosmos DB 集合中的数据自动过期
 应用程序可以生成和存储大量数据。 其中的某些数据（如计算机生成的事件数据、日志和用户会话信息）仅在有限的一段时间内才有用。 当数据变得多余，应用程序不再需要时，可以安全地清除这些数据并减少应用程序的存储需求。
 
 通过“生存时间”或 TTL 功能，Azure Cosmos DB 能够在一段时间后将文档自动从数据库中清除。 可以在集合级别设置默认生存时间，并且可以在每个文档上覆盖该时间。 TTL 设置后，无论作为集合默认设置还是在文档级别，Cosmos DB 都会自文档上次修改起的某段时间（以秒为单位）后，自动删除这些文档。
 
-Cosmos DB 中的生存时间针对上次修改该文档的时间使用偏移量。 为此，它会使用每个文档中存在的 `_ts` 字段。 _ts 字段为 unix 型的时期时间戳，表示日期和时间。 每次修改文档时都会更新 `_ts` 字段。 
+Azure Cosmos DB 中的生存时间针对上次修改该文档的时间使用偏移量。 为此，它会使用每个文档中存在的 `_ts` 字段。 _ts 字段为 unix 型的时期时间戳，表示日期和时间。 每次修改文档时都会更新 `_ts` 字段。 
 
 ## <a name="ttl-behavior"></a>TTL 行为
 TTL 功能在两个级别受 TTL 属性控制 - 集合级别和文档级别。 设置这些值时以秒为单位，这些值被视为自上次修改文档所在的 `_ts` 起的增量。
@@ -35,8 +31,8 @@ TTL 功能在两个级别受 TTL 属性控制 - 集合级别和文档级别。 �
 1. 集合的 DefaultTTL
 
    * 如果缺失（或设置为 NULL），则文档不会自动删除。
-   * 如果存在且值为“-1”= 无限期 - 默认情况下，文档不过期
-   * 如果存在且值为某个数字（“n”）- 文档在上次修改“n”秒后过期
+   * 如果存在且值设为“-1”= 无限期 - 则默认情况下，文档不过期
+   * 如果存在且值设为某个数字（“n”）- 则文档在上次修改“n”秒后过期
 2. 文档的 TTL： 
 
    * 属性仅在对父集合设置 DefaultTTL 时适用。

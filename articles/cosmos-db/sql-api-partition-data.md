@@ -4,23 +4,20 @@ description: 了解分区在 Azure Cosmos DB 中的工作原理，分区和分�
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
-documentationcenter: ''
-ms.assetid: 702c39b4-1798-48dd-9993-4493a2f6df9e
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 05/24/2017
-ms.date: 06/11/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: caa35172e0615f1a9766bacc3c9b62d0b9b62765
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: 13dae0e6fef5926803e5658ce3fd486e3e27e29e
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867390"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070208"
 ---
 # <a name="partitioning-in-azure-cosmos-db-using-the-sql-api"></a>使用 SQL API 在 Azure Cosmos DB 中进行分区
 
@@ -83,7 +80,7 @@ ms.locfileid: "34867390"
 Azure Cosmos DB 增加了对 [REST API 版本 2015-12-16](https://docs.microsoft.com/rest/api/cosmos-db/) 的自动分区支持。 为了创建已分区容器，必须在支持的 SDK 平台之一（.NET、Node.js、Java、Python、MongoDB）下载 SDK 版本 1.6.0 或更高版本。 
 
 ### <a name="creating-containers"></a>创建容器
-下面的示例演示的 .NET 代码片段用于创建容器，以存储吞吐量为 20,000 个请求单位/秒的设备遥测数据。 SDK 将设置 OfferThroughput 值（从而设置 REST API 中的 `x-ms-offer-throughput` 请求标头）。 在这里，请将 `/deviceId` 设为分区键。 所选分区键随容器元数据（如名称和索引策略）的其余部分一起保存。
+下面的示例演示的 .NET 代码片段用于创建容器，以存储吞吐量为 20,000 个请求单位/秒的设备遥测数据。 SDK 将设置 OfferThroughput 值（其反过来将设置 REST API 中的 `x-ms-offer-throughput` 请求标头）。 在这里，请将 `/deviceId` 设为分区键。 所选分区键随容器元数据（如名称和索引策略）的其余部分一起保存。
 
 对于此示例，你选取了 `deviceId`，因为你知道：(a) 由于存在大量的设备，写入可以跨分区均匀地分步并且你可以扩展数据库以引入海量数据，(b) 许多请求（如提取设备最近读取内容）仅限于单个 deviceId，并且可以从单个分区进行检索。
 
@@ -190,7 +187,7 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
     .Where(m => m.MetricType == "Temperature" && m.MetricValue > 100);
 ```
 
-从 SDK 1.12.0 及更高版本开始，Cosmos DB 支持使用 SQL 对已分区的容器执行[聚合函数](sql-api-sql-query.md#Aggregates) `COUNT`、`MIN`、`MAX`、`SUM` 和 `AVG`。 查询必须包括单个聚合运算符，并且必须在投影中包括单个值。
+从 SDK 1.12.0 及更高版本开始，Cosmos DB 支持使用 SQL 对已分区的容器执行[聚合函数](sql-api-sql-query.md#Aggregates) `COUNT`、`MIN`、`MAX` 和 `AVG`。 查询必须包括单个聚合运算符，并且必须在投影中包括单个值。
 
 ### <a name="parallel-query-execution"></a>并行查询执行
 Cosmos DB SDK 1.9.0 及更高版本支持并行查询执行选项，这些选项可用于对已分区集合执行低延迟查询，即使在这些查询需要处理大量分区时，也是如此。 例如，以下查询配置为跨分区并行运行。

@@ -3,23 +3,21 @@ title: 使用 Azure Cosmos DB 和 HDInsight (Apache Spark) 的 Lambda 体系结�
 description: 本文介绍如何实现使用 Azure Cosmos DB、HDInsight 和 Spark 的 lambda 体系结构
 keywords: lambda-architecture
 services: cosmos-db
-documentationcenter: ''
 author: rockboyfor
 manager: digimobile
 editor: ''
-ms.assetid: 273aeae9-e31c-4a43-b216-5751c46f212e
 ms.service: cosmos-db
-ms.workload: data-services
-ms.topic: article
+ms.devlang: na
+ms.topic: conceptual
 origin.date: 01/19/2018
-ms.date: 04/23/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: fdd7ffa2aafcb56833f46bc39cb56d43da7a0e47
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 3fe567cefc6fdd6c32cd88972c7e9e6f7bed7681
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31781906"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070263"
 ---
 # <a name="azure-cosmos-db-implement-a-lambda-architecture-on-the-azure-platform"></a>Azure Cosmos DB：在 Azure 平台上实现 lambda 体系结构 
 
@@ -207,8 +205,7 @@ tweets_bytags.write.mode(SaveMode.Overwrite).cosmosDB(writeConfig)
 
 #### <a name="resources"></a>资源
 
-有关完整代码示例，请参阅 [azure-cosmosdb-spark/lambda/samples](https://github.com/Azure/azure-cosmosdb-spark/tree/master/samples/lambda)，其中包括：
-<!-- URL of [azure-cosmosdb-spark/lambda/samples] Should be https://github.com/ -->
+有关完整代码示例，请参阅 [azure-cosmosdb-spark/lambda/samples](https://github.com/Azure/azure-cosmosdb-spark/tree/master/samples/lambda)，其中包括：<!-- URL of [azure-cosmosdb-spark/lambda/samples] Should be https://github.com/ -->
 * 重建的 Lambda 体系结构 - 批处理层[HTML](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20Layer.html) | [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20Layer.ipynb)
 * 重建的 Lambda 体系结构 - 批处理层到服务层[HTML](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20to%20Serving%20Layer.html) | [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/Lambda%20Architecture%20Re-architected%20-%20Batch%20to%20Serving%20Layer.ipynb)
 
@@ -289,4 +286,4 @@ var streamingQuery = streamingQueryWriter.start()
 
 此外，还可以查看文章 [Apache Spark SQL、数据框架和数据集指南](http://spark.apache.org/docs/latest/sql-programming-guide.html)以及 [Azure HDInsight 上的 Apache Spark](../hdinsight/spark/apache-spark-jupyter-spark-sql.md)。
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties -->

@@ -5,22 +5,18 @@ keywords: 如何提高数据库性能
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
-documentationcenter: ''
-ms.assetid: 94ff155e-f9bc-488f-8c7a-5e7037091bb9
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 01/24/2018
-ms.date: 06/11/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: cde6d329d3368109beb46604e4c845d5bb9bd9a2
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: d7533766d0fac503ed0508bd0a015a6036b396cf
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867428"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070264"
 ---
 > [!div class="op_single_selector"]
 > * [异步 Java](performance-tips-async-java.md)
@@ -43,27 +39,27 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
     客户端连接到 Azure Cosmos DB 的方式对性能有重大影响（尤其在观察到的客户端延迟方面）。 有两个重要配置设置可用于配置客户端连接策略 - 连接*模式*和[连接*协议*](#connection-protocol)。  两种可用模式：
 
-   1. 网关模式（默认）
+    * 网关模式（默认）
 
-      网关模式受所有 SDK 平台的支持并已配置为默认设置。 如果应用程序在有严格防火墙限制的企业网络中运行，则网关模式是最佳选择，因为它使用标准 HTTPS 端口与单个终结点。 但是，对于性能的影响是每次读取或写入 Azure Cosmos DB 数据时，网关模式都涉及到额外的网络跃点。 因此，直接模式因为网络跃点较少，可以提供更好的性能。
+     网关模式受所有 SDK 平台的支持并已配置为默认设置。 如果应用程序在有严格防火墙限制的企业网络中运行，则网关模式是最佳选择，因为它使用标准 HTTPS 端口与单个终结点。 但是，对于性能的影响是每次读取或写入 Azure Cosmos DB 数据时，网关模式都涉及到额外的网络跃点。 因此，直接模式因为网络跃点较少，可以提供更好的性能。
 
-   2. 直接模式
+    * 直接模式
 
-     直接模式支持通过 TCP 和 HTTPS 协议的连接。 目前，只有用于 Windows 平台的 .NET Standard 2.0 支持直接模式。
+     直接模式支持通过 TCP 和 HTTPS 协议的连接。 目前，只有用于 Windows 平台的 .NET Standard 2.0 支持直接模式。 使用直接模式时，有两个可用的协议选项：
 
-<a name="use-tcp"></a>
-2. **连接策略：使用 TCP 协议**
+    * TCP
+    * HTTPS
 
-    使用直接模式时，有两个可用的协议选项：
+    使用网关模式时，Azure Cosmos DB 使用端口 443，MongoDB API 使用 10250、10255 和 10256 端口。 10250 端口映射到没有异地复制功能的默认 Mongodb 实例，10255/10256 端口映射到具有异地复制功能的 Mongodb 实例。 在直接模式下使用时 TCP 时，除了网关端口外，还需确保端口 10000 到 20000 范围之间的端口处于打开状态，因为 Azure Cosmos DB 使用动态 TCP 端口。 如果这些端口未处于打开状态，则会在尝试使用 TCP 时收到“503 服务不可用”错误。 下表显示可用于不同 API 的连接模式以及每个 API 的服务端口用户：
 
-   * TCP
-   * HTTPS
+    |连接模式  |支持的协议  |支持的 SDK  |API/服务端口  |
+    |---------|---------|---------|---------|
+    |网关  |   HTTPS    |  所有 SDK    |   SQL(443)、Mongo(10250, 10255, 10256)    |
+    |直接    |    HTTPS     |  .Net 和 Java SDK    |    SQL(443)   |
+    |直接    |     TCP    |  .NET SDK    | 10,000-20,000 范围内的端口 |
+    <!--Not Available on Table(443), Cassandra(443), Graph(443)--> Azure Cosmos DB 提供基于 HTTPS 的简单开放 RESTful 编程模型。 此外，它提供高效的 TCP 协议，该协议在其通信模型中也是 RESTful，可通过 .NET 客户端 SDK 获得。 直接 TCP 和 HTTPS 都使用 SSL 进行初始身份验证和加密流量。 为了获得最佳性能，请尽可能使用 TCP 协议。
 
-     Azure Cosmos DB 提供基于 HTTPS 的简单开放 RESTful 编程模型。 此外，它提供高效的 TCP 协议，该协议在其通信模型中也是 RESTful，可通过 .NET 客户端 SDK 获得。 直接 TCP 和 HTTPS 都使用 SSL 进行初始身份验证和加密流量。 为了获得最佳性能，请尽可能使用 TCP 协议。
-
-     在网关模式下使用 TCP 时，TCP 端口 443 是 Azure Cosmos DB 端口，10255 是 MongoDB API 端口。 在直接模式下使用时 TCP 时，除了网关端口外，还需确保端口 10000 到 20000 范围之间的端口处于打开状态，因为 Azure Cosmos DB 使用动态 TCP 端口。 如果这些端口未处于打开状态，则会在尝试使用 TCP 时收到“503 服务不可用”错误。
-
-     连接模式是在构造 DocumentClient 实例期间使用 ConnectionPolicy 参数配置的。 如果使用直接模式，则也可以在 ConnectionPolicy 参数中设置协议。
+    连接模式是在构造 DocumentClient 实例期间使用 ConnectionPolicy 参数配置的。 如果使用直接模式，则也可以在 ConnectionPolicy 参数中设置协议。
 
     ```csharp
     var serviceEndpoint = new Uri("https://contoso.documents.net");
@@ -80,20 +76,19 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
     ![Azure Cosmos DB 连接策略演示](./media/performance-tips/connection-policy.png)
 
-3. **调用 OpenAsync 以避免首次请求时启动延迟**
+2. **调用 OpenAsync 以避免首次请求时启动延迟**
 
     默认情况下，第一个请求因为必须提取地址路由表而有较高的延迟。 为了避免首次请求时的这种启动延迟，应该在初始化期间调用 OpenAsync() 一次，如下所示。
 
         await client.OpenAsync();
    <a name="same-region"></a>
-4. **将客户端并置在同一 Azure 区域中以提高性能**
+3. **将客户端并置在同一 Azure 区域中以提高性能**
 
     如果可能，请将任何调用 Azure Cosmos DB 的应用程序放在与 Azure Cosmos DB 数据库所在的相同区域中。 在同一区域对 Azure Cosmos DB 进行的调用在 1-2 毫秒内完成（近似比较）。 根据请求采用的路由，各项请求从客户端传递到 Azure 数据中心边界时的此类延迟可能有所不同。 通过确保在与预配 Azure Cosmos DB 终结点所在的同一 Azure 区域中调用应用程序，可能会实现最低的延迟。 有关可用区域的列表，请参阅 [Azure Regions](https://www.azure.cn/support/service-dashboard/#services)（Azure 区域）。
     <!--Not Available on time span between East to West coast-->
     
-    ![Azure Cosmos DB 连接策略演示](./media/performance-tips/same-region.png)
-   <a name="increase-threads"></a>
-5. **增加线程/任务数目**
+    ![Azure Cosmos DB 连接策略演示](./media/performance-tips/same-region.png) <a name="increase-threads"></a>
+4. **增加线程/任务数目**
 
     由于对 Cosmos DB 的调用是通过网络执行的，因此可能需要改变请求的并行度，以便最大程度地减少客户端应用程序等待请求的时间。 例如，如果使用的是 .NET 的[任务并行库](https://msdn.microsoft.com//library/dd460717.aspx)，请创建大约数百个读取或写入 Azure Cosmos DB 的任务。
 

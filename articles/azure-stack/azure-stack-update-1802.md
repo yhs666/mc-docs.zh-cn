@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/08/2018
-ms.date: 05/24/2018
+origin.date: 05/30/2018
+ms.date: 06/27/2018
 ms.author: v-junlch
 ms.reviewer: justini
-ms.openlocfilehash: 87e16bf60f06539d6c8b30f8b7c41c292f6968ed
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: e79ccedca4644fa32366f0204c95bcebe151e0d4
+ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34475064"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37027204"
 ---
 # <a name="azure-stack-1802-update"></a>Azure Stack 1802 更新
 
@@ -38,7 +38,7 @@ Azure Stack 1802 更新内部版本号为 **20180302.1**。
 
 ## <a name="before-you-begin"></a>准备阶段    
 > [!IMPORTANT]    
-> 在安装此更新的过程中，请勿尝试创建虚拟机。 有关如何管理更新的详细信息，请参阅[在 Azure Stack 中管理更新的概述](/azure-stack/azure-stack-updates#plan-for-updates)。
+> 在安装此更新的过程中，请勿尝试创建虚拟机。 有关如何管理更新的详细信息，请参阅[在 Azure Stack 中管理更新的概述](azure-stack-updates.md#plan-for-updates)。
 
 
 ### <a name="prerequisites"></a>先决条件
@@ -59,7 +59,7 @@ Azure Stack 1802 更新内部版本号为 **20180302.1**。
 
 ### <a name="post-update-steps"></a>更新后步骤
 安装 1802 之后，请安装任何适用的修补程序。 有关详细信息，请查看以下知识库文章，以及我们的[服务策略](azure-stack-servicing-policy.md)。 
-- Azure Stack 修补程序 **1.0.180302.4**。 [KB 4131152 - 现有虚拟机规模集可能不可用](https://support.microsoft.com/help/4131152) 
+- Azure Stack 修补程序 **1.0.180302.4**。 [KB 4131152 - 现有虚拟机规模集可能不可用]( https://support.microsoft.com/help/4131152) 
 
   此修补程序还可解决 [KB 4103348 - 尝试安装 Azure Stack 更新时，网络控制器 API 服务崩溃](https://support.microsoft.com/help/4103348)中详述的问题。
 
@@ -109,6 +109,9 @@ Azure Stack 1802 更新内部版本号为 **20180302.1**。
 下面是内部版本 **20180302.1** 的安装后已知问题
 
 #### <a name="portal"></a>门户
+- <!-- 2332636 - IS --> 对 Azure Stack 标识系统使用 AD FS 并更新到此版本的 Azure Stack 时，默认提供程序订阅的默认所有者将重置为内置的 **CloudAdmin** 用户。  
+  解决方法：若要在安装此更新后解决该问题，请使用[触发自动化以便在 Azure Stack 中配置声明提供程序信任](azure-stack-integrate-identity.md#trigger-automation-to-configure-claims-provider-trust-in-azure-stack-1)过程中的步骤 3 来重置默认提供程序订阅的所有者。   
+
 - 在管理员门户中[从下拉列表提交新的支持请求](azure-stack-manage-portals.md#quick-access-to-help-and-support)的功能不可用。 请改用以下链接：     
     - 对于 Azure Stack 集成系统，请使用 https://aka.ms/newsupportrequest。
 
@@ -139,10 +142,25 @@ Azure Stack 1802 更新内部版本号为 **20180302.1**。
 
 
 #### <a name="health-and-monitoring"></a>运行状况和监视
-更新到 1802 后没有任何已知问题。
+- <!-- 1264761 - IS ASDK --> 可能会看到具有以下详细信息的*运行状况控制器*组件的警报：  
 
-#### <a name="marketplace"></a>应用商店
-- 用户无需订阅就能浏览整个商城，并且能看到计划和产品/服务等管理项。 对用户而言，这些项是非功能性的。
+  警报 #1：
+   - 名称：基础结构角色不正常
+   - 严重性：警告
+   - 组件：运行状况控制器
+   - 说明：运行状况控制器检测信号扫描仪不可用。 这可能会影响运行状况报告和指标。  
+
+  警报 #2：
+   - 名称：基础结构角色不正常
+   - 严重性：警告
+   - 组件：运行状况控制器
+   - 说明：运行状况控制器故障扫描仪不可用。 这可能会影响运行状况报告和指标。
+
+  可以放心地忽略这两个警报。 它们将随着时间的推移自动关闭。  
+
+
+#### <a name="marketplace"></a>市场
+- 用户无需订阅就能浏览整个市场，并且能看到计划和套餐等管理项。 对用户而言，这些项是非功能性的。
 
 #### <a name="compute"></a>计算
 - 无法在门户中使用虚拟机规模集的缩放设置。 解决方法是使用 [Azure PowerShell](/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set)。 由于 PowerShell 版本差异，必须使用 `-Name` 参数，而不是 `-VMScaleSetName`。
@@ -151,7 +169,7 @@ Azure Stack 1802 更新内部版本号为 **20180302.1**。
 
   版本 1803 中已解决此问题。 若要在版本 1802 中解决此问题，请安装 Azure Stack 修补程序 **1.0.180302.4**。 有关详细信息，请参阅 [KB 4131152：现有虚拟机规模集可能不可用]( https://support.microsoft.com/help/4131152)。 
 
-- Azure Stack 支持只使用固定类型的 VHD。 某些通过 Azure Stack 上的商城提供的映像使用动态 VHD，但这些映像已删除。 重设附加了动态磁盘的虚拟机 (VM) 的大小会导致该 VM 处于故障状态。
+- Azure Stack 支持只使用固定类型的 VHD。 某些通过 Azure Stack 上的市场提供的映像使用动态 VHD，但这些映像已删除。 重设附加了动态磁盘的虚拟机 (VM) 的大小会导致该 VM 处于故障状态。
 
   若要解决此问题，请删除 VM，但不删除 VM 的磁盘（存储帐户中的 VHD Blob）。 然后将 VHD 从动态磁盘转换为固定磁盘，接着重新创建虚拟机。
 
@@ -279,6 +297,8 @@ Azure Stack 1802 更新内部版本号为 **20180302.1**。
 <!--
 #### Identity
 -->
+
+
 
 #### <a name="downloading-azure-stack-tools-from-github"></a>从 GitHub 下载 Azure Stack 工具
 - 使用 *invoke-webrequest* PowerShell cmdlet 从 Github 下载 Azure Stack 工具时，收到一个错误：     

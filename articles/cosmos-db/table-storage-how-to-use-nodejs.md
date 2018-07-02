@@ -1,29 +1,26 @@
 ---
-title: 如何通过 Node.js 使用 Azure 表存储或 Azure Cosmos DB | Azure
-description: 使用 Azure 表存储或 Azure Cosmos DB 将结构化数据存储在云中。
+title: 如何通过 Node.js 使用 Azure 表存储 | Azure
+description: 使用 Azure 表存储将结构化数据存储在云中。
 services: cosmos-db
-documentationcenter: nodejs
 author: rockboyfor
 manager: digimobile
-ms.assetid: fc2e33d2-c5da-4861-8503-53fdc25750de
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-table
 ms.devlang: nodejs
-ms.topic: article
+ms.topic: sample
 origin.date: 04/05/2018
-ms.date: 04/23/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 029ad09cb014cf209b419055645137a55aa117e5
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 3866b5dc3b961b80d58362ab0a12f43e25c7bf77
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782227"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070206"
 ---
 # <a name="how-to-use-azure-table-storage-from-nodejs"></a>如何通过 Node.js 使用 Azure 表存储
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
+[!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
 ## <a name="overview"></a>概述
 本文介绍如何使用 Node.js 应用程序中的 Azure 存储表服务或 Azure Cosmos DB 执行常见任务。
@@ -39,7 +36,7 @@ ms.locfileid: "31782227"
 <!-- Not Available on ### Create an Azure Cosmos DB Table API account-->
 
 ## <a name="configure-your-application-to-access-azure-storage"></a>创建用于访问 Azure 存储的应用程序
-若要使用 Azure 存储，需要用于 Node.js 的 Microsoft Azure 存储 SDK，其中包括一组便于与存储 REST 服务进行通信的库。
+若要使用 Azure 存储，需要 Azure Storage SDK for Node.js ，其中包括一组便于与存储 REST 服务进行通信的库。
 
 ### <a name="use-node-package-manager-npm-to-install-the-package"></a>使用节点包管理器 (NPM) 安装包
 1. 使用 PowerShell (Windows)、Terminal (Mac) 或 Bash (Unix) 等命令行接口导航到在其中创建了应用程序的文件夹。
@@ -454,8 +451,7 @@ tableSAS = tableSvc.generateSharedAccessSignature('hometasks', { Id: 'user2' });
 
 * [Azure 存储资源管理器](../vs-azure-tools-storage-manage-with-storage-explorer.md)是免费的独立应用，适用于在 Windows、macOS 和 Linux 上以可视方式处理 Azure 存储数据。
 <!-- Notice: Remove from Microsoft -->
-* GitHub 上的[用于 Node.js 的 Microsoft Azure 存储 SDK](https://github.com/Azure/azure-storage-node) 存储库。
+* GitHub 上的 [Azure Storage SDK for Node.js](https://github.com/Azure/azure-storage-node) 存储库。
 * [面向 Node.js 开发人员的 Azure](https://docs.microsoft.com/javascript/azure/?view=azure-node-latest)
 * [在 Azure 中创建 Node.js Web 应用](../app-service/app-service-web-get-started-nodejs.md)
-* [构建 Node.js 应用程序并将其部署到 Azure 云服务](../cloud-services/cloud-services-nodejs-develop-deploy-app.md)（使用 Windows PowerShell）
-<!--Update_Description: update meta properties, wording update, update link -->
+* [构建 Node.js 应用程序并将其部署到 Azure 云服务](../cloud-services/cloud-services-nodejs-develop-deploy-app.md)（使用 Windows PowerShell）<!--Update_Description: update meta properties, wording update, update link -->

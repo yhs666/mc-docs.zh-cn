@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/17/2018
-ms.date: 05/24/2018
+origin.date: 06/18/2018
+ms.date: 06/26/2018
 ms.author: v-junlch
-ms.openlocfilehash: 073b2f72136c30a4bca512d4445068ed4f000122
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 01ef5a953d59621316e101976c4ea8bb32702944
+ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475005"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37027196"
 ---
 # <a name="enable-multi-tenancy-in-azure-stack"></a>在 Azure Stack 中启用多租户
 
@@ -31,19 +31,21 @@ ms.locfileid: "34475005"
  - Mary 是来宾用户所在的 fabrikam.partner.onmschina.cn 的目录管理员。 
  - Mary 的公司收到你的公司提供的 IaaS 和 PaaS 服务，并需要允许来宾目录 (fabrikam.partner.onmschina.cn) 中的用户登录 contoso.partner.onmschina.cn 并使用其中的 Azure Stack 资源。
 
-本指南提供了此方案上下文中所需的步骤，用于在 Azure Stack 中配置多租户。  在此方案中，你和 Mary 必须完成相关步骤以使 Fabrikam 中的用户能够登录并使用 Contoso 中部署的 Azure Stack 提供的服务。  
+本指南提供了此方案上下文中所需的步骤，用于在 Azure Stack 中配置多租户。 在此方案中，你和 Mary 必须完成相关步骤以使 Fabrikam 中的用户能够登录并使用 Contoso 中部署的 Azure Stack 提供的服务。  
 
 ## <a name="before-you-begin"></a>准备阶段
+
 在 Azure Stack 中配置多租户之前，需要考虑几个先决条件：
   
  - 你和 Mary 必须在安装 Azure Stack 的目录 (Contoso) 和来宾目录 (Fabrikam) 之间协调管理步骤。  
  - 确保已[安装](azure-stack-powershell-install.md)并[配置](azure-stack-powershell-configure-admin.md)适用于 Azure Stack 的 PowerShell。
  - [下载 Azure Stack Tools](azure-stack-powershell-download.md)，并导入“连接和标识”模块：
 
-    ````PowerShell
-        Import-Module .\Connect\AzureStack.Connect.psm1
-        Import-Module .\Identity\AzureStack.Identity.psm1
-    ```` 
+    ````PowerShell  
+    Import-Module .\Connect\AzureStack.Connect.psm1
+    Import-Module .\Identity\AzureStack.Identity.psm1
+    ````
+
  - Mary 将需要 Azure Stack 的 [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) 访问权限。 
 
 ## <a name="configure-azure-stack-directory"></a>配置 Azure Stack 目录
@@ -52,7 +54,8 @@ ms.locfileid: "34475005"
 ### <a name="onboard-guest-directory-tenant"></a>加入来宾目录租户
 接下来，将来宾目录租户 (Fabrikam) 加入到 Azure Stack。  此步骤将 Azure 资源管理器配置为接受来自来宾目录租户的用户和服务主体。
 
-````PowerShell
+````PowerShell  
+## The following ARM endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
 $adminARMEndpoint = "https://adminmanagement.local.azurestack.external"
 
 ## Replace the value below with the Azure Stack directory
@@ -80,6 +83,7 @@ Register-AzSGuestDirectoryTenant -AdminResourceManagerEndpoint $adminARMEndpoint
 来宾目录管理员允许 Azure Stack 访问 Fabrikam 的目录后，Mary 必须将 Azure Stack 注册到 Fabrikam 的目录租户。
 
 ````PowerShell
+## The following ARM endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
 $tenantARMEndpoint = "https://management.local.azurestack.external"
     
 ## Replace the value below with the guest tenant directory. 

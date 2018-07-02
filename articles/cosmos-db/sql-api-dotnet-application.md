@@ -3,25 +3,22 @@ title: 适用于 Azure Cosmos DB 的 ASP.NET MVC 教程：Web 应用程序开发
 description: 介绍如何创建使用 Azure Cosmos DB 的 MVC Web 应用程序的 ASP.NET MVC 教程。 将存储 JSON 并从 Azure 网站上托管的待办事项应用程序中访问数据 — ASP NET MVC 教程分步说明。
 keywords: asp.net mvc 教程, web 应用程序开发, mvc web 应用程序, asp net mvc 教程分步说明
 services: cosmos-db
-documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-ms.assetid: 52532d89-a40e-4fdf-9b38-aadb3a4cccbc
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: tutorial
 origin.date: 08/03/2017
-ms.date: 04/23/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
 ms.custom: devcenter
-ms.openlocfilehash: 93f427606a023bb2a17e2316be2395b936b13f68
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: d6ba72be842df6de7215d7dc07b07570cb2ab3f9
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782199"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070258"
 ---
 <a name="_Toc395809351"></a>
 # <a name="aspnet-mvc-tutorial-web-application-development-with-azure-cosmos-db"></a>ASP.NET MVC 教程：开发采用 Azure Cosmos DB 的 Web 应用程序
@@ -432,9 +429,9 @@ ms.locfileid: "31782199"
 
     此代码会调用到 DocumentDBRepository，并使用 CreateItemAsync 方法将新的待办事项保存到数据库。 
 
-    **安全说明**：此处所使用的 **ValidateAntiForgeryToken** 属性可帮助此应用程序防止跨站点请求伪造攻击。 这不仅仅是添加此属性，视图也必须使用此防伪令牌。 有关此主题的详细信息以及如何正确实施此操作的示例，请参阅 [防止跨站点请求伪造][Preventing Cross-Site Request Forgery]。 [GitHub][GitHub] 上提供的源代码已有完整实现。
+    **安全说明**：此处所使用的 **ValidateAntiForgeryToken** 属性可帮助此应用程序防止跨站点请求伪造攻击。 这不仅仅是添加此属性，视图也必须使用此防伪令牌。 有关此主题的详细信息以及如何正确实施此操作的示例，请参阅[防止跨站点请求伪造][防止跨站点请求伪造]。 [GitHub][GitHub] 上提供的源代码已有完整实现。
 
-    **安全说明**：我们还会在方法参数中使用 **Bind** 属性，帮助防范 over-posting 攻击。 有关更多详细信息，请参阅 [ASP.NET MVC 中的基本 CRUD 操作][Basic CRUD Operations in ASP.NET MVC]。
+    **安全说明**：我们还会在方法参数中使用 **Bind** 属性，帮助防范 over-posting 攻击。 有关更多详细信息，请参阅 [ASP.NET MVC 中的基本 CRUD 操作][ASP.NET MVC 中的基本 CRUD 操作]。
 
 将新项添加到数据库所需的代码至此结束。
 
@@ -561,12 +558,6 @@ ms.locfileid: "31782199"
 ## <a name="next-steps"></a>后续步骤
 祝贺！ 刚才构建了第一个使用 Azure Cosmos DB 的 ASP.NET MVC Web 应用程序并将其发布到了 Azure。 可以从 [GitHub][GitHub] 下载或克隆完整应用程序（包括本教程未涵盖的详细信息和删除功能）的源代码。 因此，如果想将代码添加到应用中，请捕捉代码，再将它添加到此应用中。
 
-若要向应用程序添加其他功能，请查看 [Azure Cosmos DB .NET 库](https://docs.microsoft.com/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)中提供的 API，并欢迎在 [GitHub][GitHub] 上的 Azure Cosmos DB .NET 库中补充内容。 
+若要向应用程序添加其他功能，请查看 [Azure Cosmos DB .NET 库](https://docs.azure.cn/zh-cn/dotnet/api/overview/cosmosdb?view=azure-dotnet)中提供的 API，并欢迎在 [GitHub][GitHub] 上的 Azure Cosmos DB .NET 库中补充内容。 
 
-<!-- Not Available on [\*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError -->
-[Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
-[Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
-[Preventing Cross-Site Request Forgery]: http://go.microsoft.com/fwlink/?LinkID=517254
-[Basic CRUD Operations in ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
-[GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
-<!-- Update_Description: update meta properties -->
+<!-- Not Available on [\*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError --> [Visual Studio Express]：http://www.visualstudio.com/products/visual-studio-express-vs.aspx [Microsoft Web 平台安装程序]：http://www.microsoft.com/web/downloads/platform.aspx [防止跨站点请求伪造]：http://go.microsoft.com/fwlink/?LinkID=517254 [ASP.NET MVC 中的基本 CRUD 操作]：http://go.microsoft.com/fwlink/?LinkId=317598 [GitHub]：https://github.com/Azure-Samples/documentdb-net-todo-app <!-- Update_Description: update meta properties, update link -->

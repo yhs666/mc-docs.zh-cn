@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/17/2018
-ms.date: 05/23/2018
+origin.date: 05/24/2018
+ms.date: 06/27/2018
 ms.author: v-junlch
 ms.reviewer: ''
-ms.openlocfilehash: b5827a29997928e2e944373a6f86b73b468c2077
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: aa0e1de960c70331d8a72c7bf8a2e00ce8811d3f
+ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34474886"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37027233"
 ---
 # <a name="deploy-templates-using-the-azure-stack-portal"></a>使用 Azure Stack 门户部署模板
 
@@ -29,7 +29,7 @@ ms.locfileid: "34474886"
 
 可以使用门户将 Azure 资源管理器模板部署到 Azure Stack。
 
-若要部署模板，请执行以下操作：
+## <a name="to-deploy-a-template"></a>部署模板
 
 1. 登录到门户中，依次选择“新建”、“自定义”。
 2. 选择“模板部署”。
@@ -41,6 +41,6 @@ ms.locfileid: "34474886"
 
 ## <a name="next-steps"></a>后续步骤
 
-[通过 PowerShell 部署模板](azure-stack-deploy-template-powershell.md)
+- [通过 PowerShell 部署模板](azure-stack-deploy-template-powershell.md)
 
 <!-- Update_Description: wording update -->

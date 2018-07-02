@@ -10,12 +10,12 @@ ms.topic: article
 origin.date: 05/11/2018
 ms.date: 06/18/2018
 ms.author: v-yeche
-ms.openlocfilehash: 1dbf973f5e58507a13fe8990c4d8fe2d8cb5026a
-ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
+ms.openlocfilehash: 8cd797dfe36ab8eac1e49be4aa9ac8b868fc102a
+ms.sourcegitcommit: 3130e6042909be0d97d7de5aec7ae9454cd81cfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2018
-ms.locfileid: "35568487"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37102877"
 ---
 # <a name="azure-expressroute-with-azure-site-recovery"></a>将 Azure ExpressRoute 与 Azure Site Recovery 结合使用
 
@@ -32,9 +32,10 @@ ExpressRoute 线路表示通过连接提供商在本地基础结构与 Azure 云
 ## <a name="expressroute-routing-domains"></a>ExpressRoute 路由域
 
 一条 ExpressRoute 线路有多个关联的路由域：
--   [Azure 专用对等互连](../expressroute/expressroute-circuit-peerings.md#azure-private-peering)：可以通过专用对等互连域来连接虚拟网络内部署的 Azure 计算服务（即虚拟机 (IaaS) 和云服务 (PaaS)）。 专用对等互连域被视为进入 Azure 的核心网络的受信任扩展。
--   [Azure 公共对等互连](../expressroute/expressroute-circuit-peerings.md#azure-public-peering)：Azure 存储、SQL 数据库和网站等服务是使用公共 IP 地址提供的。 可以通过公共对等路由域私下连接到公共 IP 地址（包括云服务的 VIP）上托管的服务。 对于新创建的服务，不应再使用公共对等互连；对于 Azure PaaS 服务，应改用 Microsoft 对等互连。
--   [Microsoft 对等互连](../expressroute/expressroute-circuit-peerings.md#microsoft-peering)：与 Microsoft 联机服务（Office 365、Dynamics 365 和 Azure PaaS 服务）的连接通过 Microsoft 对等互连建立。 在连接到 Azure PaaS 服务时，建议使用 Microsoft 对等互连作为路由域。
+-   [Azure 专用对等互连](../expressroute/expressroute-circuit-peerings.md#private-peering)：可以通过专用对等互连域来连接虚拟网络内部署的 Azure 计算服务（即虚拟机 (IaaS) 和云服务 (PaaS)）。 专用对等互连域被视为进入 Azure 的核心网络的受信任扩展。
+-   
+  [Azure 公共对等互连](../expressroute/expressroute-circuit-peerings.md#public-peering)：Azure 存储、SQL 数据库和网站等服务是使用公共 IP 地址提供的。 可以通过公共对等路由域私下连接到公共 IP 地址（包括云服务的 VIP）上托管的服务。 对于新创建的服务，不应再使用公共对等互连；对于 Azure PaaS 服务，应改用 Microsoft 对等互连。
+<!-- Not Available on [Microsoft peering](../expressroute/expressroute-circuit-peerings.md#microsoft-peering)-->
 
 从[此处](../expressroute/expressroute-circuit-peerings.md#routing-domain-comparison)详细了解并比较 ExpressRoute 路由域。
 
@@ -42,7 +43,9 @@ ExpressRoute 线路表示通过连接提供商在本地基础结构与 Azure 云
 
 Azure Site Recovery 支持从本地 [Hyper-V 虚拟机](hyper-v-azure-architecture.md)、[VMware 虚拟机](vmware-azure-architecture.md)和[物理服务器](physical-azure-architecture.md)向 Azure 进行灾难恢复和迁移。 对于所有本地到 Azure 的方案，复制数据都发送到 Azure 存储帐户并存储在其中。 在复制期间，无需支付任何虚拟机费用。 故障转移到 Azure 时，Site Recovery 会自动创建 Azure IaaS 虚拟机。
 
-Site Recovery 通过公共终结点将数据复制到 Azure 存储帐户。 若要使用 ExpressRoute 进行 Site Recovery 复制，可以使用[公共对等互连](../expressroute/expressroute-circuit-peerings.md#azure-public-peering)或 [Microsoft 对等互连](../expressroute/expressroute-circuit-peerings.md#microsoft-peering)。 在复制时，建议使用 Microsoft 对等互连作为路由域。 在将虚拟机或服务器故障转移到 Azure 虚拟网络后，可以使用[专用对等互连](../expressroute/expressroute-circuit-peerings.md#azure-private-peering)访问它们。 不支持通过专用对等互连进行复制。
+Site Recovery 通过公共终结点将数据复制到 Azure 存储帐户。 若要使用 ExpressRoute 进行 Site Recovery 复制，可以使用[公共对等互连](../expressroute/expressroute-circuit-peerings.md#public-peering)。 在将虚拟机或服务器故障转移到 Azure 虚拟网络后，可以使用[专用对等互连](../expressroute/expressroute-circuit-peerings.md#private-peering)访问它们。 不支持通过专用对等互连进行复制。
+<!-- Not Available on [Microsoft peering](../expressroute/expressroute-circuit-peerings.md#microsoft-peering)-->
+<!-- Not Available on Microsoft peering is the recommended routing domain for replication.-->
 
 下图描绘了这种组合方案：![使用 ExpressRoute 进行本地到 Azure 的复制](./media/concepts-expressroute-with-site-recovery/site-recovery-with-expressroute.png)
 
@@ -50,7 +53,7 @@ Site Recovery 通过公共终结点将数据复制到 Azure 存储帐户。 若�
 
 Azure Site Recovery 支持对 [Azure 虚拟机](azure-to-azure-architecture.md)进行灾难恢复。 根据 Azure 虚拟机是否使用 [Azure 托管磁盘](../virtual-machines/windows/managed-disks-overview.md)，复制数据将被发送到目标 Azure 区域中的 Azure 存储帐户或副本托管磁盘。 虽然复制终结点是公共终结点，但在默认情况下，无论源虚拟网络位于哪个 Azure 区域，Azure VM 复制的复制流量都不会遍历 Internet。 对于 0.0.0.0/0 地址前缀，可使用[自定义路由](../virtual-network/virtual-networks-udr-overview.md#custom-routes)覆盖 Azure 的默认系统路由，并将 VM 流量转移到本地网络虚拟设备 (NVA)，但不建议对 Site Recovery 复制使用此配置。 如果使用自定义路由，则应在虚拟网络中为“存储”[创建一个虚拟网络服务终结点](azure-to-azure-about-networking.md#create-network-service-endpoint-for-storage)，这样复制流量就不会离开 Azure 边界。
 
-对于 Azure VM 灾难恢复，默认情况下，复制时不需要 ExpressRoute。 在将虚拟机故障转移到目标 Azure 区域后，可以使用[专用对等互连](../expressroute/expressroute-circuit-peerings.md#azure-private-peering)访问它们。
+对于 Azure VM 灾难恢复，默认情况下，复制时不需要 ExpressRoute。 在将虚拟机故障转移到目标 Azure 区域后，可以使用[专用对等互连](../expressroute/expressroute-circuit-peerings.md#private-peering)访问它们。
 
 如果已经使用 ExpressRoute 从本地数据中心连接到源区域中的 Azure VM，则可以计划在故障转移目标区域重新建立 ExpressRoute 连接。 进行灾难恢复时，可以使用相同的 ExpressRoute 线路通过新的虚拟网络连接连接到目标区域，也可以使用不同的 ExpressRoute 线路和连接。 [此处](azure-vm-disaster-recovery-with-expressroute.md#failover-models-with-expressroute)介绍了各种可能的方案。
 

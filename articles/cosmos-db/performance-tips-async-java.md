@@ -5,22 +5,18 @@ keywords: 如何提高数据库性能
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
-documentationcenter: ''
-ms.assetid: dfe8f426-3c98-4edc-8094-092d41f2795e
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.devlang: java
+ms.topic: conceptual
 origin.date: 03/27/2018
-ms.date: 04/23/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: ffdf5c6ddf9c8db9148e9119f982add7c43f58f4
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: c3ab21797ad13b8925eaa695bb1fa78630d5a3cc
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782633"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070210"
 ---
 > [!div class="op_single_selector"]
 > * [异步 Java](performance-tips-async-java.md)
@@ -137,7 +133,7 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
     org.apache.log4j.Logger.getLogger("io.netty").setLevel(org.apache.log4j.Level.OFF);
     ```
 
-11. **OS 打开文件资源限制**某些 Linux 系统（例如 RedHat）对打开的文件数和连接总数施加上限。 运行以下命令以查看当前限制：
+11. **OS 打开文件资源限制** 某些 Linux 系统（例如 CentOS）对打开的文件数和连接总数施加上限。 运行以下命令以查看当前限制：
 
     ```bash
     ulimit -a
@@ -175,7 +171,7 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
     </dependency>
     ```
 
-对于其他平台（RedHat、Windows、Mac 等），请参考 https://netty.io/wiki/forked-tomcat-native.html 中的说明
+对于其他平台（CentOS、Windows、Mac 等），请参考 https://netty.io/wiki/forked-tomcat-native.html 中的说明
 
 ## <a name="indexing-policy"></a>索引策略
 
@@ -235,5 +231,4 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
 ## <a name="next-steps"></a>后续步骤
 若要深入了解如何设计应用程序以实现缩放和高性能，请参阅 [Azure Cosmos DB 中的分区和缩放](partition-data.md)。
-<!-- Update_Description: new articles on performance tips async java -->
-<!--ms.date: 04/23/2018-->
+<!-- Update_Description: update meta properties, wording update -->
