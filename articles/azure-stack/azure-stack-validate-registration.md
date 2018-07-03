@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 05/08/2018
-ms.date: 05/24/2018
+origin.date: 06/08/2018
+ms.date: 06/27/2018
 ms.author: v-junlch
 ms.reviewer: ''
-ms.openlocfilehash: 431ae726b6e5180d8875b2a4bc94d8e0bcd31b6b
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 885545834e010bee6ea5199f32be325234948025
+ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475131"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37027122"
 ---
 # <a name="validate-azure-registration"></a>验证 Azure 注册 
 使用 Azure Stack 就绪性检查器工具 (AzsReadinessChecker) 验证 Azure 订阅是否已准备好与 Azure Stack 配合使用。 在开始 Azure Stack 部署之前，请验证注册。 就绪性检查器会验证下列项：
@@ -121,3 +121,4 @@ ms.locfileid: "34475131"
 [有关 Azure Stack 集成的一般注意事项](azure-stack-datacenter-integration.md)
 
 
+<!-- Update_Description: wording update -->

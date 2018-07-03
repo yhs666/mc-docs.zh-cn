@@ -7,18 +7,23 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: security
 ms.topic: article
-origin.date: 03/07/2018
-ms.date: 06/18/2018
+origin.date: 06/13/2018
+ms.date: 07/02/2018
 ms.author: v-johch
-ms.openlocfilehash: 86706d4aa50cf43770503a524674c08d23ef9374
-ms.sourcegitcommit: d4176361d9c6da60729c06cc93a496cb4702d4c2
+ms.openlocfilehash: 3f774c7b5842da0a3dd6b7443613cddfc5f7ac07
+ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2018
-ms.locfileid: "35324229"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36948027"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql-database-managed-instance-or-sql-data-warehouse"></a>将 Azure Active Directory 身份验证与 SQL 数据库、托管实例或 SQL 数据仓库结合使用
-Azure Active Directory 身份验证是使用 Azure Active Directory (Azure AD) 中的标识连接到 Azure SQL 数据库和 [SQL 数据仓库](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)的一种机制。 通过 Azure AD 身份验证，可在一个中心位置中集中管理数据库用户和其他 Microsoft 服务的标识。 集中 ID 管理提供一个单一位置来管理数据库用户，并简化权限管理。 包括如下优点：
+Azure Active Directory 身份验证是使用 Azure Active Directory (Azure AD) 中的标识连接到 Azure [SQL 数据库](sql-database-technical-overview.md)和 [SQL 数据仓库](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)的一种机制。 
+
+> [!NOTE]
+> 本主题适用于 Azure SQL 服务器，同时也适用于在 Azure SQL 服务器中创建的 SQL 数据库和 SQL 数据仓库数据库。 为简单起见，在提到 SQL 数据库和 SQL 数据仓库时，本文统称 SQL 数据库。
+
+通过 Azure AD 身份验证，可在一个中心位置中集中管理数据库用户和其他 Azure 服务的标识。 集中 ID 管理提供一个单一位置来管理数据库用户，并简化权限管理。 包括如下优点：
 
 * 提供一个 SQL Server 身份验证的替代方法。
 * 帮助阻止用户标识在数据库服务器之间激增。

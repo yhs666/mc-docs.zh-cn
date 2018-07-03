@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 02/28/2018
-ms.date: 03/26/2018
+origin.date: 06/08/2018
+ms.date: 06/26/2018
 ms.author: v-junlch
-ms.openlocfilehash: 297eb015d429649a2570980088ac23d691bdd8fd
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: 0fb9f154d503d4b9fc1a59ad65ca5f124929c0fd
+ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30222624"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37027080"
 ---
 # <a name="storage-accounts-in-azure-stack"></a>Azure Stack 中的存储帐户
 存储帐户包含 Blob 和表服务，以及存储数据对象的唯一命名空间。 默认情况下，只有你，即存储帐户所有者，才能使用帐户中的数据。
@@ -41,4 +41,4 @@ ms.locfileid: "30222624"
 
 [下载与 Azure 一致的 Azure Stack 存储验证指南](http://aka.ms/azurestacktp1doc)
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

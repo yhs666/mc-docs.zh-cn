@@ -13,17 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/21/2018
-ms.date: 03/01/2018
+ms.date: 06/26/2018
 ms.author: v-junlch
-ms.openlocfilehash: 707277486f1f94b19967e9dc5ff57b5cc7cb4fe6
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.reviewer: unknown
+ms.openlocfilehash: 8d6bde9c2fa6b338a46c1400dd8437f711671d5f
+ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
-ms.locfileid: "29731068"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37027069"
 ---
 # <a name="add-a-new-azure-stack-tenant-account-in-azure-active-directory"></a>在 Azure Active Directory 中添加新的 Azure Stack 租户帐户
-[部署 Azure Stack 开发工具包](azure-stack-run-powershell-script.md)后，需要租户用户帐户，以便浏览租户门户和测试产品/服务和计划。 可以[使用 Azure 门户](#create-an-azure-stack-tenant-account-using-the-azure-portal)或[使用 PowerShell](#create-an-azure-stack-tenant-account-using-powershell) 创建租户帐户。
+
+  [部署 Azure Stack 开发工具包](azure-stack-run-powershell-script.md)后，需要租户用户帐户，以便浏览租户门户并测试套餐和计划。 可以[使用 Azure 门户](#create-an-azure-stack-tenant-account-using-the-azure-portal)或[使用 PowerShell](#create-an-azure-stack-tenant-account-using-powershell) 创建租户帐户。
 
 ## <a name="create-an-azure-stack-tenant-account-using-the-azure-portal"></a>使用 Azure 门户创建 Azure Stack 租户帐户
 必须具有 Azure 订阅才能使用 Azure 门户。
@@ -74,3 +76,4 @@ ms.locfileid: "29731068"
 2. 使用新帐户登录到 `https://portal.local.azurestack.external`，以查看租户门户。
 
 
+<!-- Update_Description: wording update -->

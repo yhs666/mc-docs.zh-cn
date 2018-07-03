@@ -1,26 +1,26 @@
 ---
-title: Azure Stack 存储：差异和注意事项
+title: Azure Stack 存储的差异和注意事项 | Microsoft Docs
 description: 了解 Azure Stack 存储与 Azure 存储之间的差异，以及 Azure Stack 部署注意事项。
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
 manager: femila
-ms.reviwer: xiaofmao
 ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 05/14/2018
-ms.date: 05/23/2018
+origin.date: 05/21/2018
+ms.date: 06/27/2018
 ms.author: v-junlch
-ms.openlocfilehash: ede846bfc62ce07f829c1740b591575ec5ec2435
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.reviwer: xiaofmao
+ms.openlocfilehash: 9002df302e4a6124a7398e89453fa7c2b99bcde1
+ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475076"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37027145"
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Azure Stack 存储：差异和注意事项
 
@@ -28,7 +28,7 @@ ms.locfileid: "34475076"
 
 Azure Stack 存储是 Azure Stack 中的一组存储云服务。 Azure Stack 存储使用与 Azure 一致的语义来提供 Blob、表、队列和帐户管理功能。
 
-本文汇总了 Azure Stack 存储与 Azure 存储服务之间的已知差异。 它还列出了部署 Azure Stack 时要考虑的事项。 有关 Azure Stack 与 Azure 之间大致差异的详细信息，请参阅[重要注意事项](azure-stack-considerations.md)主题。
+本文汇总了 Azure Stack 存储与 Azure 存储服务之间的已知差异。 它还列出了部署 Azure Stack 时要考虑的事项。 有关 Azure 公有云与 Azure Stack 之间大致差异的详细信息，请参阅[重要注意事项](azure-stack-considerations.md)主题。
 
 ## <a name="cheat-sheet-storage-differences"></a>速查表：存储差异
 

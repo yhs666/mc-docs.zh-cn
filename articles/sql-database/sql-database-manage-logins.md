@@ -1,6 +1,6 @@
 ---
 title: Azure SQL 登录名和用户 | Azure
-description: 了解 SQL 数据库安全管理，特别是如何通过服务器级的主体帐户管理数据库的访问和登录安全。
+description: 了解 SQL 数据库和 SQL 数据仓库安全管理，特别是如何通过服务器级的主体帐户管理数据库的访问和登录安全。
 keywords: sql 数据库安全,数据库安全管理,登录安全,数据库安全,数据库访问权限
 services: sql-database
 author: Hayley244
@@ -8,28 +8,25 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: security
 ms.topic: article
-origin.date: 03/16/2018
-ms.date: 06/18/2018
+origin.date: 06/13/2018
+ms.date: 07/02/2018
 ms.author: v-johch
-ms.openlocfilehash: c8b53213161e29b94509ffd8d364e7cf1960563b
-ms.sourcegitcommit: d4176361d9c6da60729c06cc93a496cb4702d4c2
+ms.openlocfilehash: 464b57ced0aab25a8b906f103e799faf0b8c753f
+ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2018
-ms.locfileid: "35324296"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36948111"
 ---
-# <a name="controlling-and-granting-database-access"></a>控制和授予数据库访问权限
+# <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>控制和授予对 SQL 数据库和 SQL 数据仓库的数据库访问权限
 
-配置防火墙规则后，可以使用某个管理员帐户、数据库所有者或数据库中数据库用户的身份连接到 SQL 数据库。  
+配置防火墙规则后，可以使用某个管理员帐户、数据库所有者或数据库中数据库用户的身份连接到 Azure [SQL 数据库](sql-database-technical-overview.md)和 [SQL 数据仓库](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)。  
 
 >  [!NOTE]  
 >  本主题适用于 Azure SQL 服务器，同时也适用于在 Azure SQL 服务器中创建的 SQL 数据库和 SQL 数据仓库数据库。 为简单起见，在提到 SQL 数据库和 SQL 数据仓库时，本文统称 SQL 数据库。 
->
 
 > [!TIP]
 > 有关教程，请参阅[保护 Azure SQL 数据库](sql-database-security-tutorial.md)。
->
-
 
 ## <a name="unrestricted-administrative-accounts"></a>非受限管理帐户
 有两个充当管理员的管理帐户（**服务器管理员**和 **Active Directory 管理员**）。 若要在 SQL 服务器中识别这些管理员帐户，请打开 Azure 门户并导航到 SQL 服务器的属性。

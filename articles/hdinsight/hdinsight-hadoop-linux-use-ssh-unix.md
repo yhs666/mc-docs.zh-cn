@@ -4,7 +4,7 @@ description: 使用安全外壳 (SSH) 访问 HDInsight。 本文档介绍如何�
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 tags: azure-portal
 keywords: linux 中的 hadoop 命令,hadoop linux 命令,hadoop macos,ssh hadoop,ssh hadoop 群集
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 02/07/2018
-ms.date: 03/26/2018
+origin.date: 04/26/2018
+ms.date: 06/25/2018
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: b9faa6e7d73c57942dbe896b493d5b47832f09f1
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.openlocfilehash: 1e66bec4513af6b9aa8893a285be68231b777049
+ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30074926"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36747508"
 ---
 # <a name="connect-to-hdinsight-hadoop-using-ssh"></a>使用 SSH 连接到 HDInsight (Hadoop)
 
@@ -116,6 +116,9 @@ SSH 密钥使用[公钥加密](https://en.wikipedia.org/wiki/Public-key_cryptogr
 
 > [!WARNING]
 > Microsoft 不建议将密码身份验证用于 SSH。 密码可能被猜出，容易受到暴力破解攻击。 我们建议[使用 SSH 密钥进行身份验证](#sshkey)。
+
+> [!IMPORTANT]
+> SSH 帐户密码在创建 HDInsight 群集 70 天后过期。 如果密码过期，可以使用[管理 HDInsight](hdinsight-administer-use-portal-linux.md#change-passwords) 文档中的信息更改它。
 
 ### <a name="create-hdinsight-using-a-password"></a>使用密码创建 HDInsight
 

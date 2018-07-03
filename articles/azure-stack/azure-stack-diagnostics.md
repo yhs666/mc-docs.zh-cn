@@ -7,16 +7,16 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-origin.date: 04/27/2018
-ms.date: 05/24/2018
+origin.date: 06/08/2018
+ms.date: 06/26/2018
 ms.author: v-junlch
 ms.reviewer: adshar
-ms.openlocfilehash: 0c0aaecf1d0e48a208fa3b48bc9e5b1b28cd003e
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 0e55378294d27516209c42cdcff74615bd8408b6
+ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475087"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37027130"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Azure Stack 诊断工具
 
@@ -142,7 +142,7 @@ if($s)
 
 - 如果未指定 **FromDate** 和 **ToDate** 参数，则默认收集过去四小时的日志。
 - 可以使用 **TimeOutInMinutes** 参数设置日志收集的超时。 它默认设置为 150（2.5 小时）。
-
+- 在 1805 和更高版本中，默认已禁用转储文件日志收集。 若要启用它，请使用 **IncludeDumpFile** 开关参数。 
 - 目前，可以使用 **FilterByRole** 参数按以下角色筛选日志收集：
 
    |   |   |   |
@@ -186,7 +186,7 @@ if($s)
 - 此命令需要一些时间来运行，具体取决于日志所收集的角色。 影响因素还包括指定用于日志收集的时限，以及 Azure Stack 环境中的节点数。
 - 当日志收集运行时，请查看在 **OutputSharePath** 参数（在命令中指定）中创建的新文件夹。
 - 每个角色的日志位于各个 zip 文件中。 根据所收集日志的大小，一个角色的日志可能会拆分成多个 zip 文件。 对于此类角色，如果需要将所有日志文件解压缩到单个文件夹中，请使用可以批量解压缩的工具（例如 7zip）。 选择角色的所有压缩文件，然后选择“解压缩到此处”。 这样就会将该角色的所有日志文件解压缩到单个合并的文件夹中。
-- 在压缩的日志文件所在的文件夹中，还会创建名为 **Get-AzureStackLog_Output.log** 的文件。 此文件是一个命令输出日志，可以用来排查日志收集过程中的问题。
+- 在压缩的日志文件所在的文件夹中，还会创建名为 **Get-AzureStackLog_Output.log** 的文件。 此文件是一个命令输出日志，可以用来排查日志收集过程中的问题。 有时，日志文件包含 `PS>TerminatingError` 条目，除非运行日志收集后缺少预期的日志文件，否则可以放心忽略这些条目。
 - 调查某个特定的故障时，可能需要多个组件中的日志。
     -   所有基础结构 VM 的系统和事件日志收集在 *VirtualMachines* 角色中。
     -   所有主机的系统和事件日志收集在 *BareMetal* 角色中。

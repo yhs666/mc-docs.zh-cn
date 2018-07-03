@@ -9,21 +9,21 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 04/12/2018
-ms.date: 06/18/2018
-ms.openlocfilehash: 0117800b569492334d1aa2fd59c719ed234bc42f
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.date: 07/02/2018
+ms.openlocfilehash: 3d10a680736ddb97a5af34c9d9097eedd20af0d3
+ms.sourcegitcommit: 2cf6961f692f318ce7034e7b4d994ee51d902199
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "35416773"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36947667"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>了解和调整流式处理单元
 
-Azure 流分析将运行作业的性能“权重”聚合到流式处理单位（SU）中。 SU 表示执行作业所消耗的计算资源。 在已经对 CPU、内存以及读取和写入速率进行测量的情况下，可以使用 SU 描述相对的事件处理能力。 此容量使你能够专注于查询逻辑，并且无需管理及时运行流分析作业所需的硬件。
+流单元 (SU) 表示分配用于执行作业的计算资源。 SU 数目越大，为作业分配的 CPU 和内存资源就越多。 此容量使你能够专注于查询逻辑，并且无需管理及时运行流分析作业所需的硬件。
 
 为了实现低延迟流式处理，Azure 流分析作业将执行内存中的所有处理。 内存不足时，流式处理作业会失败。 因此，对于生产作业，请务必监视流式处理作业的资源使用情况，并确保分配有足够的资源来保持作业的全天候运行。
 
-指标是一个范围从 0% 到 100% 的百分数。 对于占用最小内存的流式处理作业，SU 利用率指标通常介于 10% 到 20%。 最好保持低于 80% 的指标，以应对偶发的峰值。 Azure 建议针对 SU 利用率指标达到 80% 设置警报，以防止资源耗尽。 
+SU 利用率指标的范围为 0% 到 100%，描述工作负荷的内存消耗量。 对于占用最小内存的流式处理作业，此指标通常介于 10% 到 20%。 如果 SU 利用率较低并且输入事件积压，则可能表示工作负荷需更多的计算资源，这就需要增加 SU 的数目。 最好保持低于 80% 的 SU 指标，以应对偶发的峰值。 Azure 建议针对 SU 利用率指标达到 80% 设置警报，以防止资源耗尽。
 <!-- Not Available on  [Tutorial: Set up alerts for Azure Stream Analytics jobs](stream-analytics-set-up-alerts.md) -->
 
 ## <a name="configure-stream-analytics-streaming-units-sus"></a>配置流分析流式处理单元 (SU)
@@ -152,4 +152,4 @@ ASA 中的引用数据会被加载到内存中，以便快速查找。 在当前
 [img.stream.analytics.perfgraph]: ./media/stream-analytics-scale-jobs/perf.png
 [img.stream.analytics.streaming.units.scale]: ./media/stream-analytics-scale-jobs/StreamAnalyticsStreamingUnitsExample.jpg
 [img.stream.analytics.preview.portal.settings.scale]: ./media/stream-analytics-scale-jobs/StreamAnalyticsPreviewPortalJobSettings-NewPortal.png
-<!--Update_Description: update meta properties, wording update, update link -->
+<!--Update_Description: update meta properties, wording update -->

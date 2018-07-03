@@ -12,21 +12,23 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/01/2018
-ms.date: 05/23/2018
+origin.date: 06/05/2018
+ms.date: 06/27/2018
 ms.author: v-junlch
 ms.reviewer: misainat
-ms.openlocfilehash: 093d359713d63f0bb7536ee49a58773e9b7d800a
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: a8e90d560f1f40ceab0ed523facb7a0cd9f4d1a3
+ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34474952"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37027222"
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>安装 ASDK 后的配置任务
-[安装 ASDK](asdk-install.md) 之后，我们建议做出一些安装后的配置更改。 
 
-## <a name="install-azure-stack-powershell"></a>安装 Azure Stack PowerShell 
+[安装 Azure Stack 开发工具包 (ASDK)](asdk-install.md) 之后，需要实施建议的安装后配置更改。
+
+## <a name="install-azure-stack-powershell"></a>安装 Azure Stack PowerShell
+
 需要安装与 Azure Stack 兼容的 Azure PowerShell 模块才能使用 Azure Stack。
 
 通过 PowerShell 库安装适用于 Azure Stack 的 PowerShell 命令。 若要注册 PSGallery 存储库，请打开权限提升的 PowerShell 会话并运行以下命令：
@@ -37,9 +39,9 @@ Set-PSRepository `
   -InstallationPolicy Trusted
 ```
 
- 通过 API 版本配置文件安装与 Azure Stack 兼容的 AzureRM 模块。 Azure Stack 需要 2017-03-09-profile API 版本配置文件（可通过安装 AzureRM.Bootstrapper 模块获取）。 
- 
- 无论是否与 ASDK 主机建立了 Internet 连接，都可以安装最新 Azure Stack PowerShell 模块：
+可以使用 API 版本配置文件来指定与 Azure Stack 兼容的 AzureRM 模块。  API 版本配置文件提供一种管理 Azure 与 Azure Stack 之间版本差异的方式。 API 版本配置文件是一组具有特定 API 版本 AzureRM PowerShell 模块。 可通过 PowerShell 库获得的 **AzureRM.Bootstrapper** 模块会提供使用 API 版本配置文件所需的 PowerShell cmdlet。
+
+无论是否与 ASDK 主机建立了 Internet 连接，都可以安装最新 Azure Stack PowerShell 模块：
 
 > [!IMPORTANT]
 > 在安装所需版本之前，请务必[卸载任何现有 Azure PowerShell 模块](../azure-stack-powershell-install.md#uninstall-existing-versions-of-powershell)。
@@ -47,7 +49,7 @@ Set-PSRepository `
 - **已从 ASDK 主机建立 Internet 连接**。 运行以下 PowerShell 脚本，在开发工具包安装中安装以下模块：
 
   ``` PowerShell
-  # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet 
+  # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet. 
   Install-Module `
     -Name AzureRm.BootStrapper
 
@@ -55,10 +57,11 @@ Set-PSRepository `
   Use-AzureRmProfile `
     -Profile 2017-03-09-profile -Force
 
-  Install-Module `
-    -Name AzureStack `
-    -RequiredVersion 1.2.11
+  # Install Azure Stack Module Version 1.3.0. If running a pre-1804 version of Azure Stack, change the -RequiredVersion value to 1.2.11.
+  Install-Module -Name AzureStack -RequiredVersion 1.3.0 
+
   ```
+
   如果安装成功，输出中会显示 AzureRM 和 AzureStack 模块。
 
 - **未从 ASDK 主机建立 Internet 连接**。 在离线场景中，必须先使用以下 PowerShell 命令，将 PowerShell 模块下载到已建立 Internet 连接的计算机：
@@ -80,11 +83,13 @@ Set-PSRepository `
     -Name AzureStack `
     -Path $Path `
     -Force `
-    -RequiredVersion 1.2.11
+  # Install Azure Stack Module Version 1.3.0. If running a pre-1804 version of Azure Stack, change the -RequiredVersion value to 1.2.11.  
+    -RequiredVersion 1.3.0
   ```
+
   接下来，将下载的包复制到 ASDK 计算机，将该位置注册为默认存储库，并从此存储库安装 AzureRM 和 AzureStack 模块：
 
-    ```PowerShell
+    ```PowerShell  
     $SourceLocation = "<Location on the development kit that contains the PowerShell packages>"
     $RepoName = "MyNuGetSource"
 
@@ -101,6 +106,7 @@ Set-PSRepository `
     ```
 
 ## <a name="download-the-azure-stack-tools"></a>下载 Azure Stack 工具
+
 [AzureStack-Tools](https://github.com/Azure/AzureStack-Tools) 是托管 PowerShell 模块的 GitHub 存储库，可用于管理资源并将其部署到 Azure Stack。 若要获取这些工具，请克隆 GitHub 存储库，或运行以下脚本来下载 AzureStack-Tools 文件夹：
 
   ```PowerShell
@@ -125,7 +131,7 @@ Set-PSRepository `
 ## <a name="validate-the-asdk-installation"></a>验证 ASDK 安装
 若要确保 ASDK 部署成功，可以遵循以下步骤使用 Test-AzureStack cmdlet：
 
-1. 以 AzureStack\CloudAdmin 身份登录到 ASDK 主机。
+1. 以 AzureStack\AzureStackAdmin 身份登录到 ASDK 主机。
 2. 以管理员身份打开 PowerShell（非 PowerShell ISE）。
 3. 运行： `Enter-PSSession -ComputerName AzS-ERCS01 -ConfigurationName PrivilegedEndpoint`
 4. 运行： `Test-AzureStack`

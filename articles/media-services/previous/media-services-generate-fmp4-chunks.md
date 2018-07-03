@@ -15,18 +15,18 @@ ms.topic: article
 origin.date: 12/09/2017
 ms.date: 12/25/2017
 ms.author: v-nany
-ms.openlocfilehash: 1e319f72bef7405aba4d9859efbc674d5250f999
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 67d3e9d601572ebaf497391a05d71c761028bf88
+ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475172"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36748421"
 ---
 #  <a name="create-an-encoding-task-that-generates-fmp4-chunks"></a>创建生成 fMP4 区块的编码任务
 
 ## <a name="overview"></a>概述
 
-本主题介绍如何创建一个编码任务，以便生成分片的 MP4 (fMP4) 区块而非 ISO MP4 文件。 若要生成 fMP4 区块，请使用 **Media Encoder Standard** 编码器创建一个编码任务，并请指定 **AssetFormatOption.AdaptiveStreaming** 选项，如以下代码片段所示：  
+本文介绍如何创建一个编码任务，以便生成分片的 MP4 (fMP4) 区块而非 ISO MP4 文件。 若要生成 fMP4 区块，请使用 **Media Encoder Standard** 或 **Media Encoder Premium Workflow** 编码器创建一个编码任务，并请指定 **AssetFormatOption.AdaptiveStreaming** 选项，如以下代码片段所示：  
     
 ```csharp
     task.OutputAssets.AddNew(@"Output Asset containing fMP4 chunks", 

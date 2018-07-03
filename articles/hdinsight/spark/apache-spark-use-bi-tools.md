@@ -1,7 +1,6 @@
 ---
-title: 使用 Azure HDInsight 上的数据可视化工具的 Spark BI | Azure
-description: 在 HDInsight 群集上使用 Apache Spark BI 使用数据可视化工具进行分析
-keywords: apache spark bi,spark bi, spark 数据可视化, spark 商业智能
+title: 教程：使用 Power BI 在 Azure HDInsight 中分析 Apache Spark 数据
+description: 使用 Microsoft Power BI 来可视化存储在 HDInsight 群集中的 Spark 数据
 services: hdinsight
 documentationcenter: ''
 author: mumian
@@ -10,32 +9,36 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 1448b536-9bc8-46bc-bbc6-d7001623642a
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
+ms.custom: hdinsightactive,mvc
 ms.devlang: na
-ms.topic: article
-origin.date: 02/14/2018
-ms.date: 03/26/2018
+ms.topic: tutorial
+origin.date: 05/07/2018
+ms.date: 06/25/2018
 ms.author: v-yiso
-ms.openlocfilehash: ae888c5a54f7ec22005a5fce6b17a10f3b8d0110
-ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
+ms.openlocfilehash: 4c8da82c2a8b0f0e05cfaf5fad471a6e75bce8b7
+ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/09/2018
-ms.locfileid: "30941471"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36747353"
 ---
-# <a name="apache-spark-bi-using-data-visualization-tools-with-azure-hdinsight"></a>使用 Azure HDInsight 上的数据可视化工具的 Apache Spark BI
+# <a name="tutorial-analyze-spark-data-using-power-bi-in-hdinsight"></a>教程：使用 Power BI 在 HDInsight 中分析 Spark 数据 
 
-了解如何使用 [Microsoft Power BI](http://powerbi.microsoft.com) 在 Azure HDInsight 上直观显示 Apache Spark 群集中的数据。
+了解如何使用 Microsoft Power BI 在 Azure HDInsight 中可视化 Apache Spark 群集中的数据。
+
+本教程介绍如何执行下列操作：
+> [!div class="checklist"]
+> * 使用 Power BI 可视化 Spark 数据
+
+如果没有 Azure 订阅，可以在开始前[创建一个免费帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
 ## <a name="prerequisites"></a>先决条件
 
-* **完成学习[在 HDInsight 中的 Spark 群集上运行交互式查询](./apache-spark-load-data-run-query.md)一文**。
+* **完成[教程：在 Azure HDInsight 中的 Apache Spark 群集上加载数据并运行查询](./apache-spark-load-data-run-query.md)一文**。
 * **Power BI**[：Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/) 和 [Power BI 试用订阅](https://app.powerbi.com/signupredirect?pbi_source=web)（可选）。
 
 
-## <a name="hivetable"></a>验证数据
+## <a name="verify-the-data"></a>验证数据
 
 [上一教程](apache-spark-load-data-run-query.md)中创建的 Jupyter 笔记本包含用于创建 `hvac` 表的代码。 此表基于在所有 HDInsight Spark 群集上均可用的 CSV 文件（位于 \HdiSamples\HdiSamples\SensorSampleData\hvac\hvac.csv）。 使用以下过程验证数据。
 
@@ -65,7 +68,8 @@ ms.locfileid: "30941471"
     ![在 Spark 中显示 hvac 表中的行](./media/apache-spark-use-bi-tools/select-limit.png)
 
 3. 请在 Notebook 的“文件”菜单中单击“关闭并停止”。 关闭 Notebook 以释放资源。 
-## <a name="powerbi"></a>使用 Power BI
+
+## <a name="visualize-the-data"></a>可视化数据
 
 在本部分，将使用 Power BI 从 Spark 群集数据创建可视化效果、报表和仪表板。 
 
@@ -190,15 +194,19 @@ Power BI 服务允许在整个组织中共享报表和仪表板。 在本部分�
 3. On the next screen, from the **Schema** drop-down, click the **Find** icon, and then click **default**.
 
     ![Find schema for Apache Spark BI](./media/apache-spark-use-bi-tools/tableau-find-schema-apache-spark-bi.png "Find schema for Apache Spark BI")
+    
 4. For the **Table** field, click the **Find** icon again to list all the Hive tables available in the cluster. You should see the **hvac** table you created earlier using the notebook.
 
     ![Find table for Apache Spark BI](./media/apache-spark-use-bi-tools/tableau-find-table-apache-spark-bi.png "Find table for Apache Spark BI")
+    
 5. Drag and drop the table to the top box on the right. Tableau imports the data and displays the schema as highlighted by the red box.
 
     ![Add tables to Tableau for Apache Spark BI](./media/apache-spark-use-bi-tools/tableau-add-table-apache-spark-bi.png "Add tables to Tableau for Apache Spark BI")
+    
 6. Click the **Sheet1** tab at the bottom left. Make a visualization that shows the average target and actual temperatures for all buildings for each date. Drag **Date** and **Building ID** to **Columns** and **Actual Temp**/**Target Temp** to **Rows**. Under **Marks**, select **Area** to use an area map for Spark data visualization.
 
      ![Add fields for Spark data visualization](./media/apache-spark-use-bi-tools/spark-data-visualization-add-fields.png "Add fields for Spark data visualization")
+     
 7. By default, the temperature fields are shown as aggregate. If you want to show the average temperatures instead, you can do so from the drop-down, as shown in the following screenshot:
 
     ![Take average of temperature for Spark data visualization](./media/apache-spark-use-bi-tools/spark-data-visualization-average-temperature.png "Take average of temperature for Spark data visualization")
@@ -210,13 +218,17 @@ Power BI 服务允许在整个组织中共享报表和仪表板。 在本部分�
      Your data visualization should change as shown in the screenshot:
 
     ![Tableau output for Spark data visualization](./media/apache-spark-use-bi-tools/spark-data-visualization-tableau-output.png "Tableau output for Spark data visualization")
+    
 9. Click **Save** to save the worksheet. You can create dashboards and add one or more sheets to it.
 -->
 
 ## <a name="next-steps"></a>后续步骤
 
-到目前为止，已学习如何创建群集、创建用于查询数据的 Spark 数据帧，然后从 BI 工具访问这些数据。 现在可以查看有关如何管理群集资源，以及调试在 HDInsight Spark 群集中运行的作业的说明。
+在本教程中，你已学习了如何执行以下操作：
 
-* [管理 Azure HDInsight 中 Apache Spark 群集的资源](apache-spark-resource-manager.md)
-* [Track and debug jobs running on an Apache Spark cluster in HDInsight（跟踪和调试 HDInsight 中的 Apache Spark 群集上运行的作业）](apache-spark-job-debugging.md)
-<!--Update_Description: update link and change 'wasbs' into 'wasb'-->
+- 使用 Power BI 可视化 Spark 数据。
+
+请前进到下一篇文章，了解如何将在 Spark 中注册的数据拉取到 Power BI 等 BI 分析工具中。 
+> [!div class="nextstepaction"]
+> [运行 Spark 流式处理作业](apache-spark-eventhub-streaming.md)
+

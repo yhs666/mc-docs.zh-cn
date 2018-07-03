@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 03/15/2018
-ms.date: 03/22/2018
+origin.date: 06/08/2018
+ms.date: 06/26/2018
 ms.author: v-junlch
-ms.openlocfilehash: 647f382ae67be3aca0ff3bf993c713dba365faa0
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.openlocfilehash: ea33f3b1468f71fd80be7e9473e86d49b715ed92
+ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30155485"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37027188"
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>提供对 Azure Stack 的应用程序访问权限
 
@@ -46,7 +46,7 @@ ms.locfileid: "30155485"
 ### <a name="create-service-principal"></a>创建服务主体
 在本部分中，将在 Azure AD 中创建表示你的应用程序的应用程序（服务主体）。
 
-1. 通过 [Azure 门户](https://portal.azure.cn)登录 Azure 帐户。
+1. 通过 [Azure 门户](https://portal.azure.cn)登录到 Azure 帐户。
 2. 选择“Azure Active Directory” > “应用注册” > “添加”   
 3. 为应用提供名称和 URL。 选择“Web 应用/API”或“本机”作为要创建的应用程序的类型。 。
 
@@ -78,7 +78,7 @@ ms.locfileid: "30155485"
 
 
 要求：
-- 需要经过认证。
+- 需要证书。
 
 **Parameters**
 
@@ -138,7 +138,7 @@ Add-AzureRmAccount -EnvironmentName "<AzureStackEnvironmentName>" `
 ```
 
 ## <a name="assign-role-to-service-principal"></a>为服务主体分配角色
-要访问订阅中的资源，必须将应用程序分配到角色。 决定哪个角色表示应用程序的相应权限。 若要了解有关可用角色的信息，请参阅 [RBAC：内置角色](../active-directory/role-based-access-built-in-roles.md)。
+要访问订阅中的资源，必须将应用程序分配到角色。 决定哪个角色表示应用程序的相应权限。 若要了解有关可用角色的信息，请参阅 [RBAC：内置角色](../role-based-access-control/built-in-roles.md)。
 
 可将作用域设置为订阅、资源组或资源级别。 较低级别的作用域会继承权限。 例如，将某个应用程序添加到资源组的“读取者”角色意味着该应用程序可以读取该资源组及其包含的所有资源。
 

@@ -1,20 +1,21 @@
 ---
 title: Azure AD UserPrincipalName 填充
 description: 以下文档介绍了如何填充 UserPrincipalName 属性。
-author: yunan2016
-ms.author: v-nany
+author: billmath
+ms.component: hybrid
+ms.author: v-junlch
 origin.date: 02/02/2018
-ms.date: 03/05/2018
+ms.date: 06/26/2018
 ms.topic: article
 ms.workload: identity
 ms.service: active-Directory
-manager: digimobile
-ms.openlocfilehash: 610d4818f5d28b35844d0c60bd3f17336053421a
-ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
+manager: mtillman
+ms.openlocfilehash: b1cbbbb228019d5eb0f3d464c7fcd51c03d43d0c
+ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2018
-ms.locfileid: "29993304"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36947874"
 ---
 # <a name="azure-ad-userprincipalname-population"></a>Azure AD UserPrincipalName 填充
 
@@ -30,14 +31,14 @@ UserPrincipalName 属性值是用户帐户的 Azure AD 用户名。
 |Microsoft 联机电子邮件路由地址 (MOERA)|Azure AD 基于 Azure AD MailNickName 属性和 &lt;MailNickName&gt;&#64;&lt;初始域&gt; 形式的 Azure AD 初始域计算 MOERA。|
 |本地 mailNickName 属性|Active Directory 中的一个属性，其值表示 Exchange 组织中某个用户的别名。|
 |本地 mail 属性|Active Directory 中的一个属性，其值表示某个用户的电子邮件地址|
-|主要 SMTP 地址|Exchange 收件人对象的主要电子邮件地址。 例如，SMTP:user@contoso.com。|
+|主要 SMTP 地址|Exchange 收件人对象的主要电子邮件地址。 例如 SMTP:user\@contoso.com。|
 |备用登录 ID|除 UserPrincipalName 以外的本地属性，例如 mail 属性，用于登录。|
 
 ## <a name="what-is-userprincipalname"></a>什么是 UserPrincipalName？
 UserPrincipalName 是基于 Internet 标准 [RFC 822](http://www.ietf.org/rfc/rfc0822.txt) 的属性，表示某个用户的 Internet 样式登录名。 
 
 ### <a name="upn-format"></a>UPN 格式
-UPN 由 UPN 前缀（用户帐户名）和 UPN 后缀（DNS 域名）组成。 前缀与后缀以“@”符号相联接。 例如“someone@example.com”。 UPN 必须在目录林中的所有安全主体对象之间保持唯一。 
+UPN 由 UPN 前缀（用户帐户名）和 UPN 后缀（DNS 域名）组成。 前缀与后缀以“\@”符号相联接。 例如“someone\@example.com”。 UPN 必须在目录林中的所有安全主体对象之间保持唯一。 
 
 ## <a name="upn-in-azure-ad"></a>Azure AD 中的 UPN 
 Azure AD 使用 UPN 让用户登录。  用户可以使用的 UPN 取决于域是否经过验证。  如果域已验证，则允许具有该后缀的用户名登录到 Azure AD。  
@@ -170,3 +171,4 @@ Azure AD 租户用户对象：
 - [将本地目录与 Azure Active Directory 进行集成](active-directory-aadconnect.md)
 - [Azure AD Connect 的自定义安装](active-directory-aadconnect-get-started-custom.md)
 
+<!-- Update_Description: update metedata properties -->

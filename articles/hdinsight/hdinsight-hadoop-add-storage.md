@@ -12,16 +12,16 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 01/22/2018
-ms.date: 05/28/2018
+origin.date: 04/23/2018
+ms.date: 06/25/2018
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: f5518257a5a59e09119214670ab316c50e7669bb
-ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
+ms.openlocfilehash: 1c4c076c4bca466a5c48e91e07a7c88d37f0d9a5
+ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34449956"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36747322"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>将其他存储帐户添加到 HDInsight
 

@@ -11,12 +11,12 @@ ms.topic: quickstart
 origin.date: 04/24/2018
 ms.date: 06/18/2018
 ms.author: v-nany
-ms.openlocfilehash: 272de5195cae7de897e018a19494cff6444ab4dd
-ms.sourcegitcommit: d4176361d9c6da60729c06cc93a496cb4702d4c2
+ms.openlocfilehash: e618a386481b428d0ec11bab015199447f285b5d
+ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2018
-ms.locfileid: "35324276"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36748344"
 ---
 # <a name="azure-sql-database-connect-and-query-quickstarts"></a>Azure SQL 数据库连接和查询快速入门
 
@@ -41,7 +41,7 @@ ms.locfileid: "35324276"
 |||
 
 ## <a name="tls-considerations-for-sql-database-connectivity"></a>SQL 数据库连接的 TLS 注意事项
-Microsoft 提供或支持的所有驱动程序使用传输层安全性 (TLS) 连接 Azure SQL 数据库。 无需特殊配置。 对于到 SQL Server 或 Azure SQL 数据库的所有连接，我们建议所有应用程序设置以下配置或其等效项：
+Azure 提供或支持的所有驱动程序使用传输层安全性 (TLS) 连接 Azure SQL 数据库。 无需特殊配置。 对于到 SQL Server 或 Azure SQL 数据库的所有连接，我们建议所有应用程序设置以下配置或其等效项：
 
  - **Encrypt = On**
  - **TrustServerCertificate = Off**
@@ -50,7 +50,7 @@ Microsoft 提供或支持的所有驱动程序使用传输层安全性 (TLS) 连
 
 如果需要符合支付卡行业 - 数据安全标准 (PCI-DSS)，我们还建议你在客户端上禁用 TLS 1.1 和 1.0。
 
-默认情况下，非 Microsoft 驱动程序可能不会使用 TLS。 连接到 Azure SQL 数据库时，这可能是一个因素。 使用嵌入式驱动程序的应用程序可能不允许你控制这些连接设置。 我们建议你在与敏感数据进行交互的系统上使用此类驱动程序和应用程序之前，检查这些程序的安全性。
+默认情况下，非 Azure 驱动程序可能不会使用 TLS。 连接到 Azure SQL 数据库时，这可能是一个因素。 使用嵌入式驱动程序的应用程序可能不允许你控制这些连接设置。 我们建议你在与敏感数据进行交互的系统上使用此类驱动程序和应用程序之前，检查这些程序的安全性。
 
 ## <a name="next-steps"></a>后续步骤
 

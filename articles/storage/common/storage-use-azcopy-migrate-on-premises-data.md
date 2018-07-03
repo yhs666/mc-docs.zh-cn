@@ -1,5 +1,5 @@
 ---
-title: 使用 AzCopy 将本地数据迁移到 Azure 存储 | Microsoft 文档
+title: 使用 AzCopy 将本地数据迁移到 Azure 存储 | Azure
 description: 使用 AzCopy 将数据迁移或复制到 blob、表和文件内容或从其中迁移或复制出数据。 轻松将本地存储中的数据迁移到 Azure 存储中。
 services: storage
 author: yunan2016
@@ -11,12 +11,12 @@ ms.topic: tutorial
 origin.date: 12/14/2017
 ms.date: 01/29/2018
 ms.author: v-nany
-ms.openlocfilehash: 96265d9369ccf048b1c448571bc736ac89aa93a5
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: c27c18d03a2a34c092c36bd5fe207783cfefa63f
+ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
-ms.locfileid: "29286178"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37103029"
 ---
 #  <a name="migrate-on-premises-data-to-cloud-storage-by-using-azcopy"></a>使用 AzCopy 将本地数据迁移到云存储
 
@@ -37,12 +37,12 @@ AzCopy 是一个命令行工具，借助该工具，可使用简单命令将数�
 
 ## <a name="prerequisites"></a>先决条件
 
-要完成本教程，请下载最新版本的 AzCopy on [Linux](storage-use-azcopy-linux.md#download-and-install-azcopy) 或 AzCopy on [Windows](http://aka.ms/downloadazcopy)。 
+要完成本教程，请下载最新版本的 AzCopy on [Linux](/storage/common/storage-use-azcopy-linux#download-and-install-azcopy) 或 AzCopy on [Windows](http://aka.ms/downloadazcopy)。 
 
 [!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
 
 >[!NOTE]
->如果希望能够将 blob 从辅助区域下载到本地存储或反向操作，可将“复制”设置为“读取-访问-异地冗余存储”。 选择此选项会创建一个[异地冗余存储](storage-redundancy.md#geo-redundant-storage)帐户。 
+>如果希望能够将 blob 从辅助区域下载到本地存储或反向操作，可将“复制”设置为“读取-访问-异地冗余存储”。 选择此选项会创建一个[异地冗余存储](/storage/common/storage-redundancy)帐户。 
 >
 >
 
@@ -55,13 +55,13 @@ AzCopy 是一个命令行工具，借助该工具，可使用简单命令将数�
 1. 选择主页上的“存储帐户”按钮，然后选择创建的存储帐户。
 2. 选择“服务”下的“Blob”，然后选择“容器”。 
 
-   ![创建容器](./media/storage-azcopy-migrate-on-premises-data/CreateContainer.png)
+   ![创建容器](media/storage-azcopy-migrate-on-premises-data/CreateContainer.png)
  
-容器名必须以字母或数字开头。 名称中只能包含字母、数字和连字符 (-)。 有关命名 Blob 和容器的更多规则，请参阅[命名和引用容器、Blob 和元数据](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)。
+容器名必须以字母或数字开头。 名称中只能包含字母、数字和连字符 (-)。 有关命名 Blob 和容器的更多规则，请参阅[命名和引用容器、Blob 和元数据](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)。
 
 ## <a name="upload-all-files-in-a-folder-to-blob-storage"></a>将文件夹中的所有文件上传到 Blob 存储
 
-可使用 AzCopy 将文件夹中的所有文件上传到 [Windows](storage-use-azcopy.md#upload-blobs-to-blob-storage) 或 [Linux](storage-use-azcopy-linux.md#upload-all-files) 上的 Blob 存储中。 若要上传文件夹中的所有 Blob，请输入以下 AzCopy 命令：
+可使用 AzCopy 将文件夹中的所有文件上传到 [Windows](/storage/common/storage-use-azcopy#upload-blobs-to-blob-storage) 或 [Linux](/storage/common/storage-use-azcopy-linux#blob-download) 上的 Blob 存储中。 若要上传文件夹中的所有 Blob，请输入以下 AzCopy 命令：
 
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
     azcopy \
@@ -79,7 +79,7 @@ AzCopy 是一个命令行工具，借助该工具，可使用简单命令将数�
 若要将指定目录的内容以递归方式上传到 Blob 存储，请指定 `--recursive` (Linux) 或 `/S` (Windows) 选项。 当使用这些选项之一运行 AzCopy 时，会同时上传所有子文件夹及其中文件。
 
 ## <a name="upload-modified-files-to-blob-storage"></a>将修改的文件上传到 Blob 存储
-可基于文件的上次修改时间，使用 AzCopy [上传文件](storage-use-azcopy.md#other-azcopy-features)。 若要尝试此操作，可在源目录中修改文件或创建新文件，用于测试目的。 如果仅上传更新的或新文件，请将 `--exclude-older` (Linux) 或 `/XO` (Windows) 参数添加到 AzCopy 命令。
+可基于文件的上次修改时间，使用 AzCopy [上传文件](/storage/common/storage-use-azcopy#other-azcopy-features)。 若要尝试此操作，可在源目录中修改文件或创建新文件，用于测试目的。 如果仅上传更新的或新文件，请将 `--exclude-older` (Linux) 或 `/XO` (Windows) 参数添加到 AzCopy 命令。
 
 如果只想复制目标中不存在的源资源，在 AzCopy 命令中同时指定 `--exclude-older` 和 `--exclude-newer` (Linux) 或 `/XO` 和 `/XN` (Windows) 参数。 AzCopy 仅上传更新的数据（基于时间戳）。
  
@@ -143,7 +143,7 @@ schtasks /CREATE /SC minute /MO 5 /TN "AzCopy Script" /TR C:\Users\username\Docu
  
 若要验证计划的任务或 cron 作业运行正常，在 `myfolder` 目录中创建新文件。 等待五分钟以确认已将新文件上传到存储帐户。 转到日志目录，以查看计划任务或 cron 作业的输出日志。 
 
-若要详细了解如何在本地和 Azure 存储之间移动数据，请参阅[将数据移到 Azure 存储及从其中移出数据](storage-moving-data.md)。  
+若要详细了解如何在本地和 Azure 存储之间移动数据，请参阅[将数据移到 Azure 存储及从其中移出数据](/storage/common/storage-moving-data)。  
 
 ## <a name="next-steps"></a>后续步骤
 有关 Azure 存储和 AzCopy 的更多信息，请参阅以下资源：
@@ -161,5 +161,4 @@ schtasks /CREATE /SC minute /MO 5 /TN "AzCopy Script" /TR C:\Users\username\Docu
 
  
  
-
 

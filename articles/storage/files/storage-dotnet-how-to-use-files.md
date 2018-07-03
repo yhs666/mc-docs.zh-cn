@@ -1,5 +1,5 @@
 ---
-title: 使用 .NET 针对 Azure 文件进行开发 | Microsoft Docs
+title: 使用 .NET 针对 Azure 文件进行开发 | Azure
 description: 了解如何开发使用 Azure 文件来存储文件数据的 .NET 应用程序和服务。
 services: storage
 documentationcenter: .net
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
 origin.date: 11/22/2017
-ms.date: 01/01/2018
+ms.date: 07/02/2018
 ms.author: v-johch
-ms.openlocfilehash: 6cd37dc75827dc66be5e41e2cc4ffbf98a296c63
-ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
+ms.openlocfilehash: 90f37c9961a4558d2bec9621b9ab3fed5e134910
+ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/23/2018
-ms.locfileid: "29527472"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37103098"
 ---
 # <a name="develop-for-azure-files-with-net"></a>使用 .NET 针对 Azure 文件进行开发
 
@@ -221,7 +221,7 @@ if (share.Exists())
 
     // Create a new CloudFile object from the SAS, and write some text to the file.
     CloudFile fileSas = new CloudFile(fileSasUri);
-    fileSas.UploadText("This write operation is authenticated via SAS.");
+    fileSas.UploadText("This write operation is authorized via SAS.");
     Console.WriteLine(fileSas.DownloadText());
 }
 ```
@@ -234,7 +234,7 @@ if (share.Exists())
 还可以使用 AzCopy 将一个文件复制到另一个文件或将一个 Blob 复制到一个文件，反之亦然。 请参阅 [使用 AzCopy 命令行实用程序传输数据](../common/storage-use-azcopy.md?toc=%2fstorage%2ffiles%2ftoc.json)。
 
 > [!NOTE]
-> 如果将一个 Blob 复制到一个文件，或将一个文件复制到一个 Blob，必须使用共享访问签名 (SAS) 对源对象进行身份验证，即使在同一存储帐户内进行复制。
+> 如果将一个 Blob 复制到一个文件，或将一个文件复制到一个 Blob，必须使用共享访问签名 (SAS) 来授权访问源对象，即使在同一存储帐户内进行复制。
 > 
 > 
 
@@ -282,7 +282,7 @@ if (share.Exists())
 }
 ```
 
-**将一个文件复制到一个 Blob**以下示例创建一个文件并将其复制到同一存储帐户中的某个 Blob。 该示例为源文件创建一个 SAS，服务在复制操作期间使用该 SAS 验证对源文件的访问。
+**将一个文件复制到一个 Blob**以下示例创建一个文件并将其复制到同一存储帐户中的某个 Blob。 该示例为源文件创建一个 SAS，服务在复制操作期间使用该 SAS 授权对源文件的访问。
 
 ```csharp
 // Parse the connection string for the storage account.
@@ -308,7 +308,7 @@ CloudBlockBlob destBlob = container.GetBlockBlobReference("sample-blob.txt");
 
 // Create a SAS for the file that's valid for 24 hours.
 // Note that when you are copying a file to a blob, or a blob to a file, you must use a SAS
-// to authenticate access to the source object, even if you are copying within the same
+// to authorize access to the source object, even if you are copying within the same
 // storage account.
 string fileSas = sourceFile.GetSharedAccessSignature(new SharedAccessFilePolicy()
 {
@@ -328,7 +328,81 @@ Console.WriteLine("Source file contents: {0}", sourceFile.DownloadText());
 Console.WriteLine("Destination blob contents: {0}", destBlob.DownloadText());
 ```
 
-可以用相同的方式将一个 Blob 复制到一个文件。 如果源对象是一个 Blob，则创建一个 SAS 以复制操作期间验证对该 Blob 的访问。
+可以用相同的方式将一个 Blob 复制到一个文件。 如果源对象是一个 Blob，则创建一个 SAS 以复制操作期间授权对该 Blob 的访问。
+
+## <a name="share-snapshots-preview"></a>共享快照（预览版）
+从 Azure 存储客户端库的 8.5 版开始，可以创建共享快照（预览版）。 还可以列出或浏览共享快照，以及删除共享快照。 共享快照的状态为只读，因此不允许对共享快照执行写入操作。
+
+**创建共享快照**
+
+下面的示例创建文件共享快照。
+
+```csharp
+storageAccount = CloudStorageAccount.Parse(ConnectionString); 
+fClient = storageAccount.CreateCloudFileClient(); 
+string baseShareName = "myazurefileshare"; 
+CloudFileShare myShare = fClient.GetShareReference(baseShareName); 
+var snapshotShare = myShare.Snapshot();
+
+```
+**列出共享快照**
+
+下面的示例列出共享上的共享快照。
+
+```csharp
+var shares = fClient.ListShares(baseShareName, ShareListingDetails.All);
+```
+
+**浏览共享快照中的文件和目录**
+
+下面的示例浏览共享快照中的文件和目录。
+
+```csharp
+CloudFileShare mySnapshot = fClient.GetShareReference(baseShareName, snapshotTime); 
+var rootDirectory = mySnapshot.GetRootDirectoryReference(); 
+var items = rootDirectory.ListFilesAndDirectories();
+```
+
+**列出共享和共享快照，以及从共享快照还原文件共享或文件** 
+
+拍摄文件共享的快照即可在将来恢复单个文件或整个文件共享。 
+
+查询文件共享的共享快照即可从文件共享快照还原文件。 然后，可以检索属于特定共享快照的文件，并使用该版本直接进行读取和比较，或者进行还原。
+
+```csharp
+CloudFileShare liveShare = fClient.GetShareReference(baseShareName);
+var rootDirOfliveShare = liveShare.GetRootDirectoryReference();
+
+       var dirInliveShare = rootDirOfliveShare.GetDirectoryReference(dirName);
+var fileInliveShare = dirInliveShare.GetFileReference(fileName);
+
+           
+CloudFileShare snapshot = fClient.GetShareReference(baseShareName, snapshotTime);
+var rootDirOfSnapshot = snapshot.GetRootDirectoryReference();
+
+       var dirInSnapshot = rootDirOfSnapshot.GetDirectoryReference(dirName);
+var fileInSnapshot = dirInSnapshot.GetFileReference(fileName);
+
+string sasContainerToken = string.Empty;
+       SharedAccessFilePolicy sasConstraints = new SharedAccessFilePolicy();
+       sasConstraints.SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24);
+       sasConstraints.Permissions = SharedAccessFilePermissions.Read;
+       //Generate the shared access signature on the container, setting the constraints directly on the signature.
+sasContainerToken = fileInSnapshot.GetSharedAccessSignature(sasConstraints);
+
+string sourceUri = (fileInSnapshot.Uri.ToString() + sasContainerToken + "&" + fileInSnapshot.SnapshotTime.ToString()); ;
+fileInliveShare.StartCopyAsync(new Uri(sourceUri));
+
+```
+
+
+**删除共享快照**
+
+下面的示例删除文件共享快照。
+
+```csharp
+CloudFileShare mySnapshot = fClient.GetShareReference(baseShareName, snapshotTime); mySnapshot.Delete(null, null, null);
+```
 
 ## <a name="troubleshooting-azure-files-using-metrics"></a>使用指标对 Azure 文件进行故障排除
 Azure 存储分析现在支持用于 Azure 文件的指标。 使用指标数据，可以跟踪请求和诊断问题。
@@ -409,5 +483,5 @@ Console.WriteLine(serviceProperties.MinuteMetrics.Version);
 * [Azure 文件现已正式发布](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
 * [Azure 文件内部](https://azure.microsoft.com/blog/inside-azure-file-storage/)
 * [Introducing Azure File Service（Azure 文件服务简介）](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
-* [Persisting connections to Azure Files（持久连接到 Azure 文件）](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
+* [Azure 文件的持久连接](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
 <!--Update_Description:wording update-->

@@ -1,31 +1,28 @@
 ---
-title: 如何通过 Ruby 使用 Azure 表存储和 Azure Cosmos DB 表 API | Azure
-description: 使用 Azure 表存储（一种 NoSQL 数据存储）将结构化数据存储在云中。
+title: 如何配合使用 Ruby 和 Azure 表存储 | Azure
+description: 使用 Azure 表存储将结构化数据存储在云中。
 services: cosmos-db
-documentationcenter: ruby
 author: rockboyfor
 manager: digimobile
 editor: ''
-ms.assetid: 047cd9ff-17d3-4c15-9284-1b5cc61a3224
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-table
 ms.devlang: ruby
-ms.topic: article
+ms.topic: sample
 origin.date: 04/05/2018
-ms.date: 04/23/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4defd3e8a7a5d779ca02243fddf2f5c430e306c5
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: be368202b811f07d9e5a55060bcb07a94726d488
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782004"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070311"
 ---
 # <a name="how-to-use-azure-table-storage-with-ruby"></a>如何配合使用 Ruby 和 Azure 表存储
 <!-- Not Available on Azure Cosmos DB Table API -->
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
+[!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
 ## <a name="overview"></a>概述
 本指南演示如何使用 Azure 表服务执行常见任务。 示例是采用 Ruby 编写的，并使用了[用于 Ruby 的 Azure 存储表客户端库](https://github.com/azure/azure-storage-ruby/tree/master/table)。 涉及的方案包括创建和删除表、在表中插入和查询条目。
@@ -40,8 +37,7 @@ ms.locfileid: "31782004"
 <!-- Not Avaiable on ### Create an Azure Cosmos DB Table API account -->
 
 ## <a name="add-access-to-storage"></a>添加对存储的访问权限
-<!-- Not Available on Azure Cosmos DB -->
-若要使用 Azure 存储，必须下载和使用 Ruby Azure 包，其中包括一组便于与表 REST 服务进行通信的库。
+<!-- Not Available on Azure Cosmos DB --> 若要使用 Azure 存储，必须下载和使用 Ruby Azure 包，其中包括一组便于与表 REST 服务进行通信的库。
 
 ### <a name="use-rubygems-to-obtain-the-package"></a>使用 RubyGems 获取该程序包
 1. 使用命令行接口，例如 **PowerShell** (Windows)、**Terminal** (Mac) 或 **Bash** (Unix)。

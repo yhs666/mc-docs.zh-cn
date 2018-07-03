@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/06/2018
-ms.date: 03/27/2018
+ms.date: 06/26/2018
 ms.author: v-junlch
-ms.openlocfilehash: a89a5dc20e6f9d95d6929045d738efe9807540a1
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: 38da30c59a8e5a5bf93f57ddab13b182236d672b
+ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30222475"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37027131"
 ---
 # <a name="azure-stack-infrastructure-security-posture"></a>Azure Stack 基础结构安全局势
 
@@ -69,6 +69,8 @@ Azure Stack 中的另一个 Windows Server 2016 安全功能是 Windows Defender
 
 ## <a name="antimalware"></a>反恶意软件
 Azure Stack 中的每个组件（Hyper-V 主机和虚拟机）受到 Windows Defender Antivirus 的保护。
+
+在联网场景中，防病毒定义和引擎更新每天应用多次。 在离线场景中，反恶意软件更新作为 Azure Stack 的每月更新的一部分应用。 有关详细信息，请参阅[在 Azure Stack上更新 Windows Defender Antivirus](azure-stack-security-av.md)
 
 ## <a name="constrained-administration-model"></a>受约束的管理模型
 Azure Stack 中的管理是使用三个入口点来控制的，其中每个入口点有特定的用途： 

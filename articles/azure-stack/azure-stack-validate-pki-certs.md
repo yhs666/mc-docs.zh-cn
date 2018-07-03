@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/18/2018
-ms.date: 05/24/2018
+origin.date: 05/24/2018
+ms.date: 06/27/2018
 ms.author: v-junlch
 ms.reviewer: ppacent
-ms.openlocfilehash: a80f357424895a885849f62ccbe51d1256c2314f
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 0b7b0133de08395408b1834ce7e0d63529457775
+ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475083"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37027072"
 ---
 # <a name="validate-azure-stack-pki-certificates"></a>验证 Azure Stack PKI 证书
 
@@ -82,8 +82,11 @@ ms.locfileid: "34475083"
     
     $directories | % { New-Item -Path (Join-Path $destination $PSITEM) -ItemType Directory -Force}
     ````
-
-    - 将证书放入上一步骤中创建的相应目录。 例如：  
+    
+    > [!Note]  
+    > 如果使用 AD FS 作为标识系统，则需要 AD FS 和 Graph。
+    
+     - 将证书放入上一步骤中创建的相应目录。 例如：  
         - `c:\certificates\ACSBlob\CustomerCertificate.pfx`
         - `c:\certificates\Certs\Admin Portal\CustomerCertificate.pfx`
         - `c:\certificates\Certs\ARM Admin\CustomerCertificate.pfx`

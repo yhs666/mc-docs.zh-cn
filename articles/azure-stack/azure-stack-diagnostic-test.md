@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/06/2018
-ms.date: 04/23/2018
+origin.date: 06/08/2018
+ms.date: 06/26/2018
 ms.author: v-junlch
-ms.openlocfilehash: fcea1c14ddb494701c6fb5f5af39fbed8b78deb9
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.openlocfilehash: b95b6f07dbc8a003188b1bcc3852eee65da02ee7
+ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "34062016"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37027062"
 ---
 # <a name="run-a-validation-test-for-azure-stack"></a>为 Azure Stack 运行验证测试
 
@@ -92,7 +92,7 @@ Test-AzureStack cmdlet 支持以下通用参数：Verbose、Debug、ErrorAction�
 
  - 创建资源组
  - 创建计划
- - 创建产品/服务
+ - 创建套餐
  - 创建存储帐户
  - 创建虚拟机
  - 使用在测试方案中创建的存储帐户执行 blob 操作
@@ -166,7 +166,7 @@ Test-AzureStack cmdlet 支持以下通用参数：Verbose、Debug、ErrorAction�
 | Azure Stack 基础结构角色实例性能                                                                              |
 | Azure Stack 云主机性能摘要                                                                                        |
 | Azure Stack 服务资源消耗摘要                                                                                  |
-| Azure Stack 缩放单位关键事件（过去 8 小时）                                                                             |
+| Azure Stack 缩放单元关键事件（过去 8 小时）                                                                             |
 | Azure Stack 存储服务物理磁盘摘要                                                                               |
 
 ## <a name="next-steps"></a>后续步骤
@@ -174,3 +174,4 @@ Test-AzureStack cmdlet 支持以下通用参数：Verbose、Debug、ErrorAction�
  - 若要详细了解 Azure Stack 诊断工具和问题日志记录，请参阅 [Azure Stack 诊断工具](azure-stack-diagnostics.md)。
  - 若要了解有关故障排除的详细信息，请参阅 [Azure Stack 故障排除](azure-stack-troubleshooting.md)
 
+<!-- Update_Description: wording update -->

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/06/2018
-ms.date: 04/20/2018
+origin.date: 05/24/2018
+ms.date: 06/27/2018
 ms.author: v-junlch
-ms.openlocfilehash: 232e300f60416859a1b30c1a3d1e4f6fa02dd457
-ms.sourcegitcommit: 85828a2cbfdb58d3ce05c6ef0bc4a24faf4d247b
+ms.openlocfilehash: d88659601ec3d3752a0e03d90e2bf0dc536f439f
+ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31805421"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37027175"
 ---
 # <a name="azure-stack-1712-update"></a>Azure Stack 1712 更新
 
@@ -118,16 +118,34 @@ Azure Stack 1712 更新内部版本号为 **180106.1**。 如果客户以前已�
 
 #### <a name="health-and-monitoring"></a>运行状况和监视
 
+- <!-- 1264761 - IS ASDK --> 可能会看到具有以下详细信息的*运行状况控制器*组件的警报：  
+
+   警报 #1：
+   - 名称：基础结构角色不正常
+   - 严重性：警告
+   - 组件：运行状况控制器
+   - 说明：运行状况控制器检测信号扫描仪不可用。 这可能会影响运行状况报告和指标。  
+
+  警报 #2：
+   - 名称：基础结构角色不正常
+   - 严重性：警告
+   - 组件：运行状况控制器
+   - 说明：运行状况控制器故障扫描仪不可用。 这可能会影响运行状况报告和指标。
+
+  可以放心地忽略这两个警报。 它们将随着时间的推移自动关闭。  
+
 - 如果重新启动基础结构角色实例，可能会收到一条消息，指出重新启动失败。 但实际上重新启动已成功。
 
-#### <a name="marketplace"></a>应用商店
-- 出于兼容性考虑，此版本中将会删除一些 Marketplace 项。 在进一步验证后，会重新启用这些项。
-- 用户无需订阅就能浏览整个 Marketplace，并且将会看到计划和产品/服务等管理项。 对用户而言，这些项是非功能性的。
+
+
+#### <a name="marketplace"></a>市场
+- 出于兼容性考虑，此版本中将会删除一些市场项。 在进一步验证后，会重新启用这些项。
+- 用户无需订阅就能浏览整个市场，并且将会看到计划和套餐等管理项。 对用户而言，这些项是非功能性的。
 
 #### <a name="compute"></a>计算
 - 用户可以使用相应的选项创建包含异地冗余存储的虚拟机。 此配置会导致虚拟机创建失败。
 - 可以配置只包含一个容错域和一个更新域的虚拟机可用性集。
-- 没有任何可用于创建虚拟机规模集的 Marketplace 体验。 可以使用模板来创建规模集。
+- 没有任何可用于创建虚拟机规模集的市场体验。 可以使用模板来创建规模集。
 - 无法在门户中使用虚拟机规模集的缩放设置。 解决方法是使用 [Azure PowerShell](/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set)。 由于 PowerShell 版本差异，必须使用 `-Name` 参数，而不是 `-VMScaleSetName`。
 
 #### <a name="networking"></a>网络

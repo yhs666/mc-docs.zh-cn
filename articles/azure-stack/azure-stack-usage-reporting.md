@@ -3,7 +3,7 @@ title: 向 Azure 报告 Azure Stack 用量数据 | Microsoft Docs
 description: 了解如何在 Azure Stack 中设置用量数据报告。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: brenduns
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/27/2018
-ms.date: 05/24/2018
+origin.date: 05/30/2018
+ms.date: 06/27/2018
 ms.author: v-junlch
 ms.reviewer: alfredop
-ms.openlocfilehash: 6b71594dc2b7f81a604fdedc409a7e8f6839e377
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 4bbc34e4f10e4af7f7b127f52d0f5f3f0254ed91
+ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475078"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37027169"
 ---
 # <a name="report-azure-stack-usage-data-to-azure"></a>向 Azure 报告 Azure Stack 用量数据 
 
@@ -44,7 +44,7 @@ ms.locfileid: "34475078"
 - **数量** - 资源用量。
 - **位置** - 当前 Azure Stack 资源的部署位置。
 - **资源 URI** - 正在报告其用量的资源的完全限定 URI。
-- **订阅 ID** - Azure Stack 用户的订阅 ID。 这是本地（Azure Stack）订阅。
+- **订阅 ID** -Azure Stack 用户的订阅 ID（本地（Azure Stack）订阅）。
 - **时间** - 用量数据的开始与结束时间。 在 Azure Stack 中使用这些资源的时间与向商务系统报告用量数据的时间存在一定的延迟。 Azure Stack 每隔 24 小时聚合一次用量数据，而向 Azure 中的商务管道报告用量数据则需要额外的好几个小时。 因此，在午夜之前短暂发生的用量可能要在第二天才显示在 Azure 中。
 
 ## <a name="generate-usage-data-reporting"></a>生成用量数据报告
@@ -70,7 +70,7 @@ ms.locfileid: "34475078"
 
    ![计费流](./media/azure-stack-usage-reporting/pricing-details.png)
 
-对于 Azure Stack 开发工具包，我们不会收取 Azure Stack 资源费用，因此价格显示为 $0.00。 发布 Azure Stack 多节点的正式版后，可以看到其中每个资源的实际费用。
+对于 Azure Stack 开发工具包，我们不会收取 Azure Stack 资源费用，因此价格显示为 $0.00。
 
 ## <a name="which-azure-stack-deployments-are-charged"></a>哪些 Azure Stack 部署需要付费？
 
@@ -84,7 +84,7 @@ ms.locfileid: "34475078"
 
 ## <a name="i-have-a-windows-server-license-i-want-to-use-on-azure-stack-how-do-i-do-it"></a>我有 Windows Server 的许可证，如何在 Azure Stack 上使用它？
 
-使用现有许可证可避免生成用量计量值。 可以根据 [Azure Stack 许可指南](https://go.microsoft.com/fwlink/?LinkId=851536&clcid=0x409)的“在 Azure Stack 中使用现有软件”部分所述，在 Azure Stack 中使用现有的 Windows Server 许可证。 客户需要根据 [Windows Server 许可证的混合权益](/virtual-machines/windows/hybrid-use-benefit-licensing)主题中所述部署其 Windows Server 虚拟机，才能使用其现有许可证。
+使用现有许可证可避免生成用量计量值。 可以根据 [Azure Stack 许可指南](https://go.microsoft.com/fwlink/?LinkId=851536&clcid=0x409)的“在 Azure Stack 中使用现有软件”部分所述，在 Azure Stack 中使用现有的 Windows Server 许可证。 客户需要根据 [Windows Server 许可证的混合权益](/virtual-machines/windows/hybrid-use-benefit-licensing)一文中所述部署其 Windows Server 虚拟机，才能使用其现有许可证。
 
 ## <a name="which-subscription-is-charged-for-the-resources-consumed"></a>从哪个订阅中收取消耗的资源费用？
 从[将 Azure Stack 注册到 Azure](azure-stack-register.md) 时提供的订阅收费。
@@ -112,4 +112,4 @@ Azure Stack 用量 API 报告用量数据的时间与 Azure 帐户中心报告�
 - [使用情况常见问题](azure-stack-usage-related-faq.md)
 - [以云服务提供商身份管理使用情况和计费](azure-stack-add-manage-billing-as-a-csp.md)
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

@@ -1,26 +1,25 @@
 ---
-title: 适用于 Azure Stack 存储的工具
+title: Azure Stack 存储的工具 | Microsoft Docs
 description: 了解 Azure Stack 存储数据传送工具
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
-ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 04/25/2018
-ms.date: 05/23/2018
+origin.date: 05/21/2018
+ms.date: 06/27/2018
 ms.author: v-junlch
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 13afc91ab99c77e1a71f953168563e1ae78f1f5a
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 4cd202b1ab38b30349303a7d288a41becc08ac78
+ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475079"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37027129"
 ---
 # <a name="use-data-transfer-tools-for-azure-stack-storage"></a>使用 Azure Stack 存储的数据传输工具
 
@@ -152,7 +151,7 @@ Azure PowerShell 是一个模块，它提供的 cmdlet 用于管理 Azure 和 Az
    > [!NOTE]
    > 此脚本必须在 **AzureStack_Tools** 的根目录中运行。
 
-```PowerShell
+```PowerShell  
 # begin
 
 $ARMEvnName = "AzureStackUser" # set AzureStackUser as your Azure Stack environemnt name
@@ -224,12 +223,12 @@ $blobs | Get-AzureStorageBlobContent -Destination $DestinationFolder
 - 在版本 1.3.0 中，`Get-AzureRmStorageAccountKey` 的返回值格式有两个属性：`Key1` 和 `Key2`，而当前的 Azure 版本返回的数组包含所有帐户密钥。
 
    ```
-   # This command gets a specific key for a Storage account, 
+   # This command gets a specific key for a storage account, 
    # and works for Azure PowerShell version 1.4, and later versions.
    (Get-AzureRmStorageAccountKey -ResourceGroupName "RG01" `
    -AccountName "MyStorageAccount").Value[0]
 
-   # This command gets a specific key for a Storage account, 
+   # This command gets a specific key for a storage account, 
    # and works for Azure PowerShell version 1.3.2, and previous versions.
    (Get-AzureRmStorageAccountKey -ResourceGroupName "RG01" `
    -AccountName "MyStorageAccount").Key1
@@ -248,7 +247,7 @@ Azure Stack 需要 Azure CLI 2.0 版。 若要详细了解如何通过 Azure Sta
 
 ### <a name="azure-cli-sample-script-for-azure-stack"></a>适用于 Azure Stack 的 Azure CLI 示例脚本
 
-完成 CLI 安装和配置以后，即可尝试以下步骤，以便使用一个小的 shell 示例脚本与 Azure Stack 存储资源交互。 此脚本完成以下操作：
+完成 CLI 安装和配置后，可尝试以下步骤，使用一个小的 shell 示例脚本来与 Azure Stack 存储资源交互。 此脚本完成以下操作：
 
 - 在存储帐户中创建一个新容器。
 - 将一个现有文件（作为 Blob）上传到该容器。
@@ -265,7 +264,7 @@ Azure Stack 需要 Azure CLI 2.0 版。 若要详细了解如何通过 Azure Sta
 
 ```bash
 #!/bin/bash
-# A simple Azure Stack Storage example script
+# A simple Azure Stack storage example script
 
 export AZURESTACK_RESOURCE_GROUP=<resource_group_name>
 export AZURESTACK_RG_LOCATION="local"
@@ -298,12 +297,13 @@ echo "Done"
 
 ## <a name="azure-storage-explorer"></a>Azure 存储资源管理器
 
-Azure 存储资源管理器是 Microsoft 提供的独立应用， 它可用来在 Windows、macOS 和 Linux 计算机上轻松处理 Azure 存储和 Azure Stack 存储数据。 如果希望通过某种方式轻松管理 Azure Stack 存储数据，则请考虑使用 Azure 存储资源管理器。
+Azure 存储资源管理器是 Microsoft 提供的独立应用， 它可用来在 Windows、macOS 和 Linux 计算机上轻松处理 Azure 存储和 Azure Stack 存储数据。 如果希望通过某种方式轻松管理 Azure Stack 存储数据，请考虑使用 Azure 存储资源管理器。
 
 - 若要详细了解如何配置 Azure 存储资源管理器，使之能够用于 Azure Stack，请参阅[将存储资源管理器连接到 Azure Stack 订阅](azure-stack-storage-connect-se.md)。
 - 若要详细了解 Azure 存储资源管理器，请参阅[存储资源管理器入门](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
 
 ## <a name="next-steps"></a>后续步骤
+
 - [将存储资源管理器连接到 Azure Stack 订阅](azure-stack-storage-connect-se.md)
 - [存储资源管理器入门](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
 - [与 Azure 一致的存储：差异和注意事项](azure-stack-acs-differences.md)

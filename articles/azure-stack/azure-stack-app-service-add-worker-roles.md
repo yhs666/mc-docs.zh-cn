@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/18/2018
-ms.date: 05/24/2018
+origin.date: 06/08/2018
+ms.date: 06/26/2018
 ms.author: v-junlch
 ms.reviewer: brenduns
-ms.openlocfilehash: 1a46f24998fa28b0f5c82fce5f37d17a78c93770
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: cc090f5c1e4ec44cfd957b62ab69f636b5408364
+ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34474922"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37027191"
 ---
 # <a name="app-service-on-azure-stack-add-more-infrastructure-or-worker-roles"></a>基于 Azure Stack 的应用服务：添加更多的基础结构或辅助角色
 
@@ -119,4 +119,4 @@ ms.locfileid: "34474922"
 
 [配置部署源](azure-stack-app-service-configure-deployment-sources.md)
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

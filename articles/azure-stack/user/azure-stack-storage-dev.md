@@ -1,21 +1,21 @@
 ---
-title: Azure Stack 存储开发工具入门
+title: Azure Stack 存储开发工具入门 | Microsoft Docs
 description: 使用 Azure Stack 存储开发工具的入门指南
 services: azure-stack
 author: mabriggs
 ms.author: v-junlch
-origin.date: 05/14/2018
-ms.date: 05/23/2018
+origin.date: 05/21/2018
+ms.date: 06/27/2018
 ms.topic: get-started-article
 ms.service: azure-stack
 manager: femila
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 7b501c905df3ede3e015ae76e2e466f065dac08e
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: e2faa2f93bdb4f0fd38fa822209f58e6e893eb79
+ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475061"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37027180"
 ---
 # <a name="get-started-with-azure-stack-storage-development-tools"></a>Azure Stack 存储开发工具入门
 
@@ -25,8 +25,8 @@ Azure Stack 提供一组存储服务，包括 Blob、表和队列存储。
 
 使用本文作为使用 Azure Stack 存储开发工具的入门指南。 可以在对应的 Azure 存储教程中，找到更多的详细信息和示例代码。
 
->[!NOTE]
->Azure Stack 存储和 Azure 存储之间存在一些已知差异，包括每个平台的特定需求。 例如，Azure Stack 有特定的客户端库以及特定的终结点后缀需求。 有关详细信息，请参阅 [Azure Stack 存储：差异和注意事项](azure-stack-acs-differences.md)。
+> [!NOTE]  
+> Azure Stack 存储和 Azure 存储之间存在一些已知差异，包括每个平台的特定需求。 例如，Azure Stack 有特定的客户端库以及特定的终结点后缀需求。 有关详细信息，请参阅 [Azure Stack 存储：差异和注意事项](azure-stack-acs-differences.md)。
 
 ## <a name="azure-client-libraries"></a>Azure 客户端库
 
@@ -177,7 +177,6 @@ EndpointSuffix=local.azurestack.external
 - [如何通过 Java 使用 Blob 存储](../../storage/blobs/storage-java-how-to-use-blob-storage.md)
 - [如何通过 Node.js 使用 Blob 存储](../../storage/blobs/storage-nodejs-how-to-use-blob-storage.md)
 - [如何通过 C++ 使用 Blob 存储](../../storage/blobs/storage-c-plus-plus-how-to-use-blobs.md)
-- [如何通过 PHP 使用 Blob 存储](../../storage/blobs/storage-php-how-to-use-blobs.md)
 - [如何通过 Python 使用 Azure Blob 存储](../../storage/blobs/storage-python-how-to-use-blob-storage.md)
 
 ## <a name="queue-storage"></a>队列存储

@@ -1,5 +1,5 @@
 ---
-title: 使用 C++ 针对 Azure 文件进行开发 | Microsoft Docs
+title: 使用 C++ 针对 Azure 文件进行开发 | Azure
 description: 了解如何开发使用 Azure 文件来存储文件数据的 C++ 应用程序和服务。
 services: storage
 documentationcenter: .net
@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 09/19/2017
 ms.date: 10/30/2017
 ms.author: v-johch
-ms.openlocfilehash: 16dc6c963a72698dd2643ff4a93a72be7df01c71
-ms.sourcegitcommit: 71c3744a54c69e7e322b41439da907c533faba39
+ms.openlocfilehash: 80a7857d963a74574116573bfa1120b04404689c
+ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2017
-ms.locfileid: "23481782"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37103069"
 ---
 # <a name="develop-for-azure-files-with-c"></a>使用 C++ 针对 Azure 文件进行开发
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -28,9 +28,7 @@ ms.locfileid: "23481782"
 [!INCLUDE [storage-try-azure-tools-files](../../../includes/storage-try-azure-tools-files.md)]
 
 ## <a name="about-this-tutorial"></a>关于本教程
-
 本教程介绍如何针对 Azure 文件执行基本的操作。 通过用 C++ 编写的示例，学习如何创建共享和目录，以及如何上传、列出和删除文件。 如果不熟悉 Azure 文件，请先了解下面各部分中的概念，以便理解相关示例。
-
 
 * 创建和删除 Azure 文件共享
 * 创建和删除目录
@@ -40,7 +38,7 @@ ms.locfileid: "23481782"
 * 若一个文件使用在共享中定义的共享访问策略，则为该文件创建一个共享访问签名（SAS 密钥）。
 
 > [!Note]  
-> 由于 Azure 文件可以通过 SMB 进行访问，因此可以编写简单的应用程序，通过标准的 C++ I/O 类和函数来访问 Azure 文件共享。 本文将介绍如何编写使用 Azure 存储 C++ SDK 的应用程序，该 SDK 使用 [文件 REST API](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) 与 Azure 文件通信。
+> 由于 Azure 文件可以通过 SMB 进行访问，因此可以编写简单的应用程序，通过标准的 C++ I/O 类和函数来访问 Azure 文件共享。 本文将介绍如何编写使用 Azure 存储 C++ SDK 的应用程序，该 SDK 使用 [文件 REST API](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api) 与 Azure 文件通信。
 
 ## <a name="create-a-c-application"></a>创建 C++ 应用程序
 若要生成示例，需要安装用于 C++ 的 Azure 存储客户端库 2.4.0。 此外，应该已经创建了一个 Azure 存储帐户。
@@ -49,7 +47,7 @@ ms.locfileid: "23481782"
 
 * **Linux：** 按照[适用于 C++ 的 Azure 存储客户端库自述文件](https://github.com/Azure/azure-storage-cpp/blob/master/README.md)页中提供的说明操作。
 * **Windows：** 在 Visual Studio 中，单击“工具”&gt;“NuGet 包管理器”&gt;“程序包管理器控制台”。 在 [NuGet 包管理器控制台](http://docs.nuget.org/docs/start-here/using-the-package-manager-console)中，键入以下命令，并按 **ENTER**。
-
+  
 ```
 Install-Package wastorage
 ```
@@ -63,7 +61,7 @@ Install-Package wastorage
 ```
 
 ## <a name="set-up-an-azure-storage-connection-string"></a>设置 Azure 存储连接字符串
-要使用文件存储，需要连接到 Azure 存储帐户。 第一步是配置连接字符串，该字符串用于连接到存储帐户。 为此，我们需要定义一个静态变量。
+要使用文件存储，需要连接到 Azure 存储帐户。 第一步是配置连接字符串，我们会使用该字符串连接到存储帐户。 为此，我们需要定义一个静态变量。
 
 ```cpp
 // Define the connection-string with your values.
@@ -184,7 +182,7 @@ for (auto it = directory.list_files_and_directories(); it != end_of_results; ++i
 ```
 
 ## <a name="upload-a-file"></a>上传文件
-Azure 文件共享至少包含文件所在的根目录。 本部分会介绍如何将文件从本地存储上传到共享所在的根目录。
+Azure 文件共享至少包含文件可以驻留的根目录。 本部分会介绍如何将文件从本地存储上传到共享所在的根目录。
 
 上传文件的第一步是获取对文件所在的目录的引用。 为此，需要调用共享对象的 **get_root_directory_reference** 方法。
 
@@ -359,7 +357,6 @@ if (share.exists())
 若要了解有关 Azure 存储的详细信息，请参阅以下资源：
 
 * [适用于 C++ 的存储客户端库](https://github.com/Azure/azure-storage-cpp)
-* [Azure Storage File Service Samples in C++] (https://github.com/Azure-Samples/storage-file-cpp-getting-started)（C++ 中的 Azure 存储文件服务示例）
+* [C++ 的 Azure 存储文件服务示例] (https://github.com/Azure-Samples/storage-file-cpp-getting-started)
 * [Azure 存储资源管理器](http://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
 * [Azure 存储文档](/storage/)
-

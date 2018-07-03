@@ -11,14 +11,14 @@ ms.workload: ''
 ms.topic: article
 ms.custom: ''
 origin.date: 04/15/2018
-ms.date: 05/28/2018
+ms.date: 06/25/2018
 ms.author: v-nany
-ms.openlocfilehash: da820f142db8485b3e7bbd809be249e1204d2164
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: d0540b54ffb8f72c7f597adb6455e488ee26ac13
+ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475117"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36748398"
 ---
 # <a name="azure-cli-examples-for-azure-media-services"></a>Azure 媒体服务的 Azure CLI 示例
 

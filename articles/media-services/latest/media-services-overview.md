@@ -13,16 +13,16 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-origin.date: 03/27/2018
-ms.date: 05/28/2018
+origin.date: 06/14/2018
+ms.date: 06/25/2018
 ms.author: v-nany
 ms.custom: mvc
-ms.openlocfilehash: 93e198fc8b0fe3d763a83f0d083749d5a4c95cbe
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 630a379eeae433d838be4b49df452ef84c9650ca
+ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475205"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36748359"
 ---
 # <a name="what-is-azure-media-services-v3"></a>什么是 Azure 媒体服务 v3？
 
@@ -46,12 +46,14 @@ Azure 媒体服务是一个基于云的平台，用于生成解决方案，以�
 * 当客户（例如电影工作室）需要限制对版权所有作品的访问和使用时，创建订阅视频服务并流式传输受 DRM 保护的内容。
 * 提供脱机内容，以便在飞机、火车和汽车上播放。 如果客户希望断开网络连接，可能需要将内容下载到手机或平板电脑上播放。
 * 为视频添加字幕和描述文字，满足更多受众的需求（例如，听力障碍人士或想用不同语言阅读的人）。 
-* 使用 Azure 媒体服务和 [Azure 认知服务 API](https://docs.azure.cn/zh-cn/index#pivot=products&panel=ai) 实现教育在线学习视频平台，提供语音转文本字幕，多种语言翻译等等。
+* 使用 Azure 媒体服务和 [Azure 认知服务 API](https://docs.azure.cn/zh-cn/#pivot=products&panel=ai) 实现教育在线学习视频平台，提供语音转文本字幕，多种语言翻译等等。
 * 启用 Azure CDN 实现大幅度缩放，更好地处理即时高负载（例如在产品发布活动开始时）。 
 
 ## <a name="v3-capabilities"></a>v3 功能
 
-v3 基于统一的 API 面，其公开了 Azure 资源管理器上的管理和操作功能。 该版本提供以下功能：  
+v3 基于一个统一的 API 接口，该接口公开了基于 Azure 资源管理器构建的管理和操作功能。 
+
+该版本提供以下功能：  
 
 * “转换”有助于定义媒体处理或分析任务的简单工作流。 “转换”是处理视频和音频文件的一种方法。 可以通过将作业提交到“转换”，重复应用“转换”来处理内容库中的所有文件。
 * “作业”用于处理（编码或分析）视频。 可以使用 HTTP(s)、URL、SAS URL 或位于 Azure Blob 存储中的文件路径，在作业上指定输入内容。 
@@ -60,35 +62,27 @@ v3 基于统一的 API 面，其公开了 Azure 资源管理器上的管理和�
 * 可在资源级别设置基于角色的访问控制，从而锁定对特定资源（如转换、频道）的访问。
 * 多种语言的客户端 SDK：.NET、.NET core、Python、Go、Java 和 Node.js。
 
+## <a name="naming-conventions"></a>命名约定
+
+Azure 媒体服务 v3 资源名称（例如，资产、作业、转换）需遵循 Azure 资源管理器命名约束。 根据 Azure 资源管理器的要求，资源名称始终必须唯一。 因此，可以为资源名称使用任何唯一的标识符字符串（例如，GUID）。 
+
+媒体服务资源名称不能包含“<”、“>”、“%”、“&”、“:”、“&#92;”、“?”、“/”、“*”、“+”、“.”、单引号或任何控制字符。 允许其他所有字符。 资源名称的最大长度为 260 个字符。 
+
 ## <a name="how-can-i-get-started-with-v3"></a>如何开始使用 v3？
 
 作为开发者，可以利用媒体服务 [REST API](https://go.microsoft.com/fwlink/p/?linkid=873030) 或客户端库，与 REST API 交互，轻松创建、管理和维护自定义媒体工作流。 Microsoft 生成并支持以下客户端库： 
 
-* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+* [Azure CLI](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)
 * [.NET 语言](https://www.nuget.org/packages/Microsoft.Azure.Management.Media/1.0.0)
-* [.NET Core](https://www.nuget.org/packages/Microsoft.Azure.Management.Media/1.0.0)（选择 **.NET CLI** 选项卡）
-* Java
-
-  在项目中添加以下依赖项：
-  
-  ```
-  <dependency>
-    <groupId>com.microsoft.azure.media-2018-03-30-preview</groupId>
-    <artifactId>azure-mgmt- media</artifactId>
-    <version>0.0.1-beta</version>
-  </dependency> 
-  ```
-* Node.js 
-
-  请使用以下命令：
-  
-  ```
-  npm install azure-arm-mediaservices
-  ```
-  
+* [.NET Core](https://www.nuget.org/packages/Microsoft.Azure.Management.Media/1.0.0)（选择“.NET CLI”选项卡）
+* [Java](https://docs.microsoft.com/java/api/overview/azure/mediaservices)
+* [Node.js](https://docs.microsoft.com/javascript/api/azure-arm-mediaservices/index?view=azure-node-latest)
 * [Python](https://pypi.org/project/azure-mgmt-media/1.0.0rc1/)
 * [Go](https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/mediaservices/mgmt/2018-03-30-preview/media)
 
 媒体服务提供 [Swagger 文件](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media)，此类文件可用于为首选语言/技术生成 SDK。  
 
+## <a name="next-steps"></a>后续步骤
+
+若要了解如何轻松地开始编码和流式传输视频文件，请查看[流文件](stream-files-dotnet-quickstart.md)。 
 

@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 origin.date: 05/22/2017
-ms.date: 05/14/2018
+ms.date: 06/29/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 904570fdc75d5753bb4ce55b143b475f32d303db
-ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
+ms.openlocfilehash: 4b78cde03916136338d33701d0f4387ea02419a6
+ms.sourcegitcommit: c587cc1c53b1f92b45fae0d1ff8e1f7bd544bc55
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "34173318"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37103258"
 ---
 # <a name="run-tasks-concurrently-to-maximize-usage-of-batch-compute-nodes"></a>以并发方式运行任务以最大程度地利用 Batch 计算节点 
 
@@ -57,15 +57,15 @@ ms.locfileid: "34173318"
 此功能十分重要，如需示例，请参阅上面示例中 [Standard\_D14](../cloud-services/cloud-services-sizes-specs.md) 节点的池，该池配置后的 [CloudPool.MaxTasksPerComputeNode][maxtasks_net] 值为 16。 如果对 [CloudPool.TaskSchedulingPolicy][task_schedule] 进行配置时，将 [ComputeNodeFillType][fill_type] 设置为 Pack，则会充分使用每个节点的所有 16 个核心，并可通过[自动缩放池](batch-automatic-scaling.md)将不使用的节点（没有分配任何任务的节点）从池中删除。 这可以最大程度地减少资源使用量并节省资金。
 
 ## <a name="batch-net-example"></a>Batch .NET 示例
-此 [Batch .NET][api_net] API 代码片段演示了一个请求，该请求要求创建一个包含四个大型节点的池，每个节点最多四个任务。 它指定了一个任务计划策略，要求先用任务填充一个节点，此后再将任务分配给池中的其他节点。 有关如何使用 Batch .NET API 添加池的详细信息，请参阅 [BatchClient.PoolOperations.CreatePool][poolcreate_net]。
+此 [Batch .NET][api_net] API 代码片段演示了一个请求，该请求要求创建一个包含四个节点的池，每个节点最多四个任务。 它指定了一个任务计划策略，要求先用任务填充一个节点，此后再将任务分配给池中的其他节点。 有关如何使用 Batch .NET API 添加池的详细信息，请参阅 [BatchClient.PoolOperations.CreatePool][poolcreate_net]。
 
 ```csharp
 CloudPool pool =
     batchClient.PoolOperations.CreatePool(
         poolId: "mypool",
         targetDedicatedComputeNodes: 4
-        virtualMachineSize: "large",
-        cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "4"));
+        virtualMachineSize: "standard_d1_v2",
+        cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "5"));
 
 pool.MaxTasksPerComputeNode = 4;
 pool.TaskSchedulingPolicy = new TaskSchedulingPolicy(ComputeNodeFillType.Pack);
@@ -144,4 +144,4 @@ Duration: 00:08:48.2423500
 [task_schedule]: https://msdn.microsoft.com/library/microsoft.azure.batch.cloudpool.taskschedulingpolicy.aspx
 
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

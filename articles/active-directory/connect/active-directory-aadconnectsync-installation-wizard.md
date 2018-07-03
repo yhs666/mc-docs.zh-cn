@@ -4,8 +4,8 @@ description: 介绍安装向导第二次运行时的工作原理。
 keywords: Azure AD Connect 安装向导允许在第二次运行它时配置维护设置
 services: active-directory
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: billmath
+manager: mtillman
 editor: ''
 ms.assetid: d800214e-e591-4297-b9b5-d0b1581cc36a
 ms.service: active-directory
@@ -14,14 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/13/2017
-ms.date: 12/20/2017
+ms.date: 06/25/2018
+ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 70ae50efea58d5cc16404eefd4d025fac37ccadc
-ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
+ms.openlocfilehash: 21eae929ab7eec304dcbb9ed4622199e1b697924
+ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
-ms.locfileid: "27162418"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36947942"
 ---
 # <a name="azure-ad-connect-sync-running-the-installation-wizard-a-second-time"></a>Azure AD Connect 同步：第二次运行安装向导
 首次运行 Azure AD Connect 安装向导时，该向导将逐步引导配置安装。 如果再次运行安装向导，它会提供维护选项。
@@ -81,7 +82,7 @@ ms.locfileid: "27162418"
 ![同时显示过渡模式当前状态的选项](./media/active-directory-aadconnectsync-installation-wizard/stagingmodeenable.png)
 
 ## <a name="change-user-sign-in"></a>更改用户登录
-此选项可让你从密码同步更改为联合身份验证，反之亦然。 但不能更改为“不配置”。
+通过此选项，可将用户登录方式改为密码哈希同步或联合。 但不能更改为“不配置”。
 
 有关此选项的详细信息，请参阅[用户登录](active-directory-aadconnect-user-signin.md#changing-the-user-sign-in-method)。
 

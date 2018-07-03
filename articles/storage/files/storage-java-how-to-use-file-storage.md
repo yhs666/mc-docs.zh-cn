@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 09/19/2017
 ms.date: 10/30/2017
 ms.author: v-johch
-ms.openlocfilehash: fac734827f83b7cc40a05b4e798d4f2b8d50cdc8
-ms.sourcegitcommit: 71c3744a54c69e7e322b41439da907c533faba39
+ms.openlocfilehash: 81f578fca38042ac11ffbc1856406fe39c1f4517
+ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2017
-ms.locfileid: "23481809"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37103047"
 ---
 # <a name="develop-for-azure-files-with-java"></a>使用 Java 针对 Azure 文件进行开发
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -28,7 +28,7 @@ ms.locfileid: "23481809"
 [!INCLUDE [storage-check-out-samples-java](../../../includes/storage-check-out-samples-java.md)]
 
 ## <a name="about-this-tutorial"></a>关于本教程
-本教程将演示使用 Java 开发应用程序或服务的基础知识，这些应用程序或服务可以使用 Azure 文件来存储文件数据。 在本教程中，我们将创建一个简单的控制台应用程序，并演示如何通过 Java 和 Azure 文件执行基本操作：
+本教程将演示使用 Java 开发应用程序或服务的基础知识，这些应用程序或服务可以使用 Azure 文件来存储文件数据。 在本教程中，我们将创建一个控制台应用程序，并演示如何通过 Java 和 Azure 文件执行基本操作：
 
 * 创建和删除 Azure 文件共享
 * 创建和删除目录
@@ -36,10 +36,10 @@ ms.locfileid: "23481809"
 * 上传、下载和删除文件
 
 > [!Note]  
-> 由于 Azure 文件可以通过 SMB 进行访问，因此可以编写简单的应用程序，通过标准的 Java I/O 类来访问 Azure 文件共享。 本文介绍如何编写使用 Azure 存储 Java SDK 的应用程序，该 SDK 使用 [Azure 文件 REST API](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) 与 Azure 文件通信。
+> 由于 Azure 文件可以通过 SMB 进行访问，因此可以编写应用程序，通过标准的 Java I/O 类来访问 Azure 文件共享。 本文介绍如何编写使用 Azure 存储 Java SDK 的应用程序，该 SDK 使用 [Azure 文件 REST API](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api) 与 Azure 文件通信。
 
 ## <a name="create-a-java-application"></a>创建 Java 应用程序
-若要生成示例，需要 Java 开发工具包 (JDK) 和 [Azure Storage SDK for Java][]。 此外，应该已经创建了一个 Azure 存储帐户。
+若要生成示例，需要 Java 开发工具包 (JDK) 和[用于 Java 的 Azure 存储 SDK](https://github.com/Azure/azure-storage-java)。 此外，应该已经创建了一个 Azure 存储帐户。
 
 ## <a name="set-up-your-application-to-use-azure-files"></a>设置应用程序以使用 Azure 文件
 要使用 Azure 存储 API，请将下列语句添加到要通过其来访问存储服务的 Java 文件的顶部：
@@ -64,9 +64,10 @@ public static final String storageConnectionString =
 
 > [!NOTE]
 > 将 your_storage_account_name 和 your_storage_account_key 替换为存储帐户的实际值。
+> 
+> 
 
 ## <a name="connecting-to-an-azure-storage-account"></a>连接到 Azure 存储帐户
-
 若要连接到存储帐户，需要使用 CloudStorageAccount 对象，将连接字符串传递到其 parse 方法。
 
 ```java
@@ -129,7 +130,7 @@ try
 ```
 
 ## <a name="create-a-directory"></a>创建目录
-也可将文件置于子目录中，而不是将其全部置于根目录中，以便对存储进行有效的组织。 使用 Azure 文件可以创建帐户允许的任意数目的目录。 以下代码在根目录下创建名为 **sampledir** 的子目录。
+也可以将文件置于子目录中，不必将其全部置于根目录中，以便对存储进行有效的组织。 使用 Azure 文件可以创建帐户允许的任意数目的目录。 以下代码会在根目录下创建名为 **sampledir** 的子目录。
 
 ```java
 //Get a reference to the root directory for the share.
@@ -146,7 +147,7 @@ if (sampleDir.createIfNotExists()) {
 ```
 
 ## <a name="delete-a-directory"></a>删除目录
-删除目录相当简单，但需注意的是，不能删除仍然包含有文件或其他目录的目录。
+删除目录很简单，但需注意的是，不能删除仍然包含文件或其他目录的目录。
 
 ```java
 // Get a reference to the root directory for the share.
@@ -174,7 +175,7 @@ for ( ListFileItem fileItem : rootDir.listFilesAndDirectories() ) {
 ```
 
 ## <a name="upload-a-file"></a>上传文件
-Azure 文件共享至少包含文件所在的根目录。 本部分会介绍如何将文件从本地存储上传到共享所在的根目录。
+本部分会介绍如何将文件从本地存储上传到共享所在的根目录。
 
 上传文件的第一步是获取对文件所在的目录的引用。 为此，需要调用共享对象的 **getRootDirectoryReference** 方法。
 
@@ -186,11 +187,11 @@ CloudFileDirectory rootDir = share.getRootDirectoryReference();
 现在，已经有了共享所在的根目录的引用，因此可以使用以下代码来上传文件。
 
 ```java
-// Define the path to a local file.
-final String filePath = "C:\\temp\\Readme.txt";
-
-CloudFile cloudFile = rootDir.getFileReference("Readme.txt");
-cloudFile.uploadFromFile(filePath);
+        // Define the path to a local file.
+        final String filePath = "C:\\temp\\Readme.txt";
+    
+        CloudFile cloudFile = rootDir.getFileReference("Readme.txt");
+        cloudFile.uploadFromFile(filePath);
 ```
 
 ## <a name="download-a-file"></a>下载文件
@@ -240,5 +241,4 @@ if ( file.deleteIfExists() ) {
 * [Azure 存储团队博客](http://blogs.msdn.com/b/windowsazurestorage/)
 * [使用 AzCopy 命令行实用程序传输数据](../common/storage-use-azcopy.md)
 * [排查 Azure 文件问题 - Windows](storage-troubleshoot-windows-file-connection-problems.md)
-
 <!--Update_Description: wording update-->

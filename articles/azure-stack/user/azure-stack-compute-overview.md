@@ -6,32 +6,35 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: get-started-article
-origin.date: 02/28/2018
-ms.date: 05/23/2018
+origin.date: 05/21/2018
+ms.date: 06/27/2018
 ms.author: v-junlch
-ms.openlocfilehash: 2ddcc91409bc7b73c61ae5a050bc8d36218ecf5c
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.reviewer: kivenkat
+ms.openlocfilehash: 5e7df6980f915dcb389f8dff08b1d76e2e66cf94
+ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475052"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37027171"
 ---
 # <a name="introduction-to-azure-stack-virtual-machines"></a>Azure Stack 虚拟机简介
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-## <a name="overview"></a>概述
-Azure Stack 虚拟机 (VM) 是 Azure Stack 提供的一种按需、可缩放计算资源。 通常情况下，如果需要以更大的力度（相对于其他控制选项）控制计算环境，则应选择 VM。 本文介绍创建 VM 之前的注意事项，以及 VM 的创建方法和管理方式。
+Azure Stack 以按需可缩放的计算资源的形式提供虚拟机 (VM)。 如果需要以更大的力度（相对于其他控制选项）控制计算环境，可以选择 VM。 本文提供创建 VM 之前所需的详细信息。
 
 Azure Stack VM 可提供虚拟化的灵活性，而无需管理群集或单个计算机。 不过，仍然需要通过执行任务（例如，配置、修补和安装在 VM 上运行的软件）来维护 VM。
 
 可通过多种方式使用 Azure Stack 虚拟机。 例如：
 
-- **开发和测试** - Azure Stack VM 提供快速又简单的方法来创建计算机，让计算机具备编写和测试应用程序所需的特定配置。
+- **开发和测试**  
+    Azure Stack VM 提供快速又简单的方法来创建计算机，让计算机具备编写和测试应用程序所需的特定配置。
 
-- **云中的应用程序** - 由于应用程序的需求会不断变化，在 Azure Stack 中的 VM 上运行应用程序可能会较具经济效益。 使用 VM 时，需要支付额外的费用；关闭 VM 时，则无需付费。
+- **云中的应用程序**  
+    由于应用程序的需求会不断变化，在 Azure Stack 中的 VM 上运行应用程序可能会较具经济效益。 使用 VM 时，需要支付额外的费用；关闭 VM 时，则无需付费。
 
-- **扩展的数据中心** - Azure Stack 虚拟网络中的虚拟机可以轻松连接到组织的网络或 Azure。
+- **扩展的数据中心**  
+    Azure Stack 虚拟网络中的虚拟机可以轻松连接到组织的网络或 Azure。
 
 可以根据需要，将应用程序使用的 VM 纵向或横向扩展为任意数目。
 
@@ -63,7 +66,7 @@ Azure Stack VM 可提供虚拟化的灵活性，而无需管理群集或单个�
 ### <a name="operating-system-disks-and-images"></a>操作系统磁盘和映像
 
 虚拟机使用虚拟硬盘 (VHD) 来存储其操作系统 (OS) 和数据。 VHD 还可用于存储映像，可以选择某个映像来安装 OS。
-Azure Stack 提供一个 Marketplace，适用于各种版本和类型的操作系统。 Marketplace 映像由映像发布者、产品/服务、SKU 和版本（通常指定为最新版本）标识。
+Azure Stack 提供一个市场，适用于各种版本和类型的操作系统。 市场映像由映像发布者、产品/服务、SKU 和版本（通常指定为最新版本）标识。
 
 下表显示了查找映像信息的一些方法：
 
@@ -71,7 +74,8 @@ Azure Stack 提供一个 Marketplace，适用于各种版本和类型的操作�
 |---------|---------|
 |Azure Stack 门户|选择要使用的映像时，系统会自动指定值。|
 |Azure Stack PowerShell|`Get-AzureRMVMImagePublisher -Location "location"`<br>`Get-AzureRMVMImageOffer -Location "location" -Publisher "publisherName"`<br>`Get-AzureRMVMImageSku -Location "location" -Publisher "publisherName" -Offer "offerName"`|
-|REST API     |[列出映像发布者](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<br>[列出映像产品](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<br>[列出映像 SKU](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus)|
+|REST API     |[列出映像发布者](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<br>
+  [列出映像产品](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<br>[列出映像 SKU](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus)|
 
 可以选择上传并使用自己的映像。 如果这样做，则不会使用发布者名称、产品/服务和 SKU。
 
@@ -80,9 +84,14 @@ Azure Stack 提供一个 Marketplace，适用于各种版本和类型的操作�
 VM 扩展通过部署后配置和自动化任务来增加 VM 的功能。
 可以使用扩展完成以下常见任务：
 
-- 运行自定义脚本 - 预配 VM 时，自定义脚本扩展可以通过运行脚本，帮助在 VM 上配置工作负荷。
-- 部署和管理配置 - 可以借助 PowerShell Desired State Configuration (DSC) 扩展在 VM 上设置用于管理配置和环境的 DSC。
-- 收集诊断数据 - Azure 诊断扩展可帮助你配置 VM 来收集诊断数据，用于监视应用程序的运行状况。
+- **运行自定义脚本**  
+    预配 VM 时，自定义脚本扩展可以通过运行脚本，帮助在 VM 上配置工作负荷。
+
+- **部署和管理配置**  
+    可以借助 PowerShell Desired State Configuration (DSC) 扩展在 VM 上设置用于管理配置和环境的 DSC。
+
+- **收集诊断数据**  
+    Azure 诊断扩展可帮助你配置 VM 来收集诊断数据，用于监视应用程序的运行状况。
 
 ### <a name="related-resources"></a>相关资源
 
@@ -98,7 +107,7 @@ VM 扩展通过部署后配置和自动化任务来增加 VM 的功能。
 |Linux|是|VM 需要使用网络接口在网络中通信。|
 |数据磁盘数|否|VM 可以包含数据磁盘，以便扩展存储功能。|
 
-## <a name="how-do-i-create-my-first-vm"></a>如何创建第一个 VM？
+## <a name="create-your-first-vm"></a>创建第一个 VM
 
 创建 VM 有多种选择。 你的选择取决于环境。
 下表提供信息来帮助你开始创建 VM。
@@ -111,7 +120,7 @@ VM 扩展通过部署后配置和自动化任务来增加 VM 的功能。
 |PowerShell|[在 Azure Stack 中使用 PowerShell 创建 Windows 虚拟机](azure-stack-quick-create-vm-windows-powershell.md)<br>[在 Azure Stack 中使用 PowerShell 创建 Linux 虚拟机](azure-stack-quick-create-vm-linux-powershell.md)|
 |CLI|[在 Azure Stack 中使用 CLI 创建 Windows 虚拟机](azure-stack-quick-create-vm-windows-cli.md)<br>[在 Azure Stack 中使用 CLI 创建 Linux 虚拟机](azure-stack-quick-create-vm-linux-cli.md)|
 
-## <a name="how-do-i-manage-the-vm-that-i-created"></a>如何管理创建的 VM？
+## <a name="manage-your-vm"></a>管理 VM
 
 可以使用基于浏览器的门户、支持脚本的命令行工具或直接通过 API 管理 VM。 可能执行的一些典型管理任务包括：
 
@@ -120,7 +129,7 @@ VM 扩展通过部署后配置和自动化任务来增加 VM 的功能。
 - 管理可用性
 - 进行备份
 
-### <a name="get-information-about-a-vm"></a>获取有关 VM 的信息
+### <a name="get-information-about-your-vm"></a>获取有关 VM 的信息
 
 下表显示了获取有关 VM 的信息的一些方法。
 
@@ -131,7 +140,7 @@ VM 扩展通过部署后配置和自动化任务来增加 VM 的功能。
 |Azure PowerShell|在 Azure 和 Azure Stack 中，管理 VM 的方法很相似。 有关使用 PowerShell 的详细信息，请参阅以下 Azure 主题：<br>[使用 Azure PowerShell 模块创建和管理 Windows VM](/virtual-machines/windows/tutorial-manage-vm#understand-vm-sizes)|
 |客户端 SDK|在 Azure 和 Azure Stack 中，使用 C# 管理 VM 的方法很相似。 有关详细信息，请参阅以下 Azure 主题：<br>[在 Azure 中使用 C# 创建和管理 Windows VM](/virtual-machines/windows/csharp)|
 
-### <a name="connect-to-the-vm"></a>连接到 VM
+### <a name="connect-to-your-vm"></a>连接到 VM
 
 在 Azure Stack 门户中，可以使用“连接”按钮连接到 VM。
 

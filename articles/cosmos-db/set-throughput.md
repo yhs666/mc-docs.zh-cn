@@ -4,22 +4,18 @@ description: 了解如何为 Azure Cosmos DB 容器和集合设置预配吞吐�
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
-documentationcenter: ''
-ms.assetid: f98def7f-f012-4592-be03-f6fa185e1b1e
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 05/09/2018
-ms.date: 06/11/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 2daedc9a1bc525a3908096b5d235b6af5397557d
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: a5d14c99604d5315f0af5fa2ac4708163b6b7f8b
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867351"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070265"
 ---
 <!-- Notice: Meta Not Available on graphs, and tables -->
 # <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>为 Azure Cosmos DB 容器和数据库设置和获取吞吐量
@@ -29,8 +25,7 @@ ms.locfileid: "34867351"
 Azure Cosmos DB 会根据预配的吞吐量分配物理分区，以便托管容器并拆分/重新均衡分区中不断增长的数据。
 
 在单个容器级别分配 RU/秒时，可以将容器创建为*固定*或*无限制*模式。 固定大小的容器上限为 10 GB，10,000 RU/s 吞吐量。 若要创建无限制容器，必须指定最低 1,000 RU/秒的吞吐量和一个[分区键](partition-data.md)。 由于数据可能需要跨多个分区拆分，因此需要选择一个基数较高（一百到几百万个非重复值）的分区键。 通过选择具有大量非重复值的分区键，可以确保 Azure Cosmos DB 能够统一缩放容器与请求。 
-<!-- Not Available on table/graph -->
-在一组容器中分配 RU/秒时，会将属于该组的容器视为“无限制”容器，必须指定一个分区键。
+<!-- Not Available on table/graph --> 在一组容器中分配 RU/秒时，会将属于该组的容器视为无限制容器，必须指定一个分区键。
 
 ![预配一个容器和一组容器的请求单位数](./media/request-units/provisioning_set_containers.png)
 

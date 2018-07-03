@@ -3,8 +3,8 @@ title: Azure AD Connect 同步的属性 | Microsoft 文档
 description: 列出同步到 Azure Active Directory 的属性。
 services: active-directory
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: billmath
+manager: mtillman
 editor: ''
 ms.assetid: c2bb36e0-5205-454c-b9b6-f4990bcedf51
 ms.service: active-directory
@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/05/2018
-ms.date: 04/09/2018
+ms.date: 06/25/2018
+ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: f0ad5570af774a110654dd23547b7c9f260b9154
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.openlocfilehash: c6d3f538ab6363484d4741e3858d21674dfa2f79
+ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31319182"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36947993"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect 同步：与 Azure Active Directory 同步的属性
 本主题列出通过 Azure AD Connect 同步进行同步的属性。  
@@ -44,7 +45,7 @@ ms.locfileid: "31319182"
 | cn |X | |
 | displayName |X | |
 | objectSID |X |机械属性。 用于维护 Azure AD 和 AD 之间的同步的 AD 用户标识符。 |
-| pwdLastSet |X |机械属性。 用于了解使已颁发令牌失效的时间。 由密码同步和联合使用。 |
+| pwdLastSet |X |机械属性。 用于了解使已颁发令牌失效的时间。 由密码哈希同步和联合使用。 |
 | sourceAnchor |X |机械属性。 用于保持 ADDS 与 Azure AD 之间的关系的不可变标识符。 |
 | usageLocation |X |机械属性。 用户所在的国家/地区。 用于进行许可证分配。 |
 | userPrincipalName |X |UPN 是用户的登录 ID。 大多数情况下与 [mail] 值相同。 |
@@ -236,7 +237,7 @@ ms.locfileid: "31319182"
 | postOfficeBox |X |X | |SharePoint Online 当前不使用此属性。 |
 | preferredLanguage |X | | | |
 | ProxyAddresses |X |X |X | |
-| pwdLastSet |X | | |机械属性。 用于了解使已颁发令牌失效的时间。 由密码同步和联合使用。 |
+| pwdLastSet |X | | |机械属性。 用于了解使已颁发令牌失效的时间。 由密码哈希同步和联合使用。 |
 | reportToOriginator | | |X | |
 | reportToOwner | | |X | |
 | securityEnabled | | |X |派生自 groupType |
@@ -291,7 +292,7 @@ ms.locfileid: "31319182"
 | postalCode |X |X | | |
 | preferredLanguage |X | | | |
 | ProxyAddresses |X |X |X | |
-| pwdLastSet |X | | |机械属性。 用于了解使已颁发令牌失效的时间。 由密码同步和联合使用。 |
+| pwdLastSet |X | | |机械属性。 用于了解使已颁发令牌失效的时间。 由密码哈希同步和联合使用。 |
 | securityEnabled | | |X |派生自 groupType |
 | sn |X |X | | |
 | sourceAnchor |X |X |X |机械属性。 用于保持 ADDS 与 Azure AD 之间的关系的不可变标识符。 |
@@ -333,7 +334,7 @@ ms.locfileid: "31319182"
 | member | | |X | |
 | objectSID |X | |X |机械属性。 用于维护 Azure AD 和 AD 之间的同步的 AD 用户标识符。 |
 | ProxyAddresses |X |X |X | |
-| pwdLastSet |X | | |机械属性。 用于了解使已颁发令牌失效的时间。 由密码同步和联合使用。 |
+| pwdLastSet |X | | |机械属性。 用于了解使已颁发令牌失效的时间。 由密码哈希同步和联合使用。 |
 | securityEnabled | | |X |派生自 groupType |
 | sourceAnchor |X |X |X |机械属性。 用于保持 ADDS 与 Azure AD 之间的关系的不可变标识符。 |
 | usageLocation |X | | |机械属性。 用户所在的国家/地区。 用于进行许可证分配。 |
@@ -361,7 +362,7 @@ ms.locfileid: "31319182"
 | physicalDeliveryOfficeName |X |X | | |
 | postalCode |X |X | | |
 | preferredLanguage |X | | | |
-| pwdLastSet |X | | |机械属性。 用于了解使已颁发令牌失效的时间。 由密码同步和联合使用。 |
+| pwdLastSet |X | | |机械属性。 用于了解使已颁发令牌失效的时间。 由密码哈希同步和联合使用。 |
 | securityEnabled | | |X |派生自 groupType |
 | sn |X |X | | |
 | sourceAnchor |X |X |X |机械属性。 用于保持 ADDS 与 Azure AD 之间的关系的不可变标识符。 |
@@ -391,7 +392,7 @@ ms.locfileid: "31319182"
 | member | | |X | |
 | objectSID |X | | |机械属性。 用于维护 Azure AD 和 AD 之间的同步的 AD 用户标识符。 |
 | ProxyAddresses |X |X |X | |
-| pwdLastSet |X | | |机械属性。 用于了解使已颁发令牌失效的时间。 由密码同步和联合使用。 |
+| pwdLastSet |X | | |机械属性。 用于了解使已颁发令牌失效的时间。 由密码哈希同步和联合使用。 |
 | sn |X |X | | |
 | sourceAnchor |X |X |X |机械属性。 用于保持 ADDS 与 Azure AD 之间的关系的不可变标识符。 |
 | usageLocation |X | | |机械属性。 用户所在的国家/地区。 用于进行许可证分配。 |
@@ -418,6 +419,7 @@ ms.locfileid: "31319182"
 | --- |:---:| --- |
 | domainFQDN |X |也称为 dnsDomainName。 例如 contoso.com。 |
 | domainNetBios |X |也称为 netBiosName。 例如 CONTOSO。 |
+| msDS-KeyCredentialLink |X |在用户已注册 Windows Hello for Business 后。 | 
 
 ## <a name="exchange-hybrid-writeback"></a>Exchange 混合写回
 选择启用 **Exchange 混合**部署时，这些属性从 Azure AD 写回到本地 Active Directory。 根据 Exchange 版本，可能会同步更少的属性。
@@ -455,3 +457,4 @@ ms.locfileid: "31319182"
 
 了解有关[将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)的详细信息。
 
+<!-- Update_Description: wording update -->

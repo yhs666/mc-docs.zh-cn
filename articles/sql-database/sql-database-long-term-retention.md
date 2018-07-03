@@ -7,21 +7,24 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
-origin.date: 05/17/2018
-ms.date: 06/18/2018
+origin.date: 06/14/2018
+ms.date: 07/02/2018
 ms.author: v-nany
 ms.reviewer: carlrab
-ms.openlocfilehash: 11a734793859a51af8849ada197d9628ada33ccd
-ms.sourcegitcommit: d4176361d9c6da60729c06cc93a496cb4702d4c2
+ms.openlocfilehash: 6f772dee5363fb5edeec04dfa236c8a62a6c8012
+ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2018
-ms.locfileid: "35324251"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36948005"
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>将 Azure SQL 数据库备份存储 10 年之久
 
-出于法规要求、符合性或其他商业目的，许多应用程序要求保留 Azure SQL 数据库的[自动备份](sql-database-automated-backups.md)功能提供的过去 7-35 天的数据库备份。 通过使用长期保留 (LTR) 功能，可以将指定的 SQL 数据库完整备份存储在 RA-GRS Blob 存储中长达 10 年。 然后，可以将任何备份还原为新数据库。
+出于法规要求、符合性或其他商业目的，许多应用程序要求保留 Azure SQL 数据库的[自动备份](sql-database-automated-backups.md)功能提供的过去 7-35 天的数据库备份。 通过使用长期保留 (LTR) 功能，可以将指定的 SQL 数据库完整备份存储在 [RA-GRS](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) blob 存储中长达 10 年。 然后，可以将任何备份还原为新数据库。
 
+> [!IMPORTANT]
+> 长期保留功能当前为预览版。 在此功能的以前预览版中提供的 Azure 服务恢复服务保管库中存储的现有备份将迁移到 SQL Azure 存储。
+>
 
 ## <a name="how-sql-database-long-term-retention-works"></a>SQL 数据库长期保留的工作原理
 
@@ -32,7 +35,6 @@ ms.locfileid: "35324251"
 -  W=0、M=0、Y=5、WeekOfYear=3
 
    每年的第 3 个完整备份将保留 5 年。
-
 - W=0、M=3、Y=0
 
    每月的第一个完整备份将保留 3 个月。
@@ -59,6 +61,14 @@ W=12 周（84 天）、M=12 个月（365 天）、Y=10 年（3650 天）、WeekO
 1. LTR 副本是由 Azure 存储服务创建的，因此，复制过程对现有数据库的性能没有影响。
 2. 将策略应用到将来的备份。 例如 如果配置策略时指定的 WeekOfYear 在过去，则将在明年创建第一个 LTR 备份。 
 3. 若要从 LTR 存储还原数据库，可以根据时间戳选择一个特定备份。   数据库可以还原到原始数据库所在的订阅中的任何现有服务器。 
+> 
+
+## <a name="geo-replication-and-long-term-backup-retention"></a>异地复制和长期备份保留
+
+如果使用活动异地复制或故障转移组作为业务连续性解决方案，应准备好最终故障转移，并在异地辅助数据库中配置相同的 LTR 策略。 这不会增大 LTR 存储成本，因为备份不是从辅助数据库生成的。 仅当辅助数据库变为主数据库时，才会创建备份。 这样就可以保证在触发故障转移以及在主数据库转移到次要区域时，不间断地生成 LTR 备份。 
+
+> [!NOTE]
+在发生导致故障转移的服务中断问题后恢复原始的主数据库时，该数据库将变成新的辅助数据库。 因此，在该数据库重新变成主数据库之前，备份创建操作不会恢复，并且现有的 LTR 策略不会生效。 
 > 
 
 ## <a name="configure-long-term-backup-retention"></a>配置长期备份保留

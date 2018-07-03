@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/27/2018
-ms.date: 03/21/2018
+origin.date: 06/08/2018
+ms.date: 06/26/2018
 ms.author: v-junlch
 ms.reviewer: alfredo
-ms.openlocfilehash: 6e6aecdd2e238ee209508e3ab9dfc3f4cc41475d
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.openlocfilehash: 49b736f8ca360137c54b7e25efcc1a83aa77c888
+ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30155444"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37027148"
 ---
 # <a name="manage-usage-and-billing-for-azure-stack-as-a-cloud-service-provider"></a>管理充当云服务提供商的 Azure Stack 的使用情况和计费 
 

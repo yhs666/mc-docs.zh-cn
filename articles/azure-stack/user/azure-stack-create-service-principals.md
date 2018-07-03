@@ -11,15 +11,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 04/27/2018
-ms.date: 05/23/2018
+origin.date: 06/08/2018
+ms.date: 06/27/2018
 ms.author: v-junlch
-ms.openlocfilehash: d81fa336149290dd3b73986db796aabe9cd57f7a
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.reviewer: thoroet
+ms.openlocfilehash: 32a7d7986f3fe46fceb63630eae3b83818b84cc8
+ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475072"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37027079"
 ---
 # <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>通过创建服务主体向应用程序授予对 Azure Stack 资源的访问权限
 
@@ -63,7 +64,7 @@ ms.locfileid: "34475072"
 
 若要为应用程序创建服务主体，请执行以下操作：
 
-1. 通过 [Azure 门户](https://portal.azure.cn)登录 Azure 帐户。
+1. 通过 [Azure 门户](https://portal.azure.cn)登录到 Azure 帐户。
 2. 选择“Azure Active Directory” > “应用注册” > “添加”。
 3. 为应用提供名称和 URL。 选择“Web 应用/API”或“本机”作为要创建的应用程序的类型。 。
 
@@ -95,54 +96,7 @@ ms.locfileid: "34475072"
 - 将服务主体分配到某个角色。
 - 使用服务主体的标识进行登录。
 
-### <a name="before-you-begin"></a>准备阶段
-
-[将所需的 Azure Stack 工具下载到本地计算机。](azure-stack-powershell-download.md)
-
-### <a name="import-the-identity-powershell-module"></a>导入标识 PowerShell 模块
-
-导航到 Azure Stack 工具的下载文件夹，并使用以下命令导入标识 PowerShell 模块：
-
-```PowerShell
-Import-Module .\Identity\AzureStack.Identity.psm1
-```
-
-导入标识模块时可能会收到以下错误消息：“AzureStack.Connect.psm1 未经过数字签名。 该脚本将不会在系统上执行”。
-
-若要解决此问题，需要配置执行策略以允许运行该脚本。 若要设置执行策略，请在提升权限的 PowerShell 会话中运行以下命令：
-
-```PowerShell
-Set-ExecutionPolicy Unrestricted
-```
-
-### <a name="create-the-service-principal"></a>创建服务主体
-
-可以运行以下命令来创建服务主体（请务必更新 **DisplayName** 参数）：
-
-```powershell
-$servicePrincipal = New-AzSADGraphServicePrincipal `
- -DisplayName "<YourServicePrincipalName>" `
- -AdminCredential $(Get-Credential) `
- -AdfsMachineName "AZS-ADFS01" `
- -Verbose
-
-```
-
-### <a name="assign-a-role"></a>分配角色
-
-创建服务主体后，必须[将其分配到某个角色](azure-stack-create-service-principals.md#assign-role-to-service-principal)。
-
-### <a name="sign-in-using-powershell"></a>使用 PowerShell 登录
-
-可以运行以下命令来登录到 Azure Stack（请务必将 **EnvironmentName** 参数更新为你的应用的名称）：
-
-```powershell
-Add-AzureRmAccount -EnvironmentName "<AzureStackEnvironmentName>" `
- -ServicePrincipal `
- -CertificateThumbprint $servicePrincipal.Thumbprint `
- -ApplicationId $servicePrincipal.ApplicationId `
- -TenantId $directoryTenantId
-```
+有关如何创建服务主体的详细信息，请参阅[为 AD FS 创建服务主体](../azure-stack-create-service-principals.md#create-service-principal-for-ad-fs)。
 
 ## <a name="assign-the-service-principal-to-a-role"></a>将服务主体分配到某个角色
 

@@ -1,6 +1,6 @@
 ---
-title: 在 Windows 中装载 Azure 文件共享并对其进行访问 | Azure
-description: 在 Windows 中装载 Azure 文件共享并对其进行访问。
+title: 在 Windows 中使用 Azure 文件共享 | Azure
+description: 了解如何在 Windows 和 Windows Server 中使用 Azure 文件共享。
 services: storage
 documentationcenter: na
 author: forester123
@@ -12,27 +12,28 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 04/11/2018
-ms.date: 06/11/2018
+origin.date: 06/07/2018
+ms.date: 07/02/2018
 ms.author: v-johch
-ms.openlocfilehash: f2b09ea4168ef46057b73a28b3bb33e0424f1f7e
-ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
+ms.openlocfilehash: 13254cac488fb5302410001f37e84591b4f4ade2
+ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36269959"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37103084"
 ---
-# <a name="mount-an-azure-file-share-and-access-the-share-in-windows"></a>在 Windows 中装载 Azure 文件共享并对其进行访问
-[Azure 文件](storage-files-introduction.md)是易于使用的云文件系统。 可以在 Windows 和 Windows Server 中装载 Azure 文件共享。 本文介绍了三种在 Windows 中装载 Azure 文件共享的不同方式：使用文件资源管理器 UI、通过 PowerShell，以及通过命令提示符。 
+# <a name="use-an-azure-file-share-with-windows"></a>在 Windows 中使用 Azure 文件共享
+[Azure 文件](storage-files-introduction.md)是易于使用的云文件系统。 可以在 Windows 和 Windows Server 中无缝使用 Azure 文件共享。 本文介绍在 Windows 和 Windows Server 中使用 Azure 文件共享时的注意事项。
 
-若要将 Azure 文件共享装载到托管其的 Azure 区域之外（例如本地或其他 Azure 区域），OS 必须支持 SMB 3.0。 
+若要在某个 Azure 文件共享的托管 Azure 区域（例如本地或其他 Azure 区域）外部使用该文件共享，OS 必须支持 SMB 3.0。 
 
-可以将 Azure 文件共享装载到在 Azure VM 中或本地运行的 Windows 安装。 下表说明了哪些 OS 版本支持在哪个环境中装载文件共享：
+可在 Azure VM 或本地运行的 Windows 安装中使用 Azure 文件共享。 下表说明了哪些 OS 版本支持在哪个环境中访问文件共享：
 
 | Windows 版本        | SMB 版本 | 可以在 Azure VM 中装载 | 可以在本地装载 |
 |------------------------|-------------|-----------------------|----------------------|
-| Windows Server 半年通道<sup>1</sup> | SMB 3.0 | 是 | 是 |
-| Windows 10<sup>2</sup>  | SMB 3.0 | 是 | 是 |
+| Windows Server 2019（预览版）<sup>1</sup> | SMB 3.0 | 是 | 是 |
+| Windows 10<sup>2</sup> | SMB 3.0 | 是 | 是 |
+| Windows Server 半年通道<sup>3</sup> | SMB 3.0 | 是 | 是 |
 | Windows Server 2016    | SMB 3.0     | 是                   | 是                  |
 | Windows 8.1            | SMB 3.0     | 是                   | 是                  |
 | Windows Server 2012 R2 | SMB 3.0     | 是                   | 是                  |
@@ -40,145 +41,244 @@ ms.locfileid: "36269959"
 | Windows 7              | SMB 2.1     | 是                   | 否                   |
 | Windows Server 2008 R2 | SMB 2.1     | 是                   | 否                   |
 
-<sup>1</sup>Windows Server 版本 1709。  
-<sup>2</sup>Windows 10 版本 1507、1607、1703、1709。
+<sup>1</sup>Windows Server 2019 通过 [Windows Server 预览体验计划](https://insider.windows.com/for-business-getting-started-server/)以预览版的形式提供。 尽管 Windows Server 2019 尚不支持用于生产用途，但如果在连接到 Azure 文件共享时遇到了[适用于 Windows 的故障排除指南](storage-troubleshoot-windows-file-connection-problems.md)中未提到的问题，请告诉我们。  
+<sup>2</sup>Windows 10 版本 1507、1607、1703、1709 和 1803。  
+<sup>3</sup>Windows Server 版本 1709 和 1803。
 
 > [!Note]  
 > 我们始终建议使用相对于 Windows 版本来说最新的 KB。
 
-## <a name="aprerequisites-for-mounting-azure-file-share-with-windows"></a></a>在 Windows 中装载 Azure 文件共享的先决条件 
+## <a name="prerequisites"></a>先决条件 
 * **存储帐户名**：若要装载 Azure 文件共享，需要存储帐户的名称。
 
 * **存储帐户密钥**：若要装载 Azure 文件共享，需要主（或辅助）存储密钥。 目前不支持使用 SAS 密钥进行装载。
 
-* **确保端口 445 处于打开状态**：Azure 文件使用 SMB 协议。 SMB 通过 TCP 端口 445 通信 - 请查看防火墙是否未阻止 TCP 端口 445 与客户端计算机通信。 可以使用 Portqry 检查 TCP 端口 445 是否处于打开状态。 如果 TCP 端口 445 显示为“已筛选”，则 TCP 端口被阻止。 示例查询如下：
+* **确保端口 445 处于打开状态**：SMB 协议要求 TCP 端口 445 处于打开状态；如果端口 445 已阻止，连接将会失败。 可以使用 `Test-NetConnection` cmdlet 检查防火墙是否阻止了端口 445。 以下 PowerShell 代码假设已安装 AzureRM PowerShell 模块。有关详细信息，请参阅[安装 Azure PowerShell 模块](/powershell/azure/install-azurerm-ps)。 请记得将 `<your-storage-account-name>` 和 `<your-resoure-group-name>` 替换为存储帐户的相关名称。
 
-    `g:\DataDump\Tools\Portqry>PortQry.exe -n [storage account name].file.core.chinacloudapi.cn -p TCP -e 445`
+    ```PowerShell
+    $resourceGroupName = "<your-resource-group-name>"
+    $storageAccountName = "<your-storage-account-name>"
 
-    如果 TCP 端口 445 受到网络路径中的规则阻止，将显示以下输出：
+    # This command requires you to be logged into your Azure account, run Login-AzureRmAccount if you haven't
+    # already logged in.
+    $storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
 
-    `TCP port 445 (Microsoft-ds service): FILTERED`
+    # The ComputerName, or host, is <storage-account>.file.core.chinacloudapi.cn for Azure Public Regions.
+    # $storageAccount.Context.FileEndpoint is used because non-Public Azure regions, such as soverign clouds
+    # or Azure Stack deployments, will have different hosts for Azure file shares (and other storage resources).
+    Test-NetConnection -ComputerName [System.Uri]::new($storageAccount.Context.FileEndPoint).Host -Port 445
+    ```
 
-    若要详细了解如何使用 Portqry，请参阅 [Portqry.exe 命令行实用工具说明](https://support.microsoft.com/help/310099)。
+    如果连接成功，应会看到以下输出：
 
+    ```
+    ComputerName     : <storage-account-host-name>
+    RemoteAddress    : <storage-account-ip-address>
+    RemotePort       : 445
+    InterfaceAlias   : <your-network-interface>
+    SourceAddress    : <your-ip-address>
+    TcpTestSucceeded : True
+    ```
 
-## <a name="persisting-connections-across-reboots"></a>重新启动后保持连接
-### <a name="cmdkey"></a>CmdKey
-建立持久连接的最简便方法是使用“CmdKey”命令行实用工具在 Windows 中保存存储帐户凭据。 以下示例命令行可在 VM 中保存存储帐户凭据：
+    > [!Note]  
+    > 以上命令返回存储帐户的当前 IP 地址。 无法保证此 IP 地址相同，它随时可能更改。 不要在任何脚本或防火墙配置中对此 IP 地址进行硬编码。 
+
+## <a name="using-an-azure-file-share-with-windows"></a>在 Windows 中使用 Azure 文件共享
+若要在 Windows 中使用某个 Azure 文件共享，必须装载该文件共享（为其分配驱动器号或装载点路径），或通过其 [UNC 路径](https://msdn.microsoft.com/library/windows/desktop/aa365247.aspx)来访问它。 
+
+与其他可以交互的 SMB 共享（例如，托管在 Windows Server、Linux Samba 服务器或 NAS 设备上的共享）不同，Azure 文件共享目前不支持对 Active Directory (AD) 或 Azure Active Directory (AAD) 标识使用 Kerberos 身份验证，不过，我们正在[开发](https://feedback.azure.com/forums/217298-storage/suggestions/6078420-acl-s-for-azurefiles)此功能。 必须使用包含 Azure 文件共享的存储帐户的存储帐户密钥访问该 Azure 文件共享。 存储帐户密钥是存储帐户的管理员密钥，包括对所要访问的文件共享中的所有文件和文件夹的管理员权限，以及对存储帐户中包含的所有文件共享和其他存储资源（Blob、队列、表等）的管理员权限。
+
+将预期需要 SMB 文件共享的业务线 (LOB) 应用程序直接迁移到 Azure 的常见模式是使用 Azure 文件共享，而不是在 Azure VM 中运行专用的 Windows 文件服务器。 成功迁移业务线应用程序以使用 Azure 文件共享的一个重要注意事项是，许多业务线应用程序在具有有限系统权限的专用服务帐户的上下文中运行，而不是在 VM 的管理帐户下运行。 因此，必须确保装载/保存服务帐户上下文（而不是管理帐户）中 Azure 文件共享的凭据。
+
+### <a name="persisting-azure-file-share-credentials-in-windows"></a>在 Windows 中保存 Azure 文件共享凭据  
+使用 [cmdkey](https://docs.microsoft.com/windows-server/administration/windows-commands/cmdkey) 实用工具可在 Windows 中存储存储帐户凭据。 这意味着，在尝试通过 Azure 文件共享的 UNC 路径访问该文件共享或装载 Azure 文件共享时，不需要指定凭据。 若要保存存储帐户的凭据，请运行以下 PowerShell 命令（适当替换 `<your-storage-account-name>` 和 `<your-resoure-group-name>`）。
+
+```PowerShell
+$resourceGroupName = "<your-resource-group-name>"
+$storageAccountName = "<your-storage-account-name>"
+
+# These commands require you to be logged into your Azure account, run Login-AzureRmAccount if you haven't
+# already logged in.
+$storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
+$storageAccountKeys = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName
+
+# The cmdkey utility is a command-line (rather than PowerShell) tool. We use Invoke-Expression to allow us to 
+# consume the appropriate values from the storage account variables. The value given to the add parameter of the
+# cmdkey utility is the host address for the storage account, <storage-account>.file.core.chinacloudapi.cn for Azure 
+# Public Regions. $storageAccount.Context.FileEndpoint is used because non-Public Azure regions, such as soverign 
+# clouds or Azure Stack deployments, will have different hosts for Azure file shares (and other storage resources).
+Invoke-Expression -Command "cmdkey /add:$([System.Uri]::new($storageAccount.Context.FileEndPoint).Host) " + `
+    "/user:AZURE\$($storageAccount.StorageAccountName) /pass:$($storageAccountKeys[0].Value)"
 ```
-C:\>cmdkey /add:<yourstorageaccountname>.file.core.chinacloudapi.cn /user:<domainname>\<yourstorageaccountname> /pass:<YourStorageAccountKeyWhichEndsIn==>
-```
-> [!Note]
-> 此处的域名是“AZURE”。
 
-CmdKey 还允许列出它存储的凭据：
+可以使用 list 参数来验证 cmdkey 实用工具是否已存储存储帐户的凭据：
 
+```PowerShell
+cmdkey /list
 ```
-C:\>cmdkey /list
-```
-输出如下所示：
+
+如果已成功存储 Azure 文件共享的凭据，预期输出将如下所示（列表中可能会存储其他密钥）：
 
 ```
 Currently stored credentials:
 
-Target: Domain:target=<yourstorageaccountname>.file.core.chinacloudapi.cn
+Target: Domain:target=<storage-account-host-name>
 Type: Domain Password
-User: AZURE\<yourstorageaccountname>
+User: AZURE\<your-storage-account-name>
 ```
-持久保存凭据后，在连接到共享时不再需要提供这些凭据。 无需指定任何凭据即可建立连接。
 
-## <a name="mount-the-azure-file-share-with-file-explorer"></a>使用文件资源管理器装载 Azure 文件共享
+现在，应该可以装载或访问该共享，而无需提供其他凭据。
+
+#### <a name="advanced-cmdkey-scenarios"></a>高级 cmdkey 场景
+对于 cmdkey，需要考虑到其他两种场景：在计算机上存储另一用户（例如某个服务帐户）的凭据，以及使用 PowerShell 远程连接在远程计算机上存储凭据。
+
+可以很轻松地在计算机上存储另一用户的凭据：只需登录到帐户后，执行以下 PowerShell 命令即可：
+
+```PowerShell
+$password = ConvertTo-SecureString -String "<service-account-password>" -AsPlainText -Force
+$credential = New-Object System.Management.Automation.PSCredential -ArgumentList "<service-account-username>", $password
+Start-Process -FileName PowerShell.exe -Credential $credential -LoadUserProfile
+```
+
+这会在服务帐户（或用户帐户）的用户上下文中打开一个新的 PowerShell 窗口。 然后，可以根据[前面](#persisting-azure-file-share-credentials-in-windows)所述使用 cmdkey 实用工具。
+
+但是，无法使用 PowerShell 远程连接在远程计算机上存储凭据，因为在用户通过 PowerShell 远程连接登录后，cmdkey 不允许访问其凭据存储，即使是在添加组件时。 我们建议使用[远程桌面](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/windows)登录到计算机。
+
+### <a name="mount-the-azure-file-share-with-powershell"></a>使用 PowerShell 装载 Azure 文件共享
+在常规的（即权限未提升）PowerShell 会话中运行以下命令来装载 Azure 文件共享。 请记得将 `<your-resource-group-name>`、`<your-storage-account-name>`、`<your-file-share-name>` 和 `<desired-drive-letter>` 替换为适当的信息。
+
+```PowerShell
+$resourceGroupName = "<your-resource-group-name>"
+$storageAccountName = "<your-storage-account-name>"
+$fileShareName = "<your-file-share-name>"
+
+# These commands require you to be logged into your Azure account, run Login-AzureRmAccount if you haven't
+# already logged in.
+$storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
+$storageAccountKeys = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName
+$fileShare = Get-AzureStorageShare -Context $storageAccount.Context | Where-Object { 
+    $_.Name -eq $fileShareName -and $_.IsSnapshot -eq $false
+}
+
+if ($fileShare -eq $null) {
+    throw [System.Exception]::new("Azure file share not found")
+}
+
+# The value given to the root parameter of the New-PSDrive cmdlet is the host address for the storage account, 
+# <storage-account>.file.core.chinacloudapi.cn for Azure Public Regions. $fileShare.StorageUri.PrimaryUri.Host is 
+# used because non-Public Azure regions, such as soverign clouds or Azure Stack deployments, will have different 
+# hosts for Azure file shares (and other storage resources).
+$password = ConvertTo-SecureString -String $storageAccountKeys[0].Value -AsPlainText -Force
+$credential = New-Object System.Management.Automation.PSCredential -ArgumentList "AZURE\$($storageAccount.StorageAccountName)", $password
+New-PSDrive -Name <desired-drive-letter> -PSProvider FileSystem -Root "\\$($fileShare.StorageUri.PrimaryUri.Host)\$($fileShare.Name)" -Credential $credential -Persist
+```
+
+> [!Note]  
+> 在 `New-PSDrive` cmdlet 中使用 `-Persist` 选项只允许在启动时重新装载文件共享（如果已保存凭据）。 可根据[前面所述](#persisting-azure-file-share-credentials-in-windows)，使用 cmdkey 来保存凭据。 
+
+如果需要，可以使用以下 PowerShell cmdlet 卸载 Azure 文件共享。
+
+```PowerShell
+Remove-PSDrive -Name <desired-drive-letter>
+```
+
+### <a name="mount-the-azure-file-share-with-file-explorer"></a>使用文件资源管理器装载 Azure 文件共享
 > [!Note]  
 > 请注意，以下说明是在 Windows 10 上显示的，在较旧的版本上可能稍有不同。 
 
-1. **打开文件资源管理器**：可以从“开始”菜单打开，也可以按 Win+E 快捷键打开。
+1. 打开文件资源管理器。 可以从“开始”菜单打开，也可以按 Win+E 快捷键打开文件资源管理器。
 
-2. **导航到窗口左侧的“此电脑”项。这样会更改功能区中的可用菜单。在“计算机”菜单中，选择“映射网络驱动器”**。
+2. 导航到窗口左侧的“此电脑”项。 这样会更改功能区中的可用菜单。 在“计算机”菜单中，选择“映射网络驱动器”。
     
     ![“映射网络驱动器”下拉菜单的屏幕截图](./media/storage-how-to-use-files-windows/1_MountOnWindows10.png)
 
-3. **从 Azure 门户的“连接”窗格中复制 UNC 路径。** 
+3. 从 Azure 门户的“连接”窗格中复制 UNC 路径。 
 
     ![Azure 文件“连接”窗格中的 UNC 路径](./media/storage-how-to-use-files-windows/portal_netuse_connect.png)
 
-4. **选择驱动器号并输入 UNC 路径。** 
+4. 选择驱动器号并输入 UNC 路径。 
     
     ![“映射网络驱动器”对话框的屏幕截图](./media/storage-how-to-use-files-windows/2_MountOnWindows10.png)
 
-5. **使用带 `Azure\` 前缀的存储帐户名称作为用户名，使用存储帐户密钥作为密码。**
+5. 使用带 `AZURE\` 前缀的存储帐户名称作为用户名，使用存储帐户密钥作为密码。
     
     ![网络凭据对话框的屏幕快照](./media/storage-how-to-use-files-windows/3_MountOnWindows10.png)
 
-6. **根据需要使用 Azure 文件共享**。
+6. 根据需要使用 Azure 文件共享。
     
     ![Azure 文件共享现已装载](./media/storage-how-to-use-files-windows/4_MountOnWindows10.png)
 
-7. 做好卸载（或断开连接）Azure 文件共享的准备以后，即可通过在文件资源管理器中右键单击“网络位置”下对应于共享的条目，然后选择“断开连接”来完成此操作。
+7. 做好卸载 Azure 文件共享的准备后，可在文件资源管理器中右键单击“网络位置”下对应于共享的条目，并选择“断开连接”。
 
-## <a name="mount-the-azure-file-share-with-powershell"></a>使用 PowerShell 装载 Azure 文件共享
-1. **使用以下命令装载 Azure 文件共享**：记得将 `<storage-account-name>`、`<share-name>`、`<storage-account-key>` 和 `<desired-drive-letter>` 替换为适当的信息。
+## <a name="securing-windowswindows-server"></a>保护 Windows/Windows Server
+若要在 Windows 上装载 Azure 文件共享，端口 445 必须可访问。 由于 SMB 1 固有的安全风险，许多组织会阻止端口 445。 SMB 1（也称为通用 Internet 文件系统，简称 CIFS）是 Windows 和 Windows Server 中随附的一个传统文件系统协议。 SMB 1 是一个已过时的低效协议，最重要的是，它不安全。 好消息是 Azure 文件不支持 SMB 1，所有支持的 Windows 和 Windows Server 版本允许删除或禁用 SMB 1。 我们始终[强烈建议](https://aka.ms/stopusingsmb1)在生产环境中使用 Azure 文件共享之前，删除或禁用 Windows 中的 SMB 1 客户端和服务器。
 
-    ```PowerShell
-    $acctKey = ConvertTo-SecureString -String "<storage-account-key>" -AsPlainText -Force
-    $credential = New-Object System.Management.Automation.PSCredential -ArgumentList "Azure\<storage-account-name>", $acctKey
-    New-PSDrive -Name <desired-drive-letter> -PSProvider FileSystem -Root "\\<storage-account-name>.file.core.chinacloudapi.cn\<share-name>" -Credential $credential
-    ```
+下表提供了有关每个 Windows 版本上 SMB 1 状态的详细信息：
 
-2. **根据需要使用 Azure 文件共享**。
+| Windows 版本                           | SMB 1 默认状态 | 禁用/删除方法       | 
+|-------------------------------------------|----------------------|-----------------------------|
+| Windows Server 2019（预览版）             | 已禁用             | 使用 Windows 功能删除 |
+| Windows Server 版本 1709+            | 已禁用             | 使用 Windows 功能删除 |
+| Windows 10 版本 1709+                | 已禁用             | 使用 Windows 功能删除 |
+| Windows Server 2016                       | Enabled              | 使用 Windows 功能删除 |
+| Windows 10 版本 1507、1607 和 1703 | Enabled              | 使用 Windows 功能删除 |
+| Windows Server 2012 R2                    | Enabled              | 使用 Windows 功能删除 | 
+| Windows 8.1                               | Enabled              | 使用 Windows 功能删除 | 
+| Windows Server 2012                       | Enabled              | 使用注册表禁用       | 
+| Windows Server 2008 R2                    | Enabled              | 使用注册表禁用       |
+| Windows 7                                 | Enabled              | 使用注册表禁用       | 
 
-3. **完成后，使用以下命令卸载 Azure 文件共享**。
+### <a name="auditing-smb-1-usage"></a>审核 SMB 1 使用情况
+> 适用于 Windows Server 2019（预览版）、Windows Server 半年通道（版本 1709 和 1803）、Windows Server 2016、Windows 10（版本 1507、1607、1703、1709 和 1803）、Windows Server 2012 R2 和 Windows 8.1
 
-    ```PowerShell
-    Remove-PSDrive -Name <desired-drive-letter>
-    ```
-
-> [!Note]  
-> 可以对 `New-PSDrive` 使用 `-Persist` 参数，使 Azure 文件共享在装载后对 OS 的其余部分可见。
-
-## <a name="mount-the-azure-file-share-with-command-prompt"></a>使用命令提示符装载 Azure 文件共享
-1. **使用以下命令装载 Azure 文件共享**：记得将 `<storage-account-name>`、`<share-name>`、`<storage-account-key>` 和 `<desired-drive-letter>` 替换为适当的信息。
-
-    ```
-    net use <desired-drive-letter>: \\<storage-account-name>.file.core.chinacloudapi.cn\<share-name> <storage-account-key> /user:Azure\<storage-account-name>
-    ```
-
-2. **根据需要使用 Azure 文件共享**。
-
-3. **完成后，使用以下命令卸载 Azure 文件共享**。
-
-    ```
-    net use <desired-drive-letter>: /delete
-    ```
+在环境中删除 SMB 1 之前，可以审核 SMB 1 使用情况，以确定所做的更改是否会中断任何客户端。 如果针对使用 SMB 1 的 SMB 共享发出了任何请求，将在事件日志中的 `Applications and Services Logs > Microsoft > Windows > SMBServer > Audit` 下面记录一个审核事件。 
 
 > [!Note]  
-> 可以将 Azure 文件共享配置为在重新启动后自动重新连接，只需将凭据持久保存在 Windows 中即可。 以下命令会持久保存凭据：
->   ```
->   cmdkey /add:<storage-account-name>.file.core.chinacloudapi.cn /user:AZURE\<storage-account-name> /pass:<storage-account-key>
->   ```
+> 若要在 Windows Server 2012 R2 和 Windows 8.1 上启用审核支持，至少应安装 [KB4022720](https://support.microsoft.com/help/4022720/windows-8-1-windows-server-2012-r2-update-kb4022720)。
 
+若要启用审核，请在权限提升的 PowerShell 会话中执行以下 cmdlet：
+
+```PowerShell
+Set-SmbServerConfiguration –AuditSmb1Access $true
+```
+
+### <a name="removing-smb-1-from-windows-server"></a>从 Windows Server 中删除 SMB 1
+> 适用于 Windows Server 2019（预览版）、Windows Server 半年通道（版本 1709 和 1803）、Windows Server 2016、Windows Server 2012 R2
+
+若要从 Windows Server 实例中删除 SMB 1，请在权限提升的 PowerShell 会话中执行以下 cmdlet：
+
+```PowerShell
+Remove-WindowsFeature -Name FS-SMB1
+```
+
+若要完成删除过程，请重启服务器。 
+
+> [!Note]  
+> 从 Windows 10 和 Windows Server 版本 1709 开始，默认不会安装 SMB 1，SMB 1 客户端和 SMB 1 服务器有独立的 Windows 功能。 我们始终建议保持卸载 SMB 1 服务器 (`FS-SMB1-SERVER`) 和 SMB 1 客户端 (`FS-SMB1-CLIENT`)。
+
+### <a name="removing-smb-1-from-windows-client"></a>从 Windows 客户端中删除 SMB 1
+> 适用于 Windows 10（版本 1507、1607、1703、1709 和 1803）和 Windows 8.1
+
+若要从 Windows 客户端中删除 SMB 1，请在权限提升的 PowerShell 会话中执行以下 cmdlet：
+
+```PowerShell
+Disable-WindowsOptionalFeature -Online -FeatureName SMB1Protocol
+```
+
+若要完成删除过程，请重启电脑。
+
+### <a name="disabling-smb-1-on-legacy-versions-of-windowswindows-server"></a>在早期版本的 Windows/Windows Server 上禁用 SMB 1
+> 适用于 Windows Server 2012、Windows Server 2008 R2 和 Windows 7
+
+无法在早期版本的 Windows/Windows Server 上完全删除 SMB 1，但可以通过注册表将其禁用。 若要禁用 SMB 1，请创建 `DWORD` 类型的新注册表项 `SMB1`，并在 `HKEY_LOCAL_MACHINE > SYSTEM > CurrentControlSet > Services > LanmanServer > Parameters` 下面添加值 `0`。
+
+也可以使用以下 PowerShell cmdlet 轻松实现此目的：
+
+```PowerShell
+Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters" SMB1 -Type DWORD -Value 0 –Force
+```
 ## <a name="next-steps"></a>后续步骤
-请参阅以下链接，获取有关 Azure 文件的更多信息。
+请参阅以下链接，获取有关 Azure 文件的更多信息：
 
 * [常见问题](../storage-files-faq.md)
 * [在 Windows 上进行故障排除](storage-troubleshoot-windows-file-connection-problems.md)      
-
-### <a name="conceptual-articles-and-videos"></a>概念性文章和视频
-* [Azure 文件：适用于 Windows 和 Linux 的顺畅的云 SMB 文件系统](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
-* [如何通过 Linux 使用 Azure 文件](../storage-how-to-use-files-linux.md)
-
-### <a name="tooling-support-for-azure-files"></a>Azure 文件的工具支持
-* [如何对 Azure 存储使用 AzCopy](../common/storage-use-azcopy.md?toc=%2fstorage%2ffiles%2ftoc.json)
-* [将 Azure CLI 用于 Azure 存储](../common/storage-azure-cli.md?toc=%2fstorage%2ffiles%2ftoc.json#create-and-manage-file-shares)
-* [排查 Azure 文件问题 - Windows](storage-troubleshoot-windows-file-connection-problems.md)
-* [排查 Azure 文件问题 - Linux](storage-troubleshoot-linux-file-connection-problems.md)
-
-### <a name="blog-posts"></a>博客文章
-* [Azure 文件现已正式发布](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
-* [Azure 文件内部](https://azure.microsoft.com/blog/inside-azure-file-storage/)
-* [Introducing Azure File Service（Azure 文件服务简介）](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
-* [将数据迁移到 Azure 文件](https://azure.microsoft.com/blog/migrating-data-to-microsoft-azure-files/)
-
-### <a name="reference"></a>参考
-* [.NET 存储客户端库参考](https://msdn.microsoft.com/library/azure/dn261237.aspx)
-* [文件服务 REST API 参考](http://msdn.microsoft.com/library/azure/dn167006.aspx)
-<!--Update_Description: update supported os version table; add "Persisting connections across reboots" section-->

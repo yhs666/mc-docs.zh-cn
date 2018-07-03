@@ -12,15 +12,15 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/18/2018
-ms.date: 05/24/2018
+origin.date: 06/15/2018
+ms.date: 06/26/2018
 ms.author: v-junlch
-ms.openlocfilehash: 22c353d851039074deda7a0593b3967ebef9ddf9
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 5f1a17c9f66ef7e43cdb4852459f803cd7c64735
+ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475069"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37027186"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>将应用服务资源提供程序添加到 Azure Stack
 
@@ -31,7 +31,7 @@ ms.locfileid: "34475069"
 >
 >
 
-作为 Azure Stack 云操作员，可以让用户能够创建 Web 应用程序和 API 应用程序。 为此，必须先将[应用服务资源提供程序](azure-stack-app-service-overview.md)添加到 Azure Stack 部署，如本文中所述。 安装应用服务资源提供程序后，可以将其包含在产品/服务和计划中。 然后，用户可以订阅以获取服务并开始创建应用程序。
+作为 Azure Stack 云操作员，可以让用户能够创建 Web 应用程序和 API 应用程序。 为此，必须先将[应用服务资源提供程序](azure-stack-app-service-overview.md)添加到 Azure Stack 部署，如本文中所述。 安装应用服务资源提供程序后，可以将其包含在套餐和计划中。 然后，用户可以订阅以获取服务并开始创建应用程序。
 
 > [!IMPORTANT]
 > 在运行安装程序之前，请确保已按照[开始之前](azure-stack-app-service-before-you-get-started.md)中的指南进行操作。
@@ -59,7 +59,7 @@ ms.locfileid: "34475069"
 
 4. 查看并接受第三方许可条款，然后单击“下一步”。
 
-5. 请确保应用服务云配置信息正确无误。 如果在 Azure Stack 开发工具包部署过程中使用了默认设置，可以接受此处的默认值。 但是，如果在部署 Azure Stack 时自定义了选项，或者要部署到集成系统，则必须在此窗口中编辑相应的值，以反映自己的需要。 例如，如果使用域后缀 mycloud.com，则必须将“Azure Stack 租户”Azure 资源管理器终结点更改为 management.&lt;区域&gt;.mycloud.com。确认信息后，单击“下一步”。
+5. 请确保应用服务云配置信息正确无误。 如果在 Azure Stack 开发工具包部署过程中使用了默认设置，可以接受此处的默认值。 但是，如果在部署 Azure Stack 时自定义了选项，或者要部署到集成系统，则必须在此窗口中编辑相应的值，以反映自己的需要。 例如，如果使用域后缀 mycloud.com，则必须将“Azure Stack 租户”Azure 资源管理器终结点更改为 management.&lt;区域&gt;.mycloud.com。 确认信息后，单击“下一步”。
 
     ![应用服务安装程序][2]
 
@@ -68,6 +68,12 @@ ms.locfileid: "34475069"
         - 如果使用 Azure Active Directory (Azure AD)，请输入在部署 Azure Stack 时提供的 Azure AD 管理员帐户和密码。 单击“登录”。
         - 如果使用 Active Directory 联合身份验证服务 (AD FS)，请提供管理员帐户。 例如，cloudadmin@azurestack.local。 输入密码，并单击“登录”。
     2. 在“Azure Stack 订阅”框中，选择“默认提供商订阅”。
+    
+        > [!NOTE]
+        > 目前，应用服务只能部署到“默认提供程序订阅”。  在将来的更新中，应用服务将部署到 Azure Stack 1804 中引入的新“计量订阅”，所有现有部署也会迁移到此新订阅。
+        >
+        >
+    
     3. 在“Azure Stack 位置”框中，选择要部署到的区域所对应的位置。 例如，如果要部署到 Azure Stack 开发工具包，请选择“本地”。
 
     ![应用服务安装程序][3]
@@ -130,7 +136,7 @@ ms.locfileid: "34475069"
 
     | 角色 | 最小实例数 | 最小 SKU | 注释 |
     | --- | --- | --- | --- |
-    | 控制器 | 1 | Standard_A1 -（1 vCPU，1792 MB） | 管理和维护应用服务云的运行状况。 |
+    | 控制器 | 1 | Standard_A2 -（2 个 vCPU，3584 MB） | 管理和维护应用服务云的运行状况。 |
     | 管理 | 1 | Standard_A2 -（2 vCPU，3584 MB） | 管理应用服务 Azure 资源管理器和 API 终结点、门户扩展（管理员门户、租户门户、Functions 门户）和数据服务。 为了支持故障转移，已将建议的实例数增加到 2 个。 |
     | 发布者 | 1 | Standard_A1 -（1 vCPU，1792 MB） | 通过 FTP 和 Web 部署发布内容。 |
     | FrontEnd | 1 | Standard_A1 -（1 vCPU，1792 MB） | 将请求路由到应用服务应用程序。 |
@@ -188,7 +194,7 @@ ms.locfileid: "34475069"
 部署并注册应用服务资源提供程序后，对其进行测试以确保用户可以部署 Web 应用和 API 应用。
 
 > [!NOTE]
-> 需要创建在计划中有 Microsoft.Web 命名空间的产品/服务。 然后，需要有订阅此产品/服务的租户订阅。 有关详细信息，请参阅[创建产品/服务](azure-stack-create-offer.md)和[创建计划](azure-stack-create-plan.md)。
+> 需要创建一个套餐，其中的计划包含 Microsoft.Web 命名空间。 然后，需要有订阅此套餐的租户订阅。 有关详细信息，请参阅[创建套餐](azure-stack-create-offer.md)和[创建计划](azure-stack-create-plan.md)。
 >
 必须有租户订阅，才能创建使用 Azure Stack 上的应用服务的应用程序。 服务管理员只能在管理员门户中完成的功能与资源提供程序对应用服务的管理相关。 这些功能包括添加容量、配置部署源以及添加辅助角色层和 SKU。
 >
@@ -212,11 +218,11 @@ ms.locfileid: "34475069"
 
 ## <a name="deploy-a-wordpress-dnn-or-django-website-optional"></a>部署 WordPress、DNN 或 Django 网站（可选）
 
-1. 在 Azure Stack 租户门户中，单击“+”，转到 Azure Marketplace，部署 Django 网站并等待成功完成。 Django Web 平台使用基于文件系统的数据库。 它不需要任何其他资源提供程序，如 SQL 或 MySQL。
+1. 在 Azure Stack 租户门户中，单击“+”，转到 Azure 市场，部署 Django 网站并等待成功完成。 Django Web 平台使用基于文件系统的数据库。 它不需要任何其他资源提供程序，如 SQL 或 MySQL。
 
-2. 如果还部署了 MySQL 资源提供程序，则可从 Marketplace 部署 WordPress 网站。 当系统提示输入数据库参数时，请输入用户名，其格式为 *User1@Server1*（使用所选的用户名和服务器名称）。
+2. 如果还部署了 MySQL 资源提供程序，则可从市场部署 WordPress 网站。 当系统提示输入数据库参数时，请输入用户名，其格式为 *User1@Server1*（使用所选的用户名和服务器名称）。
 
-3. 如果还部署了 SQL Server 资源提供程序，则可从 Marketplace 部署 DNN 网站。 当系统提示输入数据库参数时，请在运行 SQL Server 的计算机中选择连接到资源提供程序的数据库。
+3. 如果还部署了 SQL Server 资源提供程序，则可从市场部署 DNN 网站。 当系统提示输入数据库参数时，请在运行 SQL Server 的计算机中选择连接到资源提供程序的数据库。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -10,16 +10,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/23/2018
-ms.date: 05/23/2018
+origin.date: 05/21/2018
+ms.date: 06/27/2018
 ms.author: v-junlch
 ms.reviewer: sijuman
-ms.openlocfilehash: 36795826b70a3a4e2c0b5feb63018fa53d35657e
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 0af22155541e401a43a01816073f949e12ac4a64
+ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475049"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37027115"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack"></a>管理 Azure Stack 中的 API 版本配置文件
 
@@ -38,7 +38,7 @@ API 配置文件指定 Azure 资源提供程序和 Azure REST 终结点的 API �
 ## <a name="summary-of-api-profiles"></a>API 配置文件的摘要
 
 - API 配置文件用于表示一组 Azure 资源提供程序及其 API 版本。
-- API 配置文件是为开发人员创建的，使其能够跨多个 Azure 云创建模板。 配置文件设计用来满足对兼容且稳定的接口的需求。
+- API 配置文件是为了让你创建跨多个 Azure 云的模板而创建的。 配置文件设计用来满足对兼容且稳定的接口的需求。
 - 配置文件每年发布四次。
 - 使用了以下三个配置文件命名约定：
     - **latest**  
@@ -51,7 +51,7 @@ API 配置文件指定 Azure 资源提供程序和 Azure REST 终结点的 API �
 
 最新 Azure API 配置文件与 Azure Stack 不兼容。 可以使用以下命名约定来标识要将哪些配置文件用于 Azure Stack 解决方案。
 
-**Latest**  
+**最新**  
 此配置文件包含可在全球 Azure 中找到的最新 API 版本，这些版本在 Azure Stack 中不起作用。 **Latest** 包含的重大更改最多。 此配置文件不考虑稳定性以及与其他云的兼容性。 如果尝试使用最新的 API 版本，则应当使用 **Latest** 配置文件。
 
 **Yyyy-mm-dd-hybrid**  
@@ -68,17 +68,11 @@ Azure Stack 不使用全球 Azure 中提供的最新版 API。 在创建解决�
 
 API 配置文件可与使用 Azure 资源管理器的工具（例如 PowerShell、Azure CLI、SDK 中提供的代码，以及 Microsoft Visual Studio）配合运行。 工具和 SDK 可以使用配置文件来读取生成应用程序时要包含的模块和库的版本。
 
-**使用配置文件的开发方案**  
-假设要使用 PowerShell 创建以下项：
+例如，如果使用 PowerShell 以支持 api-version 2016-03-30 的 **Microsoft.Storage** 资源提供程序创建存储帐户，并使用 api-version 为 2015-12-01 的 Microsoft.Compute 资源提供程序创建 VM，则需要查看哪个 PowerShell 模块支持将 2016-03-30 用于存储，以及哪个模块支持将 2015-02-01 用于计算，然后安装这两个模块。 可以改用配置文件。 使用 cmdlet **Install-Profile *profilename***，然后 PowerShell 会加载正确的模块版本。
 
-- 一个使用 **Microsoft.Storage** 资源提供程序的存储帐户，该提供程序支持 API 版本 2016-03-30。
-- 一台使用 **Microsoft.Compute** 资源提供程序的 VM，该提供程序支持 API 版本 2015-12-01。
+同样，在使用 Python SDK 生成基于 Python 的应用程序时，可以指定配置文件。 SDK 将为脚本中指定的资源提供程序加载正确的模块。
 
-你可以使用配置文件，而无需调查哪些 PowerShell 模块支持你需要为存储和计算使用的 API 版本并安装这些模块。 可以使用 cmdlet **Install-Profile *profilename***，PowerShell 将加载模块的正确版本。
-
-同样，如果使用 Python SDK 构建基于 Python 的应用程序，也可以使用配置文件。 该 SDK 将为脚本中指定的资源提供程序加载正确的模块。
-
-开发人员可以专注于编写解决方案。 可以使用一个配置文件，你的代码可以在支持该配置文件的所有云中运行。
+开发人员可以专注于编写解决方案。 无需研究哪个 api-version、资源提供程序和云可一起运行，而可以使用配置文件，确定代码可跨所有支持该配置文件的云运行。
 
 ## <a name="api-profile-code-samples"></a>API 配置文件代码示例
 
@@ -92,6 +86,8 @@ API 配置文件可与使用 Azure 资源管理器的工具（例如 PowerShell�
 在 GO SDK 中，配置文件结合了不同服务的不同版本的不同资源类型。 配置文件在 profiles/ 路径下提供，其版本采用 **YYYY-MM-DD** 格式。 有关信息，请参阅[为 GO 使用 API 版本配置文件](azure-stack-version-profiles-go.md)。
 - **Ruby**  
 用于 Azure Stack 资源管理器的 Ruby SDK 提供了相关工具来帮助构建和管理基础结构。 该 SDK 中的资源提供程序包括了采用 Ruby 语言的计算、虚拟网络和存储提供程序。 有关信息，请参阅[将 API 版本配置文件与 Ruby 配合使用](azure-stack-version-profiles-ruby.md)
+- **Python**  
+- Python SDK 支持 API 版本配置文件将不同的云平台（例如 Azure Stack 和 Azure 公有云）用作目标。 可以使用 API 配置文件为混合云创建解决方案。 有关信息，请参阅[将 API 版本配置文件与 Python 配合使用](azure-stack-version-profiles-python.md)
 
 ## <a name="next-steps"></a>后续步骤
 

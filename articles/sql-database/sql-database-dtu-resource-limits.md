@@ -1,5 +1,5 @@
 ---
-title: Azure SQL 数据库基于 DTU 的资源限制 | Microsoft Docs
+title: Azure SQL 数据库基于 DTU 的资源限制 | Azure
 description: 本页介绍 Azure SQL 数据库的一些常见基于 DTU 的资源限制。
 services: sql-database
 author: yunan2016
@@ -7,15 +7,15 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-origin.date: 04/04/2018
-ms.date: 04/18/2018
+origin.date: 05/22/2018
+ms.date: 07/02/2018
 ms.author: v-nany
-ms.openlocfilehash: cad86ab0176c95e49f7b1dfafc0185a16e650218
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 5663e0d174b6d1b4561ed063b2ad569d0ae40e67
+ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782678"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36948100"
 ---
 # <a name="azure-sql-database-dtu-based-resource-model-limits"></a>Azure SQL 数据库基于 DTU 的资源模型限制
 
@@ -34,31 +34,28 @@ ms.locfileid: "31782678"
 | 最大存储选择 (GB) | 2 |
 | 最大内存中 OLTP 存储 (GB) |不适用 |
 | 最大并发工作线程数（请求数） | 30 |
-| 最大并发登录数 | 30 |
 | 最大并发会话数 | 300 |
 |||
 
 ### <a name="standard-service-tier"></a>标准服务层
 | **性能级别** | **S0** | **S1** | **S2** | **S3** |
 | :--- |---:| ---:|---:|---:|---:|
-| 最大 DTU 数** | 10 个 | 20 个 | 50 | 100 |
+| 最大 DTU | 10 个 | 20 | 50 | 100 |
 | 包含的存储 (GB) | 250 | 250 | 250 | 250 |
 | 最大存储选择 (GB)* | 250 | 250 | 250 | 250, 500, 750, 1024 |
 | 最大内存中 OLTP 存储 (GB) | 不适用 | 不适用 | 不适用 | 不适用 |
 | 最大并发工作线程数（请求数）| 60 | 90 | 120 | 200 |
-| 最大并发登录数 | 60 | 90 | 120 | 200 |
 | 最大并发会话数 |600 | 900 | 1200 | 2400 |
 ||||||
 
 ### <a name="standard-service-tier-continued"></a>标准服务层（续）
 | **性能级别** | **S4** | **S6** | S7 | S9 | S12 |
 | :--- |---:| ---:|---:|---:|---:|---:|
-| 最大 DTU 数** | 200 | 400 | 800 | 1600 | 3000 |
+| 最大 DTU 数 | 200 | 400 | 800 | 1600 | 3000 |
 | 包含的存储 (GB) | 250 | 250 | 250 | 250 | 250 |
 | 最大存储选择 (GB)* | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 |
 | 最大内存中 OLTP 存储 (GB) | 不适用 | 不适用 | 不适用 | 不适用 |不适用 |
 | 最大并发工作线程数（请求数）| 400 | 800 | 1600 | 3200 |6000 |
-| 最大并发登录数 | 400 | 800 | 1600 | 3200 |6000 |
 | 最大并发会话数 |4800 | 9600 | 19200 | 30000 |30000 |
 |||||||
 
@@ -70,7 +67,6 @@ ms.locfileid: "31782678"
 | 最大存储选择 (GB)* | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 4096 | 4096 |
 | 最大内存中 OLTP 存储 (GB) | 1 | 2 | 4 | 8 | 14 | 32 |
 | 最大并发工作线程数（请求数）| 200 | 400 | 800 | 1600 | 2400 | 6400 |
-| 最大并发登录数 | 200 | 400 | 800 | 1600 | 2400 | 6400 |
 | 最大并发会话数 | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
 |||||||
 
@@ -78,36 +74,32 @@ ms.locfileid: "31782678"
 > [!IMPORTANT]
 > \* 超出所包括存储量的存储大小为预览版，需额外付费。 有关详细信息，请参阅 [SQL 数据库定价](https://www.azure.cn/pricing/details/sql-database/)。 
 >
-> 
->\*\* 标准池中每个数据库的最大 DTU 数至少为 200 DTU 的为预览版。
->
-
 
 ## <a name="single-database-change-storage-size"></a>单一数据库：更改存储大小
 
 - 单一数据库的 DTU 价格附送了一定容量的存储，无需额外费用。 超出附送的量后，可花费额外的费用预配额外的存储，但不能超过存储上限，不超过 1 TB 时，以 250 GB 为增量进行预配，超出 1 TB 时，以 256 GB 为增量进行预配。 有关附送存储量和大小上限，请参阅[单一数据库：存储大小和性能级别](#single-database-storage-sizes-and-performance-levels)。
-- 可通过 [Azure portal](sql-database-single-database-resources.md#manage-single-database-resources-using-the-azure-portal)、[Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-database#examples)、[PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase)、[Azure CLI](https://docs.azure.cn/cli/sql/db#az_sql_db_update) 或 [REST API](https://docs.microsoft.com/rest/api/sql/databases/update) 为单一数据库增加大小上限，以预配额外存储。
+- 可通过 [Azure portal](sql-database-single-database-resources.md#manage-single-database-resources-using-the-azure-portal)、[Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database#examples)、[PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase)、[Azure CLI](/cli/sql/db#az_sql_db_update) 或 [REST API](/rest/api/sql/databases/update) 为单一数据库增加大小上限，以预配额外存储。
 - 单一数据库的额外存储价格等于额外存储量乘以服务层的额外存储单价。 有关额外存储价格的详细信息，请参阅 [SQL 数据库定价](https://www.azure.cn/pricing/details/sql-database/)。
 
 ## <a name="single-database-change-dtus"></a>单一数据库：更改 DTU
 
-首先选择服务层、性能级别和存储量，然后使用 [Azure portal](sql-database-single-database-resources.md#manage-single-database-resources-using-the-azure-portal)、[Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-database#examples)、 [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase)、[Azure CLI](https://docs.azure.cn/cli/sql/db#az_sql_db_update) 或 [REST API](https://docs.microsoft.com/rest/api/sql/databases/update)，根据实际体验动态扩展或缩减单一数据库。 
+首先选择服务层、性能级别和存储量，然后使用 [Azure portal](sql-database-single-database-resources.md#manage-single-database-resources-using-the-azure-portal)、[Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database#examples)、 [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase)、[Azure CLI](/cli/sql/db#az_sql_db_update) 或 [REST API](/rest/api/sql/databases/update)，根据实际体验动态扩展或缩减单一数据库。 
 
 
 
-更改数据库的服务层和/或性能级别将在新的性能级别创建原始数据库的副本，并将连接切换到副本。 当我们切换到副本时，在此过程中不会丢失任何数据，但在短暂的瞬间，将禁用与数据库的连接，因此可能回滚某些处于进行状态的事务。 用于切换的时间长度因情况而异，但通常为 4 秒以下，并且 99% 的情况下少于 30 秒。 如果在禁用连接的那一刻有大量的事务正在进行，则用于切换的时间长度可能会更长。 
+更改数据库的服务层和/或性能级别将在新的性能级别创建原始数据库的副本，并将连接切换到副本。 当我们切换到副本时，在此过程中不会丢失任何数据，但在短暂的瞬间，将禁用与数据库的连接，因此可能回滚某些处于进行状态的事务。 用于切换的时间长度因情况而异，但 99% 的情况下少于 30 秒。 如果在禁用连接的那一刻有大量的事务正在进行，则用于切换的时间长度可能会更长。 
 
 整个扩展过程的持续时间同时取决于更改前后数据库的大小和服务层。 例如，一个正在更改到标准服务层、从标准服务层更改或在标准服务层内更改的 250 GB 的数据库应在六小时内完成。 如果数据库与正在高级服务层内更改性能级别的大小相同，应在三小时内完成扩展。
 
 > [!TIP]
-> 若要监视正在进行的操作，请参阅：[使用 SQL REST API 管理操作](https://docs.microsoft.com/rest/api/sql/Operations/List)、[使用 CLI 管理操作](https://docs.azure.cn/cli/sql/db/op)、[使用 T-SQL 监视操作](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database)和以下两个 PowerShell 命令：[Get-AzureRmSqlDatabaseActivity](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabaseactivity) 和 [Stop-AzureRmSqlDatabaseActivity](https://docs.microsoft.com/powershell/module/azurerm.sql/stop-azurermsqldatabaseactivity)。
+> 若要监视正在进行的操作，请参阅：[使用 SQL REST API 管理操作](/rest/api/sql/Operations/List)、[使用 CLI 管理操作](/cli/sql/db/op)、[使用 T-SQL 监视操作](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database)和以下两个 PowerShell 命令：[Get-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/get-azurermsqldatabaseactivity) 和 [Stop-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/stop-azurermsqldatabaseactivity)。
 
 - 如果要升级到更高的服务层或性能级别，除非显式指定了更大的大小（最大），否则，最大数据库大小不会增大。
 - 若要对数据库进行降级，数据库所用空间必须小于目标服务层和性能级别允许的最大大小。 
 - 从高级降级至标准层时，如果同时满足 (1) 目标性能级别支持该数据库的最大大小，(2) 最大大小超出目标性能级别附送的存储量，那么将产生额外存储费用。 例如，如果将最大大小为 500 GB 的 P1 数据库缩小至 S3，那么将产生额外的存储费用，因为 S3 支持的最大大小为 500 GB，而它的附送存储量仅为 250 GB。 因此，额外的存储量为 500 GB - 250 GB = 250 GB。 有关额外存储定价的信息，请参阅 [SQL 数据库定价](https://www.azure.cn/pricing/details/sql-database/)。 如果实际使用的空间量小于附送的存储量，只要将数据库最大大小减少到附送的量，就能避免此项额外费用。 
 - 在启用了[异地复制](sql-database-geo-replication-portal.md)的情况下升级数据库时，请先将辅助数据库升级到所需的性能层，然后再升级主数据库（为获得最佳性能的常规指南）。 在升级到另一版本时，必须首先升级辅助数据库。
 - 在启用了[异地复制](sql-database-geo-replication-portal.md)的情况下降级数据库时，请先将主数据库降级到所需的性能层，然后再降级辅助数据库（为获得最佳性能的常规指南）。 在降级到另一版本时，必须首先降级主数据库。
-- 各服务层提供的还原服务各不相同。 如果要降级到基本层，则备份保留期也将减少 - 请参阅 [Azure SQL 数据库备份](sql-database-automated-backups.md)。
+- 各服务层的还原服务不同。 如果要降级到基本层，则备份保留期也将减少 - 请参阅 [Azure SQL 数据库备份](sql-database-automated-backups.md)。
 - 更改完成前不会应用数据库的新属性。
 
 
@@ -128,7 +120,6 @@ ms.locfileid: "31782678"
 | 每个池的最大内存中 OLTP 存储 (GB) | 不适用 | 不适用 | 不适用 | 不适用 | 不适用 | 不适用 | 不适用 | 不适用 |
 | 每个池的最大数据库数 | 100 | 200 | 500 | 500 | 500 | 500 | 500 | 500 |
 | 每个池的最大并发工作线程数（请求数） | 100 | 200 | 400 | 600 | 800 | 1600 | 2400 | 3200 |
-| 每个池的最大并发登录数 | 100 | 200 | 400 | 600 | 800 | 1600 | 2400 | 3200 |
 | 每个池的最大并发会话数 | 30000 | 30000 | 30000 | 30000 |30000 | 30000 | 30000 | 30000 |
 | 每个数据库的最小 eDTU 数选择 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 |
 | 每个数据库的最大 eDTU 数选择 | 5 | 5 | 5 | 5 | 5 | 5 | 5 | 5 |
@@ -144,7 +135,6 @@ ms.locfileid: "31782678"
 | 每个池的最大内存中 OLTP 存储 (GB) | 不适用 | 不适用 | 不适用 | 不适用 | 不适用 | 不适用 | 
 | 每个池的最大数据库数 | 100 | 200 | 500 | 500 | 500 | 500 | 
 | 每个池的最大并发工作线程数（请求数） | 100 | 200 | 400 | 600 | 800 | 1600 |
-| 每个池的最大并发登录数 | 100 | 200 | 400 | 600 | 800 | 1600 |
 | 每个池的最大并发会话数 | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
 | 每个数据库的最小 eDTU 数选择 | 0, 10, 20, 50 | 0, 10, 20, 50, 100 | 0, 10, 20, 50, 100, 200 | 0, 10, 20, 50, 100, 200, 300 | 0, 10, 20, 50, 100, 200, 300, 400 | 0, 10, 20, 50, 100, 200, 300, 400, 800 |
 | 每个数据库的最大 eDTU 数选择 | 10, 20, 50 | 10, 20, 50, 100 | 10, 20, 50, 100, 200 | 10, 20, 50, 100, 200, 300 | 10, 20, 50, 100, 200, 300, 400 | 10, 20, 50, 100, 200, 300, 400, 800 | 
@@ -160,7 +150,6 @@ ms.locfileid: "31782678"
 | 每个池的最大内存中 OLTP 存储 (GB) | 不适用 | 不适用 | 不适用 | 不适用 | 不适用 | 
 | 每个池的最大数据库数 | 500 | 500 | 500 | 500 | 500 | 
 | 每个池的最大并发工作线程数（请求数） | 2400 | 3200 | 4000 | 5000 | 6000 |
-| 每个池的最大并发登录数 | 2400 | 3200 | 4000 | 5000 | 6000 |
 | 每个池的最大并发会话数 | 30000 | 30000 | 30000 | 30000 | 30000 | 
 | 每个数据库的最小 eDTU 数选择 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 0, 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 |
 | 每个数据库的最大 eDTU 数选择 | 10, 20, 50, 100, 200, 300, 400, 800, 1200 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500 | 10, 20, 50, 100, 200, 300, 400, 800, 1200, 1600, 2000, 2500, 3000 | 
@@ -176,7 +165,6 @@ ms.locfileid: "31782678"
 | 每个池的最大内存中 OLTP 存储 (GB) | 1 | 2 | 4 | 10 个 | 12 | 
 | 每个池的最大数据库数 | 50 | 100 | 100 | 100 | 100 | 
 | 每个池的最大并发工作线程数（请求数） | 200 | 400 | 800 | 1600 | 2400 | 
-| 每个池的最大并发登录数 | 200 | 400 | 800 | 1600 | 2400 |
 | 每个池的最大并发会话数 | 30000 | 30000 | 30000 | 30000 | 30000 | 
 | 每个数据库的最小 eDTU 数 | 0, 25, 50, 75, 125 | 0, 25, 50, 75, 125, 250 | 0, 25, 50, 75, 125, 250, 500 | 0, 25, 50, 75, 125, 250, 500, 1000 | 0, 25, 50, 75, 125, 250, 500, 1000, 1500 | 
 | 每个数据库的最大 eDTU 数 | 25, 50, 75, 125 | 25, 50, 75, 125, 250 | 25, 50, 75, 125, 250, 500 | 25, 50, 75, 125, 250, 500, 1000 | 25, 50, 75, 125, 250, 500, 1000, 1500 |
@@ -192,7 +180,6 @@ ms.locfileid: "31782678"
 | 每个池的最大内存中 OLTP 存储 (GB) | 16 | 20 个 | 24 | 28 | 32 |
 | 每个池的最大数据库数 | 100 | 100 | 100 | 100 | 100 | 
 | 每个池的最大并发工作线程数（请求数） | 3200 | 4000 | 4800 | 5600 | 6400 |
-| 每个池的最大并发登录数 | 3200 | 4000 | 4800 | 5600 | 6400 |
 | 每个池的最大并发会话数 | 30000 | 30000 | 30000 | 30000 | 30000 | 
 | 每个数据库的最小 eDTU 数选择 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 | 
 | 每个数据库的最大 eDTU 数选择 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 | 
@@ -213,18 +200,18 @@ ms.locfileid: "31782678"
 |:--- |:--- |
 | 每个数据库的最大 eDTU 数 |根据池中其他数据库的 eDTU 使用率，池中任何数据库可以使用的 eDTU 的最大数目。 每个数据库的 eDTU 上限并不是数据库的资源保障。 这是应用于池中所有数据库的全局设置。 将每个数据库的最大 eDTU 数设置得足够高，以处理数据库使用高峰情况。 因为池通常会假定数据库存在热使用模式和冷使用模式，在这些模式中并非所有数据库同时处于高峰使用状态，所以预期会存在某种程度的过量使用情况。 例如，假设每个数据库的高峰使用量为 20 个 eDTU，并且池中 100 个数据库仅有 20% 同时处于高峰使用中。 如果将每个数据库的 eDTU 最大值设为 20 个 eDTU，则可以认为超量 5 倍使用该池是合理的，并且将每个池的 eDTU 数设为 400。 |
 | 每个数据库的最小 eDTU 数 |池中任何数据库可以保证的 eDTU 最小数目。 这是应用于池中所有数据库的全局设置。 每个数据库的最小 eDTU 可能设为 0，这也是默认值。 此属性值可以设置为介于 0 和每个数据库的平均 eDTU 使用量之间的任意值。 池中数据库的数目和每个数据库的 eDTU 下限的积不能超过每个池的 eDTU 数。 例如，如果一个池有 20 个数据库，每个数据库的 eDTU 最小值设为 10 个 eDTU，则池的 eDTU 数目必须大于或等于 200 个 eDTU。 |
-| 每个数据库的最大存储 |用户为池中的数据库设置的最大数据库大小。 入池数据库共享分配的池存储，因此数据库可以访问的大小限制为剩余的池存储与数据库大小中的较小者。 最大数据库大小是指数据文件的最大大小，不包括日志文件使用的空间。 |
+| 每个数据库的最大存储 |用户为池中的数据库设置的最大数据库大小。 但是，入池数据库共享已分配的池存储。 即使“每数据库”最大总存储 * 设置为大于池的可用总存储 * 空间，所有数据库实际使用的空间总量也不能超出可用的池限制。 最大数据库大小是指数据文件的最大大小，不包括日志文件使用的空间。 |
 |||
  
 ## <a name="elastic-pool-change-storage-size"></a>弹性池：更改存储大小
 
 - 弹性池的 eDTU 价格附送了一定容量的存储，无需额外费用。 超出附送的量后，可花费额外的费用预配额外的存储，但不能超过存储上限，不超过 1 TB 时，以 250 GB 为增量进行预配，超出 1 TB 时，以 256 GB 为增量进行预配。 有关附送存储量和大小上限，请参阅[弹性池：存储大小和性能级别](#elastic-pool-storage-sizes-and-performance-levels)。
-- 可通过 [Azure 门户](sql-database-elastic-pool.md#manage-elastic-pools-and-databases-using-the-azure-portal)、[PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqlelasticpool)、[Azure CLI](https://docs.azure.cn/cli/sql/elastic-pool#az_sql_elastic_pool_update) 或 [REST API](https://docs.microsoft.com/rest/api/sql/elasticpools/update) 为弹性池增加大小上限，以预配额外存储。
+- 可通过 [Azure 门户](sql-database-elastic-pool.md#manage-elastic-pools-and-databases-using-the-azure-portal)、[PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool)、[Azure CLI](/cli/sql/elastic-pool#az_sql_elastic_pool_update) 或 [REST API](/rest/api/sql/elasticpools/update) 为弹性池增加大小上限，以预配额外存储。
 - 弹性池的额外存储价格等于额外存储量乘以服务层的额外存储单价。 有关额外存储价格的详细信息，请参阅 [SQL 数据库定价](https://www.azure.cn/pricing/details/sql-database/)。
 
 ## <a name="elastic-pool-change-edtus"></a>弹性池：更改 eDTU
 
-可按资源需求，通过 [Azure portal](sql-database-elastic-pool.md#manage-elastic-pools-and-databases-using-the-azure-portal)、[PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqlelasticpool)、[Azure CLI](https://docs.azure.cn/cli/sql/elastic-pool#az_sql_elastic_pool_update) 或 [REST API](https://docs.microsoft.com/rest/api/sql/elasticpools/update) 增加或减少弹性池可用的资源。
+可按资源需求，通过 [Azure portal](sql-database-elastic-pool.md#manage-elastic-pools-and-databases-using-the-azure-portal)、[PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool)、[Azure CLI](/cli/sql/elastic-pool#az_sql_elastic_pool_update) 或 [REST API](/rest/api/sql/elasticpools/update) 增加或减少弹性池可用的资源。
 
 - 重新缩放池 eDTU 时，将暂时停止数据库连接。 此行为与重新缩放单一数据库（而非在池中）的 DTU 时的行为相同。 有关在重新缩放操作执行期间，停止数据库连接的持续时间和影响的详细信息，请参阅[重新缩放单一数据库的 DTU](#single-database-change-storage-size)。 
 - 重新缩放池 eDTU 的持续时间取决于池中所有数据库使用的总存储空间量。 一般而言，每 100 GB 重新缩放的平均延迟时间不超过 90 分钟。 例如，如果池中所有数据库使用的总空间为 200 GB，则重新缩放池的预计延迟时间将不超过 3 小时。 对标准层或基本层中的某些事例而言，重新缩放延迟时间可能不超过五分钟，不考虑所用空间量的影响。
@@ -278,4 +265,3 @@ ms.locfileid: "31782678"
 - 有关常规 Azure 限制的相关信息，请参阅 [Azure 订阅和服务限制、配额和约束](../azure-subscription-service-limits.md)。
 - 有关 DTU 和 eDTU 的信息，请参阅 [DTU 和 eDTU](sql-database-what-is-a-dtu.md)。
 - 有关 tempdb 大小限制的信息，请参阅 https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database。
-

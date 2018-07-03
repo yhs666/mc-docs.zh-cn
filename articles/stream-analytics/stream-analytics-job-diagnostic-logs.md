@@ -10,12 +10,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 04/20/2017
 ms.date: 06/18/2018
-ms.openlocfilehash: 7e7c9c151196b9a15eac6ae2df409f0e22e09f4e
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: bca13dda0bb022548c36bbe5dbeef64fb22fb582
+ms.sourcegitcommit: 3130e6042909be0d97d7de5aec7ae9454cd81cfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "35416881"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37102878"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>使用诊断日志对 Azure 流分析进行故障排除
 
@@ -28,9 +28,10 @@ ms.locfileid: "35416881"
 * [诊断日志](/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)（可配置）。 通过诊断日志可详细了解作业发生的所有情况。 诊断日志在创建作业时开始，并在删除作业时结束。 日志中包含了作业更新和运行期间的事件。
 
 > [!NOTE]
-> 可以使用 Azure 存储、Azure 事件中心和 Azure Log Analytics 等服务分析不一致的数据。 将根据这些服务的定价模式进行收费。
+> 可以使用 Azure 存储和 Azure 事件中心等服务分析不一致的数据。 将根据这些服务的定价模式进行收费。
 >
 
+<!-- Not Available on Azure Log Analytics-->
 ## <a name="turn-on-diagnostics-logs"></a>启用诊断日志
 
 诊断日志默认已**禁用**。 若要启用诊断日志，请完成以下步骤：

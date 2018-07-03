@@ -12,21 +12,21 @@ ms.workload: media
 ms.topic: quickstart
 ms.custom: mvc
 origin.date: 04/08/2018
-ms.date: 05/28/2018
+ms.date: 06/25/2018
 ms.author: v-nany
-ms.openlocfilehash: de94183c2c93c16be7b05a2bf46b68af88ba2f69
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: a377417f08540305535df25dcd2309d66cf3b435
+ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475163"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36748337"
 ---
 # <a name="quickstart-stream-video-files---net"></a>快速入门：流式传输视频文件 - .NET
 
 > [!NOTE]
 > Azure 媒体服务的最新版本目前处于预览状态，可能称为 v3 版本。 若要开始使用 v3 API，应按照快速入门所述创建新的 Azure 媒体服务帐户。 
 
-本快速入门将为你演示，使用 Azure 媒体服务在各种浏览器和设备上对视频进行流式处理有多轻松。 
+本快速入门将为你演示，使用 Azure 媒体服务在各种浏览器和设备上对视频进行流式处理有多轻松。 本主题中的示例对可通过 HTTPS URL 访问的内容进行编码。 
 
 完成本快速入门后即可对视频进行流式处理。  
 
@@ -46,9 +46,11 @@ ms.locfileid: "34475163"
  git clone https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts.git
  ```
 
-此示例执行以下操作：
+该示例位于 [EncodeAndStreamFiles](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/tree/master/AMSV3Quickstarts/EncodeAndStreamFiles) 文件夹。
 
-1. 创建一个新转换（首先，检查指定的转换是否存在）。 
+该示例执行以下操作：
+
+1. 创建一个转换（首先，检查指定的转换是否存在）。 
 2. 创建一个输出资产用作编码作业的输出。
 3. 创建基于 HTTPS URL 的作业输入。
 4. 使用之前创建的输入和输出提交编码作业。
@@ -61,8 +63,6 @@ ms.locfileid: "34475163"
 ## <a name="log-in-to-azure"></a>登录 Azure
 
 登录到 [Azure 门户](http://portal.azure.cn)。
-
-
 
 [!INCLUDE [media-services-cli-create-v3-account-include](../../../includes/media-services-cli-create-v3-account-include.md)]
 
@@ -96,9 +96,9 @@ Azure Media Player 可用于测试，但不可在生产环境中使用。
 
 如果不再需要你的资源组中的任何一个资源（包括使用本快速入门创建的媒体服务和存储帐户），请删除该资源组。 可以使用 CloudShell 工具。
 
-在 CloudShell 中，执行以下命令：
+在 **PowerShell** 中执行以下命令：
 
-```azurecli-interactive
+```cli
 az group delete --name amsResourceGroup
 ```
 
@@ -112,3 +112,7 @@ az group delete --name amsResourceGroup
 
 Azure 媒体服务 v3 SDK 不是线程安全的。 使用多线程应用程序时，应在每个线程上生成一个新的 AzureMediaServicesClient 对象。
 
+## <a name="next-steps"></a>后续步骤
+
+> [!div class="nextstepaction"]
+> [教程：上传、编码和流式处理文件](stream-files-tutorial-with-api.md)

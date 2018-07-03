@@ -1,25 +1,23 @@
 ---
 title: Azure Cosmos DB：BulkExecutor Java API、SDK 和资源 | Azure
-description: 了解有关 BulkExecutor Java API 和 SDK 的所有信息，包括发布日期、停用日期和 Azure Cosmos DB BulkExecutor Java SDK 各版本之间所做的更改。
+description: 了解有关 BulkExecutor Java API 的所有信息。
 services: cosmos-db
-documentationcenter: .net
 author: rockboyfor
 manager: digimobile
 editor: cgronlun
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
-ms.topic: article
+ms.component: cosmosdb-sql
+ms.devlang: java
+ms.topic: reference
 origin.date: 05/07/2018
-ms.date: 06/11/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 9fb45a52db701074f4bfd20fc13df8c62fe4eac4
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: 70640405d483e8bd466a6455c29d8682d9d79d4b
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34915929"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070334"
 ---
 # <a name="java-bulkexecutor-library-download-information"></a>Java BulkExecutor 库：下载信息
 
@@ -51,5 +49,4 @@ ms.locfileid: "34915929"
 
 <tr><td>受支持的最小运行时</td><td>JDK 7</td></tr>
 </table></br>
-<!-- Update_Description: new articles on sql api sdk bulk executor with java -->
-<!--ms.date: 06/11/2018-->
+<!-- Update_Description: update meta properties -->

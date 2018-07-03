@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/10/2018
-ms.date: 05/23/2018
+origin.date: 05/23/2018
+ms.date: 06/27/2018
 ms.author: v-junlch
-ms.openlocfilehash: ae80aa229bd6276ffd729dd1a7e0b00c9c591b24
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 6b3201443525ed3aba4b4357a770f03f031358fb
+ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475053"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37027147"
 ---
 # <a name="considerations-for-using-virtual-machines-in-azure-stack"></a>在 Azure Stack 中使用虚拟机时的注意事项
 
@@ -32,7 +32,7 @@ Azure Stack 虚拟机提供可按需缩放的计算资源。 在部署虚拟机 
 
 | 功能 | Azure（公有云） | Azure Stack |
 | --- | --- | --- |
-| 虚拟机映像 | Azure Marketplace 包含可用于创建虚拟机的映像。 若要查看 Azure Marketplace 中的可用映像列表，请参阅 [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/compute?subcategories=virtual-machine-images&page=1) 页。 | Azure Stack Marketplace 中默认不会提供任何映像。 Azure Stack 云管理员应该先将映像发布或下载到 Azure Stack Marketplace，然后用户才能使用这些映像。 |
+| 虚拟机映像 | Azure 市场包含可用于创建虚拟机的映像。 若要查看 Azure 市场中的可用映像列表，请参阅 [Azure 市场](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/compute?subcategories=virtual-machine-images&page=1)页。 | Azure Stack 市场中默认不会提供任何映像。 Azure Stack 云管理员应该先将映像发布或下载到 Azure Stack 市场，然后用户才能使用这些映像。 |
 | 虚拟机大小 | Azure 支持各种不同的虚拟机大小。 若要了解可用的大小和选项，请参阅 [Windows 虚拟机大小](../../virtual-machines/virtual-machines-windows-sizes.md)和 [Linux 虚拟机大小](../../virtual-machines/linux/sizes.md)主题。 | Azure Stack 支持一部分可在 Azure 中使用的虚拟机大小。 若要查看支持的大小列表，请参阅本文的[虚拟机大小](#virtual-machine-sizes)部分。 |
 | 虚拟机配额 | [配额限制](../../azure-subscription-service-limits.md#service-specific-limits)由 Microsoft 设置 | Azure Stack 云管理员在将虚拟机提供给用户之前，必须先配置配额。 |
 | 虚拟机扩展 |Azure 支持各种不同的虚拟机扩展。 若要了解可用的扩展，请参阅[虚拟机扩展和功能](../../virtual-machines/windows/extensions-features.md)一文。| Azure Stack 支持一部分可在 Azure 中使用的扩展，每个扩展有特定的版本。 Azure Stack 云管理员可以选择要将哪些扩展提供给其用户使用。 若要查看支持的扩展列表，请参阅本文的[虚拟机扩展](#virtual-machine-extensions)部分。 |
@@ -69,7 +69,7 @@ Azure Stack 施加了一些资源限制，以避免资源（服务器本地和�
 
 ## <a name="virtual-machine-extensions"></a>虚拟机扩展
 
- Azure Stack 包含少量的扩展。 可以通过 Marketplace 联合来获取更新和其他扩展。
+ Azure Stack 包含少量的扩展。 可以通过市场联合来获取更新和其他扩展。
 
 使用以下 PowerShell 脚本可获取 Azure Stack 环境中可用的虚拟机扩展的列表：
 
@@ -104,7 +104,7 @@ Get-AzureRmResourceProvider | `
 必须根据产品使用权利和 Microsoft 许可条款使用 Windows 产品。 Azure Stack 使用[自动 VM 激活](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v%3dws.11)) (AVMA) 来激活 Windows Server 虚拟机 (VM)。
 
 - Azure Stack 主机使用 Windows Server 2016 的 AVMA 密钥激活 Windows。 运行 Windows Server 2012 或更高版本的所有 VM 都将自动激活。
-- 运行 Windows Server 2008 R2 的 VM 不会自动激活，必须使用 [MAK 激活](https://technet.microsoft.com/library/ff793438.aspx)进行激活。
+- 运行 Windows Server 2008 R2 的 VM 不会自动激活，必须使用 [MAK 激活](https://technet.microsoft.com/library/ff793438.aspx)进行激活。 若要使用 MAK 激活，必须提供自己的产品密钥。
 
 Azure 使用 KMS 激活来激活 Windows VM。 如果将 VM 从 Azure Stack 移动到 Azure 并且遇到了激活问题，请参阅[排查 Azure Windows 虚拟机激活问题](/virtual-machines/windows/troubleshoot-activation-problems)。 可以在 Azure 支持团队博客文章 [Troubleshooting Windows activation failures on Azure VMs](https://blogs.msdn.microsoft.com/mast/2017/06/14/troubleshooting-windows-activation-failures-on-azure-vms/)（排查 Azure VM 上的 Windows 激活故障）中找到其他信息。
 

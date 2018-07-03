@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/17/2018
-ms.date: 05/24/2018
+origin.date: 05/30/2018
+ms.date: 06/27/2018
 ms.author: v-junlch
 ms.reviewer: justini
-ms.openlocfilehash: b75a6b81a315b0adbaee70f9816d95ce68d25eb9
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 7a88bba99ceaf8112e46b83cc83be793857232b2
+ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34475136"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37027201"
 ---
 # <a name="azure-stack-1804-update"></a>Azure Stack 1804 更新
 
@@ -42,10 +42,19 @@ Azure Stack 1804 更新内部版本号为 **20180513.1**。
  
 - <!-- 1779474, 1779458 - IS --> **使用 Av2 和 F 系列虚拟机**。 Azure Stack 现在可以使用基于 Av2 系列和 F 系列虚拟机大小的虚拟机。 有关详细信息，请参阅 [Azure Stack 中支持的虚拟机大小](/azure-stack/user/azure-stack-vm-sizes)。 
 
-- <!-- 1759172 - IS, ASDK --> **更精细的管理订阅**。 随着 1804 及更高版本的推出，默认提供程序订阅现在有了两个额外的补充订阅。 这些附加项有助于将核心基础结构的管理与其他资源提供程序和工作负荷隔离开来。 以下三个订阅可以在更新安装后使用：
-  - *默认提供商订阅*。 仅将此订阅用于核心基础结构。 请勿在此订阅上部署资源或资源提供程序。
-  - *计量订阅*。 使用此订阅进行资源提供程序部署。 在此订阅上部署的资源不收取费用。
-  - *消耗订阅*。 将此订阅用于要部署的任何其他工作负荷。 此处部署的资源按正常使用价格收取费用。
+- <!-- 1759172 - IS, ASDK --> **新的管理订阅**。 应用更新 1804 后，门户中会显示两个新的订阅类型。 这些新订阅类型是对“默认提供程序”订阅的补充，从版本 1804 开始，会显示在新的 Azure Stack 安装中。 请不要在此 Azure Stack 版本中使用这些新订阅类型。 如果这些订阅将来可用，我们将在相应的更新中发布通告。 
+
+  如果将 Azure Stack 更新到版本 1804，这两个新订阅类型将不可见。 但是，Azure Stack 集成系统的新部署以及 Azure Stack 开发工具包 1804 或更高版本的安装能够访问所有三个订阅类型。  
+
+  这些新订阅类型是某个重大更改的一部分，旨在保护“默认提供程序”订阅，以及方便部署 SQL 宿主服务器等共享资源。 在将来对 Azure Stack 进行更新的过程中，随着我们不断在此项重大更改中添加更多的部件，在这些新订阅类型下部署的资源可能会丢失。 
+
+  目前可见的三个订阅类型是：  
+  - “默认提供程序”订阅：请继续使用此订阅类型。 
+  - “计量”订阅：请不要继续使用此订阅类型。
+  - “消耗量”订阅：请不要继续使用此订阅类型。
+
+  
+
 
 
 ## <a name="fixed-issues"></a>修复的问题
@@ -78,6 +87,8 @@ Azure Stack 1804 更新内部版本号为 **20180513.1**。
 - 在安装 1804 更新期间，可能会看到标题如下的警报：*错误 - 缺少 FaultType UserAccounts.New 的模板。*  可以放心地忽略这些警报。 更新到 1804 后，这些警报将自动关闭。   
  
 - <!-- TBD - IS --> 在安装此更新的过程中，请勿尝试创建虚拟机。 有关如何管理更新的详细信息，请参阅[在 Azure Stack 中管理更新的概述](azure-stack-updates.md#plan-for-updates)。
+
+
 ### <a name="post-update-steps"></a>更新后步骤
 *对于 1804 更新，更新后不需要执行任何步骤。*
 
@@ -87,6 +98,15 @@ Azure Stack 1804 更新内部版本号为 **20180513.1**。
 下面是内部版本 **20180513.1** 的安装后已知问题。
 
 #### <a name="portal"></a>门户
+- <!-- 1272111 - IS --> 安装或更新到此 Azure Stack 版本后，可能无法在管理门户中查看 Azure Stack 缩放单元。  
+  解决方法：使用 PowerShell 查看有关缩放单元的信息。 有关详细信息，请参阅 Azure Stack 模块 1.3.0 的[帮助](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.3.0)内容。 
+
+- <!-- 2332636 - IS --> 对 Azure Stack 标识系统使用 AD FS 并更新到此版本的 Azure Stack 时，默认提供程序订阅的默认所有者将重置为内置的 **CloudAdmin** 用户。  
+  解决方法：若要在安装此更新后解决该问题，请使用[触发自动化以便在 Azure Stack 中配置声明提供程序信任](azure-stack-integrate-identity.md#trigger-automation-to-configure-claims-provider-trust-in-azure-stack-1)过程中的步骤 3 来重置默认提供程序订阅的所有者。   
+
+- <!-- TBD - IS ASDK --> 某些管理订阅类型不可用。  将 Azure Stack 升级到此版本时，控制台中不会显示[版本 1804 引入](#new-features)的两个订阅类型。 这是正常情况。 不可用的订阅类型为“计量订阅”和“消耗订阅”。 从版本 1804 开始，这些订阅类型会在新的 Azure Stack 环境中显示，但尚不可用。 请继续使用“默认提供程序”订阅类型。  
+
+
 - <!-- TBD -  IS ASDK -->在管理员门户中[从下拉列表提交新的支持请求](azure-stack-manage-portals.md#quick-access-to-help-and-support)的功能不可用。 请改用以下链接：     
     - 对于 Azure Stack 集成系统，请使用 https://aka.ms/newsupportrequest。
 
@@ -107,6 +127,24 @@ Azure Stack 1804 更新内部版本号为 **20180513.1**。
   可以放心地忽略此警报。 
 
 
+#### <a name="health-and-monitoring"></a>运行状况和监视
+- <!-- 1264761 - IS ASDK --> 可能会看到包含以下详细信息的“运行状况控制器”组件警报：  
+
+   警报 #1：
+   - 名称：基础结构角色不正常
+   - 严重性：警告
+   - 组件：运行状况控制器
+   - 说明：运行状况控制器检测信号扫描仪不可用。 这可能会影响运行状况报告和指标。  
+
+  警报 #2：
+   - 名称：基础结构角色不正常
+   - 严重性：警告
+   - 组件：运行状况控制器
+   - 说明：运行状况控制器故障扫描仪不可用。 这可能会影响运行状况报告和指标。
+
+  可以放心地忽略这两个警报。 它们将在一段时间后自动关闭。  
+ 
+
 #### <a name="compute"></a>计算
 - <!-- TBD - IS --> 选择虚拟机大小进行虚拟机部署时，某些 F 系列 VM 大小在创建 VM 时所需的大小选择器中不可见。 以下 VM 大小不显示在选择器中：*F8s_v2*、*F16s_v2*、*F32s_v2* 和 *F64s_v2*。  
   解决方法是，使用下列方法之一部署 VM。 在每种方法中，都需要指定要使用的 VM 大小。
@@ -114,10 +152,10 @@ Azure Stack 1804 更新内部版本号为 **20180513.1**。
   - **Azure 资源管理器模板：** 使用模板时，请将模板中的 *vmSize* 设置为所需的 VM 大小。 例如，以下内容用来部署使用 *F32s_v2* 大小的 VM：  
 
     ```
-    "properties": {
-    "hardwareProfile": {
-        "vmSize": "Standard_F32s_v2"
-    },
+        "properties": {
+        "hardwareProfile": {
+                "vmSize": "Standard_F32s_v2"
+        },
     ```  
   - **Azure CLI：** 可以使用 [az vm create](/cli/vm?view=azure-cli-latest#az-vm-create) 命令并将 VM 大小指定为参数，类似于 `--size "Standard_F32s_v2"`。
 
@@ -242,17 +280,17 @@ Azure Stack 1804 更新内部版本号为 **20180513.1**。
 
 
 #### <a name="app-service"></a>应用服务
-- <!-- TBD - IS ASDK --> 在订阅中创建第一个 Azure 函数之前，用户必须先注册存储资源提供程序。
+- <!-- 2352906 - IS ASDK --> 在订阅中创建第一个 Azure 函数之前，用户必须先注册存储资源提供程序。
 
 - <!-- TBD - IS ASDK --> 若要横向扩展基础结构（辅助角色、管理角色、前端角色），必须按照计算发行说明中的说明来使用 PowerShell。
 
+- <!-- TBD - IS ASDK --> 目前，应用服务只能部署到“默认提供程序订阅”。  在将来的更新中，应用服务将部署到 Azure Stack 1804 中引入的新“计量订阅”，所有现有部署也会迁移到此新订阅。
 
 #### <a name="usage"></a>使用情况  
 - <!-- TBD - IS ASDK --> 公共 IP 地址使用计量数据针对每条记录显示相同的 *EventDateTime* 值，而不是创建记录时显示的 *TimeDate* 时间戳。 目前，无法使用此数据来执行公共 IP 地址用量的准确计帐。
 
 
 <!-- #### Identity -->
-<!-- #### Health and monitoring --> 
 <!-- #### Marketplace --> 
 
 
@@ -265,3 +303,4 @@ Azure Stack 1804 更新内部版本号为 **20180513.1**。
 - 有关 Azure Stack 中更新管理的概述，请参阅[在 Azure Stack 中管理更新的概述](azure-stack-updates.md)。
 - 有关如何在 Azure Stack 中应用更新的详细信息，请参阅[在 Azure Stack 中应用更新](azure-stack-apply-updates.md)。
 
+<!-- Update_Description: wording update -->

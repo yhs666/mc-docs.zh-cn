@@ -4,7 +4,7 @@ description: 了解如何通过将 Azure Resource Manager 模板提交到 Azure 
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 tags: azure-portal
 ms.assetid: 98be5893-2c6f-4dfa-95ec-d4d8b5b7dcb5
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 01/31/2018
-ms.date: 05/28/2018
+origin.date: 05/02/2018
+ms.date: 06/25/2018
 ms.author: v-yiso
-ms.openlocfilehash: 35f7ca2d9e96effdb67af791699849ef812ddffb
-ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
+ms.openlocfilehash: 9da4fcd272ef1fd12cdbc2d3ee42fcdfcf61c041
+ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34449996"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36747456"
 ---
 # <a name="create-hadoop-clusters-using-the-azure-rest-api"></a>使用 Azure REST API 创建 Hadoop 群集
 

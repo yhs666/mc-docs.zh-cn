@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell：创建 SQL 数据库 | Microsoft Docs
+title: Azure PowerShell：创建 SQL 数据库 | Azure
 description: 了解如何在 Azure 门户中创建 SQL 数据库逻辑服务器、服务器级防火墙规则和数据库。
 keywords: SQL 数据库教程：创建 SQL 数据库
 services: sql-database
@@ -12,12 +12,12 @@ ms.topic: quickstart
 origin.date: 04/01/2018
 ms.date: 04/17/2018
 ms.author: v-johch
-ms.openlocfilehash: fda6066ee7f95da980793540599d9d7dc390c741
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 091dbd60580c047cd7e87fd528c282d0901c9949
+ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782271"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36948093"
 ---
 # <a name="create-a-single-azure-sql-database-using-powershell"></a>使用 PowerShell 创建单一 Azure SQL 数据库
 
@@ -29,10 +29,10 @@ PowerShell 用于从命令行或脚本创建和管理 Azure 资源。 本指南�
 
 ## <a name="log-in-to-azure"></a>登录 Azure
 
-使用 [Add-AzureRmAccount -EnvironmentName AzureChinaCloud](https://docs.microsoft.com/powershell/module/azurerm.profile/add-azurermaccount) 命令登录到 Azure 订阅，并按屏幕说明操作。
+使用 [Connect-AzureRmAccount -EnvironmentName AzureChinaCloud](https://docs.microsoft.com/powershell/module/azurerm.profile/add-azurermaccount) 命令登录到 Azure 订阅，并按屏幕说明操作。
 
 ```powershell
-Add-AzureRmAccount -EnvironmentName AzureChinaCloud
+Connect-AzureRmAccount -EnvironmentName AzureChinaCloud
 ```
 
 ## <a name="create-variables"></a>创建变量
@@ -90,7 +90,7 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
 
 ## <a name="create-a-database-in-the-server-with-sample-data"></a>使用示例数据在服务器中创建数据库
 
-使用 [New-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabase) 命令在服务器中创建 [S0 性能级别](sql-database-service-tiers.md)的数据库。 以下示例创建名为 `mySampleDatabase` 的数据库，并将 AdventureWorksLT 示例数据加载到该数据库中。 根据需要替换这些预定义的值（此集合中的其他快速入门基于此快速入门中的值）。
+使用 [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) 命令在服务器中创建 [S0 性能级别](sql-database-service-tiers-dtu.md)的数据库。 以下示例创建名为 `mySampleDatabase` 的数据库，并将 AdventureWorksLT 示例数据加载到该数据库中。 根据需要替换这些预定义的值（此系列中的其他快速入门基于此快速入门中的值）。
 
 ```powershell
 New-AzureRmSqlDatabase  -ResourceGroupName $resourcegroupname `
@@ -102,10 +102,10 @@ New-AzureRmSqlDatabase  -ResourceGroupName $resourcegroupname `
 
 ## <a name="clean-up-resources"></a>清理资源
 
-本系列中的其他快速入门教程是在本快速入门的基础上制作的。 
+本教程系列中的其他快速入门教程是在本快速入门教程的基础上制作的。
 
 > [!TIP]
-> 如果打算继续使用后续的快速入门教程，请不要清除在本快速入门中创建的资源。 如果不打算继续，请在 Azure 门户中执行以下步骤来删除此快速入门创建的所有资源。
+> 如果打算继续使用后续的快速入门，请不要清除在本快速入门中创建的资源。 如果不打算继续，请在 Azure 门户中执行以下步骤来删除此快速入门创建的所有资源。
 >
 
 ```powershell
@@ -114,7 +114,7 @@ Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 
 ## <a name="next-steps"></a>后续步骤
 
-- 有了数据库以后，即可使用一种偏好的工具或语言进行[连接和查询](sql-database-connect-query.md)。 
+- 有了数据库以后，即可使用一种偏好的工具或语言进行[连接和查询](sql-database-connect-query.md)。
 - 若要了解如何设计第一个数据库、创建表和插入数据，请参阅以下教程之一：
  - [使用 SSMS 设计第一个 Azure SQL 数据库](sql-database-design-first-database.md)
   - [设计 Azure SQL 数据库，并使用 C# 和 ADO.NET 进行连接](sql-database-design-first-database-csharp.md)

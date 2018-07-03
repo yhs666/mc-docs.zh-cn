@@ -11,14 +11,14 @@ origin.date: 04/10/2018
 ms.date: 04/17/2018
 ms.author: v-nany
 ms.reviewer: douglasl
-ms.openlocfilehash: 27bb449a2a528451f53a692f1bfbc42ef06e1b5d
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 0a7b0e02a146bd41f97445736eae83a77e351caf
+ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782344"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36947901"
 ---
-# <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync-preview"></a>使用 SQL 数据同步（预览版）跨多个云和本地数据库同步数据
+# <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>使用 SQL 数据同步跨多个云和本地数据库同步数据
 
 使用 SQL 数据同步这项基于 Azure SQL 数据库的服务，可以跨多个 SQL 数据库和 SQL Server 实例双向同步选定数据。
 
@@ -126,13 +126,13 @@ SQL 数据同步使用插入、更新和删除触发器来跟踪更改。 它在
 
 ## <a name="faq-about-sql-data-sync"></a>SQL 数据同步常见问题解答
 
-### <a name="how-much-does-the-sql-data-sync-preview-service-cost"></a>SQL 数据同步（预览版）服务的价格是多少？
+### <a name="how-much-does-the-sql-data-sync-service-cost"></a>SQL 数据同步服务的价格是多少？
 
-预览期间，不对 SQL 数据同步（预览版）服务本身收取任何费用。  但是，对于传入和传出 SQL 数据库实例的数据移动，仍然会产生数据传输费用。 有关价格，请参阅 [SQL 数据库定价](https://www.azure.cn/pricing/details/sql-database/)。
+在预览期，不会对 SQL 数据同步服务本身收取任何费用。  但是，对于传入和传出 SQL 数据库实例的数据移动，仍然会产生数据传输费用。 有关价格，请参阅 [SQL 数据库定价](https://azure.microsoft.cn/pricing/details/sql-database/)。
 
 ### <a name="what-regions-support-data-sync"></a>哪些区域支持数据同步？
 
-SQL 数据同步（预览版）适用于所有公共云区域。
+SQL 数据同步在所有公共云区域中都可用。
 
 ### <a name="is-a-sql-database-account-required"></a>是否需要 SQL 数据库帐户？ 
 
@@ -151,7 +151,7 @@ SQL 数据同步（预览版）适用于所有公共云区域。
 
 ### <a name="should-i-use-sql-data-sync-to-back-up-and-restore-my-databases"></a>我应该使用 SQL 数据同步备份和还原数据库吗？
 
-不建议使用 SQL 数据同步（预览版）创建数据备份。 由于 SQL 数据同步（预览版）的同步没有版本控制，因此无法备份和还原到特定时间点。 此外，SQL 数据同步（预览版）不会备份其他 SQL 对象（如存储过程），并且不会快速执行还原操作的等效操作。
+建议不要使用 SQL 数据同步创建数据备份。 由于 SQL 数据同步的同步不进行版本控制，因此无法备份并还原到特定时间点。 此外，SQL 数据同步不会备份其他 SQL 对象（如存储过程），并且不会快速执行还原操作的等效操作。
 
 对于推荐的备份技术，请参阅[复制 Azure SQL 数据库](sql-database-copy.md)。
 
@@ -171,7 +171,7 @@ SQL 数据同步（预览版）适用于所有公共云区域。
 
 ### <a name="is-federation-supported-in-sql-data-sync"></a>SQL 数据同步是否支持联合？
 
-联合根数据库可用于 SQL 数据同步（预览版）服务，没有任何限制。 不能将联合数据库终结点添加到当前版本的 SQL 数据同步（预览版）。
+联合根数据库可用于 SQL 数据同步服务，没有任何限制。 不能将联合数据库终结点添加到当前版本的 SQL 数据同步。
 
 ## <a name="next-steps"></a>后续步骤
 

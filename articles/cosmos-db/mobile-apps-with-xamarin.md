@@ -2,24 +2,20 @@
 title: 使用 Xamarin 和 Azure Cosmos DB 生成移动应用程序 | Azure
 description: 介绍如何使用 Azure Cosmos DB 创建 Xamarin iOS、Android 或 Forms 应用程序的教程。 Azure Cosmos DB 是适用于移动应用且速度极快、规模达多个区域的云数据库。
 services: cosmos-db
-documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-ms.assetid: ff97881a-b41a-499d-b7ab-4f394df0e153
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: tutorial
 origin.date: 11/15/2017
-ms.date: 06/11/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 31f435a454f7d32d0e48c679d0defbbd0690dedf
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: e779ee8a2ecd2fb3c01d46a607930259918e13fe
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867406"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070211"
 ---
 # <a name="build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>使用 Xamarin 和 Azure Cosmos DB 生成移动应用程序
 
@@ -95,7 +91,7 @@ Azure Cosmos DB 是托管型数据库即服务。 随着用户群体的扩大，
 ![Azure Cosmos DB 可按需缩放吞吐量](media/mobile-apps-with-xamarin/cosmos-db-xamarin-scale.png)
 
 ### <a name="go-multiple-region-scale"></a>达到多区域规模
-在应用受到广泛欢迎后，可以获得多个区域的用户。 或许需要针对一些不可预见的事件做好准备。 转到 Azure 门户，并打开 Azure Cosmos DB 帐户。 单击地图即可将数据持续复制到中国任意数目的区域。 此功能可向任意位置的用户提供数据。 还可以添加故障转移策略，针对意外状况做好准备。
+在应用受到广泛欢迎后，可以吸收中国的用户。 或许需要针对一些不可预见的事件做好准备。 转到 Azure 门户，并打开 Azure Cosmos DB 帐户。 单击地图即可将数据持续复制到中国任意数目的区域。 此功能可向任意位置的用户提供数据。 还可以添加故障转移策略，针对意外状况做好准备。
 <!-- Notice: 全球 to 多个区域 -->
 <!-- Notice: 全球各地 to 中国各地 -->
 <!-- Notice: 全球 to 中国 -->
@@ -111,4 +107,4 @@ Azure Cosmos DB 是托管型数据库即服务。 随着用户群体的扩大，
 * 了解 [Azure Cosmos DB 的丰富查询功能](sql-api-sql-query.md)。
 * 了解 [Azure Cosmos DB 中的地理空间支持](geospatial.md)。
 
-<!--Update_Description: update meta properties, wording update, update link-->
+<!--Update_Description: update meta properties, wording update -->

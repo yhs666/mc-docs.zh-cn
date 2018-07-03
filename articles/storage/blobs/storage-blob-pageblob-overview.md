@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 04/30/2018
 ms.date: 06/11/2018
 ms.author: v-nany
-ms.openlocfilehash: b7b5a2cfe45251b2a2784582d54c7e64667e9018
-ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
+ms.openlocfilehash: 385c976a710fcac9162b7109394a55e39030c665
+ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36270070"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36748369"
 ---
 # <a name="unique-features-of-azure-page-blobs"></a>Azure 页 Blob 的独特功能
 
@@ -29,7 +29,7 @@ Azure 页 Blob 的重要功能包括 REST 接口、基础存储持久性，以�
 让我们从 Azure IaaS 磁盘着手，讨论页 Blob 的几种用例。 Azure 页 Blob 是 Azure IaaS 虚拟磁盘平台的主干。 Azure OS 磁盘和数据磁盘都实现为虚拟磁盘，其中的数据持久保存在 Azure 存储平台中，然后传送到虚拟机以获得最大性能。 Azure 磁盘以 Hyper-V [VHD 格式](https://technet.microsoft.com/library/dd979539.aspx)保存，并在 Azure 存储中存储为[页 Blob](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs)。 除了对 Azure IaaS VM 使用虚拟磁盘以外，页 Blob 还可实现 PaaS 和 DBaaS 方案，例如 Azure SQL 数据库服务，该服务目前使用页 Blob 存储 SQL 数据，以便针对数据库快速执行随机读写操作。 另一个示例是，如果使用 PaaS 服务作为共享媒体来访问协作式视频编辑应用程序，则页 Blob 可以实现对媒体中随机位置的快速访问。 此外，多个用户可以使用页 Blob 快速高效地编辑和合并同一媒体。 
 
 第一方 Azure 服务（例如 Azure Site Recovery 和 Azure 备份）以及许多第三方开发商已使用页 Blob 的 REST 接口实现了行业领先的创新。 下面是在 Azure 上实现的一些独特方案： 
-* 应用程序主导的增量快照管理：应用程序可以利用页 Blob 快照和 REST API 来保存应用程序检查点，而不会产生高昂的数据复制成本。 Azure 存储支持页 Blob 的本地快照，这类快照不要求复制整个 blob。 使用这些公共快照 API 还可以访问和复制快照之间的增量数据。
+* 应用程序主导的增量快照管理：应用程序可以利用页 Blob 快照和 REST API 来保存应用程序检查点，而不会产生高昂的数据复制成本。 Azure 存储支持页 Blob 的本地快照，这类快照不要求复制整个 Blob。 使用这些公共快照 API 还可以访问和复制快照之间的增量数据。
 * 将应用程序和数据从本地实时迁移到云中：复制本地数据并使用 REST API 将数据直接写入 Azure 页 Blob，同时，本地 VM 可继续保持运行。 与目标同步后，可以使用该数据快速故障转移到 Azure VM。 这样，便可以在几乎不造成停机的情况下，将 VM 和虚拟磁盘从本地迁移到云中，因为数据迁移在后台发生，同时我们可以继续使用 VM，并且故障转移所需的停机时间很短（以分钟计）。
 * [基于 SAS](../common/storage-dotnet-shared-access-signature-part-1.md) 的共享访问，可以实现支持并发控制的方案，例如多个读取者和单个写入者。
 
@@ -122,7 +122,7 @@ foreach (PageRange range in pageRanges)
 除了丰富的 REST API 以外，页 Blob 还提供共享访问、持久性和增强的安全性。 后续的篇幅将更详细地介绍这些优势。 
 
 ### <a name="concurrent-access"></a>并发访问
-页 Blob REST API 及其租赁机制可让应用程序从多个客户端访问页 Blob。 例如，假设你需要构建一个要与多个用户共享存储对象的分布式云服务。 该服务可能是向多个用户提供大型图像集合的 Web 应用程序。 实现此目的的方法之一是使用包含附加磁盘的 VM。 此方法的弊端包括：(i) 存在只能将一个磁盘附加到一个 VM 的约束，因此限制了可伸缩性和灵活性，并增大了风险。 如果该 VM 或其上运行的服务出现问题，则由于租赁机制，只能在租约过期或中断之后，才能访问图像；(ii) 使用 IaaS VM 会产生额外的成本。 
+页 Blob REST API 及其租赁机制可让应用程序从多个客户端访问页 Blob。 例如，假设需要构建一个要与多个用户共享存储对象的分布式云服务。 该服务可能是向多个用户提供大型图像集合的 Web 应用程序。 实现此目的的方法之一是使用包含附加磁盘的 VM。 此方法的弊端包括：(i) 存在只能将一个磁盘附加到一个 VM 的约束，因此限制了可伸缩性和灵活性，并增大了风险。 如果该 VM 或其上运行的服务出现问题，则由于租赁机制，只能在租约过期或中断之后，才能访问图像；(ii) 使用 IaaS VM 会产生额外的成本。 
 
 一种替代做法是直接通过 Azure 存储 REST API 使用页 Blob。 使用此方法不会产生高昂的 IaaS VM 使用成本；可直接从多个客户端访问页 Blob，因此获得完全的灵活性；不需要附加/分离磁盘，因此简化了经典部署模型；可消除 VM 出现问题的风险。 此外，在随机读/写操作方面，此方法提供的性能级别与使用磁盘时相同
 

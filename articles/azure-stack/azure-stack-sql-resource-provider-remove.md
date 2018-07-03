@@ -1,6 +1,6 @@
 ---
-title: 在 Azure Stack 中使用 SQL 数据库 | Microsoft Docs
-description: 了解如何在 Azure Stack 中部署 SQL 数据库即服务，并通过便捷的步骤部署 SQL Server 资源提供程序适配器。
+title: 在 Azure Stack 上删除 SQL 资源提供程序 | Microsoft Docs
+description: 了解如何从 Azure Stack 部署中删除 SQL 资源提供程序。
 services: azure-stack
 documentationCenter: ''
 author: jeffgilb
@@ -11,35 +11,35 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/01/2018
-ms.date: 05/24/2018
+origin.date: 06/11/2018
+ms.date: 06/26/2018
 ms.author: v-junlch
 ms.reviewer: jeffgo
-ms.openlocfilehash: 0da952a4bd3973012555b0cc480d8d4f7a586831
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: c0ab2ad7bf80a88fd5a6579811fa3dcad457096c
+ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475110"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37027219"
 ---
-# <a name="remove-the-sql-resource-provider"></a>删除 SQL 资源提供程序
+# <a name="removing-the-mysql-resource-provider"></a>删除 MySQL 资源提供程序  
+在删除 SQL 资源提供程序之前，必须先删除所有依赖项。
 
-若要删除 SQL 资源提供程序，必须先删除所有依赖项：
+## <a name="remove-the-mysql-resource-provider"></a>删除 MySQL 资源提供程序 
 
-1. 确保已保留针对此 SQL 资源提供程序适配器版本下载的原始部署包。
+1. 确认已删除所有现有的 SQL 资源提供程序依赖项。
 
-2. 必须从资源提供程序中删除所有用户数据库。 （删除用户数据库不会删除数据。）此任务应由用户自己执行。
+    > [!NOTE]
+    > 即使依赖资源当前正在使用 SQL 资源提供程序，也将继续卸载该资源提供程序。 
+  
+2. 确保已保留针对此 SQL 资源提供程序适配器版本下载的原始部署包。
+3. 使用以下参数重新运行部署脚本：
+    - 使用 -Uninstall 参数
+    - 特权终结点的 IP 地址或 DNS 名称。
+    - 访问特权终结点时所需的云管理员凭据。
+    - Azure Stack 服务管理员帐户的凭据。 使用部署 Azure Stack 时所用的相同凭据。
 
-3. 管理员必须从 SQL 资源提供程序适配器中删除宿主服务器。
+## <a name="next-steps"></a>后续步骤
+[提供应用服务作为 PaaS](azure-stack-app-service-overview.md)
 
-4. 管理员必须删除引用 SQL 资源提供程序适配器的所有计划。
-
-5. 管理员必须删除与 SQL 资源提供程序适配器关联的所有 SKU 和配额。
-
-6. 使用以下元素重新运行部署脚本：
-    - -Uninstall 参数
-    - Azure 资源管理器终结点
-    - DirectoryTenantID
-    - 服务管理员帐户的凭据
-
-
+<!-- Update_Description: wording update -->

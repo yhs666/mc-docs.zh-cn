@@ -1,6 +1,6 @@
 ---
-title: 在 Azure Stack 中使用 SQL 数据库 | Microsoft Docs
-description: 了解如何在 Azure Stack 中部署 SQL 数据库即服务，并通过便捷的步骤部署 SQL Server 资源提供程序适配器。
+title: 更新 Azure Stack SQL 资源提供程序 | Microsoft Docs
+description: 了解如何更新 Azure Stack SQL 资源提供程序。
 services: azure-stack
 documentationCenter: ''
 author: jeffgilb
@@ -11,27 +11,27 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/01/2018
-ms.date: 05/24/2018
+origin.date: 06/11/2018
+ms.date: 06/26/2018
 ms.author: v-junlch
 ms.reviewer: jeffgo
-ms.openlocfilehash: 4691f946f19416ef58bf8c8c37b7c52b922ab1a8
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: a98541a0e6c27a0b0a2bf25f6a3bfa38c17eaa5a
+ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475116"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37027118"
 ---
-# <a name="update-the-sql-resource-provider-adapter"></a>更新 SQL 资源提供程序适配器
-更新 Azure Stack 内部版本时，可能会发布新的 SQL 资源提供程序适配器。 虽然现有的适配器可以继续使用，但仍建议尽快更新到最新的内部版本。 更新必须按顺序安装：不能跳过版本（请参见[部署资源提供程序的先决条件](azure-stack-sql-resource-provider-deploy.md#prerequisites)中的版本列表）。
+# <a name="update-the-sql-resource-provider"></a>更新 SQL 资源提供程序
+更新 Azure Stack 内部版本时，可能会发布新的 SQL 资源提供程序。 虽然现有的适配器可以继续使用，但仍建议尽快更新到最新的内部版本。 更新必须按顺序安装：不能跳过版本（请参见[部署资源提供程序的先决条件](.\azure-stack-sql-resource-provider-deploy.md#prerequisites)中的版本列表）。
 
-若要更新资源提供程序，请使用 *UpdateSQLProvider.ps1* 脚本。 此过程类似于用于安装资源提供程序的过程，如[部署资源提供程序](azure-stack-sql-resource-provider-deploy.md)一文中所述。 资源提供程序的下载包中提供此脚本。
+若要更新资源提供程序，请使用 *UpdateSQLProvider.ps1* 脚本。 此过程类似于用于安装资源提供程序的过程，如[部署资源提供程序](.\azure-stack-sql-resource-provider-deploy.md)一文中所述。 资源提供程序的下载包中提供此脚本。
 
 *UpdateSQLProvider.ps1* 脚本可使用最新的资源提供程序代码创建新的 VM，并可将设置从旧 VM 迁移到新 VM。 迁移的设置包括数据库和宿主服务器信息，以及必需的 DNS 记录。
 
 此脚本需要使用的参数正是针对 DeploySqlProvider.ps1 脚本进行描述的参数。 请同样在此处提供证书。 
 
-建议从 Marketplace 管理下载最新的 Windows Server 2016 Core 映像。 如需安装更新，可以将单个 .MSU 包放置在本地依赖项路径中。 如果找到多个 .MSU 文件，脚本会发生故障。
+建议从市场管理下载最新的 Windows Server 2016 Core 映像。 如需安装更新，可以将单个 .MSU 包放置在本地依赖项路径中。 如果找到多个 .MSU 文件，脚本会发生故障。
 
 下面是可从 PowerShell 提示符运行的 *UpdateSQLProvider.ps1* 脚本的示例。 请务必根据需要更改帐户信息和密码： 
 
@@ -39,10 +39,9 @@ ms.locfileid: "34475116"
 > 此更新过程仅适用于集成系统。
 
 ```powershell
-# Install the AzureRM.Bootstrapper module, set the profile, and install the AzureRM and AzureStack modules.
+# Install the AzureRM.Bootstrapper module and set the profile.
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2017-03-09-profile
-Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
 
 # Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time.
 $domain = "AzureStack"
@@ -100,3 +99,4 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
 [维护 SQL 资源提供程序](azure-stack-sql-resource-provider-maintain.md)
 
+<!-- Update_Description: wording update -->

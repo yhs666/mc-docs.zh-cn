@@ -5,28 +5,25 @@ keywords: json 数据库，文档数据库
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
-documentationcenter: ''
-ms.assetid: 686cdd2b-704a-4488-921e-8eefb70d5c63
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: overview
 origin.date: 05/22/2017
-ms.date: 04/23/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 070e8bc95ad69ea1e091182e453a1eca3ef45c79
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: 49bb34f5ac65ebe850f13084a8e778c1c5766464
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33815139"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070236"
 ---
 # <a name="introduction-to-azure-cosmos-db-sql-api"></a>Azure Cosmos DB：SQL API 简介
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
-[Azure Cosmos DB](introduction.md) 是 21Vianet 针对任务关键型应用程序提供的多区域分布式多模型数据库服务。 Azure Cosmos DB 在多个区域内提供[统包式数据分发](distribute-data-globally.md)、[吞吐量和存储空间弹性缩放](partition-data.md)、99% 情况下低至个位数的毫秒级延迟、[五个妥善定义的一致性级别](consistency-levels.md)，以及得到保证的高可用性，所有这些均由[行业领先的 SLA](https://www.azure.cn/support/sla/cosmos-db/) 提供支持。 Azure Cosmos DB [自动为数据编制索引](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)，无需客户管理架构和索引。 它采用多种模型，支持文档和列式数据模型。
+[Azure Cosmos DB](introduction.md) 是 21Vianet 针对任务关键型应用程序提供的多区域分布式多模型数据库服务。 Azure Cosmos DB 在多个区域内提供[统包式数据分发](distribute-data-globally.md)、[弹性缩放中国各地的吞吐量和存储空间](partition-data.md)、99% 情况下低至个位数的毫秒级延迟、[五个妥善定义的一致性级别](consistency-levels.md)，以及得到保证的高可用性，所有这些均由[行业领先的 SLA](https://www.azure.cn/support/sla/cosmos-db/) 提供支持。 Azure Cosmos DB [自动为数据编制索引](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)，无需客户管理架构和索引。 它采用多种模型，支持文档和列式数据模型。
 <!-- Not Available on Graph, Key/Value -->
 <!-- Notice in meta: 全球范围 to 多个数据中心范围 -->
 
@@ -39,12 +36,12 @@ Azure Cosmos DB 通过 SQL API 提供了以下主要功能和优势：
 
 * 可弹性增减吞吐量和存储：根据应用程序需求，轻松增大或减小 JSON 数据库规模。 数据存储在固态硬盘 (SSD) 上，以实现可预测的低延迟。 Azure Cosmos DB 支持使用容器来存储称为集合的 JSON 数据，这些数据集几乎可以扩展到无限存储大小和预配吞吐量。 随着应用程序规模的增长，可以弹性无缝地扩展 Azure Cosmos DB 且其性能可以预测。 
 
-* **多区域复制：** Azure Cosmos DB 以透明方式将数据复制到与 Azure Cosmos DB 帐户关联的所有区域，使你能够开发那些对全局性数据访问有要求的应用程序，与此同时还在一致性、可用性和性能方面做出权衡，所有这些都有相应的保证。 Azure Cosmos DB 提供具有多宿主 API 的透明区域故障转移，还可以弹性缩放全局吞吐量和存储。 有关详细信息，请参阅[使用 Azure Cosmos DB 全局分发数据](distribute-data-globally.md)。
+* **多区域复制：** Azure Cosmos DB 以透明方式将数据复制到与 Azure Cosmos DB 帐户关联的所有区域，使用户能够开发那些对多区域数据访问有要求的应用程序，与此同时还在一致性、可用性和性能方面做出权衡，所有这些都有相应的保证。 Azure Cosmos DB 提供具有多宿主 API 的透明区域故障转移，还可以弹性缩放中国各地的吞吐量和存储。 详细了解如何[使用 Azure Cosmos DB 在多个区域分配数据](distribute-data-globally.md)。
 
 * 使用熟悉的 SQL 语法进行即席查询：存储异类 JSON 文档，并通过熟悉的 SQL 语法查询这些文档。 Azure Cosmos DB 使用高并发、无锁、日志结构化索引技术为所有文档内容自动编制索引。 这样可以实现各种实时查询，而无需指定架构提示、二级索引或视图。 有关详细信息，请参阅[查询 Azure Cosmos DB](sql-api-sql-query.md)。 
 * **在数据库中执行 JavaScript：** 使用标准 JavaScript 将应用程序逻辑表示为存储过程、触发器和用户定义函数 (UDF)。 这样，应用程序逻辑可基于数据进行运作，而无需担心应用程序和数据库架构之间的不匹配。 SQL API 支持在数据库引擎内部直接进行 JavaScript 应用程序逻辑的完全事务执行。 对 JavaScript 的深度集成支持在一个 JavaScript 程序中将 INSERT、REPLACE、DELETE 和 SELECT 操作作为独立的事务来执行。 有关详细信息，请参阅 [SQL 服务器端编程](programming.md)。
 
-* 可调整的一致性级别：从五个妥善定义的一致性级别中选择，实现一致性与性能之间的最佳平衡。 对于查询和读取操作，Azure Cosmos DB 提供五种不同的一致性级别：强一致性、有限过时一致性、会话一致性、前缀一致性和最终一致性。 通过这些细化的定义完好的一致性级别，可以在一致性、可用性和延迟之间实现合理的平衡。 有关详细信息，请参阅[使用一致性级别最大化可用性和性能](consistency-levels.md)。
+* 可调整的一致性级别：从五个妥善定义的一致性级别中选择，实现一致性与性能之间的最佳平衡。 对于查询和读取操作，Azure Cosmos DB 提供五种不同的一致性级别：强、有限过时、会话、一致前缀和最终。 通过这些细化的定义完好的一致性级别，可以在一致性、可用性和延迟之间实现合理的平衡。 有关详细信息，请参阅[使用一致性级别最大化可用性和性能](consistency-levels.md)。
 
 * **完全托管：** 无需管理数据库和计算机资源。 作为一种完全托管的 Azure 服务，用户无需管理虚拟机、部署并配置软件、管理缩放或处理复杂的数据层升级。 每个数据库都会自动备份，以防受到区域故障的影响。 可轻松添加 Azure Cosmos DB 帐户并根据需要预配容量，从而可以专注于应用程序而不是操作和管理数据库。 
 

@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/17/2017
-ms.date: 05/07/2018
+ms.date: 06/25/2018
 ms.author: v-johch
-ms.openlocfilehash: 4355b40e82cc0750a7371af75445e6d555dd7c83
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 374f2c5c9ff7cb5cef0a4c012a68336c677c7b5b
+ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475167"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36748340"
 ---
 # <a name="use-cli-20-to-create-an-aad-app-and-configure-it-to-access-azure-media-services-api"></a>使用 CLI 2.0 创建 AAD 应用，并将它配置为访问 Azure 媒体服务 API
 
@@ -28,21 +28,18 @@ ms.locfileid: "34475167"
 ## <a name="prerequisites"></a>先决条件
 
 - 一个 Azure 帐户。 有关详细信息，请参阅 [Azure 试用](https://www.azure.cn/pricing/1rmb-trial/)。
-- 一个媒体服务帐户。 有关详细信息，请参阅[利用 Azure 门户创建 Azure 媒体服务帐户](media-services-portal-create-account.md)。
+- 一个媒体服务帐户。 有关详细信息，请参阅[通过使用 Azure 门户创建 Azure 媒体服务帐户](media-services-portal-create-account.md)。
 
-## <a name="use-the-azure-cloud-shell"></a>使用 Azure Cloud Shell
+## <a name="use-the-powershell"></a>使用 PowerShell
 
-1. 登录到 [Azure 门户](https://portal.azure.cn/)。
-2. 启动 Cloud Shell。
-
-    
+登录到 [Azure 门户](https://portal.azure.cn/)。
 
 ## <a name="create-an-azure-ad-app-and-configure-access-to-the-media-account-with-cli-20"></a>使用 CLI 2.0 创建 Azure AD 应用并配置对媒体帐户的访问权限
-
+ 
 ```azurecli
 az login
 az ad sp create-for-rbac --name <appName> --password <strong password>
-az role assignment create -- assignee < user/app id> --role Contributor --scope <subscription/subscription id>
+az role assignment create --assignee < user/app id> --role Contributor --scope <subscription/subscription id>
 ```
 
 例如：
@@ -61,7 +58,7 @@ az role assignment create --assignee a3e068fa-f739-44e5-ba4d-ad57866e25a1 --role
 
 有关详细信息，请参阅[使用 Azure CLI 2.0 创建 Azure 服务主体](https://docs.azure.cn/cli/create-an-azure-service-principal-azure-cli)
 
-另请参阅[使用 Azure 命令行接口管理基于角色的访问控制](../active-directory/role-based-access-control-manage-access-azure-cli.md)。
+另请参阅[使用 Azure 命令行接口管理基于角色的访问控制](../../role-based-access-control/role-assignments-cli.md)。 
 
 ## <a name="next-steps"></a>后续步骤
 

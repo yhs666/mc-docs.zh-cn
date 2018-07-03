@@ -1,24 +1,29 @@
 ---
 title: SQL 中适用于虚拟网络服务终结点和规则的 PowerShell | Microsoft 文档
-description: 提供 PowerShell 脚本，用于创建和管理 Azure SQL 数据库的虚拟服务终结点。
+description: 提供 PowerShell 脚本，用于创建和管理 Azure SQL 数据库和 SQL 数据仓库的虚拟服务终结点。
 services: sql-database
 author: yunan2016
 manager: digimobile
 ms.service: sql-database
 ms.custom: VNet Service endpoints
 ms.topic: article
-origin.date: 02/05/2018
-ms.date: 04/19/2018
+origin.date: 06/13/2018
+ms.date: 07/02/2018
 ms.reviewer: genemi
 ms.author: v-nany
-ms.openlocfilehash: c48c4dd3b8b6b4ddea132476cd03d6b1f21d520a
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: ec415293d167cf036a4de35166e5276ba7f6dfcc
+ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782671"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36948094"
 ---
-# <a name="use-powershell-to-create-a-virtual-service-endpoint-and-rule-for-azure-sql-database"></a>使用 PowerShell 创建 Azure SQL 数据库的虚拟服务终结点和规则
+# <a name="use-powershell-to-create-a-virtual-service-endpoint-and-rule-for-azure-sql-database-and-sql-data-warehouse"></a>使用 PowerShell 创建 Azure SQL 数据库和 SQL 数据仓库的虚拟服务终结点和规则
+
+Azure [SQL 数据库](sql-database-technical-overview.md)和 [SQL 数据仓库](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)都支持虚拟服务终结点。 
+
+> [!NOTE]
+> 本主题适用于 Azure SQL 服务器，同时也适用于在 Azure SQL 服务器中创建的 SQL 数据库和 SQL 数据仓库数据库。 为简单起见，在提到 SQL 数据库和 SQL 数据仓库时，本文统称 SQL 数据库。
 
 本文将提供并介绍执行以下操作的 PowerShell 脚本：
 
@@ -52,6 +57,9 @@ ms.locfileid: "31782671"
 - 已可以登录到 Azure，例如通过 [Azure 门户][http-azure-portal-link-ref-477t]。
 - 已可以运行 PowerShell 脚本。
 
+> [!NOTE]
+> 请确保已为想要添加到服务器的 Vnet/Subnet 打开服务终结点，否则创建 Vnet 防火墙规则将会失败。
+
 #### <a name="one-script-divided-into-four-chunks"></a>一个脚本划分为四个区块
 
 我们的演示 PowerShell 脚本被划分为更小的脚本序列。 这种划分可使学习更为轻松且灵活性更大。 脚本必须在其指示的序列中运行。 如果现在没有时间运行脚本，我们的实际测试结果已在脚本 4 后显示。
@@ -81,7 +89,7 @@ ms.locfileid: "31782671"
 ###########################################################
 
 $yesno = Read-Host 'Do you need to log into Azure (only one time per powershell.exe session)?  [yes/no]';
-if ('yes' -eq $yesno) { Login-AzureRmAccount -Environment AzureChinaCloud; }
+if ('yes' -eq $yesno) { Connect-AzureRmAccount -Environment AzureChinaCloud; }
 
 ###########################################################
 ##  Assignments to variables used by the later scripts.  ##
@@ -521,7 +529,7 @@ Completed script 4, the "Clean-Up".
 ### 1. LOG into to your Azure account, needed only once per PS session.  Assign variables.
 
 $yesno = Read-Host 'Do you need to log into Azure (only one time per powershell.exe session)?  [yes/no]';
-if ('yes' -eq $yesno) { Login-AzureRmAccount -Environment AzureChinaCloud; }
+if ('yes' -eq $yesno) { Connect-AzureRmAccount -Environment AzureChinaCloud; }
 
 # Assignments to variables used by the later scripts.
 # You can EDIT these values, if necessary.

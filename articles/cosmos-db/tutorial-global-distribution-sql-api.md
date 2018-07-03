@@ -3,27 +3,23 @@ title: SQL API 的 Azure Cosmos DB 多区域分发教程 | Azure
 description: 了解如何使用 SQL API 设置 Azure Cosmos DB 多区域分发。
 services: cosmos-db
 keywords: 多区域分布
-documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-ms.assetid: 8b815047-2868-4b10-af1d-40a1af419a70
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 05/10/2017
-ms.date: 04/23/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 55076aed2ef07255c662513b6dd0ad039f8fd421
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 892aa5a4da2b2c49ef2e35241c2261a66a9ec1de
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782122"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070146"
 ---
-# <a name="how-to-setup-azure-cosmos-db-multiple-region-distribution-using-the-sql-api"></a>如何使用 SQL API 设置 Azure Cosmos DB 多区域分发。
+# <a name="set-up-azure-cosmos-db-multiple-region-distribution-using-the-sql-api"></a>使用 SQL API 设置 Azure Cosmos DB 多区域分发
 
 本文介绍如何使用 Azure 门户设置 Azure Cosmos DB 多区域分发，然后使用 SQL API 进行连接。
 
@@ -74,6 +70,7 @@ ConnectionPolicy connectionPolicy = new ConnectionPolicy();
 //Setting read region selection preference
 connectionPolicy.PreferredLocations.Add(LocationNames.ChinaNorth); // first preference
 connectionPolicy.PreferredLocations.Add(LocationNames.ChinaEast); // second preference
+connectionPolicy.PreferredLocations.Add(LocationNames.ChinaNorth2); // third preference
 
 // initialize connection
 DocumentClient docClient = new DocumentClient(
@@ -106,7 +103,8 @@ var connectionPolicy = new DocumentBase.ConnectionPolicy();
 // Setting read region selection preference, in the following order -
 // 1 - China North
 // 2 - China East
-connectionPolicy.PreferredLocations = ['China North', 'China East'];
+// 3 - China North 2
+connectionPolicy.PreferredLocations = ['China North', 'China East','China North 2'];
 
 // initialize the connection
 var client = new DocumentDBClient(host, { masterKey: masterKey }, connectionPolicy);
@@ -158,7 +156,7 @@ var client = new DocumentDBClient(host, { masterKey: masterKey }, connectionPoli
 
 如果在客户端初始发现阶段过后写入区域发生更改，则向先前写入区域进行的后续写入会失败并出现 HTTP 错误代码 403（“禁止”）。 然后，客户端应再次对区域列表执行 GET 以获取更新的写入区域。
 
-本教程到此结束。 阅读 [Azure Cosmos DB 中的一致性级别](consistency-levels.md)，了解如何管理全局复制帐户的一致性。 若要深入了解 Azure Cosmos DB 中全局数据库复制的工作原理，请参阅[使用 Azure Cosmos DB 全局分发数据](distribute-data-globally.md)。
+本教程到此结束。 阅读 [Azure Cosmos DB 中的一致性级别](consistency-levels.md)，了解如何管理全局复制帐户的一致性。 有关 Azure Cosmos DB 中多区域数据库复制工作原理的详细信息，请参阅[使用 Cosmos DB 多区域分配数据](distribute-data-globally.md)。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -18,25 +18,25 @@ origin.date: 01/10/2018
 ms.date: 01/22/2018
 ms.author: v-nany
 ms.reviewer: douglasl
-ms.openlocfilehash: fcfa5da6d6cc0b68e541f037999e4f8fabe9fb19
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: a7442044e08470198c33857c3f279187629de76c
+ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782022"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36948017"
 ---
 # <a name="use-powershell-to-update-the-sync-schema-in-an-existing-sync-group"></a>使用 PowerShell 更新现有同步组中的同步架构
 
-此 PowerShell 示例可更新现有 SQL 数据同步（预览版）同步组中的同步架构。 同步多个表时，此脚本可帮助你有效地更新同步架构。
+此 PowerShell 示例更新现有“SQL 数据同步”同步组中的同步架构。 同步多个表时，此脚本可帮助你有效地更新同步架构。
 
 此示例演示如何使用 **UpdateSyncSchema** 脚本，该脚本在 GitHub 上以 [UpdateSyncSchema.ps1](https://github.com/Microsoft/sql-server-samples/tree/master/samples/features/sql-data-sync/UpdateSyncSchema.ps1) 的形式提供。
 
-有关 SQL 数据同步的概述，请参阅[使用 Azure SQL 数据同步（预览版）跨多个云和本地数据库同步数据](../sql-database-sync-data.md)。
+有关 SQL 数据同步的概述，请参阅[使用 Azure SQL 数据同步跨多个云和本地数据库同步数据](../sql-database-sync-data.md)。
 ## <a name="prerequisites"></a>先决条件
 
 本示例需要 Azure PowerShell 模块 4.2 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 查找已安装的版本。 如果需要进行安装或升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。
  
-运行 `Login-AzureRmAccount`，创建与 Azure 的连接。
+运行 `Connect-AzureRmAccount -EnvironmentName AzureChinaCloud`，创建与 Azure 的连接。
 
 ## <a name="examples"></a>示例
 
@@ -90,7 +90,7 @@ UpdateSyncSchema.ps1 -SubscriptionId <subscription_id> -ResourceGroupName <resou
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure PowerShell 的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/overview)。
+有关 Azure PowerShell 的详细信息，请参阅 [Azure PowerShell 文档](/powershell/azure/overview)。
 
 可以在 [Azure SQL 数据库 PowerShell 脚本](../sql-database-powershell-samples.md)中找到更多 SQL 数据库 PowerShell 脚本示例。
 
@@ -111,4 +111,3 @@ UpdateSyncSchema.ps1 -SubscriptionId <subscription_id> -ResourceGroupName <resou
 
 -   [SQL 数据库概述](../sql-database-technical-overview.md)
 -   [数据库生命周期管理](https://msdn.microsoft.com/library/jj907294.aspx)
-

@@ -3,24 +3,20 @@ title: Azure Cosmos DB 索引策略 | Azure
 description: 了解如何在 Azure Cosmos DB 中为工作编制索引。 了解如何配置和更改索引策略，实现自动索引并提高性能。
 keywords: 索引的工作原理, 自动索引, 索引数据库
 services: cosmos-db
-documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-ms.assetid: d5e8f338-605d-4dff-8a61-7505d5fc46d7
 ms.service: cosmos-db
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 origin.date: 03/26/2018
-ms.date: 04/23/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 44cbffd3a385f85851a50686bd239137806becbc
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 144a61f1720336a8cb12fab71f2d81803edcbcc0
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782150"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070250"
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Azure Cosmos DB 如何为数据编制索引？
 
@@ -28,8 +24,7 @@ ms.locfileid: "31782150"
 
 要了解 Azure Cosmos DB 中的索引工作原理，管理索引策略时了解它至关重要，可以在索引存储开销、写入和查询吞吐量以及查询一致性之间进行细致权衡。  
 
-<!-- Not Available on https://www.youtube.com/embed/uFu2D-GscG0 -->
-在本文中，我们将仔细研究 Azure Cosmos DB 索引策略、自定义索引策略的方法和相关的权衡方案。 
+<!-- Not Available on https://www.youtube.com/embed/uFu2D-GscG0 --> 在本文中，我们将仔细研究 Azure Cosmos DB 索引策略、自定义索引策略的方法和相关的权衡方案。 
 
 阅读本文后，可以回答以下问题：
 
@@ -40,7 +35,7 @@ ms.locfileid: "31782150"
 * 如何比较不同索引策略的存储和性能？
 
 <a name="CustomizingIndexingPolicy"></a> 
-## <a name="customizing-the-indexing-policy-of-a-collection"></a>自定义集合的索引策略
+## <a name="customize-the-indexing-policy-of-a-collection"></a>自定义集合的索引策略
 通过重写 Azure Cosmos DB 集合的默认索引策略，可以在存储、写入/查询性能和查询一致性之间进行权衡。 可配置以下几个方面：
 
 * **包括或排除索引的文档和路径**。 插入或替换集合中的文档时，可在索引中排除或包括特定的文档。 还可包括或排除特定的 JSON 属性（也称为路径），以便在包括在索引中的文档中建立索引。 路径包括通配符模式。
@@ -79,9 +74,9 @@ Azure Cosmos DB 支持三种索引模式，可通过索引策略对 Azure Cosmos
 
 一致索引支持一致的查询，但代价是可能降低写入吞吐量。 这种减少受需要索引的唯一路径和“一致性级别”的影响。 一致的索引模式适用于“快速写入、立即查询”工作负荷。
 
-**延迟**：Azure Cosmos DB 集合处于静止状态时（即处理用户请求时没有完全利用集合的吞吐容量），以异步方式更新索引。 延迟索引模式可能适用于需要文档引入的“现在引入、稍后查询”工作负荷。 请注意，因为数据引入和索引速度缓慢，可能出现不一致的结果。 这意味着任何时候 COUNT 查询或特定的查询结果可能都不一致或是重复的。 
+**延迟**：Azure Cosmos DB 集合处于静止状态时（即处理用户请求时没有完全利用集合的吞吐容量），以异步方式更新索引。  请注意，因为数据引入和索引速度缓慢，可能出现不一致的结果。 这意味着在给定时间 COUNT 查询或特定的查询结果可能是不一致或重复的。 
 
-索引通常处于所引入数据的追赶模式。 使用延迟索引，生存时间 (TTL) 更改会导致删除并重新创建索引。 这使得 COUNT 和查询结果在一段时间内不一致。 因此，大多数 Azure Cosmos DB 帐户应使用“一致”索引模式。
+索引通常处于所引入数据的追赶模式。 使用延迟索引，生存时间 (TTL) 更改会导致删除并重新创建索引。 这使得 COUNT 和查询结果在一段时间内不一致。 大多数 Azure Cosmos DB 帐户应使用“一致”索引模式。
 
 **无**：索引模式为“无”的集合没有与之关联的索引。 如果 Azure Cosmos DB 用作键值存储，并且只通过文档的 ID 属性访问文档，则通常使用该模式。 
 
@@ -226,11 +221,11 @@ Azure Cosmos DB 还针对每个路径支持空间索引类型，可为 Point、P
 
 同样，可从索引中完全排除路径。 下一示例演示如何使用 \* 通配符运算符从索引中排除整个文档部分（子树）。
 
-    var collection = new DocumentCollection { Id = "excludedPathCollection" };
-    collection.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/*" });
-    collection.IndexingPolicy.ExcludedPaths.Add(new ExcludedPath { Path = "/nonIndexedContent/*" });
+    var excluded = new DocumentCollection { Id = "excludedPathCollection" };
+    excluded.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/*" });
+    excluded.IndexingPolicy.ExcludedPaths.Add(new ExcludedPath { Path = "/nonIndexedContent/*" });
 
-    collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), excluded);
+    await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), excluded);
 
 ## <a name="opt-in-and-opt-out-of-indexing"></a>选择加入和选择退出索引
 可以选择是否让集合自动为所有文档编制索引。 默认情况下，为所有文档自动执行索引，但可关闭自动索引。 关闭索引功能后，只能通过本身的链接或通过使用文档 ID 进行查询的方法访问文档。

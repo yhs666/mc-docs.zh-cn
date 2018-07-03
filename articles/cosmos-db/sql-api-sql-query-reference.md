@@ -4,22 +4,19 @@ description: Azure Cosmos DB SQL 查询语言的参考文档。
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
-documentationcenter: ''
-ms.assetid: ''
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: na
 ms.topic: reference
 origin.date: 10/18/2017
-ms.date: 04/23/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0cbb4071834c95a8e42e9f0bf0f05c8fccda3b16
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 526656b95863aa33b92fef3bad07e7599841d6c6
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782214"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070349"
 ---
 # <a name="azure-cosmos-db-sql-syntax-reference"></a>Azure Cosmos DB SQL 语法参考
 
@@ -250,7 +247,7 @@ AS `input_alias`
 
     {1, 2}，对于 `input_alias1 = A,`  
 
-    {3}，对于 `input_alias1 = B,`  
+    若 `input_alias1 = B,`，表示集 {3}  
 
     {4, 5}，对于 `input_alias1 = C,`  
 
@@ -268,15 +265,15 @@ AS `input_alias`
 
     {1, 2}，对于 `input_alias1 = A,`  
 
-    {3}，对于 `input_alias1 = B,`  
+    若 `input_alias1 = B,`，表示集 {3}  
 
-    若 `input_alias1 = C,`，表示集 {4, 5}  
+    {4, 5}，对于 `input_alias1 = C,`  
 
 - 让 `<from_source3>` 以文档为作用域，引用 `input_alias2` 并表示以下集：  
 
     {100, 200}，对于 `input_alias2 = 1,`  
 
-    {300}，对于 `input_alias2 = 3,`  
+    若 `input_alias2 = 3,`，表示集 {300}  
 
 - FROM 子句 `<from_source1> JOIN <from_source2> JOIN <from_source3>` 将生成以下元组：  
 
@@ -295,9 +292,9 @@ AS `input_alias`
 
 - 让 <from_source2> 以文档为作用域，引用 input_alias1 并表示以下集：  
 
-    若 `input_alias1 = A,`，表示集 {1, 2}  
+    {1, 2}，对于 `input_alias1 = A,`  
 
-    {3}，对于 `input_alias1 = B,`  
+    若 `input_alias1 = B,`，表示集 {3}  
 
     {4, 5}，对于 `input_alias1 = C,`  
 
@@ -305,9 +302,9 @@ AS `input_alias`
 
     {100, 200}，对于 `input_alias2 = A,`  
 
-    {300}，对于 `input_alias2 = C,`  
+    若 `input_alias2 = C,`，表示集 {300}  
 
-- FROM 子句 `<from_source1> JOIN <from_source2> JOIN <from_source3>` 将产生以下元组：  
+- FROM 子句 `<from_source1> JOIN <from_source2> JOIN <from_source3>` 将生成以下元组：  
 
     (`input_alias1, input_alias2, input_alias3`)：  
 

@@ -2,31 +2,29 @@
 title: Azure Cosmos DB：使用 Python 和 Azure Cosmos DB MongoDB API 构建 Flask Web 应用 | Azure
 description: 演示可用来连接到 Azure Cosmos DB MongoDB API 并进行查询的 Python Flask 代码示例
 services: cosmos-db
-documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-ms.assetid: ''
 ms.service: cosmos-db
+ms.component: cosmosdb-mongo
 ms.custom: quick start connect, mvc
-ms.workload: ''
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
+ms.devlang: python
 ms.topic: quickstart
 origin.date: 10/02/2017
-ms.date: 06/11/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: e703dac9e212fc6c721b4409c02fe52afda7a755
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: 330325090ec74f4e7ae2d48869ae6b36ce4b0251
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867425"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070145"
 ---
 # <a name="azure-cosmos-db-build-a-flask-app-with-the-mongodb-api"></a>Azure Cosmos DB：借助 MongoDB API 构建 Flask 应用
 
-Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务。 可快速创建和查询文档，这些数据库受益于 Azure Cosmos DB 核心的多区域分布和水平缩放功能。
+Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务。 可快速创建和查询文档数据库，这些数据库受益于 Azure Cosmos DB 核心的多区域分布和水平缩放功能。
 <!-- NOTICE: 全球分布 TO 多区域分布 -->
 <!-- NOTICE: globally TO multiple-region  -->
+<!-- NOTICE: key/value, and graph databases -->
 
 本快速入门指南使用以下 [Flask 示例](https://github.com/Azure-Samples/CosmosDB-Flask-Mongo-Sample)并演示如何借助 [Azure Cosmos DB 模拟器](local-emulator.md)和 Azure Cosmos DB [MongoDB API](mongodb-introduction.md) 而不是 MongoDB 构建简单的待办事项 Flask 应用。
 
@@ -166,4 +164,4 @@ Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务
 > [!div class="nextstepaction"]
 > [将 MongoDB API 的数据导入 Azure Cosmos DB](mongodb-migrate.md)
 
-<!-- Update_Description: update meta properties  -->
+<!-- Update_Description: update meta properties, wording update -->

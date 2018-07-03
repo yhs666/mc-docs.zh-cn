@@ -1,23 +1,23 @@
 ---
-title: 将 SQL Server DB 迁移到 Azure SQL 数据库 | Azure
-description: 了解如何将 SQL Server 数据库迁移至 Azure SQL 数据库。
+title: 使用 DMA 将 SQL Server DB 迁移到 Azure SQL 数据库 | Azure
+description: 了解如何使用 DMA 将 SQL Server 数据库迁移到 Azure SQL 数据库。
 services: sql-database
 author: forester123
 manager: digimobile
 ms.service: sql-database
 ms.custom: mvc,migrate
 ms.topic: tutorial
-origin.date: 04/10/2018
-ms.date: 02/28/2018
+origin.date: 05/22/2018
+ms.date: 07/02/2018
 ms.author: v-johch
-ms.openlocfilehash: 6bb1e9f4a9c89b05a340240e788eca8bb310bc60
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: fae46be4076df617ab899239862da20fe974ccbd
+ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782465"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36947987"
 ---
-# <a name="migrate-your-sql-server-database-to-azure-sql-database"></a>将 SQL Server 数据库迁移到 Azure SQL 数据库
+# <a name="migrate-your-sql-server-database-to-azure-sql-database-using-dma"></a>使用 DMA 将 SQL Server 数据库迁移到 Azure SQL 数据库
 
 将 SQL Server 数据库移至 Azure SQL 数据库的单个数据库，与在 Azure 中创建空 SQL 数据库然后使用[数据迁移助手](https://www.microsoft.com/download/details.aspx?id=53595) (DMA) 将数据库导入到 Azure 一样简单。 有关其他迁移选项，请参阅[将数据库迁移到 Azure SQL 数据库](sql-database-cloud-migrate.md)。
 
@@ -48,7 +48,7 @@ ms.locfileid: "31782465"
 
 ## <a name="create-a-blank-sql-database"></a>创建空的 SQL 数据库
 
-创建 Azure SQL 数据库时，会使用定义好的一组[计算和存储资源](sql-database-service-tiers.md)。 数据库在 [Azure 资源组](../azure-resource-manager/resource-group-overview.md)和 [Azure SQL 数据库逻辑服务器](sql-database-features.md)中创建。 
+创建 Azure SQL 数据库时，会使用定义好的一组[计算和存储资源](sql-database-service-tiers-dtu.md)。 数据库在 [Azure 资源组](../azure-resource-manager/resource-group-overview.md)和 [Azure SQL 数据库逻辑服务器](sql-database-features.md)中创建。 
 
 按照以下步骤创建空的 SQL 数据库。 
 
@@ -112,7 +112,7 @@ SQL 数据库服务在服务器级别创建一个防火墙。除非创建了防�
 
 1. 部署完成后，在左侧菜单中单击“SQL 数据库”，然后在“SQL 数据库”页上单击“mySampleDatabase”。 此时会打开数据库的概览页，显示完全限定的服务器名称（例如 **mynewserver-20170824.database.chinacloudapi.cn**），并且会提供进行进一步配置所需的选项。 
 
-2. 在后续的快速入门教程中，请复制此完全限定的服务器名称，将其用于连接到服务器及其数据库。 
+2. 在后续的快速入门中，请复制此完全限定的服务器名称，将其用于连接到服务器及其数据库。 
 
    ![服务器名称](./media/sql-database-get-started-portal/server-name.png) 
 

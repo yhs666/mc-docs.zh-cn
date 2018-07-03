@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/17/2018
-ms.date: 05/23/2018
+origin.date: 05/24/2018
+ms.date: 06/27/2018
 ms.author: v-junlch
 ms.reviewer: ''
-ms.openlocfilehash: 8ab73959997049ebf589df03e1b592b0394d1c4e
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: d2d769e275c82920b5173a99fbe77541185bcfa2
+ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475047"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37027120"
 ---
 # <a name="deploy-templates-in-azure-stack-using-visual-studio"></a>使用 Visual Studio 在 Azure Stack 中部署模板
 
@@ -29,7 +29,7 @@ ms.locfileid: "34475047"
 
 可以使用 Visual Studio 将 Azure 资源管理器模板部署到 Azure Stack。
 
-若要部署模板，请执行以下操作：
+## <a name="to-deploy-a-template"></a>部署模板
 
 1. 使用 Visual Studio [安装并连接](azure-stack-install-visual-studio.md)到 Azure Stack。
 2. 打开 Visual Studio。

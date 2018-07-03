@@ -7,21 +7,21 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: security
 ms.topic: article
-origin.date: 04/01/2018
-ms.date: 04/17/2018
+origin.date: 06/13/2018
+ms.date: 07/02/2018
 ms.author: v-haiqya
-ms.openlocfilehash: 82ac92e9103eb5307d00b14b337df43595d64678
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 20d50d4979106d073cf708acc79f6ec8f9505ba6
+ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782452"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36948075"
 ---
-# <a name="azure-sql-database-access-control"></a>Azure SQL 数据库访问控制
-为了确保安全性，SQL 数据库会进行访问控制，即：使用防火墙规则来限制通过 IP 地址进行的连接，使用身份验证机制来要求用户证明其身份，并使用授权机制来限制用户执行特定操作和访问特定数据。 
+# <a name="azure-sql-database-and-sql-data-warehouse-access-control"></a>Azure SQL 数据库和 SQL 数据仓库访问控制
+为了确保安全性，Azure [SQL 数据库](sql-database-technical-overview.md)和 [SQL 数据仓库](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)会进行访问控制，即：使用防火墙规则来限制通过 IP 地址进行的连接，使用身份验证机制来要求用户证明其身份，并使用授权机制来限制用户执行特定操作和访问特定数据。 
 
 > [!IMPORTANT]
-> 有关 SQL 数据库安全功能的概述，请参阅 [SQL 安全概述](sql-database-security-overview.md)。 相关教程，请参阅[保护 Azure SQL 数据库](sql-database-security-tutorial.md)。
+> 有关 SQL 数据库安全功能的概述，请参阅 [SQL 安全概述](sql-database-security-overview.md)。 有关教程，请参阅[保护 Azure SQL 数据库](sql-database-security-tutorial.md)。 有关 SQL 数据仓库安全功能的概述，请参阅 [SQL 数据仓库安全概述](../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md)
 
 ## <a name="firewall-and-firewall-rules"></a>防火墙和防火墙规则
 Azure SQL 数据库为 Azure 和其他基于 Internet 的应用程序提供关系型数据库服务。 为了保护你的数据，在你指定哪些计算机具有访问权限之前，防火墙将禁止所有对数据库服务器的访问。 防火墙基于每个请求的起始 IP 地址授予数据库访问权限。 有关详细信息，请参阅 [Azure SQL 数据库防火墙规则概述](sql-database-firewall-configure.md)。
@@ -39,7 +39,7 @@ SQL 数据库支持两种类型的身份验证：
 
 数据库引擎将关闭空闲超过 30 分钟的连接。 该连接必须重新登录才可供使用。 连续与 SQL 数据库建立活动连接需要至少每隔 10 小时重新授权一次（由数据库引擎执行授权）。 数据库引擎将尝试使用最初提交的密码重新授权，且不需要用户输入。 出于性能原因，在 SQL 数据库中重置密码时，不会对连接重新进行身份验证，即使该连接由于连接池而重置。 这一点与本地 SQL Server 的行为不同。 如果在最初授权连接后密码发生更改，则必须终止该连接，并使用新密码建立新连接。 具有 `KILL DATABASE CONNECTION` 权限的用户可以使用 [KILL](https://docs.microsoft.com/sql/t-sql/language-elements/kill-transact-sql) 命令显式终止与 SQL 数据库的连接。
 
-可在 master 数据库中创建用户帐户并向其授予服务器上所有数据库中的权限，或者在数据库本身内部创建用户帐户（称为包含的用户）。 有关创建和管理登录名的信息，请参阅[管理登录名](sql-database-manage-logins.md)。 若要增强可移植性和可伸缩性，请使用包含的数据库用户来增强可伸缩性。 有关包含的用户的详细信息，请参阅[包含的数据库用户 - 使数据库可移植](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable)、[CREATE USER (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql) 和[包含的数据库](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases)。
+可在 master 数据库中创建用户帐户并向其授予服务器上所有数据库中的权限，或者在数据库本身内部创建用户帐户（称为包含的用户）。 有关创建和管理登录名的信息，请参阅[管理登录名](sql-database-manage-logins.md)。 若要增强可移植性和可伸缩性，请使用包含的数据库。 有关包含的用户的详细信息，请参阅[包含的数据库用户 - 使数据库可移植](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable)、[CREATE USER (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql) 和[包含的数据库](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases)。
 
 最佳做法是，应用程序应使用专用帐户进行身份验证 – 这样，就可以限制授予应用程序的权限，并在应用程序代码容易受到 SQL 注入攻击的情况下降低恶意活动的风险。 建议的方法是创建 [包含数据库用户](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable)，使应用程序能够直接向数据库进行身份验证。 
 

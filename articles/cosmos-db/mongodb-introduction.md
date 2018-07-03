@@ -5,22 +5,19 @@ keywords: 什么是 MongoDB
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
-documentationcenter: ''
-ms.assetid: 4afaf40d-c560-42e0-83b4-a64d94671f0a
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-mongo
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
 origin.date: 02/12/2018
-ms.date: 06/11/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7df4cc1e96a38cc215539b13eaf6c41bbee45380
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: 4f36500b7949ecb6dc6f3a6e6f6a2d0dcd6bf0f5
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867361"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070235"
 ---
 # <a name="introduction-to-azure-cosmos-db-mongodb-api"></a>Azure Cosmos DB 简介：MongoDB API
 
@@ -40,7 +37,7 @@ ms.locfileid: "34867361"
 
 **可弹性缩放的吞吐量和存储：** 轻松增大或减小 MongoDB 数据库规模来满足应用程序需求。 数据存储在固态硬盘 (SSD) 上，以实现可预测的低延迟。 Azure Cosmos DB 支持几乎可以扩展到无限存储大小和预配吞吐量的 MongoDB 集合。 随着应用程序规模的增长，可以弹性无缝地扩展 Azure Cosmos DB 且其性能可以预测。 
 
-**多区域复制：** Azure Cosmos DB 以透明方式将数据复制到与 MongoDB 帐户关联的所有区域，使用户能够开发那些对多区域数据访问有要求的应用程序，与此同时还在一致性、可用性和性能方面做出权衡，所有这些都有相应的保证。 Azure Cosmos DB 提供具有多宿主 API 的透明区域故障转移，还可以弹性缩放中国的吞吐量和存储。 在[全局分发数据](distribute-data-globally.md)中了解详细信息。
+**多区域复制：** Azure Cosmos DB 以透明方式将数据复制到与 MongoDB 帐户关联的所有区域，使用户能够开发那些对多区域数据访问有要求的应用程序，与此同时还在一致性、可用性和性能方面做出权衡，所有这些都有相应的保证。 Azure Cosmos DB 提供具有多宿主 API 的透明区域故障转移，还可以弹性缩放中国各地的吞吐量和存储。 在[分发多区域数据](distribute-data-globally.md)中了解详细信息。
 <!-- Notice: global to multiple-region -->
 
 **没有服务器管理**：无需管理和缩放 MongoDB 数据库。 Azure Cosmos DB 是完全托管的服务，这意味着无需自己管理任何基础结构或虚拟机。 Azure Cosmos DB 在 30 多个 [Azure 区域](https://www.azure.cn/support/service-dashboard/)中可用。
@@ -80,4 +77,4 @@ ms.locfileid: "34867361"
 * 了解操作将多少 RU 用于 [GetLastRequestStatistics 命令和 Azure 门户指标](set-throughput.md#GetLastRequestStatistics)。
 * 了解如何[配置多区域分布式应用的读取首选项](../cosmos-db/tutorial-global-distribution-mongodb.md)。
 
-<!--Update_Description: update meta properties, update link, wording update-->
+<!--Update_Description: update meta properties, wording update-->

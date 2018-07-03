@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 05/08/2018
-ms.date: 05/24/2018
+origin.date: 06/12/2018
+ms.date: 06/26/2018
 ms.author: v-junlch
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 4acc682ee918a76dd4901046cc89752703b45c38
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 8f103c8884ab635316d6f7f1b87fd0bd3883ca96
+ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34474882"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37027146"
 ---
 # <a name="quota-types-in-azure-stack"></a>Azure Stack 中的配额类型
 
@@ -30,6 +30,7 @@ ms.locfileid: "34474882"
 [配额](azure-stack-plan-offer-quota-overview.md#plans)定义用户订阅可以预配或使用的资源限制。 例如，配额可能允许用户最多创建五个 VM。 每个资源都可以有自已的配额类型。
 
 ## <a name="compute-quota-types"></a>计算配额类型
+
 | **类型** | **默认值** | **说明** |
 | --- | --- | --- |
 | 虚拟机的数目上限 | 20 个 | 订阅可以在此位置创建的虚拟机数目上限。 |
@@ -37,20 +38,18 @@ ms.locfileid: "34474882"
 | 可用性集的数目上限 | 10 个 | 可以在此位置创建的可用性集数目上限。 |
 | 虚拟机规模集的数目上限 | 20 个 | 可以在此位置创建的虚拟机规模集数目上限。 |
 
-
-
 ## <a name="storage-quota-types"></a>存储配额类型
+
 | **项目** | **默认值** | **说明** |
 | --- | --- | --- |
 | 最大容量 (GB) |500 |可供此位置的订阅使用的总存储容量。 |
 | 存储帐户的总数 |20 个 |订阅可以在此位置创建的存储帐户数目上限。 |
 
 > [!NOTE]  
-> 强制实施存储配额最多可能需要两个小时。 
-> 
-
+> 强制实施存储配额最多可能需要两个小时。
 
 ## <a name="network-quota-types"></a>网络配额类型
+
 | **项目** | **默认值** | **说明** |
 | --- | --- | --- |
 | 公共 IP 的数目上限 |50 |订阅可以在此位置创建的公共 IP 数目上限。 |
@@ -62,13 +61,15 @@ ms.locfileid: "34474882"
 | 网络安全组的数目上限 |50 |订阅可以在此位置创建的网络安全组数目上限。 |
 
 ## <a name="view-an-existing-quota"></a>查看现有配额
-1. 单击“更多服务” > “资源提供程序”。
+
+1. 选择“更多服务” > “资源提供程序”。
 2. 选择具有要查看的配额的服务。
-3. 单击“配额”，然后选择要查看的配额。
+3. 选择“配额”，然后选择要查看的配额。
 
 ## <a name="next-steps"></a>后续步骤
-[详细了解计划、产品/服务和配额。](azure-stack-plan-offer-quota-overview.md)
 
-[创建计划时创建配额。](azure-stack-create-plan.md)
+- 
+  [详细了解计划、套餐和配额。](azure-stack-plan-offer-quota-overview.md)
+- [创建计划时创建配额。](azure-stack-create-plan.md)
 
 <!-- Update_Description: wording update -->

@@ -1,6 +1,6 @@
 ---
 title: 部署 Azure Stack - PowerShell | Microsoft Docs
-description: 本教程介绍如何从命令行安装 ASDK。
+description: 本文介绍如何使用 PowerShell 从命令行安装 ASDK。
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -11,31 +11,21 @@ ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
-ms.custom: mvc
-origin.date: 03/16/2018
-ms.date: 03/22/2018
+ms.topic: article
+ms.custom: ''
+origin.date: 06/07/2018
+ms.date: 06/27/2018
 ms.author: v-junlch
 ms.reviewer: misainat
-ms.openlocfilehash: 88454d5e11027786aff23ba4bd7a1893ae5f02a8
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.openlocfilehash: 8f4c3b7bd32c6590759966b75760f14ab20165d4
+ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30155686"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37027133"
 ---
-# <a name="tutorial-deploy-the-asdk-from-the-command-line"></a>教程：从命令行部署 ASDK
-本教程介绍如何在非生产环境中从命令行部署 Azure Stack 开发工具包 (ASDK)。 
-
+# <a name="deploy-the-asdk-from-the-command-line"></a>从命令行部署 ASDK
 ASDK 是一个测试和开发环境，可以在部署后用来评估和演示 Azure Stack 功能和服务。 若要启动并运行该工具包，需要准备环境硬件并运行一些脚本（这将需要几个小时）。 之后便可以登录到管理员门户和用户门户，开始使用 Azure Stack。
-
-本教程介绍如何执行下列操作：
-
-> [!div class="checklist"]
-> * 下载并提取部署包
-> * 准备开发工具包主机 
-> * 执行部署后配置
-> * 注册到 Azure
 
 ## <a name="prerequisites"></a>先决条件 
 准备开发工具包主机。 计划硬件、软件和网络。 承载开发工具包的计算机（开发工具包主机）必须满足硬件、软件和网络要求。 还必须选择是使用 Azure Active Directory (Azure AD) 还是使用 Active Directory 联合身份验证服务 (AD FS)。 请务必在开始部署前符合这些先决条件，以便安装进程能顺利运行。 
@@ -171,24 +161,14 @@ $aadcred = Get-Credential "<Azure AD global administrator account name>" #Exampl
 **[ASDK 后部署任务](asdk-post-deploy.md)**
 
 ## <a name="register-with-azure"></a>注册到 Azure
-必须将 Azure Stack 注册到 Azure，以便[将 Azure Marketplace 项下载](asdk-marketplace-item.md)到 Azure Stack。
+必须将 Azure Stack 注册到 Azure，以便[将 Azure 市场项下载](asdk-marketplace-item.md)到 Azure Stack。
 
 **[将 Azure Stack 注册到 Azure](asdk-register.md)**
 
 ## <a name="next-steps"></a>后续步骤
 祝贺！ 完成这些步骤后，便具备了包含[管理员](https://adminportal.local.azurestack.external)门户和[用户](https://portal.local.azurestack.external)门户的开发工具包环境。 
 
-在本教程中，你已学习了如何执行以下操作：
-
-> [!div class="checklist"]
-> * 下载并提取部署包
-> * 准备开发工具包主机 
-> * 执行部署后配置
-> * 注册到 Azure
-
-继续学习下一教程，了解如何添加 Azure Stack Marketplace 项。
-
-> [!div class="nextstepaction"]
-> [添加 Azure Stack Marketplace 项](asdk-marketplace-item.md)
+[安装 ASDK 后的配置任务](asdk-post-deploy.md)
 
 
+<!-- Update_Description: wording update -->

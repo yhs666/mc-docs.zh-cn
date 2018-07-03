@@ -1,5 +1,5 @@
 ---
-title: 使用 Python 针对 Azure 文件进行开发 | Microsoft Docs
+title: 使用 Python 针对 Azure 文件进行开发 | Azure
 description: 了解如何开发使用 Azure 文件存储文件数据的 Python 应用程序和服务。
 services: storage
 documentationcenter: python
@@ -13,21 +13,20 @@ ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 origin.date: 09/19/2017
-ms.date: 10/30/2017
+ms.date: 07/02/2018
 ms.author: v-johch
-ms.openlocfilehash: 3b2b124a4541a73fc1266badd7bdbd7c3e398674
-ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
+ms.openlocfilehash: 82697274e6f2ae0f0d89d00e764a1efdb52e9856
+ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
-ms.locfileid: "27548333"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37103054"
 ---
 # <a name="develop-for-azure-files-with-python"></a>使用 Python 针对 Azure 文件进行开发
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
 
 [!INCLUDE [storage-try-azure-tools-files](../../../includes/storage-try-azure-tools-files.md)]
 
-## <a name="about-this-tutorial"></a>关于本教程
 本教程将演示使用 Python 开发应用程序或服务的基本信息，这些程序或服务可使用 Azure 文件存储文件数据。 在本教程中，我们将创建一个简单的控制台应用程序，并演示如何通过 Python 和 Azure 文件执行基本操作：
 
 * 创建 Azure 文件共享
@@ -36,7 +35,7 @@ ms.locfileid: "27548333"
 * 上传、下载和删除文件
 
 > [!Note]  
-> 由于 Azure 文件可通过 SMB 进行访问，因此可编写简单的应用程序，通过标准 Python I/O 类和函数访问 Azure 文件共享。 本文将介绍如何编写使用 Azure 存储 Python SDK 的应用程序，该 SDK 使用 [Azure 文件 REST API](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) 与 Azure 文件通信。
+> 由于 Azure 文件可通过 SMB 进行访问，因此可编写简单的应用程序，通过标准 Python I/O 类和函数访问 Azure 文件共享。 本文将介绍如何编写使用 Azure 存储 Python SDK 的应用程序，该 SDK 使用 [Azure 文件 REST API](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api) 与 Azure 文件通信。
 
 ## <a name="download-and-install-azure-storage-sdk-for-python"></a>下载和安装适用于 Python 的 Azure 存储 SDK
 
@@ -96,7 +95,7 @@ for file_or_dir in generator:
 ```
 
 ## <a name="upload-a-file"></a>上传文件 
-Azure 文件共享至少包含文件所在的根目录。 本部分会介绍如何将文件从本地存储上传到共享所在的根目录。
+Azure 文件共享至少包含文件可以驻留的根目录。 本部分会介绍如何将文件从本地存储上传到共享所在的根目录。
 
 若要创建文件并上传数据，请使用 `create_file_from_path`、`create_file_from_stream`、`create_file_from_bytes` 或 `create_file_from_text` 方法。 这些方法属于高级方法，在数据大小超过 64 MB 时执行必要的分块。
 
@@ -130,11 +129,61 @@ file_service.get_file_to_path('myshare', None, 'myfile', 'out-sunset.png')
 file_service.delete_file('myshare', None, 'myfile')
 ```
 
+## <a name="create-share-snapshot-preview"></a>创建共享快照（预览版）
+可以创建整个文件共享的时点副本。
+
+```python
+snapshot = file_service.snapshot_share(share_name)
+snapshot_id = snapshot.snapshot
+```
+
+**使用元数据创建共享快照**
+
+```python
+metadata = {"foo": "bar"}
+snapshot = file_service.snapshot_share(share_name, metadata=metadata)
+```
+
+## <a name="list-shares-and-snapshots"></a>列出共享和快照 
+可以为特定的共享列出所有快照。
+
+```python
+shares = list(file_service.list_shares(include_snapshots=True))
+```
+
+## <a name="browse-share-snapshot"></a>浏览共享快照
+可以浏览每个共享快照的内容来检索相应时间点的文件和目录。
+
+```python
+directories_and_files = list(file_service.list_directories_and_files(share_name, snapshot=snapshot_id))
+```
+
+## <a name="get-file-from-share-snapshot"></a>从共享快照获取文件
+可以从共享快照下载用于还原方案的文件。
+
+```python
+with open(FILE_PATH, 'wb') as stream:
+    file = file_service.get_file_to_stream(share_name, directory_name, file_name, stream, snapshot=snapshot_id)
+```
+
+## <a name="delete-a-single-share-snapshot"></a>删除单个共享快照  
+可以删除单个共享快照。
+
+```python
+file_service.delete_share(share_name, snapshot=snapshot_id)
+```
+
+## <a name="delete-share-when-share-snapshots-exist"></a>共享快照存在时，删除共享
+无法删除包含快照的共享，除非先删除所有快照。
+
+```python
+file_service.delete_share(share_name, delete_snapshots=DeleteSnapshot.Include)
+```
+
 ## <a name="next-steps"></a>后续步骤
 了解如何使用 Python 操作 Azure 文件后，请单击以下链接了解更多信息。
 
 * [Python 开发人员中心](/develop/python/)
 * [Azure 存储服务 REST API](http://msdn.microsoft.com/library/azure/dd179355)
 * [Microsoft Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python)
-
 <!--Update_Description: add "Download and Install Azure Storage SDK for Python" section-->

@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/08/2017
-ms.date: 05/24/2018
+ms.date: 06/26/2018
 ms.author: v-junlch
 ms.reviewer: hectorl
-ms.openlocfilehash: aeed9b731ab24edfe22d565d98696c9600619772
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 35417a35f613dfce858582d6ec7e78628138b68c
+ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34474951"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37027063"
 ---
 # <a name="back-up-azure-stack"></a>备份 Azure Stack
 
@@ -29,16 +29,75 @@ ms.locfileid: "34474951"
 
 在 Azure Stack 上使用备份就地执行按需备份。 如果需要启用基础结构备份服务，请参阅[从管理门户为 Azure Stack 启用备份](azure-stack-backup-enable-backup-console.md)。
 
+## <a name="setup-rm-environment-and-log-into-the-operator-management-endpoint"></a>设置 Rm 环境并登录到操作员管理终结点
+
 > [!Note]  
 >  有关配置 PowerShell 环境的说明，请参阅[安装适用于 Azure Stack 的 PowerShell](azure-stack-powershell-install.md)。
 
+通过添加环境变量编辑以下 PowerShell 脚本。 运行更新的脚本以设置 RM 环境并登录到操作员管理终结点。
+
+| 变量    | 说明 |
+|---          |---          |
+| $TenantName | Azure Active Directory 租户名称。 |
+| 操作员帐户名称        | Azure Stack 操作员帐户名称。 |
+| Azure 资源管理器终结点 | Azure 资源管理器的 URL。 |
+
+   ```powershell
+   # Specify Azure Active Directory tenant name
+    $TenantName = "contoso.partner.onmschina.cn"
+    
+    # Set the module repository and the execution policy
+    Set-PSRepository `
+      -Name "PSGallery" `
+      -InstallationPolicy Trusted
+    
+    Set-ExecutionPolicy RemoteSigned `
+      -force
+    
+    # Configure the Azure Stack operator’s PowerShell environment.
+    Add-AzureRMEnvironment `
+      -Name "AzureStackAdmin" `
+      -ArmEndpoint "https://adminmanagement.seattle.contoso.com"
+    
+    Set-AzureRmEnvironment `
+      -Name "AzureStackAdmin" `
+      -GraphAudience "https://graph.chinacloudapi.cn/"
+    
+    $TenantID = Get-AzsDirectoryTenantId `
+      -AADTenantName $TenantName `
+      -EnvironmentName AzureStackAdmin
+    
+    # Sign-in to the operator's console.
+    Add-AzureRmAccount -EnvironmentName "AzureStackAdmin" -TenantId $TenantID
+    
+   ```
+
 ## <a name="start-azure-stack-backup"></a>启动 Azure Stack 备份
 
-在操作员管理环境中使用权限提升的提示符打开 Windows PowerShell，并运行以下命令：
-
 ```powershell
+$location = Get-AzsLocation
 Start-AzSBackup -Location $location.Name
 ```
+
+## <a name="confirm-backup-completed-via-powershell"></a>确认已通过 PowerShell 完成备份
+
+```powershell
+Get-AzsBackup -Location $location.Name | Select-Object -ExpandProperty BackupInfo
+```
+
+- 结果应类似于以下输出：
+
+  ```powershell
+      backupDataVersion :
+      backupId          : xxxxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxx
+      roleStatus        : {@{roleName=NRP; status=Succeeded}, @{roleName=SRP; status=Succeeded}, @{roleName=CRP; status=Succeeded}, @{roleName=KeyVaultInternalControlPlane; status=Succeeded}...}
+      status            : Succeeded
+      createdDateTime   : 2018-05-03T12:16:50.3876124Z
+      timeTakenToCreate : PT22M54.1714666S
+      stampVersion      :
+      oemVersion        :
+      deploymentID      :
+  ```
 
 ## <a name="confirm-backup-completed-in-the-administration-portal"></a>在管理门户中确认已完成的备份
 

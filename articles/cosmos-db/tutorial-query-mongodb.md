@@ -2,25 +2,22 @@
 title: Azure Cosmos DB：如何使用 MongoDB API 进行查询？ | Azure
 description: 了解如何使用 Azure Cosmos DB 的 MongoDB API 进行查询
 services: cosmos-db
-documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-ms.assetid: ''
 ms.service: cosmos-db
+ms.component: cosmosdb-mongo
 ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: ''
 origin.date: 03/29/2018
-ms.date: 04/23/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: a57ce95f36f62a0ea3c2ccc4686b2995fc837ac5
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 8bd59f3e3b0cdc10a352a4d9fb617863e163b5cd
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31781876"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070173"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-mongodb-api"></a>教程：使用 MongoDB API 查询 Azure Cosmos DB
 
@@ -29,8 +26,7 @@ Azure Cosmos DB [MongoDB API](mongodb-introduction.md) 支持 [MongoDB shell 查
 本文涵盖以下任务： 
 
 > [!div class="checklist"]
-> * 使用 MongoDB 查询数据
-<!-- Not Avaiable on [!VIDEO https://www.youtube.com/tVk8S7lFWMA] -->
+> * 使用 MongoDB 查询数据 <!-- Not Avaiable on [!VIDEO https://www.youtube.com/tVk8S7lFWMA] -->
 
 ## <a name="sample-document"></a>示例文档
 

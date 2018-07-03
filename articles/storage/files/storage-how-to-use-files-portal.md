@@ -15,12 +15,12 @@ ms.topic: get-started-article
 origin.date: 03/26/2018
 ms.date: 06/11/2018
 ms.author: v-johch
-ms.openlocfilehash: 12e5856c284ec17c26ce57a59a09009981ccea8a
-ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
+ms.openlocfilehash: 359d62b19617bd039680deb0f4593a3f99bbf55a
+ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36270051"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37103048"
 ---
 # <a name="managing-azure-file-shares-with-the-azure-portal"></a>使用 Azure 门户管理 Azure 文件共享 
 [Azure 文件](storage-files-introduction.md)是易于使用的云文件系统。 可以在 Windows、Linux 和 macOS 中装载 Azure 文件共享。 本指南介绍通过 [Azure 门户](https://portal.azure.cn/)来使用 Azure 文件共享的基本知识。 了解如何：
@@ -76,7 +76,7 @@ ms.locfileid: "36270051"
 
 ## <a name="create-and-modify-share-snapshots"></a>创建和修改共享快照
 可以通过 Azure 文件共享执行的另一项有用的任务是创建共享快照。 快照保存的是 Azure 文件共享的某个时间点。 共享快照类似于你可能已经熟悉的操作系统技术，例如：
-- 适用于 Windows 文件系统（例如 NTFS 和 ReFS）的[卷影复制服务 (VSS)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd349801)
+- 适用于 Windows 文件系统（例如 NTFS 和 ReFS）的卷影复制服务 (VSS)
 - 适用于 Linux 系统的[逻辑卷管理器 (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) 快照。
 - 适用于 macOS 的 [Apple 文件系统 (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) 快照。 
 
@@ -112,5 +112,6 @@ ms.locfileid: "36270051"
 ## <a name="next-steps"></a>后续步骤
 - [使用 Azure PowerShell 管理文件共享](storage-how-to-use-files-powershell.md)
 - [使用 Azure CLI 管理文件共享](storage-how-to-use-files-cli.md)
+- [使用 Azure 存储资源管理器管理文件共享](storage-how-to-use-files-storage-explorer.md)
 - [规划 Azure 文件部署](storage-files-planning.md)
 <!--Update_Description: wording update-->

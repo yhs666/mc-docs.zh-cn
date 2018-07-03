@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/08/2018
-ms.date: 05/24/2018
+origin.date: 05/30/2018
+ms.date: 06/27/2018
 ms.author: v-junlch
 ms.reviewer: justini
-ms.openlocfilehash: 551cc4a9bde16316c4684af9e3da5d25f1c12307
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: e9fc8abc38a593bca8cc146a3f87277cf6c2d3a9
+ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34475071"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37027197"
 ---
 # <a name="azure-stack-1803-update"></a>Azure Stack 1803 更新
 
@@ -83,7 +83,7 @@ Azure Stack 1803 更新内部版本号为 **20180329.1**。
 
 - <!-- 1739988 --> 内部负载均衡 (ILB) 现在可以正确地处理后端 VM 的 MAC 地址，使 ILB 可以在后端网络上使用 Linux 实例时将数据包放置到后端网络。 ILB 适用于后端网络上的 Windows 实例。 
 
-- <!-- 1805496 --> 因 Azure Stack 使用的 IKE 策略设置不同于 Azure 所用的而导致 Azure Stack 之间的 VPN 连接断开的问题。  这些值现在与 Azure 中的值相符。 
+- <!-- 1805496 --> 因 Azure Stack 使用的 IKE 策略设置不同于 Azure 所用的而导致 Azure Stack 之间的 VPN 连接断开的问题。 SALifetime（时间）和 SALiftetime（字节）的值与 Azure 不兼容，在 1803 中已更改，以便与 Azure 设置匹配。 在低于 1803 的版本中，SALifetime（秒）的值为 14,400，在版本 1803 中已更改为 27,000。 在低于 1803 的版本中，SALifetime（字节）的值为 819,200，在版本 1803 中已更改为 33,553,408。
 
 - <!-- 2209262 --> IP 问题，具体表现在 VPN 连接以前在门户中可见，但启用或切换“IP 转发”却没有效果。 此功能默认启用，更改此项的功能尚不受支持。  此控件已从门户中删除。 
 
@@ -101,7 +101,7 @@ Azure Stack 1803 更新内部版本号为 **20180329.1**。
 
 
 ### <a name="changes"></a>更改
-- 将新创建的产品/服务的状态从“专用”更改为“公用”或“停止使用”的方式已变。 有关详细信息，请参阅[创建产品/服务](azure-stack-create-offer.md)。
+- 将新创建的产品/服务的状态从“专用”更改为“公用”或“停止使用”的方式已变。 有关详细信息，请参阅[创建套餐](azure-stack-create-offer.md)。
 
 
 ### <a name="known-issues-with-the-update-process"></a>更新过程的已知问题    
@@ -112,6 +112,9 @@ Azure Stack 1803 更新内部版本号为 **20180329.1**。
 下面是内部版本 **20180323.2** 的安装后已知问题。
 
 #### <a name="portal"></a>门户
+- <!-- 2332636 - IS --> 对 Azure Stack 标识系统使用 AD FS 并更新到此版本的 Azure Stack 时，默认提供程序订阅的默认所有者将重置为内置的 **CloudAdmin** 用户。  
+  解决方法：若要在安装此更新后解决该问题，请使用[触发自动化以便在 Azure Stack 中配置声明提供程序信任](azure-stack-integrate-identity.md#trigger-automation-to-configure-claims-provider-trust-in-azure-stack-1)过程中的步骤 3 来重置默认提供程序订阅的所有者。   
+
 - 在管理员门户中[从下拉列表提交新的支持请求](azure-stack-manage-portals.md#quick-access-to-help-and-support)的功能不可用。 请改用以下链接：     
     - 对于 Azure Stack 集成系统，请使用 https://aka.ms/newsupportrequest。
 
@@ -133,10 +136,26 @@ Azure Stack 1803 更新内部版本号为 **20180329.1**。
   可以放心地忽略此警报。 
 
 
-<!-- #### Health and monitoring --> 
+#### <a name="health-and-monitoring"></a>运行状况和监视
+- <!-- 1264761 - IS ASDK --> 可能会看到具有以下详细信息的*运行状况控制器*组件的警报：  
 
-#### <a name="marketplace"></a>应用商店
-- 用户无需订阅就能浏览整个商城，并且能看到计划和产品/服务等管理项。 对用户而言，这些项是非功能性的。
+   警报 #1：
+   - 名称：基础结构角色不正常
+   - 严重性：警告
+   - 组件：运行状况控制器
+   - 说明：运行状况控制器检测信号扫描仪不可用。 这可能会影响运行状况报告和指标。  
+
+  警报 #2：
+   - 名称：基础结构角色不正常
+   - 严重性：警告
+   - 组件：运行状况控制器
+   - 说明：运行状况控制器故障扫描仪不可用。 这可能会影响运行状况报告和指标。
+
+  可以放心地忽略这两个警报。 它们将随着时间的推移自动关闭。  
+
+
+#### <a name="marketplace"></a>市场
+- 用户无需订阅就能浏览整个市场，并且能看到计划和套餐等管理项。 对用户而言，这些项是非功能性的。
 
 
 
@@ -266,6 +285,8 @@ Azure Stack 1803 更新内部版本号为 **20180329.1**。
 <!--
 #### Identity
 -->
+
+
 
 #### <a name="downloading-azure-stack-tools-from-github"></a>从 GitHub 下载 Azure Stack 工具
 - 使用 *invoke-webrequest* PowerShell cmdlet 从 Github 下载 Azure Stack 工具时，收到一个错误：     

@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/22/2018
-ms.date: 03/22/2018
+origin.date: 06/08/2018
+ms.date: 06/26/2018
 ms.author: v-junlch
 ms.reviewer: alfredo
-ms.openlocfilehash: 3500890e9530c267d6931c32707609fae44353ae
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.openlocfilehash: 6b92732c0bf0954384773f18f337d3088fd97052
+ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30155643"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37027123"
 ---
 # <a name="manage-tenant-registration-in-azure-stack"></a>在 Azure Stack 中管理租户注册
 

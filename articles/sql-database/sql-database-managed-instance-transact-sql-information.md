@@ -7,16 +7,16 @@ ms.reviewer: carlrab, bonova
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: article
-origin.date: 04/10/2018
-ms.date: 04/19/2018
+origin.date: 05/24/2018
+ms.date: 07/02/2018
 ms.author: v-nany
 manager: digimobile
-ms.openlocfilehash: ce722853b973f88e2894d262ca0afa6689375b99
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: f18619a53bc8f14d3379c25fe32a5d54a224bda3
+ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782673"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36948107"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL 数据库托管实例与 SQL Server 之间的 T-SQL 差异 
 
@@ -377,12 +377,12 @@ WITH PRIVATE KEY ( <private_key_options> )
  
 以下变量、函数和视图返回不同的结果：  
 - `SERVERPROPERTY('EngineEdition')` 返回值 8。 此属性唯一标识托管实例。 请参阅 [SERVERPROPERTY](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql)。
-- `SERVERPROPERTY('InstanceName')` 返回短实例名称，例如“myserver”。 请参阅 [SERVERPROPERTY('InstanceName')](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql)。
+- `SERVERPROPERTY('InstanceName')` 返回 NULL，因为 SQL Server 的实例概念不适用于托管实例。 请参阅 [SERVERPROPERTY('InstanceName')](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql)。
 - `@@SERVERNAME` 返回完整的 DNS“可连接”名称，例如 my-managed-instance.wcus17662feb9ce98.database.chinacloudapi.cn。 请参阅 [@@SERVERNAME](https://docs.microsoft.com/sql/t-sql/functions/servername-transact-sql)。  
 - `SYS.SERVERS` - 返回完整的 DNS“可连接”名称，例如，为属性“name”和“data_source”返回 `myinstance.domain.database.chinacloudapi.cn`。 请参阅 [SYS.SERVERS](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-servers-transact-sql)。 
 - `@@SERVERNAME` 返回完整的 DNS“可连接”名称，例如 `my-managed-instance.wcus17662feb9ce98.database.chinacloudapi.cn`。 请参阅 [@@SERVERNAME](https://docs.microsoft.com/sql/t-sql/functions/servername-transact-sql)。  
 - `SYS.SERVERS` - 返回完整的 DNS“可连接”名称，例如，为属性“name”和“data_source”返回 `myinstance.domain.database.chinacloudapi.cn`。 请参阅 [SYS.SERVERS](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-servers-transact-sql)。 
-- `@@SERVICENAME` 返回 NULL，因为它在托管实例环境中没有意义。 请参阅 [@@SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql)。   
+- `@@SERVICENAME` 返回 NULL，因为 SQL Server 的服务概念不适用于托管实例。 请参阅 [@@SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql)。   
 - 支持 `SUSER_ID`。 如果 AAD 登录名不在 sys.syslogins 中，则返回 NULL。 请参阅 [SUSER_ID](https://docs.microsoft.com/sql/t-sql/functions/suser-id-transact-sql)。  
 - 不支持 `SUSER_SID`。 返回错误数据（暂时性的已知问题）。 请参阅 [SUSER_SID](https://docs.microsoft.com/sql/t-sql/functions/suser-sid-transact-sql)。 
 - `GETDATE()` 和其他内置日期/时间函数始终返回采用 UTC 时区的时间。 请参阅 [GETDATE](https://docs.microsoft.com/sql/t-sql/functions/getdate-transact-sql)。
@@ -397,7 +397,7 @@ WITH PRIVATE KEY ( <private_key_options> )
 
 每个托管实例都为 Azure 高级磁盘空间保留了高达 35 TB 的存储空间，并且每个数据库文件都放置在单独的物理磁盘上。 磁盘大小可以为 128 GB、256 GB、512 GB、1 TB 或 4 TB。 磁盘上未使用的空间不收费，但 Azure 高级磁盘大小总计不能超过 35 TB。 在某些情况下，由于内部碎片，总共不需要 8 TB 的托管实例可能会超过 35 TB 的 Azure 存储大小限制。 
 
-例如，某托管实例的一个文件大小为 1.2 TB 而使用 4 TB 磁盘，另外 248 个大小均为 1 GB 的文件分别位于 248 个大小各为 128 GB 的磁盘上。 这种情况下，磁盘存储大小总计为 1 x 4 TB + 248 x 128 GB = 35 TB。 但是，数据库的总保留实例大小为 1 x 1.2 TB + 248 x 1 GB = 1.4 TB。 这说明在某些情况下，由于文件分布极为具体，托管实例可能会出乎意料地达到 Azure 高级磁盘存储空间上限。 
+例如，某托管实例的一个文件大小为 1.2 TB 而使用 4 TB 磁盘，另外 248 个大小均为 1 GB 的文件分别位于 248 个大小各为 128 GB 的磁盘上。 这种情况下，磁盘存储大小总计为 1 x 4 TB + 248 x 128 GB = 35 TB。 但是，数据库的总预留实例大小为 1 x 1.2 TB + 248 x 1 GB = 1.4 TB。 这说明在某些情况下，由于文件分布极为具体，托管实例可能会出乎意料地达到 Azure 高级磁盘存储空间上限。 
 
 现有数据库不会出现任何错误，并且如果未添加新文件，这些数据库可增大且不会出现任何问题。但是，由于无足够的空间可用于新磁盘驱动器，即使所有数据库总大小未达到实例大小上限，也无法创建或还原新数据库。 这种情况下返回的错误并不明确。
 
@@ -422,4 +422,3 @@ WITH PRIVATE KEY ( <private_key_options> )
 - 有关托管实例的详细信息，请参阅[什么是托管实例？](sql-database-managed-instance.md)
 - 有关功能和比较列表，请参阅 [SQL 常用功能](sql-database-features.md)。
 - 有关演示如何新建托管实例的教程，请参阅[创建托管实例](sql-database-managed-instance-create-tutorial-portal.md)。
-

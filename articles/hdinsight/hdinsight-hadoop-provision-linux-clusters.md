@@ -12,18 +12,18 @@ ms.assetid: 23a01938-3fe5-4e2e-8e8b-3368e1bbe2ca
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 12/14/2017
-ms.date: 03/12/2018
+origin.date: 05/14/2018
+ms.date: 06/25/2018
 ms.author: v-yiso
-ms.openlocfilehash: e542e311b6f35febc0b79a00aedb0b529390f53a
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: faf34661105fa3c1aad682b70c6d89dd26d5325a
+ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
-ms.locfileid: "29730903"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36747460"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>使用 Hadoop、Spark、Kafka 等等在 HDInsight 中设置群集
 
@@ -256,5 +256,5 @@ HDInsight 应用程序是用户可以在基于 Linux 的 HDInsight 群集上安�
 
 - [HDInsight、Hadoop 生态系统和 Hadoop 群集是什么？](hadoop/apache-hadoop-introduction.md)
 - [开始在 HDInsight 中使用 Hadoop](hadoop/apache-hadoop-linux-tutorial-get-started.md)
-- [使用 Windows 电脑在 HDInsight 上的 Hadoop 中工作](hdinsight-hadoop-windows-tools.md)
+- [在 Windows 电脑中操作 Hadoop on HDInsight](hdinsight-hadoop-windows-tools.md)
 <!--Update_Description: add a include-->

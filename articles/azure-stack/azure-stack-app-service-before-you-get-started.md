@@ -12,15 +12,15 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/18/2018
-ms.date: 05/24/2018
+origin.date: 06/04/2018
+ms.date: 06/26/2018
 ms.author: v-junlch
-ms.openlocfilehash: 0927333ed4ea5e83a50e5edac5194d3fbcdb762d
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 8be7f263c2e5afc35bf7ed0ca9f3757080c3eb80
+ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475099"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37027206"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>在 Azure Stack 上开始使用应用服务之前
 
@@ -280,10 +280,10 @@ icacls %WEBSITES_FOLDER% /grant *S-1-1-0:(OI)(CI)(IO)(RA,REA,RD)
 
 对于生产和高可用性目的，应使用完整版本的 SQL Server 2014 SP2 或更高版本，启用混合模式身份验证，并在[高可用性配置](https://docs.microsoft.com/sql/sql-server/failover-clusters/high-availability-solutions-sql-server)中部署。
 
-必须能够从所有“应用服务”角色访问 Azure Stack 上的 Azure 应用服务的 SQL Server 实例。 可以在 Azure Stack 中的默认提供程序订阅中部署 SQL Server。 或者，可以使用组织中现有的基础结构（前提是与 Azure Stack 建立了连接）。 如果使用 Azure Marketplace 映像，请记得相应地配置防火墙。
+必须能够从所有“应用服务”角色访问 Azure Stack 上的 Azure 应用服务的 SQL Server 实例。 可以在 Azure Stack 中的默认提供程序订阅中部署 SQL Server。 或者，可以使用组织中现有的基础结构（前提是与 Azure Stack 建立了连接）。 如果使用 Azure 市场映像，请记得相应地配置防火墙。
 
 >[!NOTE]
-> 可通过 Marketplace 管理功能获取许多 SQL IaaS 虚拟机映像。 在使用 Marketplace 项部署 VM 之前，请确保下载最新版本的 SQL IaaS 扩展。 SQL 映像与 Azure 中提供的 SQL VM 相同。 对于从这些映像创建的 SQL VM，IaaS 扩展和相应的门户增强功能可提供自动修补和备份等功能。
+> 可通过市场管理功能获取许多 SQL IaaS 虚拟机映像。 在使用市场项部署 VM 之前，请确保下载最新版本的 SQL IaaS 扩展。 SQL 映像与 Azure 中提供的 SQL VM 相同。 对于从这些映像创建的 SQL VM，IaaS 扩展和相应的门户增强功能可提供自动修补和备份等功能。
 >
 对于任何 SQL Server 角色，可以使用默认实例或命名实例。 如果使用命名实例，请务必手动启动 SQL Server Browser 服务并打开端口 1434。
 
@@ -332,7 +332,7 @@ Create-AADIdentityApp.ps1
 | AdminArmEndpoint | 必须 | Null | Azure 资源管理器管理终结点。 例如 adminmanagement.local.azurestack.external。 |
 | TenantARMEndpoint | 必须 | Null | Azure 资源管理器租户终结点。 例如 management.local.azurestack.external。 |
 | AzureStackAdminCredential | 必须 | Null | Azure AD 服务管理员凭据。 |
-| CertificateFilePath | 必须 | Null | 前面生成的标识应用程序证书文件的路径。 |
+| CertificateFilePath | 必须 | Null | 前面生成的标识应用程序证书文件的**完整路径**。 |
 | CertificatePassword | 必须 | Null | 帮助保护证书私钥的密码。 |
 
 ## <a name="create-an-active-directory-federation-services-application"></a>创建 Active Directory 联合身份验证服务应用程序
@@ -366,7 +366,7 @@ Create-ADFSIdentityApp.ps1
 | AdminArmEndpoint | 必须 | Null | Azure 资源管理器管理终结点。 例如 adminmanagement.local.azurestack.external。 |
 | PrivilegedEndpoint | 必须 | Null | 特权终结点。 例如 AzS-ERCS01。 |
 | CloudAdminCredential | 必须 | Null | Azure Stack 云管理的域帐户凭据。 例如 Azurestack\CloudAdmin。 |
-| CertificateFilePath | 必须 | Null | 标识应用程序的证书 PFX 文件的路径。 |
+| CertificateFilePath | 必须 | Null | 标识应用程序的证书 PFX 文件的**完整路径**。 |
 | CertificatePassword | 必须 | Null | 帮助保护证书私钥的密码。 |
 
 ## <a name="next-steps"></a>后续步骤

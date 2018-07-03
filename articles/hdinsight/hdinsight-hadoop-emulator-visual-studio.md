@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 02/07/2018
-ms.date: 05/28/2018
+origin.date: 05/07/2018
+ms.date: 06/25/2018
 ms.author: v-yiso
-ms.openlocfilehash: c7e7f7ef2dceb6368288ef3eb947d427103a4e09
-ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
+ms.openlocfilehash: cbb8a2fdaea3bb49d7025376a672f264c440b9b7
+ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34450005"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36747345"
 ---
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>将针对 Visual Studio 的 Azure Data Lake 工具与 Hortonworks 沙盒配合使用
 
@@ -207,6 +207,6 @@ Hive 提供了类似 SQL 的语言来处理结构化数据，而 Pig 的工作�
 
 ## <a name="next-steps"></a>后续步骤
 
-* [Learning the ropes of the Hortonworks Sandbox（学习 Hortonworks 沙盒的重要知识）](http://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
+* [了解 Hortonworks 沙盒的重要知识](http://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
 * [Hadoop 教程 - HDP 入门](http://hortonworks.com/hadoop-tutorial/hello-world-an-introduction-to-hadoop-hcatalog-hive-and-pig/)
 <!--Update_Description: wording update-->

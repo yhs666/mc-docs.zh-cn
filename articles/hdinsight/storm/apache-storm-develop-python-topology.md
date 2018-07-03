@@ -4,7 +4,7 @@ description: 了解如何创建使用 Python 组件的 Apache Storm 拓扑。
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 keywords: apache storm python
 ms.assetid: edd0ec4f-664d-4266-910c-6ecc94172ad8
@@ -14,15 +14,15 @@ ms.devlang: python
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 01/22/2018
-ms.date: 05/21/2018
+origin.date: 04/30/2018
+ms.date: 06/25/2018
 ms.author: v-yiso
-ms.openlocfilehash: 24aae8f044dce29906c0a80a956bc4b69aadf9d9
-ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
+ms.openlocfilehash: dd07bc81cea0a4f72164a1b0ee0d30148bb28b7d
+ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34449976"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36747348"
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>在 HDInsight 上使用 Python 开发 Apache Storm 拓扑
 
@@ -155,5 +155,5 @@ storm jar WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux -l -R /topology.
 请参阅以下文档，了解配合使用 Python 和 HDInsight 的其他方式：
 
 * [如何使用 Python 流式处理 MapReduce 作业](../hadoop/apache-hadoop-streaming-python.md)
-* [如何在 Pig 和 Hive 中使用 Python 用户定义函数 (UDF) ](../hadoop/python-udf-hdinsight.md)
+* [如何在 Pig 和 Hive 中使用 Python 用户定义函数 (UDF)](../hadoop/python-udf-hdinsight.md)
 <!--Update_Description: wording update-->
