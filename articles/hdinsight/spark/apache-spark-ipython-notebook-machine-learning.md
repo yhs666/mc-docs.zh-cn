@@ -1,50 +1,53 @@
 ---
-title: 在 Azure HDInsight 上生成 Apache Spark 机器学习应用程序
-description: 逐步说明如何使用 Jupyter notebook 在 HDInsight Spark 群集中生成 Apache Spark 机器学习应用程序
+title: 教程：在 HDInsight 中生成 Spark 机器学习应用程序 | Microsoft Docs
+description: 有关如何使用 Jupyter Notebook 在 HDInsight Spark 群集中生成 Apache Spark 机器学习应用程序的分步说明。
 services: hdinsight
 documentationcenter: ''
 author: mumian
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 tags: azure-portal
 ms.assetid: f584ca5e-abee-4b7c-ae58-2e45dfc56bf4
 ms.service: hdinsight
-ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
+ms.custom: hdinsightactive,mvc
 ms.devlang: na
-ms.topic: article
-origin.date: 01/23/2017
-ms.date: 03/26/2018
+ms.topic: tutorial
+origin.date: 05/07/2018
+ms.date: 06/25/2018
 ms.author: v-yiso
-ms.openlocfilehash: be6d45bd06308d0862926fc21fcf52b1ae01223d
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.openlocfilehash: 1ab5f0148a705508b014359677ec097b4281bc77
+ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30075204"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36747506"
 ---
-# <a name="build-apache-spark-machine-learning-applications-on-azure-hdinsight"></a>在 Azure HDInsight 上生成 Apache Spark 机器学习应用程序
+# <a name="tutorial-build-a-spark-machine-learning-application-in-hdinsight"></a>教程：在 HDInsight 中生成 Spark 机器学习应用程序 
 
-了解如何使用 HDInsight 中的 Spark 群集生成 Apache Spark 机器学习应用程序。 本文说明如何使用群集随附的 Jupyter notebook 来生成和测试此应用程序。 应用程序默认使用所有群集提供的 HVAC.csv 数据示例。
+本教程介绍如何使用 Jupyter Notebook 生成适用于 Azure HDInsight 的 Apache Spark 机器学习应用程序。 
 
 [MLlib](https://spark.apache.org/docs/1.1.0/mllib-guide.html) 是 Spark 的可缩放机器学习库，由常见学习算法和实用工具（包括分类、回归、聚集、协作筛选、维数约简以及底层优化基元）组成。
+
+本教程介绍如何执行下列操作：
+> [!div class="checklist"]
+> * 开发 Spark 机器学习应用程序
+
+如果没有 Azure 订阅，请在开始前[创建一个试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
 ## <a name="prerequisites"></a>先决条件：
 
 必须具备以下项：
 
-* HDInsight 上的 Apache Spark 群集。 有关说明，请参阅[在 Azure HDInsight 中创建 Apache Spark 群集](apache-spark-jupyter-spark-sql.md)。 
+* 完成[在 Azure HDInsight 中创建 Apache Spark 群集](apache-spark-jupyter-spark-sql.md)。
 
-## <a name="data"></a>了解数据集
+## <a name="understand-the-data-set"></a>了解数据集
 
-以下数据显示安装有 HVAC 系统的一些建筑物的目标温度和实际温度。 **System** 列代表系统 ID，**SystemAge** 列代表建筑物安装 HVAC 系统的年数。 在指定系统 ID 和系统年数的情况下，我们可以使用本教程中的数据来预测建筑物的温度比目标温度高还是低。
+应用程序默认使用所有群集提供的 HVAC.csv 数据示例。 该文件位于 \HdiSamples\HdiSamples\SensorSampleData\hvac。 数据显示了安装有 HVAC 系统的一些建筑物的目标温度和实际温度。 **System** 列代表系统 ID，**SystemAge** 列代表建筑物安装 HVAC 系统的年数。 在指定系统 ID 和系统年数的情况下，可使用这些数据来预测建筑物的温度比目标温度高还是低。
 
 ![用于 Spark 机器学习示例的数据的快照](./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-understand-data.png "用于 Spark 机器学习示例的数据的快照")
 
-数据文件 **HVAC.csv** 位于所有 HDInsight 群集的 **\HdiSamples\HdiSamples\SensorSampleData\hvac** 下。
+## <a name="develop-a-spark-machine-learning-application-using-spark-mllib"></a>使用 Spark MLlib 开发 Spark 机器学习应用程序
 
-## <a name="app"></a>使用 Spark MLlib 编写 Spark 机器学习应用程序
 在此应用程序中，将使用 Spark [ML 管道](https://spark.apache.org/docs/2.2.0/ml-pipeline.html)来执行文档分类。 ML 管道提供了一组统一的高级 API，它们构建在数据帧之上，可帮助用户创建和优化实际机器学习管道。 在管道中，可将文档分割成单字、将单字转换成数字特征向量，最后使用特征向量和标签创建预测模型。 执行下列步骤创建应用程序。
 
 1. 使用 PySpark 内核创建 Jupyter Notebook。 有关说明，请参阅[创建 Jupyter Notebook](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook)。
@@ -100,7 +103,7 @@ ms.locfileid: "30075204"
     pipeline = Pipeline(stages=[tokenizer, hashingTF, lr])
     ```
 
-    有关管道介绍及其工作原理的详细信息，请参阅 <a href="http://spark.apache.org/docs/latest/ml-guide.html#how-it-works" target="_blank">Spark 机器学习管道</a>。
+    有关管道及其工作原理的详细信息，请参阅 <a href="http://spark.apache.org/docs/latest/ml-guide.html#how-it-works" target="_blank">Spark 机器学习管道</a>。
 
 5. 将管道拟合到培训文档中。
    
@@ -114,7 +117,7 @@ ms.locfileid: "30075204"
     training.show()
     ```
    
-    输出应如下所示：
+    输出类似于：
 
     ```
     +----------+----------+-----+
@@ -172,7 +175,7 @@ ms.locfileid: "30075204"
         print row
     ```
 
-    应该会看到与下面类似的输出：
+    输出类似于：
 
     ```   
     Row(SystemInfo=u'20 25', prediction=1.0, probability=DenseVector([0.4999, 0.5001]))
@@ -184,43 +187,19 @@ ms.locfileid: "30075204"
     ```
    
    从预测中的第一行可以看出，对于 ID 为 20 且系统年数为 25 的 HVAC 系统，建筑物处于高温状态 (**prediction=1.0**)。 DenseVector (0.49999) 的第一个值对应于预测 0.0，第二个值 (0.5001) 对应于预测 1.0。 在输出中，即使第二个值仅稍微偏高，模型仍显示 **prediction=1.0**。
-10. 关闭 Notebook 以释放资源。 为此，请在 Notebook 的“文件”菜单中，单击“关闭并停止”。 这会关闭 Notebook。
+10. 关闭 Notebook 以释放资源。 为此，请在 Notebook 的“文件”菜单中选择“关闭并停止”。 此操作会关闭 Notebook。
 
-## <a name="anaconda"></a>将 Anaconda scikit-learn 库用于 Spark 机器学习
-HDInsight 上的 Apache Spark 群集包含 Anaconda 库， 还包含适用于机器学习的 **scikit-learn** 库。 该库还包含可用于直接从 Jupyter notebook 生成示例应用程序的各种数据集。 有关 scikit-learn 库的用法示例，请参阅 [http://scikit-learn.org/stable/auto_examples/index.html](http://scikit-learn.org/stable/auto_examples/index.html)。
+## <a name="use-anaconda-scikit-learn-library-for-spark-machine-learning"></a>将 Anaconda scikit-learn 库用于 Spark 机器学习
+HDInsight 中的 Apache Spark 群集包含 Anaconda 库。 它还包括适用于机器学习的 scikit-learn 库。 该库还包含可用于直接从 Jupyter notebook 生成示例应用程序的各种数据集。 有关 scikit-learn 库的用法示例，请参阅 [http://scikit-learn.org/stable/auto_examples/index.html](http://scikit-learn.org/stable/auto_examples/index.html)。
 
-## <a name="seealso"></a>另请参阅
-* [概述：Azure HDInsight 上的 Apache Spark](apache-spark-overview.md)
+## <a name="next-steps"></a>后续步骤
 
-### <a name="scenarios"></a>方案
-* [Spark 和 BI：使用 HDInsight 中的 Spark 和 BI 工具执行交互式数据分析](apache-spark-use-bi-tools.md)
-* [Spark 和机器学习：使用 HDInsight 中的 Spark 预测食品检查结果](apache-spark-machine-learning-mllib-ipython.md)
-* [使用 HDInsight 中的 Spark 分析网站日志](apache-spark-custom-library-website-log-analysis.md)
+在本教程中，你已学习了如何执行以下操作：
 
-### <a name="create-and-run-applications"></a>创建和运行应用程序
-* [使用 Scala 创建独立的应用程序](apache-spark-create-standalone-application.md)
-* [使用 Livy 在 Spark 群集中远程运行作业](apache-spark-livy-rest-interface.md)
+* 开发 Spark 机器学习应用程序
 
-### <a name="tools-and-extensions"></a>工具和扩展
-* [使用适用于 IntelliJ IDEA 的 HDInsight 工具插件创建和提交 Spark Scala 应用程序](apache-spark-intellij-tool-plugin.md)
-* [使用用于 IntelliJ IDEA 的 HDInsight 工具插件远程调试 Spark 应用程序](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [在 HDInsight 上的 Spark 群集中使用 Zeppelin 笔记本](apache-spark-zeppelin-notebook.md)
-* [在 HDInsight 的 Spark 群集中可用于 Jupyter 笔记本的内核](apache-spark-jupyter-notebook-kernels.md)
-* [Use external packages with Jupyter notebooks（将外部包与 Jupyter 笔记本配合使用）](apache-spark-jupyter-notebook-use-external-packages.md)
-* [Install Jupyter on your computer and connect to an HDInsight Spark cluster（在计算机上安装 Jupyter 并连接到 HDInsight Spark 群集）](apache-spark-jupyter-notebook-install-locally.md)
+继续学习下一教程，了解如何将 IntelliJ IDEA 用于 Spark 作业。 
 
-### <a name="manage-resources"></a>管理资源
-* [管理 Azure HDInsight 中 Apache Spark 群集的资源](apache-spark-resource-manager.md)
-* [Track and debug jobs running on an Apache Spark cluster in HDInsight（跟踪和调试 HDInsight 中的 Apache Spark 群集上运行的作业）](apache-spark-job-debugging.md)
+> [!div class="nextstepaction"]
+> [使用 IntelliJ 创建 Scala Maven 应用程序](./apache-spark-create-standalone-application.md)
 
-[hdinsight-versions]: hdinsight-component-versioning.md
-[hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
-
-[hdinsight-weblogs-sample]:../hadoop/apache-hive-analyze-website-log.md
-[hdinsight-sensor-data-sample]:../hadoop/apache-hive-analyze-sensor-data.md
-
-[azure-purchase-options]: https://www.azure.cn/pricing/overview/
-[azure-member-offers]: https://www.azure.cn/pricing/member-offers/
-[azure-trial]: https://www.azure.cn/pricing/1rmb-trial/
-[azure-create-storageaccount]:../storage/common/storage-create-storage-account.md

@@ -1,46 +1,43 @@
 ---
 title: 通过 Python 开始使用 Azure 表存储 | Azure
-description: 使用 Azure 表存储（一种 NoSQL 数据存储）将结构化数据存储在云中。
+description: 使用 Azure 表存储将结构化数据存储在云中。
 services: cosmos-db
-documentationcenter: python
 author: rockboyfor
 manager: digimobile
-ms.assetid: 7ddb9f3e-4e6d-4103-96e6-f0351d69a17b
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-table
 ms.devlang: python
-ms.topic: article
+ms.topic: sample
 origin.date: 04/05/2018
-ms.date: 06/11/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 2b4dd86512bae280b043d48485b92fc65c9b22d9
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: 1647cca53263a585b2d30d21898a836103f5f404
+ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867500"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37070141"
 ---
 # <a name="get-started-with-azure-table-storage-using-python"></a>通过 Python 开始使用 Azure 表存储
 
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
+[!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
 Azure 表存储是一项用于在云中存储结构化 NoSQL 数据的服务，通过无架构设计提供键/属性存储。 因为表存储无架构，因此可以很容易地随着应用程序需求的发展使数据适应存储。 对于许多类型的应用程序来说，访问表存储数据速度快且经济高效，在数据量相似的情况下，其成本通常比传统 SQL 要低。
 
 可以使用表存储来存储灵活的数据集，例如 Web 应用程序的用户数据、通讯簿、设备信息，或者服务需要的其他类型的元数据。 可以在表中存储任意数量的实体，并且一个存储帐户可以包含任意数量的表，直至达到存储帐户的容量极限。
 
-### <a name="about-this-tutorial"></a>关于本教程
-本教程介绍如何在常见的 Azure 表存储方案中使用[适用于 Python 的 Azure Cosmos DB 表 SDK](https://pypi.python.org/pypi/azure-cosmosdb-table/)。 该 SDK 的名称表示它适合与 Azure Cosmos DB 配合使用，但其实该 SDK 既适合与 Azure Cosmos DB 配合使用，也适合与 Azure 表存储配合使用，只不过每个服务具有唯一的终结点。 本文使用 Python 示例探索这些方案，以演示如何：
+### <a name="about-this-sample"></a>关于此示例
+此示例介绍如何在常见的 Azure 表存储方案中使用[用于 Python 的 Azure Cosmos DB 表 SDK](https://pypi.python.org/pypi/azure-cosmosdb-table/)。 该 SDK 的名称表示它适合与 Azure Cosmos DB 配合使用，但其实该 SDK 既适合与 Azure Cosmos DB 配合使用，也适合与 Azure 表存储配合使用，只不过每个服务具有唯一的终结点。 本文使用 Python 示例探索这些方案，以演示如何：
 * 创建和删除表
 * 插入和查询实体
 * 修改实体
 
-浏览本教程中的方案时，可能需要参考[用于 Python API 的 Azure Cosmos DB SDK 参考](https://azure.github.io/azure-cosmosdb-python/)。
+浏览此示例中的方案时，可能需要参考[用于 Python API 的 Azure Cosmos DB SDK 参考](https://azure.github.io/azure-cosmosdb-python/)。
 
 ## <a name="prerequisites"></a>先决条件
 
-若要成功完成本教程，需要具备以下先决条件：
+若要成功完成此示例，需要以下项：
 
 - [Python](https://www.python.org/downloads/) 2.7、3.3、3.4、3.5 或 3.6
 - [用于 Python 的 Azure Cosmos DB 表 SDK](https://pypi.python.org/pypi/azure-cosmosdb-table/)。 此 SDK 连接到 Azure 表存储。

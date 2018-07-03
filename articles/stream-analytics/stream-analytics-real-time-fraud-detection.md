@@ -9,13 +9,13 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 03/28/2017
-ms.date: 05/07/2018
-ms.openlocfilehash: a8a571b142359e273fe6c0474c02aaf288047822
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.date: 07/02/2018
+ms.openlocfilehash: 6fc03b5893083e5deec400b4373a9df5c972efe4
+ms.sourcegitcommit: 2cf6961f692f318ce7034e7b4d994ee51d902199
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33815380"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36947669"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Azure 流分析入门：实时检测欺诈行为
 
@@ -75,7 +75,7 @@ ms.locfileid: "33815380"
 
     ![用于创建新事件中心的边栏选项卡](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-new-portal.png)
 
-7. 单击“创建”。
+7. 单击**创建**。
 ### <a name="grant-access-to-the-event-hub-and-get-a-connection-string"></a>授予对事件中心的访问权限，并获取连接字符串
 
 在进程可以将数据发送到事件中心之前，事件中心必须具有允许适当访问的策略。 访问策略生成包含授权信息的连接字符串。
@@ -91,7 +91,7 @@ ms.locfileid: "33815380"
 
     ![用于创建新事件中心访问策略的边栏选项卡](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-shared-access-policy-manage-new-portal.png)
 
-4.  单击“创建”。
+4.  单击**创建**。
 
 5.  部署策略后，在共享访问策略列表中单击该策略。
 
@@ -132,12 +132,12 @@ ms.locfileid: "33815380"
 1.  打开命令窗口，然后切换到 TelcoGenerator 应用解压缩到的文件夹。
 2.  输入以下命令：
 
-        telcodatagen.exe 1000 .2 2
+        telcodatagen.exe 1000 0.2 2
 
     参数包括： 
 
     * 每小时的 CDR 数。 
-    * SIM 卡欺诈概率：应用模拟欺诈呼叫的频率（占所有呼叫的百分比）。 值 .2 表示大约有 20% 的通话记录似乎是欺诈性的。
+    * SIM 卡欺诈概率：应用模拟欺诈呼叫的频率（占所有呼叫的百分比）。 值 0.2 表示大约有 20% 的通话记录似乎具有欺诈性。
     * 持续时间（以小时为单位）。 应用应运行的小时数。 还可以通过在命令行按 Ctrl+C 来随时停止该应用。
 
     几秒钟后，当应用将电话通话记录发送到事件中心时，应用将开始在屏幕上显示通话记录。
@@ -167,7 +167,7 @@ ms.locfileid: "33815380"
 
     ![创建新的流分析作业](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-job-new-portal.png)
 
-3. 单击“创建”。
+3. 单击**创建**。
 
     创建作业后，门户将显示作业详细信息。 尽管尚无任何应用正在运行，但必须先配置该作业，然后才能启动。
 
@@ -190,7 +190,7 @@ ms.locfileid: "33815380"
 
     ![为流分析作业创建新输入](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-input-new-portal.png)
 
-4. 单击“创建”。
+4. 单击**创建**。
 
 ## <a name="create-queries-to-transform-real-time-data"></a>创建查询以转换实时数据
 
@@ -348,7 +348,7 @@ TelcoGenerator 应用正在将呼叫记录发送到事件中心，流分析作�
 
     ![流分析作业的“新建输出”窗格](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-output-blob-storage-new-console.png)
 
-4. 单击“创建”。 
+4. 单击**创建**。 
 
     Azure 将创建存储帐户，并自动生成密钥。 
 
@@ -403,12 +403,11 @@ TelcoGenerator 应用正在将呼叫记录发送到事件中心，流分析作�
 
 ## <a name="next-steps"></a>后续步骤
 
-<!-- Not Avaialble * [Stream Analytics and Power BI: A real-time analytics dashboard for streaming data](stream-analytics-power-bi-dashboard.md). This article shows you how to send the TelCo output of the Stream Analytics job to Power BI for real-time visualization and analysis.-->
-有关常规流分析的详细信息，请查看以下文章：
+<!-- Not Avaialble * [Stream Analytics and Power BI: A real-time analytics dashboard for streaming data](stream-analytics-power-bi-dashboard.md)--> 有关常规流分析的详细信息，请查看以下文章：
 
 * [Azure 流分析简介](stream-analytics-introduction.md)
 * [缩放 Azure 流分析作业](stream-analytics-scale-jobs.md)
 * [Azure 流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure 流分析管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!--Update_Description: update link, wording update, update link-->
+<!--Update_Description: update link, wording update-->

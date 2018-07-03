@@ -12,16 +12,16 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-origin.date: 06/28/2017
-ms.date: 05/15/2018
+origin.date: 06/12/2018
+ms.date: 06/29/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6903e3401faae832c7f4372d27776184f5889b86
-ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
+ms.openlocfilehash: 8f3d14866237e6d6ceb49c289e570eb6979357e5
+ms.sourcegitcommit: c587cc1c53b1f92b45fae0d1ff8e1f7bd544bc55
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "34173355"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37103268"
 ---
 # <a name="get-started-building-solutions-with-the-batch-client-library-for-net"></a>通过适用于 .NET 的 Batch 客户端库开始构建解决方案
 
@@ -46,10 +46,10 @@ ms.locfileid: "34173355"
 
 
 ### <a name="visual-studio"></a>Visual Studio
-必须拥有 **Visual Studio 2015 或更高版本**才能生成示例项目。 可以在 [Visual Studio 产品概述][visual_studio]中找到免费试用版的 Visual Studio。
+必须安装 **Visual Studio 2017** 才能构建示例项目。 可以在 [Visual Studio 产品概述][visual_studio]中找到免费试用版的 Visual Studio。
 
 ### <a name="dotnettutorial-code-sample"></a>*DotNetTutorial* 代码示例
-[DotNetTutorial][github_dotnettutorial] 示例是 GitHub 上的 [azure-batch-samples][github_samples] 存储库中提供的众多批处理代码示例之一。 单击存储库主页上的“克隆或下载”>“下载 ZIP”，或单击 [azure-batch-samples-master.zip][github_samples_zip] 直接下载链接，即可下载所有示例。 将 ZIP 文件的内容解压缩后，可在以下文件夹中找到该解决方案：
+[DotNetTutorial][github_dotnettutorial] 示例是 GitHub 上的 [azure-batch-samples][github_samples] 存储库中提供的众多批处理代码示例之一。 单击存储库主页上的“克隆或下载”>“下载 ZIP”，或单击[azure-batch-samples-master.zip][github_samples_zip]”直接下载链接，即可下载所有示例。 将 ZIP 文件的内容解压缩后，可在以下文件夹中找到该解决方案：
 
 `\azure-batch-samples\CSharp\ArticleProjects\DotNetTutorial`
 
@@ -133,10 +133,7 @@ Batch 包含的内置支持支持与 Azure 存储交互。 存储帐户中的容
 
 ```csharp
 // Construct the Storage account connection string
-string storageConnectionString = String.Format(
-    "DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1};EndpointSuffix=core.chinacloudapi.cn",
-    StorageAccountName,
-    StorageAccountKey);
+string storageConnectionString = $"DefaultEndpointsProtocol=https;AccountName={StorageAccountName};AccountKey={StorageAccountKey};EndpointSuffix=core.chinacloudapi.cn"; 
 
 // Retrieve the storage account
 CloudStorageAccount storageAccount =
@@ -206,9 +203,9 @@ List<string> applicationFilePaths = new List<string>
 // The collection of data files that are to be processed by the tasks
 List<string> inputFilePaths = new List<string>
 {
-    @"..\..\taskdata1.txt",
-    @"..\..\taskdata2.txt",
-    @"..\..\taskdata3.txt"
+    @"taskdata1.txt",
+    @"taskdata2.txt",
+    @"taskdata3.txt"
 };
 
 // Upload the application and its dependencies to Azure Storage. This is the
@@ -258,7 +255,7 @@ private static async Task<ResourceFile> UploadFileToContainerAsync(
 
         // Construct the SAS URL for blob
         string sasBlobToken = blobData.GetSharedAccessSignature(sasConstraints);
-        string blobSasUri = String.Format("{0}{1}", blobData.Uri, sasBlobToken);
+        string blobSasUri = $"{blobData.Uri}{sasBlobToken}";
 
         return new ResourceFile(blobSasUri, blobName);
 }
@@ -321,8 +318,8 @@ private static async Task CreatePoolIfNotExistAsync(BatchClient batchClient, str
         pool = batchClient.PoolOperations.CreatePool(
             poolId: poolId,
             targetDedicatedComputeNodes: 3,                                             // 3 compute nodes
-            virtualMachineSize: "small",                                                // single-vCPU, 1.75 GB memory, 225 GB disk
-            cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "4"));   // Windows Server 2012 R2
+            virtualMachineSize: "standard_d1_v2",               
+        cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "5"));   // Windows Server 2016
 
         // Create and assign the StartTask that will be executed when compute nodes join the pool.
         // In this case, we copy the StartTask's resource files (that will be automatically downloaded
@@ -363,7 +360,8 @@ private static async Task CreatePoolIfNotExistAsync(BatchClient batchClient, str
 
 也可通过为池指定 [VirtualMachineConfiguration][net_virtualmachineconfiguration] 来创建是 Azure 虚拟机 (VM) 的计算节点的池。 可以根据 Windows 或 [Linux 映像](batch-linux-nodes.md)创建 VM 计算节点池。 VM 映像的源可以是下述任意一种：
 
-- [Azure 虚拟机 Marketplace][vm_marketplace]，提供可随时使用的 Windows 和 Linux 映像。 
+- 
+  [Azure 虚拟机市场][vm_marketplace]，提供可随时使用的 Windows 和 Linux 映像。 
 - 你准备和提供的自定义映像。 有关自定义映像的更多详细信息，请参阅[使用 Batch 开发大规模并行计算解决方案](batch-api-basics.md#pool)。
 
 > [!IMPORTANT]
@@ -440,10 +438,7 @@ private static async Task<List<CloudTask>> AddTasksAsync(
     foreach (ResourceFile inputFile in inputFiles)
     {
         string taskId = "topNtask" + inputFiles.IndexOf(inputFile);
-        string taskCommandLine = String.Format(
-            "cmd /c %AZ_BATCH_NODE_SHARED_DIR%\\TaskApplication.exe {0} 3 \"{1}\"",
-            inputFile.FilePath,
-            outputContainerSasUrl);
+        string taskCommandLine = $"cmd /c %AZ_BATCH_NODE_SHARED_DIR%\\TaskApplication.exe {inputFile.FilePath} 3 \"{outputContainerSasUrl}\"";
 
         CloudTask task = new CloudTask(taskId, taskCommandLine);
         task.ResourceFiles = new List<ResourceFile> { inputFile };
