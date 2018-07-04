@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 04/18/2017
 ms.date: 10/30/2017
 ms.author: v-johch
-ms.openlocfilehash: f055685fec4817ab591f81e2fa8cd44dd4fbcc4b
-ms.sourcegitcommit: 71c3744a54c69e7e322b41439da907c533faba39
+ms.openlocfilehash: 57bfecd6dc3cc3cc88274ad72446f0de60dc8785
+ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2017
-ms.locfileid: "23481772"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37103080"
 ---
 # <a name="using-shared-access-signatures-sas"></a>使用共享访问签名 (SAS)
 
@@ -37,7 +37,7 @@ ms.locfileid: "23481772"
 
 * SAS 有效的时间间隔，包括开始时间和到期时间。
 * SAS 授予的权限。 例如，Blob 的 SAS 可能授予对该 Blob 的读取和写入权限，但不授予删除权限。
-* Azure 存储接受 SAS 的可选的 IP 地址或 IP 地址范围。 例如，可以指定属于组织的 IP 地址范围。
+* Azure 存储接受 SAS 的可选的 IP 地址或 IP 地址范围。 例如，你可能指定属于组织的 IP 地址范围。
 * Azure 存储接受 SAS 所依据的协议。 可通过此可选参数使用 HTTPS 限制对客户端的访问。
 
 ## <a name="when-should-you-use-a-shared-access-signature"></a>何时应使用共享访问签名？
@@ -55,11 +55,11 @@ SAS 通常适用于用户需要在存储帐户中读取和写入其数据的服�
 
 许多实际服务可能会混合使用这两种方法。 例如，可能通过前端代理对某些数据进行处理和验证，同时使用 SAS 直接保存和/或读取其他数据。
 
-此外，在某些情况下，需要使用 SAS 在复制操作中对源对象进行身份验证：
+此外，在某些情况下，需要使用 SAS 在复制操作中授予对源对象的访问权限：
 
-* 将一个 Blob 复制到驻留在不同存储帐户中的另一个 Blob 时，必须使用 SAS 对源 Blob 进行身份验证。 还可以选择使用 SAS 对目标 Blob 进行身份验证。
-* 将一个文件复制到驻留在不同存储帐户中的另一个文件时，必须使用 SAS 对源文件进行身份验证。 还可以选择使用 SAS 对目标文件进行身份验证。
-* 将一个 Blob 复制到一个文件，或将一个文件复制到一个 Blob 时，必须使用 SAS 对源对象进行身份验证，即使源对象和目标对象驻留在同一存储帐户中。
+* 将一个 Blob 复制到驻留在其他存储帐户中的另一个 Blob 时，必须使用 SAS 授予对源 Blob 的访问权限。 还可以选择使用 SAS 授予对目标 Blob 的访问权限。
+* 将一个文件复制到驻留在其他存储帐户中的另一个文件时，必须使用 SAS 授予对源文件的访问权限。 还可以选择使用 SAS 授予对目标文件的访问权限。
+* 将一个 Blob 复制到一个文件，或将一个文件复制到一个 Blob 时，必须使用 SAS 授予对源对象的访问权限，即使源对象和目标对象驻留在同一存储帐户中。
 
 ## <a name="types-of-shared-access-signatures"></a>共享访问签名的类型
 可创建两种类型的共享访问签名：
@@ -68,7 +68,7 @@ SAS 通常适用于用户需要在存储帐户中读取和写入其数据的服�
 * **帐户 SAS。** 帐户 SAS 可委派对一个或多个存储服务中的资源的访问权限。 通过服务 SAS 提供的所有操作也可以通过帐户 SAS 提供。 此外，使用帐户 SAS，还可以委派对适用于给定服务的操作（例如，获取/设置服务属性和获取服务统计信息）的访问权限。还可以委派对 blob 容器、表、队列和文件共享执行读取、写入和删除操作的访问权限，而这是服务 SAS 所不允许的。 有关构造帐户 SAS 令牌的深入信息，请参阅 [Constructing an Account SAS](https://msdn.microsoft.com/library/mt584140.aspx)（构造帐户 SAS）。
 
 ## <a name="how-a-shared-access-signature-works"></a>共享访问签名的工作方式
-共享访问签名是一种签名 URI，它指向一个或多个存储资源并且包括包含一组特定的查询参数的令牌。 该令牌指示客户端可以如何访问资源。 签名是其中一个查询参数，它是由 SAS 参数构造的并且使用帐户密钥进行签名。 Azure 存储使用该签名对 SAS 进行身份验证。
+共享访问签名是一种签名 URI，它指向一个或多个存储资源并且包括包含一组特定的查询参数的令牌。 该令牌指示客户端可以如何访问资源。 签名是其中一个查询参数，它是由 SAS 参数构造的并且使用帐户密钥进行签名。 Azure 存储使用该签名授予对存储资源的访问权限。
 
 下面是 SAS URI 的一个示例，其中显示了资源 URI 和 SAS 令牌：
 
@@ -76,20 +76,20 @@ SAS 通常适用于用户需要在存储帐户中读取和写入其数据的服�
 
 SAS 令牌是在客户端侧生成的字符串（请参阅 [SAS 示例](#sas-examples)部分获取代码示例）。 例如，在任何情况下，Azure 存储均不会跟踪使用存储客户端库生成的 SAS 令牌。 可以在客户端上创建不限数量的 SAS 令牌。
 
-客户端将 SAS URI 作为请求的一部分提供给 Azure 存储时，服务检查 SAS 参数和签名，以验证签名是否对请求的身份验证有效。 如果服务确认签名有效，则请求通过身份验证。 否则，请求被拒绝，错误代码为 403（禁止访问）。
+客户端将 SAS URI 作为请求的一部分提供给 Azure 存储时，服务检查 SAS 参数和签名，以验证签名是否对请求的身份验证有效。 如果服务确认签名有效，则请求获得授权。 否则，请求被拒绝，错误代码为 403（禁止访问）。
 
 ## <a name="shared-access-signature-parameters"></a>共享访问签名的参数
 帐户 SAS 令牌和服务 SAS 令牌包括一些公用参数，但所采用的参数也有几个不同。
 
 ### <a name="parameters-common-to-account-sas-and-service-sas-tokens"></a>帐户 SAS 令牌和服务 SAS 令牌共有的参数
 * **Api 版本** 一个可选参数，它指定要用于执行请求的存储服务版本。
-* **服务版本** 一个必需参数，它指定要用于对请求进行身份验证的存储服务版本。
+* **服务版本** 一个必需参数，它指定用于对请求进行授权的存储服务版本。
 * **开始时间。** 这是 SAS 生效的时间。 共享访问签名的开始时间是可选的。 如果省略开始时间，SAS 将立即生效。 开始时间必须以 UTC（协调世界时）格式表示，并使用特殊的 UTC 指示符（“Z”），例如 `1994-11-05T13:15:30Z`。
 * **到期时间。** 在此时间之后，SAS 不再有效。 最佳实践建议你或者为 SAS 指定到期时间，或者将其与某一存储访问策略相关联。 到期时间必须以 UTC（协调世界时）格式表示，并使用特殊的 UTC 指示符（“Z”），例如 `1994-11-05T13:15:30Z`（详见下文）。
 * **权限。** 对 SAS 指定的权限指示客户端可使用 SAS 对存储资源执行哪些操作。 帐户 SAS 和服务 SAS 提供的权限不同。
 * **IP。** 一个可选参数，它指定 Azure 外部要从中接受请求的一个 IP 地址或 IP 地址范围（有关 Express Route，请参阅[路由会话配置状态](../../expressroute/expressroute-workflows.md#routing-session-configuration-state)部分）。
 * **协议。** 一个可选参数，它指定请求允许的协议。 可能的值包括“HTTPS 和 HTTP”(`https,http`)（它是默认值）或者“仅限 HTTPS”(`https`)。 请注意，“仅限 HTTP”是不允许的值。
-* **签名。** 签名由指定为部分令牌的其他参数构造，并进行加密。 它用于对 SAS 进行身份验证。
+* **签名。** 签名由指定为部分令牌的其他参数构造，并进行加密。 可以使用该签名授予对指定存储资源的访问权限。
 
 ### <a name="parameters-for-a-service-sas-token"></a>服务 SAS 令牌的参数
 * **存储资源。** 可以使用服务 SAS 为其委派访问权限的存储资源包括：
@@ -115,7 +115,7 @@ SAS 令牌是在客户端侧生成的字符串（请参阅 [SAS 示例](#sas-exa
 https://myaccount.blob.core.chinacloudapi.cn/sascontainer/sasblob.txt?sv=2015-04-05&st=2015-04-29T22%3A18%3A26Z&se=2015-04-30T02%3A23%3A26Z&sr=b&sp=rw&sip=168.1.5.60-168.1.5.70&spr=https&sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D
 ```
 
-| 名称 | SAS 部分 | 说明 |
+| Name | SAS 部分 | 说明 |
 | --- | --- | --- |
 | Blob URI |`https://myaccount.blob.core.chinacloudapi.cn/sascontainer/sasblob.txt` |Blob 的地址。 请注意，强烈建议使用 HTTPS。 |
 | 存储服务版本 |`sv=2015-04-05` |对于存储服务版本 2012-02-12 和更高版本，此参数指示要使用的版本。 |
@@ -125,7 +125,7 @@ https://myaccount.blob.core.chinacloudapi.cn/sascontainer/sasblob.txt?sv=2015-04
 | 权限 |`sp=rw` |SAS 授予的权限包括读取 (r) 和写入 (w)。 |
 | IP 范围 |`sip=168.1.5.60-168.1.5.70` |要从中接受请求的 IP 地址范围。 |
 | 协议 |`spr=https` |仅允许使用 HTTPS 的请求。 |
-| 签名 |`sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D` |用于对 Blob 的访问权限进行身份验证。 该签名是利用 SHA256 算法通过“字符串到签名”和密钥进行计算，并使用 Base64 编码进行编码的 HMAC。 |
+| 签名 |`sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D` |用于授予对 Blob 的访问权限。 该签名是利用 SHA256 算法通过“字符串到签名”和密钥进行计算，并使用 Base64 编码进行编码的 HMAC。 |
 
 ### <a name="account-sas-uri-example"></a>帐户 SAS URI 示例
 
@@ -135,7 +135,7 @@ https://myaccount.blob.core.chinacloudapi.cn/sascontainer/sasblob.txt?sv=2015-04
 https://myaccount.blob.core.chinacloudapi.cn/?restype=service&comp=properties&sv=2015-04-05&ss=bf&srt=s&st=2015-04-29T22%3A18%3A26Z&se=2015-04-30T02%3A23%3A26Z&sr=b&sp=rw&sip=168.1.5.60-168.1.5.70&spr=https&sig=F%6GRVAZ5Cdj2Pw4tgU7IlSTkWgn7bUkkAg8P6HESXwmf%4B
 ```
 
-| 名称 | SAS 部分 | 说明 |
+| Name | SAS 部分 | 说明 |
 | --- | --- | --- |
 | 资源 URI |`https://myaccount.blob.core.chinacloudapi.cn/?restype=service&comp=properties` |Blob 服务终结点，包含用于获取服务属性（使用 GET 调用时）或设置服务属性（使用 SET 调用时）的参数。 |
 | 服务 |`ss=bf` |该 SAS 适用于 Blob 和文件服务 |
@@ -158,19 +158,19 @@ https://myaccount.blob.core.chinacloudapi.cn/?restype=service&comp=properties&sv
 1. 达到了对该 SAS 指定的到期时间。
 2. 达到了对该 SAS 引用的存储访问策略指定的到期时间（如果引用存储访问策略并且该存储访问策略指定一个到期时间）。 这可能是因为经过了该间隔而发生，或者是因为修改了该存储访问策略而使到期时间已经是过去时间而发生（这是用于吊销该 SAS 的一种方法）。
 3. 删除了该 SAS 引用的存储访问策略，这是用于吊销 SAS 的另一种方法。 请注意，如果使用完全相同的名称重新创建该存储访问策略，则根据与该存储访问策略相关联的权限，所有现有 SAS 令牌都会再次有效（假定尚未经过该 SAS 的到期时间）。 如果想要吊销 SAS，请确保使用不同名称（如果使用将来的到期时间重新创建该访问策略）。
-4. 将重新生成用于创建 SAS 的帐户密钥。 重新生成帐户密钥会导致使用该密钥的所有应用程序组件身份验证失败，直到这些组件更新为使用另一个有效帐户密钥或者重新生成的新帐户密钥。
+4. 将重新生成用于创建 SAS 的帐户密钥。 重新生成帐户密钥会导致使用该密钥的所有应用程序组件授权失败，直到这些组件更新为使用另一个有效帐户密钥或者重新生成的新帐户密钥。
 
 > [!IMPORTANT]
 > 共享访问签名 URI 与用于创建签名的帐户密钥和关联的存储访问策略（如果有）相关联。 如果未指定存储访问策略，则吊销共享访问签名的唯一方法是更改帐户密钥。
 
 ## <a name="authenticating-from-a-client-application-with-a-sas"></a>在客户端应用程序中使用 SAS 进行身份验证
-拥有 SAS 的客户端可以使用 SAS 对存储帐户的请求进行身份验证，客户端没有此存储帐户的帐户密钥。 SAS 可以包含在连接字符串中，或直接在合适的构造函数或方法中使用 SAS。
+拥有 SAS 的客户端可以使用 SAS 为针对存储帐户的请求授权，客户端没有此存储帐户的帐户密钥。 SAS 可以包含在连接字符串中，或直接在合适的构造函数或方法中使用 SAS。
 
 ### <a name="using-a-sas-in-a-connection-string"></a>在连接字符串中使用 SAS
 [!INCLUDE [storage-use-sas-in-connection-string-include](../../../includes/storage-use-sas-in-connection-string-include.md)]
 
 ### <a name="using-a-sas-in-a-constructor-or-method"></a>在构造函数或方法中使用 SAS
-一些 Azure 存储客户端库构造函数和方法重载提供 SAS 参数，以便可以使用 SAS 对服务的请求进行身份验证。
+一些 Azure 存储客户端库构造函数和方法重载提供 SAS 参数，因此你可以使用 SAS 为针对服务的请求授权。
 
 例如，此处使用 SAS URI 创建对块 blob 的引用。 SAS 提供请求所需的唯一凭据。 之后将块 blob 引用用于写入操作：
 
@@ -426,7 +426,7 @@ private static string GetBlobSasUri(CloudBlobContainer container, string blobNam
 }
 ```
 
-## <a name="conclusion"></a>结束语
+## <a name="conclusion"></a>结论
 共享访问签名用于将存储帐户的受限权限提供给不应具有帐户密钥的客户端。 因此，它们是安全模型的重要环节，适合使用 Azure 存储的任何应用程序。 如果按照本文中介绍的最佳实践执行，则可以使用 SAS 更灵活地访问存储帐户中的资源，且不会影响应用程序的安全性。
 
 ## <a name="next-steps"></a>后续步骤
