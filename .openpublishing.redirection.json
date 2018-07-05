@@ -9755,7 +9755,7 @@
        "redirect_document_id": false
     },
     {
-       "source_path": "articles/multi-factor-authentication/multi-factor-authentication.md ",
+       "source_path": "articles/multi-factor-authentication/multi-factor-authentication.md",
        "redirect_url": "/active-directory/authentication/multi-factor-authentication",
        "redirect_document_id": false
     },
@@ -10086,7 +10086,7 @@
   },
   {
       "source_path": "articles/media-services/media-services-configure-elemental-live-encoder.md",
-      "redirect_url": "/media-services/previous/media-services-configure-elemental-live-encoder",
+      "redirect_url": "/media-services/previous/media-services-overview",
       "redirect_document_id": false
   },
   {
@@ -10893,11 +10893,6 @@
       "source_path": "articles/sql-database/sql-database-service-tiers.md",
       "redirect_url": "/sql-database/sql-database-service-tiers-vcore",
       "redirect_document_id": false
-  },
-  {
-     "source_path": "articles/backup/backup-azure-arm-vms.md",
-     "redirect_url": "/backup/backup-azure-vms-first-look-arm",
-     "redirect_document_id": false
   },
   {
      "source_path": "articles/azure-stack/azure-stack-manage-windows-azure-pack.md",
