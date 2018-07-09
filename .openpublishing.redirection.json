@@ -8295,7 +8295,7 @@
     },
     {
         "source_path": "articles/load-balancer/load-balancer-get-started-internet-classic-portal.md",
-        "redirect_url": "/load-balancer/load-balancer-get-started-internet-portal",
+        "redirect_url": "/load-balancer/quickstart-create-basic-load-balancer-portal",
         "redirect_document_id": false
     },
     {
