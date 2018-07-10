@@ -12,7 +12,7 @@
 ## [REST](https://docs.microsoft.com/rest/api/)
 
 # 资源
-## [常见问题](sql-server-linux-faq.md)
+<!-- Not Available on # [FAQ](sql-server-linux-faq.md)-->
 ## [“Linux 上的 SQL Server”文档](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)
 ## [价格](../../windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md?toc=%2fvirtual-machines%2flinux%2fsql%2ftoc.json)
 ## [PaaS 或 IaaS？](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md?toc=%2fvirtual-machines%2fwindows%2fsql%2ftoc.json)

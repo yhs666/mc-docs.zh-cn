@@ -4,18 +4,18 @@ description: 本文引导你完成创建策略定义的步骤，以识别不合�
 services: azure-policy
 author: WenJason
 ms.author: v-nany
-origin.date: 05/07/2018
-ms.date: 06/04/2018
+origin.date: 05/24/2018
+ms.date: 07/09/2018
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
 manager: digimoblie
-ms.openlocfilehash: d7d3a38ad08edb6779121dd7980379992e9466eb
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 45800a758d9344b9f468419c98e15e78df85c0a8
+ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695173"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37405376"
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment"></a>创建策略分配，识别 Azure 环境中的不合规资源
 
@@ -50,7 +50,7 @@ ms.locfileid: "34695173"
    - 应用标记和值
    - 需要 SQL Server 版本 12.0
 
-    如需所有可用内置策略的完整列表，请参阅[策略模板](json-samples.md)。
+    如需所有可用内置策略的完整列表，请参阅[策略示例](json-samples.md)。
 
 7. 在策略定义列表中搜索，找到“审核未使用托管磁盘的 VM”定义。 单击该策略，再单击“选择”。
 

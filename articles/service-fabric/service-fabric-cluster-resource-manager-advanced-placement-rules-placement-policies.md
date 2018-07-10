@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/18/2017
-ms.date: 05/28/2018
+ms.date: 07/09/2018
 ms.author: v-yeche
-ms.openlocfilehash: 3885c938fa89cc9abeee8fe6d83ab27f8c46aa8b
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: 21c5e5429c89247f33d53278ba761453b3ddc4c3
+ms.sourcegitcommit: 292f22020e00c607229c1693229f25fb2837d8af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554282"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37910584"
 ---
 # <a name="placement-policies-for-service-fabric-services"></a>Service Fabric 服务的放置策略
 放置策略是可用于在某些不常见的特定情况下控制服务位置的附加规则。 这些情况可能包括：
@@ -92,7 +92,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 ```csharp
 ServicePlacementPreferPrimaryDomainPolicyDescription primaryDomain = new ServicePlacementPreferPrimaryDomainPolicyDescription();
 primaryDomain.DomainName = "fd:/ChinaEast/";
-serviceDescription.PlacementPolicies.Add(invalidDomain);
+serviceDescription.PlacementPolicies.Add(primaryDomain);
 ```
 
 Powershell：
@@ -136,4 +136,4 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 [Image2]:./media/service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies/cluster-required-placement-domain.png
 [Image3]:./media/service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies/cluster-preferred-primary-domain.png
 
-<!--Update_Description: update meta propeties -->
+<!--Update_Description: update meta propeties, wording update -->

@@ -10,12 +10,12 @@ ms.topic: article
 origin.date: 05/09/2017
 ms.date: 06/25/2018
 ms.author: v-yeche
-ms.openlocfilehash: 6e43e7027317520cb0cf954d8d500ec18bbfc4e6
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.openlocfilehash: 4b3b0cb18a0473390028fae9569d9d66535c6a2d
+ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315657"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37405311"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>使用 Linux 诊断扩展监视指标和日志
 
@@ -417,6 +417,7 @@ sinks | （可选）日志行发送到的附加接收器的名称的逗号分隔
 
 必须指定“表”和/或“接收器”。
 
+<a name="metrics-supported-by-builtin"></a>
 ## <a name="metrics-supported-by-the-builtin-provider"></a>内置提供程序支持的指标
 
 内置指标提供程序可提供大量用户最感兴趣的指标。 这些指标分为五个大类：

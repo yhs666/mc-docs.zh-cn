@@ -13,15 +13,15 @@ ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: ''
 origin.date: 10/30/2017
-ms.date: 06/04/2018
+ms.date: 07/09/2018
 ms.author: v-nany
 ms.custom: mvc
-ms.openlocfilehash: 3ae9fc6dc5993e03bb6628d5cec986919744e55f
-ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
+ms.openlocfilehash: 759c68943da79b665dad23cf7492675b1efbd0c2
+ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36269945"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37405296"
 ---
 # <a name="approved-vm-images"></a>已批准的 VM 映像
 
@@ -41,7 +41,7 @@ ms.locfileid: "36269945"
             "imageIds": {
                 "type": "array",
                 "metadata": {
-                    "description": "The list of approved VM images",
+                    "description": "The list of approved VM images. Example values: '/subscriptions/<subscriptionId>/resourceGroups/YourResourceGroup/providers/Microsoft.Compute/images/ContosoStdImage' or '/Subscriptions/<subscriptionId>/Providers/Microsoft.Compute/Locations/centralus/Publishers/MicrosoftWindowsServer/ArtifactTypes/VMImage/Offers/WindowsServer/Skus/2016-Datacenter/Versions/2016.127.20180510'",
                     "displayName": "Approved VM images"
                 }
             }
@@ -97,7 +97,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-```azurecli
+```cli
 az policy definition create --name 'allowed-custom-images' --display-name 'Approved VM images' --description 'This policy governs the approved VM images' --rules 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/allowed-custom-images/azurepolicy.rules.json' --params 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/allowed-custom-images/azurepolicy.parameters.json' --mode All
 
 az policy assignment create --name <assignmentname> --scope <scope> --policy "allowed-custom-images"
@@ -107,11 +107,11 @@ az policy assignment create --name <assignmentname> --scope <scope> --policy "al
 
 运行以下命令来删除资源组、VM 和所有相关资源。
 
-```azurecli
+```cli
 az group delete --name myResourceGroup --yes
 ```
 
 ## <a name="next-steps"></a>后续步骤
 
-- 其他 Azure 策略模板示例可在 [Azure 策略模板](../json-samples.md)中找到
-- 适用于虚拟机的其他 Azure 策略示例可在[将策略应用于 Windows VM](/azure/virtual-machines/windows/policy) 中找到
+- 有关更多示例，请参阅 [Azure 策略示例](../json-samples.md)。
+- 适用于虚拟机的其他 Azure 策略示例可在[将策略应用于 Windows VM](../../virtual-machines/windows/policy.md) 中找到。

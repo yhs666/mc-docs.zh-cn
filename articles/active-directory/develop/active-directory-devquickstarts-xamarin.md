@@ -3,25 +3,27 @@ title: Azure AD Xamarin 入门 | Microsoft Docs
 description: 构建一个与 Azure AD 集成以方便登录，并使用 OAuth 调用受 Azure AD 保护的 API 的 Xamarin 应用程序。
 services: active-directory
 documentationcenter: xamarin
-author: jmprieur
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: 198cd2c3-f7c8-4ec2-b59d-dfdea9fe7d95
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 11/30/2017
-ms.date: 01/17/2018
+ms.date: 07/03/2018
 ms.author: v-junlch
+ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 478f36bc39313785e415b677c178db752736032a
-ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
+ms.openlocfilehash: b38393292d445bfb5babdfbd4117261e45001a8b
+ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2018
-ms.locfileid: "29993176"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37800465"
 ---
 # <a name="azure-ad-xamarin-getting-started"></a>Azure AD Xamarin 入门
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -56,11 +58,10 @@ ms.locfileid: "29993176"
 4. 单击“应用注册”，然后选择“新建应用程序注册”。
 5. 创建新的**本机**应用程序。
     - **名称** - 向用户描述应用。
-    - **重定向 URI** 是 Azure AD 用于返回令牌响应的方案和字符串组合。 输入一个值（例如 http://DirectorySearcher）。
+    - **重定向 URI** 是 Azure AD 用来返回令牌响应的方案与字符串组合。 输入值 （例如 http://DirectorySearcher)  。
 6. 完成注册后，Azure AD 将为应用分配唯一的应用程序 ID。 复制“应用程序”选项卡中的值，因为稍后需用到此值。
 7. 在“设置”页上，选择“所需权限”，并选择“添加”。
-8. 选择“Microsoft Graph”作为 API。 在“委派权限”下面，添加“读取目录数据”权限。  
-此操作可让应用查询用户的图形 API。
+8. 选择“Microsoft Graph”作为 API。 在“委派权限”下面，添加“读取目录数据”权限。 此操作可让应用查询用户的图形 API。
 
 ## <a name="step-3-install-and-configure-adal"></a>步骤 3：安装并配置 ADAL
 将应用注册到 Azure AD 后，可以安装 ADAL 并编写标识相关的代码。 若要允许 ADAL 与 Azure AD 通信，请向其提供一些有关应用注册的信息。
@@ -93,7 +94,7 @@ ms.locfileid: "29993176"
 
     - *tenant* 是 Azure AD 租户的域（例如 contoso.partner.onmschina.cn）。
     - *clientId* 是从门户中复制的应用的客户端 ID。
-    - *returnUri* 是在门户中输入的重定向 URI（例如 http://DirectorySearcher）。
+    - returnUri 是在门户中输入的重定向 URI （例如 http://DirectorySearcher)  。
 
 ## <a name="step-4-use-adal-to-get-tokens-from-azure-ad"></a>步骤 4：使用 ADAL 从 Azure AD 获取令牌
 几乎所有的应用的身份验证逻辑都位于 `DirectorySearcher.SearchByAlias(...)`。 在特定于平台的项目中，所要做的一切就是将上下文参数传递到 `DirectorySearcher` PCL。
@@ -105,8 +106,7 @@ ms.locfileid: "29993176"
     {
     ```
 
-2. 初始化 `AuthenticationContext`，这是 ADAL 的主类。  
-此操作将传递 ADAL 与 Azure AD 通信时所需的坐标。
+2. 初始化 `AuthenticationContext`，这是 ADAL 的主类。 此操作将传递 ADAL 与 Azure AD 通信时所需的坐标。
 3. 调用 `AcquireTokenAsync(...)`，该类接受 `IPlatformParameters` 对象，并调用所需的身份验证流来向应用程序返回令牌。
 
     ```csharp
@@ -197,4 +197,4 @@ List<User> results = await DirectorySearcherLib.DirectorySearcher.SearchByAlias(
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!--Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

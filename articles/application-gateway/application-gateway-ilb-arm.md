@@ -12,21 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 01/23/2017
-ms.date: 06/07/2018
+origin.date: 05/23/2018
+ms.date: 07/02/2018
 ms.author: v-junlch
-ms.openlocfilehash: 0e1278243f49f57019ba6dc305992cf7c3a9b43f
-ms.sourcegitcommit: 4fe9905d17a8df9f2270543a5a0ce1762a5830c9
+ms.openlocfilehash: 5ac8868f8f30396d592edfc1010044c780111d3c
+ms.sourcegitcommit: f0bfa3f8dca94099a2181492952e6a575fbdbcc8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34855762"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37142578"
 ---
-# <a name="create-an-application-gateway-with-an-internal-load-balancer-ilb-by-using-azure-resource-manager"></a>使用 Azure Resource Manager 创建具有内部负载均衡器 (ILB) 的应用程序网关
-
-> [!div class="op_single_selector"]
-> * [Azure 经典 PowerShell](application-gateway-ilb.md)
-> * [Azure Resource Manager PowerShell](application-gateway-ilb-arm.md)
+# <a name="create-an-application-gateway-with-an-internal-load-balancer-ilb"></a>创建具有内部负载均衡器 (ILB) 的应用程序网关
 
 可向 Azure 应用程序网关配置面向 Internet 的 VIP 或不向 Internet 公开的内部终结点（也称为内部负载均衡器 (ILB) 终结点。 配置使用 ILB 的网关适用于不向 Internet 公开的内部业务线应用程序。 对于位于不向 Internet 公开的安全边界内的多层应用程序中的服务和层也很有用，但仍需要执行循环负载分散、会话粘性或安全套接字层 (SSL) 终止。
 
@@ -66,7 +62,7 @@ ms.locfileid: "34855762"
 ### <a name="step-1"></a>步骤 1
 
 ```powershell
-Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+Connect-AzureRmAccount -Environment AzureChinaCloud
 ```
 
 ### <a name="step-2"></a>步骤 2
@@ -279,4 +275,4 @@ Get-AzureApplicationGateway : ResourceNotFound: The gateway does not exist.
 - [Azure 流量管理器](https://www.azure.cn/home/features/traffic-manager/)
 
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

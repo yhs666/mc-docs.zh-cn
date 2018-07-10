@@ -3,25 +3,27 @@ title: Azure 标识开发人员的支持和帮助选项 | Microsoft Docs
 description: 了解在创建与 Azure 标识（Azure Active Directory 和 MSA）集成的应用程序时，如何获取所遇到的开发相关问题的帮助和支持
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 10/27/2017
-ms.date: 01/09/2018
+ms.date: 07/03/2018
 ms.author: v-junlch
+ms.reviewer: andret
 ms.custom: aaddev
-ms.openlocfilehash: 5ca776859202c62dc068f44eacdd3927dd77fc26
-ms.sourcegitcommit: 4ae946a9722ff3e7231fcb24d5e8f3e2984ccd1a
+ms.openlocfilehash: f1033eeb782fd723724c51360d409dc4b6c37957
+ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2018
-ms.locfileid: "27769155"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37800396"
 ---
 # <a name="support-and-help-options-for-developers"></a>开发人员的支持和帮助选项 
 
@@ -102,3 +104,4 @@ Microsoft 合作伙伴还可以使用限时免费聊天支持。 如果你的公
 
 登记公司后，可在[此处](https://aka.ms/devchat)发起聊天请求。
 
+<!-- Update_Description: update metedata properties -->

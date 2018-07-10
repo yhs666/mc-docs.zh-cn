@@ -14,12 +14,12 @@ ms.workload: data-services
 origin.date: 04/23/2018
 ms.date: 07/02/2018
 ms.author: v-jay
-ms.openlocfilehash: 88a989ba94d8a08f8009a1e7f4932d6ea9532cbd
-ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
+ms.openlocfilehash: fe114ea624c2032713cc35521523a67b64008a12
+ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103144"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37800502"
 ---
 # <a name="design-for-querying"></a>针对查询的设计
 表服务解决方案可能需要进行大量读取操作和/或大量写入操作。 本文重点介绍在将表服务设计为支持高效读取操作时需要牢记的事项。 通常，支持高效读取操作的设计对于写入操作来说也是高效的。 但是，在进行支持写入操作的设计时，还需牢记一些额外注意事项，具体请参阅文章[针对数据修改的设计](table-storage-design-for-modification.md)。
@@ -90,7 +90,7 @@ ms.locfileid: "37103144"
 许多设计必须满足要求，才能允许根据多个条件查找实体。 例如，根据电子邮件、员工 ID 或姓氏查找员工实体。 [表设计模式](table-storage-design-patterns.md)中所述的模式解决了这些类型的要求，并介绍了相关方式来处理表服务不提供辅助索引的问题：  
 
 * [内分区的第二索引模式](table-storage-design-patterns.md#intra-partition-secondary-index-pattern) - 利用同一分区中的 **RowKey** 值存储每个实体的多个副本，实现快速、高效的查询，并借助不同的 **RowKey** 值替换排序顺序。  
-* [内分区的第二索引模式](table-storage-design-patterns.md#inter-partition-secondary-index-pattern) - 在单独分区/表格中利用不同 RowKey 值存储每个实体的多个副本，实现快速高效的查找，并借助 RowKey 值替换排序顺序。  
+* [内分区的第二索引模式](table-storage-design-patterns.md#intra-partition-secondary-index-pattern) - 在单独分区/表格中利用不同 RowKey 值存储每个实体的多个副本，实现快速高效的查找，并借助 RowKey 值替换排序顺序。  
 * [索引实体模式](table-storage-design-patterns.md#index-entities-pattern) - 维护索引实体以启用返回实体列表的高效搜索。  
 
 ## <a name="sorting-data-in-the-table-service"></a>对表服务中的数据进行排序
@@ -99,7 +99,7 @@ ms.locfileid: "37103144"
 许多应用程序要求使用按不同顺序排序的数据：例如，按名称或按加入日期对员工进行排序。 以下模式解决了如何替换实体的排序顺序的问题：  
 
 * [内分区的第二索引模式](table-storage-design-patterns.md#intra-partition-secondary-index-pattern) - 利用同一分区中的 RowKey 值存储每个实体的多个副本，实现快速、高效的查询并借助不同的 RowKey 值替换排序顺序。  
-* [内分区的第二索引模式](table-storage-design-patterns.md#inter-partition-secondary-index-pattern) - 在单独分区/表格中利用不同 RowKey 值存储每个实体的多个副本，实现快速高效的查找，并借助 RowKey 值替换排序顺序。
+* [内分区的第二索引模式](table-storage-design-patterns.md#intra-partition-secondary-index-pattern) - 在单独分区/表格中利用不同 RowKey 值存储每个实体的多个副本，实现快速高效的查找，并借助 RowKey 值替换排序顺序。
 * [日志结尾模式](table-storage-design-patterns.md#log-tail-pattern) - 通过使用以日期时间倒序排序的 *RowKey* 值检索最近添加到分区中的 **n** 个实体。  
 
 ## <a name="next-steps"></a>后续步骤

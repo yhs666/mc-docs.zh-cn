@@ -13,15 +13,15 @@ ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: ''
 origin.date: 04/27/2018
-ms.date: 06/04/2018
+ms.date: 07/09/2018
 ms.author: v-nany
 ms.custom: mvc
-ms.openlocfilehash: b4001974e5a4a779c1156b358eaa1510554e562b
-ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
+ms.openlocfilehash: 138cb4672350486528f5c3521bd749dfb8b4e402
+ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36269962"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37405156"
 ---
 # <a name="require-data-lake-store-encryption"></a>需要 Data Lake Store 加密
 
@@ -79,7 +79,7 @@ Remove-AzureRmPolicyAssignment -Name "Data Lake Store encryption" -Scope <scope>
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-```azurecli
+```cli
 az policy assignment create --scope <scope> --name "Data Lake Store encryption" --policy a7ff3161-0087-490a-9ad9-ad6217f4f43a
 ```
 
@@ -87,10 +87,10 @@ az policy assignment create --scope <scope> --name "Data Lake Store encryption" 
 
 运行以下命令删除策略分配。
 
-```azurecli
+```cli
 az policy assignment delete --name "Data Lake Store encryption" --resource-group myResourceGroup
 ```
 
 ## <a name="next-steps"></a>后续步骤
 
-- 其他 Azure 策略模板示例位于 [Azure 策略模板](../json-samples.md)。
+- 有关更多示例，请参阅 [Azure 策略示例](../json-samples.md)。

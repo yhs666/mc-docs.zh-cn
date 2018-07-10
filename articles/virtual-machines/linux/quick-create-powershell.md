@@ -17,12 +17,12 @@ origin.date: 04/24/2018
 ms.date: 06/04/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: f5f2076c7709da853d77e1ed14a56e0285abbe11
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 2a91fdc1cd015d4cecdbeb9bd07e9282eb61cf90
+ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702887"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37405275"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-azure-with-powershell"></a>快速入门：使用 PowerShell 在 Azure 中创建 Linux 虚拟机
 
@@ -121,7 +121,7 @@ New-AzureRmVM -ResourceGroupName "myResourceGroup" -Location chinaeast -VM $vmCo
 Get-AzureRmPublicIpAddress -ResourceGroupName "myResourceGroup" | Select "IpAddress"
 ```
 
-使用 SSH 客户端连接到 VM。 可以通过 Web 浏览器使用 Azure Cloud Shell，如果使用 Windows，则可以使用 [Putty](ssh-from-windows.md) 或[适用于 Linux 的 Windows 子系统](/windows/wsl/install-win10)。 提供 VM 的公用 IP 地址：
+使用 SSH 客户端连接到 VM。 可以通过 Web 浏览器使用 Azure Cloud Shell，如果使用 Windows，则可以使用 [Putty](ssh-from-windows.md) 或[适用于 Linux 的 Windows 子系统](https://docs.microsoft.com/zh-cn/windows/wsl/install-win10)。 提供 VM 的公用 IP 地址：
 
 ```bash
 ssh azureuser@IpAddress

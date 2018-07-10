@@ -10,16 +10,16 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-origin.date: 09/06/2017
-ms.topic: get-started-article
-ms.date: 09/25/2017
+origin.date: 05/22/2018
+ms.date: 07/09/2018
+ms.topic: quickstart
 ms.author: v-yeche
-ms.openlocfilehash: 3436826762d1a0eaae4bca09cdbdb3300498373c
-ms.sourcegitcommit: 0b4a1d4e4954daffce31717cbd3444572d4c447b
+ms.openlocfilehash: 6abeb1578534e8196c97bd733bf8a6774f755f64
+ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
-ms.locfileid: "22149610"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37405401"
 ---
 # <a name="use-visual-studio-code-extension-to-create-azure-resource-manager-template"></a>使用 Visual Studio Code 扩展创建 Azure 资源管理器模板
 本文介绍在 Visual Studio Code 中安装和使用 Azure 资源管理器工具扩展有哪些好处。 可以在 VS Code 中创建不带扩展的资源管理器模板，但是该扩展提供自动完成选项，可以简化模板开发。 它会为用户建议可以在模板中使用的模板函数、参数和变量。
@@ -40,7 +40,7 @@ ms.locfileid: "22149610"
 
    ```json
    {
-     "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
      "contentVersion": "1.0.0.0",
      "parameters": {
        "storageSKU": {
@@ -172,26 +172,37 @@ ms.locfileid: "22149610"
 
     ![显示变量](./media/resource-manager-vscode-extension/show-variables.png) 
 
-10. 选择 storageName 变量。 添加右方括号。 以下示例显示 outputs 节：
+10. 选择 storageName 变量。 代码现在如下所示：
 
-   ```json
-   "outputs": { 
+    ```json
+    "storageUri": {
+      "type": "string",
+      "value": "[reference(variables('storageName'))"
+    }
+    ```
+
+11. 前面的代码将不起作用，因为 `reference` 返回一个对象，但你的输出值设置为字符串。 需要指定该对象的其中一个值。 引用函数可以与任何资源类型一起使用，因此 VS Code 不会建议对象的属性。 但是，你可以发现[为存储帐户返回](https://docs.microsoft.com/rest/api/storagerp/storageaccounts/getproperties)的一个值为 `.primaryEndpoints.blob`。 
+
+    在最后一个括号后添加该属性。 添加右方括号。 以下示例显示 outputs 节：
+
+    ```json
+    "outputs": { 
        "groupLocation": {
          "type": "string",
          "value": "[resourceGroup().location]"
        },
        "storageUri": {
          "type": "string",
-         "value": "[reference(variables('storageName'))]"
+         "value": "[reference(variables('storageName')).primaryEndpoints.blob]"
        }
-   }
-   ```
+    }
+    ```
 
 最终模板为：
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "storageSKU": {
@@ -250,7 +261,7 @@ ms.locfileid: "22149610"
     },
     "storageUri": {
       "type": "string",
-      "value": "[reference(variables('storageName'))]"
+      "value": "[reference(variables('storageName')).primaryEndpoints.blob]"
     }
   }
 }
@@ -263,23 +274,22 @@ ms.locfileid: "22149610"
 * 对于 PowerShell，请在包含模板的文件夹中使用以下命令：
 
    ```powershell
-   Login-AzureRmAccount -EnvironmentName AzureChinaCloud
-
+   Connect-AzureRmAccount -Environment AzureChinaCloud
    New-AzureRmResourceGroup -Name examplegroup -Location "China East"
    New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile azuredeploy.json
    ```
 
 * 若要在本地安装 Azure CLI，请在包含模板的文件夹中使用以下命令：
 
-   ```azurecli
-   az cloud set -n AzureChinaCloud
-az login
-#az cloud set -n AzureCloud
-#return to global azure
+    ```azurecli
+    az cloud set -n AzureChinaCloud
+    az login
+    #az cloud set -n AzureCloud
+    #return to global azure
 
-   az group create --name examplegroup --location "China East"
-   az group deployment create --resource-group examplegroup --template-file azuredeploy.json
-   ```
+    az group create --name examplegroup --location "China East"
+    az group deployment create --resource-group examplegroup --template-file azuredeploy.json
+    ```
 
 当部署完成后，会返回输出值。
 
@@ -304,4 +314,4 @@ az group delete --name examplegroup
 <!-- Not Avaialble (/templates/microsoft.storage/storageaccounts).-->
 * 若要查看许多不同类型的解决方案的完整模型，请参阅 [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates/)（Azure 快速入门模板）。
 
-<!--Update_Description: new articles about VS code extension in Azure Resource Manager -->
+<!--Update_Description: update meta properties, wording update -->

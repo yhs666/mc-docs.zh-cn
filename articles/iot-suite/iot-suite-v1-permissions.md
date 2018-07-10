@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 11/02/2017
-ms.date: 01/08/2018
+ms.date: 07/16/2018
 ms.author: v-yiso
-ms.openlocfilehash: 20c7a1e20615c4cfaea36c71c64a5a787212cbcb
-ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
+ms.openlocfilehash: 22c02806834f186de38df72b59db86abbf481477
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
-ms.locfileid: "27548235"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873373"
 ---
 # <a name="permissions-on-the-azureiotsuitecn-site"></a>azureiotsuite.cn 站点权限
 
@@ -74,6 +74,7 @@ AAD 角色可控制设置预配置解决方案以及在预配置解决方案中�
 
 Azure 管理员角色可控制将 Azure 订阅映射到 AD 租户的能力。
 
+可以在[如何添加或更改 Azure 协同管理员、服务管理员和帐户管理员][lnk-admin-roles]一文中找到有关 Azure 管理员角色的详细信息。
 
 ## <a name="application-roles"></a>应用程序角色
 
@@ -121,6 +122,9 @@ Azure 管理员角色可控制将 Azure 订阅映射到 AD 租户的能力。
 3. 运行 `build.cmd cloud [debug | release] {name of previously deployed remote monitoring solution}`（例如 `build.cmd cloud debug myRMSolution`）
 4. 出现提示时，将 **tenantid** 设置为新创建的租户，而不是以前的租户。
 
+### <a name="i-want-to-change-a-service-administrator-or-co-administrator-when-logged-in-with-an-organisational-account"></a>我在使用组织帐户登录时要更改服务管理员或协同管理员
+
+请参阅支持文章 [使用组织帐户登录时更改服务管理员和协同管理员][lnk-service-admins]。
 
 ### <a name="why-am-i-seeing-this-error-your-account-does-not-have-the-proper-permissions-to-create-a-solution-please-check-with-your-account-administrator-or-try-with-a-different-account"></a>为何会出现以下错误？ “你的帐户没有创建解决方案的正确权限。 请咨询帐户管理员或使用其他帐户进行尝试。”
 
@@ -150,6 +154,7 @@ Azure 管理员角色可控制将 Azure 订阅映射到 AD 租户的能力。
 [lnk-portal]: https://portal.azure.cn/
 [lnk-create-edit-users]: ../active-directory/active-directory-create-users.md
 [lnk-assign-app-roles]: ../active-directory/active-directory-coreapps-assign-user-azure-portal.md
+[lnk-service-admins]: https://azure.microsoft.com/support/changing-service-admin-and-co-admin/
 [lnk-admin-roles]: ../billing/billing-add-change-azure-subscription-administrator.md
 [lnk-resource-cs]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/DeviceAdministration/Web/Security/RolePermissions.cs
 [lnk-help-support]: https://portal.azure.cn/#blade/Microsoft_Azure_Support/HelpAndSupportBlade

@@ -1,26 +1,20 @@
 ---
-title: Azure 备份：将系统状态还原为 Windows Server | Microsoft Docs
+title: Azure 备份：将系统状态还原为 Windows Server
 description: 逐步介绍如何从 Azure 备份中还原 Windows Server 系统状态。
 services: backup
-documentationcenter: ''
 author: saurabhsensharma
 manager: shivamg
-editor: ''
-ms.assetid: ''
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 08/18/2017
-ms.date: 05/28/2018
+ms.date: 07/06/2018
 ms.author: v-junlch
-ms.openlocfilehash: 9c489f35d050e9df36703c09e2f56df414976c08
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 38e67e5c09035a9949f8b9274bb00f527801a457
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34559432"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873424"
 ---
 # <a name="restore-system-state-to-windows-server"></a>将系统状态还原为 Windows Server
 
@@ -221,4 +215,5 @@ ms.locfileid: "34559432"
 ## <a name="next-steps"></a>后续步骤
 - 恢复文件和文件夹后，可以[管理备份](backup-azure-manage-windows-server.md)。
 
-<!-- Update_Description: link update -->
+
+<!-- Update_Description: update metedata properties -->

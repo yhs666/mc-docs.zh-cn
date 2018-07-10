@@ -4,17 +4,17 @@ description: 使用 PowerShell 创建 Azure 策略分配以识别不合规的资
 services: azure-policy
 author: WenJason
 ms.author: v-nany
-origin.date: 05/07/2018
-ms.date: 06/04/2018
+origin.date: 05/24/2018
+ms.date: 07/09/2018
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: faefaca675b055fea88ac8ffdf8a07886a7e47ac
-ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
+ms.openlocfilehash: 2cf3d8513ee975d314c62da8853eac39c6ebecaa
+ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36748401"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37405232"
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment-with-the-azure-cli"></a>使用 Azure CLI 创建策略分配以识别 Azure 环境中的不合规资源
 
@@ -28,40 +28,43 @@ Azure CLI 用于从命令行或脚本创建和管理 Azure 资源。 本指南�
 
 
 
-本快速入门需要运行 Azure CLI 2.0.4 版或更高版本，以便在本地安装并使用 CLI。 若要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](/cli/azure/install-azure-cli)。
+本快速入门需要运行 Azure CLI 2.0.4 版或更高版本，以便在本地安装并使用 CLI。 若要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](/cli/install-azure-cli)。
 
 ## <a name="prerequisites"></a>先决条件
 
 使用 Azure CLI 注册 Policy Insights 资源提供程序。 注册此资源提供程序可确保订阅能够使用它。 若要注册资源提供程序，必须具有为资源提供程序执行注册操作的权限。 此操作包含在“参与者”和“所有者”角色中。 运行以下命令，注册资源提供程序：
 
-```azurecli
+```cli
 az provider register --namespace 'Microsoft.PolicyInsights'
 ```
 
 有关注册和查看资源提供程序的详细信息，请参阅[资源提供程序和类型](../azure-resource-manager/resource-manager-supported-services.md)
 
+安装 [ARMClient](https://github.com/projectkudu/ARMClient)（如果尚未安装）。 该工具可将 HTTP 请求发送到基于 Azure 资源管理器的 API。
+
 ## <a name="create-a-policy-assignment"></a>创建策略分配
 
-本快速入门将创建一个策略分配，并分配“审核不带托管磁盘的虚拟机”定义。 此策略定义可识别不符合策略定义中设置的条件的资源。
+本快速入门将创建一个策略分配，并分配“审核未使用托管磁盘的 VM”定义。 此策略定义可识别不符合策略定义中设置的条件的资源。
 
 运行以下命令创建策略分配：
 
-```azurecli
-az policy assignment create --name 'Audit Virtual Machines without Managed Disks Assignment' --scope '<scope>' --policy '<policy definition ID>'
+```cli
+az policy assignment create --name 'audit-vm-manageddisks' --display-name 'Audit Virtual Machines without Managed Disks Assignment' --scope '<scope>' --policy '<policy definition ID>'
 ```
 
 上述命令使用以下信息：
 
-- **名称** - 策略分配的显示名称。 本例使用了“审核不带托管磁盘分配的虚拟机”。
-- **策略** - 策略定义 ID，用作创建分配的依据。 在本例中，此值为策略定义“审核不带托管磁盘的虚拟机”。 若要获取策略定义 ID，请运行以下命令：`az policy definition show --name 'Audit Virtual Machines without Managed Disks Assignment'`
+- **名称** - 分配的实际名称。  对于此示例，使用 *audit-vm-manageddisks*。
+- **显示名称** - 策略分配的显示名称。 本例使用了“审核不带托管磁盘分配的虚拟机”。
+- **策略** - 策略定义 ID，用作创建分配的依据。 在本例中，此值为策略定义“审核未使用托管磁盘的 VM”的 ID。 若要获取策略定义 ID，请运行以下命令：`az policy definition list --query "[?displayName=='Audit VMs that do not use managed disks']"`
 - **范围** - 范围确定在其中实施策略分配的资源或资源组。 它可以从订阅延伸至资源组。 请务必将 &lt;scope&gt; 替换为资源组的名称。
 
 ## <a name="identify-non-compliant-resources"></a>识别不合规的资源
 
 若要查看此新分配下不合规的资源，请运行以下命令获取策略分配 ID：
 
-```azurepowershell
-$policyAssignment = Get-AzureRmPolicyAssignment | Where-Object { $_.Properties.DisplayName -eq 'Audit Virtual Machines without Managed Disks' }
+```powershell
+$policyAssignment = Get-AzureRmPolicyAssignment | Where-Object { $_.Properties.DisplayName -eq 'Audit Virtual Machines without Managed Disks Assignment' }
 $policyAssignment.PolicyAssignmentId
 ```
 
@@ -105,8 +108,8 @@ armclient post "/subscriptions/<subscriptionID>/resourceGroups/<rgName>/provider
 
 本教程系列中的其他指南建立在本快速入门的基础之上。 如何打算继续学习后续教程，请不要清除本快速入门中创建的资源。 如果不打算继续学习，请运行以下命令删除创建的分配：
 
-```azurecli
-az policy assignment delete –name 'Audit Virtual Machines without Managed Disks Assignment' --scope '/subscriptions/<subscriptionID>/<resourceGroupName>'
+```cli
+az policy assignment delete --name 'audit-vm-manageddisks' --scope '/subscriptions/<subscriptionID>/<resourceGroupName>'
 ```
 
 ## <a name="next-steps"></a>后续步骤

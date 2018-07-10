@@ -17,22 +17,22 @@ origin.date: 01/12/2017
 ms.date: 12/18/2017
 ms.author: v-yiso
 ROBOTS: NOINDEX
-ms.openlocfilehash: 04257960edf65b80a4377445f7234f5d76d2df04
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: f27a3203a3499c622bbe03f96440a6d9ae5e68c7
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
-ms.locfileid: "26410421"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873516"
 ---
 # <a name="run-hive-queries-using-the-query-console"></a>使用查询控制台运行 Hive 查询
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
 本文介绍如何在浏览器中使用 HDInsight 查询控制台在 HDInsight Hadoop 群集上运行 Hive 查询。
 
-[!INCLUDE [hdinsight-linux-acn-version.md](../../../includes/hdinsight-linux-acn-version.md)]
+
 
 > [!IMPORTANT]
-> HDInsight 查询控制台只能在基于 Windows 的 HDInsight 群集上使用。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
+> HDInsight 查询控制台只能在基于 Windows 的 HDInsight 群集上使用。 Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 >
 > 有关 HDInsight 3.4 或更高版本，请参阅[在 Ambari Hive 视图中运行 Hive 查询](apache-hadoop-use-hive-ambari-view.md)，了解如何通过 Web 浏览器运行 Hive 查询。
 
@@ -43,7 +43,7 @@ ms.locfileid: "26410421"
 * 现代 Web 浏览器
 
 ## <a id="run"></a> 使用查询控制台运行 Hive 查询
-1. 打开 Web 浏览器并导航到 https://CLUSTERNAME.azurehdinsight.cn ，其中 CLUSTERNAME 是 HDInsight 群集的名称。 如果出现提示，输入在创建群集时使用的用户名和密码。
+1. 打开 Web 浏览器并导航到 **https://CLUSTERNAME.azurehdinsight.cn**，其中“CLUSTERNAME”是 HDInsight 群集的名称。 如果出现提示，输入在创建群集时使用的用户名和密码。
 2. 在页面顶部的链接中，选择“Hive 编辑器”。 此时将显示一个窗体，可在其中输入要在 HDInsight 群集上运行的 HiveQL 语句。
 
     ![hive 编辑器](./media/apache-hadoop-use-hive-query-console/queryconsole.png)
@@ -57,7 +57,7 @@ ms.locfileid: "26410421"
         STORED AS TEXTFILE LOCATION 'wasb:///example/data/';
         SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
 
-    这些语句可执行以下操作：
+    这些语句执行以下操作：
 
    * **DROP TABLE**：删除表和数据文件（如果该表已存在）。
    * **CREATE EXTERNAL TABLE**：在 Hive 中创建新“外部”表。 外部表仅在 Hive 中存储表定义；数据会保留在原始位置。
@@ -65,7 +65,7 @@ ms.locfileid: "26410421"
      > [!NOTE]
      > 预期以外部源更新基础数据（例如自动化数据上传过程），或以其他 MapReduce 操作更新基础数据，但希望 Hive 查询使用最新数据时，必须使用外部表。
      >
-     > 删除外部表**不会**删除数据，只会删除表定义。
+     > 删除外部表 **不会** 删除数据，只会删除表定义。
      >
      >
    * **ROW FORMAT**：告知 Hive 如何设置数据的格式。 在此情况下，每个日志中的字段以空格分隔。

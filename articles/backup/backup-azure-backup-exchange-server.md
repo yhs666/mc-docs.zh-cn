@@ -1,26 +1,20 @@
 ---
-title: 使用 System Center 2012 R2 DPM 将 Exchange Server 备份到 Azure 备份 | Microsoft Docs
+title: 使用 System Center 2012 R2 DPM 将 Exchange Server 备份到 Azure 备份
 description: 了解如何使用 System Center 2012 R2 DPM 将 Exchange Server 备份到 Azure 备份
 services: backup
-documentationcenter: ''
-author: alexchen2016
-manager: digimobile
-editor: ''
-ms.assetid: 13f32256-888e-416e-a78b-40c2a26a5939
+author: MaanasSaran
+manager: NKolli1
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
 origin.date: 09/08/2017
-ms.date: 10/31/2017
+ms.date: 07/05/2018
 ms.author: v-junlch
-ms.openlocfilehash: 4e222b7db1a6b648fc9d861c8c440a66dc9007b5
-ms.sourcegitcommit: f57515f13627cce208c6d5a761ca26b5f9a50ad6
+ms.openlocfilehash: b75c36bf457edeb0ce42fb2cbdda63eb5263b24d
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/03/2017
-ms.locfileid: "23978095"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873432"
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-system-center-2012-r2-dpm"></a>使用 System Center 2012 R2 DPM 将 Exchange Server 备份到 Azure 备份
 本文说明如何配置 System Center 2012 R2 Data Protection Manager (DPM) 服务器，以便将 Microsoft Exchange 服务器备份到 Azure 备份。  
@@ -78,7 +72,7 @@ ms.locfileid: "23978095"
    > ![eseutil 错误](./media/backup-azure-backup-exchange-server/eseutil-error.png)
    >
    >
-8. 单机“下一步”
+8. 单击“下一步”。
 9. 选择“**复制备份**”的数据库，并单击“**下一步**”。
 
    > [!NOTE]
@@ -128,4 +122,4 @@ ms.locfileid: "23978095"
 ## <a name="next-steps"></a>后续步骤
 - [Azure 备份常见问题](backup-azure-backup-faq.md)
 
-<!--Update_Description: update metadata properties-->
+<!-- Update_Description: update metedata properties -->

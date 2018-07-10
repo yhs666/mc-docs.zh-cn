@@ -14,12 +14,12 @@ metadata:
   origin.date: 09/23/2017
   ms.date: 01/22/2018
   ms.author: v-yeche
-  ms.openlocfilehash: 1bc8afa4384fb35ada893b3a2612df9541f174a0
-  ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+  ms.openlocfilehash: 31a34923328537dd259bad8dbd94726164acf8c9
+  ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 05/15/2018
-  ms.locfileid: "34060216"
+  ms.lasthandoff: 07/06/2018
+  ms.locfileid: "37873343"
 abstract:
   description: Azure Site Recovery 可以协调和管理 Azure VM、本地 VM 与物理服务器的灾难恢复。 使用快速入门和教程了解如何复制、故障转移与故障回复。
 sections:

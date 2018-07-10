@@ -13,12 +13,12 @@ ms.custom: mvc
 origin.date: 03/27/2018
 ms.date: 06/25/2018
 ms.author: v-nany
-ms.openlocfilehash: a07504c49e157d3995cfe69e490a3a3a2c9f71e3
-ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
+ms.openlocfilehash: 3da77535ea9b01b01739e2efeffd707c8acbfbd2
+ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36748405"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37800361"
 ---
 # <a name="quickstart-create-an-azure-media-services-account"></a>快速入门：创建 Azure 媒体服务帐户
 
@@ -35,7 +35,7 @@ ms.locfileid: "36748405"
 
 登录到 [Azure 门户](http://portal.azure.cn)。
 
-如果选择在本地安装并使用 CLI，本主题要求使用 Azure CLI 2.0 版或更高版本。 运行 `az --version` 即可确定你拥有的版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0]( /cli/azure/install-azure-cli)。 
+如果选择在本地安装并使用 CLI，本主题要求使用 Azure CLI 2.0 版或更高版本。 运行 `az --version` 即可确定你拥有的版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0]( /cli/install-azure-cli)。 
 
 ## <a name="set-the-azure-subscription"></a>设置 Azure 订阅
 
@@ -61,7 +61,7 @@ az group create -n <myresourcegroup> -l chinaeast
 
 以下命令创建将与媒体服务帐户（主要）相关联的存储帐户。 在以下脚本中，替换“storageaccountforams”占位符。 “account_name”的长度必须小于 24。
 
-```azurecli
+```cli
 az storage account create -n <storageaccountforams> -g <myresourcegroup>
 ```
 
@@ -73,7 +73,7 @@ az storage account create -n <storageaccountforams> -g <myresourcegroup>
 * myresourcegroup
 * storageaccountforams
 
-```azurecli
+```cli
 az ams create -n <myamsaccountname> -g <myresourcegroup> --storage-account <storageaccountforams>
 ```
 
@@ -83,7 +83,7 @@ az ams create -n <myamsaccountname> -g <myresourcegroup> --storage-account <stor
 
 在 CloudShell 中，执行以下命令：
 
-```azurecli
+```cli
 az group delete --name myResourceGroup
 ```
 

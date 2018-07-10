@@ -14,12 +14,12 @@ ms.workload: infrastructure
 origin.date: 11/03/2017
 ms.date: 06/04/2018
 ms.author: v-yeche
-ms.openlocfilehash: 1c58cf39bf66da8ac9daa17c016159e905d7df71
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: 612e4e77948c0a9d1e86b6d06b3bcbf27f5c97ba
+ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867781"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37405307"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-azure-powershell"></a>通过使用 Azure PowerShell 将 OS 磁盘附加到恢复 VM 来对 Windows VM 进行故障排除
 如果 Windows 虚拟机 (VM) 在 Azure 中遇到启动或磁盘错误，可能需要对虚拟硬盘本身执行故障排除步骤。 一个常见示例是应用程序更新失败，使 VM 无法成功启动。 本文详细介绍如何使用 Azure PowerShell 将虚拟硬盘连接到另一个 Windows VM 来修复所有错误，并重新创建原始 VM。
@@ -196,7 +196,7 @@ Set-AzureRmVMBootDiagnostics -ResourceGroupName myResourceGroup -VM $myVM -enabl
 Update-AzureRmVM -ResourceGroup "myResourceGroup" -VM $myVM
 ```
 
-## <a name="a-nametroubleshoot-a-managed-disk-vm-by-attaching-a-new-os-diskatroubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk"></a><a name="troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk"><a>通过附加新的 OS 磁盘对托管磁盘 VM 进行故障排除
+## <a name="troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk"></a>通过附加新的 OS 磁盘对托管磁盘 VM 进行故障排除
 1. 停止受影响的托管磁盘 Windows VM。
 2. [创建托管磁盘 VM 的操作系统磁盘的托管磁盘快照](snapshot-copy-managed-disk.md)。
 3. [从快照创建托管磁盘](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md)。

@@ -1,10 +1,10 @@
 ---
-title: 如何填写自定义开发应用程序的特定字段 | Azure
+title: 如何填写自定义开发应用程序的特定字段 | Microsoft Docs
 description: 有关使用 Azure AD 注册自定义开发的应用程序时如何填写特定字段的指南
 services: active-directory
 documentationcenter: ''
-author: yunan2016
-manager: digimobile
+author: ajamess
+manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/11/2017
-ms.date: 1/1/2018
-ms.author: v-nany
-ms.openlocfilehash: c4fd5153aee52081c0585b929450de06ae097087
-ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
+ms.date: 07/04/2018
+ms.author: v-junlch
+ms.openlocfilehash: 3380b1f876a976594a87894ea5c1430cf6f50d5b
+ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
-ms.locfileid: "27548422"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37800370"
 ---
 # <a name="how-to-fill-out-specific-fields-for-a-custom-developed-application"></a>如何填写自定义开发应用程序的特定字段
 
@@ -56,8 +56,7 @@ ms.locfileid: "27548422"
 | 注销 URL      | 这是单一注销的注销 URL。 用户使用任何其他注册的应用程序清除与 Azure AD 的会话时，Azure AD 将向此 URL 发送注销请求。                                                                                                                                       |
 | 多租户  | 此开关指定多个租户是否可以使用应用程序。 通常情况下，这意味着外部组织可以通过在其租户中注册，并授予对其组织数据的访问权限来使用应用程序。                                                                   |
 | 回复 URL      | 回复 URL 是 Azure AD 会在其中返回应用程序请求的任何令牌的终结点。                                                                                                                                                                                                          |
-| 重定向 URI   | 对于本机应用程序，会在其中发送用户以获得以下成功授权。 Azure AD 会检查应用程序在 OAuth 2.0 请求中提供的重定向 URI 是否与门户中的某个注册值相匹配。                                                            |
+| 重定向 URI   | 对于本机应用程序，会在成功授权后向其中发送用户。 Azure AD 会检查应用程序在 OAuth 2.0 请求中提供的重定向 URI 是否与门户中的某个注册值相匹配。                                                            |
 | 密钥            | 可以创建密钥以编程方式访问由 Azure AD 保护的 Web API，而无需任何用户交互。 在\*\*密钥\*\*页中，输入密钥说明和到期日期并保存以生成密钥。 请确保将其保存在安全位置，不然在以后将无法访问它。             |
 
-## <a name="next-steps"></a>后续步骤
-[使用 Azure Active Directory 管理应用程序](active-directory-enable-sso-scenario.md)
+<!-- Update_Description: wording update -->

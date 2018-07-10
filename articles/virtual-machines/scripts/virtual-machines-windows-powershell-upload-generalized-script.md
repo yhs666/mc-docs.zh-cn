@@ -17,12 +17,12 @@ origin.date: 01/02/2018
 ms.date: 06/25/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 85ce42436c249e53cb28165f3c2502db0919085d
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.openlocfilehash: b37761fb68614ee40d343310cd7753aeb422eecb
+ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315611"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37405370"
 ---
 # <a name="sample-script-to-upload-a-vhd-to-azure-and-create-a-new-vm"></a>将 VHD 上传到 Azure 并创建新的 VM 的示例脚本
 
@@ -134,7 +134,7 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 |---------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup)                           | 创建用于存储所有资源的资源组。                                                                                                                          |
 | [New-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermstorageaccount)                         | 创建存储帐户。                                                                                                                                                           |
-| [Add-AzureRmVhd](https://docs.microsoft.com/powershell/module/azurerm.resources/add-azurermvhd)                                               | 将虚拟硬盘从本地虚拟机上传到 Azure 云存储帐户中的 blob。                                                                       |
+| [Add-AzureRmVhd](https://docs.microsoft.com/powershell/module/AzureRM.Compute/Add-AzureRmVhd)                                               | 将虚拟硬盘从本地虚拟机上传到 Azure 云存储帐户中的 blob。                                                                       |
 | [New-AzureRmImageConfig](https://docs.microsoft.com/powershell/module/AzureRM.Compute/new-azurermimageconfig)                               | 创建一个可配置的映像对象。                                                                                                                                                 |
 | [Set-AzureRmImageOsDisk](https://docs.microsoft.com/powershell/module/AzureRM.Compute/set-azurermimageosdisk)                               | 设置映像对象的操作系统磁盘属性。                                                                                                                        |
 | [New-AzureRmImage](https://docs.microsoft.com/powershell/module/AzureRM.Compute/new-azurermimage)                                           | 创建新映像。                                                                                                                                                                 |

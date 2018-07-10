@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 11/14/2017
+origin.date: 06/05/2018
 ms.author: v-yiso
-ms.date: 03/12/2018
-ms.openlocfilehash: 2b3b145b875a1260b4b463c3960c059193b3c862
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.date: 07/16/2018
+ms.openlocfilehash: 604fb15f090c6d7b2e8a2812c97a6b3040593b25
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695107"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873587"
 ---
 # <a name="service-bus-faq"></a>服务总线常见问题解答
 本文讨论了一些关于 Microsoft Azure 服务总线的常见问题解答。 还可以访问 [Azure 支持常见问题解答](http://go.microsoft.com/fwlink/?LinkID=185083)了解常规的 Azure 定价和支持信息。
@@ -39,10 +39,11 @@ ms.locfileid: "34695107"
 主题可被视为队列，使用多个订阅时，它将成为更丰富的消息传送模型；实质上是一种一对多的通信工具。 此发布/订阅模型（或 pub/sub）启用了一个应用程序，该应用程序将消息发送到具有多个订阅的主题中，进而使多个应用程序接收到该消息。
 
 ### <a name="what-is-a-partitioned-entity"></a>什么是分区实体？
+传统的队列或主题由单个消息中转站进行处理并存储在一个消息存储中。 仅在基本和标准消息传递层中受支持，[分区队列或主题](service-bus-partitioning.md)由多个消息中转站处理，并存储在多个消息传送存储中。 此功能意味着分区的队列或主题的总吞吐量不再受到单个消息中转站或消息存储的性能限制。 此外，消息传送存储的临时中断不会导致分区队列或主题不可用。
 
-传统的队列或主题由单个消息中转站进行处理并存储在一个消息存储中。 [分区队列或主题](./service-bus-partitioning.md)由多个消息中转站处理，并存储在多个消息传送存储中。 这意味着分区的队列或主题的总吞吐量不再受到单个消息中转站或消息存储的性能所限制。 此外，消息传送存储的临时中断不会导致分区队列或主题不可用。
+使用分区实体时不保证排序。 如果某个分区不可用，仍可从其他分区发送和接收消息。
 
-请注意，使用分区实体时不保证排序。 如果某个分区不可用，仍可从其他分区发送和接收消息。
+[高级 SKU](service-bus-premium-messaging.md) 中不再支持分区实体。 
 
 ## <a name="best-practices"></a>最佳实践
 ### <a name="what-are-some-azure-service-bus-best-practices"></a>Azure 服务总线的最佳实践有哪些？
@@ -81,9 +82,9 @@ ms.locfileid: "34695107"
 有关服务总线限制和配额的列表，请参阅[服务总线配额概述][Quotas overview]。
 
 ### <a name="does-service-bus-have-any-usage-quotas"></a>服务总线是否有任何使用率配额？
-默认情况下，对于任何云服务，Microsoft 每月都会设置聚合的使用率配额，此配额基于客户的所有订阅进行计算。 如果需要这些限制之外的更多配额，可以随时联系客户服务，以便我们了解需求并相应地调整这些限制。 对于服务总线，总用量配额是每月 50 亿条消息。
+默认情况下，对于任何云服务，Microsoft 每月都会设置聚合的使用率配额，此配额基于客户的所有订阅进行计算。 如果你需要更多配额，可以随时联系客户服务，以便了解你的需求并相应地调整这些限制。 对于服务总线，总用量配额是每月 50 亿条消息。
 
-虽然我们保留禁用在给定月份超过使用配额的客户帐户的权利，但我们仍然会在采取任何措施前发送电子邮件通知，并多次尝试与客户联系。 超过这些配额的客户仍需负责超出配额的费用。
+虽然 Microsoft 保留禁用在给定月份超过使用配额的客户帐户的权利，但仍然会在采取任何措施前发送电子邮件通知，并多次尝试与客户联系。 超过这些配额的客户仍需负责超出配额的费用。
 
 至于 Azure 上的其他服务，服务总线会强制使用一组特定配额，以确保资源的公平使用。 可以在[服务总线配额概述][Quotas overview]中找到有关这些配额的更多详细信息。
 

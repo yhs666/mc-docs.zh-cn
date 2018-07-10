@@ -1,26 +1,21 @@
 ---
-title: Azure 备份服务器保护系统状态并将计算机还原成裸机 | Microsoft Docs
+title: Azure 备份服务器可保护系统状态并还原为裸机
 description: 使用 Azure 备份服务器备份系统状态，并提供裸机恢复 (BMR) 保护。
 services: backup
-documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: markgalioto
+manager: carmonm
 keywords: ''
-ms.assetid: ''
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.targetplatform: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 05/15/2017
-ms.date: 06/30/2017
+ms.date: 07/06/2018
 ms.author: v-junlch
-ms.openlocfilehash: d07deaaa6dff0b3318d6725f091ee4ce762c00ed
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.openlocfilehash: 9ef2d1dd5190e1ea7df5d65faf1098745efc5735
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
-ms.locfileid: "20472614"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873673"
 ---
 # <a name="back-up-system-state-and-restore-to-bare-metal-with-azure-backup-server"></a>使用 Azure 备份服务器备份系统状态，并将计算机还原成裸机
 
@@ -35,21 +30,21 @@ Azure 备份服务器备份系统状态，并提供裸机恢复 (BMR) 保护。
 
 下表总结了可以备份和恢复的内容。 若要详细了解可以通过系统状态和 BMR 进行保护的应用版本，请参阅 [Azure 备份服务器备份什么？](backup-mabs-protection-matrix.md)。
 
-|备份|问题|从 Azure 备份服务器备份恢复|从系统状态备份恢复|BMR|
+|Backup|问题|从 Azure 备份服务器备份恢复|从系统状态备份恢复|BMR|
 |----------|---------|---------------------------|------------------------------------|-------|
 |文件数据<br /><br />常规数据备份<br /><br />BMR/系统状态备份|丢失文件数据|Y|N|N|
-|文件数据<br /><br />对文件数据进行 Azure 备份服务器备份<br /><br />BMR/系统状态备份|丢失或损坏操作系统|N|Y|Y|
+|文件数据<br /><br />对文件数据进行 Azure 备份服务器备份<br /><br />BMR/系统状态备份|操作系统丢失或损坏|N|Y|Y|
 |文件数据<br /><br />对文件数据进行 Azure 备份服务器备份<br /><br />BMR/系统状态备份|丢失服务器（数据卷完整）|N|N|Y|
 |文件数据<br /><br />对文件数据进行 Azure 备份服务器备份<br /><br />BMR/系统状态备份|丢失服务器（数据卷丢失）|Y|否|是（BMR，随后对已备份文件数据进行常规恢复）|
 |SharePoint 数据：<br /><br />对场数据进行 Azure 备份服务器备份<br /><br />BMR/系统状态备份|丢失站点、列表、列表项、文档|Y|N|N|
-|SharePoint 数据：<br /><br />对场数据进行 Azure 备份服务器备份<br /><br />BMR/系统状态备份|丢失或损坏操作系统|N|Y|Y|
+|**SharePoint 数据**：<br /><br />对场数据进行 Azure 备份服务器备份<br /><br />BMR/系统状态备份|操作系统丢失或损坏|N|Y|Y|
 |SharePoint 数据：<br /><br />对场数据进行 Azure 备份服务器备份<br /><br />BMR/系统状态备份|灾难恢复|N|N|N|
 |Windows Server 2012 R2 Hyper-V<br /><br />对 Hyper-V 主机或来宾进行 Azure 备份服务器备份<br /><br />对主机进行 BMR/系统状态备份|丢失 VM|Y|N|N|
-|Hyper-V<br /><br />对 Hyper-V 主机或来宾进行 Azure 备份服务器备份<br /><br />对主机进行 BMR/系统状态备份|丢失或损坏操作系统|N|Y|Y|
-|Hyper-V<br /><br />对 Hyper-V 主机或来宾进行 Azure 备份服务器备份<br /><br />对主机进行 BMR/系统状态备份|丢失 Hyper-V 主机（VM 完整）|N|N|Y|
-|Hyper-V<br /><br />对 Hyper-V 主机或来宾进行 Azure 备份服务器备份<br /><br />对主机进行 BMR/系统状态备份|丢失 Hyper-V 主机（VM 丢失）|N|N|Y<br /><br />BMR，随后进行常规 Azure 备份服务器恢复|
+|Hyper-V<br /><br />Hyper-V 主机或来宾的 Azure 备份服务器备份<br /><br />对主机进行 BMR/系统状态备份|丢失或损坏操作系统|N|Y|Y|
+|Hyper-V<br /><br />Hyper-V 主机或来宾的 Azure 备份服务器备份<br /><br />对主机进行 BMR/系统状态备份|丢失 Hyper-V 主机（VM 完整）|N|N|Y|
+|Hyper-V<br /><br />Hyper-V 主机或来宾的 Azure 备份服务器备份<br /><br />对主机进行 BMR/系统状态备份|丢失 Hyper-V 主机（VM 丢失）|N|N|Y<br /><br />BMR，随后进行常规 Azure 备份服务器恢复|
 |SQL Server/Exchange<br /><br />Azure 备份服务器应用备份<br /><br />BMR/系统状态备份|丢失应用数据|Y|N|N|
-|SQL Server/Exchange<br /><br />Azure 备份服务器应用备份<br /><br />BMR/系统状态备份|丢失或损坏操作系统|N|y|Y|
+|SQL Server/Exchange<br /><br />Azure 备份服务器应用备份<br /><br />BMR/系统状态备份|操作系统丢失或损坏|N|y|Y|
 |SQL Server/Exchange<br /><br />Azure 备份服务器应用备份<br /><br />BMR/系统状态备份|丢失服务器（数据库/事务日志完整）|N|N|Y|
 |SQL Server/Exchange<br /><br />Azure 备份服务器应用备份<br /><br />BMR/系统状态备份|丢失服务器（数据库/事务日志丢失）|N|N|Y<br /><br />BMR 恢复，随后进行常规 Azure 备份服务器恢复|
 
@@ -100,7 +95,7 @@ Azure 备份服务器备份系统状态，并提供裸机恢复 (BMR) 保护。
 
     如果从 BMR 保护更改为系统状态保护，则需要受保护计算机上有空间。 这是因为，系统状态保护首先将副本写入本地计算机，然后再将它传输到备份服务器计算机。
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="before-you-begin"></a>准备阶段
 
 1.  部署 Azure 备份服务器。 验证备份服务器是否已正确部署。 有关详细信息，请参阅：
     - [Azure 备份服务器的系统要求](http://docs.microsoft.com/system-center/dpm/install-dpm#setup-prerequisites)
@@ -229,3 +224,4 @@ Azure 备份服务器备份系统状态，并提供裸机恢复 (BMR) 保护。
     确认要开始恢复。 可以在命令提示符窗口中查看过程。 将会创建还原日志。 还原之后，重启服务器。
 
 
+<!-- Update_Description: update metedata properties -->

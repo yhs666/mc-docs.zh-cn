@@ -12,15 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-origin.date: 10/16/2017
+origin.date: 06/05/2018
 ms.author: v-yiso
-ms.date: 12/11/2017
-ms.openlocfilehash: d634f8fd64ce5607d5c02df6c97ad77df3c62836
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.date: 07/16/2018
+ms.openlocfilehash: 112c4c2325e185b263cc60ca57681b80cbaf8869
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
-ms.locfileid: "26044818"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873398"
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>使用 Azure 服务总线队列创建 .NET 多层应用程序
 
@@ -46,7 +46,7 @@ ms.locfileid: "26044818"
 
 在 Web 层和中间层之间使用服务总线消息传送将分离这两个组件。 与直接消息传送（即 TCP 或 HTTP）不同，Web 层不会直接连接到中间层，而是将工作单元作为消息推送到服务总线，服务总线将以可靠方式保留这些工作单元，直到中间层准备好使用和处理它们。
 
-服务总线提供了两个实体以支持中转消息传送：队列和主题。 通过队列，发送到队列的每个消息均由一个接收方使用。 主题支持发布/订阅模式，在该模式下，会为注册到主题中的订阅提供每个已发布消息。 每个订阅都会以逻辑方式保留其自己的消息队列。 此外，还可以使用筛选规则配置订阅，这些规则可将传递给订阅队列的消息集限制为符合筛选条件的消息集。 以下示例使用服务总线队列。
+服务总线提供了两个实体以支持中转消息传送：队列和主题。 通过队列，发送到队列的每个消息均由一个接收方使用。 主题支持发布/订阅模式，在该模式下，会为注册到主题中的订阅提供每个已发布消息。 每个订阅都以逻辑方式保留自己的消息队列。 此外，还可以使用筛选规则配置订阅，这些规则可将传递给订阅队列的消息集限制为符合筛选条件的消息集。 以下示例使用服务总线队列。
 
 ![][1]
 
@@ -62,18 +62,9 @@ ms.locfileid: "26044818"
 
 以下各节讨论了实现此体系结构的代码。
 
-## <a name="set-up-the-development-environment"></a>设置开发环境
-
-在开始开发 Azure 应用程序之前，需要获取工具并设置开发环境。
-
-1. 从 SDK [下载页](https://azure.microsoft.com/downloads/)安装用于 .NET 的 Azure SDK。
-2. 在“.NET”列中，单击要使用的 [Visual Studio](http://www.visualstudio.com) 版本。 本教程中的步骤适用于 Visual Studio 2015，但也适用于 Visual Studio 2017。
-3. 当提示是要运行还是保存安装程序时，单击“运行”。
-4. 在“Web 平台安装程序”中，单击“安装”，并继续安装。
-5. 安装完成后，就有了开始开发应用所需的一切。 SDK 包含了一些工具，可利用这些工具在 Visual Studio 中轻松开发 Azure 应用程序。
-
 ## <a name="create-a-namespace"></a>创建命名空间
-下一步是创建命名空间并获取该命名空间的[共享访问签名 (SAS) 密钥](service-bus-sas.md)。 命名空间为每个通过服务总线公开的应用程序提供应用程序边界。 创建命名空间后，系统生成一个 SAS 密钥。 命名空间名称与 SAS 密钥的组合为服务总线提供了用于验证应用程序访问权限的凭据。
+
+第一步是创建命名空间并获取该命名空间的[共享访问签名 (SAS) 密钥](service-bus-sas.md)。 命名空间为每个通过服务总线公开的应用程序提供应用程序边界。 创建命名空间后，系统生成一个 SAS 密钥。 命名空间名称与 SAS 密钥的组合为服务总线提供了用于验证应用程序访问权限的凭据。
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
@@ -197,7 +188,7 @@ ms.locfileid: "26044818"
 
     ![][28]
 
-11. 最后，修改提交页以包含有关队列的一些信息。 在“解决方案资源管理器”中，双击“Views\Home\Submit.cshtml”文件以在 Visual Studio 编辑器中将其打开。 `<h2>Submit</h2>`后面添加以下行。 `ViewBag.MessageCount` 当前为空。 稍后将填充它。
+11. 最后，修改提交页以包含有关队列的一些信息。 在“解决方案资源管理器”中，双击“Views\Home\Submit.cshtml”文件以在 Visual Studio 编辑器中将其打开。 `<h2>Submit</h2>`后面添加以下行。 `ViewBag.MessageCount` 当前为空。 稍后你将填充它。
     
     ```html
     <p>Current number of orders in queue waiting to be processed: @ViewBag.MessageCount</p>
@@ -207,9 +198,9 @@ ms.locfileid: "26044818"
 
     ![][17]
 
-### <a name="write-the-code-for-submitting-items-to-a-service-bus-queue"></a>编写用于将项提交到 Service Bus 队列的代码
+### <a name="write-the-code-for-submitting-items-to-a-service-bus-queue"></a>编写用于将项提交到服务总线队列的代码
 
-现在，将添加用于将项提交到队列的代码。 首先，将创建一个包含服务总线队列连接信息的类。 然后，用户将从 Global.aspx.cs 初始化用户的连接。 最后，更新你之前在 HomeController.cs 中创建的提交代码以便实际将项提交到服务总线队列。
+现在，将添加用于将项提交到队列的代码。 首先，将创建一个包含服务总线队列连接信息的类。 然后，用户将从 Global.aspx.cs 初始化用户的连接。 最后，将更新你之前在 HomeController.cs 中创建的提交代码以便实际将项提交到服务总线队列。
 
 1.  在“解决方案资源管理器”中，右键单击“FrontendWebRole”（右键单击项目而不是角色）。 单击“添加”，并单击“类”。
 

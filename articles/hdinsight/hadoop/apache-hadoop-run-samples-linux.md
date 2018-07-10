@@ -16,12 +16,12 @@ ms.topic: conceptual
 origin.date: 05/16/2018
 ms.date: 06/25/2018
 ms.author: v-yiso
-ms.openlocfilehash: 447eae2334121d6ca4700069be2f8d35a5b006be
-ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
+ms.openlocfilehash: f93feb19c75724fd4a6d950478e9b4e9ce92ed2a
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36747379"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873527"
 ---
 # <a name="run-the-mapreduce-examples-included-in-hdinsight"></a>运行 HDInsight 包含的 MapReduce 示例
 
@@ -31,7 +31,7 @@ ms.locfileid: "36747379"
 
 ## <a name="prerequisites"></a>先决条件
 
-[!INCLUDE [hdinsight-linux-acn-version.md](../../../includes/hdinsight-linux-acn-version.md)]
+
 
 * **HDInsight 群集**：请参阅[在 Linux 上的 HDInsight 中开始将 Hadoop 与 Hive 配合使用](apache-hadoop-linux-tutorial-get-started.md)
 

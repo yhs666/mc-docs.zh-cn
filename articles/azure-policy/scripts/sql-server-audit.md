@@ -13,15 +13,15 @@ ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: ''
 origin.date: 04/27/2018
-ms.date: 06/04/2018
+ms.date: 07/09/2018
 ms.author: v-nany
 ms.custom: mvc
-ms.openlocfilehash: 213114d3f7b90e5951b2fadbf7b678c1e645dfe0
-ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
+ms.openlocfilehash: c5dbf3bb93dde8ba33fafec5fb4a935d89f2600f
+ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36748325"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37405351"
 ---
 # <a name="audit-sql-server-audit-settings"></a>审核 SQL Server 审核设置
 
@@ -91,7 +91,7 @@ Remove-AzureRmPolicyAssignment -Name "SQL Audit audit" -Scope <scope>
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-```azurecli
+```cli
 az policy assignment create --scope <scope> --name "SQL Audit audit" --policy a6fb4358-5bf4-4ad7-ba82-2cd2f41ce5e9 --params '{"setting": {"value":"enabled"}}'
 ```
 
@@ -99,10 +99,10 @@ az policy assignment create --scope <scope> --name "SQL Audit audit" --policy a6
 
 运行以下命令删除策略分配。
 
-```azurecli
+```cli
 az policy assignment delete --name "SQL Audit audit" --resource-group myResourceGroup
 ```
 
 ## <a name="next-steps"></a>后续步骤
 
-- 其他 Azure 策略模板示例位于 [Azure 策略模板](../json-samples.md)。
+- 有关更多示例，请参阅 [Azure 策略示例](../json-samples.md)。

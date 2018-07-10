@@ -15,12 +15,12 @@ metadata:
   origin.date: 03/23/2018
   ms.date: 06/11/2018
   ms.author: v-yeche
-  ms.openlocfilehash: 8e5aa73f2ada459a52661b5a61f609b63504dda1
-  ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+  ms.openlocfilehash: cf3f1b9ada585148f568ac60b10841592005e026
+  ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 06/22/2018
-  ms.locfileid: "36315622"
+  ms.lasthandoff: 07/06/2018
+  ms.locfileid: "37873283"
 abstract:
   description: 了解如何使用 Azure 虚拟网络。 快速入门、教程和示例等等，显示了如何部署虚拟网络，如何控制流量筛选和路由，以及如何将虚拟网络连接到其他虚拟网络。
 sections:

@@ -14,14 +14,14 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 11/02/2017
-ms.date: 12/04/2017
+ms.date: 07/16/2018
 ms.author: v-yiso
-ms.openlocfilehash: dfeec6d7ab7672f89fcdedf922cb8ea3eec3bd1c
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: ee80429c50007c243ca2bbe4ed054c93f9aa03ed
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
-ms.locfileid: "25592572"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873532"
 ---
 # <a name="what-are-the-azure-iot-suite-preconfigured-solutions"></a>Azure IoT 套件预配置解决方案是什么？
 
@@ -78,6 +78,8 @@ Azure IoT 套件预配置解决方案是可以使用订阅部署到 Azure 的常
 
 * *启动固件更新*：此方法在设备上启动异步任务以执行固件更新。 此异步任务使用报告的属性将状态更新传送给解决方案仪表板。
 * *重新启动*：此方法使模拟设备重新启动。
+* *FactoryReset*：此方法会触发模拟设备上的出厂设置恢复。
+
 在预配置解决方案中，当设备首次连接到 IoT 中心时，会向中心发送设备信息消息。 该消息枚举了设备可以响应的命令。 在远程监视预配置解决方案中，模拟设备支持以下命令：
 
 * *Ping 设备*：设备通过确认响应此命令。 此命令对于检查设备是否仍然活动且正在侦听很有用。
@@ -163,7 +165,7 @@ IoT 中心通过服务端遥测数据读取终结点使收到的遥测数据可�
 [img-dashboard]: ./media/iot-suite-v1-what-are-preconfigured-solutions/dashboard.png
 [lnk-what-is-azure-iot]: iot-suite-what-is-azure-iot.md
 [lnk-asa]: /stream-analytics/
-[lnk-event-processor]: ../event-hubs/event-hubs-programming-guide.md#event-processor-host
+[lnk-event-processor]: ../event-hubs/event-hubs-programming-guide.md#event-consumers
 [lnk-web-job]: ../app-service/web-sites-create-web-jobs.md
 [lnk-identity-registry]: ../iot-hub/iot-hub-devguide-identity-registry.md
 [lnk-predictive-maintenance]: iot-suite-predictive-overview.md

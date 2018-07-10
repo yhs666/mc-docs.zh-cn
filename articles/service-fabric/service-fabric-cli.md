@@ -6,15 +6,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: service-fabric
 ms.topic: conceptual
-origin.date: 10/20/2017
-ms.date: 05/28/2018
+origin.date: 05/23/2018
+ms.date: 07/09/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7035adfb47f1c4494b19f6d606b072dc6a38fab5
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: 512bf1985e08b6ef8afadfa84808b72912c208c9
+ms.sourcegitcommit: 292f22020e00c607229c1693229f25fb2837d8af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554443"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37910586"
 ---
 # <a name="azure-service-fabric-cli"></a>Azure Service Fabric CLI
 
@@ -34,7 +34,8 @@ Service Fabric CLI 旨在支持 Service Fabric SDK 的最新运行时版本。 �
 
 | CLI 版本   | 支持的运行时版本 |
 |---------------|---------------------------|
-| 最新 (~=4)  | 最新 (~=6.1)            |
+| 最新 (~=5)  | 最新 (~=6.2)            |
+| 4.0.0         | 6.1                       |
 | 3.0.0         | 6.0                       |
 | 1.1.0         | 5.6, 5.7                  |
 
@@ -71,7 +72,7 @@ python --version
 pip --version
 ```
 
-然后运行以下命令，安装 Service Fabric CLI：
+然后运行以下命令来安装 Azure Service Fabric CLI (sfctl) 并查看 CLI 帮助页：
 
 ```bat
 pip install sfctl
@@ -113,7 +114,7 @@ sudo pip3 install sfctl
 <!-- Not Available on ### Red Hat Enterprise Linux 7.4 (Service Fabric preview support) -->
 
 <a name = "cli-mac"></a>
-### MacOS
+### <a name="macos"></a>MacOS
 
 对于 MacOS，建议使用 [HomeBrew 包管理器](https://brew.sh)。 如果尚未安装 HomeBrew，请通过运行以下命令安装它：
 
@@ -221,13 +222,13 @@ openssl  pkcs12 -export -out Certificates.pfx -inkey Certificates.pem -in Certif
 
 某些操作可能会生成以下消息：
 
-`Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known`
+`Failed to establish a new connection`
 
 验证指定的群集终结点是否可用且正进行侦听。 另请验证是否可以在该主机和端口上使用 Service Fabric Explorer UI。 若要更新终结点，请使用 `sfctl cluster select`。
 
 ### <a name="detailed-logs"></a>详细日志
 
-调试或报告某个问题时，详细日志通常很有用。 全局 `--debug` 标志可提高日志文件的详细程度。
+调试或报告某个问题时，详细日志通常很有用。 `--debug` 标志可提高输出的详细程度。
 
 ### <a name="command-help-and-syntax"></a>命令帮助和语法
 

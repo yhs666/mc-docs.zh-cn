@@ -13,12 +13,12 @@ ms.custom: mvc
 origin.date: 04/09/2018
 ms.date: 06/25/2018
 ms.author: v-nany
-ms.openlocfilehash: 57bb6eda89d770d7e6e7b8edee91484bbe3a9c52
-ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
+ms.openlocfilehash: 16dec461fdee8808a8f3f0227e8e6c9605072b22
+ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36748427"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37800476"
 ---
 # <a name="tutorial-analyze-videos-with-azure-media-services"></a>教程：使用 Azure 媒体服务分析视频 
 
@@ -94,7 +94,7 @@ CreateInputAsset 函数创建新的输入[资产](https://docs.microsoft.com/res
 以下函数执行以下操作：
 
 * 创建资产 
-* 获取资产的[存储中容器](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet?tabs=windows#upload-blobs-to-the-container)的可写 [SAS URL](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)
+* 获取资产的[存储中容器](/storage/blobs/storage-quickstart-blobs-dotnet?tabs=windows#upload-blobs-to-the-container)的可写 [SAS URL](/storage/common/storage-dotnet-shared-access-signature-part-1)
 * 使用 SAS URL 将文件上传到存储中的容器中
 
 ```C#

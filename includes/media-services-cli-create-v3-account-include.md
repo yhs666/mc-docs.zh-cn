@@ -9,12 +9,12 @@ origin.date: 04/13/2018
 ms.date: 05/28/2018
 ms.author: v-nany
 ms.custom: include file
-ms.openlocfilehash: 111372f8b993e211316c19a32a366b03ab88b26c
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: cf155a3a17e5c20f8af609cc0c5922cca0c4fe1e
+ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695570"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37800545"
 ---
 ## <a name="create-a-media-services-account"></a>创建媒体服务帐户
 
@@ -24,7 +24,7 @@ ms.locfileid: "34695570"
 
 使用以下命令创建资源组。 Azure 资源组是在其中部署和管理资源（例如 Azure 媒体服务帐户和关联的存储帐户）的逻辑容器。
 
-```azurecli-interactive
+```cli
 az group create --name amsResourceGroup --location chinaeast
 ```
 
@@ -38,7 +38,7 @@ az group create --name amsResourceGroup --location chinaeast
 
 以下命令创建将与媒体服务帐户相关联的存储帐户。 在以下脚本中，可以将 `storageaccountforams` 替换为你的值。 帐户名称的长度必须小于 24。
 
-```azurecli-interactive
+```cli
 az storage account create --name storageaccountforams \  
 --kind StorageV2 \
 --sku Standard_RAGRS \
@@ -49,6 +49,6 @@ az storage account create --name storageaccountforams \
 
 以下 Azure CLI 命令创建新的媒体服务帐户。 可以替换以下值：`amsaccount`  `storageaccountforams`（必须与提供给存储帐户的值相符）和 `amsResourceGroup`（必须与提供给资源组的值相符）。
 
-```azurecli-interactive
+```cli
 az ams account create --name amsaccount --resource-group amsResourceGroup --storage-account storageaccountforams
 ```

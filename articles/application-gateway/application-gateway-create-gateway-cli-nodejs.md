@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/31/2017
-ms.date: 06/07/2018
+ms.date: 07/02/2018
 ms.author: v-junlch
-ms.openlocfilehash: 2da3ea52191722581cab53f549fbdff9e272f794
-ms.sourcegitcommit: 4fe9905d17a8df9f2270543a5a0ce1762a5830c9
+ms.openlocfilehash: 1dfafe1ab9c75925c4d156189814059ac2e19291
+ms.sourcegitcommit: f0bfa3f8dca94099a2181492952e6a575fbdbcc8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34855733"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37142571"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-cli"></a>使用 Azure CLI 创建应用程序网关
 
@@ -42,7 +42,7 @@ Azure 应用程序网关是第 7 层负载均衡器。 它在不同服务器之�
 若要执行本文中的步骤，需要[安装适用于 Mac、Linux 和 Windows 的 Azure 命令行接口 (Azure CLI)](../xplat-cli-install.md)，还需要[登录 Azure](/cli/authenticate-azure-cli)。 
 
 > [!NOTE]
-> 如果没有 Azure 帐户，则需要注册一个。 请[在此处注册试用版](../active-directory/sign-up-organization.md)。
+> 如果没有 Azure 帐户，则需要注册一个。 请[在此处注册试用版](../active-directory/fundamentals/sign-up-organization.md)。
 
 ## <a name="scenario"></a>方案
 
@@ -92,8 +92,8 @@ azure config mode arm
 在创建应用程序网关前，会创建资源组以包含应用程序网关。 以下显示该命令。
 
 ```azurecli
-azure group create \
---name ContosoRG \
+azure group create `
+--name ContosoRG `
 --location chinanorth
 ```
 
@@ -102,10 +102,10 @@ azure group create \
 创建资源组后，会为应用程序网关创建虚拟网络。  在以下示例中，地址空间为前述方案说明中定义的 10.0.0.0/16。
 
 ```azurecli
-azure network vnet create \
---name ContosoVNET \
---address-prefixes 10.0.0.0/16 \
---resource-group ContosoRG \
+azure network vnet create `
+--name ContosoVNET `
+--address-prefixes 10.0.0.0/16 `
+--resource-group ContosoRG `
 --location chinanorth
 ```
 
@@ -114,10 +114,10 @@ azure network vnet create \
 创建虚拟网络后，会为应用程序网关添加子网。  如果计划搭配使用应用程序网关和与其在同一虚拟网络中托管的 Web 应用，请确保为其他子网留出足够的空间。
 
 ```azurecli
-azure network vnet subnet create \
---resource-group ContosoRG \
---name subnet01 \
---vnet-name ContosoVNET \
+azure network vnet subnet create `
+--resource-group ContosoRG `
+--name subnet01 `
+--vnet-name ContosoVNET `
 --address-prefix 10.0.0.0/28 
 ```
 
@@ -126,21 +126,21 @@ azure network vnet subnet create \
 创建虚拟网络和子网后，即已满足应用程序网关的先决条件。 此外，以下步骤还需要之前导出的 .pfx 证书和证书密码：用于后端的 IP 地址是后端服务器的 IP 地址。 这些值可以是虚拟网络中的专用 IP、公共 IP 或后端服务器的完全限定域名。
 
 ```azurecli
-azure network application-gateway create \
---name AdatumAppGateway \
---location chinanorth \
---resource-group ContosoRG \
---vnet-name ContosoVNET \
---subnet-name subnet01 \
---servers 134.170.185.46,134.170.188.221,134.170.185.50 \
---capacity 2 \
---sku-tier Standard \
---routing-rule-type Basic \
---frontend-port 80 \
---http-settings-cookie-based-affinity Enabled \
---http-settings-port 80 \
---http-settings-protocol http \
---frontend-port http \
+azure network application-gateway create `
+--name AdatumAppGateway `
+--location chinanorth `
+--resource-group ContosoRG `
+--vnet-name ContosoVNET `
+--subnet-name subnet01 `
+--servers 134.170.185.46,134.170.188.221,134.170.185.50 `
+--capacity 2 `
+--sku-tier Standard `
+--routing-rule-type Basic `
+--frontend-port 80 `
+--http-settings-cookie-based-affinity Enabled `
+--http-settings-port 80 `
+--http-settings-protocol http `
+--frontend-port http `
 --sku-name Standard_Medium
 ```
 
@@ -163,4 +163,4 @@ azure network application-gateway create \
 [2]: ./media/application-gateway-create-gateway-cli-nodejs/figure2.png
 [3]: ./media/application-gateway-create-gateway-cli-nodejs/figure3.png
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: link update -->

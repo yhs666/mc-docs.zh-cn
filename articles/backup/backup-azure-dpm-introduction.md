@@ -1,27 +1,21 @@
 ---
-title: 使用 DPM 将工作负荷备份到 Azure 门户 | Microsoft Docs
+title: 使用 DPM 将工作负荷备份到 Azure 门户
 description: 使用 Azure 备份服务备份 DPM 服务器的简介
 services: backup
-documentationcenter: ''
 author: adigan
 manager: nkolli
-editor: ''
 keywords: System Center Data Protection Manager, Data Protection Manager, dpm 备份
-ms.assetid: c8c322cf-f5eb-422c-a34c-04a4801bfec7
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 08/15/2017
-ms.date: 04/08/2018
+ms.date: 07/05/2018
 ms.author: v-junlch
-ms.openlocfilehash: 00447ce1bae75852726a6352a8c7c794001abceb
-ms.sourcegitcommit: ce691e6877a362d33b5484b9bbf85c93915689a7
+ms.openlocfilehash: 918234be1331675e3325834f9549f04bb9da1f1a
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/09/2018
-ms.locfileid: "30955107"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873421"
 ---
 # <a name="preparing-to-back-up-workloads-to-azure-with-dpm"></a>使用 DPM 准备将工作负荷备份到 Azure
 > [!div class="op_single_selector"]
@@ -92,7 +86,7 @@ ms.locfileid: "30955107"
 5. 单击“订阅”查看可用订阅列表。 如果不确定要使用哪个订阅，请使用默认的（或建议的）订阅。 仅当组织帐户与多个 Azure 订阅关联时，才会有多个选项。
 6. 单击“资源组”查看可用资源组列表，或单击“新建”创建新的资源组。 有关资源组的完整信息，请参阅 [Azure Resource Manager 概述](../azure-resource-manager/resource-group-overview.md)
 7. 单击“位置”，为保管库选择地理区域  。
-8. 单击“创建”。 创建恢复服务保管库可能需要一段时间。 可以在门户右上区域监视状态通知。
+8. 单击**创建**。 创建恢复服务保管库可能需要一段时间。 可以在门户右上区域监视状态通知。
    创建保管库后，它会在门户中打开。
 
 ### <a name="set-storage-replication"></a>设置存储复制
@@ -209,4 +203,4 @@ ms.locfileid: "30955107"
 >
 >
 
-<!--Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

@@ -15,12 +15,12 @@ ms.workload: database
 origin.date: 05/17/2018
 ms.date: 07/02/2018
 ms.author: v-johch
-ms.openlocfilehash: 1476f0b147f6c7983f26c1340879bc627cec18df
-ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
+ms.openlocfilehash: d326ab821e57aaece56b80452146c2d6e279a33a
+ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36948031"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37800496"
 ---
 # <a name="use-cli-to-create-a-single-azure-sql-database-and-configure-a-firewall-rule"></a>使用 CLI 创建单一 Azure SQL 数据库并配置防火墙规则
 
@@ -65,21 +65,13 @@ az sql server firewall-rule create \
     --start-ip-address $startip \
     --end-ip-address $endip
 
-# Create a database in the server with zone redundancy as true
+# Create a database in the server
 az sql db create \
     --resource-group myResourceGroup \
     --server $servername \
     --name mySampleDatabase \
     --sample-name AdventureWorksLT \
-    --service-objective S0 \
-    --zone-redundant
-
-# Update database and set zone redundancy as false
-az sql db update \
-    --resource-group myResourceGroup \
-    --server $servername \
-    --name mySampleDatabase \
-    --zone-redundant false
+    --service-objective S0
 
 ```
 ## <a name="clean-up-deployment"></a>清理部署

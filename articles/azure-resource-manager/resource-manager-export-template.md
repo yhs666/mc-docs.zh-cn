@@ -11,16 +11,16 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 02/23/2018
-ms.date: 03/26/2018
+ms.date: 07/09/2018
 ms.author: v-yeche
-ms.openlocfilehash: 69a255a35558cf965a2d84e0d18002edcae618c3
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: 6ec1401eb4873fb47ef3db39ac603dadbf643120
+ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30222767"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37405387"
 ---
 # <a name="export-an-azure-resource-manager-template-from-existing-resources"></a>从现有资源导出 Azure 资源管理器模板
 本文介绍如何从订阅中的现有资源导出 Resource Manager 模板。 可以使用该生成的模板更好地了解模板语法。
@@ -66,8 +66,7 @@ ms.locfileid: "30222767"
 
     1. **模板** - 定义解决方案基础结构的模板。 通过门户创建存储帐户时，Resource Manager 使用模板来部署该存储帐户，并保存该模板供将来参考。
     2. **参数** - 可用于在部署过程中传入值的参数文件。 它包含你在首次部署时提供的值。 重新部署模板时，可以更改这其中的任何值。
-    3. **CLI** - 可用于部署该模板的 Azure 命令行界面 (CLI) 脚本文件。
-    3. **CLI 2.0** - 可用于部署该模板的 Azure 命令行界面 (CLI) 脚本文件。
+    3. **CLI** - 可用于部署模板的 Azure CLI 脚本文件。
     4. **PowerShell** - 可用于部署该模板的 Azure PowerShell 脚本文件。
     5. **.NET** - 可用于部署该模板的 .NET 类。
     6. **Ruby** - 可用于部署模板的 Ruby 类。

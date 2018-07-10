@@ -214,7 +214,6 @@
 ## [REST](https://docs.microsoft.com/rest/api/media/mediaservice)  
 ## 规范
 ### [实时引入 - 碎片化的 MP4 实时引入规范](media-services-fmp4-live-ingest-overview.md)
-### [平滑流式处理 HEVC](media-services-specifications-ms-sstr-amendment-hevc.md)
 
 # 资源
 ## [发行说明](media-services-release-notes.md)

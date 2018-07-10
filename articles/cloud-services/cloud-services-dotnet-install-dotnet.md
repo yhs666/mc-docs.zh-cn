@@ -12,20 +12,20 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 05/10/2018
+origin.date: 06/12/2018
 ms.author: v-yiso
 ms.date: 06/11/2018
-ms.openlocfilehash: 572d65063022703042ff1a02cd44eab3cf952401
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 5d951a40764fcc555ad5f802bc55afbf451c292c
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695013"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873334"
 ---
 # <a name="install-net-on-azure-cloud-services-roles"></a>在 Azure 云服务角色上安装 .NET
 本文介绍如何安装不随 Azure 来宾 OS 一起提供的 .NET Framework 版本。 可使用来宾 OS 上的 .NET 配置云服务 web 角色和辅助角色。
 
-例如，可在来宾 OS 系列 4 上安装 .NET 4.6.1（它不随 .NET 4.6 的任何版本一起提供）。 （来宾 OS 系列 5 随 .NET 4.6 一起提供。）有关最新的 Azure 来宾 OS 版本信息，请参阅 [Azure 来宾 OS 发行动态](cloud-services-guestos-update-matrix.md)。 
+例如，可在来宾 OS 系列 4 上安装 .NET 4.6.2（它不随 .NET 4.6 的任何版本一起提供）。 （来宾 OS 系列 5 随 .NET 4.6 一起提供。）有关最新的 Azure 来宾 OS 版本信息，请参阅 [Azure 来宾 OS 发行动态](cloud-services-guestos-update-matrix.md)。 
 
 >[!IMPORTANT]
 >Azure SDK 2.9 包含一个限制，限制将 .NET 4.6 部署到来宾 OS 系列 4 或更早版本。 有关此限制的修复方法可在 [Microsoft 文档](https://github.com/MicrosoftDocs/azure-cloud-services-files/tree/master/Azure%20Targets%20SDK%202.9)站点上找到。
@@ -36,7 +36,7 @@ ms.locfileid: "34695013"
 若要下载 .NET Framework 的 Web 安装程序，请选择想要安装的版本：
 
 * [.NET 4.7.2 Web 安装程序](http://go.microsoft.com/fwlink/?LinkId=863262)
-* [.NET 4.6.1 Web 安装程序](http://go.microsoft.com/fwlink/?LinkId=671729)
+* [.NET 4.6.2 Web 安装程序](https://www.microsoft.com/download/details.aspx?id=53345)
 
 添加 web 角色的安装程序：
   1. 在“解决方案资源管理器”中云服务项目中的“角色”下，右键单击 web 角色，然后选择“添加” > “新文件夹”。 创建一个名为 **bin** 的文件夹。
@@ -48,7 +48,7 @@ ms.locfileid: "34695013"
 当以此方式将文件添加到角色内容文件夹时，会自动将其添加到云服务包。 然后会将文件部署到虚拟机上的一致位置。 对云服务中的每个 Web 和辅助角色重复此过程，以便所有角色都有安装程序的副本。
 
 > [!NOTE]
-> 即使应用程序面向 .NET 4.6，也应该在云服务角色上安装 .NET 4.6.1。 来宾 OS 包括知识库[更新 3098779](https://support.microsoft.com/kb/3098779)和[更新 3097997](https://support.microsoft.com/kb/3097997)。 如果在知识库更新上安装 .NET 4.6，运行 .NET 应用程序时可能会出现问题。 若要避免这些问题，请安装 .NET 4.6.1，而不是版本 4.6。 有关详细信息，请参阅[知识库文章 3118750](https://support.microsoft.com/kb/3118750)。
+> 即使应用程序面向 .NET 4.6，也应该在云服务角色上安装 .NET 4.6.2。 来宾 OS 包括知识库[更新 3098779](https://support.microsoft.com/kb/3098779)和[更新 3097997](https://support.microsoft.com/kb/3097997)。 如果在知识库更新上安装 .NET 4.6，运行 .NET 应用程序时可能会出现问题。 若要避免这些问题，请安装 .NET 4.6.2，而不是版本 4.6。 有关详细信息，请参阅[知识库文章 3118750](https://support.microsoft.com/kb/3118750)。
 > 
 > 
 
@@ -98,7 +98,7 @@ ms.locfileid: "34695013"
     REM ***** To install .NET 4.5.2 set the variable netfx to "NDP452" *****
     REM ***** To install .NET 4.6 set the variable netfx to "NDP46" *****
     REM ***** To install .NET 4.6.1 set the variable netfx to "NDP461" ***** http://go.microsoft.com/fwlink/?LinkId=671729
-    REM ***** To install .NET 4.6.2 set the variable netfx to "NDP462" *****
+    REM ***** To install .NET 4.6.2 set the variable netfx to "NDP462" ***** https://www.microsoft.com/download/details.aspx?id=53345
     REM ***** To install .NET 4.7 set the variable netfx to "NDP47" ***** 
     REM ***** To install .NET 4.7.1 set the variable netfx to "NDP471" ***** http://go.microsoft.com/fwlink/?LinkId=852095
     REM ***** To install .NET 4.7.2 set the variable netfx to "NDP472" ***** http://go.microsoft.com/fwlink/?LinkId=863262
@@ -153,7 +153,7 @@ ms.locfileid: "34695013"
     goto logtimestamp
     
     :NDP472
-    set "netfxinstallfile=NDP472-NDP472-KB4054531-Web.exe"
+   set "netfxinstallfile=NDP472-KB4054531-Web.exe"
     set netfxregkey="0x70BF6"
     goto logtimestamp
     

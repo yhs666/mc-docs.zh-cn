@@ -1,28 +1,23 @@
 ---
-title: Azure 快速入门 - 使用 Azure 门户备份 VM | Microsoft Docs
+title: Azure 快速入门 - 使用 Azure 门户备份 VM
 description: 了解如何使用 Azure 门户备份虚拟机
 services: backup
-documentationcenter: virtual-machines
 author: saurabhsensharma
 manager: shivamg
-editor: ''
 tags: azure-resource-manager, virtual-machine-backup
-ms.assetid: ''
 ms.service: backup
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure
 origin.date: 02/14/2018
-ms.date: 02/27/2018
+ms.date: 07/06/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: e035b75fba785a179d05f109efd4748fa75d4bef
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: ccccb987ba45009f257ae3f44571489f3f6bd8cf
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
-ms.locfileid: "29730732"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873634"
 ---
 # <a name="back-up-a-virtual-machine-in-azure"></a>在 Azure 中备份虚拟机
 可以通过 Azure 门户创建 Azure 备份。 此方法提供基于浏览器的用户界面用于创建和配置 Azure 备份及所有相关的资源。 可以通过定期创建备份来保护数据。 Azure 备份可创建恢复点，这些恢复点可存储在异地冗余的恢复保管库中。 本文详细介绍如何使用 Azure 门户备份虚拟机 (VM)。 
@@ -31,7 +26,7 @@ ms.locfileid: "29730732"
 
 ## <a name="log-in-to-azure"></a>登录 Azure
 
-通过 http://portal.azure.cn 登录到 Azure 门户。
+在 http://portal.azure.cn 登录 Azure 门户。
 
 ## <a name="select-a-vm-to-back-up"></a>选择要备份的 VM
 在恢复服务保管库中创建一个简单的已计划每日备份。 

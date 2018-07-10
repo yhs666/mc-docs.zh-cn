@@ -1,28 +1,26 @@
 ---
-title: Azure Active Directory 中的自助服务或病毒性注册 | Microsoft Docs
+title: Azure Active Directory 中的自助服务或试用注册 | Microsoft Docs
 description: 在 Azure Active Directory (Azure AD) 租户中使用自助服务注册
 services: active-directory
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: curtand
+manager: mtillman
 editor: ''
-ms.assetid: b9f01876-29d1-4ab8-8b74-04d43d532f4b
 ms.service: active-directory
-ms.devlang: na
+ms.component: users-groups-roles
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 11/03/2017
-ms.date: 11/22/2017
+origin.date: 01/28/2018
+ms.date: 07/05/2018
 ms.author: v-junlch
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 9d512185ea70988e9ffe6e146a7f7d1287720c6a
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: ba03ebda3546d489758b96aa34931a7d63cc4248
+ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
-ms.locfileid: "25560727"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37800433"
 ---
 # <a name="what-is-self-service-signup-for-azure-active-directory"></a>什么是 Azure Active Directory 的自助服务注册？
 此文章介绍自助服务注册及如何在 Azure Active Directory (Azure AD) 中支持自助服务注册的相关内容。 
@@ -48,7 +46,12 @@ ms.locfileid: "25560727"
 管理员可以使用以下 Azure AD cmdlet Set-MsolCompanySettings 参数配置这些功能：
 
 - **AllowEmailVerifiedUsers** 控制用户是否可以创建或加入非托管目录。 如果将该参数设置为 $false，则电子邮件验证的用户不可以加入目录。
-- AllowAdHocSubscriptions 控制用户执行自助服务注册的能力。 如果将该参数设置为 $false，则用户不可以执行自助服务注册。
+- AllowAdHocSubscriptions 控制用户执行自助服务注册的能力。 如果将该参数设置为 $false，则用户不可以执行自助服务注册。 
+  
+  > [!NOTE]
+  > Flow 和 PowerApps 试用注册不由 **AllowAdHocSubscriptions** 设置控制。 有关详细信息，请参阅以下文章：
+  > * [如何禁止现有用户开始使用 Power BI？](https://support.office.com/article/Power-BI-in-your-Organization-d7941332-8aec-4e5e-87e8-92073ce73dc5#bkmk_preventjoining)
+  > * [组织中 Flow 问答](https://docs.microsoft.com/flow/organization-q-and-a)
 
 ### <a name="how-do-the-controls-work-together"></a>这些控制方式如何配合工作？
 可以结合使用这两个参数，从而实现对自助服务注册更精确的控制。 例如，以下命令允许用户执行自助服务注册，但前提是这些用户已在 Azure AD 中拥有一个帐户（换言之，需要先创建电子邮件验证帐户的用户无法执行自助服务注册）：
@@ -63,10 +66,11 @@ ms.locfileid: "25560727"
 有关如何使用这些参数的详细信息和示例，请参阅 [Set-MsolCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)。
 
 ## <a name="next-steps"></a>后续步骤
-- [如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview/)
-- [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview/)
-- [Azure Cmdlet 参考](https://docs.microsoft.com/powershell/azure/get-started-azureps/)
-- [Set-MsolCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0/)
+- [向 Azure AD 添加自定义域名](fundamentals/add-custom-domain.md)
+- [如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
+- [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
+- [Azure Cmdlet 参考](https://docs.microsoft.com/powershell/azure/get-started-azureps)
+- [Set-MsolCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)
 
 <!--Image references-->
 [1]: ./media/active-directory-self-service-signup/SelfServiceSignUpControls.png

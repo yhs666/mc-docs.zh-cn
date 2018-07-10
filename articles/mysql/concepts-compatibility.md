@@ -9,16 +9,16 @@ manager: kfile
 ms.service: mysql-database
 ms.topic: article
 ms.date: 06/16/2018
-ms.openlocfilehash: 0cf263f59e6c70303f2761b38b67fd7d05a82e66
-ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
+ms.openlocfilehash: 2e457f3e0dcf437cca03c1820c91250aa830fd7c
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36270110"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873525"
 ---
 # <a name="mysql-drivers-and-management-tools-compatible-with-azure-database-for-mysql"></a>与 Azure Database for MySQL 兼容的 MySQL 驱动程序和管理工具
-
-> [!NOTE] 将要查看的是 Azure Database for MySQL 的新服务。 若要查看经典 MySQL Database for Azure 的文档，请访问[此页](https://docs.azure.cn/zh-cn/mysql/)。
+> [!NOTE]
+> 将要查看的是 Azure Database for MySQL 的新服务。 若要查看经典 MySQL Database for Azure 的文档，请访问[此页](https://docs.azure.cn/zh-cn/mysql/)。
 
 本文介绍与 Azure Database for MySQL 兼容的驱动程序和管理工具。
 

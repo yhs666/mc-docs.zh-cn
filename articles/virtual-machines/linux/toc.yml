@@ -280,7 +280,7 @@
             - name: PostgreSQL
               href: postgresql-install.md
             - name: Linux 上的 MS SQL
-              href: /sql/linux/sql-server-linux-azure-virtual-machine
+              href: /virtual-machines/linux/sql/provision-sql-server-linux-virtual-machine
     - name: 管理存储
       items:
         - name: 磁盘常见问题解答

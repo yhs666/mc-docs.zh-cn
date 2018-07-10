@@ -1,27 +1,21 @@
 ---
-title: 使用 PowerShell 部署和管理 Resource Manager 部署型 VM 的备份 | Microsoft Docs
+title: 使用 PowerShell 部署和管理 Resource Manager 部署型 VM 的备份
 description: 使用 PowerShell 在 Azure 中部署和管理 Resource Manager 部署型 VM 的备份
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: ''
-ms.assetid: 68606e4f-536d-4eac-9f80-8a198ea94d52
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 origin.date: 12/20/2017
-ms.date: 05/25/2018
+ms.date: 07/06/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f6ae3686acd109267aeb4ca81d0b0b130b43a9a0
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 0289a0b8c27825205ccb3ebc3c925543394e7727
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34559435"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873705"
 ---
 # <a name="use-azurermrecoveryservicesbackup-cmdlets-to-back-up-virtual-machines"></a>使用 AzureRM.RecoveryServices.Backup cmdlet 来备份虚拟机
 
@@ -94,13 +88,11 @@ ms.locfileid: "34559435"
 
     ```PS
     PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
-    PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Backup"
     ```
 
 6. 可使用以下命令验证提供程序是否已成功注册：
     ```PS
     PS C:\> Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
-    PS C:\> Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Backup"
     ``` 
 在命令输出中，**RegistrationState** 应设置为 **Registered**。 如果不是，只需重新运行上面所示的 **[Register-AzureRmResourceProvider](https://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)** cmdlet。
 

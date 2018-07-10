@@ -13,15 +13,15 @@ ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: ''
 origin.date: 10/30/2017
-ms.date: 06/04/2018
+ms.date: 07/09/2018
 ms.author: v-nany
 ms.custom: mvc
-ms.openlocfilehash: 2ee34d5845261a2091164bb361f4f92a0536782a
-ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
+ms.openlocfilehash: 5c1255ac88c26fa49a49f9c08894c447272b50da
+ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36270032"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37405281"
 ---
 # <a name="use-approved-subnet-for-vm-network-interfaces"></a>为 VM 网络接口使用已批准的子网
 
@@ -95,7 +95,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-```azurecli
+```cli
 az policy definition create --name 'vm-creation-in-approved-subnet' --display-name 'Use approved subnet for VM network interfaces' --description 'This policy enforces VM network interfaces to use subnet' --rules 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Network/vm-creation-in-approved-subnet/azurepolicy.rules.json' --params 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Network/vm-creation-in-approved-subnet/azurepolicy.parameters.json' --mode All
 
 az policy assignment create --name <assignmentname> --scope <scope> --policy "vm-creation-in-approved-subnet"
@@ -105,10 +105,10 @@ az policy assignment create --name <assignmentname> --scope <scope> --policy "vm
 
 运行以下命令来删除资源组、VM 和所有相关资源。
 
-```azurecli
+```cli
 az group delete --name myResourceGroup --yes
 ```
 
 ## <a name="next-steps"></a>后续步骤
 
-- 其他 Azure 策略模板示例位于 [Azure 策略模板](../json-samples.md)。
+- 有关更多示例，请参阅 [Azure 策略示例](../json-samples.md)。

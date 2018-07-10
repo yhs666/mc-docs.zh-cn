@@ -1,30 +1,25 @@
 ---
-title: Azure 备份：从 Azure VM 备份恢复文件和文件夹 | Microsoft Docs
+title: Azure 备份：从 Azure VM 备份恢复文件和文件夹
 description: 从 Azure 虚拟机恢复点恢复文件
 services: backup
-documentationcenter: dev-center-name
 author: pvrk
 manager: shivamg
 keywords: 项级恢复; 从 Azure VM 备份恢复文件; 从 Azure VM 还原文件
-ms.assetid: f1c067a2-4826-4da4-b97a-c5fd6c189a77
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 origin.date: 12/20/2017
-ms.date: 04/08/2018
+ms.date: 07/06/2018
 ms.author: v-junlch
-ms.openlocfilehash: 0a04e5957f77cf2561a0a2f4dc936b7c2ce6bcd5
-ms.sourcegitcommit: ce691e6877a362d33b5484b9bbf85c93915689a7
+ms.openlocfilehash: 7b57d912cb6bf90b3575ec399926671206b58ca5
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/09/2018
-ms.locfileid: "30955116"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873479"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>从 Azure 虚拟机备份恢复文件
 
-Azure 备份提供从 Azure VM 备份（也称还原点）还原 [Azure 虚拟机 (VM) 和磁盘](./backup-azure-arm-restore-vms.md)的功能。 本文介绍如何从 Azure VM 备份恢复文件和文件夹。 还原文件和文件夹仅适用于使用资源管理器模型部署的、在恢复服务保管库中受保护的 Azure VM。
+Azure 备份提供从 Azure VM 备份（也称恢复点）还原 [Azure 虚拟机 (VM) 和磁盘](./backup-azure-arm-restore-vms.md)的功能。 本文介绍如何从 Azure VM 备份恢复文件和文件夹。 还原文件和文件夹仅适用于使用资源管理器模型部署的、在恢复服务保管库中受保护的 Azure VM。
 
 > [!Note]
 > 此功能适用于使用 Resource Manager 模型部署的、在恢复服务保管库中受保护的 Azure VM。
@@ -33,7 +28,7 @@ Azure 备份提供从 Azure VM 备份（也称还原点）还原 [Azure 虚拟�
 
 ## <a name="mount-the-volume-and-copy-files"></a>装载卷并复制文件
 
-若要从还原点还原文件或文件夹，请转到虚拟机并选择还原点。 
+若要从恢复点还原文件或文件夹，请转到虚拟机并选择所需的恢复点。 
 
 1. 登录到 [Azure 门户](http://portal.azure.cn)，在左侧菜单中单击“虚拟机”。 从虚拟机列表中，选择虚拟机以打开其仪表板。 
 

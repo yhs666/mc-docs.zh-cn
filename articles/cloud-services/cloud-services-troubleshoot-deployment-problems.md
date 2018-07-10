@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: tbd
-origin.date: 11/03/2017
+origin.date: 06/15/2018
 ms.author: v-yiso
-ms.date: 01/15/2018
-ms.openlocfilehash: 5e5dd589fc374fbe1352722dfb17a8d78fd686ab
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.date: 07/16/2018
+ms.openlocfilehash: 2e372130960807b3398c3de1b9c4d19884938e23
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
-ms.locfileid: "27604230"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873607"
 ---
 # <a name="troubleshoot-cloud-service-deployment-problems"></a>排查云服务部署问题
 

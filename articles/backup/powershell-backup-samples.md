@@ -1,28 +1,21 @@
 ---
-title: Azure 备份 PowerShell 示例 | Microsoft Docs
+title: Azure 备份 PowerShell 示例
 description: Azure 备份 PowerShell 示例
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: ''
-tags: ''
-ms.assetid: ''
 ms.service: backup
-ms.devlang: na
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
 origin.date: 09/07/2017
-ms.date: 01/08/2018
+ms.date: 07/06/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: f2fa16cc28a431c237e02e570bbcec35e88a48b2
-ms.sourcegitcommit: 4ae946a9722ff3e7231fcb24d5e8f3e2984ccd1a
+ms.openlocfilehash: f87e257976adaab66d9fc15b48f0b3fb13146a25
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2018
-ms.locfileid: "27769143"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873362"
 ---
 # <a name="azure-backup-powershell-samples"></a>Azure 备份 PowerShell 示例
 

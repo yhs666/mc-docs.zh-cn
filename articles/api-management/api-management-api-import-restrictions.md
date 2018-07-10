@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 09/29/2017
 ms.author: v-yiso
-ms.date: 05/14/2018
-ms.openlocfilehash: 1177b5907e2e0d1b75de49f160d2075950508e35
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.date: 07/16/2018
+ms.openlocfilehash: d5518e1efe4707dbe5d3462b3797c57a08e68c55
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33814939"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873364"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>API 导入限制和已知问题
 ## <a name="about-this-list"></a>关于此列表
@@ -30,13 +30,14 @@ ms.locfileid: "33814939"
 如果在导入 Open API 文档时遇到错误，请确保已通过使用 Azure 门户中的设计器（设计 - 前端 - Open API 规范编辑器）或使用第三方工具（例如 <a href="http://www.swagger.io">Swagger 编辑器</a>）对其进行了验证。
 
 * 仅支持 JSON 格式的 OpenAPI。
+* 路径和查询所需的参数必须具有唯一名称。 （在 OpenAPI 中，参数名称只需要在一个位置内是惟一的，例如路径、查询、标头。  但是，在 API 管理中，我们允许操作通过路径和查询参数进行区分（OpenAPI 不支持此方法）。 因此，我们要求参数名称在整个 URL 模板中是唯一的。）
 * 使用 **$ref** 属性引用的架构不能包含其他 **$ref** 属性。
 * **$ref** 指针不能引用外部文件。
 * 仅支持 **x-ms-paths** 和 **x-servers** 扩展。
 * 自定义扩展在导入时将被忽略，并且不会为导出保存或保留。
 
 > [!IMPORTANT]
-> 如需与 OpenAPI 导入相关的重要信息和提示，请参阅此[文档](https://blogs.msdn.microsoft.com/apimanagement/2018/03/28/important-changes-to-openapi-import-and-export/)。
+> 如需与 OpenAPI 导入相关的重要信息和提示，请参阅此[文档](https://blogs.msdn.microsoft.com/apimanagement/2018/04/11/important-changes-to-openapi-import-and-export/)。
 
 ## <a name="wsdl"> </a>WSDL
 WSDL 文件用于生成 SOAP 直通 API，或用作 SOAP 到 REST API 的后端。

@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 11/28/2017
 ms.author: v-yiso
-ms.date: 03/19/2018
-ms.openlocfilehash: e2703b46c6ac31e233a4085c061b228059d64807
-ms.sourcegitcommit: 4e2ee8ad9e6f30e31d3f0c24c716cc78f780dbf5
+ms.date: 07/16/2018
+ms.openlocfilehash: 939459e43c23f02b2a82e12fdf127283c2a5ad61
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/30/2018
-ms.locfileid: "30293829"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873419"
 ---
 # <a name="api-management-policy-expressions"></a>API 管理策略表达式
 本文讨论策略表达式语法 C# 7。 每个表达式都可以访问隐式提供的[上下文](api-management-policy-expressions.md#ContextVariables)变量以及允许的 .NET Framework 类型[子集](api-management-policy-expressions.md#CLRTypes)。  
@@ -172,7 +172,7 @@ ms.locfileid: "30293829"
 |上下文变量|允许的方法、属性和参数值|  
 |----------------------|-------------------------------------------------------|  
 |上下文|Api: IApi<br /><br /> 部署<br /><br /> Elapsed: TimeSpan - 时间戳值和当前时间之间的时间间隔<br /><br /> LastError<br /><br /> 操作<br /><br /> 产品<br /><br /> 请求<br /><br /> RequestId: Guid - 唯一请求标识符<br /><br /> 响应<br /><br /> 订阅<br /><br /> Timestamp: DateTime - 接收到请求的时间点<br /><br /> Tracing: bool - 指示跟踪是为打开还是关闭 <br /><br /> User<br /><br /> Variables: IReadOnlyDictionary<string, object><br /><br /> void Trace(message：string)|  
-|context.Api|Id：string<br /><br /> IsRevisionCurrent: bool<br /><br />  Name：string<br /><br /> Path：string<br /><br /> Revision: string<br /><br /> ServiceUrl：IUrl<br /><br /> Version: string |  
+|context.Api|Id：string<br /><br /> IsCurrentRevision：bool<br /><br />  Name：string<br /><br /> Path：string<br /><br /> Revision: string<br /><br /> ServiceUrl：IUrl<br /><br /> Version: string |  
 |context.Deployment|Region：string<br /><br /> ServiceName：string<br /><br /> Certificates: IReadOnlyDictionary<string, X509Certificate2>|  
 |context.LastError|Source：string<br /><br /> Reason：string<br /><br /> Message：string<br /><br /> Scope：string<br /><br /> Section：string<br /><br /> Path：string<br /><br /> PolicyId：string<br /><br /> 有关 context.LastError 的详细信息，请参阅[错误处理](api-management-error-handling-policies.md)。|  
 |context.Operation|Id：string<br /><br /> Method: 字符串<br /><br /> Name：string<br /><br /> UrlTemplate：string|  

@@ -17,17 +17,17 @@ ms.workload: big-data
 origin.date: 04/23/2018
 ms.date: 06/25/2018
 ms.author: v-yiso
-ms.openlocfilehash: 85812f70047315d0089e2c9862fd0f09d24bf473
-ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
+ms.openlocfilehash: 6c106257f3166c2bc0a893df1c0437339c199035
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36747388"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873376"
 ---
 # <a name="run-hive-queries-using-powershell"></a>使用 PowerShell 运行 Hive 查询
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
-[!INCLUDE [azure-sdk-developer-differences](../../../includes/azure-sdk-developer-differences.md)]
+
 
 本文档提供使用 Azure 资源组模式中的 Azure PowerShell 在 HDInsight 群集上的 Hadoop 中运行 Hive 查询的示例。
 
@@ -36,7 +36,7 @@ ms.locfileid: "36747388"
 
 ## <a name="prerequisites"></a>先决条件
 
-[!INCLUDE [hdinsight-linux-acn-version.md](../../../includes/hdinsight-linux-acn-version.md)]
+
 
 * 基于 Linux 的 Hadoop on HDInsight 群集版本 3.4 或更高版本。
 

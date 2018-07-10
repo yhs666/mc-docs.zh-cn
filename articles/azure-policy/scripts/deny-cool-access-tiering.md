@@ -13,15 +13,15 @@ ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: ''
 origin.date: 10/30/2017
-ms.date: 06/04/2018
+ms.date: 07/09/2018
 ms.author: v-nany
 ms.custom: mvc
-ms.openlocfilehash: 74a15fdbedd7c20040af0a97529637cf1c3f6b03
-ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
+ms.openlocfilehash: 120f0c10c848dab9c5b6d3f6e2cbecf04eae0b04
+ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36269911"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37405272"
 ---
 # <a name="deny-cool-access-tiering-for-storage-accounts"></a>拒绝对存储帐户使用冷访问层
 
@@ -90,7 +90,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-```azurecli
+```cli
 az policy definition create --name 'storage-account-access-tier' --display-name 'Deny cool access tiering for storage accounts' --description 'Ensures there's no usage of cool access tiering for storage.' --rules 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Storage/storage-account-access-tier/azurepolicy.rules.json' --params 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Storage/storage-account-access-tier/azurepolicy.parameters.json' --mode All
 
 az policy assignment create --name <assignmentname> --scope <scope> --policy "storage-account-access-tier"
@@ -100,10 +100,10 @@ az policy assignment create --name <assignmentname> --scope <scope> --policy "st
 
 运行以下命令来删除资源组、VM 和所有相关资源。
 
-```azurecli
+```cli
 az group delete --name myResourceGroup --yes
 ```
 
 ## <a name="next-steps"></a>后续步骤
 
-- 其他 Azure 策略模板示例位于 [Azure 策略模板](../json-samples.md)。
+- 有关更多示例，请参阅 [Azure 策略示例](../json-samples.md)。

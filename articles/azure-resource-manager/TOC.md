@@ -3,8 +3,8 @@
 # 概述
 ## [什么是 Resource Manager？](resource-group-overview.md)
 ## [资源提供程序和类型](resource-manager-supported-services.md)
-## [Resource Manager 部署和经典部署](resource-manager-deployment-model.md)
-## [订阅管理](resource-manager-subscription-governance.md)
+## [资源管理器部署和经典部署](resource-manager-deployment-model.md)
+## [订阅管理](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/subscription-governance)
 <!-- Not Available on ## [Organize resources with management groups](management-groups-overview.md) -->
 
 # 入门
@@ -17,6 +17,7 @@
 ### [模板节](resource-group-authoring-templates.md)
 #### [Parameters](resource-manager-templates-parameters.md)
 #### [变量](resource-manager-templates-variables.md)
+#### [函数](resource-group-authoring-templates.md#functions)
 #### [资源](resource-manager-templates-resources.md)
 #### [输出](resource-manager-templates-outputs.md)
 ### [链接和嵌套模板](resource-group-linked-templates.md)
@@ -47,10 +48,10 @@
 ### [Azure 门户](resource-group-portal.md)
 ### [使用标记来组织资源](resource-group-using-tags.md)
 ### [将资源移到新组或订阅](resource-group-move-resources.md)
-<!-- Not Available on ### [Programmatically create EA subscriptions](programmatically-create-subscription.md)-->
-<!-- Not Available on ### [Create management groups](management-groups-create.md) -->
-<!-- Not Available on ### [Manage your management groups](management-groups-manage.md) -->
-### [管理示例](resource-manager-subscription-examples.md)
+<!-- Not Available on ### [Create EA subscriptions](programmatically-create-subscription.md)-->
+<!-- Not Available on ### [Grant access to create EA subscriptions](grant-access-to-create-subscription.md)-->
+<!-- Not Available on ### [Create management groups](management-groups-create.md)-->
+<!-- Not Available on ### [Manage your management groups](management-groups-manage.md)-->
 
 ## 控制访问
 ### 创建服务主体
@@ -105,5 +106,5 @@
 <!-- Not Available## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)-->
 ## [限制请求](resource-manager-request-limits.md)
 ## [跟踪异步操作](resource-manager-async-operations.md)
-<!-- Not Available ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager) -->
-<!--ms.date: 04/30/2018 -->
+## [视频](https://www.azure.cn/video-center/)
+<!--ms.date: 07/09/2018 -->

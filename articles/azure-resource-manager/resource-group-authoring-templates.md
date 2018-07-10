@@ -3,34 +3,34 @@ title: Azure Resource Manager 模板的结构和语法 | Azure
 description: 使用声明性 JSON 语法描述 Azure Resource Manager 模板的结构和属性。
 services: azure-resource-manager
 documentationcenter: na
-author: luanmafeng
+author: rockboyfor
 manager: digimobile
 editor: tysonn
 ms.assetid: 19694cb4-d9ed-499a-a2cc-bcfc4922d7f5
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 05/01/2018
-ms.date: 05/28/2018
+origin.date: 05/30/2018
+ms.date: 07/09/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0818b07336f24cc5f7fc52032ac26b571bc818bc
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: c4e95cb8c0af249d9249dd955d693c76b599f718
+ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554381"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37405337"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>了解 Azure Resource Manager 模板的结构和语法
 本文介绍 Azure 资源管理器模板的结构。 演示了模板的不同部分，以及可在相应部分使用的属性。 模板中包含可用于为部署构造值的 JSON 和表达式。 有关创建模板的分步教程，请参阅[创建第一个 Azure Resource Manager 模板](resource-manager-create-first-template.md)。
 
 ## <a name="template-format"></a>模板格式
-使用最简单的结构时，模板包含以下元素：
+使用最简单的结构时，模板有以下元素：
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "",
     "parameters": {  },
     "variables": {  },
@@ -44,18 +44,18 @@ ms.locfileid: "34554381"
 | 元素名称 | 必须 | 说明 |
 |:--- |:--- |:--- |
 | $schema |是 |描述模板语言版本的 JSON 架构文件所在的位置。 使用前面的示例中显示的 URL。 |
-| contentVersion |是 |模板的版本（例如 1.0.0.0）。 可为此元素提供任意值。 使用模板部署资源时，此值可用于确保使用正确的模板。 |
+| contentVersion |是 |模板的版本（例如 1.0.0.0）。 可为此元素提供任意值。 使用此值记录模板中的重要更改。 使用模板部署资源时，此值可用于确保使用正确的模板。 |
 | 参数 |否 |执行部署以自定义资源部署时提供的值。 |
 | variables |否 |在模板中用作 JSON 片段以简化模板语言表达式的值。 |
 | functions |否 |可在模板中使用的用户定义函数。 |
 | 资源 |是 |已在资源组中部署或更新的资源类型。 |
 | outputs |否 |部署后返回的值。 |
 
-每个元素均包含可设置的属性。 下例包含一个模板的完整语法：
+每个元素均有可设置的属性。 下例显示一个模板的完整语法：
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "",
     "parameters": {  
         "<parameter-name>" : {
@@ -263,7 +263,7 @@ ms.locfileid: "34554381"
 ```
 
 ## <a name="resources"></a>资源
-在 resources 节，可以定义部署或更新的资源。 此节可能比较复杂，因为用户必须了解要部署哪些类型才能提供正确的值。
+在 resources 节，可以定义部署或更新的资源。 本部分可能比较复杂，因为必须了解所部署类型才能提供正确的值。
 
 ```json
 "resources": [
@@ -299,7 +299,7 @@ ms.locfileid: "34554381"
 
 将模板大小限制为 1 MB 以内，每个参数文件大小限制为 64 KB 以内。 通过迭代资源定义及变量和参数的值扩展模板后，1 MB 的限制适用于模板的最终状态。 
 
-此外，还存在以下限制：
+还将受限于：
 
 * 256 个参数
 * 256 个变量

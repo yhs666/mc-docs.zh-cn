@@ -1,27 +1,21 @@
 ---
-title: Azure 备份代理常见问题解答 | Microsoft Docs
+title: Azure 备份代理常见问题解答
 description: 以下常见问题的解答：Azure 备份代理工作原理、备份和保留限制。
 services: backup
-documentationcenter: ''
 author: trinadhk
 manager: shreeshd
-editor: ''
 keywords: 备份和灾难恢复;备份服务
-ms.assetid: 778c6ccf-3e57-4103-a022-367cc60c411a
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 07/18/2017
-ms.date: 04/08/2018
+ms.date: 07/05/2018
 ms.author: v-junlch
-ms.openlocfilehash: 5081d029518016c384f1158ea07b9f4a53375604
-ms.sourcegitcommit: ce691e6877a362d33b5484b9bbf85c93915689a7
+ms.openlocfilehash: 81707e9c6689c87eb2e0d9fcba507c852ad371f6
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/09/2018
-ms.locfileid: "30955117"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873345"
 ---
 # <a name="questions-about-the-azure-backup-agent"></a>有关 Azure 备份代理的问题
 本文提供常见问题的解答，有助于快速了解 Azure 备份代理组件。 某些答案提供内含全面信息的文章的链接。 还可以在 [论坛](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)中发布有关 Azure 备份服务的问题。
@@ -130,4 +124,3 @@ Azure 备份代理依赖于 NTFS。 [可以指定的文件路径的长度受限�
 ### <a name="i-receive-the-warning-azure-backups-have-not-been-configured-for-this-server-even-though-i-configured-a-backup-policy-br"></a>即使配置了备份策略，仍会显示警告“尚未为此服务器配置 Azure 备份” <br/>
 在本地服务器上存储的备份计划设置与备份保管库中存储的设置不同时，可能会出现此警告。 服务器或设置恢复为已知良好状态后，备份计划可能会失去同步。 如果收到此警告，请[重新配置备份策略](backup-azure-manage-windows-server.md)，并**立即运行备份**，以便将本地服务器与 Azure 重新同步。
 
-<!-- Update_Description: wording update -->

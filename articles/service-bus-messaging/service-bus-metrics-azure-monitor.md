@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 02/05/2018
-ms.date: 04/30/2018
+origin.date: 05/31/2018
+ms.date: 07/16/2018
 ms.author: v-yiso
-ms.openlocfilehash: 0584b1a42097c1d81f49a83b6710f237d439c1fe
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: b7a33ebb238b66b86b2426cbb6424400bc09534d
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782111"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873356"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Azure Monitor 中的 Azure 服务总线指标（预览版）
 
@@ -65,8 +65,16 @@ Azure Monitor 提供多种访问指标的方法。 可通过 [Azure 门户](http
 | 传入的请求数（预览版） | 在指定的期间内向服务总线服务发出的请求数。 <br/><br/> 单位：计数 <br/> 聚合类型：总计 <br/> 维度：EntityName|
 |成功的请求数（预览版）|在指定的期间内向服务总线服务发出的成功请求数。<br/><br/> 单位：计数 <br/> 聚合类型：总计 <br/> 维度：EntityName|
 |服务器错误数（预览版）|由于服务总线服务发生错误，在指定期间内未处理的请求数。<br/><br/> 单位：计数 <br/> 聚合类型：总计 <br/> 维度：EntityName|
-|用户错误数（预览版）|由于存在用户错误，在指定期间内未处理的请求数。<br/><br/> 单位：计数 <br/> 聚合类型：总计 <br/> 维度：EntityName|
+|用户错误（预览 - 请参阅小节）|由于存在用户错误，在指定期间内未处理的请求数。<br/><br/> 单位：计数 <br/> 聚合类型：总计 <br/> 维度：EntityName|
 |限制的请求数（预览版）|由于使用量超标，而被限制的请求数。<br/><br/> 单位：计数 <br/> 聚合类型：总计 <br/> 维度：EntityName|
+
+### <a name="user-errors"></a>用户错误
+
+下面两种类型的错误被归类为用户错误：
+
+1. 客户端错误（在 HTTP 中为 400 错误）。
+2. 在处理消息时发生的错误，如 [MessageLockLostException](/dotnet/api/microsoft.azure.servicebus.messagelocklostexception)。
+
 
 ## <a name="message-metrics"></a>消息指标
 

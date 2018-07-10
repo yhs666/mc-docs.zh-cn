@@ -13,32 +13,32 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 05/15/2018
-ms.date: 05/28/2018
+ms.date: 07/09/2018
 ms.author: v-yeche
-ms.openlocfilehash: b788427f34137aa14fe31005dcb9ff113299ebb6
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: 1a3d546caa0316e695eb5364f118b403deba810a
+ms.sourcegitcommit: 292f22020e00c607229c1693229f25fb2837d8af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554192"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37910603"
 ---
 # <a name="view-logs-for-a-service-fabric-container-service"></a>查看 Service Fabric 容器服务的日志
-Azure Service Fabric 是一种容器业务流程协调程序，支持 [Linux 和 Windows 容器](service-fabric-containers-overview.md)。  本文介绍如何查看正在运行的容器服务或死容器的容器日志，以便诊断和排查问题。
+Azure Service Fabric 是一种容器业务流程协调程序，支持 [Linux 和 Windows 容器](service-fabric-containers-overview.md)。  本文介绍如何查看正在运行的容器服务或不活动容器的容器日志，以便诊断和排查问题。
 
 ## <a name="access-the-logs-of-a-running-container"></a>访问正在运行的容器的日志
 可以通过 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) 来访问容器日志。  在 Web 浏览器中导航到 [http://mycluster.region.cloudapp.chinacloudapi.cn:19080/Explorer](http://mycluster.region.cloudapp.chinacloudapi.cn:19080/Explorer)，从群集的管理终结点打开 Service Fabric Explorer。  
 
 容器日志位于容器服务实例运行时所在的群集节点。 例如，可以获取 [Linux Voting 示例应用程序](service-fabric-quickstart-containers-linux.md)的 Web 前端容器的日志。 在树状视图中，展开“群集”>“应用程序”>“VotingType”>“fabric:/Voting/azurevotefront”。  然后展开分区（在此示例中为 d1aa737e-f22a-e347-be16-eec90be24bc1），此时会看到容器在群集节点 *_lnxvm_0* 上运行。
 
-在树状视图中找到 *_lnxvm_0* 节点上的代码包，方法是展开“节点”>“_lnxvm_0”>“fabric:/Voting”>“azurevotfrontPkg”>“代码包”>“代码”。  然后选择“容器日志”选项，以显示容器日志。
+在树状视图中找到 *_lnxvm_0* 节点上的代码包，方法是展开“节点”>“_lnxvm_0”>“fabric:/Voting”>“azurevotfrontPkg”>“代码包”>“代码”。  然后选择“容器日志”选项，以便显示容器日志。
 
 ![Service Fabric 平台][Image1]
 
-## <a name="access-the-logs-of-a-dead-or-crashed-container"></a>访问死容器或故障容器的日志
+## <a name="access-the-logs-of-a-dead-or-crashed-container"></a>访问不活动或故障容器的日志
 从 v6.2 开始，还可以使用 [REST API](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index) 或 [Service Fabric CLI (SFCTL)](service-fabric-cli.md) 命令获取死容器或故障容器的日志。
 
 ### <a name="rest"></a>REST
-使用[获取节点上部署的容器日志](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getcontainerlogsdeployedonnode)操作来获取故障容器的日志。 指定运行容器的节点的名称、应用程序名称、服务清单名称和代码包名称。  指定 `&Previous=true`。 响应将包含代码包实例的死容器的容器日志。
+使用[获取部署在节点上的容器日志](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getcontainerlogsdeployedonnode)操作，来获取故障容器的日志。 指定运行该容器的节点名称、应用程序名称、服务清单名称和代码包名称。  指定 `&Previous=true`。 该响应将包含该代码包实例中不活动容器的容器日志。
 
 请求 URI 的格式如下：
 
@@ -57,7 +57,7 @@ GET http://localhost:19080/Nodes/_Node_0/$/GetApplications/SimpleHttpServerApp/$
 ```
 
 ### <a name="service-fabric-sfctl"></a>Service Fabric (SFCTL)
-使用 [sfctl service get-container-logs](service-fabric-sfctl-service.md) 命令来提取故障容器的日志。  指定运行容器的节点的名称、应用程序名称、服务清单名称和代码包名称。 指定 `-previous` 标志。  响应将包含代码包实例的死容器的容器日志。
+使用 [sfctl service get-container-logs](service-fabric-sfctl-service.md) 命令来提取故障容器的日志。  指定运行容器的节点的名称、应用程序名称、服务清单名称和代码包名称。 指定 `-previous` 标志。  该响应将包含该代码包实例中不活动容器的容器日志。
 
 ```
 sfctl service get-container-logs --node-name _Node_0 --application-id SimpleHttpServerApp --service-manifest-name SimpleHttpServerSvcPkg --code-package-name Code -previous

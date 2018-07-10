@@ -1,27 +1,21 @@
 ---
-title: 将 Windows 文件和文件夹备份到 Azure (Resource Manager) | Microsoft Docs
+title: 将 Windows 文件和文件夹备份到 Azure（资源管理器）
 description: 了解如何在 Resource Manager 部署中将 Windows 文件和文件夹备份到 Azure。
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: ''
 keywords: 如何备份; 备份文件和文件夹
-ms.assetid: 5b15ebf1-2214-4722-b937-96e2be8872bb
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 origin.date: 08/15/2017
-ms.date: 05/15/2018
+ms.date: 07/06/2018
 ms.author: v-junlch
-ms.openlocfilehash: 7adaccbe40833e492436978ab153518ae584ef5c
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.openlocfilehash: 72ff88c4b98891ec4b1a1e1db38dccf5fbc0c3a8
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34259142"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873635"
 ---
 # <a name="first-look-back-up-files-and-folders-in-resource-manager-deployment"></a>初步了解：在 Resource Manager 部署中备份文件和文件夹
 本文介绍如何通过 Resource Manager 部署将 Windows Server（或 Windows 计算机）文件和文件夹备份到 Azure。 本教程旨在引导完成基本操作。 如果想要开始使用 Azure 备份，本文的内容非常合适。
@@ -231,4 +225,4 @@ ms.locfileid: "34259142"
 - 备份文件和文件夹后，可以 [管理保管库和服务器](backup-azure-manage-windows-server.md)。
 - 如果需要还原备份，请参阅[将文件还原到 Windows 计算机](backup-azure-restore-windows-server.md)一文。
 
-<!--Update_Description: link update -->
+<!-- Update_Description: update metedata properties -->

@@ -12,12 +12,12 @@ ms.topic: article
 origin.date: 04/21/2018
 ms.date: 06/25/2018
 ms.author: v-jay
-ms.openlocfilehash: ffd70131801050b5ad9f64989ed56a936edbc6c5
-ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
+ms.openlocfilehash: 89b52cc882ea92d624190dd65e112688ea27f99b
+ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36748513"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37405219"
 ---
 # <a name="encoding-with-azure-media-services"></a>使用 Azure 媒体服务进行编码
 
@@ -69,7 +69,7 @@ ms.locfileid: "36748513"
 
 可以使用以下任何受支持的媒体服务 v3 SDK 对内容进行编码。
 
-* [Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
+* [Azure CLI](/cli/ams?view=azure-cli-latest)
 * [REST](https://docs.microsoft.com/rest/api/media/transforms)
 * [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet)
 * [Java](https://docs.microsoft.com/java/api/overview/azure/mediaservices)

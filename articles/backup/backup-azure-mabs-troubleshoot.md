@@ -1,26 +1,20 @@
 ---
-title: Azure 备份服务器故障排除 | Microsoft Docs
+title: 对 Azure 备份服务器进行故障排除
 description: 排查 Azure 备份服务器的安装和注册以及应用程序工作负荷的备份和还原问题。
 services: backup
-documentationcenter: ''
 author: pvrk
 manager: shreeshd
-editor: ''
-ms.assetid: 2d73c349-0fc8-4ca8-afd8-8c9029cb8524
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 11/24/2017
-ms.date: 05/28/2018
+ms.date: 07/06/2018
 ms.author: v-junlch
-ms.openlocfilehash: b27df9f5956b2ad296179a99592194206c4af53a
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: c7c72cf87a3e8f50682382e24dfd35e2ee001f18
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34559440"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873704"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>对 Azure 备份服务器进行故障排除
 
@@ -92,4 +86,5 @@ ms.locfileid: "34559440"
 | --- | --- | --- |
 | 使用 Office 365 帐户设置电子邮件通知 |错误 ID：2013| **原因：**<br> 尝试使用 Office 365 帐户 <br>**建议的操作：**<ol><li> 首先确保 Exchange 上已设置用于 DPM 服务器的“在接收连接器上允许匿名中继”。 有关如何配置此功能的详细信息，请参阅 TechNet 上的[在接收连接器上允许匿名中继](http://technet.microsoft.com/library/bb232021.aspx)。</li> <li> 如果无法使用内部 SMTP 中继并需要使用 Office 365 服务器进行设置，可将 IIS 设置为中继。 将 DPM 服务器配置为[使用 IIS 将 SMTP 中继到 O365](https://technet.microsoft.com/library/aa995718(v=exchg.65).aspx)。<br><br> **重要说明：** 请务必使用 user@domain.com 格式，而不要使用“域\用户”格式。<br><br><li>指示 DPM 将本地服务器名用作 SMTP 服务器，并使用端口 587。 然后将它指向于应从中发送电子邮件的用户电子邮件地址。<li> DPM SMTP 设置页上的用户名和密码应属于 DPM 所在域中的域帐户。 </li><br> **注意**：更改 SMTP 服务器地址时，请对新设置进行更改，关闭设置框，然后重新打开它以确保反映新值。  只是进行更改和测试可能不一定总能让新设置生效，因此最佳做法是通过此方法进行测试。<br><br>在此过程中，可随时清除这些设置，方法是关闭 DPM 控制台，然后编辑以下注册表项：**HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Notification\ <br/> 删除 SMTPPassword 和 SMTPUserName 项**。 重新启动 UI 时，可将这些设置添加回到 UI。
 
-<!--Update_Description: link update-->
+
+<!-- Update_Description: update metedata properties -->

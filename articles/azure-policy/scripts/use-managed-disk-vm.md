@@ -13,15 +13,15 @@ ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: ''
 origin.date: 10/30/2017
-ms.date: 06/04/2018
+ms.date: 07/09/2018
 ms.author: v-nany
 ms.custom: mvc
-ms.openlocfilehash: 4bf7a4de1505add1a13bf902c64b32c63a0ad55e
-ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
+ms.openlocfilehash: f9a74f3070cc6f68d39ed790ab810bb300abb670
+ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36270048"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37405357"
 ---
 # <a name="create-vm-using-managed-disk"></a>使用托管磁盘创建 VM
 
@@ -108,7 +108,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-```azurecli
+```cli
 az policy definition create --name 'use-managed-disk-vm' --display-name 'Create VM using Managed Disk' --description 'Create VM using Managed Disk' --rules 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/use-managed-disk-vm/azurepolicy.rules.json' --params 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/use-managed-disk-vm/azurepolicy.parameters.json' --mode All
 
 az policy assignment create --name <assignmentname> --scope <scope> --policy "use-managed-disk-vm"
@@ -118,10 +118,10 @@ az policy assignment create --name <assignmentname> --scope <scope> --policy "us
 
 运行以下命令来删除资源组、VM 和所有相关资源。
 
-```azurecli
+```cli
 az group delete --name myResourceGroup --yes
 ```
 
 ## <a name="next-steps"></a>后续步骤
 
-- 其他 Azure 策略模板示例位于 [Azure 策略模板](../json-samples.md)。
+- 有关更多示例，请参阅 [Azure 策略示例](../json-samples.md)。

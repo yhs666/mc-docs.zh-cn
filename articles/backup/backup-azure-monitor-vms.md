@@ -1,26 +1,20 @@
 ---
-title: 监视 Azure 虚拟机的备份警报 | Microsoft Docs
+title: 监视 Azure 虚拟机的备份警报
 description: 监视 Azure 虚拟机备份作业的事件和警报。 基于警报发送电子邮件。
 services: backup
-documentationcenter: dev-center-name
 author: markgalioto
 manager: carmonm
-editor: ''
-ms.assetid: fed32015-2db2-44f8-b204-d89f6fd1bea2
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 02/23/2018
-ms.date: 04/08/2018
+ms.date: 07/06/2018
 ms.author: v-junlch
-ms.openlocfilehash: 8880f9e6591b258cfcb5c066c771bb40130b4dd6
-ms.sourcegitcommit: ce691e6877a362d33b5484b9bbf85c93915689a7
+ms.openlocfilehash: f460a9e8824912a5141b53f3679cf83abf1a9808
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/09/2018
-ms.locfileid: "30955092"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873649"
 ---
 # <a name="monitor-alerts-for-azure-virtual-machine-backups"></a>监视 Azure 虚拟机备份的警报
 警报是服务发出的响应，指出已达到或超过了某个事件阈值。 了解问题何时开始出现可能是控制业务成本的关键所在。 警报通常不会按计划发生，因此在警报发生后尽快知晓会很有用。 例如，当备份或还原作业失败时，在失败后的 5 分钟内发生警报。 在保管库仪表板中，“备份警报”磁贴显示了“关键”和“警告”级别的事件。 在“备份警报”设置中，可以查看所有事件。 但是，如果在处理某个单独的问题时发生警报，该怎么办呢？ 如果不知道警报何时发生，则无法确定相关的问题只是一个小小的麻烦，还是会导致数据透露。 为了确保适当的人员能够意识到发生了警报（何时发生警报），可以将服务配置为通过电子邮件发送警报通知。 有关设置电子邮件通知的详细信息，请参阅 [Configure notifications](backup-azure-monitor-vms.md#configure-notifications)（配置通知）。
@@ -64,7 +58,7 @@ ms.locfileid: "30955092"
 2. 在“配置通知”部分中，单击“电子邮件通知”旁边的“打开”。
 
     “收件人”和“严重性”对话框旁边出现了星号，因为这些信息是必填的。 至少提供一个电子邮件地址，并至少选择一个严重性。
-3. 在“**收件人（电子邮件）**”对话框中，键入通知接收者的电子邮件地址。 使用以下格式： username@domainname.com。使用分号 (;) 分隔多个电子邮件地址。
+3. 在“**收件人（电子邮件）**”对话框中，键入通知接收者的电子邮件地址。 使用以下格式： username@domainname.com。 使用分号 (;) 分隔多个电子邮件地址。
 4. 在“通知”区域中，选择“按警报”以便在发生指定的警报时发送通知，或者选择“每小时摘要”以便发送过去一小时的摘要。
 5. 在“**严重性**”对话框中，选择要触发电子邮件通知的一个或多个严重级别。
 6. 单击“保存” 。
@@ -84,7 +78,7 @@ ms.locfileid: "30955092"
 - 某个备份作业被触发但随后失败，而另一个备份作业正在进行。
 - 为启用资源管理器的 VM 启动了计划的备份作业，但该 VM 不再存在。
 
-## <a name="using-activity-logs-to-get-notifications-for-successful-backupsty-logs-to-get-notifications-for-successful-backups"></a>使用在 backupsty 日志成功时能够获取通知的活动日志，这样在成功备份时就能够获得通知
+## <a name="using-activity-logs-to-get-notifications-for-successful-backups"></a>使用活动日志获取成功备份的通知
 
 如果想要在成功备份后收到通知，则可以使用基于保管库[活动日志](/azure-resource-manager/resource-group-audit)的警报。
 

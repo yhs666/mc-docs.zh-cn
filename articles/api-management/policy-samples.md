@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: sample
 origin.date: 10/31/2017
-ms.date: 02/26/2018
+ms.date: 07/16/2018
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: c711befcebb22a8471cf0b2793de816fd540e704
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 4ec623b24a567ad22c8ad61535bdb26f396f0985
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
-ms.locfileid: "29286068"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873669"
 ---
 # <a name="api-management-policy-samples"></a>API 管理策略示例
 
@@ -33,6 +33,7 @@ ms.locfileid: "29286068"
 |[添加包含相关 ID 的标头](./policies/add-correlation-id.md?toc=api-management/toc.json) |演示如何将包含相关 ID 的标头添加到入站请求。|
 |[将功能添加到后端服务并缓存响应](./policies/cache-response.md?toc=api-management/toc.json) |演示如何将功能添加到后端服务。 例如，接受位置的名称而不是天气预报 API 中的纬度和经度。|
 |[基于 JWT 声明授权访问权限](./policies/authorize-request-based-on-jwt-claims.md?toc=api-management/toc.json) |演示如何基于 JWT 声明授予对 API 中特定 HTTP 方法的访问权限。|
+| [使用外部授权者授权请求](./policies/authorize-request-using-external-authorizer.md)                                                   | 演示如何使用外部授权者保护 API 访问。                                                                                                                                                               |
 |[生成共享访问签名并将请求转发到 Azure 存储](./policies/generate-shared-access-signature.md?toc=api-management/toc.json) |演示如何使用表达式生成[共享访问签名](../storage/common/storage-dotnet-shared-access-signature-part-1.md)并使用 rewrite-uri 策略将请求转发到 Azure 存储。 |
 |[从 AAD 获取 OAuth2 访问令牌并将其转发到后端](./policies/use-oauth2-for-authorization.md?toc=api-management/toc.json) |提供一个示例用于演示如何使用 OAuth2 在网关与后端之间授权。 该示例演示如何从 AAD 获取访问令牌并将其转发到后端。|
 |[使用发送请求策略从 SAP 网关获取 X-CSRF 令牌](./policies/get-x-csrf-token-from-sap-gateway.md?toc=api-management/toc.json) |演示如何实现许多 API 所用的 X-CSRF 模式。 此示例特定于 SAP 网关。 |

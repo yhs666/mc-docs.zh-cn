@@ -9,18 +9,18 @@ editor: tysonn
 ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 01/22/2018
-ms.date: 04/30/2018
+origin.date: 06/06/2018
+ms.date: 07/09/2018
 ms.author: v-yeche
-ms.openlocfilehash: 07ca57e732312a019b8b006c45edc3859ea7a224
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: 4ff7224885597eb1cb211f2ca2fcb6cbe5dfc69e
+ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867459"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37405396"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>用于 Azure Resource Manager 模板的资源函数
 
@@ -37,8 +37,8 @@ Resource Manager 提供以下用于获取资源值的函数：
 
 若要从参数、变量或当前部署获取值，请参阅 [Deployment value functions](resource-group-template-functions-deployment.md)（部署值函数）。
 
-<a id="listkeys" />
-<a id="list" />
+<a name="listkeys" />
+<a name="list" />
 
 ## <a name="listkeys-listsecrets-and-list"></a>listKeys、listSecrets 和 list*
 `listKeys(resourceName or resourceIdentifier, apiVersion)`
@@ -97,7 +97,7 @@ ListKeys 返回的对象采用以下格式：
   az provider operation show --namespace Microsoft.Storage --query "resourceTypes[?name=='storageAccounts'].operations[].name | [?contains(@, 'list')]"
   ```
 
-使用 [resourceId 函数](#resourceid)或格式 `{providerNamespace}/{resourceType}/{resourceName}` 指定资源。
+使用资源名称或 [resourceId 函数](#resourceid)来指定资源。 在部署被引用资源的同一模板中使用此函数时，请使用资源名称。
 
 ### <a name="example"></a>示例
 
@@ -105,7 +105,7 @@ ListKeys 返回的对象采用以下格式：
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "storageAccountName": { 
@@ -138,7 +138,7 @@ ListKeys 返回的对象采用以下格式：
 
 要使用 Azure CLI 部署此示例模板，请使用：
 
-```cli
+```azurecli
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/listkeys.json --parameters storageAccountName=<your-storage-account>
 ```
 
@@ -148,7 +148,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/listkeys.json -storageAccountName <your-storage-account>
 ```
 
-<a id="providers" />
+<a name="providers" />
 
 ## <a name="providers"></a>providers
 `providers(providerNamespace, [resourceType])`
@@ -224,7 +224,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 要使用 Azure CLI 部署此示例模板，请使用：
 
-```cli
+```azurecli
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/providers.json --parameters providerNamespace=Microsoft.Web resourceType=sites
 ```
 
@@ -234,7 +234,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/providers.json -providerNamespace Microsoft.Web -resourceType sites
 ```
 
-<a id="reference" />
+<a name="reference" />
 
 ## <a name="reference"></a>reference
 `reference(resourceName or resourceIdentifier, [apiVersion], ['Full'])`
@@ -257,7 +257,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 reference 函数从运行时状态派生其值，因此不能在 variables 节中使用。 可以在模板或[链接模板](resource-group-linked-templates.md#link-or-nest-a-template)的 outputs 节中使用它。 不能在[嵌套模板](resource-group-linked-templates.md#link-or-nest-a-template)的 outputs 节中使用它。 若要返回嵌套模板中部署的资源的值，请将嵌套模板转换为链接模板。 
 
-如果在相同的模板内设置了引用的资源，则可使用 reference 函数来隐式声明一个资源依赖于另一个资源。 不需要同时使用 dependsOn 属性。 只有当引用的资源已完成部署后，才会对函数求值。
+如果在同一模板内预配了被引用资源且通过其名称（而非资源 ID）引用该资源，则使用 reference 函数会隐式声明一个资源依赖于另一个资源。 不需要同时使用 dependsOn 属性。 只有当引用的资源已完成部署后，才会对函数求值。
 
 若要查看资源类型的属性名称和值，请创建一个模板，该模板返回 outputs 节中的对象。 如果有现有的该类型的资源，则模板只返回对象而不部署任何新资源。 
 
@@ -308,7 +308,7 @@ reference 函数从运行时状态派生其值，因此不能在 variables 节�
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "storageAccountName": { 
@@ -400,7 +400,7 @@ reference 函数从运行时状态派生其值，因此不能在 variables 节�
 
 要使用 Azure CLI 部署此示例模板，请使用：
 
-```cli
+```azurecli
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/referencewithstorage.json --parameters storageAccountName=<your-storage-account>
 ```
 
@@ -443,7 +443,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/reference.json -storageAccountName <your-storage-account>
 ```
 
-<a id="resourcegroup" />
+<a name="resourcegroup" />
 
 ## <a name="resourcegroup"></a>resourceGroup
 `resourceGroup()`
@@ -526,7 +526,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/resourcegroup.json 
 ```
 
-<a id="resourceid" />
+<a name="resourceid" />
 
 ## <a name="resourceid"></a>ResourceId
 `resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2]...)`
@@ -583,7 +583,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "virtualNetworkName": {
@@ -675,7 +675,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/resourceid.json 
 ```
 
-<a id="subscription" />
+<a name="subscription" />
 
 ## <a name="subscription"></a>订阅
 `subscription()`

@@ -11,12 +11,12 @@ origin.date: 04/10/2018
 ms.date: 04/17/2018
 ms.author: v-nany
 ms.reviewer: douglasl
-ms.openlocfilehash: 0a7b0e02a146bd41f97445736eae83a77e351caf
-ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
+ms.openlocfilehash: f797e0ea58a1a8bd3aa160ff71e44b07d03192b5
+ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36947901"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37800375"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>使用 SQL 数据同步跨多个云和本地数据库同步数据
 
@@ -128,7 +128,7 @@ SQL 数据同步使用插入、更新和删除触发器来跟踪更改。 它在
 
 ### <a name="how-much-does-the-sql-data-sync-service-cost"></a>SQL 数据同步服务的价格是多少？
 
-在预览期，不会对 SQL 数据同步服务本身收取任何费用。  但是，对于传入和传出 SQL 数据库实例的数据移动，仍然会产生数据传输费用。 有关价格，请参阅 [SQL 数据库定价](https://azure.microsoft.cn/pricing/details/sql-database/)。
+在预览期，不会对 SQL 数据同步服务本身收取任何费用。  但是，对于传入和传出 SQL 数据库实例的数据移动，仍然会产生数据传输费用。 有关价格，请参阅 [SQL 数据库定价](https://azure.cn/pricing/details/sql-database/)。
 
 ### <a name="what-regions-support-data-sync"></a>哪些区域支持数据同步？
 

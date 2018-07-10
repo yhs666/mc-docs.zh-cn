@@ -18,12 +18,12 @@ origin.date: 03/13/2018
 ms.date: 05/07/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: a1fca994847240bc44af39262b56943d9ab0eb99
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: 1940bccf6551a151d5eaf98a3121dc7d814c69bd
+ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33815316"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37405288"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>教程：使用 Azure 门户通过路由表路由网络流量
 
@@ -119,6 +119,7 @@ ms.locfileid: "33815316"
 
     ![关联路由表](./media/tutorial-create-route-table-portal/associate-route-table.png) 
 
+<a name="create-a-network-virtual-appliance"></a>
 ## <a name="create-an-nva"></a>创建 NVA
 
 NVA 是执行网络功能（如路由、防火墙或 WAN 优化）的 VM。
@@ -150,6 +151,7 @@ NVA 是执行网络功能（如路由、防火墙或 WAN 优化）的 VM。
 
     ![VM 网络](./media/tutorial-create-route-table-portal/virtual-machine-networking.png) 
 
+<a name="enable-ip-forwarding"></a>
 8. 要使网络接口能够转发发送给它的、而不是发往其自身 IP 地址的网络流量，必须为该网络接口启用 IP 转发。 在“设置”下选择“IP 配置”，为“IP 转发”选择“已启用”，然后选择“保存”，如下图所示：
 
     ![启用 IP 转发](./media/tutorial-create-route-table-portal/enable-ip-forwarding.png) 
@@ -259,7 +261,7 @@ NVA 是执行网络功能（如路由、防火墙或 WAN 优化）的 VM。
 
 ## <a name="next-steps"></a>后续步骤
 
-在本教程中，你创建了一个路由表并将其关联到了某个子网。 还创建了一个简单 NVA，用于将流量从公共子网路由到专用子网。 从 [Azure Marketplace](https://market.azure.cn/zh-cn/marketplace/apps/category/networking) 部署各种执行网络功能（例如防火墙和 WAN 优化）的预配置 NVA。 若要了解有关路由的详细信息，请参阅[路由概述](virtual-networks-udr-overview.md)和[管理路由表](manage-route-table.md)。
+在本教程中，你创建了一个路由表并将其关联到了某个子网。 还创建了一个简单 NVA，用于将流量从公共子网路由到专用子网。 从 [Azure 市场](https://market.azure.cn/zh-cn/marketplace/apps/category/networking)部署各种执行网络功能（例如防火墙和 WAN 优化）的预配置 NVA。 若要了解有关路由的详细信息，请参阅[路由概述](virtual-networks-udr-overview.md)和[管理路由表](manage-route-table.md)。
 
 尽管可以在一个虚拟网络中部署多个 Azure 资源，但无法将某些 Azure PaaS 服务的资源部署到虚拟网络。 不过，仍可以限制为只允许来自某个虚拟网络子网的流量访问某些 Azure PaaS 服务的资源。 若要了解如何限制 Azure PaaS 资源的网络访问，请继续学习下一篇教程。
 

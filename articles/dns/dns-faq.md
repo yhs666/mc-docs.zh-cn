@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 origin.date: 11/06/2017
 ms.date: 05/21/2018
 ms.author: v-nany
-ms.openlocfilehash: 6e868ad8e053c213610a10d2bd4ba2e587b09141
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.openlocfilehash: 64e50cb2c5e2b2faf7bcc9548ad3bd5403091a9a
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "34173076"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873411"
 ---
 # <a name="azure-dns-faq"></a>Azure DNS 常见问题解答
 
@@ -157,7 +157,6 @@ Azure DNS 由 Azure 资源管理器管理，且受益于 Azure 资源管理器�
 可在 Azure DNS 中配置国际域名 (IDN)，方式是先将区域名称或记录集名称转换为 punycode。 Azure DNS 目前不支持内置转换至 punycode 或从中进行转换。
 
 ## <a name="private-dns"></a>专用 DNS
-[!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
 
 ### <a name="does-azure-dns-support-private-domains"></a>Azure DNS 是否支持“私有”域？
 对“专用”域的支持是使用专用区域功能实现的。  此功能目前以公共预览版提供。  专用区域与面向 Internet 的 Azure DNS 区域使用相同的工具托管，但它们只能从指定的虚拟网络中解析。  有关详细信息，请参阅[概述](private-dns-overview.md)。

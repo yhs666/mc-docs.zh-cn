@@ -15,12 +15,12 @@ origin.date: 05/14/2018
 ms.date: 07/09/2018
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: 92137a74dcb635a9a57ba2e0cfbbb48754053751
-ms.sourcegitcommit: 039d75a641edc2edd13a9371251051c20fea2bb7
+ms.openlocfilehash: 7928961c6d5a06bf5e38633e215092a33b1d7595
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103594"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873591"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
 
@@ -109,27 +109,27 @@ az iot hub device-identity show-connection-string --device-id MyTwinDevice --hub
 
 以下代码使用设备连接字符串连接到 IoT 中心：
 
-[!code-javascript[Create IoT Hub client](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/SimulatedDevice.js?name=createhubclient&highlight=2 "Create IoT Hub client")]
+<!--[!code-javascript[Create IoT Hub client](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/SimulatedDevice.js?name=createhubclient&highlight=2 "Create IoT Hub client")]-->
 
 以下代码从客户端对象中获取孪生：
 
-[!code-javascript[Get twin](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/SimulatedDevice.js?name=gettwin&highlight=2 "Get twin")]
+<!--[!code-javascript[Get twin](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/SimulatedDevice.js?name=gettwin&highlight=2 "Get twin")]-->
 
 ### <a name="sample-desired-properties"></a>所需属性示例
 
 可以使用对应用程序有利的任何方式来构建所需属性。 本示例使用一个名为 **fanOn** 的顶级属性，并将剩余的属性分组到单独的**组件**中。 以下 JSON 片段显示了本教程所用的所需属性的结构：
 
-[!code[Sample desired properties](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/desired.json "Sample desired properties")]
+<!--[!code[Sample desired properties](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/desired.json "Sample desired properties")]-->
 
 ### <a name="create-handlers"></a>创建处理程序
 
 可针对所需属性更新创建处理程序，用于响应 JSON 层次结构中的不同级别发生的更新。 例如，此处理程序可以监视从后端应用程序发送到设备的所有所需属性更改。 **delta** 变量包含从解决方案后端发送的所需属性：
 
-[!code-javascript[Handle all properties](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/SimulatedDevice.js?name=allproperties&highlight=2 "Handle all properties")]
+<!--[!code-javascript[Handle all properties](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/SimulatedDevice.js?name=allproperties&highlight=2 "Handle all properties")]-->
 
 以下处理程序仅响应对 **fanOn** 所需属性所做的更改：
 
-[!code-javascript[Handle fan property](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/SimulatedDevice.js?name=fanproperty&highlight=2 "Handle fan property")]
+<!--[!code-javascript[Handle fan property](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/SimulatedDevice.js?name=fanproperty&highlight=2 "Handle fan property")]-->
 
 ### <a name="handlers-for-multiple-properties"></a>多个属性的处理程序
 
@@ -137,7 +137,7 @@ az iot hub device-identity show-connection-string --device-id MyTwinDevice --hub
 
 设备的本地 **twin** 对象存储一组完整的所需属性和报告属性。 从后端发送的 **delta** 可能只会更新所需属性的某个子集。 在以下代码片段中，如果模拟设备只是收到了对某个 **minTemperature** 和 **maxTemperature** 的更新，则它会使用另一个值的本地孪生中的值来配置设备：
 
-[!code-javascript[Handle climate component](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/SimulatedDevice.js?name=climatecomponent&highlight=2 "Handle climate component")]
+<!--[!code-javascript[Handle climate component](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/SimulatedDevice.js?name=climatecomponent&highlight=2 "Handle climate component")]-->
 
 本地 **twin** 对象存储一组完整的所需属性和报告属性。 从后端发送的 **delta** 可能只会更新所需属性的某个子集。
 
@@ -147,7 +147,7 @@ az iot hub device-identity show-connection-string --device-id MyTwinDevice --hub
 
 以下片段演示模拟设备如何处理针对所需属性中的**组件**列表执行的插入、更新和删除操作。 可以查看如何使用 **null** 值来指示应删除某个组件：
 
-[!code-javascript[Handle components](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/SimulatedDevice.js?name=components&highlight=2,6,13 "Handle components")]
+<!--[!code-javascript[Handle components](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/SimulatedDevice.js?name=components&highlight=2,6,13 "Handle components")]-->
 
 ### <a name="send-desired-properties-to-a-device-from-the-back-end"></a>从后端向设备发送所需属性
 
@@ -157,15 +157,15 @@ az iot hub device-identity show-connection-string --device-id MyTwinDevice --hub
 
 以下代码片段演示如何连接到设备标识注册表并访问特定设备的孪生：
 
-[!code-javascript[Create registry and get twin](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/ServiceClient.js?name=getregistrytwin&highlight=2,6 "Create registry and get twin")]
+<!--[!code-javascript[Create registry and get twin](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/ServiceClient.js?name=getregistrytwin&highlight=2,6 "Create registry and get twin")]-->
 
 以下片段演示后端应用程序发送到设备的不同所需属性补丁：
 
-[!code-javascript[Patches sent to device](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/ServiceClient.js?name=patches&highlight=2,12,26,41,56 "Patches sent to device")]
+<!--[!code-javascript[Patches sent to device](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/ServiceClient.js?name=patches&highlight=2,12,26,41,56 "Patches sent to device")]-->
 
 以下片段演示后端应用程序如何将所需属性更新发送到设备：
 
-[!code-javascript[Send desired properties](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/ServiceClient.js?name=senddesiredproperties&highlight=2 "Send desired properties")]
+<!--[!code-javascript[Send desired properties](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/ServiceClient.js?name=senddesiredproperties&highlight=2 "Send desired properties")]-->
 
 ### <a name="run-the-applications"></a>运行应用程序
 
@@ -203,17 +203,17 @@ node ServiceClient.js "{your service connection string}"
 
 可以补丁的形式发送对报告属性值所做的更新。 以下片段演示了模拟设备发送的补丁的模板。 模拟设备先更新补丁中的字段，然后将补丁发送到中心：
 
-[!code-javascript[Reported properties patches](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/SimulatedDevice.js?name=reportedpatch&highlight=2 "Reported properties patches")]
+<!--[!code-javascript[Reported properties patches](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/SimulatedDevice.js?name=reportedpatch&highlight=2 "Reported properties patches")]-->
 
 模拟设备使用以下函数将包含报告属性的补丁发送到中心：
 
-[!code-javascript[Send reported properties](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/SimulatedDevice.js?name=sendreportedproperties&highlight=2 "Send reported properties")]
+<!--[!code-javascript[Send reported properties](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/SimulatedDevice.js?name=sendreportedproperties&highlight=2 "Send reported properties")]-->
 
 ### <a name="process-reported-properties"></a>处理报告属性
 
 后端应用程序通过设备孪生访问设备的当前报告属性值。 以下片段演示后端应用程序如何读取模拟设备的报告属性值：
 
-[!code-javascript[Display reported properties](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/ServiceClient.js?name=displayreportedproperties&highlight=2 "Display reported properties")]
+<!--[!code-javascript[Display reported properties](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/ServiceClient.js?name=displayreportedproperties&highlight=2 "Display reported properties")]-->
 
 ### <a name="run-the-applications"></a>运行应用程序
 

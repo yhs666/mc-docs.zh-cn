@@ -3,29 +3,29 @@ title: 设置 Azure 资源的部署顺序 | Azure
 description: 介绍如何在部署期间将一个资源设置为依赖于另一个资源，以确保按正确的顺序部署资源。
 services: azure-resource-manager
 documentationcenter: na
-author: luanmafeng
+author: rockboyfor
 manager: digimobile
 editor: ''
 ms.assetid: 34ebaf1e-480c-4b4d-9bf6-251bd3f8f2cf
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 01/03/2017
-ms.date: 05/28/2018
+origin.date: 06/06/2018
+ms.date: 07/09/2018
 ms.author: v-yeche
-ms.openlocfilehash: 17f0da36eb263dc39f35e704354c7ebb7a8351e9
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: 652dbb2ac31abf5b96757f0ab578d2e2fa3a5a37
+ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554341"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37405367"
 ---
-# <a name="define-the-order-for-deploying-resources-in-azure-resource-manager-templates"></a>定义在 Azure Resource Manager 模板中部署资源的顺序
+# <a name="define-the-order-for-deploying-resources-in-azure-resource-manager-templates"></a>定义 Azure 资源管理器模板中部署资源的顺序
 对于给定的资源，可能有部署资源之前必须存在的其他资源。 例如，SQL Server 必须存在，才能尝试部署 SQL 数据库。 可通过将一个资源标记为依赖于其他资源来定义此关系。 使用 **dependsOn** 元素或 **reference** 函数定义依赖项。 
 
-Resource Manager 将评估资源之间的依赖关系，并根据其依赖顺序进行部署。 如果资源互不依赖，Resource Manager 将并行部署资源。 只需为部署在同一模板中的资源定义依赖关系。 
+Resource Manager 将评估资源之间的依赖关系，并根据其依赖顺序进行部署。 如果资源互不依赖，资源管理器将以并行方式部署资源。 只需为部署在同一模板中的资源定义依赖关系。 
 
 ## <a name="dependson"></a>dependsOn
 在模板中，使用 dependsOn 元素可将一个资源定义为与一个或多个资源相依赖。 它的值可以是一个资源名称间采用逗号进行分隔的列表。 
@@ -59,9 +59,9 @@ Resource Manager 将评估资源之间的依赖关系，并根据其依赖顺序
   "[concat('Microsoft.Network/loadBalancers/', variables('loadBalancerName'))]",
   "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]"
 ]
-```
+``` 
 
-尽管你可能倾向使用 dependsOn 来映射资源之间的关系，但请务必了解这么做的理由。 例如，若要记录资源的互连方式，那么，dependsOn 方法并不合适。 部署之后，无法查询 dependsOn 元素中定义的资源。 通过使用 dependsOn，可以影响部署时间，因为 Resource Manager 不会并行部署两个具有依赖关系的资源。 若要记录资源之间的关系，请改为使用 [资源链接](https://docs.microsoft.com/rest/api/resources/resourcelinks)。
+尽管你可能倾向使用 dependsOn 来映射资源之间的关系，但请务必了解这么做的理由。 例如，若要记录资源的互连方式，那么，dependsOn 方法并不合适。 部署之后，你无法查询 dependsOn 元素中定义了哪些资源。 使用 dependsOn 可能会影响部署时间，因为资源管理器不会并行部署两个具有依赖关系的资源。 若要记录资源之间的关系，请改为使用 [资源链接](https://docs.microsoft.com/rest/api/resources/resourcelinks)。
 
 ## <a name="child-resources"></a>子资源
 资源属性允许指定与所定义的资源相关的子资源。 子资源总共只能定义五级。 请务必注意子资源和父资源之间不能创建隐式依赖关系。 如果要在父级资源后部署子资源，则必须使用 dependsOn 属性明确声明该依赖关系。 
@@ -108,11 +108,19 @@ Resource Manager 将评估资源之间的依赖关系，并根据其依赖顺序
 ]
 ```
 
-## <a name="reference-function"></a>引用函数
-[引用函数](resource-group-template-functions-resource.md#reference)使表达式能够从其他 JSON 名值对或运行时资源中派生其值。 引用表达式隐式声明一个资源依赖于另一个资源。 常规格式为：
+## <a name="reference-and-list-functions"></a>reference 和 list 函数
+[引用函数](resource-group-template-functions-resource.md#reference)使表达式能够从其他 JSON 名值对或运行时资源中派生其值。 [list* 函数](resource-group-template-functions-resource.md#listkeys-listsecrets-and-list)从列表操作返回资源的值。  当引用的资源部署位于同一模板中并通过其名称（而不是资源 ID）引用时，reference 和 list 表达式隐式声明一个资源依赖于另一个资源。 如果将资源 ID 传入到 reference 或 list 函数中，则不会创建隐式引用。
+
+reference 函数的一般格式为：
 
 ```json
 reference('resourceName').propertyPath
+```
+
+listKeys 函数的一般格式为：
+
+```json
+listKeys('resourceName', 'yyyy-mm-dd')
 ```
 
 在以下示例中，CDN 终结点显式依赖于 CDN 配置文件，隐式依赖于 Web 应用。
@@ -132,7 +140,7 @@ reference('resourceName').propertyPath
     }
 ```
 
-可以使用此元素或 dependsOn 元素来指定依赖关系，但不需要同时使用它们用于同一依赖资源。 只要可能，可使用隐式引用以避免添加不必要的依赖项。
+可以使用此元素或 dependsOn 元素来指定依赖关系，但不需要同时将它们用于同一依赖资源。 只要可能，可使用隐式引用以避免添加不必要的依赖项。
 
 若要了解详细信息，请参阅[引用函数](resource-group-template-functions-resource.md#reference)。
 
@@ -142,12 +150,12 @@ reference('resourceName').propertyPath
 
 * 尽可能少设置依赖项。
 * 将子资源设置为依赖于其父资源。
-* 使用 **reference** 函数在需要共享属性的资源之间设置隐式依赖项。 在已经定义隐式依赖项的情况下，请勿添加显式依赖项 (**dependsOn**)。 此方法降低了设置不必要依赖项的风险。 
-* 如果没有其他资源提供的功能某项资源就无法 **创建** ，则可设置依赖项。 如果资源仅在部署后进行交互，请勿设置依赖项。
+* 使用 **reference** 函数并传入资源名称可在需要共享属性的资源之间设置隐式依赖关系。 在已经定义隐式依赖关系的情况下，请勿添加显式依赖关系 (**dependsOn**)。 此方法降低了设置不必要依赖项的风险。 
+* 如果没有其他资源提供的功能就无法**创建**某个资源，请设置依赖关系。 如果资源仅在部署后进行交互，请勿设置依赖关系。
 * 让依赖项级联，无需对其进行显式设置。 例如，虚拟机依赖于虚拟网络接口，虚拟网络接口依赖于虚拟网络和公共 IP 地址。 因此，虚拟机在所有这三个资源之后部署，但请勿将虚拟机显式设置为依赖于所有这三个资源。 此方法阐明了依赖顺序，在以后更改模板会更容易。
-* 如果某个值可以在部署之前确定，请尝试在没有依赖项的情况下部署资源。 例如，如果某个配置值需要另一资源的名称，则可能不需要依赖项。 本指南并非始终适用，因为某些资源可验证其他资源是否存在。 如果收到错误，请添加一个依赖项。 
+* 如果某个值可以在部署之前确定，请尝试在没有依赖项的情况下部署资源。 例如，如果某个配置值需要另一资源的名称，则可能不需要依赖项。 本指南并非始终适用，因为某些资源会验证其他资源是否存在。 如果收到错误，请添加一个依赖项。 
 
-Resource Manager 可在模板验证过程中确定循环依赖项。 如果收到的错误指出存在循环依赖项，可重新评估模板，看是否存在不需要且可删除的依赖项。 如果删除依赖项不起作用，则可将一些部署操作移至子资源中来避免循环依赖项（这些子资源是在具有循环依赖项的资源之后部署的）。 例如，假设要部署两个虚拟机，但必须在每个虚拟机上设置引用另一虚拟机的属性。 可以按下述顺序部署这两个虚拟机：
+Resource Manager 可在模板验证过程中确定循环依赖项。 如果收到的错误指出存在循环依赖关系，请评估模板，了解是否存在不需要且可删除的任何依赖关系。 如果删除依赖关系不起作用，则可将一些部署操作移至在具有循环依赖关系的资源后部署的子资源中，来避免循环依赖关系。 例如，假设要部署两个虚拟机，但必须在每个虚拟机上设置引用另一虚拟机的属性。 可以按下述顺序部署这两个虚拟机：
 
 1. vm1
 2. vm2

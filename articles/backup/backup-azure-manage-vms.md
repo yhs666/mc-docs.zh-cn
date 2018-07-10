@@ -1,26 +1,20 @@
 ---
-title: 管理 Resource Manager 部署型虚拟机备份 | Microsoft Docs
+title: 管理资源管理器部署型虚拟机备份
 description: 了解如何管理和监视 Resource Manager 部署型虚拟机备份
 services: backup
-documentationcenter: ''
 author: trinadhk
 manager: shreeshd
-editor: ''
-ms.assetid: f3050283-d60f-472d-b464-cb844e70d67e
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 11/28/2016
-ms.date: 01/05/2018
+ms.date: 07/06/2018
 ms.author: v-junlch
-ms.openlocfilehash: 40f65d6ed83d2f9a3dbf4662fd9582307f490dbd
-ms.sourcegitcommit: 4ae946a9722ff3e7231fcb24d5e8f3e2984ccd1a
+ms.openlocfilehash: 29604aa217172ba8e04cc86a3b0de1a7e98c11b6
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2018
-ms.locfileid: "27769187"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873341"
 ---
 # <a name="manage-azure-virtual-machine-backups"></a>管理 Azure 虚拟机备份
 
@@ -223,4 +217,5 @@ ms.locfileid: "27769187"
 ## <a name="next-steps"></a>后续步骤
 有关如何从恢复点重新创建虚拟机的信息，请查看 [Restore Azure VMs](backup-azure-arm-restore-vms.md)（还原 Azure VM）。 如果需要有关如何保护虚拟机的信息，请参阅[初步了解：将 VM 备份到恢复服务保管库](backup-azure-vms-first-look-arm.md)。 有关监视事件的信息，请参阅[监视 Azure 虚拟机备份的警报](backup-azure-monitor-vms.md)。
 
-<!--Update_Description: wording update -->
+
+<!-- Update_Description: update metedata properties -->

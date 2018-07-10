@@ -1,24 +1,21 @@
 ---
-title: Azure 备份服务器可以备份哪些内容 | Microsoft Docs
+title: Azure 备份服务器可备份哪些内容
 description: 本文提供一个支持矩阵，其中列出 Azure 备份服务器 v2 可以保护的所有工作负荷、数据类型和安装。
 services: backup
-documentation center: ''
 author: markgalioto
-ms.assetid: ''
 ms.service: backup
-ms.workload: storage-backup-recovery
 keywords: ''
 origin.date: 11/28/2017
-ms.date: 02/08/2018
-ms.topic: article
+ms.date: 07/06/2018
+ms.topic: conceptual
 ms.author: v-junlch
 manager: carmonm
-ms.openlocfilehash: 5b5e233d82cf62a07dc08c6426aeca7f3390df15
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 996cbfe4dc70c5ad7c33ac16e164a5d92a330fa5
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
-ms.locfileid: "29285354"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873427"
 ---
 # <a name="azure-backup-server-protection-matrix"></a>Azure 备份服务器保护矩阵
 
@@ -105,4 +102,4 @@ Azure 备份服务器可以保护以下群集应用程序中的数据：
 
 Azure 备份服务器可以保护 DPM 服务器所在的同一个域中，以及子域或受信任域中的群集工作负荷。 若要保护不受信任的域或工作组中的数据源，请对单个服务器使用 NTLM 或证书身份验证，或者只对群集使用证书身份验证。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

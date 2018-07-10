@@ -11,38 +11,46 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 04/23/2017
-ms.date: 05/28/2018
+origin.date: 05/23/2018
+ms.date: 07/03/2018
 ms.author: v-junlch
-ms.reviewer: rqureshi
+ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7bf73d7ed378e6d7d6da1a06f772e6b4cb67b0e1
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 802e027385b0d542a855e17e7e619205e2f66a73
+ms.sourcegitcommit: a20c461541ba7db541c01c8a18fc4cff48e3d2d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34559491"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37361171"
 ---
 # <a name="view-activity-logs-for-role-based-access-control-changes"></a>查看基于角色的访问控制更改的活动日志
 
-只要有人在你的订阅中对角色定义或角色分配做出了更改，这些更改都会被记录在管理类别中的 [Azure 活动日志](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)中。 可以查看活动日志，了解基于角色的访问控制 (RBAC) 在过去 90 天发生的所有更改。
+有时需要了解基于角色的访问控制 (RBAC) 更改，如出于审核或故障排除目的。 只要有人更改了你订阅中的角色分配或角色定义，这些更改就会被记录到 [Azure 活动日志](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)中。 可以查看活动日志，了解在过去 90 天内发生的所有 RBAC 更改。
 
 ## <a name="operations-that-are-logged"></a>记录的操作
 
 下面是记录在活动日志中的 RBAC 相关操作：
 
-- 创建或更新自定义角色定义
-- 删除自定义角色定义
 - 创建角色分配
 - 删除角色分配
+- 创建或更新自定义角色定义
+- 删除自定义角色定义
 
 ## <a name="azure-portal"></a>Azure 门户
 
-最简单的入手方式就是使用 Azure 门户查看活动日志。 以下屏幕截图显示了一个活动日志的示例，且已将日志筛选为显示“管理”类别以及角色定义和角色分配操作。 它还包括一个能将日志下载为 CSV 文件的链接。
+最简单的入手方式就是使用 Azure 门户查看活动日志。 下面的屏幕截图展示了已筛选为显示角色分配和角色定义操作的活动日志示例。 它还包括一个能将日志下载为 CSV 文件的链接。
 
 ![使用门户的活动日志 - 屏幕截图](./media/change-history-report/activity-log-portal.png)
 
-有关详细信息，请参阅[在活动日志中查看事件](/azure-resource-manager/resource-group-audit)。
+门户中的活动日志有多个筛选器。 下面是与 RBAC 相关的筛选器：
+
+|筛选器  |值  |
+|---------|---------|
+|事件类别     | <ul><li>管理</li></ul>         |
+|操作     | <ul><li>创建角色分配</li> <li>删除角色分配</li> <li>创建或更新自定义角色定义</li> <li>删除自定义角色定义</li></ul>      |
+
+
+若要详细了解活动日志，请参阅[查看活动日志中的事件](/azure-resource-manager/resource-group-audit)。
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
@@ -103,3 +111,4 @@ az monitor activity-log list --resource-provider "Microsoft.Authorization" --sta
 - [在活动日志中查看事件](/azure-resource-manager/resource-group-audit)
 - [使用 Azure 活动日志监视订阅活动](/monitoring-and-diagnostics/monitoring-overview-activity-logs)
 
+<!-- Update_Description: wording update -->

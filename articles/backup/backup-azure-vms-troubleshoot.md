@@ -1,26 +1,20 @@
 ---
-title: 排查 Azure 虚拟机备份错误 | Microsoft 文档
+title: 排查 Azure 虚拟机备份错误
 description: Azure 虚拟机备份和还原疑难解答
 services: backup
-documentationcenter: ''
 author: trinadhk
 manager: shreeshd
-editor: ''
-ms.assetid: 73214212-57a4-4b57-a2e2-eaf9d7fde67f
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 01/21/2018
-ms.date: 05/25/2018
+ms.date: 07/06/2018
 ms.author: v-junlch
-ms.openlocfilehash: 4b151bee2e75d75dd9f7cad9e2099627d24b8204
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 18c480c61919d2588cbb80ad102aa556afef75a5
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34559434"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873706"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Azure 虚拟机备份疑难解答
 可参考下表中所列的信息，排查使用 Azure 备份时遇到的错误。
@@ -156,4 +150,4 @@ VM 备份依赖于向底层存储发出快照命令。 如果无法访问存储�
 >
 >
 
-<!--Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

@@ -1,28 +1,22 @@
 ---
-title: 将文件从 Azure 恢复到 Windows Server | Microsoft Docs
+title: 将文件从 Azure 恢复到 Windows Server
 description: 本教程详细介绍了如何将项目从 Azure 恢复到 Windows Server。
 services: backup
-documentationcenter: ''
 author: saurabhsensharma
 manager: shivamg
-editor: ''
 keywords: windows server 备份; 还原文件 windows server; 备份和灾难恢复
-ms.assetid: ''
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 origin.date: 02/14/2018
-ms.date: 02/27/2018
+ms.date: 07/06/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: aae669a59b0b8791bd764b36bd4596b765807202
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: dcaef43f58e5921c62ecddda733339a4012d6b6a
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
-ms.locfileid: "29731229"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873469"
 ---
 # <a name="recover-files-from-azure-to-a-windows-server"></a>将文件从 Azure 恢复到 Windows Server
 

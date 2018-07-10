@@ -1,28 +1,23 @@
 ---
-title: Azure 快速入门 - 使用 PowerShell 备份 VM | Microsoft Docs
+title: Azure 快速入门 - 使用 PowerShell 备份 VM
 description: 了解如何使用 Azure PowerShell 备份虚拟机
 services: backup
-documentationcenter: virtual-machines
 author: markgalioto
 manager: carmonm
-editor: ''
 tags: azure-resource-manager, virtual-machine-backup
-ms.assetid: ''
 ms.service: backup
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure
 origin.date: 02/14/2018
-ms.date: 05/25/2018
+ms.date: 07/06/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: f447fc8b6ff43050e0d63434e6086f4e86dfbdc8
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: a82c0984e097ac04ab015d0926cf34e56fb5e4d6
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34559442"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873646"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>使用 PowerShell 在 Azure 中备份虚拟机
 Azure PowerShell 模块用于从命令行或脚本创建和管理 Azure 资源。 可以通过定期创建备份来保护数据。 Azure 备份可创建恢复点，这些恢复点可存储在异地冗余的恢复保管库中。 本文详细介绍如何使用 Azure PowerShell 模块备份虚拟机 (VM)。 也可以使用 [Azure CLI](quick-backup-vm-cli.md) 或 [Azure 门户](quick-backup-vm-portal.md)执行这些步骤。
@@ -143,4 +138,4 @@ Remove-AzureRmResourceGroup -Name "myResourceGroup"
 > [!div class="nextstepaction"]
 > [备份多个 Azure VM](./tutorial-backup-vm-at-scale.md)
 
-<!-- Update_Description: code update -->
+<!-- Update_Description: update metedata properties -->

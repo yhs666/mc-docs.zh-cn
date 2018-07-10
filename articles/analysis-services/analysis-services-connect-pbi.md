@@ -9,12 +9,12 @@ origin.date: 04/12/2018
 ms.date: 04/30/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 0d77933405829f7a66918103ad8e11a63839dfca
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: f0710a42f513f24234629f997698dbc53341a40d
+ms.sourcegitcommit: 292f22020e00c607229c1693229f25fb2837d8af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121056"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37910602"
 ---
 # <a name="connect-with-power-bi"></a>使用 Power BI 进行连接
 
@@ -54,3 +54,4 @@ ms.locfileid: "32121056"
 [客户端库](analysis-services-data-providers.md)
 
 <!--Update_Description: update meta properties, wording update -->
+<!--Review on 20180706-->

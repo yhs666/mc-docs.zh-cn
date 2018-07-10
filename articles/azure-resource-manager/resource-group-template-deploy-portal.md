@@ -3,23 +3,23 @@ title: 使用 Azure 门户部署 Azure 资源 | Azure
 description: 使用 Azure 门户和 Azure Resource Manager 来部署资源。
 services: azure-resource-manager,azure-portal
 documentationcenter: ''
-author: luanmafeng
+author: rockboyfor
 manager: digimobile
 editor: tysonn
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 09/08/2017
-ms.date: 05/28/2018
+ms.date: 07/09/2018
 ms.author: v-yeche
-ms.openlocfilehash: f23c4fd7074532b1118976f9f093674762dcc782
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: 87feacfea22980a262ad82bccb144e386559fc0b
+ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554554"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37405405"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>使用 Resource Manager 模板和 Azure 门户部署资源
 
@@ -45,9 +45,9 @@ ms.locfileid: "34554554"
 
     ![刷新资源组](./media/resource-group-template-deploy-portal/refresh-resource-groups.png)
 
-## <a name="deploy-resources-from-marketplace"></a>从应用商店部署资源
+## <a name="deploy-resources-from-marketplace"></a>从市场部署资源
 
-创建资源组后，可以从应用商店将资源部署到资源组。 应用商店为常见方案提供预定义的解决方案。
+创建资源组后，可以从市场将资源部署到资源组。 市场为常见方案提供预定义的解决方案。
 
 1. 若要开始部署，请选择“创建资源”。
 
@@ -57,9 +57,9 @@ ms.locfileid: "34554554"
 
     ![选择资源类型](./media/resource-group-template-deploy-portal/select-resource-type.png)
 
-1. 如果看不到想要部署的特定解决方案，可以在应用商店中搜索。 例如，若要查找 Wordpress 解决方案，开始键入 Wordpress 并选择所需选项。
+1. 如果看不到想要部署的特定解决方案，可以在市场中搜索。 例如，若要查找 Wordpress 解决方案，开始键入 Wordpress 并选择所需选项。
 
-    ![搜索 Marketplace](./media/resource-group-template-deploy-portal/search-resource.png)
+    ![在市场中搜索](./media/resource-group-template-deploy-portal/search-resource.png)
 
 1. 根据所选资源的类型，需要在部署之前设置相关属性的集合。 对于所有类型，必须选择目标资源组。 以下映像演示了如何创建 Web 应用并将其部署到创建的资源组。
 
@@ -79,7 +79,7 @@ ms.locfileid: "34554554"
 
 ## <a name="deploy-resources-from-custom-template"></a>从自定义模板部署资源
 
-如果想要执行部署，但不使用应用商店中的任何模板，可以创建自定义模板来针对解决方案定义基础结构。 若要了解如何创建模板，请参阅[了解 Azure 资源管理器模板的结构和语法](resource-group-authoring-templates.md)。
+如果想要执行部署，但不使用市场中的任何模板，可以创建自定义模板来针对解决方案定义基础结构。 若要了解如何创建模板，请参阅[了解 Azure 资源管理器模板的结构和语法](resource-group-authoring-templates.md)。
 
 1. 若要通过门户部署自定义模板，请选择“创建资源”，并搜索“模板部署”，直至可以从选项中选择它。
 
@@ -115,8 +115,7 @@ ms.locfileid: "34554554"
 
 ## <a name="deploy-resources-from-a-template-saved-to-your-account"></a>从保存到帐户中的模板部署资源
 
-该门户允许用户将模板保存到 Azure 帐户，以便以后重新部署它。
-<!-- Not Available  [Get started with private templates on the Azure portal](../marketplace-consumer/mytemplates-getstarted.md) -->
+该门户允许用户将模板保存到 Azure 帐户，以便以后重新部署它。 有关模板的详细信息，请参阅[创建和部署第一个 Azure 资源管理器模板](resource-manager-create-first-template.md)。
 
 1. 若要查找已保存模板，请选择“更多服务”。
 
@@ -138,6 +137,6 @@ ms.locfileid: "34554554"
 * 若要查看审核日志，请参阅[使用 Resource Manager 进行审核操作](resource-group-audit.md)。
 * 若要排查部署错误，请参阅[查看部署操作](resource-manager-deployment-operations.md)。
 * 若要从部署或资源组中检索模板，请参阅[从现有资源导出 Azure Resource Manager 模板](resource-manager-export-template.md)。
-* 有关企业可如何使用 Resource Manager 有效管理订阅的指南，请参阅 [Azure 企业基架 - 出于合规目的监管订阅](resource-manager-subscription-governance.md)。
+* 有关企业可如何使用 Resource Manager 有效管理订阅的指南，请参阅 [Azure 企业基架 - 出于合规目的监管订阅](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/subscription-governance)。
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties, update link -->

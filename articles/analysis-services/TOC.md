@@ -7,19 +7,19 @@
 ## [在 Azure 门户中创建服务器](analysis-services-create-server.md)
 ## [使用 Azure PowerShell 创建服务器](analysis-services-create-powershell.md)
 ## [从 Visual Studio 部署模型](analysis-services-deploy.md)
-## [在 Azure 门户（预览）中创建模型](analysis-services-create-model-portal.md)
+<!-- Not Available on ## [Create a model in Azure portal (preview)](analysis-services-create-model-portal.md)-->
 
 # 概念
 ## [使用服务主体进行自动化](analysis-services-service-principal.md)
 ## [支持的数据源](analysis-services-datasource.md)
-## [连接到本地数据源](analysis-services-gateway.md)
+<!-- Not Available on ## [Connecting to on-premises data sources](analysis-services-gateway.md)-->
 ## [连接到服务器](analysis-services-connect.md)
 ## [身份验证和用户权限](analysis-services-manage-users.md)
 ## [兼容级别](analysis-services-compat-level.md)
 ## [高可用性](analysis-services-bcdr.md)
 
 # 操作说明 
-## [安装并配置本地数据网关](analysis-services-gateway-install.md)
+<!-- Not Available on ## [Install and configure an on-premises data gateway](analysis-services-gateway-install.md)-->
 <!-- Not Avaiable ## [Import a Power BI Desktop file](analysis-services-import-pbix.md) -->
 ## [备份和还原](analysis-services-backup.md)
 <!--Not Available ## [Refresh with REST API](analysis-services-async-refresh.md) -->
@@ -34,8 +34,8 @@
 ### [管理数据库用户](analysis-services-database-users.md)
 ### [管理服务器管理员](analysis-services-server-admins.md)
 ### [监视服务器指标](analysis-services-monitor.md)
-<!--Not Available ### [Setup diagnostic logging](analysis-services-logging.md) -->
-### [将网关用于 VNet 上的数据源](analysis-services-vnet-gateway.md)
+<!--Not Available ### [Setup diagnostic logging](analysis-services-logging.md)-->
+<!--Not Available ### [Use gateway for data sources on VNet](analysis-services-vnet-gateway.md)-->
 ## 连接
 ### [获取客户端库](analysis-services-data-providers.md)
 ### [使用 Excel 进行连接](analysis-services-connect-excel.md)

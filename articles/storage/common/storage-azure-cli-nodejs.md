@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 01/30/2017
 ms.date: 08/28/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 34510e6f429b21545e2b1489c5e3f0777f36b6d6
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: 1a890d001944c835f1ead201c598caa49f7c79ca
+ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
-ms.locfileid: "27604596"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37405276"
 ---
 # <a name="using-the-azure-cli-10-with-azure-storage"></a>将 Azure CLI 1.0 用于 Azure 存储
 
@@ -97,7 +97,7 @@ Azure CLI 提供了一组开源且跨平台的命令，这些命令可以用于 
 
 ## <a name="manage-storage-accounts-with-the-azure-cli"></a>通过 Azure CLI 管理存储帐户
 ### <a name="connect-to-your-azure-subscription"></a>连接到 Azure 订阅
-大多数存储命令没有 Azure 订阅也可以使用，不过仍建议通过 Azure CLI 连接到订阅。 若要配置 Azure CLI 与订阅一起使用，请执行[从 Azure CLI 连接到 Azure 订阅](https://docs.microsoft.com/cli/azure/authenticate-azure-cli)中的步骤。
+大多数存储命令没有 Azure 订阅也可以使用，不过仍建议通过 Azure CLI 连接到订阅。 若要配置 Azure CLI 与订阅一起使用，请执行[从 Azure CLI 连接到 Azure 订阅](/cli/authenticate-azure-cli)中的步骤。
 
 ### <a name="create-a-new-storage-account"></a>新建存储帐户
 要使用 Azure 存储，需要一个存储帐户。 可以在将计算机配置为连接到订阅之后，创建新的 Azure 存储帐户。

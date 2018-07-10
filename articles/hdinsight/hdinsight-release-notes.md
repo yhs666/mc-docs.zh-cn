@@ -15,16 +15,16 @@ ms.topic: conceptual
 origin.date: 03/20/2018
 ms.date: 05/28/2018
 ms.author: v-yiso
-ms.openlocfilehash: b6b6135393de5d62f03de9414b32690d492a0a76
-ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
+ms.openlocfilehash: 9d43fc3f4ba152351e19e7ed9cde3a15d58d088f
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34449979"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873481"
 ---
 # <a name="release-notes-for-hadoop-components-on-azure-hdinsight"></a>Azure HDInsight 上的 Hadoop 组件发行说明
 
-[!INCLUDE [hdinsight-linux-acn-version.md](../../../includes/hdinsight-linux-acn-version.md)]
+
 
 本文提供有关**最新** Azure HDInsight 版本更新的信息。 有关较早版本的信息，请参阅 [HDInsight 发行说明存档](hdinsight-release-notes-archive.md)。
 

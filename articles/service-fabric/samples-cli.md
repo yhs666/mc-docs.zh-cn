@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric CLI 示例
-description: Azure Service Fabric CLI 示例
+title: Azure CLI (az) 和 Azure Service Fabric CLI (sfctl) 示例
+description: Azure CLI (az) 和 Azure Service Fabric CLI (sfctl) 示例
 services: service-fabric
 documentationcenter: service-fabric
 author: rockboyfor
@@ -14,30 +14,30 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: service-fabric
 origin.date: 04/09/2018
-ms.date: 04/30/2018
+ms.date: 07/09/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: c9fe240c0fedc1b14d3ffd9ec8a161274ff56216
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 18de123c03a21c6d453d60d3c8c598e25a8f7a86
+ms.sourcegitcommit: 292f22020e00c607229c1693229f25fb2837d8af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121134"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37910601"
 ---
-# <a name="azure-service-fabric-cli-samples"></a>Azure Service Fabric CLI 示例
+# <a name="azure-cli-az-and-azure-service-fabric-cli-sfctl-samples"></a>Azure CLI (az) 和 Azure Service Fabric CLI (sfctl) 示例
 
-下表包含 [Service Fabric CLI](service-fabric-cli.md) 脚本示例的链接，这些脚本示例可用于管理 Service Fabric 群集、应用程序和服务。
+下表包含有关如何管理 Service Fabric 群集、应用程序和服务的示例的链接。
 
 [!INCLUDE [links to azure cli and service fabric cli](../../includes/service-fabric-sfctl.md)]
 
 | | |
 |-|-|
-| 创建群集 ||
-| [创建安全 Linux 群集 (Azure)](./scripts/cli-create-cluster.md)| 创建 Azure Service Fabric 群集。 |
-| **管理应用程序** ||
+| **创建群集**（使用 Azure CLI）||
+| [创建安全 Linux 群集](./scripts/cli-create-cluster.md)| 创建 Azure Service Fabric 群集。 |
+| **管理应用程序**（使用 Service Fabric CLI）||
 | [列出应用程序](./scripts/sfctl-list-applications.md)| 列出预配到群集的应用程序。|
 | [部署应用程序](./scripts/cli-deploy-application.md)| 将应用程序部署到群集。|
 | [删除应用程序](./scripts/cli-remove-application.md)| 从群集中删除应用程序。|
 | [升级应用程序](./scripts/sfctl-upgrade-application.md)| 升级已部署的应用程序。|
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: wording update -->

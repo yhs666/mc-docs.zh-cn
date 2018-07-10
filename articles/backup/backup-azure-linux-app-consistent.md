@@ -1,26 +1,21 @@
 ---
-title: Azure 备份：Linux VM 的应用程序一致性备份 | Microsoft Docs
+title: Azure 备份：Linux VM 的应用程序一致性备份
 description: 创建 Linux 虚拟机到 Azure 的应用程序一致性备份。 本文介绍如何配置脚本框架以备份 Azure 部署的 Linux VM。 本文还包括故障排除信息。
 services: backup
-documentationcenter: dev-center-name
 author: anuragmehrotra
 manager: shivamg
 keywords: 应用程序一致性备份; 应用程序一致性 Azure VM 备份; Linux VM 备份; Azure 备份
-ms.assetid: bbb99cf2-d8c7-4b3d-8b29-eadc0fed3bef
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 origin.date: 01/12/2018
-ms.date: 02/07/2018
+ms.date: 07/05/2018
 ms.author: v-junlch
-ms.openlocfilehash: d3a1f9cac17643c1ff59d13be5d357d5f36fa68e
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 993c43365cb5d06b3e664611a9c4340852d0029c
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
-ms.locfileid: "29285231"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873641"
 ---
 # <a name="application-consistent-backup-of-azure-linux-vms"></a>Azure Linux VM 的应用程序一致性备份
 
@@ -96,4 +91,5 @@ ms.locfileid: "29285231"
 ## <a name="next-steps"></a>后续步骤
 [配置 VM 到恢复服务保管库的备份](/backup/backup-azure-arm-vms)
 
-<!-- Update_Description: wording update -->
+
+<!-- Update_Description: update metedata properties -->

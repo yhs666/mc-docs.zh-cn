@@ -3,25 +3,26 @@ title: Azure 单一登录 SAML 协议 | Microsoft Docs
 description: 本文介绍 Azure Active Directory 中的单一登录 SAML 协议
 services: active-directory
 documentationcenter: .net
-author: alexchen2016
-manager: digimobile
+author: priyamohanram
+manager: mtillman
 editor: ''
 ms.assetid: ad8437f5-b887-41ff-bd77-779ddafc33fb
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/19/2017
-ms.date: 08/24/2017
+ms.date: 07/03/2018
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: 7ab5c3ac0c7145d501147dc62e57d1e2ee13c283
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.openlocfilehash: b79b53e4028443d25dd939951c5d808da61003ea
+ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
-ms.locfileid: "21134803"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37800492"
 ---
 # <a name="single-sign-on-saml-protocol"></a>单一登录 SAML 协议
 本文介绍了 SAML 2.0 身份验证请求和响应，它受 Azure Active Directory (Azure AD) 支持，适用于单一登录。
@@ -47,7 +48,7 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 | 参数 |  | 说明 |
 | --- | --- | --- |
 | ID |必填 |Azure AD 使用此属性来填充返回的响应的 `InResponseTo` 属性。 ID 的开头不能是数字，因此常见的策略是在 GUID 的字符串表示形式前面加上类似于“id”的字符串。 例如， `id6c1c178c166d486687be4aaf5e482730` 是有效的 ID。 |
-| Version |必填 |应为 **2.0**。 |
+| 版本 |必填 |应为 **2.0**。 |
 | IssueInstant |必填 |这是具有 UTC 值并采用[往返格式（“o”）](https://msdn.microsoft.com/library/az4se3k1.aspx)的 DateTime 字符串。 Azure AD 需要这种类型的日期时间值，但不评估或使用该值。 |
 | AssertionConsumerServiceUrl |可选 |如果提供，必须与 Azure AD 中云服务的 `RedirectUri` 匹配。 |
 | ForceAuthn |可选 | 一个布尔值。 如果为 true，意味着用户会被强制重新验证身份，即使他们具有与 Azure AD 之间的有效会话。 |
@@ -58,7 +59,7 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 Azure AD 还会忽略 `AuthnRequest` 中的 `Conditions` 元素。
 
 ### <a name="issuer"></a>颁发者
-`AuthnRequest` 中的 `Issuer` 元素必须与 Azure AD 云服务中的某一个 ServicePrincipalNames 完全匹配。 通常，此参数设置为应用程序注册期间指定的 **应用 ID URI** 。
+`AuthnRequest` 中的 `Issuer` 元素必须与 Azure AD 云服务中的某一个 ServicePrincipalNames 完全匹配。 通常，此参数设置为应用程序注册期间指定的**应用 ID URI**。
 
 下面是一段包含 `Issuer` 元素的示例 SAML 摘录：
 
@@ -145,7 +146,7 @@ Azure AD 将忽略 `AuthnRequest` 元素的 `Subject` 元素。
 ```
 
 ### <a name="response"></a>响应
-`Response` 元素包含授权请求的结果。 Azure AD 会在 `Response` 元素中设置 `ID`、`Version` 和 `IssueInstant` 值。 它还会设置以下属性：
+`Response` 元素包含授权请求的结果。 Azure AD 将设置 `Response` 元素中的 `ID`、`Version` 和 `IssueInstant` 值。 它还会设置以下属性：
 
 - `Destination`：登录成功时，此属性将设置为服务提供者（云服务）的 `RedirectUri`。
 - `InResponseTo`：设置为发起响应的 `AuthnRequest` 元素的 `ID` 属性。
@@ -159,7 +160,7 @@ Azure AD 将 `Issuer` 元素设置为 `https://login.partner.microsoftonline.cn/
 <Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion"> https://login.partner.microsoftonline.cn/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
 ```
 
-### <a name="status"></a>Status
+### <a name="status"></a>状态
 `Status` 元素传递登录的成功或失败状态。 它包含 `StatusCode` 元素，此元素包含用于表示请求状态的一个代码或一组嵌套代码。 它还包含 `StatusMessage` 元素，此元素包含登录过程中生成的自定义错误消息。
 
 <!-- TODO: Add a authentication protocol error reference -->
@@ -200,8 +201,8 @@ Azure AD 为断言签名以响应成功登录。 `Signature` 元素包含数字�
     </ds:Signature>
 ```
 
-#### <a name="subject"></a>Subject
-指定断言中语句主题的主体。 它包含 `NameID` 元素，用于表示经过身份验证的用户。 `NameID` 值是一个目标标识符，它只定向到作为令牌受众的服务提供者。 它是持久性的 - 可吊销，但永远不可重新分配。 它也是不透明的，因为它不会透露有关用户的任何信息，也不能用作属性查询的标识符。
+#### <a name="subject"></a>使用者
+指定断言中语句主题的主体。 它包含 `NameID` 元素，用于表示经过身份验证的用户。 `NameID` 值是一个目标标识符，它只定向到作为令牌受众的服务提供者。 它是持久性的 - 可吊销，但永远不可重新分配。 它也是不透明的，因为它不会透露有关用户的信息，也不能用作属性查询的标识符。
 
 `SubjectConfirmation` 元素的 `Method` 属性始终设置为 `urn:oasis:names:tc:SAML:2.0:cm:bearer`。
 
@@ -214,7 +215,7 @@ Azure AD 为断言签名以响应成功登录。 `Signature` 元素包含数字�
 </Subject>
 ```
 
-#### <a name="conditions"></a>条件
+#### <a name="conditions"></a>Conditions
 此元素指定用于定义 SAML 断言可接受用法的条件。
 
 ```
@@ -273,4 +274,4 @@ Azure AD 为断言签名以响应成功登录。 `Signature` 元素包含数字�
 </AuthnStatement>
 ```
 
-<!--Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

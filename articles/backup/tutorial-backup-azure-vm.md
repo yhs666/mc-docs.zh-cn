@@ -1,28 +1,22 @@
 ---
-title: 在 Azure 中大规模备份 Azure VM | Microsoft Docs
+title: 在 Azure 中大规模备份 Azure VM
 description: 本教程详细介绍了如何将多个 Azure 虚拟机备份到恢复服务保管库。
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: ''
 keywords: 虚拟机备份; 备份虚拟机; 备份和灾难恢复
-ms.assetid: ''
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 origin.date: 09/06/2017
-ms.date: 05/15/2018
+ms.date: 07/06/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 62f0a4248b8247b539d79072de6659929ae08800
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.openlocfilehash: c14126b73f9557cf87c5836d34428b724d2cc8cc
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34256193"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873299"
 ---
 # <a name="back-up-azure-virtual-machines-in-azure-at-scale"></a>在 Azure 中大规模备份 Azure 虚拟机
 
@@ -96,4 +90,4 @@ Remove-AzureRmRecoveryServicesVault -Vault $vault1
 - [管理和监视虚拟机](backup-azure-manage-vms.md)
 - [恢复虚拟机](backup-azure-arm-restore-vms.md)
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: update metedata properties -->

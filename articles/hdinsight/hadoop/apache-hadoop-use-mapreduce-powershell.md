@@ -17,18 +17,18 @@ ms.workload: big-data
 origin.date: 05/09/2018
 ms.date: 06/25/2018
 ms.author: v-yiso
-ms.openlocfilehash: b74371d8dde74f7d03c56314c172b7cce196d4ed
-ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
+ms.openlocfilehash: 447ec9114ba5886cc6f4bbe0c2e29b3dbd1c8d3e
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36747342"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873577"
 ---
 # <a name="run-mapreduce-jobs-with-hadoop-on-hdinsight-using-powershell"></a>通过 PowerShell 使用 HDInsight 上的 Hadoop 运行 MapReduce 作业
 
 [!INCLUDE [mapreduce-selector](../../../includes/hdinsight-selector-use-mapreduce.md)]
 
-[!INCLUDE [azure-sdk-developer-differences](../../../includes/azure-sdk-developer-differences.md)]
+
 
 本文档提供了一个示例，演示了使用 Azure PowerShell 在 HDInsight 的 Hadoop 群集中运行 MapReduce 作业。
 

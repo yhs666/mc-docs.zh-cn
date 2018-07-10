@@ -1,5 +1,5 @@
 ---
-title: 创建 Azure 自动化运行方式帐户 | Microsoft Docs
+title: 创建 Azure 自动化运行方式帐户
 description: 本文介绍如何使用 PowerShell 或通过门户更新自动化帐户并创建运行方式帐户。
 services: automation
 author: yunan2016
@@ -10,12 +10,12 @@ ms.topic: article
 origin.date: 03/15/2018
 ms.date: 03/20/2018
 ms.author: v-nany
-ms.openlocfilehash: 884e07b2a6ab00ef9e89c2282edd5548030cde6b
-ms.sourcegitcommit: 891a55be3e7500051f88ca89cb6d6d9604554ec3
+ms.openlocfilehash: 8391371db7375b07ea407a2f9f080f0eeb4a9f94
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2018
-ms.locfileid: "30260375"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873353"
 ---
 # <a name="update-your-automation-account-authentication-with-run-as-accounts"></a>使用运行方式帐户更新自动化帐户身份验证 
 在以下情况下，可以通过 Azure 门户或使用 PowerShell 更新现有自动化帐户：
@@ -41,14 +41,14 @@ ms.locfileid: "30260375"
 如果选择[使用 PowerShell 创建运行方式帐户](#create-run-as-account-using-powershell)，则此过程需要：
 
 * 装有 Azure 资源管理器模块 3.4.1 及更高版本的 Windows 10 与 Windows Server 2016。 PowerShell 脚本不支持早期版本的 Windows。
-* Azure PowerShell 1.0 和更高版本。 有关 PowerShell 1.0 版本的信息，请参阅[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)。
+* Azure PowerShell 1.0 和更高版本。 有关 PowerShell 1.0 版本的信息，请参阅[如何安装和配置 Azure PowerShell](/powershell/azureps-cmdlets-docs)。
 * 作为 *-AutomationAccountName* 和 *-ApplicationDisplayName* 参数的值引用的自动化帐户。
 
 若要获取脚本的必需参数 SubscriptionID、ResourceGroup 和 AutomationAccountName 的值，请执行以下操作：
 
 1. 在 Azure 门户中，单击“所有服务”。 在资源列表中，键入“自动化”。 开始键入时，会根据输入筛选该列表。 选择“自动化帐户”。
 2. 在“自动化帐户”页中选择自动化帐户，然后在“帐户设置”下选择“属性”。  
-3. 记下“属性”页中的值。<br><br> ![自动化帐户的“属性”边栏选项卡](./media/automation-create-runas-account/automation-account-properties.png)  
+3. 记下“属性”页中的值。<br><br> ![自动化帐户的“属性”边栏选项卡](media/automation-create-runas-account/automation-account-properties.png)  
 
 ### <a name="required-permissions-to-update-your-automation-account"></a>更新自动化帐户所需的权限
 若要更新自动化帐户，必须具有完成本主题所需的下述特定权限。   

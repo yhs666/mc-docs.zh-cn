@@ -2,26 +2,23 @@
 title: 如何使用 Azure Active Directory 连接服务诊断错误
 description: Active Directory 连接服务可检测到不兼容的身份验证类型
 services: active-directory
-documentationcenter: ''
 author: ghogen
 manager: douge
-editor: ''
 ms.assetid: dd89ea63-4e45-4da1-9642-645b9309670a
-ms.service: active-directory
-ms.workload: web
-ms.tgt_pltfrm: vs-getting-started
-ms.devlang: na
-ms.topic: article
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: azure
+ms.topic: conceptual
 origin.date: 03/12/2018
-ms.date: 05/04/2018
+ms.date: 07/03/2018
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: e6edda05bbc5168cec33d1fd7c76b1facce2d72f
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: 9775125917425556d1523b5c8549fbde1201a078
+ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33815020"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37800356"
 ---
 # <a name="diagnosing-errors-with-the-azure-active-directory-connected-service"></a>使用 Azure Active Directory 连接服务诊断错误
 
@@ -54,9 +51,9 @@ ms.locfileid: "33815020"
 
 最后，连接服务会尝试检测使用以前版本的 Visual Studio 配置的身份验证代码版本。 如果已收到此错误，它表示项目包含不兼容的身份验证类型。 连接服务将通过以前版本的 Visual Studio 检测以下身份验证类型：
 
-* Windows 身份验证
-* 单个用户帐户
-* 组织帐户
+- Windows 身份验证
+- 单个用户帐户
+- 组织帐户
 
 为了检测 MVC 项目中的 Windows 身份验证，连接服务将在 `web.config` 文件中查找 `authentication` 元素。
 

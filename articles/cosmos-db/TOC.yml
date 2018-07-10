@@ -293,18 +293,12 @@ items:
         href: set-throughput.md
       - name: 防火墙支持
         href: firewall-support.md
-      - name: 设置虚拟网络服务终结点
-        href: vnet-service-endpoint.md
-      - name: 指标
-        href: use-metrics.md
       - name: 监视 SLA
         href: monitor-accounts.md
       - name: 备份和还原
         href: online-backup-and-restore.md
       - name: 区域性故障转移
         href: regional-failover.md
-      - name: 诊断日志记录
-        href: logging.md
       - name: BulkExecutor 概述
         href: bulk-executor-overview.md
       - name: 以经济高效的方式读取和写入

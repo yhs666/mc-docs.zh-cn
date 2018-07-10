@@ -17,22 +17,22 @@ origin.date: 01/12/2017
 ms.date: 12/18/2017
 ms.author: v-yiso
 ROBOTS: NOINDEX
-ms.openlocfilehash: 97f0392c9617b22b10107c5011f441b47b8db91b
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: 6a88aa46679246bb9a5a43739d73c38770dc2ee6
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
-ms.locfileid: "26410540"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873657"
 ---
 # <a name="use-hive-with-hadoop-on-hdinsight-with-remote-desktop"></a>通过远程桌面将 Hive 与 HDInsight 上的 Hadoop 配合使用
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
 本文介绍如何通过使用远程桌面连接到 HDInsight 群集，然后通过使用 Hive 命令行接口 (CLI) 运行 Hive 查询。
 
-[!INCLUDE [hdinsight-linux-acn-version.md](../../../includes/hdinsight-linux-acn-version.md)]
+
 
 > [!IMPORTANT]
-> 远程桌面只能在使用 Windows 作为操作系统的 HDInsight 群集上使用。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
+> 远程桌面只能在使用 Windows 作为操作系统的 HDInsight 群集上使用。 Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 >
 > 有关 HDInsight 3.4 或更高版本，请参阅[将 Hive 与 HDInsight 和 Beeline 配合使用](apache-hadoop-use-hive-beeline.md)，了解如何通过命令行直接在群集上运行 Hive 查询。
 
@@ -63,7 +63,7 @@ ms.locfileid: "26410540"
         STORED AS TEXTFILE LOCATION 'wasb:///example/data/';
         SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
 
-    这些语句可执行以下操作：
+    这些语句执行以下操作：
 
    * **DROP TABLE**：删除表和数据文件（如果该表已存在）。
    * **CREATE EXTERNAL TABLE**：在 Hive 中创建新“外部”表。 外部表仅存储 Hive 中的表定义（数据会保留在原位置）。
@@ -71,19 +71,19 @@ ms.locfileid: "26410540"
      > [!NOTE]
      > 预期以外部源更新基础数据（例如自动化数据上传过程），或以其他 MapReduce 操作更新基础数据，但希望 Hive 查询使用最新数据时，必须使用外部表。
      >
-     > 删除外部表**不会**删除数据，只会删除表定义。
+     > 删除外部表 **不会** 删除数据，只会删除表定义。
      >
      >
    * **ROW FORMAT**：告知 Hive 如何设置数据的格式。 在此情况下，每个日志中的字段以空格分隔。
    * STORED AS TEXTFILE LOCATION：告知 Hive 数据的存储位置（example/data 目录），以及数据已存储为文本。
-   * SELECT：选择其列 t4 包含值 [ERROR] 的所有行的计数。 这应会返回值 **3** ，因为有三个行包含此值。
-   * **INPUT__FILE__NAME LIKE '%.log'** - 告诉 Hive，我们只应返回以 .log 结尾的文件中的数据。 此项将搜索限定于包含数据的 sample.log 文件，使搜索不会返回与所定义架构不符的其他示例数据文件中的数据。
+   * SELECT：选择其列 t4 包含值 [ERROR] 的所有行的计数。 这应会返回值 **3**，因为有三行包含此值。
+   * **INPUT__FILE__NAME LIKE '%.log'** - 告诉 Hive，我们只应返回以 .log 结尾的文件中的数据。 此项将搜索限定为包含数据的 sample.log 文件，而不返回与所定义架构不符的其他示例数据文件中的数据。
 4. 使用以下语句创建名为 **errorLogs**的新“内部”表：
 
         CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
         INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log';
 
-    这些语句可执行以下操作：
+    这些语句执行以下操作：
 
    * **CREATE TABLE IF NOT EXISTS**：创建表（如果该表不存在）。 由于未使用 **EXTERNAL** 关键字，因此这是一个内部表，它存储在 Hive 数据仓库中并完全受 Hive 的管理。
 

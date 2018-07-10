@@ -1,27 +1,21 @@
 ---
-title: Azure 备份：使用 Azure 门户还原虚拟机 | Microsoft Docs
+title: Azure 备份：使用 Azure 门户还原虚拟机
 description: 使用 Azure 门户从恢复点还原 Azure 虚拟机
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: ''
 keywords: 还原备份; 如何还原; 恢复点;
-ms.assetid: 372b87c6-3544-4dc5-bbc9-c742ca502159
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 09/04/2017
-ms.date: 05/28/2018
+ms.date: 07/05/2018
 ms.author: v-junlch
-ms.openlocfilehash: 4186f945ff2a1eeaaa2a3edbc0456d3a8b60bca3
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: e43bd51c09847c1e30b43561f64170adf7263155
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34559433"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873402"
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>使用 Azure 门户还原虚拟机
 可以通过按定义的间隔创建数据快照来保护数据。 这些快照称为恢复点，存储在恢复服务保管库中。 当需要修复或重新生成虚拟机 (VM) 时，可以从保存的任何恢复点还原 VM。 还原恢复点时，可以：
@@ -256,4 +250,4 @@ ms.locfileid: "34559433"
 - [排查错误](backup-azure-vms-troubleshoot.md#restore)
 - [管理虚拟机](backup-azure-manage-vms.md)
 
-<!--Update_Description: wording update-->
+<!-- Update_Description: update metedata properties -->

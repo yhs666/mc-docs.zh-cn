@@ -16,12 +16,12 @@ ms.workload: big-data
 origin.date: 04/16/2018
 ms.date: 06/25/2018
 ms.author: v-yiso
-ms.openlocfilehash: e3bfc80c9c1410bc791fefc539f58759d287c759
-ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
+ms.openlocfilehash: 624ddfea1ac6637cbd28ba96e33871322b8dcc25
+ms.sourcegitcommit: 4106cd877cbcf3a43b827faa7fef69d7c3bf27e2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36747418"
+ms.lasthandoff: 07/04/2018
+ms.locfileid: "37792668"
 ---
 # <a name="quickstart-create-a-kafka-on-hdinsight-cluster"></a>快速入门：创建 Kafka on HDInsight 群集
 
@@ -38,7 +38,7 @@ Kafka 是开源分布式流式处理平台。 通常用作消息代理，因为�
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅。 如果没有 Azure 订阅，请在开始之前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+* Azure 订阅。 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
 * SSH 客户端。 文档中的步骤使用 SSH 连接到群集。
 

@@ -1,24 +1,20 @@
 ---
-title: Azure 备份服务器 v2 的无提示安装 | Microsoft Docs
+title: 无提示的 Azure 备份服务器 v2 安装
 description: 使用 PowerShell 脚本可以无提示方式安装 Azure 备份服务器 v2。 这种类型安装也称为无人参与安装。
 services: backup
-documentationcenter: " "
-author: alexchen2016
-manager: digimobile
+author: markgalioto
+manager: carmonm
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 origin.date: 05/30/2017
-ms.date: 06/30/2017
+ms.date: 07/06/2018
 ms.author: v-junlch
-ms.openlocfilehash: ece59a5393c6b3bcbb1bb33ff88efe1061ea88c0
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.openlocfilehash: 054fb28d58b2f0aa4df779b2cabe30bf60562c2c
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
-ms.locfileid: "20472584"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873289"
 ---
 # <a name="run-an-unattended-installation-of-azure-backup-server-v2"></a>运行 Azure 备份服务器 v2 的无人参与安装
 
@@ -60,16 +56,17 @@ ms.locfileid: "20472584"
   ```
 
 可以将以下这些标志用于安装：</br>
- **/f**：.ini 文件路径</br>
- **/l**：日志路径</br>
- **/i**：安装路径</br>
- **/x**：卸载路径</br>
+/f：.ini 文件路径</br>
+/l：日志路径</br>
+/i：安装路径</br>
+/x：卸载路径</br>
 
 ## <a name="next-steps"></a>后续步骤
 安装备份服务器之后，了解如何准备服务器或开始保护工作负荷。
 
-- [准备备份服务器工作负荷](backup-azure-microsoft-azure-backup-classic.md)
+- [准备备份服务器工作负荷](backup-azure-microsoft-azure-backup.md)
 - [使用备份服务器备份 VMware 服务器](backup-azure-backup-server-vmware.md)
 - [使用备份服务器备份 SQL Server](backup-azure-sql-mabs.md)
 - [将 Modern Backup Storage 添加到备份服务器](backup-mabs-add-storage.md)
 
+<!-- Update_Description: link update -->

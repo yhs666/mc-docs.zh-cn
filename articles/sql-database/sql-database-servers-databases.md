@@ -10,12 +10,12 @@ ms.topic: article
 origin.date: 04/10/2018
 ms.date: 04/17/2018
 ms.author: v-johch
-ms.openlocfilehash: f7276d0e66824436a8672c89ecf070874b7051b1
-ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
+ms.openlocfilehash: cc53f096ad01b5b199ff644dd9ef47e9636e5842
+ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36948063"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37800458"
 ---
 # <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>创建并管理 Azure SQL 数据库服务器和数据库
 
@@ -25,7 +25,7 @@ SQL 数据库提供了三种类型的数据库：
 - 使用[一组组合计算和存储资源（基于 DTU）](sql-database-service-tiers-dtu.md)或[由池中所有数据库共享的独立计算和存储资源规模（基于 vCore）](sql-database-service-tiers-vcore.md)，在 [Azure 资源组](../azure-resource-manager/resource-group-overview.md)中创建数据库，作为[数据库池](sql-database-elastic-pool.md)的一部分。 Azure SQL 数据库与在特定 Azure 区域内创建的 Azure SQL 数据库逻辑服务器相关联。
 - 使用定义的一组用于服务器实例上所有数据库的计算和存储资源，在 [Azure 资源](../azure-resource-manager/resource-group-overview.md)组中创建 [SQL 服务器的实例](sql-database-managed-instance.md)（托管实例）。 一个托管实例同时包含系统和用户数据库。 使用托管实例可将数据库即时转移到完全托管的 PaaS，而无需重新设计应用程序。 托管实例与本地 SQL Server 编程模型高度兼容，支持大多数 SQL Server 功能，并支持随附的工具和服务。  
 
-Microsoft Azure SQL 数据库支持表格格式数据流 (TDS) 协议客户端 7.3 版或更高版本，并仅允许加密的 TCP/IP 连接。
+Azure SQL 数据库支持表格格式数据流 (TDS) 协议客户端 7.3 或更高版本，但仅允许加密的 TCP/IP 连接。
 
 > [!IMPORTANT]
 > SQL 数据库托管实例（当前处于公共预览状态）提供单个常规用途服务层。 有关详细信息，请参阅 [SQL 数据库托管实例](sql-database-managed-instance.md)。 本文剩余部分不适用于托管实例。

@@ -12,12 +12,12 @@ origin.date: 04/09/2018
 ms.date: 06/18/2018
 ms.author: v-yeche
 ms.reviewer: jasonh
-ms.openlocfilehash: 05c258ccd4a56dc45e8ea10f08eab828afa37aac
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: b0019b60c6118a73ed6ee1701a5d58a38aedd98b
+ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "35416912"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37405292"
 ---
 # <a name="run-azure-functions-from-azure-stream-analytics-jobs"></a>从 Azure 流分析作业运行 Azure Functions 
 
@@ -47,10 +47,12 @@ ms.locfileid: "35416912"
 * [更新流分析作业，以函数作为输出](#update-the-stream-analytic-job-with-azure-function-as-output)  
 * [在 Azure Redis 缓存中检查结果](#check-redis-cache-for-results)  
 
+<a name="create-stream-analytics-job-with-event-hub-as-input"></a>
 ## <a name="create-a-stream-analytics-job-with-event-hubs-as-input"></a>创建以事件中心为输入的流分析作业
 
 按照[实时欺诈检测](stream-analytics-real-time-fraud-detection.md)教程以创建事件中心，启动事件生成器应用程序，并创建流分析作业。 （跳过创建查询和输出的步骤。 改为按以下各节所述设置 Functions 输出。）
 
+<a name="create-an-azure-redis-cache"></a>
 ## <a name="create-an-azure-redis-cache-instance"></a>创建 Azure Redis 缓存实例
 
 1. 使用[创建缓存](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache)中所述的步骤，在 Azure Redis 缓存中创建缓存。  
@@ -59,6 +61,7 @@ ms.locfileid: "35416912"
 
    ![Azure Redis 缓存连接字符串的屏幕截图](./media/stream-analytics-with-azure-functions/image2.png)
 
+<a name="create-an-azure-function-that-can-write-data-to-the-redis-cache"></a>
 ## <a name="create-a-function-in-azure-functions-that-can-write-data-to-azure-redis-cache"></a>在 Azure Functions 中创建可将数据写入到 Azure Redis 缓存的函数
 
 1. 请参阅 Functions 文档的[创建函数应用](../azure-functions/functions-create-first-azure-function.md#create-a-function-app)一节。 该小节演示了如何通过使用 CSharp 语言，[在 Azure Functions 中创建函数应用和 HTTP 触发的函数](../azure-functions/functions-create-first-azure-function.md#create-function)。  
@@ -147,6 +150,7 @@ ms.locfileid: "35416912"
 
    ![应用服务编辑器的屏幕截图](./media/stream-analytics-with-azure-functions/image4.png)
 
+<a name="update-the-stream-analytic-job-with-azure-function-as-output"></a>
 ## <a name="update-the-stream-analytics-job-with-the-function-as-output"></a>更新流分析作业，以函数作为输出
 
 1. 在 Azure 门户中打开流分析作业。  
@@ -184,6 +188,7 @@ ms.locfileid: "35416912"
 
 6.  启动流分析作业。
 
+<a name="check-redis-cache-for-results"></a>
 ## <a name="check-azure-redis-cache-for-results"></a>在 Azure Redis 缓存中检查结果
 
 1. 浏览到 Azure 门户中，并查找你的 Azure Redis 缓存。 选择“控制台”。  

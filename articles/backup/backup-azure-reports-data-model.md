@@ -2,26 +2,20 @@
 title: Azure 备份的数据模型
 description: 本文介绍 Azure 备份报表的 Power BI 数据模型详细信息。
 services: backup
-documentationcenter: ''
-author: alexchen2016
-manager: digimobile
-editor: ''
-ms.assetid: 0767c330-690d-474d-85a6-aa8ddc410bb2
+author: JPallavi
+manager: vijayts
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 origin.date: 06/26/2017
-ms.date: 11/02/2017
+ms.date: 07/06/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f07c265c73e034504687ed0be6bf172f9d85f7cf
-ms.sourcegitcommit: f50b4a6a8c041d370ccd32a56a634db00cb8a99e
+ms.openlocfilehash: a4053e16f64f2c3a84e8a19b13014c74e007f906
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/02/2017
-ms.locfileid: "23955169"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873487"
 ---
 # <a name="data-model-for-azure-backup-reports"></a>Azure 备份报表的数据模型
 本文介绍用于创建 Azure 备份报表的 Power BI 数据模型。 使用此数据模型，可基于相关字段筛选现有报表，更重要是，还可使用模型中表格和字段创建自己的报表。 
@@ -73,7 +67,7 @@ Power BI 提供了自定义功能，可用于[通过数据模型创建报表](ht
 | 字段 | 数据类型 | 说明 |
 | --- | --- | --- |
 | 日期 |日期 |用于筛选数据的日期 |
-| 日期键 |文本 |每个日期项的唯一键 |
+| DateKey |文本 |每个日期项的唯一键 |
 | DayDiff |十进制数 |用于筛选数据的天数差别，例如 0 表示当天的数据，-1 表示前一天的数据，0 和 -1 表示当天和前一天的数据  |
 | 月份 |文本 |用于筛选数据的月份，月份以第一天开始，在第 31 天结束 |
 | MonthDate | 日期 |月份中当月结束的日期，用于筛选数据 |
@@ -200,3 +194,5 @@ Power BI 提供了自定义功能，可用于[通过数据模型创建报表](ht
 - [在 Power BI 中创建报表](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/)
 - [在 Power BI 中筛选报表](https://powerbi.microsoft.com/documentation/powerbi-service-about-filters-and-highlighting-in-reports/)
 
+
+<!-- Update_Description: update metedata properties -->

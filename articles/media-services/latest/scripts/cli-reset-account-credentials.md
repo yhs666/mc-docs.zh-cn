@@ -15,12 +15,12 @@ ms.workload: na
 origin.date: 05/11/2018
 ms.date: 05/28/2018
 ms.author: v-nany
-ms.openlocfilehash: afce5e1cb2d680a79cb4c704ccfe4388f97e6738
-ms.sourcegitcommit: d4176361d9c6da60729c06cc93a496cb4702d4c2
+ms.openlocfilehash: 78dcd459c3935988c584d7b4e043b709ab7ebda9
+ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2018
-ms.locfileid: "35324252"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37405163"
 ---
 # <a name="cli-example-reset-the-account-credentials"></a>CLI 示例：重置帐户凭据
 
@@ -28,17 +28,19 @@ ms.locfileid: "35324252"
 
 
 
-如果选择在本地安装并使用 CLI，本文要求运行 Azure CLI 2.0.20 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](/cli/azure/install-azure-cli)。 
+如果选择在本地安装并使用 CLI，本文要求运行 Azure CLI 2.0.20 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](/cli/install-azure-cli)。 
 
 ## <a name="example-script"></a>示例脚本
 
-```Azure CLI
-#<a name="binbash"></a>!/bin/bash
+```cli
+#!/bin/bash
 
-# <a name="update-the-following-variables-for-your-own-settings"></a>更新自己的设置的下列变量：
-resourceGroup=amsResourceGroup amsAccountName=amsmediaaccountname amsSPName=build2018demo
+# Update the following variables for your own settings:
+resourceGroup=amsResourceGroup
+amsAccountName=amsmediaaccountname
+amsSPName=build2018demo
 
-# <a name="reset-your-account-credentials-and-get-the-appconfig-settings-back"></a>重置帐户凭据和恢复 app.config 设置
+# Reset your account credentials and get the app.config settings back
 az ams account sp reset-credentials \
   --account-name $amsAccountName \
   --name $amsSPName \
@@ -47,7 +49,7 @@ az ams account sp reset-credentials \
   --xml \
   --years 2 \
 
-echo "按 [ENTER] 继续。"
+echo "press  [ENTER]  to continue."
 read continue
 ```
 

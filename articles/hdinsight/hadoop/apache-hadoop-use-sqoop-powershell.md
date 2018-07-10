@@ -15,17 +15,17 @@ ms.topic: conceptual
 origin.date: 05/16/2018
 ms.date: 06/25/2018
 ms.author: v-yiso
-ms.openlocfilehash: ea7759caf0121661e1bb3775cde7c643e9adf0b3
-ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
+ms.openlocfilehash: 76d7f7943d01d4a6a8b00ff6faa3f11cea76213b
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36747498"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873351"
 ---
 # <a name="run-sqoop-jobs-by-using-azure-powershell-for-hadoop-in-hdinsight"></a>使用 HDInsight 中的用于 Hadoop 的 Azure PowerShell 运行 Sqoop 作业
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
-[!INCLUDE [azure-sdk-developer-differences](../../../includes/azure-sdk-developer-differences.md)]
+
 
 了解如何使用 Azure PowerShell 运行 Azure HDInsight 中的 Sqoop 作业，以便在 HDInsight 群集与 Azure SQL 数据库或 SQL Server 数据库之间进行导入和导出。
 

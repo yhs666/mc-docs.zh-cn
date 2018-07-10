@@ -17,12 +17,12 @@ ms.workload: na
 origin.date: 05/02/2018
 ms.date: 06/04/2018
 ms.author: v-yeche
-ms.openlocfilehash: 1a805b8f1722ca85cad8eb9ba83015cd823c7056
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 1139350957d94339d3136c568eb69f5dc5e39c7c
+ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702917"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37405298"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Desired State Configuration 扩展与 Azure 资源管理器模板
 
@@ -276,7 +276,7 @@ DSC 扩展继承默认扩展属性。
     "configurationUrlSasToken": "odLPL/U1p9lvcnp..."
 }
 ```
-
+<a name="update-from-the-previous-format"></a>
 ## <a name="update-from-a-previous-format"></a>从以前的格式更新
 
 以前的扩展格式中的所有设置（包含 **ModulesUrl**、**ConfigurationFunction**、**SasToken** 或 **Properties** 公共属性）会自动调整为当前扩展格式。

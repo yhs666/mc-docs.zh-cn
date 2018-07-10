@@ -14,13 +14,13 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 origin.date: 04/11/2018
 ms.author: v-yiso
-ms.date: 04/30/2018
-ms.openlocfilehash: bc855c02ac417cf3a82f14f678aa080110b1c9be
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.date: 07/16/2018
+ms.openlocfilehash: f8aa81358ac933dbaeef31411fdfad463ad86ac6
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782054"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873365"
 ---
 # <a name="create-a-service-bus-namespace-with-topic-subscription-and-rule-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 模板创建包含主题、订阅和规则的服务总线命名空间
 
@@ -145,8 +145,10 @@ ms.locfileid: "31782054"
                         "[parameters('serviceBusSubscriptionName')]"
                     ],
                     "properties": {
-                        "filter": {
-                            "sqlExpression": "StoreName = 'Store1'"
+                        "filterType": "SqlFilter",
+                        "sqlFilter": {
+                            "sqlExpression": "StoreName = 'Store1'",
+                            "requiresPreprocessing": "false"
                         },
                         "action": {
                             "sqlExpression": "set FilterTag = 'true'"

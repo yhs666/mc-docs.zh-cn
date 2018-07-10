@@ -1,9 +1,26 @@
 ---
-title: 存档 Azure 诊断日志 | Microsoft Docs description: 了解如何存档 Azure 诊断日志，将其长期保留在存储帐户中。
-author: johnkemnetz manager: orenr editor: '' services: monitoring-and-diagnostics documentationcenter: monitoring-and-diagnostics
-
-ms.assetid: 3a55c73f-2ef3-45f3-8956-bcf9c0cb7e05 ms.service: monitoring-and-diagnostics ms.workload: na ms.tgt_pltfrm: na ms.devlang: na ms.topic: article origin.date: 04/04/2018 ms.date：05/14/2018 ms.author: v-yiso
-
+title: 存档 Azure 诊断日志 | Microsoft Docs
+description: 了解如何存档 Azure 诊断日志，将其长期保留在存储帐户中。
+author: johnkemnetz
+manager: orenr
+editor: ''
+services: monitoring-and-diagnostics
+documentationcenter: monitoring-and-diagnostics
+ms.assetid: 3a55c73f-2ef3-45f3-8956-bcf9c0cb7e05
+ms.service: monitoring-and-diagnostics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+origin.date: 04/04/2018
+ms.date: 05/14/2018
+ms.author: v-yiso
+ms.openlocfilehash: 319ca775be7ef4dfc9ccf1ad643cfff314842af8
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873633"
 ---
 # <a name="archive-azure-diagnostic-logs"></a>存档 Azure 诊断日志
 本文介绍如何使用 Azure 门户、PowerShell Cmdlet、CLI 或 REST API 将 [Azure 诊断日志](monitoring-overview-of-diagnostic-logs.md)存档到存储帐户中。 此选项适用于实施可选保留策略的诊断日志，将其保留下来进行审核、静态分析或备份。 只要配置设置的用户同时拥有两个订阅的相应 RBAC 访问权限，存储帐户就不必与资源发出日志位于同一订阅中。

@@ -3,25 +3,27 @@ title: 如何使 AppSource 通过 Azure Active Directory 的认证 | Microsoft D
 description: 详细说明如何使应用程序 AppSource 通过 Azure Active Directory 的认证。
 services: active-directory
 documentationcenter: ''
-author: andretms
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: 21206407-49f8-4c0b-84d1-c25e17cd4183
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 08/03/2017
-ms.date: 01/09/2018
+ms.date: 07/03/2018
 ms.author: v-junlch
+ms.reviewer: andret
 ms.custom: aaddev
-ms.openlocfilehash: 39c20e3eb334c3b53eff5e4e1bb40d725eea6989
-ms.sourcegitcommit: 4ae946a9722ff3e7231fcb24d5e8f3e2984ccd1a
+ms.openlocfilehash: cb7d5944f16e2d5f9324e2221c99c174172386af
+ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2018
-ms.locfileid: "27769130"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37800408"
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>如何使 AppSource 通过 Azure Active Directory 的认证
 [Microsoft AppSource](https://appsource.microsoft.com/) 是一个可供业务用户发现、尝试和管理业务线 SaaS 应用程序（独立 SaaS 和现有 Microsoft SaaS 产品的加载项）的目的地。
@@ -37,7 +39,7 @@ ms.locfileid: "27769130"
 
 若要在应用程序上启用多租户，请执行以下操作：
 - 在 [Azure 门户](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps)中将应用程序注册信息上的 `Multi-Tenanted` 属性设置为 `Yes`（默认情况下，在 Azure 门户中创建的应用程序将配置为单租户）
-- 更新代码，将请求发送至“`common`”终结点（将终结点从 *https://login.partner.microsoftonline.cn/{yourtenant}* 更新为 *https://login.partner.microsoftonline.cn/common*）
+- 更新代码，将请求发送到“`common`”终结点（将终结点从 https://login.partner.microsoftonline.cn/{yourtenant} 更新到 https://login.partner.microsoftonline.cn/common）
 - 对于某些平台（如 ASP.NET），还需更新代码以接受多个证书颁发者
 
 有关多租户的详细信息，请参阅：[如何使用多租户应用程序模式登录任意 Azure Active Directory (AD) 用户](./active-directory-devhowto-multi-tenant-overview.md)。
@@ -108,4 +110,4 @@ ms.locfileid: "27769130"
 
 <!--Image references-->
 
-<!--Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

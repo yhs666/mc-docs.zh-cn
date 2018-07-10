@@ -14,15 +14,16 @@ ms.devlang: nodejs
 ms.topic: article
 origin.date: 08/10/2017
 ms.author: v-yiso
-ms.date: 09/18/2017
-ms.openlocfilehash: 330d86871b47d76e904e62682cb044c0277e1dd1
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.date: 07/16/2018
+ms.openlocfilehash: ee0e766506d2fda58c54c96fc616f3e0cfd01373
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695106"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873355"
 ---
-# <a name="how-to-use-service-bus-queues"></a>如何使用服务总线队列
+# <a name="how-to-use-service-bus-queues-with-nodejs"></a>如何通过 Node.js 使用服务总线队列
+
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
 本文介绍如何通过 Node.js 使用服务总线队列。 示例用 JavaScript 编写并使用 Node.js Azure 模块。 涉及的任务包括**创建队列**、**发送和接收消息**以及**删除队列**。 有关队列的详细信息，请参阅[后续步骤](#next-steps)部分。
@@ -65,8 +66,6 @@ var azure = require('azure');
 
 ### <a name="set-up-an-azure-service-bus-connection"></a>设置 Azure 服务总线连接
 Azure 模块读取环境变量 `AZURE_SERVICEBUS_CONNECTION_STRING`，获取连接到服务总线所需的信息。 如果未设置此环境变量，则在调用 `createServiceBusService` 时必须指定帐户信息。
-
-有关在 Azure 云服务的配置文件中设置环境变量的示例，请参阅[使用存储的 Node.js 云服务][Node.js Cloud Service with Storage]。
 
 有关在 [Azure 门户][Azure portal]中为 Azure 网站设置环境变量的示例，请参阅[使用存储的 Node.js Web 应用程序][Node.js Web Application with Storage]。
 

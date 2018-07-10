@@ -2,26 +2,26 @@
 title: 如何使用 ADAL 在 iOS 上启用跨应用 SSO | Microsoft Docs
 description: '如何使用 ADAL SDK 的功能跨应用程序启用单一登录。 '
 services: active-directory
-documentationcenter: ''
-author: brandwe
+author: CelesteDG
 manager: mtillman
-editor: ''
 ms.assetid: d042d6da-7503-4e20-bb55-06917de01fcd
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
 origin.date: 04/07/2017
-ms.date: 01/10/2018
+ms.date: 07/03/2018
 ms.author: v-junlch
+ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 86ab0e4562872c6dd3db6572f898bcb29a81d1b9
-ms.sourcegitcommit: 4ae946a9722ff3e7231fcb24d5e8f3e2984ccd1a
+ms.openlocfilehash: 7ddc00466750d438100bff96274d7c1b31604c62
+ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2018
-ms.locfileid: "27769179"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37800425"
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>如何使用 ADAL 在 iOS 上启用跨应用 SSO
 客户现在都希望提供单一登录 (SSO)，以便用户只需输入一次凭据，然后这些凭据就会自动在多个应用程序中生效。 要用户在一个小屏幕上输入用户名和密码，这本身就是一项很难的操作，通常还伴有其他身份验证方式 (2FA)，例如电话呼叫或短信代码。如果在使用产品时必须多次执行这些操作，用户很快就会产生不满情绪。
@@ -82,9 +82,9 @@ Microsoft 为每个移动平台提供了应用程序，可在来自不同供应�
 
 #### <a name="broker-assisted-logins"></a>中转站辅助的登录
 中转站辅助的登录是一种发生在中转站应用程序中的登录体验，它使用中转站的存储和安全性在设备上应用 Microsoft 标识平台的所有应用程序间共享凭据。 这意味着，应用程序依赖于中转站才能完成用户登录。 在 iOS 和 Android 平台上，通过可下载的应用程序提供这些中转站。可以由客户独立安装这些应用程序，也可以由负责管理其用户的设备的公司将这些应用程序推送到设备。 例如，iOS 上的 Microsoft Authenticator 应用程序就是此类应用程序。 在 Windows 环境中，此功能由内置于操作系统的帐户选择器提供，在技术上被称为 Web 身份验证中转站。
-具体的体验因平台而异，如果未正确管理，有时会给用户带来麻烦。 如果你已安装 Facebook 应用程序并在另一个应用程序中使用 Facebook Connect，则可能很熟悉这种模式。 Microsoft 标识平台使用相同的模式。
+具体的体验因平台而异，如果未正确管理，有时会给用户带来麻烦。 
 
-对于 iOS，这会导致“过渡”动画，将你的应用程序发送到后台，而将 Microsoft Authenticator 应用程序发送到前台，让用户选择其登录时使用的帐户。  
+对于 iOS，这会导致“过渡”动画，将你的应用程序发送到后台，而将 Microsoft Authenticator 应用程序发送到前台，让用户选择其登录时使用的帐户。 
 
 对于 Android 和 Windows，帐户选择器会显示在应用程序顶部，这给用户带来的麻烦较少。
 
@@ -292,13 +292,10 @@ Microsoft 标识平台使用 URL 来调用中转站，然后将控制权返回�
 #### <a name="step-4-ios9-add-a-configuration-parameter-to-your-app"></a>步骤 4：iOS9：将配置参数添加到应用
 ADAL 使用 -canOpenURL: 来检查是否在设备上安装了中转站。 在 iOS 9 中，Apple 锁定了应用程序可以查询的方案。 需要将“msauth”添加到 `info.plist file` 的 LSApplicationQueriesSchemes 节。
 
-<key>LSApplicationQueriesSchemes</key>
-
-<array> <string>msauth</string>
-</array>
+    <key>LSApplicationQueriesSchemes</key> <array><string>msauth</string></array>
 
 ### <a name="youve-configured-sso"></a>已配置 SSO！
 现在，Microsoft 标识 SDK 自动在应用程序之间共享凭据并调用中转站（如果在设备上存在）。
 
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->

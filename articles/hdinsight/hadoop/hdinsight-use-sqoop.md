@@ -15,17 +15,17 @@ ms.topic: conceptual
 origin.date: 05/16/2018
 ms.date: 06/25/2018
 ms.author: v-yiso
-ms.openlocfilehash: 1eb67d652c2862e04f8c3ba384b5331b458a45b5
-ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
+ms.openlocfilehash: f809f908d64445644aefe784124c60f5b3606698
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36747439"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873477"
 ---
 # <a name="use-sqoop-with-hadoop-in-hdinsight"></a>将 Sqoop 与 HDInsight 中的 Hadoop 配合使用
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
-[!INCLUDE [azure-sdk-developer-differences](../../../includes/azure-sdk-developer-differences.md)]
+
 
 了解如何使用 HDInsight 中的 Sqoop 在 HDInsight 群集和 Azure SQL 数据库或 SQL Server 数据库之间进行导入和导出。
 

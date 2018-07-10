@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 03/18/2018
-ms.date: 05/07/2018
+origin.date: 05/09/2018
+ms.date: 07/09/2018
 ms.author: v-yeche
-ms.openlocfilehash: c8338962cbd4e4a88acc471e687a973c2a614f8c
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: 2f33b165e14bdbff594b5eae312866cd1f5c3d48
+ms.sourcegitcommit: 037a777484c32657c30778c14c27c14db36d39c3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33815352"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37799959"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>流量管理器常见问题解答 (FAQ)
 
@@ -31,6 +31,9 @@ ms.locfileid: "33815352"
 如[流量管理器工作原理](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works)中所述，流量管理器在 DNS 级别工作。 它会发送 DNS 响应，将客户端定向到相应的服务终结点。 然后，客户端直接连接到服务终结点，不通过流量管理器进行连接。
 
 因此，流量管理器不提供供客户端连接的终结点或 IP 地址。 如果想要为服务使用静态 IP 地址，必须在服务而不是流量管理器中配置该地址。
+
+### <a name="what-types-of-traffic-can-be-routed-using-traffic-manager"></a>可以使用流量管理器路由什么类型的流量？
+如[流量管理器工作原理](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works)中所述，流量管理器终结点可以是任何面向 Internet 的 Azure 内部或外部托管的服务。 因此，流量管理器可以将源自公共 Internet 的流量路由到一组也面向 Internet 的终结点。 如果你拥有位于专用网络内部的终结点（例如 [Azure 负载平衡器](../load-balancer/load-balancer-overview.md#internalloadbalancer)的内部版本），或拥有从此类内部网络发出 DNS 请求的用户，则流量管理器不能用于这些流量。
 
 ### <a name="does-traffic-manager-support-sticky-sessions"></a>流量管理器是否支持“粘滞”会话？
 
@@ -83,10 +86,21 @@ ms.locfileid: "33815352"
 
 在配置文件级别，DNS TTL 最低可设置为 0 秒，最高可设置为 2,147,483,647 秒（符合 [RFC-1035](https://www.ietf.org/rfc/rfc1035.txt ) 的最大范围）。 TTL 为 0 表示下游 DNS 解析程序不会缓存查询响应，所有查询预期会进入流量管理器 DNS 服务器供解析。
 
+<!-- Not Available on Traffice Manager metric-->
+<!-- Not Available 
+### How can I understand the volume of queries coming to my profile? 
+One of the metrics provided by Traffic Manager is the number of query responded by a profile. You can get this information at a profile level aggregation or you can split it up further to see the volume of queries where specific endpoints were returned. In addition, you can setup alerts to notify you if the query response volume crosses the conditions you have set. For more details, [Traffic Manager metrics and alerts](traffic-manager-metrics-alerts.md).
+-->
+
 ## <a name="traffic-manager-geographic-traffic-routing-method"></a>流量管理器的“地理”流量路由方法
 
 ### <a name="what-are-some-use-cases-where-geographic-routing-is-useful"></a>可以在哪些情况下使用地理路由？ 
 只要 Azure 客户需要根据地理区域辨识其用户，即可使用地理路由类型。 例如，通过使用地理流量路由方法可为特定区域的用户提供不同于其他区域的用户体验。 又比如，根据本地数据自主性的规定，只能由同一区域的终结点为用户提供数据。
+
+### <a name="how-do-i-decide-if-i-should-use-performance-routing-method-or-geographic-routing-method"></a>如何决定我应当使用性能路由方法还是应当使用地理路由方法？ 
+这两种常用路由方法的主要区别为，在性能路由方法中，主要目标是将流量发送到可以为调用方提供最低延迟的终结点，但是，在地理路由中，主要目标是针对调用方实施地理围栏，以便可以特意将它们路由到特定终结点。 因为地理接近与延迟更低之间存在关联，所以这两种路由方法可能会存在重叠，但是并非始终会重叠。 如果另一地理位置中的终结点可以为调用方提供更好的延迟体验，在这种情况下，性能路由会将用户发送到该终结点，但地理路由始终将用户发送到你为其地理区域映射的终结点。 为了说得更明白一点，请考虑以下示例 - 使用地理路由，你可以进行不常见映射，例如，将来自亚洲的所有流量发送到美国的终结点，将美国的所有流量发送到亚洲的终结点。 在这种情况下，地理路由将特意执行你为其配置的要执行的确切操作，性能优化不是一个考虑因素。 
+>[!NOTE]
+>在某些场景中，你可能同时需要性能和地理路由功能，对于这些场景，嵌套式配置文件可能是不错的选择。 例如，你可以设置一个采用地理路由的父配置文件，用以将来自北美的所有流量发送到一个嵌套的配置文件，该配置文件包含美国的终结点并使用性能路由将那些流量发送到该终结点集合中最合适的终结点。 
 
 ### <a name="what-are-the-regions-that-are-supported-by-traffic-manager-for-geographic-routing"></a>进行地理路由时，流量管理器支持哪些区域？ 
 可在[此处](traffic-manager-geographic-regions.md)查找流量管理器使用的国家/地区层次结构。 更改会在此页进行更新，不过，也可以通过 [Azure 流量管理器 REST API](https://docs.microsoft.com/rest/api/trafficmanager/) 以编程方式检索相同的信息。 
@@ -128,7 +142,7 @@ ms.locfileid: "33815352"
 
 不能对 Azure Web 应用使用多个订阅中的终结点。 Web 应用要求其所用的任何自定义域名只能在单个订阅中使用。 无法对多个订阅中的 Web 应用使用同一个域名。
 
-对于其他终结点类型，可在多个订阅中结合使用流量管理器和终结点。 在 Resource Manager 中，只要配置流量管理器配置文件的人员具有终结点的读取访问权限，任何订阅的终结点就都可添加到流量管理器中。 可使用 [Azure Resource Manager 基于角色的访问控制 (RBAC)](../active-directory/role-based-access-control-configure.md) 授予这些权限。
+对于其他终结点类型，可在多个订阅中结合使用流量管理器和终结点。 在 Resource Manager 中，只要配置流量管理器配置文件的人员具有终结点的读取访问权限，任何订阅的终结点就都可添加到流量管理器中。 可使用 [Azure Resource Manager 基于角色的访问控制 (RBAC)](../role-based-access-control/role-assignments-portal.md) 授予这些权限。
 
 ### <a name="can-i-use-traffic-manager-with-cloud-service-staging-slots"></a>能否将流量管理器用于云服务的“过渡”槽？
 
@@ -218,6 +232,11 @@ Azure Resource Manager 要求所有资源组指定一个位置，这决定了部
 - 为监视间隔设置的值（间隔越小，则在任意给定时间进入终结点的请求就越多）。
 - 运行状况检查的来源位置数（前面的“常见问题解答”中列出了这些检查的预期来源 IP 地址）。
 
+<!-- Not Available on Traffice Manager metric-->
+<!-- Not Available 
+### How can I get notified if one of my endpoints goes down? 
+One of the metrics provided by Traffic Manager is the health status of endpoints in a profile. You can see this as an aggregate of all endpoints inside a profile (for example, 75% of your endpoints are healthy), or, at a per endpoint level. Traffic Manager metrics are exposed through Azure Monitor and you can use its [alerting capabilities](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) to get notifications when there is a change in the health status of your endpoint. For more details, see [Traffic Manager metrics and alerts](traffic-manager-metrics-alerts.md).  
+-->
 ## <a name="traffic-manager-nested-profiles"></a>流量管理器嵌套式配置文件
 
 ### <a name="how-do-i-configure-nested-profiles"></a>如何配置嵌套式配置文件？
@@ -267,4 +286,4 @@ Azure Resource Manager 要求所有资源组指定一个位置，这决定了部
 - 详细了解流量管理器[终结点监视和自动故障转移](../traffic-manager/traffic-manager-monitoring.md)。
 - 详细了解流量管理器[流量路由方法](../traffic-manager/traffic-manager-routing-methods.md)。
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties, wording update, update link -->

@@ -12,18 +12,38 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-origin.date: 05/04/2018
+origin.date: 06/01/2018
 ms.author: v-yiso
-ms.date: 06/11/2018
-ms.openlocfilehash: cce8e47d08cfa95bc0d672ffe5d57d5296a66a4c
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.date: 07/16/2018
+ms.openlocfilehash: 11b5fd40e0569b548afdce4142fbccd465546e7f
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695033"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873698"
 ---
 # <a name="azure-guest-os"></a>Azure 来宾 OS
 下表显示了适用于 Azure 来宾 OS 的 Microsoft 安全响应中心 (MSRC) 更新。 要确定特定的更新是否适用于使用的来宾 OS，请搜索本文。 引入这些更新的特定[系列][family-explain]始终会包含这些更新。
+
+## <a name="may-guest-os"></a>5 月来宾 OS
+| 产品类别 | 上层知识库文章 | 漏洞描述 | 来宾 OS | 首次引入日期 |
+| --- | --- | --- | --- | --- |
+| Rel 18-05 | [4103721], [4103727], [4103723] |Windows 10 安全性 |5.19 |2018 年 5 月 8 日 |
+| Rel 18-05 | [4103712] |仅 Windows 安全性 |2.74 |2018 年 5 月 8 日 |
+| Rel 18-05 | [4103726] |仅 Windows 安全性 |3.61 |2018 年 5 月 8 日 |
+| Rel 18-05 | [4103715] |仅 Windows 安全性 |4.54 |2018 年 5 月 8 日 |
+| Rel 18-05 | [4095514], [4095519] |.NET 3.5、4.x 安全性 |2.74 |2018 年 5 月 8 日 |
+| Rel 18-05 | [4095512], [4095518], [4096235] |.NET 3.5、4.x、4.5x 安全性 |3.61 |2018 年 5 月 8 日 |
+| Rel 18-05 | [4095515], [4095517], [4096236] |.NET 3.5、4.x、4.5x 安全性 |4.74|2018 年 5 月 8 日 |
+| Rel 18-05 | [4054856] |.NET 4.7x 安全性 |5.19 |2018 年 5 月 8 日 |
+| Rel 18-05 | [4103768] |Internet Explorer |2.74, 3.61, 4.74 |2018 年 5 月 8 日 |
+| Rel 18-05 | [4103729] |闪烁 |3.61, 4.74, 5.19 |2018 年 5 月 8 日 |
+| 不适用 | [4093118] |4 月非安全性汇总 |2.73 |2018 年 4 月 10 日 |
+| 不适用 | [4093123] |4 月非安全性汇总 |3.61 |2018 年 4 月 10 日 |
+| 不适用 | [4093114] |4 月非安全性汇总 |4.74 |2018 年 4 月 10 日 |
+| 不适用 | [4093137] |4 月 SSU |5.19 |2018 年 4 月 10 日 |
+| 不适用 | [4093753] |时区更新 |2.74, 3.61, 4.74 |2018 年 4 月 10 日 |
+
 
 ## <a name="april-guest-os"></a>4 月来宾 OS
 | 产品类别 | 上层知识库文章 | 漏洞描述 | 来宾 OS | 首次引入日期 |
@@ -629,6 +649,28 @@ ms.locfileid: "34695033"
 | 不适用 |[2999802] |在 Windows 中打印时，虚线变成实线 |4.15、3.22、2.34 |2015 年 1 月 13 日 |
 | 不适用 |[2896881] |在 Windows 中登录期间使用 AddPrinterConnection VBScript 命令映射用户的打印机时，登录时间过长 |4.15、3.22、2.34 |2015 年 1 月 13 日 |
 
+[4103721]: http://support.microsoft.com/kb/4103721
+[4103727]: http://support.microsoft.com/kb/4103727 
+[4103723]: http://support.microsoft.com/kb/4103723
+[4103712]: http://support.microsoft.com/kb/4103712
+[4103726]: http://support.microsoft.com/kb/4103726
+[4103715]: http://support.microsoft.com/kb/4103715
+[4095514]: http://support.microsoft.com/kb/4095514
+[4095519]: http://support.microsoft.com/kb/4095519
+[4095512]: http://support.microsoft.com/kb/4095512
+[4095518]: http://support.microsoft.com/kb/4095518
+[4096235]: http://support.microsoft.com/kb/4096235
+[4095515]: http://support.microsoft.com/kb/4095515
+[4095517]: http://support.microsoft.com/kb/4095517
+[4096236]: http://support.microsoft.com/kb/4096236
+[4054856]: http://support.microsoft.com/kb/4054856
+[4103768]: http://support.microsoft.com/kb/4103768
+[4103729]: http://support.microsoft.com/kb/4103729
+[4093118]: http://support.microsoft.com/kb/4093118
+[4093123]: http://support.microsoft.com/kb/4093123
+[4093114]: http://support.microsoft.com/kb/4093114
+[4093137]: http://support.microsoft.com/kb/4093137
+[4093753]: http://support.microsoft.com/kb/4093753
 
 [4093119]: http://support.microsoft.com/kb/4093119
 [4093108]: http://support.microsoft.com/kb/4093108 

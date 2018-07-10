@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: tbd
-origin.date: 11/03/2017
+origin.date: 06/15/2018
 ms.author: v-yiso
-ms.date: 12/11/2017
-ms.openlocfilehash: 4ea2887c5a63adb16edbcc0ca1518527983ce0ed
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.date: 07/16/2018
+ms.openlocfilehash: 4d8b2d95236015955ae6e817e38215a0898fa668
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
-ms.locfileid: "26044711"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873470"
 ---
 # <a name="common-issues-that-cause-roles-to-recycle"></a>导致角色回收的常见问题
 
@@ -74,7 +74,7 @@ Azure 是一个 64 位的环境。 因此，针对 32 位目标编译的 .NET �
 若要在 SSL 下运行 Web 角色，必须确保导出的管理证书包含私钥。 如果使用 Windows 证书管理器导出证书，请务必对“导出私钥”选项选择“是”。 该证书必须以 PFX 格式导出，这是当前支持的唯一格式。
 
 ## <a name="next-steps"></a>后续步骤
-查看更多针对云服务的 [故障排除文章](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services) 。
+查看更多针对云服务的[故障排除文章](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services)。
 
 在 [Kevin Williamson 博客系列](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx)中查看更多角色回收方案。
 

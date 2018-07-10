@@ -8,20 +8,21 @@ manager: mtillman
 editor: mbaldwin
 ms.assetid: 5471ad74-20b3-44df-a2b5-43cde2c0a045
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 04/02/2018
-ms.date: 05/04/2018
+ms.date: 07/03/2018
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: ed1aab3299e79a9460c82fe70c49b8610a7c61b3
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: 652e95f09ca47909f93863102f0222a7b535cf7c
+ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33814961"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37800460"
 ---
 # <a name="azure-active-directory-graph-api"></a>Azure Active Directory 图形 API
 > [!IMPORTANT]
@@ -52,7 +53,7 @@ Azure AD 图形 API 提供以下功能：
 - **受权限范围保护**：Azure AD 图形 API 公开权限范围，支持使用 OAuth 2.0 对 Azure AD 数据进行安全访问。 它支持各种客户端应用类型，包括：
   
   - 具有用户界面的应用，这类应用通过登录用户（委派）授权而获得对数据的委派访问权限
-  - 后台运行的服务/守护程序无登录的用户正在背景操作存在，并使用应用程序定义基于角色的访问控制
+  - 在后台运行的服务/守护程序，无需用户登录且使用应用程序定义的基于角色的访问控制
     
     委派和应用程序权限范围都代表 Azure AD 图形 API 公开的特权，且客户端应用程序可通过 [Azure 门户](https://portal.azure.cn)中的应用程序注册权限功能进行请求。 [Azure AD 图形 API 权限范围](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes)提供有关可供客户端应用程序使用的信息。
 
@@ -60,7 +61,7 @@ Azure AD 图形 API 提供以下功能：
 Azure AD 图形 API 可实现许多应用程序方案。 以下方案最常见：
 
 - **业务线（单租户）应用程序**：在此方案中，一个企业开发人员为一个拥有 Office 365 订阅的组织工作。 该开发人员要构建一个 Web 应用程序，该应用程序可与 Azure AD 交互以执行为用户分配许可证等任务。 此任务需要访问 Azure AD 图形 API，因此该开发人员在 Azure AD 中注册了单租户应用程序，并为 Azure AD 图形 API 配置读取和写入权限。 然后，该应用程序被配置为使用自己的凭据或当前登录用户的凭据来获取调用 Azure AD 图形 API 所需的令牌。
-- **“软件即服务”应用程序（多租户）**：在此方案中，独立软件供应商 (ISV) 要开发一个为使用 Azure AD 的其他组织提供用户管理功能的托管多租户 Web 应用程序。 这些功能需要访问目录对象，因此该应用程序需要调用 Azure AD 图形 API。 开发人员在 Azure AD 中注册该应用程序，将它配置为需要对 Azure AD 图形 API 的读取和写入权限，然后启用了外部访问，这样其他组织便可以同意在其目录中使用该应用程序。 当其他组织中的用户首次向该应用程序进行身份验证时，他们会看到一个同意对话框，该对话框包含应用程序请求的权限。  然后，授予许可将为该应用程序提供对用户目录中的 Azure AD 图形 API 的请求权限。 有关同意框架的详细信息，请参阅[同意框架概述](active-directory-integrating-applications.md)。
+- **“软件即服务”应用程序（多租户）**：在此方案中，独立软件供应商 (ISV) 要开发一个为使用 Azure AD 的其他组织提供用户管理功能的托管多租户 Web 应用程序。 这些功能需要访问目录对象，因此该应用程序需要调用 Azure AD 图形 API。 开发人员在 Azure AD 中注册该应用程序，将它配置为需要对 Azure AD 图形 API 的读取和写入权限，然后启用了外部访问，这样其他组织便可以同意在其目录中使用该应用程序。 当其他组织中的用户首次向该应用程序进行身份验证时，他们会看到一个同意对话框，该对话框包含应用程序请求的权限。 然后，授予许可将为该应用程序提供对用户目录中的 Azure AD 图形 API 的请求权限。 有关同意框架的详细信息，请参阅[同意框架概述](active-directory-integrating-applications.md)。
 
 ## <a name="see-also"></a>另请参阅
 [Azure AD 图形 API 快速入门指南](active-directory-graph-api-quickstart.md)

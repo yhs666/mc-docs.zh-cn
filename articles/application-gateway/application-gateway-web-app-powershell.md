@@ -12,14 +12,14 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/25/2017
-ms.date: 06/07/2018
+ms.date: 07/02/2018
 ms.author: v-junlch
-ms.openlocfilehash: d1106e07e462ebfeb098e985faa149efc06ef75b
-ms.sourcegitcommit: 4fe9905d17a8df9f2270543a5a0ce1762a5830c9
+ms.openlocfilehash: f7eeb5193ccd2f81407ee16836a64590be3d199b
+ms.sourcegitcommit: f0bfa3f8dca94099a2181492952e6a575fbdbcc8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34855776"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37142572"
 ---
 # <a name="configure-app-service-web-apps-with-application-gateway"></a>使用应用程序网关配置应用服务 Web 应用 
 
@@ -32,6 +32,9 @@ ms.locfileid: "34855776"
 ```powershell
 # FQDN of the web app
 $webappFQDN = "<enter your webapp FQDN i.e mywebsite.chinacloudsites.cn>"
+
+# Retrieve existing resource group
+$rg = Get-AzureRmResourceGroup -Name "<enter your application gateway resource group name here>"
 
 # Retrieve an existing application gateway
 $gw = Get-AzureRmApplicationGateway -Name ContosoAppGateway -ResourceGroupName $rg.ResourceGroupName
@@ -67,13 +70,13 @@ $gitrepo="https://github.com/Azure-Samples/app-service-web-dotnet-get-started.gi
 $webappname="mywebapp$(Get-Random)"
 
 # Creates a resource group
-$rg = New-AzureRmResourceGroup -Name ContosoRG -Location "China North"
+$rg = New-AzureRmResourceGroup -Name ContosoRG -Location ChinaNorth
 
 # Create an App Service plan in Free tier.
-New-AzureRmAppServicePlan -Name $webappname -Location "China North" -ResourceGroupName $rg.ResourceGroupName -Tier Free
+New-AzureRmAppServicePlan -Name $webappname -Location ChinaNorth -ResourceGroupName $rg.ResourceGroupName -Tier Free
 
 # Creates a web app
-$webapp = New-AzureRmWebApp -ResourceGroupName $rg.ResourceGroupName -Name $webappname -Location "China North" -AppServicePlan $webappname
+$webapp = New-AzureRmWebApp -ResourceGroupName $rg.ResourceGroupName -Name $webappname -Location ChinaNorth -AppServicePlan $webappname
 
 # Configure GitHub deployment from your GitHub repo and deploy once to web app.
 $PropertiesObject = @{
@@ -87,13 +90,13 @@ Set-AzureRmResource -PropertyObject $PropertiesObject -ResourceGroupName $rg.Res
 $subnet = New-AzureRmVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 10.0.0.0/24
 
 # Creates a vnet for the application gateway
-$vnet = New-AzureRmVirtualNetwork -Name appgwvnet -ResourceGroupName $rg.ResourceGroupName -Location "China North" -AddressPrefix 10.0.0.0/16 -Subnet $subnet
+$vnet = New-AzureRmVirtualNetwork -Name appgwvnet -ResourceGroupName $rg.ResourceGroupName -Location ChinaNorth -AddressPrefix 10.0.0.0/16 -Subnet $subnet
 
 # Retrieve the subnet object for use later
 $subnet=$vnet.Subnets[0]
 
 # Create a public IP address
-$publicip = New-AzureRmPublicIpAddress -ResourceGroupName $rg.ResourceGroupName -name publicIP01 -location "China North" -AllocationMethod Dynamic
+$publicip = New-AzureRmPublicIpAddress -ResourceGroupName $rg.ResourceGroupName -name publicIP01 -location ChinaNorth -AllocationMethod Dynamic
 
 # Create a new IP configuration
 $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
@@ -126,7 +129,7 @@ $rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType B
 $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
 
 # Create the application gateway
-$appgw = New-AzureRmApplicationGateway -Name ContosoAppGateway -ResourceGroupName $rg.ResourceGroupName -Location "China North" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -Probes $probeconfig -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
+$appgw = New-AzureRmApplicationGateway -Name ContosoAppGateway -ResourceGroupName $rg.ResourceGroupName -Location ChinaNorth -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -Probes $probeconfig -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
 ```
 
 ## <a name="get-application-gateway-dns-name"></a>获取应用程序网关 DNS 名称
@@ -163,4 +166,4 @@ DnsSettings              : {
 
 若要了解如何配置重定向，请访问：[使用 PowerShell 在应用程序网关上配置重定向](application-gateway-configure-redirect-powershell.md)。
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

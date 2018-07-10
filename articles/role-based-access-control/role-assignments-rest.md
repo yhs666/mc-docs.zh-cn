@@ -13,14 +13,15 @@ ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: article
 origin.date: 05/16/2017
-ms.date: 05/28/2018
+ms.date: 07/03/2018
 ms.author: v-junlch
-ms.openlocfilehash: a9713a7b8c8f790cbde20c2e1f57d7a55ca23aa6
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.reviewer: bagovind
+ms.openlocfilehash: 3b505a4ad8d3d3efeb439fdbe263f47adacc15b4
+ms.sourcegitcommit: a20c461541ba7db541c01c8a18fc4cff48e3d2d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34559496"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37361183"
 ---
 # <a name="manage-role-based-access-control-with-the-rest-api"></a>使用 REST API 管理基于角色的访问控制
 > [!div class="op_single_selector"]

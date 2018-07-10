@@ -1,26 +1,20 @@
 ---
-title: 排查在 Azure 备份中备份文件和文件夹时速度缓慢的问题 | Microsoft Docs
+title: 排查在 Azure 备份中备份文件和文件夹时速度缓慢的问题
 description: 提供了故障排除指导，帮助你诊断 Azure 备份性能问题的原因
 services: backup
-documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: ''
-ms.assetid: e379180a-db13-4e0c-90e4-28e5dd6f5b14
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
 origin.date: 05/11/2018
-ms.date: 05/28/2018
+ms.date: 07/06/2018
 ms.author: v-junlch
-ms.openlocfilehash: 6ee0a1f8a88b205e3c370178f2e95de48eefbfa1
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 8321e64053a1fc456e4898c3b532eb846d579926
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34559437"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873464"
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>排查在 Azure 备份中备份文件和文件夹时速度缓慢的问题
 本文提供故障排除指导，帮助你诊断使用 Azure 备份来备份文件和文件夹时备份性能缓慢的原因。 使用 Azure 备份代理备份文件时，备份过程花费的时间可能比预期要长。 这种延迟可能由以下一个或多个原因所造成：

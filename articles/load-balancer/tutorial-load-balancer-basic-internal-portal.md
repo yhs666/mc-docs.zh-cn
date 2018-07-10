@@ -18,12 +18,12 @@ origin.date: 04/30/2018
 ms.date: 06/18/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 2843f5942c9715b6d1ca0640b9afcb09d0dfad22
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 4653794fa9b4e230a2b572a01f562b546598d19f
+ms.sourcegitcommit: f0bfa3f8dca94099a2181492952e6a575fbdbcc8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "35416873"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37142577"
 ---
 # <a name="tutorial-load-balance-internal-traffic-with-basic-load-balancer-to-vms-using-the-azure-portal"></a>教程：使用 Azure 门户通过基本负载均衡器将内部流量在各台 VM 之间进行负载均衡
 
@@ -214,6 +214,6 @@ ms.locfileid: "35416873"
 
 ## <a name="next-steps"></a>后续步骤
 
-在本教程中，你创建了资源组、网络资源和后端服务器。 然后，你使用这些资源创建了一个内部负载均衡器来将内部流量在各台 VM 之间进行负载均衡。 接下来，请了解如何[跨可用性区域对 VM 进行负载均衡](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
+<!-- Not Available on [load balance VMs across availability zones](tutorial-load-balancer-standard-public-zone-redundant-portal.md)-->
 <!-- Update_Description: new articles on tutorial load balancer basic internal portal -->
 <!--ms.date: 06/18/2018-->

@@ -5,22 +5,23 @@ metadata:
   title: Azure 备份文档 - 教程和 API 参考 | Microsoft 文档
   description: 使用 Azure 备份可以备份本地服务器、虚拟机、虚拟化工作负荷、SQL 服务器、SharePoint 服务器等的数据。 使用快速入门、教程和示例了解如何备份与还原数据。
   services: backup
-  author: czeumault
-  manager: carolz
+  author: markgalioto
+  manager: carmonm
   ms.service: backup
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 09/11/2017
-  ms.author: carolz
-  ms.openlocfilehash: cb22f33b3b411ab39834d11ba5e23d9890f054d8
-  ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+  ms.openlocfilehash: 6112080b82c81d0b725c59e05e8d42a4e9c80476
+  ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 03/23/2018
-  ms.locfileid: "30155637"
+  ms.lasthandoff: 07/06/2018
+  ms.locfileid: "37873363"
+origin.date: 05/22/2018
+ms.date: 07/06/2018
+ms.author: v-junlch
 abstract:
-  description: 使用 Azure 备份可以备份本地服务器、虚拟机、虚拟化工作负荷、SQL 服务器、SharePoint 服务器等的数据。 使用快速入门、教程和示例了解如何备份与还原数据。
+  description: 使用 Azure 备份保护本地服务器、虚拟机、虚拟化工作负荷、SQL 服务器、SharePoint 服务器等的数据。 使用快速入门、教程和示例了解如何备份与还原数据。
 sections:
 - title: 5 分钟快速入门
   items:
@@ -69,6 +70,8 @@ sections:
     className: cardsD
     items:
     - title: 命令行
-      html: <p><a href="https://docs.microsoft.com/powershell/resourcemanager/azurerm.backup/v2.3.0/azurerm.backup">Azure PowerShell</a></p>
+      html: <p><a href="https://docs.microsoft.com/powershell/resourcemanager/azurerm.backup/v2.3.0/azurerm.backup">Azure PowerShell</a></p><p><a href="/cli/backup?view=azure-cli-latest">Azure CLI</a></p>
     - title: 语言
       html: <p><a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.management.backupservices">.NET</a></p>
+    - title: REST
+      html: <p><a href="https://docs.microsoft.com/rest/api/backup/">Azure 备份 API 参考</a></p>

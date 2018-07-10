@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 origin.date: 09/20/2017
 ms.author: v-yiso
-ms.date: 11/06/2017
-ms.openlocfilehash: 0195ed0b8e5ba5353506a9d0bab293b317a5c772
-ms.sourcegitcommit: 30d9af196daa9b80bbe1739fff1081b6b4dcc72d
+ms.date: 07/16/2018
+ms.openlocfilehash: b6654a63eeacf0c2e1e514926c75e290bdadf8db
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2017
-ms.locfileid: "23635091"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873700"
 ---
 # <a name="azure-guest-os-supportability-and-retirement-policy"></a>Azure 来宾 OS 可支持性和停用策略
 本页面上的信息与 Azure 来宾操作系统（[来宾 OS](./cloud-services-guestos-update-matrix.md)）相关。来宾 OS 仅适用于云服务辅助角色和 Web 角色 (PaaS)。 而不适用于虚拟机 (IaaS)。 
@@ -35,10 +35,7 @@ Microsoft 已发布 [来宾 OS 的支持策略](http://support.microsoft.com/zh-
 
 有时，可能会支持两个以上的系列或发行版。 将在 [Azure 来宾 OS 版本和 SDK 兼容性对照表](./cloud-services-guestos-update-matrix.md)中显示正式的来宾 OS 支持信息。
 
-## <a name="when-a-guest-os-family-or-version-is-retired"></a>何时停用来宾 OS 系列或版本 
-
-在发布新的正式 Windows Server 操作系统版本后，会在某个时间推出新的来宾 OS **系列**。 每次推出新的来宾 OS 系列时，Microsoft 将停用最早的来宾 OS 系列。 
-
+## <a name="when-a-guest-os-version-is-retired"></a>何时停用来宾 OS 版本
 大约每个月都会推出新来宾 OS **版本** ，以合并最新 MSRC 更新。 由于定期每月更新，来宾 OS 版本正常情况下会在其发布的大约 60 天后禁用。 此活动对于每个可供使用的系列，至少都保留两个来宾 OS 版本。
 
 ### <a name="process-during-a-guest-os-family-retirement"></a>来宾 OS 系列停用期间的过程 

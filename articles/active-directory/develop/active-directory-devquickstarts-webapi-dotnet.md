@@ -3,25 +3,27 @@ title: Azure AD .NET Web API 入门 | Microsoft Docs
 description: 如何生成一个与 Azure AD 集成以进行身份验证和授权的 .NET MVC Web API。
 services: active-directory
 documentationcenter: .net
-author: dstrockis
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: 67e74774-1748-43ea-8130-55275a18320f
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 01/23/2017
-ms.date: 01/17/2018
+ms.date: 07/03/2018
 ms.author: v-junlch
+ms.reviewer: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 3959c8732b9893989eabcfc8e1d9497514264739
-ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
+ms.openlocfilehash: 973c3c2f91aa0584787234a8bd5457f451a0bd7a
+ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2018
-ms.locfileid: "29993298"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37800437"
 ---
 # <a name="azure-ad-net-web-api-getting-started"></a>Azure AD .NET Web API 入门
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -156,4 +158,4 @@ ms.locfileid: "29993298"
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!--Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

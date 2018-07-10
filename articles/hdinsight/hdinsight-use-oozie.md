@@ -18,17 +18,17 @@ origin.date: 05/25/2017
 ms.date: 12/25/2017
 ms.author: v-yiso
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6a21ace39ae9dcbff07c9a36a452fc938d55d3a8
-ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
+ms.openlocfilehash: 05c15b1315bfab66891c5dc3531801870bceea0f
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
-ms.locfileid: "26721289"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873339"
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-in-hdinsight"></a>在 HDInsight 中将 Oozie 与 Hadoop 配合使用以定义和运行工作流
 [!INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
 
-[!INCLUDE [azure-sdk-developer-differences](../../../includes/azure-sdk-developer-differences.md)]
+
 
 了解如何使用 Apache Oozie 定义工作流以及如何在 HDInsight 上运行工作流。 要了解 Oozie 协调器，请参阅[将基于时间的 Hadoop Oozie 协调器与 HDInsight 配合使用][hdinsight-oozie-coordinator-time]。
 
@@ -38,7 +38,7 @@ Apache Oozie 是一个管理 Hadoop 作业的工作流/协调系统。 它与 Ha
 
 ![工作流关系图][img-workflow-diagram]
 
-1. Hive 操作运行 HiveQL 脚本，统计 log4j 文件中每个日志级类型的出现次数。 每个 log4j 文件都包含一行字段，其中包含用于显示类型和严重性的 [LOG LEVEL] 字段，例如：
+1. Hive 操作运行 HiveQL 脚本以统计 log4j 文件中每个日志级类型的次数。 每个 log4j 文件都包含一行字段，其中包含用于显示类型和严重性的 [LOG LEVEL] 字段，例如：
 
         2012-02-03 18:35:34 SampleClass6 [INFO] everything normal for id 577725851
         2012-02-03 18:35:34 SampleClass4 [FATAL] system problem at id 1991281254
@@ -55,7 +55,7 @@ Apache Oozie 是一个管理 Hadoop 作业的工作流/协调系统。 它与 Ha
         [WARN]  4
 
     有关 Hive 的详细信息，请参阅[将 Hive 与 HDInsight 配合使用][hdinsight-use-hive]。
-2. Sqoop 操作将 HiveQL 输出结果导出到 Azure SQL 数据库中的表。 有关 Sqoop 的详细信息，请参阅[将 Hadoop Sqoop 与 HDInsight 配合使用][hdinsight-use-sqoop]。
+2. Sqoop 操作将 HiveQL 输出导出到 Azure SQL 数据库中的表。 有关 Sqoop 的详细信息，请参阅[将 Hadoop Sqoop 与 HDInsight 配合使用][hdinsight-use-sqoop]。
 
 > [!NOTE]
 > 有关在 HDInsight 群集上支持的 Oozie 版本，请参阅 [HDInsight 提供的 Hadoop 群集版本有哪些新增功能？][hdinsight-versions]。
@@ -133,9 +133,9 @@ RunHiveScript 有几个变量。 在使用 Azure PowerShell 从工作站提交 O
 
 <table border = "1">
 <tr><th>工作流变量</th><th>说明</th></tr>
-<tr><td>${jobTracker}</td><td>指定 Hadoop 作业跟踪器的 URL。 在 HDInsight 版本 3.0 和 2.1 中使用 jobtrackerhost:9010<strong></strong>。</td></tr>
+<tr><td>${jobTracker}</td><td>指定 Hadoop 作业跟踪器的 URL。 在 HDInsight 版本 3.0 和 2.1 中使用 jobtrackerhost:9010。</td></tr>
 <tr><td>${nameNode}</td><td>指定 Hadoop 名称节点的 URL。 使用默认的文件系统地址，例如 <i>wasb://&lt;containerName&gt;@&lt;storageAccountName&gt;.blob.core.chinacloudapi.cn</i>。</td></tr>
-<tr><td>${queueName}</td><td>指定作业将提交到的队列名称。 使用默认值<strong></strong>。</td></tr>
+<tr><td>${queueName}</td><td>指定作业将提交到的队列名称。 使用默认值。</td></tr>
 </table>
 
 <table border = "1">
@@ -173,16 +173,16 @@ RunHiveScript 有几个变量。 在使用 Azure PowerShell 从工作站提交 O
 
 工作流定义文件（本教程中的 workflow.xml）在运行时会将三个值传递到这个 HiveQL 脚本。
 
-工作流文件和 HiveQL 文件同时存储在 Blob 容器中。  本教程后面要使用的 PowerShell 脚本会将这两个文件复制到默认存储帐户。 
+工作流文件和 HiveQL 文件存储在 Blob 容器中。  本教程后面要使用的 PowerShell 脚本会将这两个文件复制到默认存储帐户。 
 
 ## <a name="submit-oozie-jobs-using-powershell"></a>使用 PowerShell 提交 Oozie 作业
 Azure PowerShell 目前不提供任何用于定义 Oozie 作业的 cmdlet。 可以使用 **Invoke-RestMethod** cmdlet 调用 Oozie Web 服务。 Oozie Web 服务 API 是 HTTP REST JSON API。 有关 Oozie Web 服务 API 的详细信息，请参阅 [Apache Oozie 4.0 文档][apache-oozie-400]（用于 HDInsight 版本 3.0）或 [Apache Oozie 3.3.2 文档][apache-oozie-332]（用于 HDInsight 版本 2.1）。
 
-本部分中的 PowerShell 脚本将执行以下步骤：
+本部分中的 PowerShell 脚本执行以下步骤：
 
 1. 连接到 Azure。
 2. 创建 Azure 资源组。 有关详细信息，请参阅[将 Azure PowerShell 与 Azure 资源管理器配合使用](../powershell-azure-resource-manager.md)。
-3. 创建一个 Azure SQL 数据库服务器、一个 Azure SQL 数据库和两个表。 工作流中的 Sqoop 操作将使用这些项。
+3. 创建一个 Azure SQL 数据库服务器、一个 Azure SQL 数据库和两个表。 工作流中的 Sqoop 操作会使用这些项。
 
     表的名称为 *log4jLogCount*。
 4. 创建用于运行 Oozie 作业的 HDInsight 群集。
@@ -190,7 +190,7 @@ Azure PowerShell 目前不提供任何用于定义 Oozie 作业的 cmdlet。 可
     若要检查群集，可以使用 Azure 门户或 Azure PowerShell。
 5. 将 Oozie 工作流文件和 HiveQL 脚本文件复制到默认文件系统。
 
-    这两个文件将存储在公共 Blob 容器中。
+    这两个文件存储在公共 Blob 容器中。
 
    * 将 HiveQL 脚本 (useoozie.hql) 复制到 Azure 存储 (wasb:///tutorials/useoozie/useoozie.hql)。
    * 将 workflow.xml 复制到 wasb:///tutorials/useoozie/workflow.xml。
@@ -620,7 +620,7 @@ Azure PowerShell 目前不提供任何用于定义 Oozie 作业的 cmdlet。 可
     $conn.close()
 
 ## <a name="next-steps"></a>后续步骤
-本教程已经介绍了如何定义 Oozie 工作流以及如何使用 PowerShell 运行 Oozie 作业。 若要了解更多信息，请参阅下列文章：
+本教程已经介绍了如何定义 Oozie 工作流以及如何使用 PowerShell 运行 Oozie 作业。 要了解更多信息，请参阅下列文章：
 
 * [将基于时间的 Oozie 协调器与 HDInsight 配合使用][hdinsight-oozie-coordinator-time]
 * [将 Hadoop 与 HDInsight 中的 Hive 配合使用以分析手机使用情况][hdinsight-get-started]

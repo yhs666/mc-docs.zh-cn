@@ -13,15 +13,15 @@ ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: ''
 origin.date: 10/30/2017
-ms.date: 06/04/2018
+ms.date: 07/09/2018
 ms.author: v-nany
 ms.custom: mvc
-ms.openlocfilehash: 97b971af60a278e9accbd1bf1051761f00d5a551
-ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
+ms.openlocfilehash: 3fae1b3525cdfdf4577b8bde0b7c34789370aa6d
+ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36270060"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37405328"
 ---
 # <a name="allowed-sql-db-skus"></a>允许的 SQL DB SKU
 
@@ -32,47 +32,53 @@ ms.locfileid: "36270060"
 ## <a name="sample-template"></a>示例模板
 ```json
 {
-   "properties": {
-      "displayName": "Allowed SKUs for Storage Accounts and Virtual Machines",
-      "description": "This policy allows you to specify what skus are allowed for storage accounts and virtual machines",
-      "parameters": {
-         "LISTOFALLOWEDSKUS_1": {
-            "type": "Array",
-            "metadata": {
-               "displayName": "VM SKUs",
-               "strongType": "vmSKUs"
+    "properties": {
+        "displayName": "Allowed SQL DB SKUs",
+        "description": "This policy enables you to specify a set of SQL DB SKUs",
+        "parameters": {
+            "listOfSKUId": {
+                "type": "Array",
+                "metadata": {
+                    "description": "The list of SKUs that can be specified for SQL Databases.",
+                    "displayName": "Allowed SKU IDs"
+                }
+            },
+            "listOfSKUName": {
+                "type": "Array",
+                "metadata": {
+                    "description": "The list of SKUs that can be specified for SQL Databases.",
+                    "displayName": "Allowed SKU Names"
+                }
             }
-         },
-         "LISTOFALLOWEDSKUS_2": {
-            "type": "Array",
-            "metadata": {
-               "displayName": "Storage Account SKUs",
-               "strongType": "storageSkus"
+        },
+        "policyRule": {
+            "if": {
+                "allOf": [
+                    {
+                        "field": "type",
+                        "equals": "Microsoft.SQL/servers/databases"
+                    },
+                    {
+                        "not": {
+                            "anyOf": [
+                                {
+                                    "field": "Microsoft.SQL/servers/databases/requestedServiceObjectiveId",
+                                    "in": "[parameters('listOfSKUId')]"
+                                },
+                                {
+                                    "field": "Microsoft.SQL/servers/databases/requestedServiceObjectiveName",
+                                    "in": "[parameters('listOfSKUName')]"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "then": {
+                "effect": "Deny"
             }
-         }
-      },
-      "policyDefinitions": [
-         {
-            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/cccc23c7-8427-4f53-ad12-b6a63eb452b3",
-            "parameters": {
-               "listOfAllowedSKUs": {
-                  "value": "[parameters('LISTOFALLOWEDSKUS_1')]"
-               }
-            }
-         },
-         {
-            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/7433c107-6db4-4ad1-b57a-a76dce0154a1",
-            "parameters": {
-               "listOfAllowedSKUs": {
-                  "value": "[parameters('LISTOFALLOWEDSKUS_2')]"
-               }
-            }
-         }
-      ],
-      "metadata": {
-         "category": "Cost Control"
-      }
-   }
+        }
+    }
 }
 ```
 可将 [Azure 门户](#deploy-with-the-portal)与 [PowerShell](#deploy-with-powershell) 或 [Azure CLI](#deploy-with-azure-cli) 配合使用来部署此模板。
@@ -105,7 +111,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-```azurecli
+```cli
 az policy definition create --name 'sql-db-skus' --display-name 'Allowed SQL DB SKUs' --description 'This policy enables you to specify a set of SQL DB SKUs' --rules 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/SQL/sql-db-skus/azurepolicy.rules.json' --params 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/SQL/sql-db-skus/azurepolicy.parameters.json' --mode All
 
 az policy assignment create --name <assignmentname> --scope <scope> --policy "sql-db-skus"
@@ -115,10 +121,10 @@ az policy assignment create --name <assignmentname> --scope <scope> --policy "sq
 
 运行以下命令来删除资源组、VM 和所有相关资源。
 
-```azurecli
+```cli
 az group delete --name myResourceGroup --yes
 ```
 
 ## <a name="next-steps"></a>后续步骤
 
-- 其他 Azure 策略模板示例位于 [Azure 策略模板](../json-samples.md)。
+- 有关更多示例，请参阅 [Azure 策略示例](../json-samples.md)。

@@ -1,27 +1,28 @@
 ---
-title: Azure AD Cordova 入门 | Microsoft Docs
+title: Azure AD Cordova 入门 | Microsoft 文档
 description: 如何生成一个与 Azure AD 集成以方便登录，并使用 OAuth 调用 Azure AD 保护 API 的 Cordova 应用程序。
 services: active-directory
 documentationcenter: ''
-author: vibronet
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: b1a8d7bd-7ad6-44d5-8ccb-5255bb623345
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 origin.date: 11/30/2017
-ms.date: 01/17/2018
+ms.date: 07/03/2018
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: c9f1e6d9b55a6b06039f7bb37e4585e37879713b
-ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
+ms.openlocfilehash: c63164091690432b5406f25a52aea78e5aea59b6
+ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2018
-ms.locfileid: "29993230"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37800445"
 ---
 # <a name="azure-ad-cordova-getting-started"></a>Azure AD Cordova 入门
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -35,7 +36,7 @@ Cordova 插件在 iOS、Android、Windows 应用商店和 Windows Phone 上包�
 在本教程中，我们将使用适用于 Active Directory 身份验证库 (ADAL) 的 Apache Cordova 插件，通过添加以下功能改进简单应用程序：
 
 - 只需几行代码，即可对用户进行身份验证并获取令牌。
-- 然后，使用该令牌调用图形 API 以查询目录并显示结果。  
+- 然后，使用该令牌调用图形 API 以查询目录并显示结果。 
 - 使用 ADAL 令牌缓存，最大程度地减少对用户显示身份验证提示。
 
 若要进行这些改进，需要：
@@ -49,7 +50,7 @@ Cordova 插件在 iOS、Android、Windows 应用商店和 Windows Phone 上包�
 要完成本教程，需要：
 
 - 一个 Azure AD 租户，其中有一个具有应用开发权限的帐户。
-- 一个配置为使用 Apache Cordova 的开发环境。  
+- 一个配置为使用 Apache Cordova 的开发环境。 
 
 如果已设置了这两项，则直接转到步骤 1。
 
@@ -93,15 +94,15 @@ Azure AD 仅向已知应用程序颁发令牌。 在从应用使用 Azure AD 之
 3. 在左窗格中，单击“所有服务”，并选择“Azure Active Directory”。
 4. 单击“应用注册”，并选择“添加”。
 5. 根据提示创建“本机客户端应用程序”。 （尽管 Cordova 应用以 HTML 为基础，但我们要在此处创建本机客户端应用程序。 必须选择“本机客户端应用程序”选项，否则应用程序将无法运行。）
-  * **名称**向用户描述应用程序。
-  * “重定向 URI”是用于将令牌返回应用的 URI。 输入 **http://MyDirectorySearcherApp**。
+  - **名称**向用户描述应用程序。
+  - “重定向 URI”是用于将令牌返回应用的 URI。 输入 **http://MyDirectorySearcherApp**。
 
 完成注册后，Azure AD 将向应用分配唯一应用程序 ID。 在以下各节中将需要此值。 可以在新建应用的应用程序选项卡上找到它。
 
 若要运行 `DirSearchClient Sample`，请向新建应用授予查询 Azure AD 图形 API 的权限：
 
-1. 在“设置”页上，选择“所需权限”，然后选择“添加”。  
-2. 对于 Azure Active Directory 应用程序，选择“Microsoft Graph”作为 API，并在“委派权限”下添加“以已登录用户的身份访问目录”权限。  这样，应用程序便可以在图形 API 中查询用户。
+1. 在“设置”页上，选择“所需权限”，然后选择“添加”。 
+2. 对于 Azure Active Directory 应用程序，选择“Microsoft Graph”作为 API，并在“委派权限”下添加“以已登录用户的身份访问目录”权限。 这样，应用程序便可以在图形 API 中查询用户。
 
 ## <a name="step-2-clone-the-sample-app-repository"></a>步骤 2：克隆示例应用存储库
 在 shell 或命令行中键入以下命令：
@@ -294,4 +295,4 @@ app.context.acquireTokenSilentAsync(resourceUri, clientId)
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!--Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

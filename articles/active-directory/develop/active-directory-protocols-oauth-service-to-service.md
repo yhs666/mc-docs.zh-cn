@@ -3,25 +3,27 @@ title: 使用 OAuth2.0 进行 Azure AD 服务到服务身份验证 | Microsoft �
 description: 本文介绍如何使用 OAuth2.0 客户端凭据授权流通过 HTTP 消息实现服务到服务身份验证。
 services: active-directory
 documentationcenter: .net
-author: navyasric
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: a7f939d9-532d-4b6d-b6d3-95520207965d
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/08/2017
-ms.date: 05/04/2018
+ms.date: 07/03/2018
 ms.author: v-junlch
+ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 322c52d59d9b5b18a8d201f315e99b8ea07de297
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: 2aec180f631b3361a6daab25bcf1bc61ece223f9
+ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33814965"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37800382"
 ---
 # <a name="service-to-service-calls-using-client-credentials-shared-secret-or-certificate"></a>使用客户端凭据（共享密钥或证书）进行服务到服务调用
 OAuth 2.0 客户端凭据授权流允许 Web 服务（机密客户端）在调用其他 Web 服务时使用它自己的凭据（而不是模拟用户）进行身份验证。 在这种情况下，客户端通常是中间层 Web 服务、后台程序服务或网站。 为了更高级别的保证，Azure AD 还允许调用服务以将证书（而不是共享密钥）用作凭据。
@@ -124,4 +126,4 @@ resource=https%3A%2F%contoso.partner.onmschina.cn%2Ffc7664b4-cdd6-43e1-9365-c2e1
 - [Azure AD 中的 OAuth 2.0](active-directory-protocols-oauth-code.md)
 - [使用共享密钥的服务到服务调用的 C# 示例](https://github.com/Azure-Samples/active-directory-dotnet-daemon)和[使用证书的服务到服务调用的 C# 示例](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

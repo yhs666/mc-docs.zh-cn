@@ -1,27 +1,20 @@
 ---
-title: 将备份保管库升级到 Azure 备份的恢复服务保管库 | Microsoft Docs
+title: 将备份保管库升级到 Azure 备份的恢复服务保管库
 description: 将备份保管库升级到恢复服务保管库可获取新的功能，例如，资源管理器 VM 备份、增强的安全性、VMware VM 备份，以及 Windows Server 的系统状态备份
 services: backup
-documentationcenter: ''
 author: trinadhk
 manager: vijayts
-editor: ''
-keyword: backup vault; upgrade vault; recovery services vault
-ms.assetid: d037a8bf-49f2-4578-974a-3471d87ca278
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 02/10/2017
-ms.date: 05/16/2018
+ms.date: 07/06/2018
 ms.author: v-junlch
-ms.openlocfilehash: 14b8cad90a48df001131398c4befef5afd70d202
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.openlocfilehash: d4c4b25fe6f39110f58c0e4becccdf26228cd615
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34259127"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873349"
 ---
 # <a name="backup-vault-upgraded-to-recovery-services-vault"></a>已升级到恢复服务保管库的备份保管库
 本文提供恢复服务保管库的功能概述、有关将现有备份保管库升级到恢复服务保管库的常见问题，以及升级后的步骤。 恢复服务保管库是与用于容装备份数据的备份保管库相当的 Azure 资源管理器。 不管在本地还是在 Azure 中，数据通常都是虚拟机 (VM)、工作负荷、服务器或工作站的数据或配置信息的副本。
@@ -62,7 +55,10 @@ ms.locfileid: "34259127"
 恢复服务保管库支持在备份策略中指定时区信息。 成功升级保管库后，转到保管库设置菜单中的备份策略，并更新保管库中配置的每个策略的时区信息。 此屏幕已显示根据创建策略时所用的每个本地时区指定的备份计划时间。 
 
 ## <a name="enhanced-security"></a>增强的安全性
-备份保管库升级到恢复服务保管库后，会自动启用该保管库的安全设置。 启用安全设置后，某些操作（如删除备份或更改密码）需要 [Azure 多重身份验证](../multi-factor-authentication/multi-factor-authentication.md) PIN。 关于增强的安全性的详细信息，请参阅[用于保护混合备份的安全性功能](backup-azure-security-feature.md)一文。 启用增强的安全性后，数据会在恢复点信息从保管库中删除之后至多保留 14 天。 为此安全数据的存储对客户计费。 安全数据保留期适用于针对 Azure 备份代理、Azure 备份服务器和 System Center Data Protection Manager 的恢复点。 
+备份保管库升级到恢复服务保管库后，会自动启用该保管库的安全设置。 启用安全设置后，某些操作（如删除备份或更改密码）需要 [Azure 多重身份验证](../active-directory/authentication/multi-factor-authentication.md) PIN。 关于增强的安全性的详细信息，请参阅[用于保护混合备份的安全性功能](backup-azure-security-feature.md)一文。 启用增强的安全性后，数据会在恢复点信息从保管库中删除之后至多保留 14 天。 为此安全数据的存储对客户计费。 安全数据保留期适用于针对 Azure 备份代理、Azure 备份服务器和 System Center Data Protection Manager 的恢复点。 
+
+## <a name="gather-data-on-your-vault"></a>收集保管库中的数据
+升级到恢复服务保管库后，请配置 Azure 备份报表（适用于 IaaS VM 和 Azure 恢复服务代理）并使用 Power BI 访问报表。 有关收集数据的其他信息，请参阅文章[配置 Azure 备份报表](backup-azure-configure-reports.md)。
 
 ## <a name="frequently-asked-questions"></a>常见问题
 
@@ -104,4 +100,4 @@ ms.locfileid: "34259127"
 [备份 Azure 备份服务器](backup-azure-microsoft-azure-backup.md)</br>
 [备份 Windows Server](backup-configure-vault.md)
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

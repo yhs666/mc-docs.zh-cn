@@ -1,28 +1,22 @@
 ---
-title: 从 Azure 备份服务器恢复数据 | Microsoft Docs
+title: 从 Azure 备份服务器恢复数据
 description: 将所保护的数据从任意 Azure 备份服务器恢复到恢复服务保管库，前提是服务器已注册到该保管库。
 services: backup
-documentationcenter: ''
-author: alexchen2016
-manager: digimobile
-editor: ''
-ms.assetid: a55f8c6b-3627-42e1-9d25-ed3e4ab17b1f
+author: nkolli1
+manager: shreeshd
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 08/18/2017
-ms.date: 09/04/2017
+ms.date: 07/05/2018
 ms.author: v-junlch
-ms.openlocfilehash: c9717a4a0e1f360f4c794cba5c749245f84652dc
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: c271f5fab3a3640a87e75defb44b4f88fdd2cfb7
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
-ms.locfileid: "22005309"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873374"
 ---
-# 从 Azure 备份服务器恢复数据<a name="recover-data-from-another-azure-backup-server"></a>
+# <a name="recover-data-from-azure-backup-server"></a>从 Azure 备份服务器恢复数据
 可使用 Azure 备份服务器恢复已备份到恢复服务保管库的数据。 用于执行此操作的过程已集成到 Azure 备份服务器管理控制台中，且与其他 Azure 备份组件的恢复工作流类似。
 
 > [!NOTE]
@@ -109,4 +103,5 @@ ms.locfileid: "22005309"
 ## <a name="next-steps"></a>后续步骤：
 •    [Azure 备份常见问题解答](backup-azure-backup-faq.md)
 
-<!--Update_Description: wording update -->
+
+<!-- Update_Description: update metedata properties -->

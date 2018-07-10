@@ -15,12 +15,12 @@ metadata:
   origin.date: 04/19/2018
   ms.date: 06/18/2018
   ms.author: v-yeche
-  ms.openlocfilehash: 97117247c2ae32b3469f044a7ddfed2007f90a3f
-  ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+  ms.openlocfilehash: be27c933d12f139de59ee8935e41eddaf71a47b9
+  ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 06/13/2018
-  ms.locfileid: "35416907"
+  ms.lasthandoff: 07/06/2018
+  ms.locfileid: "37873290"
 abstract:
   description: 了解如何使用 Azure 负载均衡器。 快速入门、教程、示例等介绍了如何部署负载均衡器，以及如何对传入和传出虚拟机、云资源和跨界虚拟网络的流量进行负载均衡。
 sections:
@@ -61,15 +61,3 @@ sections:
     items:
     - html: <a href="/load-balancer/cli-samples">Azure CLI</a>
     - html: <a href="/load-balancer/powershell-samples">PowerShell</a>
-- title: 参考
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: 命令行
-      html: <p><a href="https://docs.microsoft.com/powershell/module/azurerm.network#networking">PowerShell</a></p><p><a href="https://docs.azure.cn/zh-cn/cli/network?view=azure-cli-latest">Azure CLI</a></p>
-    - title: 语言
-      html: <p><a href="https://docs.azure.cn/zh-cn/dotnet/api/overview/virtual-network">.NET</a></p><p><a href="https://docs.azure.cn/java/api/com.microsoft.azure.management.network">Java</a></p><p><a href="http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/LoadBalancers.html">Node.js</a></p><p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.LoadBalancersOperations#azure.mgmt.network.operations.LoadBalancersOperations">Python</a></p>
-    - title: REST
-      html: <p><a href="https://docs.microsoft.com/rest/api/load-balancer/">REST API 参考</a></p>

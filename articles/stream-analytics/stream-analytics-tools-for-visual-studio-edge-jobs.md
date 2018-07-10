@@ -10,12 +10,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 03/13/2018
 ms.date: 06/18/2018
-ms.openlocfilehash: 07d52edf54a77133e2632c0e9359c0c280746ec1
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 6902fee889b94555845b70d33caf0676896989db
+ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "35416878"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37405352"
 ---
 # <a name="develop-stream-analytics-edge-jobs-using-visual-studio-tools"></a>使用 Visual Studio 工具开发流分析 Edge 作业
 
@@ -106,7 +106,7 @@ FROM EdgeInput
 
    ![提交到 Azure](./media/stream-analytics-tools-for-visual-studio-edge-jobs/submit-to-azure.png)
 
-   创建流分析 Edge 作业后，可以参阅[在 IoT Edge 中运行作业的教程](stream-analytics-edge.md)，了解如何将作业部署到设备。 
+   <!-- Not Available on [Run jobs on IoT Edge tutorial](stream-analytics-edge.md)-->
 
 ## <a name="manage-the-job"></a>管理作业 
 

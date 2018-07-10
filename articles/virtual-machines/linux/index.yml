@@ -15,12 +15,12 @@ metadata:
   origin.date: 01/23/2017
   ms.date: 06/04/2018
   ms.author: v-yeche
-  ms.openlocfilehash: 230771e08fcaca5ac59f4b8bbcdaf5c1a5d729fb
-  ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+  ms.openlocfilehash: ab0d2010bf42df48ab640cae3fb9f848f8d6445f
+  ms.sourcegitcommit: c1c46f12f4a5dd98ae8d59b3bd5cd8ab3f999a6e
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 06/13/2018
-  ms.locfileid: "34702675"
+  ms.lasthandoff: 07/06/2018
+  ms.locfileid: "37873892"
 abstract:
   description: Azure Linux 虚拟机使用所选 CentOS、Ubuntu 或 Linux 发行版按需提供安全且可伸缩性强的虚拟化基础结构。 使用快速入门、教程和示例了解如何创建、配置、管理、更新和缩放 Linux VM。
 sections:

@@ -10,16 +10,17 @@ ms.service: mysql-database
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.custom: mvc
-ms.openlocfilehash: d158b02e168ab90d258e6279d600737e96f02e3f
-ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
+ms.openlocfilehash: cdafd9471c4f5fe60ec4fd388cfe7f7b8257c3b8
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36270115"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873545"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-database-using-the-azure-portal"></a>教程：使用 Azure 门户设计 Azure Database for MySQL 数据库
 
-> [!NOTE] 将要查看的是 Azure Database for MySQL 的新服务。 若要查看经典 MySQL Database for Azure 的文档，请访问[此页](https://docs.azure.cn/zh-cn/mysql/)。
+> [!NOTE]
+> 将要查看的是 Azure Database for MySQL 的新服务。 若要查看经典 MySQL Database for Azure 的文档，请访问[此页](https://docs.azure.cn/zh-cn/mysql/)。
 
 Azure Database for MySQL 是一种托管服务，可用于在云中运行、管理和缩放高可用性的 MySQL 数据库。 使用 Azure 门户可以轻松管理服务器和设计数据库。
 
@@ -64,7 +65,7 @@ Azure Database for MySQL 是一种托管服务，可用于在云中运行、管�
     
    ![定价层](./media/tutorial-design-database-using-portal/3-pricing-tier.png)
 
-3. 单击“创建”。 一两分钟后，新 Azure Database for MySQL 服务器将在云中运行。 可单击工具栏上的“通知”按钮来监视部署过程。
+3. 单击**创建**。 一两分钟后，新 Azure Database for MySQL 服务器将在云中运行。 可单击工具栏上的“通知”按钮来监视部署过程。
 
 ## <a name="configure-firewall"></a>配置防火墙
 Azure Databases for MySQL 受防火墙保护。 默认情况下，会拒绝与服务器和服务器内数据库的所有连接。 首次连接到 Azure Database for MySQL 之前，请配置防火墙以添加客户端计算机的公共网络 IP 地址（或 IP 地址范围）。

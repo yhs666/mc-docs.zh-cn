@@ -3,25 +3,26 @@ title: Azure Active Directory 开发人员词汇表 | Microsoft Docs
 description: 常用的 Azure Active Directory 开发人员概念和功能术语列表。
 services: active-directory
 documentationcenter: ''
-author: bryanla
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: 551512df-46fb-4219-a14b-9c9fc23998ba
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 11/16/2017
-ms.date: 01/09/2018
+ms.date: 07/03/2018
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: 662454c949014e95ac289605fea657b7104fd78f
-ms.sourcegitcommit: 4ae946a9722ff3e7231fcb24d5e8f3e2984ccd1a
+ms.openlocfilehash: 19b1807544bccf5b9dd98fdceb3b03e5fdf1c202
+ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2018
-ms.locfileid: "27769183"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37800435"
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Azure Active Directory 开发人员词汇表
 本文包含一些核心 Azure Active Directory (AD) 开发人员概念的定义，帮助你了解 Azure AD 的应用程序开发。
@@ -37,7 +38,7 @@ ms.locfileid: "27769183"
 有关详细信息，请参阅 [Azure AD Token Reference][AAD-Tokens-Claims] （Azure AD 令牌参考）。
 
 ## <a name="application-id-client-id"></a>应用程序 ID（客户端 ID）
-Azure AD 向应用程序注册颁发的唯一标识符，用于标识特定应用程序和关联的配置。  执行身份验证请求时将使用此应用程序 ID（[客户端 ID](https://tools.ietf.org/html/rfc6749#page-15)），开发时会向身份验证库提供它。 应用程序 ID（客户端 ID）不是机密。 
+Azure AD 向应用程序注册颁发的唯一标识符，用于标识特定应用程序和关联的配置。 执行身份验证请求时将使用此应用程序 ID（[客户端 ID](https://tools.ietf.org/html/rfc6749#page-15)），开发时会向身份验证库提供它。 应用程序 ID（客户端 ID）不是机密。 
 
 ## <a name="application-manifest"></a>应用程序清单
 [Azure 门户][AZURE-portal]提供的一项功能，可生成以 JSON 表示的应用程序标识配置，作为其关联 [Application][AAD-Graph-App-Entity] 实体和 [ServicePrincipal][AAD-Graph-Sp-Entity] 实体的更新机制。 如需更多详细信息，请参阅[了解 Azure Active Directory 应用程序清单][AAD-App-Manifest]。
@@ -45,7 +46,7 @@ Azure AD 向应用程序注册颁发的唯一标识符，用于标识特定应�
 ## <a name="application-object"></a>应用程序对象
 在 [Azure 门户][AZURE-portal]中注册/更新应用程序时，门户将为该租户同时创建/更新应用程序对象和对应的[服务主体对象](#service-principal-object)。 应用程序对象可全局（在其能够访问的所有租户中）定义应用程序的标识配置，并可提供模板来派生出其对应的服务主体对象，在运行时于本地（在特定租户中）使用。
 
-如需更多详细信息，请参阅[应用程序和服务主体对象][AAD-App-SP-Objects]。
+有关详细信息，请参阅[应用程序和服务主体对象][AAD-App-SP-Objects]。
 
 ## <a name="application-registration"></a>应用程序注册
 要允许某个应用程序与标识和访问管理功能集成并将这些功能委托给 Azure AD，必须向 Azure AD [租户](#tenant)注册该应用程序。 向 Azure AD 注册应用程序时，必须提供应用程序的标识配置，以允许它与 Azure AD 集成并使用如下所述的功能：
@@ -87,7 +88,7 @@ Azure AD 向应用程序注册颁发的唯一标识符，用于标识特定应�
 有关详细信息，请参阅 [Azure AD token reference][AAD-Tokens-Claims] （Azure AD 令牌参考）。
 
 ## <a name="client-application"></a>客户端应用程序
-根据 [OAuth2 授权框架][OAuth2-Role-Def]的定义，这是代表[资源所有者](#resource-owner)发出受保护资源请求的应用程序。 “客户端”一词并不代表任何特定的硬件实现特征（例如，应用程序是在服务器、台式机还是其他设备上执行）。  
+根据 [OAuth2 授权框架][OAuth2-Role-Def]的定义，这是代表[资源所有者](#resource-owner)发出受保护资源请求的应用程序。 “客户端”一词并不代表任何特定的硬件实现特征（例如，应用程序是在服务器、台式机还是其他设备上执行）。 
 
 客户端应用程序向资源所有者请求[授权](#authorization)，以参与 [OAuth2 授权](#authorization-grant)流程，并可代表资源所有者访问 API/数据。 OAuth2 授权框架根据客户端是否能够维护其凭据的机密性[定义两种类型的客户端][OAuth2-Client-Types]：“机密”和“公共”。 应用程序可实现在 Web 服务器上运行的 [Web 客户端（机密）](#web-client)、安装在设备上的[本机客户端（公共）](#native-client)，或者在设备浏览器中运行的[基于用户代理的客户端（公共）](#user-agent-based-client)。
 
@@ -123,7 +124,7 @@ Azure AD 向应用程序注册颁发的唯一标识符，用于标识特定应�
 ## <a name="resource-server"></a>资源服务器
 根据 [OAuth2 授权框架][OAuth2-Role-Def]的定义，这是托管受保护资源的服务器，能够接受并响应出示[访问令牌](#access-token)的[客户端应用程序](#client-application)所发出的受保护资源请求。 它也称为受保护的资源服务器或资源应用程序。
 
-资源服务器使用 OAuth 2.0 授权框架公开 API，并通过[范围](#scopes)和[角色](#roles)强制实施其受保护资源的访问权限。 示例包括可访问 Azure AD 租户数据的 Azure AD Graph API，以及可访问邮件和日历等数据的 Office 365 API。 这两项也可通过 [Microsoft Graph API][Microsoft-Graph]进行访问。  
+资源服务器使用 OAuth 2.0 授权框架公开 API，并通过[范围](#scopes)和[角色](#roles)强制实施其受保护资源的访问权限。 示例包括可访问 Azure AD 租户数据的 Azure AD Graph API，以及可访问邮件和日历等数据的 Office 365 API。 这两项也可通过 [Microsoft Graph API][Microsoft-Graph]进行访问。 
 
 与客户端应用程序一样，资源应用程序的标识配置是通过 Azure AD 租户中的 [注册](#application-registration) 来建立的，可提供应用程序和服务主体对象。 Microsoft 提供的某些 API（例如 Azure AD 图形 API）在预配期间将预先注册的服务主体设置为在所有租户中可用。
 
@@ -132,7 +133,7 @@ Azure AD 向应用程序注册颁发的唯一标识符，用于标识特定应�
 
 角色是资源定义的字符串（例如“开支审批人”、“只读”、“Directory.ReadWrite.All”），在 [Azure 门户][AZURE-portal]中通过资源的[应用程序清单](#application-manifest)进行管理，并且存储在资源的 [appRoles 属性][AAD-Graph-Sp-Entity]中。 也可通过 Azure 门户为用户分配“用户”角色，并配置用于访问“应用程序”角色的客户端[应用程序权限](#permissions)。
 
-有关 Azure AD 图形 API 公开的应用程序角色的详细介绍，请参阅 [Graph API Permission Scopes][AAD-Graph-Perm-Scopes]（图形 API 权限范围）。 有关分步实现示例，请参阅 [Role based access control in cloud applications using Azure AD][Duyshant-Role-Blog]（使用 Azure AD 在云应用程序中执行基于角色的访问控制）。
+有关 Azure AD 图形 API 公开的应用程序角色的详细介绍，请参阅 [Graph API Permission Scopes][AAD-Graph-Perm-Scopes]（图形 API 权限范围）。 
 
 ## <a name="scopes"></a>范围
 与[角色](#roles)一样，范围提供某种方式让[资源服务器](#resource-server)控制其受保护资源的访问权限。 对于已获得资源所有者委托资源访问权限的[客户端应用程序](#client-application)，范围可用于实现[基于范围][OAuth2-Access-Token-Scopes]的访问控制。
@@ -147,7 +148,7 @@ Azure AD 向应用程序注册颁发的唯一标识符，用于标识特定应�
 ## <a name="service-principal-object"></a>应用程序对象
 在 [Azure 门户][AZURE-portal]中注册/更新应用程序时，门户将为该租户同时创建/更新[应用程序对象](#application-object)和对应的服务主体对象。 应用程序对象可全局（在关联的应用程序已获授予访问权限的所有租户中）*定义*应用程序的标识配置，并可作为模板来*派生*出其对应的服务主体对象，以便在运行时于本地（在特定租户）使用。
 
-如需更多详细信息，请参阅[应用程序和服务主体对象][AAD-App-SP-Objects]。
+有关详细信息，请参阅[应用程序和服务主体对象][AAD-App-SP-Objects]。
 
 ## <a name="sign-in"></a>登录
 [客户端应用程序](#client-application)启动最终用户身份验证并捕获相关状态，以便获取[安全令牌](#security-token)并将应用程序会话局限在该状态的过程。 状态可以包括多种项目，例如用户配置文件信息，以及派生自令牌声明的信息。
@@ -164,24 +165,24 @@ Azure AD 目录的实例称为 Azure AD 租户。 它提供的一些功能包括
 - 对用户帐户和已注册应用程序进行身份验证
 - 为各种协议（包括 OAuth2 和 SAML）提供支持所需的 REST 终结点，包括[授权终结点](#authorization-endpoint)、[令牌终结点](#token-endpoint)以及[多租户应用程序](#multi-tenant-application)使用的“通用”终结点。
 
-在注册期间创建 Azure AD 租户/将 Azure AD 租户与 Azure 和 Office 365 订阅相关联，以便为该订阅提供标识和访问管理功能。 Azure 订阅管理员还可通过 Azure 门户创建其他 Azure AD 租户。 有关访问租户的各种方式的详细信息，请参阅[如何获取 Azure Active Directory 租户][AAD-How-To-Tenant]。 若要了解订阅和 Azure AD 租户之间的详细关系，请参阅 [How Azure subscriptions are associated with Azure Active Directory][AAD-How-Subscriptions-Assoc] （Azure 订阅与 Azure Active Directory 的关联方式）。
+在注册期间创建 Azure AD 租户/将 Azure AD 租户与 Azure 和 Office 365 订阅相关联，以便为该订阅提供标识和访问管理功能。 Azure 订阅管理员还可通过 Azure 门户创建其他 Azure AD 租户。 有关访问租户的各种方式的详细信息，请参阅[如何获取 Azure Active Directory 租户][AAD-How-To-Tenant]。 
 
 ## <a name="token-endpoint"></a>令牌终结点
 [授权服务器](#authorization-server)为了支持 OAuth2 [权限授予](#authorization-grant)而实现的终结点之一。 根据具体的授权，可将其用于获取[客户端](#client-application)的[访问令牌](#access-token)（和相关的“刷新”令牌）或 [ID 令牌](#ID-token)（使用 [OpenID Connect][OpenIDConnect] 协议时）。
 
 ## <a name="user-agent-based-client"></a>基于用户代理的客户端
-一种[客户端应用程序](#client-application)，例如单页应用程序 (SPA)，可从 Web 服务器下载代码并在用户代理（例如 Web 浏览器）中执行。 由于所有代码都在设备上执行，因此设备因为无法隐私/秘密地存储凭据而被视为“公共”客户端。 如需更多详细信息，请参阅 [OAuth2 客户端类型和配置文件][OAuth2-Client-Types]。
+一种[客户端应用程序](#client-application)，例如单页应用程序 (SPA)，可从 Web 服务器下载代码并在用户代理（例如 Web 浏览器）中执行。 由于所有代码都在设备上执行，因此设备因为无法隐私/秘密地存储凭据而被视为“公共”客户端。 有关详细信息，请参阅 [OAuth2 客户端类型和配置文件][OAuth2-Client-Types]。
 
 ## <a name="user-principal"></a>用户主体
 与服务主体对象用于表示应用程序实例的方式一样，用户主体对象是另一种类型的安全主体，它代表用户。 Azure AD Graph [用户实体][AAD-Graph-User-Entity]定义用户对象的架构，包括用户相关属性，例如姓名、用户主体名称、目录角色成员身份等。这样即可提供 Azure AD 的用户标识配置，用于在运行时建立用户主体。 用户主体用于代表经身份验证的用户执行单一登录、记录[同意](#consent)委托、做出访问控制决策等操作。
 
 ## <a name="web-client"></a>Web 客户端
-一类[客户端应用程序](#client-application) ，可在 Web 服务器上执行所有代码，并可将凭据安全地存储在服务器上，充当“机密”客户端。 有关详细信息，请参阅 [OAuth2 client types and profiles][OAuth2-Client-Types] （OAuth2 客户端类型和配置文件）。
+一类[客户端应用程序](#client-application) ，可在 Web 服务器上执行所有代码，并可将凭据安全地存储在服务器上，充当“机密”客户端。 有关详细信息，请参阅 [OAuth2 客户端类型和配置文件][OAuth2-Client-Types]。
 
 ## <a name="next-steps"></a>后续步骤
-[Azure AD 开发人员指南][AAD-Dev-Guide]是用于所有 Azure AD 开发相关主题的登陆页，包括[应用程序集成][AAD-How-To-Integrate]的概述和 [Azure AD 身份验证与支持的身份验证方案][AAD-Auth-Scenarios]基本知识。  另外，还可在 [Github](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=) 上找到关于如何快速启动和运行的代码示例及教程。
+[Azure AD 开发人员指南][AAD-Dev-Guide]是用于所有 Azure AD 开发相关主题的登陆页，包括[应用程序集成][AAD-How-To-Integrate]的概述和 [Azure AD 身份验证与支持的身份验证方案][AAD-Auth-Scenarios]的基本知识。 另外，还可在 [Github](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=) 上找到关于如何快速启动和运行的代码示例及教程。
 
-请使用以下评论部分提供反馈，帮助我们改进和编写内容，包括有关新定义或更新现有定义的要求！
+请使用以下评论部分提供反馈，帮助我们改进和编写此内容，包括有关新建定义或更新现有定义的请求！
 
 <!--Image references-->
 
@@ -194,7 +195,6 @@ Azure AD 目录的实例称为 Azure AD 租户。 它提供的一些功能包括
 [AAD-Graph-App-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity
 [AAD-Graph-Sp-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity
 [AAD-Graph-User-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity
-[AAD-How-Subscriptions-Assoc]: ../active-directory-how-subscriptions-associated-directory.md
 [AAD-How-To-Integrate]: ./active-directory-how-to-integrate.md
 [AAD-How-To-Tenant]: active-directory-howto-tenant.md
 [AAD-Integrating-Apps]: ./active-directory-integrating-applications.md
@@ -202,10 +202,9 @@ Azure AD 目录的实例称为 Azure AD 租户。 它提供的一些功能包括
 [AAD-Security-Token-Claims]: ./active-directory-authentication-scenarios.md#claims-in-azure-ad-security-tokens
 [AAD-Tokens-Claims]: ./active-directory-token-and-claims.md
 [AZURE-portal]: https://portal.azure.cn
-[Duyshant-Role-Blog]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
 [JWT]: https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32
 [Microsoft-Graph]: https://graph.microsoft.io
-[O365-Perm-Ref]: https://msdn.microsoft.com/en-us/office/office365/howto/application-manifest
+[O365-Perm-Ref]: https://msdn.microsoft.com/office/office365/howto/application-manifest
 [OAuth2-Access-Token-Scopes]: https://tools.ietf.org/html/rfc6749#section-3.3
 [OAuth2-AuthZ-Endpoint]: https://tools.ietf.org/html/rfc6749#section-3.1
 [OAuth2-AuthZ-Grant-Types]: https://tools.ietf.org/html/rfc6749#section-1.3

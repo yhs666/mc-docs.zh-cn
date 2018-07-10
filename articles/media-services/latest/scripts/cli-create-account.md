@@ -15,12 +15,12 @@ ms.workload: na
 origin.date: 05/11/2018
 ms.date: 05/28/2018
 ms.author: v-nany
-ms.openlocfilehash: f40371195fed13de8c499d766237dadc236a7ec8
-ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
+ms.openlocfilehash: c977be3dbdefd632c24cce4307b9d64ff05ace06
+ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36748376"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37405303"
 ---
 # <a name="cli-example-create-an-azure-media-services-account"></a>CLI 示例：创建 Azure 媒体服务帐户
 
@@ -28,7 +28,7 @@ ms.locfileid: "36748376"
 
 
 
-如果选择在本地安装并使用 CLI，本文要求运行 Azure CLI 2.0.20 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](/cli/azure/install-azure-cli)。 
+如果选择在本地安装并使用 CLI，本文要求运行 Azure CLI 2.0.20 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](/cli/install-azure-cli)。 
 
 ## <a name="example-script"></a>示例脚本
 
@@ -89,10 +89,10 @@ az group delete --name amsResourceGroup
 
 | 命令 | 注释 |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | 创建用于存储所有资源的资源组。 |
-| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | 创建存储帐户。 |
-| [az ams account create](https://docs.microsoft.com/cli/azure/ams/account?view=azure-cli-latest#az-ams-account-create) | 创建媒体服务帐户。 |
-| [az ams account sp create](https://docs.microsoft.com/cli/azure/ams/account/sp?view=azure-cli-latest#az-ams-account-sp-create) | 通过密码创建服务主体并配置其对 Azure 媒体服务帐户的访问权限。 
-| [az group delete](/cli/azure/group#az_group_delete) | 删除资源组，包括所有嵌套的资源。 |
+| [az group create](/cli/group#az_group_create) | 创建用于存储所有资源的资源组。 |
+| [az storage account create](/cli/storage/account#az_storage_account_create) | 创建存储帐户。 |
+| [az ams account create](/cli/azure/ams/account?view=azure-cli-latest#az-ams-account-create) | 创建媒体服务帐户。 |
+| [az ams account sp create](/cli/azure/ams/account/sp?view=azure-cli-latest#az-ams-account-sp-create) | 通过密码创建服务主体并配置其对 Azure 媒体服务帐户的访问权限。 
+| [az group delete](/cli/group#az_group_delete) | 删除资源组，包括所有嵌套的资源。 |
 
 

@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 11/02/2017
 ms.author: v-yiso
-ms.date: 02/05/2018
-ms.openlocfilehash: 6cb9f719f2343f2e4c21a60a8131e68aad0a1c3a
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.date: 07/16/2018
+ms.openlocfilehash: 79d614f4fd3479d160992a5ed593f2f836a96552
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
-ms.locfileid: "29285994"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873431"
 ---
 # <a name="azure-wcf-relay-tutorial"></a>Azure WCF 中继教程
 
-本教程介绍如何使用 Azure 中继功能构建简单的 WCF 中继客户端应用程序和服务。 有关使用[服务总线消息传送](../service-bus-messaging/service-bus-messaging-overview.md#Brokered-messaging)的类似教程，请参阅[服务总线队列入门](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md)。
+本教程介绍如何使用 Azure 中继功能构建简单的 WCF 中继客户端应用程序和服务。 有关使用[服务总线消息传送](../service-bus-messaging/service-bus-messaging-overview.md)的类似教程，请参阅[服务总线队列入门](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md)。
 
 通过此教程，可以了解创建 WCF 中继客户端和服务应用程序所需的步骤。 正如原始的 WCF，服务是公开一个或多个终结点的构造，其中每个终结点都公开一个或多个服务操作。 服务的终结点用于指定可在其中找到服务的地址、包含客户端必须与服务进行通信的信息的绑定，以及定义服务向其客户端提供的功能的协定。 WCF 和 WCF 中继之间的主要区别在于：终结点在云中公开，而不是在本地计算机中公开。
 
@@ -159,7 +159,7 @@ namespace Microsoft.ServiceBus.Samples
 4. 单击“生成”，然后单击“生成解决方案”以确认工作的准确性。
 
 ### <a name="define-the-configuration-for-the-service-host"></a>定义服务主机的配置
-1. 配置文件非常类似于 WCF 配置文件。 该配置文件包括服务名称、终结点（即，Azure 中继公开的、让客户端和主机相互通信的位置）和绑定（用于通信的协议类型）。 此处的主要差别在于，配置的服务终结点是指 [NetTcpRelayBinding](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.nettcprelaybinding) 绑定，它不是 .NET Framework 的一部分。 [NetTcpRelayBinding](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.nettcprelaybinding) 是由服务定义的绑定之一。
+1. 配置文件非常类似于 WCF 配置文件。 该配置文件包括服务名称、终结点（即，Azure 中继公开的、让客户端和主机相互通信的位置）和绑定（用于通信的协议类型）。 此处的主要差别在于，配置的服务终结点是指 [NetTcpRelayBinding](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.nettcprelaybinding) 绑定，它不是 .NET Framework 的一部分。 [NetTcpRelayBinding](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicebus.nettcprelaybinding?view=azure-dotnet) 是由服务定义的绑定之一。
 2. 在**解决方案资源管理器**中，双击 App.config 文件以在 Visual Studio 编辑器中将其打开。
 3. 在 `<appSettings>` 元素中，将占位符替换为服务命名空间的名称以及在先前步骤中复制的 SAS 密钥。
 4. 在 `<system.serviceModel>` 标记中，添加 `<services>` 元素。 可以在单个配置文件中定义多个中继应用程序。 但是，本教程只定义一个。
@@ -240,7 +240,7 @@ namespace Microsoft.ServiceBus.Samples
     ```
 
     随后将使用 SAS 密钥来访问你的项目。 命名空间作为参数传递给 `CreateServiceUri` 以创建服务 URI。
-2. 使用 [TransportClientEndpointBehavior](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.transportclientendpointbehavior) 对象声明使用 SAS 密钥作为凭据类型。 在最后一步中添加的代码后直接添加以下代码。
+2. 使用 [TransportClientEndpointBehavior](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicebus.transportclientendpointbehavior?view=azure-dotnet) 对象声明使用 SAS 密钥作为凭据类型。 在最后一步中添加的代码后直接添加以下代码。
 
     ```csharp
     TransportClientEndpointBehavior sasCredential = new TransportClientEndpointBehavior();
@@ -273,7 +273,7 @@ Uri address = ServiceBusEnvironment.CreateServiceUri("sb", serviceNamespace, "Ec
     ```
 
     该服务主机是可实例化服务的 WCF 对象。 在这里将传递要创建的服务类型（`EchoService` 类型），以及要公开服务的地址。
-3. 在 Program.cs 文件的顶部，添加对 [System.ServiceModel.Description](https://msdn.microsoft.com/library/system.servicemodel.description.aspx) 和 [Microsoft.ServiceBus.Description](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.description) 的引用。
+3. 在 Program.cs 文件的顶部，添加对 [System.ServiceModel.Description](https://msdn.microsoft.com/library/system.servicemodel.description.aspx) 和 [Microsoft.ServiceBus.Description](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicebus.description?view=azure-dotnet) 的引用。
 
     ```csharp
     using System.ServiceModel.Description;
@@ -702,7 +702,8 @@ namespace Microsoft.ServiceBus.Samples
 12. 可以继续以这种方式将来自客户端的短信发送至服务。 完成后，在客户端和服务控制台窗口中按 Enter 以结束这两个应用程序。
 
 ## <a name="next-steps"></a>后续步骤
-本教程介绍如何使用服务总线的 WCF 中继功能，构建 Azure 中继客户端应用程序和服务。 有关使用[服务总线消息传送](../service-bus-messaging/service-bus-messaging-overview.md#Brokered-messaging)的类似教程，请参阅[服务总线队列入门](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md)。
+
+本教程介绍如何使用服务总线的 WCF 中继功能，构建 Azure 中继客户端应用程序和服务。 有关使用[服务总线消息传送](../service-bus-messaging/service-bus-messaging-overview.md)的类似教程，请参阅[服务总线队列入门](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md)。
 
 若要了解有关 Azure 中继的详细信息，请参阅以下主题。
 

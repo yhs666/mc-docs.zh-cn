@@ -1,26 +1,20 @@
 ---
-title: " 删除 Azure 中的恢复服务 | Microsoft Docs "
+title: 删除 Azure 中的恢复服务保管库
 description: 本文介绍了如何删除恢复服务保管库。 本文包括了尝试删除保管库但无法删除时可采用的疑难解答步骤。
 services: service-name
-documentationcenter: dev-center-name
 author: markgalioto
 manager: carmonm
-editor: ''
-ms.assetid: 5fa08157-2612-4020-bd90-f9e3c3bc1806
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 origin.date: 12/20/2017
-ms.date: 02/07/2018
+ms.date: 07/05/2018
 ms.author: v-junlch
-ms.openlocfilehash: 1906836a695df70249f24802c28079136d0d3a4b
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: e5076ab557d0ebb3b0f647ae7b4b24ea4ac15ed3
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
-ms.locfileid: "29285254"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873696"
 ---
 # <a name="delete-a-recovery-services-vault"></a>删除恢复服务保管库
 本文介绍了如何在 Azure 门户中删除恢复服务保管库。 如果你之前有备份保管库，则它们已转换为恢复服务保管库。   
@@ -169,4 +163,4 @@ ms.locfileid: "29285254"
     “删除”菜单随即打开。
 6. 在“删除”菜单上，提供服务器的名称。 如果它是一个长名称，可以从备份管理服务器的列表中复制并粘贴它。 然后单击“删除”。  
 
-<!--Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

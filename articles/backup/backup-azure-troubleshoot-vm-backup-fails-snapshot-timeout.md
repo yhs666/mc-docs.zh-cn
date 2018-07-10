@@ -1,27 +1,21 @@
 ---
-title: Azure 备份故障排除：来宾代理状态不可用 | Microsoft Docs
+title: Azure 备份故障排除：客户代理状态不可用
 description: 与代理、扩展和磁盘相关的 Azure 备份失败的症状、原因及解决方法。
 services: backup
-documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: ''
 keywords: Azure 备份; VM 代理; 网络连接;
-ms.assetid: 4b02ffa4-c48e-45f6-8363-73d536be4639
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
-origin.date: 01/09/2018
-ms.date: 05/28/2018
+origin.date: 06/15/2018
+ms.date: 07/06/2018
 ms.author: v-junlch
-ms.openlocfilehash: 8a289e6761ebd90126c793b78650b4c03101a75e
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 835f8581fa3c931868bd38152f78b7069bea6bfb
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34559439"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873703"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure 备份故障排除：代理或扩展的问题
 
@@ -93,6 +87,16 @@ VM 无法根据部署要求访问 Internet。 或者现有的限制阻止访问 
 
 若要正常工作，备份扩展需要连接到 Azure 公共 IP 地址。 该扩展会将命令发送到 Azure 存储终结点 (HTTP URL) 来管理 VM 的快照。 如果扩展无法访问公共 Internet，则备份最终会失败。
 
+可以部署代理服务器来路由 VM 流量。
+##### <a name="create-a-path-for-http-traffic"></a>为 HTTP 流量创建路径
+
+1. 如果指定了网络限制（例如网络安全组），请部署 HTTP 代理服务器来路由流量。
+2. 要允许从 HTTP 代理服务器访问 Internet，如果有规则，请将其添加到网络安全组。
+
+若要了解如何设置 HTTP 代理进行 VM 备份，请参阅[进行备份 Azure 虚拟机所需的环境准备](backup-azure-arm-vms-prepare.md#establish-network-connectivity)。
+
+无论是备份的 VM 还是路由流量的代理服务器，都需要对 Azure 公共 IP 地址的访问权限
+
 ####  <a name="solution"></a>解决方案
 若要解决此问题，请尝试下列方法：
 
@@ -104,13 +108,6 @@ VM 无法根据部署要求访问 Internet。 或者现有的限制阻止访问 
 
 > [!WARNING]
 > 存储服务标记以预览版提供。 它们只在特定的区域中可用。 有关区域列表，请参阅[存储的服务标记](../virtual-network/security-overview.md#service-tags)。
-
-##### <a name="create-a-path-for-http-traffic"></a>为 HTTP 流量创建路径
-
-1. 如果指定了网络限制（例如网络安全组），请部署 HTTP 代理服务器来路由流量。
-2. 要允许从 HTTP 代理服务器访问 Internet，如果有规则，请将其添加到网络安全组。
-
-若要了解如何设置 HTTP 代理进行 VM 备份，请参阅[进行备份 Azure 虚拟机所需的环境准备](backup-azure-arm-vms-prepare.md#establish-network-connectivity)。
 
 如果使用 Azure 托管磁盘，可能需要在防火墙上打开另一个端口 (8443)。
 

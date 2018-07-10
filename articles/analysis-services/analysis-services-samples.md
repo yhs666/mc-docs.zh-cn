@@ -9,12 +9,12 @@ origin.date: 04/12/2018
 ms.date: 04/30/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 0e31c5863f8b2d2adfa0656c68182f4b53c62007
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: a382c1b7389825249ad7957eed12d610da832162
+ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121045"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37405319"
 ---
 # <a name="azure-analysis-services-samples"></a>Azure Analysis Services 示例
 使用以下示例资源可帮助了解 Analysis Services 并针对环境对其进行测试。
@@ -38,6 +38,6 @@ GitHub 上的这些示例数据库可用于创建和测试自己的模型。
 ## <a name="next-steps"></a>后续步骤
 
 [Adventure Works 教程](/tutorials/aas-adventure-works-tutorial.md)   
-[Azure 本地数据网关](analysis-services-gateway.md)
+<!--Not Available on [Azure On-premises Data Gateway](analysis-services-gateway.md)-->
 
 <!--Update_Description: update meta properties -->

@@ -3,25 +3,27 @@ title: 如何使用 ADAL 在 Android 上启用跨应用 SSO | Microsoft Docs
 description: '如何使用 ADAL SDK 的功能跨应用程序启用单一登录。 '
 services: active-directory
 documentationcenter: ''
-author: danieldobalian
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: 40710225-05ab-40a3-9aec-8b4e96b6b5e7
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: android
 ms.devlang: java
 ms.topic: article
 origin.date: 04/07/2017
-ms.date: 01/10/2018
+ms.date: 07/03/2018
 ms.author: v-junlch
+ms.reviewer: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 263f66929956a189574bc7edb9aa063ba4922d33
-ms.sourcegitcommit: 4ae946a9722ff3e7231fcb24d5e8f3e2984ccd1a
+ms.openlocfilehash: 4e5fa8382b636b5ad3aff81e86f0b5ddba7b81ff
+ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2018
-ms.locfileid: "27769150"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37800494"
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>如何使用 ADAL 在 Android 上启用跨应用 SSO
 客户现在都希望提供单一登录 (SSO)，以便用户只需输入一次凭据，然后这些凭据就会自动在多个应用程序中生效。 要用户在一个小屏幕上输入用户名和密码，这本身就是一项很难的操作，通常还伴有其他身份验证方式 (2FA)，例如电话呼叫或短信代码。如果在使用产品时必须多次执行这些操作，用户很快就会产生不满情绪。
@@ -82,7 +84,7 @@ Microsoft 为每个移动平台提供了应用程序，可在来自不同供应�
 中转站辅助的登录是一种发生在中转站应用程序中的登录体验，它使用中转站的存储和安全性在设备上应用 Microsoft 标识平台的所有应用程序间共享凭据。 这意味着，应用程序依赖于中转站才能完成用户登录。 在 iOS 和 Android 平台上，通过可下载的应用程序提供这些中转站。可以由客户独立安装这些应用程序，也可以由负责管理其用户的设备的公司将这些应用程序推送到设备。 例如，iOS 上的 Microsoft Authenticator 应用程序就是此类应用程序。 在 Windows 环境中，此功能由内置于操作系统的帐户选择器提供，在技术上被称为 Web 身份验证中转站。
 具体的体验因平台而异，如果未正确管理，有时会给用户带来麻烦。 
 
-对于 iOS，这会导致“过渡”动画，将你的应用程序发送到后台，而将 Microsoft Authenticator 应用程序发送到前台，让用户选择其登录时使用的帐户。  
+对于 iOS，这会导致“过渡”动画，将你的应用程序发送到后台，而将 Microsoft Authenticator 应用程序发送到前台，让用户选择其登录时使用的帐户。 
 
 对于 Android 和 Windows，帐户选择器会显示在应用程序顶部，这给用户带来的麻烦较少。
 
@@ -247,4 +249,4 @@ MANAGE_ACCOUNTS
 现在，Microsoft 标识 SDK 自动在应用程序之间共享凭据并调用中转站（如果在设备上存在）。
 
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

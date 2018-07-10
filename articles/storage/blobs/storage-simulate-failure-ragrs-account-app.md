@@ -13,16 +13,16 @@ origin.date: 12/23/2017
 ms.date: 06/11/2018
 ms.author: v-johch
 ms.custom: mvc
-ms.openlocfilehash: 2888d82e2410c3eea02bb337e3cb6ac6843b2eff
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: 9099b54cdd5cba3e1e842d1cf09f9bc1612053b5
+ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867510"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37800352"
 ---
 # <a name="simulate-a-failure-in-accessing-read-access-redundant-storage"></a>模拟在访问读取访问冗余存储时出现的故障
 
-本教程是一个系列中的第二部分。  在本教程中，可以使用 [Fiddler](#simulate-a-failure-with-fiddler) 或[静态路由](#simulate-a-failure-with-an-invalid-static-route)模拟向[读取访问异地冗余](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) (RA-GRS) 存储帐户的主终结点发送请求失败，并让应用程序从辅助终结点读取内容。
+本教程是一个系列中的第二部分。  在本教程中，可以使用 [Fiddler](#simulate-a-failure-with-fiddler) 或[静态路由](#simulate-a-failure-with-an-invalid-static-route)模拟向[读取访问异地冗余](../common/storage-redundancy-grs.md) (RA-GRS) 存储帐户的主终结点发送请求失败，并让应用程序从辅助终结点读取内容。
 
 ![方案应用](media/storage-simulate-failure-ragrs-account-app/scenario.png)
 
@@ -121,7 +121,7 @@ ms.locfileid: "34867510"
 
 
 ## <a name="simulate-a-failure-with-an-invalid-static-route"></a>使用无效的静态路由模拟失败 
-对于向[读取访问异地冗余](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) (RA-GRS) 存储帐户的主终结点发出的所有请求，可以创建一个无效的静态路由。 本教程使用本地主机作为网关来路由向存储帐户发出的请求。 使用本地主机作为网关会导致向存储帐户主终结点发出的所有请求都以循环方式返回到主机内，随后导致请求失败。 执行以下步骤，使用无效的静态路由模拟失败和主终结点还原。 
+对于向[读取访问异地冗余](../common/storage-redundancy-grs.md) (RA-GRS) 存储帐户的主终结点发出的所有请求，可以创建一个无效的静态路由。 本教程使用本地主机作为网关来路由向存储帐户发出的请求。 使用本地主机作为网关会导致向存储帐户主终结点发出的所有请求都以循环方式返回到主机内，随后导致请求失败。 执行以下步骤，使用无效的静态路由模拟失败和主终结点还原。 
 
 ### <a name="start-and-pause-the-application"></a>启动和暂停应用程序
 

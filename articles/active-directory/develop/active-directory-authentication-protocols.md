@@ -1,27 +1,28 @@
 ---
-title: Azure Active Directory 身份验证协议 | Microsoft Docs
+title: Azure Active Directory 身份验证协议 | Microsoft 文档
 description: 概述 Azure Active Directory (AD) 支持的身份验证协议
 documentationcenter: dev-center-name
-author: alexchen2016
+author: CelesteDG
 services: active-directory
-manager: digimobile
+manager: mtillman
 editor: ''
 ms.assetid: 7a838ae2-c24c-4304-b6c0-e77fb888e6c0
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 04/27/2017
-ms.date: 10/19/2017
+ms.date: 07/03/2018
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: 9ef5f2b605d2fe8651bc1a04f51999490b24abfb
-ms.sourcegitcommit: d746a59778aa4c50abd503e6ff0fab0932fe99eb
+ms.openlocfilehash: 9933be85beed7fe418a0025082fd54d2f670c469
+ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
-ms.locfileid: "23475535"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37800353"
 ---
 # <a name="azure-active-directory-authentication-protocols"></a>Azure Active Directory 身份验证协议
 Azure Active Directory (Azure AD) 支持多个最广泛使用的身份验证和授权协议。 本部分中的主题介绍 Azure AD 中支持的协议及其实现。 这些主题包括支持的声明类型的回顾、联合元数据的使用简介、详细的 OAuth 2.0. 和 SAML 2.0 协议参考文档，以及故障排除部分。
@@ -33,6 +34,7 @@ Azure Active Directory (Azure AD) 支持多个最广泛使用的身份验证和�
 - [Azure AD 中的 OAuth 2.0](active-directory-protocols-oauth-code.md) - 了解 OAuth 2.0 在 Azure AD 中的实现。
 - [OpenID Connect 1.0](active-directory-protocols-openid-connect-code.md) - 了解如何使用 OAuth 2.0（一种授权协议）进行身份验证。
 - [使用客户端凭据的服务间调用](active-directory-protocols-oauth-service-to-service.md) - 了解如何对服务到服务调用使用 OAuth 2.0 客户端凭据授权流。
+- [使用代理流的服务间调用](active-directory-protocols-oauth-on-behalf-of.md) - 了解如何对服务到服务调用使用 OAuth 2.0 代理流。
 - [SAML 协议参考](active-directory-saml-protocol-reference.md) - 了解 Azure AD 的单一登录和单一注销 SAML 配置文件。
 
 ## <a name="see-also"></a>另请参阅

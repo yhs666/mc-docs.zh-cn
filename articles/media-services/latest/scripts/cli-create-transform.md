@@ -15,12 +15,12 @@ ms.workload: na
 origin.date: 05/11/2018
 ms.date: 05/28/2018
 ms.author: v-nany
-ms.openlocfilehash: 3a17ec1511e7befaf1758d723d49848a7f69e0ae
-ms.sourcegitcommit: d4176361d9c6da60729c06cc93a496cb4702d4c2
+ms.openlocfilehash: cc493449490403e4e10b363912676b48de185d61
+ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2018
-ms.locfileid: "35324303"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37405383"
 ---
 # <a name="cli-example-create-a-transform"></a>CLI 示例：创建转换
 
@@ -28,49 +28,50 @@ ms.locfileid: "35324303"
 
 
 
-如果选择在本地安装并使用 CLI，本文要求运行 Azure CLI 2.0.20 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](/cli/azure/install-azure-cli)。 
+如果选择在本地安装并使用 CLI，本文要求运行 Azure CLI 2.0.20 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](/cli/install-azure-cli)。 
 
 ## <a name="example-script"></a>示例脚本
 
-```Azure CLI
-#<a name="binbash"></a>!/bin/bash
+```cli
+#!/bin/bash
 
-# <a name="update-the-following-variables-for-your-own-settings"></a>更新自己的设置的下列变量：
-resourceGroup=amsResourceGroup amsAccountName=amsmediaaccountname
+# Update the following variables for your own settings:
+resourceGroup=amsResourceGroup
+amsAccountName=amsmediaaccountname
 
-# <a name="create-a-simple-transform-for-adaptive-bitrate-encoding"></a>创建适用于自适应比特率编码的简单转换
+# Create a simple Transform for Adaptive Bitrate Encoding
 az ams transform create \
  --name myFirstTransform \
  --preset-names AdaptiveStreaming \
- --description '适用于自适应比特率编码的简单转换' \
+ --description 'a simple Transform for Adaptive Bitrate Encoding' \
  -g $resourceGroup \
  -a $amsAccountName \
 
- # <a name="create-a-transform-for-video-analyer-preset"></a>创建适用于视频分析器预设的转换
+ # Create a Transform for Video Analyer Preset
 az ams transform create \
  --name videoAnalyzerTransform \
  --preset-names  VideoAnalyzer \
  -g $resourceGroup \
  -a $amsAccountName \
 
- # <a name="create-a-transform-for-audio-analzyer-preset"></a>创建适用于音频分析器预设的转换
+ # Create a Transform for Audio Analzyer Preset
 az ams transform create \
  --name audioAnalyzerTransform \
  --preset-names  AudioAnalyzer \
  -g $resourceGroup \
  -a $amsAccountName \
 
-# <a name="create-a-transform-with-two-built-in-presets-executed-in-sequence"></a>创建两个内置预设按顺序执行的转换
+# Create a Transform with two built-in Presets executed in sequence
 az ams transform create \
  --name twoPresetTransform \
  --preset-names AdaptiveStreaming VideoAnalyzer \
  -g $resourceGroup \
  -a $amsAccountName \
 
-# <a name="list-all-the-transforms-in-an-account"></a>列出帐户中的所有转换
+# List all the Transforms in an account
 az ams transform list -a $amsAccountName -g $resourceGroup
 
-echo "按 [ENTER] 继续。"
+echo "press  [ENTER]  to continue."
 read continue
 ```
 

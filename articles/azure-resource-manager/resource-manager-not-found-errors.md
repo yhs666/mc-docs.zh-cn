@@ -1,7 +1,7 @@
 ---
 title: Azure 资源找不到错误 | Azure
 description: 说明如何在找不到资源时解决错误。
-services: azure-resource-manager,azure-portal
+services: azure-resource-manager
 documentationcenter: ''
 author: rockboyfor
 manager: digimobile
@@ -10,20 +10,20 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: support-article
-origin.date: 03/08/2018
-ms.date: 03/26/2018
+ms.topic: troubleshooting
+origin.date: 06/06/2018
+ms.date: 07/09/2018
 ms.author: v-yeche
-ms.openlocfilehash: e07615ef40fd7f5f79c7277b42853fe6928d9e5a
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: 2749472d950303ad0cdbb4b7393ef8a6c041ad9d
+ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30222497"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37405320"
 ---
 # <a name="resolve-not-found-errors-for-azure-resources"></a>解决 Azure 资源找不到错误
 
-本文介绍部署过程中找不到资源时可能遇到的错误。
+本文介绍部署过程中找不到资源时可能看到的错误。
 
 ## <a name="symptom"></a>症状
 
@@ -34,7 +34,7 @@ Code=NotFound;
 Message=Cannot find ServerFarm with name exampleplan.
 ```
 
-如果尝试对无法解析的资源使用 [reference](resource-group-template-functions-resource.md#reference) 或 [listKeys](resource-group-template-functions-resource.md#listkeys) 函数，则会收到以下错误：
+如果对无法解析的资源使用 [reference](resource-group-template-functions-resource.md#reference) 或 [listKeys](resource-group-template-functions-resource.md#listkeys) 函数，则会收到以下错误：
 
 ```
 Code=ResourceNotFound;
@@ -61,9 +61,9 @@ group {resource group name} was not found.
 }
 ```
 
-不过，你想要避免设置不必要的依赖项。 存在不必要的依赖项时，会导致不互相依赖的资源无法并行部署，从而延长了部署时间。 此外，可能会创建阻止部署的循环依赖项。 在同一模板中部署被引用资源时，[reference](resource-group-template-functions-resource.md#reference) 函数在该资源上创建隐式依赖项。 因此，用户拥有的依赖项可以多于在 **dependsOn** 属性中指定的依赖项。 [resourceId](resource-group-template-functions-resource.md#resourceid) 函数不创建隐式依赖项，也不验证资源是否存在。
+不过，你想要避免设置不必要的依赖项。 存在不必要的依赖项时，会导致不互相依赖的资源无法并行部署，从而延长了部署时间。 此外，可能会创建阻止部署的循环依赖项。 被引用资源在同一模板中部署并通过其名称（而非资源 ID）引用时，[reference](resource-group-template-functions-resource.md#reference) 函数和 [list*](resource-group-template-functions-resource.md#listkeys-listsecrets-and-list) 函数将在该资源上创建隐式依赖项。 因此，用户拥有的依赖项可以多于在 **dependsOn** 属性中指定的依赖项。 [resourceId](resource-group-template-functions-resource.md#resourceid) 函数不创建隐式依赖项，也不验证资源是否存在。 当资源通过其资源 ID 引用时，[reference](resource-group-template-functions-resource.md#reference) 函数和 [list*](resource-group-template-functions-resource.md#listkeys-listsecrets-and-list) 函数不会创建隐式依赖项。 若要创建隐式依赖项，请传递在同一模板中部署的资源的名称。
 
-遇到依赖项问题时，需了解资源部署顺序。 查看部署操作顺序的方法如下：
+看到依赖项问题时，需要深入了解资源部署顺序。 查看部署操作顺序的方法如下：
 
 1. 选择资源组的部署历史记录。
 
@@ -94,7 +94,7 @@ group {resource group name} was not found.
 
 ## <a name="solution-3---check-reference-function"></a>解决方案 3 - 检查引用函数
 
-查找包含 [reference](resource-group-template-functions-resource.md#reference) 函数的表达式。 提供的值因资源是否位于同一模板、资源组和订阅中而有所不同。 请仔细检查是否为方案提供了所需的参数值。 如果资源位于不同的资源组中，请提供完整的资源 ID。 例如，若要引用另一个资源组中的存储帐户，请使用：
+查找包含 [reference](resource-group-template-functions-resource.md#reference) 函数的表达式。 提供的值因资源是否位于同一模板、资源组和订阅中而有所不同。 再次确认为方案提供的是所需的参数值。 如果资源位于不同的资源组中，请提供完整的资源 ID。 例如，若要引用另一个资源组中的存储帐户，请使用：
 
 ```json
 "[reference(resourceId('exampleResourceGroup', 'Microsoft.Storage/storageAccounts', 'myStorage'), '2017-06-01')]"

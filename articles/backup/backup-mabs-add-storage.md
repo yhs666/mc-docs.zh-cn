@@ -1,26 +1,20 @@
 ---
-title: 将 Modern Backup Storage 与 Azure 备份服务器 v2 配合使用 | Microsoft Docs
+title: 将新式备份存储与 Azure 备份服务器 v2 一起使用
 description: 了解 Azure 备份服务器 v2 中的新功能。 本文介绍如何升级备份服务器安装。
 services: backup
-documentationcenter: ''
-author: alexchen2016
-manager: digimobile
-editor: ''
-ms.assetid: ''
+author: markgalioto
+manager: carmonm
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 05/15/2017
-ms.date: 06/30/2017
+ms.date: 07/06/2018
 ms.author: v-junlch
-ms.openlocfilehash: 6b9e8a6cd0708e6614ccfaf684505423766ba445
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.openlocfilehash: 68309fba4643dfba2c724697bf17f4c310aca86c
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
-ms.locfileid: "20472610"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873425"
 ---
 # <a name="add-storage-to-azure-backup-server-v2"></a>将存储添加到 Azure 备份服务器 v2
 
@@ -101,8 +95,9 @@ Update-DPMDiskStorage [-Volume] <Volume> [[-FriendlyName] <String> ] [[-Datasour
 ## <a name="next-steps"></a>后续步骤
 安装备份服务器之后，了解如何准备服务器或开始保护工作负荷。
 
-- [准备备份服务器工作负荷](backup-azure-microsoft-azure-backup-classic.md)
+- [准备备份服务器工作负荷](backup-azure-microsoft-azure-backup.md)
 - [使用备份服务器备份 VMware 服务器](backup-azure-backup-server-vmware.md)
 - [使用备份服务器备份 SQL Server](backup-azure-sql-mabs.md)
 
 
+<!-- Update_Description: link update -->

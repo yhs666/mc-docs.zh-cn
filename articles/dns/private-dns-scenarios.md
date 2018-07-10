@@ -15,17 +15,15 @@ ms.workload: infrastructure-services
 origin.date: 03/15/2018
 ms.date: 05/21/2018
 ms.author: v-nany
-ms.openlocfilehash: 0a52b157be2c2bc9a4b415ec08f43c0b5f179423
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: e59e4bb69aefcdbde90bdb8a011aee0fd227184a
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34474996"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873388"
 ---
 # <a name="azure-dns-private-zones-scenarios"></a>Azure DNS 专用区域方案
 Azure DNS 专用区域在虚拟网络内或虚拟网络之间提供名称解析功能。 在本文中，我们将查看可以使用此功能实现的一些常见方案。 
-
-[!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
 
 ## <a name="scenario-name-resolution-scoped-to-a-single-virtual-network"></a>方案：在单个虚拟网络范围内的名称解析
 在此方案中，你在 Azure 中有一个包含大量 Azure 资源的虚拟网络，包括虚拟机 (VM)。 你希望通过一个特定域名（DNS 区域）从虚拟网络内解析资源，并且你要求名称解析是专用的并且不可从 Internet 访问。 而且，对于 VNET 中的 VM，你要求 Azure 自动将它们注册到 DNS 区域中。 
@@ -38,9 +36,9 @@ Azure DNS 专用区域在虚拟网络内或虚拟网络之间提供名称解析�
 
 此方案是更常见的案例，其中，你需要将一个专用区域与多个虚拟网络进行关联。 此方案适合中心辐射模型之类的体系结构，其中有一个位于中央的中心虚拟网络，多个其他辐射虚拟网络都连接到中心虚拟网络。 中央的中心虚拟网络可以作为“注册”虚拟网络链接到专用区域，辐射虚拟网络可以作为“解析”虚拟网络进行链接。 
 
-下图显示了此方案的一个简单版本，其中只有两个虚拟网络 - A 和 B。A 被指定为“注册”虚拟网络，B 被指定为“解析”虚拟网络。 目的是使两个虚拟网络共享公用区域 contoso.com。当创建了该区域并将“解析”和“注册”虚拟网络链接到该区域后，Azure 将自动为虚拟网络 A 中的 VM（VNETA-VM1 和 VNETA-VM2）注册 DNS 记录。你还可以手动为“解析”虚拟网络 B 中的 VM 将 DNS 记录添加到该区域中。使用此设置时，对于正向和反向 DNS 查询，你将会看到以下行为：
+下图显示了此方案的一个简单版本，其中只有两个虚拟网络 - A 和 B。A 被指定为“注册”虚拟网络，B 被指定为“解析”虚拟网络。 目的是使两个虚拟网络共享公用区域 contoso.com。 当创建了该区域并将“解析”和“注册”虚拟网络链接到该区域后，Azure 将自动为虚拟网络 A 中的 VM（VNETA-VM1 和 VNETA-VM2）注册 DNS 记录。你还可以手动为“解析”虚拟网络 B 中的 VM 将 DNS 记录添加到该区域中。使用此设置时，对于正向和反向 DNS 查询，你将会看到以下行为：
 * 从“解析”虚拟网络 B 中的 VNETB-VM1 发出的针对 VNETA-VM1.contoso.com 的 DNS 查询将收到包含 VNETA-VM1 的专用 IP 的 DNS 响应。
-* 从“解析”虚拟网络 B 中的 VNETB-VM2 发出的针对 10.1.0.1 的反向 DNS (PTR) 查询将收到包含 FQDN VNETB-VM1.contoso.com 的 DNS 响应。原因是反向 DNS 查询的范围是同一虚拟网络。 
+* 从“解析”虚拟网络 B 中的 VNETB-VM2 发出的针对 10.1.0.1 的反向 DNS (PTR) 查询将收到包含 FQDN VNETB-VM1.contoso.com 的 DNS 响应。 原因是反向 DNS 查询的范围是同一虚拟网络。 
 * 从“解析”虚拟网络 B 中的 VNETB-VM3 发出的针对 10.0.0.1 的反向 DNS (PTR) 查询将收到 NXDOMAIN。 原因是反向 DNS 查询的范围仅限于同一虚拟网络。 
 
 

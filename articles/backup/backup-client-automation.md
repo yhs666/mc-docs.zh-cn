@@ -1,26 +1,20 @@
 ---
-title: 使用 PowerShell 将 Windows Server 备份到 Azure | Microsoft 文档
+title: 使用 PowerShell 将 Windows Server 备份到 Azure
 description: 了解如何使用 PowerShell 部署和管理 Azure 备份
 services: backup
-documentationcenter: ''
 author: saurabhsensharma
 manager: shivamg
-editor: ''
-ms.assetid: 65218095-2996-44d9-917b-8c84fc9ac415
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-origin.date: 11/28/2016
-ms.date: 04/08/2018
+ms.topic: conceptual
+origin.date: 05/24/2018
+ms.date: 07/06/2018
 ms.author: v-junlch
-ms.openlocfilehash: e8056b3fc3e3360f7aa520322df17c5d0dd9644c
-ms.sourcegitcommit: ce691e6877a362d33b5484b9bbf85c93915689a7
+ms.openlocfilehash: ad1cb7690c47968de758e690f8972656f94573be
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/09/2018
-ms.locfileid: "30955089"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873414"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>使用 PowerShell 部署和管理 Windows Server/Windows 客户端的 Azure 备份
 本文说明如何使用 PowerShell 在 Windows Server 或 Windows 客户端上设置 Azure 备份，以及管理备份和恢复。
@@ -147,7 +141,7 @@ PS C:\> $credsfilename = Get-AzureRmRecoveryServicesVaultSettingsFile -Backup -V
 代理安装程序不会更新 $Env:PSModulePath 变量。 这意味着模块自动加载失败。 若要解决此问题，请尝试执行以下操作：
 
 ```
-PS C:\>  $Env:psmodulepath += ';C:\Program Files\Azure Recovery Services Agent\bin\Modules
+PS C:\>  $Env:psmodulepath += ';C:\Program Files\Azure Recovery Services Agent\bin\Modules'
 ```
 
 或者，可在脚本中手动加载模块，如下所示：
@@ -161,8 +155,8 @@ PS C:\>  Import-Module  'C:\Program Files\Azure Recovery Services Agent\bin\Modu
 
 
 ```
-PS C:\> $cred = $credspath + $credsfilename
-PS C:\> Start-OBRegistration-VaultCredentials $cred -Confirm:$false
+
+PS C:\> Start-OBRegistration -VaultCredentials $credsfilename.FilePath -Confirm:$false
 CertThumbprint      :7a2ef2caa2e74b6ed1222a5e89288ddad438df2
 SubscriptionID      : ef4ab577-c2c0-43e4-af80-af49f485f3d1
 ServiceResourceName: testvault
@@ -659,4 +653,4 @@ PS C:\> Invoke-Command -Session $s -Script { param($d, $a) Start-Process -FilePa
 - [Azure 备份简介](backup-introduction-to-azure-backup.md)
 - [备份 Windows Server](backup-configure-vault.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->

@@ -8,18 +8,18 @@ manager: digimobile
 editor: ''
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 03/13/2018
-ms.date: 03/26/2018
+origin.date: 06/02/2018
+ms.date: 07/09/2018
 ms.author: v-yeche
-ms.openlocfilehash: c7157de625f60c7788803f786c1a9fdcc79abde9
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: 689a6daad5b5b0801a7f02f7f657cbf5851e4bc6
+ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30222676"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37405193"
 ---
 # <a name="deploy-azure-resources-to-more-than-one-subscription-or-resource-group"></a>将 Azure 资源部署到多个订阅或资源组
 
@@ -129,13 +129,11 @@ ms.locfileid: "30222676"
 
 如果将 `resourceGroup` 设置为不存在的资源组的名称，则部署将失败。
 
-若要部署示例模板，请使用 Azure PowerShell 4.0.0 或更高版本，也可以使用 Azure CLI 2.0.0 或更高版本。
+## <a name="use-the-resourcegroup-and-subscription-functions"></a>使用 resourceGroup() 和 subscription() 函数
 
-## <a name="use-the-resourcegroup-function"></a>使用 resourceGroup() 函数
+对于跨资源组部署，[resourceGroup()](resource-group-template-functions-resource.md#resourcegroup) 和 [subscription()](resource-group-template-functions-resource.md#subscription) 函数根据指定嵌套模板的方式以不同的方式解析。 
 
-对于跨资源组部署，[resourceGroup() 函数](resource-group-template-functions-resource.md#resourcegroup)根据指定嵌套模板的方式而以不同的方式解析。 
-
-如果在一个模板内嵌入另一个模板，嵌套模板中的 resourceGroup() 会解析至父资源组。 嵌入模板使用以下格式：
+如果在一个模板内嵌入另一个模板，嵌套模板中的函数会解析到父资源组和订阅。 嵌入模板使用以下格式：
 
 ```json
 "apiVersion": "2017-05-10",
@@ -146,12 +144,12 @@ ms.locfileid: "30222676"
     "mode": "Incremental",
     "template": {
         ...
-        resourceGroup() refers to parent resource group
+        resourceGroup() and subscription() refer to parent resource group/subscription
     }
 }
 ```
 
-如果链接到单独的模板，则链接模板的 resourceGroup() 会解析到嵌套资源组。 链接模板使用以下格式：
+如果链接到单独的模板，则链接模板中的函数会解析到嵌套资源组和订阅。 链接模板使用以下格式：
 
 ```json
 "apiVersion": "2017-05-10",
@@ -162,7 +160,7 @@ ms.locfileid: "30222676"
     "mode": "Incremental",
     "templateLink": {
         ...
-        resourceGroup() in linked template refers to linked resource group
+        resourceGroup() and subscription() in linked template refer to linked resource group/subscription
     }
 }
 ```

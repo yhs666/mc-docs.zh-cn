@@ -1,27 +1,24 @@
 ---
-title: 连接到 Azure AD 时对 WebAPI 项目所做的更改 | Microsoft Docs
+title: 连接到 Azure AD 时对 WebAPI 项目所做的更改
 description: 介绍使用 Visual Studio 连接到 Azure AD 时，WebAPI 项目会发生什么情况
 services: active-directory
-documentationcenter: ''
 author: ghogen
 manager: douge
-editor: ''
 ms.assetid: 57630aee-26a2-4326-9dbb-ea2a66daa8b0
-ms.service: active-directory
-ms.workload: web
-ms.tgt_pltfrm: vs-what-happened
-ms.devlang: na
-ms.topic: article
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: azure
+ms.topic: conceptual
 origin.date: 03/12/2018
-ms.date: 05/04/2018
+ms.date: 07/03/2018
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: 88078508c4b27be78bc88ec03de5303b9f8b91a9
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: fe06078ecb5b551e65ac45d0641d181636b67ebd
+ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33814949"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37800398"
 ---
 # <a name="what-happened-to-my-webapi-project-visual-studio-azure-active-directory-connected-service"></a>我的 WebAPI 项目（Visual Studio Azure Active Directory 连接服务）发生了什么情况
 
@@ -129,11 +126,11 @@ ms.locfileid: "33814949"
 - 在添加连接服务时选择的域中创建了 Azure AD 应用程序。
 - 更新了应用，以便在选择了“读取目录数据”选项时包含“读取目录数据”权限。
 
-[详细了解 Azure Active Directory](https://azure.microsoft.com/services/active-directory/)。
+[详细了解 Azure Active Directory](https://www.azure.cn/home/features/active-directory/)。
 
 ## <a name="next-steps"></a>后续步骤
 
 - [Azure Active Directory 的身份验证方案](active-directory-authentication-scenarios.md)
 - [向 ASP.NET Web 应用添加 Microsoft 登录功能](guidedsetups/active-directory-aspnetwebapp-v1.md)
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: link update -->

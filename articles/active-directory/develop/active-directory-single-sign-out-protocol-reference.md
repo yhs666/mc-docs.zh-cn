@@ -3,25 +3,26 @@ title: Azure 单一注销 SAML 协议 | Microsoft Docs
 description: 本文介绍 Azure Active Directory 中的单一注销 SAML 协议
 services: active-directory
 documentationcenter: .net
-author: alexchen2016
-manager: digimobile
+author: priyamohanram
+manager: mtillman
 editor: ''
 ms.assetid: 0e4aa75d-d1ad-4bde-a94c-d8a41fb0abe6
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/19/2017
-ms.date: 08/24/2017
+ms.date: 07/03/2018
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: 80b428489cfb80bc5217276b9b7e49e0a89949bf
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.openlocfilehash: f6e97f03606f1fa363955d82d2512b3a2b768936
+ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
-ms.locfileid: "21134743"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37800477"
 ---
 # <a name="single-sign-out-saml-protocol"></a>单一注销 SAML 协议
 Azure Active Directory (Azure AD) 支持 SAML 2.0 Web 浏览器单一注销配置文件。 若要使单一注销功能正常运行，必须在注册应用程序时在 Azure AD 中显式注册应用程序的 **LogoutURL** 。 Azure AD 使用 LogoutURL 在用户注销后对用户进行重定向。
@@ -76,4 +77,4 @@ Azure AD 将此值设为 `https://login.partner.microsoftonline.cn/<TenantIdGUID
 ### <a name="status"></a>状态
 Azure AD 使用 `Status` 元素中的 `StatusCode` 元素指示注销是否成功。如果注销尝试失败， `StatusCode` 元素还可能包含自定义错误消息。
 
-<!--Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

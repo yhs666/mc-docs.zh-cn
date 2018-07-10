@@ -13,12 +13,12 @@ ms.custom: mvc
 origin.date: 03/19/2018
 ms.date: 06/25/2018
 ms.author: v-nany
-ms.openlocfilehash: e5104ab73d0f9c95a19a416fcf275f386a4d1b64
-ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
+ms.openlocfilehash: 8a5d56294e0a2341dda10587fa771666d82a2dc2
+ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36748320"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37405408"
 ---
 # <a name="access-azure-media-services-api-with-cli-20"></a>使用 CLI 2.0 访问 Azure 媒体服务 API
  
@@ -39,7 +39,7 @@ ms.locfileid: "36748320"
 
 登录到 [Azure 门户](http://portal.azure.cn)。
 
-如果选择在本地安装并使用 CLI，本主题要求使用 Azure CLI 2.0 版或更高版本。 运行 `az --version` 即可确定你拥有的版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0]( /cli/azure/install-azure-cli)。 
+如果选择在本地安装并使用 CLI，本主题要求使用 Azure CLI 2.0 版或更高版本。 运行 `az --version` 即可确定你拥有的版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](/cli/install-azure-cli)。 
 
 [!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 

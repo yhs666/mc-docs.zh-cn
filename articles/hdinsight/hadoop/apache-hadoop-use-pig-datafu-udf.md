@@ -16,12 +16,12 @@ ms.workload: big-data
 origin.date: 04/10/2018
 ms.date: 05/21/2018
 ms.author: v-yiso
-ms.openlocfilehash: d5b48a6a4fe9bf01c35d1400fdba46c9fc31a797
-ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
+ms.openlocfilehash: ea5eab3e3166abb1e43857b6708a9933e8c635cd
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34449962"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873679"
 ---
 # <a name="use-datafu-with-pig-on-hdinsight"></a>在 HDInsight 上将 DataFu 与 pig 配合使用
 
@@ -40,7 +40,7 @@ ms.locfileid: "34449962"
 
 ## <a name="install-datafu-on-linux-based-hdinsight"></a>在基于 Linux 的 HDInsight 上安装 DataFu
 
-[!INCLUDE [hdinsight-linux-acn-version.md](../../../includes/hdinsight-linux-acn-version.md)]
+
 
 > [!IMPORTANT]
 > DataFu 安装在基于 Linux 的群集 3.3 版和更高版本上，以及基于 Windows 的群集上。 该程序未安装在早于 3.3 的基于 Linux 的群集上。

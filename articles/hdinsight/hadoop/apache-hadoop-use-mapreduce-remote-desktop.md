@@ -17,22 +17,22 @@ origin.date: 01/12/2017
 ms.date: 12/18/2017
 ms.author: v-yiso
 ROBOTS: NOINDEX
-ms.openlocfilehash: d9f54c133748dd29b720fbb2d2d41b05367b8f1d
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: 60f52fb1c89c3e8818908bcaacb1952b9701c60a
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
-ms.locfileid: "26410387"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873541"
 ---
 # <a name="use-mapreduce-in-hadoop-on-hdinsight-with-remote-desktop"></a>通过远程桌面在 HDInsight 上的 Hadoop 中使用 MapReduce
 [!INCLUDE [mapreduce-selector](../../../includes/hdinsight-selector-use-mapreduce.md)]
 
 本文介绍如何使用远程桌面连接到 HDInsight 群集上的 Hadoop，并使用 Hadoop 命令运行 MapReduce 作业。
 
-[!INCLUDE [hdinsight-linux-acn-version.md](../../../includes/hdinsight-linux-acn-version.md)]
+
 
 > [!IMPORTANT]
-> 远程桌面只能在基于 Windows 的 HDInsight 群集上使用。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
+> 远程桌面只能在基于 Windows 的 HDInsight 群集上使用。 Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 >
 > 有关 HDInsight 3.4 或更高版本，请参阅[将 MapReduce 与 SSH 配合使用](apache-hadoop-use-mapreduce-ssh.md)，了解如何连接到 HDInsight 群集以及如何运行 MapReduce 作业。
 
@@ -46,12 +46,12 @@ ms.locfileid: "26410387"
 为 HDInsight 群集启用远程桌面，然后根据[使用 RDP 连接到 HDInsight 群集](../hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp)中的说明连接到该群集。
 
 ## <a id="hadoop"></a>使用 Hadoop 命令
-连接到 HDInsight 群集的桌面之后，请按照以下步骤，使用 Hadoop 命令运行 MapReduce 作业：
+连接到 HDInsight 群集的桌面之后，请使用以下步骤，以通过 Hadoop 命令来运行 MapReduce 作业：
 
 1. 从 HDInsight 桌面启动“Hadoop 命令行”。 这将在 c:\apps\dist\hadoop-&lt;version number> 目录中打开新的命令提示符。
 
    > [!NOTE]
-   > Hadoop 更新时，版本号也会发生变化。 HADOOP_HOME 环境变量可用于查找路径。 例如，`cd %HADOOP_HOME%` 会将目录更改为 Hadoop 目录，而不需要你知道版本号。
+   > 版本号会随着 Hadoop 更新而更改。 HADOOP_HOME 环境变量可用于查找路径。 例如，`cd %HADOOP_HOME%` 会将目录更改为 Hadoop 目录，而不需要你知道版本号。
    >
    >
 2. 若要使用 **Hadoop** 命令运行示例 MapReduce 作业，请使用以下命令：

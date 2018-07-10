@@ -14,12 +14,12 @@ metadata:
   origin.date: 07/26/2017
   ms.date: 07/02/2018
   ms.author: v-yeche
-  ms.openlocfilehash: 75b242cf948613f35c3242b28246f54a5d525d58
-  ms.sourcegitcommit: 2cf6961f692f318ce7034e7b4d994ee51d902199
+  ms.openlocfilehash: 761210b9f8d7738135d213ace1bc3f2f96e80784
+  ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 06/26/2018
-  ms.locfileid: "36947689"
+  ms.lasthandoff: 07/06/2018
+  ms.locfileid: "37873708"
 abstract:
   description: 使用 Azure 容器注册表可以生成、存储和管理所有类型的容器部署的映像。 参考这些快速入门、教程和示例了解如何使用 Azure 容器注册表。
 sections:

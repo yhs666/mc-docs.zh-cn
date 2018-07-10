@@ -13,12 +13,12 @@ ms.custom: ''
 origin.date: 03/27/2018
 ms.date: 06/25/2018
 ms.author: v-nany
-ms.openlocfilehash: 6fc2bc278611d02997d0fa20cdd2381817b06e38
-ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
+ms.openlocfilehash: 9b51a06763c6f08cc1c6a1f8b71e8a30da498655
+ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36748378"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37405386"
 ---
 # <a name="create-an-azure-media-services-account"></a>创建 Azure 媒体服务帐户
 
@@ -31,7 +31,7 @@ ms.locfileid: "36748378"
 ## <a name="log-in-to-azure"></a>登录 Azure
 
 登录到 [Azure 门户](http://portal.azure.cn)。
-如果选择在本地安装并使用 CLI，本主题要求使用 Azure CLI 2.0 版或更高版本。 运行 `az --version` 即可确定你拥有的版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0]( /cli/azure/install-azure-cli)。 
+如果选择在本地安装并使用 CLI，本主题要求使用 Azure CLI 2.0 版或更高版本。 运行 `az --version` 即可确定你拥有的版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0]( /cli/install-azure-cli)。 
 
 ## <a name="set-the-azure-subscription"></a>设置 Azure 订阅
 

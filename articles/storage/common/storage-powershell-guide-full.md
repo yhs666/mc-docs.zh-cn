@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 06/13/2018
 ms.date: 07/02/2018
 ms.author: v-nany
-ms.openlocfilehash: 1a466af93b3f2d8847712d4c6662adde72fe0bc8
-ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
+ms.openlocfilehash: c635ccfc95892c2ad28232fda01d9154341cb8c9
+ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103101"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37800383"
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>对 Azure 存储 使用 Azure PowerShell
 
@@ -51,7 +51,7 @@ Azure PowerShell 用于从 PowerShell 命令行或脚本创建和管理 Azure �
 使用 `Connect-AzureRmAccount` 命令登录到 Azure 订阅，并按照屏幕上的说明进行操作。
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzureRmAccount -EnvironmentName AzureChinaCloud
 ```
 
 ## <a name="list-the-storage-accounts-in-the-subscription"></a>列出订阅中的存储帐户

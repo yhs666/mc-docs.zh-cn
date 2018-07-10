@@ -17,12 +17,12 @@ ms.topic: article
 origin.date: 11/28/2017
 ms.date: 03/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: 58f3f2233d1a3475852fd10352feacf160b82cc0
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.openlocfilehash: 168aed8ae28e9ed227eb87e9122a230d6b458335
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30074779"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873412"
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>在计算机上安装 Jupyter notebook 并连接到 HDInsight 上的 Apache Spark
 
@@ -55,7 +55,7 @@ ms.locfileid: "30074779"
 
 ## <a name="install-the-kernels-and-spark-magic"></a>安装内核和 Spark magic
 
-[!INCLUDE [hdinsight-linux-acn-version.md](../../../includes/hdinsight-linux-acn-version.md)]
+
 
 有关如何安装 Spark magic、PySpark 和 Spark 内核的说明，请参阅 GitHub 上的 [sparkmagic 文档](https://github.com/jupyter-incubator/sparkmagic#installation)中的安装说明。 Spark magic 文档中的第一步会要求安装 Spark magic。 使用以下命令替换该链接中的第一步，具体取决于要连接到的 HDInsight 群集的版本。 之后，按照 Spark magic 文档中的剩余步骤进行操作。 如果要安装不同的内核，则必须执行 Spark magic 安装说明部分中的步骤 3。
 

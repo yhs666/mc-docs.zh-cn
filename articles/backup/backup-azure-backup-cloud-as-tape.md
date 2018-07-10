@@ -1,26 +1,21 @@
 ---
-title: 使用 Azure 备份来替换磁带基础结构 | Microsoft Docs
+title: 使用 Azure 备份来取代磁带基础结构
 description: 了解如何 Azure 备份如何提供类似于磁带的语义，让你在 Azure 中备份和还原数据
 services: backup
-documentationcenter: ''
 author: trinadhk
 manager: vijayts
-editor: ''
-ms.assetid: 2e1bb67d-986c-4437-8056-3a63169b4214
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 01/10/2017
+ms.topic: conceptual
+origin.date: 01/10/2017
+ms.date: 07/05/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c4442060e88415b29af5e5d7ca0c5d04c61b5299
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.openlocfilehash: d80d4c67d0bdb27f0a47c4d833ba894ac97ca563
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
-ms.locfileid: "20181463"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873684"
 ---
 # <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>将长期存储从磁带移动到 Azure 云
 Azure 备份和 System Center Data Protection Manager 客户可以：
@@ -29,7 +24,7 @@ Azure 备份和 System Center Data Protection Manager 客户可以：
 - 长期保留备份数据
 - 使用 Azure（而不是磁带）解决其长期保留数据的需求。
 
-本文将介绍客户如何启用备份和保留策略。 使用磁带解决长期数据保留需求的客户现在可以使用一种强大而可行并且同样提供此功能的替代解决方案。 最新版本的 Azure 备份（可从[此处](http://aka.ms/azurebackup_agent)获取）中已启用该功能。 System Center DPM 客户必须在使用具有 Azure 备份服务的 DPM 之前至少更新到 DPM 2012 R2 UR5。
+本文介绍客户如何启用备份和保留策略。 使用磁带解决长期数据保留需求的客户现在可以使用一种强大而可行并且同样提供此功能的替代解决方案。 最新版本的 Azure 备份（可从[此处](http://aka.ms/azurebackup_agent)获取）中已启用该功能。 System Center DPM 客户必须在使用具有 Azure 备份服务的 DPM 之前至少更新到 DPM 2012 R2 UR5。
 
 ## <a name="what-is-the-backup-schedule"></a>什么是备份计划？
 备份计划指示备份操作的频率。 例如，下面屏幕中的设置表示要在每天下午 6 点和午夜执行备份。
@@ -79,3 +74,5 @@ Azure 备份和 System Center Data Protection Manager 客户可以：
 
 - [Azure 备份简介](./backup-introduction-to-azure-backup.md)
 - [尝试 Azure 备份](./backup-try-azure-backup-in-10-mins.md)
+
+<!-- Update_Description: update metedata properties -->

@@ -17,12 +17,12 @@ ms.workload: big-data
 origin.date: 04/23/2018
 ms.date: 06/25/2018
 ms.author: v-yiso
-ms.openlocfilehash: 6512b07bca42f5e308ebba91f090f4a99334aa7f
-ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
+ms.openlocfilehash: c6fa88938bfe02b1ba108d324858c2e4db177714
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36747412"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873340"
 ---
 # <a name="use-pig-with-hadoop-on-hdinsight"></a>将 Pig 与 HDInsight 上的 Hadoop 配合使用
 
@@ -106,7 +106,7 @@ HDInsight 可以使用各种方法来运行 Pig Latin 作业。 使用下表来�
 | [.NET SDK for Hadoop](apache-hadoop-use-pig-dotnet-sdk.md) |&nbsp; |✔ |Linux 或 Windows |Windows（暂时） |
 | [Windows PowerShell](apache-hadoop-use-pig-powershell.md) |&nbsp; |✔ |Linux 或 Windows |Windows |
 
-[!INCLUDE [hdinsight-linux-acn-version.md](../../../includes/hdinsight-linux-acn-version.md)]
+
 
 > [!IMPORTANT]
 > Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。

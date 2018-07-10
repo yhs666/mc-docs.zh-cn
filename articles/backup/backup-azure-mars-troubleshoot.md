@@ -1,26 +1,20 @@
 ---
-title: 对 Azure 备份代理进行故障排除 | Microsoft Docs
+title: 对 Azure 备份代理进行故障排除
 description: 排除与 Azure 备份代理的安装和注册相关的问题
 services: backup
-documentationcenter: ''
 author: saurabhsensharma
 manager: shreeshd
-editor: ''
-ms.assetid: 778c6ccf-3e57-4103-a022-367cc60c411a
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 12/04/2017
-ms.date: 04/08/2018
+ms.date: 07/06/2018
 ms.author: v-junlch
-ms.openlocfilehash: 117cd7f63eb168aa13affb0b7310d435d3c05b1b
-ms.sourcegitcommit: ce691e6877a362d33b5484b9bbf85c93915689a7
+ms.openlocfilehash: e5b0e12b0d39eac12b05cdd72d1fc19f2d99e0e7
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/09/2018
-ms.locfileid: "30955109"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873521"
 ---
 # <a name="troubleshoot-azure-backup-agent-configuration-and-registration-issues"></a>排除 Azure 备份代理配置和注册问题
 ## <a name="recommended-steps"></a>建议的步骤
@@ -58,4 +52,5 @@ ms.locfileid: "30955109"
 - 详细了解[如何使用 Azure 备份代理备份 Windows Server](tutorial-backup-windows-server-to-azure.md)。
 - 如果需要还原备份，请参阅[将文件还原到 Windows 计算机](backup-azure-restore-windows-server.md)一文。
 
-<!-- Update_Description: wording update -->
+
+<!-- Update_Description: update metedata properties -->

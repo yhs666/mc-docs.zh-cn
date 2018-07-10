@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 06/06/2018
 ms.date: 06/25/2018
 ms.author: v-jay
-ms.openlocfilehash: 9bf71ba0665ad610a8d6654f0091c97fafeb118f
-ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
+ms.openlocfilehash: 2cc1496d12b934cbf4d8bc36ffefbedda9b9ac9c
+ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36748512"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37800423"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>使用 Azure 媒体服务 v3 实时传送视频流
 
@@ -77,7 +77,7 @@ ms.locfileid: "36748512"
 | 单比特率输入在云中被编码为多比特率 |否 |是 |
 | 最大分辨率，层数 |4Kp30  |720p，6 层，30 fps |
 | 输入协议 |RTMP、平滑流 |RTMP、平滑流 |
-| 价格 |请参阅[定价页](https://azure.microsoft.com/pricing/details/media-services/)并单击“实时视频”选项卡 |请参阅[定价页](https://azure.microsoft.com/pricing/details/media-services/) |
+| 价格 |请参阅[定价页](https://azure.cn/pricing/details/media-services/)并单击“实时视频”选项卡 |请参阅[定价页](https://azure.cn/pricing/details/media-services/) |
 | 最长运行时间 |全天候运行 |全天候运行 |
 | 支持插入静态图像 |否 |是 |
 | 支持通过 API 发出广告指示|否 |是 |

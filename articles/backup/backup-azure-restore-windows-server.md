@@ -1,26 +1,20 @@
 ---
-title: 将 Azure 中的数据还原到 Windows Server 或 Windows 计算机 | Microsoft 文档
+title: 将 Azure 中的数据还原到 Windows Server 或 Windows 计算机
 description: 了解如何将 Azure 中存储的数据还原到 Windows Server 或 Windows 计算机。
 services: backup
-documentationcenter: ''
 author: saurabhsensharma
 manager: shivamg
-editor: ''
-ms.assetid: 742f4b9e-c0ab-4eeb-8e22-ee29b83c22c4
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 01/04/2018
-ms.date: 02/07/2018
+ms.date: 07/06/2018
 ms.author: v-junlch
-ms.openlocfilehash: a49cac8835e4f5a72fdf32d568b2a65341fb1238
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: d323022e736ab361a3a732550423fa63bae25c0b
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
-ms.locfileid: "29285180"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873301"
 ---
 # <a name="restore-files-to-a-windows-server-or-windows-client-machine-using-resource-manager-deployment-model"></a>使用 Resource Manager 部署模型将文件还原到 Windows Server 或 Windows 客户端计算机
 
@@ -181,4 +175,5 @@ ms.locfileid: "29285180"
 ## <a name="next-steps"></a>后续步骤
 - 恢复文件和文件夹后，可以[管理备份](backup-azure-manage-windows-server.md)。
 
-<!--Update_Description: wording update -->
+
+<!-- Update_Description: update metedata properties -->

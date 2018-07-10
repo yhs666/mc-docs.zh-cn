@@ -11,16 +11,16 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: powershell
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 02/16/2018
-ms.date: 04/30/2018
+ms.date: 07/09/2018
 ms.author: v-yeche
-ms.openlocfilehash: 891259016dc4eef3cf66c20784cc7ddc793ed33a
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: 6fb0adaae8c74947c68b88e0ca70cbaee5e5493c
+ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867491"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37405287"
 ---
 # <a name="manage-resources-with-azure-powershell"></a>使用 Azure PowerShell 管理资源
 
@@ -28,7 +28,7 @@ ms.locfileid: "34867491"
 
 <!-- Not Avaiable on [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)] -->
 
-如果选择在本地安装并使用 PowerShell，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。 如果在本地运行 PowerShell，则还需运行 `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` 以创建与 Azure 的连接。
+如果选择在本地安装并使用 PowerShell，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount -Environment AzureChinaCloud` 以创建与 Azure 的连接。
 
 ## <a name="understand-scope"></a>了解范围
 
@@ -53,16 +53,16 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location ChinaEast
 
 在本文中，请部署一个虚拟机及其相关的虚拟网络。 若要管理虚拟机解决方案，可以使用三种特定于资源的角色来进行通常所需的访问：
 
-<!--Pending role-based-access-control to Release -->
 * [虚拟机参与者](../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
 * [网络参与者](../role-based-access-control/built-in-roles.md#network-contributor)
 * [存储帐户参与者](../role-based-access-control/built-in-roles.md#storage-account-contributor)
-<!--Pending role-based-access-control to Release -->
 
 通常情况下，与其向单个用户分配角色，不如为需要进行相似操作的用户[创建一个 Azure Active Directory 组](../active-directory/active-directory-groups-create-azure-portal.md)， 然后向该组分配相应的角色。 为了简单起见，本文创建一个没有成员的 Azure Active Directory 组。 仍然可以为该组分配一个负责某个范围的角色。 
+<!-- URL not contains fundamentals directory-->
 
 以下示例创建一个组，然后为其分配了资源组的“虚拟机参与者”角色。 若要运行 `New-AzureAdGroup` 命令，必须[下载 Azure AD PowerShell 模块](https://www.powershellgallery.com/packages/AzureAD/)。
 <!-- Not Available on [Azure Cloud Shell](/cloud-shell/overview)-->
+
 ```powershell
 $adgroup = New-AzureADGroup -DisplayName VMDemoContributors `
   -MailNickName vmDemoGroup `
@@ -75,7 +75,46 @@ New-AzureRmRoleAssignment -ObjectId $adgroup.ObjectId `
 
 通常情况下，请对**网络参与者**和**存储帐户参与者**重复执行此过程，确保分配用户来管理已部署的资源。 在本文中，可以跳过这些步骤。
 
-<!-- Not Available on ## Azure policies -->
+## <a name="azure-policies"></a>Azure 策略
+
+[!INCLUDE [Resource Manager governance policy](../../includes/resource-manager-governance-policy.md)]
+
+### <a name="apply-policies"></a>应用策略
+
+订阅已经有多个策略定义。 若要查看可用的策略定义，请使用：
+
+```powershell
+(Get-AzureRmPolicyDefinition).Properties | Format-Table displayName, policyType
+```
+
+可以看到现有的策略定义。 策略类型为“内置”或“自定义”。 在这些定义中查找所述条件正是你要分配的条件的定义。 在本文中，分配的策略要符合以下条件：
+
+* 限制所有资源的位置
+* 限制虚拟机的 SKU
+* 审核不使用托管磁盘的虚拟机
+
+```powershell
+$locations ="chinaeast", "chinaeast2"
+$skus = "Standard_DS1_v2", "Standard_E2s_v2"
+
+$rg = Get-AzureRmResourceGroup -Name myResourceGroup
+
+$locationDefinition = Get-AzureRmPolicyDefinition | where-object {$_.properties.displayname -eq "Allowed locations"}
+$skuDefinition = Get-AzureRmPolicyDefinition | where-object {$_.properties.displayname -eq "Allowed virtual machine SKUs"}
+$auditDefinition = Get-AzureRmPolicyDefinition | where-object {$_.properties.displayname -eq "Audit VMs that do not use managed disks"}
+
+New-AzureRMPolicyAssignment -Name "Set permitted locations" `
+  -Scope $rg.ResourceId `
+  -PolicyDefinition $locationDefinition `
+  -listOfAllowedLocations $locations
+New-AzureRMPolicyAssignment -Name "Set permitted VM SKUs" `
+  -Scope $rg.ResourceId `
+  -PolicyDefinition $skuDefinition `
+  -listOfAllowedSKUs $skus
+New-AzureRMPolicyAssignment -Name "Audit unmanaged disks" `
+  -Scope $rg.ResourceId `
+  -PolicyDefinition $auditDefinition
+```
 
 ## <a name="deploy-the-virtual-machine"></a>部署虚拟机
 
@@ -175,8 +214,8 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 * 若要了解如何监视虚拟机，请参阅[使用 Azure PowerShell 监视和更新 Windows 虚拟机](../virtual-machines/windows/tutorial-monitoring.md)。
 <!-- Not Available on [Monitor virtual machine security by using Azure Security Center](../virtual-machines/windows/tutorial-azure-security.md) -->
 * 可以将现有资源移动到新的资源组。 有关示例，请参阅[将资源移动到新的资源组或订阅中](resource-group-move-resources.md)。
-* 有关企业可如何使用 Resource Manager 有效管理订阅的指南，请参阅 [Azure 企业基架 - 出于合规目的监管订阅](resource-manager-subscription-governance.md)。
+* 有关企业可如何使用 Resource Manager 有效管理订阅的指南，请参阅 [Azure 企业基架 - 出于合规目的监管订阅](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/subscription-governance)。
 
-<!--Update_Description: update meta properties, wording update, update link -->
-<!--The parent file of includes file of resource-manager-governance-rbac.md-->
-<!--ms.date:04/30/2018-->
+<!--Update_Description: update meta properties, wording update, add Azure policy and apply policy content -->
+<!--The parent file of includes file of resource-manager-governance-tags-powershell.md-->
+<!--ms.date:07/09/2018-->

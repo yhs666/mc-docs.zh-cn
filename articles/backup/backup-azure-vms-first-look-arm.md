@@ -1,28 +1,23 @@
 ---
-title: 初步了解：使用恢复服务保管库保护 Azure VM | Microsoft Docs
+title: 初步了解：使用恢复服务保管库保护 Azure VM
 description: 使用恢复服务保管库保护 Azure VM。 使用资源管理器部署的 VM、经典部署型 VM、高级存储 VM、加密 VM 和基于托管磁盘的 VM 的备份来保护数据。 创建并注册恢复服务保管库。 在 Azure 中注册 VM、创建策略和保护 VM。
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: ''
 keyword: backups; vm backup
-ms.assetid: 45e773d6-c91f-4501-8876-ae57db517cd1
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 04/18/2018
-ms.date: 05/25/2018
+ms.date: 07/06/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 25d027868c22c07723dce652a632ba11a3993a25
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+keywords: 备份; VM 备份
+ms.openlocfilehash: 1ef3603ba1a692f65a285191c3a4c024ec978add
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34559419"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873404"
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vault"></a>将 Azure 虚拟机备份到恢复服务保管库
 
@@ -343,4 +338,4 @@ Azure VM 备份的成本取决于受保护实例的数目。 如需受保护实�
 ## <a name="questions"></a>存在疑问？
 如果有疑问，或者希望包含某种功能，请 [给我们反馈](http://aka.ms/azurebackup_feedback)。
 
-<!--Update_Description: wording update-->
+<!-- Update_Description: update metedata properties -->

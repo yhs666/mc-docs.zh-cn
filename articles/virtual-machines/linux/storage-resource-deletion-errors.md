@@ -12,18 +12,18 @@ ms.topic: article
 origin.date: 05/01/2018
 ms.date: 06/04/2018
 ms.author: v-yeche
-ms.openlocfilehash: e5cbc99d6118b975a13ae11bf11e62c583f9216e
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 83ed83d9775fd3bca95c5753af5bd1f4b5ab5068
+ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702916"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37405254"
 ---
 # <a name="troubleshoot-storage-resource-deletion-errors"></a>排查存储资源删除错误
 
 在某些情况下，在 Azure 资源管理器部署中尝试删除 Azure 存储帐户、容器或 blob 时，可能会遇到下列错误之一：
 
->未能删除存储帐户 "StorageAccountName"。错误: 正在使用存储帐户的项目，因此无法删除该存储帐户。
+>未能删除存储帐户 "StorageAccountName"。错误: 正在使用存储帐户的项目，因此无法删除该存储帐户。**
 
 >**无法删除 # 个容器(共 # 个):<br>vhds:目前容器上有租用，但请求中未指定任何租用 ID。**
 
@@ -103,6 +103,6 @@ Azure 阻止删除附加到 VM 的磁盘，以防发生损坏。 它还会阻止
 
 9. 选择“其他安全性验证” 。 此时该磁盘将与 VM 分离，并且 VHD 将不再租用。 可能需要几分钟才能释放租约。 若要验证租用是否已解除，请转到 blob 位置，再检查“blob 属性”窗格中的“租用状态”值是否为“已解锁”或“可租用”。
 
-[Storage deletion errors in Resource Manager deployment]: #storage-delete-errors-in-rm
+<!-- Not Available on [Storage deletion errors in Resource Manager deployment]: #storage-delete-errors-in-rm-->
 <!-- Update_Description: new articles on storage resource deletion errors -->
 <!--ms.date: 06/04/2018-->

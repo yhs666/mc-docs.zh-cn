@@ -15,16 +15,16 @@ origin.date: 02/27/2018
 ms.date: 05/21/2018
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: a8d531e75b6e86209e1e0b9b09127e82d0f5e638
-ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
+ms.openlocfilehash: 92811a332f0e1af7c3df5b6290ff8c034d446a52
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34450058"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873528"
 ---
 # <a name="use-python-user-defined-functions-udf-with-hive-and-pig-in-hdinsight"></a>在 HDInsight 中通过 Hive 和 Pig 使用 Python 用户定义的函数 (UDF)
 
-[!INCLUDE [hdinsight-linux-acn-version.md](../../../includes/hdinsight-linux-acn-version.md)]
+
 
 了解如何在 Azure HDInsight 上将 Python 用户定义的函数 (UDF) 与 Apache Hive 和 Pig 配合使用。
 

@@ -18,16 +18,16 @@ ms.workload: big-data
 origin.date: 12/08/2017
 ms.date: 01/15/2018
 ms.author: v-yiso
-ms.openlocfilehash: 14c891339cc68832b91d7ed764d41fe7469ebb95
-ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
+ms.openlocfilehash: bca8766863e19aa70f8edb983d6cbb27c6ad3f3c
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/12/2018
-ms.locfileid: "27781375"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873420"
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>什么是 Azure HDInsight 上的 Apache Storm？
 
-[!INCLUDE [hdinsight-linux-acn-version.md](../../../includes/hdinsight-linux-acn-version.md)]
+
 
 [Apache Storm](http://storm.apache.org/) 是一种容错的分布式开源计算系统。 若要实时处理数据流，可以将 Storm 与 Hadoop 配合使用。 Storm 解决方案还提供有保障的数据处理功能，能够重播第一次未成功处理的数据。
 

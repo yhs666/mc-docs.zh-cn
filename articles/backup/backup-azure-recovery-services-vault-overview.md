@@ -1,25 +1,20 @@
 ---
-title: 恢复服务保管库概述 | Microsoft Docs
+title: 恢复服务保管库概述
 description: 恢复服务保管库和 Azure 备份保管库的概述和比较。
 services: backup
-documentationcenter: " "
 author: markgalioto
 manager: carmonm
-ms.assetid: 38d4078b-ebc8-41ff-9bc8-47acf256dc80
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 origin.date: 10/15/2017
-ms.date: 05/28/2018
+ms.date: 07/06/2018
 ms.author: v-junlch
-ms.openlocfilehash: 92102f0ec68e37eff67f051df76c164972181485
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: ac8ff624807bfc26906a3cd8dc47d7b31045a72f
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34559418"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873622"
 ---
 # <a name="recovery-services-vaults-overview"></a>恢复服务保管库概述
 
@@ -78,4 +73,4 @@ ms.locfileid: "34559418"
 [备份 Windows Server](backup-configure-vault.md)
 
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

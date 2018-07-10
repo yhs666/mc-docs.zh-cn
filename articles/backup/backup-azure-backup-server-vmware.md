@@ -1,31 +1,26 @@
 ---
-title: 使用 Azure 备份服务器备份 VMware 服务器 | Microsoft Docs
+title: 使用 Azure 备份服务器备份 VMware 服务器
 description: 可以使用 Azure 备份服务器将 VMware vCenter/ESXi 服务器备份到 Azure 或磁盘。 本文提供了用于备份（或保护）VMware 工作负荷的分步说明。
 services: backup
-documentationcenter: ''
-author: alexchen2016
-manager: digimobile
-ms.assetid: 6b131caf-de85-4eba-b8e6-d8a04545cd9d
+author: markgalioto
+manager: carmonm
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 origin.date: 07/24/2017
-ms.date: 09/04/2017
+ms.date: 07/05/2018
 ms.author: v-junlch
-ms.openlocfilehash: 1df19c29fc96703fdc44ba450bfe063081039b8e
-ms.sourcegitcommit: 76a57f29b1d48d22bb4df7346722a96c5e2c9458
+ms.openlocfilehash: f407596bdc4c39e9c5b41bd29b677bef39e037b9
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/08/2017
-ms.locfileid: "22005202"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873422"
 ---
 # <a name="back-up-a-vmware-server-to-azure"></a>将 VMware 服务器备份到 Azure
 
 本文介绍如何配置 Azure 备份服务器来保护 VMware 服务器工作负荷。 本文假设已安装 Azure 备份服务器。 如果尚未安装 Azure 备份服务器，请参阅[准备使用 Azure 备份服务器备份工作负荷](backup-azure-microsoft-azure-backup.md)。
 
-Azure 备份服务器可以备份或帮助保护 VMware vCenter Server 版本 6.5、6.0 和 5.5。
+Azure 备份服务器可以备份或帮助保护 VMware vCenter 服务器版本 6.5、6.0 和 5.5。
 
 
 ## <a name="create-a-secure-connection-to-the-vcenter-server"></a>与 vCenter 服务器建立安全连接
@@ -326,7 +321,7 @@ Azure 备份服务器使用用户名和密码通过 vCenter 服务器进行身�
 
     选择成员时，如果选择包含其他文件夹或 VM 的文件夹，则这些子文件夹和 VM 会一并选中。 在父文件夹中包含文件夹和 VM 称为文件夹级保护。 若要删除文件夹或 VM，请清除复选框。
 
-    如果某个 VM 或者包含某个 VM 的文件夹已在 Azure 中受保护，则你无法再次选择该 VM。 也就是说，在 Azure 中保护某个 VM 后，就不能再次对其进行保护，防止为一个 VM 创建重复的恢复点。 若要查看哪个 Azure 备份服务器实例已保护成员，请指向该成员，查看保护服务器的名称。
+    如果某个 VM 或者包含某个 VM 的文件夹已在 Azure 中受保护，则无法再次选择该 VM。 也就是说，在 Azure 中保护某个 VM 后，就不能再次对其进行保护，防止为一个 VM 创建重复的恢复点。 若要查看哪个 Azure 备份服务器实例已保护成员，请指向该成员，查看保护服务器的名称。
 
 4. 在“选择数据保护方法”页上，输入保护组的名称。 将选择短期保护（在磁盘中）和联机保护。 若要使用联机保护（在 Azure 中），必须使用在磁盘中进行短期保护。 单击“下一步”，继续提供短期保护时间范围信息。
 
@@ -387,4 +382,4 @@ Azure 备份服务器使用用户名和密码通过 vCenter 服务器进行身�
 
 若要了解代理注册、保护组配置或作业备份方面的问题，请参阅[排查 Azure 备份服务器问题](./backup-azure-mabs-troubleshoot.md)。
 
-<!--Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

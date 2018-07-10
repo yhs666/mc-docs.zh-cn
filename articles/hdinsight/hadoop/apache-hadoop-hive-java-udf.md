@@ -16,12 +16,12 @@ ms.workload: big-data
 origin.date: 05/16/2018
 ms.date: 06/25/2018
 ms.author: v-yiso
-ms.openlocfilehash: 31fc49b4714876e84b7907093e98772275b09846
-ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
+ms.openlocfilehash: fac87af9180df47caed34df9a169a5d55683ceda
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36747453"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873568"
 ---
 # <a name="use-a-java-udf-with-hive-in-hdinsight"></a>在 HDInsight 中通过 Hive 使用 Java UDF
 
@@ -29,7 +29,7 @@ ms.locfileid: "36747453"
 
 ## <a name="requirements"></a>要求
 
-[!INCLUDE [hdinsight-linux-acn-version.md](../../../includes/hdinsight-linux-acn-version.md)]
+
 
 * HDInsight 群集 
 

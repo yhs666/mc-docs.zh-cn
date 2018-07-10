@@ -11,15 +11,15 @@ ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: e4fbffc1-98eb-449c-971c-de415e45ab34
 caps.latest.revision: 12
-author: v-yiso
+author: ''
 ms.author: adegeo
 manager: timlt
-ms.openlocfilehash: bb2880e79c7fef74229ba11ab91bff72fcd6bbf1
-ms.sourcegitcommit: 30d9af196daa9b80bbe1739fff1081b6b4dcc72d
+ms.openlocfilehash: 7ee8dd342f4297619f424cb677306c4ad34e39d6
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2017
-ms.locfileid: "23635101"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873585"
 ---
 # <a name="azure-cloud-services-config-role-schema"></a>Azure 云服务配置角色架构
 

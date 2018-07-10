@@ -12,15 +12,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 04/03/2018
-ms.date: 05/28/2018
+ms.date: 07/03/2018
 ms.author: v-junlch
-ms.reviewer: rqureshi
-ms.openlocfilehash: 28524a9b4cea1ca19fe0b5ed0621396aece6eac9
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.reviewer: bagovind
+ms.openlocfilehash: 93d8fe834f1838464799587ce0d47fe4f79ebc20
+ms.sourcegitcommit: a20c461541ba7db541c01c8a18fc4cff48e3d2d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34559503"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37361178"
 ---
 # <a name="manage-role-based-access-control-with-the-azure-command-line-interface"></a>使用 Azure 命令行接口管理基于角色的访问控制
 
@@ -448,4 +448,4 @@ az role definition delete --name "Virtual Machine Operator"
 [!INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: update metedata properties -->

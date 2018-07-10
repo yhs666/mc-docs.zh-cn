@@ -7,14 +7,14 @@ author: yunan2016
 manager: digimobile
 ms.topic: article
 origin.date: 03/16/2018
-ms.date: 05/14/2018
+ms.date: 07/09/2018
 ms.author: v-nany
-ms.openlocfilehash: a80f4abbdd62d9396a4f447764e61a7a6945db3e
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.openlocfilehash: ea8a07996941244aebd18f523044f950445f9e06
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "33937514"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873329"
 ---
 # <a name="azure-automation-runbook-types"></a>Azure 自动化 Runbook 类型
 Azure 自动化支持多种类型的 Runbook，下表进行了简要描述。  以下各个部分提供了每种类型的详细信息，包括如何选择在何时使用每种类型。
@@ -44,7 +44,7 @@ Azure 自动化支持多种类型的 Runbook，下表进行了简要描述。  �
 * 不能查看或直接编辑由图形工作流创建的 PowerShell 代码。 请注意，可以查看在任何代码活动中创建的代码。
 
 ## <a name="powershell-runbooks"></a>PowerShell Runbook
-基于 Windows PowerShell 的 PowerShell Runbook。  可以在 Azure 门户中使用文本编辑器直接编辑 Runbook 的代码。  还可以使用任何脱机文本编辑器，以便[导入 Runbook](http://msdn.microsoft.com/library/azure/dn643637.aspx) 到 Azure 自动化中。
+基于 Windows PowerShell 的 PowerShell Runbook。  可以在 Azure 门户中使用文本编辑器直接编辑 Runbook 的代码。  还可以使用任何脱机文本编辑器，以便[导入 Runbook](/automation/automation-creating-importing-runbook) 到 Azure 自动化中。
 
 ### <a name="advantages"></a>优点
 * 通过 PowerShell 代码来实现所有复杂的逻辑，没有 PowerShell 工作流的各种额外的复杂操作。 
@@ -65,7 +65,7 @@ Azure 自动化支持多种类型的 Runbook，下表进行了简要描述。  �
 * 如果 PowerShell Runbook 尝试一次性将极大量的数据写入输出流中，则可能会发生故障。   通常情况下，在处理大型对象时，可以只输出所需信息，从而避免出现这种问题。  例如，不需要输出 *Get-Process* 这样的内容，只需通过 *Get-Process | Select ProcessName, CPU* 输出所需字段即可。
 
 ## <a name="powershell-workflow-runbooks"></a>PowerShell 工作流 Runbook
-PowerShell 工作流 Runbook 是基于 [Windows PowerShell 工作流](automation-powershell-workflow.md)的文本 Runbook。  可以在 Azure 门户中使用文本编辑器直接编辑 Runbook 的代码。  还可以使用任何脱机文本编辑器，以便[导入 Runbook](http://msdn.microsoft.com/library/azure/dn643637.aspx) 到 Azure 自动化中。
+PowerShell 工作流 Runbook 是基于 [Windows PowerShell 工作流](automation-powershell-workflow.md)的文本 Runbook。  可以在 Azure 门户中使用文本编辑器直接编辑 Runbook 的代码。  还可以使用任何脱机文本编辑器，以便[导入 Runbook](/automation/automation-creating-importing-runbook) 到 Azure 自动化中。
 
 ### <a name="advantages"></a>优点
 * 通过 PowerShell 工作流代码实现所有复杂的逻辑。
@@ -80,7 +80,7 @@ PowerShell 工作流 Runbook 是基于 [Windows PowerShell 工作流](automation
 * 只能通过用于创建新作业的 Start-AzureAutomationRunbook cmdlet 以子 Runbook 的形式包括 PowerShell Runbook。
 
 ## <a name="python-runbooks"></a>Python Runbook
-在 Python 2 下编译 Python runbook。  可以在 Azure 门户中直接使用文本编辑器编辑 runbook 的代码，也可以使用任何脱机文本编辑器并[将 runbook 导入](http://msdn.microsoft.com/library/azure/dn643637.aspx)到 Azure 自动化中。
+在 Python 2 下编译 Python runbook。  可以在 Azure 门户中直接使用文本编辑器编辑 runbook 的代码，也可以使用任何脱机文本编辑器并[将 runbook 导入](/automation/automation-creating-importing-runbook)到 Azure 自动化中。
 
 ### <a name="advantages"></a>优点
 * 可利用 Python 的可靠标准库。
@@ -88,11 +88,6 @@ PowerShell 工作流 Runbook 是基于 [Windows PowerShell 工作流](automation
 ### <a name="limitations"></a>限制
 * 必须熟悉 Python 脚本。
 * 目前仅支持 Python 2，这意味着特定于 Python 3 的函数将会失败。
-
-### <a name="known-issues"></a>已知问题
-以下是使用 Python runbook 当前已知的问题。
-
-* 若要使用第三方库，runbook 必须在 [Windows 混合 Runbook 辅助角色](https://docs.microsoft.com/azure/automation/automation-windows-hrw-install)或 [Linux 混合 Runbook 辅助角色](https://docs.microsoft.com/azure/automation/automation-linux-hrw-install)上运行，并且在启动 runbook 之前该库必须已安装在计算机上。
 
 ## <a name="considerations"></a>注意事项
 在确定特定 Runbook 需要使用哪种类型时，应考虑以下各种额外的注意事项。

@@ -9,12 +9,12 @@ origin.date: 04/12/2018
 ms.date: 04/30/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 803981e8766fc1da702c2c9d9a23ce8dc46647bd
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 627dca04aa649c569b4cac663466fa0b81110ee5
+ms.sourcegitcommit: 292f22020e00c607229c1693229f25fb2837d8af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121295"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37910597"
 ---
 # <a name="create-an-office-data-connection-file"></a>创建 Office 数据连接文件
 
@@ -144,3 +144,4 @@ function init() {
 ```
 
 <!--Update_Description: update meta properties -->
+<!--Review on 20180706-->

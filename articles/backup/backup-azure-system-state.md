@@ -1,27 +1,21 @@
 ---
-title: 将 Windows 系统状态备份到 Azure | Microsoft Docs
+title: 将 Windows 系统状态备份到 Azure
 description: 了解如何将 Windows Server 的系统状态和/或 Windows 计算机备份到 Azure。
 services: backup
-documentationcenter: ''
 author: saurabhsensharma
-manager: carmonm
-editor: ''
+manager: shivamg
 keywords: 如何备份; 备份文件和文件夹
-ms.assetid: 5b15ebf1-2214-4722-b937-96e2be8872bb
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-origin.date: 07/31/2017
-ms.date: 04/08/2018
+ms.topic: conceptual
+origin.date: 05/23/2018
+ms.date: 07/06/2018
 ms.author: v-junlch
-ms.openlocfilehash: 2abd203977bc3bffad301d6d4b36095d571e4856
-ms.sourcegitcommit: ce691e6877a362d33b5484b9bbf85c93915689a7
+ms.openlocfilehash: 7dafaef59e1882c0b2ca71488833b59c3e53d948
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/09/2018
-ms.locfileid: "30955095"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873645"
 ---
 # <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>备份资源管理器部署中的 Windows 系统状态
 本文介绍了如何将 Windows Server 系统状态备份到 Azure。 本教程旨在引导完成基本操作。
@@ -177,6 +171,11 @@ ms.locfileid: "30955095"
 - 首次备份系统状态
 
 若要完成初始备份，请使用 Azure 恢复服务代理。
+
+> [!NOTE]
+> 可以在 Windows Server 2008 R2 到 Windows Server 2016 上备份系统状态。 客户端 SKU 不支持系统状态备份。 系统状态不会显示为 Windows 客户端或 Windows Server 2008 SP2 计算机选项。
+>
+>
 
 ### <a name="to-schedule-the-backup-job"></a>计划备份作业
 

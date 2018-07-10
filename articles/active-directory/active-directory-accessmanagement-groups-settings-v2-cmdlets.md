@@ -1,32 +1,31 @@
 ---
-title: 在 Azure Active Directory 中管理组的 PowerShell 示例 | Azure
+title: 在 Azure Active Directory 中管理组的 PowerShell 示例 | Microsoft Docs
 description: 本页提供的 PowerShell 示例适用于在 Azure Active Directory 中管理组
 keywords: Azure AD, Azure Active Directory, PowerShell, 组, 组管理
 services: active-directory
 documentationcenter: ''
-author: yunan2016
-manager: digimobile
+author: curtand
+manager: mtillman
 editor: ''
-ms.assetid: 7a5023dc-2727-4c25-8254-b531fc3244ac
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: users-groups-roles
 ms.topic: article
-origin.date: 12/06/2017
-ms.date: 12/25/2017
-ms.author: v-nany
-ms.reviewer: rodejo
-ms.openlocfilehash: 5dc9e8ffb0ffe2bb8d1e2b27edc41c1f3afc53c2
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+origin.date: 06/07/2018
+ms.date: 07/04/2018
+ms.author: v-junlch
+ms.reviewer: krbain
+ms.custom: it-pro
+ms.openlocfilehash: 37d4b7f275bd82fe34df89363f63134a4c7d5807
+ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
-ms.locfileid: "27604348"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37800359"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>用于组管理的 Azure Active Directory 版本 2 cmdlet
 > [!div class="op_single_selector"]
-> * [Azure 门户](active-directory-groups-create-azure-portal.md)
+> * [Azure 门户](fundamentals/active-directory-groups-create-azure-portal.md)
 > * [PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 >
 >
@@ -37,8 +36,9 @@ ms.locfileid: "27604348"
 若要安装 Azure AD PowerShell 模块，请使用以下命令：
 
     PS C:\Windows\system32> install-module azuread
+    PS C:\Windows\system32> import-module azuread
 
-若要验证模块是否已安装，请使用以下命令：
+若要验证模块是否可供使用，请运行下面的命令：
 
     PS C:\Windows\system32> get-module azuread
 
@@ -53,11 +53,11 @@ ms.locfileid: "27604348"
 
     PS C:\Windows\system32> Connect-AzureAD -AzureEnvironment AzureChinaCloud
 
-该 cmdlet 会提示用户输入访问目录时需要使用的凭据。 在此示例中，我们将使用 v-nany@testdocsoct6.partner.onmschina.cn 访问演示目录。 该 cmdlet 会返回一个确认，表明会话已成功连接到目录：
+该 cmdlet 会提示用户输入访问目录时需要使用的凭据。 在此示例中，我们将使用 karen@drumkit.partner.onmschina.cn 访问演示目录。 该 cmdlet 会返回一个确认，表明会话已成功连接到目录：
 
-    Account                                  Environment      Tenant
-    -------                                  -----------      ------
-    v-nany@testdocsoct6.partner.onmschina.cn AzureChinaCloud  85b5ff1e-0402-400c-9e3c-0f…
+    Account                       Environment Tenant
+    -------                       ----------- ------
+    Karen@drumkit.partner.onmschina.cn AzureChinaCloud  85b5ff1e-0402-400c-9e3c-0f…
 
 现在可以开始使用 AzureAD cmdlet 管理目录中的组。
 
@@ -207,7 +207,7 @@ ObjectId 参数是要将成员添加到的组的 ObjectID，-RefObjectId 是要�
 
     OdataMetadata                                                                                                 Value
     -------------                                                                                                  -----
-    https://graph.windows.net/85b5ff1e-0402-400c-9e3c-0f9e965325d1/$metadata#Collection(Edm.String)             {31f1ff6c-d48c-4f8a-b2e1-abca7fd399df}
+    https://graph.chinacloudapi.cn/85b5ff1e-0402-400c-9e3c-0f9e965325d1/$metadata#Collection(Edm.String)             {31f1ff6c-d48c-4f8a-b2e1-abca7fd399df}
 
 
 返回的值是该用户所在组的列表。 也可通过 Select-AzureADGroupIdsContactIsMemberOf、Select-AzureADGroupIdsGroupIsMemberOf 或 Select-AzureADGroupIdsServicePrincipalIsMemberOf 应用此方法，检查特定组列表的联系人、组或服务主体成员身份
@@ -237,20 +237,21 @@ ObjectId 参数是要将所有者添加到的组的 ObjectID，-RefObjectId 是�
 ## <a name="reserved-aliases"></a>保留的别名 
 创建组后，某些终结点允许最终用户指定一个 mailNickname 或别名，用作组的电子邮件地址的一部分。 仅 Azure AD 全局管理员可以创建具有以下权限较高的电子邮件别名的组。 
   
-* abuse 
-* admin 
-* administrator 
-* hostmaster 
-* majordomo 
-* postmaster 
-* root 
-* secure 
-* security 
-* ssl-admin 
-* webmaster 
+- abuse 
+- admin 
+- administrator 
+- hostmaster 
+- majordomo 
+- postmaster 
+- root 
+- secure 
+- security 
+- ssl-admin 
+- webmaster 
 
 ## <a name="next-steps"></a>后续步骤
 如需更多 Azure Active Directory PowerShell 文档，可参阅 [Azure Active Directory Cmdlet](https://docs.microsoft.com/powershell/azure/install-adv2?view=azureadps-2.0)。
 
+- [使用 Azure Active Directory 组管理对资源的访问](fundamentals/active-directory-manage-groups.md)
+- [将本地标识与 Azure Active Directory 集成](connect/active-directory-aadconnect.md)
 
-* [将本地标识与 Azure Active Directory 集成](./connect/active-directory-aadconnect.md)

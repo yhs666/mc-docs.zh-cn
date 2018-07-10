@@ -18,18 +18,18 @@ origin.date: 02/20/2018
 ms.date: 03/26/2018
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: e2e857477938aba96361f4194158aef0bb3f6bd7
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.openlocfilehash: a99947001b786e5a5cf9fb9534b3f3c80d83c94d
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30076055"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873667"
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>以 Java 语言创建 Apache Storm 拓扑
 
 了解如何为 Apache Storm 创建基于 Java 的拓扑。 将创建一个实现单词计数应用程序的 Storm 拓扑。 将使用 Maven 生成并打包项目。 然后，了解如何使用 Flux 框架定义拓扑。
 
-[!INCLUDE [hdinsight-linux-acn-version.md](../../../includes/hdinsight-linux-acn-version.md)]
+
 
 完成本文档中的步骤之后，便可以将拓扑部署到 Apache Storm on HDInsight。
 

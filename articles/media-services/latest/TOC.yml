@@ -82,7 +82,7 @@
 - name: 资源
   items:
     - name: 定价
-      href: 'https://azure.microsoft.com/pricing/details/media-services/'
+      href: 'https://azure.cn/pricing/details/media-services/'
     - name: 发行说明
       href: release-notes.md
     - name: 配额和限制

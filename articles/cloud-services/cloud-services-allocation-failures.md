@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: troubleshooting
-origin.date: 11/03/2017
-ms.date: 12/11/2017
+origin.date: 06/15/2018
+ms.date: 07/16/2018
 ms.author: v-yiso
-ms.openlocfilehash: 87e8dba1e52475f5a205df3bd5fc8d5d82ce758c
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 6dac1f1eeb7069ed5f15fc40f084da1764ec7cda
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
-ms.locfileid: "26044936"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873647"
 ---
 # <a name="troubleshooting-allocation-failure-when-you-deploy-cloud-services-in-azure"></a>对在 Azure 中部署云服务时的分配失败进行故障排除
 
@@ -51,13 +51,13 @@ Azure 数据中心的服务器分区成群集。 会在多个群集中尝试新�
 ### <a name="common-issues"></a>常见问题
 以下是造成分配请求被固定到单个群集的常见分配案例。
 
-- 部署到过渡槽位 - 如果某个云服务在任一槽位存在部署，则会将整个云服务固定到特定的群集。  这意味着，如果生产槽位已存在部署，则只能将新的过渡部署分配到与生产槽位相同的群集中。 如果群集已接近容量，则请求可能失败。 
+- 部署到过渡槽位 - 如果某个云服务在任一槽位存在部署，则会将整个云服务固定到特定的群集。  这意味着，如果生产槽位已存在部署，则只能将新的过渡部署分配到与生产槽位相同的群集中。 如果群集已接近容量限制，则请求可能失败。 
 
-- 缩放 - 将新实例添加到现有云服务时，必须在同一群集中进行分配。  通常可分配小型缩放请求，但情况并非总是如此。 如果群集已接近容量，则请求可能失败。 
+- 缩放 - 将新实例添加到现有云服务时，必须在同一群集中进行分配。  通常可分配小型缩放请求，但情况并非总是如此。 如果群集已接近容量限制，则请求可能失败。 
 
 - 地缘组 - 进行新的目标为空云服务的部署时，可以通过该区域任何群集中的结构对部署进行分配，除非已将云服务固定到地缘组。 将会在相同的群集中尝试部署到相同的地缘组。 如果群集已接近容量，则请求可能失败。 
 
-- 地缘组 vNet - 旧式虚拟网络已绑定到地缘组而不是区域，而这些虚拟网络中的云服务则会固定到地缘组群集。 将会在固定的群集中尝试部署到此类虚拟网络。 如果群集已接近容量，则请求可能失败。 
+- 地缘组 vNet - 旧式虚拟网络已绑定到地缘组而不是区域，而这些虚拟网络中的云服务则会固定到地缘组群集。 将会在固定的群集中尝试部署到此类虚拟网络。 如果群集已接近容量限制，则请求可能失败。 
 
 ## <a name="solutions"></a>解决方案
 

@@ -11,12 +11,12 @@ ms.topic: article
 origin.date: 04/01/2018
 ms.date: 04/17/2018
 ms.author: v-johch
-ms.openlocfilehash: 334729fb5f0bc3a990ffe92a0cf83aae9074a99a
-ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
+ms.openlocfilehash: 4f6f87627e80cd0d369879bb6fdf16ed38131357
+ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36748438"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37800468"
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>SQL 数据库客户端应用程序的 SQL 错误代码：数据库连接错误和其他问题
 
@@ -107,7 +107,7 @@ Azure 基础结构能够在 SQL 数据库服务中出现大量工作负荷时动
 | ErrorNumber | ErrorSeverity | ErrorFormat | ErrorInserts | ErrorCause | ErrorCorrectiveAction |
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | 1132 |EX_RESOURCE |弹性池已达到其存储限制。 弹性池的存储使用不能超过 (%d) MB。 |弹性池空间限制 (MB)。 |到达弹性池的存储限制时，尝试向数据库写入数据。 |在可能的情况下，考虑增加弹性池的 DTU 数并/或将存储添加到弹性池，以便提高其存储限制、减少弹性池中各数据库使用的存储，或者从弹性池中删除数据库。 |
-| 10929 |EX_USER |%s 最小保证为 %d，最大限制为 %d，数据库的当前使用率为 %d。 但是，服务器当前太忙，无法支持针对该数据库的数目大于 %d 的请求。 请参阅 [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637) 以获取帮助。 否则，请稍后再试。 |每个数据库的 DTU/vCore 最小值；每个数据库的 DTU/vCore 最大值 |弹性池中所有数据库上尝试的并发辅助进程（请求）总数超过池限制。 |在可能的情况下，考虑增加弹性池的 DTU 数或 vCores 数，以便提高其辅助角色限制，或者从弹性池中删除数据库。 |
+| 10929 |EX_USER |%s 最小保证为 %d，最大限制为 %d，数据库的当前使用率为 %d。 但是，服务器当前太忙，无法支持针对该数据库的数目大于 %d 的请求。 请参阅 [sql-database-resource-limits](sql-database-dtu-resource-limits.md) 获取帮助。 否则，请稍后再试。 |每个数据库的 DTU/vCore 最小值；每个数据库的 DTU/vCore 最大值 |弹性池中所有数据库上尝试的并发辅助进程（请求）总数超过池限制。 |在可能的情况下，考虑增加弹性池的 DTU 数或 vCores 数，以便提高其辅助角色限制，或者从弹性池中删除数据库。 |
 | 40844 |EX_USER |弹性池中数据库“%ls”（位于服务器“%ls”上）是“%ls”版本的数据库，不能有连续的复制关系。 |数据库名称, 数据库版本, 服务器名称 |针对弹性池中非高级数据库发出 StartDatabaseCopy 命令。 |即将支持 |
 | 40857 |EX_USER |找不到服务器“%ls”的弹性池，弹性池名称:“%ls”。 |服务器名称；弹性池名称 |指定的弹性池在指定的服务器中不存在。 |提供有效的弹性池名称。 |
 | 40858 |EX_USER |弹性池“%ls”已存在于服务器“%ls”中 |弹性池名称, 服务器名称 |指定的弹性池已存在于指定的逻辑服务器中。 |提供新弹性池名称。 |

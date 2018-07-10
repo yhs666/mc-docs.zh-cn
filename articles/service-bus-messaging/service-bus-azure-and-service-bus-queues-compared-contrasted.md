@@ -1,6 +1,6 @@
 ---
 title: Azure 存储队列和服务总线队列 - 比较与对照 | Azure
-description: 分析 Azure 提供的两种队列类型之间的不同点和相似点。
+description: 分析 Azure 提供的两种队列类型之间的差异和相似性。
 services: service-bus
 documentationCenter: na
 author: sethmanheim
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-origin.date: 11/08/2017
+origin.date: 06/05/2018
 ms.author: v-yiso
-ms.date: 02/05/2018
-ms.openlocfilehash: 3aea7dd870703571c01bfc504547e93f55363754
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.date: 07/19/2018
+ms.openlocfilehash: 5031048d52f4a02ede49cb0faf3501ebd73d84fb
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695089"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873493"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>存储队列和服务总线队列 - 比较与对照
 本文分析 Azure 目前提供的以下两种队列类型之间的不同点和相似点：存储队列和服务总线队列。 使用该信息可以比较和对照这两种技术，并可以明智地决定哪种解决方案最符合需要。
@@ -52,9 +52,6 @@ Azure 支持两种队列机制：**存储队列**和**服务总线队列**。
 - 解决方案必须能够在无需轮询队列的情况下接收消息。 有了服务总线，就可以使用服务总线支持的基于 TCP 的协议，通过长轮询接收操作实现这一点。
 
 - 解决方案要求队列必须遵循先入先出 (FIFO) 的传递顺序。
-
-- 希望在 Azure 和 Windows Server（私有云）上获得对称体验。 有关详细信息，请参阅[适用于 Windows Server 的服务总线](https://msdn.microsoft.com/zh-cn/library/dn282144.aspx)。
-
 - 解决方案必须能够支持自动重复检测。
 
 * 希望应用程序将消息作为长时间运行的并行流进行处理（使用消息的 [SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid) 属性，将消息与流相关联）。 在这种模式下，消费应用程序中的每个节点会竞争流而不是消息。 当流被提供给某个消费节点时，该节点可以使用事务检查应用程序流的状态。
@@ -135,12 +132,12 @@ Azure 支持两种队列机制：**存储队列**和**服务总线队列**。
 ### <a name="additional-information"></a>其他信息
 * 两种队列技术都允许将消息安排在以后传送。
 * 利用队列自动转发功能，数千个队列可将它们的消息自动转发至单个队列，而接收应用程序将使用来自该队列的消息。 可以使用此机制来实现安全性和控制流，并且隔离每个消息发布者的存储。
-* 存储队列为更新消息内容提供支持。 可以使用此功能将状态信息和递增进度更新持久保留到消息中，以便能够从上一个已知的检查点处理该消息，而不是从头开始。 借助服务总线队列，可以通过使用消息会话实现相同的方案。 会话允许保存和检索应用程序处理状态（通过使用 [SetState](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate#Microsoft_ServiceBus_Messaging_MessageSession_SetState_System_IO_Stream_) 和 [GetState](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.messagesession.getstate#Microsoft_ServiceBus_Messaging_MessageSession_GetState)）。
-* [死信](./service-bus-dead-letter-queues.md)（仅受服务总线队列支持）可用于隔离接收应用程序无法成功处理的消息，或隔离由于生存时间 (TTL) 属性过期而无法到达其目的地的消息。 TTL 值指定消息在队列中保留的时间。 对于服务总线，在 TTL 期限过期时，该消息将移到一个特殊的队列（称为 $DeadLetterQueue）。
-* 若要查找存储队列中的“有害”消息，则在消息取消排队时，应用程序会检查该消息的 **[DequeueCount](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueuemessage.dequeuecount.aspx)** 属性。 如果 **DequeueCount** 大于给定的阈值，应用程序会将消息移到应用程序定义的“死信”队列。
+* 存储队列为更新消息内容提供支持。 可以使用此功能将状态信息和递增进度更新持久保留到消息中，以便能够从上一个已知的检查点处理该消息，而不是从头开始。 借助服务总线队列，可以通过使用消息会话实现相同的方案。 会话允许保存和检索应用程序处理状态（通过使用 [SetState](/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate#Microsoft_ServiceBus_Messaging_MessageSession_SetState_System_IO_Stream_) 和 [GetState](/dotnet/api/microsoft.servicebus.messaging.messagesession.getstate#Microsoft_ServiceBus_Messaging_MessageSession_GetState)）。
+* [死信](service-bus-dead-letter-queues.md)（仅受服务总线队列支持）可用于隔离接收应用程序无法成功处理的消息，或隔离由于生存时间 (TTL) 属性过期而无法到达其目的地的消息。 TTL 值指定消息在队列中保留的时间。 对于服务总线，在 TTL 期限过期时，该消息将移到一个特殊的队列（称为 $DeadLetterQueue）。
+* 为了在存储队列中查找“病毒”消息，在将某个消息取消排队时，应用程序将检查该消息的 [DequeueCount](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueuemessage.dequeuecount.aspx) 属性。 如果 **DequeueCount** 大于给定的阈值，应用程序会将消息移到应用程序定义的“死信”队列。
 * 通过存储队列可获取针对该队列执行的所有事务的详细日志以及聚合度量值。 这两个选项可用于调试以及了解应用程序如何使用存储队列。 它们还用于对应用程序进行性能优化并降低使用队列的成本。
-* 服务总线支持的“消息会话”概念允许属于特定逻辑组的消息与给定的接收方关联，而这样一来又能在消息与其各自接收方之间创建类似于会话的关联。 可以通过对消息设置 [SessionID](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid#Microsoft_ServiceBus_Messaging_BrokeredMessage_SessionId) 属性，在服务总线中启用此高级功能。 然后，接收者可以侦听特定会话 ID，并接收共享特定会话标识符的消息。
-* 根据 [MessageId](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.messageid#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) 属性的值，服务总线队列支持的重复项检测功能会自动删除发送到队列或主题的重复消息。
+* 服务总线支持的“消息会话”概念允许属于特定逻辑组的消息与给定的接收方关联，而这样一来又能在消息与其各自接收方之间创建类似于会话的关联。 可以通过对消息设置 [SessionID](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid#Microsoft_ServiceBus_Messaging_BrokeredMessage_SessionId) 属性，在服务总线中启用此高级功能。 然后，接收者可以侦听特定会话 ID，并接收共享特定会话标识符的消息。
+* 根据 [MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.messageid#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) 属性的值，服务总线队列支持的重复项检测功能会自动删除发送到队列或主题的重复消息。
 
 ## <a name="capacity-and-quotas"></a>容量和配额
 本部分从适用的[容量和配额](./service-bus-quotas.md)角度对存储队列和服务总线队列进行了比较。
@@ -154,16 +151,11 @@ Azure 支持两种队列机制：**存储队列**和**服务总线队列**。
 | 并发客户端的最大数目 |**不受限制** |**不受限制**<br/><br/>（100 个并发连接限制仅适用于基于 TCP 协议的通信） |
 
 ### <a name="additional-information"></a>其他信息
-
-- 服务总线强制实施队列大小限制。 在创建队列时指定最大队列大小，其值可以在 1 至 80 GB 之间。 如果达到创建队列时设置的队列大小值，则将拒绝其他传入消息，并且调用代码收到一个异常。 有关服务总线中配额的详细信息，请参阅[服务总线配额](./service-bus-quotas.md)。
-
-- 在[标准层](service-bus-premium-messaging.md)中，可以创建 1、2、3、4 或 5 GB 大小的服务总线队列（默认值为 1 GB）。 在高级层中，可以创建多达 80 GB 大小的队列。 在标准层中，启用分区（这是默认值）时，服务总线将指定的每个 GB 创建 16 个分区。 因此，如果你创建了一个大小为 5 GB 的队列，由于每 GB 16 个分区，最大队列大小将变为 (5 * 16) = 80 GB。 可以通过在 [Azure 门户][Azure portal]中查看分区队列或主题的条目来了解该队列或主题的最大大小。 在高级层中，只为每个队列创建 2 个分区。
-
-- 在存储队列中，如果消息的内容不属于 XML 安全内容，则必须对其进行 **Base64** 编码。 如果使用 **Base64**编码此消息，则用户负载可高达 48 KB，而不是 64 KB。
-
-- 对于服务总线队列，存储在队列中的每条消息由两个部分组成：标头和正文。 消息的总大小不能超过服务层支持的最大消息大小。
-
-- 当客户端通过 TCP 协议与服务总线队列进行通信时，到单个服务总线队列的最大并发连接数不得超过 100。 此数值在发送方和接收方之间共享。 如果达到此配额，则拒绝后续的其他连接请求，调用代码将收到一个异常。 使用基于 REST 的 API 连接到队列的客户端不受此限制。
+* 服务总线强制实施队列大小限制。 在创建队列时指定最大队列大小，其值可以在 1 至 80 GB 之间。 如果达到创建队列时设置的队列大小值，则将拒绝其他传入消息，并且调用代码收到一个异常。 有关服务总线中配额的详细信息，请参阅[服务总线配额](service-bus-quotas.md)。
+* [高级层](service-bus-premium-messaging.md)不支持分区。 在标准层中，可以创建 1GB、2GB、3GB、4GB 或 5GB 大小的服务总线队列（默认值为 1GB）。 在标准层中，启用分区（这是默认值）时，服务总线将指定的每个 GB 创建 16 个分区。 因此，如果你创建了一个大小为 5 GB 的队列，由于每 GB 16 个分区，最大队列大小将变为 (5 * 16) = 80 GB。 可以通过在 [Azure 门户][Azure portal]中查看分区队列或主题的条目来了解该队列或主题的最大大小。
+* 在存储队列中，如果消息的内容不属于 XML 安全内容，则必须对其进行 **Base64** 编码。 如果使用 **Base64**编码此消息，则用户负载可高达 48 KB，而不是 64 KB。
+* 对于服务总线队列，存储在队列中的每条消息由两个部分组成：标头和正文。 消息的总大小不能超过服务层支持的最大消息大小。
+* 当客户端通过 TCP 协议与服务总线队列进行通信时，到单个服务总线队列的最大并发连接数不得超过 100。 此数值在发送方和接收方之间共享。 如果达到此配额，则拒绝后续的其他连接请求，调用代码将收到一个异常。 使用基于 REST 的 API 连接到队列的客户端不受此限制。
 
 * 如果在单个服务总线服务命名空间中需要超过 10,000 个队列，可以联系 Azure 支持团队并请求增加数目。 若要使用服务总线扩展到 10,000 个以上的队列，还可使用 [Azure 门户][Azure portal]创建其他命名空间。
 
@@ -185,16 +177,11 @@ Azure 支持两种队列机制：**存储队列**和**服务总线队列**。
 |Peek 函数|**是**|**是**|
 
 ### <a name="additional-information"></a>其他信息
-
-- 存储队列为可应用于队列说明的任意属性提供支持（以名称/值对形式）。
-
-- 两种队列技术还提供无需锁定消息即可进行消息速览的功能，这在实现队列资源管理器/浏览器工具时可能非常有用。
-
-- 服务总线 .NET 中转消息传送 API 利用全双工 TCP 连接，因此与基于 HTTP 的 REST 相比提高了性能，另外它们还支持 AMQP 1.0 标准协议。
-
-* 存储队列名称长度可以在 3-63 个字符之间，可以包含小写字母、数字和连字符。 有关详细信息，请参阅 [命名队列和元数据](https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/Naming-Queues-and-Metadata)。
-
-- 服务总线队列名称长度最大可达 260 个字符，且命名规则限制较少。 服务总线队列名称可以包含字母、数字、句点、连字符和下划线。
+* 存储队列为可应用于队列说明的任意属性提供支持（以名称/值对形式）。
+* 两种队列技术还提供无需锁定消息即可进行消息扫视的功能，这在实现队列资源管理器/浏览器工具时可能非常有用。
+* 服务总线 .NET 中转消息传送 API 利用全双工 TCP 连接，因此与基于 HTTP 的 REST 相比提高了性能，另外它们还支持 AMQP 1.0 标准协议。
+* 存储队列名称长度可以在 3-63 个字符之间，可以包含小写字母、数字和连字符。 有关详细信息，请参阅 [命名队列和元数据](/rest/api/storageservices/fileservices/Naming-Queues-and-Metadata)。
+* 服务总线队列名称长度最大可达 260 个字符，且命名规则限制较少。 服务总线队列名称可以包含字母、数字、句点、连字符和下划线。
 
 ## <a name="authentication-and-authorization"></a>身份验证和授权
 本部分讨论存储队列和服务总线队列支持的身份验证和授权功能。

@@ -9,12 +9,12 @@ origin.date: 05/29/2018
 ms.date: 06/25/2018
 ms.author: v-nany
 ms.custom: include file
-ms.openlocfilehash: ce00336e61b3f48ac8c5cc74c0eb803ec1a23f4d
-ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
+ms.openlocfilehash: 81b8425d19fc353688d0a00bfbf751c5ae747f6f
+ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36748441"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37800544"
 ---
 ## <a name="access-the-media-services-api"></a>访问媒体服务 API
 
@@ -37,8 +37,8 @@ az ams account sp create --account-name amsaccount --resource-group amsResourceG
   "AadSecret": "00000000-02f5-4bf2-9057-1c4f7baff155",
   "AadTenantId": "00000000-86f1-41af-91ab-2d7cd011db47",
   "AccountName": "amsaccount22",
-  "ArmAadAudience": "https://management.chinacloudapi.cn/",
-  "ArmEndpoint": "https://management.azure.cn/",
+  "ArmAadAudience": "https://management.core.chinacloudapi.cn/",
+  "ArmEndpoint": "https://management.chinacloudapi.cn/",
   "Region": "chinaeast",
   "ResourceGroup": "amsResourceGroup2",
   "SubscriptionId": "00000000-6753-4ca2-b1ae-193798e2c9d8"

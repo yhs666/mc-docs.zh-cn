@@ -1,26 +1,20 @@
 ---
-title: 排查 System Center Data Protection Manager 和 Azure 备份问题 | Microsoft Docs
+title: 排查 System Center Data Protection Manager 和 Azure 备份问题
 description: 排查 System Center Data Protection Manager 中的问题。
 services: backup
-documentationcenter: ''
 author: adigan
 manager: shreeshd
-editor: ''
-ms.assetid: 2d73c349-0fc8-4ca8-afd8-8c9029cb8524
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 11/24/2017
-ms.date: 05/28/2018
+ms.date: 07/06/2018
 ms.author: v-junlch
-ms.openlocfilehash: 9af7bb3e730dca3663dafffe374691c0d10e0cb7
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: d0800e39098bfdeaf5e8e6433f18195a1d087d01
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34559438"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873286"
 ---
 # <a name="troubleshoot-system-center-data-protection-manager"></a>排查 System Center Data Protection Manager 问题
 
@@ -98,4 +92,5 @@ ms.locfileid: "34559438"
 > 恢复数据时，请始终提供与 Data Protection Manager/Azure 备份服务器关联的相同加密通行短语。 
 >
 
-<!-- Update_Description: link update -->
+
+<!-- Update_Description: update metedata properties -->

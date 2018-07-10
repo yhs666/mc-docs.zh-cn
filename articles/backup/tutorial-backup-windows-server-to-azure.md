@@ -1,28 +1,22 @@
 ---
-title: 将 Windows Server 备份到 Azure | Microsoft Docs
+title: 将 Windows Server 备份到 Azure
 description: 本教程详细介绍了如何将本地 Windows Server 备份到恢复服务保管库。
 services: backup
-documentationcenter: ''
 author: saurabhsensharma
 manager: shivamg
-editor: ''
 keywords: windows server 备份; 备份 windows server; 备份和灾难恢复
-ms.assetid: ''
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 origin.date: 02/14/2018
-ms.date: 02/27/2018
+ms.date: 07/06/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: ec7e26e1e7ff34c46f7f92f0f8fbad8b8fec7bb5
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: cf5572e0de9dbddeecfbe0cbec57726d3070d64b
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
-ms.locfileid: "29731201"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873519"
 ---
 # <a name="back-up-windows-server-to-azure"></a>将 Windows Server 备份到 Azure
 
@@ -38,13 +32,13 @@ ms.locfileid: "29731201"
 
 ## <a name="log-in-to-azure"></a>登录 Azure
 
-通过 http://portal.azure.cn 登录到 Azure 门户。
+在 http://portal.azure.cn 登录 Azure 门户。
 
 ## <a name="create-a-recovery-services-vault"></a>创建恢复服务保管库
 
 备份 Windows Server 前，必须创建一个存储备份或还原点的位置。 [恢复服务保管库](backup-azure-recovery-services-vault-overview.md)是 Azure 中存储来自 Windows Server 的备份的容器。 按照以下步骤在 Azure 门户中创建恢复服务保管库。 
 
-1. 在左侧菜单上，选择“更多服务”，然后在服务列表中键入“恢复服务”。 单击“恢复服务保管库” 。
+1. 在左侧菜单上，选择“所有服务”，然后在服务列表中键入“恢复服务”。 单击“恢复服务保管库” 。
 
     ![打开恢复服务保管库](./media/tutorial-backup-windows-server-to-azure/full-browser-open-rs-vault_2.png)
 
@@ -161,4 +155,4 @@ Azure 恢复服务 (MARS) 代理在 Windows Server 和恢复服务保管库之�
 > [将文件从 Azure 还原到 Windows Server](./tutorial-backup-restore-files-windows-server.md) 
 
 
-<!--Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

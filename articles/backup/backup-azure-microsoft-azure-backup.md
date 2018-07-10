@@ -1,27 +1,21 @@
 ---
-title: 使用 Azure 备份服务器将工作负荷备份到 Azure | Microsoft Docs
+title: 使用 Azure 备份服务器将工作负荷备份到 Azure
 description: 使用 Azure 备份服务器保护工作负荷或将其备份到 Azure 门户。
 services: backup
-documentationcenter: ''
 author: PVRK
 manager: shivamg
-editor: ''
 keywords: Azure 备份服务器；保护工作负荷；备份工作负荷
-ms.assetid: e7fb1907-9dc1-4ca1-8c61-50423d86540c
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 05/14/2018
-ms.date: 05/28/2018
+ms.date: 07/06/2018
 ms.author: v-junlch
-ms.openlocfilehash: 6b3dbbe370087f290349c53b1718c7d178469943
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 0fe3e197e982b3fe82aa40b7760116c8cdc812bb
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34559414"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873666"
 ---
 # <a name="preparing-to-back-up-workloads-using-azure-backup-server"></a>准备使用 Azure 备份服务器来备份工作负荷
 > [!div class="op_single_selector"]
@@ -258,4 +252,5 @@ Azure 备份服务器需要连接到 Azure 备份服务才能成功运行。 若
 - [SharePoint Server 备份](backup-azure-backup-sharepoint.md)
 - [备用服务器备份](backup-azure-alternate-dpm-server.md)
 
-<!--Update_Description: wording update -->
+
+<!-- Update_Description: update metedata properties -->

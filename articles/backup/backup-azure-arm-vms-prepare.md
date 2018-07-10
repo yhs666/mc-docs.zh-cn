@@ -1,27 +1,21 @@
 ---
-title: Azure 备份：准备备份虚拟机 | Microsoft 文档
+title: Azure 备份：准备备份虚拟机
 description: 确保对环境进行准备，以便在 Azure 中备份虚拟机。
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: ''
 keywords: 备份; 备份;
-ms.assetid: e87e8db2-b4d9-40e1-a481-1aa560c03395
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 03/01/2018
-ms.date: 05/28/2018
+ms.date: 07/05/2018
 ms.author: v-junlch
-ms.openlocfilehash: 64385cf7cd31ce51ada0657fac23ca48e6616a40
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 9aac14e3bafeeb5caa606e77f73fb31fe4ece155
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34559425"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873426"
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>准备环境以备份 Resource Manager 部署的虚拟机
 
@@ -313,4 +307,4 @@ Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -T
 - [规划 VM 备份基础结构](backup-azure-vms-introduction.md)
 - [管理虚拟机备份](backup-azure-manage-vms.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

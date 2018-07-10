@@ -1,28 +1,22 @@
 ---
-title: 使用 Azure 备份还原 VM 磁盘 | Microsoft 文档
+title: 使用 Azure 备份还原 VM 磁盘
 description: 了解如何在 Azure 中使用备份和恢复服务还原磁盘并创建恢复的 VM。
 services: backup
-documentationcenter: virtual-machines
 author: markgalioto
 manager: carmonm
-editor: ''
 tags: azure-resource-manager, virtual-machine-backup
-ms.assetid: ''
 ms.service: backup
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 origin.date: 04/17/2018
-ms.date: 05/25/2018
+ms.date: 07/06/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 02a6bd1686532ccc28074b2f1ae941b5071b4840
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 2f1ead13652c9ae43092ed5c5620b3f8bccad4fd
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34559441"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873592"
 ---
 # <a name="restore-a-disk-and-create-a-recovered-vm-in-azure"></a>在 Azure 中还原磁盘并创建恢复的 VM
 Azure 备份可创建恢复点，这些恢复点存储在异地冗余的恢复保管库中。 从恢复点还原时，可以还原整个 VM，也可以还原单个文件。 本文介绍如何使用 CLI 还原完整的 VM。 本教程介绍如何执行下列操作：
@@ -185,4 +179,4 @@ fe5d0414  ConfigureBackup  Completed   myvm         2017-09-19T03:03:57  0:00:31
 > [将文件还原到 Azure 中的虚拟机](tutorial-restore-files.md)
 
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

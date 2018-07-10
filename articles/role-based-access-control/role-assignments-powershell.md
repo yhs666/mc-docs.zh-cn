@@ -12,15 +12,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 04/17/2018
-ms.date: 05/28/2018
+ms.date: 07/03/2018
 ms.author: v-junlch
-ms.reviewer: rqureshi
-ms.openlocfilehash: bd8dc307a786011d2d5597c17d842de4a5233c6d
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.reviewer: bagovind
+ms.openlocfilehash: a101c73bb98db814b4a645aa7dc5697fe74ccc8d
+ms.sourcegitcommit: a20c461541ba7db541c01c8a18fc4cff48e3d2d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34559500"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37361180"
 ---
 # <a name="manage-role-based-access-control-with-azure-powershell"></a>使用 Azure PowerShell 管理基于角色的访问控制
 > [!div class="op_single_selector"]
@@ -51,10 +51,44 @@ AcrImageSigner                                    acr image signer
 AcrQuarantineReader                               acr quarantine data reader
 AcrQuarantineWriter                               acr quarantine data writer
 API Management Service Contributor                Can manage service and the APIs
-API Management Service Operator Role              Can manage service but not the APIs
-API Management Service Reader Role                Read-only access to service and APIs
+Application Insights Component Contributor        Can manage Application Insights components
 Automation Job Operator                           Create and Manage Jobs using Automation Runbooks.
-Automation Operator                               Automation Operators are able to start, stop, suspend, and resume ...
+Automation Operator                               Automation Operators are able to start, stop, suspend, and resume jobs
+Automation Runbook Operator                       Read Runbook properties - to be able to create Jobs of the runbook.
+Azure Stack Registration Owner                    Lets you manage Azure Stack registrations.
+Backup Contributor                                Lets you manage backup service,but can't create vaults and give access to others
+Backup Operator                                   Lets you manage backup services, except removal of backup, vault creation and giving access to others
+Backup Reader                                     Can view backup services, but can't make changes
+BizTalk Contributor                               Lets you manage BizTalk services, but not access to them.
+Classic Network Contributor                       Lets you manage classic networks, but not access to them.
+Classic Storage Account Contributor               Lets you manage classic storage accounts, but not access to them.
+Classic Storage Account Key Operator Service Role Classic Storage Account Key Operators are allowed to list and regenerate keys on Classic Storage Accounts
+Classic Virtual Machine Contributor               Lets you manage classic virtual machines, but not access to them, and not the virtual network or storage account they�re connected to.
+ClearDB MySQL DB Contributor                      Lets you manage ClearDB MySQL databases, but not access to them.
+Contributor                                       Lets you manage everything except access to resources.
+Cosmos DB Account Reader Role                     Can read Azure Cosmos DB Accounts data
+Data Factory Contributor                          Create and manage data factories, as well as child resources within them.
+DNS Zone Contributor                              Lets you manage DNS zones and record sets in Azure DNS, but does not let you control who has access to them.
+DocumentDB Account Contributor                    Lets you manage DocumentDB accounts, but not access to them.
+Intelligent Systems Account Contributor           Lets you manage Intelligent Systems accounts, but not access to them.
+Key Vault Contributor                             Lets you manage key vaults, but not access to them.
+Network Contributor                               Lets you manage networks, but not access to them.
+New Relic APM Account Contributor                 Lets you manage New Relic Application Performance Management accounts and applications, but not access to them.
+Owner                                             Lets you manage everything, including access to resources.
+Reader                                            Lets you view everything, but not make any changes.
+Redis Cache Contributor                           Lets you manage Redis caches, but not access to them.
+Resource Policy Contributor (Preview)             (Preview) Backfilled users from EA, with rights to create/modify resource policy, create support ticket and read resources/hierarchy.
+Scheduler Job Collections Contributor             Lets you manage Scheduler job collections, but not access to them.
+Search Service Contributor                        Lets you manage Search services, but not access to them.
+SQL DB Contributor                                Lets you manage SQL databases, but not access to them. Also, you can't manage their security-related policies or their parent SQL servers.
+SQL Security Manager                              Lets you manage the security-related policies of SQL servers and databases, but not access to them.
+SQL Server Contributor                            Lets you manage SQL servers and databases, but not access to them, and not their security -related policies.
+Storage Account Contributor                       Lets you manage storage accounts, but not access to them.
+Storage Account Key Operator Service Role         Storage Account Key Operators are allowed to list and regenerate keys on Storage Accounts
+User Access Administrator                         Lets you manage user access to Azure resources.
+Virtual Machine Contributor                       Lets you manage virtual machines, but not access to them, and not the virtual network or storage account they?re connected to.
+Web Plan Contributor                              Lets you manage the web plans for websites, but not access to them.
+Website Contributor                               Lets you manage websites (not web plans), but not access to them.
 ...
 ```
 

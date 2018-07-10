@@ -1,21 +1,21 @@
 ---
-title: 大规模备份 Azure 虚拟机 | Microsoft Docs
+title: 大规模备份 Azure 虚拟机
 description: 同时将多个虚拟机备份到 Azure
 services: backup
 keywords: 虚拟机备份; 虚拟机备份; 备份 vm; 备份 vm; 备份 Azure vm; 备份和灾难恢复
 author: markgalioto
 ms.author: v-junlch
 origin.date: 02/14/2018
-ms.date: 02/27/2018
+ms.date: 07/06/2018
 ms.topic: tutorial
 ms.service: backup
 ms.custom: mvc
-ms.openlocfilehash: 2bfd9a9243a76a151278ea4e476703283eddf9d2
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 931621060a3cb4206b25a84d62c0a3306cdb96cf
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
-ms.locfileid: "29731208"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873490"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>使用 Azure 门户备份多个虚拟机
 
@@ -35,7 +35,7 @@ ms.locfileid: "29731208"
 
 恢复服务保管库包含备份数据和应用于受保护虚拟机的备份策略。 备份虚拟机是在本地完成的过程。 无法将某个位置的虚拟机备份到另一个位置的恢复服务保管库。 因此，每个包含要备份的虚拟机的 Azure 位置中必须至少存在一个恢复服务保管库。
 
-1. 在左侧菜单上，选择“更多服务”，然后在服务列表中键入“恢复服务”。 键入时，系统将筛选出资源列表。 看见列表中的恢复服务保管库时，请将其选中以打开“恢复服务保管库”菜单。
+1. 在左侧菜单上，选择“所有服务”，然后在服务列表中键入“恢复服务”。 键入时，系统会筛选出资源列表。 看见列表中的恢复服务保管库时，请将其选中以打开“恢复服务保管库”菜单。
 
     ![打开“恢复服务保管库”菜单](./media/tutorial-backup-vm-at-scale/full-browser-open-rs-vault.png) <br/>
 
@@ -189,4 +189,4 @@ ms.locfileid: "29731208"
 > [!div class="nextstepaction"]
 > [使用 CLI 还原 VM](./tutorial-restore-disk.md)
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

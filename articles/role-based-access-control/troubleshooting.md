@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/19/2018
-ms.date: 05/28/2018
+ms.date: 07/03/2018
 ms.author: v-junlch
-ms.reviewer: rqureshi
+ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 7f1190e0f3001e839c6a4d021d2b83bf1fe98880
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 6af8b0f16bbcd77dcbfa0ed9a68d3fdefcda59a3
+ms.sourcegitcommit: a20c461541ba7db541c01c8a18fc4cff48e3d2d5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34559485"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37361176"
 ---
 # <a name="troubleshooting-azure-role-based-access-control"></a>Azure 基于角色的访问控制疑难解答 
 

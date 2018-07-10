@@ -3,31 +3,31 @@ title: 部署多个 Azure 资源实例 | Azure
 description: 在部署资源时使用 Azure Resource Manager 模板中的复制操作和数组执行多次迭代。
 services: azure-resource-manager
 documentationcenter: na
-author: luanmafeng
+author: rockboyfor
 manager: digimobile
 editor: ''
 ms.assetid: 94d95810-a87b-460f-8e82-c69d462ac3ca
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 12/15/2017
-ms.date: 05/28/2018
+origin.date: 06/12/2018
+ms.date: 07/09/2018
 ms.author: v-yeche
-ms.openlocfilehash: 81d2880256065259ef97e4a6b393570ff172249c
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: fb4025188051a21f1f94d5840d60b62c83139257
+ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554608"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37405235"
 ---
-# <a name="deploy-multiple-instances-of-a-resource-or-property-in-azure-resource-manager-templates"></a>在 Azure Resource Manager 模板中部署资源或属性的多个实例
+# <a name="deploy-multiple-instances-of-a-resource-or-property-in-azure-resource-manager-templates"></a>在 Azure 资源管理器模板中部署资源或属性的多个实例
 本文介绍如何有条件地部署资源，以及如何在 Azure 资源管理器模板中进行迭代操作，以创建资源的多个实例。
 
 ## <a name="conditionally-deploy-resource"></a>有条件地部署资源
 
-当必须在部署过程中决定是创建资源的一个实例，还是不创建资源实例时，请使用 `condition` 元素。 此元素的值将解析为 true 或 false。 如果值为 true，则部署资源。 如果值为 false，则不部署资源。 例如，若要指定是要部署新的存储帐户还是使用现有存储帐户，请使用：
+当必须在部署过程中决定是创建资源的一个实例，还是不创建资源实例时，请使用 `condition` 元素。 此元素的值将解析为 true 或 false。 如果值为 true，则部署资源。 如果值为 false，则未部署该资源。 例如，若要指定是要部署新的存储帐户还是使用现有存储帐户，请使用：
 
 ```json
 {
@@ -129,9 +129,9 @@ ms.locfileid: "34554608"
 * storagefabrikam
 * storagecoho
 
-默认情况下，资源管理器并行创建资源。 因此，创建顺序是不确定的。 但是，你可能希望将资源指定为按顺序部署。 例如，在更新生产环境时，可能需要错开更新，使任何一次仅更新一定数量。
+默认情况下，资源管理器并行创建资源。 因此，不保证创建的顺序。 但是，你可能希望将资源指定为按顺序部署。 例如，在更新生产环境时，可能需要错开更新，使任何一次仅更新一定数量。
 
-若要按顺序部署资源的多个实例，请将 `mode` 设置为 **serial**，将 `batchSize` 设置为要一次部署的实例数。 在串行模式下，Resource Manager 将在循环中创建早前实例的依赖项，以便在前一个批处理完成之前它不会启动一个批处理。
+若要按顺序部署资源的多个实例，请将 `mode` 设置为 **serial**，将 `batchSize` 设置为要一次部署的实例数。 在串行模式下，资源管理器会在循环中创建早前实例的依赖项，以便在前一个批处理完成之前它不会启动一个批处理。
 
 例如，若要按顺序一次部署两个存储帐户，请使用：
 
@@ -193,7 +193,7 @@ mode 属性也接受 **parallel**（它是默认值）。
       ...
 ```
 
-请注意，在属性迭代中使用 `copyIndex` 时，必须提供迭代的名称。 在资源迭代中使用该元素时，不需要提供迭代名称。
+请注意，在属性迭代中使用 `copyIndex` 时，必须提供迭代的名称。 与资源迭代一起使用时，无需提供名称。
 
 Resource Manager 在部署期间会扩展 `copy` 数组。 该数组的名称将成为属性的名称。 输入值将成为对象属性。 已部署的模板将成为：
 
@@ -222,6 +222,34 @@ Resource Manager 在部署期间会扩展 `copy` 数组。 该数组的名称将
           }
       }],
       ...
+```
+
+copy 元素是一个数组，因此，可以为资源指定多个属性。 为要创建的每个属性添加一个对象。
+
+```json
+{
+    "name": "string",
+    "type": "Microsoft.Network/loadBalancers",
+    "apiVersion": "2017-10-01",
+    "properties": {
+        "copy": [
+          {
+              "name": "loadBalancingRules",
+              "count": "[length(parameters('loadBalancingRules'))]",
+              "input": {
+                ...
+              }
+          },
+          {
+              "name": "probes",
+              "count": "[length(parameters('loadBalancingRules'))]",
+              "input": {
+                ...
+              }
+          }
+        ]
+    }
+}
 ```
 
 可将资源迭代和属性迭代结合使用。 按名称引用属性迭代。
@@ -311,6 +339,27 @@ Resource Manager 在部署期间会扩展 `copy` 数组。 该数组的名称将
 }
 ```
 
+在这两种方法中，copy 元素是一个数组，因此，可以指定多个变量。 为要创建的每个变量添加一个对象。
+
+```json
+"copy": [
+  {
+    "name": "first-variable",
+    "count": 5,
+    "input": {
+      "demoProperty": "[concat('myProperty', copyIndex('first-variable'))]",
+    }
+  },
+  {
+    "name": "second-variable",
+    "count": 3,
+    "input": {
+      "demoProperty": "[concat('myProperty', copyIndex('second-variable'))]",
+    }
+  },
+]
+```
+
 ## <a name="depend-on-resources-in-a-loop"></a>依赖于循环中的资源
 可以使用 `dependsOn` 元素指定一个资源在另一个资源之后部署。 若要部署的资源依赖于循环中的资源集合，请在 dependsOn 元素中提供 copy 循环的名称。 以下示例演示了如何在部署虚拟机之前部署三个存储帐户。 此处并未显示完整的虚拟机定义。 请注意，copy 元素的名称设置为 `storagecopy`，而虚拟机的 dependsOn 元素也设置为 `storagecopy`。
 
@@ -347,7 +396,7 @@ Resource Manager 在部署期间会扩展 `copy` 数组。 该数组的名称将
 }
 ```
 
-<a id="looping-on-a-nested-resource" />
+<a name="looping-on-a-nested-resource" />
 
 ## <a name="iteration-for-a-child-resource"></a>子资源的迭代
 不能对子资源使用 copy 循环。 要创建子资源的多个实例，而该子资源通常在其他资源中定义为嵌套资源，则必须将该资源创建为顶级资源。 可以通过 type 和 name 属性定义与父资源的关系。
@@ -372,7 +421,7 @@ Resource Manager 在部署期间会扩展 `copy` 数组。 该数组的名称将
 }]
 ```
 
-要创建数据集的多个实例，请将数据集移出数据工厂。 数据集必须与数据工厂位于同一层级，但仍属数据工厂的子资源。 可以通过 type 和 name 属性保留数据集和数据工厂之间的关系。 由于类型不再可以从其在模板中的位置推断，因此必须按以下格式提供完全限定的类型： `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`。
+要创建数据集的多个实例，请将数据集移出数据工厂。 数据集必须与数据工厂处于同一级别，但它仍是数据工厂的子资源。 可以通过 type 和 name 属性保留数据集和数据工厂之间的关系。 由于类型不再可以从其在模板中的位置推断，因此必须按以下格式提供完全限定的类型： `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`。
 
 若要与数据工厂的实例建立父/子关系，提供的数据集的名称应包含父资源名称。 使用以下格式： `{parent-resource-name}/{child-resource-name}`。  
 

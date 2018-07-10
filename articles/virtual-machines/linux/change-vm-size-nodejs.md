@@ -17,12 +17,12 @@ origin.date: 05/16/2016
 ms.date: 06/04/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6c986c3db15802cd366b0f97ea4cc8b6901e3f71
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: a5b1b13c884f5373701e5f6d9e9eb39e4ab71136
+ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702854"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37405404"
 ---
 # <a name="resize-a-linux-vm-with-azure-cli-10"></a>使用 Azure CLI 1.0 调整 Linux VM 的大小
 
@@ -81,6 +81,7 @@ ms.locfileid: "34702854"
 
 [azure-cli]:../../cli-install-nodejs.md
 [boot-diagnostics]: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/
-[scale-set]: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md 
+[scale-set]: ../../virtual-machine-scale-sets/tutorial-autoscale-cli.md 
+<!-- URL Redirect virtual-machine-scale-sets-linux-autoscale.md to tutorial-autoscale-cli.md-->
 [vm-sizes]:sizes.md
 <!-- Update_Description: update meta properties, update link -->

@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 04/04/2018
-ms.date: 05/28/2018
+ms.date: 07/09/2018
 ms.author: v-yeche
-ms.openlocfilehash: ad95c28ebd1f2e594d34611a165fe2be1e81ac8c
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: a63af51ac71ee65e3dad2c80a3296dbd9bbc9ffb
+ms.sourcegitcommit: 292f22020e00c607229c1693229f25fb2837d8af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554692"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37910596"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric-preview"></a>Azure Service Fabric（预览版）中的定期备份和还原
 > [!div class="op_single_selector"]
@@ -119,13 +119,13 @@ Service Fabric 提供了一组 API 以实现与定期备份和还原功能相关
 
 第一步是创建描述备份计划的备份策略、备份数据的目标存储、策略名称以及触发完整备份之前允许的最大递增备份。 
 
-有关备份存储，请使用上面创建的 Azure 存储帐户。 本示例假定 Azure 存储帐户名为 `sfbackupstore`。 将容器 `backup-container` 配置为存储备份，在备份上传过程中会创建具有此名称的容器（如果尚未存在）。 使用 Azure 存储帐户的有效连接字符串填充 `ConnectionString`。
+有关备份存储，请使用上面创建的 Azure 存储帐户。 容器 `backup-container` 配置为存储备份。 在备份上传期间，将创建具有该名称的容器（如果该容器尚未存在）。 使用 Azure 存储帐户的有效连接字符串填充 `ConnectionString`，并将 `account-name` 替换为你的存储帐户名，将 `account-key` 替换为你的存储帐户密钥。
 
-执行以下 PowerShell 脚本，调用所需的 REST API 来创建新策略。
+执行以下 PowerShell 脚本，调用所需的 REST API 来创建新策略。 请将 `account-name` 替换为你的存储帐户名，将 `account-key` 替换为你的存储帐户密钥。
 
 ```powershell
 $StorageInfo = @{
-    ConnectionString = 'DefaultEndpointsProtocol=https;AccountName=sfbackupstore;AccountKey=64S+3ykBgOuKhd2DK1qHJJtDml3NtRzgaZUa+8iwwBAH4EzuGt95JmOm7mp/HOe8V3l645iv5l8oBfnhhc7dJA==;EndpointSuffix=core.chinacloudapi.cn'
+    ConnectionString = 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.chinacloudapi.cn'
     ContainerName = 'backup-container'
     StorageKind = 'AzureBlobStore'
 }
@@ -234,5 +234,4 @@ FailureError            :
 - [备份还原 REST API 参考](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
 
 [0]: ./media/service-fabric-backuprestoreservice/PartitionBackedUpHealthEvent_Azure.png
-<!-- Update_Description: new articles on service fabric backuprestoreservice quickstart azurecluster -->
-<!--ms.date: 05/28/2018-->
+<!-- Update_Description: wording update -->

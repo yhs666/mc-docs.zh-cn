@@ -2,43 +2,45 @@
 title: 了解 Azure AD 支持的不同令牌和声明类型 | Microsoft Docs
 description: 本指南帮助你了解和评估 Azure Active Directory (AAD) 颁发的 SAML 2.0 令牌和 JSON Web 令牌 (JWT) 令牌中的声明。
 documentationcenter: na
-author: hpsin
+author: CelesteDG
 services: active-directory
 manager: mtillman
 editor: ''
 ms.assetid: 166aa18e-1746-4c5e-b382-68338af921e2
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 09/07/2017
-ms.date: 05/04/2018
+origin.date: 05/22/2018
+ms.date: 07/03/2018
 ms.author: v-junlch
+ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 953dcf6e678f81a2253c546efb35bcb027356357
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: ae66bd68da9e2839669784743ef5691835326cbb
+ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33815297"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37800432"
 ---
 # <a name="azure-ad-token-reference"></a>Azure AD 令牌参考
-Azure Active Directory (Azure AD) 在处理每个身份验证流时会发出多种类型的安全令牌。 本文档说明每种令牌的格式、安全特征和内容。
+Azure Active Directory (Azure AD) 在处理每个身份验证流时会发出多种类型的安全令牌。 本文档说明每种令牌的格式、安全特征和内容。 
 
 ## <a name="types-of-tokens"></a>令牌类型
-Azure AD 支持 [OAuth 2.0 授权协议](active-directory-protocols-oauth-code.md)，该协议同时使用 access_token 与 refresh_token。  它还支持通过 [OpenID Connect](active-directory-protocols-openid-connect-code.md) 进行身份验证和登录。OpenID Connect 引入了第三种类型的令牌：id_token。  为些令牌都表示为“持有者令牌”。
+Azure AD 支持 [OAuth 2.0 授权协议](active-directory-protocols-oauth-code.md)，该协议同时使用 access_token 与 refresh_token。 它还支持通过 [OpenID Connect](active-directory-protocols-openid-connect-code.md) 进行身份验证和登录。OpenID Connect 引入了第三种类型的令牌：id_token。 为些令牌都表示为“持有者令牌”。
 
 持有者令牌是一种轻型安全令牌，可授予对受保护资源的“持有者”访问权限。 从这个意义上来说，“持有者”是可以提供令牌的任何一方。 虽然接收持有者令牌需要进行 Azure AD 身份验证，但是仍必须采取步骤来保护令牌，以防止被不速之客拦截令牌。 因为持有者令牌没有内置机制来防止未经授权人员使用它们，所以必须在安全的通道（例如传输层安全性 (HTTPS)）中传输这些令牌。 如果持有者令牌以明文传输，则可以利用中间人攻击来获得令牌，并对受保护资源进行未经授权的访问。 当存储或缓存持有者令牌供以后使用时，也应遵循同样的安全原则。 请始终确保应用以安全的方式传输和存储持有者令牌。 有关持有者令牌的更多安全注意事项，请参阅 [RFC 6750 第 5 部分](http://tools.ietf.org/html/rfc6750)。
 
-Azure AD 颁发的许多令牌都以 JSON Web 令牌（也称作 JWT）的方式实现。  JWT 是一种精简的 URL 安全方法，可在两方之间传输信息。  JWT 中包含的信息也称为令牌持有者及使用者相关信息的“声明”或断言。  JWT 中的声明是为了传输而编码和序列化的 JSON 对象。  由于 Azure AD 所颁发的 JWT 已签名但未加密，因此可以轻松地检查 JWT 的内容以进行调试。  有多个工具可用于执行此操作，例如 [jwt.ms](https://jwt.ms/)。 有关 JWT 的详细信息，请参阅 [JWT 规范](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html)。
+Azure AD 颁发的许多令牌都以 JSON Web 令牌（也称作 JWT）的方式实现。 JWT 是一种精简的 URL 安全方法，可在两方之间传输信息。 JWT 中包含的信息也称为令牌持有者及使用者相关信息的“声明”或断言。 JWT 中的声明是为了传输而编码和序列化的 JSON 对象。 由于 Azure AD 所颁发的 JWT 已签名但未加密，因此可以轻松地检查 JWT 的内容以进行调试。 有多个工具可用于执行此操作，例如 [jwt.ms](https://jwt.ms/)。 有关 JWT 的详细信息，请参阅 [JWT 规范](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html)。
 
 ## <a name="idtokens"></a>Id_token
-Id_token 是一种登录安全令牌，使用 [OpenID Connect](active-directory-protocols-openid-connect-code.md) 执行身份验证时会收到该令牌。  它以 [JWT](#types-of-tokens)表示，包含可让用户登录应用的声明。  可以适时使用 id_token 中的声明。该声明通常用于显示帐户信息或在应用程序中进行访问控制决策。
+Id_token 是一种登录安全令牌，使用 [OpenID Connect](active-directory-protocols-openid-connect-code.md) 执行身份验证时会收到该令牌。 它以 [JWT](#types-of-tokens)表示，包含可让用户登录应用的声明。 可以适时使用 id_token 中的声明。该声明通常用于显示帐户信息或在应用程序中进行访问控制决策。
 
-此时 Id_token 已签名，但未加密。  应用收到 id_token 后，必须[验证签名](#validating-tokens)以证明令牌的真实性，并验证令牌中的几个声明来证明其有效性。  应用验证的声明根据方案要求而有所不同，但存在一些 [常见声明验证](#validating-tokens) ，应用必须在每种方案中执行。
+此时 Id_token 已签名，但未加密。 应用收到 id_token 后，必须[验证签名](#validating-tokens)以证明令牌的真实性，并验证令牌中的几个声明来证明其有效性。 应用验证的声明根据方案要求而有所不同，但存在一些 [常见声明验证](#validating-tokens) ，应用必须在每种方案中执行。
 
-有关 Id_token 声明以及示例的信息，请参阅以下部分内容。  请注意，Id_token 中的声明不按任何特定顺序返回。  此外，Id_token 中可随时引入新声明；引入新声明时，应用不会中断。  下面的列表中包含了撰写本文时应用确定能够解释的声明。  如有需要，可以在 [OpenID Connect 规范](http://openid.net/specs/openid-connect-core-1_0.html)中找到更多详细信息。
+有关 Id_token 声明以及示例的信息，请参阅以下部分内容。 请注意，Id_token 中的声明不按任何特定顺序返回。 此外，Id_token 中可随时引入新声明；引入新声明时，应用不会中断。 下面的列表中包含了撰写本文时应用确定能够解释的声明。 如有需要，可以在 [OpenID Connect 规范](http://openid.net/specs/openid-connect-core-1_0.html)中找到更多详细信息。
 
 #### <a name="sample-idtoken"></a>示例 id_token
 ```
@@ -54,16 +56,15 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 > [!div class="mx-codeBreakAll"]
 | JWT 声明 | Name | 说明 |
 | --- | --- | --- |
-| `appid` |应用程序 ID |标识使用令牌访问资源的应用程序。 该应用程序可以自身名义或者代表用户进行操作。 应用程序 ID 通常表示应用程序对象，但它还可以表示 Azure AD 中的服务主体对象。 <br><br> JWT 值示例： <br> `"appid":"15CB020F-3984-482A-864D-1D92265E8268"` |
 | `aud` |目标受众 |令牌的目标接收方。 接收令牌的应用程序必须验证受众值是否正确，并拒绝任何以其他受众为目标的令牌。 <br><br> SAML 值示例： <br> `<AudienceRestriction>`<br>`<Audience>`<br>`https://contoso.com`<br>`</Audience>`<br>`</AudienceRestriction>` <br><br> JWT 值示例： <br> `"aud":"https://contoso.com"` |
-| `appidacr` |应用程序身份验证上下文类引用 |表示对客户端进行身份验证的方式。 对于公共客户端，该值为 0。 如果使用客户端 ID 和客户端机密，则该值为 1。 <br><br> **JWT 值示例**： <br> `"appidacr": "0"` |
+| `appidacr` |应用程序身份验证上下文类引用 |表示对客户端进行身份验证的方式。 对于公共客户端，该值为 0。 如果使用客户端 ID 和客户端机密，则该值为 1。 如果使用客户端证书进行身份验证，值为 2。 <br><br> JWT 值示例： <br> `"appidacr": "0"` |
 | `acr` |身份验证上下文类引用 |表示使用者的身份验证方式，此方式与应用程序身份验证上下文类引用声明中的客户端身份验证截然不同。 值为“0”表示最终用户身份验证不符合 ISO/IEC 29115 要求。 <br><br> JWT 值示例： <br> `"acr": "0"` |
 | 身份验证即时 |记录身份验证发生的日期和时间。 <br><br> SAML 值示例： <br> `<AuthnStatement AuthnInstant="2011-12-29T05:35:22.000Z">` | |
 | `amr` |身份验证方法 |标识对令牌使用者的身份验证方式。 <br><br> SAML 值示例： <br> `<AuthnContextClassRef>`<br>`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod/password`<br>`</AuthnContextClassRef>` <br><br> JWT 值示例：`“amr”: ["pwd"]` |
 | `given_name` |名字 |和对 Azure AD 用户对象的设置一样，指定用户的名。 <br><br> SAML 值示例： <br> `<Attribute Name=”http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname”>`<br>`<AttributeValue>Frank<AttributeValue>` <br><br> JWT 值示例： <br> `"given_name": "Frank"` |
-| `groups` |组 |指定表示使用者的组成员身份的对象 ID。 这些值具有唯一性（请参阅对象 ID），可安全地用于管理访问，例如强制要求授权访问资源。 组声明中包含的组通过应用程序清单的“groupMembershipClaims”属性，基于每个应用程序进行配置。 值为 null 将排除所有组；值为“SecurityGroup”将只包括 Active Directory 安全组成员身份；值为“All”将包括安全组和 Office 365 通讯组列表。 <br><br> **注释**： <br> 有关将 `groups` 声明与隐式授权一起使用的详细信息，请参阅下文中的 `hasgroups` 声明。  <br> 对于其他流，如果用户所在的组数超出了某个限制（对于 SAML，为 150，对于 JWT，为 200），则会添加超额声明，声明源指向包含该用户的组列表的 Graph 终结点。 （在 <br><br> SAML 值示例： <br> `<Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/groups">`<br>`<AttributeValue>07dd8a60-bf6d-4e17-8844-230b77145381</AttributeValue>` <br><br> JWT 值示例： <br> `“groups”: ["0e129f5b-6b0a-4944-982d-f776045632af", … ]` |
-|`hasgroups` | JWT 隐式流组超额指示器| 如果存在，始终为 `true`，表示用户至少在一个组中。  如果完整组声明将导致 URI 片段超出 URL 长度限制（当前为 6 个或更多组），则在隐式授权流中用来替代 JWT 的 `groups` 声明。  指示客户端应当使用 Graph 来确定用户的组 (`https://graph.chinacloudapi.cn/{tenantID}/users/{userID}/getMemberObjects`)。 |
-| `groups:src1` <br> `http://schemas.microsoft.com/claims/groups.link` | 组超额指示器 | 对于长度不受限制（参阅上文中的 `hasgroups`）但对于令牌而言仍然太大的令牌请求，将包括指向用户的完整组列表的链接。  对于 JWT，作为分布式声明；对于 SAML，作为新声明替代 `groups` 声明。 <br><br> SAML 值示例： <br> `<Attribute Name=” http://schemas.microsoft.com/claims/groups.link”>`<br>`<AttributeValue>https://graph.chinacloudapi.cn/{tenantID}/users/{userID}/getMemberObjects<AttributeValue>` <br><br> JWT 值示例： <br> `"groups":"src1` <br> `_claim_sources`: `"src1" : { "endpoint" : "https://graph.chinacloudapi.cn/{tenantID}/users/{userID}/getMemberObjects" }`|
+| `groups` |组 |指定表示使用者的组成员身份的对象 ID。 这些值具有唯一性（请参阅对象 ID），可安全地用于管理访问，例如强制要求授权访问资源。 组声明中包含的组通过应用程序清单的“groupMembershipClaims”属性，基于每个应用程序进行配置。 值为 null 将排除所有组；值为“SecurityGroup”将只包括 Active Directory 安全组成员身份；值为“All”将包括安全组和 Office 365 通讯组列表。 <br><br> **注释**： <br> 有关将 `groups` 声明与隐式授权一起使用的详细信息，请参阅下文中的 `hasgroups` 声明。 <br> 对于其他流，如果用户所在的组数超出了某个限制（对于 SAML，为 150，对于 JWT，为 200），则会添加超额声明，声明源指向包含该用户的组列表的 Graph 终结点。 （在 <br><br> SAML 值示例： <br> `<Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/groups">`<br>`<AttributeValue>07dd8a60-bf6d-4e17-8844-230b77145381</AttributeValue>` <br><br> JWT 值示例： <br> `“groups”: ["0e129f5b-6b0a-4944-982d-f776045632af", … ]` |
+|`hasgroups` | JWT 隐式流组超额指示器| 如果存在，始终为 `true`，表示用户至少在一个组中。 如果完整组声明将导致 URI 片段超出 URL 长度限制（当前为 6 个或更多组），则在隐式授权流中用来替代 JWT 的 `groups` 声明。 指示客户端应当使用 Graph 来确定用户的组 (`https://graph.chinacloudapi.cn/{tenantID}/users/{userID}/getMemberObjects`)。 |
+| `groups:src1` <br> `http://schemas.microsoft.com/claims/groups.link` | 组超额指示器 | 对于长度不受限制（参阅上文中的 `hasgroups`）但对于令牌而言仍然太大的令牌请求，将包括指向用户的完整组列表的链接。 对于 JWT，作为分布式声明；对于 SAML，作为新声明替代 `groups` 声明。 <br><br> SAML 值示例： <br> `<Attribute Name=” http://schemas.microsoft.com/claims/groups.link”>`<br>`<AttributeValue>https://graph.chinacloudapi.cn/{tenantID}/users/{userID}/getMemberObjects<AttributeValue>` <br><br> JWT 值示例： <br> `"groups":"src1` <br> `_claim_sources`: `"src1" : { "endpoint" : "https://graph.chinacloudapi.cn/{tenantID}/users/{userID}/getMemberObjects" }`|
 | `idp` |标识提供者 |记录对令牌使用者进行身份验证的标识提供者。 除非用户帐户与颁发者不在同一租户中，否则此值与颁发者声明的值相同。 <br><br> SAML 值示例： <br> `<Attribute Name=” http://schemas.microsoft.com/identity/claims/identityprovider”>`<br>`<AttributeValue>https://sts.chinacloudapi.cn/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/<AttributeValue>` <br><br> JWT 值示例： <br> `"idp":”https://sts.chinacloudapi.cn/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/”` |
 | `iat` |IssuedAt |存储颁发令牌的时间。 它通常用于度量令牌新鲜度。 <br><br> SAML 值示例： <br> `<Assertion ID="_d5ec7a9b-8d8f-4b44-8c94-9812612142be" IssueInstant="2014-01-06T20:20:23.085Z" Version="2.0" xmlns="urn:oasis:names:tc:SAML:2.0:assertion">` <br><br> JWT 值示例： <br> `"iat": 1390234181` |
 | `iss` |颁发者 |标识构造并返回令牌的安全令牌服务 (STS)。 在 Azure AD 返回的令牌中，颁发者是 sts.chinacloudapi.cn。 颁发者声明值中的 GUID 是 Azure AD 目录的租户 ID。 租户 ID 是固定不变且可靠的目录标识符。 <br><br> SAML 值示例： <br> `<Issuer>https://sts.chinacloudapi.cn/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/</Issuer>` <br><br> JWT 值示例： <br>  `"iss":”https://sts.chinacloudapi.cn/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/”` |
@@ -83,30 +84,29 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 
 如果应用只使用访问令牌来获取对 API 的访问权限，则可以（而且应该）将访问令牌视为完全不透明 - 它只是在 HTTP 请求中，由应用传递给资源的字符串。
 
-请求访问令牌时，Azure AD 还针对应用的使用返回一些有关访问令牌的元数据。  此信息包括访问令牌的到期时间及其有效范围。  这让应用能够对访问令牌执行智能缓存，而无需分析访问令牌本身。
+请求访问令牌时，Azure AD 还针对应用的使用返回一些有关访问令牌的元数据。 此信息包括访问令牌的到期时间及其有效范围。 这让应用能够对访问令牌执行智能缓存，而无需分析访问令牌本身。
 
-如果应用是使用 Azure AD 保护的 API，预期要在 HTTP 请求中为其提供访问令牌，则你应该针对收到的令牌执行验证和检查。 在使用访问令牌访问资源之前，应用程序应执行访问令牌的验证。 有关验证的详细信息，请参阅 [验证令牌](#validating-tokens)。  
-有关如何使用 .NET 执行此操作的详细信息，请参阅[使用 Azure AD 的持有者令牌保护 Web API](active-directory-devquickstarts-webapi-dotnet.md)。
+如果应用是使用 Azure AD 保护的 API，预期要在 HTTP 请求中为其提供访问令牌，则你应该针对收到的令牌执行验证和检查。 在使用访问令牌访问资源之前，应用程序应执行访问令牌的验证。 有关验证的详细信息，请参阅 [验证令牌](#validating-tokens)。 有关如何使用 .NET 执行此操作的详细信息，请参阅[使用 Azure AD 的持有者令牌保护 Web API](active-directory-devquickstarts-webapi-dotnet.md)。
 
 ## <a name="refresh-tokens"></a>刷新令牌
 
-刷新令牌是应用可用于在 OAuth 2.0 流中获取新访问令牌的安全令牌。  它让应用能够代表用户长期访问资源，而无需用户交互。
+刷新令牌是应用可用于在 OAuth 2.0 流中获取新访问令牌的安全令牌。 它让应用能够代表用户长期访问资源，而无需用户交互。
 
-刷新令牌属于多资源令牌。  也就是说，在一个资源的令牌请求期间收到的刷新令牌可以兑换完全不同资源的访问令牌。 为此，请在目标资源的请求中设置 `resource` 参数。
+刷新令牌属于多资源令牌。 也就是说，在一个资源的令牌请求期间收到的刷新令牌可以兑换完全不同资源的访问令牌。 为此，请在目标资源的请求中设置 `resource` 参数。
 
-刷新令牌对应用完全不透明。 它们属于长效令牌，但你不应将应用编写成预期刷新令牌将持续任何一段时间。  刷新令牌可能由于各种原因而随时失效 - 请参阅[令牌吊销](#token-revocation)了解这些原因。  让应用知道刷新令牌是否有效的唯一方式就是对 Azure AD 令牌终结点发出令牌请求以尝试兑换刷新令牌。
+刷新令牌对应用完全不透明。 它们属于长效令牌，但你不应将应用编写成预期刷新令牌将持续任何一段时间。 刷新令牌可能由于各种原因而随时失效 - 请参阅[令牌吊销](#token-revocation)了解这些原因。 让应用知道刷新令牌是否有效的唯一方式就是对 Azure AD 令牌终结点发出令牌请求以尝试兑换刷新令牌。
 
-使用刷新令牌兑换新的访问令牌时，会在令牌响应中收到新的刷新令牌。  应该保存新颁发的刷新令牌，并替换请求中使用的刷新令牌。  这会保证刷新令牌尽可能长期保持有效。
+使用刷新令牌兑换新的访问令牌时，会在令牌响应中收到新的刷新令牌。 应该保存新颁发的刷新令牌，并替换请求中使用的刷新令牌。 这会保证刷新令牌尽可能长期保持有效。
 
 ## 验证令牌 <a name="validating-tokens"></a>
 
 为验证 id_token 或 access_token，应用应该同时验证令牌的签名和声明。 若要验证访问令牌，应用还需验证颁发者、受众和签名令牌。 这些需要根据 OpenID 发现文档中的值进行验证。 例如，文档的租户独立版本位于 [https://login.partner.microsoftonline.cn/common/.well-known/openid-configuration](https://login.partner.microsoftonline.cn/common/.well-known/openid-configuration)。 Azure AD 中间件具有验证访问令牌的内置功能，浏览[示例](active-directory-code-samples.md)可找到你所用语言的示例。 有关如何显式验证 JWT 令牌的详细信息，请参阅 [手动 JWT 验证示例](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation)。  
 
-我们已提供库和代码示例，以演示如何轻松处理令牌验证 - 想要了解基本过程的用户可以参阅以下信息。  另外还有多个第三方开源库可用于 JWT 验证 - 几乎每个平台和语言都至少有一个选项。 有关 Azure AD 身份验证库和代码示例的详细信息，请参阅 [Azure AD 身份验证库](active-directory-authentication-libraries.md)。
+我们已提供库和代码示例，以演示如何轻松处理令牌验证 - 想要了解基本过程的用户可以参阅以下信息。 另外还有多个第三方开源库可用于 JWT 验证 - 几乎每个平台和语言都至少有一个选项。 有关 Azure AD 身份验证库和代码示例的详细信息，请参阅 [Azure AD 身份验证库](active-directory-authentication-libraries.md)。
 
 #### <a name="validating-the-signature"></a>验证签名
 
-JWT 包含三个段（以 `.` 字符分隔）。  第一个段称为标头，第二个称为主体，第三个称为签名。  签名段可用于验证令牌的真实性，使令牌可获得应用的信任。
+JWT 包含三个段（以 `.` 字符分隔）。 第一个段称为标头，第二个称为主体，第三个称为签名。 签名段可用于验证令牌的真实性，使令牌可获得应用的信任。
 
 Azure AD 颁发的令牌已使用行业标准非对称式加密算法（例如 RSA 256）进行签名。 JWT 的标头包含用于签名令牌的密钥和加密方法的相关信息：
 
@@ -120,7 +120,7 @@ Azure AD 颁发的令牌已使用行业标准非对称式加密算法（例如 R
 
 `alg` 声明表示用于对令牌进行签名的算法，而 `x5t` 声明表示用于对令牌进行签名的特定公钥。
 
-在任何给定时间点，Azure AD 可以使用特定公钥 - 私钥对中的任何一组对 id_token 进行签名。 Azure AD 定期换用一组可能的密钥，因此应将应用编写成自动处理这些密钥更改。  对 Azure AD 所用公钥的更新进行检查的合理频率为每 24 小时一次。
+在任何给定时间点，Azure AD 可以使用特定公钥 - 私钥对中的任何一组对 id_token 进行签名。 Azure AD 定期换用一组可能的密钥，因此应将应用编写成自动处理这些密钥更改。 对 Azure AD 所用公钥的更新进行检查的合理频率为每 24 小时一次。
 
 可以使用位于以下位置的 OpenID Connect 元数据文档来获取验证签名所需的签名密钥数据：
 
@@ -133,15 +133,15 @@ https://login.partner.microsoftonline.cn/common/.well-known/openid-configuration
 > 
 > 
 
-此元数据文档是一个 JSON 对象，包含一些有用的信息，例如执行 OpenID Connect 身份验证所需的各种终结点的位置。  
+此元数据文档是一个 JSON 对象，包含一些有用的信息，例如执行 OpenID Connect 身份验证所需的各种终结点的位置。 
 
-它还包含 `jwks_uri`，其提供用于对令牌进行签名的公钥集的位置。  位于 `jwks_uri` 的 JSON 文档包含在该特定时间点使用的所有公钥信息。  应用可以使用 JWT 标头中的 `kid` 声明选择本文档中已用于对特定令牌进行签名的公钥。  然后可以使用正确的公钥和指定的算法来执行签名验证。
+它还包含 `jwks_uri`，其提供用于对令牌进行签名的公钥集的位置。 位于 `jwks_uri` 的 JSON 文档包含在该特定时间点使用的所有公钥信息。 应用可以使用 JWT 标头中的 `kid` 声明选择本文档中已用于对特定令牌进行签名的公钥。 然后可以使用正确的公钥和指定的算法来执行签名验证。
 
 执行签名验证超出了本文档的范围 - 有许多开放源代码库可帮助这么做（如有必要）。
 
 #### <a name="validating-the-claims"></a>验证声明
 
-当应用接收到令牌（用户登录时的 id_token，或 HTTP 请求中作为持有者令牌的访问令牌）后，还应对令牌中的声明执行一些检查。  这些检查包括但不限于：
+当应用接收到令牌（用户登录时的 id_token，或 HTTP 请求中作为持有者令牌的访问令牌）后，还应对令牌中的声明执行一些检查。 这些检查包括但不限于：
 
 - **受众** 声明 - 验证该令牌是否预期提供给应用。
 - 生效时间和过期时间声明 - 验证令牌是否未过期。
@@ -149,25 +149,36 @@ https://login.partner.microsoftonline.cn/common/.well-known/openid-configuration
 - Nonce - 缓和令牌重播攻击。
 - 等等...
 
-有关应用应该针对 ID 令牌执行的声明验证的完整列表，请参阅 [OpenID Connect 规范](http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation)。 有关这些声明的预期值的详细信息，请参阅前面的 [id_token](#id-tokens) 部分。
+有关应用应该针对 ID 令牌执行的声明验证的完整列表，请参阅 [OpenID Connect 规范](http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation)。 这些声明的预期值详细信息包含在前面的 [id_token](#id-tokens) 节中。
 
 ## <a name="token-revocation"></a>令牌吊销
 
-刷新令牌可能由于各种原因而随时失效或吊销。  这些原因主要分为两个类别：超时和吊销。 
-* 令牌超时
-  * MaxInactiveTime：如果在 MaxInactiveTime 指定的时间内未使用刷新令牌，刷新令牌将不再有效。 
-  * MaxSessionAge：如果 MaxAgeSessionMultiFactor 或 MaxAgeSessionSingleFactor 已设置为其默认值（“直到吊销”）以外的值，则在经过 MaxAgeSession* 中设置的时间后，将需要重新进行身份验证。  
-  * 示例:
-    * 租户的 MaxInactiveTime 为 5 天，用户去度假一周，因此 AAD 在 7 天内未看到用户发出的新令牌请求。  下次用户请求新令牌时，他们将看到其刷新令牌已被吊销，他们必须重新输入其凭据。 
-    * 敏感应用程序的 MaxAgeSessionSingleFactor 为 1 天。  如果用户在星期一登录，则在星期二（已经过 25 个小时后），他们将需要重新进行身份验证。  
-* 撤销
-  * 自愿密码更改：如果用户更改了其密码，他们可能需要在其某些应用程序中重新进行身份验证，具体取决于获得令牌的方式。  请参阅下面的注释，了解例外情况。 
-  * 非自愿密码更改：如果管理员强制用户更改其密码或重置密码，则使用其密码获得的用户令牌将会失效。  请参阅下面的注释，了解例外情况。 
-  * 安全漏洞：如果出现安全漏洞（例如本地存储的密码泄露），管理员可以撤消当前颁发的所有刷新令牌。  这将强制所有用户重新进行身份验证。 
+刷新令牌可能由于各种原因而随时失效或吊销。 这些原因主要分为两个类别：超时和吊销。 
 
-注意： 
+**令牌超时**
 
-如果使用了非密码的身份验证方法（Windows Hello、Authenticator 应用、面部或指纹等生物识别）来获得令牌，更改用户的密码不会强制用户重新进行身份验证（但它会强制其 Authenticator 应用重新进行身份验证）。  这是因为其所选身份验证输入（例如面部）并未发生更改，因此可再次使用进行重新身份验证。
+- MaxInactiveTime：如果在 MaxInactiveTime 指定的时间内未使用刷新令牌，刷新令牌将不再有效。 
+- MaxSessionAge：如果 MaxAgeSessionMultiFactor 或 MaxAgeSessionSingleFactor 已设置为其默认值（“直到吊销”）以外的值，则在经过 MaxAgeSession* 中设置的时间后，将需要重新进行身份验证。 
+- 示例:
+  - 租户的 MaxInactiveTime 为 5 天，用户去度假一周，因此 AAD 在 7 天内未看到用户发出的新令牌请求。 下次用户请求新令牌时，他们将看到其刷新令牌已被吊销，他们必须重新输入其凭据。 
+  - 敏感应用程序的 MaxAgeSessionSingleFactor 为 1 天。 如果用户在星期一登录，则在星期二（已经过 25 个小时后），他们将需要重新进行身份验证。 
+
+**撤销**
+
+|   | 基于密码的 Cookie | 基于密码的令牌 | 不基于密码的 Cookie | 不基于密码的令牌 | 机密客户端令牌| 
+|---|-----------------------|----------------------|---------------------------|--------------------------|--------------------------|
+|密码到期| 一直有效|一直有效|一直有效|一直有效|一直有效|
+|用户更改了密码| 已撤销 | 已撤销 | 一直有效|一直有效|一直有效|
+|用户执行 SSPR|已撤销 | 已撤销 | 一直有效|一直有效|一直有效|
+|管理员重置密码|已撤销 | 已撤销 | 一直有效|一直有效|一直有效|
+|用户[通过 PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureadsignedinuserallrefreshtoken) 撤销刷新令牌 | 已撤销 | 已撤销 |已撤销 | 已撤销 |已撤销 | 已撤销 |
+|管理员[通过 PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken) 撤销租户的所有刷新令牌 | 已撤销 | 已撤销 |已撤销 | 已撤销 |已撤销 | 已撤销 |
+|在 Web 上[单一注销](/active-directory/develop/active-directory-protocols-openid-connect-code#single-sign-out) | 已撤销 | 一直有效 |已撤销 | 一直有效 |一直有效 |一直有效 |
+
+> [!NOTE]
+> “不基于密码”登录是指用户在未键入密码的情况下登录。  例如，使用 Windows Hello 人脸登录、FIDO 密钥或 PIN 登录。 
+>
+> Windows 主刷新令牌存在已知问题。  如果 PRT 是通过密码获取，然后用户通过 Hello 登录，这不会更改 PRT 的来源，并且它会在用户更改密码时遭撤销。 
 
 ## <a name="sample-tokens"></a>示例令牌
 

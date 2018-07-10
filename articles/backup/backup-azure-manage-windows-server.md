@@ -1,26 +1,20 @@
 ---
-title: 管理 Azure 恢复服务保管库和服务器 | Microsoft Docs
+title: 管理 Azure 恢复服务保管库和服务器
 description: 使用本文管理 Azure 恢复服务保管库和服务器。
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: tysonn
-ms.assetid: 4eea984b-7ed6-4600-ac60-99d2e9cb6d8a
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 02/23/2018
-ms.date: 04/08/2018
+ms.date: 07/06/2018
 ms.author: v-junlch
-ms.openlocfilehash: df931f4d5e6cefac723887670690ae8bc350084a
-ms.sourcegitcommit: ce691e6877a362d33b5484b9bbf85c93915689a7
+ms.openlocfilehash: 3c218329fb9e0a92c86038f7701e31504a18a59b
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/09/2018
-ms.locfileid: "30955115"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873478"
 ---
 # <a name="monitor-and-manage-azure-recovery-services-vaults-and-servers-for-windows-machines"></a>监视和管理适用于 Windows 计算机的 Azure 恢复服务保管库和服务器
 
@@ -317,4 +311,5 @@ Azure 备份代理提供的“限制”选项卡可让你控制在数据传输�
 - 若要了解有关 Azure 备份的详细信息，请参阅 [Azure 备份概述](backup-introduction-to-azure-backup.md)
 - 访问 [Azure 备份论坛](http://go.microsoft.com/fwlink/p/?LinkId=290933)
 
-<!--Update_Description: wording update -->
+
+<!-- Update_Description: update metedata properties -->

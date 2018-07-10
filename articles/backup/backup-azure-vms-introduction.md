@@ -1,27 +1,21 @@
 ---
-title: 在 Azure 中规划 VM 备份基础结构 | Microsoft Docs
+title: 在 Azure 中计划 VM 备份基础结构
 description: 规划在 Azure 中备份虚拟机时的重要注意事项
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: ''
 keywords: 备份 vm, 备份虚拟机
-ms.assetid: 19d2cf82-1f60-43e1-b089-9238042887a9
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 03/23/2018
-ms.date: 05/25/2018
+ms.date: 07/06/2018
 ms.author: v-junlch
-ms.openlocfilehash: 0526e8cebb87125e9cc78e4764e89e0d276f6bb1
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 4271f987d6ae54274b85ba09f94c2ee50cfa0758
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34559413"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873697"
 ---
 # <a name="plan-your-vm-backup-infrastructure-in-azure"></a>在 Azure 中计划 VM 备份基础结构
 本文提供性能和资源建议，帮助规划 VM 备份基础结构。 文中还定义了备份服务的主要方面；这些方面对于决定体系结构、容量规划和计划安排至关重要。 如果已[准备好环境](backup-azure-arm-vms-prepare.md)，请首先进行此规划，然后再开始[备份 VM](backup-azure-arm-vms.md)。 如需有关 Azure 虚拟机的详细信息，请参阅[虚拟机文档](../virtual-machines/index.md)。
@@ -156,4 +150,4 @@ VM 备份定价并非基于附加到虚拟机的每个数据磁盘的最大支�
 - [恢复虚拟机](backup-azure-arm-restore-vms.md)
 - [解决 VM 备份问题](backup-azure-vms-troubleshoot.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

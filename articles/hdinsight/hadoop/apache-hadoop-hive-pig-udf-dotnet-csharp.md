@@ -17,16 +17,16 @@ ms.topic: article
 origin.date: 02/27/2018
 ms.date: 05/21/2018
 ms.author: v-yiso
-ms.openlocfilehash: 4ae4aefacfbd412da6b9f9c9211c4e52d924c983
-ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
+ms.openlocfilehash: b9f1629b8554f493cddbe97d51a99747f8f6c1f8
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34449937"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873315"
 ---
 # <a name="use-c-user-defined-functions-with-hive-and-pig-streaming-on-hadoop-in-hdinsight"></a>在 HDInsight 中的 Hadoop 上将 C# 用户定义函数与 Hive 和 Pig 流式处理配合使用
 
-[!INCLUDE [azure-sdk-developer-differences](../../../includes/azure-sdk-developer-differences.md)]
+
 
 了解如何在 HDInsight 中将 C# 用户定义函数 (UDF) 与 Apache Hive 和 Pig 配合使用。
 
