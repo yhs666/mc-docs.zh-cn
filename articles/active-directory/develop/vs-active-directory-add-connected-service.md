@@ -1,26 +1,24 @@
 ---
-title: 在 Visual Studio 中使用连接服务添加 Azure Active Directory | Microsoft Docs
+title: 在 Visual Studio 中使用连接服务添加 Azure Active Directory
 description: 使用 Visual Studio 中的“添加连接服务”对话框添加 Azure Active Directory
-services: visual-studio-online
-documentationcenter: na
+services: active-directory
 author: ghogen
 manager: douge
-editor: ''
 ms.assetid: f599de6b-e369-436f-9cdc-48a0165684cb
-ms.service: active-directory
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: azure
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 origin.date: 03/12/2018
-ms.date: 05/04/2018
+ms.date: 07/03/2018
 ms.author: v-junlch
-ms.openlocfilehash: b2ca2474d1de1ce67e1b5a7525395ce67c293164
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: 59c64916ebd30614d18d64e1025c01a75056ef6a
+ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33814954"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37800479"
 ---
 # <a name="adding-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>在 Visual Studio 中使用连接服务添加 Azure Active Directory
 
@@ -32,7 +30,8 @@ ms.locfileid: "33814954"
 
 ## <a name="prerequisites"></a>先决条件
 
-- Azure 帐户：如果没有 Azure 帐户，可以[注册试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+- Azure 帐户：如果没有 Azure 帐户，可以[注册试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
+- **Visual Studio 2015** 或更高版本。 [立即下载 Visual Studio 2017](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs)。
 
 ### <a name="connect-to-azure-active-directory-using-the-connected-services-dialog"></a>使用“连接服务”对话框连接到 Azure Active Directory
 
@@ -79,4 +78,4 @@ ms.locfileid: "33814954"
 - [Azure Active Directory 的身份验证方案](active-directory-authentication-scenarios.md)
 - [向 ASP.NET Web 应用添加 Microsoft 登录功能](guidedsetups/active-directory-aspnetwebapp-v1.md)
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

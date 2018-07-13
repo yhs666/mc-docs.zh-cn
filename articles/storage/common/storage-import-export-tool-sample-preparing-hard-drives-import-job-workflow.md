@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 04/07/2017
 ms.date: 08/28/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 9d2dd6af0f57a2018024a561d16ee50b53a05da2
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.openlocfilehash: e8d6dd7c4686a6518dcea04e10d6ba233e6f0437
+ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
-ms.locfileid: "21135130"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37800365"
 ---
 # <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>为导入作业准备硬盘驱动器的示例工作流
 
@@ -35,7 +35,7 @@ ms.locfileid: "21135130"
 |H:\Video\ |视频集合|12 TB|
 |H:\Photo\ |照片集合|30 GB|
 |K:\Temp\FavoriteMovie.ISO|Blu-Ray™ 磁盘映像|25 GB|
-|\\\bigshare\john\music\|网络共享上的音乐文件集合|10 GB|
+|\\\bigshare\john\music\| 网络共享上的音乐文件集合|10 GB|
 
 ## <a name="storage-account-destinations"></a>存储帐户目标
 
@@ -77,7 +77,7 @@ K:\Temp\FavoriteVideo.ISO,favorite/FavoriteVideo.ISO,BlockBlob,rename,None,H:\my
 
 此外，可为所有文件设置以下元数据：
 
-* **UploadMethod：** Microsoft Azure 导入/导出服务
+* **UploadMethod：** Azure 导入/导出服务
 * **DataSetName：** SampleData
 * **CreationDate：** 10/1/2013
 

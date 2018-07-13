@@ -3,24 +3,25 @@ title: Azure AD Node.js Web API 入门 | Microsoft Docs
 description: 如何生成一个与 Azure AD 集成、可用于身份验证的 Node.js REST Web API。
 services: active-directory
 documentationcenter: nodejs
-author: craigshoemaker
+author: CelesteDG
 manager: mtillman
 ms.assetid: 7654ab4c-4489-4ea5-aba9-d7cdc256e42a
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 origin.date: 11/30/2017
-ms.date: 01/17/2018
+ms.date: 07/03/2018
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: a357ecdf50c7f293a5ea59a405d19232c4fb3d93
-ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
+ms.openlocfilehash: d52a35aab80856c82d6ba78617c226b47b1903a7
+ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2018
-ms.locfileid: "29993197"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37800446"
 ---
 # <a name="azure-ad-nodejs-web-api-getting-started"></a>Azure AD Node.js Web API 入门
 
@@ -76,7 +77,7 @@ az ad app create --display-name node-aad-demo --homepage http://localhost --iden
 | 租户名称  | 要用于身份验证的[租户名称](active-directory-howto-tenant.md) | `tenantName`  |
 | 客户端 ID  | 客户端 ID 是对 AAD _应用程序 ID_ 使用的 OAuth 术语。 |  `clientID`  |
 
-从 Azure Cloud Shell 的注册响应中，复制 `appId` 值并创建名为 `config.js` 的新文件。 接下来，添加以下代码，并将带有括号的标记替换为自己的值：
+从 Azure powershell 的注册响应中，复制 `appId` 值并创建名为 `config.js` 的新文件。 接下来，添加以下代码，并将带有括号的标记替换为自己的值：
 
 ```JavaScript
 const tenantName    = //<YOUR_TENANT_NAME>;
@@ -243,4 +244,4 @@ Unauthorized
 > [!div class="nextstepaction"]
 > [使用 Azure AD 进行 Node.js Web 应用登录和注销](active-directory-devquickstarts-openidconnect-nodejs.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

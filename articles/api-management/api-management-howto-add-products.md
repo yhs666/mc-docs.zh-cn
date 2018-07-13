@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-origin.date: 11/19/2017
-ms.date: 06/18/2018
+origin.date: 06/15/2018
+ms.date: 07/16/2018
 ms.author: apimpm
-ms.openlocfilehash: 48c99a44b6a1ec97d214718c61ac342f7bb0696e
-ms.sourcegitcommit: 794b9caca1147f1891513410dd61435708ef85ec
+ms.openlocfilehash: 1842eaed376eb9fef587437dc35c84c7c3ba20c6
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34855408"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873530"
 ---
 # <a name="create-and-publish-a-product"></a>创建和发布产品  
 
@@ -32,7 +32,7 @@ ms.locfileid: "34855408"
 > * 创建和发布产品
 > * 将 API 添加到产品
 
-![已添加产品](media/api-management-howto-add-products/added-product.png)
+![添加产品](media/api-management-howto-add-products/added-product.png)
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -42,7 +42,7 @@ ms.locfileid: "34855408"
 ## <a name="create-and-publish-a-product"></a>创建和发布产品
 
 1. 单击左侧菜单中的“产品”显示“产品”页。
-2. 单击“+ 产品”。
+2. 单击“+ 添加”。
 
     ![已添加产品](media/api-management-howto-add-products/add-product.png)
 
@@ -67,7 +67,7 @@ ms.locfileid: "34855408"
 
 通过“订阅”选项卡查看/添加产品的订阅者。
 
-通过“访问控制”选项卡设置要向开发人员或来宾显示的产品。
+通过“访问控制”选项卡为开发人员或来宾设置产品可见性。
 
 ## <a name="add-apis"> </a>将 API 添加到产品
 
@@ -77,10 +77,13 @@ ms.locfileid: "34855408"
 
 ### <a name="add-an-api-to-an-existing-product"></a>将 API 添加到现有产品
 
-1. 选择产品。
-2. 选择“API”选项卡。
-3. 单击“+ API”。
-4. 选择 API 并单击“创建”。
+![添加产品 API](media/api-management-howto-add-products/add-product-api.png)
+
+1. 从“产品”选项卡中选择一个产品。
+2. 导航到 **API** 文件夹。
+3. 单击“+ 添加”。
+4. 选择 API 并单击“选择”。
+
 ## <a name="next-steps"></a>后续步骤
 
 在本教程中，你已学习了如何执行以下操作：

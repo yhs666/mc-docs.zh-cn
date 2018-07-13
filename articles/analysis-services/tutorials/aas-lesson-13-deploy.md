@@ -9,12 +9,12 @@ origin.date: 04/12/2018
 ms.date: 04/30/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 08cfb06d2e67788853e097c39071d45baba5c99d
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 8a5c7abcc2b4b2965937dc6a04684cd7e8d39ff2
+ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121139"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37405318"
 ---
 # <a name="deploy"></a>部署
 
@@ -29,7 +29,8 @@ ms.locfileid: "32121139"
 > 必须在远程 Analysis Services 服务器上拥有[管理员权限](../analysis-services-server-admins.md)才能向其进行部署。  
 
 > [!IMPORTANT]  
-> 如果在本地 SQL Server 上安装了 AdventureWorksDW2014 示例数据库，并且要将模型部署到 Azure Analysis Services 服务器，则需要[本地数据网关](../analysis-services-gateway.md)。
+> 如果在本地 SQL Server 上安装了 AdventureWorksDW2014 示例数据库，并且要将模型部署到 Azure Analysis Services 服务器，则需要本地数据网关。
+<!--Not Available on [On-premises data gateway](../analysis-services-gateway.md) -->
 
 ## <a name="deploy-the-model"></a>部署模型  
 
@@ -53,7 +54,7 @@ ms.locfileid: "32121139"
 
 2.  右键单击“AW Internet 销售”项目，并单击“部署”。
 
-    部署到 Azure Analysis Services 时，可能会提示输入帐户。 输入组织帐户和密码，例如 nancy@adventureworks.com。此帐户必须位于服务器上的管理员组中。
+    部署到 Azure Analysis Services 时，可能会提示输入帐户。 输入组织帐户和密码，例如 nancy@adventureworks.com。 此帐户必须位于服务器上的管理员组中。
 
     “部署”对话框会出现，其中显示了模型中包括的元数据和每个表的部署状态。  
 

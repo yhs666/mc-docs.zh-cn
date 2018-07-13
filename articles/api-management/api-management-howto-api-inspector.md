@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-origin.date: 11/19/2017
-ms.date: 06/18/2018
+origin.date: 06/15/2018
+ms.date: 07/16/2018
 ms.author: v-yiso
-ms.openlocfilehash: 6b04a904afa5917651232af4916adaf06ffbe91c
-ms.sourcegitcommit: 794b9caca1147f1891513410dd61435708ef85ec
+ms.openlocfilehash: 2ee726eae496b6af050416b66fefa492cb9c03a6
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34855386"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873538"
 ---
 # <a name="debug-your-apis-using-request-tracing"></a>使用请求跟踪调试 API
 
@@ -45,6 +45,9 @@ ms.locfileid: "34855386"
 3. 选择“GetSpeakers”操作。
 4. 切换到“测试”选项卡。
 5. 请确保包含名为 **Ocp-Apim-Trace**、值设置为 **true** 的 HTTP 标头。
+
+    ![API 跟踪标头](media/api-management-howto-api-inspector/api-management-tracing-header.png)
+
 6. 单击“发送”发出 API 调用。 
 7. 等待调用完成。 
 8. 在“API 控制台”中转到“跟踪”选项卡。 可以单击以下任一链接跳转到详细跟踪信息：“入站”、“后端”或“出站”。

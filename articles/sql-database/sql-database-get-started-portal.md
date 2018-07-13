@@ -11,12 +11,12 @@ ms.topic: quickstart
 origin.date: 05/22/2018
 ms.date: 07/02/2018
 ms.author: v-nany
-ms.openlocfilehash: 3746a142cb0fb5b98fd510107217aa6141d150a1
-ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
+ms.openlocfilehash: d0e5ef2721dd287630e6672df1d865a1bcbfe4f4
+ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36947922"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37800391"
 ---
 # <a name="create-an-azure-sql-database-in-the-azure-portal"></a>在 Azure 门户中创建 Azure SQL 数据库
 
@@ -65,7 +65,7 @@ ms.locfileid: "36947922"
    | **密码** | 任何有效的密码 | 密码必须至少有 8 个字符，且必须包含以下类别中的三个类别的字符：大写字符、小写字符、数字以及非字母数字字符。 |
    | **订阅** | 你的订阅 | 有关订阅的详细信息，请参阅[订阅](https://account.windowsazure.cn/Subscriptions)。 |
    | **资源组** | MyResourceGroup | 如需有效的资源组名称，请参阅 [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)（命名规则和限制）。 |
-   | **位置** | 任何有效的位置 | 中国东部和中国北部 |
+   | **位置** | 任何有效的位置 | 中国东部、中国东部 2、中国北部、中国北部 2 |
 
    > [!IMPORTANT]
    > 此处指定的服务器管理员登录名和密码是以后在本快速入门中登录到服务器及其数据库所必需的。 请牢记或记录此信息，以后会使用到它。

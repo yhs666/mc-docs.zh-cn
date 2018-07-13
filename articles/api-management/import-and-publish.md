@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-origin.date: 11/15/2017
-ms.date: 06/18/2018
+origin.date: 06/15/2018
+ms.date: 07/16/2018
 ms.author: v-yiso
-ms.openlocfilehash: 61f97ee441e7b616e69be43d309e614638efaf5a
-ms.sourcegitcommit: 794b9caca1147f1891513410dd61435708ef85ec
+ms.openlocfilehash: 07aa4509740cdb6f6efb0548487d1bdf64b8b004
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34855407"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873397"
 ---
 # <a name="import-and-publish-your-first-api"></a>导入和发布第一个 API 
 
@@ -54,6 +54,8 @@ ms.locfileid: "34855407"
 
     可在创建时设置 API 或稍后转到“设置”选项卡进行设置。带有红色星号的字段是必填的。
 
+    使用下表中的值创建第一个 API。
+
     |设置|值|说明|
     |---|---|---|
     |**OpenAPI 规范**|http://conferenceapi.azurewebsites.net?format=json|引用实现 API 的服务。 API 管理将请求转发到此地址。|
@@ -79,7 +81,9 @@ ms.locfileid: "34855407"
     ![测试 API](./media/api-management-get-started/test-api.png)
     
 3. 单击“GetSpeakers”。
-    该页显示查询参数的字段，但在此示例中，我们并没有这些字段。 此外，还会显示标头的字段。 其中一个标头是“Ocp-Apim-Subscription-Key”，适用于和此 API 关联的产品订阅密钥。 将自动填充该密钥。
+
+    该页显示查询参数（在此示例中无）和标头的字段。 其中一个标头是“Ocp-Apim-Subscription-Key”，适用于和此 API 关联的产品订阅密钥。 将自动填充该密钥。
+    
 4. 按“发送”。
 
     后端以“200 正常”和某些数据做出响应。
@@ -88,10 +92,14 @@ ms.locfileid: "34855407"
 
 此外，也可以从**开发人员门户**调用操作来测试 API。 
 
-1. 选择“演示会议 API”。
-2. 单击“GetSpeakers”。
+1. 导航到**开发人员门户**。
+
+    ![开发人员门户](./media/api-management-get-started/developer-portal.png)
+
+2. 选择 **API**，依次单击“演示会议 API”和 **GetSpeakers**。
     
-    该页显示查询参数的字段，但在此示例中，我们并没有这些字段。 此外，还会显示标头的字段。 其中一个标头是“Ocp-Apim-Subscription-Key”，适用于和此 API 关联的产品订阅密钥。 如果创建了 APIM 实例，那么你已是管理员，因此会自动填充该密钥。
+    该页显示查询参数（在此示例中无）和标头的字段。 其中一个标头是“Ocp-Apim-Subscription-Key”，适用于和此 API 关联的产品订阅密钥。 如果创建了 APIM 实例，那么你已是管理员，因此会自动填充该密钥。
+    
 3. 按“试用”。
 4. 按“发送”。
     

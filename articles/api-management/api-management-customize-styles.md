@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-origin.date: 11/19/2017
-ms.date: 06/18/2018
+origin.date: 06/15/2018
+ms.date: 07/16/2018
 ms.author: v-yiso
-ms.openlocfilehash: e89e44e9b449192ffad04a8076422e5eada5806f
-ms.sourcegitcommit: 794b9caca1147f1891513410dd61435708ef85ec
+ms.openlocfilehash: b8987a854824a120064a5f5978ea8c1da37679f5
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34855389"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873296"
 ---
 # <a name="customize-the-style-of-the-developer-portal-pages"></a>自定义开发人员门户页面的样式
 
@@ -86,5 +86,4 @@ ms.locfileid: "34855389"
 > * 自定义**开发人员**门户页面中元素的样式
 > * 查看更改
 
-> [!div class="nextstepaction"]
-> [使用模板自定义 Azure API 管理开发人员门户](api-management-developer-portal-templates.md)
+你可能还有兴趣了解[如何使用模板自定义 Azure API 管理开发人员门户](api-management-developer-portal-templates.md)。

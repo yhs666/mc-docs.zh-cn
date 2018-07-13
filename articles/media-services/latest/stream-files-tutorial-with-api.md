@@ -13,12 +13,12 @@ ms.custom: mvc
 origin.date: 04/09/2018
 ms.date: 06/25/2018
 ms.author: v-nany
-ms.openlocfilehash: d3498efffaced74088638f4f33cd4bee4d53e4df
-ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
+ms.openlocfilehash: aa89b1d510f5059d179012faa2f562444da38d6d
+ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36748379"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37800499"
 ---
 # <a name="tutorial-upload-encode-and-stream-videos-using-apis"></a>教程：使用 API 上传、编码和流式传输视频
 
@@ -432,9 +432,9 @@ Azure Media Player 可用于测试，但不可在生产环境中使用。
 
 ## <a name="clean-up-resources"></a>清理资源
 
-如果不再需要资源组中的任何一个资源（包括为本教程创建的媒体服务和存储帐户），请删除之前创建的资源组。 可以使用 **PowerShell** 工具。
+如果不再需要资源组中的任何一个资源（包括为本教程创建的媒体服务和存储帐户），请删除之前创建的资源组。 可以使用 Azure CLI 命令。
 
-在 **PowerShell** 中执行以下命令：
+运行以下命令：
 
 ```cli
 az group delete --name amsResourceGroup

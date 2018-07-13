@@ -9,12 +9,12 @@ origin.date: 04/12/2018
 ms.date: 04/30/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2a55f7d5713178f71cf634bd0fe880dd394afa0e
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: c1d286b82d7bb5985322ff93d4035c2cd273590f
+ms.sourcegitcommit: 66868bb736a3f5938102c66efd6454b46343151c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121092"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873133"
 ---
 # <a name="tutorial-add-a-sample-model"></a>教程：添加示例模型
 
@@ -50,8 +50,9 @@ ms.locfileid: "32121092"
 示例模型使用了缓存内存资源。 如果不使用示例模型进行测试，则应将其从服务器中删除。
 
 > [!NOTE]
-> 下面的步骤介绍了如何使用 SSMS 从服务器中删除模型。 也可以使用预览版 Web 设计器功能来删除模型。
+> 下面的步骤介绍了如何使用 SSMS 从服务器中删除模型。 
 
+<!-- Not Available on You can also delete a model by using the preview Web designer feature.-->
 1. 在 SSMS >“对象资源管理器”中，单击“连接” > “Analysis Services”。
 
 2. 在“连接到服务器”中，粘贴服务器名称，然后在“身份验证”中选择“Active Directory - 支持 MFA 的通用身份验证”，输入你的用户名，然后单击“连接”。

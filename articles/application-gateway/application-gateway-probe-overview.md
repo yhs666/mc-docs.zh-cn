@@ -2,24 +2,19 @@
 title: Azure 应用程序网关的运行状况监视概述
 description: 了解 Azure 应用程序网关中的监视功能
 services: application-gateway
-documentationcenter: na
 author: vhorne
 manager: jpconnock
-tags: azure-resource-manager
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-origin.date: 03/30/2018
-ms.date: 06/07/2018
+origin.date: 06/15/2018
+ms.date: 07/02/2018
 ms.author: v-junlch
-ms.openlocfilehash: 8aec9eb49cd278e0c861290745926855b71b6bd5
-ms.sourcegitcommit: 4fe9905d17a8df9f2270543a5a0ce1762a5830c9
+ms.openlocfilehash: aee3852660c1bbc8f458a7ba443ce7a5cb142acf
+ms.sourcegitcommit: f0bfa3f8dca94099a2181492952e6a575fbdbcc8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34855705"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37142576"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>应用程序网关运行状况监视概述
 
@@ -28,9 +23,6 @@ ms.locfileid: "34855705"
 ![应用程序网关探测示例][1]
 
 除了使用默认的运行状况探测监视以外，还可以根据应用程序的要求自定义运行状况探测。 本文介绍默认的和自定义的运行状况探测。
-
-> [!NOTE]
-> 如果应用程序网关子网上存在 NSG，则应在入站流量的应用程序网关子网上打开端口范围 65503-65534。 这些端口是确保后端运行状况 API 正常工作所必需的。
 
 ## <a name="default-health-probe"></a>默认的运行状况探测
 
@@ -94,6 +86,12 @@ $match = New-AzureRmApplicationGatewayProbeHealthResponseMatch -Body "Healthy"
 > [!IMPORTANT]
 > 如果在应用程序网关中设置了单站点，则默认情况下，除非已在自定义探测中进行配置，否则应将主机名指定为“127.0.0.1”。
 > 例如，自定义探测发送到 \<协议\>://\<主机\>:\<端口\>\<路径\>。 所使用的端口与后端 HTTP 设置中定义的端口相同。
+
+## <a name="nsg-considerations"></a>NSG 注意事项
+
+如果应用程序网关子网上存在网络安全组 (NSG)，则必须在应用程序网关子网上打开端口范围 65503-65534，以便接收入站流量。 这些端口是确保后端运行状况 API 正常工作所必需的。
+
+此外，不能阻止出站 Internet 连接，并且必须允许来自 AzureLoadBalancer 标记的流量。
 
 ## <a name="next-steps"></a>后续步骤
 了解应用程序网关的运行状况监视后，可以在 Azure 门户中配置[自定义运行状况探测](application-gateway-create-probe-portal.md)，或使用 PowerShell 和 Azure Resource Manager 部署模型配置[自定义运行状况探测](application-gateway-create-probe-ps.md)。

@@ -1,34 +1,28 @@
 ---
-title: Azure VM 备份常见问题解答 | Microsoft Docs
+title: Azure VM 备份常见问题解答
 description: 针对下述常见问题的解答：Azure VM 备份原理、限制以及更改策略时会发生什么情况
 services: backup
-documentationcenter: ''
 author: trinadhk
 manager: shreeshd
-editor: ''
 keywords: azure vm 备份, azure vm 还原, 备份策略
-ms.assetid: c4cd7ff6-8206-45a3-adf5-787f64dbd7e1
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 07/18/2017
-ms.date: 05/28/2018
+ms.date: 07/06/2018
 ms.author: v-junlch
-ms.openlocfilehash: 95c4dc8ccc3ae3820e93d45feee44912622dec7f
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: e9dde1c6f1ce9e8c684fbd325086bb9b5c11cd40
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34559424"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873284"
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>有关 Azure VM 备份服务的问题
 本文提供常见问题的解答，有助于快速了解 Azure VM 备份组件。 某些答案提供内含全面信息的文章的链接。 还可以在 [论坛](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)中发布有关 Azure 备份服务的问题。
 
 ## <a name="configure-backup"></a>配置备份
 ### <a name="do-recovery-services-vaults-support-classic-vms-or-resource-manager-based-vms-br"></a>恢复服务保管库是否支持经典 VM 或基于 Resource Manager 的 VM？ <br/>
-恢复服务保管库同时支持这两种模型。  可以将经典 VM 或资源管理器 VM（在 Azure 门户中创建）备份到恢复服务保管库。
+恢复服务保管库同时支持这两种模型。  可以将经典 VM 或资源管理器 VM 备份到恢复服务保管库。
 
 ### <a name="what-configurations-are-not-supported-by-azure-vm-backup"></a>Azure VM 备份不支持哪些配置？
 请参阅[支持的操作系统](backup-azure-arm-vms-prepare.md#supported-operating-systems-for-backup)和 [VM 备份限制](backup-azure-arm-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm)

@@ -9,22 +9,22 @@ editor: tysonn
 ms.assetid: 493b7932-8d1e-4499-912c-26098282ec95
 ms.service: azure-resource-manager
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 07/31/2017
-ms.date: 05/28/2018
+ms.date: 07/09/2018
 ms.author: v-yeche
-ms.openlocfilehash: 81f6b3de6d4ed6a3e09560ed0cde4bc4a6b48f6a
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: c21f4f83909a67291897da8665fbb150e3f56741
+ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867397"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37405223"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>使用 Resource Manager 模板和 Azure CLI 部署资源
 
-本文介绍了如何将 Azure CLI 2.0 与资源管理器模板配合使用将资源部署到 Azure。 如果不熟悉部署和管理 Azure 解决方案的概念，请参阅 [Azure Resource Manager 概述](resource-group-overview.md)。  
+本文介绍了如何将 Azure CLI 与资源管理器模板配合使用将资源部署到 Azure。 如果不熟悉部署和管理 Azure 解决方案的概念，请参阅 [Azure Resource Manager 概述](resource-group-overview.md)。  
 
 部署的 Resource Manager 模板可以是计算机上的本地文件，也可以是位于 GitHub 等存储库中的外部文件。 本文中部署的模板可在[示例模板](#sample-template)部分中找到，也可在 [GitHub 中的存储帐户模板](https://github.com/Azure/azure-quickstart-templates/blob/master/101-storage-account-create/azuredeploy.json)中找到。
 
@@ -82,7 +82,7 @@ az group deployment create \
 前面的示例要求模板的 URI 可公开访问，它适用于大多数情况，因为模板应该不会包含敏感数据。 如果需要指定敏感数据（如管理员密码），请以安全参数的形式传递该值。 但是，如果不希望模板可公开访问，可以通过将其存储在专用存储容器中来保护它。 若要了解如何部署需要共享访问签名 (SAS) 令牌的模板，请参阅[部署具有 SAS 令牌的专用模板](resource-manager-cli-sas-token.md)。
 
 <!-- Not Available on Cloud Shell -->
-```cli
+```azurecli
 az group create --name examplegroup --location "China East"
 az group deployment create --resource-group examplegroup \
   --template-uri <copied URL> \
@@ -125,7 +125,7 @@ az group deployment create \
 
 ## <a name="test-a-template-deployment"></a>测试模板部署
 
-若要测试模板和参数值而不实际部署任何资源，请使用 [az group deployment validate](https://docs.azure.cn/zh-cn/cli/group/deployment?view=azure-cli-latest#az_group_deployment_validate)。 
+若要测试模板和参数值而不实际部署任何资源，请使用 [az group deployment validate](https://docs.azure.cn/zh-cn/cli/group/deployment?view=azure-cli-latest#az-group-deployment-validate)。 
 
 ```azurecli
 az group deployment validate \
@@ -242,6 +242,8 @@ az group deployment create \
 * 若要了解如何在模板中定义参数，请参阅[了解 Azure Resource Manager 模板的结构和语法](resource-group-authoring-templates.md)。
 * 有关解决常见部署错误的提示，请参阅[排查使用 Azure Resource Manager 时的常见 Azure 部署错误](resource-manager-common-deployment-errors.md)。
 * 有关部署需要 SAS 令牌的模板的信息，请参阅[使用 SAS 令牌部署专用模板](resource-manager-cli-sas-token.md)。
-* 有关企业可如何使用 Resource Manager 有效管理订阅的指南，请参阅 [Azure 企业基架 - 出于合规目的监管订阅](resource-manager-subscription-governance.md)。
+* 有关企业可如何使用 Resource Manager 有效管理订阅的指南，请参阅 [Azure 企业基架 - 出于合规目的监管订阅](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/subscription-governance)。
 
-<!--Update_Description: update meta properties, wording update  -->
+<!--The parent file of includes file of sample-cli-install.md-->
+<!--ms.date:07/09/2018-->
+<!--Update_Description: update meta properties, wording update-->

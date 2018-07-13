@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 04/10/2018
 ms.date: 06/25/2018
 ms.author: v-yeche
-ms.openlocfilehash: 329a66455c92cae0669055d65d69f4fb164d2db8
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.openlocfilehash: 915f1cbaced5657c7cfc0cc0adc12567c9ebc7bc
+ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315520"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37405263"
 ---
 # <a name="create-a-snapshot"></a>创建快照
 
@@ -36,7 +36,7 @@ ms.locfileid: "36315520"
 6. 选择 Azure 数据中心“位置”。  
 7. 对于**源磁盘**，选择要获取其快照的托管磁盘。
 8. 选择用于存储快照的“帐户类型”。 建议使用 **Standard_LRS**，除非需要将其存储在高性能磁盘上。
-9. 单击“创建”。
+9. 单击**创建**。
 
 ## <a name="use-powershell-to-take-a-snapshot"></a>使用 PowerShell 创建快照
 
@@ -71,7 +71,8 @@ $snapshot =  New-AzureRmSnapshotConfig `
 ```
 
 > [!NOTE]
-> 如果希望将快照存储在具有区域复原能力的存储中，需要在支持[可用性区域](../../availability-zones/az-overview.md)的区域中创建该快照并包括 `-SkuName Standard_ZRS` 参数。   
+> 如果希望将快照存储在具有区域复原能力的存储中，需要在支持可用性区域的区域中创建该快照并包括 `-SkuName Standard_ZRS` 参数。   
+<!--Not Available on [availability zones](../../availability-zones/az-overview.md)-->
 
 创建快照。
 

@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/09/2017
-ms.date: 10/13/2017
+ms.date: 07/06/2018
 ms.author: v-junlch
-ms.openlocfilehash: 021f089a44c2d1563e2bde32169d8ccf6eada5aa
-ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ms.openlocfilehash: 033115dba13a1ca6fae7fb49dd918232429fd28f
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
-ms.locfileid: "23407591"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873599"
 ---
 # <a name="create-a-cognitive-services-apis-account-in-the-azure-portal"></a>在 Azure 门户中创建认知服务 API 帐户
 
@@ -28,23 +28,21 @@ ms.locfileid: "23407591"
 
 1. 登录到 [Azure 门户](http://portal.azure.cn)。
 
-2. 单击“+ 新建”。
+2. 单击“创建资源”。
 
-3. 选择“AI + 认知服务”，然后可以看到可用 API 的列表。 单击“全部查看”，查看认知服务 API 的完整列表。 单击所选的 API 以继续。
+3. 选择“数据 + 分析”，然后可以看到可用 API 的列表。 单击“全部查看”，查看认知服务 API 的完整列表。 单击所选的 API 以继续。
 
-    ![选择认知服务 API](./media/cognitive-services-apis-create-account/select-cognitive-services-apis.png)
+    ![选择认知服务 API](./media/cognitive-services-apis-create-account/1.png)
 
 4. 在“创建”页中提供以下信息： 
 
-   - **帐户名：** 帐户的名称。 我们建议使用描述性的名称，例如 *AFaceAPIAccount*。
+   - **名称：** 帐户的名称。 我们建议使用描述性的名称，例如 *AFaceAPIAccount*。
 
    - **订阅：** 选择一个可用的至少具有参与者权限的 Azure 订阅。
 
    - **API 类型：** 选择想要使用的认知服务 API。 有关可用的各种认知服务 API 的详细信息，请参考[认知服务](/cognitive-services/)站点。
 
-        ![选择 API 类型](./media/cognitive-services-apis-create-account/list-of-apis.png)
-
-   - **定价层：** 认知服务帐户的费用取决于实际用量和所选的选项。 有关每个 API 的定价的详细信息，请参考[定价页](https://www.azure.cn/pricing/details/cognitive-services/)。
+        ![选择 API 类型](./media/cognitive-services-apis-create-account/2.png)
 
    - **资源组：** 资源组是具有共同生命周期、权限和策略的资源的集合。 若要了解有关资源组的详细信息，请参阅[通过门户管理 Azure 资源](/azure-resource-manager/resource-group-portal)。
 
@@ -63,12 +61,6 @@ ms.locfileid: "23407591"
 6. 单击“创建”  以创建帐户。
 
 成功部署认知服务帐户后，单击仪表板中的磁贴以查看帐户信息。
-
-可以使用“概览”部分的“终结点 URL”和“密钥”部分的密钥在应用程序中进行 API 调用。
-
-![显示帐户信息](./media/cognitive-services-apis-create-account/display-account.png)
-
-![显示帐户密钥](./media/cognitive-services-apis-create-account/account-keys.png)
 
 ### <a name="next-steps"></a>后续步骤
 

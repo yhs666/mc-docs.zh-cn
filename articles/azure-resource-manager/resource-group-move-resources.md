@@ -3,7 +3,7 @@ title: 将 Azure 资源移到新的订阅或资源组 | Azure
 description: 使用 Azure Resource Manager 将资源移到新的资源组或订阅。
 services: azure-resource-manager
 documentationcenter: ''
-author: luanmafeng
+author: rockboyfor
 manager: digimobile
 editor: tysonn
 ms.assetid: ab7d42bd-8434-4026-a892-df4a97b60a9b
@@ -11,22 +11,22 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-origin.date: 05/14/2018
-ms.date: 05/28/2018
+ms.topic: conceptual
+origin.date: 06/14/2018
+ms.date: 07/09/2018
 ms.author: v-yeche
-ms.openlocfilehash: b1e559040f3a6f883b51dc11a70fd0c873e917ca
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: 777ebda11c8f345e6f74d80f0076b6dfae675718
+ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867483"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37405399"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>将资源移到新资源组或订阅中
 
 本文说明了如何将资源移动到新订阅，或移动到同一个订阅中的新资源组。 可以使用门户、PowerShell、Azure CLI 或 REST API 移动资源。 无需 Azure 支持人员的任何协助，即可使用本文中所述的移动操作。
 
-移动资源时，源组和目标组会被锁定，直到移动操作完成。 在完成移动之前，将阻止对资源组执行写入和删除操作。 此锁意味着用户无法添加、更新或删除资源组中的资源，但并不意味着资源处于冻结状态。 例如，如果将 SQL Server 及其数据库移到新的资源组中，使用数据库的应用程序体验不到停机， 仍可读取和写入到数据库。
+移动资源时，源组和目标组会被锁定，直到移动操作完成。 在完成移动之前，将阻止对资源组执行写入和删除操作。 此锁意味着将无法添加、更新或删除资源组中的资源，但并不意味着资源已被冻结。 例如，如果将 SQL Server 及其数据库移到新的资源组中，使用数据库的应用程序体验不到停机， 仍可读取和写入到数据库。
 
 不能更改该资源的位置。 移动资源仅能够将其移动到新的资源组。 新的资源组可能有不同的位置，但这不会更改该资源的位置。
 
@@ -51,16 +51,17 @@ ms.locfileid: "34867483"
 
     对于 Azure CLI，请使用：
 
-  ```cli
-  az account show --subscription <your-source-subscription> --query tenantId
-  az account show --subscription <your-destination-subscription> --query tenantId
-  ```
+    ```azurecli
+    az account show --subscription <your-source-subscription> --query tenantId
+    az account show --subscription <your-destination-subscription> --query tenantId
+    ```
 
-    如果源订阅和目标订阅的租户 ID 不相同，可使用以下方法协调租户 ID： 
+    如果源订阅和目标订阅的租户 ID 不相同，可使用以下方法协调租户 ID：
 
     <!-- Not Available on * [Transfer ownership of an Azure subscription to another account](../billing/billing-subscription-transfer.md) -->
     * [如何将 Azure 订阅关联或添加到 Azure Active Directory](../active-directory/active-directory-how-subscriptions-associated-directory.md)
-
+    <!--URL not contains fundamentals directory-->
+    
 2. 服务必须支持移动资源的功能。 本文列出了支持对资源进行移动的服务和不支持对资源进行移动的服务。
 3. 必须针对要移动的资源的资源提供程序注册目标订阅。 否则，会收到错误，指明 **未针对资源类型注册订阅**。 将资源移到新的订阅时，可能会遇到此问题，但该订阅从未配合该资源类型使用。
 
@@ -79,21 +80,24 @@ ms.locfileid: "34867483"
 
     对于 Azure CLI，请使用以下命令来获取注册状态：
 
-  ```cli
-  az account set -s <destination-subscription-name-or-id>
-  az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table
-  ```
+    ```azurecli
+    az account set -s <destination-subscription-name-or-id>
+    az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table
+    ```
 
     若要注册资源提供程序，请使用：
 
-  ```cli
-  az provider register --namespace Microsoft.Batch
-  ```
+    ```azurecli
+    az provider register --namespace Microsoft.Batch
+    ```
 
 4. 移动资源的帐户至少需要具备下列权限：
 
     * 源资源组上的 Microsoft.Resources/subscriptions/resourceGroups/moveResources/action 权限。
     * 目标资源组上的 Microsoft.Resources/subscriptions/resourceGroups/write 权限。
+5. 在移动资源之前，请检查要将资源移动到的订阅的订阅配额。 如果移动资源意味着订阅将超出其限制，则需要检查是否可以请求增加配额。 有关限制的列表及如何请求增加配额的信息，请参阅 [Azure 订阅和服务限制、配额与约束](../azure-subscription-service-limits.md)。
+
+5. 在可能的情况下，将大型移动分为单独的移动操作。 在一次操作中尝试移动超过 800 项资源，资源管理器将立即失败。 但是，移动 800 项以下的资源也可能因超时而失败。
 
 ## <a name="when-to-call-support"></a>致电支持人员的时机
 
@@ -113,17 +117,14 @@ ms.locfileid: "34867483"
 
 * API 管理
 * 应用服务应用（Web 应用）- 请参阅[应用服务限制](#app-service-limitations)
-* 应用服务证书
-<!-- Not Available * Application Insights-->
+* 应用服务证书 <!-- Not Available * Application Insights-->
+* Analysis Services
 * 自动化
-* Azure Cosmos DB
-<!-- Not Available * Azure Relay -->
-* 批处理
-<!-- Not Available * Bing Maps -->
+* Azure Cosmos DB <!-- Not Available * Azure Relay -->
+* Batch <!-- Not Available * Bing Maps -->
 * CDN
 * 云服务 - 请参阅 [经典部署限制](#classic-deployment-limitations)
-* 认知服务
-<!-- Not Available * Content Moderator-->
+* 认知服务 <!-- Not Available * Content Moderator-->
 <!-- Not Available * Data Catalog-->
 <!-- Not Available * Data Factory - V1 can be moved, but moving V2 (preview) is not supported-->
 <!-- Not Available * Data Lake Analytics-->
@@ -135,18 +136,14 @@ ms.locfileid: "34867483"
 * 密钥保管库
 * 负载均衡器 - 请参阅[负载均衡器限制](#lb-limitations)
 <!-- Not Available * Log Analytics-->
-* Logic Apps
-<!-- Not Available * Machine Learning - Machine Learning Studio web services can be moved to a resource group in the same subscription, but not a different subscription. Other Machine Learning resources can be moved across subscriptions.-->
-* 媒体服务
-<!-- Not Available * Mobile Engagement-->
-* 通知中心
-<!-- Not Available * Operational Insights-->
+* 逻辑应用 <!-- Not Available * Machine Learning - Machine Learning Studio web services can be moved to a resource group in the same subscription, but not a different subscription. Other Machine Learning resources can be moved across subscriptions.-->
+* 媒体服务 <!-- Not Available * Mobile Engagement-->
+* 通知中心 <!-- Not Available * Operational Insights-->
 <!-- Not Available * Operations Management-->
 * Power BI - Power BI Embedded 和 Power BI 工作区集合
 * 公共 IP - 请参阅[公共 IP 限制](#pip-limitations)
 * Redis 缓存
-* 计划程序
-<!-- Not Available * Search-->
+* 计划程序 <!-- Not Available * Search-->
 <!-- Not Available * Server Management-->
 * 服务总线
 * Service Fabric
@@ -163,31 +160,30 @@ ms.locfileid: "34867483"
 
 ## <a name="services-that-cannot-be-moved"></a>无法移动的服务
 
-目前不支持移动资源的服务包括：
+目前不可移动资源的服务包括：
 
 <!-- Not Available * AD Domain Services-->
 * AD 混合运行状况服务
 * 应用程序网关
-* Azure Database for MySQL
-<!-- Not Available * Azure Database for PostgreSQL-->
+* Azure Database for MySQL <!-- Not Available * Azure Database for PostgreSQL-->
 <!-- Not Available * Azure Migrate-->
 <!-- Not Available * BizTalk Services-->
 * 证书 - 应用服务证书可以移动，但上传的证书存在[限制](#app-service-limitations)。
+<!-- Not Available * Container Service-->
 <!-- Not Available * DevTest Labs - move to new resource group in same subscription is enabled, but cross subscription move is not enabled.-->
 <!-- Not Available * Dynamics LCS-->
-* Express Route
-<!-- Not Available * Kubernetes Service-->
+* Express Route <!-- Not Available * Kubernetes Service-->
 * 负载均衡器 - 请参阅[负载均衡器限制](#lb-limitations)
 <!-- Not Available * Managed Applications-->
 * 托管磁盘 - 请参阅[虚拟机限制](#virtual-machines-limitations)
 * 公共 IP - 请参阅[公共 IP 限制](#pip-limitations)
-* 恢复服务保管库：也不会移动与恢复服务保管库关联的计算、网络和存储资源，请参阅 [恢复服务限制](#recovery-services-limitations)。
-* 安全性
-<!-- Not Available * StorSimple Device Manager-->
+* 恢复服务保管库 - 此外，也不可以移动与恢复服务保管库关联的计算、网络和存储资源，请参阅[恢复服务限制](#recovery-services-limitations)。
+* 安全性 <!-- Not Available * StorSimple Device Manager-->
 * 虚拟网络（经典）- 请参阅[经典部署限制](#classic-deployment-limitations)
+
 ## <a name="virtual-machines-limitations"></a>虚拟机限制
 
-托管磁盘不支持移动。 此限制意味着，多个相关资源也无法移动。 无法移动：
+托管磁盘不支持移动。 此限制意味着，多个相关资源也无法移动。 无法移动以下项：
 
 * 托管磁盘
 * 包含托管磁盘的虚拟机
@@ -200,7 +196,7 @@ ms.locfileid: "34867483"
 * 使用 [PowerShell](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md) 或 [Azure CLI](../virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription.md) 将托管磁盘复制到同一订阅或不同订阅
 * 通过将现有托管 OS 磁盘与 [PowerShell](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-from-managed-os-disks.md) 或 [Azure CLI](../virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-from-managed-os-disks.md) 配合使用来创建虚拟机。
 
-无法资源组或订阅之间移动基于附加了计划的 Marketplace 资源创建的虚拟机。 在当前订阅中取消预配虚拟机，并在新的订阅中重新部署虚拟机。
+无法跨资源组或订阅移动基于附加了计划的市场资源创建的虚拟机。 在当前订阅中取消预配虚拟机，并在新的订阅中重新部署虚拟机。
 
 证书存储在 Key Vault 中的虚拟机可以移动到同一订阅中的新资源组，但无法跨订阅进行移动。
 
@@ -216,12 +212,13 @@ ms.locfileid: "34867483"
 
 ## <a name="app-service-limitations"></a>应用服务限制
 
-移动通过经典模型部署的资源时，其选项各不相同，具体取决于是在订阅内移动资源，还是将应用服务资源移到新的订阅。
+移动应用服务资源的限制各不相同，具体取决于是在订阅内移动资源，还是将应用服务资源移到新的订阅。
+
 这些部分中所述的限制适用于已上传的证书，不适用于应用服务证书。 可将应用服务证书移动到新的资源组或订阅，且不会存在任何限制。 如果你有多个使用相同应用服务证书的 Web 应用，请先移动所有这些 Web 应用，然后再移动证书。
 
 ### <a name="moving-within-the-same-subscription"></a>在同一订阅中移动
 
-_在同一订阅中_移动 Web 应用时，无法移动已上传的 SSL 证书。 不过，可以将 Web 应用移动到新的资源组而不移动其已上传的 SSL 证书，并且，应用的 SSL 功能仍然可以工作。 
+_在同一订阅中_移动 Web 应用时，无法移动已上传的 SSL 证书。 不过，可以将 Web 应用移动到新的资源组而不移动其已上传的 SSL 证书，并且，应用的 SSL 功能仍然可以工作。
 
 如果希望随 Web 应用移动 SSL 证书，请执行以下步骤：
 
@@ -239,7 +236,7 @@ _在订阅之间_移动 Web 应用时存在以下限制：
     - 上传或导入的 SSL 证书
     - 应用服务环境
 - 资源组中的所有应用服务资源必须一起移动。
-- 只能从最初创建应用服务资源的资源组中移动它们。 如果某个应用服务资源不再位于其原始资源组中，则必须首先将其移动回该原始资源组，然后才能将其在订阅之间移动。 
+- 只能从最初创建应用服务资源的资源组中移动它们。 如果某个应用服务资源不再位于其原始资源组中，则必须首先将其移动回该原始资源组，然后才能将其在订阅之间移动。
 
 ## <a name="classic-deployment-limitations"></a>经典部署限制
 
@@ -264,7 +261,7 @@ _在订阅之间_移动 Web 应用时存在以下限制：
 
 * 必须在同一操作中移动订阅中的所有经典资源。
 * 目标订阅不得包含任何其他经典资源。
-* 只能通过独立的适用于经典移动的 REST API 来请求移动。 将经典资源移到新订阅时，不能使用标准的 Resource Manager 移动命令。
+* 只能通过独立的适用于经典移动的 REST API 来请求移动。 将经典资源移到新订阅时，不能使用标准的资源管理器移动命令。
 
 若要将经典资源移动到新订阅，请使用特定于经典资源的 REST 操作。 若要使用 REST，请执行以下步骤：
 
@@ -323,7 +320,7 @@ _在订阅之间_移动 Web 应用时存在以下限制：
     }
     ```
 
-此操作可能需要运行几分钟。 
+此操作可能需要运行几分钟。
 
 ## <a name="recovery-services-limitations"></a>恢复服务限制
 
@@ -339,13 +336,13 @@ _在订阅之间_移动 Web 应用时存在以下限制：
 
 ## <a name="hdinsight-limitations"></a>HDInsight 限制
 
-可以将 HDInsight 群集移到新订阅或资源组。 但是，不能跨订阅移动链接到 HDInsight 群集的网络资源（例如虚拟网络、NIC 或负载均衡器）。 此外，无法将连接到群集的虚拟机的网卡移到新的资源组。
+可以将 HDInsight 群集移到新订阅或资源组。 但是，无法在订阅之间移动链接到 HDInsight 群集的网络资源（例如虚拟网络、NIC 或负载均衡器）。 此外，无法将连接到群集的虚拟机的 NIC 移到新的资源组。
 
 将 HDInsight 群集移至新订阅时，请先移动其他资源（例如存储帐户）。 然后移动 HDInsight 群集本身。
 
 <!--Not Available ## Search limitations-->
 <a name="lb-limitations"></a>
-## 负载均衡器限制
+##  <a name="load-balancer-limitations"></a>负载均衡器限制
 
 可以移动基本 SKU 负载均衡器。
 不能移动标准 SKU 负载均衡器。
@@ -372,7 +369,7 @@ _在订阅之间_移动 Web 应用时存在以下限制：
 
 ![显示移动状态](./media/resource-group-move-resources/show-status.png)
 
-操作完成后，会获得结果通知。
+操作完成后，你会获得结果通知。
 
 ![显示移动结果](./media/resource-group-move-resources/show-result.png)
 
@@ -390,7 +387,7 @@ Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $webapp.Res
 
 ## <a name="use-azure-cli"></a>使用 Azure CLI
 
-若要将现有资源移动到另一个资源组或订阅，请使用 [az resource move](https://docs.azure.cn/zh-cn/cli/resource?view=azure-cli-latest#az_resource_move) 命令。 提供要移动的资源的资源 ID。 下面的示例演示了如何将多个资源移动到新的资源组。 在 `--ids` 参数中，提供要移动的资源 ID 的空格分隔列表。
+若要将现有资源移动到另一个资源组或订阅，请使用 [az resource move](https://docs.azure.cn/zh-cn/cli/resource?view=azure-cli-latest#az-resource-move) 命令。 提供要移动的资源的资源 ID。 下面的示例演示了如何将多个资源移动到新的资源组。 在 `--ids` 参数中，提供要移动的资源 ID 的空格分隔列表。
 
 ```azurecli
 webapp=$(az resource show -g OldRG -n ExampleSite --resource-type "Microsoft.Web/sites" --query id --output tsv)

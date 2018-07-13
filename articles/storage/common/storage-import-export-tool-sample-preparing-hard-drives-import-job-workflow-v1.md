@@ -15,17 +15,17 @@ ms.topic: article
 origin.date: 01/23/2017
 ms.date: 10/16/2017
 ms.author: v-johch
-ms.openlocfilehash: 841ef61c305913bee1e98a0a1b2a6b68674559f1
-ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
+ms.openlocfilehash: 6a0f0f86a05a1fa8205cc0dd381c0b2a0a1ca02b
+ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
-ms.locfileid: "27548374"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37800500"
 ---
 # <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>为导入作业准备硬盘驱动器的示例工作流
 本主题讲解如何完成为导入作业准备驱动器的整个过程。  
 
-本示例将以下数据导入到名为 `mystorageaccount` 的 Window Azure 存储帐户：  
+本示例将以下数据导入到名为 `mystorageaccount` 的 Azure 存储帐户：  
 
 |位置|说明|  
 |--------------|-----------------|  

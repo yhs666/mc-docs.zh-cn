@@ -16,16 +16,16 @@ ms.workload: big-data
 origin.date: 11/27/2017
 ms.date: 03/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: 05e27da897eaf81847fde773dcf53bb1d192b232
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.openlocfilehash: bc69e3ee831ebbde64a1c51a9bd718482f952da4
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30076124"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873523"
 ---
 # <a name="process-events-from-azure-event-hubs-with-storm-on-hdinsight-c"></a>使用 Storm on HDInsight 从 Azure 事件中心处理事件 (C#)
 
-[!INCLUDE [azure-sdk-developer-differences](../../../includes/azure-sdk-developer-differences.md)]
+
 
 
 [!INCLUDE [azure-visual-studio-login-guide](../../../includes/azure-visual-studio-login-guide.md)]
@@ -47,7 +47,7 @@ HDInsight 3.4 及更高版本使用 Mono 运行 C# 拓扑。 本文档中使用�
 
 项目所使用的 Microsoft.SCP.Net.SDK NuGet 包必须与安装在 HDInsight 上的 Storm 的主要版本匹配。 HDInsight 版本 3.5 和 3.6 使用 Storm 1.x，因此必须对这些群集使用 SCP.NET 版本 1.0.x.x。
 
-[!INCLUDE [hdinsight-linux-acn-version.md](../../../includes/hdinsight-linux-acn-version.md)]
+
 
 > [!IMPORTANT]
 > 本文档中的示例需要 HDInsight 3.5 或 3.6 群集。

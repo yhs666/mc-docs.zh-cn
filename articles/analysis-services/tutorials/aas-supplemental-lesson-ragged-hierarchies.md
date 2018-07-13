@@ -9,16 +9,17 @@ origin.date: 04/12/2018
 ms.date: 04/30/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6d74dac18ede3b3bdd6991801775d58a9cdeee7f
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: ad0f7da289344aeebae3b65b531dbd9dd6cfd7ca
+ms.sourcegitcommit: 292f22020e00c607229c1693229f25fb2837d8af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121462"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37910583"
 ---
 # <a name="supplemental-lesson---ragged-hierarchies"></a>补充课程 - 不规则层次结构
 
-在本补充课程中，将解决对在不同级别包含空白值（成员）的层次结构进行透视时的一个常见问题。 例如，某个组织的高级经理同时具有部门经理和非经理作为直接下属。 或者，地理区域层次结构包含国家/地区-区域-城市，其中，某些城市没有父代“州”或“省”，例如“华盛顿特区”、“梵蒂冈城”。 当某个层次结构具有空白成员时，它通常降低到不同的（或不规则的）级别。
+在本补充课程中，将解决对在不同级别包含空白值（成员）的层次结构进行透视时的一个常见问题。 例如，某个组织的高级经理同时具有部门经理和非经理作为直接下属。 或者，地理层次结构包含国家/地区-区域-城市，其中，某些城市没有父级“省”。 当某个层次结构具有空白成员时，它通常降低到不同的（或不规则的）级别。
+<!--Notice: such as Washington D.C., Vatican City.-->
 
 ![aas-lesson-detail-ragged-hierarchies-table](../tutorials/media/aas-lesson-detail-ragged-hierarchies-table.png)
 

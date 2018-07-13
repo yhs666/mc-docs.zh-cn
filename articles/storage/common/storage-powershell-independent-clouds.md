@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 10/24/2017
 ms.date: 12/04/2017
 ms.author: v-nany
-ms.openlocfilehash: ca46a24d1b2b097be95dd22d6ecb2550e79cd0f0
-ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
+ms.openlocfilehash: 4b0830287dde48176a50dfa0928d07fb3480d3bc
+ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103085"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37800392"
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>使用 PowerShell 管理 Azure 独立云中的存储
 
@@ -41,7 +41,7 @@ ms.locfileid: "37103085"
 
 ## <a name="log-in-to-azure"></a>登录 Azure
 
-运行 [Get-AzureEnvironment](/powershell/module/azure/Get-AzureRmEnvironment) cmdlet 以查看可用的 Azure 环境：
+运行 [Get-AzureRmEnvironment](https://docs.microsoft.com/powershell/module/azurerm.profile/get-azurermenvironment) cmdlet 以查看可用的 Azure 环境：
    
 ```powershell
 Get-AzureRmEnvironment
@@ -64,8 +64,10 @@ Get-AzureRmLocation | select Location, DisplayName
 
 |位置 | DisplayName |
 |----|----|
-| chinanorth |  中国北部|
-| chinaeast | 中国东部 | 
+| chinaeast |  中国东部 |
+| chinaeast 2 | 中国东部 2 |
+| chinanorth | 中国北部 |
+| chinanorth 2 | 中国北部 2 |
 
 
 ## <a name="endpoint-suffix"></a>终结点后缀

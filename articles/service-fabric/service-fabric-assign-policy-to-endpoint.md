@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 03/21/2018
-ms.date: 05/28/2018
+ms.date: 07/09/2018
 ms.author: v-yeche
-ms.openlocfilehash: 347373580962aaffe8426dc7455651fb376a95e1
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: 7fbdc4da4ab7f7d9eaf36c7171c67c36bbd795ea
+ms.sourcegitcommit: 292f22020e00c607229c1693229f25fb2837d8af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554249"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37910581"
 ---
 # <a name="assign-a-security-access-policy-for-http-and-https-endpoints"></a>为 HTTP 和 HTTPS 终结点分配安全访问策略
 如果将运行方式策略应用到服务，且服务清单声明使用 HTTP 协议的终结点资源，则必须指定 SecurityAccessPolicy。  SecurityAccessPolicy 会确保分配给这些终结点的端口已正确限制为运行该服务所用的用户帐户。 否则，**http.sys** 无法访问服务，并且无法从客户端调用。 以下示例将 Customer1 帐户应用于名为 **EndpointName** 的终结点，并向它授予完全访问权限。
@@ -45,11 +45,14 @@ ms.locfileid: "34554249"
 </Policies
 ```
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-有关后续步骤，请阅读以下文章：
+> [!WARNING] 
+> 使用 HTTPS 时，请勿将同一端口和证书用于部署到同一节点的不同服务实例（独立于应用程序）。 在不同的应用程序实例中使用相同的端口升级两个不同的服务将导致升级失败。 有关详细信息，请参阅[使用 HTTPS 终结点升级多个应用程序](service-fabric-application-upgrade.md#upgrading-multiple-applications-with-https-endpoints)。
+> 
+
+<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged--> 有关后续步骤，请阅读以下文章：
 * [了解应用程序模型](service-fabric-application-model.md)
 * [在服务清单中指定资源](service-fabric-service-manifest-resources.md)
 * [部署应用程序](service-fabric-deploy-remove-applications.md)
 
 [image1]: ./media/service-fabric-application-runas-security/copy-to-output.png
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, add warning message -->

@@ -10,12 +10,12 @@ ms.topic: tutorial
 origin.date: 05/22/2018
 ms.date: 07/02/2018
 ms.author: v-johch
-ms.openlocfilehash: 1d0eeb9cdcebc53102badf5542fb730a47d421a6
-ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
+ms.openlocfilehash: 5cb5b32d1a575eb2a8fa1be6f69ec4421aae64d8
+ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36947994"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37800429"
 ---
 # <a name="tutorial-design-your-first-azure-sql-database-using-ssms"></a>教程：使用 SSMS 设计第一个 Azure SQL 数据库
 
@@ -72,7 +72,7 @@ Azure SQL 数据库与 Microsoft 云 (Azure) 中的数据库即服务 (DBaaS) �
    | **服务器名称** | 任何全局唯一名称 | 如需有效的服务器名称，请参阅 [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)（命名规则和限制）。 | 
    | 服务器管理员登录名 | 任何有效的名称 | 有关有效的登录名，请参阅 [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)（数据库标识符）。|
    | **密码** | 任何有效的密码 | 密码必须至少有八个字符，且必须包含以下类别中的三个类别的字符：大写字符、小写字符、数字以及非字母数字字符。 |
-   | **位置** | 任何有效的位置 | 中国东部和中国北部 |
+   | **位置** | 任何有效的位置 | 中国东部、中国东部 2、中国北部、中国北部 2 |
 
    ![创建数据库 - 服务器](./media/sql-database-design-first-database/create-database-server.png)
 

@@ -14,12 +14,12 @@ ms.custom: mvc
 origin.date: 04/08/2018
 ms.date: 06/25/2018
 ms.author: v-nany
-ms.openlocfilehash: a377417f08540305535df25dcd2309d66cf3b435
-ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
+ms.openlocfilehash: 8fe85bfb47971a7004597d0753acddff82d7b30e
+ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36748337"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37800357"
 ---
 # <a name="quickstart-stream-video-files---net"></a>快速入门：流式传输视频文件 - .NET
 
@@ -94,9 +94,9 @@ Azure Media Player 可用于测试，但不可在生产环境中使用。
 
 ## <a name="clean-up-resources"></a>清理资源
 
-如果不再需要你的资源组中的任何一个资源（包括使用本快速入门创建的媒体服务和存储帐户），请删除该资源组。 可以使用 CloudShell 工具。
+如果不再需要你的资源组中的任何一个资源（包括使用本快速入门创建的媒体服务和存储帐户），请删除该资源组。 可以使用 Azure CLI 命令。
 
-在 **PowerShell** 中执行以下命令：
+运行以下命令：
 
 ```cli
 az group delete --name amsResourceGroup

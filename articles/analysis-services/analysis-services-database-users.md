@@ -9,12 +9,12 @@ origin.date: 04/12/2018
 ms.date: 04/30/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: cc7f4804091e58bce4756a0f568ac50b0033644e
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 96546157feb569d97b1c42efb62e882e0d7befe6
+ms.sourcegitcommit: 292f22020e00c607229c1693229f25fb2837d8af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121520"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37910585"
 ---
 # <a name="manage-database-roles-and-users"></a>管理数据库角色和用户
 
@@ -126,17 +126,19 @@ ms.locfileid: "32121520"
 
 可仅为具有“读取”和“读取和处理”权限的角色定义行筛选器。 默认情况下，如果没有为特定表定义行筛选器，除非交叉筛选其他表中的适用项，否则成员可以查询表中的所有行。
 
- 行筛选器需要 DAX 公式，该公式的求值结果必须为 TRUE/FALSE，以定义该特定角色的成员可以查询的行。 无法查询未包含在 DAX 公式中的行。 例如，Customers 表的以下行筛选器表达式，*=Customers [Country] = "USA"*，Sales 角色的成员只能查看美国境内的客户。  
+ 行筛选器需要 DAX 公式，该公式的求值结果必须为 TRUE/FALSE，以定义该特定角色的成员可以查询的行。 无法查询未包含在 DAX 公式中的行。 例如，具有以下行筛选器表达式的 Customers 表：*=Customers [Country] = "CHINA"*，Sales 角色的成员只能查看中国境内的客户。  
+ <!-- Notice: Should Be China-->
 
 行筛选器适用于指定的行和相关行。 如果表具有多个关系，筛选器将对处于活动状态的关系应用安全性。 行筛选器与为相关表定义的其他行筛选器相交，示例如下：  
 
 |表|DAX 表达式|  
 |-----------|--------------------|  
-|区域|=Region[Country]="USA"|  
+|区域|=Region[Country]="China"|  
 |ProductCategory|=ProductCategory[Name]="Bicycles"|  
 |事务|=Transactions[Year]=2016|  
 
- 净效果是指成员可以查询若干行数据，其中客户位于美国，产品类别为自行车，年份是 2016 年。 用户无法查询美国之外的事务，不是自行车事务或非 2016 年的事务，除非它们属于授予这些权限的另一角色。
+ 净效果是指成员可以查询若干行数据，其中客户位于中国，产品类别为自行车，年份是 2016 年。 用户无法查询中国之外的事务、不是自行车的事务或非 2016 年的事务，除非他们属于授予这些权限的另一角色。
+<!-- Notice: Should Be China-->
 
  可以使用筛选器 =FALSE() 拒绝访问整个表的所有行。
 

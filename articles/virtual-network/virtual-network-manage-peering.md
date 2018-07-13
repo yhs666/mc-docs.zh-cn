@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 02/09/2018
 ms.date: 06/11/2018
 ms.author: v-yeche
-ms.openlocfilehash: eca96a170ad6f2c87b3aa9d85cbef010cd7509e0
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: 391ea463e008cdb2c177ecb96b9d6c119f33736f
+ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34868716"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37405406"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>创建、更改或删除虚拟网络对等互连
 
@@ -36,8 +36,7 @@ ms.locfileid: "34868716"
 - 如果使用门户，请打开 https://portal.azure.cn ，并使用具有[所需权限](#permissions)的帐户登录，以处理对等互连。
 - 如果使用 PowerShell 命令来完成本文中的任务，请从计算机运行 PowerShell。  本教程需要 Azure PowerShell 模块 5.7.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 查找已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需要使用具有[所需权限](#permissions)的帐户运行 `Connect-AzureRmAccount -Environment AzureChinaCloud ` 来处理对等互连，以便与 Azure 建立连接。
 - 如果使用 Azure 命令行界面 (CLI) 命令来完成本文中的任务，请从计算机运行 CLI。 本教程需要 Azure CLI 2.0.31 或更高版本。 运行 `az --version` 查找已安装的版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 如果在本地运行 Azure CLI，则还需要使用具有[所需权限](#permissions)的帐户运行 `az login` 来处理对等互连，以便与 Azure 建立连接。
-<!-- Not Available on Azure Cloud Shell -->
-登录或连接到 Azure 所用的帐户必须分配有[网络参与者](../role-based-access-control/built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor)角色或者分配有可执行[权限](#permissions)中列出的适当操作的[自定义角色](../role-based-access-control/custom-roles.md?toc=%2fvirtual-network%2ftoc.json)。
+<!-- Not Available on Azure Cloud Shell --> 登录或连接到 Azure 所用的帐户必须分配有[网络参与者](../role-based-access-control/built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor)角色或者分配有可执行[权限](#permissions)中列出的适当操作的[自定义角色](../role-based-access-control/custom-roles.md?toc=%2fvirtual-network%2ftoc.json)。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -57,7 +56,9 @@ ms.locfileid: "34868716"
     - 虚拟网络部署模型：选择要与之对等互连的虚拟网络是通过哪种部署模型部署的。
     - 我知道我的资源 ID：如果可以通过读取方式访问要与之对等互连的虚拟网络，请让此复选框保留取消选中状态。 如果不能通过读取方式访问要与之对等互连的虚拟网络或订阅，则请选中此框。 在选中此框时显示的“资源 ID”复选框中，输入要与之对等互连的虚拟网络的完整资源 ID。 输入的虚拟网络资源 ID 必须与此虚拟网络位于同一 Azure [区域](https://azure.microsoft.com/regions)，或[受支持的不同](#requirements-and-constraints) Azure 区域。 完整的资源 ID 类似于 /subscriptions/<Id>/resourceGroups/<资源组名称>/providers/Microsoft.Network/virtualNetworks/<虚拟网络名称>。 可以通过查看虚拟网络的属性，获取虚拟网络的资源 ID。 若要了解如何查看虚拟网络的属性，请参阅[管理虚拟网络](manage-virtual-network.md#view-virtual-networks-and-settings)。
     - 订阅：选择要与之对等互连的虚拟网络的[订阅](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#subscription)。 将列出一个或多个订阅，具体取决于帐户可以通过读取方式访问多少个订阅。 如果选中“资源 ID”复选框，则此设置不可用。
-    - 虚拟网络：选择要与之对等互连的虚拟网络。 可以选择通过任一 Azure 部署模型创建的虚拟网络。 如果要选择不同区域中的虚拟网络，必须选择[受支持区域](#cross-region)中的虚拟网络。 必须能够通过读取方式访问虚拟网络，该虚拟网络才会显示在列表中。 如果列出了某个虚拟网络，但显示为灰色，则可能是因为该虚拟网络的地址空间与此虚拟网络的地址空间重叠。 如果虚拟网络地址空间重叠，则无法进行对等互连。 如果选中“资源 ID”复选框，则此设置不可用。
+    - 虚拟网络：选择要与之对等互连的虚拟网络。 可以选择通过任一 Azure 部署模型创建的虚拟网络。 必须能够通过读取方式访问虚拟网络，该虚拟网络才会显示在列表中。 如果列出了某个虚拟网络，但显示为灰色，则可能是因为该虚拟网络的地址空间与此虚拟网络的地址空间重叠。 如果虚拟网络地址空间重叠，则无法进行对等互连。 如果选中“资源 ID”复选框，则此设置不可用。
+    <!-- NOTICE: Remove 如果要选择不同区域中的虚拟网络，必须选择[受支持区域](#cross-region)中的虚拟网络。 -->
+    <!-- NOTICE: 国有云中不可以 Cross Region(different region)-->
     - 允许虚拟网络访问：如果要启用两个虚拟网络之间的通信，请选择“启用”（默认）。 启用虚拟网络之间的通信可允许资源连接到任意虚拟网络，并以相同的带宽和延迟互相之间进行通信，就如同它们是连接到同一个虚拟网络一样。 这两个虚拟网络中的资源之间的所有通信都在 Azure 专用网络上进行。 网络安全组的服务标记 **VirtualNetwork** 中包含虚拟网络和已对等互连的虚拟网络。 若要深入了解网络安全组服务标记，请参阅[网络安全组概述](security-overview.md#service-tags)。 如果不希望流量流到已对等互连的虚拟网络，请选择“禁用”。 如果已将一个虚拟网络与另一个虚拟网络对等互连，但有时想要禁用这两个虚拟网络之间的流量流动，则可以选择“禁用”。 你会发现，启用/禁用比删除并重新创建对等互连更加方便。 当禁用此设置时，流量不会在已对等互连的虚拟网络间流动。
     - **允许转发的流量：** 选中此框将允许某个虚拟网络中通过网络虚拟设备转发的（不是从该虚拟网络发起的）流量通过对等互连流动到此虚拟网络。 例如，假设有名为 Spoke1、Spoke2 和 Hub 的三个虚拟网络。 每个辐射虚拟网络与中心虚拟网络之间存在一个对等互连，但各个辐射虚拟网络之间不存在对等互连。 一个网络虚拟设备部署在中心虚拟网络中，用户定义的路由应用于通过该网络虚拟设备在各个子网之间路由流量的每个辐射虚拟网络。 如果没有为每个辐射虚拟网络与中心虚拟网络之间的对等选中此复选框，则流量不会在各个辐射虚拟网络之间流动，因为中心在各个虚拟网络之间转发流量。 虽然启用此功能即可通过对等互连转发流量，但不会创建任何用户定义的路由或网络虚拟设备。 用户定义的路由和网络虚拟设备是单独创建的。 了解[用户定义的路由](virtual-networks-udr-overview.md#user-defined)。 如果流量通过 Azure VPN 网关在虚拟网络之间转发，则无需检查此设置。
     - 允许网关传输：如果虚拟网关已附加到此虚拟网络，而你想要允许流量从已对等互连的虚拟网络流经网关，请选中此框。 例如，此虚拟网络可以通过虚拟网关附加到本地网络。 网关可以是 ExpressRoute 或 VPN 网关。 选中此框将允许来自所对等互连的虚拟网络的流量通过附加到此虚拟网络的网关流到本地网络。 如果选中此框，则已对等互连的虚拟网络不能有已配置的网关。 设置从另一虚拟网络到此虚拟网络的对等互连时，对等互连的虚拟网络必须选中复选框“使用远程网关”。 如果保留此框的未选中状态（默认），则来自已对等互连的虚拟网络的流量仍可流动到此虚拟网络，但无法流经附加到此虚拟网络的虚拟网关。 如果在虚拟网络（资源管理器）和虚拟网络（经典）之间进行对等互连，则网关必须位于虚拟网络（资源管理器）中。 如果要对等互连不同区域中的虚拟网络，无法启用此选项。
@@ -116,12 +117,13 @@ ms.locfileid: "34868716"
 
 - **Azure CLI**：[az network vnet peering delete](https://docs.azure.cn/zh-cn/cli/network/vnet/peering?view=azure-cli-latest#az-network-vnet-peering-delete)
 - **PowerShell**：[Remove-AzureRmVirtualNetworkPeering](https://docs.microsoft.com/powershell/module/azurerm.network/remove-azurermvirtualnetworkpeering)
-
+<a name="requirements-and-contstraints"></a>
 ## <a name="requirements-and-constraints"></a>要求和约束 
 
 <a name="cross-region"></a>
-- 可在相同区域或不同区域中的虚拟网络之间建立对等互连。 当两个虚拟网络位于同一区域中时，以下约束不适用；当两个虚拟网络全局对等时，这些约束适用： 
-    - 虚拟网络可以存在于任何 Azure 公有云区域中，但不能存在于 Azure 国有云中。
+- 可以将同一区域中的虚拟网络对等互连。 当两个虚拟网络位于同一区域中时，以下约束不适用；但当虚拟网络全局对等互连时，这些约束适用：<!--Notice: Remove , or different regions-->
+    - 虚拟网络可以存在于任何 Azure 公有云区域中。
+    <!--Notice: Remove , but not in Azure national clouds-->
     - 一个虚拟网络中的资源无法与对等互连虚拟网络中 Azure 内部负载均衡器的 IP 地址通信。 负载均衡器以及与之通信的资源必须位于同一虚拟网络。
     - 不能使用远程网关，也不能允许网关传输。 若要使用远程网关或允许网关传输，对等互连的两个虚拟网络必须位于同一区域。 
 - 虚拟网络可以位于相同或不同的订阅中。 当虚拟网络位于不同的订阅中时，两个订阅必须关联到同一 Azure Active Directory 租户。 如果还没有 AD 租户，可以快速[创建一个](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant)。 可以使用 [VPN 网关](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fvirtual-network%2ftoc.json#V2V)连接关联到不同 Active Directory 租户的不同订阅中的两个虚拟网络。
@@ -173,5 +175,4 @@ ms.locfileid: "34868716"
 
 * 了解如何创建[中心辐射型网络拓扑](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fvirtual-network%2ftoc.json#virtual network-peering)
 * 使用 [PowerShell](powershell-samples.md) 或 [Azure CLI](cli-samples.md) 示例脚本或使用 Azure [资源管理器模板](template-samples.md)创建虚拟网络对等互连
-* 为虚拟网络创建并应用 [Azure 策略](policy-samples.md)
-<!-- Update_Description: wording update, update link -->
+* 为虚拟网络创建并应用 [Azure 策略](policy-samples.md) <!-- Update_Description: wording update, update link -->

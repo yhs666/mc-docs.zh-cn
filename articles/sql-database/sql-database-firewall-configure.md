@@ -11,12 +11,12 @@ ms.topic: article
 origin.date: 06/13/2018
 ms.date: 07/02/2018
 ms.author: v-johch
-ms.openlocfilehash: f9b96e5021aebdc380aec8a5754ace400caa2326
-ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
+ms.openlocfilehash: f45ca3be26c3d55748ba01dfe0f6758ee8ca01a6
+ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36948083"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37800447"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-firewall-rules"></a>Azure SQL 数据库和 SQL 数据仓库防火墙规则 
 
@@ -48,7 +48,7 @@ Azure [SQL 数据库](sql-database-technical-overview.md)和 [SQL 数据仓库](
 **建议：** 我们建议尽量使用数据库级防火墙规则，以增强安全性并提高数据库的可移植性。 如果多个数据库具有相同的访问要求，并且你不想花时间分别配置每个数据库，则使用管理员的服务器级防火墙规则。
 
 > [!Important]
-> Microsoft Azure SQL 数据库支持最多 128 个防火墙规则。
+> Azure SQL 数据库支持最多 128 个防火墙规则。
 >
 
 > [!Note]
@@ -75,7 +75,7 @@ Azure [SQL 数据库](sql-database-technical-overview.md)和 [SQL 数据仓库](
 > 
 
 ## <a name="creating-and-managing-firewall-rules"></a>创建和管理防火墙规则
-第一个服务器级防火墙设置可以使用 [Azure 门户](https://portal.azure.com/)进行创建，也可以使用 [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql)、[Azure CLI](/cli/sql/server/firewall-rule#az_sql_server_firewall_rule_create) 或 [REST API](https://docs.microsoft.com/rest/api/sql/firewallrules) 通过编程方式创建。 后续的服务器级防火墙规则可以使用这些方法或通过 Transact-SQL 创建和管理。 
+第一个服务器级防火墙设置可以使用 [Azure 门户](https://portal.azure.cn/)进行创建，也可以使用 [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql)、[Azure CLI](/cli/sql/server/firewall-rule#az_sql_server_firewall_rule_create) 或 [REST API](https://docs.microsoft.com/rest/api/sql/firewallrules) 通过编程方式创建。 后续的服务器级防火墙规则可以使用这些方法或通过 Transact-SQL 创建和管理。 
 
 > [!IMPORTANT]
 > 只能使用 Transact-SQL 创建和管理数据库级防火墙规则。 

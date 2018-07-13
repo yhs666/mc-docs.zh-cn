@@ -10,12 +10,12 @@ ms.topic: article
 origin.date: 05/08/2018
 ms.date: 05/28/2018
 ms.author: v-nany
-ms.openlocfilehash: def20cf99452561038c0ed2af349cad8e93c5288
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: 274d173d876ea28691d09020085aa2531ea3d1a2
+ms.sourcegitcommit: b7f1acd0fe1991911b92236318a4e0247200f270
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867379"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37800210"
 ---
 # <a name="credential-assets-in-azure-automation"></a>Azure 自动化中的凭据资产
 自动化凭据资产包含一个对象，该对象包含用户名和密码等安全凭据。 Runbook 配置可能会使用在身份验证时接受 PSCredential 对象的 cmdlet，也可能会提取 PSCredential 对象的用户名和密码，以便提供给需要进行身份验证的某个应用程序或服务。 在 Azure 自动化中安全地存储凭据的属性，并可以在 Runbook 配置中通过 [Get-AutomationPSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential.aspx) 活动访问这些属性。
@@ -77,7 +77,7 @@ ms.locfileid: "34867379"
 ```azurepowershell
 $user = "MyDomain\MyUser"
 $pw = ConvertTo-SecureString "PassWord!" -AsPlainText -Force
-$cred = New-Object �TypeName System.Management.Automation.PSCredential �ArgumentList $user, $pw
+$cred = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $user, $pw
 New-AzureAutomationCredential -AutomationAccountName "MyAutomationAccount" -Name "MyCredential" -Value $cred
 ```
 

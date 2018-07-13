@@ -16,12 +16,12 @@ ms.workload: big-data
 origin.date: 10/19/2017
 ms.date: 01/15/2018
 ms.author: v-yiso
-ms.openlocfilehash: 2257d0a2a82f892ee6444bd0e71d8afc9609f003
-ms.sourcegitcommit: 40b20646a2d90b00d488db2f7e4721f9e8f614d5
+ms.openlocfilehash: 53c0f410bc7fcac53d05f46e64e177a11c84a9ba
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/12/2018
-ms.locfileid: "27781414"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873466"
 ---
 # <a name="analyze-sensor-data-with-apache-storm-event-hub-and-hbase-in-hdinsight-hadoop"></a>使用 Apache Storm、事件中心和 HDInsight 中的 HBase (Hadoop) 分析传感器数据
 
@@ -29,7 +29,7 @@ ms.locfileid: "27781414"
 
 本文档中所使用的 Azure Resource Manager 模板演示如何在资源组中创建多个 Azure 资源。 模板创建一个 Azure 虚拟网络、两个 HDInsight 群集（Storm 和 HBase）和一个 Azure Web 应用。 node.js 所实现的实时 Web 仪表板自动部署到 Web 应用。
 
-[!INCLUDE [hdinsight-linux-acn-version.md](../../../includes/hdinsight-linux-acn-version.md)]
+
 
 > [!NOTE]
 > 本文档中的信息和示例演示需要安装 HDInsight 3.6。
@@ -259,7 +259,7 @@ eventhub.partitions: 2
 > [!NOTE]
 > 使用虚拟网络，以便在 Storm 群集上运行的拓扑可以直接与使用 HBase Java API 的 HBase 群集进行通信。
 
-本文档使用的资源管理器模板位于公共 blob 容器中（网址：https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hbase-storm-cluster-in-vnet-3.6.json）。
+本文档中使用的资源管理器模板位于公共 Blob 容器 (**https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hbase-storm-cluster-in-vnet-3.6.json**) 中。
 
 1. 单击以下按钮登录到 Azure，然后在 Azure 门户中打开 Resource Manager 模板。
 

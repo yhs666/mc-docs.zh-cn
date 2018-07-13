@@ -18,12 +18,12 @@ origin.date: 03/30/2018
 ms.date: 06/11/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: b5014d515d4344cdcbabc5fb08ac10a5085dd8c3
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: 95986ae266b805feff4e6135a3fce88a7fe9904c
+ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34868455"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37405363"
 ---
 # <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-powershell"></a>教程：在 PowerShell 中使用网络安全组筛选网络流量
 
@@ -39,7 +39,7 @@ ms.locfileid: "34868455"
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
-<!--[!INCLUDE [cloud-shell-powershell](../../../includes/cloud-shell-powershell.md)]-->
+<!--[!INCLUDE [cloud-shell-powershell](../../../includes/cloud-shell-powershell.md)-->
 
 如果选择在本地安装并使用 PowerShell，则本教程需要 Azure PowerShell 模块 5.4.1 或更高版本。 运行 ` Get-Module -ListAvailable AzureRM` 查找已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount -Environment AzureChinaCloud ` 以创建与 Azure 的连接。 
 

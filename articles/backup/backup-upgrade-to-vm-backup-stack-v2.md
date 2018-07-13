@@ -1,27 +1,23 @@
 ---
-title: 升级到 Azure VM 备份堆栈的 Azure 资源管理器部署模型 | Microsoft Docs
+title: 升级到 Azure VM 备份堆栈 V2
 description: 有关 VM 备份堆栈、资源管理器部署模型的升级过程和常见问题解答
 services: backup, virtual-machines
-documentationcenter: ''
 author: trinadhk
 manager: vijayts
 tags: azure-resource-manager, virtual-machine-backup
-ms.assetid: ''
 ms.service: backup, virtual-machines
-ms.devlang: na
-ms.topic: article
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 origin.date: 03/08/2018
-ms.date: 05/25/2018
+ms.date: 07/06/2018
 ms.author: v-junlch
-ms.openlocfilehash: 71412fdfd6e000e855a54cae289f8687e012cd21
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: b98267e85a8207de883fdeadc3770e74d8d0a7cb
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34559401"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873526"
 ---
-# <a name="upgrade-to-the-azure-resource-manager-deployment-model-for-azure-vm-backup-stack"></a>升级到 Azure VM 备份堆栈的 Azure 资源管理器部署模型
+# <a name="upgrade-to-azure-vm-backup-stack-v2"></a>升级到 Azure VM 备份堆栈 V2
 用于升级到虚拟机 (VM) 备份堆栈的资源管理器部署模型提供以下增强功能：
 - 可以查看在执行备份作业期间创建的用于恢复的快照，而无需等待数据传输完成。 它缩短了快照在触发还原之前复制到保管库的等待时间。 此外，借助这项增强功能，无需添置额外的存储来备份高级 VM（首次备份除外）。  
 
@@ -54,7 +50,7 @@ ms.locfileid: "34559401"
 
 - 如果从快照恢复点执行高级 VM 还原操作，在还原过程中创建 VM 时，会看到使用了一个临时存储位置。
 
-- 对于高级存储帐户，为即时恢复创建的快照占用 10 TB 的分配空间。
+- 对于高级存储帐户，为即时恢复创建的快照将计入 10 TB 的分配空间限制。
 
 ## <a name="upgrade"></a>升级
 ### <a name="the-azure-portal"></a>Azure 门户

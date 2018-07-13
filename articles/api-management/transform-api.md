@@ -3,7 +3,7 @@ title: 使用 Azure API 管理转换和保护 API
 description: 了解如何使用配额和限制（速率限制）策略保护 API。
 services: api-management
 documentationcenter: ''
-author: juliako
+author: vladvino
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-origin.date: 11/19/2017
-ms.date: 05/14/2018
+origin.date: 06/15/2018
+ms.date: 07/16/2018
 ms.author: v-yiso
-ms.openlocfilehash: 2dda6387daa800673848aefa02e3d6377a7ad11d
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: a69034f58f1137ca63a33527e7b8807af477cf63
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33815015"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873520"
 ---
 # <a name="transform-and-protect-your-api"></a>转换和保护 API 
 
@@ -56,7 +56,7 @@ ms.locfileid: "33815015"
 
 若要查看原始响应，请执行以下操作：
 
-1. 选择“API”选项卡。
+1. 在 APIM 服务实例中，选择“API”（在“API 管理”下）。
 2. 在 API 列表中单击“演示会议 API”。
 3. 选择“GetSpeakers”操作。
 4. 单击屏幕顶部的“测试”选项卡。
@@ -68,18 +68,15 @@ ms.locfileid: "33815015"
 
 ### <a name="set-the-transformation-policy"></a>设置转换策略
 
-1. 浏览到自己的 APIM 实例。
-2. 选择“API”选项卡。
-3. 在 API 列表中单击“演示会议 API”。
-4. 选择“所有操作”。
-5. 选择屏幕顶部的“设计”选项卡。
-6. 在“出站处理”窗口中，单击三角形（铅笔旁边）。
-7. 选择“代码编辑器”。
-    
+1. 选择“演示会议 API”。
+2. 选择屏幕顶部的“设计”选项卡。
+3. 选择“所有操作”。
+4. 在“出站处理”窗口中，单击三角形（铅笔旁边）并选择“代码编辑器”。
+
      ![编辑策略](./media/set-edit-policies/set-edit-policies01.png)
      
-9. 将光标置于 **&lt;outbound&gt;** 元素内。
-10. 在右侧窗口中的“转换策略”下面，单击“+ 设置 HTTP 标头”两次（以插入两个策略代码片段）。
+5. 将光标置于 **&lt;outbound&gt;** 元素内。
+6. 在右侧窗口中的“转换策略”下面，单击“+ 设置 HTTP 标头”两次（以插入两个策略代码片段）。
 
     ![策略](./media/transform-api/transform-api.png)
     
@@ -87,7 +84,12 @@ ms.locfileid: "33815015"
 
         <set-header name="X-Powered-By" exists-action="delete" />
         <set-header name="X-AspNet-Version" exists-action="delete" />
-                
+
+    ![策略](./media/transform-api/set-policy.png)
+    
+8. 单击“保存”按钮  。
+
+
 ## <a name="replace-original-urls-in-the-body-of-the-api-response-with-apim-gateway-urls"></a>将 API 响应正文中的原始 URL 替换为 APIM 网关 URL
 
 本部分介绍如何隐藏 API HTTP 响应正文中显示的原始 URL，而不是将其重定向到 APIM 网关。
@@ -96,11 +98,10 @@ ms.locfileid: "33815015"
 
 若要查看原始响应，请执行以下操作：
 
-1. 选择“API”选项卡。
-2. 在 API 列表中单击“演示会议 API”。
-3. 选择“GetSpeakers”操作。
-4. 单击屏幕顶部的“测试”选项卡。
-5. 按屏幕底部的“发送”按钮。 
+1. 选择“演示会议 API”。
+2. 选择“GetSpeakers”操作。
+3. 单击屏幕顶部的“测试”选项卡。
+4. 按屏幕底部的“发送”按钮。 
 
     可以看到如下所示的原始响应：
 
@@ -108,16 +109,13 @@ ms.locfileid: "33815015"
 
 ### <a name="set-the-transformation-policy"></a>设置转换策略
 
-1. 浏览到自己的 APIM 实例。
-2. 选择“API”选项卡。
-3. 在 API 列表中单击“演示会议 API”。
-4. 选择“所有操作”。
-5. 选择屏幕顶部的“设计”选项卡。
-6. 在“出站处理”窗口中，单击三角形（铅笔旁边）。
-7. 选择“代码编辑器”。
-8. 将光标置于 **&lt;outbound&gt;** 元素内。
-9. 在右侧窗口中的“转换策略”下面，单击“+ 查找并替换正文中的字符串”。
-10. 修改 **<find-and-replace** 代码（在 **<outbound>** 元素中）以替换 URL，使之与 APIM 网关匹配。 例如：
+1. 选择“演示会议 API”。
+2. 选择“所有操作”。
+3. 选择屏幕顶部的“设计”选项卡。
+4. 在“出站处理”窗口中，单击三角形（铅笔旁边）并选择“代码编辑器”。
+5. 将光标置于 **&lt;outbound&gt;** 元素内。
+6. 在右侧窗口中的“转换策略”下面，单击“+ 查找并替换正文中的字符串”。
+7. 修改 **find-and-replace** 代码（在 **\<outbound\>** 元素中）以替换 URL，使之与 APIM 网关匹配。 例如：
 
         <find-and-replace from="://conferenceapi.azurewebsites.cn" to="://apiphany.azure-api.cn/conference"/>
 
@@ -125,22 +123,19 @@ ms.locfileid: "33815015"
 
 本部分介绍如何通过配置速率限制来为后端 API 添加保护。 例如，可以限制 API 的调用次数，以防开发人员过度使用它。 在此示例中，对每个订阅 ID 设置的限制为每 15 秒 3 次调用。15 秒后，开发人员可以重试调用该 API。
 
-1. 浏览到自己的 APIM 实例。
-2. 选择“API”选项卡。
-3. 在 API 列表中单击“演示会议 API”。
-4. 选择“所有操作”。
-5. 选择屏幕顶部的“设计”选项卡。
-6. 在“入站处理”窗口中，单击三角形（铅笔旁边）。
-7. 选择“代码编辑器”。
-8. 将光标置于 **&lt;inbound&gt;** 元素内。
-9. 在右侧窗口中的“访问限制策略”下面，单击“+ 限制每个键的调用速率”。
-10. 将 **<rate-limit-by-key** 代码（在 **<inbound>** 元素中）修改为以下代码：
+1. 选择“演示会议 API”。
+2. 选择“所有操作”。
+3. 选择屏幕顶部的“设计”选项卡。
+4. 在“入站处理”窗口中，单击三角形（铅笔旁边）并选择“代码编辑器”。
+5. 将光标置于 **&lt;inbound&gt;** 元素内。
+6. 在右侧窗口中的“访问限制策略”下面，单击“+ 限制每个键的调用速率”。
+7. 将 **rate-limit-by-key** 代码（在 **\<inbound\>** 元素中）修改为以下代码：
 
         <rate-limit-by-key calls="3" renewal-period="15" counter-key="@(context.Subscription.Id)" />
 
 ## <a name="test-the-transformations"></a>测试转换
         
-此时，策略代码应如下所示：
+现在，如果查看代码编辑器中的代码，你的策略将如下所示：
 
     <policies>
         <inbound>
@@ -165,12 +160,10 @@ ms.locfileid: "33815015"
 
 ### <a name="test-the-stripped-response-headers"></a>测试剥离响应标头
 
-1. 浏览到自己的 APIM 实例。
-2. 选择“API”选项卡。
-3. 在 API 列表中单击“演示会议 API”。
-4. 单击“GetSpeakers”操作。
-5. 选择“测试”选项卡。
-6. 按“发送”。
+1. 选择“演示会议 API”。
+2. 单击“GetSpeakers”操作。
+3. 选择“测试”选项卡。
+4. 按“发送”。
 
     可以看到，标头已剥离：
 
@@ -178,12 +171,10 @@ ms.locfileid: "33815015"
 
 ### <a name="test-the-replaced-url"></a>测试替换 URL
 
-1. 浏览到自己的 APIM 实例。
-2. 选择“API”选项卡。
-3. 在 API 列表中单击“演示会议 API”。
-4. 单击“GetSpeakers”操作。
-5. 选择“测试”选项卡。
-6. 按“发送”。
+1. 选择“演示会议 API”。
+2. 单击“GetSpeakers”操作。
+3. 选择“测试”选项卡。
+4. 按“发送”。
 
     可以看到，URL 已替换。
 
@@ -191,12 +182,10 @@ ms.locfileid: "33815015"
 
 ### <a name="test-the-rate-limit-throttling"></a>测试速率限制（限制）
 
-1. 浏览到自己的 APIM 实例。
-2. 选择“API”选项卡。
-3. 在 API 列表中单击“演示会议 API”。
-4. 单击“GetSpeakers”操作。
-5. 选择“测试”选项卡。
-6. 连续按“发送”三次。
+1. 选择“演示会议 API”。
+2. 单击“GetSpeakers”操作。
+3. 选择“测试”选项卡。
+4. 连续按“发送”三次。
 
     发送请求 3 次之后，会收到“429 请求过多”响应。
 7. 等待大约 15 秒，然后再次按“发送”。 此时应会收到“200 正常”响应。

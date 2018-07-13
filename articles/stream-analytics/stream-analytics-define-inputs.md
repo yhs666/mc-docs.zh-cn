@@ -10,12 +10,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 04/27/2018
 ms.date: 07/02/2018
-ms.openlocfilehash: 6567c932e5f308efa8f2ac4a657430a23aa58ce2
-ms.sourcegitcommit: 2cf6961f692f318ce7034e7b4d994ee51d902199
+ms.openlocfilehash: 7d083436dba60e48163a6b3c36157f3c83463170
+ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36947660"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37405220"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>将数据作为流分析的输入进行流式传输
 
@@ -30,8 +30,8 @@ ms.locfileid: "36947660"
 流分析支持跨所有数据流输入源的压缩功能。 当前支持的引用类型为 None、GZip、和 Deflate 压缩。 对压缩的支持不可用于参考数据。 如果输入格式为压缩的 Avro 数据，则会以透明方式对其进行处理。 不需要通过 Avro 序列化指定压缩类型。 
 
 ## <a name="create-edit-or-test-inputs"></a>创建、编辑或测试输入
-可以使用 [Azure 门户](https://portal.azure.cn)来[创建新输入](/stream-analytics/stream-analytics-quick-create-portal#configure-input-to-the-job)以及查看或编辑流式处理作业上的现有输入。 还可以通过示例数据测试输入连接以及[测试查询](/stream-analytics/stream-analytics-manage-job#test-your-query)。 编写查询时，将在 FROM 子句中列出输入。 可以在门户的“查询”页中获取可用输入的列表。 若要使用多个输入，可以对其执行 `JOIN` 操作，也可以编写多个 `SELECT` 查询。
-
+可以使用 [Azure 门户](https://portal.azure.cn)来[创建新输入](/stream-analytics/stream-analytics-quick-create-portal#configure-input-to-the-job)以及查看或编辑流式处理作业上的现有输入。 还可以通过示例数据测试输入连接以及测试查询。 编写查询时，将在 FROM 子句中列出输入。 可以在门户的“查询”页中获取可用输入的列表。 若要使用多个输入，可以对其执行 `JOIN` 操作，也可以编写多个 `SELECT` 查询。
+<!-- Not Available on [test queries](/stream-analytics/stream-analytics-manage-job#test-your-query)-->
 ## <a name="stream-data-from-event-hubs"></a>从事件中心对数据进行流式传输
 
 Azure 事件中心提供高度可缩放的发布-订阅事件引入器。 事件中心每秒可收集数百万个事件，使用户能够处理和分析互连设备与应用程序生成的海量数据。 事件中心和流分析一起提供进行实时分析所需的端到端解决方案。 可以通过事件中心将事件实时馈送到 Azure 中，以便流分析作业对这些事件进行实时处理。 例如，用户可以将 Web 点击操作、传感器读数或联机日志事件发送到事件中心。 然后可以创建流分析作业，将事件中心用作输入数据流，以便进行实时筛选、聚合和关联操作。

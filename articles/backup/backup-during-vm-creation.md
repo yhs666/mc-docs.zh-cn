@@ -1,25 +1,21 @@
 ---
-title: 在创建过程中启用 Azure VM 备份 | Microsoft Docs
+title: 在创建过程中启用 Azure VM 备份
 description: 查看在创建过程中启用 Azure 虚拟机备份的步骤。
 services: backup, virtual-machines
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
 tags: azure-resource-manager, virtual-machine-backup
-ms.assetid: ''
 ms.service: backup, virtual-machines
-ms.devlang: na
-ms.topic: article
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 origin.date: 01/08/2018
-ms.date: 05/15/2018
+ms.date: 07/06/2018
 ms.author: v-junlch
-ms.openlocfilehash: 9c37e02e7f6dab50a25b2c7af1bef98ef96dc68c
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.openlocfilehash: 5c56cf9f2cc1369ef89bea716d4cd13a9e6419a8
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34305798"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873618"
 ---
 # <a name="enable-backup-during-azure-virtual-machine-creation"></a>在 Azure 虚拟机创建过程中启用备份 
 
@@ -72,7 +68,7 @@ Azure 备份服务提供创建备份并将其配置到云的接口。 通过定�
 
 - **Windows** - Windows Server 2016 Data center、Windows Server 2016 Data Center core、Windows Server 2012 DataCenter、Windows Server 2012 R2 DataCenter、Windows Server 2008 R2 SP1 
 - **Ubuntu** - Ubuntu Server 1710、Ubuntu Server 1704、UUbuntu Server 1604(LTS)、Ubuntu Server 1404(LTS) 
-- **Redhat** - RHEL 6.7、6.8、6.9、7.2、7.3、7.4 
+- **Red Hat** - RHEL 6.7、6.8、6.9、7.2、7.3、7.4 
 - **SUSE** - SUSE Linux Enterprise Server 11 SP4、12 SP2、12 SP3 
 - **Debian** - Debian 8、Debian 9 
 - **CentOS** - CentOS 6.9、CentOS 7.3 
@@ -105,4 +101,4 @@ Azure 备份服务提供创建备份并将其配置到云的接口。 通过定�
 - [管理和监视虚拟机](backup-azure-manage-vms.md) 
 - [恢复虚拟机](backup-azure-arm-restore-vms.md) 
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

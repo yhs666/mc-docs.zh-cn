@@ -1,6 +1,6 @@
 ---
-title: Azure 计算选项 - 云服务 | Azure
-description: 了解 Azure 计算托管选项及其工作原理：应用服务、Azure 云服务和虚拟机
+title: 什么是 Azure 云服务 | Microsoft Docs
+description: 了解什么是 Azure 云服务。
 services: cloud-services
 documentationcenter: ''
 author: Thraka
@@ -13,23 +13,16 @@ ms.devlang: na
 ms.topic: article
 origin.date: 04/19/2017
 ms.author: v-yiso
-ms.date: 03/19/2018
-ms.openlocfilehash: 4be5e5e1d07c67e4febc14a236fe90d31f195cc8
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.date: 07/16/2018
+ms.openlocfilehash: dd3250055adb6095cbca9a3cd87b2c971f48f94f
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29870302"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873472"
 ---
-# <a name="should-i-choose-azure-cloud-services-or-something-else"></a>应该选择 Azure 云服务还是其他服务？
-Azure 云服务是适合选择吗？ Azure 提供了用于运行应用程序的不同托管模型。 每个模型都提供了一组不同的服务。 选择哪个模型取决于你具体打算做什么。
-
-[!INCLUDE [compute-table](../../includes/compute-options-table.md)]
-
-<a name="tellmecs"></a>
-
-## <a name="tell-me-about-azure-cloud-services"></a>告诉我有关 Azure 云服务的信息
-Azure 云服务是平台即服务 (PaaS) 的一个示例。 与 [Azure 应用服务](../app-service/app-service-web-overview.md)一样，此技术设计用于支持可缩放、可靠且运营成本低廉的应用程序。 同样，应用服务托管在虚拟机 (VM) 上，Azure 云服务也是如此。 但是，你对 VM 有更多的控制。 可以在使用 Azure 云服务的 VM 上安装自己的软件，并且可以远程访问它们。
+# <a name="overview-of-azure-cloud-services"></a>Azure 云服务概述
+Azure 云服务是[平台即服务](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) 的一个示例。 与 [Azure 应用服务](../app-service/app-service-web-overview.md)一样，此技术设计用于支持可缩放、可靠且运营成本低廉的应用程序。 同样，应用服务托管在虚拟机 (VM) 上，Azure 云服务也是如此。 但是，你对 VM 有更多的控制。 可以在使用 Azure 云服务的 VM 上安装自己的软件，并且可以远程访问它们。
 
 ![Azure 云服务关系图](./media/cloud-services-choose-me/diagram.png)
 
@@ -50,7 +43,7 @@ Azure 云服务是平台即服务 (PaaS) 的一个示例。 与 [Azure 应用服
 ## <a name="scaling-and-management"></a>缩放和管理
 使用 Azure 云服务时，你不需要创建虚拟机。 相反，你将提供一个配置文件，告知 Azure 每个 VM 需要多少个角色实例（例如，“三个 Web 角色实例”和“两个辅助角色实例”）。 然后，平台将创建它们。 虽然仍然要选择这些后备 VM 应该是[什么大小](cloud-services-sizes-specs.md)，但是无需亲自显式创建它们。 如果应用程序需要处理更大的负载，则可以要求增加 VM，Azure 会创建这些实例。 如果负载降低，则可以关闭这些实例并停止为它们付费。
 
-通常通过两个步骤就能使 Azure 云服务应用程序可供用户使用。 首先，开发人员[将应用程序上传](cloud-services-how-to-create-deploy-portal.md)到该平台的暂存区域。 当开发人员准备好使应用程序上线后，他们会使用 Azure 门户从过渡环境切换到生产环境。 [过渡环境与生产环境之间的这种切换](cloud-services-how-to-manage-portal.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production)无需停机就可完成，这使运行的应用程序可在不打扰其用户的情况下升级到新版本。
+通常通过两个步骤就能使 Azure 云服务应用程序可供用户使用。 首先，开发人员[将应用程序上传](cloud-services-how-to-create-deploy-portal.md)到该平台的暂存区域。 当开发人员准备好使应用程序上线后，他们会使用 Azure 门户从过渡环境切换到生产环境。 [过渡环境与生产环境之间的这种切换](cloud-services-how-to-manage-portal.md#swap-deployments-to-promote-a-staged-deployment-to-production)无需停机就可完成，这使运行的应用程序可在不打扰其用户的情况下升级到新版本。
 
 ## <a name="monitoring"></a>监视
 Azure 云服务还提供监视功能。 像虚拟机一样，它将检测发生故障的物理服务器，并在新的计算机上重新启动原先在该服务器上运行的 VM。 Azure 云服务不仅检测硬件故障，还检测发生故障的 VM 和应用程序。 与虚拟机不同，它在每个 Web 角色和辅助角色中都存在代理，因此可在发生故障时启动新的 VM 和应用程序实例。

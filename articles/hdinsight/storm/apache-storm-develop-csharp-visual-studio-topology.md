@@ -17,12 +17,12 @@ ms.workload: big-data
 origin.date: 11/27/2017
 ms.date: 03/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: 850eb88f5f794b5c324a10787f79b35c0afbc231
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.openlocfilehash: 8c173f4869c1490204f4d5e8dd08591ee71e0b4c
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30076085"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873637"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>使用针对 Visual Studio 的 Data Lake 工具开发 Apache Storm 的 C# 拓扑
 
@@ -32,7 +32,7 @@ ms.locfileid: "30076085"
 
 同时还说明了如何创建使用 C# 和 Java 组件的混合拓扑。
 
-[!INCLUDE [hdinsight-linux-acn-version.md](../../../includes/hdinsight-linux-acn-version.md)]
+
 
 > [!NOTE]
 > 虽然本文档中的步骤依赖于带 Visual Studio 的 Windows 开发环境，但是也可将编译的项目提交到基于 Linux 或 Windows 的 HDInsight 群集。 仅在 2016 年 10 月 28 日以后创建的基于 Linux 的群集支持 SCP.NET 拓扑。

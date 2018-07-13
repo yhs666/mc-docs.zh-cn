@@ -1,20 +1,20 @@
 ---
-title: 将 Azure 文件备份到 Azure
+title: 备份 Azure 文件共享
 description: 本文详述了如何备份和还原 Azure 文件共享，并对管理任务进行了说明。
 services: backup
 author: markgalioto
 ms.author: v-junlch
 origin.date: 03/23/2018
-ms.date: 05/15/2018
+ms.date: 07/05/2018
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 478f6d2ee7ec7b6316371c2f3ffa436cc05eb552
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.openlocfilehash: b581df3054b872cd01340e60888e9d061b8fae07
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34257523"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873379"
 ---
 # <a name="back-up-azure-file-shares"></a>备份 Azure 文件共享
 本文介绍如何使用 Azure 门户备份和还原 [Azure 文件共享](../storage/files/storage-files-introduction.md)。
@@ -33,7 +33,7 @@ ms.locfileid: "34257523"
 
 ## <a name="limitations-for-azure-file-share-backup-during-preview"></a>预览版期间 Azure 文件共享备份的限制
 Azure 文件共享备份处于预览状态。 请注意预览版的以下限制：
-- 无法在存储帐户中使用[区域冗余存储 (ZRS)](../storage/common/storage-redundancy-zrs.md) 或[读取访问权限异地冗余存储 (RA-GRS)](../storage/common/storage-redundancy-grs.md) 复制保护 Azure 文件共享。
+- 无法在存储帐户中使用区域冗余存储 (ZRS) 或[读取访问权限异地冗余存储 (RA-GRS)](../storage/common/storage-redundancy-grs.md) 复制保护 Azure 文件共享。
 - 无法保护已启用虚拟网络的存储帐户中的 Azure 文件共享。
 - 无法使用 PowerShell 或 CLI 保护 Azure 文件。
 - 每天的计划备份数上限为 1。
@@ -119,7 +119,6 @@ Azure 备份提供在 Azure 门户中浏览还原点的功能。 若要还原所
 若要打开“备份作业”页，请执行以下操作：
 
 - 打开要监视的恢复服务保管库，在“恢复服务保管库”菜单中单击“作业”，然后单击“备份作业”。
-
    ![选择要监视的作业](./media/backup-file-shares/open-backup-jobs.png)
 
     此时会显示备份作业的列表和这些作业的状态。
@@ -194,4 +193,4 @@ Azure 备份提供在 Azure 门户中浏览还原点的功能。 若要还原所
 - [Azure 文件共享备份常见问题解答](backup-azure-files-faq.md)
 - [排查 Azure 文件共享备份问题](troubleshoot-azure-files.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

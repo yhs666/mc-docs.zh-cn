@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 11/27/2017
 ms.author: v-yiso
-ms.date: 02/26/2018
-ms.openlocfilehash: 8cbf123f566be98ca21413e29c4e723fe7932c88
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.date: 07/16/2018
+ms.openlocfilehash: 3bd671b6068fb41ae634cb3e0f62504cdd24b956
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33815366"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873418"
 ---
 # <a name="api-management-transformation-policies"></a>API 管理转换策略
 本主题提供以下 API 管理策略的参考。 有关添加和配置策略的信息，请参阅 [API 管理中的策略](http://go.microsoft.com/fwlink/?LinkID=398186)。  
@@ -482,6 +482,19 @@ OriginalUrl.
   
  有关详细信息，请参阅[策略表达式](./api-management-policy-expressions.md)和[上下文变量](./api-management-policy-expressions.md#ContextVariables)。  
   
+> [!NOTE]
+> 标头的多个值会连接到 CSV 字符串，例如：  
+> `headerName: value1,value2,value3`
+>
+> 例外包括标准化标头，其值：
+> - 可能包含逗号（`User-Agent`、`WWW-Authenticate`、`Proxy-Authenticate`），
+> - 可能包含日期（`Cookie`、`Set-Cookie`、`Warning`），
+> - 包含日期（`Date`、`Expires`、`If-Modified-Since`、`If-Unmodified-Since`、`Last-Modified`、`Retry-After`）。
+>
+> 如果出现这些例外，多个标头值将不会连接成一个字符串，并将作为单独的标头传递，例如：  
+>`User-Agent: value1`  
+>`User-Agent: value2`  
+>`User-Agent: value3`
 ### <a name="elements"></a>元素  
   
 |Name|说明|必须|  

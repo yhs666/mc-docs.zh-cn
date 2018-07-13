@@ -3,25 +3,27 @@ title: Azure AD Node.js Web 应用入门 | Microsoft Docs
 description: 了解如何构建用于登录的与 Azure AD 集成的 Node.js Express MVC Web 应用。
 services: active-directory
 documentationcenter: nodejs
-author: navyasric
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: 81deecec-dbe2-4e75-8bc0-cf3788645f99
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-origin.date: 11/30/2017
-ms.date: 01/17/2018
+origin.date: 04/20/2018
+ms.date: 07/03/2018
 ms.author: v-junlch
+ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: c8d2cbd3c37ddd81898ed022f3fc2c769069d3c8
-ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
+ms.openlocfilehash: 7193e66d383c13f7488d0ad3987ad82068e67a03
+ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2018
-ms.locfileid: "29993324"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37800498"
 ---
 # <a name="azure-ad-nodejs-web-app-getting-started"></a>Azure AD Node.js Web 应用入门
 此处，我们使用 Passport 进行以下操作：
@@ -39,7 +41,7 @@ Passport 是 Node.js 的身份验证中间件。 Passport 很灵活并且采用�
 3. 使用 Passport 向 Azure AD 发出登录和注销请求。
 4. 打印有关用户的数据。
 
-本教程的代码 [在 GitHub 上](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS)维护。  若要遵照该代码，可以[下载 .zip 文件格式的应用骨架](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS/archive/skeleton.zip)，或克隆该骨架：
+本教程的代码 [在 GitHub 上](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS)维护。 若要遵照该代码，可以[下载 .zip 文件格式的应用骨架](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS/archive/skeleton.zip)，或克隆该骨架：
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS.git```
 
@@ -57,10 +59,14 @@ Passport 是 Node.js 的身份验证中间件。 Passport 很灵活并且采用�
 5. 创建一个 **Web 应用程序**和/或 **WebAPI**。
     - 应用程序的“名称”向用户描述应用程序。
 
-    - “登录 URL”  是应用的基本 URL。  框架的默认值是 `http://localhost:3000/auth/openid/return`` 。
+    - “登录 URL”  是应用的基本 URL。  框架的默认值为“http://localhost:3000/auth/openid/return”。
 
 6. 注册后，Azure AD 会为应用分配唯一的应用程序 ID。 在后续部分中需用到此值，因此，请从应用程序页复制此值。
 7. 从应用程序的“设置” -> “属性”页中，更新应用 ID URI。 “应用程序 ID URI”是应用程序的唯一标识符。 约定使用的格式是 `https://<tenant-domain>/<app-name>`，例如：`https://contoso.partner.onmschina.cn/my-first-aad-app`。
+8. 若要创建密钥，请按照[添加用于访问 Web API 的应用程序凭据或权限](/active-directory/develop/active-directory-integrating-applications#to-add-application-credentials-or-permissions-to-access-web-apis)中步骤 4 操作。
+
+    > [!IMPORTANT]
+    > 复制该应用程序密钥值。 这是 `clientSecret` 的值，将在下面的步骤 3 中用到它。 
 
 ## <a name="step-2-add-prerequisites-to-your-directory"></a>步骤 2：向目录添加先决条件
 1. 在命令行中，将目录更改为根文件夹（如果尚未这样做），然后运行以下命令：
@@ -80,7 +86,7 @@ Passport 是 Node.js 的身份验证中间件。 Passport 很灵活并且采用�
 这会安装 `passport-azure-ad` 依赖的库。
 
 ## <a name="step-3-set-up-your-app-to-use-the-passport-node-js-strategy"></a>步骤 3：将应用设置为使用 passport-node-js 策略
-此处，我们将 Express 配置为使用 OpenID Connect 身份验证协议。  Passport 用于执行各种操作，包括发出登录和注销请求、管理用户的会话和获取有关用户的信息。
+此处，我们将 Express 配置为使用 OpenID Connect 身份验证协议。 Passport 用于执行各种操作，包括发出登录和注销请求、管理用户的会话和获取有关用户的信息。
 
 1. 首先，打开位于项目根目录中的 `config.js` 文件，然后在 `exports.creds` 部分输入应用的配置值。
 
@@ -183,7 +189,7 @@ Passport 是 Node.js 的身份验证中间件。 Passport 很灵活并且采用�
             };
     ```
 
-5.  接下来，让我们添加可加载 Express 引擎的代码。 在此处，我们使用了 Express 提供的默认 /views 和 /routes 模式。
+5. 接下来，让我们添加可加载 Express 引擎的代码。 在此处，我们使用了 Express 提供的默认 /views 和 /routes 模式。
 
     ```JavaScript
         // configure Express (section 2)
@@ -253,7 +259,7 @@ Passport 是 Node.js 的身份验证中间件。 Passport 很灵活并且采用�
 
 
 ## <a name="step-4-use-passport-to-issue-sign-in-and-sign-out-requests-to-azure-ad"></a>步骤4：使用 Passport 向 Azure AD 发出登录和注销请求
-现在，应用已正确配置为使用 OpenID Connect 身份验证协议与终结点通信。  `passport-azure-ad` 已处理有关创建身份验证消息、验证 Azure AD 提供的令牌以及保留用户会话的所有细节。 剩下的就是为用户提供登录和注销方式，以及收集有关已登录用户的其他信息。
+现在，应用已正确配置为使用 OpenID Connect 身份验证协议与终结点通信。 `passport-azure-ad` 已处理有关创建身份验证消息、验证 Azure AD 提供的令牌以及保留用户会话的所有细节。 剩下的就是为用户提供登录和注销方式，以及收集有关已登录用户的其他信息。
 
 1. 首先，让我们向 `app.js` 文件添加默认方法、登录方法、帐户方法和注销方法：
 
@@ -283,7 +289,7 @@ Passport 是 Node.js 的身份验证中间件。 Passport 很灵活并且采用�
 
     ```
 
-2.  我们详细探讨一下：
+2. 我们详细探讨一下：
 
     - `/` 路由将重定向到 index.ejs 视图，并在请求中传递用户（如果存在）。
     - `/account` 路由首先确保*我们已经过身份验证*（我们会在以下示例进行实现），然后在请求中传递用户，以便我们可以获取有关该用户的其他信息。
@@ -310,7 +316,7 @@ Passport 是 Node.js 的身份验证中间件。 Passport 很灵活并且采用�
 
     ```JavaScript
 
-        app.listen(3000);
+    app.listen(3000);
 
     ```
 
@@ -321,26 +327,26 @@ Passport 是 Node.js 的身份验证中间件。 Passport 很灵活并且采用�
 1. 在根目录下创建 `/routes/index.js` 路由。
 
     ```JavaScript
-                /*
-                 - GET home page.
-                 */
+    /*
+     * GET home page.
+     */
 
-                exports.index = function(req, res){
-                  res.render('index', { title: 'Express' });
-                };
+    exports.index = function(req, res){
+      res.render('index', { title: 'Express' });
+    };
     ```
 
 2. 在根目录下创建 `/routes/user.js` 路由。
 
-                ```JavaScript
-                /*
-                 - GET users listing.
-                 */
+    ```JavaScript
+    /*
+     * GET users listing.
+     */
 
-                exports.list = function(req, res){
-                  res.send("respond with a resource");
-                };
-                ```
+    exports.list = function(req, res){
+      res.send("respond with a resource");
+    };
+    ```
 
    这些路由会将请求传递到我们的视图，包括用户（如果存在）。
 
@@ -357,7 +363,7 @@ Passport 是 Node.js 的身份验证中间件。 Passport 很灵活并且采用�
     <% } %>
     ```
 
-4. 在根目录下创建 `/views/account.ejs` 视图，以便能够查看 `passport-azuread` 放置在用户请求中的其他信息。
+4. 在根目录下创建 `/views/account.ejs` 视图，以便能够查看 `passport-azure-ad` 放置在用户请求中的其他信息。
 
     ```Javascript
     <% if (!user) { %>
@@ -414,7 +420,7 @@ Passport 是 Node.js 的身份验证中间件。 Passport 很灵活并且采用�
 
 现在，可以转到更高级的主题。 可能需要：
 
-[使用 Azure AD 保护 Web API](active-directory-devquickstarts-webapi-nodejs.md)。
+[使用 Azure AD 保护 Web API](active-directory-devquickstarts-webapi-nodejs.md)
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
 

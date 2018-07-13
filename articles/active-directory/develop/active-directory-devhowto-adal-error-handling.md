@@ -7,19 +7,20 @@ author: danieldobalian
 manager: mtillman
 ms.author: v-junlch
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 12/11/2017
-ms.date: 01/09/2018
+origin.date: 02/27/2017
+ms.date: 07/03/2018
 ms.custom: ''
-ms.openlocfilehash: d279551b7aedd70eece4d9081ebcc7fb6e0634f8
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.openlocfilehash: e0d64c8c3a6b9ffae1d7793623a20fed346de8fe
+ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31319188"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37800424"
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Azure Active Directory 身份验证库 (ADAL) 客户端的错误处理最佳做法
 
@@ -76,7 +77,7 @@ catch (AdalSilentTokenAcquisitionException e) {
     // Exception: AdalSilentTokenAcquisitionException
     // Caused when there are no tokens in the cache or a required refresh failed. 
 
-    // Action: Case 1, resolvable with an interactive request.  
+    // Action: Case 1, resolvable with an interactive request. 
 } 
 
 catch(AdalServiceException e) {
@@ -159,7 +160,7 @@ public void onError(Exception e) {
             // Error: AD_ERROR_CACHE_MULTIPLE_USERS
             // Description: There was ambiguity in the silent request resulting in multiple cache items.
             // Action: Special Case, application should perform another silent request and specify the user using ADUserIdentifier. 
-            // Can be caused in cases of a multi-user application.  
+            // Can be caused in cases of a multi-user application. 
 
             // Action: Case 2, not resolvable with an interactive request.
             // Attempt retry after some time or user action.
@@ -172,9 +173,9 @@ public void onError(Exception e) {
 
 ## <a name="acquiretoken"></a>AcquireToken
 
-AcquireToken 是用于获取令牌的默认 ADAL 方法。 在需要用户标识的情况下，AcquireToken 先尝试自动获取令牌，如有必要再显示 UI（除非通过 PromptBehavior.Never）。 在需要应用程序标识的情况下，AcquireToken 尝试获取令牌，但不显示 UI（因为没有最终用户）。  
+AcquireToken 是用于获取令牌的默认 ADAL 方法。 在需要用户标识的情况下，AcquireToken 先尝试自动获取令牌，如有必要再显示 UI（除非通过 PromptBehavior.Never）。 在需要应用程序标识的情况下，AcquireToken 尝试获取令牌，但不显示 UI（因为没有最终用户）。 
 
-处理 AcquireToken 错误时，错误处理取决于所在平台和应用程序想要实现的方案。  
+处理 AcquireToken 错误时，错误处理取决于所在平台和应用程序想要实现的方案。 
 
 操作系统也可生成一组错误，需根据特定的应用程序进行错误处理。 有关详细信息，请参阅[错误和日志记录引用](#error-and-logging-reference)中的“操作系统错误”。 
 
@@ -189,7 +190,7 @@ AcquireToken 是用于获取令牌的默认 ADAL 方法。 在需要用户标识
 
 ### <a name="error-cases-and-actionable-steps-native-client-applications"></a>错误情况和操作步骤：本机客户端应用程序
 
-生成本机客户端应用程序时，需考虑几种错误处理情况，它们与网络问题、暂时性故障以及其他特定于平台的错误有关。 在大多数情况下，应用程序不应立即执行重试，而应等到出现提示登录的最终用户交互时再重试。  
+生成本机客户端应用程序时，需考虑几种错误处理情况，它们与网络问题、暂时性故障以及其他特定于平台的错误有关。 在大多数情况下，应用程序不应立即执行重试，而应等到出现提示登录的最终用户交互时再重试。 
 
 在少数特殊情况下，可通过一次重试解决问题。 例如，用户需要在设备上启用数据，或首次失败后完成 Azure AD 中转站下载的情况。 
 
@@ -367,7 +368,7 @@ catch (AdalException e) {
 
 ### <a name="error-cases-and-actionable-steps-single-page-applications-adaljs"></a>错误情况和操作步骤：单页面应用程序 (adal.js)
 
-如果使用 adal.js 和 AcquireToken 生成单页面应用程序，则错误处理代码与典型自动调用类似。  特别是在 adal.js 中，AcquireToken 从不显示 UI。 
+如果使用 adal.js 和 AcquireToken 生成单页面应用程序，则错误处理代码与典型自动调用类似。 特别是在 adal.js 中，AcquireToken 从不显示 UI。 
 
 AcquireToken 失败存在以下情况：
 
@@ -514,7 +515,7 @@ Logger.getInstance().setExternalLogger(new ILogger() {
     @Override   
     public void Log(String tag, String message, String additionalMessage, LogLevel level, ADALError errorCode) { 
     // …
-    // You can write this to logfile depending on level or errorcode.     
+    // You can write this to logfile depending on level or errorcode. 
     writeToLogFile(getApplicationContext(), tag +":" + message + "-" + additionalMessage);    
     }
 }
@@ -578,7 +579,7 @@ window.Logging = {
 ```
 ## <a name="related-content"></a>相关内容
 
-- [Azure AD Developer's Guide（Azure AD 开发人员指南）][AAD-Dev-Guide]
+- [Azure AD 开发人员指南][AAD-Dev-Guide]
 - [Azure AD 身份验证库][AAD-Auth-Libraries]
 - [Azure AD 身份验证方案][AAD-Auth-Scenarios]
 - [将应用程序与 Azure Active Directory 集成][AAD-Integrating-Apps]
@@ -586,14 +587,10 @@ window.Logging = {
 欢迎通过下方的“评论”部分提供反馈，帮助我们改进内容。
 
 [![“登录”按钮][AAD-Sign-In]][AAD-Sign-In]
-<!--Reference style links -->
-[AAD-Auth-Libraries]: ./active-directory-authentication-libraries.md
-[AAD-Auth-Scenarios]: ./active-directory-authentication-scenarios.md
-[AAD-Dev-Guide]: ./active-directory-developers-guide.md
-[AAD-Integrating-Apps]: ./active-directory-integrating-applications.md
-[AZURE-portal]: https://portal.azure.cn
+<!--Reference style links --> [AAD-Auth-Libraries]：./active-directory-authentication-libraries.md [AAD-Auth-Scenarios]：./active-directory-authentication-scenarios.md [AAD-Dev-Guide]：./active-directory-developers-guide.md [AAD-Integrating-Apps]：./active-directory-integrating-applications.md [AZURE-portal]：https://portal.azure.cn
 
 <!--Image references-->
 [AAD-Sign-In]:./media/active-directory-devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png
 
 
+<!-- Update_Description: update metedata properties -->

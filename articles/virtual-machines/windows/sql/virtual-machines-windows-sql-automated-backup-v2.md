@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 origin.date: 05/03/2018
 ms.date: 06/04/2018
 ms.author: v-yeche
-ms.openlocfilehash: b48c4b9e67a11ebae05edc73ef07eace4626f004
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 106deee52f7202b08dda5d2acad9abc9526cbdda
+ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702852"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37405271"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>适用于 Azure 虚拟机（资源管理器）的自动备份 v2
 
@@ -325,11 +325,11 @@ Set-AzureRmVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
 另一种方式是利用内置的数据库邮件功能进行通知。
 
 1. 调用 [msdb.managed_backup.sp_set_parameter](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/managed-backup-sp-set-parameter-transact-sql) 存储过程，向 SSMBackup2WANotificationEmailIds 参数分配电子邮件地址。 
-1. 启用 [SendGrid](../../../sendgrid-dotnet-how-to-send-email.md)，从 Azure VM 发送电子邮件。
+1. 启用 SendGrid，从 Azure VM 发送电子邮件。
 1. 使用 SMTP 服务器和用户名配置数据库邮件。 可在 SQL Server Management Studio 中或使用 Transact-SQL 命令配置数据库邮件。 有关详细信息，请参阅[数据库邮件](https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail)。
 1. [配置 SQL Server 代理以使用数据库邮件](https://docs.microsoft.com/sql/relational-databases/database-mail/configure-sql-server-agent-mail-to-use-database-mail)。
 1. 验证是否通过本地 VM 防火墙和适用于 VM 的网络安全组允许该 SMTP 端口。
-
+<!-- Not Available on [SendGrid](../../../sendgrid-dotnet-how-to-send-email.md)-->
 ## <a name="next-steps"></a>后续步骤
 自动备份 v2 在 Azure VM 上配置托管备份。 因此，请务必[查看有关托管备份的文档](https://msdn.microsoft.com/library/dn449496.aspx)，了解其行为和影响。
 

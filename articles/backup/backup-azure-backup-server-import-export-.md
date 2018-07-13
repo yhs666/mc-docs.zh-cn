@@ -1,26 +1,20 @@
 ---
-title: Azure 备份 - DPM 和 Azure 备份服务器的脱机备份 | Microsoft 文档
+title: Azure 备份 - DPM 和 Azure 备份服务器的脱机备份
 description: 了解如何在 Azure 备份中使用 Azure 导入/导出服务离线发送数据。 本文介绍如何使用 Azure 导入导出服务来脱机设定初始备份数据的种子。
 services: backup
-documentationcenter: ''
 author: saurabhsensharma
 manager: shivamg
-editor: ''
-ms.assetid: ada19c12-3e60-457b-8a6e-cf21b9553b97
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 origin.date: 05/08/2018
-ms.date: 05/25/2018
+ms.date: 07/05/2018
 ms.author: v-junlch
-ms.openlocfilehash: 89e7772ce54494bf9faf28b092eb5526a50965e0
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 88f76aebdcfb3fe2470495d82cc7412b6435ac5e
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34559445"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873602"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>DPM 和 Azure 备份服务器的脱机备份工作流
 Azure 备份有多个可提升效率的内置功能，可在将数据初始完整备份到 Azure 期间节省网络和存储成本。 初始完整备份通常会传输大量数据，且需要较多网络带宽，相比之下，后续备份只传输差异/增量部分。 Azure 备份可压缩初始备份。 通过脱机种子设定过程，Azure 备份可以使用磁盘将压缩后的初始备份数据脱机上传到 Azure。
@@ -193,7 +187,7 @@ Azure 备份的脱机种子设定与 [Azure 导入/导出服务](../storage/comm
 ### <a name="monitoring-azure-import-job-status"></a>监视 Azure 导入作业状态
 驱动器在传输过程中或已在 Azure 数据中心，等待复制到存储帐户时，Azure 备份代理或 SC DPM 或源计算机上的 Azure 备份服务器控制台将为你的计划备份显示以下作业状态。 
 
-  `Waiting for Azure Import Job to complete. Please check on Azure Management portal for more information on job status`
+  `Waiting for Azure Import Job to complete. Please check on Azure portal for more information on job status`
 
 遵循以下步骤，查看导入作业状态。 
 1. 在源计算机上打开提升的命令提示符，并运行以下命令：
@@ -217,3 +211,4 @@ Azure 备份的脱机种子设定与 [Azure 导入/导出服务](../storage/comm
 - 如有任何关于 Azure 导入/导出工作流的问题，请参阅 [Use the Azure Import/Export service to transfer data to Blob storage](../storage/common/storage-import-export-service.md)（使用 Azure 导入/导出服务可将数据传输到 Blob 存储中）。
 - 如有工作流方面的任何问题，请参阅 Azure 备份 [FAQ](backup-azure-backup-faq.md) （常见问题）的“脱机备份”部分。
 
+<!-- Update_Description: update metedata properties -->

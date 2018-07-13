@@ -4,18 +4,18 @@ description: 使用 Azure 策略强制执行标准、满足法规遵从性、审
 services: azure-policy
 author: WenJason
 ms.author: v-nany
-origin.date: 05/07/2018
-ms.date: 06/04/2018
+origin.date: 05/24/2018
+ms.date: 07/09/2018
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 7aa52ce06137bfbb5ed113238fb592f6a5bd693f
-ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
+ms.openlocfilehash: ada35b8ac9b8d84a620b88403f845b64b68eb509
+ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36748425"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37405317"
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>创建和管理策略以强制实施符合性
 
@@ -69,10 +69,7 @@ ms.locfileid: "36748425"
 2. 选择页面顶部的“+ 策略定义”。 此时会打开“策略定义”页。
 3. 输入以下内容：
 
-   - 策略定义保存到的管理组或订阅。 使用“定义位置”旁边的省略号进行选择。
-
-     > [!NOTE]
-     > 若要将此策略定义应用到多个订阅，则位置必须是策略要分配到的订阅所在的管理组。 对于计划定义，也需要确保这一点。
+   - 策略定义保存到的订阅。 使用“定义位置”旁边的省略号进行选择。
 
    - 策略定义的名称 - 需要 VM SKU 小于 G 系列
    - 想通过策略定义实现的操作的说明 - 此策略定义强制此范围中创建的所有 VM 具有的 SKU 都小于 G 系列，以减少成本。
@@ -160,7 +157,7 @@ PUT https://management.azure.com/subscriptions/{subscription-id}/providers/Micro
 
 要在文件中创建策略定义，请将路径传递给该文件。 对于外部文件，请使用以下示例：
 
-```azurepowershell
+```powershell
 $definition = New-AzureRmPolicyDefinition `
     -Name 'denyCoolTiering' `
     -DisplayName 'Deny cool access tiering for storage' `
@@ -169,7 +166,7 @@ $definition = New-AzureRmPolicyDefinition `
 
 对于本地文件，请使用以下示例：
 
-```azurepowershell
+```powershell
 $definition = New-AzureRmPolicyDefinition `
     -Name 'denyCoolTiering' `
     -Description 'Deny cool access tiering for storage' `
@@ -178,7 +175,7 @@ $definition = New-AzureRmPolicyDefinition `
 
 要使用内联规则创建策略定义，请使用以下示例：
 
-```azurepowershell
+```powershell
 $definition = New-AzureRmPolicyDefinition -Name 'denyCoolTiering' -Description 'Deny cool access tiering for storage' -Policy '{
     "if": {
         "allOf": [{
@@ -206,7 +203,7 @@ $definition = New-AzureRmPolicyDefinition -Name 'denyCoolTiering' -Description '
 输出存储在 `$definition` 对象中，这会在策略分配过程中使用。
 以下示例创建包含参数的策略定义：
 
-```azurepowershell
+```powershell
 $policy = '{
     "if": {
         "allOf": [{
@@ -244,7 +241,7 @@ $definition = New-AzureRmPolicyDefinition -Name 'storageLocations' -Description 
 
 若要查看订阅中的所有策略定义，请运行以下命令：
 
-```azurepowershell
+```powershell
 Get-AzureRmPolicyDefinition
 ```
 
@@ -266,7 +263,7 @@ PolicyDefinitionId : /providers/Microsoft.Authorization/policyDefinitions/e56962
 可以将 Azure CLI 与策略定义命令结合使用来创建策略定义。
 要使用内联规则创建策略定义，请使用以下示例：
 
-```azurecli
+```cli
 az policy definition create --name 'denyCoolTiering' --description 'Deny cool access tiering for storage' --rules '{
     "if": {
         "allOf": [{
@@ -295,7 +292,7 @@ az policy definition create --name 'denyCoolTiering' --description 'Deny cool ac
 
 若要查看订阅中的所有策略定义，请运行以下命令：
 
-```azurecli
+```cli
 az policy definition list
 ```
 

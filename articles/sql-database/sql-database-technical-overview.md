@@ -10,16 +10,16 @@ ms.topic: overview
 origin.date: 03/07/2018
 ms.date: 06/18/2018
 ms.author: v-johch
-ms.openlocfilehash: c809a5c337dca18b6ee5241a74c9d0cc466fc472
-ms.sourcegitcommit: d4176361d9c6da60729c06cc93a496cb4702d4c2
+ms.openlocfilehash: 01878b3801d199fff3beab0a798477da627ddd67
+ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2018
-ms.locfileid: "35324300"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37800421"
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>什么是 Azure SQL 数据库服务？ 
 
-SQL 数据库是 Microsoft Azure 中通用的关系数据库托管服务，支持关系数据、JSON、空间和 XML 等结构。 SQL 数据库提供托管的[单一 SQL 数据库](sql-database-servers-databases.md)、[弹性池](sql-database-elastic-pool.md)中的托管 SQL 数据库，以及 SQL [托管实例](sql-database-managed-instance.md)（公共预览版）。 它在两个不同的购买模型（[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)和[基于 vCore 的购买模型（预览版）](sql-database-service-tiers-vcore.md)中提供动态可缩放性能。 SQL 数据库还提供[列存储索引](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview)（用于极端分析和报告）和[内存中 OLTP](sql-database-in-memory.md)（用于极端事务处理）等选项。 Microsoft 可无缝处理 SQL 代码库的所有修补和更新，并避开底层基础结构的所有管理。 
+SQL 数据库是 Azure 中通用的关系型数据库托管服务，支持关系数据、JSON、空间和 XML 等结构。 SQL 数据库提供托管的[单一 SQL 数据库](sql-database-servers-databases.md)、[弹性池](sql-database-elastic-pool.md)中的托管 SQL 数据库，以及 SQL [托管实例](sql-database-managed-instance.md)（公共预览版）。 它在两个不同的购买模型（[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)和[基于 vCore 的购买模型（预览版）](sql-database-service-tiers-vcore.md)中提供动态可缩放性能。 SQL 数据库还提供[列存储索引](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview)（用于极端分析和报告）和[内存中 OLTP](sql-database-in-memory.md)（用于极端事务处理）等选项。 Azure 可无缝处理 SQL 代码库的所有修补和更新，并且不需要用户进行任何底层基础结构管理。 
 
 SQL 数据库与 [Microsoft SQL Server 数据库引擎](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation)共享其代码库。 利用 Microsoft 的云优先策略，首先将 SQL Server 的最新功能发布到 SQL 数据库，然后再发布到 SQL Server 本身。 此方法可为你提供 SQL Server 的最新功能，这些新功能已经过数百万个数据库的测试且无任何修补或升级开销。 
 > [!IMPORTANT]

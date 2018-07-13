@@ -16,12 +16,12 @@ origin.date: 02/27/2018
 ms.date: 06/04/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: e2c55928b4c77dca5b6e4ad95491ed8d17bd125f
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: 6176c365b26d5ee169643e412d39be3a25f35645
+ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867656"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37405201"
 ---
 # <a name="tutorial-install-the-sql47iis47net-stack-in-a-windows-vm-with-azure-powershell"></a>教程：使用 Azure PowerShell 在 Windows VM 中安装 SQL&#47;IIS&#47;.NET 堆栈
 
@@ -97,7 +97,7 @@ $vNet | Set-AzureRmVirtualNetwork
 
 ## <a name="azure-sql-vm"></a>Azure SQL VM
 
-使用 SQL Server 的预配置 Azure Marketplace 映像创建 SQL VM。 首先创建 VM，然后在 VM 上安装 SQL Server 扩展。 
+使用 SQL Server 的预配置 Azure 市场映像创建 SQL VM。 首先创建 VM，然后在 VM 上安装 SQL Server 扩展。 
 
 ```powershell
 New-AzureRmVm `
@@ -112,7 +112,8 @@ New-AzureRmVm `
     -OpenPorts 3389,1401 
 ```
 
-使用 [Set-AzureRmVMSqlServerExtension](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmsqlserverextension) 将 [SQL Server 扩展](https://docs.microsoft.com/sql/virtual-machines-windows-sql-server-agent-extension)添加到 SQL VM。
+使用 [Set-AzureRmVMSqlServerExtension](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmsqlserverextension) 将 [SQL Server 扩展](sql/virtual-machines-windows-sql-server-agent-extension.md)添加到 SQL VM。
+<!-- URL is correct on [SQL Server extension](sql/virtual-machines-windows-sql-server-agent-extension.md)-->
 
 ```powershell
 Set-AzureRmVMSqlServerExtension `

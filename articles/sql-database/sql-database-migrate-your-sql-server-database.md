@@ -10,12 +10,12 @@ ms.topic: tutorial
 origin.date: 05/22/2018
 ms.date: 07/02/2018
 ms.author: v-johch
-ms.openlocfilehash: fae46be4076df617ab899239862da20fe974ccbd
-ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
+ms.openlocfilehash: 60b43e90beb2210a362b9d3e85aa5a1c140c9715
+ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36947987"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37800453"
 ---
 # <a name="migrate-your-sql-server-database-to-azure-sql-database-using-dma"></a>使用 DMA 将 SQL Server 数据库迁移到 Azure SQL 数据库
 
@@ -74,7 +74,7 @@ ms.locfileid: "36947987"
    | **服务器名称** | 任何全局唯一名称 | 如需有效的服务器名称，请参阅 [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)（命名规则和限制）。 | 
    | 服务器管理员登录名 | 任何有效的名称 | 有关有效的登录名，请参阅 [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)（数据库标识符）。|
    | **密码** | 任何有效的密码 | 密码必须至少有八个字符，且必须包含以下类别中的三个类别的字符：大写字符、小写字符、数字以及非字母数字字符。 |
-   | **位置** | 任何有效的位置 | 中国东部和中国北部 |
+   | **位置** | 任何有效的位置 | 中国东部、中国东部 2、中国北部、中国北部 2 |
 
    ![创建数据库 - 服务器](./media/sql-database-design-first-database/create-database-server.png)
 

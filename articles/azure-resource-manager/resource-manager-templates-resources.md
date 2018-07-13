@@ -8,18 +8,18 @@ manager: digimobile
 editor: tysonn
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 12/13/2017
-ms.date: 04/30/2018
+ms.date: 07/09/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0cdeccb1b34fb15aeaf4fc4e6b60c83b0ad109e6
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 9a378507f4893de9fc275d3b4a000410f47d229f
+ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121612"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37405332"
 ---
 # <a name="resources-section-of-azure-resource-manager-templates"></a>Azure 资源管理器模板的 Resources 节
 
@@ -97,7 +97,7 @@ ms.locfileid: "32121612"
 | properties |否 |特定于资源的配置设置。 properties 的值与创建资源时，在 REST API 操作（PUT 方法）的请求正文中提供的值相同。 还可以指定 copy 数组来创建属性的多个实例。 |
 | sku | 否 | 某些资源接受定义了要部署的 SKU 的值。 例如，可以为存储帐户指定冗余类型。 |
 | kind | 否 | 某些资源接受定义了你部署的资源类型的值。 例如，可以指定要创建的 Cosmos DB 的类型。 |
-| 计划 | 否 | 某些资源接受定义了要部署的计划的值。 例如，可以为虚拟机指定 Marketplace 映像。 | 
+| 计划 | 否 | 某些资源接受定义了要部署的计划的值。 例如，可以为虚拟机指定市场映像。 | 
 | 资源 |否 |依赖于所定义的资源的子资源。 只能提供父资源的架构允许的资源类型。 子资源的完全限定类型包含父资源类型，例如 **Microsoft.Web/sites/extensions**。 不隐式表示对父资源的依赖。 必须显式定义该依赖关系。 |
 
 ## <a name="resource-specific-values"></a>特定于资源的值
@@ -169,7 +169,7 @@ ms.locfileid: "32121612"
 ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
 ```
 
-以下示例使用 Azure CLI 2.0获取 `Microsoft.Web\sites` 资源类型的位置：
+以下示例使用 Azure CLI 获取 `Microsoft.Web\sites` 资源类型的位置：
 
 ```azurecli
 az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites'].locations"
@@ -414,4 +414,4 @@ az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites']
 * 可能需要使用不同资源组中的资源。 使用跨多个资源组共享的存储帐户或虚拟网络时，此方案很常见。 有关详细信息，请参阅 [resourceId 函数](resource-group-template-functions-resource.md#resourceid)。
 <!--Not Available on [Recommended naming conventions for Azure resources](../guidance/guidance-naming-conventions.md) -->
 
-<!-- Update_Description: wording update, update link -->
+<!-- Update_Description: update meta properties -->

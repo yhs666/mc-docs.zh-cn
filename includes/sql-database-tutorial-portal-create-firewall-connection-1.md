@@ -30,7 +30,7 @@
    | **服务器名称** | 任何全局唯一名称 | 如需有效的服务器名称，请参阅 [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)（命名规则和限制）。 | 
    | 服务器管理员登录名 | 任何有效的名称 | 有关有效的登录名，请参阅 [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)（数据库标识符）。|
    | **密码** | 任何有效的密码 | 密码必须至少有 8 个字符，且必须包含以下类别中的三个类别的字符：大写字符、小写字符、数字以及非字母数字字符。 |
-   | **位置** | 任何有效的位置 | 中国东部和中国北部 |
+   | **位置** | 任何有效的位置 | 中国东部、中国东部 2、中国北部、中国北部 2 |
 
    ![创建数据库 - 服务器](../articles/sql-database/media/sql-database-design-first-database/create-database-server.png)
 
@@ -45,7 +45,7 @@
 8. 若要使用“附加存储”选项，请接受预览版条款。 
 
    > [!IMPORTANT]
-   > \* 超出所包括存储量的存储大小为预览版，需额外付费。 有关详细信息，请参阅 [SQL 数据库定价](https://azure.microsoft.cn/pricing/details/sql-database/)。 
+   > \* 超出所包括存储量的存储大小为预览版，需额外付费。 有关详细信息，请参阅 [SQL 数据库定价](https://azure.cn/pricing/details/sql-database/)。 
    >
 
 9. 选择服务器层、DTU 数和存储量后，单击“应用”。  

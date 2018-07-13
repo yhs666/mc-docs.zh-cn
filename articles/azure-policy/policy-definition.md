@@ -4,17 +4,17 @@ description: 介绍 Azure 策略如何使用资源策略定义，通过描述何
 services: azure-policy
 author: WenJason
 ms.author: v-nany
-origin.date: 05/07/2018
-ms.date: 06/04/2018
+origin.date: 05/24/2018
+ms.date: 07/09/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: digimobile
-ms.openlocfilehash: 4a639e2708de584a2af05e64f43cb255d3fabbed
-ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
+ms.openlocfilehash: b7481b34fcfaf4455ef9894e22dc0b248bf3456f
+ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36748419"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37405305"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure 策略定义结构
 
@@ -65,7 +65,7 @@ Azure 策略使用的资源策略定义，可使你通过描述何时强制实�
 }
 ```
 
-所有 Azure 策略模板示例位于 [Azure 策略模板](json-samples.md)。
+所有 Azure 策略示例均位于[策略示例](json-samples.md)内。
 
 ## <a name="mode"></a>Mode
 
@@ -121,10 +121,7 @@ Azure 策略使用的资源策略定义，可使你通过描述何时强制实�
 
 创建计划或策略定义时，指定定义位置非常重要。
 
-定义位置确定计划或策略定义可分配到的范围。 位置可以指定为管理组或订阅。
-
-> [!NOTE]
-> 若要将此策略定义应用到多个订阅，则位置必须是计划或策略要分配到的订阅所在的管理组。
+定义位置确定计划或策略定义可分配到的范围。 位置可以指定为订阅。
 
 ## <a name="display-name-and-description"></a>显示名称和说明
 
@@ -193,7 +190,7 @@ Azure 策略使用的资源策略定义，可使你通过描述何时强制实�
 - `"notContainsKey": "keyName"`
 - `"exists": "bool"`
 
-使用 like 和 notLike 条件时，可以在值中提供通配符 (*)。
+使用 like 和 notLike 条件时，可以在值中指定通配符 (*)。值不得包含多个通配符 (*)。
 
 当使用 match 和 notMatch 条件时，请提供 `#` 来表示数字，提供 `?` 来表示字母，提供任何其他字符来表示该实际字符。 例如，请参阅[允许多名称模式](scripts/allow-multiple-name-patterns.md)。
 
@@ -205,7 +202,7 @@ Azure 策略使用的资源策略定义，可使你通过描述何时强制实�
 
 - `name`
 - `fullName`
-  - 返回资源的全名，包括任何父级信息（例如：“myServer/myDatabase”）
+  - 返回资源全名。 资源全名是最前面为任意父资源名称的资源名称（例如“myServer/myDatabase”）。
 - `kind`
 - `type`
 - `location`
@@ -253,15 +250,17 @@ Azure 策略使用的资源策略定义，可使你通过描述何时强制实�
 借助 AuditIfNotExists 和 DeployIfNotExists，可以评估相关资源是否存在，并在该资源不存在时应用规则和相应的作用。 例如，可以要求为所有虚拟网络部署网络观察程序。
 有关未部署虚拟机扩展时的审核示例，请参阅[如果扩展不存在，则进行审核](scripts/audit-ext-not-exist.md)。
 
+有关每种效果、评估顺序、属性和示例的完整详细信息，请参阅[了解策略效果](policy-effects.md)。
+
 ## <a name="aliases"></a>别名
 
 使用属性别名来访问资源类型的特定属性。 通过别名，可限制允许用于特定资源属性的值和条件。 每个别名会映射到给定资源类型不同 API 版本的路径。 在策略评估期间，策略引擎会获取该 API 版本的属性路径。
 
 别名列表始终不断增长。 要发现 Azure 策略当前支持哪些别名，请使用以下方法之一：
 
-- Azure PowerShell
+- PowerShell
 
-  ```azurepowershell
+  ```powershell
   # Login first with Connect-AzureRmAccount if not using Cloud Shell
 
   $azContext = Get-AzureRmContext
@@ -298,10 +297,10 @@ Azure 策略使用的资源策略定义，可使你通过描述何时强制实�
   $aliases | Sort-Object -Property Namespace, resourceType, alias | Format-Table
   ```
 
-- Azure CLI
+- CLI
 
-  ```azurecli
-  # Login first with az login if not using Cloud Shell
+  ```cli
+  # Login first with az login 
 
   # Get Azure Policy aliases for a specific Namespace
   az provider show --namespace Microsoft.Automation --expand "resourceTypes/aliases" --query "resourceTypes[].aliases[].name"
@@ -393,4 +392,4 @@ Azure 策略使用的资源策略定义，可使你通过描述何时强制实�
 
 ## <a name="next-steps"></a>后续步骤
 
-- 可在 [Azure 策略模板](json-samples.md)中查看 Azure 策略模板示例。
+- 有关更多示例，请参阅 [Azure 策略示例](json-samples.md)。
