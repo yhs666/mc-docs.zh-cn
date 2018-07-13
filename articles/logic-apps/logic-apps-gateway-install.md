@@ -16,12 +16,12 @@ ms.workload: integration
 origin.date: 09/14/2017
 ms.author: v-yiso
 ms.date: 07/02/2018
-ms.openlocfilehash: 721a43cb085b91f91d111c8db7f2582a376ba498
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.openlocfilehash: e3596489e4865d56527ee8925c0a8bd73eff5ce5
+ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315616"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37405233"
 ---
 # <a name="install-the-on-premises-data-gateway-for-azure-logic-apps"></a>为 Azure 逻辑应用安装本地数据网关
 
@@ -46,7 +46,7 @@ ms.locfileid: "36315616"
 有关如何将网关用于其他服务的信息，请参阅以下文章：
 
 *   [Microsoft Power BI 本地数据网关](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem/)
-*   [Azure Analysis Services 本地数据网关](../analysis-services/analysis-services-gateway.md)
+<!--Not Available on *   [Azure Analysis Services on-premises data gateway](../analysis-services/analysis-services-gateway.md)-->
 *   [Microsoft Flow 本地数据网关](https://flow.microsoft.com/documentation/gateway-manage/)
 *   [Microsoft PowerApps 本地数据网关](https://powerapps.microsoft.com/tutorials/gateway-management/)
 

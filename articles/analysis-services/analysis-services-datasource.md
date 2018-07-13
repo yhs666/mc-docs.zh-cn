@@ -9,12 +9,12 @@ origin.date: 04/12/2018
 ms.date: 04/30/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 163be8a76b96d50ea71087cd4d3f3a2f70a32e27
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 21f7b1de7734ac6eb4da6d54c9af9fe3fd62d2ed
+ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121203"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37405224"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services 中支持的数据源
 
@@ -106,6 +106,6 @@ ms.locfileid: "32121203"
 * 如果使用 SQL 身份验证，则模拟应为服务帐户。
 
 ## <a name="next-steps"></a>后续步骤
-[本地网关](analysis-services-gateway.md)   
+<!--Not Available [On-premises gateway](analysis-services-gateway.md)--> 
 [管理服务器](analysis-services-manage.md)
 <!--Update_Description: wording update, update link -->

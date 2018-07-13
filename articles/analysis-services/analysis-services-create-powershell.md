@@ -9,12 +9,12 @@ origin.date: 04/12/2018
 ms.date: 06/18/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 03cc4bf072cd4a6662facb70482ba3a4ebaff4f8
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 77ef3b113ee5ef00084925153f87ea7b70f4fa62
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "35416806"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873413"
 ---
 # <a name="create-an-azure-analysis-services-server-by-using-powershell"></a>使用 PowerShell 创建 Azure Analysis Services 服务器
 
@@ -59,8 +59,10 @@ New-AzureRmResourceGroup -Name "myResourceGroup" -Location "China North"
 使用 [New-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver) 命令创建新的服务器。 以下示例在中国北部区域的 myResourceGroup 中的 D1 层创建名为 myServer 的服务器，并指定 philipc@adventureworks.com 为服务器管理员。
 
 ```powershell
-New-AzureRmAnalysisServicesServer -ResourceGroupName "myResourceGroup" -Name "myServer" -Location "chinanorth" -Sku D1 -Administrator "philipc@adventure-works.com"
+New-AzureRmAnalysisServicesServer -ResourceGroupName "myResourceGroup" -Name "myserver" -Location "chinanorth" -Sku S0 -Administrator "philipc@adventure-works.com"
 ```
+<!--Notice: ServerName should be lower charactor-->
+<!--Notice: -Sku should be B0,B1,S0-S4-->
 
 ## <a name="clean-up-resources"></a>清理资源
 
@@ -73,6 +75,6 @@ Remove-AzureRmAnalysisServicesServer -Name "myServer" -ResourceGroupName "myReso
 ## <a name="next-steps"></a>后续步骤
 [使用 PowerShell 管理 Azure Analysis Services](analysis-services-powershell.md)
 [从 SSDT 部署模型](analysis-services-deploy.md)
-[在 Azure 门户中创建模型](analysis-services-create-model-portal.md)
+<!-- Not Available on [Create a model in Azure portal](analysis-services-create-model-portal.md)-->
 
 <!--Update_Description: wording update, update link -->

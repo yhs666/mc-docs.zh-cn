@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 origin.date: 05/22/2017
 ms.date: 06/04/2018
 ms.author: v-yeche
-ms.openlocfilehash: 5b8974910374acf6962694678e6bc30d868814d0
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: b282228ef9a4674689dbb219872985081421c3e7
+ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702829"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37405293"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>配置一个或多个 Always On 可用性组侦听器 - Resource Manager
 本主题说明如何：
@@ -30,7 +30,8 @@ ms.locfileid: "34702829"
 
 可用性组侦听器是客户端为了访问数据库而连接的虚拟网络名称。 在 Azure 虚拟机上，负载均衡器持有侦听器的 IP 地址。 负载均衡器将流量路由到侦听探测端口的 SQL Server 实例。 通常情况下，可用性组使用内部负载均衡器。 Azure 内部负载均衡器可以托管一个或多个 IP 地址。 每个 IP 地址使用特定的探测端口。 本文档说明如何使用 PowerShell 创建负载均衡器，或将 IP 地址添加到 SQL Server 可用性组的现有负载均衡器。 
 
-将多个 IP 地址分配到内部负载均衡器是 Azure 的一项新增功能，只能在 Resource Manager 模型中使用。 若要完成此任务，需要在 Resource Manager 模型中的 Azure 虚拟机上部署 SQL Server 可用性组。 这两个 SQL Server 虚拟机必须属于同一个可用性集。 可以使用 [Microsoft 模板](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)在 Azure 资源管理器中自动创建可用性组。 此模板自动为用户创建可用性组，包括内部负载均衡器。 如果需要，可以[手动配置 Always On 可用性组](virtual-machines-windows-portal-sql-availability-group-tutorial.md)。
+将多个 IP 地址分配到内部负载均衡器是 Azure 的一项新增功能，只能在 Resource Manager 模型中使用。 若要完成此任务，需要在 Resource Manager 模型中的 Azure 虚拟机上部署 SQL Server 可用性组。 这两个 SQL Server 虚拟机必须属于同一个可用性集。 可以使用 Azure 模板在 Azure 资源管理器中自动创建可用性组。 此模板自动为用户创建可用性组，包括内部负载均衡器。 如果需要，可以[手动配置 Always On 可用性组](virtual-machines-windows-portal-sql-availability-group-tutorial.md)。
+<!-- Not Available on [Azure 模板](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)-->
 
 本主题要求事先配置可用性组。  
 
@@ -46,11 +47,10 @@ ms.locfileid: "34702829"
 
 ## <a name="example-script-create-an-internal-load-balancer-with-powershell"></a>示例脚本：使用 PowerShell 创建内部负载均衡器
 > [!NOTE]
-> 如果使用 [Azure 模板](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)创建了可用性组，则已创建内部负载均衡器。 
+> 如果使用 Azure 模板创建了可用性组，则已创建内部负载均衡器。 
 > 
 > 
-
-以下 PowerShell 脚本创建内部负载均衡器、配置负载均衡规则，并设置负载均衡器的 IP 地址。 要运行该脚本，请打开 Windows PowerShell ISE，然后将脚本粘贴到“脚本”窗格中。 使用 `Connect-AzureRmAccount -Environment AzureChinaCloud ` 登录到 PowerShell。 如果有多个 Azure 订阅，请使用 `Select-AzureRmSubscription ` 设置订阅。 
+<!-- Not Available on [Microsoft 模板](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)--> 以下 PowerShell 脚本创建内部负载均衡器、配置负载均衡规则，并设置负载均衡器的 IP 地址。 要运行该脚本，请打开 Windows PowerShell ISE，然后将脚本粘贴到“脚本”窗格中。 使用 `Connect-AzureRmAccount -Environment AzureChinaCloud ` 登录到 PowerShell。 如果有多个 Azure 订阅，请使用 `Select-AzureRmSubscription ` 设置订阅。 
 
 ```powershell
 # Connect-AzureRmAccount -Environment AzureChinaCloud
@@ -185,7 +185,7 @@ $ILB | Add-AzureRmLoadBalancerRuleConfig -Name $LBConfigRuleName -FrontendIpConf
     sqlcmd -S <listenerName>,1435 -E
     ```
 
-SQLCMD 连接自动连接到托管主副本的 SQL Server 实例。 
+SQLCMD 连接会自动连接到托管主副本的 SQL Server 实例。 
 
 > [!NOTE]
 > 确保指定的端口已在两个 SQL Server 的防火墙上打开。 这两个服务器需要所用 TCP 端口的入站规则。 有关详细信息，请参阅 [Add or Edit Firewall Rule](http://technet.microsoft.com/library/cc753558.aspx)（添加或编辑防火墙规则）。 

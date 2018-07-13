@@ -9,12 +9,12 @@ origin.date: 05/16/2018
 ms.date: 06/18/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9af2f4795e470c867ffe8294d4d8738287c92f1d
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: eae035fd8248dd85fb359af795e3094d3c3e1e7f
+ms.sourcegitcommit: 1e4a3312db427c44db75b2d1af9b13c690ed2e21
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "35416778"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873014"
 ---
 # <a name="what-is-azure-analysis-services"></a>什么是 Azure Analysis Services？
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
@@ -38,7 +38,7 @@ Azure Analysis Services 集成许多 Azure 服务，因此可以生成复杂的�
 ## <a name="get-up-and-running-quickly"></a>快速启动和运行
 在 Azure 门户中，数分钟即可[创建服务器](analysis-services-create-server.md)。 另外，有了 Azure 资源管理器[模板](../azure-resource-manager/resource-manager-create-first-template.md)和 PowerShell，就可以使用声明性模板来预配服务器。 利用单个模板可以部署多个服务和其他 Azure 组件，例如存储帐户和 Azure Functions。 
 
-创建服务器以后，即可直接在 Azure 门户中创建表格模型。 使用新的（预览版）[Web 设计器功能](analysis-services-create-model-portal.md)，可以连接到 Azure SQL 数据库、Azure SQL 数据仓库数据源，还可以导入 Power BI Desktop .pbix 文件。 表之间的关系是自动创建的。可以直接在浏览器中创建度量值或编辑 JSON 格式的 model.bim 文件。
+<!-- Not Available on [Web designer feature](analysis-services-create-model-portal.md)-->
 
 ## <a name="scale-to-your-needs"></a>按需求缩放
 
@@ -61,7 +61,8 @@ Azure Analysis Services 集成许多 Azure 服务，因此可以生成复杂的�
 ## <a name="migrate-your-existing-tabular-models"></a>迁移现有的表格模型
 如果现在已经有本地 SQL Server Analysis Services 模型解决方案，则不需重大更改即可迁移到 Azure Analysis Services。 若要进行迁移，可以使用 SSDT 将模型部署到服务器。 也可以在 SSMS 中使用备份和还原或 TMSL。
 
-如果有本地数据源，则需安装和配置[本地数据网关](analysis-services-gateway.md)。 如果已配置角色和角色成员，则可以迁移角色，但需使用 SSMS 或 PowerShell 来重新添加角色成员。
+如果有本地数据源，则需安装和配置本地数据网关。 如果已配置角色和角色成员，则可以迁移角色，但需使用 SSMS 或 PowerShell 来重新添加角色成员。
+<!--Not Available on [On-premises data gateway](analysis-services-gateway.md) -->
 
 ## <a name="connect-to-popular-data-sources"></a>连接到常用数据源
 Azure Analysis Services 支持[连接到数据源](analysis-services-datasource.md)，不管是在组织本地还是在云中。 为混合解决方案合并来自本地和云数据源的数据。 
@@ -95,7 +96,8 @@ Azure Analysis Services 使用 Azure Blob 存储来持久保留 Analysis Service
 Azure Analysis Services 防火墙阻止所有客户端连接，规则中指定的除外。 配置规则，按个人客户端 IP 或范围指定允许的 IP 地址。 也可允许或阻止 Power BI（服务）连接。 
 
 #### <a name="on-premises-data-sources"></a>本地数据源
-通过安装和配置[本地数据网关](analysis-services-gateway.md)，实现对组织内本地驻留数据的安全访问。 网关提供在直接查询和内存模式下的数据访问。 当 Azure Analysis Services 模型连接到本地数据源时，将创建查询以及本地数据源的加密凭据。 网关云服务分析该查询，并将请求推送到 Azure 服务总线。 本地网关会针对挂起的请求轮询 Azure 服务总线。 然后，网关会获取查询，对凭据进行解密，并连接到数据源开始执行。 随后，结果会从数据源返回到网关，并返回到 Azure Analysis Services 数据库。
+通过安装和配置本地数据网关，实现对组织内本地驻留数据的安全访问。 网关提供在直接查询和内存模式下的数据访问。 当 Azure Analysis Services 模型连接到本地数据源时，将创建查询以及本地数据源的加密凭据。 网关云服务分析该查询，并将请求推送到 Azure 服务总线。 本地网关会针对挂起的请求轮询 Azure 服务总线。 然后，网关会获取查询，对凭据进行解密，并连接到数据源开始执行。 随后，结果会从数据源返回到网关，并返回到 Azure Analysis Services 数据库。
+<!--Not Available on [On-premises data gateway](analysis-services-gateway.md)-->
 
 Azure Analysis Services 受 [Microsoft Online Services 条款](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)约束。
 <!-- Not Available on Global [Microsoft Online Services Privacy Statement](https://www.microsoft.com/privacystatement/OnlineServices/Default.aspx) -->

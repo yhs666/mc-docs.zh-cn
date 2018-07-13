@@ -5,16 +5,16 @@ services: automation
 author: yunan2016
 ms.author: v-nany
 origin.date: 12/13/2017
-ms.date: 01/22/2018
+ms.date: 07/09/2018
 ms.topic: quickstart
 ms.service: automation
 ms.custom: mvc
-ms.openlocfilehash: 9e22916b3002ac654bb38413ae4cb353ba3a98a1
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: e40d2970c8ff83134d0aa5c5b4865867e00275f0
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
-ms.locfileid: "29730647"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873292"
 ---
 # <a name="create-an-azure-automation-account"></a>创建 Azure 自动化帐户
 
@@ -24,13 +24,13 @@ Azure 自动化帐户可以通过 Azure 创建。 此方法提供一个基于浏
 
 ## <a name="log-in-to-azure"></a>登录 Azure
 
-通过 https://portal.azure.cn 登录到 Azure
+在 https://portal.azure.cn 中登录 Azure
 
 ## <a name="create-automation-account"></a>创建自动化帐户
 
 1. 单击 Azure 左上角的“创建资源”按钮。
 
-1. 选择“监视 + 管理”，然后选择“自动化”。
+1. 搜索“自动化”，然后选择“自动化”。
 
 1. 输入帐户信息。 对于“创建 Azure 运行方式帐户”，请选择“是”，以便自动启用可简化向 Azure 进行的身份验证的项目。 完成后，请单击“创建”，启动自动化帐户部署。
 
@@ -68,4 +68,3 @@ Azure 自动化帐户可以通过 Azure 创建。 此方法提供一个基于浏
 
 > [!div class="nextstepaction"]
 > [自动化快速入门 - 创建 Runbook](./automation-quickstart-create-runbook.md)
-

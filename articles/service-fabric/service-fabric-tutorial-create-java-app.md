@@ -16,12 +16,12 @@ origin.date: 02/26/2018
 ms.date: 04/09/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 51987958d36660a8685918454aeea9e6161c1842
-ms.sourcegitcommit: 4c7503b3814668359d31501100ce54089fa50555
+ms.openlocfilehash: f77d9436b0d44c8a4c60af898d6d3d56e45d6799
+ms.sourcegitcommit: f0bfa3f8dca94099a2181492952e6a575fbdbcc8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30845237"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37142579"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-a-java-web-api-front-end-service-and-a-stateful-back-end-service"></a>教程：使用 Java Web API 前端服务和有状态后端服务创建并部署应用程序
 本教程是一个系列中的第一部分。 完成后，将生成一个带 Java Web 前端的 Voting 应用程序，用于将投票结果保存到群集的有状态后端服务中。 本教程系列要求你有一台工作的 Mac OSX 或 Linux 开发人员计算机。 如果不想手动创建投票应用程序，可以[下载已完成应用程序的源代码](https://github.com/Azure-Samples/service-fabric-java-quickstart)，跳到[大致了解投票示例应用程序](service-fabric-tutorial-create-java-app.md#walk-through-the-voting-sample-application)。
@@ -378,7 +378,7 @@ public class HttpCommunicationListener implements CommunicationListener {
     }
 }
 ```
-
+<a name="updatelistener_anchor"></a>
 ### <a name="configure-the-listening-port"></a>配置侦听端口
 创建 VotingWebService 前端服务后，Service Fabric 会选择一个可供服务侦听的端口。  VotingWebService 充当此应用程序的前端并接受外部流量，因此让我们将此服务绑定到已知的固定端口。 在包资源管理器中，打开 *VotingWebService/VotingWebServicePkg/ServiceManifest.xml*。  在“资源”部分找到“终结点”资源，然后将“端口”值更改为 8080 或其他端口。 若要在本地部署和运行应用程序，应用程序侦听端口必须为打开状态且在你的计算机上可用。 将以下代码片段粘贴到 **ServiceManifest** 标记下。
 

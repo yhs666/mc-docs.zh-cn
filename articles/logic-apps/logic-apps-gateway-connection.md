@@ -16,12 +16,12 @@ ms.workload: integration
 origin.date: 09/14/2017
 ms.author: v-yiso
 ms.date: 07/02/2018
-ms.openlocfilehash: 1c46383b6f422f8e3455423bf6dac98d64791cb9
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.openlocfilehash: 48298f0b28754573424513672673c1358ead0209
+ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315483"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37405205"
 ---
 # <a name="connect-to-data-sources-on-premises-from-logic-apps-with-on-premises-data-gateway"></a>通过本地数据网关，从逻辑应用连接到本地数据源
 
@@ -48,7 +48,7 @@ ms.locfileid: "36315483"
 有关如何将网关用于其他服务的信息，请参阅以下文章：
 
 *   [Microsoft Power BI 本地数据网关](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem/)
-*   [Azure Analysis Services 本地数据网关](../analysis-services/analysis-services-gateway.md)
+<!--Not Available on *   [Azure Analysis Services on-premises data gateway](../analysis-services/analysis-services-gateway.md)-->
 *   [Microsoft Flow 本地数据网关](https://flow.microsoft.com/documentation/gateway-manage/)
 *   [Microsoft PowerApps 本地数据网关](https://powerapps.microsoft.com/tutorials/gateway-management/)
 

@@ -9,12 +9,12 @@ origin.date: 04/12/2018
 ms.date: 04/30/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: c19a73762f5912238893a8b14b9e7f16255f6309
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 7a383b85a64bee9818250f9c47a4543ade014b31
+ms.sourcegitcommit: 1e4a3312db427c44db75b2d1af9b13c690ed2e21
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121047"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873017"
 ---
 # <a name="compatibility-level-for-analysis-services-tabular-models"></a>Analysis Services 表格模型的兼容性级别
 
@@ -49,7 +49,6 @@ Azure Analysis Services 支持 1200 和 1400 兼容性级别的表格模型。
  此属性指定在服务器上运行的数据库的最高兼容性级别（包括预览版）。 不可更改支持的兼容性级别。  
 
 ## <a name="next-steps"></a>后续步骤
-  [在 Azure 门户中创建模型](analysis-services-create-model-portal.md)   
-  [管理 Analysis Services](analysis-services-manage.md)
+  <!-- Not Available on [Create a model in Azure portal](analysis-services-create-model-portal.md)--> [管理 Analysis Services](analysis-services-manage.md)
   
 <!--Update_Description: update meta properties -->

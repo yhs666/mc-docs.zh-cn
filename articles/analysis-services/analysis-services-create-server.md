@@ -9,12 +9,12 @@ origin.date: 04/23/2018
 ms.date: 06/18/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5fd09ca5e65025bdf0c0ebb25e8fa5ff92fdae7d
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 3bb4fa7fdfc61197918360c8ecf2671e4b2167a9
+ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "35416860"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37405160"
 ---
 # <a name="create-an-analysis-services-server-in-azure-portal"></a>在 Azure 门户中创建 Analysis Services 服务器
 本文介绍如何在 Azure 订阅中创建 Analysis Services 服务器资源。
@@ -46,7 +46,7 @@ ms.locfileid: "35416860"
         * **管理员**：默认情况下，这是用于登录的帐户。 可从 Azure Active Directory 选择其他帐户。
         * **备份存储设置**：可选。 如果已有[存储帐户](../storage/common/storage-introduction.md)，则可将其指定为默认模型数据库备份帐户。 稍后还可指定[备份和还原](analysis-services-backup.md)设置。
         * **存储密钥有效期**：可选。 指定存储密钥的有效期。
-3. 单击“创建”。
+3. 单击**创建**。
 
 创建通常不超过一分钟。 如果选择“添加到门户”，请导航到门户查看新服务器。 或者，导航到“所有服务” > “Analysis Services”，查看服务器是否就绪。
 
@@ -58,7 +58,7 @@ ms.locfileid: "35416860"
 ## <a name="next-steps"></a>后续步骤
 
 [将示例数据模型添加](analysis-services-create-sample-model.md)到服务器。  
-如果数据模型与本地数据源相连，则[安装本地数据网关](analysis-services-gateway-install.md)。  
-从 Visual Studio [部署表格模型项目](analysis-services-deploy.md)。
+从 Visual Studio <!--Not Available on [Install an On-premises data gateway](analysis-services-gateway-install.md) if your data model connects to on-premises data sources.-->
+[部署表格模型项目](analysis-services-deploy.md)。
 
 <!--Update_Description: update meta properties, wording update -->
