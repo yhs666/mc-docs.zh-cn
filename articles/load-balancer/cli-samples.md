@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-origin.date: 04/17/2018
-ms.date: 06/18/2018
+origin.date: 06/14/2018
+ms.date: 07/16/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7cda4e589f682c06607e5dc8b8bd8369116fb85e
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: b449a25aaf79f83eebc0eab7d7daf30aa43599de
+ms.sourcegitcommit: 712b9d69109806346e89adf890fcd4e1f1b67375
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "35416861"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37914452"
 ---
 # <a name="azure-cli-samples-for-load-balancer"></a>适用于负载均衡器的 Azure CLI 示例
 
