@@ -16,11 +16,11 @@ origin.date: 03/23/2018
 ms.date: 07/09/2018
 ms.author: v-yeche
 ms.openlocfilehash: a5adf41b3ee8137db49e40aeec455fb174311770
-ms.sourcegitcommit: 292f22020e00c607229c1693229f25fb2837d8af
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37910582"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939790"
 ---
 # <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>远程连接到虚拟机规模集实例或群集节点
 在 Azure 中运行的 Service Fabric 群集中，定义的每个群集节点类型都会[设置虚拟机单独规模](service-fabric-cluster-nodetypes.md)。  可以远程连接到特定规模集实例（群集节点）。  不同于单实例 VM，规模集实例本身没有虚拟 IP 地址。 可能很难找到可用来远程连接到特定实例的 IP 地址和端口。

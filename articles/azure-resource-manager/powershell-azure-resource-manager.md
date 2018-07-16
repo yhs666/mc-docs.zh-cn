@@ -16,11 +16,11 @@ origin.date: 02/16/2018
 ms.date: 07/09/2018
 ms.author: v-yeche
 ms.openlocfilehash: 6fb0adaae8c74947c68b88e0ca70cbaee5e5493c
-ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37405287"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939594"
 ---
 # <a name="manage-resources-with-azure-powershell"></a>使用 Azure PowerShell 管理资源
 
@@ -118,7 +118,7 @@ New-AzureRMPolicyAssignment -Name "Audit unmanaged disks" `
 
 ## <a name="deploy-the-virtual-machine"></a>部署虚拟机
 
-分配角色和策略以后，即可部署解决方案。 默认大小为 Standard_DS1_v2，这是允许的 SKU 之一。 运行此步骤时，会提示输入凭据。 你输入的值将配置为用于虚拟机的用户名和密码。
+分配角色和策略以后，即可部署解决方案。 默认大小为 Standard_DS1_v2，这是允许的 SKU 之一。 运行此步骤时，会提示输入凭据。 输入的值将配置为用于虚拟机的用户名和密码。
 
 ```powershell
 New-AzureRmVm -ResourceGroupName "myResourceGroup" `

@@ -10,11 +10,11 @@ origin.date: 03/21/2018
 ms.date: 06/11/2018
 ms.author: v-nany
 ms.openlocfilehash: 44fcd5b72a8817b63ee3802360f4f4682f4bdd62
-ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36269946"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38940173"
 ---
 # <a name="how-to-use-blob-storage-from-c"></a>如何通过 C++ 使用 Blob 存储
 

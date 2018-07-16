@@ -16,11 +16,11 @@ origin.date: 05/15/2017
 ms.author: v-yiso
 ms.date: 06/11/2018
 ms.openlocfilehash: 5fabd92a49de7b0a04967946bc181e6ebc412691
-ms.sourcegitcommit: 039d75a641edc2edd13a9371251051c20fea2bb7
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103399"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38940022"
 ---
 # <a name="get-started-with-device-twins-netnet"></a>设备孪生入门 (.NET/.NET)
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]

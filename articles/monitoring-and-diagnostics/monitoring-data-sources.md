@@ -1,26 +1,22 @@
 ---
-title: 使用 Azure 中的监视数据 | Azure
+title: Azure 中的监视数据源
 description: 了解 Azure 上目前提供的所有监视数据源。
 author: johnkemnetz
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
+services: azure-monitor
+ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/27/2017
 ms.author: v-yiso
-ms.date: 05/14/2018
-ms.openlocfilehash: f239310e15174d4aec7b6c755f00774fd0274cbe
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.date: 07/23/2018
+ms.openlocfilehash: 2019a5f2042d5e739573ca03173c95ec61ebbeea
+ms.sourcegitcommit: 479954e938e4e3469d6998733aa797826e4f300b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33815000"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39031714"
 ---
 # <a name="consume-monitoring-data-from-azure"></a>使用 Azure 中的监视数据
 

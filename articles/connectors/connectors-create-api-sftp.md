@@ -17,11 +17,11 @@ origin.date: 07/20/2016
 ms.author: v-yiso
 ms.date: 03/26/2018
 ms.openlocfilehash: f0898acc81243af1358ef572d4fb807fe76dbb4a
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30072526"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939563"
 ---
 # <a name="get-started-with-the-sftp-connector"></a>SFTP 连接器入门
 使用 SFTP 连接器访问 SFTP 帐户以发送和接收文件。 可以执行各种操作，如创建、更新、获取或删除文件。  

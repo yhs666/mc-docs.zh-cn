@@ -16,11 +16,11 @@ origin.date: 09/15/2017
 ms.author: v-jamebr
 ms.date: 12/18/2017
 ms.openlocfilehash: 45ed69dd6f47e6061fd1dcd7bd88cffa95f4e062
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
-ms.locfileid: "26576183"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38940001"
 ---
 # <a name="get-started-with-device-management-netnet"></a>设备管理入门 (.NET/.NET)
 
@@ -124,7 +124,7 @@ ms.locfileid: "26576183"
         using Microsoft.Azure.Devices.Client;
         using Microsoft.Azure.Devices.Shared;
 
-5. 将以下字段添加到 **Program** 类。 将占位符值替换为上一部分中所述的设备连接字符串。
+5. 将以下字段添加到 **Program** 类。 将占位符值替换为在上一部分中记下的设备连接字符串。
    
         static string DeviceConnectionString = "HostName=<yourIotHubName>.azure-devices.cn;DeviceId=<yourIotDeviceName>;SharedAccessKey=<yourIotDeviceAccessKey>";
         static DeviceClient Client = null;

@@ -16,11 +16,11 @@ origin.date: 01/11/2018
 ms.date: 06/11/2018
 ms.author: v-johch
 ms.openlocfilehash: a21646b53568b52fa677d78c5bf420b0a71633a7
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867627"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38940082"
 ---
 # <a name="how-to-use-queue-storage-from-php"></a>如何通过 PHP 使用队列存储
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]

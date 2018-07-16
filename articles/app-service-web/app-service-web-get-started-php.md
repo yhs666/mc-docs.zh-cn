@@ -17,17 +17,17 @@ ms.date: 09/04/2017
 ms.author: v-yiso
 ms.custom: mvc
 ms.openlocfilehash: 5b81cdc3e911b84e9c5e8160277d91d72b8b4fc0
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
-ms.locfileid: "21134789"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939487"
 ---
 # <a name="create-a-php-web-app-in-azure"></a>在 Azure 中创建 PHP Web 应用
 
-[Azure Web 应用](./app-service-web-overview.md)提供高度可缩放、自修补的 Web 托管服务。  本快速入门教程演示如何将 PHP 应用部署到 Azure Web 应用。 在 Cloud Shell 中使用 [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) 创建 Web 应用，并使用 Git 将示例 PHP 代码部署到 Web 应用。
+[Azure Web 应用](./app-service-web-overview.md)提供高度可缩放、自修补的 Web 托管服务。  本快速入门教程演示如何将 PHP 应用部署到 Azure Web 应用。 在 Cloud Shell 中使用 [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) 创建 Web 应用，并使用 Git 将 PHP 代码示例部署到 Web 应用。
 
-![在 Azure 中运行的示例应用]](media/app-service-web-get-started-php/hello-world-in-browser.png)
+![在 Azure 中运行的示例应用](media/app-service-web-get-started-php/hello-world-in-browser.png)
 
 可以在 Mac、Windows 或 Linux 计算机上执行以下步骤。 安装先决条件后，大约需要五分钟完成这些步骤。
 
@@ -61,7 +61,7 @@ php -S localhost:8080
 
 此时会看到“Hello World!” 消息（来自页面中显示的示例应用）。
 
-![在本地运行的示例应用](media/app-service-web-get-started-php/localhost-hello-world-in-browser.png)
+![本地运行应用的示例](media/app-service-web-get-started-php/localhost-hello-world-in-browser.png)
 
 在终端窗口中，按 **Ctrl+C** 退出 Web 服务器。
 
@@ -118,7 +118,7 @@ http://<app_name>.chinacloudsites.cn
 
 PHP 示例代码正在 Azure 应用服务 Web 应用中运行。
 
-![在 Azure 中运行的示例应用](media/app-service-web-get-started-php/hello-world-in-browser.png)
+![在 Azure 中运行应用的示例](media/app-service-web-get-started-php/hello-world-in-browser.png)
 
 **祝贺你！** 现已将第一个 PHP 应用部署到应用服务。
 

@@ -17,11 +17,11 @@ origin.date: 09/19/2016
 ms.author: v-yiso
 ms.date: 03/26/2018
 ms.openlocfilehash: 1875ffa584e5d1f4b9e38a86b8eba7868b70a368
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30072631"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939807"
 ---
 # <a name="get-started-with-the-twilio-connector"></a>Twilio 连接器入门
 连接到 Twilio 以发送和接收全球短信、彩信和 IP 消息。 借助 Twilio，可以：

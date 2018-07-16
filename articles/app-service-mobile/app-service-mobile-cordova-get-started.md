@@ -18,11 +18,11 @@ origin.date: 07/07/2017
 ms.date: 01/29/2018
 ms.author: v-yiso
 ms.openlocfilehash: 75c85cae1bfdc53717df570a6bca483ca54563f0
-ms.sourcegitcommit: a20b3fbe305d3bb4b6ddfdae98b3e0ab8a79bbfa
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/22/2018
-ms.locfileid: "27984776"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939476"
 ---
 # <a name="create-an-apache-cordova-app"></a>创建 Apache Cordova 应用
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]

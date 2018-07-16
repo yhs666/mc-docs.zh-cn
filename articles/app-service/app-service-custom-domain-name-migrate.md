@@ -17,11 +17,11 @@ origin.date: 06/28/2017
 ms.date: 10/30/2017
 ms.author: v-yiso
 ms.openlocfilehash: 1acbc94fd828a66e49900aaea8370194e4c2f8b5
-ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
-ms.locfileid: "23475106"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939704"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>将活动 DNS 名称迁移到 Azure 应用服务
 
@@ -39,10 +39,10 @@ ms.locfileid: "23475106"
 
 ## <a name="bind-the-domain-name-preemptively"></a>提前绑定域名
 
-提前绑定自定义域时，请先完成下面的两项操作，再对 DNS 记录进行更改：
+提前绑定自定义域时，对 DNS 记录进行任何更改之前，需要完成以下两项操作：
 
 - 验证域所有权
-- 启用应用的域名
+- 为应用启用域名
 
 最终将自定义 DNS 名称从旧站点迁移到应用服务应用时，DNS 解析中将不会有停机时间。
 
@@ -116,7 +116,7 @@ ms.locfileid: "23475106"
 
 | FQDN 示例 | 记录类型 | 主机 | 值 |
 | - | - | - | - |
-| contoso.com（根域） | A | `@` | 在[复制应用的 IP 地址](#info)步骤中复制的 IP 地址 |
+| contoso.com (root) | A | `@` | 通过[复制应用的 IP 地址](#info)获得的 IP 地址 |
 | www.contoso.com（子域） | CNAME | `www` | _&lt;appname>.chinacloudsites.cn_ |
 | \*.contoso.com（通配符域） | CNAME | _\*_ | _&lt;appname>.chinacloudsites.cn_ |
 

@@ -78,7 +78,6 @@
 ## [代码示例](https://azure.microsoft.com/resources/samples/?service=active-directory)
 ## [标识同步和重复属性复原](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md)
 ## [混合标识所需的端口和协议](active-directory-aadconnect-ports.md)
-## [预览版功能](active-directory-aadconnect-feature-preview.md)
 ## [版本历史记录](active-directory-aadconnect-version-history.md)
 ## [帐户和权限](active-directory-aadconnect-accounts-permissions.md)
 

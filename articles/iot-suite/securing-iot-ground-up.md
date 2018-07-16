@@ -17,11 +17,11 @@ origin.date: 01/17/2018
 ms.author: v-yiso
 ms.date: 03/12/2018
 ms.openlocfilehash: e60a8c4fbb324ea1929660770b2864d0c0269939
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
-ms.locfileid: "29730793"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939556"
 ---
 [!INCLUDE [iot-security-ground-up](../../includes/iot-security-ground-up.md)]
 

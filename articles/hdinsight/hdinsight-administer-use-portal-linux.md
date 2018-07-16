@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/18/2018
-ms.date: 06/25/2018
+ms.date: 07/23/2018
 ms.author: v-yiso
-ms.openlocfilehash: 773dc871608a7d52a5184674200f8c030769f2f7
-ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
+ms.openlocfilehash: 8006786461b83ab5c44cec4c09ff9c0e7cad9197
+ms.sourcegitcommit: 479954e938e4e3469d6998733aa797826e4f300b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36747466"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39031749"
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>使用 Azure 门户管理 HDInsight 中的 Hadoop 群集
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -90,7 +90,7 @@ HDInsight 使用各种 Hadoop 组件。 有关已验证和支持的组件的列�
 
     **Left menu:**
     * **活动日志**：显示和查询活动日志。
-    * **访问控制 (IAM)**：使用角色分配。  请参阅[使用角色分配管理对 Azure 订阅资源的访问权限](../active-directory/role-based-access-control-configure.md)。
+    * **访问控制 (IAM)**：使用角色分配。  请参阅[使用角色分配管理对 Azure 订阅资源的访问权限](../role-based-access-control/role-assignments-portal.md)。
     * **标记**：可让用户设置键/值对，以定义云服务的自定义分类。 例如，用户可以创建名为 **project**的键，并对与特定项目关联的所有服务使用一个公用值。
     * **诊断和解决问题**：显示故障排除信息。
     * 锁定：添加锁防止群集遭到修改或删除。

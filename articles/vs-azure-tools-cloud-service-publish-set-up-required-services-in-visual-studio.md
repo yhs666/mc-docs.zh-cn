@@ -2,25 +2,22 @@
 title: 准备从 Visual Studio 发布或部署云服务 | Microsoft 文档
 description: 了解设置云服务和存储帐户服务以及配置 Azure 应用程序的过程。
 services: visual-studio-online
-documentationcenter: na
 author: ghogen
 manager: douge
-editor: ''
 ms.assetid: 92ee2f9e-ec49-4c7a-900d-620abe5e9d8a
-ms.service: multiple
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: multiple
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: azure
+ms.topic: conceptual
 origin.date: 11/10/2017
-ms.date: 05/09/2018
+ms.date: 07/12/2018
 ms.author: v-junlch
-ms.openlocfilehash: 09dae6a24528c7cf1d3e78f9523211cdfa73de71
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.openlocfilehash: aff401d77fddfb9a90940d63f555a94c667b1bcf
+ms.sourcegitcommit: 5b6a2fc55e5b16ae480bd497c3ac2c3a2fd44703
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "34060320"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38999165"
 ---
 # <a name="prepare-to-publish-or-deploy-a-cloud-service-from-visual-studio"></a>准备从 Visual Studio 发布或部署云服务
 
@@ -63,7 +60,7 @@ ms.locfileid: "34060320"
 
 1. 登录到 [Azure 门户](https://portal.azure.cn/)。
 1. 选择左上角的“+ 新建”。
-1. 选择“Azure Marketplace”下的“存储”，然后从右侧选择“存储帐户 - Blob、文件、表、队列”。
+1. 选择“Azure 市场”下的“存储”，然后从右侧选择“存储帐户 - Blob、文件、表、队列”。
 1. 提供所需的信息（名称、部署模型等）。
 1. 选择“创建”以完成过程。
 
@@ -87,4 +84,4 @@ Azure 门户显示可用于访问每个 Azure 存储服务中资源的 URL，同
 
 若要详细了解如何将应用从 Visual Studio 发布到 Azure，请参阅[使用 Azure Tools 发布云服务](vs-azure-tools-publishing-a-cloud-service.md)。
 
-<!--Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

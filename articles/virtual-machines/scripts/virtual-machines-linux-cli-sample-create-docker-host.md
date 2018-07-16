@@ -18,11 +18,11 @@ ms.date: 04/16/2018
 ms.author: v-yeche
 ms.custom: mvc
 ms.openlocfilehash: 462808211731404345f63e2522f2ec2f280f7399
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31324009"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939647"
 ---
 # <a name="create-a-vm-with-docker"></a>创建包含 Docker 的 VM
 

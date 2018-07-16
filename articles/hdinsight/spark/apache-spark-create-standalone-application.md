@@ -13,14 +13,14 @@ ms.custom: hdinsightactive,mvc
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 05/07/2018
-ms.date: 06/25/2018
+ms.date: 07/23/2018
 ms.author: v-yiso
-ms.openlocfilehash: 738820bd4550db17ea8a76625715409138bad36e
-ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
+ms.openlocfilehash: 6872c2753a164f630200261a9bc71b090bacd115
+ms.sourcegitcommit: 479954e938e4e3469d6998733aa797826e4f300b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36747470"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39031718"
 ---
 # <a name="tutorial-create-a-scala-maven-application-for-spark-in-hdinsight-using-intellij"></a>教程：使用 IntelliJ 在 HDInsight 中创建适用于 Spark 的 Scala Maven 应用程序
 
@@ -48,6 +48,41 @@ ms.locfileid: "36747470"
 * HDInsight 上的 Apache Spark 群集。 有关说明，请参阅[在 Azure HDInsight 中创建 Apache Spark 群集](apache-spark-jupyter-spark-sql.md)。
 * Oracle Java 开发工具包。 可以从 [此处](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)安装它。
 * Java IDE。 本文使用 IntelliJ IDEA 18.1.1。 可以从 [此处](https://www.jetbrains.com/idea/download/)安装它。
+
+## <a name="use-intellij-to-create-application"></a>使用 IntelliJ 创建应用程序
+
+1. 启动 IntelliJ IDEA 并创建一个项目。 在“新建项目”对话框中执行以下操作： 
+
+   a. 选择“HDInsight” > “Spark on HDInsight (Scala)”
+
+   b. 在“生成工具”列表中，根据需要选择以下选项之一：
+
+      * 用于支持 Scala 项目创建向导的“Maven”
+      * 用于管理依赖项和生成 Scala 项目的“SBT”
+
+   ![“新建项目”对话框](./media/apache-spark-create-standalone-application/create-hdi-scala-app.png)
+
+2. 选择“**下一步**”。
+
+3. Scala 项目创建向导会自动检测是否安装了 Scala 插件。 选择“安装”。
+
+   ![Scala 插件检查](./media/apache-spark-create-standalone-application/Scala-Plugin-check-Reminder.PNG) 
+
+4. 若要下载 Scala 插件，请选择“确定”。 请遵照说明重启 IntelliJ。 
+
+   ![Scala 插件安装对话框](./media/apache-spark-create-standalone-application/Choose-Scala-Plugin.PNG)
+
+5. 在“新建项目”窗口中执行以下操作：  
+
+    ![选择 Spark SDK](./media/apache-spark-create-standalone-application/hdi-new-project.png)
+
+   a. 输入项目名称和位置。
+
+   b. 在“项目 SDK”下拉列表中，选择适用于 Spark 2.x 群集的“Java 1.8”，或选择适用于 Spark 1.x 群集的“Java 1.7”。
+
+   c. 在“Spark 版本”下拉列表中，Scala 项目创建向导集成了 Spark SDK 和 Scala SDK 的适当版本。 如果 Spark 群集版本低于 2.0，请选择“Spark 1.x”。 否则，请选择“Spark 2.x”。 本示例使用“Spark 2.0.2 (Scala 2.11.8)”。
+
+6. 选择“完成”。
 
 ## <a name="install-scala-plugin-for-intellij-idea"></a>安装适用于 IntelliJ IDEA 的 Scala 插件
 若要安装 Scala 插件，请使用以下步骤：

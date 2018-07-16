@@ -2,25 +2,22 @@
 title: 使用 Visual Studio 配置 Azure 云服务项目 | Microsoft Docs
 description: 了解如何根据你对该项目的要求在 Visual Studio 中配置 Azure 云服务项目。
 services: visual-studio-online
-documentationcenter: na
 author: ghogen
 manager: douge
-editor: ''
-ms.assetid: 609d6965-05cc-47b1-82dc-c76a92d4f295
-ms.service: multiple
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: multiple
+assetId: 609d6965-05cc-47b1-82dc-c76a92d4f295
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: azure
+ms.topic: conceptual
 origin.date: 03/06/2017
-ms.date: 05/09/2018
+ms.date: 07/12/2018
 ms.author: v-junlch
-ms.openlocfilehash: ced0af3e66b6cfe754a802bfb4230a17a45ea5c1
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.openlocfilehash: ec291a46327c132848f42d3294ae110818df8a66
+ms.sourcegitcommit: 5b6a2fc55e5b16ae480bd497c3ac2c3a2fd44703
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "34060298"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38999153"
 ---
 # <a name="configure-an-azure-cloud-service-project-with-visual-studio"></a>使用 Visual Studio 配置 Azure 云服务项目
 可根据你对 Azure 云服务项目的要求来对其进行配置。 可针对以下类别设置项目的属性：

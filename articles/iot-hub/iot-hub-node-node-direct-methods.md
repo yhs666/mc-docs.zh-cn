@@ -17,11 +17,11 @@ ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
 ms.date: 11/20/2017
 ms.openlocfilehash: dbb058e961ecc9d04354fcb80eaefc59cd74e288
-ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
-ms.locfileid: "24058578"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939980"
 ---
 # <a name="use-direct-methods-on-your-iot-device-with-nodejs"></a>通过 Node.js 使用 IoT 设备上的直接方法
 [!INCLUDE [iot-hub-selector-c2d-methods](../../includes/iot-hub-selector-c2d-methods.md)]

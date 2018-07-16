@@ -17,11 +17,11 @@ origin.date: 08/18/2016
 ms.author: v-yiso
 ms.date: 03/26/2018
 ms.openlocfilehash: 24e7ac47881038bc36b30fa99eac1673c44c0a11
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30072517"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939576"
 ---
 # <a name="get-started-with-the-projectonline-connector"></a>ProjectOnline 连接器入门
 Project Online 是用于项目组合管理 (PPM) 和 Microsoft 日常工作的灵活联机解决方案。 通过 Office 365 交付的 Project Online 允许组织快速开始使用强大的项目管理功能，以便在几乎所有设备上随时随地规划、管理项目和项目组合投资，并设置优先顺序。

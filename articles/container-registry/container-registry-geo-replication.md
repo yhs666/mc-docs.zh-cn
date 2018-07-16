@@ -9,12 +9,12 @@ ms.topic: overview-article
 origin.date: 04/10/2018
 ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 3590353091519743c3aa3f5e32bb07a47ecfb0c2
-ms.sourcegitcommit: 2cf6961f692f318ce7034e7b4d994ee51d902199
+ms.openlocfilehash: 9ccf080caa8b2791fda2f10ce7f429233db08f31
+ms.sourcegitcommit: 5b6a2fc55e5b16ae480bd497c3ac2c3a2fd44703
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36947688"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38999180"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Azure 容器注册表中的异地复制
 
@@ -37,8 +37,8 @@ Contoso 在美国、加拿大和欧洲各地运行着一个公开展示网站。
 使用异地复制功能之前，Contoso 已在中国北部拥有基于美国的注册表，在中国北部拥有其他注册表。 为了向这些不同的区域提供服务，开发团队必须将映像推送到两个不同的注册表。
 
 ```bash
-docker push contoso.azurecr.io/pubic/products/web:1.2
-docker push contosowesteu.azurecr.io/pubic/products/web:1.2
+docker push contoso.azurecr.cn/pubic/products/web:1.2
+docker push contosowesteu.azurecr.cn/pubic/products/web:1.2
 ```
 ![从多个注册表拉取](media/container-registry-geo-replication/before-geo-replicate-pull.png)<br />*从多个注册表拉取*
 
@@ -55,8 +55,8 @@ docker push contosowesteu.azurecr.io/pubic/products/web:1.2
 
 使用 Azure 容器注册表的异地复制功能，将实现以下优点：
 
-* 跨所有区域管理单个注册表：`contoso.azurecr.io`
-* 管理多个映像部署的单个配置，因为所有区域使用同一个映像 URL：`contoso.azurecr.io/public/products/web:1.2`
+* 跨所有区域管理单个注册表：`contoso.azurecr.cn`
+* 管理多个映像部署的单个配置，因为所有区域使用同一个映像 URL：`contoso.azurecr.cn/public/products/web:1.2`
 * 由 ACR 管理异地复制（包括用于本地通知的区域 Webhook），推送到单个注册表
 
 ## <a name="configure-geo-replication"></a>配置异地复制

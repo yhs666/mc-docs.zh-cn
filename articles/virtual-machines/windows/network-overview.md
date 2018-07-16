@@ -17,11 +17,11 @@ origin.date: 07/17/2017
 ms.date: 05/21/2018
 ms.author: v-yeche
 ms.openlocfilehash: f9a05192713a30ecf1f292dad04e22cb8a04327c
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34305810"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939862"
 ---
 # <a name="virtual-networks-and-virtual-machines-in-azure"></a>Azure 中的虚拟网络和虚拟机 
 

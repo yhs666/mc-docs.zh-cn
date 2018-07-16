@@ -17,15 +17,15 @@ ms.author: v-yiso
 ms.custom: mvc
 ms.date: 10/16/2017
 ms.openlocfilehash: ecbdfceed251e9f84fa9d57ecbfe165d2f04643e
-ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
-ms.locfileid: "22339085"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939911"
 ---
 # <a name="build-a-docker-python-and-postgresql-web-app-in-azure"></a>在 Azure 中构建 Docker Python 和 PostgreSQL Web 应用
 
-Azure Web 应用提供高度可缩放的自修补 Web 托管服务。 本教程介绍如何在 Azure 中创建一个基本的 Docker Python Web 应用。 将此应用连接到 PostgreSQL 数据库。 完成此步骤后，[将在 Azure 应用服务 Web 应用](../../app-service-web/app-service-web-overview.md)上的 Docker 容器中运行 Python Flask 应用程序。
+Azure Web 应用提供高度可缩放、自修补的 Web 托管服务。 本教程介绍如何在 Azure 中创建一个基本的 Docker Python Web 应用。 将此应用连接到 PostgreSQL 数据库。 完成此步骤后，[将在 Azure 应用服务 Web 应用](../../app-service-web/app-service-web-overview.md)上的 Docker 容器中运行 Python Flask 应用程序。
 
 ![Azure 应用服务中的 Docker Python Flask 应用](./media/tutorial-docker-python-postgresql-app/docker-flask-in-azure.png)
 
@@ -90,7 +90,7 @@ git checkout tags/0.1-initialapp
 > [!NOTE] 
 > 后面的步骤将会通过构建一个用于生产数据库的 Docker 容器来简化此过程。
 
-安装所需的包，并启动应用程序。
+安装所需的包并启动应用程序。
 
 ```bash
 pip install virtualenv
@@ -102,7 +102,7 @@ FLASK_APP=app.py DBHOST="localhost" DBUSER="manager" DBNAME="eventregistration" 
 FLASK_APP=app.py DBHOST="localhost" DBUSER="manager" DBNAME="eventregistration" DBPASS="supersecretpass" flask run
 ```
 
-当应用完全加载后，将看到以下类似消息：
+当应用完全加载后，会看见类似下方所示的消息：
 
 ```bash
 INFO  [alembic.runtime.migration] Context impl PostgresqlImpl.
@@ -112,7 +112,7 @@ INFO  [alembic.runtime.migration] Running upgrade  -> 791cd7d80402, empty messag
  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 ```
 
-在浏览器中导航至 http://127.0.0.1:5000。 单击“注册!” 创建一个测试用户。
+在浏览器中导航到 http://127.0.0.1:5000。 单击“注册!” 创建一个测试用户。
 
 ![在本地运行的 Python Flask 应用程序](./media/tutorial-docker-python-postgresql-app/local-app.png)
 
@@ -236,7 +236,7 @@ FLASK_APP=app.py DBHOST="<postgresql_name>.postgres.database.azure.com" DBUSER="
 FLASK_APP=app.py DBHOST="<postgresql_name>.postgres.database.azure.com" DBUSER="manager@<postgresql_name>" DBNAME="eventregistration" DBPASS="supersecretpass" flask run
 ```
 
-当应用完全加载后，将看到以下类似消息：
+当应用完全加载后，会看见类似下方所示的消息：
 
 ```bash
 INFO  [alembic.runtime.migration] Context impl PostgresqlImpl.
@@ -246,7 +246,7 @@ INFO  [alembic.runtime.migration] Running upgrade  -> 791cd7d80402, empty messag
  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 ```
 
-在浏览器中导航至 http://127.0.0.1:5000。 单击“注册!” 并创建测试注册。 现在，正将数据写入 Azure 中的数据库。
+在浏览器中导航到 http://127.0.0.1:5000。 单击“注册!” 并创建测试注册。 现在，正将数据写入 Azure 中的数据库。
 
 ![在本地运行的 Python Flask 应用程序](./media/tutorial-docker-python-postgresql-app/local-app.png)
 
@@ -422,7 +422,7 @@ az appservice plan create --name myAppServicePlan --resource-group myResourceGro
 
 该 Web 应用提供托管空间用于部署代码，并提供一个 URL 用于查看已部署的应用程序。 用于创建 Web 应用。 
 
-在下面的命令中，将 \<app_name> 占位符替换为唯一应用名称。 该名称是 Web 应用的默认 URL 的一部分，因此需要在 Azure 应用服务中的所有应用之间保持唯一性。 
+在以下命令中， 将 \<app_name> 占位符替换为唯一的应用名称。 该名称是 Web 应用的默认 URL 的一部分，因此需要在 Azure 应用服务中的所有应用之间保持唯一性。 
 
 ```azurecli
 az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan
@@ -515,7 +515,7 @@ FLASK_APP=app.py DBHOST="localhost" DBUSER="manager" DBNAME="eventregistration" 
 FLASK_APP=app.py DBHOST="localhost" DBUSER="manager" DBNAME="eventregistration" DBPASS="supersecretpass" flask run
 ```
 
-在浏览器中导航到 http://127.0.0.1:5000 查看所做的更改。 创建测试注册。
+在浏览器中导航到 http://127.0.0.1:5000 查看更改。 创建测试注册。
 
 ![在本地运行的基于 Docker 容器的 Python Flask 应用程序](./media/tutorial-docker-python-postgresql-app/local-app-v2.png)
 

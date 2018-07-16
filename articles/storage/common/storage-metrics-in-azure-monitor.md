@@ -16,11 +16,11 @@ origin.date: 09/05/2017
 ms.date: 06/11/2018
 ms.author: v-nany
 ms.openlocfilehash: 1a8ab57311d8a2905706e586a976912d8cad1fd6
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34915940"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38940092"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Azure Monitor 中的 Azure 存储指标
 

@@ -11,11 +11,11 @@ origin.date: 05/14/2018
 ms.date: 07/06/2018
 ms.author: v-junlch
 ms.openlocfilehash: 0fe3e197e982b3fe82aa40b7760116c8cdc812bb
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873666"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939590"
 ---
 # <a name="preparing-to-back-up-workloads-using-azure-backup-server"></a>准备使用 Azure 备份服务器来备份工作负荷
 > [!div class="op_single_selector"]

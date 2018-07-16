@@ -17,11 +17,11 @@ ms.date: 03/12/2018
 ms.author: v-yiso
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 8958c28b1354b58d81aaa4c550092de82850b6fa
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
-ms.locfileid: "29730691"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939475"
 ---
 # <a name="create-a-python-web-app-in-azure"></a>在 Azure 中创建 Python Web 应用
 

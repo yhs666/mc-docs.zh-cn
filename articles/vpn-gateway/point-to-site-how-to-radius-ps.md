@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/12/2018
-ms.date: 03/12/2018
+ms.date: 07/10/2018
 ms.author: v-junlch
-ms.openlocfilehash: 6b4c127ac59c32595bd471c46cd3f2c6007fe413
-ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
+ms.openlocfilehash: c86009781023955d51c43d1ddfa883bcc4cb1e29
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29925222"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38940177"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>使用 RADIUS 身份验证配置 VNet 的点到站点连接：PowerShell
 

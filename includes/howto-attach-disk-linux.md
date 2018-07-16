@@ -37,7 +37,7 @@
 附加现有磁盘需要存储帐户中具有可用的 .vhd。
 
 1. 打开 Azure CLI 1.0 并[连接到 Azure 订阅](../articles/xplat-cli-connect.md)。 确保是在 Azure 服务管理模式 (`azure config mode asm`) 下。
-2. 检查你想要附加的 VHD 是否已上传到 Azure 订阅：
+2. 检查要附加的 VHD 是否已上传到 Azure 订阅：
 
     ```azurecli
     azure vm disk list

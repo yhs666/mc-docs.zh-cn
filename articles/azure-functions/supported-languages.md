@@ -16,10 +16,11 @@ origin.date: 11/07/2017
 ms.date: 04/18/2018
 ms.author: v-junlch
 ms.openlocfilehash: 5bfeab3667f630cf1cc5e45b1942d380867611e8
-ms.sourcegitcommit: f97c9253d16fac8be0266c9473c730ebd528e542
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38940703"
 ---
 # <a name="supported-languages-in-azure-functions"></a>Azure Functions 中支持的语言
 

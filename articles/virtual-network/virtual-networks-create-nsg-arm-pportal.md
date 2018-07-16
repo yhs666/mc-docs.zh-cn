@@ -18,11 +18,11 @@ ms.date: 06/11/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 33d2fde187c3b6b42ec893753f0021d2676649e2
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34869046"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38940073"
 ---
 # <a name="create-a-network-security-group-using-the-azure-portal"></a>使用 Azure 门户创建网络安全组
 

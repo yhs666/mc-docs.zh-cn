@@ -17,11 +17,11 @@ ms.date: 07/02/2018
 ms.author: v-yiso
 ms.custom: mvc
 ms.openlocfilehash: fcdc8b19b4e2524366ba3fc4c2e91aa57d5401e8
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315559"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939716"
 ---
 # <a name="create-a-php-web-app-in-azure"></a>在 Azure 中创建 PHP Web 应用
 

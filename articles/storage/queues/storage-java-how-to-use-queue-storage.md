@@ -16,11 +16,11 @@ origin.date: 12/08/2016
 ms.date: 08/28/2017
 ms.author: v-haiqya
 ms.openlocfilehash: 2c5fde85dc4812765d8878aa66fe49a3d982fd6e
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
-ms.locfileid: "21135076"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38940149"
 ---
 # <a name="how-to-use-queue-storage-from-java"></a>如何通过 Java 使用队列存储
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -28,9 +28,9 @@ ms.locfileid: "21135076"
 [!INCLUDE [storage-check-out-samples-java](../../../includes/storage-check-out-samples-java.md)]
 
 ## <a name="overview"></a>概述
-本指南演示如何使用 Azure 队列存储服务执行常见方案。 这些示例用 Java 编写并使用[用于 Java 的 Azure 存储 SDK][Azure Storage SDK for Java]。 介绍的方案包括插入、扫视、获取和删除队列消息以及创建和删除队列。 有关队列的详细信息，请参阅[后续步骤](#Next-Steps)部分。
+本指南演示如何使用 Azure 队列存储服务执行常见方案。 这些示例用 Java 编写并使用[用于 Java 的 Azure 存储 SDK][Azure Storage SDK for Java]。 介绍的方案包括**插入**、**扫视**、**获取**和**删除**队列消息以及**创建**和**删除**队列。 有关队列的详细信息，请参阅[后续步骤](#Next-Steps)部分。
 
-注意：为在 Android 设备上使用 Azure 存储的开发人员提供了 SDK。 有关详细信息，请参阅[用于 Android 的 Azure 存储 SDK][Azure Storage SDK for Android]。
+注意：为在 Android 设备上使用 Azure 存储的开发人员提供了 SDK。 有关详细信息，请参阅 [Azure Storage SDK for Android][Azure Storage SDK for Android]。
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
@@ -39,7 +39,7 @@ ms.locfileid: "21135076"
 ## <a name="create-a-java-application"></a>创建 Java 应用程序
 本指南会使用存储功能，这些功能可在本地 Java 应用程序中运行，或在 Azure 的 Web 角色或辅助角色中通过运行的代码来运行。
 
-为此，需要安装 Java 开发工具包 (JDK)，并在 Azure 订阅中创建一个 Azure 存储帐户。 完成此操作后，需要验证开发系统是否满足最低要求和 GitHub 上的[用于 Java 的 Azure 存储 SDK][Azure Storage SDK for Java] 存储库中列出的依赖项。 如果系统满足这些要求，可以按照说明下载和安装系统中该存储库的用于 Java 的 Azure 存储库。 完成这些任务后，便能够创建一个 Java 应用程序，以便使用本文中的示例。
+为此，需要安装 Java 开发工具包 (JDK)，并在 Azure 订阅中创建一个 Azure 存储帐户。 完成此操作后，需要验证开发系统是否满足最低要求和 GitHub 上的 [Azure Storage SDK for Java][Azure Storage SDK for Java] 存储库中列出的依赖项。 如果系统满足这些要求，可以按照说明下载和安装系统中该存储库的 Azure Storage Libraries for Java。 完成这些任务后，便能够创建一个 Java 应用程序，以便使用本文中的示例。
 
 ## <a name="configure-your-application-to-access-queue-storage"></a>配置应用程序以访问队列存储
 将下列 import 语句添加到需要在其中使用 Azure 存储 API 来访问队列的 Java 文件的顶部：
@@ -163,7 +163,7 @@ catch (Exception e)
 ```
 
 ## <a name="how-to-change-the-contents-of-a-queued-message"></a>如何：更改已排队消息的内容
-可更改队列中现有消息的内容。 如果消息表示工作任务，可使用此功能来更新该工作任务的状态。 以下代码使用新内容更新队列消息，并将可见性超时设置为再延长 60 秒。 这会保存与消息关联的工作的状态，并额外为客户端提供一分钟的时间来继续处理消息。 可使用此方法跟踪队列消息上的多步骤工作流，即使处理步骤因硬件或软件故障而失败，也无需从头开始操作。 通常也会保留重试计数，当消息重试次数超过 n 时再删除该消息。 这可避免每次处理某条消息时都触发应用程序错误。
+可以更改队列中现有消息的内容。 如果消息表示工作任务，可使用此功能来更新该工作任务的状态。 以下代码使用新内容更新队列消息，并将可见性超时设置为再延长 60 秒。 这会保存与消息关联的工作的状态，并额外为客户端提供一分钟的时间来继续处理消息。 可使用此方法跟踪队列消息上的多步骤工作流，即使处理步骤因硬件或软件故障而失败，也无需从头开始操作。 通常同时保留重试计数，当消息重试次数超过 *n* 时再删除该消息。 这可避免每次处理某条消息时都触发应用程序错误。
 
 下面的代码示例将搜索队列中的消息，查找内容中第一个与“Hello, World”匹配的消息，并对消息内容进行修改并退出。
 
@@ -396,9 +396,9 @@ catch (Exception e)
 ```
 
 ## <a name="next-steps"></a>后续步骤
-现在，了解了有关队列存储的基础知识，可单击下面的链接来了解更复杂的存储任务。
+现在，已了解有关队列存储的基础知识，可单击下面的链接来了解更复杂的存储任务。
 
-* [用于 Java 的 Azure 存储 SDK][Azure Storage SDK for Java]
+* [Azure Storage SDK for Java][Azure Storage SDK for Java]
 * [Azure 存储客户端 SDK 参考][Azure 存储客户端 SDK 参考]
 * [Azure 存储服务 REST API][Azure Storage Services REST API]
 * [Azure 存储团队博客][Azure Storage Team Blog]

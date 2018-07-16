@@ -17,11 +17,11 @@ origin.date: 03/30/2017
 ms.date: 05/14/2018
 ms.author: v-yeche
 ms.openlocfilehash: ca6a8b3bf0e46263141d1330e3412973d8aaeb7b
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "34062087"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38940085"
 ---
 # <a name="technical-deep-dive-on-platform-supported-migration-from-classic-to-azure-resource-manager"></a>有关平台支持的从经典部署模型到 Azure Resource Manager 的迁移的技术深入探讨
 

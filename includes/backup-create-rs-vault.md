@@ -10,11 +10,11 @@ ms.date: 06/21/2018
 ms.author: v-junlch
 ms.custom: include file
 ms.openlocfilehash: 5fa7b511d2b8dabe727d3d56a741a306cf61adf2
-ms.sourcegitcommit: d744d18624d2188adbbf983e1c1ac1110d53275c
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315840"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38940347"
 ---
 ## <a name="create-a-recovery-services-vault"></a>创建恢复服务保管库
 恢复服务保管库是用于存储在不同时间创建的备份和恢复点的实体。 恢复服务保管库还包含与受保护虚拟机关联的备份策略。

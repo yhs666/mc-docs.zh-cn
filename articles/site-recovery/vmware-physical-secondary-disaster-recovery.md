@@ -12,11 +12,11 @@ origin.date: 03/08/2018
 ms.date: 04/02/2018
 ms.author: v-yeche
 ms.openlocfilehash: 6ae6a72da148a3fb202d69f5061b45fe7a54f228
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30223497"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38940179"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>将本地 VMware 虚拟机或物理服务器的灾难恢复设置到辅助站点
 

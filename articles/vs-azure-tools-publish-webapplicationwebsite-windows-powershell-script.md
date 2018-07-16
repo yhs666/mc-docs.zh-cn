@@ -2,25 +2,22 @@
 title: Publish-WebApplicationWebSite（Windows PowerShell 脚本）| Microsoft Docs
 description: 了解如何将 Web 项目发布到 Azure 网站。 此脚本将在 Azure 订阅中创建所需的资源（如果这些资源不存在）。
 services: visual-studio-online
-documentationcenter: na
 author: ghogen
 manager: douge
-editor: ''
-ms.assetid: 63cfaa2d-f04d-40dc-8677-345385c278d5
-ms.service: multiple
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: multiple
+assetId: 63cfaa2d-f04d-40dc-8677-345385c278d5
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: azure
+ms.topic: conceptual
 origin.date: 11/11/2016
-ms.date: 05/11/2018
+ms.date: 07/12/2018
 ms.author: v-junlch
-ms.openlocfilehash: 0ee964db33e731636096aac3e6de1294ce2243d9
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.openlocfilehash: b92493cd35cd35b0b1f41b3509b5d8e025dab939
+ms.sourcegitcommit: 5b6a2fc55e5b16ae480bd497c3ac2c3a2fd44703
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "34060336"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38999167"
 ---
 # <a name="publish-webapplicationwebsite-windows-powershell-script"></a>Publish-WebApplicationWebSite（Windows PowerShell 脚本）
 ## <a name="syntax"></a>语法

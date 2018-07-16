@@ -16,12 +16,12 @@ origin.date: 07/13/2017
 ms.date: 06/25/2018
 ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 1ed2eded2966c8f45b094d9e8bb7dff357f7f4bc
-ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
+ms.openlocfilehash: 638901573b406bae34b49401ab7e67a60fd64ad4
+ms.sourcegitcommit: 5b6a2fc55e5b16ae480bd497c3ac2c3a2fd44703
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36948033"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38999163"
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Azure AD Connect 同步服务功能
 Azure AD Connect 的同步功能有两个组件：
@@ -59,8 +59,6 @@ Azure AD Connect 的同步功能有两个组件：
 | DirectoryExtensions |[Azure AD Connect 同步：目录扩展](active-directory-aadconnectsync-feature-directory-extensions.md) |
 | [DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) |如果某个属性是另一个对象的副本而不会在导出期间导致整个对象失败，则允许隔离该属性。 |
 | PasswordSync |[使用 Azure AD Connect 同步实现密码哈希同步](active-directory-aadconnectsync-implement-password-hash-synchronization.md) |
-| UnifiedGroupWriteback |[预览：组写回](active-directory-aadconnect-feature-preview.md#group-writeback) |
-| UserWriteback |目前不支持。 |
 
 ## 重复属性复原 <a name="duplicate-attribute-resiliency"></a>
 将重复属性“隔离”并分配临时值，而不是使预配包含重复 UPN/proxyAddress 的对象失败。 解决冲突后，临时 UPN 会自动更改为适当的值。 有关详细信息，请参阅[标识同步和重复属性复原](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md)。

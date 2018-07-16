@@ -13,11 +13,11 @@
 > 如果无法恢复安装了进程服务器的虚拟机，则应使用以下步骤。
 
 1. 以管理员身份登录配置服务器。
-2. 打开管理命令提示符，然后浏览到目录 `%ProgramData%\ASR\home\svsystems\bin`。
+2. 打开管理命令提示符，并浏览到目录 `%ProgramData%\ASR\home\svsystems\bin`。
 3. 现在，运行命令。
 
     ```
     perl Unregister-ASRComponent.pl -IPAddress <IP_of_Process_Server> -Component PS
     ```
 
-4. 这将从系统中清除进程服务器的详细信息。
+4. 这会从系统中清除进程服务器的详细信息。

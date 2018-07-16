@@ -17,11 +17,11 @@ origin.date: 05/16/2017
 ms.date: 07/17/2017
 ms.author: v-dazen
 ms.openlocfilehash: 55d635443f4d3b6db0f1d8413ab36b989ecbc700
-ms.sourcegitcommit: 01b8f9a7e857463f49531e70dbb911c6f0286d76
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2017
-ms.locfileid: "23993641"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38940128"
 ---
 # <a name="verify-a-vpn-gateway-connection"></a>验证 VPN 网关连接
 

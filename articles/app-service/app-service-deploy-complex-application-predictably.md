@@ -16,11 +16,11 @@ origin.date: 01/06/2016
 ms.date: 10/30/2017
 ms.author: v-yiso
 ms.openlocfilehash: d1069b8c7cf1e3afc5e73d1063d0d6898ef54fc9
-ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
-ms.locfileid: "23475134"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939603"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>按可预见的方式在 Azure 中设置和部署微服务
 
@@ -44,7 +44,7 @@ ms.locfileid: "23475134"
 在本教程中，将使用以下工具。 由于对工具的讨论并不全面，我将坚持使用端到端方案，并只提供每个方案的简要介绍及在哪里可找到它的详细信息。 
 
 ### <a name="azure-resource-manager-templates-json"></a>Azure Resource Manager 模板 (JSON)
-例如，每当在 Azure App Service 中创建 Web 应用时，Azure Resource Manager 都将使用 JSON 模板来创建具有组件资源的整个资源组。 有关如何下载和使用这些模板的信息，请参阅[将 Azure PowerShell 与 Azure Resource Manager 配合使用](../powershell-azure-resource-manager.md)。
+例如，每当在 Azure App Service 中创建 Web 应用时，Azure Resource Manager 都将使用 JSON 模板来创建具有组件资源的整个资源组。 有关如何下载和使用这些模板的信息，请参阅[将 Azure PowerShell 与 Azure 资源管理器配合使用](../powershell-azure-resource-manager.md)。
 
 有关 Azure Resource Manager 模板的详细信息，请参阅[创作 Azure Resource Manager 模板](../azure-resource-manager/resource-group-authoring-templates.md)
 
@@ -59,7 +59,7 @@ ms.locfileid: "23475134"
 ### <a name="azure-powershell-080-or-later"></a>Azure PowerShell 0.8.0 或更高版本
 从版本 0.8.0 开始，Azure PowerShell 安装除了包括 Azure 模块外还包括 Azure Resource Manager 模块。 此新模块使你能够编写资源组部署的脚本。
 
-有关详细信息，请参阅[将 Azure PowerShell 与 Azure Resource Manager 配合使用](../powershell-azure-resource-manager.md)
+有关详细信息，请参阅[将 Azure PowerShell 与 Azure 资源管理器配合使用](../powershell-azure-resource-manager.md)
 
 ### <a name="deploy-to-azure-button"></a>“部署到 Azure”按钮
 如果你将 GitHub 用于源代码管理，则可将一个 [“部署到 Azure”按钮](https://azure.microsoft.com/blog/2014/11/13/deploy-to-azure-button-for-azure-websites-2/)放入 README.MD，这将对 Azure 启用统包部署 UI。 可为任何简单的 Web 应用执行此操作，同时可扩展这一操作，通过将 azuredeploy.json 文件放入存储库根来实现对整个资源组的部署。 “部署到 Azure”按钮将使用此包含资源组模板的 JSON 文件来创建资源组。 有关示例，请参阅会在本教程中使用的 [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) 示例。
@@ -94,7 +94,7 @@ ms.locfileid: "23475134"
 
 我不打算介绍 JSON 格式的每个细节，但 [更多资源](#resources) 部分包含可用于学习资源组模板语言的链接。 在这里，我只打算向你展示有趣的功能，可帮助你开始制作自己的自定义模板来部署应用。
 
-### <a name="parameters"></a>Parameters
+### <a name="parameters"></a>parameters
 看一看参数部分，你会看到这些参数大都是“部署到 Azure”  按钮提示你输入的内容。 “部署到 Azure” 按钮背后的站点使用 azuredeploy.json 中定义的参数填充输入 UI。 这些参数用于整个资源定义，例如资源名称、属性值等。
 
 ### <a name="resources"></a>资源
@@ -244,9 +244,9 @@ Web 应用取决于两个不同的资源。 这意味着只有在创建应用服
 <a name="resources"></a>
 
 ## <a name="more-resources"></a>更多资源
-* [Azure Resource Manager 模板语言](../azure-resource-manager/resource-group-authoring-templates.md)
+* [Azure 资源管理器模板语言](../azure-resource-manager/resource-group-authoring-templates.md)
 * [创作 Azure Resource Manager 模板](../azure-resource-manager/resource-group-authoring-templates.md)
 * [Azure Resource Manager 模板功能](../azure-resource-manager/resource-group-template-functions.md)
 * [使用 Azure Resource Manager 模板部署应用程序](../azure-resource-manager/resource-group-template-deploy.md)
-* [将 Azure PowerShell 与 Azure Resource Manager 配合使用](../azure-resource-manager/powershell-azure-resource-manager.md)
+* [将 Azure PowerShell 与 Azure 资源管理器配合使用](../azure-resource-manager/powershell-azure-resource-manager.md)
 * [Azure 中的资源组部署故障排除](../azure-resource-manager/resource-manager-common-deployment-errors.md)

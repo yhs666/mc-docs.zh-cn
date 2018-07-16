@@ -229,6 +229,9 @@
         - name: 将 HDInsight 与本地网络相连
           href: ../connect-on-premises-network.md
           maintainContext: true
+        - name: 监视群集性能
+          href: ../hdinsight-key-scenarios-to-monitor.md
+          maintainContext: true
 - name: 参考
   items:
     - name: 代码示例

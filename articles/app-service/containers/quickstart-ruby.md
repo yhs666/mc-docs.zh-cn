@@ -17,11 +17,11 @@ origin.date: 08/29/2017
 ms.author: v-yiso
 ms.date: 10/16/2017
 ms.openlocfilehash: 94d5d54be20c61fda23c162bdbac0345a5c642ad
-ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
-ms.locfileid: "22339071"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939709"
 ---
 # <a name="create-a-ruby-app-with-web-apps-on-linux"></a>使用 Linux 上的 Web 应用创建 Ruby 应用
 

@@ -12,11 +12,11 @@ ms.date: 07/02/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: e4c82f12390f17394987de624ebf9d04dd9986ed
-ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37070360"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939572"
 ---
 # <a name="perform-multi-region-writes-and-reads-by-choosing-the-right-partitioning-key"></a>通过选择正确的分区键来执行多区域写入和读取操作
 

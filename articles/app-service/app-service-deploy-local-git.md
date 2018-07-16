@@ -15,11 +15,11 @@ origin.date: 06/05/2018
 ms.date: 07/02/2018
 ms.author: v-yiso
 ms.openlocfilehash: 1001d707c532408024ec7b9a91986ce973d85f86
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315599"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939480"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>从本地 Git 部署到 Azure 应用服务
 

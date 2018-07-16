@@ -1,39 +1,22 @@
 ---
-title: Azure Monitor 支持的资源中的新型指标警报 | Microsoft Docs
+title: 新型 Azure Monitor 指标警报支持的资源
 description: 新型 Azure 准实时指标警报的支持指标和日志参考。
 author: snehithm
-manager: kmadnani1
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: monitoring
+ms.service: azure-monitor
+ms.topic: conceptual
 origin.date: 04/27/2018
 ms.author: v-yiso
-ms.date: 06/18/2018
-ms.openlocfilehash: 639deabe87dee763a6bcb800d514f0f6b312844e
-ms.sourcegitcommit: 794b9caca1147f1891513410dd61435708ef85ec
+ms.date: 07/23/2018
+ms.openlocfilehash: 029a7cd2723dda557bb49b05595bf1a9d9ad7b66
+ms.sourcegitcommit: 479954e938e4e3469d6998733aa797826e4f300b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34855413"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39031720"
 ---
-# <a name="newer-metric-alerts-for-azure-services-in-the-azure-portal"></a>Azure 门户中 Azure 服务的新型指标警报
-Azure Monitor 现在支持一种新型指标警报类型。 新型警报与[经典指标警报](insights-alerts-portal.md)在以下方面有所不同：
-
-- **延迟降低**：新型指标警报的运行频率可达每分钟一次。 旧式指标警报每 5 分钟方可运行 1 次。 由于引入日志需要时间，日志警报的延迟仍然超过 1 分钟。 
-- **支持多维指标**：支持对维度指标发出警报，从而可仅监视关注的指标段。 
-- **更好地控制指标条件**：可以定义更丰富的警报规则。 新型警报支持监视指标的最大值、最小值、平均值和总值。 
-- **综合监视多个指标**：可以使用单个规则监视多个指标（目前最多为两个指标）。 如果两个指标在指定时间段内违反其各自的阈值，则会触发警报。 
-- **更好的通知系统**：所有新型警报均使用[操作组](monitoring-action-groups.md)，这些组是命名的通知和操作组，可以在多个警报中重复使用。 经典指标警报和旧版 Log Analytics 警报不使用操作组。 
-- **日志中的指标**（受限公共预览版）：进入 Log Analytics 的日志数据现在可以提取并转换为 Azure Monitor 指标，然后就像其他指标一样，基于其发出警报。 
-
-若要了解如何在 Azure 门户中创建新型指标警报，请参阅[在 Azure 门户中创建警报规则](monitor-alerts-unified-usage.md#create-an-alert-rule-with-the-azure-portal)。 创建后，可以按照[在 Azure 门户中管理警报](monitor-alerts-unified-usage.md#managing-your-alerts-in-azure-portal)中所述的步骤管理警报。
-
+# <a name="supported-metrics-and-creation-methods-for-new-metric-alerts"></a>新型指标警报支持的指标和创建方法
+Azure Monitor 现在支持[新型指标警报类型](monitoring-overview-unified-alerts.md)，它比旧式[经典指标警报](insights-alerts-portal.md)具有显著的优势。 旧式警报支持[大型指标列表](monitoring-supported-metrics.md)。 新型警报支持更大列表的一个（不断增长的）子集。 本文列出了该子集。 
 
 ## <a name="portal-powershell-cli-rest-support"></a>门户、PowerShell、CLI、REST 支持
 目前，仅可在 Azure 门户、[REST API](https://docs.microsoft.com/en-us/rest/api/monitor/metricalerts/createorupdate) 或[资源管理器模板](monitoring-create-metric-alerts-with-templates.md)中创建新型指标警报。 即将推出使用 PowerShell 和 Azure 命令行接口 (Azure CLI 2.0) 配置新型警报的支持功能。
@@ -55,7 +38,9 @@ Azure Monitor 现在支持一种新型指标警报类型。 新型警报与[经�
 |Microsoft.KeyVault/vaults| 否 | [保管库](monitoring-supported-metrics.md#microsoftkeyvaultvaults)|
 |Microsoft.Logic/workflows     |     不适用    |[逻辑应用](monitoring-supported-metrics.md#microsoftlogicworkflows) |
 |Microsoft.Network/applicationGateways     |    不适用     | [应用程序网关](monitoring-supported-metrics.md#microsoftnetworkapplicationgateways) |
+|Microsoft.Network/loadBalancers（仅限标准 SKU）| 是| [负载均衡器](monitoring-supported-metrics.md#microsoftnetworkloadbalancers) |
 |Microsoft.Network/publicipaddresses     |  不适用       |[公共 IP 地址](monitoring-supported-metrics.md#microsoftnetworkpublicipaddresses)|
+|Microsoft.PowerBIDedicated/capacities | 不适用 | [容量](monitoring-supported-metrics.md#microsoftpowerbidedicatedcapacities)|
 |Microsoft.Search/searchServices     |   不适用      |[搜索服务](monitoring-supported-metrics.md#microsoftsearchsearchservices)|
 |Microsoft.ServiceBus/namespaces     |  是       |[服务总线](monitoring-supported-metrics.md#microsoftservicebusnamespaces)|
 |Microsoft.Storage/storageAccounts     |    是     | [存储帐户](monitoring-supported-metrics.md#microsoftstoragestorageaccounts)|

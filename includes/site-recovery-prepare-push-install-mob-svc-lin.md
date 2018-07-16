@@ -13,11 +13,11 @@
 
     c. 取消注释该行，并将值更改为 **yes**。
 
-    d.单击“验证存储凭据”以验证存储帐户。 找到以“Subsystem”开头的行，并取消注释该行。
+    d. 找到以“Subsystem”开头的行，并取消注释该行。
 
         ![Linux](./media/site-recovery-prepare-push-install-mob-svc-lin/mobility2.png)
 
-    e.在“新建 MySQL 数据库”边栏选项卡中，接受法律条款，并单击“确定”。 重启 sshd 服务。
+    e. 重启 sshd 服务。
 
 7. 添加在 CSPSConfigtool 中创建的帐户。 执行以下步骤：
 
@@ -27,8 +27,8 @@
 
     c. 在“管理帐户”选项卡中，选择“添加帐户”。
 
-    d.单击“验证存储凭据”以验证存储帐户。 添加已创建的帐户。
+    d. 添加已创建的帐户。
 
-    d.单击“验证存储凭据”以验证存储帐户。 输入为计算机启用复制时使用的凭据。
+    d. 输入为计算机启用复制时使用的凭据。
 <!--Update_Description: wording update-->
 <!--ms.date: 03/05/2018-->

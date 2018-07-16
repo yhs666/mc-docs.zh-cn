@@ -17,11 +17,11 @@ origin.date: 06/09/2017
 ms.date: 05/21/2018
 ms.author: v-yeche
 ms.openlocfilehash: cad355432c6627e438795e46fd4aea2cabcef3ed
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34257193"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939635"
 ---
 # <a name="how-to-set-up-endpoints-on-a-classic-windows-virtual-machine-in-azure"></a>如何在 Azure 中的经典 Windows 虚拟机上设置终结点
 在 Azure 中使用经典部署模型创建的所有 Windows 虚拟机都可以通过专用网络通道与同一云服务或虚拟网络中的其他虚拟机自动通信。 但是，Internet 或其他虚拟网络中的计算机需要终结点将入站网络流量定向到虚拟机。 本文也适用于 [Linux 虚拟机](../../linux/classic/setup-endpoints.md)。

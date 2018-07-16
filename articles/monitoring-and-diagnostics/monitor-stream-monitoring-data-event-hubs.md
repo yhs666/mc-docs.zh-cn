@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 03/05/2018
 ms.author: v-yiso
 ms.date: 04/16/2018
-ms.openlocfilehash: 82e6f6f14cb5f4bd4ead744020ae2b2dabdd83f9
-ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
+ms.openlocfilehash: e6de76eabdcd9dfa2fefe98e9c33a60ebe90c944
+ms.sourcegitcommit: 479954e938e4e3469d6998733aa797826e4f300b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/09/2018
-ms.locfileid: "30941466"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39031757"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>将 Azure 监视数据流式传输到事件中心以便外部工具使用
 
@@ -70,7 +70,7 @@ Azure 资源将发出两种类型的监视数据：
 使用资源诊断设置将两种类型的数据发送到事件中心。 [按照本指南](./monitoring-stream-diagnostic-logs-to-event-hubs.md)在特定资源上设置资源诊断设置。 在要从其收集日志的每个资源上设置资源诊断设置。
 
 > [!TIP]
-> 可使用 Azure 策略，在策略规则中使用 DeployIfNotExists 效果，确保特定范围内的每个资源始终设置了诊断设置。 DeployIfNotExists 现仅支持内置策略。
+> 可使用 Azure 策略，[在策略规则中使用 DeployIfNotExists 效果](../azure-policy/policy-definition.md#policy-rule)，确保特定范围内的每个资源始终设置了诊断设置。 DeployIfNotExists 现仅支持内置策略。
 
 ## <a name="how-do-i-set-up-guest-os-monitoring-data-to-be-streamed-to-an-event-hub"></a>如何将来宾 OS 监视数据设置为流式传输到事件中心？
 
@@ -78,7 +78,7 @@ Azure 资源将发出两种类型的监视数据：
 
 ### <a name="stream-linux-data-to-an-event-hub"></a>将 Linux 数据流式传输到事件中心
 
-[Linux Azure 诊断代理](../virtual-machines/linux/diagnostic-extension.md)用于将来自 Linux 计算机的监视数据发送到事件中心。 在 LAD 配置文件保护的设置 JSON 中添加事件中心作为接收器，即可完成此操作。 [参阅此文章，详细了解如何向 Linux Azure 诊断代理添加事件中心接收器](../virtual-machines/linux/diagnostic-extension.md#protected-settings)。
+[Linux Azure 诊断代理](../virtual-machines/extensions/diagnostics-linux.md)用于将来自 Linux 计算机的监视数据发送到事件中心。 在 LAD 配置文件保护的设置 JSON 中添加事件中心作为接收器，即可完成此操作。 [参阅此文章，详细了解如何向 Linux Azure 诊断代理添加事件中心接收器](../virtual-machines/extensions/diagnostics-linux.md#protected-settings)。
 
 > [!NOTE]
 > 不能在门户中将来宾 OS 监视数据设置为流式传输到事件中心。 相反，必须手动编辑配置文件。

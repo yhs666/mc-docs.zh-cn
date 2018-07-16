@@ -16,11 +16,11 @@ origin.date: 01/23/2017
 ms.date: 06/18/2018
 ms.author: v-yeche
 ms.openlocfilehash: 03767f595639f1636f94f14e1466a140db17fbc5
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "35416854"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939771"
 ---
 # <a name="get-started-creating-an-internet-facing-load-balancer-classic-in-powershell"></a>开始在 PowerShell 中创建面向 Internet 的负载均衡器（经典）
 

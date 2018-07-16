@@ -1,11 +1,11 @@
 ---
-title: "Azure AD .NET 协议概述 | Microsoft Docs"
-description: "如何使用 Azure AD，通过 HTTP 消息来授权访问租户中的 Web 应用程序和 Web API。"
+title: Azure AD .NET 协议概述 | Microsoft Docs
+description: 如何使用 Azure AD，通过 HTTP 消息来授权访问租户中的 Web 应用程序和 Web API。
 services: active-directory
 documentationcenter: .net
 author: priyamohanram
 manager: mbaldwin
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,10 +15,11 @@ origin.date: 01/21/2016
 ms.date: 01/03/2018
 ms.author: priyamo
 ms.openlocfilehash: 30bf739fdde9e45b5dee79a0900eaa63a418cf54
-ms.sourcegitcommit: 179c6e0058e00d1853f7f8cab1ff40b3326804b8
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38944218"
 ---
 ## <a name="register-your-application-with-your-ad-tenant"></a>将应用程序注册到 AD 租户
 首先，需要将应用程序注册到 Azure Active Directory (Azure AD) 租户。 这会为应用程序分配一个应用程序 ID，并且使该应用程序可以接收令牌。

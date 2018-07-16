@@ -1,6 +1,6 @@
 ## <a name="set-up-azure-powershell-for-azure-dns"></a>设置适用于 Azure DNS 的 Azure PowerShell
 
-### <a name="before-you-begin"></a>开始之前
+### <a name="before-you-begin"></a>准备阶段
 
 在开始配置之前，请确保具备以下各项。
 
@@ -31,7 +31,7 @@ Select-AzureRmSubscription -SubscriptionName "your_subscription_name"
 
 ### <a name="create-a-resource-group"></a>创建资源组
 
-Azure 资源管理器要求所有资源组指定一个位置。 此位置用作该资源组中的资源的默认位置。 但是，由于所有 DNS 资源都是全局性而非区域性的，因此资源组位置的选择不会影响 Azure DNS。
+Azure Resource Manager 要求所有资源组指定一个位置。 此位置用作该资源组中的资源的默认位置。 但是，由于所有 DNS 资源都是全局性而非区域性的，因此资源组位置的选择不会影响 Azure DNS。
 
 如果使用现有资源组，可跳过此步骤。
 

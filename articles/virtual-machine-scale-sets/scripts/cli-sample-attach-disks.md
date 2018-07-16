@@ -18,11 +18,11 @@ ms.date: 04/25/2018
 ms.author: v-junlch
 ms.custom: mvc
 ms.openlocfilehash: 2e8447917892464fc3367a4a2227c27edbff859f
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32122080"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939937"
 ---
 # <a name="attach-and-use-data-disks-with-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>使用 Azure CLI 2.0 为虚拟机规模集附加并使用数据磁盘
 此脚本创建虚拟机规模集并附加和准备数据磁盘。

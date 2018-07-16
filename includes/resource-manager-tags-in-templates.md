@@ -1,7 +1,7 @@
 要在部署过程中标记资源，请将 `tags` 元素添加到要部署的资源。 提供标记名称和值。
 
 ### <a name="apply-a-literal-value-to-the-tag-name"></a>将文本值应用到标记名称
-以下示例显示了具有设置为文本值的两个标记（`Dept` 和 `Environment`）的存储帐户：
+以下示例显示了一个带两个标记（`Dept` 和 `Environment`）的存储帐户，这两个标记设置为文本值：
 
 ```json
 {

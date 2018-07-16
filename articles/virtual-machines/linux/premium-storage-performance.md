@@ -16,11 +16,11 @@ origin.date: 06/27/2017
 ms.date: 05/14/2018
 ms.author: v-yeche
 ms.openlocfilehash: 5492d291350f7eeee42e6b103528f0ef819de3fe
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "34060252"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38940146"
 ---
 [!INCLUDE [virtual-machines-common-premium-storage-performance.md](../../../includes/virtual-machines-common-premium-storage-performance.md)]
 

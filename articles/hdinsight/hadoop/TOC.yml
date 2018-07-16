@@ -63,8 +63,6 @@
               href: apache-hadoop-use-hive-powershell.md
             - name: 使用 .NET SDK
               href: apache-hadoop-use-hive-dotnet-sdk.md
-            - name: 使用用于 Visual Studio 的 HDInsight 工具
-              href: apache-hadoop-use-hive-visual-studio.md
             - name: 使用远程桌面
               href: apache-hadoop-use-hive-remote-desktop.md
             - name: 使用查询控制台
@@ -159,9 +157,6 @@
           href: apache-hive-analyze-sensor-data.md
         - name: 分析存储的推文
           href: ../hdinsight-analyze-twitter-data-linux.md
-          maintainContext: true
-        - name: 分析航班延误数据
-          href: ../hdinsight-analyze-flight-delay-data-linux.md
           maintainContext: true
         - name: 使用 Mahout 生成建议
           href: apache-hadoop-mahout-linux-mac.md

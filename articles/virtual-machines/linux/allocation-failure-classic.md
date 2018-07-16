@@ -17,11 +17,11 @@ origin.date: 04/13/2018
 ms.date: 05/14/2018
 ms.author: v-yeche
 ms.openlocfilehash: 5f3203441753b29c3bf21c15892ff4771aaf2f3f
-ms.sourcegitcommit: c39a5540ab9bf8b7c5fca590bde8e9c643875116
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34062124"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38940119"
 ---
 # <a name="troubleshooting-steps-specific-to-allocation-failure-scenarios-in-the-classic-deployment-model"></a>针对经典部署模型中的分配失败情况进行故障排除的步骤
 

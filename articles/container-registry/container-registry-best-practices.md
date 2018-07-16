@@ -9,12 +9,12 @@ ms.topic: quickstart
 origin.date: 04/10/2018
 ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 8ed0f972bdc3c60f27dfe994c4e4f96af2172c16
-ms.sourcegitcommit: 2cf6961f692f318ce7034e7b4d994ee51d902199
+ms.openlocfilehash: bfb9265b9e55cb98bebef6a871eda0251f67d2fc
+ms.sourcegitcommit: 5b6a2fc55e5b16ae480bd497c3ac2c3a2fd44703
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36947695"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38999211"
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Azure 容器注册表的最佳做法
 
@@ -40,10 +40,10 @@ ms.locfileid: "36947695"
 例如，考虑以下容器映像标记。 在公司范围内使用的映像（如 `aspnetcore`）位于根命名空间中，而生产和营销组拥有的容器映像都使用其自己的命名空间。
 
 ```
-contoso.azurecr.io/aspnetcore:2.0
-contoso.azurecr.io/products/widget/web:1
-contoso.azurecr.io/products/bettermousetrap/refundapi:12.3
-contoso.azurecr.io/marketing/2017-fall/concertpromotions/campaign:218.42
+contoso.azurecr.cn/aspnetcore:2.0
+contoso.azurecr.cn/products/widget/web:1
+contoso.azurecr.cn/products/bettermousetrap/refundapi:12.3
+contoso.azurecr.cn/marketing/2017-fall/concertpromotions/campaign:218.42
 ```
 
 ## <a name="dedicated-resource-group"></a>专用资源组

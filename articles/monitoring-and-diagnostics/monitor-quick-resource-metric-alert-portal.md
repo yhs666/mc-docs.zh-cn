@@ -2,21 +2,19 @@
 title: 当指标值满足条件时接收通知
 description: 帮助用户创建逻辑应用的指标的快速入门指南
 author: anirudhcavale
-manager: orenr
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.service: monitoring-and-diagnostics
+services: azure-monitor
+ms.service: azure-monitor
 ms.topic: quickstart
 origin.date: 02/08/2018
 ms.author: v-yiso
-ms.date: 05/14/2018
+ms.date: 07/23/2018
 ms.custom: mvc
-ms.openlocfilehash: 7fdad2b630daa79b0bfc23a0585e76d91d1c14f8
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: 424c28f119a00e861ac7b9ec31aca07e64faf99d
+ms.sourcegitcommit: 479954e938e4e3469d6998733aa797826e4f300b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33815484"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39031744"
 ---
 # <a name="receive-a-notification-when-a-metric-value-meets-a-condition"></a>当指标值满足条件时接收通知
 
@@ -71,7 +69,7 @@ Azure Monitor 使指标可用于许多 Azure 资源。 这些指标传达相关�
 
 2. 选择“指标”选项卡，填写逻辑应用的“订阅”、“资源组”、“资源类型”和“资源”信息。
 
-3. 在指标列表中，选择“启动的运行数”。
+3. 在指标列表中，选择“失败的运行数”。
 
 4. 修改图表的“时间范围”，以显示过去一小时的数据。
 

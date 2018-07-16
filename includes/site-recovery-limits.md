@@ -1,11 +1,11 @@
 ---
-title: "站点恢复限制表"
-description: "描述站点恢复的系统限制。"
+title: 站点恢复限制表
+description: 描述站点恢复的系统限制。
 services: site recovery
 documentationCenter: NA
 authors: csilauraa
 manager: jwhit
-editor: 
+editor: ''
 ms.service: site recovery
 ms.devlang: NA
 ms.topic: article
@@ -14,10 +14,11 @@ ms.workload: TBD
 ms.date: 07/06/2015
 ms.author: lauraa
 ms.openlocfilehash: b76c25f5e948571ea5f15bf0b742efa2d41153dd
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38940382"
 ---
 以下限制适用于 Azure 站点恢复：
 

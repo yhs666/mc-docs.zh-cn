@@ -17,11 +17,11 @@ origin.date: 02/14/2018
 ms.date: 03/12/2018
 ms.author: v-junlch
 ms.openlocfilehash: d861b26e1bc214806b2f827752690939f6cecf7b
-ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29925197"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38940130"
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>使用 Azure 门户创建站点到站点连接（经典）
 
@@ -80,7 +80,7 @@ ms.locfileid: "29925197"
 ### <a name="to-create-a-virtual-network"></a>创建虚拟网络
 
 1. 从浏览器导航到 [Azure 门户](http://portal.azure.cn)，并在必要时用 Azure 帐户登录。
-2. 单击“+”。 在“搜索应用商店”字段中，键入“虚拟网络”。 从返回的列表中找到“虚拟网络”，单击打开“虚拟网络”页。
+2. 单击“+”。 在“在市场中搜索”字段中，键入“虚拟网络”。 从返回的列表中找到“虚拟网络”，单击打开“虚拟网络”页。
 
   ![搜索虚拟网络页](./media/vpn-gateway-howto-site-to-site-classic-portal/newvnetportal700.png)
 3. 从靠近“虚拟网络”页底部的“选择部署模型”下拉列表中，选择“经典”，然后单击“创建”。

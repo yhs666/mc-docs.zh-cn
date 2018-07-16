@@ -11,11 +11,11 @@ origin.date: 06/07/2018
 ms.date: 07/02/2018
 ms.author: v-johch
 ms.openlocfilehash: 97c6f79a66d321a2fea74e56e2b50da5be9440eb
-ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36947915"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38940127"
 ---
 # <a name="design-an-azure-sql-database-and-connect-with-cx23-and-adonet"></a>设计 Azure SQL 数据库，并使用 C# 和 ADO.NET 进行连接
 

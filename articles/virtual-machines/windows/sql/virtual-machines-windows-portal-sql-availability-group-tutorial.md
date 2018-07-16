@@ -18,11 +18,11 @@ origin.date: 05/09/2017
 ms.date: 06/25/2018
 ms.author: v-yeche
 ms.openlocfilehash: 6441a0efb683b477e88d80b39b74117a842a8074
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315459"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38940160"
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>在 Azure VM 中手动配置 Always On 可用性组
 

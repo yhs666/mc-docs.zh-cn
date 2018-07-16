@@ -17,11 +17,11 @@ origin.date: 03/13/2018
 ms.date: 06/14/2018
 ms.author: v-junlch
 ms.openlocfilehash: 9928730711048e331739853e86a1ba8943b783eb
-ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2018
-ms.locfileid: "35568352"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38940181"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>使用门户从不同的部署模型连接虚拟网络
 

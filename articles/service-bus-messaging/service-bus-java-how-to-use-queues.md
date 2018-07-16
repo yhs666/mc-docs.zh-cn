@@ -15,11 +15,11 @@ origin.date: 08/10/2017
 ms.author: v-yiso
 ms.date: 09/18/2017
 ms.openlocfilehash: 26485f57ce10b5b6e51c4e84bc983e90e7c68d18
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695099"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939875"
 ---
 # <a name="how-to-use-service-bus-queues-with-java"></a>如何通过 Java 使用服务总线队列
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]

@@ -16,11 +16,11 @@ origin.date: 01/29/2018
 ms.date: 03/19/2018
 ms.author: v-yiso
 ms.openlocfilehash: fd009effa1b873e1b4b17eb10e5cc01b3c7e5ec1
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29870462"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38940007"
 ---
 # <a name="connect-your-device-to-your-iot-hub-using-net"></a>使用 .NET 将设备连接到 IoT 中心
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]

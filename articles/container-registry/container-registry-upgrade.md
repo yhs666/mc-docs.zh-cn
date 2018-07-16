@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 03/15/2018
 ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: f5761dae2eec30dabb7fe733d024845112aa9b12
-ms.sourcegitcommit: 2cf6961f692f318ce7034e7b4d994ee51d902199
+ms.openlocfilehash: cdbfc8ac7f40c3806bd0e1289f1e9dc3f44dd675
+ms.sourcegitcommit: 5b6a2fc55e5b16ae480bd497c3ac2c3a2fd44703
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36947675"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38999157"
 ---
 # <a name="upgrade-a-classic-container-registry"></a>升级经典容器注册表
 
@@ -75,7 +75,7 @@ az acr update --name myclassicregistry --sku Premium
   "creationDate": "2017-12-12T21:23:29.300547+00:00",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.ContainerRegistry/registries/myregistry",
   "location": "chinaeast",
-  "loginServer": "myregistry.azurecr.io",
+  "loginServer": "myregistry.azurecr.cn",
   "name": "myregistry",
   "provisioningState": "Succeeded",
   "resourceGroup": "myresourcegroup",

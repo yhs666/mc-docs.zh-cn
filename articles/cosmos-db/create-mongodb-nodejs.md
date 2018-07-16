@@ -13,11 +13,11 @@ origin.date: 06/19/2017
 ms.date: 07/02/2018
 ms.author: v-yeche
 ms.openlocfilehash: 21c83520cfdc2ceb1204f5bfb9ec7a7b272a1af3
-ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37070298"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939833"
 ---
 # <a name="azure-cosmos-db-migrate-an-existing-nodejs-mongodb-web-app"></a>Azure Cosmos DB：迁移现有的 Node.js MongoDB Web 应用 
 
@@ -59,7 +59,7 @@ Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务
     cd "C:\git-samples"
     ```
 
-3. 运行下列命令，克隆示例存储库。 此命令在计算机上创建示例应用程序的副本。 
+3. 运行下列命令以克隆示例存储库。 此命令在计算机上创建示例应用程序的副本。 
 
     ```bash
     git clone https://github.com/prashanthmadi/mean

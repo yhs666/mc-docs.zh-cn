@@ -9,7 +9,7 @@
   - 如果使用的是企业证书解决方案，请使用通用名称值格式“name@yourdomain.com”生成客户端证书，而不要使用“域名\用户名”格式。
   - 请确保客户端证书基于“用户”证书模板，该模板使用“客户端身份验证”（而不是“智能卡登录”等）作为使用列表中的第一项。可以通过双击客户端证书，并查看“详细信息”>“增强型密钥用法”来检查证书。
 
-- **自签名根证书：**必须遵循下面的 P2S 证书文章之一中的步骤。 否则，创建的客户端证书将不兼容 P2S 连接，客户端在尝试连接时会收到错误。 下述文章之一中的步骤可以生成兼容的客户端证书： 
+- 自签名根证书：必须遵循下面的 P2S 证书文章之一中的步骤。 否则，创建的客户端证书将不兼容 P2S 连接，客户端在尝试连接时会收到错误。 下述文章之一中的步骤可以生成兼容的客户端证书： 
 
   - [Windows 10 PowerShell 指令](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#clientcert)：这些指令需要 Windows 10 和 PowerShell 才能生成证书。 生成的证书可以安装在任何受支持的 P2S 客户端上。
   - [MakeCert 指令](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-makecert.md)：如果无权访问用于生成证书的 Windows 10 计算机，则可使用 MakeCert。 MakeCert 已弃用，但仍可使用 MakeCert 生成证书。 生成的证书可以安装在任何受支持的 P2S 客户端上。

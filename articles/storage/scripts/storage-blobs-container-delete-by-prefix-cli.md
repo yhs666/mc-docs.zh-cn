@@ -17,11 +17,11 @@ origin.date: 06/22/2017
 ms.date: 10/23/2017
 ms.author: v-johch
 ms.openlocfilehash: 321c1e0f8cc013580a5215274c8342e7e4cbd864
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29870911"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38940084"
 ---
 # <a name="delete-containers-based-on-container-name-prefix"></a>根据容器名称前缀删除容器
 

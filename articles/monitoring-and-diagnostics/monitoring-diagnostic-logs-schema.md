@@ -2,25 +2,18 @@
 title: Azure 诊断日志支持的服务和架构
 description: 了解 Azure 诊断日志支持的服务和事件架构。
 author: johnkemnetz
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: fe8887df-b0e6-46f8-b2c0-11994d28e44f
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-origin.date: 04/12/2018
-ms.date: 05/14/2018
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: reference
+origin.date: 06/08/2018
+ms.date: 07/23/2018
 ms.author: v-yiso
-ms.openlocfilehash: 5c186dd89ae622b47349bcded3e8a9c82b4bffcc
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: 8a176e65499b652c80f3c78cecfd148eef765e44
+ms.sourcegitcommit: 479954e938e4e3469d6998733aa797826e4f300b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33815166"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39031783"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Azure 诊断日志支持的服务、架构和类别
 
@@ -31,26 +24,25 @@ ms.locfileid: "33815166"
 
 | 服务 | 架构和文档 |
 | --- | --- |
-| Analysis Services | 架构不可用。 |
+| Analysis Services | https://azure.microsoft.com/blog/azure-analysis-services-integration-with-azure-diagnostic-logs/ |
 | API 管理 | [API 管理诊断日志](../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
 | 应用程序网关 |[应用程序网关的诊断日志记录](../application-gateway/application-gateway-diagnostics.md) |
 | Azure 自动化 |[Azure 自动化的 Log Analytics](../automation/automation-manage-send-joblogs-log-analytics.md) |
 | Azure Batch |[Azure Batch 诊断日志记录](../batch/batch-diagnostics.md) |
-| Customer Insights | 架构不可用。 |
-| 内容分发网络 | 架构不可用。 |
 | CosmosDB | [Azure Cosmos DB 日志记录](../cosmos-db/logging.md) |
 | 事件中心 |[Azure 事件中心诊断日志](../event-hubs/event-hubs-diagnostic-logs.md) |
+| Express Route | 架构不可用。 |
 | IoT 中心 | [IoT 中心操作](../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
 | 密钥保管库 |[Azure 密钥保管库日志记录](../key-vault/key-vault-logging.md) |
 | 负载均衡器 |[Azure 负载均衡器的 Log Analytics](../load-balancer/load-balancer-monitor-log.md) |
-| DDOS 保护 | 架构不可用。 |
 | 恢复服务 | [Azure 备份的数据模型](../backup/backup-azure-reports-data-model.md)|
 | 搜索 |[允许并使用搜索流量分析](../search/search-traffic-analytics.md) |
-| 服务器管理 | 架构不可用。 |
 | 服务总线 |[Azure 服务总线诊断日志](../service-bus-messaging/service-bus-diagnostic-logs.md) |
 | SQL 数据库 | [Azure SQL 数据库诊断日志记录](../sql-database/sql-database-metrics-diag-logging.md) |
 | 流分析 |[作业诊断日志](../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
+| 流量管理器 | 架构不可用。 |
 | 虚拟网络 | 架构不可用。 |
+| 虚拟网络网关 | 架构不可用。 |
 
 ## <a name="supported-log-categories-per-resource-type"></a>每种资源类型支持的日志类别
 |资源类型|类别|类别显示名称|

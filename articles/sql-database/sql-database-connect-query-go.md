@@ -13,11 +13,11 @@ origin.date: 04/01/2018
 ms.date: 04/17/2018
 ms.author: v-nany
 ms.openlocfilehash: 3e6dc0ed9e64a7cf397c7248bc59e0b9c35e081f
-ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36947912"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939879"
 ---
 # <a name="use-go-to-query-an-azure-sql-database"></a>使用 Go 查询 Azure SQL 数据库
 

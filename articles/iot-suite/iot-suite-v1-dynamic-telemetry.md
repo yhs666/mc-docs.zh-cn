@@ -17,11 +17,11 @@ origin.date: 11/02/2017
 ms.date: 12/04/2017
 ms.author: v-yiso
 ms.openlocfilehash: 3eaa3d2edadd92e0b3769790872de7f27a84b0b9
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
-ms.locfileid: "25592537"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939898"
 ---
 # <a name="use-dynamic-telemetry-with-the-remote-monitoring-preconfigured-solution"></a>配合使用动态遥测和远程监视预配置解决方案
 

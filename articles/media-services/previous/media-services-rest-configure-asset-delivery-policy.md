@@ -16,11 +16,11 @@ origin.date: 12/07/2017
 ms.date: 12/11/2017
 ms.author: v-nany
 ms.openlocfilehash: e4a2760b8fede91e24a43ca74a45cd545b6d7676
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867357"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939877"
 ---
 # <a name="configuring-asset-delivery-policies"></a>配置资产传送策略
 [!INCLUDE [media-services-selector-asset-delivery-policy](../../../includes/media-services-selector-asset-delivery-policy.md)]

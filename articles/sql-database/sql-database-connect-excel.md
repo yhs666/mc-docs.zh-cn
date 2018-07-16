@@ -12,11 +12,11 @@ origin.date: 03/10/2017
 ms.date: 11/06/2017
 ms.author: v-johch
 ms.openlocfilehash: 5beba92f585e3fdbb3eb0f25fec80e1069c07d4d
-ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2018
-ms.locfileid: "30936259"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939883"
 ---
 # <a name="connect-excel-to-an-azure-sql-database-and-create-a-report"></a>将 Excel 连接到 Azure SQL 数据库并创建报表
 

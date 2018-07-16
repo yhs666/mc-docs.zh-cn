@@ -5,7 +5,7 @@
 
     ![添加地址空间](./media/vpn-gateway-additional-address-space-include/address_space.png)
 
-### <a name="to-create-additional-subnets"></a>创建更多子网
+### <a name="to-create-additional-subnets"></a>创建额外的子网
 
 1. 若要创建子网，请在虚拟网络页的“设置”部分中单击“子网”，打开“子网”页。 
 2. 在“子网”页中，单击“+子网”打开“添加子网”页。 为新子网命名，并指定地址范围。

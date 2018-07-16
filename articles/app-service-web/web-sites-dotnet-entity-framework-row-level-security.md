@@ -16,11 +16,11 @@ origin.date: 04/25/2016
 ms.date: 02/21/2017
 ms.author: v-dazen
 ms.openlocfilehash: 25050ece1cceaa3656743daf00871b7a5fba3101
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
-ms.locfileid: "20463914"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939481"
 ---
 # <a name="tutorial-web-app-with-a-multi-tenant-database-using-entity-framework-and-row-level-security"></a>教程：使用多租户数据库和 Entity Framework 及行级别安全性的 Web 应用
 
@@ -37,13 +37,13 @@ ms.locfileid: "20463914"
 ## <a name="step-1-add-an-interceptor-class-in-the-application-to-set-the-sessioncontext"></a>步骤 1：在应用程序中添加一个侦听器类，以便设置 SESSION_CONTEXT
 需要进行一项应用程序更改。 由于所有应用程序用户都使用相同的连接字符串（即相同的 SQL 登录名）来连接到数据库，因此目前的 RLS 策略并不知道应该针对哪个用户进行筛选。 这种方法在 Web 应用程序中很常见，因为它可以确保连接池的高效率，但也意味着我们需要使用其他方法来标识当前正在数据库中的应用程序用户。 解决方法是让应用程序在打开连接之后、执行任何查询之前，先在 [SESSION_CONTEXT](https://msdn.microsoft.com/library/mt590806) 中针对当前的 UserId 设置一个键-值对。 SESSION_CONTEXT 是一个会话范围的键/值存储空间，RLS 策略将使用存储在该空间的 UserId 来标识当前用户。
 
-我们将添加一个[拦截器](https://msdn.microsoft.com/data/dn469464.aspx)（具体而言，为 [DbConnectionInterceptor](https://msdn.microsoft.com/library/system.data.entity.infrastructure.interception.idbconnectioninterceptor)，这是 Entity Framework (EF) 6 中的新功能），以便每当 EF 打开连接时，通过执行一个 T-SQL 语句在 SESSION_CONTEXT 中自动设置当前 UserId。
+我们添加一个[拦截器](https://msdn.microsoft.com/data/dn469464.aspx)（具体而言，为 [DbConnectionInterceptor](https://msdn.microsoft.com/library/system.data.entity.infrastructure.interception.idbconnectioninterceptor)，这是 Entity Framework (EF) 6 中的新功能），以便每当 EF 打开连接时，通过执行一个 T-SQL 语句在 SESSION_CONTEXT 中自动设置当前 UserId。
 
 [!INCLUDE [azure-visual-studio-login-guide](../../includes/azure-visual-studio-login-guide.md)]
 
 1. 在 Visual Studio 中打开 ContactManager 项目。
-2. 右键单击解决方案资源管理器中的 Models 文件夹，然后选择“添加”>“类”。
-3. 将新类命名为“SessionContextInterceptor.cs”，然后单击“添加”。
+2. 右键单击解决方案资源管理器中的 Models 文件夹，并选择“添加”>“类”。
+3. 将新类命名为“SessionContextInterceptor.cs”，并单击“添加”。
 4. 将 SessionContextInterceptor.cs 的内容替换为以下代码。
 
 ```
@@ -191,7 +191,7 @@ namespace ContactManager.Models
 ## <a name="step-2-add-a-userid-column-to-the-database-schema"></a>步骤 2：将 UserId 列添加到数据库架构
 接下来，我们需要将 UserId 列添加到 Contacts 表，以便将每一行与用户（租户）相关联。 我们会直接在数据库中更改架构，这样就不需要在 EF 数据模型中包括该字段。
 
-使用 SQL Server Management Studio 或 Visual Studio 直接连接到数据库，然后执行以下 T-SQL：
+使用 SQL Server Management Studio 或 Visual Studio 直接连接到数据库，并执行以下 T-SQL：
 
 ```
 ALTER TABLE Contacts ADD UserId nvarchar(128)
@@ -200,13 +200,13 @@ ALTER TABLE Contacts ADD UserId nvarchar(128)
 
 此时会将 UserId 列添加到 Contacts 表。 我们使用与 AspNetUsers 表中存储的 UserId 相匹配的 nvarchar(128) 数据类型，同时创建一个 DEFAULT 约束条件，以便自动将新插入行的 UserId 设置为当前存储在 SESSION_CONTEXT 中的 UserId。
 
-现在，该表将如下所示：
+现在，该表如下所示：
 
 ![SSMS Contacts 表](./media/web-sites-dotnet-entity-framework-row-level-security/SSMS-Contacts.png)
 
 当创建新的联系人时，系统会自动向其分配正确的 UserId。 不过，为了演示方便，我们可以将一部分现有的联系人分配给现有的用户。
 
-如果你已在应用程序中创建了一些用户（例如，使用本地帐户进行创建），则会在 AspNetUsers 表中看到这些用户。 在下面的屏幕快照中，目前只有一个用户。
+如果已在应用程序中创建了一些用户（例如，使用本地帐户进行创建），则会在 AspNetUsers 表中看到这些用户。 在下面的屏幕快照中，目前只有一个用户。
 
 ![SSMS AspNetUsers 表](./media/web-sites-dotnet-entity-framework-row-level-security/SSMS-AspNetUsers.png)
 
@@ -254,4 +254,4 @@ go
 
 本教程仅概要介绍了可以通过 RLS 执行的各种操作。 例如，可以创建更完善或更细致的访问逻辑，还可以在 SESSION_CONTEXT 中存储除当前 UserId 之外的其他内容。 还可以[将 RLS 与弹性数据库工具客户端库相集成](../sql-database/sql-database-elastic-tools-multi-tenant-row-level-security.md)，以便在扩展型数据层中启用多租户分片。
 
-除了提供这些可能的操作，我们还致力于改进 RLS 的功能。 如果你有任何问题、想法或者希望看到我们推出特定的功能，请在评论中指出。 非常感谢你的反馈！
+除了提供这些可能的操作，我们还致力于改进 RLS 的功能。 如果有任何问题、想法或者希望看到我们推出特定的功能，请在评论中指出。 非常感谢反馈！

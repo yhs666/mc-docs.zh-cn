@@ -16,11 +16,11 @@ origin.date: 11/11/2017
 ms.author: v-yiso
 ms.date: 03/19/2018
 ms.openlocfilehash: 100208588359b05c37c3be07f6663757ae0ce810
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315374"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939555"
 ---
 # <a name="logic-apps-pricing-model"></a>逻辑应用定价模型
 

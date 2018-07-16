@@ -13,14 +13,14 @@ ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 05/01/2018
-ms.date: 06/25/2018
+ms.date: 07/23/2018
 ms.author: v-yiso
-ms.openlocfilehash: 071b8aad9bd41136eb0ff65d590156937b0bcf93
-ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
+ms.openlocfilehash: 9742236c61100434ca60aa77276dd4ec86634b95
+ms.sourcegitcommit: 479954e938e4e3469d6998733aa797826e4f300b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36747468"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39031773"
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-actions"></a>使用脚本操作自定义基于 Linux 的 HDInsight 群集
 
@@ -50,8 +50,8 @@ HDInsight 提供一个称为**脚本操作**的配置方法，该方法可调用
 
 有关使用访问管理的详细信息，请参阅以下文档：
 
-* [Azure 门户中的访问管理入门](../active-directory/role-based-access-control-what-is.md)
-* [使用角色分配管理对 Azure 订阅资源的访问权限](../active-directory/role-based-access-control-configure.md)
+* [Azure 门户中的访问管理入门](../role-based-access-control/overview.md)
+* [使用角色分配管理对 Azure 订阅资源的访问权限](../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="understanding-script-actions"></a>了解脚本操作
 
@@ -163,9 +163,7 @@ HDInsight 提供了脚本用于在 HDInsight 群集上安装以下组件：
 
 ### <a name="use-a-script-action-during-cluster-creation-from-the-azure-portal"></a>在创建群集期间从 Azure 门户使用脚本操作
 
-1. 根据[在 HDInsight 中创建 Hadoop 群集](hdinsight-hadoop-provision-linux-clusters.md)中的说明开始创建群集。 到达“群集摘要”部分时停止。
-
-2. 从“群集摘要”部分中选择“高级设置”的编辑链接。
+1. 根据[在 HDInsight 中创建 Hadoop 群集](hdinsight-hadoop-provision-linux-clusters.md)中的说明开始创建群集。 创建群集期间，你将到达__群集摘要__页。 从“群集摘要”页中选择__高级设置__的__编辑__链接。
 
     ![“高级设置”链接](./media/hdinsight-hadoop-customize-cluster-linux/advanced-settings-link.png)
 

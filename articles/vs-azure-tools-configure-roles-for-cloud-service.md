@@ -2,25 +2,22 @@
 title: 使用 Visual Studio 配置 Azure 云服务的角色 | Microsoft Docs
 description: 了解如何使用 Visual Studio 设置和配置 Azure 云服务的角色。
 services: visual-studio-online
-documentationcenter: na
 author: ghogen
 manager: douge
-editor: ''
-ms.assetid: d397ef87-64e5-401a-aad5-7f83f1022e16
-ms.service: multiple
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: multiple
+assetId: d397ef87-64e5-401a-aad5-7f83f1022e16
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: azure
+ms.topic: conceptual
 origin.date: 03/21/2017
-ms.date: 05/09/2018
+ms.date: 07/12/2018
 ms.author: v-junlch
-ms.openlocfilehash: 47d9ee619ef6a86fc03e43200a0d4b39cb831d0f
-ms.sourcegitcommit: 998ab63adf55fb37d4cdfbdc314831f88a511fe0
+ms.openlocfilehash: 1a66e400f867cd0f8378c64f9327facc6ccac88e
+ms.sourcegitcommit: 5b6a2fc55e5b16ae480bd497c3ac2c3a2fd44703
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34060332"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38999206"
 ---
 # <a name="configure-azure-cloud-service-roles-with-visual-studio"></a>使用 Visual Studio 配置 Azure 云服务角色
 一个 Azure 云服务可以有一个辅助角色或 Web 角色。 对于每个角色，需要定义该角色的设置方式，并配置该角色的运行方式。 若要详细了解云服务中的角色，请观看视频 [Introduction to Azure Cloud Services](https://channel9.msdn.com/Series/Windows-Azure-Cloud-Services-Tutorials/Introduction-to-Windows-Azure-Cloud-Services)（Azure 云服务简介）。 
@@ -281,4 +278,4 @@ ms.locfileid: "34060332"
 阅读[配置 Azure 项目](vs-azure-tools-configuring-an-azure-project.md)以详细了解 Visual Studio 中的 Azure 项目。 阅读 [架构参考](https://msdn.microsoft.com/library/azure/dd179398)以详细了解云服务架构。
 
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 12/02/2017
 ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 9a52048252e066615df50f2e8bc6eaf7bd6d5296
-ms.sourcegitcommit: 2cf6961f692f318ce7034e7b4d994ee51d902199
+ms.openlocfilehash: c8fd5ee529641cc88bb39811b0de81297d8ca44b
+ms.sourcegitcommit: 5b6a2fc55e5b16ae480bd497c3ac2c3a2fd44703
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36947693"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38999202"
 ---
 # <a name="azure-container-registry-webhook-reference"></a>Azure 容器注册表 Webhook 参考
 
@@ -87,7 +87,7 @@ ms.locfileid: "36947693"
   },
   "request": {
     "id": "3cbb6949-7549-4fa1-86cd-a6d5451dffc7",
-    "host": "myregistry.azurecr.io",
+    "host": "myregistry.azurecr.cn",
     "method": "PUT",
     "useragent": "docker/17.09.0-ce go/go1.8.3 git-commit/afdb6d4 kernel/4.10.0-27-generic os/linux arch/amd64 UpstreamClient(Docker-Client/17.09.0-ce \\(linux\\))"
   }
@@ -97,7 +97,7 @@ ms.locfileid: "36947693"
 触发 push 事件 Webhook 的示例 [Docker CLI](https://docs.docker.com/engine/reference/commandline/cli/) 命令：
 
 ```bash
-docker push myregistry.azurecr.io/hello-world:v1
+docker push myregistry.azurecr.cn/hello-world:v1
 ```
 
 ## <a name="delete-event"></a>删除事件
@@ -147,7 +147,7 @@ docker push myregistry.azurecr.io/hello-world:v1
     },
     "request": {
       "id": "3d78b540-ab61-4f75-807f-7ca9ecf559b3",
-      "host": "myregistry.azurecr.io",
+      "host": "myregistry.azurecr.cn",
       "method": "DELETE",
       "useragent": "python-requests/2.18.4"
     }

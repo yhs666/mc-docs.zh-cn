@@ -11,10 +11,11 @@ ms.date: 03/26/2018
 ms.author: v-yeche
 ms.custom: include file
 ms.openlocfilehash: 1a76c71d7d3260d727610c48e3db8ae6b654744b
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38940596"
 ---
 资源锁可以防止组织中的用户意外删除或修改重要资源。 与基于角色的访问控制不同，资源锁对所有用户和角色应用限制。 
 

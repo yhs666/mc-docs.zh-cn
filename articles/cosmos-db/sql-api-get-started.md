@@ -13,11 +13,11 @@ origin.date: 08/16/2017
 ms.date: 07/02/2018
 ms.author: v-yeche
 ms.openlocfilehash: 60bbe695b71e60abbdcf07803868a49576eb32fb
-ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37070262"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939583"
 ---
 # <a name="azure-cosmos-db-sql-api-getting-started-tutorial"></a>Azure Cosmos DB：SQL API 入门教程
 > [!div class="op_single_selector"]

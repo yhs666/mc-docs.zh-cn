@@ -10,11 +10,11 @@ ms.date: 06/11/2018
 ms.author: v-nany
 ms.custom: include file
 ms.openlocfilehash: 7b1900131988dfc26bed9893ed0fc9ae5409f1f4
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34881144"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38940333"
 ---
 存储帐户是一个共享的存储池，可以在其中部署 Azure 文件共享或其他存储资源，例如 Blob 或队列。 一个存储帐户可以包含无数个共享。 一个共享可以存储无数个文件，直至达到存储帐户的容量限制为止。
 

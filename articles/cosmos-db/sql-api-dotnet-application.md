@@ -14,11 +14,11 @@ ms.date: 07/02/2018
 ms.author: v-yeche
 ms.custom: devcenter
 ms.openlocfilehash: d6ba72be842df6de7215d7dc07b07570cb2ab3f9
-ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37070258"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939581"
 ---
 <a name="_Toc395809351"></a>
 # <a name="aspnet-mvc-tutorial-web-application-development-with-azure-cosmos-db"></a>ASP.NET MVC 教程：开发采用 Azure Cosmos DB 的 Web 应用程序

@@ -10,12 +10,12 @@ origin.date: 03/03/2018
 ms.date: 07/02/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: f1e1f1f7b98cd50636748bd4e3e96d65a0f90d02
-ms.sourcegitcommit: 2cf6961f692f318ce7034e7b4d994ee51d902199
+ms.openlocfilehash: 89fe1f806388a133b90549d287059f80f1585d88
+ms.sourcegitcommit: 5b6a2fc55e5b16ae480bd497c3ac2c3a2fd44703
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36947696"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38999198"
 ---
 # <a name="quickstart-create-a-container-registry-using-the-azure-cli"></a>快速入门：使用 Azure CLI 创建容器注册表
 
@@ -57,7 +57,7 @@ az acr create --resource-group myResourceGroup --name myContainerRegistry007 --s
   "creationDate": "2017-09-08T22:32:13.175925+00:00",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myContainerRegistry007",
   "location": "chinaeast",
-  "loginServer": "myContainerRegistry007.azurecr.io",
+  "loginServer": "myContainerRegistry007.azurecr.cn",
   "name": "myContainerRegistry007",
   "provisioningState": "Succeeded",
   "resourceGroup": "myResourceGroup",

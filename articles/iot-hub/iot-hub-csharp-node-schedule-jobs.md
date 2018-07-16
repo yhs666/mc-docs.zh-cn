@@ -16,11 +16,11 @@ origin.date: 07/10/2017
 ms.author: v-yiso
 ms.date: 05/07/2018
 ms.openlocfilehash: dd5806a80faf45fed1efbe2cd38cab316e2804a9
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121642"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939806"
 ---
 # <a name="schedule-and-broadcast-jobs-netnodejs"></a>计划和广播作业 (.NET/Node.js)
 

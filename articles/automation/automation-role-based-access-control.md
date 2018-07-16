@@ -12,11 +12,11 @@ origin.date: 05/17/2018
 ms.date: 06/25/2018
 ms.author: v-nany
 ms.openlocfilehash: 883c535f0c7247dcd2f2149ec489f585231bdeb3
-ms.sourcegitcommit: 9f78ba87a377011f078025c56032b7f898d9742c
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36299266"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939715"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Azure 自动化中基于角色的访问控制
 

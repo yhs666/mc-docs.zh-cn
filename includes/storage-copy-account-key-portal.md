@@ -10,11 +10,11 @@ ms.date: 05/07/2018
 ms.author: v-johch
 ms.custom: include file
 ms.openlocfilehash: 756dd3ff3fd0cfc7eafe96b9070f27671f0e1416
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695929"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38940403"
 ---
 ## <a name="copy-your-credentials-from-the-azure-portal"></a>从 Azure 门户复制凭据
 

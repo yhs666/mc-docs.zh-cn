@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 04/03/2017
 ms.author: v-yiso
 ms.date: 03/19/2018
-ms.openlocfilehash: 9f4a5c83a73574931aa83fd56265e697fa321119
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: 244c57b8308114e4ece19071c308134eb1163409
+ms.sourcegitcommit: 479954e938e4e3469d6998733aa797826e4f300b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29870360"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39031710"
 ---
 # <a name="configure-a-webhook-on-an-azure-metric-alert"></a>针对 Azure 度量值警报配置 webhook
 可以使用 Webhook 将 Azure 警报通知路由到其他系统，以便进行后续处理或自定义操作。 可以针对警报使用 Webhook，以将警报路由到可以发送短信的服务，以记录 Bug、通过聊天/消息服务通知团队，或进行各种其他操作。 
@@ -69,11 +69,12 @@ POST 操作对于所有基于指标的警报包含以下 JSON 有效负载和架
             "resourceId": "/subscriptions/s1/resourceGroups/useast/providers/microsoft.foo/sites/mysite1",
             "resourceRegion": "centralus",
             "portalLink": "https://portal.azure.cn/#resource/subscriptions/s1/resourceGroups/useast/providers/microsoft.foo/sites/mysite1"
-},
+        },
 "properties": {
               "key1": "value1",
               "key2": "value2"
               }
+          }
 }
 ```
 

@@ -10,12 +10,12 @@ origin.date: 04/30/2017
 ms.date: 07/02/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 70f433d5c47e103a30b87b900aeaf32e297861b4
-ms.sourcegitcommit: 2cf6961f692f318ce7034e7b4d994ee51d902199
+ms.openlocfilehash: 4053857d4ebc241ee6cf0ab167316305601a393b
+ms.sourcegitcommit: 5b6a2fc55e5b16ae480bd497c3ac2c3a2fd44703
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36947691"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38999212"
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>教程：准备异地复制的 Azure 容器注册表
 
@@ -123,8 +123,8 @@ cd acr-helloworld
 ```dockerfile
 FROM microsoft/aspnetcore:2.0 AS base
 # Update <acrName> with the name of your registry
-# Example: uniqueregistryname.azurecr.io
-ENV DOCKER_REGISTRY <acrName>.azurecr.io
+# Example: uniqueregistryname.azurecr.cn
+ENV DOCKER_REGISTRY <acrName>.azurecr.cn
 WORKDIR /app
 EXPOSE 80
 
@@ -159,13 +159,13 @@ az acr show --name <acrName> --query "{acrLoginServer:loginServer}" --output tab
 ```bash
 AcrLoginServer
 -----------------------------
-uniqueregistryname.azurecr.io
+uniqueregistryname.azurecr.cn
 ```
 
 接下来，使用注册表登录服务器的 FQDN 更新 `ENV DOCKER_REGISTRY` 行。 本示例体现了示例注册表名称，uniqueregistryname：
 
 ```dockerfile
-ENV DOCKER_REGISTRY uniqueregistryname.azurecr.io
+ENV DOCKER_REGISTRY uniqueregistryname.azurecr.cn
 ```
 
 ## <a name="build-container-image"></a>生成容器映像
@@ -173,7 +173,7 @@ ENV DOCKER_REGISTRY uniqueregistryname.azurecr.io
 使用注册表登录服务器的 FQDN 更新 Dockerfile 之后，可以使用 `docker build` 来创建容器映像。 运行以下命令生成映像，并使用标记将它包含在专用注册表的 URL 中；同样，请将 `<acrName>` 替换为自己的注册表的名称：
 
 ```bash
-docker build . -f ./AcrHelloworld/Dockerfile -t <acrName>.azurecr.io/acr-helloworld:v1
+docker build . -f ./AcrHelloworld/Dockerfile -t <acrName>.azurecr.cn/acr-helloworld:v1
 ```
 
 生成 Docker 映像时，会显示多个输出行（此处的显示内容已截断）：
@@ -191,7 +191,7 @@ Step 18/18 : ENTRYPOINT dotnet AcrHelloworld.dll
  ---> c9ca1763cfb1
 Removing intermediate container 6906d98c47a1
 Successfully built c9ca1763cfb1
-Successfully tagged uniqueregistryname.azurecr.io/acr-helloworld:v1
+Successfully tagged uniqueregistryname.azurecr.cn/acr-helloworld:v1
 ```
 
 使用 `docker images` 查看生成和标记的映像：
@@ -199,7 +199,7 @@ Successfully tagged uniqueregistryname.azurecr.io/acr-helloworld:v1
 ```console
 $ docker images
 REPOSITORY                                      TAG    IMAGE ID        CREATED               SIZE
-uniqueregistryname.azurecr.io/acr-helloworld    v1     01ac48d5c8cf    About a minute ago    284MB
+uniqueregistryname.azurecr.cn/acr-helloworld    v1     01ac48d5c8cf    About a minute ago    284MB
 [...]
 ```
 
@@ -208,14 +208,14 @@ uniqueregistryname.azurecr.io/acr-helloworld    v1     01ac48d5c8cf    About a m
 然后，使用 `docker push` 命令将 *acr-helloworld* 映像推送到注册表。 将 `<acrName>` 替换为注册表的名称。
 
 ```bash
-docker push <acrName>.azurecr.io/acr-helloworld:v1
+docker push <acrName>.azurecr.cn/acr-helloworld:v1
 ```
 
 由于已经为异地复制配置了注册表，因此，使用这一条 `docker push` 命令，即可将映像自动复制到“中国北部”和“中国东部”区域。
 
 ```console
-$ docker push uniqueregistryname.azurecr.io/acr-helloworld:v1
-The push refers to a repository [uniqueregistryname.azurecr.io/acr-helloworld]
+$ docker push uniqueregistryname.azurecr.cn/acr-helloworld:v1
+The push refers to a repository [uniqueregistryname.azurecr.cn/acr-helloworld]
 cd54739c444b: Pushed
 d6803756744a: Pushed
 b7b1f3a15779: Pushed

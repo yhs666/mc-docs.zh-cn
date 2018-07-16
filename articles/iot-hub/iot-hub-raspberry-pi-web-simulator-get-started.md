@@ -16,11 +16,11 @@ origin.date: 04/11/2018
 ms.author: v-yiso
 ms.date: 07/09/2018
 ms.openlocfilehash: 6ed7b73e4690ea7d68fe46f254ffa740e4cf8cea
-ms.sourcegitcommit: 039d75a641edc2edd13a9371251051c20fea2bb7
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103377"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939993"
 ---
 # <a name="connect-raspberry-pi-online-simulator-to-azure-iot-hub-nodejs"></a>将 Raspberry Pi 联机模拟器连接到 Azure IoT 中心 (Node.js)
 

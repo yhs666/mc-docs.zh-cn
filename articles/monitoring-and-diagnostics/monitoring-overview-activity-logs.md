@@ -2,25 +2,21 @@
 title: Azure 活动日志概述
 description: 了解什么是 Azure 活动日志，以及如何通过它了解发生在 Azure 订阅中的事件。
 author: johnkemnetz
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: c274782f-039d-4c28-9ddb-f89ce21052c7
-ms.service: monitoring-and-diagnostics
+services: azure-monitor
+ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/04/2018
+origin.date: 05/30/2018
 ms.author: v-yiso
-ms.date: 05/14/2018
-ms.openlocfilehash: bf65f92fe1d3c70ec49c9b88e49b193a8a62942f
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.date: 07/23/2018
+ms.openlocfilehash: 8955435117c297463f11f1b194e2e628a76fee56
+ms.sourcegitcommit: 479954e938e4e3469d6998733aa797826e4f300b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33815218"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39031742"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>使用 Azure 活动日志监视订阅活动
 **Azure 活动日志**是一种方便用户深入了解 Azure 中发生的订阅级别事件的订阅日志。 这包括从 Azure 资源管理器操作数据到服务运行状况事件更新的一系列数据。 活动日志之前称为“审核日志”或“操作日志”，因为“管理”类别报告订阅的控制面事件。 通过活动日志，可确定订阅中资源上进行的任何写入操作 (PUT, POST, DELETE) 的“什么操作、谁操作和操作时间”等信息。 还可以了解该操作和其他相关属性的状态。 活动日志未包括读取 (GET) 操作或针对使用经典/“RDFE”模型的资源的操作。
@@ -40,7 +36,8 @@ ms.locfileid: "33815218"
 可通过 Azure 门户、CLI、PowerShell cmdlet 和 Azure Monitor REST API 从活动日志检索事件。
 
 > [!NOTE]
->  [新型警报](monitoring-overview-unified-alerts.md)在创建和管理活动日志警报规则时提供了增强的体验。  [了解详细信息](monitoring-activity-log-alerts-new-experience.md)。
+>  
+  [新型警报](monitoring-overview-unified-alerts.md)在创建和管理活动日志警报规则时提供了增强的体验。  [了解详细信息](monitoring-activity-log-alerts-new-experience.md)。
 >
 >
 ## <a name="categories-in-the-activity-log"></a>活动日志中的类别
@@ -49,7 +46,7 @@ ms.locfileid: "33815218"
 * 服务运行状况 - 此类别包含 Azure 中发生的任何服务运行状况事件的记录。 此类别的一个事件类型示例是“美国东部的 SQL Azure 正处于故障时间”。 服务运行状况事件分 5 种：必需操作、辅助恢复、事件、维护、信息或安全性，仅当订阅中存在受事件影响的资源时，它们才出现。
 * 警报 - 此类别包含所有 Azure 警报的激活记录。 可在此类别中看到的事件类型示例如“过去 5 分钟内，myVM 上的 CPU 百分比已超过 80%”。 许多 Azure 系统都具有警报概念 - 可定义某种类型的规则，并在条件匹配该规则时接收通知。 每当支持的 Azure 警报类型“激活”或满足生成通知的条件时，激活记录也会推送到此类别的活动日志中。
 * 此类别包含基于订阅中定义的任何自动缩放设置的自动缩放引擎操作相关的所有事件记录。 可在此类别中看到的事件类型示例如“自动缩放扩展操作失败”。 使用自动缩放，可在支持的资源类型中，通过自动缩放设置基于日期和/或负载（指标）数据来自动增加或减少实例的数量。 满足纵向扩展或缩减条件时，开始、成功或失败的事件会记录到此类别中。
-* 建议 - 此类别包含特定资源类型（例如网站和 SQL Server）的建议事件。 这些事件提供有关如何更好地利用资源的建议。 拥有发出建议的资源，才会接收此类型的事件。
+* **建议** - 此类别包含 Azure 顾问提供的建议事件。
 * **安全性** - 此类别包含 Azure 安全中心生成的任何警报记录。 可在此类别中看到的事件类型示例为“执行了可疑的双扩展名文件”。
 * **策略和资源运行状况** - 这些类别不包含任何事件；保留它们是为了将来使用。
 
@@ -100,7 +97,10 @@ ms.locfileid: "33815218"
     - 如果设置了保留策略，但禁止将日志存储在存储帐户中（例如，如果仅选择事件中心或 OMS 选项），则保留策略无效。
     - 保留策略按天应用，因此在一天结束时 (UTC)，将会删除当天已超过保留策略期限的日志。 例如，假设保留策略的期限为一天，则在今天开始时，会删除前天的日志。
 
-可以使用与发出日志的订阅不同的订阅中的存储帐户或事件中心命名空间。 配置此设置的用户必须对两个订阅都具有合适的 RBAC 访问权限。
+可以使用与发出日志的订阅不同的订阅中的存储帐户或事件中心命名空间。 配置设置的用户必须对这两个订阅具有相应的 RBAC 访问权限。
+
+> [!NOTE]
+>  当前无法将数据存档到安全虚拟网络中的存储帐户。
 
 可通过门户中“活动日志”边栏选项卡的“导出”选项配置这些设置。 还可 [使用 Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931927.aspx)、PowerShell cmdlet 或 CLI 以编程方式配置这些设置。 一个订阅只能有一个日志配置文件。
 

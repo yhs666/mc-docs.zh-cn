@@ -11,13 +11,13 @@
 
 可以通过两个选项来访问 Intel NUC 上的终端环境：
 
-- 如果已将键盘和显示器连接到 Intel NUC，则可直接访问 shell。 默认凭据是用户名 **root** 和密码 **root**。
+- 如果有连接到 Intel NUC 的键盘和监视器，则可以直接访问 shell。 默认凭据是用户名 **root** 和密码 **root**。
 
 - 从台式机使用 SSH 访问 Intel NUC 上的 shell。
 
 #### <a name="sign-in-with-ssh"></a>使用 SSH 登录
 
-若要使用 SSH 进行登录，需要 Intel NUC 的 IP 地址。 如果已将键盘和显示器连接到 Intel NUC，可以使用 `ifconfig` 命令来查找 IP 地址。 或者，连接到路由器以列出网络上设备的地址。
+若要使用 SSH 进行登录，需要 Intel NUC 的 IP 地址。 如果有连接到 Intel NUC 的键盘和监视器，可以使用 `ifconfig` 命令来查找 IP 地址。 或者，连接到路由器以列出网络上设备的地址。
 
 使用用户名 **root** 和密码 **root** 登录。
 

@@ -2,25 +2,22 @@
 title: 如何通过 Visual Studio 将 Web 应用程序迁移和发布到 Azure 云服务 | Microsoft Docs
 description: 了解如何使用 Visual Studio 将 Web 应用程序迁移和发布到 Azure 云服务
 services: visual-studio-online
-documentationcenter: na
 author: ghogen
 manager: douge
-editor: ''
 ms.assetid: 9394adfd-a645-4664-9354-dd5df08e8c91
-ms.service: multiple
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: multiple
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: azure
+ms.topic: conceptual
 origin.date: 11/10/2017
-ms.date: 05/11/2018
+ms.date: 07/12/2018
 ms.author: v-junlch
-ms.openlocfilehash: 9295781e7937e7e7e83f004fc3fc0eca02c88445
-ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
+ms.openlocfilehash: f50c7b4307887af7bf577ad23e727e1ac2240e27
+ms.sourcegitcommit: 5b6a2fc55e5b16ae480bd497c3ac2c3a2fd44703
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34450070"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38999191"
 ---
 # <a name="how-to-migrate-and-publish-a-web-application-to-an-azure-cloud-service-from-visual-studio"></a>如何：通过 Visual Studio 将 Web 应用程序迁移和发布到 Azure 云服务
 

@@ -18,11 +18,11 @@ ms.date: 04/25/2018
 ms.author: v-junlch
 ms.custom: mvc
 ms.openlocfilehash: e1298d29088efc477fb58d39f8bc4cc2cc81942f
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32122083"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939935"
 ---
 # <a name="create-a-zone-redundant-virtual-machine-scale-set-with-powershell"></a>使用 PowerShell 创建区域冗余虚拟机规模集
 此脚本创建跨多个可用性区域运行 Ubuntu 的虚拟机规模集。 运行脚本后，可通过 RDP 访问虚拟机。

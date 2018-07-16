@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 04/23/2018
 ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 24360d0cecc21c34c5b717fea0e2652187467b0b
-ms.sourcegitcommit: 2cf6961f692f318ce7034e7b4d994ee51d902199
+ms.openlocfilehash: 11aee63acc714d7eaa83a6846074a9580deb9358
+ms.sourcegitcommit: 5b6a2fc55e5b16ae480bd497c3ac2c3a2fd44703
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36947676"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38999149"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-container-instances"></a>使用 Azure 容器注册表从 Azure 容器实例进行身份验证
 
@@ -40,8 +40,8 @@ ms.locfileid: "36947676"
 az container create \
     --resource-group myResourceGroup \
     --name mycontainer \
-    --image mycontainerregistry.azurecr.io/myimage:v1 \
-    --registry-login-server mycontainerregistry.azurecr.io \
+    --image mycontainerregistry.azurecr.cn/myimage:v1 \
+    --registry-login-server mycontainerregistry.azurecr.cn \
     --registry-username <service-principal-ID> \
     --registry-password <service-principal-password>
 ```

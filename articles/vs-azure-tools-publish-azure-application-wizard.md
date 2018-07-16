@@ -2,25 +2,22 @@
 title: 使用 Visual Studio“发布 Azure 应用程序”向导 | Microsoft Docs
 description: 了解如何在 Visual Studio“发布 Azure 应用程序”向导中配置各种设置
 services: visual-studio-online
-documentationcenter: na
 author: ghogen
 manager: douge
-editor: ''
-ms.assetid: 7d8f1ac9-e439-47e0-a183-0642c4ea1920
-ms.service: multiple
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+assetId: 7d8f1ac9-e439-47e0-a183-0642c4ea1920
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: azure
+ms.topic: conceptual
 origin.date: 03/21/2017
-ms.date: 05/11/2018
+ms.date: 07/12/2018
 ms.author: v-junlch
-ms.openlocfilehash: 415277ff0fd51f19f82d364d7af6f8988203697d
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.openlocfilehash: 263a54ca2f06b00cc247d575f9a70f5b8f29974f
+ms.sourcegitcommit: 5b6a2fc55e5b16ae480bd497c3ac2c3a2fd44703
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "34060331"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38999154"
 ---
 # <a name="using-the-visual-studio-publish-azure-application-wizard"></a>使用 Visual Studio“发布 Azure 应用程序”向导 | Microsoft Docs
 
@@ -124,4 +121,4 @@ Azure 存储帐户存储应用程序部署的包。 部署应用程序之后，�
 
 - [为 Azure 云服务和虚拟机配置诊断](./vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

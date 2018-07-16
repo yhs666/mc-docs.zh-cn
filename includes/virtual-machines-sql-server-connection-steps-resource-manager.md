@@ -7,7 +7,7 @@
 
 若要创建 DNS 标签，请首先在门户中选择“虚拟机”  。 选择要显示其属性的 SQL Server VM。
 
-1. 在虚拟机概述中，选择“公共 IP 地址”。
+1. 在虚拟机概览中，选择“公共 IP 地址”。
 
     ![公共 ip 地址](./media/virtual-machines-sql-server-connection-steps/rm-public-ip-address.png)
 
@@ -31,6 +31,6 @@
 
 1. 在“密码”  框中，键入登录的密码。
 
-1. 单击“连接”。
+1. 单击“连接” 。
 
     ![ssms 连接](./media/virtual-machines-sql-server-connection-steps/rm-ssms-connect.png)

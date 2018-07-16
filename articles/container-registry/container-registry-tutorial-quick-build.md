@@ -10,12 +10,12 @@ origin.date: 05/11/2018
 ms.date: 07/02/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: c56392f753a4859f1750556dfa1ac1a5ebb7d91b
-ms.sourcegitcommit: 2cf6961f692f318ce7034e7b4d994ee51d902199
+ms.openlocfilehash: cd1f955a9dc3479df1e2f9aadf72ee3ac2a9788f
+ms.sourcegitcommit: 5b6a2fc55e5b16ae480bd497c3ac2c3a2fd44703
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36947684"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38999190"
 ---
 # <a name="tutorial-build-container-images-in-the-cloud-with-azure-container-registry-build"></a>教程：使用 Azure 容器注册表生成在云中生成容器映像
 
@@ -129,9 +129,9 @@ Step 5/5 : CMD ["node", "/src/server.js"]
 Removing intermediate container 1a40c05c4122
  ---> 0a9a4b74fb53
 Successfully built 0a9a4b74fb53
-Successfully tagged mycontainerregistry.azurecr.io/helloacrbuild:v1
-time="2018-05-10T19:10:20Z" level=info msg="Running command docker push mycontainerregistry.azurecr.io/helloacrbuild:v1"
-The push refers to repository [mycontainerregistry.azurecr.io/helloacrbuild]
+Successfully tagged mycontainerregistry.azurecr.cn/helloacrbuild:v1
+time="2018-05-10T19:10:20Z" level=info msg="Running command docker push mycontainerregistry.azurecr.cn/helloacrbuild:v1"
+The push refers to repository [mycontainerregistry.azurecr.cn/helloacrbuild]
 d2b301f7ef94: Preparing
 d0e0f2bb8747: Preparing
 26b0c207c4a9: Preparing
@@ -143,13 +143,13 @@ d0e0f2bb8747: Pushed
 9dfa40a0da3b: Pushed
 917e7cdebc8b: Pushed
 v1: digest: sha256:78d7980b4c80a078192bd4749c27eeae56421079606ed7b7d8ae84dbb04193fd size: 1366
-time="2018-05-10T19:11:07Z" level=info msg="Running command docker inspect --format \"{{json .RepoDigests}}\" mycontainerregistry.azurecr.io/helloacrbuild:v1"
-"["mycontainerregistry.azurecr.io/helloacrbuild@sha256:78d7980b4c80a078192bd4749c27eeae56421079606ed7b7d8ae84dbb04193fd"]"
+time="2018-05-10T19:11:07Z" level=info msg="Running command docker inspect --format \"{{json .RepoDigests}}\" mycontainerregistry.azurecr.cn/helloacrbuild:v1"
+"["mycontainerregistry.azurecr.cn/helloacrbuild@sha256:78d7980b4c80a078192bd4749c27eeae56421079606ed7b7d8ae84dbb04193fd"]"
 time="2018-05-10T19:11:07Z" level=info msg="Running command docker inspect --format \"{{json .RepoDigests}}\" node:9-alpine"
 "["node@sha256:5149aec8f508d48998e6230cdc8e6832cba192088b442c8ef7e23df3c6892cd3"]"
 ACR Builder discovered the following dependencies:
 - image:
-    registry: mycontainerregistry.azurecr.io
+    registry: mycontainerregistry.azurecr.cn
     repository: helloacrbuild
     tag: v1
     digest: sha256:78d7980b4c80a078192bd4749c27eeae56421079606ed7b7d8ae84dbb04193fd
@@ -233,8 +233,8 @@ az keyvault secret set \
 az container create \
     --resource-group $RES_GROUP \
     --name acr-build \
-    --image $ACR_NAME.azurecr.io/helloacrbuild:v1 \
-    --registry-login-server $ACR_NAME.azurecr.io \
+    --image $ACR_NAME.azurecr.cn/helloacrbuild:v1 \
+    --registry-login-server $ACR_NAME.azurecr.cn \
     --registry-username $(az keyvault secret show --vault-name $AKV_NAME --name $ACR_NAME-pull-usr --query value -o tsv) \
     --registry-password $(az keyvault secret show --vault-name $AKV_NAME --name $ACR_NAME-pull-pwd --query value -o tsv) \
     --dns-name-label acr-build-$ACR_NAME \
@@ -248,8 +248,8 @@ az container create \
 $ az container create \
 >     --resource-group $RES_GROUP \
 >     --name acr-build \
->     --image $ACR_NAME.azurecr.io/helloacrbuild:v1 \
->     --registry-login-server $ACR_NAME.azurecr.io \
+>     --image $ACR_NAME.azurecr.cn/helloacrbuild:v1 \
+>     --registry-login-server $ACR_NAME.azurecr.cn \
 >     --registry-username $(az keyvault secret show --vault-name $AKV_NAME --name $ACR_NAME-pull-usr --query value -o tsv) \
 >     --registry-password $(az keyvault secret show --vault-name $AKV_NAME --name $ACR_NAME-pull-pwd --query value -o tsv) \
 >     --dns-name-label acr-build-$ACR_NAME \
@@ -276,8 +276,8 @@ az container attach --resource-group $RES_GROUP --name acr-build
 $ az container attach --resource-group $RES_GROUP --name acr-build
 Container 'acr-build' is in state 'Waiting'...
 Container 'acr-build' is in state 'Running'...
-(count: 1) (last timestamp: 2018-04-03 19:45:37+00:00) pulling image "mycontainerregistry.azurecr.io/helloacrbuild:v1"
-(count: 1) (last timestamp: 2018-04-03 19:45:44+00:00) Successfully pulled image "mycontainerregistry.azurecr.io/helloacrbuild:v1"
+(count: 1) (last timestamp: 2018-04-03 19:45:37+00:00) pulling image "mycontainerregistry.azurecr.cn/helloacrbuild:v1"
+(count: 1) (last timestamp: 2018-04-03 19:45:44+00:00) Successfully pulled image "mycontainerregistry.azurecr.cn/helloacrbuild:v1"
 (count: 1) (last timestamp: 2018-04-03 19:45:44+00:00) Created container with id 094ab4da40138b36ca15fc2ad5cac351c358a7540a32e22b52f78e96a4cb3413
 (count: 1) (last timestamp: 2018-04-03 19:45:44+00:00) Started container with id 094ab4da40138b36ca15fc2ad5cac351c358a7540a32e22b52f78e96a4cb3413
 

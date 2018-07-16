@@ -10,7 +10,7 @@
 ### <a name="what-are-the-algorithms-and-key-strengths-supported-in-the-custom-policy"></a>自定义策略中支持的算法和密钥强度有哪些？
 下表列出了支持的加密算法和密钥强度，客户可自行配置。 必须为每个字段选择一个选项。
 
-| **IPsec/IKEv2**  | **选项**                                                                   |
+| IPsec/IKEv2  | **选项**                                                                   |
 | ---              | ---                                                                           |
 | IKEv2 加密 | AES256、AES192、AES128、DES3、DES                                             |
 | IKEv2 完整性  | SHA384、SHA256、SHA1、MD5                                                     |
@@ -59,7 +59,7 @@ SA 生存期是本地规范，不需匹配。
 | 2                         | DHGroup2                 | PFS2         | 1024 位 MODP  |
 | 14                        | DHGroup14<br>DHGroup2048 | PFS2048      | 2048 位 MODP  |
 | 19                        | ECP256                   | ECP256       | 256 位 ECP    |
-| 20                        | ECP384                   | ECP284       | 384 位 ECP    |
+| 20 个                        | ECP384                   | ECP284       | 384 位 ECP    |
 | 24                        | DHGroup24                | PFS24        | 2048 位 MODP  |
 |                           |                          |              |                |
 
@@ -84,6 +84,6 @@ SA 生存期是本地规范，不需匹配。
 是的。 VNet 到 VNet 隧道包含 Azure 中的两个连接资源，一个方向一个资源。 请确保两个连接资源的策略相同，否则无法建立 VNet 到 VNet 连接。
 
 ### <a name="does-custom-ipsecike-policy-work-on-expressroute-connection"></a>能否在 ExpressRoute 连接上使用自定义 IPsec/IKE 策略？
-不可以。 只能通过 Azure VPN 网关在 S2S VPN 和 VNet 到 VNet 连接上使用 IPsec/IKE 策略。
+否。 只能通过 Azure VPN 网关在 S2S VPN 和 VNet 到 VNet 连接上使用 IPsec/IKE 策略。
 
 <!-- ms.date: 10/10/2017 -->

@@ -1,26 +1,19 @@
 ---
-title: Azure Monitor CLI 2.0 快速入门示例。
+title: Azure Monitor CLI 快速入门示例
 description: Azure Monitor 功能的示例 CLI 2.0 命令。 Azure Monitor 是一项 Microsoft Azure 服务，允许用户发送警报通知、基于所配置的遥测数据调用 Web URL 和自动缩放云服务、虚拟机和 Web 应用。
-author: kamathashwin
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 1653aa81-0ee6-4622-9c65-d4801ed9006f
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-origin.date: 05/09/2018
+author: rboucher
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
+origin.date: 05/16/2018
 ms.author: v-yiso
-ms.date: 06/18/2018
-ms.openlocfilehash: 1204ab2e6bbb9cf391121554cd75b41324182f2f
-ms.sourcegitcommit: 794b9caca1147f1891513410dd61435708ef85ec
+ms.date: 07/23/2018
+ms.openlocfilehash: 1beea6f74ab3ab9f02db51ec3bbc6f868296fc5e
+ms.sourcegitcommit: 479954e938e4e3469d6998733aa797826e4f300b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34855401"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39031782"
 ---
 # <a name="azure-monitor-cli-20-quick-start-samples"></a>Azure Monitor CLI 2.0 快速入门示例
 本文演示有助于访问 Azure 监视器功能的示例命令行接口 (CLI) 命令。 Azure Monitor 允许基于配置的遥测数据值自动缩放云服务、虚拟机和 Web 应用，以及发送警报通知或调用 Web URL。
@@ -92,7 +85,11 @@ az monitor activity-log list --resource-provider Microsoft.Web \
 ```
 
 ## <a name="work-with-alerts"></a>使用警报 
-[!NOTE] 目前，仅在 CLI 中支持警报（经典）。 
+
+> [!NOTE]
+> 目前，仅在 CLI 中支持警报（经典）。 
+>
+
 
 ### <a name="get-alert-classic-rules-in-a-resource-group"></a>在资源组中获取警报（经典）规则
 

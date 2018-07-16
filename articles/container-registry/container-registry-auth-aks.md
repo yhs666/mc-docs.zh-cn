@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 02/24/2018
 ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: fe7eb489eb410c1a532df479c112e4f66903eb06
-ms.sourcegitcommit: 2cf6961f692f318ce7034e7b4d994ee51d902199
+ms.openlocfilehash: 6d60aa10483547c9f9c21cdfcfec9b3c191f720f
+ms.sourcegitcommit: 5b6a2fc55e5b16ae480bd497c3ac2c3a2fd44703
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36947730"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38999139"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>使用 Azure 容器注册表从 Azure Kubernetes 服务进行身份验证
 
@@ -94,7 +94,7 @@ spec:
     spec:
       containers:
       - name: acr-auth-example
-        image: myacrregistry.azurecr.io/acr-auth-example
+        image: myacrregistry.azurecr.cn/acr-auth-example
       imagePullSecrets:
       - name: acr-auth
 ```

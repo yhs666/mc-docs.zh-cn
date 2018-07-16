@@ -4,24 +4,24 @@ description: 了解如何从基于 Windows 的 HDInsight 群集迁移到基于 L
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: ff35be59-bae3-42fd-9edc-77f0041bab93
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 02/27/2018
-ms.date: 05/28/2018
+origin.date: 05/30/2018
+ms.date: 07/23/2018
 ms.author: v-yiso
-ms.openlocfilehash: 1840595fd1aa1cd6748dbea7bba6c9742cb6d9b5
-ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
+ms.openlocfilehash: 186ebb4a51641927f99fb4b7d41aa62d301f8db5
+ms.sourcegitcommit: 479954e938e4e3469d6998733aa797826e4f300b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34450051"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39031760"
 ---
 # <a name="migrate-from-a-windows-based-hdinsight-cluster-to-a-linux-based-cluster"></a>从基于 Windows 的 HDInsight 群集迁移到基于 Linux 的群集
 

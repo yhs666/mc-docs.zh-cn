@@ -10,11 +10,11 @@ origin.date: 03/05/2018
 ms.date: 04/02/2018
 ms.author: v-yeche
 ms.openlocfilehash: a96c710687e07f86df69ed87af32ef58594f5d38
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30223417"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38940174"
 ---
 # <a name="set-up-a-process-server-in-azure-for-failback"></a>在 Azure 中设置进程服务器以便进行故障回复
 

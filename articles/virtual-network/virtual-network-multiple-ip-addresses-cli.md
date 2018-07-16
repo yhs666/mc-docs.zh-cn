@@ -17,11 +17,11 @@ origin.date: 11/17/2016
 ms.date: 05/07/2018
 ms.author: v-yeche
 ms.openlocfilehash: 6da58f894524eb927a876c6624ca6fa8577b4f64
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33815298"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939513"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-cli"></a>使用 Azure CLI 将多个 IP 地址分配给虚拟机
 

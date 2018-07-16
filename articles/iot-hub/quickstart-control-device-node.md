@@ -15,11 +15,11 @@ origin.date: 04/30/2018
 ms.date: 07/09/2018
 ms.author: v-yiso
 ms.openlocfilehash: e1846f7c1fe5d6cbb66097c26de192d16f2f2259
-ms.sourcegitcommit: 039d75a641edc2edd13a9371251051c20fea2bb7
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103410"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939975"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-nodejs"></a>快速入门：控制连接到 IoT 中心的设备 (Node.js)
 

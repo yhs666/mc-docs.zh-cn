@@ -15,11 +15,11 @@ ms.author: v-yiso
 ms.custom: na
 ms.date: 12/18/2017
 ms.openlocfilehash: af14f4c81bc93bd991f3ba1b6e38878c0da250e7
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
-ms.locfileid: "26576274"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38940013"
 ---
 # <a name="connect-your-simulated-device-to-your-iot-hub-using-python"></a>使用 Python 将模拟设备连接到 IoT 中心
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]

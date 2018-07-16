@@ -16,11 +16,11 @@ origin.date: 10/28/2016
 ms.date: 10/09/2017
 ms.author: v-yiso
 ms.openlocfilehash: 563f3388da6e6275e8749a2547f2c977640304e7
-ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
-ms.locfileid: "22146536"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939839"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>连续部署到 Azure 应用服务
 

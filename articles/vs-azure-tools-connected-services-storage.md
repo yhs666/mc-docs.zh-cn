@@ -2,25 +2,22 @@
 title: 在 Visual Studio 中使用连接服务添加 Azure 存储 | Microsoft Docs
 description: 使用 Visual Studio 的“添加连接服务”对话框将 Azure 存储添加到你的应用
 services: visual-studio-online
-documentationcenter: na
 author: ghogen
 manager: douge
-editor: ''
-ms.assetid: 521ec044-ad4b-4828-8864-01decde2e758
-ms.service: storage
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+assetId: 521ec044-ad4b-4828-8864-01decde2e758
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: azure
+ms.topic: conceptual
 origin.date: 03/26/2017
-ms.date: 05/09/2018
+ms.date: 07/12/2018
 ms.author: v-junlch
-ms.openlocfilehash: 1e2e04c4e022be30b8de84d25d8b8e0555818a29
-ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
+ms.openlocfilehash: e74bed499bee03466ef2d9528ab826e5ababaf8e
+ms.sourcegitcommit: 5b6a2fc55e5b16ae480bd497c3ac2c3a2fd44703
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34450046"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38999185"
 ---
 # <a name="adding-azure-storage-by-using-visual-studio-connected-services"></a>使用 Visual Studio 连接服务添加 Azure 存储
 在 Visual Studio 中，通过使用“添加连接服务”对话框可将以下任何服务连接到 Azure 存储：

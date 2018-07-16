@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 01/05/2018
 ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: fa21bc0933058463e5a6b033b05e85ba8c8052a7
-ms.sourcegitcommit: 2cf6961f692f318ce7034e7b4d994ee51d902199
+ms.openlocfilehash: bf022bcad89f696e53a722b1d79373b289f44299
+ms.sourcegitcommit: 5b6a2fc55e5b16ae480bd497c3ac2c3a2fd44703
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36947731"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38999197"
 ---
 # <a name="view-container-registry-repositories-in-the-azure-portal"></a>在 Azure 门户中查看容器注册表存储库
 
@@ -33,7 +33,7 @@ ms.locfileid: "36947731"
 如果已按照[推送和拉取映像](container-registry-get-started-docker-cli.md)中的步骤操作（且随后未删除映像），则应在容器注册表中有一个 Nginx 映像。 该文中的说明指定使用命名空间（`/samples/nginx` 中的“samples”）标记映像。 该文中指定的 [docker push][docker-push] 命令（作为刷新程序）如下所示：
 
 ```Bash
-docker push myregistry.azurecr.io/samples/nginx
+docker push myregistry.azurecr.cn/samples/nginx
 ```
 
  由于 Azure 容器注册表支持此类多级存储库命名空间，因此可以将与特定应用或应用集合相关的映像集合的范围限制为不同的开发或运营团队。 若要详细了解容器注册表中的存储库，请参阅 [Azure 中的专用 Docker 容器注册表](container-registry-intro.md)。

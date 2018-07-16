@@ -16,11 +16,11 @@ origin.date: 01/23/2017
 ms.date: 10/30/2017
 ms.author: v-yeche
 ms.openlocfilehash: 8d58e9932a809682e2f9e6d3f6323060538961ab
-ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2017
-ms.locfileid: "23629751"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939858"
 ---
 [!INCLUDE [virtual-machines-incremental-snapshots](../../../includes/virtual-machines-incremental-snapshots.md)]
 

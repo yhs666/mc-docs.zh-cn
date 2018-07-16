@@ -2,25 +2,22 @@
 title: 使用服务器资源管理器浏览和管理存储资源 | Microsoft Docs
 description: 使用服务器资源管理器浏览和管理存储资源
 services: visual-studio-online
-documentationcenter: na
 author: ghogen
 manager: douge
-editor: ''
-ms.assetid: 658dc064-4a4e-414b-ae5a-a977a34c930d
-ms.service: storage
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+assetId: 658dc064-4a4e-414b-ae5a-a977a34c930d
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: azure
+ms.topic: conceptual
 origin.date: 08/24/2017
-ms.date: 05/11/2018
+ms.date: 07/12/2018
 ms.author: v-junlch
-ms.openlocfilehash: 776bcee233da68823d360bfd01720b527f5aadcf
-ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
+ms.openlocfilehash: 7fa670f77227e43a2da60b13d061d3c03f8cf271
+ms.sourcegitcommit: 5b6a2fc55e5b16ae480bd497c3ac2c3a2fd44703
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34450106"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38999215"
 ---
 # <a name="browse-and-manage-storage-resources-by-using-server-explorer"></a>使用服务器资源管理器浏览和管理存储资源
 

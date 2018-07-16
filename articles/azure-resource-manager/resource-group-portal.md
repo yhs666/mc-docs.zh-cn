@@ -16,11 +16,11 @@ origin.date: 11/15/2016
 ms.date: 05/28/2018
 ms.author: v-yeche
 ms.openlocfilehash: 28f0905304c5baf0e4a2908e5884ef412e92957b
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554329"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939589"
 ---
 # <a name="manage-azure-resources-through-portal"></a>通过门户管理 Azure 资源
 

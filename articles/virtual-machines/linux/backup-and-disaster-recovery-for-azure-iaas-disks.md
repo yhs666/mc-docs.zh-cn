@@ -16,11 +16,11 @@ origin.date: 07/19/2017
 ms.date: 05/14/2018
 ms.author: v-yeche
 ms.openlocfilehash: 523d5c4595a3aa8b47b31907f99fdb308ba94af9
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "34060230"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939667"
 ---
 [!INCLUDE [virtual-machines-common-premium-storage.md](../../../includes/virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks.md)]
 <!--The parent file of includes file of virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks.md-->

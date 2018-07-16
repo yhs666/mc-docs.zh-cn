@@ -11,11 +11,11 @@ ms.custom: mvc
 ms.author: v-yeche
 ms.date: 06/18/2018
 ms.openlocfilehash: 5a44b75b4d7d1edcfd79b753ff2f638b39ba56f6
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "35416875"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939761"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>快速入门：使用 Azure 门户创建流分析作业
 

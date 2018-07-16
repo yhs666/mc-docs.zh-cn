@@ -1,6 +1,6 @@
 ---
-title: 将存储资源管理器（预览版）与 Azure 文件存储配合使用 | Microsoft 文档
-description: 了解如何使用存储资源管理器（预览版）来处理文件共享和文件。
+title: 将存储资源管理器与 Azure 文件存储配合使用 | Microsoft Docs
+description: 了解如何使用存储资源管理器处理文件共享和文件。
 services: storage
 documentationcenter: na
 author: cawaMS
@@ -13,34 +13,34 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 03/09/2017
+ms.date: 07/12/2018
 ms.author: v-junlch
-ms.date: 05/22/2017
-ms.openlocfilehash: b4e1227db4dda5ca07f11b0b9eeee94e9520cc97
-ms.sourcegitcommit: 9d9b56416d6f1f5f6df525b94232eba6e86e516b
+ms.openlocfilehash: a7ada31fd27d987fd75c7d600be5aabcbefa2bdb
+ms.sourcegitcommit: 5b6a2fc55e5b16ae480bd497c3ac2c3a2fd44703
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2017
-ms.locfileid: "22094859"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38999199"
 ---
-# <a name="using-storage-explorer-preview-with-azure-file-storage"></a>将存储资源管理器（预览版）与 Azure 文件存储配合使用
+# <a name="using-storage-explorer-with-azure-file-storage"></a>将存储资源管理器与 Azure 文件存储配合使用
 
-Azure 文件存储是一种使用标准服务器消息块 (SMB) 协议在云中提供文件共享的服务。 支持 SMB 2.1 和 SMB 3.0。 通过 Azure 文件存储，可以将依赖文件共享的旧版应用程序快速迁移到 Azure 且无成本高昂的重写。 可以使用文件存储向外公开数据，或者私下存储应用程序数据。 本文介绍如何使用存储资源管理器（预览版）来处理文件共享和文件。
+Azure 文件存储是一种使用标准服务器消息块 (SMB) 协议在云中提供文件共享的服务。 支持 SMB 2.1 和 SMB 3.0。 通过 Azure 文件存储，可以将依赖文件共享的旧版应用程序快速迁移到 Azure 且无成本高昂的重写。 可以使用文件存储向外公开数据，或者私下存储应用程序数据。 本文介绍如何使用存储资源管理器处理文件共享和文件。
 
 ## <a name="prerequisites"></a>先决条件
 
 若要完成本文中的步骤，需要满足以下先决条件：
 
-- [下载并安装存储资源管理器（预览版）](http://www.storageexplorer.com/)
+- [下载并安装存储资源管理器](http://www.storageexplorer.com/)
 
-- [连接到 Azure 存储帐户或服务](https://docs.microsoft.com//azure/vs-azure-tools-storage-manage-with-storage-explorer#connect-to-a-storage-account-or-service)
+- [连接到 Azure 存储帐户或服务](/vs-azure-tools-storage-manage-with-storage-explorer#connect-to-a-storage-account-or-service)
 
 ## <a name="create-a-file-share"></a>创建文件共享
 
 所有文件都必须驻留在文件共享中。文件共享就是对文件进行逻辑分组。 一个帐户可以包含无限数量的文件共享，一个共享可以存储无限数量的文件。
 
-以下步骤演示了如何在存储资源管理器（预览版）中创建文件共享。
+以下步骤演示了如何在存储资源管理器中创建文件共享。
 
-1. 打开存储资源管理器（预览版）。
+1. 打开存储资源管理器。
 
 2. 在左窗格中，展开需要在其中创建文件共享的存储帐户。
 
@@ -60,9 +60,9 @@ Azure 文件存储是一种使用标准服务器消息块 (SMB) 协议在云中�
 
 文件共享包含文件和文件夹（文件夹中也可能包含文件）。
 
-以下步骤演示了如何在存储资源管理器（预览版）中查看文件共享的内容：
+以下步骤演示了如何在存储资源管理器中查看文件共享的内容：
 
-1. 打开存储资源管理器（预览版）。
+1. 打开存储资源管理器。
 
 2. 在左窗格中，展开其中包含要查看的文件共享的存储帐户。
 
@@ -78,11 +78,11 @@ Azure 文件存储是一种使用标准服务器消息块 (SMB) 协议在云中�
 
 ## <a name="delete-a-file-share"></a>删除文件共享
 
-可以根据需要轻松地创建和删除文件共享。 （若要了解如何删除各个文件，请参阅[管理文件共享中的文件](https://docs.microsoft.com//azure/vs-azure-tools-storage-explorer-blobs#managing-blobs-in-a-blob-container)部分。）
+可以根据需要轻松地创建和删除文件共享。 （若要了解如何删除各个文件，请参阅[管理文件共享中的文件](/vs-azure-tools-storage-explorer-blobs#managing-blobs-in-a-blob-container)部分。）
 
-以下步骤演示了如何在存储资源管理器（预览版）中删除文件共享：
+以下步骤演示了如何在存储资源管理器中删除文件共享：
 
-1. 打开存储资源管理器（预览版）。
+1. 打开存储资源管理器。
 
 2. 在左窗格中，展开其中包含要查看的文件共享的存储帐户。
 
@@ -98,11 +98,11 @@ Azure 文件存储是一种使用标准服务器消息块 (SMB) 协议在云中�
 
 ## <a name="copy-a-file-share"></a>复制文件共享
 
-可以通过存储资源管理器（预览版）将文件共享复制到剪贴板，此后再将该文件共享粘贴到另一存储帐户中。 （若要了解如何复制各个文件，请参阅[管理文件共享中的文件](https://docs.microsoft.com//azure/vs-azure-tools-storage-explorer-blobs#managing-blobs-in-a-blob-container)部分。）
+可以通过存储资源管理器将文件共享复制到剪贴板，然后再将该文件共享粘贴到另一存储帐户中。 （若要了解如何复制各个文件，请参阅[管理文件共享中的文件](/vs-azure-tools-storage-explorer-blobs#managing-blobs-in-a-blob-container)部分。）
 
 以下步骤演示了如何将文件共享从一个存储帐户复制到另一个存储帐户。
 
-1. 打开存储资源管理器（预览版）。
+1. 打开存储资源管理器。
 
 2. 在左窗格中，展开其中包含要复制的文件共享的存储帐户。
 
@@ -122,7 +122,7 @@ Azure 文件存储是一种使用标准服务器消息块 (SMB) 协议在云中�
 
 以下步骤演示了如何为文件共享创建 SAS：
 
-1. 打开存储资源管理器（预览版）。
+1. 打开存储资源管理器。
 
 2. 在左窗格中，展开要获取其 SAS 的文件共享所在的存储帐户。
 
@@ -148,7 +148,7 @@ Azure 文件存储是一种使用标准服务器消息块 (SMB) 协议在云中�
 
 以下步骤演示了如何管理（添加和删除）文件共享的访问策略。 访问策略用于创建 SAS URL，用户可以通过该 URL 在定义的时段访问存储文件资源。
 
-1. 打开存储资源管理器（预览版）。
+1. 打开存储资源管理器。
 
 2. 在左窗格中，展开要管理其访问策略的文件共享所在的存储帐户。
 
@@ -182,7 +182,7 @@ Azure 文件存储是一种使用标准服务器消息块 (SMB) 协议在云中�
 
 以下步骤演示如何管理文件共享中的文件（和文件夹）。
 
-1.  打开存储资源管理器（预览版）。
+1.  打开存储资源管理器。
 
 2.  在左窗格中，展开其中包含要管理的文件共享的存储帐户。
 
@@ -204,7 +204,7 @@ Azure 文件存储是一种使用标准服务器消息块 (SMB) 协议在云中�
 
         ![上传文件](./media/vs-azure-tools-storage-explorer-files/image18.png)
         
-        b. 在“上传文件”对话框中，选择“文件”文本框右侧的省略号 (**…**) 按钮，以选择要上传的文件。
+        b. 在“上传文件”对话框中，选择“文件”文本框右侧的省略号 (…) 按钮，以选择要上传的文件。
 
         ![添加文件](./media/vs-azure-tools-storage-explorer-files/image19.png)
 
@@ -216,11 +216,11 @@ Azure 文件存储是一种使用标准服务器消息块 (SMB) 协议在云中�
 
         ![“上传文件夹”菜单](./media/vs-azure-tools-storage-explorer-files/image20.png)
 
-        b. 在“上传文件夹”对话框中，选择“文件夹”文本框右侧的省略号 (**…**) 按钮，以选择要上传其内容的文件夹。
+        b. 在“上传文件夹”对话框中，选择“文件夹”文本框右侧的省略号 (…) 按钮，以选择要上传其内容的文件夹。
 
         c. （可选）指定要将选定文件夹的内容上传到其中的目标文件夹。 如果目标文件夹不存在，系统会创建一个。
 
-        d.单击“下一步”。 选择“上传”。
+        d. 选择“上传”。
 
     - **将文件下载到本地计算机**
         
@@ -230,7 +230,7 @@ Azure 文件存储是一种使用标准服务器消息块 (SMB) 协议在云中�
         
         c. 在“指定已下载文件的保存位置”对话框中，指定要将文件下载到其中的位置，以及要为文件提供的名称。
 
-        d. 选择“保存”。
+        d. 选择“其他安全性验证” 。
 
     - **在本地计算机上打开文件**
         
@@ -248,7 +248,7 @@ Azure 文件存储是一种使用标准服务器消息块 (SMB) 协议在云中�
 
         c. 在左窗格中导航到另一文件共享，并通过双击在主窗格中查看它。
 
-        d.单击“下一步”。 在主窗格的工具栏上选择“粘贴”，创建文件的副本。
+        d. 在主窗格的工具栏上选择“粘贴”，创建文件的副本。
 
     - **删除文件**
 
@@ -260,7 +260,8 @@ Azure 文件存储是一种使用标准服务器消息块 (SMB) 协议在云中�
 
 ## <a name="next-steps"></a>后续步骤
 
-- 查看[最新的存储资源管理器（预览版）发行说明和视频](http://www.storageexplorer.com/)。
+- 查看[最新的存储资源管理器发行说明和视频](http://www.storageexplorer.com/)。
 
 - 了解如何[使用 Azure Blob、表、队列和文件创建应用程序](storage/index.md)。
 
+<!-- Update_Description: wording update -->

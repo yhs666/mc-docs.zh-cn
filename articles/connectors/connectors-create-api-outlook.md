@@ -17,11 +17,11 @@ origin.date: 08/18/2016
 ms.author: v-yiso
 ms.date: 03/26/2018
 ms.openlocfilehash: 1661de4fc8de5f817e9a4338b5348dc1546a2463
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30072508"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939823"
 ---
 # <a name="get-started-with-the-outlookcom-connector"></a>Outlook.com 连接器入门
 Outlook.com 连接器允许管理邮件、日历和联系人。 可以执行各种操作，例如发送邮件、安排会议、添加联系人等。

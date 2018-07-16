@@ -2,25 +2,22 @@
 title: 为表设计器构造筛选字符串 | Microsoft Docs
 description: 为表设计器构造筛选字符串
 services: visual-studio-online
-documentationcenter: na
 author: ghogen
 manager: douge
-editor: ''
-ms.assetid: a1a10ea1-687a-4ee1-a952-6b24c2fe1a22
-ms.service: storage
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+assetId: a1a10ea1-687a-4ee1-a952-6b24c2fe1a22
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: azure
+ms.topic: conceptual
 origin.date: 11/18/2016
-ms.date: 05/11/2018
+ms.date: 07/12/2018
 ms.author: v-junlch
-ms.openlocfilehash: a09a185007e51e73d6d70450c6581552971eefb5
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.openlocfilehash: 5bf6cd72fdcc1de83eb4cfe3485b6c14c25fcc9b
+ms.sourcegitcommit: 5b6a2fc55e5b16ae480bd497c3ac2c3a2fd44703
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "34060294"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38999179"
 ---
 # <a name="constructing-filter-strings-for-the-table-designer"></a>为表设计器构造筛选字符串
 ## <a name="overview"></a>概述

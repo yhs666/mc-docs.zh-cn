@@ -17,11 +17,11 @@ origin.date: 05/18/2016
 ms.author: v-yiso
 ms.date: 03/26/2018
 ms.openlocfilehash: 6aa1367a353cf5a426d90dad53ec5595e0c4003c
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30072511"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939808"
 ---
 # <a name="get-started-with-the-office365-video-connector"></a>Office 365 视频连接器入门
 连接到 Office 365 视频，获取有关 Office 365 视频的信息、获取视频列表等。 通过 Office 365 视频，可以：

@@ -10,12 +10,12 @@ origin.date: 01/23/2018
 ms.date: 07/02/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: aded9e15c6d7110653088bc703c7cdbd50ec58c3
-ms.sourcegitcommit: 2cf6961f692f318ce7034e7b4d994ee51d902199
+ms.openlocfilehash: 6b9883f50f0b355fe6cdf645954771460eceab8f
+ms.sourcegitcommit: 5b6a2fc55e5b16ae480bd497c3ac2c3a2fd44703
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36947681"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38999194"
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>使用私有 Docker 容器注册表进行身份验证
 
@@ -58,7 +58,7 @@ az acr login --name <acrName>
 还可以直接使用服务主体登录。 向 `docker login` 命令提供服务主体的应用 ID 和密码：
 
 ```
-docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
+docker login myregistry.azurecr.cn -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
 ```
 
 登录后，Docker 会缓存凭据，因此无需记住应用 ID。
@@ -78,7 +78,7 @@ docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p my
 管理员帐户有两个密码，这两个密码都可以再生成。 使用这两个密码，可以在再生成一个密码时使用另一个密码保持与注册表的连接。 如果管理员帐户已启用，则可将用户名和/或密码传递到 `docker login` 命令，以对注册表进行基本身份验证。 例如：
 
 ```
-docker login myregistry.azurecr.io -u myAdminName -p myPassword1
+docker login myregistry.azurecr.cn -u myAdminName -p myPassword1
 ```
 
 同样，为增强安全性，Docker 建议使用 `--password-stdin` 参数而不是在命令行上提供密码。 还可以仅指定用户名，而不指定 `-p`，并在出现提示时输入密码。

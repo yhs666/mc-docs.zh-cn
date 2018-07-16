@@ -18,11 +18,11 @@ ms.date: 04/10/2018
 ms.author: v-junlch
 ms.custom: mvc, cc996988-fb4f-47
 ms.openlocfilehash: d1ac79b9fb55a60757b23a6e569ca2eab8ed0965
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31359515"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939469"
 ---
 # <a name="create-a-function-triggered-by-a-github-webhook"></a>创建由 GitHub Webhook 触发的函数
 

@@ -16,11 +16,11 @@ origin.date: 07/24/2017
 ms.author: v-yiso
 ms.date: 09/25/2017
 ms.openlocfilehash: 0e857b4e00cee70666a137a293d3c12fe22855b4
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
-ms.locfileid: "25592115"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939902"
 ---
 # <a name="connect-your-azure-iot-edge-gateway-to-the-remote-monitoring-preconfigured-solution-and-send-telemetry-from-a-sensortag"></a>将 Azure IoT Edge 网关连接到远程监视预配置解决方案，并从 SensorTag 发送遥测数据
 
@@ -85,7 +85,7 @@ ms.locfileid: "25592115"
     scan on
     ```
 
-1. 按 SensorTag 上的电源按钮，以便能够发现它。 绿色 LED 会闪烁。
+1. 按 SensorTag 上的电源按钮，以便能够发现它。 绿色 LED 闪烁。
 
 1. 在 shell 中看到一条指出控制器已发现 SensorTag 的消息时，请记下设备的 MAC 地址。 该 MAC 地址类似于 **A0:E6:F8:B5:F6:00**。 稍后在本教程中配置网关时需要用到该 MAC 地址。
 
@@ -103,7 +103,7 @@ ms.locfileid: "25592115"
 
     如果连接成功，shell 会显示消息“连接成功”，并列显有关 SensorTag 设备的信息。 如果无法连接，请检查 SensorTag 的电源是否仍已打开。
 
-1. 现在，可通过运行以下命令，从 SensorTag 断开连接并退出蓝牙 shell：
+1. 现在可以通过运行以下命令，从 SensorTag 断开连接，并退出蓝牙 shell：
 
     ```bash
     disconnect
@@ -187,7 +187,7 @@ args": [
 
 保存所做更改。
 
-现在可以使用以下命令运行网关：
+现在可使用以下命令运行网关：
 
 ```bash
 cd ~/iot-remote-monitoring-c-intel-nuc-gateway-getting-started/basic
@@ -200,18 +200,18 @@ IoT Edge 网关在 Intel NUC 上启动，并将遥测数据从 SensorTag 发送�
 
 随时都可按 **Ctrl-C** 退出程序。
 
-## <a name="view-the-telemetry"></a>查看遥测数据
+## <a name="view-the-telemetry"></a>查看遥测
 
 网关现在正将 SensorTag 设备中的遥测数据发送到远程监视解决方案。 可以在解决方案仪表板上查看遥测数据。 此外，可以在解决方案仪表板中通过通过网关向 SensorTag 设备发送命令。
 
 - 导航到解决方案仪表板。
 - 在“要查看的设备”下拉列表中，选择在网关中配置的、代表 SensorTag 的设备。
-- SensorTag 设备中的遥测数据会显示在仪表板上。
+- 来自 SensorTag 设备的遥测显示在仪表板上。
 
 ![显示 SensorTag 设备中的遥测数据][img-telemetry-display]
 
 > [!WARNING]
-> 如果让远程监视解决方案在 Azure 帐户中保持运行状态，系统会按其运行时间计费。 若要详细了解如何在远程监视解决方案运行时减少消耗，请参阅[出于演示目的配置 Azure IoT 套件预配置解决方案][lnk-demo-config]。 请在用完后从 Azure 帐户中删除预配置的解决方案。
+> 如果让远程监视解决方案在 Azure 帐户中保持运行状态，系统会按其运行时间计费。 若要详细了解如何在远程监视解决方案运行时减少消耗，请参阅[出于演示目的配置 Azure IoT 套件预配置解决方案][lnk-demo-config]。 请在用完预配置的解决方案后将其从 Azure 帐户中删除。
 
 
 ## <a name="next-steps"></a>后续步骤

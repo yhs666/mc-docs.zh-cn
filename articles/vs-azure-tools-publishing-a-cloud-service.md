@@ -2,25 +2,22 @@
 title: 使用 Azure Tools 发布云服务 | Microsoft Docs
 description: 了解如何使用 Visual Studio 发布 Azure 云服务项目。
 services: visual-studio-online
-documentationcenter: na
 author: ghogen
 manager: douge
-editor: ''
-ms.assetid: 1a07b6e4-3678-4cbf-b37e-4520b402a3d9
-ms.service: multiple
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: multiple
+assetId: 1a07b6e4-3678-4cbf-b37e-4520b402a3d9
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: azure
+ms.topic: conceptual
 origin.date: 11/11/2017
-ms.date: 05/11/2018
+ms.date: 07/12/2018
 ms.author: v-junlch
-ms.openlocfilehash: c9d5f0771a89132de9c6d13e07e2268560642996
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.openlocfilehash: 6d363fcdb1ba28baecd86690323a8349be20a660
+ms.sourcegitcommit: 5b6a2fc55e5b16ae480bd497c3ac2c3a2fd44703
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "34060323"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38999192"
 ---
 # <a name="publishing-a-cloud-service-using-visual-studio"></a>使用 Visual Studio 发布云服务
 
@@ -163,4 +160,3 @@ Visual Studio 可以将应用程序直接发布到 Azure，同时支持云服务
 
 若要详细了解如何通过 Visual Studio 发布到 Azure，请参阅[发布 Azure 应用程序向导](vs-azure-tools-publish-azure-application-wizard.md)。
 
-<!--Update_Description: wording update -->  

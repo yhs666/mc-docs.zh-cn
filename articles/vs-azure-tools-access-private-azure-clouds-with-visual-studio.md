@@ -2,25 +2,22 @@
 title: 使用 Visual Studio 访问私有 Azure 云 | Microsoft Docs
 description: 了解如何通过使用 Visual Studio 访问私有云资源。
 services: visual-studio-online
-documentationcenter: na
 author: ghogen
 manager: douge
-editor: ''
-ms.assetid: 9d733c8d-703b-44e7-a210-bb75874c45c8
-ms.service: multiple
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: multiple
+assetId: 9d733c8d-703b-44e7-a210-bb75874c45c8
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: azure
+ms.topic: conceptual
 origin.date: 11/13/2017
-ms.date: 05/09/2018
+ms.date: 07/12/2018
 ms.author: v-junlch
-ms.openlocfilehash: 7631620099b843caca251bb2c3afb049bbddcba9
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.openlocfilehash: c9725abb7f212b8a720cf66e04cf19642aaa4394
+ms.sourcegitcommit: 5b6a2fc55e5b16ae480bd497c3ac2c3a2fd44703
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "34060302"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38999137"
 ---
 # <a name="accessing-private-azure-clouds-with-visual-studio"></a>使用 Visual Studio 访问私有 Azure 云
 

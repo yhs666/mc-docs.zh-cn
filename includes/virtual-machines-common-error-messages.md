@@ -10,11 +10,11 @@ ms.date: 06/04/2018
 ms.author: v-yeche
 ms.custom: include file
 ms.openlocfilehash: 5764a72d297cbf2c8c651074f1a10a41b8525377
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34723128"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38941949"
 ---
 >[!NOTE]
 > 可以通过本反馈页面或 [Azure 反馈](https://www.azure.cn/support/support-azure/)使用 #azerrormessage 标记给我们留言。
@@ -198,9 +198,9 @@ Azure VM 使用以下 JSON 格式提供错误响应：
 |  VMExtensionProvisioningError  |  VM 在处理扩展“{0}”时报告失败。 错误消息:“{1}”。  |
 |  VMExtensionProvisioningError  |  未能在 VM 上预配多个 VM 扩展。 有关详细信息，请参阅 VM 扩展实例视图。  |
 |  VMExtensionProvisioningTimeout  |  预配 VM 扩展“{0}”超时。扩展安装可能耗时过长，或无法获得扩展状态。  |
-|  VMMarketplaceInvalidInput  |  从非应用商店映像创建虚拟机无需计划信息，请删除请求中的计划信息。 OS 磁盘名称为 {0}。  |
-|  VMMarketplaceInvalidInput  |  购买信息不匹配。 无法从应用商店映像部署。 OS 磁盘名称为 {0}。  |
-|  VMMarketplaceInvalidInput  |  从应用商店映像创建虚拟机需要请求中的计划信息。 OS 磁盘名称为 {0}。  |
+|  VMMarketplaceInvalidInput  |  从非市场映像创建虚拟机无需计划信息，请删除请求中的计划信息。 OS 磁盘名称为 {0}。  |
+|  VMMarketplaceInvalidInput  |  购买信息不匹配。 无法从市场映像部署。 OS 磁盘名称为 {0}。  |
+|  VMMarketplaceInvalidInput  |  从市场映像创建虚拟机需要请求中的计划信息。 OS 磁盘名称为 {0}。  |
 |  VMNotFound  |  找不到 VM“{0}”。  |
 |  VMRedeploymentFailed  |  VM“{0}”的重新部署因内部错误而失败。 请稍后重试。  |
 |  VMRedeploymentTimedOut  |  VM“{0}”的重新部署未在分配的时间内完成。 不久即可成功完成。 否则，可以重试该请求。  |

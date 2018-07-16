@@ -9,13 +9,13 @@ author: lleonard-msft
 ms.author: v-junlch
 manager: mbaldwin
 origin.date: 10/12/2017
-ms.date: 04/02/2018
-ms.openlocfilehash: 42100b3510ea928d91f2299f9ae12bba1ef3cf5f
-ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
+ms.date: 07/10/2018
+ms.openlocfilehash: 2589104243aa65b46fbd2515340b4ce017cfe41c
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/09/2018
-ms.locfileid: "30941409"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939719"
 ---
 # <a name="azure-key-vault-storage-account-keys"></a>Azure Key Vault 存储帐户密钥
 
@@ -23,7 +23,7 @@ ms.locfileid: "30941409"
 
 Azure 存储帐户 (ASA) 密钥功能负责管理密钥轮换。 此外，它还提供共享访问签名 (SAS) 作为方法，这样用户就无需直接接触 ASA 密钥。
 
-有关 Azure 存储帐户的其他常规信息，请参阅[关于 Azure 存储帐户](https://docs.microsoft.com/azure/storage/storage-create-storage-account)。
+有关 Azure 存储帐户的其他常规信息，请参阅[关于 Azure 存储帐户](/storage/storage-create-storage-account)。
 
 ## <a name="supporting-interfaces"></a>支持接口
 
@@ -206,8 +206,9 @@ $writeSasToken = (Get-AzureKeyVaultSecret -VaultName $keyVaultName -SecretName "
 $context1 = New-AzureStorageContext -SasToken $readSasToken -StorageAccountName $storage.StorageAccountName
 $context2 = New-AzureStorageContext -SasToken $writeSasToken -StorageAccountName $storage.StorageAccountName
 
-Set-AzureStorageBlobContent -Container containertest1 -File "abc.txt" -Context $context1
-Set-AzureStorageBlobContent -Container cont1-file "file.txt" -Context $context2
+# Ensure the txt file in command exists in local path mentioned
+Set-AzureStorageBlobContent -Container containertest1 -File "./abc.txt" -Context $context1
+Set-AzureStorageBlobContent -Container cont1-file "./file.txt" -Context $context2
 ```
 
 可以使用拥有写权限的 SAS 令牌访问存储 blob 内容。

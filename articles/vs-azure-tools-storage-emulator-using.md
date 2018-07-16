@@ -2,25 +2,22 @@
 title: 在 Visual Studio 中配置和使用存储模拟器 | Microsoft Docs
 description: 在 Visual Studio 中配置和使用存储模拟器
 services: visual-studio-online
-documentationcenter: na
 author: ghogen
 manager: douge
-editor: ''
-ms.assetid: c8e7996f-6027-4762-806e-614b93131867
-ms.service: storage
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+assetId: c8e7996f-6027-4762-806e-614b93131867
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: azure
+ms.topic: conceptual
 origin.date: 08/17/2017
-ms.date: 05/11/2018
+ms.date: 07/12/2018
 ms.author: v-junlch
-ms.openlocfilehash: 4efa4cfa2055e12734213054aae840bd8335ae7b
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.openlocfilehash: b71f398973ab6fac7facfd45f1074669e156de5c
+ms.sourcegitcommit: 5b6a2fc55e5b16ae480bd497c3ac2c3a2fd44703
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "34060312"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38999213"
 ---
 # <a name="configuring-and-using-the-storage-emulator-with-visual-studio"></a>在 Visual Studio 中配置和使用存储模拟器
 [!INCLUDE [storage-try-azure-tools](../includes/storage-try-azure-tools.md)]
@@ -56,6 +53,6 @@ Azure SDK 开发环境包含存储模拟器，这是一个用于模拟本地开�
 存储模拟器提供一个用户界面，用于查看本地存储服务的状态以及启动、停止和重置这些服务。 启动存储模拟器服务后，可通过在 Windows 任务栏中右键单击“Azure 模拟器”的通知区域图标，显示用户界面或者启动或停止服务。
 
 ## <a name="viewing-storage-emulator-data-in-server-explorer"></a>在服务器资源管理器中查看存储模拟器数据
-服务器资源管理器中的“Azure 存储”节点可让你查看存储帐户（包括存储模拟器）中的数据，以及更改 Blob 和表数据的设置。 有关详细信息，请参阅[使用存储资源管理器（预览）管理 Azure Blob 存储资源](/vs-azure-tools-storage-explorer-blobs)。
+服务器资源管理器中的“Azure 存储”节点可让你查看存储帐户（包括存储模拟器）中的数据，以及更改 Blob 和表数据的设置。 有关详细信息，请参阅[使用存储资源管理器管理 Azure Blob 存储资源](/vs-azure-tools-storage-explorer-blobs)。
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

@@ -18,11 +18,11 @@ ms.date: 04/18/2018
 ms.author: v-junlch
 ms.custom: mvc, cc996988-fb4f-47
 ms.openlocfilehash: 47ec4b4474b1079a4bf1a7d06a641144bb56b444
-ms.sourcegitcommit: f97c9253d16fac8be0266c9473c730ebd528e542
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31585443"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939474"
 ---
 # <a name="create-an-openapi-definition-for-a-function"></a>为函数创建 OpenAPI 定义
 通常使用 OpenAPI 定义（以前称为 [Swagger](http://swagger.io/) 文件）描述 REST API。 此定义中包含的信息涉及 API 中哪些操作可用，以及 API 的请求和响应数据应采用怎样的结构。

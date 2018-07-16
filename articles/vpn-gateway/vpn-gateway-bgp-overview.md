@@ -17,11 +17,11 @@ origin.date: 01/12/2017
 ms.date: 03/01/2017
 ms.author: v-dazen
 ms.openlocfilehash: 4d3d4e131984acfddd5a96381accc6728a2c916c
-ms.sourcegitcommit: 9bf00397882b114ed32a3bb4801e5b90ab1aeed7
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2017
-ms.locfileid: "23629385"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939622"
 ---
 # <a name="overview-of-bgp-with-azure-vpn-gateways"></a>Azure VPN 网关的 BGP 概述
 本文概述了 Azure VPN 网关中支持的 BGP（边界网关协议）。

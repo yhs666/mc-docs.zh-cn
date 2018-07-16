@@ -10,7 +10,7 @@
 $PSVersionTable
 ```
 
-你将收到以下类型的信息：
+将收到以下类型的信息：
 
 ```
 Name                           Value
@@ -42,7 +42,7 @@ Login-AzureRmAccount -environmentName azureChinaCloud
 Get-AzureRmSubscription
 ```
 
-你将收到以下类型的信息：
+将收到以下类型的信息：
 
 ```
 SubscriptionId            : fd22919d-eaca-4f2b-841a-e4ac6770g92e
@@ -64,4 +64,4 @@ $subscr="<SubscriptionName from the display of Get-AzureRmSubscription>"
 Select-AzureRmSubscription -SubscriptionName $subscr -Current
 ```
 
-有关 Azure 订阅和帐户的详细信息，请参阅[如何：连接到你的订阅](../articles/powershell-install-configure.md#Connect)。
+有关 Azure 订阅和帐户的详细信息，请参阅[如何：连接到订阅](../articles/powershell-install-configure.md#Connect)。

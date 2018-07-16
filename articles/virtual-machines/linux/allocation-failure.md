@@ -17,11 +17,11 @@ origin.date: 04/13/2018
 ms.date: 05/14/2018
 ms.author: v-yeche
 ms.openlocfilehash: 579dc71b0587435f982dea22daf7ec04e1a07e8c
-ms.sourcegitcommit: 0d747ed50269f5a59112f60a3367e09039a99146
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34060224"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939522"
 ---
 # <a name="troubleshoot-allocation-failures-when-you-create-restart-or-resize-linux-vms-in-azure"></a>排查在 Azure 中创建、重启 Linux VM 或调整其大小时发生的分配故障
 

@@ -2,12 +2,8 @@
 title: Azure Monitor 概述
 description: Azure Monitor 收集在警报、webhook、自动缩放和自动化中使用的统计信息。 本文还列出了其他 Microsoft 监视选项。
 author: rboucher
-manager: carmonm
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
+services: azure-monitor
+ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,15 +11,15 @@ ms.topic: article
 origin.date: 03/28/2018
 ms.author: v-yiso
 ms.date: 05/14/2018
-ms.openlocfilehash: 2047fea78eb082c11d248f7d23ea200176ba9843
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: 3f80221162cbf375533329e8e2edbce3ba948409
+ms.sourcegitcommit: 479954e938e4e3469d6998733aa797826e4f300b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33815128"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39031739"
 ---
 # <a name="overview-of-azure-monitor"></a>Azure Monitor 概述
-本文概述了 Azure 中的 Azure Monitor 服务。 它讨论了 Azure Monitor 可以执行的工作并指出了可以在哪里找到有关如何使用 Azure Monitor 的其他信息。  
+本文概述了 Azure 中的 Azure Monitor 服务。 它讨论了 Azure Monitor 可以执行的工作并指出了可以在哪里找到有关如何使用 Azure Monitor 的其他信息。  如果喜欢观看视频介绍，请参阅本文底部“后续步骤”部分中的链接。 
 
 ## <a name="azure-monitor-and-microsofts-other-monitoring-products"></a>Azure Monitor 和 Microsoft 的其他监视产品
 Azure Monitor 针对 Azure 中的大多数服务提供基本级别的基础结构指标和日志。 如果 Azure 服务尚未将数据置于 Azure Monitor 中，今后将会把数据置于其中。 
@@ -104,7 +100,7 @@ Azure Monitor 的登录页有助于用户：
 
 ### <a name="store-and-archive"></a>存储和存档
 某些监视数据已存储并且在设定的时间段内在 Azure Monitor 中可用。 
-- 指标存储 30 天。 
+- 指标存储 90 天。 
 - 活动日志条目存储 90 天。 
 - 诊断日志根本不存储。 
 

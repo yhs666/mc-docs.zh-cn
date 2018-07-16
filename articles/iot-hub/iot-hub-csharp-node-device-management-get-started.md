@@ -16,11 +16,11 @@ origin.date: 10/05/2017
 ms.date: 11/20/2017
 ms.author: v-yiso
 ms.openlocfilehash: b8510c3421ac2a02e13d6fed112c7bce6480f6cd
-ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
-ms.locfileid: "24058555"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939800"
 ---
 # <a name="get-started-with-device-management-netnode"></a>设备管理入门 (.NET/Node)
 
@@ -209,7 +209,7 @@ ms.locfileid: "24058555"
     ```
 2. 运行 C# 控制台应用 **TriggerReboot**。 右键单击“TriggerReboot”项目，选择“调试”，并选择“启动新实例”。
 
-3. 可以在控制台中看到设备对直接方法的响应。
+3. 可在控制台查看对直接方法的设备响应。
 
 [!INCLUDE [iot-hub-dm-followup](../../includes/iot-hub-dm-followup.md)]
 

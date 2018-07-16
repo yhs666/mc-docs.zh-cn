@@ -17,11 +17,11 @@ origin.date: 11/27/2017
 ms.date: 03/26/2018
 ms.author: v-yiso
 ms.openlocfilehash: bc69e3ee831ebbde64a1c51a9bd718482f952da4
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873523"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939804"
 ---
 # <a name="process-events-from-azure-event-hubs-with-storm-on-hdinsight-c"></a>使用 Storm on HDInsight 从 Azure 事件中心处理事件 (C#)
 

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: tutorial
 origin.date: 04/17/2018
 ms.author: v-yiso
-ms.date: 06/25/2018
-ms.openlocfilehash: 922d4f0327d6e16fb1d84d012d4b9a8f13246336
-ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
+ms.date: 07/23/2018
+ms.openlocfilehash: 4795212aa8c3037e5e73cb17cf9cbc89a7fd20e9
+ms.sourcegitcommit: 479954e938e4e3469d6998733aa797826e4f300b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36747390"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39031759"
 ---
 # <a name="tutorial-apache-kafka-streams-api"></a>教程：Apache Kafka Streams API
 
@@ -255,7 +255,7 @@ public class Stream
         jumped  13641
    
     > [!NOTE]
-    > 参数 `--from-beggining` 将使用者配置为从主题中存储的记录开头启动。 每遇到一个字，计数都会递增，主题包含每个字的多个条目，因此计数不断增加。
+    > 参数 `--from-beginning` 将使用者配置为从主题中存储的记录开头启动。 每遇到一个字，计数都会递增，主题包含每个字的多个条目，因此计数不断增加。
 
 7. 使用 __Ctrl + C__ 退出 producer。 继续使用 __Ctrl + C__ 退出应用程序和 consumer。
 

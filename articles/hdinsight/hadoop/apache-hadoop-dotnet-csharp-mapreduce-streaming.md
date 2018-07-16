@@ -16,11 +16,11 @@ origin.date: 02/27/2018
 ms.date: 05/21/2018
 ms.author: v-yiso
 ms.openlocfilehash: 7d0d21fabed38a2cde00d647010fb207a15b93be
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873640"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38940006"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-hadoop-in-hdinsight"></a>在 HDInsight 中的 Hadoop 上将 C# 与 MapReduce 流式处理配合使用
 

@@ -16,11 +16,11 @@ origin.date: 12/05/2017
 ms.date: 12/25/2017
 ms.author: v-nany
 ms.openlocfilehash: 82a78148d294807d9fb9758c14354eb0766a6f64
-ms.sourcegitcommit: d4176361d9c6da60729c06cc93a496cb4702d4c2
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2018
-ms.locfileid: "35324284"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939899"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>媒体服务操作 REST API 概述
 [!INCLUDE [media-services-selector-setup](../../../includes/media-services-selector-setup.md)]

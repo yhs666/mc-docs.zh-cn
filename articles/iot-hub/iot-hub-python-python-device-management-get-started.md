@@ -16,11 +16,11 @@ origin.date: 01/02/2018
 ms.date: 03/19/2018
 ms.author: v-yiso
 ms.openlocfilehash: 7103b7922eaf7a21823e47861137cbf4178f53f6
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29870575"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939957"
 ---
 # <a name="get-started-with-device-management-python"></a>设备管理入门 (Python)
 

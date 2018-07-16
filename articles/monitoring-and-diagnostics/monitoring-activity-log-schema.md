@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 04/12/2018
-ms.date: 05/14/2018
+ms.date: 07/23/2018
 ms.author: v-yiso
-ms.openlocfilehash: 237004b1f65779a71b35f73f920313d24d9be6b9
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: 770d9ab4d8926c8f9e88950f0b068824e2cefd61
+ms.sourcegitcommit: 479954e938e4e3469d6998733aa797826e4f300b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33815284"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39031755"
 ---
 # <a name="azure-activity-log-event-schema"></a>Azure 活动日志事件架构
 通过 Azure 活动日志，可以深入了解 Azure 中发生的任何订阅级别事件。 本文介绍了每种数据类别的事件架构。
@@ -483,6 +483,88 @@ ms.locfileid: "33815284"
 | eventTimestamp |处理与事件对应的请求的 Azure 服务生成事件时的时间戳。 |
 | submissionTimestamp |事件可供查询的时间戳。 |
 | subscriptionId |Azure 订阅 ID。 |
+
+## <a name="recommendation"></a>建议
+此类别包含为服务生成的任何新建议的记录。 建议的示例将为“使用可用性集提高容错能力”。 可以生成 4 种类型的建议事件：高可用性、性能、安全性和成本优化。 
+
+### <a name="sample-event"></a>示例事件
+```json
+{
+    "channels": "Operation",
+    "correlationId": "92481dfd-c5bf-4752-b0d6-0ecddaa64776",
+    "description": "The action was successful.",
+    "eventDataId": "06cb0e44-111b-47c7-a4f2-aa3ee320c9c5",
+    "eventName": {
+        "value": "",
+        "localizedValue": ""
+    },
+    "category": {
+        "value": "Recommendation",
+        "localizedValue": "Recommendation"
+    },
+    "eventTimestamp": "2018-06-07T21:30:42.976919Z",
+    "id": "/SUBSCRIPTIONS/<Subscription ID>/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.COMPUTE/VIRTUALMACHINES/MYVM/events/06cb0e44-111b-47c7-a4f2-aa3ee320c9c5/ticks/636640038429769190",
+    "level": "Informational",
+    "operationId": "",
+    "operationName": {
+        "value": "Microsoft.Advisor/generateRecommendations/action",
+        "localizedValue": "Microsoft.Advisor/generateRecommendations/action"
+    },
+    "resourceGroupName": "MYRESOURCEGROUP",
+    "resourceProviderName": {
+        "value": "MICROSOFT.COMPUTE",
+        "localizedValue": "MICROSOFT.COMPUTE"
+    },
+    "resourceType": {
+        "value": "MICROSOFT.COMPUTE/virtualmachines",
+        "localizedValue": "MICROSOFT.COMPUTE/virtualmachines"
+    },
+    "resourceId": "/SUBSCRIPTIONS/<Subscription ID>/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.COMPUTE/VIRTUALMACHINES/MYVM",
+    "status": {
+        "value": "Active",
+        "localizedValue": "Active"
+    },
+    "subStatus": {
+        "value": "",
+        "localizedValue": ""
+    },
+    "submissionTimestamp": "2018-06-07T21:30:42.976919Z",
+    "subscriptionId": "<Subscription ID>",
+    "properties": {
+        "recommendationSchemaVersion": "1.0",
+        "recommendationCategory": "Security",
+        "recommendationImpact": "High",
+        "recommendationRisk": "None"
+    },
+    "relatedEvents": []
+}
+
+```
+### <a name="property-descriptions"></a>属性说明
+| 元素名称 | 说明 |
+| --- | --- |
+| channels | 始终为“运行” |
+| correlationId | 字符串格式的 GUID。 |
+| 说明 |建议事件的静态文本说明 |
+| eventDataId | 建议事件的唯一标识符。 |
+| category | 始终为“Recommendation” |
+| id |建议事件的唯一资源标识符。 |
+| 级别 |事件的级别。 以下值之一：“Critical”、“Error”、“Warning”、“Informational”或“Verbose” |
+| operationName |操作的名称。  始终为“Microsoft.Advisor/generateRecommendations/action”|
+| resourceGroupName |资源的资源组名称。 |
+| resourceProviderName |此建议适用的资源的资源提供程序名称，例如“MICROSOFT.COMPUTE” |
+| resourceType |此建议适用的资源的资源类型名称，例如“MICROSOFT.COMPUTE/virtualmachines” |
+| ResourceId |此建议适用的资源的资源 ID |
+| 状态 | 始终为“Active” |
+| submissionTimestamp |事件可供查询的时间戳。 |
+| subscriptionId |Azure 订阅 ID。 |
+| properties |`<Key, Value>` 对集（即字典），描述建议的详细信息。|
+| properties.recommendationSchemaVersion| 在活动日志条目中发布的建议属性的架构版本 |
+| properties.recommendationCategory | 建议的类别。 可能的值为“High Availability”、“Performance”、“Security”和“Cost” |
+| properties.recommendationImpact| 建议的影响。 可能的值为“High”、“Medium”、“Low” |
+| properties.recommendationRisk| 建议的风险。 可能的值为“Error”、“Warning”、“None” |
+
+
 
 ## <a name="next-steps"></a>后续步骤
 * [详细了解活动日志（以前称为审核日志）](monitoring-overview-activity-logs.md)

@@ -17,11 +17,11 @@ ms.date: 09/04/2017
 ms.author: v-yiso
 ms.custom: mvc
 ms.openlocfilehash: b3541e09fc0bb54221d5d07bf7067c8ed613322d
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
-ms.locfileid: "21134825"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939615"
 ---
 # <a name="build-an-aspnet-app-in-azure-with-sql-database"></a>使用 SQL 数据库在 Azure 中生成 ASP.NET 应用
 
@@ -31,7 +31,7 @@ ms.locfileid: "21134825"
 
 ![Azure Web 应用中已发布 ASP.NET 应用程序](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
 
-本教程介绍如何执行下列操作：
+本教程介绍如何：
 
 > [!div class="checklist"]
 > * 在 Azure 中创建 SQL 数据库
@@ -43,7 +43,7 @@ ms.locfileid: "21134825"
 
 ## <a name="prerequisites"></a>先决条件
 
-若要完成本教程，需执行以下操作：
+完成本教程：
 
 * 使用以下工作负荷安装 [Visual Studio 2017](https://www.visualstudio.com/downloads/)：
   - **ASP.NET 和 Web 开发**
@@ -134,7 +134,7 @@ ms.locfileid: "21134825"
 
 在创建数据库之前，需要 [Azure SQL 数据库逻辑服务器](../sql-database/sql-database-features.md)。 逻辑服务器包含一组作为组管理的数据库。
 
-选择“浏览其他 Azure 服务”。
+单击“浏览其他 Azure 服务”。
 
 ![配置 Web 应用名称](media/app-service-web-tutorial-dotnet-sqldatabase/web-app-name.png)
 
@@ -146,7 +146,7 @@ ms.locfileid: "21134825"
 
 此时会生成唯一的服务器名称。 此名称用作逻辑服务器 `<server_name>.database.chinacloudapi.cn` 的默认 URL 的一部分。 在 Azure 的所有逻辑服务器实例中，它必须是唯一的。 可以更改服务器名称，但就本教程来说，请保留生成的值。
 
-添加管理员用户名和密码，然后选择“确定”。 有关密码复杂性要求，请参阅[密码策略](https://docs.microsoft.com/sql/relational-databases/security/password-policy)。
+添加一个管理员用户名和密码，然后选择“确定”。 有关密码复杂性要求，请参阅[密码策略](https://docs.microsoft.com/sql/relational-databases/security/password-policy)。
 
 请记住此用户名和密码。 随后，需要用它们来管理逻辑服务器实例。
 
@@ -156,13 +156,13 @@ ms.locfileid: "21134825"
 
 在“配置 SQL 数据库”对话框中： 
 
-* 保留默认生成的数据库名称。
+* 保留默认生成的**数据库名称**。
 * 在“连接字符串名称”中，键入 *MyDbConnection*。 此名称必须与 *Models/MyDatabaseContext.cs* 中引用的连接字符串相匹配。
-* 选择“确定” 。
+* 选择“确定”。
 
 ![配置 SQL 数据库](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database.png)
 
-“创建应用服务”对话框会显示所创建的资源。 单击“创建” 。 
+“创建应用服务”对话框会显示所创建的资源。 单击**创建**。 
 
 ![已创建的资源](media/app-service-web-tutorial-dotnet-sqldatabase/app_svc_plan_done.png)
 
@@ -302,7 +302,7 @@ public ActionResult Create([Bind(Include = "id,Description,CreatedDate,Done")] T
 
 这就是要在 `Index` 和 `Create` 视图中查看更改所需的全部操作。 
 
-键入 `Ctrl+F5`，以便运行该应用。
+键入 `Ctrl+F5` 运行应用。
 
 现在可以添加待办事项，然后单击“完成”。 然后，它应作为已完成项在主页中显示。 请记住，`Edit`视图不显示`Done`字段，因为没有更改`Edit`视图。
 

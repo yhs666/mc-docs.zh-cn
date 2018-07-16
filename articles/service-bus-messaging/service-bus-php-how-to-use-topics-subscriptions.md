@@ -16,11 +16,11 @@ origin.date: 10/06/2017
 ms.author: v-yiso
 ms.date: 11/13/2017
 ms.openlocfilehash: ef1b8ee13e19ec8751e6a650eccb9f85e0568328
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695116"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939954"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-php"></a>如何通过 PHP 使用服务总线主题和订阅
 

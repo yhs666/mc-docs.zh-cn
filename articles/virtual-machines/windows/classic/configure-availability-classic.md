@@ -18,11 +18,11 @@ origin.date: 09/27/2016
 ms.date: 05/21/2018
 ms.author: v-yeche
 ms.openlocfilehash: fc427e4a29322eb7afe2843c05f1afd3c44f8a04
-ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "34173338"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939638"
 ---
 # <a name="how-to-configure-an-availability-set-for-windows-virtual-machines-in-the-classic-deployment-model"></a>如何在经典部署模型中为 Windows 虚拟机配置可用性集
 > [!IMPORTANT] 

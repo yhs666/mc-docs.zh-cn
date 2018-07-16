@@ -9,14 +9,14 @@ ms.technology: vs-azure
 ms.workload: azure
 ms.topic: conceptual
 origin.date: 04/15/2018
-ms.date: 06/11/2018
+ms.date: 07/10/2018
 ms.author: v-junlch
-ms.openlocfilehash: c407337399a497dc78f8bd8f390566645d8a0baa
-ms.sourcegitcommit: 306fba1a7125ef6f0555781524afa8f535bea2a0
+ms.openlocfilehash: 0557da9f1669b58bfe6d02e309159d8d8974f70f
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35253398"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939705"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>使用 Visual Studio 连接服务将 Key Vault 添加到 Web 应用程序
 
@@ -27,7 +27,7 @@ ms.locfileid: "35253398"
 ## <a name="prerequisites"></a>先决条件
 
 - **一个 Azure 订阅**。 如果没有订阅，可以注册一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
-- **Visual Studio 2017 版本 15.7**（装有 **Web 开发**工作负荷）。 [立即下载](https://aka.ms/vsdownload)。
+- **Visual Studio 2017 版本 15.7**（装有 **Web 开发**工作负荷）。 [立即下载](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs)。
 - 对于 ASP.NET（非 Core），需要安装 .NET Framework 4.7.1 开发工具，默认情况下未安装这些工具。 若要安装这些工具，请启动 Visual Studio 安装程序，依次选择“修改”、“单个组件”，在右侧展开“ASP.NET 和 Web 开发”，然后选择“.NET Framework 4.7.1 开发工具”。
 - 已打开一个 ASP.NET 4.7.1 或 ASP.NET Core 2.0 Web 项目。
 
@@ -143,3 +143,4 @@ ms.locfileid: "35253398"
 
 在 [Key Vault 开发人员指南](key-vault-developers-guide.md)中了解如何使用 Key Vault 进行开发
 
+<!-- Update_Description: link update -->

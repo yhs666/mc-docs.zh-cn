@@ -16,11 +16,11 @@ origin.date: 09/25/2017
 ms.date: 06/18/2018
 ms.author: v-yeche
 ms.openlocfilehash: 0704025c219196b7a0b46f773066129ffa32606e
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "35416762"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939774"
 ---
 # <a name="create-an-internal-load-balancer-by-using-the-azure-powershell-module"></a>使用 Azure PowerShell 模块创建内部负载均衡器
 

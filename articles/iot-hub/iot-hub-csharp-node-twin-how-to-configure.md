@@ -16,11 +16,11 @@ origin.date: 03/30/2017
 ms.author: v-yiso
 ms.date: 11/20/2017
 ms.openlocfilehash: 97bafb0847c12616a8f7838cb285346893059936
-ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
-ms.locfileid: "24058556"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38940021"
 ---
 # <a name="use-desired-properties-to-configure-devices"></a>使用所需属性配置设备
 [!INCLUDE [iot-hub-selector-twin-how-to-configure](../../includes/iot-hub-selector-twin-how-to-configure.md)]
@@ -101,7 +101,7 @@ ms.locfileid: "24058556"
    
     **客户端**对象公开从设备与设备孪生进行交互所需的所有方法。 此代码将初始化 **Client** 对象，检索 **myDeviceId** 的设备孪生，并在所需属性上附加用于更新的处理程序。 该处理程序通过比较 configId 来验证是否存在实际配置更改请求，并调用启动配置更改的方法。
    
-    请注意，为了简单起见，此代码使用初始配置的硬编码默认值。 实际的应用可能会从本地存储加载该配置。
+    请注意，为了简单起见，此代码使用初始配置的硬编码默认值。 实际应用可能会从本地存储加载该配置。
    
    > [!IMPORTANT]
    > 连接设备时，始终发出一次所需的属性更改事件。 执行任何操作之前，请确保检查所需属性是否进行过实际更改。
@@ -170,7 +170,7 @@ ms.locfileid: "24058556"
 ## <a name="create-the-service-app"></a>创建服务应用
 在本节中，用户需创建一个 .NET 控制台应用，以便通过新的遥测配置对象在与 *myDeviceId* 关联的设备孪生上更新 **所需属性** 。 该应用随后会查询存储在 IoT 中心的设备孪生，并显示设备的所需配置与报告配置之间的差异。
 
-1. 在 Visual Studio 中，使用“**控制台应用程序**”项目模板将 Visual C# Windows 经典桌面项目添加到当前解决方案。 **SetDesiredConfigurationAndQuery**。
+1. 在 Visual Studio 中，使用“**控制台应用程序**”项目模板将 Visual C# Windows 经典桌面项目添加到当前解决方案。 将项目命名为 **SetDesiredConfigurationAndQuery**。
 
     ![新的 Visual C# Windows 经典桌面项目][img-createapp]
 2. 在“解决方案资源管理器”中，右键单击“**SetDesiredConfigurationAndQuery**”项目，并单击“**管理 NuGet 包**”。
@@ -185,7 +185,7 @@ ms.locfileid: "24058556"
     using System.Threading;
     using Newtonsoft.Json;
     ```
-5. 将以下字段添加到 **Program** 类。 将占位符值替换为在上一部分中为中心创建的 IoT 中心连接字符串。
+5. 将以下字段添加到 Program 类。 将占位符值替换为在上一部分为中心创建的 IoT 中心连接字符串。
 
     ```
     static RegistryManager registryManager;

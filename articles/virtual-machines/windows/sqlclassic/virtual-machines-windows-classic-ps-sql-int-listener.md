@@ -17,11 +17,11 @@ origin.date: 05/02/2017
 ms.date: 05/21/2018
 ms.author: v-yeche
 ms.openlocfilehash: 8bcf1ef7acbf4e694c63c5e78cb3665671f76f80
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34259276"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939769"
 ---
 # <a name="configure-an-ilb-listener-for-always-on-availability-groups-in-azure"></a>在 Azure 中配置 AlwaysOn 可用性组的 ILB 侦听程序
 > [!div class="op_single_selector"]

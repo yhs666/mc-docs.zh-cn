@@ -2,25 +2,22 @@
 title: 设置命名的身份验证凭据 | Microsoft Docs
 description: 了解如何提供 Visual Studio 可用于验证对 Azure 的请求的凭据，以便从 Visual Studio 将应用程序发布到 Azure 或者监视现有云服务。
 services: visual-studio-online
-documentationcenter: na
 author: ghogen
 manager: douge
-editor: ''
-ms.assetid: 61570907-42a1-40e8-bcd6-952b21a55786
-ms.service: multiple
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: multiple
+assetId: 61570907-42a1-40e8-bcd6-952b21a55786
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: azure
+ms.topic: conceptual
 origin.date: 11/11/2017
-ms.date: 05/11/2018
+ms.date: 07/12/2018
 ms.author: v-junlch
-ms.openlocfilehash: 842b3085b7bb80022e7cafc6edc86ab7dc6c46f4
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.openlocfilehash: e99b2c9218c574f72ed8175dfe24b88473d81ade
+ms.sourcegitcommit: 5b6a2fc55e5b16ae480bd497c3ac2c3a2fd44703
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "34060309"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38999201"
 ---
 # <a name="set-up-named-authentication-credentials"></a>设置命名的身份验证凭据
 

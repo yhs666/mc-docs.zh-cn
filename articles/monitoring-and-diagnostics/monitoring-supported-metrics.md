@@ -1,13 +1,9 @@
 ---
-title: Azure Monitor 指标 - 每种资源类型支持的指标
+title: Azure Monitor 按资源类型支持的指标
 description: 可在 Azure 监视器中为每种资源类型使用的指标的列表。
 author: anirudhcavale
-manager: ashwink
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 63d4ac65-1688-40d1-85c8-7cd408285b0f
-ms.service: monitoring-and-diagnostics
+services: azure-monitor
+ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +11,12 @@ ms.topic: article
 origin.date: 03/30/2018
 ms.date: 06/18/2018
 ms.author: v-yiso
-ms.openlocfilehash: 7d3e69908f1afa264cbefcfb4f761517921fdd1b
-ms.sourcegitcommit: 794b9caca1147f1891513410dd61435708ef85ec
+ms.openlocfilehash: 7006cb6872130461ef3eb01ec871d1c8c9a0b180
+ms.sourcegitcommit: 479954e938e4e3469d6998733aa797826e4f300b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34855397"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39031785"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Azure 监视器支持的指标
 Azure 监视器提供多种方式来与指标交互，包括在门户中制作指标图表、通过 REST API 访问指标，或者使用 PowerShell 或 CLI 查询指标。 下面是目前可在 Azure 监视器的指标管道中使用的完整指标列表。 其他指标可在门户或旧版 API 中使用。 下面的此列表仅包含可以通过合并的 Azure Monitor 指标管道使用的指标。 若要查询和访问这些指标，请使用 [2018-01-01 API 版本](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)

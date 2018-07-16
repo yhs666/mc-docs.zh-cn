@@ -2,40 +2,24 @@
 title: Microsoft Azure 中的指标概述
 description: Microsoft Azure 中的指标及其用法的概述
 author: anirudhcavale
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 405ec51c-0946-4ec9-b535-60f65c4a5bd1
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-origin.date: 03/19/2018
-ms.date: 05/14/2018
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
+origin.date: 06/05/2018
+ms.date: 07/23/2018
 ms.author: v-yiso
-ms.openlocfilehash: 7cf652cbb2f7f41289f5e5bf47acbca0a5a9980f
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: 54a957a7f8aab8ea26a301a21caeb1aba01439a0
+ms.sourcegitcommit: 479954e938e4e3469d6998733aa797826e4f300b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33815075"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39031781"
 ---
 # <a name="overview-of-metrics-in-azure"></a>Azure 中的指标概述
 本文介绍 Azure 中的指标及其优点，以及如何开始使用它们。  
 
 ## <a name="what-are-metrics"></a>什么是指标？
 在 Azure 监视器中可以使用遥测来查看 Azure 上的工作负荷的性能与运行状况。 最重要的 Azure 遥测数据类型是大多数 Azure 资源发出的指标（也称为性能计数器）。 Azure 监视器提供多种方式来配置和使用这些指标，以便进行监视与故障排除。
-
-## <a name="what-can-you-do-with-metrics"></a>指标有哪些作用？
-指标是重要的遥测来源，可以执行以下任务：
-
-* 通过在门户图表上绘制资源（例如 VM、网站）的指标并将该图表固定到仪表板，来**跟踪资源的性能**。
-* **接收通知** 。
-* **配置自动化操作**，例如自动缩放资源，或者在指标超过特定的阈值时触发 Runbook。
-* 针对资源的性能或使用趋势**执行高级分析**或报告。
-* 针对**合规性或审核**目的**存档**资源的性能或运行状况历史记录。
 
 ## <a name="what-are-the-characteristics-of-metrics"></a>指标的特征是什么？
 指标具有以下特征：
@@ -45,19 +29,17 @@ ms.locfileid: "33815075"
 * 可以访问每个指标的 93 天历史记录。 可以快速查看最近和每个月的资源性能或运行状况趋势。
 * 某些指标可能具有称为“维度”的名称/值对属性。 这些属性可让你以更有意义的方式进一步细分和探索指标。
 
-也可执行以下操作：
+## <a name="what-can-you-do-with-metrics"></a>指标有哪些作用？
+使用指标可以执行以下任务：
 
-* 配置指标 **警报规则，以便在指标超过设置的阈值时，发送通知或执行自动化操作** 。 自动缩放是一种特殊的自动化操作，可用于扩展资源，满足网站或计算资源的传入请求或负载要求。 可将自动缩放设置规则配置为根据超出阈值的指标进行扩展或缩减。
 
-
-* 
-            **将指标存档到存档**以延长保留时间，或者将其用于脱机报告。 为资源配置诊断设置时，可将指标路由到 Azure Blob 存储。
-
-* 选择资源并将指标绘制在图表上时，通过 Azure 门户轻松发现、访问和**查看所有指标**。
-
-* **使用** 指标。
-
-* **查询** 指标。
+- 配置指标 **警报规则，以便在指标超过设置的阈值时，发送通知或执行自动化操作** 。 通过[操作组](monitoring-action-groups.md)控制操作。 示例操作包括电子邮件、电话和短信通知、调用 Webhook、启动 runbook 等。 **自动缩放**是一项特殊的自动操作，使你可以放大和缩小资源以处理负载，并在未负载时降低成本。 可将自动缩放设置规则配置为根据超出阈值的指标进行扩展或缩减。
+- 将所有指标**路由**到 Application Insights 或 Log Analytics 以实现即时分析、搜索以及针对来自资源的指标数据自定义警报。 还可以将指标流式传输到事件中心，然后可将它们路由到 Azure 流分析或自定义应用，以实现近乎实时的分析。 可以使用诊断设置来设置事件中心流式处理。
+- 出于符合性、审核或脱机报告目的，对资源的性能或运行状况历史记录进行存档。  为资源配置诊断设置时，可将指标路由到 Azure Blob 存储。
+- 选择资源并将指标绘制在图表上时，使用 Azure 门户发现、访问和查看所有指标。 可通过将该图表固定到仪表板来跟踪资源（例如 VM、网站或逻辑应用）的性能。  
+- **执行高级分析** 或报告。
+- **查询** 指标。
+- **使用** 指标。
 
   ![在 Azure 监视器中路由指标](./media/monitoring-overview-metrics/Metrics_Overview_v4.png)
 

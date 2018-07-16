@@ -11,11 +11,11 @@ origin.date: 04/09/2018
 ms.date: 06/11/2018
 ms.author: v-nany
 ms.openlocfilehash: 4a3c3efc81a25a9f799e045e6a7e73d7d719bb8c
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867466"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939526"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-nodejs"></a>快速入门：使用 Node.js 上传、下载和列出 Blob
 

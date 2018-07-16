@@ -10,11 +10,11 @@ ms.date: 05/21/2018
 ms.author: v-yeche
 ms.custom: include file
 ms.openlocfilehash: e5e78f597c8ed84ac9cff3ae80e3298a2c18c59e
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695950"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38944555"
 ---
 <!-- F-series, Fs-series* -->
 

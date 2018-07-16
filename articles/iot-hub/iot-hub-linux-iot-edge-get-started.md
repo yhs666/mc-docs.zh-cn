@@ -17,11 +17,11 @@ ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
 ms.date: 11/20/2017
 ms.openlocfilehash: 9a9067edfb7ee16964394ed5a7cad7e4b50647c9
-ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
-ms.locfileid: "24058551"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939557"
 ---
 # <a name="explore-azure-iot-edge-architecture-on-linux"></a>在 Linux 上浏览 Azure IoT Edge 体系结构
 
@@ -31,14 +31,14 @@ ms.locfileid: "24058551"
 
 ## <a name="how-to-run-the-sample"></a>如何运行示例
 
-**build.sh** 脚本在 **iot-edge** 存储库本地副本的 **build** 文件夹中生成输出。 此输出包括此示例中使用的两个 IoT Edge 模块。
+**build.sh** 脚本在 **iot-edge** 存储库本地副本的 **build** 文件夹中生成输出。 该输出包括此示例中使用的两个 IoT Edge 模块。
 
 生成脚本将 **liblogger.so** 放在 **build/modules/logger/** 文件夹中，将 **libhello\_world.so** 放在 **build/modules/hello_world/** 文件夹中。 按示例 JSON 设置文件中所示，将这些路径用于 module path 值。
 
 hello\_world\_sample 过程使用 JSON 配置文件的路径作为命令行参数。 以下示例 JSON 文件在 SDK 存储库的以下路径中提供：**samples/hello\_world/src/hello\_world\_lin.json**。 除非修改了生成脚本，将 IoT Edge 模块或示例可执行文件放置在非默认位置，否则，此配置文件可按原样工作。
 
 > [!NOTE]
-> 模块路径相对于从中启动 hello\_world\_sample 可执行文件的当前工作目录，而不是可执行文件所在的目录。 示例 JSON 配置文件默认为在当前工作目录中写入“log.txt”。
+> 模块路径相对于从中启动 hello\_world\_sample 可执行文件的当前工作目录，而不是可执行文件所在的目录。 示例 JSON 配置文件默认将“log.txt”写入当前工作目录。
 
 ```json
 {

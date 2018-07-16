@@ -12,11 +12,11 @@ origin.date: 03/26/2018
 ms.date: 04/17/2018
 ms.author: v-nany
 ms.openlocfilehash: 58ca44dc3762fb60df67ff1d06a1eb074c26fa0d
-ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36947858"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939671"
 ---
 # <a name="use-python-to-query-an-azure-sql-database"></a>使用 Python 查询 Azure SQL 数据库
 

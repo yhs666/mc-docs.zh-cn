@@ -18,11 +18,11 @@ ms.date: 04/18/2018
 ms.author: v-junlch
 ms.custom: mvc
 ms.openlocfilehash: bad296b6f3a5facf74ee124372e44aea27ec6a71
-ms.sourcegitcommit: f97c9253d16fac8be0266c9473c730ebd528e542
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31585439"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939836"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>使用 Functions 将消息添加到 Azure 存储队列
 

@@ -17,11 +17,11 @@ origin.date: 07/13/2016
 ms.date: 02/14/2017
 ms.author: v-junlch
 ms.openlocfilehash: 96a4b595ec036d5fa83c02051ee985c80cb31421
-ms.sourcegitcommit: 9d9b56416d6f1f5f6df525b94232eba6e86e516b
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/15/2017
-ms.locfileid: "22094891"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939597"
 ---
 # <a name="monitoring-and-diagnostics-guidance"></a>监视和诊断指南
 [!INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
@@ -249,7 +249,7 @@ SLA 中经常会规定以下条款：
 为了生成警报，如果有任何高级指标超出指定的阈值，系统应该能够引发事件。 构成高级指针的各项因素的较低级详细信息应该可以用作警报系统的上下文数据。
 
 ### <a name="data-sources-instrumentation-and-data-collection-requirements"></a>数据源、检测和数据收集要求
-支持 SLA 监视所需的原始数据类似于性能监视所需的原始数据，以及运行状况和可用性监视的某些方面。 （有关详细信息，请参阅相关部分。）） 可以通过以下方式捕获此数据：
+支持 SLA 监视所需的原始数据类似于性能监视所需的原始数据，以及运行状况和可用性监视的某些方面。 （有关详细信息，请参阅相关部分。）可以通过以下方式捕获此数据：
 
 - 执行终结点监视。
 - 日志记录异常、错误和警告。

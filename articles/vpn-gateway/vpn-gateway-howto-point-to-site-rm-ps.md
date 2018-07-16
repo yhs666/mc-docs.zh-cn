@@ -17,11 +17,11 @@ origin.date: 02/12/2018
 ms.date: 06/13/2018
 ms.author: v-junlch
 ms.openlocfilehash: d7967099ae10e3bb03ba9092fc3161ec16908d59
-ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2018
-ms.locfileid: "35568345"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939940"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>使用本机 Azure 证书身份验证配置与 VNet 的点到站点连接：PowerShell
 

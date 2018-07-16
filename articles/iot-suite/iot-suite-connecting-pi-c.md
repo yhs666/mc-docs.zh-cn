@@ -17,11 +17,11 @@ origin.date: 03/14/2018
 ms.date: 04/02/2018
 ms.author: v-yiso
 ms.openlocfilehash: efd4a3cd9f3cb4abca000114dcbf278e2249a0ff
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30155462"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939789"
 ---
 # <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-preconfigured-solution-c"></a>将 Raspberry Pi 设备连接到远程监视预配置解决方案 (C)
 
@@ -138,9 +138,9 @@ int main(void)
 
 ## <a name="build-and-run-the-application"></a>生成并运行应用程序
 
-以下步骤描述如何使用 *CMake* 生成客户端应用程序。
+以下步骤描述如何使用 CMake 生成客户端应用程序。
 
-1. 在文本编辑器中，打开 `remote_monitoring` 文件夹中的 **CMakeLists.txt** 文件。
+1. 在文本编辑器中，打开 `remote_monitoring` 文件夹中的 CMakeLists.txt 文件。
 
 1. 添加以下指令，以定义如何生成客户端应用程序：
 
@@ -191,7 +191,7 @@ int main(void)
 
 1. 保存 CMakeLists.txt 文件并退出编辑器。
 
-1. 在 `remote_monitoring` 文件夹中，创建一个文件夹以存储 CMake 生成的 *make* 文件。 然后运行 **cmake** 和 **make** 命令，如下所示：
+1. 在 `remote_monitoring` 文件夹中，创建一个文件夹来存储 CMake 生成的 make 文件。 然后运行 cmake 和 make 命令，如下所示：
 
     ```sh
     mkdir cmake

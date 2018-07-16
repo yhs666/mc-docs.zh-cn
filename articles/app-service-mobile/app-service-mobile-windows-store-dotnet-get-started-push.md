@@ -16,11 +16,11 @@ origin.date: 10/12/2016
 ms.date: 01/29/2018
 ms.author: v-yiso
 ms.openlocfilehash: 0aaf1aefa82600fe094f847034ce67a82ab7c496
-ms.sourcegitcommit: a20b3fbe305d3bb4b6ddfdae98b3e0ab8a79bbfa
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/22/2018
-ms.locfileid: "27984797"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939491"
 ---
 # <a name="add-push-notifications-to-your-windows-app"></a>向 Windows 应用添加推送通知
 

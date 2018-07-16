@@ -18,11 +18,11 @@ ms.date: 06/25/2018
 ms.author: v-yeche
 ms.custom: mvc
 ms.openlocfilehash: 12e2216027eb557b460b8c9e536650de511b7143
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315393"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939952"
 ---
 # <a name="secure-network-traffic-between-virtual-machines"></a>保护虚拟机之间的网络流量
 

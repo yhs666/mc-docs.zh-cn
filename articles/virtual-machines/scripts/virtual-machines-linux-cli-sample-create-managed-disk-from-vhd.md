@@ -18,11 +18,11 @@ ms.date: 04/16/2018
 ms.author: v-yeche
 ms.custom: mvc
 ms.openlocfilehash: 273ef4a54900cf5fc5500b0c516f18042fd8e0d1
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31323300"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939926"
 ---
 # <a name="create-a-managed-disk-from-a-vhd-file-in-a-storage-account-in-the-same-subscription-with-cli"></a>使用 CLI 在相同订阅的存储帐户中从 VHD 文件创建托管磁盘
 

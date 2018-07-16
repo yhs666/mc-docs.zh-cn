@@ -14,11 +14,11 @@ origin.date: 05/30/2018
 ms.date: 06/25/2018
 ms.author: v-jay
 ms.openlocfilehash: cef0cee5e2f907448ce125b8f5802b319e43d4a6
-ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36748515"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939965"
 ---
 # <a name="tutorial-upload-encode-and-stream-videos-with-rest"></a>教程：使用 REST 上传、编码和流式传输视频
 

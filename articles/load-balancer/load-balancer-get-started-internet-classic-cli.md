@@ -16,11 +16,11 @@ origin.date: 01/23/2017
 ms.date: 06/18/2018
 ms.author: v-yeche
 ms.openlocfilehash: 50dff7bbe9059f25b9e6cb5c38d2b03421c1daf5
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "35416794"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939706"
 ---
 # <a name="get-started-creating-an-internet-facing-load-balancer-classic-in-the-azure-cli"></a>开始在 Azure CLI 中创建面向 Internet 的负载均衡器（经典）
 

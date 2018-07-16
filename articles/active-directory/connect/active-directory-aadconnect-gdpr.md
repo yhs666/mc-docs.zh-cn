@@ -16,11 +16,11 @@ ms.date: 06/22/2018
 ms.component: hybrid
 ms.author: v-junlch
 ms.openlocfilehash: 9c1aca5c6421ca170489cd94328189210264752b
-ms.sourcegitcommit: d744d18624d2188adbbf983e1c1ac1110d53275c
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36314270"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939908"
 ---
 # <a name="user-privacy-and-azure-ad-connect"></a>用户隐私和 Azure AD Connect 
 

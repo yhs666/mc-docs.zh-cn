@@ -16,11 +16,11 @@ origin.date: 10/10/2017
 ms.date: 06/11/2018
 ms.author: v-yiso
 ms.openlocfilehash: 31ae6880f12033f765d38e3b07da208e890b7a8b
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695275"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939989"
 ---
 # <a name="migrate-your-iot-hub-from-operations-monitoring-to-diagnostics-settings"></a>将 IoT 中心从操作监视迁移到诊断设置
 

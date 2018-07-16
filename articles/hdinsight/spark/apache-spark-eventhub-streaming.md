@@ -11,15 +11,15 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 05/07/2018
-ms.date: 06/25/2018
+origin.date: 06/14/2018
+ms.date: 07/23/2018
 ms.author: v-yiso
-ms.openlocfilehash: 255b037fd05111b3b107617032aca8fee4d4e126
-ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
+ms.openlocfilehash: c74aa1904c796f25022507ee87a582ed0468df63
+ms.sourcegitcommit: 479954e938e4e3469d6998733aa797826e4f300b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36747335"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39031776"
 ---
 # <a name="tutorial-process-tweets-using-azure-event-hubs-and-spark-in-hdinsight"></a>教程：使用 HDInsight 中的 Azure 事件中心和 Spark 处理推文
 
@@ -209,7 +209,7 @@ ms.locfileid: "36747335"
     val eventHubNSConnStr = "<Event hub namespace connection string>"
     val connStr = ConnectionStringBuilder(eventHubNSConnStr).setEventHubName(eventHubName).build 
     
-    val customEventhubParameters = EventHubsConf(connectionString).setMaxEventsPerTrigger(5)
+    val customEventhubParameters = EventHubsConf(connStr).setMaxEventsPerTrigger(5)
     val incomingStream = spark.readStream.format("eventhubs").options(customEventhubParameters.toMap).load()
     //incomingStream.printSchema    
     

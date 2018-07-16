@@ -4,7 +4,7 @@ description: 了解如何在 Azure HDInsight 上为 Apache Kafka 群集配置托
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.service: hdinsight
 ms.custom: hdinsightactive
@@ -12,15 +12,15 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 02/20/2018
-ms.date: 06/25/2018
+origin.date: 05/30/2018
+ms.date: 07/23/2018
 ms.author: v-yiso
-ms.openlocfilehash: 18aa6f94255318de5043cae5c9a1800d0f5b681e
-ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
+ms.openlocfilehash: ddb04210f115cab1aa355a021d86c0d034f30190
+ms.sourcegitcommit: 479954e938e4e3469d6998733aa797826e4f300b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36747426"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39031752"
 ---
 # <a name="configure-storage-and-scalability-for-apache-kafka-on-hdinsight"></a>在 HDInsight 上为 Apache Kafka 配置存储和可伸缩性
 

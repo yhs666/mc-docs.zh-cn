@@ -17,11 +17,11 @@ ms.date: 04/30/2018
 ms.author: v-yiso
 ms.custom: mvc
 ms.openlocfilehash: 30a30856370f3c1e9c8d47520b5e109abdbe94b4
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782012"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939914"
 ---
 # <a name="tutorial-build-a-nodejs-and-mongodb-web-app-in-azure"></a>教程：在 Azure 中生成 Node.js 和 MongoDB Web 应用
 

@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/26/2018
-ms.date: 06/18/2018
+ms.date: 07/23/2018
 ms.author: v-yiso
-ms.openlocfilehash: d799c8f05c2939ac020ede628437f3cd57324e2a
-ms.sourcegitcommit: 794b9caca1147f1891513410dd61435708ef85ec
+ms.openlocfilehash: c1a51043c52ba03c3125869f7151228d339371a2
+ms.sourcegitcommit: 479954e938e4e3469d6998733aa797826e4f300b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34855420"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39031770"
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>在创建资源时使用 Resource Manager 模板自动启用诊断设置
 本文介绍如何使用 [Azure 资源管理器模板](../azure-resource-manager/resource-group-authoring-templates.md)在创建资源时配置资源的诊断设置。 这样可以让用户在创建资源时自动将诊断日志和指标流式传输到事件中心、将其存档在存储帐户中，或者发送到 Log Analytics。
@@ -118,7 +118,7 @@ ms.locfileid: "34855420"
     ]
     ```
 
-诊断设置的属性 blob 遵循[此文所述的格式](https://docs.microsoft.com/rest/api/monitor/ServiceDiagnosticSettings/CreateOrUpdate)。 添加 `metrics` 属性还可将资源指标发送到这些相同输出，前提是[该资源支持 Azure Monitor 指标](monitoring-supported-metrics.md)。
+诊断设置的属性 blob 遵循[此文所述的格式](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate)。 添加 `metrics` 属性还可将资源指标发送到这些相同输出，前提是[该资源支持 Azure Monitor 指标](monitoring-supported-metrics.md)。
 
 下面是一个完整的示例，说明了如何创建逻辑应用，以及如何启用流式传输到事件中心和在存储帐户中进行存储的功能。
 
@@ -261,7 +261,7 @@ ms.locfileid: "34855420"
 3. 将 WADCfg XML 文件的内容添加到 XMLCfg 属性中，对所有 XML 字符进行适当的转义。
 
 > [!WARNING]
-> 这最后一步操作起来比较复杂。 请[参阅此文](../virtual-machines/windows/extensions-diagnostics-template.md#diagnostics-configuration-variables)获取相关示例，了解如何将诊断配置架构拆分成进行了正确转义和格式化操作的变量。
+> 这最后一步操作起来比较复杂。 请[参阅此文](../virtual-machines/extensions/diagnostics-template.md#diagnostics-configuration-variables)获取相关示例，了解如何将诊断配置架构拆分成进行了正确转义和格式化操作的变量。
 > 
 > 
 

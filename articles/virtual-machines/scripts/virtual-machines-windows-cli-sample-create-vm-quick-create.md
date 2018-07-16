@@ -18,11 +18,11 @@ ms.date: 06/25/2018
 ms.author: v-yeche
 ms.custom: mvc
 ms.openlocfilehash: b285979a5a756da2765e21e48f3929f1fd865eee
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315591"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38940147"
 ---
 # <a name="quick-create-a-virtual-machine-with-the-azure-cli"></a>使用 Azure CLI 快速创建虚拟机
 

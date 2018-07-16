@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/04/2018
-ms.date: 05/14/2018
+origin.date: 06/07/2018
+ms.date: 07/23/2018
 ms.author: v-yiso
-ms.openlocfilehash: 319ca775be7ef4dfc9ccf1ad643cfff314842af8
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.openlocfilehash: 732368788689ab346e215a5b3c27774412febc99
+ms.sourcegitcommit: 479954e938e4e3469d6998733aa797826e4f300b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873633"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39031722"
 ---
 # <a name="archive-azure-diagnostic-logs"></a>存档 Azure 诊断日志
 本文介绍如何使用 Azure 门户、PowerShell Cmdlet、CLI 或 REST API 将 [Azure 诊断日志](monitoring-overview-of-diagnostic-logs.md)存档到存储帐户中。 此选项适用于实施可选保留策略的诊断日志，将其保留下来进行审核、静态分析或备份。 只要配置设置的用户同时拥有两个订阅的相应 RBAC 访问权限，存储帐户就不必与资源发出日志位于同一订阅中。
@@ -28,8 +28,11 @@ ms.locfileid: "37873633"
 ## <a name="prerequisites"></a>先决条件
 在开始之前，需要[创建存储帐户](../storage/storage-create-storage-account.md)，将诊断日志存档到其中。 强烈建议用户不要使用其中存储了其他非监视数据的现有存储帐户，以便更好地控制监视数据所需的访问权限。 但是，如果还要将活动日志和诊断指标存档到存储帐户，也可将该存储帐户用于诊断日志，使得所有监视数据都位于一个中心位置。 所使用的存储帐户必须是一个通用存储帐户，而不是一个 blob 存储帐户。
 
+> [!NOTE]
+>  当前无法将数据存档到安全虚拟网络中的存储帐户。
+
 ## <a name="diagnostic-settings"></a>诊断设置
-若要使用下述任意方法存档诊断日志，可针对特定资源设置“诊断设置”。 资源的诊断设置定义发送到目标的日志和指标数据类别（存储帐户、事件中心命名空间或 Log Analytics）。 此外，它还定义存储在存储帐户中的每个日志类别和指标数据的事件保留策略（需保留的天数）。 如果将保留策略设置为零，则会无限期（即永久）存储该日志类别的事件。 如果不需要无限期存储，可将保留策略设置为 1 到 2147483647 之间的任意天数。 [单击此处详细了解诊断设置](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings)。 保留策略按天应用，因此在一天结束时 (UTC)，将会删除当天已超过保留策略期限的日志。 例如，假设保留策略的期限为一天，则在今天开始时，会删除前天的日志
+若要使用下述任意方法存档诊断日志，可针对特定资源设置“诊断设置”。 资源的诊断设置定义发送到目标的日志和指标数据类别（存储帐户、事件中心命名空间或 Log Analytics）。 此外，它还定义存储在存储帐户中的每个日志类别和指标数据的事件保留策略（需保留的天数）。 如果将保留策略设置为零，则会无限期（即永久）存储该日志类别的事件。 如果不需要无限期存储，可将保留策略设置为 1 到 2147483647 之间的任意天数。 [单击此处详细了解诊断设置](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings)。 保留策略按天应用，因此在一天结束时 (UTC)，将会删除当天已超过保留策略期限的日志。 例如，假设保留策略的期限为一天，则在今天开始时，会删除前天的日志。 删除过程从 UTC 晚上 12 点开始，但请注意，可能需要最多 24 小时才能将日志从存储帐户中删除。 
 
 > [!NOTE]
 > 当前不支持通过诊断设置发送多维指标。 多维指标将按平展后的单维指标导出，并跨维值聚合。
@@ -160,6 +163,5 @@ az monitor diagnostic-settings create --name <diagnostic name> \
 > 
 
 ## <a name="next-steps"></a>后续步骤
-* [下载 blob 进行分析](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
 * [将诊断日志流式传输到事件中心命名空间](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 * [详细了解诊断日志](monitoring-overview-of-diagnostic-logs.md)

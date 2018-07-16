@@ -17,11 +17,11 @@ ms.author: v-yiso
 ms.custom: mvc
 ms.date: 10/16/2017
 ms.openlocfilehash: 0fc23e2a9e9fa1db7d7178ff9c83a80fa0ab9a79
-ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
-ms.locfileid: "22339082"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939724"
 ---
 # <a name="build-a-nodejs-and-mongodb-web-app-in-azure-web-apps-for-containers"></a>在用于容器的 Azure Web 应用中生成 Node.js 和 MongoDB Web 应用
 
@@ -118,7 +118,7 @@ MEAN.js 示例应用程序将用户数据存储在数据库中。 如果成功�
 
 ## <a name="create-production-mongodb"></a>创建生产 MongoDB
 
-此步骤在 Azure 中创建一个 MongoDB 数据库。 将应用部署到 Azure 后，它会使用此云数据库。
+此步骤在 Azure 中创建一个 MongoDB 数据库。 应用部署到 Azure 后，它将使用该云数据库。
 
 对于 MongoDB，本教程使用了 [Azure Cosmos DB](/azure/documentdb/)。 Cosmos DB 支持 MongoDB 客户端连接。
 
@@ -136,7 +136,7 @@ MEAN.js 示例应用程序将用户数据存储在数据库中。 如果成功�
 az cosmosdb create --name <cosmosdb_name> --resource-group myResourceGroup --kind MongoDB
 ```
 
---Kind MongoDB 参数启用 MongoDB 客户端连接。
+--kind MongoDB 参数启用 MongoDB 客户端连接。
 
 创建 Cosmos DB 帐户后，Azure CLI 将显示类似于以下示例的信息：
 
@@ -160,7 +160,7 @@ az cosmosdb create --name <cosmosdb_name> --resource-group myResourceGroup --kin
 
 在此步骤中，使用 MongoDB 连接字符串将 MEAN.js 示例应用程序连接至刚创建的 Cosmos DB 数据库。 
 
-### <a name="retrieve-the-database-key"></a>检索数据库密钥
+### <a name="retrieve-the-database-key"></a>检索数据库键
 
 若要连接到 Cosmos DB 数据库，需要数据库键。 在 Cloud Shell 中，使用 [az cosmosdb list-keys](https://docs.microsoft.com/cli/azure/cosmosdb#list-keys) 命令检索主键。
 
@@ -301,7 +301,7 @@ To https://<app_name>.scm.chinacloudsites.cn/<app_name>.git
 - _.deployment_ - 此文件告知应用服务将 `bash deploy.sh` 作为自定义部署脚本运行。
 - _deploy.sh_ - 自定义部署脚本。 查看该文件可以发现，它先运行 `npm install` 和 `bower install`，再运行 `gulp prod`。 
 
-可以通过此方法向基于 Git 的部署添加任意步骤。 无论何时重新启动 Azure Web 应用，应用服务都不会重新运行这些自动化任务。
+可以使用此方法将任何步骤添加到基于 Git 的部署。 无论何时重新启动 Azure Web 应用，应用服务都不会重新运行这些自动化任务。
 
 ### <a name="browse-to-the-azure-web-app"></a>浏览到 Azure Web 应用 
 
@@ -317,7 +317,7 @@ http://<app_name>.chinacloudsites.cn
 
 ![在 Azure 应用服务中运行的 MEAN.js 应用](./media/tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
-选择“管理员”>“管理文章”以添加一些文章。 
+选择“管理员”>“管理文章”，添加一些文章。 
 
 **祝贺你！** 现已在 Azure 应用服务中运行数据驱动的 Node.js 应用。
 

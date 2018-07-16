@@ -11,11 +11,11 @@ origin.date: 03/05/2018
 ms.date: 04/02/2018
 ms.author: v-yeche
 ms.openlocfilehash: 83007e5ba4d707975acb9d3e79aff2b374a5d4d6
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30223419"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939878"
 ---
 # <a name="set-up-the-source-environment-physical-server-to-azure"></a>设置源环境（物理服务器到 Azure）
 

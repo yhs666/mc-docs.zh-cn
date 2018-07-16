@@ -16,11 +16,11 @@ origin.date: 03/27/2018
 ms.date: 05/14/2018
 ms.author: v-yeche
 ms.openlocfilehash: bdc05ca959cf1703248dcc93cda35039c4090f7a
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "34060241"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939664"
 ---
 [!INCLUDE [virtual-machines-common-regions-and-availability](../../../includes/virtual-machines-common-regions-and-availability.md)]
 

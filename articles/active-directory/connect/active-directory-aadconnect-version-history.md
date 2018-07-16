@@ -16,12 +16,12 @@ origin.date: 05/31/2018
 ms.date: 06/26/2018
 ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 3dac3a6873df7d5b9930ab775c036b29e83d33d4
-ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
+ms.openlocfilehash: 35cfde5e61d3ba102f7aef1fc517722187685f21
+ms.sourcegitcommit: 5b6a2fc55e5b16ae480bd497c3ac2c3a2fd44703
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36947986"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38999224"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect：版本发布历史记录
 Azure Active Directory (Azure AD) 团队会定期更新 Azure AD Sync 的新特性和功能。 并非所有的新增内容都适用于所有受众。
@@ -953,9 +953,7 @@ AD FS 管理
 - 使用密码重置时 CPU 使用率过高。
 
 **已删除的预览功能：**
-
-- 根据预览版客户的反馈，已暂时删除[用户写回](active-directory-aadconnect-feature-preview.md#user-writeback)预览版功能。 今后在评审所提供的反馈意见后，我们会再次添加此功能。
-
+ 
 ## <a name="1086410"></a>1.0.8641.0
 发布日期：2015 年 6 月
 
@@ -970,12 +968,6 @@ AD FS 管理
 - 可[从 DirSync 升级](active-directory-aadconnect-dirsync-upgrade-get-started.md)
 - [防止意外删除](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
 - 引入了[暂存模式](active-directory-aadconnectsync-operations.md#staging-mode)
-
-**新的预览功能：**
-
-- [用户写回](active-directory-aadconnect-feature-preview.md#user-writeback)
-- [组写回](active-directory-aadconnect-feature-preview.md#group-writeback)
-- [目录扩展](active-directory-aadconnect-feature-preview.md)
 
 ## <a name="104940501"></a>1.0.494.0501
 发布日期：2015 年 5 月

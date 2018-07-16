@@ -16,11 +16,11 @@ origin.date: 10/01/2016
 ms.date: 01/29/2018
 ms.author: v-yiso
 ms.openlocfilehash: c439d7dec4926256d09ac99792764d7f671ef2c1
-ms.sourcegitcommit: a20b3fbe305d3bb4b6ddfdae98b3e0ab8a79bbfa
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/22/2018
-ms.locfileid: "27984715"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939490"
 ---
 #<a name="create-a-xamarinios-app"></a>创建 Xamarin iOS 应用
 
@@ -75,7 +75,7 @@ ms.locfileid: "27984715"
 
     ![][10]
 
-    来自请求的数据被插入到 TodoItem 表。 移动应用后端返回存储在表中的项，数据显示在列表中。
+    来自请求的数据插入到 TodoItem 表。 移动应用后端返回存储在表中的项，数据显示在列表中。
 
 > [!NOTE]
 > 可以在 QSTodoService.cs C# 文件中查看用于访问移动应用后端以查询和插入数据的代码。

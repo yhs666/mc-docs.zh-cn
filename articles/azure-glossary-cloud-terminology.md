@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/16/2017
-ms.date: 05/11/2018
+ms.date: 07/12/2018
 ms.author: v-junlch
-ms.openlocfilehash: 1010a11bb0cac85a8de91e1ff2b76dbfc78f46e8
-ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
+ms.openlocfilehash: ad5d7fdd4fe9f2b701c21f3fd60e05769ab8cabf
+ms.sourcegitcommit: 5b6a2fc55e5b16ae480bd497c3ac2c3a2fd44703
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34450100"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38999208"
 ---
 # <a name="azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Azure 词汇表：Azure 平台上的云术语字典
 
@@ -37,7 +37,7 @@ Azure 词汇表是适用于 Azure 平台的简短云术语字典。 另请参阅
 又叫[应用服务应用](#app-service-app)。
 
 ## 应用服务应用 <a name="app-service-app"></a>
-Azure 应用服务提供的用来托管[网站或 Web 应用程序](app-service-web/app-service-web-overview.md)、[Web API](app-service-api/app-service-api-apps-why-best-platform.md) 或[移动应用后端](app-service-mobile/app-service-mobile-value-prop.md)的计算资源。 应用服务应用也称为“应用服务”、“Web 应用”、“API 应用”和“移动应用”。
+[Azure 应用服务](app-service/app-service-web-overview.md)提供的用于托管网站或 Web 应用程序、Web API 或[移动应用后端](app-service-mobile/app-service-mobile-value-prop.md)的计算资源。 应用服务应用也称为“应用服务”、“Web 应用”、“API 应用”和“移动应用”。
 
 ## 可用性集 <a name="availability-set"></a>
 可一起管理的、用于提供应用程序冗余和可靠性的虚拟机集合。 使用可用性集可确保在计划内或计划外维护事件期间，至少有一个虚拟机可用。  
@@ -47,7 +47,7 @@ Azure 应用服务提供的用来托管[网站或 Web 应用程序](app-service-
 用于在 Azure 中部署资源的两个[部署模型](resource-manager-deployment-model.md)中的一个（新模型是 Azure Resource Manager）。 有些 Azure 服务仅支持资源管理器部署模型，有些仅支持经典部署模型，而有些则两种模型都支持。 每个 Azure 服务的文档中指定了其支持的模型。
 
 ## <a name="cli"></a>Azure 命令行接口 (CLI)
-一个命令行接口，可用于从 Windows、macOS 和 Linux 管理 Azure 服务。  某些服务或服务功能只能通过 PowerShell 或 CLI 来管理。 请参阅 [Azure CLI 2.0](/cli/overview)
+一个命令行接口，可用于从 Windows、macOS 和 Linux 管理 Azure 服务。  某些服务或服务功能只能通过 PowerShell 或 CLI 来管理。 请参阅 [Azure CLI 2.0](/cli)
 
 ## <a name="powershell"></a>Azure PowerShell
 一个命令行接口，可用于从 Windows 电脑通过命令行管理 Azure 服务。 某些服务或服务功能只能通过 PowerShell 或 CLI 来管理。
@@ -70,6 +70,7 @@ Azure 应用服务提供的用来托管[网站或 Web 应用程序](app-service-
 
 ## <a name="limits"></a>限制
 可以创建的资源数目或可实现的性能基准。 限制通常与订阅、服务和产品关联。  
+请参阅 [Azure 订阅和服务限制、配额和约束](azure-subscription-service-limits.md)
 
 ## <a name="load-balancer"></a>负载均衡器
 在网络中的计算机之间分散传入流量的资源。 在 Azure 中，负载均衡器将流量分散到负载均衡器集内定义的虚拟机。 [负载均衡器](load-balancer/load-balancer-overview.md)可以面向 Internet，也可以是内部的。  
@@ -89,7 +90,7 @@ Azure 应用服务提供的用来托管[网站或 Web 应用程序](app-service-
 Resource Manager 中的容器，用于保存应用程序的相关资源。 资源组可以包含应用程序的所有资源，也可以只包含逻辑分组在一起的资源。 可以根据对组织有利的原则，决定如何将资源分配到资源组。  
 请参阅 [Azure 资源管理器概述](azure-resource-manager/resource-group-overview.md)
 
-## <a name="arm-template"></a>资源管理器模板
+## <a name="arm-template"></a>Resource Manager 模板
 一个 JSON 文件，它以声明方式定义一个或多个 Azure 资源，并定义所部署资源之间的依赖关系。 使用模板能够以一致方式反复部署资源。  
 请参阅[创作 Azure 资源管理器模板](resource-group-authoring-templates.md)
 
@@ -113,8 +114,8 @@ Resource Manager 中的容器，用于保存应用程序的相关资源。 资�
 请参阅[关于 Azure 存储帐户](storage/common/storage-create-storage-account.md)
 
 ## <a name="subscription"></a>订阅
-客户与 Microsoft 之间的协议，可让客户获取 Azure 服务。 订阅定价和相关条款受为订阅选择的产品/服务约束。
-请参阅 [Microsoft 在线订阅协议](https://www.azure.cn/support/legal/subscription-agreement/)和 [Azure 订阅与 Azure Active Directory 的关联方式](active-directory/active-directory-how-subscriptions-associated-directory.md)
+客户与 Microsoft 之间的协议，可让客户获取 Azure 服务。 订阅的定价和相关条款由为订阅选择的套餐控制。
+请参阅 [Microsoft 在线订阅协议](https://www.azure.cn/support/legal/subscription-agreement/)。
 
 ## <a name="tag"></a>标记
 一个索引编制术语，用于根据管理或计费要求为资源分类。 如果有一系列复杂的资源，则可以使用标记以最有利的方式可视化这些资产。 例如，可以标记组织中充当类似角色或者属于同一部门的资源。  
@@ -143,4 +144,4 @@ Resource Manager 中的容器，用于保存应用程序的相关资源。 资�
 
 - [Azure 入门](https://www.azure.cn/pricing/1rmb-trial/)
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

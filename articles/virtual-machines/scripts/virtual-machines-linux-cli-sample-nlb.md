@@ -18,11 +18,11 @@ ms.date: 06/25/2018
 ms.author: v-yeche
 ms.custom: mvc
 ms.openlocfilehash: 4347d0a90c5923b2c6ac95449187601e9fb43648
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315526"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939934"
 ---
 # <a name="create-a-highly-available-vm"></a>创建高度可用 VM
 

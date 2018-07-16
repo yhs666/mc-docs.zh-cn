@@ -53,8 +53,6 @@
       href: monitoring-metric-charts.md
     - name: 使用警报
       items:
-        - name: 在 Azure 门户中配置近乎实时的警报
-          href: monitoring-near-real-time-metric-alerts.md
         - name: 在 Azure 门户中配置经典警报
           href: insights-alerts-portal.md
         - name: 使用 CLI 配置经典警报
@@ -63,6 +61,8 @@
           href: insights-alerts-powershell.md
         - name: 让经典指标警报调用 Webhook
           href: insights-webhooks-alerts.md
+        - name: 使用资源管理器模板创建更新的指标警报
+          href: monitoring-create-metric-alerts-with-templates.md
         - name: 使用资源管理器模板创建经典指标警报
           href: monitoring-enable-alerts-using-template.md
         - name: 将警报从 OMS 门户复制到 Azure 门户
@@ -115,6 +115,8 @@
           href: monitoring-rest-api-walkthrough.md
         - name: Azure PowerShell 示例
           href: insights-powershell-samples.md
+        - name: Azure CLI 示例
+          href: insights-cli-samples.md
     - name: 使用 Azure 诊断扩展
       items:
         - name: 发送到 Azure 存储

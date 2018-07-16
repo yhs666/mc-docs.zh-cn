@@ -17,11 +17,11 @@ origin.date: 08/18/2016
 ms.author: v-yiso
 ms.date: 04/23/2018
 ms.openlocfilehash: 1c07a7a47eda54c74cf8456f68b2b3efe4568d84
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31321299"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939473"
 ---
 # <a name="get-started-with-the-wunderlist-connector"></a>Wunderlist 连接器入门
 Wunderlist 是待办事项列表和任务管理器，可帮助用户完成其任务。  无论是共享购物单、处理某个项目还是计划度假，使用 Wunderlist 都可轻松捕获、共享和完成列表项。 Wunderlist 在手机、平板电脑和计算机之间即时同步，以便你从任意位置访问所有任务。

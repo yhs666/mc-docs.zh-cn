@@ -1,5 +1,5 @@
 ---
-title: 使用自动缩放操作发送电子邮件和 webhook 警报通知。 | Microsoft 文档
+title: 使用自动缩放发送电子邮件和 Webhook 警报通知
 description: '了解如何在 Azure 监视器中使用自动缩放操作来调用 Web URL 或发送电子邮件通知。 '
 author: anirudhcavale
 manager: orenr
@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 04/03/2017
 ms.date: 12/11/2017
 ms.author: v-yiso
-ms.openlocfilehash: 81d61f524c8755203f8513cd51ca56dffb674cc5
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: f86d13dde32a0e4f6ea7624a62bedcad8230336f
+ms.sourcegitcommit: 479954e938e4e3469d6998733aa797826e4f300b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
-ms.locfileid: "26045135"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39031706"
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>使用自动缩放操作在 Azure 监视器中发送电子邮件和 webhook 警报通知
 本文演示如何设置触发器，以便可以在 Azure 中基于自动缩放操作调用特定 Web URL 或发送电子邮件。  
@@ -28,7 +28,7 @@ ms.locfileid: "26045135"
 ## <a name="webhooks"></a>Webhook
 通过 webhook 可以将 Azure 警报通知路由到其他系统以便用于后处理或自定义通知。 例如，将警报路由到可以处理传入 web 请求的服务，以便使用聊天或消息服务等来发送 SMS、记录 bug、通知团队。Webhook URI 必须是有效 HTTP 或 HTTPS 终结点。
 
-## <a name="email"></a>电子邮件
+## <a name="email"></a>Email
 电子邮件可以发送到任何有效电子邮件地址。 还将通知运行规则的订阅的管理员和共同管理员。
 
 ## <a name="cloud-services-and-web-apps"></a>云服务和 Web 应用
@@ -77,7 +77,7 @@ ms.locfileid: "26045135"
 | properties |是 |值必须是空的 {}，也可以包含键值对 |
 
 ## <a name="authentication-in-webhooks"></a>webhook 中的身份验证
-webhook 可使用基于令牌的身份验证进行身份验证：将具有令牌 ID 的 webhook URI 保存为查询参数。 例如，https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue
+webhook 可使用基于令牌的身份验证进行身份验证：将具有令牌 ID 的 webhook URI 保存为查询参数。 例如： https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue
 
 ## <a name="autoscale-notification-webhook-payload-schema"></a>自动缩放通知 webhook 负载架构
 生成自动缩放通知时，以下元数据会包含在 webhook 负载中：
@@ -111,18 +111,18 @@ webhook 可使用基于令牌的身份验证进行身份验证：将具有令牌
 
 | 字段 | 必需？ | 说明 |
 | --- | --- | --- |
-| status |是 |指示生成自动缩放操作的状态 |
+| 状态 |是 |指示生成自动缩放操作的状态 |
 | operation |是 |对于实例的增加，它会是“Scale Out”，对于实例的减少，它会是“Scale In” |
 | 上下文 |是 |自动缩放操作上下文 |
 | timestamp |是 |触发自动缩放操作时的时间戳 |
 | id |是 |自动缩放设置的 Resource Manager ID |
-| 名称 |是 |自动缩放设置的名称 |
+| name |是 |自动缩放设置的名称 |
 | 详细信息 |是 |自动缩放服务执行的操作和实例计数的更改的说明 |
 | subscriptionId |是 |所缩放的目标资源的订阅 ID |
 | resourceGroupName |是 |所缩放的目标资源的资源组名 |
 | resourceName |是 |所缩放的目标资源的名称 |
 | resourceType |是 |三个支持的值是：“microsoft.classiccompute/domainnames/slots/roles” - 云服务角色、“microsoft.compute/virtualmachinescalesets” - 虚拟机规模集和“Microsoft.Web/serverfarms” - Web 应用 |
-| resourceId |是 |所缩放的目标资源的 Resource Manager ID |
+| ResourceId |是 |所缩放的目标资源的 Resource Manager ID |
 | portalLink |是 |指向目标资源摘要页的 Azure 门户链接 |
 | oldCapacity |是 |自动缩放执行缩放操作时的当前（旧）实例计数 |
 | newCapacity |是 |自动缩放将资源缩放到的新实例计数 |

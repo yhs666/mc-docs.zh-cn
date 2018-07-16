@@ -15,11 +15,11 @@ origin.date: 11/22/2017
 ms.date: 02/26/2018
 ms.author: apimpm
 ms.openlocfilehash: c7832e08508fe0c6d0adb9cda0de32ad0422944b
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
-ms.locfileid: "29286090"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939609"
 ---
 # <a name="import-a-soap-api-and-convert-to-rest"></a>导入 SOAP API 并将其转换为 REST
 
@@ -56,7 +56,7 @@ ms.locfileid: "29286090"
 6. 添加 API URL 后缀。 后缀是用于在该 APIM 实例中标识此特定 API 的名称。 它在此 APIM 实例中必须唯一。
 9. 通过关联 API 与产品来发布 API。 本例中使用了“无限制”产品。  如果想要发布 API 并使其对开发人员可用，请将其添加到产品中。 可在 API 创建期间执行此操作，或稍后进行设置。
 
-    产品是一个或多个 API 的关联。 可包含多个 API，并通过开发人员门户将其提供给开发人员。 开发人员必须先订阅产品才能访问 API。 订阅时，他们会得到一个订阅密钥，此密钥对该产品中的任何 API 都有效。 如果创建了 APIM 实例，那么你已是管理员，因此默认情况下订阅了每个产品。
+    产品是一个或多个 API 的关联。 可以包含多个 API，并通过开发人员门户将其提供给开发人员。 开发人员必须先订阅产品才能访问 API。 订阅时，他们会得到一个订阅密钥，此密钥对该产品中的任何 API 都有效。 如果创建了 APIM 实例，那么你已是管理员，因此默认情况下订阅了每个产品。
 
     默认情况下，每个 API 管理实例附带两个示例产品：
 

@@ -17,11 +17,11 @@ origin.date: 04/20/2018
 ms.date: 06/18/2018
 ms.author: v-yeche
 ms.openlocfilehash: 5a2be21f0c6b4f8be708a9a0af48d9d5b073a334
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "35416871"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939707"
 ---
 # <a name="azure-cli-script-example-load-balance-traffic-to-vms-for-high-availability"></a>Azure CLI 脚本示例：对传入 VM 的流量进行负载均衡以实现高可用性
 

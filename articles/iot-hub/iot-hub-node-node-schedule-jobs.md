@@ -16,11 +16,11 @@ origin.date: 10/06/2017
 ms.date: 05/07/2018
 ms.author: v-yiso
 ms.openlocfilehash: 0249ed13e302e65d39cc962f657774b8c005ab0a
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121328"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939995"
 ---
 # <a name="schedule-and-broadcast-jobs-node"></a>计划和广播作业 (Node)
 

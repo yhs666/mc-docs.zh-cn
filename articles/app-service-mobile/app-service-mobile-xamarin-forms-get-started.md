@@ -5,28 +5,26 @@ services: app-service\mobile
 documentationcenter: xamarin
 author: conceptdev
 manager: crdun
-editor: ''
 ms.assetid: 5e692220-cc89-4548-96c8-35259722acf5
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: hero-article
-origin.date: 10/01/2016
+origin.date: 05/25/2018
 ms.author: v-yiso
-ms.date: 01/29/2018
-ms.openlocfilehash: 27a8058490cd95706e5fd31e0ec709d665e0fa56
-ms.sourcegitcommit: a20b3fbe305d3bb4b6ddfdae98b3e0ab8a79bbfa
+ms.date: 07/23/2018
+ms.openlocfilehash: b7e348905234380a9dbb564a3bb189571004fc6f
+ms.sourcegitcommit: 479954e938e4e3469d6998733aa797826e4f300b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/22/2018
-ms.locfileid: "27984739"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39031767"
 ---
-#<a name="create-a-xamarinforms-app"></a>创建 Xamarin.Forms 应用
+# <a name="create-a-xamarinforms-app-with-azure"></a>使用 Azure 创建 Xamarin.Forms 应用
 
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
-## <a name="overview"></a>概述
 本教程说明如何使用作为后端的 Azure 应用服务的移动应用功能，向 Xamarin.Forms 移动应用添加基于云的后端服务。 请创建一个新的移动应用后端和一个简单的待办事项列表 Xamarin.Forms 应用，此应用将应用数据存储在 Azure 中。
 
 只有在完成本教程后，才可学习有关 Xamarin.Forms 的所有其他移动应用教程。
@@ -37,9 +35,9 @@ ms.locfileid: "27984739"
 
 * 有效的 Azure 帐户。 如果没有帐户，可以注册 Azure 试用版并获取多达 10 个免费的移动应用，即使在试用期结束之后仍可继续使用这些应用。 有关详细信息，请参阅 [Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。
 
-* Visual Studio with Xamarin。 有关信息，请参阅[设置和安装 Visual Studio 和 Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) 页。
+* 用于 Xamarin 的 Visual Studio Tools，包含在 Visual Studio 2017 或 Visual Studio for Mac 中。 有关说明，请参阅 [Xamarin 安装页][Install Xamarin]。
 
-* 安装了 Xcode v7.0 版或更高版本以及 Xamarin Studio Community 的 Mac。 有关信息，请参阅[设置和安装 Visual Studio 和 Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) 以及 [Mac 用户的设置、安装和验证](https://msdn.microsoft.com/library/mt488770.aspx) (MSDN)。
+* （可选）若要生成 iOS 应用，必须使用装有 Xcode 9.0 或更高版本的 Mac。 可以使用 Visual Studio for Mac 来开发 iOS 应用，也可以使用 Visual Studio 2017（前提是网络上的 Mac 可用）。
 
 ## <a name="create-a-new-mobile-apps-back-end"></a>创建新的移动应用后端
 
@@ -47,7 +45,7 @@ ms.locfileid: "27984739"
 
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-现在已设置可供移动客户端应用程序使用的移动应用后端。 接下来，为简单的待办事项列表后端下载服务器项目，然后将其发布到 Azure。
+现在已设置可供移动应用程序使用的移动应用后端。 接下来，为简单的待办事项列表后端下载服务器项目，然后将其发布到 Azure。
 
 ## <a name="configure-the-server-project"></a>配置服务器项目
 
@@ -57,9 +55,9 @@ ms.locfileid: "27984739"
 
 ##<a name="download-and-run-the-xamarinforms-solution"></a>下载并运行 Xamarin.Forms 解决方案
 
-可以通过两种方式中的任一方式下载该解决方案。 将解决方案下载到 Mac 并在 Xamarin Studio 中打开它，或者将解决方案下载到 Windows 计算机并使用联网的 Mac 在 Visual Studio 中打开它以生成 iOS 应用。 有关详细信息，请参阅[设置和安装 Visual Studio 和 Xamarin](https://msdn.microsoft.com/library/mt613162.aspx)。
+必须使用用于 Xamarin 的 Visual Studio Tools 来打开解决方案，详见 [Xamarin 安装说明][Install Xamarin]。 如果该工具已安装，请按以下步骤来下载并打开解决方案：
 
-在 Mac 或 Windows 计算机上执行以下操作：
+### <a name="visual-studio"></a>Visual Studio
 
 1. 转到 [Azure 门户]。
 
@@ -67,111 +65,126 @@ ms.locfileid: "27984739"
 
    此操作下载一个项目，其中包含连接到移动应用的客户端应用程序。 将压缩的项目文件保存到本地计算机，并记下保存位置。
 
-3. 解压缩下载的项目，然后在 Xamarin Studio (Mac) 或 Visual Studio (Windows) 中打开它。
-
-   ![在 Xamarin Studio 中解压缩的项目][9]
+3. 解压缩下载的项目，然后在 Visual Studio 2017 中打开它。
 
    ![在 Visual Studio 中解压缩的项目][8]
 
-## <a name="optional-run-the-ios-project"></a>（可选）运行 iOS 项目
-在本部分，请运行适用于 iOS 设备的 Xamarin iOS 项目。 如果不使用 iOS 设备，可以跳过本部分。
+4. 按照下面的说明运行 Android 或 Windows 项目；如果有联网的 Mac 计算机可用，则运行 iOS 项目。
 
-#### <a name="in-xamarin-studio"></a>在 Xamarin Studio 中
-1. 右键单击 iOS 项目，然后选择“设为启动项目”。
+### <a name="visual-studio-for-mac"></a>Visual Studio for Mac
 
-2. 在“运行”菜单上，选择“开始调试”以生成项目，并在 iPhone 模拟器中启动应用。
+1. 转到 [Azure 门户]。
 
-#### <a name="in-visual-studio"></a>在 Visual Studio 中
-1. 右键单击 iOS 项目，然后选择“设为启动项目”。
+2. 在移动应用的设置边栏选项卡上，单击“快速入门”（在“部署”下）>“Xamarin.Forms”。 在步骤 3 下，单击“创建新应用”（如果尚未选择它）。  接下来，单击“下载”  按钮。
 
-2. 在“生成”菜单上，选择“配置管理器”。
+   此操作下载一个项目，其中包含连接到移动应用的客户端应用程序。 将压缩的项目文件保存到本地计算机，并记下保存位置。
 
-3. 在“配置管理器”对话框中，选中 iOS 项目旁边的“生成”和“部署”复选框。
+3. 解压缩下载的项目，然后在 Visual Studio for Mac 中打开它。
 
-4. 若要生成项目并在 iPhone 模拟器中启动应用，请选择 F5 键。
+   ![Visual Studio for Mac 中的解压缩项目][9]
 
-   > [!NOTE]
-   > 如果在生成项目时遇到生成问题，请运行 NuGet 包管理器并更新到 Xamarin 支持包的最新版本。 快速入门项目在更新到最新版本时可能较慢。    
-   >
-   >
+4. 按照下面的说明运行 Android 或 iOS 项目。
 
-5. 在应用中键入有意义的文本（例如“Learn Xamarin”），然后选择加号 (+)。
 
-    ![][10]
-
-    此操作向在 Azure 中托管的新移动应用后端发送 post 请求。 来自请求的数据插入到 TodoItem 表。 存储在表中的项由移动应用后端返回，数据显示在列表中。
-
-    > [!NOTE]
-    > 可在解决方案的可移植类库项目的 TodoItemManager.cs C# 文件中找到用于访问移动应用后端的代码。
-    >
-    >
 
 ## <a name="optional-run-the-android-project"></a>（可选）运行 Android 项目
-在本部分，请运行适用于 Android 的 Xamarin droid 项目。 如果不使用 Android 设备，可以跳过本部分。
 
-#### <a name="in-xamarin-studio"></a>在 Xamarin Studio 中
+在本部分，请运行 Xamarin.Android 项目。 如果不使用 Android 设备，可以跳过本部分。
 
-1. 右键单击 Android 项目，然后选择“设为启动项目”。
-
-2. 若要生成项目，并在 Android 模拟器中启动应用，请在“运行”菜单上选择“开始调试”。
-
-#### <a name="in-visual-studio"></a>在 Visual Studio 中
+### <a name="visual-studio"></a>Visual Studio
 
 1. 右键单击 Android (Droid) 项目，然后选择“设为启动项目”。
 
 2. 在“生成”菜单上，选择“配置管理器”。
 
-3. 在“配置管理器”对话框中，选中 Android 项目旁边的“生成”和“部署”复选框。
+3. 在“配置管理器”对话框中，选中 Android 项目旁边的“生成”和“部署”复选框，并确保共享的代码项目已将“生成”框选中。
 
-4. 若要生成项目并在 Android 模拟器中启动应用，请选择 F5 键。
+4. 若要生成项目并在 Android 模拟器中启动应用，请按 **F5** 键或单击“启动”按钮。
 
-   > [!NOTE]
-   > 如果在生成项目时遇到生成问题，请运行 NuGet 包管理器并更新到 Xamarin 支持包的最新版本。 快速入门项目在更新到最新版本时可能较慢。    
-   >
-   >
+### <a name="visual-studio-for-mac"></a>Visual Studio for Mac
 
-5. 在应用中键入有意义的文本（例如“Learn Xamarin”），然后选择加号 (+)。
+1. 右键单击 Android 项目，然后选择“设为启动项目”。
 
-    ![][11]
-    
-    此操作向在 Azure 中托管的新移动应用后端发送 post 请求。 来自请求的数据插入到 TodoItem 表。 存储在表中的项由移动应用后端返回，数据显示在列表中。
-    
-    > [!NOTE]
-    > 可在解决方案的可移植类库项目的 TodoItemManager.cs C# 文件中找到用于访问移动应用后端的代码。
-    >
-    >
+2. 若要生成项目，并在 Android 模拟器中启动应用，请选择“运行”菜单，然后选择“开始调试”。
 
-##<a name="optional-run-the-windows-project"></a>（可选）运行 Windows 项目
 
-在本部分，请运行适用于 Windows 设备的 Xamarin WinApp 项目。 如果不使用 Windows 设备，可以跳过本部分。
 
-#### <a name="in-visual-studio"></a>在 Visual Studio 中
+在应用中键入有意义的文本（例如“Learn Xamarin”），然后选择加号 (+)。
 
-1. 右键单击任一 Windows 项目，然后选择“设为启动项目”。
+![Android 待办事项应用][11]
+
+    This action sends a post request to the new Mobile Apps back end that's hosted in Azure. Data from the request is inserted into the TodoItem table. Items that are stored in the table are returned by the Mobile Apps back end, and the data is displayed in the list.
+
+> [!NOTE]
+> 用于访问移动应用后端的代码位于解决方案的共享代码项目的 **TodoItemManager.cs** C# 文件中。
+>
+
+## <a name="optional-run-the-ios-project"></a>（可选）运行 iOS 项目
+
+在本部分，请运行适用于 iOS 设备的 Xamarin iOS 项目。 如果不使用 iOS 设备，可以跳过本部分。
+
+### <a name="visual-studio"></a>Visual Studio
+
+1. 右键单击 iOS 项目，然后选择“设为启动项目”。
 
 2. 在“生成”菜单上，选择“配置管理器”。
 
-3. 在“配置管理器”对话框中，选中所选 Windows 项目旁边的“生成”和“部署”复选框。
+3. 在“配置管理器”对话框中，选中 iOS 项目旁边的“生成”和“部署”复选框，并确保共享的代码项目已将“生成”框选中。
 
-4. 若要生成项目并在 Windows 模拟器中启动应用，请选择 F5 键。
+4. 若要生成项目并在 iPhone 模拟器中启动应用，请选择 F5 键。
 
-   > [!NOTE]
-   > 如果在生成项目时遇到生成问题，请运行 NuGet 包管理器并更新到 Xamarin 支持包的最新版本。 快速入门项目在更新到最新版本时可能较慢。    
-   >
-   >
+### <a name="visual-studio-for-mac"></a>Visual Studio for Mac
 
-5. 在应用中键入有意义的文本（例如“Learn Xamarin”），然后选择加号 (+)。
+1. 右键单击 iOS 项目，然后选择“设为启动项目”。
 
-    此操作向在 Azure 中托管的新移动应用后端发送 post 请求。 来自请求的数据插入到 TodoItem 表。 存储在表中的项由移动应用后端返回，数据显示在列表中。
-    
-    ![][12]
-    
-    > [!NOTE]
-    > 可在解决方案的可移植类库项目的 TodoItemManager.cs C# 文件中找到用于访问移动应用后端的代码。
-    >
-    >
+2. 在“运行”菜单上，选择“开始调试”以生成项目，并在 iPhone 模拟器中启动应用。
 
-##<a name="next-steps"></a>后续步骤
+
+
+在应用中键入有意义的文本（例如“Learn Xamarin”），然后选择加号 (+)。
+
+![iOS 待办事项应用][10]
+
+此操作向在 Azure 中托管的新移动应用后端发送 post 请求。 来自请求的数据插入到 TodoItem 表。 存储在表中的项由移动应用后端返回，数据显示在列表中。
+
+> [!NOTE]
+> 你会发现，用于访问移动应用后端的代码位于解决方案的共享代码项目的 **TodoItemManager.cs** C# 文件中。
+>
+
+## <a name="optional-run-the-windows-project"></a>（可选）运行 Windows 项目
+
+在本部分，请运行适用于 Windows 设备的 Xamarin.Forms 通用 Windows 平台 (UWP) 项目。 如果不使用 Windows 设备，可以跳过本部分。
+
+### <a name="visual-studio"></a>Visual Studio
+
+1. 右键单击任意 UWP 项目，然后选择“设为启动项目”。
+
+2. 在“生成”菜单上，选择“配置管理器”。
+
+3. 在“配置管理器”对话框中，选中所选 Windows 项目旁边的“生成”和“部署”复选框，并确保共享的代码项目已将“生成”框选中。
+
+4. 若要生成项目并在 Windows 模拟器中启动应用，请按 **F5** 键或单击“启动”按钮（应该显示为“本地计算机”）。
+
+> [!NOTE]
+> Windows 项目不能在 macOS 上运行。
+
+
+
+在应用中键入有意义的文本（例如“Learn Xamarin”），然后选择加号 (+)。
+
+此操作向在 Azure 中托管的新移动应用后端发送 post 请求。 来自请求的数据插入到 TodoItem 表。 存储在表中的项由移动应用后端返回，数据显示在列表中。
+
+![UWP 待办事项应用][12]
+
+> [!NOTE]
+> 可在解决方案的可移植类库项目的 **TodoItemManager.cs** C# 文件中找到用于访问移动应用后端的代码。
+>
+
+## <a name="troubleshooting"></a>故障排除
+
+如果在生成解决方案时遇到问题，请运行 NuGet 包管理器并将其更新到 Xamarin.Forms 的最新版本，然后在 Android 项目中更新 Xamarin.Android 支持包。 快速入门项目并非始终包含最新版本。
+
+## <a name="next-steps"></a>后续步骤
 
 * [向应用添加身份验证](./app-service-mobile-xamarin-forms-get-started-users.md)  
 了解如何使用标识提供者对应用的用户进行身份验证。
@@ -198,6 +211,6 @@ ms.locfileid: "27984739"
 [12]: ./media/app-service-mobile-xamarin-forms-get-started/mobile-quickstart-startup-windows.png
 
 <!-- URLs. -->
-[Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
+[Install Xamarin]: https://docs.microsoft.com/xamarin/cross-platform/get-started/installation/
 [Mobile app SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
-[Azure Portal]: https://portal.azure.cn/
+[Azure 门户]: https://portal.azure.cn/

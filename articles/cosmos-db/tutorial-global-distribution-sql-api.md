@@ -12,12 +12,12 @@ origin.date: 05/10/2017
 ms.date: 07/02/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 892aa5a4da2b2c49ef2e35241c2261a66a9ec1de
-ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
+ms.openlocfilehash: 759205934899e37fb2cbc8ff197f244f353c0070
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37070146"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939567"
 ---
 # <a name="set-up-azure-cosmos-db-multiple-region-distribution-using-the-sql-api"></a>使用 SQL API 设置 Azure Cosmos DB 多区域分发
 
@@ -68,9 +68,9 @@ string accountKey = Properties.Settings.Default.GlobalDatabaseKey;
 ConnectionPolicy connectionPolicy = new ConnectionPolicy();
 
 //Setting read region selection preference
-connectionPolicy.PreferredLocations.Add(LocationNames.ChinaNorth); // first preference
-connectionPolicy.PreferredLocations.Add(LocationNames.ChinaEast); // second preference
-connectionPolicy.PreferredLocations.Add(LocationNames.ChinaNorth2); // third preference
+connectionPolicy.PreferredLocations.Add(LocationNames.ChinaEast); // first preference
+connectionPolicy.PreferredLocations.Add(LocationNames.ChinaNorth2); // second preference
+connectionPolicy.PreferredLocations.Add(LocationNames.ChinaEast2); // third preference
 
 // initialize connection
 DocumentClient docClient = new DocumentClient(
@@ -101,10 +101,10 @@ await docClient.OpenAsync().ConfigureAwait(false);
 var connectionPolicy = new DocumentBase.ConnectionPolicy();
 
 // Setting read region selection preference, in the following order -
-// 1 - China North
-// 2 - China East
-// 3 - China North 2
-connectionPolicy.PreferredLocations = ['China North', 'China East','China North 2'];
+// 1 - China East
+// 2 - China North 2
+// 3 - China East 2
+connectionPolicy.PreferredLocations = ['China East', 'China North 2','China East 2'];
 
 // initialize the connection
 var client = new DocumentDBClient(host, { masterKey: masterKey }, connectionPolicy);
@@ -125,13 +125,13 @@ var client = new DocumentDBClient(host, { masterKey: masterKey }, connectionPoli
         "writableLocations": [
             {
                 "Name": "China North",
-                "DatabaseAccountEndpoint": "https://globaldbexample-chinanorth.documents.azure.cn:443/"
+                "DatabaseAccountEndpoint": "https://globaldbexample-chinaeast.documents.azure.cn:443/"
             }
         ],
         "readableLocations": [
             {
                 "Name": "China East",
-                "DatabaseAccountEndpoint": "https://globaldbexample-chinaeast.documents.azure.cn:443/"
+                "DatabaseAccountEndpoint": "https://globaldbexample-chinanorth2.documents.azure.cn:443/"
             }
         ],
         "MaxMediaStorageUsageInMB": 2048,

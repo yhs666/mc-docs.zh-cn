@@ -17,11 +17,11 @@ ms.date: 04/30/2018
 ms.author: v-yiso
 ms.custom: mvc
 ms.openlocfilehash: c31376f7ccc2ad24b1cd84c8f2b7ec7be2553692
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31781848"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939843"
 ---
 # <a name="host-a-restful-api-with-cors-in-azure-app-service"></a>在 Azure 应用服务中托管启用了 CORS 的 RESTful API
 

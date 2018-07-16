@@ -17,11 +17,11 @@ ms.date: 60/04/2018
 ms.author: v-yiso
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 08138ee6d3184596ba06e3860255579b9b12705a
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554645"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939608"
 ---
 # <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>教程：使用 SQL 数据库在 Azure 中构建 ASP.NET 应用
 
@@ -165,7 +165,7 @@ ms.locfileid: "34554645"
 
 ![配置 SQL 数据库](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database.png)
 
-“创建应用服务”对话框会显示所创建的资源。 单击“创建”。 
+“创建应用服务”对话框会显示所创建的资源。 单击**创建**。 
 
 ![已创建的资源](media/app-service-web-tutorial-dotnet-sqldatabase/app_svc_plan_done.png)
 

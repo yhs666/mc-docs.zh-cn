@@ -17,11 +17,11 @@ origin.date: 10/11/2017
 ms.date: 06/04/2018
 ms.author: v-yeche
 ms.openlocfilehash: d92114571e92784895bba45880e7ab8dd19360de
-ms.sourcegitcommit: a85142cc230b17b45d8105a6acfd1c0ba3c8c325
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36298412"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939770"
 ---
 # <a name="attach-a-data-disk-to-a-windows-vm-using-powershell"></a>使用 PowerShell 将数据磁盘附加到 Windows VM
 

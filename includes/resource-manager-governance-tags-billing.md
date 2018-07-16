@@ -11,11 +11,11 @@ ms.date: 04/10/2018
 ms.author: v-yeche
 ms.custom: include file
 ms.openlocfilehash: 5f5d921f2e4c2dc28ae6bfa18a59e6ad2c9e1287
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695956"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38940678"
 ---
 对资源应用标记以后，即可使用这些标记查看资源的成本。 成本分析显示最新使用情况需要一定的时间，因此可能还看不到这些成本。 成本可用以后，即可在订阅中跨资源组查看资源的成本。 用户必须具有[计费信息的订阅级别访问权限](../articles/billing/billing-manage-access.md)才能查看这些成本。
 

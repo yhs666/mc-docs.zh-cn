@@ -16,11 +16,11 @@ origin.date: 02/27/2018
 ms.date: 02/27/2018
 ms.author: v-johch
 ms.openlocfilehash: 28e4eb03c0273774056997f7eb2e0fb54503c8be
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33815507"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939683"
 ---
 # <a name="manage-azure-file-shares-with-azure-storage-explorer"></a>使用 Azure 存储资源管理器管理 Azure 文件共享 
 [Azure 文件](storage-files-introduction.md)是 Microsoft 推出的易于使用的云文件系统。 本文介绍通过 [Azure 存储资源管理器](https://azure.microsoft.com/features/storage-explorer/)来使用 Azure 文件共享的基本知识。 存储资源管理器是一个常用的客户端工具，可用于 Windows、macOS 和 Linux。 可以使用存储资源管理器来管理 Azure 文件共享和其他存储资源。

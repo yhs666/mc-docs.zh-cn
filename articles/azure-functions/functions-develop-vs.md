@@ -15,11 +15,11 @@ origin.date: 03/13/2018
 ms.date: 04/17/2018
 ms.author: v-junlch
 ms.openlocfilehash: 7cce3ebea87f87d6c849216e392bf09ed5146116
-ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37026382"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939591"
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>用于 Visual Studio 的 Azure Functions 工具  
 

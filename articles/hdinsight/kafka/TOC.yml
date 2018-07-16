@@ -61,7 +61,6 @@
           maintainContext: true
         - name: Kafka 和 Azure Functions
           href: apache-kafka-azure-functions.md
-          maintainContext: true
     - name: 开发
       items:
         - name: 使用空边缘节点

@@ -18,11 +18,11 @@ ms.date: 04/10/2018
 ms.author: v-junlch
 ms.custom: mvc, cc996988-fb4f-47
 ms.openlocfilehash: 1172fb001f850f7772e257df89031d3e826dbca6
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31359510"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939710"
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>在 Azure 中创建由计时器触发的函数
 
@@ -65,7 +65,7 @@ ms.locfileid: "31359510"
     | **名称** | 默认 | 定义计时器触发的函数的名称。 |
     | **[计划](http://en.wikipedia.org/wiki/Cron#CRON_expression)** | 0 \*/1 \* \* \* \* | 六字段 [CRON 表达式](http://en.wikipedia.org/wiki/Cron#CRON_expression)，计划函数每分钟运行一次。 |
 
-2. 单击“创建”。 将使用所选语言创建一个每分钟运行一次的函数。
+2. 单击**创建**。 将使用所选语言创建一个每分钟运行一次的函数。
 
 3. 通过查看写入日志的跟踪信息来验证执行情况。
 

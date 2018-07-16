@@ -8,15 +8,15 @@ documentationcenter: monitoring-and-diagnostics
 ms.service: monitoring-and-diagnostics
 ms.topic: quickstart
 origin.date: 09/25/2017
-ms.date: 05/14/2018
+ms.date: 07/23/2018
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: e57e35cf0f274c00f08992a29fbfaa0e9184d7c2
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: 2ebbbeffe4ae936dc76cc140b7384123a06b39f5
+ms.sourcegitcommit: 479954e938e4e3469d6998733aa797826e4f300b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33814981"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39031704"
 ---
 # <a name="audit-and-receive-notifications-about-important-actions-in-your-azure-subscription"></a>审核和接收关于 Azure 订阅中重要操作的通知
 
@@ -76,7 +76,7 @@ Azure 活动日志提供 Azure 中订阅级别事件的历史记录。 它提供
 
 5. 在“警报方式”下，选择“新建”操作组，并为操作组提供“名称”和“短名称”。 操作组定义警报被激活（如果条件匹配新事件）时采取的一系列操作。
 
-6. 在“操作”下，通过提供操作的“名称”、“操作类型”（例如，电子邮件或 webhook）和该特定操作类型的“详细信息”（例如，webhook URL 或电子邮件地址）来添加一个或多个操作。
+6. 在“操作”下，通过提供操作的“名称”、“操作类型”（例如，电子邮件、短信或 webhook）和该特定操作类型的“详细信息”（例如，webhook URL、电子邮件地址或短信号码）来添加一个或多个操作。
 
     ![在门户中创建网络安全组](./media/monitor-quick-audit-notify-action-in-subscription/activity-log-alert-actions.png)
 

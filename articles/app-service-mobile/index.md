@@ -1,24 +1,24 @@
 ---
 title: Azure 移动应用文档 - 教程和 API 参考 | Azure
 description: 了解如何在 Azure 应用服务中使用移动应用生成和托管本机 iOS、Android 或 Windows 应用，或使用 Xamarin 或 Cordova 的跨平台应用。
-services: app-service\mobile
-author: carolz
+services: app-service-mobile
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: ''
-ms.service: app-service\mobile
+ms.service: app-service-mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-origin.date: 01/23/2017
-ms.date: 06/20/2017
+origin.date: 05/25/2018
+ms.date: 07/23/2017
 ms.author: v-yiso
-ms.openlocfilehash: 3ee7e36f685325f8f03c6b1ff6f93c7a0d349f21
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.openlocfilehash: ba64f492c61157f0fa5794b3e7f9da0254e7f38b
+ms.sourcegitcommit: 479954e938e4e3469d6998733aa797826e4f300b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
-ms.locfileid: "20184264"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39031741"
 ---
 # <a name="mobile-apps-documentation"></a>移动应用文档
 

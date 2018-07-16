@@ -10,12 +10,12 @@ origin.date: 05/11/2018
 ms.date: 07/02/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 6ba175224dc59bbfb6d79f222b663426ea2e82a8
-ms.sourcegitcommit: 2cf6961f692f318ce7034e7b4d994ee51d902199
+ms.openlocfilehash: ed74eaddd4936d63e32638f4424585a60f5c25f4
+ms.sourcegitcommit: 5b6a2fc55e5b16ae480bd497c3ac2c3a2fd44703
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36947686"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38999223"
 ---
 # <a name="tutorial-automate-container-image-builds-with-azure-container-registry-build"></a>教程：使用 Azure 容器注册表自动生成容器映像
 
@@ -178,7 +178,7 @@ Already on 'master'
 Your branch is up to date with 'origin/master'.
 920f16cfafa36d0bc3f397c3dd48185a03499404
 time="2018-05-10T19:37:17Z" level=info msg="Running command git rev-parse --verify HEAD"
-time="2018-05-10T19:37:17Z" level=info msg="Running command docker build --pull -f Dockerfile -t mycontainerregistry.azurecr.io/helloworld:aa2 ."
+time="2018-05-10T19:37:17Z" level=info msg="Running command docker build --pull -f Dockerfile -t mycontainerregistry.azurecr.cn/helloworld:aa2 ."
 Sending build context to Docker daemon  209.9kB
 Step 1/5 : FROM node:9-alpine
 9-alpine: Pulling from library/node
@@ -193,13 +193,13 @@ Step 2/5 : COPY . /src
 26b0c207c4a9: Pushed
 917e7cdebc8b: Pushed
 aa2: digest: sha256:6975f01e2e202c084581e676acbe6047788fbe616836328b0b31ce8c58e9fc89 size: 1367
-time="2018-05-10T19:37:57Z" level=info msg="Running command docker inspect --format \"{{json .RepoDigests}}\" mycontainerregistrtyy.azurecr.io/helloworld:aa2"
-"["mycontainerregistrtyy.azurecr.io/helloworld@sha256:6975f01e2e202c084581e676acbe6047788fbe616836328b0b31ce8c58e9fc89"]"
+time="2018-05-10T19:37:57Z" level=info msg="Running command docker inspect --format \"{{json .RepoDigests}}\" mycontainerregistrtyy.azurecr.cn/helloworld:aa2"
+"["mycontainerregistrtyy.azurecr.cn/helloworld@sha256:6975f01e2e202c084581e676acbe6047788fbe616836328b0b31ce8c58e9fc89"]"
 time="2018-05-10T19:37:57Z" level=info msg="Running command docker inspect --format \"{{json .RepoDigests}}\" node:9-alpine"
 "["node@sha256:5149aec8f508d48998e6230cdc8e6832cba192088b442c8ef7e23df3c6892cd3"]"
 ACR Builder discovered the following dependencies:
 - image:
-    registry: mycontainerregistrtyy.azurecr.io
+    registry: mycontainerregistrtyy.azurecr.cn
     repository: helloworld
     tag: aa2
     digest: sha256:6975f01e2e202c084581e676acbe6047788fbe616836328b0b31ce8c58e9fc89

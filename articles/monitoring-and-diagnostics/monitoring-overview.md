@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 03/05/2018
 ms.author: v-yiso
-ms.date: 04/16/2018
-ms.openlocfilehash: 4034b702376412650fba13381067713b3f15fe2f
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.date: 07/23/2018
+ms.openlocfilehash: 37ae7208f8ec22da0b16276c0c267a0bac5e00d4
+ms.sourcegitcommit: 479954e938e4e3469d6998733aa797826e4f300b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33815272"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39031747"
 ---
 # <a name="monitoring-azure-applications-and-resources"></a>监视 Azure 应用程序和资源
 
@@ -62,7 +62,8 @@ Azure 包括多项可以在监视空间单独执行特定角色或任务的服�
 
 可通过指标获取不同资源（甚至包括虚拟机中的操作系统）的性能统计信息。 可以使用 Azure 门户中的某个资源管理器查看此数据，还可以基于这些指标创建警报。 Azure Monitor 提供最快的指标管道（5 分钟乃至 1 分钟），因此应将其用于时间关键型警报和通知。 
 ### <a name="azure-advisor"></a>Azure 顾问
-[Azure 顾问]可持续监视资源配置和使用情况遥测数据。 然后，它会根据最佳做法提供个性化的建议。 采纳这些建议有助于改善支持应用程序的资源的性能、安全性和可用性。
+[Azure 顾问](../advisor/advisor-overview.md)可持续监视资源配置和使用情况遥测。 然后，它会根据最佳做法提供个性化的建议。 采纳这些建议有助于改善支持应用程序的资源的性能、安全性和可用性。
+
 ### <a name="service-health"></a>服务运行状况
 应用程序的运行状况取决于其所依赖的 Azure 服务。 [Azure 服务运行状况](../service-health/service-health-overview.md)可以标识 Azure 服务存在的可能影响应用程序的任何问题。 服务运行状况还有助于对计划性维护进行计划。
 

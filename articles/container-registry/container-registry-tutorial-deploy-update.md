@@ -10,12 +10,12 @@ origin.date: 04/30/2018
 ms.date: 07/02/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 39fadaf590eb0302cb3a7ea4648f0bb20bdd3c6a
-ms.sourcegitcommit: 2cf6961f692f318ce7034e7b4d994ee51d902199
+ms.openlocfilehash: 31a8ccb3ef634cb8db5ab53c60b5162378ee527a
+ms.sourcegitcommit: 5b6a2fc55e5b16ae480bd497c3ac2c3a2fd44703
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36947690"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38999188"
 ---
 # <a name="tutorial-push-an-updated-image-to-regional-deployments"></a>教程：将已更新的映像推送到区域部署
 
@@ -75,7 +75,7 @@ ms.locfileid: "36947690"
 更新 Web 应用程序后，请重新生成其容器映像。 如前所述，对标记使用完全限定的映像名称，包括登录服务器的完全限定域名 (FQDN)：
 
 ```bash
-docker build . -f ./AcrHelloworld/Dockerfile -t <acrName>.azurecr.io/acr-helloworld:v1
+docker build . -f ./AcrHelloworld/Dockerfile -t <acrName>.azurecr.cn/acr-helloworld:v1
 ```
 
 ## <a name="push-image-to-azure-container-registry"></a>向 Azure 容器注册表推送映像
@@ -83,14 +83,14 @@ docker build . -f ./AcrHelloworld/Dockerfile -t <acrName>.azurecr.io/acr-hellowo
 接下来，将更新的 *acr-helloworld* 容器映像推送到异地复制的注册表。 在此处，我们将执行一条 `docker push` 命令，将更新的映像同时部署到“中国北部”和“中国东部”区域的注册表副本。
 
 ```bash
-docker push <acrName>.azurecr.io/acr-helloworld:v1
+docker push <acrName>.azurecr.cn/acr-helloworld:v1
 ```
 
 `docker push` 输出应如下所示：
 
 ```console
-$ docker push uniqueregistryname.azurecr.io/acr-helloworld:v1
-The push refers to a repository [uniqueregistryname.azurecr.io/acr-helloworld]
+$ docker push uniqueregistryname.azurecr.cn/acr-helloworld:v1
+The push refers to a repository [uniqueregistryname.azurecr.cn/acr-helloworld]
 5b9454e91555: Pushed
 d6803756744a: Layer already exists
 b7b1f3a15779: Layer already exists

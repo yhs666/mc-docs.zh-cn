@@ -10,12 +10,12 @@ origin.date: 05/11/2018
 ms.date: 07/02/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: e9044242713628424e81e34112d7203d192a22a0
-ms.sourcegitcommit: 2cf6961f692f318ce7034e7b4d994ee51d902199
+ms.openlocfilehash: 0b674f8264ef270d3824befdf9cf5a5f590dc134
+ms.sourcegitcommit: 5b6a2fc55e5b16ae480bd497c3ac2c3a2fd44703
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36947687"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38999177"
 ---
 # <a name="tutorial-automate-image-builds-on-base-image-update-with-azure-container-registry-build"></a>教程：使用 Azure 容器注册表生成在基础映像更新时自动化映像生成
 
@@ -100,7 +100,7 @@ az acr build-task create \
     --registry $ACR_NAME \
     --name buildhelloworld \
     --image helloworld:{{.Build.ID}} \
-    --build-arg REGISTRY_NAME=$ACR_NAME.azurecr.io \
+    --build-arg REGISTRY_NAME=$ACR_NAME.azurecr.cn \
     --context https://github.com/$GIT_USER/acr-build-helloworld-node \
     --file Dockerfile-app \
     --branch master \
@@ -145,7 +145,7 @@ az acr login --name $ACR_NAME
 然后，使用 `docker run` 在本地运行容器。 将 \<build-id\> 替换为上一步骤的输出（例如，“aa6”）中找到的生成 ID。
 
 ```azurecli
-docker run -d -p 8080:80 $ACR_NAME.azurecr.io/helloworld:<build-id>
+docker run -d -p 8080:80 $ACR_NAME.azurecr.cn/helloworld:<build-id>
 ```
 
 在浏览器中导航到 http://localhost:8080，应看见呈现在 Web 页面中的 Node.js 版本号，如下所示。 在稍后的步骤中，会通过向版本字符串中添加“a”来提升版本。
@@ -221,7 +221,7 @@ aa1                          Linux       Succeeded  Manual        2018-05-10T19:
 如果正在本地运行（而不是在 Cloud Shell 中运行）并且已安装 Docker，则可在新应用程序映像的生成完成后运行它。 将 `<build-id>` 替换为上一步中获取的生成 ID。 如果正在使用 Cloud Shell，可跳过此部分（Cloud Shell 不支持 `docker run`）。
 
 ```bash
-docker run -d -p 8081:80 $ACR_NAME.azurecr.io/helloworld:<build-id>
+docker run -d -p 8081:80 $ACR_NAME.azurecr.cn/helloworld:<build-id>
 ```
 
 在浏览器中导航到 http://localhost:8081，应看见网页上显示有更新后的 Node.js 版本编号（带有“a”）：

@@ -16,11 +16,11 @@ origin.date: 12/10/2017
 ms.date: 12/25/2017
 ms.author: v-nany
 ms.openlocfilehash: 84eaec83190e41196a69f0fac215922be8544ebe
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867388"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939708"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>使用 .NET SDK 开始传送点播内容
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]

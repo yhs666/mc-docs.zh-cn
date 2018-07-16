@@ -14,11 +14,11 @@ origin.date: 11/28/2017
 ms.date: 03/19/2018
 ms.author: v-yiso
 ms.openlocfilehash: a29cf058a1dee0b1926ac0bfcdb8cd26d0f0dda0
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29870310"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939612"
 ---
 # <a name="create-a-new-azure-api-management-service-instance"></a>创建新的 Azure API 管理服务实例
 
@@ -32,13 +32,13 @@ Azure API 管理 (APIM) 可帮助组织将 API 发布给外部、合作伙伴和
 
 ## <a name="log-in-to-azure"></a>登录 Azure
 
-通过 http://portal.azure.cn 登录到 Azure 门户。
+在 http://portal.azure.cn 登录 Azure 门户。
 
 ## <a name="create-a-new-service"></a>创建新服务
 
 1. 在 [Azure 门户](https://portal.azure.cn/)中，选择“创建资源” > “企业集成” > “API 管理”。
 
-    或者，选择“新建”，在搜索框中键入 `API management`，然后按 Enter。 单击“创建”。
+    或者，选择“新建”，在搜索框中键入 `API management`，然后按 Enter。 单击**创建**。
 
 2. 在“API 管理服务”窗口中，输入设置。
 

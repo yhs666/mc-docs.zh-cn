@@ -2,25 +2,22 @@
 title: 使用 Windows PowerShell 脚本发布到开发和测试环境 | Microsoft Docs
 description: 了解如何使用 Windows PowerShell 脚本通过 Visual Studio 发布到开发和测试环境。
 services: visual-studio-online
-documentationcenter: na
 author: ghogen
 manager: douge
-editor: ''
-ms.assetid: 5fff1301-5469-4d97-be88-c85c30f837c1
-ms.service: multiple
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: multiple
+assetId: 5fff1301-5469-4d97-be88-c85c30f837c1
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: azure
+ms.topic: conceptual
 origin.date: 11/11/2016
-ms.date: 05/11/2018
+ms.date: 07/12/2018
 ms.author: v-junlch
-ms.openlocfilehash: 227f4b4ccdbbeb2a54c587e7767bdaf2f9157233
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.openlocfilehash: 7965a341e3a563eb42d5be824bc4ac975b93c111
+ms.sourcegitcommit: 5b6a2fc55e5b16ae480bd497c3ac2c3a2fd44703
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "34060328"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38999216"
 ---
 # <a name="using-windows-powershell-scripts-to-publish-to-dev-and-test-environments"></a>使用 Windows PowerShell 脚本发布到开发和测试环境
 
@@ -353,4 +350,4 @@ return $WebDeployPackage
 ## <a name="next-steps"></a>后续步骤
 请阅读[使用 Windows PowerShell 编写脚本](https://technet.microsoft.com/library/bb978526.aspx)以详细了解 PowerShell 脚本功能，并参阅[脚本中心](/automation/automation-runbook-gallery/)内的其他 Azure PowerShell 脚本。
 
-<!--Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

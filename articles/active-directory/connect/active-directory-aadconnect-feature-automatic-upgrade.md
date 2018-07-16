@@ -16,12 +16,12 @@ origin.date: 07/13/2017
 ms.date: 06/22/2018
 ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 6e5983e6d21f9045193a91561320b3a37bd92e82
-ms.sourcegitcommit: d744d18624d2188adbbf983e1c1ac1110d53275c
+ms.openlocfilehash: 7e5c545b97ca7ecdd517aa03e56fdf2031316746
+ms.sourcegitcommit: 5b6a2fc55e5b16ae480bd497c3ac2c3a2fd44703
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36314265"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38999172"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect：自动升级
 此功能是随内部版本 1.1.105.0（于 2016 年 2 月发布）一起推出的。
@@ -86,8 +86,6 @@ ms.locfileid: "36314265"
 | **UpgradeNotSupported** | |
 | UpgradeNotSupportedAdfsSignInMethod | 已选择 Adfs 作为登录方法。 | 
 | UpgradeNotSupportedCustomizedSyncRules |已将自己的自定义规则添加到配置中。 |
-| UpgradeNotSupportedDeviceWritebackEnabled |已启用设备写回功能。 |
-| UpgradeNotSupportedGroupWritebackEnabled |已启用[组写回](active-directory-aadconnect-feature-preview.md#group-writeback)功能。 |
 | UpgradeNotSupportedInvalidPersistedState |安装不是快速设置或 DirSync 升级。 |
 | UpgradeNotSupportedMetaverseSizeExceeeded |metaverse 中的对象超过 100,000 个。 |
 | UpgradeNotSupportedMultiForestSetup |正在连接到多个林。 快速设置仅连接到一个林。 |
@@ -96,7 +94,6 @@ ms.locfileid: "36314265"
 | UpgradeNotSupportedNotConfiguredSignInMethod | 在设置 AAD Connect 期间，请在选择登录方法时选择“不配置”。 | 
 | UpgradeNotSupportedPtaSignInMethod | 已选择“直通身份验证”作为登录方法。 |
 | UpgradeNotSupportedStagingModeEnabled |服务器已设置为[暂存模式](active-directory-aadconnectsync-operations.md#staging-mode)。 |
-| UpgradeNotSupportedUserWritebackEnabled |已启用[用户写回](active-directory-aadconnect-feature-preview.md#user-writeback)功能。 |
 
 ## <a name="next-steps"></a>后续步骤
 了解有关 [将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)的详细信息。

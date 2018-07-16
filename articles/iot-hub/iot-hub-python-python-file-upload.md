@@ -16,11 +16,11 @@ origin.date: 03/05/2018
 ms.date: 05/07/2018
 ms.author: v-yiso
 ms.openlocfilehash: 33205a4b91def33dade49726fb1c460710d28748
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121222"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38940000"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>使用 IoT 中心将文件从设备上传到云
 

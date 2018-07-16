@@ -17,11 +17,11 @@ ms.date: 09/04/2017
 ms.author: v-yiso
 ms.custom: mvc
 ms.openlocfilehash: 4b099f621809bbd5136133bf157a896ecd04a082
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
-ms.locfileid: "21134781"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939606"
 ---
 # <a name="create-an-aspnet-web-app-in-azure"></a>在 Azure 中创建 ASP.NET Web 应用
 
@@ -31,7 +31,7 @@ ms.locfileid: "21134781"
 
 ## <a name="prerequisites"></a>先决条件
 
-若要完成本教程，需执行以下操作：
+完成本教程：
 
 * 使用以下工作负荷安装 [Visual Studio 2017](https://www.visualstudio.com/downloads/)：
     - **ASP.NET 和 Web 开发**
@@ -77,7 +77,7 @@ ms.locfileid: "21134781"
 
 ## <a name="sign-in-to-azure"></a>登录 Azure
 
-在“创建应用服务”对话框中，选择“添加帐户”，然后登录到 Azure 订阅。 如果已登录，请从下拉列表中选择包含所需订阅的帐户。
+在“创建应用服务”对话框中，选择“添加帐户”，然后登录到你的 Azure 订阅。 如果已登录，请从下拉列表中选择包含所需订阅的帐户。
 
 > [!NOTE]
 > 如果已经登录，请先不要选择“创建”。
@@ -124,7 +124,7 @@ ms.locfileid: "21134781"
 
 ![已在 Azure 中发布的 ASP.NET Web 应用](./media/app-service-web-get-started-dotnet/published-azure-web-app.png)
 
-将[创建和发布步骤](#create-and-publish-the-web-app)中指定的 Web 应用名称用作 `http://<app_name>.chinacloudsites.cn` 格式的 URL 前缀。
+在[创建和发布步骤](#create-and-publish-the-web-app)中指定的 Web 应用名称用作 `http://<app_name>.chinacloudsites.cn` 格式的 URL 前缀。
 
 恭喜，你的 ASP.NET Web 应用已在 Azure 应用服务中实时运行！
 

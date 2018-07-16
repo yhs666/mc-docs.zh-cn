@@ -20,7 +20,7 @@
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)（如果未登录）。
 2. 单击“创建资源” > “计算”。
-3. 选择要使用的应用商店虚拟机映像。 可以选择创建 Linux 或 Windows 虚拟机。
+3. 选择要使用的市场虚拟机映像。 可以选择创建 Linux 或 Windows 虚拟机。
 4. 对于所选的虚拟机，确认部署模型已设置为“经典”，然后单击“创建”
 
     ![Alt 图像文本](./media/virtual-machines-common-classic-configure-availability/ChooseClassicModel.png)

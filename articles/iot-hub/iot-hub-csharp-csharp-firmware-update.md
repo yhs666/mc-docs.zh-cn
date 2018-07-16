@@ -16,11 +16,11 @@ origin.date: 10/19/2017
 ms.date: 07/09/2018
 ms.author: v-yiso
 ms.openlocfilehash: 54a950c542de780186b9b011cfcb7fe284082b30
-ms.sourcegitcommit: 039d75a641edc2edd13a9371251051c20fea2bb7
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103391"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939805"
 ---
 # <a name="use-device-management-to-initiate-a-device-firmware-update-netnet"></a>使用设备管理启动设备固件更新 (.NET/.NET)
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]

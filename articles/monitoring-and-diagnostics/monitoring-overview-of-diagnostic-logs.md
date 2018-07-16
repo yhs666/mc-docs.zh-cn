@@ -2,25 +2,18 @@
 title: Azure 诊断日志概述
 description: 了解什么是 Azure 诊断日志，以及如何使用该诊断日志了解发生在 Azure 资源内的事件。
 author: johnkemnetz
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: fe8887df-b0e6-46f8-b2c0-11994d28e44f
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-origin.date: 04/04/2018
-ms.date: 05/14/2018
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
+origin.date: 06/07/2018
+ms.date: 07/23/2018
 ms.author: v-yiso
-ms.openlocfilehash: d14f83823f10843f1dd7ddd253974020f5ac6e59
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: 01a8efcadba4f2083c4be679649dc919810c51e9
+ms.sourcegitcommit: 479954e938e4e3469d6998733aa797826e4f300b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33815211"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39031740"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>从 Azure 资源收集和使用日志数据
 
@@ -45,6 +38,9 @@ ms.locfileid: "33815211"
 * [将诊断日志流式传输到**事件中心**](monitoring-stream-diagnostic-logs-to-event-hubs.md)，方便第三方服务或自定义分析解决方案（例如 PowerBI）引入。
 
 可以使用与发出日志的订阅不同的订阅中的存储帐户或事件中心命名空间。 配置设置的用户必须对这两个订阅具有相应的 RBAC 访问权限。
+
+> [!NOTE]
+>  当前无法将数据存档到安全虚拟网络中的存储帐户。
 
 ## <a name="resource-diagnostic-settings"></a>资源诊断设置
 非计算资源的资源诊断日志是使用资源诊断设置配置的。 资源控制的**资源诊断设置**：

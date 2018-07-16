@@ -13,11 +13,11 @@ origin.date: 08/22/2017
 ms.date: 07/02/2018
 ms.author: v-yeche
 ms.openlocfilehash: 63e3610f6787e79f01176b73c5a6b89d1afbeba6
-ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37070257"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939835"
 ---
 # <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>使用 Azure Cosmos DB 和 SQL API 构建 Java Web 应用程序
 > [!div class="op_single_selector"]

@@ -17,11 +17,11 @@ origin.date: 11/02/2017
 ms.date: 12/04/2017
 ms.author: dobett
 ms.openlocfilehash: 29e9965a57fae1217f91a79fee31087cb39a7ef2
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
-ms.locfileid: "25592546"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939701"
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-preconfigured-solution-nodejs"></a>将设备连接到远程监视预配置解决方案 (Node.js)
 [!INCLUDE [iot-suite-v1-selector-connecting](../../includes/iot-suite-v1-selector-connecting.md)]
@@ -184,7 +184,7 @@ ms.locfileid: "25592546"
     * 设置所需属性的处理程序。
     * 发送报告的属性。
     * 为直接方法注册处理程序。
-    * 开始发送遥测数据。
+    * 开始发送遥测。
 
     ```nodejs
     client.open(function (err) {
@@ -246,7 +246,7 @@ ms.locfileid: "25592546"
 
 1. 保存对 **remote_monitoring.js** 文件的更改。
 
-1. 在命令提示符下运行以下命令，启动示例应用程序：
+1. 在命令提示符处运行以下命令，启动示例应用程序：
    
     ```
     node remote_monitoring.js

@@ -15,11 +15,11 @@ origin.date: 03/22/2018
 ms.date: 05/25/2018
 ms.author: v-junlch
 ms.openlocfilehash: 363c3aca2e2423df27bfd7c84b00b0015c9bc488
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554666"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939530"
 ---
 # <a name="how-to-use-the-redis-command-line-tool-with-azure-redis-cache"></a>如何将 Redis 命令行工具与 Azure Redis 缓存配合使用
 

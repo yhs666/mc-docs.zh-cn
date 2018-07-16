@@ -10,12 +10,12 @@ origin.date: 03/03/2018
 ms.date: 07/02/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 6e2a86c640b25973921bf21ba7c2caf82fa9ddef
-ms.sourcegitcommit: 2cf6961f692f318ce7034e7b4d994ee51d902199
+ms.openlocfilehash: c2b9fc49921a48054bbe2888fc904b4f316a4ba9
+ms.sourcegitcommit: 5b6a2fc55e5b16ae480bd497c3ac2c3a2fd44703
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36947682"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38999178"
 ---
 # <a name="quickstart-create-a-container-registry-using-the-azure-portal"></a>快速入门：使用 Azure 门户创建容器注册表
 
@@ -88,7 +88,7 @@ docker push <login server>/aci-helloworld:v1
 成功的 `docker push` 命令的输出类似于：
 
 ```
-The push refers to a repository [uniqueregistryname.azurecr.io/aci-helloworld]
+The push refers to a repository [uniqueregistryname.azurecr.cn/aci-helloworld]
 7c701b1aeecd: Pushed
 c4332f071aa2: Pushed
 0607e25cc175: Pushed

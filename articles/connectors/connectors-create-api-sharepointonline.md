@@ -17,11 +17,11 @@ origin.date: 07/19/2016
 ms.author: v-yiso
 ms.date: 03/26/2018
 ms.openlocfilehash: b0762c3592e85d71314dfea0abf40ffc167b7796
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30072731"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939827"
 ---
 # <a name="get-started-with-the-sharepoint-online-connector"></a>SharePoint Online 连接器入门
 使用 SharePoint Online 连接器管理 SharePoint 列表。  

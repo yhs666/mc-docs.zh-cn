@@ -10,10 +10,11 @@ ms.date: 05/07/2018
 ms.author: v-yeche
 ms.custom: include file
 ms.openlocfilehash: 2a5f6f4d5164bfbdb463d902a85d7b753d8ddcbd
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38940303"
 ---
 > [!div class="op_single_selector"]
 > * [Azure 门户](../articles/virtual-network/virtual-network-multiple-ip-addresses-portal.md)

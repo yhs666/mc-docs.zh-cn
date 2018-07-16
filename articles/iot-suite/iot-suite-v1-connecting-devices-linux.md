@@ -17,11 +17,11 @@ origin.date: 11/02/2017
 ms.date: 12/04/2017
 ms.author: v-yiso
 ms.openlocfilehash: abe69baa5f28730f6aafaa9b4480fb19a1199666
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
-ms.locfileid: "25592518"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939711"
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-preconfigured-solution-linux"></a>将设备连接到远程监视预配置解决方案 (Linux)
 [!INCLUDE [iot-suite-v1-selector-connecting](../../includes/iot-suite-v1-selector-connecting.md)]
