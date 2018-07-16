@@ -17,11 +17,11 @@ ms.date: 07/02/2018
 ms.author: v-yiso
 ms.custom: mvc
 ms.openlocfilehash: 19c081e54745840881845b5fddaf7ba24ce352ab
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315612"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939332"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-web-apps"></a>教程：将现有的自定义 DNS 名称映射到 Azure Web 应用
 
