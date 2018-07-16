@@ -16,11 +16,11 @@ origin.date: 05/16/2018
 ms.date: 07/09/2018
 ms.author: v-yeche
 ms.openlocfilehash: c5f11192e540cd9ff272ad7b650d0160c0abd7e1
-ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37405393"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939276"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>使用标记整理 Azure 资源
 

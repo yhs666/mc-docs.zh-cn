@@ -17,11 +17,11 @@ origin.date: 07/22/2016
 ms.author: v-yiso
 ms.date: 03/26/2018
 ms.openlocfilehash: 148d6374b4bf90c9ad160ff34f8bc4af27299f97
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30072532"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939466"
 ---
 # <a name="get-started-with-the-ftp-connector"></a>FTP 连接器入门
 使用 FTP 连接器在 FTP 服务器上监视、管理和创建文件。 

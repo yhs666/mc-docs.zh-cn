@@ -17,15 +17,15 @@ origin.date: 08/24/2017
 ms.date: 10/16/2017
 ms.author: v-yiso
 ms.openlocfilehash: 7aaa0f6688a8dd35ead3183f0d51942681502495
-ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
-ms.locfileid: "22338910"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939410"
 ---
 # <a name="create-a-custom-rule-in-the-remote-monitoring-preconfigured-solution"></a>在远程监视预配置解决方案中创建自定义规则
 
-## <a name="introduction"></a>介绍
+## <a name="introduction"></a>简介
 
 在预配置解决方案中，可以配置 [在设备的遥测值达到特定阈值时触发的规则][lnk-builtin-rule]。 [配合使用动态遥测和远程监视预配置解决方案][lnk-dynamic-telemetry]说明了如何向解决方案添加自定义遥测值，如 ExternalTemperature。 本文演示如何在解决方案中为动态遥测类型创建自定义规则。
 

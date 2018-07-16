@@ -15,11 +15,11 @@ origin.date: 02/13/2018
 ms.author: v-yiso
 ms.date: 05/14/2018
 ms.openlocfilehash: 767de77b9954297ecf8c0387b406f375c798f689
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33814926"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939326"
 ---
 # <a name="how-to-create-and-use-groups-to-manage-developer-accounts-in-azure-api-management"></a>如何创建和使用组来管理 Azure API 管理中的开发人员帐户
 在 API 管理中，使用组来管理产品对开发人员的可见性。 产品首次对组可见，然后这些组中的开发人员才能查看和订阅与组关联的产品。 

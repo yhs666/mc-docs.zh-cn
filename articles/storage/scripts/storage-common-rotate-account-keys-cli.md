@@ -17,11 +17,11 @@ origin.date: 06/22/2017
 ms.date: 10/23/2017
 ms.author: v-johch
 ms.openlocfilehash: 533f3b3481d5ebe5bbfa6180608ef159c2aa7102
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29870856"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939364"
 ---
 # <a name="create-a-storage-account-and-rotate-its-account-access-keys"></a>创建存储帐户并轮换其帐户访问密钥
 

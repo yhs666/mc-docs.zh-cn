@@ -17,11 +17,11 @@ origin.date: 09/14/2017
 ms.author: v-yiso
 ms.date: 07/02/2018
 ms.openlocfilehash: 48298f0b28754573424513672673c1358ead0209
-ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37405205"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939561"
 ---
 # <a name="connect-to-data-sources-on-premises-from-logic-apps-with-on-premises-data-gateway"></a>通过本地数据网关，从逻辑应用连接到本地数据源
 

@@ -17,11 +17,11 @@ origin.date: 07/15/2016
 ms.author: v-yiso
 ms.date: 04/23/2018
 ms.openlocfilehash: 6a2ee7497e749e05e08f7f5c254c64581cad9739
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31319136"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939463"
 ---
 # <a name="get-started-with-the-smtp-connector"></a>SMTP 连接器入门
 连接到 SMTP 以发送电子邮件。

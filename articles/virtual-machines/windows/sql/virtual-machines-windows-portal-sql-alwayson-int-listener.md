@@ -16,11 +16,11 @@ origin.date: 02/16/2017
 ms.date: 05/14/2018
 ms.author: v-yeche
 ms.openlocfilehash: 00ff1a3e5c683dba4daf445c5415dba73c019cea
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34568790"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939292"
 ---
 # <a name="configure-a-load-balancer-for-an-always-on-availability-group-in-azure"></a>在 Azure 中为 Always On 可用性组配置负载均衡器
 本文说明如何在使用 Azure Resource Manager 运行的 Azure 虚拟机中为 SQL Server Always On 可用性组创建负载均衡器。 当 SQL Server 实例位于 Azure 虚拟机时，可用性组需要负载均衡器。 负载均衡器存储可用性组侦听器的 IP 地址。 如果可用性组跨多个区域，则每个区域都需要一个负载均衡器。
@@ -77,7 +77,7 @@ ms.locfileid: "34568790"
    | **资源组** |选择 SQL Server 实例所在的资源组。 |
    | **位置** |选择 SQL Server 实例所在的 Azure 位置。 |
 
-6. 单击“创建”。 
+6. 单击**创建**。 
 
 Azure 创建负载均衡器。 该负载均衡器属于特定的网络、子网、资源组和位置。 在 Azure 完成任务后，请在 Azure 中验证负载均衡器设置。 
 

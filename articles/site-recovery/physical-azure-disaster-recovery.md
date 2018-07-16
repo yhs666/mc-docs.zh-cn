@@ -10,11 +10,11 @@ origin.date: 03/08/2018
 ms.date: 05/07/2018
 ms.author: v-yeche
 ms.openlocfilehash: 78d02b88d904d3f55b2696984cf102b26b34ea07
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33815214"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939299"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>针对本地物理服务器设置到 Azure 的灾难恢复
 

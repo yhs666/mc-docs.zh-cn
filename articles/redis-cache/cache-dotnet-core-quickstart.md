@@ -13,27 +13,19 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: dotnet
 ms.topic: quickstart
 origin.date: 05/18/2018
-ms.date: 05/25/2018
+ms.date: 07/10/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: c3110f9718f60fb9507a43d913b191104a348245
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: e009b98591fe0e648b345ac5af69eceae62468c0
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554689"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939251"
 ---
 # <a name="quickstart-use-azure-redis-cache-with-a-net-core-app"></a>快速入门：将 Azure Redis 缓存与 .NET Core 应用配合使用
 
-> [!div class="op_single_selector"]
-> * [.NET Core](cache-dotnet-core-quickstart.md)
-> * [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
-> * [ASP.NET](cache-web-app-howto.md)
-> * [Node.js](cache-nodejs-get-started.md)
-> * [Java](cache-java-get-started.md)
-> * [Python](cache-python-get-started.md)
-> 
-> 
+
 
 本快速入门展示了如何开始将 Azure Redis 缓存与 .NET Core 配合使用。 Azure Redis 缓存基于流行的开源 Redis 缓存。 它让你访问 Microsoft 管理的安全专用的 Redis 缓存。 可以通过 Azure 中的任何应用程序访问使用 Azure Redis 缓存创建的缓存。
 
@@ -320,11 +312,11 @@ dotnet run
 > 删除资源组的操作不可逆，资源组以及其中的所有资源将被永久删除。 请确保不会意外删除错误的资源组或资源。 如果在现有资源组（其中包含要保留的资源）中为托管此示例而创建了相关资源，可从各自的边栏选项卡逐个删除这些资源，而不要删除资源组。
 >
 
-登录到 [Azure 门户](https://portal.azure.cn)，然后单击“资源组”。
+登录到 [Azure 门户](https://portal.azure.cn)，并单击“资源组”。
 
 在“按名称筛选...”文本框中键入资源组的名称。 本文的说明使用了名为 *TestResources* 的资源组。 在结果列表中的资源组上，单击“...”，然后单击“删除资源组”。
 
-![Delete](./media/cache-dotnet-core-quickstart/cache-delete-resource-group.png)
+![删除](./media/cache-dotnet-core-quickstart/cache-delete-resource-group.png)
 
 系统会要求确认是否删除资源组。 键入资源组的名称进行确认，然后单击“删除”。
 
@@ -345,3 +337,4 @@ dotnet run
 
 
 
+<!-- Update_Description: wording update -->

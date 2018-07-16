@@ -13,11 +13,11 @@ origin.date: 06/05/2018
 ms.date: 07/02/2018
 ms.author: v-yeche
 ms.openlocfilehash: 5fb08a1ec6ee7c6d01472a40f0c2a0a1c284479d
-ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37070162"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939422"
 ---
 # <a name="azure-cosmos-db-c-console-application-tutorial-for-the-sql-api"></a>Azure Cosmos DB：SQL API 的 C++ 控制台 应用程序教程
 > [!div class="op_single_selector"]

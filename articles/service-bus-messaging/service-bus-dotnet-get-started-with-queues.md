@@ -16,11 +16,11 @@ origin.date: 12/07/2017
 ms.author: v-yiso
 ms.date: 01/08/2018
 ms.openlocfilehash: e84140c53fe06630f01459ff84e08f72074e2f81
-ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
-ms.locfileid: "27548353"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939309"
 ---
 # <a name="get-started-with-service-bus-queues"></a>服务总线队列入门
 

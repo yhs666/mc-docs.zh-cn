@@ -19,11 +19,11 @@ ms.date: 04/11/2018
 ms.author: v-junlch
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 714b2a6bb79aa97844f4fd1e3591c6c7ceb10467
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31359518"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939325"
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>使用 Visual Studio 创建你的第一个函数
 

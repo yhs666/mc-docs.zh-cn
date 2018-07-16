@@ -17,11 +17,11 @@ origin.date: 01/24/2018
 ms.date: 03/12/2018
 ms.author: v-yiso
 ms.openlocfilehash: 26c58f1c34034941f493fd80e966ebbb052f3320
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
-ms.locfileid: "29730794"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939417"
 ---
 # <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-preconfigured-solution-nodejs"></a>将 Raspberry Pi 设备连接到远程监视预配置解决方案 (Node.js)
 

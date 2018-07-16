@@ -17,11 +17,11 @@ origin.date: 08/18/2016
 ms.author: v-yiso
 ms.date: 03/26/2018
 ms.openlocfilehash: 585a4b4c73931ccd49d2d8a3865777aabfb548e6
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30072525"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939460"
 ---
 # <a name="get-started-with-the-sendgrid-connector"></a>SendGrid 连接器入门
 SendGrid Connection 提供程序可使你发送电子邮件和管理收件人列表。

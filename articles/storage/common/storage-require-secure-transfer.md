@@ -16,11 +16,11 @@ origin.date: 06/20/2017
 ms.date: 10/30/2017
 ms.author: v-johch
 ms.openlocfilehash: 3d0d775e20e6c4cffd73941ad10ba1c265839d22
-ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103081"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939371"
 ---
 # <a name="require-secure-transfer-in-azure-storage"></a>在 Azure 存储中需要安全传输
 

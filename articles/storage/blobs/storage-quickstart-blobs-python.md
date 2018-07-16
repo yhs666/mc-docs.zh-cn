@@ -11,11 +11,11 @@ origin.date: 04/09/2018
 ms.date: 06/11/2018
 ms.author: v-nany
 ms.openlocfilehash: 64118abb378a685cc959118c758b6193c223828d
-ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36270081"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939284"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-python"></a>快速入门：使用 Python 上传、下载和列出 Blob
 

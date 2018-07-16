@@ -11,11 +11,11 @@ origin.date: 03/15/2018
 ms.date: 03/20/2018
 ms.author: v-nany
 ms.openlocfilehash: 2982bc5c1ecfba01fa01cf28e0220f653dbc6594
-ms.sourcegitcommit: 891a55be3e7500051f88ca89cb6d6d9604554ec3
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2018
-ms.locfileid: "30260364"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939470"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>创建独立的 Azure 自动化帐户
 本文介绍如何在 Azure 门户中创建 Azure 自动化帐户。 可以使用门户自动化帐户来评估和了解自动化，而无需使用其他管理解决方案。 以后随时可以添加这些管理解决方案或者与 Log Analytics 集成，以获得高级的 Runbook 作业监视。 
@@ -53,7 +53,8 @@ ms.locfileid: "30260364"
 
 1. 使用帐户登录到 Azure 门户，该帐户应当是订阅管理员角色的成员并且是订阅的共同管理员。
 2. 选择“+ 创建资源”。
-3. 搜索“自动化”。 在搜索结果中，选择“自动化”。<br><br> ![在 Azure Marketplace 中搜索并选择“自动化与控制”](media/automation-create-standalone-account/automation-marketplace-select-create-automationacct.png)<br> 
+3. 搜索“自动化”。 在搜索结果中，选择“自动化”。<br><br> 
+  ![在 Azure 市场中搜索并选择“自动化与控制”](media/automation-create-standalone-account/automation-marketplace-select-create-automationacct.png)<br> 
 4. 在下一个屏幕上选择“创建”。
   ![添加自动化帐户](media/automation-create-standalone-account/automation-create-automationacct-properties.png)
   

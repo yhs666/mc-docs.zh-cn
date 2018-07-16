@@ -17,16 +17,16 @@ origin.date: 10/05/2016
 ms.author: v-yiso
 ms.date: 03/26/2018
 ms.openlocfilehash: 13e3ff05cbcad2a5590b2c0a5ceb13da10764e05
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30072519"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939560"
 ---
 # <a name="get-started-with-the-salesforce-connector"></a>Salesforce 连接器入门
 Salesforce Connector 提供使用 Salesforce 对象的 API。
 
-若要使用[任何连接器](apis-list.md)，首先需要创建逻辑应用。 可通过 [立即创建逻辑应用](../logic-apps/quickstart-create-first-logic-app-workflow.md) 开始操作。
+若要使用“任何连接器”[](apis-list.md)，首先需要创建逻辑应用。 可通过 [立即创建逻辑应用](../logic-apps/quickstart-create-first-logic-app-workflow.md) 开始操作。
 
 ## <a name="connect-to-salesforce-connector"></a>连接到 Salesforce 连接器
 在逻辑应用访问任何服务之前，必须先创建到该服务的*连接*。 [连接](connectors-overview.md)提供逻辑应用和其他服务之间的连接性。  

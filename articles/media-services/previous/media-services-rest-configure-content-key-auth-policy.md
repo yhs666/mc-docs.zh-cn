@@ -16,11 +16,11 @@ origin.date: 12/07/2017
 ms.date: 1/22/2018
 ms.author: v-nany
 ms.openlocfilehash: 30d8ad3d836873d8360484d5db5f191116014009
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867424"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939412"
 ---
 # <a name="dynamic-encryption-configure-a-content-key-authorization-policy"></a>动态加密：配置内容密钥授权策略
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]

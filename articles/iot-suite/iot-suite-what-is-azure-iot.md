@@ -17,11 +17,11 @@ origin.date: 11/10/2017
 ms.author: v-yiso
 ms.date: 12/04/2017
 ms.openlocfilehash: 364841b217f557de3c80150a9574fb6e474da323
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
-ms.locfileid: "25592197"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939414"
 ---
 [!INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 

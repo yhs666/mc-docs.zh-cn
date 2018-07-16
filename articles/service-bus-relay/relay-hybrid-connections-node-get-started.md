@@ -16,11 +16,11 @@ origin.date: 05/02/2018
 ms.author: v-yiso
 ms.date: 06/04/2018
 ms.openlocfilehash: 069a980b366c0527cc727b81f1d365d1fb78704b
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554411"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939308"
 ---
 # <a name="get-started-with-relay-hybrid-connections-websockets-in-node"></a>开始在 Node 中使用中继混合连接 Websocket
 

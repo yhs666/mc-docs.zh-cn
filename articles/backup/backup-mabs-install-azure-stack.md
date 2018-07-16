@@ -16,11 +16,11 @@ origin.date: 06/05/2018
 ms.date: 07/05/2018
 ms.author: v-junlch
 ms.openlocfilehash: 12fbd7afd90ff5d23b8c61e1e0136b1f0e1f83ff
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873760"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939265"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>在 Azure Stack 上安装 Azure 备份服务器
 

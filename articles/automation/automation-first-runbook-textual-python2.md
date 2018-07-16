@@ -11,11 +11,11 @@ origin.date: 03/16/2018
 ms.date: 05/14/2018
 ms.author: v-nany
 ms.openlocfilehash: b496fb76397a55cff8b8b35bbda880571fda4cb2
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "33937548"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939906"
 ---
 # <a name="my-first-python-runbook"></a>我的第一个 Python Runbook
 

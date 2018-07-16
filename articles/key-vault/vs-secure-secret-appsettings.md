@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
 origin.date: 11/09/2017
-ms.date: 05/16/2018
+ms.date: 07/10/2018
 ms.author: v-junlch
-ms.openlocfilehash: 53d22c6cfefdc30fa3c866256b4dc3eff8419ea9
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.openlocfilehash: 36c4bb1e4f0efeb4f5292e98c90560d69dc40c5c
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34256105"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939419"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>安全地保存 Web 应用的密钥应用程序设置
 
@@ -158,7 +158,7 @@ Microsoft.Configuration.ConfigurationBuilders.UserSecrets.1.0.0-preview2.nupkg
     </configSections>
     <configBuilders>
         <builders>
-            <add name="KeyVault" vaultName="Test911" type="Microsoft.Configuration.ConfigurationBuilders.AzureKeyVaultConfigBuilder, ConfigurationBuilders, Version=1.0.0.0, Culture=neutral" />
+            <add name="AzureKeyVault" vaultName="Test911" type="Microsoft.Configuration.ConfigurationBuilders.AzureKeyVaultConfigBuilder, ConfigurationBuilders, Version=1.0.0.0, Culture=neutral" />
         </builders>
     </configBuilders>
     ```
@@ -176,4 +176,4 @@ Microsoft.Configuration.ConfigurationBuilders.UserSecrets.1.0.0-preview2.nupkg
 
 4. 开始调试项目。 它应已成功运行。
 
-<!--Update_Description: code and link update -->
+<!--Update_Description: code update -->

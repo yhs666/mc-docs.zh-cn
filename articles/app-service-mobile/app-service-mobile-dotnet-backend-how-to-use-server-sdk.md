@@ -17,11 +17,11 @@ origin.date: 10/01/2016
 ms.author: v-yiso
 ms.date: 01/29/2018
 ms.openlocfilehash: 4cba0d9f469a174c8f285149af9095fcd773bdf2
-ms.sourcegitcommit: 794b9caca1147f1891513410dd61435708ef85ec
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34855406"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939337"
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>使用适用于 Azure 移动应用的 .NET 后端服务器 SDK
 

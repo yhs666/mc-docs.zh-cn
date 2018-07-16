@@ -18,11 +18,11 @@ ms.date: 06/18/2018
 ms.author: v-yeche
 ms:custom: mvc
 ms.openlocfilehash: 274d92ba4195b377f7abf6cef89d64aa5feb0b0c
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "35416909"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939403"
 ---
 <a name="get-started"></a>
 # <a name="quickstart-create-a-public-load-balancer-using-azure-powershell"></a>快速入门：使用 Azure PowerShell 创建公共负载均衡器

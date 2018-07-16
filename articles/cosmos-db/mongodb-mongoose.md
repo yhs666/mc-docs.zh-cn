@@ -12,11 +12,11 @@ origin.date: 01/08/2018
 ms.date: 07/02/2018
 ms.author: v-yeche
 ms.openlocfilehash: b6e6f5897d4b9889d06e74b9d410afdd80277498
-ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37070139"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939423"
 ---
 # <a name="azure-cosmos-db-using-the-mongoose-framework-with-azure-cosmos-db"></a>Azure Cosmos DB：将 Mongoose 框架与 Azure Cosmos DB 配合使用
 

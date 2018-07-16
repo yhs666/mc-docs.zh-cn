@@ -18,11 +18,11 @@ origin.date: 11/07/2016
 ms.author: v-yiso
 ms.date: 03/26/2018
 ms.openlocfilehash: 18c9d8d7819fa581829dd6daa777324104405685
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30072516"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939446"
 ---
 # <a name="get-started-with-the-microsoft-translator-connector"></a>Microsoft Translator 连接器入门
 连接到 Microsoft Translator，翻译文本、检测语言等。 通过 Microsoft Translator，可以： 

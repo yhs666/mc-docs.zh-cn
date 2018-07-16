@@ -16,11 +16,11 @@ origin.date: 02/22/2018
 ms.author: v-yiso
 ms.date: 03/12/2018
 ms.openlocfilehash: 01184d73e3ffd07abaaf241ef543da11eb55921f
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
-ms.locfileid: "29730798"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939377"
 ---
 # <a name="create-a-service-bus-namespace-using-the-azure-portal"></a>使用 Azure 门户创建服务总线命名空间。
 

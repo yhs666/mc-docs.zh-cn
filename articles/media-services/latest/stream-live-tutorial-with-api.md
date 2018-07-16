@@ -16,11 +16,11 @@ origin.date: 06/06/2018
 ms.date: 06/25/2018
 ms.author: v-jay
 ms.openlocfilehash: 4cc5ea8e81c6d25024949fd7c53d1f4351189072
-ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36748520"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939250"
 ---
 # <a name="stream-live-with-azure-media-services-v3-using-net-core"></a>使用 .NET Core 通过 Azure 媒体服务 v3 进行实时流式传输
 

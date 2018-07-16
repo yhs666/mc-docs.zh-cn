@@ -17,11 +17,11 @@ origin.date: 09/14/2017
 ms.author: v-yiso
 ms.date: 07/02/2018
 ms.openlocfilehash: e3596489e4865d56527ee8925c0a8bd73eff5ce5
-ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37405233"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939971"
 ---
 # <a name="install-the-on-premises-data-gateway-for-azure-logic-apps"></a>为 Azure 逻辑应用安装本地数据网关
 

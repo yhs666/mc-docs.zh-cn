@@ -16,11 +16,11 @@ origin.date: 05/22/2017
 ms.date: 06/04/2018
 ms.author: v-yeche
 ms.openlocfilehash: b282228ef9a4674689dbb219872985081421c3e7
-ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37405293"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38940076"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>配置一个或多个 Always On 可用性组侦听器 - Resource Manager
 本主题说明如何：

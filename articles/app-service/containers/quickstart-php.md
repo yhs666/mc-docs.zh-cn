@@ -17,11 +17,11 @@ ms.author: v-yiso
 ms.custom: mvc
 ms.date: 10/16/2017
 ms.openlocfilehash: 62dc8aa717bde3d0dca2ed12e3d6bcfb0a2027ff
-ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
-ms.locfileid: "22339072"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939907"
 ---
 # <a name="create-a-php-web-app-in-a-linux-container-in-azure"></a>在 Azure 的 Linux 容器中创建 PHP Web 应用
 
@@ -61,7 +61,7 @@ php -S localhost:8080
 
 此时会看到“Hello World!” 消息（来自页面中显示的示例应用）。
 
-![在本地运行的示例应用](media/quickstart-php/localhost-hello-world-in-browser.png)
+![本地运行应用的示例](media/quickstart-php/localhost-hello-world-in-browser.png)
 
 在终端窗口中，按 **Ctrl+C** 退出 Web 服务器。
 
@@ -124,7 +124,7 @@ http://<app_name>.chinacloudsites.cn
 
 PHP 示例代码正在 Azure 应用服务 Web 应用中运行。
 
-![在 Azure 中运行的示例应用](media/quickstart-php/hello-world-in-browser.png)
+![在 Azure 中运行应用的示例](media/quickstart-php/hello-world-in-browser.png)
 
 **祝贺你！** 现已将第一个 PHP 应用部署到应用服务。
 

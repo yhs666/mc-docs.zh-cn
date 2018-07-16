@@ -17,11 +17,11 @@ origin.date: 11/27/2017
 ms.date: 06/04/2018
 ms.author: v-yeche
 ms.openlocfilehash: 10570331e9b86682f25d5b0e16aab18b6ccec22d
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702789"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939289"
 ---
 # <a name="tutorial-install-a-lemp-web-server-on-a-linux-virtual-machine-in-azure"></a>教程：在 Azure 中的 Linux 虚拟机上安装 LEMP Web 服务器
 

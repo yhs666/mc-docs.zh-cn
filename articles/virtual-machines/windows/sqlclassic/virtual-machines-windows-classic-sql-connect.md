@@ -17,11 +17,11 @@ ms.date: 03/19/2018
 ms.author: v-yeche
 experimental_id: d51f3cc6-753b-4e
 ms.openlocfilehash: 7469c671f7d513442d71bf051e46f0ef8d5865c8
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
-ms.locfileid: "29965208"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939368"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>连接到 Azure 上的 SQL Server 虚拟机（经典部署）
 > [!div class="op_single_selector"]

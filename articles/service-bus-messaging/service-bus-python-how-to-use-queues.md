@@ -16,11 +16,11 @@ origin.date: 04/30/2018
 ms.author: v-yiso
 ms.date: 06/04/2018
 ms.openlocfilehash: c8a8f0473db459406e2189ee1bb577b699f114e7
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695113"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939293"
 ---
 # <a name="how-to-use-service-bus-queues-with-python"></a>如何通过 Python 使用服务总线队列
 

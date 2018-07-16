@@ -14,13 +14,13 @@ ms.devlang: multiple
 ms.topic: article
 origin.date: 10/30/2016
 ms.author: v-yiso
-ms.date: 01/29/2018
-ms.openlocfilehash: 4443c028222a5a4376e0b4f2da18316372a00b5d
-ms.sourcegitcommit: a20b3fbe305d3bb4b6ddfdae98b3e0ab8a79bbfa
+ms.date: 07/23/2018
+ms.openlocfilehash: 22e7f1de66d37e316e128a4139e32e82b592b17f
+ms.sourcegitcommit: 479954e938e4e3469d6998733aa797826e4f300b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/22/2018
-ms.locfileid: "27984790"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39031753"
 ---
 # <a name="offline-data-sync-in-azure-mobile-apps"></a>Azure 移动应用中的脱机数据同步
 ## <a name="what-is-offline-data-sync"></a>什么是脱机数据同步？
@@ -38,9 +38,9 @@ ms.locfileid: "27984790"
 
 以下教程说明如何使用 Azure 移动应用将脱机同步添加到移动客户端：
 
-* [Android: Enable offline sync（Android：启用脱机同步）]
+* [Android：启用脱机同步]
 * [Apache Cordova：启用脱机同步](./app-service-mobile-cordova-get-started-offline-data.md)
-* [iOS: Enable offline sync（iOS：启用脱机同步）]
+* [iOS：启用脱机同步]
 * [Xamarin iOS: Enable offline sync（Xamarin iOS：启用脱机同步）]
 * [Xamarin Android: Enable offline sync（Xamarin Android：启用脱机同步）]
 * [Xamarin.Forms：启用脱机同步](./app-service-mobile-xamarin-forms-get-started-offline-data.md)
@@ -54,7 +54,7 @@ ms.locfileid: "27984790"
 ## <a name="what-is-a-local-store"></a>什么是本地存储？
 本地存储是客户端设备上的数据持久层。 Azure 移动应用客户端 SDK 提供默认的本地存储实现。 在 Windows、Xamarin 和 Android 上，它基于 SQLite。 在 iOS 上，它基于核心数据。
 
-若要在 Windows Phone 或 Windows 应用商店 8.1 中使用基于 SQLite 的实现，需要安装 SQLite 扩展。 有关详细信息，请参阅 [通用 Windows 平台：启用脱机同步]。Android 和 iOS 设备的操作系统本身包含 SQLite 版本，因此不需要引用自己的 SQLite 版本。
+若要在 Windows Phone 或 Microsoft Store 中使用基于 SQLite 的实现，需要安装 SQLite 扩展。 有关详细信息，请参阅 [通用 Windows 平台：启用脱机同步]。Android 和 iOS 设备的操作系统本身包含 SQLite 版本，因此不需要引用自己的 SQLite 版本。
 
 开发人员也可以实现自己的本地存储。 例如，如果希望将数据以加密格式存储在移动客户端上，可以定义使用 SQLCipher 进行加密的本地存储。
 
@@ -93,15 +93,15 @@ ms.locfileid: "27984790"
   客户端包含陈旧数据的示例：假设在“待办事项列表”示例中，Device1 只拉取未完成的项。 “购买牛奶”待办事项由其他设备在服务器上标记为已完成。 但是，Device1 在本地存储中仍有“购买牛奶”待办事项，因为它只拉取未标记为已完成的项。 清除操作会清除这条陈旧项。
 
 ## <a name="next-steps"></a>后续步骤
-* [iOS: Enable offline sync（iOS：启用脱机同步）]
+* [iOS：启用脱机同步]
 * [Xamarin iOS: Enable offline sync（Xamarin iOS：启用脱机同步）]
 * [Xamarin Android: Enable offline sync（Xamarin Android：启用脱机同步）]
 * [通用 Windows 平台：启用脱机同步]
 
 <!-- Links -->
 [.NET 客户端 SDK]: ./app-service-mobile-dotnet-how-to-use-client-library.md
-[Android: Enable offline sync（Android：启用脱机同步）]: ./app-service-mobile-android-get-started-offline-data.md
-[iOS: Enable offline sync（iOS：启用脱机同步）]: ./app-service-mobile-ios-get-started-offline-data.md
+[Android：启用脱机同步]: ./app-service-mobile-android-get-started-offline-data.md
+[iOS：启用脱机同步]: ./app-service-mobile-ios-get-started-offline-data.md
 [Xamarin iOS: Enable offline sync（Xamarin iOS：启用脱机同步）]: ./app-service-mobile-xamarin-ios-get-started-offline-data.md
 [Xamarin Android: Enable offline sync（Xamarin Android：启用脱机同步）]: app-service-mobile-xamarin-android-get-started-offline-data.md
 [通用 Windows 平台：启用脱机同步]: ./app-service-mobile-windows-store-dotnet-get-started-offline-data.md

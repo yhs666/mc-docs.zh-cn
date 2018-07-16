@@ -17,11 +17,11 @@ origin.date: 07/15/2016
 ms.author: v-yiso
 ms.date: 03/26/2018
 ms.openlocfilehash: 1bc9273ff775e103575d5e7855cee947408eecae
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30072520"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939453"
 ---
 # <a name="get-started-with-the-dropbox-connector"></a>Dropbox 连接器入门
 连接到 Dropbox 管理文件。 可以在 Dropbox 中执行各种操作，例如上传、更新、获取和删除文件。

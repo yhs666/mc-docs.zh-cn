@@ -1,6 +1,6 @@
 ---
 title: 在 Azure 中创建 Python Web 应用 | Azure
-description: 数分钟内在 Azure 应用服务 Web 应用中部署首个 Python Hello World。
+description: 数分钟内在 Azure App Service Web 应用中部署首个 Python Hello World。
 services: app-service\web
 documentationcenter: ''
 author: syntaxc4
@@ -17,11 +17,11 @@ ms.date: 09/04/2017
 ms.author: v-yiso
 ms.custom: mvc
 ms.openlocfilehash: 417b2d2bc35bb2ea2c0d15e58b55d192b49d2a3c
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
-ms.locfileid: "21134791"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939329"
 ---
 # <a name="create-a-python-web-app-in-azure"></a>在 Azure 中创建 Python Web 应用
 
@@ -157,7 +157,7 @@ To https://<app_name>.scm.chinacloudsites.cn/<app_name>.git
 http://<app_name>.chinacloudsites.cn
 ```
 
-Python 示例代码在 Azure 应用服务 Web 应用中运行。
+Python 示例代码在 Azure App Service Web 应用中运行。
 
 ![在 Azure 中运行的示例应用](media/app-service-web-get-started-python/hello-world-in-browser.png)
 
