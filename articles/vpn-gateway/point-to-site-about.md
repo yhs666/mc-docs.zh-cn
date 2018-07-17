@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 01/17/2018
-ms.date: 03/12/2018
+origin.date: 06/06/2018
+ms.date: 07/10/2018
 ms.author: v-junlch
-ms.openlocfilehash: 44f794fa3eb1e59bd852b2530c8c07deec5cb5ea
-ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
+ms.openlocfilehash: ae86c3ab7e69a5025a0f9e2cde57122fba2af962
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29925151"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939084"
 ---
 # <a name="about-point-to-site-vpn"></a>关于点到站点 VPN
 
@@ -49,7 +49,7 @@ ms.locfileid: "29925151"
 
 使用本机 Azure 证书身份验证时，设备上的客户端证书用于对连接方用户进行身份验证。 客户端证书从受信任的根证书生成，并安装在每台客户端计算机上。 可以使用通过企业解决方案生成的根证书，也可以生成自签名证书。
 
-客户端证书的验证由 VPN 网关执行，在建立 P2S VPN 连接期间发生。 验证时需要使用根证书，必须将该证书上传到 Azure。 
+客户端证书的验证由 VPN 网关执行，在建立 P2S VPN 连接期间发生。 验证时需要使用根证书，必须将该证书上传到 Azure。
 
 ### <a name="authenticate-using-active-directory-ad-domain-server"></a>使用 Active Directory (AD) 域服务器进行身份验证
 
@@ -61,7 +61,11 @@ RADIUS 服务器还能与其他外部标识系统集成。 这样就为 P2S VPN 
 
 ![point-to-site]](./media/point-to-site-about/p2s.png "Point-to-Site")
 
-### <a name="configuration-requirements-for-client-devices"></a>客户端设备的配置要求
+## <a name="what-are-the-client-configuration-requirements"></a>客户端配置要求是什么？
+
+>[!NOTE]
+>对于 Windows 客户端，你必须具有客户端设备上的管理员权限，才能发起从客户端设备到 Azure 的 VPN 连接。
+>
 
 用户使用 Windows 和 Mac 设备上的本机 VPN 客户端建立 P2S 连接。 Azure 提供一个 VPN 客户端配置 zip 文件，其中包含这些本机客户端连接到 Azure 时所需的设置。
 
@@ -71,10 +75,10 @@ RADIUS 服务器还能与其他外部标识系统集成。 这样就为 P2S VPN 
 该 zip 文件还提供 Azure 端上的一些重要设置的值，使用这些设置可为这些设备创建你自己的配置文件。 其中一些值包括 VPN 网关地址、配置的隧道类型、路由，以及用于网关验证的根证书。
 
 >[!NOTE]
->对于 Windows 客户端，你必须具有客户端设备上的管理员权限，才能发起从客户端设备到 Azure 的 VPN 连接。
+>[!INCLUDE [TLS version changes](../../includes/vpn-gateway-tls-change.md)]
 >
 
-### <a name="gwsku"></a>哪些网关 SKU 支持 P2S VPN？
+## <a name="gwsku"></a>哪些网关 SKU 支持 P2S VPN？
 
 [!INCLUDE [p2s-skus](../../includes/vpn-gateway-table-point-to-site-skus-include.md)]
 

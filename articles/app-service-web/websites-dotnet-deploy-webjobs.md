@@ -16,11 +16,11 @@ origin.date: 09/12/2016
 ms.date: 10/09/2017
 ms.author: v-yiso
 ms.openlocfilehash: 35e4430b25746500bee255d47c7789e5c6d71c1a
-ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
-ms.locfileid: "22146565"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939166"
 ---
 # <a name="deploy-webjobs-using-visual-studio"></a>使用 Visual Studio 部署 Web 作业
 ## <a name="overview"></a>概述
@@ -66,19 +66,19 @@ ms.locfileid: "22146565"
 
     ![用作 Azure Web 作业的现有项目](./media/websites-dotnet-deploy-webjobs/eawj.png)
 
-    此时显示“添加 Azure Web 作业”[](#configure)对话框。
+    此时显示[添加 Azure Web 作业](#configure) 对话框。
 2. 在“项目名称”下拉列表中，选择要添加为 Web 作业的控制台应用程序项目。
 
     ![在“添加 Azure Web 作业”对话框中选择项目](./media/websites-dotnet-deploy-webjobs/aaw1.png)
-3. 完成“添加 Azure Web 作业”[](#configure)对话框，并单击“确定”。 
+3. 完成[添加 Azure Web 作业](#configure) 对话框，并单击“确定”。 
 
 ### <a id="convertnolink"></a> 不使用 Web 项目启用 Web 作业部署
 1. 右键单击“解决方案资源管理器”中的控制台应用程序项目，然后单击“发布为 Azure Web 作业”。 
 
     ![发布为 Azure Web 作业](./media/websites-dotnet-deploy-webjobs/paw.png)
 
-    此时显示“添加 Azure Web 作业”[](#configure)对话框，其“项目名称”框中已选中该项目。
-2. 完成“添加 Azure Web 作业”[](#configure)对话框，并单击“确定”。
+    此时显示[添加 Azure Web 作业](#configure) 对话框，其“项目名称”框中已选中该项目。
+2. 完成[添加 Azure Web 作业](#configure) 对话框，并单击“确定”。
 
    此时显示“发布 Web”向导。  如果不打算立即发布，请关闭向导。 输入的设置会保存，以便在[部署项目](#deploy)时使用。
 
@@ -108,8 +108,8 @@ ms.locfileid: "22146565"
 
     ![“新建 Azure Web 作业项目”菜单项](./media/websites-dotnet-deploy-webjobs/nawj.png)
 
-    此时显示“添加 Azure Web 作业”[](#configure)对话框。
-2. 完成“添加 Azure Web 作业”[](#configure)对话框，并单击“确定”。
+    此时显示[添加 Azure Web 作业](#configure)对话框。
+2. 完成[“添加 Azure Web 作业”](#configure)对话框，并单击“确定”。
 
 ## <a id="configure"></a>添加 Azure Web 作业对话框
 可在“添加 Azure Web 作业”对话框中输入 Web 作业的名称和 Web 作业的运行模式设置。 

@@ -4,24 +4,24 @@ description: 了解如何使用通知中心从 Node.js 应用程序发送推送�
 keywords: 推送通知,push notification,node.js 推送,ios 推送
 services: notification-hubs
 documentationcenter: nodejs
-author: alexchen2016
-manager: digimobile
-editor: ''
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.assetid: ded4749c-6c39-4ff8-b2cf-1927b3e92f93
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-origin.date: 10/25/2016
-ms.date: 12/22/2017
+origin.date: 04/14/2018
+ms.date: 07/09/2018
 ms.author: v-junlch
-ms.openlocfilehash: 55d69531d49b310cec7d54a23ad04e32c35e0b84
-ms.sourcegitcommit: f63d8b2569272bfa5bb4ff2eea766019739ad244
+ms.openlocfilehash: 2ab9ea894f606ed3027ada2861310e8345f38ad3
+ms.sourcegitcommit: e950fe5260c519e05f8c5bbf193a8ef733a6a2d2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2017
-ms.locfileid: "27547607"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37936348"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>使用 Azure 通知中心和 Node.js 发送推送通知
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
@@ -32,7 +32,7 @@ ms.locfileid: "27547607"
 > 
 > 
 
-本指南演示如何借助 Azure 通知中心，直接从 Node.js 应用程序发送推送通知。 
+本指南介绍如何借助 Azure 通知中心，直接从 Node.js 应用程序发送推送通知。 
 
 涵盖的方案包括在下列平台将推送通知发送到应用程序：
 
@@ -67,12 +67,12 @@ Azure 通知中心提供用于向移动设备发送推送通知的易于使用�
 
     var azure = require('azure');
 
-### <a name="setup-an-azure-notification-hub-connection"></a>设置 Azure 通知中心连接
-可以通过 **NotificationHubService** 对象使用通知中心。 以下代码为名为 hubname 的通知中心创建一个 NotificationHubService 对象。 将它添加到靠近 **server.js** 文件顶部、用于导入 azure 模块的语句之后的位置：
+### <a name="set-up-an-azure-notification-hub-connection"></a>设置 Azure 通知中心连接
+可以通过 **NotificationHubService** 对象使用通知中心。 以下代码为名为“hubname”的通知中心创建一个 NotificationHubService 对象。 将它添加到靠近 **server.js** 文件顶部、用于导入 azure 模块的语句之后的位置：
 
     var notificationHubService = azure.createNotificationHubService('hubname','connectionstring');
 
-可通过执行以下步骤从 **Azure 门户** 获取连接 [connectionstring] 值：
+可通过执行以下步骤从 [Azure 门户]获取连接 connectionstring 值：
 
 1. 在左侧导航窗格中，单击“浏览” 。
 2. 选择“通知中心” ，并找到要用于示例的中心。 如果在创建新通知中心时需要获得帮助，可以参阅 [Windows 应用商店入门教程](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)。
@@ -89,37 +89,14 @@ Azure 通知中心提供用于向移动设备发送推送通知的易于使用�
 ## <a name="general-architecture"></a>一般体系结构
 **NotificationHubService** 对象公开以下对象实例，以便向特定设备和应用程序发送推送通知：
 
-- Android - 使用 GcmService 对象，该对象可从 notificationHubService.gcm 中获取
 - iOS - 使用 ApnsService 对象，该对象可在 notificationHubService.apns 中访问
 - Windows Phone - 使用 MpnsService 对象，该对象可从 notificationHubService.mpns 中获取
 - 通用 Windows 平台 - 使用 WnsService 对象，该对象可从 notificationHubService.wns 中获取
 
-### <a name="how-to-send-push-notifications-to-android-applications"></a>如何：向 Android 应用程序发送推送通知
-GcmService 对象提供 send 方法，该方法可用于将推送通知发送到 Android 应用程序。 该 **send** 方法接受以下参数：
-
-- **Tags** - 标记标识符。 如果没有提供任何标记，则会将通知发送给所有客户端。
-- **Payload** - 消息的 JSON 或原始字符串的有效负载。
-- **Callback** — 回调函数。
-
-有关有效负载格式的详细信息，请参阅 [Implementing GCM Server](http://developer.android.com/google/gcm/server.html#payload)（实现 GCM 服务器）文档中的有效负载部分。
-
-以下代码使用由 NotificationHubService 公开的 GcmService 实例将一条推送通知发送到所有已注册的客户端。
-
-    var payload = {
-      data: {
-        message: 'Hello!'
-      }
-    };
-    notificationHubService.gcm.send(null, payload, function(error){
-      if(!error){
-        //notification sent
-      }
-    });
-
 ### <a name="how-to-send-push-notifications-to-ios-applications"></a>如何：向 iOS 应用程序发送推送通知
 与上述 Android 应用程序一样，ApnsService 对象提供可用于将推送通知发送到 iOS 应用程序的 send 方法。 该 **send** 方法接受以下参数：
 
-- **Tags** - 标记标识符。 如果没有提供任何标记，则会将通知发送给所有客户端。
+- **Tags** - 标记标识符。 如果没有提供任何标记，通知会发送给所有客户端。
 - **Payload** - 消息的 JSON 或字符串的有效负载。
 - **Callback** - 回调函数。
 
@@ -139,7 +116,7 @@ GcmService 对象提供 send 方法，该方法可用于将推送通知发送到
 ### <a name="how-to-send-push-notifications-to-windows-phone-applications"></a>如何：向 Windows Phone 应用程序发送推送通知
 MpnsService 对象提供可用于将推送通知发送到 Windows Phone 应用程序的 send 方法。 该 **send** 方法接受以下参数：
 
-- **Tags** - 标记标识符。 如果没有提供任何标记，则会将通知发送给所有客户端。
+- **Tags** - 标记标识符。 如果没有提供任何标记，通知会发送给所有客户端。
 - **Payload** - 消息的 XML 有效负载。
 - TargetName - `toast` 用于 toast 通知。 `token` 表示磁贴通知。
 - **NotificationClass** - 通知的优先级。 有关该参数的有效值，请参阅 [Push notifications from a server](http://msdn.microsoft.com/library/hh221551.aspx)（从服务器推送通知）文档中的 HTTP Header Elements（HTTP 标头元素）部分。
@@ -208,6 +185,6 @@ WnsService 对象提供可用于将推送通知发送到通用 Windows 平台应
 [SqlFilter]: http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx
 [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 
-[connectionstring]: https://portal.azure.cn
+[Azure 门户]: https://portal.azure.cn
 
 <!--Update_Description: wording update -->

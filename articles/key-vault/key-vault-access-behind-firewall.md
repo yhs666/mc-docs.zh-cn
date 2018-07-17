@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 origin.date: 01/07/2017
-ms.date: 03/04/2018
+ms.date: 07/10/2018
 ms.author: v-junlch
-ms.openlocfilehash: f498a43dcad1ab0403881325eb14242042afc162
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: 419e1b212574c4b0ab35f8207a700b786b83f38f
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
-ms.locfileid: "29797837"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939249"
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>访问防火墙后面的 Azure Key Vault
 ### <a name="q-my-key-vault-client-application-needs-to-be-behind-a-firewall-what-ports-hosts-or-ip-addresses-should-i-open-to-enable-access-to-a-key-vault"></a>问：我的密钥保管库客户端应用程序需位于防火墙之后。 我应该打开什么样的端口、主机或 IP 地址来启用密钥保管库访问权限？
@@ -28,12 +28,12 @@ ms.locfileid: "29797837"
 
 - 通过 Azure Active Directory (Azure AD) 进行身份验证。
 - 管理 Azure Key Vault。 这包括通过 Azure Resource Manager 创建、读取、更新、删除和设置访问策略。
-- 通过密钥保管库特定的终结点（例如 https://yourvaultname.vault.azure.cn），访问和管理 Key Vault 本身中存储的对象（密钥和机密）。  
+- 通过密钥保管库特定的终结点（例如 https://yourvaultname.vault.azure.cn)），访问和管理密钥保管库本身存储的对象（密钥和机密）。  
 
 根据配置和环境，会有一些变化。   
 
 ## <a name="ports"></a>端口
-针对所有 3 项功能（身份验证、管理和数据平面访问）的所有密钥保管库流量都会通过 HTTPS（端口 443）传递。 但是，对于 CRL，偶尔会有 HTTP（端口 80）流量。 支持 OCSP 的客户端不应到达 CRL，但可能偶尔会到达 [http://cdp1.public-trust.com/CRL/Omniroot2025.crl](http://cdp1.public-trust.com/CRL/Omniroot2025.crl)。  
+针对所有 3 项功能（身份验证、管理和数据平面访问）的所有密钥保管库流量都会通过 HTTPS（端口 443）传递。 但是，对于 CRL，偶尔会有 HTTP（端口 80）流量。 支持 OCSP 的客户端不应到达 CRL，但有时可能会到达 [http://cdp1.public-trust.com/CRL/Omniroot2025.crl](http://cdp1.public-trust.com/CRL/Omniroot2025.crl)。  
 
 ## <a name="authentication"></a>身份验证
 密钥保管库客户端应用程序需要访问 Azure Active Directory 终结点进行身份验证。 使用的终结点取决于 Azure AD 租户配置、主体类型（用户主体或服务主体）以及帐户类型（如 Microsoft 帐户或者工作或学校帐户）。  
@@ -62,7 +62,7 @@ ms.locfileid: "29797837"
 | 操作包括对密钥的加密操作；创建、读取、更新和删除密钥和密码；设置或获取密钥保管库对象（密钥或密码）上的标记和其他属性 |**全局：**<br> &lt;vault-name&gt;.vault.azure.net:443<br><br> **Azure China：**<br> &lt;vault-name&gt;.vault.azure.cn:443<br><br> **Azure US Government：**<br> &lt;vault-name&gt;.vault.usgovcloudapi.net:443<br><br> **Azure Germany：**<br> &lt;vault-name&gt;.vault.microsoftazure.de:443 |
 
 ## <a name="ip-address-ranges"></a>IP 地址范围
-Key Vault 服务使用其他 Azure 资源，例如 PaaS 基础结构。 因此，不可能提供 Key Vault 服务终结点在任意特定时间会有的特定 IP 地址范围。 如果防火墙仅支持 IP 地址范围，请参阅 [Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=42064) （Azure 数据中心 IP 范围）文档。 对于身份验证和标识 (Azure Active Directory)，应用程序必须能够连接到[身份验证和标识地址](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)中所述的终结点。
+Key Vault 服务使用其他 Azure 资源，例如 PaaS 基础结构。 因此，不可能提供 Key Vault 服务终结点在任意特定时间会有的特定 IP 地址范围。 如果防火墙仅支持 IP 地址范围，请参阅 [Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=42064) （Azure 数据中心 IP 范围）文档。 身份验证和标识 (Azure Active Directory) 是一项全球性服务，可能会故障转移到其他区域或移动流量，恕不另行通知。 在这种情况下，[身份验证和标识 IP 地址](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity_ip)中列出的所有 IP 范围都应添加到防火墙中。
 
 ## <a name="next-steps"></a>后续步骤
 如果在 Key Vault 方面有任何问题，请访问 [Azure Key Vault 论坛](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault)。

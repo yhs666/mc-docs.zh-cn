@@ -9,15 +9,15 @@ ms.assetid: 9b7d065e-1979-4397-8298-eeba3aec4792
 ms.service: key-vault
 ms.workload: identity
 ms.topic: article
-origin.date: 05/10/2018
-ms.date: 06/11/2018
+origin.date: 06/15/2018
+ms.date: 07/10/2018
 ms.author: v-junlch
-ms.openlocfilehash: 13d1e0a40c91da1e194480da3322b16cb3adaf98
-ms.sourcegitcommit: 306fba1a7125ef6f0555781524afa8f535bea2a0
+ms.openlocfilehash: d2516117fa41746d24a6538b6c2906d94f5ecc23
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35253366"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939409"
 ---
 # <a name="use-azure-key-vault-from-a-web-application"></a>从 Web 应用程序使用 Azure 密钥保管库
 
@@ -35,13 +35,12 @@ ms.locfileid: "35253366"
 
 - Azure 密钥保管库中机密的 URI
 - 已在 Azure Active Directory 中注册且有权访问密钥保管库的 Web 应用程序的客户端 ID 和客户端机密
-- Web 应用程序。 我们演示在 Azure 中作为 Web 应用程序部署的 ASP.NET MVC 应用程序的步骤。
+- Web 应用程序。 
 
 > [!NOTE]
 >* 必须已完成 [ 入门](key-vault-get-started.md)中列出的适用于本教程的步骤，以便获取 Web 应用程序的密钥、客户端 ID 和客户端密码的 URI。
 
-
-要访问密钥保管库的 Web 应用程序已在 Azure Active Directory 中注册，有权访问密钥保管库。 否则，请返回入门教程中的“注册应用程序”部分，并重复列出的步骤。
+将访问保管库的 Web 应用程序需要在 Azure Active Directory 中注册。 它还需要有权访问 Key Vault。 如果它没有此访问权限，请返回入门教程中的“注册应用程序”，并重复列出的步骤。
 
 本教程面向已了解在 Azure 上创建 Web 应用程序基本知识的 Web 开发人员。 有关 Azure Web 应用的详细信息，请参阅 [Web 应用概述](../app-service/app-service-web-overview.md)。
 
@@ -54,7 +53,7 @@ ms.locfileid: "35253366"
 
 可以在程序包管理器控制台中使用 Install-Package 命令安装这两个包。
 
-```
+```PowerShell
 // this is currently the latest stable version of ADAL
 Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.16.204221202
 Install-Package Microsoft.Azure.KeyVault
@@ -155,9 +154,9 @@ pvk2pfx -pvk mykey.pvk -spc KVWebApp.cer -pfx KVWebApp.pfx -po test123
 
 ### <a name="associate-the-certificate-with-an-azure-ad-application"></a>将证书与 Azure AD 应用程序相关联
 
-现在你已有一个证书，需要将其与 Azure AD 应用程序相关联。 目前，Azure 门户不支持此工作流；可通过 PowerShell 完成此操作。 运行以下命令，将该证书与 Azure AD 应用程序相关联：
+现在你已有一个证书，需要将其与 Azure AD 应用程序相关联。 运行以下命令，将该证书与 Azure AD 应用程序相关联：
 
-```ps
+```PowerShell
 $x509 = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2
 $x509.Import("C:\data\KVWebApp.cer")
 $credValue = [System.Convert]::ToBase64String($x509.GetRawCertData())
@@ -246,7 +245,7 @@ var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(Utils.GetA
 
 将证书添加到 Web 应用是一个简单的两步过程。 首先，转到 Azure 门户并导航到 Web 应用。 在 Web 应用的“设置”边栏选项卡中，单击“自定义域和 SSL”对应的条目。 在打开的边栏选项卡中，你将能够上传在上面的示例中创建的证书 KVWebApp.pfx，请确保记住 pfx 的密码。
 
-![将证书添加到 Azure 门户中的 Web 应用][2]
+![在 Azure 门户中将证书添加到 Web 应用][2]
 
 你需要执行的最后一项操作是将应用程序设置添加到 Web 应用中，该设置名为 WEBSITE\_LOAD\_CERTIFICATES，值为 *。 这会确保加载所有证书。 如果只想加载已上传的证书，则可以输入这些证书的指纹的逗号分隔列表。
 
@@ -256,6 +255,9 @@ var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(Utils.GetA
 
 如果不直接将证书上传到 Web 应用服务，可以在 Key Vault 中将它存储为机密，然后从那里部署该证书。 此过程包括两个步骤，以下博客文章对此做了概述： [Deploying Azure Web App Certificate through Key Vault](https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/)
 
+## <a id="next"></a>后续步骤
+
+有关编程参考，请参阅 [ C# 客户端 API 参考](https://msdn.microsoft.com/en-us/library/azure/mt430941.aspx)。
 
 <!--Image references-->
 [1]: ./media/key-vault-use-from-web-application/PortalAppSettings.png

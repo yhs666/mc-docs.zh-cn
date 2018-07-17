@@ -16,11 +16,11 @@ origin.date: 12/22/2017
 ms.date: 05/16/2018
 ms.author: v-junlch
 ms.openlocfilehash: 147fe0515341f89743f4ed256ccb71ba36bd3f8e
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34258417"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38938842"
 ---
 # <a name="get-started-with-notification-hubs-for-universal-windows-platform-apps"></a>适用于通用 Windows 平台应用的通知中心入门
 

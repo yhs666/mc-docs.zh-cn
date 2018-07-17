@@ -12,15 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-origin.date: 03/26/2018
-ms.date: 04/26/2018
+origin.date: 06/13/2018
+ms.date: 07/10/2018
 ms.author: v-junlch
-ms.openlocfilehash: 8667184caab3c2dcfd65da12b11d488d6770191b
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: c4d1451c27b558cfeec328064d575815aa5090ec
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121517"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939252"
 ---
 # <a name="how-to-configure-redis-clustering-for-a-premium-azure-redis-cache"></a>如何为高级 Azure Redis 缓存配置 Redis 群集功能
 Azure Redis 缓存具有不同的缓存产品（包括群集、持久性和虚拟网络支持等高级层功能），使缓存大小和功能的选择更加灵活。 本文介绍如何配置高级 Azure Redis 缓存实例中的群集功能。
@@ -125,10 +125,12 @@ Azure Redis 缓存提供的 Redis 群集与 [在 Redis 中实施](http://redis.i
 高级缓存的最大大小为 53 GB。 可以创建多达 10 个分片，因此最大大小为 530 GB。 如果需要的大小更大，则可[请求更多](https://www.azure.cn/support/support-azure/)。 有关详细信息，请参阅 [Azure Redis 缓存定价](https://www.azure.cn/pricing/details/redis-cache/)。
 
 ### <a name="do-all-redis-clients-support-clustering"></a>是否所有 Redis 客户端都支持群集功能？
-目前，并非所有客户端都支持 Redis 群集功能。 StackExchange.Redis 是不支持该功能的客户端。 有关其他客户端的详细信息，请参阅 [Redis cluster tutorial](http://redis.io/topics/cluster-tutorial)（Redis 群集教程）的 [Playing with the cluster](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster)（操作群集）部分。
+目前，并非所有客户端都支持 Redis 群集功能。 StackExchange.Redis 是不支持该功能的客户端。 有关其他客户端的详细信息，请参阅 [Redis cluster tutorial](http://redis.io/topics/cluster-tutorial)（Redis 群集教程）的 [Playing with the cluster](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster)（操作群集）部分。 
+
+Redis 群集协议要求每个客户端直接以群集模式连接到每个分片。 尝试使用不支持群集的客户端可能会导致大量的 [MOVED 重定向异常](https://redis.io/topics/cluster-spec#moved-redirection)。
 
 > [!NOTE]
-> 如果使用 StackExchange.Redis 作为客户端，请确保使用最新版本的 [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/)，即 1.0.481 或更高版本，以便群集功能能够正常使用。 如果对 move 异常有任何疑问，请参阅 [move 异常](#move-exceptions)了解详细信息。
+> 如果使用 StackExchange.Redis 作为客户端，请确保使用最新版本的 [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/)，即 1.0.481 或更高，以便群集功能能够正常使用。 如果对 move 异常有任何疑问，请参阅 [move 异常](#move-exceptions)了解详细信息。
 > 
 > 
 
@@ -136,7 +138,7 @@ Azure Redis 缓存提供的 Redis 群集与 [在 Redis 中实施](http://redis.i
 连接到缓存时，可以使用的[终结点](cache-configure.md#properties)、[端口](cache-configure.md#properties)和[密钥](cache-configure.md#access-keys)与连接到未启用群集功能的缓存时使用的相同。 Redis 在后端管理群集功能，因此不需要你通过客户端来管理它。
 
 ### <a name="can-i-directly-connect-to-the-individual-shards-of-my-cache"></a>可以直接连接到缓存的各个分片吗？
-尚未正式提供此方面的支持。 话虽如此，但每个分片都是由主/副缓存对组成的，该缓存对统称为缓存实例。 可以在 GitHub 上通过 Redis 存储库的 [不稳定](http://redis.io/download) 分支使用 redis-cli 实用程序连接到这些缓存实例。 使用 `-c` 开关启动后，此版本可实现基本的支持。 有关详细信息，请参阅 [http://redis.io](http://redis.io) 上 [Redis cluster tutorial](http://redis.io/topics/cluster-tutorial)（Redis 群集教程）中的[操作群集](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster)。
+群集协议要求客户端建立正确的分片连接。 因此客户端应正确执行此操作。 话虽如此，但每个分片都是由主/副缓存对组成的，该缓存对统称为缓存实例。 可以在 GitHub 上通过 Redis 存储库的 [不稳定](http://redis.io/download) 分支使用 redis-cli 实用程序连接到这些缓存实例。 使用 `-c` 开关启动后，此版本可实现基本的支持。 有关详细信息，请参阅 [http://redis.io](http://redis.io) 上 [Redis cluster tutorial](http://redis.io/topics/cluster-tutorial)（Redis 群集教程）中的[操作群集](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster)。
 
 对于非 ssl，请使用以下命令。
 

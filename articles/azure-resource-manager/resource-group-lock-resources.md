@@ -16,11 +16,11 @@ origin.date: 02/21/2018
 ms.date: 05/28/2018
 ms.author: v-yeche
 ms.openlocfilehash: 22d3d8fdcd9f14edfd5ba1c6d64dc3dd753f123c
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554511"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939261"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>锁定资源，以防止意外更改 
 
@@ -218,7 +218,7 @@ az lock delete --ids $lockid
 
 ## <a name="next-steps"></a>后续步骤
 * 有关使用逻辑方式组织资源的信息，请参阅[使用标记来组织资源](resource-group-using-tags.md)
-* 若要更改资源位于哪个资源组，请参阅[将资源移到新的资源组](resource-group-move-resources.md)
+* 要更改资源位于哪个资源组，请参阅[将资源移到新的资源组](resource-group-move-resources.md)
 <!-- Not Available * You can apply restrictions and conventions across your subscription with customized policies. For more information, see [What is Azure Policy?](../azure-policy/azure-policy-introduction.md) -->
 * 有关企业可如何使用 Resource Manager 有效管理订阅的指南，请参阅 [Azure 企业基架 - 出于合规目的监管订阅](resource-manager-subscription-governance.md)。
 
