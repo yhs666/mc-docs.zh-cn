@@ -15,11 +15,11 @@ origin.date: 09/12/2017
 ms.date: 11/20/2017
 ms.author: v-yiso
 ms.openlocfilehash: d57051424f413d30d7728901e171957969e0289a
-ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
-ms.locfileid: "24058629"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38938833"
 ---
 # <a name="use-desired-properties-to-configure-devices"></a>使用所需属性配置设备
 

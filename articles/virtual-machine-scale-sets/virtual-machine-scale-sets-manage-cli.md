@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/19/2017
-ms.date: 04/26/2018
+origin.date: 05/29/2018
+ms.date: 07/10/2018
 ms.author: v-junlch
-ms.openlocfilehash: abcbb0d10781a11a9c4a09de246fcae3e5f70f3f
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 2cdf1c109f2357e6f9aeba13cac2d6e331f9851d
+ms.sourcegitcommit: a22129c95c9f877a04c6b5b428edf7f4e953fd97
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121691"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37937368"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>使用 Azure CLI 2.0 管理虚拟机规模集
 在虚拟机规模集的整个生命周期内，可能需要运行一个或多个管理任务。 此外，可能还需要创建自动执行各种生命周期任务的脚本。 本文详细介绍了执行这些任务常用的一些 Azure CLI 2.0 命令。
@@ -38,22 +38,22 @@ az vmss show --resource-group myResourceGroup --name myScaleSet
 
 
 ## <a name="view-vms-in-a-scale-set"></a>查看规模集中的 VM
-要在规模集中查看 VM 实例的列表，请使用 [az vmss list-instances](/cli/vmss#list-instances)。 以下示例将在 myResourceGroup 资源组中列出名为 myScaleSet 规模集的所有 VM 实例。 为这些名称提供自己的值：
+要在规模集中查看 VM 实例的列表，请使用 [az vmss list-instances](/cli/vmss#list-instances)。 以下示例将列出 myResourceGroup 资源组中 myScaleSet 规模集的所有 VM 实例。 为这些名称提供自己的值：
 
 ```azurecli
-az vmss list-instances \
-  --resource-group myResourceGroup \
-  --name myScaleSet \
-  --output table
+az vmss list-instances `
+    --resource-group myResourceGroup `
+    --name myScaleSet `
+    --output table
 ```
 
 要查看与特定 VM 实例有关的其他信息，请将 `--instance-id` 参数添加到 [az vmss get-instance-view](/cli/vmss#get-instance-view)，并指定要查看的实例。 以下示例将查看与 myScaleSet 规模集和 myResourceGroup 资源组中 VM 实例“0”有关的信息。 按如下所示输入自己的名称：
 
 ```azurecli
-az vmss get-instance-view \
-  --resource-group myResourceGroup \
-  --name myScaleSet \
-  --instance-id 0
+az vmss get-instance-view `
+    --resource-group myResourceGroup `
+    --name myScaleSet `
+    --instance-id 0
 ```
 
 
@@ -61,9 +61,9 @@ az vmss get-instance-view \
 若要连接规模集中的 VM，可将 SSH 或 RDP 连接到分配的公共 IP 地址和端口号。 默认情况下，会向将远程连接流量转发给每个 VM 的 Azure 负载均衡器添加网络地址转换 (NAT) 规则。 若要列出规模集中连接 VM 的地址和端口，请使用 [az vmss list-instance-connection-info](/cli/vmss#list-instance-connection-info)。 以下示例将列出 myScaleSet 规模集和 myResourceGroup 资源组中 VM 实例的连接信息。 为这些名称提供自己的值：
 
 ```azurecli
-az vmss list-instance-connection-info \
-  --resource-group myResourceGroup \
-  --name myScaleSet
+az vmss list-instance-connection-info `
+    --resource-group myResourceGroup `
+    --name myScaleSet
 ```
 
 
@@ -73,19 +73,19 @@ az vmss list-instance-connection-info \
 若要查看规模集中当前包含的实例数，请使用 [az vmss show](/cli/vmss#az_vmss_show) 并查询 “sku.capacity”：
 
 ```azurecli
-az vmss show \
-    --resource-group myResourceGroup \
-    --name myScaleSet \
-    --query [sku.capacity] \
+az vmss show `
+    --resource-group myResourceGroup `
+    --name myScaleSet `
+    --query [sku.capacity] `
     --output table
 ```
 
 然后，可以使用 [az vmss scale](/cli/vmss#az_vmss_scale) 手动增加或减少规模集中虚拟机的数目。 以下示例将规模集中 VM 的数目设置为 5：
 
 ```azurecli
-az vmss scale \
-    --resource-group myResourceGroup \
-    --name myScaleSet \
+az vmss scale `
+    --resource-group myResourceGroup `
+    --name myScaleSet `
     --new-capacity 5
 ```
 
@@ -141,4 +141,4 @@ az vmss delete-instances --resource-group myResourceGroup --name myScaleSet --in
 ## <a name="next-steps"></a>后续步骤
 规模集的其他常见任务包括如何[部署应用程序](virtual-machine-scale-sets-deploy-app.md)和[升级 VM 实例](virtual-machine-scale-sets-upgrade-scale-set.md)。 也可使用 Azure CLI 来[配置自动缩放规则](virtual-machine-scale-sets-autoscale-overview.md)。
 
-<!--Update_Description: link update -->
+<!-- Update_Description: wording update -->

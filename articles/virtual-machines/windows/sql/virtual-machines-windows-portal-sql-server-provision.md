@@ -16,11 +16,11 @@ origin.date: 05/04/2018
 ms.date: 06/04/2018
 ms.author: v-yeche
 ms.openlocfilehash: 9e54f33306b884ca3904ef492872da7e5d3a47e7
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702831"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38938847"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>如何在 Azure 门户中预配 Windows SQL Server 虚拟机
 
@@ -68,7 +68,7 @@ ms.locfileid: "34702831"
 
 1. 在“选择部署模型”下面，确认已选择“Resource Manager”。 对于新虚拟机，建议使用“Resource Manager”部署模型。 
 
-1. 单击“创建”。
+1. 单击**创建**。
 
     ![使用 Resource Manager 创建 SQL VM](./media/virtual-machines-windows-portal-sql-server-provision/azure-compute-sql-deployment-model.png)
 

@@ -16,11 +16,11 @@ origin.date: 12/20/2017
 ms.author: v-yiso
 ms.date: 02/05/2018
 ms.openlocfilehash: 0f7689ff53da6cf2478281adf968be2713d5764c
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
-ms.locfileid: "29285414"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939223"
 ---
 # <a name="create-a-relay-namespace-using-the-azure-portal"></a>使用 Azure 门户创建中继命名空间
 

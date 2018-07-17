@@ -17,11 +17,11 @@ origin.date: 04/20/2018
 ms.date: 06/18/2018
 ms.author: v-yeche
 ms.openlocfilehash: c27ce7411198efbc830e72c549961ecc14b3f7af
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "35416864"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38938803"
 ---
 # <a name="azure-cli-script-example-load-balance-multiple-websites"></a>Azure CLI 脚本示例：对多个网站进行负载均衡
 

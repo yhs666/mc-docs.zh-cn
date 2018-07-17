@@ -17,11 +17,11 @@ origin.date: 03/15/2016
 ms.date: 06/11/2018
 ms.author: v-yeche
 ms.openlocfilehash: 65ddd9f0a41abb398a740ec82d992bc23e6e7df7
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34868721"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939070"
 ---
 # <a name="control-routing-and-use-virtual-appliances-classic-using-the-azure-cli"></a>使用 Azure CLI 控制路由和使用虚拟设备（经典）
 

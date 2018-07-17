@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 09/08/2017
-ms.date: 06/13/2018
+origin.date: 06/15/2018
+ms.date: 07/10/2018
 ms.author: v-junlch
-ms.openlocfilehash: 00a2df69f38cac6524a436051c4eefa3f1abdfbc
-ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
+ms.openlocfilehash: 7428739c174e1937f7a789afa008233a3907d56e
+ms.sourcegitcommit: a22129c95c9f877a04c6b5b428edf7f4e953fd97
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2018
-ms.locfileid: "35568338"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37937356"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>如何验证到达虚拟网络的 VPN 吞吐量
 
@@ -142,4 +142,4 @@ VPN 网关连接涉及以下组件：
 - [优化 Azure 虚拟机网络吞吐量](../virtual-network/virtual-network-optimize-network-bandwidth.md)
 - [Microsoft 支持部门](https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)
 
-<!--Update_Description: link update-->
+<!-- Update_Description: update metedata properties -->

@@ -16,11 +16,11 @@ origin.date: 08/08/2017
 ms.author: v-yiso
 ms.date: 12/18/2017
 ms.openlocfilehash: 1032cf55c4126efcdfd362617ccaff408ac3b9e4
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
-ms.locfileid: "26410561"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38938840"
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-net"></a>使用 Azure 资源管理器模板创建 IoT 中心 (.NET)
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
@@ -56,7 +56,7 @@ ms.locfileid: "26410561"
     using Microsoft.Rest;
     ```
 
-6. 在 Program.cs 中，将占位符值替换为以下静态变量。 在本教程前面的介绍中，已记下 **ApplicationId**、**SubscriptionId**、**TenantId** 和 **Password**。 **Your Azure Storage account name** 是要在其中存储 Azure 资源管理器模板文件的 Azure 存储帐户的名称。 资源组名称是创建 IoT 中心时要使用的资源组名称。 名称可以是现有的资源组或新资源组。 **部署名称**是部署的名称，例如 **Deployment_01**。
+6. 在 Program.cs 中，将占位符值替换为以下静态变量。 在本教程前面的介绍中，已记下 **ApplicationId**、**SubscriptionId**、**TenantId** 和 **Password**。 **Your Azure Storage account name** 是要在其中存储 Azure Resource Manager 模板文件的 Azure 存储帐户的名称。 资源组名称是创建 IoT 中心时要使用的资源组名称。 名称可以是现有的资源组或新资源组。 **部署名称**是部署的名称，例如 **Deployment_01**。
 
     ```csharp
     static string applicationId = "{Your ApplicationId}";
@@ -111,7 +111,7 @@ ms.locfileid: "26410561"
       }
     }
     ```
-3. 在解决方案资源管理器中右键单击项目，单击“**添加**”，然后单击“**新建项**”。 将名为 **parameters.json** 的 JSON 文件添加到项目。
+3. 在解决方案资源管理器中右键单击用户的项目，单击“**添加**”，并单击“**新建项**”。 将名为 **parameters.json** 的 JSON 文件添加到项目。
 4. 将 **parameters.json** 的内容替换为以下参数信息，以便将新 IoT 中心的名称设置为 **{your initials}mynewiothub**。 IoT 中心名称必须全局唯一，因此，应包含姓名或姓名首字母缩写：
 
     ```json
@@ -196,10 +196,10 @@ ms.locfileid: "26410561"
 > 
 
 ## <a name="next-steps"></a>后续步骤
-现在，已使用 Azure Resource Manager 模板和 C# 程序部署了一个 IoT 中心，接下来可以进一步进行探索：
+现在，已经使用包含 C# 程序的 Azure 资源管理器模板部署了 IoT 中心，你可能想要进一步探究：
 
 * 阅读了解 [IoT 中心资源提供程序 REST API][lnk-rest-api] 的相关功能。
-* 有关 Azure Resource Manager 功能的详细信息，请参阅 [Azure Resource Manager 概述][lnk-azure-rm-overview] 。
+* 有关 Azure 资源管理器功能的详细信息，请参阅 [Azure 资源管理器概述][lnk-azure-rm-overview]。
 
 若要详细了解如何开发 IoT 中心，请参阅以下文章：
 

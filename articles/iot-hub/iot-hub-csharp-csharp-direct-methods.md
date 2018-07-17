@@ -16,11 +16,11 @@ origin.date: 07/18/2017
 ms.author: v-yiso
 ms.date: 09/25/2017
 ms.openlocfilehash: 38d979ce1b5711b1d85564ad2f63b17846c943d9
-ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
-ms.locfileid: "22339074"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939143"
 ---
 # <a name="use-direct-methods-netnet"></a>使用直接方法 (.NET/.NET)
 [!INCLUDE [iot-hub-selector-c2d-methods](../../includes/iot-hub-selector-c2d-methods.md)]
@@ -31,7 +31,7 @@ ms.locfileid: "22339074"
 * **SimulateDeviceMethods**：一个控制台应用，可模拟使用先前创建的设备标识连接到 IoT 中心的设备，并响应通过云调用的方法。
 
 > [!NOTE]
-> [Azure IoT SDK][lnk-hub-sdks] 一文提供了各种 Azure IoT SDK 的相关信息，用户可以使用这些 SDK 构建可在设备和解决方案后端上运行的应用程序。
+> [Azure IoT SDK][lnk-hub-sdks] 文章介绍了 Azure IoT SDK，这些 SDK 可用于构建在设备和解决方案后端运行的应用程序。
 > 
 > 
 
@@ -52,10 +52,10 @@ ms.locfileid: "22339074"
 
 1. 在 Visual Studio 中，使用“ **控制台应用程序** ”项目模板将 Visual C# Windows 经典桌面项目添加到当前解决方案。 将项目命名为 **SimulateDeviceMethods**。
    
-    ![新建 Visual C# Windows 经典设备应用][img-createdeviceapp]
+    ![新的 Visual C# Windows 经典设备应用][img-createdeviceapp]
     
 1. 在解决方案资源管理器中，右键单击“SimulateDeviceMethods”项目，并单击“管理 NuGet 包...”。
-1. 在“NuGet 包管理器”窗口中，选择“浏览”，然后搜索“microsoft.azure.devices.client”。 选择“安装”，安装“microsoft.azure.devices.client”包，并接受使用条款。 该过程将下载、安装 [Azure IoT 设备 SDK][lnk-nuget-client-sdk] NuGet 包及其依赖项并添加对它的引用。
+1. 在“NuGet 包管理器”窗口中，选择“浏览”，搜索“microsoft.azure.devices.client”。 选择“安装”，安装“microsoft.azure.devices.client”包，并接受使用条款。 该过程将下载、安装 [Azure IoT 设备 SDK][lnk-nuget-client-sdk] NuGet 包及其依赖项并添加对它的引用。
    
     ![“NuGet 包管理器”窗口客户端应用][img-clientnuget]
 1. 在 **Program.cs** 文件顶部添加以下 `using` 语句：
@@ -63,7 +63,7 @@ ms.locfileid: "22339074"
         using Microsoft.Azure.Devices.Client;
         using Microsoft.Azure.Devices.Shared;
 
-1. 将以下字段添加到 **Program** 类。 将占位符值替换为上一部分中所述的设备连接字符串。
+1. 将以下字段添加到 **Program** 类。 将占位符值替换为在上一部分中记下的设备连接字符串。
    
         static string DeviceConnectionString = "HostName=<yourIotHubName>.azure-devices.cn;DeviceId=<yourIotDeviceName>;SharedAccessKey=<yourIotDeviceAccessKey>";
         static DeviceClient Client = null;
@@ -126,7 +126,7 @@ ms.locfileid: "22339074"
    
         using System.Threading.Tasks;
         using Microsoft.Azure.Devices;
-5. 将以下字段添加到 **Program** 类。 将占位符值替换为在上一部分中为中心创建的 IoT 中心连接字符串。
+5. 将以下字段添加到 Program 类。 将占位符值替换为在上一部分为中心创建的 IoT 中心连接字符串。
    
         static ServiceClient serviceClient;
         static string connectionString = "{iot hub connection string}";

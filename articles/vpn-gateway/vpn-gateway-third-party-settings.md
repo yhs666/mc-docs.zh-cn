@@ -3,8 +3,8 @@ title: 适用于 Azure VPN 网关的社区建议第三方 VPN 或防火墙设备
 description: 了解适用于 Azure VPN 网关的社区建议第三方 VPN 或防火墙设备设置。
 services: vpn-gateway
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: chadmath
+manager: cshepard
 editor: ''
 tags: azure-vpn-gateway
 ms.assetid: ''
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 11/03/2017
-ms.date: 12/11/2017
+origin.date: 06/15/2018
+ms.date: 07/10/2018
 ms.author: v-junlch
-ms.openlocfilehash: 5a5b2d7b07288f26b6fa21ac8a101019ca781bf4
-ms.sourcegitcommit: e241986dd670ffd90ebc3aaa4651239fc6a77a41
+ms.openlocfilehash: c7158748507201823216cf15ec4f1b6147cf1aaa
+ms.sourcegitcommit: a22129c95c9f877a04c6b5b428edf7f4e953fd97
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/12/2017
-ms.locfileid: "26652655"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37937371"
 ---
 # <a name="community-suggested-third-party-vpn-or-firewall-device-settings-for-azure-vpn-gateway"></a>适用于 Azure VPN 网关的社区建议第三方 VPN 或防火墙设备设置
 
@@ -34,13 +34,13 @@ ms.locfileid: "26652655"
 
 下表列出了几种常见设备和相关帮助：
 
-|产品    |引用                                                |
+|产品    |参考                                                |
 |-----------|-----------------------------------------------------------|
 |Cisco ASA  |[适用于 Azure VPN 上的 Cisco ASA 的社区建议解决方案](https://search.cisco.com/search?query=%22Azure%20VPN%22%20ASA&locale=enUS&tab=Cisco)   |
 |Cisco ISR  |[适用于 Azure VPN 上的 Cisco ISR 的社区建议解决方案](https://search.cisco.com/search?query=%22Azure%20VPN%22%20ISR&locale=enUS&tab=Cisco)   |
 |Cisco ASR  |[适用于 Azure VPN 上的 Cisco ASR 的社区建议解决方案](https://search.cisco.com/search?query=%22Azure%20VPN%22%20ASR&locale=enUS&tab=Cisco)   |
-|Sonicwall |在 Sonicwall 站点上搜索 **Azure VPN** |
-| 检查点    |在 [Checkpoint 站点](https://supportcenter.checkpoint.com/supportcenter/portal)上搜索 **Azure VPN** |
+|Sonicwall |在 [Sonicwall 站点](https://www.sonicwall.com/en-us/support)上搜索 **Azure VPN** |
+| Checkpoint    |在 [Checkpoint 站点](https://supportcenter.checkpoint.com/supportcenter/portal)上搜索 **Azure VPN** |
 |Juniper |在 [Juniper 站点]( http://www.juniper.net/search/public/)上搜索 **Azure VPN**|
 |Barracuda  |[适用于 Azure VPN 上的 Barracuda 的社区建议解决方案](https://campus.barracuda.com/search/?q=%22Azure+VPN%22&x=0&y=0)   |
 |F5         |[适用于 Azure VPN 上的 F5 的社区建议解决方案](https://support.f5.com/csp/#/federated-search?q=%22Azure%20VPN%22&source=support)          |
@@ -53,4 +53,4 @@ ms.locfileid: "26652655"
 
 [已知的兼容设备](/vpn-gateway/vpn-gateway-about-vpn-devices#validated-vpn-devices)
 
-<!--Update_Description: update metadata properties-->
+<!--Update_Description: link update -->

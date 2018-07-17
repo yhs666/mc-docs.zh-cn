@@ -18,11 +18,11 @@ ms.date: 03/19/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: abe3a540578a6f32eb9c5b3fda34f495e12711cf
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
-ms.locfileid: "29965358"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939186"
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-classic"></a>在 Azure 虚拟机（经典）上配置 SQL Server 的 Azure Key Vault 集成
 > [!div class="op_single_selector"]

@@ -17,11 +17,11 @@ origin.date: 04/30/2018
 ms.date: 05/28/2018
 ms.author: v-nany
 ms.openlocfilehash: 8084738445019194b4489eeca9254f63d2101f44
-ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36748380"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939148"
 ---
 # <a name="azure-cli-script-example-create-a-dns-zone-and-record"></a>Azure CLI 脚本示例：创建 DNS 区域和记录
 

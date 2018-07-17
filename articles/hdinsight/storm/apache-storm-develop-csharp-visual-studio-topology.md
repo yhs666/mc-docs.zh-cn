@@ -18,11 +18,11 @@ origin.date: 11/27/2017
 ms.date: 03/26/2018
 ms.author: v-yiso
 ms.openlocfilehash: 8c173f4869c1490204f4d5e8dd08591ee71e0b4c
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873637"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38938879"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>使用针对 Visual Studio 的 Data Lake 工具开发 Apache Storm 的 C# 拓扑
 

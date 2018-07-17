@@ -16,11 +16,11 @@ origin.date: 09/19/2017
 ms.author: v-yiso
 ms.date: 11/20/2017
 ms.openlocfilehash: e055ec0216d803c7be546200ac82b501c25c4bf3
-ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
-ms.locfileid: "24058560"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939112"
 ---
 # <a name="use-azure-iot-edge-to-send-device-to-cloud-messages-with-a-simulated-device-windows"></a>使用 Azure IoT Edge，通过模拟设备发送设备到云消息 (Windows)
 

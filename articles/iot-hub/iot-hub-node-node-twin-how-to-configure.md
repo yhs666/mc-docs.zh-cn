@@ -16,17 +16,17 @@ origin.date: 09/07/2017
 ms.date: 10/16/2017
 ms.author: v-yiso
 ms.openlocfilehash: b1c6527a72ad9dddbedf164b4a0336769ac4d995
-ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
-ms.locfileid: "22338817"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939116"
 ---
 # <a name="use-desired-properties-to-configure-devices-node"></a>使用所需属性配置设备 (Node)
 
 [!INCLUDE [iot-hub-selector-twin-how-to-configure](../../includes/iot-hub-selector-twin-how-to-configure.md)]
 
-在本教程结束时，将拥有两个 Node.js 控制台应用：
+在本教程结束时，你将拥有两个 Node.js 控制台应用：
 
 * **SimulateDeviceConfiguration.js**，一个模拟设备应用，它等待所需配置更新并报告模拟配置更新过程的状态。
 * **SetDesiredConfigurationAndQuery.js**（Node.js 后端应用），用于在设备上设置所需配置并查询配置更新过程。
@@ -98,7 +98,7 @@ ms.locfileid: "22338817"
    
     **客户端**对象公开从设备与设备孪生进行交互所需的所有方法。 上面的代码在初始化 **Client** 对象后会检索 **myDeviceId** 的设备孪生，并在所需属性上附加用于更新的处理程序。 该处理程序通过比较 configId 来验证是否存在实际配置更改请求，并调用启动配置更改的方法。
    
-    请注意，为简单起见，上一代码对初始配置使用硬编码默认值。 实际的应用可能会从本地存储加载该配置。
+    请注意，为简单起见，上一代码对初始配置使用硬编码默认值。 实际应用可能会从本地存储加载该配置。
    
    > [!IMPORTANT]
    > 所需属性更改事件始终在设备连接时发出一次，请确保在执行任何操作之前检查所需属性中是否存在实际更改。
@@ -211,7 +211,7 @@ ms.locfileid: "22338817"
     **Registry** 对象公开从服务与设备孪生进行交互所需的所有方法。 前面的代码在初始化 **Registry** 对象后检索 **myDeviceId** 的设备孪生，并使用新的遥测配置对象更新其所需属性。 在此之后，它调用 **queryTwins** 函数事件 10 秒。
 
     > [!IMPORTANT]
-    > 为进行说明，此应用程序每 10 秒查询 IoT 中心一次。 使用查询跨多个设备生成面向用户的报表，而不检测更改。 如果解决方案需要设备事件的实时通知，请使用[孪生通知][lnk-twin-notifications]。
+    > 为了方便用户查看，此应用程序每 10 秒查询 IoT 中心一次。 使用查询跨多个设备生成面向用户的报表，而不检测更改。 如果解决方案需要设备事件的实时通知，请使用[孪生通知][lnk-twin-notifications]。
     > 
     >
 

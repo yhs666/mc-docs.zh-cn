@@ -15,14 +15,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 06/01/2017
-ms.date: 01/30/2018
+ms.date: 07/10/2018
 ms.author: v-junlch
-ms.openlocfilehash: b39ebff8372bfe915f8baf1d6496929e8e2a4863
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 6702a3d7d503cae7417a40cf02bbf1e30dbc9e6a
+ms.sourcegitcommit: a22129c95c9f877a04c6b5b428edf7f4e953fd97
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
-ms.locfileid: "29285599"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37937360"
 ---
 # <a name="design-considerations-for-scale-sets"></a>规模集的设计注意事项
 本文讨论虚拟机规模集的设计注意事项。 有关什么是虚拟机规模集的信息，请参阅[虚拟机规模集概述](virtual-machine-scale-sets-overview.md)。
@@ -32,22 +32,19 @@ ms.locfileid: "29285599"
 
 ### <a name="scale-set-specific-features"></a>特定于规模集的功能
 
-- 指定规模集配置后，可以更新“容量”属性以并行部署更多的 VM。 这比编写一个脚本来协调众多 VM 的同时部署要简单得多。
+- 指定规模集配置后，可以更新“容量”属性以并行部署更多的 VM。 此过程比编写一个脚本来协调众多 VM 的同时部署要简单得多。
 - 可以[使用 Azure 自动缩放来自动缩放规模集](./virtual-machine-scale-sets-autoscale-overview.md)，但不能使用它来自动缩放单个 VM。
-- 可以[重置规模集 VM 的映像](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-a-vm)，但[不能重置单个 VM 的映像](https://docs.microsoft.com/rest/api/compute/virtualmachines)。
-- 可以[过度预配](./virtual-machine-scale-sets-design-overview.md)规模集 VM 以提高可靠性和加快部署速度。 除非编写自定义代码，否则在单个 VM 上无法做到这一点。
+- 可以[重置规模集 VM 的映像](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachinescalesets/reimage)，但[不能重置单个 VM 的映像](https://docs.microsoft.com/rest/api/compute/virtualmachines)。
+- 可以[过度预配](./virtual-machine-scale-sets-design-overview.md)规模集 VM 以提高可靠性和加快部署速度。 除非编写自定义代码来执行此操作，否则不能过度配置单个 VM。
 - 可以指定[升级策略](./virtual-machine-scale-sets-upgrade-scale-set.md)，方便在规模集中的各个 VM 上实施升级。 使用单个 VM 时，必须自行协调更新。
 
 ### <a name="vm-specific-features"></a>特定于 VM 的功能
 
 某些功能目前仅在 VM 中可用：
 
-- 可将数据磁盘附加到特定的单个 VM，但附加的数据磁盘是针对规模集中的所有 VM 配置的。
-- 可将非空数据磁盘附加到单个 VM，但不能附加到规模集中的 VM。
-- 可以创建单个 VM 的快照，但不能创建规模集中 VM 的快照。
 - 可以从单个 VM 捕获映像，但不能从规模集中的 VM 捕获映像。
-- 可将单个 VM 从本机磁盘迁移到托管磁盘，但对于规模集中的 VM，无法执行此操作。
-- 可将 IPv6 公共 IP 地址分配给单个 VM 的 NIC，但对于规模集中的 VM，无法执行此操作。 可将 IPv6 公共 IP 地址分配到单个 VM 或规模集 VM 前面的负载均衡器。
+- 可将单个 VM 从本机磁盘迁移到托管磁盘，但无法迁移规模集中的 VM 实例。
+- 可将 IPv6 公共 IP 地址分配给单个 VM 虚拟网络接口卡 (NIC)，但对于规模集中的 VM 实例，无法执行此操作。 可将 IPv6 公共 IP 地址分配到单个 VM 或规模集 VM 前面的负载均衡器。
 
 ## <a name="storage"></a>存储
 
@@ -71,7 +68,7 @@ ms.locfileid: "29285599"
 如果规模集使用用户管理的存储，并且关闭了过度预配，则可为每个存储帐户预配超过 20 个 VM，但是出于 IO 性能考虑，建议不要超过 40 个 VM。 
 
 ## <a name="limits"></a>限制
-在应用商店映像（也称为平台映像）上构建并配置为使用 Azure 托管磁盘的规模集最多支持 1,000 个 VM 的容量。 如果将规模集配置为支持超过 100 个 VM，则并非所有方案的运行方式都相同（例如负载均衡）。 有关详细信息，请参阅[使用大型虚拟机规模集](virtual-machine-scale-sets-placement-groups.md)。 
+在市场映像（也称为平台映像）上构建并配置为使用 Azure 托管磁盘的规模集最多支持 1,000 个 VM 的容量。 如果将规模集配置为支持超过 100 个 VM，则并非所有方案的运行方式都相同（例如负载均衡）。 有关详细信息，请参阅[使用大型虚拟机规模集](virtual-machine-scale-sets-placement-groups.md)。 
 
 使用用户管理的存储帐户配置的规模集目前限制为 100 个 VM（建议为此规模使用 5 个存储帐户）。
 

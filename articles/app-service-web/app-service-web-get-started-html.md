@@ -17,11 +17,11 @@ ms.date: 07/24/2017
 ms.author: v-dazen
 ms.custom: mvc
 ms.openlocfilehash: abdba4692d0b138a8de5fb031b47d09aa2b190b0
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
-ms.locfileid: "20634088"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939065"
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>在 Azure 中创建静态 HTML Web 应用
 

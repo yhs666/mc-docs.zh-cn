@@ -15,11 +15,11 @@ origin.date: 07/04/2017
 ms.author: dobett
 ms.date: 12/18/2017
 ms.openlocfilehash: 89e30d21ae3f537c8061df25264cd033256c69ed
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695078"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38938867"
 ---
 # <a name="get-started-with-device-twins-java"></a>设备孪生入门 (Java)
 

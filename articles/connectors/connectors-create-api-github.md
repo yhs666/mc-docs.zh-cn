@@ -17,11 +17,11 @@ origin.date: 03/02/2018
 ms.author: v-yiso
 ms.date: 04/23/2018
 ms.openlocfilehash: b0f210f79d7c6c9afd1afaf868810156fbb32b64
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31319158"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939036"
 ---
 # <a name="connect-to-github"></a>连接到 GitHub
 

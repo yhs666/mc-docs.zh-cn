@@ -17,11 +17,11 @@ origin.date: 04/11/2018
 ms.author: v-yiso
 ms.date: 05/07/2018
 ms.openlocfilehash: ba4acb5a3f5d9119f28ed608f70b16730f14a5cc
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121579"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939128"
 ---
 # <a name="connect-sparkfun-esp8266-thing-dev-to-azure-iot-hub-in-the-cloud"></a>将 Sparkfun ESP8266 Thing Dev 连接到云中的 Azure IoT 中心
 

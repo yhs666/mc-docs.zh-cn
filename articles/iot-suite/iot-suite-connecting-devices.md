@@ -17,11 +17,11 @@ origin.date: 03/14/2018
 ms.author: v-yiso
 ms.date: 04/02/2018
 ms.openlocfilehash: d2052cccc4dd99f3466c963fad154254f130a659
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30155543"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38938811"
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-preconfigured-solution-windows"></a>将设备连接到远程监视预配置解决方案 (Windows)
 

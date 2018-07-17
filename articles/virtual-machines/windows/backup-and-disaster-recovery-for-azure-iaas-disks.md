@@ -16,10 +16,10 @@ origin.date: 07/19/2017
 ms.date: 11/27/2017
 ms.author: v-dazen
 ms.openlocfilehash: 0c2a0166210be7f4dea0b2fd99cc1d93fba1ac51
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
-ms.locfileid: "25592536"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38938742"
 ---
 [!INCLUDE [virtual-machines-common-premium-storage.md](../../../includes/virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks.md)]

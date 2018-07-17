@@ -18,11 +18,11 @@ ms.date: 04/16/2018
 ms.author: v-yeche
 ms.custom: mvc
 ms.openlocfilehash: 1998dfd8ff97bf96bf5b873d8542a6abc88fa186
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31323679"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939183"
 ---
 # <a name="create-a-managed-disk-from-a-snapshot-with-cli"></a>使用 CLI 从快照创建托管磁盘
 

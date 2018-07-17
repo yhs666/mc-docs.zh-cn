@@ -17,11 +17,11 @@ origin.date: 02/12/2018
 ms.date: 03/12/2018
 ms.author: v-junlch
 ms.openlocfilehash: 37b0baddf66368b4c0ea6bf4b1e1c862a046c5ed
-ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29925179"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939187"
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-connections-using-makecert"></a>使用 MakeCert 为点到站点连接生成并导出证书
 

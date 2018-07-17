@@ -17,11 +17,11 @@ ms.date: 07/24/2017
 ms.author: v-dazen
 ms.custom: mvc
 ms.openlocfilehash: 7665ec2d4a35e372e51192104a44861067a50a59
-ms.sourcegitcommit: 1ca439ddc22cb4d67e900e3f1757471b3878ca43
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
-ms.locfileid: "21135456"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939063"
 ---
 # <a name="map-an-existing-custom-dns-name-to-azure-web-apps"></a>将现有的自定义 DNS 名称映射到 Azure Web 应用
 
@@ -44,7 +44,7 @@ ms.locfileid: "21135456"
 
 ## <a name="prerequisites"></a>先决条件
 
-若要完成本教程，需执行以下操作：
+完成本教程：
 
 * [创建一个应用服务应用](/app-service/)，或者使用为其他教程创建的应用。
 * 购买域名，确保可以访问域提供商（如 GoDaddy）的 DNS 注册表。
@@ -99,7 +99,7 @@ ms.locfileid: "21135456"
 
 ## <a name="map-a-cname-record"></a>映射 CNAME 记录
 
-在教程示例中，将为 `www` 子域（例如 `www.contoso.com`）添加 CNAME 记录。
+在教程示例中，为 `www` 子域（例如 `www.contoso.com`）添加 CNAME 记录。
 
 [!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records.md)]
 
@@ -107,7 +107,7 @@ ms.locfileid: "21135456"
 
 添加一条 CNAME 记录来将子域映射到应用的默认主机名 (`<app_name>.chinacloudsites.cn`)。
 
-对于 `www.contoso.com` 域示例，添加一条 CNAME 记录来将名称 `www` 映射到 `<app_name>.chinacloudsites.cn`。
+在 `www.contoso.com` 域示例中，添加将名称 `www` 映射到 `<app_name>.chinacloudsites.cn` 的 CNAME 记录。
 
 添加 CNAME 后，DNS 记录页与以下示例相似：
 
@@ -157,7 +157,7 @@ ms.locfileid: "21135456"
 
 若要映射 A 记录，需要具有应用的外部 IP 地址。 在 Azure 门户中，可以在应用的“自定义域”页面中找到此 IP 地址。
 
-在 Azure 门户中，在应用页面的左侧导航窗格中，选择“自定义域”。 
+在 Azure 门户中的应用页左侧导航窗格中，选择“自定义域”。 
 
 ![自定义域菜单](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 

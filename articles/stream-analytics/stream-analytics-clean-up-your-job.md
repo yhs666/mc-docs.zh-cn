@@ -11,11 +11,11 @@ ms.topic: conceptual
 origin.date: 05/22/2018
 ms.date: 07/02/2018
 ms.openlocfilehash: 0e73bbaff8c78cf88f5a7fe9b1d71460089c4085
-ms.sourcegitcommit: 2cf6961f692f318ce7034e7b4d994ee51d902199
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36947729"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939211"
 ---
 # <a name="clean-up-your-azure-stream-analytics-job"></a>清理 Azure 流分析作业
 

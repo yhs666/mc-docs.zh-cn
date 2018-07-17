@@ -10,11 +10,11 @@ origin.date: 05/01/2018
 ms.date: 07/02/2018
 ms.author: v-yeche
 ms.openlocfilehash: ce0ae09d21e8cb8a08f4f00a0762ea4b15a8c042
-ms.sourcegitcommit: 2cf6961f692f318ce7034e7b4d994ee51d902199
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36947694"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939042"
 ---
 # <a name="automate-os-and-framework-patching-with-acr-build"></a>使用 ACR Build 自动执行 OS 和框架修补
 

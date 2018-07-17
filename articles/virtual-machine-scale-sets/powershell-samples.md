@@ -14,15 +14,15 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 03/27/2018
-ms.date: 04/28/2018
+ms.date: 07/10/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 8bc986e1dcd26002d4a31c38695d2bc1b7dd022e
-ms.sourcegitcommit: 17369f8efdf3ec80c2448412e3425ee10042a31a
+ms.openlocfilehash: 3e08ab0e040eaae5dd49a1c81abcd47ca23fa8a8
+ms.sourcegitcommit: a22129c95c9f877a04c6b5b428edf7f4e953fd97
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32637658"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37937343"
 ---
 # <a name="azure-powershell-samples-for-virtual-machine-scale-sets"></a>虚拟机规模集的 Azure PowerShell 示例
 
@@ -31,12 +31,14 @@ ms.locfileid: "32637658"
 | | |
 |---|---|
 |**创建和管理规模集**||
-| [创建虚拟机规模集](scripts/powershell-sample-create-simple-scale-set.md?toc=%2fpowershell%2fazure%2ftoc.json) | 使用最低配置创建虚拟机规模集。 |
-| [从自定义 VM 映像创建规模集](scripts/powershell-sample-create-scale-set-from-custom-image.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 创建使用自定义 VM 映像的虚拟机规模集。 |
-| [将应用程序安装到规模集](scripts/powershell-sample-install-apps.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 使用 Azure 自定义脚本扩展可将基本 Web 应用程序安装到规模集中。 |
+| [创建简单的虚拟机规模集](scripts/powershell-sample-create-simple-scale-set.md) | 使用最低配置创建虚拟机规模集。 |
+| [创建完整的虚拟机规模集](scripts/powershell-sample-create-complete-scale-set.md) | 使用配置文件创建虚拟机规模集和相关资源。 |
+| [从自定义 VM 映像创建规模集](scripts/powershell-sample-create-scale-set-from-custom-image.md) | 创建使用自定义 VM 映像的虚拟机规模集。 |
+| [将应用程序安装到规模集](scripts/powershell-sample-install-apps.md) | 使用 Azure 自定义脚本扩展可将基本 Web 应用程序安装到规模集中。 |
 |**管理存储**||
-| [创建规模集并向其附加磁盘](scripts/powershell-sample-attach-disks.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 创建附加了数据磁盘的虚拟机规模集。 |
+| [创建规模集并向其附加磁盘](scripts/powershell-sample-attach-disks.md) | 创建附加了数据磁盘的虚拟机规模集。 |
 |**管理缩放和冗余**||
-| [启用基于主机的自动缩放](scripts/powershell-sample-enable-autoscale.md?toc=%2fpowershell%2fazure%2ftoc.json) | 创建配置为基于 CPU 使用情况自动缩放的虚拟机规模集。 |
+| [启用基于主机的自动缩放](scripts/powershell-sample-enable-autoscale.md) | 创建配置为基于 CPU 使用情况自动缩放的虚拟机规模集。 |
 | | |
 
+<!-- Update_Description: wording update -->

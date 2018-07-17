@@ -3,23 +3,23 @@ title: Azure 通知中心内针对 APNS 的基于令牌的 (HTTP/2) 身份验证
 description: 本主题介绍了如何利用新的针对 APNS 的令牌身份验证
 services: notification-hubs
 documentationcenter: .net
-author: kpiteira
-manager: erikre
-editor: ''
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 05/17/2017
-ms.date: 01/22/2018
+origin.date: 04/14/2018
+ms.date: 07/09/2018
 ms.author: v-junlch
-ms.openlocfilehash: e9388346851b6446bdd50fb3756954bc2f4ad710
-ms.sourcegitcommit: c0a9889921cd1ee52d58255a5a2db5e7930c4a4b
+ms.openlocfilehash: 51789632086099efb02de96bf351a677236901d8
+ms.sourcegitcommit: e950fe5260c519e05f8c5bbf193a8ef733a6a2d2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/23/2018
-ms.locfileid: "28001693"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37936327"
 ---
 # <a name="token-based-http2-authentication-for-apns"></a>针对 APNS 的基于令牌的 (HTTP/2) 身份验证
 ## <a name="overview"></a>概述
@@ -121,4 +121,3 @@ ms.locfileid: "28001693"
 ## <a name="reverting-to-using-certificate-based-authentication"></a>恢复为使用基于证书的身份验证
 任何时候都可以通过使用前面的任何方法并传递证书而非令牌属性来恢复为使用基于证书的身份验证。 该操作将覆盖以前存储的凭据。
 
-<!-- Update_Description: wording update -->

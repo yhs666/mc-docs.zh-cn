@@ -17,11 +17,11 @@ ms.author: v-yiso
 ms.custom: mvc
 ms.date: 10/16/2017
 ms.openlocfilehash: 4cf8bb17008b88b60aa875d0f1a790e96472dd60
-ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
-ms.locfileid: "22339083"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939061"
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure"></a>在 Azure 中构建 PHP 和 MySQL Web 应用
 
@@ -29,7 +29,7 @@ ms.locfileid: "22339083"
 
 ![在 Azure 应用服务中运行的 PHP 应用](./media/app-service-web-tutorial-php-mysql/complete-checkbox-published.png)
 
-本教程介绍如何：
+本教程介绍如何执行下列操作：
 
 > [!div class="checklist"]
 > * 在 Azure 中创建 MySQL 数据库
@@ -90,7 +90,7 @@ quit
 
 在终端窗口中，通过 `cd` 转到工作目录。
 
-运行下列命令以克隆示例存储库。
+运行下列命令，克隆示例存储库。
 
 ```bash
 git clone https://github.com/Azure-Samples/laravel-tasks
@@ -142,7 +142,7 @@ php artisan key:generate
 php artisan serve
 ```
 
-在浏览器中导航至 `http://localhost:8000`。 在页面中添加一些任务。
+在浏览器中导航到 `http://localhost:8000`。 在页面中添加一些任务。
 
 ![PHP 已成功连接到 MySQL](./media/app-service-web-tutorial-php-mysql/mysql-connect-success.png)
 
@@ -329,7 +329,7 @@ git commit -m "database.php updates"
 
 应用已可用于部署。
 
-## <a name="deploy-to-azure"></a>部署到 Azure
+## <a name="deploy-to-azure"></a>“部署到 Azure”
 
 此步骤将已连接 MySQL 的 PHP 应用程序部署到 Azure 应用服务。
 
@@ -664,7 +664,7 @@ az webapp log tail \
 
 ## <a name="next-steps"></a>后续步骤
 
-本教程介绍了如何：
+在本教程中，你已学习了如何执行以下操作：
 
 > [!div class="checklist"]
 > * 在 Azure 中创建 MySQL 数据库

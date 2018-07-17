@@ -17,11 +17,11 @@ origin.date: 05/31/2017
 ms.date: 03/19/2018
 ms.author: v-yeche
 ms.openlocfilehash: 6a64e457e630ce933b2d7295951b0ad78a6c2076
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
-ms.locfileid: "29965322"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939189"
 ---
 # <a name="configure-an-external-listener-for-always-on-availability-groups-in-azure"></a>在 Azure 中配置 AlwaysOn 可用性组的外部侦听器
 > [!div class="op_single_selector"]

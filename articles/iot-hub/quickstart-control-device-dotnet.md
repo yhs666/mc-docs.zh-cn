@@ -15,11 +15,11 @@ origin.date: 04/30/2018
 ms.date: 07/09/2018
 ms.author: v-yiso
 ms.openlocfilehash: f94336e79d6a1d78db90527eccb3c17b5d891a21
-ms.sourcegitcommit: 039d75a641edc2edd13a9371251051c20fea2bb7
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103403"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38938806"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-net"></a>快速入门：控制连接到 IoT 中心 (.NET) 的设备
 

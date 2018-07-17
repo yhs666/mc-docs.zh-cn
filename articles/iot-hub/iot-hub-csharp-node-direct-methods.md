@@ -16,11 +16,11 @@ origin.date: 08/30/2017
 ms.date: 11/20/2017
 ms.author: v-yiso
 ms.openlocfilehash: 68f580c1b686fdd213c57564e6b703594ed9c8c0
-ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
-ms.locfileid: "24058550"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939142"
 ---
 # <a name="use-direct-methods-netnode"></a>使用直接方法(.NET/Node)
 [!INCLUDE [iot-hub-selector-c2d-methods](../../includes/iot-hub-selector-c2d-methods.md)]
@@ -124,7 +124,7 @@ ms.locfileid: "24058550"
     using System.Threading.Tasks;
     using Microsoft.Azure.Devices;
     ```
-5. 将以下字段添加到 **Program** 类。 将占位符值替换为在上一部分中为中心创建的 IoT 中心连接字符串。
+5. 将以下字段添加到 Program 类。 将占位符值替换为在上一部分为中心创建的 IoT 中心连接字符串。
 
     ```
     static ServiceClient serviceClient;

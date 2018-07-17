@@ -16,11 +16,11 @@ origin.date: 01/17/2018
 ms.author: v-yiso
 ms.date: 03/19/2018
 ms.openlocfilehash: cafd03e2d6afb273f5acf0736e8cf63de2f42671
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29870308"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38938868"
 ---
 [!INCLUDE [iot-security-architecture](../../includes/iot-security-architecture.md)]
 

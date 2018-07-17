@@ -16,16 +16,16 @@ origin.date: 09/07/2017
 ms.author: v-yiso
 ms.date: 10/16/2017
 ms.openlocfilehash: eac8a7a1f58beb4786ba55dbf906a8e5a53af3f2
-ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
-ms.locfileid: "22338839"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38938873"
 ---
 # <a name="get-started-with-device-twins-netnode"></a>设备孪生入门 (.NET/Node)
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
 
-在本教程结束时，将拥有一个 .NET 控制台应用和一个 Node.js 控制台应用：
+在本教程结束时，你将拥有一个 .NET 控制台应用和一个 Node.js 控制台应用：
 
 * **AddTagsAndQuery.sln**，一个 .NET 后端应用，用于添加标记并查询设备孪生。
 * **TwinSimulatedDevice.js**，一个 Node.js 应用，它模拟使用早前创建的设备标识连接到 IoT 中心的设备，并报告其连接条件。
@@ -47,7 +47,7 @@ ms.locfileid: "22338839"
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
 ## <a name="create-the-service-app"></a>创建服务应用
-本部分创建一个 .NET 控制台应用（使用 C#），该应用将位置元数据添加到与 **myDeviceId** 关联的设备孪生。 然后，该应用将选择位于美国的设备来查询存储在 IoT 中心的设备孪生，并查询报告手机网络连接的设备孪生。
+本部分创建一个 .NET 控制台应用（使用 C#），该应用将位置元数据添加到与 **myDeviceId** 关联的设备孪生。 然后，该应用选择位于美国的设备来查询存储在 IoT 中心的设备孪生，然后查询报告手机网络连接的设备孪生。
 
 1. 在 Visual Studio 中，使用“**控制台应用程序**”项目模板将 Visual C# Windows 经典桌面项目添加到当前解决方案。 **AddTagsAndQuery**。
    
@@ -59,7 +59,7 @@ ms.locfileid: "22338839"
 1. 在 **Program.cs** 文件顶部添加以下 `using` 语句：
    
         using Microsoft.Azure.Devices;
-1. 将以下字段添加到 **Program** 类。 将占位符值替换为在上一部分中为中心创建的 IoT 中心连接字符串。
+1. 将以下字段添加到 Program 类。 将占位符值替换为在上一部分为中心创建的 IoT 中心连接字符串。
    
         static RegistryManager registryManager;
         static string connectionString = "{iot hub connection string}";
@@ -168,7 +168,7 @@ ms.locfileid: "22338839"
     ```
 
     此时会显示消息 `twin state reported`。
-6. 现在设备报告了其连接信息，该信息应出现在两个查询中。 运行 .NET **AddTagsAndQuery** 应用即可再次运行查询。 这次 **myDeviceId** 应出现在两个查询结果中。
+6. 现在设备报告了其连接信息，应出现在两个查询中。 运行 .NET **AddTagsAndQuery** 应用即可再次运行查询。 这次 **myDeviceId** 应出现在两个查询结果中。
 
     ![][img-addtagapp2]
 

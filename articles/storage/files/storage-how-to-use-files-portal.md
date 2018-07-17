@@ -16,11 +16,11 @@ origin.date: 03/26/2018
 ms.date: 06/11/2018
 ms.author: v-johch
 ms.openlocfilehash: 359d62b19617bd039680deb0f4593a3f99bbf55a
-ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103048"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939214"
 ---
 # <a name="managing-azure-file-shares-with-the-azure-portal"></a>使用 Azure 门户管理 Azure 文件共享 
 [Azure 文件](storage-files-introduction.md)是易于使用的云文件系统。 可以在 Windows、Linux 和 macOS 中装载 Azure 文件共享。 本指南介绍通过 [Azure 门户](https://portal.azure.cn/)来使用 Azure 文件共享的基本知识。 了解如何：

@@ -17,11 +17,11 @@ origin.date: 03/19/2018
 ms.date: 03/28/2018
 ms.author: v-junlch
 ms.openlocfilehash: fa43e3245a929fffa66ae2315d8794381f78dcad
-ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/09/2018
-ms.locfileid: "30941379"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38938841"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>使用本机 Azure 证书身份验证配置与 VNet 的点到站点连接：Azure 门户
 

@@ -16,11 +16,11 @@ origin.date: 01/22/2018
 ms.date: 03/19/2018
 ms.author: v-yiso
 ms.openlocfilehash: 8220575a93751929b16844075d07ddb960023cc0
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29870559"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939117"
 ---
 # <a name="use-direct-methods-on-your-iot-device-with-python"></a>通过 Python 使用 IoT 设备上的直接方法
 [!INCLUDE [iot-hub-selector-c2d-methods](../../includes/iot-hub-selector-c2d-methods.md)]

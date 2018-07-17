@@ -17,11 +17,11 @@ origin.date: 03/15/2016
 ms.date: 06/11/2018
 ms.author: v-yeche
 ms.openlocfilehash: 922e8bfefbfc82f0cedb80067856307f6d1771b4
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34869097"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939087"
 ---
 # <a name="create-a-virtual-network-classic-using-a-network-configuration-file-with-powershell"></a>在 PowerShell 中使用网络配置文件创建虚拟网络（经典）
 [!INCLUDE [virtual-networks-create-vnet-selectors-classic-include](../../includes/virtual-networks-create-vnet-selectors-classic-include.md)]

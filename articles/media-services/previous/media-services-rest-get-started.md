@@ -16,11 +16,11 @@ origin.date: 04/13/2018
 ms.date: 05/28/2018
 ms.author: v-nany
 ms.openlocfilehash: 8b979192007a8ed7c8cdd64b3f3545bce76a1329
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867494"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38938839"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>开始使用 REST 传送点播内容
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]

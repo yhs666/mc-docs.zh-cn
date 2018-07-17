@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 05/18/2018
-ms.date: 06/11/2018
+ms.date: 07/10/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: a20f23056a85d4336324f52c824a425343ba983b
-ms.sourcegitcommit: a63d392037f3eca3196026c500ac7d2d26d85a7c
+ms.openlocfilehash: 3f3a5d3a3f451eb7ae290050ec17bb6744aa9904
+ms.sourcegitcommit: a22129c95c9f877a04c6b5b428edf7f4e953fd97
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35253176"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37937376"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-azure-powershell"></a>教程：使用 Azure PowerShell 创建和管理虚拟机规模集
 利用虚拟机规模集，可以部署和管理一组相同的、自动缩放的虚拟机。 在虚拟机规模集的整个生命周期内，可能需要运行一个或多个管理任务。 本教程介绍如何执行下列操作：
@@ -96,7 +96,7 @@ Get-AzureRmVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleS
 
 
 ## <a name="list-connection-information"></a>列出连接信息
-可以将公共 IP 地址分配给负载均衡器，由后者将流量路由到各个 VM 实例。 默认情况下，会将网络地址转换 (NAT) 规则添加到 Azure 负载均衡器，由后者将远程连接流量转发给给定端口上的每个 VM。 若要连接到规模集中的 VM 实例，请创建一个可连接到已分配的公共 IP 地址和端口号的远程连接。
+系统将公共 IP 地址分配给负载均衡器，由后者将流量路由到各个 VM 实例。 默认情况下，会将网络地址转换 (NAT) 规则添加到 Azure 负载均衡器，由后者将远程连接流量转发给给定端口上的每个 VM。 若要连接到规模集中的 VM 实例，请创建一个可连接到已分配的公共 IP 地址和端口号的远程连接。
 
 若要列出连接到规模集中的 VM 实例所需的 NAT 端口，请先使用 [Get-AzureRmLoadBalancer](https://docs.microsoft.com/powershell/module/AzureRM.Network/Get-AzureRmLoadBalancer) 获取负载均衡器对象， 然后使用 [Get-AzureRmLoadBalancerInboundNatRuleConfig](https://docs.microsoft.com/powershell/module/AzureRM.Network/Get-AzureRmLoadBalancerInboundNatRuleConfig) 查看入站 NAT 规则：
 
@@ -145,7 +145,7 @@ mstsc /v 52.168.121.216:50001
 
 
 ## <a name="understand-vm-instance-images"></a>了解 VM 实例映像
-在前面的步骤中使用 [Set-AzureRmVmssStorageProfile](https://docs.microsoft.com/powershell/module/AzureRM.Compute/Set-AzureRmVmssStorageProfile) 定义规模集配置时，使用了 Windows Server 2016 Datacenter 映像。 Azure Marketplace 包括许多可用于创建 VM 实例的映像。 若要查看可用发布者的列表，请使用 [Get-AzureRmVMImagePublisher](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmimagepublisher) 命令。
+Azure 市场包括许多可用于创建 VM 实例的映像。 若要查看可用发布者的列表，请使用 [Get-AzureRmVMImagePublisher](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmimagepublisher) 命令。
 
 ```azurepowershell
 Get-AzureRmVMImagePublisher -Location "ChinaNorth"
@@ -200,7 +200,7 @@ VM 实例大小或 *SKU* 决定了可供 VM 实例使用的计算资源（如 CP
 ### <a name="vm-instance-sizes"></a>VM 实例大小
 下表将常用 VM 大小按类别分成了多个用例。
 
-| 类型                     | 常见大小           |    说明       |
+| Type                     | 常见大小           |    说明       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [常规用途](../virtual-machines/windows/sizes-general.md)         |Dsv3、Dv3、DSv2、Dv2、DS、D、Av2、A0-7| CPU 与内存之比均衡。 适用于开发/测试、小到中型应用程序和数据解决方案。  |
 | [计算优化](../virtual-machines/windows/sizes-compute.md)   | Fs, F             | 高 CPU 与内存之比。 适用于中等流量的应用程序、网络设备和批处理。        |
@@ -329,4 +329,4 @@ Remove-AzureRmResourceGroup -Name "myResourceGroup" -Force -AsJob
 > [!div class="nextstepaction"]
 > [通过规模集使用数据磁盘](tutorial-use-disks-powershell.md)
 
-<!-- Update_Description: code update -->
+<!-- Update_Description: wording update -->

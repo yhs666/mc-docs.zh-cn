@@ -13,19 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 04/02/2018
-ms.date: 05/08/2018
+origin.date: 06/07/2018
+ms.date: 07/10/2018
 ms.author: v-junlch
-ms.openlocfilehash: f4fad59eca6a239f1bf50140c370abb86a69cd30
-ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
+ms.openlocfilehash: 568e650e7ac533532e3c305b8383fabbec3590de
+ms.sourcegitcommit: a22129c95c9f877a04c6b5b428edf7f4e953fd97
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33937500"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37937369"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-point-to-site-configurations"></a>为本机 Azure 证书身份验证点到站点配置创建并安装 VPN 客户端配置文件
 
 VPN 客户端配置文件包含在一个 zip 文件中。 配置文件提供本机 Windows、Mac IKEv2 VPN 或 Linux 客户端通过使用本机 Azure 证书身份验证的点到站点连接，来与 VNet 建立连接所需的设置。
+
+>[!IMPORTANT]
+>[!INCLUDE [TLS](../../includes/vpn-gateway-tls-change.md)]
+>
 
 ### <a name="workflow"></a>P2S 工作流
 
@@ -172,5 +176,6 @@ Azure 不提供用于本机 Azure 证书身份验证的 mobileconfig 文件。 �
 
 返回到相关文章，[完成 P2S 配置](vpn-gateway-howto-point-to-site-rm-ps.md)。
 
-有关 P2S 故障排除信息，请参阅[排查 Azure 点到站点连接问题](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)。
+有关 P2S 故障排除信息，请参阅[排查 Azure 点到站点连接问题](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)和[排查从 Mac OS X VPN 客户端建立的 VPN 连接问题](vpn-gateway-troubleshoot-point-to-site-osx-ikev2.md)。
+
 <!--Update_Description: wording update-->

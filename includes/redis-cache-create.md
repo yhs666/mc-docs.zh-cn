@@ -6,38 +6,38 @@ author: wesmc7777
 ms.service: cache
 ms.topic: include
 origin.date: 03/28/2018
-ms.date: 05/25/2018
+ms.date: 07/10/2018
 ms.author: v-junlch
 ms.custom: include file
-ms.openlocfilehash: 575d8da6dbbaa173156330acd45f64b95d2a0788
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 2e26f3cf47e394a8bf1f388a1a82140a16dc126f
+ms.sourcegitcommit: a22129c95c9f877a04c6b5b428edf7f4e953fd97
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695837"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37937392"
 ---
-若要创建缓存，请先登录到 [Azure 门户](https://portal.azure.cn)，并单击“创建资源” > “数据库” > “Redis 缓存”。
+1. 若要创建缓存，请首先登录到 [Azure 门户](https://portal.azure.cn)。 然后选择“创建资源” > “数据库” > “Redis 缓存”。
 
-![新建缓存](./media/redis-cache-create/redis-cache-new-cache-menu.png)
+    ![新建缓存](./media/redis-cache-create/redis-cache-new-cache-menu.png)
 
-在“新建 Redis 缓存”中，配置新缓存的设置。
+2. 在“新建 Redis 缓存”中，配置新缓存的设置。
 
-| 设置      | 建议的值  | 说明 |
-| ------------ |  ------- | -------------------------------------------------- |
-| **DNS 名称** | 全局唯一名称 | 缓存名称必须是包含 1 到 63 个字符的字符串，只能包含数字、字母和 `-` 字符。 缓存名称的开头或末尾不能是 `-` 字符，并且连续的 `-` 字符无效。  | 
-| **订阅** | 你的订阅 | 要在其下创建此新 Azure Redis 缓存的订阅。 | 
-| **资源组** |  TestResources | 要在其中创建缓存的新资源组的名称。 通过将应用的所有资源都放在一个组中，可以一起管理它们。 例如，删除资源组会删除与该应用关联的所有资源。 | 
-| **位置** | 中国北部 | 选择将使用缓存的其他服务附近的[区域](https://azure.microsoft.com/regions/)。 |
-| **[定价层](https://www.azure.cn/pricing/details/redis-cache/)** |  基本 C0（250 MB 缓存） |  定价层决定可用于缓存的大小、性能和功能。 有关详细信息，请参阅 [Azure Redis 缓存概述](../articles/redis-cache/cache-overview.md)。 |
-| **固定到仪表板** |  选定 | 单击“将新缓存固定到仪表板”使其容易被找到。 |
+    | 设置      | 建议的值  | 说明 |
+    | ------------ |  ------- | -------------------------------------------------- |
+    | **DNS 名称** | 全局唯一名称 | 缓存名称。 必须是 1 到 63 个字符的字符串，只能包含数字、字母和 `-` 字符。 缓存名称的开头或末尾不能是 `-` 字符，并且连续的 `-` 字符无效。  | 
+    | **订阅** | 你的订阅 | 要在其下创建此新 Azure Redis 缓存实例的订阅。 | 
+    | **资源组** |  TestResources | 要在其中创建缓存的新资源组的名称。 通过将应用的所有资源都放在一个组中，可以一起管理它们。 例如，删除资源组会删除与该应用关联的所有资源。 | 
+    | **位置** | 中国北部 | 选择将使用缓存的其他服务附近的[区域](https://azure.microsoft.com/regions/)。 |
+    | **[定价层](https://www.azure.cn/pricing/details/redis-cache/)** |  基本 C0（250 MB 缓存） |  定价层决定可用于缓存的大小、性能和功能。 有关详细信息，请参阅 [Azure Redis 缓存概述](../articles/redis-cache/cache-overview.md)。 |
+    | **固定到仪表板** |  选定 | 将新缓存固定到仪表板，使其容易被找到。 |
 
-![创建缓存](./media/redis-cache-create/redis-cache-cache-create.png) 
+    ![创建缓存](./media/redis-cache-create/redis-cache-cache-create.png) 
 
-配置了新缓存设置后，单击“创建”。 
+3. 配置了新缓存设置后，选择“创建”。 
 
-创建缓存可能耗时几分钟。 若要检查状态，可以监视仪表板上的进度。 创建缓存后，新缓存的状态为“正在运行”并且已可供使用。
+    创建缓存可能耗时几分钟。 若要检查状态，可以监视仪表板上的进度。 缓存在创建后会显示状态为“正在运行”，可供用户使用。
 
-![创建的缓存](./media/redis-cache-create/redis-cache-cache-created.png)
+    ![创建的缓存](./media/redis-cache-create/redis-cache-cache-created.png)
 
 
-<!-- ms.date: 05/25/2018 -->
+<!-- ms.date: 07/10/2018 -->

@@ -16,11 +16,11 @@ origin.date: 03/06/2018
 ms.date: 06/11/2018
 ms.author: v-yiso
 ms.openlocfilehash: e5abcdc57b82571900ac23e604177f317fc915ea
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695122"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939149"
 ---
 # <a name="schedule-and-broadcast-jobs-netnet"></a>计划和广播作业 (.NET/.NET)
 

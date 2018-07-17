@@ -16,11 +16,11 @@ origin.date: 07/07/2016
 ms.date: 09/04/2017
 ms.author: v-yiso
 ms.openlocfilehash: 3780b7f6824d3b232d66875fbbb95796ba22023e
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
-ms.locfileid: "21134815"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939165"
 ---
 # <a name="django-and-mysql-on-azure-with-python-tools-22-for-visual-studio"></a>Azure 上具有 Python Tools 2.2 for Visual Studio 的 Django 和 MySQL
 [!INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
@@ -54,7 +54,7 @@ ms.locfileid: "21134815"
 4. 选择“Python 2.7”或“Python 3.4”作为基础解释器。
 
     ![添加虚拟环境对话框](./media/web-sites-python-ptvs-django-mysql/PollsCommonAddVirtualEnv.png)
-5. 在“解决方案资源管理器”中，右键单击项目节点，选择“Python”，然后选择“Django 迁移”。  然后选择“Django 创建超级用户”。
+5. 在“解决方案资源管理器”中，右键单击项目节点，选择“Python”，并选择“Django 迁移”。  然后选择“Django 创建超级用户”。
 6. 这会打开 Django 管理控制台，并在项目文件夹中创建一个 sqlite 数据库。 按照提示操作以创建一个用户。
 7. 按 `F5`确认应用程序能否正常运行。
 8. 单击顶部导航栏中的“登录”  。
@@ -90,7 +90,7 @@ ms.locfileid: "21134815"
 
         Database=<NAME>;Data Source=<HOST>;User Id=<USER>;Password=<PASSWORD>
 
-    更改默认数据库**引擎**以使用 MySQL，然后从 **CONNECTIONSTRING** 设置“名称”、“用户”、“密码”和“主机”的值。
+    更改默认数据库**引擎**以使用 MySQL，并从 **CONNECTIONSTRING** 中设置“名称”、“用户”、“密码”和“主机”的值。
 
         DATABASES = {
             'default': {

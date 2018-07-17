@@ -16,11 +16,11 @@ origin.date: 08/17/2017
 ms.date: 09/04/2017
 ms.author: v-yiso
 ms.openlocfilehash: 3aa1ec0a384be664ea6b97c2e1744b80afd52e65
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
-ms.locfileid: "21134771"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939062"
 ---
 # <a name="configuring-a-custom-domain-name-for-a-web-app-in-azure-app-service-using-traffic-manager"></a>使用流量管理器为 Azure 应用服务中的 Web 应用配置自定义域名
 [!INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
@@ -48,7 +48,7 @@ ms.locfileid: "21134771"
 ## <a name="add-a-dns-record-for-your-custom-domain"></a>为自定义域添加 DNS 记录
 
 
-要将自定义域名与 Azure 应用服务中的 Web 应用关联，必须通过使用向你出售域名的域注册机构所提供的工具在 DNS 表中为自定义域添加新条目。 按照以下步骤找到并使用这些 DNS 工具。
+要将自定义域名与 Azure 应用服务中的 Web 应用关联，必须通过使用向你出售域名的域注册机构所提供的工具在 DNS 表中为自定义域添加新条目。 使用以下步骤找到并使用这些 DNS 工具。
 
 1. 登录到在域注册机构注册的帐户，并查找用于管理 DNS 记录的页面。 查找标为“域名”、“DNS”或“名称服务器管理”的站点链接或区域。 通过查看帐户信息，并查找诸如“我的域”这样的链接，通常可以找到此页面的链接。
 2. 找到域名管理页后，再找允许编辑 DNS 记录的链接。 此链接可能作为“区域文件”、“DNS 记录”或“高级”配置链接列出。

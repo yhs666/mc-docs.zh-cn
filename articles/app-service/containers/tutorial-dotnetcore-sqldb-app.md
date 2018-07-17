@@ -17,11 +17,11 @@ ms.author: v-yiso
 ms.custom: mvc
 ms.date: 10/16/2017
 ms.openlocfilehash: e8bc4cdb843bc9484529e7c86b496b93dccbd712
-ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
-ms.locfileid: "22339077"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939161"
 ---
 # <a name="build-a-net-core-and-sql-database-web-app-in-azure-web-apps-for-containers"></a>在用于容器的 Azure Web 应用中生成 .NET Core 和 SQL 数据库 Web 应用
 
@@ -336,7 +336,7 @@ public async Task<IActionResult> Create([Bind("ID,Description,CreatedDate,Done")
 dotnet run
 ```
 
-在浏览器中，导航至 http://local:5000/。 现在可以添加待办事项，然后单击“完成”。 然后，它应作为已完成项在主页中显示。 请记住，`Edit`视图不显示`Done`字段，因为没有更改`Edit`视图。
+在浏览器中，导航到 http://local:5000/。 现在可以添加待办事项，然后单击“完成”。 然后，它应作为已完成项在主页中显示。 请记住，`Edit`视图不显示`Done`字段，因为没有更改`Edit`视图。
 
 ### <a name="publish-changes-to-azure"></a>发布对 Azure 所做的更改
 

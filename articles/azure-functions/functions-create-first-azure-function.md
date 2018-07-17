@@ -18,11 +18,11 @@ ms.date: 04/10/2018
 ms.author: v-junlch
 ms.custom: mvc, devcenter, cc996988-fb4f-47
 ms.openlocfilehash: 6015774c0b8b7a808b74c716c3b68989aebc3253
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31359506"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939156"
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>在 Azure 门户中创建第一个函数
 

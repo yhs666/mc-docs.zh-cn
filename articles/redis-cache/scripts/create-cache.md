@@ -17,11 +17,11 @@ origin.date: 08/30/2017
 ms.date: 03/01/2018
 ms.author: v-junlch
 ms.openlocfilehash: 808f509f775ec2ed1efbff6cbccabfaca4864194
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
-ms.locfileid: "29730731"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939209"
 ---
 # <a name="create-an-azure-redis-cache"></a>创建 Azure Redis 缓存
 

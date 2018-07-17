@@ -17,11 +17,11 @@ origin.date: 07/27/2017
 ms.date: 08/31/2017
 ms.author: v-junlch
 ms.openlocfilehash: 20996391c9c75189f22441ba79e94aa46be4df97
-ms.sourcegitcommit: 9284e560b58d9cbaebe6c2232545f872c01b78d9
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/28/2017
-ms.locfileid: "25949501"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939090"
 ---
 # <a name="planning-and-design-for-vpn-gateway"></a>规划和设计 VPN 网关
 
@@ -80,11 +80,11 @@ VPN 网关需要一个特定的子网，称为网关子网。 所有网关子网
 
 #### <a name="local"></a>关于本地网络网关
 
-本地网络网关通常是指本地位置。 在经典部署模型中，本地网络网关称为本地网络站点。 配置本地网络网关时，需为它命名、指定本地 VPN 设备的公共 IP 地址，并指定位于本地位置中的地址前缀。 Azure 将查看网络流量的目标地址前缀、查阅针对本地网络网关指定的配置，并相应地路由数据包。 可以根据需要修改这些地址前缀。 有关详细信息，请参阅[本地网络网关](vpn-gateway-about-vpn-gateway-settings.md#lng)。
+本地网络网关通常是指本地位置。 在经典部署模型中，本地网络网关称为本地网络站点。 配置本地网络网关时，需为它命名、指定本地 VPN 设备的公共 IP 地址，并指定位于本地位置中的地址前缀。 Azure 将查看网络流量的目标地址前缀、查阅针对本地网络网关指定的配置，并相应地路由数据包。 可以根据需要修改这些地址前缀。 有关详细信息，请参阅[本地网关](vpn-gateway-about-vpn-gateway-settings.md#lng)。
 
 #### <a name="gwtype"></a>关于网关类型
 
-为拓扑选择正确的网关类型至关重要。 如果选择了错误的类型，网关无法正常工作。 网关类型指定网关本身如何进行连接，它是 Resource Manager 部署模型的必需配置设置。
+为拓扑选择正确的网关类型至关重要。 如果选择了错误的类型，网关将无法正常工作。 网关类型指定网关本身如何进行连接，它是 Resource Manager 部署模型的必需配置设置。
 
 网关类型包括：
 

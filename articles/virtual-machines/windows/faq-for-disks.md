@@ -16,11 +16,11 @@ origin.date: 06/15/2017
 ms.date: 05/21/2018
 ms.author: v-yeche
 ms.openlocfilehash: 6dbf49a5304b6122bb9b596bbb0c32e731c1b311
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34257795"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939206"
 ---
 [!INCLUDE [virtual-machines-faq-for-disks](../../../includes/virtual-machines-faq-for-disks.md)]
 <!-- Update_Description: update meta properties -->

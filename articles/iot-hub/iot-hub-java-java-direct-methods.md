@@ -16,11 +16,11 @@ origin.date: 08/08/2017
 ms.author: v-yiso
 ms.date: 10/16/2017
 ms.openlocfilehash: a1225b5cf4738a66a33b55240931f14521c13297
-ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
-ms.locfileid: "22338888"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939123"
 ---
 # <a name="use-direct-methods-java"></a>使用直接方法 (Java)
 
@@ -54,7 +54,7 @@ ms.locfileid: "22338888"
 
     `mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=simulated-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`
 
-1. 在命令提示符下，导航到 simulated-device 文件夹。
+1. 在命令提示符下，浏览到 simulated-device 文件夹。
 
 1. 使用文本编辑器，打开 simulated-device 文件夹中的 pom.xml 文件，并在 **dependencies** 节点中添加以下依赖项。 此依赖项使得你可以使用应用中的 iot-device-client 包来与 IoT 中心进行通信：
 
@@ -312,7 +312,7 @@ ms.locfileid: "22338888"
 
 1. 模拟设备对直接方法调用做出响应：
 
-    ![Java IoT 中心模拟设备应用对直接方法调用进行响应][9]
+    ![对直接方法调用进行响应的 Java IoT 中心模拟设备应用][9]
 
 ## <a name="next-steps"></a>后续步骤
 

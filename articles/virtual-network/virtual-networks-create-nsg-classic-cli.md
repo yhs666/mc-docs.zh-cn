@@ -17,11 +17,11 @@ origin.date: 02/02/2016
 ms.date: 06/11/2018
 ms.author: v-yeche
 ms.openlocfilehash: 44a9e7fe8df8d1dc3a78f11d06a439266a38702a
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34869249"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939180"
 ---
 # <a name="create-a-network-security-group-classic-using-the-azure-cli-10"></a>使用 Azure CLI 1.0 创建网络安全组（经典）
 [!INCLUDE [virtual-networks-create-nsg-selectors-classic-include](../../includes/virtual-networks-create-nsg-selectors-classic-include.md)]

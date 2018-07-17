@@ -17,11 +17,11 @@ origin.date: 11/27/2017
 ms.date: 06/04/2018
 ms.author: v-yeche
 ms.openlocfilehash: e258d7b5598777881600408d670a3c1207ecc7c0
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702794"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38938794"
 ---
 # <a name="tutorial-install-a-lamp-web-server-on-a-linux-virtual-machine-in-azure"></a>教程：在 Azure 中的 Linux 虚拟机上安装 LAMP Web 服务器
 

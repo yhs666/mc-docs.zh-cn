@@ -17,11 +17,11 @@ origin.date: 01/17/2018
 ms.author: v-yiso
 ms.date: 03/12/2018
 ms.openlocfilehash: 66c5a8c9682afa131e8e9e37366f12890f540ad4
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
-ms.locfileid: "29731222"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939248"
 ---
 [!INCLUDE [iot-secure-your-deployment](../../includes/iot-secure-your-deployment.md)]
 

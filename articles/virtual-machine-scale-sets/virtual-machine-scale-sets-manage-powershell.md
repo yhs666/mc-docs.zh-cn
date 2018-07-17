@@ -13,20 +13,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/13/2017
-ms.date: 04/26/2018
+origin.date: 05/29/2018
+ms.date: 07/10/2018
 ms.author: v-junlch
-ms.openlocfilehash: 822e4723afb9184691cf6763d02ad154eab0cec2
-ms.sourcegitcommit: 17369f8efdf3ec80c2448412e3425ee10042a31a
+ms.openlocfilehash: 1a1102ae3b7c85537b8f5d521aa481efbea80a41
+ms.sourcegitcommit: a22129c95c9f877a04c6b5b428edf7f4e953fd97
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32599146"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37937363"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-azure-powershell"></a>使用 Azure PowerShell 管理虚拟机规模集
 在虚拟机规模集的整个生命周期内，可能需要运行一个或多个管理任务。 此外，可能还需要创建自动执行各种生命周期任务的脚本。 本文详细介绍了执行这些任务常用的一些 Azure PowerShell cmdlet。
 
-若要完成这些管理任务，需要最新的 Azure PowerShell 模块。 有关信息，请参阅 [Azure PowerShell 入门](https://docs.microsoft.com/powershell/azure/get-started-azureps)。  如果需要创建虚拟机规模集，可以[使用 Azure PowerShell 创建规模集](quick-create-powershell.md)。
+若要完成这些管理任务，需要最新的 Azure PowerShell 模块。 有关信息，请参阅 [Azure PowerShell 入门](https://docs.microsoft.com/powershell/azure/get-started-azureps)。 如果需要创建虚拟机规模集，可以[使用 Azure PowerShell 创建规模集](quick-create-powershell.md)。
 
 
 ## <a name="view-information-about-a-scale-set"></a>查看有关规模集的信息
@@ -38,7 +38,7 @@ Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet
 
 
 ## <a name="view-vms-in-a-scale-set"></a>查看规模集中的 VM
-要在规模集中查看 VM 实例的列表，请使用 [Get-AzureRmVmssVM](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmssvm)。 以下示例将列出 myScaleSet 规模集和 myResourceGroup 资源组中的所有 VM 实例。 为这些名称提供自己的值：
+要在规模集中查看 VM 实例的列表，请使用 [Get-AzureRmVmssVM](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmssvm)。 以下示例列出名为 myScaleSet 的规模集和 myResourceGroup 资源组中的所有 VM 实例。 为这些名称提供自己的值：
 
 ```powershell
 Get-AzureRmVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
@@ -62,7 +62,7 @@ $vmss = Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "my
 
 # Set and update the capacity of your scale set
 $vmss.sku.capacity = 5
-Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet" -VirtualMachineScaleSet $vmss 
+Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet" -VirtualMachineScaleSet $vmss
 ```
 
 更新规模集容量需要花费数分钟。 如果减少规模集的容量，将首先删除实例 ID 最大的 VM。

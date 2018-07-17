@@ -16,11 +16,11 @@ origin.date: 12/15/2017
 ms.author: v-yiso
 ms.date: 06/04/2018
 ms.openlocfilehash: fa61638dc533b5891f56b1b595b1015e508bc866
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554193"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939224"
 ---
 # <a name="get-started-with-relay-hybrid-connections-websockets-in-net"></a>开始在 .NET 中使用中继混合连接 Websocket
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]

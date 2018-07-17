@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 03/26/2018
 ms.author: v-yiso
 ms.openlocfilehash: 00c523be1db1b3edf2b2d400c652e50c8dfef81a
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30072512"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939033"
 ---
 # <a name="get-started-with-the-yammer-connector"></a>Yammer 连接器入门
 连接到 Yammer 以在企业网络中访问对话。 借助 Yammer，可以：

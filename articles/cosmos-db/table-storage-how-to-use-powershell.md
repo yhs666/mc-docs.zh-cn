@@ -16,11 +16,11 @@ origin.date: 03/14/2018
 ms.date: 06/11/2018
 ms.author: v-yeche
 ms.openlocfilehash: 25fad24ba6b1929b7ff9c9f32ab3cb66c45d88f4
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867368"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939155"
 ---
 # <a name="perform-azure-table-storage-operations-with-azure-powershell"></a>使用 Azure PowerShell 执行 Azure 表存储操作 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]

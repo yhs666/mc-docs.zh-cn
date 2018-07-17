@@ -17,11 +17,11 @@ origin.date: 02/02/2016
 ms.date: 06/11/2018
 ms.author: v-yeche
 ms.openlocfilehash: b0f3c8bc5f437210a13f7e434f7e94f50f0e1e03
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34869173"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38938764"
 ---
 # <a name="create-a-network-security-group-classic-using-powershell"></a>使用 PowerShell 创建网络安全组（经典）
 [!INCLUDE [virtual-networks-create-nsg-selectors-classic-include](../../includes/virtual-networks-create-nsg-selectors-classic-include.md)]

@@ -18,11 +18,11 @@ ms.date: 04/25/2018
 ms.author: v-junlch
 ms.custom: mvc
 ms.openlocfilehash: 969e49fa41b06835f04efea1cac3544c511eadfb
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32122082"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939093"
 ---
 # <a name="create-a-single-zone-virtual-machine-scale-set-with-powershell"></a>使用 PowerShell 创建单区域虚拟机规模集
 此脚本创建在单个可用性区域中运行 Ubuntu 的虚拟机规模集。 运行脚本后，可通过 RDP 访问虚拟机。

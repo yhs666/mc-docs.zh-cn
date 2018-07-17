@@ -16,11 +16,11 @@ origin.date: 08/31/2017
 ms.date: 12/18/2017
 ms.author: v-yiso
 ms.openlocfilehash: 09dd9d8fb8ac0281c618a11031e3ef803d13a575
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
-ms.locfileid: "26576287"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38938852"
 ---
 # <a name="connect-your-simulated-device-to-your-iot-hub-using-node"></a>使用 Node 将模拟设备连接到 IoT 中心
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]

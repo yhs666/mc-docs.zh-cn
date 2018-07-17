@@ -17,11 +17,11 @@ origin.date: 08/18/2016
 ms.author: v-yiso
 ms.date: 03/26/2018
 ms.openlocfilehash: c87e078b4ca348ad40c23c523a73657f40ab5567
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30072506"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939031"
 ---
 # <a name="get-started-with-the-rss-connector"></a>RSS 连接器入门
 RSS 是一种流行的 Web 联合格式，用于发布频繁更新的内容，如博客文章和新闻标题。  许多内容发布者提供 RSS 源，允许用户订阅它。  当 RSS 源中发布新项时，使用 RSS 连接器检索源信息并触发流。

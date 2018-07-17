@@ -15,11 +15,11 @@ origin.date: 04/30/2018
 ms.date: 06/11/2018
 ms.author: v-yiso
 ms.openlocfilehash: 9840dbef3890572552e469cf9c3a2b4a37b414a0
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695262"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939115"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-python"></a>快速入门：控制连接到 IoT 中心的设备 (Python)
 

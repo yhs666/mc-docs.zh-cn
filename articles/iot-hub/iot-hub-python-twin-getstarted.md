@@ -16,11 +16,11 @@ origin.date: 12/04/2017
 ms.date: 03/19/2018
 ms.author: v-yiso
 ms.openlocfilehash: 38ddca28529013d8587569ef9d8fa9702d9e7420
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121397"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939137"
 ---
 # <a name="get-started-with-device-twins-python"></a>设备孪生入门 (Python)
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]

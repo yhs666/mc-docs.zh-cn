@@ -16,11 +16,11 @@ origin.date: 10/09/2017
 ms.date: 07/09/2018
 ms.author: v-yiso
 ms.openlocfilehash: 0a6ad9dda95a491cd86c46c275f7a301883fe5e6
-ms.sourcegitcommit: 039d75a641edc2edd13a9371251051c20fea2bb7
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103405"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38938870"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>监视 Azure IoT 中心的运行状况并快速诊断问题
 

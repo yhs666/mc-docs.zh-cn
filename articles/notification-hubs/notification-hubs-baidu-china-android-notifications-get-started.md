@@ -2,25 +2,25 @@
 title: 通过百度开始使用 Azure 通知中心 | Microsoft Docs
 description: 在本教程中，将了解如何通过百度使用 Azure 通知中心将通知推送到 Android 设备。
 services: notification-hubs
-documentationCenter: android
-authors: wesmc7777
-manager: dwrede
-editor: ''
+documentationcenter: android
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 ms.assetid: 23bde1ea-f978-43b2-9eeb-bfd7b9edc4c1
 ms.service: notification-hubs
 ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: mobile-baidu
 ms.workload: mobile
-origin.date: 08/29/2017
-ms.date: 11/29/2017
+origin.date: 04/14/2018
+ms.date: 07/09/2018
 ms.author: v-junlch
-ms.openlocfilehash: bc8500eb64bb0aec1eb82e954b25b93830c948d7
-ms.sourcegitcommit: 93778e515e7f94be2d362a7308a66ac951c6c2d5
+ms.openlocfilehash: 013b41fe35bb4f1ac5a02a0b57145192bb3c9419
+ms.sourcegitcommit: e950fe5260c519e05f8c5bbf193a8ef733a6a2d2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2017
-ms.locfileid: "25980470"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37936354"
 ---
 # <a name="get-started-with-notification-hubs-using-baidu"></a>通过百度开始使用通知中心
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -101,13 +101,13 @@ ms.locfileid: "25980470"
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
 
-5. 在通知中心选择“通知服务”，然后选择“百度(Android China)”。
+&emsp;&emsp;6. 在通知中心选择“通知服务”，然后选择“百度(Android China)”。
 
-    ![Azure 通知中心 - 百度](./media/notification-hubs-baidu-get-started/AzureNotificationServicesBaidu.png)
+&emsp;&emsp;![Azure 通知中心 - 百度](./media/notification-hubs-baidu-get-started/AzureNotificationServicesBaidu.png)
 
-6. 向下滚动到百度通知设置部分。 在百度云推送项目中，输入从百度控制台获得的 API 密钥和密钥。 然后单击“保存”。
+&emsp;&emsp;7. 向下滚动到百度通知设置部分。 在百度云推送项目中，输入从百度控制台获得的 API 密钥和密钥。 然后单击“保存”。
 
-    ![Azure 通知中心 - 百度机密](./media/notification-hubs-baidu-get-started/NotificationHubBaiduConfigure.png)
+&emsp;&emsp;![Azure 通知中心 - 百度机密](./media/notification-hubs-baidu-get-started/NotificationHubBaiduConfigure.png)
 
 通知中心现在已配置为使用百度。 此外还有连接字符串，用于注册发送和接收推送通知的应用。
 
@@ -478,8 +478,7 @@ ms.locfileid: "25980470"
 - REST 接口：可以使用 [REST 接口](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx)在任何后端平台上支持通知。
 - **Azure 通知中心 .NET SDK**：在 Visual Studio 的 Nuget 包管理器中，运行 [Install-Package Microsoft.Azure.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)。
 - **Node.js**：[如何通过 Node.js 使用通知中心](notification-hubs-nodejs-push-notification-tutorial.md)。
-- **移动应用**：有关如何从通知中心集成的 Azure 应用服务移动应用后端发送通知的示例，请参阅[将推送通知添加到移动应用](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md)。
-- **Java/PHP**：有关如何使用 REST API 发送通知的示例，请参阅“如何通过 Java/PHP 使用通知中心”([Java](notification-hubs-java-push-notification-tutorial.md) | [PHP](notification-hubs-php-push-notification-tutorial.md))。
+- Java/PHP：有关如何使用 REST API 发送通知的示例，请参阅“如何通过 Java/PHP 使用通知中心”([Java](notification-hubs-java-push-notification-tutorial.md) | [PHP](notification-hubs-php-push-notification-tutorial.md))。
 
 ## <a name="optional-send-notifications-from-a-net-console-app"></a>（可选）通过 .NET 控制台应用发送通知。
 在本部分，我们将演示如何使用 .NET 控制台应用发送通知。
@@ -522,7 +521,7 @@ ms.locfileid: "25980470"
 
 ## <a name="test-your-app"></a>测试应用程序
 
-要使用实际的手机测试此应用，只需使用 USB 电缆将该手机连接到计算机。 此操作会将应用加载到连接的手机中。
+要使用实际的手机测试此应用，只需使用 USB 电缆将该手机连接到你的计算机。 此操作会将应用加载到连接的手机中。
 
 若要使用模拟器测试此应用，请在 Android Studio 顶部工具栏中单击“运行”，然后选择用于启动模拟器、加载和运行应用的应用。
 

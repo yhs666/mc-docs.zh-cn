@@ -18,11 +18,11 @@ origin.date: 03/23/2017
 ms.date: 05/21/2018
 ms.author: v-yeche
 ms.openlocfilehash: c7d4f676d4f4a58b0cd7f175cca35669214980cd
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34256088"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939205"
 ---
 # <a name="how-to-schedule-planned-maintenance-on-azure-vms"></a>如何在 Azure VM 上安排计划内的维护
 > [!IMPORTANT]

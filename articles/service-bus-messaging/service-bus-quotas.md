@@ -16,11 +16,11 @@ origin.date: 02/01/2018
 ms.author: v-yiso
 ms.date: 03/12/2018
 ms.openlocfilehash: 99c9d27c09122f7289ee5b98a58ed0bff03b9473
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
-ms.locfileid: "29730749"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38938773"
 ---
 # <a name="service-bus-quotas"></a>服务总线配额
 本部分列出了 Azure 服务总线消息传送的基本配额和限制阈值。

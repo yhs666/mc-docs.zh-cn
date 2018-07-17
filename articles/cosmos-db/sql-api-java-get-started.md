@@ -13,11 +13,11 @@ origin.date: 05/22/2017
 ms.date: 07/02/2018
 ms.author: v-yeche
 ms.openlocfilehash: 49bf601e49d0b389cb0cb19959914a6fd1a41170
-ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37070176"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38938996"
 ---
 # <a name="nosql-tutorial-build-a-sql-api-java-console-application"></a>NoSQL 教程：构建 SQL API Java 控制台应用程序
 > [!div class="op_single_selector"]

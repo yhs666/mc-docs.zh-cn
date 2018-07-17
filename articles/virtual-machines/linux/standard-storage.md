@@ -17,11 +17,11 @@ origin.date: 06/13/2017
 ms.date: 11/27/2017
 ms.author: v-yeche
 ms.openlocfilehash: 924a21b8e43f49c2b11c6a4dd84d4a2d8be59735
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
-ms.locfileid: "25592528"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38938738"
 ---
 [!INCLUDE [virtual-machines-common-standard-storage.md](../../../includes/virtual-machines-common-standard-storage.md)]
 <!--Not Available the parent file of includes file of virtual-machines-common-standard-storage.md-->

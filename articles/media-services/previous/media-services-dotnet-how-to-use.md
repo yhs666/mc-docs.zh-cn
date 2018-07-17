@@ -16,11 +16,11 @@ origin.date: 12/09/2017
 ms.date: 12/25/2017
 ms.author: v-nany
 ms.openlocfilehash: cf86cb7396e750cd84e95611df0f77e7642f3b73
-ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36748381"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38938812"
 ---
 # <a name="media-services-development-with-net"></a>使用 .NET 进行媒体服务开发
 [!INCLUDE [media-services-selector-setup](../../../includes/media-services-selector-setup.md)]

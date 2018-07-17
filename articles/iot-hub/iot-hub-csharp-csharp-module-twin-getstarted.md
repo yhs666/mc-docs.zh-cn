@@ -17,11 +17,11 @@ ms.date: 07/09/2018
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 6dd8804dfa486807005c7e758e47e6c4952c27c1
-ms.sourcegitcommit: 039d75a641edc2edd13a9371251051c20fea2bb7
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103393"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38938875"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-net-back-end-and-net-device"></a>使用 .NET 后端和 .NET 设备创建 IoT 中心模块标识和模块孪生入门
 

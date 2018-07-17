@@ -18,11 +18,11 @@ ms.date: 04/25/2018
 ms.author: v-junlch
 ms.custom: mvc
 ms.openlocfilehash: 6890228a182d0e736806ddadab66342f887a3671
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32122074"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939089"
 ---
 # <a name="create-a-virtual-machine-scale-set-from-a-custom-vm-image-with-the-azure-cli-20"></a>使用 Azure CLI 2.0 从自定义 VM 映像创建虚拟机规模集
 此脚本创建使用自定义 VM 映像作为 VM 实例源的虚拟机规模集。

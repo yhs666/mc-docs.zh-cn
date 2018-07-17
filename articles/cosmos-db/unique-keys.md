@@ -13,11 +13,11 @@ origin.date: 03/21/2018
 ms.date: 07/02/2018
 ms.author: v-yeche
 ms.openlocfilehash: 30d63b8227762054078e7dd91b0d22cfe583236b
-ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37070247"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38938995"
 ---
 # <a name="unique-keys-in-azure-cosmos-db"></a>Azure Cosmos DB 中的唯一键
 

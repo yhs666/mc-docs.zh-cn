@@ -11,21 +11,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-origin.date: 05/15/2018
-ms.date: 06/11/2018
+origin.date: 05/22/2018
+ms.date: 07/10/2018
 ms.author: v-junlch
-ms.openlocfilehash: 6a3a624b81772a5b5561fa02d719f328a254920b
-ms.sourcegitcommit: 306fba1a7125ef6f0555781524afa8f535bea2a0
+ms.openlocfilehash: 00f7ee005bba3f444375c43beaad371824d23c8c
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35253386"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38938765"
 ---
 # <a name="azure-key-vault-customer-data-features"></a>Azure Key Vault 客户数据功能
 
 Azure Key Vault 在创建或更新保管库、密钥、机密、证书和托管的存储帐户期间接收客户数据。 此客户数据在 Azure 门户中以及通过 REST API 直接可见。 可以通过更新或删除包含客户数据的对象来编辑或删除此数据。
 
 系统访问日志是在用户或应用程序访问 Key Vault 时生成的。 使用 Azure 见解的客户可以获得详细的访问日志。
+
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="identifying-customer-data"></a>标识客户数据
 
@@ -69,3 +71,4 @@ Azure Key Vault 诊断日志包含可以通过在用户隐私门户中发出导�
 
 - [Azure Key Vault 存储帐户操作](https://docs.microsoft.com/rest/api/keyvault/storage-account-key-operations)
 
+<!-- Update_Description: wording update -->

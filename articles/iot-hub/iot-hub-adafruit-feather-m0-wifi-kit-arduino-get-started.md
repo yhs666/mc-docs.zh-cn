@@ -17,11 +17,11 @@ origin.date: 04/11/2018
 ms.author: v-yiso
 ms.date: 07/09/2018
 ms.openlocfilehash: 4da6c71565a7aa5d8611a042f2716ddbc609d2c5
-ms.sourcegitcommit: 039d75a641edc2edd13a9371251051c20fea2bb7
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103421"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939152"
 ---
 # <a name="connect-adafruit-feather-m0-wifi-to-azure-iot-hub-in-the-cloud"></a>将 Adafruit Feather M0 WiFi 连接到云中的 Azure IoT 中心
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]

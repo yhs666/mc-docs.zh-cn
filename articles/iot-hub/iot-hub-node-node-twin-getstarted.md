@@ -16,17 +16,17 @@ origin.date: 08/25/2017
 ms.date: 11/20/2017
 ms.author: v-yiso
 ms.openlocfilehash: 1431df1ba13cb438c5adcc5e863f821119605c47
-ms.sourcegitcommit: 9a89fa2b33cbd84be4d8270628567bf0925ae11e
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/09/2017
-ms.locfileid: "24058589"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939130"
 ---
 # <a name="get-started-with-device-twins-node"></a>设备孪生入门 (Node)
 
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
 
-在本教程结束时，将拥有两个 Node.js 控制台应用：
+在本教程结束时，你将拥有两个 Node.js 控制台应用：
 
 * **AddTagsAndQuery.js**（Node.js 后端应用），用于添加标记和查询设备孪生。
 * TwinSimulatedDevice.js（Node.js 应用），用于模拟使用早先创建的设备标识连接到 IoT 中心的设备，并报告其连接状况。

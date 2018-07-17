@@ -15,11 +15,11 @@ origin.date: 08/08/2017
 ms.author: v-yiso
 ms.date: 10/16/2017
 ms.openlocfilehash: e2be03703bf9140964d84e651645193b82666bb5
-ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
-ms.locfileid: "22338760"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38938872"
 ---
 # <a name="get-started-with-device-management-java"></a>设备管理入门 (Java)
 
@@ -44,7 +44,7 @@ trigger-reboot。 此应用：
 
 * 在模拟设备应用中调用直接方法。
 * 显示对模拟设备发出的直接方法调用做出的响应
-* 显示更新的报告属性。
+* 显示已更新的报告属性。
 
 > [!NOTE]
 > 有关 SDK 的信息（可以使用这些 SDK 构建在设备和解决方案后端上运行的应用程序），请参阅 [Azure IoT SDK][lnk-hub-sdks]。
@@ -67,7 +67,7 @@ trigger-reboot。 此应用：
 1. 显示响应。
 1. 轮询设备发送的报告属性，以确定重启的完成时间。
 
-此控制台应用连接到 IoT 中心，以便调用该直接方法并读取报告属性。
+此控制台应用连接到 IoT 中心，调用该直接方法并读取报告属性。
 
 1. 创建名为 dm-get-started 的空文件夹。
 
@@ -222,7 +222,7 @@ trigger-reboot。 此应用：
 
     `mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=simulated-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`
 
-1. 在命令提示符下，导航到 simulated-device 文件夹。
+1. 在命令提示符下，浏览到 simulated-device 文件夹。
 
 1. 使用文本编辑器，打开 simulated-device 文件夹中的 pom.xml 文件，并在 dependencies 节点中添加以下依赖项。 此依赖项使得你可以使用应用中的 iot-service-client 包来与 IoT 中心进行通信：
 
@@ -374,7 +374,7 @@ trigger-reboot。 此应用：
     }
     ```
 
-1. 修改 main 方法的签名以引发以下异常：
+1. 修改 main 方法的签名，引发以下异常：
 
     ```java
     public static void main(String[] args) throws IOException, URISyntaxException

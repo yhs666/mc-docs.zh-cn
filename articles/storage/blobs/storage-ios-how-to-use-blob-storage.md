@@ -12,11 +12,11 @@ origin.date: 03/21/2018
 ms.date: 06/11/2018
 ms.author: v-johch
 ms.openlocfilehash: 813ac8a0193fdf8adf4be62e94d61e579fd95bb0
-ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36270056"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939225"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>如何通过 iOS 使用 Blob 存储
 
