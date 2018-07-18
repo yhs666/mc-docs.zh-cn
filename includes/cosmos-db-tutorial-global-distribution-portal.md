@@ -10,10 +10,11 @@ ms.date: 04/23/2018
 ms.author: v-yeche
 ms.custom: include file
 ms.openlocfilehash: 533781564c05926ec35865a3c4d24551ebe12429
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38940499"
 ---
 <!-- Not Available on [!VIDEO https://www.youtube.com/embed/1D06yjTVxt8] -->
 
@@ -21,7 +22,7 @@ ms.lasthandoff: 04/23/2018
 
 <a name="addregion"></a>
 ## <a name="add-global-database-regions-using-the-azure-portal"></a>使用 Azure 门户添加全局数据库区域
-在中国的所有 [Azure 区域][azureregions]中都可使用 Azure Cosmos DB。 为数据库帐户选择默认的一致性级别后，可以关联一个或多个区域（具体取决于所选的默认一致性级别和多区域分发需求）。
+在中国的所有 [Azure 区域][azureregions]都可使用 Azure Cosmos DB。 为数据库帐户选择默认的一致性级别后，可以关联一个或多个区域（具体取决于所选的默认一致性级别和多区域分发需求）。
 
 1. 在 [Azure 门户](https://portal.azure.cn/)的左侧栏中，单击“Azure Cosmos DB”。
 2. 在“Azure Cosmos DB”页中，选择要修改的数据库帐户。
@@ -65,9 +66,6 @@ While all regions associated with your Cosmos DB database account can serve read
 [3]: ./media/cosmos-db-tutorial-global-distribution-portal/azure-cosmos-db-manual-failover-2.png
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
-<!-- Not Available on [bcdr]: /best-practices-availability-paired-regions/ -->
-[consistency]: ../articles/cosmos-db/consistency-levels.md
-[azureregions]: https://www.azure.cn/support/service-dashboard/
-[offers]: https://www.azure.cn/pricing/details/cosmos-db/
+<!-- Not Available on [bcdr]: /best-practices-availability-paired-regions/ --> [一致性]：../articles/cosmos-db/consistency-levels.md [azureregions]：https://www.azure.cn/support/service-dashboard/ [产品/服务]：https://www.azure.cn/pricing/details/cosmos-db/
 
 <!--Update_Description: wording update-->

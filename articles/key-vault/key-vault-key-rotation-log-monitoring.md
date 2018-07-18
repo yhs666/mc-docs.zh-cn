@@ -3,7 +3,7 @@ title: 使用端到端密钥轮替和审核设置 Azure 密钥保管库 | Micros
 description: 使用本操作指南帮助设置密钥轮替和监视密钥保管库日志。
 services: key-vault
 documentationcenter: ''
-author: swgriffith
+author: barclayn
 manager: mbaldwin
 tags: ''
 ms.assetid: 9cd7e15e-23b8-41c0-a10a-06e6207ed157
@@ -12,24 +12,30 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/01/2018
-ms.date: 06/11/2018
+origin.date: 06/12/2018
+ms.date: 07/10/2018
 ms.author: v-junlch
-ms.openlocfilehash: 5ef0b4c7f807a2a1d7a763f144d44a78669c8d30
-ms.sourcegitcommit: 306fba1a7125ef6f0555781524afa8f535bea2a0
+ms.openlocfilehash: a4146856e7608bbb410704c3dd169bc35e911d9b
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35253365"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939122"
 ---
-# <a name="set-up-azure-key-vault-with-end-to-end-key-rotation-and-auditing"></a>使用端到端密钥轮替和审核设置 Azure Key Vault
+# <a name="set-up-azure-key-vault-with-key-rotation-and-auditing"></a>使用密钥轮换和审核设置 Azure Key Vault
+
 ## <a name="introduction"></a>简介
-创建 Key Vault 后，可以开始使用该保管库存储密钥和机密。 应用程序不再需要保存密钥或机密，而会根据需要从密钥保管库请求密钥或机密。 这样，便可以更新密钥和机密，不会影响应用程序，同时可以各种可能的方法管理密钥和机密。
+
+有了密钥保管库以后，即可用它来存储密钥和机密。 应用程序不再需要保存密钥或机密，但可以根据需要从保管库请求它们。 这样，便可以更新密钥和机密，不会影响应用程序，同时可以各种可能的方法管理密钥和机密。
 
 >[!IMPORTANT]
 > 本文中的示例仅用于说明目的， 它们不应在生产环境中使用。 
 
-本文演练一个使用 Azure Key Vault 来存储机密的示例。在本例中，应用程序将访问 Azure 存储帐户机密。 本文还会演示如何实现该存储帐户机密的计划轮替。 最后，介绍了如何监视密钥保管库审核日志，并在收到意外请求时发出警报。
+本文逐步讲解：
+
+- 使用 Azure Key Vault 存储机密的示例。 在本教程中，存储的机密是应用程序访问的 Azure 存储帐户密钥。 
+- 本文还会演示如何实现该存储帐户机密的计划轮替。
+- 本文演示如何监视密钥保管库审核日志，并在收到意外的请求时发出警报。
 
 > [!NOTE]
 > 本教程不详细说明密钥保管库的初始设置。 有关这方面的信息，请参阅 [Get started with Azure Key Vault](key-vault-get-started.md)（Azure 密钥保管库入门）。 有关跨平台命令行接口说明，请参阅[使用 CLI 管理密钥保管库](key-vault-manage-with-cli2.md)。
@@ -37,6 +43,7 @@ ms.locfileid: "35253365"
 >
 
 ## <a name="set-up-key-vault"></a>设置密钥保管库
+
 要使应用程序能够从 Key Vault 检索机密，必须先创建机密并将其上传到保管库。 可通过以下方式实现此目的：启动 Azure PowerShell 会话，并使用以下命令登录用户的 Azure 帐户：
 
 ```powershell
@@ -70,6 +77,7 @@ $secretvalue = ConvertTo-SecureString <storageAccountKey> -AsPlainText -Force
 
 Set-AzureKeyVaultSecret -VaultName <vaultName> -Name <secretName> -SecretValue $secretvalue
 ```
+
 接下来，获取你创建的机密的 URI。 在后续步骤中调用 Key Vault 检索机密时，会用到该 URI。 运行以下 PowerShell 命令，并记下 ID 值（即机密 URI）：
 
 ```powershell
@@ -77,6 +85,7 @@ Get-AzureKeyVaultSecret -VaultName <vaultName>
 ```
 
 ## <a name="set-up-the-application"></a>设置应用程序
+
 存储机密后，可以使用代码检索并使用它。 需要执行几个步骤才能实现此目的。 第一个也是最重要的步骤是向 Azure Active Directory 注册应用程序，并让 Key Vault 知道应用程序的信息，以便允许来自应用程序的请求。
 
 > [!NOTE]
@@ -84,19 +93,23 @@ Get-AzureKeyVaultSecret -VaultName <vaultName>
 >
 >
 
-打开 Azure Active Directory 的“应用程序”选项卡。
+1. 导航到 Azure Active Directory。
+2. 选择“应用注册”。 
+3. 选择“新建应用程序注册”，将应用程序添加到 Azure Active Directory。
 
-选择“应用注册” -> “新建应用程序注册”，将应用程序添加到 Azure Active Directory。
+    ![在 Azure Active Directory 中打开应用程序](./media/keyvault-keyrotation/azure-ad-application.png)
 
-将应用程序类型保留为“Web 应用/API”，并为应用程序命名。
+4. 在“创建”部分，将应用程序类型保留为“Web 应用程序和/或 WEB API”，并为应用程序命名。 为应用程序指定“登录 URL”。 这可以是需要用于此演示的任何 URL。
 
-为应用程序指定“登录 URL”和“应用 ID URI”。 可以在本演示中随意填写这些信息，以后也可以根据需要更改。
+    ![创建应用程序注册](./media/keyvault-keyrotation/create-app.png)
 
-将应用程序添加到 Azure Active Directory 后，会转到应用程序页。 单击“配置”选项卡，并查找并复制“客户端 ID”值。 记下客户端 ID 以供后续步骤使用。
+5. 将应用程序添加到 Azure Active Directory 后，会转到应用程序页。 选择“设置”，然后选择属性。 复制“应用程序 ID”值。 后面的步骤中会需要此值。
 
-接下来，为应用程序生成密钥，以便它可以与 Azure Active Directory 交互。 可以在“配置”选项卡的“密钥”部分下创建此密钥。记下在 Azure Active Directory 应用程序中新生成的密钥，以供后续步骤使用。
+接下来，为应用程序生成密钥，以便它可以与 Azure Active Directory 交互。 可以导航到“设置”下的“密钥”部分，然后创建一个密钥。 记下在 Azure Active Directory 应用程序中新生成的密钥，以供后续步骤使用。 请注意，此密钥要等到你从该部分导航出来才可用。 
 
-在建立从应用程序到密钥保管库的任何调用之前，必须让密钥保管库知道应用程序及其权限。 以下命令从 Azure Active Directory 应用获取保管库名称和客户端 ID，并为应用程序授予对密钥保管库的“Get”权限。
+![Azure Active Directory 应用密钥](./media/keyvault-keyrotation/create-key.png)
+
+在建立从应用程序到密钥保管库的任何调用之前，必须让密钥保管库知道应用程序及其权限。 以下命令从 Azure Active Directory 应用获取保管库名称和应用程序 ID，并为应用程序授予对密钥保管库的“Get”访问权限。
 
 ```powershell
 Set-AzureRmKeyVaultAccessPolicy -VaultName <vaultName> -ServicePrincipalName <clientIDfromAzureAD> -PermissionsToSecrets Get
@@ -152,6 +165,7 @@ var sec = kv.GetSecretAsync(<SecretID>).Result.Value;
 现在，运行应用程序时，用户应该会向 Azure Active Directory 进行身份验证，并从 Azure Key Vault 中检索机密值。
 
 ## <a name="key-rotation-using-azure-automation"></a>使用 Azure 自动化进行密钥轮替
+
 对于存储为 Azure 密钥保管库机密的值，可以使用多种选项实现其轮替策略。 机密可以手动轮替、使用 API 调用以编程方式轮替，或者通过自动化脚本来轮替。 本文使用 Azure PowerShell 并结合 Azure 自动化来更改 Azure 存储帐户访问密钥。 然后使用该新密钥来更新 Key Vault 机密。
 
 若要允许 Azure 自动化在密钥保管库中设置机密值，必须获取建立 Azure 自动化实例时所创建的名为“AzureRunAsConnection”的连接的客户端 ID。 可以通过从 Azure 自动化实例中选择“资产”获取此 ID。 在此处选择“连接”，并选择“AzureRunAsConnection”服务主体。 请记下“应用程序 ID”。
@@ -228,4 +242,4 @@ $secret = Set-AzureKeyVaultSecret -VaultName $VaultName -Name $SecretName -Secre
 
 在编辑器窗格中，选择“测试窗格”测试脚本。 正常运行脚本后，可以选择“发布”，并返回 Runbook 的配置窗格以应用 Runbook 的计划。
 
-<!-- Update_Description: code update -->
+<!-- Update_Description: wording update -->

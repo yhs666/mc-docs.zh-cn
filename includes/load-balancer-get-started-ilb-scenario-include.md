@@ -8,6 +8,5 @@
 
 * 两台分别名为 DB1 和 DB2 的虚拟机
 * 内部负载均衡器的终结点
-* 内部负载均衡器
-<!-- Update_Description: wording update -->
+* 内部负载均衡器 <!-- Update_Description: wording update -->
 <!-- ms.date: 12/11/20 -->

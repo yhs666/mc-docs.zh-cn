@@ -16,11 +16,11 @@ origin.date: 03/30/2018
 ms.date: 05/21/2018
 ms.author: v-yeche
 ms.openlocfilehash: 35944f256a617c9777be36fc1f22ff4cf43ad33e
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34256801"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38940096"
 ---
 [!INCLUDE [virtual-machines-common-premium-storage.md](../../../includes/virtual-machines-common-premium-storage.md)]
 ### <a name="design-and-implement-with-premium-storage"></a>高级存储的设计和实现
@@ -31,5 +31,5 @@ ms.locfileid: "34256801"
 * [迁移到 Azure 高级存储](../../storage/common/storage-migration-to-premium-storage.md)
 
 ### <a name="blog-posts"></a>博客文章
-* [Azure Premium Storage generally available](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/)（Azure 高级存储已正式推出）
-<!-- Update_Description: update meta properties, update link -->
+* [Azure Premium Storage generally available](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/)
+<!-- Update_Description: update meta properties, update link -->（Azure 高级存储已正式推出）

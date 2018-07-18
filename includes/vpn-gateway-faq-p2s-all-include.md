@@ -1,5 +1,5 @@
 ---
- title: include 文件 description: include 文件 services: vpn-gateway author: cherylmc ms.service: vpn-gateway ms.topic: include origin.date: 03/21/2018 ms.date: 05/08/2018 ms.author: v-junlch ms.custom: include file
+ title: include 文件 description: include 文件 services: vpn-gateway author: cherylmc ms.service: vpn-gateway ms.topic: include origin.date: 06/04/2018 ms.date: 07/10/2018 ms.author: v-junlch ms.custom: include file
 ---
 ### <a name="supportedclientos"></a>点到站点连接可以用于哪些客户端操作系统？
 
@@ -7,7 +7,6 @@
 
 - Windows 7（32 位和 64 位）
 - Windows Server 2008 R2（仅 64 位）
-- Windows 8（32 位和 64 位）
 - Windows 8.1（32 位和 64 位）
 - Windows Server 2012（仅 64 位）
 - Windows Server 2012 R2（仅 64 位）
@@ -15,6 +14,12 @@
 - Windows 10
 - Mac OS X 版本 10.11 (El Capitan)
 - Mac OS X 版本 10.12 (Sierra)
+- Linux (StrongSwan)
+- iOS
+
+>[!NOTE]
+>[!INCLUDE [TLS](vpn-gateway-tls-updates.md)]
+>
 
 ### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>在我的点到站点配置中，可以有多少 VPN 客户端终结点？
 
@@ -80,4 +85,4 @@ Azure 仅支持在 Windows 和 Mac 上使用 P2S VPN。
 
 是的，可以使用 Powershell 或 Azure 门户在已部署的网关上启用这些新功能，前提是所用网关 SKU 支持 RADIUS 和/或 IKEv2。 例如，VPN 网关基本 SKU 不支持 RADIUS 或 IKEv2。
 
-<!-- ms.date: 05/08/2018 -->
+<!-- ms.date: 07/10/2018 -->

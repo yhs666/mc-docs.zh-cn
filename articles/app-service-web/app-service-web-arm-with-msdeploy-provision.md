@@ -15,11 +15,11 @@ origin.date: 05/31/2016
 ms.date: 02/21/2017
 ms.author: v-dazen
 ms.openlocfilehash: 5a6331a8202698933a5a3e7753341785639286cd
-ms.sourcegitcommit: f2f4389152bed7e17371546ddbe1e52c21c0686a
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
-ms.locfileid: "20463780"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939722"
 ---
 # <a name="deploy-a-web-app-with-msdeploy-custom-hostname-and-ssl-certificate"></a>使用 MSDeploy、自定义主机名和 SSL 证书部署 Web 应用
 

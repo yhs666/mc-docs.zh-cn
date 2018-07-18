@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/29/2018
-ms.date: 06/18/2018
-ms.author: v-johch
-ms.openlocfilehash: 7fbdeee32bbf9f8bc3785cd70f33241fba186a6c
-ms.sourcegitcommit: 7d01230972e7a7c4fd1aaf22220fb04a05726135
+ms.date: 07/12/2018
+ms.author: v-junlch
+ms.openlocfilehash: 0001eb27e2e4e55f98380aa6978f36f35f5e625c
+ms.sourcegitcommit: 5b6a2fc55e5b16ae480bd497c3ac2c3a2fd44703
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2018
-ms.locfileid: "35568625"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38999220"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 订阅和服务限制、配额和约束
 本文列出了一些最常见的 Azure 限制，有时也称为配额。 本文当前并不涵盖所有 Azure 服务。 随着时间的推移，此列表将进行扩展和更新，以涵盖更多平台。
@@ -31,7 +31,7 @@ ms.locfileid: "35568625"
 > [!NOTE]
 > 如果想要提高限制或配额，使其超出**默认限制**，可以[打开免费的联机客户支持请求](azure-resource-manager/resource-manager-quota-errors.md)。 无法将限制提高到超过下表中显示的**最大限制**值。 如果没有 **最大限制** 列，则资源没有可调整的限制。
 >
-> [1 元试用订阅](https://www.azure.cn/pricing/1rmb-trial)没有资格增大限制或配额。 如果有 [1 元试用订阅](https://www.azure.cn/pricing/1rmb-trial)，可将其升级到 PIA 订阅。 有关详细信息，请参阅[将 Azure 1 元试用升级到即用即付](billing/billing-upgrade-azure-subscription.md)和 [1 元试用订阅常见问题解答](https://www.azure.cn/pricing/1rmb-trial/)。
+> [1 元试用订阅](https://www.azure.cn/pricing/1rmb-trial)没有资格增大限制或配额。 如果有 [1 元试用订阅](https://www.azure.cn/pricing/1rmb-trial)，可将其升级到 PIA 订阅。 有关详细信息，请参阅 [1 元试用订阅常见问题解答](https://www.azure.cn/pricing/1rmb-trial/)。
 >
 
 ## <a name="limits-and-the-azure-resource-manager"></a>限制和 Azure Resource Manager
@@ -69,6 +69,7 @@ ms.locfileid: "35568625"
 - [网络观察程序](#network-watcher-limits)
 - [通知中心服务](#notification-hub-service-limits)
 - [资源组](#resource-group-limits)
+- [基于角色的访问控制](#role-based-access-control-limits)
 - [计划程序](#scheduler-limits)
 - [服务总线](#service-bus-limits)
 - [站点恢复](#site-recovery-limits)
@@ -164,7 +165,7 @@ ms.locfileid: "35568625"
 [!INCLUDE [azure-cloud-services-limits](../includes/azure-cloud-services-limits.md)]
 
 ### <a name="app-service-limits"></a>应用服务限制
-以下应用服务限制包括 Web 应用、移动应用、API 应用和逻辑应用的限制。
+以下应用服务限制包括 Web 应用、移动应用、API 应用的限制。
 
 [!INCLUDE [azure-websites-limits](../includes/azure-websites-limits.md)]
 
@@ -173,6 +174,9 @@ ms.locfileid: "35568625"
 
 ### <a name="batch-limits"></a>批处理限制
 [!INCLUDE [azure-batch-limits](../includes/azure-batch-limits.md)]
+
+### <a name="azure-cosmos-db-limits"></a>Azure Cosmos DB 限制
+Azure Cosmos DB 是全局缩放数据库，可对吞吐量和存储进行缩放，以处理应用程序的任何需求。 如果对 Azure Cosmos DB 提供的规模有任何问题，请发送电子邮件到 askcosmosdb@microsoft.com。
 
 ### <a name="media-services-limits"></a>媒体服务限制
 [!INCLUDE [azure-mediaservices-limits](../includes/azure-mediaservices-limits.md)]
@@ -225,6 +229,9 @@ ms.locfileid: "35568625"
 
 ### <a name="automation-limits"></a>自动化限制
 [!INCLUDE [automation-limits](../includes/azure-automation-service-limits.md)]
+
+### <a name="role-based-access-control-limits"></a>基于角色的访问控制限制
+[!INCLUDE [role-based-access-control-limits](../includes/role-based-access-control-limits.md)]
 
 ### <a name="sql-database-limits"></a>SQL 数据库限制
 有关 Azure SQL 数据库限制，请参阅 [SQL 数据库资源限制](sql-database/sql-database-resource-limits.md)。

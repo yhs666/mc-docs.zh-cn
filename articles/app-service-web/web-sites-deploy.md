@@ -1,6 +1,6 @@
 ---
 title: 将应用部署到 Azure 应用服务 | Azure
-description: 了解如何将你的应用部署到 Azure 应用服务。
+description: 了解如何将应用部署到 Azure 应用服务。
 services: app-service
 documentationcenter: ''
 author: cephalin
@@ -16,28 +16,28 @@ origin.date: 01/05/2017
 ms.date: 07/10/2017
 ms.author: v-dazen
 ms.openlocfilehash: 1c303d1109745fa7be0a1fa4d230d41524683ad7
-ms.sourcegitcommit: 2e85ecef03893abe8d3536dc390b187ddf40421f
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/28/2017
-ms.locfileid: "20634212"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939046"
 ---
 # <a name="deploy-your-app-to-azure-app-service"></a>将应用部署到 Azure 应用服务
-本文可帮助你确定将 Web 应用、移动应用后端或 API 应用的文件部署到 [Azure 应用服务](/app-service-web/app-service-changes-existing-services)的最佳选项，然后将你引导到相应的资源，其中包含特定于你的首选选项的操作说明。
+本文可帮助你确定将 Web 应用、移动应用后端或 API 应用的文件部署到 [Azure 应用服务](/app-service-web/app-service-changes-existing-services) 的最佳选项，并将你引导到相应的资源，其中包含特定于首选选项的操作说明。
 
 ## <a name="overview"></a>Azure 应用服务部署概述
-Azure 应用服务保留了应用程序框架（ASP.NET、PHP、Node.js 等等）。 某些框架在默认情况下已启用，而其他框架（如 Java 和 Python）可能需要进行简单的复选标记配置才能启用。 此外，你还可以自定义应用程序框架，如运行时的 PHP 版本或位元。 有关详细信息，请参阅[在 Azure 应用服务中配置应用](web-sites-configure.md)。
+Azure 应用服务保留了应用程序框架（ASP.NET、PHP、Node.js 等等）。 某些框架在默认情况下已启用，而其他框架（如 Java 和 Python）可能需要进行简单的复选标记配置才能启用。 此外，还可以自定义应用程序框架，如运行时的 PHP 版本或位元。 有关详细信息，请参阅[在 Azure 应用服务中配置应用](web-sites-configure.md)。
 
-由于你无需担心 Web 服务器或应用程序框架，因此将应用部署到应用服务只需将代码、二进制文件、内容文件及其各自的目录结构部署到 Azure 中的 [**/site/wwwroot** 目录](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure)（对于 Web 作业，部署到 **/site/wwwroot/App_Data/Jobs/** 目录）。 应用服务支持 3 种不同的部署进程。 本文中的所有部署方法使用以下进程之一： 
+由于无需担心 Web 服务器或应用程序框架，因此将应用部署到应用服务只需将代码、二进制文件、内容文件及其各自的目录结构部署到 Azure 中的 [**/site/wwwroot** 目录](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure)（对于 Web 作业，部署到 **/site/wwwroot/App_Data/Jobs/** 目录）。 应用服务支持 3 种不同的部署进程。 本文中的所有部署方法使用以下进程之一： 
 
-* [FTP 或 FTPS](https://en.wikipedia.org/wiki/File_Transfer_Protocol)：使用你常用的支持 FTP 或 FTPS 的工具（从 [FileZilla](https://filezilla-project.org) 到功能齐全的 IDE，如 [NetBeans](https://netbeans.org)）将文件移至 Azure。 这完全是文件上传进程。 应用服务不提供任何附加服务，例如版本控制、文件结构管理等。 
-* [Kudu (Git/Mercurial)](https://github.com/projectkudu/kudu/wiki/Deployment)：Kudu 是应用服务中的[部署引擎](https://github.com/projectkudu/kudu/wiki)。 从任何存储库将你的代码直接推送到 Kudu。 只要代码推送到 Kudu，Kudu 还提供附加服务，包括版本控制、程序包还原、MSBuild 和 [Web 挂钩](https://github.com/projectkudu/kudu/wiki/Web-hooks) 以用于连续部署和其他自动化任务。 Kudu 部署引擎支持 2 种不同类型的部署源：   
+* [FTP 或 FTPS](https://en.wikipedia.org/wiki/File_Transfer_Protocol)：使用常用的支持 FTP 或 FTPS 的工具（从 [FileZilla](https://filezilla-project.org) 到功能齐全的 IDE，如 [NetBeans](https://netbeans.org)）将文件移至 Azure。 这完全是文件上传进程。 应用服务不提供任何附加服务，例如版本控制、文件结构管理等。 
+* [Kudu (Git/Mercurial)](https://github.com/projectkudu/kudu/wiki/Deployment)：Kudu 是应用服务中的[部署引擎](https://github.com/projectkudu/kudu/wiki)。 从任何存储库将代码直接推送到 Kudu。 只要代码推送到 Kudu，Kudu 还提供附加服务，包括版本控制、程序包还原、MSBuild 和 [Web 挂钩](https://github.com/projectkudu/kudu/wiki/Web-hooks) 以用于连续部署和其他自动化任务。 Kudu 部署引擎支持 2 种不同类型的部署源：   
 
   * 从 GitHub 使用自动同步进行基于存储库的连续部署 
   * 从本地 Git 使用手动同步进行基于存储库的部署  
 * [Web 部署](http://www.iis.net/learn/publish/using-web-deploy/introduction-to-web-deploy)：使用自动部署到 IIS 服务器的相同工具，直接从偏好的 Microsoft 工具（例如 Visual Studio）将代码部署到应用服务。 此工具支持仅差异部署、创建数据库、连接字符串转换等操作。Web 部署与 Kudu 的不同之处在于，应用程序二进制文件在部署到 Azure 之前生成。 与 FTP 类似，应用服务不提供任何附加服务。
 
-常用的 Web 开发工具支持其中的一个或多个部署进程。 虽然你选择的工具确定了你可以利用的部署进程，但是由你支配的实际 DevOps 功能取决于部署进程和你选择的特定工具的组合。 例如，如果从 [包含 Azure SDK 的 Visual Studio](#vspros)执行 Web 部署，即使你未从 Kudu 自动执行，也会在 Visual Studio 中自动执行程序包还原和 MSBuild。 
+常用的 Web 开发工具支持其中的一个或多个部署进程。 虽然你选择的工具确定了可以利用的部署进程，但是由你支配的实际 DevOps 功能取决于部署进程和你选择的特定工具的组合。 例如，如果从 [包含 Azure SDK 的 Visual Studio](#vspros)执行 Web 部署，即使你未从 Kudu 自动执行，也会在 Visual Studio 中自动执行程序包还原和 MSBuild。 
 
 > [!NOTE]
 > 这些部署过程并不会真正[预配应用可能需要的 Azure 资源](../azure-resource-manager/resource-group-template-deploy-portal.md)。 但是，大多数链接的操作方法文章会向你展示如何预配应用并端到端地将代码部署到该应用。 还可以在 [使用命令行工具自动部署](#automate) 部分中找到用于预配 Azure 资源的其他选项。
@@ -45,7 +45,7 @@ Azure 应用服务保留了应用程序框架（ASP.NET、PHP、Node.js 等等�
 > 
 
 ## <a name="ftp"></a>通过 FTP 上传文件进行手动部署
-如果你习惯于手动将 Web 内容复制到 Web 服务器，可以使用 [FTP](http://en.wikipedia.org/wiki/File_Transfer_Protocol) 实用工具（如 Windows 资源管理器或 [FileZilla](https://filezilla-project.org/)）复制文件。
+如果习惯于手动将 Web 内容复制到 Web 服务器，可以使用 [FTP](http://en.wikipedia.org/wiki/File_Transfer_Protocol) 实用工具（如 Windows 资源管理器或 [FileZilla](https://filezilla-project.org/)）复制文件。
 
 手动复制文件的优点是：
 
@@ -66,7 +66,7 @@ Azure 应用服务保留了应用程序框架（ASP.NET、PHP、Node.js 等等�
 * [使用 FTP 将应用部署到 Azure 应用服务](app-service-deploy-ftp.md)
 
 ## <a name="continuousdeployment"></a>从基于云的源代码管理服务连续部署
-如果开发团队使用基于云的源代码管理 (SCM) 服务，如 [GitHub](https://www.github.com)，则可以将应用服务配置为与存储库集成并连续进行部署。 
+如果开发团队使用基于云的源代码管理 (SCM) 服务，如 [GitHub](https://www.github.com)，则可以将应用服务配置为与存储库集成并持续进行部署。 
 
 从基于云的源代码管理服务部署的优点是：
 
@@ -87,7 +87,7 @@ Azure 应用服务保留了应用程序框架（ASP.NET、PHP、Node.js 等等�
 若要了解如何通过 Azure 门户中未列出的云存储库（如 [GitLab](https://gitlab.com/)）手动配置连续部署，请参阅[使用手动步骤设置连续部署](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps)。
 
 ## <a name="localgitdeployment"></a>从本地 Git 部署
-如果你的开发团队使用基于 Git 的本地源代码管理 (SCM) 服务，可将它配置为应用服务的部署源。 
+如果开发团队使用基于 Git 的本地源代码管理 (SCM) 服务，可将它配置为应用服务的部署源。 
 
 从本地 Git 进行部署的优点是：
 
@@ -107,13 +107,13 @@ Azure 应用服务保留了应用程序框架（ASP.NET、PHP、Node.js 等等�
 * [从任何 git/hg 存储库发布到 Web 应用](http://blog.davidebbo.com/2013/04/publishing-to-azure-web-sites-from-any.html)。  
 
 ## <a name="deploy-using-an-ide"></a>使用 IDE 进行部署
-如果你已在使用包含 [Azure SDK](/downloads/) 的 [Visual Studio](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) 或其他 IDE 套件（如 [Xcode](https://developer.apple.com/xcode/)、[Eclipse](https://www.eclipse.org) 和 [IntelliJ IDEA](https://www.jetbrains.com/idea/)），可以直接从 IDE 内部署到 Azure。 此选项非常适合于单个开发人员。
+如果已在使用包含 [Azure SDK](/downloads/) 的 [Visual Studio](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) 或其他 IDE 套件（如 [Xcode](https://developer.apple.com/xcode/)、[Eclipse](https://www.eclipse.org) 和 [IntelliJ IDEA](https://www.jetbrains.com/idea/)），可以直接从 IDE 内部署到 Azure。 此选项非常适合于单个开发人员。
 
-Visual Studio 支持所有这三种部署过程（FTP、Git 和 Web 部署），具体取决于你的首选项，而其他 IDE 在已集成 FTP 或 Git 时可部署到应用服务（请参阅[部署过程概述](#overview)）。
+Visual Studio 支持所有这三种部署过程（FTP、Git 和 Web 部署），具体取决于首选项，而其他 IDE 在已集成 FTP 或 Git 时可部署到应用服务（请参阅[部署过程概述](#overview)）。
 
 使用 IDE 进行部署的优点是：
 
-* 可最大程度减少在端到端应用程序生命周期中使用工具。 开发、调试、跟踪你的应用以及将其部署到 Azure，所有这些操作都在 IDE 内部执行。 
+* 可最大程度减少在端到端应用程序生命周期中使用工具。 开发、调试、跟踪应用以及将其部署到 Azure，所有这些操作都在 IDE 内部执行。 
 
 使用 IDE 进行部署的缺点是：
 
@@ -143,13 +143,13 @@ Microsoft 提供 [Azure Toolkit for Eclipse](../azure-toolkit-for-eclipse.md) �
 * [在 IntelliJ 中创建 Azure 的 Hello World Web 应用](app-service-web-intellij-create-hello-world-web-app.md)。 本教程说明如何使用 Azure Toolkit for Eclipse 创建和部署 Azure 的 Hello World Web 应用。
 
 ## <a name="automate"></a>使用命令行工具自动部署
-如果你偏好命令行终端作为所选开发环境，则可使用命令行工具针对应用服务应用编写部署任务的脚本。 
+若要选择命令行终端作为开发环境，可使用命令行工具对应用服务应用编写部署任务脚本。 
 
 使用命令行工具进行部署的优点是：
 
 * 允许编写部署方案的脚本。
 * 集成 Azure 资源和代码部署的预配。
-* 将 Azure 部署集成到现有的连续集成脚本。
+* 将 Azure 部署集成到现有的持续集成脚本。
 
 使用命令行工具进行部署的缺点是：
 

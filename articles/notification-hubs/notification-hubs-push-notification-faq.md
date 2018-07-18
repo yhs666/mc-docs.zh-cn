@@ -3,25 +3,25 @@ title: Azure 通知中心：常见问题解答 (FAQ) | Microsoft Docs
 description: 关于设计/实现有关通知中心的解决方案的常见问题
 services: notification-hubs
 documentationcenter: mobile
-author: alexchen2016
-manager: digimobile
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 keywords: 推送通知, 推送通知, iOS 推送通知, android 推送通知, ios 推送, android 推送
-editor: ''
 ms.assetid: 7b385713-ef3b-4f01-8b1f-ffe3690bbd40
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-origin.date: 01/19/2017
-ms.date: 12/22/2017
+origin.date: 04/14/2018
+ms.date: 07/09/2018
 ms.author: v-junlch
-ms.openlocfilehash: 1eb26c7decc98ed48d198c2c28f4c762936d625c
-ms.sourcegitcommit: f63d8b2569272bfa5bb4ff2eea766019739ad244
+ms.openlocfilehash: bd50e52b89e92504ef38170dc6a9597ef57bb1e5
+ms.sourcegitcommit: e950fe5260c519e05f8c5bbf193a8ef733a6a2d2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2017
-ms.locfileid: "27547630"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37936345"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>使用 Azure 通知中心推送通知：常见问题解答
 ## <a name="general"></a>常规
@@ -84,7 +84,7 @@ Azure 通知中心有两个资源级别：中心和命名空间。 中心是单�
 ### <a name="how-many-devices-can-i-support-if-i-send-push-notifications-via-notification-hubs"></a>如果通过通知中心发送推送通知，可以支持多少个设备？
 有关支持的设备数目的详细信息，请参阅[通知中心定价]页。
 
-如果需要支持超过 1000 万台已注册的设备，请直接[与我们联系](https://www.azure.cn/support/contact/)，我们将帮你扩展解决方案。
+如果需要支持 1000 万台以上的已注册设备，请直接[与我们联系](https://www.azure.cn/support/contact/)，我们将帮你扩展解决方案。
 
 ### <a name="how-many-push-notifications-can-i-send-out"></a>我可以发送多少推送通知？
 Azure 通知中心根据系统中通过的通知数量自动向上扩展，具体取决于所选的层。
@@ -130,7 +130,7 @@ PNS 对于传递通知不提供任何 SLA 保证。 但是，大多数推送通�
 命名空间可用于部署分组。 在多租户方案中，还可以使用命名空间来表示同一应用的所有租户的所有通知中心。
 
 #### <a name="geo-distribution"></a>地理分布
-在推送通知方案中，地理分布并非总是关键所在。 用于向设备传递推送通知的各个 PNS（例如 APNS 或 GCM）不会均匀分布。
+在推送通知方案中，地理分布并非总是关键所在。 用于向设备传递推送通知的各个 PNS（例如 APNS）不会均匀分布。
 
 如果有一个在全球范围内使用的应用程序，可以在全球不同的 Azure 区域使用通知中心服务在命名空间中创建中心。
 

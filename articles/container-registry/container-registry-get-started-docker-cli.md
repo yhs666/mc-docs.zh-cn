@@ -10,12 +10,12 @@ origin.date: 11/29/2017
 ms.date: 07/02/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d8a3f40bfa674ce8d1684bc3ffaf7708f68e342d
-ms.sourcegitcommit: 2cf6961f692f318ce7034e7b4d994ee51d902199
+ms.openlocfilehash: 2cc461fb94bad011312c1ccd48ccadb9a697ff33
+ms.sourcegitcommit: 5b6a2fc55e5b16ae480bd497c3ac2c3a2fd44703
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36947677"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38999176"
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>使用 Docker CLI 将第一个映像推送到专用 Docker 容器注册表
 
@@ -39,13 +39,13 @@ az acr login --name myregistry
 也可以使用 [docker login](https://docs.docker.com/engine/reference/commandline/login/) 登录。 以下示例传递了 Azure Active Directory [服务主体](../active-directory/active-directory-application-objects.md)的 ID 和密码。 例如，你可能在自动化方案中向注册表[分配了服务主体](container-registry-authentication.md#service-principal)。
 
 ```Bash
-docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
+docker login myregistry.azurecr.cn -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
 ```
 
 完成后，这两个命令将返回 `Login Succeeded`。 如果使用 `docker login`，可能会看见建议使用 `--password-stdin` 参数的安全警告。 虽然本文中未介绍它的用法，但我们建议按照此最佳做法进行操作。 有关详细信息，请参阅 [docker login](https://docs.docker.com/engine/reference/commandline/login/) 命令参考。
 
 > [!TIP]
-> 使用 `docker login` 以及标记要推送到注册表的映像时，请始终指定完全限定的注册表名称（全部小写）。 在本文的示例中，完全限定的名称为 *myregistry.azurecr.io*。
+> 使用 `docker login` 以及标记要推送到注册表的映像时，请始终指定完全限定的注册表名称（全部小写）。 在本文的示例中，完全限定的名称为 *myregistry.azurecr.cn*。
 
 ## <a name="pull-the-official-nginx-image"></a>提取正式的 Nginx 映像
 
@@ -76,7 +76,7 @@ docker run -it --rm -p 8080:80 nginx
 运行 [docker tag](https://docs.docker.com/engine/reference/commandline/tag/)，使用注册表的完全限定路径创建映像的别名。 此示例指定了 `samples` 命名空间，以免注册表根目录中出现混乱。
 
 ```Bash
-docker tag nginx myregistry.azurecr.io/samples/nginx
+docker tag nginx myregistry.azurecr.cn/samples/nginx
 ```
 
 有关使用命名空间进行标记的详细信息，请参阅 [Azure 容器注册表的最佳做法](container-registry-best-practices.md)的[存储库命名空间](container-registry-best-practices.md#repository-namespaces)部分。
@@ -86,7 +86,7 @@ docker tag nginx myregistry.azurecr.io/samples/nginx
 使用专用注册表的完全限定路径标记映像后，可以使用 [docker push](https://docs.docker.com/engine/reference/commandline/push/) 将其推送到注册表：
 
 ```Bash
-docker push myregistry.azurecr.io/samples/nginx
+docker push myregistry.azurecr.cn/samples/nginx
 ```
 
 ## <a name="pull-the-image-from-your-registry"></a>从注册表中提取映像
@@ -94,7 +94,7 @@ docker push myregistry.azurecr.io/samples/nginx
 使用 [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) 命令从注册表提取映像：
 
 ```Bash
-docker pull myregistry.azurecr.io/samples/nginx
+docker pull myregistry.azurecr.cn/samples/nginx
 ```
 
 ## <a name="start-the-nginx-container"></a>启动 Nginx 容器
@@ -102,7 +102,7 @@ docker pull myregistry.azurecr.io/samples/nginx
 使用 [docker run](https://docs.docker.com/engine/reference/run/) 命令运行已从注册表提取的映像：
 
 ```Bash
-docker run -it --rm -p 8080:80 myregistry.azurecr.io/samples/nginx
+docker run -it --rm -p 8080:80 myregistry.azurecr.cn/samples/nginx
 ```
 
 浏览到 [http://localhost:8080](http://localhost:8080) 查看正在运行的容器。
@@ -114,7 +114,7 @@ docker run -it --rm -p 8080:80 myregistry.azurecr.io/samples/nginx
 如果不再需要 Nginx 映像，可以使用 [docker rmi](https://docs.docker.com/engine/reference/commandline/rmi/) 命令在本地将其删除。
 
 ```Bash
-docker rmi myregistry.azurecr.io/samples/nginx
+docker rmi myregistry.azurecr.cn/samples/nginx
 ```
 
 若要从 Azure 容器注册表中删除映像，可以使用 Azure CLI 命令[az acr repository delete](https://docs.azure.cn/zh-cn/cli/acr/repository?view=azure-cli-latest#az-acr-repository-delete)。 例如，以下命令删除标记引用的清单、所有关联的层数据，以及引用清单的其他所有标记。

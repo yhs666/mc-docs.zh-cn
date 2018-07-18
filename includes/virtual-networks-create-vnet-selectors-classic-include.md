@@ -10,10 +10,11 @@ ms.date: 04/02/2018
 ms.author: v-yeche
 ms.custom: include file
 ms.openlocfilehash: 3d8164bf2852765dc4a2e92639bbca6c63c7e6b2
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38940305"
 ---
 > [!div class="op_single_selector"]
 > * [Azure 门户](../articles/virtual-network/quick-create-portal.md)

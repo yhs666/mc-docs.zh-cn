@@ -10,12 +10,12 @@ origin.date: 05/08/2018
 ms.date: 07/02/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: c33d61bc9b8e1c5a30e56ad042b580c85897d0c0
-ms.sourcegitcommit: 2cf6961f692f318ce7034e7b4d994ee51d902199
+ms.openlocfilehash: b29d29ca57cf7eb65500bad89f0db18f1fa9741a
+ms.sourcegitcommit: 5b6a2fc55e5b16ae480bd497c3ac2c3a2fd44703
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36947673"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38999210"
 ---
 # <a name="quickstart-create-an-azure-container-registry-using-powershell"></a>教程：使用 PowerShell 创建 Azure 容器注册表
 
@@ -100,7 +100,7 @@ Digest: sha256:a3b2eb140e6881ca2c4df4d9c97bedda7468a5c17240d7c5d30a32850a2bc573
 Status: Downloaded newer image for microsoft/aci-helloworld:latest
 ```
 
-将映像推送到 Azure 容器注册表之前，必须使用注册表的完全限定域名对其进行标记。 Azure 容器注册表的 FQDN 采用 *\<registry-name\>.azurecr.io* 格式。
+将映像推送到 Azure 容器注册表之前，必须使用注册表的完全限定域名对其进行标记。 Azure 容器注册表的 FQDN 采用 *\<registry-name\>.azurecr.cn* 格式。
 
 在变量中填充完整的映像标记。 包括登录服务器、存储库名称（“aci-helloworld”）和映像版本（“v1”）：
 
@@ -124,7 +124,7 @@ Docker 客户端推送映像时，输出应类似于：
 
 ```console
 PS Azure:\> docker push $image
-The push refers to repository [myContainerRegistry007.azurecr.io/aci-helloworld]
+The push refers to repository [myContainerRegistry007.azurecr.cn/aci-helloworld]
 31ba1ebd9cf5: Pushed
 cd07853fe8be: Pushed
 73f25249687f: Pushed

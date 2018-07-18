@@ -1,9 +1,9 @@
 ---
- title: include 文件 description: include 文件 services: vpn-gateway author: cherylmc ms.service: vpn-gateway ms.topic: include origin.date: 03/21/2018 ms.date: 03/28/2018 ms.author: v-junlch ms.custom: include file
+ title: include 文件 description: include 文件 services: vpn-gateway author: cherylmc ms.service: vpn-gateway ms.topic: include origin.date: 03/21/2018 ms.date: 07/10/2018 ms.author: v-junlch ms.custom: include file
 ---
 创建自签名根证书之后，导出根证书公用密钥 .cer 文件（不导出私钥）。 稍后要将此文件上传到 Azure。 可借助以下步骤导出自签名根证书的 .cer 文件：
 
-1. 若要获取证书 .cer 文件，请打开“管理用户证书”。 找到自签名根证书（通常位于“Certificates - Current User\Personal\Certificates”中），并右键单击。 单击“所有任务”，并单击“导出”。 。
+1. 若要获取证书 .cer 文件，请打开“管理用户证书”。 找到自签名根证书（通常位于“Certificates - Current User\Personal\Certificates”中），并右键单击。 单击“所有任务”，并单击“导出”。 。 如果在 Current User\Personal\Certificates 下找不到证书，可能是由于为本地计算机证书打开了证书管理器（这种情况下标题为“证书 - 本地计算机”而不是“证书 - 当前用户”）。 若要在当前用户范围内打开证书管理器，请键入 ```certmgr```，从与创建证书的相同 PowerShell 中启动它。
 
     ![导出](./media/vpn-gateway-certificates-export-public-key-include/export.png)
 2. 在向导中，单击“下一步”。
@@ -31,4 +31,4 @@
 
     ![使用记事本打开](./media/vpn-gateway-certificates-export-public-key-include/notepad.png)
 
-<!-- ms.date: 03/28/2018 -->
+<!-- ms.date: 07/10/2018 -->

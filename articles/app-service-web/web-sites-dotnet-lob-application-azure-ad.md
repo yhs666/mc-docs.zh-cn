@@ -16,11 +16,11 @@ origin.date: 09/01/2016
 ms.date: 10/09/2017
 ms.author: v-yiso
 ms.openlocfilehash: e65cb864b70d1b7f3cea7ea8d483c7b33d9f5daf
-ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
-ms.locfileid: "22146591"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939050"
 ---
 # <a name="create-a-line-of-business-azure-app-with-azure-active-directory-authentication"></a>使用 Azure Active Directory 身份验证创建业务线 Azure 应用
 
@@ -33,7 +33,7 @@ ms.locfileid: "22146591"
 <a name="bkmk_build"></a>
 
 ## <a name="what-you-will-build"></a>要生成的项目
-将在应用服务 Web 应用中构建用于跟踪工作项并具有以下功能的简单的业务线创建-读取-更新-删除 (CRUD) 应用程序：
+在应用服务 Web 应用中构建用于跟踪工作项并具有以下功能的简单的业务线创建-读取-更新-删除 (CRUD) 应用程序：
 
 * 根据 Azure Active Directory 对用户进行身份验证
 * 使用 [Azure Active Directory 图形 API](http://msdn.microsoft.com/library/azure/hh974476.aspx) 查询目录用户和组
@@ -72,7 +72,7 @@ ms.locfileid: "22146591"
     ![](./media/web-sites-dotnet-lob-application-azure-ad/3-add-sql-database.png)
 7. 在“配置 SQL 数据库”中，单击“新建”以创建 SQL Server 实例。
 8. 在“配置 SQL Server”中，配置 SQL Server 实例。 然后，依次单击“确定”、“确定”和“创建”以开始在 Azure 中创建应用。
-9. 在“Azure 应用服务活动”中，可以看到应用创建何时完成。 然后，单击 **立即将 &lt;* 应用名称*> 发布到此 Web 应用**，然后单击“发布”。 
+9. 在“Azure 应用服务活动”中，可以看到应用创建何时完成。 单击“立即将 &lt;appname> 发布到此 Web 应用”，然后单击“发布”。 
 
     Visual Studio 完成后，会在浏览器中打开发布应用。 
 
@@ -82,7 +82,7 @@ ms.locfileid: "22146591"
 
 ## <a name="configure-authentication-and-directory-access"></a>配置身份验证和目录访问
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
-2. 从左侧菜单中，依次单击“**应用服务** > **&lt;* 应用名称*”** >“**身份验证/授权**”。
+2. 在左侧菜单中，单击“应用服务” > **&lt;appname>** > “身份验证/授权”。
 
     ![](./media/web-sites-dotnet-lob-application-azure-ad/5-app-service-authentication.png)
 3. 依次单击“打开” > “Azure Active Directory” > “快速” > “确定”，以打开 Azure Active Directory 身份验证。
@@ -94,7 +94,7 @@ ms.locfileid: "22146591"
 
     成功保存身份验证设置后，请尝试在浏览器中再次导航到应用。 默认设置将对整个应用实施身份验证。 如果尚未登录，将重定向到登录屏幕。 登录后，可以看到应用已受 HTTPS 的保护。 接下来，需要启用对目录数据的访问。 
 5. 导航到 [经典管理门户](https://manage.windowsazure.cn)。
-6. 从左侧菜单中，依次单击 **“Active Directory”** > **“默认目录”** > **“应用程序”** > **&lt;*“应用名称”*>**。
+6. 在左侧菜单中，单击“Active Directory” > “默认目录” > “应用程序” > **&lt;*appname*>**。
 
     ![](./media/web-sites-dotnet-lob-application-azure-ad/8-find-aad-application.png)
 
@@ -119,7 +119,7 @@ ms.locfileid: "22146591"
 12. 在页面顶部，单击“读/写”以在 Azure 资源浏览器中进行更改。
     
     ![](./media/web-sites-dotnet-lob-application-azure-ad/12-resource-manager-writable.png)
-13. 找到你的应用的身份验证设置，它位于以下位置：subscriptions > **&lt;* 订阅名称*>** > **resourceGroups** > **&lt;* 资源组名称*>** > **providers** > **Microsoft.Web** > **sites** > **&lt;* 应用名称*>** > **config** > **authsettings**。
+13. 可在以下位置找到应用的身份验证设置：“订阅”> **&lt;*subscriptionname*>** > “资源组” > **&lt;*resourcegroupname*>** > “提供商” > **Microsoft.Web** > “站点” > **&lt;*appname*>** > “配置” > “身份验证设置”。
 14. 单击“编辑”。
     
     ![](./media/web-sites-dotnet-lob-application-azure-ad/13-edit-authsettings.png)
@@ -133,7 +133,7 @@ ms.locfileid: "22146591"
 16. 单击顶部的“放入”即可提交更改。
     
     ![](./media/web-sites-dotnet-lob-application-azure-ad/14-edit-parameters.png)
-17. 现在，若要测试是否获得了用于访问 Azure Active Directory 图形 API 的授权令牌，请在浏览器中导航到 **https://&lt;* appname*>.chinacloudsites.cn/.auth/me**。 如果一切都配置正确，应会在 JSON 响应中看到 `access_token` 属性。
+17. 现在，若要测试是否获得了用于访问 Azure Active Directory 图形 API 的授权令牌，请在浏览器中导航到 **https://&lt;*appname*>.chinacloudsites.cn/.auth/me**。 如果一切都配置正确，应会在 JSON 响应中看到 `access_token` 属性。
 
     `~/.auth/me` URL 路径由应用服务身份验证/授权进行管理，提供与经过身份验证的会话相关的所有信息。 有关详细信息，请参阅 [Azure 应用服务中的身份验证和授权](../app-service/app-service-authentication-overview.md)。
 
@@ -331,7 +331,7 @@ ms.locfileid: "22146591"
     > 之所以需要这一行代码，是因为默认的 MVC 模板对某些操作使用 <code>[ValidateAntiForgeryToken]</code> 修饰。 由于存在 Brock Allen 在 [MVC 4、AntiForgeryToken 和声明](http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/)中所述的行为，HTTP POST 可能无法通过防伪令牌验证，因为：
     > 
     > * Azure Active Directory 不发送防伪令牌默认所需的 http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider。
-    > * 如果 Azure Active Directory 是与 AD FS 同步的目录，默认情况下 AD FS 信任不发送 http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider 声明，尽管可以手动配置 AD FS 以发送此声明。
+    > * 如果 Azure Active Directory 是与 AD FS 同步的目录，默认情况下 AD FS 信任不发送 http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider 声明，尽管你可以手动配置 AD FS 来发送此声明。
     > 
     > `ClaimTypes.NameIdentifies` 指定 Azure Active Directory 提供的声明 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier`。  
     > 

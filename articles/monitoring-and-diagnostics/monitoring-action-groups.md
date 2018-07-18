@@ -2,31 +2,24 @@
 title: 在 Azure 门户中创建和管理器操作组
 description: 了解如何在 Azure 门户中创建和管理操作组。
 author: dkamstra
-manager: chrad
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-origin.date: 04/20/2018
-ms.date: 06/18/2018
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
+origin.date: 06/01/2018
+ms.date: 07/23/2018
 ms.author: v-yiso
-ms.openlocfilehash: 5e623dff5bc1be2f75be6854ac53bfe1428e61eb
-ms.sourcegitcommit: 794b9caca1147f1891513410dd61435708ef85ec
+ms.openlocfilehash: ce338fb2ac6cedcd41603caf748936aa68228e33
+ms.sourcegitcommit: 479954e938e4e3469d6998733aa797826e4f300b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34855400"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39031780"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>在 Azure 门户中创建和管理器操作组
 ## <a name="overview"></a>概述
-本文演示如何在 Azure 门户中创建和管理操作组。
+操作组是用户定义的通知首选项的集合。 Azure Monitor 和服务运行状况警报配置为在触发警报时使用特定操作组。 各种警报可以使用相同的操作组或不同的操作组，具体取决于用户的要求。
 
-通过操作组可以配置操作列表。 之后，这些组可由你定义的每个警报使用，从而确保每次触发警报时采取相同的操作。
+本文演示如何在 Azure 门户中创建和管理操作组。
 
 每个操作包含以下属性：
 
@@ -61,24 +54,40 @@ ms.locfileid: "34855400"
 
     a. 名称：输入此操作的唯一标识符。
 
-    b. **操作类型**：选择电子邮件、Webhook 或自动化 Runbook。
+    b. **操作类型**：选择“电子邮件/短信”、“Webhook”或“自动化 Runbook”。
 
-    c. **详细信息**：根据操作类型，输入电子邮件地址、Webhook URI 或自动化 Runbook。 
+    c. **详细信息**：根据操作类型，输入电话号码、电子邮件地址、Webhook URI 或自动化 Runbook。 
 
 8. 选择“确定”创建操作组。
 
 ## <a name="action-specific-information"></a>特定于操作的信息
 <dl>
+<dt>Azure 应用推送</dt>
+<dd>一个操作组中最多可以有 10 个 Azure 应用操作。</dd>
+<dd>目前，Azure 应用操作只支持 ServiceHealth 警报。 任何其他警报时间都会被忽略。 请参阅[配置每次发布服务运行状况通知时的警报](monitoring-activity-log-alerts-on-service-notifications.md)。</dd>
+
 <dt>电子邮件</dt>
-<dd>一个操作组中最多可以有 50 个电子邮件操作</dd>
+<dd>将从以下电子邮件地址发送电子邮件。 确保电子邮件筛选正确配置
+
+    - azure-noreply@microsoft.com
+    - azureemail-noreply@microsoft.com
+    - alerts-noreply@mail.windowsazure.com
+    
+</dd>
+<dd>一个操作组中最多可以有 1000 个电子邮件操作</dd>
 <dd>请参阅[速率限制信息](./monitoring-alerts-rate-limiting.md)一文</dd>
 <dt>Runbook</dt>
 <dd>一个操作组中最多可以有 10 个 Runbook 操作</dd>
+<dt>短信</dt>
+<dd>一个操作组中最多可以有 10 个短信操作</dd>
+<dd>请参阅[速率限制信息](./monitoring-alerts-rate-limiting.md)一文</dd>
+<dd>请参阅[短信警报行为](monitoring-sms-alert-behavior.md)一文</dd>
 <dt>Webhook</dt>
 <dd>一个操作组中最多可以有 10 个 Webhook 操作
 <dd>重试逻辑 - 响应的超时期限为 10 秒。 返回的 HTTP 状态代码为 408、429、503、504 时，或者 HTTP 终结点没有响应时，最多可以重试 2 次 Webhook 调用。 首次重试在 10 秒后发生。 第二次（也是最后一次）重试在 100 秒后发生。</dd>
 </dl>
-## 管理操作组 创建操作组后，它会在“监视器”**** 边栏选项卡的“操作组”**** 部分显示。 选择要管理的操作组：
+## Manage your action groups
+After you create an action group, it's visible in the **Action groups** section of the **Monitor** blade. Select the action group you want to manage to:
 
 * 添加、编辑或删除操作。
 * 删除操作组。

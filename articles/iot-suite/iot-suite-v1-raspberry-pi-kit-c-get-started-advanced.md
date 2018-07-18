@@ -16,11 +16,11 @@ origin: 11/02/2017
 ms.date: 12/04/2017
 ms.author: v-yiso
 ms.openlocfilehash: ba7fac72efd401939c19861cb450f1fd52b3f874
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
-ms.locfileid: "25592523"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939247"
 ---
 # <a name="connect-your-raspberry-pi-3-to-the-remote-monitoring-solution-and-enable-remote-firmware-updates-using-c"></a>使用 C 将 Raspberry Pi 3 连接到远程监视解决方案并启用远程固件更新
 
@@ -34,7 +34,7 @@ ms.locfileid: "25592523"
 本教程使用：
 
 * Raspbian OS、C 编程语言和 Microsoft Azure IoT SDK for C 实现示例设备。
-* 使用 IoT 套件远程监视预配置解决方案作为基于云的后端。
+* IoT 套件远程监视预配置解决方案作为基于云的后端。
 
 ## <a name="overview"></a>概述
 
@@ -150,7 +150,7 @@ chmod +x ~/iot-remote-monitoring-c-raspberrypi-getstartedkit/advanced/1.0/build.
     如果导航回仪表板，则可以验证固件更新后设备是否仍发送遥测数据。
 
 > [!WARNING]
-> 如果让远程监视解决方案在 Azure 帐户中保持运行状态，系统会按其运行时间计费。 若要详细了解如何在远程监视解决方案运行时减少消耗，请参阅[出于演示目的配置 Azure IoT 套件预配置解决方案][lnk-demo-config]。 请在用完后从 Azure 帐户中删除预配置的解决方案。
+> 如果让远程监视解决方案在 Azure 帐户中保持运行状态，系统会按其运行时间计费。 若要详细了解如何在远程监视解决方案运行时减少消耗，请参阅[出于演示目的配置 Azure IoT 套件预配置解决方案][lnk-demo-config]。 请在用完预配置的解决方案后将其从 Azure 帐户中删除。
 >
 >
 

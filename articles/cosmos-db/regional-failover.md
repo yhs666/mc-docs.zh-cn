@@ -11,12 +11,12 @@ origin.date: 03/27/2018
 ms.date: 07/02/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 59794d3a751bcb3ceb6619045dfd76646da213b9
-ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
+ms.openlocfilehash: 3e86d77890644fcffe05023804545c52f54b18ef
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37070157"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38938998"
 ---
 # <a name="automatic-regional-failover-for-business-continuity-in-azure-cosmos-db"></a>Azure Cosmos DB 中用于保证业务连续性的自动区域性故障转移
 Azure Cosmos DB 可通过提供完全托管的[多区域数据库帐户](distribute-data-globally.md)来简化多区域数据分布。这些帐户在一致性、可用性和性能之间提供明确的折衷，并且全部附带了相应的保证。 Cosmos DB 帐户提供以下优势：高可用性、个位数的毫秒延迟、[妥善定义的一致性级别](consistency-levels.md)、使用多宿主 API 实现透明的区域性故障转移，以及在中国范围内弹性缩放吞吐量和存储。 
@@ -38,11 +38,11 @@ Cosmos DB 支持显式和策略驱动型故障转移，方便用户在发生故�
 * 首先，在多个区域中部署应用程序
 * 为了确保从每个部署了应用程序的区域进行访问时的低延迟性，请通过一个受支持的 SDK 为每个区域配置相应的[首选区域列表](https://msdn.microsoft.com/library/microsoft.azure.documents.client.connectionpolicy.preferredlocations.aspx#P:Microsoft.Azure.Documents.Client.ConnectionPolicy.PreferredLocations)。
 
-以下代码片段演示如何初始化多区域应用程序。 其中，Azure Cosmos DB 帐户 `contoso.documents.azure.cn` 配置了两个区域 - 中国北部和中国北部。 
+以下代码片段演示如何初始化多区域应用程序。 其中，Azure Cosmos DB 帐户 `contoso.documents.azure.cn` 配置了两个区域 - 中国北部和中国东部。 
 
 * 应用程序部署在“中国北部”区域（例如，使用 Azure 应用服务） 
 * 配置了“ `China North` ”作为第一个首选区域，确保读取时的低延迟性
-* 配置了“`China North`”作为第二个首选区域（确保出现区域性故障时的高可用性）
+* 配置了“`China East`”作为第二个首选区域（确保出现区域性故障时的高可用性）
 
 在 SQL API 中，此配置类似于以下代码片段：
 
@@ -54,7 +54,7 @@ ConnectionPolicy usConnectionPolicy = new ConnectionPolicy
 };
 
 usConnectionPolicy.PreferredLocations.Add(LocationNames.ChinaNorth);
-usConnectionPolicy.PreferredLocations.Add(LocationNames.NorthEurope);
+usConnectionPolicy.PreferredLocations.Add(LocationNames.ChinaEast);
 
 DocumentClient usClient = new DocumentClient(
     new Uri("https://contosodb.documents.azure.cn"),

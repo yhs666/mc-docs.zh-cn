@@ -2,30 +2,27 @@
 title: 使用 Cloud Explorer 管理 Azure 资源 | Microsoft Docs
 description: 了解如何使用云资源管理器来浏览和管理 Visual Studio 中的 Azure 资源。
 services: visual-studio-online
-documentationcenter: na
 author: ghogen
 manager: douge
-editor: ''
-ms.assetid: 6347dc53-f497-49d5-b29b-e8b9f0e939d7
-ms.service: multiple
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: multiple
+assetId: 6347dc53-f497-49d5-b29b-e8b9f0e939d7
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: azure
+ms.topic: conceptual
 origin.date: 03/25/2017
-ms.date: 05/11/2018
+ms.date: 07/12/2018
 ms.author: v-junlch
-ms.openlocfilehash: 424cd0dc955e5b86b4afe47eaa2401d565ded178
-ms.sourcegitcommit: 998ab63adf55fb37d4cdfbdc314831f88a511fe0
+ms.openlocfilehash: 00e17b474b3540abe662d71fe2e8ccdfd3203a47
+ms.sourcegitcommit: 5b6a2fc55e5b16ae480bd497c3ac2c3a2fd44703
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34060311"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38999205"
 ---
 # <a name="manage-the-resources-associated-with-your-azure-accounts-in-visual-studio-cloud-explorer"></a>在 Visual Studio Cloud Explorer 中管理与 Azure 帐户关联的资源
 通过 Cloud Explorer，可在 Visual Studio 中查看 Azure 资源和资源组、检查其属性，以及执行重要的开发人员诊断操作。 
 
-与 [Azure 门户](https://portal.azure.cn)一样，Cloud Explorer 基于 Azure Resource Manager 堆栈。 因此，Cloud Explorer 可以识别 Azure 资源组等资源，以及逻辑应用和 API 应用等 Azure 服务，并支持[基于角色的访问控制](role-based-access-control/role-assignments-portal.md) (RBAC)。 
+与 [Azure 门户](https://portal.azure.cn)一样，Cloud Explorer 基于 Azure Resource Manager 堆栈。 因此，Cloud Explorer 可以识别 Azure 资源组等资源，以及 API 应用等 Azure 服务，并支持[基于角色的访问控制](role-based-access-control/role-assignments-portal.md) (RBAC)。 
 
 ## <a name="prerequisites"></a>先决条件
 - 已选择 **Azure 工作负荷**的 [Visual Studio 2017](https://www.visualstudio.com/downloads/)，或者包含[用于 .NET 2.9 的 Azure SDK](https://www.microsoft.com/en-us/download/details.aspx?id=51657) 的 Visual Studio 早期版本。
@@ -96,7 +93,7 @@ ms.locfileid: "34060311"
 
 每个资源都有“在门户中打开”操作。 选择此操作时，Cloud Explorer 会在 [Azure 门户](https://portal.azure.cn)中显示所选的资源。 “在门户中打开”功能适用于导航到深度嵌套的资源。
 
-根据 Azure 资源，还可能会显示其他操作和属性值。 例如，除了“在门户中打开”以外，Web 应用和逻辑应用还提供了“在浏览器中打开”和“附加调试器”操作。 当选择存储帐户 Blob、队列或表时，会显示用于打开编辑器的操作。 Azure 应用具有“URL”和“状态”属性，而存储资源具有键和连接字符串属性。
+根据 Azure 资源，还可能会显示其他操作和属性值。 例如，除了“在门户中打开”操作以外，Web 应用还提供了“在浏览器中打开”和“附加调试器”操作。 当选择存储帐户 Blob、队列或表时，会显示用于打开编辑器的操作。 Azure 应用具有“URL”和“状态”属性，而存储资源具有键和连接字符串属性。
 
 ## <a name="find-resources-in-cloud-explorer"></a>在 Cloud Explorer 中查找资源
 若要在 Azure 帐户订阅中查找具有特定名称的资源，请在 Cloud Explorer 的“搜索”框中输入该名称。
@@ -105,4 +102,4 @@ ms.locfileid: "34060311"
 
 在“搜索”框中输入字符时，只有符合这些字符的资源才会显示在资源树中。
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: update metedata properties -->

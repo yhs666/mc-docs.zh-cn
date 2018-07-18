@@ -16,11 +16,11 @@ origin.date: 07/25/2017
 ms.author: v-yiso
 ms.date: 09/25/2017
 ms.openlocfilehash: 4c52d5c86af8568a577df4f21f87accb5a12d672
-ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
-ms.locfileid: "22338857"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939791"
 ---
 # <a name="connect-your-raspberry-pi-3-to-the-remote-monitoring-solution-and-enable-remote-firmware-updates-using-nodejs"></a>使用 Node.js 将 Raspberry Pi 3 连接到远程监视解决方案并启用远程固件更新
 
@@ -146,7 +146,7 @@ sudo node ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/advanced/1.0/re
 
 1. 在“调用方法”页的“方法”下拉列表中，选择“InitiateFirmwareUpdate”。
 
-1. 在“FWPackageURI”字段中，输入 https://raw.githubusercontent.com/Azure-Samples/iot-remote-monitoring-node-raspberrypi-getstartedkit/master/advanced/2.0/raspberry.js。 此文件包含固件版本 2.0 的实现。
+1. 在“FWPackageURI”字段中，输入 **https://raw.githubusercontent.com/Azure-Samples/iot-remote-monitoring-node-raspberrypi-getstartedkit/master/advanced/2.0/raspberry.js**。 此文件包含固件版本 2.0 的实现。
 
 1. 选择“InvokeMethod”。 Raspberry Pi 上的应用会将确认发送回解决方案仪表板。 然后，它通过下载新版本的固件来启动固件更新过程：
 
@@ -170,7 +170,7 @@ sudo node ~/iot-remote-monitoring-node-raspberrypi-getstartedkit/advanced/1.0/re
     如果导航回仪表板，则可以验证固件更新后设备是否仍发送遥测数据。
 
 > [!WARNING]
-> 如果让远程监视解决方案在 Azure 帐户中保持运行状态，系统会按其运行时间计费。 若要详细了解如何在远程监视解决方案运行时减少消耗，请参阅[出于演示目的配置 Azure IoT 套件预配置解决方案][lnk-demo-config]。 请在用完后从 Azure 帐户中删除预配置的解决方案。
+> 如果让远程监视解决方案在 Azure 帐户中保持运行状态，系统会按其运行时间计费。 若要详细了解如何在远程监视解决方案运行时减少消耗，请参阅[出于演示目的配置 Azure IoT 套件预配置解决方案][lnk-demo-config]。 请在用完预配置的解决方案后将其从 Azure 帐户中删除。
 
 ## <a name="next-steps"></a>后续步骤
 

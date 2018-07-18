@@ -16,12 +16,12 @@ ms.topic: article
 origin.date: 02/22/2018
 ms.date: 03/27/2018
 ms.author: v-junlch
-ms.openlocfilehash: 9418dacb5a6a128eecaf42f770a42518dc621149
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: 4c890beeaf57b1328d5d1ffe10477a553b6f3b9d
+ms.sourcegitcommit: a22129c95c9f877a04c6b5b428edf7f4e953fd97
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30223498"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37937334"
 ---
 # <a name="understand-instance-ids-for-azure-vm-scale-set-vms"></a>了解 Azure VM 规模集 VM 的实例 ID
 本文介绍规模集的实例 ID 和显示这些 ID 的各种方法。
@@ -44,7 +44,7 @@ PowerShell：`Get-AzureRmVmssVM -ResourceGroupName {resourceGroupName} -VMScaleS
 
 CLI：`az vmss list-instances -g {resourceGroupName} -n {vmScaleSetName}`（有关详细信息，请参阅 [CLI 文档](/cli/vmss?view=azure-cli-latest#az_vmss_list_instances)）。
 
-也可以使用 [resources.azure.com](https://resources.azure.com) 或 [Azure SDK](/downloads/) 列出规模集中的 VM。
+也可使用 [Azure SDK](/downloads/) 列出规模集中的 VM。
 
 下面是 CLI 的某个示例输出，但输出的具体呈现取决于提供给命令的选项：
 

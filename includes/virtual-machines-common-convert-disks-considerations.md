@@ -10,6 +10,6 @@
 
 * 不会删除在转换之前由 VM 使用的原始 VHD 和存储帐户。 它们会继续产生费用。 若要避免这些项目产生的费用，请在验证转换已完成后删除原始 VHD Blob。
 
-* 查看支持转换过程所需的 Azure VM 代理最低版本。 有关如何检查和更新目标版本的信息，请参阅 [Minimum version support for VM agents in Azure](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)（对 Azure 中的 VM 代理的最低版本支持）
+* 查看支持转换过程所需的 Azure VM 代理最低版本。 有关如何检查和更新代理版本的信息，请参阅 [Azure 中 VM 代理的最低版本支持](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)
 <!--Update_Description: wording update, update link-->
 <!--ms.date: 05/14/2018-->
