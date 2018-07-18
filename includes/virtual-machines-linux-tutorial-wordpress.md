@@ -70,7 +70,7 @@ sudo ln -s /usr/share/wordpress /var/www/html/wordpress
 sudo mv /etc/wordpress/config-localhost.php /etc/wordpress/config-default.php
 ```
 
-现在可以完成 WordPress 设置并在平台上进行发布了。 打开浏览器并转到 `http://yourPublicIPAddress/wordpress`。 替换 VM 的公共 IP 地址。 应如下图所示。
+现在可以完成 WordPress 设置并在平台上进行发布了。 打开浏览器并转到 `http://yourPublicIPAddress/wordpress` 。 替换 VM 的公共 IP 地址。 应如下图所示。
 
 ![WordPress 安装页](./media/virtual-machines-linux-tutorial-wordpress/wordpressstartpage.png)
 <!--Update_Description: wording update-->

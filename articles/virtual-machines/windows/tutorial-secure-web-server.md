@@ -18,11 +18,11 @@ ms.date: 06/04/2018
 ms.author: v-yeche
 ms.custom: mvc
 ms.openlocfilehash: b92d04aa32b6ad63645150c55e447721771ae5a5
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867819"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38940072"
 ---
 # <a name="tutorial-secure-a-web-server-on-a-windows-virtual-machine-in-azure-with-ssl-certificates-stored-in-key-vault"></a>教程：在 Azure 中使用 Key Vault 中存储的 SSL 证书保护 Windows 虚拟机上的 Web 服务器
 
@@ -146,14 +146,13 @@ Set-AzureRmVMExtension -ResourceGroupName $resourceGroup `
 ```
 
 ### <a name="test-the-secure-web-app"></a>测试 Web 应用是否安全
-使用 [Get-AzureRmPublicIPAddress](https://docs.microsoft.com/zh-cn/powershell/module/azurerm.network/get-azurermpublicipaddress) 获取 VM 的公共 IP 地址。 以下示例获取前面创建的 `myPublicIP` 的 IP 地址：
-<!-- URL is CORRECT on https://docs.microsoft.com/zh-cn/powershell/module/azurerm.network/get-azurermpublicipaddress -->
+使用 [Get-AzureRmPublicIPAddress](https://docs.microsoft.com/zh-cn/powershell/module/azurerm.network/get-azurermpublicipaddress) 获取 VM 的公共 IP 地址。 以下示例获取前面创建的 `myPublicIP` 的 IP 地址：<!-- URL is CORRECT on https://docs.microsoft.com/zh-cn/powershell/module/azurerm.network/get-azurermpublicipaddress -->
 
 ```powershell
 Get-AzureRmPublicIPAddress -ResourceGroupName $resourceGroup -Name "myPublicIPAddress" | select "IpAddress"
 ```
 
-现可打开 Web 浏览器，并在地址栏中输入 `https://<myPublicIP>`。 若要接受有关使用自签名证书的安全警告，请依次选择“详细信息”和“继续转到网页”：
+现可打开 Web 浏览器，并在地址栏中输入 `https://<myPublicIP>` 。 若要接受有关使用自签名证书的安全警告，请依次选择“详细信息”和“继续转到网页”：
 
 ![接受 Web 浏览器安全警告](./media/tutorial-secure-web-server/browser-warning.png)
 

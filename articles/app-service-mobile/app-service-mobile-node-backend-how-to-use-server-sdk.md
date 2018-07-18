@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 10/01/2016
 ms.author: v-yiso
 ms.date: 05/14/2018
-ms.openlocfilehash: e062f73b6850adbe2d9161e7204d2dcf87054266
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: 38864e1328803fa49475fbbfb89c6645b671b0cc
+ms.sourcegitcommit: 479954e938e4e3469d6998733aa797826e4f300b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33815376"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39031766"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>如何使用移动应用 Node.js SDK
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -33,7 +33,7 @@ ms.locfileid: "33815376"
 * 数据访问的表操作（读取、插入、更新、删除）
 * 自定义 API 操作
 
-这两种操作都可用于 Azure 应用服务所允许的所有标识提供者（包括 Facebook、Twitter、Google 和 Microsoft 等社交标识提供者，以及用于企业标识的 Azure Active Directory）之间的身份验证。
+这两种操作都可用于 Azure 应用服务允许的所有标识提供者之间的身份验证。 这些提供者包括 Microsoft 等社交标识提供者，以及用于企业标识的 Azure Active Directory。
 
 可以 [在 GitHub 上的示例目录]中找到每种用例的示例。
 
@@ -945,9 +945,9 @@ Node.js 应用程序可访问各种诊断日志工具。 在内部，移动应�
 [脱机数据同步]: ./app-service-mobile-offline-data-sync.md
 [如何配置 Azure Active Directory 身份验证]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
 [如何配置 Microsoft 身份验证]: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md
-[Azure App Service 部署指南]: ../app-service/app-service-deploy-local-git.md
+[Azure 应用服务部署指南]: ../app-service/app-service-deploy-local-git.md
 [Monitoring an Azure App Service]: ../app-service/web-sites-monitor.md
-[Enable Diagnostic Logging in Azure App Service（在 Azure 应用服务中启用诊断记录）]: ../app-service/web-sites-enable-diagnostic-log.md
+[在 Azure 应用服务中启用诊断日志记录]: ../app-service/web-sites-enable-diagnostic-log.md
 [Troubleshoot an Azure App Service in Visual Studio]: ../app-service/web-sites-dotnet-troubleshoot-visual-studio.md
 [指定 Node 版本]: ../nodejs-specify-node-version-azure-apps.md
 [使用 Node 模块]: ../nodejs-use-node-modules-azure-apps.md
@@ -956,7 +956,7 @@ Node.js 应用程序可访问各种诊断日志工具。 在内部，移动应�
 [Express]: http://expressjs.com/
 [Swagger]: http://swagger.io/
 
-[Azure Portal]: https://portal.azure.cn/
+[Azure 门户]: https://portal.azure.cn/
 [OData]: http://www.odata.org
 [Promise]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise
 [GitHub 上的 basicapp 示例]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/basic-app

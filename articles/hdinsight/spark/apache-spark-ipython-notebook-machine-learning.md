@@ -15,18 +15,18 @@ ms.topic: tutorial
 origin.date: 05/07/2018
 ms.date: 06/25/2018
 ms.author: v-yiso
-ms.openlocfilehash: 1ab5f0148a705508b014359677ec097b4281bc77
-ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
+ms.openlocfilehash: 3092cba426a5ef85230fc8e87a0587f8fa264c8d
+ms.sourcegitcommit: bbc130e25163b6d3af6616d57c0b6efef63796a2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36747506"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37914584"
 ---
 # <a name="tutorial-build-a-spark-machine-learning-application-in-hdinsight"></a>教程：在 HDInsight 中生成 Spark 机器学习应用程序 
 
 本教程介绍如何使用 Jupyter Notebook 生成适用于 Azure HDInsight 的 Apache Spark 机器学习应用程序。 
 
-[MLlib](https://spark.apache.org/docs/1.1.0/mllib-guide.html) 是 Spark 的可缩放机器学习库，由常见学习算法和实用工具（包括分类、回归、聚集、协作筛选、维数约简以及底层优化基元）组成。
+[MLib](https://spark.apache.org/docs/1.1.0/mllib-guide.html) 是 Spark 的可缩放机器学习库，由常见学习算法和实用程序（包括分类、回归、聚集、协作筛选、维数约简以及底层优化基元）组成。
 
 本教程介绍如何执行下列操作：
 > [!div class="checklist"]

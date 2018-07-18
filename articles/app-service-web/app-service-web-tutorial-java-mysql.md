@@ -17,11 +17,11 @@ ms.author: v-yiso
 ms.custom: mvc
 ms.date: 10/16/2017
 ms.openlocfilehash: 64f155e243f0fea3a0e3c98115e8562f73c00f08
-ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
-ms.locfileid: "22339080"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939060"
 ---
 # <a name="build-a-java-and-mysql-web-app-in-azure"></a>在 Azure 中构建 Java 和 MySQL Web 应用
 
@@ -29,7 +29,7 @@ ms.locfileid: "22339080"
 
 ![在 Azure appservice 中运行的 Java 应用](./media/app-service-web-tutorial-java-mysql/appservice-web-app.png)
 
-本教程介绍如何：
+本教程介绍如何执行下列操作：
 
 > [!div class="checklist"]
 > * 在 Azure 中创建 MySQL 数据库
@@ -111,7 +111,7 @@ cd spring-boot-mysql-todo
 mvnw package spring-boot:run
 ```
 
-打开浏览器并转到 http://localhost:8080 ，查看正在操作的示例。 向列表添加任务时，请在 MySQL 提示符处使用以下 SQL 命令，查看 MySQL 中存储的数据。
+打开浏览器并转到 http://localhost:8080，查看正在操作的示例。 向列表添加任务时，请在 MySQL 提示符处使用以下 SQL 命令，查看 MySQL 中存储的数据。
 
 ```SQL
 use testdb;
@@ -438,7 +438,7 @@ put target/TodoDemo-0.0.1-SNAPSHOT.war ROOT.war
       
 ## <a name="stream-diagnostic-logs"></a>流式传输诊断日志 
 
-当 Java 应用程序在 Azure 应用服务中运行时，可将控制台日志通过管道直接传输到终端。 如此，可以获得相同的诊断消息，以便调试应用程序错误。
+当 Java 应用程序在 Azure 应用服务中运行时，可将控制台日志通过管道直接传输到终端。 这样可以获得相同的诊断消息，以帮助调试应用程序错误。
 
 若要启动日志流式处理，请使用 [az webapp log tail](https://docs.microsoft.com/cli/azure/appservice/web/log#tail) 命令。
 
@@ -460,7 +460,7 @@ az webapp log tail \
 
 默认情况下，Web 应用的边栏选项卡显示“概述”页。 在此页中可以查看应用的运行状况。 在此处还可以执行管理任务，例如停止、启动、重启和删除。 边栏选项卡左侧的选项卡显示可以打开的不同配置页。
 
-![Azure 门户中的应用服务边栏选项卡](./media/app-service-web-tutorial-java-mysql/web-app-blade.png)
+![Azure 门户中的“应用服务”边栏选项卡](./media/app-service-web-tutorial-java-mysql/web-app-blade.png)
 
 边栏选项卡中的这些选项卡显示了可添加到 Web 应用的许多强大功能。 以下列表只是列出了一部分可用的功能：
 * 映射自定义 DNS 名称

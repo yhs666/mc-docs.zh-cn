@@ -17,22 +17,22 @@ origin.date: 05/22/2017
 ms.author: v-yiso
 ms.date: ''
 ms.openlocfilehash: 3a53e710da36016887c354692bdd98c9b4001469
-ms.sourcegitcommit: d5d647d33dba99fabd3a6232d9de0dacb0b57e8f
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/14/2017
-ms.locfileid: "20472435"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939792"
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-preconfigured-solution-mbed"></a>将设备连接到远程监视预配置解决方案 (mbed)
 
 ## <a name="scenario-overview"></a>方案概述
-此方案将创建一个设备，该设备可以将以下遥测数据发送到远程监视[预配置解决方案][lnk-what-are-preconfig-solutions]：
+在此方案中，创建会将以下遥测数据发送到远程监视[预配置解决方案][lnk-what-are-preconfig-solutions]的设备：
 
 * 外部温度
 * 内部温度
 * 湿度
 
-为简单起见，设备上的代码将生成示例值，但我们建议你通过将实际传感器连接到设备并发送实际的遥测数据来扩展此示例。
+为简单起见，设备上的代码将生成示例值，但我们建议通过将实际传感器连接到设备并发送实际的遥测数据来扩展此示例。
 
 该设备还能响应从解决方案仪表板中调用的方法，以及在解决方案仪表板中设置的所需属性值。
 
@@ -42,11 +42,11 @@ ms.locfileid: "20472435"
 在为设备编写任何代码之前，必须先预配远程监视预配置解决方案，并在该解决方案中预配新的自定义设备。
 
 ### <a name="provision-your-remote-monitoring-preconfigured-solution"></a>预配远程监视预配置解决方案
-本教程中创建的设备会将数据发送到 [远程监视][lnk-remote-monitoring] 预配置解决方案的实例中。 如果尚未在 Azure 帐户中预配远程监视预配置解决方案，请使用以下步骤：
+本教程中创建的设备会将数据发送到[远程监视][lnk-remote-monitoring] 预配置解决方案的实例中。 如果尚未在 Azure 帐户中预配远程监视预配置解决方案，请使用以下步骤：
 
 1. 在 <https://www.azureiotsuite.cn/> 页上，单击“+”创建解决方案。
 2. 在“远程监视”面板上，单击“选择”创建解决方案。
-3. 在“创建远程监视解决方案”页上，输入所选的解决方案名称，选择要部署到的区域，然后选择要使用的 Azure 订阅。 。
+3. 在“创建远程监视解决方案”页上，输入所选的**解决方案名称**，选择要部署到的**区域**，并选择要使用的 Azure 订阅。 。
 4. 等待预配过程完成。
 
 > [!WARNING]
@@ -60,11 +60,11 @@ ms.locfileid: "20472435"
 
 ### <a name="provision-your-device-in-the-remote-monitoring-solution"></a>在远程监视方案中预配设备
 > [!NOTE]
-> 如果你已在解决方案中预配了设备，则可以跳过此步骤。 创建客户端应用程序时需要知道设备凭据。
+> 如果已在解决方案中预配了设备，则可以跳过此步骤。 创建客户端应用程序时需要知道设备凭据。
 > 
 > 
 
-连接到预配置解决方案的设备必须能够使用有效凭据对 IoT 中心识别自身。 用户可从解决方案仪表板中检索设备凭据。 本教程后文中的客户端应用程序要采用该设备凭据。
+对于连接到预配置解决方案的设备，该设备必须使用有效的凭据将自身标识到 IoT 中心。 用户可从解决方案仪表板中检索设备凭据。 本教程后文中的客户端应用程序要采用该设备凭据。
 
 若要在远程监视解决方案中添加设备，请在解决方案仪表板中完成以下步骤：
 
@@ -74,13 +74,13 @@ ms.locfileid: "20472435"
 2. 在“自定义设备”面板中，单击“新增”。
    
    ![添加自定义设备][2]
-3. 选择“让我定义自己的设备 ID”。 输入设备 ID（例如“mydevice”），单击“检查 ID”验证该名称是否尚未使用，然后单击“创建”预配设备。
+3. 选择“让我定义自己的设备 ID”。 输入设备 ID（例如“mydevice”），单击“检查 ID”验证该名称是否尚未使用，并单击“创建”预配设备。
    
    ![添加设备 ID][3]
 4. 记下设备凭据（设备 ID、IoT 中心主机名和设备密钥）。 客户端应用程序需要这些值才能连接到远程监视解决方案。 然后单击“完成”。
    
     ![查看设备凭据][4]
-5. 在解决方案仪表板上的设备列表中选择设备。 然后，在“设备详细信息”面板中，单击“启用设备”。 设备状态现在为“正在运行”。 远程监视解决方案现在可以从设备接收遥测数据，并在设备上调用方法。
+5. 在解决方案仪表板上的设备列表中选择设备。 接着，在“设备详细信息”面板中，单击“启用设备”。 设备状态现在为“正在运行”。 远程监视解决方案现在可以从设备接收遥测数据，并在设备上调用方法。
 
 [img-dashboard]: ./media/iot-suite-connecting-devices-mbed/dashboard.png
 [1]: ./media/iot-suite-connecting-devices-mbed/suite0.png
@@ -94,23 +94,23 @@ ms.locfileid: "20472435"
 
 ## <a name="build-and-run-the-c-sample-solution"></a>生成并运行 C 示例解决方案
 
-以下说明介绍用于将 [启用 mbed 的 Freescale FRDM-K64F][lnk-mbed-home] 设备连接到远程监视解决方案的步骤。
+以下说明介绍用于将[启用 mbed 的 Freescale FRDM-K64F][lnk-mbed-home] 设备连接到远程监视解决方案的步骤。
 
 ### <a name="connect-the-mbed-device-to-your-network-and-desktop-machine"></a>将 mbed 设备连接到网络和桌面计算机
 
 1. 使用以太网电缆将 mbed 设备连接到网络。 此步骤是必需的，因为示例应用程序需要 Internet 访问。
 
-2. 请参阅 [mbed 入门][lnk-mbed-getstarted] 以将 mbed 设备连接到桌面 PC。
+2. 请参阅 [mbed 入门][lnk-mbed-getstarted]以将 mbed 设备连接到桌面 PC。
 
 3. 如果桌面 PC 在运行 Windows，请参阅 [PC 配置][lnk-mbed-pcconnect] 以配置对 mbed 设备的串行端口访问。
 
 ### <a name="create-an-mbed-project-and-import-the-sample-code"></a>创建 mbed 项目并导入示例代码
 
-执行以下步骤，向 mbed 项目添加一些示例代码。 导入远程监视初学者项目，然后将项目更改为使用 MQTT 协议而不是 AMQP 协议。 目前，需要通过 MQTT 协议使用 IoT 中心的设备管理功能。
+执行以下步骤，向 mbed 项目添加一些示例代码。 导入远程监视初学者项目，并将项目更改为使用 MQTT 协议而不是 AMQP 协议。 目前，需要通过 MQTT 协议使用 IoT 中心的设备管理功能。
 
-1. 在 Web 浏览器中，转到 mbed.org [开发人员站点](https://developer.mbed.org/)。 如果尚未注册，则会看到一个用于创建帐户的选项（它是免费的）。 否则，使用你的帐户凭据登录。 然后在页面右上角单击“编译器”  。 通过此操作将转到“工作区”  界面。
+1. 在 Web 浏览器中，转到 mbed.org [开发人员站点](https://developer.mbed.org/)。 如果尚未注册，则会看到一个用于创建帐户的选项（它是免费的）。 否则，使用帐户凭据登录。 然后在页面右上角单击“编译器”。 通过此操作将转到“*工作区*”界面。
 
-2. 请确保你使用的硬件平台出现在窗口右上角，或单击右角的图标以选择你的硬件平台。
+2. 请确保使用的硬件平台出现在窗口右上角，或单击右角的图标以选择硬件平台。
 
 1. 在主菜单上单击“导入”。 然后单击“单击此处从 URL 导入”。
 
@@ -132,11 +132,11 @@ ms.locfileid: "20472435"
 
     ![开始将库导入 mbed 工作区][6]
 
-1. 在弹出窗口中，输入 MQTT 传输库的链接 https://developer.mbed.org/users/AzureIoTClient/code/iothub\_mqtt\_transport/，然后单击“导入”。
+1. 在弹出窗口中，输入MQTT 传输库 https://developer.mbed.org/users/AzureIoTClient/code/iothub\_mqtt\_transport/ 的链接，然后单击“导入”。
 
     ![将库导入 mbed 工作区][12]
 
-1. 重复上一步骤，从 https://developer.mbed.org/users/AzureIoTClient/code/azure\_umqtt\_c/ 添加 MQTT 库。
+1. 重复上一步，从 https://developer.mbed.org/users/AzureIoTClient/code/azure\_umqtt\_c/ 添加 MQTT 库。
 
 1. 工作区现在如下所示：
 
