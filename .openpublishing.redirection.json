@@ -2794,6 +2794,11 @@
       "redirect_document_id": false
     },
     {
+            "source_path": "articles/automation/automation-troubleshooting-automation-errors.md",
+            "redirect_url": "/automation/troubleshoot/runbooks",
+            "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/virtual-machines-linux-usernames.md",
       "redirect_url": "/virtual-machines/linux/usernames",
       "redirect_document_id": false
