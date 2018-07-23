@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 06/05/2017
 ms.date: 09/28/2017
 ms.author: v-johch
-ms.openlocfilehash: 72ba05d0ae88ad5d478db205b0073f06b1051e2f
-ms.sourcegitcommit: 69366423cfcd8f88cd9a72fcbd06b998e0a3e73a
+ms.openlocfilehash: 067a43e8f9e75ac302ea677d59733351407da1fa
+ms.sourcegitcommit: b23f331a9507c52ddd564c77379e7013b14141e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2017
-ms.locfileid: "23456144"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39138835"
 ---
 # <a name="get-started-guide-for-azure-in-china-developers"></a>中国区 Azure 开发人员入门指南
 
@@ -44,7 +44,7 @@ Azure 是一个完整的云平台，可以托管你现有的应用程序，简�
 
 ### <a name="application-hosting"></a>应用程序托管
 
-Azure 提供了多个基于云的计算服务来运行你的应用程序，因此，你无需担心基础结构详细信息。 随着应用程序使用率的增长，可轻松增加或扩大你的资源。
+Azure 提供了多个基于云的计算服务来运行你的应用程序，因此，你无需担心基础结构详细信息。 随着应用程序使用率的增长，可轻松纵向扩展或横向扩展你的资源。
 
 Azure 提供了支持应用程序开发和托管需求的服务。 Azure 还提供了基础结构即服务 (IaaS)，以便让你完全控制应用程序托管。 Azure 的平台即服务 (PaaS) 产品提供了支持应用所需的完全托管服务。 在 Azure 中甚至还有真正的无服务器托管，你在其中需要做的就是编写代码。
 
@@ -237,16 +237,16 @@ Azure 是基于一组支持 Azure 门户 UI 的 REST API 构建的。 其中大�
 
 -   [.NET](https://go.microsoft.com/fwlink/?linkid=834925)
 -   [Node.js](http://azure.github.io/azure-sdk-for-node/)
--   [Java](/java/api/overview/)
+-   [Java](/java/api/)
 -   [PHP](https://github.com/Azure/azure-sdk-for-php/blob/master/README.md)
 -   [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/)
 -   [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md)
 
 [移动应用](../../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md)和 [Azure 媒体服务](../../media-services/media-services-dotnet-how-to-use.md)等服务均提供客户端 SDK，可让你从 Web 和移动客户端应用访问服务。
 
-### <a name="azure-resource-manager"></a>Azure 资源管理器 
+### <a name="azure-resource-manager"></a>Azure Resource Manager 
     
-在 Azure 上运行应用可能需要使用多个 Azure 服务，所有这些服务都遵循相同的生命周期，并且可以被视为一个逻辑单元。 例如，Web 应用可以使用 Web 应用、SQL 数据库、存储、Azure Redis 缓存，以及 Azure 内容交付网络服务。 [Azure 资源管理器](../../azure-resource-manager/resource-group-overview.md)能够使你以组的方式处理应用程序中的资源。 你可以通过单个协调的操作来部署、更新或删除所有资源。
+在 Azure 上运行应用可能需要使用多个 Azure 服务，所有这些服务都遵循相同的生命周期，并且可以被视为一个逻辑单元。 例如，Web 应用可以使用 Web 应用、SQL 数据库、存储、Azure Redis 缓存，以及 Azure 内容分发网络服务。 [Azure 资源管理器](../../azure-resource-manager/resource-group-overview.md)能够使你以组的方式处理应用程序中的资源。 你可以通过单个协调的操作来部署、更新或删除所有资源。
 
 除了逻辑分组和管理相关的资源外，Azure 资源管理器还包括可让你自定义相关资源部署和配置的部署功能。 例如，通过使用资源管理器，你可以将包含多个虚拟机、负载均衡器和 Azure SQL 数据库的应用程序作为单一单元进行部署和配置。
 

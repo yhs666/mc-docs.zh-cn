@@ -11,16 +11,16 @@ ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: a6ce94d4b5bb9f3cfe89d9e4429a26585589ef96
-ms.sourcegitcommit: 7d01230972e7a7c4fd1aaf22220fb04a05726135
+ms.openlocfilehash: 905f543b15c7d766370a64cde6e1e9a48b78312e
+ms.sourcegitcommit: 37a1524d71895b17b6f1d125053ad0b251b88df1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2018
-ms.locfileid: "35568642"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39097059"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>配置 Azure 多重身份验证设置
 
-在启动并运行 Azure 多重身份验证后，可以参考本文进行管理。 本文涵盖了各种主题，可帮助你充分利用 Azure 多重身份验证。 并非所有 [Azure 多重身份验证版本](concept-mfa-whichversion.md#what-features-do-i-need)都提供全部功能。
+在启动并运行 Azure 多重身份验证后，可以参考本文进行管理。 本文涵盖了各种主题，可帮助你充分利用 Azure 多重身份验证。 并非所有版本的 Azure 多重身份验证都提供所有这些功能。
 
 | 功能 | 说明 | 
 |:--- |:--- |

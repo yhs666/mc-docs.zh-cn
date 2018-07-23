@@ -3,7 +3,7 @@
 若要引用 CloudConfigurationManager 包，请添加以下 `using` 指令：
 
 ```csharp
-using Microsoft.Azure;  //Namespace for CloudConfigurationManager
+using Microsoft.Azure; //Namespace for CloudConfigurationManager
 ```
 
 以下示例演示如何从配置文件中检索连接字符串：

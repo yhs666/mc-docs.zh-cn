@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 origin.date: 03/19/2018
 ms.date: 05/21/2018
 ms.author: v-nany
-ms.openlocfilehash: 8e21e0b5dd95c4b6df081c7372a70e56f9e7b026
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.openlocfilehash: b6dc03df1332adfa7a50bffb374ed5f41d747ae5
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "34173077"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167769"
 ---
 # <a name="how-to-manage-dns-zones-using-powershell"></a>如何使用 PowerShell 管理 DNS 区域
 

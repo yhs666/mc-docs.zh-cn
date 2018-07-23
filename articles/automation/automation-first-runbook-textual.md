@@ -10,14 +10,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 03/16/2018
-ms.date: 05/14/2018
+ms.date: 07/23/2018
 ms.author: v-nany
-ms.openlocfilehash: dee248daae3736c5cd43f34d005ede86cf7730ab
-ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
+ms.openlocfilehash: 5fa8a825a8fdf97280f54ba6cbe6cef7195f7317
+ms.sourcegitcommit: 53972dcdef77da92529996667545d2e83716f7e2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36748418"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39143403"
 ---
 # <a name="my-first-powershell-workflow-runbook"></a>我的第一个 PowerShell 工作流 Runbook
 
@@ -113,6 +113,13 @@ ms.locfileid: "36748418"
    Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
    -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint -EnvironmentName "AzureChinaCloud"
    ```
+
+   > [!IMPORTANT]
+   > **Add-AzureRmAccount** 和 **Login-AzureRmAccount** 现在是 **Connect-AzureRMAccount** 的别名。 如果 **Connect-AzureRMAccount** cmdlet 不存在，则可以使用 **Add-AzureRmAccount** 或 **Login-AzureRmAccount**，也可以将自动化帐户中的[模块更新](automation-update-azure-modules.md)为最新版本。 
+
+> [!NOTE]
+> 即使刚刚创建了一个新的自动化帐户，也可能需要[更新模块](automation-update-azure-modules.md)。
+
 5. 单击“测试”窗格，以便测试 Runbook。
 6. 单击“启动”以启动测试  。 完成后，你会收到类似于以下内容的输出，显示帐户中的基本信息。 这可确认凭据有效。<br><br> ![身份验证](media/automation-first-runbook-textual/runbook-auth-output.png)
 
@@ -161,4 +168,3 @@ Runbook 当前会启动你在 Runbook 中硬编码的虚拟机，但如果可以
 * 若要开始使用 PowerShell Runbook，请参阅 [我的第一个 PowerShell Runbook](automation-first-runbook-textual-powershell.md)
 * 若要了解有关 Runbook 类型、其优点和限制的详细信息，请参阅 [Azure 自动化 Runbook 类型](automation-runbook-types.md)
 * 有关 PowerShell 脚本支持功能的详细信息，请参阅 [Native PowerShell script support in Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)
-

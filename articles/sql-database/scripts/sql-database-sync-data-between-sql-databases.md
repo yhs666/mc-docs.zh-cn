@@ -18,12 +18,12 @@ origin.date: 04/01/2018
 ms.date: 04/17/2018
 ms.author: v-nany
 ms.reviewer: douglasl
-ms.openlocfilehash: cf038504b0eb7271bbe27f0fd129888d87674b69
-ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
+ms.openlocfilehash: cc47577010a1a6a6ba645d6d8aeaa48d0a31b443
+ms.sourcegitcommit: 53972dcdef77da92529996667545d2e83716f7e2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37800507"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39143460"
 ---
 # <a name="use-powershell-to-sync-between-multiple-sql-databases"></a>使用 PowerShell 在多个 SQL 数据库之间进行同步
  
@@ -362,7 +362,7 @@ Remove-AzureRmResourceGroup -ResourceGroupName $SyncDatabaseResourceGroupName
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure PowerShell 的详细信息，请参阅 [Azure PowerShell 文档](/powershell/azure/overview)。
+有关 Azure PowerShell 的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/overview)。
 
 可以在 [Azure SQL 数据库 PowerShell 脚本](../sql-database-powershell-samples.md)中找到更多 SQL 数据库 PowerShell 脚本示例。
 

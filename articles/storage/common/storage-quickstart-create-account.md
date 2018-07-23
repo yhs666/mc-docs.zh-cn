@@ -10,12 +10,12 @@ ms.topic: quickstart
 origin.date: 01/19/2018
 ms.date: 3/5/2018
 ms.author: v-nany
-ms.openlocfilehash: 208867b76292365a17c6615b5f9842749ea8b2a3
-ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
+ms.openlocfilehash: 576941ab628a501c08121cf35f411380807aa190
+ms.sourcegitcommit: 53972dcdef77da92529996667545d2e83716f7e2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103096"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39143453"
 ---
 # <a name="create-a-storage-account"></a>创建存储帐户
 
@@ -40,18 +40,7 @@ Azure 存储帐户提供云中的唯一命名空间，用于在 Azure 存储中�
 
 可以登录到 Azure，然后采用以下两种方式之一运行 Azure CLI 命令：
 
-- 可以在 Azure 门户的 Azure Cloud Shell 中运行 CLI 命令 
-- 可以安装 CLI 并在本地运行 CLI 命令  
-
-### <a name="use-azure-cloud-shell"></a>使用 Azure Cloud Shell
-
-Azure Cloud Shell 是可直接在 Azure 门户中运行的免费 Bash shell。 它预安装有 Azure CLI 并将其配置为与你的帐户一起使用。 单击 Azure 门户右上角菜单上的“Cloud Shell”按钮：
-
-[![Cloud Shell](./media/storage-quickstart-create-account/cloud-shell-menu.png)](https://portal.azure.cn)
-
-该按钮会启动交互式 shell，用于运行本快速入门中的步骤：
-
-[![屏幕截图，显示门户中的 Cloud Shell 窗口](./media/storage-quickstart-create-account/cloud-shell.png)](https://portal.azure.cn)
+可以安装 CLI 并在本地运行 CLI 命令  
 
 ### <a name="install-the-cli-locally"></a>在本地安装 CLI
 
@@ -128,7 +117,7 @@ $location = "chinaeast"
 ```azurecli
 az group create \
     --name storage-quickstart-resource-group \
-    --location westus
+    --location chinaeast
 ```
 
 如果不确定为 `--location` 参数指定哪个区域，可使用 [az account list-locations](/cli/account#az_account_list) 命令检索订阅支持的区域的列表。
@@ -178,7 +167,7 @@ Azure 存储提供两种类型的常规用途存储帐户：
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 
-若要使用本地冗余存储 (LRS) 从 PowerShell 创建常规用途 v2 存储帐户，请使用 [New-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/New-AzureRmStorageAccount) 命令： 
+若要使用本地冗余存储 (LRS) 从 PowerShell 创建常规用途 v2 存储帐户，请使用 [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount) 命令： 
 
 ```powershell
 New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
@@ -205,7 +194,7 @@ az storage account create \
     --name storagequickstart \
     --resource-group storage-quickstart-resource-group \
     --location chinaeast \
-    --sku Standard_LRS 
+    --sku Standard_LRS \
     --kind StorageV2
 ```
 
@@ -234,7 +223,7 @@ az storage account create \
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 
-若要删除资源组及其关联的资源（包括新的存储帐户），请使用 [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup) 命令： 
+若要删除资源组及其关联的资源（包括新的存储帐户），请使用 [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) 命令： 
 
 ```powershell
 Remove-AzureRmResourceGroup -Name $resourceGroup
@@ -270,4 +259,3 @@ az group delete --name myResourceGroup
 > [使用 Azure CLI 将对象传输到 Azure Blob 存储和从 Azure Blob 存储传输对象](../blobs/storage-quickstart-blobs-cli.md)
 
 ---
-

@@ -9,12 +9,12 @@ ms.topic: quickstart
 origin.date: 04/10/2018
 ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: bfb9265b9e55cb98bebef6a871eda0251f67d2fc
-ms.sourcegitcommit: 5b6a2fc55e5b16ae480bd497c3ac2c3a2fd44703
+ms.openlocfilehash: 9a951023e9c0e5e689d2b316c6ae30ca6ecbe7c4
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38999211"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167701"
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Azure 容器注册表的最佳做法
 
@@ -27,10 +27,11 @@ ms.locfileid: "38999211"
 临近网络部署是使用私有容器注册表的主要原因之一。 Docker 映像具有有效的[分层构造](https://docs.docker.com/engine/userguide/storagedriver/imagesandcontainers/)，可实现增量部署。 但是，新节点需要拉取给定映像所需的全部构造层。 此初始 `docker pull` 可以快速增加多个千兆字节。 将私有注册表置于临近部署的位置可最小化网络延迟。
 此外，所有公有云（包括 Azure）都实施了网络出口费用。 除了延迟之外，将映像从一个数据中心拉取到另一个数据中心还会增加网络出口费用。
 
-## <a name="geo-replicate-multi-region-deployments"></a>异地复制多区域部署
+<!-- Notice: Need to verfiy
+## Geo-replicate multi-region deployments
 
-如果将容器部署到多个区域，请使用 Azure 容器注册表的[异地复制](container-registry-geo-replication.md)功能。 无论是为本地数据中心的全局客户提供服务还是开发团队处于不同位置，都可以通过异地复制注册表来简化注册表管理并最小化延迟。 异地复制仅适用于[高级](container-registry-skus.md)注册表。
-
+Use Azure Container Registry's [geo-replication](container-registry-geo-replication.md) feature if you're deploying containers to multiple regions. Whether you're serving global customers from local data centers or your development team is in different locations, you can simplify registry management and minimize latency by geo-replicating your registry. Geo-replication is available only with [Premium](container-registry-skus.md) registries.
+-->
 若要了解如何使用异地复制，请参阅 [Azure 容器注册表中的异地复制](container-registry-tutorial-prepare-registry.md)教程，该教程分为三部分。
 
 ## <a name="repository-namespaces"></a>存储库命名空间

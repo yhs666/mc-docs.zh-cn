@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 04/23/2018
 ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7f7aba2e41daa429a2838d404ff4fcb68a91e773
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: bedf3ec02691a00cc4ead78c5081775f99486354
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939030"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167724"
 ---
 # <a name="azure-container-registry-authentication-with-service-principals"></a>使用服务主体的 Azure 容器注册表身份验证
 
@@ -53,7 +53,7 @@ Azure AD“服务主体”提供对订阅中的 Azure 资源的访问权限。 �
 
 虽然对个体应用程序进行配置以使用服务主体凭据不在本文的讨论范围内，但是可以在此处找到针对一些特定服务和平台的说明：
 
-* [使用 Azure 容器注册表从 Azure Kubernetes 服务 (AKS) 进行身份验证](container-registry-auth-aks.md)
+<!--Not Available on * [Authenticate with Azure Container Registry from Azure Kubernetes Service (AKS)](container-registry-auth-aks.md)-->
 * [使用 Azure 容器注册表从 Azure 容器实例 (ACI) 进行身份验证](container-registry-auth-aci.md)
 
 <!-- LINKS - External -->

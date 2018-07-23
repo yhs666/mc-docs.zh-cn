@@ -1,21 +1,20 @@
 ---
 title: Azure Analysis Services 教程第 8 课：创建透视 | Azure
 description: 介绍了在 Azure Analysis Services 教程项目中如何创建透视。
-services: analysis-services
 author: rockboyfor
 manager: digimobile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 origin.date: 04/12/2018
-ms.date: 04/30/2018
+ms.date: 07/16/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: c7a4be93797a4dfc3be861d3118f823e8081a850
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 267e36271b4b34e1c448d111afa7379cee2551d7
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121063"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167731"
 ---
 # <a name="create-perspectives"></a>创建透视
 

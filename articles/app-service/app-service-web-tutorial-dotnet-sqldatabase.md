@@ -1,10 +1,10 @@
 ---
 title: 使用 SQL 数据库在 Azure 中生成 ASP.NET | Azure
-description: 了解如何在 Azure 中运行 ASP.NET 应用，同时使其连接到 SQL 数据库。
+description: 了解如何将采用 SQL Server 数据库的 C# ASP.NET 应用部署到 Azure。
 services: app-service\web
-documentationcenter: nodejs
+documentationcenter: ''
 author: cephalin
-manager: erikre
+manager: cfowler
 editor: ''
 ms.assetid: 03c584f1-a93c-4e3d-ac1b-c82b50c75d3e
 ms.service: app-service-web
@@ -12,16 +12,16 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-origin.date: 06/09/2017
-ms.date: 60/04/2018
+origin.date: 06/25/2018
+ms.date: 07/30/2018
 ms.author: v-yiso
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 08138ee6d3184596ba06e3860255579b9b12705a
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: cfba445cc90ae18cff5b41a5cc22c9c9b875396d
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939608"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167826"
 ---
 # <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>教程：使用 SQL 数据库在 Azure 中构建 ASP.NET 应用
 
@@ -46,11 +46,7 @@ ms.locfileid: "38939608"
 
 完成本教程：
 
-* 使用以下工作负荷安装 [Visual Studio 2017](https://www.visualstudio.com/downloads/)：
-  - **ASP.NET 和 Web 开发**
-  - **Azure 开发**
-
-  ![ASP.NET 和 Web 开发以及 Azure 开发（在 Web 和云下）](media/app-service-web-tutorial-dotnet-sqldatabase/workloads.png)
+安装带有 ASP.NET 和 Web 开发工作负荷的 <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a>。
 
 如果已安装 Visual Studio，请单击“工具” > **Get Tools and Features**“获取工具和功能”，以便在 Visual Studio 中添加工作负荷。
 
@@ -92,18 +88,18 @@ ms.locfileid: "38939608"
 
 在“创建应用服务”对话框中单击“添加帐户”，并登录到用户的 Azure 订阅。 如果已登录到 Azure 帐户，请确保该帐户包含 Azure 订阅。 如果登录的 Azure 帐户不包含 Azure 订阅，请单击该帐户添加正确的帐户。
 
+> [!NOTE]
+> 如果已经登录，请先不要选择“创建”。
+>
+>
+   
 ![登录 Azure](./media/app-service-web-tutorial-dotnet-sqldatabase/sign-in-azure.png)
-
-登录后，可在此对话框中创建 Azure Web 应用所需的所有资源。
 
 ### <a name="configure-the-web-app-name"></a>配置 Web 应用名称
 
 可保留生成的 Web 应用名称，或将其更改为另一个唯一名称（有效字符是 `a-z`、`0-9` 和 `-`）。 Web 应用名称将用作应用默认 URL 的一部分（`<app_name>.chinacloudsites.cn`，其中 `<app_name>` 是 Web 应用的名称）。 在 Azure 的所有应用中，Web 应用名称必须是唯一的。 
 
 ![“创建应用服务”对话框](media/app-service-web-tutorial-dotnet-sqldatabase/wan.png)
-
-> [!NOTE]
-> 请勿单击“创建”。 首先需要设置后面步骤中的 SQL 数据库。
 
 ### <a name="create-a-resource-group"></a>创建资源组
 
@@ -135,13 +131,9 @@ ms.locfileid: "38939608"
 
 在创建数据库之前，需要 [Azure SQL 数据库逻辑服务器](../sql-database/sql-database-features.md)。 逻辑服务器包含一组作为组管理的数据库。
 
-单击“浏览其他 Azure 服务”。
+单击“创建 SQL 数据库”。
 
-![配置 Web 应用名称](media/app-service-web-tutorial-dotnet-sqldatabase/web-app-name.png)
-
-在“服务”选项卡中，单击“SQL 数据库”旁边的 **+** 图标。 
-
-![在“服务”选项卡中，单击“SQL 数据库”旁边的 + 图标。](media/app-service-web-tutorial-dotnet-sqldatabase/sql.png)
+![创建 SQL 数据库](media/app-service-web-tutorial-dotnet-sqldatabase/web-app-name.png)
 
 在“配置 SQL 数据库”对话框中，单击“SQL Server”旁的“新建”。 
 
@@ -165,7 +157,7 @@ ms.locfileid: "38939608"
 
 ![配置 SQL 数据库](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database.png)
 
-“创建应用服务”对话框会显示所创建的资源。 单击**创建**。 
+“创建应用服务”对话框显示已配置的资源。 单击**创建**。 
 
 ![已创建的资源](media/app-service-web-tutorial-dotnet-sqldatabase/app_svc_plan_done.png)
 
@@ -315,7 +307,7 @@ public ActionResult Create([Bind(Include = "Description,CreatedDate,Done")] Todo
 
 与先前的操作相同，右键单击项目，然后选择“发布”。
 
-单击“设置”打开发布向导。
+单击“配置”以打开发布设置。
 
 ![打开发布设置](./media/app-service-web-tutorial-dotnet-sqldatabase/publish-settings.png)
 
@@ -400,6 +392,8 @@ Application: 2017-04-06T23:30:54  PID[8132] Verbose     GET /Todos/Index
 ## <a name="manage-your-azure-web-app"></a>管理 Azure Web 应用
 
 转到 [Azure 门户](https://portal.azure.cn)查看已创建的 Web 应用。 
+
+
 
 从左侧菜单中单击“应用服务”，并单击 Azure Web 应用的名称。
 

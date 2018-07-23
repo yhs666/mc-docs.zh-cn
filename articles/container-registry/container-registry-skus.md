@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 03/15/2018
 ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: f5e67393cdb9971f8b6f3e1b3c57b412445b769e
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 2a5b7891fe6ab28f552d0aeebde33d9f2ad0563f
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38940025"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167811"
 ---
 # <a name="azure-container-registry-skus"></a>Azure 容器注册表 SKU
 
@@ -85,9 +85,7 @@ az acr update --name myregistry --sku Premium
 
 ## <a name="next-steps"></a>后续步骤
 
-**Azure 容器注册表路线图**
-
-访问 GitHub 上的 [ACR 路线图][acr-roadmap]，了解服务即将推出的新功能。
+<!-- Not Available on **Azure Container Registry Roadmap**-->
 
 **Azure 容器注册表 UserVoice**
 

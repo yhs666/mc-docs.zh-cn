@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/15/2016
-ms.date: 06/11/2018
+ms.date: 07/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 65ddd9f0a41abb398a740ec82d992bc23e6e7df7
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 74472dce32cfbd694472a096991808147cc348d3
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939070"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167730"
 ---
 # <a name="control-routing-and-use-virtual-appliances-classic-using-the-azure-cli"></a>使用 Azure CLI 控制路由和使用虚拟设备（经典）
 
@@ -139,5 +139,5 @@ ms.locfileid: "38939070"
     azure network vnet subnet route-table add -t TestVNet -n BackEnd -r UDR-BackEnd
     ```
 
-<!--The parent file of includes file of virtual-network-create-udr-scenario-include.md-->
-<!--ms.date:06/11/2018-->
+<!--The parent file of includes file of azure-cli-prerequisites-include.md-->
+<!--ms.date:07/23/2018-->

@@ -10,12 +10,12 @@ origin.date: 05/08/2018
 ms.date: 07/02/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: b29d29ca57cf7eb65500bad89f0db18f1fa9741a
-ms.sourcegitcommit: 5b6a2fc55e5b16ae480bd497c3ac2c3a2fd44703
+ms.openlocfilehash: 37fe11efb42a94140a45bdf2638cb176f4880989
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38999210"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167735"
 ---
 # <a name="quickstart-create-an-azure-container-registry-using-powershell"></a>教程：使用 PowerShell 创建 Azure 容器注册表
 
@@ -136,90 +136,10 @@ v1: digest: sha256:565dba8ce20ca1a311c2d9485089d7ddc935dd50140510050345a1b0ea4ff
 
 祝贺！ 你已将第一个容器映像推送到注册表。
 
-## <a name="deploy-image-to-aci"></a>将映像部署到 ACI
+<!--Not Available on ## Deploy image to ACI -->
 
-映像到了注册表中以后，请将容器直接部署到 Azure 容器实例，观察其在 Azure 中的运行情况。
 
-首先，将注册表凭据转换为 *PSCredential*。 用于创建容器实例的 `New-AzureRmContainerGroup` 命令要求它采用该格式。
-
-```powershell
-$secpasswd = ConvertTo-SecureString $creds.Password -AsPlainText -Force
-$pscred = New-Object System.Management.Automation.PSCredential($creds.Username, $secpasswd)
-```
-
-另外，容器的 DNS 名称标签在创建时所在的 Azure 区域中必须唯一。 执行以下命令，在变量中填充生成的名称：
-
-```powershell
-$dnsname = "aci-demo-" + (Get-Random -Maximum 9999)
-```
-
-最后运行 [New-AzureRmContainerGroup][New-AzureRmContainerGroup]，以便部署注册表的映像中的容器，并将核心数设置为“1 CPU”，内存设置为“1 GB”：
-
-```powershell
-New-AzureRmContainerGroup -ResourceGroup myResourceGroup -Name "mycontainer" -Image $image -RegistryCredential $pscred -Cpu 1 -MemoryInGB 1 -DnsNameLabel $dnsname
-```
-
-此时会获得 Azure 的初始响应，其中包含容器的详细信息，其状态一开始为“Pending”（挂起）：
-
-```console
-PS Azure:\> New-AzureRmContainerGroup -ResourceGroup myResourceGroup -Name "mycontainer" -Image $image -RegistryCredential $pscred -Cpu 1 -MemoryInGB 1 -DnsNameLabel $dnsname
-ResourceGroupName        : myResourceGroup
-Id                       : /subscriptions/<subscriptionID>/resourceGroups/myResourceGroup/providers/Microsoft.ContainerInstance/containerGroups/mycontainer
-Name                     : mycontainer
-Type                     : Microsoft.ContainerInstance/containerGroups
-Location                 : chinaeast
-Tags                     :
-ProvisioningState        : Creating
-Containers               : {mycontainer}
-ImageRegistryCredentials : {myContainerRegistry007}
-RestartPolicy            : Always
-IpAddress                : 40.117.255.198
-DnsNameLabel             : aci-demo-8751
-Fqdn                     : aci-demo-8751.chinaeast.azurecontainer.io
-Ports                    : {80}
-OsType                   : Linux
-Volumes                  :
-State                    : Pending
-Events                   : {}
-```
-
-若要监视其状态并确定其运行时间，可多次运行 [Get-AzureRmContainerGroup][Get-AzureRmContainerGroup] 命令。 容器启动所需时间应该不到一分钟。
-
-```powershell
-(Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer).ProvisioningState
-```
-
-在下面可以看到，容器的 ProvisioningState 一开始为“Creating”（正在创建），在启动并运行后转为“Succeeded”（成功）状态：
-
-```console
-PS Azure:\> (Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer).ProvisioningState
-Creating
-PS Azure:\> (Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer).ProvisioningState
-Succeeded
-```
-
-## <a name="view-running-application"></a>查看正在运行的应用程序
-
-成功部署到 ACI 且容器已启动并运行以后，请在浏览器中导航到容器的完全限定域名 (FQDN)，以便查看在 Azure 中运行的应用。
-
-使用 [Get-AzureRmContainerGroup][Get-AzureRmContainerGroup] 获取容器的 FQDN：
-
-```powershell
-(Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer).Fqdn
-```
-
-命令的输出为容器实例的 FQDN：
-
-```console
-PS Azure:\> (Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer).Fqdn
-aci-demo-8571.chinaeast.azurecontainer.io
-```
-
-有了 FQDN 以后，即可在浏览器中导航到该 FQDN：
-
-![浏览器中的 Hello World 应用][qs-psh-01-running-app]
-
-祝贺！ 你已经有了一个在 Azure 中运行应用程序的容器，该容器是直接从专用 Azure 容器注册表中的容器映像部署的。
+<!--Not Available on ## View running application-->
 
 ## <a name="clean-up-resources"></a>清理资源
 

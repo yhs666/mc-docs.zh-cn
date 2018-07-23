@@ -15,19 +15,19 @@ ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 origin.date: 03/13/2018
-ms.date: 05/07/2018
+ms.date: 07/23/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 1940bccf6551a151d5eaf98a3121dc7d814c69bd
-ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
+ms.openlocfilehash: 82d48d1224ee00789efe294cdfcc839d743bb271
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37405288"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167779"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>教程：使用 Azure 门户通过路由表路由网络流量
 
-默认情况下，Azure 自动在虚拟网络中的所有子网之间路由流量。 可以创建自己的路由来覆盖 Azure 的默认路由。 创建自定义路由的功能非常有用，例如，可以通过网络虚拟设备 (NVA) 在子网之间路由流量。 本教程介绍如何执行下列操作：
+默认情况下，Azure 自动在虚拟网络中的所有子网之间路由流量。 可以创建自己的路由来覆盖 Azure 的默认路由。 创建自定义路由的功能非常有用，例如，可以通过网络虚拟设备 (NVA) 在子网之间路由流量。 本教程介绍如何执行以下操作：
 
 > [!div class="checklist"]
 > * 创建路由表
@@ -44,7 +44,7 @@ ms.locfileid: "37405288"
 
 ## <a name="log-in-to-azure"></a>登录 Azure 
 
-在 http://portal.azure.cn 登录 Azure 门户。
+通过 http://portal.azure.cn 登录到 Azure 门户。
 
 ## <a name="create-a-route-table"></a>创建路由表
 
@@ -54,7 +54,7 @@ ms.locfileid: "37405288"
 
     |设置|值|
     |---|---|
-    |Name|myRouteTablePublic|
+    |名称|myRouteTablePublic|
     |订阅| 选择订阅。|
     |资源组 | 选择“新建”，并输入 myResourceGroup|
     |位置|中国东部|
@@ -87,7 +87,7 @@ ms.locfileid: "37405288"
 
     |设置|值|
     |---|---|
-    |Name|myVirtualNetwork|
+    |名称|myVirtualNetwork|
     |地址空间| 10.0.0.0/16|
     |订阅 | 选择订阅。|
     |资源组|选择“使用现有”，然后选择“myResourceGroup”。|
@@ -104,14 +104,14 @@ ms.locfileid: "37405288"
 
     |设置|值|
     |---|---|
-    |Name|专用|
+    |名称|专用|
     |地址空间| 10.0.1.0/24|
 
 7. 再次完成步骤 5 和 6，并提供以下信息：
 
     |设置|值|
     |---|---|
-    |Name|外围网络|
+    |名称|外围网络|
     |地址空间| 10.0.2.0/24|
 
 8. 完成上述步骤后，会显示“myVirtualNetwork - 子网”框。 在“设置”下面选择“子网”，然后选择“Public”。
@@ -125,12 +125,12 @@ ms.locfileid: "37405288"
 NVA 是执行网络功能（如路由、防火墙或 WAN 优化）的 VM。
 
 1. 选择 Azure 门户左上角的“+ 创建资源”。
-2. 选择“计算”，并选择“Windows Server 2016 Datacenter”。 可以选择不同的操作系统，但剩余步骤假定你选择了“Windows Server 2016 Datacenter”。 
+2. 选择“计算”，然后选择“Windows Server 2016 Datacenter”。 可以选择不同的操作系统，但剩余步骤假定你选择了“Windows Server 2016 Datacenter”。 
 3. 对于“基本信息”，选择或输入以下信息，然后选择“确定”：
 
     |设置|值|
     |---|---|
-    |Name|myVmNva|
+    |名称|myVmNva|
     |用户名|输入所选用户名。|
     |密码|输入所选密码。 密码必须至少 12 个字符长，且符合[定义的复杂性要求](../virtual-machines/windows/faq.md?toc=%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)。|
     |资源组| 选择“使用现有”，然后选择“myResourceGroup”。|
@@ -217,7 +217,7 @@ NVA 是执行网络功能（如路由、防火墙或 WAN 优化）的 VM。
     tracert myVmPrivate
     ```
 
-    其响应类似于如下示例：
+    响应类似于以下示例：
 
     ```
     Tracing route to myVmPrivate.vpgub4nqnocezhjgurw44dnxrc.bx.internal.chinacloudapp.cn [10.0.1.4]
@@ -237,7 +237,7 @@ NVA 是执行网络功能（如路由、防火墙或 WAN 优化）的 VM。
     tracert myVmPublic
     ```
 
-    其响应类似于如下示例：
+    响应类似于以下示例：
 
     ```
     Tracing route to myVmPublic.vpgub4nqnocezhjgurw44dnxrc.bx.internal.chinacloudapp.cn [10.0.0.4]

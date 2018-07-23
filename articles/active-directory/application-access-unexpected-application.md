@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 07/11/2017
 ms.date: 06/20/2018
 ms.author: v-junlch
-ms.openlocfilehash: 4b89a984ff89625bd04566ed05069a578876773e
-ms.sourcegitcommit: d744d18624d2188adbbf983e1c1ac1110d53275c
+ms.openlocfilehash: 85c690d559f37c7ae86de9e47072a0cb5ffc3af7
+ms.sourcegitcommit: 37a1524d71895b17b6f1d125053ad0b251b88df1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36314290"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39097148"
 ---
 # <a name="unexpected-application-in-my-applications-list"></a>应用程序列表中意料之外的应用程序
 
@@ -76,10 +76,6 @@ ms.locfileid: "36314290"
 
 要详细深入地了解如何将应用添加到目录，请参阅[如何以及为何将应用程序添加到 Azure AD](./develop/active-directory-how-applications-are-added.md)。
 
-## <a name="i-want-to-remove-a-specific-users-or-groups-assignment-to-an-application"></a>我要删除特定用户或组到应用程序的分配
-
-若要删除到应用程序的用户或组分配，请按照[在 Azure Active Directory 中删除企业应用中的用户分配](application-access-assignment-how-to-remove-assignment.md)一文中所列的步骤进行操作。
-
 ## <a name="i-want-to-disable-all-access-to-an-application-for-every-user"></a>我要禁用每个用户对应用程序的所有访问权限
 
 若要禁用所有用户对应用程序的登录，请遵循[在 Azure Active Directory 中对企业应用禁用用户登录](active-directory-coreapps-disable-app-azure-portal.md)一文中所列出的步骤。
@@ -121,8 +117,5 @@ ms.locfileid: "36314290"
 5.  单击“用户设置”。
 
 6.  通过将“用户可以允许应用访问其数据”切换为“否”来禁用用户未来的所有同意操作，并单击“保存”按钮。
-
-## <a name="next-steps"></a>后续步骤
-[使用 Azure Active Directory 管理应用程序](active-directory-enable-sso-scenario.md)
 
 <!-- Update_Description: update metedata properties -->

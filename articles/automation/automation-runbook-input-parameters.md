@@ -1,5 +1,5 @@
 ---
-title: Runbook 输入参数 | Azure
+title: Runbook 输入参数
 description: Runbook 输入参数可让你将数据传递到启动的 Runbook，以增加 Runbook 的弹性。 本文介绍在 Runbook 中使用输入参数的不同方案。
 services: automation
 author: MGoedtel
@@ -9,14 +9,14 @@ ms.service: automation
 ms.devlang: na
 ms.topic: article
 origin.date: 03/16/2018
-ms.date: 05/14/2018
+ms.date: 07/23/2018
 ms.author: v-dazen
-ms.openlocfilehash: 097d66116dc15b8b0b654636082dfda1e674a064
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.openlocfilehash: 75b41044ea30b5de89ffa6267cdc784f76400e67
+ms.sourcegitcommit: 53972dcdef77da92529996667545d2e83716f7e2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "33937461"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39143417"
 ---
 # <a name="runbook-input-parameters"></a>Runbook 输入参数
 
@@ -41,16 +41,16 @@ Windows PowerShell 支持的输入参数属性比此处所列的多，例如验�
 
 PowerShell 工作流 Runbook 中的参数定义采用以下常规格式，其中，多个参数必须以逗号分隔。
 
-   ```powershell
-     Param
-     (
-         [Parameter (Mandatory= $true/$false)]
-         [Type] $Name1 = <Default value>,
+```powershell
+Param
+(
+  [Parameter (Mandatory= $true/$false)]
+  [Type] $Name1 = <Default value>,
 
-         [Parameter (Mandatory= $true/$false)]
-         [Type] $Name2 = <Default value>
-     )
-   ```
+  [Parameter (Mandatory= $true/$false)]
+  [Type] $Name2 = <Default value>
+)
+```
 
 > [!NOTE]
 > 定义参数时，如果未指定 **Mandatory** 属性，则会按默认将参数视为可选。 此外，如果在 PowerShell 工作流 Runbook 中设置某个参数的默认值，则 PowerShell 会将其视为可选参数，而不考虑 **Mandatory** 属性的值。
@@ -65,13 +65,16 @@ PowerShell 工作流 Runbook 中的参数定义采用以下常规格式，其中
 
 如果 Runbook 有 object 类型输入参数，则使用包含 (name, value) 对的 PowerShell 哈希表来传入值。 例如，如果 Runbook 中有以下参数：
 
-     [Parameter (Mandatory = $true)]
-     [object] $FullName
+```powershell
+[Parameter (Mandatory = $true)]
+[object] $FullName
+```
 
 则可将以下值传递到该参数：
 
-    @{"FirstName"="Joe";"MiddleName"="Bob";"LastName"="Smith"}
-
+```powershell
+@{"FirstName"="Joe";"MiddleName"="Bob";"LastName"="Smith"}
+```
 
 ## <a name="configure-input-parameters-in-graphical-runbooks"></a>在图形 Runbook 中配置输入参数
 

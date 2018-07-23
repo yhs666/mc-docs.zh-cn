@@ -8,16 +8,16 @@ origin.date: 05/31/2018
 ms.topic: article
 ms.service: logic-apps
 services: logic-apps
-ms.date: 07/02/2018
+ms.date: 07/30/2018
 ms.reviewer: klam, divswa, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: d7ac71a98f10aeb45622a6fa24de81d1dab1ff3a
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.openlocfilehash: 4764089112ff904bbdfdc2f7f95dd99857255469
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315420"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167963"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>从 Azure 逻辑应用连接到 SAP 系统
 

@@ -15,12 +15,12 @@ ms.topic: conceptual
 origin.date: 02/23/2018
 ms.date: 07/09/2018
 ms.author: v-yeche
-ms.openlocfilehash: 6ec1401eb4873fb47ef3db39ac603dadbf643120
-ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
+ms.openlocfilehash: ad27e4bd749fbdd587f3b8ef519ba53a3779f863
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37405387"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167799"
 ---
 # <a name="export-an-azure-resource-manager-template-from-existing-resources"></a>从现有资源导出 Azure 资源管理器模板
 本文介绍如何从订阅中的现有资源导出 Resource Manager 模板。 可以使用该生成的模板更好地了解模板语法。
@@ -92,74 +92,19 @@ ms.locfileid: "37405387"
     资源管理器会评估资源组中的资源，并为这些资源生成一个模板。 并非所有资源类型都支持导出模板功能。 可能会出现一个错误，指出导出存在问题。 [修复导出问题](#fix-export-issues) 部分介绍了如何处理这些问题。
 2. 将会再次出现六个可用于重新部署解决方案的文件。 但是，这一次模板稍有不同。 请注意，生成的模板包含的参数少于前一部分的模板所包含的。 另外，在此模板中，许多值（例如位置和 SKU 值）是硬编码的，并不接受参数值。 在重用该模板之前，可能需要对其进行编辑，以便更好地使用参数。 
 
-3. 可通过几个选项继续使用此模板。 可以下载模板，并使用 JSON 编辑器本地使用它。 也可将模板保存到库，并通过门户使用它。
+3. 可通过几个选项继续使用此模板。 可以下载模板，并通过 JSON 编辑器在本地使用该模板。 
+    <!-- Not Available on Add library and work on it through the portal-->
 
     如果喜欢使用 [VS Code](https://code.visualstudio.com/) 或 [Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) 等 JSON 编辑器，可本地下载模板并使用该编辑器。 若要在本地使用，请选择“下载”。
 
     ![下载模板](./media/resource-manager-export-template/download-template.png)
 
-    如果没有安装 JSON 编辑器，可通过门户编辑模板。 本文剩余部分假设你已在门户中将模板保存到库。 但无论使用本地 JSON 编辑器还是通过门户，都要对模板进行相同的语法更改。 若要通过门户使用，请选择“添加到库”。
+    <!-- Not Available on  **Add to library**.--> <!-- Not Available on  When adding a template to the library-->
+   <!-- Not Available on  select **More services**, type **Templates** to filter results, select **Templates**-->
+<!-- Not Available on  Select the template with the name you saved-->
 
-    ![添加到库](./media/resource-manager-export-template/add-to-library.png)
-
-    将模板添加到库时，为模板提供名称和说明。 Then, select <bpt id="p1">**</bpt>Save<ept id="p1">**</ept>.
-
-    ![设置模板值](./media/resource-manager-export-template/save-library-template.png)
-4. 若要查看库中保存的模板，请选择“更多服务”，键入“模板”以筛选结果，并选择“模板”。
-
-    ![查找模板](./media/resource-manager-export-template/find-templates.png)
-5. 选择使用已保存名称的模板。
-
-    ![选择模板](./media/resource-manager-export-template/select-saved-template.png)
-
-## <a name="customize-the-template"></a>自定义模板
-若要为每个部署创建相同的 Web 应用和 SQL 数据库，则导出的模板可满足要求。 但是，Resource Manager 提供相关选项，因此使用它可以更灵活地部署模板。 本文介绍如何针对数据库管理员名称和密码来添加参数。 可以通过这个相同的方法，提高模板中其他值的灵活性。
-
-1. 若要自定义模板，请选择“编辑” 。
-
-    ![显示模板](./media/resource-manager-export-template/select-edit.png)
-2. 选择模板。
-
-    ![编辑模板](./media/resource-manager-export-template/select-added-template.png)
-3. 请将下面的两个参数添加到模板中的 parameters 节，以便传递可能需要在部署过程中指定的值：
-
-    ```json
-    "administratorLogin": {
-       "type": "String"
-    },
-    "administratorLoginPassword": {
-       "type": "SecureString"
-    },
-    ```
-
-4. 若要使用新参数，请替换 **resources** 节中的 SQL Server 定义。 请注意，administratorLogin 和 administratorLoginPassword 现在使用参数值。
-
-    ```json
-    {
-       "comments": "Generalized from resource: '/subscriptions/{subscription-id}/resourceGroups/exportsite/providers/Microsoft.Sql/servers/tfserverexport'.",
-       "type": "Microsoft.Sql/servers",
-       "kind": "v12.0",
-       "name": "[parameters('servers_tfserverexport_name')]",
-       "apiVersion": "2014-04-01-preview",
-       "location": "China East",
-       "scale": null,
-       "properties": {
-           "administratorLogin": "[parameters('administratorLogin')]",
-           "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
-           "version": "12.0"
-       },
-       "dependsOn": []
-    },
-    ```
-
-6. 编辑完模板后，选择“确定”。
-7. 选择“保存”以保存对模板所做的更改。
-
-     ![保存模板](./media/resource-manager-export-template/save-template.png)
-8. 若要重新部署已更新的模板，请选择“部署”。
-
-     ![部署模板](./media/resource-manager-export-template/redeploy-template.png)
-9. 提供参数值，并选择要将资源部署到其中的资源组。
+<!-- Not Available on  ## Customize the template-->
+<!-- Not Available on Template(Preview)-->
 
 ## <a name="fix-export-issues"></a>修复导出问题
 并非所有资源类型都支持导出模板功能。 要解决此问题，请手动将缺少的资源添加回模板。 错误消息包含无法导出的资源类型。 请在[模板引用](https://docs.microsoft.com/zh-cn/azure/templates/)中查找该资源类型。 例如，若要手动添加虚拟网关，请参阅 [Microsoft.Network/virtualNetworkGateways 模板引用](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.network/virtualnetworkgateways)。

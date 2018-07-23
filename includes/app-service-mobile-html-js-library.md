@@ -105,7 +105,7 @@ function loadPage(pageNum) {
 
 `.includeTotalCount()` 方法用于将 totalCount 字段添加到结果对象。  如果不分页，totalCount 字段会填充要返回的记录总数。
 
-然后可使用页变量和某些 UI 按钮提供页列表；使用 `loadPage()` 为每页加载新记录。  实现缓存以加快对已加载记录的访问速度。
+然后，可使用页变量和某些 UI 按钮提供页列表；使用 `loadPage()` 为每页加载新记录。  实施缓存，加快已加载的记录的访问速度。
 
 #### <a name="sorting-data"></a>如何：返回排序后的数据
 使用 `.orderBy()` 或 `.orderByDescending()` 查询方法：

@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/04/2016
-ms.date: 05/07/2018
+ms.date: 07/23/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 103cb01e455b5900f804f3854e1fd674a525507c
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 6997ef480870a964ac9fdb9d97d9b55ab814f147
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38940185"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167759"
 ---
 # <a name="create-a-vm-with-a-static-public-ip-address-using-the-azure-portal"></a>使用 Azure 门户创建具有静态公共 IP 地址的 VM
 
@@ -52,7 +52,7 @@ ms.locfileid: "38940185"
 5. 在“选择大小”窗格中，单击“A1 标准”（如下所示），然后单击“选择”。
 
     ![Azure 门户 - 选择大小](./media/virtual-network-deploy-static-pip-arm-portal/figure2.png)
-6. 在“设置”窗格中，单击“公共 IP 地址”，然后，在“创建公共 IP 地址”窗格中的“分配”下，单击“静态”，如下所示。 然后，单击“确定”。
+6. 在“设置”窗格中，单击“公共 IP 地址”，然后在“创建公共 IP 地址”窗格中的“分配”下，单击“静态”，如下所示。 然后，单击“确定”。
 
     ![Azure 门户 - 创建公共 IP 地址](./media/virtual-network-deploy-static-pip-arm-portal/figure3.png)
 7. 在“设置”窗格中，单击“确定”。
@@ -73,4 +73,4 @@ ms.locfileid: "38940185"
 ## <a name="next-steps"></a>后续步骤
 
 任何网络流量都可流入和流出本文中创建的 VM。 可以在网络安全组中定义入站和出站安全规则，以限制可以流入和流出网络接口和/或子网的流量。 若要深入了解网络安全组，请参阅[网络安全组概述](security-overview.md)。
-<!-- Update_Description: update meta properties, wording update, update link -->
+<!-- Update_Description: update meta properties, wording update -->

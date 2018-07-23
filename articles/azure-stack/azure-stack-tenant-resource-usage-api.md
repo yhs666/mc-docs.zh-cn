@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/22/2018
-ms.date: 03/27/2018
+origin.date: 03/26/2018
+ms.date: 07/20/2018
 ms.author: v-junlch
 ms.reviewer: alfredop
-ms.openlocfilehash: d103fdb5f20ab62a9b08d445bf1ac38f1acc97fe
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: e3bd8f5b7f06ff3f5c873064beb0c12878ab75d7
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30222551"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168243"
 ---
 # <a name="tenant-resource-usage-api"></a>租户资源用量 API
 

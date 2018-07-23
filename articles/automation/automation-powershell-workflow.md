@@ -1,5 +1,5 @@
 ---
-title: 了解适用于 Azure 自动化的 PowerShell 工作流 | Azure
+title: 了解 Azure 自动化的 PowerShell 工作流
 description: 本文旨在作为熟悉 PowerShell 的创作人员的一个速成教程，以便其了解 PowerShell 和 PowerShell 工作流以及适用于自动化 Runbook 的概念之间的具体差异。
 services: automation
 author: yunan2016
@@ -10,14 +10,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 05/04/2018
-ms.date: 05/28/2018
+ms.date: 07/23/2018
 ms.author: v-nany
-ms.openlocfilehash: eddfa6acdcfb077d6d71e3a426eaa7cbb165137d
-ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
+ms.openlocfilehash: ed490e50b0a3c906c859916dfbbe1a5030fd27e5
+ms.sourcegitcommit: 53972dcdef77da92529996667545d2e83716f7e2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36748356"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39143406"
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>了解重要的适用于自动化 Runbook 的 Windows PowerShell 工作流概念
 
@@ -58,7 +58,7 @@ Workflow Test-Workflow
 
 例如，请注意下面的代码，用于获取所有正在运行的服务。
 
-```azurepowershell
+```powershell
 Get-Service | Where-Object {$_.Status -eq "Running"}
 ```
 
@@ -75,7 +75,7 @@ Workflow Get-RunningServices
 
 工作流中的对象已反序列化。  这意味着其属性仍然可用，但其方法不再可用。  例如，请注意以下 PowerShell 代码，使用服务对象的 Stop 方法停止一项服务。
 
-```azurepowershell
+```powershell
 $Service = Get-Service -Name MyService
 $Service.Stop()
 ```
@@ -174,7 +174,7 @@ Parallel
 
 例如，请注意以下将多个文件复制到网络目标的 PowerShell 命令。  这些命令依次进行，因此必须完成一个文件的复制，然后才能开始复制下一个文件。
 
-```azurepowershell
+```powershell
 Copy-Item -Path C:\LocalPath\File1.txt -Destination \\NetworkPath\File1.txt
 Copy-Item -Path C:\LocalPath\File2.txt -Destination \\NetworkPath\File2.txt
 Copy-Item -Path C:\LocalPath\File3.txt -Destination \\NetworkPath\File3.txt
@@ -288,6 +288,9 @@ workflow CreateTestVms
         }
 }
 ```
+
+> [!IMPORTANT]
+> Add-AzureRmAccount 现在是 Connect-AzureRMAccount 的别名。 搜索库项时，如果未看到 Connect-AzureRMAccount，可以使用 Add-AzureRmAccount，或更新自动化帐户中的模块。
 
 此外，如果使用配置了服务主体的运行方式帐户进行身份验证，则不需要此处理。
 

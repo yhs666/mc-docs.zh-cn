@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 origin.date: 09/25/2017
 ms.date: 06/18/2018
 ms.author: v-yeche
-ms.openlocfilehash: 69c18c7528dd82bb774ce62c3921eb7027bdfec1
-ms.sourcegitcommit: 3130e6042909be0d97d7de5aec7ae9454cd81cfc
+ms.openlocfilehash: 92a6ead97187bbc48c423683c1918c7f577a7f13
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37102879"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167866"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>使用 Azure 门户对多个 IP 配置进行负载均衡
 
@@ -28,6 +28,7 @@ ms.locfileid: "37102879"
 > * [Portal](load-balancer-multiple-ip.md)
 > * [PowerShell](load-balancer-multiple-ip-powershell.md)
 > * [CLI](load-balancer-multiple-ip-cli.md)
+
 
 本文介绍如何对辅助网络接口控制器 (NIC) 上的多个 IP 地址使用 Azure 负载均衡器。 下图演示了本文所述的方案：
 
@@ -70,7 +71,7 @@ ms.locfileid: "37102879"
 3. 针对每个 VM 的辅助 NIC，请添加 IP 配置：
 
     1. 选择要配置的辅助 NIC。
-
+    
     2. 选择“IP 配置”。 在下一个窗格中的顶部附近，选择“添加”。
 
     3. 在“添加 IP 配置”下，将第二个 IP 配置添加到 NIC： 
@@ -130,11 +131,11 @@ ms.locfileid: "37102879"
 8. 重复本部分中的<a href="#step3-3">步骤 3</a> 至<a href="#step3-7">步骤 7</a>，创建第二个前端 IP 地址。
 
 配置前端池后，IP 地址会显示在负载均衡器的“前端 IP 配置”设置下。 
-
+    
 ### <a name="step-4-configure-the-back-end-pool"></a>步骤 4：配置后端池
 
 针对每个网站（contoso.com 和 fabrikam.com），请在负载均衡器上配置后端地址池：
-
+        
 1. 在门户中选择“更多服务”。 在筛选框中键入“负载均衡器”，选择“负载均衡器”。
 
 2. 选择要将后端池添加到的负载均衡器 (**mylb**)。
@@ -148,7 +149,7 @@ ms.locfileid: "37102879"
 6. 为两个 VM 添加目标网络 IP 配置： 
 
     ![为负载均衡器配置后端池](./media/load-balancer-multiple-ip/lb-backendpool.PNG)
-
+    
     1. 对于“目标虚拟机”，请选择要添加到后端池的 VM（例如 **VM1** 或 **VM2**）。
 
     2. 对于“网络 IP 配置”，请选择在前一步骤中为 VM 的辅助 NIC 选择的 IP 配置（例如 **VM1NIC2-ipconfig2** 或 **VM2NIC2-ipconfig2**）。
@@ -172,7 +173,7 @@ ms.locfileid: "37102879"
 ### <a name="step-6-configure-load-balancing-rules"></a>步骤 6：配置负载均衡规则
 
 针对每个网站（contoso.com 和 fabrikam.com），请配置负载均衡规则：
-
+    
 1. <a name="step6-1"></a>在“设置”下，选择“负载均衡规则”。 在下一个窗格中的顶部附近，选择“添加”。 
 
 2. 对于“名称”，请键入负载均衡规则的名称（例如，为 contoso.com 键入 **HTTPc**，为 fabrikam.com 键入 **HTTPf**）。

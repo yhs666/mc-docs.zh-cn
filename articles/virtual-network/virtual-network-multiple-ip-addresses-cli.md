@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 11/17/2016
-ms.date: 05/07/2018
+ms.date: 07/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 6da58f894524eb927a876c6624ca6fa8577b4f64
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 649f8ee7c766a5a424ee1d0a66009049ed6d41b3
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939513"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167751"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-cli"></a>使用 Azure CLI 将多个 IP 地址分配给虚拟机
 
@@ -280,5 +280,5 @@ az vm create \
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]
 <!--The parent file of includes file of virtual-network-multiple-ip-addresses-os-config.md-->
-<!--ms.date:05/07/2018-->
-<!-- Update_Description: update meta properties, wording update -->
+<!--ms.date:07/23/2018-->
+<!-- Update_Description: update meta properties  -->

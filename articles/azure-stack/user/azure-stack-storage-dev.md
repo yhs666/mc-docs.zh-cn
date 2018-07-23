@@ -4,18 +4,18 @@ description: 使用 Azure Stack 存储开发工具的入门指南
 services: azure-stack
 author: mabriggs
 ms.author: v-junlch
-origin.date: 05/21/2018
-ms.date: 06/27/2018
+origin.date: 07/03/2018
+ms.date: 07/20/2018
 ms.topic: get-started-article
 ms.service: azure-stack
 manager: femila
 ms.reviewer: xiaofmao
-ms.openlocfilehash: e2faa2f93bdb4f0fd38fa822209f58e6e893eb79
-ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
+ms.openlocfilehash: 0f0d2192e953fce986f28015088855a73d4c5c03
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37027180"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168454"
 ---
 # <a name="get-started-with-azure-stack-storage-development-tools"></a>Azure Stack 存储开发工具入门
 
@@ -207,4 +207,4 @@ EndpointSuffix=local.azurestack.external
 
 - [Azure 存储简介](../../storage/common/storage-introduction.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

@@ -3,18 +3,18 @@ title: Azure Analysis Services 教程第 10 课：创建分区 | Azure
 description: 介绍了在 Azure Analysis Services 教程项目中如何创建分区。
 author: rockboyfor
 manager: digimobile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 origin.date: 04/12/2018
-ms.date: 04/30/2018
+ms.date: 07/16/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: a8c428b90d214bc3cdff16887d2af2d901738ace
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 8fb66bdda267244856d8745617521ba544ad34fb
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121440"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167812"
 ---
 # <a name="create-partitions"></a>创建分区
 
@@ -105,7 +105,7 @@ ms.locfileid: "32121440"
 
     ![aas-lesson10-process-complete](../tutorials/media/aas-lesson10-process-complete.png)
 
- ## <a name="whats-next"></a>后续步骤
+## <a name="whats-next"></a>后续步骤
 转到下一课：[第 11 课：创建角色](../tutorials/aas-lesson-11-create-roles.md)。
 
 <!--Update_Description: update meta properties -->

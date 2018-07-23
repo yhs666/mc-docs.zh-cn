@@ -1,5 +1,5 @@
 ---
-title: 我在 Azure 自动化中的第一个图形 Runbook | Azure
+title: 我在 Azure 自动化中的第一个图形 Runbook
 description: 本教程指导完成创建、 测试和发布一个简单图形 Runbook。
 author: yunan2016
 manager: digimobile
@@ -8,14 +8,14 @@ services: automation
 ms.service: automation
 ms.topic: article
 origin.date: 04/13/2018
-ms.date: 05/14/2018
+ms.date: 07/23/2018
 ms.author: v-nany
-ms.openlocfilehash: 1d3ab4516e782376286788d6ffbf13237f373dea
-ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
+ms.openlocfilehash: 1b117f4af13c1773035eba42ecd20b407e88692f
+ms.sourcegitcommit: 53972dcdef77da92529996667545d2e83716f7e2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36748409"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39143446"
 ---
 # <a name="my-first-graphical-runbook"></a>我的第一个图形 Runbook
 
@@ -119,12 +119,16 @@ ms.locfileid: "36748409"
 1. 由于不再需要**将 Hello World 写入到输出**，因此请单击省略号 (...)，然后选择“删除”。
 1. 在“库”控件中展开“资产”、“连接”，然后通过选择“添加到画布”将“AzureRunAsConnection”添加到画布。
 1. 在“库”控件的搜索文本框中，键入“Connect-AzureRmAccount”。
+
+   > [!IMPORTANT]
+   > Add-AzureRmAccount 现在是 Connect-AzureRMAccount 的别名。 搜索库项时，如果未看到 Connect-AzureRMAccount，可以使用 Add-AzureRmAccount，或更新自动化帐户中的模块。
+
 1. 将 Connect-AzureRmAccount 添加到画布。
 1. 将鼠标悬停在“获取运行方式连接”上方，直到在该形状的底部显示一个圆圈。 单击该圆圈并将箭头拖至 Connect-AzureRmAccount。 创建的箭头是*链接*。 该 Runbook 会首先运行“获取运行方式连接”，然后运行 Connect-AzureRmAccount。<br> ![创建活动之间的链接](media/automation-first-runbook-graphical/runbook-link-auth-activities.png)
 1. 在画布上选择“Connect-AzureRmAccount”，并在“配置控件”窗格的“标签”文本框中键入“登录到 Azure”。
 1. 单击“参数”，此时会显示“活动参数配置”页。
 1. Connect-AzureRmAccount 有多个参数集，因此需要选择其中一个，才能提供参数值。 单击“参数集”，并选择“ServicePrincipalCertificate”参数集。
-1. 选择参数集后，这些参数会显示在“活动参数配置”页中。 单击“APPLICATIONID”。<br> ![添加 Azure RM 帐户参数](media/automation-first-runbook-graphical/add-azurermaccount-params.png)
+1. 选择参数集后，这些参数会显示在“活动参数配置”页中。 单击“APPLICATIONID”。<br> ![添加 Azure RM 帐户参数](media/automation-first-runbook-graphical/Add-AzureRmAccount-params.png)
 1. 在“参数值”页中，选择“活动输出”作为“数据源”，并从列表中选择“获取运行方式连接”，在“字段路径”文本框中键入“ApplicationId”，单击“确定”。 需指定“字段路径”的属性的名称，因为活动所输出的对象包含多个属性。
 1. 单击“CERTIFICATETHUMBPRINT”，并在“参数值”页中，选择“活动输出”作为“数据源”。 从列表中选择“获取运行方式连接”，在“字段路径”文本框中键入“CertificateThumbprint”，并单击“确定”。
 1. 单击“SERVICEPRINCIPAL”，在“参数值”页中选择“ConstantValue”作为“数据源”，单击选项“True”，并单击“确定”。

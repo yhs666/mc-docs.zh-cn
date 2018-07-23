@@ -6,19 +6,19 @@ author: rockboyfor
 manager: digimobile
 layout: LandingPage
 ms.assetid: ''
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 origin.date: 02/14/2018
-ms.date: 03/12/2018
+ms.date: 07/16/2018
 ms.author: v-yeche
-ms.openlocfilehash: b9efc4df7398e0e966d9005f82a7123a979130cc
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: 6b93f3bc7df34520c6df0e25a1873909840a5271
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
-ms.locfileid: "29797754"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167706"
 ---
 # <a name="analysis-services-documentation"></a>Analysis Services 文档
 

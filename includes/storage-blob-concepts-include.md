@@ -9,12 +9,12 @@ origin.date: 04/09/2018
 ms.date: 06/11/2018
 ms.author: v-nany
 ms.custom: include file
-ms.openlocfilehash: 7d58ab00135422e4ff13abca0c4314bdc2b6341f
-ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
+ms.openlocfilehash: 29c31dcd94789cc65dc133ef08f2c63da60fb740
+ms.sourcegitcommit: b23f331a9507c52ddd564c77379e7013b14141e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36270084"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39143533"
 ---
 Azure Blob 存储是 Azure 的适用于云的对象存储解决方案。 Blob 存储最适合存储巨量的非结构化数据，例如文本或二进制数据。
 
@@ -27,7 +27,7 @@ Blob 存储最适合用于：
 * 存储用于备份和还原、灾难恢复及存档的数据。
 * 存储数据以供本地或 Azure 托管服务执行分析。
 
-可以通过 HTTP 或 HTTPS 从世界上的任何位置访问 Blob 存储中的对象。 用户或客户端应用程序可以通过 URL、[Azure 存储 REST API](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api)、[Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage)、[Azure CLI](https://docs.azure.cn/cli/storage) 或 Azure 存储客户端库访问 Blob。 存储客户端库以多种语言提供，包括 [.NET](https://docs.azure.cn/dotnet/api/overview/storage/client)、[Java](https://docs.azure.cn/java/api/overview/storage/client)、[Node.js](http://azure.github.io/azure-storage-node)、[Python](https://azure-storage.readthedocs.io/en/latest/index.html)、[PHP](http://azure.github.io/azure-storage-php/) 和 [Ruby](http://azure.github.io/azure-storage-ruby)。
+可以通过 HTTP 或 HTTPS 从世界上的任何位置访问 Blob 存储中的对象。 用户或客户端应用程序可以通过 URL、[Azure 存储 REST API](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api)、[Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage)、[Azure CLI](https://docs.azure.cn/cli/storage) 或 Azure 存储客户端库访问 Blob。 存储客户端库以多种语言提供，包括 [.NET](https://docs.azure.cn/dotnet/api/overview/storage/client)、[Java](https://docs.azure.cn/java/api/storage/client)、[Node.js](http://azure.github.io/azure-storage-node)、[Python](https://azure-storage.readthedocs.io/en/latest/index.html)、[PHP](http://azure.github.io/azure-storage-php/) 和 [Ruby](http://azure.github.io/azure-storage-ruby)。
 
 ## <a name="blob-service-concepts"></a>Blob 服务概念
 

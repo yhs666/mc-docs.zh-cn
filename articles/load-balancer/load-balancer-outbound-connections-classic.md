@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 05/09/2018
-ms.date: 06/18/2018
+ms.date: 07/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 9f4905e8bdd55bf9bc44d49d1182095a6b83afe0
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 7f245a449acf4b9584033bc17c5adf420d8ebb2f
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "35416838"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167813"
 ---
 # <a name="outbound-connections-classic"></a>出站连接（经典）
 
@@ -35,8 +35,7 @@ Azure 使用源网络地址转换 (SNAT) 来执行此功能。 当多个专用 I
 
 有多种[出站方案](#scenarios)。 可根据需要结合这些方案。 请认真分析这些方案，以了解在部署模型和应用方案中应用这些方案时的功能、约束和模式。 查看有关[管理这些方案](#snatexhaust)的指导。
 
-<a name="scenarios"></a>
-## <a name="scenario-overview"></a>方案概述
+## <a name="scenarios"></a>方案概述
 
 Azure 提供三种不同的方法来实现出站连接经典部署。  并非所有经典部署都可使用这三种方案：
 
@@ -59,8 +58,7 @@ Azure 提供三种不同的方法来实现出站连接经典部署。  并非所
 
 用于在经典部署中进行 PAT 的[临时端口预先分配算法](#ephemeralports)与 Azure 资源管理器资源部署相同。
 
-<a name="ilpip"></a>
-### <a name="scenario-1-vm-with-an-instance-level-public-ip-address"></a>方案 1：具有实例级公共 IP 地址的 VM
+### <a name="ilpip"></a>方案 1：具有实例级公共 IP 地址的 VM
 
 在此场景中，向 VM 分配了实例级公共 IP (ILPIP)。 就出站连接而言，VM 是否包含负载均衡终结点并不重要。 此方案优先于其他方案。 使用 ILPIP 时，VM 将 ILPIP 用于所有出站流。  
 
@@ -68,9 +66,7 @@ Azure 提供三种不同的方法来实现出站连接经典部署。  并非所
 
 如果应用程序启动很多出站流，并且遇到 SNAT 端口耗尽的情况，可以考虑分配 [ILPIP 以缓解 SNAT 约束](#assignilpip)。 请查看[管理 SNAT 耗尽](#snatexhaust)。
 
-<a name="publiclbendpoint"></a>
-<a name="lb"></a>
-### <a name="scenario-2-public-load-balanced-endpoint"></a>方案2：公共负载均衡终结点
+### <a name="publiclbendpoint"></a>方案2：公共负载均衡终结点
 
 在此方案中，VM 或 Web 辅助角色通过负载均衡的终结点来与公共 IP 地址关联。 没有分配给 VM 的公共 IP 地址。 
 
@@ -82,9 +78,7 @@ SNAT 端口是根据[了解 SNAT 和 PAT](#snat) 部分中所述预先分配的�
 
 如果存在[多个公共负载均衡终结点](load-balancer-multivip.md)，则其中的所有公共 IP 地址都是[出站流的候选项](#multivipsnat)，并且会随机选择其中的一个。  
 
-<a name="defaultsnat"></a>
-<a name="multivipsnat"></a>
-### <a name="scenario-3-no-public-ip-address-associated"></a>方案 3：没有关联的公共 IP 地址
+### <a name="defaultsnat"></a>方案 3：没有关联的公共 IP 地址
 
 在此方案中，VM 或 Web 辅助角色不属于公共负载均衡终结点。  VM 上没有分配 ILPIP 地址。 当 VM 创建出站流时，Azure 将此出站流的专用源 IP 地址转换为公共源 IP 地址。 用于此出站流的公共 IP 地址是不可配置的，并且不会影响订阅的公共 IP 资源限制。  Azure 会自动分配此地址。
 
@@ -92,11 +86,9 @@ Azure 结合端口伪装 ([PAT](#pat)) 使用 SNAT 来执行此功能。 此方�
 
 SNAT 端口是根据[了解 SNAT 和 PAT](#snat) 部分中所述预先分配的。  共享公共 IP 地址的 VM 或 Web 辅助角色数目确定了预分配的临时端口数。   因此了解它们的[使用](#pat)方式很重要。 请查看[管理 SNAT 耗尽](#snatexhaust)，了解如何根据需要进行设计和缓解。
 
-<a name="snat"></a>
-## <a name="understanding-snat-and-pat"></a>了解 SNAT 和 PAT
+## <a name="snat"></a>了解 SNAT 和 PAT
 
-<a name="pat"></a>
-### <a name="port-masquerading-snat-pat"></a>端口伪装 SNAT (PAT)
+### <a name="pat"></a>端口伪装 SNAT (PAT)
 
 当部署建立出站连接时，将会重写每个出站连接源。 源从专用 IP 地址空间重写到与部署关联的公共 IP（基于上述方案）。 在公共 IP 地址空间中，流的 5 元组（源 IP 地址、源端口、IP 转换协议、目标 IP 地址、目标端口）必须唯一。  
 
@@ -110,9 +102,7 @@ SNAT 端口是根据[了解 SNAT 和 PAT](#snat) 部分中所述预先分配的�
 
 有关可以使用哪些模式来缓解通常导致 SNAT 端口耗尽的状态，请查看[管理 SNAT](#snatexhaust) 部分。
 
-<a name="preallocatedports"></a>
-<a name="ephemeralports"></a>
-### <a name="ephemeral-port-preallocation-for-port-masquerading-snat-pat"></a>端口伪装 SNAT (PAT) 的临时端口预先分配
+### <a name="preallocatedports"></a>端口伪装 SNAT (PAT) 的临时端口预先分配
 
 使用端口伪装 SNAT ([PAT](#pat)) 时，Azure 使用某种算法根据后端池的大小来确定可用的预先分配 SNAT 端口数目。 SNAT 端口是可用于特定公共 IP 源地址的临时端口。
 
@@ -144,21 +134,18 @@ SNAT 端口分配特定于 IP 传输协议（TCP 和 UDP 是分别维护的）�
 
 - 已达到空闲超时
 
-<a name="problemsolving"></a>
-##  <a name="problem-solving"></a>解决问题 
+## <a name="problemsolving"></a>解决问题 
 
 本部分旨在帮助解决 SNAT 耗尽的问题，以及 Azure 中的出站连接可能出现的其他情况。
 
-<a name="snatexhaust"></a>
-###  <a name="managing-snat-pat-port-exhaustion"></a>管理 SNAT (PAT) 端口耗尽问题
+### <a name="snatexhaust"></a>应对 SNAT (PAT) 端口耗尽问题
 根据[没有关联的公共 IP](#defaultsnat) 和[公共负载均衡终结点](#publiclbendpoint)中所述，用于 [PAT](#pat) 的[临时端口](#preallocatedports)是可耗尽的资源。
 
 如果知道正在启动与同一目标 IP 地址和端口的多个出站 TCP 或 UDP 连接，观察失败的出站连接，或者支持人员通知已耗尽 SNAT 端口（[PAT](#pat) 使用的预先分配[临时端口](#preallocatedports)），则有几个常见缓解选项可供选择。 查看这些选项，确定可用且最适合自己的方案的选项。 一个或多个选项可能有助于管理此方案。
 
 如果难以理解出站连接行为，可以使用 IP 堆栈统计 (netstat)。 或者使用数据包捕获来观察连接行为。
 
-<a name="connectionreuse"></a>
-#### <a name="modify-the-application-to-reuse-connections"></a>修改应用程序以重复使用连接 
+#### <a name="connectionreuse"></a>修改应用程序以重复使用连接 
 在应用程序中重复使用连接，可以降低对用于 SNAT 的临时端口的需求。 这尤其适用于 HTTP/1.1 这样的协议，在这些协议中，默认重复使用连接。 其他使用 HTTP 作为其传输（如 REST）的协议也可以因此受益。 
 
 对每个请求来说，重复使用总是优于单独的原子 TCP 连接。 重复使用可以带来更高的性能和非常高效的 TCP 事务。
@@ -173,25 +160,23 @@ SNAT 端口分配特定于 IP 传输协议（TCP 和 UDP 是分别维护的）�
 
 临时端口有 4 分钟的空闲超时（不可调整）。 如果重试太过积极，则消耗没有机会进行自行清除。 因此，应用程序停用事务的方式和频率对于设计至关重要。
 
-<a name="assignilpip"></a>
-#### <a name="assign-an-instance-level-public-ip-to-each-vm"></a>将实例级公共 IP 分配给每个 VM
+#### <a name="assignilpip"></a>将实例级公共 IP 分配给每个 VM
 分配 ILPIP 会将方案更改为 [VM 的实例级公共 IP](#ilpip)。 用于各 VM 的公共 IP 的所有临时端口都可供 VM 使用。 （与以下方案相反：公共 IP 的临时端口与同相应部署关联的 VM 的所有临时端口共享。）需要作出一些权衡，例如将大量个人 IP 地址列入白名单所产生的潜在影响。
 
 >[!NOTE] 
 >此选项不适用于 Web 辅助角色。
 
-<a name="idletimeout"></a>
-### <a name="use-keepalives-to-reset-the-outbound-idle-timeout"></a>使用 keepalive 重置出站空闲超时
+### <a name="idletimeout"></a>保持 keepalive 重置出站空闲超时
 
 出站连接有 4 分钟的空闲超时。 此超时不可调整。 但是，可以根据需要使用传输（例如 TCP keepalive）或应用层 keepalive 来刷新空闲流和重置此空闲超时。  请咨询任何打包软件的供应商，了解是否支持此功能，或者如何启用此功能。  通常，只需在一端生成 keepalive 就能重置空闲超时。 
 
-<a name="discoveroutbound"></a>
-## <a name="discovering-the-public-ip-that-a-vm-uses"></a>发现 VM 使用的公共 IP
+## <a name="discoveroutbound"></a>发现 VM 使用的公共 IP
 有多种方法来确定出站连接的公共源 IP 地址。 OpenDNS 提供了一种服务可以向你显示 VM 的公共 IP 地址。 
 
 使用 nslookup 命令，可以将名称 myip.opendns.com 的 DNS 查询发送到 OpenDNS 解析程序。 该服务返回用于发送此查询的源 IP 地址。 在 VM 中运行以下查询时，返回的是用于该 VM 的公共 IP。
 
     nslookup myip.opendns.com resolver1.opendns.com
+
 
 ## <a name="next-steps"></a>后续步骤
 

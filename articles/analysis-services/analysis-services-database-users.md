@@ -3,18 +3,18 @@ title: 管理 Azure Analysis Services 中的数据库角色和用户| Azure
 description: 了解如何在 Azure 中管理 Analysis Services 服务器上的数据库角色和用户。
 author: rockboyfor
 manager: digimobile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 origin.date: 04/12/2018
-ms.date: 04/30/2018
+ms.date: 07/16/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 96546157feb569d97b1c42efb62e882e0d7befe6
-ms.sourcegitcommit: 292f22020e00c607229c1693229f25fb2837d8af
+ms.openlocfilehash: e44ba3067e002e59f7e95db906a9d996eafc843b
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37910585"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167803"
 ---
 # <a name="manage-database-roles-and-users"></a>管理数据库角色和用户
 
@@ -147,4 +147,4 @@ ms.locfileid: "37910585"
   [使用 PowerShell 管理 Azure Analysis Services](analysis-services-powershell.md)  
   [表格模型脚本语言 (TMSL) 参考](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, wording update -->

@@ -4,7 +4,7 @@ description: 了解逻辑应用发生故障的原因
 services: logic-apps
 documentationcenter: ''
 author: jeffhollan
-manager: anneta
+manager: jeconnoc
 editor: ''
 ms.assetid: a6727ebd-39bd-4298-9e68-2ae98738576e
 ms.service: logic-apps
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: logic-apps
 origin.date: 10/15/2017
-ms.date: 03/19/2018
+ms.date: 07/30/2018
 ms.author: v-yiso
-ms.openlocfilehash: d8278005bb49e4d4880eb0e1dfe0f622e33d4a14
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: 992e4a0a931879a5a12bebf54bb743eb0148aa74
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29870585"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167764"
 ---
 # <a name="troubleshoot-and-diagnose-logic-app-failures"></a>排查和诊断逻辑应用故障
 
@@ -106,15 +106,15 @@ ms.locfileid: "29870585"
 
 ## <a name="perform-runtime-debugging"></a>执行运行时调试
 
-若要帮助进行调试，可向工作流添加诊断步骤，同时查看触发器和运行历史记录。 例如，可以添加使用 [RequestBin](http://requestb.in) 服务的步骤，以便可检查 HTTP 请求并决定其精确大小、形状和格式。
+若要帮助进行调试，可向工作流添加诊断步骤，同时查看触发器和运行历史记录。 例如，可以添加使用 [Webhook Tester](https://webhook.site/) 服务的步骤，以便可检查 HTTP 请求并确定其确切大小、形状和格式。
 
-1. 创建 RequestBin，可使其仅在浏览器中处于私密和可查看状态。
+1. 请访问 [Webhook Tester](https://webhook.site/) 并复制创建的唯一 URL
 
 2. 在逻辑应用中，添加包含想要测试的正文内容的 HTTP POST 操作（例如，某个表达式或另一个步骤的输出）。
 
-3. 在 HTTP POST 操作中粘贴 RequestBin 的 URL。
+3. 在 HTTP POST 操作中粘贴 Webhook Tester 的 URL。
 
-4. 若要查看请求在逻辑应用引擎中生成时的格式，请运行逻辑应用并刷新 RequestBin。
+4. 若要查看请求在从逻辑应用引擎生成时的格式，请运行逻辑应用并查看 Webhook Tester 了解详细信息。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 04/25/2017
-ms.date: 04/02/2018
+ms.date: 07/30/2018
 ms.author: v-yiso
-ms.openlocfilehash: 865eb878ca30e3296349c9b9c22321db78d64f20
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.openlocfilehash: 66b3bb803b2d654bf77d44db5de922e668a68675
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315403"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167867"
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>在 Azure 应用服务中配置 Web 应用
 本主题介绍如何使用 [Azure 门户]配置 Web 应用。
@@ -46,7 +46,7 @@ ms.locfileid: "36315403"
 出于技术原因，为应用启用 Java 会禁用 .NET、PHP 和 Python 选项。
 
 <a name="platform"></a>
-**平台**。 选择是要在 32 位还是 64 位环境中运行 Web 应用。 64 位环境需要“基本”或“标准”模式。 “免费”和“共享”模式始终在 32 位环境下运行。
+**平台**。 选择是要在 32 位还是 64 位环境中运行 Web 应用。 64 位环境需要“基本”或“标准”层。 “免费”和“共享”层始终在 32 位环境下运行。
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
@@ -56,6 +56,13 @@ ms.locfileid: "36315403"
 **始终打开**。 默认情况下，Web 应用如果已处于空闲状态相当一段时间，则是未加载的状态。 这样可以让系统节省资源。 在“基本”或“标准”模式下，可启用“AlwaysOn”  以保证始终加载应用。 如果应用运行连续的 Web 作业或运行使用 CRON 表达式触发的 Web 作业，应启用“始终可用”；否则这些 Web 作业可能无法可靠运行。
 
 **托管管道版本**。 设置 IIS [管道模式]。 将此设置保留为“集成(默认)”，除非旧版应用需要旧版 IIS。
+
+**HTTP 版本**。 设置为 **2.0**，以启用对 [HTTPS/2](https://wikipedia.org/wiki/HTTP/2) 协议的支持。 
+
+> [!NOTE]
+> 大多数新型浏览器仅支持通过 TLS 的 HTTP/2 协议，而非加密流量继续使用 HTTP/1.1。 若要确保客户端浏览器使用 HTTP/2 连接到应用，请为应用的自定义域[购买应用服务证书](web-sites-purchase-ssl-web-site.md)或[绑定第三方证书](app-service-web-tutorial-custom-ssl.md)。
+
+**ARR 相关性**。 在横向扩展到多个 VM 实例的应用中，ARR 相关性 Cookie 保证在会话的整个生命周期内将客户端路由到相同的实例。 若要提高无状态应用程序的性能，请将此选项设置为“关闭”。   
 
 **自动交换**。 如果启用部署槽的自动交换，则在向该槽推送更新时，应用服务会自动将 Web 应用交换到生产。 有关详细信息，请参阅 [为 Azure 应用服务中的 Web 应用部署到过渡槽](web-sites-staged-publishing.md)。
 

@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/06/2016
-ms.date: 12/04/2017
+ms.date: 07/30/2018
 ms.author: v-yiso
-ms.openlocfilehash: 36f490c0f3906b3e86743fb044d233fbf3cbb1ab
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: 3baefcb03902ca2140a43119ecb464440cf9b089
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
-ms.locfileid: "25591969"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167792"
 ---
 # <a name="back-up-your-app-in-azure"></a>在 Azure 中备份应用
 利用 [Azure 应用服务](app-service-web-overview.md)中的备份和还原功能，可以轻松地手动或按计划创建应用备份。 通过覆盖现有应用或还原为另一应用可将应用还原为先前状态的快照。 
@@ -38,7 +38,7 @@ ms.locfileid: "25591969"
 
 备份功能支持以下数据库解决方案： 
    - [SQL 数据库](https://www.azure.cn/home/features/sql-database/)
-   - MySQL 应用内产品
+   - 用于 MySQL 的 Azure 数据库（预览版）
 
 > [!NOTE]
 >  每个备份都是应用的完整脱机副本，而不是增量更新。
@@ -51,6 +51,7 @@ ms.locfileid: "25591969"
   与**标准**层相比，**高级**层每日允许更多备份量。
 * 在与要备份的应用相同的订阅中，需要有一个 Azure 存储帐户和容器。 有关 Azure 存储帐户的详细信息，请参阅本文结尾处的 [链接](#moreaboutstorage) 。
 * 最多可备份 10 GB 的应用和数据库内容。 如果备份大小超过此限制，会出错。
+* 不支持将启用了防火墙的存储帐户用作备份目标。 如果配置备份，备份将失败。
 
 <a name="manualbackup"></a>
 

@@ -5,19 +5,19 @@ author: ecfan
 manager: jeconnoc
 ms.author: v-yiso
 origin.date: 05/21/2018
-ms.date: 07/02/2018
+ms.date: 07/30/2018
 ms.topic: article
 ms.service: logic-apps
 services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: dc0fd2c033007ffbc86f9b833450e1f1fe94d99a
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: f2317fba4391abdbd5fb3c02e63fac7c3f58d083
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939034"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167972"
 ---
 # <a name="find-news-with-bing-search-and-azure-logic-apps"></a>使用必应搜索和 Azure 逻辑应用查找新闻 
 

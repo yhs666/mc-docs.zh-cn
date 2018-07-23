@@ -71,4 +71,4 @@
 <!-- Not Available ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-eventhub) -->
 
 <!--Update_Description: update link-->
-<!--ms.date: 06/18/2018 -->
+<!--ms.date:07/16/2018 -->

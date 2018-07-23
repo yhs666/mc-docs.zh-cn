@@ -3,18 +3,18 @@ title: Azure Analysis Services 服务器别名 | Azure
 description: 介绍如何创建和使用服务器别名。
 author: rockboyfor
 manager: digimobile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 origin.date: 04/12/2018
-ms.date: 06/18/2018
+ms.date: 07/16/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 440e47da7b7faf90e9c890e434d508d78bc7f03f
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 42b28e7904eb689d084b62eefa3b7cb4f6c58740
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "35416835"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167688"
 ---
 # <a name="alias-server-names"></a>服务器别名
 

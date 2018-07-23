@@ -15,18 +15,21 @@ ms.workload: infrastructure-services
 origin.date: 03/16/2018
 ms.date: 05/14/2018
 ms.author: v-nany
-ms.openlocfilehash: 8480e2a600710b97a1d4dbecfa192c414e78f909
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.openlocfilehash: e23bcc88e954737752a44557e5270accccf39dfa
+ms.sourcegitcommit: 53972dcdef77da92529996667545d2e83716f7e2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "33940669"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39143457"
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>如何在 Azure 自动化中更新 Azure PowerShell 模块
 
-默认情况下，每个自动化帐户中提供最常用的 Azure PowerShell 模块。 Azure 团队会定期更新 Azure 模块，因此在自动化帐户中，我们提供了一种方法，用于在门户中有新版本时更新帐户中的模块。  
+默认情况下，每个自动化帐户中提供最常用的 Azure PowerShell 模块。 Azure 团队会定期更新 Azure 模块，因此在自动化帐户中，我们提供了一种方法，用于在门户中有新版本时更新帐户中的模块。
 
 由于模块由产品组定期更新，所包含的 cmdlet 可能会发生更改，这可能会对 runbook 产生负面影响，具体要取决于更改类型（如重命名参数或完全弃用 cmdlet）。 为了避免影响 runbook 及其自动化过程，建议在继续操作之前进行测试和验证。 如果没有用于此目的专用自动化帐户，请考虑创建一个自动化帐户，以便可以在 runbook 开发期间测试许多不同的方案和排列，以及更新 PowerShell 模块等迭代更改。 在验证结果并且应用了所需的任何更改之后，请继续协调需要修改的任何 runbook 的迁移，然后按照以下生产环境中的描述执行更新。
+
+> [!NOTE]
+> 新自动化帐户可能不包含最新的模块。
 
 ## <a name="updating-azure-modules"></a>更新 Azure 模块
 

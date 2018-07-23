@@ -13,15 +13,15 @@ ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: ''
 origin.date: 10/30/2017
-ms.date: 07/09/2018
+ms.date: 07/23/2018
 ms.author: v-nany
 ms.custom: mvc
-ms.openlocfilehash: 906c63e7bc56e73627e2045c304d0d41aa7d6cf6
-ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
+ms.openlocfilehash: 3ad76a8f24ced23b6d2162695e4dc0d02d859386
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37405218"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167682"
 ---
 # <a name="billing-tags-policy-initiative"></a>计费标记策略计划
 
@@ -133,16 +133,14 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 分配策略后，可以触发对所有现有资源的更新，以强制执行已添加的标记策略。 以下脚本会保留资源上存在的任何其他标记：
 
 ```powershell
-$group = Get-AzureRmResourceGroup -Name "ExampleGroup"
-$resources = Find-AzureRmResource -ResourceGroupName $group.ResourceGroupName
+$resources = Get-AzureRmResource -ResourceGroupName 'ExampleGroup'
 
-foreach($r in $resources)
-{
-    try{
-        $r | Set-AzureRmResource -Tags ($a=if($r.Tags -eq $NULL) { @{}} else {$r.Tags}) -Force -UsePatchSemantics
+foreach ($r in $resources) {
+    try {
+        Set-AzureRmResource -Tags ($a = if ($r.Tags -eq $NULL) { @{} } else {$r.Tags}) -ResourceId $r.ResourceId -Force -UsePatchSemantics
     }
-    catch{
-        Write-Host  $r.ResourceId + "can't be updated"
+    catch {
+        Write-Host $r.ResourceId + "can't be updated"
     }
 }
 ```

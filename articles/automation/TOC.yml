@@ -11,6 +11,8 @@
       href: automation-quickstart-create-account.md
     - name: 创建 runbook
       href: automation-quickstart-create-runbook.md
+    - name: 创建 DSC 配置
+      href: automation-quickstart-dsc-configuration.md
 - name: 如何
   items:
     - name: 身份验证和安全性
@@ -73,6 +75,20 @@
           href: automation-managing-data.md
         - name: 将 JSON 对象传递到 Azure 自动化 Runbook
           href: automation-pass-json-string.md
+    - name: 部署配置管理 (DSC)
+      items:
+        - name: Desired State Configuration (DSC) 概述
+          href: automation-dsc-overview.md
+        - name: 入门
+          href: automation-dsc-getting-started.md
+        - name: 使用 Azure 自动化将服务器配置为所需状态并管理偏移
+          href: tutorial-configure-servers-desired-state.md
+        - name: 载入用于管理的计算机
+          href: automation-dsc-onboarding.md
+        - name: 编译 DSC 配置
+          href: automation-dsc-compile.md
+        - name: 使用 Chocolatey 进行连续部署
+          href: automation-dsc-cd-chocolatey.md
     - name: 管理资产
       items:
         - name: 证书
@@ -91,8 +107,8 @@
           href: automation-update-azure-modules.md
     - name: 方案
       items:
-        - name: Runbook 库
-          href: automation-runbook-gallery.md
+        - name: 从 Azure 警报启动 Runbook
+          href: automation-create-alert-triggered-runbook.md
         - name: 删除资源组
           href: automation-scenario-remove-resourcegroup.md
         - name: 在 Azure 自动化 PowerShell Runbook 中部署 Azure 资源管理器模板
@@ -103,8 +119,10 @@
           href: automation-migrate-account-subscription.md
     - name: 故障排除
       items:
-        - name: 排查常见错误
-          href: automation-troubleshooting-automation-errors.md
+        - name: Runbook
+          href: troubleshoot/runbooks.md
+        - name: Desired State Configuration (DSC)
+          href: troubleshoot/desired-state-configuration.md
 - name: 参考
   items:
     - name: Azure PowerShell

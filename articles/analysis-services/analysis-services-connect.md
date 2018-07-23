@@ -3,18 +3,18 @@ title: 连接到 Azure Analysis Services 服务器 | Azure
 description: 了解如何连接到 Azure 中的 Analysis Services 服务器并从中获取数据。
 author: rockboyfor
 manager: digimobile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 origin.date: 04/23/2018
-ms.date: 06/18/2018
+ms.date: 07/16/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9da9684b36866b23302505da065bcc09f13a3fd6
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 128de2a1fc9f800f8d2ffa99c16e2299b7b412aa
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "35416810"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167714"
 ---
 # <a name="connecting-to-servers"></a>连接到服务器
 

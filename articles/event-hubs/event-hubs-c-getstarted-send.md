@@ -13,14 +13,14 @@ ms.tgt_pltfrm: c
 ms.devlang: csharp
 ms.topic: article
 origin.date: 12/04/2017
-ms.date: 06/18/2018
+ms.date: 07/16/2018
 ms.author: v-yeche
-ms.openlocfilehash: 115bf37fe7845171b4199bb72e5f25b45422add5
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: bf3a6a7d563d378a02e7789a329c71c1f92452e1
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "35416751"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167678"
 ---
 # <a name="send-events-to-azure-event-hubs-using-c"></a>使用 C 将事件发送到 Azure 事件中心
 
@@ -76,13 +76,13 @@ ms.locfileid: "35416751"
     #include <unistd.h>
     #include <stdlib.h>
 
-    #define check(messenger)
-      {
-        if(pn_messenger_errno(messenger))
-        {
-          printf("check\n");
-          die(__FILE__, __LINE__, pn_error_text(pn_messenger_error(messenger)));
-        }
+    #define check(messenger)                                                     \
+      {                                                                          \
+        if(pn_messenger_errno(messenger))                                        \
+        {                                                                        \
+          printf("check\n");                                                     \
+          die(__FILE__, __LINE__, pn_error_text(pn_messenger_error(messenger))); \
+        }                                                                        \
       }
 
     pn_timestamp_t time_now(void)

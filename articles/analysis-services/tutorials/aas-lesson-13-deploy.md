@@ -3,18 +3,18 @@ title: Azure Analysis Services 教程第 13 课：部署 | Azure
 description: 介绍如何将教程项目部署到 Azure Analysis Services。
 author: rockboyfor
 manager: digimobile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 origin.date: 04/12/2018
-ms.date: 04/30/2018
+ms.date: 07/16/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8a5c7abcc2b4b2965937dc6a04684cd7e8d39ff2
-ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
+ms.openlocfilehash: 9e4e69921f40bbd2194a8362faa3aff93f9abfe8
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37405318"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167815"
 ---
 # <a name="deploy"></a>部署
 

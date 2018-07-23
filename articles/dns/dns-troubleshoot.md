@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 origin.date: 01/20/2017
 ms.date: 12/18/2017
 ms.author: v-nany
-ms.openlocfilehash: 46a6f1e82ac378a980e1db652b64dfb992e96ca1
-ms.sourcegitcommit: a4026b0b8cd52e5ed19691794048c02117334d6b
+ms.openlocfilehash: 8009609428b2eb287a73027b876b37adb68e0ac5
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
-ms.locfileid: "26722243"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167802"
 ---
 # <a name="azure-dns-troubleshooting-guide"></a>Azure DNS 疑难解答指南
 

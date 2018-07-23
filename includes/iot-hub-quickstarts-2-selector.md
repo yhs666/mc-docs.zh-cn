@@ -9,11 +9,11 @@ ms.date: 04/13/2018
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: 9e2fa78c11e4759fec5d56d6e8d08627e16558f4
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.sourcegitcommit: 37a1524d71895b17b6f1d125053ad0b251b88df1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695327"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39105106"
 ---
 > [!div class="op_single_selector"]
 > * [.NET](../articles/iot-hub/quickstart-control-device-dotnet.md)

@@ -3,18 +3,18 @@ title: 创建 .odc 文件以连接到 Azure Analysis Services 服务器 | Azure
 description: 了解如何创建 Office 数据连接文件以连接到 Azure 中的 Analysis Services 服务器并从中获取数据。
 author: rockboyfor
 manager: digimobile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 origin.date: 04/12/2018
-ms.date: 04/30/2018
+ms.date: 07/16/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 627dca04aa649c569b4cac663466fa0b81110ee5
-ms.sourcegitcommit: 292f22020e00c607229c1693229f25fb2837d8af
+ms.openlocfilehash: 73e331425c0853aa692da7d190aae9033d3079d8
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37910597"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167745"
 ---
 # <a name="create-an-office-data-connection-file"></a>创建 Office 数据连接文件
 
@@ -144,4 +144,3 @@ function init() {
 ```
 
 <!--Update_Description: update meta properties -->
-<!--Review on 20180706-->

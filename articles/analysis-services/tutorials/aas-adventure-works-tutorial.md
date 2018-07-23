@@ -3,18 +3,18 @@ title: Azure Analysis Services Adventure Works 教程 | Azure
 description: 介绍 Azure Analysis Services 的 Adventure Works 教程
 author: rockboyfor
 manager: digimobile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 origin.date: 04/12/2018
-ms.date: 04/30/2018
+ms.date: 07/16/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 0d62fe94db79850d0283a30c58200084aabc01b4
-ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
+ms.openlocfilehash: 93bcf900c6c7ea09c4c34d7639bfefab209b9363
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37405355"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167770"
 ---
 # <a name="azure-analysis-services---adventure-works-tutorial"></a>Azure Analysis Services - Adventure Works 教程
 

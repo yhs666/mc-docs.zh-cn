@@ -10,12 +10,12 @@ origin.date: 03/03/2018
 ms.date: 07/02/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: c2b9fc49921a48054bbe2888fc904b4f316a4ba9
-ms.sourcegitcommit: 5b6a2fc55e5b16ae480bd497c3ac2c3a2fd44703
+ms.openlocfilehash: 574c6648bfb19f9d122cf9633068ef0190e70011
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38999178"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167749"
 ---
 # <a name="quickstart-create-a-container-registry-using-the-azure-portal"></a>快速入门：使用 Azure 门户创建容器注册表
 
@@ -106,33 +106,11 @@ v1: digest: sha256:f2867748615cc327d31c68b1172cc03c0544432717c4d2ba2c1c2d34b18c6
 
 ![在 Azure 门户中创建容器注册表][qs-portal-09]
 
-## <a name="deploy-image-to-aci"></a>将映像部署到 ACI
+<!-- Not Available on ## Deploy image to ACI-->
+<!-- Notice: Microsoft/Container-Instance is invalid on MC-->
 
-若要从注册表部署到某个实例，需导航到存储库 (aci-helloworld)，然后单击 v1 旁边的省略号。
 
-![从门户启动 Azure 容器实例][qs-portal-10]
-
-显示上下文菜单后，请选择“运行实例”：
-
-![启动 ACI 上下文菜单][qs-portal-11]
-
-填写“容器名称”，确保选择正确的订阅，然后选择现有的**资源组**“myResourceGroup”，再单击“确定”以启动 Azure 容器实例。
-
-![启动 ACI 部署选项][qs-portal-12]
-
-启动部署时，会在门户仪表板上个放置一个磁贴，用于指示部署进度。 部署完成后，将更新该磁贴以显示新的 **mycontainer** 容器组。
-
-![ACI 部署状态][qs-portal-13]
-
-选择 mycontainer 容器组，以显示该容器组的属性。 请记下该容器组的“IP 地址”，以及容器的“状态”。
-
-![ACI 容器详细信息][qs-portal-14]
-
-## <a name="view-the-application"></a>查看应用程序
-
-容器处于“正在运行”状态后，请通过喜欢的浏览器导航到在上一步中记下的 IP 地址，以显示应用程序。
-
-![浏览器中的 Hello World 应用][qs-portal-15]
+<!-- Not Available on ## View the application-->
 
 ## <a name="clean-up-resources"></a>清理资源
 

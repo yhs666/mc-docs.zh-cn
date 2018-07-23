@@ -11,12 +11,12 @@ ms.topic: article
 origin.date: 05/08/2018
 ms.date: 05/28/2018
 ms.author: v-nany
-ms.openlocfilehash: 25e0e3766eda735497b18677a4a5787599dff0bf
-ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
+ms.openlocfilehash: 1c4f122199502db9737250c9ba4598825b5faf76
+ms.sourcegitcommit: 53972dcdef77da92529996667545d2e83716f7e2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36748366"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39143396"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>在 Azure 自动化中执行 Runbook
 
@@ -136,7 +136,7 @@ Get-AzureRmLog -ResourceId $JobResourceID -MaxRecord 1 | Select Caller
 
 为了在云中的所有 Runbook 之间共享资源，Azure 自动化在任何作业运行三小时后都会将其暂时卸载。 在此期间，[基于 PowerShell 的 Runbook](automation-runbook-types.md#powershell-runbooks) 的作业都将停止且不会重新启动。 作业状态显示“已停止”。 此类型的 Runbook 始终从头开始重新启动，因为它们不支持检查点。
 
-[基于 PowerShell 工作流的 Runbook](automation-runbook-types.md#powershell-workflow-runbooks) 会从最后一个[检查点](https://docs.microsoft.com/system-center/sma/overview-powershell-workflows#bk_Checkpoints)进行恢复。 运行三小时后，Runbook 作业将由服务挂起，且其状态显示为“正在运行等待资源”。 沙盒变得可用时，Runbook 将通过自动化服务自动重新启动，并从最后一个检查点进行恢复。 这是实现挂起/重新启动的正常 PowerShell 工作流行为。 如果 Runbook 再次超过三小时的运行时，将重复该过程，最多三次。 在第三次重新启动后，如果 Runbook 仍未在三小时内完成，则 Runbook 作业将失败，且作业状态显示为“失败，正在等待资源”。 在此情况下，会收到以下异常和失败。
+[基于 PowerShell 工作流的 Runbook](automation-runbook-types.md#powershell-workflow-runbooks) 会从最后一个[检查点](https://docs.microsoft.com/system-center/sma/overview-powershell-workflows#bk_Checkpoints)进行恢复。 运行三小时后，Runbook 作业会由服务挂起，且其状态显示为“正在运行等待资源”。 沙盒变得可用时，Runbook 将通过自动化服务自动重新启动，并从最后一个检查点进行恢复。 这是实现挂起/重新启动的正常 PowerShell 工作流行为。 如果 Runbook 再次超过三小时的运行时，将重复该过程，最多三次。 在第三次重新启动后，如果 Runbook 仍未在三小时内完成，则 Runbook 作业将失败，且作业状态显示为“失败，正在等待资源”。 在此情况下，会收到以下异常和失败。
 
 *该作业无法继续运行，因为它已反复被系统从同一个检查点逐出。请确保 Runbook 在未保持其状态的情况下没有执行冗长的操作。*
 

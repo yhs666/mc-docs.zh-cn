@@ -1,6 +1,6 @@
 ---
-title: 创建 Azure AD 用户帐户 | Microsoft Docs
-description: 本文介绍如何为 Azure 自动化中的 Runbook 创建 Azure AD 用户帐户凭据，以便在 Azure 和经典 Azure 中进行身份验证。
+title: 创建 Azure AD 用户帐户
+description: 本文介绍如何为 Azure 自动化中的 Runbook 创建 Azure AD 用户帐户凭据，以便在 Azure 中进行身份验证。
 services: automation
 documentationcenter: ''
 author: georgewallace
@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 03/15/2018
 ms.date: 05/14/2018
 ms.author: magoedte
-ms.openlocfilehash: ebc1d9ad06f394977b10e62e73c0a7038acde395
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.openlocfilehash: 3b1997149773bd7d9ad5d4d0383a17accd59dc80
+ms.sourcegitcommit: 53972dcdef77da92529996667545d2e83716f7e2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873613"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39143370"
 ---
 # <a name="authenticate-runbooks-with-azure-classic-deployment-and-resource-manager"></a>使用 Azure 经典部署和 Resource Manager 部署对 Runbook 进行身份验证
 本文介绍在为针对 Azure 经典部署模型或 Azure Resource Manager 资源运行的 Azure 自动化 Runbook 配置 Azure AD 用户帐户时所要执行的步骤。 尽管这仍是基于 Azure 资源管理器的 Runbook 支持的身份验证标识，但建议的方法是使用 Azure 运行方式帐户。       
@@ -50,7 +50,7 @@ ms.locfileid: "37873613"
     > 
     >
 
-    <br>![添加自动化帐户警报](./media/automation-create-aduser-account/add-automation-acct-properties-error.png)<br>  
+    <br>![添加自动化帐户警报](media/automation-create-aduser-account/add-automation-acct-properties-error.png)<br>  
 7. 在 Azure 创建自动化帐户时，可以在菜单的“通知”下面跟踪进度。
 
 完成创建凭据后，需要创建一个凭据资产，以便会自动化帐户与前面创建的 AD 用户帐户相关联。 请记住，只创建了自动化帐户，但它并未与身份验证标识相关联。 执行 [Credential assets in Azure Automation](automation-credentials.md#creating-a-new-credential-asset)（Azure 自动化中的凭据资产）一文中所述的步骤，并以**域\用户**格式输入“用户名”的值。
@@ -66,5 +66,4 @@ ms.locfileid: "37873613"
 
 ## <a name="next-steps"></a>后续步骤
 * 查看 [Azure Automation runbook types](automation-runbook-types.md)（Azure 自动化 Runbook 类型）一文中所述的不同 Runbook 类型和创建自己的 Runbook 所需的步骤
-
 

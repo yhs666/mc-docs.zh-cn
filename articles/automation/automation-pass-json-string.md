@@ -1,5 +1,5 @@
 ---
-title: 将 JSON 对象传递到 Azure 自动化 Runbook | Azure
+title: 将 JSON 对象传递到 Azure 自动化 Runbook
 description: 如何将参数作为 JSON 对象传递给 runbook
 services: automation
 author: yunan2016
@@ -10,14 +10,14 @@ ms.topic: article
 ms.tgt_pltfrm: powershell
 ms.workload: TBD
 origin.date: 03/16/2018
-ms.date: 05/14/2018
+ms.date: 07/23/2018
 ms.author: v-nany
-ms.openlocfilehash: 281db6d10021dc62b730cd90afc80197c922d19e
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.openlocfilehash: 9b52d2ff1b2614de572c8030fc4e6cbb940e930e
+ms.sourcegitcommit: 53972dcdef77da92529996667545d2e83716f7e2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "33937399"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39143368"
 ---
 # <a name="pass-a-json-object-to-an-azure-automation-runbook"></a>将 JSON 对象传递到 Azure 自动化 Runbook
 
@@ -86,6 +86,10 @@ Start-AzureRmVM -Name $json.VMName -ResourceGroupName $json.ResourceGroup
    Connect-AzureRmAccount
    ```
     系统会提示输入 Azure 凭据。
+
+   > [!IMPORTANT]
+   > Add-AzureRmAccount 现在是 Connect-AzureRMAccount 的别名。 搜索库项时，如果未看到 Connect-AzureRMAccount，可以使用 Add-AzureRmAccount，或更新自动化帐户中的模块。
+
 1. 获取 JSON 文件的内容并将其转换为字符串：
     ```powershell
     $json =  (Get-content -path 'JsonPath\test.json' -Raw) | Out-string

@@ -13,14 +13,14 @@ ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 10/01/2016
-ms.date: 01/29/2018
+ms.date: 07/30/2018
 ms.author: v-yiso
-ms.openlocfilehash: 33feafa2081215b54db2d9c74f97534893142feb
-ms.sourcegitcommit: a20b3fbe305d3bb4b6ddfdae98b3e0ab8a79bbfa
+ms.openlocfilehash: fdd469392dc3f02881060c98adc09a12d98aac67
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/22/2018
-ms.locfileid: "27984748"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167965"
 ---
 # <a name="enable-offline-sync-for-your-windows-app"></a>为 Windows 应用启用脱机同步
 
@@ -41,7 +41,7 @@ ms.locfileid: "27984748"
 * 在 Windows 8.1 或更高版本上运行的 Visual Studio 2013。
 * 完成 [创建 Windows 应用][创建 windows 应用]（使用适用于 Azure 移动应用的 .NET 后端服务器 SDK）。
 * [Azure 移动服务 SQLite Store][sqlite store nuget]
-* [SQLite for Universal Windows Platform（适用于通用 Windows 平台的 SQLite）](http://www.sqlite.org/downloads)
+* [SQLite for Universal Windows Platform（适用于通用 Windows 平台的 SQLite）](https://marketplace.visualstudio.com/items?itemName=SQLiteDevelopmentTeam.SQLiteforUniversalWindowsPlatform) 
 
 ## <a name="update-the-client-app-to-support-offline-features"></a>更新客户端应用以支持脱机功能
 
@@ -136,12 +136,12 @@ ms.locfileid: "27984748"
 [SQLite for Windows 10]: http://go.microsoft.com/fwlink/?LinkID=716921
 [synccontext]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.synccontext(v=azure.10).aspx
 [sqlite store nuget]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client.SQLiteStore/
-[IMobileServiceSyncTable]: https://msdn.microsoft.com/zh-cn/library/azure/mt691742(v=azure.10).aspx
+[IMobileServiceSyncTable]: https://docs.azure.cn/zh-cn/dotnet/api/microsoft.windowsazure.mobileservices.sync.imobileservicesynctable?view=azure-dotnet
 [IMobileServiceTableQuery]: https://msdn.microsoft.com/zh-cn/library/azure/dn250631(v=azure.10).aspx
 [IMobileServicesSyncContext]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.windowsazure.mobileservices.sync.imobileservicesynccontext(v=azure.10).aspx
 [MobileServicePushFailedException]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.windowsazure.mobileservices.sync.mobileservicepushfailedexception(v=azure.10).aspx
 [Status]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.windowsazure.mobileservices.sync.mobileservicepushcompletionresult.status(v=azure.10).aspx
-[CancelledByNetworkError]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.windowsazure.mobileservices.sync.mobileservicepushstatus(v=azure.10).aspx
+[]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.windowsazure.mobileservices.sync.mobileservicepushstatus(v=azure.10).aspx
 [PullAsync]: https://msdn.microsoft.com/zh-cn/library/azure/mt667558(v=azure.10).aspx
 [PushAsync]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.windowsazure.mobileservices.mobileservicesynccontextextensions.pushasync(v=azure.10).aspx
 [PurgeAsync]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.windowsazure.mobileservices.sync.imobileservicesynctable.purgeasync(v=azure.10).aspx

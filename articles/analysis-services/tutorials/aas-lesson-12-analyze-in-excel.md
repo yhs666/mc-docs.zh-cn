@@ -3,18 +3,18 @@ title: Azure Analysis Services 教程第 12 课：在 Excel 中分析 | Azure
 description: 介绍如何在 Azure Analysis Services 教程项目中使用“在 Excel 中分析”功能。
 author: rockboyfor
 manager: digimobile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 origin.date: 04/12/2018
-ms.date: 04/30/2018
+ms.date: 07/16/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9c68c70b5cfdb79efec799c00706921237534d3b
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 121948f65618b331fae5238412be873e0c827485
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121070"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167747"
 ---
 # <a name="analyze-in-excel"></a>在 Excel 中分析
 

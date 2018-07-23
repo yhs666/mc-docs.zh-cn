@@ -35,7 +35,7 @@
       href: policy-samples.md
 - name: 概念
   items:
-    - name: 安全性
+    - name: 安全组
       href: security-overview.md
     - name: 路由
       href: virtual-networks-udr-overview.md
@@ -67,10 +67,10 @@
       items:
         - name: 网络安全组
           items:
+            - name: Azure PowerShell
+              href: tutorial-filter-network-traffic-powershell.md
             - name: Azure CLI
               href: tutorial-filter-network-traffic-cli.md
-            - name: Azure 门户
-              href: virtual-networks-create-nsg-arm-pportal.md
         - name: 路由表
           items:
             - name: Azure PowerShell
@@ -129,8 +129,8 @@
                   href: virtual-network-multiple-ip-addresses-powershell.md
                 - name: Azure CLI
                   href: virtual-network-multiple-ip-addresses-cli.md
-                - name: 虚拟机网络吞吐量
-                  href: virtual-machine-network-throughput.md
+            - name: 虚拟机网络吞吐量
+              href: virtual-machine-network-throughput.md
         - name: 连接方案
           items:
             - name: 虚拟网络到虚拟网络
@@ -149,53 +149,51 @@
               href: virtual-networks-dmz-nsg.md
     - name: 配置
       items:
-        - name: 虚拟机
-          items:
-            - name: 添加或删除网络接口
-              href: virtual-network-network-interface-vm.md
-            - name: VM 和云服务的名称解析
-              href: virtual-networks-name-resolution-for-vms-and-role-instances.md
-            - name: 将动态 DNS 用于自己的 DNS 服务器
-              href: virtual-networks-name-resolution-ddns.md
-            - name: 优化网络吞吐量
-              href: virtual-network-optimize-network-bandwidth.md
-            - name: 查看和修改主机名
-              href: virtual-networks-viewing-and-modifying-hostnames.md
+        - name: VM 和云服务的名称解析
+          href: virtual-networks-name-resolution-for-vms-and-role-instances.md
+        - name: 将动态 DNS 用于自己的 DNS 服务器
+          href: virtual-networks-name-resolution-ddns.md
+        - name: 优化网络吞吐量
+          href: virtual-network-optimize-network-bandwidth.md
+        - name: 查看和修改主机名
+          href: virtual-networks-viewing-and-modifying-hostnames.md
     - name: 管理
       items:
         - name: 虚拟网络
           href: manage-virtual-network.md
           items:
-            - name: IP 地址
-              href: virtual-network-network-interface-addresses.md
-            - name: 公共 IP 地址
-              href: virtual-network-public-ip-address.md
-        - name: 虚拟机
+            - name: 子网
+              href: virtual-network-manage-subnet.md
+            - name: 对等互连
+              href: virtual-network-manage-peering.md
+        - name: 网络安全组
+          href: manage-network-security-group.md
+        - name: 路由表
+          href: manage-route-table.md
+        - name: 虚拟机网络
           items:
-            - name: 将 VM 移到其他子网
-              href: virtual-networks-move-vm-role-to-subnet.md
+            - name: 创建或删除网络接口
+              href: virtual-network-network-interface.md
+            - name: 添加或删除网络接口
+              href: virtual-network-network-interface-vm.md
+            - name: 添加或删除 IP 地址
+              href: virtual-network-network-interface-addresses.md
+        - name: 公共 IP 地址
+          href: virtual-network-public-ip-address.md
     - name: 故障排除
       items:
         - name: 网络安全组
-          items:
-            - name: Azure 门户
-              href: virtual-network-nsg-troubleshoot-portal.md
-            - name: Azure PowerShell
-              href: virtual-network-nsg-troubleshoot-powershell.md
+          href: diagnose-network-traffic-filter-problem.md
         - name: 路由
-          items:
-            - name: Azure 门户
-              href: virtual-network-routes-troubleshoot-portal.md
-            - name: Azure PowerShell
-              href: virtual-network-routes-troubleshoot-powershell.md
-            - name: 吞吐量测试
-              href: virtual-network-bandwidth-testing.md
-            - name: 无法删除虚拟网络
-              href: virtual-network-troubleshoot-cannot-delete-vnet.md
-            - name: VM 到 VM 连接问题
-              href: virtual-network-troubleshoot-connectivity-problem-between-vms.md
-            - name: 为 SMTP 标题检查配置 PTR
-              href: create-ptr-for-smtp-service.md
+          href: diagnose-network-routing-problem.md
+        - name: 吞吐量测试
+          href: virtual-network-bandwidth-testing.md
+        - name: 无法删除虚拟网络
+          href: virtual-network-troubleshoot-cannot-delete-vnet.md
+        - name: VM 到 VM 连接问题
+          href: virtual-network-troubleshoot-connectivity-problem-between-vms.md
+        - name: 为 SMTP 标题检查配置 PTR
+          href: create-ptr-for-smtp-service.md
     - name: 经典
       items:
         - name: 创建和管理虚拟网络
@@ -209,10 +207,10 @@
                   href: virtual-networks-create-vnet-classic-netcfg-ps.md
                 - name: Azure CLI
                   href: virtual-networks-create-vnet-classic-cli.md
-                - name: 在虚拟网络配置文件中指定 DNS 设置
-                  href: virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md
-                - name: 在服务配置文件中指定 DNS 设置
-                  href: virtual-networks-specifying-dns-settings-in-a-service-configuration-file.md
+            - name: 在虚拟网络配置文件中指定 DNS 设置
+              href: virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md
+            - name: 在服务配置文件中指定 DNS 设置
+              href: virtual-networks-specifying-dns-settings-in-a-service-configuration-file.md
             - name: 管理
               items:
                 - name: 网络配置文件
@@ -249,14 +247,16 @@
                       href: virtual-networks-reserved-private-ip.md
                     - name: Azure CLI
                       href: virtual-networks-static-private-ip-classic-cli.md
-                    - name: 实例层级公共 IP 地址
-                      href: virtual-networks-instance-level-public-ip.md
+                - name: 实例层级公共 IP 地址
+                  href: virtual-networks-instance-level-public-ip.md
                 - name: 访问控制列表
                   items:
                     - name: Azure 门户
                       href: ../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fvirtual-network%2ftoc.json
                     - name: Azure PowerShell
                       href: virtual-networks-acl-powershell.md
+                - name: 将 VM 移到其他子网
+                  href: virtual-networks-move-vm-role-to-subnet.md
         - name: 云服务和网络安全
           items:
             - name: 创建使用 NSG 的外围网络
@@ -274,9 +274,9 @@
     - name: Azure PowerShell
       href: 'https://docs.microsoft.com/powershell/module/azurerm.network'
     - name: .NET
-      href: 'https://docs.microsoft.com/en-us/dotnet/api/overview/azure/virtual-network?view=azure-dotnet'
+      href: 'https://docs.azure.cn/zh-cn/dotnet/api/overview/virtual-network?view=azure-dotnet'
     - name: Java
-      href: 'https://docs.azure.cn/zh-cn/java/api/overview'
+      href: 'https://docs.azure.cn/zh-cn/java/api/overview/network'
     - name: Node.js
       href: 'https://docs.microsoft.com/javascript/azure#azure-sdk'
     - name: Python
@@ -287,17 +287,11 @@
       href: 'https://azure.microsoft.com/resources/samples/?service=virtual-network'
 - name: 资源
   items:
-    - name: Azure 路线图
-      href: 'https://www.azure.cn/roadmap/?category=networking'
-    - name: 网络博客
-      href: 'http://azure.microsoft.com/blog/topics/networking'
     - name: 网络论坛
       href: 'https://www.azure.cn/support/contact/'
     - name: 定价
       href: 'https://www.azure.cn/pricing/details/networking/'
     - name: 定价计算器
       href: 'https://www.azure.cn/pricing/calculator/'
-    - name: Stack Overflow
-      href: 'http://stackoverflow.com/questions/tagged/azure-virtual-network'
     - name: 常见问题
       href: virtual-networks-faq.md

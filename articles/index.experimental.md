@@ -3,12 +3,12 @@ layout: HubPage
 hide_bc: true
 title: Azure 文档
 description: 了解如何使用 Azure 云服务构建和管理功能强大的应用程序。 获取文档、代码示例、教程和更多内容。
-ms.openlocfilehash: cc84b875931e9ddf6e7cd38deaec4ddd81c0d006
-ms.sourcegitcommit: 01b8f9a7e857463f49531e70dbb911c6f0286d76
+ms.openlocfilehash: 79009ddd12b2cd5ff775459f1d1783773fe2e4f5
+ms.sourcegitcommit: b23f331a9507c52ddd564c77379e7013b14141e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2017
-ms.locfileid: "23993661"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39138833"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -395,7 +395,7 @@ ms.locfileid: "23993661"
                                         <li>
                                             <a href="/backup/">
                                                 <img src="media/index/Backup.svg" alt="" />
-                                                <p>备份</p>
+                                                <p>Backup</p>
                                             </a>
                                         </li>
                                         <li>
@@ -559,7 +559,7 @@ ms.locfileid: "23993661"
                                         <li>
                                             <a href="/backup/">
                                                 <img src="media/index/Backup.svg" alt="" />
-                                                <p>备份</p>
+                                                <p>Backup</p>
                                             </a>
                                         </li>
                                         <li>
@@ -663,7 +663,7 @@ ms.locfileid: "23993661"
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Web 应用</h3>
-                                                    <p>快速创建并大规模部署任务关键型 Web 应用</p>
+                                                    <p>快速创建并部署可缩放的关键任务 Web 应用</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -919,7 +919,7 @@ ms.locfileid: "23993661"
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>备份</h3>
+                                                    <h3>Backup</h3>
                                                     <p>以简单可靠的方式将服务器数据备份到云中</p>
                                                 </div>
                                             </div>
@@ -938,7 +938,7 @@ ms.locfileid: "23993661"
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>站点恢复</h3>
+                                                    <h3>Site Recovery</h3>
                                                     <p>协调私有云的保护和恢复</p>
                                                 </div>
                                             </div>
@@ -1544,7 +1544,7 @@ ms.locfileid: "23993661"
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>安全信息</h3>
-                                                    <p>了解 Azure 如何提供用于生成云解决方案的安全基础结构</p>
+                                                    <p>了解 Azure 如何提供安全基础结构用于构建云解决方案</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1629,7 +1629,7 @@ ms.locfileid: "23993661"
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>备份</h3>
+                                                    <h3>Backup</h3>
                                                     <p>以简单可靠的方式将服务器数据备份到云中</p>
                                                 </div>
                                             </div>
@@ -1648,7 +1648,7 @@ ms.locfileid: "23993661"
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>站点恢复</h3>
+                                                    <h3>Site Recovery</h3>
                                                     <p>协调私有云的保护和恢复</p>
                                                 </div>
                                             </div>
@@ -1725,7 +1725,7 @@ ms.locfileid: "23993661"
                         <ul id="sdkstools-all" class="cardsF">
                             <li>
                                 <div class="container">
-                                    <h2>语言和框架</h2>
+                                    <h2>语言 &amp; 框架</h2>
                                 </div>
                             </li>
                             <li>
@@ -1829,7 +1829,7 @@ ms.locfileid: "23993661"
                                                     <a target="_blank" href="/develop/java/">入门</a>
                                                 </p>
                                                 <p>
-                                                    <a target="_blank" href="/java/api/overview">API 参考</a>
+                                                    <a target="_blank" href="/java/api/">API 参考</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -1988,7 +1988,7 @@ ms.locfileid: "23993661"
                         <ul id="architecture1" class="cardsC">
                             <li>
                                 <div class="container intro">
-                                    <p>为云应用程序建议的一组体系结构。 每种体系结构包括建议的做法、说明性的步骤以及体现建议内容的可执行组件。</p>
+                                    <p>为云应用程序建议的一组体系结构。 每种体系结构包括建议的做法、说明性的步骤以及附带建议的可执行组件。</p>
                                 </div>
                             </li>
                             <li>

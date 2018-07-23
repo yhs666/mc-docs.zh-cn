@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 03/27/2017
-ms.date: 04/30/2018
+origin.date: 06/27/2018
+ms.date: 07/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 6dcb355c430b93c2028420f1555d16be004fdff0
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: d795ae7eb63c62bf36e3c17ccc7284336952ac0d
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121306"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167807"
 ---
 # <a name="create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli-20"></a>使用 Azure CLI 2.0 创建内部负载均衡器以对 VM 进行负载均衡
 
@@ -109,33 +109,6 @@ ms.locfileid: "32121306"
 
 需要先创建支持的虚拟网络资源，然后才能部署一些 VM 并测试负载均衡器。
 
-###  <a name="create-a-network-security-group"></a>创建网络安全组
-创建网络安全组，以定义虚拟网络的入站连接。
-
-```azurecli
-  az network nsg create \
-    --resource-group myResourceGroupILB \
-    --name myNetworkSecurityGroup
-```
-
-### <a name="create-a-network-security-group-rule"></a>创建网络安全组规则
-
-创建网络安全组规则，以允许通过端口 80 的入站连接。
-
-```azurecli
-  az network nsg rule create \
-    --resource-group myResourceGroupILB \
-    --nsg-name myNetworkSecurityGroup \
-    --name myNetworkSecurityGroupRuleHTTP \
-    --protocol tcp \
-    --direction inbound \
-    --source-address-prefix '*' \
-    --source-port-range '*' \
-    --destination-address-prefix '*' \
-    --destination-port-range 22 \
-    --access allow \
-    --priority 300
-```
 ### <a name="create-nics"></a>创建 NIC
 
 使用 [az network nic create](https://docs.azure.cn/zh-cn/cli/network/nic?view=azure-cli-latest#az_network_nic_create) 创建两个网络接口，并将它们与专用 IP 地址和网络安全组关联。 
@@ -147,7 +120,6 @@ for i in `seq 1 2`; do
     --name myNic$i \
     --vnet-name myVnet \
     --subnet mySubnet \
-    --network-security-group myNetworkSecurityGroup \
     --lb-name myLoadBalancer \
     --lb-address-pools myBackEndPool
 done
@@ -212,7 +184,7 @@ runcmd:
   - npm install express -y
   - nodejs index.js
 ``` 
-
+ 
 使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_create) 创建虚拟机。
 
  ```azurecli
@@ -250,7 +222,7 @@ VM 可能需要几分钟才能部署好。
 
 ```azurecli
   az network lb show \
-    --name myLoadBalancer
+    --name myLoadBalancer \
     --resource-group myResourceGroupILB
 ``` 
 ![测试负载均衡器](./media/load-balancer-get-started-ilb-arm-cli/load-balancer-test.png)
@@ -262,6 +234,7 @@ VM 可能需要几分钟才能部署好。
 ```azurecli 
   az group delete --name myResourceGroupILB
 ```
+
 
 ## <a name="next-steps"></a>后续步骤
 本文介绍了如何创建内部基本负载平衡器，向其附加 VM，配置负载均衡器流量规则、运行状况探测，然后测试负载均衡器。 若要详细了解负载均衡器及其关联的资源，请继续阅读操作方法文章。

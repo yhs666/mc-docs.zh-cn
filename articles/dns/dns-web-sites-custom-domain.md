@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 origin.date: 08/16/2016
 ms.date: 12/18/2017
 ms.author: v-nany
-ms.openlocfilehash: 6a266dd16f4354df9cd3565fd5fc0e6bb2458146
-ms.sourcegitcommit: a4026b0b8cd52e5ed19691794048c02117334d6b
+ms.openlocfilehash: 8c94b61084dabfe6c67f965df6b5646e7cffa9fb
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
-ms.locfileid: "26722263"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167789"
 ---
 # <a name="create-dns-records-for-a-web-app-in-a-custom-domain"></a>在自定义域中为 Web 应用创建 DNS 记录
 
@@ -32,7 +32,7 @@ ms.locfileid: "26722263"
 
 请记住，如果在 Azure 中为 Web 应用创建 A 记录，当 Web 应用的基础 IP 地址更改时，则必须手动更新 A 记录。
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="before-you-begin"></a>准备阶段
 
 开始之前，必须先在 Azure DNS 中创建一个 DNS 区域，并将注册机构中的区域委派给 Azure DNS。
 

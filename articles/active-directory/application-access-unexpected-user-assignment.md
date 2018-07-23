@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 07/11/2017
 ms.date: 06/20/2018
 ms.author: v-junlch
-ms.openlocfilehash: b24d01e95a4be57b5f1249648dfab716cb425f01
-ms.sourcegitcommit: d744d18624d2188adbbf983e1c1ac1110d53275c
+ms.openlocfilehash: 5cf9f9075bbfbfc6a1cc67ad2ad55ba8c9d67b5f
+ms.sourcegitcommit: 37a1524d71895b17b6f1d125053ad0b251b88df1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36314242"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39097231"
 ---
 # <a name="how-to-assign-users-to-applications"></a>如何将用户分配给应用程序
 
@@ -39,8 +39,5 @@ ms.locfileid: "36314242"
 4.  [管理员同意](./develop/active-directory-devhowto-multi-tenant-overview.md#understanding-user-and-admin-consent)所有用户均可使用某个应用程序，然后用户登录该应用程序
 
 5.  通过登录应用程序，用户自己[同意使用应用程序](./develop/active-directory-devhowto-multi-tenant-overview.md#understanding-user-and-admin-consent)
-
-## <a name="next-steps"></a>后续步骤
-[使用 Azure Active Directory 管理应用程序](active-directory-enable-sso-scenario.md)
 
 <!-- Update_Description: update metedata properties -->

@@ -76,7 +76,7 @@
 ## 安全
 ### [Web 和移动应用](/app-service-web/app-service-web-tutorial-custom-ssl)
 
-## 备份
+## Backup
 ### [Web 和移动应用](/app-service-web/web-sites-backup)
 ### [虚拟机](/backup/backup-azure-vms-introduction)
 
@@ -90,11 +90,11 @@
 ### [缩放 Linux VM](/virtual-machines/linux/tutorial-create-vmss)
 ### [缩放 Windows VM](/virtual-machines/windows/tutorial-create-vmss)
 
-# 引用
+# 参考
 ## [REST](https://docs.microsoft.com/rest/api/)
 ## SDK
 ### [.NET](https://go.microsoft.com/fwlink/?linkid=834925)
-### [Java](/java/api/overview/)
+### [Java](/java/api/)
 ### [Node.js](http://azure.github.io/azure-sdk-for-node/)
 ### [PHP](https://github.com/Azure/azure-sdk-for-php/blob/master/README)
 ### [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/)

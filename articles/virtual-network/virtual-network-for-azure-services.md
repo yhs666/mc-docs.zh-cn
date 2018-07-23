@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/25/2017
-ms.date: 06/11/2018
+ms.date: 07/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: f21d3c22f93e3c3089786bf370731b2ddbdba7c1
-ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
+ms.openlocfilehash: 1459c369de839b519ad0e562b39f6bf2c05b285e
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37405324"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167878"
 ---
 # <a name="virtual-network-integration-for-azure-services"></a>Azure 服务的虚拟网络集成
 
@@ -68,10 +68,7 @@ ms.locfileid: "37405324"
 
 ## <a name="service-endpoints-for-azure-services"></a>Azure 服务的服务终结点
 
-某些 Azure 服务无法部署在虚拟网络中。 可选择通过启用虚拟网络服务终结点，将某些服务资源的访问限制为仅特定虚拟网络子网。 详细了解[虚拟网络服务终结点](virtual-network-service-endpoints-overview.md)。
-
-目前，以下服务支持服务终结点：<!-- Not Available on - **Azure Storage**: [Securing Azure Storage accounts to Virtual Networks](../storage/common/storage-network-security.md?toc=%2fvirtual-network%2ftoc.json)-->
-- Azure SQL 数据库：[在虚拟网络中保护 Azure SQL 数据库](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fvirtual-network%2ftoc.json)
+某些 Azure 服务无法部署在虚拟网络中。 可选择通过启用虚拟网络服务终结点，将某些服务资源的访问限制为仅特定虚拟网络子网。 详细了解[虚拟网络服务终结点](virtual-network-service-endpoints-overview.md)，以及可以为终结点启用的服务。
 
 ## <a name="virtual-network-integration-across-multiple-azure-services"></a>跨多个 Azure 服务的虚拟网络集成
 

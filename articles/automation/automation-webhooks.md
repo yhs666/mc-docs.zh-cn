@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 origin.date: 06/04/2018
 ms.date: 06/25/2018
 ms.author: v-nany
-ms.openlocfilehash: e5de8a1dcd0cd002507b008439bd70d8e6957350
-ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
+ms.openlocfilehash: 833d149dbdc9bff0067ff738fe42052edd84a7d1
+ms.sourcegitcommit: 53972dcdef77da92529996667545d2e83716f7e2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37405265"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39143398"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>使用 webhook 启动 Azure 自动化 runbook
 
@@ -90,7 +90,7 @@ Webhook 的安全性取决于其 URL 的私密性，可以通过 URL 中包含�
 
 在 Azure 门户中使用以下过程来创建新的链接到 Runbook 的 Webhook。
 
-1. 在 Azure 门户的“Runbook”页中，单击需要通过 Webhook 来启动以查看其详细信息页的 Runbook。
+1. 在 Azure 门户的“Runbook”页中，单击需要通过 Webhook 来启动以查看其详细信息页的 Runbook。 请确保 runbook **状态**为“已发布”。
 2. 单击页面顶部的 **Webhook** 以打开“添加 Webhook”页。
 3. 单击“新建 Webhook”以打开“创建 Webhook”页。
 4. 指定 Webhook 的**名称**、**到期日期**，以及是否应启用它。 有关这些属性的详细信息，请参阅 [Webhook 详细信息](#details-of-a-webhook)。
@@ -209,3 +209,6 @@ $jobid = (ConvertFrom-Json ($response.Content)).jobids[0]
 
 ![Webhook 按钮](media/automation-webhooks/webhook-request-response.png)
 
+## <a name="next-steps"></a>后续步骤
+
+* 若要了解如何使用 Azure 自动化对 Azure 警报执行操作，请参阅[使用警报触发 Azure 自动化 Runbook](automation-create-alert-triggered-runbook.md)。

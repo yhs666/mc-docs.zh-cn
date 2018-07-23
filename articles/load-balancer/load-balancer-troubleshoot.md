@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 06/15/2018
-ms.date: 07/16/2018
+origin.date: 07/06/2018
+ms.date: 07/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: d13ff505fd7420b467dea23101d9a7e2b639f917
-ms.sourcegitcommit: 712b9d69109806346e89adf890fcd4e1f1b67375
+ms.openlocfilehash: 46721d2a4aaf26383834f67e13716b261150086d
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37914455"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167741"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>对 Azure 负载均衡器进行故障排除
 
@@ -128,7 +128,6 @@ ms.locfileid: "37914455"
 ## <a name="additional-network-captures"></a>附加网络捕获
 如果决定打开支持案例，请收集下列信息，以更快获得解决方案。 选择单个后端 VM 执行下列测试：
 - 使用来自 VNet 中后端 VM 的 Psping 进行探测端口响应测试（例如 psping 10.0.0.4:3389）并记录结果。 
-- 使用 VNet 中某个后端 VM 的 TCPing 进行探测端口响应测试（示例：tcping 10.0.0.4 3389）并记录结果。
 - 如果这些 ping 测试未收到响应，请在运行 PsPing 时，在后端 VM 和 VNet 测试 VM 上同时运行 Netsh 跟踪，然后停止 Netsh 跟踪。 
 <!-- Notice: We use tcping to match the begion of this words. -->
 
