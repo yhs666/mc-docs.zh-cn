@@ -1,46 +1,33 @@
 ---
-title: 通过 Azure CLI 2.0 开始使用 Azure DNS | Azure
-description: 了解如何在 Azure DNS 中创建 DNS 区域和记录。 这是有关使用 Azure CLI 2.0 创建和管理第一个 DNS 区域和记录的分步指南。
+title: 快速入门 - 使用 Azure CLI 创建 Azure DNS 区域和记录
+description: 快速入门 - 了解如何在 Azure DNS 中创建 DNS 区域和记录。 这是有关使用 Azure CLI 创建和管理你的第一个 DNS 区域和记录的分步指南。
 services: dns
-documentationcenter: na
-author: yunan2016
-manager: digimobile
-editor: ''
-tags: azure-resource-manager
-ms.assetid: fb0aa0a6-d096-4d6a-b2f6-eda1c64f6182
+author: WenJason
 ms.service: dns
-ms.devlang: azurecli
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-origin.date: 03/10/2017
-ms.date: 05/21/2018
-ms.author: v-nany
-ms.openlocfilehash: 98d29e3b0d2d25d72eaf1ea487de78a1236019af
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.topic: quickstart
+origin.date: 07/16/2018
+ms.date: 07/23/2018
+ms.author: v-jay
+ms.openlocfilehash: ba256e48e7baa6bf4315e3c3c3355871227887fa
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "34173074"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167873"
 ---
-# <a name="get-started-with-azure-dns-using-azure-cli-20"></a>通过 Azure CLI 2.0 开始使用 Azure DNS
+# <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-cli"></a>快速入门：使用 Azure CLI 创建 Azure DNS 区域和记录
 
-> [!div class="op_single_selector"]
-> * [Azure 门户](dns-getstarted-portal.md)
-> * [PowerShell](dns-getstarted-powershell.md)
-> * [Azure CLI 2.0](dns-getstarted-cli.md)
+本文将引导你完成使用 Azure CLI（适用于 Windows、Mac 和 Linux）创建你的第一个 DNS 区域和记录的步骤。 也可以使用 [Azure 门户](dns-getstarted-portal.md)或 [Azure PowerShell](dns-getstarted-powershell.md) 执行这些步骤。
 
-本文指导完成使用跨平台的 Azure CLI 2.0（适用于 Windows、Mac 和 Linux）创建第一个 DNS 区域和记录的步骤。 也可以使用 Azure 门户或 Azure PowerShell 执行这些步骤。
-
-DNS 区域用来托管某个特定域的 DNS 记录。 若要开始在 Azure DNS 中托管域，需要为该域名创建 DNS 区域。 随后会在此 DNS 区域内为每个 DNS 记录创建域。 最后，要将 DNS 区域发布到 Internet，需要为域配置名称服务器。 以下描述了上述每一个步骤。
-
-这些说明假设已安装并登录到 Azure CLI 2.0。 若需帮助，请参阅[如何使用 Azure CLI 2.0 管理 DNS 区域](dns-operations-dnszones-cli.md)。
+DNS 区域用来托管某个特定域的 DNS 记录。 若要开始在 Azure DNS 中托管域，需要为该域名创建 DNS 区域。 随后会在此 DNS 区域内为每个 DNS 记录创建域。 最后，若要将 DNS 区域发布到 Internet，需要为域配置名称服务器。 以下描述了上述每一个步骤。
 
 Azure DNS 现在还支持专用 DNS 区域（当前为公开预览版）。 若要详细了解专用 DNS 区域，请参阅[将 Azure DNS 用于专用域](private-dns-overview.md)。 有关如何创建专用 DNS 区域的示例，请参阅[通过 CLI 开始使用 Azure DNS 专用区域](./private-dns-getstarted-cli.md)。
 
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+
 ## <a name="create-the-resource-group"></a>创建资源组
 
-在创建 DNS 区域之前，创建了包含 DNS 区域的资源组。 以下显示该命令。
+在创建 DNS 区域之前，创建一个资源组来包含 DNS 区域：
 
 ```azurecli
 az group create --name MyResourceGroup --location "China East"
@@ -56,7 +43,6 @@ az group create --name MyResourceGroup --location "China East"
 az network dns zone create -g MyResourceGroup -n contoso.com
 ```
 
-
 ## <a name="create-a-dns-record"></a>创建 DNS 记录
 
 若要创建 DNS 记录，请使用 `az network dns record-set [record type] add-record` 命令。 若需帮助，例如需要 A 记录的帮助信息，请参阅 `azure network dns record-set A add-record -h`。
@@ -67,9 +53,6 @@ az network dns zone create -g MyResourceGroup -n contoso.com
 az network dns record-set a add-record -g MyResourceGroup -z contoso.com -n www -a 1.2.3.4
 ```
 
-对于其他记录类型，对于具有一条以上记录的记录集，若要使用其他 TTL 值并修改现有记录，请参阅[使用 Azure CLI 2.0 管理 DNS 记录和记录集](dns-operations-recordsets-cli.md)。
-
-
 ## <a name="view-records"></a>查看记录
 
 若要列出区域中的 DNS 记录，请使用：
@@ -77,7 +60,6 @@ az network dns record-set a add-record -g MyResourceGroup -z contoso.com -n www 
 ```azurecli
 az network dns record-set list -g MyResourceGroup -z contoso.com
 ```
-
 
 ## <a name="update-name-servers"></a>更新名称服务器
 
@@ -111,7 +93,7 @@ az network dns zone show -g MyResourceGroup -n contoso.com -o json
 
 ## <a name="delete-all-resources"></a>删除所有资源
  
-若要删除在本文中创建的所有资源，请执行以下步骤：
+当不再需要时，可以通过删除资源组来删除本快速入门中创建的所有资源：
 
 ```azurecli
 az group delete --name MyResourceGroup
@@ -119,8 +101,7 @@ az group delete --name MyResourceGroup
 
 ## <a name="next-steps"></a>后续步骤
 
-若要了解 Azure DNS 的详细信息，请参阅 [Azure DNS 概述](dns-overview.md)。
+现在，你已使用 Azure CLI 创建了你的第一个 DNS 区域和记录，可以在自定义域中为 Web 应用创建记录了。
 
-若要了解有关管理 Azure DNS 中的 DNS 区域的详细信息，请参阅[使用 Azure CLI 2.0 管理 Azure DNS 中的 DNS 区域](dns-operations-dnszones-cli.md)。
-
-若要了解有关管理 Azure DNS 中的 DNS 记录的详细信息，请参阅[使用 Azure CLI 2.0 管理 Azure DNS 中的 DNS 记录和记录集](dns-operations-recordsets-cli.md)。
+> [!div class="nextstepaction"]
+> [在自定义域中为 web 应用创建 DNS 记录](./dns-web-sites-custom-domain.md)

@@ -6,7 +6,7 @@
 
 ```
 client.login("facebook").done(function (results) {
-     alert("You are now logged in as: " + results.userId);
+     alert("You are now signed in as: " + results.userId);
 }, function (err) {
      alert("Error: " + err);
 });
@@ -21,7 +21,7 @@ client.login("facebook").done(function (results) {
 
 ###<a name="client-auth"></a>如何：使用提供程序（客户端流）进行身份验证
 
-你的应用还能够独立联系标识提供者，然后将返回的令牌提供给应用服务以进行身份验证。 使用此客户端流可为用户提供单一登录体验，或者从标识提供者中检索其他用户数据。
+用户的应用还能够独立联系标识提供者，并将返回的令牌提供给应用服务以进行身份验证。 使用此客户端流可为用户提供单一登录体验，或者从标识提供者中检索其他用户数据。
 
 #### <a name="social-authentication-basic-example"></a>社交身份验证基本示例
 
@@ -32,7 +32,7 @@ client.login(
      "facebook",
      {"access_token": token})
 .done(function (results) {
-     alert("You are now logged in as: " + results.userId);
+     alert("You are now signed in as: " + results.userId);
 }, function (err) {
      alert("Error: " + err);
 });
@@ -50,7 +50,7 @@ WL.login({ scope: "wl.basic"}).then(function (result) {
             "microsoftaccount",
             {"authenticationToken": result.session.authentication_token})
       .done(function(results){
-            alert("You are now logged in as: " + results.userId);
+            alert("You are now signed in as: " + results.userId);
       },
       function(error){
             alert("Error: " + err);
@@ -59,11 +59,11 @@ WL.login({ scope: "wl.basic"}).then(function (result) {
 
 ```
 
-这个示例将从 Live Connect 获取一个令牌，并通过调用 login 函数将该令牌提供给你的应用服务。
+这个示例将从 Live Connect 获取一个令牌，并通过调用 login 函数将该令牌提供给应用服务。
 
 ###<a name="auth-getinfo"></a>如何：获取已经过身份验证的用户相关信息
 
-可以使用具有任何 AJAX 库的 HTTP 调用从 `/.auth/me` 终结点检索身份验证信息。  确保将 `X-ZUMO-AUTH` 标头设置为身份验证令牌。  身份验证令牌存储在 `client.currentUser.mobileServiceAuthenticationToken`中。  例如，若要使用提取 API：
+可以结合任何 AJAX 库使用 HTTP 调用，从 `/.auth/me` 终结点检索身份验证信息。  确保将 `X-ZUMO-AUTH` 标头设置为身份验证令牌。  身份验证令牌存储在 `client.currentUser.mobileServiceAuthenticationToken`中。  例如，若要使用提取 API：
 
 ```
 var url = client.applicationUrl + '/.auth/me';

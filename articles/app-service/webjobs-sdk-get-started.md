@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 04/27/2018
-ms.date: 07/02/2018
+ms.date: 07/30/2018
 ms.author: v-yiso
-ms.openlocfilehash: 062003fa839ac140496174c0cbbe2deb40bcc3a9
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.openlocfilehash: 803df68d085dc05d02004245c747ebedc05a68e8
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315662"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167818"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>用于事件驱动的后台处理的 Azure WebJobs SDK 入门
 
@@ -47,7 +47,7 @@ public static void Run(
 
 ### <a name="versions-2x-and-3x"></a>版本 2.x 和 3.x
 
-本文中的说明介绍如何创建 WebJobs SDK 版本 2.x 项目，并提供有关版本 3.x（预览版）中不同之处的备注。 3.x 中引入的主要更改是使用 .NET Core 而不是 .NET Framework。
+相关说明介绍了如何创建 WebJobs SDK 版本 2.x 项目。 WebJobs SDK 的最新版本是 3.x，但它目前处于预览状态，本文尚未提供该版本的说明。 版本 3.x 中引入的主要更改是使用 .NET Core 而不是 .NET Framework。
 
 ### <a name="azure-functions"></a>Azure Functions
 
@@ -66,15 +66,13 @@ public static void Run(
 
 2. 选择“Windows 经典桌面”>“控制台应用(.NET Framework)”。
 
-   若要创建 3.x 项目，请选择“.NET Core”>“控制台应用(.NET Core)”。
-
 3. 将项目命名为 *WebJobsSDKSample*，然后选择“确定”。
 
    ![“新建项目”对话框](./media/webjobs-sdk-get-started/new-project.png)
 
 ## <a name="add-webjobs-nuget-package"></a>添加 WebJobs NuGet 包
 
-1. 安装 NuGet 包 `Microsoft.Azure.WebJobs` 的最新稳定 2.x 版本。 （对于 WebJobs SDK 3.x，请选择最新的 3.x 版本。）
+1. 安装 NuGet 包 `Microsoft.Azure.WebJobs` 的最新稳定 2.x 版本。
  
    下面是版本 2.2.0 的“包管理器控制台”命令：
 

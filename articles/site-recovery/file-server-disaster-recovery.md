@@ -9,16 +9,16 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/06/2018
-ms.date: 05/07/2018
+origin.date: 07/06/2018
+ms.date: 07/23/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 15fce30bf72a75c68bbd85b9812ea7e617e9741e
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: 10a107fb9846f4609addcade58118b44568e818a
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33815170"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168429"
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>使用 Azure Site Recovery 保护文件服务器 
 

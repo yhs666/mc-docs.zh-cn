@@ -10,12 +10,12 @@ origin.date: 04/30/2017
 ms.date: 07/02/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 4053857d4ebc241ee6cf0ab167316305601a393b
-ms.sourcegitcommit: 5b6a2fc55e5b16ae480bd497c3ac2c3a2fd44703
+ms.openlocfilehash: eda5eace636e5c4604d28a1babc1586d365a8d91
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38999212"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167922"
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>教程：准备异地复制的 Azure 容器注册表
 
@@ -67,25 +67,9 @@ Azure Cloud Shell 不包含完成本教程每个步骤所需的 Docker 组件。
 > 由于 Azure 容器注册表通常是在多个容器主机上使用的长期生存的资源，因此我们建议在注册表自身所在的资源组中创建该注册表。 配置异地复制注册表和 Webhook 时，这些附加资源会放置在同一个资源组中。
 >
 
-## <a name="configure-geo-replication"></a>配置异地复制
+<!--Notice:  Pending the geo replication 
+<!-- Not Available on ## Configure geo-replication-->
 
-获取高级注册表后，可以配置异地复制。 Web 应用（在下一篇教程中，会将其配置为在两个区域中运行）可从最靠近的注册表中提取其容器映像。
-
-在 Azure 门户中导航到新的容器注册表，选择“服务”下面的“复制项”：
-
-![Azure 门户容器注册表 UI 中的“复制项”][tut-portal-03]
-
-此时会出现一幅地图，其中显示了绿色的六边形，表示支持异地复制的 Azure 区域：
-
- ![Azure 门户中的区域地图][tut-map-01]
-
-选择注册表对应的绿色六边形将它复制到“中国东部”区域，然后选择“创建复制项”下面的“创建”：
-
- ![Azure 门户中的“创建副本”UI][tut-portal-04]
-
-完成复制后，门户会显示两个区域的“就绪”状态。 使用“刷新”按钮刷新复制状态；创建并同步副本可能需要大约一分钟时间。
-
-![Azure 门户中的复制状态 UI][tut-portal-05]
 
 ## <a name="container-registry-login"></a>容器注册表登录
 

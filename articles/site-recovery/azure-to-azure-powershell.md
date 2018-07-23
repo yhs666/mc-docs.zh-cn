@@ -7,15 +7,15 @@ manager: digimobile
 editor: raynew
 ms.service: site-recovery
 ms.topic: article
-origin.date: 05/15/2018
-ms.date: 06/18/2018
+origin.date: 07/06/2018
+ms.date: 07/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 08b1af8e36e2b9dc241edac010ae55f47bda166e
-ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
+ms.openlocfilehash: 2eba90eed06d9c0feca98661acde67c8fc10b39a
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2018
-ms.locfileid: "35568485"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168385"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>使用 Azure PowerShell 为 Azure 虚拟机设置灾难恢复
 
@@ -34,7 +34,7 @@ ms.locfileid: "35568485"
 > - 故障转移到恢复区域。
 
 > [!NOTE]
-> “*Azure 虚拟机灾难恢复*”方案的 Azure Site Recovery PowerShell 支持目前以预览版提供。 并非所有可以通过门户使用的方案功能都能通过 Azure PowerShell 使用。 目前不支持通过 Azure PowerShell 使用的部分方案功能包括：
+> 并非所有可以通过门户使用的方案功能都能通过 Azure PowerShell 使用。 目前不支持通过 Azure PowerShell 使用的部分方案功能包括：
 > - 复制使用托管磁盘的 Azure 虚拟机的功能。
 > - 在无需显式指定虚拟机每个磁盘的情况下指定要复制虚拟机中所有磁盘的功能。  
 
@@ -52,7 +52,6 @@ ms.locfileid: "35568485"
 ```azurepowershell
 Connect-AzureRmAccount -Environment AzureChinaCloud
 ```
-
 选择 Azure 订阅。 使用 Get-AzureRmSubscription cmdlet 获取有权访问的 Azure 订阅列表。 使用 Select-AzureRmSubscription cmdlet 选择要使用的 Azure 订阅。
 
 ```azurepowershell
@@ -553,5 +552,4 @@ Errors           : {}
 ## <a name="next-steps"></a>后续步骤
 查看 [Azure Site Recovery PowerShell 参考](https://docs.microsoft.com/powershell/module/AzureRM.RecoveryServices.SiteRecovery)来了解如何通过 PowerShell 执行其他任务，例如创建恢复计划，以及对恢复计划执行测试故障转移。
 
-<!-- Update_Description: new articles on site recovery azure to azure powershell -->
-<!--ms.date: 06/18/2018-->
+<!-- Update_Description: update meta properties -->

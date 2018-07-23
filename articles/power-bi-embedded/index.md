@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 origin.date: 09/28/2017
-ms.date: 06/12/2018
+ms.date: 07/18/2018
 ms.author: v-junlch
-ms.openlocfilehash: 0b1042ef105213c75363f366c2a1c486e455445c
-ms.sourcegitcommit: 908d37aeb736aabf35cfb397530fb675b04d52e4
+ms.openlocfilehash: c5d5f0f67157162b77ef0c8a9b72e8a1c77b1837
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2018
-ms.locfileid: "35323835"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168491"
 ---
 # <a name="power-bi-embedded-documentation"></a>Power BI Embedded 文档
 

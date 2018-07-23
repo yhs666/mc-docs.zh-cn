@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 05/03/2018
-ms.date: 06/18/2018
+ms.date: 07/23/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: aa1f5651d8cfc9f3975b1e5a623e099dce2124a8
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: d225ca58f4220194dd6ddbd9a321b6e67df9cb5e
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "35416849"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167996"
 ---
 # <a name="what-is-azure-load-balancer"></a>什么是 Azure 负载均衡器？
 
@@ -43,6 +43,7 @@ ms.locfileid: "35416849"
 * 使用入站网络地址转换 (NAT) 规则通过端口转发将流量转发到特定 VM 上的特定端口。
 * 使用公共负载均衡器为虚拟网络中的 VM 提供[出站连接](load-balancer-outbound-connections.md)。
 
+
 >[!NOTE]
 > Azure 为方案提供了一套完全托管的负载均衡解决方案。 若要寻求传输层安全性 (TLS) 协议终止（“SSL 卸载”）或每个 HTTP/HTTPS 请求的应用层处理，请查看[应用程序网关](../application-gateway/application-gateway-introduction.md)。 若要寻求全局 DNS 负载均衡，请查看[流量管理器](../traffic-manager/traffic-manager-overview.md)。 端到端场景可从结合所需的解决方案中受益。
 
@@ -59,7 +60,7 @@ ms.locfileid: "35416849"
 * **负载均衡**
 
     使用 Azure 负载均衡器可以创建负载均衡规则，以便将抵达前端的流量分配到后端池实例。 负载均衡器使用基于哈希的算法来分配入站流量，并相应地重写发往后端池实例的流量的标头。 当运行状况探测指示后端终结点运行正常时，可以使用一个服务器来接收新流量。
-
+    
     默认情况下，负载均衡器使用 5 元组哈希（包括源 IP 地址、源端口、目标 IP 地址、目标端口和 IP 协议编号）将流量映射到可用服务器。 可以启用给定规则的 2 元组或 3 元组哈希，来与特定的源 IP 地址创建关联。 同一数据包流量的所有数据包将会抵达负载均衡前端后面的同一实例。 当客户端从同一源 IP 发起新流量时，源端口将会更改。 因此，5 元组可能导致流量定向到不同的后端终结点。
 
     有关详细信息，请参阅[负载均衡器分配模式](load-balancer-distribution-mode.md)。 下图显示了基于哈希的分配：
@@ -78,6 +79,7 @@ ms.locfileid: "35416849"
     - 每个终结点仅由某个 VM 应答。  例如，TCP 握手始终在客户端与选定的后端 VM 之间发生。  前端请求的响应是由后端 VM 生成的。 成功验证与前端的连接后，将会验证与至少一个后端虚拟机的端到端连接。
     - 应用程序有效负载对负载均衡器透明，可支持任何 UDP 或 TCP 应用程序。 对于需要根据 HTTP 请求进行处理或操作应用层有效负载（例如，分析 HTTP URL）的工作负荷，应使用[应用程序网关](https://www.azure.cn/home/features/application-gateway/)等第 7 层负载均衡器。
     - 由于负载均衡器不能识别 TCP 有效负载，并且不会提供 TLS 卸载（“SSL”），因此，你可以使用负载均衡器构建端到端的已加密方案，并通过在 VM 本身上终止 TLS 连接对 TLS 应用程序进行大规模的横向扩展。  例如，只会根据添加到后端池的 VM 类型和数目限制 TLS 会话密钥容量。  如果需要“SSL 卸载”、应用层处理或想要将证书管理权委托给 Azure，应改用 Azure 的第 7 层负载均衡器[应用程序网关](https://www.azure.cn/home/features/application-gateway/)。
+        
 
 * **自动重新配置**
 
@@ -94,7 +96,7 @@ ms.locfileid: "35416849"
     - **TCP 自定义探测：** 此探测依赖于在定义的探测端口上成功建立 TCP 会话。 只要 VM 上指定的侦听器存在，此探测就会成功。 如果连接被拒绝，此探测将会失败。 此探测将替代默认来宾代理探测。
 
     - **来宾代理探测（仅适用于平台即服务 [PaaS] VM）：** 负载均衡器也可以利用 VM 中的来宾代理。 仅当实例处于就绪状态时，来宾代理才会侦听并以“HTTP 200 正常”做出响应。 如果代理没有使用“HTTP 200 正常”进行响应，则负载均衡器会将实例标记为无响应，并停止向该实例发送流量。 负载均衡器继续尝试访问实例。 如果来宾代理使用 HTTP 200 响应，则负载均衡器会再次向该实例发送流量。 来宾代理探测是最终手段，支持 HTTP 或 TCP 自定义探测配置时不建议使用它。 
-
+    
 * **出站连接 (SNAT)**
 
     从虚拟网络中的专用 IP 地址发往 Internet 上的公共 IP 地址的所有出站流量可以转换为负载均衡器的前端 IP 地址。 通过负载均衡规则将公共前端绑定到后端 VM 后，Azure 会将出站连接设定为自动转换成公共前端的 IP 地址。

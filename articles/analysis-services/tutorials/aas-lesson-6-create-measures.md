@@ -3,18 +3,18 @@ title: Azure Analysis Services 教程第 6 课：创建度量值 | Azure
 description: 介绍如何在 Azure Analysis Services 教程项目中创建度量值。
 author: rockboyfor
 manager: digimobile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 origin.date: 04/12/2018
-ms.date: 04/30/2018
+ms.date: 07/16/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8fa13704e77446493c9dcb3955fc26aadf89cf29
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 2c00343e1bdf52814df1c056f9dbf15799840d16
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121472"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167988"
 ---
 # <a name="create-measures"></a>创建度量值
 

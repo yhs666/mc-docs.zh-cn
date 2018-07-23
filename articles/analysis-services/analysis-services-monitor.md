@@ -3,18 +3,18 @@ title: 监视 Azure Analysis Services 服务器指标 | Azure
 description: 了解如何在 Azure 门户中监视 Analysis Services 服务器指标。
 author: rockboyfor
 manager: digimobile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 origin.date: 04/12/2018
-ms.date: 04/30/2018
+ms.date: 07/16/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: bfbe03d3969a2f57af95224a22bab214114306a6
-ms.sourcegitcommit: 66868bb736a3f5938102c66efd6454b46343151c
+ms.openlocfilehash: c605e62d14e9d40d66c62749d17e0e4d52cceef8
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873134"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167964"
 ---
 # <a name="monitor-server-metrics"></a>监视服务器指标
 

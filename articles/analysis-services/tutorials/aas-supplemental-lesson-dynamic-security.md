@@ -3,18 +3,18 @@ title: Azure Analysis Services 教程补充课程：动态安全性 | Azure
 description: 介绍如何通过 Azure Analysis Services 教程中的行筛选器来使用动态安全性。
 author: rockboyfor
 manager: digimobile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 origin.date: 04/12/2018
-ms.date: 04/30/2018
+ms.date: 07/16/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2dffd8a62cca37bc840fc2c86e071f1e6710aa96
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 876ae5312db51984e98b83f46d37b6b3d0e317d3
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121544"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167956"
 ---
 # <a name="supplemental-lesson---dynamic-security"></a>补充课程 - 动态安全性
 

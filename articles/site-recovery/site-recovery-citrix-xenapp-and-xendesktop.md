@@ -12,15 +12,15 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/22/2018
-ms.date: 03/05/2018
+origin.date: 07/06/2018
+ms.date: 07/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: cd57dba6261918f64d88c0e4b2601e0746f1454a
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 8429314c5b0e3db2a8286e27bca3b4e158d2b0bc
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
-ms.locfileid: "29731465"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168459"
 ---
 # <a name="replicate-a-multi-tier-citrix-xenapp-and-xendesktop-deployment-using-azure-site-recovery"></a>使用 Azure Site Recovery 复制多层 Citrix XenApp 和 XenDesktop 部署
 
@@ -192,5 +192,4 @@ Citrix XenApp 和 XenDesktop 场通常具有以下部署模式：
 ## <a name="next-steps"></a>后续步骤
 
 可以从本白皮书中[详细了解](https://aka.ms/citrix-xenapp-xendesktop-with-asr)如何复制 Citrix XenApp 和 XenDesktop 部署。 请查看相关指南，使用 Site Recovery [复制其他应用程序](site-recovery-workload.md)。
-<!-- Update_Description: new articles on site recovery citrix xenapp and xndesktop -->
-<!--ms.date: 03/05/2018-->
+<!-- Update_Description: update meta properties -->

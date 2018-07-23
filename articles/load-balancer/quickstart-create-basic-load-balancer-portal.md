@@ -18,12 +18,12 @@ origin.date: 03/22/2018
 ms.date: 06/18/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: c6a4b7abd5929d5a79c05c41131a8779b3ee05ea
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: b6932fea38134596df392d3a6b2e6a319836cfe3
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "35416910"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167986"
 ---
 # <a name="quickstart-create-a-public-basic-load-balancer-by-using-the-azure-portal"></a>快速入门：使用 Azure 门户创建公共基本负载均衡器
 
@@ -46,8 +46,9 @@ ms.locfileid: "35416910"
    - **myPublicIP**：必须创建的公共 IP，其 SKU 设置为“基本”，“分配”设置为“动态”。
    - **myResourceGroupLB**：新资源组的名称
 3. 选择“创建” 。
+   
+![创建负载均衡器](./media/load-balancer-get-started-internet-portal/1-load-balancer.png)
 
-    ![创建负载均衡器](./media/load-balancer-get-started-internet-portal/1-load-balancer.png)
 
 ## <a name="create-back-end-servers"></a>创建后端服务器
 
@@ -56,33 +57,33 @@ ms.locfileid: "35416910"
 ### <a name="create-a-virtual-network"></a>创建虚拟网络
 1. 在门户的左上方，选择“新建” > “网络” > “虚拟网络”。
 2. 在“创建虚拟网络”窗格中输入以下值，然后选择“创建”：
-    - **myVnet**：虚拟网络的名称
-    - **myResourceGroupLB**：现有资源组的名称
-    - **myBackendSubnet**：子网名称
+   - **myVnet**：虚拟网络的名称
+   - **myResourceGroupLB**：现有资源组的名称
+   - **myBackendSubnet**：子网名称
 
-    ![创建虚拟网络](./media/load-balancer-get-started-internet-portal/2-load-balancer-virtual-network.png)
+   ![创建虚拟网络](./media/load-balancer-get-started-internet-portal/2-load-balancer-virtual-network.png)
 
 ### <a name="create-virtual-machines"></a>创建虚拟机
 
 1. 在门户的左上方，选择“新建” > “计算” > “Windows Server 2016 Datacenter”。 
 2. 输入虚拟机的以下值，然后选择“确定”：
-    - **myVM1**：虚拟机的名称。        
-    - **azureuser**：管理员用户名。    
-    - **myResourceGroupLB**：资源组。 （在“资源组”下，依次选择“使用现有项”、“myResourceGroupLB”。）   
+   - **myVM1**：虚拟机的名称。        
+   - **azureuser**：管理员用户名。    
+   - **myResourceGroupLB**：资源组。 （在“资源组”下，依次选择“使用现有项”、“myResourceGroupLB”。）   
 3. 选择“DS1_V2”作为虚拟机的大小，然后单击“选择”。
 4. 为 VM 设置输入以下值：
-    - **myAvailabilitySet**：新建的可用性集的名称。
-    - **myVNet**：虚拟网络的名称。 （确保已选中。）
-    - **myBackendSubnet**：子网名称。 （确保已选中。）
-    - **myVM1-ip**：公共 IP 地址。
-    - **myNetworkSecurityGroup**：必须创建的新网络安全组（NSG，一种防火墙）的名称。
+   - **myAvailabilitySet**：新建的可用性集的名称。
+   - **myVNet**：虚拟网络的名称。 （确保已选中。）
+   - **myBackendSubnet**：子网名称。 （确保已选中。）
+   - **myVM1-ip**：公共 IP 地址。
+   - **myNetworkSecurityGroup**：必须创建的新网络安全组（NSG，一种防火墙）的名称。
 5. 选择“禁用”以禁用启动诊断。
 6. 选择“确定”，检查摘要页上的设置，然后选择“创建”。
 7. 执行步骤 1 到 6，使用以下设置创建名为 **VM2** 的另一个 VM：
-    - **myAvailabilityset**：可用性集。
-    - **myVnet**：虚拟网络。
-    - **myBackendSubnet**：子网。
-    - **myNetworkSecurityGroup**：网络安全组。 
+   - **myAvailabilityset**：可用性集。
+   - **myVnet**：虚拟网络。
+   - **myBackendSubnet**：子网。
+   - **myNetworkSecurityGroup**：网络安全组。 
 
 ### <a name="create-nsg-rules"></a>创建 NSG 规则
 
@@ -91,25 +92,27 @@ ms.locfileid: "35416910"
 1. 在左侧菜单中选择“所有资源”。 在资源列表中，选择“myResourceGroupLB”资源组中的“myNetworkSecurityGroup”。
 2. 在“设置”下，依次选择“入站安全规则”、“添加”。
 3. 为名为 **myHTTPRule** 的入站安全规则输入以下值，以允许使用端口 80 的入站 HTTP 连接： 然后选择“确定”。
-    - 在“源”中输入“服务标记”
-    - 在“源服务标记”中输入 **Internet**
-    - 在“目标端口范围”中输入 **80**
-    - 在“协议”中输入 **TCP**
-    - 在“操作”中输入“允许”
-    - **100** - **优先级**
-    - 在“名称”中输入 **myHTTPRule**
-    - 在“说明”中输入“允许 HTTP”
-
-    ![创建 NSG 规则](./media/load-balancer-get-started-internet-portal/8-load-balancer-nsg-rules.png)
+   - 在“源”中输入“服务标记”
+   - 在“源服务标记”中输入 **Internet**
+   - 在“目标端口范围”中输入 **80**
+   - 在“协议”中输入 **TCP**
+   - 在“操作”中输入“允许”
+   - **100** - **优先级**
+   - 在“名称”中输入 **myHTTPRule**
+   - 在“说明”中输入“允许 HTTP”
+ 
+   ![创建 NSG 规则](./media/load-balancer-get-started-internet-portal/8-load-balancer-nsg-rules.png)
 4. 重复步骤 2 到 3 创建名为 **myRDPRule** 的另一规则，以允许通过端口 3389 的入站 RDP 连接。 使用以下值：
-    - 在“源”中输入“服务标记”
-    - 在“源服务标记”中输入 **Internet**
-    - 在“目标端口范围”中输入 **3389**
-    - 在“协议”中输入 **TCP**
-    - 在“操作”中输入“允许”
-    - **200** - **优先级**
-    - 在“名称”中输入 **myRDPRule**
-    - 在“说明”中输入“允许 RDP”
+   - 在“源”中输入“服务标记”
+   - 在“源服务标记”中输入 **Internet**
+   - 在“目标端口范围”中输入 **3389**
+   - 在“协议”中输入 **TCP**
+   - 在“操作”中输入“允许”
+   - **200** - **优先级**
+   - 在“名称”中输入 **myRDPRule**
+   - 在“说明”中输入“允许 RDP”
+
+   
 
 ### <a name="install-iis"></a>安装 IIS
 
@@ -118,17 +121,18 @@ ms.locfileid: "35416910"
 3. 使用用户名 **azureuser** 和密码 **Azure123456!** 登录到 VM。
 4. 在服务器桌面上浏览到“Windows 管理工具” > “服务器管理器”。
 5. 在服务器管理器中选择“管理”，然后选择“添加角色和功能”。
-    ![添加服务器管理器角色](./media/load-balancer-get-started-internet-portal/servermanager.png)
+   ![添加服务器管理器角色](./media/load-balancer-get-started-internet-portal/servermanager.png)
 6. 在“添加角色和功能向导”中使用以下值：
-    - 在“选择安装类型”页上，选择“基于角色或基于功能的安装”。
-    - 在“选择目标服务器”页上，选择“myVM1”。
-    - 在“选择服务器角色”页上，选择“Web 服务器(IIS)”。
-    - 遵照说明完成向导中的剩余步骤。 
+   - 在“选择安装类型”页上，选择“基于角色或基于功能的安装”。
+   - 在“选择目标服务器”页上，选择“myVM1”。
+   - 在“选择服务器角色”页上，选择“Web 服务器(IIS)”。
+   - 遵照说明完成向导中的剩余步骤。 
 7. 对于虚拟机 **myVM2**，请重复步骤 1 到 6。
 
 ## <a name="create-resources-for-the-basic-load-balancer"></a>为基本负载均衡器创建资源
 
 在本部分，我们将为后端地址池和运行状况探测配置负载均衡器设置。 另外，指定负载均衡器和 NAT 规则。
+
 
 ### <a name="create-a-back-end-address-pool"></a>创建后端地址池
 
@@ -137,12 +141,12 @@ ms.locfileid: "35416910"
 1. 在左侧菜单中选择“所有资源”，然后在资源列表中选择“myLoadBalancer”。
 2. 在“设置”下，依次选择“后端池”、“添加”。
 3. 在“添加后端池”页上执行以下操作，然后选择“确定”：
-    - 对于“名称”，请输入 **myBackEndPool**。
-    - 对于“关联到”，请在下拉菜单中选择“可用性集”。
-    - 对于“可用性集”，请选择“myAvailabilitySet”。
-    - 选择“添加目标网络 IP 配置”，将所创建的每个虚拟机（**myVM1** 和 **myVM2**）添加到后端池。
+   - 对于“名称”，请输入 **myBackEndPool**。
+   - 对于“关联到”，请在下拉菜单中选择“可用性集”。
+   - 对于“可用性集”，请选择“myAvailabilitySet”。
+   - 选择“添加目标网络 IP 配置”，将所创建的每个虚拟机（**myVM1** 和 **myVM2**）添加到后端池。
 
-    ![添加到后端地址池](./media/load-balancer-get-started-internet-portal/3-load-balancer-backend-02.png)
+   ![添加到后端地址池](./media/load-balancer-get-started-internet-portal/3-load-balancer-backend-02.png)
 
 3. 确保负载均衡器的后端池设置同时显示了 VM **VM1** 和 **VM2**。
 
@@ -153,11 +157,11 @@ ms.locfileid: "35416910"
 1. 在左侧菜单中选择“所有资源”，然后在资源列表中选择“myLoadBalancer”。
 2. 在“设置”下，依次选择“运行状况探测”、“添加”。
 3. 请使用以下值，然后选择“确定”：
-    - **myHealthProbe**：运行状况探测的名称
-    - **HTTP**：协议类型
-    - **80**：端口号
-    - **15**：两次探测尝试之间的**时间间隔**，以秒为单位
-    - **2**：**不正常阈值**，即，将 VM 视为不正常之前必须发生的连续探测失败次数
+   - **myHealthProbe**：运行状况探测的名称
+   - **HTTP**：协议类型
+   - **80**：端口号
+   - **15**：两次探测尝试之间的**时间间隔**，以秒为单位
+   - **2**：**不正常阈值**，即，将 VM 视为不正常之前必须发生的连续探测失败次数
 
    ![添加探测器](./media/load-balancer-get-started-internet-portal/4-load-balancer-probes.png)
 
@@ -170,13 +174,13 @@ ms.locfileid: "35416910"
 1. 在左侧菜单中选择“所有资源”，然后在资源列表中选择“myLoadBalancer”。
 2. 在“设置”下，依次选择“负载均衡规则”、“添加”。
 3. 请使用以下值，然后选择“确定”：
-    - **myHTTPRule**：负载均衡器规则的名称
-    - **TCP**：协议类型
-    - **80**：端口号
-    - **80**：后端端口
-    - **myBackendPool**：后端池的名称
-    - **myHealthProbe**：运行状况探测的名称
-
+   - **myHTTPRule**：负载均衡器规则的名称
+   - **TCP**：协议类型
+   - **80**：端口号
+   - **80**：后端端口
+   - **myBackendPool**：后端池的名称
+   - **myHealthProbe**：运行状况探测的名称
+    
    ![添加负载均衡器规则](./media/load-balancer-get-started-internet-portal/5-load-balancing-rules.png)
 
 ## <a name="test-the-load-balancer"></a>测试负载均衡器
@@ -184,7 +188,7 @@ ms.locfileid: "35416910"
 
 2. 复制该公共 IP 地址，并将其粘贴到浏览器的地址栏。 IIS Web 服务器的默认页会显示在浏览器中。
 
-    ![IIS Web 服务器](./media/load-balancer-get-started-internet-portal/9-load-balancer-test.png)
+   ![IIS Web 服务器](./media/load-balancer-get-started-internet-portal/9-load-balancer-test.png)
 
 ## <a name="clean-up-resources"></a>清理资源
 

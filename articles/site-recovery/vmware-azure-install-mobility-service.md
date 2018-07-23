@@ -1,20 +1,18 @@
 ---
 title: 安装移动服务（VMware/物理机到 Azure）| Azure
 description: 了解如何安装移动服务代理以使用 Azure Site Recovery 保护本地 VMware VM 和物理服务器。
-services: site-recovery
 author: rockboyfor
-manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 03/05/2018
-ms.date: 05/23/2018
+origin.date: 07/06/2018
+ms.date: 07/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 427cbbdec06db84c4507597fefdb72bad7ed1c7c
-ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
+ms.openlocfilehash: e3a79b11abca45fbb4933a83868f5f206b94479a
+ms.sourcegitcommit: f7ff09be9f3be5e3eb795e383c0c670f480f233d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2018
-ms.locfileid: "35568400"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39169029"
 ---
 # <a name="install-the-mobility-service"></a>安装移动服务 
 
@@ -123,4 +121,4 @@ Azure Site Recovery 移动服务安装在要复制到 Azure 的 VMware VM 和物
     uninstall.sh -Y
     ```
 
-<!-- Update_Description: update meta properties, wording update  -->
+<!-- Update_Description: update meta properties   -->

@@ -3,18 +3,18 @@ title: Azure Analysis Services 教程第 9 课：创建层次结构 | Azure
 description: 介绍如何在表格模型中创建层次结构。
 author: rockboyfor
 manager: digimobile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 origin.date: 04/12/2018
-ms.date: 04/30/2018
+ms.date: 07/16/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 420c8fce4fac3b6370c9ea7679defbcb05aeee0b
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: ecd713b7cd98c726ef0e9b6cda187a1331f4eb9c
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121191"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167874"
 ---
 # <a name="create-hierarchies"></a>创建层次结构
 

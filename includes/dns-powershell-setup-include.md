@@ -12,7 +12,7 @@
 打开 PowerShell 控制台并连接到帐户。 有关详细信息，请参阅[将 PowerShell 与 Resource Manager 配合使用](../articles/azure-resource-manager/powershell-azure-resource-manager.md)。
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount -EnvironmentName AzureChinaCloud
 ```
 
 ### <a name="select-the-subscription"></a>选择订阅

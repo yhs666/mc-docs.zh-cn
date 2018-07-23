@@ -1,21 +1,18 @@
 ---
 title: 安装用于从 Azure 故障转移到本地的 Linux 主目标服务器 | Azure
 description: 在重新保护 Linux 虚拟机之前，需要一个 Linux 主目标服务器。 本文介绍如何安装该服务器。
-services: site-recovery
-documentationcenter: ''
 author: rockboyfor
-manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 05/08/2018
-ms.date: 06/18/2018
+origin.date: 07/06/2018
+ms.date: 07/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4e237db36a79053c16fd12ba0d2a74cb28ef038c
-ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
+ms.openlocfilehash: 4f74ff259275dc58da5c8f46ccc4abca0573a7a2
+ms.sourcegitcommit: f7ff09be9f3be5e3eb795e383c0c670f480f233d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2018
-ms.locfileid: "35568392"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39169028"
 ---
 # <a name="install-a-linux-master-target-server"></a>安装 Linux 主目标服务器
 将虚拟机故障转移到 Azure 后，可将虚拟机故障回复到本地站点。 若要故障回复，需要在本地站点中重新保护 Azure 中的虚拟机。 对于此过程，需要安装一个本地主目标服务器用于接收流量。 
@@ -236,7 +233,7 @@ Azure Site Recovery 主目标服务器需要特定版本的 Ubuntu，请确保�
 
 2. 通过 multipath -ll 命令了解保留磁盘的多路径 I：multipath -ll
 
-    ![多路径 ID](./media/vmware-azure-install-linux-master-target/image22.png)
+    ![多路径 ID](./media/vmware-azure-install-linux-master-target/image27.png)
 
 3. 格式化驱动器，然后在新驱动器上创建文件系统：mkfs.ext4 /dev/mapper/<保留磁盘的多路径 id>。
 

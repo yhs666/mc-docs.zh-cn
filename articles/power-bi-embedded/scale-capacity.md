@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 origin.date: 01/19/2018
-ms.date: 06/12/2018
+ms.date: 07/18/2018
 ms.author: v-junlch
-ms.openlocfilehash: 2d46ea215b62004126765d559f018da1e55c4467
-ms.sourcegitcommit: 908d37aeb736aabf35cfb397530fb675b04d52e4
+ms.openlocfilehash: 4011a4c7fbdfee37c0151e385ad0aa5f7f1c9766
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2018
-ms.locfileid: "35323841"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168496"
 ---
 # <a name="scale-your-power-bi-embedded-capacity"></a>缩放 Power BI Embedded 容量
 

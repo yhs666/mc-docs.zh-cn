@@ -3,18 +3,18 @@ title: Azure Analysis Services 教程补充课程：详细信息行 | Azure
 description: 介绍如何在 Azure Analysis Services 教程中创建详细信息行表达式。
 author: rockboyfor
 manager: digimobile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 origin.date: 04/12/2018
-ms.date: 04/30/2018
+ms.date: 07/16/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: baffc8cd0a5db12ecf4cb24f965700ea6b162b6c
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 467022ddb63a0a2bb102d4e6bdbd916471fa5eab
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121112"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167869"
 ---
 # <a name="supplemental-lesson---detail-rows"></a>补充课程 - 详细信息行
 

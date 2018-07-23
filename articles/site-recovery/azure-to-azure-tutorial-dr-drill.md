@@ -6,16 +6,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: tutorial
-origin.date: 05/15/2018
-ms.date: 06/18/2018
+origin.date: 07/06/2018
+ms.date: 07/23/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: c5e2da32212f5a711ed337c345be551e3b85111b
-ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
+ms.openlocfilehash: 5c06abcef1b82d3cbbf1511764d97f58bb295d37
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2018
-ms.locfileid: "35568390"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168419"
 ---
 # <a name="run-a-disaster-recovery-drill-for-azure-vms-to-a-secondary-azure-region"></a>运行 Azure VM 到 Azure 次要区域的灾难恢复演练
 
@@ -26,8 +26,6 @@ ms.locfileid: "35568390"
 > [!div class="checklist"]
 > * 检查先决条件
 > * 为单个 VM 运行测试故障转移
-
-Azure 到 Azure 复制当前处于预览状态。
 
 ## <a name="prerequisites"></a>先决条件
 

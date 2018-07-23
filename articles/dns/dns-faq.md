@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 origin.date: 11/06/2017
 ms.date: 05/21/2018
 ms.author: v-nany
-ms.openlocfilehash: 64e50cb2c5e2b2faf7bcc9548ad3bd5403091a9a
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.openlocfilehash: 469be2c94971cf360cc3cdfdfcfed5a6dac7b401
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873411"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167957"
 ---
 # <a name="azure-dns-faq"></a>Azure DNS 常见问题解答
 
@@ -146,7 +146,7 @@ Azure DNS 由 Azure 资源管理器管理，且受益于 Azure 资源管理器�
 
 [!INCLUDE [dns-spf-include](../../includes/dns-spf-include.md)]
 
-### <a name="do-azure-dns-nameservers-resolve-over-ipv6-"></a>Azure DNS 名称服务器是否通过 IPv6 解析？ 
+### <a name="do-azure-dns-nameservers-resolve-over-ipv6"></a>Azure DNS 名称服务器是否通过 IPv6 解析？ 
 
 是的。 Azure DNS 名称服务器是双堆栈（同时具有 IPv4 和 IPv6 地址）。 若要查找分配给 DNS 区域的 Azure DNS 名称服务器的 IPv6 地址，可以使用 nslookup 等工具（例如，`nslookup -q=aaaa <Azure DNS Nameserver>`）。
 
@@ -164,10 +164,13 @@ Azure DNS 由 Azure 资源管理器管理，且受益于 Azure 资源管理器�
 目前，Azure 门户不支持专用区域。 
 
 有关 Azure 中其他内部 DNS 选项的信息，请参阅 [VM 和角色实例的名称解析](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)。
+
 ### <a name="what-is-the-difference-between-registration-virtual-network-and-resolution-virtual-network-in-the-context-of-private-zones"></a>在专用区域的上下文中，注册虚拟网络与解析虚拟网络有什么区别？ 
 可通过两种方式将虚拟网络链接到 DNS 专用区域 - 作为注册虚拟网络，或者作为解析虚拟网络。 在任一情况下，虚拟网络中的虚拟机都可以根据专用区域中的记录成功解析。 但是，如果将某个虚拟网络指定为注册虚拟网络，则 Azure 会将 DNS 记录自动注册（动态注册）到虚拟网络中虚拟机所在的区域。 此外，在删除注册虚拟网络中的虚拟机后，Azure 还会从所链接的专用区域中删除对应的 DNS 记录。 
+
 ### <a name="will-azure-dns-private-zones-work-across-azure-regions"></a>Azure DNS 专用区域是否可跨 Azure 区域工作？
 是的。 专用区域支持在跨 Azure 区域的虚拟网络之间进行 DNS 解析，即使未显式建立虚拟网络对等互连也是如此，但前提是将所有虚拟网络指定为专用区域的解析虚拟网络。 客户可能需要建立虚拟网络的对等互连，才能在不同的区域之间传送 TCP/HTTP 流量。 
+
 ### <a name="is-connectivity-to-the-internet-from-virtual-networks-required-for-private-zones"></a>专用区域是否需要在虚拟网络与 Internet 之间建立连接？
 否。 专用区域配合虚拟网络工作，可让客户在虚拟网络内部或跨虚拟网络管理虚拟机的域或其他资源。 无需建立 Internet 连接即可进行名称解析。 
 
@@ -176,6 +179,7 @@ Azure DNS 由 Azure 资源管理器管理，且受益于 Azure 资源管理器�
 
 ### <a name="can-a-virtual-network-that-belongs-to-a-different-subscription-be-added-as-a-resolution-virtual-network-to-a-private-zone"></a>是否可以在专用区域中，将属于不同订阅的虚拟网络添加为解析虚拟网络？ 
 可以，前提是用户对虚拟网络以及专用 DNS 区域拥有“写入”操作权限。 请注意，“写入”权限可能已分配到多个 RBAC 角色。 例如，经典网络参与者 RBAC 角色对虚拟网络拥有写入权限。 有关 RBAC 角色的详细信息，请阅读[基于角色的访问控制](../role-based-access-control/overview.md)。
+
 ### <a name="will-the-automatically-registered-virtual-machine-dns-records-in-a-private-zone-be-automatically-deleted-when-the-virtual-machines-are-deleted-by-the-customer"></a>客户删除虚拟机后，是否会自动删除在专用区域中自动注册的虚拟机 DNS 记录？
 是的。 如果删除注册虚拟网络中的虚拟机，我们会自动删除已注册到区域中的 DNS 记录，因为这是一个注册虚拟网络。 
 
@@ -193,8 +197,10 @@ Azure DNS 由 Azure 资源管理器管理，且受益于 Azure 资源管理器�
 
 ### <a name="would-dns-resolution-using-the-default-fqdn-internalchinacloudappcn-still-work-even-when-a-private-zone-for-example-contosolocal-is-linked-to-a-virtual-network"></a>是否即使专用区域（例如：contoso.local）已链接到虚拟网络，也仍可使用默认 FQDN (internal.chinacloudapp.cn) 进行 DNS 解析？ 
 是的。 专用区域功能不能取代使用 Azure 提供的 internal.chinacloudapp.cn 区域进行的默认 DNS 解析，而只能用作补充性的功能或增强功能。 对于这两种情况（不管依赖于 Azure 提供的 internal.chinacloudapp.cn 还是自己的专用区域），我们都建议使用要解析的区域的 FQDN。 
+
 ### <a name="would-the-dns-suffix-on-virtual-machines-within-a-linked-virtual-network-be-changed-to-that-of-the-private-zone"></a>链接的虚拟网络中虚拟机上的 DNS 后缀是否会更改为专用区域的 DNS 后缀？ 
 否。 目前，链接的虚拟网络中虚拟机上的 DNS 后缀将保留为 Azure 提供的默认后缀（“*.internal.chinacloudapp.cn”）。 但是，可以手动将虚拟机上的此 DNS 后缀更改为专用区域的 DNS 后缀。 
+
 ### <a name="are-there-any-limitations-for-private-zones-during-this-preview"></a>专用区域预览版是否有任何限制？
 是的。 公共预览版存在以下限制：
 * 每个专用区域只能包含 1 个注册虚拟网络
@@ -212,6 +218,7 @@ Azure DNS 由 Azure 资源管理器管理，且受益于 Azure 资源管理器�
 
 ### <a name="is-there-portal-support-for-private-zones"></a>专用区域是否支持门户？
 通过非门户机制 (API/PowerShell/CLI/SDK) 创建的专用区域将显示在 Azure 门户中，但客户无法创建新的专用区域，或者管理与虚拟网络之间的关联。 此外，对于作为注册虚拟网络关联的虚拟网络，门户中不会显示自动注册的 VM 记录。 
+
 ## <a name="next-steps"></a>后续步骤
 
 [详细了解 Azure DNS](dns-overview.md)

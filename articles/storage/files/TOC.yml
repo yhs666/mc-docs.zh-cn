@@ -129,9 +129,9 @@
     - name: Java
       items:
         - name: Blob、队列、表和文件
-          href: 'https://docs.azure.cn/java/api/overview/storage/clientlibrary'
+          href: 'https://docs.azure.cn/java/api/storage/clientlibrary'
         - name: Resource Manager
-          href: 'https://docs.azure.cn/java/api/overview/storage/managementapi'
+          href: 'https://docs.azure.cn/java/api/storage/managementapi'
     - name: Node.js
       href: 'http://azure.github.io/azure-storage-node'
     - name: Ruby

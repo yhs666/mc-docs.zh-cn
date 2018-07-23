@@ -3,23 +3,23 @@ title: Azure Analysis Services 教程补充课程：不规则层次结构 | Azur
 description: 介绍如何在 Azure Analysis Services 教程中修复不规则层次结构。
 author: rockboyfor
 manager: digimobile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 origin.date: 04/12/2018
-ms.date: 04/30/2018
+ms.date: 07/16/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: ad0f7da289344aeebae3b65b531dbd9dd6cfd7ca
-ms.sourcegitcommit: 292f22020e00c607229c1693229f25fb2837d8af
+ms.openlocfilehash: 9d2798d31a2a0b4ee2221b23dccd65374718ebe9
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37910583"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167924"
 ---
 # <a name="supplemental-lesson---ragged-hierarchies"></a>补充课程 - 不规则层次结构
 
 在本补充课程中，将解决对在不同级别包含空白值（成员）的层次结构进行透视时的一个常见问题。 例如，某个组织的高级经理同时具有部门经理和非经理作为直接下属。 或者，地理层次结构包含国家/地区-区域-城市，其中，某些城市没有父级“省”。 当某个层次结构具有空白成员时，它通常降低到不同的（或不规则的）级别。
-<!--Notice: such as Washington D.C., Vatican City.-->
+<!--Notice: Remove the wording such as Washington D.C., Vatican City.-->
 
 ![aas-lesson-detail-ragged-hierarchies-table](../tutorials/media/aas-lesson-detail-ragged-hierarchies-table.png)
 

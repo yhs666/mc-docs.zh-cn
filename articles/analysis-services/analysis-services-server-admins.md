@@ -3,18 +3,18 @@ title: 管理 Azure Analysis Services 中的服务器管理员 | Azure
 description: 了解如何在 Azure 中管理 Analysis Services 服务器的服务器管理员。
 author: rockboyfor
 manager: digimobile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 origin.date: 04/12/2018
-ms.date: 04/30/2018
+ms.date: 07/16/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: ba0b654db3ee787367f09d658ae96625d809d52a
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 8de4b9478e4c3a97581f3e7eeb5359dcbcef37e2
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121094"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167933"
 ---
 # <a name="manage-server-administrators"></a>管理服务器管理员
 服务器管理员必须是 Azure Active Directory (Azure AD) 中服务器所在租户的有效用户或组。 可以对 Azure 门户中的服务器使用“Analysis Services 管理员”，或使用 SSMS 中的“服务器属性”来管理服务器管理员。 
@@ -36,6 +36,6 @@ ms.locfileid: "32121094"
 ## <a name="next-steps"></a>后续步骤 
 [身份验证和用户权限](analysis-services-manage-users.md)  
 [管理数据库角色和用户](analysis-services-database-users.md)  
-[基于角色的访问控制](https://docs.microsoft.com/zh-cn/azure/role-based-access-control/overview)
+[基于角色的访问控制](../role-based-access-control/overview.md)
 
 <!--Update_Description: update meta properties, wording update -->

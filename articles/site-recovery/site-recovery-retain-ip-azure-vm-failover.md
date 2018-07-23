@@ -1,26 +1,21 @@
 ---
 title: 将 Azure 虚拟机故障转移到另一个 Azure 区域时保留 IP 地址 | Azure
 description: 介绍在使用 Azure Site Recovery 进行 Azure 到 Azure 的故障转移方案时如何保留 IP 地址
-services: site-recovery
-documentationcenter: ''
-author: rockboyfor
-manager: digimobile
-editor: ''
-ms.assetid: ''
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-origin.date: 05/11/2018
-ms.date: 06/18/2018
+origin.date: 07/06/2018
+ms.date: 07/23/2018
+author: rockboyfor
+ms.topic: conceptual
 ms.author: v-yeche
-ms.openlocfilehash: 9f50c89c4c148947c293aed987070c8392c67802
-ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
+ms.openlocfilehash: d4e200e516fc1579c5aa5a089d0f9ec9bcda22d4
+ms.sourcegitcommit: f7ff09be9f3be5e3eb795e383c0c670f480f233d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2018
-ms.locfileid: "35568342"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39169034"
 ---
 <!-- IMPORTANT: THIS ARTICLE DESCRIBE THE CONNECTION BETWEEN Source(China East) to Target(China North)-->
 # <a name="ip-address-retention-for-azure-virtual-machine-failover"></a>为 Azure 虚拟机故障转移保留 IP 地址

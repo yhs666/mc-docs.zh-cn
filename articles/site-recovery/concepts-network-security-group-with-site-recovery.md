@@ -7,15 +7,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 05/21/2018
-ms.date: 06/18/2018
+origin.date: 07/06/2018
+ms.date: 07/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: ee20c00d191dd143f3061adaa348c54265cb5199
-ms.sourcegitcommit: 3130e6042909be0d97d7de5aec7ae9454cd81cfc
+ms.openlocfilehash: 01d58acf08ba902a97464551b68e438c2d4df9dd
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37102872"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168499"
 ---
 # <a name="network-security-groups-with-azure-site-recovery"></a>将网络安全组与 Azure Site Recovery 配合使用
 
@@ -56,9 +56,9 @@ Azure Site Recovery 支持从本地 [Hyper-V 虚拟机](hyper-v-azure-architectu
 -   然后可以立即将**子网 NSG** 与 **Contoso 子网**相关联，因为 NSG 和子网均已可用。
 -   可以在故障转移期间使用恢复计划将 **VM NSG** 与 VM 相关联。
 
-创建并配置 NSG 以后，建议运行[测试故障转移](site-recovery-test-failover-to-azure.md)来验证脚本化的 NSG 关联和故障转移后的 VM 连接性。
+创建并配置 NSG 后，建议运行[测试故障转移](site-recovery-test-failover-to-azure.md)来验证脚本化的 NSG 关联和故障转移后的 VM 连接。
 
-## <a name="azure-to-azure-replication-with-expressroute"></a>使用 ExpressRoute 进行 Azure 到 Azure 的复制
+## <a name="azure-to-azure-replication-with-nsg"></a>使用 NSG 进行从 Azure 到 Azure 的复制
 
 Azure Site Recovery 支持对 [Azure 虚拟机](azure-to-azure-architecture.md)进行灾难恢复。 为 Azure VM 启用复制以后，Site Recovery 可以在目标区域中创建副本虚拟网络（包括子网和网关子网），并在源与目标虚拟网络之间创建所需的映射。 还可以预先创建目标端网络和子网，并在启用复制时使用相同的网络和子网。 Site Recovery 不会在[故障转移](azure-to-azure-tutorial-failover-failback.md)之前在目标 Azure 区域创建任何 VM。
 
@@ -78,8 +78,7 @@ Site Recovery 不在故障转移操作过程中创建或复制 NSG。 建议在�
 ## <a name="next-steps"></a>后续步骤
 -   详细了解[网络安全组](../virtual-network/security-overview.md#network-security-groups)。
 -   详细了解 NSG [安全规则](../virtual-network/security-overview.md#security-rules)。
--   详细了解对 NSG [有效的安全规则](../virtual-network/virtual-network-nsg-troubleshoot-portal.md#nsg)。
+-   详细了解对 NSG [有效的安全规则](../virtual-network/diagnose-network-traffic-filter-problem.md)。
 -   详细了解如何使用[恢复计划](site-recovery-create-recovery-plans.md)自动执行应用程序故障转移。
 
-<!-- Update_Description: new articles on concepts network security group with site recovery -->
-<!--ms.date: 06/18/2018-->
+<!-- Update_Description: update meta properties, wording update -->

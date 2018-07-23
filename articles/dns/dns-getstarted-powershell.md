@@ -1,45 +1,33 @@
 ---
-title: 通过 PowerShell 开始使用 Azure DNS | Azure
-description: 了解如何在 Azure DNS 中创建 DNS 区域和记录。 这是有关使用 PowerShell 创建和管理第一个 DNS 区域和记录的分步指南。
+title: 快速入门 - 使用 Azure PowerShell 创建 Azure DNS 区域和记录
+description: 了解如何在 Azure DNS 中创建 DNS 区域和记录。 这是有关使用 Azure PowerShell 创建和管理你的第一个 DNS 区域和记录的分步快速入门。
 services: dns
-documentationcenter: na
-author: yunan2016
-manager: digimobile
-editor: ''
-tags: azure-resource-manager
-ms.assetid: fb0aa0a6-d096-4d6a-b2f6-eda1c64f6182
+author: WenJason
 ms.service: dns
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-origin.date: 03/10/2017
-ms.date: 05/21/2018
-ms.author: v-nany
-ms.openlocfilehash: d87c6c26e0ec3c3eaefbe293782962bb0af1dfe1
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.topic: quickstart
+origin.date: 07/16/2018
+ms.date: 07/23/2018
+ms.author: v-jay
+ms.openlocfilehash: e87050bb40536e6b226104cc54bd04fa74d54a8e
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "34173079"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167979"
 ---
-# <a name="get-started-with-azure-dns-using-powershell"></a>通过 PowerShell 开始使用 Azure DNS
+# <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-powershell"></a>快速入门：使用 Azure PowerShell 创建 Azure DNS 区域和记录
 
-> [!div class="op_single_selector"]
-> * [Azure 门户](dns-getstarted-portal.md)
-> * [PowerShell](dns-getstarted-powershell.md)
-> * [Azure CLI 1.0](dns-getstarted-cli-nodejs.md)
-> * [Azure CLI 2.0](dns-getstarted-cli.md)
-
-本文将逐步引导完成使用 PowerShell 创建第一个 DNS 区域和记录的步骤。 也可以使用 Azure 门户或跨平台 Azure CLI 执行这些步骤。 Azure DNS 还支持创建专用域。 有关如何创建第一个专用 DNS 区域和记录的分步说明，请参阅 [Azure DNS 专用区域入门（使用 PowerShell）](private-dns-getstarted-powershell.md)。
+在本快速入门中，你将使用 Azure PowerShell 创建你的第一个 DNS 区域和记录。 也可以使用 [Azure 门户](dns-getstarted-portal.md)或 [Azure CLI](dns-getstarted-cli.md) 执行这些步骤。 
 
 DNS 区域用来托管某个特定域的 DNS 记录。 若要开始在 Azure DNS 中托管域，需要为该域名创建 DNS 区域。 随后会在此 DNS 区域内为每个 DNS 记录创建域。 最后，要将 DNS 区域发布到 Internet，需要为域配置名称服务器。 以下描述了上述每一个步骤。
 
-这些说明假定已安装并登录到 Azure PowerShell。 若需帮助，请参阅[如何使用 PowerShell 管理 DNS 区域](dns-operations-dnszones.md)。
+Azure DNS 还支持创建专用域。 有关如何创建第一个专用 DNS 区域和记录的分步说明，请参阅 [Azure DNS 专用区域入门（使用 PowerShell）](private-dns-getstarted-powershell.md)。
+
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
 
 ## <a name="create-the-resource-group"></a>创建资源组
 
-在创建 DNS 区域之前，创建了包含 DNS 区域的资源组。 以下显示该命令。
+在创建 DNS 区域之前，创建一个资源组来包含 DNS 区域：
 
 ```powershell
 New-AzureRMResourceGroup -name MyResourceGroup -location "chinaeast"
@@ -52,7 +40,6 @@ New-AzureRMResourceGroup -name MyResourceGroup -location "chinaeast"
 ```powershell
 New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyResourceGroup
 ```
-Azure DNS 现在还支持专用 DNS 区域（当前为公开预览版）。  若要详细了解专用 DNS 区域，请参阅[将 Azure DNS 用于专用域](private-dns-overview.md)。 有关如何创建专用 DNS 区域的示例，请参阅 [Azure DNS 专用区域入门（使用 PowerShell）](./private-dns-getstarted-powershell.md)。
 
 ## <a name="create-a-dns-record"></a>创建 DNS 记录
 
@@ -61,9 +48,6 @@ Azure DNS 现在还支持专用 DNS 区域（当前为公开预览版）。  若
 ```powershell
 New-AzureRmDnsRecordSet -Name www -RecordType A -ZoneName contoso.com -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -IPv4Address "1.2.3.4")
 ```
-
-对于其他记录类型，对于具有一条以上记录的记录集，若要修改现有记录，请参阅[使用 Azure PowerShell 管理 DNS 记录和记录集](dns-operations-recordsets.md)。 
-
 
 ## <a name="view-records"></a>查看记录
 
@@ -96,7 +80,7 @@ MaxNumberOfRecordSets : 5000
 
 ## <a name="delete-all-resources"></a>删除所有资源
 
-若要删除在本文中创建的所有资源，请执行以下步骤：
+当不再需要时，可以通过删除资源组来删除本快速入门中创建的所有资源：
 
 ```powershell
 Remove-AzureRMResourceGroup -Name MyResourceGroup
@@ -104,9 +88,8 @@ Remove-AzureRMResourceGroup -Name MyResourceGroup
 
 ## <a name="next-steps"></a>后续步骤
 
-若要了解 Azure DNS 的详细信息，请参阅 [Azure DNS 概述](dns-overview.md)。
+现在，你已使用 Azure PowerShell 创建了你的第一个 DNS 区域和记录，可以在自定义域中为 Web 应用创建记录了。
 
-若要了解有关管理 Azure DNS 中的 DNS 区域的详细信息，请参阅[使用 PowerShell 管理 Azure DNS 中的 DNS 区域](dns-operations-dnszones.md)。
-
-若要了解有关管理 Azure DNS 中的 DNS 记录的详细信息，请参阅[使用 PowerShell 管理 Azure DNS 中的 DNS 记录和记录集](dns-operations-recordsets.md)。
+> [!div class="nextstepaction"]
+> [在自定义域中为 web 应用创建 DNS 记录](./dns-web-sites-custom-domain.md)
 

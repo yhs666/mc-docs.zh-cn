@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 origin.date: 09/28/2017
-ms.date: 06/12/2018
+ms.date: 07/18/2018
 ms.author: v-junlch
-ms.openlocfilehash: 3ab4c88079ee342b8e8fc2e85b4faef4238a3bdb
-ms.sourcegitcommit: 908d37aeb736aabf35cfb397530fb675b04d52e4
+ms.openlocfilehash: fb274091ac2c4f05ecc02a653796a561c7d9862a
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2018
-ms.locfileid: "35323842"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168294"
 ---
 # <a name="code-snippets-for-migrating-content-from-power-bi-workspace-collections"></a>从 Power BI 工作区集合中迁移内容的代码片段
 

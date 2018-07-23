@@ -7,15 +7,15 @@ manager: digimobile
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
 ms.topic: article
-origin.date: 02/14/2018
-ms.date: 06/18/2018
+origin.date: 07/06/2018
+ms.date: 07/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7bc9e507f5cbe171e031232c294666a7a2e3e61a
-ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
+ms.openlocfilehash: 383a327946edc3d0868b7254984891049333a678
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2018
-ms.locfileid: "35568388"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168311"
 ---
 # <a name="site-recovery-deployment-planner-for-hyper-v-to-azure"></a>适用于 Hyper-V 到 Azure 部署的 Site Recovery 部署规划器
 

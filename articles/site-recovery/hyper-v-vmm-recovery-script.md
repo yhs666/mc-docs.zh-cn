@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 12/13/2017
-ms.date: 03/05/2018
+origin.date: 07/06/2018
+ms.date: 07/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: b2aeec09dccf7733b38ab5489c8934d1b63e1425
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 710fbbd010bc0f0728cf175ddb3124351802eb09
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
-ms.locfileid: "29731459"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168337"
 ---
 # <a name="add-a-vmm-script-to-a-recovery-plan"></a>将 VMM 脚本添加到还原计划
 
 本文介绍了如何创建 System Center Virtual Machine Manager (VMM) 脚本且如何在 [Azure Site Recovery](site-recovery-overview.md) 中将其添加到还原计划中。
 
-请将任何评论或问题发布到本文底部，或者发布到 [Azure 恢复服务论坛](https://www.azure.cn/support/forums/
+<!-- Not Available on Post any comments or questions at the bottom of this article, or on the [Azure Recovery Services forum](https://www.azure.cn/support/contact/).-->
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -85,5 +85,4 @@ ms.locfileid: "29731459"
 
 ## <a name="next-steps"></a>后续步骤
 * 详细了解如何[运行故障转移](site-recovery-failover.md)。
-<!-- Update_Description: new articles on hyper-v vmm recovery script -->
-<!--ms.date: 03/05/2018-->
+<!-- Update_Description: update meta properties -->

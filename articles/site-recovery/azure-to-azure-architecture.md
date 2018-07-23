@@ -6,23 +6,20 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 05/15/2018
-ms.date: 06/18/2018
+origin.date: 07/06/2018
+ms.date: 07/23/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 18d20a8ad8f9ee9cb103a743121e4bddff41cc4f
-ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
+ms.openlocfilehash: 99b654657d417d1fd60f8d4ff8d5128f647fbeb5
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2018
-ms.locfileid: "35568279"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168240"
 ---
 # <a name="azure-to-azure-replication-architecture"></a>Azure 到 Azure 复制体系结构
 
 本文介绍了使用 [Azure Site Recovery](site-recovery-overview.md) 服务在 Azure 区域之间对 Azure 虚拟机 (VM) 进行复制、故障转移和恢复时使用的体系结构。
-
->[!NOTE]
->使用 Site Recovery 服务进行 Azure VM 复制当前处于预览阶段。
 
 ## <a name="architectural-components"></a>体系结构组件
 

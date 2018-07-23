@@ -12,15 +12,15 @@ ms.workload: naS
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/11/2018
-ms.date: 05/24/2018
+origin.date: 07/11/2018
+ms.date: 07/20/2018
 ms.author: v-junlch
-ms.openlocfilehash: 14081fb92cb15ce9bf45a3ff8887481608eb0064
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 8879fb164c03b739004c58715f944fb4637efea7
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34474885"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168246"
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>从管理门户为 Azure Stack 启用备份
 通过管理门户启用基础结构备份服务，以便 Azure Stack 可以生成备份。 出现[灾难性故障](.\azure-stack-backup-recover-data.md)时，可以通过云恢复使用这些备份还原环境。 云恢复的目的是为了确保操作员和用户在恢复完成后可以重新登录回门户。 用户将恢复其订阅，包括基于角色的访问权限和角色、原始计划、套餐以及先前定义的计算、存储和网络配额。
@@ -50,7 +50,7 @@ ms.locfileid: "34474885"
 4. 使用具有足够访问权限的域和用户名输入**用户名**，以便读取和写入文件。 例如，`Contoso\backupshareuser`。
 5. 键入用户的**密码**。
 5. 再次键入密码以**确认密码**。
-6. 在“加密密钥”框中提供预共享密钥。 使用此密钥加密备份文件。 请确保将此密钥存储在安全位置。 首次设置此密钥或将来轮换密钥后，都无法从此界面查看此密钥。 有关生成预共享密钥的详细说明，请按照[使用 PowerShell 为 Azure Stack 启用备份](azure-stack-backup-enable-backup-powershell.md#generate-a-new-encryption-key)中的脚本进行操作。 
+6. 在“加密密钥”框中提供预共享密钥。 使用此密钥加密备份文件。 请确保将此密钥存储在安全位置。 首次设置此密钥或将来轮换密钥后，都无法从此界面查看此密钥。 有关生成预共享密钥的详细说明，请按照[使用 PowerShell 为 Azure Stack 启用备份](azure-stack-backup-enable-backup-powershell.md)中的脚本进行操作。
 7. 选择“确定”以保存备份控制器设置。
 
 若要执行备份，需要下载 Azure Stack Tools，然后在 Azure Stack 管理节点上运行 PowerShell cmdlet **Start-AzSBackup**。 有关详细信息，请参阅[备份 Azure Stack](azure-stack-backup-back-up-azure-stack.md )。
@@ -60,4 +60,4 @@ ms.locfileid: "34474885"
 - 了解如何运行备份。 请参阅[备份 Azure Stack](azure-stack-backup-back-up-azure-stack.md )。
 - 了解如何验证备份是否已运行。 请参阅[在管理门户中确认已完成的备份](azure-stack-backup-back-up-azure-stack.md)。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

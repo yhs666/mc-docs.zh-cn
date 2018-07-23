@@ -6,20 +6,17 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 05/16/2018
-ms.date: 06/18/2018
+origin.date: 07/06/2018
+ms.date: 07/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0f504e174331c1d592e3f2faec99a21794346a51
-ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
+ms.openlocfilehash: c45236fa9320c33e04656a3cbea7e876c903b5a5
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2018
-ms.locfileid: "35568309"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168483"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>关于 Azure 到 Azure 复制的网络
-
-> [!NOTE]
-> Azure 虚拟机的 Site Recovery 复制当前处于预览阶段。
 
 本文提供了使用 [Azure Site Recovery](site-recovery-overview.md) 在不同区域之间复制和恢复 Azure VM 的网络指南。
 
@@ -67,7 +64,7 @@ login.chinacloudapi.cn | 对于 Site Recovery 服务 URL 的授权和身份验�
 <!-- Notice: Pending the Manager's respond [XML file](https://aka.ms/site-recovery-public-ips)-->
 -  可以[下载并使用此脚本](https://aka.ms/nsg-rule-script)，以在 NSG 上自动创建所需的规则。
 - 在生产 NSG 中创建所需的 NSG 规则之前，建议先在测试 NSG 中创建这些规则，并确保没有任何问题。
-- 若要创建所需的 NSG 规则数，请确保订阅已列入允许列表。 联系 Azure 支持人员，以提高订阅中的 NSG 规则限制。
+
 
 <!-- Notice: Source Location: US East, China East To target location:　US Central, China North -->
 <!-- Not Available
@@ -135,4 +132,4 @@ These rules are required so that replication can be enabled from the target regi
 - 详细了解为 Azure 虚拟机故障转移[保留 IP 地址](site-recovery-retain-ip-azure-vm-failover.md)。
 - 详细了解[使用 ExpressRoute 的 Azure 虚拟机](azure-vm-disaster-recovery-with-expressroute.md)的灾难恢复。
 
-<!--Update_Description: wording update, update link, wording update -->
+<!--Update_Description: wording update, update link  -->

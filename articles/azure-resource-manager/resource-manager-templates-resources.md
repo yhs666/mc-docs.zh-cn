@@ -14,12 +14,12 @@ ms.workload: na
 origin.date: 12/13/2017
 ms.date: 07/09/2018
 ms.author: v-yeche
-ms.openlocfilehash: 9a378507f4893de9fc275d3b4a000410f47d229f
-ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
+ms.openlocfilehash: 5406a9b036d7016736a86a108fb912e52384ce17
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37405332"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167914"
 ---
 # <a name="resources-section-of-azure-resource-manager-templates"></a>Azure 资源管理器模板的 Resources 节
 
@@ -361,7 +361,7 @@ az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites']
 
      有关连接到虚拟机的详细信息，请参阅：
 
-<!-- Not Available on [Run VMs for an N-tier architecture in Azure](../guidance/guidance-compute-n-tier-vm.md) -->
+   <!-- Not Available on [Run VMs for an N-tier architecture in Azure](../guidance/guidance-compute-n-tier-vm.md) -->
    * [在 Azure Resource Manager 中设置对 VM 的 WinRM 访问](../virtual-machines/windows/winrm.md)
    * [使用 Azure 门户实现对 VM 的外部访问](../virtual-machines/windows/nsg-quickstart-portal.md)
    * [使用 PowerShell 实现对 VM 的外部访问](../virtual-machines/windows/nsg-quickstart-powershell.md)

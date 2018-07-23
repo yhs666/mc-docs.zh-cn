@@ -6,15 +6,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 03/06/2018
-ms.date: 06/18/2018
+origin.date: 07/06/2018
+ms.date: 07/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 74d9135ec6faca0cfe9311c679192ad676928c82
-ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
+ms.openlocfilehash: 1cf18e6fb288b1dcd2af6080f71bb7b398427e44
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2018
-ms.locfileid: "35568363"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168497"
 ---
 # <a name="support-matrix-for-hyper-v-replication-to-azure"></a>用于 Hyper-V 到 Azure 的复制的支持矩阵
 
@@ -31,7 +31,7 @@ ms.locfileid: "35568363"
 
 **服务器** | **要求** | **详细信息**
 --- | --- | ---
-Hyper-V（不使用 Virtual Machine Manager 运行） | Windows Server 2016、Windows Server 2012 R2（含最新更新） | 在 Site Recovery 中配置 Hyper-V 站点时，不支持混合使用运行 Windows Server 2016 和 2012 R2 的主机。<br/><br/> 对于运行 Windows Server 2016 的主机上的 VM，不支持恢复到备用位置。
+Hyper-V（不使用 Virtual Machine Manager 运行） | Windows Server 2016 （包括服务器核心安装），最新更新的 Windows Server 2012 R2 | 在 Site Recovery 中配置 Hyper-V 站点时，不支持混合使用运行 Windows Server 2016 和 2012 R2 的主机。<br/><br/> 对于运行 Windows Server 2016 的主机上的 VM，不支持恢复到备用位置。
 Hyper-V（使用 Virtual Machine Manager 运行） | Virtual Machine Manager 2016、Virtual Machine Manager 2012 R2 | 如果使用 Virtual Machine Manager，Windows Server 2016 主机应在 Virtual Machine Manager 2016 中托管。<br/><br/> 当前不支持混合使用 Hyper-V 主机（在 Windows Server 2016 和 2012 R2 上运行）的 Virtual Machine Manager 云。<br/><br/> 不支持包括现有 Virtual Machine Manager 2012 R2 服务器到 2016 的升级的环境。
 
 ## <a name="replicated-vms"></a>复制的 VM
@@ -41,7 +41,7 @@ Hyper-V（使用 Virtual Machine Manager 运行） | Virtual Machine Manager 201
  **组件** | **详细信息**
 --- | ---
 VM 配置 | 复制到 Azure 的 VM 必须满足 [Azure 要求](#failed-over-azure-vm-requirements)。
-来宾操作系统 | [Azure 支持的](https://technet.microsoft.com/library/cc794868.aspx)任何来宾 OS。<br/><br/> 不支持 Windows Server 2016 Nano Server。
+来宾操作系统 | Azure 支持的任何来宾操作系统。<br/><br/> 不支持 Windows Server 2016 Nano Server。
 
 ## <a name="hyper-v-network-configuration"></a>Hyper-V 网络配置
 
@@ -166,4 +166,4 @@ Azure 恢复服务代理 | 协调 Hyper-V VM 与 Azure 之间的复制<br/><br/>
 
 ## <a name="next-steps"></a>后续步骤
 了解如何为本地 Hyper-V VM 的灾难恢复[准备 Azure](tutorial-prepare-azure.md)。
-<!-- Update_Description: update meta properties, wording update, update link -->
+<!-- Update_Description: update meta properties, wording update  -->

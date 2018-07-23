@@ -3,18 +3,17 @@ title: 关于 Azure Site Recovery 中的迁移 | Azure
 description: 本文介绍如何使用 Azure Site Recovery 服务迁移本地和 Azure VM。
 services: site-recovery
 author: rockboyfor
-manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 03/05/2018
-ms.date: 04/02/2018
+origin.date: 07/06/2018
+ms.date: 07/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 1d3c47040581c58da069f998442f290244efd448
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: 3b7f30cad7bdf1c9a1d42b75bd8953367498262d
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30223415"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168504"
 ---
 # <a name="about-migration"></a>关于迁移
 
@@ -47,4 +46,4 @@ ms.locfileid: "30223415"
 - [将 VM 从一个 Azure 区域迁移到另一个](azure-to-azure-tutorial-migrate.md)
 - [将 AWS 迁移到 Azure](migrate-tutorial-aws-azure.md)
 
-<!-- Update_Description: update meta properties, wording update, update link -->
+<!-- Update_Description: update meta properties -->

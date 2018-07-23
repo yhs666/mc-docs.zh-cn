@@ -51,6 +51,8 @@
           href: tutorial-prepare-azure.md
         - name: 将本地计算机迁移到 Azure
           href: migrate-tutorial-on-premises-azure.md
+        - name: 将 Windows Server 2008、2008 R2 服务器迁移到 Azure
+          href: migrate-tutorial-windows-server-2008.md
         - name: 将 AWS 实例迁移到 Azure
           href: migrate-tutorial-aws-azure.md
         - name: 将 Azure VM 迁移到另一区域
@@ -231,6 +233,8 @@
               href: vmware-azure-manage-configuration-server.md
             - name: 管理配置服务器以进行物理服务器复制
               href: physical-manage-configuration-server.md
+            - name: 管理进程服务器
+              href: vmware-azure-manage-process-server.md
             - name: 管理 vCenter 服务器
               href: vmware-azure-manage-vcenter.md
             - name: 删除服务器并禁用保护
@@ -360,7 +364,7 @@
 - name: 相关内容
   items:
     - name: Azure 自动化
-      href: /azure/automation/
+      href: /automation/
 - name: 资源
   items:
     - name: 博客

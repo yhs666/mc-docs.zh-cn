@@ -7,15 +7,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 05/11/2018
-ms.date: 06/18/2018
+origin.date: 07/06/2018
+ms.date: 07/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 79fa2c423a339ed278fa49f492ca202cfc4d5048
-ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
+ms.openlocfilehash: 49097383469686532e59c6e6790eff2d524dd5c4
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2018
-ms.locfileid: "35568496"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168372"
 ---
 <!-- NOTICE:  THIS ARTICLE CHANGE ASIA EAST TO CHINA EAST REGION AND HONG KONG TO GUAN ZHOU-->
 <!-- Notice:  Target Location CHANGE TO Azure China North with Singpore to Tian Jing -->
@@ -36,7 +36,7 @@ ms.locfileid: "35568496"
 
 使用 Site Recovery 保护 Azure 虚拟机时，将会根据 Azure 虚拟机是否使用 [Azure 托管磁盘](../virtual-machines/windows/managed-disks-overview.md)，将复制数据发送到 Azure 存储帐户或目标 Azure 区域中的副本托管磁盘。 尽管复制终结点是公共终结点，但在默认情况下，无论源虚拟网络位于哪个 Azure 区域，Azure VM 复制的复制流量都不会遍历 Internet。
 
-对于 Azure VM 灾难恢复，由于复制数据不会离开 Azure 边界，因此不需要使用 ExpressRoute 进行复制。 在将虚拟机故障转移到目标 Azure 区域后，可以使用[专用对等互连](../expressroute/expressroute-circuit-peerings.md#azure-private-peering)访问它们。
+对于 Azure VM 灾难恢复，由于复制数据不会离开 Azure 边界，因此不需要使用 ExpressRoute 进行复制。 在将虚拟机故障转移到目标 Azure 区域后，可以使用[专用对等互连](../expressroute/expressroute-circuit-peerings.md#private-peering)访问它们。
 
 ## <a name="replicating-azure-deployments"></a>复制 Azure 部署
 

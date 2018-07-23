@@ -4,15 +4,15 @@ description: 本文概述通过 Azure Site Recovery 将本地 Hyper-V VM 复制�
 author: rockboyfor
 ms.service: site-recovery
 ms.topic: article
-origin.date: 05/02/2018
-ms.date: 06/18/2018
+origin.date: 07/06/2018
+ms.date: 07/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 79253b277ef8284611add4d87338e86d85bd509b
-ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
+ms.openlocfilehash: 5089bb53395bd61e7550fd0f47f0dfc88c13e70b
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2018
-ms.locfileid: "35568382"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168292"
 ---
 # <a name="hyper-v-replication-to-a-secondary-site"></a>从 Hyper-V 复制到辅助站点
 
@@ -37,8 +37,8 @@ ms.locfileid: "35568382"
 
 1. 当触发初始复制时，系统会拍摄一个 [Hyper-V VM 快照](https://technet.microsoft.com/library/dd560637.aspx)。
 2. VM 上的虚拟硬盘会逐一复制到辅助位置。
-3. 如果在初始复制期间发生磁盘更改， 
-4. 当初始复制完成时，增量复制将开始。 Hyper-V 副本复制跟踪器将跟踪这些更改，并将其记录在 Hyper-V 复制日志 (.hrl) 中。 这些日志文件位于与磁盘相同的文件夹中。 每个磁盘都有一个关联的 .hrl 文件，该文件将发送到辅助位置。 当初始复制正在进行时，快照和日志文件将占用磁盘资源。
+3. 如果在初始复制期间发生磁盘更改，Hyper-V 副本复制跟踪器将跟踪这些更改，并将其记录在 Hyper-V 复制日志 (.hrl) 中。 这些日志文件位于与磁盘相同的文件夹中。 每个磁盘都有一个关联的 .hrl 文件，该文件将发送到辅助位置。 当初始复制正在进行时，快照和日志文件将占用磁盘资源。
+4. 当初始复制完成时，将删除 VM 快照，并开始增量复制。
 5. 日志中的增量磁盘更改会同步且合并到父磁盘中。
 
 ## <a name="failover-and-failback-process"></a>故障转移和故障回复过程
@@ -55,4 +55,4 @@ ms.locfileid: "35568382"
 ## <a name="next-steps"></a>后续步骤
 
 根据[此教程](hyper-v-vmm-disaster-recovery.md)启用 VMM 云之间的 Hyper-V 复制。
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update -->

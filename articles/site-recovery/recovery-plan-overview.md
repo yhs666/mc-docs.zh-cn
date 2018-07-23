@@ -8,15 +8,15 @@ manager: digimobile
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-origin.date: 03/21/2018
-ms.date: 05/07/2018
+origin.date: 07/06/2018
+ms.date: 07/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 5794a6215c85c547f696b8e79f5f0e23c3e87980
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: e421f556c0647715901db76bd8374b44646d3d25
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33815482"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168227"
 ---
 # <a name="about-recovery-plans"></a>关于恢复计划
 
@@ -80,15 +80,12 @@ ms.locfileid: "33815482"
 
     ![Site Recovery 中测试恢复计划示例的屏幕截图](./media/recovery-plan-overview/rptest.png)
 
-## <a name="watch-the-video"></a>观看视频
-
-观看一个快速示例视频，其中展示了如何通过点击来对一个两层 WordPress 应用进行故障转移。
-
+<!-- Not Available on ## Watch the video-->
 <!-- Not Available on https://channel9.msdn.com/-->
 
 ## <a name="next-steps"></a>后续步骤
 
 - [创建](site-recovery-create-recovery-plans.md)恢复计划。
 * 了解如何[运行故障转移](site-recovery-failover.md)。
-<!-- Update_Description: new articles on recovery plan overview -->
-<!--ms.date: 05/07/2018-->
+<!-- Update_Description: update meta properties -->
+

@@ -7,15 +7,15 @@ manager: digimobile
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-origin.date: 05/02/2018
-ms.date: 06/18/2018
+origin.date: 07/06/2018
+ms.date: 07/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: f63349209576e4d8a47ea8a6503bfaf81f7f7a54
-ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
+ms.openlocfilehash: 44a305b66145c5d82fe14771d2307176b7a535cb
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2018
-ms.locfileid: "35568495"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168486"
 ---
 # <a name="troubleshoot-azure-site-recovery-extension-failures-issues-with-the-agent-or-extension"></a>排除 Azure Site Recovery 扩展故障：代理或扩展的问题
 
@@ -99,16 +99,9 @@ VM 代理可能已损坏或服务可能已停止。 重新安装 VM 代理可帮
 
 卸载扩展并再次重启操作。
 
-卸载扩展：
-
-1. 在 [Azure 门户](https://portal.azure.cn/)中，找到备份失败的 VM。
-2. Select <bpt id="p1">**</bpt>Settings<ept id="p1">**</ept>.
-3. 选择“扩展” 。
-4. 选择“Site Recovery 扩展”。
-5. 选择“卸载” 。
+<!--Not Available uninstall the extension on [Azure portal](https://portal.azure.cn/)-->
 
 对于 Linux VM，如果 VMSnapshot 扩展未显示在 Azure 门户中，请[更新 Azure Linux 代理](../virtual-machines/linux/update-agent.md)，然后运行保护。 
 
 完成这些步骤可在保护期间重新安装扩展。
 <!-- Update_Description: new articles on site recovery extension troubleshoot -->
-<!--ms.date: 06/18/2018-->

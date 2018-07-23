@@ -6,20 +6,17 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 05/16/2018
-ms.date: 06/18/2018
+origin.date: 07/06/2018
+ms.date: 07/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4b8c18704dc8a25686df1f1e920478fc120a6a73
-ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
+ms.openlocfilehash: e74c388378454a615c2f56b8e7c46a5c0977adf4
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2018
-ms.locfileid: "35568280"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168291"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-after-migration-to-azure"></a>设置 Azure VM 迁移到 Azure 后的灾难恢复 
-
->[!NOTE]
-> 使用 Azure Site Recovery 的 Azure VM 灾难恢复当前处于预览状态。
 
 使用 [Site Recovery](site-recovery-overview.md) 服务[将本地计算机迁移到 Azure VM](tutorial-migrate-on-premises-to-azure.md) 之后使用本文。 本文可帮助你准备 Azure VM，以便使用 Site Recovery 设置到 Azure 次要区域的灾难恢复。
 
@@ -59,4 +56,4 @@ Azure [VM 代理](../virtual-machines/extensions/agent-windows.md)必须安装�
 ## <a name="next-steps"></a>后续步骤
 
 将 Azure VM [快速复制](azure-to-azure-quickstart.md)到次要区域。
-<!-- Update_Description: update meta properties, wording update, update link -->
+<!-- Update_Description: update meta properties, wording update -->

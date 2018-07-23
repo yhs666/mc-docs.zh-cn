@@ -13,12 +13,12 @@ ms.topic: landing-page
 origin.date: 04/13/2018
 ms.date: 07/05/2018
 ms.author: v-junlch
-ms.openlocfilehash: 950ed3f3c886776fa0c989815d3dc1b0a34168b9
-ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
+ms.openlocfilehash: 1360ba8bf33469f5f5d77517ae9dde045bc0b625
+ms.sourcegitcommit: 37a1524d71895b17b6f1d125053ad0b251b88df1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37800362"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39097029"
 ---
 # <a name="azure-active-directory-documentation"></a>Azure Active Directory 文档
 
@@ -79,7 +79,6 @@ Azure Active Directory (Azure AD) 是多租户、基于云的目录和标识管�
                         <h3>应用</h3>
                         <p>
                         <a href="/active-directory/active-directory-coreapps-assign-user-azure-portal">企业应用</a><br/>
-                        <a href="/active-directory/active-directory-managing-access-to-apps">对应用的访问</a>
                         </p>
                     </div>
                 </div>

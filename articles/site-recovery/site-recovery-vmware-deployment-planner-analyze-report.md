@@ -12,15 +12,15 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-origin.date: 03/09/2018
-ms.date: 06/18/2018
+origin.date: 07/06/2018
+ms.date: 07/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 58f9346f8e03ef9c83ac39361d6714b52f2e0fc9
-ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
+ms.openlocfilehash: 9404eb9e42ddf6445532b023023edf59516a1d96
+ms.sourcegitcommit: f7ff09be9f3be5e3eb795e383c0c670f480f233d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2018
-ms.locfileid: "35568346"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39169033"
 ---
 # <a name="azure-site-recovery-deployment-planner-report"></a>Azure Site Recovery 部署规划器报表
 生成的 Microsoft Excel 报表包含以下工作表：

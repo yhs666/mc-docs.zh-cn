@@ -3,22 +3,25 @@ title: 使用 Excel 连接到 Azure Analysis Services | Azure
 description: 了解如何使用 Excel 连接到 Azure Analysis Services 服务器。
 author: rockboyfor
 manager: digimobile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 origin.date: 05/16/2018
-ms.date: 06/18/2018
+ms.date: 07/16/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 03a4c00700eb3c5e7cf90e059822693db2a562ea
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 9771964aeec545faaffca2a499ddb2c6dd986611
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "35416743"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167829"
 ---
 # <a name="connect-with-excel"></a>使用 Excel 进行连接
 
-你创建服务器并向其部署表格模型后，客户端便可以连接并开始浏览数据。
+你创建服务器并向其部署表格模型后，客户端便可以连接并开始浏览数据。 
+
+## <a name="before-you-begin"></a>准备阶段
+用于登录的帐户必须属于具有至少读取权限的模型数据库角色。 若要了解详细信息，请参阅[身份验证和用户权限](analysis-services-manage-users.md)。 
 
 ## <a name="connect-in-excel"></a>在 Excel 中连接
 

@@ -1,9 +1,9 @@
 1. 登录到 [Azure 门户]。
 2. 单击“+新建” > “Web + 移动” > “移动应用”，并为移动应用后端提供一个名称。
 3. 在“资源组”下，选择一个现有资源组，或创建一个新资源组（使用与应用相同的名称）。 
-4. 对于“应用服务计划”，请选择默认计划（在[标准层](https://azure.microsoft.com/pricing/details/app-service/)中）。 还可以选择其他计划，或[创建一个新计划](../articles/app-service/app-service-plan-manage.md#create-an-app-service-plan)。 
+4. 对于“应用服务计划”，请选择默认计划（在[标准层](https://www.azure.cn/pricing/details/app-service/)中）。 还可以选择其他计划，或[创建一个新计划](../articles/app-service/app-service-plan-manage.md#create-an-app-service-plan)。 
 
-   应用服务计划的设置将确定与应用关联的[位置、功能、成本和计算资源](https://azure.microsoft.com/pricing/details/app-service/)。 有关应用服务计划以及如何在不同定价层和所需位置中创建新计划的详细信息，请参阅 [Azure 应用服务计划深入概述](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)。
+   应用服务计划的设置将确定与应用关联的[位置、功能、成本和计算资源](https://www.azure.cn/pricing/details/app-service/)。 有关应用服务计划以及如何在不同定价层和所需位置中创建新计划的详细信息，请参阅 [Azure 应用服务计划深入概述](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)。
    
 5. 选择“创建” 。 此步骤创建移动应用后端。 
 6. 在新的移动应用后端的“设置”窗格中，依次选择“快速启动”>客户端应用平台 >“连接数据库”。 

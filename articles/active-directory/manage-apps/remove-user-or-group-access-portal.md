@@ -17,12 +17,12 @@ ms.date: 07/04/2018
 ms.author: v-junlch
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: 8b532b9b1024df6a8af8f93524ff3f7138616191
-ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
+ms.openlocfilehash: 44ef49df672326ee1d44164ac29a18cd0e3770f0
+ms.sourcegitcommit: 37a1524d71895b17b6f1d125053ad0b251b88df1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37800572"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39097441"
 ---
 # <a name="remove-a-user-or-group-assignment-from-an-enterprise-app-in-azure-active-directory"></a>在 Azure Active Directory 中删除企业应用的用户或组分配
 可以轻松地在 Azure Active Directory (Azure AD) 中删除用户或组对企业应用程序的已分配访问权限。 必须具有适当的权限才能管理企业应用，并且必须是目录的全局管理员。
@@ -45,29 +45,6 @@ ms.locfileid: "37800572"
 
     ![选择“删除”命令](./media/remove-user-or-group-access-portal/remove-users.png)
 
-## <a name="how-do-i-remove-a-user-or-group-assignment-to-an-enterprise-app-using-powershell"></a>如何使用 PowerShell 删除到企业应用的用户或组分配？
-1. 以提升的权限打开 Windows PowerShell 命令提示符。
-
-    >[!NOTE] 
-    > 需要安装 AzureAD 模块（使用命令 `Install-Module -Name AzureAD`）。 出现安装 NuGet 模块或新的 Azure Active Directory V2 PowerShell 模块的提示时，请键入 Y，然后按 ENTER。
-
-2. 运行 `Connect-AzureAD -AzureEnvironmentName AzureChinaCloud` 并使用全局管理员用户帐户登录。
-3. 使用以下脚本将用户和角色分配到应用程序：
-
-    ```powershell
-    # Store the proper parameters
-    $user = get-azureaduser -ObjectId <objectId>
-    $spo = Get-AzureADServicePrincipal -ObjectId <objectId>
-
-    #Get the ID of role assignment 
-    $assignments = Get-AzureADServiceAppRoleAssignment -ObjectId $spo.ObjectId | Where {$_.PrincipalDisplayName -eq $user.DisplayName}
-
-    #if you run the following, it will show you what is assigned what
-    $assignments | Select *
-
-    #To remove the App role assignment run the following command.
-    Remove-AzureADServiceAppRoleAssignment -ObjectId $spo.ObjectId -AppRoleAssignmentId $assignments[assignment #].ObjectId
-    ``` 
 ## <a name="next-steps"></a>后续步骤
 
 - [查看所有组](../fundamentals/active-directory-groups-view-azure-portal.md)

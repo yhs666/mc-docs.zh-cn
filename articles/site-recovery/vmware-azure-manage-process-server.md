@@ -1,21 +1,18 @@
 ---
 title: 在 Azure Site Recovery 中管理进程服务器 | Azure
 description: 本文介绍如何在 Azure Site Recovery 中管理为 VMware VM 和物理服务器复制设置的进程服务器。
-services: site-recovery
 author: rockboyfor
-manager: digimobile
-editor: ''
 ms.service: site-recovery
-ms.topic: article
-origin.date: 03/05/2018
-ms.date: 04/02/2018
+ms.topic: conceptual
+origin.date: 06/20/2018
+ms.date: 07/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: cdd4f596c1ebd672ef1c1f1f190738126848d258
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: abd68257ee5a9a9c383bbbd34ea0c197c0e2650f
+ms.sourcegitcommit: f7ff09be9f3be5e3eb795e383c0c670f480f233d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939678"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39169049"
 ---
 # <a name="manage-process-servers"></a>管理进程服务器
 
@@ -80,5 +77,5 @@ ms.locfileid: "38939678"
 
 [!INCLUDE [site-recovery-vmware-unregister-process-server](../../includes/site-recovery-vmware-unregister-process-server.md)]
 
-<!-- Update_Description: new articles on vmware azure manage process server -->
-<!--ms.date: 04/02/2018-->
+<!--The parent file of includes file of site-recovery-vmware-upgrade-process-server-internal.md-->
+<!--ms.date:07/23/2018-->

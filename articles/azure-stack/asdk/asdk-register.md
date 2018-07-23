@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/04/2018
-ms.date: 06/27/2018
+origin.date: 06/26/2018
+ms.date: 07/20/2018
 ms.author: v-junlch
 ms.reviewer: misainat
-ms.openlocfilehash: 792ee052baa40c7fdc0d16abbfde013553eb8ba6
-ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
+ms.openlocfilehash: b9219ba41c6a216921a1214e542b5700809162dc
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37027226"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168450"
 ---
 # <a name="azure-stack-registration"></a>Azure Stack 注册
 可将 Azure Stack 开发工具包 (ASDK) 安装注册到 Azure，以便从 Azure 下载市场项，并设置向 Microsoft 报告商务数据的功能。 需要注册才能支持完整的 Azure Stack 功能，包括市场联合。 之所以建议注册，是因为这样可以测试重要的 Azure Stack 功能，例如市场联合和使用情况报告。 注册 Azure Stack 之后，使用情况将报告给 Azure 商业组件。 用于注册的订阅下会显示此信息。 但是，ASDK 用户无需付费，不管他们报告的用量是多少。
@@ -85,6 +85,6 @@ Follow these steps to verify that the ASDK registration with Azure was successfu
     ![](./media/asdk-register/3.PNG)
 
 ## Next steps
-[Add an Azure Stack marketplace item](asdk-marketplace-item.md)
+[Add an Azure Stack marketplace item](../azure-stack-marketplace.md)
 
 <!-- Update_Description: wording update -->

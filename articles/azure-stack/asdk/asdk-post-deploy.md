@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/05/2018
-ms.date: 06/27/2018
+ms.date: 07/20/2018
 ms.author: v-junlch
 ms.reviewer: misainat
-ms.openlocfilehash: a8e90d560f1f40ceab0ed523facb7a0cd9f4d1a3
-ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
+ms.openlocfilehash: fb51f9bd63b7c790c5835b5f655e97a4c621f421
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37027222"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168259"
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>安装 ASDK 后的配置任务
 
@@ -44,7 +44,7 @@ Set-PSRepository `
 无论是否与 ASDK 主机建立了 Internet 连接，都可以安装最新 Azure Stack PowerShell 模块：
 
 > [!IMPORTANT]
-> 在安装所需版本之前，请务必[卸载任何现有 Azure PowerShell 模块](../azure-stack-powershell-install.md#uninstall-existing-versions-of-powershell)。
+> 在安装所需版本之前，请务必[卸载任何现有 Azure PowerShell 模块](../azure-stack-powershell-install.md#uninstall-existing-versions-of-the-azure-stack-powershell-modules)。
 
 - **已从 ASDK 主机建立 Internet 连接**。 运行以下 PowerShell 脚本，在开发工具包安装中安装以下模块：
 
@@ -175,4 +175,4 @@ Set-ADDefaultDomainPasswordPolicy -MaxPasswordAge 180.00:00:00 -Identity azurest
 ## <a name="next-steps"></a>后续步骤
 [将 ASDK 注册到 Azure](asdk-register.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

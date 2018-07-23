@@ -15,14 +15,16 @@ ms.workload: infrastructure-services
 origin.date: 09/25/2017
 ms.date: 06/18/2018
 ms.author: v-yeche
-ms.openlocfilehash: 29d53e61c54091f55a8645c6556bb005678560cf
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: e9e888e107c7bb6dd00893dcf314ff48cf20e928
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "35416840"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167925"
 ---
 # <a name="using-azure-resource-manager-support-with-azure-load-balancer"></a>将 Azure Resource Manager 支持与 Azure 负载均衡器配合使用
+
+
 
 Azure Resource Manager 是 Azure 中的首选服务管理框架。 Azure 负载均衡器可使用基于 Azure Resource Manager 的 API 和工具进行管理。
 

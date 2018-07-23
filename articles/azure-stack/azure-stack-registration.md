@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/08/2018
-ms.date: 06/26/2018
+origin.date: 07/09/2018
+ms.date: 07/20/2018
 ms.author: v-junlch
-ms.reviewer: avishwan
-ms.openlocfilehash: dacd20d2f293e4253642e2c1dfd207c50c2b0270
-ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
+ms.reviewer: brbartle
+ms.openlocfilehash: 87e061f3bc598c0b05233bf08f5c952bed531a83
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37027195"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168285"
 ---
 # <a name="register-azure-stack-with-azure"></a>将 Azure Stack 注册到 Azure
 
@@ -150,9 +150,6 @@ Set-AzsRegistration `
 ```
 
 ## <a name="register-azure-stack-in-disconnected-environments"></a>在离线环境中注册 Azure Stack
-
-*本部分中的信息适用于 Azure Stack 1712 更新版 (180106.1) 和更高版本，不支持更低的版本。*
-
 若要在离线环境（未建立 Internet 连接）中注册 Azure Stack，需要从 Azure Stack 环境获取注册令牌，然后在可连接到 Azure 并已[安装适用于 Azure Stack 的 PowerShell](#bkmk_powershell) 的计算机上使用该令牌。  
 
 ### <a name="get-a-registration-token-from-the-azure-stack-environment"></a>从 Azure Stack 环境获取注册令牌

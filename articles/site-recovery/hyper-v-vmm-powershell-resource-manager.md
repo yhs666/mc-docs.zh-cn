@@ -6,15 +6,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 02/12/2018
-ms.date: 06/18/2018
+origin.date: 07/06/2018
+ms.date: 07/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 9f5918c8626b5ab347f9f1d3912687dee494668a
-ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
+ms.openlocfilehash: 06afd77b4f7b438c0d187500cb0c630f1e1f7f10
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2018
-ms.locfileid: "35568386"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168367"
 ---
 # <a name="replicate-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>使用 PowerShell 将 Hyper-V VM 复制到辅助站点（资源管理器）
 
@@ -276,4 +276,4 @@ ms.locfileid: "35568386"
 ## <a name="next-steps"></a>后续步骤
 
 [详细了解](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/#recovery)如何将 Site Recovery 和资源管理器 PowerShell cmdlet 配合使用。
-<!-- Update_Description: update meta properties, wording update, update link -->
+<!-- Update_Description: update meta properties -->

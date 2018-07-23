@@ -13,16 +13,16 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 07/31/2017
-ms.date: 06/11/2018
+origin.date: 06/15/2018
+ms.date: 07/23/2018
 ms.author: v-yeche
 ms.custom: ''
-ms.openlocfilehash: ae9aeedbe6ba0e899f82f78c229d68ac3bf0461f
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: 38ae1a0ce04b17b81bc49909db6b960f11cd6405
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34868301"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167904"
 ---
 # <a name="create-a-virtual-network-classic-with-multiple-subnets"></a>创建包含多个子网的虚拟网络（经典）
 
@@ -43,7 +43,7 @@ ms.locfileid: "34868301"
 
 1. 在 Internet 浏览器中，转到 [Azure 门户](https://portal.azure.cn)。 使用 [Azure 帐户](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#account)登录。 如果没有 Azure 帐户，可以注册 [试用版](https://www.azure.cn/pricing/1rmb-trial-full)。
 2. 在门户中，单击“创建资源”。
-3. 在显示的“新建”窗格顶部的“搜索 Marketplace”中输入“虚拟网络”。 单击搜索结果中出现的“虚拟网络”。
+3. 在显示的“新建”窗格顶部的“在市场中搜索”中输入“虚拟网络”。 单击搜索结果中出现的“虚拟网络”。
 4. 在显示的“虚拟网络”窗格的“选择部署模型”框中选择“经典”，然后单击“创建”。 
 5. 在“创建虚拟网络(经典)”窗格中输入以下值，然后单击“创建”：
 
@@ -56,7 +56,7 @@ ms.locfileid: "34868301"
     |资源组|保留选中“新建”，输入 **myResourceGroup**。|
     |订阅和位置|选择订阅和位置。
 
-    如果你不熟悉 Azure，请详细了解[资源组](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#resource-group)、[订阅](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#subscription)和[位置](https://azure.microsoft.com/regions)（也称为“区域”）。
+    如果你不熟悉 Azure，请详细了解[资源组](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#resource-group)、[订阅](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#subscription)和[位置](https://www.azure.cn/support/service-dashboard/)（也称为“区域”）。
 4. 在门户中创建虚拟网络时，只能创建一个子网。 在本教程中，将在创建虚拟网络之后创建第二个子网。 随后可在“公共”子网中创建可通过 Internet 访问的资源。 还可以在“专用”子网中创建无法通过 Internet 访问的资源。 若要创建第二个子网，请在页面顶部的“搜索资源”框中输入 **myVnet**。 单击显示在搜索结果中的“myVnet”。
 5. 在显示的“创建虚拟网络(经典)”窗格中单击“子网”（在“设置”部分中）。
 6. 在显示的“myVnet - 子网”窗格中单击“+添加”。
@@ -111,7 +111,7 @@ ms.locfileid: "34868301"
 
 ## <a name="powershell"></a>PowerShell
 
-1. 安装最新版本的 PowerShell [Azure](https://www.powershellgallery.com/packages/Azure) 模块。 如果不熟悉 Azure PowerShell，请参阅 [Azure PowerShell 概述](https://docs.microsoft.com/powershell/azure/overview?toc=%2fvirtual-network%2ftoc.json)。
+1. 安装最新版本的 PowerShell [Azure](https://www.powershellgallery.com/packages/Azure) 模块。 如果不熟悉 Azure PowerShell，请参阅 [Azure PowerShell 概述](https://docs.microsoft.com/zh-cn/powershell/azure/overview?toc=%2fvirtual-network%2ftoc.json)。
 2. 启动 PowerShell 会话。
 3. 在 PowerShell 中，输入 `Add-AzureAccount -Environment AzureChinaCloud` 命令登录 Azure。
 4. 相应地更改以下路径和文件名，并导出现有的网络配置文件：

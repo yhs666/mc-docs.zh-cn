@@ -18,12 +18,12 @@ origin.date: 03/19/2018
 ms.date: 06/18/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 16c8cdb168bfe0d986dfe738e3f3baf5c391f501
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: ec4a1ea81fbf0e59ba8180f6679e3636cf22a942
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "35416908"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167993"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-cli-20"></a>快速入门：使用 Azure CLI 2.0 创建公共负载均衡器以对 VM 进行负载均衡
 
@@ -163,6 +163,7 @@ for i in `seq 1 2`; do
 done
 ```
 
+
 ## <a name="create-backend-servers"></a>创建后端服务器
 
 本示例将创建三个要用作负载均衡器后端服务器的虚拟机。 若要验证负载均衡器是否已成功创建，还需要在虚拟机上安装 NGINX。
@@ -223,7 +224,7 @@ runcmd:
   - npm install express -y
   - nodejs index.js
 ``` 
-
+ 
 使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) 创建虚拟机。
 
  ```azurecli
@@ -261,6 +262,7 @@ VM 可能需要几分钟才能部署好。
 ```azurecli 
   az group delete --name myResourceGroupLB
 ```
+
 
 ## <a name="next-steps"></a>后续步骤
 本快速入门介绍了如何创建基本负载均衡器，向其附加 VM，配置负载均衡器流量规则、运行状况探测，然后测试负载均衡器。 若要了解有关 Azure 负载均衡器的详细信息，请继续学习 Azure 负载均衡器教程。

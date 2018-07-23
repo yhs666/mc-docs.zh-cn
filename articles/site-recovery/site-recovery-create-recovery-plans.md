@@ -7,15 +7,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 03/21/2018
-ms.date: 05/07/2018
+origin.date: 07/06/2018
+ms.date: 07/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 2ae81414931b793ca6ed03bf918b69124aef2405
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: 75beb711126464aace27872ffd70cf41a7660b98
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33815167"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168341"
 ---
 # <a name="create-and-customize-recovery-plans"></a>创建和自定义恢复计划
 

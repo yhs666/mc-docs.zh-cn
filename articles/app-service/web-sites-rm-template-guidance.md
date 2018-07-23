@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/02/2018
+ms.date: 07/09/2018
 ms.author: v-yiso
-origin.date: 03/12/2018
-ms.openlocfilehash: 9b3c968582f93797c0b01de8d49fa1af54efc295
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+origin.date: 07/30/2018
+ms.openlocfilehash: 0c4175ee8208a868525ac204e3170c1ed0038037
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315367"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167868"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>有关使用 Azure 资源管理器模板部署 Web 应用的指南
 
@@ -31,7 +31,7 @@ ms.locfileid: "36315367"
 > [!WARNING]
 > 如果在模板中包括了 MSDeploy 站点扩展，则必须将任何配置资源设置为依赖于 MSDeploy 资源。 配置更改会导致站点以异步方式重启。 通过使配置资源依赖于 MSDeploy，可确保 MSDeploy 在站点重启前完成。 如果没有这些依赖关系，则站点可能会在 MSDeploy 的部署过程中重启。 有关示例模板，请参阅[具有 Web 部署依赖项的 WordPress 模板](https://github.com/davidebbo/AzureWebsitesSamples/blob/master/ARMTemplates/WordpressTemplateWebDeployDependency.json)。
 
-下图显示了各种应用服务资源的依赖顺序。
+下图显示了各种应用服务资源的依赖顺序：
 
 ![Web 应用依赖关系](media/web-sites-rm-template-guidance/web-dependencies.png)
 
@@ -97,7 +97,7 @@ ms.locfileid: "36315367"
 
 1. 转到站点的 [Kudu 控制台](https://github.com/projectkudu/kudu/wiki/Kudu-console)。
 2. 浏览到 D:\home\LogFiles\SiteExtensions\MSDeploy 上的文件夹。
-3. 查找 appManagerStatus.xml 和 appManagerLog.xml 文件。 第一个文件记录了状态。 第二个文件记录了有关错误的信息。 如果你不太理解此错误，可以将它发布到论坛上来寻求帮助。
+3. 查找 appManagerStatus.xml 和 appManagerLog.xml 文件。 第一个文件记录了状态。 第二个文件记录了有关错误的信息。 如果不明白该错误，可将它发布到论坛上来寻求帮助。
 
 ## <a name="choose-a-unique-web-app-name"></a>选择唯一的 Web 应用名称
 
@@ -112,6 +112,27 @@ Web 应用的名称必须全局唯一。 可以使用某个可能唯一的命名
 }
 ```
 
-## <a name="next-steps"></a>后续步骤
+## <a name="deploy-web-app-certificate-from-key-vault"></a>部署来自 Key Vault 的 Web 应用证书
 
-* 有关使用模板部署 Web 应用的教程，请参阅[按可预见的方式在 Azure 中预配和部署微服务](app-service-deploy-complex-application-predictably.md)。
+如果模板包括用于 SSL 绑定的 [Microsoft.Web/certificates](https://docs.microsoft.com/en-us/azure/templates/microsoft.web/certificates) 资源，且证书存储在 Key Vault 中，则须确保应用服务标识可以访问该证书。
+
+在全球版 Azure 中，应用服务服务主体所拥有的 ID 为 abfa0a7c-a6b6-4736-8310-5855508787cd。 若要为应用服务服务主体授予对 Key Vault 的访问权限，请使用：
+
+```azurepowershell-interactive
+Set-AzureRmKeyVaultAccessPolicy `
+  -VaultName KEY_VAULT_NAME `
+  -ServicePrincipalName abfa0a7c-a6b6-4736-8310-5855508787cd `
+  -PermissionsToSecrets get `
+  -PermissionsToCertificates get
+```
+
+在 Azure 政府中，应用服务服务主体所拥有的 ID 为 6a02c803-dafd-4136-b4c3-5a6f318b4714。 使用上一示例中的 ID。
+
+在 Key Vault 中，选择“证书”和“生成/导入”以上传证书。
+
+![导入证书](media/web-sites-rm-template-guidance/import-certificate.png)
+
+在模板中，向 `keyVaultSecretName` 提供证书名称。
+
+有关示例模板，请参阅 [Deploy a Web App certificate from Key Vault secret and use it for creating SSL binding](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-certificate-from-key-vault)（部署来自 Key Vault 机密的 Web 应用证书并将其用于创建 SSL 绑定）。
+

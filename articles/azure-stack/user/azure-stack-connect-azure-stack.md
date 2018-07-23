@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 08/22/2017
-ms.date: 03/08/2018
+ms.date: 07/20/2018
 ms.author: v-junlch
-ms.openlocfilehash: 0e3fbd9bfa25aaaba5850966997e63671d4d1df9
-ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
+ms.openlocfilehash: 2523b1244c298f3bbaff83969500c529616d3b15
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29925270"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168426"
 ---
 # <a name="connect-to-azure-stack"></a>连接到 Azure Stack
 
@@ -64,7 +64,7 @@ Set-ExecutionPolicy RemoteSigned
 # Import the Connect module
 Import-Module .\Connect\AzureStack.Connect.psm1 
 
-# Add the development kit computer’s host IP address & certificate authority (CA) to the list of trusted hosts. Make sure to update the the IP address and password values for your environment. 
+# Add the development kit computer’s host IP address & certificate authority (CA) to the list of trusted hosts. Make sure to update the IP address and password values for your environment. 
 
 $hostIP = "<Azure Stack host IP address>"
 
@@ -107,7 +107,7 @@ Add-AzsVpnConnection `
 
 若要测试门户连接，请打开 Internet 浏览器并导航到用户门户 (https://portal.local.azurestack.external/))，然后登录并创建资源。  
 
-
+<!-- Update_Description: wording update -->
 
 
 

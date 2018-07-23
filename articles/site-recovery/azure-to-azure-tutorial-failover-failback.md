@@ -6,16 +6,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: tutorial
-origin.date: 05/15/2018
-ms.date: 06/18/2018
+origin.date: 07/06/2018
+ms.date: 07/23/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 0ee5d850b480fa6c4843c2afd4538dd44c5b3687
-ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
+ms.openlocfilehash: 3c5c605fe1e6c29ee886357c881df6ba6f9bd496
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2018
-ms.locfileid: "35568334"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168484"
 ---
 # <a name="fail-over-and-fail-back-azure-vms-between-azure-regions"></a>在 Azure 区域之间故障转移和故障回复 Azure VM
 
@@ -28,8 +28,6 @@ ms.locfileid: "35568334"
 > * 重新保护辅助 Azure VM，以便它复制到主要区域
 > * 故障回复辅助 VM
 > * 重新保护主 VM，以便它复制回次要区域
-
-Azure 到 Azure 复制当前处于预览状态。
 
 ## <a name="prerequisites"></a>先决条件
 

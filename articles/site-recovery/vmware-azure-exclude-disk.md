@@ -1,21 +1,18 @@
 ---
 title: 使用 Azure Site Recovery 从保护中排除磁盘 | Azure
 description: 介绍在从 VMware 复制到 Azure 时，为何需要从复制中排除 VM 磁盘，以及如何这样做。
-services: site-recovery
 author: rockboyfor
-manager: digimobile
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
-ms.topic: article
-origin.date: 03/05/2018
-ms.date: 04/02/2018
+origin.date: 07/06/2018
+ms.date: 07/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 1cf969c4f993442b2513d9e5ee753ae9116783d0
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: 472db8ab832863e820d3d32dd97264829bd18279
+ms.sourcegitcommit: f7ff09be9f3be5e3eb795e383c0c670f480f233d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30223438"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39169042"
 ---
 # <a name="exclude-disks-from-replication-for-vmware-to-azure-scenario"></a>在从 VMware 到 Azure 方案的复制中排除磁盘
 
@@ -51,7 +48,7 @@ ms.locfileid: "30223438"
 
 >[!NOTE]
 >
-> * 只能排除已安装移动服务的磁盘。 需要手动安装移动服务，因为启用复制后，只能使用推送机制安装移动服务。
+> * 只能排除 VM 上已安装移动服务的磁盘。 需要手动安装移动服务，因为启用复制后，只能使用推送机制安装移动服务。
 > * 只能从复制中排除基本磁盘。 不能排除操作系统磁盘或动态磁盘。
 > * 启用复制后，无法添加或删除要复制的磁盘。 如果想要添加或排除磁盘，需要禁用计算机保护，并重新启用保护。
 > * 如果排除的磁盘是某个应用程序正常运行所必需的，则故障转移到 Azure 之后，需要在 Azure 中手动创建该磁盘，以便复制的应用程序可以运行。 或者，可将 Azure 自动化集成到恢复计划中，以便在故障转移计算机期间创建磁盘。
@@ -231,4 +228,4 @@ DB-Disk3 | Disk3 | F:\ | 用户数据 2
 ## <a name="next-steps"></a>后续步骤
 设置并运行部署后，请 [详细了解](site-recovery-failover.md) 不同类型的故障转移。
 
-<!-- Update_Description: update meta properties, wording update, update link -->
+<!-- Update_Description: update meta properties -->

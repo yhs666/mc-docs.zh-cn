@@ -11,12 +11,12 @@ ms.topic: article
 origin.date: 05/08/2018
 ms.date: 05/28/2018
 ms.author: v-nany
-ms.openlocfilehash: 3aa77a14c5cdb856d61daf79e2898dcedf372963
-ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
+ms.openlocfilehash: 3224a0ad2637ac2ba6173d18ec16f6e372e7e072
+ms.sourcegitcommit: 53972dcdef77da92529996667545d2e83716f7e2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36748437"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39143409"
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>在 Azure 自动化中计划 Runbook
 
@@ -60,7 +60,7 @@ ms.locfileid: "36748437"
 
 以下示例命令演示了如何使用 Azure 资源管理器 cmdlet 创建每月 15 日和 30 日运行的计划。
 
-```azurepowershell
+```powershell
 $automationAccountName = "MyAutomationAccount"
 $scheduleName = "Sample-MonthlyDaysOfMonthSchedule"
 New-AzureRMAutomationSchedule –AutomationAccountName $automationAccountName –Name `
@@ -84,7 +84,7 @@ $scheduleName -StartTime "7/01/2016 15:30:00" -MonthInterval 1 `
 可使用 [Register-AzureRmAutomationScheduledRunbook](/powershell/module/azurerm.automation/register-azurermautomationscheduledrunbook) cmdlet 链接计划。 可以使用 Parameters 参数指定 Runbook 参数的值。 有关指定参数值的详细信息，请参阅[在 Azure 自动化中启动 Runbook](automation-starting-a-runbook.md)。
 以下示例命令演示了如何使用带参数的 Azure Resource Manager cmdlet 将计划链接到 Runbook。
 
-```azurepowershell
+```powershell
 $automationAccountName = "MyAutomationAccount"
 $runbookName = "Test-Runbook"
 $scheduleName = "Sample-DailySchedule"
@@ -113,11 +113,12 @@ Register-AzureRmAutomationScheduledRunbook –AutomationAccountName $automationA
 1. 将“已启用”更改为“否”。
 
 ### <a name="to-disable-a-schedule-with-windows-powershell"></a>使用 Windows PowerShell 禁用计划
+
 可使用 [Set-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/set-azurermautomationschedule) cmdlet 更改现有计划的属性。 若要禁用计划，请将“IsEnabled”参数指定为“false”。
 
 以下示例命令演示了如何使用 Azure Resource Manager cmdlet 禁用 Runbook 的计划。
 
-```azurepowershell
+```powershell
 $automationAccountName = "MyAutomationAccount"
 $scheduleName = "Sample-MonthlyDaysOfMonthSchedule"
 Set-AzureRmAutomationSchedule –AutomationAccountName $automationAccountName `

@@ -15,12 +15,12 @@ ms.component: fundamentals
 ms.technology: ''
 ms.assetid: ''
 ms.custom: it-pro
-ms.openlocfilehash: 42edd6d100dccea2bee0d2a336c8915b92d38972
-ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
+ms.openlocfilehash: dc9d85a98d34a0e34be1df632e612cfb7aea73a5
+ms.sourcegitcommit: 37a1524d71895b17b6f1d125053ad0b251b88df1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36948670"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39097932"
 ---
 # <a name="understand-azure-identity-solutions"></a>了解 Azure 标识解决方案
 Azure Active Directory (Azure AD) 是一个标识和访问管理云解决方案，它提供目录服务、标识监管和应用程序访问管理功能。 Azure AD 可以快速启用到 [Azure AD 应用程序库](https://azure.microsoft.com/marketplace/active-directory/all/)中的 1,000 个预先集成的商业和自定义应用的单一登录 (SSO)。 你可能已在使用其中的许多应用，例如 Office 365、Salesforce.com、Box、ServiceNow 和 Workday。
@@ -97,7 +97,6 @@ Azure 允许以多种方式管理用户的标识，不管这些标识是完全�
 - [使用 Azure AD Connect 启用目录的混合管理](../connect/active-directory-aadconnect.md)
 - [在互联世界中提高安全性](../authentication/multi-factor-authentication.md)
 - [从任意位置管理密码](../active-directory-passwords-update-your-own-password.md)
-- [Azure Active Directory 的应用程序访问与单一登录是什么？](../manage-apps/what-is-single-sign-on.md)
 - [使用 Azure Active Directory 组管理对资源的访问](active-directory-manage-groups.md)
 
 ## <a name="next-steps"></a>后续步骤

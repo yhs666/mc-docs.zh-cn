@@ -78,7 +78,7 @@
     - name: Python
       href: 'https://docs.microsoft.com/python/api/overview/azure/container-registry'
     - name: Java
-      href: 'https://docs.microsoft.com/java/api/overview/azure/containerregistry'
+      href: 'https://docs.microsoft.com/java/api/containerregistry'
     - name: Node.js
       href: 'http://docs.microsoft.com/javascript/api/overview/azure/container-registry'
     - name: Resource Manager 模板

@@ -1,5 +1,5 @@
 ---
-title: 验证 Azure 自动化帐户配置 | Azure
+title: 验证 Azure 自动化帐户配置
 description: 本文介绍如何确认自动化帐户的配置设置是正确的。
 services: automation
 author: yunan2016
@@ -11,20 +11,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/16/2018
-ms.date: 05/14/2018
+ms.date: 07/23/2018
 ms.author: v-nany
-ms.openlocfilehash: 243dc7130b394c19e8202cd5f3e920a4b4ed7f67
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.openlocfilehash: c70a36421a6d88ecffcaf0197c697c00a10a3c4a
+ms.sourcegitcommit: 53972dcdef77da92529996667545d2e83716f7e2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "33937427"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39143424"
 ---
 # <a name="test-azure-automation-run-as-account-authentication"></a>测试 Azure 自动化运行方式身份验证
 成功创建自动化帐户以后，即可执行一个简单的测试，确认你能够成功地在 Azure 资源管理器部署或 Azure 经典部署中使用新创建的或更新的自动化运行方式帐户进行身份验证。    
 
 ## <a name="automation-run-as-authentication"></a>自动化运行方式身份验证
-使用以下示例代码[创建 PowerShell runbook](automation-creating-importing-runbook.md)，以便使用运行方式帐户来验证身份，并在自定义 runbook 中使用自动化帐户来验证和管理资源管理器资源。   
+使用以下示例代码[创建 PowerShell runbook](automation-creating-importing-runbook.md)，以便使用运行方式帐户来验证身份，并在自定义 runbook 中使用自动化帐户来验证和管理资源管理器资源。
 
     $connectionName = "AzureRunAsConnection"
     try
@@ -65,6 +65,9 @@ ms.locfileid: "33937427"
     } 
 
 请注意，Runbook (Connect-AzureRmAccount) 中用于身份验证的 cmdlet 使用 ServicePrincipalCertificate 参数集。  它使用服务主体证书（而不是凭据）进行身份验证。  
+
+> [!IMPORTANT]
+> Add-AzureRmAccount 现在是 Connect-AzureRMAccount 的别名。 搜索库项时，如果未看到 Connect-AzureRMAccount，可以使用 Add-AzureRmAccount，或更新自动化帐户中的模块。
 
 通过[运行 Runbook](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal) 来验证运行方式帐户时，会创建一个 [Runbook 作业](automation-runbook-execution.md)并显示“作业”页，然后在“作业摘要”磁贴中显示作业状态。 作业状态最初为“已排队”  ，表示它正在等待云中的 Runbook 辅助角色变为可用。 在某个辅助角色认领该作业后，该作业状态将变为“正在启动”，然后当 Runbook 实际开始运行时，该作业状态将变为“正在运行”。  Runbook 作业完成时，应会看到状态变为“已完成”。
 

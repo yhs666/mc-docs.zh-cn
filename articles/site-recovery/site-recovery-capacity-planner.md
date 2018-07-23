@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 03/09/2018
-ms.date: 04/02/2018
+origin.date: 07/06/2018
+ms.date: 07/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: cab2fa5f866011cf477e060ffd4f81f1d2867e6d
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: 3ad7c49a9f633d82d0629ce7dba29429c0dc0a32
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30222766"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168334"
 ---
 # <a name="plan-capacity-for-protecting-hyper-v-vms-with-site-recovery"></a>计划用于使用 Site Recovery 保护 Hyper-V VM 的容量
 
@@ -63,9 +63,9 @@ Azure Site Recovery Capacity Planner 工具可帮助用户确定通过 Azure Sit
 
    c. 将 Hyper-V VM 复制到 Azure 时，不使用“压缩”设置。 对于压缩，请使用第三方应用程序（例如 Riverbed）。
 
-   d.单击“验证存储凭据”以验证存储帐户。 在“保留天数”中，指定副本应保留的天数。
+   d. 在“保留天数”中，指定副本应保留的天数。
 
-   e.在“新建 MySQL 数据库”边栏选项卡中，接受法律条款，并单击“确定”。 在“完成成批虚拟机的初始复制所需的小时数”和“初始复制批处理的虚拟机数”中，可以输入用于计算初始复制要求的设置。 部署 Site Recovery 时，应上传整个初始数据集。
+   e. 在“完成成批虚拟机的初始复制所需的小时数”和“初始复制批处理的虚拟机数”中，可以输入用于计算初始复制要求的设置。 部署 Site Recovery 时，应上传整个初始数据集。
 
    ![输入](./media/site-recovery-capacity-planner/inputs.png)
 
@@ -101,11 +101,11 @@ Azure Site Recovery Capacity Planner 工具可帮助用户确定通过 Azure Sit
 
    c. **NIC 数**：指定源服务器上的网络适配器数。
 
-   d.单击“验证存储凭据”以验证存储帐户。 在“总存储空间(GB)”中指定 VM 存储空间的总大小。 例如，如果源服务器有 3 个磁盘，每个磁盘的大小为 500 GB，则总的存储空间大小为 1500 GB。
+   d. 在“总存储空间(GB)”中指定 VM 存储空间的总大小。 例如，如果源服务器有 3 个磁盘，每个磁盘的大小为 500 GB，则总的存储空间大小为 1500 GB。
 
-   e.在“新建 MySQL 数据库”边栏选项卡中，接受法律条款，并单击“确定”。 在“附加磁盘数” 中指定源服务器的磁盘总数。
+   e. 在“附加磁盘数” 中指定源服务器的磁盘总数。
 
-   f.单击“保存”以保存设置。 在“磁盘容量使用率”中指定平均使用率。
+   f. 在“磁盘容量使用率”中指定平均使用率。
 
    g. 在“每日数据更改率(%)”中指定源服务器的每日数据更改率。
 

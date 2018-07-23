@@ -3,44 +3,55 @@ title: 使用 PowerShell 管理 Azure Analysis Services | Azure
 description: 使用 PowerShell 管理 Azure Analysis Services。
 author: rockboyfor
 manager: digimobile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: reference
-origin.date: 04/12/2018
-ms.date: 04/30/2018
+origin.date: 05/22/2018
+ms.date: 07/16/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 013cb9f0b789e1427697a161aca5121e88bbff61
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: a6c72595953102b6dba14beccbada714c4a8bf3f
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121362"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167880"
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>使用 PowerShell 管理 Azure Analysis Services
 
 本文介绍用于执行 Azure Analysis Services 服务器和数据管理任务的 PowerShell cmdlet。 
 
-服务器管理任务，如创建或删除服务器、暂停或恢复服务器操作，或更改服务级别（层），都使用 Azure 资源管理器 (AzureRM) cmdlet。 用于管理数据库的其他任务（如添加或删除角色成员、处理或分区）使用 SQL Server Analysis Services 所在的同一 SqlServer 模块中包含的 cmdlet。
+服务器管理任务，如创建或删除服务器、挂起或恢复服务器操作，或更改服务级别（层），都要使用 Azure 资源管理器（资源）cmdlet 和 Analysis Services（服务器）cmdlet。 用于管理数据库的其他任务（如添加或删除角色成员、处理或分区）使用 SQL Server Analysis Services 所在的同一 SqlServer 模块中包含的 cmdlet。
 
 ## <a name="permissions"></a>权限
-大多数 PowerShell 任务要求用户在所管理的 Analysis Services 服务器上具有管理员权限。 已计划的 PowerShell 任务是无人参与操作。 运行计划程序的帐户必须对 Analysis Services 服务器具有管理员权限。 
+大多数 PowerShell 任务要求用户在所管理的 Analysis Services 服务器上具有管理员权限。 已计划的 PowerShell 任务是无人参与操作。 运行计划程序的帐户或服务主体必须具有对 Analysis Services 服务器的管理特权。 
 
-对于使用 AzureRm cmdlet 的服务器操作，你的帐户或运行计划程序的帐户还必须属于 [Azure 基于角色的访问控制 (RBAC)](https://docs.microsoft.com/zh-cn/azure/role-based-access-control/overview) 中资源的所有者角色。 
+对于使用 AzureRm cmdlet 的服务器操作，你的帐户或运行计划程序的帐户还必须属于 [Azure 基于角色的访问控制 (RBAC)](../role-based-access-control/overview.md) 中资源的所有者角色。 
 
-## <a name="server-operations"></a>服务器操作 
-Azure Analysis Services cmdlet 包含在 [AzureRM.AnalysisServices](https://www.powershellgallery.com/packages/AzureRM.AnalysisServices) 组件模块中。 若要安装 AzureRM cmdlet 模块，请参阅 PowerShell 库中的 [Azure 资源管理器 cmdlet](https://docs.microsoft.com/powershell/azure/overview)。
+## <a name="resource-management-operations"></a>资源管理操作 
+模块 - [AzureRM.AnalysisServices](https://www.powershellgallery.com/packages/AzureRM.AnalysisServices)
 
 |Cmdlet|说明| 
 |------------|-----------------| 
-|[Add-AzureAnalysisServicesAccount](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/add-azureanalysisservicesaccount)|添加要用于 Azure Analysis Services 服务器 cmdlet 请求的经过身份验证帐户。| 
 |[Get-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/get-azurermanalysisservicesserver)|获取服务器实例的详细信息。|  
 |[New-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver)|创建服务器实例。|   
+|[New-AzureRmAnalysisServicesFirewallConfig](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesfirewallconfig)|创建新的 Analysis Services 防火墙配置。|   
+|[New-AzureRmAnalysisServicesFirewallRule](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesfirewallrule)|创建新的 Analysis Services 防火墙规则。|   
 |[Remove-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/remove-azurermanalysisservicesserver)|删除服务器实例。|  
-|[Restart-AzureAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/restart-azureanalysisservicesinstance)|在当前登录的环境中重新启动 Analysis Services 服务器的实例；在 Add-AzureAnalysisServicesAccount 命令中指定。|  
 |[Resume-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/resume-azurermanalysisservicesserver)|恢复服务器实例。|  
 |[Suspend-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/suspend-azurermanalysisservicesserver)|暂停服务器实例。| 
 |[Set-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/set-azurermanalysisservicesserver)|修改服务器实例。|   
 |[Test-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/test-azurermanalysisservicesserver)|测试服务器实例是否存在。| 
+
+## <a name="server-management-operations"></a>服务器管理操作
+
+模块 - [Azure.AnalysisServices](https://www.powershellgallery.com/packages/Azure.AnalysisServices)
+
+|Cmdlet|说明| 
+|------------|-----------------| 
+|[Add-AzureAnalysisServicesAccount](https://docs.microsoft.com/powershell/module/azure.analysisservices/add-azureanalysisservicesaccount)|添加要用于 Azure Analysis Services 服务器 cmdlet 请求的经过身份验证帐户。| 
+|[Export-AzureAnalysisServicesInstance]()|在 Add-AzureAnalysisServicesAccount 命令指定的当前登录环境中，从 Analysis Services 服务器实例中导出日志|  
+|[Restart-AzureAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/restart-azureanalysisservicesinstance)|在当前登录的环境中重新启动 Analysis Services 服务器的实例；在 Add-AzureAnalysisServicesAccount 命令中指定。|  
+|[Sync-AzureAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/restart-azureanalysisservicesinstance)|在 Add-AzureAnalysisServicesAccount 命令指定的当前登录环境中，将指定的 Analysis Services 服务器实例上的指定数据库同步到所有查询横向扩展实例|  
 
 ## <a name="database-operations"></a>数据库操作
 

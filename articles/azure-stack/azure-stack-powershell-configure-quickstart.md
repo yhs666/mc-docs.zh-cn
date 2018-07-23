@@ -13,14 +13,14 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/30/2018
-ms.date: 05/24/2018
+ms.date: 07/20/2018
 ms.author: v-junlch
-ms.openlocfilehash: a7891dc4187e12360fc554744254eeecb1e512c7
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: ed6f9bf59189cd4cc7804ddc809c9628026e80ad
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34474908"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168350"
 ---
 # <a name="get-up-and-running-with-powershell-in-azure-stack"></a>在 Azure Stack 中使用 PowerShell 启动并运行
 
@@ -101,7 +101,7 @@ Import-Module .\Connect\AzureStack.Connect.psm1
 
 ## <a name="set-up-powershell-for-ad-fs-based-deployments"></a>设置 PowerShell 进行基于 AD FS 的部署
 
-如果在连接到 Internet 的情况下运行 Azure Stack，则可以使用以下脚本。 但是，如果在未建立 Internet 连接的情况下运行 Azure Stack，请使用[离线安装 PowerShell](azure-stack-powershell-install.md#install-powershell-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity) 的方法，用于配置 PowerShell 的 cmdlet 与此脚本中所示相同。 登录到 Azure Stack 开发工具包；如果已通过 VPN 建立连接，请登录到基于 Windows 的外部客户端。 打开权限提升的 PowerShell ISE 会话，然后运行以下脚本。 确保根据需要更新环境配置的 **ArmEndpoint** 和 **GraphAudience** 变量：
+如果在连接到 Internet 的情况下运行 Azure Stack，则可以使用以下脚本。 但是，如果在未建立 Internet 连接的情况下运行 Azure Stack，请使用[离线安装 PowerShell](azure-stack-powershell-install.md) 的方法，用于配置 PowerShell 的 cmdlet 与此脚本中所示相同。 登录到 Azure Stack 开发工具包；如果已通过 VPN 建立连接，请登录到基于 Windows 的外部客户端。 打开权限提升的 PowerShell ISE 会话，然后运行以下脚本。 确保根据需要更新环境配置的 **ArmEndpoint** 和 **GraphAudience** 变量：
 
 ```powershell
 
@@ -174,7 +174,7 @@ New-AzureRMResourceGroup -Name "ContosoVMRG" -Location Local
 ```
 
 > [!note]  
-> 若要指定资源组，订阅中需有一个资源组。 有关订阅的详细信息，请参阅[计划、产品/服务、配额和订阅概述](azure-stack-plan-offer-quota-overview.md)
+> 若要指定资源组，订阅中需有一个资源组。 有关订阅的详细信息，请参阅[计划、套餐、配额和订阅概述](azure-stack-plan-offer-quota-overview.md)
 
 创建资源组后，“Provisioning state”属性会设置为“Succeeded”。
 
@@ -184,4 +184,4 @@ New-AzureRMResourceGroup -Name "ContosoVMRG" -Location Local
 
 - [开发模板](user/azure-stack-develop-templates.md)
 
-<!-- Update_Description: code update -->
+<!-- Update_Description: link update -->

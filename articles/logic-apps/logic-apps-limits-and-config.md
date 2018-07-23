@@ -11,12 +11,12 @@ ms.date: 07/02/2018
 ms.service: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 15e65a118049d6eb11f0205b38f5b79786babe41
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.openlocfilehash: f6005515bfe2a04864eb6bf5a5962d8715c94951
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315476"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167970"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Azure 逻辑应用的限制和配置信息
 
@@ -236,8 +236,8 @@ ms.locfileid: "36315476"
 
 | 逻辑应用区域 | 出站 IP |
 |-------------------|-------------|
-| 澳大利亚 | 13.73.114.207, 13.77.3.139, 13.70.159.205 |
 | 澳大利亚东部 | 13.75.149.4, 104.210.91.55, 104.210.90.241 |
+| 澳大利亚东南部 | 13.73.114.207, 13.77.3.139, 13.70.159.205 |
 | 巴西南部 | 191.235.82.221, 191.235.91.7, 191.234.182.26 |
 | 加拿大中部 | 52.233.29.92、52.228.39.241、52.228.39.244 |
 | 加拿大东部 | 52.232.128.155、52.229.120.45、52.229.126.25 |

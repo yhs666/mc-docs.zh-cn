@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 origin.date: 03/19/2018
 ms.date: 05/14/2018
 ms.author: v-nany
-ms.openlocfilehash: 3f38d379322c101780ae475ac8d4cbe4b144b418
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.openlocfilehash: 50569432ba148b301c06ff1caa1b22c6b37173d8
+ms.sourcegitcommit: 53972dcdef77da92529996667545d2e83716f7e2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "33937464"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39143413"
 ---
 # <a name="runbook-settings"></a>Runbook 设置
 Azure 自动化中的每个 Runbook 都提供了多个设置用于帮助标识自身，以及更改它的日志记录行为。 下面会描述其中的每个设置，此后再介绍修改设置的过程。
@@ -59,4 +59,5 @@ Azure 自动化中的每个 Runbook 都提供了多个设置用于帮助标识�
 
 ## <a name="next-steps"></a>后续步骤
 * 若要了解如何创建输出和错误消息以及如何从 Runbook 检索此类消息，请参阅 [Runbook 输出和消息](automation-runbook-output-and-messages.md) 
-* 若要了解如何添加已由社区或其他源开发的 Runbook，或创建自己的 Runbook，请参阅[创建或导入 Runbook](automation-creating-importing-runbook.md)
+* 若要了解如何添加已由社区或其他源开发的 Runbook，或创建自己的 Runbook，请参阅[创建或导入 Runbook](automation-creating-importing-runbook.md) 
+

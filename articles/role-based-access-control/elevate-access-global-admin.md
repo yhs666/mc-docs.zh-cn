@@ -16,12 +16,12 @@ origin.date: 05/11/2018
 ms.date: 07/02/2018
 ms.author: v-junlch
 ms.reviewer: bagovind
-ms.openlocfilehash: 0124825d89f0b0f9f12c6f16aaf2f87e2026f201
-ms.sourcegitcommit: a20c461541ba7db541c01c8a18fc4cff48e3d2d5
+ms.openlocfilehash: 87505c3345589f909c628137b7b0549e136a5a5e
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37361233"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168300"
 ---
 # <a name="elevate-access-for-a-global-administrator-in-azure-active-directory"></a>为 Azure Active Directory 中的全局管理员提升访问权限
 
@@ -40,7 +40,7 @@ ms.locfileid: "37361233"
 
 ## <a name="elevate-access-for-a-global-administrator-using-the-azure-portal"></a>使用 Azure 门户为全局管理员提升访问权限
 
-1. 登录 [Azure 门户](https://portal.azure.cn)或 [Azure Active Directory 管理中心](https://aad.portal.azure.cn)。
+1. 登录到 [Azure 门户](https://portal.azure.cn)。
 
 1. 在导航列表中，单击“Azure Active Directory”，然后单击“属性”。
 

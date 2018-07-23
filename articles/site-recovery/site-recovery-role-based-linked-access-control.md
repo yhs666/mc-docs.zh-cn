@@ -4,25 +4,22 @@ description: 本文介绍如何应用基于角色的访问控制 (RBAC)，并利
 services: site-recovery
 documentationcenter: ''
 author: rockboyfor
-manager: digimobile
-editor: ''
-ms.assetid: ''
 ms.service: site-recovery
 ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-origin.date: 05/11/2018
-ms.date: 06/18/2018
+origin.date: 07/06/2018
+ms.date: 07/23/2018
+ms.topic: conceptual
 ms.author: v-yeche
-ms.openlocfilehash: d830ae603025dd0890eb71323b849573bcbefbd9
-ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
+ms.openlocfilehash: 9f7ccbc099448cf7a1fc4eb70a41741ea2cf4193
+ms.sourcegitcommit: f7ff09be9f3be5e3eb795e383c0c670f480f233d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2018
-ms.locfileid: "35568295"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39169038"
 ---
-# <a name="use-role-based-access-control-to-manage-azure-site-recovery-deployments"></a>使用基于角色的访问控制管理 Azure Site Recovery
+# <a name="use-role-based-access-control-to-manage-site-recovery-access"></a>使用基于角色的访问控制管理 Site Recovery 访问权限
 
 Azure 基于角色的访问控制 (RBAC) 可用于对 Azure 进行细致的访问管理。 通过 RBAC 可分离团队中的职责，并根据需要仅向用户授予执行特定作业的特定访问权限。
 
@@ -32,9 +29,9 @@ Azure Site Recovery 提供了 3 个用于控制 Site Recovery 管理操作的内
 * [Site Recovery 操作员](../role-based-access-control/built-in-roles.md#site-recovery-operator) - 此角色有权执行和管理故障转移和故障回复操作。 拥有此角色的用户无法启用或禁用复制、无法创建或删除保管库，也无法注册新的基础结构或向其他用户分配访问权限。 此角色最适合分配给灾难恢复操作员，这样他们就可以在实际或模拟灾难情形（如 DR 钻取）下，遵循应用程序所有者或 IT 管理员的指示，对虚拟机或应用程序进行故障转移。 灾难解决后，DR 操作员可以重新保护和故障回复虚拟机。
 * [Site Recovery 读者](../role-based-access-control/built-in-roles.md#site-recovery-reader) - 此角色有权查看所有 Site Recovery 管理操作。 此角色最适合分配给 IT 监视主管，这样他们就可以在需要时监视当前保护状态并创建支持票证。
 
-若要定义自己的角色以便实现进一步控制，请参阅如何[在 Azure 中生成自定义角色](../role-based-access-control/custom-roles.md)。
+若要定义自己的角色以便实现进一步控制，请参阅如何在 Azure 中[生成自定义角色](../role-based-access-control/custom-roles.md)。
 
-## <a name="permissions-required-to-enable-replication-for-new-virtual-machines"></a>为新虚拟机启用复制时所需的权限
+## <a name="permissions-required-to-enable-replication-for-new-virtual-machines"></a>为新虚拟机启用复制所需的权限
 使用 Azure Site Recovery 将新虚拟机复制到 Azure 时，会验证相关用户的访问级别，确保用户具有使用提供给 Site Recovery 的 Azure 资源所需的权限。
 
 若要为新虚拟机启用复制，用户必须具有：

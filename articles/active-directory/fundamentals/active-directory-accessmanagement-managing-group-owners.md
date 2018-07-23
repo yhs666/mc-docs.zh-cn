@@ -14,12 +14,12 @@ origin.date: 09/12/2017
 ms.date: 06/22/2018
 ms.author: v-junlch
 ms.custom: it-pro
-ms.openlocfilehash: 5928910d4a9dc3ff0b6c3cd3827dc5572e35a69b
-ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
+ms.openlocfilehash: 835fd3cc68fa4ecd95f1eff314e8352368bceb07
+ms.sourcegitcommit: 37a1524d71895b17b6f1d125053ad0b251b88df1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36948673"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39097626"
 ---
 # <a name="managing-owners-for-a-group"></a>管理组的所有者
 当资源所有者将资源访问权限分配给一个 Azure AD 组，该组所有者即可管理组的成员身份。 实际上，资源所有者是将其资源的用户访问权限委派给了组的所有者。
@@ -42,8 +42,6 @@ ms.locfileid: "36948673"
 这些文章提供了有关 Azure Active Directory 的更多信息。
 
 - [使用 Azure Active Directory 组管理对资源的访问](active-directory-manage-groups.md)
-- [用于配置组设置的 Azure Active Directory cmdlet](../active-directory-accessmanagement-groups-settings-cmdlets.md)
-- [有关 Azure Active Directory 中应用程序管理的文章索引](../active-directory-apps-index.md)
 - [什么是 Azure Active Directory？](active-directory-whatis.md)
 - [将本地标识与 Azure Active Directory 集成](../connect/active-directory-aadconnect.md)
 

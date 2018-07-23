@@ -6,16 +6,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: tutorial
-origin.date: 05/16/2018
-ms.date: 06/18/2018
+origin.date: 07/06/2018
+ms.date: 07/23/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: e7d31573f66de5b12b82bf1c50feeb4451f4f911
-ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
+ms.openlocfilehash: 964ceec9d379a3e3fda809d74061a8b06af88b8d
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2018
-ms.locfileid: "35568415"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168346"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region"></a>为 Azure VM 设置到 Azure 次要区域的灾难恢复
 
@@ -29,7 +29,6 @@ ms.locfileid: "35568415"
 > * 为 VM 设置出站访问
 > * 为虚拟机启用复制
 
-Azure 到 Azure 复制当前处于预览状态。
 ## <a name="prerequisites"></a>先决条件
 
 完成本教程：

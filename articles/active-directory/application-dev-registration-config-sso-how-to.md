@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 07/11/2017
 ms.date: 07/28/2017
 ms.author: v-junlch
-ms.openlocfilehash: 01e7a26ddb7c633085098810914589e8e61ff093
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: c0823900b5641b69d4c348491f9e927caefb4095
+ms.sourcegitcommit: 37a1524d71895b17b6f1d125053ad0b251b88df1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
-ms.locfileid: "27604185"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39097629"
 ---
 # <a name="how-to-configure-a-new-multi-tenant-application"></a>如何配置新的多租户应用程序
 
@@ -34,8 +34,6 @@ ms.locfileid: "27604185"
 对于 iOS，请参阅[在 iOS 中启用跨应用 SSO](/active-directory/develop/active-directory-sso-ios)。
 
 ## <a name="next-steps"></a>后续步骤
-
-[Azure AD SSO](/active-directory/active-directory-appssoaccess-whatis)<br>
 
 [在 Android 中启用跨应用 SSO](/active-directory/develop/active-directory-sso-android)<br>
 

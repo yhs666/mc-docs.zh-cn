@@ -6,15 +6,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 03/05/2018
-ms.date: 04/02/2018
+origin.date: 07/06/2018
+ms.date: 07/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 6d7eb0d3769cebf1dee74d01ad192bb931a9ec36
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: ac5af06b5fab92641d89192b5f83cdef8a7d6cee
+ms.sourcegitcommit: f7ff09be9f3be5e3eb795e383c0c670f480f233d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30222804"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39169054"
 ---
 # <a name="replicate-a-multi-tier-iis-based-web-application"></a>复制基于 IIS 的多层 Web 应用程序
 
@@ -30,7 +30,7 @@ ms.locfileid: "30222804"
 
 ## <a name="prerequisites"></a>先决条件
 
-在开始之前，请确保知道如何执行以下任务：
+开始之前，请确保自己知道如何执行以下任务：
 
 * [将虚拟机复制到 Azure](vmware-azure-tutorial.md)
 * [设计恢复网络](site-recovery-network-design.md)
@@ -96,7 +96,7 @@ Azure|不可用|是
 在故障转移后或测试故障转移期间，可能需要在 Azure 虚拟机上执行一些操作才能让 IIS Web 场正常工作。 可将某些故障转移后的操作自动化。 例如，可在恢复计划中添加相应的脚本，来更新 DNS 条目、更改站点绑定或更改连接字符串。 [将 VMM 脚本添加到恢复计划](site-recovery-how-to-add-vmmscript.md)介绍了如何使用脚本来设置自动化任务。
 
 #### <a name="dns-update"></a>DNS 更新
-如果为动态 DNS 更新配置了 DNS，则虚拟机在启动时，通常会使用新的 IP 地址更新 DNS。 如果想要添加一个明确的步骤来使用虚拟机的新 IP 地址更新 DNS，请添加这个[用于更新 DNS 中的 IP 的脚本](https://aka.ms/asr-dns-update)，作为恢复计划组中的故障转移后操作。  
+如果为 DNS 配置了动态 DNS 更新，则虚拟机在启动时，通常会使用新的 IP 地址更新 DNS。 如果想要添加一个明确的步骤来使用虚拟机的新 IP 地址更新 DNS，请添加这个[用于更新 DNS 中的 IP 的脚本](https://aka.ms/asr-dns-update)，作为恢复计划组中的故障转移后操作。  
 
 #### <a name="connection-string-in-an-applications-webconfig"></a>应用程序 web.config 中的连接字符串
 连接字符串指定与网站通信的数据库。 如果连接字符串包含数据库虚拟机的名称，则故障转移后无需进行其他步骤。 应用程序可自动与数据库通信。 此外，如果数据库虚拟机的 IP 地址得到保留，则不需要更新连接字符串。 
@@ -161,4 +161,4 @@ Azure|不可用|是
 
 ## <a name="next-steps"></a>后续步骤
 * 详细了解如何使用 Site Recovery [复制其他应用程序](site-recovery-workload.md)。
-<!--Update_Description: update meta properties, wording update, update link -->
+<!--Update_Description: update meta properties  -->

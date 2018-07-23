@@ -6,12 +6,12 @@ description: 了解如何使用 Azure 云服务构建和管理功能强大的应
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: bbea5d10153f1d0e626243e8e18f28c8c87a4479
-ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
+ms.openlocfilehash: 6a9319817b53000ba941ff94cbd27bbfb351b0a6
+ms.sourcegitcommit: b23f331a9507c52ddd564c77379e7013b14141e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34450116"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39138837"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -2837,7 +2837,7 @@ Azure PowerShell </a>
                                                     <a href="/java">入门</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/java/api/overview">API 参考</a>
+                                                    <a href="/java/api/">API 参考</a>
                                                 </p>
                                             </div>
                                         </div>

@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-origin.date: 02/22/2018
-ms.date: 05/07/2018
+origin.date: 07/06/2018
+ms.date: 07/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 5f1d52d4ae2b859baa53f55090a58a4ad43e1d96
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: eae93ddfad51b83265da70dd71517e4bc7767cc9
+ms.sourcegitcommit: f7ff09be9f3be5e3eb795e383c0c670f480f233d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33815291"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39169039"
 ---
 # <a name="monitoring-and-troubleshooting-azure-site-recovery"></a>对 Azure Site Recovery 进行监视和故障排除
 

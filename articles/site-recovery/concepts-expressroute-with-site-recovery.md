@@ -7,15 +7,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 05/11/2018
-ms.date: 06/18/2018
+origin.date: 07/06/2018
+ms.date: 07/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 8cd797dfe36ab8eac1e49be4aa9ac8b868fc102a
-ms.sourcegitcommit: 3130e6042909be0d97d7de5aec7ae9454cd81cfc
+ms.openlocfilehash: b2d0034ae2461e7cad445ffe441cbb175420ea05
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37102877"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168234"
 ---
 # <a name="azure-expressroute-with-azure-site-recovery"></a>将 Azure ExpressRoute 与 Azure Site Recovery 结合使用
 

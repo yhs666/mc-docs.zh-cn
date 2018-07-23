@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 12/18/2017
 ms.date: 12/18/2017
 ms.author: v-nany
-ms.openlocfilehash: e691ab3b155288b5834b8896d2ac770799d48ecc
-ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
+ms.openlocfilehash: 78dd7b7a4a1194bf2fcfdf2a633b5927e00441dd
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
-ms.locfileid: "27548223"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167961"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>DNS 区域和记录概述
 

@@ -10,12 +10,12 @@ origin.date: 03/03/2018
 ms.date: 07/02/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 89fe1f806388a133b90549d287059f80f1585d88
-ms.sourcegitcommit: 5b6a2fc55e5b16ae480bd497c3ac2c3a2fd44703
+ms.openlocfilehash: a71501a784b91e40e9dabb63616c0d27baa0ac3f
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38999198"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167872"
 ---
 # <a name="quickstart-create-a-container-registry-using-the-azure-cli"></a>快速入门：使用 Azure CLI 创建容器注册表
 
@@ -29,11 +29,12 @@ Azure 容器注册表是托管的 Docker 容器注册表服务，用于存储专
 
 使用 [az group create][az-group-create] 命令创建资源组。 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。
 
-以下示例在“chinaeast”位置创建名为“myResourceGroup”的资源组。
+以下示例在“chinanorth”位置创建名为“myResourceGroup”的资源组。
 
 ```azurecli
-az group create --name myResourceGroup --location chinaeast
+az group create --name myResourceGroup --location chinanorth
 ```
+<!--Notice:  Currently the Container Registry is only valid on ChinaNorth-->
 
 ## <a name="create-a-container-registry"></a>创建容器注册表
 
@@ -56,7 +57,7 @@ az acr create --resource-group myResourceGroup --name myContainerRegistry007 --s
   "adminUserEnabled": false,
   "creationDate": "2017-09-08T22:32:13.175925+00:00",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myContainerRegistry007",
-  "location": "chinaeast",
+  "location": "chinanorth",
   "loginServer": "myContainerRegistry007.azurecr.cn",
   "name": "myContainerRegistry007",
   "provisioningState": "Succeeded",
@@ -140,45 +141,9 @@ Result
 v1
 ```
 
-## <a name="deploy-image-to-aci"></a>将映像部署到 ACI
+<!-- Not Available on ## Deploy image to ACI -->
 
-若要从创建的注册表部署容器实例，必须在部署时提供注册表凭据。 在生产方案中，应该使用[服务主体][container-registry-auth-aci]进行容器注册表访问，但为了简洁起见，本快速入门使用以下命令在注册表上启用管理员用户：
-
-```azurecli
-az acr update --name <acrName> --admin-enabled true
-```
-
-启用管理员以后，用户名就是注册表名称，然后即可使用以下命令检索密码：
-
-```azurecli
-az acr credential show --name <acrName> --query "passwords[0].value"
-```
-
-若要使用 1 个 CPU 核心和 1 GB 内存来部署容器映像，请运行以下命令。 将 `<acrName>`、`<acrLoginServer>`、`<acrPassword>` 替换为从之前的命令中获得的值。
-
-```azurecli
-az container create --resource-group myResourceGroup --name acr-quickstart --image <acrLoginServer>/aci-helloworld:v1 --cpu 1 --memory 1 --registry-username <acrName> --registry-password <acrPassword> --dns-name-label aci-demo --ports 80
-```
-
-此时会返回 Azure 资源管理器的初始响应，其中包含容器的详细信息。 若要监视容器的状态并查看其何时运行，请重复 [az container show][az-container-show] 命令。 应该只需要不到一分钟的时间。
-
-```azurecli
-az container show --resource-group myResourceGroup --name acr-quickstart --query instanceView.state
-```
-
-## <a name="view-the-application"></a>查看应用程序
-
-成功部署到 ACI 以后，请使用 [az container show][az-container-show] 命令检索容器的 FQDN：
-
-```azurecli
-az container show --resource-group myResourceGroup --name acr-quickstart --query ipAddress.fqdn
-```
-
-示例输出：`"aci-demo.chinaeast.azurecontainer.io"`
-
-若要查看正在运行的应用程序，请从喜欢的浏览器中导航到此公共 IP 地址。
-
-![浏览器中的 Hello World 应用][aci-app-browser]
+<!-- Not Available on ## View the application-->
 
 ## <a name="clean-up-resources"></a>清理资源
 

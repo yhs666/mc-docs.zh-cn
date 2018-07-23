@@ -16,12 +16,12 @@ origin.date: 01/14/2018
 ms.date: 07/04/2018
 ms.author: v-junlch
 ms.custom: seohack1
-ms.openlocfilehash: eaed6f2ae2b1f8d2ea7ef3ba45f6ecf6d15cce61
-ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
+ms.openlocfilehash: 0e127915735ae9c6c9c844e2fc64b905a3bb3115
+ms.sourcegitcommit: 37a1524d71895b17b6f1d125053ad0b251b88df1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37800355"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39096603"
 ---
 # <a name="develop-line-of-business-apps-for-azure-active-directory"></a>为 Azure Active Directory 开发业务线应用
 本指南提供开发用于 Azure Active Directory (AD) 的业务线 (LoB) 应用程序的概述，目标受众为 Active Directory/Office 365 全局管理员。
@@ -44,8 +44,8 @@ ms.locfileid: "37800355"
   - 使用 Azure Active Directory 作为 oAuth 授权服务器（保护应用程序公开的 API）
 - 声明让应用程序按预期运行所需的权限，包括：
 
-      - 应用权限（仅限全局管理员）。 例如：另一个 Azure AD 应用程序中的角色成员身份，或相对于 Azure 资源、资源组或订阅的角色成员身份
-      - 委派的权限（任何用户）。 例如：Azure AD、登录和读取配置文件
+  - 应用权限（仅限全局管理员）。 例如：另一个 Azure AD 应用程序中的角色成员身份，或相对于 Azure 资源、资源组或订阅的角色成员身份
+  - 委派的权限（任何用户）。 例如：Azure AD、登录和读取配置文件
 
 > [!NOTE]
 > 默认情况下，任何成员都可以注册应用程序。 要了解如何限定只有特定成员拥有注册应用程序的权限，请参阅 [How applications are added to Azure AD](develop/active-directory-how-applications-are-added.md#who-has-permission-to-add-applications-to-my-azure-ad-instance)（如何将应用程序添加到 Azure AD）。
@@ -64,7 +64,6 @@ ms.locfileid: "37800355"
 [要求进行用户分配](active-directory-applications-guiding-developers-requiring-user-assignment.md)
 
 [将用户分配到应用程序](active-directory-applications-guiding-developers-assigning-users.md)  
-[将组分配到应用程序](active-directory-applications-guiding-developers-assigning-groups.md)
 
 ## <a name="suppress-user-consent"></a>抑制用户同意
 默认情况下，每个用户通过同意体验进行登录。 对于不太熟悉如何做出此类决定的用户而言，同意体验（要求用户授予对应用程序的权限）可能会令其不安。
@@ -72,8 +71,5 @@ ms.locfileid: "37800355"
 对于信任的应用程序，可以代表组织来同意应用程序，以简化用户体验。
 
 有关 Azure 中的用户同意和同意体验的详细信息，请参阅 [Integrating Applications with Azure Active Directory](./develop/active-directory-integrating-applications.md)（将应用程序与 Azure Active Directory 集成）。
-
-## <a name="related-articles"></a>相关文章
-- [有关 Azure Active Directory 中应用程序管理的文章索引](active-directory-apps-index.md)
 
 <!-- Update_Description: wording update -->

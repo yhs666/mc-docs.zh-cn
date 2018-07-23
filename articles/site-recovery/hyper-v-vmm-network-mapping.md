@@ -6,15 +6,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 05/02/2018
-ms.date: 06/18/2018
+origin.date: 07/06/2018
+ms.date: 07/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 52180991978abcd3d00c6eee14807b61561efc15
-ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
+ms.openlocfilehash: 1dae8020a535859cff9a579efd430caf5e6ea3ca
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2018
-ms.locfileid: "35568283"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168489"
 ---
 # <a name="prepare-network-mapping-for-hyper-v-vm-replication-to-azure"></a>准备网络映射以将 Hyper-V VM 复制到 Azure
 
@@ -119,4 +119,4 @@ VMNetwork1-Shanghai 的网络映射已更改。 | VM-1 将连接到现已映射�
 
 - [了解](hyper-v-vmm-networking.md)在故障转移到辅助 VMM 站点后的 IP 寻址。
 - [了解](concepts-on-premises-to-azure-networking.md)在故障转移到 Azure 后的 IP 寻址。
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties  -->

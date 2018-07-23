@@ -9,12 +9,12 @@ ms.topic: get-started-article
 origin.date: 05/15/2018
 ms.date: 06/29/2018
 ms.author: v-junlch
-ms.openlocfilehash: 81d6b03d2032edb048e79015bd783de3d8a69988
-ms.sourcegitcommit: c587cc1c53b1f92b45fae0d1ff8e1f7bd544bc55
+ms.openlocfilehash: 4904169432b65d7b03cd7410e492f5750dd1ae18
+ms.sourcegitcommit: b23f331a9507c52ddd564c77379e7013b14141e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103242"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39138863"
 ---
 # <a name="overview-of-batch-apis-and-tools"></a>批处理 API 和工具概述
 
@@ -83,8 +83,8 @@ ms.locfileid: "37103242"
 
 
 [azure_storage]: https://www.azure.cn/home/features/storage/
-[api_java]: /java/api/overview/batch/clientlibrary
-[api_java_mgmt]: /java/api/overview/batch/managementapi
+[api_java]: /java/api/batch/clientlibrary
+[api_java_mgmt]: /java/api/batch/managementapi
 [api_java_jar]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-batch%22
 [api_java_mgmt_jar]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-mgmt-batch%22
 [api_net]: /dotnet/api/overview/batch/

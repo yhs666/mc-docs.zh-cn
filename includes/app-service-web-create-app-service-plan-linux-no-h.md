@@ -2,7 +2,7 @@
 
 <!-- [!INCLUDE [app-service-plan](app-service-plan-linux.md)] -->
 
-以下示例在**标准**定价层和 Linux 容器中创建名为 `myAppServicePlan` 的应用服务计划：
+以下示例在**标准**定价层 (`--sku S1`) 和 Linux 容器 (`--is-linux`) 中创建名为 `myAppServicePlan` 的应用服务计划。
 
 ```azurecli
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku S1 --is-linux

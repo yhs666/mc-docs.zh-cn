@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/22/2018
-ms.date: 04/23/2018
+ms.date: 07/20/2018
 ms.author: v-junlch
 ms.reviewer: misainat
-ms.openlocfilehash: 7e7f37c798dc28f78141d9596ada6728a21a1f46
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.openlocfilehash: 9b0238cf9eae92e9f4706ed650b73911fffbd415
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "34062106"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168501"
 ---
 # <a name="install-the-azure-stack-development-kit-asdk"></a>安装 Azure Stack 开发工具包 (ASDK)
 [准备 ASDK 主机](asdk-prepare-host.md)后，可以使用本文中的以下步骤将 ASDK 部署到 CloudBuilder.vhdx 映像中。
@@ -59,7 +59,7 @@ ms.locfileid: "34062106"
     - 键入有效的**时间服务器 IP** 地址。 此必填字段设置可供开发工具包使用的时间服务器。 必须以有效的时间服务器 IP 地址的形式提供此参数。 服务器名称不受支持。
 
       > [!TIP]
-      > 若要查找时间服务器 IP 地址，请访问 [pool.ntp.org](http:\\pool.ntp.org) 或 ping time.windows.com。 
+      > 若要查找时间服务器 IP 地址，请访问 [pool.ntp.org](http://pool.ntp.org) 或 ping time.windows.com。 
 
     - **（可选）** 设置以下值：
         - **VLAN ID**：设置 VLAN ID。 仅当主机和 AzS-BGPNAT01 必须通过配置 VLAN ID 来访问物理网络（和 Internet）时，才使用此选项。 
@@ -100,4 +100,4 @@ cd C:\CloudDeployment\Setup
 ## <a name="next-steps"></a>后续步骤
 [部署后的配置](asdk-post-deploy.md)
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: link update -->

@@ -3,16 +3,15 @@ title: Azure Site Recovery 中的 VMware 到 Azure 复制体系结构 | Azure
 description: 本文概述了使用 Azure Site Recovery 将本地 VMware VM 复制到 Azure 时使用的组件和体系结构
 author: rockboyfor
 ms.service: site-recovery
-ms.topic: article
-origin.date: 03/19/2018
-ms.date: 05/07/2018
+origin.date: 07/06/2018
+ms.date: 07/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 272e7fa7ec25aaa6f2a49508e5b95b73dbf0bbfe
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: 3a43600a35d431e041a14e4a40735b97824a5749
+ms.sourcegitcommit: f7ff09be9f3be5e3eb795e383c0c670f480f233d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33815130"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39169051"
 ---
 # <a name="vmware-to-azure-replication-architecture"></a>VMware 到 Azure 复制体系结构
 
@@ -53,7 +52,7 @@ ms.locfileid: "33815130"
 ## <a name="replication-process"></a>复制过程
 
 1. 为 VM 启用复制后，将会根据复制策略开始复制。 
-2. 流量通过 Internet 复制到 Azure 存储公共终结点。 或者，可以结合使用 Azure ExpressRoute 和[公共对等互连](../expressroute/expressroute-circuit-peerings.md#azure-public-peering)。 不支持通过站点到站点虚拟专用网络 (VPN) 将流量从本地站点复制到 Azure。
+2. 流量通过 Internet 复制到 Azure 存储公共终结点。 或者，可以结合使用 Azure ExpressRoute 和[公共对等互连](../expressroute/expressroute-circuit-peerings.md#public-peering)。 不支持通过站点到站点虚拟专用网络 (VPN) 将流量从本地站点复制到 Azure。
 3. VM 数据的初始副本将复制到 Azure 存储。
 4. 完成初始复制后，开始将增量更改复制到 Azure。 计算机的受跟踪更改保存在 .hrl 文件中。
 5. 通信按如下方式发生：

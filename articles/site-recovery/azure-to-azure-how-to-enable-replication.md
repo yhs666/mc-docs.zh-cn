@@ -6,15 +6,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 05/16/2018
-ms.date: 06/18/2018
+origin.date: 07/06/2018
+ms.date: 07/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: ece70a26dfd05c0a76ebda9862cefbfbec9d109d
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.openlocfilehash: 12d2364744507a272d1a38d6cac3ec5a554eb497
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315602"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168277"
 ---
 # <a name="replicate-azure-virtual-machines-to-another-azure-region"></a>将 Azure 虚拟机复制到另一个 Azure 区域
 
@@ -69,8 +69,8 @@ ms.locfileid: "36315602"
 2. 单击“创建目标资源” > “启用复制”。
 3. 为 VM 启用复制后，可以在“复制的项”下检查 VM 的运行状况
 
-> [!NOTE]
-> 在初始复制期间，VM 状态刷新可能需要一段时间，但不显示进度。 单击“刷新”按钮可获取最新状态。
+>[!NOTE]
+>在初始复制期间，VM 状态刷新可能需要一段时间，但不显示进度。 单击“刷新”按钮可获取最新状态。
 >
 
 # <a name="next-steps"></a>后续步骤

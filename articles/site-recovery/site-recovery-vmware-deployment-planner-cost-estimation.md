@@ -12,15 +12,15 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-origin.date: 03/09/2018
-ms.date: 04/02/2018
+origin.date: 07/06/2018
+ms.date: 07/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 37b75643f4563f711223deb753d59fc59845f607
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: 198257117445362cde362f39338a29a77a3766e9
+ms.sourcegitcommit: f7ff09be9f3be5e3eb795e383c0c670f480f233d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30222781"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39169026"
 ---
 # <a name="cost-estimation-report-of-azure-site-recovery-deployment-planner"></a>Azure Site Recovery 部署规划器成本估算报表  
 
@@ -47,8 +47,8 @@ ms.locfileid: "30222781"
 **每月/年的 Azure 存储成本**：表示针对高级和标准存储进行复制和 DR 演练时产生的总存储成本。
 
 ## <a name="detailed-cost-analysis"></a>详细成本分析
-计算、存储、网络等方面的 Azure 价格因 Azure 区域而异。 可以根据订阅、与订阅相关联的产品/服务、指定的目标 Azure 区域和指定的货币，使用最新的 Azure 价格生成成本估算报表。 默认情况下，此工具使用“中国北部 2”Azure 区域和美元 (USD) 货币。 如果使用了任何其他区域和货币，则下一次在不使用订阅 ID、产品/服务 ID、目标区域和货币的情况下生成报表时，该报表会使用上次使用的目标区域和上次使用的货币所对应的价格进行成本估算。
-此部分显示用于生成报表的订阅 ID 和产品/服务 ID。  如果某项未使用过，则为空白。
+计算、存储、网络等方面的 Azure 价格因 Azure 区域而异。 可以根据订阅、与订阅相关联的套餐、指定的目标 Azure 区域和指定的货币，使用最新的 Azure 价格生成成本估算报表。 默认情况下，此工具使用“中国北部 2”Azure 区域和美元 (USD) 货币。 如果使用了任何其他区域和货币，则下一次在不使用订阅 ID、套餐 ID、目标区域和货币的情况下生成报表时，该报表会使用上次使用的目标区域和上次使用的货币所对应的价格进行成本估算。
+此部分显示用于生成报表的订阅 ID 和套餐 ID。  如果某项未使用过，则为空白。
 
 在整个报表中，标为灰色的单元格为只读。 白色的单元格可以根据要求修改。
 
@@ -112,7 +112,7 @@ ms.locfileid: "30222781"
 * 每次 DR 演练的持续时间(天) 
 * OS 类型
 * 数据冗余 
-* Azure 混合使用权益
+* Azure 混合权益
 
 3.  可以将同一值应用到表中的所有 VM，只需针对“一年的 DR 演练次数”、“每次 DR 演练的持续时间(天)”、“数据冗余”、“Azure 混合使用权益”单击“应用到所有项”按钮即可。
 
@@ -139,7 +139,7 @@ ms.locfileid: "30222781"
 
 **数据冗余**：可以是以下项之一 - 本地冗余存储 (LRS)、异地冗余存储 (GRS) 或读取访问异地冗余存储 (RA-GRS)。 默认值为 LRS。 可以根据特定 VM 的存储帐户来更改类型，也可以将新类型应用到所有 VM，只需更改顶部行的类型，然后单击“应用到所有项”按钮即可。  根据所选数据冗余的价格来计算复制的存储成本。 
 
-**Azure 混合使用权益**：可以在适用情况下将 Azure 混合使用权益应用到 Windows VM。  默认值为“是”。 可以更改特定 VM 的设置，也可以通过单击“应用到所有项”按钮更新所有 VM。
+**Azure 混合权益**：可以在适用情况下将 Azure 混合权益应用到 Windows VM。  默认值为“是”。 可以更改特定 VM 的设置，也可以通过单击“应用到所有项”按钮更新所有 VM。
 
 **总 Azure 使用量**：包括用于 DR 的计算、存储和 Azure Site Recovery 许可证成本。 此项会根据你的选择显示每月或每年的成本。
 

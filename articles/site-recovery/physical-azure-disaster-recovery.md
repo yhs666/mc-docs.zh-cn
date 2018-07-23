@@ -6,15 +6,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 03/08/2018
-ms.date: 05/07/2018
+origin.date: 07/06/2018
+ms.date: 07/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 78d02b88d904d3f55b2696984cf102b26b34ea07
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 06b121691a61719a3de3c2a42d02116f24f9bd3a
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939299"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168313"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>针对本地物理服务器设置到 Azure 的灾难恢复
 
@@ -29,18 +29,25 @@ ms.locfileid: "38939299"
 > * 创建复制策略
 > * 为服务器启用复制
 
+[查看体系结构](concepts-hyper-v-to-azure-architecture.md)，这适用于此灾难恢复方案。
+
 ## <a name="prerequisites"></a>先决条件
 
 完成本教程：
 
-- 请确保了解[方案体系结构和组件](physical-azure-architecture.md)。
+- 请确保了解此方案的[体系结构和组件](physical-azure-architecture.md)。
 - 查看所有组件的[支持要求](vmware-physical-secondary-support-matrix.md)。
 - 请确保想要复制的服务器符合 [Azure VM 要求](vmware-physical-secondary-support-matrix.md#replicated-vm-support)。
 - 准备 Azure。 需要 Azure 订阅、Azure 虚拟网络和存储帐户。
 - 准备一个帐户用于在要复制的每个服务器上自动安装移动服务。
 
-> [!NOTE]
-> 在开始之前，请注意，故障转移到 Azure 后，物理服务器将不能故障回复到本地物理计算机。 只能故障回复到 VMware VM。 
+在开始之前，请注意：
+
+- 故障转移到 Azure 后，物理服务器将不能故障回复到本地物理计算机。 只能故障回复到 VMware VM。 
+- 本教程使用最简单的设置设置到 Azure 的物理服务器灾难恢复。 如果想要了解其他选项，请通读我们的操作方法指南：
+    - 设置[复制源](physical-azure-set-up-source.md)，包括 Site Recovery 配置服务器。
+    - 设置[复制目标](physical-azure-set-up-target.md)。
+    - 配置[复制策略](vmware-azure-set-up-replication.md)并[启用复制](vmware-azure-enable-replication.md)。
 
 ### <a name="set-up-an-azure-account"></a>设置 Azure 帐户
 
@@ -110,13 +117,19 @@ ms.locfileid: "38939299"
 
 开始之前，请执行以下操作： 
 
-- 在配置服务器计算机上，确保将系统时钟与[时间服务器](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service)进行同步。 它应与之匹配。 如果它提前或落后 15 分钟，安装程序可能会失败。
-- 请确保计算机可访问这些 URL：[!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
+#### <a name="verify-time-accuracy"></a>验证时间准确性
+在配置服务器计算机上，确保将系统时钟与[时间服务器](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service)进行同步。 它应与之匹配。 如果它提前或落后 15 分钟，安装程序可能会失败。
 
-- 基于 IP 地址的防火墙规则应允许与 Azure 通信。
-- 允许 [Azure 数据中心 IP 范围](https://www.microsoft.com/download/details.aspx?id=42064)和 HTTPS (443) 端口。
-- 允许订阅的 Azure 区域的 IP 地址范围以及中国北部的 IP 地址范围（用于访问控制和标识管理）。
+#### <a name="verify-connectivity"></a>验证连接性
+确保计算机可以根据你的环境访问这些 URL： 
 
+[!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]  
+
+基于 IP 地址的防火墙规则应允许通过 HTTPS (443) 端口与上面列出的所有 Azure URL 进行通信。 为了简化和限制 IP 范围，建议进行 URL 筛选。
+
+- **商用 IP**：允许 [Azure 数据中心 IP 范围](https://www.microsoft.com/download/details.aspx?id=42064)和 HTTPS (443) 端口。 允许订阅的 Azure 区域的 IP 地址范围以支持 AAD、备份、复制和存储 URL。  
+
+#### <a name="run-setup"></a>运行安装程序
 以本地管理员身份运行统一安装程序，安装配置服务器。 进程服务器和主目标服务器也默认安装在配置服务器上。
 
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]

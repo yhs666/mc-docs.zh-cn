@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 06/08/2018
-ms.date: 06/27/2018
+origin.date: 06/21/2018
+ms.date: 07/20/2018
 ms.author: v-junlch
 ms.reviewer: thoroet
-ms.openlocfilehash: 32a7d7986f3fe46fceb63630eae3b83818b84cc8
-ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
+ms.openlocfilehash: c3f42dec57dcae09288884dbbdce500860e22d1a
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37027079"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168321"
 ---
 # <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>通过创建服务主体向应用程序授予对 Azure Stack 资源的访问权限
 
@@ -131,4 +131,3 @@ ms.locfileid: "37027079"
 
 [管理用户权限](azure-stack-manage-permissions.md)
 
-<!-- Update_Description: wording update -->

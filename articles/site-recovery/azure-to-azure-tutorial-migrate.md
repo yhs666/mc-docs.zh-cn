@@ -5,16 +5,16 @@ services: site-recovery
 author: rockboyfor
 ms.service: site-recovery
 ms.topic: tutorial
-origin.date: 05/16/2018
-ms.date: 06/18/2018
+origin.date: 07/06/2018
+ms.date: 07/23/2018
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: 29834f8b28072e28f456d5612b767bb3142a1dae
-ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
+ms.openlocfilehash: 00ea5ce9f534f878de3b59161baba9251d808359
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2018
-ms.locfileid: "35568321"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168476"
 ---
 # <a name="migrate-azure-vms-to-another-region"></a>将 Azure VM 迁移到另一区域
 
@@ -28,10 +28,6 @@ ms.locfileid: "35568321"
 > * 运行故障转移来迁移 VM
 
 本教程假定已具有 Azure 订阅。 如果没有，请在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
-
->[!NOTE]
->
-> 适用于 Azure VM 的 Site Recovery 复制功能当前为预览版。
 
 ## <a name="prerequisites"></a>先决条件
 

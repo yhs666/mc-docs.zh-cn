@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 origin.date: 09/28/2017
-ms.date: 06/12/2018
+ms.date: 07/18/2018
 ms.author: v-junlch
-ms.openlocfilehash: 597fe8b544315dbb2bdb7706867a71f1f43aa346
-ms.sourcegitcommit: 908d37aeb736aabf35cfb397530fb675b04d52e4
+ms.openlocfilehash: 8afb596a03346d0362f4a42eedeab70857a16067
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2018
-ms.locfileid: "35323837"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168482"
 ---
 # <a name="use-the-power-bi-embedded-migration-tool"></a>使用 Power BI Embedded 迁移工具
 

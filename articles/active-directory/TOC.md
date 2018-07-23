@@ -85,7 +85,7 @@
 #### [iOS](active-directory-certificate-based-authentication-ios.md)
 #### [入门](active-directory-certificate-based-authentication-get-started.md)
 
-## [在 Azure 中部署 AD FS](active-directory-aadconnect-azure-adfs.md)
+## [在 Azure 中部署 AD FS](connect/active-directory-aadconnect-azure-adfs.md)
 ### [高可用性](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
 ### [更改签名哈希算法](active-directory-federation-sha256-guidance.md)
 
@@ -100,7 +100,7 @@
 # 参考
 ## [代码示例](https://azure.microsoft.com/resources/samples/?service=active-directory)
 ## [Azure PowerShell cmdlet](https://docs.microsoft.com/powershell/azure/overview)
-## [Java API 参考](/java/api)
+## [Java API 参考](/java/api/?view=azure-java-stable)
 ## [.NET API](http://docs.microsoft.com/active-directory/adal/microsoft.identitymodel.clients.activedirectory)
 ## [服务限制和局限性](active-directory-service-limits-restrictions.md)
 

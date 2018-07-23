@@ -13,14 +13,14 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/15/2018
-ms.date: 05/23/2018
+ms.date: 07/20/2018
 ms.author: v-junlch
-ms.openlocfilehash: 888241670ea19b973dbeb8be490d2d23ece308ed
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 64280efdae213e1b2b4d734a3ed98a5441dd32c9
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34474895"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168440"
 ---
 # <a name="download-azure-stack-tools-from-github"></a>从 GitHub 下载 Azure Stack 工具
 
@@ -41,6 +41,7 @@ AzureStack-Tools 是托管 PowerShell 模块的 GitHub 存储库，可用于管�
 cd \
 
 # Download the tools archive
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 invoke-webrequest `
   https://github.com/Azure/AzureStack-Tools/archive/master.zip `
   -OutFile master.zip
@@ -71,4 +72,4 @@ AzureStack-Tools 存储库包含支持以下 Azure Stack 功能的 PowerShell �
 - [配置 Azure Stack 用户的 PowerShell 环境](azure-stack-powershell-configure-user.md)
 - [通过 VPN 连接到 Azure Stack 开发工具包](azure-stack-connect-azure-stack.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->

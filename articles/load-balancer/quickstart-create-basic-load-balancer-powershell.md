@@ -17,15 +17,14 @@ origin.date: 04/20/2018
 ms.date: 06/18/2018
 ms.author: v-yeche
 ms:custom: mvc
-ms.openlocfilehash: 274d92ba4195b377f7abf6cef89d64aa5feb0b0c
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 9f0b19d61efab5c77383c3bfe1c92584a75551fc
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939403"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167984"
 ---
-<a name="get-started"></a>
-# <a name="quickstart-create-a-public-load-balancer-using-azure-powershell"></a>快速入门：使用 Azure PowerShell 创建公共负载均衡器
+# <a name="get-started"></a>快速入门：使用 Azure PowerShell 创建公用负载均衡器
 本快速入门介绍了如何使用 Azure PowerShell 创建基本负载均衡器。 为了测试负载均衡器，需要部署两台运行 Windows 服务器的虚拟机 (VM)，并在 VM 之间对一个 Web 应用进行负载均衡。
 
 <!--[!INCLUDE [cloud-shell-powershell](../../../includes/cloud-shell-powershell.md)]-->
@@ -53,7 +52,7 @@ $publicIP = New-AzureRmPublicIpAddress `
 ```
 ## <a name="create-basic-load-balancer"></a>创建基本负载均衡器
  在本部分中，将为负载均衡器配置前端 IP 和后端地址池，然后创建基本负载均衡器。
-
+ 
 ### <a name="create-frontend-ip"></a>创建前端 IP
 使用 [New-AzureRmLoadBalancerFrontendIpConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermloadbalancerfrontendipconfig) 创建一个前端 IP。 以下示例创建名为 *myFrontEnd* 的前端 IP 配置并附加 *myPublicIP* 地址： 
 
@@ -277,7 +276,7 @@ for ($i=1; $i -le 2; $i++)
 `-AsJob` 参数以后台任务的方式创建 VM，因此 PowerShell 提示符会返回到你所在的位置。 可以通过 `Job` cmdlet 查看后台作业的详细信息。 创建和配置这两台 VM 需要几分钟的时间来完成。
 
 ### <a name="install-iis-with-custom-web-page"></a>安装具有自定义网页的 IIS
-
+ 
 在两台后端 VM 上安装具有自定义网页的 IIS：
 
 1. 获取负载均衡器的公用 IP 地址。 使用 `Get-AzureRmPublicIPAdress`，获取负载均衡器的公用 IP 地址。
@@ -292,17 +291,17 @@ for ($i=1; $i -le 2; $i++)
   ```azurepowershell-interactive
 
       mstsc /v:PublicIpAddress:4221  
-
+  
   ```
 3. 输入 *VM1* 的凭据来启动 RDP 会话。
 4. 在 VM1 上启动 Windows PowerShell 并使用以下命令安装 IIS 服务器并更新默认的 htm 文件。
     ```azurepowershell-interactive
     # Install IIS
       Install-WindowsFeature -name Web-Server -IncludeManagementTools
-
+    
     # Remove default htm file
      remove-item  C:\inetpub\wwwroot\iisstart.htm
-
+    
     #Add custom htm file
      Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello from" + $env:computername)
     ```
@@ -323,6 +322,7 @@ Get-AzureRmPublicIPAddress `
 ![测试负载均衡器](media/quickstart-create-basic-load-balancer-powershell/load-balancer-test.png)
 
 若要查看负载均衡器如何在运行应用的所有 3 台 VM 之间分配流量，可以强制刷新 Web 浏览器。
+
 
 ## <a name="clean-up-resources"></a>清理资源
 
