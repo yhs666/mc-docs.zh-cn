@@ -3,18 +3,18 @@ title: Azure Analysis Services 中支持的数据源 | Azure
 description: 介绍 Azure Analysis Services 中数据模型支持的数据源。
 author: rockboyfor
 manager: digimobile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 origin.date: 04/12/2018
-ms.date: 04/30/2018
+ms.date: 07/16/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 21f7b1de7734ac6eb4da6d54c9af9fe3fd62d2ed
-ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
+ms.openlocfilehash: e7be9239dc459fe892cb3b2c59f1d6ae4af6defd
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37405224"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167775"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services 中支持的数据源
 
@@ -34,7 +34,7 @@ ms.locfileid: "37405224"
 ||||
 <!-- 不可用 |Azure Data Lake Store*     |   是       |    否      | -->
 
-\* 仅限表格 1400 模型。 
+\* 仅限表格 1400 模型。
 
 **提供程序**   
 连接到 Azure 数据源的内存中和 DirectQuery 模型使用用于 SQL Server 的 .NET Framework 数据提供程序。

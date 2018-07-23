@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 origin.date: 01/23/2017
 ms.date: 06/18/2018
 ms.author: v-yeche
-ms.openlocfilehash: b16bedc6bdabf2dfd0726f0a455f98a2be4a152d
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: da5e07fef9edef0ee0db9b30c48aa32c48342d41
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "35416771"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167677"
 ---
 # <a name="get-started-creating-an-internet-facing-load-balancer-for-cloud-services"></a>开始为云服务创建面向 Internet 的负载均衡器
 
@@ -65,7 +65,6 @@ ms.locfileid: "35416771"
 </ServiceDefinition>
 ```
 
-<a name="check-load-balancer-health-status-for-cloud-services"></a>
 ## <a name="check-load-balancer-health-status-for-cloud-services"></a>检查云服务的负载均衡器运行状况状态
 
 下面是运行状况探测器的示例：

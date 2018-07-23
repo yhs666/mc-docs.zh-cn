@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 11/20/2017
 ms.date: 05/21/2018
 ms.author: v-nany
-ms.openlocfilehash: c6f2398f1fb5f87e08a09eea3edb4225a10ccc95
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.openlocfilehash: 090bd6c8511cbb501a995544978a683018efadcc
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "34173081"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167765"
 ---
 # <a name="get-started-with-azure-dns-private-zones-using-powershell"></a>Azure DNS 专用区域入门（使用 PowerShell）
 
@@ -62,7 +62,6 @@ $vnet = Get-AzureRmVirtualNetwork -Name MyAzureVnet -ResourceGroupName VnetResou
 New-AzureRmDnsZone -Name contoso.local -ResourceGroupName MyResourceGroup -ZoneType Private -RegistrationVirtualNetworkId @($vnet.Id)
 ```
 
-
 ## <a name="create-a-dns-record"></a>创建 DNS 记录
 
 可以使用 `New-AzureRmDnsRecordSet` cmdlet 创建记录集。 下面的示例在 DNS 区域“contoso.local”的资源组“MyResourceGroup”中创建相对名称为“db”的一个记录集。 记录集的完全限定名称为“db.contoso.local”。 记录类型为“A”，IP 地址为“10.0.0.4”，TTL 为 3600 秒。
@@ -73,7 +72,6 @@ New-AzureRmDnsRecordSet -Name db -RecordType A -ZoneName contoso.local -Resource
 
 对于其他记录类型，对于具有一条以上记录的记录集，若要修改现有记录，请参阅[使用 Azure PowerShell 管理 DNS 记录和记录集](dns-operations-recordsets.md)。 
 
-
 ## <a name="view-records"></a>查看记录
 
 若要列出区域中的 DNS 记录，请使用：
@@ -81,6 +79,7 @@ New-AzureRmDnsRecordSet -Name db -RecordType A -ZoneName contoso.local -Resource
 ```powershell
 Get-AzureRmDnsRecordSet -ZoneName contoso.local -ResourceGroupName MyResourceGroup
 ```
+
 # <a name="list-dns-private-zones"></a>列出 Azure DNS 专用区域
 
 通过省略 `Get-AzureRmDnsZone` 中的区域名称，可以枚举资源组中的所有区域。 此操作将返回区域对象的数组。
@@ -88,11 +87,13 @@ Get-AzureRmDnsRecordSet -ZoneName contoso.local -ResourceGroupName MyResourceGro
 ```powershell
 $zoneList = Get-AzureRmDnsZone -ResourceGroupName MyAzureResourceGroup
 ```
+
 通过省略 `Get-AzureRmDnsZone` 的区域名和资源组名，可枚举 Azure 订阅中的所有区域。
 
 ```powershell
 $zoneList = Get-AzureRmDnsZone
 ```
+
 ## <a name="update-a-dns-private-zone"></a>更新 DNS 专用区域
 
 可以使用 `Set-AzureRmDnsZone` 对 DNS 区域资源进行更改。 此 cmdlet 不会更新区域中的任何 DNS 记录集（请参阅[如何管理 DNS 记录](dns-operations-recordsets.md)）。 该操作仅可用于更新区域资源本身的属性。 可写的区域属性目前限制为[区域资源的 Azure 资源管理器“标记”](dns-zones-records.md#tags)，以及专用区域的“RegistrationVirtualNetworkId”和“ResolutionVirtualNetworkId”参数。

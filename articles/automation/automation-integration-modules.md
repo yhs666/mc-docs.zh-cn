@@ -1,5 +1,5 @@
 ---
-title: 创建 Azure 自动化集成模块 | Azure
+title: 创建 Azure 自动化集成模块
 description: 本教程指导你在 Azure 自动化中创建、测试以及通过示例方式使用集成模块。
 services: automation
 author: mgoedtel
@@ -12,12 +12,12 @@ ms.topic: get-started-article
 origin.date: 03/16/2018
 ms.date: 05/14/2018
 ms.author: v-dazen
-ms.openlocfilehash: 9e27d44a7520075942cd25f1e5701c24170c2eb2
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.openlocfilehash: ab9f93f502d4d708e4abca6baf929c33c8b49833
+ms.sourcegitcommit: 53972dcdef77da92529996667545d2e83716f7e2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "33937543"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39143402"
 ---
 # <a name="azure-automation-integration-modules"></a>Azure 自动化集成模块
 PowerShell 是 Azure 自动化背后的基本技术。 由于 Azure 自动化是基于 PowerShell 构建的，因此 PowerShell 模块对于 Azure 自动化的可扩展性很重要。 本文将详细介绍 Azure 自动化如何使用 PowerShell 模块（也称“集成模块”），以及如何根据最佳做法创建自己的 PowerShell 模块，确保这些模块在 Azure 自动化中作为集成模块来运行。 

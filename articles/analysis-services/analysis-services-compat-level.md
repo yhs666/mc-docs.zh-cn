@@ -3,28 +3,28 @@ title: Azure Analysis Services 中的数据模型兼容性级别 | Azure
 description: 了解表格数据模型兼容性级别。
 author: rockboyfor
 manager: digimobile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 origin.date: 04/12/2018
-ms.date: 04/30/2018
+ms.date: 07/16/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 7a383b85a64bee9818250f9c47a4543ade014b31
-ms.sourcegitcommit: 1e4a3312db427c44db75b2d1af9b13c690ed2e21
+ms.openlocfilehash: 1a3de57fb61b36486e69cbf8c95b0631e968303c
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873017"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167726"
 ---
 # <a name="compatibility-level-for-analysis-services-tabular-models"></a>Analysis Services 表格模型的兼容性级别
 
-“兼容性级别”是指 Analysis Services 引擎中特定于发布的行为。 兼容性级别的更改通常与 SQL Server 主要版本一致。 还会在 Azure Analysis Services 中实现这些更改，以保持平台间的奇偶校验。 兼容性级别更改还会影响表格模型中的可用功能。 例如，DirectQuery 和表格对象元数据的实现因兼容性级别而异。 
+“兼容性级别”是指 Analysis Services 引擎中特定于发布的行为。 兼容性级别的更改通常与 SQL Server 主要版本一致。 还会在 Azure Analysis Services 中实现这些更改，以保持平台间的奇偶校验。 兼容性级别更改还会影响表格模型中的可用功能。 例如，DirectQuery 和表格对象元数据的实现因兼容性级别而异。 在 Visual Studio (SSDT) 的表格模型项目中指定兼容性级别。 从 Power BI Desktop 中创建和导入的表格模型的兼容级别仅为 1400。
 
-Azure Analysis Services 支持 1200 和 1400 兼容性级别的表格模型。
+Azure Analysis Services 支持 1200 和 1400 兼容性级别的表格模型。 
 
 最新兼容性级别是 1400。 此级别与 SQL Server 2017 Analysis Services 一致。 1400 兼容性级别中的主要功能包括：
 
-*  新的基础结构，用于在 TOM API 和 TMSL 脚本的支持下连接数据和将数据导入表格模型。 此新功能支持 Azure Blob 存储等其他数据源。
+*  新功能用于在 TOM API 和 TMSL 脚本的支持下连接和导入数据。 
 *  通过使用“获取数据”和 M 表达式实现数据转换和数据混合功能。
 *  度量值支持 DAX 表达式的“详细信息行”属性。 此属性支持 Microsoft Excel 等客户端工具向下钻取到聚合报表中的详细数据。 例如，当用户查看某个区域和月份的总销售额时，他们可以查看关联订单的详细信息。 
 *  表和列名称，以及其中数据的对象级别安全性。
@@ -51,4 +51,4 @@ Azure Analysis Services 支持 1200 和 1400 兼容性级别的表格模型。
 ## <a name="next-steps"></a>后续步骤
   <!-- Not Available on [Create a model in Azure portal](analysis-services-create-model-portal.md)--> [管理 Analysis Services](analysis-services-manage.md)
   
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, wording update -->

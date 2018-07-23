@@ -8,14 +8,14 @@ ms.service: automation
 ms.devlang: na
 ms.topic: article
 origin.date: 03/15/2018
-ms.date: 05/14/2018
+ms.date: 07/23/2018
 ms.author: v-nany
-ms.openlocfilehash: df792ce272a9e430f2453e008e29bac5d4eb0227
-ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
+ms.openlocfilehash: 314d4b772d8ca0164db5af0b189a61271e46d07d
+ms.sourcegitcommit: 53972dcdef77da92529996667545d2e83716f7e2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36748370"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39143461"
 ---
 # <a name="certificate-assets-in-azure-automation"></a>Azure 自动化中的证书资产
 
@@ -25,7 +25,7 @@ ms.locfileid: "36748370"
 >Azure 自动化中的安全资产包括凭据、证书、连接和加密的变量。 这些资产已使用针对每个自动化帐户生成的唯一密钥加密并存储在 Azure 自动化中。 此密钥存储在密钥保管库中。 在存储安全资产之前，从密钥保管库加载密钥，然后使用该密钥加密资产。
 
 ## <a name="azurerm-powershell-cmdlets"></a>AzureRM PowerShell cmdlet
-对于 AzureRM，下表中的 cmdlet 用于通过 Windows PowerShell 创建和管理自动化凭据资产。  可在自动化 Runbook 中使用的 [AzureRM.Automation 模块](https://docs.microsoft.com/powershell/azure/overview)已随附了这些 cmdlet。
+对于 AzureRM，下表中的 cmdlet 用于通过 Windows PowerShell 创建和管理自动化凭据资产。  可在自动化 Runbook 和 DSC 配置中使用的 [AzureRM.Automation 模块](https://docs.microsoft.com/powershell/azure/overview)已随附了这些 cmdlet。
 
 |Cmdlet|说明|
 |:---|:---|
@@ -36,14 +36,14 @@ ms.locfileid: "36748370"
 |[Add-AzureCertificate](https://msdn.microsoft.com/library/azure/dn495214.aspx)|为指定的云服务上传服务证书。|
 
 ## <a name="activities"></a>活动
-下表中的活动用于在 Runbook 中访问证书。
+下表中的活动用于在 Runbook 和 DSC 配置中访问证书。
 
 | 活动 | 说明 |
 |:---|:---|
-|Get-AutomationCertificate|在 Runbook 中获取要使用的证书。 返回一个 [System.Security.Cryptography.X509Certificates.X509Certificate2](https://msdn.microsoft.com/en-us/library/system.security.cryptography.x509certificates.x509certificate2.aspx) 对象。|
+|Get-AutomationCertificate|在 Runbook 或 DSC 配置中获取要使用的证书。 返回一个 [System.Security.Cryptography.X509Certificates.X509Certificate2](https://msdn.microsoft.com/library/system.security.cryptography.x509certificates.x509certificate2.aspx) 对象。|
 
 > [!NOTE] 
-> 应避免在 Runbook 或 DSC 配置中的 **Get-AutomationCertificate** 的 - Name 参数中使用变量，因为这可能会使设计时发现 Runbook 或 DSC 配置与自动化变量之间的依赖关系变得复杂化。
+> 应避免在 Runbook 或 DSC 配置中的 Get-AutomationCertificate 的 Name 参数中使用变量，因为这可能会使设计时发现 Runbook 或 DSC 配置与自动化变量之间的依赖关系变得复杂化。
 
 ## <a name="python2-functions"></a>Python2 函数
 
@@ -58,7 +58,7 @@ ms.locfileid: "36748370"
 
 ## <a name="creating-a-new-certificate"></a>创建新证书
 
-创建新证书时，需要将 .cer 或 .pfx 文件上传到 Azure 自动化。 将证书标记为可导出后，可以将其转出 Azure 自动化证书存储区。 如果证书不可导出，则它只可用于在 Runbook 中签名。
+创建新证书时，需要将 .cer 或 .pfx 文件上传到 Azure 自动化。 将证书标记为可导出后，可以将其转出 Azure 自动化证书存储区。 如果证书不可导出，则它只可用于在 Runbook 或 DSC 配置中签名。
 
 ### <a name="to-create-a-new-certificate-with-the-azure-portal"></a>使用 Azure 门户创建新证书
 

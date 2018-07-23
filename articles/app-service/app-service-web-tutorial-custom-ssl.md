@@ -12,16 +12,16 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
-origin.date: 11/30/2017
-ms.date: 07/02/2018
+origin.date: 06/19/2018
+ms.date: 07/30/2018
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: 75ccb436b058e59c6519ddcdbb4084d541192b04
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.openlocfilehash: eccd4b3322286f7fd7f591fbef248eb0560b3d57
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315567"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167795"
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>教程：将现有的自定义 SSL 证书绑定到 Azure Web 应用
 
@@ -33,9 +33,11 @@ Azure Web 应用提供高度可缩放、自修补的 Web 托管服务。 本教�
 
 > [!div class="checklist"]
 > * 升级应用的定价层
-> * 将自定义 SSL 证书绑定到应用服务
-> * 为应用实施 HTTPS
-> * 使用脚本自动执行 SSL 证书绑定
+> * 将自定义证书绑定到应用服务
+> * 续订证书
+> * 实施 HTTPS
+> * 强制实施 TLS 1.1/1.2
+> * 使用脚本自动完成 TLS 管理
 
 > [!NOTE]
 > 如果需要获取自定义 SSL 证书，可以直接在 Azure 门户中获取，然后将其绑定到 Web 应用。 请遵循[应用服务证书教程](web-sites-purchase-ssl-web-site.md)。
@@ -216,6 +218,14 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
 <a name="bkmk_enforce"></a>
 
+## <a name="renew-certificates"></a>续订证书
+
+在删除某个绑定时，即使该绑定是基于 IP 的，入站 IP 地址也可能会更改。 在续订已进行基于 IP 的绑定的证书时，了解这一点尤为重要。 若要避免应用的 IP 地址更改，请按顺序执行以下步骤：
+
+1. 上传新证书。
+2. 将新证书绑定到所需的自定义域，不要删除旧证书。 此操作替换而不是删除旧的绑定。
+3. 删除旧证书。 
+
 ## <a name="enforce-https"></a>实施 HTTPS
 
 默认情况下，任何人都仍可使用 HTTP 访问 Web 应用。 可以将所有 HTTP 请求都重定向到 HTTPS 端口。
@@ -226,7 +236,7 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
 该操作完成后，将导航到指向应用的任一 HTTP URL。 例如：
 
-- `http://<app_name>.chinacloudapi.cn`
+- `http://<app_name>.chinacloudsites.cn`
 - `http://contoso.com`
 - `http://www.contoso.com`
 
@@ -239,14 +249,6 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 ![强制实施 TLS 1.1 或 1.2](./media/app-service-web-tutorial-custom-ssl/enforce-tls1.2.png)
 
 该操作完成后，你的应用将拒绝使用更低 TLS 版本的所有连接。
-
-## <a name="renew-certificates"></a>续订证书
-
-在删除某个绑定时，即使该绑定是基于 IP 的，入站 IP 地址也可能会更改。 在续订已进行基于 IP 的绑定的证书时，了解这一点尤为重要。 若要避免应用的 IP 地址更改，请按顺序执行以下步骤：
-
-1. 上传新证书。
-2. 将新证书绑定到所需的自定义域，不要删除旧证书。 此操作替换而不是删除旧的绑定。
-3. 删除旧证书。 
 
 ## <a name="automate-with-scripts"></a>使用脚本自动执行
 
@@ -276,6 +278,15 @@ az webapp config ssl bind \
     --ssl-type SNI \
 ```
 
+以下命令强制实施最低的 TLS 版本 (1.2)。
+
+```bash
+az webapp config set \
+    --name <app_name> \
+    --resource-group <resource_group_name>
+    --min-tls-version 1.2
+```
+
 ### <a name="azure-powershell"></a>Azure PowerShell
 
 以下命令上传已导出的 PFX 文件并添加基于 SNI 的 SSL 绑定。
@@ -300,7 +311,9 @@ New-AzureRmWebAppSSLBinding `
 
 > [!div class="checklist"]
 > * 升级应用的定价层
-> * 将自定义 SSL 证书绑定到应用服务
-> * 为应用实施 HTTPS
-> * 使用脚本自动执行 SSL 证书绑定
+> * 将自定义证书绑定到应用服务
+> * 续订证书
+> * 实施 HTTPS
+> * 强制实施 TLS 1.1/1.2
+> * 使用脚本自动完成 TLS 管理
 
