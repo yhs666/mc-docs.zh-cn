@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-origin.date: 05/24/2018
-ms.date: 06/26/2018
+origin.date: 06/27/2018
+ms.date: 07/20/2018
 ms.author: v-junlch
 ms.reviewer: kivenkat
-ms.openlocfilehash: 3a33042abd85ab925f7455e0aeb767aa4977368a
-ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
+ms.openlocfilehash: 9f7bc70a42aa8a54203e71a9d76815698a55c387
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37027178"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168317"
 ---
 # <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>在 Azure Stack 中提供虚拟机映像
 
@@ -55,7 +55,7 @@ ms.locfileid: "37027178"
 
    ![将 Blob 访问权限设置为公共](./media/azure-stack-add-vm-image/image2.png)
 
-2. 以操作员身份登录到 Azure Stack。 在菜单中，选择“更多服务” > “资源提供程序”。 然后，选择“计算” > “VM 映像” > “添加”。
+2. 以操作员身份登录到 Azure Stack。 在菜单中，选择“更多服务”。 然后，选择“计算” > “VM 映像” > “添加”。
 
 3. 在“添加 VM 映像”下，输入虚拟机映像的发布者、产品/服务、SKU 和版本。 这些名称段是指资源管理器模板中的 VM 映像。 确保正确地选择 **osType** 值。 对于“OS 磁盘 Blob URI”，请输入在其中上传了映像的 Blob URI。 然后选择“创建”，开始创建 VM 映像。
 
@@ -74,6 +74,9 @@ ms.locfileid: "37027178"
 3. 单击“删除” 。
 
 ## <a name="add-a-vm-image-to-the-marketplace-by-using-powershell"></a>使用 PowerShell 将 VM 映像添加到市场
+
+> [!Note]  
+> 添加映像时，它仅适用于基于 Azure 资源管理器的模板和 PowerShell 部署。 若要将映像作为市场项提供给用户，请使用[创建和发布市场项](/azure-stack/azure-stack-create-and-publish-marketplace-item)一文中的步骤发布市场项
 
 1. [安装适用于 Azure Stack 的 PowerShell](azure-stack-powershell-install.md)。  
 

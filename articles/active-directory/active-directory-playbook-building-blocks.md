@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 05/04/2017
 ms.date: 07/05/2018
 ms.author: v-junlch
-ms.openlocfilehash: 0bce17934f2716d3fcec3e807c859f7f5f7ed981
-ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
+ms.openlocfilehash: c4e100551935029d321007fda1fb5a2287a0456d
+ms.sourcegitcommit: 37a1524d71895b17b6f1d125053ad0b251b88df1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37800440"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39097733"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory 概念证明操作手册：构建基块
 
@@ -89,7 +89,7 @@ ms.locfileid: "37800440"
 | 先决条件 | 资源 |
 | --- | --- |
 | 已安装并配置 Azure AD Connect | 构建基块：[目录同步 - 密码哈希同步](#directory-synchronization--password-hash-sync-phs--new-installation) |
-| 符合要求的 ADLDS 实例 | [通用 LDAP 连接器技术参考：通用 LDAP 连接器概述](./connect/active-directory-aadconnectsync-connector-genericldap.md#overview-of-the-generic-ldap-connector) |
+| 符合要求的 ADLDS 实例 | 通用 LDAP 连接器技术参考：通用 LDAP 连接器概述 |
 | 用户使用的工作负荷列表以及与这些工作负荷关联的属性 | [Azure AD Connect 同步：与 Azure Active Directory 同步的属性](./connect/active-directory-aadconnectsync-attributes-synchronized.md) |
 
 
@@ -97,7 +97,7 @@ ms.locfileid: "37800440"
 
 | 步骤 | 资源 |
 | --- | --- |
-| 添加通用 LDAP 连接器 | [通用 LDAP 连接器技术参考：创建新连接器](./connect/active-directory-aadconnectsync-connector-genericldap.md#create-a-new-connector) |
+| 添加通用 LDAP 连接器 | 通用 LDAP 连接器技术参考：创建新连接器 |
 | 为创建的连接器创建运行配置文件（完整导入、增量导入、完整同步、增量同步、导出） | [创建管理代理运行配置文件](https://technet.microsoft.com/library/jj590219(v=ws.10).aspx)<br/> [将连接器与 Azure AD Connect Sync Service Manager 配合使用](./connect/active-directory-aadconnectsync-service-manager-ui-connectors.md)|
 | 运行完整导入配置文件，并验证连接器空间中是否有对象 | [搜索连接器空间对象](https://technet.microsoft.com/library/jj590287(v=ws.10).aspx)<br/>[将连接器与 Azure AD Connect Sync Service Manager 配合使用：搜索连接器空间](./connect/active-directory-aadconnectsync-service-manager-ui-connectors.md#search-connector-space) |
 | 创建同步规则，使 Metaverse 中的对象具有工作负荷的必要属性 | [Azure AD Connect 同步：有关更改默认配置的最佳做法：对同步规则的更改](./connect/active-directory-aadconnectsync-best-practices-changing-default-configuration.md#changes-to-synchronization-rules)<br/>[Azure AD Connect 同步：了解声明性预配](./connect/active-directory-aadconnectsync-understanding-declarative-provisioning.md)<br/>[Azure AD Connect 同步：了解声明性预配表达式](./connect/active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) |

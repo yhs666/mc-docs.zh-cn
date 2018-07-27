@@ -1,6 +1,6 @@
 使用 [az webapp create](https://docs.azure.cn/zh-cn/cli/webapp?view=azure-cli-latest#az_webapp_create) 命令在 `myAppServicePlan` 应用服务计划中创建一个 [Web 应用](../articles/app-service/app-service-web-overview.md)。 
 
-在以下示例中，将 *\<app_name>* 替换为全局唯一的应用名称（有效字符是 `a-z`、`0-9` 和 `-`）。 
+在 `myAppServicePlan` 应用服务计划中创建一个 [Web 应用](../articles/app-service/app-service-web-overview.md)。 可以通过使用 [`az webapp create`](/cli/webapp?view=azure-cli-latest#az_webapp_create) 命令完成此操作。 在以下示例中，将 *\<app_name>* 替换为全局唯一的应用名称（有效字符是 `a-z`、`0-9` 和 `-`）。 
 
 ```azurecli
 az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan --deployment-local-git
@@ -35,3 +35,6 @@ Local git is configured with url of 'https://<username>@<app_name>.scm.chinaclou
 ```bash
 http://<app_name>.chinacloudsites.cn
 ```
+
+新 Web 应用应该如下所示：
+

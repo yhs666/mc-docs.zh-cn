@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 origin.date: 12/13/2017
-ms.date: 07/02/2018
+ms.date: 07/30/2018
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: fcdc8b19b4e2524366ba3fc4c2e91aa57d5401e8
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 1a79d14b0165e88d7ffccf649b958b9d82e61601
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939716"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167797"
 ---
 # <a name="create-a-php-web-app-in-azure"></a>在 Azure 中创建 PHP Web 应用
 
@@ -89,6 +89,7 @@ az --% webapp create --resource-group myResourceGroup --plan myAppServicePlan --
 创建 Web 应用后，Azure CLI 会显示类似于以下示例的输出：
 
 ```json
+Local git is configured with url of 'https://<username>@<app_name>.scm.chinacloudsites.cn/<app_name>.git'
 {
   "availabilityState": "Normal",
   "clientAffinityEnabled": true,
@@ -96,11 +97,16 @@ az --% webapp create --resource-group myResourceGroup --plan myAppServicePlan --
   "cloningInfo": null,
   "containerSize": 0,
   "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "<app_name>.chinacloudapi.cn",
+  "defaultHostName": "<app_name>.chinacloudsites.cn",
   "enabled": true,
   < JSON data removed for brevity. >
 }
 ```
+已创建了一个空的新 Web 应用并启用了 Git 部署。
+
+> [!NOTE]
+> Git 远程的 URL 将显示在 `deploymentLocalGitUrl` 属性中，其格式为 `https://<username>@<app_name>.scm.chinacloudsites.net/<app_name>.git`。 保存此 URL，因为稍后需要它。
+>
 
 浏览到新建的 Web 应用。 将 _&lt;app name>_ 替换为在上一步中创建的唯一应用名称。
 

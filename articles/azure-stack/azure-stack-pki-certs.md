@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/07/2018
-ms.date: 06/26/2018
+ms.date: 07/20/2018
 ms.author: v-junlch
 ms.reviewer: ppacent
-ms.openlocfilehash: 513da149fce3abe563968c237eb70720b59d94b6
-ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
+ms.openlocfilehash: 66b36a15b5d8a35792c5ea30c3571721726852b5
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37027203"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168356"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure Stack 公钥基础结构证书要求
 
@@ -40,7 +40,7 @@ Azure Stack 有一个公共基础结构网络，该网络使用分配给少量 A
 - Azure Stack 基础结构必须能够通过网络访问证书中发布的证书颁发机构的证书吊销列表 (CRL) 位置。 此 CRL 必须是 http 终结点
 - 轮换证书时，证书必须由签署部署时提供的证书的同一内部证书颁发机构颁发，或者由上述任何公共证书颁发机构颁发
 - 不支持使用自签名证书
-- 证书可以是单个通配符证书，其中涵盖使用者可选名称 (SAN) 字段中的所有命名空间。 或者，可以针对需要证书的终结点（例如 **acs**和 Key Vault）使用采用通配符的单个证书。 
+- 对于部署和轮换，可以使用单一证书覆盖证书的“使用者名称”和“使用者可选名称(SAN)”字段中的所有命名空间，也可以为下面你计划使用的 Azure Stack 服务所需的每个命名空间使用单独的证书。 注意：这两种方法都需要将通配符用于需要它们的终结点，例如 **KeyVault** 和 **KeyVaultInternal**。 
 - 证书签名算法不能是 SHA1，因为算法必须更可靠。 
 - 证书格式必须是 PFX，因为安装 Azure Stack 时需要公钥和私钥。 
 - 证书 pfx 文件的“密钥用途”字段中必须包含“数字签名”和“KeyEncipherment”值。
@@ -77,20 +77,6 @@ Azure Stack 有一个公共基础结构网络，该网络使用分配给少量 A
 | ACSQueue | *.queue.&lt;region>.&lt;fqdn><br>（通配符 SSL 证书） | 队列存储 | queue.&lt;region>.&lt;fqdn> |
 | KeyVault | *.vault.&lt;region>.&lt;fqdn><br>（通配符 SSL 证书） | 密钥保管库 | vault.&lt;region>.&lt;fqdn> |
 | KeyVaultInternal | *.adminvault.&lt;region>.&lt;fqdn><br>（通配符 SSL 证书） |  内部 Key Vault |  adminvault.&lt;region>.&lt;fqdn> |
-
-### <a name="for-azure-stack-environment-on-pre-1803-versions"></a>适用于 1803 以前版本上的 Azure Stack 环境
-
-|部署文件夹|所需的证书使用者和使用者可选名称 (SAN)|范围（按区域）|子域命名空间|
-|-----|-----|-----|-----|
-|公共门户|portal.*&lt;region>.&lt;fqdn>*|门户|*&lt;region>.&lt;fqdn>*|
-|管理门户|adminportal.*&lt;region>.&lt;fqdn>*|门户|*&lt;region>.&lt;fqdn>*|
-|Azure 资源管理器公共门户|management.*&lt;region>.&lt;fqdn>*|Azure Resource Manager|*&lt;region>.&lt;fqdn>*|
-|Azure 资源管理器管理门户|adminmanagement.*&lt;region>.&lt;fqdn>*|Azure Resource Manager|*&lt;region>.&lt;fqdn>*|
-|ACS<sup>1</sup>|一个包含使用者可选名称的多子域通配符证书：<br>&#42;.blob.*&lt;region>.&lt;fqdn>*<br>&#42;.queue.*&lt;region>.&lt;fqdn>*<br>&#42;.table.*&lt;region>.&lt;fqdn>*|存储|blob.*&lt;region>.&lt;fqdn>*<br>table.*&lt;region>.&lt;fqdn>*<br>queue.*&lt;region>.&lt;fqdn>*|
-|KeyVault|&#42;.vault.*&lt;region>.&lt;fqdn>*<br>（通配符 SSL 证书）|密钥保管库|vault.*&lt;region>.&lt;fqdn>*|
-|KeyVaultInternal|&#42;.adminvault.*&lt;region>.&lt;fqdn>*<br>（通配符 SSL 证书）|内部 Key Vault|adminvault.*&lt;region>.&lt;fqdn>*|
-|
-<sup>1</sup> ACS 证书要求单个证书中包含三个通配符 SAN。 并非所有公共证书颁发机构都支持在单个证书中包含多个通配符 SAN。 
 
 如果使用 Azure AD 部署模式来部署 Azure Stack，只需请求上表中所列的证书。 但是，如果使用 AD FS 部署模式来部署 Azure Stack，则还必须请求下表中所述的证书：
 

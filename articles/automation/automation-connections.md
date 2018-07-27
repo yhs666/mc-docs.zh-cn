@@ -1,6 +1,6 @@
 ---
 title: Azure 自动化中的连接资产 | Microsoft Docs
-description: Azure 自动化中的连接资产包含从 Runbook 或 DSC 配置连接到外部服务或应用程序所需的信息。 本文介绍了有关连接的详细信息，以及如何在文本和图形创作中使用连接。
+description: Azure 自动化中的连接资产包含从 Runbook 配置连接到外部服务或应用程序所需的信息。 本文介绍了有关连接的详细信息，以及如何在文本和图形创作中使用连接。
 services: automation
 author: yunan2016
 manager: digimobile
@@ -8,14 +8,14 @@ ms.service: automation
 ms.devlang: na
 ms.topic: article
 origin.date: 03/15/2018
-ms.date: 05/14/2018
+ms.date: 07/23/2018
 ms.author: v-nany
-ms.openlocfilehash: 06b4061c58cc199ec468e28c847071d731c95561
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.openlocfilehash: 78db8406ff7ca57162891463c1034761f2b8588f
+ms.sourcegitcommit: 53972dcdef77da92529996667545d2e83716f7e2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "33937428"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39143395"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Azure 自动化中的连接资产
 
@@ -69,7 +69,6 @@ ms.locfileid: "33937428"
 4. 在“类型”下拉列表中，选择想要创建的连接类型。 表单会显示该特定类型的属性。
 5. 完成该表单，并单击“创建”以保存新连接。
 
-
 ### <a name="to-create-a-new-connection-with-windows-powershell"></a>使用 Windows PowerShell 创建新连接
 
 使用 Windows PowerShell 通过 [New-AzureRmAutomationConnection](https://docs.microsoft.com/powershell/module/azurerm.automation/new-azurermautomationconnection) cmdlet 创建新连接。 此 cmdlet 有一个名为 ConnectionFieldValues 的参数，预期为一个[哈希表](http://technet.microsoft.com/library/hh847780.aspx)，用于为连接类型定义的每个属性定义值。
@@ -79,10 +78,10 @@ ms.locfileid: "33937428"
 ```powershell
 $ConnectionAssetName = "AzureRunAsConnection"
 $ConnectionFieldValues = @{"ApplicationId" = $Application.ApplicationId; "TenantId" = $TenantID.TenantId; "CertificateThumbprint" = $Cert.Thumbprint; "SubscriptionId" = $SubscriptionId}
-New-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -ConnectionTypeName AzureServicePrincipal -ConnectionFieldValues $ConnectionFieldValues 
+New-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -ConnectionTypeName AzureServicePrincipal -ConnectionFieldValues $ConnectionFieldValues
 ```
 
-可以使用脚本创建连接资产，因为在创建自动化帐户时，该帐户默认情况下会在使用连接类型 **AzurServicePrincipal** 时自动包括多个全局模块，以便创建 **AzureRunAsConnection** 连接资产。  牢记这一点很重要，因为如果尝试使用其他身份验证方法创建新的连接资产来连接到服务或应用程序，则会失败，原因在于连接类型尚未在自动化帐户中定义。  如需详细了解如何通过 [PowerShell 库](https://www.powershellgallery.com)为自定义模块创建自己的连接类型，请参阅[集成模块](automation-integration-modules.md)
+可以使用脚本创建连接资产，因为在创建自动化帐户时，该帐户默认情况下会在使用连接类型 **AzureServicePrincipal** 时自动包括多个全局模块，以便创建 **AzureRunAsConnection** 连接资产。  牢记这一点很重要，因为如果尝试使用其他身份验证方法创建新的连接资产来连接到服务或应用程序，则会失败，原因在于连接类型尚未在自动化帐户中定义。  如需详细了解如何通过 [PowerShell 库](https://www.powershellgallery.com)为自定义模块创建自己的连接类型，请参阅[集成模块](automation-integration-modules.md)
   
 ## <a name="using-a-connection-in-a-runbook-or-dsc-configuration"></a>在 Runbook 或 DSC 配置中使用连接
 
@@ -90,22 +89,25 @@ New-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAcc
 
 ### <a name="textual-runbook-sample"></a>文本 Runbook 示例
 
-以下示例命令演示如何使用前面所述的运行方式帐户，向 Runbook 中的 Azure Resource Manager 资源进行身份验证。  此示例使用代表运行方式帐户的连接资产，该帐户引用基于证书的服务主体而非凭据。  
+以下示例命令演示如何使用前面所述的运行方式帐户，向 Runbook 中的 Azure Resource Manager 资源进行身份验证。  它使用表示该运行方式帐户的连接资产，该帐户引用基于证书的服务主体而不是凭据。  
 
 ```powershell
 $Conn = Get-AutomationConnection -Name AzureRunAsConnection 
 Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint -EnvironmentName "AzureChinaCloud" 
 ```
 
+> [!IMPORTANT]
+> Add-AzureRmAccount 现在是 Connect-AzureRMAccount 的别名。 搜索库项时，如果未看到 Connect-AzureRMAccount，可以使用 Add-AzureRmAccount，或更新自动化帐户中的模块。
+
 ### <a name="graphical-runbook-samples"></a>图形 Runbook 示例
 
 在图形编辑器的“库”窗格中，右键单击连接，并选择“添加到画布”将 **Get-AutomationConnection** 活动添加到图形 Runbook。
 
-![](./media/automation-connections/connection-add-canvas.png)
+![](media/automation-connections/connection-add-canvas.png)
 
 下图显示了在图形 Runbook 中使用连接的示例。  这是上面显示的同一示例，可以使用运行方式帐户通过文本 Runbook 进行身份验证。  此示例使用**常量值**数据集执行**获取 RunAs 连接**活动，该活动使用连接对象进行身份验证。  此处使用了一个[管道链接](automation-graphical-authoring-intro.md#links-and-workflow)，因为 ServicePrincipalCertificate 参数集需要单个对象。
 
-![](./media/automation-connections/automation-get-connection-object.png)
+![](media/automation-connections/automation-get-connection-object.png)
 
 ### <a name="python2-runbook-sample"></a>Python2 Runbook 示例
 下图演示了如何在 Python2 Runbook 中使用运行方式连接进行身份验证。
@@ -153,4 +155,3 @@ azure_credential = get_automation_runas_credential(runas_connection)
 - 查看[图形创作中的链接](automation-graphical-authoring-intro.md#links-and-workflow)，了解如何引导和控制 Runbook 中的逻辑流。  
 
 - 要详细了解 Azure 自动化如何使用 PowerShell 模块，以及如何根据最佳实践创建自己的 PowerShell 模块（充当 Azure 自动化中的集成模块），请参阅[集成模块](automation-integration-modules.md)。  
-

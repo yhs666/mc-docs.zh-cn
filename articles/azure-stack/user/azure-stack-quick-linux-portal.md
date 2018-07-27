@@ -8,16 +8,16 @@ manager: femila
 ms.service: azure-stack
 ms.topic: quickstart
 origin.date: 04/24/2018
-ms.date: 05/23/2018
+ms.date: 07/20/2018
 ms.author: v-junlch
 ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: 72c6b00544768101094e8376047154e6814d1f34
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: ef1ec88c2084e17f3bf990d785fd0d49829c46df
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34474998"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168428"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-with-the-azure-stack-portal"></a>快速入门：使用 Azure Stack 门户创建 Linux 服务器虚拟机
 
@@ -31,9 +31,10 @@ ms.locfileid: "34474998"
 
 ## <a name="prerequisites"></a>先决条件
 
-- **Azure Stack Marketplace 中的 Linux 映像**
+- 
+  **Azure Stack 市场中的 Linux 映像**
 
-   默认情况下，Azure Stack Marketplace 不包含 Linux 映像。 在可以创建 Linux 服务器虚拟机之前，请确保 Azure Stack 操作员提供了你需要的 **Ubuntu Server 16.04 LTS** 映像。 操作员可以使用[将 Marketplace 项从 Azure 下载到 Azure Stack](../azure-stack-download-azure-marketplace-item.md) 一文中介绍的步骤。
+   默认情况下，Azure Stack 市场不包含 Linux 映像。 在可以创建 Linux 服务器虚拟机之前，请确保 Azure Stack 操作员提供了你需要的 **Ubuntu Server 16.04 LTS** 映像。 操作员可以使用[将市场项从 Azure 下载到 Azure Stack](../azure-stack-download-azure-marketplace-item.md) 一文中介绍的步骤。
 
 - **可以访问 SSH 客户端**
 
@@ -67,7 +68,7 @@ ms.locfileid: "34474998"
 1. 在 Azure Stack 门户的左上角单击“创建资源”。
 
 2. 依次选择“计算”、“Ubuntu Server 16.04 LTS”。
-3. 单击“创建”。
+3. 单击**创建**。
 
 4. 键入虚拟机信息。 对于“身份验证类型”，请选择“SSH 公钥”。 粘贴保存的 SSH 公钥，然后单击“确定”。
 
@@ -133,7 +134,7 @@ sudo apt-get -y install nginx
 
 ## <a name="view-the-nginx-welcome-page"></a>查看 NGINX 欢迎页
 
-在虚拟机上安装 NGINX 并打开端口 80 后，可通过虚拟机的公用 IP 地址访问 Web 服务器。 （该公用 IP 地址显示在虚拟机的“概述”页上。）
+在虚拟机上安装 NGINX 并打开端口 80 后，可通过虚拟机的公共 IP 地址访问 Web 服务器。 （该公用 IP 地址显示在虚拟机的“概述”页上。）
 
 打开 Web 浏览器，并浏览到 ```http://<public IP address>```。
 

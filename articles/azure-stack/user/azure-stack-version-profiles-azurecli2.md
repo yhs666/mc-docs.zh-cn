@@ -10,20 +10,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/11/2018
-ms.date: 06/27/2018
+origin.date: 06/25/2018
+ms.date: 07/20/2018
 ms.author: v-junlch
 ms.reviewer: sijuman
-ms.openlocfilehash: 6feaf5270d366165499150eda01d55caf371fc2c
-ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
+ms.openlocfilehash: 6398cf23d41837683b9915e0a7e714f1d9398476
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37027138"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168488"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-20-in-azure-stack"></a>在 Azure Stack 中将 API 版本配置文件与 Azure CLI 2.0 配合使用
 
-遵循本文中的步骤可以设置 Azure 命令行接口 (CLI)，以从 Linux、Mac 和 Windows 客户端平台管理 Azure Stack 开发工具包资源。
+可以按照本文中的步骤设置 Azure 命令行接口 (CLI)，以从 Linux、Mac 和 Windows 客户端平台管理 Azure Stack 开发工具包资源。
 
 ## <a name="install-cli"></a>安装 CLI
 

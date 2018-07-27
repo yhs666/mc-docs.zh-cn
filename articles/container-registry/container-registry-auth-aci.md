@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 04/23/2018
 ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 11aee63acc714d7eaa83a6846074a9580deb9358
-ms.sourcegitcommit: 5b6a2fc55e5b16ae480bd497c3ac2c3a2fd44703
+ms.openlocfilehash: 3c8910bf1c500e9aaa7eb0446addc27178d9672f
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38999149"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167926"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-container-instances"></a>使用 Azure 容器注册表从 Azure 容器实例进行身份验证
 
@@ -32,19 +32,9 @@ ms.locfileid: "38999149"
 
 [!INCLUDE [container-registry-service-principal](../../includes/container-registry-service-principal.md)]
 
-## <a name="authenticate-using-the-service-principal"></a>使用服务主体进行身份验证
+<!-- Not Available on ## Authenticate using the service principal-->
+<!--Notice: Microsoft/ContainerInstance is invalid on 20180709-->
 
-若要使用服务主体启动 Azure 容器实例中的容器，请为 `--registry-username` 指定其 ID，并为 `--registry-password` 指定其密码。
-
-```azurecli
-az container create \
-    --resource-group myResourceGroup \
-    --name mycontainer \
-    --image mycontainerregistry.azurecr.cn/myimage:v1 \
-    --registry-login-server mycontainerregistry.azurecr.cn \
-    --registry-username <service-principal-ID> \
-    --registry-password <service-principal-password>
-```
 
 ## <a name="sample-scripts"></a>示例脚本
 
@@ -58,7 +48,7 @@ az container create \
 以下文章包含有关使用服务主体和 ACR 的其他详细信息：
 
 * [使用服务主体的 Azure 容器注册表身份验证](container-registry-auth-service-principal.md)
-* [使用 Azure 容器注册表从 Azure Kubernetes 服务 (AKS) 进行身份验证](container-registry-auth-aks.md)
+<!-- Not Available on * [Authenticate with Azure Container Registry from Azure Kubernetes Service (AKS)](container-registry-auth-aks.md)-->
 
 <!-- IMAGES -->
 

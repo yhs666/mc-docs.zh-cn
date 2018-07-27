@@ -10,12 +10,12 @@ origin.date: 05/08/2018
 ms.date: 07/02/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 1514fcb49721bceedf98738babc173bef1a30244
-ms.sourcegitcommit: 5b6a2fc55e5b16ae480bd497c3ac2c3a2fd44703
+ms.openlocfilehash: a7de19f8bd2f6ce5b897335b13505b7c6acede08
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38999168"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167728"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Azure 中的专用 Docker 容器注册表简介
 
@@ -53,15 +53,12 @@ Azure 容器注册表是基于开源 Docker 注册表 2.0 的托管 [Docker 注�
 
 * **容器** - 容器定义软件应用程序及其在完整文件系统中包装的依赖项，包括代码、运行时、系统工具和库。 可以基于从容器注册表提取的 Windows 或 Linux 映像运行 Docker 容器。 在一台计算机上运行的容器共享操作系统内核。 Docker 容器完全可移植到所有主要 Linux 发行版、macOS 和 Windows。
 
-## <a name="azure-container-registry-build-preview"></a>Azure 容器注册表生成（预览版）
-
-[Azure 容器注册表生成](container-registry-build-overview.md) (ACR Build) 是 Azure 容器注册表中的一个功能套件，用于在 Azure 中提供简化且高效的 Docker 容器映像生成功能。 使用 ACR Build 可以通过将 `docker build` 操作卸载到 Azure 来将开发内部循环扩展到云。 配置生成任务以使其自动执行容器 OS 和框架修补管道，并使其在团队将代码提交到源代码管理时自动生成映像。
-
-[!INCLUDE [container-registry-build-preview-note](../../includes/container-registry-build-preview-note.md)]
+<!-- Not Available on ## Azure Container Registry Build (Preview)-->
 
 ## <a name="next-steps"></a>后续步骤
 
 * [使用 Azure 门户创建容器注册表](container-registry-get-started-portal.md)
 * [使用 Azure CLI 创建容器注册表](container-registry-get-started-azure-cli.md)
-* [使用 ACR Build 自动执行 OS 和框架修补](container-registry-build-overview.md)（预览）<!-- Update_Description: new article on container registry intro -->
+<!-- Not Available on * [Automate OS and framework patching with ACR Build](container-registry-build-overview.md) (Preview)-->
+<!-- Update_Description: new article on container registry intro -->
 <!--ms.date: 07/02/2018-->

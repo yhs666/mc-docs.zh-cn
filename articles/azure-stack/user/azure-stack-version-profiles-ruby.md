@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/10/2018
-ms.date: 05/23/2018
+ms.date: 07/20/2018
 ms.author: v-junlch
 ms.reviewer: sijuman
-ms.openlocfilehash: 62fb274b8f1a709656b2a756a6323ccfd752ba86
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 796798bff459f522966d18ae12c646b2cfc51e57
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475132"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168449"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack"></a>在 Azure Stack 中将 API 版本配置文件与 Ruby 配合使用
 
@@ -89,7 +89,8 @@ azure_sdk gem 汇总了 Ruby SDK 中所有受支持的 gem。 此 gem 包含的*
 | --- | --- | --- | --- |
 | 租户 ID | AZURE_TENANT_ID | Azure Stack [租户 ID](/azure-stack/azure-stack-identity-overview) 的值。 |
 | 客户端 ID | AZURE_CLIENT_ID | 在本文档上一部分创建服务主体时保存的服务主体应用程序 ID。  |
-| 订阅 ID | AZURE_SUBSCRIPTION_ID | [订阅 ID](/azure-stack/azure-stack-plan-offer-quota-overview#subscriptions) 用于访问 Azure Stack 中的产品/服务。 |
+| 订阅 ID | AZURE_SUBSCRIPTION_ID | 
+  [订阅 ID](/azure-stack/azure-stack-plan-offer-quota-overview#subscriptions) 用于访问 Azure Stack 中的套餐。 |
 | 客户端机密 | AZURE_CLIENT_SECRET | 创建服务主体时保存的服务主体应用程序机密。 |
 | 资源管理器终结点 | ARM_ENDPOINT | 请参阅 [Azure Stack 资源管理器终结点](#The-azure-stack-resource-manager-endpoint)。  |
 
@@ -201,7 +202,7 @@ end
 
 ## <a name="samples-using-api-profiles"></a>使用 API 配置文件的示例
 
-若要使用 Ruby 和 Azure Stack API 配置文件来创建解决方案，可以将 GitHub 存储库中发现的以下示例用作参考：
+若要使用 Ruby 和 Azure Stack API 配置文件来创建解决方案，可以将 GitHub 存储库中的以下示例用作参考：
 
  - [使用 Ruby 管理 Azure 资源和资源组](https://github.com/Azure-Samples/resource-manager-ruby-resources-and-groups/tree/master/Hybrid)
  - [Manage virtual machines using Ruby](https://github.com/Azure-Samples/compute-ruby-manage-vm/tree/master/Hybrid)（使用 Ruby 管理虚拟机）
@@ -306,3 +307,4 @@ end
 - [安装适用于 Azure Stack 的 PowerShell](azure-stack-powershell-install.md)
 - [配置 Azure Stack 用户的 PowerShell 环境](azure-stack-powershell-configure-user.md)  
 
+<!-- Update_Description: wording update -->

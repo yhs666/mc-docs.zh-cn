@@ -3,23 +3,23 @@ title: 使用 Azure Stack API | Microsoft Docs
 description: 了解如何从 Azure 检索身份验证令牌，以向 Azure Stack 发出 API 请求。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: cblackuk
 manager: femila
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/14/2018
-ms.date: 05/23/2018
+origin.date: 07/02/2018
+ms.date: 07/20/2018
 ms.author: v-junlch
 ms.reviewer: thoroet
-ms.openlocfilehash: 5028dc8c03c9053ada1cc63c7ac4ac383529190c
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 8dcae97496c1ef04d5eed4f666d81358772f5a27
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475056"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168502"
 ---
 <!--  cblackuk and charliejllewellyn. This is a community contribution by cblackuk-->
 
@@ -27,9 +27,9 @@ ms.locfileid: "34475056"
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-可以使用 Azure Stack 应用程序编程接口 (API) 来自动执行操作，例如合成 Marketplace 项。
+可以使用应用程序编程接口 (API) 来自动执行操作，例如将 VM 添加到 Azure Stack 云。
 
-此 API 要求客户端根据 Azure 登录终结点进行身份验证。 该终结点返回一个要在发送到 Azure Stack API 的每个请求的标头中使用的令牌。 Azure 使用 Oauth 2.0。
+此 API 要求客户端向 Azure 登录终结点进行身份验证。 该终结点返回一个要在发送到 Azure Stack API 的每个请求的标头中使用的令牌。 Azure 使用 Oauth 2.0。
 
 本文提供了使用 **cURL** 实用工具创建 Azure Stack 请求的示例。 应用程序 cURL 是一个命令行工具，它有一个用于传输数据的库。 这些示例演练了检索令牌来访问 Azure Stack API 的过程。 大多数编程语言都提供了 Oauth 2.0 库，这些库提供可靠的令牌管理，并可以处理刷新令牌等任务。
 

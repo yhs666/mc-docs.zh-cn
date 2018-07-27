@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 04/27/2016
-ms.date: 06/11/2018
+origin.date: 05/24/2018
+ms.date: 07/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7f26d9e409d5021fccccf77f7baa703909a81a9a
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: f61c25a0730d4baebd27ac396887a3fae9c63ca1
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34869350"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167960"
 ---
 # <a name="viewing-and-modifying-hostnames"></a>查看和修改主机名
 若要允许通过主机名引用角色实例，必须在服务配置文件中为每个角色设置主机名的值。 可以通过将所需主机名添加到 **Role** 元素的 **vmName** 属性来执行该操作。 
@@ -28,11 +28,6 @@ ms.locfileid: "34869350"
 
 ## <a name="viewing-hostnames"></a>查看主机名
 可以使用下列任一工具来查看云服务中虚拟机和角色实例的主机名。
-
-### <a name="azure-portal"></a>Azure 门户
-可以在 [Azure 门户](http://portal.azure.cn) 上虚拟机的概览边栏选项卡中查看虚拟机的主机名。 请记住，该边栏选项卡显示的是“名称”和“主机名”的值。 尽管它们最初是相同的，但更改主机名不会更改虚拟机或角色实例的名称。
-
-也可以在 Azure 门户中查看角色实例，但列出云服务中的实例时，不会显示主机名。 会看到每个实例的名称，但该名称不表示主机名。
 
 ### <a name="service-configuration-file"></a>服务配置文件
 可以从 Azure 门户中服务的“配置”边栏选项卡下载已部署服务的服务配置文件。 然后，可以查找**角色名称**元素的 **vmName** 属性以查看主机名。 请记住，此主机名用作每个角色实例的主机名的基本元素。 例如，如果 **vmName** 是 *webrole*，并且该角色有三个实例，则这些实例的主机名将为 *webrole0*、*webrole1* 和 *webrole2*。

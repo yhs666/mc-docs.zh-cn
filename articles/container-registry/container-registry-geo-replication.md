@@ -9,12 +9,12 @@ ms.topic: overview-article
 origin.date: 04/10/2018
 ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 9ccf080caa8b2791fda2f10ce7f429233db08f31
-ms.sourcegitcommit: 5b6a2fc55e5b16ae480bd497c3ac2c3a2fd44703
+ms.openlocfilehash: 861e4ef2e606f3e142b3d5e7a3ab31c55df775f2
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38999180"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167862"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Azure 容器注册表中的异地复制
 
@@ -28,23 +28,26 @@ ms.locfileid: "38999180"
 * 跨多个区域对注册表进行单一管理
 
 ## <a name="example-use-case"></a>示例用例
-Contoso 在美国、加拿大和欧洲各地运行着一个公开展示网站。 为了向这些市场提供本地近网络内容，Contoso 在中国北部、中国东部、加拿大和西欧都在运行 [Azure 容器服务](/container-service/kubernetes/) (ACS) Kubernetes 群集。 部署为 Docker 映像的网站应用程序在所有区域中均使用相同的代码和映像。 从在每个区域独特部署的数据库检索该区域的本地内容。 对于本地数据库这样的资源，每个区域部署均有其唯一配置。
+Contoso 在中国各地运行着一个公开展示网站。 为了向这些市场提供本地近网络内容，Contoso 在中国北部、中国东部都在运行 Azure 容器服务 Kubernetes 群集。 部署为 Docker 映像的网站应用程序在所有区域中均使用相同的代码和映像。 从在每个区域独特部署的数据库检索该区域的本地内容。 对于本地数据库这样的资源，每个区域部署均有其唯一配置。
+<!-- Notice: CHANGE across the US, Canada, and Europe TO China -->
+<!-- Notice: URL is invalid on [Azure Container Service](/container-service/kubernetes/)-->
 
-开发团队位于华盛顿州西雅图市，使用中国北部数据中心。
+开发团队位于北京，使用中国北部数据中心。
+<!--Notice: Change Seattle WA to Beijing-->
 
-![推送到多个注册表](media/container-registry-geo-replication/before-geo-replicate.png)<br />*推送到多个注册表*
-
-使用异地复制功能之前，Contoso 已在中国北部拥有基于美国的注册表，在中国北部拥有其他注册表。 为了向这些不同的区域提供服务，开发团队必须将映像推送到两个不同的注册表。
+<!-- Notice: Image is not right ![Pushing to multiple registries](media/container-registry-geo-replication/before-geo-replicate.png)--> 使用异地复制功能之前，Contoso 已在中国北部拥有基于中国的注册表，在中国东部拥有其他注册表。 为了向这些不同的区域提供服务，开发团队必须将映像推送到两个不同的注册表。
+<!-- Notice: Change US-based TO China-based -->
 
 ```bash
 docker push contoso.azurecr.cn/pubic/products/web:1.2
-docker push contosowesteu.azurecr.cn/pubic/products/web:1.2
+docker push contosochinaeast.azurecr.cn/pubic/products/web:1.2
 ```
-![从多个注册表拉取](media/container-registry-geo-replication/before-geo-replicate-pull.png)<br />*从多个注册表拉取*
+<!-- Notice: Image is not right ![Pulling from multiple registries](media/container-registry-geo-replication/before-geo-replicate-pull.png)-->
 
 多个注册表的典型挑战包括：
 
-* 中国东部、中国北部和加拿大中部的群集均拉取自中国北部的注册表，当每个远程容器主机从中国北部的数据中心拉取映像时，将产生传输费用。
+* 中国东部和中国北部群集均拉取自中国北部的注册表，当每个远程容器主机从中国北部的数据中心拉取映像时，将产生传输费用。
+<!--Notice: Should be The China East, and China North clusters all pull from the China North registry-->
 * 开发团队必须将映像推送到中国北部的注册表。
 * 开发团队必须使用引用本地注册表的映像名称配置和维护每个区域的部署。
 * 必须为每个区域配置注册表访问。
@@ -92,11 +95,15 @@ ACR 将开始在配置的副本间同步映像。 完成后，门户将显示“
 
 异地复制是 Azure 容器注册表[高级 SKU](container-registry-skus.md) 的一项功能。 将注册表复制到所需区域时，每个区域都会产生高级注册表费用。
 
-在前面的示例中，Contoso 将两个注册表合并到一起，并向中国东部、加拿大中部和中国北部添加副本。 Contoso 每月将支付四次高级费用，且无额外配置或管理。 现在每个区域就从本地拉取映像，既提升了性能和可靠性，又节省了从中国北部到加拿大和中国东部的网络传输费用。
+在前面的示例中，Contoso 将两个注册表合并到一起，并向中国东部和中国北部添加副本。 Contoso 每月将支付两次高级费用，且无额外配置或管理。 现在每个区域就从本地拉取映像，既提升了性能和可靠性，又节省了从中国北部到中国东部的网络传输费用。
+<!-- Notice: Should be two times-->
+<!-- Notice: Remove the Canada Central -->
+
 
 ## <a name="summary"></a>摘要
 
-通过异地复制，可将区域数据中心作为一个全球云进行管理。 由于映像可跨多个 Azure 服务使用，因此不仅可以受益于单一管理平面，还可保持近网络、快速、可靠的本地映像拉取。
+通过异地复制，可将区域数据中心作为多区域云进行管理。 由于映像可跨多个 Azure 服务使用，因此不仅可以受益于单一管理平面，还可保持近网络、快速、可靠的本地映像拉取。
+<!-- Change global TO multiple-region-->
 
 ## <a name="next-steps"></a>后续步骤
 
