@@ -11,19 +11,25 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/14/2018
-ms.date: 06/26/2018
+origin.date: 07/13/2018
+ms.date: 07/20/2018
 ms.author: v-junlch
 ms.reviewer: jeffgo
-ms.openlocfilehash: 656852000c810a6bd97f4827b831764e7e843205
-ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
+ms.openlocfilehash: 93ab58dda01178508cb0530bbe9cecaacec485ee
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37027272"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168284"
 ---
 # <a name="update-the-mysql-resource-provider"></a>更新 MySQL 资源提供程序 
-更新 Azure Stack 内部版本时，可能会发布新的 SQL 资源提供程序适配器。 虽然现有的适配器可以继续使用，但仍建议尽快更新到最新的内部版本。 必须按顺序安装更新：不能跳过版本
+
+*适用于：Azure Stack 集成系统。*
+
+更新 Azure Stack 内部版本时，可能会发布新的 SQL 资源提供程序适配器。 虽然现有的适配器可以继续使用，但仍建议尽快更新到最新的内部版本。 
+
+>[!IMPORTANT]
+>必须按更新的发布顺序安装更新。 不能跳过版本。 请参阅[部署资源提供程序的先决条件](.\azure-stack-mysql-resource-provider-deploy.md#prerequisites)中的版本列表。
 
 ## <a name="update-the-mysql-resource-provider-adapter-integrated-systems-only"></a>更新 MySQL 资源提供程序适配器（仅限已集成的系统）
 更新 Azure Stack 内部版本时，可能会发布新的 SQL 资源提供程序适配器。 虽然现有的适配器可以继续使用，但仍建议尽快更新到最新的内部版本。  
@@ -31,6 +37,9 @@ ms.locfileid: "37027272"
 若要更新资源提供程序，请使用 **UpdateMySQLProvider.ps1** 脚本。 此过程类似于安装资源提供程序时所使用的过程，如本文[部署资源提供程序](#deploy-the-resource-provider)部分所述。 资源提供程序的下载包中提供此脚本。 
 
 **UpdateMySQLProvider.ps1** 脚本可使用最新的资源提供程序代码创建新的 VM，并可将设置从旧 VM 迁移到新 VM。 迁移的设置包括数据库和宿主服务器信息，以及必需的 DNS 记录。 
+
+>[!NOTE]
+>建议从市场管理下载最新的 Windows Server 2016 Core 映像。 如需安装更新，可以将**单个** MSU 包放置在本地依赖项路径中。 如果此位置中有多个 MSU 文件，则脚本将失败。
 
 此脚本需要使用的参数正是针对 DeployMySqlProvider.ps1 脚本进行描述的参数。 请同样在此处提供证书。  
 
@@ -101,3 +110,4 @@ $tempDir\UpdateMySQLProvider.ps1 -AzCredential $AdminCreds `
 ## <a name="next-steps"></a>后续步骤
 [维护 MySQL 资源提供程序](azure-stack-mysql-resource-provider-maintain.md)
 
+<!-- Update_Description: wording update -->

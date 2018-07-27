@@ -5,16 +5,16 @@ services: azure-policy
 author: WenJason
 ms.author: v-nany
 origin.date: 05/24/2018
-ms.date: 07/09/2018
+ms.date: 07/23/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: digimobile
-ms.openlocfilehash: b7481b34fcfaf4455ef9894e22dc0b248bf3456f
-ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
+ms.openlocfilehash: 69fe0985814051fcdd9331ac1d15bca2f8c14314
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37405305"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167740"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure 策略定义结构
 
@@ -190,7 +190,8 @@ Azure 策略使用的资源策略定义，可使你通过描述何时强制实�
 - `"notContainsKey": "keyName"`
 - `"exists": "bool"`
 
-使用 like 和 notLike 条件时，可以在值中指定通配符 (*)。值不得包含多个通配符 (*)。
+使用 like 和 notLike 条件时，可以在值中指定通配符 `*`。
+值不得包含多个通配符 `*`。
 
 当使用 match 和 notMatch 条件时，请提供 `#` 来表示数字，提供 `?` 来表示字母，提供任何其他字符来表示该实际字符。 例如，请参阅[允许多名称模式](scripts/allow-multiple-name-patterns.md)。
 
@@ -207,9 +208,13 @@ Azure 策略使用的资源策略定义，可使你通过描述何时强制实�
 - `type`
 - `location`
 - `tags`
-- `tags.tagName`
-- `tags[tagName]`
-  - 括号语法支持包含句点的标记名称
+- `tags.<tagName>`
+  - 其中 **\<tagName\>** 是要验证其条件的标记的名称。
+  - 示例：`tags.CostCenter`，其中 **CostCenter** 是标记的名称。
+- `tags[<tagName>]`
+  - 此括号语法支持包含句点的标记名称。
+  - 其中 **\<tagName\>** 是要验证其条件的标记的名称。
+  - 示例：`tags.[Acct.CostCenter]`，其中 **Acct.CostCenter** 是标记的名称。
 - 属性别名 - 若要查看列表，请参阅[别名](#aliases)。
 
 ### <a name="alternative-accessors"></a>可供选择的取值函数
@@ -314,7 +319,7 @@ Azure 策略使用的资源策略定义，可使你通过描述何时强制实�
 
 ## <a name="initiatives"></a>计划
 
-计划可组合多个相关策略定义，简化分配和管理，因为可将组作为单个项使用。 例如，可以将所有相关标记策略组合为单个计划。 将应用计划，而非单独分配每个策略。
+使用计划可组合多个相关策略定义，以简化分配和管理，因为可将组作为单个项使用。 例如，可以将所有相关标记策略组合为单个计划。 将应用计划，而非单独分配每个策略。
 
 下面的示例演示如何创建用于处理 `costCenter` 和 `productName` 这两个标记的计划。 它使用两个内置策略来应用默认标记值。
 

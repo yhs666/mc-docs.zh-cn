@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 origin.date: 09/25/2017
 ms.date: 11/20/2017
 ms.author: v-yeche
-ms.openlocfilehash: ee21bd18100fb53d259136844e8c3deb0a2236d9
-ms.sourcegitcommit: 6d4114f3eb63845da3de46879985dfbef3bd6b65
+ms.openlocfilehash: 396d4e3fcddfc6ceac27b4ce86c2c43598b4bbcb
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2017
-ms.locfileid: "24806992"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167871"
 ---
 # <a name="configure-tcp-idle-timeout-settings-for-azure-load-balancer"></a>为 Azure 负载均衡器配置 TCP 空闲超时设置
 
@@ -57,25 +57,23 @@ Get-AzureVM -ServiceName "mySvc" -Name "MyVM1" | Add-AzureEndpoint -Name "HttpIn
 
 若要检索空闲超时配置，请执行以下命令：
 
-```
-PS C:\> Get-AzureVM -ServiceName "MyService" -Name "MyVM" | Get-AzureEndpoint
-VERBOSE: 6:43:50 PM - Completed Operation: Get Deployment
-LBSetName : MyLoadBalancedSet
-LocalPort : 80
-Name : HTTP
-Port : 80
-Protocol : tcp
-Vip : 65.52.xxx.xxx
-ProbePath :
-ProbePort : 80
-ProbeProtocol : tcp
-ProbeIntervalInSeconds : 15
-ProbeTimeoutInSeconds : 31
-EnableDirectServerReturn : False
-Acl : {}
-InternalLoadBalancerName :
-IdleTimeoutInMinutes : 15
-```
+    PS C:\> Get-AzureVM -ServiceName "MyService" -Name "MyVM" | Get-AzureEndpoint
+    VERBOSE: 6:43:50 PM - Completed Operation: Get Deployment
+    LBSetName : MyLoadBalancedSet
+    LocalPort : 80
+    Name : HTTP
+    Port : 80
+    Protocol : tcp
+    Vip : 65.52.xxx.xxx
+    ProbePath :
+    ProbePort : 80
+    ProbeProtocol : tcp
+    ProbeIntervalInSeconds : 15
+    ProbeTimeoutInSeconds : 31
+    EnableDirectServerReturn : False
+    Acl : {}
+    InternalLoadBalancerName :
+    IdleTimeoutInMinutes : 15
 
 ## <a name="set-the-tcp-timeout-on-a-load-balanced-endpoint-set"></a>在负载均衡的终结点集上设置 TCP 超时
 
@@ -120,9 +118,7 @@ Set-AzureLoadBalancedEndpoint -ServiceName "MyService" -LBSetName "LBSet1" -Prot
 
 ### <a name="request"></a>请求
 
-```
 POST https://management.core.chinacloudapi.cn/<subscription-id>/services/hostedservices/<cloudservice-name>/deployments/<deployment-name>
-```
 
 ### <a name="response"></a>响应
 
@@ -164,5 +160,4 @@ POST https://management.core.chinacloudapi.cn/<subscription-id>/services/hosteds
 [开始配置面向 Internet 的负载均衡器](load-balancer-get-started-internet-arm-ps.md)
 
 [配置负载均衡器分发模式](load-balancer-distribution-mode.md)
-
 <!-- Update_Description: update meta properties -->

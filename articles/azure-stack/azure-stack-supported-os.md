@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/11/2018
-ms.date: 05/24/2018
+ms.date: 07/20/2018
 ms.author: v-junlch
 ms.reviewer: JeffGoldner
-ms.openlocfilehash: cae2bd3821d870f7e85450b35ba7a738d6610508
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 83d8a255806bd8c08655d087cbdef397ffaf611f
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475018"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168391"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack"></a>Azure Stack 支持的来宾操作系统
 
@@ -31,7 +31,7 @@ ms.locfileid: "34475018"
 
 Azure Stack 支持下表中列出的 Windows 来宾操作系统：
 
-| 操作系统 | 说明 | 在 Marketplace 中可用 |
+| 操作系统 | 说明 | 在市场中可用 |
 | --- | --- | --- | --- | --- | --- |
 | Windows Server，版本 1709 | 64 位 | 包含容器的核心 |
 | Windows Server 2016 | 64 位 |  数据中心、数据中心核心、包含容器的数据中心 |
@@ -41,22 +41,22 @@ Azure Stack 支持下表中列出的 Windows 来宾操作系统：
 | Windows Server 2008 SP2 | 64 位 |  自带映像 |
 | Windows 10 *（请参见注释 1）* | 64 位，Pro 和 Enterprise | 自带映像 |
 
-***注释 1：****若要在 Azure Stack 上部署 Windows 10 客户端操作系统，必须具备 Windows 每用户授权，或者通过合格多租户托管商 (QMTH) 购买。*
+***注释 1：****若要在 Azure Stack 上部署 Windows 10 客户端操作系统，必须具备 [Windows 每用户授权](https://www.microsoft.com/en-us/Licensing/product-licensing/windows10.aspx)，或者通过合格多租户托管商 ([QMTH](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx)) 购买。*
 
-Marketplace 映像可用于即用即付或 BYOL (EA/SPLA) 授权。 不支持在单个 Azure Stack 实例上同时使用这两者。 在部署期间，Azure Stack 会将适当版本的来宾代理注入到映像中。
+市场映像可用于即用即付或 BYOL (EA/SPLA) 授权。 不支持在单个 Azure Stack 实例上同时使用这两者。 在部署期间，Azure Stack 会将适当版本的来宾代理注入到映像中。
 
- Datacenter 版本可在 Marketplace 中下载；客户可以自带包含其他版本的服务器映像。 Marketplace 中未提供 Windows 客户端映像。
+ Datacenter 版本可在市场中下载；客户可以自带包含其他版本的服务器映像。 市场中未提供 Windows 客户端映像。
 
 ## <a name="linux"></a>Linux
 
-Marketplace 中列为可用的 Linux 发行版包括必要的 Azure Linux 代理 (WALA)。 如果将自己的映像带到 Azure Stack，请遵循[将 Linux 映像添加到 Azure Stack](azure-stack-linux.md) 中的指导。
+市场中列为可用的 Linux 发行版包括必要的 Azure Linux 代理 (WALA)。 如果将自己的映像带到 Azure Stack，请遵循[将 Linux 映像添加到 Azure Stack](azure-stack-linux.md) 中的指导。
 
 > [!NOTE]
 > 应使用最新的公共 WALA 版本生成自定义映像。 低于 2.2.18 的版本在 Azure Stack 上可能无法正常运行。
 >
 > 目前 Azure Stack 不支持 [cloud-init](https://cloud-init.io/)。
 
-| 分发 | 说明 | 发布者 | 应用商店 |
+| 分发 | 说明 | 发布者 | 市场 |
 | --- | --- | --- | --- | --- | --- |
 | 基于 CentOS 的 6.9 | 64 位 | Rogue Wave | 是 |
 | 基于 CentOS 的 7.4 | 64 位 | Rogue Wave | 是 |

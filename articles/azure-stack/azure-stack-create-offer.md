@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 06/07/2018
-ms.date: 06/26/2018
+origin.date: 07/02/2018
+ms.date: 07/20/2018
 ms.author: v-junlch
-ms.openlocfilehash: d5c91326f53e4b1128a88cbb1177bf6caa6ff617
-ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
+ms.openlocfilehash: 3e3eb5a9786803b68131c7290374a5123f5f9ed9
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37027067"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168314"
 ---
 # <a name="create-an-offer-in-azure-stack"></a>在 Azure Stack 中创建套餐
 
@@ -60,7 +60,7 @@ ms.locfileid: "37027067"
      选择“所有资源”，搜索新套餐，然后选择新套餐。 依次选择“更改状态”、“公共”。
 
    > [!NOTE]
-   > 还可以使用 PowerShell 来创建默认套餐、计划和配额。 
+   > 还可以使用 PowerShell 来创建默认套餐、计划和配额。 有关详细信息，请参阅 [Azure Stack PowerShell 模块 1.3.0](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.3.0)。
 
 ## <a name="next-steps"></a>后续步骤
 

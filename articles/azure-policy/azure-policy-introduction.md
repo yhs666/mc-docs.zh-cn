@@ -10,12 +10,12 @@ ms.topic: overview
 ms.service: azure-policy
 manager: digimoblie
 ms.custom: mvc
-ms.openlocfilehash: 34f9664a9b4eeda624af00187cb7aa4213e0d4f8
-ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
+ms.openlocfilehash: 1fd17362aa42aab94106f91cb203f56a0840abb9
+ms.sourcegitcommit: 53972dcdef77da92529996667545d2e83716f7e2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37405322"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39143391"
 ---
 # <a name="what-is-azure-policy"></a>什么是 Azure 策略？
 
@@ -78,7 +78,7 @@ Azure Policy 让权限在两个不同的资源提供程序中以操作的形式�
 
 策略参数通过减少必须创建的策略定义数量来帮助简化策略管理。 在创建策略定义时可定义参数，以使其更为通用。 然后就可以为不同方案重复使用该策略定义。 要执行此操作，请在分配策略定义时传入不同的值。 例如，为订阅指定一组位置。
 
-在创建策略定义时定义/创建参数。 在定义参数后，会为它指定一个名称，并且可选择为其提供一个值。 例如，可以为标题为“位置”的策略定义一个参数。 然后，可在分配策略时赋予其不同的值，如 EastUS 或 WestUS。
+在创建策略定义时定义/创建参数。 在定义参数后，会为它指定一个名称，并且可选择为其提供一个值。 例如，可以为标题为“位置”的策略定义一个参数。 然后，可在分配策略时赋予其不同的值，如*中国东部*或*中国西部*。
 
 有关策略参数的详细信息，请参阅[资源策略概述 - 参数](policy-definition.md#parameters)。
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 01/23/2017
 ms.date: 06/18/2018
 ms.author: v-yeche
-ms.openlocfilehash: 059f598dea1c6c04befaac88e2b53afe50237830
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: a2fd2de5af949e3d19143a6da62d716e9d8b7f4d
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939134"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167798"
 ---
 # <a name="get-started-creating-an-internal-load-balancer-classic-using-the-azure-cli"></a>开始使用 Azure CLI 创建内部负载均衡器（经典）
 
@@ -89,6 +89,7 @@ azure service internal-load-balancer add --serviceName mytestcloud --internalLBN
     data:    ------  -------  ----------  -----------------------------
     data:    ilbset  Private  subnet-1    192.168.2.7
     info:    service internal-load-balancer list command OK
+
 
 ### <a name="step-2"></a>步骤 2
 
@@ -179,6 +180,5 @@ azure vm endpoint delete DB1 tcp-1433-1433
 
 [使用源 IP 关联配置负载均衡器分发模式](load-balancer-distribution-mode.md)
 
-[配置负载均衡器的空闲 TCP 超时设置](load-balancer-tcp-idle-timeout.md)
-
+[为负载均衡器配置空闲 TCP 超时设置](load-balancer-tcp-idle-timeout.md)
 <!-- Update_Description: update meta properties, wording update -->

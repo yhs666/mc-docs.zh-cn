@@ -6,15 +6,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 02/12/2018
-ms.date: 03/05/2018
+origin.date: 07/06/2018
+ms.date: 07/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 3c050b2ed164755df17534d8ee3e9fe397bfef30
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 6d4cac760b35c36e5dafd179cc6164a54b95454a
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
-ms.locfileid: "29731479"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168307"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-a-secondary-on-premises-site-after-failover"></a>设置 IP 寻址以在故障转移后连接到辅助本地站点
 
@@ -89,7 +89,7 @@ ms.locfileid: "29731479"
 在此方案中，会更改故障转移的 VM 的 IP 地址。 此解决方案的缺点是需要维护。  DNS 和缓存条目可能需要更新。 这可能导致停机时间，可按以下方式进行缓解：
 
 - 对 Intranet 应用程序使用低 TTL 值。
-- 在 Site Recovery 恢复计划中使用以下脚本更新 DNS 服务器，确保及时更新。 如果使用动态 DNS 注册，则不需要该脚本。
+- 在 Site Recovery 恢复计划中使用以下脚本及时更新 DNS 服务器。 如果使用动态 DNS 注册，则不需要该脚本。
 
     ```
     param(
@@ -125,4 +125,4 @@ ms.locfileid: "29731479"
 ## <a name="next-steps"></a>后续步骤
 
 [运行故障转移](hyper-v-vmm-failover-failback.md)
-<!-- Update_Description: update meta properties, wording update, update link -->
+<!-- Update_Description: update meta properties, wording update -->

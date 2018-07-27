@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/18/2018
-ms.date: 05/24/2018
+ms.date: 07/20/2018
 ms.author: v-junlch
 ms.reviewer: ppacent
-ms.openlocfilehash: c21ae5007348abf6273824f9ba89ea4d540953ca
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 11147abe1993fb791db56eb4ae74b384edb49e58
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34474961"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168438"
 ---
 # <a name="azure-stack-certificates-signing-request-generation"></a>Azure Stack 证书签名请求生成
 
@@ -31,8 +31,6 @@ Azure Stack 就绪性检查器工具 (AzsReadinessChecker) 执行以下证书请
 
  - **标准证书请求**  
     根据[为 Azure Stack 部署生成 PKI 证书](azure-stack-get-pki-certs.md)执行请求。
- - **请求类型**  
-    指定证书签名请求是单个请求还是多个请求。
  - **平台即服务**  
     （可选）根据 [Azure Stack 公钥基础结构证书要求 - 可选的 PaaS 证书](azure-stack-pki-certs.md#optional-paas-certificates)中的规定，请求证书的平台即服务 (PaaS) 名称。
 
@@ -99,22 +97,22 @@ Azure Stack 就绪性检查器工具 (AzsReadinessChecker) 执行以下证书请
     > [!note]  
     > `<regionName>.<externalFQDN>` 构成了 Azure Stack 中所有外部 DNS 名称创建位置的基础，在此示例中，门户是 `portal.east.azurestack.contoso.com`。  
 
-6. 若要使用多个使用者可选名称生成单个证书请求：
+6. 若要为每个 DNS 名称生成证书签名请求，请执行以下命令：
+
+    ```PowerShell  
+    Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
+    ````
+
+    若要包括 PaaS 服务，请指定开关 ```-IncludePaaS```
+
+7. 或者，用于开发/测试环境。 若要生成具有多个使用者可选名称的单个证书请求，请添加 **-RequestType SingleCSR** 参数和值（**不**建议用于生产环境）：
 
     ```PowerShell  
     Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType SingleCSR -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
     ````
 
     若要包括 PaaS 服务，请指定开关 ```-IncludePaaS```
-
-7. 若要为每个 DNS 名称生成单个证书签名请求：
-
-    ```PowerShell  
-    Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType MultipleCSR -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
-    ````
-
-    若要包括 PaaS 服务，请指定开关 ```-IncludePaaS```
-
+    
 8. 查看输出：
 
     ````PowerShell  

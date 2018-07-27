@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/12/2018
-ms.date: 06/27/2018
+origin.date: 07/11/2018
+ms.date: 07/20/2018
 ms.author: v-junlch
 ms.reviewer: misainat
-ms.openlocfilehash: fe2e3d1dbac694399d9195d6783f7dbe014dc03c
-ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
+ms.openlocfilehash: 58cce671484dd83decaa27d094a28d8b30557bb0
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37027200"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168370"
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Azure Stack 开发工具包发行说明  
 这些发行说明提供 Azure Stack 开发工具包的改进、修复和已知问题的相关信息。 如果不确定所运行的版本，可以[使用门户检查版本](../azure-stack-updates.md#determine-the-current-version)。
@@ -51,6 +51,7 @@ ms.locfileid: "37027200"
 
 
 ### <a name="fixed-issues"></a>修复的问题
+- 我们修复了管理门户中阻止[从下拉列表建立新支持请求](../azure-stack-manage-portals.md#quick-access-to-help-and-support)的问题。 此选项现在按预期工作。 
 
 - 针对性能、稳定性、安全性以及 Azure Stack 所用操作系统的**各种修复**
 
@@ -83,7 +84,7 @@ ms.locfileid: "37027200"
 
 
 #### <a name="health-and-monitoring"></a>运行状况和监视
-- <!-- 1264761 - IS ASDK --> 可能会看到包含以下详细信息的“运行状况控制器”组件警报：  
+- <!-- 1264761 - IS ASDK --> 可能会看到具有以下详细信息的*运行状况控制器*组件的警报：  
 
    警报 #1：
    - 名称：基础结构角色不正常
@@ -97,15 +98,21 @@ ms.locfileid: "37027200"
    - 组件：运行状况控制器
    - 说明：运行状况控制器故障扫描仪不可用。 这可能会影响运行状况报告和指标。
 
-  可以放心忽略这两条警报，它们在一段时间后会自动关闭。  
+  可以放心忽略警报 #1 和 #2，它们在一段时间后会自动关闭。 
 
-- <!-- 2392907 - ASDK --> 可能会出现一条严重警报：“内存容量低”。 此警报的说明如下：“该区域消耗了 95.00% 以上的可用内存。使用大量的内存创建虚拟机可能会失败。”
+  你可能还会看到*容量*的以下警报。 对于此警报，说明中标识的可用内存百分比可能会有所不同：  
 
-  如果 Azure Stack 错误地计入了 Azure Stack 开发工具包的内存用量，则可能会生成此警报。  
+  警报 #3：
+   - 名称：内存容量低
+   - 严重性：严重
+   - 组件：容量
+   - 说明：该区域已使用了 80.00% 以上的可用内存。 使用大量内存创建虚拟机可能会失败。  
 
-  可以忽略此警报，此问题不会影响虚拟机的位置。 
+  在此版本的 Azure Stack 中，该警报可能会错误地触发。 如果租户虚拟机继续成功部署，则可以放心地忽略此警报。 
+  
+  警报 #3 不会自动关闭。 如果你关闭此警报，Azure Stack 将在 15 分钟内创建相同的警报。  
 
-- <!-- 2368581 - IS. ASDK --> 如果 Azure Stack 操作员收到内存不足的警报，并且租户虚拟机无法部署并出现“Fabric VM 创建错误”，则可能表示 Azure Stack 模组的可用内存不足。 请使用 [Azure Stack 容量规划工具](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822)来充分了解可供工作负荷使用的容量。 
+- <!-- 2368581 - IS ASDK --> 如果 Azure Stack 操作员收到内存不足的警报，并且租户虚拟机无法部署并出现“Fabric VM 创建错误”，则可能表示 Azure Stack 模组的可用内存不足。 请使用 [Azure Stack 容量规划工具](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822)来充分了解可供工作负荷使用的容量。 
 
 
 #### <a name="compute"></a>计算
@@ -140,6 +147,8 @@ ms.locfileid: "37027200"
 - <!-- 1662991 - IS ASDK --> Azure Stack 不支持 Linux VM 诊断。 在部署启用 VM 诊断的 Linux VM 时，部署会失败。 如果通过诊断设置启用 Linux VM 的基本指标，部署也会失败。 
 
 #### <a name="networking"></a>网络
+- <!-- TBD - IS ASDK --> 无法在管理员或用户门户中创建用户定义的路由。 解决方法是使用 [Azure PowerShell](/virtual-network/tutorial-create-route-table-powershell)。
+
 - <!-- 1766332 - IS, ASDK --> 如果在“网络”下单击“创建 VPN 网关”来设置 VPN 连接，则会将“基于策略”列为 VPN 类型。 请不要选择此选项。 Azure Stack 仅支持“基于路由”选项。
 
 - <!-- 2388980 -  IS ASDK --> 创建 VM 并将其与公共 IP 地址关联以后，就无法取消该 VM 与该 IP 地址的关联。 取消关联看似可以正常使用，但以前分配的公共 IP 地址仍与原始 VM 相关联。
@@ -235,7 +244,7 @@ ms.locfileid: "37027200"
     可以放心地忽略此警报。 
 
 #### <a name="health-and-monitoring"></a>运行状况和监视
-- <!-- 1264761 - IS ASDK --> 可能会看到包含以下详细信息的“运行状况控制器”组件警报：  
+- <!-- 1264761 - IS ASDK --> 可能会看到具有以下详细信息的*运行状况控制器*组件的警报：  
 
    警报 #1：
    - 名称：基础结构角色不正常
@@ -249,7 +258,7 @@ ms.locfileid: "37027200"
    - 组件：运行状况控制器
    - 说明：运行状况控制器故障扫描仪不可用。 这可能会影响运行状况报告和指标。
 
-  可以放心地忽略这两个警报。 它们将在一段时间后自动关闭。  
+  可以放心地忽略这两个警报。 它们将随着时间的推移自动关闭。  
 
 #### <a name="marketplace"></a>市场
 - 用户无需订阅就能浏览整个市场，并且将会看到计划和套餐等管理项。 对用户而言，这些项是非功能性的。
@@ -361,7 +370,7 @@ ms.locfileid: "37027200"
 
 
 #### <a name="health-and-monitoring"></a>运行状况和监视
-- <!-- 1264761 - IS ASDK --> 可能会看到包含以下详细信息的“运行状况控制器”组件警报：  
+- <!-- 1264761 - IS ASDK --> 可能会看到具有以下详细信息的*运行状况控制器*组件的警报：  
 
    警报 #1：
    - 名称：基础结构角色不正常
@@ -375,7 +384,7 @@ ms.locfileid: "37027200"
    - 组件：运行状况控制器
    - 说明：运行状况控制器故障扫描仪不可用。 这可能会影响运行状况报告和指标。
 
-  可以放心地忽略这两个警报。 它们将在一段时间后自动关闭。  
+  可以放心地忽略这两个警报。 它们将随着时间的推移自动关闭。  
 
 - 在 Azure Stack 管理员门户中，可能会显示名称为“外部证书即将过期”的严重警报。  可以放心忽略此警报，它不会影响 Azure Stack 开发工具包的运行。 
 

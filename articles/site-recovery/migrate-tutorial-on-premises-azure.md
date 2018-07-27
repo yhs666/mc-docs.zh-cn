@@ -5,16 +5,16 @@ services: site-recovery
 author: rockboyfor
 ms.service: site-recovery
 ms.topic: tutorial
-origin.date: 02/27/2018
-ms.date: 06/18/2018
+origin.date: 07/16/2018
+ms.date: 07/23/2018
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: aa8741c5c8f345f978980c6d8efda4197c2ab123
-ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
+ms.openlocfilehash: c77a809df054ad9744c1aa1133c82e438e7a8511
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2018
-ms.locfileid: "35568414"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168306"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>将本地计算机迁移到 Azure
 
@@ -39,7 +39,10 @@ ms.locfileid: "35568414"
 
 ## <a name="prerequisites"></a>先决条件
 
-不支持半虚拟化驱动程序导出的设备。
+- 不支持半虚拟化驱动程序导出的设备。
+
+> [!WARNING]
+> 可以通过将 VM 视为物理服务器，迁移诸如 XenServer 的其他虚拟化平台（VMware、Hyper-V 除外）上的 VM。 但是，此方法未经 Azure 测试和验证，不一定起作用。 例如，在 XenServer 平台上运行的 VM 无法在 Azure 中运行，除非在开始迁移之前从 VM 中卸载了 XenServer 工具和半虚拟化的存储和网络驱动程序。
 
 ## <a name="create-a-recovery-services-vault"></a>创建恢复服务保管库
 
@@ -92,7 +95,7 @@ ms.locfileid: "35568414"
 
 ## <a name="run-a-test-migration"></a>运行测试迁移
 
-运行[测试故障转移](tutorial-dr-drill-azure.md)，确保一切如预期正常运行。
+运行 [测试故障转移](tutorial-dr-drill-azure.md) ，确保一切如预期正常运行。
 
 ## <a name="migrate-to-azure"></a>迁移到 Azure
 
@@ -101,7 +104,7 @@ ms.locfileid: "35568414"
 1. 在“设置” > “复制的项”中，单击计算机 >“故障转移”。
 2. 在“故障转移”中，选择要故障转移到的“恢复点”。 选择最新的恢复点。
 3. 加密密钥设置与此方案无关。
-4. 选择“在开始故障转移前关闭计算机”。 在触发故障转移之前，Site Recovery 将尝试关闭源虚拟机。 即使关机失败，故障转移也仍会继续。 可以在“作业”页上跟踪故障转移进度。
+4. 选择“在开始故障转移前关闭计算机”。 在触发故障转移之前，Site Recovery 会尝试关闭虚拟机。 即使关机失败，故障转移也仍会继续。 可以在“作业”页上跟踪故障转移进度。
 5. 检查 Azure VM 是否在 Azure 中按预期显示。
 6. 在“复制的项”中，右键单击 VM >“完成迁移”。 该操作将完成迁移过程、停止 VM 的复制，并停止对 VM 的 Site Recovery 计费。
 
@@ -114,9 +117,7 @@ ms.locfileid: "35568414"
 
 ## <a name="next-steps"></a>后续步骤
 
-在本教程中，我们已将本地 VM 迁移到 Azure VM。 现在可为 Azure VM 配置灾难恢复。
-
-> [!div class="nextstepaction"]
-> 从本地站点迁移后为 Azure VM [设置灾难恢复](azure-to-azure-replicate-after-migration.md)。
+在本教程中，我们已将本地 VM 迁移到 Azure VM。 现在，你已成功迁移了VM：
+- 为迁移的 VM [设置灾难恢复](azure-to-azure-replicate-after-migration.md)。
 
 <!-- Update_Description: update meta properties, update link, wording update -->

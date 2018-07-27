@@ -5,17 +5,17 @@ services: azure-policy
 author: WenJason
 ms.author: v-nany
 origin.date: 05/24/2018
-ms.date: 07/09/2018
+ms.date: 07/23/2018
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: ada35b8ac9b8d84a620b88403f845b64b68eb509
-ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
+ms.openlocfilehash: d3bf2449fa8b43dcc43b70965a89712aec4d8816
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37405317"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167958"
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>创建和管理策略以强制实施符合性
 
@@ -60,7 +60,7 @@ ms.locfileid: "37405317"
 
 ## <a name="implement-a-new-custom-policy"></a>实施新的自定义策略
 
-分配内置的策略定义后，可以使用 Azure 策略执行其他操作。 接下来创建一个新的自定义策略，确保在环境中创建的 VM 不能处于 G 系列，从而节省成本。 这样，当组织中的用户每次尝试创建 G 系列的 VM 时，请求将被拒绝。
+分配内置的策略定义后，可以使用 Azure 策略执行其他操作。 接下来创建一个新的自定义策略，确保在环境中创建的 VM 不能处于 G 系列，从而节省成本。 这样，当组织中的用户每次尝试创建 D 系列的 VM 时，请求将被拒绝。
 
 1. 选择“Azure 策略”页左侧“创作”下的“定义”。
 
@@ -71,12 +71,12 @@ ms.locfileid: "37405317"
 
    - 策略定义保存到的订阅。 使用“定义位置”旁边的省略号进行选择。
 
-   - 策略定义的名称 - 需要 VM SKU 小于 G 系列
-   - 想通过策略定义实现的操作的说明 - 此策略定义强制此范围中创建的所有 VM 具有的 SKU 都小于 G 系列，以减少成本。
+   - 策略定义的名称 - 需要 VM SKU 小于 D 系列
+   - 想通过策略定义实现的操作的说明 - 此策略定义强制此范围中创建的所有 VM 具有的 SKU 都小于 D 系列，以减少成本。
    - 从现有的选项中选择，或者为此策略定义创建新的类别。
    - 复制以下 json 代码并根据需要进行更新：
       - 策略参数。
-      - 策略规则/条件，此示例中为 - VM SKU 大小等于 G 系列
+      - 此示例中的策略规则/条件 - VM SKU 大小等于 D 系列
       - 策略效果，此示例中为“拒绝”。
 
     json 应如下所示。 将修改后的代码粘贴到 Azure 门户。
@@ -91,7 +91,7 @@ ms.locfileid: "37405317"
                     },
                     {
                         "field": "Microsoft.Compute/virtualMachines/sku.name",
-                        "like": "Standard_G*"
+                        "like": "Standard_D*"
                     }
                 ]
             },
@@ -187,10 +187,8 @@ $definition = New-AzureRmPolicyDefinition -Name 'denyCoolTiering' -Description '
                 "equals": "BlobStorage"
             },
             {
-                "not": {
-                    "field": "Microsoft.Storage/storageAccounts/accessTier",
-                    "equals": "cool"
-                }
+                "field": "Microsoft.Storage/storageAccounts/accessTier",
+                "equals": "cool"
             }
         ]
     },
@@ -275,10 +273,8 @@ az policy definition create --name 'denyCoolTiering' --description 'Deny cool ac
                 "equals": "BlobStorage"
             },
             {
-                "not": {
-                    "field": "Microsoft.Storage/storageAccounts/accessTier",
-                    "equals": "cool"
-                }
+                "field": "Microsoft.Storage/storageAccounts/accessTier",
+                "equals": "cool"
             }
         ]
     },

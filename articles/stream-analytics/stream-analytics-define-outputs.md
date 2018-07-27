@@ -10,12 +10,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 05/14/2018
 ms.date: 07/02/2018
-ms.openlocfilehash: f1d98eabcfe6068f3bdde8dce9d3e83f1ef29aba
-ms.sourcegitcommit: 2cf6961f692f318ce7034e7b4d994ee51d902199
+ms.openlocfilehash: 5e59ee57836beb81c1c169da02e6cfeb43923b2f
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36947668"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167832"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>了解 Azure 流分析的输出
 本文将介绍适用于 Azure 流分析作业的不同类型的输出。 输出可帮助存储和保存流分析作业的结果。 使用输出数据，可进一步进行业务分析和数据的数据仓储。 
@@ -154,48 +154,11 @@ Blob 存储提供了一种经济高效且可缩放的解决方案，用于在云
 
 分区数[基于服务总线 SKU 和大小](../service-bus-messaging/service-bus-partitioning.md)。 分区键是每个分区的唯一整数值。
 
-## <a name="azure-cosmos-db"></a>Azure Cosmos DB
+<!-- Not Available on ## Azure Cosmos DB -->
+<!-- Notice From Global site on 07/16/2018-->
 
-  [Azure Cosmos DB](https://www.azure.cn/home/features/documentdb/) 是一种多区域分布的多模型数据库服务，它提供中国范围内不设限的弹性缩放、丰富查询和自动索引（经由与架构无关的数据模型）、可靠的低延迟及行业领先的综合 SLA。 若要了解流分析的 Cosmos DB 集合选项，请参阅[将 Cosmos DB 用作输出的流分析](stream-analytics-documentdb-output.md)一文。
-
-流分析中的 Azure Cosmos DB 输出当前不可在 Azure 中国（世纪互联）和 Azure 德国 (T-Systems International) 区域中使用。
-
-> [!Note]
-> 目前，Azure 流分析仅支持使用 SQL API 连接到 CosmosDB。
-> 尚不支持使用其他 Azure Cosmos DB API。 如果使用其他 API 将 Azure 流分析指向 创建的 Azure Cosmos DB 帐户，则可能无法正确存储数据。 
-
-下表描述了用于创建 Azure Cosmos DB 输出的属性。
-| 属性名称 | 说明 |
-| --- | --- |
-| 输出别名 | 用于在流分析查询中引用此输出的别名。 |
-| 接收器 | Cosmos DB |
-| 导入选项 | 选择“从订阅中选择 Cosmos DB”或“手动提供 Cosmos DB 设置”。
-| 帐户 ID | Cosmos DB 帐户的名称或终结点 URI。 |
-| 帐户密钥 | Cosmos DB 帐户的共享访问密钥。 |
-| 数据库 | Cosmos DB 数据库名称。 |
-| 集合名称模式 | 要使用的集合的集合名称或其模式。 <br/>可以使用可选的 {partition} 令牌（其中分区从 0 开始）构造集合名称格式。 两个示例：  <br/>1. _MyCollection_ - 必须存在一个名为“MyCollection”的集合。  <br/>2._MyCollection{partition}_ - 基于分区依据列。 <br/>分区依据列集合必须存在 -“MyCollection0”、“MyCollection1”、“MyCollection2”等。 |
-| 分区键 | 可选。 仅当你在集合名称模式中使用 {partition} 令牌时，才需要此项。<br/> 分区键是输出事件中字段的名称，该字段用于指定跨集合分区输出的键。<br/> 对于单个集合输出，可使用任何任意输出列。 例如 PartitionId。 |
-| 文档 ID |可选。 输出事件中的字段的名称，该字段用于指定插入或更新操作所基于的主键。  
-
-## <a name="azure-functions"></a>Azure Functions
-Azure Functions 是一个无服务器计算服务，使用它可以按需运行代码，而无需显式预配或管理基础结构。 它允许实现由 Azure 或第三方服务中出现的事件所触发的代码。  Azure Functions 响应触发的这一功能使其成为 Azure 流分析的自然输出。 此输出适配器允许用户将流分析连接到 Azure Functions，并运行脚本或一段代码来响应各种事件。
-
-流分析中的 Azure Functions 输出当前不可在 Azure 中国（世纪互联）和 Azure 德国 (T-Systems International) 区域中使用。
-
-Azure 流分析通过 HTTP 触发器调用 Azure Functions。 提供具有以下可配置属性的新 Azure Functions 输出适配器：
-
-| 属性名称 | 说明 |
-| --- | --- |
-| 函数应用 |Azure Functions App 的名称 |
-| 函数 |Azure Functions App 中的函数的名称 |
-| 键 |如果想要使用其他订阅中的 Azure Function，则提供访问 Function 的密钥 |
-| 最大批大小 |此属性可用于设置将发送到 Azure 函数的每个输出批的最大大小。 默认情况下，此值为 256 KB |
-| 最大批数  |顾名思义，此属性允许指定发送到 Azure Functions 的每个批中的最大事件数。 默认最大批数值为 100 |
-
-当 Azure 流分析从 Azure Function 收到 413（http 请求实体过大）异常时，它将减小发送到 Azure Functions 的批的大小。 在 Azure 函数代码中，使用此异常以确保 Azure 流分析不会发送过大的批。 确保函数中使用的最大批次数和最大批次大小值与在流分析门户中输入的值一致。 
-
-另外，如果时间窗口中没有任何事件登录，则不生成任何输出。 因此，不会调用 computeResult 函数。 此行为与内置窗口化聚合函数一致。
-
+<!-- Not Available on ## Azure Functions-->
+<!-- Notice From Global site on 07/16/2018-->
 ## <a name="partitioning"></a>分区
 
 下表汇总了分区支持，以及每个输出类型的输出写入器数目：
@@ -208,8 +171,8 @@ Azure 流分析通过 HTTP 触发器调用 Azure Functions。 提供具有以下
 | Azure 表存储 | 是 | 任何输出列。  | 按照[完全并行化的查询](stream-analytics-scale-jobs.md)的输入分区。 | 
 | Azure 服务总线主题 | 是 | 自动选择。 分区数基于[服务总线 SKU 和大小](../service-bus-messaging/service-bus-partitioning.md)。 分区键是每个分区的唯一整数值。| 与输出主题中的分区数量相同。  |
 | Azure 服务总线队列 | 是 | 自动选择。 分区数基于[服务总线 SKU 和大小](../service-bus-messaging/service-bus-partitioning.md)。 分区键是每个分区的唯一整数值。| 与输出队列中的分区数量相同。 |
-| Azure Cosmos DB | 是 | 在 Collection 命名模式中使用 {partition} 标记。 {partition} 值基于查询中的 PARTITION BY 子句。 | 按照[完全并行化的查询](stream-analytics-scale-jobs.md)的输入分区。 |
-| Azure Functions | 否 | 无 | 不适用。 | 
+<!-- 不可用于 | Azure Cosmos DB -->
+<!-- 不可用于 | Azure 函数 -->
 <!-- 不可用于 | Azure Data Lake Store -->
 <!-- 不可用于 | Power BI -->
 
@@ -226,8 +189,8 @@ Azure 流分析使用大小可变的批来处理事件和写入到输出。 通�
 | Azure 表存储 | 参阅 [Azure 存储限制](../azure-subscription-service-limits.md#storage-limits) | 默认为每个单一事务 100 个实体，并且可根据需要配置为更小的值。 |
 | Azure 服务总线队列   | 每个消息 256 KB</br> 另请参阅[服务总线限制](../service-bus-messaging/service-bus-quotas.md) | 每个消息单一事件 |
 | Azure 服务总线主题 | 每个消息 256 KB</br> 另请参阅[服务总线限制](../service-bus-messaging/service-bus-quotas.md) | 每个消息单一事件 |
-| Azure Cosmos DB   | 请参阅 [Azure Cosmos DB 限制](../azure-subscription-service-limits.md#azure-cosmos-db-limits) | 批大小和写入频率根据 CosmosDB 响应进行动态调整。 </br> 没有来自流分析的预先确定的限制。 |
-| Azure Functions   | | 默认批大小为 246 KB。 </br> 默认事件计数每批为 100. </br> 批大小是可配置的，可在流分析[输出选项](#azure-functions)中增加或减少。 
+<!-- 不可用于 | Azure Cosmos DB -->
+<!-- 不可用于 | Azure 函数 -->
 <!-- 不可用于 | Azure Data Lake Store -->
 <!-- 不可用于 | Power BI -->
 

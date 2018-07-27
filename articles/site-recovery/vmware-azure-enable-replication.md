@@ -1,20 +1,19 @@
 ---
-title: 使用 Azure Site Recovery 为 VMware VM 启用到 Azure 的复制 | Azure
+title: 使用 Azure Site Recovery 启用 VMware VM 到 Azure 的复制 | Azure
 description: 本文介绍如何使用 Azure Site Recovery 设置将 VMware VM 复制到 Azure。
 services: site-recovery
 author: rockboyfor
-manager: digimobile
 ms.service: site-recovery
-ms.topic: article
-origin.date: 03/05/2018
-ms.date: 05/07/2018
+origin.date: 07/06/2018
+ms.date: 07/23/2018
+ms.topic: conceptual
 ms.author: v-yeche
-ms.openlocfilehash: 4d2c4c5e42c1e5156bd57db7127f9c25c7354209
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: 4a7ea07a86d45069acb9e4cef65549f3de348f41
+ms.sourcegitcommit: f7ff09be9f3be5e3eb795e383c0c670f480f233d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33815145"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39169062"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>为 VMware VM 启用到 Azure 的复制
 
@@ -59,7 +58,7 @@ ms.locfileid: "33815145"
 8. 选择 Azure VM 在故障转移后启动时所要连接的 Azure 网络和子网。 该网络必须位于与恢复服务保管库相同的区域中。 选择“立即为选定的计算机配置”，将网络设置应用到选择保护的所有计算机。  选择“稍后配置”以选择每个计算机的 Azure 网络。 如果没有网络，需创建一个。 若要使用资源管理器创建网络，请单击“新建”。 选择适用的子网，然后单击“确定”。
 <!-- Anchor not Exist on [创建一个](#set-up-an-azure-network) -->
 
-    ![Enable replication target setting](./media/vmware-azure-enable-replication/enable-rep3.png)
+    ![启用复制目标设置](./media/vmware-azure-enable-replication/enable-rep3.png)
 9. 在“虚拟机” > “选择虚拟机”中，选择要复制的每个虚拟机。 只能选择可以启用复制的计算机。 。
 
     ![启用复制 选择虚拟机](./media/vmware-azure-enable-replication/enable-replication5.png)

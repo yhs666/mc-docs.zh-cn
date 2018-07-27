@@ -6,15 +6,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 02/13/2018
-ms.date: 03/05/2018
+origin.date: 07/06/2018
+ms.date: 07/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4c96e68b0d6437f68aa9b43c51563135cf8b7fae
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 3623bfd7e1667591b7b4d373d894cd7c69e603dd
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
-ms.locfileid: "29731484"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168319"
 ---
 # <a name="test-results-for-hyper-v-replication-to-a-secondary-site"></a>从 Hyper-V 复制到辅助站点的测试结果
 
@@ -108,7 +108,7 @@ Hyper-V 副本使用恢复服务器上的少量内存来使存储操作数量最
 
 | 服务器 | RAM | 型号 | 处理器 | 处理器数目 | NIC | 软件 |
 | --- | --- | --- | --- | --- | --- | --- |
-| 群集中的 Hyper-V 服务器： <br />ESTLAB-HOST11<br />ESTLAB-HOST12<br />ESTLAB-HOST13<br />ESTLAB-HOST14<br />ESTLAB-HOST25 |128ESTLAB-HOST25 有 256 个 |Dell ™ PowerEdge ™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 @ 2.20GHz |4 |I Gbps x 4 |Windows Server Datacenter 2012 R2 (x64) + Hyper-V 角色 |
+| 群集中的 Hyper-V 服务器： <br />ESTLAB-HOST11<br />ESTLAB-HOST12<br />ESTLAB-HOST13<br />ESTLAB-HOST14<br />ESTLAB-HOST25 |128ESTLAB-HOST25 有 256 个 |Dell ™ PowerEdge ™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 \@ 2.20 GHz |4 |I Gbps x 4 |Windows Server Datacenter 2012 R2 (x64) + Hyper-V 角色 |
 | VMM 服务器 |2 | | |2 |1 Gbps |Windows Server Database 2012 R2 (x64) + VMM 2012 R2 |
 
 ### <a name="secondary-site"></a>辅助站点
@@ -120,9 +120,9 @@ Hyper-V 副本使用恢复服务器上的少量内存来使存储操作数量最
 
 | 服务器 | RAM | 型号 | 处理器 | 处理器数目 | NIC | 软件 |
 | --- | --- | --- | --- | --- | --- | --- |
-| 群集中的 Hyper-V 服务器： <br />ESTLAB-HOST07<br />ESTLAB-HOST08<br />ESTLAB-HOST09<br />ESTLAB-HOST10 |96 |Dell ™ PowerEdge ™ R720 |Intel(R) Xeon(R) CPU E5-2630 0 @ 2.30GHz |2 |I Gbps x 4 |Windows Server Datacenter 2012 R2 (x64) + Hyper-V 角色 |
-| ESTLAB-HOST17 |128 |Dell ™ PowerEdge ™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 @ 2.20GHz |4 | |Windows Server Datacenter 2012 R2 (x64) + Hyper-V 角色 |
-| ESTLAB-HOST24 |256 |Dell ™ PowerEdge ™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 @ 2.20GHz |2 | |Windows Server Datacenter 2012 R2 (x64) + Hyper-V 角色 |
+| 群集中的 Hyper-V 服务器： <br />ESTLAB-HOST07<br />ESTLAB-HOST08<br />ESTLAB-HOST09<br />ESTLAB-HOST10 |96 |Dell ™ PowerEdge ™ R720 |Intel(R) Xeon(R) CPU E5-2630 0 \@ 2.30 GHz |2 |I Gbps x 4 |Windows Server Datacenter 2012 R2 (x64) + Hyper-V 角色 |
+| ESTLAB-HOST17 |128 |Dell ™ PowerEdge ™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 \@ 2.20 GHz |4 | |Windows Server Datacenter 2012 R2 (x64) + Hyper-V 角色 |
+| ESTLAB-HOST24 |256 |Dell ™ PowerEdge ™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 \@ 2.20 GHz |2 | |Windows Server Datacenter 2012 R2 (x64) + Hyper-V 角色 |
 | VMM 服务器 |2 | | |2 |1 Gbps |Windows Server Database 2012 R2 (x64) + VMM 2012 R2 |
 
 ### <a name="server-workloads"></a>服务器工作负荷

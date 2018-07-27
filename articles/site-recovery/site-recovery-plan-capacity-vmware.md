@@ -3,18 +3,17 @@ title: 规划容量和缩放以便使用 Azure Site Recovery 将 VMware 复制�
 description: 请阅读本文了解如何规划容量和缩放，以便使用 Azure Site Recovery 将 VMware VM 复制到 Azure
 services: site-recovery
 author: rockboyfor
-manager: digimobile
 ms.service: site-recovery
-ms.topic: article
-origin.date: 02/27/2018
-ms.date: 04/02/2018
+origin.date: 07/06/2018
+ms.date: 07/23/2018
+ms.topic: conceptual
 ms.author: v-yeche
-ms.openlocfilehash: dae657ee50d31fdc0ba6d5583486866a7b2efb75
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.openlocfilehash: e6fe52d37d56350ce5b4a4f43fdfd4bb0e206bba
+ms.sourcegitcommit: f7ff09be9f3be5e3eb795e383c0c670f480f233d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31326799"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39169064"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-replication-with-azure-site-recovery"></a>通过 Azure Site Recovery，针对 VMware 复制规划容量和缩放
 
@@ -36,9 +35,9 @@ ms.locfileid: "31326799"
 
 **CPU** | **内存** | **缓存磁盘大小** | **数据更改率** | **受保护的计算机**
 --- | --- | --- | --- | ---
-8 个 vCPU（2 个插槽 * 4 个核心 @ 2.5 千兆赫 [GHz]） | 16 GB | 300 GB | 500 GB 或更少 | 复制少于 100 台计算机。
-12 个 vCPU（2 个插槽 * 6 个核心 @ 2.5 GHz） | 18 GB | 600 GB | 500 GB 到 1 TB | 复制 100-150 台计算机。
-16 个 vCPU（2 个插槽 * 8 个核心 @ 2.5 GHz） | 32 GB | 1 TB | 1 TB 到 2 TB | 复制 150-200 台计算机。
+8 个 vCPU（2 个插槽 * 4 个核心 \@ 2.5 千兆赫 [GHz]） | 16 GB | 300 GB | 500 GB 或更少 | 复制少于 100 台计算机。
+12 个 vCPU（2 个插槽 * 6 个核心 \@ 2.5 GHz） | 18 GB | 600 GB | 500 GB 到 1 TB | 复制 100-150 台计算机。
+16 个 vCPU（2 个插槽 * 8 个核心 \@ 2.5 GHz） | 32 GB | 1 TB | 1 TB 到 2 TB | 复制 150-200 台计算机。
 部署另一个进程服务器 | | | > 2 TB | 如果要复制超过 200 台计算机，或者每日数据更改率超过 2 TB，则需部署额外的进程服务器。
 
 其中：
@@ -62,9 +61,9 @@ ms.locfileid: "31326799"
 
 **配置服务器** | **额外的进程服务器** | **缓存磁盘大小** | **数据更改率** | **受保护的计算机**
 --- | --- | --- | --- | ---
-8 个 vCPU（2 个插槽 * 4 个核心 @ 2.5 GHz），16 GB 内存 | 4 个 vCPU（2 个插槽 * 2 个核心 @ 2.5 GHz），8 GB 内存 | 300 GB | 250 GB 或更少 | 复制 85 台或更少的计算机。
-8 个 vCPU（2 个插槽 * 4 个核心 @ 2.5 GHz），16 GB 内存 | 8 个 vCPU（2 个插槽 * 4 个核心 @ 2.5 GHz），12 GB 内存 | 600 GB | 250 GB 到 1 TB | 复制 85-150 台计算机。
-12 个 vCPU（2 个插槽 * 6 个核心 @ 2.5 GHz），18 GB 内存 | 12 个 vCPU（2 个插槽 * 6 个核心 @ 2.5 GHz），24 GB 内存 | 1 TB | 1 TB 到 2 TB | 复制 150-225 台计算机。
+8 个 vCPU（2 个插槽 * 4 个核心 \@ 2.5 GHz），16 GB 内存 | 4 个 vCPU（2 个插槽 * 2 个核心 \@ 2.5 GHz），8 GB 内存 | 300 GB | 250 GB 或更少 | 复制 85 台或更少的计算机。
+8 个 vCPU（2 个插槽 * 4 个核心 \@ 2.5 GHz），16 GB 内存 | 8 个 vCPU（2 个插槽 * 4 个核心 \@ 2.5 GHz），12 GB 内存 | 600 GB | 250 GB 到 1 TB | 复制 85-150 台计算机。
+12 个 vCPU（2 个插槽 * 6 个核心 \@ 2.5 GHz），18 GB 内存 | 12 个 vCPU（2 个插槽 * 6 个核心 \@ 2.5 GHz），24 GB 内存 | 1 TB | 1 TB 到 2 TB | 复制 150-225 台计算机。
 
 使用哪种方式来扩展服务器取决于是要纵向扩展模型还是横向扩展模型。  纵向扩展时，需要部署一些高端配置服务器和进程服务器，而横向扩展时，需要使用更少资源部署更多服务器。 例如，如果需要对 220 台计算机进行保护，可执行以下操作之一：
 
@@ -86,7 +85,7 @@ ms.locfileid: "31326799"
 2. 在管理单元中，单击“更改属性”。
 
     ![Azure 备份 MMC 管理单元选项（用于更改属性）的屏幕截图](./media/site-recovery-vmware-to-azure/throttle1.png)
-3. 在“限制”选项卡上，选择“为备份操作启用 Internet 带宽使用限制”。 设置工作和非工作小时数限制。 有效范围为 512 Kbps 到 102 Mbps。
+3. 在“限制”选项卡上，选择“为备份操作启用 Internet 带宽使用限制”。 设置工作和非工作小时数限制。 有效范围为 512 Kbps 到 1023 Mbps。
 
     ![“Azure 备份属性”对话框的屏幕截图](./media/site-recovery-vmware-to-azure/throttle2.png)
 
@@ -107,25 +106,10 @@ ms.locfileid: "31326799"
 
 ## <a name="deploy-additional-process-servers"></a>部署额外的进程服务器
 
-如果必须将部署扩大到 200 台以上源计算机，或者每日总改动率超过 2 TB，则需要额外的进程服务器来处理流量。 按照这些说明设置进程服务器。 设置服务器后，可以迁移源计算机来使用它。
-
-1. 在“Site Recovery 服务器”中，单击配置服务器，并单击“进程服务器”。
-
-    ![“Site Recovery 服务器”选项（用于添加进程服务器）的屏幕截图](./media/site-recovery-vmware-to-azure/migrate-ps1.png)
-2. 在“服务器类型”中，单击“进程服务器(本地)”。
-
-    ![“进程服务器”对话框的屏幕截图](./media/site-recovery-vmware-to-azure/migrate-ps2.png)
-3. 下载并运行 Site Recovery 统一安装程序文件来安装进程服务器。 这还会将其注册到保管库中。
-4. 在“准备阶段”中选择“添加额外的进程服务器以扩大部署”。
-5. 完成向导，完成方式与安装配置服务器时采用的方式相同。
-    <!-- Anrch not Exist on [set up]()#step-2-set-up-the-source-environment -->
-
-    ![Azure Site Recovery 统一安装程序向导的屏幕截图](./media/site-recovery-vmware-to-azure/add-ps1.png)
-6. 在“配置服务器详细信息”中，指定配置服务器的 IP 地址和密码。 若要获取密码，请在配置服务器上运行 **[SiteRecoveryInstallationFolder]\home\sysystems\bin\genpassphrase.exe -n**。
-
-    ![“配置服务器详细信息”页的屏幕截图](./media/site-recovery-vmware-to-azure/add-ps2.png)
+如果必须将部署扩大到 200 台以上的源计算机，或者每日总改动率超过 2 TB，则需要额外的进程服务器来处理流量。 按照[本文](vmware-azure-set-up-process-server-scale.md)所述说明设置进程服务器。 设置服务器后，可以迁移源计算机来使用它。
 
 ### <a name="migrate-machines-to-use-the-new-process-server"></a>对计算机进行迁移，以使用新的进程服务器
+
 1. 在“设置” > “Site Recovery 服务器”中，单击配置服务器，并展开“进程服务器”。
 
     ![“进程服务器”对话框的屏幕截图](./media/site-recovery-vmware-to-azure/migrate-ps2.png)

@@ -2,25 +2,20 @@
 title: 使用 Java 将事件发送到 Azure 事件中心 | Azure
 description: 使用 Java 向事件中心发送入门
 services: event-hubs
-documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: ''
-ms.assetid: ''
 ms.service: event-hubs
 ms.workload: core
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-origin.date: 03/21/2018
-ms.date: 04/30/2018
+origin.date: 05/30/2018
+ms.date: 07/16/2018
 ms.author: v-yeche
-ms.openlocfilehash: fc2430aa847051d6ccb92498343ba66233305ed6
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 0aacc8188ad9c05d1a9fce513f4c4cae18095c91
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121126"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167847"
 ---
 # <a name="send-events-to-azure-event-hubs-using-java"></a>使用 Java 将事件发送到 Azure 事件中心
 
@@ -30,22 +25,24 @@ ms.locfileid: "32121126"
 
 本教程演示如何使用用 Java 编写的控制台应用程序将事件发送到事件中心。 若要使用 Java 事件处理器主机库接收事件，请参阅[此文](event-hubs-java-get-started-receive-eph.md)，或单击左侧目录中的相应接收语言。
 
-要完成本教程，需要以下各项：
+## <a name="prerequisites"></a>先决条件
 
-* Java 开发环境。 对于本教程，我们采用 [Eclipse](https://www.eclipse.org/)。
+若要完成本教程，需要具备以下先决条件：
+
+* Java 开发环境。 本教程使用 [Eclipse](https://www.eclipse.org/)。
 * 有效的 Azure 帐户。 如果没有 Azure 订阅，请在开始前创建[试用帐户][]。
 
-本教程中的代码基于[发送 GitHub 示例](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/Send)，可检查该代码以查看完整的工作应用程序。
+本教程中的代码基于 [SimpleSend GitHub 示例](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/SimpleSend)，可检查该代码以查看完整的工作应用程序。
 
 ## <a name="send-events-to-event-hubs"></a>将事件发送到事件中心
 
-事件中心的 Java 客户端库可用于 [Maven 中央存储库](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs%22)中的 Marven 项目。 可在 Maven 项目文件中使用以下依赖项声明引用此库。 当前版本为 1.0.0：    
+事件中心的 Java 客户端库可用于 [Maven 中央存储库](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs%22)中的 Marven 项目。 可在 Maven 项目文件中使用以下依赖项声明引用此库。 当前版本为 1.0.1：    
 
 ```xml
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>azure-eventhubs</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 </dependency>
 ```
 
@@ -55,7 +52,7 @@ ms.locfileid: "32121126"
 
 ### <a name="declare-the-send-class"></a>声明“发送”类
 
-对于下面的示例，请首先在你最喜欢的 Java 开发环境中为控制台/shell 应用程序创建一个新的 Maven 项目。 将类 `Send` 命名为：     
+对于下面的示例，请首先在你最喜欢的 Java 开发环境中为控制台/shell 应用程序创建一个新的 Maven 项目。 将类 `SimpleSend` 命名为：     
 
 ```java
 package com.microsoft.azure.eventhubs.samples.send;
@@ -65,18 +62,16 @@ import com.google.gson.GsonBuilder;
 import com.microsoft.azure.eventhubs.ConnectionStringBuilder;
 import com.microsoft.azure.eventhubs.EventData;
 import com.microsoft.azure.eventhubs.EventHubClient;
-import com.microsoft.azure.eventhubs.PartitionSender;
 import com.microsoft.azure.eventhubs.EventHubException;
 
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.time.Instant;
-import java.util.Random;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ExecutorService;
 
-public class Send {
+public class SimpleSend {
 
     public static void main(String[] args)
             throws EventHubException, ExecutionException, InterruptedException, IOException {
@@ -87,20 +82,21 @@ public class Send {
 使用 ConnectionStringBuilder 类构造要传递到事件中心客户端实例的连接字符串值。 将占位符替换为创建命名空间和事件中心时获取的值：
 
 ```java
-   final ConnectionStringBuilder connStr = new ConnectionStringBuilder()
-      .setNamespaceName("----NamespaceName-----")
-      .setEventHubName("----EventHubName-----")
-      .setSasKeyName("-----SharedAccessSignatureKeyName-----")
-      .setSasKey("---SharedAccessSignatureKey----");
+final ConnectionStringBuilder connStr = new ConnectionStringBuilder()
+        .setNamespaceName("Your Event Hubs namespace name")
+        .setEventHubName("Your event hub")
+        .setSasKeyName("Your policy name")
+        .setSasKey("Your primary SAS key");
 ```
 
 ### <a name="send-events"></a>发送事件
 
-然后，通过将字符串转换为其 UTF-8 字节编码创建单一事件。 再使用连接字符串创建一个新的事件中心客户端实例并发送该消息。   
+通过将字符串转换为其 UTF-8 字节编码创建单一事件。 然后，使用连接字符串创建一个新的事件中心客户端实例并发送该消息：   
 
 ```java 
-byte[] payloadBytes = "Test AMQP message from JMS".getBytes("UTF-8");
-EventData sendEvent = new EventData(payloadBytes);
+String payload = "Message " + Integer.toString(i);
+byte[] payloadBytes = gson.toJson(payload).getBytes(Charset.defaultCharset());
+EventData sendEvent = EventData.create(payloadBytes);
 
 final EventHubClient ehClient = EventHubClient.createSync(connStr.toString(), executorService);
 ehClient.sendSync(sendEvent);

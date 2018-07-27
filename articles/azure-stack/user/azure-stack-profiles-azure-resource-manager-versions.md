@@ -10,16 +10,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/10/2018
-ms.date: 05/23/2018
+origin.date: 06/27/2018
+ms.date: 07/20/2018
 ms.author: v-junlch
 ms.reviewer: sijuman
-ms.openlocfilehash: ee357aec24d395d5a735c87657dcc98f2fbe96d3
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 603f7921e646c3c2b7689f9fb3e9904450a93209
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475105"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168374"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Azure Stack 中的配置文件支持的资源提供程序 API 版本
 
@@ -145,11 +145,14 @@ API 配置文件使用三个命名约定：
 
 | 资源类型 | API 版本 |
 |--------------------|--------------------|
-| 警报规则 | 2016-03-01 |
-| 事件类别 | 2017-03-01-preview |
-| 事件类型 | 2017-03-01-preview |
-| 指标定义 | 2016-03-01 |
 | 操作 | 2015-04-01 |
+| 事件类型 | 2015-04-01 |
+| 事件类别 | 2015-04-01 |
+| 指标定义 | 2018-01-01 |
+| 指标 | 2018-01-01 |
+| 诊断设置 | 2017-05-01-preview |
+| 诊断设置类别 | 2017-05-01-preview |
+
 
 ### <a name="microsoftkeyvault"></a>Microsoft.KeyVault
 

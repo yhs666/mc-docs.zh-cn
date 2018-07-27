@@ -6,20 +6,20 @@ author: rockboyfor
 ms.service: virtual-network
 ms.topic: include
 origin.date: 04/09/2018
-ms.date: 05/07/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 908281702d4a9c6dc4d905aaa2b4cbebfc754267
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: f14982775b33ab03dfa9b83d6c1b07a1d8553169
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38940304"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168002"
 ---
 <a name="os-config"></a>
 ## <a name="add-ip-addresses-to-a-vm-operating-system"></a>将 IP 地址添加到 VM 操作系统
 
-连接并登录所创建的具有多个专用 IP 地址的 VM。 必须手动添加所有添加到 VM 的专用 IP 地址（包括主地址）。 根据 VM 操作系统完成后面的步骤。
+连接并登录到使用多个专用 IP 地址创建的 VM。 必须手动添加所有添加到 VM 的专用 IP 地址（包括主地址）。 根据 VM 操作系统完成后面的步骤。
 
 ### <a name="windows"></a>Windows
 
@@ -112,7 +112,8 @@ ping -S 10.0.0.5 hotmail.com
 
     应会在列表中看到添加的 IP 地址。
 
-### <a name="linux-redhat-centos-and-others"></a>Linux（Redhat、CentOS 和其他操作系统）
+### <a name="linux-centos-and-others"></a>Linux（CentOS 和其他操作系统）
+<!--Not Available on Red Hat-->
 
 1. 打开终端窗口。
 2. 请确保以 root 用户身份操作。 如果不是，请输入以下命令：

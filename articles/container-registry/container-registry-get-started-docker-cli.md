@@ -10,12 +10,12 @@ origin.date: 11/29/2017
 ms.date: 07/02/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2cc461fb94bad011312c1ccd48ccadb9a697ff33
-ms.sourcegitcommit: 5b6a2fc55e5b16ae480bd497c3ac2c3a2fd44703
+ms.openlocfilehash: 78f84c669b8cbf767c269171c6ed6906f8683b13
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38999176"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167992"
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>使用 Docker CLI 将第一个映像推送到专用 Docker 容器注册表
 
@@ -125,10 +125,11 @@ az acr repository delete --name myregistry --repository samples/nginx --tag late
 
 ## <a name="next-steps"></a>后续步骤
 
-了解基础知识后，便可以开始使用注册表了！ 将容器映像从注册表部署到：
+了解基础知识后，便可以开始使用注册表了！
 
-* [Azure Kubernetes 服务 (AKS)](../aks/tutorial-kubernetes-prepare-app.md)
-* [Azure 容器实例](../container-instances/container-instances-tutorial-prepare-app.md)
-* [Service Fabric](../service-fabric/service-fabric-tutorial-create-container-images.md)
+<!-- Not Available on  Deploy container images from your registry to:-->
+<!-- Not Available on * [Azure Kubernetes Service (AKS)](../aks/tutorial-kubernetes-prepare-app.md)-->
+<!-- Not Available on * [Azure Container Instances](../container-instances/container-instances-tutorial-prepare-app.md)-->
+<!-- Not Available on * [Service Fabric](../service-fabric/service-fabric-tutorial-create-container-images.md)-->
 <!-- Update_Description: new article on container registry get started docker cli -->
 <!--ms.date: 07/02/2018-->

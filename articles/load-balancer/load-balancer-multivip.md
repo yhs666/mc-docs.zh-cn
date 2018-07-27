@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 origin.date: 09/25/2017
 ms.date: 11/20/2017
 ms.author: v-yeche
-ms.openlocfilehash: 57a1c2d987f06610748189910b8646e4c978991e
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: 1b05c3223165fad64394215196222ca6cd7b9d5a
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29870397"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167843"
 ---
 # <a name="configure-multiple-vips-for-a-cloud-service"></a>为云服务配置多个 VIP
 
@@ -61,11 +61,9 @@ Add-AzureVirtualIP -VirtualIPName Vip3 -ServiceName myService
 
 此命令显示的结果类似于下面的示例：
 
-```
-OperationDescription OperationId                          OperationStatus
--------------------- -----------                          ---------------
-Add-AzureVirtualIP   4bd7b638-d2e7-216f-ba38-5221233d70ce Succeeded
-```
+    OperationDescription OperationId                          OperationStatus
+    -------------------- -----------                          ---------------
+    Add-AzureVirtualIP   4bd7b638-d2e7-216f-ba38-5221233d70ce Succeeded
 
 ## <a name="how-to-remove-a-vip-from-a-cloud-service"></a>如何从云服务中删除 VIP
 若要删除在上述示例中添加到服务的 VIP，请运行以下 PowerShell 命令：
@@ -77,6 +75,7 @@ Remove-AzureVirtualIP -VirtualIPName Vip3 -ServiceName myService
 > [!IMPORTANT]
 > 只能删除没有任何关联终结点的 VIP。
 
+
 ## <a name="how-to-retrieve-vip-information-from-a-cloud-service"></a>如何从云服务检索 VIP 信息
 若要检索与云服务关联的 VIP，请运行以下 PowerShell 脚本：
 
@@ -87,25 +86,23 @@ $deployment.VirtualIPs
 
 此脚本显示的结果类似于下面的示例：
 
-```
-Address         : 191.238.74.148
-IsDnsProgrammed : True
-Name            : Vip1
-ReservedIPName  :
-ExtensionData   :
+    Address         : 191.238.74.148
+    IsDnsProgrammed : True
+    Name            : Vip1
+    ReservedIPName  :
+    ExtensionData   :
 
-Address         :
-IsDnsProgrammed :
-Name            : Vip2
-ReservedIPName  :
-ExtensionData   :
+    Address         :
+    IsDnsProgrammed :
+    Name            : Vip2
+    ReservedIPName  :
+    ExtensionData   :
 
-Address         :
-IsDnsProgrammed :
-Name            : Vip3
-ReservedIPName  :
-ExtensionData   :
-```
+    Address         :
+    IsDnsProgrammed :
+    Name            : Vip3
+    ReservedIPName  :
+    ExtensionData   :
 
 在此示例中，云服务有 3 个 VIP：
 
@@ -136,25 +133,23 @@ $deployment.VirtualIPs
 
 输出内容类似于下面的示例：
 
-```
-Address         : 191.238.74.148
-IsDnsProgrammed : True
-Name            : Vip1
-ReservedIPName  :
-ExtensionData   :
+    Address         : 191.238.74.148
+    IsDnsProgrammed : True
+    Name            : Vip1
+    ReservedIPName  :
+    ExtensionData   :
 
-Address         : 191.238.74.13
-IsDnsProgrammed :
-Name            : Vip2
-ReservedIPName  :
-ExtensionData   :
+    Address         : 191.238.74.13
+    IsDnsProgrammed :
+    Name            : Vip2
+    ReservedIPName  :
+    ExtensionData   :
 
-Address         :
-IsDnsProgrammed :
-Name            : Vip3
-ReservedIPName  :
-ExtensionData   :
-```
+    Address         :
+    IsDnsProgrammed :
+    Name            : Vip3
+    ReservedIPName  :
+    ExtensionData   :
 
 ## <a name="how-to-enable-load-balancing-on-a-specific-vip"></a>如何在特定 VIP 上启用负载均衡
 
@@ -186,5 +181,4 @@ Set-AzureLoadBalancedEndpoint -ServiceName myService -LBSetName myLBSet -Virtual
 [虚拟网络概述](../virtual-network/virtual-networks-overview.md)
 
 [保留 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)
-
 <!-- Update_Description: update meta properties, wording update -->

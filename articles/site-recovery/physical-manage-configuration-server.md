@@ -5,15 +5,15 @@ services: site-recovery
 author: rockboyfor
 ms.service: site-recovery
 ms.topic: article
-origin.date: 04/11/2018
-ms.date: 06/18/2018
+origin.date: 07/06/2018
+ms.date: 07/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4ab83d5c1b2c2ed95b790d382aef18bfd137d09a
-ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
+ms.openlocfilehash: 69d78fb1434394fc3f55724af91318acb07cf453
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2018
-ms.locfileid: "35568336"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168358"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>为物理服务器灾难恢复管理配置服务器
 
@@ -38,12 +38,12 @@ ms.locfileid: "35568336"
 | IIS | - 无预先存在的默认网站 <br> - 启用[匿名身份验证](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> - 启用 [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) 设置  <br> - 端口 443 上没有预先存在的网站/应用程序侦听<br>|
 | NIC 类型 | VMXNET3（部署为 VMware VM 时） |
 | IP 地址类型 | 静态 |
-| Internet 访问 | 服务器需要以下 URL 的访问权限： <br> - \*.accesscontrol.chinacloudapi.cn<br> - \*.backup.windowsazure.cn <br>- \*.store.core.chinacloudapi.cn<br> - \*.blob.core.chinacloudapi.cn<br> - \*.hypervrecoverymanager.windowsazure.cn <br> - dc.services.visualstudio.com <br> - https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi（不是横向扩展进程服务器所必需的） <br> - time.nist.gov <br> - time.windows.com |
+| Internet 访问 | 服务器需要以下 URL 的访问权限： <br> - \*.accesscontrol.chinacloudapi.cn<br> - \*.backup.windowsazure.cn <br>- \*.store.core.chinacloudapi.cn<br> - \*.blob.core.chinacloudapi.cn<br> - \*.hypervrecoverymanager.windowsazure.cn <br> - https://management.chinacloudapi.cn <br> - *.services.visualstudio.com <br> - https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi（不是横向扩展进程服务器所必需的） <br> - time.nist.gov <br> - time.windows.com |
 | 端口 | 443（控制通道协调）<br>9443（数据传输）|
 
 ## <a name="download-the-latest-installation-file"></a>下载最新的安装文件
 
-Site Recovery 门户中提供了配置服务器安装文件的最新版本。 另外，还可以直接从 [Microsoft 下载中心](http://aka.ms/unifiedsetup)下载该代理。
+Site Recovery 门户中提供了配置服务器安装文件的最新版本。 另外，还可以直接从[下载中心](http://aka.ms/unifiedsetup)下载该文件。
 
 1. 登录到 Azure 门户并浏览到恢复服务保管库。
 2. 浏览到“Site Recovery 基础结构” > “配置服务器”（在“针对 VMware 和物理计算机”下面）。
@@ -95,7 +95,7 @@ Site Recovery 门户中提供了配置服务器安装文件的最新版本。 �
 
 ### <a name="sample-usage"></a>示例用法
   ```
-  MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /xC:\Temp\Extracted
+  MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x:C:\Temp\Extracted
   cd C:\Temp\Extracted
   UNIFIEDSETUP.EXE /AcceptThirdpartyEULA /servermode "CS" /InstallLocation "D:\" /MySQLCredsFilePath "C:\Temp\MySQLCredentialsfile.txt" /VaultCredsFilePath "C:\Temp\MyVault.vaultcredentials" /EnvType "VMWare"
   ```

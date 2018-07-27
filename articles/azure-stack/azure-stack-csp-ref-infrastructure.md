@@ -1,6 +1,6 @@
 ---
 title: 适用于 Azure Stack 的云服务提供商的使用情况报告基础结构 | Microsoft Docs
-description: Azure Stack 包括实时跟踪使用情况所需的基础结构，因此会将使用情况转发到 Azure。
+description: Azure Stack 包含跟踪由云服务提供商 (CSP) 提供服务的租户的使用情况所需的基础结构，并将使用情况转发到 Azure。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,20 +11,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/08/2018
-ms.date: 03/22/2018
+origin.date: 07/12/2018
+ms.date: 07/20/2018
 ms.author: v-junlch
 ms.reviewer: alfredo
-ms.openlocfilehash: fd73f582d3e7d21ed1afa861cd6d03044fa91634
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.openlocfilehash: 986f414278e0d56e71c4ff9a4be1442e556827d7
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30155606"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168248"
 ---
 ## <a name="usage-reporting-infrastructure-for-cloud-service-providers"></a>适用于云服务提供商的使用情况报告基础结构
 
-Azure Stack 包括实时跟踪使用情况所需的基础结构，因此会将使用情况转发到 Azure。 在 Azure 中，Azure Commerce 会处理使用情况数据并根据使用情况向相应的 Azure 订阅收费，计费方式与全球版 Azure 云中的使用情况计费方式相同。
+Azure Stack 包括实时跟踪使用情况所需的基础结构，因此会将使用情况转发到 Azure。 在 Azure 中，Azure Commerce 会处理使用情况数据并根据使用情况向相应的 Azure 订阅收费。 这与在全球版 Azure 云中监视使用情况跟踪的方式相同。
 
 应注意的是，某些概念在全球版 Azure 与 Azure Stack 中是一致的。 Azure Stack 有本地订阅，其履行的角色类似于 Azure 订阅。 本地订阅仅在本地适用。 将使用情况转发到 Azure 时，本地订阅会映射到 Azure 订阅。
 

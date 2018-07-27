@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/06/2018
-ms.date: 06/26/2018
+origin.date: 07/12/2018
+ms.date: 07/20/2018
 ms.author: v-junlch
-ms.openlocfilehash: 38da30c59a8e5a5bf93f57ddab13b182236d672b
-ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
+ms.openlocfilehash: 36de3468aa06b38daa3c363dc0e9bc1574bc51f8
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37027131"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168441"
 ---
 # <a name="azure-stack-infrastructure-security-posture"></a>Azure Stack 基础结构安全局势
 
@@ -28,17 +28,16 @@ ms.locfileid: "37027131"
 
 安全考虑因素与合规性是使用混合云的主要推动因素。 Azure Stack 针对这些方案而设计。因此，在采用 Azure Stack 时，必须知道现有的控制措施。
 
-Azure Stack 中有两个并存的安全局势层。 第一层由 Azure Stack 基础结构组成，包括从硬件到 Azure 资源管理器的所有组件，另外还包括管理员门户和租户门户。 第二层由租户创建、部署和管理的工作负荷组成，另外还包括虚拟机或应用服务网站等组件。  
+两个安全局势层在 Azure Stack 中共存。 第一层是 Azure Stack 基础结构，其中包括 Azure 资源管理器之前的硬件组件。 第一层包括管理员门户和租户门户。 第二层由租户创建、部署和管理的工作负荷组成。 第二层包括虚拟机和应用程序服务网站等项。
 
 ## <a name="security-approach"></a>安全方法
-Azure Stack 中设计了安全局势功能来防范新式威胁，它符合主要合规标准的要求。 因此，Azure Stack 基础结构的安全局势构建在两个支柱之上：
 
- - **假想入侵。**  
+Azure Stack 的安全局势功能旨在防范新式威胁，为符合主要合规标准的要求而构建。 因此，Azure Stack 基础结构的安全局势构建在两个支柱之上：
+
+ - **假想入侵**  
 我们从假设系统已被入侵的情况出发，将重点放在检测入侵并限制其影响上，而不只是尽量防止攻击。 
- - **默认强化。**  
-由于基础结构在定义完善的硬件和软件中运行，因此我们会在默认情况下启用、配置和验证所有安全功能。
-
-
+ - **默认强化**  
+由于基础结构在妥善定义的硬件和软件中运行，因此 Azure Stack 会在默认情况下启用、配置和验证所有安全功能。
 
 由于 Azure Stack 是以集成系统的形式交付的，因此 Azure Stack 基础结构的安全局势由 Microsoft 定义。 如同在 Azure 中一样，租户需负责定义其租户工作负荷的安全局势。 本文档提供有关 Azure Stack 基础结构安全局势的基础知识。
 
@@ -84,7 +83,10 @@ Azure Stack 基础结构随附多个网络访问控制列表 (ACL) 层。 ACL �
 在三个层中实施网络 ACL：
 1.  机架顶部交换机
 2.  软件定义的网络
-3.  主机和 VM 操作系统防火墙 
+3.  主机和 VM 操作系统防火墙
+
+## <a name="next-steps"></a>后续步骤
+
+- [了解如何在 Azure Stack 中轮换机密](azure-stack-rotate-secrets.md)
 
 <!-- Update_Description: wording update -->
-

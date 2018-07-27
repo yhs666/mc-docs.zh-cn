@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 origin.date: 09/25/2017
 ms.date: 06/18/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0704025c219196b7a0b46f773066129ffa32606e
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: c5b8d8ca4f0b3fd85e6912f8a5b615e43599540e
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939774"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167968"
 ---
 # <a name="create-an-internal-load-balancer-by-using-the-azure-powershell-module"></a>使用 Azure PowerShell 模块创建内部负载均衡器
 
@@ -29,6 +29,7 @@ ms.locfileid: "38939774"
 > * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
 > * [Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [模板](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
+
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
@@ -237,6 +238,8 @@ $backendnic2= New-AzureRmNetworkInterface -ResourceGroupName "NRP-RG" -Name lb-n
     NetworkSecurityGroup : null
     Primary              : False
 
+
+
 ### <a name="step-3-assign-the-nic-to-a-vm"></a>步骤 3：将 NIC 分配到 VM
 
 使用 `Add-AzureRmVMNetworkInterface` 命令将 NIC 分配到虚拟机。
@@ -329,6 +332,5 @@ Remove-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
 ## <a name="next-steps"></a>后续步骤
 
 * [配置负载均衡器分发模式](load-balancer-distribution-mode.md)
-* [配置负载均衡器的空闲 TCP 超时设置](load-balancer-tcp-idle-timeout.md)
-
+* [为负载均衡器配置空闲 TCP 超时设置](load-balancer-tcp-idle-timeout.md)
 <!-- Update_Description: update meta properties, wording update -->

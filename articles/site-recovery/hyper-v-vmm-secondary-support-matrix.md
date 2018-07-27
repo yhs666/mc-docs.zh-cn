@@ -6,15 +6,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 03/05/2018
-ms.date: 04/02/2018
+origin.date: 07/06/2018
+ms.date: 07/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: f1249c0909dfa20536afa6c0e9bc08a564f811a8
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.openlocfilehash: d94a1971795ae4e618969d7dc242cce2219a805b
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "33937510"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168424"
 ---
 # <a name="support-matrix-for-replication-of-hyper-v-vms-to-a-secondary-site"></a>将 Hyper-V VM 复制到辅助站点时的支持矩阵
 
@@ -59,9 +59,9 @@ Windows Server 2012 R2 | Windows Server 2012 R2 上的[Hyper-V 支持](https://d
 主机 - IPv6 | 否 
 来宾 VM - NIC 组合 | 否
 来宾 VM - IPv4 | 是
-<!-- 在来宾 VM 上不可用 - IPv6 | 否 -->
 来宾 VM - Windows/Linux - 静态 IP 地址 | 是
 来宾 VM - 多 NIC | 是
+<!-- 在来宾 VM 上不可用 - IPv6 | 否 -->
 
 ## <a name="storage"></a>存储
 
@@ -112,5 +112,4 @@ RDM | 不适用
 ## <a name="next-steps"></a>后续步骤
 
 [将 VMM 云中的 Hyper-V VM 复制到辅助站点](tutorial-vmm-to-vmm.md)
-<!-- Update_Description: new articles on hyper-v to vmm secondary support matrix -->
-<!--ms.date: 04/02/2018-->
+<!-- Update_Description: update meta properties, wording update -->

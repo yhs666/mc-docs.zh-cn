@@ -6,15 +6,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 02/08/2018
-ms.date: 06/18/2018
+origin.date: 07/06/2018
+ms.date: 07/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 9dd90c04f6631c154f67e702be5135151ba488d8
-ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
+ms.openlocfilehash: d1a336127da64f1584fba84853583b90166135ef
+ms.sourcegitcommit: f7ff09be9f3be5e3eb795e383c0c670f480f233d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2018
-ms.locfileid: "35568408"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39169056"
 ---
 # <a name="test-failover-to-azure-in-site-recovery"></a>Site Recovery 中到 Azure 的测试故障转移
 
@@ -70,7 +70,7 @@ ms.locfileid: "35568408"
     * storflt
     * intelide
     * atapi
-* 未启用 DHCP 服务的 VMware VM，无论它们使用的是 DHCP 还是静态 IP 地址。
+* 未启用 DHCP 的 VMware VM，无论它们使用的是 DHCP 还是静态 IP 地址。
 
 在其他所有情况下，不需要执行中间步骤，因此故障转移花费的时间大大减少。
 

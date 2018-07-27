@@ -13,14 +13,14 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/23/2018
-ms.date: 06/27/2018
+ms.date: 07/20/2018
 ms.author: v-junlch
-ms.openlocfilehash: 6b3201443525ed3aba4b4357a770f03f031358fb
-ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
+ms.openlocfilehash: c4aa4127844810098aed254f5e6f9c7d31163f6d
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37027147"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168371"
 ---
 # <a name="considerations-for-using-virtual-machines-in-azure-stack"></a>在 Azure Stack 中使用虚拟机时的注意事项
 
@@ -48,7 +48,7 @@ Azure Stack 施加了一些资源限制，以避免资源（服务器本地和�
 
 - VM 的网络出口有带宽上限。 Azure Stack 中的上限与 Azure 中的上限相同。
 - 对于存储资源，Azure Stack 实施存储 IOPS 限制，以避免租户为了访问存储而造成资源过度消耗。
-- 对于附加了多个数据磁盘的 VM，每个数据磁盘的最大吞吐量为 500 IOPS（适用于 HHD）和 2300 IOPS（适用于 SSD）。
+- 对于附加了多个数据磁盘的 VM，每个数据磁盘的最大吞吐量为 500 IOPS（适用于 HDD）和 2300 IOPS（适用于 SSD）。
 
 下表列出了 Azure Stack 支持的 VM 及其配置：
 

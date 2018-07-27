@@ -1,26 +1,22 @@
 ---
 title: 在 Azure 门户中创建 Power BI Embedded 容量 | Microsoft Docs
 description: 本文详述了如何在 Azure 中创建 Power BI Embedded 容量。
-services: power-bi-embedded
-documentationcenter: ''
 author: markingmyname
 manager: kfile
-editor: ''
-tags: ''
-ms.service: power-bi-embedded
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: powerbi
-origin.date: 09/28/2017
-ms.date: 06/12/2018
 ms.author: v-junlch
-ms.openlocfilehash: 9bc424cb10bb3f0c6101c174319a4f35f38e4230
-ms.sourcegitcommit: 908d37aeb736aabf35cfb397530fb675b04d52e4
+ms.service: power-bi-embedded
+ms.component: ''
+ms.devlang: csharp, javascript
+ms.topic: overview
+ms.reviewer: ''
+origin.date: 05/31/2018
+ms.date: 07/18/2018
+ms.openlocfilehash: f7e3f283fd6ea136a7cd82e98cd8422dfc32f402
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2018
-ms.locfileid: "35323840"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168442"
 ---
 # <a name="create-power-bi-embedded-capacity-in-the-azure-portal"></a>在 Azure 门户中创建 Power BI Embedded 容量
 
@@ -33,7 +29,7 @@ ms.locfileid: "35323840"
 若要完成本快速入门，需要以下项：
 
 - **Azure 订阅**：访问 [Azure 1 元人民币试用订阅](https://www.azure.cn/pricing/1rmb-trial/)以创建帐户。
-- **Azure Active Directory：** 你的订阅必须与一个 Azure Active Directory (AAD) 租户相关联。 并且，***你需要使用该租户中的一个帐户来登录 Azure***。 不支持 Microsoft 帐户。 若要了解详细信息，请参阅[身份验证和用户权限](../analysis-services/analysis-services-manage-users.md)。
+- **Azure Active Directory：** 你的订阅必须与一个 Azure Active Directory (AAD) 租户相关联。 此外，***需要使用该租户中的一个帐户登录 Azure***。 不支持 Microsoft 帐户。 若要了解详细信息，请参阅[身份验证和用户权限](../analysis-services/analysis-services-manage-users.md)。
 - **Power BI 租户：** 你的 AAD 租户中必须至少有一个帐户已注册了 Power BI。
 - **资源组：** 使用已有的资源组或者[创建新资源组](../azure-resource-manager/resource-group-overview.md)。
 
@@ -62,7 +58,7 @@ ms.locfileid: "35323840"
 
 6. 选择“创建” 。
 
-创建过程通常不超过一分钟，一般几秒便可完成。 如果已选择了“固定到仪表板”，请导航到仪表板来查看新容量。 或者，导航到“所有服务” > “Power BI Embedded”来查看容量是否已准备就绪。
+创建过程通常不超过一分钟，一般几秒便可完成。 如果选择了“固定到仪表板”，可导航到仪表板来查看新容量。 或者，可导航到“所有服务” > “Power BI Embedded”来查看容量是否已准备就绪。
 
 ![其中显示了 Power BI Embedded 容量的 Azure 门户仪表板](./media/create-capacity/azure-portal-dashboard.png)
 
@@ -70,7 +66,7 @@ ms.locfileid: "35323840"
 
 若要使用新的 Power BI Embedded 容量，请浏览到 Power BI 管理门户来分配工作区。 有关详细信息，请参阅[管理 Power BI Premium 和 Power BI Embedded 中的容量](https://powerbi.microsoft.com/documentation/powerbi-admin-premium-manage/)。
 
-如果不需要使用此容量，请将其暂停以停止计费。 有关详细信息，请参阅[在 Azure 门户中暂停和启动 Power BI Embedded 容量](pause-start.md)。
+如果不需要使用此容量，可将其暂停以停止计费。 有关详细信息，请参阅[在 Azure 门户中暂停和启动 Power BI Embedded 容量](pause-start.md)。
 
 若要开始在应用程序中嵌入 Power BI 内容，请参阅[如何嵌入 Power BI 仪表板、报表和磁贴](https://powerbi.microsoft.com/documentation/powerbi-developer-embedding-content/)。
 

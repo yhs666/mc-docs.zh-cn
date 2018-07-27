@@ -1,25 +1,23 @@
 ---
 title: 适用于 Hyper-V 到 Azure 部署的 Azure Site Recovery 部署规划器 | Azure
-description: 本文介绍在从 Hyper-V 移到 Azure 时运行 Azure Site Recovery 部署规划器的模式。
-services: site-recovery
+description: 本文介绍如何运行 Site Recovery 部署规划器，以实现 Hyper-V 到 Azure 的复制。
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 02/14/2018
-ms.date: 03/05/2018
+origin.date: 07/06/2018
+ms.date: 07/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 984965b8ed96777484f89ec417003f665a9c5a2b
-ms.sourcegitcommit: 966200f9807bfbe4986fa67dd34662d5361be221
+ms.openlocfilehash: f8d305093d8b86dcb5b28b6ccf0c20d7247d94e5
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31510945"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168463"
 ---
 # <a name="run-azure-site-recovery-deployment-planner-for-hyper-v-to-azure"></a>运行适用于 Hyper-V 到 Azure 部署的 Azure Site Recovery 部署规划器
 
-## <a name="modes-of-running-the-deployment-planner"></a>运行部署规划器的模式
-可使用以下四种模式之一运行该命令行工具 (ASRDeploymentPlanner.exe)： 
+可使用以下四种模式之一运行 Site Recovery 部署规划器命令行工具 (ASRDeploymentPlanner.exe)： 
 -   [获取虚拟机 (VM) 列表](#get-vm-list-for-profiling-hyper-v-vms)
 -   [Profile](#profile-hyper-v-vms)
 -   [生成报表](#generate-report)
@@ -42,14 +40,14 @@ ASRDeploymentPlanner.exe -Operation GetVMList /?
 |---|---|
 | -Operation | GetVMList |
 | -User | 连接到 Hyper-V 主机或 Hyper-V 群集所需的用户名。 用户需要有管理访问权限。|
-|-ServerListFile | 包含服务器列表的文件，其中有要分析的 VM。 文件路径可以是绝对或相对路径。 此文件的每一行中应包含以下内容之一：<ul><li>Hyper-V 主机名或 IP 地址</li><li>Hyper-V 群集名称或 IP 地址</li></ul><br>**示例：** ServerList.txt 包含以下服务器：<ul><li>Host_1</li><li>10.8.59.27</li><li>Cluster_1</li><li>Host_2</li>|
+| -ServerListFile | 包含服务器列表的文件，其中有要分析的 VM。 文件路径可以是绝对或相对路径。 此文件的每一行中应包含以下内容之一：<ul><li>Hyper-V 主机名或 IP 地址</li><li>Hyper-V 群集名称或 IP 地址</li></ul><br>**示例：** ServerList.txt 包含以下服务器：<ul><li>Host_1</li><li>10.8.59.27</li><li>Cluster_1</li><li>Host_2</li>|
 | -Directory|（可选）通用命名约定 (UNC) 或本地目录路径，用于存储在此操作期间生成的数据。 如果未指定名称，则会使用当前路径下名为 ProfiledData 的目录作为默认目录。|
 |-OutputFile| （可选）一个文件，其中保存了从 Hyper-V 服务器中提取的 VM 的列表。 如果未提到名称，则详细信息会存储在 VMList.txt 中。  在删除不需分析的 VM 后，即可使用此文件开始分析。|
 |-Password|（可选）连接到 Hyper-V 主机所需的密码。 如果未将密码指定为参数，则在运行命令时，系统会提示你输入它。|
 
 ### <a name="getvmlist-discovery"></a>GetVMList 发现
-**Hyper-V 群集**：如果在服务器列表文件中给出了 Hyper-V 群集名称，此工具会找出该群集的所有 Hyper-V 节点，并获取存在于每个 Hyper-V 主机上的 VM。
 
+- **Hyper-V 群集**：如果在服务器列表文件中给出了 Hyper-V 群集名称，此工具会找出该群集的所有 Hyper-V 节点，并获取存在于每个 Hyper-V 主机上的 VM。
 **Hyper-V 主机**：如果给出了 Hyper-V 主机名，此工具会首先检查该名称是否属于群集。 如果是，此工具会提取属于群集的节点。 然后从每个 Hyper-V 主机获取 VM。 
 
 也可选择在文件中列出要手动分析的 VM 的友好名称或 IP 地址。
@@ -98,7 +96,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 |-Virtualization|虚拟化类型（VMware 或 Hyper-V）。|
 |-Directory|（可选）用于存储在分析期间生成的分析数据的 UNC 或本地目录路径。 如果未指定名称，则会使用当前路径下名为 ProfiledData 的目录作为默认目录。|
 |-Password|（可选）连接到 Hyper-V 主机所需的密码。 如果未将密码指定为参数，则在运行命令时，系统会提示你输入它。|
-|-StorageAccountName|（可选）存储帐户名称，用于确定在将数据从本地复制到 Azure 时可实现的吞吐量。 该工具会将测试数据上传到此存储帐户来计算吞吐量。 存储帐户必须是常规用途 v1 或常规用途 v2。|
+|-StorageAccountName|（可选）存储帐户名称，用于确定在将数据从本地复制到 Azure 时可实现的吞吐量。 该工具会将测试数据上传到此存储帐户来计算吞吐量。 存储帐户必须是常规用途 v1 (GPv1) 类型。|
 |-StorageAccountKey|（可选）用于访问存储帐户的密钥。 转到 Azure 门户 >“存储帐户” > *存储帐户名称* > “设置” > “访问密钥” > **Key1**（或经典存储帐户的主访问密钥）。|
 |-Environment|（可选）Azure 存储帐户的目标环境。 它可能采用下述三个值之一：AzureCloud、AzureUSGovernment、AzureChinaCloud。 默认值为 AzureCloud。 当目标区域为 Azure 美国政府或 Azure 中国时，请使用此参数。|
 
@@ -156,7 +154,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization Hyper-V -Dire
 
 如果传递了存储帐户名称和密钥，该工具会在执行最后一个分析步骤时测量吞吐量。 如果在分析完成之前关闭该工具，则不会计算吞吐量。 若要在生成报告之前确定吞吐量，可通过命令行控制台运行 GetThroughput 操作。 否则，生成的报告将不包含吞吐量信息。
 
-Azure Site Recovery 不支持使用 iSCSI 和传递磁盘的 VM。 但是，此工具无法检测和分析附加到 VM 的 iSCSI 和传递磁盘。
+Azure Site Recovery 不支持使用 iSCSI 和传递磁盘的 VM。 该工具无法检测和分析附加到 VM 的 iSCSI 和传递磁盘。
 
 <a name="generate-report"></a>
 ## <a name="generate-a-report"></a>生成报告
@@ -183,7 +181,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport /?
 | -EndDate | （可选）采用 MM-DD-YYYY:HH:MM（24 小时）格式的结束日期和时间。 EndDate 必须与 StartDate 一起指定。 如果指定 EndDate，会根据从 StartDate 到 EndDate 收集的分析数据生成报告。 |
 | -GrowthFactor | （可选）增长系数，以百分比表示。 默认值为 30%。 |
 | -UseManagedDisks | （可选）UseManagedDisks：是/否。 默认值为“是”。 计算可放置到单个存储帐户中的虚拟机数量时，需考虑到对虚拟机进行的故障转移/测试性故障转移是否是在托管磁盘而不是非托管磁盘上完成的。 |
-|-SubscriptionId |（可选）订阅 GUID。 可以根据订阅、与订阅相关联的产品/服务、目标 Azure 区域和指定的货币，按照最新的价格使用此参数生成成本估算报表。|
+|-SubscriptionId |（可选）订阅 GUID。 可以根据订阅、与订阅相关联的套餐、目标 Azure 区域和指定的货币，按照最新的价格使用此参数生成成本估算报表。|
 |-TargetRegion|（可选）充当复制目标的 Azure 区域。 由于 Azure 的成本因区域而异，因此可使用此参数来生成特定目标 Azure 区域的报表。 默认值为 ChinaNorth 或上次使用的目标区域。 |
 |-OfferId|（可选）与订阅关联的产品/服务。 默认值为 MS-AZR-0003P（即用即付）。|
 |-Currency|（可选）在生成的报表中显示的成本所采用的货币。 |
@@ -279,14 +277,14 @@ ASRDeploymentPlanner.exe -Operation GetThroughput /?
 | -Operation | GetThroughput |
 |-Virtualization|虚拟化类型（VMware 或 Hyper-V）。|
 |-Directory|（可选）UNC 或本地目录路径，其中存储了分析数据（在分析期间生成的文件）。 需要使用此数据来生成报告。 如果未指定名称，则会使用当前路径下名为 ProfiledData 的目录作为默认目录。|
-| -StorageAccountName | 存储帐户名称，用于确定在将数据从本地复制到 Azure 时消耗的带宽。 该工具会将测试数据上传到此存储帐户来确定消耗的带宽。 存储帐户必须是常规用途 v1 或常规用途 v2。|
+| -StorageAccountName | 存储帐户名称，用于确定在将数据从本地复制到 Azure 时消耗的带宽。 该工具会将测试数据上传到此存储帐户来确定消耗的带宽。 存储帐户必须是常规用途 v1 (GPv1) 类型。|
 | -StorageAccountKey | 用于访问存储帐户的存储帐户密钥。 转到 Azure 门户 >“存储帐户” > *存储帐户名称* > “设置” > “访问密钥” > **Key1**。|
 | -VMListFile | 一个文件，其中包含一系列可以通过分析来计算所消耗带宽的 VM。 文件路径可以是绝对或相对路径。 对于 Hyper-V，此文件是 GetVMList 操作的输出文件。 如果手动进行准备，此文件应包含一个服务器名称或 IP 地址，后跟 VM 名称（每一行都由 \ 分隔）。 该文件中指定的 VM 名称应与 Hyper-V 主机上的 VM 名称相同。<br><br>**示例：** VMList.txt 包含以下 VM：<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
 |-Environment|（可选）Azure 存储帐户的目标环境。 它可能采用下述三个值之一：AzureCloud、AzureUSGovernment、AzureChinaCloud。 默认值为 AzureCloud。 当目标 Azure 区域为 Azure 美国政府或 Azure 中国时，请使用此参数。|
 
 ### <a name="example"></a>示例
 ```
-ASRDeploymentPlanner.exe -Operation GetThroughput -Virtualization Hyper-V -Directory E:\Hyp-erV_ProfiledData -VMListFile E:\Hyper-V_ProfiledData\ProfileVMList1.txt  -StorageAccountName  asrspfarm1 -StorageAccountKey by8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
+ASRDeploymentPlanner.exe -Operation GetThroughput -Virtualization Hyper-V -Directory "E:\Hyper-V_ProfiledData" -VMListFile "E:\Hyper-V_ProfiledData\ProfileVMList1.txt"  -StorageAccountName  asrspfarm1 -StorageAccountKey by8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
 ```
 
 ### <a name="throughput-considerations"></a>吞吐量注意事项

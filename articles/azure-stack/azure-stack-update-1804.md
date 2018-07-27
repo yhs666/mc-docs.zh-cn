@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/30/2018
-ms.date: 06/27/2018
+origin.date: 07/11/2018
+ms.date: 07/18/2018
 ms.author: v-junlch
 ms.reviewer: justini
-ms.openlocfilehash: 7a88bba99ceaf8112e46b83cc83be793857232b2
-ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
+ms.openlocfilehash: 3d96a4eac835b4cd75c9ea592088cf1a79e81bea
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37027201"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168368"
 ---
 # <a name="azure-stack-1804-update"></a>Azure Stack 1804 更新
 
@@ -90,7 +90,9 @@ Azure Stack 1804 更新内部版本号为 **20180513.1**。
 
 
 ### <a name="post-update-steps"></a>更新后步骤
-*对于 1804 更新，更新后不需要执行任何步骤。*
+安装 1804 之后，请安装所有适用的修补程序。 有关详细信息，请查看以下知识库文章，以及我们的[服务策略](azure-stack-servicing-policy.md)。  
+ - [KB 4344114 - Azure Stack 修补程序 1.0.180527.15](https://support.microsoft.com/help/4344114)。
+
 
 
 
@@ -128,7 +130,7 @@ Azure Stack 1804 更新内部版本号为 **20180513.1**。
 
 
 #### <a name="health-and-monitoring"></a>运行状况和监视
-- <!-- 1264761 - IS ASDK --> 可能会看到包含以下详细信息的“运行状况控制器”组件警报：  
+- <!-- 1264761 - IS ASDK --> 可能会看到具有以下详细信息的*运行状况控制器*组件的警报：  
 
    警报 #1：
    - 名称：基础结构角色不正常
@@ -142,7 +144,7 @@ Azure Stack 1804 更新内部版本号为 **20180513.1**。
    - 组件：运行状况控制器
    - 说明：运行状况控制器故障扫描仪不可用。 这可能会影响运行状况报告和指标。
 
-  可以放心地忽略这两个警报。 它们将在一段时间后自动关闭。  
+  可以放心地忽略这两个警报。 它们将随着时间的推移自动关闭。  
  
 
 #### <a name="compute"></a>计算

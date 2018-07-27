@@ -12,27 +12,29 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/29/2018
-ms.date: 03/01/2018
+origin.date: 06/28/2018
+ms.date: 07/20/2018
 ms.author: v-junlch
 ms.reviewer: anwestg
-ms.openlocfilehash: f2913a6c6fbaf7e3f0267fde685a98e81c51b124
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: b6ba08ac56b22a4b4d864bb86d1ec707ba8bed27
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
-ms.locfileid: "29731048"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168229"
 ---
 # <a name="app-service-on-azure-stack-overview"></a>Azure Stack 上的应用服务概述
+
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 Azure Stack 上的 Azure 应用服务是 Azure 的一种可用于 Azure Stack 的平台即服务 (PaaS) 产品。 此服务允许你的客户（内部或外部）为任何平台或设备创建 Web 应用、API 应用和 Azure Functions 应用程序。 他们可以将你的应用与本地应用程序集成，并可实现业务流程的自动化。 Azure Stack 云操作员可以在完全托管的虚拟机 (VM) 上，使用他们选择的共享 VM 资源或专用 VM 运行客户的应用。
 
-Azure 应用服务提供自动执行业务流程和托管云 API 的功能。 Azure 应用服务作为单个集成服务，允许用户将各种组件（网站、RESTful API 和业务流程）组合到单个解决方案中。
+使用 Azure 应用服务可以自动执行业务流程和托管云 API。 Azure 应用服务作为单个集成服务，允许用户将各种组件（网站、RESTful API 和业务流程）组合到单个解决方案中。
 
 ## <a name="why-offer-azure-app-service-on-azure-stack"></a>为什么在 Azure Stack 上提供 Azure 应用服务？
 
 下面是应用服务的某些主要特性和功能：
+
 - **多种语言和框架**：应用服务为 ASP.NET、Node.js、Java、PHP 和 Python 提供一流支持。 也可以在应用服务 VM 上运行 Windows PowerShell 和其他脚本或可执行文件。
 - **DevOps 优化**：使用 GitHub、本地 Git 或 BitBucket 设置持续集成和部署。 通过测试和过渡环境提升更新。 在应用服务中，使用 Azure PowerShell 或跨平台命令行接口 (CLI) 来管理应用。
 - **Visual Studio 集成**：Visual Studio 中的专用工具可简化创建和部署应用程序的工作。
@@ -48,10 +50,11 @@ Azure 应用服务提供自动执行业务流程和托管云 API 的功能。 Az
 此处的“应用”一词是指专用于运行工作负荷的托管资源。 以“Web 应用”为例，用户可能习惯于将 Web 应用视为计算资源和应用程序代码，二者共同向浏览器提供功能。 但在应用服务中，Web 应用是 Azure Stack 提供的用于托管应用程序代码的计算资源。
 
 应用程序可以由多个不同类型的应用服务应用组成。 例如，如果应用程序由 Web 前端和 RESTful API 后端组成，则可以：
+
 - 将该前端和 API 部署到单个 Web 应用
 - 将前端代码部署到 Web 应用，将后端代码部署到 API 应用。
 
-   ![](./media/azure-stack-app-service-overview/image01.png)
+   ![使用监视数据的应用服务概述](./media/azure-stack-app-service-overview/image01.png)
 
 ## <a name="what-is-an-app-service-plan"></a>什么是应用服务计划？
 
@@ -61,13 +64,13 @@ Azure 应用服务提供自动执行业务流程和托管云 API 的功能。 Az
 
 ## <a name="portal-features"></a>门户功能
 
-Azure Stack 上的应用服务使用 Azure 应用服务使用的同一 UI，这同样适用于后端。 某些功能在 Azure Stack 中被禁用，无法正常工作。 Azure 特定的预期或这些功能需要的服务在 Azure Stack 中尚不可用。
+Azure Stack 上的应用服务使用 Azure 应用服务使用的同一 UI，这同一 UI 同样适用于后端。 但是，某些功能在 Azure Stack 中被禁用，无法正常工作。 目前，Azure 特定的预期或这些功能需要的服务在 Azure Stack 中尚不可用。
 
 ## <a name="next-steps"></a>后续步骤
-
 
 - [开始使用 Azure Stack 上的应用服务之前](azure-stack-app-service-before-you-get-started.md)
 - [安装应用服务资源提供程序](azure-stack-app-service-deploy.md)
 
 还可以试用其他[平台即服务 (PaaS) 服务](azure-stack-tools-paas-services.md)，如 [SQL Server 资源提供程序](azure-stack-sql-resource-provider-deploy.md)和 [MySQL 资源提供程序](azure-stack-mysql-resource-provider-deploy.md)。
 
+<!-- Update_Description: wording update -->

@@ -3,18 +3,18 @@ title: Azure 自动化中的源代码管理集成
 description: 本文介绍 Azure 自动化中源代码管理与 GitHub 的集成。
 services: automation
 ms.service: automation
-author: georgewallace
-ms.author: WenJason
+author: WenJason
+ms.author: v-jay
 origin.date: 03/16/2018
 ms.date: 05/14/2018
 ms.topic: article
 manager: digimobile
-ms.openlocfilehash: 6fc27eb827fa7f9a3636b1bbb24cd711a0505d1b
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.openlocfilehash: 4b20057f83b898bfbfa56936b37a472cea0f21ed
+ms.sourcegitcommit: 53972dcdef77da92529996667545d2e83716f7e2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873463"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39143452"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Azure 自动化中的源代码管理集成
 源代码管理集成可让你将自动化帐户中的 Runbook 关联到 GitHub 源代码管理存储库。 使用源代码管理可轻松与团队协作、跟踪更改，以及回退到旧版 Runbook。 例如，源代码管理可让你将源代码管理中的不同分支同步到开发、测试或生产自动化帐户，以轻松地将已在开发环境中测试过的代码提升到生产自动化帐户。
@@ -28,10 +28,10 @@ ms.locfileid: "37873463"
 
 为自动化帐户设置源代码管理时，需要执行两个简单的步骤；如果已有 GitHub 帐户，则只需要执行一个步骤。 它们具有以下特点：
 
-## <a name="step-1--create-a-github-repository"></a>步骤 1  创建 GitHub 存储库
+## <a name="step-1---create-a-github-repository"></a>步骤 1 - 创建 GitHub 存储库
 如果已有想要链接到 Azure 自动化的 GitHub 帐户和存储库，请登录到现有帐户并从下面的步骤 2 开始。 否则，请导航到 [GitHub](https://github.com/)，注册新帐户并[创建新的存储库](https://help.github.com/articles/create-a-repo/)。
 
-## <a name="step-2--set-up-source-control-in-azure-automation"></a>步骤 2  在 Azure 自动化中设置源代码管理
+## <a name="step-2---set-up-source-control-in-azure-automation"></a>步骤 2 - 在 Azure 自动化中设置源代码管理
 1. 在 Azure 门户的“自动化帐户”页上，单击“帐户设置”下的“源代码管理”。 
    
 1. “源代码管理”页面随即打开，可以在其中配置 GitHub 帐户详细信息。 下面是要配置的参数的列表：  
@@ -41,7 +41,7 @@ ms.locfileid: "37873463"
    | 选择源 |选择源。 目前仅支持 **GitHub**。 |
    | 授权 |单击“授权”按钮，授予 GitHub 存储库的 Azure 自动化访问权限。 如果已在不同的窗口中登录 GitHub 帐户，将使用该帐户的凭据。 成功授权之后，页面上的“授权属性”下将显示你的 GitHub 用户名。 |
    | 选择存储库 |从可用存储库列表中选择 GitHub 存储库。 |
-   | 选择分支 |从可用分支列表中选择分支。 如果尚未创建任何分库，则只显示 **master** 分库。 |
+   | 选择分支 |从可用分支列表中选择分支。 如果尚未创建任何分支，则只显示 **master** 分支。 |
    | Runbook 文件夹路径 |Runbook 文件夹路径可指定 GitHub 存储库中的路径，以便从中推送或提取代码。 必须以 **/foldername/subfoldername** 格式输入路径。 只有 Runbook 文件夹路径中的 Runbook 才同步到自动化帐户。 Runbook 文件夹路径的子文件夹中的 Runbook **不会**同步。 使用 **/** 来同步存储库下的所有 Runbook。 |
 3. 例如，如果有名为 **PowerShellScripts** 的存储库，其中包含名为 **RootFolder** 的文件夹，而该文件夹包含名为 **SubFolder** 的文件夹。 那么，可以使用以下字符串来同步每个文件夹级别：
    

@@ -269,6 +269,8 @@
               href: azure-stack-app-service-release-notes-update-one.md
             - name: 基于 Azure Stack 的应用服务 Update 2 发行说明
               href: azure-stack-app-service-release-notes-update-two.md
+        - name: 部署 Ethereum
+          href: azure-stack-ethereum.md
         - name: 充实市场
           items:
             - name: 市场概述
@@ -294,15 +296,15 @@
             - name: 提供 Kubernetes 群集
               href: azure-stack-solution-template-kubernetes-cluster-add.md
         - name: 使用情况和计费
+          href: azure-stack-billing-and-chargeback.md
           items:
-            - name: 概述
-              href: azure-stack-billing-and-chargeback.md
             - name: 以 CSP 身份管理使用情况和计费
               href: azure-stack-add-manage-billing-as-a-csp.md
-            - name: 添加租户以获取用量和计费信息
-              href: azure-stack-csp-howto-register-tenants.md
-            - name: 管理租户注册
-              href: azure-stack-csp-ref-operations.md
+              items:
+                - name: 添加租户以获取用量和计费信息
+                  href: azure-stack-csp-howto-register-tenants.md
+                - name: 管理租户注册
+                  href: azure-stack-csp-ref-operations.md
             - name: 使用情况和计费参考
               items:
                 - name: 使用情况数据报告

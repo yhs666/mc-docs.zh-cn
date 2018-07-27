@@ -18,12 +18,12 @@ origin.date: 03/13/2018
 ms.date: 05/07/2018
 ms.author: v-yeche
 ms.custom: ''
-ms.openlocfilehash: ad3798454721b9082536d95ba1111619e6619af3
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: 09450cc0ac5337987e4d5649caf7f9d24fa22138
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33815237"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167737"
 ---
 # <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>教程：通过 Azure 门户使用虚拟网络对等互连连接虚拟网络
 
@@ -110,7 +110,7 @@ ms.locfileid: "33815237"
 ### <a name="create-the-first-vm"></a>创建第一个 VM
 
 1. 选择 Azure 门户左上角的“+ 创建资源”。
-2. 选择“计算”，并选择“Windows Server 2016 Datacenter”。 可以选择不同的操作系统，但剩余步骤假定你选择了“Windows Server 2016 Datacenter”。 
+2. 选择“计算”，然后选择“Windows Server 2016 Datacenter”。 可以选择不同的操作系统，但剩余步骤假定你选择了“Windows Server 2016 Datacenter”。 
 3. 对于“基本信息”输入或选择以下信息，接受剩下的默认设置，然后选择“创建”：
 
     |设置|值|
@@ -189,7 +189,8 @@ ms.locfileid: "33815237"
 
 ## <a name="next-steps"></a>后续步骤
 
-本教程介绍了如何使用虚拟网络对等互连来连接同一 Azure 区域中的两个网络。 还可以将不同[受支持的区域](virtual-network-manage-peering.md#cross-region)、[不同 Azure 订阅](create-peering-different-subscriptions.md#portal)中的虚拟网络对等互连，并且可以使用对等互连创建[中心辐射型网络设计](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fvirtual-network%2ftoc.json#vnet-peering)。 若要详细了解虚拟网络对等互连，请参阅[虚拟网络对等互连概述](virtual-network-peering-overview.md)和[管理虚拟网络对等互连](virtual-network-manage-peering.md)。
+本教程介绍了如何使用虚拟网络对等互连来连接同一 Azure 区域中的两个网络。 还可以将[不同 Azure 订阅](create-peering-different-subscriptions.md#portal)中的虚拟网络对等互连，并且可以使用对等互连创建[中心辐射型网络设计](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fvirtual-network%2ftoc.json#vnet-peering)。 若要详细了解虚拟网络对等互连，请参阅[虚拟网络对等互连概述](virtual-network-peering-overview.md)和[管理虚拟网络对等互连](virtual-network-manage-peering.md)。
+<!--Not Available on Cross region peering -->
 
 若要通过 VPN 将自己的计算机连接到虚拟网络，并与虚拟网络或对等互连的虚拟网络中的资源进行交互，请参阅[将计算机连接到虚拟网络](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fvirtual-network%2ftoc.json)。
 

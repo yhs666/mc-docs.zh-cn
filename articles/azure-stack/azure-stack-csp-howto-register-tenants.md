@@ -1,6 +1,6 @@
 ---
 title: 将租户添加到 Azure Stack 以获取用量和计费信息 | Microsoft Docs
-description: 将最终用户添加到云服务提供程序管理的 Azure Stack 所要执行的步骤。
+description: 将最终用户添加到云服务提供商 (CSP) 管理的 Azure Stack 所要执行的步骤。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/08/2018
-ms.date: 03/22/2018
+origin.date: 07/12/2018
+ms.date: 07/20/2018
 ms.author: v-junlch
 ms.reviewer: alfredo
-ms.openlocfilehash: d170b329e94d1cdb39f26063c7636d1a236fbf9f
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.openlocfilehash: 8517edea72b81462fa422e76b9d705dbd52dd57b
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30155654"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168236"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>将租户添加到 Azure Stack 以获取用量和计费信息
 
@@ -28,11 +28,11 @@ ms.locfileid: "30155654"
 
 本文介绍将最终用户添加到云服务提供程序 (CSP) 管理的 Azure Stack 所要执行的步骤。 当新租户使用资源时，Azure Stack 会向其 CSP 订阅报告用量。
 
-CSP 通常向其 Azure Stack 部署中的多个客户（租户）提供服务。 将租户添加到 Azure Stack 注册可确保向相应的 CSP 订阅报告每个租户的用量并计收费用。 如果未完成本文中的步骤，则会向 Azure Stack 初始注册中使用的订阅计收租户使用费。 在将最终用户添加到 Azure Stack 以跟踪用量并管理其租户之前，需要将 Azure Stack 配置为 CSP。 有关步骤和资源，请参阅[管理充当云服务提供程序的 Azure Stack 的用量的计费](azure-stack-add-manage-billing-as-a-csp.md)。
+CSP 通常向其 Azure Stack 部署中的多个最终客户（租户）提供服务。 将租户添加到 Azure Stack 注册可确保向相应的 CSP 订阅报告每个租户的用量并计收费用。 如果未完成本文中的步骤，则会向 Azure Stack 初始注册中使用的订阅计收租户使用费。 在将最终用户添加到 Azure Stack 以跟踪用量并管理其租户之前，需要将 Azure Stack 配置为 CSP。 有关步骤和资源，请参阅[管理充当云服务提供程序的 Azure Stack 的用量的计费](azure-stack-add-manage-billing-as-a-csp.md)。
 
 下图演示了 CSP 需要执行哪些步骤才能让新客户使用 Azure Stack，并针对客户设置用量跟踪。 添加最终用户还可以管理 Azure Stack 中的资源。 可通过两个选项来管理这些资源：
 
-1. 可以保留最终客户的租户，并向最终客户提供本地 Azure Stack 订阅的凭据。  
+1. 可以保留最终客户，并向最终客户提供本地 Azure Stack 订阅的凭据。  
 2. 或者，最终用户可以在本地使用其订阅，并将 CSP 添加为拥有所有者权限的来宾。  
 
 **添加最终客户的步骤**
@@ -65,15 +65,16 @@ CSP 通常向其 Azure Stack 部署中的多个客户（租户）提供服务。
 3. 在 PowerShell 会话中运行：
 
 ```powershell
-    New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties
+    New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties <PSObject>
 ```
 ### <a name="new-azurermresource-powershell-parameters"></a>New-AzureRmResource PowerShell 参数
 | 参数 | 说明 |
 | --- | --- | 
 |registrationSubscriptionID | 用于 Azure Stack 初始注册的 Azure 订阅。 |
-| customerSubscriptionID | 属于要注册的客户的 Azure 订阅（不是 Azure Stack）。 必须在 CSP 产品/服务中创建；在实践中，这意味着通过合作伙伴中心创建。 如果客户有多个 Azure Active Directory 租户，则必须在用于登录 Azure Stack 的租户中创建此订阅。
+| customerSubscriptionID | 属于要注册的客户的 Azure 订阅（不是 Azure Stack）。 必须在 CSP 产品中创建；在实践中，这意味着通过合作伙伴中心创建。 如果客户有多个 Azure Active Directory 租户，则必须在用于登录 Azure Stack 的租户中创建此订阅。
 | resourceGroup | Azure 中用于存储注册的资源组。 
 | registrationName | Azure Stack 的注册名称。 它是 Azure 中存储的对象。 | 
+| 属性 | 指定资源的属性。 使用此参数指定特定于资源类型的属性的值。
 
 
 > [!Note]  

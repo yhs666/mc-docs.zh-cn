@@ -14,14 +14,16 @@ ms.workload: infrastructure-services
 origin.date: 09/25/2017
 ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 3cbbf4a2874edd2046069b1470ff472c575a3f84
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 7e245aa4945df984f20a056b46cbea108a5da0b3
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121023"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167927"
 ---
 # <a name="configure-a-load-balancer-for-sql-server-always-on"></a>为 SQL Server Always On 配置负载均衡器
+
+
 
 SQL Server Always On 可用性组现在可以与内部负载均衡器一起运行。 可用性组是 SQL Server 用于实现高可用性和灾难恢复的旗舰解决方案。 无论配置中的副本数目是多少，可用性组侦听器都可让客户端应用程序无缝连接到主副本。
 
@@ -61,5 +63,5 @@ SQL Server Always On 可用性组现在可以与内部负载均衡器一起运�
 * [开始配置公共负载均衡器](load-balancer-get-started-internet-arm-ps.md)
 * [开始配置内部负载均衡器](load-balancer-get-started-ilb-arm-ps.md)
 * [配置负载均衡器分发模式](load-balancer-distribution-mode.md)
-* [配置负载均衡器的空闲 TCP 超时设置](load-balancer-tcp-idle-timeout.md)
+* [为负载均衡器配置空闲 TCP 超时设置](load-balancer-tcp-idle-timeout.md)
 <!-- Update_Description: update meta properties  -->

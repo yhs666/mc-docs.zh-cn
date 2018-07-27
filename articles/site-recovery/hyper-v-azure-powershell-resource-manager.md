@@ -6,15 +6,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 03/08/2018
-ms.date: 06/18/2018
+origin.date: 07/06/2018
+ms.date: 07/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 3c81b02014bddafa8fd1c708c803b84489dcf511
-ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
+ms.openlocfilehash: d8eb1153b3c976a10c9f4e0647c915b9d748e543
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2018
-ms.locfileid: "35568329"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168347"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>使用 PowerShell 和 Azure 资源管理器对 Hyper-V VM 设置到 Azure 的灾难恢复
 
@@ -45,8 +45,8 @@ Azure PowerShell 提供用于通过 Windows PowerShell 管理 Azure 的 cmdlet�
 
 ## <a name="step-1-sign-in-to-your-azure-account"></a>步骤 1：登录到 Azure 帐户
 
-1. 打开 PowerShell 控制台，并运行以下命令以登录到 Azure 帐户。 该 cmdlet 会打开一个网页，提示输入帐户凭据：**Connect-AzureRmAccount -Environment AzureChinaCloud **。
-    - 也可使用 **-Credential** 参数将帐户凭据作为参数包含在 **Connect-AzureRmAccount -Environment AzureChinaCloud ** cmdlet 中。
+1. 打开 PowerShell 控制台，并运行以下命令以登录到 Azure 帐户。 该 cmdlet 会打开一个网页，提示输入帐户凭据：**Connect-AzureRmAccount -Environment AzureChinaCloud**。
+    - 也可使用 **-Credential** 参数将帐户凭据作为参数包含在 **Connect-AzureRmAccount -Environment AzureChinaCloud** cmdlet 中。
 <!-- Not Available on CSP partner working on behalf of a tenant -->
 2. 一个帐户可以有多个订阅，因此请将需要使用的订阅与帐户关联在一起：
 

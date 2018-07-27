@@ -2,18 +2,18 @@
 title: 使用服务主体自动完成 Azure Analysis Services 任务 | Azure
 author: rockboyfor
 manager: digimobile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 origin.date: 05/15/2018
-ms.date: 06/18/2018
+ms.date: 07/16/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6cbd010e2d0d6f69d77523aff4712daa8ec7f976
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 9beedfa2472ca0ce1f30446fbfe3ab0d8dd8dbab
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "35416866"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167916"
 ---
 # <a name="automation-with-service-principals"></a>使用服务主体进行自动化
 
@@ -86,5 +86,4 @@ db.Model.SaveChanges();
 ## <a name="next-steps"></a>后续步骤
 [使用 Azure PowerShell 登录](https://docs.microsoft.com/powershell/azure/authenticate-azureps)   
 [将服务主体添加到服务器管理员角色](analysis-services-addservprinc-admins.md)
-<!-- Update_Description: new articles on analysis services service principal -->
-<!--ms.date: 06/18/2018-->
+<!-- Update_Description: update meta porperties -->

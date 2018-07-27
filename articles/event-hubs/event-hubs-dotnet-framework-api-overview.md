@@ -2,28 +2,24 @@
 title: Azure 事件中心 .NET Framework API 概述 | Azure
 description: 汇总了一些重要的事件中心 .NET Framework 客户端 API。
 services: event-hubs
-documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: ''
-ms.assetid: 7f3b6cc0-9600-417f-9e80-2345411bd036
 ms.service: event-hubs
 ms.devlang: dotnet
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-origin.date: 12/19/2017
-ms.date: 02/26/2018
+origin.date: 06/13/2018
+ms.date: 07/16/2018
 ms.author: v-yeche
-ms.openlocfilehash: f426817a55eeb0c1165b101f4d0086df0c8ef136
-ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
+ms.openlocfilehash: 47922186d4b1f97d9ffe0c37eedb1b5e708bb807
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/23/2018
-ms.locfileid: "29527538"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167668"
 ---
 # <a name="event-hubs-net-framework-api-overview"></a>事件中心 .NET Framework API 概述
-本文汇总了一些重要的事件中心 .NET Framework 客户端 API。 有两个类别：管理 API 和运行时 API。 运行时 API 包括发送和接收消息所需的全部操作。 借助管理操作，可以通过创建、更新和删除实体来管理事件中心实体状态。
+
+本文汇总了一些重要的 Azure 事件中心 [.NET Framework 客户端 API](https://www.nuget.org/packages/WindowsAzure.ServiceBus/)。 有两个类别：管理 API 和运行时 API。 运行时 API 包括发送和接收消息所需的全部操作。 借助管理操作，可以通过创建、更新和删除实体来管理事件中心实体状态。
 
 监视方案跨越管理和运行时。 有关 .NET API 的详细参考文档，请参阅[服务总线 .NET](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging) 和 [EventProcessorHost API](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) 参考。
 <!-- Not Available on [Monitoring scenarios](event-hubs-metrics-azure-monitor.md) -->
@@ -138,7 +134,7 @@ await host.RegisterEventProcessorAsync<SimpleEventProcessor>();
 await host.UnregisterEventProcessorAsync();
 ```
 
-[IEventProcessor](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.ieventprocessor) 接口定义如下：
+[IEventProcessor](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicebus.messaging.ieventprocessor?view=azure-dotnet) 接口定义如下：
 
 ```csharp
 public class SimpleEventProcessor : IEventProcessor
@@ -181,6 +177,7 @@ public class SimpleEventProcessor : IEventProcessor
 ```
 
 ## <a name="next-steps"></a>后续步骤
+
 若要了解有关事件中心方案的详细信息，请访问以下链接：
 
 * [什么是 Azure 事件中心？](event-hubs-what-is-event-hubs.md)
@@ -188,7 +185,7 @@ public class SimpleEventProcessor : IEventProcessor
 
 下面提供了 .NET API 参考：
 
-* [Microsoft.ServiceBus.Messaging](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging)
-* [Microsoft.Azure.EventHubs.EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost)
+* [Microsoft.ServiceBus.Messaging](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicebus.messaging?view=azure-dotnet)
+* [Microsoft.Azure.EventHubs.EventProcessorHost](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost?view=azure-dotnet)
 
 <!--Update_Description: update meta properties, wording update -->

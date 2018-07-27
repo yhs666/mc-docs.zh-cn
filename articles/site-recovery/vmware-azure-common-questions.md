@@ -5,16 +5,16 @@ services: site-recovery
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
-ms.topic: article
-origin.date: 03/15/2018
-ms.date: 05/07/2018
+origin.date: 07/06/2018
+ms.date: 07/23/2018
+ms.topic: conceptual
 ms.author: v-yeche
-ms.openlocfilehash: f5211ee1fd9b39e0b80d0b17bc67ff71ef1f2fbe
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: 9e21271a7d9201e30b64e7671913b103771d21bb
+ms.sourcegitcommit: f7ff09be9f3be5e3eb795e383c0c670f480f233d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33815251"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39169031"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>常见问题 - VMware 到 Azure 的复制
 
@@ -39,7 +39,7 @@ ms.locfileid: "33815251"
 需要 LRS 或 GRS 存储帐户。 建议使用 GRS，以便在发生区域性故障或无法恢复主要区域时，能够复原数据。 支持高级存储。
 
 ### <a name="does-my-azure-account-need-permissions-to-create-vms"></a>我的 Azure 帐户是否需要拥有创建 VM 的权限？
-如果你是订阅管理员，则已经获得了所需的复制权限。 否则，需要有权在配置 Site Reocvery 时指定的资源组和虚拟网络中创建 Azure VM，并有权写入选定的存储帐户。 [了解详细信息](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines)。
+如果你是订阅管理员，则已经获得了所需的复制权限。 否则，需要有权在配置 Site Recovery 时指定的资源组和虚拟网络中创建 Azure VM，并有权写入选定的存储帐户。 [了解详细信息](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines)。
 
 ## <a name="on-premises"></a>本地 
 
@@ -117,7 +117,7 @@ Site Recovery 通过公共终结点或使用 ExpressRoute 公共对等互连将�
 虽然可以这样做，但运行配置服务器的 Azure VM 需要与本地的 VMware 基础结构和 VM 通信。 产生的开销可能导致这种做法不切实际。
 
 ### <a name="where-can-i-get-the-latest-version-of-the-configuration-server-template"></a>在哪里可以获取最新版本的配置服务器模板？
-可以从 [Microsoft 下载中心](http://aka\.ms/asrconfigurationserver_bjb)下载最新版本。
+可以从[下载中心](https://aka.ms/asrconfigurationserver_bjb)下载最新版本。
 
 ### <a name="how-do-i-update-the-configuration-server"></a>如何更新配置服务器？
 请安装更新汇总。 可以在 [wiki 更新页](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx)中找到最新的更新信息。

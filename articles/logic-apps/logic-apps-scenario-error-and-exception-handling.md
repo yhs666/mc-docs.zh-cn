@@ -4,7 +4,7 @@ description: 介绍 Azure 逻辑应用的高级异常处理和错误日志记录
 keywords: ''
 services: logic-apps
 author: hedidin
-manager: anneta
+manager: jeconnoc
 editor: ''
 documentationcenter: ''
 ms.assetid: 63b0b843-f6b0-4d9a-98d0-17500be17385
@@ -16,13 +16,13 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 origin.date: 07/29/2016
 ms.author: v-yiso
-ms.date: 03/19/2018
-ms.openlocfilehash: e9651b53621aa27f51d0437e6fcc3a64e77d61af
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.date: 07/30/2018
+ms.openlocfilehash: 1f914c555220c308ecfbe4e8ea63c181ac6ae531
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29870605"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167823"
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>方案：逻辑应用的异常处理和错误日志记录
 
@@ -441,7 +441,7 @@ ms.locfileid: "29870605"
 
 Azure Cosmos DB 中的每个文档都必须具有唯一 ID。 我们使用 `PatientId` 并添加戳转换为 Unix 时间戳值（双精度型）的时间戳。 将该值截断以删除小数值。
 
-可以[从 GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi/blob/master/Logic App Exception Management API/Controllers/ErrorController.cs) 查看我们的错误控制器 API 的源代码。
+可以从 [GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi/blob/master/LogicAppsExceptionManagementApi/Controllers/LogController.cs) 查看我们的错误控制器 API 的源代码。
 
 使用以下语法从逻辑应用调用该 API：
 

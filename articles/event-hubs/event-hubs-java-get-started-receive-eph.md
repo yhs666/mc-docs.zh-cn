@@ -2,25 +2,20 @@
 title: 使用 Java 从 Azure 事件中心接收事件 | Azure
 description: 使用 Java 从事件中心接收入门
 services: event-hubs
-documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: ''
-ms.assetid: 38e3be53-251c-488f-a856-9a500f41b6ca
 ms.service: event-hubs
 ms.workload: core
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-origin.date: 03/21/2018
-ms.date: 04/30/2018
+origin.date: 06/12/2018
+ms.date: 07/16/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4ec4568ebb9c0cef6e33087c25816fe428a15fd5
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 65e507df0edffac3bef8eeea534df7999bcf799a
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121445"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167824"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-java"></a>使用 Java 从 Azure 事件中心接收事件
 
@@ -35,7 +30,7 @@ ms.locfileid: "32121445"
 若要完成本教程，需要具备以下先决条件：
 
 * Java 开发环境。 对于本教程，我们采用 [Eclipse](https://www.eclipse.org/)。
-* 有效的 Azure 帐户。 如果没有 Azure 订阅，请在开始前创建[试用帐户][]。
+* 有效的 Azure 帐户。 如果没有 Azure 订阅，请在开始前创建一个[试用帐户][]。
 
 本教程中的代码基于 [GitHub 上的 EventProcessorSample 代码](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/EventProcessorSample)，可检查该代码以查看完整的工作应用程序。
 
@@ -189,18 +184,14 @@ ms.locfileid: "32121445"
     {
         private int checkpointBatchingCount = 0;
 
-        // OnOpen is called when a new event processor instance is created by the host. In a real implementation, this
-        // is the place to do initialization so that events can be processed when they arrive, such as opening a database
-        // connection.
+        // OnOpen is called when a new event processor instance is created by the host. 
         @Override
         public void onOpen(PartitionContext context) throws Exception
         {
             System.out.println("SAMPLE: Partition " + context.getPartitionId() + " is opening");
         }
 
-        // OnClose is called when an event processor instance is being shut down. The reason argument indicates whether the shut down
-        // is because another host has stolen the lease for this partition or due to error or host shutdown. In a real implementation,
-        // this is the place to do cleanup for resources that were opened in onOpen.
+        // OnClose is called when an event processor instance is being shut down. 
         @Override
         public void onClose(PartitionContext context, CloseReason reason) throws Exception
         {
@@ -208,18 +199,13 @@ ms.locfileid: "32121445"
         }
 
         // onError is called when an error occurs in EventProcessorHost code that is tied to this partition, such as a receiver failure.
-        // It is NOT called for exceptions thrown out of onOpen/onClose/onEvents. EventProcessorHost is responsible for recovering from
-        // the error, if possible, or shutting the event processor down if not, in which case there will be a call to onClose. The
-        // notification provided to onError is primarily informational.
         @Override
         public void onError(PartitionContext context, Throwable error)
         {
             System.out.println("SAMPLE: Partition " + context.getPartitionId() + " onError: " + error.toString());
         }
 
-        // onEvents is called when events are received on this partition of the Event Hub. The maximum number of events in a batch
-        // can be controlled via EventProcessorOptions. Also, if the "invoke processor after receive timeout" option is set to true,
-        // this method will be called with null when a receive timeout occurs.
+        // onEvents is called when events are received on this partition of the Event Hub. 
         @Override
         public void onEvents(PartitionContext context, Iterable<EventData> events) throws Exception
         {
@@ -227,8 +213,6 @@ ms.locfileid: "32121445"
             int eventCount = 0;
             for (EventData data : events)
             {
-                // It is important to have a try-catch around the processing of each event. Throwing out of onEvents deprives
-                // you of the chance to process any remaining events in the batch. 
                 try
                 {
                     System.out.println("SAMPLE (" + context.getPartitionId() + "," + data.getSystemProperties().getOffset() + "," +
@@ -237,10 +221,7 @@ ms.locfileid: "32121445"
 
                     // Checkpointing persists the current position in the event stream for this partition and means that the next
                     // time any host opens an event processor on this event hub+consumer group+partition combination, it will start
-                    // receiving at the event after this one. Checkpointing is usually not a fast operation, so there is a tradeoff
-                    // between checkpointing frequently (to minimize the number of events that will be reprocessed after a crash, or
-                    // if the partition lease is stolen) and checkpointing infrequently (to reduce the impact on event processing
-                    // performance). Checkpointing every five events is an arbitrary choice for this sample.
+                    // receiving at the event after this one. 
                     this.checkpointBatchingCount++;
                     if ((checkpointBatchingCount % 5) == 0)
                     {
@@ -261,12 +242,10 @@ ms.locfileid: "32121445"
     }
     ```
 
-> [!NOTE]
-> 本教程使用了一个 EventProcessorHost 实例。 若要增加吞吐量，建议运行多个 EventProcessorHost 实例，最好是在单独的计算机上运行。  这也会提供冗余。 在那些情况下，为了对接收到的事件进行负载均衡，各个不同实例会自动相互协调。 如果希望多个接收方都各自处理 *全部* 事件，则必须使用 **ConsumerGroup** 概念。 从不同计算机中接收事件时，根据部署 EventProcessorHost 实例的计算机（或角色）来指定这些实例的名称可能会很有用。
-> 
-> 
+本教程使用了一个 EventProcessorHost 实例。 若要增加吞吐量，建议运行多个 EventProcessorHost 实例，最好是在单独的计算机上运行。  这也会提供冗余。 在那些情况下，为了对接收到的事件进行负载均衡，各个不同实例会自动相互协调。 如果希望多个接收方都各自处理 *全部* 事件，则必须使用 **ConsumerGroup** 概念。 从不同计算机中接收事件时，根据部署 EventProcessorHost 实例的计算机（或角色）来指定这些实例的名称可能会很有用。
 
 ## <a name="next-steps"></a>后续步骤
+
 访问以下链接可以了解有关事件中心的详细信息：
 
 * [事件中心概述](event-hubs-what-is-event-hubs.md)
@@ -281,6 +260,4 @@ ms.locfileid: "32121445"
 
 <!-- Images -->
 <!-- Not Available on [11]: ./media/service-bus-event-hubs-get-started-receive-ephjava/create-eph-csharp2.png -->
-<!-- Not Available on [12]: ./media/service-bus-event-hubs-get-started-receive-ephjava/create-eph-csharp3.png -->
-[试用帐户]: https://www.azure.cn/pricing/1rmb-trial/
-<!--Update_Description: update meta properties, wording update -->
+<!-- Not Available on [12]: ./media/service-bus-event-hubs-get-started-receive-ephjava/create-eph-csharp3.png --> [试用帐户]：https://www.azure.cn/pricing/1rmb-trial/ <!--Update_Description: update meta properties, wording update -->

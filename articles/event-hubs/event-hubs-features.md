@@ -5,26 +5,24 @@ services: event-hubs
 documentationcenter: .net
 author: rockboyfor
 manager: digimobile
-editor: ''
-ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 03/02/2018
-ms.date: 04/02/2018
+origin.date: 06/08/2018
+ms.date: 07/16/2018
 ms.author: v-yeche
-ms.openlocfilehash: 9ed3f50321ab82a76d78d20264f882e8b37ddf24
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: 78bb235610082ac16d89af7b665840bab29e09f7
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30222732"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167754"
 ---
 # <a name="event-hubs-features-overview"></a>事件中心功能概述
 
-Azure 事件中心是可缩放的事件处理服务，它引入并处理大量事件和数据，具有低延迟和高可靠性。 有关服务的高级概述，请参阅[什么是事件中心？](event-hubs-what-is-event-hubs.md)。
+Azure 事件中心是可缩放的事件处理服务，它引入并处理大量事件和数据，具有低延迟和高可靠性。 有关简要概述，请参阅[什么是事件中心？](event-hubs-what-is-event-hubs.md)。
 
 本文基于[概述文章](event-hubs-what-is-event-hubs.md)中的信息编写，并提供有关事件中心组件和功能的技术和实现详细信息。
 
@@ -46,7 +44,7 @@ Azure 事件中心是可缩放的事件处理服务，它引入并处理大量�
 
 事件中心可让你通过发布者策略对事件发布者进行精细控制。 发布者策略是运行时功能，旨在为大量的独立事件发布者提供方便。 借助发布者策略，每个发布者在使用以下机制将事件发布到事件中心时可以使用自身的唯一标识符：
 
-```
+```http
 //[my namespace].servicebus.chinacloudapi.cn/[event hub name]/publishers/[my publisher name]
 ```
 
@@ -126,7 +124,7 @@ Azure 事件中心是可缩放的事件处理服务，它引入并处理大量�
 
 #### <a name="connect-to-a-partition"></a>连接到分区
 
-在连接到分区时，常见的做法是使用租用机制来协调读取者与特定分区的连接。 这样，便可以做到一个使用者组中每分区只有一个活动的读取者。 使用 .NET 客户端的 [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost) 类可以简化检查点、租用和读取者管理功能。 事件处理程序主机是智能使用者代理。
+在连接到分区时，常见的做法是使用租用机制来协调读取者与特定分区的连接。 这样，便可以做到一个使用者组中每分区只有一个活动的读取者。 使用 .NET 客户端的 [EventProcessorHost](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost?view=azure-dotnet) 类可以简化检查点、租用和读取者管理功能。 事件处理程序主机是智能使用者代理。
 
 #### <a name="read-events"></a>读取事件
 
@@ -149,14 +147,14 @@ Azure 事件中心是可缩放的事件处理服务，它引入并处理大量�
 
 事件中心的吞吐量容量由吞吐量单位 控制。 吞吐量单位是预先购买的容量单位。 单个吞吐量单位包括以下容量：
 
-* 入口：最高每秒 1 MB 或每秒 1000 个事件（以先达到的限制为准）
-* 出口：最高每秒 2 MB
+* 入口：最高每秒 1 MB 或每秒 1000 个事件（以先达到的限制为准）。
+* 出口：最高每秒 2 MB，或每秒 4096 个事件。
 
-超出所购吞吐量单位的容量时，入口受限，返回 [ServerBusyException](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.serverbusyexception)。 出口不会出现限制异常，但仍受限于所购买吞吐量单位的容量。 如果收到发布速率异常或者预期会看到更高的出口，请务必检查为命名空间购买了多少吞吐量单位。 可以在 [Azure 门户](https://portal.azure.cn)中命名空间的“规模”边栏选项卡上管理吞吐量单位。 也可使用[事件中心 API](event-hubs-api-overview.md) 以编程方式管理吞吐量单位。
+超出所购吞吐量单位的容量时，入口受限，返回 [ServerBusyException](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.eventhubs.serverbusyexception?view=azure-dotnet)。 出口不会出现限制异常，但仍受限于所购买吞吐量单位的容量。 如果收到发布速率异常或者预期会看到更高的出口，请务必检查为命名空间购买了多少吞吐量单位。 可以在 [Azure 门户](https://portal.azure.cn)中命名空间的“规模”边栏选项卡上管理吞吐量单位。 也可使用[事件中心 API](event-hubs-api-overview.md) 以编程方式管理吞吐量单位。
 
-吞吐量单位按小时计费，需提前购买。 购买后，吞吐量单位的最短计费时限为一小时。 最多可为事件中心命名空间购买 20 个吞吐量单位，并在命名空间中的所有事件中心之间共享。
+吞吐量单位按小时计费，需提前购买。 购买后，吞吐量单位的最短计费时限为一小时。 最多可以为一个事件中心命名空间购买 20 个吞吐量单位，这些单位跨此命名空间内的所有事件中心进行共享。
 
-联系 Azure 支持，可按 20 个单位为一块的方式，购买更多的吞吐量单位（最多 100 个）。 除此之外，也可以购买包含 100 个吞吐量单位的块。
+联系 Azure 支持，可按 20 个单位为一块的方式，购买更多的吞吐量单位（最多 100 个）。 除此之外，还可以购买包含 100 个吞吐量单位的块级元素。
 
 建议权衡吞吐量单位和分区数目，实现最佳缩放。 一个分区最多只能缩放一个吞吐量单位。 吞吐量单位数应小于或等于事件中心内的分区数。
 

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 05/10/2018
-ms.date: 05/23/2018
+origin.date: 06/28/2018
+ms.date: 07/20/2018
 ms.author: v-junlch
-ms.openlocfilehash: a19c8bca3890992c05caade610b65f1d0f56c126
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: add8b0baf2a52262e38f74c8e98d67288452e4fc
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34474954"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168413"
 ---
 # <a name="create-a-virtual-machine-and-install-a-certificate-retrieved-from-an-azure-stack-key-vault"></a>创建虚拟机，并安装从 Azure Stack 密钥保管库检索到的证书
 
@@ -44,8 +44,8 @@ ms.locfileid: "34474954"
 2. 更新 azuredeploy.parameters.json 文件。
 3. 部署模板
 
->[!NOTE]
->可以通过 Azure Stack 开发工具包或者外部客户端（如果已通过 VPN 建立连接）执行这些步骤。
+> [!NOTE]
+> 可以通过 Azure Stack 开发工具包或者外部客户端（如果已通过 VPN 建立连接）执行这些步骤。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -57,8 +57,8 @@ ms.locfileid: "34474954"
 
 以下脚本会创建 .pfx 格式的证书、创建密钥保管库，并将该证书作为机密存储在密钥保管库中。
 
->[!IMPORTANT]
->创建密钥保管库时，必须使用 `-EnabledForDeployment` 参数。 此参数可确保能够从 Azure 资源管理器模板引用密钥保管库。
+> [!IMPORTANT]
+> 创建密钥保管库时，必须使用 `-EnabledForDeployment` 参数。 此参数可确保能够从 Azure 资源管理器模板引用密钥保管库。
 
 ```powershell
 

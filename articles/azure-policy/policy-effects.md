@@ -5,17 +5,17 @@ services: azure-policy
 author: WenJason
 ms.author: v-jay
 origin.date: 05/24/2018
-ms.date: 07/09/2018
+ms.date: 07/23/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: digimobile
 ms.custom: mvc
-ms.openlocfilehash: 5b49acaea8cf41de9cae0d7a953e77df8679e97d
-ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
+ms.openlocfilehash: 6c9321b6031913b4763f01d291fcefc2fda15cfc
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37405445"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167805"
 ---
 # <a name="understanding-policy-effects"></a>了解策略效果
 
@@ -91,7 +91,7 @@ Azure 策略中的每个策略定义都具有单一效果，在策略规则的 i
 "then": {
     "effect": "append",
     "details": [{
-        "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]",
+        "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
         "value": [{
             "action": "Allow",
             "value": "134.5.0.0/21"
@@ -126,7 +126,7 @@ Azure 策略中的每个策略定义都具有单一效果，在策略规则的 i
 
 ## <a name="audit"></a>审核
 
-“审核”效果用于评估不合规资源时在审核日志中创建警告事件，但不会停止请求。
+“审核”效果用于评估不合规资源时在活动日志中创建警告事件，但不会停止请求。
 
 ### <a name="audit-evaluation"></a>审核评估
 

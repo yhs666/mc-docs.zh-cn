@@ -13,14 +13,14 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/10/2017
-ms.date: 03/02/2018
+ms.date: 07/20/2018
 ms.author: v-junlch
-ms.openlocfilehash: 639825c60717e0525c9b8536873cba637d070bc7
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: e727a3b402017b2ad2c41dbf8932cda1c0d94351
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
-ms.locfileid: "29798109"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168238"
 ---
 # <a name="monitor-health-and-alerts-in-azure-stack"></a>在 Azure Stack 中监视运行状况和警报
 
@@ -33,6 +33,17 @@ Azure Stack 包含基础结构监视功能，可用于查看 Azure Stack 区域�
  ## <a name="understand-health-in-azure-stack"></a>了解 Azure Stack 中的运行状况
 
  运行状况和警报由运行状况资源提供程序管理。 在 Azure Stack 部署和配置期间，Azure Stack 基础结构组件将注册到运行状况资源提供程序。 注册后，可以显示每个组件的运行状况和警报。 Azure Stack 中的“运行状况”是个简单的概念。 如果组件的已注册实例存在警报，该组件的运行状况会反映最不利的活动警报的严重性：警告或严重。
+
+## <a name="alert-severity-definition"></a>警报严重性定义
+
+在 Azure Stack 中引发的警报只有两个严重级别：**警告**和**严重**。
+
+**警告**  
+操作员可以按计划方式处理警告警报。 该警报通常不会影响用户工作负荷。
+
+**严重**  
+操作员应紧急处理严重警报。 这些警报是目前影响或将很快影响 Azure Stack 用户的问题。 
+
  
  ## <a name="view-and-manage-component-health-state"></a>查看和管理组件运行状况
  
@@ -78,3 +89,4 @@ Azure Stack 包含基础结构监视功能，可用于查看 Azure Stack 区域�
 
 [Azure Stack 中的区域管理](azure-stack-region-management.md)
 
+<!-- Update_Description: wording update -->

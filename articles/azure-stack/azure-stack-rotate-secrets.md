@@ -12,15 +12,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/15/2018
-ms.date: 05/24/2018
+ms.date: 07/20/2018
 ms.author: v-junlch
 ms.reviewer: ppacent
-ms.openlocfilehash: ddef05d9fa412858f54678cae37937bc9740cbd8
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: f6040135ff728d9b63aef5b078e7b3e17e1d92e3
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34474965"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168250"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>在 Azure Stack 中轮换机密
 
@@ -85,11 +85,12 @@ Azure Stack 使用各种机密来维持 Azure Stack 基础结构资源与服务�
     > [!note]  
     > 后续步骤仅适用于轮换 Azure Stack 外部机密。
 
-2.  准备新的替换外部证书集。 新集与 [Azure Stack PKI 证书要求](/azure-stack/azure-stack-pki-certs)中所述的证书规范匹配。
-3.  将用于轮换的证书备份存储在安全的备份位置。 如果运行轮换时发生失败，请使用备份副本替换文件共享中的证书，然后重新运行轮换。 请记得将备份副本保存在安全的备份位置。
-3.  创建可从 ERCS VM 访问的文件共享。 该文件共享必须可供 **CloudAdmin** 标识读取和写入。
-4.  在可以访问该文件共享的计算机上打开 PowerShell ISE 控制台。 导航到该文件共享。 
-5.  运行 **[CertDirectoryMaker.ps1](http://www.aka.ms/azssecretrotationhelper)** 创建外部证书所需的目录。
+2. 请确保在过去一个月内未在环境中成功执行机密轮换。 目前，Azure Stack 仅支持每月机密轮换一次。 
+3. 准备新的替换外部证书集。 新集与 [Azure Stack PKI 证书要求](/azure-stack/azure-stack-pki-certs)中所述的证书规范匹配。
+4.  将用于轮换的证书备份存储在安全的备份位置。 如果运行轮换时发生失败，请使用备份副本替换文件共享中的证书，然后重新运行轮换。 请记得将备份副本保存在安全的备份位置。
+5.  创建可从 ERCS VM 访问的文件共享。 该文件共享必须可供 **CloudAdmin** 标识读取和写入。
+6.  在可以访问该文件共享的计算机上打开 PowerShell ISE 控制台。 导航到该文件共享。 
+7.  运行 **[CertDirectoryMaker.ps1](http://www.aka.ms/azssecretrotationhelper)** 创建外部证书所需的目录。
 
 ## <a name="rotating-external-and-internal-secrets"></a>轮换外部和内部机密
 

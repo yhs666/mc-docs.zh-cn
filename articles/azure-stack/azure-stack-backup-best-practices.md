@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 04/20/2017
-ms.date: 05/24/2018
+ms.date: 07/20/2018
 ms.author: v-junlch
 ms.reviewer: hectorl
-ms.openlocfilehash: f147130bb841b3d58fd7285257f899c0e2813a98
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: a2206f67688848f861462c7ef9b4fb8b4561de79
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475086"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168339"
 ---
 # <a name="infrastructure-backup-service-best-practices"></a>基础结构备份服务最佳做法
 
@@ -43,9 +43,7 @@ ms.locfileid: "34475086"
 
 ### <a name="encryption"></a>Encryption
 
-加密密钥用来对导出到外部存储的备份数据进行加密。 可以使用 AzureStack-Tools 生成密钥。 
-
-![AzureStack-Tools](media\azure-stack-backup\azure-stack-backup-encryption1.png)
+加密密钥用来对导出到外部存储的备份数据进行加密。 密钥将在[使用 PowerShell 为 Azure Stack 启用备份](azure-stack-backup-enable-backup-powershell.md)的过程中生成。
 
 密钥必须存储在一个安全位置（例如，公共 Azure Key Vault 机密）。 在重新部署 Azure Stack 期间，必须使用此密钥。 
 
@@ -57,14 +55,14 @@ ms.locfileid: "34475086"
 
  - 基础结构备份控制器需要按需触发。 建议每天至少备份两次。
  - 备份作业在系统正在运行时执行，因此，管理体验和用户应用程序不会经历停机时间。 对于负载合理的解决方案，备份作业预计要花费 20-40 分钟。
- - 根据 OEM 提供的说明，手动备份网络交换机，并且硬件生命周期主机 (HLH) 应当存储在基础结构备份控制器在其中存储控制层备份数据的同一备份共享中。 请考虑将交换机和 HLH 配置存储在区域文件夹中。 如果在同一区域中有多个 Azure Stack 实例，请考虑为属于某个缩放单位的每个配置使用一个标识符。
+ - 根据 OEM 提供的说明，手动备份网络交换机，并且硬件生命周期主机 (HLH) 应当存储在基础结构备份控制器在其中存储控制层备份数据的同一备份共享中。 请考虑将交换机和 HLH 配置存储在区域文件夹中。 如果在同一区域中有多个 Azure Stack 实例，请考虑为属于某个缩放单元的每个配置使用一个标识符。
 
 ### <a name="folder-names"></a>文件夹名称
 
  - 基础结构会自动创建 MASBACKUP 文件夹。 这是由 Microsoft 管理的一个共享。 你可以在与 MASBACKUP 相同的级别创建共享。 建议不要在不是由 Azure Stack 创建的 MASBACKUP 内创建文件夹或存储数据。 
  -  在文件夹名称中使用 FQDN 和区域来区分来自不同云的备份数据。 Azure Stack 部署和终结点的完全限定的域名 (FQDN) 是区域参数和外部域名参数的组合。 有关详细信息，请参阅 [Azure Stack 数据中心集成 - DNS](azure-stack-integrate-dns.md)。
 
-例如，备份共享是 fileserver01.contoso.com 上托管的 AzSBackups。在该文件共享中，每个 Azure Stack 部署可能有一个使用外部域名的文件夹和一个使用区域名称的子文件夹。 
+例如，备份共享是 fileserver01.contoso.com 上托管的 AzSBackups。 在该文件共享中，每个 Azure Stack 部署可能有一个使用外部域名的文件夹和一个使用区域名称的子文件夹。 
 
 FQDN：contoso.com  
 区域：nyc
@@ -101,4 +99,4 @@ MASBackup 文件夹是 Azure Stack 存储其备份数据的地方。 不应使�
  - 查看[基础结构备份服务](azure-stack-backup-reference.md)的参考资料。  
  - 启用[基础结构备份服务](azure-stack-backup-enable-backup-console.md)。
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

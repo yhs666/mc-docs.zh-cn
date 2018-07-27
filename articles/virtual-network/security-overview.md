@@ -1,6 +1,6 @@
 ---
-title: Azure 网络安全概述 | Azure
-description: 了解用于控制 Azure 资源之间的网络流量流的安全选项。
+title: Azure 安全组概述 | Azure
+description: 了解网络和应用程序安全组。 安全组可以帮助你筛选 Azure 资源之间的网络流量。
 services: virtual-network
 documentationcenter: na
 author: rockboyfor
@@ -13,22 +13,22 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/19/2017
-ms.date: 06/11/2018
+ms.date: 07/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: ade346cebca3cfa248b08e7602cc2f57a5a62aca
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: 74490daed855229d2a7776d1bdb5237d881676a3
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34868482"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167820"
 ---
-# <a name="network-security"></a>网络安全性
+# <a name="network-and-application-security-groups"></a>网络和应用程序安全组
 
-可以使用网络安全组限制发往虚拟网络中的资源的网络流量。 网络安全组包含一个安全规则列表，这些规则可根据源或目标 IP 地址、端口和协议允许或拒绝入站或出站网络流量。 
+可以使用网络和应用程序安全组限制发往虚拟网络中的资源的网络流量。 网络安全组包含一个安全规则列表，这些规则可根据源或目标 IP 地址、端口和协议允许或拒绝入站或出站网络流量。 使用应用程序安全组可以将功能类似的虚拟机（例如 Web 服务器）分组在一起。 可将应用程序安全组指定为网络安全组规则中的源或目标。
 
 ## <a name="network-security-groups"></a>网络安全组
 
-每个网络接口有零个或一个关联的网络安全组。 每个网络接口位于[虚拟网络](virtual-networks-overview.md)子网中。 一个子网也可以有零个或一个关联的网络安全组。 
+每个网络接口有零个或一个关联的网络安全组。 每个网络接口位于[虚拟网络](virtual-networks-overview.md)子网中。 一个子网也可以有零个或一个关联的网络安全组。
 
 应用到某个子网时，安全规则会应用到该子网中的所有资源。 除了部署网络接口以外，还可以在子网中部署其他 Azure 服务的实例，例如 HDInsight、虚拟机规模集和应用程序服务环境。
 
@@ -125,13 +125,13 @@ ms.locfileid: "34868482"
 * **AzureLoadBalancer** (Resource Manager)（如果是经典部署模型，则为 **AZURE_LOADBALANCER**）：此标记表示 Azure 的基础结构负载均衡器。 此标记将转换为 [Azure 数据中心 IP 地址](https://www.microsoft.com/download/details.aspx?id=42064)，Azure 的运行状况探测源于该 IP。 如果不使用 Azure 负载均衡器，则可替代此规则。
 * **Internet**（资源管理器）（如果是经典部署模型，则为 **INTERNET**）：此标记表示虚拟网络外部的 IP 地址空间，可以通过公共 Internet 进行访问。 地址范围包括 [Azure 拥有的公共 IP 地址空间](https://www.microsoft.com/download/details.aspx?id=42064)。
 * **AzureTrafficManager**（仅限资源管理器）：此标记表示 Azure 流量管理器探测 IP 的 IP 地址空间。 有关流量管理器探测 IP 的详细信息，请参阅 [Azure 流量管理器常见问题解答](/traffic-manager/traffic-manager-faqs)。
-* **Storage**（仅限资源管理器）：此标记表示 Azure 存储服务的 IP 地址空间。 如果指定 *Storage* 作为值，则会允许或拒绝发往存储的流量。 如果只想允许对某个特定[区域](https://azure.microsoft.com/regions)中的存储进行访问，可以指定该区域。 例如，如果希望只允许访问中国东部区域中的 Azure 存储，可以指定 *Storage.ChinaEast* 作为服务标记。 标记表示服务而不是服务的特定实例。 例如，标记可表示 Azure 存储服务，但不能表示特定的 Azure 存储帐户。 由此标记表示的所有地址前缀也由 **Internet** 标记表示。
-* **Sql**（仅限资源管理器）：此标记表示 Azure SQL 数据库和 Azure SQL 数据仓库服务的地址前缀。 如果指定 *Sql* 作为值，则会允许或拒绝发往 Sql 的流量。 如果只想允许对某个特定[区域](https://azure.microsoft.com/regions)中的 Sql 进行访问，可以指定该区域。 例如，如果希望只允许访问中国东部区域中的 Azure SQL 数据库，可以指定 *Sql.ChinaEast* 作为服务标记。 标记表示服务而不是服务的特定实例。 例如，标记可表示 Azure SQL 数据库服务，但不能表示特定的 SQL 数据库或服务器。 由此标记表示的所有地址前缀也由 **Internet** 标记表示。
 * **AzureCosmosDB**（仅限资源管理器）：此标记表示 Azure Cosmos 数据库服务的地址前缀。 如果指定 *AzureCosmosDB* 作为值，则会允许或拒绝发往 AzureCosmosDB 的流量。 如果仅希望允许访问特定[区域](https://azure.microsoft.com/regions)中的 AzureCosmosDB，则可以在以下格式的 AzureCosmosDB.[region name] 中指定区域。
 * **AzureKeyVault**（仅限资源管理器）：此标记表示 Azure KeyVault 服务的地址前缀。 如果指定 *AzureKeyVault* 作为值，则会允许或拒绝发往 AzureKeyVault 的流量。 如果仅希望允许访问特定[区域](https://azure.microsoft.com/regions)中的 AzureKeyVault，则可以在以下格式的 AzureKeyVault.[region name] 中指定区域。
+<!-- Notice: Storage and Sql not supported on MC -->
 
 > [!NOTE]
-> Azure 服务的服务标记表示来自所使用的特定云的地址前缀。 区域服务标记（例如存储，Sql）在国家云中不受支持，仅在全球格式中受支持。
+> Azure 服务的服务标记表示来自所使用的特定云的地址前缀。 
+<!-- Notice: Not Available on Regional service tags are not supported on national clouds, only in global format, e.g. Storage, Sql.-->
 
 > [!NOTE]
 > 如果为某个服务（例如 Azure 存储或 Azure SQL 数据库）实现了[虚拟网络服务终结点](virtual-network-service-endpoints-overview.md)，Azure 会将路由添加到该服务的虚拟网络子网。 路由中的地址前缀与相应服务标记的地址前缀或 CIDR 范围相同。
@@ -140,7 +140,7 @@ ms.locfileid: "34868482"
 
 使用应用程序安全组可将网络安全性配置为应用程序结构的固有扩展，从而可以基于这些组将虚拟机分组以及定义网络安全策略。 借助此功能，可以大量重复使用安全策略，而无需手动维护显式 IP 地址。 平台会处理显式 IP 地址和多个规则集存在的复杂性，让你专注于业务逻辑。
 
-可将应用程序安全组指定为安全规则中的源和目标。 定义安全策略后，可以创建虚拟机，并将虚拟机中的网络接口分配到应用程序安全组。 该策略会根据虚拟机中每个网络接口的应用程序安全组成员身份应用。 以下示例演示如何针对订阅中的所有 Web 服务器使用应用程序安全组：
+可将一个应用程序安全组指定为安全规则中的源和目标。 不能在源和目标中指定多个应用程序安全组。 定义安全策略后，可以创建虚拟机，并将虚拟机中的网络接口分配到应用程序安全组。 该策略会根据虚拟机中每个网络接口的应用程序安全组成员身份应用。 以下示例演示如何针对订阅中的所有 Web 服务器使用应用程序安全组：
 
 1. 创建名为 *WebServers* 的应用程序安全组。
 2. 创建名为 *MyNSG* 的网络安全组。
@@ -154,7 +154,7 @@ ms.locfileid: "34868482"
 应用程序安全组具有以下约束：
 
 -   分配给应用程序安全组的所有网络接口都必须存在于分配给应用程序安全组的第一个网络接口所在的虚拟网络中。 例如，如果分配给名为 *ASG1* 的应用程序安全组的第一个网络接口位于名为 *VNet1* 的虚拟网络中，则分配给 *ASG1* 的所有后续网络接口都必须存在于 *VNet1* 中。 不能向同一应用程序安全组添加来自不同虚拟网络的网络接口。
-- 如果在安全规则中将应用程序安全组指定为源和目标，则两个应用程序安全组中的网络接口必须存在于同一虚拟网络中。 例如，如果 ASG1 包含来自 VNet1 的网络接口，ASG2 包含来自 VNet2 的网络接口，则不能在一项规则中将 ASG1 分配为源，将 ASG2 分配为目标，所有网络接口需存在于 VNet1 中。
+- 如果在安全规则中将应用程序安全组指定为源和目标，则两个应用程序安全组中的网络接口必须存在于同一虚拟网络中。 例如，如果 ASG1 包含来自 VNet1 的网络接口，ASG2 包含来自 VNet2 的网络接口，则不能在一项规则中将 ASG1 分配为源，将 ASG2 分配为目标， 所有网络接口都需要存在于 VNet1 中。
 
 ## <a name="azure-platform-considerations"></a>Azure 平台注意事项
 
@@ -168,9 +168,9 @@ ms.locfileid: "34868482"
 
      - **企业协议**：允许端口 25 的出站通信。 可以将出站电子邮件直接从虚拟机发送到外部电子邮件提供商，不受 Azure 平台的限制。 
      - **即用即付：** 阻止所有资源通过端口 25 进行出站通信。 如需将电子邮件从虚拟机直接发送到外部电子邮件提供商（不使用经身份验证的 SMTP 中继），可以请求去除该限制。 21Vianet 会自行审核和批准此类请求，并且只在进行防欺诈检查后授予相关权限。 若要提交请求，请建立一个问题类型为“技术”、“虚拟网络连接”、“无法发送电子邮件（SMTP/端口 25）”的支持案例。 在支持案例中，请详细说明为何你的订阅需要将电子邮件直接发送到邮件提供商，而不经过经身份验证的 SMTP 中继。 如果订阅得到豁免，则只有在豁免日期之后创建的虚拟机能够经端口 25 进行出站通信。
-     - **云服务提供商 (CSP)、MSDN、Azure Pass、Azure 开放许可、教育、BizSpark 和试用版**：阻止所有资源经端口 25 进行出站通信。 不能请求去除该限制，因为不会针对请求授予相关权限。 如果必须从虚拟机发送电子邮件，则必须使用 SMTP 中继服务。
-     <!-- Convert Microsoft to 21Vianet -->
-  即使 Azure 允许经端口 25 发送电子邮件，世纪互联也不能保证电子邮件提供商会接受来自你的虚拟机的入站电子邮件。 如果特定的提供商拒绝了来自你的虚拟机的邮件，你必须直接与该提供商协商解决邮件传送问题或垃圾邮件过滤问题，否则只能使用经身份验证的 SMTP 中继服务。 
+     - **MSDN、Azure Pass、Azure 开放许可、教育、BizSpark 和试用版**：阻止所有资源经端口 25 进行出站通信。 不能请求去除该限制，因为不会针对请求授予相关权限。 如果必须从虚拟机发送电子邮件，则必须使用 SMTP 中继服务。
+     - **云服务提供商**：如果无法使用安全的 SMTP 中继，通过云服务提供商消耗 Azure 资源的客户可以通过其云服务提供商创建支持案例，并请求提供商代表他们创建取消阻止案例。
+     <!-- Convert Microsoft to 21Vianet --> 即使 Azure 允许经端口 25 发送电子邮件，世纪互联也不能保证电子邮件提供商会接受来自你的虚拟机的入站电子邮件。 如果特定的提供商拒绝了来自你的虚拟机的邮件，你必须直接与该提供商协商解决邮件传送问题或垃圾邮件过滤问题，否则只能使用经身份验证的 SMTP 中继服务。 
 
 ## <a name="next-steps"></a>后续步骤
 

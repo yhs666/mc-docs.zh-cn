@@ -14,13 +14,13 @@ ms.devlang: ''
 ms.topic: reference
 origin.date: 04/30/2018
 ms.author: v-yiso
-ms.date: 07/02/2018
-ms.openlocfilehash: 50e7e3be418b82f29155d4e6fb6713f52c1e2100
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.date: 07/30/2018
+ms.openlocfilehash: e9b117e2f3044930fe95cdf1e7693bcc86f18cc7
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315655"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167928"
 ---
 # <a name="logic-apps-workflow-definitions-with-the-workflow-definition-language-schema"></a>采用工作流定义语言架构的逻辑应用工作流定义
 
@@ -126,7 +126,7 @@ ms.locfileid: "36315655"
 "rainbowColorsCount": 7 
 ```
 
-还可以获取在运行时之前不存在的值。 若要表示这些值，可以使用运行时计算的表达式。 表达式是可以包含一个或多个[函数](#functions)、[运算符](#operators)、变量、显式值或常量的序列。 在工作流定义中，可以在 JSON 字符串值中的任何位置使用表达式，只需为表达式加上 \@ 符号前缀即可。 计算表示 JSON 值的表达式时，会通过删除 @ 字符来提取表达式主体，并且始终生成另一个 JSON 值。 
+还可以获取在运行时之前不存在的值。 若要表示这些值，可以使用运行时计算的表达式。 表达式是可以包含一个或多个[函数](#functions)、[运算符](#operators)、变量、显式值或常量的序列。 在工作流定义中，可以在 JSON 字符串值中的任何位置使用表达式，只需为表达式加上 \@ 符号前缀即可。 计算表示 JSON 值的表达式时，会通过删除 \@ 字符来提取表达式主体，并且始终生成另一个 JSON 值。 
 
 例如，对于前面定义的 `customerName` 属性，可以通过在表达式中使用 [parameters()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) 函数来获取属性值，并将该值分配给 `accountName` 属性：
 
@@ -135,7 +135,7 @@ ms.locfileid: "36315655"
 "accountName": "@parameters('customerName')"
 ```
 
-字符串内插还允许使用字符串中由 @ 字符和大括号 ({}) 包装的多个表达式。 语法如下：
+字符串内插还允许在字符串中使用由 \@ 字符和大括号 ({}) 包装的多个表达式。 语法如下：
 
 ```json
 @{ "<expression1>", "<expression2>" }
@@ -147,7 +147,7 @@ ms.locfileid: "36315655"
 "customerName": "First name: @{parameters('firstName')} Last name: @{parameters('lastName')}"
 ```
 
-如果某个文本字符串以 @ 字符开头，请加上 @ 字符作为前缀，并加上另一个 @ 字符作为转义符：@@
+如果某个文本字符串以 \@ 字符开头，请加上 \@ 字符作为前缀，并加上另一个 \@ 字符作为转义符：\@\@
 
 这些示例演示如何计算表达式：
 
@@ -155,8 +155,8 @@ ms.locfileid: "36315655"
 |------------|--------| 
 | "Sophia Owen" | 返回这些字符：'Sophia Owen' |
 | "array[1]" | 返回这些字符：'array[1]' |
-| "\@@" | 以单字符字符串的形式返回这些字符：\'\@\' |   
-| " \@" | 以双字符字符串的形式返回这些字符：\' \@\' |
+| "\@\@" | 以单字符字符串的形式返回这些字符：'\@' |   
+| " \@" | 以双字符字符串的形式返回这些字符：' \@' |
 |||
 
 这些示例假设定义了 "myBirthMonth" 等于 "January"，"myAge" 等于数字 42：  
@@ -174,9 +174,9 @@ ms.locfileid: "36315655"
 | "\@{parameters('myBirthMonth')}" | 返回此字符串："January" |  
 | "\@parameters('myAge')" | 返回此数字：42 |  
 | "\@{parameters('myAge')}" | 以字符串形式返回此数字："42" |  
-| "My age is @{parameters('myAge')}" | 返回此字符串："My age is 42" |  
+| "My age is \@{parameters('myAge')}" | 返回此字符串："My age is 42" |  
 | "\@concat('我的年龄是 ', string(parameters('myAge')))" | 返回此字符串："My age is 42" |  
-| "My age is @@{parameters('myAge')}" | 返回包含表达式的此字符串："My age is @{parameters('myAge')}` | 
+| "My age is \@\@{parameters('myAge')}" | 返回包含表达式的此字符串："My age is \@{parameters('myAge')}` | 
 ||| 
 
 在逻辑应用设计器中以可视方式操作时，可以通过表达式生成器创建表达式，例如： 
@@ -360,7 +360,7 @@ ms.locfileid: "36315655"
 
 <a name="math-functions"></a>
 
-### <a name="math-functions"></a>数学函数  
+### <a name="math-functions"></a>数学函数
 
 若要使用整数和浮点数，可以使用这些数学函数。 有关每个函数的完整参考，请参阅[字母顺序参考文章](../logic-apps/workflow-definition-language-functions-reference.md)。
 

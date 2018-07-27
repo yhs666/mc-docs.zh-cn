@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/30/2018
-ms.date: 06/27/2018
+origin.date: 07/11/2018
+ms.date: 07/18/2018
 ms.author: v-junlch
 ms.reviewer: justini
-ms.openlocfilehash: e9fc8abc38a593bca8cc146a3f87277cf6c2d3a9
-ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
+ms.openlocfilehash: 17d4ceaba81e26c2a93827cb97cd73b80c946bfc
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37027197"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168498"
 ---
 # <a name="azure-stack-1803-update"></a>Azure Stack 1803 更新
 
@@ -55,12 +55,7 @@ Azure Stack 1803 更新内部版本号为 **20180329.1**。
   
   与 Azure Stack 的更新不同，此更新的安装不更改 Azure Stack 的版本。 若要确认此更新是否已安装，请查看“已安装更新”列表。
 
-### <a name="post-update-steps"></a>更新后步骤
-- 安装 1803 之后，请安装任何适用的修补程序。 有关详细信息，请查看以下知识库文章，以及我们的[服务策略](azure-stack-servicing-policy.md)。
 
-  - [KB 4294441 - 针对租户资源的操作失败，并且在同一租户或基础结构卷上创建了意外共享](https://support.microsoft.com/help/4294441)
-
-- 安装此更新后，请查看防火墙配置以确保[必需的端口](azure-stack-integrate-endpoints.md)处于打开状态。 例如，此更新引入了 Azure Monitor，其中包括将审核日志更改为活动日志。 由于此更改，端口 13012 现在已使用，并且也必须处于打开状态。  
 
 ### <a name="new-features"></a>新增功能 
 此更新包含以下适用于 Azure Stack 的改进和修复。
@@ -106,6 +101,15 @@ Azure Stack 1803 更新内部版本号为 **20180329.1**。
 
 ### <a name="known-issues-with-the-update-process"></a>更新过程的已知问题    
 <!-- 2328416 --> 在安装 1803 更新期间，Blob 服务以及使用 Blob 服务的内部服务可能无法使用。 这包括某些虚拟机操作。 这些服务无法使用可能导致租户操作失败，或者导致无法访问数据的服务发出警报。 当更新安装完以后，此问题会自行解决。 
+
+
+
+### <a name="post-update-steps"></a>更新后步骤
+- 安装 1803 之后，请安装任何适用的修补程序。 有关详细信息，请查看以下知识库文章，以及我们的[服务策略](azure-stack-servicing-policy.md)。
+
+  - [KB 4344115 - Azure Stack 修补程序 1.0.180427.15](https://support.microsoft.com/help/4344115)。
+
+- 安装此更新后，请查看防火墙配置以确保[必需的端口](azure-stack-integrate-endpoints.md)处于打开状态。 例如，此更新引入了 Azure Monitor，其中包括将审核日志更改为活动日志。 由于此更改，端口 13012 现在已使用，并且也必须处于打开状态。  
 
 
 ### <a name="known-issues-post-installation"></a>已知问题（安装后）

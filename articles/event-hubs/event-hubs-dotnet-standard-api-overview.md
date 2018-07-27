@@ -5,46 +5,41 @@ services: event-hubs
 documentationcenter: na
 author: rockboyfor
 manager: digimobile
-editor: ''
-ms.assetid: a173f8e4-556c-42b8-b856-838189f7e636
 ms.service: event-hubs
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-origin.date: 12/19/2017
-ms.date: 02/26/2018
+origin.date: 06/13/2018
+ms.date: 07/16/2018
 ms.author: v-yeche
-ms.openlocfilehash: a1194edc612db8bf365be2ef6f8b8296091b1ca5
-ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
+ms.openlocfilehash: ae0a12e67bbe4d91bda80356c1480887d3d0030d
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/23/2018
-ms.locfileid: "29527533"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167725"
 ---
 # <a name="event-hubs-net-standard-api-overview"></a>事件中心 .NET Standard API 概述
 
-本文汇总了一些重要的事件中心 .NET Standard 客户端 API。 目前，有两个 .NET Standard 客户端库：
+本文汇总了一些重要的 Azure 事件中心 [.NET Standard 客户端 API](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/)。 目前，事件中心有两个 .NET Standard 客户端库：
 
-* [Microsoft.Azure.EventHubs](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs)：提供基本运行时的所有操作。
-* [Microsoft.Azure.EventHubs.Processor](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor)：添加了其他功能，该功能可以跟踪处理的事件，并且是从事件中心读取数据的最简单方法。
+* [Microsoft.Azure.EventHubs](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.eventhubs?view=azure-dotnet)：提供基本运行时的所有操作。
+* [Microsoft.Azure.EventHubs.Processor](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.eventhubs.processor?view=azure-dotnet)：添加了其他功能，该功能可以跟踪处理的事件，并且是从事件中心读取数据的最简单方法。
 
 ## <a name="event-hubs-client"></a>事件中心客户端
 
-[EventHubClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventhubclient) 是发送事件、创建接收器，以及获取运行时信息时使用的主对象。 此客户端链接到特定事件中心，并创建与事件中心终结点的新连接。
+[EventHubClient](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.eventhubs.eventhubclient?view=azure-dotnet) 是发送事件、创建接收器，以及获取运行时信息时使用的主对象。 此客户端链接到特定事件中心，并创建与事件中心终结点的新连接。
 
 ### <a name="create-an-event-hubs-client"></a>创建事件中心客户端
 
-[EventHubClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventhubclient) 对象从连接字符串创建。 以下示例演示实例化新客户端的最简单方法：
+[EventHubClient](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.eventhubs.eventhubclient?view=azure-dotnet) 对象从连接字符串创建。 以下示例演示实例化新客户端的最简单方法：
 
 ```csharp
-var eventHubClient = EventHubClient.CreateFromConnectionString("{Event Hubs connection string}");
+var eventHubClient = EventHubClient.CreateFromConnectionString("Event Hubs connection string");
 ```
 
-若要以编程方式编辑连接字符串，可以使用 [EventHubsConnectionStringBuilder](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventhubsconnectionstringbuilder) 类，并将连接字符串作为参数传递给 [EventHubClient.CreateFromConnectionString](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventhubclient#Microsoft_Azure_EventHubs_EventHubClient_CreateFromConnectionString_System_String_)。
+若要以编程方式编辑连接字符串，可以使用 [EventHubsConnectionStringBuilder](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.eventhubs.eventhubsconnectionstringbuilder?view=azure-dotnet) 类，并将连接字符串作为参数传递给 [EventHubClient.CreateFromConnectionString](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.eventhubs.eventhubclient?view=azure-dotnet#Microsoft_Azure_EventHubs_EventHubClient_CreateFromConnectionString_System_String_)。
 
 ```csharp
-var connectionStringBuilder = new EventHubsConnectionStringBuilder("{Event Hubs connection string}")
+var connectionStringBuilder = new EventHubsConnectionStringBuilder("Event Hubs connection string")
 {
     EntityPath = EhEntityPath
 };
@@ -54,7 +49,7 @@ var eventHubClient = EventHubClient.CreateFromConnectionString(connectionStringB
 
 ### <a name="send-events"></a>发送事件
 
-若要将事件发送到事件中心，请使用 [EventData](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventdata) 类。 主体必须是 `byte` 数组，或 `byte` 数组段。
+若要将事件发送到事件中心，请使用 [EventData](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.eventhubs.eventdata?view=azure-dotnet) 类。 主体必须是 `byte` 数组，或 `byte` 数组段。
 
 ```csharp
 // Create a new EventData object by encoding a string as a byte array
@@ -71,7 +66,7 @@ await eventHubClient.SendAsync(data);
 
 #### <a name="create-a-receiver"></a>创建接收器
 
-接收器将绑定到特定分区，因此为了接收事件中心内的所有事件，必须创建多个实例。 好的做法是以编程方式获取分区信息，而不是对分区 ID 进行硬编码。 为此，可以使用 [GetRuntimeInformationAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventhubclient#Microsoft_Azure_EventHubs_EventHubClient_GetRuntimeInformationAsync) 方法。
+接收器将绑定到特定分区，因此为了接收事件中心内的所有事件，必须创建多个实例。 好的做法是以编程方式获取分区信息，而不是对分区 ID 进行硬编码。 为此，可以使用 [GetRuntimeInformationAsync](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.eventhubs.eventhubclient?view=azure-dotnet#Microsoft_Azure_EventHubs_EventHubClient_GetRuntimeInformationAsync) 方法。
 
 ```csharp
 // Create a list to keep track of the receivers
@@ -125,7 +120,7 @@ if (ehEvents != null)
 
 ## <a name="event-processor-host-apis"></a>事件处理程序主机 API
 
-这些 API 通过在可用工作进程之间分布分区，为可能变为不可用的工作进程提供复原能力。
+这些 API 通过在可用工作进程之间分布分区，为可能变为不可用的工作进程提供复原能力：
 
 ```csharp
 // Checkpointing is done within the SimpleEventProcessor and on a per-consumerGroup per-partition basis, workers resume from where they last left off.
@@ -150,7 +145,7 @@ await eventProcessorHost.RegisterEventProcessorAsync<SimpleEventProcessor>();
 await eventProcessorHost.UnregisterEventProcessorAsync();
 ```
 
-以下是 [IEventProcessor](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) 的示例实现。
+以下是 [IEventProcessor](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor?view=azure-dotnet) 接口的示例实现：
 
 ```csharp
 public class SimpleEventProcessor : IEventProcessor
@@ -187,6 +182,7 @@ public class SimpleEventProcessor : IEventProcessor
 ```
 
 ## <a name="next-steps"></a>后续步骤
+
 若要了解有关事件中心方案的详细信息，请访问以下链接：
 
 * [什么是 Azure 事件中心？](event-hubs-what-is-event-hubs.md)
@@ -194,7 +190,7 @@ public class SimpleEventProcessor : IEventProcessor
 
 下面提供了 .NET API 参考：
 
-* [Microsoft.Azure.EventHubs](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs)
-* [Microsoft.Azure.EventHubs.Processor](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor)
+* [Microsoft.Azure.EventHubs](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.eventhubs?view=azure-dotnet)
+* [Microsoft.Azure.EventHubs.Processor](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.eventhubs.processor?view=azure-dotnet)
 
 <!--Update_Description: update meta properties, wording update-->
