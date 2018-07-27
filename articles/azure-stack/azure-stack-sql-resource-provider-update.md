@@ -12,56 +12,73 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/11/2018
-ms.date: 06/26/2018
+ms.date: 07/20/2018
 ms.author: v-junlch
 ms.reviewer: jeffgo
-ms.openlocfilehash: a98541a0e6c27a0b0a2bf25f6a3bfa38c17eaa5a
-ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
+ms.openlocfilehash: e05e9ee12f8f65c8e952ecb8586440e159d39751
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37027118"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168289"
 ---
 # <a name="update-the-sql-resource-provider"></a>更新 SQL 资源提供程序
-更新 Azure Stack 内部版本时，可能会发布新的 SQL 资源提供程序。 虽然现有的适配器可以继续使用，但仍建议尽快更新到最新的内部版本。 更新必须按顺序安装：不能跳过版本（请参见[部署资源提供程序的先决条件](.\azure-stack-sql-resource-provider-deploy.md#prerequisites)中的版本列表）。
 
-若要更新资源提供程序，请使用 *UpdateSQLProvider.ps1* 脚本。 此过程类似于用于安装资源提供程序的过程，如[部署资源提供程序](.\azure-stack-sql-resource-provider-deploy.md)一文中所述。 资源提供程序的下载包中提供此脚本。
+*适用于：Azure Stack 集成系统。*
 
-*UpdateSQLProvider.ps1* 脚本可使用最新的资源提供程序代码创建新的 VM，并可将设置从旧 VM 迁移到新 VM。 迁移的设置包括数据库和宿主服务器信息，以及必需的 DNS 记录。
+你在将 Azure Stack 更新到新的 内部版本时，可能碰上我们发布新的 SQL 资源提供程序。 虽然现有的适配器可以继续使用，但仍建议尽快更新到最新的内部版本。
 
-此脚本需要使用的参数正是针对 DeploySqlProvider.ps1 脚本进行描述的参数。 请同样在此处提供证书。 
+>[!IMPORTANT]
+>必须按更新的发布顺序安装更新。 不能跳过版本。 请参阅[部署资源提供程序的先决条件](.\azure-stack-sql-resource-provider-deploy.md#prerequisites)中的版本列表。
 
-建议从市场管理下载最新的 Windows Server 2016 Core 映像。 如需安装更新，可以将单个 .MSU 包放置在本地依赖项路径中。 如果找到多个 .MSU 文件，脚本会发生故障。
+## <a name="overview"></a>概述
 
-下面是可从 PowerShell 提示符运行的 *UpdateSQLProvider.ps1* 脚本的示例。 请务必根据需要更改帐户信息和密码： 
+若要更新资源提供程序，请使用 *UpdateSQLProvider.ps1* 脚本。 新 SQL 资源提供程序的下载包中提供此脚本。 更新过程类似于[部署资源提供程序](.\azure-stack-sql-resource-provider-deploy.md)时使用的过程。 更新脚本与 DeploySqlProvider.ps1 脚本使用相同的参数，你需要提供证书信息。
+
+### <a name="update-script-processes"></a>更新脚本过程
+
+*UpdateSQLProvider.ps1* 脚本可使用最新的资源提供程序代码创建新的虚拟机 (VM)。
+
+>[!NOTE]
+>建议从市场管理下载最新的 Windows Server 2016 Core 映像。 如需安装更新，可以将**单个** MSU 包放置在本地依赖项路径中。 如果此位置中有多个 MSU 文件，则脚本将失败。
+
+*UpdateSQLProvider.ps1* 脚本在创建新的 VM 后，会从旧的提供程序 VM 中迁移以下设置：
+
+- 数据库信息
+- 宿主服务器信息
+- 必要的 DNS 记录
+
+### <a name="update-script-powershell-example"></a>更新脚本 PowerShell 示例
+
+可以在权限提升的 PowerShell ISE 中编辑并运行以下脚本。 记住按环境需要更改帐户信息和密码。
 
 > [!NOTE]
-> 此更新过程仅适用于集成系统。
+> 此更新过程仅适用于 Azure Stack 集成系统。
 
 ```powershell
 # Install the AzureRM.Bootstrapper module and set the profile.
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2017-03-09-profile
 
-# Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time.
+# Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but this might have been changed at installation.
 $domain = "AzureStack"
 
-# For integrated systems, use the IP address of one of the ERCS virtual machines
+# For integrated systems, use the IP address of one of the ERCS virtual machines.
 $privilegedEndpoint = "AzS-ERCS01"
 
 # Point to the directory where the resource provider installation files were extracted.
 $tempDir = 'C:\TEMP\SQLRP'
 
-# The service admin account (can be Azure AD or AD FS).
+# The service administrator account (this can be Azure AD or AD FS).
 $serviceAdmin = "admin@mydomain.partner.onmschina.cn"
 $AdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $AdminCreds = New-Object System.Management.Automation.PSCredential ($serviceAdmin, $AdminPass)
 
-# Set credentials for the new Resource Provider VM.
+# Set the credentials for the new resource provider VM.
 $vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("sqlrpadmin", $vmLocalAdminPass)
 
-# And the cloudadmin credential required for privileged endpoint access.
+# Add the cloudadmin credential required for privileged endpoint access.
 $CloudAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domain\cloudadmin", $CloudAdminPass)
 
@@ -75,11 +92,13 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
   -CloudAdminCredential $cloudAdminCreds `
   -PrivilegedEndpoint $privilegedEndpoint `
   -DefaultSSLCertificatePassword $PfxPass `
-  -DependencyFilesLocalPath $tempDir\cert
+  -DependencyFilesLocalPath $tempDir\cert `
+
  ```
 
 ## <a name="updatesqlproviderps1-parameters"></a>UpdateSQLProvider.ps1 参数
-可以在命令行中指定这些参数。 如果未指定参数或任何参数验证失败，系统会提示提供所需的参数。
+
+运行脚本时，可在命令行中指定以下参数。 如果未指定参数或任何参数验证失败，系统会提示提供所需的参数。
 
 | 参数名称 | 说明 | 注释或默认值 |
 | --- | --- | --- |
@@ -87,13 +106,12 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 | **AzCredential** | Azure Stack 服务管理员帐户的凭据。 使用部署 Azure Stack 时所用的相同凭据。 | _必需_ |
 | **VMLocalCredential** | SQL 资源提供程序 VM 的本地管理员帐户的凭据。 | _必需_ |
 | **PrivilegedEndpoint** | 特权终结点的 IP 地址或 DNS 名称。 |  _必需_ |
-| **DependencyFilesLocalPath** | 同样必须将证书 .pfx 文件放在此目录中。 | _可选_（对于多节点部署是_必需_的） |
-| **DefaultSSLCertificatePassword** | .pfx 证书的密码。 | （必需） |
+| **DependencyFilesLocalPath** | 同样必须将证书 .pfx 文件放在此目录中。 | 对单节点为可选，但对多节点为必选 |
+| **DefaultSSLCertificatePassword** | .pfx 证书的密码。 | _必需_ |
 | **MaxRetryCount** | 操作失败时，想要重试每个操作的次数。| 2 |
 | **RetryDuration** |每两次重试的超时间隔（秒）。 | 120 |
-| **卸载** | 删除资源提供程序和所有关联的资源（请参阅下面的注释）。 | 否 |
+| **卸载** | 删除资源提供程序和所有关联的资源。 | 否 |
 | **DebugMode** | 防止在失败时自动清除。 | 否 |
-
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -13,21 +13,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 03/08/2018
-ms.date: 04/30/2018
+origin.date: 07/13/2018
+ms.date: 07/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: e39d50df4f596e92b7d4e4a55adcf03c85998bf4
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 9e1dc158714fde3ad5de91c1a250da88af7ad3d1
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121383"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167946"
 ---
 # <a name="understand-load-balancer-probes"></a>了解负载均衡器探测
 
-Azure 负载均衡器使用运行状况探测来确定应接收新流的后端池实例。 运行状况探测失败时，负载均衡器停止向相应的不正常运行实例发送新流，并且该实例上的现有流不受影响。  所有后端池实例向下探测时，所有现有流将在后端池的所有实例上均超时。
+Azure 负载均衡器使用运行状况探测来确定应接收新流的后端池实例。   可以使用运行状况探测来检测后端实例上应用程序的故障。  还可以使用应用程序的运行状况探测响应向负载均衡器发出信号，表明是继续向后端实例发送新流还是停止向其发送新流以管理负载或计划停机时间。
 
-云服务角色（辅助角色和 Web 角色）使用来宾代理进行探测监视。 当在负载均衡器后面使用 VM 时，必须配置 TCP 或 HTTP 自定义运行状况探测。
+运行状况探测控制是否建立发往正常运行的后端的新流。 运行状况探测失败时，负载均衡器停止向各个不正常的实例发送新流。  运行状况探测失败后，已建立的 TCP 连接会继续执行。  现有 UDP 流将从不正常的实例移动到后端池中的另一个实例。
+
+如果后端池的所有探测均失败，基本负载均衡器将终止所有通往后端池的现有 TCP 流，而标准负载均衡器允许已建立的 TCP 流继续；不会向后端池发送新流。  后端池的所有探测均失败时，基本和标准负载均衡器的所有现有 UDP 流都将终止。
+
+云服务角色（辅助角色和 Web 角色）使用来宾代理进行探测监视。 在负载均衡器后将云服务与 IaaS VM 一起使用时，必须配置 TCP 或 HTTP 自定义运行状况探测。
 
 ## <a name="understand-probe-count-and-timeout"></a>了解探测计数和超时
 

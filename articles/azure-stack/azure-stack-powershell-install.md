@@ -11,59 +11,67 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-origin.date: 05/18/2018
-ms.date: 05/24/2018
+origin.date: 07/10/2018
+ms.date: 07/20/2018
 ms.author: v-junlch
 ms.reviewer: thoroet
-ms.openlocfilehash: 8b36c9fbbad6509551a00ef80464a4458897894e
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 4512c149525dd4213888d6dfb2f8e8f8a2a1cb76
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34474986"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168500"
 ---
 # <a name="install-powershell-for-azure-stack"></a>安装适用于 Azure Stack 的 PowerShell
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-需要安装与 Azure Stack 兼容的 Azure PowerShell 模块才能使用 Azure Stack。 本指南逐步演示安装适用于 Azure Stack 的 PowerShell 的步骤。
+需要安装与 Azure Stack 兼容的 Azure PowerShell 模块才能使用 Azure Stack。 本指南逐步演示安装适用于 Azure Stack 的 PowerShell 的步骤。 以下步骤适用于连接到 Internet 的环境。 滚动到离线环境的页面的底部。
 
 本文提供有关安装适用于 Azure Stack 的 PowerShell 的详细说明。
 
-> [!Note]
-> 以下步骤需要 PowerShell 5.0。 若要检查版本，请运行 $PSVersionTable.PSVersion 并比较**主**版本。
+> [!Note]  
+> 以下步骤至少需要 PowerShell 5.0。 若要检查版本，请运行 $PSVersionTable.PSVersion 并比较**主**版本。 如果没有 PowerShell 5.0，请单击此[链接](https://docs.microsoft.com/en-us/powershell/scripting/setup/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell)来更新到 PowerShell 5.0。
 
 通过 PowerShell 库安装适用于 Azure Stack 的 PowerShell 命令。 可以使用以下过程来验证 PSGallery 是否已注册为存储库，请打开提升的 PowerShell 会话并运行以下命令：
 
-```PowerShell  
+```PowerShell
+#requires -Version 5
+#requires -RunAsAdministrator
+#requires -Module PowerShellGet
+
+Import-Module -Name PowerShellGet -ErrorAction Stop
+Import-Module -Name PackageManagement -ErrorAction Stop 
+
 Get-PSRepository -Name "PSGallery"
 ```
 
 如果未注册存储库，请打开提升的 PowerShell 会话并运行以下命令：
 
-```PowerShell  
+```PowerShell
+Register-PsRepository -Default
 Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 ```
 > [!Note]  
 > 此步骤需要访问 Internet。 
 
-## <a name="uninstall-existing-versions-of-powershell"></a>卸载现有的 PowerShell 版本
+## <a name="uninstall-existing-versions-of-the-azure-stack-powershell-modules"></a>卸载 Azure Stack PowerShell 模块的现有版本
 
-在安装所需版本之前，请确保卸载以前安装的任何 Azure Stack PowerShell 模块。 可使用以下两种方法之一卸载现有版本：
+在安装所需版本之前，请确保卸载以前安装的任何 Azure Stack AzureRM PowerShell 模块。 可使用以下两种方法之一卸载现有版本：
 
- - 若要卸载现有的 PowerShell 模块，请关闭所有活动的 PowerShell 会话，然后运行以下命令：
+ - 若要卸载现有的 AzureRM PowerShell 模块，请关闭所有活动的 PowerShell 会话，然后运行以下命令：
 
     ```PowerShell
-    Uninstall-Module AzureRM.AzureStackAdmin -Force
-    Uninstall-Module AzureRM.AzureStackStorage -Force
-    Uninstall-Module -Name AzureStack -Force
+      Uninstall-Module AzureRM.AzureStackAdmin -Force
+      Uninstall-Module AzureRM.AzureStackStorage -Force
+      Uninstall-Module -Name AzureStack -Force
     ```
 
  - 从 `C:\Program Files\WindowsPowerShell\Modules` 和 `C:\Users\AzureStackAdmin\Documents\WindowsPowerShell\Modules` 文件夹中删除以“Azure”开头的所有文件夹。 删除这些文件夹会删除任何现有的 PowerShell 模块。
 
 以下部分介绍安装适用于 Azure Stack 的 PowerShell 所要执行的步骤。 可在已联网、部分联网或离线场景中运行的 Azure Stack 上安装 PowerShell。
 
-## <a name="install-powershell-in-a-connected-scenario-with-internet-connectivity"></a>在联网场景中（已建立 Internet 连接）安装 PowerShell
+## <a name="install-the-azure-stack-powershell-modules-in-a-connected-scenario-with-internet-connectivity"></a>在联网场景中（具有 Internet 连接）安装 Azure Stack PowerShell 模块
 
 通过 API 版本配置文件安装与 Azure Stack 兼容的 AzureRM 模块。 Azure Stack 需要 **2017-03-09-profile** API 版本配置文件（可通过安装 AzureRM.Bootstrapper 模块获取）。 有关 API 版本配置文件及其提供的 cmdlet 的详细信息，请参阅[管理 API 版本配置文件](user/azure-stack-version-profiles.md)。 除了 AzureRM 模块以外，还应安装 Azure Stack 特定的 Azure PowerShell 模块。 运行以下 PowerShell 脚本，在开发工作站上安装这些模块：
 
@@ -89,7 +97,7 @@ Get-Module -ListAvailable | where-Object {$_.Name -like "Azs*"}
 
 如果安装成功，输出中会显示 AzureRM 和 AzureStack 模块。
 
-## <a name="install-powershell-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity"></a>在离线或部分联网的场景中（Internet 连接受到限制）安装 PowerShell
+## <a name="install-the-azure-stack-powershell-modules-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity"></a>在离线或部分联网的场景中（具有受限的 Internet 连接）安装 Azure Stack PowerShell 模块
 
 在离线场景中，必须先将 PowerShell 模块下载到已建立 Internet 连接的计算机，然后将其传送到 Azure Stack 开发工具包进行安装。
 
@@ -98,25 +106,23 @@ Get-Module -ListAvailable | where-Object {$_.Name -like "Azs*"}
 
 1. 登录到已建立 Internet 连接的计算机，使用以下脚本将 AzureRM 和 AzureStack 包下载到本地计算机：
 
-   ```PowerShell  
-   $Path = "<Path that is used to save the packages>"
+    ```PowerShell 
+    #requires -Version 5
+    #requires -RunAsAdministrator
+    #requires -Module PowerShellGet
+    #requires -Module PackageManagement
+    
+    Import-Module -Name PowerShellGet -ErrorAction Stop
+    Import-Module -Name PackageManagement -ErrorAction Stop
 
-   Save-Package `
-     -ProviderName NuGet `
-     -Source https://www.powershellgallery.com/api/v2 `
-     -Name AzureRM `
-     -Path $Path `
-     -Force `
-     -RequiredVersion 1.2.11
+    $Path = "<Path that is used to save the packages>"
 
-   Save-Package `
-     -ProviderName NuGet `
-     -Source https://www.powershellgallery.com/api/v2 `
-     -Name AzureStack `
-     -Path $Path `
-     -Force `
-     -RequiredVersion 1.3.0 
-   ```
+    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 `
+      -Name AzureRM -Path $Path -Force -RequiredVersion 1.2.11
+
+    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 `
+      -Name AzureStack -Path $Path -Force -RequiredVersion 1.3.0 
+    ```
 
     > [!Important]  
     > 如果未运行包含更新 1804 或更高版本的 Azure Stack，请将 **requiredversion** 参数值更改为 `1.2.11`。 
@@ -128,19 +134,19 @@ Get-Module -ListAvailable | where-Object {$_.Name -like "Azs*"}
 4. 接下来，必须将此位置注册为默认存储库，并从此存储库安装 AzureRM 和 AzureStack 模块：
 
    ```PowerShell
+   #requires -Version 5
+   #requires -RunAsAdministrator
+   #requires -Module PowerShellGet
+   #requires -Module PackageManagement
+
    $SourceLocation = "<Location on the development kit that contains the PowerShell packages>"
    $RepoName = "MyNuGetSource"
 
-   Register-PSRepository `
-     -Name $RepoName `
-     -SourceLocation $SourceLocation `
-     -InstallationPolicy Trusted
+   Register-PSRepository -Name $RepoName -SourceLocation $SourceLocation  -InstallationPolicy Trusted
 
-   Install-Module AzureRM `
-     -Repository $RepoName
+   Install-Module AzureRM -Repository $RepoName
 
-   Install-Module AzureStack `
-     -Repository $RepoName 
+   Install-Module AzureStack -Repository $RepoName 
    ```
 
 ## <a name="configure-powershell-to-use-a-proxy-server"></a>配置 PowerShell 以使用代理服务器
@@ -150,14 +156,14 @@ Get-Module -ListAvailable | where-Object {$_.Name -like "Azs*"}
 1. 打开提升的 PowerShell 命令提示符。
 2. 运行以下命令：
 
-    ````PowerShell  
-    #To use Windows credentials for proxy authentication
-    [System.Net.WebRequest]::DefaultWebProxy.Credentials = [System.Net.CredentialCache]::DefaultCredentials
+    ```PowerShell  
+      #To use Windows credentials for proxy authentication
+      [System.Net.WebRequest]::DefaultWebProxy.Credentials = [System.Net.CredentialCache]::DefaultCredentials
 
-    #Alternatively, to prompt for separate credentials that can be used for #proxy authentication
+      #Alternatively, to prompt for separate credentials that can be used for #proxy authentication
 
-    [System.Net.WebRequest]::DefaultWebProxy.Credentials = Get-Credential
-    ````
+      [System.Net.WebRequest]::DefaultWebProxy.Credentials = Get-Credential
+    ```
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -166,4 +172,4 @@ Get-Module -ListAvailable | where-Object {$_.Name -like "Azs*"}
  - [配置 Azure Stack 操作员的 PowerShell 环境](azure-stack-powershell-configure-admin.md) 
  - [在 Azure Stack 中管理 API 版本配置文件](user/azure-stack-version-profiles.md)  
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

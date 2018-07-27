@@ -11,45 +11,55 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/14/2018
-ms.date: 06/26/2018
+origin.date: 06/27/2018
+ms.date: 07/20/2018
 ms.author: v-junlch
 ms.reviewer: jeffgo
-ms.openlocfilehash: 0a2aa6bd5d7ad1e4baf0f8decf99619292c295ac
-ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
+ms.openlocfilehash: a2c5f6e541aaedd079c3623b85490b757fdc6e52
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37027304"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168455"
 ---
-# <a name="removing-the-mysql-resource-provider"></a>删除 MySQL 资源提供程序  
-在删除 MySQL 资源提供程序之前，必须先删除所有依赖项。
+# <a name="remove-the-mysql-resource-provider"></a>删除 MySQL 资源提供程序
 
-## <a name="remove-the-mysql-resource-provider"></a>删除 MySQL 资源提供程序 
+删除 MySQL 资源提供程序之前，必须删除该提供程序的所有依赖项。 你还需要用来安装资源提供程序的部署包的副本。
+
+## <a name="dependency-cleanup"></a>依赖项清理
+
+在运行 DeployMySqlProvider.ps1 脚本来删除资源提供程序之前，需要执行几个清理任务：
+
+租户负责执行以下清理任务：
+
+- 从资源提供程序中删除其所有数据库。 （删除租户数据库不会删除数据。）
+- 从提供程序命名空间中取消注册。
+
+管理员负责执行以下清理任务：
+
+- 从 MySQL 适配器中删除宿主服务器。
+- 删除引用 MySQL 适配器的所有计划。
+- 删除与 MySQL 适配器关联的所有配额。
+
+## <a name="to-remove-the-mysql-resource-provider"></a>删除 MySQL 资源提供程序
 
 1. 确认已删除所有现有的 MySQL 资源提供程序依赖项。
 
-    > [!NOTE]
-    > 即使依赖资源当前正在使用 MySQL 资源提供程序，也将继续卸载该资源提供程序。 
+   >[!NOTE]
+   >即使依赖资源当前正在使用 MySQL 资源提供程序，也将继续卸载该资源提供程序。
   
-2. 确保已保留针对此 SQL 资源提供程序适配器版本下载的原始部署包。
-
-3. 必须从资源提供程序中删除所有租户数据库。 （删除租户数据库不会删除数据。）此任务应由租户自己执行。 
-
-4. 必须从命名空间中取消注册租户。 
-
-5. 管理员必须从 MySQL 适配器中删除宿主服务器。 
-
-6. 管理员必须删除引用 MySQL 适配器的所有计划。
-
-7. 管理员必须删除与 MySQL 适配器关联的所有配额。 
-
-8. 使用以下参数重新运行部署脚本： 
-    - -Uninstall 参数 
-    - Azure 资源管理器终结点 
-    - DirectoryTenantID 
-    - 服务管理员帐户的凭据 
+2. 获取 MySQL 资源提供程序二进制文件的副本，然后运行自解压程序，将内容解压缩到一个临时目录。
+3. 获取 SQL 资源提供程序二进制文件的副本，然后运行自解压程序，将内容解压缩到一个临时目录。
+4. 打开一个权限提升的 PowerShell 控制台新窗口，并切换到解压缩后的 MySQL 资源提供程序二进制文件所在的目录。
+5. 使用以下参数运行 DeployMySqlProvider.ps1 脚本：
+    - **Uninstall**。 删除资源提供程序和所有关联的资源。
+    - **PrivilegedEndpoint**。 特权终结点的 IP 地址或 DNS 名称。
+    - **CloudAdminCredential**。 访问特权终结点时所需的云管理员凭据。
+    - **DirectoryTenantID**
+    - **AzCredential**。 Azure Stack 服务管理员帐户的凭据。 使用部署 Azure Stack 时所用的相同凭据。
 
 ## <a name="next-steps"></a>后续步骤
+
 [提供应用服务作为 PaaS](azure-stack-app-service-overview.md)
 
+<!-- Update_Description: wording update -->

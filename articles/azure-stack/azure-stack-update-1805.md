@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/15/2018
-ms.date: 06/27/2018
+origin.date: 07/11/2018
+ms.date: 07/18/2018
 ms.author: v-junlch
 ms.reviewer: justini
-ms.openlocfilehash: 9f7bd282e19a6ce7e4fb19582e8a101d33d4783d
-ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
+ms.openlocfilehash: 340160d40020471a4ca7bcbbb54fdff6c9fa37dc
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37027279"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168359"
 ---
 # <a name="azure-stack-1805-update"></a>Azure Stack 1805 更新
 
@@ -61,7 +61,7 @@ Azure Stack 1805 更新内部版本号为 **1.1805.1.47**。
 ### <a name="fixed-issues"></a>修复的问题
 
 <!-- # - applicability -->
-
+- 我们修复了管理门户中阻止[从下拉列表建立新支持请求](azure-stack-manage-portals.md#quick-access-to-help-and-support)的问题。 此选项现在按预期工作。 
 
 - 针对性能、稳定性、安全性以及 Azure Stack 所用操作系统的**各种修复**。
 
@@ -84,7 +84,7 @@ Azure Stack 1805 更新内部版本号为 **1.1805.1.47**。
 
 ### <a name="post-update-steps"></a>更新后步骤
 安装 1805 之后，请安装所有适用的修补程序。 有关详细信息，请查看以下知识库文章，以及我们的[服务策略](azure-stack-servicing-policy.md)。  
- - [KB 4340474 - Azure Stack 修补程序 1.1805.4.53](https://support.microsoft.com/help/4340474)。
+ - [KB 4344102 - Azure Stack 修补程序 1.1805.7.57](https://support.microsoft.com/help/4344102)。
 
 
 ## <a name="known-issues-post-installation"></a>已知问题（安装后）
@@ -118,8 +118,8 @@ Azure Stack 1805 更新内部版本号为 **1.1805.1.47**。
 
 
 ### <a name="health-and-monitoring"></a>运行状况和监视
-- <!-- 1264761 - IS ASDK --> 可能会看到包含以下详细信息的“运行状况控制器”组件警报：  
-
+- <!-- 1264761 - IS ASDK --> 可能会看到具有以下详细信息的*运行状况控制器*组件的警报：  
+- 
    警报 #1：
    - 名称：基础结构角色不正常
    - 严重性：警告
@@ -132,7 +132,19 @@ Azure Stack 1805 更新内部版本号为 **1.1805.1.47**。
    - 组件：运行状况控制器
    - 说明：运行状况控制器故障扫描仪不可用。 这可能会影响运行状况报告和指标。
 
-  可以放心忽略这两条警报，它们在一段时间后会自动关闭。  
+  可以放心忽略警报 #1 和 #2，它们在一段时间后会自动关闭。 
+
+  你可能还会看到针对*容量*的以下警报。 对于此警报，说明中标识的可用内存百分比可能会有所不同：  
+
+  警报 #3：
+   - 名称：内存容量低
+   - 严重性：严重
+   - 组件：容量
+   - 说明：该区域已使用了 80.00% 以上的可用内存。 使用大量内存创建虚拟机可能会失败。  
+
+  在此版本的 Azure Stack 中，该警报可能会错误地触发。 如果租户虚拟机继续成功部署，则可以放心地忽略此警报。 
+  
+  警报 #3 不会自动关闭。 如果你关闭此警报，Azure Stack 将在 15 分钟内创建相同的警报。  
 
 - <!-- 2368581 - IS. ASDK --> 如果 Azure Stack 操作员收到内存不足的警报，并且租户虚拟机无法部署并出现“Fabric VM 创建错误”，则可能表示 Azure Stack 模组的可用内存不足。 请使用 [Azure Stack 容量规划工具](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822)来充分了解可供工作负荷使用的容量。 
 
@@ -172,6 +184,8 @@ Azure Stack 1805 更新内部版本号为 **1.1805.1.47**。
 
 
 ### <a name="networking"></a>网络
+- <!-- TBD - IS ASDK --> 无法在管理员或用户门户中创建用户定义的路由。 解决方法是使用 [Azure PowerShell](/virtual-network/tutorial-create-route-table-powershell)。
+
 - <!-- 1766332 - IS ASDK --> 如果在“网络”下单击“创建 VPN 网关”来设置 VPN 连接，则会将“基于策略”列为 VPN 类型。 请不要选择此选项。 Azure Stack 仅支持“基于路由”选项。
 
 - <!-- 2388980 - IS ASDK --> 创建 VM 并将其与公共 IP 地址关联以后，就无法取消该 VM 与该 IP 地址的关联。 取消关联看似可以正常使用，但以前分配的公共 IP 地址仍与原始 VM 相关联。
@@ -297,3 +311,4 @@ Azure Stack 1805 更新内部版本号为 **1.1805.1.47**。
 - 有关 Azure Stack 中更新管理的概述，请参阅[在 Azure Stack 中管理更新的概述](azure-stack-updates.md)。
 - 有关如何在 Azure Stack 中应用更新的详细信息，请参阅[在 Azure Stack 中应用更新](azure-stack-apply-updates.md)。
 
+<!-- Update_Description: wording update -->
