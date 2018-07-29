@@ -15,14 +15,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 03/14/2017
-ms.date: 06/04/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: c288dd4c7e5cd9e90782d354df3a0422379650c3
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 1e7f378f3881a9a2bb760c4af3a47437823173be
+ms.sourcegitcommit: 35889b4f3ae51464392478a72b172d8910dd2c37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702795"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39261829"
 ---
 # <a name="how-to-capture-a-classic-linux-virtual-machine-as-an-image"></a>如何捕获经典 Linux 虚拟机以用作映像
 > [!IMPORTANT]
@@ -116,4 +116,4 @@ Azure 在“映像”下存储映像 ，以及任何已上传的映像。 有关
 [How to Attach a Data Disk to a Virtual Machine]:attach-disk-classic.md
 [How to Create a Linux Virtual Machine]:create-custom-classic.md
 
-<!-- Update_Description: update meta properties, update link -->
+<!-- Update_Description: update meta properties  -->

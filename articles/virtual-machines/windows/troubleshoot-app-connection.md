@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 05/18/2017
-ms.date: 05/21/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 3b7dd9ba895d1e8d814d5a7b1c57c780816d5ff3
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 8dbf57ca9992e2d85da4d648e25f083f20619c2a
+ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939857"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39307027"
 ---
 # <a name="troubleshoot-access-to-an-application-running-on-a-windows-virtual-machine-in-azure"></a>对在 Azure 中的 Windows 虚拟机上运行的应用程序的访问进行故障排除
 [!INCLUDE [virtual-machines-common-troubleshoot-app-connection](../../../includes/virtual-machines-common-troubleshoot-app-connection.md)]

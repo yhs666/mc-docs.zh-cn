@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 09/29/2017
-ms.date: 04/13/2018
+ms.date: 07/24/2018
 ms.author: v-junlch
-ms.openlocfilehash: e9ff30da640a8f210a85645a6a50a124e010ed8f
-ms.sourcegitcommit: f97c9253d16fac8be0266c9473c730ebd528e542
+ms.openlocfilehash: 9a616e9251c6ed4f4f7fc8c492b39651e71db1db
+ms.sourcegitcommit: ba07d76f8394b5dad782fd983718a8ba49a9deb2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31585426"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39220188"
 ---
 # <a name="singleton-orchestrators-in-durable-functions-azure-functions"></a>Durable Functions 中的单一实例业务流程协调程序 (Azure Functions)
 
@@ -61,6 +61,9 @@ public static async Task<HttpResponseMessage> RunSingle(
 
 默认情况下，实例 ID 是随机生成的 GUID。 但在此示例中，实例 ID 通过 URL 在路由数据中传递。 该代码调用 [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetStatusAsync_) 检查具有指定 ID 的实例是否已在运行。 如果未运行，将使用该 ID 创建实例。
 
+> [!NOTE]
+> 在此示例中有潜在的争用条件。 如果 **HttpStartSingle** 的两个实例同时执行，结果可能是创建了单一实例的两个不同实例，一个实例覆盖另一个实例。 根据你的要求，这可能会产生不良副作用。 因此，必须确保没有两个请求可以同时执行此触发器函数。
+
 业务流程协调程序函数的实现细节实际上无关紧要。 它可以是一个启动并完成的常规业务流程协调程序函数，也可以是一个永远运行的业务流程协调程序函数（即[永久业务流程](durable-functions-eternal-orchestrations.md)）。 重点是一次只有一个实例在运行。
 
 ## <a name="next-steps"></a>后续步骤
@@ -68,3 +71,4 @@ public static async Task<HttpResponseMessage> RunSingle(
 > [!div class="nextstepaction"]
 > [了解如何调用子业务流程](durable-functions-sub-orchestrations.md)
 
+<!-- Update_Description: wording update -->

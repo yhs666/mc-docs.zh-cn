@@ -14,14 +14,14 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 11/08/2017
-ms.date: 05/29/2018
+ms.date: 07/24/2018
 ms.author: v-junlch
-ms.openlocfilehash: f719b95ad146e66550fc4e6c78cdee20b4d4f2bf
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: c3dfb228786ab01cc2b1e8861de3fa7099474932
+ms.sourcegitcommit: ba07d76f8394b5dad782fd983718a8ba49a9deb2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34567316"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39220238"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure Functions 的 Azure 表存储绑定
 
@@ -29,13 +29,17 @@ ms.locfileid: "34567316"
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages"></a>包
+## <a name="packages---functions-1x"></a>包 - Functions 1.x
 
-[Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet 包中提供了表存储绑定。 [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/) GitHub 存储库中提供了此包的源代码。
+[Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet 包 2.x 版中提供了表存储绑定。 [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Table) GitHub 存储库中提供了此包的源代码。
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
-[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+## <a name="packages---functions-2x"></a>包 - Functions 2.x
+
+[Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet 包 3.x 版中提供了表存储绑定。 [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/master/src/Microsoft.Azure.WebJobs.Storage/Table) GitHub 存储库中提供了此包的源代码。
+
+[!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
 [!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
 
@@ -107,6 +111,9 @@ public class TableStorage
 }
 ```
 
+  > [!NOTE]
+  > [Functions v2 运行时](functions-versions.md)不支持 `IQueryable`。 一种替代方法是[使用 CloudTable paramName 方法参数](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable)通过 Azure 存储 SDK 来读取表。 如果在尝试绑定到 `CloudTable` 时出现错误消息，请确保引用[正确的存储 SDK 版本](#azure-storage-sdk-version-in-functions-1x)。
+
 ### <a name="input---c-script-example-1"></a>输入 - C# 脚本示例 1
 
 以下示例演示 *function.json* 文件中的一个表输入绑定以及使用该绑定的 [C# 脚本](functions-reference-csharp.md)代码。 该函数使用队列触发器来读取单个表行。 
@@ -160,7 +167,7 @@ public class Person
 
 以下示例演示 *function.json* 文件中的一个表输入绑定以及使用该绑定的 [C# 脚本](functions-reference-csharp.md)代码。 该函数读取队列消息中指定的分区键的实体。
 
-*function.json* 文件如下所示：
+function.json 文件如下所示：
 
 ```json
 {
@@ -360,7 +367,7 @@ module.exports = function (context, myQueueItem) {
 
 |function.json 属性 | Attribute 属性 |说明|
 |---------|---------|----------------------|
-|**类型** | 不适用 | 必须设置为 `table`。 在 Azure 门户中创建绑定时，会自动设置此属性。|
+|类型 | 不适用 | 必须设置为 `table`。 在 Azure 门户中创建绑定时，会自动设置此属性。|
 |direction | 不适用 | 必须设置为 `in`。 在 Azure 门户中创建绑定时，会自动设置此属性。 |
 |**name** | 不适用 | 表示函数代码中的表或实体的变量的名称。 | 
 |**tableName** | **TableName** | 表的名称。| 
@@ -616,11 +623,11 @@ public static MyPoco TableOutput(
 
 ## <a name="output---configuration"></a>输出 - 配置
 
-下表解释了在 *function.json* 文件和 `Table` 特性中设置的绑定配置属性。
+下表解释了在 function.json 文件和 `Table` 特性中设置的绑定配置属性。
 
 |function.json 属性 | Attribute 属性 |说明|
 |---------|---------|----------------------|
-|**类型** | 不适用 | 必须设置为 `table`。 在 Azure 门户中创建绑定时，会自动设置此属性。|
+|类型 | 不适用 | 必须设置为 `table`。 在 Azure 门户中创建绑定时，会自动设置此属性。|
 |direction | 不适用 | 必须设置为 `out`。 在 Azure 门户中创建绑定时，会自动设置此属性。 |
 |**name** | 不适用 | 在函数代码中使用的、表示表或实体的变量名称。 设置为 `$return` 可引用函数返回值。| 
 |**tableName** |**TableName** | 表的名称。| 

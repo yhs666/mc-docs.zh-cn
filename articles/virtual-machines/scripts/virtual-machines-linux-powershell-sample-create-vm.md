@@ -14,15 +14,15 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 03/23/2018
-ms.date: 06/25/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: de68cab23c6846d6d6e73abcb30733e9da7f330d
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.openlocfilehash: d4ab9d416a48b427e612350c8620582c55aee2a6
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315609"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295730"
 ---
 # <a name="create-a-fully-configured-virtual-machine-with-powershell"></a>使用 PowerShell 创建完全配置的虚拟机
 
@@ -85,7 +85,7 @@ Add-AzureRmVMSshPublicKey -VM $vmconfig -KeyData $sshPublicKey -Path "/home/azur
 New-AzureRmVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 ```
 
-## <a name="clean-up-deployment"></a>清理部署 
+## <a name="clean-up-deployment"></a>清理部署
 
 运行以下命令来删除资源组、VM 和所有相关资源。
 

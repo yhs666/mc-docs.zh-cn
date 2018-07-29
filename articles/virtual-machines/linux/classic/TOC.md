@@ -4,7 +4,7 @@
 ## [常见问题](faq-classic.md)
 
 # 入门
-## [使用 Azure 门户创建 Linux VM](createportal-classic.md)
+## [创建 Linux VM](createportal-classic.md)
 
 # 如何
 ## 计算
@@ -44,7 +44,7 @@
 # 参考
 ## [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
 ## [Azure CLI](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest)
-## [Java](https://docs.azure.cn/zh-cn/java/api/)
+## [Java](https://docs.azure.cn/zh-cn/java/index?view=azure-java-stable)
 ## [创建资源管理器模板](../../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 ## [社区模板](https://github.com/Azure/azure-quickstart-templates)
 ## [计算 REST](https://msdn.microsoft.com/library/jj157206.aspx)
@@ -55,4 +55,4 @@
 ## [价格](https://www.azure.cn/pricing/details/virtual-machines/#Linux)
 ## [定价计算器](https://www.azure.cn/pricing/calculator/)
 ## [视频](https://www.azure.cn/video-center/)
-<!-- ms.date: 01/29/2018 -->
+<!-- ms.date: 07/30/2018 -->

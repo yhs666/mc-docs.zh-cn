@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 04/13/2018
-ms.date: 05/28/2018
+ms.date: 07/30/2018
 ms.author: v-nany
-ms.openlocfilehash: 8b979192007a8ed7c8cdd64b3f3545bce76a1329
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 11320040b5dbd8c692c89ed2201e84ab17d7e055
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38938839"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219628"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>开始使用 REST 传送点播内容
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
@@ -101,55 +101,52 @@ ms.locfileid: "38938839"
 
 **HTTP 请求**
 
-```
-POST https://wamsshaclus001rest-hs.chinacloudapp.cn/api/Assets HTTP/1.1
-Content-Type: application/json
-DataServiceVersion: 1.0;NetFx
-MaxDataServiceVersion: 3.0;NetFx
-Accept: application/json
-Accept-Charset: UTF-8
-Authorization: Bearer <ENCODED JWT TOKEN>
-x-ms-version: 2.17
-x-ms-client-request-id: c59de965-bc89-4295-9a57-75d897e5221e
-Host: wamsshaclus001rest-hs.chinacloudapp.cn
-Content-Length: 45
+    POST https://wamsbayclus001rest-hs.chinacloudapp.cn/api/Assets HTTP/1.1
+    Content-Type: application/json
+    DataServiceVersion: 1.0;NetFx
+    MaxDataServiceVersion: 3.0;NetFx
+    Accept: application/json
+    Accept-Charset: UTF-8
+    Authorization: Bearer <ENCODED JWT TOKEN>
+    x-ms-version: 2.17
+    x-ms-client-request-id: c59de965-bc89-4295-9a57-75d897e5221e
+    Host: wamsbayclus001rest-hs.chinacloudapp.cn
+    Content-Length: 45
 
-{"Name":"BigBuckBunny.mp4", "Options":"0"}
-```
+    {"Name":"BigBuckBunny.mp4", "Options":"0"}
+
 
 **HTTP 响应**
 
 如果成功，将返回以下响应：
 
-```
-HTP/1.1 201 Created
-Cache-Control: no-cache
-Content-Length: 452
-Content-Type: application/json;odata=minimalmetadata;streaming=true;charset=utf-8
-Location: https://wamsshaclus001rest-hs.chinacloudapp.cn/api/Assets('nb%3Acid%3AUUID%3A9bc8ff20-24fb-4fdb-9d7c-b04c7ee573a1')
-Server: Microsoft-IIS/8.5
-x-ms-client-request-id: c59de965-bc89-4295-9a57-75d897e5221e
-request-id: e98be122-ae09-473a-8072-0ccd234a0657
-x-ms-request-id: e98be122-ae09-473a-8072-0ccd234a0657
-X-Content-Type-Options: nosniff
-DataServiceVersion: 3.0;
-X-Powered-By: ASP.NET
-Strict-Transport-Security: max-age=31536000; includeSubDomains
-Date: Sun, 18 Jan 2015 22:06:40 GMT
+    HTTP/1.1 201 Created
+    Cache-Control: no-cache
+    Content-Length: 452
+    Content-Type: application/json;odata=minimalmetadata;streaming=true;charset=utf-8
+    Location: https://wamsbayclus001rest-hs.chinacloudapp.cn/api/Assets('nb%3Acid%3AUUID%3A9bc8ff20-24fb-4fdb-9d7c-b04c7ee573a1')
+    Server: Microsoft-IIS/8.5
+    x-ms-client-request-id: c59de965-bc89-4295-9a57-75d897e5221e
+    request-id: e98be122-ae09-473a-8072-0ccd234a0657
+    x-ms-request-id: e98be122-ae09-473a-8072-0ccd234a0657
+    X-Content-Type-Options: nosniff
+    DataServiceVersion: 3.0;
+    X-Powered-By: ASP.NET
+    Strict-Transport-Security: max-age=31536000; includeSubDomains
+    Date: Sun, 18 Jan 2015 22:06:40 GMT
 
-{  
-   "odata.metadata":"https://wamsshaclus001rest-hs.chinacloudapp.cn/api/$metadata#Assets/@Element",
-   "Id":"nb:cid:UUID:9bc8ff20-24fb-4fdb-9d7c-b04c7ee573a1",
-   "State":0,
-   "Created":"2015-01-18T22:06:40.6010903Z",
-   "LastModified":"2015-01-18T22:06:40.6010903Z",
-   "AlternateId":null,
-   "Name":"BigBuckBunny2.mp4",
-   "Options":0,
-   "Uri":"https://storagetestaccount001.blob.core.chinacloudapi.cn/asset-9bc8ff20-24fb-4fdb-9d7c-b04c7ee573a1",
-   "StorageAccountName":"storagetestaccount001"
-}
-```
+    {  
+       "odata.metadata":"https://wamsbayclus001rest-hs.chinacloudapp.cn/api/$metadata#Assets/@Element",
+       "Id":"nb:cid:UUID:9bc8ff20-24fb-4fdb-9d7c-b04c7ee573a1",
+       "State":0,
+       "Created":"2015-01-18T22:06:40.6010903Z",
+       "LastModified":"2015-01-18T22:06:40.6010903Z",
+       "AlternateId":null,
+       "Name":"BigBuckBunny2.mp4",
+       "Options":0,
+       "Uri":"https://storagetestaccount001.blob.core.chinacloudapi.cn/asset-9bc8ff20-24fb-4fdb-9d7c-b04c7ee573a1",
+       "StorageAccountName":"storagetestaccount001"
+    }
 
 ### <a name="create-an-assetfile"></a>创建 AssetFile
 [AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) 实体表示 blob 容器中存储的视频或音频文件。 一个资产文件始终与一个资产关联，而一个资产则可能包含一个或多个 AssetFiles。 如果资产文件对象未与 blob 容器中的数字文件关联，则媒体服务编码器任务将失败。
@@ -158,62 +155,60 @@ Date: Sun, 18 Jan 2015 22:06:40 GMT
 
 **HTTP 请求**
 
-```
-POST https://wamsshaclus001rest-hs.chinacloudapp.cn/api/Files HTTP/1.1
-Content-Type: application/json
-DataServiceVersion: 1.0;NetFx
-MaxDataServiceVersion: 3.0;NetFx
-Accept: application/json
-Accept-Charset: UTF-8
-Authorization: Bearer <ENCODED JWT TOKEN>
-x-ms-version: 2.17
-Host: wamsshaclus001rest-hs.chinacloudapp.cn
-Content-Length: 164
+    POST https://wamsbayclus001rest-hs.chinacloudapp.cn/api/Files HTTP/1.1
+    Content-Type: application/json
+    DataServiceVersion: 1.0;NetFx
+    MaxDataServiceVersion: 3.0;NetFx
+    Accept: application/json
+    Accept-Charset: UTF-8
+    Authorization: Bearer <ENCODED JWT TOKEN>
+    x-ms-version: 2.17
+    Host: wamsbayclus001rest-hs.chinacloudapp.cn
+    Content-Length: 164
 
-{  
-   "IsEncrypted":"false",
-   "IsPrimary":"false",
-   "MimeType":"video/mp4",
-   "Name":"BigBuckBunny.mp4",
-   "ParentAssetId":"nb:cid:UUID:9bc8ff20-24fb-4fdb-9d7c-b04c7ee573a1"
-}
-```
+    {  
+       "IsEncrypted":"false",
+       "IsPrimary":"false",
+       "MimeType":"video/mp4",
+       "Name":"BigBuckBunny.mp4",
+       "ParentAssetId":"nb:cid:UUID:9bc8ff20-24fb-4fdb-9d7c-b04c7ee573a1"
+    }
+
 
 **HTTP 响应**
 
-```
-HTTP/1.1 201 Created
-Cache-Control: no-cache
-Content-Length: 535
-Content-Type: application/json;odata=minimalmetadata;streaming=true;charset=utf-8
-Location: https://wamsshaclus001rest-hs.chinacloudapp.cn/api/Files('nb%3Acid%3AUUID%3Af13a0137-0a62-9d4c-b3b9-ca944b5142c5')
-Server: Microsoft-IIS/8.5
-request-id: 98a30e2d-f379-4495-988e-0b79edc9b80e
-x-ms-request-id: 98a30e2d-f379-4495-988e-0b79edc9b80e
-X-Content-Type-Options: nosniff
-DataServiceVersion: 3.0;
-X-Powered-By: ASP.NET
-Strict-Transport-Security: max-age=31536000; includeSubDomains
-Date: Mon, 19 Jan 2015 00:34:07 GMT
+    HTTP/1.1 201 Created
+    Cache-Control: no-cache
+    Content-Length: 535
+    Content-Type: application/json;odata=minimalmetadata;streaming=true;charset=utf-8
+    Location: https://wamsbayclus001rest-hs.chinacloudapp.cn/api/Files('nb%3Acid%3AUUID%3Af13a0137-0a62-9d4c-b3b9-ca944b5142c5')
+    Server: Microsoft-IIS/8.5
+    request-id: 98a30e2d-f379-4495-988e-0b79edc9b80e
+    x-ms-request-id: 98a30e2d-f379-4495-988e-0b79edc9b80e
+    X-Content-Type-Options: nosniff
+    DataServiceVersion: 3.0;
+    X-Powered-By: ASP.NET
+    Strict-Transport-Security: max-age=31536000; includeSubDomains
+    Date: Mon, 19 Jan 2015 00:34:07 GMT
 
-{  
-   "odata.metadata":"https://wamsshaclus001rest-hs.chinacloudapp.cn/api/$metadata#Files/@Element",
-   "Id":"nb:cid:UUID:f13a0137-0a62-9d4c-b3b9-ca944b5142c5",
-   "Name":"BigBuckBunny.mp4",
-   "ContentFileSize":"0",
-   "ParentAssetId":"nb:cid:UUID:9bc8ff20-24fb-4fdb-9d7c-b04c7ee573a1",
-   "EncryptionVersion":null,
-   "EncryptionScheme":null,
-   "IsEncrypted":false,
-   "EncryptionKeyId":null,
-   "InitializationVector":null,
-   "IsPrimary":false,
-   "LastModified":"2015-01-19T00:34:08.1934137Z",
-   "Created":"2015-01-19T00:34:08.1934137Z",
-   "MimeType":"video/mp4",
-   "ContentChecksum":null
-}
-```
+    {  
+       "odata.metadata":"https://wamsbayclus001rest-hs.chinacloudapp.cn/api/$metadata#Files/@Element",
+       "Id":"nb:cid:UUID:f13a0137-0a62-9d4c-b3b9-ca944b5142c5",
+       "Name":"BigBuckBunny.mp4",
+       "ContentFileSize":"0",
+       "ParentAssetId":"nb:cid:UUID:9bc8ff20-24fb-4fdb-9d7c-b04c7ee573a1",
+       "EncryptionVersion":null,
+       "EncryptionScheme":null,
+       "IsEncrypted":false,
+       "EncryptionKeyId":null,
+       "InitializationVector":null,
+       "IsPrimary":false,
+       "LastModified":"2015-01-19T00:34:08.1934137Z",
+       "Created":"2015-01-19T00:34:08.1934137Z",
+       "MimeType":"video/mp4",
+       "ContentChecksum":null
+    }
+
 
 ### <a name="creating-the-accesspolicy-with-write-permission"></a>创建具有写入权限的 AccessPolicy
 将任何文件上传到 blob 存储之前，请设置用于对资产执行写入操作的访问策略权限。 为此，请向 AccessPolicy 实体集发送一个 HTTP POST 请求。 请在执行创建操作时定义 DurationInMinutes 值，否则会在响应中收到 500 内部服务器错误消息。 有关 AccessPolicies 的详细信息，请参阅 [AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy)。
@@ -222,50 +217,46 @@ Date: Mon, 19 Jan 2015 00:34:07 GMT
 
 **HTTP 请求**
 
-```
-POST https://wamsshaclus001rest-hs.chinacloudapp.cn/api/AccessPolicies HTTP/1.1
-Content-Type: application/json
-DataServiceVersion: 1.0;NetFx
-MaxDataServiceVersion: 3.0;NetFx
-Accept: application/json
-Accept-Charset: UTF-8
-Authorization: Bearer <ENCODED JWT TOKEN>
-x-ms-version: 2.17
-Host: wamsshaclus001rest-hs.chinacloudapp.cn
-Content-Length: 74
+    POST https://wamsbayclus001rest-hs.chinacloudapp.cn/api/AccessPolicies HTTP/1.1
+    Content-Type: application/json
+    DataServiceVersion: 1.0;NetFx
+    MaxDataServiceVersion: 3.0;NetFx
+    Accept: application/json
+    Accept-Charset: UTF-8
+    Authorization: Bearer <ENCODED JWT TOKEN>
+    x-ms-version: 2.17
+    Host: wamsbayclus001rest-hs.chinacloudapp.cn
+    Content-Length: 74
 
-{"Name":"NewUploadPolicy", "DurationInMinutes":"440", "Permissions":"2"} 
-```
+    {"Name":"NewUploadPolicy", "DurationInMinutes":"440", "Permissions":"2"}
 
 **HTTP 响应**
 
-
 如果成功，返回以下响应：
-```
-HTTP/1.1 201 Created
-Cache-Control: no-cache
-Content-Length: 312
-Content-Type: application/json;odata=minimalmetadata;streaming=true;charset=utf-8
-Location: https://wamsshaclus001rest-hs.chinacloudapp.cn/api/AccessPolicies('nb%3Apid%3AUUID%3Abe0ac48d-af7d-4877-9d60-1805d68bffae')
-Server: Microsoft-IIS/8.5
-request-id: 74c74545-7e0a-4cd6-a440-c1c48074a970
-x-ms-request-id: 74c74545-7e0a-4cd6-a440-c1c48074a970
-X-Content-Type-Options: nosniff
-DataServiceVersion: 3.0;
-X-Powered-By: ASP.NET
-Strict-Transport-Security: max-age=31536000; includeSubDomains
-Date: Sun, 18 Jan 2015 22:18:06 GMT
 
-{  
-   "odata.metadata":"https://wamsshaclus001rest-hs.chinacloudapp.cn/api/$metadata#AccessPolicies/@Element",
-   "Id":"nb:pid:UUID:be0ac48d-af7d-4877-9d60-1805d68bffae",
-   "Created":"2015-01-18T22:18:06.6370575Z",
-   "LastModified":"2015-01-18T22:18:06.6370575Z",
-   "Name":"NewUploadPolicy",
-   "DurationInMinutes":440.0,
-   "Permissions":2
-}
-```
+    HTTP/1.1 201 Created
+    Cache-Control: no-cache
+    Content-Length: 312
+    Content-Type: application/json;odata=minimalmetadata;streaming=true;charset=utf-8
+    Location: https://wamsbayclus001rest-hs.chinacloudapp.cn/api/AccessPolicies('nb%3Apid%3AUUID%3Abe0ac48d-af7d-4877-9d60-1805d68bffae')
+    Server: Microsoft-IIS/8.5
+    request-id: 74c74545-7e0a-4cd6-a440-c1c48074a970
+    x-ms-request-id: 74c74545-7e0a-4cd6-a440-c1c48074a970
+    X-Content-Type-Options: nosniff
+    DataServiceVersion: 3.0;
+    X-Powered-By: ASP.NET
+    Strict-Transport-Security: max-age=31536000; includeSubDomains
+    Date: Sun, 18 Jan 2015 22:18:06 GMT
+
+    {  
+       "odata.metadata":"https://wamsbayclus001rest-hs.chinacloudapp.cn/api/$metadata#AccessPolicies/@Element",
+       "Id":"nb:pid:UUID:be0ac48d-af7d-4877-9d60-1805d68bffae",
+       "Created":"2015-01-18T22:18:06.6370575Z",
+       "LastModified":"2015-01-18T22:18:06.6370575Z",
+       "Name":"NewUploadPolicy",
+       "DurationInMinutes":440.0,
+       "Permissions":2
+    }
 
 ### <a name="get-the-upload-url"></a>获取上传 URL
 
@@ -273,106 +264,100 @@ Date: Sun, 18 Jan 2015 22:18:06 GMT
 
 SAS URL 采用以下格式：
 
-```
-{https://myaccount.blob.core.chinacloudapi.cn}/{asset name}/{video file name}?{SAS signature}
-```
+    {https://myaccount.blob.core.chinacloudapi.cn}/{asset name}/{video file name}?{SAS signature}
 
 请注意以下事项：
 
-* 一项给定的资产一次最多只能与五个唯一的定位符相关联。 有关详细信息，请参阅定位符。
+* 一项给定的资产一次最多只能与五个唯一的定位符相关联。 
 * 如果需要立即上传文件，应将 StartTime 值设置为当前时间前五分钟。 这是因为客户端计算机与媒体服务之间可能存在时钟偏差。 此外，StartTime 值必须采用以下 DateTime 格式：YYYY-MM-DDTHH:mm:ssZ（例如，“2014-05-23T17:53:50Z”）。    
-* 定位符从创建到可用可能会有 30-40 秒的延迟。 SAS URL 和源定位符都会出现这个问题。
-
-有关 SAS 定位符的详细信息，请参阅[此](http://southworks.com/blog/2015/05/27/reusing-azure-media-services-locators-to-avoid-facing-the-5-shared-access-policy-limitation/)博客。
+* 定位符从创建到可用可能会有 30-40 秒的延迟。 [SAS URL](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) 和源定位符都会出现这个问题。
 
 以下示例说明了如何创建 SAS URL 定位符，由请求正文中的 Type 属性定义（“1”表示 SAS 定位符，“2”表示按需来源定位符）。 返回的 **Path** 属性包含上传文件时必须使用的 URL。
 
 **HTTP 请求**
 
-```
-POST https://wamsshaclus001rest-hs.chinacloudapp.cn/api/Locators HTTP/1.1
-Content-Type: application/json
-DataServiceVersion: 1.0;NetFx
-MaxDataServiceVersion: 3.0;NetFx
-Accept: application/json
-Accept-Charset: UTF-8
-Authorization: Bearer <ENCODED JWT TOKEN>
-x-ms-version: 2.17
-Host: wamsshaclus001rest-hs.chinacloudapp.cn
-Content-Length: 178
+    POST https://wamsbayclus001rest-hs.chinacloudapp.cn/api/Locators HTTP/1.1
+    Content-Type: application/json
+    DataServiceVersion: 1.0;NetFx
+    MaxDataServiceVersion: 3.0;NetFx
+    Accept: application/json
+    Accept-Charset: UTF-8
+    Authorization: Bearer <ENCODED JWT TOKEN>
+    x-ms-version: 2.17
+    Host: wamsbayclus001rest-hs.chinacloudapp.cn
+    Content-Length: 178
 
-{  
-   "AccessPolicyId":"nb:pid:UUID:be0ac48d-af7d-4877-9d60-1805d68bffae",
-   "AssetId":"nb:cid:UUID:9bc8ff20-24fb-4fdb-9d7c-b04c7ee573a1",
-   "StartTime":"2015-02-18T16:45:53",
-   "Type":1
-}
-```
+    {  
+       "AccessPolicyId":"nb:pid:UUID:be0ac48d-af7d-4877-9d60-1805d68bffae",
+       "AssetId":"nb:cid:UUID:9bc8ff20-24fb-4fdb-9d7c-b04c7ee573a1",
+       "StartTime":"2015-02-18T16:45:53",
+       "Type":1
+    }
+
 
 **HTTP 响应**
 
 如果成功，将返回以下响应：
 
-```
-HTTP/1.1 201 Created
-Cache-Control: no-cache
-Content-Length: 949
-Content-Type: application/json;odata=minimalmetadata;streaming=true;charset=utf-8
-Location: https://wamsshaclus001rest-hs.chinacloudapp.cn/api/Locators('nb%3Alid%3AUUID%3Aaf57bdd8-6751-4e84-b403-f3c140444b54')
-Server: Microsoft-IIS/8.5
-request-id: 2adeb1f8-89c5-4cc8-aa4f-08cdfef33ae0
-x-ms-request-id: 2adeb1f8-89c5-4cc8-aa4f-08cdfef33ae0
-X-Content-Type-Options: nosniff
-DataServiceVersion: 3.0;
-X-Powered-By: ASP.NET
-Strict-Transport-Security: max-age=31536000; includeSubDomains
-Date: Mon, 19 Jan 2015 03:01:29 GMT
+    HTTP/1.1 201 Created
+    Cache-Control: no-cache
+    Content-Length: 949
+    Content-Type: application/json;odata=minimalmetadata;streaming=true;charset=utf-8
+    Location: https://wamsbayclus001rest-hs.chinacloudapp.cn/api/Locators('nb%3Alid%3AUUID%3Aaf57bdd8-6751-4e84-b403-f3c140444b54')
+    Server: Microsoft-IIS/8.5
+    request-id: 2adeb1f8-89c5-4cc8-aa4f-08cdfef33ae0
+    x-ms-request-id: 2adeb1f8-89c5-4cc8-aa4f-08cdfef33ae0
+    X-Content-Type-Options: nosniff
+    DataServiceVersion: 3.0;
+    X-Powered-By: ASP.NET
+    Strict-Transport-Security: max-age=31536000; includeSubDomains
+    Date: Mon, 19 Jan 2015 03:01:29 GMT
 
-{  
-   "odata.metadata":"https://wamsshaclus001rest-hs.chinacloudapp.cn/api/$metadata#Locators/@Element",
-   "Id":"nb:lid:UUID:af57bdd8-6751-4e84-b403-f3c140444b54",
-   "ExpirationDateTime":"2015-02-19T00:05:53",
-   "Type":1,
-   "Path":"https://storagetestaccount001.blob.core.chinacloudapi.cn/asset-f438649c-313c-46e2-8d68-7d2550288247?sv=2012-02-12&sr=c&si=af57bdd8-6751-4e84-b403-f3c140444b54&sig=fE4btwEfZtVQFeC0Wh3Kwks2OFPQfzl5qTMW5YytiuY%3D&st=2015-02-18T16%3A45%3A53Z&se=2015-02-19T00%3A05%3A53Z",
-   "BaseUri":"https://storagetestaccount001.blob.core.chinacloudapi.cn/asset-f438649c-313c-46e2-8d68-7d2550288247",
-   "ContentAccessComponent":"?sv=2012-02-12&sr=c&si=af57bdd8-6751-4e84-b403-f3c140444b54&sig=fE4btwEfZtVQFeC0Wh3Kwks2OFPQfzl5qTMW5YytiuY%3D&st=2015-02-18T16%3A45%3A53Z&se=2015-02-19T00%3A05%3A53Z",
-   "AccessPolicyId":"nb:pid:UUID:be0ac48d-af7d-4877-9d60-1805d68bffae",
-   "AssetId":"nb:cid:UUID:9bc8ff20-24fb-4fdb-9d7c-b04c7ee573a1",
-   "StartTime":"2015-02-18T16:45:53",
-   "Name":null
-}
-```
+    {  
+       "odata.metadata":"https://wamsbayclus001rest-hs.chinacloudapp.cn/api/$metadata#Locators/@Element",
+       "Id":"nb:lid:UUID:af57bdd8-6751-4e84-b403-f3c140444b54",
+       "ExpirationDateTime":"2015-02-19T00:05:53",
+       "Type":1,
+       "Path":"https://storagetestaccount001.blob.core.chinacloudapi.cn/asset-f438649c-313c-46e2-8d68-7d2550288247?sv=2012-02-12&sr=c&si=af57bdd8-6751-4e84-b403-f3c140444b54&sig=fE4btwEfZtVQFeC0Wh3Kwks2OFPQfzl5qTMW5YytiuY%3D&st=2015-02-18T16%3A45%3A53Z&se=2015-02-19T00%3A05%3A53Z",
+       "BaseUri":"https://storagetestaccount001.blob.core.chinacloudapi.cn/asset-f438649c-313c-46e2-8d68-7d2550288247",
+       "ContentAccessComponent":"?sv=2012-02-12&sr=c&si=af57bdd8-6751-4e84-b403-f3c140444b54&sig=fE4btwEfZtVQFeC0Wh3Kwks2OFPQfzl5qTMW5YytiuY%3D&st=2015-02-18T16%3A45%3A53Z&se=2015-02-19T00%3A05%3A53Z",
+       "AccessPolicyId":"nb:pid:UUID:be0ac48d-af7d-4877-9d60-1805d68bffae",
+       "AssetId":"nb:cid:UUID:9bc8ff20-24fb-4fdb-9d7c-b04c7ee573a1",
+       "StartTime":"2015-02-18T16:45:53",
+       "Name":null
+    }
 
 ### <a name="upload-a-file-into-a-blob-storage-container"></a>将文件上传到 Blob 存储容器
 设置 AccessPolicy 和定位符后，即可使用 Azure 存储 REST API 将具体的文件上传到 Azure Blob 存储容器。 必须以块 blob 形式上传文件。 Azure 媒体服务不支持页 blob。  
 
->[!NOTE]
-> 必须将要上传的文件的文件名添加到上一部分中收到的定位符 **Path** 值中。 例如： https://storagetestaccount001.blob.core.chinacloudapi.cn/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? 上获取。 上获取。 上获取。 
+> [!NOTE]
+> 必须将要上传的文件的文件名添加到上一部分中收到的定位符 **Path** 值中。 例如： https://storagetestaccount001.blob.core.chinacloudapi.cn/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? 上获取。 上获取。 上获取。
+>
+>
 
 有关使用 Azure 存储 blob 的详细信息，请参阅 [Blob 服务 REST API](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API)。
 
 ### <a name="update-the-assetfile"></a>更新 AssetFile
 上传文件后，请更新 FileAsset 大小（和其他）信息。 例如：
 
-```
-MERGE https://wamsshaclus001rest-hs.chinacloudapp.cn/api/Files('nb%3Acid%3AUUID%3Af13a0137-0a62-9d4c-b3b9-ca944b5142c5') HTTP/1.1
-Content-Type: application/json
-DataServiceVersion: 1.0;NetFx
-MaxDataServiceVersion: 3.0;NetFx
-Accept: application/json
-Accept-Charset: UTF-8
-Authorization: Bearer <ENCODED JWT TOKEN>
-x-ms-version: 2.17
-Host: wamsshaclus001rest-hs.chinacloudapp.cn
+    MERGE https://wamsbayclus001rest-hs.chinacloudapp.cn/api/Files('nb%3Acid%3AUUID%3Af13a0137-0a62-9d4c-b3b9-ca944b5142c5') HTTP/1.1
+    Content-Type: application/json
+    DataServiceVersion: 1.0;NetFx
+    MaxDataServiceVersion: 3.0;NetFx
+    Accept: application/json
+    Accept-Charset: UTF-8
+    Authorization: Bearer <ENCODED JWT TOKEN>
+    x-ms-version: 2.17
+    Host: wamsbayclus001rest-hs.chinacloudapp.cn
 
-{  
-   "ContentFileSize":"1186540",
-   "Id":"nb:cid:UUID:f13a0137-0a62-9d4c-b3b9-ca944b5142c5",
-   "MimeType":"video/mp4",
-   "Name":"BigBuckBunny.mp4",
-   "ParentAssetId":"nb:cid:UUID:9bc8ff20-24fb-4fdb-9d7c-b04c7ee573a1"
-}
-```
+    {  
+       "ContentFileSize":"1186540",
+       "Id":"nb:cid:UUID:f13a0137-0a62-9d4c-b3b9-ca944b5142c5",
+       "MimeType":"video/mp4",
+       "Name":"BigBuckBunny.mp4",
+       "ParentAssetId":"nb:cid:UUID:9bc8ff20-24fb-4fdb-9d7c-b04c7ee573a1"
+    }
+
 
 **HTTP 响应**
 
@@ -384,47 +369,40 @@ Host: wamsshaclus001rest-hs.chinacloudapp.cn
 ## <a name="delete-the-locator-and-accesspolicy"></a>删除定位符和 AccessPolicy
 **HTTP 请求**
 
-```
-DELETE https://wamsshaclus001rest-hs.chinacloudapp.cn/api/Locators('nb%3Alid%3AUUID%3Aaf57bdd8-6751-4e84-b403-f3c140444b54') HTTP/1.1
-DataServiceVersion: 1.0;NetFx
-MaxDataServiceVersion: 3.0;NetFx
-Accept: application/json
-Accept-Charset: UTF-8
-Authorization: Bearer <ENCODED JWT TOKEN>
-x-ms-version: 2.17
-Host: wamsshaclus001rest-hs.chinacloudapp.cn
-```
+    DELETE https://wamsbayclus001rest-hs.chinacloudapp.cn/api/Locators('nb%3Alid%3AUUID%3Aaf57bdd8-6751-4e84-b403-f3c140444b54') HTTP/1.1
+    DataServiceVersion: 1.0;NetFx
+    MaxDataServiceVersion: 3.0;NetFx
+    Accept: application/json
+    Accept-Charset: UTF-8
+    Authorization: Bearer <ENCODED JWT TOKEN>
+    x-ms-version: 2.17
+    Host: wamsbayclus001rest-hs.chinacloudapp.cn
+
 
 **HTTP 响应**
 
 如果成功，返回以下响应：
 
-```
-HTTP/1.1 204 No Content 
-...
-```
+    HTTP/1.1 204 No Content
+    ...
 
 **HTTP 请求**
 
-```
-DELETE https://wamsshaclus001rest-hs.chinacloudapp.cn/api/AccessPolicies('nb%3Apid%3AUUID%3Abe0ac48d-af7d-4877-9d60-1805d68bffae') HTTP/1.1
-DataServiceVersion: 1.0;NetFx
-MaxDataServiceVersion: 3.0;NetFx
-Accept: application/json
-Accept-Charset: UTF-8
-Authorization: Bearer <ENCODED JWT TOKEN>
-x-ms-version: 2.17
-Host: wamsshaclus001rest-hs.chinacloudapp.cn
-```
+    DELETE https://wamsbayclus001rest-hs.cloudapp.net/api/AccessPolicies('nb%3Apid%3AUUID%3Abe0ac48d-af7d-4877-9d60-1805d68bffae') HTTP/1.1
+    DataServiceVersion: 1.0;NetFx
+    MaxDataServiceVersion: 3.0;NetFx
+    Accept: application/json
+    Accept-Charset: UTF-8
+    Authorization: Bearer <ENCODED JWT TOKEN>
+    x-ms-version: 2.17
+    Host: wamsbayclus001rest-hs.cloudapp.net
 
 **HTTP 响应**
 
 如果成功，返回以下响应：
 
-```
-HTTP/1.1 204 No Content
-...
-```
+    HTTP/1.1 204 No Content
+    ...
 
 ## <a id="encode"></a>将源文件编码为一组自适应比特率 MP4 文件
 
@@ -441,47 +419,44 @@ HTTP/1.1 204 No Content
 
 **HTTP 请求**
 
-```
-    GET https://wamsshaclus001rest-hs.chinacloudapp.cn/api/MediaProcessors()?$filter=Name%20eq%20'Media%20Encoder%20Standard' HTTP/1.1
-DataServiceVersion: 1.0;NetFx
-MaxDataServiceVersion: 3.0;NetFx
-Accept: application/json
-Accept-Charset: UTF-8
-Authorization: Bearer <ENCODED JWT TOKEN>
-x-ms-version: 2.17
-Host: wamsshaclus001rest-hs.chinacloudapp.cn
-```
+    GET https://wamsbayclus001rest-hs.chinacloudapp.cn/api/MediaProcessors()?$filter=Name%20eq%20'Media%20Encoder%20Standard' HTTP/1.1
+    DataServiceVersion: 1.0;NetFx
+    MaxDataServiceVersion: 3.0;NetFx
+    Accept: application/json
+    Accept-Charset: UTF-8
+    Authorization: Bearer <ENCODED JWT TOKEN>
+    x-ms-version: 2.17
+    Host: wamsbayclus001rest-hs.chinacloudapp.cn
+
 
 **HTTP 响应**
 
-```
-HTTP/1.1 200 OK
-Cache-Control: no-cache
-Content-Length: 273
-Content-Type: application/json;odata=minimalmetadata;streaming=true;charset=utf-8
-Server: Microsoft-IIS/8.5
-request-id: 6beb04b4-55a7-480d-8aa8-e5c5d59ffa1f
-x-ms-request-id: 6beb04b4-55a7-480d-8aa8-e5c5d59ffa1f
-X-Content-Type-Options: nosniff
-DataServiceVersion: 3.0;
-X-Powered-By: ASP.NET
-Strict-Transport-Security: max-age=31536000; includeSubDomains
-Date: Mon, 19 Jan 2015 07:54:09 GMT
+    HTTP/1.1 200 OK
+    Cache-Control: no-cache
+    Content-Length: 273
+    Content-Type: application/json;odata=minimalmetadata;streaming=true;charset=utf-8
+    Server: Microsoft-IIS/8.5
+    request-id: 6beb04b4-55a7-480d-8aa8-e5c5d59ffa1f
+    x-ms-request-id: 6beb04b4-55a7-480d-8aa8-e5c5d59ffa1f
+    X-Content-Type-Options: nosniff
+    DataServiceVersion: 3.0;
+    X-Powered-By: ASP.NET
+    Strict-Transport-Security: max-age=31536000; includeSubDomains
+    Date: Mon, 19 Jan 2015 07:54:09 GMT
 
-{  
-   "odata.metadata":"https://wamsshaclus001rest-hs.chinacloudapp.cn/api/$metadata#MediaProcessors",
-   "value":[  
-      {  
-         "Id":"nb:mpid:UUID:ff4df607-d419-42f0-bc17-a481b1331e56",
-         "Description":"Media Encoder Standard",
-         "Name":"Media Encoder Standard",
-         "Sku":"",
-         "Vendor":"Microsoft",
-         "Version":"1.1"
-      }
-   ]
-}
-```
+    {  
+       "odata.metadata":"https://wamsbayclus001rest-hs.chinacloudapp.cn/api/$metadata#MediaProcessors",
+       "value":[  
+          {  
+             "Id":"nb:mpid:UUID:ff4df607-d419-42f0-bc17-a481b1331e56",
+             "Description":"Media Encoder Standard",
+             "Name":"Media Encoder Standard",
+             "Sku":"",
+             "Vendor":"Microsoft",
+             "Version":"1.1"
+          }
+       ]
+    }
 
 ### <a name="create-a-job"></a>创建作业
 每个作业可以有一个或多个任务，具体因要完成的处理类型而异。 REST API 可通过以下两种方式之一创建作业及相关任务：可以通过作业实体上的任务导航属性以内联方式定义任务，或通过 OData 批处理来定义任务。 媒体服务 SDK 使用批处理。 但为了确保本文中代码示例的可读性，任务以内联方式定义。 有关批处理的信息，请参阅 [Open Data Protocol (OData) 批处理](http://www.odata.org/documentation/odata-version-3-0/batch-processing/)。
@@ -490,100 +465,97 @@ Date: Mon, 19 Jan 2015 07:54:09 GMT
 
 **HTTP 请求**
 
-```
-POST https://wamsshaclus001rest-hs.chinacloudapp.cn/api/Jobs HTTP/1.1
-DataServiceVersion: 1.0;NetFx
-MaxDataServiceVersion: 3.0;NetFx
-Content-Type: application/json
-Accept: application/json;odata=verbose
-Accept-Charset: UTF-8
-Authorization: Bearer <ENCODED JWT TOKEN>
-x-ms-version: 2.17
-Host: wamsshaclus001rest-hs.chinacloudapp.cn
-Content-Length: 482
+    POST https://wamsbayclus001rest-hs.chinacloudapp.cn/api/Jobs HTTP/1.1
+    DataServiceVersion: 1.0;NetFx
+    MaxDataServiceVersion: 3.0;NetFx
+    Content-Type: application/json;odata=verbose
+    Accept: application/json;odata=verbose
+    Accept-Charset: UTF-8
+    Authorization: Bearer <ENCODED JWT TOKEN>
+    x-ms-version: 2.17
+    Host: wamsbayclus001rest-hs.chinacloudapp.cn
+    Content-Length: 482
 
-{  
-   "Name":"NewTestJob",
-   "InputMediaAssets":[  
-      {  
-         "__metadata":{  
-            "uri":"https://wamsshaclus001rest-hs.net/api/Assets('nb%3Acid%3AUUID%3A9bc8ff20-24fb-4fdb-9d7c-b04c7ee573a1')"
-         }
-      }
-   ],
-   "Tasks":[  
-      {  
-         "Configuration":"H264 Adaptive Bitrate MP4 Set 720p",
-         "MediaProcessorId":"nb:mpid:UUID:ff4df607-d419-42f0-bc17-a481b1331e56",
-         "TaskBody":"<?xml version=\"1.0\" encoding=\"utf-8\"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset>
-            <outputAsset>JobOutputAsset(0)</outputAsset></taskBody>"
-      }
-   ]
-}
-```
+    {  
+       "Name":"NewTestJob",
+       "InputMediaAssets":[  
+          {  
+             "__metadata":{  
+                "uri":"https://wamsbayclus001rest-hs.net/api/Assets('nb%3Acid%3AUUID%3A9bc8ff20-24fb-4fdb-9d7c-b04c7ee573a1')"
+             }
+          }
+       ],
+       "Tasks":[  
+          {  
+             "Configuration":"Adaptive Streaming",
+             "MediaProcessorId":"nb:mpid:UUID:ff4df607-d419-42f0-bc17-a481b1331e56",
+             "TaskBody":"<?xml version=\"1.0\" encoding=\"utf-8\"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset>
+                <outputAsset>JobOutputAsset(0)</outputAsset></taskBody>"
+          }
+       ]
+    }
 
 **HTTP 响应**
 
 如果成功，返回以下响应：
 
-```
-HTTP/1.1 201 Created
-Cache-Control: no-cache
-Content-Length: 1215
-Content-Type: application/json;odata=verbose;charset=utf-8
-Location: https://wamsshaclus001rest-hs.chinacloudapp.cn/api/Jobs('nb%3Ajid%3AUUID%3A71d2dd33-efdf-ec43-8ea1-136a110bd42c')
-Server: Microsoft-IIS/8.5
-request-id: 532ac1ec-a475-4dce-b2d5-7c8ce94ac87c
-x-ms-request-id: 532ac1ec-a475-4dce-b2d5-7c8ce94ac87c
-X-Content-Type-Options: nosniff
-DataServiceVersion: 3.0;
-X-Powered-By: ASP.NET
-Strict-Transport-Security: max-age=31536000; includeSubDomains
-Date: Mon, 19 Jan 2015 08:04:35 GMT
+    HTTP/1.1 201 Created
+    Cache-Control: no-cache
+    Content-Length: 1215
+    Content-Type: application/json;odata=verbose;charset=utf-8
+    Location: https://wamsbayclus001rest-hs.chinacloudapp.cn/api/Jobs('nb%3Ajid%3AUUID%3A71d2dd33-efdf-ec43-8ea1-136a110bd42c')
+    Server: Microsoft-IIS/8.5
+    request-id: 532ac1ec-a475-4dce-b2d5-7c8ce94ac87c
+    x-ms-request-id: 532ac1ec-a475-4dce-b2d5-7c8ce94ac87c
+    X-Content-Type-Options: nosniff
+    DataServiceVersion: 3.0;
+    X-Powered-By: ASP.NET
+    Strict-Transport-Security: max-age=31536000; includeSubDomains
+    Date: Mon, 19 Jan 2015 08:04:35 GMT
 
-{  
-   "d":{  
-      "__metadata":{  
-         "id":"https://wamsshaclus001rest-hs.chinacloudapp.cn/api/Jobs('nb%3Ajid%3AUUID%3A71d2dd33-efdf-ec43-8ea1-136a110bd42c')",
-         "uri":"https://wamsshaclus001rest-hs.chinacloudapp.cn/api/Jobs('nb%3Ajid%3AUUID%3A71d2dd33-efdf-ec43-8ea1-136a110bd42c')",
-         "type":"Microsoft.Cloud.Media.Vod.Rest.Data.Models.Job"
-      },
-      "Tasks":{  
-         "__deferred":{  
-            "uri":"https://wamsshaclus001rest-hs.chinacloudapp.cn/api/Jobs('nb%3Ajid%3AUUID%3A71d2dd33-efdf-ec43-8ea1-136a110bd42c')/Tasks"
-         }
-      },
-      "OutputMediaAssets":{  
-         "__deferred":{  
-            "uri":"https://wamsshaclus001rest-hs.chinacloudapp.cn/api/Jobs('nb%3Ajid%3AUUID%3A71d2dd33-efdf-ec43-8ea1-136a110bd42c')/OutputMediaAssets"
-         }
-      },
-      "InputMediaAssets":{  
-         "__deferred":{  
-            "uri":"https://wamsshaclus001rest-hs.chinacloudapp.cn/api/Jobs('nb%3Ajid%3AUUID%3A9bc8ff20-24fb-4fdb-9d7c-b04c7ee573a1')/InputMediaAssets"
-         }
-      },
-      "Id":"nb:jid:UUID:71d2dd33-efdf-ec43-8ea1-136a110bd42c",
-      "Name":"NewTestJob",
-      "Created":"2015-01-19T08:04:34.3287057Z",
-      "LastModified":"2015-01-19T08:04:34.3287057Z",
-      "EndTime":null,
-      "Priority":0,
-      "RunningDuration":0,
-      "StartTime":null,
-      "State":0,
-      "TemplateId":null,
-      "JobNotificationSubscriptions":{  
-         "__metadata":{  
-            "type":"Collection(Microsoft.Cloud.Media.Vod.Rest.Data.Models.JobNotificationSubscription)"
-         },
-         "results":[  
+    {  
+       "d":{  
+          "__metadata":{  
+             "id":"https://wamsbayclus001rest-hs.chinacloudapp.cn/api/Jobs('nb%3Ajid%3AUUID%3A71d2dd33-efdf-ec43-8ea1-136a110bd42c')",
+             "uri":"https://wamsbayclus001rest-hs.chinacloudapp.cn/api/Jobs('nb%3Ajid%3AUUID%3A71d2dd33-efdf-ec43-8ea1-136a110bd42c')",
+             "type":"Microsoft.Cloud.Media.Vod.Rest.Data.Models.Job"
+          },
+          "Tasks":{  
+             "__deferred":{  
+                "uri":"https://wamsbayclus001rest-hs.chinacloudapp.cn/api/Jobs('nb%3Ajid%3AUUID%3A71d2dd33-efdf-ec43-8ea1-136a110bd42c')/Tasks"
+             }
+          },
+          "OutputMediaAssets":{  
+             "__deferred":{  
+                "uri":"https://wamsbayclus001rest-hs.chinacloudapp.cn/api/Jobs('nb%3Ajid%3AUUID%3A71d2dd33-efdf-ec43-8ea1-136a110bd42c')/OutputMediaAssets"
+             }
+          },
+          "InputMediaAssets":{  
+             "__deferred":{  
+                "uri":"https://wamsbayclus001rest-hs.chinacloudapp.cn/api/Jobs('nb%3Ajid%3AUUID%3A9bc8ff20-24fb-4fdb-9d7c-b04c7ee573a1')/InputMediaAssets"
+             }
+          },
+          "Id":"nb:jid:UUID:71d2dd33-efdf-ec43-8ea1-136a110bd42c",
+          "Name":"NewTestJob",
+          "Created":"2015-01-19T08:04:34.3287057Z",
+          "LastModified":"2015-01-19T08:04:34.3287057Z",
+          "EndTime":null,
+          "Priority":0,
+          "RunningDuration":0,
+          "StartTime":null,
+          "State":0,
+          "TemplateId":null,
+          "JobNotificationSubscriptions":{  
+             "__metadata":{  
+                "type":"Collection(Microsoft.Cloud.Media.Vod.Rest.Data.Models.JobNotificationSubscription)"
+             },
+             "results":[  
 
-         ]
-      }
-   }
-}
-```
+             ]
+          }
+       }
+    }
+
 
 在任何作业请求中，都需要注意以下重要事项：
 
@@ -604,10 +576,7 @@ Date: Mon, 19 Jan 2015 08:04:35 GMT
 
     以下示例说明了如何设置 assetName 属性：
 
-    ```
-    "<?xml version=\"1.0\" encoding=\"utf-8\"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset assetName=\"CustomOutputAssetName\">JobOutputAsset(0)</outputAsset></taskBody>"
-    ```
-
+        "<?xml version=\"1.0\" encoding=\"utf-8\"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset assetName=\"CustomOutputAssetName\">JobOutputAsset(0)</outputAsset></taskBody>"
 * 若要启用任务链，必须满足以下条件：
 
   * 一个作业必须至少具有两个任务
@@ -620,37 +589,35 @@ Date: Mon, 19 Jan 2015 08:04:35 GMT
 
 **HTTP 请求**
 
-```
-GET https://wamsshaclus001rest-hs.chinacloudapp.cn/api/Jobs('nb%3Ajid%3AUUID%3A71d2dd33-efdf-ec43-8ea1-136a110bd42c')/State HTTP/1.1
-Content-Type: application/json;odata=verbose
-Accept: application/json;odata=verbose
-DataServiceVersion: 3.0
-MaxDataServiceVersion: 3.0
-x-ms-version: 2.17
-Authorization: Bearer <ENCODED JWT TOKEN>
-Host: wamsshaclus001rest-hs.chinacloudapp.cn
-Content-Length: 0
-```
+    GET https://wamsbayclus001rest-hs.chinacloudapp.cn/api/Jobs('nb%3Ajid%3AUUID%3A71d2dd33-efdf-ec43-8ea1-136a110bd42c')/State HTTP/1.1
+    Content-Type: application/json;odata=verbose
+    Accept: application/json;odata=verbose
+    DataServiceVersion: 3.0
+    MaxDataServiceVersion: 3.0
+    x-ms-version: 2.17
+    Authorization: Bearer <ENCODED JWT TOKEN>
+    Host: wamsbayclus001rest-hs.chinacloudapp.cn
+    Content-Length: 0
+
 
 **HTTP 响应**
 
 如果成功，返回以下响应：
 
-```
-HTTP/1.1 200 OK
-Cache-Control: no-cache
-Content-Length: 17
-Content-Type: application/json;odata=verbose;charset=utf-8
-Server: Microsoft-IIS/7.5
-x-ms-request-id: 01324d81-18e2-4493-a3e5-c6186209f0c8
-X-Content-Type-Options: nosniff
-DataServiceVersion: 1.0;
-X-AspNet-Version: 4.0.30319
-X-Powered-By: ASP.NET
-Date: Sun, 13 May 2012 05:16:53 GMT
+    HTTP/1.1 200 OK
+    Cache-Control: no-cache
+    Content-Length: 17
+    Content-Type: application/json;odata=verbose;charset=utf-8
+    Server: Microsoft-IIS/7.5
+    x-ms-request-id: 01324d81-18e2-4493-a3e5-c6186209f0c8
+    X-Content-Type-Options: nosniff
+    DataServiceVersion: 1.0;
+    X-AspNet-Version: 4.0.30319
+    X-Powered-By: ASP.NET
+    Date: Sun, 13 May 2012 05:16:53 GMT
 
-{"d":{"State":2}}
-```
+    {"d":{"State":2}}
+
 
 ### <a name="cancel-a-job"></a>取消作业
 媒体服务可通过 CancelJob 函数取消正在运行的作业。 如果在作业的状态为“已取消”、“正在取消”、“错误”或“已完成”时尝试取消该作业，则此调用会返回 400 错误代码。
@@ -659,16 +626,15 @@ Date: Sun, 13 May 2012 05:16:53 GMT
 
 **HTTP 请求**
 
-```
-GET https://wamsshaclus001rest-hs.chinacloudapp.cn/API/CancelJob?jobid='nb%3ajid%3aUUID%3a71d2dd33-efdf-ec43-8ea1-136a110bd42c' HTTP/1.1
-Content-Type: application/json;odata=verbose
-Accept: application/json;odata=verbose
-DataServiceVersion: 3.0
-MaxDataServiceVersion: 3.0
-x-ms-version: 2.2
-Authorization: Bearer <ENCODED JWT TOKEN>
-Host: wamsshaclus001rest-hs.chinacloudapp.cn
-```
+    GET https://wamsbayclus001rest-hs.chinacloudapp.cn/API/CancelJob?jobid='nb%3ajid%3aUUID%3a71d2dd33-efdf-ec43-8ea1-136a110bd42c' HTTP/1.1
+    Content-Type: application/json;odata=verbose
+    Accept: application/json;odata=verbose
+    DataServiceVersion: 3.0
+    MaxDataServiceVersion: 3.0
+    x-ms-version: 2.2
+    Authorization: Bearer <ENCODED JWT TOKEN>
+    Host: wamsbayclus001rest-hs.chinacloudapp.cn
+
 
 如果成功，返回不带消息正文的 204 响应代码。
 
@@ -682,55 +648,52 @@ Host: wamsshaclus001rest-hs.chinacloudapp.cn
 
 **HTTP 请求**
 
-```
-GET https://wamsshaclus001rest-hs.chinacloudapp.cn/api/Jobs('nb%3Ajid%3AUUID%3A71d2dd33-efdf-ec43-8ea1-136a110bd42c')/OutputMediaAssets() HTTP/1.1
-DataServiceVersion: 1.0;NetFx
-MaxDataServiceVersion: 3.0;NetFx
-Accept: application/json
-Accept-Charset: UTF-8
-User-Agent: Microsoft ADO.NET Data Services
-Authorization: Bearer <ENCODED JWT TOKEN>
-x-ms-version: 2.17
-Host: wamsshaclus001rest-hs.chinacloudapp.cn
-```
+    GET https://wamsbayclus001rest-hs.chinacloudapp.cn/api/Jobs('nb%3Ajid%3AUUID%3A71d2dd33-efdf-ec43-8ea1-136a110bd42c')/OutputMediaAssets() HTTP/1.1
+    DataServiceVersion: 1.0;NetFx
+    MaxDataServiceVersion: 3.0;NetFx
+    Accept: application/json
+    Accept-Charset: UTF-8
+    User-Agent: Microsoft ADO.NET Data Services
+    Authorization: Bearer <ENCODED JWT TOKEN>
+    x-ms-version: 2.17
+    Host: wamsbayclus001rest-hs.chinacloudapp.cn
+
 
 **HTTP 响应**
 
-```
-HTTP/1.1 200 OK
-Cache-Control: no-cache
-Content-Length: 445
-Content-Type: application/json;odata=minimalmetadata;streaming=true;charset=utf-8
-Server: Microsoft-IIS/8.5
-request-id: 73cd605d-066a-46f1-8358-f4bd25a9220a
-x-ms-request-id: 73cd605d-066a-46f1-8358-f4bd25a9220a
-X-Content-Type-Options: nosniff
-DataServiceVersion: 3.0;
-X-Powered-By: ASP.NET
-Strict-Transport-Security: max-age=31536000; includeSubDomains
-Date: Mon, 19 Jan 2015 08:28:13 GMT
+    HTTP/1.1 200 OK
+    Cache-Control: no-cache
+    Content-Length: 445
+    Content-Type: application/json;odata=minimalmetadata;streaming=true;charset=utf-8
+    Server: Microsoft-IIS/8.5
+    request-id: 73cd605d-066a-46f1-8358-f4bd25a9220a
+    x-ms-request-id: 73cd605d-066a-46f1-8358-f4bd25a9220a
+    X-Content-Type-Options: nosniff
+    DataServiceVersion: 3.0;
+    X-Powered-By: ASP.NET
+    Strict-Transport-Security: max-age=31536000; includeSubDomains
+    Date: Mon, 19 Jan 2015 08:28:13 GMT
 
-{  
-   "odata.metadata":"https://wamsshaclus001rest-hs.chinacloudapp.cn/api/$metadata#Assets",
-   "value":[  
-      {  
-         "Id":"nb:cid:UUID:71d2dd33-efdf-ec43-8ea1-136a110bd42c",
-         "State":0,
-         "Created":"2015-01-19T07:52:15.603",
-         "LastModified":"2015-01-19T07:52:15.603",
-         "AlternateId":null,
-         "Name":"Multibitrate MP4s",
-         "Options":0,
-         "Uri":"https://storagetestaccount001.blob.core.chinacloudapi.cn/asset-71d2dd33-efdf-ec43-8ea1-136a110bd42c",
-         "StorageAccountName":"storagetestaccount001"
-      }
-   ]
-}
-```
+    {  
+       "odata.metadata":"https://wamsbayclus001rest-hs.chinacloudapp.cn/api/$metadata#Assets",
+       "value":[  
+          {  
+             "Id":"nb:cid:UUID:71d2dd33-efdf-ec43-8ea1-136a110bd42c",
+             "State":0,
+             "Created":"2015-01-19T07:52:15.603",
+             "LastModified":"2015-01-19T07:52:15.603",
+             "AlternateId":null,
+             "Name":"Multibitrate MP4s",
+             "Options":0,
+             "Uri":"https://storagetestaccount001.blob.core.chinacloudapi.cn/asset-71d2dd33-efdf-ec43-8ea1-136a110bd42c",
+             "StorageAccountName":"storagetestaccount001"
+          }
+       ]
+    }
 
 ## <a id="publish_get_urls"></a>使用 REST API 发布资产并获取流式处理和渐进式下载 URL
 
-若要流处理或下载资产，必须先创建定位符来“发布”资产。 定位符提供对资产中所含文件的访问权限。 媒体服务支持两种类型的定位符：用于流媒体（例如 MPEG DASH、HLS 或平滑流式处理）的 OnDemandOrigin 定位符，以及用于下载媒体文件的访问签名 (SAS) 定位符。 有关 SAS 定位符的详细信息，请参阅[此](http://southworks.com/blog/2015/05/27/reusing-azure-media-services-locators-to-avoid-facing-the-5-shared-access-policy-limitation/)博客。
+若要流处理或下载资产，必须先创建定位符来“发布”资产。 定位符提供对资产中所含文件的访问权限。 媒体服务支持两种类型的定位符：用于流媒体（例如 MPEG DASH、HLS 或平滑流式处理）的 OnDemandOrigin 定位符，以及用于下载媒体文件的访问签名 (SAS) 定位符。 
 
 创建定位符后，可以创建用来流式处理或下载文件的 URL。
 
@@ -739,27 +702,19 @@ Date: Mon, 19 Jan 2015 08:28:13 GMT
 
 平滑流式处理的流 URL 采用以下格式：
 
-```
-{streaming endpoint name-media services account name}.streaming.mediaservices.chinacloudapi.cn/{locator ID}/{filename}.ism/Manifest
-```
+    {streaming endpoint name-media services account name}.streaming.mediaservices.chinacloudapi.cn/{locator ID}/{filename}.ism/Manifest
 
 HLS 的流 URL 采用以下格式：
 
-```
-{streaming endpoint name-media services account name}.streaming.mediaservices.chinacloudapi.cn/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
-```
+    {streaming endpoint name-media services account name}.streaming.mediaservices.chinacloudapi.cn/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
 
 MPEG DASH 的流 URL 采用以下格式：
 
-```
-{streaming endpoint name-media services account name}.streaming.mediaservices.chinacloudapi.cn/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
-```
+    {streaming endpoint name-media services account name}.streaming.mediaservices.chinacloudapi.cn/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
 
 用于下载文件的 SAS URL 采用以下格式：
 
-```
-{blob container name}/{asset name}/{file name}/{SAS signature}
-```
+    {blob container name}/{asset name}/{file name}/{SAS signature}
 
 本部分演示如何执行以下必要任务以“发布”资产。  
 
@@ -772,20 +727,18 @@ MPEG DASH 的流 URL 采用以下格式：
 
 以下示例说明如何为给定资产指定具有读取权限的 AccessPolicy。
 
-```
-POST https://wamsshaclus001rest-hs.chinacloudapp.cn/API/AccessPolicies HTTP/1.1
-Content-Type: application/json
-Accept: application/json
-DataServiceVersion: 3.0
-MaxDataServiceVersion: 3.0
-x-ms-version: 2.17
-Authorization: Bearer <ENCODED JWT TOKEN>
-Host: wamsshaclus001rest-hs.chinacloudapp.cn
-Content-Length: 74
-Expect: 100-continue
+    POST https://wamsbayclus001rest-hs.chinacloudapp.cn/API/AccessPolicies HTTP/1.1
+    Content-Type: application/json
+    Accept: application/json
+    DataServiceVersion: 3.0
+    MaxDataServiceVersion: 3.0
+    x-ms-version: 2.17
+    Authorization: Bearer <ENCODED JWT TOKEN>
+    Host: wamsbayclus001rest-hs.chinacloudapp.cn
+    Content-Length: 74
+    Expect: 100-continue
 
-{"Name": "DownloadPolicy", "DurationInMinutes" : "300", "Permissions" : 1}
-```
+    {"Name": "DownloadPolicy", "DurationInMinutes" : "300", "Permissions" : 1}
 
 如果成功，则返回描述已创建的 AccessPolicy 实体的 201 成功代码。 然后，需要使用 AccessPolicy ID 以及包含需传送文件的资产（如某个输出资产）的资产 ID 来创建定位符实体。
 
@@ -797,64 +750,60 @@ Expect: 100-continue
 ### <a name="creating-a-sas-url-for-downloading-content"></a>创建用于下载内容的 SAS URL
 以下代码演示了如何获取可用于下载以前创建和上传的媒体文件的 URL。 AccessPolicy 已设置读取权限，并且定位符路径指向 SAS 下载 URL。
 
-```
-POST https://wamsshaclus001rest-hs.chinacloudapp.cn/API/Locators HTTP/1.1
-Content-Type: application/json
-Accept: application/json
-DataServiceVersion: 3.0
-MaxDataServiceVersion: 3.0
-x-ms-version: 2.17
-Authorization: Bearer <ENCODED JWT TOKEN>
-Host: wamsshaclus001rest-hs.chinacloudapp.cn
-Content-Length: 182
-Expect: 100-continue
+    POST https://wamsbayclus001rest-hs.chinacloudapp.cn/API/Locators HTTP/1.1
+    Content-Type: application/json
+    Accept: application/json
+    DataServiceVersion: 3.0
+    MaxDataServiceVersion: 3.0
+    x-ms-version: 2.17
+    Authorization: Bearer <ENCODED JWT TOKEN>
+    Host: wamsbayclus001rest-hs.chinacloudapp.cn
+    Content-Length: 182
+    Expect: 100-continue
 
-{"AccessPolicyId": "nb:pid:UUID:38c71dd0-44c5-4c5f-8418-08bb6fbf7bf8", "AssetId" : "nb:cid:UUID:71d2dd33-efdf-ec43-8ea1-136a110bd42c", "StartTime" : "2014-05-17T16:45:53", "Type":1}
-```
+    {"AccessPolicyId": "nb:pid:UUID:38c71dd0-44c5-4c5f-8418-08bb6fbf7bf8", "AssetId" : "nb:cid:UUID:71d2dd33-efdf-ec43-8ea1-136a110bd42c", "StartTime" : "2014-05-17T16:45:53", "Type":1}
 
 如果成功，返回以下响应：
 
-```
-HTTP/1.1 201 Created
-Cache-Control: no-cache
-Content-Length: 1150
-Content-Type: application/json;odata=verbose;charset=utf-8
-Location: https://wamsshaclus001rest-hs.chinacloudapp.cn/api/Locators('nb%3Alid%3AUUID%3A8e5a821d-2194-4d00-8884-adf979856874')
-Server: Microsoft-IIS/7.5
-x-ms-request-id: 8cfd8556-3064-416a-97f2-67d9e35f0911
-X-Content-Type-Options: nosniff
-DataServiceVersion: 1.0;
-X-AspNet-Version: 4.0.30319
-X-Powered-By: ASP.NET
-Date: Mon, 14 May 2012 21:41:32 GMT
+    HTTP/1.1 201 Created
+    Cache-Control: no-cache
+    Content-Length: 1150
+    Content-Type: application/json;odata=verbose;charset=utf-8
+    Location: https://wamsbayclus001rest-hs.chinacloudapp.cn/api/Locators('nb%3Alid%3AUUID%3A8e5a821d-2194-4d00-8884-adf979856874')
+    Server: Microsoft-IIS/7.5
+    x-ms-request-id: 8cfd8556-3064-416a-97f2-67d9e35f0911
+    X-Content-Type-Options: nosniff
+    DataServiceVersion: 1.0;
+    X-AspNet-Version: 4.0.30319
+    X-Powered-By: ASP.NET
+    Date: Mon, 14 May 2012 21:41:32 GMT
 
-{  
-   "d":{  
-      "__metadata":{  
-         "id":"https://wamsshaclus001rest-hs.chinacloudapp.cn/api/Locators('nb%3Alid%3AUUID%3A8e5a821d-2194-4d00-8884-adf979856874')",
-         "uri":"https://wamsshaclus001rest-hs.chinacloudapp.cn/api/Locators('nb%3Alid%3AUUID%3A8e5a821d-2194-4d00-8884-adf979856874')",
-         "type":"Microsoft.Cloud.Media.Vod.Rest.Data.Models.Locator"
-      },
-      "AccessPolicy":{  
-         "__deferred":{  
-            "uri":"https://wamsshaclus001rest-hs.chinacloudapp.cn/api/Locators('nb%3Alid%3AUUID%3A8e5a821d-2194-4d00-8884-adf979856874')/AccessPolicy"
-         }
-      },
-      "Asset":{  
-         "__deferred":{  
-            "uri":"https://wamsshaclus001rest-hs.chinacloudapp.cn/api/Locators('nb%3Alid%3AUUID%3A71d2dd33-efdf-ec43-8ea1-136a110bd42c')/Asset"
-         }
-      },
-      "Id":"nb:lid:UUID:8e5a821d-2194-4d00-8884-adf979856874",
-      "ExpirationDateTime":"\/Date(1337049393000)\/",
-      "Type":1,
-      "Path":"https://storagetestaccount001.blob.core.chinacloudapi.cn/asset-71d2dd33-efdf-ec43-8ea1-136a110bd42c?st=2012-05-14T21%3A36%3A33Z&se=2012-05-15T02%3A36%3A33Z&sr=c&si=8e5a821d-2194-4d00-8884-adf979856874&sig=y75dViDpC5V8WutrXM%2B%2FGpR3uOtqmlISiNlHU1YUBOg%3D",
-      "AccessPolicyId":"nb:pid:UUID:38c71dd0-44c5-4c5f-8418-08bb6fbf7bf8",
-      "AssetId":"nb:cid:UUID:71d2dd33-efdf-ec43-8ea1-136a110bd42c",
-      "StartTime":"\/Date(1337031393000)\/"
-   }
-}
-```
+    {  
+       "d":{  
+          "__metadata":{  
+             "id":"https://wamsbayclus001rest-hs.chinacloudapp.cn/api/Locators('nb%3Alid%3AUUID%3A8e5a821d-2194-4d00-8884-adf979856874')",
+             "uri":"https://wamsbayclus001rest-hs.chinacloudapp.cn/api/Locators('nb%3Alid%3AUUID%3A8e5a821d-2194-4d00-8884-adf979856874')",
+             "type":"Microsoft.Cloud.Media.Vod.Rest.Data.Models.Locator"
+          },
+          "AccessPolicy":{  
+             "__deferred":{  
+                "uri":"https://wamsbayclus001rest-hs.chinacloudapp.cn/api/Locators('nb%3Alid%3AUUID%3A8e5a821d-2194-4d00-8884-adf979856874')/AccessPolicy"
+             }
+          },
+          "Asset":{  
+             "__deferred":{  
+                "uri":"https://wamsbayclus001rest-hs.chinacloudapp.cn/api/Locators('nb%3Alid%3AUUID%3A71d2dd33-efdf-ec43-8ea1-136a110bd42c')/Asset"
+             }
+          },
+          "Id":"nb:lid:UUID:8e5a821d-2194-4d00-8884-adf979856874",
+          "ExpirationDateTime":"\/Date(1337049393000)\/",
+          "Type":1,
+          "Path":"https://storagetestaccount001.blob.core.chinacloudapi.cn/asset-71d2dd33-efdf-ec43-8ea1-136a110bd42c?st=2012-05-14T21%3A36%3A33Z&se=2012-05-15T02%3A36%3A33Z&sr=c&si=8e5a821d-2194-4d00-8884-adf979856874&sig=y75dViDpC5V8WutrXM%2B%2FGpR3uOtqmlISiNlHU1YUBOg%3D",
+          "AccessPolicyId":"nb:pid:UUID:38c71dd0-44c5-4c5f-8418-08bb6fbf7bf8",
+          "AssetId":"nb:cid:UUID:71d2dd33-efdf-ec43-8ea1-136a110bd42c",
+          "StartTime":"\/Date(1337031393000)\/"
+       }
+    }
 
 返回的 **Path** 属性包含的 SAS URL。
 
@@ -866,111 +815,101 @@ Date: Mon, 14 May 2012 21:41:32 GMT
 ### <a name="download-files"></a>下载文件
 设置 AccessPolicy 和定位符后，可以使用 Azure 存储 REST API 下载文件。  
 
->[!NOTE]
-> 必须将要下载的文件的文件名添加到在上一部分收到的 Locator **Path** 值中。 例如： https://storagetestaccount001.blob.core.chinacloudapi.cn/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? 上获取。 上获取。 上获取。 
+> [!NOTE]
+> 必须将要下载的文件的文件名添加到在上一部分收到的 Locator **Path** 值中。 例如： https://storagetestaccount001.blob.core.chinacloudapi.cn/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? 上获取。 上获取。 上获取。
+>
+>
 
 有关使用 Azure 存储 Blob 的详细信息，请参阅 [Blob 服务 REST API](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API)。
 
 由于之前已经执行了编码作业（编码成自适应 MP4 集），因此可以渐进式下载多个 MP4 文件。 例如：    
 
-```
-https://storagetestaccount001.blob.core.chinacloudapi.cn/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
+    https://storagetestaccount001.blob.core.chinacloudapi.cn/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 
-https://storagetestaccount001.blob.core.chinacloudapi.cn/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_H264_400kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
+    https://storagetestaccount001.blob.core.chinacloudapi.cn/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_H264_400kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 
-https://storagetestaccount001.blob.core.chinacloudapi.cn/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_H264_3400kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
+    https://storagetestaccount001.blob.core.chinacloudapi.cn/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_H264_3400kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 
-https://storagetestaccount001.blob.core.chinacloudapi.cn/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_H264_2250kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
+    https://storagetestaccount001.blob.core.chinacloudapi.cn/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_H264_2250kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 
-https://storagetestaccount001.blob.core.chinacloudapi.cn/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_H264_1500kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
+    https://storagetestaccount001.blob.core.chinacloudapi.cn/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_H264_1500kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 
-https://storagetestaccount001.blob.core.chinacloudapi.cn/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_H264_1000kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
+    https://storagetestaccount001.blob.core.chinacloudapi.cn/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_H264_1000kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 
-https://storagetestaccount001.blob.core.chinacloudapi.cn/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
+    https://storagetestaccount001.blob.core.chinacloudapi.cn/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 
-https://storagetestaccount001.blob.core.chinacloudapi.cn/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_AAC_und_ch2_56kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
-```
+    https://storagetestaccount001.blob.core.chinacloudapi.cn/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_AAC_und_ch2_56kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 
 ### <a name="creating-a-streaming-url-for-streaming-content"></a>创建用于流式处理内容的流式处理 URL
-
 以下代码说明了如何创建流式处理 URL 定位符：
 
-```
-POST https://wamsshaclus001rest-hs.chinacloudapp.cn/API/Locators HTTP/1.1
-Content-Type: application/json
-Accept: application/json
-DataServiceVersion: 3.0
-MaxDataServiceVersion: 3.0
-x-ms-version: 2.17
-Authorization: Bearer <ENCODED JWT TOKEN>
-Host: wamsshaclus001rest-hs.chinacloudapp.cn
-Content-Length: 182
-Expect: 100-continue
+    POST https://wamsbayclus001rest-hs.chinacloudapp.cn/API/Locators HTTP/1.1
+    Content-Type: application/json
+    Accept: application/json
+    DataServiceVersion: 3.0
+    MaxDataServiceVersion: 3.0
+    x-ms-version: 2.17
+    Authorization: Bearer <ENCODED JWT TOKEN>
+    Host: wamsbayclus001rest-hs.chinacloudapp.cn
+    Content-Length: 182
+    Expect: 100-continue
 
-{"AccessPolicyId": "nb:pid:UUID:38c71dd0-44c5-4c5f-8418-08bb6fbf7bf8", "AssetId" : "nb:cid:UUID:eb5540a2-116e-4d36-b084-7e9958f7f3c3", "StartTime" : "2014-05-17T16:45:53",, "Type":2}
-```
+    {"AccessPolicyId": "nb:pid:UUID:38c71dd0-44c5-4c5f-8418-08bb6fbf7bf8", "AssetId" : "nb:cid:UUID:eb5540a2-116e-4d36-b084-7e9958f7f3c3", "StartTime" : "2014-05-17T16:45:53",, "Type":2}
 
 如果成功，返回以下响应：
 
-```
-HTTP/1.1 201 Created
-Cache-Control: no-cache
-Content-Length: 981
-Content-Type: application/json;odata=verbose;charset=utf-8
-Location: https://wamsshaclus001rest-hs.chinacloudapp.cn/api/Locators('nb%3Alid%3AUUID%3A52034bf6-dfae-4d83-aad3-3bd87dcb1a5d')
-Server: Microsoft-IIS/7.5
-x-ms-request-id: 2eac4158-fc78-4fa2-81ee-c9f582dc385f
-X-Content-Type-Options: nosniff
-DataServiceVersion: 1.0;
-X-AspNet-Version: 4.0.30319
-X-Powered-By: ASP.NET
-Date: Mon, 14 May 2012 21:41:39 GMT
+    HTTP/1.1 201 Created
+    Cache-Control: no-cache
+    Content-Length: 981
+    Content-Type: application/json;odata=verbose;charset=utf-8
+    Location: https://wamsbayclus001rest-hs.chinacloudapp.cn/api/Locators('nb%3Alid%3AUUID%3A52034bf6-dfae-4d83-aad3-3bd87dcb1a5d')
+    Server: Microsoft-IIS/7.5
+    x-ms-request-id: 2eac4158-fc78-4fa2-81ee-c9f582dc385f
+    X-Content-Type-Options: nosniff
+    DataServiceVersion: 1.0;
+    X-AspNet-Version: 4.0.30319
+    X-Powered-By: ASP.NET
+    Date: Mon, 14 May 2012 21:41:39 GMT
 
-{  
-   "d":{  
-      "__metadata":{  
-         "id":"https://wamsshaclus001rest-hs.chinacloudapp.cn/api/Locators('nb%3Alid%3AUUID%3A52034bf6-dfae-4d83-aad3-3bd87dcb1a5d')",
-         "uri":"https://wamsshaclus001rest-hs.chinacloudapp.cn/api/Locators('nb%3Alid%3AUUID%3A52034bf6-dfae-4d83-aad3-3bd87dcb1a5d')",
-         "type":"Microsoft.Cloud.Media.Vod.Rest.Data.Models.Locator"
-      },
-      "AccessPolicy":{  
-         "__deferred":{  
-            "uri":"https://wamsshaclus001rest-hs.chinacloudapp.cn/api/Locators('nb%3Alid%3AUUID%3A52034bf6-dfae-4d83-aad3-3bd87dcb1a5d')/AccessPolicy"
-         }
-      },
-      "Asset":{  
-         "__deferred":{  
-            "uri":"https://wamsshaclus001rest-hs.chinacloudapp.cn/api/Locators('nb%3Alid%3AUUID%3A52034bf6-dfae-4d83-aad3-3bd87dcb1a5d')/Asset"
-         }
-      },
-      "Id":"nb:lid:UUID:52034bf6-dfae-4d83-aad3-3bd87dcb1a5d",
-      "ExpirationDateTime":"\/Date(1337049395000)\/",
-      "Type":2,
-      "Path":"http://wamsshaclus001rest-hs.chinacloudapp.cn/52034bf6-dfae-4d83-aad3-3bd87dcb1a5d/",
-      "AccessPolicyId":"nb:pid:UUID:38c71dd0-44c5-4c5f-8418-08bb6fbf7bf8",
-      "AssetId":"nb:cid:UUID:eb5540a2-116e-4d36-b084-7e9958f7f3c3",
-      "StartTime":"\/Date(1337031395000)\/"
-   }
-}
-```
+    {  
+       "d":{  
+          "__metadata":{  
+             "id":"https://wamsbayclus001rest-hs.chinacloudapp.cn/api/Locators('nb%3Alid%3AUUID%3A52034bf6-dfae-4d83-aad3-3bd87dcb1a5d')",
+             "uri":"https://wamsbayclus001rest-hs.chinacloudapp.cn/api/Locators('nb%3Alid%3AUUID%3A52034bf6-dfae-4d83-aad3-3bd87dcb1a5d')",
+             "type":"Microsoft.Cloud.Media.Vod.Rest.Data.Models.Locator"
+          },
+          "AccessPolicy":{  
+             "__deferred":{  
+                "uri":"https://wamsbayclus001rest-hs.chinacloudapp.cn/api/Locators('nb%3Alid%3AUUID%3A52034bf6-dfae-4d83-aad3-3bd87dcb1a5d')/AccessPolicy"
+             }
+          },
+          "Asset":{  
+             "__deferred":{  
+                "uri":"https://wamsbayclus001rest-hs.chinacloudapp.cn/api/Locators('nb%3Alid%3AUUID%3A52034bf6-dfae-4d83-aad3-3bd87dcb1a5d')/Asset"
+             }
+          },
+          "Id":"nb:lid:UUID:52034bf6-dfae-4d83-aad3-3bd87dcb1a5d",
+          "ExpirationDateTime":"\/Date(1337049395000)\/",
+          "Type":2,
+          "Path":"http://wamsbayclus001rest-hs.chinacloudapp.cn/52034bf6-dfae-4d83-aad3-3bd87dcb1a5d/",
+          "AccessPolicyId":"nb:pid:UUID:38c71dd0-44c5-4c5f-8418-08bb6fbf7bf8",
+          "AssetId":"nb:cid:UUID:eb5540a2-116e-4d36-b084-7e9958f7f3c3",
+          "StartTime":"\/Date(1337031395000)\/"
+       }
+    }
 
 若要在流媒体播放器中流式处理平滑流源 URL，必须在路径属性上附加平滑流清单文件的名称，后跟“/manifest”。
 
-```
-http://amstestaccount001.streaming.mediaservices.chinacloudapi.cn/ebf733c4-3e2e-4a68-b67b-cc5159d1d7f2/BigBuckBunny.ism/manifest
-```
+    http://amstestaccount001.streaming.mediaservices.chinacloudapi.cn/ebf733c4-3e2e-4a68-b67b-cc5159d1d7f2/BigBuckBunny.ism/manifest
 
 若要流式处理 HLS，请在“/manifest”后附加 (format=m3u8-aapl)。
 
-```
-http://amstestaccount001.streaming.mediaservices.chinacloudapi.cn/ebf733c4-3e2e-4a68-b67b-cc5159d1d7f2/BigBuckBunny.ism/manifest(format=m3u8-aapl)
-```
+    http://amstestaccount001.streaming.mediaservices.chinacloudapi.cn/ebf733c4-3e2e-4a68-b67b-cc5159d1d7f2/BigBuckBunny.ism/manifest(format=m3u8-aapl)
 
 若要流式处理 MPEG DASH，请在“/manifest”后附加 (format=mpd-time-csf)。
 
-```
-http://amstestaccount001.streaming.mediaservices.chinacloudapi.cn/ebf733c4-3e2e-4a68-b67b-cc5159d1d7f2/BigBuckBunny.ism/manifest(format=mpd-time-csf)
-```
+    http://amstestaccount001.streaming.mediaservices.chinacloudapi.cn/ebf733c4-3e2e-4a68-b67b-cc5159d1d7f2/BigBuckBunny.ism/manifest(format=mpd-time-csf)
+
 
 ## <a id="play"></a>播放内容
 若要流式处理视频，请使用 [Azure 媒体服务播放器](http://amsplayer.azurewebsites.net/azuremediaplayer.html)。

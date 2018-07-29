@@ -1,6 +1,6 @@
 ---
 title: 使用 RBAC 和 Azure 门户管理访问权限 | Microsoft Docs
-description: Azure 门户中的基于角色的访问控制 (RBAC) 入门。 使用 RBAC 管理用户、组和应用程序的访问权限。
+description: 了解如何使用基于角色的访问控制 (RBAC) 和 Azure 门户来管理用户、组和应用程序的访问权限。 这包括如何列出访问权限、授予访问权限以及删除访问权限。
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -8,25 +8,25 @@ manager: mtillman
 ms.assetid: 8078f366-a2c4-4fbb-a44b-fc39fd89df81
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 06/13/2018
-ms.date: 07/03/2018
+origin.date: 07/11/2018
+ms.date: 07/25/2018
 ms.author: v-junlch
 ms.reviewer: bagovind
-ms.openlocfilehash: aea678b2662a1eee5e8eec98c57136472a35ff56
-ms.sourcegitcommit: a20c461541ba7db541c01c8a18fc4cff48e3d2d5
+ms.openlocfilehash: 060dfa7a38895bc3b80af3611afc9451b3d8ea5f
+ms.sourcegitcommit: cce18df2de12353f0d8f01c649307a5789d59cd4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37361167"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39246132"
 ---
 # <a name="manage-access-using-rbac-and-the-azure-portal"></a>使用 RBAC 和 Azure 门户管理访问权限
 
-可以在 Azure 中通过[基于角色的访问控制 (RBAC)](overview.md) 这种方式管理对资源的访问。 本文介绍如何在 Azure 门户中使用 RBAC 管理用户、组和应用程序的访问权限。
+可以在 Azure 中通过[基于角色的访问控制 (RBAC)](overview.md) 这种方式管理对资源的访问。 本文介绍如何使用 RBAC 和 Azure 门户来管理用户、组和应用程序的访问权限。
 
-## <a name="list-role-definitions"></a>列出角色定义
+## <a name="list-roles"></a>列出角色
 
 角色定义是用于角色分配的权限的集合。 Azure 有 60 个以上的[内置角色](built-in-roles.md)。
 
@@ -48,7 +48,7 @@ ms.locfileid: "37361167"
 
 ## <a name="list-access"></a>列出访问权限
 
-管理访问权限时，需了解谁有访问权限、其权限是什么，以及权限级别。
+管理访问权限时，需了解谁有访问权限、其权限是什么，以及权限级别。 若要列出访问权限，请列出角色分配。
 
 ### <a name="list-role-assignments-for-a-subscription"></a>列出订阅的角色分配
 
@@ -89,7 +89,9 @@ ms.locfileid: "37361167"
 
    ![Azure Active Directory 用户 Azure 资源](./media/role-assignments-portal/aad-user-azure-resources.png)
 
-   在“Azure 资源”边栏选项卡上，可以看到所选用户的角色分配。 此列表仅包括你有权读取的资源的角色分配。 例如，如果用户在其他订阅中还有角色分配，而该订阅无法读取，则这些角色分配不会显示在列表中。
+   在“Azure 资源”边栏选项卡上，可以看到所选用户和所选订阅的角色分配。 此列表仅包括你有权读取的资源的角色分配。 例如，如果用户还有你无法读取的角色分配，则这些角色分配将不会显示在列表中。
+
+1. 如果有多个订阅，则可以选择“订阅”下拉列表，以查看不同订阅中的角色分配。
 
 ## <a name="grant-access"></a>授予访问权限
 
@@ -163,17 +165,10 @@ ms.locfileid: "37361167"
 
 不能删除继承的角色分配。 如果需要删除继承的角色分配，则必须在创建角色分配的作用域上进行操作。 在“作用域”列的“继承”旁，有一条链接指向分配了此角色的资源。 请转到该处列出的范围以删除角色分配。
 
-## <a name="other-tools-to-manage-access"></a>管理访问权限的其他工具
-
-可以使用 Azure 门户以外的工具中的 Azure RBAC 命令分配角色和管理访问权限。 有关详细信息，请参阅以下链接：
-
-- [Azure PowerShell](role-assignments-powershell.md)
-- [Azure CLI](role-assignments-cli.md)
-- [REST API](role-assignments-rest.md)
-
 ## <a name="next-steps"></a>后续步骤
 
 - [快速入门：使用 RBAC 和 Azure 门户授予用户的访问权限](quickstart-assign-role-user-portal.md)
 - [教程：使用 RBAC 和 Azure PowerShell 授予用户的访问权限](tutorial-role-assignments-user-powershell.md)
 - [内置角色](built-in-roles.md)
 
+<!-- Update_Description: wording update -->

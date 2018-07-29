@@ -14,19 +14,19 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 02/27/2017
-ms.date: 06/25/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 12e2216027eb557b460b8c9e536650de511b7143
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 53b402e8827a714048f82907baefe1bf310e982f
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939952"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295728"
 ---
 # <a name="secure-network-traffic-between-virtual-machines"></a>保护虚拟机之间的网络流量
 
-此脚本创建两个虚拟机，并保护这两个虚拟机的传入流量。 一个虚拟机可在 Internet 上访问，其网络安全组 (NSG) 配置为允许端口 22 和端口 80 上的流量。 第二个虚拟机无法在 Internet 上访问，其 NSG 配置为仅允许来自第一个虚拟机的流量。 
+此脚本创建两个虚拟机，并保护这两个虚拟机的传入流量。 一个虚拟机可在 Internet 上访问，其网络安全组 (NSG) 配置为允许端口 22 和端口 80 上的流量。 第二个虚拟机无法在 Internet 上访问，其 NSG 配置为仅允许来自第一个虚拟机的流量。
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -78,11 +78,11 @@ az network nsg rule create --resource-group myResourceGroup --nsg-name myNetwork
   --source-address-prefix "*" --source-port-range "*" --destination-address-prefix "*" --destination-port-range "*"
 ```
 
-## <a name="clean-up-deployment"></a>清理部署 
+## <a name="clean-up-deployment"></a>清理部署
 
 运行以下命令来删除资源组、VM 和所有相关资源。
 
-```azurecli 
+```azurecli
 az group delete --name myResourceGroup
 ```
 
@@ -106,4 +106,4 @@ az group delete --name myResourceGroup
 
 可以在 [Azure Linux VM 文档](../linux/cli-samples.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)中找到其他虚拟机 CLI 脚本示例。
 
-<!--Update_Description: update meta properties, update link -->
+<!--Update_Description: update meta properties  -->

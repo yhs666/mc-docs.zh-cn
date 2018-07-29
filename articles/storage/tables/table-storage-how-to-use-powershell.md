@@ -15,17 +15,17 @@ ms.topic: article
 origin.date: 03/14/2018
 ms.date: 07/02/2018
 ms.author: v-jay
-ms.openlocfilehash: f7b257143faa640c761d7f8ba176fc24d56e266d
-ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
+ms.openlocfilehash: b9c33e5034f1fd52ba860350c1b819035852e29e
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103149"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295627"
 ---
 # <a name="perform-azure-table-storage-operations-with-azure-powershell"></a>使用 Azure PowerShell 执行 Azure 表存储操作 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
 
-Azure 表存储是一种 NoSQL 数据存储，可用于存储和查询大量的结构化非关系型数据。 该服务的主要组件包括表、实体和属性。 表是实体的集合。 实体是一组属性。 每个实体最多可以有 252 个属性（都是一些名称-值对）。 本文假设用户熟知 Azure 表存储服务的概念。 有关详细信息，请参阅 [Understanding the Table Service Data Model](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model)（了解表服务数据模型）和[通过 .NET 开始使用 Azure 表存储](../../cosmos-db/table-storage-how-to-use-dotnet.md)。
+Azure 表存储是一种 NoSQL 数据存储，可用于存储和查询大量的结构化非关系型数据。 该服务的主要组件包括表、实体和属性。 表是实体的集合。 实体是一组属性。 每个实体最多可以有 252 个属性（都是一些名称-值对）。 本文假设用户熟知 Azure 表存储服务的概念。 有关详细信息，请参阅 [Understanding the Table Service Data Model](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model)（了解表服务数据模型）和[通过 .NET 开始使用 Azure 表存储](../../cosmos-db/table-storage-how-to-use-dotnet.md)。
 
 此操作指南文章介绍常见的 Azure 表存储操作。 你将学习如何执行以下操作： 
 
@@ -39,7 +39,7 @@ Azure 表存储是一种 NoSQL 数据存储，可用于存储和查询大量的�
 
 本操作指南文章介绍如何在新的资源组中新建 Azure 存储帐户，以便可以在创建完成后轻松删除。 如果你要使用现有存储帐户，也可以改用现有帐户。
 
-本文中的示例需要 Azure PowerShell 模块 4.4.0 或更高版本。 在 PowerShell 窗口中，运行 `Get-Module -ListAvailable AzureRM` 可查找版本。 如果未显示任何信息或需要升级，请参阅[安装 Azure PowerShell 模块](/powershell/azure/install-azurerm-ps)。 
+本文中的示例需要 Azure PowerShell 模块 4.4.0 或更高版本。 在 PowerShell 窗口中，运行 `Get-Module -ListAvailable AzureRM` 可查找版本。 如果未显示任何信息或需要升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。 
 
 安装或更新 Azure PowerShell 后，必须安装模块 AzureRmStorageTable，其中包含用于管理实体的命令。 若要安装此模块，请以管理员身份运行 PowerShell 并使用 Install-Module 命令。
 
@@ -66,7 +66,7 @@ $location = "chinaeast"
 
 ## <a name="create-resource-group"></a>创建资源组
 
-使用 [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/New-AzureRmResourceGroup) 命令创建资源组。 
+使用 [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/New-AzureRmResourceGroup) 命令创建资源组。 
 
 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。 将资源组名称存储在变量中，以供以后使用。 本示例在 chinaeast 区域中创建名为 pshtablesrg 的资源组。
 
@@ -77,7 +77,7 @@ New-AzureRmResourceGroup -ResourceGroupName $resourceGroup -Location $location
 
 ## <a name="create-storage-account"></a>创建存储帐户
 
-使用 [ New-AzureRmStorageAccount ](/powershell/module/azurerm.storage/New-AzureRmStorageAccount) 创建具有本地冗余存储 (LRS) 的标准通用存储帐户。 获取用于定义要使用的存储帐户的存储帐户上下文。 对存储帐户执行操作时，引用上下文而不是重复提供凭据。
+使用 [ New-AzureRmStorageAccount ](https://docs.microsoft.com/powershell/module/azurerm.storage/New-AzureRmStorageAccount) 创建具有本地冗余存储 (LRS) 的标准通用存储帐户。 获取用于定义要使用的存储帐户的存储帐户上下文。 对存储帐户执行操作时，引用上下文而不是重复提供凭据。
 
 ```powershell
 $storageAccountName = "pshtablestorage"
@@ -92,7 +92,7 @@ $ctx = $storageAccount.Context
 
 ## <a name="create-a-new-table"></a>创建新表
 
-若要创建表，请使用 [New-AzureStorageTable](/powershell/module/azure.storage/New-AzureStorageTable) cmdlet。 在本示例中，表名为 `pshtesttable`。
+若要创建表，请使用 [New-AzureStorageTable](https://docs.microsoft.com/powershell/module/azure.storage/New-AzureStorageTable) cmdlet。 在本示例中，表名为 `pshtesttable`。
 
 ```powershell
 $tableName = "pshtesttable"
@@ -101,7 +101,7 @@ New-AzureStorageTable –Name $tableName –Context $ctx
 
 ## <a name="retrieve-a-list-of-tables-in-the-storage-account"></a>在存储帐户中检索表列表
 
-使用 [Get-AzureStorageTable](/powershell/module/azure.storage/Get-AzureStorageTable) 在存储帐户中检索表列表。
+使用 [Get-AzureStorageTable](https://docs.microsoft.com/powershell/module/azure.storage/Get-AzureStorageTable) 在存储帐户中检索表列表。
 
 ```powershell
 Get-AzureStorageTable –Context $ctx | select Name
@@ -109,7 +109,7 @@ Get-AzureStorageTable –Context $ctx | select Name
 
 ## <a name="retrieve-a-reference-to-a-specific-table"></a>检索对特定表的引用
 
-若要对表执行操作，需要引用特定表。 使用 [Get-AzureStorageTable](/powershell/module/azure.storage/Get-AzureStorageTable) 获得引用。 
+若要对表执行操作，需要引用特定表。 使用 [Get-AzureStorageTable](https://docs.microsoft.com/powershell/module/azure.storage/Get-AzureStorageTable) 获得引用。 
 
 ```powershell
 $storageTable = Get-AzureStorageTable –Name $tableName –Context $ctx
@@ -119,7 +119,7 @@ $storageTable = Get-AzureStorageTable –Name $tableName –Context $ctx
 
 ## <a name="delete-a-table"></a>删除表
 
-若要删除表，请使用 [Remove-AzureStorageTable](/powershell/module/azure.storage/Remove-AzureStorageTable)。 此 cmdlet 将删除表，包括表中的所有数据。
+若要删除表，请使用 [Remove-AzureStorageTable](https://docs.microsoft.com/powershell/module/azure.storage/Remove-AzureStorageTable)。 此 cmdlet 将删除表，包括表中的所有数据。
 
 ```powershell
 Remove-AzureStorageTable –Name $tableName –Context $ctx
@@ -150,7 +150,7 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 
 有关详细信息，请参阅以下文章：
 
-* [存储 PowerShell cmdlet](/powershell/module/azurerm.storage#storage)
+* [存储 PowerShell cmdlet](https://docs.microsoft.com/powershell/module/azurerm.storage#storage)
 
 * [从 PowerShell 使用 Azure 存储表](https://blogs.technet.microsoft.com/paulomarques/2017/01/17/working-with-azure-storage-tables-from-powershell/)
 

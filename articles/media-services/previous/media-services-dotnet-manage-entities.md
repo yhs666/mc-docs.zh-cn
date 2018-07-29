@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 07/17/2017
 ms.date: 09/04/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 693bc6cce806809c9bdabe9bd351f3f5a1d45d2e
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: bdeb2cbac11f8a19904362c6bacd0eb5bc52479e
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475227"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219481"
 ---
 # <a name="managing-assets-and-related-entities-with-media-services-net-sdk"></a>使用媒体服务 .NET SDK 管理资产和相关的实体
 > [!div class="op_single_selector"]
@@ -244,6 +244,7 @@ ms.locfileid: "34475227"
 
 ```csharp
     const string policy1YearId = "nb:pid:UUID:2a4f0104-51a9-4078-ae26-c730f88d35cf";
+
 
     // Get the standard policy for 1 year read only
     var tempPolicyId = from b in _context.AccessPolicies

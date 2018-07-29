@@ -15,14 +15,14 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 11/08/2017
-ms.date: 05/30/2018
+ms.date: 07/24/2018
 ms.author: v-junlch
-ms.openlocfilehash: 0bfb474c6736afbea297e744bb51006e14338a98
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: cdaf83194b4409be7340ac191b2bcaeb5383f936
+ms.sourcegitcommit: ba07d76f8394b5dad782fd983718a8ba49a9deb2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34567355"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39220203"
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Azure Functions 的 Azure 事件中心绑定
 
@@ -30,13 +30,20 @@ ms.locfileid: "34567355"
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages"></a>包
+## <a name="packages---functions-1x"></a>包 - Functions 1.x
 
-对于 Azure Functions 版本 1.x，[Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) NuGet 包中提供了事件中心绑定。 对于 Functions 2.x，请使用 [Microsoft.Azure.WebJobs.Extensions.EventHubs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs) 包。 `azure-webjobs-sdk` GitHub 存储库中提供了此包的源代码。
+对于 Azure Functions 版本 1.x，[Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) NuGet 包 2.x 版中提供了事件中心绑定。
+[azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs) GitHub 存储库中提供了此包的源代码。
+
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
-[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+## <a name="packages---functions-2x"></a>包 - Functions 2.x
+
+对于 Functions 2.x，请使用 [Microsoft.Azure.WebJobs.Extensions.EventHubs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs) 包 3.x 版。
+[azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/master/src/Microsoft.Azure.WebJobs.Extensions.EventHubs) GitHub 存储库中提供了此包的源代码。
+
+[!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
 ## <a name="trigger"></a>触发器
 
@@ -126,7 +133,7 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 
 以下示例演示 *function.json* 文件中的一个事件中心触发器绑定以及使用该绑定的 [C# 脚本函数](functions-reference-csharp.md)。 该函数记录事件中心触发器的消息正文。
 
-下面是 *function.json* 文件中的绑定数据：
+以下示例显示了 *function.json* 文件中的事件中心绑定数据。 第一个示例适用于 Functions 1.x，第二个示例适用于 Functions 2.x。 
 
 ```json
 {
@@ -137,6 +144,16 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
   "connection": "myEventHubReadConnectionAppSetting"
 }
 ```
+```json
+{
+  "type": "eventHubTrigger",
+  "name": "myEventHubMessage",
+  "direction": "in",
+  "eventHubName": "MyEventHub",
+  "connection": "myEventHubReadConnectionAppSetting"
+}
+```
+
 C# 脚本代码如下所示：
 
 ```cs
@@ -190,7 +207,7 @@ public static void Run(string[] eventHubMessages, TraceWriter log)
 
 以下示例演示 *function.json* 文件中的一个事件中心触发器绑定以及使用该绑定的 [F# 函数](functions-reference-fsharp.md)。 该函数记录事件中心触发器的消息正文。
 
-下面是 *function.json* 文件中的绑定数据：
+以下示例显示了 *function.json* 文件中的事件中心绑定数据。 第一个示例适用于 Functions 1.x，第二个示例适用于 Functions 2.x。 
 
 ```json
 {
@@ -198,6 +215,15 @@ public static void Run(string[] eventHubMessages, TraceWriter log)
   "name": "myEventHubMessage",
   "direction": "in",
   "path": "MyEventHub",
+  "connection": "myEventHubReadConnectionAppSetting"
+}
+```
+```json
+{
+  "type": "eventHubTrigger",
+  "name": "myEventHubMessage",
+  "direction": "in",
+  "eventHubName": "MyEventHub",
   "connection": "myEventHubReadConnectionAppSetting"
 }
 ```
@@ -213,7 +239,7 @@ let Run(myEventHubMessage: string, log: TraceWriter) =
 
 以下示例演示 *function.json* 文件中的一个事件中心触发器绑定以及使用该绑定的 [JavaScript 函数](functions-reference-node.md)。 此函数将读取[事件元数据](#trigger---event-metadata)并记录消息。
 
-下面是 *function.json* 文件中的绑定数据：
+以下示例显示了 *function.json* 文件中的事件中心绑定数据。 第一个示例适用于 Functions 1.x，第二个示例适用于 Functions 2.x。 
 
 ```json
 {
@@ -221,6 +247,15 @@ let Run(myEventHubMessage: string, log: TraceWriter) =
   "name": "myEventHubMessage",
   "direction": "in",
   "path": "MyEventHub",
+  "connection": "myEventHubReadConnectionAppSetting"
+}
+```
+```json
+{
+  "type": "eventHubTrigger",
+  "name": "myEventHubMessage",
+  "direction": "in",
+  "eventHubName": "MyEventHub",
   "connection": "myEventHubReadConnectionAppSetting"
 }
 ```
@@ -238,8 +273,7 @@ module.exports = function (context, eventHubMessage) {
 };
 ```
 
-若要批量接收事件，请将 function.json 文件中的 `cardinality` 设为 `many`：
-
+若要批量接收事件，请将 function.json 文件中的 `cardinality` 设为 `many`，如以下示例所示。 第一个示例适用于 Functions 1.x，第二个示例适用于 Functions 2.x。 
 
 ```json
 {
@@ -247,6 +281,16 @@ module.exports = function (context, eventHubMessage) {
   "name": "eventHubMessages",
   "direction": "in",
   "path": "MyEventHub",
+  "cardinality": "many",
+  "connection": "myEventHubReadConnectionAppSetting"
+}
+```
+```json
+{
+  "type": "eventHubTrigger",
+  "name": "eventHubMessages",
+  "direction": "in",
+  "eventHubName": "MyEventHub",
   "cardinality": "many",
   "connection": "myEventHubReadConnectionAppSetting"
 }
@@ -284,14 +328,15 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 
 ## <a name="trigger---configuration"></a>触发器 - 配置
 
-下表解释了在 *function.json* 文件和 `EventHubTrigger` 特性中设置的绑定配置属性。
+下表解释了在 function.json 文件和 `EventHubTrigger` 特性中设置的绑定配置属性。
 
 |function.json 属性 | Attribute 属性 |说明|
 |---------|---------|----------------------|
-|**类型** | 不适用 | 必须设置为 `eventHubTrigger`。 在 Azure 门户中创建触发器时，会自动设置此属性。|
+|类型 | 不适用 | 必须设置为 `eventHubTrigger`。 在 Azure 门户中创建触发器时，会自动设置此属性。|
 |direction | 不适用 | 必须设置为 `in`。 在 Azure 门户中创建触发器时，会自动设置此属性。 |
 |**name** | 不适用 | 在函数代码中表示事件项的变量的名称。 | 
-|**路径** |**EventHubName** | 事件中心的名称。 | 
+|**路径** |**EventHubName** | 仅适用于 Functions 1.x。 事件中心的名称。  | 
+|**eventHubName** |**EventHubName** | 仅适用于 Functions 2.x。 事件中心的名称。  |
 |**consumerGroup** |**ConsumerGroup** | 一个可选属性，用于设置[使用者组](../event-hubs/event-hubs-features.md#event-consumers)，该组用于订阅事件中心中的事件。 如果将其省略，则会使用 `$Default` 使用者组。 | 
 |**基数** | 不适用 | 适用于 JavaScript。 设为 `many` 以启用批处理。  如果省略或设为 `one`，将向函数传递一条消息。 | 
 |**连接** |**Connection** | 应用设置的名称，该名称中包含事件中心命名空间的连接字符串。 单击 [命名空间](../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace) （而不是事件中心本身）的“连接信息”按钮，以复制此连接字符串。 此连接字符串必须至少具有读取权限才可激活触发器。|
@@ -324,6 +369,8 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 
 使用事件中心输出绑定将事件写入到事件流。 必须具有事件中心的发送权限才可将事件写入到其中。
 
+确保已设置所需的包引用：[Functions 1.x](#packages---functions-1.x) 或 [Functions 2.x](#packages---functions-2.x) 
+
 ## <a name="output---example"></a>输出 - 示例
 
 参阅语言特定的示例：
@@ -351,13 +398,22 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, Trac
 
 以下示例演示 *function.json* 文件中的一个事件中心触发器绑定以及使用该绑定的 [C# 脚本函数](functions-reference-csharp.md)。 该函数将消息写入事件中心。
 
-下面是 *function.json* 文件中的绑定数据：
+以下示例显示了 *function.json* 文件中的事件中心绑定数据。 第一个示例适用于 Functions 1.x，第二个示例适用于 Functions 2.x。 
 
 ```json
 {
     "type": "eventHub",
     "name": "outputEventHubMessage",
     "path": "myeventhub",
+    "connection": "MyEventHubSendAppSetting",
+    "direction": "out"
+}
+```
+```json
+{
+    "type": "eventHub",
+    "name": "outputEventHubMessage",
+    "eventHubName": "myeventhub",
     "connection": "MyEventHubSendAppSetting",
     "direction": "out"
 }
@@ -392,13 +448,22 @@ public static void Run(TimerInfo myTimer, ICollector<string> outputEventHubMessa
 
 以下示例演示 *function.json* 文件中的一个事件中心触发器绑定以及使用该绑定的 [F# 函数](functions-reference-fsharp.md)。 该函数将消息写入事件中心。
 
-下面是 *function.json* 文件中的绑定数据：
+以下示例显示了 *function.json* 文件中的事件中心绑定数据。 第一个示例适用于 Functions 1.x，第二个示例适用于 Functions 2.x。 
 
 ```json
 {
     "type": "eventHub",
     "name": "outputEventHubMessage",
     "path": "myeventhub",
+    "connection": "MyEventHubSendAppSetting",
+    "direction": "out"
+}
+```
+```json
+{
+    "type": "eventHub",
+    "name": "outputEventHubMessage",
+    "eventHubName": "myeventhub",
     "connection": "MyEventHubSendAppSetting",
     "direction": "out"
 }
@@ -417,13 +482,22 @@ let Run(myTimer: TimerInfo, outputEventHubMessage: byref<string>, log: TraceWrit
 
 以下示例演示 *function.json* 文件中的一个事件中心触发器绑定以及使用该绑定的 [JavaScript 函数](functions-reference-node.md)。 该函数将消息写入事件中心。
 
-下面是 *function.json* 文件中的绑定数据：
+以下示例显示了 *function.json* 文件中的事件中心绑定数据。 第一个示例适用于 Functions 1.x，第二个示例适用于 Functions 2.x。 
 
 ```json
 {
     "type": "eventHub",
     "name": "outputEventHubMessage",
     "path": "myeventhub",
+    "connection": "MyEventHubSendAppSetting",
+    "direction": "out"
+}
+```
+```json
+{
+    "type": "eventHub",
+    "name": "outputEventHubMessage",
+    "eventHubName": "myeventhub",
     "connection": "MyEventHubSendAppSetting",
     "direction": "out"
 }
@@ -474,14 +548,15 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, Trac
 
 ## <a name="output---configuration"></a>输出 - 配置
 
-下表解释了在 *function.json* 文件和 `EventHub` 特性中设置的绑定配置属性。
+下表解释了在 function.json 文件和 `EventHub` 特性中设置的绑定配置属性。
 
 |function.json 属性 | Attribute 属性 |说明|
 |---------|---------|----------------------|
-|**类型** | 不适用 | 必须设置为“eventHub”。 |
+|类型 | 不适用 | 必须设置为“eventHub”。 |
 |direction | 不适用 | 必须设置为“out”。 在 Azure 门户中创建绑定时，会自动设置该参数。 |
 |**name** | 不适用 | 函数代码中使用的表示事件的变量名称。 | 
-|**路径** |**EventHubName** | 事件中心的名称。 | 
+|**路径** |**EventHubName** | 仅适用于 Functions 1.x。 事件中心的名称。  | 
+|**eventHubName** |**EventHubName** | 仅适用于 Functions 2.x。 事件中心的名称。  |
 |**连接** |**Connection** | 应用设置的名称，该名称中包含事件中心命名空间的连接字符串。 单击 *命名空间* （而不是事件中心本身）的“连接信息”按钮，以复制此连接字符串。 此连接字符串必须具有发送权限才可将消息发送到事件流。|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -503,4 +578,4 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, Trac
 > [!div class="nextstepaction"]
 > [详细了解 Azure Functions 触发器和绑定](functions-triggers-bindings.md)
 
-<!-- Update_Description: wording and code update -->
+<!-- Update_Description: wording update -->

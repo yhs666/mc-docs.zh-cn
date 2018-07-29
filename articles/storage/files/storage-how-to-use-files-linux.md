@@ -15,15 +15,15 @@ ms.topic: article
 origin.date: 03/29/2018
 ms.date: 07/02/2018
 ms.author: v-johch
-ms.openlocfilehash: c6b16747b10e68974268a305198f7e527e65afb0
-ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
+ms.openlocfilehash: 38c561cd89dd674cb8aaa588a032e88258398b91
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103067"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295641"
 ---
 # <a name="use-azure-files-with-linux"></a>通过 Linux 使用 Azure 文件
-[Azure 文件](storage-files-introduction.md)是易于使用的云文件系统。 可以使用 [CIFS 内核客户端](https://wiki.samba.org/index.php/LinuxCIFS)在 Linux 分发版中装载 Azure 文件共享。 本文介绍装载 Azure 文件共享的两种方法：使用 `mount` 命令按需装载，以及通过在 `/etc/fstab` 中创建一个条目在启动时装载。
+[Azure 文件](storage-files-introduction.md)是易于使用的云文件系统。 可以使用 [SMB 内核客户端](https://wiki.samba.org/index.php/LinuxCIFS)在 Linux 分发版中装载 Azure 文件共享。 本文介绍装载 Azure 文件共享的两种方法：使用 `mount` 命令按需装载，以及通过在 `/etc/fstab` 中创建一个条目在启动时装载。
 
 > [!NOTE]  
 > 若要将 Azure 文件共享装载到其被托管时所在的 Azure 区域之外（例如本地或其他 Azure 区域），OS 必须支持 SMB 3.0 的加密功能。

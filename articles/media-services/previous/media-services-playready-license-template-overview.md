@@ -5,21 +5,21 @@ authors: juliako
 manager: erikre
 editor: ''
 services: media-services
-documentationCenter: ''
+documentationcenter: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/29/2017
-ms.date: 1/22/2018
+ms.date: 07/30/2018
 ms.author: v-haiqya
-ms.openlocfilehash: 69e8e2ef8bfb9eb86fd8f9c8a8364c440a256b30
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: c9e365fcb14dac269b9f049dc08ef4b7566bf863
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475439"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219650"
 ---
 # <a name="media-services-playready-license-template-overview"></a>媒体服务 PlayReady 许可证模板概述
 Azure 媒体服务现在提供了用于交付 PlayReady 许可证的服务。 当播放器（例如 Silverlight）尝试播放受 PlayReady 保护的内容时，将向许可证交付服务发送请求以获取许可证。 如果许可证服务批准了该请求，则会颁发该许可证，该许可证将发送到客户端，并用来解密和播放指定的内容。
@@ -62,21 +62,18 @@ XML 遵循“PlayReady 许可证模板 XML 架构”部分中定义的 PlayReady
 ## <a id="classes"></a>用于配置许可证模板的媒体服务 .NET 类
 下列类是用于配置媒体服务 PlayReady 许可证模板的主要 .NET 类。 这些类映射到 [PlayReady 许可证模板 XML 架构](media-services-playready-license-template-overview.md#schema)中定义的类型。
 
-[MediaServicesLicenseTemplateSerializer](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.mediaserviceslicensetemplateserializer.aspx) 类用于序列化到媒体服务许可证模板 XML 序列化和从该 XML 进行反序列化。
+[MediaServicesLicenseTemplateSerializer](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.mediaserviceslicensetemplateserializer.aspx) 类用于序列化到媒体服务许可证模板 XML 序列化和从该 XML 进行反序列化。
 
-###<a name="playreadylicenseresponsetemplate"></a>PlayReadyLicenseResponseTemplate
+### <a name="playreadylicenseresponsetemplate"></a>PlayReadyLicenseResponseTemplate
+[PlayReadyLicenseResponseTemplate](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadylicenseresponsetemplate.aspx)：此类表示发送回用户的响应的模板。 它包含一个在许可证服务器与应用程序之间使用的自定义数据字符串的字段（对于自定义应用逻辑可能比较有用）。 它还包含一个内含一个或多个许可证模板的列表。
 
-[PlayReadyLicenseResponseTemplate](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadylicenseresponsetemplate.aspx) - 此类表示发送回最终用户的响应的模板。 它包含一个用于许可证服务器和应用程序（可能用于自定义应用逻辑）以及一个或多个许可证模板的列表之间的自定义数据字符串的字段。
+作为模板层次结构中的“顶层”类，响应模板包含一个许可证模板列表。 许可证模板（直接或间接）包含构成要序列化的模板数据的所有其他类。
 
-这是模板层次结构中的“顶层”类。 意即响应模板包括许可证模板列表，而且这些许可证模板（直接或间接）包括所有构成要序列化的模板数据的其他类。
+### <a name="playreadylicensetemplate"></a>PlayReadyLicenseTemplate
+[PlayReadyLicenseTemplate](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadylicensetemplate.aspx)：此类表示用于创建要返回给用户的 PlayReady 许可证的许可证模板。 它包含关于许可证中的内容密钥的数据。 它还包括当使用内容密钥时，PlayReady DRM 运行时必须强制实施的任何权限或限制。
 
-###<a name="playreadylicensetemplate"></a>PlayReadyLicenseTemplate
-
-[PlayReadyLicenseTemplate](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadylicensetemplate.aspx) - 该类表示用于创建要返回给最终用户的 PlayReady 许可证的许可证模板。 它包含许可证中内容密钥上的数据以及使用内容密钥时由 PlayReady DRM 运行时强制执行的任何权限或限制。
-
-###<a id="PlayReadyPlayRight"></a>PlayReadyPlayRight
-
-[PlayReadyPlayRight](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadyplayright.aspx) - 此类表示 PlayReady 许可证的 PlayRight。 它会授予用户播放许可证中和 PlayRight 本身（用于播放特定策略）配置的零个或多个限制的制约内容的权限。 PlayRight 上的很多策略都与输出限制有关，输出限制用于控制可以播放的内容的输出类型和使用给定输出时必须使用的任何限制。 例如，如果启用了 DigitalVideoOnlyContentRestriction，DRM 运行时将只允许通过数字输出显示视频（将不允许模拟视频输出传递内容）。
+### <a id="PlayReadyPlayRight"></a>PlayReadyPlayRight
+[PlayReadyPlayRight](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadyplayright.aspx)：此类表示 PlayReady 许可证的 PlayRight。 它授权用户播放受许可证中和 PlayRight 本身（对于特定于播放的策略）配置的任何限制所制约的内容。 针对 PlayRight 的策略大部分涉及输出限制，这些限制控制在播放内容时可以使用的输出类型。 它还包括在使用给定输出时必须实施的任何限制。 例如，如果启用了 DigitalVideoOnlyContentRestriction，则 DRM 运行时仅允许以数字输出形式播放视频。 （不允许以模拟视频输出形式来传送内容。）
 
 > [!IMPORTANT]
 > 这些类型的限制可能很有效，但也会影响使用者体验。 如果输出保护施加了太多限制，内容可能会无法在某些客户端上播放。 有关详细信息，请参阅 [PlayReady 符合性规则](https://www.microsoft.com/playready/licensing/compliance/)。

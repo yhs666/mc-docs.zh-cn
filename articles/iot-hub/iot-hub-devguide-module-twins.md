@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 04/26/2018
-ms.date: 06/11/2018
+ms.date: 08/06/2018
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d8058b566f23ec006609f0a25864298ceaf43594
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: de9787b006bd2298d8cec521c93c69d04f651afc
+ms.sourcegitcommit: d4092cf6aba0d949bf612093c76f964c2bdfd0ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695245"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39306540"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>在 IoT 中心内了解并使用模块孪生
 
@@ -327,7 +327,7 @@ IoT 中心保留模块孪生所需属性和报告属性中每个 JSON 对象的�
 ## <a name="next-steps"></a>后续步骤
 要尝试本文中介绍的一些概念，请参阅以下 IoT 中心教程：
 
-* [通过 .NET 备份和 .NET 设备开始使用 IoT 中心模块标识和模块孪生][lnk-module-twin-tutorial]
+* [使用 .NET 后端和 .NET 设备创建 IoT 中心模块标识和模块孪生入门][lnk-module-twin-tutorial]
 
 <!-- links and images -->
 

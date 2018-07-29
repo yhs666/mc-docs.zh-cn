@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 08/07/2017
 ms.date: 10/30/2017
 ms.author: v-johch
-ms.openlocfilehash: 239d03dff09060ce2e6c299b32dcf7161f8422f6
-ms.sourcegitcommit: 71c3744a54c69e7e322b41439da907c533faba39
+ms.openlocfilehash: f945d8ea1221abc79b2ebe0c5bb751cc094d5d37
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2017
-ms.locfileid: "23481821"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295631"
 ---
 # <a name="introduction-to-queues"></a>队列简介
 
@@ -41,9 +41,9 @@ Azure 队列存储是一项可存储大量消息的服务，用户可以通过�
 
 * **URL 格式：** 可使用以下 URL 格式对队列进行寻址：   
     http://`<storage account>`.queue.core.chinacloudapi.cn/`<queue>` 
-
+  
     可使用以下 URL 访问示意图中的某个队列：  
-
+  
     `http://myaccount.queue.core.chinacloudapi.cn/images-to-download`
 
 * **存储帐户：** 对 Azure 存储的所有访问都要通过存储帐户来完成。 有关存储帐户容量的详细信息，请参阅 [Azure 存储可伸缩性和性能目标](../common/storage-scalability-targets.md?toc=%2fstorage%2fqueues%2ftoc.json) 。

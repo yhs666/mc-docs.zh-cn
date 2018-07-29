@@ -12,14 +12,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: ''
 ms.workload: identity
 origin.date: 06/11/2018
-ms.date: 07/02/2018
+ms.date: 07/24/2018
 ms.author: v-junlch
-ms.openlocfilehash: 79b58a2c5a5a0cc9b443ec0ca7cb0ff1dd41f776
-ms.sourcegitcommit: a20c461541ba7db541c01c8a18fc4cff48e3d2d5
+ms.openlocfilehash: 2fa02248e48e5042e6e612ea4d051f87a97c0f43
+ms.sourcegitcommit: cce18df2de12353f0d8f01c649307a5789d59cd4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37361230"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39246122"
 ---
 # <a name="tutorial-grant-access-for-a-group-using-rbac-and-azure-powershell"></a>教程：使用 RBAC 和 Azure PowerShell 授予组的访问权限
 
@@ -42,7 +42,7 @@ ms.locfileid: "37361230"
 
 ## <a name="role-assignments"></a>角色分配
 
-角色分配包含三个元素：安全主体、角色订阅、范围。 下面是两个将要在本教程中执行的角色分配：
+在 RBAC 中，若要授予访问权限，请创建角色分配。 角色分配包含三个元素：安全主体、角色订阅、范围。 下面是两个将要在本教程中执行的角色分配：
 
 | 安全主体 | 角色定义 | 作用域 |
 | --- | --- | --- |
@@ -296,3 +296,4 @@ ms.locfileid: "37361230"
 > [!div class="nextstepaction"]
 > [使用 RBAC 和 PowerShell 管理访问权限](role-assignments-powershell.md)
 
+<!-- Update_Description: wording update -->

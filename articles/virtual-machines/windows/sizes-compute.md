@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-origin.date: 11/08/2017
-ms.date: 06/25/2018
+origin.date: 07/06/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 8a32ad934cc34ba20d78a1fc6fa11f4af61fef0c
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.openlocfilehash: edd356d6e066511ad1edf95fb610108420d8e904
+ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315549"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39307060"
 ---
 # <a name="compute-optimized-virtual-machine-sizes"></a>计算优化虚拟机大小
 
@@ -31,7 +31,7 @@ ms.locfileid: "36315549"
 
 ## <a name="other-sizes"></a>其他大小
 - [常规用途](sizes-general.md)
-- [内存优化](../virtual-machines-windows-sizes-memory.md)
+- [内存优化](sizes-memory.md)
 - [前几代](sizes-previous-gen.md)
 
 ## <a name="next-steps"></a>后续步骤

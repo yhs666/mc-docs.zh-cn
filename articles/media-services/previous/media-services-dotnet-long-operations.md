@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 12/09/2017
 ms.date: 12/25/2017
 ms.author: v-nany
-ms.openlocfilehash: 43b461e737a2f49604ddd7e7a46316efc5c025e5
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 9e29ef092570589fd7aaa44793c0b80ed9c14fbd
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475173"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219515"
 ---
 # <a name="delivering-live-streaming-with-azure-media-services"></a>使用 Azure 媒体服务传送实时流
 

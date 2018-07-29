@@ -12,14 +12,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: ''
 ms.workload: identity
 origin.date: 06/12/2018
-ms.date: 07/02/2018
+ms.date: 07/24/2018
 ms.author: v-junlch
-ms.openlocfilehash: 7d9d7497af1524c5b8f1f3b2b067e2b7c4125428
-ms.sourcegitcommit: a20c461541ba7db541c01c8a18fc4cff48e3d2d5
+ms.openlocfilehash: 34bbeb4c92116503ad786b6a8e7778c1b8c4b823
+ms.sourcegitcommit: cce18df2de12353f0d8f01c649307a5789d59cd4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37361232"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39246119"
 ---
 # <a name="tutorial-create-a-custom-role-using-azure-powershell"></a>教程：使用 Azure PowerShell 创建自定义角色
 
@@ -39,8 +39,8 @@ ms.locfileid: "37361232"
 
 要完成本教程，需要：
 
-- 有权创建自定义角色，例如[所有者](built-in-roles.md#owner)或[用户访问管理员](built-in-roles.md#user-access-administrator)。
-- 在本地安装了 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。
+- 有权创建自定义角色，例如[所有者](built-in-roles.md#owner)或[用户访问管理员](built-in-roles.md#user-access-administrator)
+- 在本地安装 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)
 
 ## <a name="sign-in-to-azure-powershell"></a>登录到 Azure PowerShell
 
@@ -294,5 +294,6 @@ ms.locfileid: "37361232"
 ## <a name="next-steps"></a>后续步骤
 
 > [!div class="nextstepaction"]
-> [Azure 中的自定义角色](custom-roles.md)
+> [使用 PowerShell 创建自定义角色](custom-roles-powershell.md)
 
+<!-- Update_Description: wording update -->

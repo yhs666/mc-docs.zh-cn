@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 06/04/2018
-ms.date: 06/25/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: f6f6b635c8b99ad8709a2e6c3d761a5eb3905fc8
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.openlocfilehash: dd5f1e652673276b003d6f83d84b30d5df6c85f8
+ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315477"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39307013"
 ---
 # <a name="backup-and-restore-for-sql-server-in-azure-virtual-machines"></a>Azure 虚拟机中 SQL Server 的备份和还原
 

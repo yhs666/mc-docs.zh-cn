@@ -1,11 +1,26 @@
- ---
-title: 导入 Postman 环境，以便进行 Azure 媒体服务 REST 调用 description: 本主题提供了 Postman 环境的定义，以便用于 Azure 媒体服务 REST 调用。
-services: media-services documentationcenter: '' author: yunan2016 manager: digimobile editor: ''
-
-ms.service: media-services ms.workload: media ms.tgt_pltfrm: na ms.devlang: na ms.topic: article origin.date: 01/04/2018 ms.date: 02/27/2018 ms.author: v-nany
-
 ---
-
+title: 为 Azure 媒体服务 REST 调用导入 Postman 环境
+description: 本文提供了用于 Azure 媒体服务 REST 调用的 Postman 环境的定义。
+services: media-services
+documentationcenter: ''
+author: yunan2016
+manager: digimobile
+editor: ''
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+origin.date: 01/04/2018
+ms.date: 02/27/2018
+ms.author: v-nany
+ms.openlocfilehash: cf624b25778e8cd2b2cb15dababb71dc995ac5fc
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219716"
+---
 # <a name="import-the-postman-environment"></a>导入 Postman 环境 
 
 本文包含 [Postman 集合](postman-collection.md)使用的 **Postman** 环境变量的定义，该集合包含调用媒体服务 REST API 的分组 HTTP 请求。 [配置 Postman 以便进行媒体服务 REST API 调用](media-rest-apis-with-postman.md)教程将使用这些环境和集合文件。

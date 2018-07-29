@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 04/11/2018
 ms.author: v-yiso
-ms.date: 05/07/2018
-ms.openlocfilehash: 8d8ad87841745f69f3d7ba2f67f5405b082087a4
-ms.sourcegitcommit: 039d75a641edc2edd13a9371251051c20fea2bb7
+ms.date: 08/06/2018
+ms.openlocfilehash: 1474fcd32029bf427e953457570dbdc17302b312
+ms.sourcegitcommit: d4092cf6aba0d949bf612093c76f964c2bdfd0ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103429"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39306565"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub-in-the-cloud"></a>将 IoT DevKit AZ3166 连接到云中的 Azure IoT 中心
 
@@ -294,7 +294,7 @@ DevKit 将重新启动并开始运行代码。
 当看到以下结果时，示例应用程序已成功运行：
 
 * 串行监视器显示与下面截图中内容相同的信息。
-* MXChip IoT DevKit 上的 LED 灯闪烁。
+* MXChip IoT DevKit 上的 RGB LED 灯在闪烁。
 
 ![VS Code 中的最终输出](./media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/result-serial-output.png)
 

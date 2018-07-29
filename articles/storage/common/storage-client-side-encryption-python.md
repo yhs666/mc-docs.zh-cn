@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 05/11/2017
 ms.date: 08/28/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 499edfdd70d62ec04dbb6ee4d30d23db56cf2460
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.openlocfilehash: 58a58d8f3052c7dee12460ae92349e0d3eb0773f
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30155642"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295826"
 ---
 # <a name="client-side-encryption-with-python-for-azure-storage"></a>使用适用于 Azure 存储的 Python 进行客户端加密
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -217,9 +217,9 @@ key_resolver.put_key(kek)
 
 # Define the encryption resolver_function.
 def my_encryption_resolver(pk, rk, property_name):
-        if property_name == 'foo':
-                return True
-        return False
+    if property_name == 'foo':
+        return True
+    return False
 
 # Set the KEK and key resolver on the service object.
 my_table_service.key_encryption_key = kek

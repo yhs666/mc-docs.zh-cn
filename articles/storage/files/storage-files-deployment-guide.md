@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 05/22/2018
 ms.date: 07/02/2018
 ms.author: v-johch
-ms.openlocfilehash: d977036d2e857b958efdc6869a3709e495abd4f5
-ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
+ms.openlocfilehash: 2c0fb3cf7309a7c2a7b3ef00fa73e302754e0f59
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103099"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295654"
 ---
 # <a name="how-to-deploy-azure-files"></a>如何部署 Azure 文件
 
@@ -80,7 +80,7 @@ ms.locfileid: "37103099"
     
     有关详细信息，请参阅[准备驱动器集 CSV 文件](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fstorage%2ffiles%2ftoc.json#prepare-initialdriveset-or-additionaldriveset-csv-file)。
 
-6. 使用 [WAImportExport 工具](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip)将数据复制到一个或多个硬盘驱动器。
+6. 使用 [WAImportExport 工具](https://www.microsoft.com/en-us/download/details.aspx?id=55280)将数据复制到一个或多个硬盘驱动器。
 
     ```
     WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>] DataSet:<dataset.csv>
@@ -89,7 +89,7 @@ ms.locfileid: "37103099"
     > [!Warning]  
     > 完成磁盘准备操作以后，请勿修改硬盘驱动器上的数据，也勿修改日志文件。
 
-7. [创建导入作业](../common/storage-import-export-service.md?toc=%2fstorage%2ffiles%2ftoc.json#create-an-export-job)。
+7. [创建导入作业](../common/storage-import-export-data-to-files.md#step-2-create-an-import-job)。
     
 ### <a name="robocopy"></a>Robocopy
 Robocopy 是 Windows 和 Windows Server 自带的一款知名复制工具。 Robocopy 可用于将数据传输到 Azure 文件，方法是在本地装载文件共享，然后使用装载位置作为 Robocopy 命令的目标位置。 Robocopy 操作非常简单：

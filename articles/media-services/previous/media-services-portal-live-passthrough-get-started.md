@@ -15,12 +15,12 @@ ms.topic: get-started-article
 origin.date: 08/09/2017
 ms.date: 09/04/2017
 ms.author: v-haiqya
-ms.openlocfilehash: bfb50f6df623cc1f141cd55f54410d92b7383d3f
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 997831fa03675fb2b12ea9fbffe978ff9c019b7a
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475443"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219440"
 ---
 # <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-the-azure-portal"></a>如何通过 Azure 门户使用本地编码器实时传送视频流
 > [!div class="op_single_selector"]
@@ -50,19 +50,19 @@ ms.locfileid: "34475443"
 
 >[!NOTE]
 >确保要从中流式传输内容的流式处理终结点处于“正在运行”状态。 
-
+    
 1. 将视频摄像机连接到计算机。 启动并配置输出多比特率 RTMP 或分段 MP4 流的本地实时编码器接收实时输入流。 有关详细信息，请参阅 [Azure 媒体服务 RTMP 支持和实时编码器](http://go.microsoft.com/fwlink/?LinkId=532824)。
-
+   
     此步骤也可以在创建频道后执行。
 2. 创建并启动直通通道。
 3. 检索频道引入 URL。 
-
+   
     实时编码器使用引入 URL 将流发送到频道。
 4. 检索频道预览 URL。 
-
+   
     使用此 URL 来验证频道是否正常接收实时流。
 5. 创建实时事件/节目。 
-
+   
     使用 Azure 门户时，创建实时事件的同时还会创建资产。 
 
 6. 在准备好开始流式传输和存档时，启动事件/节目。
@@ -106,15 +106,15 @@ ms.locfileid: "34475443"
 
 1. 在 [Azure 门户](https://portal.azure.cn/)中，选择 Azure 媒体服务帐户。
 2. 在“设置”窗口中，单击“实时传送视频流”。 
-
+   
     ![入门](./media/media-services-portal-passthrough-get-started/media-services-getting-started.png)
-
+   
     此时会显示“实时传送视频流”  窗口。
 3. 单击“快速创建”  ，使用 RTMP 引入协议创建直通通道。
-
+   
     此时会显示“创建新通道”  窗口。
 4. 为新通道命名，并单击“创建” 。 
-
+   
     此时会使用 RTMP 引入协议创建直通通道。
 
 ## <a name="create-events"></a>创建事件

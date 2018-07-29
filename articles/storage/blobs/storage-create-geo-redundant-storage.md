@@ -11,16 +11,16 @@ origin.date: 03/26/2018
 ms.date: 07/02/2018
 ms.author: v-nany
 ms.custom: mvc
-ms.openlocfilehash: 8824e58ef1c979596207f7f99e3292fc5ced1c72
-ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
+ms.openlocfilehash: 307afd1c2ca521efcde1191fa7cd3a35adb33940
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37800379"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295687"
 ---
 # <a name="make-your-application-data-highly-available-with-azure-storage"></a>使应用程序数据在 Azure 存储中高度可用
 
-本教程是一个教程系列的第一部分，介绍了如何在 Azure 中实现应用程序数据的高可用性。 完成后，你会有一个控制台应用程序，用于将 blob 上传到[读取访问异地冗余](../common/storage-redundancy-grs.md) (RA-GRS) 存储帐户并对其进行检索。 RA-GRS 的工作方式是将事务从主要区域复制到次要区域。 此复制过程可确保次要区域中的数据最终一致。 应用程序使用[断路器](/azure/architecture/patterns/circuit-breaker)模式来确定要连接到的终结点。 对故障进行模拟时，应用程序切换到辅助终结点。
+本教程是一个教程系列的第一部分，介绍了如何在 Azure 中实现应用程序数据的高可用性。 完成后，你会有一个控制台应用程序，用于将 blob 上传到[读取访问异地冗余](../common/storage-redundancy-grs.md) (RA-GRS) 存储帐户并对其进行检索。 RA-GRS 的工作方式是将事务从主要区域复制到次要区域。 此复制过程可确保次要区域中的数据最终一致。 应用程序使用[断路器](https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker)模式来确定要连接到的终结点。 对故障进行模拟时，应用程序切换到辅助终结点。
 
 在该系列的第一部分中，你将学习如何：
 

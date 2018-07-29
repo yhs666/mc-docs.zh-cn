@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 08/02/2017
-ms.date: 06/04/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 2c19d64f28d0e3d779976bc4282891e83b67385d
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: 6e00a1c9b10f454f3761fb25582d52f3aa943f9e
+ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867606"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39307011"
 ---
 # <a name="apply-policies-to-windows-vms-with-azure-resource-manager"></a>使用 Azure 资源管理器向 Windows VM 应用策略
 通过使用策略，组织可以在整个企业中强制实施各种约定和规则。 强制实施所需行为有助于消除风险，同时为组织的成功做出贡献。 本文介绍如何使用 Azure 资源管理器策略，为组织中的虚拟机定义所需的行为。
@@ -228,7 +228,7 @@ ms.locfileid: "34867606"
 
 ## <a name="azure-hybrid-use-benefit"></a>Azure 混合使用权益
 
-如果具有本地许可证，可在虚拟机上保存许可证费用。 如果没有许可证，应禁用此选项。 以下策略禁止使用 Azure 混合使用权益 (AHUB)：
+如果有本地许可证，可在虚拟机上保存许可证费用。 如果没有许可证，应禁用此选项。 以下策略禁止使用 Azure 混合使用权益 (AHUB)：
 
 ```json
 {
@@ -255,4 +255,4 @@ ms.locfileid: "34867606"
 * 有关资源策略的简介，请参阅[什么是 Azure 策略？](../../azure-policy/azure-policy-introduction.md)。
 * 有关企业可如何使用 Resource Manager 有效管理订阅的指南，请参阅 [Azure 企业基架 - 出于合规目的监管订阅](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/subscription-governance)。
 
-<!--Update_Description: update meta properties, update link, wording update-->
+<!--Update_Description: update meta properties, wording update-->

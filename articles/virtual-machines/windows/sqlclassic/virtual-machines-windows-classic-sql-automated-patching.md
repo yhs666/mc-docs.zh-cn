@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 03/07/2018
-ms.date: 04/16/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: fe651b668285f8b5766758216d2463016ef508c3
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.openlocfilehash: ad9d443fd6204cb02013afff57da3d6cd3790813
+ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31324074"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39307063"
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-classic"></a>在 Azure 虚拟机（经典）中对 SQL Server 进行自动修补
 > [!div class="op_single_selector"]
@@ -87,7 +87,7 @@ ms.locfileid: "31324074"
 | --- | --- |
 | **DayOfWeek** |每个星期四安装修补程序。 |
 | **MaintenanceWindowStartingHour** |在上午 11:00 开始更新。 |
-| **MaintenanceWindowsDuration** |必须在 120 分钟内完成修补程序安装。 根据开始时间，修补必须在下午 1:00 之前完成。 |
+| **MaintenanceWindowDuration** |必须在 120 分钟内完成修补程序安装。 根据开始时间，修补必须在下午 1:00 之前完成。 |
 | **PatchCategory** |此参数的唯一可能设置为“Important”。 |
 
 可能需要花费几分钟来安装和配置 SQL Server IaaS 代理。

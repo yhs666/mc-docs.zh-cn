@@ -87,7 +87,31 @@
 
     b. 通过在某个群集节点上运行 PowerShell 脚本设置群集参数。  
 
+重复上述步骤以设置 WSFC 群集 IP 地址的群集参数。
+
+1. 获取 WSFC 群集 IP 地址的 IP 地址名称。 在**故障转移群集管理器**中的“群集核心资源”下，找到“服务器名称”。
+
+1. 右键单击“IP 地址”，并选择“属性”。
+
+1. 记下 IP 地址的**名称**。 该项可能为 `Cluster IP Address`。 
+
+1. <a name="setwsfcparam"></a>在 PowerShell 中设置群集参数。
+
+    a. 将以下 PowerShell 脚本复制到某个 SQL Server 实例。 请更新环境的变量。     
+
+    ```PowerShell
+    $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
+    $IPResourceName = "<ClusterIPResourceName>" # the IP Address resource name
+    $ILBIP = "<n.n.n.n>" # the IP Address of the Cluster IP resource. This is the static IP address for the load balancer you configured in the Azure portal.
+    [int]$ProbePort = <nnnnn>
+
+    Import-Module FailoverClusters
+
+    Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
+    ```
+
+    b. 通过在某个群集节点上运行 PowerShell 脚本设置群集参数。  
+
     > [!NOTE]
     > 如果 SQL Server 实例位于不同的区域，则需要运行 PowerShell 脚本两次。 第一次运行时，请从第一个区域中选择 `$ILBIP` 和 `$ProbePort`。 第二次运行时，请从第二个区域中选择 `$ILBIP` 和 `$ProbePort`。 群集网络名称与群集 IP 资源名称相同。
-<!-- Update_Description: update meta propreties -->
-<!-- ms.date: 05/14/2018 -->
+<!-- Update_Description: update meta propreties, wording update -->

@@ -14,14 +14,14 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 12/12/2017
-ms.date: 05/29/2018
+ms.date: 07/23/2018
 ms.author: v-junlch
-ms.openlocfilehash: 661606c7abb1848c2f6feda3aeedca2a0f82e120
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: fec82b36192a64c93d57df3cdc66a726d0f67297
+ms.sourcegitcommit: ba07d76f8394b5dad782fd983718a8ba49a9deb2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34567347"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39220237"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure Functions C# developer reference（Azure Functions C# 开发人员参考）
 
@@ -63,7 +63,7 @@ public static class SimpleExample
 } 
 ```
 
-`FunctionName` 属性将该方法标记为函数入口点。 名称在项目中必须唯一。 项目模板通常创建一个名为 `Run` 的方法，但方法名称可以是任何有效的 C# 方法名称。
+`FunctionName` 属性将该方法标记为函数入口点。 该名称在项目中必须是唯一的，以字母开头，并且只包含字母、数字 `_` 和 `-`，长度不得超过 127 个字符。 项目模板通常创建一个名为 `Run` 的方法，但方法名称可以是任何有效的 C# 方法名称。
 
 触发器属性指定触发器类型并将输入数据绑定到一个方法参数。 示例函数将由一条队列消息触发，并且队列消息将传递到该方法中的 `myQueueItem` 参数。
 
@@ -196,11 +196,13 @@ Visual Studio 使用 [Azure Functions Core Tools](functions-run-local.md#install
 
 ## <a name="binding-to-method-return-value"></a>绑定到方法返回值
 
-通过将属性应用于方法返回值，可以对输出绑定使用方法返回值。 有关示例，请参阅[触发器和绑定](functions-triggers-bindings.md#using-the-function-return-value)。
+通过将属性应用于方法返回值，可以对输出绑定使用方法返回值。 有关示例，请参阅[触发器和绑定](functions-triggers-bindings.md#using-the-function-return-value)。 
+
+仅当成功的函数执行始终将返回值传递给输出绑定时，才使用返回值。 否则，请使用 `ICollector` 或 `IAsyncCollector`，如以下部分所示。
 
 ## <a name="writing-multiple-output-values"></a>写入多个输出值
 
-若要向输出绑定写入多个值，请使用 [`ICollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) 或 [`IAsyncCollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) 类型。 这些类型是只写集合，当方法完成时写入输出绑定。
+若要将多个值写入输出绑定，或者如果成功的函数调用可能无法将任何内容传递给输出绑定，请使用 [`ICollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) 或 [`IAsyncCollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) 类型。 这些类型是只写集合，当方法完成时写入输出绑定。
 
 此示例使用 `ICollector` 将多个队列消息写入到同一队列：
 
@@ -210,12 +212,12 @@ public static class ICollectorExample
     [FunctionName("CopyQueueMessageICollector")]
     public static void Run(
         [QueueTrigger("myqueue-items-source-3")] string myQueueItem,
-        [Queue("myqueue-items-destination")] ICollector<string> myQueueItemCopy,
+        [Queue("myqueue-items-destination")] ICollector<string> myDestinationQueue,
         TraceWriter log)
     {
         log.Info($"C# function processed: {myQueueItem}");
-        myQueueItemCopy.Add($"Copy 1: {myQueueItem}");
-        myQueueItemCopy.Add($"Copy 2: {myQueueItem}");
+        myDestinationQueue.Add($"Copy 1: {myQueueItem}");
+        myDestinationQueue.Add($"Copy 2: {myQueueItem}");
     }
 }
 ```
@@ -310,6 +312,10 @@ public static class EnvironmentVariablesExample
 }
 ```
 
+在本地开发和在 Azure 中运行时，都可以从环境变量读取应用设置。 在本地开发时，应用设置来自 *local.settings.json* 文件中的 `Values` 集合。 在这两个环境（本地和 Azure）中，`GetEnvironmentVariable("<app setting name>")` 都会检索命名应用设置的值。 例如，在本地运行时，如果 *local.settings.json* 文件包含 `{ "Values": { "WEBSITE_SITE_NAME": "My Site Name" } }`，则会返回“My Site Name”。
+
+[System.Configuration.ConfigurationManager.AppSettings](https://docs.microsoft.com/dotnet/api/system.configuration.configurationmanager.appsettings) 属性是用于获取应用设置值的替代 API，但我们建议你使用 `GetEnvironmentVariable`，如下所示。
+
 ## <a name="binding-at-runtime"></a>在运行时绑定
 
 在 C# 和其他 .NET 语言中，可以使用[命令性](https://en.wikipedia.org/wiki/Imperative_programming)绑定模式，而不是在属性中使用“声明性”[*绑定*](https://en.wikipedia.org/wiki/Declarative_programming) 。 当绑定参数需要在运行时（而非在设计时）计算时，命令性绑定很有用。 通过此模式，可以在函数代码中动态绑定到受支持的输入和输出绑定。
@@ -383,22 +389,7 @@ public static class IBinderExampleMultipleAttributes
 
 ## <a name="triggers-and-bindings"></a>触发器和绑定 
 
-下表列出了 Azure Functions 类库项目中使用的触发器和绑定属性。 所有属性均位于命名空间 `Microsoft.Azure.WebJobs` 中。
-
-| 触发器 | 输入 | 输出|
-|------   | ------    | ------  |
-| [BlobTrigger](functions-bindings-storage-blob.md#trigger---attributes)| [Blob](functions-bindings-storage-blob.md#input---attributes)| [Blob](functions-bindings-storage-blob.md#output---attributes)|
-| [CosmosDBTrigger](functions-bindings-cosmosdb.md#trigger---attributes)| [DocumentDB](functions-bindings-cosmosdb.md#input---attributes)| [DocumentDB](functions-bindings-cosmosdb.md#output---attributes) |
-| [EventHubTrigger](functions-bindings-event-hubs.md#trigger---attributes)|| [EventHub](functions-bindings-event-hubs.md#output---attributes) |
-| [HTTPTrigger](functions-bindings-http-webhook.md#trigger---attributes)|||
-| [QueueTrigger](functions-bindings-storage-queue.md#trigger---attributes)|| [队列](functions-bindings-storage-queue.md#output---attributes) |
-| [ServiceBusTrigger](functions-bindings-service-bus.md#trigger---attributes)|| [服务总线](functions-bindings-service-bus.md#output---attributes) |
-| [TimerTrigger](functions-bindings-timer.md#attributes) | ||
-| |[ApiHubFile](functions-bindings-external-file.md)| [ApiHubFile](functions-bindings-external-file.md)|
-| |[MobileTable](functions-bindings-mobile-apps.md#input---attributes)| [MobileTable](functions-bindings-mobile-apps.md#output---attributes) | 
-| |[表](functions-bindings-storage-table.md#input---attributes)| [表](functions-bindings-storage-table.md#output---attributes)  | 
-| ||[NotificationHub](functions-bindings-notification-hubs.md#attributes) |
-| ||[SendGrid](functions-bindings-sendgrid.md#attributes) |
+[!INCLUDE [Supported triggers and bindings](../../includes/functions-bindings.md)]
 
 ## <a name="next-steps"></a>后续步骤
 

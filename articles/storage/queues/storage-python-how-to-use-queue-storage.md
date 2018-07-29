@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 12/08/2016
 ms.date: 01/01/2018
 ms.author: v-johch
-ms.openlocfilehash: 6f29c53b708f6d92cbfe05e5ddf4c03a39373f41
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: df69c0392497a8b5cc50a10190699564c609aaea
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38940153"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295736"
 ---
 # <a name="how-to-use-queue-storage-from-python"></a>如何通过 Python 使用队列存储
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -139,5 +139,4 @@ queue_service.delete_queue('taskqueue')
 
 [Azure 存储团队博客]: http://blogs.msdn.com/b/windowsazurestorage/
 [Azure Storage SDK for Python]: https://github.com/Azure/azure-storage-python
-
 <!--Update_Description: add "Download and Install Azure Storage SDK for Python" section-->

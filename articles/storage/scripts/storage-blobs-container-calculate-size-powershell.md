@@ -16,12 +16,12 @@ ms.topic: sample
 origin.date: 11/07/2017
 ms.date: 06/11/2018
 ms.author: v-johch
-ms.openlocfilehash: ce1374389f842f441bd20f22cd0dfcc921ce98d0
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: 408cad376f7dcb92e4016f65765db009c8f89a2f
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867526"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295609"
 ---
 # <a name="calculate-the-size-of-a-blob-storage-container"></a>计算 Blob 存储容器的大小
 
@@ -78,13 +78,13 @@ Remove-AzureRmResourceGroup -Name bloblisttestrg
 
 | 命令 | 注释 |
 |---|---|
-| [Get-AzureRmStorageAccount](/powershell/module/azurerm.storage/get-azurermstorageaccount) | 获取资源组或订阅中的指定存储帐户或所有存储帐户。 |
-| [Get-AzureStorageBlob](/powershell/module/azure.storage/get-azurestorageblob) | 列出容器中的 Blob。 ||
+| [Get-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/get-azurermstorageaccount) | 获取资源组或订阅中的指定存储帐户或所有存储帐户。 |
+| [Get-AzureStorageBlob](https://docs.microsoft.com/powershell/module/azure.storage/get-azurestorageblob) | 列出容器中的 Blob。 ||
 
 ## <a name="next-steps"></a>后续步骤
 
 有关为计费目的计算容器大小的脚本，请参阅[为计费目的计算 Blob 存储容器的大小](../scripts/storage-blobs-container-calculate-billing-size-powershell.md)。
 
-有关 Azure PowerShell 模块的详细信息，请参阅 [Azure PowerShell 文档](/powershell/azure/overview)。
+有关 Azure PowerShell 模块的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/overview)。
 
 可以在 [Azure 存储的 PowerShell 示例](../blobs/storage-samples-blobs-powershell.md)中找到其他存储 PowerShell 脚本示例。

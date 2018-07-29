@@ -14,14 +14,14 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 12/12/2017
-ms.date: 05/29/2018
+ms.date: 07/23/2018
 ms.author: v-junlch
-ms.openlocfilehash: a69c8ae28d2e8bcb0febd0e34d3fbd0d41e4d975
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: b87649cd789f194d35897548a4495e850650364c
+ms.sourcegitcommit: ba07d76f8394b5dad782fd983718a8ba49a9deb2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34567351"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39220229"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Azure Functions C# 脚本 (.csx) 开发人员参考
 
@@ -203,17 +203,19 @@ public class Order
 
 可通过在 *function.json* 中使用名称 `$return` 将方法返回值用于输出绑定。 有关示例，请参阅[触发器和绑定](functions-triggers-bindings.md#using-the-function-return-value)。
 
+仅当成功的函数执行始终将返回值传递给输出绑定时，才使用返回值。 否则，请使用 `ICollector` 或 `IAsyncCollector`，如以下部分所示。
+
 ## <a name="writing-multiple-output-values"></a>写入多个输出值
 
-若要向输出绑定写入多个值，请使用 [`ICollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) 或 [`IAsyncCollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) 类型。 这些类型是只写集合，当方法完成时写入输出绑定。
+若要将多个值写入输出绑定，或者如果成功的函数调用可能无法将任何内容传递给输出绑定，请使用 [`ICollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) 或 [`IAsyncCollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) 类型。 这些类型是只写集合，当方法完成时写入输出绑定。
 
 此示例使用 `ICollector` 将多个队列消息写入到同一队列：
 
 ```csharp
-public static void Run(ICollector<string> myQueueItem, TraceWriter log)
+public static void Run(ICollector<string> myQueue, TraceWriter log)
 {
-    myQueueItem.Add("Hello");
-    myQueueItem.Add("World!");
+    myQueue.Add("Hello");
+    myQueue.Add("World!");
 }
 ```
 
@@ -232,7 +234,7 @@ public static void Run(string myBlob, TraceWriter log)
 
 ## <a name="async"></a>异步
 
-要使函数[异步](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/async/)，请使用 `async` 关键字并返回 `Task` 对象。
+要使函数[异步](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/async/)，请使用 `async` 关键字并返回 `Task` 对象。
 
 ```csharp
 public async static Task ProcessQueueMessageAsync(
@@ -408,6 +410,8 @@ public static string GetEnvironmentVariable(string name)
         System.Environment.GetEnvironmentVariable(name, EnvironmentVariableTarget.Process);
 }
 ```
+
+[System.Configuration.ConfigurationManager.AppSettings](https://docs.microsoft.com/dotnet/api/system.configuration.configurationmanager.appsettings) 属性是用于获取应用设置值的替代 API，但我们建议你使用 `GetEnvironmentVariable`，如下所示。
 
 <a name="imperative-bindings"></a> 
 

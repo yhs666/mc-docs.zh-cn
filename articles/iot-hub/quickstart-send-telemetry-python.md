@@ -12,14 +12,14 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: ns
 origin.date: 04/30/2018
-ms.date: 06/11/2018
+ms.date: 08/06/2018
 ms.author: v-yiso
-ms.openlocfilehash: 108b4c329d48ce20b7107a43dd04a15a7d16b918
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: c42b183ca7f0740e5ebc9ad32a7e4c2474a38ce0
+ms.sourcegitcommit: d4092cf6aba0d949bf612093c76f964c2bdfd0ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939876"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39306594"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-python"></a>快速入门：将遥测数据从设备发送到 IoT 中心并使用后端应用程序从中心读取遥测数据 (Python)
 
@@ -139,9 +139,7 @@ iothub-explorer monitor-events MyPythonDevice --login {your hub service connecti
 
 ## <a name="clean-up-resources"></a>清理资源
 
-如果打算完成下一快速入门教程，请保留资源组和 IoT 中心，稍后再进行使用。
-
-如果不再需要 IoT 中心，请在门户中删除该中心与资源组。 为此，请选择包含 IoT 中心的 qs-iot-hub-rg 资源组，然后单击“删除”。
+[!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>后续步骤
 

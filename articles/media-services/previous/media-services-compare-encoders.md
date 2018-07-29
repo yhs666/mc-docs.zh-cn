@@ -1,5 +1,5 @@
 ---
-title: Azure 点播媒体编码器之间的对比 | Microsoft Docs
+title: 比较 Azure 点播媒体编码器 | Azure
 description: 本主题对 **Media Encoder Standard** 和**媒体编码器高级工作流**的编码功能进行了比较。
 services: media-services
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 12/05/2017
 ms.date: 06/25/2018
 ms.author: v-nany
-ms.openlocfilehash: 99886cffebc23b8cd811117845a6efff9e74245f
-ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
+ms.openlocfilehash: 7dcce92b7e9144f3c6111587e7b4e5e69741e4ac
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36748423"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219505"
 ---
 # <a name="comparison-of-azure-on-demand-media-encoders"></a>Azure 点播媒体编码器之间的对比
 
@@ -142,7 +142,6 @@ ms.locfileid: "36748423"
 
 >[!NOTE]
 >如果编码为 Dolby® Digital (AC3)，则只能将输出写入到 ISO MP4 文件。
-
 
 
 ## <a name="related-articles"></a>相关文章

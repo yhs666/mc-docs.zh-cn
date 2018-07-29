@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 03/27/2018
 ms.date: 05/07/2018
 ms.author: v-haiqya
-ms.openlocfilehash: f04d3b3c176409bb389ad5e75b7fe525e2258585
-ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
+ms.openlocfilehash: 0cd317663fb04756f533a5a1afc04e4990a13a5a
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36748392"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295589"
 ---
 # <a name="use-azure-ad-authentication-to-access-azure-media-services-api-with-net"></a>使用 Azure AD 身份验证通过 .NET 访问 Azure 媒体服务 API
 
@@ -59,7 +59,7 @@ ms.locfileid: "36748392"
 2. 使用 [windowsazure.mediaservices](https://www.nuget.org/packages/windowsazure.mediaservices) NuGet 包安装 **Azure 媒体服务 .NET SDK**。 
 
     若要使用 NuGet 添加引用，请执行以下步骤：在“解决方案资源管理器”中，右键单击项目名称，并选择“管理 NuGet 包”。 然后搜索 **windowsazure.mediaservices**，并选择“安装”。
-
+    
     -或-
 
     在 Visual Studio 的“包管理器控制台”中运行以下命令。
@@ -84,10 +84,10 @@ ms.locfileid: "36748392"
 它包含预定义的环境设置，从而仅允许访问公共数据中心中的媒体服务。 在中国云区域，可以使用 **AzureChinaCloudEnvironment**。
 
 以下示例代码创建一个令牌：
-
+    
     var tokenCredentials = new AzureAdTokenCredentials("microsoft.partner.onmschina.cn", AzureEnvironments.AzureChinaCloudEnvironment);
     var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
-
+  
 若要开始针对媒体服务编程，需要创建一个代表服务器上下文的 **CloudMediaContext** 实例。 **CloudMediaContext** 包括对各种重要集合的引用，这些集合包括作业、资产、文件、访问策略和定位符。 
 
 此外，还需要将**媒体 REST 服务的资源 URI** 传递到 **CloudMediaContext** 构造函数。 要获取媒体 REST 服务的资源 URI，请登录到 Azure 门户，选择 Azure 媒体服务帐户，并依次选择“API 访问权限”、“通过用户身份验证连接到 Azure 媒体服务”。 
@@ -106,19 +106,19 @@ ms.locfileid: "36748392"
             {
                 // Specify your Azure AD tenant domain, for example "microsoft.partner.onmschina.cn".
                 var tokenCredentials = new AzureAdTokenCredentials("{YOUR AAD TENANT DOMAIN HERE}", AzureEnvironments.AzureChinaCloudEnvironment);
-
+    
                 var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
-
+    
                 // Specify your REST API endpoint, for example "https://accountname.restv2.chinaeast.media.chinacloudapi.cn/API".
                 CloudMediaContext context = new CloudMediaContext(new Uri("YOUR REST API ENDPOINT HERE"), tokenProvider);
-
+    
                 var assets = context.Assets;
                 foreach (var a in assets)
                 {
                     Console.WriteLine(a.Name);
                 }
             }
-
+    
         }
     }
 
@@ -126,7 +126,7 @@ ms.locfileid: "36748392"
 >如果收到异常，指示“远程服务器返回了一个错误: (401)未授权”，请参阅使用 Azure AD身份验证访问 Azure 媒体服务 API 概述的[访问控制](media-services-use-aad-auth-to-access-ams-api.md#access-control)部分。
 
 ## <a name="use-service-principal-authentication"></a>使用服务主体身份验证
-
+    
 若要通过服务主体选项连接到 Azure 媒体服务 API，中间层应用程序（Web API 或 Web 应用程序）需要使用以下参数请求 Azure AD 令牌：  
 
 - Azure AD 租户终结点。 可以在 Azure 门户中检索租户信息。 将鼠标悬停在右上角的已登录用户上。
@@ -136,7 +136,7 @@ ms.locfileid: "36748392"
 “客户端 ID”和“客户端机密”参数的值都可以在 Azure 门户中找到。 有关详细信息，请参阅[使用 Azure 门户进行 Azure AD 身份验证入门](media-services-portal-get-started-with-aad.md)。
 
 以下代码示例使用将 **AzureAdClientSymmetricKey** 作为参数的 **AzureAdTokenCredentials** 构造函数创建令牌： 
-
+    
     var tokenCredentials = new AzureAdTokenCredentials("{YOUR Azure AD TENANT DOMAIN HERE}", 
                                 new AzureAdClientSymmetricKey("{YOUR CLIENT ID HERE}", "{YOUR CLIENT SECRET}"), 
                                 AzureEnvironments.AzureChinaCloudEnvironment);
@@ -145,7 +145,7 @@ ms.locfileid: "36748392"
 
 还可以指定将 **AzureAdClientCertificate** 作为参数的 **AzureAdTokenCredentials** 构造函数。 
 
-有关如何在表单中创建和配置可由 Azure AD 使用的证书的说明，请参阅[使用证书在守护程序应用中对 Azure AD 进行身份验证 - 手动配置步骤](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/blob/master/Manual-Configuration-Steps.md)。
+有关如何在表单中创建和配置可由 Azure AD 使用的证书的说明，请参阅[使用证书在守护程序应用中对 Azure AD 进行身份验证 - 手动配置步骤](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential)。
 
     var tokenCredentials = new AzureAdTokenCredentials("{YOUR Azure AD TENANT DOMAIN HERE}", 
                                 new AzureAdClientCertificate("{YOUR CLIENT ID HERE}", "{YOUR CLIENT CERTIFICATE THUMBPRINT}"), 
@@ -156,12 +156,12 @@ ms.locfileid: "36748392"
 下面的代码示例创建 **CloudMediaContext** 实例：
 
     CloudMediaContext context = new CloudMediaContext(new Uri("YOUR REST API ENDPOINT HERE"), tokenProvider);
-
+    
 以下示例介绍如何创建 Azure AD 令牌和上下文：
 
     namespace AADAuthSample
     {
-
+    
         class Program
         {
             static void Main(string[] args)
@@ -169,26 +169,25 @@ ms.locfileid: "36748392"
                 var tokenCredentials = new AzureAdTokenCredentials("{YOUR Azure AD TENANT DOMAIN HERE}", 
                                             new AzureAdClientSymmetricKey("{YOUR CLIENT ID HERE}", "{YOUR CLIENT SECRET}"), 
                                             AzureEnvironments.AzureChinaCloudEnvironment);
-
+            
                 var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
-
+    
                 // Specify your REST API endpoint, for example "https://accountname.restv2.chinaeast.media.chinacloudapi.cn/API".       
                 CloudMediaContext context = new CloudMediaContext(new Uri("YOUR REST API ENDPOINT HERE"), tokenProvider);
-
+    
                 var assets = context.Assets;
                 foreach (var a in assets)
                 {
                     Console.WriteLine(a.Name);
                 }
-
+    
                 Console.ReadLine();
             }
-
+    
         }
     }
 
 ## <a name="next-steps"></a>后续步骤
 
 开始[将文件上传到帐户](media-services-dotnet-upload-files.md)。
-
 <!--Update_Description: update word & code-->

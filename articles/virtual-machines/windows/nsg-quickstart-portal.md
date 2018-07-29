@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 12/13/2017
-ms.date: 06/04/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: d85c25fd54258b3e56ec179ea7799fbcf7732d67
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: ebc6f4c1bc236ced01e36b34fa2fb70237556fab
+ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867637"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39306946"
 ---
 # <a name="how-to-open-ports-to-a-virtual-machine-with-the-azure-portal"></a>如何使用 Azure 门户打开虚拟机端口
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
@@ -72,3 +72,4 @@ ms.locfileid: "34867637"
 
 <!--The parent file of includes file of virtual-machines-common-nsg-quickstart.md-->
 <!--ms.date:06/04/2018-->
+<!-- Update_Description: update meta properties -->

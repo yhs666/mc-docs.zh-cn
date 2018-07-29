@@ -14,15 +14,15 @@ ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 04/24/2018
-ms.date: 06/04/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 2a91fdc1cd015d4cecdbeb9bd07e9282eb61cf90
-ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
+ms.openlocfilehash: cbcd224627e9644f9f7745695a5d770b3af3363a
+ms.sourcegitcommit: 35889b4f3ae51464392478a72b172d8910dd2c37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37405275"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39261837"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-azure-with-powershell"></a>快速入门：使用 PowerShell 在 Azure 中创建 Linux 虚拟机
 
@@ -30,7 +30,7 @@ Azure PowerShell 模块用于从 PowerShell 命令行或脚本创建和管理 Az
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
-如果选择在本地安装并使用 PowerShell，则本教程需要 Azure PowerShell 模块 5.7.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount -Environment AzureChinaCloud ` 以创建与 Azure 的连接。
+如果选择在本地安装并使用 PowerShell，则本教程需要 Azure PowerShell 模块 5.7.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount -Environment AzureChinaCloud` 以创建与 Azure 的连接。
 
 最后，需要在 Windows 用户配置文件的 *.ssh* 目录中存储名为 *id_rsa.pub* 的公共 SSH 密钥。 有关如何创建和使用 SSH 密钥的详细信息，请参阅[创建适用于 Azure 的 SSH 密钥](ssh-from-windows.md)。
 
@@ -164,4 +164,4 @@ Remove-AzureRmResourceGroup -Name "myResourceGroup"
 > [!div class="nextstepaction"]
 > [Azure Linux 虚拟机教程](./tutorial-manage-vm.md)
 
-<!--Update_Description: update meta properties, wording update, update link -->
+<!--Update_Description: update meta properties  -->

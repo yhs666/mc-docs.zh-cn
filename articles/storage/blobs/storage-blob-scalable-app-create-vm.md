@@ -13,12 +13,12 @@ origin.date: 02/20/2018
 ms.date: 05/07/2018
 ms.author: v-johch
 ms.custom: mvc
-ms.openlocfilehash: 96887e98ea53a10ce234d28f82a1487cfedd0c7b
-ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
+ms.openlocfilehash: 3df265eaa94ed71e282c02de6400994e5900aa7c
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103033"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295696"
 ---
 # <a name="create-a-virtual-machine-and-storage-account-for-a-scalable-application"></a>为可缩放的应用程序创建虚拟机和存储帐户
 
@@ -39,7 +39,7 @@ ms.locfileid: "37103033"
 
 使用 [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) 创建 Azure 资源组。 资源组是在其中部署和管理 Azure 资源的逻辑容器。
 
-```azurepowershell
+```powershell
 New-AzureRmResourceGroup -Name myResourceGroup -Location ChinaNorth
 ```
 
@@ -114,7 +114,7 @@ Write-host "Your public IP address is $($pip.IpAddress)"
 
 运行以下 cmdlet，完成虚拟机的配置。 完成此步骤需要 5-15 分钟。
 
-```azurepowershell
+```powershell
 # Start a CustomScript extension to use a simple PowerShell script to install .NET core, dependencies, and pre-create the files to upload.
 Set-AzureRMVMCustomScriptExtension -ResourceGroupName myResourceGroup `
     -VMName myVM `

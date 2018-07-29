@@ -15,12 +15,12 @@ ms.workload: na
 origin.date: 02/26/2018
 ms.author: v-yiso
 ms.date: 06/11/2018
-ms.openlocfilehash: 90c2681421528d88ca18a185ae76cc6f4d5e3c98
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: a747e16666313c838c3cd7bde41ded3b48629b5a
+ms.sourcegitcommit: d4092cf6aba0d949bf612093c76f964c2bdfd0ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695058"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39306580"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>用于设备和模块孪生、作业和消息路由的 IoT 中心查询语言
 
@@ -175,13 +175,13 @@ SELECT * FROM devices.modules
 不允许在 devices 与 devices.modules 集合之间进行联接。 如果要跨设备查询模块孪生，则需要基于标记来执行此操作。 以下查询将返回所有设备中具有扫描状态的所有模块孪生：
 
 ```sql
-Select * from devices.modules where reported.properties.status = 'scanning'
+Select * from devices.modules where properties.reported.status = 'scanning'
 ```
 
 以下查询将仅返回指定的设备子集上具有扫描状态的所有模块孪生。
 
 ```sql
-Select * from devices.modules where reported.properties.status = 'scanning' and deviceId IN ('device1', 'device2')  
+Select * from devices.modules where properties.reported.status = 'scanning' and deviceId IN ('device1', 'device2')  
 ```
 
 ### <a name="c-example"></a>C# 示例

@@ -10,12 +10,12 @@ ms.topic: quickstart
 origin.date: 04/09/2018
 ms.date: 06/11/2018
 ms.author: v-johch
-ms.openlocfilehash: c80c9752ada26102259373a5fc2b33f18868e02c
-ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
+ms.openlocfilehash: 862cb18df61781464f46f4fb0bb3584ea2165192
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103037"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295692"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-azure-powershell"></a>快速入门：使用 Azure PowerShell 上传、下载和列出 Blob
 
@@ -23,7 +23,7 @@ Azure PowerShell 模块用于从 PowerShell 命令行或脚本创建和管理 Az
 
 如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
 
-本快速入门需要 Azure PowerShell 模块 3.6 版或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure PowerShell 模块](/powershell/azure/install-azurerm-ps)。
+本快速入门需要 Azure PowerShell 模块 3.6 版或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。
 
 [!INCLUDE [storage-quickstart-tutorial-intro-include-powershell](../../../includes/storage-quickstart-tutorial-intro-include-powershell.md)]
 
@@ -31,7 +31,7 @@ Azure PowerShell 模块用于从 PowerShell 命令行或脚本创建和管理 Az
 
 始终将 Blob 上传到容器中。 可以整理 Blob 组，就像在计算机的文件夹中整理文件一样。
 
-设置容器名称，然后使用 [New-AzureStorageContainer](/powershell/module/azure.storage/new-azurestoragecontainer) 创建容器，将权限设置为“blob”以允许公共访问文件。 此示例中的容器名称是 quickstartblobs。
+设置容器名称，然后使用 [New-AzureStorageContainer](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontainer) 创建容器，将权限设置为“blob”以允许公共访问文件。 此示例中的容器名称是 quickstartblobs。
 
 ```powershell
 $containerName = "quickstartblobs"
@@ -42,7 +42,7 @@ New-AzureStorageContainer -Name $containerName -Context $ctx -Permission blob
 
 blob 存储支持块 blob、追加 blob 和页 blob。 用于备份 IaaS VM 的 VHD 文件都是页 blob。 追加 blob 用于日志记录，例如有时需要写入到文件，再继续添加更多信息。 Blob 存储中存储的大多数文件都是块 blob。 
 
-要将文件上传到块 blob，请获取容器引用，然后获取对该容器中的块 blob 的引用。 具备 blob 引用后，可使用 [Set-AzureStorageBlobContent](/powershell/module/azure.storage/set-azurestorageblobcontent) 将数据上传到其中。 此操作会创建 blob（若尚不存在），或者覆盖它（若已存在）。
+要将文件上传到块 blob，请获取容器引用，然后获取对该容器中的块 blob 的引用。 具备 blob 引用后，可使用 [Set-AzureStorageBlobContent](https://docs.microsoft.com/powershell/module/azure.storage/set-azurestorageblobcontent) 将数据上传到其中。 此操作会创建 blob（若尚不存在），或者覆盖它（若已存在）。
 
 以下示例将 Image001.jpg 和 Image002.png 从本地磁盘的 D:\\_TestImages 文件夹上传到你创建的容器中。
 
@@ -64,7 +64,7 @@ Set-AzureStorageBlobContent -File "D:\_TestImages\Image002.png" `
 
 ## <a name="list-the-blobs-in-a-container"></a>列出容器中的 Blob
 
-使用 [Get-AzureStorageBlob](/powershell/module/azure.storage/get-azurestorageblob) 获取容器中的 blob 列表。 此示例仅显示已上传的 blob 的名称。
+使用 [Get-AzureStorageBlob](https://docs.microsoft.com/powershell/module/azure.storage/get-azurestorageblob) 获取容器中的 blob 列表。 此示例仅显示已上传的 blob 的名称。
 
 ```powershell
 Get-AzureStorageBlob -Container $ContainerName -Context $ctx | select Name 
@@ -72,7 +72,7 @@ Get-AzureStorageBlob -Container $ContainerName -Context $ctx | select Name
 
 ## <a name="download-blobs"></a>下载 Blob
 
-将 blob 下载到本地磁盘。 对于要下载的每个 blob，请设置名称并调用 [ Get-AzureStorageBlobContent ](/powershell/module/azure.storage/get-azurestorageblobcontent) 以下载 blob。
+将 blob 下载到本地磁盘。 对于要下载的每个 blob，请设置名称并调用 [ Get-AzureStorageBlobContent ](https://docs.microsoft.com/powershell/module/azure.storage/get-azurestorageblobcontent) 以下载 blob。
 
 此示例将 blob 下载到本地磁盘的 D:\\_TestImages\Downloads 中。 
 
@@ -117,10 +117,10 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 在此快速入门中，介绍了如何在本地磁盘和 Azure Blob 存储之间传输文件。 要深入了解如何使用 Blob 存储，请继续学习 Blob 存储操作说明。
 
 > [!div class="nextstepaction"]
-> [Blob 存储操作说明](storage-how-to-use-blobs-powershell.md)
+> [Blob 存储操作说明](storage-quickstart-blobs-powershell.md)
 
 ### <a name="microsoft-azure-powershell-storage-cmdlets-reference"></a>Microsoft Azure PowerShell 存储 cmdlet 参考
-* [存储 PowerShell cmdlet](/powershell/module/azurerm.storage#storage)
+* [存储 PowerShell cmdlet](https://docs.microsoft.com/powershell/module/azurerm.storage#storage)
 
 ### <a name="microsoft-azure-storage-explorer"></a>Microsoft Azure 存储资源管理器
 * [Microsoft Azure 存储资源管理器](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fstorage%2fblobs%2ftoc.json)是 Microsoft 免费提供的独立应用，适用于在 Windows、macOS 和 Linux 上以可视方式处理 Azure 存储数据。

@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 07/20/2017
 ms.date: 09/04/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 033dd44e50941c4241c8c4ed783a77fb4c17df71
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 595f38470787d17bfce657be932313f338ce56b1
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475375"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219465"
 ---
 # <a name="h264-single-bitrate-4x3-sd-audio-51"></a>H264 单比特率 4x3 SD Audio 5.1
 `Media Encoder Standard` 定义一组可在创建编码作业时使用的编码预设。 可以使用 `preset name` 指定编码媒体文件采用的格式。 也可以创建自己的 JSON 或基于 XML 的预设（使用 UTF-8 或 UTF-16 编码）。 然后，将自定义预设传递到编码器。 有关此 `Media Encoder Standard` 编码器支持的所有预设名称的列表，请参阅 [Media Encoder Standard 的任务预设](media-services-mes-presets-overview.md)。  

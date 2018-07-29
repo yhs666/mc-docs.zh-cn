@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-Windows
 ms.workload: infrastructure
 origin.date: 02/28/2017
-ms.date: 06/25/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 9c5f1e392d2e9fa99cb17be549f54cbef64f4c0d
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: b44d55b40695653901ec3a67809ff1f9f2c8f7ab
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38940145"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295762"
 ---
 # <a name="quick-create-a-virtual-machine-with-the-azure-cli"></a>使用 Azure CLI 快速创建虚拟机
 
@@ -63,11 +63,11 @@ az vm extension set \
   --settings '{"commandToExecute":"powershell.exe Install-WindowsFeature -Name Web-Server"}'
 ```
 
-## <a name="clean-up-deployment"></a>清理部署 
+## <a name="clean-up-deployment"></a>清理部署
 
 运行以下命令来删除资源组、VM 和所有相关资源。
 
-```azurecli 
+```azurecli
 az group delete --name myResourceGroup --yes
 ```
 
@@ -89,4 +89,4 @@ az group delete --name myResourceGroup --yes
 
 可以在 [Azure Windows VM 文档](../windows/cli-samples.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)中找到其他虚拟机 CLI 脚本示例。
 
-<!--Update_Description: update link-->
+<!--Update_Description: update meta properties -->

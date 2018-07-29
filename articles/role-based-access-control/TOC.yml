@@ -25,26 +25,28 @@
   items:
     - name: 了解角色定义
       href: role-definitions.md
-    - name: 内置角色
-      href: built-in-roles.md
-    - name: 自定义角色
-      href: custom-roles.md
-    - name: 资源提供程序操作
-      href: resource-provider-operations.md
 - name: 操作指南
-  expanded: true
   items:
     - name: 管理访问权限
       items:
         - name: 门户
           href: role-assignments-portal.md
-        - name: Azure CLI
-          href: role-assignments-cli.md
         - name: PowerShell
           href: role-assignments-powershell.md
-        - name: REST
+        - name: Azure CLI
+          href: role-assignments-cli.md
+        - name: REST API
           href: role-assignments-rest.md
-    - name: 活动日志
+    - name: 自定义角色
+      href: custom-roles.md
+      items:
+        - name: PowerShell
+          href: custom-roles-powershell.md
+        - name: Azure CLI
+          href: custom-roles-cli.md
+        - name: REST API
+          href: custom-roles-rest.md
+    - name: 查看活动日志
       href: change-history-report.md
     - name: 为全局管理员提升访问权限
       href: elevate-access-global-admin.md
@@ -52,3 +54,17 @@
       href: role-assignments-external-users.md
     - name: 故障排除
       href: troubleshooting.md
+- name: 参考
+  items:
+    - name: 内置角色
+      href: built-in-roles.md
+    - name: 资源提供程序操作
+      href: resource-provider-operations.md
+    - name: RBAC 限制
+      href: '../azure-subscription-service-limits.md#role-based-access-control-limits'
+    - name: Azure PowerShell
+      href: 'https://docs.microsoft.com/powershell/module/azurerm.resources'
+    - name: Azure CLI
+      href: /cli/role?view=azure-cli-latest
+    - name: REST API
+      href: 'https://docs.microsoft.com/rest/api/authorization/'

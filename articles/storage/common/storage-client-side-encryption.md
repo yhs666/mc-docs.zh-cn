@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 10/20/2017
 ms.date: 3/20/2018
 ms.author: v-nany
-ms.openlocfilehash: 15cc77e458fdbbb10ba94e06dc4ca352d395f57a
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.openlocfilehash: e309c93ba8cff0695cd49ff7bcd2b06851c8bb64
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30155611"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295849"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-azure-storage"></a>Azure 存储的客户端加密和 Azure Key Vault
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -67,7 +67,7 @@ ms.locfileid: "30155611"
 > 
 > 
 
-下载已加密的 blob 需要使用 **DownloadTo***/** BlobReadStream** 便捷方法检索整个 blob 的内容。 将已包装的 CEK 解包，与 IV（在本示例中存储为 Blob 元数据）一起使用将解密后的数据返回给用户。
+下载已加密的 blob 需要使用 **DownloadTo**\* /**BlobReadStream** 便捷方法检索整个 blob 的内容。 将已包装的 CEK 解包，与 IV（在本示例中存储为 Blob 元数据）一起使用将解密后的数据返回给用户。
 
 下载已加密 blob 中的任意范围（DownloadRange* 方法）需要调整用户提供的范围，获取少量可用于成功解密所请求范围的附加数据。
 
@@ -134,7 +134,7 @@ Azure 密钥保管库可帮助保护云应用程序和服务使用的加密密�
 ## <a name="best-practices"></a>最佳实践
 仅在用于 .NET 的存储空间客户端库中提供加密支持。 Windows Phone 和 Windows 运行时当前不支持加密。
 
->[!IMPORTANT]
+> [!IMPORTANT]
 > 使用客户端加密时，请注意以下要点：
 > 
 > * 读取或写入到已加密的 Blob 时，请使用完整 Blob 上传命令和范围/完整 Blob 下载命令。 避免使用协议操作（如“放置块”、“放置块列表”、“写入页”、“清除页”或“追加块”）写入到已加密的 Blob，否则可能会损坏已加密的 Blob 并使其不可读。
@@ -156,6 +156,7 @@ Azure 密钥保管库可帮助保护云应用程序和服务使用的加密密�
 
 ### <a name="requireencryption-mode"></a>RequireEncryption 模式
 用户可以选择启用这样的操作模式，要求加密所有上传和下载行为。 在此模式下，尝试在没有加密策略的情况下上传数据或下载在服务中未加密的数据，将导致在客户端上失败。 请求选项对象的 **RequireEncryption** 属性控制此行为。 如果应用程序要加密存储于 Azure 存储中的所有对象，则可以在服务客户端对象的默认请求选项上设置 **RequireEncryption**属性。 例如，将 CloudBlobClient.DefaultRequestOptions.RequireEncryption 设置为 true，要求对通过该客户端对象执行的所有 blob 操作进行加密。
+
 
 ### <a name="blob-service-encryption"></a>Blob 服务加密
 创建 **BlobEncryptionPolicy** 对象并在请求选项中对其进行设置（使用 **DefaultRequestOptions** 基于每个 API 或在客户端级别设置）。 其他所有事项均由客户端库在内部处理。

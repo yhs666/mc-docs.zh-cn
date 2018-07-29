@@ -10,14 +10,14 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 origin.date: 12/20/2017
-ms.date: 04/16/2018
+ms.date: 07/24/2018
 ms.author: v-junlch
-ms.openlocfilehash: 4a71bf4af8855ba0751bcdde8423cbab5edb4751
-ms.sourcegitcommit: f97c9253d16fac8be0266c9473c730ebd528e542
+ms.openlocfilehash: dbc21a983eb8fb733a5fd81b057bb2f9bb597e74
+ms.sourcegitcommit: ba07d76f8394b5dad782fd983718a8ba49a9deb2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31585535"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39220261"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Azure Functions 的 Microsoft Graph 绑定
 
@@ -41,7 +41,7 @@ Microsoft Graph 扩展提供了以下绑定：
 
 [Microsoft.Azure.WebJobs.Extensions.AuthTokens](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.AuthTokens/) NuGet 包中提供了身份验证令牌输入绑定。 [Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MicrosoftGraph/) 包中提供了其他 Microsoft Graph 绑定。 [azure-functions-microsoftgraph-extension](https://github.com/Azure/azure-functions-microsoftgraph-extension/) GitHub 存储库中提供了这些包的源代码。
 
-[!INCLUDE [functions-package](../../includes/functions-package.md)]
+[!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
 ## <a name="setting-up-the-extensions"></a>设置扩展
 
@@ -207,7 +207,7 @@ module.exports = function (context, req) {
 
 ### <a name="auth-token---configuration"></a>身份验证令牌 - 配置
 
-下表解释了在 *function.json* 文件和 `Token` 特性中设置的绑定配置属性。
+下表解释了在 function.json 文件和 `Token` 特性中设置的绑定配置属性。
 
 |function.json 属性 | Attribute 属性 |说明|
 |---------|---------|----------------------|
@@ -340,7 +340,7 @@ module.exports = function (context, req) {
 
 ### <a name="excel-input---configuration"></a>Excel 输入 - 配置
 
-下表解释了在 *function.json* 文件和 `Excel` 特性中设置的绑定配置属性。
+下表解释了在 function.json 文件和 `Excel` 特性中设置的绑定配置属性。
 
 |function.json 属性 | Attribute 属性 |说明|
 |---------|---------|----------------------|
@@ -500,7 +500,7 @@ module.exports = function (context, req) {
 
 ### <a name="excel-output---configuration"></a>Excel 输出 - 配置
 
-下表解释了在 *function.json* 文件和 `Excel` 特性中设置的绑定配置属性。
+下表解释了在 function.json 文件和 `Excel` 特性中设置的绑定配置属性。
 
 |function.json 属性 | Attribute 属性 |说明|
 |---------|---------|----------------------|
@@ -644,7 +644,7 @@ module.exports = function (context, req) {
 
 ### <a name="file-input---configuration"></a>文件输入 - 配置
 
-下表解释了在 *function.json* 文件和 `OneDrive` 特性中设置的绑定配置属性。
+下表解释了在 function.json 文件和 `OneDrive` 特性中设置的绑定配置属性。
 
 |function.json 属性 | Attribute 属性 |说明|
 |---------|---------|----------------------|
@@ -789,7 +789,7 @@ module.exports = function (context, req) {
 
 ### <a name="file-output---configuration"></a>文件输出 - 配置
 
-下表解释了在 *function.json* 文件和 `OneDrive` 特性中设置的绑定配置属性。
+下表解释了在 function.json 文件和 `OneDrive` 特性中设置的绑定配置属性。
 
 |function.json 属性 | Attribute 属性 |说明|
 |---------|---------|----------------------|
@@ -938,7 +938,7 @@ module.exports = function (context, req) {
 
 ### <a name="outlook-output---configuration"></a>Outlook 输出 - 配置
 
-下表解释了在 *function.json* 文件和 `Outlook` 特性中设置的绑定配置属性。
+下表解释了在 function.json 文件和 `Outlook` 特性中设置的绑定配置属性。
 
 |function.json 属性 | Attribute 属性 |说明|
 |---------|---------|----------------------|
@@ -975,7 +975,7 @@ module.exports = function (context, req) {
 - [Microsoft Graph webhook 订阅输入绑定](#webhook-input)，使你可以列出现有的订阅并选择性地更新这些订阅。
 - [Microsoft Graph webhook 订阅输出绑定](#webhook-output)，使你可以创建或删除 webhook 订阅。
 
-这些绑定本身不需要任何 Azure AD 权限，但是你需要请求你想要响应的资源类型的相关权限。 有关每种资源类型所需的权限列表，请参阅[订阅权限](https://developer.microsoft.com/zh-cn/graph/graph-explorer-china/docs/api-reference/v1.0/api/subscription_post_subscriptions#permissions)。
+这些绑定本身不需要任何 Azure AD 权限，但是你需要请求你想要响应的资源类型的相关权限。 
 
 有关 webhook 的详细信息，请参阅[使用 Microsoft Graph 中的 webhook]。
 
@@ -1079,7 +1079,7 @@ module.exports = function (context) {
 
 ### <a name="webhook-trigger---configuration"></a>Webhook 触发器 - 配置
 
-下表解释了在 *function.json* 文件和 `GraphWebHookTrigger` 特性中设置的绑定配置属性。
+下表解释了在 function.json 文件和 `GraphWebHookTrigger` 特性中设置的绑定配置属性。
 
 |function.json 属性 | Attribute 属性 |说明|
 |---------|---------|----------------------|
@@ -1230,7 +1230,7 @@ module.exports = function (context, req) {
 
 ### <a name="webhook-input---configuration"></a>Webhook 输入 - 配置
 
-下表解释了在 *function.json* 文件和 `GraphWebHookSubscription` 特性中设置的绑定配置属性。
+下表解释了在 function.json 文件和 `GraphWebHookSubscription` 特性中设置的绑定配置属性。
 
 |function.json 属性 | Attribute 属性 |说明|
 |---------|---------|----------------------|
@@ -1370,7 +1370,7 @@ module.exports = function (context, req) {
 
 ### <a name="webhook-output---configuration"></a>Webhook 输出 - 配置
 
-下表解释了在 *function.json* 文件和 `GraphWebHookSubscription` 特性中设置的绑定配置属性。
+下表解释了在 function.json 文件和 `GraphWebHookSubscription` 特性中设置的绑定配置属性。
 
 |function.json 属性 | Attribute 属性 |说明|
 |---------|---------|----------------------|
@@ -1578,3 +1578,4 @@ public class UserSubscription {
 [HTTP 触发器]: functions-bindings-http-webhook.md
 [使用 Microsoft Graph 中的 webhook]: https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/webhooks
 
+<!-- Update_Description: wording update -->

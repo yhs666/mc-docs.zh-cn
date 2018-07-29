@@ -1,5 +1,5 @@
 ---
-title: 如何通过 Ruby 使用队列存储 | Microsoft Docs
+title: 如何通过 Ruby 使用队列存储 | Azure
 description: 了解如何使用 Azure 队列服务创建和删除队列，以及插入、获取和删除消息。 用 Ruby 编写的相关示例。
 services: storage
 documentationcenter: ruby
@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 12/08/2016
 ms.date: 10/16/2017
 ms.author: v-johch
-ms.openlocfilehash: 4ec28e40076b0136c6e90f17e1ba9218e593ed63
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: dd30cb0f6df72bd509074556ea2610c77f2e020b
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38940154"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295839"
 ---
 # <a name="how-to-use-queue-storage-from-ruby"></a>如何通过 Ruby 使用队列存储
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]

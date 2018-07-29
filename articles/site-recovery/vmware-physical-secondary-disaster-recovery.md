@@ -8,15 +8,15 @@ ms.service: site-recovery
 ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.topic: article
-origin.date: 03/08/2018
-ms.date: 04/02/2018
+origin.date: 07/06/2018
+ms.date: 07/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 6ae6a72da148a3fb202d69f5061b45fe7a54f228
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 87d5c78ff763b2cbcf8c2412ac3c41b35d89a9e2
+ms.sourcegitcommit: 74f9f0acb00fb728ff6e9bd67ac86a0c1bcd8d13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38940179"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39218927"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>将本地 VMware 虚拟机或物理服务器的灾难恢复设置到辅助站点
 
@@ -245,4 +245,4 @@ Update 1 包含以下 bug 修复和新功能：
   * 在物理到虚拟 (P2V) 方案中，所需的 HP 服务（例如 CIMnotify、CqMgHost）不会在 VM 恢复中变为“手动”。 此问题会导致启动时间延长。
   * 当主目标服务器上的磁盘数超过 26 个时，Linux VM 保护会失败。
 
-<!-- Update_Description: update meta properties, update link, wording update -->
+<!-- Update_Description: update meta properties, wording update -->

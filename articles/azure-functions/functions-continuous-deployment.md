@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 09/25/2016
-ms.date: 05/29/2018
+ms.date: 07/23/2018
 ms.author: v-junlch
-ms.openlocfilehash: ce9df04957a610ba23ec7d8b7e49c7178bcd78ea
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 89f0e47a1a96a7e8d56a94498b893acccb13a558
+ms.sourcegitcommit: ba07d76f8394b5dad782fd983718a8ba49a9deb2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34567306"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39220234"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Azure Functions 的连续部署
 使用 Azure Functions，可轻松使用应用服务持续集成部署 Function App。 Functions 可与 BitBucket、Dropbox、GitHub 和 Visual Studio Team Services (VSTS) 集成。 这样，通过使用其中一项集成服务实现的函数代码更新所在的工作流将触发到 Azure 的部署。 如果不熟悉 Azure Functions，请从[Azure Functions 概述](functions-overview.md)开始。
@@ -38,6 +38,8 @@ ms.locfileid: "34567306"
 在设置连续部署之前，必须具备配置的部署源和其中的函数代码。 在给定的 Function App 部署中，每个函数位于已命名的子目录中，其中目录名即为函数名。  
 
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
+
+为了能够从 VSTS 进行部署，必须先将 VSTS 帐户与 Azure 订阅关联起来。 有关详细信息，请参阅[为 VSTS 帐户设置计费](https://docs.microsoft.com/vsts/billing/set-up-billing-for-your-account-vs?view=vsts#set-up-billing-via-the-azure-portal)。
 
 ## <a name="set-up-continuous-deployment"></a>设置连续部署
 使用此过程来配置现有 Function App 的连续部署。 这些步骤演示了与 GitHub 存储库的集成，但类似的步骤适用于 Visual Studio Team Services 或其他部署服务。
@@ -150,3 +152,4 @@ Function App 尚不支持部署槽。 但是，仍可以通过使用持续集成
 > [!div class="nextstepaction"]
 > [Azure Functions 最佳实践](functions-best-practices.md)
 
+<!-- Update_Description: wording update -->

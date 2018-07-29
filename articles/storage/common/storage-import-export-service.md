@@ -6,15 +6,15 @@ manager: digimobile
 services: storage
 ms.service: storage
 ms.topic: article
-origin.date: 03/22/2018
-ms.date: 06/11/2018
+origin.date: 07/11/2018
+ms.date: 07/30/2018
 ms.author: v-nany
-ms.openlocfilehash: 50787963efbefc901fd940832387c71c5a046d6a
-ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
+ms.openlocfilehash: 85bab42a3573809f03d9fe7a09476e50f00d2e71
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36270064"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295735"
 ---
 # <a name="use-the-azure-importexport-service-to-transfer-data-to-azure-storage"></a>使用 Azure 导入/导出服务将数据传输到 Azure 存储
 本文分步介绍如何使用 Azure 导入/导出服务将磁盘驱动器寄送到 Azure 数据中心，从而安全地将大量数据传输到 Azure Blob 存储和 Azure 文件。 此外，还可以使用此服务将数据从 Azure 存储传输到硬盘驱动器，然后再寄送到本地站点。 可将单个内部 SATA 磁盘驱动器中的数据导入 Azure Blob 存储或 Azure 文件。 
@@ -112,7 +112,7 @@ ms.locfileid: "36270064"
 * 对于导出作业，需要寄送空硬盘驱动器。
 * 每个作业最多可以寄送 10 个硬盘驱动器。
 
-可以使用 Azure 门户或 [Azure 存储导入/导出 REST API](/rest/api/storageimportexport) 创建导入或导出作业。
+可以使用 Azure 门户或 [Azure 存储导入/导出 REST API](https://docs.microsoft.com/rest/api/storageimportexport) 创建导入或导出作业。
 
 > [!Note]
 > 自 2018 年 2 月 28 日起将不再支持 RDFE API。 若要继续使用此服务，请迁移到 [ARM 导入/导出 REST API](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/storageimportexport/resource-manager/Microsoft.ImportExport/stable/2016-11-01/storageimportexport.json)。 

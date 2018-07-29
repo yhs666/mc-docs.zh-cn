@@ -15,12 +15,12 @@ ms.workload: na
 origin.date: 04/02/2018
 ms.author: v-yiso
 ms.date: 06/11/2018
-ms.openlocfilehash: 91b8ae305a15ac1d513fd4d3e5074ad71b3a5e72
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 601c4ad37406b2b4e8b5208d6af664e6beeb5d0a
+ms.sourcegitcommit: d4092cf6aba0d949bf612093c76f964c2bdfd0ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695075"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39306584"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>选择适用于解决方案的 IoT 中心层
 
@@ -38,7 +38,7 @@ Azure IoT 中心提供两个层，即基本层和标准层，这两个层在所�
 
 IoT 中心的标准层启用了所有功能，是任何需要使用双向通信功能的 IoT 解决方案所必需的。 基本层启用了部分功能，适用于只需单向通信（从设备到云）的 IoT 解决方案。 这两个层提供相同的安全性和身份验证功能。
 
-创建 IoT 中心以后，即可从基本层升级到标准层，不需中断现有的操作。 有关详细信息，请参阅[如何升级 IoT 中心](iot-hub-upgrade.md)。
+创建 IoT 中心以后，即可从基本层升级到标准层，不需中断现有的操作。 有关详细信息，请参阅[如何升级 IoT 中心](iot-hub-upgrade.md)。 请注意，基本层 IoT 中心的分区限制为 8。 从基本层迁移到标准层时，此限制保持不变。
 
 | 功能 | 基本层 | 标准层 |
 | ---------- | ---------- | ------------- |

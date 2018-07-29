@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 08/01/2017
 ms.date: 09/04/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 2213c6d76d94e7c44c29cd3f59e1f7db0cd076cc
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 8708aa00209b26c952d014af84cc17936f7ac94b
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475221"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219556"
 ---
 # <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>通过自定义 MES 预设执行高级编码 
 
@@ -157,6 +157,7 @@ ms.locfileid: "34475221"
         }
       ]
     }
+
 
 ### <a id="xml"></a>XML 预设
     <?xml version="1.0" encoding="utf-16"?>
@@ -498,10 +499,11 @@ Media Encoder Standard 允许在现有视频上覆盖图像。 目前支持以�
 
 如果要使用 .NET，请将以下两个函数添加到[此主题](media-services-custom-mes-presets-with-dotnet.md#encoding_with_dotnet) 中定义的 .NET 示例。 “UploadMediaFilesFromFolder”函数从文件夹上传文件（例如 BigBuckBunny.mp4 和 Image001.png），并将 mp4 文件设置为资产中的主文件。 “EncodeWithOverlay”函数使用传递给它的自定义预设文件（例如，下面的预设）来创建编码任务。
 
+
     static public IAsset UploadMediaFilesFromFolder(string folderPath)
     {
         IAsset asset = _context.Assets.CreateFromFolder(folderPath, AssetCreationOptions.None);
-
+    
         foreach (var af in asset.AssetFiles)
         {
             // The following code assumes 
@@ -510,10 +512,10 @@ Media Encoder Standard 允许在现有视频上覆盖图像。 目前支持以�
                 af.IsPrimary = true;
             else
                 af.IsPrimary = false;
-
+    
             af.Update();
         }
-
+    
         return asset;
     }
 
@@ -548,6 +550,7 @@ Media Encoder Standard 允许在现有视频上覆盖图像。 目前支持以�
 
         return job.OutputMediaAssets[0];
     }
+
 
 > [!NOTE]
 > 当前限制：
@@ -634,6 +637,7 @@ Media Encoder Standard 允许在现有视频上覆盖图像。 目前支持以�
       ]
     }
 
+
 ### <a name="xml-preset"></a>XML 预设
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
@@ -696,6 +700,7 @@ Media Encoder Standard 允许在现有视频上覆盖图像。 目前支持以�
       </Outputs>
     </Preset>
 
+
 ## <a id="silent_audio"></a>在输入不包含音频时插入静音曲目
 默认情况下，如果要向编码器发送仅包含视频而不包含音频的输入，则输出资产包含仅有视频数据的文件。 某些播放器可能无法处理此类输出流。 对于这种方案，可以使用此设置来强制编码器将静音曲目添加到输出。
 
@@ -745,6 +750,7 @@ Media Encoder Standard 允许在现有视频上覆盖图像。 目前支持以�
       </Filters>
     </Source>
     </Sources>
+
 
 ## <a id="audio_only"></a>仅音频预设
 本部分介绍两个仅音频 MES 预设：AAC 音频和 AAC 优质音频。

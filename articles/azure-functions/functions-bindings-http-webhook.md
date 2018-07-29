@@ -14,14 +14,14 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 11/21/2017
-ms.date: 05/30/2018
+ms.date: 07/24/2018
 ms.author: v-junlch
-ms.openlocfilehash: d05bc17f69bc276f10047c7ac927ee422fdd7494
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 98ef704aa5cb2bca0a89d8f9c906bde024c2f62e
+ms.sourcegitcommit: ba07d76f8394b5dad782fd983718a8ba49a9deb2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34567358"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39220240"
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Azure Functions HTTP 和 webhook 绑定
 
@@ -33,13 +33,17 @@ HTTP 触发器可进行自定义以响应 [Webhook](https://en.wikipedia.org/wik
 
 [!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
 
-## <a name="packages"></a>包
+## <a name="packages---functions-1x"></a>包 - Functions 2.x
 
-[Microsoft.Azure.WebJobs.Extensions.Http](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http) NuGet 包中提供了 HTTP 绑定。 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Http/) GitHub 存储库中提供了此包的源代码。
+[Microsoft.Azure.WebJobs.Extensions.Http](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http) NuGet 包 1.x 版本中提供了 HTTP 绑定。 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/v2.x/src/WebJobs.Extensions.Http) GitHub 存储库中提供了此包的源代码。
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
-[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+## <a name="packages---functions-2x"></a>包 - Functions 2.x
+
+[Microsoft.Azure.WebJobs.Extensions.Http](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http) NuGet 包 3.x 版本中提供了 HTTP 绑定。 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Http/) GitHub 存储库中提供了此包的源代码。
+
+[!INCLUDE [functions-package](../../includes/functions-package-auto.md)]
 
 ## <a name="trigger"></a>触发器
 
@@ -87,9 +91,9 @@ public static async Task<HttpResponseMessage> Run(
 
 ### <a name="trigger---c-script-example"></a>触发器 - C# 脚本示例
 
-以下示例演示 *function.json* 文件中的一个触发器绑定以及使用该绑定的 [C# 脚本函数](functions-reference-csharp.md)。 该函数在查询字符串或 HTTP 请求的正文中查找 `name` 参数。
+以下示例演示 function.json 文件中的一个触发器绑定以及使用该绑定的 [C# 脚本函数](functions-reference-csharp.md)。 该函数在查询字符串或 HTTP 请求的正文中查找 `name` 参数。
 
-*function.json* 文件如下所示：
+function.json 文件如下所示：
 
 ```json
 {
@@ -163,7 +167,7 @@ public class CustomObject {
 
 以下示例演示 *function.json* 文件中的一个触发器绑定以及使用该绑定的 [F# 函数](functions-reference-fsharp.md)。 该函数在查询字符串或 HTTP 请求的正文中查找 `name` 参数。
 
-*function.json* 文件如下所示：
+function.json 文件如下所示：
 
 ```json
 {
@@ -227,9 +231,9 @@ let Run(req: HttpRequestMessage) =
 
 ### <a name="trigger---javascript-example"></a>触发器 - JavaScript 示例
 
-以下示例演示 *function.json* 文件中的一个触发器绑定以及使用该绑定的 [JavaScript 函数](functions-reference-node.md)。 该函数在查询字符串或 HTTP 请求的正文中查找 `name` 参数。
+以下示例演示 function.json 文件中的一个触发器绑定以及使用该绑定的 [JavaScript 函数](functions-reference-node.md)。 该函数在查询字符串或 HTTP 请求的正文中查找 `name` 参数。
 
-*function.json* 文件如下所示：
+function.json 文件如下所示：
 
 ```json
 {
@@ -297,9 +301,9 @@ public static HttpResponseMessage Run([HttpTrigger(AuthorizationLevel.Anonymous,
 
 ### <a name="webhook---c-script-example"></a>Webhook - C# 脚本示例
 
-以下示例演示 *function.json* 文件中的一个 Webhook 触发器绑定以及使用该绑定的 [C# 脚本函数](functions-reference-csharp.md)。 该函数记录 GitHub 问题注释。
+以下示例演示 function.json 文件中的一个 Webhook 触发器绑定以及使用该绑定的 [C# 脚本函数](functions-reference-csharp.md)。 该函数记录 GitHub 问题注释。
 
-*function.json* 文件如下所示：
+function.json 文件如下所示：
 
 ```json
 {
@@ -347,9 +351,9 @@ public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
 
 ### <a name="webhook---f-example"></a>Webhook - F # 示例
 
-以下示例演示 *function.json* 文件中的一个 Webhook 触发器绑定以及使用该绑定的 [F# 函数](functions-reference-fsharp.md)。 该函数记录 GitHub 问题注释。
+以下示例演示 function.json 文件中的一个 Webhook 触发器绑定以及使用该绑定的 [F# 函数](functions-reference-fsharp.md)。 该函数记录 GitHub 问题注释。
 
-*function.json* 文件如下所示：
+function.json 文件如下所示：
 
 ```json
 {
@@ -397,9 +401,9 @@ let Run(req: HttpRequestMessage, log: TraceWriter) =
 
 ### <a name="webhook---javascript-example"></a>Webhook - JavaScript 示例
 
-以下示例演示 *function.json* 文件中的一个 Webhook 触发器绑定以及使用该绑定的 [JavaScript 函数](functions-reference-node.md)。 该函数记录 GitHub 问题注释。
+以下示例演示 function.json 文件中的一个 Webhook 触发器绑定以及使用该绑定的 [JavaScript 函数](functions-reference-node.md)。 该函数记录 GitHub 问题注释。
 
-下面是 *function.json* 文件中的绑定数据：
+下面是 function.json 文件中的绑定数据：
 
 ```json
 {
@@ -451,17 +455,17 @@ public static HttpResponseMessage Run(
 
 ## <a name="trigger---configuration"></a>触发器 - 配置
 
-下表解释了在 *function.json* 文件和 `HttpTrigger` 特性中设置的绑定配置属性。
+下表解释了在 function.json 文件和 `HttpTrigger` 特性中设置的绑定配置属性。
 
 |function.json 属性 | Attribute 属性 |说明|
 |---------|---------|----------------------|
-| **类型** | 不适用| 必需 - 必须设置为 `httpTrigger`。 |
+| 类型 | 不适用| 必需 - 必须设置为 `httpTrigger`。 |
 | direction | 不适用| 必需 - 必须设置为 `in`。 |
-| **name** | 不适用| 必需 - 在请求或请求正文的函数代码中使用的变量名称。 |
-| <a name="http-auth"></a>**authLevel** |  **AuthLevel** |确定请求中需要提供的密钥（如果有），以便调用此函数。 授权级别可以是以下值之一： <ul><li><code>anonymous</code>&mdash;无需 API 密钥。</li><li><code>function</code>&mdash;特定于函数的 API 密钥是必需的。 如果未提供任何值，该值为默认值。</li><li><code>admin</code>&mdash;主密钥是必需的。</li></ul> 有关详细信息，请参阅有关[授权密钥](#authorization-keys)的部分。 |
-| **methods** |**方法** | HTTP 方法的数组，该函数将响应此方法。 如果未指定，该函数将响应所有 HTTP 方法。 参阅[自定义 HTTP 终结点](#customize-the-http-endpoint)。 |
-| **route** | **Route** | 定义路由模板，控制函数将响应的请求 URL。 如果未提供任何值，则默认值为 `<functionname>`。 有关详细信息，请参阅[自定义 HTTP 终结点](#customize-the-http-endpoint)。 |
-| **webHookType** | **WebHookType** |将 HTTP 触发器配置为充当指定提供程序的 [webhook](https://en.wikipedia.org/wiki/Webhook) 接收器。 如果未设置此属性，请不要设置 `methods` 属性。 Webhook 类型可以是以下值之一：<ul><li><code>genericJson</code>&mdash;不包含特定提供程序逻辑的常规用途 webhook 终结点。 此设置会将请求限制为仅请求使用 HTTP POST 以及内容类型为 `application/json`。</li><li><code>github</code>&mdash;该函数响应 [GitHub Webhook](https://developer.github.com/webhooks/)。 不要对 GitHub Webhook 使用 _authLevel_ 属性。 有关详细信息，请参阅本文后面的“GitHub Webhook”部分。</li><li><code>slack</code>&mdash;该函数响应 [Slack Webhook](https://api.slack.com/outgoing-webhooks)。 不要对 Slack Webhook 使用 _authLevel_ 属性。 有关详细信息，请参阅本文后面的“Slack Webhook”部分。</li></ul>|
+| name | 不适用| 必需 - 在请求或请求正文的函数代码中使用的变量名称。 |
+| <a name="http-auth"></a>**authLevel** |  AuthLevel |确定请求中需要提供的密钥（如果有），以便调用此函数。 授权级别可以是以下值之一： <ul><li><code>anonymous</code>&mdash;无需 API 密钥。</li><li><code>function</code>&mdash;特定于函数的 API 密钥是必需的。 如果未提供任何值，该值为默认值。</li><li><code>admin</code>&mdash;无需主密钥。</li></ul> 有关详细信息，请参阅有关[授权密钥](#authorization-keys)的部分。 |
+| methods |方法 | HTTP 方法的数组，该函数将响应此方法。 如果未指定，该函数将响应所有 HTTP 方法。 参阅[自定义 HTTP 终结点](#customize-the-http-endpoint)。 |
+| route | Route | 定义路由模板，控制函数将响应的请求 URL。 如果未提供任何值，则默认值为 `<functionname>`。 有关详细信息，请参阅[自定义 HTTP 终结点](#customize-the-http-endpoint)。 |
+| webHookType | WebHookType |将 HTTP 触发器配置为充当指定提供程序的 [webhook](https://en.wikipedia.org/wiki/Webhook) 接收器。 如果未设置此属性，请不要设置 `methods` 属性。 Webhook 类型可以是以下值之一：<ul><li><code>genericJson</code>&mdash;不包含特定提供程序逻辑的常规用途 webhook 终结点。 此设置会将请求限制为仅请求使用 HTTP POST 以及内容类型为 `application/json`。</li><li><code>github</code>&mdash;该函数响应 [GitHub Webhook](https://developer.github.com/webhooks/)。 不要对 GitHub Webhook 使用 authLevel 属性。 有关详细信息，请参阅本文后面的“GitHub Webhook”部分。</li><li><code>slack</code>&mdash;该函数响应 [Slack Webhook](https://api.slack.com/outgoing-webhooks)。 不要对 Slack Webhook 使用 authLevel 属性。 有关详细信息，请参阅本文后面的“Slack Webhook”部分。</li></ul>|
 
 ## <a name="trigger---usage"></a>触发器 - 用法
 
@@ -487,7 +491,7 @@ Slack webhook 为用户生成令牌，而非让用户指定它，所以必须使
 
     http://<yourapp>.chinacloudsites.cn/api/<funcname> 
 
-在 HTTP 触发器的输入绑定中，可以使用可选 `route` 属性自定义此路由。 例如，以下 *function.json* 文件定义了 HTTP 触发器的 `route` 属性：
+在 HTTP 触发器的输入绑定中，可以使用可选 `route` 属性自定义此路由。 例如，以下 function.json 文件定义了 HTTP 触发器的 `route` 属性：
 
 ```json
 {
@@ -552,7 +556,7 @@ module.exports = function (context, req) {
 } 
 ```
 
-默认情况下，所有函数路由的前缀均为 *api*。 还可以使用 [host.json](functions-host-json.md) 文件中的 `http.routePrefix` 属性自定义或删除前缀。 以下示例通过将空字符串用于 *host.json* 文件中的前缀删除 *api* 路由前缀。
+默认情况下，所有函数路由的前缀均为 api。 还可以使用 [host.json](functions-host-json.md) 文件中的 `http.routePrefix` 属性自定义或删除前缀。 以下示例通过将空字符串用于 host.json 文件中的前缀删除 api 路由前缀。
 
 ```json
 {
@@ -618,13 +622,13 @@ HTTP 请求长度限制为 100MB（104,857,600 字节），并且 URL 长度限�
 
 ## <a name="output---configuration"></a>输出 - 配置
 
-下表解释了在 *function.json* 文件中设置的绑定配置属性。 在 C# 类库中，没有与这些 *function.json* 属性对应的属性。 
+下表解释了在 function.json 文件中设置的绑定配置属性。 在 C# 类库中，没有与这些 function.json 属性对应的属性。 
 
 |属性  |说明  |
 |---------|---------|
-| **类型** |必须设置为 `http`。 |
+| type |必须设置为 `http`。 |
 | direction | 必须设置为 `out`。 |
-|**name** | 在响应的函数代码中使用的变量名称，或者 `$return` 以使用返回值。 |
+|name | 在响应的函数代码中使用的变量名称，或者 `$return` 以使用返回值。 |
 
 ## <a name="output---usage"></a>输出 - 用法
 
@@ -636,4 +640,4 @@ HTTP 请求长度限制为 100MB（104,857,600 字节），并且 URL 长度限�
 
 [详细了解 Azure Functions 触发器和绑定](functions-triggers-bindings.md)
 
-<!-- Update_Description: wording and code update -->
+<!-- Update_Description: wording update -->

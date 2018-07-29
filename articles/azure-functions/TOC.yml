@@ -9,12 +9,12 @@
   items:
     - name: 创建函数 - 门户
       href: functions-create-first-azure-function.md
-    - name: 创建函数 - Azure CLI
-      href: functions-create-first-azure-function-azure-cli.md
     - name: 创建函数 - Visual Studio
       href: functions-create-your-first-function-visual-studio.md
     - name: 创建函数 - Java/Maven
       href: functions-create-first-java-maven.md
+    - name: 创建函数 - Azure CLI
+      href: functions-create-first-azure-function-azure-cli.md
     - name: 触发器
       items:
         - name: Blob 存储
@@ -81,6 +81,8 @@
       items:
         - name: 概述
           href: durable-functions-overview.md
+        - name: 函数类型和功能
+          href: durable-functions-types-features-overview.md
         - name: 绑定
           href: durable-functions-bindings.md
         - name: 检查点和重播
@@ -120,9 +122,13 @@
         - name: 测试函数
           href: functions-test-a-function.md
         - name: 在本地开发和调试
-          href: functions-run-local.md
+          href: functions-develop-local.md
         - name: Visual Studio 开发
           href: functions-develop-vs.md
+        - name: Core Tools 开发
+          href: functions-run-local.md
+        - name: 管理连接
+          href: manage-connections.md
         - name: 错误处理。
           href: functions-bindings-error-pages.md
     - name: 部署
@@ -164,7 +170,11 @@
         - name: Blob 存储
           href: functions-bindings-storage-blob.md
         - name: Azure Cosmos DB
-          href: functions-bindings-cosmosdb.md
+          items:
+            - name: Functions 1.x
+              href: functions-bindings-cosmosdb.md
+            - name: Functions 2.x
+              href: functions-bindings-cosmosdb-v2.md
         - name: 事件中心
           href: functions-bindings-event-hubs.md
         - name: 外部文件

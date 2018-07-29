@@ -77,4 +77,4 @@ Azure 现在提供对两种调试功能的支持：控制台输出和屏幕截�
     ![更新现有 VM](./media/virtual-machines-common-boot-diagnostics/enable-for-existing-vm.png)
 
 3. 重启 VM，使设置生效。
-<!-- ms.date: 06/04/2018 -->
+<!-- ms.date: 07/30/2018 -->

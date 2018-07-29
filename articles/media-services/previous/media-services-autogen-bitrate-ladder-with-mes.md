@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 12/10/2017
 ms.date: 12/25/2017
 ms.author: v-nany
-ms.openlocfilehash: 060f5040bad86a6d16d4e780b62c6ade7e6c3310
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: bca4384de2c14b5b7daaec40edfdfe19720807e9
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475200"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219521"
 ---
 #  <a name="use-azure-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>使用 Azure Media Encoder Standard 自动生成比特率阶梯
 
@@ -203,7 +203,6 @@ namespace AdaptiveStreamingMESPresest
 |1|360|640|700|
 |2|270|480|440|
 |3|180|320|230|
-
 
 ## <a name="see-also"></a>另请参阅
 [媒体服务编码概述](media-services-encode-asset.md)

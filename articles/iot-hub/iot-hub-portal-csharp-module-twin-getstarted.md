@@ -13,15 +13,15 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 04/26/2018
-ms.date: 07/09/2018
+ms.date: 08/06/2018
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1d0eb9697787e824e5e9754074622e537004fbfd
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 5e349c80e24e435a3bbc1e4454b516c281718167
+ms.sourcegitcommit: d4092cf6aba0d949bf612093c76f964c2bdfd0ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939135"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39306557"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-the-portal-and-net-device"></a>使用门户和 .NET 设备创建 IoT 中心模块标识和模块孪生入门
 
@@ -33,12 +33,12 @@ ms.locfileid: "38939135"
 2. 如何使用 .NET 设备 SDK 更新设备的模块孪生。
 
 > [!NOTE]
-> 有关 Azure IoT SDK 的信息（可以使用这些 SDK 生成可在设备和解决方案后端上运行的应用程序），请参阅 [Azure IoT SDK][lnk-hub-sdks]。
+> 有关可用于生成在设备和解决方案后端上运行的应用程序的 Azure IoT SDK 的信息，请参阅 [Azure IoT SDK][lnk-hub-sdks]。
 
 要完成本教程，需要以下各项：
 
 * Visual Studio 2015 或 Visual Studio 2017。
-* 有效的 Azure 帐户。 （如果没有帐户，只需花费几分钟就能创建一个 [试用帐户][lnk-free-trial]。）
+* 有效的 Azure 帐户。 如果没有帐户，可以创建一个[试用帐户][lnk-free-trial]，只需几分钟即可完成。
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
@@ -149,19 +149,19 @@ ms.locfileid: "38939135"
     }
     ```
 
-    此代码示例演示如何检索模块孪生和借助 AMQP 协议更新报告属性。 在公开预览版中，我们仅支持通过 AMQP 进行模块孪生操作。
-    ```
+此代码示例演示如何检索模块孪生和借助 AMQP 协议更新报告属性。 在公开预览版中，我们仅支持通过 AMQP 进行模块孪生操作。
 
-## Run the apps
 
-You are now ready to run the apps. In Visual Studio, in Solution Explorer, right-click your solution, and then click **Set StartUp projects**. Select **Multiple startup projects**, and then select **Start** as the action for the console app. And then press F5 to start both apps running. 
+## <a name="run-the-apps"></a>运行应用
 
-## Next steps
+现在，已准备就绪，可以运行应用。 在 Visual Studio 的“解决方案资源管理器”中右键单击解决方案，并单击“设置启动项目”。 选择“多个启动项目”，然后选择“启动”作为控制台应用的操作。 然后按 F5 启动这两个应用，使其运行。 
 
-To continue getting started with IoT Hub and to explore other IoT scenarios, see:
+## <a name="next-steps"></a>后续步骤
 
-* [Get started with IoT Hub module identity and module twin using .NET backup and .NET device][lnk-csharp-csharp-getstarted]
-* [Getting started with IoT Edge][lnk-iot-edge]
+若要继续了解 IoT 中心入门知识并浏览其他 IoT 方案，请参阅：
+
+* [通过 .NET 备份和 .NET 设备开始使用 IoT 中心模块标识和模块孪生][lnk-csharp-csharp-getstarted]
+* [IoT Edge 入门][lnk-iot-edge]
 
 
 <!-- Images. -->

@@ -14,7 +14,7 @@
 
 | 资源 | 限制 |
 | --- | --- |
-| 每个 Azure 订阅的付费 IoT 中心数上限 |10 个 |
+| 每个 Azure 订阅的付费 IoT 中心数上限 |50 |
 | 每个 Azure 订阅的免费 IoT 中心数上限 |1 |
 | 设备 ID 的最大字符数 | 128 |
 | 单个调用中返回的<br/> 设备标识数上限 |1000 |
@@ -37,7 +37,7 @@
 | 最大消息路由规则数 | 100（适用于 S1、S2、S3） |
 
 > [!NOTE]
-> 如果需要在 Azure 订阅中有 10 个以上的付费 IoT 中心，请联系 Microsoft 支持。
+> 如果需要在 Azure 订阅中有 50 个以上的付费 IoT 中心，请联系 Microsoft 支持部门。
 
 > [!NOTE]
 > 目前，可以连接到单个 IoT 中心的设备的最大数目是 500,000。 如果想要增加此限制，请联系 [Microsoft 支持](https://azure.microsoft.com/en-us/support/options/)。

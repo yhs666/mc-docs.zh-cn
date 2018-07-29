@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 12/15/2017
-ms.date: 04/16/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0525325ded86d3eaec2f900590c33e6b09a8c496
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 86e60c57fce2784faa983fdd18a069ddffcb5409
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939354"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295788"
 ---
 # <a name="encrypt-a-windows-virtual-machine-in-azure"></a>在 Azure 中加密 Windows 虚拟机
 
@@ -83,6 +83,7 @@ echo "The encryption process can take some time. View status with:
 When encryption status shows \`Encrypted\`, restart the VM with:
 
     az vm restart --resource-group myResourceGroup --name myVM"
+
 ```
 
 ## <a name="clean-up-deployment"></a>清理部署 
@@ -99,15 +100,15 @@ az group delete --name myResourceGroup
 
 | 命令 | 注释 |
 |---|---|
-| [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create) | 创建用于存储所有资源的资源组。 |
-| [az keyvault create](https://docs.azure.cn/zh-cn/cli/keyvault?view=azure-cli-latest#az_keyvault_create) | 创建 Azure Key Vault，存储加密密钥等安全数据。 |
-| [az keyvault key create](https://docs.azure.cn/zh-cn/cli/keyvault/key?view=azure-cli-latest#az_keyvault_key_create) | 在 Key Vault 中创建加密密钥。 |
-| [az ad sp create-for-rbac](https://docs.azure.cn/zh-cn/cli/ad/sp?view=azure-cli-latest#az_ad_sp_create_for_rbac) | 创建 Azure Active Directory 服务主体来安全地进行身份验证并控制对加密密钥的访问。 |
-| [az keyvault set-policy](https://docs.azure.cn/zh-cn/cli/keyvault?view=azure-cli-latest#az_keyvault_set_policy) | 设置对 Key Vault 的权限来向服务主体授予对加密密钥的访问权限。 |
-| [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_create) | 创建虚拟机并将其连接到网卡、虚拟网络、子网和 NSG。 此命令还指定要使用的虚拟机映像和管理凭据。  |
-| [az vm encryption enable](https://docs.azure.cn/zh-cn/cli/vm/encryption?view=azure-cli-latest#az_vm_encryption_enable) | 使用服务主体凭据和加密密钥在 VM 上启用加密。 |
-| [az vm encryption show](https://docs.azure.cn/zh-cn/cli/vm/encryption?view=azure-cli-latest#az_vm_encryption_show) | 显示 VM 加密过程的状态。 |
-| [az group delete](https://docs.azure.cn/zh-cn/cli/vm/extension?view=azure-cli-latest#az_vm_extension_set) | 删除资源组，包括所有嵌套的资源。 |
+| [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create) | 创建用于存储所有资源的资源组。 |
+| [az keyvault create](https://docs.azure.cn/zh-cn/cli/keyvault?view=azure-cli-latest#az-keyvault-create) | 创建 Azure Key Vault，存储加密密钥等安全数据。 |
+| [az keyvault key create](https://docs.azure.cn/zh-cn/cli/keyvault/key?view=azure-cli-latest#az-keyvault-key-create) | 在 Key Vault 中创建加密密钥。 |
+| [az ad sp create-for-rbac](https://docs.azure.cn/zh-cn/cli/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) | 创建 Azure Active Directory 服务主体来安全地进行身份验证并控制对加密密钥的访问。 |
+| [az keyvault set-policy](https://docs.azure.cn/zh-cn/cli/keyvault?view=azure-cli-latest#az-keyvault-set-policy) | 设置对 Key Vault 的权限来向服务主体授予对加密密钥的访问权限。 |
+| [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) | 创建虚拟机并将其连接到网卡、虚拟网络、子网和 NSG。 此命令还指定要使用的虚拟机映像和管理凭据。  |
+| [az vm encryption enable](https://docs.azure.cn/zh-cn/cli/vm/encryption?view=azure-cli-latest#az-vm-encryption-enable) | 使用服务主体凭据和加密密钥在 VM 上启用加密。 |
+| [az vm encryption show](https://docs.azure.cn/zh-cn/cli/vm/encryption?view=azure-cli-latest#az-vm-encryption-show) | 显示 VM 加密过程的状态。 |
+| [az group delete](https://docs.azure.cn/zh-cn/cli/vm/extension?view=azure-cli-latest#az-vm-extension-set) | 删除资源组，包括所有嵌套的资源。 |
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -115,4 +116,4 @@ az group delete --name myResourceGroup
 
 可以在 [Azure Windows VM 文档](../windows/cli-samples.md?toc=%2fvirtual-machines%windows%2ftoc.json)中找到其他虚拟机 CLI 脚本示例。
 
-<!--Update_Description: update meta propreties, wording update -->
+<!--Update_Description: update meta propreties, update link -->

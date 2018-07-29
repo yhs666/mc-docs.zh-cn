@@ -14,25 +14,27 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 02/28/2018
-ms.date: 06/04/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: ab2ea11a437bab284f4a6ea529093b597b10a5ef
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 00416e6d12087764d81cb767ff24b843b9526389
+ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702793"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39307026"
 ---
-# <a name="how-to-find-windows-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>如何使用 Azure PowerShell 在 Azure Marketplace 中查找 Windows VM 映像
+# <a name="how-to-find-windows-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>如何使用 Azure PowerShell 在 Azure 市场中查找 Windows VM 映像
 
 本文介绍如何使用 Azure PowerShell 在 Azure 市场中查找 VM 映像。 使用 PowerShell、资源管理器模板或其他工具以编程方式创建 VM 时，使用此信息指定市场映像。
+
+还可以使用 [Azure 市场](https://market.azure.cn/zh-cn/marketplace/)店面、[Azure 门户](https://portal.azure.cn)或 [Azure CLI](../linux/cli-ps-findimage.md) 浏览可用的映像和产品/服务。 
 
 确保已安装并配置最新的 [Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。
 
 [!INCLUDE [virtual-machines-common-image-terms](../../../includes/virtual-machines-common-image-terms.md)]
 
 ## <a name="table-of-commonly-used-windows-images"></a>常用 Windows 映像表
-| 发布者 | 产品 | SKU |
+| 发布者 | 产品/服务 | SKU |
 |:--- |:--- |:--- |:--- |
 | MicrosoftWindowsServer |WindowsServer |2016-Datacenter |
 | MicrosoftWindowsServer |WindowsServer |2016-Datacenter-Server-Core |
@@ -302,4 +304,4 @@ $vmConfig = Set-AzureRmVMSourceImage -VM $vmConfig -PublisherName "imagePublishe
 若要使用基本映像信息通过 `New-AzureRmVM` 快速创建虚拟机，请参阅[使用 PowerShell 创建 Windows 虚拟机](quick-create-powershell.md)。
 
 请参阅 PowerShell 脚本示例以[创建完全配置的虚拟机](../scripts/virtual-machines-windows-powershell-sample-create-vm.md)。
-<!--Update_Description: update the powershell cmdlet, wording update, update link -->
+<!--Update_Description: update meta properties, wording update, update link -->

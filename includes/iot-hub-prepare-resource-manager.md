@@ -8,7 +8,7 @@
 1. 使用以下命令登录到 Azure 订阅：
 
     ```powershell
-    Login-AzureRmAccount -Environment $(Get-AzureRmEnvironment -Name AzureChinaCloud)
+    Connect-AzureRmAccount -Environment AzureChinaCloud
     ```
 
 1. 如果有多个 Azure 订阅，则访问 Azure 即有权访问与凭据关联的所有 Azure 订阅。 使用以下命令，列出可供使用的 Azure 订阅：
@@ -33,7 +33,7 @@
    * **{Password}**：用于向应用进行身份验证的密码。
      
      ```powershell
-     $SecurePassword=ConvertTo-SecureString {password} �Casplaintext �Cforce
+     $SecurePassword=ConvertTo-SecureString {password} �asplaintext �force
      New-AzureRmADApplication -DisplayName {Display name} -HomePage {Home page URL} -IdentifierUris {Application identifier} -Password $SecurePassword
      ```
 4. 请记下创建的应用程序的 **ApplicationId**。 稍后会需要它。

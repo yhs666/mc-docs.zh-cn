@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 07/19/2017
 ms.date: 1/22/2018
 ms.author: v-haiqya
-ms.openlocfilehash: 10abf3361aad6d81508aeca2ce7afc3b6e3e3728
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 5261e80dccee4dc784d605bb5ae3436d2a36ba45
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475243"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219566"
 ---
 # <a name="input-metadata"></a>输入元数据
 编码作业与要在其上执行某些编码任务的输入资产（或资产）相关联。  完成任务后，会生成一个输出资产。  输出资产包含视频、音频、缩略图、清单等。输出资产还包含提供输入资产相关元数据的文件。 元数据 XML 文件的名称采用下列格式：&lt;asset_id&gt;_metadata.xml（例如，41114ad3-eb5e-4c57-8d92-5354e2b7d4a4_metadata.xml），其中 &lt;asset_id&gt; 是输入资产的 AssetId 值。  

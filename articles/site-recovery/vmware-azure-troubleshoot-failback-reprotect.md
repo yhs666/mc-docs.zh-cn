@@ -7,15 +7,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 03/09/2018
-ms.date: 04/02/2018
+origin.date: 07/06/2018
+ms.date: 07/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: ed3164edc67f264f4da9414edb208229516efc8e
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: 68f1c7b984dbe887a3f55776387588a70b4d955c
+ms.sourcegitcommit: 74f9f0acb00fb728ff6e9bd67ac86a0c1bcd8d13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30223416"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39218915"
 ---
 # <a name="troubleshoot-failback-from-azure-to-vmware"></a>从 Azure 故障回复到 VMware 时进行故障排除
 
@@ -84,4 +84,4 @@ VM 未运行，它处于挂起状态或无法访问。
 * 可以在 ESXi 主机上预配更多内存。
 * 另外，可以使用 vMotion 将 VM 迁移到另一台有足够内存的 ESXi 主机上以启动 VM。
 
-<!-- Update_Description: update meta properties, wording update, update link -->
+<!-- Update_Description: update meta properties  -->

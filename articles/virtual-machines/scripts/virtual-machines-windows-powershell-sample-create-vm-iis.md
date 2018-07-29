@@ -14,15 +14,15 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 12/12/2017
-ms.date: 06/25/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 2f84ca584cc9b3a0d9d94e94193bde56b2f8cff8
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.openlocfilehash: dfeb73f7f94add01a9d3cc1d2a46f8a5c5608043
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315451"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295782"
 ---
 # <a name="create-an-iis-vm-with-powershell"></a>使用 PowerShell 创建 IIS VM
 
@@ -67,7 +67,7 @@ Set-AzureRmVMExtension -ExtensionName "IIS" -ResourceGroupName $resourceGroup -V
   -SettingString $PublicSettings -Location $location
 ```
 
-## <a name="clean-up-deployment"></a>清理部署 
+## <a name="clean-up-deployment"></a>清理部署
 
 运行以下命令来删除资源组、VM 和所有相关资源。
 

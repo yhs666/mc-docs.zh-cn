@@ -1,26 +1,22 @@
 ---
 title: 使用 Azure IoT 中心计划作业 (Python)
 description: 如何安排 Azure IoT 中心作业实现多台设备上的直接方法调用。 使用 Azure IoT SDK for Python 实现模拟设备应用以及用于运行作业的服务应用。
-services: iot-hub
-documentationcenter: .net
 author: kgremban
 manager: timlt
-editor: ''
-ms.assetid: 2233356e-b005-4765-ae41-3a4872bda943
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 02/16/2018
-ms.date: 05/07/2018
+ms.date: 08/06/2018
 ms.author: v-yiso
-ms.openlocfilehash: 69df7f6c201fe83fd9a999a1e552b77ab3ddfd3d
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 5aeeb6d92f58695d97200399d69f8bbd9c3dce87
+ms.sourcegitcommit: d4092cf6aba0d949bf612093c76f964c2bdfd0ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38938869"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39306541"
 ---
 # <a name="schedule-and-broadcast-jobs-python"></a>计划和广播作业 (Python)
 
@@ -333,7 +329,7 @@ scheduleJobService.py，它调用模拟设备应用中的直接方法，并通�
 [lnk-twin-props]: iot-hub-node-node-twin-how-to-configure.md
 [lnk-c2d-methods]: iot-hub-python-python-direct-methods.md
 [lnk-dev-methods]: iot-hub-devguide-direct-methods.md
-[lnk-fwupdate]: iot-hub-node-node-firmware-update.md
+[lnk-fwupdate]: tutorial-firmware-update.md
 [lnk-iot-edge]: ../iot-edge/tutorial-simulate-device-linux.md
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 [lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/

@@ -8,20 +8,20 @@ manager: mtillman
 ms.assetid: ''
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 05/18/2018
-ms.date: 07/03/2018
+ms.date: 07/25/2018
 ms.author: v-junlch
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: ca0228bce48741f2708e48aa927e6556185e795f
-ms.sourcegitcommit: a20c461541ba7db541c01c8a18fc4cff48e3d2d5
+ms.openlocfilehash: cae065ff2a2311d9b3fa1575536eb41aba72017f
+ms.sourcegitcommit: cce18df2de12353f0d8f01c649307a5789d59cd4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37361182"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39246124"
 ---
 # <a name="understand-role-definitions"></a>了解角色定义
 
@@ -29,7 +29,7 @@ ms.locfileid: "37361182"
 
 ## <a name="role-definition-structure"></a>角色定义结构
 
-*角色定义*是权限的集合。 它有时简称为“角色”。 角色定义列出了可以执行的操作，例如读取、写入和删除。 它还可以列出不能执行的操作，或者与基础数据相关的操作。 角色定义具有以下结构：
+*角色定义*是权限的集合。 它有时简称为“角色”。 角色定义列出可以执行的操作，例如读取、写入和删除。 它还可以列出不能执行的操作，或者与基础数据相关的操作。 角色定义具有以下结构：
 
 ```
 assignableScopes []
@@ -249,4 +249,4 @@ Bob 的权限限制为[存储 Blob 数据参与者（预览版）](built-in-role
 - [自定义角色](custom-roles.md)
 - [Azure 资源管理器资源提供程序操作](resource-provider-operations.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

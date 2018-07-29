@@ -1,25 +1,24 @@
 ---
 title: 从 Azure IoT 中心控制设备快速入门 (.NET) | Microsoft Docs
 description: 在本快速入门中，会运行两个示例 C# 应用程序。 一个为后端应用程序，可远程控制连接到中心的设备。 另一个应用程序可模拟连接到中心的可受远程控制的设备。
-services: iot-hub
 author: dominicbetts
 manager: timlt
-editor: ''
 ms.service: iot-hub
-ms.devlang: dotnet
+services: iot-hub
+ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: ns
-origin.date: 04/30/2018
-ms.date: 07/09/2018
+origin.date: 06/20/2018
+ms.date: 08/06/2018
 ms.author: v-yiso
-ms.openlocfilehash: f94336e79d6a1d78db90527eccb3c17b5d891a21
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 631039d20f4b72b6a80afa9acb0e61eb7a95e4d5
+ms.sourcegitcommit: d4092cf6aba0d949bf612093c76f964c2bdfd0ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38938806"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39306608"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-net"></a>快速入门：控制连接到 IoT 中心 (.NET) 的设备
 
@@ -96,7 +95,7 @@ az iot hub show-connection-string --hub-name {YourIoTHubName} --output table
 
 1. 在所选文本编辑器中打开 SimulatedDevice.cs 文件。
 
-    将 `connectionString` 变量的值替换为之前记下的设备连接字符串。 然后将更改保存到 SimulatedDevice.cs 文件。
+    将 `s_connectionString` 变量的值替换为之前记下的设备连接字符串。 然后将更改保存到 SimulatedDevice.cs 文件。
 
 1. 在终端窗口中，运行以下命令以安装模拟设备应用程序所需的包：
 
@@ -122,7 +121,7 @@ az iot hub show-connection-string --hub-name {YourIoTHubName} --output table
 
 1. 在所选文本编辑器中打开 BackEndApplication.cs 文件。
 
-    将 `connectionString` 变量的值替换为以前记下的服务连接字符串。 然后将更改保存到 BackEndApplication.cs 文件。
+    将 `s_connectionString` 变量的值替换为以前记下的服务连接字符串。 然后将更改保存到 BackEndApplication.cs 文件。
 
 1. 在终端窗口中，运行以下命令，安装后端应用程序所需的库：
 
@@ -146,9 +145,7 @@ az iot hub show-connection-string --hub-name {YourIoTHubName} --output table
 
 ## <a name="clean-up-resources"></a>清理资源
 
-如果打算继续学习教程，请保留资源组和 IoT 中心，稍后再进行使用。
-
-如果不再需要 IoT 中心，请在门户中删除该中心与资源组。 为此，请选择包含 IoT 中心的资源组，然后单击“删除”。
+[!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>后续步骤
 

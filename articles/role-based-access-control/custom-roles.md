@@ -8,20 +8,20 @@ manager: mtillman
 ms.assetid: e4206ea9-52c3-47ee-af29-f6eef7566fa5
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 06/12/2018
-ms.date: 07/03/2018
+ms.date: 07/25/2018
 ms.author: v-junlch
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5941e40a5dd37bc0c64af57c9cf44ce3ed582c0f
-ms.sourcegitcommit: a20c461541ba7db541c01c8a18fc4cff48e3d2d5
+ms.openlocfilehash: 14cbe92d628e65ebca154b78d04b1721ba458bf0
+ms.sourcegitcommit: cce18df2de12353f0d8f01c649307a5789d59cd4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37361166"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39246120"
 ---
 # <a name="custom-roles-in-azure"></a>Azure 中的自定义角色
 
@@ -89,17 +89,17 @@ ms.locfileid: "37361166"
 
 自定义角色具有以下属性。
 
-| 属性 | 必须 | 说明 | 注释 |
+| 属性 | 必须 | 类型 | 说明 |
 | --- | --- | --- | --- |
-| `Name` | 是 | 自定义角色的显示名称。 | 此名称必须在租户中唯一。 可以包含字母、数字、空格和任何特殊字符。 最大字符数为 128。 |
-| `Id` | 是 | 自定义角色的唯一 ID。 | 在创建新角色时自动生成。 |
-| `IsCustom` | 是 | 指示此角色是否为自定义角色。 | 设置为 `true` 表示是自定义角色。 |
-| `Description` | 是 | 自定义角色的说明。 | 可以包含字母、数字、空格和任何特殊字符。 |
-| `Actions` | 是 | 指定该角色允许执行的管理操作。 | 有关详细信息，请参阅 [actions](role-definitions.md#actions)。 |
-| `NotActions` | 否 | 指定从允许的 `actions` 中排除的管理操作。 | 有关详细信息，请参阅 [notActions](role-definitions.md#notactions)。 |
-| `DataActions` | 否 | 指定该角色允许对该对象中的数据执行的数据操作。 | 有关详细信息，请参阅 [dataActions（预览）](role-definitions.md#dataactions-preview)。 |
-| `NotDataActions` | 否 | 指定从允许的 `dataActions` 中排除的数据操作。 | 有关详细信息，请参阅 [notDataActions（预览）](role-definitions.md#notdataactions-preview)。 |
-| `AssignableScopes` | 是 | 指定自定义角色的可分配范围。 | 不能设置为根范围 (`"/"`)。 有关详细信息，请参阅 [assignableScopes](role-definitions.md#assignablescopes)。 |
+| `Name` | 是 | String | 自定义角色的显示名称。 此名称必须在租户中唯一。 可以包含字母、数字、空格和特殊字符。 最多包含 128 个字符。 |
+| `Id` | 是 | String | 自定义角色的唯一 ID。 如果使用 Azure PowerShell 和 Azure CLI，在创建新角色时会自动生成此 ID。 |
+| `IsCustom` | 是 | String | 指示此角色是否为自定义角色。 设置为 `true` 表示是自定义角色。 |
+| `Description` | 是 | String | 自定义角色的说明。 可以包含字母、数字、空格和特殊字符。 最多包含 1024 个字符。 |
+| `Actions` | 是 | String[] | 一个字符串数组，指定该角色允许执行的管理操作。 有关详细信息，请参阅 [actions](role-definitions.md#actions)。 |
+| `NotActions` | 否 | String[] | 一个字符串数组，指定要从允许的 `actions` 中排除的管理操作。 有关详细信息，请参阅 [notActions](role-definitions.md#notactions)。 |
+| `DataActions` | 否 | String[] | 一个字符串数组，指定该角色允许对该对象中的数据执行的数据操作。 有关详细信息，请参阅 [dataActions（预览）](role-definitions.md#dataactions-preview)。 |
+| `NotDataActions` | 否 | String[] | 一个字符串数组，指定要从允许的 `dataActions` 中排除的数据操作。 有关详细信息，请参阅 [notDataActions（预览）](role-definitions.md#notdataactions-preview)。 |
+| `AssignableScopes` | 是 | String[] | 一个字符串数组，指定自定义角色的可分配范围。 不能设置为根范围 (`"/"`)。 有关详细信息，请参阅 [assignableScopes](role-definitions.md#assignablescopes)。 |
 
 ## <a name="assignablescopes-for-custom-roles"></a>自定义角色的 assignableScopes
 
@@ -112,8 +112,8 @@ ms.locfileid: "37361166"
 | 查看自定义角色 | `Microsoft.Authorization/ roleDefinition/read` | 在某个范围内被允许此操作的用户可以查看可在该范围内分配的自定义角色。 所有内置角色都允许自定义角色可用于分配。 |
 
 ## <a name="next-steps"></a>后续步骤
-- [教程：使用 Azure PowerShell 创建自定义角色](tutorial-custom-role-powershell.md)
-- [教程：使用 Azure CLI 创建自定义角色](tutorial-custom-role-cli.md)
+- [使用 Azure PowerShell 创建自定义角色](custom-roles-powershell.md)
+- [使用 Azure CLI 创建自定义角色](custom-roles-cli.md)
 - [了解角色定义](role-definitions.md)
 
 <!-- Update_Description: wording update -->

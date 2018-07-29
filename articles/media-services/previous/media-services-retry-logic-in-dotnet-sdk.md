@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 07/21/2017
 ms.date: 09/04/2016
 ms.author: v-haiqya
-ms.openlocfilehash: 4e796538cec4b124724a704a1b8187d4e9f96fca
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: f36c7e1fafa4d5a46635a371d7488fe38d40c4d0
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475438"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219550"
 ---
 # <a name="retry-logic-in-the-media-services-sdk-for-net"></a>用于 .NET 的媒体服务 SDK 中的重试逻辑
 使用 Azure 服务时，可能会发生暂时性故障。 如果发生暂时性故障，在大多数情况下，重试几次后操作即可成功。 用于 .NET 的媒体服务 SDK 可实现重试逻辑，用于处理与异常和错误相关的暂时性故障，引起这些异常和错误的原因包括 Web 请求、执行查询、保存更改和存储操作。  默认情况下，适用于 .NET 的媒体服务 SDK 向应用程序重新引发异常前会执行四次重试。 应用程序中的代码稍后必须正确处理此异常。  
@@ -31,7 +31,7 @@ ms.locfileid: "34475438"
 * Web 请求策略用于泛型 Web 请求（例如，获取身份验证令牌和解析用户群集终结点）。  
 * 查询策略用于查询 REST 中的实体（例如，mediaContext.Assets.Where(...)）。  
 * SaveChanges 策略用于执行服务中更改数据的任何操作（如创建实体、更新实体以及为操作调用服务函数）。  
-
+  
   本主题列出了用于 .NET 的媒体服务 SDK 的重试逻辑可处理的异常类型和错误代码。  
 
 ## <a name="exception-types"></a>异常类型

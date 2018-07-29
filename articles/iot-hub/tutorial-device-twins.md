@@ -12,15 +12,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 05/14/2018
-ms.date: 07/09/2018
+ms.date: 08/06/2018
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: 7928961c6d5a06bf5e38633e215092a33b1d7595
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.openlocfilehash: 891d8f42d612968dfa693ce3ca54b9f99e8ec09a
+ms.sourcegitcommit: d4092cf6aba0d949bf612093c76f964c2bdfd0ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873591"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39306567"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
 
@@ -103,33 +103,74 @@ az iot hub device-identity show-connection-string --device-id MyTwinDevice --hub
 
 若要查看接收所需属性的模拟设备示例代码，请导航到下载的示例 Node.js 项目中的 **iot-hub/Tutorials/DeviceTwins** 文件夹。 然后在文本编辑器中打开 SimulatedDevice.js 文件。
 
-以下部分描述了在模拟设备上运行的、对发自后端应用程序的所需属性更改做出响应的代码：
+以下部分描述了在模拟设备上运行的、对发送自后端应用程序的所需属性更改做出响应的代码：
 
 ### <a name="retrieve-the-device-twin-object"></a>检索设备孪生对象
 
 以下代码使用设备连接字符串连接到 IoT 中心：
 
-<!--[!code-javascript[Create IoT Hub client](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/SimulatedDevice.js?name=createhubclient&highlight=2 "Create IoT Hub client")]-->
+```javascript
+// Get the device connection string from a command line argument
+var connectionString = process.argv[2];
+```
 
 以下代码从客户端对象中获取孪生：
 
-<!--[!code-javascript[Get twin](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/SimulatedDevice.js?name=gettwin&highlight=2 "Get twin")]-->
+```javascript
+// Get the device twin
+client.getTwin(function(err, twin) {
+  if (err) {
+    console.error(chalk.red('Could not get device twin'));
+  } else {
+    console.log(chalk.green('Device twin created'));
+```    
 
 ### <a name="sample-desired-properties"></a>所需属性示例
 
 可以使用对应用程序有利的任何方式来构建所需属性。 本示例使用一个名为 **fanOn** 的顶级属性，并将剩余的属性分组到单独的**组件**中。 以下 JSON 片段显示了本教程所用的所需属性的结构：
 
-<!--[!code[Sample desired properties](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/desired.json "Sample desired properties")]-->
+```
+{
+  "fanOn": "true",
+  "components": {
+    "system": {
+      "id": "17",
+      "units": "farenheit",
+      "firmwareVersion": "9.75"
+    },
+    "wifi" : { 
+      "channel" : "6",
+      "ssid": "my_network"
+    },
+    "climate" : {
+      "minTemperature": "68",
+      "maxTemperature": "76"
+    }
+  }
+}
+```
 
 ### <a name="create-handlers"></a>创建处理程序
 
 可针对所需属性更新创建处理程序，用于响应 JSON 层次结构中的不同级别发生的更新。 例如，此处理程序可以监视从后端应用程序发送到设备的所有所需属性更改。 **delta** 变量包含从解决方案后端发送的所需属性：
 
-<!--[!code-javascript[Handle all properties](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/SimulatedDevice.js?name=allproperties&highlight=2 "Handle all properties")]-->
+```javascript
+// Handle all desired property updates
+twin.on('properties.desired', function(delta) {
+    console.log(chalk.yellow('\nNew desired properties received in patch:'));
+```
 
 以下处理程序仅响应对 **fanOn** 所需属性所做的更改：
 
-<!--[!code-javascript[Handle fan property](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/SimulatedDevice.js?name=fanproperty&highlight=2 "Handle fan property")]-->
+```javascript
+// Handle changes to the fanOn desired property
+twin.on('properties.desired.fanOn', function(fanOn) {
+    console.log(chalk.green('\nSetting fan state to ' + fanOn));
+
+    // Update the reported property after processing the desired property
+    reportedPropertiesPatch.fanOn = fanOn ? fanOn : '{unknown}';
+});
+```
 
 ### <a name="handlers-for-multiple-properties"></a>多个属性的处理程序
 
@@ -137,7 +178,21 @@ az iot hub device-identity show-connection-string --device-id MyTwinDevice --hub
 
 设备的本地 **twin** 对象存储一组完整的所需属性和报告属性。 从后端发送的 **delta** 可能只会更新所需属性的某个子集。 在以下代码片段中，如果模拟设备只是收到了对某个 **minTemperature** 和 **maxTemperature** 的更新，则它会使用另一个值的本地孪生中的值来配置设备：
 
-<!--[!code-javascript[Handle climate component](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/SimulatedDevice.js?name=climatecomponent&highlight=2 "Handle climate component")]-->
+```javascript
+// Handle desired properties updates to the climate component
+twin.on('properties.desired.components.climate', function(delta) {
+    if (delta.minTemperature || delta.maxTemperature) {
+      console.log(chalk.green('\nUpdating desired tempertures in climate component:'));
+      console.log('Configuring minimum temperature: ' + twin.properties.desired.components.climate.minTemperature);
+      console.log('Configuring maximum temperture: ' + twin.properties.desired.components.climate.maxTemperature);
+
+      // Update the reported properties and send them to the hub
+      reportedPropertiesPatch.minTemperature = twin.properties.desired.components.climate.minTemperature;
+      reportedPropertiesPatch.maxTemperature = twin.properties.desired.components.climate.maxTemperature;
+      sendReportedProperties();
+    }
+});
+```
 
 本地 **twin** 对象存储一组完整的所需属性和报告属性。 从后端发送的 **delta** 可能只会更新所需属性的某个子集。
 
@@ -147,7 +202,50 @@ az iot hub device-identity show-connection-string --device-id MyTwinDevice --hub
 
 以下片段演示模拟设备如何处理针对所需属性中的**组件**列表执行的插入、更新和删除操作。 可以查看如何使用 **null** 值来指示应删除某个组件：
 
-<!--[!code-javascript[Handle components](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/SimulatedDevice.js?name=components&highlight=2,6,13 "Handle components")]-->
+```javascript
+// Keep track of all the components the device knows about
+var componentList = {};
+
+// Use this componentList list and compare it to the delta to infer
+// if anything was added, deleted, or updated.
+twin.on('properties.desired.components', function(delta) {
+  if (delta === null) {
+    componentList = {};
+  }
+  else {
+    Object.keys(delta).forEach(function(key) {
+
+      if (delta[key] === null && componentList[key]) {
+        // The delta contains a null value, and the
+        // device has a record of this component.
+        // Must be a delete operation.
+        console.log(chalk.green('\nDeleting component ' + key));
+        delete componentList[key];
+
+      } else if (delta[key]) {
+        if (componentList[key]) {
+          // The delta contains a component, and the
+          // device has a record of it.
+          // Must be an update operation.
+          console.log(chalk.green('\nUpdating component ' + key + ':'));
+          console.log(JSON.stringify(delta[key]));
+          // Store the complete object instead of just the delta
+          componentList[key] = twin.properties.desired.components[key];
+
+        } else {
+          // The delta contains a component, and the
+          // device has no record of it.
+          // Must be an add operation.
+          console.log(chalk.green('\nAdding component ' + key + ':'));
+          console.log(JSON.stringify(delta[key]));
+          // Store the complete object instead of just the delta
+          componentList[key] = twin.properties.desired.components[key];
+        }
+      }
+    });
+  }
+});
+```
 
 ### <a name="send-desired-properties-to-a-device-from-the-back-end"></a>从后端向设备发送所需属性
 
@@ -157,15 +255,104 @@ az iot hub device-identity show-connection-string --device-id MyTwinDevice --hub
 
 以下代码片段演示如何连接到设备标识注册表并访问特定设备的孪生：
 
-<!--[!code-javascript[Create registry and get twin](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/ServiceClient.js?name=getregistrytwin&highlight=2,6 "Create registry and get twin")]-->
+```javascript
+// Create a device identity registry object
+var registry = Registry.fromConnectionString(connectionString);
+
+// Get the device twin and send desired property update patches at intervals.
+// Print the reported properties after some of the desired property updates.
+registry.getTwin(deviceId, async (err, twin) => {
+  if (err) {
+    console.error(err.message);
+  } else {
+    console.log('Got device twin');
+```
 
 以下片段演示后端应用程序发送到设备的不同所需属性补丁：
 
-<!--[!code-javascript[Patches sent to device](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/ServiceClient.js?name=patches&highlight=2,12,26,41,56 "Patches sent to device")]-->
+```javascript
+// Turn the fan on
+var twinPatchFanOn = {
+  properties: {
+    desired: {
+      patchId: "Switch fan on",
+      fanOn: "false",
+    }
+  }
+};
+
+// Set the maximum temperature for the climate component
+var twinPatchSetMaxTemperature = {
+  properties: {
+    desired: {
+      patchId: "Set maximum temperature",
+      components: {
+        climate: {
+          maxTemperature: "92"
+        }
+      }
+    }
+  }
+};
+
+// Add a new component
+var twinPatchAddWifiComponent = {
+  properties: {
+    desired: {
+      patchId: "Add WiFi component",
+      components: {
+        wifi: { 
+          channel: "6",
+          ssid: "my_network"
+        }
+      }
+    }
+  }
+};
+
+// Update the WiFi component
+var twinPatchUpdateWifiComponent = {
+  properties: {
+    desired: {
+      patchId: "Update WiFi component",
+      components: {
+        wifi: { 
+          channel: "13",
+          ssid: "my_other_network"
+        }
+      }
+    }
+  }
+};
+
+// Delete the WiFi component
+var twinPatchDeleteWifiComponent = {
+  properties: {
+    desired: {
+      patchId: "Delete WiFi component",
+      components: {
+        wifi: null
+      }
+    }
+  }
+};
+```
 
 以下片段演示后端应用程序如何将所需属性更新发送到设备：
 
-<!--[!code-javascript[Send desired properties](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/ServiceClient.js?name=senddesiredproperties&highlight=2 "Send desired properties")]-->
+```javascript
+// Send a desired property update patch
+async function sendDesiredProperties(twin, patch) {
+  twin.update(patch, (err, twin) => {
+    if (err) {
+      console.error(err.message);
+    } else {
+      console.log(chalk.green(`\nSent ${twin.properties.desired.patchId} patch:`));
+      console.log(JSON.stringify(patch, null, 2));
+    }
+  });
+}
+```
 
 ### <a name="run-the-applications"></a>运行应用程序
 
@@ -203,17 +390,44 @@ node ServiceClient.js "{your service connection string}"
 
 可以补丁的形式发送对报告属性值所做的更新。 以下片段演示了模拟设备发送的补丁的模板。 模拟设备先更新补丁中的字段，然后将补丁发送到中心：
 
-<!--[!code-javascript[Reported properties patches](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/SimulatedDevice.js?name=reportedpatch&highlight=2 "Reported properties patches")]-->
+```javascript
+// Create a patch to send to the hub
+var reportedPropertiesPatch = {
+  firmwareVersion:'1.2.1',
+  lastPatchReceivedId: '',
+  fanOn:'',
+  minTemperature:'',
+  maxTemperature:''
+};
+```
 
 模拟设备使用以下函数将包含报告属性的补丁发送到中心：
 
-<!--[!code-javascript[Send reported properties](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/SimulatedDevice.js?name=sendreportedproperties&highlight=2 "Send reported properties")]-->
+```javascript
+// Send the reported properties patch to the hub
+function sendReportedProperties() {
+  twin.properties.reported.update(reportedPropertiesPatch, function(err) {
+    if (err) throw err;
+    console.log(chalk.blue('\nTwin state reported'));
+    console.log(JSON.stringify(reportedPropertiesPatch, null, 2));
+  });
+}
+```
 
 ### <a name="process-reported-properties"></a>处理报告属性
 
 后端应用程序通过设备孪生访问设备的当前报告属性值。 以下片段演示后端应用程序如何读取模拟设备的报告属性值：
 
-<!--[!code-javascript[Display reported properties](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/ServiceClient.js?name=displayreportedproperties&highlight=2 "Display reported properties")]-->
+```javascript
+// Display the reported properties from the device
+function printReportedProperties(twin) {
+  console.log("Last received patch: " + twin.properties.reported.lastPatchReceivedId);
+  console.log("Firmware version: " + twin.properties.reported.firmwareVersion);
+  console.log("Fan status: " + twin.properties.reported.fanOn);
+  console.log("Min temperature set: " + twin.properties.reported.minTemperature);
+  console.log("Max temperature set: " + twin.properties.reported.maxTemperature);
+}
+```
 
 ### <a name="run-the-applications"></a>运行应用程序
 
@@ -260,14 +474,7 @@ az group delete --name tutorial-iot-hub-rg
 
 ## <a name="next-steps"></a>后续步骤
 
-本教程已介绍如何通过执行以下任务，在设备与 IoT 中心之间同步状态信息：
-
-> [!div class="checklist"]
-> * 创建 IoT 中心并将测试设备添加到标识注册表。
-> * 使用所需属性将状态信息发送到模拟设备。
-> * 使用报告属性从模拟设备接收状态信息。
-
-请继续学习下一篇教程，了解如何使用设备孪生实现固件更新过程。
+在本教程中，你已学习了如何在设备与 IoT 中心之间同步状态信息。 请继续学习下一篇教程，了解如何使用设备孪生实现固件更新过程。
 
 > [!div class="nextstepaction"]
-[使用模拟设备测试 IoT 中心的连接](tutorial-connectivity.md)
+[实现设备固件更新过程](tutorial-firmware-update.md)

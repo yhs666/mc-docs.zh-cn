@@ -11,12 +11,12 @@ ms.topic: tutorial
 origin.date: 12/14/2017
 ms.date: 01/29/2018
 ms.author: v-nany
-ms.openlocfilehash: c27c18d03a2a34c092c36bd5fe207783cfefa63f
-ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
+ms.openlocfilehash: fbfd465248fe1f20828d6e7524e4ccb6bf26ee89
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103029"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295659"
 ---
 #  <a name="migrate-on-premises-data-to-cloud-storage-by-using-azcopy"></a>使用 AzCopy 将本地数据迁移到云存储
 
@@ -24,7 +24,7 @@ AzCopy 是一个命令行工具，借助该工具，可使用简单命令将数�
 
 有两种版本的 AzCopy 可供下载：
 
-* [AzCopy on Linux](storage-use-azcopy-linux.md) 使用 .NET Core Framework 生成。 它面向 Linux 平台，提供 POSIX 样式命令行选项。 
+* [AzCopy on Linux](storage-use-azcopy-linux.md) 使用 .NET 核心 Framework 生成。 它面向 Linux 平台，提供 POSIX 样式命令行选项。 
 * [AzCopy on Windows](storage-use-azcopy.md) 使用 .NET Framework 生成。 它提供 Windows 样式命令行选项。 
  
 本教程介绍如何执行下列操作：
@@ -57,7 +57,7 @@ AzCopy 是一个命令行工具，借助该工具，可使用简单命令将数�
 
    ![创建容器](media/storage-azcopy-migrate-on-premises-data/CreateContainer.png)
  
-容器名必须以字母或数字开头。 名称中只能包含字母、数字和连字符 (-)。 有关命名 Blob 和容器的更多规则，请参阅[命名和引用容器、Blob 和元数据](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)。
+容器名必须以字母或数字开头。 名称中只能包含字母、数字和连字符 (-)。 有关命名 Blob 和容器的更多规则，请参阅[命名和引用容器、Blob 和元数据](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)。
 
 ## <a name="upload-all-files-in-a-folder-to-blob-storage"></a>将文件夹中的所有文件上传到 Blob 存储
 

@@ -1,5 +1,5 @@
 ---
-title: 配置 Telestream Wirecast 编码器以发送单比特率实时流 | Microsoft Docs
+title: 将 Telestream Wirecast 编码器配置为发送单比特率实时流 | Azure
 description: '本主题说明了如何配置 Wirecast 实时编码器，以便将单比特率流发送到 AMS 频道进行实时编码。 '
 services: media-services
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 01/05/2017
 ms.date: 09/25/2017
 ms.author: v-johch
-ms.openlocfilehash: 9978c1132a99e0ed8e1e810224ad76e014cff4c0
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 8e8689efcbe1d09f572f10eb04a6bc7f955e0da7
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475202"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219467"
 ---
 # <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>使用 Wirecast 编码器发送单比特率实时流
 > [!div class="op_single_selector"]
@@ -71,7 +71,7 @@ ms.locfileid: "34475202"
 >
 >
 
-## <a id=configure_wirecast_rtmp></a>配置 Telestream Wirecast 编码器
+## <a name="a-idconfigurewirecastrtmp-aconfigure-the-telestream-wirecast-encoder"></a><a id="configure_wirecast_rtmp" /a>配置 Telestream Wirecast 编码器
 在本教程中，将使用以下输出设置。 本部分的其余内容介绍更详细的配置步骤。
 
 **视频**：

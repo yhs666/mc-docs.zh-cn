@@ -5,7 +5,7 @@ authors: Juliako
 manager: erikre
 editor: ''
 services: media-services
-documentationCenter: ''
+documentationcenter: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 09/26/2016
 ms.date: 1/22/2018
 ms.author: v-johch
-ms.openlocfilehash: cf6acd4c8e8fe2516f0efcd4ef229be6124b6ab2
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 24ac72c876d2c20f0e000eb102254f288b0d45f6
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475183"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219520"
 ---
 # <a name="embedding-an-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs"></a>使用 DASH.js 在 HTML5 应用程序中嵌入 MPEG-DASH 自适应流式处理视频
 ## <a name="overview"></a>概述
@@ -105,8 +105,8 @@ Dash.js 是用 JavaScript 编写的开源 MPEG-DASH 视频播放器。 其目标
 ## <a name="playing-a-video"></a>播放视频
 要播放视频，请将浏览器指向 basicPlayback.html 文件，并单击所显示的视频播放器上的“播放”。
 
-##<a name="see-also"></a>另请参阅
+## <a name="see-also"></a>另请参阅
+[开发视频播放器应用程序](media-services-develop-video-players.md)
 
-[开发视频播放器应用程序](./media-services-develop-video-players.md)
+[GitHub dash.js 存储库](https://github.com/Dash-Industry-Forum/dash.js) 
 
-[GitHub dash.js 存储库](https://github.com/Dash-Industry-Forum/dash.js)

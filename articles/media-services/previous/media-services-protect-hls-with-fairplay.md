@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 12/09/2017
 ms.date: 12/11/2017
 ms.author: v-nany
-ms.openlocfilehash: be9e5c956cb72d0b6ab1cc02febe4114f58f4766
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 56364049c35b86aa2724d91a7703349e100bcf58
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475434"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219510"
 ---
 # <a name="protect-your-hls-content-with-apple-fairplay-or-microsoft-playready"></a>使用 Apple FairPlay 或 Microsoft PlayReady 保护 HLS 内容
 使用 Azure 媒体服务，可使用以下格式动态加密 HTTP Live Streaming (HLS) 内容：  
@@ -45,11 +45,11 @@ ms.locfileid: "34475434"
 
 在使用媒体服务传送通过 FairPlay 加密的 HLS 和传送 FairPlay 许可证时，需要以下各项：
 
-    * 一个 Azure 帐户。 有关详细信息，请参阅 [Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
-    * 一个媒体服务帐户。若要创建媒体服务帐户，请参阅[使用 Azure 门户创建 Azure 媒体服务帐户](media-services-portal-create-account.md)。
-    * 注册 [Apple 开发计划](https://developer.apple.com/)。
-    * Apple 要求内容所有者获取 [部署包](https://developer.apple.com/contact/fps/)。 说明已使用媒体服务实现密钥安全模块 (KSM)，以及正在请求最终 FPS 包。 最终 FPS 包中有如何生成证书和获取应用程序密钥 (ASK) 的说明。 可使用 ASK 配置 FairPlay。 
-    * Azure 媒体服务 .NET SDK **3.6.0** 版本或更高版本。
+  * 一个 Azure 帐户。 有关详细信息，请参阅 [Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
+  * 一个媒体服务帐户。 若要创建媒体服务帐户，请参阅[使用 Azure 门户创建 Azure 媒体服务帐户](media-services-portal-create-account.md)。
+  * 注册 [Apple 开发计划](https://developer.apple.com/)。
+  * Apple 要求内容所有者获取 [部署包](https://developer.apple.com/contact/fps/)。 说明已使用媒体服务实现密钥安全模块 (KSM)，以及正在请求最终 FPS 包。 最终 FPS 包中有如何生成证书和获取应用程序密钥 (ASK) 的说明。 可使用 ASK 配置 FairPlay。
+  * Azure 媒体服务 .NET SDK **3.6.0** 版本或更高版本。
 
 必须在媒体服务密钥传送端上设置以下各项：
 
@@ -248,7 +248,7 @@ namespace DynamicEncryptionWithFairPlay
                 TokenRestrictionTemplate tokenTemplate =
                     TokenRestrictionTemplateSerializer.Deserialize(tokenTemplateString);
 
-                // Generate a test token based on the the data in the given TokenRestrictionTemplate.
+                // Generate a test token based on the data in the given TokenRestrictionTemplate.
                 // Note, you need to pass the key id Guid because we specified
                 // TokenClaim.ContentKeyIdentifierClaim in during the creation of TokenRestrictionTemplate.
                 Guid rawkey = EncryptionUtils.GetKeyIdAsGuid(key.Id);

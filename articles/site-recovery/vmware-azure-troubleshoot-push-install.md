@@ -7,15 +7,15 @@ manager: digimobile
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-origin.date: 03/05/2018
-ms.date: 04/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 500ced751eefad5db89b8886e4cd34c77f315b67
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+origin.date: 07/06/2018
+ms.date: 07/23/2018
+ms.openlocfilehash: 24acbe1be3afa51e6a6adf466ab23056712aee33
+ms.sourcegitcommit: 74f9f0acb00fb728ff6e9bd67ac86a0c1bcd8d13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30223427"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39218894"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>解决移动服务推送安装问题
 

@@ -13,14 +13,14 @@ ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 10/18/2017
-ms.date: 12/11/2017
+ms.date: 07/30/2018
 ms.author: v-nany
-ms.openlocfilehash: 4c48cf17d86437631c0c78c64e593ae4905ac45d
-ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
+ms.openlocfilehash: 2e936c7252554ebf870906aeda056deab2d587ef
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36748439"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295629"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure 媒体服务发行说明
 这些 Azure 媒体服务发行说明汇总了与以前版本相比的变更之处和已知的问题。
@@ -46,6 +46,10 @@ ms.locfileid: "36748439"
 
 ## <a name="a-idrestversionhistoryrest-api-version-history"></a><a id="rest_version_history"/>REST API 版本历史记录
 有关媒体服务 REST API 版本历史记录的信息，请参阅 [Azure 媒体服务 REST API 参考]。
+
+## <a name="may-2018"></a>2018 年 5 月 
+
+自 2018 年 5 月 12 日起，实时频道将不再支持 RTP/MPEG-2 传输流引入协议。 请从 RTP/MPEG-2 迁移到 RTMP 或分段 MP4（平滑流式处理）引入协议。
 
 ## <a name="october-2017-release"></a>2017 年 10 月版本
 > [!IMPORTANT] 
@@ -167,7 +171,6 @@ Azure SDK 团队已发布新版 [Azure SDK for PHP](http://github.com/Azure/azur
 
 有关详细信息，请参阅：
 
-* [适用于 PHP 的媒体服务 SDK](http://southworks.com/blog/2015/12/09/new-microsoft-azure-media-services-sdk-for-php-release-available-with-new-features-and-samples/) 博客。
 * 以下[代码示例](http://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)可帮助你快速入门：
   * **vodworkflow_aes.php**：这是一个 PHP 文件，演示如何使用 AES-128 动态加密和密钥传送服务。 它基于[使用 AES-128 动态加密和密钥传送服务](media-services-protect-with-aes128.md)中所述的 .NET 示例。
   * **scale_encoding_units.php**：这是一个 PHP 文件，演示如何缩放编码预留单位。
@@ -194,9 +197,7 @@ Azure SDK 团队已发布新版 [Azure SDK for PHP](http://github.com/Azure/azur
 
 ## <a id="august_changes_15"></a>2015 年 8 月版本
 * 现已推出用于 Java 0.8.0 版的媒体服务 SDK 和新示例。 有关详细信息，请参阅：
-  
-  * [这篇博客文章](http://southworks.com/blog/2015/08/25/microsoft-azure-media-services-sdk-for-java-v0-8-0-released-and-new-samples-available/)
-  * [Java 示例存储库](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
+    
 * 已更新 Azure Media Player，现支持多音频流。 有关详细信息，请参阅 [此博客文章](https://azure.microsoft.com/blog/2015/08/13/azure-media-player-update-with-multi-audio-stream-support/)。
 
 ## <a id="july_changes_15"></a>2015 年 7 月版本
@@ -354,7 +355,7 @@ Azure SDK 团队已发布新版 [Azure SDK for PHP](http://github.com/Azure/azur
 
 ## <a id="may_changes_14"></a>2014 年 5 月版本
 ### <a id="may_14_changes"></a>媒体服务一般更新
-现可使用[动态打包]对 HLS 第 3 版文件进行流式处理。 要对 HLS 第 3 版文件进行流式处理，请将以下格式添加到原点定位符路径：*.ism/manifest(format=m3u8-aapl-v3)。 有关详细信息，请参阅[此博客](http://blog-ndrouin.azurewebsites.net/hls-v3-new-old-thing/)。
+现可使用[动态打包]对 HLS 第 3 版文件进行流式处理。 要对 HLS 第 3 版文件进行流式处理，请将以下格式添加到原点定位符路径：*.ism/manifest(format=m3u8-aapl-v3)。 有关详细信息，请访问[此论坛](https://social.msdn.microsoft.com/Forums/en-US/13b8a776-9519-4145-b9ed-d2b632861fde/dynamic-packaging-to-hls-v3)。
 
 动态打包现在还支持基于使用 PlayReady 静态加密的平滑流式处理内容传递使用 PlayReady 加密的 HLS（第 3 版和第 4 版）。 有关如何使用 PlayReady 加密平滑流式处理内容的信息，请参阅[使用 PlayReady 保护平滑流](media-services-dynamic-packaging-overview.md)。
 
@@ -367,7 +368,7 @@ Azure SDK 团队已发布新版 [Azure SDK for PHP](http://github.com/Azure/azur
   * 改进了暂时性错误检测和重试逻辑，以处理由查询、保存更改、上传或下载文件引起的异常。 
   * 收到 Web 异常时（例如在访问控制服务令牌请求过程中），灾难性错误现将更快失败。
 
-有关详细信息，请参阅 [适用于 .NET 的媒体服务 SDK 中的重试逻辑]。
+有关详细信息，请参阅[适用于 .NET 的媒体服务 SDK 中的重试逻辑]。
 
 ## <a id="april_changes_14"></a>2014 年 4 月编码器版本
 ### <a name="april_14_enocer_changes"></a>媒体服务编码器更新
@@ -384,7 +385,7 @@ Azure SDK 团队已发布新版 [Azure SDK for PHP](http://github.com/Azure/azur
 * 修复了与具有 OrderBy 语句的 LINQ 查询的使用相关的问题。
 * 将 [GitHub] 中的测试解决方案拆分为了基于单位的测试和基于方案的测试。
 
-有关这些更改的详细信息，请参阅[媒体服务 .NET SDK 3.0.0.1 和 3.0.0.2 版本](http://www.gtrifonov.com/2014/02/07/windows-azure-media-services-.net-sdk-3.0.0.2-release/)。
+有关这些更改的详细信息，请参阅[媒体服务 .NET SDK 3.0.0.1 和 3.0.0.2 版本](http://gtrifonov.com/2014/02/07/windows-azure-media-services-net-sdk-3-0-0-2-release/index.html)。
 
 版本 3.0.0.3 中进行了以下更改：
 
@@ -411,7 +412,6 @@ Azure SDK 团队已发布新版 [Azure SDK for PHP](http://github.com/Azure/azur
 
 ## <a id="august_changes_13"></a>2013 年 8 月版本
 ### <a name="aug_13_powershell_changes"></a>Azure SDK 工具中包含的媒体服务 PowerShell cmdlet
-[Azure SDK 工具](https://github.com/Azure/azure-sdk-tools)中现在包含以下媒体服务 PowerShell cmdlet。
 
 * Get-AzureMediaServices 
 
@@ -528,28 +528,26 @@ Azure SDK 团队已发布新版 [Azure SDK for PHP](http://github.com/Azure/azur
 [媒体服务定价详细信息]: https://www.azure.cn/pricing/details/media-services/
 [输入元数据]: http://msdn.microsoft.com/zh-cn/library/azure/dn783120.aspx
 [输出元数据]: http://msdn.microsoft.com/zh-cn/library/azure/dn783217.aspx
-[Delivering Content]: http://msdn.microsoft.com/zh-cn/library/azure/hh973618.aspx
-[Indexing Media Files with Azure Media Indexer]: ./media-services-index-content.md
+[Deliver content]: http://msdn.microsoft.com/zh-cn/library/azure/hh973618.aspx
+[Index media files with the Azure Media Indexer]: ./media-services-index-content.md
 [StreamingEndpoint]: http://msdn.microsoft.com/zh-cn/library/azure/dn783468.aspx
-[Working with Azure Media Services Live Streaming]: ./media-services-manage-channels-overview.md
-[Using AES-128 Dynamic Encryption and Key Delivery Service]: ./media-services-protect-with-aes128.md
+[Work with Media Services live streaming]: ./media-services-manage-channels-overview.md
+[Use AES-128 dynamic encryption and key delivery service]: ./media-services-protect-with-aes128.md
 [媒体服务 PlayReady 许可证模板概述]: http://msdn.microsoft.com/zh-cn/library/azure/dn783459.aspx
-[Streaming Storage Encrypted Content]: ./media-services-dotnet-configure-asset-delivery-policy.md
+[Stream storage-encrypted content]: ./media-services-dotnet-configure-asset-delivery-policy.md
 [Azure portal]: https://manage.windowsazure.cn
 [动态打包]: ./media-services-dynamic-packaging-overview.md
-[Nick Drouin's Blog]: http://blog-ndrouin.chinacloudsites.cn/hls-v3-new-old-thing/
-[Protecting Smooth Stream with PlayReady]: ./media-services-static-packaging.md
+[Nick Drouin's blog]: http://blog-ndrouin.chinacloudsites.cn/hls-v3-new-old-thing/
+[Protect Smooth Streaming with PlayReady]: ./media-services-static-packaging.md
 [适用于 .NET 的媒体服务 SDK 中的重试逻辑]: http://msdn.microsoft.com/zh-cn/library/azure/dn745650.aspx
 [Grass Valley 宣布通过云对 EDIUS 7 进行流式处理]: http://www.streamingmedia.com/Producer/Articles/ReadArticle.aspx?ArticleID=96351&utm_source=dlvr.it&utm_medium=twitter
-[Controlling Media Service Encoder Output Filenames]: media-services-advanced-encoding-with-mes.md
-[Creating Overlays]: media-services-advanced-encoding-with-mes.md
-[Stitching Video Segments]: media-services-advanced-encoding-with-mes.md
-[Azure Media Services .NET SDK 3.0.0.1 and 3.0.0.2 releases]: http://www.gtrifonov.com/2014/02/07/windows-azure-media-services-.net-sdk-3.0.0.2-release/
-[Azure Active Directory Access Control Service (ACS)]: http://msdn.microsoft.com/zh-cn/library/hh147631.aspx
-[Connecting to Media Services with the Media Services SDK for .NET]: media-services-use-aad-auth-to-access-ams-api.md
-[Azure Media Services .NET SDK Extensions]: https://github.com/Azure/azure-sdk-for-media-services-extensions/tree/dev
-[azure-sdk-tools]: https://github.com/Azure/azure-sdk-tools
+[Control Media Services Encoder output file names]: media-services-advanced-encoding-with-mes.md
+[Create overlays]: media-services-advanced-encoding-with-mes.md
+[Stitch video segments]: media-services-advanced-encoding-with-mes.md
+[Azure AD Access Control Service]: http://msdn.microsoft.com/zh-cn/library/hh147631.aspx
+[Connect to Media Services with the Media Services SDK for .NET]: media-services-use-aad-auth-to-access-ams-api.md
+[Media Services .NET SDK extensions]: https://github.com/Azure/azure-sdk-for-media-services-extensions/tree/dev
 [GitHub]: https://github.com/Azure/azure-sdk-for-media-services
-[Managing Media Services Assets across Multiple Storage Accounts]: ./meda-services-managing-multiple-storage-accounts.md
-[Handling Media Services Job Notifications]: ./media-services-check-job-progress.md
+[Manage Media Services assets across multiple Storage accounts]: ./meda-services-managing-multiple-storage-accounts.md
+[Handle Media Services job notifications]: ./media-services-check-job-progress.md
 <!--Update_Description: add support note for aad token-->

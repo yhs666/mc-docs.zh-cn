@@ -13,12 +13,12 @@ origin.date: 02/20/2018
 ms.date: 05/07/2018
 ms.author: v-johch
 ms.custom: mvc
-ms.openlocfilehash: def44b4baa09db1a58a8175acd0e62cb969d999e
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: 24380785c6288c2e76ada56ee3387650dfcb02cf
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33815485"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295634"
 ---
 # <a name="download-large-amounts-of-random-data-from-azure-storage"></a>从 Azure 存储下载大量随机数据
 
@@ -211,10 +211,5 @@ C:\>
 > [!div class="checklist"]
 > * 运行应用程序
 > * 验证连接数
-
-接下来进入本系列的第四部分，验证门户中的吞吐量和延迟指标。
-
-> [!div class="nextstepaction"]
-> [验证门户中的吞吐量和延迟指标](storage-blob-scalable-app-verify-metrics.md)
 
 [previous-tutorial]: storage-blob-scalable-app-upload-files.md

@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 03/27/2018
-ms.date: 05/21/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: c9afcb437e4338fac3b50ca905f87cbe76aee8cc
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: b4c03e860648fcf68d367e7795270cddb44a1727
+ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939091"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39306933"
 ---
 [!INCLUDE [virtual-machines-common-regions-and-availability](../../../includes/virtual-machines-common-regions-and-availability.md)]
 <!--Update_Description: update meta data-->

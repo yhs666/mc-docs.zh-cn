@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 03/27/2017
-ms.date: 05/21/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 08911d5db60c73a5491b90697bb8bb4ca1576487
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: 079808e42a146185c99e1c0ee2da0fb0656e8e88
+ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867603"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39307058"
 ---
 # <a name="create-a-vm-from-a-managed-image"></a>从托管映像创建 VM
 

@@ -1,5 +1,5 @@
 ---
-title: 配置 NewTek TriCaster 编码器以发送单比特率实时流 | Microsoft Docs
+title: 将 NewTek TriCaster 编码器配置为发送单比特率实时流 | Azure
 description: 本主题说明如何配置 Tricaster 实时编码器，以便将单比特率流发送到 AMS 频道进行实时编码。
 services: media-services
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 01/05/2017
 ms.date: 09/25/2017
 ms.author: v-johch
-ms.openlocfilehash: 37e65156c27de277084273ff40a51c671b70697b
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 2e5e132f393de715008699263c98cbe3ee91fab9
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475206"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219533"
 ---
 # <a name="use-the-newtek-tricaster-encoder-to-send-a-single-bitrate-live-stream"></a>使用 NewTek TriCaster 编码器发送单比特率实时流
 > [!div class="op_single_selector"]
@@ -159,4 +159,3 @@ ms.locfileid: "34475206"
 ## <a name="troubleshooting"></a>故障排除
 有关指南，请参阅[故障排除](media-services-troubleshooting-live-streaming.md)一文。
 <!--Update_Description: update links-->
-

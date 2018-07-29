@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 12/13/2017
-ms.date: 01/15/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d54543fec918e2eab0c1cccd2bf16ee56712c1bf
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 96413bb0fc774e20ac7f4bbe66ea887e37d76ba0
+ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38940074"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39307049"
 ---
 # <a name="create-a-fully-qualified-domain-name-in-the-azure-portal-for-a-windows-vm"></a>在 Azure 门户中为 Windows VM 创建完全限定的域名
 
@@ -40,4 +40,4 @@ ms.locfileid: "38940074"
 
 也可以深入了解如何[使用 Resource Manager](../../azure-resource-manager/resource-group-overview.md)，以获取生成 Azure 部署的相关提示。
 
-<!--Update_Description: wording update, update meta properties -->
+<!--Update_Description: update meta properties -->

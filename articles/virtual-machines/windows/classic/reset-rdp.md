@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 03/14/2017
-ms.date: 05/21/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 17e85067ffe71d499f32cee14fccca56a8ccd3b7
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.openlocfilehash: b9c30b2d422fb1ab908cfdc901b164a9ad799a06
+ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34256574"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39306987"
 ---
 # <a name="how-to-reset-the-remote-desktop-service-or-its-login-password-in-a-windows-vm-created-using-the-classic-deployment-model"></a>如何在使用经典部署模型创建的 Windows VM 中重置远程桌面服务或其登录密码
 > [!IMPORTANT]

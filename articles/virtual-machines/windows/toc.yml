@@ -205,8 +205,6 @@
           href: create-vm-generalized-managed.md
         - name: 使用 Packer 生成映像
           href: build-image-with-packer.md
-        - name: 使用 Windows 客户端映像
-          href: client-images.md
         - name: 下载现有磁盘
           href: download-vhd.md
     - name: 可用性和规模
@@ -384,7 +382,7 @@
     - name: .NET
       href: 'https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.management.compute'
     - name: Java
-      href: 'https://docs.azure.cn/zh-cn/java/api/'
+      href: 'https://docs.azure.cn/zh-cn/java'
     - name: Node.js
       href: 'https://www.azure.cn/develop/nodejs/#azure-sdk'
     - name: Python

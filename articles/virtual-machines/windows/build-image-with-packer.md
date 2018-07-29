@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 03/29/2018
-ms.date: 06/25/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 36c2f8d53b9a5af884ee66a6c14b7c778818f264
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.openlocfilehash: a09cce9ef1819169388af2a09ef9b4a86ed45d8e
+ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315391"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39306979"
 ---
 # <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>如何使用 Packer 在 Azure 中创建 Windows 虚拟机映像
 Azure 中的每个虚拟机 (VM) 都是基于定义 Windows 分发和操作系统版本的映像创建的。 映像可以包括预安装的应用程序和配置。 Azure 市场为最常见的操作系统和应用程序环境提供许多第一和第三方映像，或者也可创建满足自身需求的自定义映像。 本文详细介绍了如何使用开源工具 [Packer](https://www.packer.io/) 在 Azure 中定义和生成自定义映像。
@@ -93,8 +93,8 @@ $sub.SubscriptionId[0]
     "image_sku": "2016-Datacenter",
 
     "communicator": "winrm",
-    "winrm_use_ssl": "true",
-    "winrm_insecure": "true",
+    "winrm_use_ssl": true,
+    "winrm_insecure": true,
     "winrm_timeout": "3m",
     "winrm_username": "packer",
 

@@ -7,15 +7,15 @@ manager: timlt
 ms.author: v-yiso
 ms.custom: mvc
 origin.date: 05/29/2018
-ms.date: 07/09/2018
+ms.date: 08/06/2018
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: b7e829849c065da9a00ae87512516cd3eab9efc2
-ms.sourcegitcommit: 039d75a641edc2edd13a9371251051c20fea2bb7
+ms.openlocfilehash: f2736717abfdb0ba18d06134599cee0e0efc2366
+ms.sourcegitcommit: d4092cf6aba0d949bf612093c76f964c2bdfd0ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103592"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39306543"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>教程：使用模拟设备测试 IoT 中心的连接性
 
@@ -125,7 +125,7 @@ node SimulatedDevice-1.js "{your device connection string}"
 在某些情况下，例如在云协议网关中或使用自定义身份验证方案的情况下，可能需要自行生成 SAS 令牌。 若要排查 SAS 生成代码的问题，必须能够生成可以在测试过程中使用的已知良好的 SAS 令牌。
 
 > [!NOTE]
-> SimulatedDevice 2.js 示例包含使用或不使用 SDK 生成 SAS 令牌的示例。
+> SimulatedDevice-2.js 示例包括使用 SDK 和不使用 SDK 生成 SAS 令牌的示例。
 
 若要使用 CLI 生成已知良好的 SAS 令牌，请运行以下命令：
 

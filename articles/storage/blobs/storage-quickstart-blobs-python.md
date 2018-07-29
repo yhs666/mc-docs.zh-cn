@@ -8,14 +8,14 @@ ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 origin.date: 04/09/2018
-ms.date: 06/11/2018
+ms.date: 07/30/2018
 ms.author: v-nany
-ms.openlocfilehash: 64118abb378a685cc959118c758b6193c223828d
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: b734dd7d96fb73939cea085e1aedeab9b325b6fb
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939284"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295588"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-python"></a>快速入门：使用 Python 上传、下载和列出 Blob
 
@@ -54,7 +54,11 @@ block_blob_service = BlockBlobService(account_name='accountname', account_key='a
 ## <a name="run-the-sample"></a>运行示例
 此示例将在“文档”文件夹中创建一个测试文件。 示例程序会将该测试文件上传到 Blob 存储，列出容器中的 blob，并使用新名称下载此文件。 
 
-运行示例。 以下输出是运行应用程序时返回的输出的示例：
+首先，通过运行 `pip install` 安装依赖项：
+
+    pip install azure-storage
+
+接下来，运行示例。 以下输出是运行应用程序时返回的输出的示例：
   
 ```
 Temp file = C:\Users\azureuser\Documents\QuickStart_9f4ed0f9-22d3-43e1-98d0-8b2c05c01078.txt
@@ -138,9 +142,9 @@ Blob 存储支持多种上传方法。 例如，若有一个内存流，则可�
 ```python
 # List the blobs in the container
 print("\nList blobs in the container")
-    generator = block_blob_service.list_blobs(container_name)
-    for blob in generator:
-        print("\t Blob name: " + blob.name)
+generator = block_blob_service.list_blobs(container_name)
+for blob in generator:
+    print("\t Blob name: " + blob.name)
 ```
 
 ### <a name="download-the-blobs"></a>下载 Blob

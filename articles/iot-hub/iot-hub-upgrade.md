@@ -6,14 +6,15 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 04/02/2018
-ms.author: kgremban
-ms.openlocfilehash: cf08f9dcfc3ecb894c8ed0ff3b9b25f8492ec424
-ms.sourcegitcommit: 039d75a641edc2edd13a9371251051c20fea2bb7
+origin.date: 04/02/2018
+ms.date: 08/06/2018
+ms.author: v-yiso
+ms.openlocfilehash: 8c88099062a4c61cb32fdd648e176df5bd2c3cca
+ms.sourcegitcommit: d4092cf6aba0d949bf612093c76f964c2bdfd0ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103568"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39306607"
 ---
 # <a name="how-to-upgrade-your-iot-hub"></a>如何升级 IoT 中心
 
@@ -45,7 +46,7 @@ ms.locfileid: "37103568"
 4. 若要更改中心的单元数，请在“IoT 中心单元数”下输入新值。 
 5. 选择“保存”以保存更改。 
 
-现在，IoT 中心已进行调整，但配置未更改。 
+现在，IoT 中心已进行调整，但配置未更改。 请注意，基本层 IoT 中心的分区限制为 8。 从基本层迁移到标准层时，此限制保持不变。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure 门户分析媒体 | Microsoft Docs
-description: 本主题讨论如何通过 Azure 门户使用媒体分析媒体处理器 (MP) 处理媒体。
+title: 使用 Azure 门户分析媒体 | Azure
+description: 本主题讨论如何使用 Azure 门户通过媒体分析媒体处理器 (MP) 处理媒体。
 services: media-services
 documentationcenter: ''
 author: hayley244
@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 08/07/2017
 ms.date: 09/04/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 6d5b17198ed35fea3e94155f88183ed2552ab917
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 2486187415e7b6cbd2e483c581876f2ef96ca603
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475441"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219454"
 ---
 # <a name="analyze-your-media-using-the-azure-portal"></a>使用 Azure 门户分析媒体
 > [!NOTE]
@@ -136,5 +136,4 @@ Azure Media Hyperlapse 是 MP，可以使用第一人称视角或运动相机内
 
 ### <a name="output-file"></a>输出文件
 可以识别输出内容的友好名称。 
-
 

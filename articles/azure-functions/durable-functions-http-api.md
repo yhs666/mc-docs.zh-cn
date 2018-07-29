@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 09/29/2017
-ms.date: 05/30/2018
+ms.date: 07/24/2018
 ms.author: v-junlch
-ms.openlocfilehash: 0ff21f904e6192a87fa7042df6b9256a4e8b7640
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 15caaae4e0bafaa88b938082c1f8be25b7dffbf8
+ms.sourcegitcommit: ba07d76f8394b5dad782fd983718a8ba49a9deb2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34567298"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39220225"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>Durable Functions 中的 HTTP API (Azure Functions)
 
@@ -216,6 +216,81 @@ GET /runtime/webhooks/DurableTaskExtension/instances/{instanceId}?taskHub={taskH
 ```
 
 HTTP 202 响应还包括 Location 响应标头，该标头引用了与上文提及的 `statusQueryGetUri` 字段相同的 URL。
+
+### <a name="get-all-instances-status"></a>获取所有实例状态
+
+还可以查询所有实例状态。 从“获取实例状态”请求中删除 `instanceId`。 参数与“获取实例状态”相同。 
+
+#### <a name="request"></a>请求
+
+对于 Functions 1.0，请求格式如下：
+
+```http
+GET /admin/extensions/DurableTaskExtension/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}
+```
+
+Functions 2.0 格式包含的所有参数均相同，但 URL 前缀略有不同： 
+
+```http
+GET /runtime/webhooks/DurableTaskExtension/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}
+```
+
+#### <a name="response"></a>响应
+
+以下是包含业务流程状态的响应有效负载的示例（为可读性而设置了格式）：
+
+```json
+[
+    {
+        "instanceId": "7af46ff000564c65aafbfe99d07c32a5",
+        "runtimeStatus": "Completed",
+        "input": null,
+        "customStatus": null,
+        "output": [
+            "Hello Tokyo!",
+            "Hello Seattle!",
+            "Hello London!"
+        ],
+        "createdTime": "2018-06-04T10:46:39Z",
+        "lastUpdatedTime": "2018-06-04T10:46:47Z"
+    },
+    {
+        "instanceId": "80eb7dd5c22f4eeba9f42b062794321e",
+        "runtimeStatus": "Running",
+        "input": null,
+        "customStatus": null,
+        "output": null,
+        "createdTime": "2018-06-04T15:18:28Z",
+        "lastUpdatedTime": "2018-06-04T15:18:38Z"
+    },
+    {
+        "instanceId": "9124518926db408ab8dfe84822aba2b1",
+        "runtimeStatus": "Completed",
+        "input": null,
+        "customStatus": null,
+        "output": [
+            "Hello Tokyo!",
+            "Hello Seattle!",
+            "Hello London!"
+        ],
+        "createdTime": "2018-06-04T10:46:54Z",
+        "lastUpdatedTime": "2018-06-04T10:47:03Z"
+    },
+    {
+        "instanceId": "d100b90b903c4009ba1a90868331b11b",
+        "runtimeStatus": "Pending",
+        "input": null,
+        "customStatus": null,
+        "output": null,
+        "createdTime": "2018-06-04T15:18:39Z",
+        "lastUpdatedTime": "2018-06-04T15:18:39Z"
+    }
+]
+```
+
+> [!NOTE]
+> 如果实例表中有很多行，则此操作在 Azure存储 I/O 方面可能代价非常高昂。 有关实例表的更多详细信息，请参阅 [Durable Functions (Azure Functions) 中的性能和缩放](/azure-functions/durable-functions-perf-and-scale#instances-table)文档。
+> 
 
 ### <a name="raise-event"></a>引发事件
 

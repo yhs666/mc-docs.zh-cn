@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 07/19/2017
 ms.date: 05/07/2018
 ms.author: v-haiqya
-ms.openlocfilehash: 48798846f223dcf0d95a52e3d75f89011c7ea499
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 6c0c86eaf4dd9a22d67acf3ead31aa34a4332abf
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475432"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219565"
 ---
 # <a name="output-metadata"></a>输出元数据
 ## <a name="overview"></a>概述

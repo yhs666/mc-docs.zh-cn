@@ -6,15 +6,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 03/05/2018
-ms.date: 04/02/2018
+origin.date: 07/06/2018
+ms.date: 07/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: a96c710687e07f86df69ed87af32ef58594f5d38
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 5853adea9b973367eb5888370186bc38e81dffde
+ms.sourcegitcommit: 74f9f0acb00fb728ff6e9bd67ac86a0c1bcd8d13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38940174"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39218909"
 ---
 # <a name="set-up-a-process-server-in-azure-for-failback"></a>在 Azure 中设置进程服务器以便进行故障回复
 
@@ -44,4 +44,4 @@ ms.locfileid: "38940174"
 在进程服务器 VM 已启动并运行后，需要将其注册到本地配置服务器，如下所示：
 
 [!INCLUDE [site-recovery-vmware-register-process-server](../../includes/site-recovery-vmware-register-process-server.md)]
-<!-- Update_Description: update meta properties, update link, wording update  -->
+<!-- Update_Description: update meta properties  -->

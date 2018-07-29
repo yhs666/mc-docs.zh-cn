@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 03/14/2017
 ms.date: 10/30/2017
 ms.author: v-johch
-ms.openlocfilehash: 1eeb39ed65df2176ffff365c772097cce15e7ffd
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: 19b56a5ae954c6b275627df0ae0b905278e93236
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29871477"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295703"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>监视 Azure 门户中的存储帐户
 
@@ -30,7 +30,6 @@ ms.locfileid: "29871477"
 > 在 Azure 门户中检查监视数据会产生相关的费用。 有关详细信息，请参阅 [存储分析和计费](https://docs.microsoft.com/rest/api/storageservices/Storage-Analytics-and-Billing)。
 >
 > Azure 文件目前支持存储分析指标，但尚不支持日志记录。
->
 > 
 > 有关使用存储分析及其他工具来识别、诊断和排查 Azure 存储相关问题的深入指导，请参阅[监视、诊断和排查 Azure 存储问题](../storage-monitoring-diagnosing-troubleshooting.md)。
 >
@@ -113,7 +112,7 @@ ms.locfileid: "29871477"
 1. 从下拉列表中选择一个资源（Blob、文件、队列或表），然后输入新警报规则的名称和说明。
 1. 选择要为其添加警报的指标，以及警报条件和阈值。 阈值单位类型根据所选的指标而异。 例如，“计数”是 ContainerCount 的单位类型，而 PercentNetworkError 指标的单位是百分比。
 1. 选择“时间段”。 在该时间段内达到或超过阈值的指标将触发警报。
-1. （可选）配置电子邮件和 Webhook 通知。 如果未配置电子邮件或 Webhook 通知，警报只会显示在 Azure 门户中。
+1. （可选）配置电子邮件和 Webhook 通知。 有关 Webhook 的详细信息，请参阅[针对 Azure 指标警报配置 Webhook](../../monitoring-and-diagnostics/insights-webhooks-alerts.md)。 如果未配置电子邮件或 Webhook 通知，警报只会显示在 Azure 门户中。
 
 ![Azure 门户中的“添加警报规则”边栏选项卡](./media/storage-monitor-storage-account/stg-alert-rules-01.png)
 

@@ -15,19 +15,19 @@ ms.topic: article
 origin.date: 01/23/2017
 ms.date: 08/28/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 1d18d344d3229dbecb764d9e1547b20a985a580a
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.openlocfilehash: 20c5f2f95e345f6031ab1b50f5bf1336836c42a9
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
-ms.locfileid: "21134994"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295767"
 ---
 # <a name="azure-importexport-service-metadata-and-properties-file-format"></a>Azure 导入/导出服务元数据和属性文件格式
 可将一个或多个 Blob 的元数据和属性指定为导入作业或导出作业的一部分。 要设置将创建为导入作业一部分的 Blob 的元数据或属性，应在包含所要导入数据的硬盘驱动器上提供一个元数据或属性文件。 对于导出作业，元数据和属性将写入到在返回的硬盘驱动器上包含的元数据或属性文件。  
-
+  
 ## <a name="metadata-file-format"></a>元数据文件格式  
 元数据文件的格式如下所示：  
-
+  
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>  
 <Metadata>  
@@ -36,15 +36,15 @@ ms.locfileid: "21134994"
 . . .  
 </Metadata>  
 ```
-
+  
 |XML 元素|类型|说明|  
 |-----------------|----------|-----------------|  
 |`Metadata`|Root 元素|元数据文件的根元素。|  
 |`metadata-name`|String|可选。 XML 元素指定 Blob 的元数据名称，其值指定元数据设置值。|  
-
+  
 ## <a name="properties-file-format"></a>属性文件格式  
 属性文件的格式如下：  
-
+  
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>  
 <Properties>  
@@ -58,7 +58,7 @@ ms.locfileid: "21134994"
 [<Cache-Control>cache-control</Cache-Control>]  
 </Properties>  
 ```
-
+  
 |XML 元素|类型|说明|  
 |-----------------|----------|-----------------|  
 |`Properties`|Root 元素|属性文件的根元素。|  

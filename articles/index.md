@@ -6,12 +6,12 @@ description: 了解如何使用 Azure 云服务构建和管理功能强大的应
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: 6a9319817b53000ba941ff94cbd27bbfb351b0a6
-ms.sourcegitcommit: b23f331a9507c52ddd564c77379e7013b14141e7
+ms.openlocfilehash: 1627d87cd223a900ae3c1c3865507877e6905403
+ms.sourcegitcommit: 158812303d7c6b96837f3ca13230a39b124a03ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39138837"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39201927"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -110,6 +110,7 @@ ms.locfileid: "39138837"
                                                     <li><a class="barLink" href="/monitoring-and-diagnostics/">Azure Monitor</a></li>
                                                     <li><a class="barLink" href="/backup/">Azure 备份</a></li>
                                                     <li><a class="barLink" href="/site-recovery/">Azure Site Recovery</a></li>
+                                                    <li><a class="barLink" href="/azure-policy/">Azure 策略</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -137,7 +138,7 @@ ms.locfileid: "39138837"
                                                 <table cellpadding="0" cellspacing="0" border="0"><tr><td style="border-top-color:transparent!important;padding-left:0;">
                                                 <ul class="noBullet">
                                                     <li>
-                                                        <a class="barLink" href="/dotnet/">
+                                                        <a class="barLink" href="/dotnet/?view=azure-dotnet">
                                                             <img src="media/index/logo_NET.svg" alt="">
 .NET</a>
                                                     </li>
@@ -188,6 +189,7 @@ Go</a>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/sql-database/">SQL 数据库即服务</a></li>
                                                     <li><a class="barLink" href="/sql-data-warehouse/">SQL 数据仓库即服务</a></li>
+                                                    <li><a class="barLink" href="/postgresql/">PostgreSQL 数据库即服务</a></li>
                                                     <li><a class="barLink" href="/mysql/">MySQL 数据库即服务</a></li>
                                                 </ul>
                                                 <h4>NoSQL</h4>
@@ -200,8 +202,7 @@ Go</a>
                                                 </ul>
                                                 <h4>AI 和认知服务</h4>
                                                 <ul class="noBullet">
-                                                    <li><a class="barLink" href="/cognitive-services/computer-vision/">计算机视觉 API</a></li>
-                                                    <li><a class="barLink" href="/cognitive-services/face/">人脸 API</a></li>
+                                                    <li><a class="barLink" href="/cognitive-services/">认知服务</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -354,6 +355,12 @@ Azure PowerShell </a>
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/postgresql/">
+                                                <img src="media/index/PostgreSQL.svg" alt="" />
+                                                <p>Azure Database for PostgreSQL</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/mysql/">
                                                 <img src="media/index/MySQL.svg" alt="" />
                                                 <p>Azure Database for MySQL</p>
@@ -375,6 +382,11 @@ Azure PowerShell </a>
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/container-registry/">
+                                                <img src="media/index/container-registry.svg" alt="" />
+                                                <p>容器注册表</p>
+                                            </a>
+                                        </li>
                                             <a href="/service-fabric/">
                                                 <img src="media/index/Fabric.svg" alt="" />
                                                 <p>Service Fabric</p>
@@ -464,6 +476,12 @@ Azure PowerShell </a>
                                             <a href="/expressroute/">
                                                 <img src="media/index/ExpressRoute.svg" alt="" />
                                                 <p>ExpressRoute</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/dns/">
+                                                <img src="media/index/DNS.svg" alt="" />
+                                                <p>Azure DNS</p>
                                             </a>
                                         </li>
                                         <li>
@@ -606,6 +624,12 @@ Azure PowerShell </a>
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/power-bi-embedded/">
+                                                <img src="media/index/PowerBIEmbedded.svg" alt="" />
+                                                <p>Power BI Embedded</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/analysis-services/">
                                                 <img src="media/index/AnalysisServices.svg" alt="" />
                                                 <p>Azure Analysis Services</p>
@@ -643,7 +667,7 @@ Azure PowerShell </a>
                                         </li>
                                         <li>
                                             <a href="/iot-suite/">
-                                                <img src="media/index/iot-suite.svg" alt="" />
+                                                <img src="media/index/iot-solution-accelerators.svg" alt="" />
                                                 <p>IoT 解决方案加速器</p>
                                             </a>
                                         </li>
@@ -765,6 +789,12 @@ Azure PowerShell </a>
                                                 <p>VPN 网关</p>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="/role-based-access-control/">
+                                                <img src="media/index/PersonWithFriend.svg" alt="" />
+                                                <p>基于角色的访问控制</p>
+                                            </a>
+                                        </li>
                                     </ul>
                                     <h3>标识</h3>
                                     <ul>
@@ -862,6 +892,12 @@ Azure PowerShell </a>
                                             </a>
                                         </li>
                                         <li>
+                                        <li>
+                                            <a href="/azure-policy/">
+                                                <img src="media/index/governance.svg" alt="" />
+                                                <p>Azure 策略</p>
+                                            </a>
+                                        </li>
                                             <a href="/billing/">
                                                 <img src="media/index/billing.svg" alt="" />
                                                 <p>计费</p>
@@ -1083,6 +1119,25 @@ Azure PowerShell </a>
                                                 <div class="cardText">
                                                     <h3>ExpressRoute</h3>
                                                     <p>Azure 专用网络光纤连接</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/dns/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/DNS.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure DNS</h3>
+                                                    <p>在 Azure 中托管 DNS 域</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1547,6 +1602,25 @@ Azure PowerShell </a>
                                 </a>
                             </li>
                             <li>
+                                <a href="/container-registry/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/container-registry.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure 容器注册表</h3>
+                                                    <p>跨所有 Azure 部署类型存储和管理容器映像</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/service-fabric/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -1704,6 +1778,25 @@ Azure PowerShell </a>
                                 </a>
                             </li>
                             <li>
+                                <a href="/postgresql/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/PostgreSQL.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Database for PostgreSQL</h3>
+                                                    <p>面向应用开发人员的托管 PostgreSQL 数据库服务</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/mysql/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -1797,6 +1890,25 @@ Azure PowerShell </a>
                                                 <div class="cardText">
                                                     <h3>事件中心</h3>
                                                     <p>从数百万个设备接收遥测数据</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/power-bi-embedded/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/PowerBIEmbedded.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Power BI Embedded</h3>
+                                                    <p>在应用程序中嵌入完全交互式的、令人惊叹的数据可视化效果</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1945,7 +2057,7 @@ Azure PowerShell </a>
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/iot-suite.svg" alt="" />
+                                                        <img src="media/index/iot-solution-accelerators.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -2257,6 +2369,25 @@ Azure PowerShell </a>
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="/role-based-access-control/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/PersonWithFriend.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>基于角色的访问控制</h3>
+                                                    <p>管理对 Azure 资源的访问</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -2527,6 +2658,25 @@ Azure PowerShell </a>
                                                 <div class="cardText">
                                                     <h3>Azure Resource Manager</h3>
                                                     <p>简化应用资源的管理方式</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure-policy/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/governance.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure 策略</h3>
+                                                    <p>为 Azure 资源大规模实施公司管理和标准</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2946,7 +3096,7 @@ Azure CLI </h3>
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="media/index/azure_dev-7.svg" alt="" />
+                                                    <img src="media/index/azure_dev-10.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">

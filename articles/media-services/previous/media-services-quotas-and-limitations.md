@@ -1,5 +1,5 @@
 ---
-title: 媒体服务配额和限制 | Microsoft Docs
+title: 媒体服务配额和限制 | Azure
 description: 本主题介绍与 Azure 媒体服务关联的配额和限制。
 services: media-services
 documentationcenter: ''
@@ -15,15 +15,14 @@ ms.topic: article
 origin.date: 11/02/2017
 ms.date: 05/07/2018
 ms.author: v-haiqya
-ms.openlocfilehash: 28788ec87044b0c41aaa539cfb7a2a10600ca02c
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: c880e8145a3215e984cde981d52dfe1a7bcd5676
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867366"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219683"
 ---
 # <a name="quotas-and-limitations"></a>配额和限制
-
 本文介绍与 Microsoft Azure 媒体服务关联的配额和限制。
 
 [!INCLUDE [azure-mediaservices-limits](../../../includes/azure-mediaservices-limits.md)]

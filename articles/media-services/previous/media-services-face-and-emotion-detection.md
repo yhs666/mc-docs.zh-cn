@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 12/09/2017
 ms.date: 12/25/2017
 ms.author: v-nany
-ms.openlocfilehash: e13de618fae4aedd6ec9798ee1fb51bc7df8bf3b
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: 2bd1b586baaaf68499a39ea51bf6cc0413e86950
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867385"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219479"
 ---
 # <a name="detect-face-and-emotion-with-azure-media-analytics"></a>使用 Azure 媒体分析检测面部和情绪
 ## <a name="overview"></a>概述
@@ -513,7 +513,6 @@ namespace FaceDetection
     }
 }
 ```
-
 
 ## <a name="related-links"></a>相关链接
 [Azure 媒体服务分析概述](media-services-analytics-overview.md)

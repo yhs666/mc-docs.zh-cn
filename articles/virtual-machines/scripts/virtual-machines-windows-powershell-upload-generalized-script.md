@@ -14,15 +14,15 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 01/02/2018
-ms.date: 06/25/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: b37761fb68614ee40d343310cd7753aeb422eecb
-ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
+ms.openlocfilehash: e8d8734d5adb4aa8ee9f5092a304e511e0334f87
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37405370"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295658"
 ---
 # <a name="sample-script-to-upload-a-vhd-to-azure-and-create-a-new-vm"></a>将 VHD 上传到 Azure 并创建新的 VM 的示例脚本
 
@@ -52,7 +52,6 @@ $ipName = 'myPip'
 $nicName = 'myNic'
 $nsgName = 'myNsg'
 $ruleName = 'myRdpRule'
-$vmName = 'myVM'
 $computerName = 'myComputerName'
 $vmSize = 'Standard_DS1_v2'
 
@@ -83,13 +82,13 @@ $vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $resourceGr
     -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
 $pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $resourceGroup -Location $location `
     -AllocationMethod Dynamic
-$nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $resourceGroup -Location $location `
-    -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
 $rdpRule = New-AzureRmNetworkSecurityRuleConfig -Name $ruleName -Description 'Allow RDP' -Access Allow `
     -Protocol Tcp -Direction Inbound -Priority 110 -SourceAddressPrefix Internet -SourcePortRange * `
     -DestinationAddressPrefix * -DestinationPortRange 3389
 $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $resourceGroup -Location $location `
     -Name $nsgName -SecurityRules $rdpRule
+$nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $resourceGroup -Location $location `
+    -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
 $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName $resourceGroup -Name $vnetName
 
 # Start building the VM configuration

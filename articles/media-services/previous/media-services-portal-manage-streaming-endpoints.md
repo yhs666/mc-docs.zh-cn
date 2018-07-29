@@ -16,12 +16,12 @@ ms.topic: article
 origin.date: 09/10/2017
 ms.date: 1/22/2018
 ms.author: v-johch
-ms.openlocfilehash: 693ac3d021d5ed79403dc8463caa077881d0e501
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 8d271987ed1401adac9dba22dd6125d43686b352
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475387"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219537"
 ---
 # <a name="manage-streaming-endpoints-with-the-azure-portal"></a>使用 Azure 门户管理流式处理终结点
 
@@ -60,8 +60,8 @@ ms.locfileid: "34475387"
    
     ![流式处理终结点](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints2.png)
 
-## <a id="configure_streaming_endpoints"></a>配置流式处理终结点
 
+## <a id="configure_streaming_endpoints"></a>配置流式处理终结点
 通过流式处理终结点可以配置以下属性：
 
 * 访问控制
@@ -85,5 +85,5 @@ ms.locfileid: "34475387"
 
 ## <a name="scale-your-premium-streaming-endpoint"></a>缩放高级流式处理终结点
 
-有关详细信息，请参阅[此](media-services-portal-scale-streaming-endpoints.md)主题。
+有关详细信息，请参阅[本文](media-services-portal-scale-streaming-endpoints.md)。
 <!--Update_Description: wording update-->

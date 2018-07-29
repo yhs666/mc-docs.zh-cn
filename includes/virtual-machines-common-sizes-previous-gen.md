@@ -5,22 +5,26 @@ services: virtual-machines-windows, virtual-machines-linux
 author: rockboyfor
 ms.service: multiple
 ms.topic: include
-origin.date: 05/22/2018
-ms.date: 06/25/2018
+origin.date: 07/06/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: f11cf1323059edee76889b4620324447fa52fae7
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.openlocfilehash: 650324903dde2895ba71c4637ed9e7622e24d8a5
+ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315689"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39307067"
 ---
 本文提供有关先前几代虚拟机大小的信息。 这些大小仍可使用，但有新的大小可供使用。
 
 ## <a name="ds-series"></a>DS 系列
 
 ACU：160
+
+高级存储：支持
+
+高级存储缓存：支持
 
 | 大小 | vCPU | 内存：GiB | 临时存储 (SSD) GiB | 最大数据磁盘数 | 缓存和临时存储的最大吞吐量：IOPS/MBps（以 GiB 为单位的缓存大小） | 非缓存磁盘最大吞吐量：IOPS / MBps | 最大 NIC 数/预期网络带宽 (MBps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -35,6 +39,10 @@ ACU：160
 
 ACU：160 <sup>1</sup>
 
+高级存储：支持
+
+高级存储缓存：支持
+
 | 大小 | vCPU | 内存：GiB | 临时存储 (SSD) GiB | 最大数据磁盘数 | 缓存和临时存储的最大吞吐量：IOPS/MBps（以 GiB 为单位的缓存大小） | 非缓存磁盘最大吞吐量：IOPS / MBps | 最大 NIC 数/预期网络带宽 (MBps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS11 |2 |14 |28 |8 |8,000 / 64 (72) |6,400 / 64 |2 / 1000 |
@@ -47,6 +55,10 @@ ACU：160 <sup>1</sup>
 ## <a name="d-series"></a>D 系列 
 
 ACU：160
+
+高级存储：不支持
+
+高级存储缓存：不支持
 
 | 大小         | vCPU | 内存：GiB | 临时存储 (SSD) GiB | 临时存储的最大吞吐量：IOPS/读取 MBps/写入 MBps | 最大的数据磁盘/吞吐量：IOPS | 最大 NIC 数/预期网络带宽 (MBps) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
@@ -61,6 +73,10 @@ ACU：160
 
 ACU：160
 
+高级存储：不支持
+
+高级存储缓存：不支持
+
 | 大小         | vCPU | 内存：GiB | 临时存储 (SSD) GiB | 临时存储的最大吞吐量：IOPS/读取 MBps/写入 MBps | 最大的数据磁盘/吞吐量：IOPS | 最大 NIC 数/预期网络带宽 (MBps) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
 | Standard_D11 | 2         | 14          | 100            | 6000/93/46                                           | 8/8x500                         | 2 / 1000                     |
@@ -74,6 +90,10 @@ ACU：160
 ## <a name="a-series"></a>A 系列
 
 ACU：50-100
+
+高级存储：不支持
+
+高级存储缓存：不支持
 
 | 大小 | vCPU | 内存：GiB | 临时存储 (HDD)：GiB | 最大数据磁盘数 | 数据磁盘最大吞吐量：IOPS | 最大 NIC 数/预期网络带宽 (MBps)  |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -90,6 +110,7 @@ ACU：50-100
 <sup>1</sup> A0 大小在物理硬件上过度订阅。 仅针对此特定大小，其他客户部署可能影响正在运行的工作负荷的性能。 以下概述的相对性能为预期的基准，受限于近似变化性的 15%。
 
 ### <a name="standard-a0---a4-using-cli-and-powershell"></a>使用 CLI 和 PowerShell 的标准 A0 - A4
+
 在经典部署模型中，CLI 和 PowerShell 中的一些 VM 大小名称略有不同：
 
 * Standard_A0 是特小型 
@@ -99,6 +120,10 @@ ACU：50-100
 * Standard_A4 是超大型
 
 ## <a name="basic-a"></a>基本 A
+
+高级存储：不支持
+
+高级存储缓存：不支持
 
 基本层大小主要用于开发工作负荷，以及其他不需要负载均衡、自动缩放或内存密集型虚拟机的应用程序。
 
@@ -110,5 +135,4 @@ ACU：50-100
 |A3\Basic_A3|4|7 GB|2| 120 GB |8|8x300|
 |A4\Basic_A4|8|14 GB|2| 240 GB |16|16x300|
 
-<!-- Update_Description: new articles on virtual machine common size previous gen -->
-<!--ms.date: 06/25/2018-->
+<!-- Update_Description: wording update -->

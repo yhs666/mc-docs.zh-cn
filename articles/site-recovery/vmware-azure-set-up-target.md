@@ -6,15 +6,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 03/05/2018
-ms.date: 04/02/2018
+origin.date: 07/06/2018
+ms.date: 07/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: a6d8bf8f381bc5266d182e4fd1a7990e77b5e579
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: 405ecfd18ceb33ca2aa45c051a037fb4c4f83921
+ms.sourcegitcommit: 74f9f0acb00fb728ff6e9bd67ac86a0c1bcd8d13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30223414"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39218903"
 ---
 # <a name="prepare-the-target-environment-for-vmware-replication-to-azure"></a>准备目标环境以便将 VMware 复制到 Azure
 
@@ -43,4 +43,4 @@ ms.locfileid: "30223414"
 
 ## <a name="next-steps"></a>后续步骤
 [配置复制设置](vmware-azure-set-up-replication.md)。
-<!-- Update_Description: update meta properties, wording update, update link -->
+<!-- Update_Description: update meta properties  -->

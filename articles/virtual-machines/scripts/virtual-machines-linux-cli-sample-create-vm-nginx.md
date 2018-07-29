@@ -14,15 +14,15 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 02/27/2017
-ms.date: 06/25/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 240107d427ce407c6283e2f5e19d08d10af37fc2
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 03ca806eb3dd6881bd88c381141062a368aa5072
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38938798"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295732"
 ---
 # <a name="create-a-vm-with-nginx"></a>使用 NGINX 创建 VM
 
@@ -58,7 +58,7 @@ az vm extension set \
 
 ## <a name="custom-script-extension"></a>自定义脚本扩展
 
-自定义脚本扩展将此脚本复制到虚拟机上。 然后运行该脚本，安装和配置 NGINX Web 服务器。 
+自定义脚本扩展将此脚本复制到虚拟机上。 然后运行该脚本，安装和配置 NGINX Web 服务器。
 
 ```bash
 #!/bin/bash
@@ -70,11 +70,11 @@ apt-get -y update
 apt-get -y install nginx
 ```
 
-## <a name="clean-up-deployment"></a>清理部署 
+## <a name="clean-up-deployment"></a>清理部署
 
 运行以下命令来删除资源组、VM 和所有相关资源。
 
-```azurecli 
+```azurecli
 az group delete --name myResourceGroup
 ```
 
@@ -96,4 +96,4 @@ az group delete --name myResourceGroup
 
 可以在 [Azure Linux VM 文档](../linux/cli-samples.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)中找到其他虚拟机 CLI 脚本示例。
 
-<!--Update_Description: update meta properties, update link -->
+<!--Update_Description: update meta properties -->

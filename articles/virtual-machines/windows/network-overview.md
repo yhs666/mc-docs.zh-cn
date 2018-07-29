@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 07/17/2017
-ms.date: 05/21/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: f9a05192713a30ecf1f292dad04e22cb8a04327c
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: fe8f808f702b1e7d109abae609ff1cc6f7050cdd
+ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939862"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39307004"
 ---
 # <a name="virtual-networks-and-virtual-machines-in-azure"></a>Azure 中的虚拟网络和虚拟机 
 

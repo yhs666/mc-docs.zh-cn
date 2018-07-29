@@ -15,18 +15,18 @@ ms.topic: article
 origin.date: 04/18/2017
 ms.date: 10/30/2017
 ms.author: v-johch
-ms.openlocfilehash: 57bfecd6dc3cc3cc88274ad72446f0de60dc8785
-ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
+ms.openlocfilehash: 7a34493a80ef072d13dafab31312a602574befa3
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103080"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295851"
 ---
 # <a name="using-shared-access-signatures-sas"></a>使用共享访问签名 (SAS)
 
 通过使用共享访问签名 (SAS)，可将存储帐户中对象的受限访问权限授予其他客户端且不必公开帐户密钥。 本文概述 SAS 模型、查看 SAS 最佳实践以及一些示例。
 
-有关此处所述之外的使用 SAS 的其他代码示例，请参阅 [.NET 中的 Azure Blob 存储入门](https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/)以及 [Azure 代码示例](https://github.com/Azure-Samples/?service=storage)库提供的其他示例。 可以下载示例应用程序并运行，或在 GitHub 上浏览代码。
+有关此处所述之外的使用 SAS 的其他代码示例，请参阅 [.NET 中的 Azure Blob 存储入门](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/)以及 [Azure 代码示例](https://azure.microsoft.com/documentation/samples/?service=storage)库提供的其他示例。 可以下载示例应用程序并运行，或在 GitHub 上浏览代码。
 
 ## <a name="what-is-a-shared-access-signature"></a>什么是共享访问签名？
 共享访问签名对存储帐户中的资源提供委托访问。 通过 SAS，可以授予客户端对存储帐户中资源的访问权限，无需共享帐户密钥。 这是在应用程序中使用共享访问签名的关键之处 - SAS 是用于共享存储资源的一种安全方式，不会危及帐户密钥。
@@ -242,7 +242,7 @@ catch (StorageException e)
 * [适用于 .NET 的 Azure 存储客户端库](http://www.nuget.org/packages/WindowsAzure.Storage) 6.x 或更高版本（以便使用帐户 SAS）。
 * [Azure 配置管理器](http://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager)
 
-有关演示如何创建和测试 SAS 的其他示例，请参阅[存储的 Azure 代码示例](https://github.com/Azure-Samples/?service=storage)。
+有关演示如何创建和测试 SAS 的其他示例，请参阅[存储的 Azure 代码示例](https://azure.microsoft.com/documentation/samples/?service=storage)。
 
 ### <a name="example-create-and-use-an-account-sas"></a>示例：创建并使用帐户 SAS
 以下代码示例创建一个帐户 SAS，该 SAS 对 Blob 和文件服务是有效的，并授予客户端读取、写入和列表权限，使其能够访问服务级别 API。 帐户 SAS 将协议限制为 HTTPS，因此请求必须使用 HTTPS 发出。

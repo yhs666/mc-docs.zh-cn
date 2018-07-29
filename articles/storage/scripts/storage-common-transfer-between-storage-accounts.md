@@ -14,12 +14,12 @@ ms.topic: sample
 origin.date: 02/01/2018
 ms.date: 06/11/2018
 ms.author: v-nany
-ms.openlocfilehash: 9fe9417bb6e8247daeb79a7caac84d3444d78193
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: d1f121e4b93d7594a568caf1d90392e68f9d8ef0
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867549"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295749"
 ---
 # <a name="migrate-blobs-across-storage-accounts-using-azcopy-on-windows"></a>使用 Windows 版 AzCopy 跨存储帐户迁移 blob
 
@@ -27,7 +27,7 @@ ms.locfileid: "34867549"
 
 此操作通过使用 `Get-AzureStorageContainer` 命令实现，该命令将列出存储帐户中的所有容器。 然后，示例发出 AzCopy 命令，将每个容器从源存储帐户复制到目标存储帐户。 如果失败，示例将重试 $retryTimes 次（默认为 3，可通过 `-RetryTimes` 参数修改）。 如果每次重试都失败，用户可重新运行脚本，并使用 `-LastSuccessContainerName` 参数向示例提供上次成功复制的容器。 然后，示例将继续从该点复制容器。
 
-本示例需要 Azure PowerShell 存储模块 4.0.2 或更高版本。 可使用 `Get-Module -ListAvailable Azure.storage` 检查安装的版本。 如果需要进行安装或升级，请参阅[安装 Azure PowerShell 模块](/powershell/azure/install-azurerm-ps)。 
+本示例需要 Azure PowerShell 存储模块 4.0.2 或更高版本。 可使用 `Get-Module -ListAvailable Azure.storage` 检查安装的版本。 如果需要进行安装或升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -291,11 +291,11 @@ else
 
 | 命令 | 注释 |
 |---|---|
-| [Get-AzureStorageContainer](/powershell/module/azure.storage/Get-AzureStorageContainer) | 返回与此存储帐户关联的容器。 |
-| [New-AzureStorageContext](/powershell/module/azure.storage/New-AzureStorageContext) | 创建 Azure 存储上下文。 |
+| [Get-AzureStorageContainer](https://docs.microsoft.com/powershell/module/azure.storage/Get-AzureStorageContainer) | 返回与此存储帐户关联的容器。 |
+| [New-AzureStorageContext](https://docs.microsoft.com/powershell/module/azure.storage/New-AzureStorageContext) | 创建 Azure 存储上下文。 |
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure PowerShell 模块的详细信息，请参阅 [Azure PowerShell 文档](/powershell/azure/overview)。
+有关 Azure PowerShell 模块的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/overview)。
 
 有关其他存储 PowerShell 脚本示例，可参阅 [Azure Blob 存储的 PowerShell 示例](../blobs/storage-samples-blobs-powershell.md)。

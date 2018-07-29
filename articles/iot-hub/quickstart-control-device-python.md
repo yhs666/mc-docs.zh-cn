@@ -1,25 +1,24 @@
 ---
 title: 从 Azure IoT 中心控制设备快速入门 (Python) | Microsoft Docs
 description: 在本快速入门中，会运行两个示例 Python 应用程序。 一个为后端应用程序，可远程控制连接到中心的设备。 另一个应用程序可模拟连接到中心的可受远程控制的设备。
-services: iot-hub
 author: dominicbetts
 manager: timlt
-editor: ''
 ms.service: iot-hub
+services: iot-hub
 ms.devlang: python
 ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: ns
 origin.date: 04/30/2018
-ms.date: 06/11/2018
+ms.date: 08/06/2018
 ms.author: v-yiso
-ms.openlocfilehash: 9840dbef3890572552e469cf9c3a2b4a37b414a0
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 640a990548b0a3330508632759b65bb726ab2fda
+ms.sourcegitcommit: d4092cf6aba0d949bf612093c76f964c2bdfd0ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939115"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39306605"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-python"></a>快速入门：控制连接到 IoT 中心的设备 (Python)
 
@@ -148,9 +147,7 @@ python3 --version
 
 ## <a name="clean-up-resources"></a>清理资源
 
-如果打算继续学习教程，请保留资源组和 IoT 中心，稍后再进行使用。
-
-如果不再需要 IoT 中心，请在门户中删除该中心与资源组。 为此，请选择包含 IoT 中心的资源组，然后单击“删除”。
+[!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>后续步骤
 

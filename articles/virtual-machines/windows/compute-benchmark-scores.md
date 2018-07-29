@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 04/09/2018
-ms.date: 05/21/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: e496250283c9503bc07637975eb79d8ac0b427b9
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.openlocfilehash: ee3f8be1145928c13dd0128048695f3466e4b4eb
+ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34256946"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39307046"
 ---
 # <a name="compute-benchmark-scores-for-windows-vms"></a>Windows VM 的计算基准测试分数
 以下 SPECInt 基准测试分数显示运行 Windows Server 的 Azure 高性能 VM 产品阵容的计算性能。 此外，还提供了 [Linux VM](../linux/compute-benchmark-scores.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 的计算基准测试分数。 

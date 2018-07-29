@@ -14,15 +14,15 @@ ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 03/28/2018
-ms.date: 04/10/2018
+ms.date: 07/23/2018
 ms.author: v-junlch
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 89464b8c088904b5e9500b50d7032633c9d4496a
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: c449c0edd1ca5bbb2dda826089a5c7c5f379ef7e
+ms.sourcegitcommit: ba07d76f8394b5dad782fd983718a8ba49a9deb2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939162"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39220202"
 ---
 # <a name="create-a-function-triggered-by-azure-queue-storage"></a>创建由 Azure 队列存储触发的函数
 
@@ -117,3 +117,4 @@ ms.locfileid: "38939162"
 
 有关队列存储触发器的详细信息，请参阅 [Azure Functions 存储队列绑定](functions-bindings-storage-queue.md)。
 
+<!-- Update_Description: wording update -->

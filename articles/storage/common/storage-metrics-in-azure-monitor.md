@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage
 origin.date: 09/05/2017
-ms.date: 06/11/2018
+ms.date: 07/30/2018
 ms.author: v-nany
-ms.openlocfilehash: 1a8ab57311d8a2905706e586a976912d8cad1fd6
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: f0a1f9039929a1e70273cf8547a0fabee31cb09f
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38940092"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295663"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Azure Monitor 中的 Azure 存储指标
 
@@ -40,11 +40,13 @@ Azure Monitor 提供多种访问指标的方法。 可从 [Azure 门户](https:/
 
 ![在 Azure 门户中访问指标的屏幕截图](./media/storage-metrics-in-azure-monitor/access-metrics-in-portal.png)
 
+对于支持维度的指标，可使用所需的维度值筛选指标。 下面的示例演示了如何通过选择“API 名称”维度的值，在特定操作上查看帐户级别的“事务”。
 
+![在 Azure 门户中访问包含维度的指标的屏幕截图](./media/storage-metrics-in-azure-monitor/access-metrics-in-portal-with-dimension.png)
 
 ### <a name="access-metrics-with-the-rest-api"></a>使用 REST API 访问指标
 
-Azure Monitor 提供 [REST API](/rest/api/monitor/) 用于读取指标定义和值。 本部分介绍如何读取存储指标。 所有 REST API 中使用了资源 ID。 有关详细信息，请阅读[了解存储中服务的资源 ID](#understanding-resource-id-for-services-in-storage)。
+Azure Monitor 提供 [REST API](https://docs.microsoft.com/rest/api/monitor/) 用于读取指标定义和值。 本部分介绍如何读取存储指标。 所有 REST API 中使用了资源 ID。 有关详细信息，请阅读[了解存储中服务的资源 ID](#understanding-resource-id-for-services-in-storage)。
 
 以下示例演示如何在命令行中使用 [ArmClient](https://github.com/projectkudu/ARMClient)，借助 REST API 来简化测试。
 
@@ -371,7 +373,43 @@ Azure 存储在 Azure Monitor 中提供以下容量指标。
 | FileCount   | 存储帐户中的文件数目。 <br/><br/> 单位：计数 <br/> 聚合类型：平均 <br/> 值示例：1024 |
 | FileShareCount | 存储帐户中的文件共享数目。 <br/><br/> 单位：计数 <br/> 聚合类型：平均 <br/> 值示例：1024 |
 
+## <a name="transaction-metrics"></a>事务指标
 
+事务指标每隔一分钟从 Azure 存储发送到 Azure Monitor。 所有事务指标在帐户和服务级别（Blob 存储、表存储、Azure 文件和队列存储）提供。 时间粒度定义呈现指标值的时间间隔。 所有事务指标的受支持时间粒度为 PT1H 和 PT1M。
+
+Azure 存储在 Azure Monitor 中提供以下事务指标。
+
+| 指标名称 | 说明 |
+| ------------------- | ----------------- |
+| 事务 | 向存储服务或指定的 API 操作发出的请求数。 此数字包括成功和失败的请求数，以及引发错误的请求数。 <br/><br/> 单位：计数 <br/> 聚合类型：总计 <br/> 适用的维度：ResponseType、GeoType、ApiName（[定义](#metrics-dimensions)）<br/> 值示例：1024 |
+| 流入量 | 流入数据量。 此数字包括从外部客户端到 Azure 存储流入的数据量，以及流入 Azure 中的数据量。 <br/><br/> 单元：字节 <br/> 聚合类型：总计 <br/> 适用的维度：GeoType、ApiName（[定义](#metrics-dimensions)） <br/> 值示例：1024 |
+| 流出量 | 流出数据量。 此数字包括从外部客户端到 Azure 存储流出的数据量，以及流出 Azure 中的数据量。 因此，此数字不反映计费的流出量。 <br/><br/> 单元：字节 <br/> 聚合类型：总计 <br/> 适用的维度：GeoType、ApiName（[定义](#metrics-dimensions)） <br/> 值示例：1024 |
+| SuccessServerLatency | Azure 存储处理成功请求所用的平均时间。 此值不包括 SuccessE2ELatency 中指定的网络延迟。 <br/><br/> 单位：毫秒 <br/> 聚合类型：平均 <br/> 适用的维度：GeoType、ApiName（[定义](#metrics-dimensions)） <br/> 值示例：1024 |
+| SuccessE2ELatency | 向存储服务或指定的 API 操作发出的成功请求的平均端到端延迟。 此值包括在 Azure 存储中读取请求、发送响应和接收响应确认所需的处理时间。 <br/><br/> 单位：毫秒 <br/> 聚合类型：平均 <br/> 适用的维度：GeoType、ApiName（[定义](#metrics-dimensions)） <br/> 值示例：1024 |
+| 可用性 | 存储服务或指定的 API 操作的可用性百分比。 可用性通过由“计费请求总数”值除以适用的请求数（包括引发意外错误的请求）计算得出。 所有意外错误都会导致存储服务或指定的 API 操作的可用性下降。 <br/><br/> 单位：百分比 <br/> 聚合类型：平均 <br/> 适用的维度：GeoType、ApiName（[定义](#metrics-dimensions)） <br/> 值示例：99.99 |
+
+## <a name="metrics-dimensions"></a>指标维度
+
+Azure 存储支持对 Azure Monitor 中的指标使用以下维度。
+
+| 维度名称 | 说明 |
+| ------------------- | ----------------- |
+| /BlobType | 仅限 Blob 指标的 Blob 类型。 支持的值为 **BlockBlob** 和 **PageBlob**。 BlockBlob 中包含追加 Blob。 |
+| ResponseType | 事务响应类型。 可用的值包括： <br/><br/> <li>ServerOtherError：除描述的错误以外的其他所有服务器端错误 </li> <li> ServerBusyError：返回了 HTTP 503 状态代码的已经过身份验证的请求。 </li> <li> ServerTimeoutError：返回了 HTTP 500 状态代码的已超时且经过身份验证的请求。 由于服务器错误而发生超时。 </li> <li> AuthorizationError：由于未经授权访问数据或者授权失败，经过身份验证的请求失败。 </li> <li> NetworkError：由于网络错误，经过身份验证的请求失败。 往往发生于客户端在超时失效之前提前关闭了连接时。 </li> <li>    ClientThrottlingError：客户端限制错误。 </li> <li> ClientTimeoutError：返回了 HTTP 500 状态代码的已超时且经过身份验证的请求。 如果将客户端的网络超时或请求超时设置为比存储服务预期值更小的值，则预期会发生此超时。 否则，会报告为 ServerTimeoutError。 </li> <li> ClientOtherError：除描述的错误以外的其他所有客户端错误。 </li> <li> Success：成功请求|
+| GeoType | 来自主要或辅助群集的事务。 可用值包括 Primary 和 Secondary。 从辅助租户读取对象时，该维度会应用到读取访问异地冗余存储 (RA-GRS)。 |
+| ApiName | 操作的名称。 例如： <br/> <li>CreateContainer</li> <li>DeleteBlob</li> <li>GetBlob</li> 有关所有操作名称，请参阅[文档](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages#logged-operations.md)。 |
+
+对于支持维度的指标，需要指定维度值才能查看相应的指标值。 例如，如果查看成功响应的 **Transactions** 值，需要使用 **Success** 筛选 **ResponseType** 维度。 或者，如果查看块 Blob 的 **BlobCount** 值，需要使用 **BlockBlob** 筛选 **BlobType** 维度。
+
+## <a name="service-continuity-of-legacy-metrics"></a>旧指标的服务连续性
+
+旧指标可与 Azure Monitor 托管的指标一同使用。 在 Azure 存储终止旧指标的服务之前，支持范围保持不变。
+
+## <a name="faq"></a>常见问题
+
+**Azure 存储是否支持托管磁盘或非托管磁盘的指标？**
+
+否，Azure 计算支持磁盘上的指标。 有关详细信息，请参阅此[文章](https://azure.microsoft.com/en-us/blog/per-disk-metrics-managed-disks/)。
 
 ## <a name="next-steps"></a>后续步骤
 

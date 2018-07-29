@@ -1,6 +1,6 @@
 ---
-title: Azure 媒体服务概念 | Microsoft Docs
-description: 本主题提供 Azure 媒体服务概念的概述
+title: Azure 媒体服务概念 | Azure
+description: 本部分概述 Azure 媒体服务的概念。
 services: media-services
 documentationcenter: ''
 author: forester123
@@ -15,17 +15,17 @@ ms.topic: article
 origin.date: 07/07/2017
 ms.date: 09/25/2017
 ms.author: v-johch
-ms.openlocfilehash: 59b7c39195f5697f48aa64d3cb44afd0ee67ce52
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 53380f22bf6e2b9d50d714580b50489ec8d26f6b
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475232"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219606"
 ---
 # <a name="azure-media-services-concepts"></a>Azure 媒体服务概念
 本部分概述最重要的媒体服务概念。
 
-## <a id="assets"></a>资产和存储
+## <a name="a-idassetsassets-and-storage"></a><a id="assets"/>资产和存储
 ### <a name="assets"></a>资产
 [资产](https://docs.microsoft.com/rest/api/media/operations/asset)包含数字文件（包括视频、音频、图像、缩略图集合、文本轨道和隐藏式字幕文件）以及这些文件的相关元数据。 数字文件在上传到资产中后，即可用于媒体服务编码和流式处理工作流。
 
@@ -74,7 +74,7 @@ ms.locfileid: "34475232"
 > 
 > 
 
-### <a id="locators"></a>定位符
+### <a name="a-idlocatorslocators"></a><a id="locators"/>定位符
 [定位符](https://docs.microsoft.com/rest/api/media/operations/locator)提供访问资产中包含的文件的入口点。 访问策略用于定义客户端对给定资产具有的访问权限和持续时间。 定位符与访问策略的关系可以为多对一的关系，因此，不同定位符可以向不同客户端提供不同的开始时间和连接类型，而全部使用相同的权限和持续时间设置；但是，由于 Azure 存储服务设置的共享访问策略限制，一项给定的资产一次最多只能与五个唯一的定位符相关联。 
 
 媒体服务支持两种类型的定位符：OnDemandOrigin 定位符，用于对媒体进行流式处理（例如，MPEG DASH、HLS 或平滑流式处理）；渐进式下载媒体和 SAS URL 定位符，用于与 Azure 存储相互上传或下载媒体文件。 
@@ -109,8 +109,8 @@ Azure 媒体服务提供了多个用于在云中对媒体进行编码的选项�
 ## <a name="live-streaming"></a>实时流式处理
 在 Azure 媒体服务中，频道表示用于处理实时流内容的管道。 频道通过以下两种方式之一接收实时输入流：
 
-* 本地实时编码器将多比特率 RTMP 或平滑流（分片 MP4）发送到通道。 可以使用以下输出多比特率平滑流的实时编码器：MediaExcel、Ateme、Imagine Communications、Envivio、Cisco 和 Elemental。 以下实时编码器输出 RTMP：Adobe Flash Live Encoder、Telestream Wirecast、Teradek、Haivision 和 Tricaster 编码器。 引入流会通过通道，但不会进行任何进一步的转码和编码操作。 收到请求时，媒体服务会将该流传递给客户。
-* 将单比特率流（采用以下格式之一：RTP (MPEG-TS)、RTMP 或平滑流（分片 MP4）发送到能够使用媒体服务执行实时编码的频道。 然后，频道将对传入的单比特率流执行实时编码，使之转换为多比特率（自适应）视频流。 收到请求时，媒体服务会将该流传送给客户。
+* 本地实时编码器将多比特率 RTMP 或平滑流（分片 MP4）发送到通道。 可以使用以下输出多比特率平滑流的实时编码器：MediaExcel、Ateme、Imagine Communications、Envivio、Cisco 和 Elemental。 以下实时编码器输出 RTMP：Adobe Flash Live Encoder、Telestream Wirecast、Teradek、Haivision 和 Tricaster 编码器。 引入流会通过通道，但不会进行任何进一步的转码和编码操作。 收到请求时，媒体服务会将该流传送给客户。
+* 将单比特率流（采用以下某种格式：RTMP 或平滑流式处理（分片 MP4））发送到能够使用媒体服务执行实时编码的通道。 然后，频道将对传入的单比特率流执行实时编码，使之转换为多比特率（自适应）视频流。 收到请求时，媒体服务会将该流传送给客户。
 
 ### <a name="channel"></a>通道
 在媒体服务中，[频道](https://docs.microsoft.com/rest/api/media/operations/channel)负责处理实时传送视频流内容。 通道提供输入终结点（引入 URL），并将该终结点提供给实时转码器。 频道从实时转码器接收实时输入流，并通过一个或多个 StreamingEndpoints 使其可用于流式处理。 频道还提供可用于预览的预览终结点（预览 URL），并在进一步处理和传递流之前对流进行验证。
@@ -153,19 +153,18 @@ ArchiveWindowLength 还决定了客户端能够从当前实时位置按时间向
 配置令牌限制策略时，必须指定主验证密钥、颁发者和受众参数。 主验证密钥包含用来为令牌签名的密钥，颁发者是颁发令牌的安全令牌服务。 受众（有时称为范围）描述该令牌的意图，或者令牌授权访问的资源。 媒体服务密钥传送服务验证令牌中的这些值是否与模板中的值匹配。
 
 有关详细信息，请参阅以下文章：
-
-[保护内容概述](media-services-content-protection-overview.md)
-[使用 AES-128 提供保护](media-services-protect-with-aes128.md)
+- [保护内容概述](media-services-content-protection-overview.md)
+- [使用 AES-128 进行保护](media-services-protect-with-aes128.md)
 
 
 ## <a name="delivering"></a>传送
-### <a id="dynamic_packaging"></a>动态打包
+### <a name="a-iddynamicpackagingdynamic-packaging"></a><a id="dynamic_packaging"/>动态打包
 使用媒体服务时，建议始终将夹层文件编码为自适应比特率 MP4 集，并使用[动态打包](media-services-dynamic-packaging-overview.md)将该集转换为所需格式。
 
 ### <a name="streaming-endpoint"></a>流式处理终结点
 StreamingEndpoint 表示一个流服务，该服务可以直接将内容传递给客户端播放器应用程序，也可以传递给内容分发网络 (CDN) 以进一步分发（Azure 媒体服务现在还提供了 Azure CDN 集成）。流式处理终结点服务的出站流可以是实时流，也可以是媒体服务帐户中的视频点播资产。 媒体服务客户可以根据自身需要，选择**标准**流式处理终结点或者一个或多个**高级**流式处理终结点。 标准流式处理终结点适合用于大多数流式处理工作负荷。 
 
-标准流式处理终结点适用于最消耗流的工作负荷。 标准流式处理终结点可以动态地将内容打包成 HLS、MPEG-DASH 和平滑流式处理，并针对 Microsoft PlayReady、Apple Fairplay 和 AES128 进行动态加密，从而灵活地将内容传送到几乎所有设备。  此外还可以通过 Azure CDN 集成将受众规模从极小扩展到极大，并发观看者可以成千上万。 如果有高级工作负荷或者流式处理容量要求无法适应标准流式处理终结点吞吐量目标，或者希望控制 StreamingEndpoint 服务的容量，以便处理不断增长的带宽需求，则我们建议分配缩放单位（也称为高级流单元）。
+标准流式处理终结点适用于最消耗流的工作负荷。 标准流式处理终结点可以动态地将内容打包成 HLS、MPEG-DASH 和平滑流式处理，并针对 Microsoft PlayReady、Apple Fairplay 和 AES128 进行动态加密，从而灵活地将内容传送到几乎所有设备。  此外还可以通过 Azure CDN 集成将受众规模从极小扩展到极大，并发观看者可以成千上万。 如果有高级工作负荷或者流式处理容量要求无法适应标准流式处理终结点吞吐量目标，或者希望控制 StreamingEndpoint 服务的容量，以便处理不断增长的带宽需求，则我们建议分配缩放单元（也称为高级流单元）。
 
 建议使用动态打包和/或动态加密。
 
@@ -186,8 +185,8 @@ StreamingEndpoint 表示一个流服务，该服务可以直接将内容传递�
 ### <a name="progressive-download"></a>渐进式下载
 渐进式下载可在下载完整个文件之前开始播放媒体。 只能渐进式下载 MP4 文件。
 
-> [!NOTE]
-> 如果希望已加密的资产可用于渐进式下载，则必须将这些资产解密。
+>[!NOTE]
+>如果希望已加密的资产可用于渐进式下载，则必须将这些资产解密。
 
 若要为用户提供渐进式下载 URL，必须先创建一个 OnDemandOrigin 定位符。 创建定位符可以生成资产的基本路径。 然后，需要追加 MP4 文件的名称。 例如：
 
@@ -198,8 +197,8 @@ http://amstest1.streaming.mediaservices.chinacloudapi.cn/3c5fe676-199c-4620-9b03
 
 也可通过 SSL 连接流式传输内容。 为此，请确保流 URL 以 HTTPS 开头。 目前，AMS 对自定义域不支持 SSL。  
 
-> [!NOTE]
-> 仅当要从中传送内容的流式处理终结点是在 2014 年 9 月 10 日之后创建的情况下，才可以通过 SSL 流式传输内容。 如果流式处理 URL 基于 9 月 10 日之后创建的流式处理终结点，则 URL 会包含“streaming.mediaservices.chinacloudapi.cn”（新格式）。 包含“origin.mediaservices.chinacloudapi.cn”（旧格式）的流式处理 URL 不支持 SSL。 如果 URL 采用旧格式，并且希望能够通过 SSL 流式传输内容，请创建新的流式处理终结点。 使用基于新流式处理终结点创建的 URL 通过 SSL 流式传输内容。
+>[!NOTE]
+>仅当要从中传送内容的流式处理终结点是在 2014 年 9 月 10 日之后创建的情况下，才可以通过 SSL 流式传输内容。 如果流式处理 URL 基于 9 月 10 日之后创建的流式处理终结点，则 URL 会包含“streaming.mediaservices.chinacloudapi.cn”（新格式）。 包含“origin.mediaservices.chinacloudapi.cn”（旧格式）的流式处理 URL 不支持 SSL。 如果 URL 采用旧格式，并且希望能够通过 SSL 流式传输内容，请创建新的流式处理终结点。 使用基于新流式处理终结点创建的 URL 通过 SSL 流式传输内容。
 
 以下列表描述了不同的流格式并提供了示例：
 

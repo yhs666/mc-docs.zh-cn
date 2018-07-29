@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 03/05/2018
 ms.date: 05/07/2018
 ms.author: v-haiqya
-ms.openlocfilehash: 480c54b4f633e540a2077bb31374e33a2e4e6a00
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 02a92ba786c38a63b29e2377c46bace6ad974d1e
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939111"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219485"
 ---
 # <a name="configure-asset-delivery-policies-with-net-sdk"></a>使用 .NET SDK 配置资产传送策略
 [!INCLUDE [media-services-selector-asset-delivery-policy](../../../includes/media-services-selector-asset-delivery-policy.md)]
@@ -45,21 +45,15 @@ ms.locfileid: "38939111"
 
 平滑流式处理：
 
-```
-{streaming endpoint name-media services account name}.streaming.mediaservices.chinacloudapi.cn/{locator ID}/{filename}.ism/Manifest
-```
+{流式处理终结点名称-媒体服务帐户名称}.streaming.mediaservices.chinacloudapi.cn/{定位符 ID}/{文件名}.ism/Manifest
 
 HLS：
 
-```
-{streaming endpoint name-media services account name}.streaming.mediaservices.chinacloudapi.cn/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
-```
+{流式处理终结点名称-媒体服务帐户名称}.streaming.mediaservices.chinacloudapi.cn/{定位符 ID}/{文件名}.ism/Manifest(format=m3u8-aapl)
 
 MPEG DASH
 
-```
-{streaming endpoint name-media services account name}.streaming.mediaservices.chinacloudapi.cn/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf) 
-```
+{流式处理终结点名称-媒体服务帐户名称}.streaming.mediaservices.chinacloudapi.cn/{定位符 ID}/{文件名}.ism/Manifest(format=mpd-time-csf) 
 
 ## <a name="considerations"></a>注意事项
 * 删除 AssetDeliveryPolicy 之前，应删除所有与此资产关联的流式处理定位符。 如果需要，可稍后使用新的 AssetDeliveryPolicy 创建新的流式处理定位符。
@@ -67,81 +61,82 @@ MPEG DASH
 * 可将多个资产传送策略关联到单个资产，但只能指定一种方法来处理给定的 AssetDeliveryProtocol。  也就是说，如果尝试链接两个指定 AssetDeliveryProtocol.SmoothStreaming 协议的传送策略，则会导致出错，因为当客户端发出平滑流式处理请求时，系统不知道要应用哪个策略。
 * 如果资产包含现有的流式处理定位符，则不能将新策略链接到该资产（可以取消现有策略与资产的链接，或者更新与该资产关联的传送策略）。  必须先删除流式处理定位符，调整策略，再重新创建流式处理定位符。  在重新创建流式处理定位符时可以使用同一个 locatorId，但应确保该操作不会导致客户端出现问题，因为内容可能已由来源或下游 CDN 缓存。
 
-## <a name="clear-asset-delivery-policy"></a>清除资产传送策略 
+## <a name="clear-asset-delivery-policy"></a>清除资产传送策略
 
 以下“ConfigureClearAssetDeliveryPolicy”方法会指定不应用动态加密，而是使用以下任一协议传送流：MPEG DASH、HLS 和平滑流协议。 可能需要对存储加密资产应用此策略。
 
-有关创建 AssetDeliveryPolicy 时可以指定哪些值的信息，请参阅 [定义 AssetDeliveryPolicy 时使用的类型](#types) 部分。 
+有关创建 AssetDeliveryPolicy 时可以指定哪些值的信息，请参阅 [定义 AssetDeliveryPolicy 时使用的类型](#types) 部分。
 
 ```csharp
-static public void ConfigureClearAssetDeliveryPolicy(IAsset asset)
-{
-    IAssetDeliveryPolicy policy =
+    static public void ConfigureClearAssetDeliveryPolicy(IAsset asset)
+    {
+        IAssetDeliveryPolicy policy =
         _context.AssetDeliveryPolicies.Create("Clear Policy",
-        AssetDeliveryPolicyType.NoDynamicEncryption, 
+        AssetDeliveryPolicyType.NoDynamicEncryption,
         AssetDeliveryProtocol.HLS | AssetDeliveryProtocol.SmoothStreaming | AssetDeliveryProtocol.Dash, null);
-
-    asset.DeliveryPolicies.Add(policy);
-}
+        
+        asset.DeliveryPolicies.Add(policy);
+    }
 ```
-
-## <a name="dynamiccommonencryption-asset-delivery-policy"></a>DynamicCommonEncryption 资产传送策略 
+## <a name="dynamiccommonencryption-asset-delivery-policy"></a>DynamicCommonEncryption 资产传送策略
 
 以下“CreateAssetDeliveryPolicy”方法将创建“AssetDeliveryPolicy”，该策略配置为将动态常用加密 (“DynamicCommonEncryption”) 应用到平滑流式处理协议（将阻止流式处理其他协议）。 该方法采用以下两种参数：**Asset**（要将传送策略应用到的资产）和 **IContentKey**（**CommonEncryption** 类型的内容密钥。有关详细信息，请参阅：[创建内容密钥](media-services-dotnet-create-contentkey.md#common_contentkey)）。
 
-有关创建 AssetDeliveryPolicy 时可以指定哪些值的信息，请参阅 [定义 AssetDeliveryPolicy 时使用的类型](#types) 部分。 
+有关创建 AssetDeliveryPolicy 时可以指定哪些值的信息，请参阅 [定义 AssetDeliveryPolicy 时使用的类型](#types) 部分。
 
 ```csharp
-static public void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
-{
-    Uri acquisitionUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.PlayReadyLicense);
-
-    Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration =
-        new Dictionary<AssetDeliveryPolicyConfigurationKey, string>
+    static public void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
     {
-        {AssetDeliveryPolicyConfigurationKey.PlayReadyLicenseAcquisitionUrl, acquisitionUrl.ToString()},
-    };
-
-    var assetDeliveryPolicy = _context.AssetDeliveryPolicies.Create(
-            "AssetDeliveryPolicy",
-        AssetDeliveryPolicyType.DynamicCommonEncryption,
-        AssetDeliveryProtocol.SmoothStreaming,
-        assetDeliveryPolicyConfiguration);
-
-    // Add AssetDelivery Policy to the asset
-    asset.DeliveryPolicies.Add(assetDeliveryPolicy);
-
-    Console.WriteLine();
-    Console.WriteLine("Adding Asset Delivery Policy: " +
-        assetDeliveryPolicy.AssetDeliveryPolicyType);
-}
+        Uri acquisitionUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.PlayReadyLicense);
+        
+        Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration =
+                new Dictionary<AssetDeliveryPolicyConfigurationKey, string>
+            {
+                {AssetDeliveryPolicyConfigurationKey.PlayReadyLicenseAcquisitionUrl, acquisitionUrl.ToString()},
+            };
+    
+            var assetDeliveryPolicy = _context.AssetDeliveryPolicies.Create(
+                    "AssetDeliveryPolicy",
+                AssetDeliveryPolicyType.DynamicCommonEncryption,
+                AssetDeliveryProtocol.SmoothStreaming,
+                assetDeliveryPolicyConfiguration);
+    
+            // Add AssetDelivery Policy to the asset
+            asset.DeliveryPolicies.Add(assetDeliveryPolicy);
+    
+            Console.WriteLine();
+            Console.WriteLine("Adding Asset Delivery Policy: " +
+                assetDeliveryPolicy.AssetDeliveryPolicyType);
+     }
 ```
 
 下例演示将 PlayReady 添加到资产传送策略。
 
 ```csharp
-static public void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
-{
-    // Get the PlayReady license service URL.
-    Uri acquisitionUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.PlayReadyLicense);
-
-    Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration =
-        new Dictionary<AssetDeliveryPolicyConfigurationKey, string>
+    static public void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
     {
-        {AssetDeliveryPolicyConfigurationKey.PlayReadyLicenseAcquisitionUrl, acquisitionUrl.ToString()}
+        // Get the PlayReady license service URL.
+        Uri acquisitionUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.PlayReadyLicense);
 
-    };
 
-    var assetDeliveryPolicy = _context.AssetDeliveryPolicies.Create(
-            "AssetDeliveryPolicy",
-        AssetDeliveryPolicyType.DynamicCommonEncryption,
-        AssetDeliveryProtocol.Dash,
-        assetDeliveryPolicyConfiguration);
+        Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration =
+            new Dictionary<AssetDeliveryPolicyConfigurationKey, string>
+        {
+            {AssetDeliveryPolicyConfigurationKey.PlayReadyLicenseAcquisitionUrl, acquisitionUrl.ToString()}
 
-    // Add AssetDelivery Policy to the asset
-    asset.DeliveryPolicies.Add(assetDeliveryPolicy);
+        };
 
-}
+        var assetDeliveryPolicy = _context.AssetDeliveryPolicies.Create(
+                "AssetDeliveryPolicy",
+            AssetDeliveryPolicyType.DynamicCommonEncryption,
+            AssetDeliveryProtocol.Dash,
+            assetDeliveryPolicyConfiguration);
+
+
+        // Add AssetDelivery Policy to the asset
+        asset.DeliveryPolicies.Add(assetDeliveryPolicy);
+
+    }
 ```
 
 ## <a name="dynamicenvelopeencryption-asset-delivery-policy"></a>DynamicEnvelopeEncryption 资产传送策略
@@ -150,42 +145,42 @@ static public void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
 有关创建 AssetDeliveryPolicy 时可以指定哪些值的信息，请参阅 [定义 AssetDeliveryPolicy 时使用的类型](#types) 部分。   
 
 ```csharp
-private static void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
-{
-
-    //  Get the Key Delivery Base Url by removing the Query parameter.  The Dynamic Encryption service will
-    //  automatically add the correct key identifier to the url when it generates the Envelope encrypted content
-    //  manifest.  Omitting the IV will also cause the Dynamice Encryption service to generate a deterministic
-    //  IV for the content automatically.  By using the EnvelopeBaseKeyAcquisitionUrl and omitting the IV, this
-    //  allows the AssetDelivery policy to be reused by more than one asset.
-    //
-    Uri keyAcquisitionUri = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.BaselineHttp);
-    UriBuilder uriBuilder = new UriBuilder(keyAcquisitionUri);
-    uriBuilder.Query = String.Empty;
-    keyAcquisitionUri = uriBuilder.Uri;
-
-    // The following policy configuration specifies: 
-    //   key url that will have KID=<Guid> appended to the envelope and
-    //   the Initialization Vector (IV) to use for the envelope encryption.
-    Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration =
-        new Dictionary<AssetDeliveryPolicyConfigurationKey, string> 
+    private static void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
     {
-        {AssetDeliveryPolicyConfigurationKey.EnvelopeBaseKeyAcquisitionUrl, keyAcquisitionUri.ToString()},
-    };
 
-    IAssetDeliveryPolicy assetDeliveryPolicy =
-        _context.AssetDeliveryPolicies.Create(
-                    "AssetDeliveryPolicy",
-                    AssetDeliveryPolicyType.DynamicEnvelopeEncryption,
-                    AssetDeliveryProtocol.SmoothStreaming | AssetDeliveryProtocol.HLS | AssetDeliveryProtocol.Dash,
-                    assetDeliveryPolicyConfiguration);
+        //  Get the Key Delivery Base Url by removing the Query parameter.  The Dynamic Encryption service will
+        //  automatically add the correct key identifier to the url when it generates the Envelope encrypted content
+        //  manifest.  Omitting the IV will also cause the Dynamice Encryption service to generate a deterministic
+        //  IV for the content automatically.  By using the EnvelopeBaseKeyAcquisitionUrl and omitting the IV, this
+        //  allows the AssetDelivery policy to be reused by more than one asset.
+        //
+        Uri keyAcquisitionUri = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.BaselineHttp);
+        UriBuilder uriBuilder = new UriBuilder(keyAcquisitionUri);
+        uriBuilder.Query = String.Empty;
+        keyAcquisitionUri = uriBuilder.Uri;
 
-    // Add AssetDelivery Policy to the asset
-    asset.DeliveryPolicies.Add(assetDeliveryPolicy);
+        // The following policy configuration specifies: 
+        //   key url that will have KID=<Guid> appended to the envelope and
+        //   the Initialization Vector (IV) to use for the envelope encryption.
+        Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration =
+            new Dictionary<AssetDeliveryPolicyConfigurationKey, string> 
+        {
+            {AssetDeliveryPolicyConfigurationKey.EnvelopeBaseKeyAcquisitionUrl, keyAcquisitionUri.ToString()},
+        };
 
-    Console.WriteLine();
-    Console.WriteLine("Adding Asset Delivery Policy: " + assetDeliveryPolicy.AssetDeliveryPolicyType);
-}
+        IAssetDeliveryPolicy assetDeliveryPolicy =
+            _context.AssetDeliveryPolicies.Create(
+                        "AssetDeliveryPolicy",
+                        AssetDeliveryPolicyType.DynamicEnvelopeEncryption,
+                        AssetDeliveryProtocol.SmoothStreaming | AssetDeliveryProtocol.HLS | AssetDeliveryProtocol.Dash,
+                        assetDeliveryPolicyConfiguration);
+
+        // Add AssetDelivery Policy to the asset
+        asset.DeliveryPolicies.Add(assetDeliveryPolicy);
+
+        Console.WriteLine();
+        Console.WriteLine("Adding Asset Delivery Policy: " + assetDeliveryPolicy.AssetDeliveryPolicyType);
+    }
 ```
 
 ## <a id="types"></a>定义 AssetDeliveryPolicy 时使用的类型
@@ -195,137 +190,134 @@ private static void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
 以下枚举说明可以为资产传送协议设置的值。
 
 ```csharp
-[Flags]
-public enum AssetDeliveryProtocol
-{
-    /// <summary>
-    /// No protocols.
-    /// </summary>
-    None = 0x0,
+    [Flags]
+    public enum AssetDeliveryProtocol
+    {
+        /// <summary>
+        /// No protocols.
+        /// </summary>
+        None = 0x0,
 
-    /// <summary>
-    /// Smooth streaming protocol.
-    /// </summary>
-    SmoothStreaming = 0x1,
+        /// <summary>
+        /// Smooth streaming protocol.
+        /// </summary>
+        SmoothStreaming = 0x1,
 
-    /// <summary>
-    /// MPEG Dynamic Adaptive Streaming over HTTP (DASH)
-    /// </summary>
-    Dash = 0x2,
+        /// <summary>
+        /// MPEG Dynamic Adaptive Streaming over HTTP (DASH)
+        /// </summary>
+        Dash = 0x2,
 
-    /// <summary>
-    /// Apple HTTP Live Streaming protocol.
-    /// </summary>
-    HLS = 0x4,
+        /// <summary>
+        /// Apple HTTP Live Streaming protocol.
+        /// </summary>
+        HLS = 0x4,
 
         ProgressiveDownload = 0x10, 
-
-    /// <summary>
-    /// Include all protocols.
-    /// </summary>
-    All = 0xFFFF
-}
+ 
+        /// <summary>
+        /// Include all protocols.
+        /// </summary>
+        All = 0xFFFF
+    }
 ```
-
 ### <a id="AssetDeliveryPolicyType"></a>AssetDeliveryPolicyType
 
 以下枚举说明可以为资产传送策略类型设置的值。  
 ```csharp
-public enum AssetDeliveryPolicyType
-{
-    /// <summary>
-    /// Delivery Policy Type not set.  An invalid value.
-    /// </summary>
-    None,
+    public enum AssetDeliveryPolicyType
+    {
+        /// <summary>
+        /// Delivery Policy Type not set.  An invalid value.
+        /// </summary>
+        None,
 
-    /// <summary>
-    /// The Asset should not be delivered via this AssetDeliveryProtocol. 
-    /// </summary>
-    Blocked, 
+        /// <summary>
+        /// The Asset should not be delivered via this AssetDeliveryProtocol. 
+        /// </summary>
+        Blocked, 
 
-    /// <summary>
-    /// Do not apply dynamic encryption to the asset.
-    /// </summary>
-    /// 
-    NoDynamicEncryption,  
+        /// <summary>
+        /// Do not apply dynamic encryption to the asset.
+        /// </summary>
+        /// 
+        NoDynamicEncryption,  
 
-    /// <summary>
-    /// Apply Dynamic Envelope encryption.
-    /// </summary>
-    DynamicEnvelopeEncryption,
+        /// <summary>
+        /// Apply Dynamic Envelope encryption.
+        /// </summary>
+        DynamicEnvelopeEncryption,
 
-    /// <summary>
-    /// Apply Dynamic Common encryption.
-    /// </summary>
-    DynamicCommonEncryption
-}
+        /// <summary>
+        /// Apply Dynamic Common encryption.
+        /// </summary>
+        DynamicCommonEncryption
+        }
 ```
-
 ### <a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
 
 以下枚举说明可用于配置将内容密钥传送到客户端的方法的值。
   ```csharp  
-public enum ContentKeyDeliveryType
-{
-    /// <summary>
-    /// None.
-    ///</summary>
-    None = 0,
+    public enum ContentKeyDeliveryType
+    {
+        /// <summary>
+        /// None.
+        /// </summary>
+        None = 0,
 
-    /// <summary>
-    /// Use PlayReady License acquistion protocol
-    /// </summary>
-    PlayReadyLicense = 1,
+        /// <summary>
+        /// Use PlayReady License acquistion protocol
+        /// </summary>
+        PlayReadyLicense = 1,
 
-    /// <summary>
-    /// Use MPEG Baseline HTTP key protocol.
-    /// </summary>
-    BaselineHttp = 2
+        /// <summary>
+        /// Use MPEG Baseline HTTP key protocol.
+        /// </summary>
+        BaselineHttp = 2
 
-}
+    }
 ```
-
 ### <a id="AssetDeliveryPolicyConfigurationKey"></a>AssetDeliveryPolicyConfigurationKey
 
 以下枚举说明为配置用于获取资产传送策略的特定配置的密钥可以设置的值。
 ```csharp
-public enum AssetDeliveryPolicyConfigurationKey
-{
-    /// <summary>
-    /// No policies.
-    /// </summary>
-    None,
+    public enum AssetDeliveryPolicyConfigurationKey
+    {
+        /// <summary>
+        /// No policies.
+        /// </summary>
+        None,
 
-    /// <summary>
-    /// Exact Envelope key URL.
-    /// </summary>
-    EnvelopeKeyAcquisitionUrl,
+        /// <summary>
+        /// Exact Envelope key URL.
+        /// </summary>
+        EnvelopeKeyAcquisitionUrl,
 
-    /// <summary>
-    /// Base key url that will have KID=<Guid> appended for Envelope.
-    /// </summary>
-    EnvelopeBaseKeyAcquisitionUrl,
+        /// <summary>
+        /// Base key url that will have KID=<Guid> appended for Envelope.
+        /// </summary>
+        EnvelopeBaseKeyAcquisitionUrl,
 
-    /// <summary>
-    /// The initialization vector to use for envelope encryption in Base64 format.
-    /// </summary>
-    EnvelopeEncryptionIVAsBase64,
+        /// <summary>
+        /// The initialization vector to use for envelope encryption in Base64 format.
+        /// </summary>
+        EnvelopeEncryptionIVAsBase64,
 
-    /// <summary>
-    /// The PlayReady License Acquisition Url to use for common encryption.
-    /// </summary>
-    PlayReadyLicenseAcquisitionUrl,
+        /// <summary>
+        /// The PlayReady License Acquisition Url to use for common encryption.
+        /// </summary>
+        PlayReadyLicenseAcquisitionUrl,
 
-    /// <summary>
-    /// The PlayReady Custom Attributes to add to the PlayReady Content Header
-    /// </summary>
-    PlayReadyCustomAttributes,
+        /// <summary>
+        /// The PlayReady Custom Attributes to add to the PlayReady Content Header
+        /// </summary>
+        PlayReadyCustomAttributes,
 
-    /// <summary>
-    /// The initialization vector to use for envelope encryption.
-    /// </summary>
-    EnvelopeEncryptionIV
-}
+        /// <summary>
+        /// The initialization vector to use for envelope encryption.
+        /// </summary>
+        EnvelopeEncryptionIV
+    }
 ```
 
 <!--Update_Description: update code-->

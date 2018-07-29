@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 媒体服务来保护内容 | Microsoft Docs
+title: 使用 Azure 媒体服务对内容进行保护 | Azure
 description: 本文概述了如何使用媒体服务来保护内容。
 services: media-services
 documentationcenter: ''
@@ -12,20 +12,20 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/29/2017
-ms.date: 1/22/2018
+origin.date: 07/01/2018
+ms.date: 07/30/2018
 ms.author: v-johch
-ms.openlocfilehash: 8ebafe3a606d34b091f1548c7741409f56e94d2b
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 0a8df668c46f22615385fc1131dcb6cde6b9e9d6
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475186"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219530"
 ---
 # <a name="content-protection-overview"></a>内容保护概述
  可以使用 Azure 媒体服务在媒体从计算机离开到存储、处理和传送的整个过程中确保其安全。 借助媒体服务，可以传送使用高级加密标准 (AES-128) 或主要数字版权管理 (DRM) 系统（Microsoft PlayReady 和 Apple FairPlay）中任意一个动态加密的直播内容和点播内容。 媒体服务还提供了用于向已授权客户端传送 AES 密钥和 DRM（PlayReady、Widevine 和 FairPlay）许可证的服务。 
 
-下图阐释 Azure 媒体服务内容保护工作流。 
+下图阐释了媒体服务内容保护工作流： 
 
 ![使用 PlayReady 进行保护](./media/media-services-content-protection-overview/media-services-content-protection-with-multi-drm.png)
 
@@ -91,10 +91,8 @@ Playready 使用通用加密（AES CTR 模式）。 FairPlay 使用 AES CBC 模�
 
 ## <a name="related-links"></a>相关链接
 
-* [在 Azure 媒体服务中调试 AES 加密流](http://mingfeiy.com/debug-aes-encrypted-stream-azure-media-services)
 * [JWT 令牌身份验证](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
 * [将基于 Azure 媒体服务 OWIN MVC 的应用与 Azure Active Directory 相集成，并基于 JWT 声明限制内容密钥传送](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/)
 
 [content-protection]: ./media/media-services-content-protection-overview/media-services-content-protection.png
-
 <!--Update_Description: add one link-->

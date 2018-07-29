@@ -14,15 +14,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/30/2018
-ms.date: 06/25/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 8510a7fe202e16ead91d958c909bc6dbd1828a0b
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.openlocfilehash: 696878d1e08c5356425ed4ef4e8d9fd72e390f96
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315469"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295803"
 ---
 # <a name="tutorial---manage-azure-disks-with-the-azure-cli-20"></a>教程 - 使用 Azure CLI 2.0 管理 Azure 磁盘
 
@@ -57,7 +57,7 @@ Azure 虚拟机 (VM) 使用磁盘来存储操作系统、应用程序和数据�
 | [常规用途](sizes-general.md) | A、B、D 系列 | 1600 |
 | [计算优化](sizes-compute.md) | F 系列 | 576 |
 | [内存优化](sizes-memory.md) | D 和 E 系列 | 6144 |
-<!--Pending on B series, E series -->
+<!--Pending on E series -->
 <!-- Not Available on G, and M series-->
 <!-- Not Available on | [Storage optimized](sizes-storage.md) | L series | 5630 |-->
 <!-- Not Available on | [GPU](sizes-gpu.md) | N series | 1440 |-->
@@ -70,13 +70,13 @@ Azure 虚拟机 (VM) 使用磁盘来存储操作系统、应用程序和数据�
 
 ### <a name="max-data-disks-per-vm"></a>每个 VM 的最大数据磁盘数
 
-<!--Pending on B series, E series -->
+<!--Pending on E series -->
 | 类型 | VM 大小 | 每个 VM 的最大数据磁盘数 |
 |----|----|----|
 | [常规用途](sizes-general.md) | A、B、D 系列 | 64 |
 | [计算优化](sizes-compute.md) | F 系列 | 64 |
 | [内存优化](../virtual-machines-windows-sizes-memory.md) | D 和 E 系列 | 64 |
-<!--Pending on B series, E series -->
+<!--Pending on E series -->
 <!-- Not Available on | [Storage optimized](../virtual-machines-windows-sizes-storage.md) | L series | 64 |-->
 <!-- Not Available on | [GPU](sizes-gpu.md) | N series | 64 |-->
 <!-- Not Available on | [High performance](sizes-hpc.md) | A and H series | 64 |-->
@@ -92,8 +92,7 @@ Azure 提供两种类型的磁盘。
 
 ### <a name="premium-disk"></a>高级磁盘
 
-<!--Pending on FS series --> 高级磁盘由基于 SSD 的高性能、低延迟磁盘提供支持。 完美适用于运行生产工作负荷的 VM。 高级存储支持 DS 系列、DSv2 系列和 FS 系列 VM。 选择磁盘大小时，大小值将舍入为下一类型。 例如，如果磁盘大小小于 128 GB，则磁盘类型为 P10。 如果磁盘大小介于 129 GB 和 512 GB 之间，则大小为 P20。 如果超过 512 GB，则大小为 P30。
-<!--Pending on FS series -->
+高级磁盘由基于 SSD 的高性能、低延迟磁盘提供支持。 完美适用于运行生产工作负荷的 VM。 高级存储支持 DS 系列、DSv2 系列和 FS 系列 VM。 选择磁盘大小时，大小值将舍入为下一类型。 例如，如果磁盘大小小于 128 GB，则磁盘类型为 P10。 如果磁盘大小介于 129 GB 和 512 GB 之间，则大小为 P20。 如果超过 512 GB，则大小为 P30。
 <!--Not Available GS series-->
 
 ### <a name="premium-disk-performance"></a>高级磁盘性能

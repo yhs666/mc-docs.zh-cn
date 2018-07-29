@@ -14,12 +14,12 @@ ms.workload: storage
 origin.date: 10/25/2017
 ms.date: 06/11/2018
 ms.author: v-nany
-ms.openlocfilehash: c7f07fbd3a4eb069b895c5c6d16d882f8c3af709
-ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
+ms.openlocfilehash: 95d1e9b5c55b7e667194ea488d58869bcca6389a
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103076"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295657"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>配置 Azure 存储防火墙和虚拟网络
 Azure 存储提供一种分层安全模型，用于保护存储帐户，使其仅可供一组特定的许可网络访问。  配置网络规则时，只有来自许可网络的应用程序才能访问存储帐户。  从许可网络进行调用时，应用程序仍需获得正确的授权（有效的访问密钥或 SAS 令牌）才能访问存储帐户。
@@ -58,7 +58,7 @@ Azure 存储提供一种分层安全模型，用于保护存储帐户，使其�
 4. 单击“保存”应用所做的更改。
 
 #### <a name="powershell"></a>PowerShell
-1. 安装最新的 [Azure PowerShell](/powershell/azure/install-azurerm-ps) 并[登录](/powershell/azure/authenticate-azureps)。
+1. 安装最新的 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) 并[登录](https://docs.microsoft.com/powershell/azure/authenticate-azureps)。
 
 2. 显示存储帐户默认规则的状态。
 ```PowerShell
@@ -100,7 +100,7 @@ az storage account update --name "mystorageaccount" --resource-group "myresource
 每个存储帐户最多可支持 100 个虚拟网络规则，这些规则可与 [IP 网络规则](#grant-access-from-an-internet-ip-range)组合使用。
 
 ### <a name="available-virtual-network-regions"></a>可用的虚拟网络区域
-服务终结点一般在位于同一 Azure 区域的虚拟网络和服务实例之间运行。  对 Azure 存储使用服务终结点时，此范围扩大到包含[配对区域](/azure/best-practices-availability-paired-regions)。  这样一来，不仅可以在区域性故障转移期间提供连续性，还允许对只读异地冗余存储 (RA-GRS) 实例进行无缝访问。  允许从虚拟网络访问存储帐户的网络规则同样允许访问所有 RA-GRS 实例。
+服务终结点一般在位于同一 Azure 区域的虚拟网络和服务实例之间运行。  对 Azure 存储使用服务终结点时，此范围扩大到包含[配对区域](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)。  这样一来，不仅可以在区域性故障转移期间提供连续性，还允许对只读异地冗余存储 (RA-GRS) 实例进行无缝访问。  允许从虚拟网络访问存储帐户的网络规则同样允许访问所有 RA-GRS 实例。
 
 在区域性服务中断期间计划灾难恢复时，应该在配对区域中提前预配虚拟网络。 应启用 Azure 存储的服务终结点，并向异地冗余存储帐户应用允许从这些备用虚拟网络进行访问的网络规则。
 
@@ -130,7 +130,7 @@ az storage account update --name "mystorageaccount" --resource-group "myresource
 6. 单击“保存”应用所做的更改。
 
 #### <a name="powershell"></a>PowerShell
-1. 安装最新的 [Azure PowerShell](/powershell/azure/install-azurerm-ps) 并[登录](/powershell/azure/authenticate-azureps)。
+1. 安装最新的 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) 并[登录](https://docs.microsoft.com/powershell/azure/authenticate-azureps)。
 2. 列出虚拟网络规则
 ```PowerShell
 (Get-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount").VirtualNetworkRules
@@ -218,7 +218,7 @@ IP 网络规则仅适用于**公共 Internet** IP 地址。  IP 规则不允许�
 6. 单击“保存”应用所做的更改。
 
 #### <a name="powershell"></a>PowerShell
-1. 安装最新的 [Azure PowerShell](/powershell/azure/install-azurerm-ps) 并[登录](/powershell/azure/authenticate-azureps)。
+1. 安装最新的 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) 并[登录](https://docs.microsoft.com/powershell/azure/authenticate-azureps)。
 2. 列出 IP 网络规则。
 ```PowerShell
 (Get-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount").IPRules
@@ -310,7 +310,7 @@ az storage account network-rule remove --resource-group "myresourcegroup" --acco
 5. 单击“保存”应用所做的更改。
 
 #### <a name="powershell"></a>PowerShell
-1. 安装最新的 [Azure PowerShell](/powershell/azure/install-azurerm-ps) 并[登录](/powershell/azure/authenticate-azureps)。
+1. 安装最新的 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) 并[登录](https://docs.microsoft.com/powershell/azure/authenticate-azureps)。
 2. 显示存储帐户的网络规则例外。
 ```PowerShell
 (Get-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount").Bypass

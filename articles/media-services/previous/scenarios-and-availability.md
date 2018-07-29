@@ -14,12 +14,12 @@ ms.topic: hero-article
 origin.date: 07/10/2017
 ms.date: 09/25/2017
 ms.author: v-johch
-ms.openlocfilehash: c178b984f6db613853b9d6665b344fa9e9afc59f
-ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
+ms.openlocfilehash: 8c502b4412a7ff0a6f09758e3bb3469c1e9a654e
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36748407"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219568"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>媒体服务功能的跨数据中心方案和可用性
 

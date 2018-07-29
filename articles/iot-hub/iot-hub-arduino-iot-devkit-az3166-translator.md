@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 02/28/2018
-ms.date: 06/11/2018
+ms.date: 08/06/2018
 ms.author: v-yiso
-ms.openlocfilehash: 8f0c2249bc3a27c8cbda560f236c8618818fff66
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: dd50ae079ce54423ff8f48e2418e77f93e8b5f3b
+ms.sourcegitcommit: d4092cf6aba0d949bf612093c76f964c2bdfd0ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695184"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39306613"
 ---
 # <a name="use-iot-devkit-az3166-with-azure-function-and-cognitive-services-to-make-a-language-translator"></a>将 IoT DevKit AZ3166 与 Azure 函数和认知服务配合使用生成语言翻译
 
@@ -42,13 +42,16 @@ ms.locfileid: "34695184"
 
 ### <a name="a-start-vs-code"></a>A. 启动 VS Code
 
-- 确保 DevKit 未连接到电脑。
+- 确保 DevKit 已连接到电脑。
 - 启动 VS Code
 - 将 DevKit 连接到计算机。
 
 ### <a name="b-open-the-arduino-examples-folder"></a>B. 打开 Arduino 示例文件夹
 
-展开左侧的“ARDUINO 示例”>“MXCHIP AZ3166 的示例”>“AzureIoT”，然后选择“DevKitTranslator”。 它将打开一个新的 VS Code 窗口，其中包含 DEVKITTRANSLATOR 项目文件夹。
+展开左侧的“ARDUINO 示例”>“MXCHIP AZ3166 的示例”>“AzureIoT”，然后选择“DevKitTranslator”。 它将打开一个新的 VS Code 窗口，其中包含 DEVKITTRANSLATOR 项目文件夹。  
+
+> [!NOTE]
+> 如果看不到“MXCHIP AZ3166”部分的示例，请确保设备已正确连接，并重启 Visual Studio Code。  
 
 ![IoT DevKit 示例](media/iot-hub-arduino-iot-devkit-az3166-translator/vscode_examples.png)
 

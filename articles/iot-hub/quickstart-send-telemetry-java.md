@@ -1,25 +1,24 @@
 ---
 title: 快速入门：向 Azure IoT 中心发送遥测数据 (Java) | Microsoft Docs
 description: 本快速入门将运行两个示例 Java 应用程序，从而向 IoT 中心发送模拟遥测数据，并读取 IoT 中心的遥测数据，在云中进行处理。
-services: iot-hub
 author: dominicbetts
 manager: timlt
-editor: ''
 ms.service: iot-hub
+services: iot-hub
 ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: ns
-origin.date: 04/30/2018
-ms.date: 07/09/2018
+origin.date: 06/22/2018
+ms.date: 08/06/2018
 ms.author: v-yiso
-ms.openlocfilehash: b8203b37fb44f588cec0f2295598524ccf4e42ef
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 6459be5d768fe9850a10c1568f8fd9121718716d
+ms.sourcegitcommit: d4092cf6aba0d949bf612093c76f964c2bdfd0ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939541"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39306592"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-java"></a>快速入门：将遥测数据从设备发送到 IoT 中心并使用后端应用程序从中心读取遥测数据 ( Java)
 
@@ -123,13 +122,14 @@ mvn --version
 
 1. 在另一个终端窗口中，导航到示例 Java 项目的根文件夹。 然后导航到 iot-hub\Quickstarts\read-d2c-messages 文件夹。
 
-1. 在所选文本编辑器中打开 src/main/java/com/microsoft/docs/iothub/samples/ReadDeviceToCloudMessages.java 文件。
+2. 在所选文本编辑器中打开 src/main/java/com/microsoft/docs/iothub/samples/ReadDeviceToCloudMessages.java 文件。 更新以下变量并保存对文件所做的更改。
 
-    将 `eventHubsCompatibleEndpoint` 变量的值替换为之前记下的与事件中心兼容的终结点。
+    | 变量 | 值 |
+    | -------- | ----------- |
+    | `eventHubsCompatibleEndpoint` | 将变量的值替换为之前记下的与事件中心兼容的终结点。 |
+    | `eventHubsCompatiblePath`     | 将变量的值替换为之前记下的与事件中心兼容的路径。 |
+    | `iotHubSasKey`                | 将变量的值替换为之前记下的 iothubowner 主键。 |
 
-    将 `eventHubsCompatiblePath` 变量的值替换为之前记下的与事件中心兼容的路径。
-
-    将 `iotHubSasKey` 变量的值替换为之前记下的 iothubowner 主键。 然后将更改保存到 ReadDeviceToCloudMessages.js 文件。
 
 1. 在终端窗口中，运行以下命令，安装所需的库，并生成后端应用程序：
 
@@ -149,9 +149,7 @@ mvn --version
 
 ## <a name="clean-up-resources"></a>清理资源
 
-如果打算完成下一快速入门教程，请保留资源组和 IoT 中心，稍后再进行使用。
-
-如果不再需要 IoT 中心，请在门户中删除该中心与资源组。 为此，请选择包含 IoT 中心的 qs-iot-hub-rg 资源组，然后单击“删除”。
+[!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>后续步骤
 

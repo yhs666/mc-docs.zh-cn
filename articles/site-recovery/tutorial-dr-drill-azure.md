@@ -7,12 +7,12 @@ ms.topic: tutorial
 origin.date: 07/06/2018
 ms.date: 07/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4a1f6d5f620577001f18e235e942f7b0b4385f0d
-ms.sourcegitcommit: f7ff09be9f3be5e3eb795e383c0c670f480f233d
+ms.openlocfilehash: 459a48e12b13e61f48f8df478dc2778e18438aa0
+ms.sourcegitcommit: 74f9f0acb00fb728ff6e9bd67ac86a0c1bcd8d13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39169063"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39218910"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>运行 Azure 灾难恢复演练
 
@@ -33,11 +33,6 @@ ms.locfileid: "39169063"
 > * 准备在故障转移后连接到 Azure VM
 > * 为单一计算机运行测试故障转移
 
-此教程为系列教程中的第四个教程。 本教程假设你已完成前面教程中的以下任务。
-
-1. [准备 Azure](tutorial-prepare-azure.md)
-2. [准备本地 VMware](tutorial-prepare-on-premises-vmware.md)
-3. [设置灾难恢复](tutorial-vmware-to-azure.md)
 
 ## <a name="verify-vm-properties"></a>验证 VM 属性
 

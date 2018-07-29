@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
 origin.date: 07/02/2018
-ms.date: 07/16/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 640c27ed262b729a3d563629a012cf726231b7c3
-ms.sourcegitcommit: bbc130e25163b6d3af6616d57c0b6efef63796a2
+ms.openlocfilehash: 27c50ea4656e6f39b1f727e7a468731ffc596d64
+ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37914587"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39307066"
 ---
 ## <a name="view-vms-scheduled-for-maintenance-in-the-portal"></a>在门户中查看计划用于维护的虚拟机
 

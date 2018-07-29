@@ -12,15 +12,15 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 05/21/2018
-ms.date: 06/25/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 805814b5969e12622001d580a5aba02864446935
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 0093b084826c907b2595236ab96ac20fdf2da13a
+ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939931"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39306947"
 ---
 # <a name="tutorial-learn-about-windows-virtual-machine-governance-with-azure-powershell"></a>教程：了解如何使用 Azure PowerShell 控制 Windows 虚拟机
 
@@ -56,8 +56,7 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location ChinaEast
 * [网络参与者](../../role-based-access-control/built-in-roles.md#network-contributor)
 * [存储帐户参与者](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
-通常情况下，与其向单个用户分配角色，不如为需要进行相似操作的用户[创建一个 Azure Active Directory 组](../../active-directory/active-directory-groups-create-azure-portal.md)， 然后向该组分配相应的角色。 为了简单起见，本文创建一个没有成员的 Azure Active Directory 组。 仍然可以为该组分配一个负责某个范围的角色。 
-<!-- URL is not contains fundamentals directory-->
+通常情况下，与其向单个用户分配角色，不如为需要进行相似操作的用户[创建一个 Azure Active Directory 组](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)， 然后向该组分配相应的角色。 为了简单起见，本文创建一个没有成员的 Azure Active Directory 组。 仍然可以为该组分配一个负责某个范围的角色。 
 
 以下示例创建一个邮件别名为 *vmDemoGroup* 且名为 *VMDemoContributors* 的 Azure Active Directory 组。 邮件别名用作组的别名。
 
@@ -196,7 +195,7 @@ Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test"; Project="Documentatio
 
 ### <a name="find-resources-by-tag"></a>按标记查找资源
 
-若要通过标记名称和值查找资源，请使用 [Find-AzureRmResource](https://docs.microsoft.com/powershell/module/azurerm.resources/find-azurermresource) 命令：
+若要通过标记名称和值查找资源，请使用 [Get-AzureRmResource](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermresource) 命令：
 
 ```powershell
 (Get-AzureRmResource -Tag @{ Environment="Test"}).Name

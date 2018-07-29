@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 09/29/2017
 ms.date: 11/06/2017
 ms.author: v-johch
-ms.openlocfilehash: 0e654b0426eee9194f40d465495d22e6694aadfb
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: b4664e7f57a781479ff6b1b937cca70e07252dfa
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475187"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219680"
 ---
 # <a name="frequently-asked-questions"></a>常见问题
 
@@ -34,7 +34,8 @@ ms.locfileid: "34475187"
 
 问：如何缩放索引？
 
-答：编码任务和索引任务的保留单位相同。 请遵循[如何缩放编码保留单位](media-services-scale-media-processing-overview.md)中的说明。 **请注意** ，保留单位类型不影响索引器性能。
+答：编码任务和索引任务的预留单位相同。 请遵循[如何缩放编码预留单位](media-services-scale-media-processing-overview.md)中的说明。 
+  **请注意**，预留单位类型不影响索引器性能。
 
 问：我已经上传、编码并发布了视频。 为什么在尝试对视频进行流式处理时，它不播放？
 

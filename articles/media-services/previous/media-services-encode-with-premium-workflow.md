@@ -1,6 +1,6 @@
 ---
-title: 通过媒体编码器高级工作流进行高级编码 | Microsoft Docs
-description: 了解如何使用媒体编码器高级工作流进行编码。 代码示例用 C# 编写且使用适用于 .NET 的媒体服务 SDK。
+title: 使用媒体编码器高级工作流进行高级编码 | Azure
+description: 了解如何使用 Media Encoder Premium Workflow 进行编码。 代码示例用 C# 编写且使用适用于 .NET 的媒体服务 SDK。
 services: media-services
 documentationcenter: ''
 author: WenJason
@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 12/09/2017
 ms.date: 05/28/2018
 ms.author: v-nany
-ms.openlocfilehash: ee85df6ac0342d23efbabaf951fe7cf1271508b0
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: ea3d21b4be9b89fb5a7ef18d9f6549ded7a47191
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475176"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219518"
 ---
 # <a name="advanced-encoding-with-media-encoder-premium-workflow"></a>使用 Media Encoder Premium Workflow 进行高级编码
 

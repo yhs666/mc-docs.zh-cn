@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 06/12/2018
 ms.date: 07/02/2018
 ms.author: v-nany
-ms.openlocfilehash: 5b76dcbb56badc58624ac599f97acb1c51991779
-ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
+ms.openlocfilehash: 592b5eb0b629a347e1d3bd9eb3996c813f9639cb
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103087"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295797"
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>静态数据的 Azure 存储服务加密
 
@@ -86,8 +86,7 @@ ms.locfileid: "37103087"
 
 **问：存储服务加密是否仅允许在特定区域使用？**
 
-答：存储服务加密在所有区域针对所有服务提供。 
-
+答：存储服务加密在所有区域针对所有服务提供。
 
 ## <a name="next-steps"></a>后续步骤
 Azure 存储提供一整套安全性功能，这些功能相辅相成，帮助开发人员构建安全的应用程序。 有关详细信息，请参阅[存储安全指南](../storage-security-guide.md)。

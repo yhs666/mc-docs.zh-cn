@@ -13,15 +13,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-origin.date: 01/03/2018
-ms.date: 04/16/2018
+origin.date: 07/12/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7355cb5fac10e7a1b3dc0b16fc4d17bd3cc98fd8
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: 50ff214cfb6e2e4b209c136f6b17b53ef0e5436e
+ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867588"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39307059"
 ---
 # <a name="convert-a-windows-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>将 Windows 虚拟机从非托管磁盘转换为托管磁盘
 

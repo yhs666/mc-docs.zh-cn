@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 04/25/2018
-ms.date: 05/30/2018
+ms.date: 07/24/2018
 ms.author: v-junlch
-ms.openlocfilehash: 82b4515c389cd713d3c7a79750c1e7d883de1b17
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: fd40e829ac23bc4d49cfb77821fc07cc364e3d55
+ms.sourcegitcommit: ba07d76f8394b5dad782fd983718a8ba49a9deb2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34567312"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39220226"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Durable Functions 中的性能和缩放 (Azure Functions)
 
@@ -158,7 +158,7 @@ Azure Functions 支持在单个应用实例中并发执行多个函数。 这种
 > [!TIP]
 > 与扇出不同，扇入操作限制为单个 VM。 如果应用程序使用扇出扇入模式，并且你关注扇入性能，请考虑在多个[子业务流程](durable-functions-sub-orchestrations.md)之间分割活动函数扇出。
 
-下表显示了前面所述方案的预期最大吞吐量数字。 “实例”是指在 Azure 应用服务中单个小型 ([A1](../virtual-machines/windows/sizes-general.md#a-series)) VM 上运行的业务流程协调程序函数的单个实例。 在各种情况下，都假设已启用[扩展会话](#orchestrator-function-replay)。 实际结果可能根据函数代码执行的 CPU 或 I/O 工作而异。
+下表显示了前面所述方案的预期最大吞吐量数字。 “实例”是指在 Azure 应用服务中单个小型 ([A1](../virtual-machines/windows/sizes-previous-gen.md#a-series)) VM 上运行的业务流程协调程序函数的单个实例。 在各种情况下，都假设已启用[扩展会话](#orchestrator-function-replay)。 实际结果可能根据函数代码执行的 CPU 或 I/O 工作而异。
 
 | 方案 | 最大吞吐量 |
 |-|-|
@@ -177,3 +177,5 @@ Azure Functions 支持在单个应用实例中并发执行多个函数。 这种
 > [!div class="nextstepaction"]
 > [安装 Durable Functions 扩展和示例](durable-functions-install.md)
 
+
+<!-- Update_Description: link update -->

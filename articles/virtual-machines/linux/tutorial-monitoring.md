@@ -14,15 +14,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 06/06/2018
-ms.date: 06/25/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 074a174997db021a9b9185072733ce3f5a493c76
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.openlocfilehash: 25f17a63cbe6c3dc93ae827ba5e0b5ed0a4adea9
+ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315376"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39306949"
 ---
 # <a name="tutorial-monitor-and-update-a-linux-virtual-machine-in-azure"></a>教程：监视和更新 Azure 中的 Linux 虚拟机
 
@@ -31,9 +31,9 @@ ms.locfileid: "36315376"
 > [!div class="checklist"]
 > * 在 VM 上启用启动诊断
 > * 查看启动诊断
+> * 查看主机指标
 > * 在 VM 上启用诊断扩展
-> * 基于诊断指标创建警报 <!-- Not Available on View host metrics-->
-<!-- Not Available on View VM metrics-->
+> * 基于诊断指标创建警报 <!-- Not Available on View VM metrics-->
 <!-- Not Available on Manage package updates-->
 <!-- Not Available on > * Monitor changes and inventory-->
 <!-- Not Available on Set up advanced monitoring-->
@@ -111,7 +111,16 @@ az vm start --resource-group myResourceGroupMonitor --name myVM
 ```azurecli
 az vm boot-diagnostics get-boot-log --resource-group myResourceGroupMonitor --name myVM
 ```
-<!--Not Available ## View host metrics-->
+
+<!--Notice: View host metrics verify successfully-->
+## <a name="view-host-metrics"></a>查看主机指标
+
+Linux VM 在 Azure 中有一个与它交互的专用主机。 系统会自动收集该主机的指标，可以在 Azure 门户中查看这些指标，如下所示：
+
+1. 在 Azure 门户中选择“资源组”，选择“myResourceGroupMonitor”，并在资源列表中选择“myVM”。
+1. 若要查看主机 VM 的性能情况，请在 VM 窗口中选择“指标”，并选择“可用指标”下面的任一“[主机]”指标。
+
+    ![查看主机指标](./media/tutorial-monitoring/monitor-host-metrics.png)
 
 ## <a name="install-diagnostics-extension"></a>安装诊断扩展
 
@@ -124,19 +133,9 @@ az vm boot-diagnostics get-boot-log --resource-group myResourceGroupMonitor --na
     ![查看诊断指标](./media/tutorial-monitoring/enable-diagnostics-extension.png)
 
 <!-- Not Available ## View VM metrics-->
-## <a name="create-alerts"></a>创建警报
-
-可以根据特定的性能指标创建警报。 例如，当平均 CPU 使用率超过特定的阈值或者可用磁盘空间低于特定的空间量时，警报可用于发出通知。 警报显示在 Azure 门户中，也可以通过电子邮件发送。 还可以触发 Azure 自动化 Runbook 或 Azure 逻辑应用来响应生成的警报。
-
-以下示例针对平均 CPU 使用率创建警报。
-
-1. 在 Azure 门户中选择“资源组”，选择“myResourceGroupMonitor”，并在资源列表中选择“myVM”。
-2. 选择“警报(经典)”，然后在警报窗口顶部选择“添加指标警报(经典)”。
-3. 为警报提供**名称**，例如 *myAlertRule*
-4. 若要在 CPU 百分比持续 5 分钟超过 1.0 时触发警报，请选中其他所有默认值。
-5. （可选）选中“电子邮件所有者、参与者和读者”对应的框，以便向他们发送电子邮件通知。 默认操作是在门户中显示通知。
-6. 选择“确定”按钮。
-
+<!-- Not Available due to [Guest] in VM metrics-->
+<!-- Not Available on ## Create alerts-->
+<!-- Metric select is no option for user choice-->
 <!-- Not Avaialbel ## Manage package updates-->
 <!-- Not Available on ## Monitor changes and inventory-->
 <!-- Not Available ## Advanced monitoring -->
@@ -147,7 +146,10 @@ az vm boot-diagnostics get-boot-log --resource-group myResourceGroupMonitor --na
 > [!div class="checklist"]
 > * 在 VM 上启用启动诊断
 > * 查看启动诊断
+> * 查看主机指标
 > * 在 VM 上启用诊断扩展
 > * 基于诊断指标创建警报
+
+<!-- Not Available on [Manage VM security](./tutorial-azure-security.md)-->
 
 <!--Update_Description: update meta properties, update link, wording update -->

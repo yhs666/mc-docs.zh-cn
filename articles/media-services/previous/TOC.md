@@ -193,6 +193,7 @@
 
 ## 集成
 ### [将 Azure Functions 与媒体服务配合使用](media-services-dotnet-how-to-use-azure-functions.md)
+### [将 Azure Functions 与媒体服务配合使用的示例](https://github.com/Azure-Samples/media-services-dotnet-functions-integration)
 
 ## 监视
 ### 检查作业进度
@@ -200,6 +201,7 @@
 #### [Azure 门户](media-services-portal-check-job-progress.md)
 #### [.NET](media-services-check-job-progress.md)
 ### [使用队列存储监视作业通知](media-services-dotnet-check-job-progress-with-queues.md)
+### [使用 Webhook 监视作业通知](media-services-dotnet-check-job-progress-with-webhooks.md)
 
 ## 故障排除
 ### [常见问题](media-services-frequently-asked-questions.md)

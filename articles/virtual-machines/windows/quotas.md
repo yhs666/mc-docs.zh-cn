@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 05/31/2018
-ms.date: 06/25/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 076916f58ced8be15c1dfd74ac36448aba5a3ee2
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.openlocfilehash: 91299ba779a6861286c4e0ba976f49f4a3be156b
+ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315654"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39307035"
 ---
 # <a name="virtual-machine-vcpu-quotas"></a>虚拟机 vCPU 配额
 
@@ -37,8 +37,7 @@ Get-AzureRmVMUsage -Location "China East"
 
 输出类似于以下内容：
 
-<!-- Pending the B Series, EV3, DV3, and FSV2 Releasement-->
-<!-- Pending the B Series, EV3, DV3, and FSV2 Releasement-->
+<!--PENDING FOR NC series GA ANOUNCEMENT -->
 ```
 Name                             Current Value Limit  Unit
 ----                             ------------- -----  ----
@@ -55,6 +54,8 @@ Standard D Family vCPUs                      0   100 Count
 Standard DS Family vCPUs                     0   100 Count
 Standard F Family vCPUs                      0   100 Count
 Standard FS Family vCPUs                     0   100 Count
+Standard NV Family vCPUs                     0    24 Count
+Standard NC Family vCPUs                     0    48 Count
 Standard Av2 Family vCPUs                    0   100 Count
 Standard LS Family vCPUs                     0   100 Count
 Standard Dv2 Promo Family vCPUs              0   100 Count
@@ -65,13 +66,16 @@ Standard DSv3 Family vCPUs                   0   100 Count
 Standard Ev3 Family vCPUs                    0   100 Count
 Standard ESv3 Family vCPUs                   0   100 Count
 Standard FSv2 Family vCPUs                   0   100 Count
+Standard ND Family vCPUs                     0     0 Count
+Standard NCv2 Family vCPUs                   0     0 Count
+Standard NCv3 Family vCPUs                   0     0 Count
 Standard LSv2 Family vCPUs                   0     0 Count
 Standard Storage Managed Disks               2 10000 Count
 Premium Storage Managed Disks                1 10000 Count
 
 ```
-<!-- Pending the B Series, EV3, DV3, and FSV2 Releasement-->
-<!-- Pending the B Series, EV3, DV3, and FSV2 Releasement-->
+<!--PENDING FOR NC series GA ANOUNCEMENT -->
+
 <!-- Not Available on Standard A8-A11 -->
 <!-- Not Available on Standard G, GS -->
 <!-- Not Available on Standard NV, NC -->

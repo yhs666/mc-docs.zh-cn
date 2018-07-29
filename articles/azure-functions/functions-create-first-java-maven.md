@@ -12,15 +12,15 @@ ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 05/15/2018
-ms.date: 05/29/2018
+ms.date: 07/23/2018
 ms.author: v-junlch
 ms.custom: mvc, devcenter
-ms.openlocfilehash: d87c2ef7524063611d83287fba6d896bc4e673d6
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 17c933181c6499e48a27e129610089e0769c65c4
+ms.sourcegitcommit: ba07d76f8394b5dad782fd983718a8ba49a9deb2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34567314"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39220207"
 ---
 # <a name="create-your-first-function-with-java-and-maven-preview"></a>通过 Java 和 Maven 创建你的第一个函数（预览版）
 
@@ -169,7 +169,7 @@ mvn azure-functions:deploy
 使用 `cURL` 测试在 Azure 上运行的函数应用。 需更改以下示例中的 URL，使之与前一步骤中你自己的函数应用的已部署 URL 匹配。
 
 ```
-curl -w '\n' https://fabrikam-function-20170920120101928.chinacloudsites.cn/api/hello -d AzureFunctions
+curl -w '\n' https://fabrikam-functions-20170920120101928.chinacloudsites.cn/api/hello -d AzureFunctions
 ```
 
 ```Output
@@ -185,4 +185,4 @@ Hello AzureFunctions!
 - 使用 Visual Studio Code 在本地调试函数。 安装 [Java 扩展包](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)且在 Visual Studio Code 中打开 Functions 项目后，[将调试器附加](https://code.visualstudio.com/Docs/editor/debugging#_launch-configurations)到端口 5005。 然后，在编辑器中设置断点，并在本地运行函数时触发函数：![在 Visual Studio Code 中调试函数](./media/functions-create-java-maven/vscode-debug.png)
 - 使用 Visual Studio Code 远程调试函数。 查看[编写无服务器 Java 应用程序](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud)文档中的说明。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

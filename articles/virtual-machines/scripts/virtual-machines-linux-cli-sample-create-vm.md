@@ -14,15 +14,15 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 02/27/2017
-ms.date: 06/25/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 4dcfcad3327b3bf489b855461af79fd1d7371dba
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: cb89d69eb6fc9a6cd79d6ce8351ef82de5c6a74c
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939932"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295643"
 ---
 # <a name="create-a-fully-configured-virtual-machine"></a>创建完全配置的虚拟机
 
@@ -65,11 +65,11 @@ az vm create --resource-group myResourceGroup --name myVM --nics myNic --image U
 az vm open-port --port 22 --resource-group myResourceGroup --name myVM
 ```
 
-## <a name="clean-up-deployment"></a>清理部署 
+## <a name="clean-up-deployment"></a>清理部署
 
 运行以下命令来删除资源组、VM 和所有相关资源。
 
-```azurecli 
+```azurecli
 az group delete --name myResourceGroup
 ```
 

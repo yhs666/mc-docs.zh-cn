@@ -14,15 +14,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 02/27/2018
-ms.date: 06/04/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 50eeb175aee9a7f2d10b33debad6582ca53428f3
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: 1bf781915e44d70635cb0b6c7c4952f7b1e94312
+ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867794"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39307024"
 ---
 # <a name="tutorial-create-and-manage-azure-virtual-networks-for-windows-virtual-machines-with-azure-powershell"></a>教程：使用 Azure PowerShell 为 Windows 虚拟机创建和管理 Azure 虚拟网络
 
@@ -35,7 +35,7 @@ Azure 虚拟机使用 Azure 网络进行内部和外部网络通信。 本教程
 > * 安全的网络流量
 > * 创建后端 VM
 
-如果选择在本地安装并使用 PowerShell，则本教程需要 Azure PowerShell 模块 5.7.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount -Environment AzureChinaCloud ` 以创建与 Azure 的连接。
+如果选择在本地安装并使用 PowerShell，则本教程需要 Azure PowerShell 模块 5.7.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount -Environment AzureChinaCloud` 以创建与 Azure 的连接。
 
 ## <a name="vm-networking-overview"></a>VM 网络概述
 
@@ -77,7 +77,7 @@ $frontendSubnet = New-AzureRmVirtualNetworkSubnetConfig `
 
 然后，创建一个名为 *myBackendSubnet* 的子网配置：
 
-```azurepowershell
+```powershell
 $backendSubnet = New-AzureRmVirtualNetworkSubnetConfig `
   -Name myBackendSubnet `
   -AddressPrefix 10.0.1.0/24
@@ -167,7 +167,7 @@ NSG 规则定义要允许或拒绝哪些网络端口上的流量。 这些规则
 
 使用 [New-AzureRmNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig) 创建名为 *myFrontendNSGRule* 的入站规则以允许 *myFrontendVM* 上的传入 Web 流量：
 
-```azurepowershell
+```powershell
 $nsgFrontendRule = New-AzureRmNetworkSecurityRuleConfig `
   -Name myFrontendNSGRule `
   -Protocol Tcp `
@@ -182,7 +182,7 @@ $nsgFrontendRule = New-AzureRmNetworkSecurityRuleConfig `
 
 可通过为后端子网创建 NSG，将内部流量限制为仅从 myFrontendVM 流向 myBackendVM。 以下示例创建名为“myBackendNSGRule”的 NSG 规则：
 
-```azurepowershell
+```powershell
 $nsgBackendRule = New-AzureRmNetworkSecurityRuleConfig `
   -Name myBackendNSGRule `
   -Protocol Tcp `
@@ -197,7 +197,7 @@ $nsgBackendRule = New-AzureRmNetworkSecurityRuleConfig `
 
 使用 [New-AzureRmNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermnetworksecuritygroup) 添加名为 *myFrontendNSG* 的网络安全组：
 
-```azurepowershell
+```powershell
 $nsgFrontend = New-AzureRmNetworkSecurityGroup `
   -ResourceGroupName myRGNetwork `
   -Location ChinaEast `
@@ -207,7 +207,7 @@ $nsgFrontend = New-AzureRmNetworkSecurityGroup `
 
 现在，使用 New-AzureRmNetworkSecurityGroup 添加名为 *myBackendNSG* 的网络安全组：
 
-```azurepowershell
+```powershell
 $nsgBackend = New-AzureRmNetworkSecurityGroup `
   -ResourceGroupName myRGNetwork `
   -Location ChinaEast `
@@ -217,7 +217,7 @@ $nsgBackend = New-AzureRmNetworkSecurityGroup `
 
 将网络安全组添加到子网：
 
-```azurepowershell
+```powershell
 $vnet = Get-AzureRmVirtualNetwork `
   -ResourceGroupName myRGNetwork `
   -Name myVNet

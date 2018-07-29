@@ -14,15 +14,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/10/2017
-ms.date: 06/04/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 255449b5d774e50a4ca3a9e0fa4ec88cbaf9deec
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 7db7e2df71c5ae941af84d889109147ac4881624
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702762"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295843"
 ---
 # <a name="tutorial-create-and-manage-azure-virtual-networks-for-linux-virtual-machines-with-the-azure-cli-20"></a>教程：使用 Azure CLI 2.0 为 Linux 虚拟机创建和管理 Azure 虚拟网络
 
@@ -308,4 +308,4 @@ az network nsg rule list --resource-group myRGNetwork --nsg-name myBackendNSG --
 > [!div class="nextstepaction"]
 > [在 Azure 中备份 Linux 虚拟机](./tutorial-backup-vms.md)
 
-<!--Update_Description: update meta properties, update links -->
+<!--Update_Description: update meta properties  -->

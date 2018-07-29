@@ -6,21 +6,22 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 03/05/2018
-ms.date: 04/02/2018
+origin.date: 07/06/2018
+ms.date: 07/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 81d27f23b257d67ff40d6666b41e9793dfbdd82f
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: 0f18638b49f62ed3807556d1507a1c34887c2ff7
+ms.sourcegitcommit: 74f9f0acb00fb728ff6e9bd67ac86a0c1bcd8d13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30223421"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39218896"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>解决 VMware VM 和物理服务器的复制问题
 
 使用 Azure Site Recovery 保护 VMware 虚拟机或物理服务器时，可能会收到特定错误消息。 本文介绍在使用 [Azure Site Recovery](site-recovery-overview.md) 将本地 VMware VM 和物理服务器复制到 Azure 时可能遇到的一些常见问题。
 
 ## <a name="initial-replication-issues"></a>初始复制问题。
+
 对于在支持方面遇到的初始复制故障，大多数都由源服务器到进程服务器或进程服务器到 Azure 之间的连接问题引起。 大多数情况下，用户可按照下列步骤解决这些问题。
 
 ### <a name="verify-the-source-machine"></a>验证源计算机
@@ -105,6 +106,6 @@ ms.locfileid: "30223421"
 
 * **检查进程服务器上的限制带宽是否不受约束**：增加带宽，并检查问题是否仍然存在。
 
-##<a name="next-steps"></a>后续步骤
-如果需要更多帮助，请将查询发布到 [Azure Site Recovery 论坛](https://www.azure.cn/support/forums/)，我们的社区非常活跃，其中一位工程师会向你提供帮助。
+## <a name="next-steps"></a>后续步骤
+如需更多帮助，请在 [Azure Site Recovery 论坛](https://www.azure.cn/support/contact/)提出疑问。 我们的社区非常活跃，工程师会提供帮助。
 <!--Update_Description: update meta properties, wording update, update link -->

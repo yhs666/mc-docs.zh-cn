@@ -13,15 +13,15 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-origin.date: 02/07/2018
-ms.date: 05/29/2018
+origin.date: 05/24/2018
+ms.date: 07/23/2018
 ms.author: v-junlch
-ms.openlocfilehash: b9e1aa8329aef0f6dff262ee8d294b295131f663
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: d78c6bf5b23181fc5b22023d3f4b533f5a98433e
+ms.sourcegitcommit: ba07d76f8394b5dad782fd983718a8ba49a9deb2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34567350"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39220239"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions 触发器和绑定概念
 
@@ -33,59 +33,11 @@ ms.locfileid: "34567350"
 
 输入和输出“绑定”提供从代码内连接到数据的声明性方式。 绑定是可选项，一个函数可以有多个输入和输出绑定。 
 
-借助触发器和绑定，可避免对正在使用的服务的详细信息进行硬编码。 函数接收函数参数中的数据（例如，队列消息内容）。 使用函数的返回值发送数据（例如，用于创建队列消息），返回值可能是 `out` 参数或[收集器对象](functions-reference-csharp.md#writing-multiple-output-values)。
+借助触发器和绑定，可避免对正在使用的服务的详细信息进行硬编码。 函数接收函数参数中的数据（例如，队列消息内容）。 使用函数的返回值发送数据（例如，用于创建队列消息）。 在 C# 和 C# 脚本中，发送数据的替代方法是使用 `out` 参数和[收集器对象](functions-reference-csharp.md#writing-multiple-output-values)。
 
 使用 Azure 门户开发函数时，会在 function.json 文件中配置触发器和绑定。 门户提供此配置的 UI，但可通过更换为“高级编辑器”，直接编辑文件。
 
 当使用 Visual Studio 开发一个用于创建类库的函数时，通过使用属性修饰方法和参数来配置触发器和绑定。
-
-## <a name="supported-bindings"></a>支持的绑定
-
-[!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
-
-有关哪些绑定处于预览状态或已批准在生产环境中使用的信息，请参阅[支持的语言](supported-languages.md)。
-
-## <a name="register-binding-extensions"></a>注册绑定扩展
-
-在版本 2.x 的 Azure Functions 运行时中，必须显式注册在函数应用中使用的[绑定扩展](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/README.md)。 
-
-扩展以 NuGet 包的形式提供，其中，包名称通常以 [microsoft.azure.webjobs.extensions](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions) 开头。  安装和注册绑定扩展的方式取决于函数的开发方式： 
-
-+ [在本地使用 Visual Studio 或 VS Code 进行 C# 开发](#local-c-development-using-visual-studio-or-vs-code)
-+ [在本地使用 Azure Functions Core Tools](#local-development-azure-functions-core-tools)
-+ [在 Azure 门户中](#azure-portal-development) 
-
-在版本 2.x 中，有一组不是以扩展形式提供的核心绑定。 不需要注册以下触发器和绑定的扩展：HTTP、计时器和 Azure 存储。 
-
-有关如何将函数应用设置为使用 Functions 运行时版本 2.x 的信息，请参阅[如何指定 Azure Functions 运行时的目标版本](set-runtime-version.md)。 Functions 运行时版本 2.x 目前以预览版提供。 
-
-本部分中所示的包版本仅用作示例。 请检查 [NuGet.org 站点](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions)，确定函数应用中的其他依赖项需要哪个版本的给定扩展。    
-
-###  <a name="local-c-development-using-visual-studio-or-vs-code"></a>使用 Visual Studio 或 VS Code 进行本地 C# 开发 
-
-使用 Visual Studio 或 Visual Studio Code 在本地开发 C# 函数时，只需添加扩展的 NuGet 包。 
-
-+ **Visual Studio**：使用 NuGet 包管理器工具。 以下 [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) 命令从包管理器控制台安装 Azure Cosmos DB 扩展：
-
-    ```
-    Install-Package Microsoft.Azure.WebJobs.Extensions.CosmosDB -Version 3.0.0-beta6 
-    ```
-+ **Visual Studio Code**：可以在 .NET CLI 中，通过命令提示符使用 [dotnet add package](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-add-package) 命令来安装包，如下所示：
-
-    ```
-    dotnet add package Microsoft.Azure.WebJobs.Extensions.CosmosDB --version 3.0.0-beta6 
-    ```
-
-### <a name="local-development-azure-functions-core-tools"></a>使用 Azure Functions Core Tools 进行本地开发
-
-[!INCLUDE [Full bindings table](../../includes/functions-core-tools-install-extension.md)]
-
-### <a name="azure-portal-development"></a>使用 Azure 门户进行开发
-
-创建函数或者将绑定添加到现有函数时，如果所添加的触发器或绑定的扩展需要注册，则系统会显示提示。   
-
-在系统针对所安装的特定扩展显示警告后，请单击“安装”注册该扩展。 对于给定的函数应用，只需安装每个扩展一次。 
-
 
 ## <a name="example-trigger-and-binding"></a>示例触发器和绑定
 
@@ -196,6 +148,66 @@ function generateRandomId() {
  }
 ```
 
+## <a name="supported-bindings"></a>支持的绑定
+
+[!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
+
+有关哪些绑定处于预览状态或已批准在生产环境中使用的信息，请参阅[支持的语言](supported-languages.md)。
+
+## <a name="register-binding-extensions"></a>注册绑定扩展
+
+在某些开发环境中，必须显式注册要使用的绑定。 绑定扩展在 NuGet 包中提供，且需要安装包才可注册扩展。 下表显示了注册绑定扩展的时间和方式。
+
+|开发环境 |注册<br/> Functions 1.x 中注册  |注册<br/> Functions 2.x 中注册  |
+|---------|---------|---------|
+|Azure 门户|自动|[自动，带有提示](#azure-portal-development)|
+|使用 Azure Functions Core Tools 的本地环境|自动|[使用 Core Tools CLI 命令](#local-development-azure-functions-core-tools)|
+|使用 Visual Studio 2017 的 C# 类库|[使用 NuGet 工具](#c-class-library-with-visual-studio-2017)|[使用 NuGet 工具](#c-class-library-with-visual-studio-2017)|
+|使用 Visual Studio Code 的 C# 类库|不适用|[使用 .NET Core CLI](#c-class-library-with-visual-studio-code)|
+
+以下绑定类型例外，它们不需要显式注册，因为它们会在所有版本和环境中自动注册：HTTP、计时器和 Azure 存储（blob、队列和表）。 
+
+### <a name="azure-portal-development"></a>使用 Azure 门户进行开发
+
+此部分仅适用于 Functions 2.x。 绑定扩展无需在 Functions 1.x 中显式注册。
+
+创建函数或添加绑定时，如果触发器或绑定的扩展需要注册，则系统会显示提示。 单击“安装”注册扩展，以响应提示。 
+
+对于给定的函数应用，只需安装每个扩展一次。 
+
+### <a name="local-development-azure-functions-core-tools"></a>使用 Azure Functions Core Tools 进行本地开发
+
+此部分仅适用于 Functions 2.x。 绑定扩展无需在 Functions 1.x 中显式注册。
+
+[!INCLUDE [functions-core-tools-install-extension](../../includes/functions-core-tools-install-extension.md)]
+
+<a name="local-csharp"></a>
+### <a name="c-class-library-with-visual-studio-2017"></a>使用 Visual Studio 2017 的 C# 类库
+
+在“Visual Studio 2017”中，可使用 [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) 命令从包管理器控制台安装包，如以下示例所示：
+
+```powershell
+Install-Package Microsoft.Azure.WebJobs.ServiceBus --Version <target_version>
+```
+
+用于给定绑定的包的名称在该绑定的参考文章中提供。 有关示例，请参阅[服务总线绑定参考文章的“包”部分](functions-bindings-service-bus.md#packages---functions-1x)。
+
+将示例中的 `<target_version>` 替换为特定包版本，例如 `3.0.0-beta5`。 在 [NuGet.org](https://nuget.org) 上的单个包页上列出了有效版本。与 Functions 运行时 1.x 或 2.x 对应的主版本在绑定的参考文章中指定。
+
+### <a name="c-class-library-with-visual-studio-code"></a>使用 Visual Studio Code 的 C# 类库
+
+在“Visual Studio Code”中，可在 .NET Core CLI 中，通过命令提示符使用 [dotnet add package](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) 命令来安装包，如以下示例所示：
+
+```terminal
+dotnet add package Microsoft.Azure.WebJobs.ServiceBus --version <target_version>
+```
+
+.NET Core CLI 只能用于 Azure Functions 2.x 开发。
+
+用于给定绑定的包的名称在该绑定的参考文章中提供。 有关示例，请参阅[服务总线绑定参考文章的“包”部分](functions-bindings-service-bus.md#packages---functions-1x)。
+
+将示例中的 `<target_version>` 替换为特定包版本，例如 `3.0.0-beta5`。 在 [NuGet.org](https://nuget.org) 上的单个包页上列出了有效版本。与 Functions 运行时 1.x 或 2.x 对应的主版本在绑定的参考文章中指定。
+
 ## <a name="binding-direction"></a>绑定方向
 
 所有触发器和绑定在 *function.json* 文件中都有一个 `direction` 属性：
@@ -213,9 +225,11 @@ function generateRandomId() {
 - 在 C# 类库，请将输出绑定特性应用到方法返回值。
 - 在其他语言中，请将 *function.json* 中的 `name` 属性设置为 `$return`。
 
-如果需要编写多个项，请使用[收集器对象](functions-reference-csharp.md#writing-multiple-output-values)，而不要使用返回值。 如果有多个输出绑定，请只使用其中一个绑定的返回值。
+如果有多个输出绑定，请只使用其中一个绑定的返回值。
 
-参阅语言特定的示例：
+在 C# 和 C# 脚本中，将数据发送到输出绑定的替代方法是使用 `out` 参数和[收集器对象](functions-reference-csharp.md#writing-multiple-output-values)。
+
+请参阅演示如何使用返回值的特定于语言的示例：
 
 - [C#](#c-example)
 - [C# 脚本 (.csx)](#c-script-example)
@@ -519,7 +533,7 @@ public static void Run(
       "name": "blobContents",
       "type": "blob",
       "direction": "in",
-      "path": "strings/{BlobName.FileName}.{BlobName.Extension}",
+      "path": "strings/{BlobName}",
       "connection": "AzureWebJobsStorage"
     },
     {
@@ -661,4 +675,4 @@ public class BlobName
 - [移动应用](functions-bindings-mobile-apps.md)
 - [外部文件](functions-bindings-external-file.md)
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

@@ -6,15 +6,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 05/11/2018
-ms.date: 06/18/2018
+origin.date: 07/06/2018
+ms.date: 07/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 101d6b9f970eb61483d48a5c32b25a4d3840d501
-ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
+ms.openlocfilehash: 43abe4959d551c256d6c003439331dffe9e0a41c
+ms.sourcegitcommit: 74f9f0acb00fb728ff6e9bd67ac86a0c1bcd8d13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2018
-ms.locfileid: "35568377"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39218887"
 ---
 # <a name="set-up-vmware-replication-in-a-multi-tenancy-environment-with-the-cloud-solution-provider-csp-program"></a>使用云解决方案提供商 (CSP) 计划在多租户环境中设置 VMware 复制
 
@@ -100,4 +100,4 @@ ms.locfileid: "35568377"
 - 查看有关将 VMware VM 复制到 Azure 的[教程](vmware-azure-tutorial.md)。
 详细了解用于将 VMware VM 复制到 Azure 的[多租户环境](vmware-azure-multi-tenant-overview.md)。
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties -->

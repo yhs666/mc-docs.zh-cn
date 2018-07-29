@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 10/06/2017
-ms.date: 05/07/2018
+ms.date: 08/06/2018
 ms.author: v-yiso
-ms.openlocfilehash: 0249ed13e302e65d39cc962f657774b8c005ab0a
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 34c41c3506464348b9ad53cbb9b7c058a9336ce1
+ms.sourcegitcommit: d4092cf6aba0d949bf612093c76f964c2bdfd0ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939995"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39306548"
 ---
 # <a name="schedule-and-broadcast-jobs-node"></a>计划和广播作业 (Node)
 
@@ -270,7 +270,7 @@ scheduleJobService.js，它调用模拟设备应用中的直接方法，并通�
 [lnk-twin-props]: ./iot-hub-node-node-twin-how-to-configure.md
 [lnk-c2d-methods]: ./iot-hub-node-node-direct-methods.md
 [lnk-dev-methods]: ./iot-hub-devguide-direct-methods.md
-[lnk-fwupdate]: ./iot-hub-node-node-firmware-update.md
+[lnk-fwupdate]: ./tutorial-firmware-update.md
 [lnk-iot-edge]: ./iot-hub-linux-iot-edge-get-started.md
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 [lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/

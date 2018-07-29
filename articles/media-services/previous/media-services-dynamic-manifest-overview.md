@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 01/22/2018
 ms.date: 05/07/2018
 ms.author: v-nany
-ms.openlocfilehash: 78fbb3d043a689cb8c1802af7d5a88f90f92d212
-ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
+ms.openlocfilehash: bfef82450940a60e1a5ac5cbe2e36dcd2333acff
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36748420"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219563"
 ---
 # <a name="filters-and-dynamic-manifests"></a>筛选器和动态清单
 从 2.17 版开始，可使用媒体服务为资产定义筛选器。 这些筛选器是服务器端规则，可让客户选择运行如下操作：只播放一段视频（而非播放完整视频），或只指定客户设备可以处理的一部分音频和视频再现内容（而非与该资产相关的所有再现内容）。 通过按客户请求创建的动态清单可以实现对资产进行这种筛选，并基于指定的筛选器流式传输视频。

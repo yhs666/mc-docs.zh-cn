@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 03/30/2017
-ms.date: 06/25/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0848e01bbd50d184cb08b5b841c0e20cc25412dc
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.openlocfilehash: 5405510331ac94d588036b12f7fabbd57830f062
+ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315409"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39306993"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-powershell"></a>使用 Azure PowerShell 将 IaaS 资源从经典部署模型迁移到 Azure 资源管理器
 以下步骤演示了如何使用 Azure PowerShell 命令将基础结构即服务 (IaaS) 资源从经典部署模型迁移到 Azure 资源管理器部署模型。
@@ -47,8 +47,6 @@ ms.locfileid: "36315409"
 > 目前不支持通过应用程序网关从经典部署模型迁移到 Resource Manager 部署模型。 如果要迁移带应用程序网关的经典虚拟网络，请先删除该网关，然后运行准备操作来移动网络。 完成迁移后，在 Azure Resource Manager 中重新连接该网关。
 >
 >无法自动迁移其他订阅中连接到 ExpressRoute 线路的 ExpressRoute 网关。 此类情况下，请删除 ExpressRoute 网关、迁移虚拟网络并重新创建网关。 有关详细信息，请参阅[将 ExpressRoute 线路和关联的虚拟网络从经典部署模型迁移到资源管理器部署模型](../../expressroute/expressroute-migration-classic-resource-manager.md)。
->
->
 
 ## <a name="step-2-install-the-latest-version-of-azure-powershell"></a>步骤2：安装最新版本的 Azure PowerShell
 安装 Azure PowerShell 可以通过两个主要的选项：[PowerShell 库](https://www.powershellgallery.com/profiles/azure-sdk/)或 [Web 平台安装程序 (WebPI)](http://aka.ms/webpi-azps)。 WebPI 接收每月的更新。 PowerShell 库会持续接收更新。 本文基于 Azure PowerShell 2.1.0 版。
@@ -91,8 +89,6 @@ ms.locfileid: "36315409"
 > 注册是一次性步骤，但必须在尝试迁移之前完成。 如果不注册，则会出现以下错误消息：
 >
 > *错误请求：未针对迁移注册订阅。*
->
->
 
 使用以下命令向迁移资源提供程序注册：
 
@@ -144,8 +140,6 @@ Get-AzureRmVMUsage -Location "China North"
 
 > [!NOTE]
 > 此处描述的所有操作都是幂等的。 如果遇到功能不受支持或配置错误以外的问题，建议重试准备、中止或提交操作。 然后，平台会尝试再次操作。
->
->
 
 ### <a name="step-61-option-1---migrate-virtual-machines-in-a-cloud-service-not-in-a-virtual-network"></a>步骤 6.1：选项 1 - 迁移云服务中的虚拟机（不在虚拟网络中）
 使用以下命令获取云服务列表，并选取要迁移的云服务。 如果云服务中的 VM 在虚拟网络中或者具有 Web 角色或辅助角色，该命令会返回错误消息。
@@ -246,8 +240,6 @@ Get-AzureRmVMUsage -Location "China North"
 
 > [!NOTE]
 > 如果虚拟网络包含的 Web 角色/辅助角色或 VM 的配置不受支持，则会出现验证错误消息。
->
->
 
 首先，请使用以下命令验证用户是否可以迁移虚拟网络：
 
@@ -273,10 +265,11 @@ Get-AzureRmVMUsage -Location "China North"
     Move-AzureVirtualNetwork -Commit -VirtualNetworkName $vnetName
 ```
 
-## <a name="step-62-migrate-a-storage-account"></a>步骤 6.2：迁移存储帐户
+### <a name="step-62-migrate-a-storage-account"></a>步骤 6.2：迁移存储帐户
 完成虚拟机迁移之后，建议先执行以下先决条件检查，然后再迁移存储帐户。
 
-如果存储帐户没有关联的磁盘或 VM 数据，则可跳至“验证存储帐户并启动迁移”部分。
+> [!NOTE]
+> 如果存储帐户没有关联的磁盘或 VM 数据，则可以直接跳至“验证存储帐户并开始迁移”部分。
 
 * **关于是否迁移了 VM 或存储帐户是否有磁盘资源的先决条件检查**
     * **迁移其磁盘存储在存储帐户中的经典虚拟机**
@@ -356,4 +349,4 @@ Get-AzureRmVMUsage -Location "China North"
 * [用于帮助将 IaaS 资源从经典部署模型迁移到 Azure 资源管理器部署模型的社区工具](migration-classic-resource-manager-community-tools.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 * [查看最常见的迁移错误](migration-classic-resource-manager-errors.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 * [查看有关将 IaaS 资源从经典部署模型迁移到 Azure 资源管理器部署模型的最常见问题](migration-classic-resource-manager-faq.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
-<!-- Update_Description: update meta properties, update link -->
+<!-- Update_Description: update meta properties, wording update -->

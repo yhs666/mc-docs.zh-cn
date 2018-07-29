@@ -15,18 +15,20 @@ ms.topic: article
 origin.date: 01/23/2017
 ms.date: 08/28/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 0a2442f8f856932276bf4283cb397d8f6b26136a
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.openlocfilehash: 31d4fdd47d4725caa37eb3b6f17e82d2ce13ff33
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
-ms.locfileid: "21135031"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295769"
 ---
 # <a name="list-azure-storage-resources-in-c"></a>使用 C++ 列出 Azure 存储资源
 使用 Azure 存储进行开发时，很多情况下列表操作很重要。 本文介绍如何使用用于 C++ 的 Azure 存储客户端库中提供的列表 API 最有效率地枚举 Azure 存储中的对象。
 
 > [!NOTE]
 > 本指南主要面向适用于 C++ 版本 2.x 的 Azure 存储客户端库，该库可通过 [NuGet](http://www.nuget.org/packages/wastorage) 或 [GitHub](https://github.com/Azure/azure-storage-cpp) 获取。
+> 
+> 
 
 存储客户端库提供了多种方法，用于列出或查询 Azure 存储中的对象。 本文探讨以下方案：
 
@@ -59,7 +61,7 @@ list_blob_item_segment list_blobs_segmented(const continuation_token& token) con
 ## <a name="segmented-listing"></a>分段列表
 云存储的规模决定了要使用分段列表。 例如，你可能在 Azure blob 容器中有超过一百万个 blob，或者在 Azure 表中有超过十亿个实体。 这些不是理论上的数字，而是实际的客户使用情况。
 
-因此，要在单个响应中列出所有对象是不实际的。 可以改用分页列出对象。 每个列表 API 都有 *分段* 重载。
+因此，要在单个响应中列出所有对象是不实际的。 与之相反，可以使用分页来列出对象。 每个列表 API 都有 *分段* 重载。
 
 分段列表操作的响应包括：
 
@@ -146,7 +148,7 @@ do
 } while (!token.empty());
 ```
 
-可以指定该段的 max_results 参数，在请求数和内存使用量之间进行均衡，满足应用程序的性能要求。
+可以指定该段的 *max_results* 参数，在请求数和内存使用量之间进行平衡，满足应用程序的性能要求。
 
 此外，如果使用了分段列表 API，但采用“贪婪”方式将数据存储在本地集合中，则我们也强烈建议对代码进行重构，谨慎地应对数据处理规模扩大时会数据存储在本地集合中带来的问题。
 
@@ -161,7 +163,7 @@ do
 list_blob_item_iterator list_blobs() const;
 ```
 
-使用懒惰列表模式的典型代码片段可能如下所示：
+使用懒惰列表模式的典型代码段可能会如下所示：
 
 ```cpp
 // List blobs in the blob container
@@ -203,4 +205,3 @@ for (auto it = container.list_blobs(); it != end_of_results; ++it)
 * [Azure 存储团队博客](http://blogs.msdn.com/b/windowsazurestorage/)
 * [Azure 存储文档](/storage/)
 
-<!--Update_Description: update link-->

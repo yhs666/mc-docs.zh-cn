@@ -9,19 +9,19 @@ editor: bagovind
 ms.assetid: b547c5a5-2da2-4372-9938-481cb962d2d6
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 05/11/2018
-ms.date: 07/02/2018
+origin.date: 06/29/2018
+ms.date: 07/25/2018
 ms.author: v-junlch
 ms.reviewer: bagovind
-ms.openlocfilehash: 87505c3345589f909c628137b7b0549e136a5a5e
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.openlocfilehash: d09d70bea3d226fb70ba9cb8b8f0c85bbb7514ef
+ms.sourcegitcommit: cce18df2de12353f0d8f01c649307a5789d59cd4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168300"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39246128"
 ---
 # <a name="elevate-access-for-a-global-administrator-in-azure-active-directory"></a>为 Azure Active Directory 中的全局管理员提升访问权限
 
@@ -32,7 +32,7 @@ ms.locfileid: "39168300"
 - 查看组织中的所有 Azure 订阅
 - 允许自动化应用（例如发票或审计应用）访问所有 Azure 订阅
 
-默认情况下，Azure AD 管理员角色和 Azure 基于角色的访问控制 (RBAC) 角色不会跨越 Azure AD 和 Azure。 但是，如果你是 Azure AD 中的全局管理员，则可提升访问权限以管理 Azure 订阅和管理群组。 如果提升访问权限，你将被授予特定租户的所有订阅中的[用户访问管理员](built-in-roles.md#user-access-administrator)角色（RBAC 角色）。 借助用户访问管理员角色，你可授予其他用户对根范围 (`/`) 内的 Azure 资源的访问权限。
+默认情况下，Azure AD 管理员角色和 Azure 基于角色的访问控制 (RBAC) 角色不会跨越 Azure AD 和 Azure。 但是，如果你是 Azure AD 中的全局管理员，则可提升访问权限以管理 Azure 订阅和管理组。 如果提升访问权限，你将被授予特定租户的所有订阅中的[用户访问管理员](built-in-roles.md#user-access-administrator)角色（RBAC 角色）。 借助用户访问管理员角色，你可授予其他用户对根范围 (`/`) 内的 Azure 资源的访问权限。
 
 此提升应该是临时的，并且只能在需要时执行。
 
@@ -50,7 +50,7 @@ ms.locfileid: "39168300"
 
    ![全局管理员可管理 Azure 订阅和管理组 - 屏幕截图](./media/elevate-access-global-admin/aad-properties-global-admin-setting.png)
 
-   如果将开关设置为“是”，全局管理员帐户（当前登录用户）会在根范围 (`/`) 内添加到 Azure RBAC 的用户访问管理员角色，此操作可授予你查看和报告与 Azure AD 租户关联的所有 Azure 订阅的访问权限。
+   如果将开关设置为“是”，全局管理员帐户（当前登录用户）会在根范围 (`/`) 内添加到 Azure RBAC 的用户访问管理员角色，此角色可授予你查看和报告与 Azure AD 租户关联的所有 Azure 订阅的访问权限。
 
    如果将开关设置为“否”，全局管理员帐户（当前登录用户）会从 Azure RBAC 的用户访问管理员角色中删除。 你无法看到与 Azure AD 租户关联的所有 Azure 订阅，并且只能查看和管理已被授予访问权限的 Azure 订阅。
 
@@ -184,9 +184,9 @@ Remove-AzureRmRoleAssignment -SignInName <username@example.com> `
     >[!NOTE] 
     >租户管理员不应拥有多个分配，如果前面的查询返回过多分配，你也可以只在租户范围级别查询所有分配，然后筛选结果：`GET https://management.chinacloudapi.cn/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()`
         
-    a. 上述调用将返回角色分配列表。 在范围 `"/"` 查找以下角色分配：`roleDefinitionId` 以第 1 步中的角色名称 ID 结尾，并且 `principalId` 与租户管理员的 objectId 一致。 
+3. 上述调用将返回角色分配列表。 在范围 `"/"` 查找以下角色分配：`roleDefinitionId` 以第 1 步中的角色名称 ID 结尾，并且 `principalId` 与租户管理员的 objectId 一致。 
     
-      示例角色分配：
+    示例角色分配：
 
     ```json
         {
@@ -210,9 +210,9 @@ Remove-AzureRmRoleAssignment -SignInName <username@example.com> `
         }
     ```
         
-      同样，保存 `name` 参数的 ID，在本例中为 e7dd75bc-06f6-4e71-9014-ee96a929d099。
+    同样，保存 `name` 参数的 ID，在本例中为 e7dd75bc-06f6-4e71-9014-ee96a929d099。
 
-    b. 最后，使用角色分配 ID 删除 `elevateAccess` 添加的分配：
+4. 最后，使用角色分配 ID 删除 `elevateAccess` 添加的分配：
 
     ```http
     DELETE https://management.chinacloudapi.cn/providers/Microsoft.Authorization/roleAssignments/e7dd75bc-06f6-4e71-9014-ee96a929d099?api-version=2015-07-01
@@ -222,4 +222,4 @@ Remove-AzureRmRoleAssignment -SignInName <username@example.com> `
 
 - [使用 REST 进行基于角色的访问控制](role-assignments-rest.md)
 
-
+<!-- Update_Description: wording update -->

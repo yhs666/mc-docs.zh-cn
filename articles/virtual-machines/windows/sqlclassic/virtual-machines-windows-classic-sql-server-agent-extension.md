@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-origin.date: 03/07/2018
-ms.date: 04/16/2018
+origin.date: 07/12/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0a0c45332f28264d3aa703030f838b85a51af5f4
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.openlocfilehash: 3d4f73cba674495d68ca606c29f9d12a2624ff7b
+ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31325469"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39307009"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-classic"></a>使用 SQL Server 代理扩展（经典）在 Azure 虚拟机上自动完成管理任务
 > [!div class="op_single_selector"]
@@ -82,8 +82,9 @@ SQL Server IaaS 代理扩展支持以下管理任务：
 
 > [!NOTE]
 > 经典虚拟机不能通过门户安装和配置 SQL IaaS 代理扩展。
-> 
-> 
+
+> [!NOTE]
+> SQL Server IaaS 代理扩展仅在 [SQL Server VM 库映像](../sql/virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms)（即用即付或自带许可）上受支持。 如果在仅限 OS 的 Windows Server 虚拟机上手动安装 SQL Server，或者部署自定义的 SQL Server VM VHD，则不支持此扩展。 在这些情况下，可以使用 PowerShell 手动安装和管理扩展，但强烈建议改为安装 SQL Server VM 库映像，然后对其进行自定义。
 
 ## <a name="status"></a>状态
 验证是否已安装扩展的方法之一是在 Azure 门户中查看代理状态。 选择虚拟机边栏选项卡中列出的虚拟机，然后单击“扩展”。 **SQLIaaSAgent** 扩展。

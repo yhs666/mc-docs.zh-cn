@@ -15,14 +15,14 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 04/01/2017
-ms.date: 05/29/2018
+ms.date: 07/24/2018
 ms.author: v-junlch
-ms.openlocfilehash: a036f4fe2ac09ddcc6861f714b64f96bb677b6de
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 0bc8219652f860d2b4bc86ae82657fa64d1f707e
+ms.sourcegitcommit: ba07d76f8394b5dad782fd983718a8ba49a9deb2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34567353"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39220232"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure Functions 的 Azure 服务总线绑定
 
@@ -30,13 +30,17 @@ ms.locfileid: "34567353"
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages"></a>包
+## <a name="packages---functions-1x"></a>包 - Functions 1.x
 
-[Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) NuGet 包中提供了服务总线绑定。 [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/) GitHub 存储库中提供了此包的源代码。
+[Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) NuGet 包 2.x 版中提供了服务总线绑定。 [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/blob/v2.x/src/Microsoft.Azure.WebJobs.ServiceBus/) GitHub 存储库中提供了此包的源代码。
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
-[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+## <a name="packages---functions-2x"></a>包 - Functions 2.x
+
+[Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) NuGet 包 3.x 版中提供了服务总线绑定。 [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/) GitHub 存储库中提供了此包的源代码。
+
+[!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
 ## <a name="trigger"></a>触发器
 
@@ -78,7 +82,7 @@ public static void Run(
 
 以下示例演示 *function.json* 文件中的一个服务总线触发器绑定以及使用该绑定的 [C# 脚本函数](functions-reference-csharp.md)。 此函数将读取[消息元数据](#trigger---message-metadata)并记录服务总线队列消息。
 
-下面是 *function.json* 文件中的绑定数据：
+下面是 function.json 文件中的绑定数据：
 
 ```json
 {
@@ -118,7 +122,7 @@ public static void Run(string myQueueItem,
 
 以下示例演示 *function.json* 文件中的一个服务总线触发器绑定以及使用该绑定的 [F# 函数](functions-reference-fsharp.md)。 该函数记录服务总线队列消息。 
 
-下面是 *function.json* 文件中的绑定数据：
+下面是 function.json 文件中的绑定数据：
 
 ```json
 {
@@ -146,7 +150,7 @@ let Run(myQueueItem: string, log: TraceWriter) =
 
 以下示例演示 *function.json* 文件中的一个服务总线触发器绑定以及使用该绑定的 [JavaScript 函数](functions-reference-node.md)。 此函数将读取[消息元数据](#trigger---message-metadata)并记录服务总线队列消息。 
 
-下面是 *function.json* 文件中的绑定数据：
+下面是 function.json 文件中的绑定数据：
 
 ```json
 {
@@ -236,11 +240,11 @@ module.exports = function(context, myQueueItem) {
 
 ## <a name="trigger---configuration"></a>触发器 - 配置
 
-下表解释了在 *function.json* 文件和 `ServiceBusTrigger` 特性中设置的绑定配置属性。
+下表解释了在 function.json 文件和 `ServiceBusTrigger` 特性中设置的绑定配置属性。
 
 |function.json 属性 | Attribute 属性 |说明|
 |---------|---------|----------------------|
-|**类型** | 不适用 | 必须设置为“serviceBusTrigger”。 在 Azure 门户中创建触发器时，会自动设置此属性。|
+|类型 | 不适用 | 必须设置为“serviceBusTrigger”。 在 Azure 门户中创建触发器时，会自动设置此属性。|
 |direction | 不适用 | 必须设置为“in”。 在 Azure 门户中创建触发器时，会自动设置此属性。 |
 |**name** | 不适用 | 变量的名称，表示函数代码中的队列或主题消息。 设置为“$return”可引用函数返回值。 | 
 |**queueName**|**QueueName**|要监视的队列的名称。  仅在监视队列的情况下设置，不为主题设置。
@@ -258,7 +262,7 @@ module.exports = function(context, myQueueItem) {
 - `string` - 如果消息是文本。
 - `byte[]` - 适用于二进制数据。
 - 自定义类型 - 如果消息包含 JSON，Azure Functions 会尝试反序列化 JSON 数据。
-- `BrokeredMessage` - 提供带 [BrokeredMessage.GetBody<T>()](https://msdn.microsoft.com/library/hh144211.aspx) 方法的反序列化消息。
+- `BrokeredMessage` - 提供带 [BrokeredMessage.GetBody<T>()](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1) 方法的反序列化消息。
 
 这些参数仅适用于 Azure Functions 版本 1.x；对于 2.x，请使用 [`Message`](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.servicebus.message) 而非 `BrokeredMessage`。
 
@@ -332,7 +336,7 @@ public static string ServiceBusOutput([HttpTrigger] dynamic input, TraceWriter l
 
 以下示例演示 *function.json* 文件中的一个服务总线输出绑定以及使用该绑定的 [C# 脚本函数](functions-reference-csharp.md)。 该函数使用计时器触发器，每隔 15 秒发送一条队列消息。
 
-下面是 *function.json* 文件中的绑定数据：
+下面是 function.json 文件中的绑定数据：
 
 ```json
 {
@@ -383,7 +387,7 @@ public static void Run(TimerInfo myTimer, TraceWriter log, ICollector<string> ou
 
 以下示例演示 *function.json* 文件中的一个服务总线输出绑定以及使用该绑定的 [F# 脚本函数](functions-reference-fsharp.md)。 该函数使用计时器触发器，每隔 15 秒发送一条队列消息。
 
-下面是 *function.json* 文件中的绑定数据：
+下面是 function.json 文件中的绑定数据：
 
 ```json
 {
@@ -420,7 +424,7 @@ let Run(myTimer: TimerInfo, log: TraceWriter, outputSbQueue: byref<string>) =
 
 以下示例演示 *function.json* 文件中的一个服务总线输出绑定以及使用该绑定的 [JavaScript 函数](functions-reference-node.md)。 该函数使用计时器触发器，每隔 15 秒发送一条队列消息。
 
-下面是 *function.json* 文件中的绑定数据：
+下面是 function.json 文件中的绑定数据：
 
 ```json
 {
@@ -500,11 +504,11 @@ public static string Run([HttpTrigger] dynamic input, TraceWriter log)
 
 ## <a name="output---configuration"></a>输出 - 配置
 
-下表解释了在 *function.json* 文件和 `ServiceBus` 特性中设置的绑定配置属性。
+下表解释了在 function.json 文件和 `ServiceBus` 特性中设置的绑定配置属性。
 
 |function.json 属性 | Attribute 属性 |说明|
 |---------|---------|----------------------|
-|**类型** | 不适用 | 必须设置为“serviceBus”。 在 Azure 门户中创建触发器时，会自动设置此属性。|
+|类型 | 不适用 | 必须设置为“serviceBus”。 在 Azure 门户中创建触发器时，会自动设置此属性。|
 |direction | 不适用 | 必须设置为“out”。 在 Azure 门户中创建触发器时，会自动设置此属性。 |
 |**name** | 不适用 | 变量的名称，表示函数代码中的队列或主题。 设置为“$return”可引用函数返回值。 | 
 |**queueName**|**QueueName**|队列名称。  仅在发送队列消息的情况下设置，不为主题设置。

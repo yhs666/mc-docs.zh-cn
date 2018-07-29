@@ -6,24 +6,23 @@ author: tdykstra
 manager: cfowler
 ms.service: functions
 ms.topic: include
-origin.date: 03/12/2018
-ms.date: 05/30/2018
+origin.date: 05/23/2018
+ms.date: 07/24/2018
 ms.author: v-junlch
 ms.custom: include file
-ms.openlocfilehash: 490014807641b8c004bb3e67ad601ff9623942ca
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 6ee553b22a453551483b931a3b8e823438154fc8
+ms.sourcegitcommit: ba07d76f8394b5dad782fd983718a8ba49a9deb2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34567345"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39220242"
 ---
-### <a name="c-class-library"></a>C# 类库
+下表说明了如何在每个开发环境中添加对此绑定的支持。
 
-对于 C# 类库开发，通过[安装该程序包](../articles/azure-functions/functions-triggers-bindings.md#local-c-development-using-visual-studio-or-vs-code)添加对绑定的支持。
+| 开发环境               | 添加支持 <br>Functions 1.x  |
+|----------------------|----------------|---------------|
+|本地开发 - C# 类库       | [安装包](../articles/azure-functions/functions-triggers-bindings.md#c-class-library-with-visual-studio-2017) | 
+|本地开发 - C# 脚本、JavaScript、F# |自动         |
+|门户开发|  自动    |
 
-### <a name="binding-extensions-in-functions-2x"></a>Functions 2.x 中的绑定扩展
-
-对于 Azure Functions 2.x 版中的本地开发，该包用于[注册绑定扩展](../articles/azure-functions/functions-triggers-bindings.md#local-development-azure-functions-core-tools)。
-
-<!-- ms.date: 05/30/2018 -->
-
+<!-- ms.date: 07/24/2018 -->

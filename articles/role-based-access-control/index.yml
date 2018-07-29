@@ -1,9 +1,15 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: 2a7d9c487fa6ef14173b0497c8804e3867f73099
+ms.sourcegitcommit: cce18df2de12353f0d8f01c649307a5789d59cd4
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39246117"
 documentType: LandingData
 title: 基于角色的访问控制文档
 metadata:
   document_id: 
-  title: Azure 基于角色的访问控制文档 | Microsoft Docs
+  title: Azure 中基于角色的访问控制 (RBAC) 文档 | Microsoft Docs
   description: 了解基于角色的访问控制 (RBAC) 以管理谁有权访问 Azure 资源、他们可以对这些资源执行哪些操作以及他们有权访问哪些领域。
   services: active-directory
   author: rolyon
@@ -12,14 +18,8 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.openlocfilehash: 9119377f44b1c5093f988249578949cd317bb483
-  ms.sourcegitcommit: a20c461541ba7db541c01c8a18fc4cff48e3d2d5
-  ms.translationtype: HT
-  ms.contentlocale: zh-CN
-  ms.lasthandoff: 07/03/2018
-  ms.locfileid: "37361229"
 origin.date: 06/15/2018
-ms.date: 07/03/2018
+ms.date: 07/25/2018
 ms.author: v-junlch
 abstract:
   description: 基于角色的访问控制 (RBAC) 是一个系统，它为 Azure 中的资源提供精细的访问管理。 使用 RBAC，可以在团队中对职责进行分配，仅向用户授予执行作业所需的访问权限。
@@ -35,15 +35,6 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="/role-based-access-control/tutorial-role-assignments-user-powershell">授予用户访问权限 - PowerShell</a>
     - html: <a href="/role-based-access-control/tutorial-role-assignments-group-powershell">授予组访问权限 - PowerShell</a>
     - html: <a href="/role-based-access-control/tutorial-custom-role-powershell">创建自定义角色 - PowerShell</a>
     - html: <a href="/role-based-access-control/tutorial-custom-role-cli">创建自定义角色 - CLI</a>
-- title: 参考
-  items:
-  - type: list
-    style: unordered
-    items:
-    - html: <a href="https://docs.microsoft.com/powershell/module/azurerm.resources">Azure PowerShell</a>
-    - html: <a href="/cli/role?view=azure-cli-latest">Azure CLI</a>
-    - html: <a href="https://docs.microsoft.com/rest/api/authorization/">REST API</a>

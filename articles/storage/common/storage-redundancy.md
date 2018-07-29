@@ -1,5 +1,5 @@
 ---
-title: Azure 存储中的数据复制 | Microsoft Docs
+title: Azure 存储中的数据复制 | Azure
 description: 复制 Azure 存储帐户中的数据，实现持久性和高可用性。 复制选项包括本地冗余存储 (LRS)、区域冗余存储 (ZRS)、异地冗余存储 (GRS) 和读取访问异地冗余存储 (RA-GRS)。
 services: storage
 author: forester123
@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 01/21/2018
 ms.date: 06/11/2018
 ms.author: v-nany
-ms.openlocfilehash: 2435e8f5a7e96e65383ad907d0785ad273a00429
-ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
+ms.openlocfilehash: a6e2eb08fe65adacf045751eb82ec4da95451ce7
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103055"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295586"
 ---
 # <a name="azure-storage-replication"></a>Azure 存储复制
 
@@ -30,14 +30,16 @@ ms.locfileid: "37103055"
 * [异地冗余存储 (GRS)](storage-redundancy-grs.md)
 * [读取访问异地冗余存储 (RA-GRS)](storage-redundancy-grs.md)
 
-| 方案 | LRS | GRS | RA-GRS |
-|:--- |:--- |:--- |:--- |
-| 数据中心内的节点不可用 |是 |是 |是
-| 整个数据中心（区域性或非区域性）不可用 |否 |是 |是 |
-| 区域范围的服务中断 |否 |是 |是 |
-| 整个区域不可用时对数据进行读取访问（远程异地复制区域中） |否 |否 |是 |
-| 旨在给定年份为对象提供 ___ 的持续性 |至少 99.999999999%（11 个 9）|至少 99.99999999999999%（16 个 9）|至少 99.99999999999999%（16 个 9）|
-| 支持的存储帐户类型 |GPv1、GPv2、Blob |GPv1、GPv2、Blob |GPv1、GPv2、Blob
+下表简要概述了每种复制策略为给定类型的事件（或具有类似影响性的事件）提供的持久性和可用性范围。
+
+| 方案                                                                                                 | LRS                             | GRS                              | RA-GRS                               |
+| :------------------------------------------------------------------------------------------------------- | :------------------------------ | :------------------------------- | :----------------------------------- |
+| 数据中心内的节点不可用                                                                 | 是                             | 是                              | 是                                  |
+| 整个数据中心（区域性或非区域性）不可用                                           | 否                              | 是                              | 是                                  |
+| 区域范围的服务中断                                                                                     | 否                              | 是                              | 是                                  |
+| 整个区域不可用时对数据进行读取访问（远程异地复制区域中） | 否                              | 否                               | 是                                  |
+| 旨在给定年份为对象提供 ___ 的持续性                                          | 至少 99.999999999%（11 个 9） | 至少 99.99999999999999%（16 个 9） | 至少 99.99999999999999%（16 个 9） |
+| 支持的存储帐户类型                                                                   | GPv1、GPv2、Blob                | GPv1、GPv2、Blob                     | GPv1、GPv2、Blob                     |
 
 有关不同冗余选项的定价信息，请参阅 [Azure 存储定价](https://www.azure.cn/pricing/details/storage/)。
 

@@ -12,14 +12,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: ''
 ms.workload: identity
 origin.date: 06/12/2018
-ms.date: 07/02/2018
+ms.date: 07/24/2018
 ms.author: v-junlch
-ms.openlocfilehash: cdb52b2fc4ef8195dc4672dc0e64cd86e7e13e85
-ms.sourcegitcommit: a20c461541ba7db541c01c8a18fc4cff48e3d2d5
+ms.openlocfilehash: 2164658cb654a2a960dd38445668ef717b56a7d1
+ms.sourcegitcommit: cce18df2de12353f0d8f01c649307a5789d59cd4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37361235"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39246118"
 ---
 # <a name="tutorial-create-a-custom-role-using-azure-cli"></a>教程：使用 Azure CLI 创建自定义角色
 
@@ -39,8 +39,8 @@ ms.locfileid: "37361235"
 
 要完成本教程，需要：
 
-- 有权创建自定义角色，例如[所有者](built-in-roles.md#owner)或[用户访问管理员](built-in-roles.md#user-access-administrator)。
-- 在本地安装了 [Azure CLI](/cli/install-azure-cli)。
+- 有权创建自定义角色，例如[所有者](built-in-roles.md#owner)或[用户访问管理员](built-in-roles.md#user-access-administrator)
+- 在本地安装 [Azure CLI](/cli/install-azure-cli)
 
 ## <a name="sign-in-to-azure-cli"></a>登录 Azure CLI
 
@@ -290,5 +290,6 @@ ms.locfileid: "37361235"
 ## <a name="next-steps"></a>后续步骤
 
 > [!div class="nextstepaction"]
-> [Azure 中的自定义角色](custom-roles.md)
+> [使用 Azure CLI 创建自定义角色](custom-roles-cli.md)
 
+<!-- Update_Description: wording update -->

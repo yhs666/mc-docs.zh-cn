@@ -13,12 +13,12 @@ ms.workload: storage
 origin.date: 05/11/2018
 ms.date: 06/11/2018
 ms.author: v-nany
-ms.openlocfilehash: 595ff609aaa5728f613780ff4a132e00a8987a4a
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: 298f571723aabbd36459198bd3dc7cde19ff0243
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867518"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295608"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>有关 Azure 存储迁移的常见问题
 

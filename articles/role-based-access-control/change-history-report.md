@@ -1,6 +1,6 @@
 ---
 title: 在 Azure 中查看 RBAC 更改的活动日志 | Microsoft Docs
-description: 查看过去 90 天基于角色的访问控制更改的活动日志。
+description: 查看过去 90 天内基于角色的访问控制 (RBAC) 更改的活动日志。
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -8,22 +8,22 @@ manager: mtillman
 ms.assetid: 2bc68595-145e-4de3-8b71-3a21890d13d9
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 05/23/2018
-ms.date: 07/03/2018
+ms.date: 07/25/2018
 ms.author: v-junlch
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 802e027385b0d542a855e17e7e619205e2f66a73
-ms.sourcegitcommit: a20c461541ba7db541c01c8a18fc4cff48e3d2d5
+ms.openlocfilehash: 97c6fc92ae109104fb4d30fd9a24d344886903a4
+ms.sourcegitcommit: cce18df2de12353f0d8f01c649307a5789d59cd4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37361171"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39246134"
 ---
-# <a name="view-activity-logs-for-role-based-access-control-changes"></a>查看基于角色的访问控制更改的活动日志
+# <a name="view-activity-logs-for-rbac-changes"></a>查看 RBAC 更改的活动日志
 
 有时需要了解基于角色的访问控制 (RBAC) 更改，如出于审核或故障排除目的。 只要有人更改了你订阅中的角色分配或角色定义，这些更改就会被记录到 [Azure 活动日志](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)中。 可以查看活动日志，了解在过去 90 天内发生的所有 RBAC 更改。
 

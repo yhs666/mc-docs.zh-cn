@@ -5,20 +5,20 @@ services: iot-hub
 keywords: ''
 author: nberdy
 ms.author: v-yiso
-origin.date: 04/27/2018
-ms.date: 07/09/2018
+origin.date: 07/04/2018
+ms.date: 08/06/2018
 ms.topic: overview
 ms.custom: mvc
 ms.service: iot-hub
 documentationcenter: ''
 manager: timlt
 ms.devlang: na
-ms.openlocfilehash: 0045b08b6b7484c3a190ba29d8b69ddc61673ab9
-ms.sourcegitcommit: 039d75a641edc2edd13a9371251051c20fea2bb7
+ms.openlocfilehash: c7f492f07ce8b8f1c71862ce864e1d9a6f282dd7
+ms.sourcegitcommit: d4092cf6aba0d949bf612093c76f964c2bdfd0ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103425"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39306610"
 ---
 # <a name="what-is-azure-iot-hub"></a>Azure IoT 中心是什么？
 
@@ -107,4 +107,4 @@ IoT 中心和设备 SDK 支持用于连接设备的以下协议：
 
 若要尝试端对端的 IoT 解决方案，请参阅 IoT 中心快速入门：
 
-* [快速入门：将遥测数据从设备发送到 IoT 中心](iot-hub-get-started.md)
+* [快速入门：将遥测数据从设备发送到 IoT 中心](quickstart-send-telemetry-node.md)

@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: storage
 ms.topic: include
 origin.date: 06/05/2018
-ms.date: 06/25/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: d347c317d2bb8e5c279178d084cd17c5e5baa1d0
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.openlocfilehash: 38ca03d97fa2613b6ad060c918cb6c0e69f64338
+ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315727"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39307110"
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>VM 的高性能高级存储和托管磁盘
 Azure 高级存储为运行输入/输出 (I/O) 密集型工作负荷的虚拟机 (VM) 提供高性能、低延迟的磁盘支持。 使用高级存储的 VM 磁盘在固态硬盘 (SSD) 上存储数据。 若要利用高级存储磁盘的速度和性能优势，可将现有的 VM 磁盘迁移到高级存储。
@@ -51,8 +51,10 @@ Azure 支持使用两种方法为 VM 创建高级存储磁盘：
 
 下面是高级存储的一些功能：
 
-* **高级存储磁盘** <!-- Pending the Ev3, Esv3 GA Anounce --> 高级存储支持可附加到特定大小系列 VM 的 VM 磁盘。 高级存储支持 DS 系列、DSv2 系列、Fs 系列和 Esv3 系列 VM。 可以选择七个磁盘大小：P4 (32GB)、P6 (64GB)、P10 (128GB)、P20 (512GB)、P30 (1024GB)、P40 (2048GB)、P50 (4095GB)。 P4 和 P6 磁盘大小目前只能用于托管磁盘。 每种磁盘大小都有自身的性能规范。 根据应用程序的要求，可将一个或多个磁盘附加到 VM。 [高级存储的可伸缩性和性能目标](#scalability-and-performance-targets)中更详细介绍了规范。
-    <!-- Pending the Ev3, Esv3 GA Anounce --> <!-- Not Available on GS Series LS Series-->
+* **高级存储磁盘**
+
+    高级存储支持可附加到特定大小系列 VM 的 VM 磁盘。 高级存储支持各种 Azure VM。 可以选择七种磁盘大小：P4 (32 GB)、P6 (64 GB)、P10 (128 GB)、P20 (512 GB)、P30 (1024 GB)、P40 (2048 GB)、P50 (4095 GB)。 不过，仅托管磁盘支持 P4 和 P6 磁盘大小。 每种磁盘大小都有自身的性能规范。 根据应用程序的要求，可将一个或多个磁盘附加到 VM。 [高级存储的可伸缩性和性能目标](#scalability-and-performance-targets)中更详细介绍了规范。
+
 * **高级页 Blob**
 
     高级存储支持页 Blob。 使用页 Blob 可在高级存储中存储 VM 的持久性非托管磁盘。 与标准 Azure 存储不同，高级存储不支持块 Blob、追加 Blob、文件、表或队列。 高级页 Blob 支持从 P10 至 P50 和 P60 (8191GiB) 这六种大小。 不支持将 P60 高级页 Blob 作为 VM 磁盘进行连接。 
@@ -75,19 +77,17 @@ Azure 支持使用两种方法为 VM 创建高级存储磁盘：
 
     Azure 使用存储帐户作为非托管磁盘的容器。 如果使用非托管磁盘创建支持高级存储的 Azure VM 并选择高级存储帐户，则操作系统和数据磁盘会存储在该存储帐户中。
 
-<a name="premium-storage-supported-vms"></a>
 ## <a name="supported-vms"></a>支持的 VM
-<!--PENDING FOR B SERIES , Esv3-series --> 高级存储支持 B 系列、DS 系列、DSv2 系列、DSv3 系列、Esv3 系列和 Fs 系列 VM。 可将标准和高级存储磁盘用于这些 VM 类型。 不能在不兼容高级存储的 VM 系列中使用高级存储磁盘。
-<!--PENDING FOR B SERIES , Esv3-series -->
-<!-- Not Available on GS Series LS Series M-series -->
+
+各种 Azure VM 均支持高级存储。 可将标准和高级存储磁盘用于这些 VM 类型。 不能在不兼容高级存储的 VM 系列中使用高级存储磁盘。
 
 有关 Azure 中适用于 Windows 的 VM 类型和大小的信息，请参阅 [Windows VM 大小](../articles/virtual-machines/windows/sizes.md)。 有关 Azure 中适用于 Linux 的 VM 类型和大小的信息，请参阅 [Linux VM 大小](../articles/virtual-machines/linux/sizes.md)。
 
-下面是 DS 系列、DSv2 系列、GS 系列和 Fs 系列 VM 的一些功能：
+以下是启用高级存储的 VM 上支持的一些功能：
 
-* **云服务**
+* 可用性集
 
-    可将 DS 系列 VM 添加到仅包含 DS 系列 VM 的云服务。 不要将 DS 系列虚拟机添加到类型不是 DS 系列 VM 的现有云服务。 可将现有 VHD 迁移到只运行 DS 系列 VM 的新云服务。 如果想要对托管 DS 系列 VM 的新云服务使用相同的虚拟 IP 地址，请使用[保留 IP 地址](../articles/virtual-network/virtual-networks-instance-level-public-ip.md)。 可将 GS 系列 VM 添加到只包含 GS 系列 VM 的现有云服务。
+    使用 DS 系列 VM 的示例，可以将 DS 系列 VM 添加到仅具有 DS 系列 VM 的云服务。 不要将 DS 系列虚拟机添加到类型不是 DS 系列 VM 的现有云服务。 可将现有 VHD 迁移到只运行 DS 系列 VM 的新云服务。 如果想要对托管 DS 系列 VM 的新云服务使用相同的虚拟 IP 地址，请使用[保留 IP 地址](../articles/virtual-network/virtual-networks-instance-level-public-ip.md)。
 
 * **操作系统磁盘**
 
@@ -104,7 +104,13 @@ Azure 支持使用两种方法为 VM 创建高级存储磁盘：
 
 * **缓存**
 
-    支持高级存储的大小系列中的 VM 提供独特的缓存功能来实现较高级别的吞吐量和延迟。 缓存功能可以在底层高级存储磁盘性能的基础上提升性能。 可以在高级存储磁盘上将磁盘缓存策略设置为 **ReadOnly**、**ReadWrite** 或 **None**。 所有高级数据磁盘的默认磁盘缓存策略都是 **ReadOnly**，而操作系统磁盘的磁盘缓存策略则是 **ReadWrite**。 为了让应用程序达到最佳性能，请使用正确的缓存设置。 例如，对于读取频繁或只读数据磁盘（如 SQL Server 数据文件），可将磁盘缓存策略设置为 **ReadOnly**。 对于写入频繁或只写数据磁盘（如 SQL Server 日志文件），可将磁盘缓存策略设置为 **None**。 若要详细了解如何优化高级存储的设计，请参阅[使用高级存储实现高性能设计](../articles/virtual-machines/windows/premium-storage-performance.md)。
+    支持高级存储的虚拟机 (VM) 具有独特的缓存功能，可实现较高级别的吞吐量和更短的延迟。 它们的缓存功能可以在底层高级存储磁盘性能的基础上提升性能。 但是，并非所有 VM 都支持缓存，因此请查看 VM 说明了解你感兴趣的 VM 的大小及更多信息。  支持缓存的 VM 将在其说明中以“最大缓存和临时存储吞吐量”度量进行指示。  它们还会直接在 VM 标题下指定。
+
+    借助缓存，可以在高级存储磁盘上将磁盘缓存策略设置为 ReadOnly、ReadWrite 或 None。 所有高级数据磁盘的默认磁盘缓存策略都是 **ReadOnly**，而操作系统磁盘的磁盘缓存策略则是 **ReadWrite**。 为了让应用程序达到最佳性能，请务必使用正确的缓存设置。 
+
+    例如，对于读取频繁或只读数据磁盘（如 SQL Server 数据文件），可将磁盘缓存策略设置为 ReadOnly。 对于写入频繁或只写数据磁盘（如 SQL Server 日志文件），可将磁盘缓存策略设置为 **None**。 
+
+    若要详细了解如何优化高级存储的设计，请参阅[使用高级存储实现高性能设计](../articles/virtual-machines/windows/premium-storage-performance.md)。
 
 * **分析**
 

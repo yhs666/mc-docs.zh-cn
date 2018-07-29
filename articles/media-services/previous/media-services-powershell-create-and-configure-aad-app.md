@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 06/17/2017
 ms.date: 06/25/2018
 ms.author: v-johch
-ms.openlocfilehash: 571a9af5b50698327cdb2b9cd39da3359f05e9a6
-ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
+ms.openlocfilehash: 28415ccc13b1157af7669580759bd1821bb43d19
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36748365"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295694"
 ---
 # <a name="use-powershell-to-create-an-azure-ad-app-to-use-with-the-azure-media-services-api"></a>使用 PowerShell 创建要与 Azure 媒体服务 API 配合使用的 Azure AD 应用
 
@@ -58,7 +58,7 @@ $Retries = 0;While ($NewRole -eq $null -and $Retries -le 6)
 
 - [使用 Azure PowerShell 创建服务主体来访问资源](../../azure-resource-manager/resource-group-authenticate-service-principal.md)
 - [使用 Azure PowerShell 管理基于角色的访问控制](../../role-based-access-control/role-assignments-powershell.md)
-- [如何使用证书手动配置守护程序应用](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/blob/master/Manual-Configuration-Steps.md#add-the-certificate-as-a-key-for-the-todolistdaemonwithcert-application-in-azure-ad)
+- [如何使用证书手动配置守护程序应用](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential)
 
 ## <a name="next-steps"></a>后续步骤
 

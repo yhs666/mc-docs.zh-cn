@@ -1,21 +1,19 @@
 ---
 title: " 在 Azure Site Recovery 中管理 VMware vCenter 服务器 | Azure"
 description: 本文介绍如何在 Azure Site Recovery 中添加和管理 VMware vCenter。
-services: site-recovery
 author: rockboyfor
-manager: digimobile
 ms.service: site-recovery
 ms.devlang: na
-ms.topic: article
-origin.date: 03/05/2018
-ms.date: 04/02/2018
+ms.topic: conceptual
+origin.date: 06/20/2018
+ms.date: 07/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 6a77174b12bcc36f3707ea3a6d6747a324528edd
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 35f9b4cf90d462f6783a044836f59172c8474e4d
+ms.sourcegitcommit: 74f9f0acb00fb728ff6e9bd67ac86a0c1bcd8d13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38938828"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39218922"
 ---
 # <a name="manage-vmware-vcenter-servers"></a>管理 VMware vCenter 服务器 
 
@@ -77,4 +75,3 @@ Site Recovery 需要 VMware 的访问权限，以便进程服务器可以自动�
 如果需要修改 vCenter IP 地址、FQDN 或端口，则需删除 vCenter 服务器再将其重新添加到门户。
 
 <!-- Update_Description: new articles on vmware azure manage vcenter -->
-<!--ms.date: 04/02/2018-->

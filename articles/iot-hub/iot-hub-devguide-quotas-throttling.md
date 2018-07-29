@@ -1,31 +1,27 @@
 ---
-title: 了解 Azure IoT 中心配额和限制 | Azure
+title: 了解 Azure IoT 中心配额和限制 | Microsoft Docs
 description: 开发人员指南 - 介绍适用于 IoT 中心的配额和预期限制行为。
-services: iot-hub
-documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: 425e1b08-8789-4377-85f7-c13131fae4ce
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
+services: iot-hub
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 04/01/2018
 ms.author: v-yiso
-ms.date: 06/11/2018
-ms.openlocfilehash: 567c53e902a60f339e0a9fdbe6951d0a307b2099
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.date: 08/06/2018
+ms.openlocfilehash: 84245ac36083f28c30ace713289e860fee646b45
+ms.sourcegitcommit: d4092cf6aba0d949bf612093c76f964c2bdfd0ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695055"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39306566"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>参考 - IoT 中心配额和限制
 
 ## <a name="quotas-and-throttling"></a>配额和限制
-每个 Azure 订阅最多可以拥有 10 个 IoT 中心和 1 个免费中心。
+每个 Azure 订阅最多可以有 50 个 IoT 中心和 1 个免费中心。
 
 每个 IoT 中心都在特定层中预配了特定单位数。 有关详细信息，请参阅 [Azure IoT 中心定价][lnk-pricing]。 层和单位数决定了可以发送的消息的每日配额上限。
 

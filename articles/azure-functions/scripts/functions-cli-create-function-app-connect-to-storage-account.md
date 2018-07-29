@@ -14,14 +14,15 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: ''
 origin.date: 04/20/2017
-ms.date: 04/19/2018
+ms.date: 07/23/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: caed24d4bad1089a9acc8d963ad8594d2f3b9739
-ms.sourcegitcommit: f97c9253d16fac8be0266c9473c730ebd528e542
+ms.openlocfilehash: 39e22657cc79e1a8b12554c04271245a67a33554
+ms.sourcegitcommit: ba07d76f8394b5dad782fd983718a8ba49a9deb2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39220255"
 ---
 # <a name="create-a-function-app-that-connects-to-an-azure-storage-account"></a>创建一个可连接到 Azure 存储帐户的函数应用
 
@@ -88,15 +89,14 @@ az functionapp config appsettings set `
 
 | 命令 | 注释 |
 |---|---|
-| [az login](/cli/reference-index#az_login) | 登录到 Azure。 |
-| [az group create](/cli/group#az_group_create) | 使用相关位置创建资源组 |
-| [az storage account create](/cli/storage/account) | 创建存储帐户 |
-| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az_functionapp_create) | 创建一个新的 Function App |
-| [az group delete](/cli/group#az_group_delete) | 清理 |
+| [az group create](/cli/group#az-group-create) | 使用相关位置创建资源组。 |
+| [az storage account create](/cli/storage/account#az-storage-account-create) | 创建存储帐户。 |
+| [az functionapp create](/cli/functionapp#az-functionapp-create) |   |
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](/cli/overview?view=azure-cli-latest)。
+有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](/cli)。
 
 可以在 [Azure Functions 文档](../functions-cli-samples.md)中找到其他 Azure Functions CLI 脚本示例。
 
+<!-- Update_Description: wording update -->

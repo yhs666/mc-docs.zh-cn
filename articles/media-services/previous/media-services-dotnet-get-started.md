@@ -1,5 +1,5 @@
 ---
-title: 使用 .NET 按需传送内容入门 | Microsoft Docs
+title: 开始使用 .NET 传送点播内容 | Azure
 description: 本教程会引导完成使用 Azure 媒体服务和 .NET 实施点播内容传送应用程序的步骤。
 services: media-services
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: hero-article
 origin.date: 12/10/2017
 ms.date: 12/25/2017
 ms.author: v-nany
-ms.openlocfilehash: 84eaec83190e41196a69f0fac215922be8544ebe
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: f2ce83297aaa1afbb31906748e36d61b1b378ea5
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939708"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219547"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>使用 .NET SDK 开始传送点播内容
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
@@ -303,6 +303,7 @@ ms.locfileid: "38939708"
         // of encoding.
         List<Uri> mp4ProgressiveDownloadUris = mp4AssetFiles.Select(af => af.GetSasUri()).ToList();
 
+
         // Display  the streaming URLs.
         Console.WriteLine("Use the following URLs for adaptive streaming: ");
         Console.WriteLine(smoothStreamingUri);
@@ -387,8 +388,9 @@ https://storagetestaccount001.blob.core.chinacloudapi.cn/asset-38058602-a4b8-4b3
 
 <!-- Anchors. -->
 
+
 <!-- URLs. -->
-  [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
+[Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
 [Portal]: http://portal.azure.cn/
 
 <!--Update_Description: update code to use AAD token instead of ACS-->

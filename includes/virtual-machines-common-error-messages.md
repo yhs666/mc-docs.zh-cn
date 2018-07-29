@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: virtual-machines-windows
 ms.topic: include
 origin.date: 04/25/2018
-ms.date: 06/04/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 5764a72d297cbf2c8c651074f1a10a41b8525377
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 7b0a215c21761fd2f75c007d9e255223f1c5d587
+ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38941949"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39307092"
 ---
 >[!NOTE]
 > 可以通过本反馈页面或 [Azure 反馈](https://www.azure.cn/support/support-azure/)使用 #azerrormessage 标记给我们留言。
@@ -111,8 +111,8 @@ Azure VM 使用以下 JSON 格式提供错误响应：
 |  InvalidParameter  |  如果未预配 VM 代理，则无法将证书添加到 VM。  |
 |  InvalidParameter  |  LUN {0} 处已存在磁盘。  |
 |  InvalidParameter  |  无法创建 VM，因为请求的大小 {0} 不可用于当前分配有可用性集的群集。 可用的大小为: {1}。 访问 https://aka.ms/azure-resizevm 详细了解重设 VM 大小的策略。  |
-|  InvalidParameter  |  请求的 VM 大小 {0} 不可用于当前区域。 可用于当前区域的大小为: {1}。 |
-|  InvalidParameter  |  请求的 VM 大小 {0} 不可用于当前区域。  |
+|  InvalidParameter  |  请求的 VM 大小 {0} 不可用于当前区域。 可用于当前区域的大小为: {1}。 访问 https://www.azure.cn/zh-cn/home/features/products-by-region 详细了解每个区域可用的 VM 大小。  |
+|  InvalidParameter  |  请求的 VM 大小 {0} 不可用于当前区域。 访问 https://aka.ms/azure-regions 详细了解每个区域可用的 VM 大小。  |
 |  InvalidParameter  |  Windows 管理员用户名的长度不能超过 {0} 个字符，并且不能以句点(.)结束或包含以下字符: {1}。  |
 |  InvalidParameter  |  Windows 计算机名的长度不能超过 {0} 个字符，并且不能全部都是数字或包含以下字符: {1}。  |
 |  MissingMoveDependentResources  |  移动资源请求不包含所有从属资源。 请查看详细信息了解缺少的资源 ID。  |
@@ -164,7 +164,7 @@ Azure VM 使用以下 JSON 格式提供错误响应：
 |  OperationNotAllowed  |  无法重设 VM 大小，因为请求的大小 {0} 不可用于当前分配有 VM 的群集。 要将 VM 重设为 {1}，请解除分配(此操作为 Azure 门户中的“停止”操作)并重试重设大小操作。 访问 https://aka.ms/azure-resizevm 详细了解重设 VM 大小的策略。  |
 |  OSProvisioningClientError  |  VM“{0}”的 OS 预配失败，因为当前正在预配来宾 OS。  |
 |  OSProvisioningClientError  |  VM“{0}”的 OS 预配失败。 错误详细信息: {1} 请确保已正确准备(通用化)映像。 <ul><li>适用于 Windows 的说明: https://docs.azure.cn/virtual-machines/virtual-machines-windows-upload-image/  </li></ul> |
-|  OSProvisioningClientError  |  SSH 主机密钥生成失败。 错误详细信息: {0}。 若要解决此问题，请验证 Linux 代理是否设置正确。 <ul><li>可以查看以下位置的说明: https://docs.azure.cn/virtual-machines/virtual-machines-linux-agent-user-guide/ </li></ul> |
+|  OSProvisioningClientError  |  SSH 主机密钥生成失败。 错误详细信息: {0}。 若要解决此问题，请验证 Linux 代理是否设置正确。 <ul><li>可以查看以下位置的说明: https://docs.azure.cn/virtual-machines/extensions/agent-linux/ </li></ul> |
 |  OSProvisioningClientError  |  为 VM 指定的用户名对于此 Linux 分发版无效。 错误详细信息: {0}。  |
 |  OSProvisioningInternalError  |  VM“{0}”的 OS 预配因内部错误而失败。  |
 |  OSProvisioningTimedOut  |  VM“{0}”的 OS 预配未在分配的时间内完成。 该 VM 仍可能成功完成预配。 请于稍后检查预配状态。  |

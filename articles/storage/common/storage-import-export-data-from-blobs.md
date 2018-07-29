@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 05/17/2018
 ms.date: 07/02/2018
 ms.author: v-jay
-ms.openlocfilehash: c249f90f97fbe7f0644ab1e65be96f1daaa3046c
-ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
+ms.openlocfilehash: d8f82ed30d0dcb452cffe93c6f9597d1702f5d59
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103139"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295705"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>使用 Azure 导入/导出服务从 Azure Blob 存储导出数据
 本文分步说明如何使用 Azure 导入/导出服务从 Azure Blob 存储安全地导出大量数据。 该服务要求你将空驱动器寄送到 Azure 数据中心。 该服务将数据从存储帐户导出到驱动器，然后将驱动器寄回。
@@ -132,7 +132,7 @@ ms.locfileid: "37103139"
     |**/sn:**|必需。 导出作业的存储帐户的名称。|  
     |**/sk:**|仅当未指定容器 SAS 时才是必需的。 导出作业的存储帐户的帐户密钥。|  
     |**/csas:**|仅当未指定存储帐户密钥时才是必需的。 用于列出要在导出作业中导出的 Blob 的容器 SAS。|  
-    |**/ExportBlobListFile:**|必需。 包含要导出的 Blob 的 Blob 路径列表或 Blob 路径前缀的 XML 文件的路径。 导入/导出服务 REST API 的[放置作业](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate)操作的 `BlobListBlobPath` 元素中使用的文件格式。|  
+    |**/ExportBlobListFile:**|必需。 包含要导出的 Blob 的 Blob 路径列表或 Blob 路径前缀的 XML 文件的路径。 导入/导出服务 REST API 的[放置作业](https://docs.microsoft.com/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate)操作的 `BlobListBlobPath` 元素中使用的文件格式。|  
     |**/DriveSize:**|必需。 用于导出作业的驱动器大小，*例如* 500 GB、1.5 TB。|  
 
     请参阅 [PreviewExport 命令示例](#example-of-previewexport-command)。

@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: virtual-machines-windows
 ms.topic: include
 origin.date: 05/17/2018
-ms.date: 06/04/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 50a8c2796378b7e35dec97bc4987f7663f2075af
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: f3a2201240fa4abbbc03591e13daededc1857376
+ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702889"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39307068"
 ---
 有多种原因可导致无法启用或连接到在 Azure 虚拟机 (VM) 上运行的应用程序。 原因包括应用程序未在预期端口上运行或侦听、侦听端口受到阻止，或网络规则未将流量正确传递到应用程序。 本文说明有条理地找到问题并更正问题。
 
@@ -33,7 +33,7 @@ ms.locfileid: "34702889"
 
 * 重启虚拟机
 * 重新创建终结点/防火墙规则/网络安全组 (NSG) 规则
-  * [Resource Manager 模型 - 管理网络安全组](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+  * [Resource Manager 模型 - 管理网络安全组](../articles/virtual-network/manage-network-security-group.md)
   * [经典模型 - 管理云服务终结点](../articles/cloud-services/cloud-services-enable-communication-role-instances.md)
 * 从不同的位置（例如不同的 Azure 虚拟网络）进行连接
 * 重新部署虚拟机
@@ -95,7 +95,7 @@ ms.locfileid: "34702889"
 * 目标 VM 上运行的入侵检测或网络监视软件允许流量。
 * 云服务终结点或网络安全组允许流量：
   * [经典模型 - 管理云服务终结点](../articles/cloud-services/cloud-services-enable-communication-role-instances.md)
-  * [Resource Manager 模型 - 管理网络安全组](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+  * [Resource Manager 模型 - 管理网络安全组](../articles/virtual-network/manage-network-security-group.md)
 * VM 中在测试 VM 和 VM 之间的路径运行的单独组件（例如负载均衡器或防火墙）允许流量。
 
 在基于 Windows 的虚拟机上，使用具有高级安全性的 Windows 防火墙确定防火墙规则是否排除应用程序的入站和出站流量。
@@ -133,7 +133,10 @@ ms.locfileid: "34702889"
 * 从客户端计算机到 Azure 虚拟机的出站应用程序请求流量。
 * 来自 Azure 虚拟机的入站应用程序响应流量。
 
-<!-- Not Available on [Azure network monitoring overview](/network-watcher/network-watcher-monitoring-overview) -->
+## <a name="step-4-if-you-cannot-access-the-application-use-ip-verify-to-check-the-settings"></a>步骤 4：如果无法访问应用程序，请使用“IP 验证”来检查设置。 
+
+有关详细信息，请参阅 [Azure network monitoring overview](/network-watcher/network-watcher-monitoring-overview)（Azure 网络监视概述）。 
+
 ## <a name="additional-resources"></a>其他资源
 [对与基于 Windows 的 Azure 虚拟机的远程桌面连接进行故障排除](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md)
 

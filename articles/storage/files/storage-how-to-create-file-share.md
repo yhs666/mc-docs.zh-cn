@@ -15,12 +15,12 @@ ms.topic: get-started-article
 origin.date: 09/19/2017
 ms.date: 10/30/2017
 ms.author: v-johch
-ms.openlocfilehash: 0d92a64464bbcfe242d59b5e1b04d3fdc3da8812
-ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
+ms.openlocfilehash: ddcdf65ca453fb32c8c3f60deb8802d0aa64a2e5
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103073"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295578"
 ---
 # <a name="create-a-file-share-in-azure-files"></a>在 Azure 文件中创建文件共享
 可以使用 [Azure 门户](https://portal.azure.cn/)、Azure 存储 PowerShell cmdlet、Azure 存储客户端库或 Azure 存储 REST API 来创建 Azure 文件共享。本教程介绍：
@@ -71,7 +71,7 @@ ms.locfileid: "37103073"
 
 ## <a name="create-file-share-through-command-line-interface-cli"></a>通过命令行接口 (CLI) 创建文件共享
 1. **若要准备使用命令行接口 (CLI)，请下载并安装 Azure CLI。**  
-    请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/cli/install-az-cli2) 和 [Azure CLI 2.0 入门](https://docs.azure.cn/cli/get-started-with-azure-cli)。
+    请参阅[安装 Azure CLI 2.0](/cli/install-azure-cli) 和 [Azure CLI 2.0 入门](https://docs.azure.cn/cli/get-started-with-azure-cli)。
 
 2. **创建可连接到存储帐户的连接字符串，需要在该帐户中创建共享。**  
     请将以下示例中的 ```<storage-account>``` 和 ```<resource_group>``` 替换为自己的存储帐户名称和资源组：

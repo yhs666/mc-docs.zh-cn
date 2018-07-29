@@ -1,5 +1,5 @@
 ---
-title: 使用工作流设计器创建高级编码工作流 | Microsoft Docs
+title: 使用工作流设计器创建高级编码工作流 | Azure
 description: 了解如何使用工作流设计器创建高级编码工作流。
 services: media-services
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 07/19/2017
 ms.date: 05/28/2018
 ms.author: v-nany
-ms.openlocfilehash: 9b08bea59d6cdf4e0e5d5fac8f0b5eac814078fd
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 57b3c8ec540f834cd2621a2a7f33912a84d759e7
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475383"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219685"
 ---
 # <a name="create-advanced-encoding-workflows-with-workflow-designer"></a>使用工作流设计器创建高级编码工作流
 ## <a name="overview"></a>概述
@@ -35,7 +35,6 @@ ms.locfileid: "34475383"
 * 可使用多个输入文件来支持标题、覆盖和拼结在一起的内容。 
 
 还可以使用此工具修改任何[已发布工作流](media-services-workflow-designer.md#existing_workflows)。 
-
 
 
 创建工作流文件后，可将其作为资产上传，并用于对媒体文件编码。 有关如何使用 **.NET** 通过**媒体编码器高级工作流**编码的信息，请参阅[使用媒体编码器高级工作流进行高级编码](media-services-encode-with-premium-workflow.md)。

@@ -1,26 +1,22 @@
 ---
 title: 使用 Azure IoT 中心计划作业 (.NET/.NET)
 description: 如何安排 Azure IoT 中心作业实现多台设备上的直接方法调用。 使用适用于 .NET 的 Azure IoT 设备 SDK 实现模拟设备应用以及用于运行作业的服务应用。
-services: iot-hub
-documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: 2233356e-b005-4765-ae41-3a4872bda943
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
+services: iot-hub
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 03/06/2018
-ms.date: 06/11/2018
+ms.date: 08/06/2018
 ms.author: v-yiso
-ms.openlocfilehash: e5abcdc57b82571900ac23e604177f317fc915ea
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: bb5245331784caec084f1ed79a749dd83caf5c63
+ms.sourcegitcommit: d4092cf6aba0d949bf612093c76f964c2bdfd0ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939149"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39306577"
 ---
 # <a name="schedule-and-broadcast-jobs-netnet"></a>计划和广播作业 (.NET/.NET)
 
@@ -89,8 +85,9 @@ ScheduleJob，该应用使用作业来调用 LockDoor 直接方法，并在多�
     ```csharp
     static string DeviceConnectionString = "<yourDeviceConnectionString>";
     static DeviceClient Client = null;
+    ```
 
-1. Add the following to implement the direct method on the device:
+1. 添加以下函数，实现设备上的直接方法：
 
     ```csharp
     static Task<MethodResponse> LockDoor(MethodRequest methodRequest, object userContext)
@@ -102,8 +99,9 @@ ScheduleJob，该应用使用作业来调用 LockDoor 直接方法，并在多�
         string result = "'Door was locked.'";
         return Task.FromResult(new MethodResponse(Encoding.UTF8.GetBytes(result), 200));
     }
+    ```
 
-1. Add the following to implement the device twins listener on the device:
+1. 添加以下内容，实现设备上的设备孪生侦听程序：
 
     ```csharp
     private static async Task OnDesiredPropertyChanged(TwinCollection desiredProperties, object userContext)
@@ -177,6 +175,7 @@ ScheduleJob，该应用使用作业来调用 LockDoor 直接方法，并在多�
 1. 将以下字段添加到 **Program** 类。 将占位符替换为在上一部分为中心创建的 IoT 中心连接字符串以及设备的名称。
 
     ```csharp
+    static JobClient jobClient;
     static string connString = "<yourIotHubConnectionString>";
     static string deviceId = "<yourDeviceId>";
     ```
@@ -298,7 +297,7 @@ ScheduleJob，该应用使用作业来调用 LockDoor 直接方法，并在多�
 [lnk-twin-props]: iot-hub-csharp-csharp-twin-how-to-configure.md
 [lnk-c2d-methods]: iot-hub-csharp-csharp-direct-methods.md
 [lnk-dev-methods]: iot-hub-devguide-direct-methods.md
-[lnk-fwupdate]: iot-hub-csharp-csharp-firmware-update.md
+[lnk-fwupdate]: tutorial-firmware-update.md
 [lnk-iot-edge]: ./iot-hub-linux-iot-edge-simulated-device.md
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
 [lnk-free-trial]: http://www.azure.cn/pricing/1rmb-trial

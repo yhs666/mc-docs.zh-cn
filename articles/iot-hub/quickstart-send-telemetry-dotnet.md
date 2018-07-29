@@ -11,15 +11,15 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: ns
-origin.date: 04/30/2018
-ms.date: 07/09/2018
+origin.date: 06/20/2018
+ms.date: 08/06/2018
 ms.author: v-yiso
-ms.openlocfilehash: 1e6488d78445682a40437718f427f237a2887227
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: bee846842355599c3480b5680090b6f20fcaaa1d
+ms.sourcegitcommit: d4092cf6aba0d949bf612093c76f964c2bdfd0ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38938831"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39306612"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-c"></a>快速入门：将遥测数据从设备发送到 IoT 中心并使用后端应用程序从中心读取遥测数据 (C#)
 
@@ -91,7 +91,7 @@ dotnet --version
 
 1. 在所选文本编辑器中打开 SimulatedDevice.cs 文件。
 
-    将 `connectionString` 变量的值替换为之前记下的设备连接字符串。 然后将更改保存到 SimulatedDevice.cs 文件。
+    将 `s_connectionString` 变量的值替换为之前记下的设备连接字符串。 然后将更改保存到 SimulatedDevice.cs 文件。
 
 1. 在终端窗口中，运行以下命令以安装模拟设备应用程序所需的包：
 
@@ -115,13 +115,13 @@ dotnet --version
 
 1. 在另一个终端窗口中，导航到示例 C# 项目的根文件夹。 然后导航到 iot-hub\Quickstarts\read-d2c-messages 文件夹。
 
-1. 在所选文本编辑器中打开 ReadDeviceToCloudMessages.cs 文件。
+2. 在所选文本编辑器中打开 ReadDeviceToCloudMessages.cs 文件。 更新以下变量并保存对文件所做的更改。
 
-    将 `eventHubsCompatibleEndpoint` 变量的值替换为之前记下的与事件中心兼容的终结点。
-
-    将 `eventHubsCompatiblePath` 变量的值替换为之前记下的与事件中心兼容的路径。
-
-    将 `iotHubSasKey` 变量的值替换为之前记下的 iothubowner 主键。 然后将更改保存到 ReadDeviceToCloudMessages.cs 文件。
+    | 变量 | 值 |
+    | -------- | ----------- |
+    | `s_eventHubsCompatibleEndpoint` | 将变量的值替换为之前记下的与事件中心兼容的终结点。 |
+    | `s_eventHubsCompatiblePath`     | 将变量的值替换为之前记下的与事件中心兼容的路径。 |
+    | `s_iotHubSasKey`                | 将变量的值替换为之前记下的 iothubowner 主键。 |
 
 1. 在终端窗口中，运行以下命令，安装后端应用程序所需的库：
 
@@ -141,9 +141,7 @@ dotnet --version
 
 ## <a name="clean-up-resources"></a>清理资源
 
-如果打算完成下一快速入门教程，请保留资源组和 IoT 中心，稍后再进行使用。
-
-如果不再需要 IoT 中心，请在门户中删除该中心与资源组。 为此，请选择包含 IoT 中心的 qs-iot-hub-rg 资源组，然后单击“删除”。
+[!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>后续步骤
 

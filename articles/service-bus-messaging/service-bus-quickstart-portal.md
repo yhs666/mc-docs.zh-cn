@@ -9,14 +9,14 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
 origin.date: 05/22/2018
-ms.date: 07/16/2018
+ms.date: 08/06/2018
 ms.author: v-yiso
-ms.openlocfilehash: 2cfb856c5a2e11308ea3daad7ae1d668231e6e57
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.openlocfilehash: c1c1f95d7fa510d49d02c622fda68515518161ef
+ms.sourcegitcommit: d4092cf6aba0d949bf612093c76f964c2bdfd0ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873749"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39306603"
 ---
 # <a name="quickstart-send-and-receive-messages-using-the-azure-portal-and-net"></a>快速入门：使用 Azure 门户和 .NET 发送和接收消息
 

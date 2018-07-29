@@ -12,14 +12,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: ''
 ms.workload: identity
 origin.date: 06/11/2018
-ms.date: 07/02/2018
+ms.date: 07/24/2018
 ms.author: v-junlch
-ms.openlocfilehash: d86b3f5bc724dd0054b5b6b3794bbcca28ebfe94
-ms.sourcegitcommit: a20c461541ba7db541c01c8a18fc4cff48e3d2d5
+ms.openlocfilehash: 79147c4a4f4e41fe0765d4406937617c6899f2ee
+ms.sourcegitcommit: cce18df2de12353f0d8f01c649307a5789d59cd4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37361231"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39246131"
 ---
 # <a name="tutorial-grant-access-for-a-user-using-rbac-and-azure-powershell"></a>教程：使用 RBAC 和 Azure PowerShell 授予用户的访问权限
 
@@ -42,7 +42,7 @@ ms.locfileid: "37361231"
 
 ## <a name="role-assignments"></a>角色分配
 
-角色分配包含三个元素：安全主体、角色订阅、范围。 下面是两个将要在本教程中执行的角色分配：
+在 RBAC 中，若要授予访问权限，请创建角色分配。 角色分配包含三个元素：安全主体、角色订阅、范围。 下面是两个将要在本教程中执行的角色分配：
 
 | 安全主体 | 角色定义 | 作用域 |
 | --- | --- | --- |
@@ -61,7 +61,7 @@ ms.locfileid: "37361231"
     Connect-AzureAD -AzureEnvironmentName AzureChinaCloud
 
     $PasswordProfile = New-Object -TypeName Microsoft.Open.AzureAD.Model.PasswordProfile
-    $PasswordProfile.Password = "Pwd13579!"
+    $PasswordProfile.Password = "your password"
     ```
 
 1. 使用 [New-AzureADUser](https://docs.microsoft.com/powershell/module/azuread/new-azureaduser) 命令为域创建新用户。
@@ -281,3 +281,4 @@ ms.locfileid: "37361231"
 > [!div class="nextstepaction"]
 > [使用 RBAC 和 PowerShell 管理访问权限](role-assignments-powershell.md)
 
+<!-- Update_Description: wording update -->

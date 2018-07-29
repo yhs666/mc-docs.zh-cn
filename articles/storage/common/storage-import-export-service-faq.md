@@ -7,14 +7,14 @@ services: storage
 ms.service: storage
 ms.topic: article
 origin.date: 05/22/2018
-ms.date: 07/02/2018
+ms.date: 07/30/2018
 ms.author: v-jay
-ms.openlocfilehash: 3e4cd0bf93371569d36f1f50e5822e1dd17107e8
-ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
+ms.openlocfilehash: d0ce1dfd59aa86c3de001037c3523961c8aa7221
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103140"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295614"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>Azure 导入/导出服务：常见问题解答 
 下面是你在使用 Azure 导入/导出服务将数据传输到 Azure 存储时可能会提出的问题及其解答。 问题和解答分为以下几个类别：
@@ -38,6 +38,10 @@ ms.locfileid: "37103140"
 ### <a name="can-i-use-the-azure-importexport-service-to-copy-pst-mailboxes-and-sharepoint-data-to-o365"></a>是否可以使用 Azure 导入/导出服务将 PST 邮箱和 SharePoint 数据复制到 O365？
 
 是的。 有关详细信息，请转到[将 PST 文件或 SharePoint 数据导入到 Office 365](https://technet.microsoft.com/library/ms.o365.cc.ingestionhelp.aspx)。
+
+### <a name="can-i-use-the-azure-importexport-service-to-copy-my-backups-offline-to-the-azure-backup-service"></a>是否可以使用 Azure 导入/导出服务将我的备份脱机复制到 Azure 备份服务？
+
+是的。 有关详细信息，请转到 [Azure 备份中的脱机备份工作流](../../backup/backup-azure-backup-import-export.md)。
 
 ### <a name="can-i-purchase-drives-for-importexport-jobs-from-microsoft"></a>是否可以从 Microsoft 购买用于导入/导出作业的驱动器？
 
@@ -124,7 +128,7 @@ Azure 数据中心会将不符合支持要求的驱动器返还给你。 如果�
     ```
     WAImportExport PrepImport /sk:<StorageAccountKey> /csas:<ContainerSas> /t: <TargetDriveLetter> [/format] [/silentmode] [/encrypt] [/bk:<BitLockerKey>] [/logdir:<LogDirectory>] /j:<JournalFile> /id:<SessionId> /srcdir:<SourceDirectory> /dstdir:<DestinationBlobVirtualDirectory> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>] 
     ```
-- 如果使用的是 [WAImportExport V2](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip)，请指定“AlreadyEncrypted”，并在驱动器集 CSV 中提供密钥。
+- 如果使用的是 [WAImportExport V2](https://www.microsoft.com/en-us/download/details.aspx?id=55280)，请指定“AlreadyEncrypted”，并在驱动器集 CSV 中提供密钥。
     ```
     DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
     G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-252615-584177-672089-411631 |

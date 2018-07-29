@@ -6,15 +6,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 03/05/2018
-ms.date: 04/02/2018
+origin.date: 07/06/2018
+ms.date: 07/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 80b1ef8f5e9ad75197cbaaa7a04816b144722eae
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 34ad8aff9245cb3c491aef6b35fd4ffbbc358062
+ms.sourcegitcommit: 74f9f0acb00fb728ff6e9bd67ac86a0c1bcd8d13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939757"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39218901"
 ---
 <a name="set-up-the-source-environment"></a>
 # <a name="set-up-the-source-environment-for-vmware-to-azure-replication"></a>设置源环境以便从 VMware 复制到 Azure
@@ -39,12 +39,12 @@ ms.locfileid: "38939757"
 
 ## <a name="set-up-the-configuration-server"></a>设置配置服务器
 
-使用开放虚拟化格式 (OVF) 模板将配置服务器设置为本地 VMware VM。 [详细了解](concepts-vmware-to-azure-architecture.md)将在 VMware VM 上安装的组件。 
+可以通过开放虚拟化应用程序 (OVA) 模板将配置服务器设置为本地 VMware VM。 [详细了解](concepts-vmware-to-azure-architecture.md)将在 VMware VM 上安装的组件。
 
 1. 了解配置服务器部署的[先决条件](vmware-azure-deploy-configuration-server.md#prerequisites)。
 2. [检查容量数字](vmware-azure-deploy-configuration-server.md#capacity-planning)以便进行部署。
-3. [下载](vmware-azure-deploy-configuration-server.md#download-the-template)并[导入](vmware-azure-deploy-configuration-server.md#import-the-template-in-vmware) OVF 模板 (how-to-deploy-configuration-server.md)，设置运行配置服务器的本地 VMware VM。
-4. 打开 VMware VM，并将其[注册](vmware-azure-deploy-configuration-server.md#register-the-configuration-server)到恢复服务保管库中。
+3. [下载](vmware-azure-deploy-configuration-server.md#download-the-template)并[导入](vmware-azure-deploy-configuration-server.md#import-the-template-in-vmware) OVA 模板，设置运行配置服务器的本地 VMware VM。 通过模板提供的许可证是评估许可证，有效期为 180 天。 超过有效期之后，客户需要使用购买的许可证来激活 Windows。
+4. 打开 VMware VM，并将其[注册](vmware-azure-deploy-configuration-server.md#register-the-configuration-server-with-azure-site-recovery-services)到恢复服务保管库中。
 
 ## <a name="add-the-vmware-account-for-automatic-discovery"></a>添加用于自动发现的 VMware 帐户
 
@@ -64,4 +64,4 @@ ms.locfileid: "38939757"
 ## <a name="next-steps"></a>后续步骤
 在 Azure 中[设置目标环境](./vmware-azure-set-up-target.md)。
 
-<!--Update_Description: update meta properties, wording update, update link -->
+<!--Update_Description: update meta properties, wording update  -->

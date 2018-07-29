@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: storage
 ms.topic: include
 origin.date: 06/05/2018
-ms.date: 06/25/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: a422ef55b6d97653542ef14517851a05f42648a6
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.openlocfilehash: 626066ea5c17af79344db369e3e16c483ed17f3c
+ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315730"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39307257"
 ---
 # <a name="using-managed-disks-in-azure-resource-manager-templates"></a>在 Azure 资源管理器模板中使用托管磁盘
 
@@ -258,6 +258,6 @@ ms.locfileid: "36315730"
 * 请访问文章 [Azure 托管磁盘概述](../articles/virtual-machines/windows/managed-disks-overview.md)，详细了解托管磁盘。
 * 访问文档 [Microsoft.Compute/virtualMachines template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.compute/virtualmachines)（Microsoft.Compute/virtualMachines 模板参考），查看虚拟机资源的模板参考文档。
 * 请访问 [Microsoft.Compute/disks 模板参考](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.compute/disks)文档，查看磁盘资源的模板参考文档。
-* 有关如何使用 Azure 虚拟机规模集中的托管磁盘的信息，请访问[将数据磁盘与规模集配合使用](/virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md)文档。
+* 有关如何使用 Azure 虚拟机规模集中的托管磁盘的信息，请访问[将数据磁盘与规模集配合使用](/virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks)文档。
 <!--Update_Description: wording update, update link-->
-<!--ms.date: 06/25/2018-->
+<!--ms.date: 07/30/2018-->

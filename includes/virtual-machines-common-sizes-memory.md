@@ -5,16 +5,16 @@ services: virtual-machines
 author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
-origin.date: 05/22/2018
-ms.date: 06/25/2018
+origin.date: 07/06/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: b18462c510cc50cc1f35b22fd8170ffcdfe8c892
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.openlocfilehash: 8f910e0425885782095f30a37a50a8f5d2f5a6a5
+ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315673"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39307074"
 ---
 内存优化 VM 大小提供适用于关系数据库服务器、中到大型规模的缓存和内存中分析的高内存 CPU 比率。 本文介绍了此分组中各个大小的 vCPU 数、数据磁盘数、NIC 数、存储吞吐量及网络带宽的相关信息。 
 <!-- Not Available M-Series -->
@@ -24,7 +24,6 @@ ms.locfileid: "36315673"
 
 * Dv2 系列是原 D 系列的后续系列，其特点是 CPU 功能更强大。 Dv2 系列 CPU 比 D 系列 CPU 快大约 35%。 它基于最新一代的 2.4 GHz Intel Xeon® E5-2673 v3 2.4 GHz (Haswell) 或 E5-2673 v4 2.3 GHz (Broadwell) 处理器，通过英特尔睿频加速技术 2.0 可以达到 3.1 GHz。 Dv2 系列的内存和磁盘配置与 D 系列相同。
 
-<!--PENDIND ON Esv3-series, Updte carefully -->
 * Ev3 系列在超线程配置中采用 E5-2673 v4 2.3 GHz (Broadwell) 处理器，针对最常规用途的工作负荷提供了更好的价值主张，因此 Ev3 适用于大多数其他云的常规用途 VM。  在磁盘和网络限制已基于核心进行了调整以适应超线程技术的同时，内存也得到了扩展（从 7 GiB/vCPU 到 8 GiB/vCPU）。  Ev3 是 D/Dv2 系列的高内存 VM 大小产品的后继产品。
 
 * Azure 计算提供独立于特定硬件类型并专用于单个客户的虚拟机大小。  这些虚拟机大小非常适合于与其他客户的工作负载（涉及符合性和法规要求等元素）高度隔离的工作负载。  客户还可以选择利用[对嵌套虚拟机的 Azure 支持](https://azure.microsoft.com/blog/nested-virtualization-in-azure/)，对这些独立的虚拟机资源进一步细分。  请参阅下面的虚拟机系列表，了解独立 VM 选项。
@@ -32,6 +31,10 @@ ms.locfileid: "36315673"
 ## <a name="esv3-series"></a>Esv3 系列 
 
 ACU：160-190 <sup>1</sup>
+
+高级存储：支持
+
+高级存储缓存：支持
 
 ESv3 系列实例基于 2.3 GHz Intel XEON® E5-2673 v4 (Broadwell) 处理器，可通过 Intel Turbo Boost Technology 2.0 达到 3.5 GHz，并使用高级存储。 Ev3 系列实例适用于内存密集型企业应用程序。
 
@@ -52,12 +55,14 @@ ESv3 系列实例基于 2.3 GHz Intel XEON® E5-2673 v4 (Broadwell) 处理器，
 <sup>2</sup> 受约束的可用核心大小。
 
 <sup>3</sup> 实例与专用于单个客户的硬件隔离。
-<!--PENDIND ON Esv3-series, Updte carefully -->
 
-<!--PENDIND ON Ev3-series, Updte carefully -->
 ## <a name="ev3-series"></a>Ev3 系列 
 
 ACU：160 - 190 <sup>1</sup>
+
+高级存储：不支持
+
+高级存储缓存：不支持
 
 Ev3 系列实例基于 2.3 GHz Intel XEON® E5-2673 v4 (Broadwell) 处理器，可通过 Intel Turbo Boost Technology 2.0 达到 3.5 GHz。 Ev3 系列实例适用于内存密集型企业应用程序。
 
@@ -80,9 +85,13 @@ Ev3 系列实例基于 2.3 GHz Intel XEON® E5-2673 v4 (Broadwell) 处理器，�
 <!-- Not Available on ## M-series <sup>1</sup> -->
 <!-- Not Available on ## GS-series <sup>1</sup> -->
 <!-- Not Available ## G-series-->
-## <a name="dsv2-series"></a>DSv2 系列 
+## <a name="dsv2-series-11-15"></a>DSv2 系列 11-15
 
 <!-- NOTICE: 最大 NIC 数/预期网络带宽 (Mbps) SHOULD BE (Mbps) --> ACU：210 - 250 <sup>1</sup>
+
+高级存储：支持
+
+高级存储缓存：不支持
 
 | 大小 | vCPU | 内存：GiB | 临时存储 (SSD) GiB | 最大数据磁盘数 | 缓存和临时存储的最大吞吐量：IOPS/MBps（以 GiB 为单位的缓存大小） | 非缓存磁盘最大吞吐量：IOPS / MBps | 最大 NIC 数/预期网络带宽 (MBps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -103,9 +112,13 @@ Ev3 系列实例基于 2.3 GHz Intel XEON® E5-2673 v4 (Broadwell) 处理器，�
 
 <br>
 
-## <a name="dv2-series"></a>Dv2 系列
+## <a name="dv2-series-11-15"></a>Dv2 系列 11-15
 
 ACU：210 - 250
+
+高级存储：不支持
+
+高级存储缓存：不支持
 
 | 大小              | vCPU | 内存：GiB | 临时存储 (SSD) GiB | 临时存储的最大吞吐量：IOPS/读取 MBps/写入 MBps | 最大的数据磁盘/吞吐量：IOPS | 最大 NIC 数/预期网络带宽 (MBps) |
 |-------------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|

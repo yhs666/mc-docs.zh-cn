@@ -14,14 +14,14 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 02/12/2018
-ms.date: 05/29/2018
+ms.date: 07/24/2018
 ms.author: v-junlch
-ms.openlocfilehash: c276ec10f0570abd27d31eee3303c7ea044c9cf0
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 4774fdb2b88c4f44dc20ba98f700da4404e30880
+ms.sourcegitcommit: ba07d76f8394b5dad782fd983718a8ba49a9deb2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34567359"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39220235"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Functions 的 Azure Blob 存储绑定
 
@@ -33,14 +33,17 @@ ms.locfileid: "34567359"
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
+## <a name="packages---functions-1x"></a>包 - Functions 1.x
 
-## <a name="packages"></a>包
-
-[Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet 包中提供了 Blob 存储绑定。 [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/master/src) GitHub 存储库中提供了此包的源代码。
+[Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet 包 2.x 版中提供了 Blob 存储绑定。 [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Blob) GitHub 存储库中提供了此包的源代码。
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
-[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+## <a name="packages---functions-2x"></a>包 - Functions 2.x
+
+[Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet 包 3.x 版中提供了 Blob 存储绑定。 [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/master/src/Microsoft.Azure.WebJobs.Storage/Blob) GitHub 存储库中提供了此包的源代码。
+
+[!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
 [!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
 
@@ -77,7 +80,7 @@ blob 触发器路径 `samples-workitems/{name}` 中的字符串 `{name}` 会创�
 
 以下示例演示 function.json 文件中的一个 Blob 触发器绑定以及使用该绑定的 [C# 脚本 (.csx)](functions-reference-csharp.md) 代码。 在 `samples-workitems` 容器中添加或更新 Blob 时，该函数会写入日志。
 
-下面是 *function.json* 文件中的绑定数据：
+下面是 function.json 文件中的绑定数据：
 
 ```json
 {
@@ -124,7 +127,7 @@ public static void Run(CloudBlockBlob myBlob, string name, TraceWriter log)
 
 以下示例显示了 *function.json* 文件中的一个 Blob 触发器绑定以及使用该绑定的 [JavaScript 代码](functions-reference-node.md)。 在 `samples-workitems` 容器中添加或更新 Blob 时，该函数会写入日志。
 
-*function.json* 文件如下所示：
+function.json 文件如下所示：
 
 ```json
 {
@@ -212,11 +215,11 @@ module.exports = function(context) {
 
 ## <a name="trigger---configuration"></a>触发器 - 配置
 
-下表解释了在 *function.json* 文件和 `BlobTrigger` 特性中设置的绑定配置属性。
+下表解释了在 function.json 文件和 `BlobTrigger` 特性中设置的绑定配置属性。
 
 |function.json 属性 | Attribute 属性 |说明|
 |---------|---------|----------------------|
-|**类型** | 不适用 | 必须设置为 `blobTrigger`。 在 Azure 门户中创建触发器时，会自动设置此属性。|
+|类型 | 不适用 | 必须设置为 `blobTrigger`。 在 Azure 门户中创建触发器时，会自动设置此属性。|
 |direction | 不适用 | 必须设置为 `in`。 在 Azure 门户中创建触发器时，会自动设置此属性。 [用法](#trigger---usage)部分中已阐述异常。 |
 |**name** | 不适用 | 表示函数代码中的 Blob 的变量的名称。 | 
 |**路径** | **BlobPath** |要监视的容器。  可以是某种 [Blob 名称模式](#trigger-blob-name-patterns)。 | 
@@ -516,7 +519,7 @@ public static void Run(
 
 |function.json 属性 | Attribute 属性 |说明|
 |---------|---------|----------------------|
-|**类型** | 不适用 | 必须设置为 `blob`。 |
+|类型 | 不适用 | 必须设置为 `blob`。 |
 |direction | 不适用 | 必须设置为 `in`。 [用法](#input---usage)部分中已阐述异常。 |
 |**name** | 不适用 | 表示函数代码中的 Blob 的变量的名称。|
 |**路径** |**BlobPath** | Blob 的路径。 | 
@@ -725,11 +728,11 @@ public static void Run(
 
 ## <a name="output---configuration"></a>输出 - 配置
 
-下表解释了在 *function.json* 文件和 `Blob` 特性中设置的绑定配置属性。
+下表解释了在 function.json 文件和 `Blob` 特性中设置的绑定配置属性。
 
 |function.json 属性 | Attribute 属性 |说明|
 |---------|---------|----------------------|
-|**类型** | 不适用 | 必须设置为 `blob`。 |
+|类型 | 不适用 | 必须设置为 `blob`。 |
 |direction | 不适用 | 对于输出绑定，必须设置为 `out`。 [用法](#output---usage)部分中已阐述异常。 |
 |**name** | 不适用 | 表示函数代码中的 Blob 的变量的名称。  设置为 `$return` 可引用函数返回值。|
 |**路径** |**BlobPath** | Blob 的路径。 | 

@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/30/2017
-ms.date: 08/28/2017
+ms.date: 07/30/2018
 ms.author: v-haiqya
-ms.openlocfilehash: 1a890d001944c835f1ead201c598caa49f7c79ca
-ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
+ms.openlocfilehash: 005f2db3387220b0e977cbb6af0de1280c711b74
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37405276"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295813"
 ---
 # <a name="using-the-azure-cli-10-with-azure-storage"></a>将 Azure CLI 1.0 用于 Azure 存储
 
@@ -44,7 +44,6 @@ Azure CLI 提供了一组开源且跨平台的命令，这些命令可以用于 
 
 **Azure 新用户：** 获取一个 Azure 订阅以及与该订阅关联的 Microsoft 帐户。 有关 Azure 购买选项的信息，请参阅 [1 元试用](https://www.azure.cn/pricing/1rmb-trial/)。
 
-请参阅[在 Azure Active Directory (Azure AD) 中分配管理员角色](https://msdn.microsoft.com/library/azure/hh531793.aspx)，以了解有关 Azure 订阅的更多信息。
 
 **创建 Azure 订阅和帐户之后：**
 
@@ -184,7 +183,7 @@ azure storage blob delete mycontainer myBlockBlob2
 ```
 
 ## <a name="create-and-manage-file-shares"></a>创建和管理文件共享
-Azure 文件存储使用标准 SMB 协议为应用程序提供共享存储。 Azure 虚拟机和云服务以及本地应用程序可以通过装载的共享来共享文件数据。 可以通过 Azure CLI 管理文件共享和文件数据。 有关 Azure 文件存储的详细信息，请参阅[在 Windows 上开始使用 Azure 文件存储](../storage-dotnet-how-to-use-files.md)或[如何通过 Linux 使用 Azure 文件存储](../storage-how-to-use-files-linux.md)。
+Azure 文件使用标准 SMB 协议为应用程序提供共享存储。 Microsoft Azure 虚拟机和云服务以及本地应用程序可以通过装载的共享来共享文件数据。 可以通过 Azure CLI 管理文件共享和文件数据。 有关 Azure 文件的详细信息，请参阅 [Azure 文件简介](../files/storage-files-introduction.md)。
 
 ### <a name="create-a-file-share"></a>创建文件共享
 Azure 文件共享是 Azure 中的 SMB 文件共享。 所有目录和文件都必须在文件共享中创建。 一个帐户可以包含无限数量的共享，一个共享可以存储无限数量的文件，直到达到存储帐户的容量限制为止。 下面的示例创建名为 **myshare**的文件共享。

@@ -1,25 +1,23 @@
 ---
 title: 快速入门：向 Azure IoT 中心发送遥测数据 | Microsoft Docs
 description: 在本快速入门中，请运行一个示例 iOS 应用程序，以便向 IoT 中心发送模拟遥测数据，以及从 IoT 中心读取需在云中处理的遥测数据。
-services: iot-hub
 author: kgremban
 manager: timlt
-editor: ''
 ms.service: iot-hub
-ms.devlang: ''
+services: iot-hub
 ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: ns
 origin.date: 04/20/2018
-ms.date: 07/09/2018
+ms.date: 08/06/2018
 ms.author: v-yiso
-ms.openlocfilehash: fa25f7972c7c2b06a9f9adef873afdb4685e03f2
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 70778af46e29dcba3132f7d7eb908e7ce39408c0
+ms.sourcegitcommit: d4092cf6aba0d949bf612093c76f964c2bdfd0ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939797"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39306617"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-ios"></a>快速入门：将遥测数据从设备发送到 IoT 中心 (iOS)
 
@@ -139,9 +137,7 @@ iothub-explorer monitor-events myiOSdevice --login "{your hub service connection
 
 ## <a name="clean-up-resources"></a>清理资源
 
-如果打算继续在其他文章中测试 IoT 中心，请保留资源组和 IoT 中心，在以后重用它们。
-
-如果不再需要 IoT 中心，请在门户中删除该中心与资源组。 为此，请选择包含 IoT 中心的资源组，然后单击“删除”。
+[!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -14,14 +14,14 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 11/02/2017
-ms.date: 06/04/2018
+ms.date: 08/06/2018
 ms.author: v-yiso
-ms.openlocfilehash: e78c133726148280acb463394262009559cea811
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: dbaa2e5b9c4fcc7bb0f47d7bf0cf2f018e25c998
+ms.sourcegitcommit: d4092cf6aba0d949bf612093c76f964c2bdfd0ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554654"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39306569"
 ---
 # <a name="remote-monitoring-preconfigured-solution-walkthrough"></a>远程监视预配置解决方案演练
 
@@ -280,8 +280,8 @@ Web 应用中的此页面使用 PowerBI javascript 控件（请参阅 [PowerBI-v
 
 以下 TechNet 博客文章提供了有关远程监视预配置解决方案的更多详细信息：
 
-* [IoT Suite - Under The Hood - Remote Monitoring（IoT 套件 - 幕后 - 远程监视）](http://social.technet.microsoft.com/wiki/contents/articles/32941.iot-suite-v1-under-the-hood-remote-monitoring.aspx)
-* [IoT Suite - Remote Monitoring - Adding Live and Simulated Devices（IoT 套件 - 远程监视 - 添加实时与模拟设备）](http://social.technet.microsoft.com/wiki/contents/articles/32975.iot-suite-v1-remote-monitoring-adding-live-and-simulated-devices.aspx)
+* [IoT Suite - Under The Hood - Remote Monitoring（IoT 套件 - 幕后 - 远程监视）](http://social.technet.microsoft.com/wiki/contents/articles/32941.iot-suite-under-the-hood-remote-monitoring.aspx)
+* [IoT Suite - Remote Monitoring - Adding Live and Simulated Devices（IoT 套件 - 远程监视 - 添加实时与模拟设备）](https://social.technet.microsoft.com/wiki/contents/articles/32975.iot-suite-remote-monitoring-adding-live-and-simulated-devices.aspx)
 
 可以通过阅读以下文章继续开始使用 IoT 套件：
 

@@ -8,7 +8,7 @@ IoT 解决方案可扩展已定义的设备管理模式集，或通过使用设�
 
 ## <a name="next-steps"></a>后续步骤
 
-在本教程中，将使用直接方法触发设备上的远程重新启动。 使用报告属性报告设备上次重新启动时间，并查询设备孪生从云中发现设备上次重新启动时间。
+本教程使用直接方法触发设备上的远程重新启动。 使用报告属性报告设备上次重新启动时间，并查询设备孪生从云中发现设备上次重新启动时间。
 
 若要继续完成 IoT 中心和设备管理模式（如远程无线固件更新）的入门内容，请参阅：
 
@@ -18,6 +18,6 @@ IoT 解决方案可扩展已定义的设备管理模式集，或通过使用设�
 
 若要继续完成 IoT 中心入门内容，请参阅 [IoT Edge 入门][lnk-iot-edge]。
 
-[lnk-fwupdate]: ../articles/iot-hub/iot-hub-node-node-firmware-update.md
+[lnk-fwupdate]: ../articles/iot-hub/tutorial-firmware-update.md
 [lnk-tutorial-jobs]: ../articles/iot-hub/iot-hub-node-node-schedule-jobs.md
 [lnk-iot-edge]: ../articles/iot-hub/iot-hub-linux-iot-edge-get-started.md

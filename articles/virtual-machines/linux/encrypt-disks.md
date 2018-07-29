@@ -14,17 +14,17 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/31/2018
-ms.date: 06/25/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 3de3e65698ab6df89e2ef8958c7c5443cceec6eb
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.openlocfilehash: 2147be555993752bb7c09df25ddb878a604addff
+ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315604"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39307025"
 ---
 # <a name="how-to-encrypt-a-linux-virtual-machine-in-azure"></a>如何加密 Azure 中的 Linux 虚拟机
-为了增强虚拟机 (VM) 的安全性以及符合性，可以加密虚拟磁盘和 VM 本身。 VM 是使用 Azure 密钥保管库中受保护的加密密钥加密的。 可以控制这些加密密钥，以及审核对它们的使用。 本文介绍如何使用 Azure CLI 2.0 加密 Linux VM 上的虚拟磁盘。 也可以使用 [Azure CLI 1.0](encrypt-disks-nodejs.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 执行这些步骤。
+为了增强虚拟机 (VM) 的安全性以及符合性，可以加密虚拟磁盘和 VM 本身。 VM 是使用 Azure 密钥保管库中受保护的加密密钥加密的。 可以控制这些加密密钥，以及审核对它们的使用。 本文介绍如何使用 Azure CLI 2.0 加密 Linux VM 上的虚拟磁盘。 
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 

@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 11/03/2017
-ms.date: 06/04/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 612e4e77948c0a9d1e86b6d06b3bcbf27f5c97ba
-ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
+ms.openlocfilehash: e8c7408b79c80d5088bbe4ed6bc34c2c385397ec
+ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37405307"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39307008"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-azure-powershell"></a>通过使用 Azure PowerShell 将 OS 磁盘附加到恢复 VM 来对 Windows VM 进行故障排除
 如果 Windows 虚拟机 (VM) 在 Azure 中遇到启动或磁盘错误，可能需要对虚拟硬盘本身执行故障排除步骤。 一个常见示例是应用程序更新失败，使 VM 无法成功启动。 本文详细介绍如何使用 Azure PowerShell 将虚拟硬盘连接到另一个 Windows VM 来修复所有错误，并重新创建原始 VM。
@@ -175,7 +175,7 @@ Update-AzureRmVM -ResourceGroup "myResourceGroup" -VM $myVM
 ## <a name="create-vm-from-original-hard-disk"></a>从原始硬盘创建 VM
 若要从原始虚拟硬盘创建 VM，请使用 [此 Azure Resource Manager 模板](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-existing-vnet)。 实际的 JSON 模板位于以下链接中：
 
-- https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-specialized-vhd-existing-vnet/azuredeploy.json
+- https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-specialized-vhd-new-or-existing-vnet/azuredeploy.json
 
 该模板使用前面命令中的 VHD URL 将 VM 部署到现有虚拟网络。 以下示例将模板部署到名为 `myResourceGroup` 的资源组：
 

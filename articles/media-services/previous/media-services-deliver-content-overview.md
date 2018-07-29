@@ -1,5 +1,5 @@
 ---
-title: 将内容传送到客户 | Microsoft Docs
+title: 向客户传送内容 | Azure
 description: 本主题概述使用 Azure 媒体服务传送内容所涉及的操作。
 services: media-services
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 09/28/2017
 ms.date: 11/06/2017
 ms.author: v-johch
-ms.openlocfilehash: 22589ed941ead1c217211a23508ead3896845fb8
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: f11c8524f27e2e54c759b55cf766fafff48f5e3c
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475218"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219488"
 ---
 # <a name="deliver-content-to-customers"></a>向客户传送内容
 向客户传送流或视频点播内容时，目标在于向处于不同网络条件下的各种设备传送优质视频。

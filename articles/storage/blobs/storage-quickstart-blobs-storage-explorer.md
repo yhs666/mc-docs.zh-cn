@@ -10,12 +10,12 @@ ms.topic: quickstart
 origin.date: 04/09/2018
 ms.date: 06/11/2018
 ms.author: v-nany
-ms.openlocfilehash: 79daa08469f04929fb198c89860ce0403513ab5e
-ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
+ms.openlocfilehash: adad9e27fcd46cf80081f9aea88747983da59f5a
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36269998"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295704"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-azure-storage-explorer"></a>快速入门：使用 Azure 存储资源管理器上传、下载和列出 Blob
 
@@ -100,5 +100,5 @@ Azure 存储资源管理器提供创建和管理 Blob [快照](storage-blob-snap
 在此快速入门教程中，我们学习了如何使用 **Azure 存储资源管理器**在本地磁盘与 Azure Blob 存储之间传输文件。 要深入了解如何使用 Blob 存储，请继续学习 Blob 存储操作说明。
 
 > [!div class="nextstepaction"]
-> [Blob 存储操作说明](storage-how-to-use-blobs-powershell.md)
+> [Blob 存储操作说明](storage-quickstart-blobs-powershell.md)
 <!--Update_Description: add azure stack related info-->

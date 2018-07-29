@@ -14,12 +14,12 @@ ms.workload: data-services
 origin.date: 04/23/2018
 ms.date: 07/02/2018
 ms.author: v-jay
-ms.openlocfilehash: 41858d3a1270da6d70b59795d1f7734167520a83
-ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
+ms.openlocfilehash: 5f45ca51349144a521fd86afc1c0ab6a72d4930e
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103152"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295853"
 ---
 # <a name="table-design-patterns"></a>表设计模式
 本文介绍适用于表服务解决方案的一些模式。 此外，还将了解如何实际解决其他表存储设计文章中提出的一些问题和权衡。 下图总结了不同模式之间的关系：  
@@ -78,9 +78,9 @@ ms.locfileid: "37103152"
 实现此模式时，以下模式和指南也可能相关：  
 
 * [分区间辅助索引模式](#inter-partition-secondary-index-pattern)
-* [复合键模式](#compound-key-pattern)
-* [实体组事务](#entity-group-transactions)
-* [处理异类实体类型](#working-with-heterogeneous-entity-types)
+* [复合键模式](#compound-key-pattern)  
+* [实体组事务](#entity-group-transactions)  
+* [处理异类实体类型](#working-with-heterogeneous-entity-types)  
 
 ## <a name="eventually-consistent-transactions-pattern"></a>最终一致性事务模式
 通过使用 Azure 队列跨分区边界或存储系统边界启用最终一致的行为。  

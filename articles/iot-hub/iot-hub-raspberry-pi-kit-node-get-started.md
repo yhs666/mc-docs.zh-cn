@@ -1,28 +1,25 @@
 ---
 title: 连接到云的 Raspberry Pi (Node.js) - 将 Raspberry Pi 连接到 Azure IoT 中心 | Microsoft Docs
 description: 在本教程中了解如何设置 Raspberry Pi 并将其连接到 Azure IoT 中心，使其能够将数据发送到 Azure 云平台。
-services: iot-hub
-documentationcenter: ''
 author: rangv
-manager: timlt
-tags: ''
+manager: ''
 keywords: Azure IoT Raspberry Pi, Raspberry Pi IoT 中心, Raspberry Pi 将数据发送到云, 连接到云的 Raspberry Pi
-ms.assetid: b0e14bfa-8e64-440a-a6ec-e507ca0f76ba
 ms.service: iot-hub
-ms.devlang: node
-ms.topic: article
+services: iot-hub
+ms.devlang: nodejs
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 04/11/2018
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
-ms.date: 05/07/2018
-ms.openlocfilehash: 69fcc19b9e69327ed5d4a4f788a0a003949cf2e4
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.date: 08/06/2018
+ms.openlocfilehash: e32311a090d8d462671f20c14735c8dfd14d44cd
+ms.sourcegitcommit: d4092cf6aba0d949bf612093c76f964c2bdfd0ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38938850"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39306564"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>将 Raspberry Pi 连接到 Azure IoT 中心 (Node.js)
 
@@ -52,7 +49,7 @@ ms.locfileid: "38938850"
 ![需要什么](./media/iot-hub-raspberry-pi-kit-node-get-started/0_starter_kit.jpg)
 
 * 一个 Raspberry Pi 2 或 Raspberry Pi 3 电路板。
-* 一个有效的 Azure 订阅。 如果没有 Azure 帐户，只需花费几分钟就能[创建一个 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* Azure 订阅。 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 * 连接到 Pi 的监视器、USB 键盘和鼠标。
 * 运行 Windows 或 Linux 的 Mac 或电脑。
 * Internet 连接。

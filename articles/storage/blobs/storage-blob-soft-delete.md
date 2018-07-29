@@ -6,15 +6,15 @@ author: forester123
 manager: josefree
 ms.service: storage
 ms.topic: article
-origin.date: 05/31/2018
-ms.date: 07/02/2018
+origin.date: 07/15/2018
+ms.date: 07/30/2018
 ms.author: v-johch
-ms.openlocfilehash: 436d8a58ba3624eb85539708646d7d8ab4fc0b07
-ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
+ms.openlocfilehash: a913e62e25435d3e744f537d9ed414efa6b4dac5
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37800413"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295633"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Azure 存储 Blob 的软删除
 Azure 存储现提供 Blob 对象软删除，目的是为了在应用程序或其他存储帐户用户错误地修改或删除数据后可以更轻松地恢复数据。
@@ -71,17 +71,17 @@ Azure 存储现提供 Blob 对象软删除，目的是为了在应用程序或�
 
 | REST API 操作 | 资源类型 | 说明 | 行为更改 |
 |--------------------|---------------|-------------|--------------------|
-| [删除](/rest/api/storagerp/StorageAccounts/Delete) | 帐户 | 删除存储帐户，包括它包含的所有容器和 blob。                           | 无更改。 已删除帐户中的容器和 blob 不可恢复。 |
-| [删除容器](/rest/api/storageservices/delete-container) | 容器 | 删除容器，包括它包含的所有 blob。 | 无更改。 已删除容器中的 blob 不可恢复。 |
-| [放置 Blob](/rest/api/storageservices/put-blob) | 块 Blob、追加 Blob 和 页 Blob | 创建新的 blob 或替换容器内的现有 blob | 如果用于替换现有 blob，将自动生成调用之前的 blob 状态的快照。 对于以前软删除的 blob，当且仅当使用相同类型的 blob （块、追加或页 blob）进行替换时，才会生成快照。 如果由不同类型的 blob 替换，所有现有软删除数据都将永久过期。 |
-| [删除 Blob](/rest/api/storageservices/delete-blob) | 块 Blob、追加 Blob 和 页 Blob | 标记要删除的 blob 或 blob 快照。 blob 或快照将稍后在垃圾回收过程中进行删除 | 如果用于删除 blob 快照，该快照将标记为软删除。 如果用于删除 blob，该 blob 将标记为软删除。 |
-| [复制 Blob](/rest/api/storageservices/copy-blob) | 块 Blob、追加 Blob 和 页 Blob | 将源 blob 复制到相同存储帐户或其他存储帐户中的目标 blob 中。 | 如果用于替换现有 blob，将自动生成调用之前的 blob 状态的快照。 对于以前软删除的 blob，当且仅当使用相同类型的 blob （块、追加或页 blob）进行替换时，才会生成快照。 如果由不同类型的 blob 替换，所有现有软删除数据都将永久过期。 |
-| [放置块](/rest/api/storageservices/put-block) | 块 Blob | 创建新块，作为块 blob 的一部分进行提交。 | 如果用于将块提交到活动 blob 中，则不发生任何更改。 如果用于将块提交到软删除的 blob 中，将创建新的 blob 并自动生成快照，以捕获软删除 blob 的状态。 |
-| [放置块列表](/rest/api/storageservices/put-block-list) | 块 Blob | 通过指定构成块 blob 的块 ID 集来提交 blob。 | 如果用于替换现有 blob，将自动生成调用之前的 blob 状态的快照。 对于以前软删除的 blob，当且仅当其为块 blob 时，才会生成快照。 如果由不同类型的 blob 替换，所有现有软删除数据都将永久过期。 |
-| [放置页](/rest/api/storageservices/put-page) | 页 Blob | 将一系列页写入页 Blob。 | 无更改。 通过该操作覆盖或清除的页 Blob 数据不会保存，且不可恢复。 |
-| [追加块](/rest/api/storageservices/append-block) | 追加 Blob | 将数据块写入追加 Blob 的末尾。 | 无更改。 |
-| [设置 Blob 属性](/rest/api/storageservices/set-blob-properties) | 块 Blob、追加 Blob 和 页 Blob | 为对 blob 定义的系统属性设置值。 | 无更改。 被覆盖的 blob 属性不可恢复。 |
-| [设置 Blob 元数据](/rest/api/storageservices/set-blob-metadata) | 块 Blob、追加 Blob 和 页 Blob | 将特定 blob 的用户定义元数据设置为一个或多个名称/值对。 | 无更改。 被覆盖的 blob 元数据不可恢复。 |
+| [删除](https://docs.microsoft.com/rest/api/storagerp/StorageAccounts/Delete) | 帐户 | 删除存储帐户，包括它包含的所有容器和 blob。                           | 无更改。 已删除帐户中的容器和 blob 不可恢复。 |
+| [删除容器](https://docs.microsoft.com/rest/api/storageservices/delete-container) | 容器 | 删除容器，包括它包含的所有 blob。 | 无更改。 已删除容器中的 blob 不可恢复。 |
+| [放置 Blob](https://docs.microsoft.com/rest/api/storageservices/put-blob) | 块 Blob、追加 Blob 和 页 Blob | 创建新的 blob 或替换容器内的现有 blob | 如果用于替换现有 blob，将自动生成调用之前的 blob 状态的快照。 对于以前软删除的 blob，当且仅当使用相同类型的 blob （块、追加或页 blob）进行替换时，才会生成快照。 如果由不同类型的 blob 替换，所有现有软删除数据都将永久过期。 |
+| [删除 Blob](https://docs.microsoft.com/rest/api/storageservices/delete-blob) | 块 Blob、追加 Blob 和 页 Blob | 标记要删除的 blob 或 blob 快照。 blob 或快照将稍后在垃圾回收过程中进行删除 | 如果用于删除 blob 快照，该快照将标记为软删除。 如果用于删除 blob，该 blob 将标记为软删除。 |
+| [复制 Blob](https://docs.microsoft.com/rest/api/storageservices/copy-blob) | 块 Blob、追加 Blob 和 页 Blob | 将源 blob 复制到相同存储帐户或其他存储帐户中的目标 blob 中。 | 如果用于替换现有 blob，将自动生成调用之前的 blob 状态的快照。 对于以前软删除的 blob，当且仅当使用相同类型的 blob （块、追加或页 blob）进行替换时，才会生成快照。 如果由不同类型的 blob 替换，所有现有软删除数据都将永久过期。 |
+| [放置块](https://docs.microsoft.com/rest/api/storageservices/put-block) | 块 Blob | 创建新块，作为块 blob 的一部分进行提交。 | 如果用于将块提交到活动 blob 中，则不发生任何更改。 如果用于将块提交到软删除的 blob 中，将创建新的 blob 并自动生成快照，以捕获软删除 blob 的状态。 |
+| [放置块列表](https://docs.microsoft.com/rest/api/storageservices/put-block-list) | 块 Blob | 通过指定构成块 blob 的块 ID 集来提交 blob。 | 如果用于替换现有 blob，将自动生成调用之前的 blob 状态的快照。 对于以前软删除的 blob，当且仅当其为块 blob 时，才会生成快照。 如果由不同类型的 blob 替换，所有现有软删除数据都将永久过期。 |
+| [放置页](https://docs.microsoft.com/rest/api/storageservices/put-page) | 页 Blob | 将一系列页写入页 Blob。 | 无更改。 通过该操作覆盖或清除的页 Blob 数据不会保存，且不可恢复。 |
+| [追加块](https://docs.microsoft.com/rest/api/storageservices/append-block) | 追加 Blob | 将数据块写入追加 Blob 的末尾。 | 无更改。 |
+| [设置 Blob 属性](https://docs.microsoft.com/rest/api/storageservices/set-blob-properties) | 块 Blob、追加 Blob 和 页 Blob | 为对 blob 定义的系统属性设置值。 | 无更改。 被覆盖的 blob 属性不可恢复。 |
+| [设置 Blob 元数据](https://docs.microsoft.com/rest/api/storageservices/set-blob-metadata) | 块 Blob、追加 Blob 和 页 Blob | 将特定 blob 的用户定义元数据设置为一个或多个名称/值对。 | 无更改。 被覆盖的 blob 元数据不可恢复。 |
 
 请务必注意，通过调用“Put Page”来覆盖或清除页 Blob 的范围时不会自动生成快照。 虚拟机磁盘受页 Blob 支持，且使用“放置页”来写入数据。
 
@@ -178,6 +178,11 @@ Set-AzureRmContext -Subscription "<subscription-name>"
 $MatchingAccounts = Get-AzureRMStorageAccount | where-object{$_.StorageAccountName -match "<matching-regex>"}
 $MatchingAccounts | Enable-AzureStorageDeleteRetentionPolicy -RetentionDays 7
 ```
+可以使用以下命令验证是否启用了软删除：
+
+```powershell
+$MatchingAccounts | Get-AzureStorageServiceProperty -ServiceType Blob
+```
 
 若要恢复意外删除的 blob，请对这些 blob 调用撤销删除。 请记住，如果对活动和软删除 blob 调用撤销删除 Blob，则会将所有相关软删除快照还原为活动状态。 下面的示例对容器中的所有软删除和活动 blob 调用了撤销删除：
 ```powershell
@@ -191,6 +196,13 @@ $Blobs.ICloudBlob.Properties
 # Undelete the blobs
 $Blobs.ICloudBlob.Undelete()
 ```
+若要查找当前的软删除保留策略，请使用以下命令：
+
+```powershell
+   $account = Get-AzureRmStorageAccount -ResourceGroupName myresourcegroup -Name storageaccount
+   Get-AzureStorageServiceProperty -ServiceType Blob -Context $account.Context
+```
+
 ### <a name="azure-cli"></a>Azure CLI 
 若要启用软删除，请更新 blob 客户端的服务属性：
 
@@ -305,7 +317,7 @@ blockBlob.StartCopy(copySource);
 
 ## <a name="next-steps"></a>后续步骤
 * [.NET 示例代码](https://github.com/Azure-Samples/storage-dotnet-blob-soft-delete)
-* [Blob 服务 REST API](/rest/api/storageservices/blob-service-rest-api)
+* [Blob 服务 REST API](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api)
 * [Azure 存储复制](../common/storage-redundancy.md)
 * [使用 RA-GRS 设计高度可用的应用程序](../common/storage-designing-ha-apps-with-ragrs.md)
 * [在 Azure 存储中断时该怎么办](../common/storage-disaster-recovery-guidance.md)

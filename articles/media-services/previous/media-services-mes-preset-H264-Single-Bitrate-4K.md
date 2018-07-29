@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 07/20/2017
 ms.date: 09/04/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 982a162c13d4ab614056dd2035b6bc8b455fa242
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 82c3371dded4ee3c28db8f75db735e7ce7218681
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475377"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219442"
 ---
 # <a name="h264-single-bitrate-4k"></a>H264 单比特率 4K
 `Media Encoder Standard` 定义一组可在创建编码作业时使用的编码预设。 可以使用 `preset name` 指定编码媒体文件采用的格式。 也可以创建自己的 JSON 或基于 XML 的预设（使用 UTF-8 或 UTF-16 编码）。 然后，将自定义预设传递到编码器。 有关此 `Media Encoder Standard` 编码器支持的所有预设名称的列表，请参阅 [Media Encoder Standard 的任务预设](media-services-mes-presets-overview.md)。  
@@ -30,8 +30,8 @@ ms.locfileid: "34475377"
  此预设可生成比特率为 18000 kbps 的单个 MP4 文件和立体声 AAC 音频。 若要深入了解此预设的配置文件、比特率、采样率等，请检查下面定义的 XML 或 JSON。 有关这些预设中的每个元素的含义及其有效值的说明，请参阅 [Media Encoder Standard 架构](media-services-mes-schema.md)主题。  
   
 > [!NOTE]
->  应利用 4K 编码获取“高级版”保留单位类型。 有关详细信息，请参阅 [如何缩放编码](/media-services/media-services-scale-media-processing-overview)。  
-
+>  应当会获得采用 4K 编码的“高级”预留单位类型。 有关详细信息，请参阅 [如何缩放编码](/media-services/media-services-scale-media-processing-overview)。  
+  
  XML  
   
 ```  

@@ -14,15 +14,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 11/13/2017
-ms.date: 06/04/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 5574d0979569099fb5086e75025bca7fb4869a4f
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 6e5d4483787651bcbbd7732e584607ed6eec4762
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702740"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295628"
 ---
 # <a name="tutorial-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application-with-the-azure-cli-20"></a>教程：在 Azure 中使用 Azure CLI 2.0 均衡 Linux 虚拟机负载以创建高可用性应用程序
 
@@ -169,7 +169,7 @@ done
 ### <a name="create-cloud-init-config"></a>创建 cloud-init 配置
 在有关[如何在首次启动时自定义 Linux 虚拟机](tutorial-automate-vm-deployment.md)的上一个教程中，你已了解如何使用 cloud-init 自动执行 VM 自定义。 在下一步骤中，可使用同一个 cloud-init 配置文件安装 NGINX 并运行简单的“Hello World”Node.js 应用。 若要查看负载均衡器的工作方式，完成本教程时，可以在 Web 浏览器中访问这个简单的应用。
 
- 创建名为“cloud-init.txt”的文件并粘贴以下配置。 例如，在本地计算机中创建文件。 输入 `sensible-editor cloud-init.txt` 以创建文件并查看可用编辑器的列表。 请确保已正确复制整个 cloud-init 文件，尤其是第一行：
+创建名为“cloud-init.txt”的文件并粘贴以下配置。 例如，在本地计算机中创建文件。 输入 `sensible-editor cloud-init.txt` 以创建文件并查看可用编辑器的列表。 请确保已正确复制整个 cloud-init 文件，尤其是第一行：
 
 ```yaml
 #cloud-config
@@ -326,4 +326,4 @@ az network nic ip-config address-pool add \
 > [!div class="nextstepaction"]
 > [管理 VM 和虚拟网络](tutorial-virtual-network.md)
 
-<!--Update_Description: update link, wording update-->
+<!--Update_Description: update meta properties -->

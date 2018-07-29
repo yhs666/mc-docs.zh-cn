@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-origin.date: 05/09/2018
-ms.date: 06/04/2018
+origin.date: 07/03/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 1844547444a60bc3574425c56ca3d3a4b1167ea4
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: 670c4a33d472493ed7613a849e9ce1d81bf0a056
+ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867633"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39307045"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-in-the-azure-portal"></a>快速入门：在 Azure 门户中创建 Windows 虚拟机
 
@@ -30,35 +30,35 @@ ms.locfileid: "34867633"
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
-## <a name="log-in-to-azure"></a>登录 Azure
+## <a name="sign-in-to-azure"></a>登录 Azure
 
-在 https://portal.azure.cn 登录 Azure 门户。
+通过 https://portal.azure.cn 登录到 Azure 门户。
 
 ## <a name="create-virtual-machine"></a>创建虚拟机
 
 1. 在 Azure 门户的左上角选择“创建资源”。
 
-2. 在 Azure Marketplace 资源列表上方的搜索框中，搜索并选择“Windows Server 2016 Datacenter”，然后选择“创建”。
+2. 在 Azure 市场资源列表上方的搜索框中，搜索并选择“Windows Server 2016 Datacenter”，然后选择“创建”。
 
 3. 提供 VM 名称，例如 *myVM*，将磁盘类型保留为 *SSD*，然后提供用户名，例如 *azureuser*。 密码必须至少 12 个字符长，且符合[定义的复杂性要求](faq.md#what-are-the-password-requirements-when-creating-a-vm)。
 
     ![在门户边栏选项卡中输入 VM 的基本信息](./media/quick-create-portal/create-windows-vm-portal-basic-blade.png)
 
-5. 选择“新建”资源组，然后提供一个名称，例如 *myResourceGroup*。 选择所需**位置**，然后选择“确定”。
+4. 选择“新建”资源组，然后提供一个名称，例如 *myResourceGroup*。 选择**位置**，然后选择“确定”。
 
-4. 为 VM 选择大小。 例如，可以按*计算类型*或*磁盘类型*进行筛选。 建议的 VM 大小是 *D2s_v3*。
+5. 为 VM 选择大小。 例如，可以按*计算类型*或*磁盘类型*进行筛选。 建议的 VM 大小是 *D2s_v3*。 选择大小后，单击“选择”。
 
     ![显示 VM 大小的屏幕截图](./media/quick-create-portal/create-windows-vm-portal-sizes.png)
 
-5. 在“设置”下，保留所有默认设置，然后选择“确定”。
+6. 在“设置”页上的“网络” > “网络安全组” > “选择公共入站端口”中，从下拉列表中选择“HTTP”和“RDP (3389)”。 将剩余的字段保留默认设置，然后选择“确定”。
 
-6. 在“摘要”页上，选择“创建”以启动 VM 部署。
+7. 在“摘要”页上，选择“创建”以启动 VM 部署。
 
-7. VM 将固定到 Azure 门户仪表板。 完成部署后，会自动打开 VM 摘要。
+8. VM 将固定到 Azure 门户仪表板。 完成部署后，会自动打开 VM 摘要。
 
 ## <a name="connect-to-virtual-machine"></a>连接到虚拟机
 
-创建与虚拟机的远程桌面连接。 这些说明指明了如何从 Windows 计算机连接到 VM。 在 Mac 上，需要一个 RDP 客户端，例如 Mac 应用商店提供的这个[远程桌面客户端](https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12)。
+创建到虚拟机的远程桌面连接。 这些说明指明了如何从 Windows 计算机连接到 VM。 在 Mac 上，需要一个 RDP 客户端，例如 Mac 应用商店提供的这个[远程桌面客户端](https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12)。
 
 1. 单击虚拟机属性页上的“连接”按钮。 
 
@@ -68,9 +68,9 @@ ms.locfileid: "34867633"
 
 2. 打开下载的 RDP 文件，然后在出现提示时单击“连接”。 
 
-3. 在“Windows 安全性”窗口中，依次选择“更多选择”、“使用其他帐户”。 键入 *vmname*\*username* 作为用户名，输入为虚拟机创建的密码，然后单击“确定”。
+3. 在“Windows 安全性”窗口中，依次选择“更多选择”、“使用其他帐户”。 以 *vmname*\\*username* 的形式键入用户名，输入为虚拟机创建的密码，然后单击“确定”。
 
-4. 你可能会在登录过程中收到证书警告。 单击“是”或“继续”继续进行连接。
+4. 你可能会在登录过程中收到证书警告。 单击“是”或“继续”以创建连接。
 
 ## <a name="install-web-server"></a>安装 Web 服务器
 
@@ -82,18 +82,9 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 完成后，关闭到 VM 的 RDP 连接。
 
-## <a name="open-port-80-for-web-traffic"></a>为 Web 流量打开端口 80
-
-网络安全组 (NSG) 保护入站和出站流量的安全。 从 Azure 门户创建 VM 后，将会在进行 RDP 连接的端口 3389 上创建入站规则。 由于此 VM 托管着 Web 服务器，因此需要为端口 80 创建 NSG 规则。
-
-1. 在 VM 概述页中，选择“网络”。
-2. 此时将显示现有的入站和出站规则的列表。 选择“添加入站端口规则”。
-3. 选择顶部的“基本”选项，然后从可用服务列表中选择“HTTP”。 将为你提供端口 80、优先级和名称。
-4. 若要创建规则，请选择“添加”。
-
 ## <a name="view-the-iis-welcome-page"></a>查看 IIS 欢迎页
 
-IIS 已安装，并且现在已从 Internet 打开 VM 上的端口 80 - 可以使用所选的 Web 浏览器查看默认的 IIS 欢迎页。 使用上一步中获取的 VM 的公用 IP 地址。 以下示例展示了默认 IIS 网站：
+在门户中选择 VM，在 VM 的概述中，使用 IP 地址右侧的“单击以复制”按钮复制该地址，并将其粘贴到浏览器标签页中。此时会打开默认的 IIS 欢迎页，如下所示：
 
 ![IIS 默认站点](./media/quick-create-powershell/default-iis-website.png)
 
@@ -103,7 +94,7 @@ IIS 已安装，并且现在已从 Internet 打开 VM 上的端口 80 - 可以�
 
 ## <a name="next-steps"></a>后续步骤
 
-在本快速入门中，你部署了简单的虚拟机，打开了 Web 流量的网络端口，并安装了一个基本 Web 服务器。 若要深入了解 Azure 虚拟机，请继续学习 Windows VM 教程。
+在本快速入门中，你部署了简单的虚拟机，打开了 Web 流量的网络端口，并安装了一个基本 Web 服务器。 若要详细了解 Azure 虚拟机，请继续学习 Windows VM 的教程。
 
 > [!div class="nextstepaction"]
 > [Azure Windows 虚拟机教程](./tutorial-manage-vm.md)

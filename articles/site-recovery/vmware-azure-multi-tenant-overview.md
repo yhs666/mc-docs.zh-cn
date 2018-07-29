@@ -7,15 +7,15 @@ manager: digimobile
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-origin.date: 05/11/2018
-ms.date: 06/18/2018
+origin.date: 07/06/2018
+ms.date: 07/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 2bf3358446a2a51fd36be67243af953c7a9660ee
-ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
+ms.openlocfilehash: c360cc60d5a213345918a45b9bc0a4393b8a9931
+ms.sourcegitcommit: 74f9f0acb00fb728ff6e9bd67ac86a0c1bcd8d13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2018
-ms.locfileid: "35568294"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39218912"
 ---
 # <a name="overview-of-multi-tenant-support-for-vmware-replication-to-azure-with-csp"></a>使用 CSP 将 VMware 复制到 Azure 的多租户支持的概述
 
@@ -144,4 +144,4 @@ vCenter 帐户访问现已完成。 此步骤可满足完成故障回复操作�
 - 了解如何[设置 VMware VM 到 Azure 的灾难恢复](vmware-azure-tutorial.md)。
 - 了解有关[使用 CSP 且适用于 VMWare VM 的多租户](vmware-azure-multi-tenant-csp-disaster-recovery.md)的详细信息。
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties -->

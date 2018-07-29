@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 12/15/2017
-ms.date: 01/08/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0d0614c69d8758f8285c058b079f7ba4358bb59a
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: 6763daea2f0a339c62aee8056eafd19c0518e049
+ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
-ms.locfileid: "27604419"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39306952"
 ---
 # <a name="install-and-configure-mongodb-on-a-windows-vm-in-azure"></a>在 Azure 中的 Windows VM 上安装和配置 MongoDB
 [MongoDB](http://www.mongodb.org) 是一个流行的开源、高性能 NoSQL 数据库。 本文分步讲解了如何在 Azure 中的 Windows Server 2016 虚拟机 (VM) 上安装和配置 MongoDB。 也可以[在 Azure 中的 Linux VM 上安装 MongoDB](../linux/install-mongodb.md)。
@@ -46,7 +46,7 @@ ms.locfileid: "27604419"
    * 单击“站点”按钮。 将 *https://\*.mongodb.com* 添加到受信任站点的列表，然后关闭对话框。
 
      ![配置 Internet Explorer 安全设置](./media/install-mongodb/configure-internet-explorer-security.png)
-4. 浏览到[MongoDB - 下载](http://www.mongodb.com/downloads)页 (http://www.mongodb.com/downloads)。
+4. 请转到 [MongoDB - 下载](http://www.mongodb.com/downloads)页 (http://www.mongodb.com/downloads))。
 5. 如果需要，请选择**社区服务器**版本，并选择 *Windows Server 2008 R2 64 位及更高版本*的最新稳定版本。 若要下载安装程序，请单击“下载(msi)”。
 
     ![下载 MongoDB 安装程序](./media/install-mongodb/download-mongodb.png)
@@ -163,4 +163,4 @@ New-NetFirewallRule `
 
 ## <a name="next-steps"></a>后续步骤
 本教程已介绍如何在 Windows VM 上安装和配置 MongoDB。 现在，可以遵循 [MongoDB 文档](https://docs.mongodb.com/manual/)中的高级主题访问 Windows VM 上的 MongoDB。
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties  -->
