@@ -13,20 +13,20 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 04/30/2018
-ms.date: 05/30/2018
+ms.date: 07/24/2018
 ms.author: v-junlch
-ms.openlocfilehash: 2cd4d20fcf3b52f6cabefb9ccfdcdd6e2b8b8f49
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 660b41b2db10da9e0c8d7a654207cd231f6bffbd
+ms.sourcegitcommit: ba07d76f8394b5dad782fd983718a8ba49a9deb2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34567319"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39220205"
 ---
 # <a name="durable-functions-overview"></a>Durable Functions 概述
 
 Durable Functions 是 [Azure Functions](functions-overview.md) 和 [Azure WebJobs](../app-service/web-sites-create-web-jobs.md) 的扩展，可用于在无服务器环境中编写有状态函数。 该扩展可用于管理状态、检查点和重启。
 
-使用此扩展，可以在名为业务流程协调程序函数的新型函数中定义有状态工作流。 业务流程协调程序函数的优点包括：
+使用此扩展，可以在名为[*业务流程协调程序函数*](durable-functions-types-features-overview.md#orchestrator-functions)的新型函数中定义有状态工作流。 业务流程协调程序函数的优点包括：
 
 - 可在代码中定义工作流。 无需 JSON 架构或设计器。
 - 可同步和异步调用其他函数。 调用函数的输出可保存到本地变量。
@@ -341,7 +341,7 @@ public static async Task Run(string instanceId, DurableOrchestrationClient clien
 
 此扩展使用“事件溯源”的过程是透明的。 事实上，业务流程协调程序函数中的 `await` 运算符将对业务流程协调程序线程的控制权让回给 Durable Task Framework 调度程序。 然后，该调度程序向存储提交业务流程协调程序函数计划的任何新操作（如调用一个或多个子函数或计划持久计时器）。 这个透明的提交操作会追加到业务流程实例的执行历史记录中。 历史记录存储在存储表中。 然后，提交操作向队列添加消息，以计划实际工作。 此时，可从内存中卸载业务流程协调程序函数。 如果需要完成其他工作，可重启该函数并重新构造其状态。
 
-如果业务流程函数需要执行其他工作（例如，收到响应消息或持久计时器到期），业务流程协调程序再次唤醒，并从头开始重新执行整个函数，以便重新生成本地状态。 如果代码在此重播过程中尝试调用函数（或执行任何其他异步工作），Durable Task Framework 会查询当前业务流程的执行历史记录。 如果发现已执行活动函数并生成某个结果，则它将重播该函数的结果，而业务流程协调程序代码继续运行。 在函数代码完成或计划了新的异步工作前，此过程一直继续。
+如果业务流程函数需要执行其他工作（例如，收到响应消息或持久计时器到期），业务流程协调程序再次唤醒，并从头开始重新执行整个函数，以便重新生成本地状态。 如果代码在此重播过程中尝试调用函数（或执行任何其他异步工作），Durable Task Framework 会查询当前业务流程的执行历史记录。 如果该扩展发现[活动函数](durable-functions-types-features-overview.md#activity-functions)已执行并已生成某种结果，则会回放该函数的结果并且业务流程协调程序代码继续运行。 在函数代码完成或计划了新的异步工作前，此过程一直继续。
 
 ### <a name="orchestrator-code-constraints"></a>业务流程协调程序代码约束
 
@@ -349,7 +349,7 @@ public static async Task Run(string instanceId, DurableOrchestrationClient clien
 
 ## <a name="language-support"></a>语言支持
 
-当前 C#（Functions v1 和 v2）和 JavaScript（仅限 Functions v2）是 Durable Functions 仅支持的语言。 这包括业务流程协调程序函数和活动函数。 将来，我们将添加对 Azure Functions 支持的所有语言的支持。 若要查看其它语言支持工作的最新状态，请参阅 Azure Functions [GitHub 存储库问题列表](https://github.com/Azure/azure-functions-durable-extension/issues)。
+Durable Functions 当前仅支持以下语言：C#（Functions v1 和 v2）、F# 和 JavaScript（仅限 Functions v2）。 这包括业务流程协调程序函数和活动函数。 将来，我们将添加对 Azure Functions 支持的所有语言的支持。 若要查看其它语言支持工作的最新状态，请参阅 Azure Functions [GitHub 存储库问题列表](https://github.com/Azure/azure-functions-durable-extension/issues)。
 
 ## <a name="storage-and-scalability"></a>存储和可伸缩性
 
@@ -371,7 +371,7 @@ Durable Functions 扩展使用 Azure 存储队列、表和 Blob 来持久保存�
 ## <a name="next-steps"></a>后续步骤
 
 > [!div class="nextstepaction"]
-> [继续阅读 Durable Functions 文档](durable-functions-bindings.md)
+> [继续阅读 Durable Functions 文档](durable-functions-types-features-overview.md)
 
 > [!div class="nextstepaction"]
 > [安装 Durable Functions 扩展和示例](durable-functions-install.md)

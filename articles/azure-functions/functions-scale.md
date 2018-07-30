@@ -14,16 +14,16 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-origin.date: 12/12/2017
-ms.date: 04/18/2018
+origin.date: 06/05/2018
+ms.date: 07/23/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8f36a9b4ef3ffe3db37cbf6a0ea0b2790637559c
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: bdae2e7b03282863406cb9d2766030e845612915
+ms.sourcegitcommit: ba07d76f8394b5dad782fd983718a8ba49a9deb2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34567310"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39220192"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions 的缩放和托管
 
@@ -71,3 +71,4 @@ VM 使得成本不再取决于执行数量、执行时间和所用内存。 因�
 
 若要了解有关存储帐户类型的详细信息，请参阅 [Azure 存储服务简介](../storage/common/storage-introduction.md#azure-storage-services)。
 
+<!-- Update_Description: update metedata properties -->

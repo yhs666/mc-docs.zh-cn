@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 08/09/2017
 ms.date: 06/25/2018
 ms.author: v-nany
-ms.openlocfilehash: d0c3490c9b9e6b59ecaec3c01dac6f87fdf4f017
-ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
+ms.openlocfilehash: ffcc4341c8e356edeaeb3d8ebd1e5de8e7674e52
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36748371"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219647"
 ---
 # <a name="media-encoder-premium-workflow-formats-and-codecs"></a>媒体编码器高级工作流格式和编解码器
 
@@ -122,6 +122,5 @@ ms.locfileid: "36748371"
 
 ## <a name="known-issues"></a>已知问题
 如果输入视频不包含隐藏式字幕，输出资产仍包含一个空的 TTML 文件。 
-
 
 

@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 07/31/2017
 ms.date: 09/04/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 95d529f28b67030930b69ed4dfc8a77dd5a40d1e
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: e01a293e9098303d40f59ac98df963573e0ab789
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475199"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219672"
 ---
 # <a name="azure-media-services-error-codes"></a>Azure 媒体服务错误代码
 使用 Azure 媒体服务时，可能会从服务收到因问题而异的 HTTP 错误代码，例如身份验证令牌到期或媒体服务不支持操作。 以下是媒体服务可能返回的 **HTTP 错误代码** 及其可能原因的列表。  
@@ -30,10 +30,11 @@ ms.locfileid: "34475199"
 
 * 指定了不受支持的 API 版本。 有关当前版本，请参阅[媒体服务 REST API 开发的设置](media-services-rest-how-to-use.md)。
 * 未指定媒体服务的 API 版本。 若要了解如何指定 API 版本，请参阅[媒体服务操作 REST API 参考](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference)。
-
+  
   > [!NOTE]
-  >如果使用 .NET 或 Java SDK 连接到媒体服务，则无论何时尝试并执行针对媒体服务的操作，都会指定 API 版本。
-
+  > 如果使用 .NET 或 Java SDK 连接到媒体服务，则无论何时尝试并执行针对媒体服务的操作，都会指定 API 版本。
+  > 
+  > 
 * 指定了未定义的属性。 错误消息中给出了该属性名。 仅可指定身份是给定实体的成员的那些属性。 有关实体及其属性的列表，请参阅 [Azure 媒体服务 REST API 参考](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference) 。
 * 指定了无效的属性值。 错误消息中提供属性名称。 请参阅上一个链接，了解有效的属性类型及其值。
 * 缺少必需的属性值。
@@ -58,7 +59,7 @@ ms.locfileid: "34475199"
 * 媒体服务帐户已被禁用且请求类型不是 HTTP GET。 服务操作也会返回 403 响应。
 * 身份验证令牌不包含用户的凭据信息：AccountName 和/或 SubscriptionId。 有关 Azure 管理门户中媒体服务帐户的此类信息，可在媒体服务 UI 扩展中找到。
 * 无法访问资源。
-
+  
   * 尝试使用不可用于媒体服务帐户的 MediaProcessor。
   * 尝试更新媒体服务定义的 JobTemplate。
   * 尝试覆盖某些其他媒体服务帐户的定位符。
@@ -99,7 +100,9 @@ ms.locfileid: "34475199"
 服务器当前无法接收请求。 导致此错误的可能原因是向服务发出了过多的请求。 媒体服务限制机制会限制那些发出过多服务请求的应用程序的资源使用情况。
 
 > [!NOTE]
->查看错误消息和错误代码字符串，获取收到 503 错误的原因的更多详细信息。 此错误并不始终意味着限制。
+> 查看错误消息和错误代码字符串，获取收到 503 错误的原因的更多详细信息。 此错误并不始终意味着限制。
+> 
+> 
 
 可能的状态说明是：
 
@@ -110,7 +113,9 @@ ms.locfileid: "34475199"
 若要处理此错误，我们建议使用指数回退重试逻辑。 这意味着在连续错误响应的重试之间使用渐进式长等待。  有关详细信息，请参阅 [临时故障处理应用程序块](https://msdn.microsoft.com/library/hh680905.aspx)。
 
 > [!NOTE]
->如果使用 [用于 .NET 的 Azure 媒体服务 SDK](https://github.com/Azure/azure-sdk-for-media-services/tree/master)，503 错误的重试逻辑由 SDK 实现。  
+> 如果使用 [用于 .NET 的 Azure 媒体服务 SDK](https://github.com/Azure/azure-sdk-for-media-services/tree/master)，503 错误的重试逻辑由 SDK 实现。  
+> 
+> 
 
 ## <a name="see-also"></a>另请参阅
 [媒体服务管理错误代码](http://msdn.microsoft.com/library/windowsazure/dn167016.aspx)

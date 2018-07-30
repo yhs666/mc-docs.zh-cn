@@ -14,14 +14,14 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 11/21/2017
-ms.date: 05/30/2018
+ms.date: 07/24/2018
 ms.author: v-junlch
-ms.openlocfilehash: 01e11e96738e41acf63ce3b42d7caf35b88a81f1
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 5a44e69d9aff9978d0d14872de4c18443979467e
+ms.sourcegitcommit: ba07d76f8394b5dad782fd983718a8ba49a9deb2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34567343"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39220198"
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Azure Functions 的移动应用绑定 
 
@@ -31,13 +31,17 @@ ms.locfileid: "34567343"
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages"></a>包
+## <a name="packages---functions-1x"></a>包 - Functions 1.x
 
-[Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps) NuGet 包中提供了移动应用绑定。 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/) GitHub 存储库中提供了此包的源代码。
+[Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps) NuGet 包 1.x 版中提供了移动应用绑定。 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.MobileApps/) GitHub 存储库中提供了此包的源代码。
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
-[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+## <a name="packages---functions-2x"></a>包 - Functions 2.x
+
+[Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps) NuGet 包 3.x 版中提供了移动应用绑定。 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/) GitHub 存储库中提供了此包的源代码。
+
+[!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
 ## <a name="input"></a>输入
 
@@ -54,7 +58,7 @@ ms.locfileid: "34567343"
 
 以下示例演示 *function.json* 文件中的一个移动应用输入绑定以及使用该绑定的 [C# 脚本函数](functions-reference-csharp.md)。 该函数由具有记录标识符的队列消息触发。 该函数读取指定的记录并修改其 `Text` 属性。
 
-下面是 *function.json* 文件中的绑定数据：
+下面是 function.json 文件中的绑定数据：
 
 ```json
 {
@@ -100,7 +104,7 @@ public static void Run(string myQueueItem, JObject record)
 
 以下示例演示 *function.json* 文件中的一个移动应用输入绑定以及使用该绑定的 [JavaScript 脚本函数](functions-reference-node.md)。 该函数由具有记录标识符的队列消息触发。 该函数读取指定的记录并修改其 `Text` 属性。
 
-下面是 *function.json* 文件中的绑定数据：
+下面是 function.json 文件中的绑定数据：
 
 ```json
 {
@@ -200,7 +204,7 @@ public static object Run(
 
 以下示例演示 *function.json* 文件中的一个移动应用输出绑定以及使用该绑定的 [C# 脚本函数](functions-reference-csharp.md)。 该函数由队列消息触发，可为 `Text` 属性创建一个具有硬编码值的新记录。
 
-下面是 *function.json* 文件中的绑定数据：
+下面是 function.json 文件中的绑定数据：
 
 ```json
 {
@@ -242,7 +246,7 @@ public static void Run(string myQueueItem, out object record)
 
 以下示例演示 *function.json* 文件中的一个移动应用输出绑定以及使用该绑定的 [JavaScript 脚本函数](functions-reference-node.md)。 该函数由队列消息触发，可为 `Text` 属性创建一个具有硬编码值的新记录。
 
-下面是 *function.json* 文件中的绑定数据：
+下面是 function.json 文件中的绑定数据：
 
 ```json
 {
@@ -303,7 +307,7 @@ public static object Run(
 
 ## <a name="output---configuration"></a>输出 - 配置
 
-下表解释了在 *function.json* 文件和 `MobileTable` 特性中设置的绑定配置属性。
+下表解释了在 function.json 文件和 `MobileTable` 特性中设置的绑定配置属性。
 
 |function.json 属性 | Attribute 属性 |说明|
 |---------|---------|----------------------|

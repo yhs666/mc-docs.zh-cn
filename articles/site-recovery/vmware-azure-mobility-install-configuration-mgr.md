@@ -1,20 +1,18 @@
 ---
 title: 使用 System Center Configuration Manager 自动执行 Azure Site Recovery 的移动服务安装 | Azure
 description: 本文可帮助用户使用 System Center Configuration Manager 自动执行移动服务安装。
-services: site-recovery
 author: rockboyfor
-manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 03/05/2018
-ms.date: 06/18/2018
+origin.date: 07/06/2018
+ms.date: 07/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: a7d154e44eec8aaeac1357e74f80cf35bfd8df4c
-ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
+ms.openlocfilehash: 8831a9da95f078db328c7044bbdd5d3bcc1e049f
+ms.sourcegitcommit: 74f9f0acb00fb728ff6e9bd67ac86a0c1bcd8d13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2018
-ms.locfileid: "35568330"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39218923"
 ---
 # <a name="automate-mobility-service-installation-with-system-center-configuration-manager"></a>使用 System Center Configuration Manager 自动执行移动服务安装
 
@@ -171,13 +169,13 @@ IF NOT %ERRORLEVEL% EQU 0 (
 
 8. 在“指定此标准程序的相关信息”页上，提供以下输入，然后单击“下一步”。 （其他输入可以使用其默认值。）
 
-| **参数名称** | **值** |
-|--|--|
-| Name | 安装 Azure 移动服务 (Windows) |
-| 命令行 | install.bat |
-| 程序可运行 | 用户是否已登录 |
+    | **参数名称** | **值** |
+    |--|--|
+    | Name | 安装 Azure 移动服务 (Windows) |
+    | 命令行 | install.bat |
+    | 程序可运行 | 用户是否已登录 |
 
-    ![Screenshot of Create Package and Program wizard](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties.png)
+    ![创建包和程序向导的屏幕截图](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties.png)
 
 9. 在下一页中，选择目标操作系统。 移动服务只能安装在 Windows Server 2012 R2、Windows Server 2012 和 Windows Server 2008 R2 上。
 
@@ -191,7 +189,7 @@ IF NOT %ERRORLEVEL% EQU 0 (
 ### <a name="deploy-the-package"></a>部署包
 1. 在 Configuration Manager 控制台中，右键单击包，然后选择“分发内容”。
     ![Configuration Manager 控制台的屏幕截图](./media/vmware-azure-mobility-install-configuration-mgr/sccm_distribute.png)
-2. 选择包应复制到的**[“分发点”](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)**。
+2. 选择包应复制到的**[分发点](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)**。
 3. 完成该向导。 包随后开始复制到指定的分发点。
 4. 完成包分发后，右键单击包，然后选择“部署”。
     ![Configuration Manager 控制台的屏幕截图](./media/vmware-azure-mobility-install-configuration-mgr/sccm_deploy.png)
@@ -413,7 +411,7 @@ cd /tmp
 ### <a name="deploy-the-package"></a>部署包
 1. 在 Configuration Manager 控制台中，右键单击包，然后选择“分发内容”。
     ![Configuration Manager 控制台的屏幕截图](./media/vmware-azure-mobility-install-configuration-mgr/sccm_distribute.png)
-2. 选择包应复制到的**[“分发点”](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)**。
+2. 选择包应复制到的**[分发点](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)**。
 3. 完成该向导。 包随后开始复制到指定的分发点。
 4. 完成包分发后，右键单击包，然后选择“部署”。
     ![Configuration Manager 控制台的屏幕截图](./media/vmware-azure-mobility-install-configuration-mgr/sccm_deploy.png)
@@ -458,4 +456,4 @@ IF  %ERRORLEVEL% EQU 1 (GOTO :INSTALL) ELSE GOTO :UNINSTALL
 ## <a name="next-steps"></a>后续步骤
 现在，可为虚拟机 [启用保护](vmware-azure-enable-replication.md)。
 
-<!--Update_Description: update meta properties, wording update，update link -->
+<!--Update_Description: update meta properties, wording update -->

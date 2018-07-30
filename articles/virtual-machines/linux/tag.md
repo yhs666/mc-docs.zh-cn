@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 02/28/2017
-ms.date: 05/14/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: f5b97d18a7788b270d37f76e076846cbf3d53494
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: a1e1cb81fae5381c92c43ea927e9c7f8f0781bd6
+ms.sourcegitcommit: 35889b4f3ae51464392478a72b172d8910dd2c37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939644"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39261929"
 ---
 # <a name="how-to-tag-a-linux-virtual-machine-in-azure"></a>如何在 Azure 中标记 Linux 虚拟机
 本文介绍在 Azure 中通过 Resource Manager 部署模型标记 Linux 虚拟机的不同方式。 标记是用户定义的键/值对，可直接放置在资源或资源组中。 针对每个资源和资源组，Azure 当前支持最多 15 个标记。 标记可以在创建时放置在资源中或添加到现有资源中。 请注意，只有通过 Resource Manager 部署模型创建的资源支持标记。
@@ -32,8 +32,6 @@ ms.locfileid: "38939644"
 若要开始，需要安装最新的 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest) 并已使用 [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az-login) 登录到 Azure 帐户。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
-
-也可以使用 [Azure CLI 1.0](tag-nodejs.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 执行这些步骤。
 
 可以使用此命令查看给定虚拟机的所有属性，包括标记：
 
@@ -70,4 +68,6 @@ az vm update --resource-group MyResourceGroup --name MyTestVM --remove tags.myNe
 [Using Tags to organize your Azure Resources]: ../../azure-resource-manager/resource-group-using-tags.md
 [Understanding your Azure Bill]: ../../billing-understand-your-bill.md
 <!-- Notice correct : [Understanding your Azure Bill]: ../../billing-understand-your-bill.md -->
+<!-- Not Available on [Gain insights into your Azure resource consumption]: ../../billing/billing-usage-rate-card-overview.md-->
+
 <!-- Update_Description: update meta properties, wording update, update link -->

@@ -13,16 +13,20 @@ ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
 origin.date: 04/12/2017
-ms.date: 3/20/2018
+ms.date: 07/30/2018
 ms.author: v-johch
-ms.openlocfilehash: 3a77daab493a03729c982fd0a2b049ec541c73a2
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: fc3d6b17609603e700dc60733621651cc869606d
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475242"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219651"
 ---
 # <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>使用本地编码器执行实时传送视频流以创建多比特率流
+
+> [!NOTE]
+> 自 2018 年 5 月 12 日起，实时频道将不再支持 RTP/MPEG-2 传输流引入协议。 请从 RTP/MPEG-2 迁移到 RTMP 或分段 MP4（平滑流式处理）引入协议。
+
 ## <a name="overview"></a>概述
 在 Azure 媒体服务中， *频道* 表示用于处理实时传送视频流内容的管道。 频道通过以下两种方式之一接收实时输入流：
 
@@ -32,7 +36,7 @@ ms.locfileid: "34475242"
   > 实时传送视频流时，使用直通方法是最经济的。
 
 
-* 本地实时编码器采用以下格式之一将单比特率流发送至能够使用媒体服务执行实时编码的频道：RTP (MPEG-TS)、RTMP 或平滑流式处理（分片 MP4）。 然后，频道将对传入的单比特率流执行实时编码，使之转换为多比特率（自适应）视频流。 媒体服务会将流传送给请求它的客户。
+* 本地实时编码器采用 RTMP 或平滑流式处理（分片 MP4）格式将单比特率流发送至能够使用媒体服务执行实时编码的频道。 然后，频道将对传入的单比特率流执行实时编码，使之转换为多比特率（自适应）视频流。 媒体服务会将流传送给请求它的客户。
 
 从媒体服务 2.10 版开始，创建频道时，可以指定频道接收输入流的方式。 还可以指定是否想要频道对流执行实时编码。 可以使用两个选项：
 
@@ -42,7 +46,7 @@ ms.locfileid: "34475242"
 > [!NOTE]
 > 本文讨论未启用执行实时编码的频道的属性。 若要了解如何使用执行实时编码的频道，请参阅[使用 Azure 媒体服务创建多比特率流的实时传送视频流](media-services-manage-live-encoder-enabled-channels.md)。
 >
->
+>有关建议的本地编码器的详细信息，请参阅[建议的本地编码器](media-services-recommended-encoders.md)。
 
 下图表示的是一个使用本地实时编码器输出多比特率 RTMP 或分片 MP4（平滑流式处理）流的实时传送视频流工作流。
 
@@ -51,7 +55,7 @@ ms.locfileid: "34475242"
 ## <a id="scenario"></a>常见的实时流处理方案
 以下步骤介绍创建常见的实时传送视频流应用程序时涉及的任务。
 
-1. 将视频摄像机连接到计算机。 启动并配置输出多比特率 RTMP 或分段 MP4（平滑流式处理）流的本地实时编码器。 有关详细信息，请参阅 [Azure 媒体服务 RTMP 支持和实时编码器](https://azure.microsoft.com/zh-cn/blog/azure-media-services-rtmp-support-and-live-encoders/)。
+1. 将视频摄像机连接到计算机。 启动并配置输出多比特率 RTMP 或分段 MP4（平滑流式处理）流的本地实时编码器。 有关详细信息，请参阅 [Azure 媒体服务 RTMP 支持和实时编码器](http://go.microsoft.com/fwlink/?LinkId=532824)。
 
     也可以在创建频道后执行此步骤。
 2. 创建并启动频道。
@@ -102,7 +106,7 @@ ms.locfileid: "34475242"
 
     在此方案中这两个编码器将数据推送到主和辅助 URL。 这提供了最佳的可靠性、容错能力以及数据冗余。 此方案可以容忍两个编码器同时发生故障和断开连接，即使一个编码器停止工作。 此方案假设编码器已同步时间，并提供完全相同的数据。  
 
-有关 RTMP 实时编码器详细信息，请参阅 [Azure 媒体服务的 RTMP 支持和实时编码器](https://azure.microsoft.com/zh-cn/blog/azure-media-services-rtmp-support-and-live-encoders/)。
+有关 RTMP 实时编码器详细信息，请参阅 [Azure 媒体服务的 RTMP 支持和实时编码器](http://go.microsoft.com/fwlink/?LinkId=532824)。
 
 #### <a name="ingest-urls-endpoints"></a>摄取 URL（终结点）
 频道提供你在实时编码器中指定的输入终结点（引入 URL），因此编码器可以将流推送到你的频道。   
@@ -143,7 +147,7 @@ ms.locfileid: "34475242"
 
 可以在创建频道时获取预览 URL。 若要获取该 URL，频道不一定要处于“正在运行”状态。 在频道开始引入数据后，可以预览流。
 
-当前，不管指定了哪种输入类型，都只能以分片 MP4（平滑流式处理）流格式来传送预览流。 可以使用[平滑流式处理运行状况监视器](http://smf.cloudapp.net/healthmonitor)播放器来测试平滑流。 还可以使用 Azure 门户中托管的播放器来查看流。
+当前，不管指定了哪种输入类型，都只能以分片 MP4（平滑流式处理）流格式来传送预览流。 可以使用[平滑流式处理运行状况监视器](http://playready.directtaps.net/smoothstreaming/)播放器来测试平滑流。 还可以使用 Azure 门户中托管的播放器来查看流。
 
 #### <a name="allowed-ip-addresses"></a>允许的 IP 地址
 可以定义允许连接到预览终结点的 IP 地址。 如果未指定 IP 地址，则允许任何 IP 地址。 可将允许的 IP 地址指定为以下形式之一：
@@ -220,6 +224,8 @@ ms.locfileid: "34475242"
 * 仅当频道处于“正在运行”状态时才会向你收费。 有关详细信息，请参阅[频道状态和计费](media-services-live-streaming-with-onprem-encoders.md#states)部分。
 
 ## <a name="related-topics"></a>相关主题
+[建议的本地编码器](media-services-recommended-encoders.md)
+
 [Azure 媒体服务分片 MP4 实时引入规范](media-services-fmp4-live-ingest-overview.md)
 
 [Azure 媒体服务概述和常见方案](media-services-overview.md)

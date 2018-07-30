@@ -14,17 +14,18 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 03/27/2017
-ms.date: 06/04/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 4a6b82b3ceffa4dc7a08a1f745a01756396024f6
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 78c5c301c7eee7c60b36b6ea30a1cb39cd05f252
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702736"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295630"
 ---
 # <a name="tutorial-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>教程：使用 Jenkins、GitHub 和 Docker 在 Azure 中的 Linux VM 上创建开发基础结构
+
 若要将应用程序开发的生成和测试阶段自动化，可以使用持续集成和部署 (CI/CD) 管道。 本教程介绍如何在 Azure VM 上创建 CI/CD 管道，包括如何：
 
 > [!div class="checklist"]
@@ -148,8 +149,8 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 在 Jenkins 网站中的主页上，选择“创建新作业”：
 
 - 输入 *HelloWorld* 作为作业名称。 选择“自由风格项目”，然后选择“确定”。
-- 在“常规”部分下面，选择“GitHub”项目并输入分叉的存储库的 URL，例如 *https://github.com/iainfoulds/nodejs-docs-hello-world*
-- 在“源代码管理”部分下，选择“Git”并输入分支存储库 *.git* 的 URL，例如 *https://github.com/iainfoulds/nodejs-docs-hello-world.git*
+- 在“常规”部分下面，选择“GitHub”项目并输入分叉的存储库的 URL，例如 *https://github.com/cynthn/nodejs-docs-hello-world*
+- 在“源代码管理”部分下，选择“Git”并输入分支存储库 *.git* 的 URL，例如 *https://github.com/cynthn/nodejs-docs-hello-world.git*
 - 在“生成触发器”部分下面，选择“用于 GITscm 轮询的 GitHub 挂钩触发器”。
 - 在“生成”部分下面，选择“添加生成步骤”。 选择“执行 shell”，并在命令窗口中输入 `echo "Testing"`。
 - 选择作业窗口底部的“保存”。
@@ -241,4 +242,4 @@ az vm show --resource-group myResourceGroupJenkins --name myVM -d --query [publi
 > [!div class="nextstepaction"]
 > [使用 Jenkins 和 Team Services 部署应用](tutorial-build-deploy-jenkins.md)
 
-<!--Update_Description: update link, wording update-->
+<!--Update_Description: update meta properties, update link, wording update-->

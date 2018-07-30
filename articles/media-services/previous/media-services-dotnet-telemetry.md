@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 12/09/2017
 ms.date: 12/25/2017
 ms.author: v-nany
-ms.openlocfilehash: c77407750201b21bc969d66bd1465063847a94ec
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 19fa2b31e92f793f3e353bd8dc9907ed0d70e1fb
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475223"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219580"
 ---
 # <a name="configuring-azure-media-services-telemetry-with-net"></a>使用 .NET 配置 Azure 媒体服务遥测
 
@@ -52,7 +52,7 @@ ms.locfileid: "34475223"
 ```
 
 - 为要监视的服务创建监视配置设置。 最多允许一个监视配置设置。 
-  
+
 ```csharp
         IMonitoringConfiguration monitoringConfiguration = _context.MonitoringConfigurations.Create(notificationEndPoint.Id,
             new List<ComponentMonitoringSetting>()
@@ -73,7 +73,7 @@ ms.locfileid: "34475223"
 2. 将以下元素添加到 app.config 文件中定义的 **appSettings**：
 
     ```xml
-    <add key="StorageAccountName" value="storage_name" />
+        <add key="StorageAccountName" value="storage_name" />
     ```
  
 ## <a name="example"></a>示例  

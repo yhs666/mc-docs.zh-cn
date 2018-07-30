@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-origin.date: 04/24/2018
-ms.date: 06/04/2018
+origin.date: 07/03/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 2c374b195387e989d434ccea9e40c33013a4f186
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 33b51db0bf4b6d03774314afe0c0848057667760
+ms.sourcegitcommit: 35889b4f3ae51464392478a72b172d8910dd2c37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702717"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39261830"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>快速入门：在 Azure 门户中创建 Linux 虚拟机
 
@@ -54,7 +54,7 @@ ssh-keygen -t rsa -b 2048
 
 3. 提供 VM 名称，例如 *myVM*，将磁盘类型保留为 *SSD*，然后提供用户名，例如 *azureuser*。
 
-4. 上获取。 对于“身份验证类型”，选择“SSH 公钥”，然后将你的公钥粘贴到文本框中。 请务必删除公钥中的所有前导或尾随空格。
+4. 。 对于“身份验证类型”，选择“SSH 公钥”，然后将你的公钥粘贴到文本框中。 请务必删除公钥中的所有前导或尾随空格。
 
     ![在门户边栏选项卡中输入 VM 的基本信息](./media/quick-create-portal/create-vm-portal-basic-blade.png)
 
@@ -64,7 +64,7 @@ ssh-keygen -t rsa -b 2048
 
     ![显示 VM 大小的屏幕截图](./media/quick-create-portal/create-linux-vm-portal-sizes.png)
 
-5. 在“设置”下，保留所有默认设置，然后选择“确定”。
+5. 在“设置”页上的“网络” > “网络安全组” > “选择公共入站端口”中，选择“HTTP”和“SSH (22)”。 将剩余的字段保留默认设置，然后选择“确定”。
 
 6. 在“摘要”页上，选择“创建”以启动 VM 部署。
 
@@ -99,15 +99,6 @@ sudo apt-get -y install nginx
 ```
 
 完成后，`exit` SSH 会话，返回 Azure 门户中的 VM 属性。
-
-## <a name="open-port-80-for-web-traffic"></a>为 Web 流量打开端口 80
-
-网络安全组 (NSG) 保护入站和出站流量的安全。 从 Azure 门户创建 VM 后，将会在进行 SSH 连接的端口 22 上创建入站规则。 由于此 VM 托管着 Web 服务器，因此需要为端口 80 创建 NSG 规则。
-
-1. 在 VM 概述页中，选择“网络”。
-2. 此时将显示现有的入站和出站规则的列表。 选择“添加入站端口规则”。
-3. 选择顶部的“基本”选项，然后从可用服务列表中选择“HTTP”。 将为你提供端口 80、优先级和名称。
-4. 若要创建规则，请选择“添加”。
 
 ## <a name="view-the-web-server-in-action"></a>查看运行中的 Web 服务器
 

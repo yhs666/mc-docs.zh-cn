@@ -15,15 +15,14 @@ ms.topic: article
 origin.date: 07/04/2017
 ms.date: 08/07/2017
 ms.author: v-haiqya
-ms.openlocfilehash: e61f0606f68136bfba63889cfdc73f5e74cbd741
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 648b8a1af425aa7ae09a6e6e119413fdb5b8f24f
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475406"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219682"
 ---
-# <a name="change-the-reserved-unit-type"></a>更改保留单位类型
-
+# <a name="change-the-reserved-unit-type"></a>更改预留单位类型
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-encoding-units.md)
 > * [门户](media-services-portal-scale-media-processing.md)
@@ -39,12 +38,12 @@ ms.locfileid: "34475406"
 
 ## <a name="overview"></a>概述
 
-媒体服务帐户与保留单位类型关联，后者决定了编码处理任务的处理速度。 可以在以下保留单位类型中进行选择：**S1**、**S2** 或 **S3**。 例如，与 **S1** 保留单位类型相比，使用 **S2** 保留单位类型时，同一编码作业运行速度更快。
+媒体服务帐户与预留单位类型关联，后者决定了编码处理任务的处理速度。 可以在以下预留单位类型中进行选择：**S1**、**S2** 或 **S3**。 例如，与 **S1** 预留单位类型相比，使用 **S2** 预留单位类型时，同一编码作业运行速度更快。
 
-除了指定保留单位类型，还可以指定为帐户预配**保留单位** (RU)。 预配的 RU 数决定了给定帐户中可并发处理的媒体任务数。
+除了指定预留单位类型，还可以指定为帐户预配预留单位 (RU)。 预配的 RU 数决定了给定帐户中可并发处理的媒体任务数。
 
 >[!NOTE]
->RU 可用于并行化所有媒体处理，包括使用 Azure Media Indexer 为作业编制索引。 但是，与编码不同，索引作业使用更快的保留单位并不能更快地完成处理。
+>RU 可用于并行化所有媒体处理，包括使用 Azure Media Indexer 为作业编制索引。 但是，与编码不同，索引作业使用更快的预留单位并不能更快地完成处理。
 
 > [!IMPORTANT]
 > 请确保查看[概述](media-services-scale-media-processing-overview.md)主题，以获取有关缩放媒体处理主题的详细信息。
@@ -52,18 +51,17 @@ ms.locfileid: "34475406"
 > 
 
 ## <a name="scale-media-processing"></a>调整媒体处理的规模
-
-若要更改保留单位类型和保留单位数目，请执行以下操作：
+若要更改预留单位类型和预留单位数目，请执行以下操作：
 
 1. 在 [Azure 门户](https://portal.azure.cn/)中，选择 Azure 媒体服务帐户。
-2. 在“设置”窗口中，选择“媒体保留单位”。
+2. 在“设置”窗口中，选择“媒体预留单位”。
    
-    若要更改所选保留单位类型的保留单位数，请使用屏幕顶部的“媒体保留单位”滑块。
+    若要更改所选预留单位类型的预留单位数，请使用屏幕顶部的“媒体预留单位”滑块。
    
-    若要更改“保留单位类型”，请单击“保留处理单位的速度”栏。 然后，选择所需的定价层：S1、S2 或 S3。
+    若要更改“预留单位类型”，请单击“预留处理单位的速度”栏。 然后，选择所需的定价层：S1、S2 或 S3。
    
 3. 按“保存”按钮保存更改。
-
-    按“保存”后，会立即分配新的保留单位。
+   
+    按“保存”后，会立即分配新的预留单位。
 
 <!--Update_Description:new file-->

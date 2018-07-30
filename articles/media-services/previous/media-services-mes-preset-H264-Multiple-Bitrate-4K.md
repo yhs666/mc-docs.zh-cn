@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 07/20/2017
 ms.date: 09/04/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 5d00f0e9f3b2dccd4532132b6c990511a58efae4
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 7cb1b5b069b6c1595638a7cdfe63729ebf2e3078
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475184"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219622"
 ---
 # <a name="h264-multiple-bitrate-4k"></a>H264 多比特率 4K
 `Media Encoder Standard` 定义一组可在创建编码作业时使用的编码预设。 可以使用 `preset name` 指定编码媒体文件采用的格式。 也可以创建自己的 JSON 或基于 XML 的预设（使用 UTF-8 或 UTF-16 编码）。 然后，将自定义预设传递到编码器。 有关此 `Media Encoder Standard` 编码器支持的所有预设名称的列表，请参阅 [Media Encoder Standard 的任务预设](media-services-mes-presets-overview.md)。  
@@ -30,13 +30,13 @@ ms.locfileid: "34475184"
  此预设会生成一组 12 个 GOP 对齐的 MP4 文件，范围为 20000 kbps - 1000 kbps，以及立体声 AAC 音频。 若要深入了解此预设的配置文件、比特率、采样率等，请检查下面定义的 XML 或 JSON。 有关这些预设中的每个元素的含义及其有效值的说明，请参阅 [Media Encoder Standard 架构](media-services-mes-schema.md)主题。  
   
 > [!NOTE]
->  应利用 4K 编码获取“高级版”保留单位类型。 有关详细信息，请参阅[如何缩放编码](media-services-scale-media-processing-overview.md)。  
-
+>  应当会获得采用 4K 编码的“高级”预留单位类型。 有关详细信息，请参阅[如何缩放编码](media-services-scale-media-processing-overview.md)。  
+  
 > [!NOTE]
 >  跨层修改 `Width` 和 `Height` 值时，请确保纵横比保持一致。 例如：1920x1080、1280x720、1080x576、640x360。 不应使用混合纵横比，如 1280x720、720x480、640x360。  
-
+  
  XML  
-
+  
 ```  
 <?xml version="1.0" encoding="utf-16"?>  
 <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">  

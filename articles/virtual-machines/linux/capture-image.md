@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 origin.date: 03/22/2018
-ms.date: 06/04/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 19aca4d7b1320266600fa90f7e4b60deedea3735
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 9c9c6ed3d08886a589a6e1594dc96b6e1cd7a78a
+ms.sourcegitcommit: 35889b4f3ae51464392478a72b172d8910dd2c37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702689"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39261930"
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>如何创建虚拟机或 VHD 的映像
 
@@ -147,4 +147,4 @@ az vm show \
 
 有关使用 CLI 管理 VM 的详细信息，请参阅 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/overview?view=azure-cli-latest)。
 
-<!-- Update_Description: wording update, update link -->
+<!-- Update_Description: wording update, update meta properties -->

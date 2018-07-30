@@ -13,17 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 08/09/2017
-ms.date: 09/04/2017
+ms.date: 07/30/2018
 ms.author: v-haiqya
-ms.openlocfilehash: ebd87d050f8252028986141d4e62c233ec96d07a
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: c9684a467ac6ccd1ac577fd980afeb9da6d49639
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475426"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219501"
 ---
 # <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-the-azure-portal"></a>如何使用 Azure 媒体服务执行实时传送视频流以通过 Azure 门户创建多比特率流
-
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
@@ -46,7 +45,7 @@ ms.locfileid: "34475426"
 > 
 > 
 
-1. 将视频摄像机连接到计算机。 启动并配置可以通过以下协议之一输出单比特率流的本地实时编码器：RTMP、平滑流式处理或 RTP (MPEG-TS)。 有关详细信息，请参阅 [Azure 媒体服务 RTMP 支持和实时编码器](http://go.microsoft.com/fwlink/?LinkId=532824)。
+1. 将视频摄像机连接到计算机。 启动并配置可以通过以下协议之一输出单比特率流的本地实时编码器：RTMP 或平滑流式处理。 有关详细信息，请参阅 [Azure 媒体服务 RTMP 支持和实时编码器](http://go.microsoft.com/fwlink/?LinkId=532824)。
    
     此步骤也可以在创建频道后执行。
 2. 创建并启动通道。 
@@ -84,7 +83,7 @@ ms.locfileid: "34475426"
 1. 在 [Azure 门户](https://portal.azure.cn/)中，选择“媒体服务”，并单击媒体服务帐户名。
 2. 选择“实时传送视频流” 。
 3. 选择“自定义创建” 。 此选项可创建启用了实时编码的通道。
-
+   
     ![创建频道](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel.png)
 4. 单击“设置” 。
    
@@ -97,7 +96,6 @@ ms.locfileid: "34475426"
       
       * 单比特率分片 MP4（平滑流式处理）
       * 单比特率 RTMP
-      * RTP (MPEG-TS)：RTP 上的 MPEG-2 传输流。
         
         有关每个协议的详细说明，请参阅 [使用 Azure 媒体服务实时传送视频流以创建多比特率流](media-services-manage-live-encoder-enabled-channels.md)。
         

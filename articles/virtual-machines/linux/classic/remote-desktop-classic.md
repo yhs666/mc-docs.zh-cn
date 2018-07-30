@@ -15,14 +15,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 05/30/2017
-ms.date: 05/21/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0ebd7f6303da8524a1dd7271f6fb416f9a2c7274
-ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
+ms.openlocfilehash: c66216407783fb369e37a59dcc6e893bb51dcad6
+ms.sourcegitcommit: 35889b4f3ae51464392478a72b172d8910dd2c37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "34173334"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39261933"
 ---
 # <a name="using-remote-desktop-to-connect-to-a-azure-linux-vm"></a>使用远程桌面连接到 Azure Linux VM
 > [!IMPORTANT] 
@@ -131,4 +131,4 @@ sudo service xrdp restart
 ## <a name="next-steps"></a>后续步骤
 有关使用 xrdp 的详细信息，请参阅 [http://www.xrdp.org/](http://www.xrdp.org/)。
 
-<!-- Update_Description: update meta properties, update link -->
+<!-- Update_Description: update meta properties  -->

@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 03/03/2017
 ms.date: 10/30/2017
 ms.author: v-johch
-ms.openlocfilehash: bbdf1e9f02f16942b5e20c82338ec412610c5204
-ms.sourcegitcommit: 71c3744a54c69e7e322b41439da907c533faba39
+ms.openlocfilehash: 9effb08b1b37134bedb849b82ed205bfda7fb700
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2017
-ms.locfileid: "23481784"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295613"
 ---
 # <a name="storage-analytics"></a>存储分析
 
@@ -30,7 +30,7 @@ Azure 存储分析执行日志记录并为存储帐户提供指标数据。 可�
 
 聚合数据存储在众所周知的 Blob（用于日志记录）和众所周知的表（用于度量）中，可以使用 BLOB 服务和表服务 API 对其进行访问。
 
-存储分析对于存储的数据量有 20 TB 的限制，这与存储帐户的总限制无关。 有关计费和数据保留策略的详细信息，请参阅 [存储分析和计费](https://msdn.microsoft.com/library/hh360997.aspx)。 有关存储帐户限制的详细信息，请参阅 [Azure 存储可伸缩性和性能目标](storage-scalability-targets.md)。
+存储分析针对存储的数据量实施 20 TB 的限制，这与存储帐户的总限制无关。 有关计费和数据保留策略的详细信息，请参阅 [存储分析和计费](https://msdn.microsoft.com/library/hh360997.aspx)。 有关存储帐户限制的详细信息，请参阅 [Azure 存储可伸缩性和性能目标](storage-scalability-targets.md)。
 
 有关使用存储分析及其他工具来识别、诊断和排查 Azure 存储相关问题的深入指导，请参阅[监视、诊断和排查 Azure 存储问题](storage-monitoring-diagnosing-troubleshooting.md)。
 
@@ -75,9 +75,7 @@ Azure 存储分析执行日志记录并为存储帐户提供指标数据。 可�
 ### <a name="log-naming-conventions"></a>日志命名约定
 用以下格式写入每个日志。
 
-```
-<service-name>/YYYY/MM/DD/hhmm/<counter>.log
-```
+    <service-name>/YYYY/MM/DD/hhmm/<counter>.log
 
 下表说明了日志名称中的每个属性。
 
@@ -93,15 +91,11 @@ Azure 存储分析执行日志记录并为存储帐户提供指标数据。 可�
 
 可使用以下完整示例日志名称组合前述示例。
 
-```
-blob/2011/07/31/1800/000001.log
-```
+    blob/2011/07/31/1800/000001.log
 
 可使用以下示例 URI 访问前述日志。
 
-```
-https://<accountname>.blob.core.chinacloudapi.cn/$logs/blob/2011/07/31/1800/000001.log 
-```
+    https://<accountname>.blob.core.chinacloudapi.cn/$logs/blob/2011/07/31/1800/000001.log
 
 记录存储请求时，生成的日志名称与完成请求的操作时间（小时）关联。 例如，如果是在下午 6:30 完成 GetBlob 请求， 则会在 2011 年 7 月 31 日写入具有以下前缀的日志：`blob/2011/07/31/1800/`
 
@@ -142,6 +136,8 @@ https://<accountname>.blob.core.chinacloudapi.cn/$logs/blob/2011/07/31/1800/0000
 ### <a name="capacity-metrics"></a>容量度量值
 > [!NOTE]
 > 目前，容量指标仅适用于 Blob 服务。 以后版本的存储分析将提供表服务和队列服务的容量度量值。
+> 
+> 
 
 每天记录存储帐户的 Blob 服务的容量数据，并写入两个表实体。 一个实体提供用户数据的统计信息，另一个实体提供有关存储分析所使用的 `$logs` Blob 容器的统计信息。 `$MetricsCapacityBlob` 表包含以下统计信息：
 
@@ -149,17 +145,17 @@ https://<accountname>.blob.core.chinacloudapi.cn/$logs/blob/2011/07/31/1800/0000
 * **ContainerCount**：存储帐户的 Blob 服务中的 blob 容器数。
 * **ObjectCount**：存储帐户的 Blob 服务中的提交和未提交的块或页 blob 数量。
 
-有关容量指标的详细信息，请参阅[存储分析指标表架构](https://msdn.microsoft.com/library/hh343264.aspx)。
+有关容量指标的详细信息，请参阅 [存储分析指标表架构](https://msdn.microsoft.com/library/hh343264.aspx)。
 
 ### <a name="how-metrics-are-stored"></a>如何存储指标
 每个存储服务的所有度量数据都存储在为该服务保留的三个表中：一个表存储事务信息，一个表存储分钟事务信息，还有一个表存储容量信息。 事务和分钟事务信息由请求和响应数据组成，而容量信息由存储使用情况数据组成。 存储帐户的 Blob 服务的小时度量值、分钟度量值和容量可在按下表所述命名的表中访问。
 
-| 度量值级别 | 表名 | 支持的版本 |
+| 指标级别 | 表名 | 支持的版本 |
 | --- | --- | --- |
 | 小时指标，主位置 |$MetricsTransactionsBlob <br/>$MetricsTransactionsTable <br/> $MetricsTransactionsQueue |仅限 2013-08-15 之前的版本。 虽然仍然支持这些名称，但还是建议改用下面列出的表。 |
-| 每小时度量值，主位置 |$MetricsHourPrimaryTransactionsBlob <br/>$MetricsHourPrimaryTransactionsTable <br/>$MetricsHourPrimaryTransactionsQueue |所有版本，包括 2013-08-15。 |
+| 小时指标，主位置 |$MetricsHourPrimaryTransactionsBlob <br/>$MetricsHourPrimaryTransactionsTable <br/>$MetricsHourPrimaryTransactionsQueue |所有版本，包括 2013-08-15。 |
 | 分钟指标，主位置 |$MetricsMinutePrimaryTransactionsBlob <br/>$MetricsMinutePrimaryTransactionsTable <br/>$MetricsMinutePrimaryTransactionsQueue |所有版本，包括 2013-08-15。 |
-| 小时指标，辅助位置 |$MetricsHourSecondaryTransactionsBlob <br/>$MetricsHourSecondaryTransactionsTable <br/>$MetricsHourSecondaryTransactionsQueue |所有版本，包括 2013-08-15。 必须启用读访问的地域冗余复制。 |
+| 小时指标，辅助位置 |$MetricsHourSecondaryTransactionsBlob <br/>$MetricsHourSecondaryTransactionsTable <br/>$MetricsHourSecondaryTransactionsQueue |所有版本，包括 2013-08-15。 必须启用读访问的异地冗余复制。 |
 | 分钟指标，辅助位置 |$MetricsMinuteSecondaryTransactionsBlob <br/>$MetricsMinuteSecondaryTransactionsTable <br/>$MetricsMinuteSecondaryTransactionsQueue |所有版本，包括 2013-08-15。 必须启用读访问的地域冗余复制。 |
 | 容量（仅限 Blob 服务） |$MetricsCapacityBlob |所有版本，包括 2013-08-15。 |
 

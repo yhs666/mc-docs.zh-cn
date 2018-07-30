@@ -12,15 +12,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 10/19/2017
-ms.date: 06/04/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 93e4fefd5fab12d07d78657657d3c06c0d29114d
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 24ed1b9394cd6af575943def99aac858cb5658b3
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702743"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295580"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-visual-studio-team-services"></a>教程：使用 Jenkins 和 Visual Studio Team Services 将应用部署到 Azure 中的 Linux 虚拟机
 
@@ -52,7 +52,7 @@ ms.locfileid: "34702743"
 
 *  部署目标需用到 Linux 虚拟机。  有关详细信息，请参阅[使用 Azure CLI 创建和管理 Linux VM](/virtual-machines/linux/tutorial-manage-vm)。
 
-*  为虚拟机开启入站端口 80。 有关详细信息，请参阅[使用 Azure 门户创建网络安全组](/virtual-network/virtual-networks-create-nsg-arm-pportal)。
+*  为虚拟机开启入站端口 80。 有关详细信息，请参阅[使用 Azure 门户创建网络安全组](/virtual-network/tutorial-filter-network-traffic)。
 
 ## <a name="get-the-sample-app"></a>获取示例应用
 

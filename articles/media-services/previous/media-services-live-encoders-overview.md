@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 06/29/2017
 ms.date: 08/07/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 41d8848a844fe17f05bfe85d10655aa32558d5d3
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 4d7ee43cc456da7166a7ba238426eea940599717
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475164"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219714"
 ---
 # <a name="how-to-configure-on-premises-encoders-when-using-azure-media-services-to-create-multi-bitrate-streams"></a>如何在使用 Azure 媒体服务时配置本地编码器以创建多比特率流
 本主题列出的本地实时编码器可用于捕获实时事件，并将单比特率实时流发送到 AMS 频道（已启用实时编码）以供进一步处理。 本主题还列出了演示如何配置所列编码器的教程链接。

@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/17/2018
-ms.date: 06/11/2018
+ms.date: 07/30/2018
 ms.author: v-haiqya
-ms.openlocfilehash: 38be3fb874d9b18918ed9a8ce0dce614139aa8ec
-ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
+ms.openlocfilehash: 14727fa77982d3b2b6d74be9f436a4f3cd379ae8
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103091"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295739"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>使用 Azure 存储模拟器进行开发和测试
 
@@ -85,7 +85,7 @@ Azure 存储模拟器提供了一个针对开发目的模拟 Azure Blob、队列
 有关这些命令的详细信息，请参阅[存储模拟器命令行工具参考](#storage-emulator-command-line-tool-reference)。
 
 > [!TIP]
-> 可使用 [Microsoft SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) 管理 SQL Server 实例，包括 LocalDB 安装。 在 SMSS“连接到服务器”对话框的“服务器名称:”字段中，指定 `(localdb)\MSSQLLocalDb` 以连接到 LocalDB 实例。
+> 可使用 [Microsoft SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) 管理 SQL Server 实例，包括 LocalDB 安装。 在 SMSS“连接到服务器”对话框的“服务器名称:”字段中，指定 `(localdb)\MSSQLLocalDb` 以连接到 LocalDB 实例。
 
 ## <a name="authenticating-requests-against-the-storage-emulator"></a>针对存储模拟器的请求进行身份验证
 安装并启动存储模拟器后，可针对此模拟器测试代码。 与云中的 Azure 存储一样，针对存储模拟器发出的每个请求都必须经过授权，除非它是匿名请求。 可以使用共享密钥身份验证或使用共享访问签名 (SAS) 针对存储模拟器的请求进行授权。
@@ -100,7 +100,7 @@ Azure 存储模拟器提供了一个针对开发目的模拟 Azure Blob、队列
 
 还可使用 Azure PowerShell 来生成 SAS 令牌。 以下示例会生成可完全访问 blob 容器的 SAS 令牌：
 
-1. 若尚未安装 Azure PowerShell，请进行安装（建议使用最新版 Azure PowerShell cmdlet 安装）。 有关安装说明，请参阅 [Install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps)（安装和配置 Azure PowerShell）。
+1. 若尚未安装 Azure PowerShell，请进行安装（建议使用最新版 Azure PowerShell cmdlet 安装）。 有关安装说明，请参阅 [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装和配置 Azure PowerShell）。
 2. 打开 Azure PowerShell 并运行以下命令，将 `ACCOUNT_NAME` 和 `ACCOUNT_KEY==` 替换为自己的凭据，将 `CONTAINER_NAME` 替换为所选名称：
 
 ```powershell
@@ -212,6 +212,17 @@ https://storageaccount.blob.core.chinacloudapi.cn/sascontainer?sv=2012-02-12&se=
 模拟器中的队列存储没有任何差异。
 
 ## <a name="storage-emulator-release-notes"></a>存储模拟器发行说明
+
+### <a name="version-55"></a>版本 5.5
+* 存储模拟器现在支持 Blob、队列和表服务终结点上的 2017-11-09 版本的存储服务。
+* 已添加对 blob **Created** 属性的支持，该属性返回 blob 的创建时间。
+
+### <a name="version-54"></a>版本 5.4
+为了提高安装稳定性，模拟器在安装时不再尝试预留端口。 如果需要端口预留，请使用 **init** 命令的 *-reserveports* 选项进行指定。
+
+### <a name="version-53"></a>版本 5.3
+存储模拟器现在支持 Blob、队列和表服务终结点上的 2017-07-29 版本的存储服务。
+
 ### <a name="version-52"></a>版本 5.2
 * 存储模拟器现在支持 Blob、队列和表服务终结点上 2017-04-17 版本的存储服务。
 * 修复了表属性值未正确编码的 bug。
@@ -255,7 +266,7 @@ https://storageaccount.blob.core.chinacloudapi.cn/sascontainer?sv=2012-02-12&se=
 * 存储模拟器可执行文件已重命名为 *AzureStorageEmulator.exe*。
 
 ### <a name="version-32"></a>版本 3.2
-* 存储模拟器现在支持 Blob、队列和表服务终结点上的 2014-02-14 版本的存储服务。 文件服务终结点目前在存储模拟器中不受支持。 请参阅 [Versioning for the Azure Storage Services](/rest/api/storageservices/Versioning-for-the-Azure-Storage-Services)（Azure 存储服务的版本控制），了解有关 2014-02-14 版本的详细信息。
+* 存储模拟器现在支持 Blob、队列和表服务终结点上的 2014-02-14 版本的存储服务。 文件服务终结点目前在存储模拟器中不受支持。 请参阅 [Versioning for the Azure Storage Services](https://docs.microsoft.com/rest/api/storageservices/Versioning-for-the-Azure-Storage-Services)（Azure 存储服务的版本控制），了解有关 2014-02-14 版本的详细信息。
 
 ### <a name="version-31"></a>版本 3.1
 * 在存储模拟器中现在支持读取访问异地冗余存储 (RA-GRS)。 获取 Blob 服务统计信息、获取队列服务统计信息和获取表服务统计信息 API 在帐户辅助副本上受支持，并且将始终根据基础 SQL 数据库返回 LastSyncTime 响应元素的值作为当前时间。 若要使用存储模拟器以编程方式访问次要副本，请使用 Storage Client Library for .NET 3.2 版或更高版本。 有关详细信息，请参阅用于 .NET 的 Azure 存储客户端库。

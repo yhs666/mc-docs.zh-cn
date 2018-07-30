@@ -9,12 +9,12 @@ ms.topic: how-to
 origin.date: 05/22/2018
 ms.date: 07/02/2018
 ms.author: v-nany
-ms.openlocfilehash: decf364f0417e1214836f075c5098b54d61b59cd
-ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
+ms.openlocfilehash: 2d88067d363565b4fe5c4ef78b3775ea58db08e4
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103072"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295698"
 ---
 # <a name="using-the-azure-storage-rest-api"></a>使用 Azure 存储 REST API
 
@@ -67,7 +67,7 @@ REST 是指表述性状态转移。 有关具体定义，请参阅 [Wikipedia](h
 
 **请求 URI**：https://myaccount.blob.core.chinacloudapi.cn/?comp=list 它是从 blob 存储帐户终结点 `http://myaccount.blob.core.chinacloudapi.cn` 和资源字符串 `/?comp=list` 创建的。
 
-[URI 参数](/rest/api/storageservices/List-Containers2#uri-parameters)：调用 ListContainers 时可以使用的其他查询参数。 其中有些参数为调用超时（以秒计）和前缀，后者用于筛选。
+[URI 参数](https://docs.microsoft.com/rest/api/storageservices/List-Containers2#uri-parameters)：调用 ListContainers 时可以使用的其他查询参数。 其中有些参数为调用超时（以秒计）和前缀，后者用于筛选。
 
 另一个有用参数是 maxresults:，如果可用容器超过此值，则响应正文将包含一个 NextMarker 元素，指示要在下一个请求中返回的下一个容器。 若要使用此功能，可提供 NextMarker 值，作为发出下一个请求时 URI 中的 marker 参数。 使用此功能时，它类似于通过结果进行分页。 
 
@@ -77,15 +77,15 @@ REST 是指表述性状态转移。 有关具体定义，请参阅 [Wikipedia](h
 /?comp=list&timeout=60&maxresults=100
 ```
 
-[请求标头](/rest/api/storageservices/List-Containers2#request-headers)：本部分列出了必需和可选的请求标头。 至少需要三个标头：Authorization 标头、x-ms-date（包含请求的 UTC 时间）和 x-ms-version（指定要使用的 REST API 版本）。 可以选择将 x-ms-client-request-id 包含在标头中 – 可以将此字段的值设置为任何内容；该值将在启用日志记录时写入存储分析日志。
+[请求标头](https://docs.microsoft.com/rest/api/storageservices/List-Containers2#request-headers)：本部分列出了必需和可选的请求标头。 至少需要三个标头：Authorization 标头、x-ms-date（包含请求的 UTC 时间）和 x-ms-version（指定要使用的 REST API 版本）。 可以选择将 x-ms-client-request-id 包含在标头中 – 可以将此字段的值设置为任何内容；该值将在启用日志记录时写入存储分析日志。
 
-[请求正文](/rest/api/storageservices/List-Containers2#request-body)：ListContainers 没有请求正文。 上传 blob 时，会在所有 PUT 操作上使用请求正文，以及 SetContainerAccessPolicy，以允许在要应用的存储访问策略的 XML 列表中发送 blob。 有关存储访问策略，将在[使用共享访问签名 (SAS)](storage-dotnet-shared-access-signature-part-1.md) 一文中展开讨论。
+[请求正文](https://docs.microsoft.com/rest/api/storageservices/List-Containers2#request-body)：ListContainers 没有请求正文。 上传 blob 时，会在所有 PUT 操作上使用请求正文，以及 SetContainerAccessPolicy，以允许在要应用的存储访问策略的 XML 列表中发送 blob。 有关存储访问策略，将在[使用共享访问签名 (SAS)](storage-dotnet-shared-access-signature-part-1.md) 一文中展开讨论。
 
-[响应状态代码](/rest/api/storageservices/List-Containers2#status-code)：告知你需要知道的任何状态代码。 在此示例中，HTTP 状态代码可以是 200。 有关 HTTP 状态代码的完整列表，请参阅[状态代码定义](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)。 若要查看特定于存储 REST API 的错误代码，请参阅[常见的 REST API 错误代码](/rest/api/storageservices/common-rest-api-error-codes)
+[响应状态代码](https://docs.microsoft.com/rest/api/storageservices/List-Containers2#status-code)：告知你需要知道的任何状态代码。 在此示例中，HTTP 状态代码可以是 200。 有关 HTTP 状态代码的完整列表，请参阅[状态代码定义](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)。 若要查看特定于存储 REST API 的错误代码，请参阅[常见的 REST API 错误代码](/rest/api/storageservices/common-rest-api-error-codes)
 
-[响应标头](/rest/api/storageservices/List-Containers2#response-headers)：其中包括 Content Type；x-ms-request-id（传入的请求ID，如适用）；x-ms-version（指示所使用的 Blob 服务的版本）和 Date（UTC，告知发出请求的时间）。
+[响应标头](https://docs.microsoft.com/rest/api/storageservices/List-Containers2#response-headers)：其中包括 Content Type；x-ms-request-id（传入的请求ID，如适用）；x-ms-version（指示所使用的 Blob 服务的版本）和 Date（UTC，告知发出请求的时间）。
 
-[响应正文](/rest/api/storageservices/List-Containers2#response-body)：此字段是提供请求数据的 XML 结构。 在此示例中，响应是容器及其属性的列表。
+[响应正文](https://docs.microsoft.com/rest/api/storageservices/List-Containers2#response-body)：此字段是提供请求数据的 XML 结构。 在此示例中，响应是容器及其属性的列表。
 
 ## <a name="creating-the-rest-request"></a>创建 REST 请求
 
@@ -429,7 +429,7 @@ AuthorizationHeader 是发出响应前放置在请求标头中的最后一个标
 
 让我们看一下如何更改代码以对容器 container-1 调用 ListBlobs。 这与清单容器的代码几乎完全相同，惟一的区别在于 URI 以及解析响应的方式。 
 
-如果查看 [ListBlobs](/rest/api/storageservices/List-Blobs) 的参考文档，将发现该方法是 GET，RequestURI 为：
+如果查看 [ListBlobs](https://docs.microsoft.com/rest/api/storageservices/List-Blobs) 的参考文档，将发现该方法是 GET，RequestURI 为：
 
 ```
 https://myaccount.blob.core.chinacloudapi.cn/container-1?restype=container&comp=list
@@ -563,6 +563,6 @@ Content-Length: 1135
 
 ## <a name="next-steps"></a>后续步骤
 
-* [Blob 服务 REST API](/rest/api/storageservices/blob-service-rest-api)
-* [文件服务 REST API](/rest/api/storageservices/file-service-rest-api)
-* [Queue Service REST API](/rest/api/storageservices/queue-service-rest-api)（队列服务 REST API）
+* [Blob 服务 REST API](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api)
+* [文件服务 REST API](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api)
+* [Queue Service REST API](https://docs.microsoft.com/rest/api/storageservices/queue-service-rest-api)（队列服务 REST API）

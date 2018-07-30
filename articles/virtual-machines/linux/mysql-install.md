@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 02/01/2016
-ms.date: 06/25/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4f0494f5268c1c6df8c769eaf8c8d82c1bf12454
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.openlocfilehash: 3ecd762d3d18de87fd086533d72be72d5eba9d6c
+ms.sourcegitcommit: 35889b4f3ae51464392478a72b172d8910dd2c37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315518"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39261963"
 ---
 <!-- Remove the Red Hat family in meta properties-->
 # <a name="how-to-install-mysql-on-azure"></a>如何在 Azure 上安装 MySQL
@@ -179,4 +179,4 @@ ms.locfileid: "36315518"
 
 ### <a name="next-step"></a>后续步骤
 在[此处](https://www.mysql.com/)查找更多有关 MySQL 的使用方法和信息。
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties  -->

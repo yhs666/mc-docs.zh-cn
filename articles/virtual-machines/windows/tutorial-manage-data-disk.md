@@ -14,15 +14,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 02/09/2018
-ms.date: 06/04/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 95545a515aa62abc31352bdfc91a755f0298bd06
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 7c3998d735641857c8bdab878b8a5a0f1ed4a58f
+ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939859"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39306969"
 ---
 # <a name="tutorial---manage-azure-disks-with-azure-powershell"></a>教程 - 使用 Azure PowerShell 管理 Azure 磁盘
 
@@ -35,7 +35,7 @@ Azure 虚拟机使用磁盘来存储 VM 操作系统、应用程序和数据。 
 > * 磁盘性能
 > * 附加和准备数据磁盘
 
-<!--Not Available [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]--> 如果选择在本地安装并使用 PowerShell，则本教程需要 Azure PowerShell 模块 5.7.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount -Environment AzureChinaCloud ` 以创建与 Azure 的连接。
+<!--Not Available [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]--> 如果选择在本地安装并使用 PowerShell，则本教程需要 Azure PowerShell 模块 5.7.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount -Environment AzureChinaCloud` 以创建与 Azure 的连接。
 
 ## <a name="default-azure-disks"></a>默认 Azure 磁盘
 
@@ -47,13 +47,11 @@ Azure 虚拟机使用磁盘来存储 VM 操作系统、应用程序和数据。 
 
 ### <a name="temporary-disk-sizes"></a>临时磁盘大小
 
-<!-- Pending B series and E series disk size-->
 | 类型 | 常见大小 | 临时磁盘大小上限 (GiB) |
 |----|----|----|
 | [常规用途](sizes-general.md) | A、B、D 系列 | 1600 |
 | [计算优化](sizes-compute.md) | F 系列 | 576 |
 | [内存优化](sizes-memory.md) | D 和 E 系列 | 6144 |
-<!-- Pending B series and E series disk size-->
 <!--Not Available on E,G, and M series-->
 <!--Not Available on L,N, A and H series-->
 
@@ -63,13 +61,11 @@ Azure 虚拟机使用磁盘来存储 VM 操作系统、应用程序和数据。 
 
 ### <a name="max-data-disks-per-vm"></a>每个 VM 的最大数据磁盘数
 
-<!-- Pending B series and E series disk size-->
 | 类型 | 常见大小 | 每个 VM 的最大数据磁盘数 |
 |----|----|----|
 | [常规用途](sizes-general.md) | A、B、D 系列 | 64 |
 | [计算优化](sizes-compute.md) | F 系列 | 64 |
 | [内存优化](sizes-memory.md) | D 和 E 系列 | 64 |
-<!-- Pending B series and E series disk size-->
 <!--Not Available on E,G, and M series-->
 <!--Not Available on L,N, A and H series-->
 

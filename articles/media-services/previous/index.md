@@ -1,6 +1,6 @@
 ---
-title: Azure 媒体服务文档 - 教程和 API 参考 | Microsoft 文档
-description: 了解如何使用媒体服务（一个可缩放的云平台）安全地流式传输广播质量的点播或直播视频。 教程、API 参考和其他资源。
+title: Azure 媒体服务文档 - 教程、API 参考 | Azure
+description: 了解如何使用媒体服务这种可扩展的云平台，以便安全地将点播质量或实时广播质量的视频进行流式传输。 教程、API 参考和其他资源。
 services: media-services
 author: forester123
 manager: digimobile
@@ -13,12 +13,12 @@ ms.topic: landing-page
 origin.date: 01/23/2017
 ms.date: 09/25/2017
 ms.author: v-johch
-ms.openlocfilehash: 386ac6713e59995cce273ac3d559c2ae7d6959d1
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 671ff8bf07ae8c82975ef1bcb82af0a4b0b89009
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475154"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219586"
 ---
 # <a name="media-services-documentation"></a>媒体服务文档
 

@@ -15,18 +15,18 @@ ms.topic: article
 origin.date: 01/23/2017
 ms.date: 10/16/2017
 ms.author: v-johch
-ms.openlocfilehash: 6a0f0f86a05a1fa8205cc0dd381c0b2a0a1ca02b
-ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
+ms.openlocfilehash: eddf51f09062778f4b0e01ed7c2e78e54ad19d0c
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37800500"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295691"
 ---
 # <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>为导入作业准备硬盘驱动器的示例工作流
 本主题讲解如何完成为导入作业准备驱动器的整个过程。  
-
+  
 本示例将以下数据导入到名为 `mystorageaccount` 的 Azure 存储帐户：  
-
+  
 |位置|说明|  
 |--------------|-----------------|  
 |H:\Video|视频集合，总共 5 TB。|  
@@ -42,15 +42,15 @@ ms.locfileid: "37800500"
 |H:\Photo|https://mystorageaccount.blob.core.chinacloudapi.cn/photo|  
 |K:\Temp\FavoriteMovie.ISO|https://mystorageaccount.blob.core.chinacloudapi.cn/favorite/FavoriteMovies.ISO|  
 |\\\bigshare\john\music|https://mystorageaccount.blob.core.chinacloudapi.cn/music|  
-
+  
 借助此映射，可将文件 `H:\Video\Drama\GreatMovie.mov` 导入 Blob `https://mystorageaccount.blob.core.chinacloudapi.cn/video/Drama/GreatMovie.mov`。  
-
+  
 接下来，为了确定所需的硬盘驱动器数目，应计算数据大小：  
-
+  
 `5TB + 30GB + 25GB + 10GB = 5TB + 65GB`  
-
+  
 对于本示例，两个 3-TB 硬盘驱动器应该足够。 但是，由于源目录 `H:\Video` 包含 5 TB 数据，而单个硬盘驱动器的容量仅为 3 TB，因此在运行 Azure 导入/导出工具之前，需要将 `H:\Video` 分解为两个小目录：`H:\Video1` 和 `H:\Video2`。 此步骤生成以下源目录：  
-
+  
 |位置|大小|目标虚拟目录或 Blob|  
 |--------------|----------|-------------------------------------------|  
 |H:\Video1|2.5TB|https://mystorageaccount.blob.core.chinacloudapi.cn/video|  
@@ -58,7 +58,7 @@ ms.locfileid: "37800500"
 |H:\Photo|30GB|https://mystorageaccount.blob.core.chinacloudapi.cn/photo|  
 |K:\Temp\FavoriteMovies.ISO|25GB|https://mystorageaccount.blob.core.chinacloudapi.cn/favorite/FavoriteMovies.ISO|  
 |\\\bigshare\john\music|10GB|https://mystorageaccount.blob.core.chinacloudapi.cn/music|  
-
+  
  即使已将 `H:\Video` 目录分解为两个目录，它们也会指向存储帐户中的同一目标虚拟目录。 这样，所有视频文件将保留在存储帐户中的单个 `video` 容器下。  
   
  接下来，将上面的源目录均匀分配到两个硬盘驱动器中：  
@@ -66,22 +66,22 @@ ms.locfileid: "37800500"
 ||||  
 |-|-|-|  
 |硬盘驱动器|源目录|总大小|  
-|第一个驱动器|H:\Video1|2.5TB + 30GB|  
+|第一个驱动器|H:\Video1|2.5 TB + 30 GB|  
 ||H:\Photo||  
-|第二个驱动器|H:\Video2|2.5TB + 35GB|  
+|第二个驱动器|H:\Video2|2.5 TB + 35 GB|  
 ||K:\Temp\BlueRay.ISO||  
 ||\\\bigshare\john\music||  
-
+  
 此外，可为所有文件设置以下元数据：  
-
+  
 -   **UploadMethod：** Microsoft Azure 导入/导出服务  
-
+  
 -   **DataSetName：** SampleData  
-
+  
 -   **CreationDate：** 10/1/2013  
-
+  
 若要为导入的文件设置元数据，请创建包含以下内容的文本文件 `c:\WAImportExport\SampleMetadata.txt`：  
-
+  
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>  
 <Metadata>  
@@ -90,17 +90,17 @@ ms.locfileid: "37800500"
     <CreationDate>10/1/2013</CreationDate>  
 </Metadata>  
 ```
-
+  
 还可为 `FavoriteMovie.ISO` Blob 设置一些属性：  
-
+  
 -   **Content-Type：** application/octet-stream  
-
+  
 -   **Content-MD5：** Q2hlY2sgSW50ZWdyaXR5IQ==  
-
+  
 -   **Cache-Control：** no-cache  
-
+  
 若要设置这些属性，请创建文本文件 `c:\WAImportExport\SampleProperties.txt`：  
-
+  
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>  
 <Properties>  
@@ -109,13 +109,13 @@ ms.locfileid: "37800500"
     <Cache-Control>no-cache</Cache-Control>  
 </Properties>  
 ```
-
+  
 现在，便可以运行 Azure 导入/导出工具来准备两个硬盘驱动器了。 请注意：  
-
+  
 -   第一个驱动器将作为驱动器 X 装入。  
-
+  
 -   第二个驱动器将作为驱动器 Y 装入。  
-
+  
 -   存储帐户 `mystorageaccount` 的密钥为 `8ImTigJhIwvL9VEIQKB/zbqcXbxrIHbBjLIfOt0tyR98TxtFvUM/7T0KVNR6KRkJrh26u5I8hTxTLM2O1aDVqg==`。  
 
 ## <a name="preparing-disk-for-import-when-data-is-pre-loaded"></a>在预先加载了数据的情况下为导入准备磁盘
@@ -136,33 +136,33 @@ ms.locfileid: "37800500"
 对于第 1 个驱动器，请运行 Azure 导入/导出工具 2 次来复制两个源目录：  
 
 **第 1 个复制会话**
-
+  
 ```
 WAImportExport.exe PrepImport /j:FirstDrive.jrn /id:Video1 /logdir:c:\logs /sk:8ImTigJhIwvL9VEIQKB/zbqcXbxrIHbBjLIfOt0tyR98TxtFvUM/7T0KVNR6KRkJrh26u5I8hTxTLM2O1aDVqg== /t:x /format /encrypt /srcdir:H:\Video1 /dstdir:video/ /MetadataFile:c:\WAImportExport\SampleMetadata.txt  
 ```
 
 **第 2 个复制会话**
 
-```
+```  
 WAImportExport.exe PrepImport /j:FirstDrive.jrn /id:Photo /srcdir:H:\Photo /dstdir:photo/ /MetadataFile:c:\WAImportExport\SampleMetadata.txt
 ```
 
 ## <a name="copy-sessions---second-drive"></a>复制会话 - 第二个驱动器
-
+ 
 对于第二个驱动器，请运行 Azure 导入/导出工具 3 次（针对每个源目录运行 1 次，针对独立 Blu-Ray™ 映像文件运行 1 次）：  
-
+  
 **第 1 个复制会话** 
 
 ```
 WAImportExport.exe PrepImport /j:SecondDrive.jrn /id:Video2 /logdir:c:\logs /sk:8ImTigJhIwvL9VEIQKB/zbqcXbxrIHbBjLIfOt0tyR98TxtFvUM/7T0KVNR6KRkJrh26u5I8hTxTLM2O1aDVqg== /t:y /format /encrypt /srcdir:H:\Video2 /dstdir:video/ /MetadataFile:c:\WAImportExport\SampleMetadata.txt  
 ```
-
+  
 **第 2 个复制会话**
 
 ```
 WAImportExport.exe PrepImport /j:SecondDrive.jrn /id:Music /srcdir:\\bigshare\john\music /dstdir:music/ /MetadataFile:c:\WAImportExport\SampleMetadata.txt  
-```
-
+```  
+  
 **第 3 个复制会话**  
 
 ```

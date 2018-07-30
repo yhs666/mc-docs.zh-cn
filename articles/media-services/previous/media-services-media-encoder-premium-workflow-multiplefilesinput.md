@@ -1,5 +1,5 @@
 ---
-title: 高级编码器中的多个输入文件和组件属性 - Azure | Microsoft 文档
+title: 在高级编码器中使用多个输入文件和组件属性 - Azure | Azure
 description: 本主题介绍如何通过 setRuntimeProperties 来使用多个输入文件，并将自定义数据传递到媒体编码器高级工作流媒体处理器。
 services: media-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/28/2018
 ms.author: v-nany
-ms.openlocfilehash: 4bb9c85755dfc42a60ea75319079c5a75e33afdb
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 03c44d65e85b67f146aa5a08f13ced57b1f7a85e
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475230"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219570"
 ---
 # <a name="using-multiple-input-files-and-component-properties-with-premium-encoder"></a>在高级编码器中使用多个输入文件和组件属性
 ## <a name="overview"></a>概述
@@ -464,6 +464,4 @@ public ITask AddNew(string taskName, IMediaProcessor mediaProcessor, string conf
 ```
 
 * 编码资产会包含多语言音频轨道，且可在 Azure Media Player 中选择这些轨道。
-
-
 

@@ -12,21 +12,20 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/23/2017
-ms.date: 09/25/2017
+origin.date: 07/02/2018
+ms.date: 07/30/2018
 ms.author: v-johch
-ms.openlocfilehash: e6782a6abf1c8ad6d4974a27529b6e0b9f0f8b9b
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: e2b6d399f6a390b33c1a2ed129dce68608cbdcd7
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475391"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219697"
 ---
 # <a name="playing-your-content-with-existing-players"></a>使用现有播放器播放内容
 Azure 媒体服务支持多种常用的流式处理格式，如平滑流、HTTP 实时流和 MPEG-Dash。 本主题列出了可用于测试流的现有播放器。
 
 ### <a name="the-azure-portal-media-services-content-player"></a>Azure 门户媒体服务内容播放器
-
 **Azure** 门户提供可用于测试视频的内容播放器。
 
 单击所需的视频（确保它[已发布](media-services-portal-publish.md)），并单击门户底部的“播放”按钮。
@@ -50,8 +49,6 @@ Azure 媒体服务支持多种常用的流式处理格式，如平滑流、HTTP 
 [http://aestoken.azurewebsites.net](http://aestoken.azurewebsites.net)
 
 ### <a name="silverlight-players"></a>Silverlight 播放器
-#### <a name="monitoring"></a>监视
-[http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor)
 
 #### <a name="playready-with-token"></a>带令牌的 PlayReady
 [http://sltoken.azurewebsites.net](http://sltoken.azurewebsites.net)

@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 06/17/2017
 ms.date: 08/07/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 374a772d1f4b16d02ce7e60b63f0c52cbda31f11
-ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
+ms.openlocfilehash: 1067d72a2321fd15f1c6bf158fd8747a843f2457
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36748362"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219669"
 ---
 # <a name="get-started-with-azure-ad-authentication-by-using-the-azure-portal"></a>通过 Azure 门户开始使用 Azure AD 身份验证
 
@@ -113,5 +113,4 @@ ms.locfileid: "36748362"
 ## <a name="next-steps"></a>后续步骤
 
 开始[将文件上传到帐户](media-services-portal-upload-files.md)。
-
 <!--Update_Description:new file-->

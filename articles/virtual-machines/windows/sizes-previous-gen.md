@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-origin.date: 05/22/2018
-ms.date: 06/25/2018
+origin.date: 07/06/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 3e5e6e2ec76891521eb5350919e71a0dedec47eb
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.openlocfilehash: 67f397a853983c99cb490db7c6b292f5f4b51339
+ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315690"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39307047"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>前几代虚拟机大小
 
@@ -33,12 +33,11 @@ ms.locfileid: "36315690"
 - [常规用途](sizes-general.md)
 - [计算优化](sizes-compute.md)
 - [内存优化](sizes-memory.md)
-- [存储优化](sizes-storage.md)
-- [GPU](sizes-gpu.md)
-- [高性能计算](sizes-hpc.md)
+<!--Not Available on - [Storage optimized](sizes-storage.md)-->
+<!--Not Available on - [GPU](sizes-gpu.md)-->
+<!--Not Available on - [High performance compute](sizes-hpc.md)-->
 
 ## <a name="next-steps"></a>后续步骤
 了解有关 [Azure 计算单元 (ACU)](acu.md) 如何帮助跨 Azure SKU 比较计算性能的详细信息。
 
-<!-- Update_Description: new articles on virtual machine sizes previous gen -->
-<!--ms.date: 06/25/2018-->
+<!-- Update_Description: update meta properties -->

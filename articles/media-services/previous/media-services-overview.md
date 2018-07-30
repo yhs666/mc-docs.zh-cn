@@ -15,16 +15,16 @@ ms.topic: hero-article
 origin.date: 10/24/2017
 ms.date: 12/11/2017
 ms.author: v-nany
-ms.openlocfilehash: 98b9f89b54009d1159a68a89a32052fa4cb90ad7
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 1ba3b9947bb0db7fa0fe1d6bc4159e66ee8c498c
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475386"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219713"
 ---
-# <a name="azure-media-services-overview"></a>Azure 媒体服务概述
+# <a name="azure-media-services-overview"></a>Azure 媒体服务概述 
 
-Microsoft Azure 媒体服务是一个可扩展的基于云的平台，使开发人员能够生成可缩放的媒体管理和传送应用程序。 媒体服务基于 REST API，使用这些 API 可以安全地上传、存储、编码和打包视频或音频内容，以供点播以及以实时传送视频流的形式传送到各种客户端（例如，电视、电脑和移动设备）。
+Microsoft Azure 媒体服务 (AMS) 是一个可扩展的基于云的平台，使开发人员能够生成可缩放的媒体管理和传送应用程序。 媒体服务基于 REST API，使用这些 API 可以安全地上传、存储、编码和打包视频或音频内容，以供点播以及以实时传送视频流的形式传送到各种客户端（例如，电视、电脑和移动设备）。
 
 可以完全使用媒体服务构建端到端工作流。 也可以选择使用第三方组件来构建工作流的某些组成部分。 例如，使用第三方编码器进行编码。 然后，使用媒体服务进行上传、保护、打包和传送。
 
@@ -47,13 +47,13 @@ Microsoft Azure 媒体服务是一个可扩展的基于云的平台，使开发�
 
 * [媒体服务 REST API](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference)
 * 可用的客户端 SDK 之一：
-  * [适用于 .NET 的 Azure 媒体服务 SDK](https://github.com/Azure/azure-sdk-for-media-services)、
-  * [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java)，
-  * [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php)，
-  * [适用于 Node.js 的 Azure 媒体服务](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js)（这是 Node.js SDK 的非 Microsoft 版本。 它由社区维护，当前未包括所有的 AMS API）。
+    * [适用于 .NET 的 Azure 媒体服务 SDK](https://github.com/Azure/azure-sdk-for-media-services)、
+    * [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java)，
+    * [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php)，
+    * [适用于 Node.js 的 Azure 媒体服务](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js)（这是 Node.js SDK 的非 Microsoft 版本。 它由社区维护，当前未包括所有的 AMS API）。
 * 现有工具：
-  * [Azure 门户](https://portal.azure.cn/)
-  * [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer)（Azure 媒体服务资源管理器 (AMSE) 是适用于 Windows 的 Winforms/C# 应用程序）
+    * [Azure 门户](https://portal.azure.cn/)
+    * [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer)（Azure 媒体服务资源管理器 (AMSE) 是适用于 Windows 的 Winforms/C# 应用程序）
 
 > [!NOTE]
 > 若要获取最新版本的 Java SDK 并开始使用 Java 进行开发，请参阅[媒体服务的 Java 客户端 SDK 入门](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use)。 <br/>
@@ -77,12 +77,13 @@ Microsoft Azure 媒体服务是一个可扩展的基于云的平台，使开发�
 * 对于流式处理，如果用户购买了标准或高级流式处理终结点，则在其请求现有媒体内容时，我们会成功处理该请求，确保可用性达到 99.9%。
 * 对于实时通道，我们保证运行中的通道在至少 99.9% 的时间都能建立外部连接。
 * 对于内容保护，我们保证在至少 99.9% 的时间成功满足密钥请求。
-* 对于索引器，我们使用编码保留单位在 99.9% 的时间成功处理索引器任务请求。
+* 对于索引器，我们将使用编码预留单位在 99.9% 的时间成功处理索引器任务请求。
 
 有关详细信息，请参阅 [Azure SLA](https://www.azure.cn/support/legal/sla/)。
 
 若要了解此功能在数据中心的可用性，请参阅[可用性](scenarios-and-availability.md#availability)部分。
 
 ## <a name="support"></a>支持
+
 [Azure 支持](https://www.azure.cn/support/contact/) 为 Azure（包括媒体服务）提供支持选项。
 <!--Update_Description: wording update-->

@@ -15,12 +15,12 @@ ms.topic: get-started-article
 origin.date: 10/24/2017
 ms.date: 12/11/2017
 ms.author: v-nany
-ms.openlocfilehash: b0ce88ed7b3d97a80e40a2a9847dc0e8af0020fb
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: afda8c127c2f37c8adaa9230762a5e49bbef918d
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475398"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219681"
 ---
 # <a name="set-up-your-media-services-development-environment"></a>设置媒体服务开发环境
 
@@ -33,9 +33,9 @@ ms.locfileid: "34475398"
 
 ## <a name="set-up-the-development-environment"></a>设置开发环境
 
-若要设置 .NET 开发环境，请参阅[此主题](./media-services-dotnet-how-to-use.md)。  
+若要设置 .NET 开发环境，请参阅[此主题](media-services-dotnet-how-to-use.md)。  
 
-若要设置 REST 开发环境，请参阅[此主题](./media-services-rest-how-to-use.md)。  
+若要设置 REST 开发环境，请参阅[此主题](media-services-rest-how-to-use.md)。  
 
 <a id="connect"></a>
 

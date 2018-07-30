@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 06/27/2017
 ms.date: 08/28/2017
 ms.author: v-haiqya
-ms.openlocfilehash: f0c190e06d284acbd9762517679677a4569e0026
-ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
+ms.openlocfilehash: 8316b35ffd81f45572f660dd35cfb90bbcd6a615
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103102"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295855"
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>迁移到 Azure 高级存储（非托管磁盘）
 
@@ -318,7 +318,7 @@ Add-AzureVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo>
 让应用程序做好停机准备。 为了执行干净的迁移，必须停止当前系统中的所有处理。 只有这样才能使其处于一致状态，可以将该状态迁移到新的平台。 停机持续时间将取决于要迁移的磁盘中的数据量。
 
 > [!NOTE]
-> 如果要通过专用 VHD 磁盘创建 Azure Resource Manager VM，请参阅 [此模板](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd) ，了解如何使用现有磁盘部署 Resource Manager VM。
+> 如果要通过专用 VHD 磁盘创建 Azure Resource Manager VM，请参阅 [此模板](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-new-or-existing-vnet) ，了解如何使用现有磁盘部署 Resource Manager VM。
 >
 >
 
@@ -775,5 +775,3 @@ Update-AzureVM  -VM $vm
 [2]:./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [3]:./media/storage-migration-to-premium-storage/migration-to-premium-storage-3.png
 [4]: http://technet.microsoft.com/library/hh831739.aspx
-
-<!--Update_Description: wording update -->

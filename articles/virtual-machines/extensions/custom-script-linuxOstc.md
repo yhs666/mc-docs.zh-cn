@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 04/25/2018
-ms.date: 06/04/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 984f4abd04721d6dbca41bd6d18517178ba83fdd
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 474645b843de1d68e8a7622ec6e1d31d0be7c81d
+ms.sourcegitcommit: 35889b4f3ae51464392478a72b172d8910dd2c37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702948"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39261903"
 ---
 # <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>在 Linux 虚拟机上使用 Azure 自定义脚本扩展版本 1
 自定义脚本扩展版本 1 在 Azure 虚拟机上下载和运行脚本。 此扩展适用于部署后配置、软件安装或其他任何配置/管理任务。 可以从 Azure 存储或其他可访问的 Internet 位置下载脚本，或者将脚本提供给扩展运行时。 
@@ -34,7 +34,7 @@ ms.locfileid: "34702948"
 * 版本 1 - Microsoft.OSTCExtensions.CustomScriptForLinux
 * 版本 2 - Microsoft.Azure.Extensions.CustomScript
 
-请切换新部署和现有部署，改用新版本 ([Microsoft.Azure.Extensions.CustomScript](\custom-script-linux.md))。 新版本可作为一个简易的替代版本。 因此，迁移时只需更改名称和版本，无需更改扩展配置。
+请切换新部署和现有部署，改用新版本 ([Microsoft.Azure.Extensions.CustomScript](/virtual-machines/extensions/custom-script-linux))。 新版本可作为一个简易的替代版本。 因此，迁移时只需更改名称和版本，无需更改扩展配置。
 
 ### <a name="operating-system"></a>操作系统
 支持的 Linux 分发：
@@ -338,5 +338,4 @@ CustomScriptForLinux  Succeeded            Microsoft.OSTCExtensions        1.5  
 ## <a name="next-steps"></a>后续步骤
 若要查看代码、当前问题和版本，请参阅 [CustomScript 扩展存储库](https://github.com/Azure/azure-linux-extensions/tree/master/CustomScript)。
 
-<!-- Update_Description: new articles on linux custom script Ostc extension -->
-<!--ms.date: 06/04/2018-->
+<!-- Update_Description: update link -->

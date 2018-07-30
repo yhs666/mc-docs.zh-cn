@@ -15,21 +15,21 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
 origin.date: 05/02/2018
-ms.date: 06/04/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 1139350957d94339d3136c568eb69f5dc5e39c7c
-ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
+ms.openlocfilehash: 987f513096119fd88abb614775514b76b9c41a7d
+ms.sourcegitcommit: 35889b4f3ae51464392478a72b172d8910dd2c37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37405298"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39261915"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Desired State Configuration 扩展与 Azure 资源管理器模板
 
 本文介绍 [Desired State Configuration (DSC) 扩展处理程序](dsc-overview.md)的 Azure 资源管理器模板。
 
 > [!NOTE]
-> 你可能会遇到略有不同的架构示例。 2016 年 10 月发行版中发生了架构更改。 有关详细信息，请参阅[从以前的格式更新](#update-from-the-previous-format)。
+> 你可能会遇到略有不同的架构示例。 2016 年 10 月发行版中发生了架构更改。 有关详细信息，请参阅[从以前的格式更新](#update-from-a-previous-format)。
 
 ## <a name="template-example-for-a-windows-vm"></a>Windows VM 模板示例
 
@@ -66,7 +66,7 @@ DSC 扩展继承默认扩展属性。
                         }
                     },
                     {
-                        "RegistrationUrl": "registrationUrl",
+                        "RegistrationUrl": "registrationUrl"
                     },
                     {
                         "NodeConfigurationName": "nodeConfigurationName"
@@ -116,7 +116,7 @@ DSC 扩展继承默认扩展属性。
                             },
                         },
                         {
-                            "RegistrationUrl": "registrationUrl",
+                            "RegistrationUrl": "registrationUrl"
                         },
                         {
                             "NodeConfigurationName": "nodeConfigurationName"
@@ -399,5 +399,4 @@ DSC 扩展继承默认扩展属性。
 - 了解有关 [DSC 的安全凭据管理](dsc-credentials.md)的更多详细信息。
 - 获取 [Azure DSC 扩展处理程序简介](dsc-overview.md)。
 - 有关 PowerShell DSC 的详细信息，请转到 [PowerShell 文档中心](https://docs.microsoft.com/powershell/dsc/overview)。
-<!-- Update_Description: new articles on dsc template  -->
-<!--ms.date: 06/04/2018-->
+<!-- Update_Description: update link, wording update -->

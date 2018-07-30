@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 07/20/2017
 ms.date: 09/04/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 463549fe94786294eead6856088d1a44022fb514
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 7fc05c02dceb1c175023d7131fa5e0f9d1fcab5c
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475414"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219616"
 ---
 # <a name="monitor-encoding-job-progress-with-the-azure-portal"></a>使用 Azure 门户监视编码作业进度
 > [!div class="op_single_selector"]
@@ -31,9 +31,10 @@ ms.locfileid: "34475414"
 > 
 
 ## <a name="overview"></a>概述
-
 > [!NOTE]
 > 若要完成本教程，需要一个 Azure 帐户。 有关详细信息，请参阅 [Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。 
+> 
+> 
 
 运行作业时，通常需要采用某种方式跟踪作业进度。 
 

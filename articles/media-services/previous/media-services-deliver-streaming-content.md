@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 08/09/2017
 ms.date: 09/04/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 5e40912487b295d1fcfe1960a6608459cab6e9d8
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: fe103c0c3263e42b8ddfb40b59dec21eb3d54486
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475169"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219671"
 ---
 # <a name="publish-azure-media-services-content-using-net"></a>使用 .NET 发布 Azure 媒体服务内容
 > [!div class="op_single_selector"]
@@ -172,7 +172,6 @@ ms.locfileid: "34475169"
     Console.WriteLine(hlsUri);
     Console.WriteLine(mpegDashUri);
 ```
-
 
 
 ## <a name="next-steps"></a>后续步骤

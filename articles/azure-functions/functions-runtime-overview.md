@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 origin.date: 11/28/2017
-ms.date: 04/16/2018
+ms.date: 07/23/2018
 ms.author: v-junlch
-ms.openlocfilehash: 8523a72e3c557f1c058f03ea63b1ddf6b5747129
-ms.sourcegitcommit: f97c9253d16fac8be0266c9473c730ebd528e542
+ms.openlocfilehash: db4dffe16b96cac77ca06ef508d88f712e7d8e7b
+ms.sourcegitcommit: ba07d76f8394b5dad782fd983718a8ba49a9deb2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31585430"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39220201"
 ---
-# <a name="azure-functions-runtime-overview"></a>Azure Functions 运行时概述
+# <a name="azure-functions-runtime-overview-preview"></a>Azure Functions 运行时概述（预览版）
 
-Azure Functions 运行时提供了一种新方法供你用来在本地利用 Azure Functions 编程模型的简单性和灵活性。 Azure Functions 运行时基于与 Azure Functions 相同的开源代码根而构建，并且部署在本地来提供与云服务几乎完全相同的部署体验。
+Azure Functions 运行时（预览版）提供了一种新方法供你用来在本地利用 Azure Functions 编程模型的简单性和灵活性。 Azure Functions 运行时基于与 Azure Functions 相同的开源代码根而构建，并且部署在本地来提供与云服务几乎完全相同的部署体验。
 
 ![Azure Functions 运行时预览版门户][1]
 
@@ -58,3 +58,4 @@ Azure Functions 辅助角色部署在 Windows 容器中，它是执行函数代�
 <!--Image references-->
 [1]: ./media/functions-runtime-overview/AzureFunctionsRuntime_Portal.png
 
+<!-- Update_Description: wording update -->

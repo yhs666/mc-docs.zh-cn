@@ -14,15 +14,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/30/2018
-ms.date: 06/25/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 3b32d7cf82d43c550f8cb209859d58477a0ca4ec
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.openlocfilehash: 4a8a366cae4ac137784c4b3b10f60d287f84a081
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315524"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295827"
 ---
 # <a name="tutorial---how-to-use-cloud-init-to-customize-a-linux-virtual-machine-in-azure-on-first-boot"></a>教程 - 如何在 Azure 中的 Linux 虚拟机首次启动时使用 cloud-init 对其进行自定义
 
@@ -46,7 +46,7 @@ Cloud-init 还支持不同的发行版。 例如，不需使用 apt-get install 
 
 我们正在与合作伙伴协作，将 cloud-init 纳入用户向 Azure 提供的映像中并使其在映像中正常运行。 下表概述了 cloud-init 当前在 Azure 平台映像上的可用性：
 
-| 别名 | 发布者 | 产品 | SKU | 版本 |
+| 别名 | 发布者 | 产品/服务 | SKU | 版本 |
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | UbuntuLTS |Canonical |UbuntuServer |16.04-LTS |最新 |
 | UbuntuLTS |Canonical |UbuntuServer |14.04.5-LTS |最新 |
@@ -282,4 +282,4 @@ az vm open-port \
 > [!div class="nextstepaction"]
 > [创建自定义 VM 映像](./tutorial-custom-images.md)
 
-<!--Update_Description: update link, wording update-->
+<!--Update_Description: update meta properties -->

@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 07/20/2017
 ms.date: 09/04/2017
 ms.author: v-haiqya
-ms.openlocfilehash: dd30cb1c1d62c6b9200093febfcf4d55379f5029
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 72c6f94db116f235f8066f1423b4961aacd570f0
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475217"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219664"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer"></a>使用 Azure Media Indexer 为媒体文件编制索引
 使用 Azure Media Indexer，可以使媒体文件内容可供搜索，并为隐藏的字幕和关键字生成全文本脚本。 可以只处理一个媒体文件，也可以一次处理多个媒体文件。  
@@ -161,7 +161,6 @@ ms.locfileid: "34475217"
 如果没有为所有输入媒体文件成功编制索引，索引编制作业会失败，错误代码为 4000。 有关详细信息，请参阅 [错误代码](#error_codes)。
 
 ## <a name="index-multiple-files"></a>为多个文件编制索引
-
 以下方法将多个媒体文件上传为资产，并创建一次性为所有这些文件编制索引的作业。
 
 创建具有“.lst”扩展名的清单文件，并将其上传到资产。 该清单文件包含所有资产文件的列表。 有关详细信息，请参阅 [Azure Media Indexer 的任务预设](https://msdn.microsoft.com/library/dn783454.aspx)。

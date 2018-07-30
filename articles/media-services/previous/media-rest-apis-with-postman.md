@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 01/04/2017
 ms.date: 01/22/2018
 ms.author: v-nany
-ms.openlocfilehash: a9ffa39b0a051df473ccf931ece691a7cb9dc40d
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 59e1c4119ddd47c46d5ad5a7d709b4d6856df5a1
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475160"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219684"
 ---
 # <a name="configure-postman-for-media-services-rest-api-calls"></a>配置 Postman 以便进行媒体服务 REST API 调用
 
@@ -59,4 +59,3 @@ ms.locfileid: "34475160"
 ## <a name="next-steps"></a>后续步骤
 
 查阅[上传资产](media-services-rest-upload-files.md)一文。  
-

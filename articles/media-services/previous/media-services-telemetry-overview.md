@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 06/29/2017
 ms.date: 09/25/2017
 ms.author: v-johch
-ms.openlocfilehash: 435f1e3f9e2b42d04e2618ed25abf8a3ccf92ffc
-ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
+ms.openlocfilehash: 4a68da6706bb4f89195c9bd7dfb4a2f7e8aaf000
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36748386"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219592"
 ---
 # <a name="azure-media-services-telemetry"></a>Azure 媒体服务遥测
 

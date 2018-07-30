@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 06/29/2017
 ms.date: 09/04/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 14c9b8a85f28dc9ca62f7d477e9927c3e37c2ab0
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 1ceb2487e88e283a57a34b7097f20eaeee8d62fc
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475238"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219600"
 ---
 # <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Azure 媒体服务分片 MP4 实时引入规范
 本规范适用于 Azure 媒体服务，描述基于分片 MP4 的实时传送视频流引入的协议和格式。 媒体服务提供实时传送视频流服务，让客户使用 Azure 作为云平台来实时流式传输实时事件和广播内容。 此外，本文档还介绍了有关构建高度冗余和稳健的实时引入机制的最佳做法。
@@ -56,9 +56,7 @@ ms.locfileid: "34475238"
 ## <a name="4-protocol-format--http"></a>4.协议格式 – HTTP
 媒体服务基于 ISO 分片 MP4 的实时引入使用长时间运行的标准 HTTP POST 请求，以将分片 MP4 格式打包的编码媒体数据传输到服务。 每个 HTTP POST 发送一个完整的分片 MP4 位流（“流”），其开头为标头框（“ftyp”、“实时服务器清单框”及“moov”框），后接一系列片段（“moof”与“mdat”框）。 有关 HTTP POST 请求的 URL 语法，请参阅 [1] 中的第 9.2 节。 以下是 POST URL 的示例： 
 
-```
-http://customer.channel.mediaservices.chinacloudapi.cn/ingest.isml/streams(720p)
-```
+    http://customer.channel.mediaservices.chinacloudapi.cn/ingest.isml/streams(720p)
 
 ### <a name="requirements"></a>要求
 详细要求如下：
@@ -81,7 +79,7 @@ http://customer.channel.mediaservices.chinacloudapi.cn/ingest.isml/streams(720p)
 
 客户想要创建实时传送视频流演播，其中包含以下音频/视频比特率：
 
-视频 – 3000kbps、1500kbps、750kbps
+视频 – 3000 kbps、1500 kbps、750 kbps
 
 音频 – 128 kbps
 

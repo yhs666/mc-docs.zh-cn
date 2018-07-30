@@ -12,15 +12,15 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 1/29/2018
-ms.date: 10/30/2017
+origin.date: 10/11/2017
+ms.date: 07/30/2018
 ms.author: v-johch
-ms.openlocfilehash: 7eeda021360b925cb9262dc93713a5b31c3af123
-ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
+ms.openlocfilehash: 5807f7f7549b1c061b7ef2ad879973193d289f2d
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36269960"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295770"
 ---
 # <a name="about-azure-storage-accounts"></a>关于 Azure 存储帐户
 
@@ -61,37 +61,36 @@ Azure 存储帐户提供唯一的命名空间来存储和访问 Azure 存储数�
 
 此外还可以配置用于存储帐户的自定义域名称。 有关详细信息，请参阅[为 Blob 存储终结点配置自定义域名称](../blobs/storage-custom-domain-name.md)。 也可使用 PowerShell 来配置它。 有关详细信息，请参阅 [Set-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/set-azurermstorageaccount) cmdlet。  
 
+
 ## <a name="create-a-storage-account"></a>创建存储帐户
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 2. 在 Azure 门户中展开左侧的菜单，打开服务菜单，然后选择“更多服务”。 然后向下滚动到“存储”，接着选择“存储帐户”。 在显示的“存储帐户”窗口中，选择“添加”。
 3. 输入存储帐户的名称。 有关如何使用存储帐户名称在 Azure 存储中定位对象的详细信息，请参阅[存储帐户终结点](#storage-account-endpoints)。
-
-    > [!NOTE]
-    > 存储帐户名称必须为 3 到 24 个字符，并且只能包含数字和小写字母。
-    >  
-    > 存储帐户名称在 Azure 中必须是唯一的。 Azure 门户将指出选择的存储帐户名称是否已被使用。
-
+   
+   > [!NOTE]
+   > 存储帐户名称必须为 3 到 24 个字符，并且只能包含数字和小写字母。
+   > 
+   > 存储帐户名称在 Azure 中必须是唯一的。 Azure 门户将指出选择的存储帐户名称是否已被使用。
+   > 
+   > 
 4. 指定要使用的部署模型：**Resource Manager** 或**经典**。  部署模型。 有关详细信息，请参阅[了解 Resource Manager 部署和经典部署](../../azure-resource-manager/resource-manager-deployment-model.md)。
-
-    > [!NOTE]
-    > 仅可使用 Resource Manager 部署模型来创建 Blob 存储帐户。
+   
+   > [!NOTE]
+   > 仅可使用 Resource Manager 部署模型来创建 Blob 存储帐户。
 
 5. 选择存储帐户的类型：“常规用途”或“Blob 存储”。 “常规用途”是默认值。
-
-    如果已选择“常规用途”，则指定性能层：“标准”或“高级”。 默认值为“标准”。 有关标准和高级存储帐户的更多详细信息，请参阅 [Azure 存储简介](storage-introduction.md)和[高级存储：适用于 Azure 虚拟机工作负荷的高性能存储](storage-premium-storage.md)。
-
+   
+    如果已选择“常规用途”，则指定性能层：“标准”或“高级”。 默认值为“标准”。 有关标准和高级存储帐户的更多详细信息，请参阅 [Azure 存储简介](storage-introduction.md)和[高级存储：适用于 Azure 虚拟机工作负荷的高性能存储](../../virtual-machines/windows/premium-storage.md)。
+   
     如果已选择“Blob 存储”，则指定访问层：“经常访问”或“不常访问”。 默认值为“经常访问”。 有关如何使用存储帐户名称在 Azure 存储中定位你的对象的详细信息，请参阅 [Azure Blob 存储：不常访问和经常访问的层](../blobs/storage-blob-storage-tiers.md)了解更多详细信息。
 6. 选择存储帐户的复制选项：“LRS”、“GRS”、“RA-GRS”或“ZRS”。 默认值为“RA-GRS”。 有关 Azure 存储复制选项的更多详细信息，请参阅 [Azure 存储复制](storage-redundancy.md)。
-
 7. 选择想在其中创建新存储帐户的订阅。
 8. 指定新资源组或选择现有资源组。 有关资源组的详细信息，请参阅 [Azure Resource Manager 概述](../../azure-resource-manager/resource-group-overview.md)。
 9. 选择存储帐户的地理区域。 
 10. 单击“创建”以创建存储帐户。
 
 ## <a name="manage-your-storage-account"></a>管理存储帐户
-
 ### <a name="change-your-account-configuration"></a>更改帐户配置
-
 创建存储帐户之后，可以修改其配置，例如更改帐户所用的复制选项，或更改 Blob 存储帐户的访问层。 在 [Azure 门户](https://portal.azure.cn)中，导航到存储帐户，查找并单击“设置”下的“配置”以查看和/或更改帐户配置。
 
 > [!NOTE]
@@ -112,7 +111,6 @@ Azure 存储帐户提供唯一的命名空间来存储和访问 Azure 存储数�
 > 
 <a id="view-and-copy-storage-access-keys"/></a>
 #### <a name="view-and-copy-storage-access-keys"></a>查看和复制存储访问密钥
-
 在 [Azure 门户](https://portal.azure.cn)中，导航到你的存储帐户，单击“所有设置”，然后单击“配置”以查看和/或更改帐户配置。 “访问密钥”边栏选项卡还包含使用主密钥和辅助密钥预配置的连接字符串，可复制到应用程序中使用。
 
 #### <a name="regenerate-storage-access-keys"></a>重新生成存储访问密钥
@@ -134,22 +132,18 @@ Azure 存储帐户提供唯一的命名空间来存储和访问 Azure 存储数�
 下面是轮换存储访问密钥的过程：
 
 1. 更新应用程序代码中的连接字符串以引用存储帐户的辅助访问密钥。
-
 2. 为存储帐户重新生成主访问密钥。 在“访问密钥”边栏选项卡上，单击“重新生成密钥 1”，然后单击“是”确认要生成新密钥。
-
 3. 更新代码中的连接字符串以引用新的主访问密钥。
-
 4. 以相同方式重新生成辅助访问密钥。
 
 ## <a name="delete-a-storage-account"></a>删除存储帐户
-
 若要删除不再使用的存储帐户，请在 [Azure 门户](https://portal.azure.cn)中导航到该存储帐户，然后单击“删除”。 删除存储帐户将删除整个帐户，包括该帐户中的所有数据。
 
 > [!WARNING]
 > 无法恢复已删除的存储帐户，也无法检索删除之前该存储帐户包含的任何内容。 删除帐户前请务必备份要保存的任何内容。 对于帐户中的任务资源也是如此 — 一旦你删除了一个 Blob、表、队列或文件 ，则它会被永久删除。
 > 
 
-如果尝试删除与 Azure 虚拟机关联的存储帐户，则会显示一条错误消息，指出存储帐户仍在使用。 有关如何排查此错误的帮助，请参阅[排查删除存储帐户时的错误](../common/storage-resource-manager-cannot-delete-storage-account-container-vhd.md)。
+如果尝试删除与 Azure 虚拟机关联的存储帐户，则会显示一条错误消息，指出存储帐户仍在使用。 有关解决此错误的帮助，请参阅[对附加到 Azure VM 的磁盘进行排除故障](../blobs/storage-troubleshoot-vhds.md)。
 
 ## <a name="next-steps"></a>后续步骤
 * [Azure 存储资源管理器](../../vs-azure-tools-storage-manage-with-storage-explorer.md)是 Microsoft 免费提供的独立应用，适用于在 Windows、macOS 和 Linux 上以可视方式处理 Azure 存储数据。

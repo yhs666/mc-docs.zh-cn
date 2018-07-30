@@ -14,15 +14,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 03/27/2017
-ms.date: 06/04/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 13c9fcd5d31e480680c852ace691cfe4e249ceff
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: a3d50603d2a28089a9e9b3213bbc8ae9376be346
+ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38940143"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39307034"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-azure-powershell"></a>教程：使用 Azure PowerShell 创建 Azure VM 的自定义映像
 
@@ -116,12 +116,12 @@ New-AzureRmVm `
 
 ## <a name="image-management"></a>映像管理 
 
-下面提供了一些常见的管理映像任务示例，并说明了如何使用 PowerShell 完成这些任务。
+下面是一些常见的托管映像任务示例，并说明了如何使用 PowerShell 完成这些任务。
 
 按名称列出所有映像。
 
 ```powershell
-$images = Find-AzureRMResource -ResourceType Microsoft.Compute/images 
+$images = Get-AzureRMResource -ResourceType Microsoft.Compute/images 
 $images.name
 ```
 

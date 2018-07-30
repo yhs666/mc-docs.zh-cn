@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 07/17/2017
 ms.date: 09/04/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 95dff088ca563bb9c11ad0c9f376cd7987cfa4f5
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 0c3abb1f331a8ff422ffa1488e30eb1795445b7b
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475182"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219654"
 ---
 # <a name="develop-video-player-applications"></a>开发视频播放器应用程序
 ## <a name="overview"></a>概述
@@ -70,3 +70,4 @@ Azure 媒体服务通过“Windows 媒体平台：播放器框架”提供广告
 [使用 DASH.js 在 HTML5 应用程序中嵌入 MPEG-DASH 自适应流式处理视频](media-services-embed-mpeg-dash-in-html5.md)
 
 [GitHub dash.js 存储库](https://github.com/Dash-Industry-Forum/dash.js)
+

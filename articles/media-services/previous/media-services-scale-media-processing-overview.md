@@ -1,5 +1,5 @@
 ---
-title: 调整媒体处理的规模概述 | Microsoft Docs
+title: 调整媒体处理的规模概述 | Azure
 description: 本主题概述了如何使用 Azure 媒体服务调整媒体处理的规模。
 services: media-services
 documentationcenter: ''
@@ -15,22 +15,22 @@ ms.topic: article
 origin.date: 07/04/2017
 ms.date: 09/25/2017
 ms.author: v-johch
-ms.openlocfilehash: 8bd61f1509f30bfba990a50b8c9077fbce533f6d
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 9ac56c61046c4fd68dcc36fd86cd8abe0f822397
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475395"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219607"
 ---
 # <a name="scaling-media-processing-overview"></a>调整媒体处理的规模概述
 此页概述了如何以及为何调整媒体处理的规模。 
 
 ## <a name="overview"></a>概述
-媒体服务帐户与保留单位类型关联，后者决定了编码处理任务的处理速度。 可以在以下保留单位类型中进行选择：**S1**、**S2** 或 **S3**。 例如，与 **S1** 保留单位类型相比，使用 **S2** 保留单位类型时，同一编码作业运行速度更快。 有关详细信息，请参阅[保留单位类型](https://azure.microsoft.com/blog/high-speed-encoding-with-azure-media-services/)。
+媒体服务帐户与预留单位类型关联，后者决定了编码处理任务的处理速度。 可以在以下预留单位类型中进行选择：**S1**、**S2** 或 **S3**。 例如，与 **S1** 预留单位类型相比，使用 **S2** 预留单位类型时，同一编码作业运行速度更快。 有关详细信息，请参阅[预留单位类型](https://azure.microsoft.com/blog/high-speed-encoding-with-azure-media-services/)。
 
-除了指定保留单位类型，还可以指定通过保留单位来预配帐户。 设置的保留单位数决定了给定帐户中可并发处理的媒体任务数。 例如，如果帐户具有 5 个保留单位，则只要有任务要处理，就可以同时运行 5 个媒体任务。 其余任务将排队等待，运行的任务完成后才选择它们以按顺序进行处理。 如果帐户未预配任何保留单位，则按顺序选择任务进行处理。 在这种情况下，完成一个任务和开始下一个任务之间的等待时间取决于系统中资源的可用性。
+除了指定预留单位类型，还可以指定通过预留单位来设置帐户。 设置的预留单位数决定了给定帐户中可并发处理的媒体任务数。 例如，如果帐户具有 5 个预留单位，则只要有任务要处理，就可以同时运行 5 个媒体任务。 其余任务将排队等待，运行的任务完成后才选择它们以按顺序进行处理。 如果帐户未设置任何预留单位，则按顺序选择任务进行处理。 在这种情况下，完成一个任务和开始下一个任务之间的等待时间取决于系统中资源的可用性。
 
-## <a name="choosing-between-different-reserved-unit-types"></a>在不同的保留单位类型之间进行选择
+## <a name="choosing-between-different-reserved-unit-types"></a>在不同的预留单位类型之间进行选择
 下表可帮助在不同的编码速度之间进行选择时做出决定。 它还提供了几个基准案例，并提供可用于下载视频的 SAS URL，可以对该视频执行自己的测试：
 
 | 方案 | **S1** | **S2** | **S3** |
@@ -44,12 +44,12 @@ ms.locfileid: "34475395"
 > 
 > 
 
-* 保留单位可用于并行化所有媒体处理，其中使用 Azure Media Indexer 为作业编制索引。  但是，与编码不同，索引作业使用更快的保留单位并不能更快地完成处理。
-* 如果使用共享的池（即没有任何保留单位），则编码任务具有与 S1 RU 相同的性能。 但是，任务在排队状态下花费的时间可能没有上限，并且在任何给定的时间内，最多只会运行一项任务。
+* 预留单位可用于并行化所有媒体处理，其中使用 Azure Media Indexer 为作业编制索引。  但是，与编码不同，索引作业使用更快的预留单位并不能更快地完成处理。
+* 如果使用共享的池（即没有任何预留单位），则编码任务将具有与 S1 RU 相同的性能。 但是，任务在排队状态下花费的时间可能没有上限，并且在任何给定的时间内，最多只会运行一项任务。
 
 ## <a name="billing"></a>计费
 
-将根据媒体保留单位的实际使用分钟数对你进行收费。 有关详细说明，请参阅[媒体服务定价](https://www.azure.cn/pricing/details/media-services/)页的“常见问题”部分。   
+将根据媒体预留单位的实际使用分钟数对你进行收费。 有关详细说明，请参阅[媒体服务定价](https://www.azure.cn/pricing/details/media-services/)页的“常见问题”部分。   
 
 ## <a name="quotas-and-limitations"></a>配额和限制
 有关配额和限制以及如何开具支持票证的信息，请参阅[配额和限制](media-services-quotas-and-limitations.md)。

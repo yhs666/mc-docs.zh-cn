@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 02/15/2018
 ms.date: 02/27/2018
 ms.author: v-nany
-ms.openlocfilehash: bed414288796bfd3fea757d302b5834098d5141b
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 898f405ccad25140697a67c1a94e32332eb9f134
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475429"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219611"
 ---
 # <a name="import-a-postman-collection-with-live-streaming-operations"></a>使用实时传送视频流操作导入一个 Postman 集合
 
@@ -1484,4 +1484,3 @@ ms.locfileid: "34475429"
     ]
 }
 ```
-

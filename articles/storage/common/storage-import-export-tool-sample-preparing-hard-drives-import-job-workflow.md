@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 04/07/2017
 ms.date: 08/28/2017
 ms.author: v-haiqya
-ms.openlocfilehash: e8d6dd7c4686a6518dcea04e10d6ba233e6f0437
-ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
+ms.openlocfilehash: 471bbc6fa8aeec54b5994e2cce27d02c0b4f678f
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37800365"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295625"
 ---
 # <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>为导入作业准备硬盘驱动器的示例工作流
 
@@ -35,7 +35,7 @@ ms.locfileid: "37800365"
 |H:\Video\ |视频集合|12 TB|
 |H:\Photo\ |照片集合|30 GB|
 |K:\Temp\FavoriteMovie.ISO|Blu-Ray™ 磁盘映像|25 GB|
-|\\\bigshare\john\music\| 网络共享上的音乐文件集合|10 GB|
+|\\\bigshare\john\music\ |网络共享上的音乐文件集合|10 GB|
 
 ## <a name="storage-account-destinations"></a>存储帐户目标
 

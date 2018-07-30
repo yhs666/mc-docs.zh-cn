@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: ruby
 ms.topic: article
 origin.date: 06/27/2017
-ms.date: 03/19/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 21b6e3d8dcadfa39518b34b422c233e86ae3669a
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: 017f488b9ff6f072b8c599702db6c7f3b2fdf6cf
+ms.sourcegitcommit: 35889b4f3ae51464392478a72b172d8910dd2c37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
-ms.locfileid: "29965094"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39261877"
 ---
 # <a name="ruby-on-rails-web-application-on-an-azure-vm"></a>Azure VM 上的 Ruby on Rails Web 应用程序
 本教程介绍如何在 Azure 中使用 Linux 虚拟机托管 Ruby on Rails 网站。  
@@ -130,7 +130,7 @@ ms.locfileid: "29965094"
     ![默认 rails 页面][default-rails-cloud]
 
 ## <a name="next-steps"></a>后续步骤
-在本教程中，手动执行大多数步骤。 在生产环境中，可在开发计算机上编写应用，并将其部署到 Azure VM。 此外，大多数生产环境都结合其他服务器进程（如 Apache 或 NginX）托管 Rails 应用程序，这些进程处理路由到多个 Rails 应用程序实例的请求并提供静态资源。 有关详细信息，请参阅 http://rubyonrails.org/deploy/。
+在本教程中，手动执行大多数步骤。 在生产环境中，可在开发计算机上编写应用，并将其部署到 Azure VM。 此外，大多数生产环境都结合其他服务器进程（如 Apache 或 NginX）托管 Rails 应用程序，这些进程处理路由到多个 Rails 应用程序实例的请求并提供静态资源。 有关详细信息，请参阅 http://guides.rubyonrails.org/routing.html。
 
 若要详细了解 Ruby on Rails，请参阅 [Ruby on Rails 指南][rails-guides]。
 
@@ -138,7 +138,8 @@ ms.locfileid: "29965094"
 
 * [使用 Blob 存储非结构化数据][blobs]
 * [使用表存储键/值对][tables]
-* [使用内容传送网络提供高带宽内容][cdn-howto]
+* 
+  [使用内容分发网络提供高带宽内容][cdn-howto]
 
 <!-- WA.com links -->
 [blobs]:../../../storage/blobs/storage-ruby-how-to-use-blob-storage.md

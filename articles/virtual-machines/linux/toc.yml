@@ -49,8 +49,6 @@
       href: tutorial-mean-stack.md
     - name: 15 - 使用 SSL 保护 Web 服务器
       href: tutorial-secure-web-server.md
-    - name: 将Packer 映像和应用部署到规模集
-      href: 'https://docs.microsoft.com/learn/deploy-custom-vmss-app/index'
 - name: 示例
   items:
     - name: Azure CLI
@@ -417,7 +415,7 @@
     - name: .NET
       href: 'https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.management.compute'
     - name: Java
-      href: 'https://docs.azure.cn/zh-cn/java/api/'
+      href: 'https://docs.azure.cn/zh-cn/java'
     - name: Node.js
       href: 'https://www.azure.cn/develop/nodejs/#azure-sdk'
     - name: Python
@@ -432,5 +430,7 @@
       href: 'https://www.azure.cn/pricing/details/virtual-machines'
     - name: 区域可用性
       href: 'https://www.azure.cn/support/service-dashboard/'
+    - name: 视频
+      href: 'https://www.azure.cn/video-center/'
     - name: 常见问题
       href: faq.md
