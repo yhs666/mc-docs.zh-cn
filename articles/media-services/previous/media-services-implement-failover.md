@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 媒体服务实现故障转移流式处理 | Microsoft Docs
+title: 使用 Azure 媒体服务实现故障转移流式处理 | Azure
 description: 本主题说明如何实现故障转移流式处理方案。
 services: media-services
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 01/05/2017
 ms.date: 09/04/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 7fc76289bc832b49f098759ac9ed62e5a13ccdd6
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: db34cfe8cefab7c8563b053b963f65467c6fb8ba
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475141"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219625"
 ---
 # <a name="implement-failover-streaming-with-azure-media-services"></a>使用 Azure 媒体服务实现故障转移流式处理
 
