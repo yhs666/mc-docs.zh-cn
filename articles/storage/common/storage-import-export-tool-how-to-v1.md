@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 01/15/2017
 ms.date: 10/16/2017
 ms.author: v-johch
-ms.openlocfilehash: a58566942c103b625b40ff5e06e326f2ba4744c2
-ms.sourcegitcommit: f0b267c857df661c23ffca51b1f745728f9b66c4
+ms.openlocfilehash: c420c113d49ea41dcfc4741050eac5712388a7eb
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2017
-ms.locfileid: "22612525"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295723"
 ---
 # <a name="using-the-azure-importexport-tool-classic-deployment-model"></a>使用 Azure 导入/导出工具（经典部署模型）
 
@@ -40,5 +40,4 @@ ms.locfileid: "22612525"
 ## <a name="next-steps"></a>后续步骤
 
 * [设置 WAImportExport 工具](../storage-import-export-tool-how-to.md)
-
 <!--Update_Description: wording update-->

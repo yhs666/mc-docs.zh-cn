@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 03/15/2018
 ms.date: 05/14/2018
 ms.author: magoedte
-ms.openlocfilehash: 3b1997149773bd7d9ad5d4d0383a17accd59dc80
-ms.sourcegitcommit: 53972dcdef77da92529996667545d2e83716f7e2
+ms.openlocfilehash: 3ca3004b676f9f19ee4fd56a9e1b52bd65b0cdb2
+ms.sourcegitcommit: 74f9f0acb00fb728ff6e9bd67ac86a0c1bcd8d13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39143370"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39218888"
 ---
 # <a name="authenticate-runbooks-with-azure-classic-deployment-and-resource-manager"></a>使用 Azure 经典部署和 Resource Manager 部署对 Runbook 进行身份验证
 本文介绍在为针对 Azure 经典部署模型或 Azure Resource Manager 资源运行的 Azure 自动化 Runbook 配置 Azure AD 用户帐户时所要执行的步骤。 尽管这仍是基于 Azure 资源管理器的 Runbook 支持的身份验证标识，但建议的方法是使用 Azure 运行方式帐户。       
@@ -33,7 +33,7 @@ ms.locfileid: "39143370"
 4. 记下该用户的完整名称和临时密码。
 5. 选择“目录角色”。
 6. 分配“全局管理员”或“受限管理员”角色。
-7. 从 Azure 注销，并使用刚创建的帐户重新登录。系统会提示更改用户密码。
+7. 从 Azure 注销，然后使用刚创建的帐户重新登录。系统会提示更改用户密码。
 
 ## <a name="create-an-automation-account-in-the-azure-portal"></a>在 Azure 门户中创建自动化帐户
 在本部分中，将执行以下步骤以在 Azure 门户中创建一个 Azure 自动化帐户，该帐户用于在 Azure 资源管理器模式下管理资源的 Runbook。  

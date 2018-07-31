@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 08/17/2017
-ms.date: 06/25/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 74832a0e51741f729eb388c865c8cc65b19cf4a1
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.openlocfilehash: 5452b7a04667978c85a5cd76641ad4e984a6a91a
+ms.sourcegitcommit: 35889b4f3ae51464392478a72b172d8910dd2c37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315490"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39261919"
 ---
 # <a name="run-a-cassandra-cluster-on-linux-in-azure-with-nodejs"></a>使用 Node.js 在 Azure 中的 Linux 上运行 Cassandra 群集
 
@@ -29,7 +29,8 @@ ms.locfileid: "36315490"
 > Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 和经典模型](../../../resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。 请参阅 [Datastax Enterprise](https://github.com/Azure/azure-quickstart-templates/tree/master/datastax) 的 Resource Manager 模板和 [CentOS 上 的Spark 群集和 Cassandra](https://github.com/Azure/azure-quickstart-templates/tree/master/spark-and-cassandra-on-centos/)。
 
 ## <a name="overview"></a>概述
-Azure 是一个开放式云平台，可运行 Microsoft 软件和非 Microsoft 软件，包括操作系统、应用程序服务器、消息传递中间件，以及来自商业和开源模型的 SQL 数据库和 NoSQL 数据库。 在包括 Azure 在内的公共云上构建可复原的服务，需要针对应用程序服务器和存储层进行仔细规划，并精心设计体系结构。 Cassandra 的分布式存储体系结构，自然有助于构建高可用性的系统，此类系统在发生群集故障时容错性很强。 Cassandra 是 Apache Software Foundation 在 cassandra.apache.org 上维护的云规模 NoSQL 数据库。Cassandra 以 Java 编写。 因此，它可以在 Windows 和 Linux 平台上运行。
+Azure 是一个开放式云平台，可运行 Azure 软件和非 Azure 软件，包括操作系统、应用程序服务器、消息传递中间件，以及来自商业和开源模型的 SQL 数据库和 NoSQL 数据库。 在包括 Azure 在内的公共云上构建可复原的服务，需要针对应用程序服务器和存储层进行仔细规划，并精心设计体系结构。 Cassandra 的分布式存储体系结构，自然有助于构建高可用性的系统，此类系统在发生群集故障时容错性很强。 Cassandra 是 Apache Software Foundation 在 cassandra.apache.org 上维护的云规模 NoSQL 数据库。Cassandra 以 Java 编写。 因此，它可以在 Windows 和 Linux 平台上运行。
+<!-- Notice: Change Microsoft to Azure-->
 
 本文重点介绍如何在 Ubuntu 上使用 Azure 虚拟机和虚拟网络将 Cassandra 部署为单个和多个数据中心群集。 对群集进行部署以实现生产优化型工作负载不在本文讨论范围之内，因为这需要进行多磁盘节点配置、适当的环形拓扑设计和数据建模，以支持所需的复制、数据一致性、吞吐量并满足高可用性要求。
 
@@ -62,7 +63,7 @@ Cassandra 可以部署到单个或多个 Azure 区域，具体取决于工作负
 
 **群集种子：** 必须选择可用性最高的节点作为种子，因为新节点需要与种子节点进行通信才能发现群集的拓扑。 会从每个可用性集中选择一个节点作为种子节点，以免出现单节点故障。
 
-**复制因子和一致性级别：** Cassandra 固有的高可用性和数据耐用性通过复制因子（RF - 存储在群集中的每一行的副本数目）和一致性级别（在将结果返回到调用方之前需要读取/写入的副本数）来表示。 复制因子是在创建 KEYSPACE（类似于关系数据库）过程中指定的，而一致性级别则是在发出 CRUD 查询时指定的。 有关一致性的详细信息以及进行仲裁计算的公式，请参阅 Cassandra 文档： [针对一致性进行配置](http://www.datastax.com/documentation/cassandra/2.0/cassandra/dml/dml_config_consistency_c.html) 。
+**复制因子和一致性级别：** Cassandra 固有的高可用性和数据耐用性通过复制因子（RF - 存储在群集中的每一行的副本数目）和一致性级别（在将结果返回到调用方之前需要读取/写入的副本数）来表示。 复制因子是在创建 KEYSPACE（类似于关系数据库）过程中指定的，而一致性级别则是在发出 CRUD 查询时指定的。 有关一致性的详细信息以及进行仲裁计算的公式，请参阅 Cassandra 文档： [针对一致性进行配置](https://docs.datastax.com/en/cassandra/3.0/cassandra/dml/dmlConfigConsistency.html) 。
 
 Cassandra 支持两种类型的数据完整性模型 - 一致性和最终一致性；复制因子和一致性级别共同决定数据是在写操作完成后就表现出一致性，还是最终才表现出一致性。 例如，如果指定 QUORUM 作为一致性级别，则只要一致性级别低于需要写入的副本数，就会根据需要写入相应的副本数以满足 QUORUM（例如 1）结果，使得数据最终保持一致。
 
@@ -76,8 +77,8 @@ Cassandra 支持两种类型的数据完整性模型 - 一致性和最终一致�
 | 复制因子 (RF) |3 |给定行副本数 |
 | 一致性级别（写入） |QUORUM [(RF/2) +1) = 2] 公式的结果向下舍入 |在将响应发送到调用方前，最多写入 2 个副本；第 3 个副本将采取最终一致性方式写入。 |
 | 一致性级别（读取） |QUORUM [(RF/2) +1= 2] 公式结果向下舍入 |在将响应发送到调用方前读取 2 个副本。 |
-| 复制策略 |NetworkTopologyStrategy 请参阅 Cassandra 文档中的 [数据复制](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureDataDistributeReplication_c.html) ，了解详细信息 |了解部署拓扑，并将副本置于节点上，以便确保最终不会让所有副本位于同一机架上 |
-| Snitch |GossipingPropertyFileSnitch 请参阅 Cassandra 文档中的[开关](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureSnitchesAbout_c.html)了解详细信息 |NetworkTopologyStrategy 使用 snitch 概念了解拓扑。 将每个节点映射到数据中心和机架时，使用 GossipingPropertyFileSnitch 可以更好地进行控制。 然后，该群集使用 gossip 传播此信息。 相对于 PropertyFileSnitch，此方法在进行动态 IP 设置时更加简单 |
+| 复制策略 |NetworkTopologyStrategy 请参阅 Cassandra 文档中的 [数据复制](https://docs.datastax.com/en/cassandra/3.0/cassandra/architecture/archDataDistributeAbout.html) ，了解详细信息 |了解部署拓扑，并将副本置于节点上，以便确保最终不会让所有副本位于同一机架上 |
+| Snitch |GossipingPropertyFileSnitch 请参阅 Cassandra 文档中的[开关](https://docs.datastax.com/en/cassandra/3.0/cassandra/architecture/archSnitchesAbout.html)了解详细信息 |NetworkTopologyStrategy 使用 snitch 概念了解拓扑。 将每个节点映射到数据中心和机架时，使用 GossipingPropertyFileSnitch 可以更好地进行控制。 然后，该群集使用 gossip 传播此信息。 相对于 PropertyFileSnitch，此方法在进行动态 IP 设置时更加简单 |
 
 **针对 Cassandra 群集的 Azure 注意事项：** Azure 虚拟机功能使用 Azure Blob 存储以确保磁盘持久性；Azure 存储为每个磁盘保存三个副本以确保高持久性。 这意味着插入 Cassandra 表中的每行数据已存储在三个副本中。 因此即使复制因子 (RF) 为 1。 复制因子为 1 的主要问题是，即使单个 Cassandra 节点发生故障，应用程序也会体验到停机。 不过，如果某个节点因 Azure 结构控制器检测到问题（例如，硬件故障、系统软件故障）而关闭，则会使用相同的存储驱动器预配一个新节点来代替旧节点。 预配一个新节点代替旧节点可能需要数分钟的时间。  同样，如果执行规划的维护活动（如来宾 OS 更改、Cassandra 升级和应用程序更改），Azure 结构控制器会在群集中对节点进行滚动升级。  滚动升级也会一次关闭数个节点，因此该群集会出现数个分区短暂停机的现象。 不过，由于固有的 Azure 存储冗余，数据不会丢失。  
 
@@ -111,8 +112,8 @@ Cassandra 支持两种类型的数据完整性模型 - 一致性和最终一致�
 | 复制因子 (RF) |3 |给定行副本数 |
 | 一致性级别（写入） |LOCAL_QUORUM [(sum(RF)/2) +1) = 4] 公式结果向下舍入 |将 2 个节点同步写入第一个数据中心；满足仲裁所需的其余 2 个节点会通过异步方式写入第二个数据中心。 |
 | 一致性级别（读取） |LOCAL_QUORUM ((RF/2) +1) = 2 公式结果向下舍入 |读取请求仅从一个区域满足；在将响应发送回客户端之前，读取 2 个节点。 |
-| 复制策略 |NetworkTopologyStrategy 请参阅 Cassandra 文档中的 [数据复制](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureDataDistributeReplication_c.html) ，了解详细信息 |了解部署拓扑，并将副本置于节点上，以便确保最终不会让所有副本位于同一机架上 |
-| Snitch |GossipingPropertyFileSnitch 请参阅 Cassandra 文档中的 [Snitch](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureSnitchesAbout_c.html) ，了解详细信息 |NetworkTopologyStrategy 使用 snitch 概念了解拓扑。 将每个节点映射到数据中心和机架时，使用 GossipingPropertyFileSnitch 可以更好地进行控制。 然后，该群集使用 gossip 传播此信息。 相对于 PropertyFileSnitch，此方法在进行动态 IP 设置时更加简单 |
+| 复制策略 |NetworkTopologyStrategy 请参阅 Cassandra 文档中的 [数据复制](https://docs.datastax.com/en/cassandra/3.0/cassandra/architecture/archDataDistributeAbout.html) ，了解详细信息 |了解部署拓扑，并将副本置于节点上，以便确保最终不会让所有副本位于同一机架上 |
+| Snitch |GossipingPropertyFileSnitch 请参阅 Cassandra 文档中的 [Snitch](https://docs.datastax.com/en/cassandra/3.0/cassandra/architecture/archSnitchesAbout.html) ，了解详细信息 |NetworkTopologyStrategy 使用 snitch 概念了解拓扑。 将每个节点映射到数据中心和机架时，使用 GossipingPropertyFileSnitch 可以更好地进行控制。 然后，该群集使用 gossip 传播此信息。 相对于 PropertyFileSnitch，此方法在进行动态 IP 设置时更加简单 |
 
 ## <a name="the-software-configuration"></a>软件配置
 在部署过程中使用以下软件版本：
@@ -121,7 +122,7 @@ Cassandra 支持两种类型的数据完整性模型 - 一致性和最终一致�
 <tr><th>软件</th><th>源</th><th>版本</th></tr>
 <tr><td>JRE    </td><td>[JRE 8](http://www.oracle.com/technetwork/java/javase/downloads/server-jre8-downloads-2133154.html) </td><td>8U5</td></tr>
 <tr><td>JNA    </td><td>[JNA](https://github.com/twall/jna) </td><td> 3.2.7</td></tr>
-<tr><td>Cassandra</td><td>[Apache Cassandra 2.0.8](http://archive.apache.org/dist/cassandra/2.0.8/apache-cassandra-2.0.8-bin.tar.gz)</td><td> 2.0.8</td></tr>
+<tr><td>Cassandra</td><td>[Apache Cassandra 2.0.8](http://www.apache.org/dist/cassandra/)</td><td> 2.0.8</td></tr>
 <tr><td>Ubuntu    </td><td>[Azure](https://www.azure.cn/) </td><td>14.04 LTS</td></tr>
 </table>
 
@@ -309,7 +310,7 @@ Azure 在进行配置时需要用 PEM 或 DER 编码的 X509 公钥。 按照“
 
 <table>
 <tr><th>VM 属性名称</th><th>值</th><th>备注</th></tr>
-<tr><td>Name</td><td>vnet-cass-china-north</td><td></td></tr>
+<tr><td>Name</td><td>vnet-cass-north-china</td><td></td></tr>
 <tr><td>区域</td><td>中国北部</td><td></td></tr>
 <tr><td>DNS 服务器</td><td>无</td><td>将其忽略，因为我们不使用 DNS 服务器</td></tr>
 <tr><td>地址空间</td><td>10.1.0.0/16</td><td></td></tr>    
@@ -331,16 +332,16 @@ Azure 在进行配置时需要用 PEM 或 DER 编码的 X509 公钥。 按照“
 
 <table>
 <tr><th>计算机名称    </th><th>子网    </th><th>IP 地址    </th><th>可用性集</th><th>DC/机架</th><th>种子？</th></tr>
-<tr><td>hk-c1-china-north    </td><td>数据    </td><td>10.1.2.4    </td><td>hk-c-aset-1    </td><td>dc =CHINANORTH rack =rack1 </td><td>是</td></tr>
-<tr><td>hk-c2-china-north    </td><td>数据    </td><td>10.1.2.5    </td><td>hk-c-aset-1    </td><td>dc =CHINANORTH rack =rack1    </td><td>否 </td></tr>
-<tr><td>hk-c3-china-north    </td><td>数据    </td><td>10.1.2.6    </td><td>hk-c-aset-1    </td><td>dc =CHINANORTH rack =rack2    </td><td>是</td></tr>
-<tr><td>hk-c4-china-north    </td><td>数据    </td><td>10.1.2.7    </td><td>hk-c-aset-1    </td><td>dc =CHINANORTH rack =rack2    </td><td>否 </td></tr>
-<tr><td>hk-c5-china-north    </td><td>数据    </td><td>10.1.2.8    </td><td>hk-c-aset-2    </td><td>dc =CHINANORTH rack =rack3    </td><td>是</td></tr>
-<tr><td>hk-c6-china-north    </td><td>数据    </td><td>10.1.2.9    </td><td>hk-c-aset-2    </td><td>dc =CHINANORTH rack =rack3    </td><td>否 </td></tr>
-<tr><td>hk-c7-china-north    </td><td>数据    </td><td>10.1.2.10    </td><td>hk-c-aset-2    </td><td>dc =CHINANORTH rack =rack4    </td><td>是</td></tr>
-<tr><td>hk-c8-china-north    </td><td>数据    </td><td>10.1.2.11    </td><td>hk-c-aset-2    </td><td>dc =CHINANORTH rack =rack4    </td><td>否 </td></tr>
-<tr><td>hk-w1-china-north    </td><td>Web    </td><td>10.1.1.4    </td><td>hk-w-aset-1    </td><td>                       </td><td>不适用</td></tr>
-<tr><td>hk-w2-china-north    </td><td>Web    </td><td>10.1.1.5    </td><td>hk-w-aset-1    </td><td>                       </td><td>不适用</td></tr>
+<tr><td>hk-c1-north-china    </td><td>数据    </td><td>10.1.2.4    </td><td>hk-c-aset-1    </td><td>dc =NORTHCHINA rack =rack1 </td><td>是</td></tr>
+<tr><td>hk-c2-north-china    </td><td>数据    </td><td>10.1.2.5    </td><td>hk-c-aset-1    </td><td>dc =NORTHCHINA rack =rack1    </td><td>否 </td></tr>
+<tr><td>hk-c3-north-china    </td><td>数据    </td><td>10.1.2.6    </td><td>hk-c-aset-1    </td><td>dc =NORTHCHINA rack =rack2    </td><td>是</td></tr>
+<tr><td>hk-c4-north-china    </td><td>数据    </td><td>10.1.2.7    </td><td>hk-c-aset-1    </td><td>dc =NORTHCHINA rack =rack2    </td><td>否 </td></tr>
+<tr><td>hk-c5-north-china    </td><td>数据    </td><td>10.1.2.8    </td><td>hk-c-aset-2    </td><td>dc =NORTHCHINA rack =rack3    </td><td>是</td></tr>
+<tr><td>hk-c6-north-china    </td><td>数据    </td><td>10.1.2.9    </td><td>hk-c-aset-2    </td><td>dc =NORTHCHINA rack =rack3    </td><td>否 </td></tr>
+<tr><td>hk-c7-north-china    </td><td>数据    </td><td>10.1.2.10    </td><td>hk-c-aset-2    </td><td>dc =NORTHCHINA rack =rack4    </td><td>是</td></tr>
+<tr><td>hk-c8-north-china    </td><td>数据    </td><td>10.1.2.11    </td><td>hk-c-aset-2    </td><td>dc =NORTHCHINA rack =rack4    </td><td>否 </td></tr>
+<tr><td>hk-w1-north-china    </td><td>Web    </td><td>10.1.1.4    </td><td>hk-w-aset-1    </td><td>                       </td><td>不适用</td></tr>
+<tr><td>hk-w2-north-china    </td><td>Web    </td><td>10.1.1.5    </td><td>hk-w-aset-1    </td><td>                       </td><td>不适用</td></tr>
 </table>
 
 创建以上 VM 列表需要完成以下过程：
@@ -413,14 +414,14 @@ Azure 在进行配置时需要用 PEM 或 DER 编码的 X509 公钥。 按照“
 
 * 编辑 $CASS_HOME/conf/cassandra-rackdc.properties 以指定数据中心和机架属性：
 
-       dc =CHINAEAST, rack =rack1
+       dc =EASTCHINA, rack =rack1
 * 编辑 cassandra.yaml，将种子节点配置如下：
 
        Seeds: "10.1.2.4,10.1.2.6,10.1.2.8,10.1.2.10"
 
 **步骤 4：启动 VM 并测试群集**
 
-登录到其中一个节点（例如 hk-c1-china-north），然后运行以下命令以查看群集的状态：
+登录到其中一个节点（例如 hk-c1-north-china），然后运行以下命令以查看群集的状态：
 
        nodetool -h 10.1.2.4 -p 7199 status
 
@@ -443,9 +444,9 @@ Azure 在进行配置时需要用 PEM 或 DER 编码的 X509 公钥。 按照“
 
 1. 使用 Powershell 命令 Get-AzureInternalLoadbalancer cmdlet 获取内部负载均衡器的 IP 地址（例如 10.1.2.101）。 该命令的语法如下所示：
 
-        Get-AzureLoadbalancer -ServiceName "hk-c-svc-china-north" [displays the details of the internal load balancer along with its IP address]
+        Get-AzureLoadbalancer -ServiceName "hk-c-svc-north-china" [displays the details of the internal load balancer along with its IP address]
 
-2. 使用 Putty 或 ssh 登录到 Web 场 VM（例如 hk-w1-china-north）
+2. 使用 Putty 或 ssh 登录到 Web 场 VM（例如 hk-w1-north-china）
 3. 执行 $CASS_HOME/bin/cqlsh 10.1.2.101 9160
 4. 使用以下 CQL 命令验证群集是否正常工作：
 
@@ -476,7 +477,7 @@ Azure 在进行配置时需要用 PEM 或 DER 编码的 X509 公钥。 按照“
 
 <table>
 <tr><th>属性名称    </th><th>值    </th><th>备注</th></tr>
-<tr><td>Name    </td><td>vnet-cass-china-east</td><td></td></tr>
+<tr><td>Name    </td><td>vnet-cass-east-china</td><td></td></tr>
 <tr><td>区域    </td><td>中国东部</td><td></td></tr>
 <tr><td>DNS 服务器        </td><td></td><td>将其忽略，因为我们不使用 DNS 服务器</td></tr>
 <tr><td>配置点到站点 VPN</td><td></td><td>        将其忽略</td></tr>
@@ -501,16 +502,16 @@ Azure 虚拟网络中的本地网络是映射到远程站点（包括私有云�
 
 | 网络名称 | VPN 网关地址 | 地址空间 | 备注 |
 | --- | --- | --- | --- |
-| hk-lnet-map-to-china-east |23.1.1.1 |10.2.0.0/16 |创建本地网络时，请提供占位符网关地址。 创建网关后，需要填充实际的网关地址。 请确保地址空间与相应的远程 VNET 完全匹配；在此示例中，该 VNET 在华东区域创建。 |
-| hk-lnet-map-to-china-north |23.2.2.2 |10.1.0.0/16 |在创建本地网络时，请提供一个占位符网关地址。 创建网关后，需要填充实际的网关地址。 请确保地址空间与相应的远程 VNET 完全匹配；在此示例中，该 VNET 在华北区域创建。 |
+| hk-lnet-map-to-east-china |23.1.1.1 |10.2.0.0/16 |创建本地网络时，请提供占位符网关地址。 创建网关后，需要填充实际的网关地址。 请确保地址空间与相应的远程 VNET 完全匹配；在此示例中，该 VNET 在华东区域创建。 |
+| hk-lnet-map-to-north-china |23.2.2.2 |10.1.0.0/16 |在创建本地网络时，请提供一个占位符网关地址。 创建网关后，需要填充实际的网关地址。 请确保地址空间与相应的远程 VNET 完全匹配；在此示例中，该 VNET 在华北区域创建。 |
 
 ### <a name="step-3-map-local-network-to-the-respective-vnets"></a>步骤 3：将“本地”网络映射到相应的 VNET
 在 Azure 门户中，选择每个 VNET，单击“配置”，选中“连接到本地网络”，并按照以下详细信息选择本地网络：
 
 | 虚拟网络 | 本地网络 |
 | --- | --- |
-| hk-vnet-china-north |hk-lnet-map-to-china-east |
-| hk-vnet-china-east |hk-lnet-map-to-china-north |
+| hk-vnet-north-china |hk-lnet-map-to-east-china |
+| hk-vnet-east-china |hk-lnet-map-to-north-china |
 
 ### <a name="step-4-create-gateways-on-vnet1-and-vnet2"></a>步骤 4：在 VNET1 和 VNET2 上创建网关
 在两个虚拟网络的仪表板中，单击“创建网关”，触发 VPN 网关预配过程。 几分钟后，每个虚拟网络的仪表板会显示实际网关地址。
@@ -520,37 +521,37 @@ Azure 虚拟网络中的本地网络是映射到远程站点（包括私有云�
 
 <table>
 <tr><th>本地网络    </th><th>虚拟网络网关</th></tr>
-<tr><td>hk-lnet-map-to-china-east </td><td>hk-vnet-china-north 的网关</td></tr>
-<tr><td>hk-lnet-map-to-china-north </td><td>hk-vnet-china-east 的网关</td></tr>
+<tr><td>hk-lnet-map-to-east-china </td><td>hk-vnet-north-china 的网关</td></tr>
+<tr><td>hk-lnet-map-to-north-china </td><td>hk-vnet-east-china 的网关</td></tr>
 </table>
 
 ### <a name="step-6-update-the-shared-key"></a>步骤 6：更新共享密钥
-使用以下 Powershell 脚本更新每个 VPN 网关的 IPSec 密钥 [使用这两个网关的 sake 密钥]：Set-AzureVNetGatewayKey -VNetName hk-vnet-china-east -LocalNetworkSiteName hk-lnet-map-to-china-north -SharedKey D9E76BKK Set-AzureVNetGatewayKey -VNetName hk-vnet-china-north -LocalNetworkSiteName hk-lnet-map-to-china-east -SharedKey D9E76BKK
+使用以下 Powershell 脚本更新每个 VPN 网关的 IPSec 密钥 [使用这两个网关的 sake 密钥]：Set-AzureVNetGatewayKey -VNetName hk-vnet-east-china -LocalNetworkSiteName hk-lnet-map-to-north-china -SharedKey D9E76BKK Set-AzureVNetGatewayKey -VNetName hk-vnet-north-china -LocalNetworkSiteName hk-lnet-map-to-east-china -SharedKey D9E76BKK
 
 ### <a name="step-7-establish-the-vnet-to-vnet-connection"></a>步骤 7：建立 VNET 到 VNET 连接
 在 Azure 门户中，使用这两个虚拟网络的“仪表板”菜单建立网关到网关连接。 使用底部工具栏中的“连接”菜单项。 几分钟后，仪表板会以图形方式显示连接详细信息。
 
 ### <a name="step-8-create-the-virtual-machines-in-region-2"></a>步骤 8：在区域 #2 中创建虚拟机
-按照相同步骤创建区域 #1 部署中描述的 Ubuntu 映像，或者将映像 VHD 文件复制到区域 #2 中的 Azure 存储帐户，然后创建该映像。 使用该映像，并创建以下虚拟机列表映射到新的云服务 hk-c-svc-china-east 中：
+按照相同步骤创建区域 #1 部署中描述的 Ubuntu 映像，或者将映像 VHD 文件复制到区域 #2 中的 Azure 存储帐户，然后创建该映像。 使用该映像，将下列虚拟机创建到新的云服务 hk-c-svc-east-china 中：
 
 | 计算机名称 | 子网 | IP 地址 | 可用性集 | DC/机架 | 种子？ |
 | --- | --- | --- | --- | --- | --- |
-| hk-c1-china-east |数据 |10.2.2.4 |hk-c-aset-1 |dc =CHINAEAST rack =rack1 |是 |
-| hk-c2-china-east |数据 |10.2.2.5 |hk-c-aset-1 |dc =CHINAEAST rack =rack1 |否 |
-| hk-c3-china-east |数据 |10.2.2.6 |hk-c-aset-1 |dc =CHINAEAST rack =rack2 |是 |
-| hk-c5-china-east |数据 |10.2.2.8 |hk-c-aset-2 |dc =CHINAEAST rack =rack3 |是 |
-| hk-c6-china-east |数据 |10.2.2.9 |hk-c-aset-2 |dc =CHINAEAST rack =rack3 |否 |
-| hk-c7-china-east |数据 |10.2.2.10 |hk-c-aset-2 |dc =CHINAEAST rack =rack4 |是 |
-| hk-c8-china-east |数据 |10.2.2.11 |hk-c-aset-2 |dc =CHINAEAST rack =rack4 |否 |
-| hk-w1-china-east |Web |10.2.1.4 |hk-w-aset-1 |不适用 |不适用 |
-| hk-w2-china-east |Web |10.2.1.5 |hk-w-aset-1 |不适用 |不适用 |
+| hk-c1-east-china |数据 |10.2.2.4 |hk-c-aset-1 |dc =EASTCHINA rack =rack1 |是 |
+| hk-c2-east-china |数据 |10.2.2.5 |hk-c-aset-1 |dc =EASTCHINA rack =rack1 |否 |
+| hk-c3-east-china |数据 |10.2.2.6 |hk-c-aset-1 |dc =EASTCHINA rack =rack2 |是 |
+| hk-c5-east-china |数据 |10.2.2.8 |hk-c-aset-2 |dc =EASTCHINA rack =rack3 |是 |
+| hk-c6-east-china |数据 |10.2.2.9 |hk-c-aset-2 |dc =EASTCHINA rack =rack3 |否 |
+| hk-c7-east-china |数据 |10.2.2.10 |hk-c-aset-2 |dc =EASTCHINA rack =rack4 |是 |
+| hk-c8-east-china |数据 |10.2.2.11 |hk-c-aset-2 |dc =EASTCHINA rack =rack4 |否 |
+| hk-w1-east-china |Web |10.2.1.4 |hk-w-aset-1 |不适用 |不适用 |
+| hk-w2-east-china |Web |10.2.1.5 |hk-w-aset-1 |不适用 |不适用 |
 
 遵循与区域 #1 相同的说明，但使用 10.2.xxx.xxx 地址空间。
 
 ### <a name="step-9-configure-cassandra-on-each-vm"></a>步骤 9：在每个 VM 上配置 Cassandra
 登录到 VM 并执行以下操作：
 
-1. 编辑 $CASS_HOME/conf/cassandra-rackdc.properties 以指定下述格式的数据中心和机架属性：dc =CHINAEAST      rack =rack1
+1. 编辑 $CASS_HOME/conf/cassandra-rackdc.properties 以指定下述格式的数据中心和机架属性：dc =EASTCHINA rack =rack1
 2. 编辑 cassandra.yaml 以配置种子节点：Seeds: "10.1.2.4,10.1.2.6,10.1.2.8,10.1.2.10,10.2.2.4,10.2.2.6,10.2.2.8,10.2.2.10"
 
 ### <a name="step-10-start-cassandra"></a>步骤 10：启动 Cassandra
@@ -560,8 +561,8 @@ Azure 虚拟网络中的本地网络是映射到远程站点（包括私有云�
 到目前为止，Cassandra 已部署到 16 个节点，每个 Azure 区域 8 个节点。 这些节点具有通用群集名称和种子节点配置，因此属于同一群集。 使用以下过程测试群集：
 
 ### <a name="step-1-get-the-internal-load-balancer-ip-for-both-the-regions-using-powershell"></a>步骤 1：使用 PowerShell 获取这两个区域的内部负载均衡器 IP
-* Get-AzureInternalLoadbalancer -ServiceName "hk-c-svc-china-north"
-* Get-AzureInternalLoadbalancer -ServiceName "hk-c-svc-china-east"  
+* Get-AzureInternalLoadbalancer -ServiceName "hk-c-svc-north-china"
+* Get-AzureInternalLoadbalancer -ServiceName "hk-c-svc-east-china"  
 
     请注意显示的 IP 地址（例如 north - 10.1.2.101, east - 10.2.2.101）。
 
@@ -570,7 +571,7 @@ Azure 虚拟网络中的本地网络是映射到远程站点（包括私有云�
 2. 执行以下 CQL 命令：
 
         CREATE KEYSPACE customers_ks
-        WITH REPLICATION = { 'class' : 'NetworkToplogyStrategy', 'CHINANORTH' : 3, 'CHINAEAST' : 3};
+        WITH REPLICATION = { 'class' : 'NetworkToplogyStrategy', 'NORTHCHINA' : 3, 'EASTCHINA' : 3};
         USE customers_ks;
         CREATE TABLE Customers(customer_id int PRIMARY KEY, firstname text, lastname text);
         INSERT INTO Customers(customer_id, firstname, lastname) VALUES(1, 'John', 'Doe');
@@ -584,7 +585,7 @@ Azure 虚拟网络中的本地网络是映射到远程站点（包括私有云�
 | 1 |John |Doe |
 | 2 |Jane |Doe |
 
-### <a name="step-3-execute-the-following-in-the-east-region-after-logging-into-hk-w1-china-east"></a>步骤 3：登录到 hk-w1-china-east 后，在 east 区域执行以下命令：
+### <a name="step-3-execute-the-following-in-the-east-region-after-logging-into-hk-w1-east-china"></a>步骤 3：登录到 hk-w1-east-china 后，在东部区域执行以下命令：
 1. 执行 $CASS_HOME/bin/cqlsh 10.2.2.101 9160
 2. 执行以下 CQL 命令：
 
@@ -696,7 +697,7 @@ Azure 虚拟网络中的本地网络是映射到远程站点（包括私有云�
         readCustomer(ksConOptions)
 
 ## <a name="conclusion"></a>结论
-Azure 是一个灵活的平台，可运行 Microsoft 软件和开源软件，如本练习所演示。 将群集节点分散到多个容错域，可在单个数据中心部署高度可用的 Cassandra 群集。 也可以将 Cassandra 群集部署到多个地理距离遥远的 Azure 区域，以便建立防灾系统。 使用 Azure 和 Cassandra 可构建高度可扩展、高度可用且灾难恢复性强的云服务，满足当今 Internet 规模服务需求。  
+Azure 是一个灵活的平台，可运行 Azure 软件和开源软件，如本练习所演示。 将群集节点分散到多个容错域，可在单个数据中心部署高度可用的 Cassandra 群集。 也可以将 Cassandra 群集部署到多个地理距离遥远的 Azure 区域，以便建立防灾系统。 使用 Azure 和 Cassandra 可构建高度可扩展、高度可用且灾难恢复性强的云服务，满足当今 Internet 规模服务需求。  
 
 ## <a name="references"></a>参考
 * [http://cassandra.apache.org](http://cassandra.apache.org)

@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 05/11/2017
 ms.date: 08/28/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 4e2f1e7ab7a822c863c6366d0bd83994567c7f6a
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.openlocfilehash: a63407d735f894ed95707c9a4c56d3b8cc188b9f
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
-ms.locfileid: "21135053"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295682"
 ---
 # <a name="managing-concurrency-in-azure-storage"></a>在 Azure 存储中管理并发
 ## <a name="overview"></a>概述
@@ -161,7 +161,7 @@ catch (StorageException ex)
 }  
 ```
 
-如果尝试对租赁的 Blob 执行写入操作，而不传递租约 ID，则请求会失败，显示 412 错误。 请注意，如果该租约在调用 **UploadText** 方法前到期，但仍传递租约 ID，则请求也会失败，显示 **412** 错误。 有关如何管理租约到期时间和租约 ID 的详细信息，请参阅 [Lease Blob](http://msdn.microsoft.com/library/azure/ee691972.aspx)（租赁 Blob）REST 说明文档。  
+如果尝试对租赁的 Blob 执行写入操作，而不传递租约 ID，则请求会失败，显示 412 错误。 请注意，如果该租约在调用 **UploadText** 方法前到期，但仍传递租约 ID，则请求也会失败，显示 **412** 错误。 有关如何管理租约到期时间和租约 ID 的详细信息，请参阅 [Lease Blob](http://msdn.microsoft.com/library/azure/ee691972.aspx)（租用 Blob）REST 文档。  
 
 以下 Blob 操作可以使用租约来管理悲观并发：  
 

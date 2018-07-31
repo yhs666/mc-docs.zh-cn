@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 05/31/2018
 ms.date: 07/02/2018
 ms.author: v-johch
-ms.openlocfilehash: 0212dcf7f25f582c3eda720539e0be5b7499882d
-ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
+ms.openlocfilehash: 7a815771ba000dec3605a031e3c7fc7905bc085c
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103097"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295672"
 ---
 # <a name="azure-storage-security-guide"></a>Azure 存储安全指南
 
@@ -58,7 +58,7 @@ Azure 存储提供一整套安全性功能，这些功能相辅相成，帮助�
 本指南着重于资源管理器模型，即创建存储帐户的建议方法。 使用 Resource Manager 存储帐户而不是提供整个订阅的访问权限，可以使用基于角色的访问控制 (RBAC) 以更高的限制级别来控制对管理平面的访问。
 
 ### <a name="how-to-secure-your-storage-account-with-role-based-access-control-rbac"></a>如何使用基于角色的访问控制 (RBAC) 来保护存储帐户
-接下来，我们将讨论什么是 RBAC 以及如何使用它。 每个 Azure 订阅都有一个 Azure Active Directory。 可以向该目录中的用户、组和应用程序授予访问权限，以便其管理使用 Resource Manager 部署模型的 Azure 订阅中的资源。 此类型的安全性称为基于角色的访问控制 (RBAC)。 若要管理此访问权限，可以使用 [Azure 门户](https://portal.azure.cn/)、[Azure CLI 工具](../../cli-install-nodejs.md)、[PowerShell](/powershell/azureps-cmdlets-docs) 或 [Azure 存储资源提供程序 REST API](https://msdn.microsoft.com/library/azure/mt163683.aspx)。
+接下来，我们将讨论什么是 RBAC 以及如何使用它。 每个 Azure 订阅都有一个 Azure Active Directory。 可以向该目录中的用户、组和应用程序授予访问权限，以便其管理使用 Resource Manager 部署模型的 Azure 订阅中的资源。 此类型的安全性称为基于角色的访问控制 (RBAC)。 若要管理此访问权限，可以使用 [Azure 门户](https://portal.azure.cn/)、[Azure CLI 工具](../../cli-install-nodejs.md)、[PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) 或 [Azure 存储资源提供程序 REST API](https://msdn.microsoft.com/library/azure/mt163683.aspx)。
 
 使用资源管理器模型可以将存储帐户放在资源组中，并使用 Azure Active Directory 来控制对该特定存储帐户的管理平面的访问。 例如，可以授权特定用户访问存储帐户密钥，而其他用户可以查看有关存储帐户的信息，但无法访问存储帐户密钥。
 
@@ -101,7 +101,7 @@ Azure 存储提供一整套安全性功能，这些功能相辅相成，帮助�
 * [Azure 存储资源提供程序 REST API 参考](https://msdn.microsoft.com/library/azure/mt163683.aspx)
 
   该 API 参考信息介绍了可用于按编程方式管理存储帐户的 API。
-* [开发人员指南：使用 Azure Resource Manager API 进行身份验证](http://www.dushyantgill.com/blog/2015/05/23/developers-guide-to-auth-with-azure-resource-manager-api/)
+* [使用资源管理器身份验证 API 访问订阅](../../azure-resource-manager/resource-manager-api-authentication.md)
 
   此文说明如何使用 Resource Manager API 进行身份验证。
 * [Role-Based Access Control for Azure from Ignite](https://channel9.msdn.com/events/Ignite/2015/BRK2707)（Ignite 中提供的适用于 Azure 的基于角色的访问控制）
@@ -154,19 +154,20 @@ Azure 存储提供一整套安全性功能，这些功能相辅相成，帮助�
 * [针对存储帐户的操作](https://msdn.microsoft.com/library/ee460790.aspx)
 
   这篇存储服务管理器 REST API 参考文章包含有关使用 REST API 来检索和重新生成存储帐户密钥的具体文章链接。 注意：此文适用于经典存储帐户。
-* [Say goodbye to key management – manage access to Azure Storage data using Azure AD](http://www.dushyantgill.com/blog/2015/04/26/say-goodbye-to-key-management-manage-access-to-azure-storage-data-using-azure-ad/)
 
   本文介绍如何使用 Active Directory 来控制 Azure 密钥保管库中 Azure 存储密钥的访问。 此外，说明如何使用 Azure 自动化作业每小时重新生成密钥。
 
 ## <a name="data-plane-security"></a>数据平面安全
 数据平面安全是指用于保护存储在 Azure 存储的数据对象（Blob、队列、表和文件）的方法。 我们已了解在传输数据期间加密数据和安全的方法，但该从何处着手来控制访问对象？
 
-可通过两种方法授权对数据对象本身的访问权限。 分别是控制对存储帐户密钥的访问，和使用共享访问签名来授予特定时间段对特定数据对象的访问权限。
+Azure 存储中数据对象的访问授权有三个选项，包括：
+
+- 使用存储帐户密钥通过共享密钥进行访问授权。 通过共享密钥进行授权需要将存储帐户密钥存储在应用程序中。
+- 使用共享访问签名授予特定时间段对特定数据对象的受控权限。
 
 此外，对于 Blob 存储，可以通过对保存 Blob 的容器的访问级别进行相应设置，来允许对 Blob 进行公共访问。 如果将容器的访问权限设置为“Blob”或“容器”，则允许该容器中 Blob 的公共读取访问权限。 这意味着 URL 指向该容器中 Blob 的任何人都可以在浏览器中打开它，而不需要使用共享访问签名或拥有存储帐户密钥。
 
 除通过授权限制访问外，还可使用[防火墙和虚拟网络](storage-network-security.md)来根据网络规则限制对存储帐户的访问。  通过此方法，可拒绝对公共 Internet 流量的访问，并仅向特定 Azure 虚拟网络或公共 Internet IP 地址范围授予访问权限。
-
 
 ### <a name="storage-account-keys"></a>存储帐户密钥
 存储帐户密钥是由 Azure 创建的 512 位字符串，配合存储帐户名称用于访问存储于存储帐户中的数据对象。

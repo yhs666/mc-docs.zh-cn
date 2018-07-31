@@ -15,15 +15,15 @@ ms.topic: get-started-article
 origin.date: 09/19/2017
 ms.date: 10/30/2017
 ms.author: v-johch
-ms.openlocfilehash: a6906bd14804eb8d2f4adc1ed0aee05df8f2f9b0
-ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
+ms.openlocfilehash: 70cf9d6073c5f01f9e25090d5511a262b8069a4a
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103044"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295689"
 ---
 # <a name="mount-azure-file-share-over-smb-with-macos"></a>在 macOS 中通过 SMB 装载 Azure 文件共享
-[Azure 文件](storage-files-introduction.md)是一种 Azure 服务，通过该服务可以根据行业标准在 Azure 中创建和使用网络文件共享。 Azure 文件共享可以装载在 macOS Sierra (10.12) 和 El Capitan (10.11) 中。 本文介绍如何使用两种不同的方法通过 Finder UI 和 Terminal 在 macOS 中装载 Azure 文件共享。
+[Azure 文件](storage-files-introduction.md)是一种 Azure 服务，通过该服务可以根据行业标准在 Azure 中创建和使用网络文件共享。 Azure 文件共享可以装载在 macOS El Capitan (10.11) 和更高版本中。 本文介绍如何使用两种不同的方法通过 Finder UI 和 Terminal 在 macOS 中装载 Azure 文件共享。
 
 > [!Note]  
 > 通过 SMB 装载 Azure 文件共享之前，建议禁用 SMB 数据包签名。 如果不这样做，则从 macOS 访问 Azure 文件共享时，可能会导致性能不佳。 SMB 连接会加密，因此这不会影响连接的安全性。 在 Terminal 中，以下命令会禁用 SMB 数据包签名，详见这篇[有关如何禁用 SMB 数据包签名的 Apple 支持文章](https://support.apple.com/HT205926)：  

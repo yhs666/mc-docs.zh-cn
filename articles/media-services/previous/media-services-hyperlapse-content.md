@@ -1,5 +1,5 @@
 ---
-title: Hyperlapse 媒体文件与 Azure Media Hyperlapse | Microsoft Docs
+title: Hyperlapse 媒体文件与 Azure Media Hyperlapse | Azure
 description: Azure Media Hyperlapse 可以使用第一人称视角或运动相机内容创建流畅缩时视频。 本主题说明如何使用媒体索引器。
 services: media-services
 documentationcenter: ''
@@ -15,27 +15,25 @@ ms.topic: article
 origin.date: 03/28/2018
 ms.date: 05/07/2018
 ms.author: v-johch
-ms.openlocfilehash: 5af1acaa21c63e8e03496fe4e9759d8665c79dbc
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: b7b6c4d7758806e379bcb7959f0f7b25fcebf8b2
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475188"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219472"
 ---
 # <a name="hyperlapse-media-files-with-azure-media-hyperlapse"></a>Hyperlapse 媒体文件与 Azure Media Hyperlapse
 Azure Media Hyperlapse 是可以使用第一人称视角或运动相机内容创建流畅缩时视频的媒体处理器 (MP)。  Azure 媒体服务的基于云的 Microsoft Hyperlapse 与 [Microsoft Research 的桌面 Hyperlapse Pro 和手机版 Hyperlapse Mobile](http://aka.ms/hyperlapse) 相似，它运用大规模的 Azure 媒体服务媒体处理平台来实现水平缩放，以及并行化批量 Hyperlapse 处理。
 
 > [!IMPORTANT]
-> Microsoft Hyperlapse 最适合用于通过移动相机拍摄第一人称视角内容。  尽管静态相机镜头仍可运行，但 Azure 媒体 Hyperlapse 媒体处理器无法保证其他类型内容的性能及质量。 
+> Microsoft Hyperlapse 最适合用于通过移动相机拍摄第一人称视角内容。 尽管静态相机镜头仍可运行，但 Azure 媒体 Hyperlapse 媒体处理器无法保证其他类型内容的性能及质量。
 > 
 > 
 
 Azure Media Hyperlapse 作业接受输入 MP4、MOV 或 WMV 资产文件以及配置文件，以指定视频中要缩时的帧及其速度（例如前 10,000 帧的速度为 2x）。  输出是输入视频经过稳定和缩时转译的结果。
 
-
 ## <a name="hyperlapse-an-asset"></a>将资产进行 Hyperlapse 处理
-
-首先，请将所需的输入文件上传到 Azure 媒体服务。 
+首先，请将所需的输入文件上传到 Azure 媒体服务。  若要深入了解有关上传和管理内容的概念，请阅读[内容管理文章](media-services-portal-vod-get-started.md)。
 
 ### <a id="configuration"></a>Hyperlapse 的配置预设
 内容上传到媒体服务帐户后，需要构造配置预设。  下表说明了用户指定的字段：
@@ -213,3 +211,4 @@ Azure Media Hyperlapse 作业接受输入 MP4、MOV 或 WMV 资产文件以及�
 [Azure 媒体服务分析概述](media-services-analytics-overview.md)
 
 [Azure Media Analytics demos（Azure 媒体分析演示）](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+

@@ -3,8 +3,8 @@ title: 使用 Azure CLI 1.0 创建完整的 Linux 环境 | Azure
 description: 使用 Azure CLI 1.0 从头开始创建存储、Linux VM、虚拟网络和子网、负载均衡器、NIC、公共 IP 和网络安全组。
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 4ba4060b-ce95-4747-a735-1d7c68597a1a
@@ -14,19 +14,19 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 02/09/2017
-ms.date: 04/24/2017
-ms.author: v-dazen
-ms.openlocfilehash: 6b5331e757e5ca10526cbf82ec07ad5281bbc8e4
-ms.sourcegitcommit: f858adac6a7a32df67bcd5c43946bba5b8ec6afc
+ms.date: 07/30/2018
+ms.author: v-yeche
+ms.openlocfilehash: 5ee10674faba8bb0ef67bb0e06da4c9e2e773635
+ms.sourcegitcommit: 35889b4f3ae51464392478a72b172d8910dd2c37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2017
-ms.locfileid: "20769760"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39261902"
 ---
 # <a name="create-a-complete-linux-environment-with-the-azure-cli-10"></a>使用 Azure CLI 1.0 创建完整的 Linux 环境
-在本文中，我们构建一个简单网络，其中包含一个负载均衡器，以及一对可用于开发和简单计算的 VM。 将以逐条命令的方式完成整个过程，直到创建两个可以从 Internet 上的任何位置连接的有效且安全的 Linux VM。 然后，便可以继续构建更复杂的网络和环境。
+在本文中，我们将构建一个简单网络，其中包含一个负载均衡器，以及一对可用于开发和简单计算的 VM。 将以逐条命令的方式完成整个过程，直到创建两个可以从 Internet 上的任何位置连接的有效且安全的 Linux VM。 然后，便可以继续构建更复杂的网络和环境。
 
-在此过程中，可以了解 Resource Manager 部署模型提供的依赖性层次结构及其提供的功能。 明白系统是如何构建的以后，即可使用 [Azure Resource Manager 模板](../../resource-group-authoring-templates.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)更快速地重新构建系统。 此外，了解环境的各个部分如何彼此配合运行后，可以更轻松创建模板以实现自动化。
+在此过程中，你将了解 Resource Manager 部署模型提供的依赖性层次结构及其提供的功能。 明白系统是如何构建的以后，即可使用 [Azure Resource Manager 模板](../../resource-group-authoring-templates.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)更快速地重新构建系统。 此外，了解环境的各个部分如何彼此配合运行后，可以更轻松创建模板以实现自动化。
 
 该环境包含：
 
@@ -37,13 +37,13 @@ ms.locfileid: "20769760"
 若要创建此自定义环境，需要在 Resource Manager 模式 (`azure config mode arm`) 下安装最新的 [Azure CLI 1.0](../../cli-install-nodejs.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。 此外，还需要一个 JSON 分析工具。 本示例使用 [jq](https://stedolan.github.io/jq/)。
 
 ## <a name="cli-versions-to-complete-the-task"></a>用于完成任务的 CLI 版本
-可使用以下 CLI 版本之一完成任务：
+可以使用以下 CLI 版本之一完成任务：
 
 - [Azure CLI 1.0](#quick-commands) - 适用于经典部署模型和资源管理部署模型（本文）的 CLI
 - [Azure CLI 2.0](create-cli-complete.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) - 适用于资源管理部署模型的下一代 CLI
 
 ## <a name="quick-commands"></a>快速命令
-如果需要快速完成任务，请参阅以下部分，其中详细说明了用于将 VM 上传到 Azure 的基本命令。 本文档的余下部分（ [从此处开始](#detailed-walkthrough)）提供了每个步骤的更详细信息和应用背景。
+如果需要快速完成任务，请参阅以下部分，其中详细说明了用于将 VM 上载到 Azure 的基本命令。 本文档的余下部分（从[此处](#detailed-walkthrough)开始）提供了每个步骤的更详细信息和上下文。
 
 确保已登录 [Azure CLI 1.0](../../cli-install-nodejs.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 并使用 Resource Manager 模式：
 
@@ -53,7 +53,7 @@ azure config mode arm
 
 在以下示例中，请将示例参数名称替换成自己的值。 示例参数名称包括 `myResourceGroup`、`mystorageaccount` 和 `myVM`。
 
-创建资源组。 以下示例在 `chinanorth` 位置创建名为 `myResourceGroup` 的资源组：
+创建资源组。 以下示例在 `chinanorth` 位置创建一个名为 `myResourceGroup` 的资源组：
 
 ```azurecli
 azure group create -n myResourceGroup -l chinanorth
@@ -105,7 +105,7 @@ azure network public-ip create -g myResourceGroup -l chinanorth \
   -n myPublicIP  -d mypublicdns -a static -i 4
 ```
 
-创建负载均衡器。 以下示例创建名为 `myLoadBalancer`的负载均衡器：
+创建负载均衡器。 以下示例创建一个名为 `myLoadBalancer` 的负载均衡器：
 
 ```azurecli
 azure network lb create -g myResourceGroup -l chinanorth -n myLoadBalancer
@@ -142,7 +142,7 @@ azure network lb rule create -g myResourceGroup -l myLoadBalancer \
   -t myFrontEndPool -o myBackEndPool
 ```
 
-创建负载均衡器运行状况探测。 以下示例创建名为 `myHealthProbe`的 TCP 探测：
+创建负载均衡器运行状况探测。 以下示例创建一个名为 `myHealthProbe` 的 TCP 探测：
 
 ```azurecli
 azure network lb probe create -g myResourceGroup -l myLoadBalancer \
@@ -182,7 +182,7 @@ azure network nic show myResourceGroup myNic1 --json | jq '.'
 azure network nic show myResourceGroup myNic2 --json | jq '.'
 ```
 
-创建网络安全组。 以下示例创建名为 `myNetworkSecurityGroup`的网络安全组：
+创建网络安全组。 以下示例创建名为 `myNetworkSecurityGroup` 的网络安全组：
 
 ```azurecli
 azure network nsg create -g myResourceGroup -l chinanorth \
@@ -211,7 +211,7 @@ azure network nic set -g myResourceGroup -o myNetworkSecurityGroup -n myNic1
 azure network nic set -g myResourceGroup -o myNetworkSecurityGroup -n myNic2
 ```
 
-创建可用性集。 以下示例创建名为 `myAvailabilitySet`的可用性集：
+创建可用性集。 以下示例创建一个名为 `myAvailabilitySet` 的可用性集：
 
 ```azurecli
 azure availset create -g myResourceGroup -l chinanorth -n myAvailabilitySet
@@ -278,7 +278,7 @@ azure config mode arm
 在以下示例中，请将示例参数名称替换成自己的值。 示例参数名称包括 `myResourceGroup`、`mystorageaccount` 和 `myVM`。
 
 ## <a name="create-resource-groups-and-choose-deployment-locations"></a>创建资源组并选择部署位置
-Azure 资源组是逻辑部署实体，包含用于启用资源部署逻辑管理的配置信息和元数据。 以下示例在 `chinanorth` 位置创建名为 `myResourceGroup` 的资源组：
+Azure 资源组是逻辑部署实体，其中包含用于启用资源部署逻辑管理的配置信息和元数据。 以下示例在 `chinanorth` 位置创建一个名为 `myResourceGroup` 的资源组：
 
 ```azurecli
 azure group create --name myResourceGroup --location chinanorth
@@ -303,7 +303,7 @@ info:    group create command OK
 ## <a name="create-a-storage-account"></a>创建存储帐户
 需要为 VM 磁盘和要添加的任何其他数据磁盘创建存储帐户。 创建资源组后，应立即创建存储帐户。
 
-此处，使用 `azure storage account create` 命令传递帐户的位置、控制该帐户的资源组，以及所需的存储支持类型。 以下示例创建名为 `mystorageaccount`的存储帐户：
+此处，使用 `azure storage account create` 命令传递帐户的位置、控制该帐户的资源组，以及所需的存储支持类型。 以下示例创建名为 `mystorageaccount` 的存储帐户：
 
 ```azurecli
 azure storage account create \  
@@ -513,7 +513,7 @@ azure network vnet show myResourceGroup myVnet --json | jq '.'
 ```
 
 ## <a name="create-a-public-ip-address"></a>创建公共 IP 地址
-现在，需要创建分配给负载均衡器的公共 IP 地址 (PIP)。 使用该地址可以通过 `azure network public-ip create` 命令从 Internet 连接到 VM。 由于默认地址是动态的，因此可使用 `--domain-name-label` 选项在 **chinacloudapp.cn** 域中创建一个命名的 DNS 条目。 以下示例创建名为 `myPublicIP`、DNS 名称为 `mypublicdns` 的公共 IP。 由于 DNS 名称必须唯一，因此，请提供自己的唯一 DNS 名称：
+现在，需要创建分配给负载均衡器的公共 IP 地址 (PIP)。 使用该地址可以通过 `azure network public-ip create` 命令从 Internet 连接到 VM。 由于默认地址是动态的，因此可使用 `--domain-name-label` 选项在 **cloudapp.chinacloudapi.cn** 域中创建一个命名的 DNS 条目。 以下示例创建名为 `myPublicIP`、DNS 名称为 `mypublicdns` 的公共 IP。 由于 DNS 名称必须唯一，因此，请提供自己的唯一 DNS 名称：
 
 ```azurecli
 azure network public-ip create --resource-group myResourceGroup \
@@ -535,7 +535,7 @@ data:    Provisioning state              : Succeeded
 data:    Allocation method               : Dynamic
 data:    Idle timeout                    : 4
 data:    Domain name label               : mypublicdns
-data:    FQDN                            : mypublicdns.chinanorth.chinacloudapp.cn
+data:    FQDN                            : mypublicdns.chinanorth.cloudapp.chinacloudapi.cn
 info:    network public-ip create command OK
 ```
 
@@ -605,7 +605,7 @@ azure network public-ip show myResourceGroup myPublicIP --json | jq '.'
 "publicIpAllocationMethod": "Dynamic",
 "dnsSettings": {
     "domainNameLabel": "mypublicdns",
-    "fqdn": "mypublicdns.chinanorth.chinacloudapp.cn"
+    "fqdn": "mypublicdns.chinanorth.cloudapp.chinacloudapi.cn"
 },
 "idleTimeoutInMinutes": 4,
 "provisioningState": "Succeeded",
@@ -664,7 +664,7 @@ info:    network lb mySubnet-ip create command OK
 
 请注意如何使用 `--public-ip-name` 开关传入前面创建的 `myPublicIP`。 通过将公共 IP 地址分配给负载均衡器，可以通过 Internet 访问 VM。
 
-接下来，创建第二个 IP 池，用于传输后端流量。 以下示例创建名为 `myBackEndPool`的后端池：
+接下来，创建第二个 IP 池，用于传输后端流量。 以下示例创建一个名为 `myBackEndPool` 的后端池：
 
 ```azurecli
 azure network lb address-pool create --resource-group myResourceGroup \
@@ -728,7 +728,7 @@ azure network lb show myResourceGroup myLoadBalancer --json | jq '.'
 ```
 
 ## <a name="create-load-balancer-nat-rules"></a>创建负载均衡器 NAT 规则
-若要获取流经负载均衡器的流量，需要创建网络地址转换 (NAT) 规则来指定入站或出站操作。 可以指定要使用的协议，并根据需要将外部端口映射到内部端口。 针对我们的环境，让我们创建一些规则，以允许通过负载均衡器对 VM 进行 SSH 访问。 将 TCP 端口 4222 和 4223 设置为定向到 VM 上的 TCP 端口 22（稍后会创建）。 以下示例创建名为 `myLoadBalancerRuleSSH1` 的规则，用于将 TCP 端口 4222 映射到端口 22：
+若要获取流经负载均衡器的流量，需要创建网络地址转换 (NAT) 规则来指定入站或出站操作。 可以指定要使用的协议，并根据需要将外部端口映射到内部端口。 针对我们的环境，让我们创建一些规则，以允许通过负载均衡器对 VM 进行 SSH 访问。 将 TCP 端口 4222 和 4223 设置为定向到 VM 上的 TCP 端口 22（稍后将会创建）。 以下示例创建名为 `myLoadBalancerRuleSSH1` 的规则，用于将 TCP 端口 4222 映射到端口 22：
 
 ```azurecli
 azure network lb inbound-nat-rule create --resource-group myResourceGroup \
@@ -764,7 +764,7 @@ azure network lb inbound-nat-rule create --resource-group myResourceGroup \
   --frontend-port 4223 --backend-port 22
 ```
 
-让我们继续为用于传输 Web 流量的 TCP 端口 80 创建 NAT 规则，并将该规则挂接到 IP 池。 如果将规则挂接到 IP 池，而不是将规则逐个挂接到 VM，则可以在 IP 池中添加或删除 VM。 负载均衡器会自动调整流量流。 以下示例创建名为 `myLoadBalancerRuleWeb` 的规则，用于将 TCP 端口 80 映射到端口 80：
+让我们继续为用于传输 Web 流量的 TCP 端口 80 创建 NAT 规则，并将该规则挂接到 IP 池。 如果将规则挂接到 IP 池，而不是将规则逐个挂接到 VM，则可以在 IP 池中添加或删除 VM。 然后，负载均衡器会自动调整流量流。 以下示例创建名为 `myLoadBalancerRuleWeb` 的规则，用于将 TCP 端口 80 映射到端口 80：
 
 ```azurecli
 azure network lb rule create --resource-group myResourceGroup \
@@ -957,7 +957,7 @@ azure network lb show --resource-group myResourceGroup \
 ## <a name="create-an-nic-to-use-with-the-linux-vm"></a>创建用于 Linux VM 的 NIC
 由于可以对 NIC 使用应用规则，因此能以编程方式使用 NIC。 可以创建多个规则。 在下面的 `azure network nic create` 命令中，要将 NIC 挂接到负载后端 IP 池，并与 NAT 规则关联以允许 SSH 流量。
 
-将 `#####-###-###` 部分替换为自己的 Azure 订阅 ID。 检查所创建的资源时，订阅 ID 不会记录在 `jq` 的输出中。 也可以使用 `azure account list`查看订阅 ID。
+将 `#####-###-###` 部分替换为你自己的 Azure 订阅 ID。 检查所创建的资源时，订阅 ID 不会记录在 `jq` 的输出中。 也可以使用 `azure account list`查看订阅 ID。
 
 以下示例创建名为 `myNic1`的 NIC：
 
@@ -1043,7 +1043,7 @@ azure network nic show myResourceGroup myNic1 --json | jq '.'
 }
 ```
 
-现在，我们创建第二个 NIC 并同样将其挂接到后端 IP 池。 这一次，第二个 NAT 规则允许 SSH 流。 以下示例创建名为 `myNic2`的 NIC：
+现在，我们将创建第二个 NIC 并同样将其挂接到后端 IP 池。 这一次，第二个 NAT 规则将允许 SSH 流量。 以下示例创建一个名为 `myNic2` 的 NIC：
 
 ```azurecli
 azure network nic create --resource-group myResourceGroup --location chinanorth \
@@ -1053,7 +1053,7 @@ azure network nic create --resource-group myResourceGroup --location chinanorth 
 ```
 
 ## <a name="create-a-network-security-group-and-rules"></a>创建网络安全组和规则
-现在，我们创建网络安全组和用于控制 NIC 访问权限的入站规则。 可将网络安全组应用到 NIC 或子网。 定义用于控制传入和传出 VM 的流量流的规则。 以下示例创建名为 `myNetworkSecurityGroup` 的网络安全组：
+现在，我们创建网络安全组和用于控制 NIC 访问权限的入站规则。 可将网络安全组应用到 NIC 或子网。 定义用于控制传入和传出 VM 的流量流的规则。 以下示例创建名为 `myNetworkSecurityGroup`的网络安全组：
 
 ```azurecli
 azure network nsg create --resource-group myResourceGroup --location chinanorth \
@@ -1079,7 +1079,7 @@ azure network nsg rule create --resource-group myResourceGroup \
 ```
 
 > [!NOTE]
-> 入站规则是入站网络连接的筛选器。 在本示例中，我们将 NSG 绑定到 VM 虚拟 NIC，这意味着任何对端口 22 的请求都会在 VM 上传递到 NIC。 此入站规则与网络连接相关，而不与终结点相关（终结点与经典部署相关）。 若要打开端口，必须将 `--source-port-range` 保持设置为“\*”（默认值）才能接受来自**任何**请求端口的入站请求。 端口通常是动态的。
+> 入站规则是入站网络连接的筛选器。 在本示例中，我们将 NSG 绑定到 VM 虚拟 NIC，这意味着任何对端口 22 的请求都将在 VM 上传递到 NIC。 此入站规则与网络连接相关，而不与终结点相关（终结点与经典部署相关）。 若要打开端口，必须将 `--source-port-range` 保持设置为“\*”（默认值）才能接受来自**任何**请求端口的入站请求。 端口通常是动态的。
 >
 >
 
@@ -1104,7 +1104,7 @@ azure availset create --resource-group myResourceGroup --location chinanorth
   --name myAvailabilitySet
 ```
 
-容错域定义共享通用电源和网络交换机的一组虚拟机。 默认情况下，在可用性集中配置的虚拟机隔离在最多三个容错域中。 思路是其中一个容错域中的硬件问题不会影响运行应用的每个 VM。 将多个 VM 放入一个可用性集时，Azure 会自动将它们分散到容错域。
+容错域定义一组共用一个通用电源和网络交换机的虚拟机。 默认情况下，在可用性集中配置的虚拟机隔离在最多三个容错域中。 思路是其中一个容错域中的硬件问题不会影响运行应用的每个 VM。 将多个 VM 放入一个可用性集时，Azure 会自动将它们分散到容错域。
 
 升级域表示虚拟机组以及可同时重新启动的基础物理硬件。 在计划内维护期间，升级域的重新启动顺序可能不会按序进行，但一次只重新启动一个升级域。 同样，将多个 VM 放入一个可用性站点时，Azure 会自动将它们分散到升级域。
 
@@ -1162,16 +1162,16 @@ info:    vm create command OK
 可以使用默认的 SSH 密钥立即连接到 VM。 请确保指定适当的端口，因为我们要通过负载均衡器传递流量。 （对于第一个 VM，设置 NAT 规则以将端口 4222 转发到 VM。）
 
 ```bash
-ssh ops@mypublicdns.chinanorth.chinacloudapp.cn -p 4222
+ssh ops@mypublicdns.chinanorth.cloudapp.chinacloudapi.cn -p 4222
 ```
 
 输出：
 
 ```bash
-The authenticity of host '[mypublicdns.chinanorth.chinacloudapp.cn]:4222 ([xx.xx.xx.xx]:4222)' can't be established.
+The authenticity of host '[mypublicdns.chinanorth.cloudapp.chinacloudapi.cn]:4222 ([xx.xx.xx.xx]:4222)' can't be established.
 ECDSA key fingerprint is 94:2d:d0:ce:6b:fb:7f:ad:5b:3c:78:93:75:82:12:f9.
 Are you sure you want to continue connecting (yes/no)? yes
-Warning: Permanently added '[mypublicdns.chinanorth.chinacloudapp.cn]:4222,[xx.xx.xx.xx]:4222' (ECDSA) to the list of known hosts.
+Warning: Permanently added '[mypublicdns.chinanorth.cloudapp.chinacloudapi.cn]:4222,[xx.xx.xx.xx]:4222' (ECDSA) to the list of known hosts.
 Welcome to Ubuntu 16.04.1 LTS (GNU/Linux 4.4.0-34-generic x86_64)
 
  * Documentation:  https://help.ubuntu.com
@@ -1288,3 +1288,4 @@ azure group deployment create --resource-group myNewResourceGroup \
 
 ## <a name="next-steps"></a>后续步骤
 现在，已准备好开始使用多个网络组件和 VM。 可以使用本文介绍的核心组件，通过此示例环境构建应用程序。
+<!-- Update_Description: update meta properties, update link -->

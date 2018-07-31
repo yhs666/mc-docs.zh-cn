@@ -1,5 +1,5 @@
 ---
-title: 如何使用用于 .NET 的 Azure 媒体服务 SDK 创建媒体处理器 | Microsoft Docs
+title: 如何使用用于 .NET 的 Azure 媒体服务 SDK 创建媒体处理器 | Azure
 description: 了解如何创建一个媒体处理器组件来为 Azure 媒体服务编码、转换格式、加密或解密媒体内容。 代码示例用 C# 编写且使用适用于 .NET 的媒体服务 SDK。
 services: media-services
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 07/31/2017
 ms.date: 09/04/2017
 ms.author: juliako
-ms.openlocfilehash: 0bff049878395eb7e63544ba464579330f9f48e9
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 36b92307f07e6448205623504d730c99ff78b8a0
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475161"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219645"
 ---
 # <a name="how-to-get-a-media-processor-instance"></a>如何：获取媒体处理器实例
 > [!div class="op_single_selector"]

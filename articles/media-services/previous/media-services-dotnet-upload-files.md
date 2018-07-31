@@ -1,5 +1,5 @@
 ---
-title: 使用 .NET 将文件上传到媒体服务帐户 | Microsoft Docs
+title: 使用 .NET 将文件上传到媒体服务帐户 | Azure
 description: 了解如何通过创建和上传资产将媒体内容加入媒体服务。
 services: media-services
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 03/12/2017
 ms.date: 09/25/2017
 ms.author: v-johch
-ms.openlocfilehash: 34a0e6b8241ef6cb72dfe592cabeb0b4c4866d41
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: a903d140d74423d52ea62e25f7cbffd28e9dc28c
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475211"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219490"
 ---
 # <a name="upload-files-into-a-media-services-account-using-net"></a>使用 .NET 将文件上传到媒体服务帐户
 > [!div class="op_single_selector"]
@@ -139,7 +139,7 @@ ms.locfileid: "34475211"
                 var assetFile = asset.AssetFiles.Create(Path.GetFileName(filePath));
                 Console.WriteLine("Created assetFile {0}", assetFile.Name);
 
-                // It is recommended to validate AccestFiles before upload. 
+                // It is recommended to validate AssetFiles before upload. 
                 Console.WriteLine("Start uploading of {0}", assetFile.Name);
                 uploadTasks.Add(assetFile.UploadAsync(filePath, blobTransferClient, locator, CancellationToken.None));
             }

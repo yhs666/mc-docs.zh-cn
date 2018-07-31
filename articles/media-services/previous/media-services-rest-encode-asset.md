@@ -1,5 +1,5 @@
 ---
-title: 如何使用 Media Encoder Standard 对 Azure 资产进行编码 | Microsoft Docs
+title: 如何使用 Media Encoder Standard 对 Azure 资产进行编码 | Azure
 description: 了解如何使用 Media Encoder Standard 为 Azure 媒体服务上的媒体内容编码。 代码示例使用 REST API。
 services: media-services
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 12/07/2017
 ms.date: 12/25/2017
 ms.author: v-nany
-ms.openlocfilehash: 7acfe9b41db8963ac4138df06e7e4c8e8fe755cf
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 3e232858ac385e04d6aa3837e764edc47f7aaea8
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475431"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295727"
 ---
 # <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>如何使用 Media Encoder Standard 对资产进行编码
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ ms.locfileid: "34475431"
 ## <a name="overview"></a>概述
 若要通过 Internet 传送数字视频，必须压缩媒体文件。 数字视频文件较大，可能因过大而无法通过 Internet 传送或者无法在客户的设备上正常显示。 编码是压缩视频和音频以便客户能够查看媒体的过程。
 
-编码作业是 Azure 媒体服务中最常见的处理操作之一。 可通过创建编码作业将媒体文件从一种编码转换为另一种编码。 编码时，可以使用媒体服务的内置编码器（Media Encoder Standard）。 还可使用媒体服务合作伙伴提供的编码器。 可通过 Azure Marketplace 获取第三方编码器。 可以使用为编码器定义的预设字符串，或使用预设配置文件来指定编码任务的详细信息。 若要查看可用预设的类型，请参阅 [Media Encoder Standard 的任务预设](http://msdn.microsoft.com/library/mt269960)。
+编码作业是 Azure 媒体服务中最常见的处理操作之一。 可通过创建编码作业将媒体文件从一种编码转换为另一种编码。 编码时，可以使用媒体服务的内置编码器（Media Encoder Standard）。 还可使用媒体服务合作伙伴提供的编码器。 可通过 Azure 市场获取第三方编码器。 可以使用为编码器定义的预设字符串，或使用预设配置文件来指定编码任务的详细信息。 若要查看可用预设的类型，请参阅 [Media Encoder Standard 的任务预设](http://msdn.microsoft.com/library/mt269960)。
 
 每个作业可以有一个或多个任务，具体因要完成的处理类型而异。 通过 REST API，可采用以下两种方式之一创建作业及相关任务：
 
@@ -68,35 +68,28 @@ ms.locfileid: "34475431"
 
 请求：
 
-```
-POST https://wamsshaclus001rest-hs.chinacloudapp.cn/API/Jobs HTTP/1.1
-Content-Type: application/json;odata=verbose
-Accept: application/json;odata=verbose
-DataServiceVersion: 3.0
-MaxDataServiceVersion: 3.0
-x-ms-version: 2.17
-Authorization: Bearer <token value>
-x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
-Host: wamsshaclus001rest-hs.chinacloudapp.cn
+    POST https://media.chinacloudapi.cn/API/Jobs HTTP/1.1
+    Content-Type: application/json;odata=verbose
+    Accept: application/json;odata=verbose
+    DataServiceVersion: 3.0
+    MaxDataServiceVersion: 3.0
+    x-ms-version: 2.17
+    Authorization: Bearer <ENCODED JWT TOKEN> 
+    x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
+    Host: media.chinacloudapi.cn
 
-{"Name" : "NewTestJob", "InputMediaAssets" : [{"__metadata" : {"uri" : "https://wamsshaclus001rest-hs.chinacloudapp.cn/api/Assets('nb%3Acid%3AUUID%3Aaab7f15b-3136-4ddf-9962-e9ecb28fb9d2')"}}],  "Tasks" : [{"Configuration" : "H264 Multiple Bitrate 720p", "MediaProcessorId" : "nb:mpid:UUID:ff4df607-d419-42f0-bc17-a481b1331e56",  "TaskBody" : "<?xml version=\"1.0\" encoding=\"utf-8\"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset>JobOutputAsset(0)</outputAsset></taskBody>"}]}
-```
+    {"Name" : "NewTestJob", "InputMediaAssets" : [{"__metadata" : {"uri" : "https://media.chinacloudapi.cn/api/Assets('nb%3Acid%3AUUID%3Aaab7f15b-3136-4ddf-9962-e9ecb28fb9d2')"}}],  "Tasks" : [{"Configuration" : "Adaptive Streaming", "MediaProcessorId" : "nb:mpid:UUID:ff4df607-d419-42f0-bc17-a481b1331e56",  "TaskBody" : "<?xml version=\"1.0\" encoding=\"utf-8\"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset>JobOutputAsset(0)</outputAsset></taskBody>"}]}
 
 响应：
 
-```
-HTTP/1.1 201 Created
+    HTTP/1.1 201 Created
 
-. . . 
-```
+    . . .
 
-###<a name="set-the-output-assets-name"></a>设置输出资产的名称
-
+### <a name="set-the-output-assets-name"></a>设置输出资产的名称
 以下示例说明了如何设置 assetName 属性：
 
-```
-{ "TaskBody" : "<?xml version=\"1.0\" encoding=\"utf-8\"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset assetName=\"CustomOutputAssetName\">JobOutputAsset(0)</outputAsset></taskBody>"}
-```
+    { "TaskBody" : "<?xml version=\"1.0\" encoding=\"utf-8\"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset assetName=\"CustomOutputAssetName\">JobOutputAsset(0)</outputAsset></taskBody>"}
 
 ## <a name="considerations"></a>注意事项
 * TaskBody 属性必须使用文本 XML 来定义任务使用的输入资产或输出资产的数量。 任务文章包含 XML 的 XML 架构定义。
@@ -114,40 +107,41 @@ HTTP/1.1 201 Created
 
 > [!NOTE]
 > 每个作业当前有 30 个任务的限制。 如果需要连锁 30 个以上的任务，请创建多个作业以包含任务。
+>
+>
 
-```
-POST https://wamsshaclus001rest-hs.chinacloudapp.cn/api/Jobs HTTP/1.1
-Content-Type: application/json;odata=verbose
-Accept: application/json;odata=verbose
-DataServiceVersion: 3.0
-MaxDataServiceVersion: 3.0
-x-ms-version: 2.17
-Authorization: Bearer <token value>
-x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
+    POST https://media.chinacloudapi.cn/api/Jobs HTTP/1.1
+    Content-Type: application/json;odata=verbose
+    Accept: application/json;odata=verbose
+    DataServiceVersion: 3.0
+    MaxDataServiceVersion: 3.0
+    x-ms-version: 2.17
+    Authorization: Bearer <ENCODED JWT TOKEN> 
+    x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
 
-{  
-   "Name":"NewTestJob",
-   "InputMediaAssets":[  
-      {  
-         "__metadata":{  
-            "uri":"https://testrest.chinacloudapp.cn/api/Assets('nb%3Acid%3AUUID%3A910ffdc1-2e25-4b17-8a42-61ffd4b8914c')"
-         }
-      }
-   ],
-   "Tasks":[  
-      {  
-         "Configuration":"H264 Adaptive Bitrate MP4 Set 720p",
-         "MediaProcessorId":"nb:mpid:UUID:ff4df607-d419-42f0-bc17-a481b1331e56",
-         "TaskBody":"<?xml version=\"1.0\" encoding=\"utf-8\"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset>JobOutputAsset(0)</outputAsset></taskBody>"
-      },
-      {  
-         "Configuration":"H264 Smooth Streaming 720p",
-         "MediaProcessorId":"nb:mpid:UUID:ff4df607-d419-42f0-bc17-a481b1331e56",
-         "TaskBody":"<?xml version=\"1.0\" encoding=\"utf-16\"?><taskBody><inputAsset>JobOutputAsset(0)</inputAsset><outputAsset>JobOutputAsset(1)</outputAsset></taskBody>"
-      }
-   ]
-}
-```
+    {  
+       "Name":"NewTestJob",
+       "InputMediaAssets":[  
+          {  
+             "__metadata":{  
+                "uri":"https://testrest.chinacloudapp.cn/api/Assets('nb%3Acid%3AUUID%3A910ffdc1-2e25-4b17-8a42-61ffd4b8914c')"
+             }
+          }
+       ],
+       "Tasks":[  
+          {  
+             "Configuration":"H264 Adaptive Bitrate MP4 Set 720p",
+             "MediaProcessorId":"nb:mpid:UUID:ff4df607-d419-42f0-bc17-a481b1331e56",
+             "TaskBody":"<?xml version=\"1.0\" encoding=\"utf-8\"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset>JobOutputAsset(0)</outputAsset></taskBody>"
+          },
+          {  
+             "Configuration":"H264 Smooth Streaming 720p",
+             "MediaProcessorId":"nb:mpid:UUID:ff4df607-d419-42f0-bc17-a481b1331e56",
+             "TaskBody":"<?xml version=\"1.0\" encoding=\"utf-16\"?><taskBody><inputAsset>JobOutputAsset(0)</inputAsset><outputAsset>JobOutputAsset(1)</outputAsset></taskBody>"
+          }
+       ]
+    }
+
 
 ### <a name="considerations"></a>注意事项
 若要启用任务链，必须满足以下条件：
@@ -158,62 +152,62 @@ x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
 ## <a name="use-odata-batch-processing"></a>使用 OData 批处理
 以下示例演示如何使用 OData 批处理来创建作业和任务。 有关批处理的信息，请参阅 [Open Data Protocol (OData) 批处理](http://www.odata.org/documentation/odata-version-3-0/batch-processing/)。
 
-```
-POST https://wamsshaclus001rest-hs.chinacloudapp.cn/api/$batch HTTP/1.1
-DataServiceVersion: 1.0;NetFx
-MaxDataServiceVersion: 3.0;NetFx
-Content-Type: multipart/mixed; boundary=batch_a01a5ec4-ba0f-4536-84b5-66c5a5a6d34e
-Accept: multipart/mixed
-Accept-Charset: UTF-8
-Authorization: Bearer <token>
-x-ms-version: 2.17
-x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
-Host: wamsshaclus001rest-hs.chinacloudapp.cn
+    POST https://media.chinacloudapi.cn/api/$batch HTTP/1.1
+    DataServiceVersion: 1.0;NetFx
+    MaxDataServiceVersion: 3.0;NetFx
+    Content-Type: multipart/mixed; boundary=batch_a01a5ec4-ba0f-4536-84b5-66c5a5a6d34e
+    Accept: multipart/mixed
+    Accept-Charset: UTF-8
+    Authorization: Bearer <ENCODED JWT TOKEN> 
+    x-ms-version: 2.17
+    x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
+    Host: media.chinacloudapi.cn
 
---batch_a01a5ec4-ba0f-4536-84b5-66c5a5a6d34e
-Content-Type: multipart/mixed; boundary=changeset_122fb0a4-cd80-4958-820f-346309967e4d
 
---changeset_122fb0a4-cd80-4958-820f-346309967e4d
-Content-Type: application/http
-Content-Transfer-Encoding: binary
+    --batch_a01a5ec4-ba0f-4536-84b5-66c5a5a6d34e
+    Content-Type: multipart/mixed; boundary=changeset_122fb0a4-cd80-4958-820f-346309967e4d
 
-POST https://wamsshaclus001rest-hs.chinacloudapp.cn/api/Jobs HTTP/1.1
-Content-ID: 1
-Content-Type: application/json
-Accept: application/json
-DataServiceVersion: 3.0
-MaxDataServiceVersion: 3.0
-Accept-Charset: UTF-8
-Authorization: Bearer <token>
-x-ms-version: 2.17
-x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
+    --changeset_122fb0a4-cd80-4958-820f-346309967e4d
+    Content-Type: application/http
+    Content-Transfer-Encoding: binary
 
-{"Name" : "NewTestJob", "InputMediaAssets@odata.bind":["https://wamsshaclus001rest-hs.chinacloudapp.cn/api/Assets('nb%3Acid%3AUUID%3A2a22445d-1500-80c6-4b34-f1e5190d33c6')"]}
+    POST https://media.chinacloudapi.cn/api/Jobs HTTP/1.1
+    Content-ID: 1
+    Content-Type: application/json
+    Accept: application/json
+    DataServiceVersion: 3.0
+    MaxDataServiceVersion: 3.0
+    Accept-Charset: UTF-8
+    Authorization: Bearer <ENCODED JWT TOKEN> 
+    x-ms-version: 2.17
+    x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
 
---changeset_122fb0a4-cd80-4958-820f-346309967e4d
-Content-Type: application/http
-Content-Transfer-Encoding: binary
+    {"Name" : "NewTestJob", "InputMediaAssets@odata.bind":["https://media.chinacloudapi.cn/api/Assets('nb%3Acid%3AUUID%3A2a22445d-1500-80c6-4b34-f1e5190d33c6')"]}
 
-POST https://wamsshaclus001rest-hs.chinacloudapp.cn/api/$1/Tasks HTTP/1.1
-Content-ID: 2
-Content-Type: application/json;odata=verbose
-Accept: application/json;odata=verbose
-DataServiceVersion: 3.0
-MaxDataServiceVersion: 3.0
-Accept-Charset: UTF-8
-Authorization: Bearer <token>
-x-ms-version: 2.17
-x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
+    --changeset_122fb0a4-cd80-4958-820f-346309967e4d
+    Content-Type: application/http
+    Content-Transfer-Encoding: binary
 
-{  
-   "Configuration":"H264 Adaptive Bitrate MP4 Set 720p",
-   "MediaProcessorId":"nb:mpid:UUID:ff4df607-d419-42f0-bc17-a481b1331e56",
-   "TaskBody":"<?xml version=\"1.0\" encoding=\"utf-8\"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset assetName=\"Custom output name\">JobOutputAsset(0)</outputAsset></taskBody>"
-}
+    POST https://media.chinacloudapi.cn/api/$1/Tasks HTTP/1.1
+    Content-ID: 2
+    Content-Type: application/json;odata=verbose
+    Accept: application/json;odata=verbose
+    DataServiceVersion: 3.0
+    MaxDataServiceVersion: 3.0
+    Accept-Charset: UTF-8
+    Authorization: Bearer <ENCODED JWT TOKEN> 
+    x-ms-version: 2.17
+    x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
 
---changeset_122fb0a4-cd80-4958-820f-346309967e4d--
---batch_a01a5ec4-ba0f-4536-84b5-66c5a5a6d34e--
-```
+    {  
+       "Configuration":"H264 Adaptive Bitrate MP4 Set 720p",
+       "MediaProcessorId":"nb:mpid:UUID:ff4df607-d419-42f0-bc17-a481b1331e56",
+       "TaskBody":"<?xml version=\"1.0\" encoding=\"utf-8\"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset assetName=\"Custom output name\">JobOutputAsset(0)</outputAsset></taskBody>"
+    }
+
+    --changeset_122fb0a4-cd80-4958-820f-346309967e4d--
+    --batch_a01a5ec4-ba0f-4536-84b5-66c5a5a6d34e--
+
 
 
 ## <a name="create-a-job-by-using-a-jobtemplate"></a>使用 JobTemplate 创建作业
@@ -221,18 +215,18 @@ x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
 
 以下示例演示如何使用以内联方式定义的 TaskTemplate 创建 JobTemplate。 TaskTemplate 将 Media Encoder Standard 用作 MediaProcessor 来编码资产文件。 但是，也可使用其他 MediaProcessor。
 
-```
-POST https://wamsshaclus001rest-hs.chinacloudapp.cn/API/JobTemplates HTTP/1.1
-Content-Type: application/json;odata=verbose
-Accept: application/json;odata=verbose
-DataServiceVersion: 3.0
-MaxDataServiceVersion: 3.0
-x-ms-version: 2.17
-Authorization: Bearer <token value>
-Host: wamsshaclus001rest-hs.chinacloudapp.cn
+    POST https://media.chinacloudapi.cn/API/JobTemplates HTTP/1.1
+    Content-Type: application/json;odata=verbose
+    Accept: application/json;odata=verbose
+    DataServiceVersion: 3.0
+    MaxDataServiceVersion: 3.0
+    x-ms-version: 2.17
+    Authorization: Bearer <ENCODED JWT TOKEN> 
+    Host: media.chinacloudapi.cn
 
-{"Name" : "NewJobTemplate25", "JobTemplateBody" : "<?xml version=\"1.0\" encoding=\"utf-8\"?><jobTemplate><taskBody taskTemplateId=\"nb:ttid:UUID:071370A3-E63E-4E81-A099-AD66BCAC3789\"><inputAsset>JobInputAsset(0)</inputAsset><outputAsset>JobOutputAsset(0)</outputAsset></taskBody></jobTemplate>", "TaskTemplates" : [{"Id" : "nb:ttid:UUID:071370A3-E63E-4E81-A099-AD66BCAC3789", "Configuration" : "H264 Smooth Streaming 720p", "MediaProcessorId" : "nb:mpid:UUID:ff4df607-d419-42f0-bc17-a481b1331e56", "Name" : "SampleTaskTemplate2", "NumberofInputAssets" : 1, "NumberofOutputAssets" : 1}] }
-```
+
+    {"Name" : "NewJobTemplate25", "JobTemplateBody" : "<?xml version=\"1.0\" encoding=\"utf-8\"?><jobTemplate><taskBody taskTemplateId=\"nb:ttid:UUID:071370A3-E63E-4E81-A099-AD66BCAC3789\"><inputAsset>JobInputAsset(0)</inputAsset><outputAsset>JobOutputAsset(0)</outputAsset></taskBody></jobTemplate>", "TaskTemplates" : [{"Id" : "nb:ttid:UUID:071370A3-E63E-4E81-A099-AD66BCAC3789", "Configuration" : "H264 Smooth Streaming 720p", "MediaProcessorId" : "nb:mpid:UUID:ff4df607-d419-42f0-bc17-a481b1331e56", "Name" : "SampleTaskTemplate2", "NumberofInputAssets" : 1, "NumberofOutputAssets" : 1}] }
+
 
 > [!NOTE]
 > 与其他媒体服务实体不同的是，必须为每个 TaskTemplate 定义一个新的 GUID 标识符并将其放入请求正文中的 taskTemplateId 和 ID 属性中。 内容标识方案必须遵循“标识 Azure 媒体服务实体”中所述的方案。 此外，不能更新 JobTemplate。 而必须使用更新的更改创建新的 JobTemplate。
@@ -241,34 +235,32 @@ Host: wamsshaclus001rest-hs.chinacloudapp.cn
 
 如果成功，返回以下响应：
 
-```
-HTTP/1.1 201 Created
+    HTTP/1.1 201 Created
 
-. . .
-```
+    . . .
+
 
 以下示例演示如何创建引用 JobTemplate Id 的作业：
 
-```
-POST https://wamsshaclus001rest-hs.chinacloudapp.cn/API/Jobs HTTP/1.1
-Content-Type: application/json;odata=verbose
-Accept: application/json;odata=verbose
-DataServiceVersion: 3.0
-MaxDataServiceVersion: 3.0
-x-ms-version: 2.17
-Authorization: Bearer <token value>
-Host: wamsshaclus001rest-hs.chinacloudapp.cn
+    POST https://media.chinacloudapi.cn/API/Jobs HTTP/1.1
+    Content-Type: application/json;odata=verbose
+    Accept: application/json;odata=verbose
+    DataServiceVersion: 3.0
+    MaxDataServiceVersion: 3.0
+    x-ms-version: 2.17
+    Authorization: Bearer <ENCODED JWT TOKEN> 
+    Host: media.chinacloudapi.cn
 
-{"Name" : "NewTestJob", "InputMediaAssets" : [{"__metadata" : {"uri" : "https://wamsshaclus001rest-hs.chinacloudapp.cn/api/Assets('nb%3Acid%3AUUID%3A3f1fe4a2-68f5-4190-9557-cd45beccef92')"}}], "TemplateId" : "nb:jtid:UUID:15e6e5e6-ac85-084e-9dc2-db3645fbf0aa"}
-```
+
+    {"Name" : "NewTestJob", "InputMediaAssets" : [{"__metadata" : {"uri" : "https://media.chinacloudapi.cn/api/Assets('nb%3Acid%3AUUID%3A3f1fe4a2-68f5-4190-9557-cd45beccef92')"}}], "TemplateId" : "nb:jtid:UUID:15e6e5e6-ac85-084e-9dc2-db3645fbf0aa"}
+
 
 如果成功，返回以下响应：
 
-```
-HTTP/1.1 201 Created
+    HTTP/1.1 201 Created
 
-. . . 
-```
+    . . .
+
 
 ## <a name="advanced-encoding-features-to-explore"></a>要浏览的高级编码功能
 * [如何生成缩略图](media-services-dotnet-generate-thumbnail-with-mes.md)
@@ -276,7 +268,6 @@ HTTP/1.1 201 Created
 * [在编码期间剪辑视频](media-services-crop-video.md)
 * [自定义编码预设](media-services-custom-mes-presets-with-dotnet.md)
 * [使用图像叠加视频或给视频加水印](media-services-advanced-encoding-with-mes.md#overlay)
-
 
 
 ## <a name="next-steps"></a>后续步骤

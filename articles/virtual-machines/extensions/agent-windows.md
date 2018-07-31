@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 03/30/2018
-ms.date: 06/04/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: b6673f8067da01a9b7600c09afd99458a3f6905b
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 3f498bcbe12609bc0b7f0475f1678e513b8e676f
+ms.sourcegitcommit: 35889b4f3ae51464392478a72b172d8910dd2c37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702896"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39261856"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Azure 虚拟机代理概述
 Azure 虚拟机代理（VM 代理）是受保护的轻型进程，用于管理虚拟机 (VM) 与 Azure 结构控制器的交互。 VM 代理有一个主要角色，目的是启用和执行 Azure 虚拟机扩展。 VM 扩展可用于对 VM 进行部署后配置，例如安装和配置软件。 VM 扩展还可启用恢复功能，例如重置 VM 的管理密码。 没有 Azure VM 代理，VM 扩展将无法运行。
@@ -109,5 +109,4 @@ foreach ($vm in $vms) {
 
 ## <a name="next-steps"></a>后续步骤
 有关 VM 扩展的详细信息，请参阅 [Azure 虚拟机扩展和功能概述](overview.md)。
-<!-- Update_Description: new articles on windows agent -->
-<!--ms.date: 06/04/2018-->
+<!-- Update_Description: update meta properties -->

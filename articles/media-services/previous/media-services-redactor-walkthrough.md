@@ -15,24 +15,25 @@ ms.topic: article
 origin.date: 09/03/2017
 ms.date: 09/25/2017
 ms.author: v-johch
-ms.openlocfilehash: 1e4aab7f1a187a20708bbdf91e54f0bd5af1912b
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: d607ea227969a6c8216f113b2196cfcb1dd155f1
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475401"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219659"
 ---
 # <a name="redact-faces-with-azure-media-analytics-walkthrough"></a>使用 Azure 媒体分析进行面部修订演练
 
 ## <a name="overview"></a>概述
 
-**Azure 媒体修订器**是一种 [Azure 媒体分析](media-services-analytics-overview.md)媒体处理器 (MP)，可用于在云中进行可缩放的面部修订。 使用面部修订，可对视频进行修改，使所选个人的面部模糊显示。 用户可能想要在公共安全和新闻媒体场景中使用面部修订服务。 对于时长仅几分钟但包含多张面孔的镜头，进行手动面部修订可能需要几个小时，但使用此服务仅需几个简单步骤即可完成该过程。 有关详细信息，请参阅[此](https://azure.microsoft.com/blog/azure-media-redactor/)博客。
+
+  **Azure 媒体修订器**是一种 [Azure 媒体分析](media-services-analytics-overview.md)媒体处理器 (MP)，可用于在云中进行可缩放的面部修订。 使用面部修订，可对视频进行修改，使所选个人的面部模糊显示。 用户可能想要在公共安全和新闻媒体场景中使用面部修订服务。 对于时长仅几分钟但包含多张面孔的镜头，进行手动面部修订可能需要几个小时，但使用此服务仅需几个简单步骤即可完成该过程。 有关详细信息，请参阅[此](https://azure.microsoft.com/blog/azure-media-redactor/)博客。
 
 有关 **Azure Media Redactor** 的详细信息，请参阅[面部修正概述](media-services-face-redaction.md)主题。
 
 本主题提供分步指导，引导用户使用 Azure 媒体服务资源管理器 (AMSE) 和 Azure Media Redactor Visualizer（开源工具）运行完整修正工作流。
 
-有关详细信息，请参阅 [这一](https://azure.microsoft.com/en-us/blog/redaction-preview-available-globally) 博客。
+有关详细信息，请参阅 [这一](https://azure.microsoft.com/blog/redaction-preview-available-globally) 博客。
 
 ## <a name="azure-media-services-explorer-workflow"></a>Azure 媒体服务资源管理器工作流
 
@@ -61,7 +62,7 @@ ms.locfileid: "34475401"
 
 ![面部修正](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough004.png)
 
-###<a name="second-pass--redact-mode"></a>第二步 – 修正模式
+### <a name="second-pass--redact-mode"></a>第二步 – 修正模式
 
 1. 将原始视频资产上传到第一步中的输出，并设置为主要资产。 
 
@@ -80,7 +81,7 @@ ms.locfileid: "34475401"
 
     ![面部修正](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough008.png)
 
-##<a name="azure-media-redactor-visualizer-open-source-tool"></a>Azure Media Redactor Visualizer 开源工具
+## <a name="azure-media-redactor-visualizer-open-source-tool"></a>Azure Media Redactor Visualizer 开源工具
 
 有一开源 [可视化工具](https://github.com/Microsoft/azure-media-redactor-visualizer) ，可帮助开发人员通过批注格式分析和使用输出。
 
@@ -124,7 +125,7 @@ ms.locfileid: "34475401"
 ## <a name="related-links"></a>相关链接
 [Azure 媒体服务分析概述](media-services-analytics-overview.md)
 
-[Azure 媒体分析演示](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+[Azure Media Analytics demos（Azure 媒体分析演示）](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-[宣布推出 Azure 媒体分析的面部修订](https://azure.microsoft.com/blog/azure-media-redactor/)
+[宣布推出 Azure 媒体分析的人脸编修](https://azure.microsoft.com/blog/azure-media-redactor/)
 <!--Update_Description:update blog link-->

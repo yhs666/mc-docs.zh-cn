@@ -1,8 +1,8 @@
 ---
-title: 在客户端上插入广告
+title: 在客户端上插入广告 | Azure
 description: 本主题说明如何在客户端上插入广告。
 services: media-services
-documentationCenter: ''
+documentationcenter: ''
 authors: juliako
 manager: erikre
 editor: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: v-johch
-ms.openlocfilehash: bc3e2e405a7a3671368c971b437b9eb2b4f95273
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 480d45e65bbe0021fc3281029bea017d02c5f6a7
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475231"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295592"
 ---
 # <a name="inserting-ads-on-the-client-side"></a>在客户端上插入广告
 本文包含有关如何在客户端上插入各种类型的广告的信息。
@@ -46,8 +46,7 @@ Azure 媒体服务通过“Windows 媒体平台：播放器框架”提供广告
 * 返回一个 MAST 文件 （使用嵌入的 VAST）
 * 返回一个含有 VPAID 广告的 VAST 文件
 
-###<a name="using-a-video-ad-service-template-vast-file"></a>使用视频广告服务模板 (VAST) 文件
-
+### <a name="using-a-video-ad-service-template-vast-file"></a>使用视频广告服务模板 (VAST) 文件
 VAST 文件指定要显示的广告。 以下 XML 是线性广告 VAST 文件的示例：
 
 ```xml
@@ -176,52 +175,52 @@ Application/x-shockwave-flash – 资源显示在 Flash Player 中。
 VMAP 文件支持指定发生广告中断的时间、每次中断的时长、中断期间可显示的广告数以及中断期间可显示的广告类型。 以下是定义单次广告中断的示例 VMAP 文件：
 
 ```xml
-<vmap:VMAP xmlns:vmap="http://www.iab.net/vmap-1.0" version="1.0">
-  <vmap:AdBreak breakType="linear" breakId="mypre" timeOffset="start">
-    <vmap:AdSource allowMultipleAds="true" followRedirects="true" id="1">
-      <vmap:VASTData>
-        <VAST version="2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="oxml.xsd">
-          <Ad id="115571748">
-            <InLine>
-              <AdSystem version="2.0 alpha">Atlas</AdSystem>
-              <AdTitle>Unknown</AdTitle>
-              <Description>Unknown</Description>
-              <Survey></Survey>
-              <Error></Error>
-              <Impression id="Atlas"><![CDATA[http://view.atdmt.com/000/sview/115571748/direct;ai.201582527;vt.2/01/634364885739970673]]></Impression>
-              <Creatives>
-                <Creative id="video" sequence="0" AdID="">
-                  <Linear>
-                    <Duration>00:00:32</Duration>
-                    <MediaFiles>
-                      <MediaFile apiFramework="Windows Media" id="windows_progressive_200" maintainAspectRatio="true" scaleable="true"  delivery="progressive" bitrate="200" width="400" height="300" type="video/x-ms-wmv">
-                        <![CDATA[http://smf.blob.core.chinacloudapi.cn/samples/ads/media/XBOX_HD_DEMO_700_1_000_200_4x3.wmv]]>
-                      </MediaFile>
-                      <MediaFile apiFramework="Windows Media" id="windows_progressive_300" maintainAspectRatio="true" scaleable="true"  delivery="progressive" bitrate="300" width="400" height="300" type="video/x-ms-wmv">
-                        <![CDATA[http://smf.blob.core.chinacloudapi.cn/samples/ads/media/XBOX_HD_DEMO_700_2_000_300_4x3.wmv]]>
-                      </MediaFile>
-                      <MediaFile apiFramework="Windows Media" id="windows_progressive_500" maintainAspectRatio="true" scaleable="true"  delivery="progressive" bitrate="500" width="400" height="300" type="video/x-ms-wmv">
-                        <![CDATA[http://smf.blob.core.chinacloudapi.cn/samples/ads/media/XBOX_HD_DEMO_700_1_000_500_4x3.wmv]]>
-                      </MediaFile>
-                      <MediaFile apiFramework="Windows Media" id="windows_progressive_700" maintainAspectRatio="true" scaleable="true" delivery="progressive" bitrate="700" width="400" height="300" type="video/x-ms-wmv">
-                        <![CDATA[http://smf.blob.core.chinacloudapi.cn/samples/ads/media/XBOX_HD_DEMO_700_2_000_700_4x3.wmv]]>
-                      </MediaFile>
-                    </MediaFiles>
-                  </Linear>
-                </Creative>
-              </Creatives>
-            </InLine>
-          </Ad>
-        </VAST>
-      </vmap:VASTData>
-    </vmap:AdSource>
-    <vmap:TrackingEvents>
-      <vmap:Tracking event="breakStart">
-        http://MyServer.com/breakstart.gif
-      </vmap:Tracking>
-    </vmap:TrackingEvents>
-  </vmap:AdBreak>
-</vmap:VMAP>
+    <vmap:VMAP xmlns:vmap="http://www.iab.net/vmap-1.0" version="1.0">
+      <vmap:AdBreak breakType="linear" breakId="mypre" timeOffset="start">
+        <vmap:AdSource allowMultipleAds="true" followRedirects="true" id="1">
+          <vmap:VASTData>
+            <VAST version="2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="oxml.xsd">
+              <Ad id="115571748">
+                <InLine>
+                  <AdSystem version="2.0 alpha">Atlas</AdSystem>
+                  <AdTitle>Unknown</AdTitle>
+                  <Description>Unknown</Description>
+                  <Survey></Survey>
+                  <Error></Error>
+                  <Impression id="Atlas"><![CDATA[http://view.atdmt.com/000/sview/115571748/direct;ai.201582527;vt.2/01/634364885739970673]]></Impression>
+                  <Creatives>
+                    <Creative id="video" sequence="0" AdID="">
+                      <Linear>
+                        <Duration>00:00:32</Duration>
+                        <MediaFiles>
+                          <MediaFile apiFramework="Windows Media" id="windows_progressive_200" maintainAspectRatio="true" scaleable="true"  delivery="progressive" bitrate="200" width="400" height="300" type="video/x-ms-wmv">
+                            <![CDATA[http://smf.blob.core.chinacloudapi.cn/samples/ads/media/XBOX_HD_DEMO_700_1_000_200_4x3.wmv]]>
+                          </MediaFile>
+                          <MediaFile apiFramework="Windows Media" id="windows_progressive_300" maintainAspectRatio="true" scaleable="true"  delivery="progressive" bitrate="300" width="400" height="300" type="video/x-ms-wmv">
+                            <![CDATA[http://smf.blob.core.chinacloudapi.cn/samples/ads/media/XBOX_HD_DEMO_700_2_000_300_4x3.wmv]]>
+                          </MediaFile>
+                          <MediaFile apiFramework="Windows Media" id="windows_progressive_500" maintainAspectRatio="true" scaleable="true"  delivery="progressive" bitrate="500" width="400" height="300" type="video/x-ms-wmv">
+                            <![CDATA[http://smf.blob.core.chinacloudapi.cn/samples/ads/media/XBOX_HD_DEMO_700_1_000_500_4x3.wmv]]>
+                          </MediaFile>
+                          <MediaFile apiFramework="Windows Media" id="windows_progressive_700" maintainAspectRatio="true" scaleable="true" delivery="progressive" bitrate="700" width="400" height="300" type="video/x-ms-wmv">
+                            <![CDATA[http://smf.blob.core.chinacloudapi.cn/samples/ads/media/XBOX_HD_DEMO_700_2_000_700_4x3.wmv]]>
+                          </MediaFile>
+                        </MediaFiles>
+                      </Linear>
+                    </Creative>
+                  </Creatives>
+                </InLine>
+              </Ad>
+            </VAST>
+          </vmap:VASTData>
+        </vmap:AdSource>
+        <vmap:TrackingEvents>
+          <vmap:Tracking event="breakStart">
+            http://MyServer.com/breakstart.gif
+          </vmap:Tracking>
+        </vmap:TrackingEvents>
+      </vmap:AdBreak>
+    </vmap:VMAP>
 ```
 
 VMAP 文件以 <VMAP> 元素开头，该元素包含一个或多个 <AdBreak> 元素，每一个均定义一个广告中断。 每一个广告中断均指定一个中断类型、中断 ID 和时间偏移量。 BreakType 属性指定可在中断期间播放的广告类型：线性广告、非线性广告或显示广告。 显示广告映射到 VAST 伴随广告。 可以在逗号（不含空格）分隔的列表中指定多个广告类型。 BreakID 是广告的可选标识符。 TimeOffset 指定显示广告的时间。 可以通过以下方式之一进行指定：
@@ -254,75 +253,74 @@ VMAP 文件以 <VMAP> 元素开头，该元素包含一个或多个 <AdBreak> �
 以下示例演示指定跟踪事件的 VMAP 文件
 
 ```xml
-<vmap:VMAP xmlns:vmap="http://www.iab.net/vmap-1.0" version="1.0">
-  <vmap:AdBreak breakType="linear" breakId="mypre" timeOffset="start">
-    <vmap:AdSource allowMultipleAds="true" followRedirects="true" id="1">
-      <vmap:VASTData>
-        <!--Inline VAST -->
-      </vmap:VASTData>
-    </vmap:AdSource>
-    <vmap:TrackingEvents>
-      <vmap:Tracking event="breakStart">
-        http://MyServer.com/breakstart.gif
-      </vmap:Tracking>
-      <vmap:Tracking event="breakend">
-        http://MyServer.com/breakend.gif
-      </vmap:Tracking>
-      <vmap:Tracking event="error">
-        http://MyServer.com/error.gif
-      </vmap:Tracking>
-    </vmap:TrackingEvents>
-  </vmap:AdBreak>
-</vmap:VMAP>
+    <vmap:VMAP xmlns:vmap="http://www.iab.net/vmap-1.0" version="1.0">
+      <vmap:AdBreak breakType="linear" breakId="mypre" timeOffset="start">
+        <vmap:AdSource allowMultipleAds="true" followRedirects="true" id="1">
+          <vmap:VASTData>
+            <!--Inline VAST -->
+          </vmap:VASTData>
+        </vmap:AdSource>
+        <vmap:TrackingEvents>
+          <vmap:Tracking event="breakStart">
+            http://MyServer.com/breakstart.gif
+          </vmap:Tracking>
+          <vmap:Tracking event="breakend">
+            http://MyServer.com/breakend.gif
+          </vmap:Tracking>
+          <vmap:Tracking event="error">
+            http://MyServer.com/error.gif
+          </vmap:Tracking>
+        </vmap:TrackingEvents>
+      </vmap:AdBreak>
+    </vmap:VMAP>
 ```
 
 有关 <**TrackingEvents**> 元素及其子元素的详细信息，请参阅 http://iab.org/VMAP.pdf
 
 ### <a name="using-a-media-abstract-sequencing-template-mast-file"></a>使用媒体摘要排序模板 (MAST) 文件
-
 MAST 文件允许指定定义何时显示广告的触发器。 以下是一个示例 MAST 文件，它包含前置式广告、中置式广告和后置式广告的触发器。
 
 ```xml
-<MAST xsi:schemaLocation="http://openvideoplayer.sf.net/mast http://openvideoplayer.sf.net/mast/mast.xsd" xmlns="http://openvideoplayer.sf.net/mast" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <triggers>
-    <trigger id="preroll" description="preroll every item"  >
-      <startConditions>
-        <condition type="event" name="OnItemStart" />
-      </startConditions>
-      <sources>
-        <source uri="http://smf.blob.core.chinacloudapi.cn/samples/win8/ads/vast_linear.xml" format="vast">
-          <sources />
-        </source>
-      </sources>
-    </trigger>
+    <MAST xsi:schemaLocation="http://openvideoplayer.sf.net/mast http://openvideoplayer.sf.net/mast/mast.xsd" xmlns="http://openvideoplayer.sf.net/mast" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <triggers>
+        <trigger id="preroll" description="preroll every item"  >
+          <startConditions>
+            <condition type="event" name="OnItemStart" />
+          </startConditions>
+          <sources>
+            <source uri="http://smf.blob.core.chinacloudapi.cn/samples/win8/ads/vast_linear.xml" format="vast">
+              <sources />
+            </source>
+          </sources>
+        </trigger>
 
-    <trigger id="midroll" description="midroll at 15 sec."  >
-      <startConditions>
-        <condition type="property" name="Position" value="00:00:15.0" operator="GEQ" />
-      </startConditions>
-      <endConditions>
-        <condition type="event" name="OnItemEnd"/>
-        <!--This 'resets' the trigger for the next clip-->
-      </endConditions>
-      <sources>
-        <source uri="http://smf.blob.core.chinacloudapi.cn/samples/win8/ads/vast_linear.xml" format="vast">
-          <sources />
-        </source>
-      </sources>
-    </trigger>
+        <trigger id="midroll" description="midroll at 15 sec."  >
+          <startConditions>
+            <condition type="property" name="Position" value="00:00:15.0" operator="GEQ" />
+          </startConditions>
+          <endConditions>
+            <condition type="event" name="OnItemEnd"/>
+            <!--This 'resets' the trigger for the next clip-->
+          </endConditions>
+          <sources>
+            <source uri="http://smf.blob.core.chinacloudapi.cn/samples/win8/ads/vast_linear.xml" format="vast">
+              <sources />
+            </source>
+          </sources>
+        </trigger>
 
-    <trigger id="postroll" description="postroll"  >
-      <startConditions>
-        <condition type="event" name="OnItemEnd"/>
-      </startConditions>
-      <sources>
-        <source uri="http://smf.blob.core.chinacloudapi.cn/samples/win8/ads/vast_linear.xml" format="vast">
-          <sources />
-        </source>
-      </sources>
-    </trigger>
-  </triggers>
-</MAST>
+        <trigger id="postroll" description="postroll"  >
+          <startConditions>
+            <condition type="event" name="OnItemEnd"/>
+          </startConditions>
+          <sources>
+            <source uri="http://smf.blob.core.chinacloudapi.cn/samples/win8/ads/vast_linear.xml" format="vast">
+              <sources />
+            </source>
+          </sources>
+        </trigger>
+      </triggers>
+    </MAST>
 ```
 
 
@@ -339,16 +337,16 @@ MAST 文件以 **MAST** 元素开头，该元素包含一个 **triggers** 元素
 **endConditions** 也包含 <condition> 元素。 当某个条件的计算结果为 true 时，该触发器将重置。 <trigger> 元素还包含 <sources> 元素，后者包含一个或多个 <source> 元素。 <source> 元素定义广告响应的 URI 和广告响应的类型。 在此示例中，向 VAST 响应提供了一个 URI。 
 
 ```xml
-<trigger id="postroll" description="postroll"  >
-  <startConditions>
-    <condition/>
-  </startConditions>
-  <sources>
-    <source uri="http://smf.blob.core.chinacloudapi.cn/samples/win8/ads/vast_linear.xml" format="vast">
-      <sources />
-    </source>
-  </sources>
-</trigger>
+    <trigger id="postroll" description="postroll"  >
+      <startConditions>
+        <condition/>
+      </startConditions>
+      <sources>
+        <source uri="http://smf.blob.core.chinacloudapi.cn/samples/win8/ads/vast_linear.xml" format="vast">
+          <sources />
+        </source>
+      </sources>
+    </trigger>
 ```
 
 ### <a name="using-video-player-ad-interface-definition-vpaid"></a>使用视频播放器广告接口定义 (VPAID)
@@ -388,23 +386,23 @@ Microsoft Media Platform：适用于 Windows 8 和 Windows Phone 8 的播放器�
 此示例使用 AdSchedulerPlugin 来定义何时显示广告。 在此示例中，安排于 5 秒后播放中置式广告。 广告 Pod（按顺序播放的一组广告）是在从广告服务器返回的 VAST 文件中指定的。 在 <RemoteAdSource> 元素中指定 VAST 文件的 URI。
 
 ```xml
-<mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.chinacloudapi.cn/samples/videos/bigbuck.mp4">
+    <mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.chinacloudapi.cn/samples/videos/bigbuck.mp4">
 
-    <mmppf:MediaPlayer.Plugins>
-        <ads:AdSchedulerPlugin>
-            <ads:AdSchedulerPlugin.Advertisements>
+        <mmppf:MediaPlayer.Plugins>
+            <ads:AdSchedulerPlugin>
+                <ads:AdSchedulerPlugin.Advertisements>
 
-                <ads:MidrollAdvertisement Time="00:00:05">
-                    <ads:MidrollAdvertisement.Source>
-                        <ads:RemoteAdSource Uri="http://smf.blob.core.chinacloudapi.cn/samples/win8/ads/vast_adpod.xml" Type="vast"/>
-                    </ads:MidrollAdvertisement.Source>
-                </ads:MidrollAdvertisement>
+                    <ads:MidrollAdvertisement Time="00:00:05">
+                        <ads:MidrollAdvertisement.Source>
+                            <ads:RemoteAdSource Uri="http://smf.blob.core.chinacloudapi.cn/samples/win8/ads/vast_adpod.xml" Type="vast"/>
+                        </ads:MidrollAdvertisement.Source>
+                    </ads:MidrollAdvertisement>
 
-            </ads:AdSchedulerPlugin.Advertisements>
-        </ads:AdSchedulerPlugin>
-        <ads:AdHandlerPlugin/>
-    </mmppf:MediaPlayer.Plugins>
-</mmppf:MediaPlayer>
+                </ads:AdSchedulerPlugin.Advertisements>
+            </ads:AdSchedulerPlugin>
+            <ads:AdHandlerPlugin/>
+        </mmppf:MediaPlayer.Plugins>
+    </mmppf:MediaPlayer>
 ```
 
 有关 AdSchedulerPlugin 的详细信息，请参阅 [Windows 8 和 Windows Phone 8 上的播放器框架中的广告](http://playerframework.codeplex.com/wikipage?title=Advertising&referringTitle=Windows%208%20Player%20Documentation)
@@ -413,203 +411,202 @@ Microsoft Media Platform：适用于 Windows 8 和 Windows Phone 8 的播放器�
 此示例还使用 AdSchedulerPlugin。 它会安排三种广告：前置式广告、中置式广告和后置式广告。 在 <RemoteAdSource> 元素中指定每种广告的 VAST 文件的 URI。
 
 ```xml
-<mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.chinacloudapi.cn/samples/videos/bigbuck.mp4">
-            <mmppf:MediaPlayer.Plugins>
-                <ads:AdSchedulerPlugin>
-                    <ads:AdSchedulerPlugin.Advertisements>
+    <mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.chinacloudapi.cn/samples/videos/bigbuck.mp4">
+                <mmppf:MediaPlayer.Plugins>
+                    <ads:AdSchedulerPlugin>
+                        <ads:AdSchedulerPlugin.Advertisements>
 
-                        <ads:PrerollAdvertisement>
-                            <ads:PrerollAdvertisement.Source>
-                                <ads:RemoteAdSource Uri="http://smf.blob.core.chinacloudapi.cn/samples/win8/ads/vast_linear.xml" Type="vast"/>
-                            </ads:PrerollAdvertisement.Source>
-                        </ads:PrerollAdvertisement>
+                            <ads:PrerollAdvertisement>
+                                <ads:PrerollAdvertisement.Source>
+                                    <ads:RemoteAdSource Uri="http://smf.blob.core.chinacloudapi.cn/samples/win8/ads/vast_linear.xml" Type="vast"/>
+                                </ads:PrerollAdvertisement.Source>
+                            </ads:PrerollAdvertisement>
 
-                        <ads:MidrollAdvertisement Time="00:00:15">
-                            <ads:MidrollAdvertisement.Source>
-                                <ads:RemoteAdSource Uri="http://smf.blob.core.chinacloudapi.cn/samples/win8/ads/vast_linear.xml" Type="vast"/>
-                            </ads:MidrollAdvertisement.Source>
-                        </ads:MidrollAdvertisement>
+                            <ads:MidrollAdvertisement Time="00:00:15">
+                                <ads:MidrollAdvertisement.Source>
+                                    <ads:RemoteAdSource Uri="http://smf.blob.core.chinacloudapi.cn/samples/win8/ads/vast_linear.xml" Type="vast"/>
+                                </ads:MidrollAdvertisement.Source>
+                            </ads:MidrollAdvertisement>
 
-                        <ads:PostrollAdvertisement>
-                            <ads:PostrollAdvertisement.Source>
-                                <ads:RemoteAdSource Uri="http://smf.blob.core.chinacloudapi.cn/samples/win8/ads/vast_linear.xml" Type="vast"/>
-                            </ads:PostrollAdvertisement.Source>
-                        </ads:PostrollAdvertisement>
+                            <ads:PostrollAdvertisement>
+                                <ads:PostrollAdvertisement.Source>
+                                    <ads:RemoteAdSource Uri="http://smf.blob.core.chinacloudapi.cn/samples/win8/ads/vast_linear.xml" Type="vast"/>
+                                </ads:PostrollAdvertisement.Source>
+                            </ads:PostrollAdvertisement>
 
-                    </ads:AdSchedulerPlugin.Advertisements>
-                </ads:AdSchedulerPlugin>
-                <ads:AdHandlerPlugin/>
-            </mmppf:MediaPlayer.Plugins>
-        </mmppf:MediaPlayer>
+                        </ads:AdSchedulerPlugin.Advertisements>
+                    </ads:AdSchedulerPlugin>
+                    <ads:AdHandlerPlugin/>
+                </mmppf:MediaPlayer.Plugins>
+            </mmppf:MediaPlayer>
 ```
 
 ### <a name="freewheelpage"></a>FreeWheelPage
 此示例使用 FreeWheelPlugin，它指定一个指定 URL 的源属性，该 URL 指向一个 SmartXML 文件，该文件指定广告内容和广告安排信息。
 
 ```xml
-<mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.chinacloudapi.cn/samples/videos/bigbuck.mp4">
-            <mmppf:MediaPlayer.Plugins>
-                <ads:FreeWheelPlugin Source="http://smf.blob.core.chinacloudapi.cn/samples/win8/ads/freewheel.xml"/>
-                <ads:AdHandlerPlugin/>
-            </mmppf:MediaPlayer.Plugins>
-        </mmppf:MediaPlayer>
+    <mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.chinacloudapi.cn/samples/videos/bigbuck.mp4">
+                <mmppf:MediaPlayer.Plugins>
+                    <ads:FreeWheelPlugin Source="http://smf.blob.core.chinacloudapi.cn/samples/win8/ads/freewheel.xml"/>
+                    <ads:AdHandlerPlugin/>
+                </mmppf:MediaPlayer.Plugins>
+            </mmppf:MediaPlayer>
 ```
 
 ### <a name="mastpage"></a>MastPage
 此示例使用允许使用 MAST 文件的 MastSchedulerPlugin。 源属性指定 MAST 文件的位置。
 ```xml
-<mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.chinacloudapi.cn/samples/videos/bigbuck.mp4">
-            <mmppf:MediaPlayer.Plugins>
-                <ads:MastSchedulerPlugin Source="http://smf.blob.core.chinacloudapi.cn/samples/win8/ads/mast.xml" />
-                <ads:AdHandlerPlugin/>
-            </mmppf:MediaPlayer.Plugins>
-        </mmppf:MediaPlayer>
+    <mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.chinacloudapi.cn/samples/videos/bigbuck.mp4">
+                <mmppf:MediaPlayer.Plugins>
+                    <ads:MastSchedulerPlugin Source="http://smf.blob.core.chinacloudapi.cn/samples/win8/ads/mast.xml" />
+                    <ads:AdHandlerPlugin/>
+                </mmppf:MediaPlayer.Plugins>
+            </mmppf:MediaPlayer>
 ```
 
-###<a name="programmaticadpage"></a>ProgrammaticAdPage
-
+### <a name="programmaticadpage"></a>ProgrammaticAdPage
 此示例以编程方式与 MediaPlayer 交互。 ProgrammaticAdPage.xaml 文件实例化 MediaPlayer：
 
 ```xml
-<mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.chinacloudapi.cn/samples/videos/bigbuck.mp4"/>
+    <mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.chinacloudapi.cn/samples/videos/bigbuck.mp4"/>
 ```
 
-ProgrammaticAdPage.xaml.cs 文件创建 AdHandlerPlugin，添加 TimelineMarker 以指定何时显示广告，并为 MarkerReached 事件添加处理程序，该程序加载指定指向 VAST 文件的 URI 的 RemoteAdSource，然后播放广告。
+ProgrammaticAdPage.xaml.cs 文件创建 AdHandlerPlugin，添加 TimelineMarker 以指定何时显示广告，为 MarkerReached 事件添加处理程序，该程序加载指定指向 VAST 文件的 URI 的 RemoteAdSource，并播放广告。
 
 ```csharp
-public sealed partial class ProgrammaticAdPage : Microsoft.PlayerFramework.Samples.Common.LayoutAwarePage
-    {
-        AdHandlerPlugin adHandler;
-
-        public ProgrammaticAdPage()
+    public sealed partial class ProgrammaticAdPage : Microsoft.PlayerFramework.Samples.Common.LayoutAwarePage
         {
-            this.InitializeComponent();
-            adHandler = new AdHandlerPlugin();
-            player.Plugins.Add(new AdHandlerPlugin());
-            player.Markers.Add(new TimelineMarker() { Time = TimeSpan.FromSeconds(5), Type = "myAd" });
-            player.MarkerReached += pf_MarkerReached;
-        }
+            AdHandlerPlugin adHandler;
 
-        async void pf_MarkerReached(object sender, TimelineMarkerRoutedEventArgs e)
-        {
-            if (e.Marker.Type == "myAd")
+            public ProgrammaticAdPage()
             {
-                var adSource = new RemoteAdSource() { Type = VastAdPayloadHandler.AdType, Uri = new Uri("http://smf.blob.core.chinacloudapi.cn/samples/win8/ads/vast_linear.xml") };
-                //var adSource = new AdSource() { Type = DocumentAdPayloadHandler.AdType, Payload = SampleAdDocument };
-                var progress = new Progress<AdStatus>();
-                try
-                {
-                    await player.PlayAd(adSource, progress, CancellationToken.None);
-                }
-                catch { /* ignore */ }
+                this.InitializeComponent();
+                adHandler = new AdHandlerPlugin();
+                player.Plugins.Add(new AdHandlerPlugin());
+                player.Markers.Add(new TimelineMarker() { Time = TimeSpan.FromSeconds(5), Type = "myAd" });
+                player.MarkerReached += pf_MarkerReached;
             }
-        }
+
+            async void pf_MarkerReached(object sender, TimelineMarkerRoutedEventArgs e)
+            {
+                if (e.Marker.Type == "myAd")
+                {
+                    var adSource = new RemoteAdSource() { Type = VastAdPayloadHandler.AdType, Uri = new Uri("http://smf.blob.core.chinacloudapi.cn/samples/win8/ads/vast_linear.xml") };
+                    //var adSource = new AdSource() { Type = DocumentAdPayloadHandler.AdType, Payload = SampleAdDocument };
+                    var progress = new Progress<AdStatus>();
+                    try
+                    {
+                        await player.PlayAd(adSource, progress, CancellationToken.None);
+                    }
+                    catch { /* ignore */ }
+                }
+            }
 ```
 
 ### <a name="scheduleclippage"></a>ScheduleClipPage
 此示例使用 AdSchedulerPlugin 通过指定包含广告的 .wmv 文件安排中置式广告。
 
 ```xml
-<mmppf:MediaPlayer x:Name="player" Source="http://smf.chinacloudapp.cn/html5/media/bigbuck.mp4">
-            <mmppf:MediaPlayer.Plugins>
-                <ads:AdSchedulerPlugin>
-                    <ads:AdSchedulerPlugin.Advertisements>
+    <mmppf:MediaPlayer x:Name="player" Source="http://smf.chinacloudapp.cn/html5/media/bigbuck.mp4">
+                <mmppf:MediaPlayer.Plugins>
+                    <ads:AdSchedulerPlugin>
+                        <ads:AdSchedulerPlugin.Advertisements>
 
-                        <ads:MidrollAdvertisement Time="00:00:05">
-                            <ads:MidrollAdvertisement.Source>
-                                <ads:AdSource Type="clip">
-                                    <ads:AdSource.Payload>
-                                        <ads:ClipAdPayload MediaSource="http://smf.blob.core.chinacloudapi.cn/samples/ads/media/XBOX_HD_DEMO_700_2_000_700_4x3.wmv" MimeType="video/x-ms-wmv" />
-                                    </ads:AdSource.Payload>
-                                </ads:AdSource>
-                            </ads:MidrollAdvertisement.Source>
-                        </ads:MidrollAdvertisement>
+                            <ads:MidrollAdvertisement Time="00:00:05">
+                                <ads:MidrollAdvertisement.Source>
+                                    <ads:AdSource Type="clip">
+                                        <ads:AdSource.Payload>
+                                            <ads:ClipAdPayload MediaSource="http://smf.blob.core.chinacloudapi.cn/samples/ads/media/XBOX_HD_DEMO_700_2_000_700_4x3.wmv" MimeType="video/x-ms-wmv" />
+                                        </ads:AdSource.Payload>
+                                    </ads:AdSource>
+                                </ads:MidrollAdvertisement.Source>
+                            </ads:MidrollAdvertisement>
 
-                    </ads:AdSchedulerPlugin.Advertisements>
-                </ads:AdSchedulerPlugin>
-                <ads:AdHandlerPlugin/>
-            </mmppf:MediaPlayer.Plugins>
-        </mmppf:MediaPlayer>
+                        </ads:AdSchedulerPlugin.Advertisements>
+                    </ads:AdSchedulerPlugin>
+                    <ads:AdHandlerPlugin/>
+                </mmppf:MediaPlayer.Plugins>
+            </mmppf:MediaPlayer>
 ```
 
 ### <a name="vastlinearcompanionpage"></a>VastLinearCompanionPage
 此示例演示如何使用 AdSchedulerPlugin 来安排中置式线性广告和伴随广告。 <RemoteAdSource> 元素指定 VAST 文件的位置。
 
 ```xml
-<mmppf:MediaPlayer Grid.Row="1"  x:Name="player" Source="http://smf.blob.core.chinacloudapi.cn/samples/videos/bigbuck.mp4">
-            <mmppf:MediaPlayer.Plugins>
-                <ads:AdSchedulerPlugin>
-                    <ads:AdSchedulerPlugin.Advertisements>
+    <mmppf:MediaPlayer Grid.Row="1"  x:Name="player" Source="http://smf.blob.core.chinacloudapi.cn/samples/videos/bigbuck.mp4">
+                <mmppf:MediaPlayer.Plugins>
+                    <ads:AdSchedulerPlugin>
+                        <ads:AdSchedulerPlugin.Advertisements>
 
-                        <ads:MidrollAdvertisement Time="00:00:05">
-                            <ads:MidrollAdvertisement.Source>
-                                <ads:RemoteAdSource Uri="http://smf.blob.core.chinacloudapi.cn/samples/win8/ads/vast_linear_companions.xml" Type="vast"/>
-                            </ads:MidrollAdvertisement.Source>
-                        </ads:MidrollAdvertisement>
+                            <ads:MidrollAdvertisement Time="00:00:05">
+                                <ads:MidrollAdvertisement.Source>
+                                    <ads:RemoteAdSource Uri="http://smf.blob.core.chinacloudapi.cn/samples/win8/ads/vast_linear_companions.xml" Type="vast"/>
+                                </ads:MidrollAdvertisement.Source>
+                            </ads:MidrollAdvertisement>
 
-                    </ads:AdSchedulerPlugin.Advertisements>
-                </ads:AdSchedulerPlugin>
-                <ads:AdHandlerPlugin/>
-            </mmppf:MediaPlayer.Plugins>
-        </mmppf:MediaPlayer>
+                        </ads:AdSchedulerPlugin.Advertisements>
+                    </ads:AdSchedulerPlugin>
+                    <ads:AdHandlerPlugin/>
+                </mmppf:MediaPlayer.Plugins>
+            </mmppf:MediaPlayer>
 ```
 
 ### <a name="vastlinearnonlinearpage"></a>VastLinearNonLinearPage
 此示例使用 AdSchedulerPlugin 来安排线性广告和非线性广告。 使用 <RemoteAdSource> 元素来指定 VAST 文件位置。
 
 ```xml
-<mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.chinacloudapi.cn/samples/videos/bigbuck.mp4">
-            <mmppf:MediaPlayer.Plugins>
-                <ads:AdSchedulerPlugin>
-                    <ads:AdSchedulerPlugin.Advertisements>
+    <mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.chinacloudapi.cn/samples/videos/bigbuck.mp4">
+                <mmppf:MediaPlayer.Plugins>
+                    <ads:AdSchedulerPlugin>
+                        <ads:AdSchedulerPlugin.Advertisements>
 
-                        <ads:MidrollAdvertisement Time="00:00:05">
-                            <ads:MidrollAdvertisement.Source>
-                                <ads:RemoteAdSource Uri="http://smf.blob.core.chinacloudapi.cn/samples/win8/ads/vast_linear_nonlinear.xml" Type="vast"/>
-                            </ads:MidrollAdvertisement.Source>
-                        </ads:MidrollAdvertisement>
+                            <ads:MidrollAdvertisement Time="00:00:05">
+                                <ads:MidrollAdvertisement.Source>
+                                    <ads:RemoteAdSource Uri="http://smf.blob.core.chinacloudapi.cn/samples/win8/ads/vast_linear_nonlinear.xml" Type="vast"/>
+                                </ads:MidrollAdvertisement.Source>
+                            </ads:MidrollAdvertisement>
 
-                    </ads:AdSchedulerPlugin.Advertisements>
-                </ads:AdSchedulerPlugin>
-                <ads:AdHandlerPlugin/>
-            </mmppf:MediaPlayer.Plugins>
-        </mmppf:MediaPlayer>
+                        </ads:AdSchedulerPlugin.Advertisements>
+                    </ads:AdSchedulerPlugin>
+                    <ads:AdHandlerPlugin/>
+                </mmppf:MediaPlayer.Plugins>
+            </mmppf:MediaPlayer>
 ```
 
 ### <a name="vmappage"></a>VMAPPage
 此示例使用 VmapSchedulerPlugin，以便使用 VMAP 文件安排广告。 在 <VmapSchedulerPlugin> 元素的源属性中指定 VMAP 文件的 URI。
 
 ```xml
-<mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.chinacloudapi.cn/samples/videos/bigbuck.mp4">
-            <mmppf:MediaPlayer.Plugins>
-                <ads:VmapSchedulerPlugin Source="http://smf.blob.core.chinacloudapi.cn/samples/win8/ads/vmap.xml"/>
-                <ads:AdHandlerPlugin/>
-            </mmppf:MediaPlayer.Plugins>
-        </mmppf:MediaPlayer>
+    <mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.chinacloudapi.cn/samples/videos/bigbuck.mp4">
+                <mmppf:MediaPlayer.Plugins>
+                    <ads:VmapSchedulerPlugin Source="http://smf.blob.core.chinacloudapi.cn/samples/win8/ads/vmap.xml"/>
+                    <ads:AdHandlerPlugin/>
+                </mmppf:MediaPlayer.Plugins>
+            </mmppf:MediaPlayer>
 ```
 
 ## <a name="implementing-an-ios-video-player-with-ad-support"></a>实现带有广告支持的 iOS 视频播放器
+Microsoft Media Platform：适用于 iOS 的播放器框架包含示例应用程序集合，这些示例应用程序展示如何使用该框架实现视频播放器应用程序。
 
-Microsoft Media Platform：适用于 iOS 的播放器框架包含示例应用程序集合，这些示例应用程序展示如何使用该框架实现视频播放器应用程序。 可以从 [Azure 媒体播放器框架](https://github.com/CloudMetal/azure-media-player-framework)下载播放器框架和示例。 
 ### <a name="scheduling-ads-with-vmap"></a>使用 VMAP 安排广告
 以下示例演示如何使用 VMAP 文件安排广告。
 
 ```csharp
-// How to schedule an Ad using VMAP.
-//First download the VMAP manifest
+    // How to schedule an Ad using VMAP.
+    //First download the VMAP manifest
 
-if (![framework.adResolver downloadManifest:&manifest withURL:[NSURL URLWithString:@"http://portalvhdsq3m25bf47d15c.blob.core.chinacloudapi.cn/vast/PlayerTestVMAP.xml"]])
-        {
-            [self logFrameworkError];
-        }
-        else
-        {
-            // Schedule a list of ads using the downloaded VMAP manifest
-            if (![framework scheduleVMAPWithManifest:manifest])
+    if (![framework.adResolver downloadManifest:&manifest withURL:[NSURL URLWithString:@"http://portalvhdsq3m25bf47d15c.blob.core.chinacloudapi.cn/vast/PlayerTestVMAP.xml"]])
             {
                 [self logFrameworkError];
-            }          
-        }
+            }
+            else
+            {
+                // Schedule a list of ads using the downloaded VMAP manifest
+                if (![framework scheduleVMAPWithManifest:manifest])
+                {
+                    [self logFrameworkError];
+                }          
+            }
 ```
 
 ### <a name="scheduling-ads-with-vast"></a>使用 VAST 安排广告
@@ -617,30 +614,30 @@ if (![framework.adResolver downloadManifest:&manifest withURL:[NSURL URLWithStri
 
 
 ```csharp
-//Example:3 How to schedule a late binding VAST ad.
-// set the start time for the ad
-adLinearTime.startTime = 13;
-adLinearTime.duration = 0;
-// Specify the URI of the VAST file
-NSString *vastAd1=@"http://portalvhdsq3m25bf47d15c.blob.core.chinacloudapi.cn/vast/PlayerTestVAST.xml";
-// Create an AdInfo object
- AdInfo *vastAdInfo1 = [[[AdInfo alloc] init] autorelease];
-// set URL to VAST file
-vastAdInfo1.clipURL = [NSURL URLWithString:vastAd1];
-// set running time of ad
-vastAdInfo1.mediaTime = [[[MediaTime alloc] init] autorelease];
-vastAdInfo1.mediaTime.clipBeginMediaTime = 0;
-vastAdInfo1.mediaTime.clipEndMediaTime = 10;
-vastAdInfo1.policy = @"policy for late binding VAST";
-// specify ad type
-vastAdInfo1.type = AdType_Midroll;
-vastAdInfo1.appendTo=-1;
-adIndex = 0;
-// schedule ad
-if (![framework scheduleClip:vastAdInfo1 atTime:adLinearTime forType:PlaylistEntryType_VAST andGetClipId:&adIndex])
-{
-    [self logFrameworkError];
-}
+    //Example:3 How to schedule a late binding VAST ad.
+    // set the start time for the ad
+    adLinearTime.startTime = 13;
+    adLinearTime.duration = 0;
+    // Specify the URI of the VAST file
+    NSString *vastAd1=@"http://portalvhdsq3m25bf47d15c.blob.core.chinacloudapi.cn/vast/PlayerTestVAST.xml";
+    // Create an AdInfo object
+     AdInfo *vastAdInfo1 = [[[AdInfo alloc] init] autorelease];
+    // set URL to VAST file
+    vastAdInfo1.clipURL = [NSURL URLWithString:vastAd1];
+    // set running time of ad
+    vastAdInfo1.mediaTime = [[[MediaTime alloc] init] autorelease];
+    vastAdInfo1.mediaTime.clipBeginMediaTime = 0;
+    vastAdInfo1.mediaTime.clipEndMediaTime = 10;
+    vastAdInfo1.policy = @"policy for late binding VAST";
+    // specify ad type
+    vastAdInfo1.type = AdType_Midroll;
+    vastAdInfo1.appendTo=-1;
+    adIndex = 0;
+    // schedule ad
+    if (![framework scheduleClip:vastAdInfo1 atTime:adLinearTime forType:PlaylistEntryType_VAST andGetClipId:&adIndex])
+    {
+        [self logFrameworkError];
+    }
 ```
 
    以下示例演示如何安排早期绑定 VAST 广告。
@@ -657,195 +654,194 @@ if (![framework scheduleClip:vastAdInfo1 atTime:adLinearTime forType:PlaylistEnt
         adLinearTime.startTime = 7;
         adLinearTime.duration = 0;
 
-   ```
-    // Create AdInfo instance
-    AdInfo *vastAdInfo2 = [[[AdInfo alloc] init] autorelease];
-    vastAdInfo2.mediaTime = [[[MediaTime alloc] init] autorelease];
-    vastAdInfo2.policy = @"policy for early binding VAST";
-    // specify ad type
-    vastAdInfo2.type = AdType_Midroll;
-    vastAdInfo2.appendTo=-1;
-    // schedule ad
-    if (![framework scheduleVASTClip:vastAdInfo2 withManifest:manifest atTime:adLinearTime andGetClipId:&adIndex])
-    {
-        [self logFrameworkError];
-    }
+        // Create AdInfo instance
+        AdInfo *vastAdInfo2 = [[[AdInfo alloc] init] autorelease];
+        vastAdInfo2.mediaTime = [[[MediaTime alloc] init] autorelease];
+        vastAdInfo2.policy = @"policy for early binding VAST";
+        // specify ad type
+        vastAdInfo2.type = AdType_Midroll;
+        vastAdInfo2.appendTo=-1;
+        // schedule ad
+        if (![framework scheduleVASTClip:vastAdInfo2 withManifest:manifest atTime:adLinearTime andGetClipId:&adIndex])
+        {
+            [self logFrameworkError];
+        }
     }
 ```
 
-The following sample shows how to insert an ad using Rough Cut Editing (RCE)
+以下示例演示如何使用粗剪编辑 (RCE) 插入广告
 
 ```csharp
-//Example:1 How to use RCE.
-// specify manifest for ad content
-NSString *secondContent=@"http://wamsblureg001orig-hs.chinacloudapp.cn/6651424c-a9d1-419b-895c-6993f0f48a26/The%20making%20of%20Microsoft%20Surface-m3u8-aapl.ism/Manifest(format=m3u8-aapl)";
+    //Example:1 How to use RCE.
+    // specify manifest for ad content
+    NSString *secondContent=@"http://wamsblureg001orig-hs.chinacloudapp.cn/6651424c-a9d1-419b-895c-6993f0f48a26/The%20making%20of%20Microsoft%20Surface-m3u8-aapl.ism/Manifest(format=m3u8-aapl)";
 
-// specify ad length
-mediaTime.currentPlaybackPosition = 0;
-mediaTime.clipBeginMediaTime = 0;
-mediaTime.clipEndMediaTime = 80;
-// append ad content
-if (![framework appendContentClip:[NSURL URLWithString:secondContent] withMediaTime:mediaTime andGetClipId:&clipId])
-{
-    [self logFrameworkError];
-}
+    // specify ad length
+    mediaTime.currentPlaybackPosition = 0;
+    mediaTime.clipBeginMediaTime = 0;
+    mediaTime.clipEndMediaTime = 80;
+    // append ad content
+    if (![framework appendContentClip:[NSURL URLWithString:secondContent] withMediaTime:mediaTime andGetClipId:&clipId])
+    {
+        [self logFrameworkError];
+    }
 ```
 
 以下示例演示如何安排广告荚。
 
 ```csharp
-//Example:5 Schedule an ad Pod.
-// Set start time for ad
-adLinearTime.startTime = 23;
-adLinearTime.duration = 0;
+    //Example:5 Schedule an ad Pod.
+    // Set start time for ad
+    adLinearTime.startTime = 23;
+    adLinearTime.duration = 0;
 
-// Specify URL to content
-NSString *adpodSt1=@"https://portalvhdsq3m25bf47d15c.blob.core.chinacloudapi.cn/asset-e47b43fd-05dc-4587-ac87-5916439ad07f/Windows%208_%20Cliffjumpers.mp4?st=2012-11-28T16%3A31%3A57Z&se=2014-11-28T16%3A31%3A57Z&sr=c&si=2a6dbb1e-f906-4187-a3d3-7e517192cbd0&sig=qrXYZBekqlbbYKqwovxzaVZNLv9cgyINgMazSCbdrfU%3D";
-// Create an AdInfo instance
-AdInfo *adpodInfo1 = [[[AdInfo alloc] init] autorelease];
-// set URI to ad content
-adpodInfo1.clipURL = [NSURL URLWithString:adpodSt1];
-// Set ad running time
-adpodInfo1.mediaTime = [[[MediaTime alloc] init] autorelease];
-adpodInfo1.mediaTime.clipBeginMediaTime = 0;
-adpodInfo1.mediaTime.clipEndMediaTime = 17;
-adpodInfo1.policy = @"policy for ad pod 1";
-// Set ad type
-adpodInfo1.type = AdType_Midroll;
-adpodInfo1.appendTo=-1;
-adIndex = 0;
-// Schedule ad
-if (![framework scheduleClip:adpodInfo1 atTime:adLinearTime forType:PlaylistEntryType_Media andGetClipId:&adIndex])
-{
-    [self logFrameworkError];
-}
+    // Specify URL to content
+    NSString *adpodSt1=@"https://portalvhdsq3m25bf47d15c.blob.core.chinacloudapi.cn/asset-e47b43fd-05dc-4587-ac87-5916439ad07f/Windows%208_%20Cliffjumpers.mp4?st=2012-11-28T16%3A31%3A57Z&se=2014-11-28T16%3A31%3A57Z&sr=c&si=2a6dbb1e-f906-4187-a3d3-7e517192cbd0&sig=qrXYZBekqlbbYKqwovxzaVZNLv9cgyINgMazSCbdrfU%3D";
+    // Create an AdInfo instance
+    AdInfo *adpodInfo1 = [[[AdInfo alloc] init] autorelease];
+    // set URI to ad content
+    adpodInfo1.clipURL = [NSURL URLWithString:adpodSt1];
+    // Set ad running time
+    adpodInfo1.mediaTime = [[[MediaTime alloc] init] autorelease];
+    adpodInfo1.mediaTime.clipBeginMediaTime = 0;
+    adpodInfo1.mediaTime.clipEndMediaTime = 17;
+    adpodInfo1.policy = @"policy for ad pod 1";
+    // Set ad type
+    adpodInfo1.type = AdType_Midroll;
+    adpodInfo1.appendTo=-1;
+    adIndex = 0;
+    // Schedule ad
+    if (![framework scheduleClip:adpodInfo1 atTime:adLinearTime forType:PlaylistEntryType_Media andGetClipId:&adIndex])
+    {
+        [self logFrameworkError];
+    }
 ```
 
 以下示例演示如何安排非粘性中置式广告。 不管查看器执行了什么查找，非粘性广告均仅播放一次。
 
 ```csharp
-//Example:6 Schedule a single non sticky mid roll Ad
-// specify URL to content
-NSString *oneTimeAd=@"http://wamsblureg001orig-hs.chinacloudapp.cn/5389c0c5-340f-48d7-90bc-0aab664e5f02/Windows%208_%20You%20and%20Me%20Together-m3u8-aapl.ism/Manifest(format=m3u8-aapl)";
+    //Example:6 Schedule a single non sticky mid roll Ad
+    // specify URL to content
+    NSString *oneTimeAd=@"http://wamsblureg001orig-hs.chinacloudapp.cn/5389c0c5-340f-48d7-90bc-0aab664e5f02/Windows%208_%20You%20and%20Me%20Together-m3u8-aapl.ism/Manifest(format=m3u8-aapl)";
 
-// create an AdInfo instance
-AdInfo *oneTimeInfo = [[[AdInfo alloc] init] autorelease];
-// set URL of ad
-oneTimeInfo.clipURL = [NSURL URLWithString:oneTimeAd];
-oneTimeInfo.mediaTime = [[[MediaTime alloc] init] autorelease];
-oneTimeInfo.mediaTime.clipBeginMediaTime = 0;
-oneTimeInfo.mediaTime.clipEndMediaTime = -1;
-oneTimeInfo.policy = @"policy for one-time ad";
-// set ad start time
-adLinearTime.startTime = 43;
-adLinearTime.duration = 0;
-// set ad type
-oneTimeInfo.type = AdType_Midroll;
-// non sticky ad
-oneTimeInfo.deleteAfterPlayed = YES;
-// schedule ad
-if (![framework scheduleClip:oneTimeInfo atTime:adLinearTime forType:PlaylistEntryType_Media andGetClipId:&adIndex])
-{
-    [self logFrameworkError];
-}
+    // create an AdInfo instance
+    AdInfo *oneTimeInfo = [[[AdInfo alloc] init] autorelease];
+    // set URL of ad
+    oneTimeInfo.clipURL = [NSURL URLWithString:oneTimeAd];
+    oneTimeInfo.mediaTime = [[[MediaTime alloc] init] autorelease];
+    oneTimeInfo.mediaTime.clipBeginMediaTime = 0;
+    oneTimeInfo.mediaTime.clipEndMediaTime = -1;
+    oneTimeInfo.policy = @"policy for one-time ad";
+    // set ad start time
+    adLinearTime.startTime = 43;
+    adLinearTime.duration = 0;
+    // set ad type
+    oneTimeInfo.type = AdType_Midroll;
+    // non sticky ad
+    oneTimeInfo.deleteAfterPlayed = YES;
+    // schedule ad
+    if (![framework scheduleClip:oneTimeInfo atTime:adLinearTime forType:PlaylistEntryType_Media andGetClipId:&adIndex])
+    {
+        [self logFrameworkError];
+    }
 ```
 
 以下示例演示如何安排粘性中置式广告。 每当到达视频时间线上的指定时间点时就会显示粘性广告。
 
 ```csharp
-//Example:7 Schedule a single sticky mid roll Ad
-NSString *stickyAd=@"http://wamsblureg001orig-hs.chinacloudapp.cn/2e4e7d1f-b72a-4994-a406-810c796fc4fc/The%20Surface%20Movement-m3u8-aapl.ism/Manifest(format=m3u8-aapl)";
-// create AdInfo instance
-AdInfo *stickyAdInfo = [[[AdInfo alloc] init] autorelease];
-// set URI to ad
-stickyAdInfo.clipURL = [NSURL URLWithString:stickyAd];
-stickyAdInfo.mediaTime = [[[MediaTime alloc] init] autorelease];
-stickyAdInfo.mediaTime.clipBeginMediaTime = 0;
-stickyAdInfo.mediaTime.clipEndMediaTime = 15;
-stickyAdInfo.policy = @"policy for sticky mid-roll ad";
-// set ad start time
-adLinearTime.startTime = 64;
-adLinearTime.duration = 0;
-// set ad type
-stickyAdInfo.type = AdType_Midroll;
-stickyAdInfo.deleteAfterPlayed = NO;
-// schedule ad
-if (![framework scheduleClip:stickyAdInfo atTime:adLinearTime forType:PlaylistEntryType_Media andGetClipId:&adIndex])
-{
-    [self logFrameworkError];
-}
+    //Example:7 Schedule a single sticky mid roll Ad
+    NSString *stickyAd=@"http://wamsblureg001orig-hs.chinacloudapp.cn/2e4e7d1f-b72a-4994-a406-810c796fc4fc/The%20Surface%20Movement-m3u8-aapl.ism/Manifest(format=m3u8-aapl)";
+    // create AdInfo instance
+    AdInfo *stickyAdInfo = [[[AdInfo alloc] init] autorelease];
+    // set URI to ad
+    stickyAdInfo.clipURL = [NSURL URLWithString:stickyAd];
+    stickyAdInfo.mediaTime = [[[MediaTime alloc] init] autorelease];
+    stickyAdInfo.mediaTime.clipBeginMediaTime = 0;
+    stickyAdInfo.mediaTime.clipEndMediaTime = 15;
+    stickyAdInfo.policy = @"policy for sticky mid-roll ad";
+    // set ad start time
+    adLinearTime.startTime = 64;
+    adLinearTime.duration = 0;
+    // set ad type
+    stickyAdInfo.type = AdType_Midroll;
+    stickyAdInfo.deleteAfterPlayed = NO;
+    // schedule ad
+    if (![framework scheduleClip:stickyAdInfo atTime:adLinearTime forType:PlaylistEntryType_Media andGetClipId:&adIndex])
+    {
+        [self logFrameworkError];
+    }
 ```
 
 以下示例演示如何安排后置式广告。
 
 ```csharp
-//Example:8 Schedule Post Roll Ad
-NSString *postAdURLString=@"http://wamsblureg001orig-hs.chinacloudapp.cn/aa152d7f-3c54-487b-ba07-a58e0e33280b/wp-m3u8-aapl.ism/Manifest(format=m3u8-aapl)";
-// create AdInfo instance
-AdInfo *postAdInfo = [[[AdInfo alloc] init] autorelease];
-postAdInfo.clipURL = [NSURL URLWithString:postAdURLString];
-postAdInfo.mediaTime = [[[MediaTime alloc] init] autorelease];
-postAdInfo.mediaTime.clipBeginMediaTime = 0;
-// set ad length
-postAdInfo.mediaTime.clipEndMediaTime = 45;
-postAdInfo.policy = @"policy for post-roll ad";
-// set ad type
-postAdInfo.type = AdType_Postroll;
-adLinearTime.duration = 0;
-if (![framework scheduleClip:postAdInfo atTime:adLinearTime forType:PlaylistEntryType_Media andGetClipId:&adIndex])
-{
-    [self logFrameworkError];
-}
+    //Example:8 Schedule Post Roll Ad
+    NSString *postAdURLString=@"http://wamsblureg001orig-hs.chinacloudapp.cn/aa152d7f-3c54-487b-ba07-a58e0e33280b/wp-m3u8-aapl.ism/Manifest(format=m3u8-aapl)";
+    // create AdInfo instance
+    AdInfo *postAdInfo = [[[AdInfo alloc] init] autorelease];
+    postAdInfo.clipURL = [NSURL URLWithString:postAdURLString];
+    postAdInfo.mediaTime = [[[MediaTime alloc] init] autorelease];
+    postAdInfo.mediaTime.clipBeginMediaTime = 0;
+    // set ad length
+    postAdInfo.mediaTime.clipEndMediaTime = 45;
+    postAdInfo.policy = @"policy for post-roll ad";
+    // set ad type
+    postAdInfo.type = AdType_Postroll;
+    adLinearTime.duration = 0;
+    if (![framework scheduleClip:postAdInfo atTime:adLinearTime forType:PlaylistEntryType_Media andGetClipId:&adIndex])
+    {
+        [self logFrameworkError];
+    }
 ```
 
 以下示例演示如何安排前置式广告。
 
 ```csharp
-//Example:9 Schedule Pre Roll Ad
-NSString *adURLString = @"http://wamsblureg001orig-hs.chinacloudapp.cn/2e4e7d1f-b72a-4994-a406-810c796fc4fc/The%20Surface%20Movement-m3u8-aapl.ism/Manifest(format=m3u8-aapl)";
-AdInfo *adInfo = [[[AdInfo alloc] init] autorelease];
-adInfo.clipURL = [NSURL URLWithString:adURLString];
-adInfo.mediaTime = [[[MediaTime alloc] init] autorelease];
-adInfo.mediaTime.currentPlaybackPosition = 0;
-adInfo.mediaTime.clipBeginMediaTime = 40; //You could play a portion of an Ad. Yeh!
-adInfo.mediaTime.clipEndMediaTime = 59;
-adInfo.policy = @"policy for pre-roll ad";
-adInfo.appendTo = -1;
-adInfo.type = AdType_Preroll;
-adLinearTime.duration = 0;
-// schedule ad
-if (![framework scheduleClip:adInfo atTime:adLinearTime forType:PlaylistEntryType_Media andGetClipId:&adIndex])
-{
-    [self logFrameworkError];
-}
+    //Example:9 Schedule Pre Roll Ad
+    NSString *adURLString = @"http://wamsblureg001orig-hs.chinacloudapp.cn/2e4e7d1f-b72a-4994-a406-810c796fc4fc/The%20Surface%20Movement-m3u8-aapl.ism/Manifest(format=m3u8-aapl)";
+    AdInfo *adInfo = [[[AdInfo alloc] init] autorelease];
+    adInfo.clipURL = [NSURL URLWithString:adURLString];
+    adInfo.mediaTime = [[[MediaTime alloc] init] autorelease];
+    adInfo.mediaTime.currentPlaybackPosition = 0;
+    adInfo.mediaTime.clipBeginMediaTime = 40; //You could play a portion of an Ad. Yeh!
+    adInfo.mediaTime.clipEndMediaTime = 59;
+    adInfo.policy = @"policy for pre-roll ad";
+    adInfo.appendTo = -1;
+    adInfo.type = AdType_Preroll;
+    adLinearTime.duration = 0;
+    // schedule ad
+    if (![framework scheduleClip:adInfo atTime:adLinearTime forType:PlaylistEntryType_Media andGetClipId:&adIndex])
+    {
+        [self logFrameworkError];
+    }
 ```
 
 以下示例演示如何安排中置叠加式广告。
 
 ```csharp
-// Example10: Schedule a Mid Roll overlay Ad
-NSString *adURLString = @"https://portalvhdsq3m25bf47d15c.blob.core.chinacloudapi.cn/asset-e47b43fd-05dc-4587-ac87-5916439ad07f/Windows%208_%20Cliffjumpers.mp4?st=2012-11-28T16%3A31%3A57Z&se=2014-11-28T16%3A31%3A57Z&sr=c&si=2a6dbb1e-f906-4187-a3d3-7e517192cbd0&sig=qrXYZBekqlbbYKqwovxzaVZNLv9cgyINgMazSCbdrfU%3D";
-//Create AdInfo instance
-AdInfo *adInfo = [[[AdInfo alloc] init] autorelease];
-adInfo.clipURL = [NSURL URLWithString:adURLString];
-adInfo.mediaTime = [[[MediaTime alloc] init] autorelease];
-adInfo.mediaTime.currentPlaybackPosition = 0;
-adInfo.mediaTime.clipBeginMediaTime = 0;
-// specify ad length
-adInfo.mediaTime.clipEndMediaTime = 20;
-adInfo.policy = @"policy for mid-roll overlay ad";
-adInfo.appendTo = -1;
-// specify ad type
-adInfo.type = AdType_Midroll;
-// specify ad start time & duration
-adLinearTime.startTime = 300;
-adLinearTime.duration = 20;
-// schedule ad            if (![framework scheduleClip:adInfo atTime:adLinearTime forType:PlaylistEntryType_Media andGetClipId:&adIndex])
-{
-    [self logFrameworkError];
-}
+    // Example10: Schedule a Mid Roll overlay Ad
+    NSString *adURLString = @"https://portalvhdsq3m25bf47d15c.blob.core.chinacloudapi.cn/asset-e47b43fd-05dc-4587-ac87-5916439ad07f/Windows%208_%20Cliffjumpers.mp4?st=2012-11-28T16%3A31%3A57Z&se=2014-11-28T16%3A31%3A57Z&sr=c&si=2a6dbb1e-f906-4187-a3d3-7e517192cbd0&sig=qrXYZBekqlbbYKqwovxzaVZNLv9cgyINgMazSCbdrfU%3D";
+    //Create AdInfo instance
+    AdInfo *adInfo = [[[AdInfo alloc] init] autorelease];
+    adInfo.clipURL = [NSURL URLWithString:adURLString];
+    adInfo.mediaTime = [[[MediaTime alloc] init] autorelease];
+    adInfo.mediaTime.currentPlaybackPosition = 0;
+    adInfo.mediaTime.clipBeginMediaTime = 0;
+    // specify ad length
+    adInfo.mediaTime.clipEndMediaTime = 20;
+    adInfo.policy = @"policy for mid-roll overlay ad";
+    adInfo.appendTo = -1;
+    // specify ad type
+    adInfo.type = AdType_Midroll;
+    // specify ad start time & duration
+    adLinearTime.startTime = 300;
+    adLinearTime.duration = 20;
+    // schedule ad            if (![framework scheduleClip:adInfo atTime:adLinearTime forType:PlaylistEntryType_Media andGetClipId:&adIndex])
+    {
+        [self logFrameworkError];
+    }
 ```
 
-##<a name="see-also"></a>另请参阅
+## <a name="see-also"></a>另请参阅
+[开发视频播放器应用程序](media-services-develop-video-players.md)
 
-[开发视频播放器应用程序](./media-services-develop-video-players.md)

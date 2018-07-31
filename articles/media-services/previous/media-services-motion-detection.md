@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 12/09/2017
 ms.date: 12/25/2017
 ms.author: v-nany
-ms.openlocfilehash: 315315fdf0dee98d42318bfa76983d0da5738704
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: b323aa80806c5beb0c85460520a9a5fb40aebb25
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475447"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219552"
 ---
 # <a name="detect-motions-with-azure-media-analytics"></a>使用 Azure 媒体分析检测动作
 ## <a name="overview"></a>概述
@@ -376,11 +376,10 @@ namespace VideoMotionDetection
 }
 ```
 
-
 ## <a name="related-links"></a>相关链接
 [Azure 媒体服务动作检测器博客](https://azure.microsoft.com/blog/motion-detector-update/)
 
 [Azure 媒体服务分析概述](media-services-analytics-overview.md)
 
-[Azure Media Analytics demos（Azure 媒体分析演示）](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+[Azure 媒体分析演示](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 <!--Update_Description: update code to use AAD token instead of ACS-->

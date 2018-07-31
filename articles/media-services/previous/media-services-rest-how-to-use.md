@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 12/05/2017
-ms.date: 12/25/2017
+ms.date: 07/30/2018
 ms.author: v-nany
-ms.openlocfilehash: 82a78148d294807d9fb9758c14354eb0766a6f64
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 2205c0a9bd4e564c2b9b14dd5b06576883f41fcf
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939899"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219617"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>媒体服务操作 REST API 概述
 [!INCLUDE [media-services-selector-setup](../../../includes/media-services-selector-setup.md)]
@@ -38,22 +38,20 @@ ms.locfileid: "38939899"
 * 查询实体时，一次返回的实体数限制为 1000 个，因为公共 REST v2 将查询结果数限制为 1000 个。 需要使用[此 .NET 示例](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities)和[此 REST API 示例](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities)中所述的 Skip 和 Take (.NET)/ top (REST)。 
 * 使用 JSON 并指定在请求中使用 **__metadata** 关键字（例如，为了引用某个链接对象）时，必须将 **Accept** 标头设置为 [JSON 详细格式](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/)（参阅以下示例）。 Odata 并不了解请求中的 __metadata 属性，除非将其设置为 verbose。  
   
-    ```
-    POST https://wamsshaclus001rest-hs.chinacloudapp.cn/API/Jobs HTTP/1.1
-    Content-Type: application/json;odata=verbose
-    Accept: application/json;odata=verbose
-    DataServiceVersion: 3.0
-    MaxDataServiceVersion: 3.0
-    x-ms-version: 2.17
-    Authorization: Bearer <token> 
-    Host: media.windows.net
-
-    {
-        "Name" : "NewTestJob", 
-        "InputMediaAssets" : 
-            [{"__metadata" : {"uri" : "https://wamsshaclus001rest-hs.chinacloudapp.cn/api/Assets('nb%3Acid%3AUUID%3Aba5356eb-30ff-4dc6-9e5a-41e4223540e7')"}}]
-    . . .
-    ```
+        POST https://media.chinacloudapi.cn/API/Jobs HTTP/1.1
+        Content-Type: application/json;odata=verbose
+        Accept: application/json;odata=verbose
+        DataServiceVersion: 3.0
+        MaxDataServiceVersion: 3.0
+        x-ms-version: 2.17
+        Authorization: Bearer <ENCODED JWT TOKEN> 
+        Host: media.windows.net
+  
+        {
+            "Name" : "NewTestJob", 
+            "InputMediaAssets" : 
+                [{"__metadata" : {"uri" : "https://media.chinacloudapi.cn/api/Assets('nb%3Acid%3AUUID%3Aba5356eb-30ff-4dc6-9e5a-41e4223540e7')"}}]
+        . . . 
 
 ## <a name="standard-http-request-headers-supported-by-media-services"></a>媒体服务支持的标准 HTTP 请求标头
 每次调用媒体服务时，都必须在请求中包括一组必需标头，并且还可以根据需要包括一组可选标头。 下表列出了必需的标头：
@@ -95,7 +93,6 @@ ms.locfileid: "38939899"
 | Content-Encoding |多种多样 |Gzip 或 deflate（视情况而定）。 |
 
 ## <a name="standard-http-verbs-supported-by-media-services"></a>媒体服务支持的标准 HTTP 谓词
-
 下面是在提出 HTTP 请求时可以使用的 HTTP 谓词的完整列表：
 
 | Verb | 说明 |

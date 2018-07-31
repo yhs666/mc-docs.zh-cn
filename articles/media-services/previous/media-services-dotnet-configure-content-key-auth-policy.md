@@ -1,6 +1,6 @@
 ---
 title: 使用媒体服务 .NET SDK 配置内容密钥授权策略 | Azure
-description: 了解如何使用适用于 .NET 的媒体服务 SDK 配置内容密钥的授权策略。
+description: 了解如何使用媒体服务 .NET SDK 配置内容密钥的授权策略。
 services: media-services
 documentationcenter: ''
 author: yunan2016
@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 08/09/2017
 ms.date: 1/22/2017
 ms.author: v-nany
-ms.openlocfilehash: be80b0470cd08803d95899406a44bdf418a25c9e
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 704bc1b27da7a67f617855b8577cb3a6da924096
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38938832"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219609"
 ---
 # <a name="dynamic-encryption-configure-a-content-key-authorization-policy"></a>动态加密：配置内容密钥授权策略
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
@@ -101,7 +101,7 @@ ms.locfileid: "38938832"
 
 若要配置令牌限制选项，需要使用 XML 来描述令牌的授权要求。 令牌限制配置 XML 必须符合以下 XML 架构：
 ```csharp
-#### <a id="schema"></a>Token restriction schema
+#### Token restriction schema
     <?xml version="1.0" encoding="utf-8"?>
     <xs:schema xmlns:tns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
       <xs:complexType name="TokenClaim">
@@ -208,7 +208,7 @@ ms.locfileid: "38938832"
         return TokenRestrictionTemplateSerializer.Serialize(template);
     }
 ```
-#### <a id="test"></a>测试令牌
+#### <a name="test-token"></a>测试令牌
 若要获取用于密钥授权策略的基于令牌限制的测试令牌，请执行以下操作：
 ```csharp
     // Deserializes a string containing an Xml representation of a TokenRestrictionTemplate
@@ -216,7 +216,7 @@ ms.locfileid: "38938832"
     TokenRestrictionTemplate tokenTemplate =
         TokenRestrictionTemplateSerializer.Deserialize(tokenTemplateString);
 
-    // Generate a test token based on the the data in the given TokenRestrictionTemplate.
+    // Generate a test token based on the data in the given TokenRestrictionTemplate.
     // Note, you need to pass the key id Guid because we specified 
     // TokenClaim.ContentKeyIdentifierClaim in during the creation of TokenRestrictionTemplate.
     Guid rawkey = EncryptionUtils.GetKeyIdAsGuid(key.Id);
@@ -424,7 +424,6 @@ ms.locfileid: "38938832"
         JWT = 2,
     }
 ```
-
 
 ## <a name="next-steps"></a>后续步骤
 现在已配置内容密钥的授权策略，可以查看[配置资产传送策略](media-services-dotnet-configure-asset-delivery-policy.md)了。

@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
 origin.date: 06/03/2018
-ms.date: 06/25/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 25f5b43dd7fafad10a38746867a6829a2417b223
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.openlocfilehash: 06419a3bbf97376786f84d6ffe869e42bded0e18
+ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315726"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39307285"
 ---
 # <a name="azure-managed-disks-overview"></a>Azure 托管磁盘概述
 
@@ -161,4 +161,3 @@ Azure 磁盘加密允许加密 IaaS 虚拟机使用的 OS 磁盘和数据磁盘�
 * [将 Azure VM 转换为 Azure 中的托管磁盘](../articles/virtual-machines/windows/migrate-to-managed-disks.md)
 
 <!--Update_Description: wording update, update link-->
-<!--ms.date: 06/25/2018-->

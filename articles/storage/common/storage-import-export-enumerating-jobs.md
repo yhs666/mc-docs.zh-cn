@@ -1,5 +1,5 @@
 ---
-title: 列出所有 Azure 导入/导出作业 | Microsoft 文档
+title: 列出所有 Azure 导入/导出作业 | Azure
 description: 了解如何列出订阅中的所有 Azure 导入/导出服务作业。
 author: hayley244
 manager: digimobile
@@ -15,16 +15,15 @@ ms.topic: article
 origin.date: 01/23/2017
 ms.date: 08/28/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 2e2d1d992418d06b27892a35085e972514661dc2
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.openlocfilehash: fcd0cbd6b97a166a8063f43839671ec0e2d9e72e
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
-ms.locfileid: "21135108"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295653"
 ---
 # <a name="enumerating-jobs-in-the-azure-importexport-service"></a>枚举 Azure 导入/导出服务中的作业
-若要枚举某个订阅中的所有作业，请调用 [列出作业](https://docs.microsoft.com/rest/api/storageimportexport/jobs#Jobs_List) 操作。 
-            `List Jobs` 返回作业列表及以下属性：
+若要枚举某个订阅中的所有作业，请调用 [列出作业](https://docs.microsoft.com/rest/api/storageimportexport/jobs#Jobs_List) 操作。 `List Jobs` 返回作业列表以及以下属性：
 
 -   作业的类型（导入或导出）
 

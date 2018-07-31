@@ -13,26 +13,26 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-origin.date: 08/07/2017
-ms.date: 12/18/2017
+origin.date: 07/12/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 31d6d4a8f69f9985e2a67e4a171fa671655d542e
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.openlocfilehash: 98515ae86a497a9314c8858ca740b4968cfc7f12
+ms.sourcegitcommit: 35889b4f3ae51464392478a72b172d8910dd2c37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
-ms.locfileid: "26727435"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39261872"
 ---
 # <a name="convert-azure-managed-disks-storage-from-standard-to-premium-and-vice-versa"></a>Azure 标准与高级托管磁盘存储的相互转换
 
-托管磁盘提供两种存储选项：[高级](../windows/premium-storage.md)（基于 SSD）和[标准](../windows/standard-storage.md)（基于 HDD）。 它允许基于性能需求在这两个选项之间轻松切换，并保障最短停机时间。 非托管磁盘不具备此功能。 但可以轻松[转换为托管磁盘](convert-unmanaged-to-managed-disks.md)，以便在这两个选项之间轻松切换。
+托管磁盘提供两种存储选项：[高级 SSD](../windows/premium-storage.md) 和[标准 HDD](../windows/standard-storage.md)。 它允许基于性能需求在这两个选项之间轻松切换，并保障最短停机时间。 非托管磁盘不支持此操作。 但可以轻松[转换为托管磁盘](convert-unmanaged-to-managed-disks.md)，以在这些磁盘类型之间轻松切换。
 
 本文介绍了如何使用 Azure CLI 实现标准与高级托管磁盘的相互转换。 如果需要对其进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="before-you-begin"></a>准备阶段
 
 * 该转换需要重启 VM，因此请在预先存在的维护时段内计划磁盘存储迁移。 
-* 如果使用的是非托管磁盘，请先[转换为托管磁盘](convert-unmanaged-to-managed-disks.md)，以便按照本文中的说明在两个存储选项之间切换。 
+* 如果使用非托管磁盘，请首先[转换为托管磁盘](convert-unmanaged-to-managed-disks.md)，并按照本文说明在存储选项之间切换。 
 
 ## <a name="convert-all-the-managed-disks-of-a-vm-from-standard-to-premium-and-vice-versa"></a>实现 VM 的所有标准与高级托管磁盘的相互转换
 
@@ -105,6 +105,9 @@ az disk update --sku $sku --name $diskName --resource-group $rgName
 
 az vm start --ids $vmId 
 ```
+
+<!-- Not Available on ## Convert a managed disk from standard HDD to standard SSD, and vice versa-->
+<!-- Notice: sku StandardSSD_LRS is invalid on MC-->
 
 ## <a name="next-steps"></a>后续步骤
 

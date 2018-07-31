@@ -15,14 +15,15 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 10/16/2017
-ms.date: 04/13/2018
+ms.date: 07/23/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: da6eb3faa52d7010224b27a9e27e166b659e944b
-ms.sourcegitcommit: f97c9253d16fac8be0266c9473c730ebd528e542
+ms.openlocfilehash: b37e147c6a8f14fbcbc70b5e677d5b9a4abdfc7e
+ms.sourcegitcommit: ba07d76f8394b5dad782fd983718a8ba49a9deb2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39220253"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>优化 Azure Functions 的性能和可靠性
 
@@ -41,9 +42,9 @@ ms.lasthandoff: 04/19/2018
 
 ### <a name="cross-function-communication"></a>跨函数通信
 
-[Durable Functions](durable-functions-overview.md) 和 [Azure 逻辑应用](../logic-apps/logic-apps-overview.md)用于管理状态转换以及多个函数之间的通信。
+[Durable Functions](durable-functions-overview.md) 用于管理状态转换以及多个函数之间的通信。
 
-如果不使用 Durable Functions 或逻辑应用来集成多个函数，将存储队列用于跨函数通信通常是最佳做法。  主要原因是因为存储队列成本更低、更易预配。 
+如果不使用 Durable Functions 来集成多个函数，将存储队列用于跨函数通信通常是最佳做法。  主要原因是因为存储队列成本更低、更易预配。 
 
 存储队列中各消息的大小限制为 64 KB。 如果需要在函数之间传递更大的消息，可使用 Azure 服务总线队列，以在标准层中支持最大为 256 KB 的消息大小，在高级层中最大为 1 MB 的消息大小。
 
@@ -116,3 +117,11 @@ Function App 中的各函数共享资源。 例如，共享内存。 如果生�
 
 可[在主机配置文档中](functions-host-json.md)找到其他主机配置选项。
 
+## <a name="next-steps"></a>后续步骤
+
+有关详细信息，请参阅以下资源：
+
+- [如何在 Azure Functions 中管理连接](manage-connections.md)
+- [Azure 应用服务最佳实践](../app-service/app-service-best-practices.md)
+
+<!-- Update_Description: wording update -->

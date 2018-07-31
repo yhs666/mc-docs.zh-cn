@@ -1,5 +1,5 @@
 ---
-title: 跨多个存储帐户管理媒体服务资产 | Microsoft Docs
+title: 跨多个存储帐户管理媒体服务资产 | Azure
 description: 本文提供如何跨多个存储帐户管理媒体服务资产的指导。
 services: media-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 12/10/2017
 ms.date: 12/25/2017
 ms.author: v-nany
-ms.openlocfilehash: 3eb5eed4473fcd06dcb44950882ca2d44b19c074
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: db5dcb25ebd40671af9d553408f30c7c1dbe0719
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475170"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295597"
 ---
 # <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>跨多个存储帐户管理媒体服务资产
 从 Microsoft Azure 媒体服务 2.2 开始，可以将多个存储帐户附加到一个媒体服务帐户。 将多个存储帐户附加到一个媒体服务帐户这一功能具有以下优势：
@@ -44,21 +44,20 @@ ms.locfileid: "34475170"
 ## <a name="to-attach-storage-accounts"></a>附加存储帐户  
 
 若要将存储帐户附加到 AMS 帐户，请使用 [Azure Resource Manager API](https://docs.microsoft.com/rest/api/media/mediaservice) 和 [Powershell](https://docs.microsoft.com/powershell/module/azurerm.media)，如以下示例所示。
-```
-$regionName = "China East"
-$subscriptionId = " xxxxxxxx-xxxx-xxxx-xxxx- xxxxxxxxxxxx "
-$resourceGroupName = "SkyMedia-ChinaEast-App"
-$mediaAccountName = "sky"
-$storageAccount1Name = "skystorage1"
-$storageAccount2Name = "skystorage2"
-$storageAccount1Id = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccount1Name"
-$storageAccount2Id = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccount2Name"
-$storageAccount1 = New-AzureRmMediaServiceStorageConfig -StorageAccountId $storageAccount1Id -IsPrimary
-$storageAccount2 = New-AzureRmMediaServiceStorageConfig -StorageAccountId $storageAccount2Id
-$storageAccounts = @($storageAccount1, $storageAccount2)
 
-Set-AzureRmMediaService -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccounts $storageAccounts
-```
+    $regionName = "China East"
+    $subscriptionId = " xxxxxxxx-xxxx-xxxx-xxxx- xxxxxxxxxxxx "
+    $resourceGroupName = "SkyMedia-ChinaEast-App"
+    $mediaAccountName = "sky"
+    $storageAccount1Name = "skystorage1"
+    $storageAccount2Name = "skystorage2"
+    $storageAccount1Id = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccount1Name"
+    $storageAccount2Id = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccount2Name"
+    $storageAccount1 = New-AzureRmMediaServiceStorageConfig -StorageAccountId $storageAccount1Id -IsPrimary
+    $storageAccount2 = New-AzureRmMediaServiceStorageConfig -StorageAccountId $storageAccount2Id
+    $storageAccounts = @($storageAccount1, $storageAccount2)
+    
+    Set-AzureRmMediaService -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccounts $storageAccounts
 
 ### <a name="support-for-cool-storage"></a>支持冷存储
 

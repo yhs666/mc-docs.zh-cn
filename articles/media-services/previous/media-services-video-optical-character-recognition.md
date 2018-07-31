@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 12/09/2017
 ms.date: 12/25/2017
 ms.author: v-nany
-ms.openlocfilehash: f02cb6e0aeffcc0a0c82397a16f75f72a46acc04
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 89e196075427f6679c69c0095c1b77448a1413c2
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475442"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219629"
 ---
 # <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a>使用 Azure 媒体分析将视频文件中的文本内容转换为数字文本
 ## <a name="overview"></a>概述
@@ -46,7 +46,7 @@ ms.locfileid: "34475442"
 | 属性名称 | 说明 |
 | --- | --- |
 |AdvancedOutput| 如果将 AdvancedOutput 设置为 true，则 JSON 输出将包含每个单词的位置数据（除了短语和区域以外）。 如果不想查看这些详细信息，请将标志设置为 false。 默认值为 false。 有关详细信息，请参阅[此博客](https://azure.microsoft.com/blog/azure-media-ocr-simplified-output/)。|
-| 语言 |（可选）描述要查找的文本的语言。 下列其中一项：AutoDetect（默认值）、Arabic、ChineseSimplified、ChineseTraditional、Czech Danish、Dutch、English、Finnish、French、German、Greek、Hungarian、Italian、Japanese、Korean、Norwegian、Polish、Portuguese、Romanian、Russian、SerbianCyrillic、SerbianLatin、Slovak、Spanish、Swedish、Turkish。 |
+| 语言 |（可选）描述要查找的文本的语言。 下列其中一项：“自动检测”（默认值）、“阿拉伯语”、“简体中文”、“繁体中文”、“捷克语”、“丹麦语”、“荷兰语”、“英语”、“芬兰语”、“法语”、“德语”、“希腊语”、“匈牙利语”、“意大利语”、“日语”、“韩语”、“挪威语”、“波兰语”、“葡萄牙语”、“罗马尼亚语”、“俄语”、“塞尔维亚语(西里尔文)”、“塞尔维亚语(拉丁语)”、“斯洛伐克语”、“西班牙语”、“瑞典语”、“土耳其语”。 |
 | TextOrientation |（可选）描述要查找的文本的方向。  “Left”表示所有字母顶部朝向左侧。  默认文本（例如书籍中出现的文本）的方向为“Up”。  下列其中一项：AutoDetect（默认值）、Up、Right、Down、Left。 |
 | TimeInterval |（可选）描述采样率。  默认值为每 1/2 秒。<br/>JSON 格式 - HH:mm:ss.SSS（默认值 00:00:00.500）<br/>XML 格式 - W3C XSD 持续时间基元（默认值 PT0.5） |
 | DetectRegions |（可选）指定要在其中检测文本的视频帧中的区域的 DetectRegion 对象数组。<br/>DetectRegion 对象由以下四个整数值组成：<br/>Left – 左边距中的像素<br/>Top – 上边距中的像素<br/>Width – 以像素为单位的区域宽度<br/>Height – 以像素为单位的区域高度 |

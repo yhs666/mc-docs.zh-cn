@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 02/01/2016
-ms.date: 05/14/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: e5be0a60e1a2e2206b353eccc41babfff2270400
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.openlocfilehash: a654e61323cf6475647706fa327c1d532c0664a7
+ms.sourcegitcommit: 35889b4f3ae51464392478a72b172d8910dd2c37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "34062076"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39261874"
 ---
 # <a name="install-and-configure-postgresql-on-azure"></a>在 Azure 上安装和配置 PostgreSQL
 PostgreSQL 是一种类似于 Oracle 和 DB2 的高级开放源代码数据库。 它包含许多企业级功能，比如完整的 ACID 合规性、可靠的事务处理和多版本并发控制。 它还支持 ANSI SQL 和 SQL/MED（包括 Oracle、MySQL、MongoDB 等等的外来数据包装器）等标准。 它具有高度的可扩展性，支持超过 12 种程序语言，并支持 GIN 和 GiST 索引、空间数据，以及面向 JSON 或基于键值的应用程序的多款类似于 NoSQL 的功能。
@@ -45,8 +45,7 @@ PostgreSQL 是一种类似于 Oracle 和 DB2 的高级开放源代码数据库�
         # sudo su -
 2. 某些发行版具有在安装 PostgreSQL 之前必须安装的依赖项。 查看此列表中的发行版并运行相应的命令：
 
-   * 基于 CentOS 的 Linux：
-   <!-- Change Red Hat to CentOS -->
+   * 基于 CentOS 的 Linux：<!-- Change Red Hat to CentOS -->
 
             # yum install readline-devel gcc make zlib-devel openssl openssl-devel libxml2-devel pam-devel pam  libxslt-devel tcl-devel python-devel -y  
    * 基于 Debian 的 Linux：

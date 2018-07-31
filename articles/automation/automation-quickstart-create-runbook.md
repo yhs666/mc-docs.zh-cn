@@ -9,12 +9,12 @@ ms.date: 01/22/2018
 ms.topic: quickstart
 ms.service: automation
 ms.custom: mvc
-ms.openlocfilehash: 1f65579e28e9b54a3e4723ed11b22a51e9ec7611
-ms.sourcegitcommit: 53972dcdef77da92529996667545d2e83716f7e2
+ms.openlocfilehash: 8bcfe40c07ad37a3cd0750c61bb5442d9d186c18
+ms.sourcegitcommit: 74f9f0acb00fb728ff6e9bd67ac86a0c1bcd8d13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39143382"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39218884"
 ---
 # <a name="create-an-azure-automation-runbook"></a>创建 Azure 自动化 Runbook
 
@@ -98,7 +98,7 @@ Runbook 发布以后，会显示概览页。
 
 ## <a name="next-steps"></a>后续步骤
 
-在本快速入门中，你已创建、编辑、测试并发布了一个 Runbook，并且启动了一个 Runbook 作业。 若要详细了解自动化 Runbook，请继续阅读可以在自动化中创建和使用的不同 Runbook 类型的相关文章。
+本快速入门介绍了如何创建、编辑、测试和发布 Runbook，以及如何启动 Runbook 作业。 若要详细了解自动化 Runbook，请继续阅读可以在自动化中创建和使用的不同 Runbook 类型的相关文章。
 
 > [!div class="nextstepaction"]
 > [自动化指南 - Runbook 类型](./automation-runbook-types.md)

@@ -11,9 +11,9 @@
 
 • 对于Windows VM — [Microsoft 服务器软件对 Azure 虚拟机的支持](http://go.microsoft.com/fwlink/p/?LinkId=393550)
 
-• Linux VM -- [Azure 认可发行版中的 Linux](/virtual-machines/linux/endorsed-distros)
+• 对于 Linux VM — [Azure 认可的分发中的 Linux](/virtual-machines/linux/endorsed-distros)
 
-对于 Windows 客户端映像，某些版本的 Windows 7 和 Windows 8.1 可供 MSDN Azure 权益订户及 MSDN 开发和测试即用即付订户，用于开发和测试任务。
+<!-- Not Available on client images, certain versions of Windows 7 and Windows 8.1 -->
 <!-- Not Available on Mooncake [Windows Client images for MSDN subscribers](https://azure.microsoft.com/blog//2014/05/29/windows-client-images-on-azure/)-->
 
 ## <a name="why-are-affinity-groups-being-deprecated"></a>为什么要弃用地缘组？
@@ -26,13 +26,12 @@ Azure 资源管理器部署模型和 Azure 门户已弃用地缘组功能。 对
 ## <a name="how-much-storage-can-i-use-with-a-virtual-machine"></a>使用虚拟机时，我可以使用多少存储？
 每个数据磁盘的容量高达 1 TB。 可以使用的数据磁盘数取决于虚拟机大小。 有关详细信息，请参阅[虚拟机大小](../articles/virtual-machines/linux/sizes.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 
-Azure 存储帐户可为操作系统磁盘和任何数据磁盘提供存储空间。 每个磁盘都是一个 .vhd 文件，以页 blob 形式存储。 有关定价详细信息，请参阅 [Storage Pricing Details](https://www.azure.cn/pricing/details/storage/)（存储定价详细信息）。
+Azure 存储帐户可为操作系统磁盘和任何数据磁盘提供存储空间。 每个磁盘都是一个 .vhd 文件，以页 blob 形式存储。 有关定价详细信息，请参阅 [Storage Pricing Details](https://www.azure.cn/pricing/details/storage/blob/)（存储定价详细信息）。
 
 ## <a name="which-virtual-hard-disk-types-can-i-use"></a>可以使用哪些虚拟硬盘类型？
 Azure 只支持固定的 VHD 格式的虚拟硬盘。 若要在 Azure 中使用 VHDX，需先使用 Hyper-V 管理器或 [convert-VHD](http://go.microsoft.com/fwlink/p/?LinkId=393656) cmdlet 对其进行转换。 然后，使用 [Add-AzureVHD](https://msdn.microsoft.com/library/azure/dn495173.aspx) cmdlet（在“服务管理”模式下）将 VHD 上传到 Azure 的存储帐户，用于虚拟机。
 
 * 有关 Linux 说明，请参阅[创建并上传包含 Linux 操作系统的虚拟硬盘](../articles/virtual-machines/linux/classic/create-upload-vhd-classic.md?toc=%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)。
-* 有关 Windows 说明，请参阅[创建 Windows Server VHD 并将其上传到 Azure](../articles/virtual-machines/windows/classic/createupload-vhd.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。
 
 ## <a name="are-these-virtual-machines-the-same-as-hyper-v-virtual-machines"></a>这些虚拟机是否与 Hyper-V 虚拟机相同？
 在许多方面，它们与“第 1 代”Hyper-V VM 类似，但并非完全相同。 两种类型的虚拟机都提供虚拟化硬件，并且兼容 VHD 格式虚拟硬盘。 这意味着可以在 Hyper-V 与 Azure 之间交换使用它们。 同时存在以下三大区别，有时也会使 Hyper-V 用户感到惊讶：
@@ -127,4 +126,4 @@ Azure 根据 VM 的大小和操作系统按小时进行收费。 对于不足一
 
 [使用 Azure PowerShell 创建和管理 Windows VM](../articles/virtual-machines/windows/tutorial-manage-vm.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 <!-- Update_Description: wording update, update link -->
-<!--ms.date: 03/19/2018 -->
+<!--ms.date: 07/30/2018 -->

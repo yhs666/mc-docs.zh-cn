@@ -14,15 +14,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 05/04/2017
-ms.date: 06/04/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 33d06037fecd5260f26da061bcc604387ee24782
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: 9b6a7fa6a1a1352112eefd9a0522f30d7e43407d
+ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867831"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39306967"
 ---
 # <a name="tutorial-monitor-and-update-a-windows-virtual-machine-in-azure"></a>教程：监视和更新 Azure 中的 Windows 虚拟机
 
@@ -33,9 +33,8 @@ Azure 监视使用代理从 Azure VM 收集启动和性能数据，将此数据�
 > [!div class="checklist"]
 > * 在 VM 上启用启动诊断
 > * 查看启动诊断
-> * 安装诊断扩展
-<!-- Not Available on> * View VM host metrics -->
-<!-- Not Available on> * View VM metrics -->
+> * 查看 VM 主机指标
+> * 安装诊断扩展 <!-- Not Available on> * View VM metrics -->
 <!-- Not Available on> * Create an alert -->
 <!-- Not Available on> * Manage Windows updates -->
 <!-- Not Available on> * Monitor changes and inventory -->
@@ -73,7 +72,15 @@ New-AzureRmVm `
 Get-AzureRmVMBootDiagnosticsData -ResourceGroupName "myResourceGroupMonitor" -Name "myVM" -Windows -LocalPath "c:\"
 ```
 
-<!-- Not Available on ## View host metrics-->
+## <a name="view-host-metrics"></a>查看主机指标
+
+Windows VM 在 Azure 中有一个与它交互的专用主机 VM。 系统会自动收集该主机的指标，可以在 Azure 门户中查看这些指标。
+
+1. 在 Azure 门户中单击“资源组”，选择“myResourceGroupMonitor”，并在资源列表中选择“myVM”。
+2. 要查看主机 VM 的性能情况，请在 VM 边栏选项卡上单击“指标”，并选择“可用指标”下的任一主机指标。
+
+    ![查看主机指标](./media/tutorial-monitoring/tutorial-monitor-host-metrics.png)
+
 ## <a name="install-diagnostics-extension"></a>安装诊断扩展
 
 可以使用基本的主机指标，但若要查看更详细的指标和 VM 特定的指标，需在 VM 上安装 Azure 诊断扩展。 使用 Azure 诊断扩展可从 VM 检索其他监视数据和诊断数据。 可以查看这些性能指标，并根据 VM 的性能情况创建警报。 诊断扩展是通过 Azure 门户安装的，如下所述：
@@ -86,6 +93,7 @@ Get-AzureRmVMBootDiagnosticsData -ResourceGroupName "myResourceGroupMonitor" -Na
 
 <!-- Not Available on ## View VM metrics -->
 <!-- Not Available on ## Create alerts -->
+<!-- Metric select is no option for user choice-->
 
 
 <!-- Not Available on ## Manage Windows updates -->
@@ -99,8 +107,9 @@ Get-AzureRmVMBootDiagnosticsData -ResourceGroupName "myResourceGroupMonitor" -Na
 > * 创建资源组和 VM
 > * 在 VM 上启用启动诊断
 > * 查看启动诊断
+> * 查看主机指标
 > * 安装诊断扩展
-<!-- Not Available on > * View host metrics -->
+
 <!-- Not Available on > * View VM metrics -->
 <!-- Not Available on > * Create an alert -->
 <!-- Not Available on > * Manage Windows updates -->

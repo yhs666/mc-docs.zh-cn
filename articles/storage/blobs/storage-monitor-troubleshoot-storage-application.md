@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 中监视云存储应用程序并排查其问题 | Microsoft Docs
+title: 在 Azure 中监视云存储应用程序并排查其问题 | Azure
 description: 利用诊断工具、指标和警报来排查云应用程序问题和监视云应用程序。
 services: storage
 author: forester123
@@ -12,12 +12,12 @@ origin.date: 02/20/2018
 ms.date: 05/07/2018
 ms.author: v-johch
 ms.custom: mvc
-ms.openlocfilehash: 78b9887de4103364fa82e061d3d44f837c300c31
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: 9b7a36ea3397ab515efbbbccd0c612ea640ad5e4
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33815501"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295583"
 ---
 # <a name="monitor-and-troubleshoot-a-cloud-storage-application"></a>监视云存储应用程序并排查其问题
 
@@ -29,7 +29,7 @@ ms.locfileid: "33815501"
 > * 启用日志记录和指标
 > * 启用授权错误警报
 > * 使用错误的 SAS 令牌运行测试流量
-> * 下载和查看日志
+> * 下载和分析日志
 
 [Azure 存储分析](../common/storage-analytics.md)为存储帐户提供日志记录和指标数据。 此数据提供对存储帐户运行状况的见解。 需要先设置数据收集才可直观查看存储帐户。 此过程包括启用日志记录、配置指标和启用警报。
 
@@ -97,7 +97,7 @@ curl https://<storage-account-name>.blob.core.chinacloudapi.cn/<container>/<inco
 > * 启用日志记录和指标
 > * 启用授权错误警报
 > * 使用错误的 SAS 令牌运行测试流量
-> * 下载和查看日志
+> * 下载和分析日志
 
 请访问以下链接，查看预先生成的存储示例。
 

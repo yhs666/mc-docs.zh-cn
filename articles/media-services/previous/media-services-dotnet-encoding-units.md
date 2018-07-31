@@ -1,6 +1,6 @@
 ---
-title: 通过添加编码单元缩放媒体处理 - Azure |  Microsoft Docs
-description: 了解如何使用 .NET 添加编码单元
+title: 通过添加编码单元缩放媒体处理 - Azure | Azure
+description: 了解如何使用 .NET 添加编码单位
 services: media-services
 documentationcenter: ''
 author: yunan2016
@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 12/16/2017
 ms.date: 12/25/2017
 ms.author: v-nany
-ms.openlocfilehash: 0895f61352e272a9acd0720afe8e92a5c6edd803
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 724bf4401099d7f643c43c89b21c9c548d170347
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475157"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219722"
 ---
 # <a name="how-to-scale-encoding-with-net-sdk"></a>如何使用 .NET SDK 缩放编码
 > [!div class="op_single_selector"]
@@ -42,7 +42,7 @@ ms.locfileid: "34475157"
 > 
 > 
 
-若要使用 .NET SDK 更改保留单位类型和编码保留单位数目，请执行以下操作：
+若要使用 .NET SDK 更改预留单位类型和编码预留单位数目，请执行以下操作：
 
     IEncodingReservedUnit encodingS1ReservedUnit = _context.EncodingReservedUnits.FirstOrDefault();
     encodingS1ReservedUnit.ReservedUnitType = ReservedUnitType.Basic; // Corresponds to S1

@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 门户配置内容保护策略 | Microsoft Docs
+title: 使用 Azure 门户配置内容保护策略 | Azure
 description: 本文演示如何使用 Azure 门户配置内容保护策略。 本文还说明如何为资产启用动态加密。
 services: media-services
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 08/25/2017
 ms.date: 1/22/2018
 ms.author: v-johch
-ms.openlocfilehash: a500328486ec7f1a0a375be1a2279109c2215a75
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 9416765274b72d8db16a6b3981687a098cf54ca8
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475402"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219513"
 ---
 # <a name="configure-content-protection-policies-by-using-the-azure-portal"></a>使用 Azure 门户配置内容保护策略
  使用 Azure 媒体服务，可以在媒体从离开计算机到存储、处理和传送的整个过程中确保其安全。 可以通过媒体服务传送按高级加密标准 (AES)（使用 128 位加密密钥）动态加密的内容。 也可借助 PlayReady 和/或 Widevine 数字版权管理 (DRM) 以及 Apple FairPlay，将其与通用加密 (CENC) 配合使用。 

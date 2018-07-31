@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell 脚本示例 - 轮换存储帐户访问密钥 | Microsoft Docs
+title: Azure PowerShell 脚本示例 - 轮换存储帐户访问密钥 | Azure
 description: 创建 Azure 存储帐户，然后检索并轮换其中的一个帐户访问密钥。
 services: storage
 documentationcenter: na
@@ -16,12 +16,12 @@ ms.topic: sample
 origin.date: 06/13/2017
 ms.date: 10/23/2017
 ms.author: v-johch
-ms.openlocfilehash: 3599af4d491ab655730f6e9537ff9ee6519fe7e4
-ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
+ms.openlocfilehash: 41144e2052daab8da5c4367f40e5bc019acb7bc7
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103094"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295644"
 ---
 # <a name="create-a-storage-account-and-rotate-its-account-access-keys"></a>创建存储帐户并轮换其帐户访问密钥
 
@@ -82,14 +82,14 @@ Remove-AzureRmResourceGroup -Name rotatekeystestrg
 
 | 命令 | 注释 |
 |---|---|
-| [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation) | 获取所有位置以及每个位置支持的资源提供程序。 |
-| [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | 创建 Azure 资源组。 |
-| [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) | 创建存储帐户。 |
-| [Get-AzureRmStorageAccountKey](/powershell/module/azurerm.storage/get-azurermstorageaccountkey) | 获取 Azure 存储帐户的访问密钥。 |
-| [New-AzureRmStorageAccountKey](/powershell/module/azurerm.storage/new-azurermstorageaccountkey) | 重新生成 Azure 存储帐户的访问密钥。 |
+| [Get-AzureRmLocation](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermlocation) | 获取所有位置以及每个位置支持的资源提供程序。 |
+| [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) | 创建 Azure 资源组。 |
+| [New-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/new-azurermstorageaccount) | 创建存储帐户。 |
+| [Get-AzureRmStorageAccountKey](https://docs.microsoft.com/powershell/module/azurerm.storage/get-azurermstorageaccountkey) | 获取 Azure 存储帐户的访问密钥。 |
+| [New-AzureRmStorageAccountKey](https://docs.microsoft.com/powershell/module/azurerm.storage/new-azurermstorageaccountkey) | 重新生成 Azure 存储帐户的访问密钥。 |
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure PowerShell 模块的详细信息，请参阅 [Azure PowerShell 文档](/powershell/azure/overview)。
+有关 Azure PowerShell 模块的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/overview)。
 
 有关其他存储 PowerShell 脚本示例，可参阅 [Azure Blob 存储的 PowerShell 示例](../blobs/storage-samples-blobs-powershell.md)。

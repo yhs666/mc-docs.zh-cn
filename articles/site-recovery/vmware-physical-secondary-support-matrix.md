@@ -6,15 +6,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 03/05/2018
-ms.date: 04/02/2018
+origin.date: 07/06/2018
+ms.date: 07/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 8f6dc2b873ec45b89d5a29224a754abd86717610
-ms.sourcegitcommit: 966200f9807bfbe4986fa67dd34662d5361be221
+ms.openlocfilehash: 7ac7c867bcc6c1011154ff8b37d7a2d8356ab6e4
+ms.sourcegitcommit: 74f9f0acb00fb728ff6e9bd67ac86a0c1bcd8d13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31510933"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39218918"
 ---
 # <a name="support-matrix-for-replication-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>将 VMware VM 或物理服务器复制到辅助站点时的支持矩阵
 
@@ -60,12 +60,12 @@ Linux | Centos 6.5、6.6、6.7、6.8、6.9、7.0、7.1、7.2 <br/><br/>  SUSE Li
 主机 - NIC 组合 | 是 
 主机 - VLAN | 是 
 主机 - IPv4 | 是 
-<!-- 在主机上不可用 - IPv6 | 否 -->
 来宾 VM - NIC 组合 | 否
 来宾 VM - IPv4 | 是
-<!-- 在来宾 VM 上不可用 - IPv6 | 否 -->
 来宾 VM - Windows/Linux - 静态 IP 地址 | 是
 来宾 VM - 多 NIC | 是
+<!-- 在主机上不可用 - IPv6 | 否 -->
+<!-- 在来宾 VM 上不可用 - IPv6 | 否 -->
 
 ## <a name="storage"></a>存储
 
@@ -112,8 +112,7 @@ RDM | 是
 **更新** | **详细信息** 
 --- | --- 
 Scout 更新 | [了解和下载](vmware-physical-secondary-disaster-recovery.md#updates)最新的 Scout 更新 | Scout 更新是累积更新。
-<!-- Notice: Archor should be (vmware-physical-secondary-disaster-recovery.md#updates)-->
-组件更新 | Scout 更新包括所有组件的更新，包括 RX 服务器、配置服务器、进程和主目标服务器，vContinuum 服务器和要保护的源服务器。<br/><br/> [了解详细信息](vmware-physical-secondary-disaster-recovery.md#download-and-install-component-updates)。
+<!-- Notice: Archor should be (vmware-physical-secondary-disaster-recovery.md#updates)--> 组件更新 | Scout 更新包括所有组件的更新，包括 RX 服务器、配置服务器、进程和主目标服务器，vContinuum 服务器和要保护的源服务器。<br/><br/> [了解详细信息](vmware-physical-secondary-disaster-recovery.md#download-and-install-component-updates)。
 
 ## <a name="next-steps"></a>后续步骤
 

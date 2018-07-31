@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 门户中发布内容 | Microsoft Docs
+title: 在 Azure 门户中发布内容 | Azure
 description: 本教程逐步演示如何在 Azure 门户中发布内容。
 services: media-services
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 08/07/2017
 ms.date: 09/25/2017
 ms.author: v-johch
-ms.openlocfilehash: 41091d418780d7789af88ddc556a52db95b530f9
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: f4c362198e82e0f6e285f36363a98bbd0e9ce92a
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475399"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219644"
 ---
 # <a name="publish-content-in-the-azure-portal"></a>在 Azure 门户中发布内容
 > [!div class="op_single_selector"]
@@ -93,5 +93,4 @@ URL 会添加到“已发布的 URL” 列表。
 * Azure 门户媒体播放器从默认的流式处理终结点播放。 若要从非默认流式处理终结点播放，请选择并复制该 URL，然后将其粘贴到其他播放器中。 例如，可以在 [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html) 上测试视频。
 * 用于进行流式处理的流式处理终结点必须处于运行状态。  
 <!--Update_Description: wording update-->
-
 

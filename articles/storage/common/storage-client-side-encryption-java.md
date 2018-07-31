@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 05/11/2017
 ms.date: 08/28/2017
 ms.author: v-haiqya
-ms.openlocfilehash: e1d981db7bef55717f726514a962013033184ee0
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.openlocfilehash: f752057b600570b4e00288ca4b3f0b0b368b2789
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30155605"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295766"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-with-java-for-azure-storage"></a>Azure 存储的使用 Java 的客户端加密和 Azure 密钥保管库
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -259,6 +259,5 @@ public void setEncryptedProperty1(final String encryptedProperty1) {
 * 下载适用于 Java 的 Azure 密钥保管库 Maven 程序包：
   * [核心](http://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault-core) 程序包
   * [客户端](http://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault) 程序包
-* 访问 [Azure 密钥保管库文档](../../key-vault/key-vault-whatis.md)
-
+* 访问 [Azure Key Vault 文档](../../key-vault/key-vault-whatis.md)
 <!--Update_Description: update link-->

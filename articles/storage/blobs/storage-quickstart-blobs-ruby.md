@@ -1,5 +1,5 @@
 ---
-title: Azure 快速入门 - 使用 Ruby 在对象存储中创建 blob | Microsoft Docs
+title: Azure 快速入门 - 使用 Ruby 在对象存储中创建 Blob | Azure
 description: 本快速入门将在对象 (Blob) 存储中创建存储帐户和容器。 然后，使用适用于 Ruby 的存储客户端库将一个 Blob 上传到 Azure 存储，下载一个 Blob，然后列出容器中的 Blob。
 services: storage
 author: forester123
@@ -10,12 +10,12 @@ ms.topic: quickstart
 origin.date: 04/09/2018
 ms.date: 06/11/2018
 ms.author: v-nany
-ms.openlocfilehash: eb91c27b2bad1423b1d8e506d64199a07bfb6e7d
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: a35c3406f024c534cf097cf95f7c5d1ed765f3df
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939283"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295846"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-ruby"></a>快速入门：使用 Ruby 上传、下载和列出 Blob
 
@@ -195,7 +195,7 @@ File.delete(full_path_to_file2)
 本快速入门介绍了如何使用 Ruby 在本地磁盘和 Azure Blob 存储之间传输文件。 要深入了解如何使用 Blob 存储，请继续学习 Blob 存储操作说明。
 
 > [!div class="nextstepaction"]
-> [Blob 存储操作说明](./storage-ruby-how-to-use-blob-storage.md)
+> [Blob 存储操作说明](storage-quickstart-blobs-ruby.md)
 
 
 若要详细了解存储资源管理器和 Blob，请参阅[使用存储资源管理器管理 Azure Blob 存储资源](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fstorage%2fblobs%2ftoc.json)。

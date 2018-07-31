@@ -1,5 +1,5 @@
 ---
-title: Media Encoder Standard (MES) 的任务预设 | Microsoft Docs
+title: Media Encoder Standard (MES) 的任务预设 | Azure
 description: 本主题概述了 Media Encoder Standard (MES) 的服务定义示例预设。
 author: forester123
 manager: digimobile
@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 10/01/2017
 ms.date: 11/06/2017
 ms.author: v-johch
-ms.openlocfilehash: c4036ca4456a6e4fbe26e6b8238f93b3103165a7
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 32d0a79f0e5507e00d58c038156e3dd621f0615b
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475405"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219649"
 ---
 # <a name="sample-presets-for-media-encoder-standard-mes"></a>Media Encoder Standard (MES) 的示例预设
 
@@ -30,8 +30,8 @@ Media Encoder Standard 定义了一组可在创建编码作业时使用的预定
 媒体服务完全支持自定义预设中的所有值，可满足特定的编码需求和要求。 如果需要自定义编码预设，应先采用此部分中提供的以下系统预设之一作为模板，以用于自定义配置。 有关这些预设中的每个元素的含义及其有效值的说明，请参阅 [Media Encoder Standard 架构](media-services-mes-schema.md)主题。  
   
 > [!NOTE]
->  使用预设进行 4k 编码时，应获取 `S3` 保留单位类型。 有关详细信息，请参阅[如何缩放编码](media-services-scale-media-processing-overview.md)。  
-  
+>  使用预设进行 4k 编码时，应获取 `S3` 预留单位类型。 有关详细信息，请参阅[如何缩放编码](media-services-scale-media-processing-overview.md)。  
+
 #### <a name="video-rotation-default-setting-in-presets"></a>预设中的视频旋转默认设置：
 使用 Media Encoder Standard 时，默认启用视频旋转。 如果已在移动设备上采用纵向模式录制了视频，则在编码前，这些预设会将视频旋转为横向模式。
  

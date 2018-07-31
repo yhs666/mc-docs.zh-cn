@@ -15,18 +15,19 @@ ms.topic: article
 origin.date: 04/26/2018
 ms.date: 06/11/2018
 ms.author: v-nany
-ms.openlocfilehash: 63beb17a31985160e3ca7c3258220a7019e7b088
-ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
+ms.openlocfilehash: 9fedd6b3589936db24d3d19fcc715b1a3d761964
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36270052"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295857"
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>使用 Linux 上的 AzCopy 传输数据
 
-AzCopy 是一个命令行实用程序，专用于通过旨在实现最佳性能的简单命令将数据复制到 Azure Blob、文件和表存储以及从这些位置复制数据。 可在文件系统和存储帐户之间或在存储帐户之间复制数据。  
+AzCopy 是一个命令行实用程序，专用于通过旨在实现最佳性能的简单命令将数据复制到 Azure Blob 和文件存储以及从这些位置复制数据。 可在文件系统和存储帐户之间或在存储帐户之间复制数据。  
 
-有两个版本的 AzCopy 可下载。 AzCopy on Linux 面向 Linux 平台，它提供 POSIX 样式的命令行选项。 [AzCopy on Windows](../storage-use-azcopy.md) 提供 Windows 样式的命令行选项。 本文介绍 Linux 上的 AzCopy。 
+有两个版本的 AzCopy 可下载。 AzCopy on Linux 面向 Linux 平台，它提供 POSIX 样式的命令行选项。 
+  [AzCopy on Windows](../storage-use-azcopy.md) 提供 Windows 样式的命令行选项。 本文介绍 Linux 上的 AzCopy。 
 
 > [!NOTE]  
 > 从 AzCopy 7.2 版本开始，.NET Core 依赖项随 AzCopy 包打包在一起。 如果使用的是 7.2 版或更高版本，则安装 .NET Core 不再是先决条件。
@@ -36,7 +37,9 @@ AzCopy 是一个命令行实用程序，专用于通过旨在实现最佳性能�
 ### <a name="installation-on-linux"></a>Linux 上的安装
 
 > [!NOTE]
-> 可能需要安装此 [.NET Core 先决条件文章](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)中重点介绍的 .NET Core 2.1 依赖项，具体取决于你的发行版。 对于 Ubuntu 16.04 和 RHEL 7 等主流发行版，通常不需要执行此操作。
+> 可能需要安装此 [.NET Core 先决条件文章](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)中重点介绍的 .NET Core 2.1 依赖项，具体取决于你的发行版。 
+>
+> 对于 RHEL 7 发行版，请安装 ICU 和 libunwind 依赖项：```yum install -y libunwind icu```
 
 安装 AzCopy on Linux（v7.2 或更高版本）很简单，只需要提取一个 tar 包并运行安装脚本。 
 

@@ -12,15 +12,15 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 01/19/2017
-ms.date: 06/11/2017
+origin.date: 07/15/2018
+ms.date: 07/30/2018
 ms.author: v-haiqya
-ms.openlocfilehash: 0e94bb1ca295f61efca9c89458ba61077a78085f
-ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
+ms.openlocfilehash: fd78507d43226eef4cff6da8e4870dceeaedd324
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36269990"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295785"
 ---
 # <a name="what-to-do-if-an-azure-storage-outage-occurs"></a>在 Azure 存储中断时该怎么办
 Microsoft 一直努力确保所提供的服务始终可用。 但有时候，各种不可控因素会导致一个或多个区域出现计划外服务中断，对我们造成影响。 为了帮助你应对这些偶发事件，我们提供了下述针对 Azure 存储服务的概述性指导。
@@ -32,7 +32,7 @@ Microsoft 一直努力确保所提供的服务始终可用。 但有时候，各
 * [设计适用于 Azure 的弹性应用程序](https://docs.microsoft.com/azure/architecture/resiliency/)
 * [Azure Site Recovery 服务](https://www.azure.cn/home/features/site-recovery/)
 * [Azure 存储复制](storage-redundancy.md)
-* [Azure 备份服务](https://www.azure.cn/home/features/back-up/)
+* [Azure 备份服务](https://www.azure.cn/home/features/backup/)
 
 ## <a name="how-to-detect"></a>如何检测
 若要确定 Azure 服务状态，建议订阅 [Azure 服务运行状况仪表板](https://www.azure.cn/support/service-dashboard/)。
@@ -65,11 +65,10 @@ Microsoft 一直努力确保所提供的服务始终可用。 但有时候，各
 ## <a name="best-practices-for-protecting-your-data"></a>数据保护最佳实践
 可以通过一些推荐的方法定期备份存储数据。
 
-* VM 磁盘 - 利用 [Azure 备份服务](https://www.azure.cn/home/features/back-up/)备份 Azure 虚拟机所用的 VM 磁盘。
-* 块 Blob - 使用 [AzCopy](storage-use-azcopy.md)、[Azure PowerShell](storage-powershell-guide-full.md) 或 [Azure 数据移动库](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)创建每个块 Blob 的[快照](https://msdn.microsoft.com/library/azure/hh488361.aspx)，或者将 Blob 复制到其他区域的其他存储帐户中。
+* VM 磁盘 - 利用 [Azure 备份服务](https://www.azure.cn/home/features/backup/)备份 Azure 虚拟机所用的 VM 磁盘。
+* 块 Blob - 打开[软删除](../blobs/storage-blob-soft-delete.md)以防止发生对象级删除和覆盖，或者使用 [AzCopy](storage-use-azcopy.md)、[Azure PowerShell](storage-powershell-guide-full.md) 或 [Azure 数据移动库](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)将 Blob 复制到其他区域的其他存储帐户中。
 * 表 - 使用 [AzCopy](storage-use-azcopy.md) 将表数据导出到其他区域的其他存储帐户中。
 * 文件 - 使用 [AzCopy](storage-use-azcopy.md) 或 [Azure PowerShell](storage-powershell-guide-full.md) 将文件复制到其他区域的其他存储帐户中。
 
-若要深入了解如何创建充分利用 RA-GRS 功能的应用程序，请参阅[使用 RA-GRS 存储设计高可用性应用程序](../storage-designing-ha-apps-with-ragrs.md)
-
+若要了解如何创建充分利用 RA-GRS 功能的应用程序，请参阅[使用 RA-GRS 存储设计高可用性应用程序](../storage-designing-ha-apps-with-ragrs.md)
 <!--Update_Description: update link-->

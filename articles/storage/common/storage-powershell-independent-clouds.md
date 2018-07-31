@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure PowerShell 管理 Azure 独立云中的存储 | Microsoft Docs
+title: 使用 Azure PowerShell 管理 Azure 独立云中的存储 | Azure
 description: 使用 Azure PowerShell 管理中国云、政府云和德国云中的存储
 services: storage
 documentationcenter: na
@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 10/24/2017
 ms.date: 12/04/2017
 ms.author: v-nany
-ms.openlocfilehash: 4b0830287dde48176a50dfa0928d07fb3480d3bc
-ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
+ms.openlocfilehash: ba971e38d3eae0e92e75c3a92f6e4d500ab455b4
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37800392"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295811"
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>使用 PowerShell 管理 Azure 独立云中的存储
 
@@ -37,7 +37,7 @@ ms.locfileid: "37800392"
 * 确定并使用可用的区域。
 * 使用正确的终结点后缀，它不同于 Azure 公有云。
 
-本文中的示例需要 Azure PowerShell 模块 4.4.0 或更高版本。 在 PowerShell 窗口中，运行 `Get-Module -ListAvailable AzureRM` 可查找版本。 如果未列出任何信息或需要升级，请参阅[安装 Azure PowerShell 模块](/powershell/azure/install-azurerm-ps)。 
+本文中的示例需要 Azure PowerShell 模块 4.4.0 或更高版本。 在 PowerShell 窗口中，运行 `Get-Module -ListAvailable AzureRM` 可查找版本。 如果未列出任何信息或需要升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。 
 
 ## <a name="log-in-to-azure"></a>登录 Azure
 
@@ -54,7 +54,7 @@ Connect-AzureRmAccount –Environment AzureChinaCloud
 ```
 
 
-此时，如果需要查看可在其中创建存储帐户或其他资源的位置列表，可以使用 [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation) 查询所选云可用的位置。
+此时，如果需要查看可在其中创建存储帐户或其他资源的位置列表，可以使用 [Get-AzureRmLocation](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermlocation) 查询所选云可用的位置。
 
 ```powershell
 Get-AzureRmLocation | select Location, DisplayName
@@ -88,11 +88,10 @@ Get-AzureRmEnvironment | select Name, StorageEndpointSuffix
 
 | Name| core.usgovcloudapi.net|
 |----|----|
-|AzureChinaCloud | core.chinacloudapi.cn|
+| AzureChinaCloud | core.chinacloudapi.cn|
 | AzureCloud | core.windows.net |
 | AzureGermanCloud | core.cloudapi.de|
 | AzureUSGovernment | core.usgov.cloudapi.net |
-
 
 若要检索指定环境的所有属性，请调用 **Get-AzureRmEnvironment** 并指定云名称。 此代码片段返回属性列表；请在列表中查找 **StorageEndpointSuffix**。 以下示例适用于中国云。
 

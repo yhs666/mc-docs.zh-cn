@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell 脚本示例 - 计算要计费的 Blob 容器总大小 | Microsoft Docs
+title: Azure PowerShell 脚本示例 - 计算要计费的 Blob 容器总大小 | Azure
 description: 出于计费目的计算 Azure Blob 存储中容器的总大小。
 services: storage
 documentationcenter: na
@@ -16,12 +16,12 @@ ms.topic: sample
 origin.date: 11/07/2017
 ms.date: 12/04/2017
 ms.author: v-nany
-ms.openlocfilehash: 2f4f42d756031df25c0e03f26e7dbedd6bc322b6
-ms.sourcegitcommit: 044f3fc3e5db32f863f9e6fe1f1257c745cbb928
+ms.openlocfilehash: a911f4917bb61d4e50d2df801f1ac0cd4640d38b
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36270021"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295829"
 ---
 # <a name="calculate-the-total-billing-size-of-a-blob-container"></a>计算要计费的 Blob 容器总大小
 

@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 06/29/2017
 ms.date: 10/16/2017
 ms.author: v-johch
-ms.openlocfilehash: f1fef946add1b45387897c3598fc14b2952d5d41
-ms.sourcegitcommit: f0b267c857df661c23ffca51b1f745728f9b66c4
+ms.openlocfilehash: 6ee753fae84ad56b64584703812825adcd6c40ae
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2017
-ms.locfileid: "22612523"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295737"
 ---
 # <a name="setting-up-the-azure-importexport-tool"></a>设置 Azure 导入/导出工具
 
@@ -81,6 +81,7 @@ Azure 导入/导出工具由以下文件组成：
 
 ```
 WAImportExport, a client tool for Windows Azure Import/Export Service. Microsoft (c) 2013
+
 
 Copy directories and/or files with a new copy session:
     WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>]
@@ -215,5 +216,4 @@ Examples:
 * [修复导入作业](../storage-import-export-tool-repairing-an-import-job-v1.md)
 * [修复导出作业](../storage-import-export-tool-repairing-an-export-job-v1.md)
 * [排查 Azure 导入/导出工具问题](storage-import-export-tool-troubleshooting-v1.md)
-
 <!--Update_Description: wording update-->

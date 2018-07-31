@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell 脚本示例 - 根据前缀删除容器 | Microsoft Docs
+title: Azure PowerShell 脚本示例 - 根据前缀删除容器 | Azure
 description: 根据容器名称前缀删除 Azure 存储 blob 容器。
 services: storage
 documentationcenter: na
@@ -16,12 +16,12 @@ ms.topic: sample
 origin.date: 06/13/2017
 ms.date: 10/23/2017
 ms.author: v-johch
-ms.openlocfilehash: d626bab61d8a9f440c865b71dc98a6ea6296880b
-ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
+ms.openlocfilehash: 9a23dfb5f099460a95c95693e4a308778ff59e2b
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103030"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295668"
 ---
 # <a name="delete-containers-based-on-container-name-prefix"></a>根据容器名称前缀删除容器
 
@@ -91,12 +91,12 @@ Remove-AzureRmResourceGroup -Name containerdeletetestrg
 
 | 命令 | 注释 |
 |---|---|
-| [Get-AzureRmStorageAccount](/powershell/module/azurerm.storage/get-azurermstorageaccount) | 获取资源组或订阅中的指定存储帐户或所有存储帐户。 |
-| [Get-AzureStorageContainer](/powershell/module/azure.storage/get-azurestoragecontainer) | 列出与存储帐户关联的存储容器。 |
-| [Remove-AzureStorageContainer](/powershell/module/azure.storage/remove-azurestoragecontainer) | 删除指定的存储容器。 |
+| [Get-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/get-azurermstorageaccount) | 获取资源组或订阅中的指定存储帐户或所有存储帐户。 |
+| [Get-AzureStorageContainer](https://docs.microsoft.com/powershell/module/azure.storage/get-azurestoragecontainer) | 列出与存储帐户关联的存储容器。 |
+| [Remove-AzureStorageContainer](https://docs.microsoft.com/powershell/module/azure.storage/remove-azurestoragecontainer) | 删除指定的存储容器。 |
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure PowerShell 模块的详细信息，请参阅 [Azure PowerShell 文档](/powershell/azure/overview)。
+有关 Azure PowerShell 模块的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/overview)。
 
 有关其他存储 PowerShell 脚本示例，可参阅 [Azure Blob 存储的 PowerShell 示例](../blobs/storage-samples-blobs-powershell.md)。

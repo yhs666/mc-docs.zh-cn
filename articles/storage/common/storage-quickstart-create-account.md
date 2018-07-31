@@ -1,5 +1,5 @@
 ---
-title: Azure 快速入门 - 创建存储帐户 | Microsoft Docs
+title: Azure 快速入门 - 创建存储帐户 | Azure
 description: 快速了解如何使用 Azure 门户、Azure PowerShell 或 Azure CLI 创建新的存储帐户。
 services: storage
 author: yunan2016
@@ -10,18 +10,18 @@ ms.topic: quickstart
 origin.date: 01/19/2018
 ms.date: 3/5/2018
 ms.author: v-nany
-ms.openlocfilehash: 576941ab628a501c08121cf35f411380807aa190
-ms.sourcegitcommit: 53972dcdef77da92529996667545d2e83716f7e2
+ms.openlocfilehash: 1ad5aed8066e70ebc01c55f867c296169263f7ff
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39143453"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295759"
 ---
 # <a name="create-a-storage-account"></a>创建存储帐户
 
 Azure 存储帐户提供云中的唯一命名空间，用于在 Azure 存储中存储和访问数据对象。 存储帐户包含在该帐户下创建的任何 Blob、文件、队列、表和磁盘。 
 
-若要开始使用 Azure 存储，首先需创建新的存储帐户。 可使用 [Azure 门户](https://portal.azure.cn/)、[Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) 或 [Azure CLI](/cli/overview?view=azure-cli-latest) 创建 Azure 存储帐户。 本快速入门介绍如何使用这其中的每个选项创建新的存储帐户。 
+若要开始使用 Azure 存储，首先需创建新的存储帐户。 可使用 [Azure 门户](https://portal.azure.cn/)、[Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) 或 [Azure CLI](/cli/?view=azure-cli-latest) 创建 Azure 存储帐户。 本快速入门介绍如何使用这其中的每个选项创建新的存储帐户。 
 
 
 ## <a name="prerequisites"></a>先决条件
@@ -167,7 +167,7 @@ Azure 存储提供两种类型的常规用途存储帐户：
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 
-若要使用本地冗余存储 (LRS) 从 PowerShell 创建常规用途 v2 存储帐户，请使用 [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount) 命令： 
+若要使用本地冗余存储 (LRS) 从 PowerShell 创建常规用途 v2 存储帐户，请使用 [New-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/New-AzureRmStorageAccount) 命令： 
 
 ```powershell
 New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
@@ -207,7 +207,8 @@ az storage account create \
 |读取访问异地冗余存储 (GRS)     |Standard_RAGRS         |
 
 ---
-有关不同的可用复制类型的详细信息，请参阅[存储复制选项](storage-redundancy.md)。
+
+有关可用的复制选项的详细信息，请参阅[存储复制选项](storage-redundancy.md)。
 
 ## <a name="clean-up-resources"></a>清理资源
 
@@ -223,7 +224,7 @@ az storage account create \
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 
-若要删除资源组及其关联的资源（包括新的存储帐户），请使用 [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) 命令： 
+若要删除资源组及其关联的资源（包括新的存储帐户），请使用 [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup) 命令： 
 
 ```powershell
 Remove-AzureRmResourceGroup -Name $resourceGroup

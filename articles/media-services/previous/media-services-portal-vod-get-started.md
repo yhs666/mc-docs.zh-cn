@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 门户传送点播视频入门 | Microsoft Docs
+title: 使用 Azure 门户传送点播视频入门 | Azure
 description: 本教程介绍了在 Azure 门户中使用 Azure 媒体服务应用程序实施基本的视频点播内容传送服务的步骤。
 services: media-services
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: get-started-article
 origin.date: 08/07/2017
 ms.date: 09/04/2017
 ms.author: v-johch
-ms.openlocfilehash: 4dd596790d05464adf85449be1e4e9e0c0d92f17
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 0955fc02cff8b14f2b5f1c3041ff7c2c24314ccd
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939244"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219595"
 ---
 # <a name="get-started-with-delivering-content-on-demand-by-using-the-azure-portal"></a>使用 Azure 门户按需传送内容入门
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
@@ -31,7 +31,7 @@ ms.locfileid: "38939244"
 以下项目是完成本教程所需具备的条件：
 
 * 一个 Azure 帐户。 有关详细信息，请参阅 [Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。 
-* 一个媒体服务帐户。 若要创建媒体服务帐户，请参阅 [如何创建媒体服务帐户](media-services-portal-create-account.md)。
+* 一个媒体服务帐户。 若要创建媒体服务帐户，请参阅[如何创建媒体服务帐户](media-services-portal-create-account.md)。
 
 本教程包括以下任务：
 

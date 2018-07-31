@@ -13,20 +13,20 @@ ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
 origin.date: 06/02/2017
-ms.date: 10/30/2017
+ms.date: 07/30/2018
 ms.author: v-johch
-ms.openlocfilehash: 45d75aa3974e9391591dcabc86936b7c0fda77dd
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: 6adfddd961f48e2884ed562ca86a754d3b993646
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29870523"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295697"
 ---
 # <a name="using-the-azure-cli-20-with-azure-storage"></a>将 Azure CLI 2.0 用于 Azure 存储
 
 开源跨平台 Azure CLI 2.0 提供一组可在 Azure 平台上运行的命令。 它提供 [Azure 门户](https://portal.azure.cn)所提供的很多相同功能，包括各种数据访问功能。
 
-本指南介绍如何使用 [Azure CLI 2.0](https://docs.azure.cn/cli/get-started-with-az-cli2) 执行多个使用 Azure 存储帐户中的资源的任务。 在使用本指南之前，我们建议下载并安装或者升级到 CLI 2.0 的最新版。
+本指南介绍如何使用 [Azure CLI 2.0](https://docs.azure.cn/cli/get-started-with-azure-cli?view=azure-cli-latest) 执行多个使用 Azure 存储帐户中的资源的任务。 在使用本指南之前，我们建议下载并安装或者升级到 CLI 2.0 的最新版。
 
 指南中的示例假设在 Ubuntu 上使用 Bash shell，但其他平台的执行情况应与此类似。 
 
@@ -41,10 +41,10 @@ ms.locfileid: "29870523"
 
 ### <a name="install-the-azure-cli-20"></a>安装 Azure CLI 2.0
 
-按照 [安装 Azure CLI 2.0](https://docs.azure.cn/cli/install-az-cli2)中的概要说明，下载并安装 Azure CLI 2.0。
+按照 [安装 Azure CLI 2.0](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)中的概要说明，下载并安装 Azure CLI 2.0。
 
 > [!TIP]
-> 如果在安装时遇到问题，请查看本文的[安装故障排除](https://docs.azure.cn/cli/install-az-cli2#installation-troubleshooting)部分以及 GitHub 上的 [Install Troubleshooting](https://github.com/Azure/azure-cli/blob/master/doc/install_troubleshooting.md)（安装故障排除）指南。
+> 如果在安装时遇到问题，请查看本文的[安装故障排除](https://docs.azure.cn/cli/install-azure-cli#installation-troubleshooting)部分以及 GitHub 上的 [Install Troubleshooting](https://github.com/Azure/azure-cli/blob/master/doc/install_troubleshooting.md)（安装故障排除）指南。
 >
 
 ## <a name="working-with-the-cli"></a>使用 CLI
@@ -199,9 +199,20 @@ az storage account create \
   * `Standard_RAGRS`
   * `Standard_ZRS`
 
-
 ### <a name="set-default-azure-storage-account-environment-variables"></a>设置默认的 Azure 存储帐户环境变量
+
 可以在 Azure 订阅中设置多个存储帐户。 若要选择其中一个帐户用于所有后续存储命令，可以设置这些环境变量：
+
+首先，使用 [az storage account keys list](https://docs.azure.cn/cli/storage/account/keys#list) 命令显示存储帐户密钥：
+
+```azurecli
+az storage account keys list \
+    --account-name <account_name> \
+    --resource-group <resource_group> \
+    --output table
+```
+
+现在你有了密钥，可以将其和帐户名定义为环境变量：
 
 ```azurecli
 export AZURE_STORAGE_ACCOUNT=<account_name>
@@ -224,7 +235,6 @@ export AZURE_STORAGE_CONNECTION_STRING="<connection_string>"
 
 > [!NOTE]
 > 本文以下部分中的所有示例均假设已设置 `AZURE_STORAGE_ACCOUNT` 和 `AZURE_STORAGE_ACCESS_KEY` 环境变量。
->
 
 ## <a name="create-and-manage-blobs"></a>创建并管理 blob
 Azure Blob 存储是用于存储大量非结构化数据（例如文本或二进制数据）的服务，这些数据可通过 HTTP 或 HTTPS 从世界各地进行访问。 本部分假设读者熟悉 Azure Blob 存储的概念。 有关详细信息，请参阅[通过 .NET 开始使用 Azure Blob 存储](../blobs/storage-dotnet-how-to-use-blobs.md)和 [Blob 服务概念](https://docs.microsoft.com/rest/api/storageservices/blob-service-concepts)。
@@ -257,6 +267,7 @@ az storage blob upload \
  默认情况下， `blob upload` 命令将 *.vhd 文件上传到页 Blob 或块 Blob。 若要在上传 Blob 时指定另一种类型，可以使用 `--type` 参数，允许的值为 `append`、`block` 和 `page`。
 
  有关不同 Blob 类型的详细信息，请参阅 [了解块 Blob、追加 Blob 和页 Blob](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs)。
+
 
 ### <a name="download-a-blob-from-a-container"></a>从容器下载 Blob
 此示例演示如何从容器下载 Blob：
@@ -367,17 +378,154 @@ az storage file list --share-name myshare --path myDir/mySubDir/MySubDir2 --outp
 
 ### <a name="copy-files"></a>复制文件      
 可将一个文件复制到另一个文件，将一个文件复制到一个 Blob，或将一个 Blob 复制到一个文件。 例如，要将文件复制到不同共享中的目录，请执行以下操作：        
-
+        
 ```azurecli
 az storage file copy start \
 --source-share share1 --source-path dir1/file.txt \
 --destination-share share2 --destination-path dir2/file.txt     
 ```
 
+## <a name="create-share-snapshot"></a>创建共享快照
+可以使用 `az storage share snapshot` 命令创建共享快照：
+
+```cli
+az storage share snapshot -n <share name>
+```
+
+示例输出
+```json
+{
+  "metadata": {},
+  "name": "<share name>",
+  "properties": {
+    "etag": "\"0x8D50B7F9A8D7F30\"",
+    "lastModified": "2017-10-04T23:28:22+00:00",
+    "quota": null
+  },
+  "snapshot": "2017-10-04T23:28:35.0000000Z"
+}
+```
+
+### <a name="list-share-snapshots"></a>列出共享快照
+
+可使用 `az storage share list --include-snapshots` 列出特定共享的共享快照
+
+```cli
+az storage share list --include-snapshots
+```
+
+**示例输出**
+```json
+[
+  {
+    "metadata": null,
+    "name": "sharesnapshotdefs",
+    "properties": {
+      "etag": "\"0x8D50B5F4005C975\"",
+      "lastModified": "2017-10-04T19:36:46+00:00",
+      "quota": 5120
+    },
+    "snapshot": "2017-10-04T19:44:13.0000000Z"
+  },
+  {
+    "metadata": null,
+    "name": "sharesnapshotdefs",
+    "properties": {
+      "etag": "\"0x8D50B5F4005C975\"",
+      "lastModified": "2017-10-04T19:36:46+00:00",
+      "quota": 5120
+    },
+    "snapshot": "2017-10-04T19:45:18.0000000Z"
+  },
+  {
+    "metadata": null,
+    "name": "sharesnapshotdefs",
+    "properties": {
+      "etag": "\"0x8D50B5F4005C975\"",
+      "lastModified": "2017-10-04T19:36:46+00:00",
+      "quota": 5120
+    },
+    "snapshot": null
+  }
+]
+```
+
+### <a name="browse-share-snapshots"></a>浏览共享快照
+此外，还可以使用 `az storage file list` 浏览到特定共享快照以查看其内容。 用户必须指定共享名 `--share-name <snare name>` 和时间戳 `--snapshot '2017-10-04T19:45:18.0000000Z'`
+
+```azurecli
+az storage file list --share-name sharesnapshotdefs --snapshot '2017-10-04T19:45:18.0000000Z' -otable
+```
+
+**示例输出**
+```
+Name            Content Length    Type    Last Modified
+--------------  ----------------  ------  ---------------
+HelloWorldDir/                    dir
+IMG_0966.JPG    533568            file
+IMG_1105.JPG    717711            file
+IMG_1341.JPG    608459            file
+IMG_1405.JPG    652156            file
+IMG_1611.JPG    442671            file
+IMG_1634.JPG    1495999           file
+IMG_1635.JPG    974058            file
+
+```
+### <a name="restore-from-share-snapshots"></a>从共享快照还原
+
+可以通过使用 `az storage file download` 命令从共享快照复制或下载文件来还原文件
+
+```azurecli-interactive
+az storage file download --path IMG_0966.JPG --share-name sharesnapshotdefs --snapshot '2017-10-04T19:45:18.0000000Z'
+```
+**示例输出**
+```
+{
+  "content": null,
+  "metadata": {},
+  "name": "IMG_0966.JPG",
+  "properties": {
+    "contentLength": 533568,
+    "contentRange": "bytes 0-533567/533568",
+    "contentSettings": {
+      "cacheControl": null,
+      "contentDisposition": null,
+      "contentEncoding": null,
+      "contentLanguage": null,
+      "contentType": "application/octet-stream"
+    },
+    "copy": {
+      "completionTime": null,
+      "id": null,
+      "progress": null,
+      "source": null,
+      "status": null,
+      "statusDescription": null
+    },
+    "etag": "\"0x8D50B5F49F7ACDF\"",
+    "lastModified": "2017-10-04T19:37:03+00:00",
+    "serverEncrypted": true
+  }
+}
+```
+## <a name="delete-share-snapshot"></a>删除共享快照
+可以通过提供 `--snapshot` 参数和共享快照时间戳使用 `az storage share delete` 命令来删除共享快照：
+
+```cli
+az storage share delete -n <share name> --snapshot '2017-10-04T23:28:35.0000000Z' 
+```
+
+示例输出
+```json
+{
+  "deleted": true
+}
+```
+
 ## <a name="next-steps"></a>后续步骤
 可以参考以下附加资源详细了解如何使用 Azure CLI 2.0。
 
-* [Azure CLI 2.0 入门](https://docs.azure.cn/cli/get-started-with-az-cli2)
+* [Azure CLI 2.0 入门](https://docs.azure.cn/cli/get-started-with-azure-cli)
 * [Azure CLI 2.0 命令参考](https://docs.azure.cn/cli)
 * [GitHub 上的 Azure CLI 2.0](https://github.com/Azure/azure-cli)
 <!--Update_Description: wording update-->

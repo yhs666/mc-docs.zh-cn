@@ -1,5 +1,5 @@
 ---
-title: Azure 文件简介 | Microsoft Docs
+title: Azure 文件简介 | Azure
 description: 本文概述 Azure 文件服务，使用该服务可以通过行业标准 SMB 协议在云中创建和使用网络文件共享。
 services: storage
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: get-started-article
 origin.date: 10/08/2017
 ms.date: 1/29/2018
 ms.author: v-johch
-ms.openlocfilehash: 37364dc5d974f901ceb7484556b3e2d8bb078ce9
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: e871cc4767232e6ff272cd1a1d816a31adb29be6
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
-ms.locfileid: "29285806"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295734"
 ---
 # <a name="introduction-to-azure-files"></a>Azure 文件简介
 Azure 文件在云中提供可以通过行业标准的[服务器消息块 (SMB) 协议](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)（也称为通用 Internet 文件系统，简称 CIFS）访问的完全托管文件共享。 Azure 文件共享可由云或者 Windows、Linux 和 macOS 的本地部署同时装载。 此外，可以使用 Azure 文件同步（预览版）将 Azure 文件共享缓存在 Windows  Server 上，以加快访问速度（与在数据使用位置进行访问的速度相当）。
@@ -30,7 +30,7 @@ Azure 文件在云中提供可以通过行业标准的[服务器消息块 (SMB) 
 Azure 文件共享可用于：
 
 * **取代或补充本地文件服务器**：  
-    可以使用 Azure 文件来完全取代或补充传统的本地文件服务器或 NAS 设备。 流行的操作系统（例如 Windows、macOS 和 Linux）可在世界各地直接装载 Azure 文件共享。 此外，可以使用 Azure 文件同步将 Azure 文件共享复制到本地或云中的 Windows Server，在使用位置对数据进行高性能的分布式缓存。
+    可以使用 Azure 文件来完全取代或补充传统的本地文件服务器或 NAS 设备。 流行的操作系统（例如 Windows、macOS 和 Linux）可在世界各地直接装载 Azure 文件共享。 此外，可以使用 Azure 文件同步将 Azure 文件共享复制到本地或云中的 Windows Server，以便在使用位置对数据进行高性能的分布式缓存。
 
 * **“直接迁移”应用程序**：  
     借助 Azure 文件可以轻松地将预期使用文件共享存储文件应用程序或用户数据的应用程序“直接迁移”到云中。 Azure 文件既支持“经典”直接迁移方案（应用程序及其数据被移到 Azure 中），也支持“混合”直接迁移方案（应用程序数据被移到 Azure 文件中，应用程序继续在本地运行）。 
@@ -47,7 +47,7 @@ Azure 文件共享可用于：
         开发人员或管理员在云中的 VM 上工作时，通常需要一套工具或实用程序。 将此类实用程序和工具复制到每个 VM 可能非常耗时。 通过在 VM 上本地装载 Azure 文件共享，开发人员和管理员可以快速访问其工具和实用程序，而无需进行复制。
 
 ## <a name="key-benefits"></a>主要优点
-* **共享访问**。 Azure 文件共享支持行业标准 SMB 协议，这意味着，可以无缝地将本地文件共享替换为 Azure 文件共享，不需担心应用程序兼容性。 对于需要可共享性的应用程序来说，能够跨多个计算机、应用程序/实例共享文件系统是使用 Azure 文件的一项明显优势。 
+* **共享访问**。 Azure 文件共享支持行业标准 SMB 协议，这意味着，你可以无缝地将本地文件共享替换为 Azure 文件共享，不需担心应用程序兼容性。 对于需要可共享性的应用程序来说，能够跨多个计算机、应用程序/实例共享文件系统是使用 Azure 文件的一项明显优势。 
 * **完全托管**。 不需管理硬件或 OS 即可创建 Azure 文件共享。 这意味着，不需使用关键的安全升级程序来修补服务器 OS，也不需更换故障硬盘。
 * **脚本和工具**。 在管理 Azure 应用程序的过程中，可以使用 PowerShell cmdlet 和 Azure CLI 来创建、装载和管理 Azure 文件共享。可以使用 Azure 门户和 Azure 存储资源管理器来创建和管理 Azure 文件共享。 
 * **复原能力**。 Azure 文件是从头开始构建的，我们的目的是确保其始终可用。 将本地文件共享取代为 Azure 文件之后，再也不需要半夜起来处理当地断电或网络问题。 

@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 01/23/2017
 ms.date: 08/28/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 5636b7c3288a5696d8720fa2244fd0ad9dc84a6c
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: a2c7f16bd0a7d8867bc00ade5e52ca80e9f5bdb7
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29870467"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295593"
 ---
 # <a name="creating-an-export-job-for-the-azure-importexport-service"></a>为 Azure 导入/导出服务创建导出作业
 使用 REST API 为 Azure 导入/导出服务创建导出作业的过程包括以下步骤：
@@ -98,5 +98,4 @@ ms.locfileid: "29870467"
 ## <a name="next-steps"></a>后续步骤
 
 * [使用导入/导出服务 REST API](storage-import-export-using-the-rest-api.md)
-
 <!--Update_Description: update link-->

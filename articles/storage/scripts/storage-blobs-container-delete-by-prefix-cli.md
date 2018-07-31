@@ -1,5 +1,5 @@
 ---
-title: Azure CLI 脚本示例 - 根据前缀删除容器 | Microsoft Docs
+title: Azure CLI 脚本示例 - 根据前缀删除容器 | Azure
 description: 根据容器名称前缀删除 Azure 存储 blob 容器。
 services: storage
 documentationcenter: na
@@ -16,12 +16,12 @@ ms.topic: sample
 origin.date: 06/22/2017
 ms.date: 10/23/2017
 ms.author: v-johch
-ms.openlocfilehash: 321c1e0f8cc013580a5215274c8342e7e4cbd864
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: a26d3906fdf7bae0b1ef11f37ebd26307c91ea82
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38940084"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295756"
 ---
 # <a name="delete-containers-based-on-container-name-prefix"></a>根据容器名称前缀删除容器
 
@@ -82,6 +82,6 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.azure.cn/cli/overview)。
+有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.azure.cn/cli/)。
 
 可以在 [Azure 存储的 Azure CLI 示例](../blobs/storage-samples-blobs-cli.md)中找到其他存储 CLI 脚本示例。

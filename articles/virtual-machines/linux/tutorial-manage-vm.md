@@ -14,15 +14,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 03/23/2018
-ms.date: 06/04/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: db6435cb42378cc7b91d76d8ef094e239e2ff8ae
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: ea77561a0bf584ccf783b19a3f9ddb8b2939999b
+ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702780"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39307007"
 ---
 # <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli-20"></a>教程：使用 Azure CLI 2.0 创建和管理 Linux VM
 
@@ -97,7 +97,7 @@ exit
 
 ## <a name="understand-vm-images"></a>了解 VM 映像
 
-Azure 应用商店包括许多可用于创建 VM 的映像。 在之前的步骤中，使用 Ubuntu 映像创建了虚拟机。 在此步骤中，Azure CLI 用于在应用商店中搜索 CentOS 映像，此映像稍后将用于部署第二个虚拟机。 
+Azure 市场包括许多可用于创建 VM 的映像。 在之前的步骤中，使用 Ubuntu 映像创建了虚拟机。 在此步骤中，Azure CLI 用于在市场中搜索 CentOS 映像，此映像稍后用于部署第二个虚拟机。 
 
 若要查看最常用映像的列表，请使用 [az vm image list](https://docs.azure.cn/zh-cn/cli/vm/image?view=azure-cli-latest#az-vm-image-list) 命令。
 
@@ -156,13 +156,14 @@ az vm create --resource-group myResourceGroupVM --name myVM2 --image OpenLogic:C
 
 下表将大小分类成了多个用例。  
 
-<!--PENDING FOR Dv3,Ev3 GA ANOUNCEMENT -->
 | 类型                     | 大小           |    说明       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [常规用途](sizes-general.md)         |Dsv3、Dv3、DSv2、Dv2、DS、D、Av2、A0-7| CPU 与内存之比均衡。 适用于开发/测试、小到中型应用程序和数据解决方案。  |
 | [计算优化](sizes-compute.md)   | Fs, F             | 高 CPU 与内存之比。 适用于中等流量的应用程序、网络设备和批处理。        |
 | [内存优化](../virtual-machines-windows-sizes-memory.md)    | Esv3、Ev3、DSv2、DS、Dv2、D   | 较高的内存核心比。 适用于关系数据库、中到大型缓存和内存中分析。                 |
-<!--PENDING FOR Dv3,Ev3 GA ANOUNCEMENT -->
+<!--PENDING FOR NC series GA ANOUNCEMENT -->
+| [GPU](sizes-gpu.md)          | NV、NC            | 专门针对大量图形绘制和视频编辑的 VM。       |
+<!--PENDING FOR NC series GA ANOUNCEMENT -->
 <!-- Not Available Ls, G, NV, H, A8-11 series-->
 
 ### <a name="find-available-vm-sizes"></a>查找可用的 VM 大小
@@ -330,4 +331,3 @@ az group delete --name myResourceGroupVM --no-wait --yes
 > [创建和管理 VM 磁盘](./tutorial-manage-disks.md)
 
 <!--Update_Description: update meta properties, update links -->
-<!--PENDING FOR Ev3, Dv3 GA ANOUNCEMENT -->

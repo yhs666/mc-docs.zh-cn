@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/11/2018
-ms.date: 06/04/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 2efcf4056bcd811c656957b233efb178408478fb
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 603f45108781612aa209bdd900cbefa9cd050a0a
+ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702693"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39307030"
 ---
 # <a name="troubleshoot-deploying-linux-virtual-machine-issues-in-azure"></a>排查 Azure 中的 Linux 虚拟机部署问题
 
@@ -56,7 +56,25 @@ productPesIds="1234, 5678"
     - 将新 VM 添加到同一虚拟网络。
 
 <!--Not Available on BizSpart, GPU, N-Series VB -->
-## <a name="i-am-not-able-to-see-vm-size-family-that-i-want-when-resizing-my-vm"></a>重设 VM 大小时，看不到所需的 VM 大小系列。
+<!--PENDING FOR NC series GA ANOUNCEMENT -->
+## <a name="why-can-i-not-install-the-gpu-driver-for-an-ubuntu-nv-vm"></a>为什么我无法为 Ubuntu NV VM 安装 GPU 驱动程序？
+
+目前，仅在运行 Ubuntu Server 16.04 LTS 的 Azure NC VM 上提供 Linux GPU 支持。 有关详细信息，请参阅[在运行 Linux 的 N 系列 VM 上安装 GPU 驱动程序](n-series-driver-setup.md)。
+
+## <a name="my-drivers-are-missing-for-my-linux-n-series-vm"></a>我的 Linux N 系列 VM 缺少驱动程序
+
+有关 Linux VM 的驱动程序，请单击[此处](n-series-driver-setup.md)。 
+## <a name="i-cant-find-a-gpu-instance-within-my-n-series-vm"></a>在我的 N 系列 VM 中找不到 GPU 实例
+
+若要利用运行 Windows Server 2016 或 Windows Server 2012 R2 的 Azure N 系列 VM 的 GPU 功能，在部署后必须在每个 VM 上安装 NVIDIA 图形驱动程序。 可获取 [Windows VM](../windows/n-series-driver-setup.md) 和 [Linux VM](n-series-driver-setup.md) 的驱动程序安装信息。
+
+## <a name="is-n-series-vms-available-in-my-region"></a>我所在的区域是否支持 N 系列 VM？
+
+有关可用性，可以参阅[可用产品（按区域）表](https://www.azure.cn/support/service-dashboard/services)；有关定价，可以单击[此处](https://www.azure.cn/pricing/details/virtual-machines/series/#n-series)。
+
+
+<!--PENDING FOR NC series GA ANOUNCEMENT -->
+## <a name="i-am-not-able-to-see-vm-size-family-that-i-want-when-resizing-my-vm"></a>重设 VM 大小时，我看不到所需的 VM 大小系列。
 
 当 VM 正在运行时，将其部署到物理服务器。 Azure 区域中的物理服务器被分在常见物理硬件群集组中。 需要将 VM 移到其他硬件群集才能重设 VM 大小，具体操作因部署 VM 所用部署模型而异。
 

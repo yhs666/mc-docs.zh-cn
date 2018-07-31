@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 01/15/2017
 ms.date: 10/16/2017
 ms.author: v-johch
-ms.openlocfilehash: a4da2eabfc93736440e72bdc86cc7ae04354cb4d
-ms.sourcegitcommit: f0b267c857df661c23ffca51b1f745728f9b66c4
+ms.openlocfilehash: 834bef0973c76584e34ce51844616a6e28651fb7
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2017
-ms.locfileid: "22612501"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295804"
 ---
 # <a name="quick-reference-for-frequently-used-commands-for-import-jobs"></a>导入作业的常用命令快速参考
 本部分提供一些常用命令的快速参考。 有关详细用法，请参阅[为导入作业准备硬盘驱动器](../storage-import-export-tool-preparing-hard-drives-import-v1.md)。  
@@ -47,20 +47,20 @@ WAImportExport.exe PrepImport /j:FirstDrive.jrn /id:movies /logdir:c:\logs /sk:8
 ```  
 WAImportExport.exe PrepImport /j:FirstDrive.jrn /id:movies /logdir:c:\logs /sk:8ImTigJhIwvL9VEIQKB/zbqcXbxrIHbBjLIfOt0tyR98TxtFvUM/7T0KVNR6KRkJrh26u5I8hTxTLM2O1aDVqg== /t:x /format /encrypt /srcdir:d:\Movies /dstdir:entertainment/movies/  
 ```  
-
+  
  第二个命令指定日志文件、新会话 ID、源位置和目标位置：  
-
+  
 ```  
 WAImportExport.exe PrepImport /j:FirstDrive.jrn /id:music /srcdir:d:\Music /dstdir:entertainment/music/  
 ```  
-
+  
 ## <a name="copy-a-large-file-to-a-hard-drive-in-a-second-copy-session"></a>在第二个复制会话中将大型文件复制到硬盘驱动器  
  以下命令将单个大型文件复制到已在上一个复制会话中准备的硬盘驱动器：  
   
 ```  
 WAImportExport.exe PrepImport /j:FirstDrive.jrn /id:dvd /srcfile:d:\dvd\favoritemovie.vhd /dstblob:dvd/favoritemovie.vhd  
 ```  
-
+  
 ## <a name="next-steps"></a>后续步骤
 
 * [为导入作业准备硬盘驱动器的示例工作流](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md)

@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
 origin.date: 06/03/2018
-ms.date: 06/25/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 0b03285f6940fe426e0afb733f016e41d6f1c613
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.openlocfilehash: c31eb6466431b288ba50c3c2bd6b1385c3b4ebb3
+ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315725"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39307248"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>有关 Azure IaaS VM 磁盘以及托管和非托管高级磁盘的常见问题解答
 
@@ -94,15 +94,15 @@ ms.locfileid: "36315725"
 
 可以为托管磁盘生成只读共享访问签名 (SAS) URI，使用它将内容复制到专用存储帐户或本地存储。 可以通过 Azure 门户、Azure PowerShell、Azure CLI 或 [AzCopy](../articles/storage/common/storage-use-azcopy.md) 使用 SAS URI
 
-是否可以创建托管磁盘副本？
+**是否可以创建托管磁盘副本？**
 
 客户可以生成托管磁盘的快照，并使用快照创建另一个托管磁盘。
 
 是否仍支持非托管磁盘？
 
-是的，非托管磁盘和托管磁盘均受支持。 我们建议你对新的工作负荷使用托管磁盘，并将当前的工作负荷迁移到托管磁盘。
+是的，非托管磁盘和托管磁盘均受支持。 建议对新的工作负荷使用托管磁盘，并将当前的工作负荷迁移到托管磁盘。
 
-如果创建 128 GB 磁盘，然后将大小增加到 130 GB，是否会针对下一磁盘大小 (512 GB) 进行收费？
+如果创建 128 GB 磁盘，然后将大小增加到 130 GB，是否会针对下一磁盘大小 (256 GB) 进行收费？
 
 是的。
 
@@ -123,41 +123,14 @@ Azure 托管磁盘当前仅支持本地冗余存储托管磁盘。
 不可以。 无法更新计算机名称属性。 新 VM 从创建操作系统磁盘时所用的父 VM 继承该属性。 
 
 在哪里可找到用于使用托管磁盘创建 VM 的示例 Azure 资源管理器模板？
-* [使用托管磁盘的模板列表](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list)
+* [List of templates using Managed Disks](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list)（使用托管磁盘的模板列表）
 * https://github.com/chagarw/MDPP
 
-## <a name="standard-ssd-disks-preview"></a>标准 SSD 盘（预览）
+是否可以在同一 VM 上归置非托管和托管磁盘？
 
-Azure 标准 SSD 盘是什么？
-标准 SSD 盘是受固态介质支持的标准磁盘，经过优化而作为在较低 IOPS 级别需要一致性能的工作负载的高性价比存储。 在预览期间，标准 SSD 盘已在有限数量的区域内推出，其具有有限的可管理性（通过资源管理器模板提供）。
+否。
 
-<a name="standard-ssds-azure-regions"></a>当前支持标准 SSD 盘（预览）的区域有哪些？
-* 中国北部
-
-如何创建标准 SSD 盘？
-目前可以使用 Azure 资源管理器模板创建标准 SSD 盘。 以下为创建标准 SSD 盘时资源管理器模板中所需的参数：
-
-* Microsoft.Compute 的 apiVersion 必须设置为 `2018-04-01`（或更高）
-* 将 managedDisk.storageAccountType 指定为 `StandardSSD_LRS`
-
-以下示例显示了使用标准 SSD 盘的 VM 的 properties.storageProfile.osDisk 部分：
-
-```json
-"osDisk": {
-    "osType": "Windows",
-    "name": "myOsDisk",
-    "caching": "ReadWrite",
-    "createOption": "FromImage",
-    "managedDisk": {
-        "storageAccountType": "StandardSSD_LRS"
-    }
-}
-```
-
-有关如何使用模板创建标准 SSD 盘的完整模板示例，请参阅[使用标准 SSD 数据磁盘从 Windows 映像创建 VM](https://github.com/azure/azure-quickstart-templates/tree/master/101-vm-with-standardssd-disk/)。
-
-是否可将标准 SSD 用作非托管磁盘？
-不可以，标准 SSD 盘仅可用作托管磁盘。
+<!-- Not Available on ## Standard SSD disks (Preview)-->
 
 ## <a name="migrate-to-managed-disks"></a>迁移到托管磁盘 
 
@@ -210,11 +183,11 @@ Azure 标准 SSD 盘是什么？
 
 存储服务加密是否仅适用于特定区域？
 
-不可以。 它适用于托管磁盘可用的所有区域。 托管磁盘适用于所有公共区域和德国。
+不可以。 它适用于托管磁盘可用的所有区域。 托管磁盘适用于所有公共区域和德国。 这也适用于中国，但仅适用于 21Vianet 托管密钥，不适用于客户托管密钥。
 
 如何确定托管磁盘是否已加密？
 
-可以从 Azure 门户、Azure CLI 和 PowerShell 确定托管磁盘的创建时间。 如果时间是在 2017 年 6 月 9 日之后，则磁盘已加密。 
+可以从 Azure 门户、Azure CLI 和 PowerShell 确定托管磁盘的创建时间。 如果时间是在 2017 年 6 月 9 日之后，则磁盘已加密。
 
 如何对 2017 年 6 月 10 日之前创建的现有磁盘加密？
 
@@ -308,4 +281,3 @@ Azure 支持的最大页 blob 大小是 8 TB (8,191 GB)。 附加到 VM 作为�
 若要提出功能请求，请将请求和想法提交到 [Azure 存储反馈论坛](https://www.azure.cn/support/support-azure/)。
 
 <!--Update_Description: wording update, update link -->
-<!--ms.date: 05/26/2018-->

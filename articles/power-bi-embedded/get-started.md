@@ -16,12 +16,12 @@ ms.workload: powerbi
 origin.date: 01/11/2018
 ms.date: 07/18/2018
 ms.author: v-junlch
-ms.openlocfilehash: 3b01b80283b65f4da51eb7a6706dd4557da825ec
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.openlocfilehash: 47a00fe292da8b399a0968f6db57d9f77e2d0632
+ms.sourcegitcommit: cce18df2de12353f0d8f01c649307a5789d59cd4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168473"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39246144"
 ---
 # <a name="get-started-with-power-bi-embedded"></a>Power BI Embedded 入门
 
@@ -39,7 +39,7 @@ Power BI Embedded 为 ISV 及其开发人员和客户带来优势。 例如，IS
 
 若要在自定义应用程序中进行嵌入，需在 Azure Active Directory (AAD) 中注册应用程序。 注册的应用程序要求租户为 Power BI 租户。 Power BI 租户意味着，组织中至少有一位用户已注册 Power BI。 用户注册 Power BI 后，Power BI API 就会显示在注册的应用程序中。
 
-若要详细了解如何在 AAD 中注册应用程序，请参阅[注册 Azure AD 应用以便嵌入 Power BI 内容](https://powerbi.microsoft.com/documentation/powerbi-developer-register-app/)。
+若要详细了解如何在 AAD 中注册应用程序，请参阅 [Power Bi Embedded 创建问题](https://docs.azure.cn/zh-cn/articles/azure-operations-guide/power-bi-embedded/aog-power-bi-embedded-qa-creation-issue)。
 
 ## <a name="embed-content-in-your-application"></a>在应用程序中嵌入内容
 

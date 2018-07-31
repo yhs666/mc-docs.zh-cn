@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 04/19/2018
-ms.date: 06/04/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 09b1797f0ac4af21d77cd49705700e8cc85c608d
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 0a54a6a025df6f9ac0a56c6a5f67e35e130178b5
+ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702857"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39307001"
 ---
 # <a name="performance-best-practices-for-sql-server-in-azure-virtual-machines"></a>Azure 虚拟机中 SQL Server 的性能最佳实践
 
@@ -40,7 +40,7 @@ ms.locfileid: "34702857"
 
 | 区域 | 优化 |
 | --- | --- |
-| [VM 大小](#vm-size-guidance) |SQL Enterprise 版：[DS3](../sizes-general.md) 或更高。<br/><br/>SQL Standard 和 Web 版：[DS2](../sizes-general.md) 或更高。 |
+| [VM 大小](#vm-size-guidance) |SQL Enterprise 版：[DS3_v2](../sizes-general.md) 或更高。<br/><br/>SQL Standard 和 Web 版：[DS2_v2](../sizes-general.md) 或更高。 |
 | [存储](#storage-guidance) |使用[高级存储](../premium-storage.md)。 仅建议将标准存储用于开发/测试。<br/><br/>将[存储帐户](../../../storage/common/storage-create-storage-account.md)和 SQL Server VM 保存在相同的区域。<br/><br/>在存储帐户上禁用 Azure [异地冗余存储](../../../storage/common/storage-redundancy.md)（异地复制）。 |
 | [磁盘](#disks-guidance) |最少使用 2 个 [P30 磁盘](../premium-storage.md#scalability-and-performance-targets)（1 个用于日志文件，1 个用于数据文件和 TempDB；或者将两个或更多磁盘条带化并将所有文件存储在单个卷中）。<br/><br/>避免使用操作系统或临时磁盘进行数据库存储或日志记录。<br/><br/>在托管数据文件和 TempDB 数据文件的磁盘上启用读取缓存。<br/><br/>不要在托管日志文件的磁盘上启用缓存。<br/><br/>重要说明：更改 Azure VM 磁盘的缓存设置时，请停止 SQL Server 服务。<br/><br/>条带化多个 Azure 数据磁盘，提高 IO 吞吐量。<br/><br/>使用规定的分配大小格式化。 |
 | [I/O](#io-guidance) |启用数据库页面压缩。<br/><br/>对数据文件启用即时文件初始化。<br/><br/>限制数据库自动增长。<br/><br/>禁用数据库自动收缩。<br/><br/>将所有数据库（包括系统数据库）转移到数据磁盘。<br/><br/>将 SQL Server 错误日志和跟踪文件目录移到数据磁盘。<br/><br/>设置默认的备份和数据库文件位置。<br/><br/>启用锁定页面。<br/><br/>应用 SQL Server 性能修复程序。 |
@@ -50,10 +50,15 @@ ms.locfileid: "34702857"
 
 ## <a name="vm-size-guidance"></a>VM 大小指导原则
 
-对于性能敏感型应用程序，建议使用以下[虚拟机大小](../sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)：
+对于性能敏感型应用程序，建议使用以下[虚拟机大小](../sizes.md)：
 
-* **SQL Server Enterprise 版本**：DS3 或更高
-* **SQL Server Standard 和 Web 版本**：DS2 或更高
+* **SQL Server Enterprise 版**：DS3_v2 或更高
+* **SQL Server Standard 和 Web 版**：DS2_v2 或更高
+
+[DSv2 系列](../sizes-general.md#dsv2-series) VM 支持高级存储，高级存储是能提供最佳性能的推荐选择。 这里推荐的大小是基线，实际选择的计算机大小取决于工作负载的需求。 DSv2 系列 VM 是常规用途的 VM，适用于各种工作负载，而其他计算机大小针对特定工作负载类型进行了优化。 [DSv2 系列 11-15](../sizes-memory.md#dsv2-series-11-15) 经过优化，可满足较大的内存需求。 它也在[受约束的核心大小](../../windows/constrained-vcpu.md)中提供，可以降低计算需求，节省工作负荷的成本。 
+<!-- Not Available on the [M-series](../sizes-memory.md#m-series)-->
+<!-- Not Available on [GS-series](../sizes-memory.md#gs-series)-->
+<!-- Not Available on [Ls-series](../sizes-storage.md)-->
 
 ## <a name="storage-guidance"></a>存储指导原则
 

@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
 origin.date: 05/11/2018
-ms.date: 06/04/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: fed74d5b8baf14afd2726743946699cce82fbb2e
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: 86b24ce74f03c71e4df1463b30e03c251ab2f4d8
+ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867670"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39307019"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>准备好要上传到 Azure 的 Windows VHD 或 VHDX
 在将 Windows 虚拟机 (VM) 从本地上传到 Azure 之前，必须准备好虚拟硬盘（VHD 或 VHDX）。 Azure 仅支持采用 VHD 文件格式且具有固定大小磁盘的第 1 代 VM。 VHD 允许的最大大小为 1,023 GB。 可以将第 1 代 VM 从 VHDX 文件系统转换成 VHD 文件系统，以及从动态扩展磁盘转换成固定大小磁盘， 但无法更改 VM 的代次。 有关详细信息，请参阅 [Should I create a generation 1 or 2 VM in Hyper-V?](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)（应该在 Hyper-V 中创建第 1 代还是第 2 代 VM？）。
@@ -369,7 +369,8 @@ Sysprep 是一个可以在 Windows 安装过程中运行的进程，它会重置
 若要详细了解如何从专用磁盘创建 VM，请参阅：
 
 - [从专用磁盘创建 VM](create-vm-specialized.md)
-- [Create a VM from a specialized VHD disk](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd/)（从专用 VHD 磁盘创建 VM）
+- [从专用 VHD 磁盘创建 VM](/virtual-machines/windows/create-vm-specialized-portal)
+<!--Notice: Replace the URL with actual create-vm-specialized-portal file-->
 
 若要创建通用化映像，则需运行 sysprep。 有关 Sysprep 的详细信息，请参阅 [How to Use Sysprep: An Introduction](http://technet.microsoft.com/library/bb457073.aspx)（如何使用 Sysprep：简介）。 
 

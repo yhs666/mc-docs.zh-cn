@@ -1,5 +1,5 @@
 ---
-title: 使用 Java 针对 Azure 文件进行开发 | Microsoft Docs
+title: 使用 Java 针对 Azure 文件进行开发 | Azure
 description: 了解如何开发使用 Azure 文件来存储文件数据的 Java 应用程序和服务。
 services: storage
 documentationcenter: java
@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 09/19/2017
 ms.date: 10/30/2017
 ms.author: v-johch
-ms.openlocfilehash: 81f578fca38042ac11ffbc1856406fe39c1f4517
-ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
+ms.openlocfilehash: e406dc951042106498a9acd6c38b2721502187fd
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103047"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295573"
 ---
 # <a name="develop-for-azure-files-with-java"></a>使用 Java 针对 Azure 文件进行开发
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]

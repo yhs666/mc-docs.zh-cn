@@ -1,5 +1,5 @@
 ---
-title: 如何创建媒体处理器 | Microsoft Docs
+title: 如何使用 REST 获取媒体处理器实例 | Azure
 description: 了解如何创建一个媒体处理器组件来为 Azure 媒体服务编码、转换格式、加密或解密媒体内容。
 services: media-services
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 12/07/2017
 ms.date: 12/25/2017
 ms.author: v-nany
-ms.openlocfilehash: 4d3aac20d50534319810ab6dee5ee56285716e79
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 40686ce71b7560c0bae724bfb3426239a386ecc1
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475392"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219660"
 ---
 # <a name="how-to-get-a-media-processor-instance"></a>如何获取媒体处理器实例
 > [!div class="op_single_selector"]
@@ -53,37 +53,34 @@ ms.locfileid: "34475392"
 
 请求：
 
-```
-GET https://wamsshaclus001rest-hs.chinacloudapp.cn/api/MediaProcessors()?$filter=Name%20eq%20'Media%20Encoder%20Standard' HTTP/1.1
-DataServiceVersion: 1.0;NetFx
-MaxDataServiceVersion: 3.0;NetFx
-Accept: application/json
-Accept-Charset: UTF-8
-User-Agent: Microsoft ADO.NET Data Services
-Authorization: Bearer <token>
-x-ms-version: 2.17
-Host: wamsshaclus001rest-hs.chinacloudapp.cn
-```
+    GET https://media.chinacloudapi.cn/api/MediaProcessors()?$filter=Name%20eq%20'Media%20Encoder%20Standard' HTTP/1.1
+    DataServiceVersion: 1.0;NetFx
+    MaxDataServiceVersion: 3.0;NetFx
+    Accept: application/json
+    Accept-Charset: UTF-8
+    User-Agent: Microsoft ADO.NET Data Services
+    Authorization: Bearer <token>
+    x-ms-version: 2.17
+    Host: media.chinacloudapi.cn
 
 响应：
 
-```
-. . .
+    . . .
 
-{  
-   "odata.metadata":"https://wamsshaclus001rest-hs.chinacloudapp.cn/api/$metadata#MediaProcessors",
-   "value":[  
-      {  
-         "Id":"nb:mpid:UUID:ff4df607-d419-42f0-bc17-a481b1331e56",
-         "Description":"Media Encoder Standard",
-         "Name":"Media Encoder Standard",
-         "Sku":"",
-         "Vendor":"Microsoft",
-         "Version":"1.1"
-      }
-   ]
-}
-```
+    {  
+       "odata.metadata":"https://media.chinacloudapi.cn/api/$metadata#MediaProcessors",
+       "value":[  
+          {  
+             "Id":"nb:mpid:UUID:ff4df607-d419-42f0-bc17-a481b1331e56",
+             "Description":"Media Encoder Standard",
+             "Name":"Media Encoder Standard",
+             "Sku":"",
+             "Vendor":"Microsoft",
+             "Version":"1.1"
+          }
+       ]
+    }
+
 
 ## <a name="next-steps"></a>后续步骤
 了解如何获取媒体处理器实例后，请转到[如何对资产进行编码](media-services-rest-get-started.md)主题，其中说明了如何使用 Media Encoder Standard 对资产进行编码。

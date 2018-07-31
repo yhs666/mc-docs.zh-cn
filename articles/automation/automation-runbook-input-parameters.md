@@ -11,12 +11,12 @@ ms.topic: article
 origin.date: 03/16/2018
 ms.date: 07/23/2018
 ms.author: v-dazen
-ms.openlocfilehash: 75b41044ea30b5de89ffa6267cdc784f76400e67
-ms.sourcegitcommit: 53972dcdef77da92529996667545d2e83716f7e2
+ms.openlocfilehash: 928e20ebed85c1417ba5030dfc5921cb91def7f2
+ms.sourcegitcommit: 74f9f0acb00fb728ff6e9bd67ac86a0c1bcd8d13
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39143417"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39218920"
 ---
 # <a name="runbook-input-parameters"></a>Runbook 输入参数
 
@@ -143,7 +143,7 @@ Runbook 有多种启动方式：通过 Azure 门户、Webhook、PowerShell cmdle
 在输入框下面的标签中，可以查看为参数设置的属性。 属性包括必需或可选属性、类型和默认值。 在参数名称旁边的帮助气球中，可以查看做出参数输入值相关决策时所需的所有关键信息。 此信息包括参数是必需还是可选的。 此外还包括类型和默认值（如果有）及其他有用的说明。
 
 > [!NOTE]
-> 字符串类型参数支持 **空** 字符串值。  在输入参数框中输入 **[EmptyString]** 将向参数传递空字符串。 另外，字符串类型参数不支持传递 **Null** 值。 如果未向字符串参数传递任何值，PowerShell 会将值解释为 NULL。
+> 字符串类型参数支持 **空** 字符串值。  在输入参数框中输入 **[EmptyString]** 将向参数传递空字符串。 另外，字符串类型参数不支持传递 **Null** 值。 如果未向字符串参数传递任何值，PowerShell 会将其解释为 NULL。
 > 
 > 
 
@@ -154,18 +154,18 @@ Runbook 有多种启动方式：通过 Azure 门户、Webhook、PowerShell cmdle
   **示例：**
   
   ```
-  $params = @{�VMName�=�WSVMClassic�;�resourceGroupeName�=�WSVMClassicSG�}
+  $params = @{"VMName"="WSVMClassic";"resourceGroupeName"="WSVMClassicSG"}
   
-  Start-AzureRmAutomationRunbook -AutomationAccountName �TestAutomation� -Name �Get-AzureVMGraphical� �ResourceGroupName $resourceGroupName -Parameters $params
+  Start-AzureRmAutomationRunbook -AutomationAccountName "TestAutomation" -Name "Get-AzureVMGraphical" –ResourceGroupName $resourceGroupName -Parameters $params
   ```
 * **Azure 经典部署模型 cmdlet**：可以使用 [Start-AzureAutomationRunbook](https://msdn.microsoft.com/library/dn690259.aspx) 启动在默认资源组中创建的自动化 Runbook。
   
   **示例：**
   
   ```
-  $params = @{�VMName�=�WSVMClassic�; �ServiceName�=�WSVMClassicSG�}
+  $params = @{"VMName"="WSVMClassic"; "ServiceName"="WSVMClassicSG"}
   
-  Start-AzureAutomationRunbook -AutomationAccountName �TestAutomation� -Name �Get-AzureVMGraphical� -Parameters $params
+  Start-AzureAutomationRunbook -AutomationAccountName "TestAutomation" -Name "Get-AzureVMGraphical" -Parameters $params
   ```
 
 > [!NOTE]
@@ -224,7 +224,7 @@ Runbook 有多种启动方式：通过 Azure 门户、Webhook、PowerShell cmdle
   RunbookParameters.Add("resourceGroupName", "WSSC1");
   
   //Call the StartRunbook method with parameters
-  StartRunbook(�Get-AzureVMGraphical�, RunbookParameters);
+  StartRunbook("Get-AzureVMGraphical", RunbookParameters);
   ```
 
 #### <a name="start-a-runbook-by-using-the-rest-api-and-assign-parameters"></a>使用 REST API 启动 Runbook 并分配参数
@@ -253,7 +253,7 @@ Runbook 有多种启动方式：通过 Azure 门户、Webhook、PowerShell cmdle
         "name":"Get-AzureVMTextual"},
       "parameters":{
          "VMName":"WSVMClassic",
-         "resourceGroupName":�WSCS1�}
+         "resourceGroupName":"WSCS1"}
         }
     }
    ```

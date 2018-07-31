@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 06/05/2018
-ms.date: 06/25/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 49146f0913485a026d9082b80a25f4728b5a427b
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.openlocfilehash: b27d3dff66557ab3964f483c491053d664bf1e61
+ms.sourcegitcommit: 35889b4f3ae51464392478a72b172d8910dd2c37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315681"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39261946"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>使用 REST API 创建使用 SSH 身份验证的 Linux 虚拟机
 
@@ -148,5 +148,5 @@ PUT https://management.chinacloudapi.cn/subscriptions/{subscription-id}/resource
 - [Azure REST API 入门](https://docs.microsoft.com/rest/api/azure/)
 - [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest)
 - [Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/overview)
-<!-- Update_Description: new articles on virtual machine linux to create vm rest api -->
-<!--ms.date: 06/25/2018-->
+<!-- Update_Description: update meta properties -->
+

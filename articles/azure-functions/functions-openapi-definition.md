@@ -4,7 +4,7 @@ description: 创建一个 OpenAPI 定义，使其他应用和服务可以在 Azu
 services: functions
 keywords: OpenAPI, Swagger, 云服务, 云应用,
 documentationcenter: ''
-author: mgblythe
+author: ggailey777
 manager: cfowler
 editor: ''
 ms.assetid: ''
@@ -14,15 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 12/15/2017
-ms.date: 04/18/2018
+ms.date: 07/23/2018
 ms.author: v-junlch
+ms.reviewer: sunayv
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 47ec4b4474b1079a4bf1a7d06a641144bb56b444
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 157b05e848b11fb731d0cee2d69876f97306351c
+ms.sourcegitcommit: ba07d76f8394b5dad782fd983718a8ba49a9deb2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939474"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39220200"
 ---
 # <a name="create-an-openapi-definition-for-a-function"></a>为函数创建 OpenAPI 定义
 通常使用 OpenAPI 定义（以前称为 [Swagger](http://swagger.io/) 文件）描述 REST API。 此定义中包含的信息涉及 API 中哪些操作可用，以及 API 的请求和响应数据应采用怎样的结构。
@@ -253,7 +254,7 @@ securityDefinitions:
 
 + 为 API 及其操作和参数提供友好的摘要和描述。 这对将要使用此函数的用户很重要。
 
-+ 添加在 Microsoft Flow 和逻辑应用的 UI 中使用的 x-ms-summary 和 x-ms-visibility。 有关详细信息，请参阅 [Microsoft Flow 中适用于自定义 API 的 OpenAPI 扩展](https://preview.flow.microsoft.com/documentation/customapi-how-to-swagger/)。
++ 添加的在 Microsoft Flow 的 UI 中使用的 x-ms-summary 和 x-ms-visibility。 有关详细信息，请参阅 [Microsoft Flow 中适用于自定义 API 的 OpenAPI 扩展](https://preview.flow.microsoft.com/documentation/customapi-how-to-swagger/)。
 
 > [!NOTE]
 > 我们将安全性定义保留为默认身份验证方法，即 API 密钥。 如果使用不同的身份验证类型，可以更改此定义部分。

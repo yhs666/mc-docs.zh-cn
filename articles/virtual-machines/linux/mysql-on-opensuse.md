@@ -13,15 +13,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-origin.date: 01/22/2018
-ms.date: 03/19/2018
+origin.date: 07/11/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 14756881d49df1fad8a2030296ec40f1ff9ebdff
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: f2ce50a82acfb56c72c73d01621d986b65d9601f
+ms.sourcegitcommit: 35889b4f3ae51464392478a72b172d8910dd2c37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
-ms.locfileid: "29965537"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39261897"
 ---
 # <a name="install-mysql-on-a-virtual-machine-running-opensuse-linux-in-azure"></a>在 Azure 中运行 OpenSUSE Linux 的虚拟机上安装 MySQL
 
@@ -33,22 +33,21 @@ ms.locfileid: "29965537"
 
 ## <a name="create-a-virtual-machine-running-opensuse-linux"></a>创建运行 OpenSUSE Linux 的虚拟机
 
-首先创建一个资源组。 在此示例中，我们将该资源组命名为 *mySQSUSEResourceGroup*，并在*中国东部*区域中创建它。
+首先创建一个资源组。 在此示例中，资源组名为 *mySQSUSEResourceGroup*，并在“中国东部”区域创建。
 
 ```azurecli
 az group create --name mySQLSUSEResourceGroup --location chinaeast
 ```
 
-创建 VM。 在此示例中，我们将该 VM 命名为 *myVM*。 我们还将使用 VM 大小 *Standard_D2s_v3*，但应选择你认为最适合你的工作负荷的 [VM 大小](sizes.md)。
+创建 VM。 在此示例中，VM 名为 *myVM*，VM 大小为 *Standard_D2s_v3*，但应选择你认为最适合你的工作负荷的 [VM 大小](sizes.md)。
 
 ```azurecli
 az vm create --resource-group mySQLSUSEResourceGroup \
    --name myVM \
-   --image SUSE:openSUSE-Leap:42.3:2018.01.15 \
+   --image openSUSE-Leap \
    --size Standard_D2s_v3 \
    --generate-ssh-keys
 ```
-<!-- Notice: the image MUSR be urn item of image object -->
 
 还需要向网络安全组添加一条规则以允许流量通过 MySQL 的端口 3306。
 
@@ -95,15 +94,27 @@ systemctl is-enabled mysql
 
 这应返回：已启用。
 
+重新启动服务器。
+
+```bash
+sudo reboot
+```
+
 ## <a name="mysql-password"></a>MySQL 密码
 
-在安装后，MySQL 根密码默认为空。 运行 **mysql\_secure\_installation** 脚本来保护 MySQL。 该脚本会提示用户更改 MySQL 根密码、删除匿名用户帐户、禁用远程根登录、删除测试数据库以及重载权限表。 
+在安装后，MySQL 根密码默认为空。 运行 **mysql\_secure\_installation** 脚本来保护 MySQL。 该脚本会提示更改 MySQL 根密码、删除匿名用户帐户、禁用远程根登录、删除测试数据库以及重新加载特权表。 
+
+服务器重新启动后，重新通过 ssh 连接到 VM。
+
+```azurecli  
+ssh 10.111.112.113
+```
 
 ```bash
 mysql_secure_installation
 ```
 
-## <a name="log-in-to-mysql"></a>登录到 MySQL
+## <a name="sign-in-to-mysql"></a>登录到 MySQL
 
 现在，可以登录并输入 MySQL 提示符。
 
@@ -131,7 +142,7 @@ GRANT ALL ON testdatabase.* TO 'mysqluser'@'localhost' IDENTIFIED BY 'password';
 
 数据库用户名和密码仅由连接到数据库的脚本使用。  数据库用户帐户名称不一定表示系统上的实际用户帐户。
 
-允许从另一台计算机登录。 在此示例中，要从其登录的计算机的 IP 地址是 *10.112.113.114*。
+允许从另一台计算机登录。 在此示例中，允许从其登录的计算机的 IP 地址是 *10.112.113.114*。
 
 ```   
 GRANT ALL ON testdatabase.* TO 'mysqluser'@'10.112.113.114' IDENTIFIED BY 'password';
@@ -145,5 +156,4 @@ quit
 
 ## <a name="next-steps"></a>后续步骤
 有关 MySQL 的详细信息，请参阅 [MySQL 文档](http://dev.mysql.com/doc/index-topic.html)。
-<!-- Update_Description: new articles on install mysql in opensuse VM -->
-<!--ms.date: 03/19/2018-->
+<!-- Update_Description: update meta properties -->

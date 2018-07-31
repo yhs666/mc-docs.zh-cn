@@ -11,12 +11,12 @@ ms.topic: overview
 ms.reviewer: ''
 origin.date: 05/31/2018
 ms.date: 07/18/2018
-ms.openlocfilehash: f7e3f283fd6ea136a7cd82e98cd8422dfc32f402
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.openlocfilehash: 77ae088696342a8187d1f9b7e4c7de9ca4d52370
+ms.sourcegitcommit: cce18df2de12353f0d8f01c649307a5789d59cd4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168442"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39246126"
 ---
 # <a name="create-power-bi-embedded-capacity-in-the-azure-portal"></a>在 Azure 门户中创建 Power BI Embedded 容量
 
@@ -65,6 +65,9 @@ ms.locfileid: "39168442"
 ## <a name="next-steps"></a>后续步骤
 
 若要使用新的 Power BI Embedded 容量，请浏览到 Power BI 管理门户来分配工作区。 有关详细信息，请参阅[管理 Power BI Premium 和 Power BI Embedded 中的容量](https://powerbi.microsoft.com/documentation/powerbi-admin-premium-manage/)。
+
+> [!NOTE]
+> Premium 容量在 Power BI China 尚不完全可用。
 
 如果不需要使用此容量，可将其暂停以停止计费。 有关详细信息，请参阅[在 Azure 门户中暂停和启动 Power BI Embedded 容量](pause-start.md)。
 

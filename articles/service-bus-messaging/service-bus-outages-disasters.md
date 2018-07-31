@@ -12,18 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 06/05/2018
+origin.date: 06/14/2018
 ms.author: v-yiso
-ms.date: 07/16/2018
-ms.openlocfilehash: d65ec871d7c02b611ea661ee6a1b3888d546f196
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.date: 08/06/2018
+ms.openlocfilehash: f55ac0cdc36e8a7d95b9556da1faf903d4fb3728
+ms.sourcegitcommit: d4092cf6aba0d949bf612093c76f964c2bdfd0ba
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873663"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39306579"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>使应用程序免受服务总线中断和灾难影响的最佳实践
-任务关键型应用程序必须连续运行，即使是在计划外中断或灾难发生时。 本主题介绍可用于保护服务总线应用程序免受潜在的服务中断和灾难影响的技术。
+
+任务关键型应用程序必须连续运行，即使是在计划外中断或灾难发生时。 本文介绍可用于保护服务总线应用程序免受潜在的服务中断和灾难影响的技术。
 
 中断定义为 Azure 服务总线暂时不可用。 中断会影响服务总线的一些组件，例如消息存储空间，甚至整个数据中心。 问题解决后，服务总线恢复可用。 通常情况下，中断不会导致消息或其他数据丢失。 组件故障的一个示例是特定的消息存储空间不可用。 数据中心范围中断的示例有数据中心电源故障或数据中心网络交换机故障。 中断可能会持续几分钟到几天的时间。
 
@@ -86,7 +87,7 @@ ms.locfileid: "37873663"
 若要了解有关灾难恢复的详细信息，请参阅这些文章：
 
 - [Azure SQL 数据库业务连续性][Azure SQL Database Business Continuity]
-- [设计适用于 Azure 的弹性应用程序][Azure resiliency technical guidance]
+- [设计适用于 Azure 的可复原应用程序][Azure 复原技术指南]
 
   [Service Bus Authentication]: ./service-bus-authentication-and-authorization.md
   [Partitioned messaging entities]: ./service-bus-partitioning.md
@@ -95,4 +96,3 @@ ms.locfileid: "37873663"
 [BrokeredMessage.Label]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label
 [Geo-replication with Service Bus Brokered Messages]: https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoReplication
   [Azure SQL Database Business Continuity]: ../sql-database/sql-database-business-continuity.md
-  [Azure resiliency technical guidance]: ../resiliency/resiliency-technical-guidance.md

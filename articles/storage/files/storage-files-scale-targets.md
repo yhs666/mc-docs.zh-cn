@@ -1,5 +1,5 @@
 ---
-title: Azure 文件可伸缩性和性能目标 | Microsoft Docs
+title: Azure 文件可伸缩性和性能目标 | Azure
 description: 了解 Azure 文件的可伸缩性和性能目标信息，包括容量、请求速率以及入站和出站带宽限制。
 services: storage
 documentationcenter: na
@@ -14,15 +14,16 @@ ms.workload: storage
 origin.date: 12/04/2017
 ms.date: 12/04/2017
 ms.author: v-nany
-ms.openlocfilehash: 2d54969d248eddcbb529424083d5285d17d562b1
-ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
+ms.openlocfilehash: d24ab1ab43567aff7992a9374820d5eb1ff00408
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
-ms.locfileid: "27548285"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295847"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Azure 文件可伸缩性和性能目标
-[Azure 文件](storage-files-introduction.md)在云中提供完全托管的文件共享，这些共享项可通过行业标准 SMB 协议进行访问。 本文讨论了 Azure 文件的可伸缩性和性能目标。
+
+  [Azure 文件](storage-files-introduction.md)在云中提供完全托管的文件共享，这些共享项可通过行业标准 SMB 协议进行访问。 本文讨论了 Azure 文件的可伸缩性和性能目标。
 
 此处列出的可伸缩性和性能目标是高端目标，但可能会受部署中的其他变量影响。 例如，除了受限于托管着 Azure 文件服务的服务器之外，针对文件的吞吐量还可能会受限于可变的网络带宽。 强烈建议你对使用模式进行测试，以确定 Azure 文件的可伸缩性和性能是否满足你的要求。 随着时间的推移，我们也一直在努力提高这些限制。 
 

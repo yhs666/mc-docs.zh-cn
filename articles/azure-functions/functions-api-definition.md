@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 origin.date: 03/23/2017
-ms.date: 04/13/2018
+ms.date: 07/23/2018
 ms.author: v-junlch
-ms.openlocfilehash: 79ccc5dd72784ddb2085bfffe1a53eb3a17a2795
-ms.sourcegitcommit: f97c9253d16fac8be0266c9473c730ebd528e542
+ms.openlocfilehash: 455774657fbfcb87d15124c7ebf0a85e9a65f505
+ms.sourcegitcommit: ba07d76f8394b5dad782fd983718a8ba49a9deb2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39220256"
 ---
 # <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Azure Functions 中的 OpenAPI 2.0 元数据支持（预览版）
 Azure Functions 中的 OpenAPI 2.0（以前称为 Swagger）元数据支持一项预览版功能，可用于在 Function App 中编写 OpenAPI 2.0 定义。 随后可使用 Function App 托管该文件。
@@ -28,18 +29,17 @@ Azure Functions 中的 OpenAPI 2.0（以前称为 Swagger）元数据支持一�
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
->[!TIP]
->建议先从[入门教程](./functions-api-definition-getting-started.md)开始，然后返回到本文档，了解有关特定功能的详细信息。
 
 ## <a name="enable"></a>启用 OpenAPI 定义支持
 可在函数应用的“平台功能”的“API 定义”页中配置所有 OpenAPI 设置。
+
+> [!NOTE]
+> beta 版本运行时当前不支持函数 API 定义功能。
 
 要生成托管的 OpenAPI 定义和快速入门定义，请将“API 定义源”设置为“函数(预览版)”。 外部 URL 允许函数使用托管在其他位置的 OpenAPI 定义。
 
 ## <a name="generate-definition"></a>通过函数元数据生成 Swagger 框架
 模板可帮助你开始编写第一个 OpenAPI 定义。 定义模板功能通过使用 function.json 文件中的所有元数据，为每个 HTTP 触发器函数创建稀疏的 OpenAPI 定义。 将需要按 [OpenAPI 规范](http://swagger.io/specification/)填写 API 详细信息，如请求和响应模板。
-
-有关分步说明，请参阅[入门教程](./functions-api-definition-getting-started.md)。
 
 ### <a name="templates"></a>可用模板
 
@@ -59,11 +59,6 @@ Azure Functions 中的 OpenAPI 2.0（以前称为 Swagger）元数据支持一�
 |[安全性](http://swagger.io/specification/#security-scheme-object-112)|密钥|*不存在*|
 |operationID*|路由 + 允许的动作|路由 + 允许的动作|
 
-\*仅与 PowerApps 和 Flow 集成才需要操作 ID。
-> [!NOTE]
-> x-ms-summary 扩展名在逻辑应用、PowerApps 和 Flow 中提供显示名称。
->
-> 有关详细信息，请参阅[自定义 PowerApps 的 Swagger 定义](https://powerapps.microsoft.com/tutorials/customapi-how-to-swagger/)。
 
 ## <a name="CICD"></a>使用 CI/CD 设置 API 定义
 
@@ -79,7 +74,7 @@ Azure Functions 中的 OpenAPI 2.0（以前称为 Swagger）元数据支持一�
 现在，存储库中对 swagger.json 的更改就由 Function App 通过步骤 1.c 中记录的 API 定义 URL 和密码进行托管。
 
 ## <a name="next-steps"></a>后续步骤
-- [入门教程](functions-api-definition-getting-started.md)。 请尝试一下演练，查看运行中的 OpenAPI 定义。
 - [Azure Functions GitHub 存储库](https://github.com/Azure/Azure-Functions/)。 查看 Functions 存储库，针对 API 定义支持预览提供反馈。 为要更新的任何内容制作一个 GitHub 发布。
 - [Azure Functions 开发人员参考](functions-reference.md)。 了解如何编码函数以及如何定义触发器和绑定。
 
+<!-- Update_Description: wording update -->

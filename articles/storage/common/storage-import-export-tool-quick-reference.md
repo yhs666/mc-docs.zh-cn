@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 01/15/2017
 ms.date: 08/28/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 20f4a259c9dd24a2cdcfe0e6ed2070105aa37967
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.openlocfilehash: fffac642ec1a12e89080bfd4ad8199e07381dc5f
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
-ms.locfileid: "21134981"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295683"
 ---
 # <a name="quick-reference-for-frequently-used-commands-for-import-jobs"></a>导入作业的常用命令快速参考
 
@@ -59,5 +59,4 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#3 /AdditionalDriveS
 ## <a name="next-steps"></a>后续步骤
 
 * [为导入作业准备硬盘驱动器的示例工作流](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow.md)
-
 <!--Update_Description: update link-->

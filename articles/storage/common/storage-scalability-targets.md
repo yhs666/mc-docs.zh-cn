@@ -15,12 +15,12 @@ ms.workload: storage
 origin.date: 10/24/2017
 ms.date: 12/04/2017
 ms.author: v-nany
-ms.openlocfilehash: f513b4088d8aa6d204ed929720498757d133cba1
-ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
+ms.openlocfilehash: c802fa11020feef665e6327a7f9509a964bb8fc0
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103023"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295779"
 ---
 # <a name="azure-storage-scalability-and-performance-targets"></a>Azure 存储可伸缩性和性能目标
 ## <a name="overview"></a>概述
@@ -48,6 +48,7 @@ ms.locfileid: "37103023"
 [!INCLUDE [storage-blob-scale-targets](../../../includes/storage-blob-scale-targets.md)]
 
 ## <a name="azure-files-scale-targets"></a>Azure 文件规模目标
+有关 Azure 文件缩放和性能目标的详细信息，请参阅 [Azure 文件可伸缩性和性能目标](../files/storage-files-scale-targets.md)。
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 

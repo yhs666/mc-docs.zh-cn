@@ -1,5 +1,5 @@
 ---
-title: 模拟在 Azure 中访问读取访问冗余存储时出现的故障 | Microsoft Docs
+title: 模拟在 Azure 中访问读取访问冗余存储时出现的故障 | Azure
 description: 模拟在访问读取访问异地冗余存储时出现的错误
 services: storage
 documentationcenter: ''
@@ -13,12 +13,12 @@ origin.date: 12/23/2017
 ms.date: 06/11/2018
 ms.author: v-johch
 ms.custom: mvc
-ms.openlocfilehash: 9099b54cdd5cba3e1e842d1cf09f9bc1612053b5
-ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
+ms.openlocfilehash: e61d5c2d9814d7ceced596c86bb0c6e31bc1393e
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37800352"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295611"
 ---
 # <a name="simulate-a-failure-in-accessing-read-access-redundant-storage"></a>模拟在访问读取访问冗余存储时出现的故障
 
@@ -151,7 +151,7 @@ nslookup STORAGEACCOUNTNAME.blob.core.chinacloudapi.cn
  
 将 `<destination_ip>` 替换为存储帐户 IP 地址，将 `<gateway_ip>` 替换为本地主机 IP 地址。 若要恢复应用程序，请按任意键。
 
-应用程序重新开始运行以后，对主终结点的请求就会失败。 应用程序尝试重新连接到主终结点 5 次。 达到故障阈值（五次尝试）以后，就会从处于只读状态的辅助终结点请求图像。 成功地从辅助终结点检索图像 20 次以后，应用程序就会尝试连接到主终结点。 如果仍无法访问主终结点，应用程序会继续从辅助终结点读取数据。 此模式为[断路器](https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker)模式，在前一教程中已介绍过。
+应用程序重新开始运行以后，对主终结点的请求就会失败。 应用程序尝试重新连接到主终结点 5 次。 达到故障阈值（五次尝试）以后，就会从处于只读状态的辅助终结点请求图像。 成功地从辅助终结点检索图像 20 次以后，应用程序就会尝试连接到主终结点。 如果仍无法访问主终结点，应用程序会继续从辅助终结点读取数据。
 
 ### <a name="simulate-primary-endpoint-restoration"></a>模拟主终结点还原
 
@@ -183,9 +183,9 @@ route delete <destination_ip>
 > * 使用 [fiddler](#simulate-a-failure-with-fiddler) 或[无效的静态路由](#simulate-a-failure-with-an-invalid-static-route)模拟失败 
 > * 模拟主终结点还原
 
-请访问以下链接，查看预先生成的存储示例。
+阅读以下文章，详细了解 RA-GRS 存储的工作原理（以及相关风险）。
 
 > [!div class="nextstepaction"]
-> [Azure 存储脚本示例](storage-samples-blobs-cli.md)
+> [使用 RA-GRS 设计 HA 应用](../common/storage-designing-ha-apps-with-ragrs.md)
 
 [previous-tutorial]: storage-create-geo-redundant-storage.md

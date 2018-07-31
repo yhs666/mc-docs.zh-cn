@@ -5,30 +5,30 @@ services: virtual-machines
 author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
-origin.date: 05/22/2018
-ms.date: 06/25/2018
+origin.date: 07/06/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: d81bff698002e770aed9c38fffb16f6ef081b12b
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.openlocfilehash: b014d6b78ff877bc1fe512e64c6e58931113c6de
+ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315672"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39307072"
 ---
-<!-- A-series, Av2-series, D-series, Dv2-series, DS-series*, DSv2-series* -->
 <!-- NOTICE: 最大 NIC 数/预期网络带宽 (Mbps) SHOULD BE (Mbps) --> 常规用途 VM 大小提供均衡的 CPU 与内存之比。 适用于测试和开发、小到中型数据库和低到中等流量 Web 服务器。 本文介绍了此分组中各个大小的 vCPU 数、数据磁盘数、NIC 数和存储吞吐量。 
 
 - Av2 系列 VM 可以部署在各种不同的硬件类型和处理器上。 根据硬件限制大小，为运行中的实例提供一致的处理器性能，不论硬件部署的位置。 若要判断此大小部署所在的物理硬件，请从虚拟机中查询虚拟硬件。
 
-<!--PENDIND ON Dv3-series, Updte carefully -->
 - Dv2 系列是原 D 系列的后续系列，其特点是 CPU 功能更强大。 Dv2 系列 CPU 比 D 系列 CPU 快大约 35%。 它基于最新一代的 2.4 GHz Intel Xeon® E5-2673 v3 2.4 GHz (Haswell) 或 E5-2673 v4 2.3 GHz (Broadwell) 处理器，通过英特尔睿频加速技术 2.0 可以达到 3.1 GHz。 Dv2 系列的内存和磁盘配置与 D 系列相同。
 
 - Dv3 系列采用的处理器与 Dv2 系列相同，但在超线程配置中，Dv3 系列针对最常规用途的工作负荷提供了更好的价值主张，并且使 Dv3 更适用于大多数其他云的常规用途 VM。  在磁盘和网络限制已基于核心进行了调整以适应超线程技术的同时，内存已扩展（从 ~3.5 GiB/vCPU 到 4 GiB/vCPU）。  Dv3 不再有 D/Dv2 系列的高内存 VM 大小，那些已成为新的 EV3 系列。
-<!--PENDIND ON Dv3-series, Updte carefully -->
 
-<!--PENDIND ON B-series, Updte carefully -->
 ## <a name="b-series"></a>B 系列
+
+高级存储：支持
+
+高级存储缓存：不支持
 
 对于并非持续需要 CPU 完全性能的工作负荷（如 Web 服务器、小型数据库以及开发和测试环境）而言，B 系列可突增 VM 十分理想。 这些工作负荷通常具有可突增的性能要求。 B 系列使这些客户能够购买具有高性价比基线性能的 VM 大小，允许 VM 实例在 VM 使用的性能小于其基线性能时积累积分。 如果 VM 已累积了积分，则 VM 可以在应用程序需要更高的 CPU 性能时突增到 VM 的基线之上，使用最多达到 100% 的 vCPU。
 
@@ -41,13 +41,14 @@ ms.locfileid: "36315672"
 64            | 4                                      | 2400 / 22.5                               | 1920 / 22.5                               | 3  |
 | Standard_B4ms | 4           | 16             | 32                         | 90%                   | 54                 | 1296           | 8                                      | 3600 / 35                                 | 2880 / 35                                 | 4  |
 | Standard_B8ms | 8           | 32             | 64                         | 135%                  | 81                 | 1944           | 16                                     | 4320 / 50                                 | 4320 / 50                                 | 4  |
-<!--PENDIND ON B-series, Updte carefully -->
-
-<!--PENDING ON Dsv3-series, Updte carefully -->
 
 ## <a name="dsv3-series-sup1sup"></a>Dsv3 系列 <sup>1</sup>
 
 ACU：160-190
+
+高级存储：支持
+
+高级存储缓存：支持
 
 Dsv3 系列大小基于 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) 处理器或最新 2.3 GHz Intel XEON ® E5-2673 v4 (Broadwell) 处理器，可通过 Intel Turbo Boost Technology 2.0 达到 3.5 GHz，并使用高级存储。 Dsv3 系列大小为大多数生产工作负荷提供 vCPU、内存和临时存储组合。
 
@@ -62,12 +63,13 @@ Dsv3 系列大小基于 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) 处理器或�
 
 <sup>1</sup> Dsv3 系列 VM 的 Intel® 超线程技术功能
 
-<!--PENDING ON Dsv3-series, Updte carefully -->
-
-<!--PENDIND ON DV3-series, Updte carefully -->
 ## <a name="dv3-series-sup1sup"></a>Dv3 系列 <sup>1</sup>
 
 ACU：160-190
+
+高级存储：不支持
+
+高级存储缓存：不支持
 
 Dv3 系列大小基于 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) 处理器或 2.3 GHz Intel XEON ® E5-2673 v4 (Broadwell) 处理器，可通过 Intel Turbo Boost Technology 2.0 达到 3.5 GHz。 Dv3 系列大小为大多数生产工作负荷提供 vCPU、内存和临时存储组合。
 
@@ -82,11 +84,15 @@ Dv3 系列大小基于 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) 处理器或 2.
 | Standard_D32_v3 | 32        | 128          | 800            | 32             | 48000/750/375                                            | 8 / 16,000                             |
 | Standard_D64_v3 | 64        | 256          | 1600            | 32             | 96000/1000/500                                            | 8 / 30,000                             |
 
-<sup>1</sup> Dv3 系列 VM 的 Intel® 超线程技术功能 <!--PENDIND ON DV3-series, Updte carefully -->
+<sup>1</sup> Dv3 系列 VM 的 Intel® 超线程技术功能
 
 ## <a name="dsv2-series"></a>DSv2 系列
 
 ACU：210-250
+
+高级存储：支持
+
+高级存储缓存：支持
 
 | 大小 | vCPU | 内存：GiB | 临时存储 (SSD) GiB | 最大数据磁盘数 | 缓存和临时存储的最大吞吐量：IOPS/MBps（以 GiB 为单位的缓存大小） | 非缓存磁盘最大吞吐量：IOPS / MBps | 最大 NIC 数/预期网络带宽 (MBps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -101,6 +107,10 @@ ACU：210-250
 
 ACU：210-250
 
+高级存储：不支持
+
+高级存储缓存：不支持
+
 | 大小           | vCPU | 内存：GiB | 临时存储 (SSD) GiB | 临时存储的最大吞吐量：IOPS/读取 MBps/写入 MBps | 最大数据磁盘数 | 吞吐量：IOPS | 最大 NIC 数/预期网络带宽 (MBps) |
 |----------------|------|-------------|------------------------|------------------------------------------------------------|----------------|------------------|----------------------------------------------|
 | Standard_D1_v2 | 1    | 3.5         | 50                     | 3000/46/23                                             | 4              | 4x500            | 2 / 750                                      |
@@ -113,6 +123,10 @@ ACU：210-250
 ## <a name="av2-series"></a>Av2 系列
 
 ACU：100
+
+高级存储：不支持
+
+高级存储缓存：不支持
 
 | 大小            | vCPU | 内存：GiB | 临时存储 (SSD) GiB | 临时存储的最大吞吐量：IOPS/读取 MBps/写入 MBps | 最大的数据磁盘/吞吐量：IOPS | 最大 NIC 数/预期网络带宽 (MBps) | 
 |-----------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
@@ -129,4 +143,3 @@ ACU：100
 <!-- Correct, No need to update-->
 <!-- NOTICE: 最大 NIC 数/预期网络带宽 (Mbps) SHOULD BE (Mbps) -->
 <!--Update_Description: wording update, update link-->
-<!--PENDING TO Dv3-series, Dsv3-series, B-series -->

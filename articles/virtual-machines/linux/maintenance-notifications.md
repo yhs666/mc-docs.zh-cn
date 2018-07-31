@@ -4,7 +4,6 @@ description: 查看 Azure 中运行的 Linux 虚拟机的维护通知并开始�
 services: virtual-machines-linux
 documentationcenter: ''
 author: rockboyfor
-manager: digimobile
 editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: ''
@@ -14,14 +13,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 07/02/2018
-ms.date: 07/16/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: e24525ec6eec35a9893a349b5783986435ec28b4
-ms.sourcegitcommit: bbc130e25163b6d3af6616d57c0b6efef63796a2
+ms.openlocfilehash: 2d752fa7cc5fbf03a9211f2a6ab1b329301e15ec
+ms.sourcegitcommit: 35889b4f3ae51464392478a72b172d8910dd2c37
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37914586"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39261918"
 ---
 # <a name="handling-planned-maintenance-notifications-for-linux-virtual-machines"></a>处理 Linux 虚拟机的计划内维护通知
 
@@ -94,7 +93,7 @@ az vm get-instance-view -g rgName -n vmName
 如果 `IsCustomerInitiatedMaintenanceAllowed` 设置为 true，以下调用会在 VM 上启动维护。
 
 ```azure-cli
-az vm perform-maintenance rgName vmName 
+az vm perform-maintenance -g rgName -n vmName 
 ```
 
 [!INCLUDE [virtual-machines-common-maintenance-notifications](../../../includes/virtual-machines-common-maintenance-notifications.md)]
@@ -151,7 +150,7 @@ azure compute virtual-machine initiate-maintenance --service-name myService --na
 
 **问：使用虚拟机规模集时的体验如何？**
 
-**答：** 计划内维护现在适用于虚拟机规模集。 有关如何启动自助式维护的说明，请参阅“虚拟机规模集”文档中的“操作方法->管理->计划内维护”部分。
+**答：** 计划内维护现在适用于虚拟机规模集。 有关如何启动自助维护的说明，请参阅 [VMSS 的计划内维护](../../virtual-machine-scale-sets/virtual-machine-scale-sets-maintenance-notifications.md)文档。
 
 **问：使用云服务（Web/辅助角色）和 Service Fabric 时的体验如何？**
 
@@ -160,7 +159,7 @@ azure compute virtual-machine initiate-maintenance --service-name myService --na
 **问：我在 VM 上看不到任何维护信息，是哪里出错了？**
 
 **答：** 有很多原因会导致在 VM 上看不到任何维护信息：
-1.  使用的是标记为“Microsoft 内部”的订阅。
+1.  使用的是标记为“Azure 内部”的订阅。
 2.  VM 未计划进行维护。 可能是这次维护已结束、已取消或已改变计划，因此你的 VM 不再受其影响。
 3.  你没有将“维护”列添加到 VM 列表视图。 虽然我们已向默认视图添加此列，但配置为查看非默认列的客户必须手动将“维护”列添加到其 VM 列表视图。
 
@@ -176,4 +175,5 @@ azure compute virtual-machine initiate-maintenance --service-name myService --na
 
 了解如何使用[计划事件](scheduled-events.md)从 VM 内注册维护事件。
 
-<!--Update_Description: wording update, update meta properties -->
+<!--The parent file of includes file of virtual-machines-common-maintenance-notifications.md-->
+<!--ms.date:07/30/2018-->

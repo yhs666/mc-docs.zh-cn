@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 02/14/2017
 ms.date: 10/30/2017
 ms.author: v-johch
-ms.openlocfilehash: b4227544257cc6f366f483863aaf8738cf4afd63
-ms.sourcegitcommit: 71c3744a54c69e7e322b41439da907c533faba39
+ms.openlocfilehash: 383dc3568fdab424d58f6557238b0ce3eeb69d6d
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2017
-ms.locfileid: "23481754"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295801"
 ---
 # <a name="enabling-azure-storage-metrics-and-viewing-metrics-data"></a>启用 Azure 存储指标并查看指标数据
 [!INCLUDE [storage-selector-portal-enable-and-view-metrics](../../../includes/storage-selector-portal-enable-and-view-metrics.md)]
@@ -38,14 +38,14 @@ ms.locfileid: "23481754"
 1. 确保“状态”设置为“打开”。
 1. 选择希望监视的服务的度量值。
 1. 指定用来指示保留度量值和日志数据的时间长度的保留期策略。
-1. 选择“保存”。
+1. 选择“其他安全性验证” 。
 
 [Azure 门户](https://portal.azure.cn)目前不允许在存储帐户中配置分钟指标；必须通过 PowerShell 或编程方式启用分钟指标。
 
 ## <a name="how-to-enable-metrics-using-powershell"></a>如何通过 PowerShell 启用指标
-可以使用本地计算机上的 PowerShell 在存储帐户中配置存储度量值，具体方法是：使用 Azure PowerShell cmdlet Get-AzureStorageServiceMetricsProperty 检索当前设置，然后使用 cmdlet Set-AzureStorageServiceMetricsProperty 更改当前设置。
+用户可以使用本地计算机上的 PowerShell 在存储帐户中配置存储指标，具体方法是：使用 Azure PowerShell cmdlet Get-AzureStorageServiceMetricsProperty 检索当前设置，并使用 cmdlet Set-AzureStorageServiceMetricsProperty 更改当前设置。
 
-控制存储指标的 cmdlet 使用以下参数：
+控制存储度量值的 cmdlet 使用以下参数：
 
 * MetricsType：可能值是 Hour 和 Minute。
 * ServiceType：可能值为 Blob、Queue 和 Table。
@@ -117,8 +117,8 @@ blobClient.SetServiceProperties(properties);
 
 > [!NOTE]
 > 从 [Azure 存储资源管理器](http://storageexplorer.com/) 0.8.0 版本开始，可以查看和下载分析指标表。
-> 
-> 
+>
+>
 
 要以编程方式访问分析表，请注意如果存储帐户中列出这些表，则不会显示它们。 可按名称直接访问它们，也可使用 .NET 客户端库中的 [CloudAnalyticsClient API](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.analytics.cloudanalyticsclient.aspx) 查询表名。
 
