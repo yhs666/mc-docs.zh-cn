@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 12/08/2016
 ms.date: 10/16/2017
 ms.author: v-johch
-ms.openlocfilehash: 1776bfe5e23f676fcd2940bb88965a44f6a3f572
-ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
+ms.openlocfilehash: a0e7b0c3fdb4f5922d416aabbbf2105e457d55c7
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103103"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295778"
 ---
 # <a name="azure-storage-performance-and-scalability-checklist"></a>Azure 存储性能和可伸缩性清单
 ## <a name="overview"></a>概述
@@ -98,11 +98,7 @@ ms.locfileid: "37103103"
 * [队列消息数/秒](#subheading39)  
 
 #### <a name="sub1bandwidth"></a>所有服务的带宽可伸缩性目标
-<!--
-At the time of writing, the bandwidth targets in the China for a geo-redundant storage (GRS) account are 10 gigabits per second (Gbps) for ingress (data sent to the storage account) and 20 Gbps for egress (data sent from the storage account). For a locally redundant storage (LRS) account, the limits are higher – 20 Gbps for ingress and 30 Gbps for egress.  
--->
-国际带宽限制可能更低，详情请参阅[可伸缩性目标页](storage-scalability-targets.md)。  
-有关存储冗余选项的详细信息，请参阅下面 [有用的资源](#sub1useful) 中的链接。  
+在撰写本文之际，中国异地冗余存储 (GRS) 帐户的入口（发送到存储帐户的数据）带宽目标为每秒 10 千兆位 (Gbps)，出口（从存储帐户发送的数据）带宽目标则为 20 Gbps。 对于本地冗余存储 (LRS) 帐户，限制更高 - 20 Gbps（入口）和 30 Gbps（出口）。  国际带宽限制可能会较低，详情请参阅[可伸缩性目标页](https://docs.azure.cn/storage/common/storage-scalability-targets)。  有关存储冗余选项的详细信息，请参阅下面 [有用的资源](#sub1useful) 中的链接。  
 
 #### <a name="what-to-do-when-approaching-a-scalability-target"></a>接近可伸缩性目标时应怎么办
 如果应用程序正接近单个存储帐户的可伸缩性目标，可考虑采用以下方法之一：  

@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 媒体服务进行 DRM 子系统的混合设计 | Microsoft Docs
+title: 使用 Azure 媒体服务进行 DRM 子系统的混合设计 | Azure
 description: 本主题介绍如何使用 Azure 媒体服务进行 DRM 子系统的混合设计。
 services: media-services
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 07/17/2017
 ms.date: 05/28/2018
 ms.author: v-johch
-ms.openlocfilehash: 6a398d3780ca32e50f338b82c01d2299bb0565d5
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: d942d91358ec034ba0cebf71fec1cfdc4625b7ab
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475204"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219703"
 ---
 # <a name="hybrid-design-of-drm-subsystems"></a>DRM 子系统的混合设计
 
@@ -128,6 +128,4 @@ DRM 支持包括 DRM 加密（动态加密）和许可证传送，其中的 Azur
 ## <a name="summary"></a>摘要
 
 总而言之，Azure 媒体服务 DRM 组件非常灵活，只需根据本主题中所述适当配置内容密钥和资产传送策略，即可在混合方案中使用这些组件。
-
-
 

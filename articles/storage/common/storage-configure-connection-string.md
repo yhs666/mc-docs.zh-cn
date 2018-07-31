@@ -1,6 +1,6 @@
 ---
 title: 为 Azure 存储配置连接字符串 | Azure
-description: 为 Azure 存储帐户配置连接字符串。 连接字符串包含在运行时从应用程序访问 Azure 存储帐户所需的身份验证信息。
+description: 为 Azure 存储帐户配置连接字符串。 连接字符串包含在运行时从应用程序访问 Azure 存储帐户所需的授权信息。
 services: storage
 documentationcenter: ''
 author: forester123
@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 04/12/2017
 ms.date: 10/16/2017
 ms.author: v-johch
-ms.openlocfilehash: 37da16a2bf6bb04681fc693365cb28bee02e590d
-ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
+ms.openlocfilehash: b1b0d6fcadeca71d87f95ab14f924cd0c855977c
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103074"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295733"
 ---
 # <a name="configure-azure-storage-connection-strings"></a>配置 Azure 存储连接字符串
 
@@ -51,19 +51,11 @@ ms.locfileid: "37103074"
 ## <a name="create-a-connection-string-for-an-azure-storage-account"></a>为 Azure 存储帐户创建连接字符串
 若要为 Azure 存储帐户创建连接字符串，请使用以下格式。 指示要通过 HTTPS（建议）还是 HTTP 连接到存储帐户，将 `myAccountName` 替换为存储帐户的名称，将 `myAccountKey` 替换为帐户访问密钥：
 
-```
-DefaultEndpointsProtocol=[http|https];AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.chinacloudapi.cn
-```
+`DefaultEndpointsProtocol=[http|https];AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.chinacloudapi.cn`
 
 例如，连接字符串可能如下所示：
 
-```
-DefaultEndpointsProtocol=https;
-AccountName=storagesample;
-AccountKey=<account-key>;
-EndpointSuffix=core.chinacloudapi.cn
-```
-
+`DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=<account-key>`
 
 尽管 Azure 存储连接字符串同时支持 HTTP 和 HTTPS，但强烈建议使用 HTTPS。
 
@@ -124,7 +116,10 @@ AccountKey=<account-key>
 若要为区域（例如，Azure 中国区）或实例中的存储服务创建带有不同终结点后缀的连接字符串，请使用以下连接字符串格式。 指明是要通过 HTTPS（建议）还是 HTTP 连接到存储帐户，将 `myAccountName` 替换为存储帐户的名称，将 `myAccountKey` 替换为帐户访问密钥，将 `mySuffix` 替换为 URI 后缀：
 
 ```
-DefaultEndpointsProtocol=[http|https];AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=mySuffix;
+DefaultEndpointsProtocol=[http|https];
+AccountName=myAccountName;
+AccountKey=myAccountKey;
+EndpointSuffix=mySuffix;
 ```
 
 下面是 Azure 中国区的存储服务的示例连接字符串：

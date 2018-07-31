@@ -14,15 +14,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 03/23/2018
-ms.date: 06/04/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 9cd9ce4f41443a92e835994c64415718ce896ab0
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 548a3586ca0c935e88400d0eae287dc9c06f4941
+ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939374"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39306932"
 ---
 # <a name="tutorial-create-and-manage-windows-vms-with-azure-powershell"></a>教程：使用 Azure PowerShell 创建和管理 Windows VM
 
@@ -35,7 +35,7 @@ Azure 虚拟机提供完全可配置的灵活计算环境。 本教程介绍 Azu
 > * 调整 VM 的大小
 > * 查看并了解 VM 状态
 
-<!-- Not Available on [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)] --> 如果选择在本地安装并使用 PowerShell，则本教程需要 Azure PowerShell 模块 5.7.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount -Environment AzureChinaCloud ` 以创建与 Azure 的连接。
+<!-- Not Available on [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)] --> 如果选择在本地安装并使用 PowerShell，则本教程需要 Azure PowerShell 模块 5.7.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount -Environment AzureChinaCloud` 以创建与 Azure 的连接。
 
 ## <a name="create-resource-group"></a>创建资源组
 
@@ -142,7 +142,7 @@ Skus                            Offer         PublisherName          Location
 New-AzureRmVm `
     -ResourceGroupName "myResourceGroupVM" `
     -Name "myVM2" `
-    -Location "China East" `
+    -Location "ChinaEast" `
     -VirtualNetworkName "myVnet" `
     -SubnetName "mySubnet" `
     -SecurityGroupName "myNetworkSecurityGroup" `
@@ -163,9 +163,12 @@ New-AzureRmVm `
 下表将大小分类成了多个用例。  
 | 类型                     | 常见大小           |    说明       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-<!-- Pending On DV3, EV3 GA Annoucement-->
-| [常规用途](sizes-general.md)         |Dsv3、Dv3、DSv2、Dv2、DS、D、Av2、A0-7| 均衡的 CPU 内存比。 适用于开发/测试、小到中型应用程序和数据解决方案。  | | [计算优化](sizes-compute.md)   | Fs、F             | CPU 内存比高。 适用于中等流量的应用程序、网络设备和批处理。        | | [内存优化](sizes-memory.md)    | Esv3、Ev3、DSv2、DS、Dv2、D   | 内存核心比高。 适用于关系数据库、中到大型缓存和内存中分析。                 |
-<!-- Pending On DV3, EV3 GA Annoucement-->
+| [常规用途](sizes-general.md)         |Dsv3、Dv3、DSv2、Dv2、DS、D、Av2、A0-7| CPU 与内存之比均衡。 适用于开发/测试、小到中型应用程序和数据解决方案。  |
+| [计算优化](sizes-compute.md)   | Fs, F             | 高 CPU 与内存之比。 适用于中等流量的应用程序、网络设备和批处理。        |
+| [内存优化](sizes-memory.md)    | Esv3、Ev3、DSv2、DS、Dv2、D   | 较高的内存核心比。 适用于关系数据库、中到大型缓存和内存中分析。                 |
+<!--PENDING FOR NC series GA ANOUNCEMENT -->
+| [GPU](sizes-gpu.md)          | NV、NC            | 专门针对大量图形绘制和视频编辑的 VM。       |
+<!--PENDING FOR NC series GA ANOUNCEMENT -->
 <!-- Not Available on M, GS, G Series -->
 <!-- Not Available on | Storage optimized       | Ls   -->
 <!-- Not Available on | GPU           | NV, NC         -->

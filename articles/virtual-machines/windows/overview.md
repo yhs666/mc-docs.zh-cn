@@ -14,15 +14,15 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 07/17/2017
-ms.date: 06/25/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 2bce65c53dcd9f98068b5442733b25dffc46a7f1
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.openlocfilehash: 052f6a7962163b08898c22f58156a34f237f922b
+ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315540"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39306944"
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Azure 中的 Windows 虚拟机概述
 
@@ -32,7 +32,8 @@ Azure 虚拟机 (VM) 是 Azure 提供的多种[可缩放按需分配计算资源
 
 可通过多种方式使用 Azure 虚拟机。 下面是一些示例：
 
-* **开发和测试** – 在 Azure VM 上，可以快速轻松地创建具有特定配置的计算机来满足编程和应用程序测试的需要。
+* 
+  **开发和测试** – 在 Azure VM 上，可以快速轻松地创建具有特定配置的计算机来满足编程和应用程序测试的需要。
 * **云中的应用程序** – 由于应用程序的需求会不断变化，在 Azure 中的 VM 上运行应用程序可能会节省成本。 使用 VM 时，需要支付额外的费用；关闭 VM 时，则无需付费。
 * **扩展的数据中心** – Azure 虚拟网络中的虚拟机可以轻松连接到组织的网络。
 
@@ -73,7 +74,7 @@ VM 的[大小](sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)由所要�
 Azure 根据 VM 的大小和操作系统[按小时进行收费](https://www.azure.cn/pricing/details/virtual-machines/)。 对于不足一小时的部分，Azure 仅根据使用的分钟数计费。 存储将另行定价和收费。
 
 ### <a name="vm-limits"></a>VM 限制
-订阅附带默认的[配额限制](../../azure-subscription-service-limits.md)，在为项目部署大量 VM 时，这些限制可能会造成影响。 每个订阅的当前限制是每区域 20 个 VM。 可以开具支持票证来请求提高限制。
+订阅附带默认的[配额限制](../../azure-subscription-service-limits.md)，在为项目部署大量 VM 时，这些限制可能会造成影响。 每个订阅的当前限制是每区域 20 个 VM。 若要提高限制，可以[开具请求提高的支持票证](https://www.azure.cn/support/support-ticket-form)
 <!-- Not Available on [filing a support ticket requesting an increase](../../azure-supportability/resource-manager-core-quotas-request.md)-->
 
 ### <a name="operating-system-disks-and-images"></a>操作系统磁盘和映像
@@ -86,11 +87,14 @@ Azure 提供许多[市场映像](https://market.azure.cn/zh-cn/marketplace/virtu
 | 方法 | 说明 |
 | --- | --- |
 | Azure 门户 |选择要使用的映像时，系统会自动指定值。 |
-| Azure PowerShell |[Get-AzureRMVMImagePublisher](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimagepublisher) -Location "location"<BR>[Get-AzureRMVMImageOffer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimageoffer) -Location "location" -Publisher "publisherName"<BR>[Get-AzureRMVMImageSku](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmimagesku) -Location "location" -Publisher "publisherName" -Offer "offerName" |
-| REST API |[列出映像发布者](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<BR>[列出映像产品](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<BR>[列出映像 SKU](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) |
-| Azure CLI |[az vm image list-publishers](https://docs.azure.cn/zh-cn/cli/vm/image?view=azure-cli-latest#az-vm-image-list-publishers) --location "location"<BR>[az vm image list-offers](https://docs.azure.cn/zh-cn/cli/vm/image?view=azure-cli-latest#az-vm-image-list-offers) --location "location" --publisher "publisherName"<BR>[az vm image list-skus](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-list-skus) --location "location" --publisher "publisherName" --offer "offerName"|
+| Azure PowerShell |[Get-AzureRMVMImagePublisher](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimagepublisher) -Location "location"<BR>[Get-AzureRMVMImageOffer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimageoffer) -Location "location" -Publisher "publisherName"<BR>
+  [Get-AzureRMVMImageSku](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmimagesku) -Location "location" -Publisher "publisherName" -Offer "offerName" |
+| REST API |[列出映像发布者](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<BR>
+  [列出映像产品](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<BR>[列出映像 SKU](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) |
+| Azure CLI |[az vm image list-publishers](https://docs.azure.cn/zh-cn/cli/vm/image?view=azure-cli-latest#az-vm-image-list-publishers) --location "location"<BR>[az vm image list-offers](https://docs.azure.cn/zh-cn/cli/vm/image?view=azure-cli-latest#az-vm-image-list-offers) --location "location" --publisher "publisherName"<BR>
+  [az vm image list-skus](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-list-skus) --location "location" --publisher "publisherName" --offer "offerName"|
 
-可以选择[上传并使用自己的映像](upload-generalized-managed.md#upload-the-vhd-to-your-storage-account)，在这种情况下，无需使用发布者名称、产品和 SKU。
+可以选择 [上传并使用自己的映像](upload-generalized-managed.md#upload-the-vhd-to-your-storage-account) ，在这种情况下，无需使用发布者名称、产品和 SKU。
 
 ### <a name="extensions"></a>扩展
 VM [扩展](extensions-features.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)通过部署后的配置和自动化任务来增加 VM 的功能。

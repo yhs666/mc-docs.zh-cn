@@ -1,5 +1,5 @@
 ---
-title: 通过 Azure AD 身份验证使用 REST 访问 Azure 媒体服务 API | Microsoft Docs
+title: 通过 Azure AD 身份验证使用 REST 访问 Azure 媒体服务 API | Azure
 description: 了解如何通过 Azure Active Directory 身份验证使用 REST 访问 Azure 媒体服务 API。
 services: media-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 12/26/2017
 ms.date: 05/07/2018
 ms.author: v-nany
-ms.openlocfilehash: 7a5fe8ca6f52de9fc78f0bac3f2d305592a7c273
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: a14dabba5ecc093721e68ae27f6a24ab2007652d
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475424"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219482"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-azure-media-services-api-with-rest"></a>通过 Azure AD 身份验证使用 REST 访问 Azure 媒体服务 API
 
@@ -191,6 +191,5 @@ ms.locfileid: "34475424"
 
 ## <a name="next-steps"></a>后续步骤
 
-- 尝试 [Azure AD Authentication for Azure Media Services Access: Both via REST API](https://github.com/willzhan/WAMSRESTSoln)（通过 Azure AD 身份验证访问 Azure 媒体服务：均使用 REST API）中的此示例代码
-- [使用 .NET 上传文件](media-services-dotnet-upload-files.md)
-
+* 尝试 [Azure AD Authentication for Azure Media Services Access: Both via REST API](https://github.com/willzhan/WAMSRESTSoln)（通过 Azure AD 身份验证访问 Azure 媒体服务：均使用 REST API）中的此示例代码
+* [使用 .NET 上传文件](media-services-dotnet-upload-files.md)

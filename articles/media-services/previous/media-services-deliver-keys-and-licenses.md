@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 12/10/2017
 ms.date: 1/22/2018
 ms.author: v-johch
-ms.openlocfilehash: 019f541456063ff6bf51cda015758cca7b79e1a5
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: f983377d3565b03639ca4439d643764d5f4bb0a2
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475203"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219471"
 ---
 # <a name="use-azure-media-services-to-deliver-drm-licenses-or-aes-keys"></a>使用 Azure 媒体服务传送 DRM 许可证或 AES 密钥
 Azure 媒体服务可引入、编码、添加内容保护，以及流式传输内容。  一些客户希望将媒体服务仅用于传送许可证和/或密钥，以及通过使用其本地服务器进行编码、加密和流式处理。 本文说明如何使用媒体服务来传送 PlayReady 许可证，但使用本地服务器来完成其余部分。 
@@ -247,7 +247,7 @@ namespace DeliverDRMLicenses
             licenseTemplate.AllowTestDevices = true;
 
             // You can also configure the Play Right in the PlayReady license by using the PlayReadyPlayRight class. 
-            // It grants the user the ability to playback the content subject to the zero or more restrictions 
+            // It grants the user the ability to play back the content subject to the zero or more restrictions 
             // configured in the license and on the PlayRight itself (for playback specific policy). 
             // Much of the policy on the PlayRight has to do with output restrictions 
             // which control the types of outputs that the content can be played over and 

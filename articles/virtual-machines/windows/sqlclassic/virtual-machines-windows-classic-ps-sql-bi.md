@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 05/30/2017
-ms.date: 05/21/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 3d2726943e1f4eb65021d21e32db754f88e8e77d
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.openlocfilehash: db4f406e7d892d95181bdcfe57b25fba7830ebc4
+ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34256943"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39307002"
 ---
 # <a name="sql-server-business-intelligence-in-azure-virtual-machines"></a>Azure 虚拟机中的 SQL Server Business Intelligence
 > [!IMPORTANT] 
@@ -34,7 +34,7 @@ Azure 虚拟机库包括含有 SQL Server 安装的映像。 库映像中支持�
 
 1. 属于软件保障的许可证移动性权益。 有关详细信息，请参阅 [Azure 上通过软件保障实现的许可移动性](https://www.azure.cn/pricing/license-mobility/)。
 2. 已安装 SQL Server 的 Azure 虚拟机按小时付费。 请参阅[虚拟机定价](https://www.azure.cn/pricing/details/virtual-machines/)中的“SQL Server”部分。
-<!-- Not Available on [Virtual Machines Licensing FAQ](https://www.azure.cn/pricing/licensing-faq/%20/)-->
+<!-- Not Available on [Virtual Machines Licensing FAQ](https://www.azure.cn/pricing/licensing-faq/)-->
 
 ## <a name="sql-server-images-available-in-azure-virtual-machine-gallery"></a>在 Azure 虚拟机库中提供的 SQL Server 映像
 Azure 虚拟机库包括多个内含 Microsoft SQL Server 的映像。 虚拟机映像上安装的软件根据操作系统版本和 SQL Server 版本而有所不同。 Azure 虚拟机库中提供的映像列表频繁更改。
@@ -63,7 +63,7 @@ Azure 虚拟机库包括多个内含 Microsoft SQL Server 的映像。 虚拟机
 
 有关 SQL Server 支持的版本和功能的详细信息，请参阅以下各部分：
 
-* [SQL Server 版本](https://www.microsoft.com/server-cloud/products/sql-server-editions/#fbid=Zae0-E6r5oh)
+* [SQL Server 版本](https://www.microsoft.com/sql-server/sql-server-2017-editions)
 * [SQL Server 2016 版本支持的功能](https://msdn.microsoft.com/library/cc645993.aspx)
 
 ### <a name="bi-features-installed-on-the-sql-server-virtual-machine-gallery-images"></a>SQL Server 虚拟机库映像上安装的 BI 功能
@@ -350,5 +350,5 @@ Analysis Services 的默认实例侦听 TCP 端口 2383。 在虚拟机防火墙
 > [通过 Microsoft SQL Server Connect 提交反馈和联系人信息](https://connect.microsoft.com/SQLServer/Feedback)
 
 ### <a name="community-content"></a>社区内容
-* [使用 PowerShell 管理 Azure SQL 数据库。](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
-<!-- Update_Description: wording update, update link -->
+* [Azure SQL Database Management with PowerShell](https://azure.microsoft.com/blog/windows-azure-sql-database-management-with-powershell/)
+<!-- Update_Description: wording update, update link -->（使用 PowerShell 管理 Azure SQL 数据库）

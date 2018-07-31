@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 07/02/2018
-ms.date: 07/16/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 31fd32e01d1e62b258dba157ef3ae498a9f4b90e
-ms.sourcegitcommit: bbc130e25163b6d3af6616d57c0b6efef63796a2
+ms.openlocfilehash: 16d399f663db3390055ef6a56c13607060ee62f7
+ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37914582"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39307014"
 ---
 # <a name="handling-planned-maintenance-notifications-for-windows-virtual-machines"></a>处理 Windows 虚拟机的计划内维护通知
 
@@ -178,7 +178,7 @@ Restart-AzureVM -InitiateMaintenance -ServiceName <service name> -Name <VM name>
 
 **问：使用虚拟机规模集时的体验如何？**
 
-**答：** 计划内维护现在适用于虚拟机规模集。 有关如何启动自助式维护的说明，请参阅虚拟机规模集文档中的“操作方法->管理->计划内维护”部分。
+**答：** 计划内维护现在适用于虚拟机规模集。 有关如何启动自助式维护的说明，请参阅虚拟机规模集文档中的“操作方法->管理->计划内维护”部分。<!-- Notice: waiting for releasement on [planned maintenance for VMSS](../../virtual-machine-scale-sets/virtual-machine-scale-sets-maintenance-notifications.md)-->
 
 **问：使用云服务（Web/辅助角色）和 Service Fabric 时的体验如何？**
 

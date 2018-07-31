@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
-origin.date: 10/14/2016
-ms.date: 05/21/2018
+origin.date: 05/14/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7e745a571a6fdcdc2c8b699b812e18ec010d86ce
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: d5ba2bbe4611ee57ebf8b50da786be659ca8672f
+ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34568783"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39306989"
 ---
 # <a name="submit-hpc-jobs-from-an-on-premises-computer-to-an-hpc-pack-cluster-deployed-in-azure"></a>将 HPC 作业从本地计算机提交到部署在 Azure 中的 HPC Pack 群集
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -31,9 +31,10 @@ ms.locfileid: "34568783"
 ![向 Azure 中的群集提交作业][jobsubmit]
 
 ## <a name="prerequisites"></a>先决条件
-* **在 Azure VM 中部署的 HPC Pack 头节点** - 建议使用自动化工具（例如 [Azure 快速入门模板](https://github.com/Azure/azure-quickstart-templates/)或 [Azure PowerShell 脚本](classic/hpcpack-cluster-powershell-script.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)）来部署头节点和群集。 需要获得头节点的 DNS 名称和群集管理员的凭据才能完成本文中的步骤。
+* **在 Azure VM 中部署的 HPC Pack 头节点** - 建议使用自动化工具（如 [Azure 快速入门模板](https://github.com/Azure/azure-quickstart-templates/)）来部署头节点和群集。 需要获得头节点的 DNS 名称和群集管理员的凭据才能完成本文中的步骤。
 * **客户端计算机** - 需要有可运行 HPC Pack 客户端实用工具的 Windows 或 Windows Server 客户端计算机（请参阅[系统要求](https://technet.microsoft.com/library/dn535781.aspx)）。 如果只想要使用 HPC Pack Web 门户或 REST API 来提交作业，则可以使用自选的任意客户端计算机。
-* **HPC Pack 安装媒体** - 若要安装 HPC Pack 客户端实用工具，可从 [Microsoft 下载中心](http://go.microsoft.com/fwlink/?LinkId=328024)下载最新版 HPC Pack (HPC Pack 2012 R2) 的免费安装包。 确保下载与头节点 VM 上安装的版本相同的 HPC Pack 版本。
+* **HPC Pack 安装媒体** - 若要安装 HPC Pack 客户端实用程序，可从[下载中心](http://go.microsoft.com/fwlink/?LinkId=328024)下载最新版 HPC Pack (HPC Pack 2012 R2) 的免费安装包。 确保下载与头节点 VM 上安装的版本相同的 HPC Pack 版本。
+  <!--Notice: Not Available on latest [Download Center](https://www.microsoft.com/download/details.aspx?id=56360)-->
 
 ## <a name="step-1-install-and-configure-the-web-components-on-the-head-node"></a>步骤 1：在头节点上安装并配置 Web 组件
 要使 REST 接口可通过 HTTPS 将作业提交到群集，请确保在 HPC Pack 头节点上配置了 HPC Pack Web 组件。 若尚未安装，必须先运行 HpcWebComponents.msi 安装文件来安装 Web 组件。 然后，通过运行 HPC PowerShell 脚本“Set-HPCWebComponents.ps1”配置组件。
@@ -41,7 +42,7 @@ ms.locfileid: "34568783"
 有关详细过程，请参阅[安装 Microsoft HPC Pack Web 组件](http://technet.microsoft.com/library/hh314627.aspx)。
 
 > [!TIP]
-> HPC Pack 的某些 Azure 快速启动模板自动安装并配置 Web 组件。 如果使用 [HPC Pack IaaS 部署脚本](classic/hpcpack-cluster-powershell-script.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)创建群集，可以在部署期间选择安装并配置 Web 组件。
+> HPC Pack 群集的某些 Azure 快速入门模板会自动安装并配置 Web 组件。
 > 
 > 
 
@@ -83,7 +84,8 @@ ms.locfileid: "34568783"
     ```
 
 ## <a name="step-2-install-the-hpc-pack-client-utilities-on-an-on-premises-computer"></a>步骤 2：在本地计算机上安装 HPC Pack 客户端实用工具
-若要在计算机上安装 HPC Pack 客户端实用工具，请从 [Microsoft 下载中心](http://go.microsoft.com/fwlink/?LinkId=328024)下载 HPC Pack 安装程序文件（完整安装）。 开始安装时，请选择针对 **HPC Pack 客户端实用工具**的安装选项。
+若要在计算机上安装 HPC Pack 客户端实用程序，请从[下载中心](http://go.microsoft.com/fwlink/?LinkId=328024)下载 HPC Pack 安装程序文件（完整安装）。 开始安装时，请选择针对 **HPC Pack 客户端实用工具**的安装选项。
+<!--Not Available on [Download Center](https://www.microsoft.com/download/details.aspx?id=56360)-->
 
 要使用 HPC Pack 客户端工具向头节点 VM 提交作业，还必须导出头节点中的证书并将其安装在客户端计算机上。 证书必须为 .CER 格式。
 

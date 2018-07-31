@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 10/10/2017
-ms.date: 05/21/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: dac420eefa73f9f444ab3875f00de99b7ccf1d9c
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.openlocfilehash: f30e7c815e57256525b7f3a6dcaff3df2df66afe
+ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34259100"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39306945"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure 实例元数据服务
 
@@ -41,8 +41,7 @@ Azure 的实例元数据服务是一个 REST 终结点，所有创建的 IaaS VM
 [Azure 美国政府版](https://azure.microsoft.com/overview/clouds/government/)              | 正式版 | 2017-04-02,2017-08-01
 [Azure 中国](https://www.azure.cn/)                                                           | 正式版 | 2017-04-02,2017-08-01
 [Azure 德国](https://azure.microsoft.com/overview/clouds/germany/)                    | 正式版 | 2017-04-02,2017-08-01
-<!-- [All Generally Available Global Azure Regions] Should be https://azure.microsoft.com/regions/ -->
-当有服务更新和/或有可用的新支持版本时，此表将更新
+<!-- [All Generally Available Global Azure Regions] Should be https://azure.microsoft.com/regions/ --> 当有服务更新和/或有可用的新支持版本时，此表将更新
 
 若要试用实例元数据服务，请在上述区域中从 [Azure 资源管理器](https://docs.microsoft.com/rest/api/resources/)或 [Azure 门户](http://portal.azure.cn)创建一个 VM，并按照以下示例操作。
 
@@ -298,14 +297,17 @@ subscriptionId | 虚拟机的 Azure 订阅 | 2017-08-01
 标记 | 虚拟机的[标记](../../azure-resource-manager/resource-group-using-tags.md)  | 2017-08-01
 resourceGroupName | 虚拟机的[资源组](../../azure-resource-manager/resource-group-overview.md) | 2017-08-01
 placementGroupId | 虚拟机规模集的[放置组](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) | 2017-08-01
-vmScaleSetName | 虚拟机规模集的 [Virtual Machine ScaleSet Name] (../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) | 2017-12-01
+vmScaleSetName | 虚拟机规模集的[虚拟机规模集名称](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) | 2017-12-01
 ipv4/privateIpAddress | VM 的本地 IPv4 地址 | 2017-04-02
 ipv4/publicIpAddress | VM 的公共 IPv4 地址 | 2017-04-02
 subnet/address | VM 的子网地址 | 2017-04-02 
 subnet/prefix | 子网前缀，例如 24 | 2017-04-02 
-ipv6/ipAddress | VM 的本地 IPv6 地址 | 2017-04-02 
 macAddress | VM mac 地址 | 2017-04-02 
 scheduledevents | 请参阅[计划事件](scheduled-events.md) | 2017-08-01
+
+<!-- Not Available on zone | [Availability Zone](../../availability-zones/az-overview.md) of your virtual machine | 2017-12-01 -->
+<!-- Not Available on ipv6/ipAddress | Local IPv6 address of the VM | 2017-04-02 -->
+<!-- Not Available on identity | (Preview) Managed Service Identity. See [acquire an access token](../../active-directory/managed-service-identity/how-to-use-vm-token.md) | 2018-02-01-->
 
 ## <a name="example-scenarios-for-usage"></a>用法的示例方案  
 
@@ -328,8 +330,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/vmId?api
 ### <a name="placement-of-containers-data-partitions-based-faultupdate-domain"></a>基于容错/更新域放置容器、数据分区 
 
 对于某些方案，不同数据副本的放置至关重要。 例如，对于 [HDFS 副本放置](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html#Replica_Placement:_The_First_Baby_Steps)或者对于通过 [orchestrator](https://kubernetes.io/docs/user-guide/node-selection/) 放置容器，可能需要知道正在运行 VM 的 `platformFaultDomain` 和 `platformUpdateDomain`。
-<!-- Not Available on [Availability Zones](../../availability-zones/az-overview.md) -->
-可以直接通过实例元数据服务查询此数据。
+<!-- Not Available on [Availability Zones](../../availability-zones/az-overview.md) --> 可以直接通过实例元数据服务查询此数据。
 
 **请求**
 
@@ -391,6 +392,7 @@ Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
 Perl       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.pl
 Java       | https://github.com/Microsoft/azureimds/blob/master/imdssample.java
 Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
+Puppet | https://github.com/keirans/azuremetadata
 
 ## <a name="faq"></a>常见问题
 1. 我收到错误 `400 Bad Request, Required metadata header not specified`。 这是什么意思呢？
@@ -404,7 +406,7 @@ Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
 5. 我为什么会收到错误 `500 Internal Server Error`？
    * 请根据指数后退系统重试请求。 如果问题持续出现，请联系 Azure 支持部门。
 6. 在何处共享其他问题/评论？
-   * 在 http://feedback.azure.com 上发送评论。
+   * 在 https://www.azure.cn/support/contact/ 上发送评论。
 7. 这是否适用于虚拟机规模集实例？
    * 是的，元数据服务可用于规模集实例。 
 8. 如何获取服务支持？

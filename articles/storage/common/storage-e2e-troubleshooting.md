@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 03/15/2017
 ms.date: 3/5/2018
 ms.author: v-haiqya
-ms.openlocfilehash: 6c92ec9e4fd3187a140f928541183143891714dc
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: b15187be75d60f6f048b17582116f4567a76bb77
+ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29870787"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295591"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>使用 Azure 存储指标和日志记录、AzCopy 及 Message Analyzer 进行端到端故障排除
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -34,10 +34,9 @@ ms.locfileid: "29870787"
 若要通过 Azure 存储排查客户端应用程序问题，可以使用多种工具的组合来确定问题出现的时间以及可能的原因。 这些工具包括：
 
 * **Azure 存储分析**。 有关 Azure 存储的指标和日志记录，请参阅 [Azure Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/Storage-Analytics)（Azure 存储分析）。
-
+  
   * **存储指标** 用于跟踪存储帐户的事务指标和容量指标。 使用指标，可以确定应用程序如何根据各种不同的指标执行。 若要深入了解存储分析跟踪的指标类型，请参阅 [Storage Analytics Metrics Table Schema](https://docs.microsoft.com/rest/api/storageservices/Storage-Analytics-Metrics-Table-Schema)（存储分析指标表架构）。
   * **存储日志记录** 可以在服务器端日志中记录发送到 Azure 存储服务的每个请求。 日志用于跟踪每个请求的详细数据，包括执行的操作、操作的状态和延迟信息。 有关存储分析写入日志的请求和响应数据的详细信息，请参阅 [存储分析日志格式](https://docs.microsoft.com/rest/api/storageservices/Storage-Analytics-Log-Format) 。
-
 
 * **Azure 门户**。 可以在 [Azure 门户](https://portal.azure.cn)中配置存储帐户的指标和日志记录。 还可以查看显示应用程序在各时间段执行情况的图表和图形，以及配置警报，以便在应用程序的特定度量值不同于预期时接收通知。
   
@@ -370,6 +369,5 @@ Message Analyzer 将查找并选择搜索条件与客户端请求 ID 匹配的�
 * [存储分析](http://msdn.microsoft.com/library/azure/hh343270.aspx)
 * [在 Azure 门户中监视存储帐户](storage-monitor-storage-account.md)
 * [使用 AzCopy 命令行实用程序传输数据](storage-use-azcopy.md)
-* [Microsoft Message Analyzer Operating Guide](http://technet.microsoft.com/library/jj649776.aspx)（Microsoft Message Analyzer 操作指南）
-
-<!--Update_Description: update link-->
+* [Microsoft Message Analyzer Operating Guide](http://technet.microsoft.com/library/jj649776.aspx)
+<!--Update_Description: update link-->（Microsoft Message Analyzer 操作指南）

@@ -1,6 +1,6 @@
 ---
-title: 使用 AES-128 动态加密和密钥传送服务 | Azure
-description: 借助 Azure 媒体服务，可传送使用 AES 128 位加密密钥加密的内容。 媒体服务还提供密钥传送服务，将加密密钥传送给已授权的用户。 本主题说明如何使用 AES-128 动态加密以及如何使用密钥传送服务。
+title: 使用 AES-128 动态加密和密钥传递服务 | Azure
+description: 借助 Microsoft Azure 媒体服务，可以传送使用 AES 128 位加密密钥加密的内容。 媒体服务还提供密钥传送服务，将加密密钥传送给已授权的用户。 本主题说明如何使用 AES-128 动态加密以及如何使用密钥传送服务。
 services: media-services
 documentationcenter: ''
 author: yunan2016
@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 08/25/2017
 ms.date: 12/22/2017
 ms.author: v-nany
-ms.openlocfilehash: 60e9e762d21de5f47da1eda0dec6ec59e33ad065
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: a19dd64b6d61611807b980dc5597343f8f3bc782
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475430"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219564"
 ---
 # <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>使用 AES-128 动态加密和密钥传递服务
 > [!div class="op_single_selector"]
@@ -165,7 +165,7 @@ ms.locfileid: "34475430"
 
 对于 HLS，根清单将划分成段文件。 
 
-例如，根清单为 http://test001.origin.mediaservices.chinacloudapi.cn/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/manifest(format=m3u8-aapl)，它包含段文件名的列表。
+例如，根清单为 http://test001.origin.mediaservices.chinacloudapi.cn/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/manifest(format=m3u8-aapl)。 它包含段文件名的列表。
 
     . . . 
     #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=630133,RESOLUTION=424x240,CODECS="avc1.4d4015,mp4a.40.2",AUDIO="audio"
@@ -174,7 +174,7 @@ ms.locfileid: "34475430"
     QualityLevels(842459)/Manifest(video,format=m3u8-aapl)
     …
 
-如果在文本编辑器中打开其中一个段文件（例如，http://test001.origin.mediaservices.chinacloudapi.cn/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/QualityLevels(514369)/Manifest(video,format=m3u8-aapl），则应包含 #EXT-X-KEY，表示文件已加密。
+如果在文本编辑器中打开某个段文件（例如，http://test001.origin.mediaservices.chinacloudapi.cn/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/QualityLevels(514369)/Manifest(video，格式 =m3u8-aapl），它包含 #EXT-X-KEY，指示该文件已加密。
 
     #EXTM3U
     #EXT-X-VERSION:4
@@ -183,8 +183,8 @@ ms.locfileid: "34475430"
     #EXT-X-TARGETDURATION:9
     #EXT-X-KEY:METHOD=AES-128,
     URI="https://wamsbayclus001kd-hs.chinacloudapp.cn/HlsHandler.ashx?
-     kid=da3813af-55e6-48e7-aa9f-a4d6031f7b4d",
-        IV=0XD7D7D7D7D7D7D7D7D7D7D7D7D7D7D7D7
+         kid=da3813af-55e6-48e7-aa9f-a4d6031f7b4d",
+            IV=0XD7D7D7D7D7D7D7D7D7D7D7D7D7D7D7D7
     #EXT-X-PROGRAM-DATE-TIME:1970-01-01T00:00:00.000+00:00
     #EXTINF:8.425708,no-desc
     Fragments(video=0,format=m3u8-aapl)

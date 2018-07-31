@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 07/19/2017
 ms.date: 1/22/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 834727f86106c67c7aa62da70e2213cd3777af7b
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: f5b2b26eae02ef05fc4c2875a66e25ad64d7ec1f
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475460"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219569"
 ---
 # <a name="media-encoder-standard-schema"></a>Media Encoder Standard 架构
 本文介绍 [Media Encoder Standard 预设](media-services-mes-presets-overview.md)基于的 XML 架构的一些元素和类型。 本文将解释元素及其有效值。  
@@ -59,7 +59,7 @@ ms.locfileid: "34475460"
 | KeyFrameInterval<br/><br/> minOccurs="0"<br/><br/> **default="00:00:02"** |**xs:time** |确定 IDR 帧的固定间距（以秒为单位）。 亦称为“GOP 持续时间”。 请参阅 **SceneChangeDetection**，此元素用于控制编码器能否偏离此值。 |
 | SceneChangeDetection<br/><br/> minOccurs="0"<br/><br/> default="false" |**xs:boolean** |如果设置为 true，编码器尝试检测视频中的场景更改并插入 IDR 帧。 |
 | 复杂性<br/><br/> minOccurs="0"<br/><br/> default="Balanced" |**xs:string** |控制编码速度和视频质量之间的平衡。 可能是以下值之一：速度、均衡或质量<br/><br/> 默认值：均衡 |
-| SyncMode<br/><br/> minOccurs="0" | |会在未来版本中公开功能。 |
+| SyncMode<br/><br/> minOccurs="0" | |将在未来版本中公开功能。 |
 | **H264Layers**<br/><br/> minOccurs="0" |[H264Layers](media-services-mes-schema.md#H264Layers) |输出视频层的集合。 |
 
 ### <a name="attributes"></a>属性
@@ -159,7 +159,7 @@ ms.locfileid: "34475460"
 | **{Channel}** |如果文件包含音频，则为音频通道计数。 |
 | **{Width}** |如果文件包含视频，则为输出文件中以像素为单位的视频宽度。 |
 | **{Height}** |输出文件中以像素为单位的视频高度，如果文件包含视频。 |
-| **{Extension}** |从输出文件的“Type”属性继承。 输出文件名包含以下扩展名之一：“mp4”、“ts”、“jpg”、“png”或“bmp”。 |
+| **{Extension}** |从输出文件的“Type”属性继承。 输出文件名具有以下扩展名之一：“mp4”、“ts”、“jpg”、“png”或“bmp”。 |
 | **{Index}** |对于缩略图是必需的。 仅可呈现一次。 |
 
 ## <a name="Video"></a> 视频（继承自编解码器的复杂类型）

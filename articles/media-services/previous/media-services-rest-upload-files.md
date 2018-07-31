@@ -1,5 +1,5 @@
 ---
-title: 使用 REST 将文件上传到 Azure 媒体服务帐户 | Microsoft Docs
+title: 使用 REST 将文件上传到 Azure 媒体服务帐户 | Azure
 description: 了解如何通过创建和上传资产将媒体内容加入媒体服务。
 services: media-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 05/10/2018
 ms.date: 05/28/2018
 ms.author: v-nany
-ms.openlocfilehash: 9ea0cb658fb67e897a5e31dc680ca86b0d7d60a7
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 7aa5cc4dd095169e0b70ef40ef9d485ea933479f
+ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475428"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219643"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>使用 REST 将文件上传到媒体服务帐户
 > [!div class="op_single_selector"]
@@ -227,5 +227,4 @@ SAS URL 采用以下格式：
 现即可编码已上传的资产。 有关详细信息，请参阅[对资产进行编码](media-services-portal-encode.md)。
 
 也可使用 Azure Functions 根据到达已配置容器的文件触发编码作业。 有关详细信息，请参阅[此示例](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/ )。
-
 

@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-origin.date: 05/02/2018
-ms.date: 06/04/2018
+origin.date: 07/02/2018
+ms.date: 07/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: a15879ee08ae8b7fafd1bd2d81853073789aa84c
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 7ec3834e6badbcccd12a854a7c7856898fb26979
+ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702835"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39307022"
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>SQL Server Azure VM 的定价指南
 
@@ -47,8 +47,9 @@ ms.locfileid: "34702835"
 | 平台 | 自由许可的映像 |
 |---|---|
 | Windows Server 2016 | [SQL Server 2017 Developer Azure VM](https://portal.azure.cn/#create/Microsoft.FreeSQLServerLicenseSQLServer2017DeveloperonWindowsServer2016)<br/>[SQL Server 2017 Express Azure VM](https://portal.azure.cn/#create/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonWindowsServer2016) |
+| Ubuntu | [SQL Server 2017 Developer Azure VM](https://portal.azure.cn/#create/Microsoft.FreeSQLServerLicenseSQLServer2017DeveloperonUbuntuServer1604LTS)<br/>[SQL Server 2017 Express Azure VM](https://portal.azure.cn/#create/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonUbuntuServer1604LTS) |
 <!--Not Available on Red Hat Enterprise Linux  -->
-<!--Not Available on SUSE Linux Enterprise Server  --> | Ubuntu | [SQL Server 2017 Developer Azure VM](https://portal.azure.cn/#create/Microsoft.FreeSQLServerLicenseSQLServer2017DeveloperonUbuntuServer1604LTS)<br/>[SQL Server 2017 Express Azure VM](https://portal.azure.cn/#create/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonUbuntuServer1604LTS) |
+<!--Not Available on SUSE Linux Enterprise Server  -->
 
 ## <a name="paid-sql-server-editions"></a>SQL Server 付费版
 
@@ -66,7 +67,7 @@ ms.locfileid: "34702835"
 
 “按使用情况支付 SQL Server 许可证费用”意味着 Azure VM 的每秒运行成本包括 SQL Server 许可证的费用。 有关不同 SQL Server 版本（Web、Standard 和 Enterprise）的定价，可参阅适用于 [Windows](https://www.azure.cn/pricing/details/virtual-machines/) 或 [Linux](https://www.azure.cn/pricing/details/virtual-machines/) 的 Azure VM 定价页。
 
-所有版本的 SQL Server（2012 SP3 到 2017）的费用相同。 每秒许可费用取决于 VM 内核数，这是所有 SQL Server 许可的收费标准。
+所有版本的 SQL Server（2012 SP3 到 2017）的费用相同。 每秒许可成本取决于 VM vCPU 的数量。
 
 建议在以下情况采用“按使用情况支付 SQL Server 许可费用”：
 
@@ -79,8 +80,9 @@ ms.locfileid: "34702835"
 | 平台 | 许可的映像 |
 |---|---|
 | Windows Server 2016 | [SQL Server 2017 Web Azure VM](https://portal.azure.cn/#create/Microsoft.SQLServer2017WebonWindowsServer2016)<br/>[SQL Server 2017 Standard Azure VM](https://portal.azure.cn/#create/Microsoft.SQLServer2017StandardonWindowsServer2016)<br/>[SQL Server 2017 Enterprise Azure VM](https://portal.azure.cn/#create/Microsoft.SQLServer2017EnterpriseWindowsServer2016) |
+| Ubuntu | [SQL Server 2017 Web Azure VM](https://portal.azure.cn/#create/Microsoft.SQLServer2017WebonUbuntuServer1604LTS)<br/>[SQL Server 2017 Standard Azure VM](https://portal.azure.cn/#create/Microsoft.SQLServer2017StandardonUbuntuServer1604LTS)<br/>[SQL Server 2017 Enterprise Azure VM](https://portal.azure.cn/#create/Microsoft.SQLServer2017EnterpriseonUbuntuServer1604LTS) |
 <!--Not Available on Red Hat Enterprise Linux  -->
-<!--Not Available on SUSE Linux Enterprise Server  --> | Ubuntu | [SQL Server 2017 Web Azure VM](https://portal.azure.cn/#create/Microsoft.SQLServer2017WebonUbuntuServer1604LTS)<br/>[SQL Server 2017 Standard Azure VM](https://portal.azure.cn/#create/Microsoft.SQLServer2017StandardonUbuntuServer1604LTS)<br/>[SQL Server 2017 Enterprise Azure VM](https://portal.azure.cn/#create/Microsoft.SQLServer2017EnterpriseonUbuntuServer1604LTS) |
+<!--Not Available on SUSE Linux Enterprise Server  -->
 
 > [!IMPORTANT]
 > 在 Azure 门户中创建 SQL Server 虚拟机时，“选择大小”窗口显示估算成本。 请务必注意，此估算成本仅仅是运行 VM 所产生的计算成本，以及任意 OS 许可成本（Windows 或第三方 Linux 操作系统）。
@@ -103,7 +105,7 @@ ms.locfileid: "34702835"
 
 - **生存期和规模已知的工作负荷**。 例如，全年需要且已预测其需求的应用。
 
-若要对 SQL Server VM 使用 BYOL，必须拥有 SQL Server Standard 或 Enterprise 的许可证，这是某些[批量许可](https://www.microsoft.com/download/details.aspx?id=10585)计划的必需选项，而对其他软件保障计划而言为可选购买。  根据协议类型以及 SQL Server 的数量和/或对其的承诺，批量许可计划提供的定价级别各不相同。 但一般而言，针对连续生产工作负荷自带许可证具有以下优点：<!-- Not Available on [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default.aspx#tab=1)-->
+若要对 SQL Server VM 使用 BYOL，必须拥有 SQL Server Standard 或 Enterprise 的许可证以及软件保障，这是某些批量许可计划的必需选项，而对其他计划而言为可选购买。 根据协议类型以及 SQL Server 的数量和/或对其的承诺，批量许可计划提供的定价级别各不相同。 但一般而言，针对连续生产工作负荷自带许可证具有以下优点：<!-- Not Available on [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default.aspx#tab=1)-->
 
 | BYOL 权益 | 说明 |
 |-----|-----|
@@ -129,7 +131,7 @@ ms.locfileid: "34702835"
 <a name="machinesize"></a>
 ###  <a name="correctly-size-your-vm"></a>正确调整 VM 的大小
 
-SQL Server 的许可成本直接与核心数相关。 请选择与 CPU、内存、存储和 I/O 带宽需求相符的 VM 大小。 有关计算机大小选项的完整列表，请参阅 [Windows VM 大小](/virtual-machines/windows/sizes)和 [Linux VM 大小](/virtual-machines/linux/sizes?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
+SQL Server 的许可成本直接与 vCPU 数相关。 请选择与 CPU、内存、存储和 I/O 带宽需求相符的 VM 大小。 有关计算机大小选项的完整列表，请参阅 [Windows VM 大小](/virtual-machines/windows/sizes)和 [Linux VM 大小](/virtual-machines/linux/sizes?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 
 有一些新的计算机大小能够很好地适应特定类型的 SQL Server 工作负荷。 这些计算机大小保留较高级别的内存、存储和 I/O 带宽，但虚拟化核心数较少。 例如，考虑以下情况：
 
@@ -141,7 +143,7 @@ SQL Server 的许可成本直接与核心数相关。 请选择与 CPU、内存�
 > [!IMPORTANT]
 > 这是一个时间点示例。 有关最新的规范，请参阅适用于 [Windows](https://www.azure.cn/pricing/details/virtual-machines/) 和 [Linux](https://www.azure.cn/pricing/details/virtual-machines/) 的计算机大小文章和 Azure 定价页。
 
-在前面的示例中可以看到，除 vCPU 以外，**Standard_DS14v2** 和 **Standard_DS14-4v2** 的规范在其他方面相同。 **Standard_DS14-4v2** 计算机大小末尾的后缀 **-4v2** 表示活动的 vCPU 数目。 由于 SQL Server 许可成本与核心数密切相关，因此，在不需要额外的 vCPU 的情况下，此计算机大小可以大幅降低 VM 的成本。 这只是其中一个示例，还有许多计算机大小的 vCPU 数目受到限制，具体数字以此后缀模式标识。 有关详细信息，请参阅博客文章 [Announcing new Azure VM sizes for more cost-effective database work](https://azure.microsoft.com/blog/announcing-new-azure-vm-sizes-for-more-cost-effective-database-workloads/)（宣布推出新的 Azure VM 大小来提高数据库工作的性价比）。
+在前面的示例中可以看到，除 vCPU 以外，**Standard_DS14v2** 和 **Standard_DS14-4v2** 的规范在其他方面相同。 **Standard_DS14-4v2** 计算机大小末尾的后缀 **-4v2** 表示活动的 vCPU 数目。 由于 SQL Server 许可成本与 vCPU 数密切相关，因此，在不需要额外的 vCPU 的情况下，此计算机大小可以大幅降低 VM 的成本。 这只是其中一个示例，还有许多计算机大小的 vCPU 数目受到限制，具体数字以此后缀模式标识。 有关详细信息，请参阅博客文章 [Announcing new Azure VM sizes for more cost-effective database work](https://azure.microsoft.com/blog/announcing-new-azure-vm-sizes-for-more-cost-effective-database-workloads/)（宣布推出新的 Azure VM 大小来提高数据库工作的性价比）。
 
 ### <a name="shut-down-your-vm-when-possible"></a>在可能的情况下关闭 VM
 
