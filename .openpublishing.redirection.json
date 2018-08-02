@@ -10973,6 +10973,11 @@
      "source_path": "articles/role-based-access-control/role-assignments-users.md",
      "redirect_url": "/role-based-access-control/role-assignments-portal",
      "redirect_document_id": false
+  },
+  {
+     "source_path": "articles/active-directory/active-directory-passwords-policy.md",
+     "redirect_url": "/active-directory/authentication/concept-sspr-policy",
+     "redirect_document_id": true
   }
 
   ]
