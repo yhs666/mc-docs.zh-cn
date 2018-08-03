@@ -10420,6 +10420,11 @@
       "redirect_document_id": false
   },
   {
+      "source_path": "articles/sql-database/sql-database-benchmark-overview.md",
+      "redirect_url": "/sql-database/sql-database-service-tiers-dtu",
+      "redirect_document_id": false
+  },
+  {
       "source_path": "articles/media-services/media-services-mes-preset-H264-Multiple-Bitrate-16x9-SD.md",
       "redirect_url": "/media-services/previous/media-services-mes-preset-H264-Multiple-Bitrate-16x9-SD",
       "redirect_document_id": false
@@ -10973,6 +10978,26 @@
      "source_path": "articles/role-based-access-control/role-assignments-users.md",
      "redirect_url": "/role-based-access-control/role-assignments-portal",
      "redirect_document_id": false
+  },
+  {
+     "source_path": "articles/sql-database/sql-database-dtu-resource-limits.md",
+     "redirect_url": "/sql-database/sql-database-dtu-resource-limits-single-databases",
+     "redirect_document_id": false
+  },
+  {
+      "source_path": "articles/sql-database/sql-database-single-database-resources.md",
+      "redirect_url": "/sql-database/sql-database-single-database-scale",
+      "redirect_document_id": false
+  },
+  {
+      "source_path": "articles/sql-database/sql-database-vcore-resource-limits.md",
+      "redirect_url": "/sql-database/sql-database-vcore-resource-limits-single-databases",
+      "redirect_document_id": false
+  },
+  {
+      "source_path": "articles/sql-database/sql-database-what-is-a-dtu.md",
+      "redirect_url": "/sql-database/sql-database-service-tiers-dtu",
+      "redirect_document_id": false
   },
   {
      "source_path": "articles/active-directory/active-directory-passwords-policy.md",
