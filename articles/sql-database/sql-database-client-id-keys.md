@@ -10,18 +10,18 @@ ms.topic: article
 origin.date: 04/01/2018
 ms.date: 04/17/2018
 ms.author: v-haiqya
-ms.openlocfilehash: 57b8dc05df83bd5c8fc0ffd213f88a237522f80f
-ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
+ms.openlocfilehash: ec289b4d6c6dcd9d45c3f230d539d804a8d0545b
+ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36947871"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39487071"
 ---
 # <a name="get-the-required-values-for-authenticating-an-application-to-access-sql-database-from-code"></a>获取对应用程序进行身份验证所需的值以便从代码访问 SQL 数据库
 若要在代码中创建并管理 SQL 数据库，必须在创建 Azure 资源的订阅中的 Azure Active Directory (AAD) 域内注册你的应用。
 
 ## <a name="create-a-service-principal-to-access-resources-from-an-application"></a>创建服务主体以便从应用程序访问资源
-需要安装并运行最新的 [Azure PowerShell](https://msdn.microsoft.com/library/mt619274.aspx) 。 有关详细信息，请参阅 [如何安装和配置 Azure PowerShell](/powershell/azureps-cmdlets-docs)。
+需要安装并运行最新的 [Azure PowerShell](https://msdn.microsoft.com/library/mt619274.aspx) 。 有关详细信息，请参阅 [如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)。
 
 以下 PowerShell 脚本将创建对 C# 应用进行身份验证所需的 Active Directory (AD) 应用程序和服务主体。 该脚本输出我们需要用于前面 C# 示例的值。 有关详细信息，请参阅[使用 Azure PowerShell 创建服务主体以访问资源](../azure-resource-manager/resource-group-authenticate-service-principal.md)。
 
@@ -70,4 +70,3 @@ ms.locfileid: "36947871"
 * [使用 C# 创建 SQL 数据库](sql-database-get-started-csharp.md)
 * [使用 Azure Active Directory 身份验证连接到 SQL 数据库](sql-database-aad-authentication.md)
 
-<!--Update_Description: update meta properties-->

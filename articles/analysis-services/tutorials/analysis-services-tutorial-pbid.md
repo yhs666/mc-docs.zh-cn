@@ -4,16 +4,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: tutorial
-origin.date: 05/23/2018
-ms.date: 07/16/2018
+origin.date: 07/03/2018
+ms.date: 08/06/2018
 ms.author: v-yeche
 ms.reviewer: owend
-ms.openlocfilehash: daf1da82ec79b4d891f51d3b05edd72a199e2a83
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.openlocfilehash: fc1330428c3783535470545b44dbf0f7422ad6f5
+ms.sourcegitcommit: c6205500afd23ac00f2829fe51858b51a622eaf1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168024"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39487833"
 ---
 <!--Notice: Verify sucessfully-->
 # <a name="tutorial-connect-with-power-bi-desktop"></a>教程：使用 Power BI Desktop 进行连接
@@ -74,5 +74,4 @@ ms.locfileid: "39168024"
 ## <a name="next-steps"></a>后续步骤
 在本教程中，你已了解了如何使用 Power BI Desktop 连接到服务器上的数据模型并创建基本报表。 如果不熟悉如何创建数据模型，请参阅 [Adventure Works Internet Sales 表格数据建模教程](aas-adventure-works-tutorial.md)。
 
-<!-- Update_Description: new articles on tutorial pbid -->
-<!--ms.date: 07/16/2018-->
+<!-- Update_Description: update meta properties -->

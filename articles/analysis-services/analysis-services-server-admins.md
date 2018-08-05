@@ -5,19 +5,22 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 04/12/2018
-ms.date: 07/16/2018
+origin.date: 06/20/2018
+ms.date: 08/06/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8de4b9478e4c3a97581f3e7eeb5359dcbcef37e2
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.openlocfilehash: f862bb69315139b055c3154ca1d268038ae9ed71
+ms.sourcegitcommit: c6205500afd23ac00f2829fe51858b51a622eaf1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39167933"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39487801"
 ---
 # <a name="manage-server-administrators"></a>管理服务器管理员
-服务器管理员必须是 Azure Active Directory (Azure AD) 中服务器所在租户的有效用户或组。 可以对 Azure 门户中的服务器使用“Analysis Services 管理员”，或使用 SSMS 中的“服务器属性”来管理服务器管理员。 
+服务器管理员必须是 Azure Active Directory (Azure AD) 中服务器所在租户的有效用户或安全组。 可以对 Azure 门户中的服务器使用“Analysis Services 管理员”，或使用 SSMS 中的“服务器属性”来管理服务器管理员。 
+
+> [!NOTE]
+> 安全组必须已将 `MailEnabled` 属性设为 `True`。
 
 ## <a name="to-add-server-administrators-by-using-azure-portal"></a>使用 Azure 门户添加服务器管理员
 1. 在门户中，对于服务器，单击“Analysis Services 管理员”。

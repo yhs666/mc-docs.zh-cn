@@ -11,12 +11,12 @@ ms.topic: quickstart
 origin.date: 04/01/2018
 ms.date: 04/17/2018
 ms.author: v-nany
-ms.openlocfilehash: 7c717e883f20f17ca5f424973bef284bf5106e05
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: a9a4916225c52739fb5b4f9d153a2271c046d093
+ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38938791"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486919"
 ---
 # <a name="use-net-core-c-to-query-an-azure-sql-database"></a>使用 .NET Core (C#) 查询 Azure SQL 数据库
 
@@ -138,7 +138,7 @@ namespace sqltest
 
 ## <a name="next-steps"></a>后续步骤
 
-- [在 Windows/Linux/macOS 中通过命令行使用 .NET Core 入门](/dotnet/core/tutorials/using-with-xplat-cli)。
+- [在 Windows/Linux/macOS 中通过命令行使用 .NET Core 入门](https://docs.microsoft.com/dotnet/core/tutorials/using-with-xplat-cli)。
 - 了解如何[使用 .NET Framework 和 Visual Studio 连接和查询 Azure SQL 数据库](sql-database-connect-query-dotnet-visual-studio.md)。  
 - 了解如何[使用 SSMS 设计你的第一个 Azure SQL 数据库](sql-database-design-first-database.md)，或者如何[使用 .NET 设计你的第一个 Azure SQL 数据库](sql-database-design-first-database-csharp.md)。
 - 有关 .NET 的详细信息，请参阅 [.NET 文档](https://docs.azure.cn/zh-cn/dotnet/)。

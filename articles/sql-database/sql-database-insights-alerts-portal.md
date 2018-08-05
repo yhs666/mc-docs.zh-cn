@@ -10,12 +10,12 @@ ms.topic: article
 origin.date: 04/01/2018
 ms.date: 04/17/2018
 ms.author: v-johch
-ms.openlocfilehash: dd9f3b9344e1550f358e2f4296dce45262727b66
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 2331b8a6af682087f896deaf0996cef3828ecfcb
+ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782442"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486545"
 ---
 # <a name="use-azure-portal-to-create-alerts-for-azure-sql-database-and-data-warehouse"></a>使用 Azure 门户为 Azure SQL 数据库和数据仓库创建警报
 
@@ -35,8 +35,6 @@ ms.locfileid: "31782442"
 
 可以使用以下工具配置和获取关于警报的信息：
 
-
-
 * [Azure 监视器 REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
 ## <a name="create-an-alert-rule-on-a-metric-with-the-azure-portal"></a>使用 Azure 门户创建指标的警报规则
@@ -44,13 +42,12 @@ ms.locfileid: "31782442"
 2. SQL DB 和弹性池与 SQL DW 的此步骤是不同的： 
 
    - **仅 SQL DB 和弹性池**：在“监视”部分下，选择“警报”或“警报规则”。 对于不同的资源，文本和图标可能会略有不同。  
-
-
+   
    - **仅 SQL DW**：在“常见任务”部分下，选择“监视”。 单击“DWU 使用情况”图。
 
 
 3. 选择“添加通知”命令，并填写字段。
-
+   
 4. **命名**警报规则，并选择也在通知电子邮件中显示的“说明”。
 5. 选择想要监视的“指标”为该指标选择一个“条件”和“阈值”。 还选择触发警报前指标规则必须满足的时间段。 例如，如果使用时间段"PT5M"，且警报针对 CPU 高于 80% 的情况，则平均 CPU 高于 80% 达到 5 分钟时触发警报。 第一次触发结束后，当平均 CPU 低于 80% 的时间超过 5 分钟时，将再次触发。 每 1 分钟对 CPU 进行一次测量。 请参阅下表，了解支持的时间窗口和每个警报使用的聚合类型（并非所有警报都使用平均值）。   
 6. 如果触发警报时希望向管理员和共同管理员发送电子邮件，则选择“向所有者发送电子邮件...”。
@@ -66,6 +63,7 @@ ms.locfileid: "31782442"
 * 查看其中显示了指标阈值和前一天的实际值的图形。
 * 编辑或删除其。
 * 如果想要暂时停止或恢复接收该警报的通知，可**禁用**或**启用**它。
+
 
 ## <a name="sql-database-alert-values"></a>SQL 数据库警报值
 
@@ -86,7 +84,7 @@ ms.locfileid: "31782442"
 | SQL 数据库 | sessions_percent | 会话百分比 | 平均值 | 5 分钟 |
 | SQL 数据库 | dtu_limit | DTU 限制 | 平均值 | 5 分钟 |
 | SQL 数据库 | dtu_used | 已用的 DTU | 平均值 | 5 分钟 |
-||||||           
+||||||
 | 弹性池 | cpu_percent | CPU 百分比 | 平均值 | 10 分钟 |
 | 弹性池 | physical_data_read_percent | 数据 IO 百分比 | 平均值 | 10 分钟 |
 | 弹性池 | log_write_percent | 日志 IO 百分比 | 平均值 | 10 分钟 |
@@ -108,7 +106,8 @@ ms.locfileid: "31782442"
 | SQL 数据仓库 | dwu_limit | dwu 限制 | 最大值 | 10 分钟 |
 | SQL 数据仓库 | dwu_consumption_percent | DWU 百分比 | 平均值 | 10 分钟 |
 | SQL 数据仓库 | dwu_used | 已用的 DWU | 平均值 | 10 分钟 |
-||||||               
+||||||
+
 
 ## <a name="next-steps"></a>后续步骤
 * [获取 Azure 监视概述](../monitoring-and-diagnostics/monitoring-overview.md)，包括可收集和监视的信息的类型。

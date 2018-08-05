@@ -10,12 +10,12 @@ ms.topic: article
 origin.date: 04/01/2018
 ms.date: 04/17/2018
 ms.author: v-johch
-ms.openlocfilehash: 1da8614d901f7fc2f7f0aeb6c1614be8ba2322e9
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: fe9e8a5d9ee778ba0698cd727759eedf9c039c08
+ms.sourcegitcommit: 2a147231bf3d0a693adf58fceee76ab0fbcd6dbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31781955"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39335251"
 ---
 # <a name="sql-database----downlevel-clients-support-and-ip-endpoint-changes-for-table-auditing"></a>SQL 数据库 - 针对表审核的下层客户端支持和 IP 终结点更改
 
@@ -50,5 +50,5 @@ ms.locfileid: "31781955"
 
 | 数据库区域 | 可能的 IP 终结点 |
 | --- | --- |
-| 中国北部  | 139.217.29.176, 139.217.28.254 |
-| 中国东部  | 42.159.245.65, 42.159.246.245 |
+| 中国北部 |139.217.29.176, 139.217.28.254 |
+| 中国东部 |42.159.245.65, 42.159.246.245 |

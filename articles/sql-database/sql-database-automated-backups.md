@@ -8,19 +8,21 @@ ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
 ms.workload: Active
-origin.date: 05/25/2018
-ms.date: 07/02/2018
+origin.date: 07/16/2018
+ms.date: 08/06/2018
 ms.author: v-johch
-ms.openlocfilehash: f678505bf6a0fda0742794143ba800965e9d830f
-ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
+ms.openlocfilehash: 708a0c896a957030d6c4146d6a2862626ab7a0cc
+ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36948097"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486943"
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>了解 SQL 数据库自动备份
 
 SQL 数据库会自动创建数据库备份，并使用 Azure 读取访问异地冗余存储 (RA-GRS) 来提供异地冗余。 这些备份是自动创建的，不收取额外的费用。 不需要执行任何操作就能进行这样的备份。 数据库备份是任何业务连续性和灾难恢复策略的基本组成部分，因为数据库备份可以保护数据免遭意外损坏或删除。 如果安全策略要求备份长期可用，你可以配置长期备份保留策略。 有关详细信息，请参阅 [长期保留](sql-database-long-term-retention.md)。
+
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="what-is-a-sql-database-backup"></a>什么是 SQL 数据库备份？
 
@@ -40,7 +42,7 @@ SQL 数据库使用 SQL Server 技术创建[完整](https://msdn.microsoft.com/l
 > 
 
 ## <a name="how-long-are-backups-kept"></a>备份保留多长时间？
-每个 SQL 数据库备份都有一个基于数据库服务层的默认保留期，并且[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)和[基于 vCore 的购买模型（预览版）](sql-database-service-tiers-vcore.md)之间存在差异。 可以更新数据库的备份保留期。 有关更多详细信息，请参阅[更改备份保留期](#how-to-change-backup-retention-period)。
+每个 SQL 数据库备份都有一个基于数据库服务层的默认保留期，并且[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)和[基于 vCore 的购买模型](sql-database-service-tiers-vcore.md)之间存在差异。 可以更新数据库的备份保留期。 有关更多详细信息，请参阅[更改备份保留期](#how-to-change-backup-retention-period)。
 
 如果删除了某个数据库，SQL 数据库以保存联机数据库的相同方式保存其备份。 例如，如果删除了保留期为 7 天的某个基本数据库，已保存 4 天的备份将继续保存 3 天。
 
@@ -60,11 +62,6 @@ SQL 数据库使用 SQL Server 技术创建[完整](https://msdn.microsoft.com/l
 
 如果增大当前 PITR 保留期，则 SQL 数据库将保留现有备份，直到达到较长的保留期。
 
-### <a name="pitr-retention-for-the-vcore-based-service-tiers-preview"></a>基于 vCore 的服务层的 PITR 保留期（预览版）
-
-在预览期，使用基于 vCore 的购买模型创建的数据库的 PITR 保留期设置为 7 天。 关联的存储是免费的。    
-
-
 ## <a name="how-often-do-backups-happen"></a>多久备份一次？
 ### <a name="backups-for-point-in-time-restore"></a>用于时间点还原的备份
 SQL 数据库支持自助时间点还原 (PITR)，可自动创建完整备份、差异备份和事务日志备份。 会每周创建完整数据库备份，每隔数小时创建差异数据库备份，并每隔 5 - 10 分钟创建事务日志备份。 会在数据库创建后立即计划第一次完整备份。 完整备份通常可在 30 分钟内完成，但如果数据库很大，花费的时间可能更长。 例如，对已还原的数据库或数据库副本执行初始备份可能需要更长时间。 在完成首次完整备份后，在后台以静默方式自动计划和管理所有后续备份。 在平衡整体系统工作负荷时，SQL 数据库服务会确定所有数据库备份的确切时间。
@@ -82,11 +79,13 @@ SQL 数据库提供相应的选项用于将完整备份的长期保留期 (LTR) 
 
 ## <a name="are-backups-encrypted"></a>备份已加密？
 
-如果使用 TDE 加密数据库，备份（包括 LTR 备份）会自动静态加密。 为 Azure SQL 数据库启用 TDE 时，也会加密备份。 默认情况下，所有新的 Azure SQL 数据库都配置为启用 TDE。 有关 TDE 的详细信息，请参阅[使用 Azure SQL 数据库进行透明数据加密](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)。
+如果使用 TDE 加密数据库，备份（包括 LTR 备份）会自动静态加密。 为 Azure SQL 数据库启用 TDE 时，也会加密备份。 默认情况下，所有新的 Azure SQL 数据库都配置为启用 TDE。 有关 TDE 的详细信息，请参阅[使用 Azure SQL 数据库进行透明数据加密](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)。
 
 ## <a name="how-do-automated-backups-impact-my-compliance"></a>自动备份对符合性有哪些影响？
 
 将基于 DTU 的服务层中默认 PITR 保留期为 35 天的数据库迁移到基于 vCore 的服务层时，将会维持 PITR 保留期，以确保不会违反应用程序的数据恢复策略。 如果默认保留期不满足合规要求，可以使用 PowerShell 或 REST API 更改 PITR 保留期。 有关更多详细信息，请参阅[更改备份保留期](#how-to-change-backup-retention-period)。
+
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="how-to-change-backup-retention-period"></a>如何更改备份保留期
 可以使用 REST API 或 PowerShell 更改默认保留期。 支持的值为：7、14、21、28 或 35 天。以下示例演示如何将 PITR 保留期更改为 28 天。 

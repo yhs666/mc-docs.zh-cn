@@ -7,24 +7,20 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
-origin.date: 06/14/2018
-ms.date: 07/02/2018
+origin.date: 07/16/2018
+ms.date: 08/06/2018
 ms.author: v-nany
 ms.reviewer: carlrab
-ms.openlocfilehash: c751bc431c4d1eb1d9ba9b1ccee0603f8dcc4010
-ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
+ms.openlocfilehash: 07b89a3c90317f4b4f57ba1e992d43511c7f9acf
+ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37800501"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486546"
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>将 Azure SQL 数据库备份存储 10 年之久
 
 出于法规要求、符合性或其他商业目的，许多应用程序要求保留 Azure SQL 数据库的[自动备份](sql-database-automated-backups.md)功能提供的过去 7-35 天的数据库备份。 通过使用长期保留 (LTR) 功能，可以将指定的 SQL 数据库完整备份存储在 [RA-GRS](../storage/common/storage-redundancy-grs.md) blob 存储中长达 10 年。 然后，可以将任何备份还原为新数据库。
-
-> [!IMPORTANT]
-> 长期保留功能当前为预览版。 在此功能的以前预览版中提供的 Azure 服务恢复服务保管库中存储的现有备份将迁移到 SQL Azure 存储。
->
 
 ## <a name="how-sql-database-long-term-retention-works"></a>SQL 数据库长期保留的工作原理
 

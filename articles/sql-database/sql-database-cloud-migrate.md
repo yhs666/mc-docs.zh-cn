@@ -11,12 +11,12 @@ ms.topic: article
 origin.date: 03/16/2018
 ms.date: 06/18/2018
 ms.author: v-nany
-ms.openlocfilehash: 1b1da10c1ab1e4b8cb3cc8ff14d3842baa745c83
-ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
+ms.openlocfilehash: c10776c4f164fe94966cc5176d3df9a89915cedf
+ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37800405"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486941"
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>将 SQL Server 数据库迁移到 Azure SQL 数据库
 
@@ -65,7 +65,7 @@ ms.locfileid: "37800405"
 
 ### <a name="method-2-use-transactional-replication"></a>方法 2：使用事务复制
 
-如果在发生迁移时你无法承受从生产中删除 SQL Server 数据库的后果，可以使用 SQL Server 事务复制作为迁移解决方案。 若要使用此方法，源数据库必须满足[事务复制要求](https://msdn.microsoft.com/library/mt589530.aspx)且兼容 Azure SQL 数据库。 有关使用 AlwaysOn 的 SQL 复制的信息，请参阅[配置 AlwaysOn 可用性组 (SQL Server) 的复制](/sql/database-engine/availability-groups/windows/configure-replication-for-always-on-availability-groups-sql-server)。
+如果在发生迁移时你无法承受从生产中删除 SQL Server 数据库的后果，可以使用 SQL Server 事务复制作为迁移解决方案。 若要使用此方法，源数据库必须满足[事务复制要求](https://msdn.microsoft.com/library/mt589530.aspx)且兼容 Azure SQL 数据库。 有关使用 AlwaysOn 的 SQL 复制的信息，请参阅[配置 AlwaysOn 可用性组 (SQL Server) 的复制](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-replication-for-always-on-availability-groups-sql-server)。
 
 要使用此解决方案，请将 Azure SQL 数据库配置为要迁移的 SQL Server 实例的订阅服务器。 在新的事务不断发生时，事务复制分发器将对要同步的数据库（发布服务器）中的数据进行同步。 
 

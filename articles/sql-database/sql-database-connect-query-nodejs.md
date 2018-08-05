@@ -11,12 +11,12 @@ ms.topic: quickstart
 origin.date: 04/01/2018
 ms.date: 04/17/2018
 ms.author: v-nany
-ms.openlocfilehash: 9fbb53db83d1508b87eb674c506b7b32e3f1615e
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 382aa8d8ef44e73e6947679c420d1a33d27a8bda
+ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38938758"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486900"
 ---
 # <a name="use-nodejs-to-query-an-azure-sql-database"></a>使用 Node.js 查询 Azure SQL 数据库
 
@@ -126,7 +126,7 @@ ms.locfileid: "38938758"
 
 - 了解[用于 SQL Server 的 Microsoft Node.js 驱动程序](https://docs.microsoft.com/sql/connect/node-js/node-js-driver-for-sql-server/)
 - 了解如何在 Windows/Linux/macOS 中[使用 .NET Core 连接和查询 Azure SQL 数据库](sql-database-connect-query-dotnet-core.md)。  
-- 了解[在 Windows/Linux/macOS 中通过命令行使用 .NET Core 入门](/dotnet/core/tutorials/using-with-xplat-cli)。
+- 了解[在 Windows/Linux/macOS 中通过命令行使用 .NET Core 入门](https://docs.microsoft.com/dotnet/core/tutorials/using-with-xplat-cli)。
 - 了解如何[使用 SSMS 设计第一个 Azure SQL 数据库](sql-database-design-first-database.md)，或者如何[使用 .NET 设计第一个 Azure SQL 数据库](sql-database-design-first-database-csharp.md)。
 - 了解如何[使用 SSMS 进行连接和查询](sql-database-connect-query-ssms.md)
 - 了解如何[使用 Visual Studio Code 进行连接和查询](sql-database-connect-query-vscode.md)。

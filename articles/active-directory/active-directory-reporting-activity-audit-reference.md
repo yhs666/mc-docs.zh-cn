@@ -3,26 +3,26 @@ title: Azure Active Directory (Azure AD) 审核活动参考 | Microsoft Docs
 description: 大致了解可以在 Azure Active Directory (Azure AD) 的审核日志中记录的审核活动。
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: priyamohanram
 manager: mtillman
 editor: ''
 ms.assetid: a1f93126-77d1-4345-ab7d-561066041161
 ms.service: active-directory
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: compliance-reports
 origin.date: 04/19/2018
-ms.date: 06/20/2018
+ms.date: 07/30/2018
 ms.author: v-junlch
 ms.reviewer: dhanyahk
-ms.openlocfilehash: cf327feb3718a5447a4791acf727ad95fadb2497
-ms.sourcegitcommit: d744d18624d2188adbbf983e1c1ac1110d53275c
+ms.openlocfilehash: 1cc8a01405562c73278543082f9683598af8b03a
+ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36314415"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39487049"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Azure AD 审核活动参考
 
@@ -534,3 +534,4 @@ Azure AD 中的报告体系结构由以下部分组成：
 - 审核活动报表，请参阅 [Azure Active Directory 门户中的审核活动报表](active-directory-reporting-activity-audit-logs.md)。 
 
 
+<!-- Update_Description: update metedata properties -->

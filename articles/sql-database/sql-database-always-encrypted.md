@@ -11,12 +11,12 @@ ms.topic: article
 origin.date: 04/01/2018
 ms.date: 04/17/2018
 ms.author: v-johch
-ms.openlocfilehash: 3845bb2c1cc086f21e28d427e760031ac1d2dd78
-ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
+ms.openlocfilehash: 3d2af35028f26783cd52bed63e08b0f6ea74d08c
+ms.sourcegitcommit: 2a147231bf3d0a693adf58fceee76ab0fbcd6dbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36947977"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39335333"
 ---
 # <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-the-windows-certificate-store"></a>始终加密：保护 SQL 数据库中的敏感数据并将加密密钥存储在 Windows 证书存储中
 

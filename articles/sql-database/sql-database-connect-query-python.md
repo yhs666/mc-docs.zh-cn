@@ -8,15 +8,15 @@ ms.service: sql-database
 ms.custom: mvc,develop apps
 ms.devlang: python
 ms.topic: quickstart
-origin.date: 03/26/2018
-ms.date: 04/17/2018
+origin.date: 07/02/2018
+ms.date: 08/06/2018
 ms.author: v-nany
-ms.openlocfilehash: 58ca44dc3762fb60df67ff1d06a1eb074c26fa0d
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: d20aecd13969dc32e75085221fca69bd1b7780f7
+ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939671"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486713"
 ---
 # <a name="use-python-to-query-an-azure-sql-database"></a>使用 Python 查询 Azure SQL 数据库
 
@@ -53,7 +53,7 @@ database = 'your_database'
 username = 'your_username'
 password = 'your_password'
 driver= '{ODBC Driver 13 for SQL Server}'
-cnxn = pyodbc.connect('DRIVER='+driver+';SERVER='+server+';PORT=1443;DATABASE='+database+';UID='+username+';PWD='+ password)
+cnxn = pyodbc.connect('DRIVER='+driver+';SERVER='+server+';PORT=1433;DATABASE='+database+';UID='+username+';PWD='+ password)
 cursor = cnxn.cursor()
 cursor.execute("SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName FROM [SalesLT].[ProductCategory] pc JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid")
 row = cursor.fetchone()

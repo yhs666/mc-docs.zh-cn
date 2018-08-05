@@ -12,12 +12,12 @@ origin.date: 05/09/2018
 ms.date: 06/18/2018
 ms.author: v-nany
 manager: digimobile
-ms.openlocfilehash: 614c6847cc66a8d019ba810eb61e27ca0b64288e
-ms.sourcegitcommit: d4176361d9c6da60729c06cc93a496cb4702d4c2
+ms.openlocfilehash: e97289f0f08d2be78463c744eb18ccebf5daa839
+ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2018
-ms.locfileid: "35324298"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486708"
 ---
 # <a name="create-an-azure-sql-database-managed-instance-in-the-azure-portal"></a>在 Azure 门户中创建 Azure SQL 数据库托管实例
 
@@ -35,7 +35,7 @@ ms.locfileid: "35324298"
 > * 安装 SSMS 并连接到托管实例
 
 
-如果还没有 Azure 订阅，可以在开始前创建一个[免费](https://www.azure.cn/pricing/1rmb-trial/)帐户。
+如果没有 Azure 订阅，请在开始之前创建一个[免费](https://www.azure.cn/pricing/1rmb-trial/)帐户。
 
 > [!IMPORTANT]
 > 有关目前支持托管实例的区域列表，请参阅[使用 Azure SQL 数据库托管实例将数据库迁移到完全托管的服务](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/)。
@@ -50,7 +50,7 @@ ms.locfileid: "35324298"
 
 1. 在 Azure 门户的左上角单击“创建资源”。
 2. 找到“托管实例”，然后选择“Azure SQL 数据库托管实例(预览版)”。
-3. 单击“创建”。
+3. 单击**创建**。
 
    ![托管实例“创建”按钮](./media/sql-database-managed-instance-tutorial/managed-instance-create.png)
 
@@ -90,7 +90,7 @@ ms.locfileid: "35324298"
 
    ![虚拟网络创建窗体](./media/sql-database-managed-instance-tutorial/virtual-network-create-form.png)
 
-4. 单击“创建”。
+4. 单击**创建**。
 
 ## <a name="create-new-route-table-and-a-route"></a>创建新的路由表和路由
 
@@ -114,7 +114,7 @@ ms.locfileid: "35324298"
 
    ![路由表创建窗体](./media/sql-database-managed-instance-tutorial/route-table-create-form.png)
 
-4. 单击“创建”。
+4. 单击**创建**。
 5. 创建路由表后，打开新创建的路由表。
 
    ![路由表](./media/sql-database-managed-instance-tutorial/route-table.png)
@@ -159,20 +159,20 @@ ms.locfileid: "35324298"
 
 1. 在 Azure 门户的左上角单击“创建资源”。
 2. 找到“托管实例”，然后选择“Azure SQL 数据库托管实例(预览版)”。
-3. 单击“创建”。
+3. 单击**创建**。
 
    ![托管实例“创建”按钮](./media/sql-database-managed-instance-tutorial/managed-instance-create.png)
 
-3. 选择订阅，并验证预览版条款是否显示“已接受”。
+4. 选择订阅，并验证预览版条款是否显示“已接受”。
 
    ![托管实例预览版已接受](./media/sql-database-managed-instance-tutorial/preview-accepted.png)
 
-4. 根据下表中的说明，在托管实例窗体中填充请求的信息：
+5. 根据下表中的说明，在托管实例窗体中填充请求的信息：
 
    | 设置| 建议的值 | 说明 |
    | ------ | --------------- | ----------- |
    |**托管实例名称**|任何有效的名称|请参阅[命名规则和限制](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)，了解什么是有效的名称。|
-   |**托管实例管理员登录名**|任何有效的用户名|请参阅[命名规则和限制](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)，了解什么是有效的名称。| 
+   |**托管实例管理员登录名**|任何有效的用户名|请参阅[命名规则和限制](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)，了解什么是有效的名称。 不要使用“serveradmin”，因为这是保留的服务器级角色。| 
    |**密码**|任何有效的密码|密码必须至少 16 个字符，且符合[定义的复杂性要求](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm)。|
    |**资源组**|之前创建的资源组||
    |**位置**|以前选择的位置|有关区域的信息，请参阅 [Azure 区域](https://azure.microsoft.com/regions/)。|
@@ -180,17 +180,17 @@ ms.locfileid: "35324298"
 
    ![托管实例“创建”窗体](./media/sql-database-managed-instance-tutorial/managed-instance-create-form.png)
 
-5. 单击“定价层”，设置计算和存储资源的大小并查看定价层选项。 默认情况下，实例获得 32 GB 的免费存储空间，这对应用程序来说可能不够。
-6. 使用滑块或文本框指定存储量和虚拟核心数。 
-   ![托管实例“创建”窗体](./media/sql-database-managed-instance-tutorial/managed-instance-pricing-tier.png)
+6. 单击“定价层”，设置计算和存储资源的大小并查看定价层选项。 默认情况下，实例获得 32 GB 的免费存储空间，这对应用程序来说可能不够。
+7. 使用滑块或文本框指定存储量和虚拟核心数。 
+   ![托管实例定价层](./media/sql-database-managed-instance-tutorial/managed-instance-pricing-tier.png)
 
-7. 完成后单击“应用”，保存选择的内容。  
-8. 单击“创建”，部署托管实例。
-9. 单击“通知”图标，查看部署的状态。
+8. 完成后单击“应用”，保存选择的内容。  
+9. 单击“创建”，部署托管实例。
+10. 单击“通知”图标，查看部署的状态。
  
    ![部署进度](./media/sql-database-managed-instance-tutorial/deployment-progress.png)
 
-9. 单击“正在进行的部署”以打开“托管实例”窗口，进一步监视部署进度。
+11. 单击“正在进行的部署”以打开“托管实例”窗口，进一步监视部署进度。
  
    ![部署进度 2](./media/sql-database-managed-instance-tutorial/managed-instance.png)
 
@@ -250,18 +250,18 @@ ms.locfileid: "35324298"
 
    ![虚拟机“创建”窗体](./media/sql-database-managed-instance-tutorial/virtual-machine-create-form.png)
 
-3. 单击 **“确定”**。
-4. 为 VM 选择大小。 若要查看更多的大小，请选择“全部查看”或更改“支持的磁盘类型”筛选器。 本教程只需小型虚拟机。
+4. 单击 **“确定”**。
+5. 为 VM 选择大小。 若要查看更多的大小，请选择“全部查看”或更改“支持的磁盘类型”筛选器。 本教程只需小型虚拟机。
 
     ![VM 大小](./media/sql-database-managed-instance-tutorial/virtual-machine-size.png)  
 
-5. 单击“选择”。
-6. 在“设置”窗体中单击“子网”，然后选择“vm_subnet”。 请勿选择在其中预配了托管实例的子网，而应选择同一 Vnet 中的另一子网。
+6. 单击“选择”。
+7. 在“设置”窗体中单击“子网”，然后选择“vm_subnet”。 请勿选择在其中预配了托管实例的子网，而应选择同一 Vnet 中的另一子网。
 
     ![VM 设置](./media/sql-database-managed-instance-tutorial/virtual-machine-settings.png)  
 
-7. 单击 **“确定”**。
-8. 在摘要页上查看产品/服务详细信息，然后单击“创建”，开始虚拟机部署。
+8. 单击 **“确定”**。
+9. 在摘要页上查看产品/服务详细信息，然后单击“创建”，开始虚拟机部署。
  
 ## <a name="connect-to-virtual-machine"></a>连接到虚拟机
 
@@ -331,4 +331,3 @@ ms.locfileid: "35324298"
 
 > [!div class="nextstepaction"]
 >[将数据库备份还原到 Azure SQL 数据库托管实例](sql-database-managed-instance-restore-from-backup-tutorial.md)
-

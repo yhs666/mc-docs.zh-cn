@@ -3,7 +3,7 @@ title: 如何将 Azure API 管理与虚拟网络配合使用
 description: 了解如何在 Azure API 管理中设置与虚拟网络的连接并通过它访问 Web 服务。
 services: api-management
 documentationcenter: ''
-author: antonba
+author: vlvinogr
 manager: erikre
 editor: ''
 ms.service: api-management
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 12/05/2017
 ms.author: v-yiso
-ms.date: 06/18/2018
-ms.openlocfilehash: dcb22f074169eeb647b7a2b8604dac5be044b851
-ms.sourcegitcommit: 794b9caca1147f1891513410dd61435708ef85ec
+ms.date: 08/13/2018
+ms.openlocfilehash: f1cbc4861fd055491c6f46f10bf209652e602032
+ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34855417"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486958"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>如何将 Azure API 管理与虚拟网络配合使用
 使用 Azure 虚拟网络 (VNET) 可将你的任何 Azure 资源置于可以控制其访问权限但无法通过 Internet 路由的网络中。 然后，可以使用各种 VPN 技术将这些网络连接到本地网络。 若要了解有关 Azure 虚拟网络的详细信息，请先了解以下信息：[Azure 虚拟网络概述](../virtual-network/virtual-networks-overview.md)。
@@ -123,13 +123,19 @@ ms.locfileid: "34855417"
 | * / * | 入站 |TCP |AZURE_LOAD_BALANCER/VIRTUAL_NETWORK| Azure 基础结构负载均衡器 |外部和内部 |
 
 >[!IMPORTANT]
-> * “用途”为**粗体**的端口是成功部署 API 管理服务所必需的。 不过，阻止其他端口将导致使用和监视运行中服务的能力降级。
+> “用途”为**粗体**的端口是成功部署 API 管理服务所必需的。 不过，阻止其他端口将导致使用和监视运行中服务的能力降级。
 
 * **SSL 功能**：若要启用 SSL 证书链构建和验证，API 管理服务需要使用与 ocsp.msocsp.com、mscrl.microsoft.com 和 crl.microsoft.com 之间的出站网络连接。 如果上传到 API 管理的任何证书包含指向 CA 根的完整链，则此依赖项不是必需的。
 
 * **DNS 访问**：需要端口 53 上的出站访问权限才能与 DNS 服务器通信。 如果 VPN 网关的另一端存在自定义 DNS 服务器，则该 DNS 服务器必须可从承载 API 管理的子网访问。
 
-* **指标和运行状况监视**：出站网络连接到 Azure 监视终结点，以便在以下域下解析：global.metrics.nsatc.net、shoebox2.metrics.nsatc.net、prod3.metrics.nsatc.net、prod.warmpath.msftcloudes.com、prod3-black.prod3.metrics.nsatc.net 和 prod3-red.prod3.metrics.nsatc.net。
+* **指标和运行状况监视**：出站网络连接到 Azure 监视终结点，以便在以下域下解析： 
+
+    | Azure 环境 | 终结点 |
+    | --- | --- |
+    | Azure Public | <ul><li>prod.warmpath.msftcloudes.com</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li><li>prod3-black.prod3.metrics.nsatc.net</li><li>prod3-red.prod3.metrics.nsatc.net</li></ul> |
+    | Azure Government  | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul> |
+    | Azure 中国 | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul> |
 
 * **ExpressRoute 设置**：一种常见的客户配置是定义其自己的默认路由 (0.0.0.0/0)，以强制出站 Internet 流量改为流向本地。 此流量流一定会中断与 Azure API 管理的连接，因为出站流量会在本地被阻止，或者通过“网络地址转换”功能发送到不再与各种 Azure 终结点一起工作的一组无法识别的地址。 解决方案是在包含 Azure API 管理的子网上定义一个（或多个）用户定义的路由 ([UDR][UDRs])。 UDR 定义了要遵循的子网特定路由，而不是默认路由。
   如果可能，建议使用以下配置：
@@ -153,7 +159,9 @@ ms.locfileid: "34855417"
 
 * **增量更新**：对网络进行更改时，请参阅 [NetworkStatus API](https://docs.microsoft.com/rest/api/apimanagement/networkstatus)，验证 API 管理服务是否尚未丧失对所依赖的任何关键资源的访问权限。 连接状态应每 15 分钟更新一次。
 
-* **资源导航链接**：部署到资源管理器样式的 vnet 子网中时，API 管理会通过创建一个资源导航链接来保留子网。 如果子网已包含来自其他提供程序的资源，则部署将**失败**。 类似地，将 API 管理服务移动到其他子网中或删除它时，将会删除该资源导航链接。 
+* **资源导航链接**：部署到资源管理器样式的 vnet 子网中时，API 管理会通过创建一个资源导航链接来保留子网。 如果子网已包含来自其他提供程序的资源，则部署将**失败**。 类似地，将 API 管理服务移动到其他子网中或删除它时，将会删除该资源导航链接。
+
+* **从 Azure 门户测试 API**：从 Azure 门户测试 API 并且 API 管理实例已与内部 VNet 集成时，VNet 上配置的 DNS 服务器将用于名称解析。 如果从 Azure 门户测试时收到 404，请确保 VNet 的 DNS 服务器可以正确解析 API 管理实例的主机名。 
 
 ## <a name="subnet-size"></a>子网大小要求
 Azure 会保留每个子网中的某些 IP 地址，不可以使用这些地址。 子网的第一个和最后一个 IP 地址仅为协议一致性而保留，其他三个地址用于 Azure 服务。 有关详细信息，请参阅[使用这些子网中的 IP 地址是否有任何限制？](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)

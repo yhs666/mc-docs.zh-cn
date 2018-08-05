@@ -13,13 +13,13 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 origin.date: 09/01/2017
 ms.author: adamab
-ms.date: 10/16/2017
-ms.openlocfilehash: ab449a207da45753cd8de57a54e48eec1c12ae51
-ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.date: 08/13/2018
+ms.openlocfilehash: 0caccf5c9358707268a620aa03445f793950ce05
+ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
-ms.locfileid: "22339088"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39487052"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>以编程方式创建 Azure 仪表板
 
@@ -29,13 +29,13 @@ ms.locfileid: "22339088"
 
 ## <a name="overview"></a>概述
 
-Azure 中的共享仪表板与虚拟机和存储帐户一样，是一种[资源](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview)。  因此，可通过 [Azure 资源管理器 REST API](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-rest-api)、[Azure CLI](https://docs.microsoft.com/en-us/cli/azure/overview)、[Azure PowerShell 命令](https://docs.microsoft.com/en-us/powershell/azure/get-started-azureps?view=azurermps-4.2.0) 和许多基于这些 API 构建的 [Azure 门户](https://portal.azure.com)功能，以编程方式更轻松地管理这些资源。  
+Azure 中的共享仪表板与虚拟机和存储帐户一样，是一种[资源](/azure-resource-manager/resource-group-overview)。  因此，可通过 [Azure 资源管理器 REST API](https://docs.microsoft.com/rest/api/)、[Azure CLI](https://docs.azure.cn/cli/)、[Azure PowerShell 命令](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-4.2.0) 和许多基于这些 API 构建的 [Azure 门户](https://portal.azure.cn)功能，以编程方式更轻松地管理这些资源。  
 
 所有这些 API 和工具都提供了创建、罗列、检索、修改和删除资源的方法。  由于仪表板是资源，因此可以选择使用最喜欢的 API/工具。
 
 无论使用哪种工具，都需要先构造仪表板对象的 JSON 表示形式，然后才能调用资源创建 API。 此对象包含有关仪表板上部件（也称为 磁贴）的信息。 包括大小、位置、绑定到的资源和任何用户自定义项。
 
-构建此 JSON 文档的最实用方法是使用[门户](https://portal.azure.com/)以交互方式添加并放置磁贴。 然后，导出 JSON。 最后，从结果创建模板，以供后面在脚本、程序和部署工具中使用。
+构建此 JSON 文档的最实用方法是使用[门户](https://portal.azure.cn/)以交互方式添加并放置磁贴。 然后，导出 JSON。 最后，从结果创建模板，以供后面在脚本、程序和部署工具中使用。
 
 ## <a name="create-a-dashboard"></a>创建仪表板
 
@@ -57,7 +57,7 @@ Azure 中的共享仪表板与虚拟机和存储帐户一样，是一种[资源]
 
 ![“共享”命令](./media/azure-portal-dashboards-create-programmatically/share-command.png)
 
-单击“共享”命令后显示一个对话框，提示选择要发布到的订阅和资源组。 请记住，必须对所选订阅和资源组[具有写入权限](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure)。
+单击“共享”命令后显示一个对话框，提示选择要发布到的订阅和资源组。 请记住，必须对所选订阅和资源组[具有写入权限](/role-based-access-control/role-assignments-portal)。
 
 ![共享和访问](./media/azure-portal-dashboards-create-programmatically/sharing-and-access.png)
 
@@ -90,11 +90,11 @@ Azure 提供协调多资源部署的功能。 创建用于表达要部署的资�
 如果要使用模板部署，则应使用模板的参数语法来实现参数化。  替换之前找到的所有资源 id 的实例，如下所示。
 
 ### <a name="example-json-property-with-hard-coded-resource-id"></a>具有硬编码的资源 Id 的示例 JSON 属性
-`id: “/subscriptions/6531c8c8-df32-4254-d717-b6e983273e5d/resourceGroups/contoso/providers/Microsoft.Compute/virtualMachines/myVM1”`
+`id: "/subscriptions/6531c8c8-df32-4254-d717-b6e983273e5d/resourceGroups/contoso/providers/Microsoft.Compute/virtualMachines/myVM1"`
 
 ### <a name="example-json-property-converted-to-a-parameterized-version-based-on-template-parameters"></a>基于模板参数转换为参数化版本的示例 JSON 属性
 
-`id: "[resourceId(parameters('virtualMachineResourceGroup'), ‘Microsoft.Compute/virtualMachines’, parameters('virtualMachineName'))]"`
+`id: "[resourceId(parameters('virtualMachineResourceGroup'), 'Microsoft.Compute/virtualMachines', parameters('virtualMachineName'))]"`
 
 还需要在 json 模板顶部声明某些必需的模板元数据和参数，如下所示：
 

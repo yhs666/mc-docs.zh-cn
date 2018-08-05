@@ -3,23 +3,24 @@ title: 应用程序许可工作原理 | Microsoft Docs
 description: 详细了解 Azure AD 许可框架工作原理，确定如何在开发基于 Azure AD 的应用程序时使用它
 services: active-directory
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: barbkess
+manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/11/2017
-ms.date: 07/28/2017
+ms.date: 07/30/2018
 ms.author: v-junlch
-ms.openlocfilehash: 328dae2a4ba4baeb8808744e51c2e7bdad67cd57
-ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
+ms.openlocfilehash: 411d6b78121a583311e745edfb0b7c1bc9670b05
+ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
-ms.locfileid: "27548275"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486894"
 ---
 # <a name="how-application-consent-works"></a>应用程序许可工作原理
 
@@ -35,4 +36,4 @@ ms.locfileid: "27548275"
 ## <a name="next-steps"></a>后续步骤
 [AzureAD StackOverflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: update metedata properties -->

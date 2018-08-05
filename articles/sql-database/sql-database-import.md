@@ -7,15 +7,15 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: load & move data
 origin.date: 04/10/2018
-ms.date: 02/28/2018
+ms.date: 08/06/2018
 ms.author: v-nany
 ms.topic: article
-ms.openlocfilehash: c007de6cb3fa45aaa6086606799230b18d15940d
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 3a93960071326fbad00167b5056d313ae1516cdd
+ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782408"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486591"
 ---
 # <a name="import-a-bacpac-file-to-a-new-azure-sql-database"></a>将 BACPAC 文件导入到新的 Azure SQL 数据库
 
@@ -103,6 +103,9 @@ $importStatus
 
 > [!TIP]
 有关另一个脚本示例，请参阅[从 BACPAC 文件导入数据库](scripts/sql-database-import-from-bacpac-powershell.md)。
+
+## <a name="limitations"></a>限制
+- 不支持导入到弹性池中的数据库。 可以将数据导入到单一实例数据库，然后将数据库移到池。
 
 ## <a name="import-using-other-methods"></a>使用其他方法导入
 

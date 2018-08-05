@@ -7,109 +7,104 @@ author: Hayley244
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-origin.date: 04/01/2018
-ms.date: 04/17/2018
+origin.date: 07/03/2018
+ms.date: 08/06/2018
 ms.author: v-johch
-ms.openlocfilehash: a975e7d81854f84ba5b8d988fcf44efec1ed0540
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 0fa332b1b457b5246651f2e0f1f4a53e0a4349bc
+ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782357"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486668"
 ---
 # <a name="get-started-with-cross-database-queries-vertical-partitioning-preview"></a>跨数据库查询（纵向分区）入门（预览）
-Azure SQL 数据库弹性数据库查询（预览版）可让你使用单一连接点运行跨多个数据库的 T-SQL 查询。 本主题适用于[垂直分区数据库](sql-database-elastic-query-vertical-partitioning.md)。  
 
-完成时，会：了解如何配置和使用 Azure SQL 数据库执行跨多个相关数据库的查询。 
+Azure SQL 数据库弹性数据库查询（预览版）可让你使用单一连接点运行跨多个数据库的 T-SQL 查询。 本文适用于[垂直分区数据库](sql-database-elastic-query-vertical-partitioning.md)。  
 
-有关弹性数据库查询功能的详细信息，请参阅 [Azure SQL 数据库弹性数据库查询概述](sql-database-elastic-query-overview.md)。 
+完成时，会：了解如何配置和使用 Azure SQL 数据库执行跨多个相关数据库的查询。
+
+有关弹性数据库查询功能的详细信息，请参阅 [Azure SQL 数据库弹性数据库查询概述](sql-database-elastic-query-overview.md)。
 
 ## <a name="prerequisites"></a>先决条件
 
-必须拥有 ALTER ANY EXTERNAL DATA SOURCE 权限。 此权限包含在 ALTER DATABASE 权限中。 引用基础数据源需要 ALTER ANY EXTERNAL DATA SOURCE 权限。
+需要 ALTER ANY EXTERNAL DATA SOURCE 权限。 此权限包含在 ALTER DATABASE 权限中。 引用基础数据源需要 ALTER ANY EXTERNAL DATA SOURCE 权限。
 
 ## <a name="create-the-sample-databases"></a>创建示例数据库
-首先，我们需要在相同或不同逻辑服务器中创建两个数据库 **Customers** 和 **Orders**。   
 
-在 **Orders** 数据库中执行以下查询以创建 **OrderInformation** 表并输入示例数据。 
+首先，我们在相同或不同逻辑服务器中创建两个数据库 **Customers** 和 **Orders**。
 
-```
-CREATE TABLE [dbo].[OrderInformation]( 
-    [OrderID] [int] NOT NULL, 
-    [CustomerID] [int] NOT NULL 
-    ) 
-INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (123, 1) 
-INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (149, 2) 
-INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (857, 2) 
-INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (321, 1) 
-INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (564, 8) 
-```
+在 **Orders** 数据库中执行以下查询以创建 **OrderInformation** 表并输入示例数据。
 
-现在，在 **Customers** 数据库中执行以下查询以创建 **CustomerInformation** 表并输入示例数据。 
+    CREATE TABLE [dbo].[OrderInformation](
+        [OrderID] [int] NOT NULL,
+        [CustomerID] [int] NOT NULL
+        )
+    INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (123, 1)
+    INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (149, 2)
+    INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (857, 2)
+    INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (321, 1)
+    INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (564, 8)
 
-```
-CREATE TABLE [dbo].[CustomerInformation]( 
-    [CustomerID] [int] NOT NULL, 
-    [CustomerName] [varchar](50) NULL, 
-    [Company] [varchar](50) NULL 
-    CONSTRAINT [CustID] PRIMARY KEY CLUSTERED ([CustomerID] ASC) 
-) 
-INSERT INTO [dbo].[CustomerInformation] ([CustomerID], [CustomerName], [Company]) VALUES (1, 'Jack', 'ABC') 
-INSERT INTO [dbo].[CustomerInformation] ([CustomerID], [CustomerName], [Company]) VALUES (2, 'Steve', 'XYZ') 
-INSERT INTO [dbo].[CustomerInformation] ([CustomerID], [CustomerName], [Company]) VALUES (3, 'Lylla', 'MNO') 
-```
+现在，在 **Customers** 数据库中执行以下查询以创建 **CustomerInformation** 表并输入示例数据。
+
+    CREATE TABLE [dbo].[CustomerInformation](
+        [CustomerID] [int] NOT NULL,
+        [CustomerName] [varchar](50) NULL,
+        [Company] [varchar](50) NULL
+        CONSTRAINT [CustID] PRIMARY KEY CLUSTERED ([CustomerID] ASC)
+    )
+    INSERT INTO [dbo].[CustomerInformation] ([CustomerID], [CustomerName], [Company]) VALUES (1, 'Jack', 'ABC')
+    INSERT INTO [dbo].[CustomerInformation] ([CustomerID], [CustomerName], [Company]) VALUES (2, 'Steve', 'XYZ')
+    INSERT INTO [dbo].[CustomerInformation] ([CustomerID], [CustomerName], [Company]) VALUES (3, 'Lylla', 'MNO')
 
 ## <a name="create-database-objects"></a>创建数据库对象
+
 ### <a name="database-scoped-master-key-and-credentials"></a>数据库范围的主密钥和凭据
+
 1. 在 Visual Studio 中打开 SQL Server Management Studio 或 SQL Server Data Tools。
 2. 连接到 Orders 数据库，并执行以下 T-SQL 命令：
 
-    ```
-    CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<password>'; 
-    CREATE DATABASE SCOPED CREDENTIAL ElasticDBQueryCred 
-    WITH IDENTITY = '<username>', 
-    SECRET = '<password>';  
-    ```
+        CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<master_key_password>';
+        CREATE DATABASE SCOPED CREDENTIAL ElasticDBQueryCred
+        WITH IDENTITY = '<username>',
+        SECRET = '<password>';  
 
     “username”和“password”应是用于登录到 Customers 数据库的用户名和密码。
     当前不支持使用 Azure Active Directory 通过弹性查询进行身份验证。
 
 ### <a name="external-data-sources"></a>外部数据源
-若要创建外部数据源，请对 Orders 数据库执行以下命令： 
 
-```
-CREATE EXTERNAL DATA SOURCE MyElasticDBQueryDataSrc WITH 
-    (TYPE = RDBMS, 
-    LOCATION = '<server_name>.database.chinacloudapi.cn', 
-    DATABASE_NAME = 'Customers', 
-    CREDENTIAL = ElasticDBQueryCred, 
-) ;
-```
+若要创建外部数据源，请对 Orders 数据库执行以下命令：
+
+    CREATE EXTERNAL DATA SOURCE MyElasticDBQueryDataSrc WITH
+        (TYPE = RDBMS,
+        LOCATION = '<server_name>.database.chinacloudapi.cn',
+        DATABASE_NAME = 'Customers',
+        CREDENTIAL = ElasticDBQueryCred,
+    ) ;
 
 ### <a name="external-tables"></a>外部表
+
 在 Orders 数据库中创建外部表，该表应与 CustomerInformation 表的定义相匹配：
 
-```
-CREATE EXTERNAL TABLE [dbo].[CustomerInformation] 
-( [CustomerID] [int] NOT NULL, 
-  [CustomerName] [varchar](50) NOT NULL, 
-  [Company] [varchar](50) NOT NULL) 
-WITH 
-( DATA_SOURCE = MyElasticDBQueryDataSrc) 
-```
+    CREATE EXTERNAL TABLE [dbo].[CustomerInformation]
+    ( [CustomerID] [int] NOT NULL,
+      [CustomerName] [varchar](50) NOT NULL,
+      [Company] [varchar](50) NOT NULL)
+    WITH
+    ( DATA_SOURCE = MyElasticDBQueryDataSrc)
 
 ## <a name="execute-a-sample-elastic-database-t-sql-query"></a>执行示例弹性数据库 T-SQL 查询
 
-定义外部数据源和外部表后，现在可以使用 T-SQL 查询外部表。 对 Orders 数据库执行以下查询： 
+定义外部数据源和外部表后，现在可以使用 T-SQL 查询外部表。 对 Orders 数据库执行以下查询：
 
-```
-SELECT OrderInformation.CustomerID, OrderInformation.OrderId, CustomerInformation.CustomerName, CustomerInformation.Company 
-FROM OrderInformation 
-INNER JOIN CustomerInformation 
-ON CustomerInformation.CustomerID = OrderInformation.CustomerID 
-```
+    SELECT OrderInformation.CustomerID, OrderInformation.OrderId, CustomerInformation.CustomerName, CustomerInformation.Company
+    FROM OrderInformation
+    INNER JOIN CustomerInformation
+    ON CustomerInformation.CustomerID = OrderInformation.CustomerID
 
 ## <a name="cost"></a>成本
+
 目前，弹性数据库查询功能包含在 Azure SQL 数据库的成本中。  
 
 有关定价信息，请参阅 [SQL 数据库定价](https://www.azure.cn/pricing/details/sql-database/)。 

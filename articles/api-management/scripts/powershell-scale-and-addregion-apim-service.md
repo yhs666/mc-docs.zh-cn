@@ -11,22 +11,22 @@ ms.workload: mobile
 ms.devlang: na
 ms.topic: sample
 origin.date: 11/16/2017
-ms.date: 02/26/2018
+ms.date: 08/13/2018
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: e95bfd6edd50a801936f957f6ca6e8e95ccf307c
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 9786bc7ba2516edf58ad1a00fc6426b00e02567a
+ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
-ms.locfileid: "29286051"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486892"
 ---
 # <a name="scale-the-service-instance"></a>缩放服务实例
 
 此示例脚本可缩放 API 管理服务实例，并向其添加区域。
 
 
-如果选择在本地安装并使用 PowerShell，则本教程需要 Azure PowerShell 模块版本 3.6 或更高版本。 运行 ` Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Login-AzureRmAccount -Environment AzureChinaCloud` 以创建与 Azure 的连接。
+如果选择在本地安装并使用 PowerShell，则本教程需要 Azure PowerShell 模块版本 3.6 或更高版本。 运行 ` Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount -Environment AzureChinaCloud` 以创建与 Azure 的连接。
 
 ## <a name="sample-script"></a>示例脚本
 

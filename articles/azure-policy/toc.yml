@@ -1,8 +1,8 @@
-- name: Azure 策略文档
+- name: Azure Policy 文档
   href: index.yml
 - name: 概述
   items:
-    - name: Azure 策略概述
+    - name: Azure Policy 概述
       href: azure-policy-introduction.md
 - name: 快速入门
   expanded: true
@@ -15,7 +15,7 @@
       href: assign-policy-definition-cli.md
 - name: 教程
   items:
-    - name: 创建和管理 Azure 策略
+    - name: 创建和管理 Azure Policy
       href: create-manage-policy.md
 - name: 示例
   href: json-samples.md
@@ -172,7 +172,7 @@
           href: scripts/req-store-acct-enc.md
 - name: 概念
   items:
-    - name: Azure 策略定义结构
+    - name: Azure Policy 定义结构
       href: policy-definition.md
     - name: 了解策略效果
       href: policy-effects.md
@@ -187,22 +187,22 @@
     - name: Azure CLI
       href: /cli/policy
     - name: Azure PowerShell
-      href: 'https://azure.microsoft.com/powershell/module/azurerm.resources/#policies'
+      href: 'https://docs.microsoft.com/powershell/module/azurerm.resources/#policies'
     - name: REST API
       items:
         - name: 事件
-          href: 'https://azure.microsoft.com/rest/api/policy-insights/policyevents'
+          href: 'https://docs.microsoft.com/rest/api/policy-insights/policyevents'
         - name: States
-          href: 'https://azure.microsoft.com/rest/api/policy-insights/policystates'
+          href: 'https://docs.microsoft.com/rest/api/policy-insights/policystates'
         - name: 分配
-          href: 'https://azure.microsoft.com/rest/api/resources/policyassignments'
+          href: 'https://docs.microsoft.com/rest/api/resources/policyassignments'
         - name: 策略定义
-          href: 'https://azure.microsoft.com/rest/api/resources/policydefinitions'
+          href: 'https://docs.microsoft.com/rest/api/resources/policydefinitions'
         - name: 计划定义
-          href: 'https://azure.microsoft.com/rest/api/resources/policysetdefinitions'
+          href: 'https://docs.microsoft.com/rest/api/resources/policysetdefinitions'
 - name: 资源
   items:
-    - name: GitHub - Azure 策略示例
+    - name: GitHub - Azure Policy 示例
       href: 'https://github.com/Azure/azure-policy'
     - name: 视频 - Build 2018
       href: 'https://channel9.msdn.com/events/Build/2018/THR2030'

@@ -3,23 +3,24 @@ title: 如何填写自定义开发应用程序的特定字段 | Microsoft Docs
 description: 有关使用 Azure AD 注册自定义开发的应用程序时如何填写特定字段的指南
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/11/2017
-ms.date: 07/04/2018
+ms.date: 07/30/2018
 ms.author: v-junlch
-ms.openlocfilehash: 3380b1f876a976594a87894ea5c1430cf6f50d5b
-ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
+ms.openlocfilehash: cfb7ce688ec061cfafc0407861666d80912d6d8d
+ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37800370"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39487043"
 ---
 # <a name="how-to-fill-out-specific-fields-for-a-custom-developed-application"></a>如何填写自定义开发应用程序的特定字段
 
@@ -59,4 +60,4 @@ ms.locfileid: "37800370"
 | 重定向 URI   | 对于本机应用程序，会在成功授权后向其中发送用户。 Azure AD 会检查应用程序在 OAuth 2.0 请求中提供的重定向 URI 是否与门户中的某个注册值相匹配。                                                            |
 | 密钥            | 可以创建密钥以编程方式访问由 Azure AD 保护的 Web API，而无需任何用户交互。 在\*\*密钥\*\*页中，输入密钥说明和到期日期并保存以生成密钥。 请确保将其保存在安全位置，不然在以后将无法访问它。             |
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

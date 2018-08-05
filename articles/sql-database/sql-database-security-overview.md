@@ -11,12 +11,12 @@ ms.topic: article
 origin.date: 04/20/2018
 ms.date: 06/18/2018
 ms.author: v-nany
-ms.openlocfilehash: f83078d3dbc32be1e939edac0b5cd34a2824e873
-ms.sourcegitcommit: d4176361d9c6da60729c06cc93a496cb4702d4c2
+ms.openlocfilehash: 32288066a753c70ab1733a6c9f8aaa7eefa50895
+ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2018
-ms.locfileid: "35324302"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39487073"
 ---
 # <a name="securing-your-sql-database"></a>保护 SQL 数据库
 
@@ -27,7 +27,7 @@ ms.locfileid: "35324302"
 ## <a name="protect-data"></a>保护数据
 
 ### <a name="encryption"></a>Encryption
-SQL 数据库可以保护数据。对于动态数据，它使用[传输层安全性](https://support.microsoft.com/kb/3135244)提供加密；对于静态数据，使用[透明数据加密](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)提供加密；对于使用中的数据，将使用 [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx) 提供加密。 
+SQL 数据库可以保护数据。对于动态数据，它使用[传输层安全性](https://support.microsoft.com/kb/3135244)提供加密；对于静态数据，使用[透明数据加密](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)提供加密；对于使用中的数据，将使用 [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx) 提供加密。 
 
 > [!IMPORTANT]
 >在与数据库相互“传输”数据时，与 Azure SQL 数据库建立的所有连接都需要经过加密 (SSL/TLS)。 必须在应用程序连接字符串中指定用于加密连接的参数，而不要信任服务器证书（通过将连接字符串复制到 Azure 门户外部来完成此操作），否则，连接不会验证服务器的身份，并且容易受到“中间人”攻击。 例如，对于 ADO.NET 驱动程序，这些连接字符串参数为 **Encrypt=True** 和 **TrustServerCertificate=False**。 有关 TLS 和连接的信息，请参阅 [TLS 注意事项](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)。

@@ -11,12 +11,12 @@ ms.topic: article
 origin.date: 04/01/2018
 ms.date: 04/17/2018
 ms.author: v-johch
-ms.openlocfilehash: 7a0b514fe05d4bc6c25add2beaddbb1af2eb5080
-ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
+ms.openlocfilehash: 088ab99bfc90fc69d5e512d5ddf1c741b52d07d4
+ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36947980"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486765"
 ---
 # <a name="use-in-memory-oltp-to-improve-your-application-performance-in-sql-database"></a>使用内存中 OLTP 改善 SQL 数据库中应用程序的性能
 [内存中 OLTP](sql-database-in-memory.md) 可以用来改善[高级和业务关键层](sql-database-service-tiers-vcore.md)数据库中事务处理、数据引入和暂时性数据方案的性能，而不需要提高定价层。 
@@ -35,6 +35,8 @@ SELECT DatabasePropertyEx(Db_Name(), 'IsXTPSupported');
 ```
 
 XTP 代表*极端事务处理*
+
+
 
 ## <a name="step-2-identify-objects-to-migrate-to-in-memory-oltp"></a>步骤 2：标识要迁移到 In-Memory OLTP 的对象
 SSMS 包含可以针对具有活动工作负荷的数据库运行的“事务性能分析概述”。 该报告识别要迁移到内存中 OLTP 的候选表和存储过程。
@@ -55,7 +57,7 @@ SSMS 包含可以针对具有活动工作负荷的数据库运行的“事务性
 
 1. 使用 SSMS 连接到测试数据库。
 2. 若要避免在查询中用到 WITH (SNAPSHOT) 选项，请按照以下 T-SQL 语句中所示设置数据库选项：
-
+   
    ```
    ALTER DATABASE CURRENT
     SET
@@ -73,10 +75,10 @@ SSMS 包含可以针对具有活动工作负荷的数据库运行的“事务性
 
 1. 使用 SSMS 连接到测试数据库。
 2. 在“对象资源管理器”中，右键单击该表，然后单击“内存优化顾问”。
-
+   
    * 此时将显示“表内存优化顾问”向导。
 3. 在向导中，单击“迁移验证”（或“下一步”按钮），查看该表是否包含任何在内存优化表中不受支持的功能。 有关详细信息，请参阅：
-
+   
    * [内存优化顾问中的](http://msdn.microsoft.com/library/dn284308.aspx)内存优化清单。
    * [内存中 OLTP 不支持的 Transact-SQL 构造](http://msdn.microsoft.com/library/dn246937.aspx)。
    * [迁移到内存中 OLTP](http://msdn.microsoft.com/library/dn247639.aspx)。
@@ -87,7 +89,7 @@ SSMS 包含可以针对具有活动工作负荷的数据库运行的“事务性
 
 1. 使用 SSMS（或类似的实用程序）连接到测试数据库。
 2. 获取表及其索引的完整 T-SQL 脚本。
-
+   
    * 在 SSMS 中，右键单击表节点。
    * 单击“编写表脚本为” > “创建到” > “新建查询窗口”。
 3. 在脚本窗口中，将 WITH (MEMORY_OPTIMIZED = ON) 添加到 CREATE TABLE 语句。
@@ -100,6 +102,7 @@ SSMS 包含可以针对具有活动工作负荷的数据库运行的“事务性
 INSERT INTO <new_memory_optimized_table>
         SELECT * FROM <old_disk_based_table>;
 ```
+
 
 ## <a name="step-5-optional-migrate-stored-procedures"></a>步骤 5（可选）：迁移存储过程
 In-Memory 功能还可以修改存储过程，以改善性能。
@@ -129,7 +132,7 @@ CREATE PROCEDURE schemaname.procedurename
 ```
 
 * 对于 TRANSACTION_ISOLATION_LEVEL，SNAPSHOT 是本机编译存储过程最常用的值。 但是，也支持其他值的子集：
-
+  
   * REPEATABLE READ
   * SERIALIZABLE
 * sys.languages 视图中必须存在 LANGUAGE 值。
@@ -140,7 +143,7 @@ CREATE PROCEDURE schemaname.procedurename
 1. 获取常规解释的存储过程的 CREATE PROCEDURE 脚本。
 2. 重写其标头以符合前面的模板。
 3. 确认存储过程 T-SQL 代码是否使用了任何不支持本机编译存储过程的功能。 根据需要实施应对措施。
-
+   
    * 有关详细信息，请参阅[本机编译存储过程的迁移问题](http://msdn.microsoft.com/library/dn296678.aspx)。
 4. 使用 SP_RENAME 重命名旧存储过程。 或直接将它删除。
 5. 运行已编辑的 CREATE PROCEDURE T-SQL 脚本。
@@ -167,3 +170,4 @@ CREATE PROCEDURE schemaname.procedurename
 * [内存中 OLTP（内存中优化）](http://msdn.microsoft.com/library/dn133186.aspx)
 * [本机编译的存储过程简介](http://msdn.microsoft.com/library/dn133184.aspx)
 * [内存优化顾问](http://msdn.microsoft.com/library/dn284308.aspx)
+

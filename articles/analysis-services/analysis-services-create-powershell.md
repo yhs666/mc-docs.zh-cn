@@ -5,16 +5,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: quickstart
-origin.date: 05/23/2018
-ms.date: 07/16/2018
+origin.date: 07/03/2018
+ms.date: 08/06/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: dcfcb63d7fb45742f2e50eeee88cdaadbf284b9f
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.openlocfilehash: 8720378873c6df5d149cba014c3162a5f0b473b8
+ms.sourcegitcommit: c6205500afd23ac00f2829fe51858b51a622eaf1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39167715"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39487831"
 ---
 # <a name="quickstart-create-a-server---powershell"></a>快速入门：创建服务器 - PowerShell
 

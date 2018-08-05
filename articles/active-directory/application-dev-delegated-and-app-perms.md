@@ -3,23 +3,24 @@ title: 如何识别委派权限和应用程序权限 | Microsoft Docs
 description: 了解委派权限和应用程序权限、客户端如何使用这些权限，以及通过 Azure AD 开发的应用程序的资源如何公开这些权限
 services: active-directory
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: barbkess
+manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/11/2017
-ms.date: 07/28/2017
+ms.date: 07/30/2018
 ms.author: v-junlch
-ms.openlocfilehash: 7aa5f3d96ef204d841884f007f20d964c3d67a86
-ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
+ms.openlocfilehash: a3357b38ef0b724c424e23f14f4412122842ec8e
+ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2018
-ms.locfileid: "29993161"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39487037"
 ---
 # <a name="how-to-recognize-differences-between-delegated-and-application-permissions"></a>如何识别委派权限和应用程序权限
 
@@ -32,4 +33,4 @@ ms.locfileid: "29993161"
 ## <a name="next-steps"></a>后续步骤
 [AzureAD StackOverflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: update metedata properties -->

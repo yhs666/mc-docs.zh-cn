@@ -9,15 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-origin.date: 08/17/2017
-ms.date: 02/26/2018
+origin.date: 06/18/2018
+ms.date: 08/13/2018
 ms.author: v-yiso
-ms.openlocfilehash: 5cc0adfcc2c8075a6664185854bb2bce92e1a36a
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: a8168b7184c9d06dda23fd632442e6c5f2d4616c
+ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
-ms.locfileid: "29286092"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486980"
 ---
 # <a name="upgrade-and-scale-an-api-management-instance"></a>升级和缩放 Azure API 管理实例 
 
@@ -32,36 +32,19 @@ ms.locfileid: "29286092"
 
 ## <a name="prerequisites"></a>先决条件
 
-若要执行本文中所述的步骤，必须具有：
+若要执行本文中的步骤，必须：
 
-+ 一个有效的 Azure 订阅。
++ 拥有一个有效的 Azure 订阅。
 
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-+ 一个 APIM 实例。 有关详细信息，请参阅[创建 Azure API 管理实例](get-started-create-service-instance.md)。
++ 有一个 APIM 实例。 有关详细信息，请参阅[创建 Azure API 管理实例](get-started-create-service-instance.md)。
 
-## <a name="how-to-plan-for-capacity"></a>如何规划容量？
++ 了解 [Azure API 管理实例的容量] (api-management-capacity.md) 的概念。
 
-若要确定是否有足够的单位用于处理流量，请测试预期的工作负荷。 
+## <a name="upgrade-and-scale"></a>升级和缩放  
 
-如前所述，一个 APIM 单位每秒可处理的请求数取决于许多可变因素， 例如，连接模式、请求和响应的大小、在每个 API 上配置的策略，以及要发送请求的客户端数。
-
-可使用**指标**（使用 Azure Monitor 功能）在任意给定时间使用的容量。
-
-### <a name="use-the-azure-portal-to-examine-metrics"></a>使用 Azure 门户检查指标 
-
-1. 在 [Azure 门户](https://portal.azure.cn/)中导航到自己的 APIM 实例。
-2. 选择“指标”。
-3. 在“可用指标”中选择“容量”指标。 
-
-    容量指标大致反映了目前在租户中使用的可用计算容量。 其值派生自租户使用的计算资源，例如内存、CPU 和网络队列长度等。 它不是所处理请求数量的直接度量值。 可以通过不断在租户中增加请求负载进行测试，并监视哪个容量指标值对应于峰值负载。 可以设置指标警报，以便在发生意外的情况时收到通知。 例如，APIM 实例超出预期峰值容量有 10 分钟以上。
-
-    >[!TIP]
-    > 可以配置警报，以便在用于运行服务的容量偏低时收到通知，或者让服务调入逻辑应用来自动通过添加单位进行扩展。
-
-## <a name="upgrade-and-scale"></a>升级和缩放 
-
-如前所述，可在四个层之间选择：“开发人员”、“基本”、“标准”和“高级”。 应该将“开发人员”层用于评估服务；不应将其用于生产。 “开发人员”层不附带 SLA，无法缩放此层（添加/删除单位）。 
+可在四个层之间选择：“开发人员”、“基本”、“标准”和“高级”。 应该将“开发人员”层用于评估服务；不应将其用于生产。 “开发人员”层不附带 SLA，无法缩放此层（添加/删除单位）。 
 
 “基本”、“标准”和“高级”是附带 SLA 的生产层，可以缩放。 “基本”层是附带 SLA 的最便宜层，最多可以扩展 2 个单位，“标准”层最多可以扩展到四个单位。 可将任意数目的单位添加到“高级”层。
 
@@ -72,12 +55,12 @@ ms.locfileid: "29286092"
 >[!NOTE]
 >升级或缩放过程可能需要 15 到 45 分钟才能完成。 完成时会收到通知。
 
-### <a name="use-the-azure-portal-to-upgrade-and-scale"></a>使用 Azure 门户进行升级和缩放
+## <a name="use-the-azure-portal-to-upgrade-and-scale"></a>使用 Azure 门户进行升级和缩放
 
 1. 在 [Azure 门户](https://portal.azure.cn/)中导航到自己的 APIM 实例。
-2. 选择“规模和定价”。
+2. 从菜单中选择“规模和定价”。
 3. 选择所需的层。
-4. 指定想要添加的**单位**数。 可以使用滑块，或键入单位数。<br/>
+4. 指定想要添加的**单位**数。 可以使用滑块，或键入单位数。  
     如果选择“高级”层，则首先需要选择一个区域。
 5. 按“保存”
 

@@ -7,15 +7,15 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: mvc,migrate
 ms.topic: tutorial
-origin.date: 05/22/2018
-ms.date: 07/02/2018
+origin.date: 07/02/2018
+ms.date: 08/06/2018
 ms.author: v-johch
-ms.openlocfilehash: 60b43e90beb2210a362b9d3e85aa5a1c140c9715
-ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
+ms.openlocfilehash: 4c6eeb892406e794270b949750ea81778682ba5b
+ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37800453"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486715"
 ---
 # <a name="migrate-your-sql-server-database-to-azure-sql-database-using-dma"></a>使用 DMA 将 SQL Server 数据库迁移到 Azure SQL 数据库
 
@@ -24,7 +24,7 @@ ms.locfileid: "37800453"
 > [!IMPORTANT]
 > 若要迁移到 Azure SQL 数据库托管实例，请参阅[从 SQL Server 迁移到托管实例](sql-database-managed-instance-migrate.md)
 
-本教程介绍以下内容：
+在本教程中，学习：
 
 > [!div class="checklist"]
 > * 在 Azure 门户中创建空 Azure SQL 数据库（使用新的或现有的 Azure SQL 数据库服务器）
@@ -40,7 +40,7 @@ ms.locfileid: "37800453"
 
 - 已安装最新版 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS)。  
 - 安装最新版本的 [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (DMA)。
-- 已被识别并有权访问要迁移的数据库。 本教程在 SQL Server 2008R2 或更高版本的实例上使用 [SQL Server 2008R2 AdventureWorks OLTP 数据库](https://msftdbprodsamples.codeplex.com/releases/view/59211)，但可以使用所选的任何数据库。 若要解决兼容性问题，请使用 [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)
+- 已被识别并有权访问要迁移的数据库。 本教程在 SQL Server 2008R2 或更高版本的实例上使用 [SQL Server 2008R2 AdventureWorks OLTP 数据库](https://msftdbprodsamples.codeplex.com/releases/view/59211)，但可以使用选择的任何数据库。 若要解决兼容性问题，请使用 [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)
 
 ## <a name="log-in-to-the-azure-portal"></a>登录到 Azure 门户
 
@@ -88,10 +88,6 @@ ms.locfileid: "37800453"
 
 8. 若要使用“附加存储”选项，请接受预览版条款。 
 
-   > [!IMPORTANT]
-   > \* 超出所包括存储量的存储大小为预览版，需额外付费。 有关详细信息，请参阅 [SQL 数据库定价](https://www.azure.cn/pricing/details/sql-database/)。 
-   >
-
 9. 选择服务器层、DTU 数和存储量后，单击“应用”。  
 
 10. 选择空白数据库的“排序规则”（就本教程来说，请使用默认值）。 有关排序规则的详细信息，请参阅 [Collations](https://docs.microsoft.com/sql/t-sql/statements/collations)（排序规则）
@@ -122,7 +118,7 @@ SQL 数据库服务在服务器级别创建一个防火墙。除非创建了防�
 
 4. 在工具栏上单击“添加客户端 IP”，将当前的 IP 地址添加到新的防火墙规则。 防火墙规则可以针对单个 IP 地址或一系列 IP 地址打开端口 1433。
 
-5. 单击“保存” 。 此时会针对当前的 IP 地址创建服务器级防火墙规则，在逻辑服务器上打开 端口 1433。
+5. 单击“保存”。 此时会针对当前的 IP 地址创建服务器级防火墙规则，在逻辑服务器上打开 端口 1433。
 
 6. 单击“确定”，然后关闭“防火墙设置”页。
 
@@ -133,7 +129,7 @@ SQL 数据库服务在服务器级别创建一个防火墙。除非创建了防�
 
 ## <a name="sql-server-connection-information"></a>SQL Server 连接信息
 
-在 Azure 门户中获取 Azure SQL 数据库服务器的完全限定服务器名称。 使用完全限定的服务器名，并使用客户端工具（包括 Data Migration Assistance 和 SQL Server Management Studio）连接到 Azure SQL 服务器。
+请在 Azure 门户中获取 Azure SQL 数据库服务器的完全限定服务器名称。 使用完全限定的服务器名，并使用客户端工具（包括 Data Migration Assistance 和 SQL Server Management Studio）连接到 Azure SQL 服务器。
 
 1. 登录到 [Azure 门户](https://portal.azure.cn/)。
 2. 从左侧菜单中选择“SQL 数据库”，并单击“SQL 数据库”页上的数据库。 
@@ -149,7 +145,7 @@ SQL 数据库服务在服务器级别创建一个防火墙。除非创建了防�
 
      ![打开 Data Migration Assistant](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-open.png)
 
-2. 在左侧菜单中，单击“+ 新建”创建“评估”项目。 填入所需值，然后单击“创建”：
+2. 在左侧菜单中，单击“+ 新建”以创建**评估**项目。 填入所需值，然后单击“创建”：
 
    | 设置      | 建议的值 | 说明 | 
    | ------------ | ------------------ | ------------------------------------------------- | 
@@ -159,7 +155,7 @@ SQL 数据库服务在服务器级别创建一个防火墙。除非创建了防�
    |目标服务器类型| Azure SQL 数据库| 选项包括：Azure SQL 数据库、SQL Server、Azure 虚拟机上的 SQL Server |
    |迁移范围| 架构和数据| 选项包括：架构和数据、仅架构、仅数据 |
    
-   ![新建 Data Migration Assistant 项目](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-new-project.png)
+   ![新 Data Migration Assistant 项目](./media/sql-database-migrate-your-sql-server-database/data-migration-assistant-new-project.png)
 
 3.  在“选择源”页上，填写所需值，然后单击“连接”：
 
@@ -265,7 +261,7 @@ SQL 数据库服务在服务器级别创建一个防火墙。除非创建了防�
     ```
 
 ## <a name="next-steps"></a>后续步骤 
-本教程介绍了：
+本教程介绍：
 
 > * 在 Azure 门户中创建空 Azure SQL 数据库 
 > * 在 Azure 门户中创建服务器级防火墙 

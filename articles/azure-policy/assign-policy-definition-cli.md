@@ -1,6 +1,6 @@
 ---
 title: 使用 Azure CLI 创建策略分配以识别 Azure 环境中的不合规资源
-description: 使用 PowerShell 创建 Azure 策略分配以识别不合规的资源。
+description: 使用 PowerShell 创建 Azure Policy 分配以识别不合规的资源。
 services: azure-policy
 author: WenJason
 ms.author: v-nany
@@ -9,12 +9,12 @@ ms.date: 07/09/2018
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 2cf3d8513ee975d314c62da8853eac39c6ebecaa
-ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
+ms.openlocfilehash: 22d038f0b3559d05ebff26e562de5ddb92d251ed
+ms.sourcegitcommit: 2a147231bf3d0a693adf58fceee76ab0fbcd6dbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37405232"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39335294"
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment-with-the-azure-cli"></a>使用 Azure CLI 创建策略分配以识别 Azure 环境中的不合规资源
 
@@ -68,7 +68,7 @@ $policyAssignment = Get-AzureRmPolicyAssignment | Where-Object { $_.Properties.D
 $policyAssignment.PolicyAssignmentId
 ```
 
-有关策略分配 ID 的详细信息，请参阅 [Get-AzureRMPolicyAssignment](/powershell/module/azurerm.resources/get-azurermpolicyassignment)。
+有关策略分配 ID 的详细信息，请参阅 [Get-AzureRMPolicyAssignment](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermpolicyassignment)。
 
 接下来，运行以下命令，获取输出到 JSON 文件中的不合规资源的资源 ID：
 

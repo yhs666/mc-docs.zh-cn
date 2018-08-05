@@ -10,12 +10,12 @@ ms.topic: article
 origin.date: 01/24/2018
 ms.date: 06/18/2018
 ms.author: v-nany
-ms.openlocfilehash: 27e20287ffb59b165ce0bae9609996b6b2306c93
-ms.sourcegitcommit: d4176361d9c6da60729c06cc93a496cb4702d4c2
+ms.openlocfilehash: 2228393e0bc9b006b9e8f4674983730e6dfef9f5
+ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2018
-ms.locfileid: "35324231"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39487028"
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Azure SQL 数据库连接体系结构 
 
@@ -61,7 +61,7 @@ ms.locfileid: "35324231"
 ## <a name="script-to-change-connection-settings-via-powershell"></a>通过 PowerShell 编写脚本以更改连接设置
 
 > [!IMPORTANT]
-> 此脚本需要 [Azure PowerShell 模块](/powershell/azure/install-azurerm-ps)。
+> 此脚本需要 [Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。
 >
 
 以下 PowerShell 脚本演示如何更改连接策略。
@@ -95,11 +95,12 @@ $resourceGroupName= "<LOGICAL DATABASE SERVER - RESOURCE GROUP NAME>"
 
 # Login and acquire a bearer token
 $AuthContext = [Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext]$authUrl
-
-$result = $AuthContext.AcquireToken("https://management.core.chinacloudapi.cn/",
+$result = $AuthContext.AcquireToken(
+"https://management.core.chinacloudapi.cn/",
 $clientId,
-[Uri]$uri, 
-[Microsoft.IdentityModel.Clients.ActiveDirectory.PromptBehavior]::Auto)
+[Uri]$uri,
+[Microsoft.IdentityModel.Clients.ActiveDirectory.PromptBehavior]::Auto
+)
 
 $authHeader = @{
 'Content-Type'='application\json; '
@@ -145,5 +146,4 @@ az resource update --ids $id --set properties.connectionType=Proxy
 - 有关如何更改 Azure SQL 数据库服务器的 Azure SQL 数据库连接策略的信息，请参阅 [conn-policy](https://docs.azure.cn/cli/sql/server/conn-policy)。
 - 若要了解使用 ADO.NET 4.5 或更高版本的客户端的 Azure SQL 数据库连接行为，请参阅[用于 ADO.NET 4.5 的非 1433 端口](sql-database-develop-direct-route-ports-adonet-v12.md)。
 - 若要了解常规应用程序开发的概述信息，请参阅[SQL 数据库应用程序开发概述](sql-database-develop-overview.md)。
-
 <!--Update_Description: add "Script to change connection settings via Azure CLI 2.0 " section-->

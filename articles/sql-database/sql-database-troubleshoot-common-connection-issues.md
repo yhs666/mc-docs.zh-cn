@@ -10,12 +10,12 @@ ms.topic: troubleshooting
 origin.date: 04/01/2018
 ms.date: 04/17/2018
 ms.author: v-nany
-ms.openlocfilehash: f724bd76ef9e5bbe32cdd0eff5a5137929a3992a
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 4e201ef4139811579d1810631d0b74e5b13f6365
+ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782387"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486758"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-sql-database"></a>排查 Azure SQL 数据库的连接问题
 与 Azure SQL 数据库连接失败时，会收到[错误消息](sql-database-develop-error-messages.md)。 本文是一个集中介绍对 Azure SQL 数据库连接问题进行故障排除的主题。 本文介绍连接问题的[常见原因](#cause)，推荐可帮助确定问题的[故障排除工具](#try-the-troubleshooter-for-azure-sql-database-connectivity-issues)，还提供解决[暂时性错误](#troubleshoot-transient-errors)和[持久或非暂时性错误](#troubleshoot-persistent-errors)的故障排除步骤。 
@@ -63,7 +63,7 @@ Error code 40613: "Database <x> on server <y> is not currently available. Please
 3. 由于数据库即将达到其资源限制，因此错误看起来像是暂时性连接问题。 请参阅[解决性能问题](sql-database-troubleshoot-performance.md)。
 4. 如果连接问题继续存在，或者应用程序发生错误的持续时间超过 60 秒或在特定的一天中看到错误多次发生，请通过在 [Azure 支持](https://www.azure.cn/support/contact/)网站上选择“**获取支持**”提出 Azure 支持请求。
 
-##<a name="troubleshoot-the-persistent-errors"></a> 排查一再出现的错误
+## <a name="troubleshoot-persistent-errors"></a>排查一再出现的错误
 如果应用程序一直无法连接到 Azure SQL 数据库，通常表示下列其中一项出现了问题：
 
 * 防火墙配置。 Azure SQL 数据库或客户端防火墙阻止了与 Azure SQL 数据库的连接。
@@ -74,7 +74,7 @@ Error code 40613: "Database <x> on server <y> is not currently available. Please
 1. 设置[防火墙规则](sql-database-configure-firewall-settings.md)以允许客户端 IP 地址。 若要进行临时测试，可设置一项防火墙规则，使用 0.0.0.0 作为起始 IP 地址范围，使用 255.255.255.255 作为结束 IP 地址范围。 这样会使服务器向所有 IP 地址开放。 如果这样可以解决连接性问题，请删除此规则，再针对适当限制的 IP 地址或地址范围创建防火墙规则。 
 2. 在客户端与 Internet 之间的所有防火墙上，确保为出站连接打开端口 1433。 有关需要为 Azure Active Directory 身份验证打开的其他端口的其他信息，请查看[配置 Windows 防火墙以允许 SQL Server 访问](https://msdn.microsoft.com/library/cc646023.aspx)和[混合标识所需的端口和协议](../active-directory/connect/active-directory-aadconnect-ports.md)。
 3. 验证连接字符串和其他连接设置。 请参阅[连接问题主题](sql-database-connectivity-issues.md#connections-to-sql-database)中的“连接字符串”部分。
-4. 在仪表板中检查服务运行状况。 如果认为存在区域性的中断，请参阅[从中断恢复](sql-database-disaster-recovery.md)，以了解恢复到新区域的步骤。
+4. 在仪表板中检查服务运行状况。 如果认为存在区域性的中断，请参阅[从中断恢复](sql-database-disaster-recovery.md)，了解恢复到新区域的步骤。
 
 ## <a name="next-steps"></a>后续步骤
 * [排查 Azure SQL 数据库性能问题](sql-database-troubleshoot-performance.md)

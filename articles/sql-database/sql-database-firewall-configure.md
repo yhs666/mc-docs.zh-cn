@@ -11,12 +11,12 @@ ms.topic: article
 origin.date: 06/13/2018
 ms.date: 07/02/2018
 ms.author: v-johch
-ms.openlocfilehash: f45ca3be26c3d55748ba01dfe0f6758ee8ca01a6
-ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
+ms.openlocfilehash: 45403233a6a120ffc85dd234d4039ac99f07c48c
+ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37800447"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39487005"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-firewall-rules"></a>Azure SQL 数据库和 SQL 数据仓库防火墙规则 
 
@@ -146,10 +146,10 @@ EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
 ## <a name="manage-firewall-rules-using-azure-powershell"></a>使用 Azure PowerShell 管理防火墙规则
 | Cmdlet | 级别 | 说明 |
 | --- | --- | --- |
-| [Get-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/get-azurermsqlserverfirewallrule) |服务器 |返回当前的服务器级防火墙规则 |
-| [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule) |服务器 |新建服务器级防火墙规则 |
-| [Set-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/set-azurermsqlserverfirewallrule) |服务器 |更新现有服务器级防火墙规则的属性 |
-| [Remove-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/remove-azurermsqlserverfirewallrule) |服务器 |删除服务器级防火墙规则 |
+| [Get-AzureRmSqlServerFirewallRule](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlserverfirewallrule) |服务器 |返回当前的服务器级防火墙规则 |
+| [New-AzureRmSqlServerFirewallRule](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule) |服务器 |新建服务器级防火墙规则 |
+| [Set-AzureRmSqlServerFirewallRule](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqlserverfirewallrule) |服务器 |更新现有服务器级防火墙规则的属性 |
+| [Remove-AzureRmSqlServerFirewallRule](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqlserverfirewallrule) |服务器 |删除服务器级防火墙规则 |
 
 
 以下示例使用 PowerShell 设置服务器级防火墙规则：

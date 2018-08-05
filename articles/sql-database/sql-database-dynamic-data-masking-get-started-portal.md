@@ -1,6 +1,6 @@
 ---
 title: Azure 门户：SQL 数据库动态数据屏蔽 | Azure
-description: 如何开始在 Azure 门户中使用 SQL 数据库动态数据屏蔽
+description: 如何开始在 Azure 门户中使用 SQL 数据库动态数据掩码
 services: sql-database
 author: yunan2016
 manager: digimobile
@@ -10,12 +10,12 @@ ms.topic: article
 origin.date: 04/01/2018
 ms.date: 04/17/2018
 ms.author: v-nany
-ms.openlocfilehash: 59a173f76aa4720331df60a7e6c884325fcf54b8
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 56bd2e1101dc5f5025b04ef73727da9ee7471c89
+ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782295"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486767"
 ---
 # <a name="get-started-with-sql-database-dynamic-data-masking-with-the-azure-portal"></a>Azure 门户的 SQL 数据库动态数据掩码入门
 

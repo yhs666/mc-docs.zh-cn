@@ -3,26 +3,26 @@ title: Azure Active Directory 报告 | Microsoft Docs
 description: 概述 Azure Active Directory 报告。
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: priyamohanram
 manager: mtillman
 editor: ''
 ms.assetid: 6141a333-38db-478a-927e-526f1e7614f4
 ms.service: active-directory
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: compliance-reports
 origin.date: 01/15/2018
-ms.date: 06/20/2018
+ms.date: 07/30/2018
 ms.author: v-junlch
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d1327d4b0b5a7d5408b8c216ebe56ea52f9c8eda
-ms.sourcegitcommit: d744d18624d2188adbbf983e1c1ac1110d53275c
+ms.openlocfilehash: c829cbfd9d0a47fd338dd506aaee979d521ce6e2
+ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36314369"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39487044"
 ---
 # <a name="azure-active-directory-reporting"></a>Azure Active Directory 报告
 
@@ -59,3 +59,4 @@ ms.locfileid: "36314369"
 <!--Image references-->
 [1]: ./media/active-directory-reporting-azure-portal/ic195031.png
 
+<!-- Update_Description: update metedata properties -->

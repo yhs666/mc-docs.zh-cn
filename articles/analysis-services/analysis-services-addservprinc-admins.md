@@ -5,16 +5,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 04/12/2018
-ms.date: 07/16/2018
+origin.date: 07/03/2018
+ms.date: 08/06/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3336eecd4148a8e3a35bf9e6b860597068652c6c
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.openlocfilehash: 130f4ae789d4600ee100b1278dbc2d23b09f1f17
+ms.sourcegitcommit: c6205500afd23ac00f2829fe51858b51a622eaf1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39167913"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39487857"
 ---
 # <a name="add-a-service-principal-to-the-server-administrator-role"></a>将服务主体添加到服务器管理员角色 
 

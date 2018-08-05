@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.component: authentication
 ms.topic: article
 origin.date: 01/03/2018
-ms.date: 06/14/2018
+ms.date: 08/03/2018
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: 905f543b15c7d766370a64cde6e1e9a48b78312e
-ms.sourcegitcommit: 37a1524d71895b17b6f1d125053ad0b251b88df1
+ms.openlocfilehash: b6809829fbc999254b65c3afef671f43626e5c8b
+ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39097059"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39487011"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>配置 Azure 多重身份验证设置
 
@@ -30,7 +30,7 @@ ms.locfileid: "39097059"
 
 可以通过_可选验证方法_功能选择适用于用户的验证方法。 下表概述了这些方法。
 
-用户在注册 Azure 多重身份验证帐户时，可以从已启用的选项中选择首选验证方法。 [设置我的双重验证帐户](../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-first-time.md)中提供了用户注册过程指导。
+用户在注册 Azure 多重身份验证帐户时，可以从已启用的选项中选择首选验证方法。 [设置我的双重验证帐户](../user-help/multi-factor-authentication-end-user-first-time.md)中提供了用户注册过程指导。
 
 | 方法 | 说明 |
 |:--- |:--- |
@@ -51,4 +51,4 @@ ms.locfileid: "39097059"
 
 6. 单击“保存” 。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

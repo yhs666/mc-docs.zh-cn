@@ -7,15 +7,15 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: mvc,develop databases
 ms.topic: tutorial
-origin.date: 05/22/2018
-ms.date: 07/02/2018
+origin.date: 07/16/2018
+ms.date: 08/06/2018
 ms.author: v-johch
-ms.openlocfilehash: 5cb5b32d1a575eb2a8fa1be6f69ec4421aae64d8
-ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
+ms.openlocfilehash: 4e305cf7e412493b9710b0d5255d89cb9888604b
+ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37800429"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486632"
 ---
 # <a name="tutorial-design-your-first-azure-sql-database-using-ssms"></a>教程：使用 SSMS 设计第一个 Azure SQL 数据库
 
@@ -32,7 +32,7 @@ Azure SQL 数据库与 Microsoft 云 (Azure) 中的数据库即服务 (DBaaS) �
 如果没有 Azure 订阅，请在开始前[创建一个试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
    >[!NOTE]
-   > 就本教程来说，我们使用的是[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)，但你也可以选择[基于 vCore 的购买模型（预览版）](sql-database-service-tiers-vcore.md)。 
+   > 就本教程来说，我们使用的是[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)，但你也可以选择[基于 vCore 的购买模型](sql-database-service-tiers-vcore.md)。 
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -52,7 +52,7 @@ Azure SQL 数据库与 Microsoft 云 (Azure) 中的数据库即服务 (DBaaS) �
 
 1. 在 Azure 门户的左上角单击“创建资源”。
 
-2. 从“新建”页中选择“数据库”，然后从“新建”页的“SQL 数据库”中选择“创建”。
+2. 在“新建”页上的“Azure 市场”部分中选择“数据库”，然后在“特别推荐”部分中单击“SQL 数据库”。
 
    ![创建空数据库](./media/sql-database-design-first-database/create-empty-database.png)
 
@@ -78,17 +78,13 @@ Azure SQL 数据库与 Microsoft 云 (Azure) 中的数据库即服务 (DBaaS) �
 
 5. 单击“选择”。
 
-6. 单击“定价层”，指定服务层、DTU 或 vCore 数，以及存储量。 浏览相关选项，了解适用于每个服务层的 DTU/vCore 数和存储量。 就本教程来说，我们使用的是[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)，但你也可以选择[基于 vCore 的购买模型（预览版）](sql-database-service-tiers-vcore.md)。 
+6. 单击“定价层”，指定服务层、DTU 或 vCore 数，以及存储量。 浏览相关选项，了解适用于每个服务层的 DTU/vCore 数和存储量。 就本教程来说，我们使用的是[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)，但你也可以选择[基于 vCore 的购买模型](sql-database-service-tiers-vcore.md)。 
 
 7. 对于本教程，请选择“标准”服务层，然后使用滑块选择“100 DTU (S3)”和“400”GB 存储。
 
    ![创建数据库 - s1](./media/sql-database-design-first-database/create-empty-database-pricing-tier.png)
 
 8. 若要使用“附加存储”选项，请接受预览版条款。 
-
-   > [!IMPORTANT]
-   > \* 超出所包括存储量的存储大小为预览版，需额外付费。 有关详细信息，请参阅 [SQL 数据库定价](https://www.azure.cn/pricing/details/sql-database/)。 
-   >
 
 9. 选择服务器层、DTU 数和存储量后，单击“应用”。  
 
@@ -120,7 +116,7 @@ SQL 数据库服务在服务器级别创建一个防火墙。除非创建了防�
 
 4. 在工具栏上单击“添加客户端 IP”，将当前的 IP 地址添加到新的防火墙规则。 防火墙规则可以针对单个 IP 地址或一系列 IP 地址打开端口 1433。
 
-5. 单击“保存” 。 此时会针对当前的 IP 地址创建服务器级防火墙规则，在逻辑服务器上打开 端口 1433。
+5. 单击“保存”。 此时会针对当前的 IP 地址创建服务器级防火墙规则，在逻辑服务器上打开 端口 1433。
 
 6. 单击“确定”，然后关闭“防火墙设置”页。
 
@@ -244,10 +240,10 @@ SQL 数据库服务在服务器级别创建一个防火墙。除非创建了防�
 
 2. 右键单击以下链接并将它们保存到 **SampleTableData** 文件夹。 
 
-   - [SampleCourseData](https://sqldbtutorial.blob.core.windows.net/tutorials/SampleCourseData)
-   - [SamplePersonData](https://sqldbtutorial.blob.core.windows.net/tutorials/SamplePersonData)
-   - [SampleStudentData](https://sqldbtutorial.blob.core.windows.net/tutorials/SampleStudentData)
-   - [SampleCreditData](https://sqldbtutorial.blob.core.windows.net/tutorials/SampleCreditData)
+   - [SampleCourseData](https://sqldbtutorial.blob.core.chinacloudapi.cn/tutorials/SampleCourseData)
+   - [SamplePersonData](https://sqldbtutorial.blob.core.chinacloudapi.cn/tutorials/SamplePersonData)
+   - [SampleStudentData](https://sqldbtutorial.blob.core.chinacloudapi.cn/tutorials/SampleStudentData)
+   - [SampleCreditData](https://sqldbtutorial.blob.core.chinacloudapi.cn/tutorials/SampleCreditData)
 
 3. 打开命令提示符窗口并导航到 SampleTableData 文件夹。
 

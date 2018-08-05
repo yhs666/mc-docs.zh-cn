@@ -12,12 +12,12 @@ origin.date: 03/27/2018
 ms.date: 07/02/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b62ef8dc85a7848e6fc7ae89f977341de37d9a4
-ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
+ms.openlocfilehash: e6a0424325cf1d110a4d6b2f61112540cb6c939d
+ms.sourcegitcommit: 54851a22f188f2401ed971931132b46febe7014e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37070346"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39361352"
 ---
 # <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>Azure Cosmos DB 中的可优化数据一致性级别
 Azure Cosmos DB 是从无到有开发出来的，其设计考虑到了每个数据模型的多区域分发。 它旨在提供可预测的低延迟保证以及多个完善定义的宽松一致性模型。 目前，Azure Cosmos DB 提供五种一致性级别：非常一致性、有限过期一致性、会话一致性、一致前缀一致性和最终一致性。 有限过期、会话、一致性前缀和最终级别称为“宽松一致性模型”，因为它们提供的一致性比非常一致性更差，后者是可用的最高一致性模型。 
@@ -132,7 +132,7 @@ Azure Cosmos DB 当前实现了 MongoDB 3.4 版，其中具有两个一致性设
 * [弱一致性重复数据的会话保证](http://dl.acm.org/citation.cfm?id=383631)
 * [现代分布式数据库系统设计中的一致性平衡方案：CAP 只是冰山一角](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html)
 * [Probabilistic Bounded Staleness (PBS) for Practical Partial Quorums](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)（实用部分仲裁的概率有限过期性 (PBS)）
-* [最终一致性 - 再探](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
+* [最终一致性 - 再探](http://www.allthingsdistributed.com/2008/12/eventually_consistent.html)
 * [The Load, Capacity, and Availability of Quorum Systems, SIAM Journal on Computing](http://epubs.siam.org/doi/abs/10.1137/S0097539795281232)（仲裁系统的负载、容量和可用性, SIAM Journal on Computing）
 * [Line-up: a complete and automatic linearizability checker, Proceedings of the 2010 ACM SIGPLAN conference on Programming language design and implementation](http://dl.acm.org/citation.cfm?id=1806634)（Line-up：完整而自动的可线性化检查器, 2010 ACM SIGPLAN 编程语言设计和实现大会会议记录）
 * [Probabilistic bounded staleness (PBS) for practical partial quorums](http://dl.acm.org/citation.cfm?id=2212359)（实用部分仲裁的概率有限过期性 (PBS)）

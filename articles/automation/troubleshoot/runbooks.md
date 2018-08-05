@@ -9,12 +9,12 @@ ms.date: 07/23/2018
 ms.topic: conceptual
 ms.service: automation
 manager: digimobile
-ms.openlocfilehash: 64920b66f1b63ed22eb477df88fd20023447c634
-ms.sourcegitcommit: 53972dcdef77da92529996667545d2e83716f7e2
+ms.openlocfilehash: 9e7570feae38dd69d300def2a8e9686f90c66aaa
+ms.sourcegitcommit: 2a147231bf3d0a693adf58fceee76ab0fbcd6dbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39143488"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39335255"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Runbook 错误故障排除
 
@@ -45,7 +45,7 @@ Unknown_user_type: Unknown User Type
    ```powershell
    $Cred = Get-Credential  
    #Using Azure Service Management   
-   Add-AzureAccount -EnvironmentName AzureChinaCloud –Credential $Cred  
+   Add-AzureAccount -Environment AzureChinaCloud –Credential $Cred  
    #Using Azure Resource Manager  
    Connect-AzureRmAccount -EnvironmentName AzureChinaCloud –Credential $Cred
    ```

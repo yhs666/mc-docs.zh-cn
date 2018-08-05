@@ -1,3 +1,4 @@
+
 ## <a name="start-your-powershell-session"></a>启动 PowerShell 会话
 首先需要安装并运行最新的 [Azure PowerShell](http://msdn.microsoft.com/library/mt619274.aspx)。 有关详细信息，请参阅 [如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)。
 
@@ -13,3 +14,4 @@
 如果有多个订阅，请使用 [Set-AzureRmContext](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Profile/Set-AzureRmContext) cmdlet 选择 PowerShell 会话应使用的订阅。 若要查看当前 PowerShell 会话正在使用哪个订阅，请运行 [**Get-AzureRmContext**](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Profile/Get-AzureRmContext)。 若要查看所有订阅，请运行 [**Get-AzureRmSubscription**](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Profile/Get-AzureRmSubscription)。
 
     Set-AzureRmContext -SubscriptionId '4cac86b0-1e56-bbbb-aaaa-000000000000'
+

@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 11/28/2017
 ms.author: v-yiso
-ms.date: 06/18/2018
-ms.openlocfilehash: 0c82a0765b8d71d233c8b20a033b3ce68b58c94d
-ms.sourcegitcommit: 794b9caca1147f1891513410dd61435708ef85ec
+ms.date: 08/13/2018
+ms.openlocfilehash: 19ee084c653fe580ced70aead3a742156988c357
+ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34855412"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486972"
 ---
 # <a name="api-management-access-restriction-policies"></a>API 管理访问限制策略
 本主题提供以下 API 管理策略的参考。 有关添加和配置策略的信息，请参阅 [API 管理中的策略](http://go.microsoft.com/fwlink/?LinkID=398186)。  
@@ -514,7 +514,7 @@ ms.locfileid: "34855412"
 |header-name|包含令牌的 HTTP 标头的名称。|必须指定 `header-name` 或 `query-parameter-name`，但不能将二者都指定。|不适用|  
 |id|使用 `key` 元素的 `id` 属性可以指定一个字符串，该字符串将与令牌中的 `kid` 声明（如果存在）进行比较，以便找出进行签名验证时需要使用的适当密钥。|否|不适用|  
 |match|`claim` 元素的 `match` 属性用于指定：是否策略中的每个声明值都必须存在于令牌中验证才会成功。 可能的值包括：<br /><br /> -                          `all` - 策略中的每个声明值都必须存在于令牌中才会使验证成功。<br /><br /> -                          `any` - 至少一个声明值必须存在于令牌中才会使验证成功。|否|all|  
-|query-paremeter-name|包含令牌的查询参数的名称。|必须指定 `header-name` 或 `query-paremeter-name`，但不能二者都指定。|不适用|  
+|query-paremeter-name|包含令牌的查询参数的名称。|必须指定 `header-name` 或 `query-paremeter-name`，但不能将二者都指定。|不适用|  
 |require-expiration-time|布尔值。 指定令牌中是否需要到期声明。|否|是|
 |require-scheme|令牌方案的名称，例如“Bearer”。 设置了此属性时，策略将确保 Authorization 标头值中存在指定的方案。|否|不适用|
 |require-signed-tokens|布尔值。 指定令牌是否需要签名。|否|是|  

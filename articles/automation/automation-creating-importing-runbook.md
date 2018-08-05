@@ -10,12 +10,12 @@ ms.topic: article
 origin.date: 03/15/2018
 ms.date: 07/23/2018
 ms.author: v-nany
-ms.openlocfilehash: cbf79c9117c0d7b96204e7ab9a7371eb5d88548e
-ms.sourcegitcommit: 53972dcdef77da92529996667545d2e83716f7e2
+ms.openlocfilehash: 3308ab623b3c9256f806e8ad33207bcdd66bf561
+ms.sourcegitcommit: 2a147231bf3d0a693adf58fceee76ab0fbcd6dbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39143444"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39335307"
 ---
 # <a name="creating-or-importing-a-runbook-in-azure-automation"></a>在 Azure 自动化中创建或导入 Runbook
 可以通过[新建 Runbook](#creating-a-new-runbook) 将 Runbook 添加到 Azure 自动化。
@@ -31,7 +31,7 @@ ms.locfileid: "39143444"
 5. 单击“创建”以创建 Runbook 并打开编辑器。
 
 ### <a name="to-create-a-new-azure-automation-runbook-with-windows-powershell"></a>使用 Windows PowerShell 创建新的 Azure 自动化 Runbook
-可以使用 [New-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt619376.aspx) cmdlet 创建空的 [PowerShell 工作流 Runbook](automation-runbook-types.md#powershell-workflow-runbooks)。 可以通过指定 **Name** 参数来创建空的 Runbook 以便稍后编辑，也可以通过指定 **Path** 参数来导入 Runbook 文件。 还应包括 **Type** 参数，以指定四种 Runbook 类型之一。
+可以使用 [New-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/new-azurermautomationrunbook?view=azurermps-6.5.0) cmdlet 创建空的 [PowerShell 工作流 Runbook](automation-runbook-types.md#powershell-workflow-runbooks)。 可以通过指定 **Name** 参数来创建空的 Runbook 以便稍后编辑，也可以通过指定 **Path** 参数来导入 Runbook 文件。 还应包括 **Type** 参数，以指定四种 Runbook 类型之一。
 
 以下示例命令演示了如何创建新的空 Runbook。
 
@@ -70,7 +70,7 @@ New-AzureRmAutomationRunbook -AutomationAccountName MyAccount `
 > 
 
 ### <a name="to-import-a-runbook-from-a-script-file-with-windows-powershell"></a>使用 Windows PowerShell 从脚本文件中导入 Runbook
-可以使用 [Import-AzureRMAutomationRunbook](https://msdn.microsoft.com/library/mt603735.aspx) cmdlet 将脚本文件导入为 PowerShell 工作流 Runbook 草稿。 如果 Runbook 已存在，除非使用 *-Force* 参数，否则导入会失败。 
+可以使用 [Import-AzureRMAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/import-azurermautomationrunbook?view=azurermps-6.5.0) cmdlet 将脚本文件导入为 PowerShell 工作流 Runbook 草稿。 如果 Runbook 已存在，除非使用 *-Force* 参数，否则导入会失败。 
 
 下面的示例命令演示了如何将脚本文件导入到 Runbook 中。
 
@@ -94,7 +94,7 @@ Import-AzureRMAutomationRunbook -Name $runbookName -Path $scriptPath `
 3. 单击“发布”按钮，并在出现验证消息时单击“是”。
 
 ## <a name="to-publish-a-runbook-using-windows-powershell"></a>使用 Windows PowerShell 发布 Runbook
-可以使用 Windows PowerShell，通过 [Publish-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603705.aspx) cmdlet 来发布 Runbook。 以下示例命令显示了如何发布示例 Runbook。
+可以使用 Windows PowerShell，通过 [Publish-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/publish-azurermautomationrunbook?view=azurermps-6.5.0) cmdlet 来发布 Runbook。 以下示例命令显示了如何发布示例 Runbook。
 
 ```powershell
 $automationAccountName =  "AutomationAccount"

@@ -5,16 +5,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 04/12/2018
-ms.date: 07/16/2018
+origin.date: 07/03/2018
+ms.date: 08/06/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 73e331425c0853aa692da7d190aae9033d3079d8
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.openlocfilehash: 0c548f4bca9f0bbe3719b9a9ce24c7f7cf6a15f0
+ms.sourcegitcommit: c6205500afd23ac00f2829fe51858b51a622eaf1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39167745"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39487807"
 ---
 # <a name="create-an-office-data-connection-file"></a>创建 Office 数据连接文件
 

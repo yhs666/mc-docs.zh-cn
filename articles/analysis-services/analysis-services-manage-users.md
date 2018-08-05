@@ -5,19 +5,19 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 04/12/2018
-ms.date: 07/16/2018
+origin.date: 07/03/2018
+ms.date: 08/06/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 1e79f5b9ed10c0d6765e0876bc3bcaf9d83b8bad
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.openlocfilehash: 5eaff476e8e05930d13e39409a46e150f60907c1
+ms.sourcegitcommit: c6205500afd23ac00f2829fe51858b51a622eaf1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39167778"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39487781"
 ---
 # <a name="authentication-and-user-permissions"></a>身份验证和用户权限
-Azure Analysis Services 使用 Azure Active Directory (Azure AD) 进行标识管理和用户身份验证。 在相同订阅中，创建、管理或连接到 Azure Analysis Services 服务器的任何用户均需具备 [Azure AD 租户](../active-directory/active-directory-administer.md)中的有效用户标识。
+Azure Analysis Services 使用 Azure Active Directory (Azure AD) 进行标识管理和用户身份验证。 在相同订阅中，创建、管理或连接到 Azure Analysis Services 服务器的任何用户均需具备 [Azure AD 租户](../active-directory/fundamentals/active-directory-administer.md)中的有效用户标识。
 <!-- Not Available [Azure AD B2B collaboration](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md) -->
 
 ![Azure Analysis Services 身份验证体系结构](./media/analysis-services-manage-users/aas-manage-users-arch.png)
@@ -73,7 +73,7 @@ Excel 用户可使用 Windows 帐户、组织 ID（电子邮件地址）或外�
 
 ## <a name="next-steps"></a>后续步骤
 
-[使用 Azure Active Directory 组管理对资源的访问权限](../active-directory/active-directory-manage-groups.md)   
+[使用 Azure Active Directory 组管理对资源的访问权限](../active-directory/fundamentals/active-directory-manage-groups.md)   
 [管理数据库角色和用户](analysis-services-database-users.md)  
 [管理服务器管理员](analysis-services-server-admins.md)  
 [基于角色的访问控制](../role-based-access-control/overview.md)

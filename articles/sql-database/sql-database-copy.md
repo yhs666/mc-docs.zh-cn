@@ -1,5 +1,5 @@
 ---
-title: 复制 Azure SQL 数据库 | Microsoft Docs
+title: 复制 Azure SQL 数据库 | Azure
 description: 在相同或不同的服务器上创建现有 Azure SQL 数据库的事务一致性副本。
 services: sql-database
 author: forester123
@@ -10,12 +10,12 @@ origin.date: 04/01/2018
 ms.date: 04/17/2018
 ms.author: v-johch
 ms.topic: article
-ms.openlocfilehash: b4a3797021c031de8807cd5d393df589c428bb33
-ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
+ms.openlocfilehash: d72736c323db7d5d8f9f91b37ed2d3de56f3a6bd
+ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36947938"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486977"
 ---
 # <a name="copy-an-azure-sql-database"></a>复制 Azure SQL 数据库
 
@@ -31,7 +31,7 @@ ms.locfileid: "36947938"
 
 将数据库复制到不同的逻辑服务器时，新服务器上的安全主体将成为新数据库上的数据库所有者。 如果使用[包含的数据库用户](sql-database-manage-logins.md)进行数据访问，请确保主数据库和辅助数据库始终具有相同的用户凭据，这样在复制完成后，你便可以使用相同的凭据立即访问。 
 
-如果使用 [Azure Active Directory](../active-directory/active-directory-whatis.md)，则完全无需管理副本中的凭据。 但是，将数据库复制到新服务器时，基于登录名的访问可能不起作用，因为登录名在新服务器上不存在。 要了解如何在将数据库复制到其他逻辑服务器时管理登录名，请参阅[灾难恢复后如何管理 Azure SQL 数据库安全性](sql-database-geo-replication-security-config.md)。 
+如果使用 [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)，则完全无需管理副本中的凭据。 但是，将数据库复制到新服务器时，基于登录名的访问可能不起作用，因为登录名在新服务器上不存在。 要了解如何在将数据库复制到其他逻辑服务器时管理登录名，请参阅[灾难恢复后如何管理 Azure SQL 数据库安全性](sql-database-geo-replication-security-config.md)。 
 
 复制成功之后，重新映射其他用户之前，只有启动复制的登录名，即数据库所有者，才能登录到新数据库。 若要在复制操作完成后解析登录名，请参阅[解析登录名](#resolve-logins)。
 
@@ -43,7 +43,7 @@ ms.locfileid: "36947938"
 
 ## <a name="copy-a-database-by-using-powershell"></a>使用 PowerShell 复制数据库
 
-若要使用 PowerShell 复制数据库，请使用 [New-AzureRmSqlDatabaseCopy](/powershell/module/azurerm.sql/new-azurermsqldatabasecopy) cmdlet。 
+若要使用 PowerShell 复制数据库，请使用 [New-AzureRmSqlDatabaseCopy](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabasecopy) cmdlet。 
 
 ```PowerShell
 New-AzureRmSqlDatabaseCopy -ResourceGroupName "myResourceGroup" `
@@ -105,4 +105,3 @@ New-AzureRmSqlDatabaseCopy -ResourceGroupName "myResourceGroup" `
 
 * 有关登录名的信息，请参阅[管理登录名](sql-database-manage-logins.md)和[灾难恢复后如何管理 Azure SQL 数据库安全性](sql-database-geo-replication-security-config.md)。
 * 要导出数据库，请参阅[将数据库导出到 BACPAC](sql-database-export.md)。
-<!--Update_Description: update meta properties-->

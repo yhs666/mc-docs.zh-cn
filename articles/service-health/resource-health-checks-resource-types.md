@@ -14,16 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 origin.date: 10/09/2017
 ms.author: v-yiso
-ms.date: 06/04/2018
-ms.openlocfilehash: b61bb291296e42ed2f67d2dcce1927e723494d42
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.date: 08/13/2018
+ms.openlocfilehash: fe8cf2aa931aeddc666d4935d3f2100186712adc
+ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554196"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486933"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Azure 资源运行状况中的资源类型和运行状况检查
 下面是通过资源运行状况执行的所有检查（按资源类型）的完整列表。
+
+## <a name="microsoftanalysisservicesservers"></a>Microsoft.AnalysisServices/servers
+|执行的检查|
+|---|
+|<ul><li>服务器是否正常运行？</li><li>服务器是否内存不足？</li><li>服务器是否正在启动？</li><li>服务器是否正在恢复？</li></ul>|
 
 ## <a name="microsoftapimanagementservice"></a>Microsoft.ApiManagement/service
 |执行的检查|
@@ -38,7 +43,7 @@ ms.locfileid: "34554196"
 ## <a name="microsoftcdnprofile"></a>Microsoft.CDN/profile
 |执行的检查|
 |---|
-|<ul> <li>是否有终结点已停止、被删除或未正确配置？</li><li>CDN 配置操作是否可访问补充门户？</li><li>CDN 终结点是否存在持续的传送问题？</li><li>用户是否可以更改其 CDN 资源的配置？</li><li>配置更改是否按预期速率传播？</li><li>用户是否可以使用 Azure 门户、PowerShell 或 API 管理 CDN 配置？</li> </ul>|
+|<ul> <li>CDN 配置操作是否可访问补充门户？</li><li>CDN 终结点是否存在持续的传送问题？</li><li>用户是否可以更改其 CDN 资源的配置？</li><li>配置更改是否按预期速率传播？</li><li>用户是否可以使用 Azure 门户、PowerShell 或 API 管理 CDN 配置？</li> </ul>|
 
 ## <a name="microsoftclassiccomputevirtualmachines"></a>Microsoft.classiccompute/virtualmachines
 |执行的检查|
@@ -55,16 +60,8 @@ ms.locfileid: "34554196"
 |---|
 |<ul><li>托管此虚拟机的服务器是否已启动并运行？</li><li>主机 OS 启动是否已完成？</li><li>是否已配置并启动虚拟机容器？</li><li>主机和存储帐户之间是否有网络连接？</li><li>来宾 OS 启动是否已完成？</li><li>是否存在持续的计划内维护？</li></ul>|
 
-## <a name="microsoftdatalakeanalyticsaccounts"></a>Microsoft.datalakeanalytics/accounts
-|执行的检查|
-|---|
-|<ul><li>区域中的用户是否可将作业提交到 Data Lake Analytics？</li><li>区域中的基本作业是否能够运行并成功完成？</li><li>区域中的用户是否可列出目录项？</li>|
 
 
-## <a name="microsoftdatalakestoreaccounts"></a>Microsoft.datalakestore/accounts
-|执行的检查|
-|---|
-|<ul><li>区域中的用户是否可将数据上传到 Data Lake Store？</li><li>区域中的用户是否可从 Data Lake Store 下载数据？</li></ul>|
 
 ## <a name="microsoftdevicesiothubs"></a>Microsoft.devices/iothubs
 
@@ -76,6 +73,11 @@ ms.locfileid: "34554196"
 |执行的检查|
 |---|
 |<ul><li>是否存在因 Azure Cosmos DB 服务不可用而未处理的数据库或集合请求？</li><li>是否存在因 Azure Cosmos DB 服务不可用而未处理的文档请求？</li></ul>|
+
+## <a name="microsoftkeyvaultvaults"></a>Microsoft.KeyVault/vaults
+|执行的检查|
+|---|
+|<ul><li>向 Key Vault 发出的请求是否因 Azure KeyVault 平台问题而失败？</li><li>向 Key Vault 发出的请求是否因客户发出的请求过多而受限制？</li></ul>|
 
 ## <a name="microsoftnetworkconnections"></a>Microsoft.network/connections
 |执行的检查|
@@ -106,6 +108,11 @@ ms.locfileid: "34554196"
 |执行的检查|
 |---|
 |<ul><li> 是否存在到数据库的登录？</li></ul>|
+
+## <a name="microsoftstoragestorageaccounts"></a>Microsoft.Storage/storageAccounts
+|执行的检查|
+|---|
+|<ul><li>读取存储帐户中数据的请求是否因 Azure 存储平台问题而失败？</li><li>将数据写入存储帐户的请求是否因 Azure 存储平台问题而失败？</li><li>存储帐户所在的存储群集是否不可用？</li></ul>|
 
 ## <a name="microsoftstreamanalyticsstreamingjobs"></a>Microsoft.StreamAnalytics/streamingjobs
 |执行的检查|

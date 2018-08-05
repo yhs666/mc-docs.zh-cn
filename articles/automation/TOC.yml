@@ -127,8 +127,6 @@
   items:
     - name: Azure PowerShell
       href: 'https://docs.microsoft.com/powershell/module/azurerm.automation'
-    - name: Azure PowerShell（经典）
-      href: 'https://docs.microsoft.com/powershell/module/azure/?view=azuresmps-3.7.0'
     - name: .NET
       href: 'https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.management.automation'
     - name: REST

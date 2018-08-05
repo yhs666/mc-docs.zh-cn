@@ -5,16 +5,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 04/12/2018
-ms.date: 07/16/2018
+origin.date: 07/03/2018
+ms.date: 08/06/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 467022ddb63a0a2bb102d4e6bdbd916471fa5eab
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.openlocfilehash: a4c9e025a178098d16a7b4cd7e85b44c4b0a0ebb
+ms.sourcegitcommit: c6205500afd23ac00f2829fe51858b51a622eaf1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39167869"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39487796"
 ---
 # <a name="supplemental-lesson---detail-rows"></a>补充课程 - 详细信息行
 

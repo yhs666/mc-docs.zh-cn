@@ -10,12 +10,12 @@ ms.topic: article
 origin.date: 05/08/2018
 ms.date: 05/28/2018
 ms.author: v-nany
-ms.openlocfilehash: e15fa1d8462401bc46e03501d016b306d67c8bad
-ms.sourcegitcommit: 53972dcdef77da92529996667545d2e83716f7e2
+ms.openlocfilehash: b29fb6321220ce427e481e591a550a60c17a33b8
+ms.sourcegitcommit: 2a147231bf3d0a693adf58fceee76ab0fbcd6dbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39143428"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39335260"
 ---
 # <a name="credential-assets-in-azure-automation"></a>Azure 自动化中的凭据资产
 
@@ -26,25 +26,25 @@ ms.locfileid: "39143428"
 
 ## <a name="azure-classic-powershell-cmdlets"></a>Azure 经典 PowerShell cmdlet
 
-下表中的 cmdlet 用于通过 Windows PowerShell 创建和管理自动化凭据资产。  可在自动化 Runbook 和 DSC 配置中使用的 [Azure PowerShell 模块](/powershell/azure/overview)已随附了这些 cmdlet。
+下表中的 cmdlet 用于通过 Windows PowerShell 创建和管理自动化凭据资产。  可在自动化 Runbook 和 DSC 配置中使用的 [Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/overview)已随附了这些 cmdlet。
 
 | Cmdlet | 说明 |
 |:--- |:--- |
-| [Get-AzureAutomationCredential](/powershell/module/azure/get-azureautomationcredential?view=azuresmps-3.7.0) |检索有关凭据资产的信息。 只能从 **Get-AutomationPSCredential** 活动中检索凭据本身。 |
-| [New-AzureAutomationCredential](/powershell/module/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |创建新的自动化凭据。 |
-| [Remove- AzureAutomationCredential](/powershell/module/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |删除自动化凭据。 |
-| [Set- AzureAutomationCredential](/powershell/module/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |设置现有自动化凭据的属性。 |
+| [Get-AzureAutomationCredential]() |检索有关凭据资产的信息。 只能从 **Get-AutomationPSCredential** 活动中检索凭据本身。 |
+| [New-AzureAutomationCredential]() |创建新的自动化凭据。 |
+| [Remove- AzureAutomationCredential]() |删除自动化凭据。 |
+| [Set- AzureAutomationCredential]() |设置现有自动化凭据的属性。 |
 
 ## <a name="azurerm-powershell-cmdlets"></a>AzureRM PowerShell cmdlet
 
-对于 AzureRM，下表中的 cmdlet 用于通过 Windows PowerShell 创建和管理自动化凭据资产。  可在自动化 Runbook 和 DSC 配置中使用的 [AzureRM.Automation 模块](/powershell/azure/overview)已随附了这些 cmdlet。
+对于 AzureRM，下表中的 cmdlet 用于通过 Windows PowerShell 创建和管理自动化凭据资产。  可在自动化 Runbook 和 DSC 配置中使用的 [AzureRM.Automation 模块](https://docs.microsoft.com/powershell/azure/overview)已随附了这些 cmdlet。
 
 | Cmdlet | 说明 |
 |:--- |:--- |
-| [Get-AzureRmAutomationCredential](/powershell/module/azurerm.automation/get-azurermautomationcredential?view=azurermps-4.4.0) |检索有关凭据资产的信息。  |
-| [New-AzureRmAutomationCredential](/powershell/module/azurerm.automation/new-azurermautomationcredential?view=azurermps-4.4.0) |创建新的自动化凭据。 |
-| [Remove-AzureRmAutomationCredential](/powershell/module/azurerm.automation/remove-azurermautomationcredential?view=azurermps-4.4.0) |删除自动化凭据。 |
-| [Set-AzureRmAutomationCredential](/powershell/module/azurerm.automation/set-azurermautomationcredential?view=azurermps-4.4.0) |设置现有自动化凭据的属性。 |
+| [Get-AzureRmAutomationCredential](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationcredential?view=azurermps-4.4.0) |检索有关凭据资产的信息。  |
+| [New-AzureRmAutomationCredential](https://docs.microsoft.com/powershell/module/azurerm.automation/new-azurermautomationcredential?view=azurermps-4.4.0) |创建新的自动化凭据。 |
+| [Remove-AzureRmAutomationCredential](https://docs.microsoft.com/powershell/module/azurerm.automation/remove-azurermautomationcredential?view=azurermps-4.4.0) |删除自动化凭据。 |
+| [Set-AzureRmAutomationCredential](https://docs.microsoft.com/powershell/module/azurerm.automation/set-azurermautomationcredential?view=azurermps-4.4.0) |设置现有自动化凭据的属性。 |
 
 ## <a name="activities"></a>活动
 

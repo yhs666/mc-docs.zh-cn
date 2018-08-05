@@ -1,5 +1,5 @@
 ---
-title: 用于 SQL 数据库的非 1433 端口 | Microsoft 文档
+title: 用于 SQL 数据库的非 1433 端口 | Azure
 description: 从 ADO.NET 到 Azure SQL 数据库的客户端连接可以绕过代理直接通过 1433 以外的端口与数据库交互。
 services: sql-database
 author: forester123
@@ -10,12 +10,12 @@ ms.topic: article
 origin.date: 04/01/2018
 ms.date: 04/17/2018
 ms.author: v-johch
-ms.openlocfilehash: 5019c597275267e3f7ed9cab6deea3db17828e95
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 1126221c22ca9800b4dd223b047582211422cddc
+ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782290"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486602"
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>用于 ADO.NET 4.5 的非 1433 端口
 本主题介绍使用 ADO.NET 4.5 或更高版本的客户端的 Azure SQL 数据库连接行为。 

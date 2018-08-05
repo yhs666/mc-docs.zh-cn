@@ -5,16 +5,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 04/12/2018
-ms.date: 07/16/2018
+origin.date: 07/03/2018
+ms.date: 08/06/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: da6ee164a2f7b501042276cf5ab03bd500523e86
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.openlocfilehash: df59aca0ea43f87e23bf2b82c4d1cbf1866879c3
+ms.sourcegitcommit: c6205500afd23ac00f2829fe51858b51a622eaf1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39167915"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39487862"
 ---
 # <a name="azure-analysis-services-samples"></a>Azure Analysis Services 示例
 使用以下示例资源可帮助了解 Analysis Services 并针对环境对其进行测试。
@@ -37,7 +37,7 @@ GitHub 上的这些示例数据库可用于创建和测试自己的模型。
 
 ## <a name="next-steps"></a>后续步骤
 
-[Adventure Works 教程](/tutorials/aas-adventure-works-tutorial.md)   
+[Adventure Works 教程](tutorials/aas-adventure-works-tutorial.md)   
 <!--Not Available on [Azure On-premises Data Gateway](analysis-services-gateway.md)-->
 
 <!--Update_Description: update meta properties -->

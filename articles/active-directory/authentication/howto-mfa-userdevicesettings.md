@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.component: authentication
 ms.topic: article
 origin.date: 06/23/2017
-ms.date: 06/14/2018
+ms.date: 08/03/2018
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: f094ccc49e1a00882075cf9deb974274524e262a
-ms.sourcegitcommit: 7d01230972e7a7c4fd1aaf22220fb04a05726135
+ms.openlocfilehash: 5bb11621586ccd63fd5cf49f5b10f6fa51d92aa9
+ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2018
-ms.locfileid: "35568649"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39487038"
 ---
 # <a name="manage-user-settings-with-azure-multi-factor-authentication-in-the-cloud"></a>管理云中 Azure 多重身份验证的用户设置
 
@@ -58,6 +58,6 @@ ms.locfileid: "35568649"
 
 - 获取有关如何[配置 Azure 多重身份验证设置](howto-mfa-mfasettings.md)的详细信息
 
-- 如果用户需要帮助，可让其参阅[双重验证用户指南](../../multi-factor-authentication/end-user/multi-factor-authentication-end-user.md)
+- 如果用户需要帮助，可让其参阅[双重验证用户指南](../user-help/multi-factor-authentication-end-user.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

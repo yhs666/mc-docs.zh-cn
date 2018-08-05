@@ -14,7 +14,7 @@
 ### [用户和设备设置](../active-directory/authentication/howto-mfa-userdevicesettings.md)
 ### [配置设置](../active-directory/authentication/howto-mfa-mfasettings.md)
 
-## [MFA 用户指南](./end-user/multi-factor-authentication-end-user.md)
+## [MFA 用户指南](../active-directory/user-help/multi-factor-authentication-end-user.md)
 
 ## 故障排除
 ### [常见问题](../active-directory/authentication/multi-factor-authentication-faq.md)

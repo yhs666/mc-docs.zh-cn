@@ -10,12 +10,12 @@ ms.topic: article
 origin.date: 04/01/2018
 ms.date: 06/18/2018
 ms.author: v-johch
-ms.openlocfilehash: abb0d4322f474711c945f03dc6498a4d9c1c0540
-ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
+ms.openlocfilehash: 7d29c80776a9fb8c668827c26da104835c2fe66d
+ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36948101"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486528"
 ---
 # <a name="managing-rolling-upgrades-of-cloud-applications-using-sql-database-active-geo-replication"></a>使用 SQL 数据库活动异地复制管理云应用程序的滚动升级
 > [!NOTE]
@@ -104,7 +104,7 @@ ms.locfileid: "36948101"
 
 如果升级成功完成，那么你现在可以将最终用户切换到应用程序的 V2 版本。 下图说明了所涉及的步骤。
 
-1. 将 WATM 配置文件中的活动终结点切换为 contoso-2.chinacloudsites.cn<i></i>，该终结点指向网站的 V2 版本 (9)。 现在该网站成为 V2 应用程序的生产槽，最终用户流量会定向到该网站。 
+1. 将 WATM 配置文件中的活动终结点切换为 contoso-2.chinacloudsites.cn<i></i>，该终结点指向网站的 V2 版本 (9)。 现在该网站成为 V2 应用程序的生产槽，最终用户流量将定向到该网站。 
 2. 如果不再需要 V1 应用程序，可以放心删除它（10 和 11）。  
 
 ![SQL 数据库异地复制配置。 云灾难恢复。](media/sql-database-manage-application-rolling-upgrade/Option2-3.png)

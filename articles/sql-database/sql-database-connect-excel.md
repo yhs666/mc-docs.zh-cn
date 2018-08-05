@@ -11,12 +11,12 @@ ms.topic: article
 origin.date: 03/10/2017
 ms.date: 11/06/2017
 ms.author: v-johch
-ms.openlocfilehash: 5beba92f585e3fdbb3eb0f25fec80e1069c07d4d
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 6c3889ebcbcda9e3e52d434a172872a65a402a27
+ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939883"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486532"
 ---
 # <a name="connect-excel-to-an-azure-sql-database-and-create-a-report"></a>将 Excel 连接到 Azure SQL 数据库并创建报表
 

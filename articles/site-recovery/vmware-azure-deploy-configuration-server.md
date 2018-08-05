@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 07/06/2018
 ms.date: 07/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 43f957988c4a5e77d34bbaa39b93570c9b38dd15
-ms.sourcegitcommit: f7ff09be9f3be5e3eb795e383c0c670f480f233d
+ms.openlocfilehash: 7806d67090bd3577fee8f5fa6e722c682f26377f
+ms.sourcegitcommit: f216d57a5a2732e2e2c4e20ac9747e206ac914e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39169019"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39416936"
 ---
 # <a name="deploy-a-configuration-server"></a>部署配置服务器
 
@@ -85,6 +85,7 @@ ms.locfileid: "39169019"
 3. 选择适配器类型和网络。 
 4. 若要在打开 VM 时连接虚拟 NIC，请选择“上电时连接”。 然后，选择“下一步” > “完成” > “确定”。
 
+<a name="register-the-configuration-server"></a>
 ## <a name="register-the-configuration-server-with-azure-site-recovery-services"></a>将配置服务器注册到 Azure Site Recovery 服务
 
 1. 通过 VMWare vSphere 客户端控制台打开 VM。

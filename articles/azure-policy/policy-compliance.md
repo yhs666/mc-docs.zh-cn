@@ -1,6 +1,6 @@
 ---
-title: 在 Azure 策略中获取符合性数据
-description: Azure 策略的评估和效果确定了符合性。 了解如何获取符合性详细信息。
+title: 在 Azure Policy 中获取符合性数据
+description: Azure Policy 的评估和效果确定了符合性。 了解如何获取符合性详细信息。
 services: azure-policy
 author: WenJason
 ms.author: v-jay
@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: digimobile
 ms.custom: mvc
-ms.openlocfilehash: 90743bcd28ba5a44a54a97250e09e1006b311626
-ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
+ms.openlocfilehash: 31efa296489a0654ae35f8a4e8041d5f00891ba5
+ms.sourcegitcommit: 2a147231bf3d0a693adf58fceee76ab0fbcd6dbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37405443"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39335317"
 ---
 # <a name="getting-compliance-data"></a>获取符合性数据
 
-Azure 策略的最大优势之一在于它针对订阅中的资源提供的见解和控制。 可通过许多不同的方式运用这种控制，例如，防止在错误的位置创建资源、强制实施常见且一致的标记用法，或者审核相应配置和设置的现有资源。 在所有情况下，数据都由策略生成，使你能够了解环境的符合性状态。
+Azure Policy 的最大优势之一在于它针对订阅中的资源提供的见解和控制。 可通过许多不同的方式运用这种控制，例如，防止在错误的位置创建资源、强制实施常见且一致的标记用法，或者审核相应配置和设置的现有资源。 在所有情况下，数据都由策略生成，使你能够了解环境的符合性状态。
 
 可通过多种方式访问策略和计划分配生成的符合性信息：
 
@@ -30,7 +30,7 @@ Azure 策略的最大优势之一在于它针对订阅中的资源提供的见�
 
 ## <a name="evaluation-triggers"></a>评估触发器
 
-已完成的评估周期的结果通过 `PolicyStates` 和 `PolicyEvents` 操作反映在 `Microsoft.PolicyInsights` 资源提供程序中。 有关策略见解 REST API 的选项和功能的详细信息，请参阅[策略见解](/rest/api/policy-insights/)。
+已完成的评估周期的结果通过 `PolicyStates` 和 `PolicyEvents` 操作反映在 `Microsoft.PolicyInsights` 资源提供程序中。 有关策略见解 REST API 的选项和功能的详细信息，请参阅[策略见解](https://docs.microsoft.com/rest/api/policy-insights/)。
 
 已分配的策略和计划的评估会在各种事件后发生：
 
@@ -83,7 +83,7 @@ Azure 门户展示了一个图形体验用于可视化和了解环境中的符�
 
 ## <a name="command-line"></a>命令行
 
-可以直接使用 REST API（包括使用 [ARMClient](https://github.com/projectkudu/ARMClient)），或者结合 REST API 使用 Azure PowerShell，来检索门户中提供的相同信息。 有关 REST API 的完整详细信息，请参阅[策略见解](/rest/api/policy-insights/)参考文章。
+可以直接使用 REST API（包括使用 [ARMClient](https://github.com/projectkudu/ARMClient)），或者结合 REST API 使用 Azure PowerShell，来检索门户中提供的相同信息。 有关 REST API 的完整详细信息，请参阅[策略见解](https://docs.microsoft.com/rest/api/policy-insights/)参考文章。
 
 若要在 PowerShell 中使用以下示例，请使用此示例代码构造身份验证令牌。 然后，将示例中的 $restUri 替换为所需的字符串，以检索随后可分析的 JSON 对象。
 
@@ -112,7 +112,7 @@ $response
 
 ### <a name="summarize-results"></a>汇总结果
 
-使用 REST API 可按订阅、资源组、资源、计划、策略、订阅级分配或资源组级分配执行汇总。 下面是使用策略见解的[按订阅汇总](/rest/api/policy-insights/policystates/summarizeforsubscription)功能在订阅级别执行的汇总示例:
+使用 REST API 可按订阅、资源组、资源、计划、策略、订阅级分配或资源组级分配执行汇总。 下面是使用策略见解的[按订阅汇总](https://docs.microsoft.com/rest/api/policy-insights/policystates/summarizeforsubscription)功能在订阅级别执行的汇总示例:
 
 ```http
 POST https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/summarize?api-version=2018-04-04
@@ -223,12 +223,12 @@ https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/providers/Mic
 }
 ```
 
-有关查询策略事件的详细信息，请参阅[策略事件](/rest/api/policy-insights/policyevents)参考文章。
+有关查询策略事件的详细信息，请参阅[策略事件](https://docs.microsoft.com/rest/api/policy-insights/policyevents)参考文章。
 
 ### <a name="azure-powershell-preview"></a>Azure PowerShell（预览版）
 
 适用于策略的 Azure PowerShell 模块尚未发布最终版，目前以[预览版](https://www.powershellgallery.com/packages/AzureRM.PolicyInsights)的形式在 PowerShell 库中提供。
-如果使用的 PowerShellGet 的最低版本为 1.6.0（需要安装该版本才能支持预发布项），可以使用 `Install-Module` 下载预览版（请确保已安装最新的 [Azure PowerShell](/powershell/azure/install-azurerm-ps)）：
+如果使用的 PowerShellGet 的最低版本为 1.6.0（需要安装该版本才能支持预发布项），可以使用 `Install-Module` 下载预览版（请确保已安装最新的 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)）：
 
 ```powershell
 # Download preview from PowerShell Gallery via PowerShellGet

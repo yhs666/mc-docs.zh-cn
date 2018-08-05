@@ -12,12 +12,12 @@ ms.topic: quickstart
 origin.date: 04/01/2018
 ms.date: 04/17/2018
 ms.author: v-johch
-ms.openlocfilehash: 091dbd60580c047cd7e87fd528c282d0901c9949
-ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
+ms.openlocfilehash: f4353f2740af5f825b0554e7e32bf45b2b9b9beb
+ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36948093"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486898"
 ---
 # <a name="create-a-single-azure-sql-database-using-powershell"></a>使用 PowerShell 创建单一 Azure SQL 数据库
 
@@ -29,7 +29,7 @@ PowerShell 用于从命令行或脚本创建和管理 Azure 资源。 本指南�
 
 ## <a name="log-in-to-azure"></a>登录 Azure
 
-使用 [Connect-AzureRmAccount -EnvironmentName AzureChinaCloud](https://docs.microsoft.com/powershell/module/azurerm.profile/add-azurermaccount) 命令登录到 Azure 订阅，并按屏幕说明操作。
+使用 [Connect-AzureRmAccount -EnvironmentName AzureChinaCloud](https://docs.microsoft.com/powershell/module/azurerm.profile/connect-azurermaccount) 命令登录到 Azure 订阅，并按屏幕说明操作。
 
 ```powershell
 Connect-AzureRmAccount -EnvironmentName AzureChinaCloud
@@ -90,7 +90,7 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
 
 ## <a name="create-a-database-in-the-server-with-sample-data"></a>使用示例数据在服务器中创建数据库
 
-使用 [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) 命令在服务器中创建 [S0 性能级别](sql-database-service-tiers-dtu.md)的数据库。 以下示例创建名为 `mySampleDatabase` 的数据库，并将 AdventureWorksLT 示例数据加载到该数据库中。 根据需要替换这些预定义的值（此系列中的其他快速入门基于此快速入门中的值）。
+使用 [New-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabase) 命令在服务器中创建 [S0 性能级别](sql-database-service-tiers-dtu.md)的数据库。 以下示例创建名为 `mySampleDatabase` 的数据库，并将 AdventureWorksLT 示例数据加载到该数据库中。 根据需要替换这些预定义的值（此系列中的其他快速入门基于此快速入门中的值）。
 
 ```powershell
 New-AzureRmSqlDatabase  -ResourceGroupName $resourcegroupname `

@@ -1,6 +1,6 @@
 ---
 title: 快速入门 - 使用 PowerShell 创建策略分配以识别 Azure 环境中的不合规资源
-description: 本快速入门介绍如何使用 PowerShell 创建 Azure 策略分配以识别不合规的资源。
+description: 本快速入门介绍如何使用 PowerShell 创建 Azure Policy 分配以识别不合规的资源。
 services: azure-policy
 author: WenJason
 ms.author: v-nany
@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
 manager: digimoblie
-ms.openlocfilehash: c60d59cc4268f70a7c02d2bb06b42e660a563a4d
-ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
+ms.openlocfilehash: ca36af141cd2dd0e7675f04a5fed90d3cd12068b
+ms.sourcegitcommit: 2a147231bf3d0a693adf58fceee76ab0fbcd6dbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37405397"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39335298"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-the-azure-rm-powershell-module"></a>快速入门：使用 Azure RM PowerShell 模块创建策略分配以识别不合规资源
 
@@ -28,8 +28,8 @@ AzureRM PowerShell 模块用于从命令行或脚本创建和管理 Azure 资源
 ## <a name="prerequisites"></a>先决条件
 
 - 安装 [ARMClient](https://github.com/projectkudu/ARMClient)（如果尚未安装）。 该工具可将 HTTP 请求发送到基于 Azure 资源管理器的 API。
-- 在开始之前，请确保安装 PowerShell 的最新版本。 有关详细信息，请参阅[如何安装和配置 Azure PowerShell](/powershell/azureps-cmdlets-docs)。
-- 将 AzureRM PowerShell 模块更新到最新版本。 如果需要进行安装或升级，请参阅[安装 Azure PowerShell 模块](/powershell/azure/install-azurerm-ps)。
+- 在开始之前，请确保安装 PowerShell 的最新版本。 有关详细信息，请参阅[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)。
+- 将 AzureRM PowerShell 模块更新到最新版本。 如果需要进行安装或升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。
 - 使用 Azure PowerShell 注册 Policy Insights 资源提供程序。 注册此资源提供程序可确保订阅能够使用它。 若要注册资源提供程序，必须具有为资源提供程序执行注册操作的权限。 此操作包含在“参与者”和“所有者”角色中。 运行以下命令，注册资源提供程序：
 
   ```powershell
@@ -68,7 +68,7 @@ $policyAssignment = Get-AzureRmPolicyAssignment | Where-Object { $_.Properties.D
 $policyAssignment.PolicyAssignmentId
 ```
 
-有关策略分配 ID 的详细信息，请参阅 [Get-AzureRmPolicyAssignment](/powershell/module/azurerm.resources/get-azurermpolicyassignment)。
+有关策略分配 ID 的详细信息，请参阅 [Get-AzureRmPolicyAssignment](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermpolicyassignment)。
 
 接下来，运行以下命令，获取输出到 JSON 文件中的不合规资源的资源 ID：
 

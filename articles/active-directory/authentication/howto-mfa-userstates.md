@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.component: authentication
 ms.topic: article
 origin.date: 06/26/2017
-ms.date: 06/14/2018
+ms.date: 08/03/2018
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: 9410678856e59a119eaca7354f419b766be7eace
-ms.sourcegitcommit: 7d01230972e7a7c4fd1aaf22220fb04a05726135
+ms.openlocfilehash: f8d30b0edeed03f706cbd4520241b648c5c8fc26
+ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2018
-ms.locfileid: "35568643"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39487035"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user-or-group"></a>如何要求对用户或组进行双重验证
 
@@ -61,7 +61,7 @@ Azure 多重身份验证中的用户帐户具有以下三种不同状态：
 
 5. 在打开的弹出窗口中确认你的选择。 
 
-启用用户后，通过电子邮件通知他们。 告诉他们将需要在下次登录时进行注册。 还可以包括指向 [Azure MFA 最终用户指南](../../multi-factor-authentication/end-user/multi-factor-authentication-end-user.md)的链接，以便帮助他们上手。
+启用用户后，通过电子邮件通知他们。 告诉他们将需要在下次登录时进行注册。 还可以包括指向 [Azure MFA 最终用户指南](../user-help/multi-factor-authentication-end-user.md)的链接，以便帮助他们上手。
 
 ### <a name="use-powershell"></a>使用 PowerShell
 若要使用 [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/overview) 更改用户状态，请更改 `$st.State`。 有三种可能的状态：
@@ -96,4 +96,4 @@ Azure 多重身份验证中的用户帐户具有以下三种不同状态：
 
 - 管理[用户及其设备](howto-mfa-userdevicesettings.md)的 Azure 多重身份验证设置。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

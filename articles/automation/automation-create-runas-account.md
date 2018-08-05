@@ -10,12 +10,12 @@ ms.topic: article
 origin.date: 03/15/2018
 ms.date: 07/23/2018
 ms.author: v-nany
-ms.openlocfilehash: a43c0c3ffbd8b71353ea625673b2cc2932c4febb
-ms.sourcegitcommit: 74f9f0acb00fb728ff6e9bd67ac86a0c1bcd8d13
+ms.openlocfilehash: deedefddca9b1a9e0930a8a305773a30ccf31164
+ms.sourcegitcommit: 2a147231bf3d0a693adf58fceee76ab0fbcd6dbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39218890"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39335334"
 ---
 # <a name="update-your-automation-account-authentication-with-run-as-accounts"></a>使用运行方式帐户更新自动化帐户身份验证 
 在以下情况下，可以通过 Azure 门户或使用 PowerShell 更新现有自动化帐户：
@@ -41,7 +41,7 @@ ms.locfileid: "39218890"
 如果选择[使用 PowerShell 创建运行方式帐户](#create-run-as-account-using-powershell)，则此过程需要：
 
 * 装有 Azure 资源管理器模块 3.4.1 及更高版本的 Windows 10 与 Windows Server 2016。 PowerShell 脚本不支持早期版本的 Windows。
-* Azure PowerShell 1.0 和更高版本。 有关 PowerShell 1.0 版本的信息，请参阅[如何安装和配置 Azure PowerShell](/powershell/azureps-cmdlets-docs)。
+* Azure PowerShell 1.0 和更高版本。 有关 PowerShell 1.0 版本的信息，请参阅[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)。
 * 作为 -AutomationAccountName 和 -ApplicationDisplayName 参数的值引用的自动化帐户。
 
 若要获取脚本的必需参数 SubscriptionID、ResourceGroup 和 AutomationAccountName 的值，请执行以下操作：

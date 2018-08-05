@@ -3,26 +3,26 @@ title: Azure Active Directory 门户中的“审核活动”报告 | Microsoft D
 description: Azure Active Directory 门户中的审核活动报告简介
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: priyamohanram
 manager: mtillman
 editor: ''
 ms.assetid: a1f93126-77d1-4345-ab7d-561066041161
 ms.service: active-directory
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: compliance-reports
 origin.date: 04/19/2018
-ms.date: 06/20/2018
+ms.date: 07/30/2018
 ms.author: v-junlch
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 728b74aedd0908e4b83ca02c6b7e3e115b09d0e0
-ms.sourcegitcommit: d744d18624d2188adbbf983e1c1ac1110d53275c
+ms.openlocfilehash: 4f1efca94f687ffb642578f367e8ebba412bdc43
+ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36314372"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39487072"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory 门户中的“审核活动”报告 
 
@@ -165,3 +165,4 @@ Azure Active Directory 中的审核日志为符合性提供系统活动的记录
 - 有关所有审核活动的完整列表，请参阅 [Azure AD 审核活动参考](active-directory-reporting-activity-audit-reference.md)。
 
 
+<!-- Update_Description: update metedata properties -->

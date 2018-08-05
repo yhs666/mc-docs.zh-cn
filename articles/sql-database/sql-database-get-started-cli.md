@@ -12,12 +12,12 @@ ms.topic: quickstart
 origin.date: 03/23/2018
 ms.date: 03/17/2018
 ms.author: v-johch
-ms.openlocfilehash: 0d281a9e1411a146f7c5b1e537b3e1c27a872851
-ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
+ms.openlocfilehash: fd6064c1baeeab2633510198de0cb356f80b76ce
+ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36948066"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486677"
 ---
 # <a name="create-a-single-azure-sql-database-using-the-azure-cli"></a>使用 Azure CLI 创建单一 Azure SQL 数据库
 
@@ -26,7 +26,7 @@ Azure CLI 用于从命令行或脚本创建和管理 Azure 资源。 本指南�
 如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用](https://www.azure.cn/pricing/1rmb-trial/)帐户。
 
 
-如果选择在本地安装并使用 CLI，本主题要求运行 Azure CLI 2.0.4 版或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0]( /cli/install-azure-cli)。 
+如果选择在本地安装并使用 CLI，本文要求运行 Azure CLI 2.0.4 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0]( /cli/install-azure-cli)。 
 
 ## <a name="define-variables"></a>定义变量
 
@@ -50,14 +50,14 @@ export databasename = mySampleDatabase
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
-使用 [az group create](/cli/group#create) 命令创建 [Azure 资源组](../azure-resource-manager/resource-group-overview.md)。 资源组是在其中以组的形式部署和管理 Azure 资源的逻辑容器。 以下示例在 `China East` 位置创建名为 `myResourceGroup` 的资源组。
+使用 [az group create](/cli/group#az_group_create) 命令创建 [Azure 资源组](../azure-resource-manager/resource-group-overview.md)。 资源组是在其中以组的形式部署和管理 Azure 资源的逻辑容器。 以下示例在 `China East` 位置创建名为 `myResourceGroup` 的资源组。
 
 ```azurecli
 az group create --name $resourcegroupname --location $location
 ```
 ## <a name="create-a-logical-server"></a>创建逻辑服务器
 
-使用 [az sql server create](/cli/sql/server#create) 命令创建 [Azure SQL 数据库逻辑服务器](sql-database-features.md)。 逻辑服务器包含一组作为组管理的数据库。 以下示例使用管理员用户名 `ServerAdmin` 和密码 `ChangeYourAdminPassword1` 在资源组中创建随机命名的服务器。 根据需要替换这些预定义的值。
+使用 [az sql server create](/cli/sql/server#az_sql_server_create) 命令创建 [Azure SQL 数据库逻辑服务器](sql-database-features.md)。 逻辑服务器包含一组作为组管理的数据库。 以下示例使用管理员用户名 `ServerAdmin` 和密码 `ChangeYourAdminPassword1` 在资源组中创建随机命名的服务器。 根据需要替换这些预定义的值。
 
 ```azurecli
 az sql server create --name $servername --resource-group $resourcegroupname --location $location \
@@ -66,7 +66,7 @@ az sql server create --name $servername --resource-group $resourcegroupname --lo
 
 ## <a name="configure-a-server-firewall-rule"></a>配置服务器防火墙规则
 
-使用 [az sql server firewall create](/cli/sql/server/firewall-rule#create) 命令创建 [Azure SQL 数据库服务器级防火墙规则](sql-database-firewall-configure.md)。 服务器级防火墙规则允许外部服务器（例如 SQL Server Management Studio 或 SQLCMD 实用程序）通过 SQL 数据库服务防火墙连接到 SQL 数据库。 在以下示例中，防火墙仅对其他 Azure 资源开放。 要启用外部连接，请将 IP 地址更改为适合环境的地址。 若要开放所有 IP 地址，请使用 0.0.0.0 作为起始 IP 地址，使用 255.255.255.255 作为结束地址。  
+使用 [az sql server firewall create](/cli/sql/server/firewall-rule#az_sql_server_firewall_rule_create) 命令创建 [Azure SQL 数据库服务器级防火墙规则](sql-database-firewall-configure.md)。 服务器级防火墙规则允许外部服务器（例如 SQL Server Management Studio 或 SQLCMD 实用程序）通过 SQL 数据库服务防火墙连接到 SQL 数据库。 在以下示例中，防火墙仅对其他 Azure 资源开放。 要启用外部连接，请将 IP 地址更改为适合环境的地址。 若要开放所有 IP 地址，请使用 0.0.0.0 作为起始 IP 地址，使用 255.255.255.255 作为结束地址。  
 
 ```azurecli
 az sql server firewall-rule create --resource-group $resourcegroupname --server $servername \
@@ -106,4 +106,3 @@ az group delete --name $resourcegroupname
   - [设计 Azure SQL 数据库，并使用 C# 和 ADO.NET 进行连接](sql-database-design-first-database-csharp.md)
 
 
-<!--Update_Description:update Global CLI 2.0 links to Mooncake CLI 2.0 links-->

@@ -1,6 +1,6 @@
 ---
 title: 连接服务提供商及其位置：Azure ExpressRoute
-description: 本文详细说明了服务的上市区域，以及如何连接到 Azure 区域。 按连接服务提供商排序。
+description: 本文详细介绍了提供服务的区域以及如何连接到 Azure 区域。 按连接服务提供商排序。
 services: expressroute
 documentationcenter: na
 author: cherylmc
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 05/15/2018
+origin.date: 06/22/2018
 ms.author: v-yiso
-ms.date: 06/18/2018
-ms.openlocfilehash: 5d32a8f71187fe437d52938dfab2a895685430d0
-ms.sourcegitcommit: 794b9caca1147f1891513410dd61435708ef85ec
+ms.date: 08/13/2018
+ms.openlocfilehash: d52b845e6bd074ee7b4fff3eb85361ede708ed1a
+ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34855396"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39487033"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 合作伙伴和对等位置
 
@@ -56,7 +56,7 @@ ms.locfileid: "34855396"
 
 |**地缘政治区域**|**Azure 区域**|**ExpressRoute 位置**|
 |---|---|---|---|
-|**美国政府云**|美国爱荷华州政府、美国弗吉尼亚州政府|芝加哥、达拉斯+、纽约、华盛顿特区|
+|**美国政府云**|US Gov 爱荷华州、US Gov 弗吉尼亚州|芝加哥、达拉斯+、纽约、华盛顿特区|
 |**中国**|中国北部、中国东部|北京、上海|
 |**德国**|德国中部、德国东部|柏林、法兰克福|
 

@@ -3,26 +3,26 @@ title: Azure Active Directory 报告延迟 | Microsoft Docs
 description: 了解在 Azure 门户中显示报告事件所花费的时间
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: priyamohanram
 manager: mtillman
 editor: ''
 ms.assetid: 9b88958d-94a2-4f4b-a18c-616f0617a24e
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: compliance-reports
 origin.date: 12/15/2017
-ms.date: 06/20/2018
+ms.date: 07/30/2018
 ms.author: v-junlch
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 1379e0a37ba1bb6206b8964caec131932d40d6a4
-ms.sourcegitcommit: d744d18624d2188adbbf983e1c1ac1110d53275c
+ms.openlocfilehash: 5d1c2a205f1738f20368d665942993fb38e2ae43
+ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36314370"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39487074"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Azure Active Directory 报告延迟
 
@@ -47,4 +47,4 @@ ms.locfileid: "36314370"
 
 - [Azure Active Directory 门户中的“审核活动”报表](active-directory-reporting-activity-audit-logs.md)
  
-
+<!-- Update_Description: update metedata properties -->

@@ -5,16 +5,16 @@ services: sql-database
 ms.topic: article
 ms.service: sql-database
 author: yunan2016
-origin.date: 04/01/2018
-ms.date: 04/17/2018
+origin.date: 07/03/2018
+ms.date: 08/06/2018
 ms.author: v-nany
 manager: digimobile
-ms.openlocfilehash: 0b229ea2859cd06b05dc9aa4f5cacd117dff8cc5
-ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
+ms.openlocfilehash: 45fdc4396e0b3dcb65abee4091626347798af6ee
+ms.sourcegitcommit: 2a147231bf3d0a693adf58fceee76ab0fbcd6dbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36947991"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39335321"
 ---
 # <a name="best-practices-for-sql-data-sync"></a>SQL 数据同步最佳做法 
 
@@ -86,6 +86,7 @@ SQL 数据同步自动预配的限制如下：
 -   不会预配 CHECK 约束。  
 -   不会预配源表上的现有触发器。  
 -   不会在目标数据库上创建视图和存储的过程。
+-   对外键约束的 ON UPDATE CASCADE 和 ON DELETE CASCADE 操作不会在目标表中重新创建。
 
 #### <a name="recommendations"></a>建议
 

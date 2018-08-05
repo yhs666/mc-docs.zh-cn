@@ -6,16 +6,16 @@ author: yunan2016
 ms.reviewer: bonova, carlrab
 ms.service: sql-database
 ms.topic: article
-origin.date: 06/08/2018
-ms.date: 07/02/2018
+origin.date: 07/02/2018
+ms.date: 08/06/2018
 ms.author: v-nany
 manager: digimobile
-ms.openlocfilehash: 6ab3a1ec9e9f89d25eeda6a2972a81dc6f91ce3a
-ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
+ms.openlocfilehash: 7cdf30c4d61c39f7ec4dac3c0ca11af34715d856
+ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37800503"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486948"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>功能比较：Azure SQL 数据库与 SQL Server 
 
@@ -85,7 +85,7 @@ Azure SQL 数据库与 SQL Server 共享一个通用代码库。 Azure SQL 数�
 | [异地复制](sql-database-geo-replication-overview.md) | 是 |
 | [图形处理](https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview) | 是 |
 | [内存中优化](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | 是 - [仅限高级层和业务关键层](sql-database-in-memory.md) |
-| [JSON 数据支持](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) | [是](https://docs.azure.cn/azure/sql-database/sql-database-json-features) |
+| [JSON 数据支持](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) | [是](https://docs.azure.cn/sql-database/sql-database-json-features) |
 | [语言元素](https://docs.microsoft.com/sql/t-sql/language-elements/language-elements-transact-sql) | 大多数 - 请参阅单个元素 |
 | [链接服务器](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | 否 - 请参阅[弹性查询](sql-database-elastic-query-horizontal-partitioning.md) |
 | [日志传送](https://docs.microsoft.com/sql/database-engine/log-shipping/about-log-shipping-sql-server) | 每个数据库均包含[高可用性](sql-database-high-availability.md)。 [简要介绍如何使用 Azure SQL 数据库确保业务连续性](sql-database-business-continuity.md)中对灾难恢复进行了讨论 |

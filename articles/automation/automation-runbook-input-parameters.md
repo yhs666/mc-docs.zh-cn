@@ -11,12 +11,12 @@ ms.topic: article
 origin.date: 03/16/2018
 ms.date: 07/23/2018
 ms.author: v-dazen
-ms.openlocfilehash: 928e20ebed85c1417ba5030dfc5921cb91def7f2
-ms.sourcegitcommit: 74f9f0acb00fb728ff6e9bd67ac86a0c1bcd8d13
+ms.openlocfilehash: eb332d1d313a66248deefa597538319d48c45365
+ms.sourcegitcommit: 2a147231bf3d0a693adf58fceee76ab0fbcd6dbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39218920"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39335320"
 ---
 # <a name="runbook-input-parameters"></a>Runbook 输入参数
 
@@ -82,7 +82,7 @@ Param
 
 [使用 Azure 运行方式帐户进行 Runbook 身份验证](automation-create-runas-account.md)，以便与 Azure 进行身份验证。
 
-通过 [**Get-AzureRmVm**](https://msdn.microsoft.com/library/mt603718.aspx) 获取虚拟机属性。
+通过 [**Get-AzureRmVm**](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvm?view=azurermps-6.5.0) 获取虚拟机属性。
 
 可使用 [**Write-Output**](https://technet.microsoft.com/library/hh849921.aspx) 活动输出虚拟机的名称。 **Get-AzureRmVm** 活动接受两个参数：**虚拟机名称**和**资源组名称**。 由于这些参数在每次启动 Runbook 时可能需要不同的值，因此可以将输入参数添加到 Runbook。 以下是添加输入参数的步骤：
 
@@ -149,16 +149,16 @@ Runbook 有多种启动方式：通过 Azure 门户、Webhook、PowerShell cmdle
 
 #### <a name="start-a-published-runbook-by-using-powershell-cmdlets-and-assign-parameters"></a>使用 PowerShell cmdlet 启动已发布的 Runbook 并分配参数
 
-* **Azure 资源管理器 cmdlet**：可使用 [Start-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx) 启动在资源组中创建的自动化 Runbook。
+* **Azure 资源管理器 cmdlet**：可使用 [Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook?view=azurermps-6.5.0) 启动在资源组中创建的自动化 Runbook。
   
   **示例：**
   
   ```
   $params = @{"VMName"="WSVMClassic";"resourceGroupeName"="WSVMClassicSG"}
   
-  Start-AzureRmAutomationRunbook -AutomationAccountName "TestAutomation" -Name "Get-AzureVMGraphical" –ResourceGroupName $resourceGroupName -Parameters $params
+  Start-AzureRmAutomationRunbook -AutomationAccountName "TestAutomation" -Name "Get-AzureVMGraphical" -ResourceGroupName $resourceGroupName -Parameters $params
   ```
-* **Azure 经典部署模型 cmdlet**：可以使用 [Start-AzureAutomationRunbook](https://msdn.microsoft.com/library/dn690259.aspx) 启动在默认资源组中创建的自动化 Runbook。
+* **Azure 经典部署模型 cmdlet**：可以使用 [Start-AzureAutomationRunbook]() 启动在默认资源组中创建的自动化 Runbook。
   
   **示例：**
   

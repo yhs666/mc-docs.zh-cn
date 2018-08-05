@@ -15,29 +15,20 @@
 ### [以编程方式创建 Azure 仪表板](azure-portal-dashboards-create-programmatically.md)
 ## 管理
 ### [启用高对比度或更改主题](azure-portal-change-theme-high-contrast.md)
-
-### [使用基于角色的访问控制管理访问权限](../active-directory/role-based-access-control-configure.md)
+### [导出或删除用户设置](azure-portal-export-delete-settings.md)
+### [使用门户管理资源](../azure-resource-manager/resource-group-portal.md)
+### [使用基于角色的访问控制管理访问权限](../role-based-access-control/role-assignments-portal.md)
 ### [使用基于角色的访问控制共享仪表板](azure-portal-dashboard-share-access.md)
 ### [使用标记来组织资源](../azure-resource-manager/resource-group-using-tags.md)
-### [缩放资源](../monitoring-and-diagnostics/insights-how-to-scale.md)
 ### [创建新的 Azure 服务主体](../azure-resource-manager/resource-group-create-service-principal-portal.md)
-## 监视
-### [监视服务指标](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)
-### [启用监视和诊断](../monitoring-and-diagnostics/insights-how-to-use-diagnostics.md)
-
-
+## [监视](../monitoring-and-diagnostics/monitoring-overview.md)
 
 # 相关内容
 ## [Azure Resource Manager 模板函数](../azure-resource-manager/resource-group-template-functions.md)
 
-
-## [审核日志警报 Webhook](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md)
-## [指标警报 Webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md)
-## [Azure Insights PowerShell 快速入门示例](../monitoring-and-diagnostics/insights-powershell-samples.md)
-## [Azure Insights CLI 快速入门示例](../monitoring-and-diagnostics/insights-cli-samples.md)
-
 # 资源
 ## [MSDN 论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazuremanagement) 
+## [定价计算器](https://www.azure.cn/pricing/calculator/)
 ## [堆栈溢出](http://stackoverflow.com/questions/tagged/azure-management-portal)
 
 

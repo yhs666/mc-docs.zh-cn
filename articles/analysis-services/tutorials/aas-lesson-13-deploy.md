@@ -5,20 +5,21 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 04/12/2018
-ms.date: 07/16/2018
+origin.date: 07/03/2018
+ms.date: 08/06/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9e4e69921f40bbd2194a8362faa3aff93f9abfe8
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.openlocfilehash: db2b354f3c1cbcd3673f5574f1437b94a26f52a9
+ms.sourcegitcommit: c6205500afd23ac00f2829fe51858b51a622eaf1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39167815"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39487800"
 ---
 # <a name="deploy"></a>部署
 
-本课介绍如何配置部署属性；指定要部署到的 Azure Analysis Services 服务器，以及模型的名称。 然后，将模型部署到该实例。 在部署模型后，用户可以使用报告客户端应用程序连接到该模型。 有关详细信息，请参阅[部署到 Azure Analysis Services](/analysis-services/analysis-services-deploy)。  
+本课介绍如何配置部署属性；指定要部署到的 Azure Analysis Services 服务器，以及模型的名称。 然后，将模型部署到该实例。 在部署模型后，用户可以使用报告客户端应用程序连接到该模型。
+<!--Not Available on [Deploy to Azure Analysis Services](/analysis-services/analysis-services-deploy)--> 
 
 本课预计完成时间：**5 分钟**  
 

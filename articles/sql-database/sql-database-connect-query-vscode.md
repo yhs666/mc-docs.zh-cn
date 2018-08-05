@@ -11,12 +11,12 @@ ms.topic: quickstart
 origin.date: 04/01/2018
 ms.date: 04/17/2018
 ms.author: v-nany
-ms.openlocfilehash: ead93acb4dfa7f91ce5baebedfd5ff40147f2d5d
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 1036f30a54924e378ac56f0b4e17858bb0cc409b
+ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939380"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486537"
 ---
 # <a name="azure-sql-database-use-visual-studio-code-to-connect-and-query-data"></a>Azure SQL 数据库：使用 Visual Studio Code 进行连接和数据查询
 
@@ -35,7 +35,7 @@ ms.locfileid: "38939380"
 ## <a name="configure-vs-code"></a>配置 VS Code 
 
 ### <a name="mac-os"></a>**Mac OS**
-对于 macOS，需安装 OpenSSL，这是 mssql 扩展所使用的 DotNet Core 的先决条件。 打开终端并输入以下命令，以便安装 **brew** 和 **OpenSSL**。 
+对于 macOS，需安装 OpenSSL，这是 mssql 扩展所使用的 .Net Core 的先决条件。 打开终端并输入以下命令，以便安装 **brew** 和 **OpenSSL**。 
 
 ```bash
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"

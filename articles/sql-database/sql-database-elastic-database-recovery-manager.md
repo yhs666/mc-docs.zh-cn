@@ -10,12 +10,12 @@ ms.topic: article
 origin.date: 04/01/2018
 ms.date: 04/17/2018
 ms.author: v-johch
-ms.openlocfilehash: d48157952f5b6e7575616d8761180df0357a60cf
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 4f60e8be70f248fdc28ad573f3b236bc43b948ab
+ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782460"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486660"
 ---
 # <a name="using-the-recoverymanager-class-to-fix-shard-map-problems"></a>使用 RecoveryManager 类解决分片映射问题
 [RecoveryManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.aspx) 类使 ADO.Net 应用程序能够轻松检测并更正分片数据库环境中全局分片映射 (GSM) 与本地分片映射 (LSM) 中的任何不一致性。 
@@ -165,3 +165,4 @@ GSM 和 LSM 可能会因为以下原因而出现不同步的情况：
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-database-recovery-manager/recovery-manager.png
+

@@ -10,12 +10,12 @@ ms.topic: get-started-article
 origin.date: 04/01/2018
 ms.date: 04/17/2018
 ms.author: v-haiqya
-ms.openlocfilehash: 97b9d7ee1ed2328c98c9aa1a375b454ced1e434e
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 0c21d155029f5c948dabc75357770f2c5717e790
+ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782407"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486757"
 ---
 # <a name="load-data-from-csv-into-azure-sql-database-flat-files"></a>将数据从 CSV 加载到 Azure SQL 数据库（平面文件）
 可以使用 bcp 命令行实用程序将数据从 CSV 文件导入 Azure SQL 数据库。
@@ -49,6 +49,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
     ;
 "
 ```
+
 
 ## <a name="2-create-a-source-data-file"></a>2.创建源数据文件
 打开记事本，将以下几行数据复制到新文本文件，然后将此文件保存到本地临时目录 C:\Temp\DimDate2.txt。 此数据采用 ASCII 格式。

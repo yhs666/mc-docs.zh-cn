@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 01/29/2018
 ms.author: v-yiso
-ms.date: 04/09/2018
-ms.openlocfilehash: c110f73f2412da9cd73d5596157e0f67e721f71c
-ms.sourcegitcommit: 4e2ee8ad9e6f30e31d3f0c24c716cc78f780dbf5
+ms.date: 08/13/2018
+ms.openlocfilehash: 687c04398faecedd6137a803b8583a14866d49b5
+ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/30/2018
-ms.locfileid: "30293815"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486998"
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>如何在 Azure API 管理中将事件记录到 Azure 事件中心
 事件中心是一个高度可缩放的引入服务，每秒可以引入数百万的事件，使用户能够处理和分析连接设备和应用程序生成的海量数据。 事件中心充当事件管道的“前门”，将数据收集到事件中心后，可以使用任何实时分析提供程序或批处理/存储适配器来转换和存储这些数据。 事件中心可将事件流的生成与这些事件的使用分离开来，因此，事件使用者可以根据自己的计划访问事件。
@@ -56,7 +56,7 @@ ms.locfileid: "30293815"
   "loggertype" : "AzureEventHub",
   "description" : "Sample logger description",
   "credentials" : {
-    "name" : "Name of the Event Hub from the Azure Classic Portal",
+    "name" : "Name of the Event Hub from the portal",
     "connectionString" : "Endpoint=Event Hub Sender connection string"
     }
 }
@@ -66,7 +66,21 @@ ms.locfileid: "30293815"
 * `description` 提供记录器的可选说明，并且可在需要时为零长度字符串。
 * `credentials` 包含 Azure 事件中心的 `name` 和 `connectionString`。
 
-发出请求时，如果创建记录器，则返回 `201 Created` 的状态代码。
+发出请求时，如果创建记录器，则返回 `201 Created` 的状态代码。 基于上面示例请求的示例响应，如下所示。
+
+```json
+{
+    "id": "/loggers/{new logger name}",
+    "loggerType": "azureEventHub",
+    "description": "Sample logger description",
+    "credentials": {
+        "name": "Name of the Event Hub from the Portal",
+        "connectionString": "{{Logger-Credentials-xxxxxxxxxxxxxxx}}"
+    },
+    "isBuffered": true,
+    "resourceId": null
+}
+```
 
 > [!NOTE]
 > 有关其他可能的返回代码及其原因，请参阅[创建记录器](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity#PUT)。 若要查看如何执行其他操作，如列表、更新和删除，请参阅[记录器](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity)实体文档。
@@ -91,8 +105,7 @@ ms.locfileid: "30293815"
   @( string.Join(",", DateTime.UtcNow, context.Deployment.ServiceName, context.RequestId, context.Request.IpAddress, context.Operation.Name))
 </log-to-eventhub>
 ```
-
-将 `logger-id` 替换为在上一步中配置的 API 管理记录器的名称。
+将 `logger-id` 替换为 URL 中用于 `{new logger name}` 的值以在上一步中创建记录器。
 
 可使用返回字符串作为 `log-to-eventhub` 元素值的任何表达式。 在此示例中，将记录包含日期和时间、服务名称、请求 ID、请求 IP 地址和操作名称的字符串。
 

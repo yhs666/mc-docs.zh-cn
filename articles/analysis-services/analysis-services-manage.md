@@ -5,16 +5,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 04/12/2018
-ms.date: 07/16/2018
+origin.date: 07/03/2018
+ms.date: 08/06/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 53d55cdc28bf3dabf00863ca8446bb3f13186bd8
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.openlocfilehash: e2fec8bd69032e55e39896e4f1f10639cf8bfcdd
+ms.sourcegitcommit: c6205500afd23ac00f2829fe51858b51a622eaf1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39167955"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39487805"
 ---
 # <a name="manage-analysis-services"></a>管理 Analysis Services
 在 Azure 中创建 Analysis Services 服务器后，可能会有一些需要立即执行或在稍后操作期间执行的管理任务。 例如，处理刷新数据、控制谁有权访问服务器上的模型，或者监视服务器的运行状况。 某些管理任务仅可在 Azure 门户中执行，而其他一些可在 SQL Server Management Studio (SSMS) 中执行，还有部分在两者中均可执行。
@@ -65,7 +65,7 @@ Azure Analysis Services 中存在两种类型的用户，即服务器管理员�
 若在使用 SSMS 进行连接时遇到问题，则可能需要清除登录缓存。 光盘中不缓存任何内容。若要清除缓存，请关闭并重启连接进程。 
 
 ## <a name="next-steps"></a>后续步骤
-如果尚未将表格模型部署到新服务器，现在正是一个好时机。 有关详细信息，请参阅[部署到 Azure Analysis Services](analysis-services-deploy.md)。
+<!--Not Available on [Deploy to Azure Analysis Services](analysis-services-deploy.md)-->
 
 如果已将模型部署到服务器，可使用客户端或浏览器连接到该模型。 有关详细信息，请参阅[从 Azure Analysis Services 获取数据](analysis-services-connect.md)。
 

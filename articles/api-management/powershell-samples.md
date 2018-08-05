@@ -12,19 +12,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: sample
 origin.date: 10/09/2017
-ms.date: 02/26/2018
+ms.date: 08/13/2018
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: b0900ab181a1523d96478cfbb799b9a9f5a07b7c
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: f72ccced0865b7eacd68bc91e94145626ac48d95
+ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
-ms.locfileid: "29286060"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486899"
 ---
 # <a name="azure-powershell-samples-for-api-management"></a>适用于 API 管理的 Azure PowerShell 示例
 
-下表包含指向使用 Azure PowerShell 生成的 bash 脚本的链接。
+下表包含用于从 PowerShell 使用 API 管理服务的示例脚本。
 
 | | |
 |-|-|

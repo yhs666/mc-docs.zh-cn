@@ -11,12 +11,12 @@ ms.topic: article
 origin.date: 05/08/2018
 ms.date: 05/28/2018
 ms.author: v-nany
-ms.openlocfilehash: 3224a0ad2637ac2ba6173d18ec16f6e372e7e072
-ms.sourcegitcommit: 53972dcdef77da92529996667545d2e83716f7e2
+ms.openlocfilehash: 85cc40ec00dab00a2d546947e210941b7419d3a3
+ms.sourcegitcommit: 2a147231bf3d0a693adf58fceee76ab0fbcd6dbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39143409"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39335308"
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>在 Azure 自动化中计划 Runbook
 
@@ -27,17 +27,17 @@ ms.locfileid: "39143409"
 
 ## <a name="windows-powershell-cmdlets"></a>Windows PowerShell Cmdlet
 
-下表中的 cmdlet 用于在 Azure 自动化中通过 Windows PowerShell 创建和管理计划。 它们作为 [Azure PowerShell 模块](/powershell/azure/overview)的一部分提供。
+下表中的 cmdlet 用于在 Azure 自动化中通过 Windows PowerShell 创建和管理计划。 它们作为 [Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/overview)的一部分提供。
 
 | Cmdlet | 说明 |
 |:--- |:--- |
-| [Get-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/get-azurermautomationschedule) |检索计划。 |
-| [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) |创建新计划。 |
-| [Remove-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/remove-azurermautomationschedule) |删除计划。 |
-| [Set-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/set-azurermautomationschedule) |设置现有计划的属性。 |
+| [Get-AzureRmAutomationSchedule](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationschedule) |检索计划。 |
+| [New-AzureRmAutomationSchedule](https://docs.microsoft.com/powershell/module/azurerm.automation/new-azurermautomationschedule) |创建新计划。 |
+| [Remove-AzureRmAutomationSchedule](https://docs.microsoft.com/powershell/module/azurerm.automation/remove-azurermautomationschedule) |删除计划。 |
+| [Set-AzureRmAutomationSchedule](https://docs.microsoft.com/powershell/module/azurerm.automation/set-azurermautomationschedule) |设置现有计划的属性。 |
 | [Get-AzureRmAutomationScheduledRunbook](https://docs.microsoft.com/en-us/powershell/module/azurerm.automation/get-azurermautomationscheduledrunbook) |检索计划 Runbook。 |
-| [Register-AzureRmAutomationScheduledRunbook](/powershell/module/azurerm.automation/register-azurermautomationscheduledrunbook) |将 Runbook 与计划相关联。 |
-| [Unregister-AzureRmAutomationScheduledRunbook](/powershell/module/azurerm.automation/unregister-azurermautomationscheduledrunbook) |将 Runbook 与计划取消关联。 |
+| [Register-AzureRmAutomationScheduledRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/register-azurermautomationscheduledrunbook) |将 Runbook 与计划相关联。 |
+| [Unregister-AzureRmAutomationScheduledRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/unregister-azurermautomationscheduledrunbook) |将 Runbook 与计划取消关联。 |
 
 ## <a name="creating-a-schedule"></a>创建计划
 
@@ -56,7 +56,7 @@ ms.locfileid: "39143409"
 
 ### <a name="to-create-a-new-schedule-with-windows-powershell"></a>使用 Windows PowerShell 创建新计划
 
-可使用 [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) cmdlet 创建计划。 必须指定计划的开始时间以及运行频率。
+可使用 [New-AzureRmAutomationSchedule](https://docs.microsoft.com/powershell/module/azurerm.automation/new-azurermautomationschedule) cmdlet 创建计划。 必须指定计划的开始时间以及运行频率。
 
 以下示例命令演示了如何使用 Azure 资源管理器 cmdlet 创建每月 15 日和 30 日运行的计划。
 
@@ -81,7 +81,7 @@ $scheduleName -StartTime "7/01/2016 15:30:00" -MonthInterval 1 `
 
 ### <a name="to-link-a-schedule-to-a-runbook-with-windows-powershell"></a>使用 Windows PowerShell 将计划链接到 Runbook
 
-可使用 [Register-AzureRmAutomationScheduledRunbook](/powershell/module/azurerm.automation/register-azurermautomationscheduledrunbook) cmdlet 链接计划。 可以使用 Parameters 参数指定 Runbook 参数的值。 有关指定参数值的详细信息，请参阅[在 Azure 自动化中启动 Runbook](automation-starting-a-runbook.md)。
+可使用 [Register-AzureRmAutomationScheduledRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/register-azurermautomationscheduledrunbook) cmdlet 链接计划。 可以使用 Parameters 参数指定 Runbook 参数的值。 有关指定参数值的详细信息，请参阅[在 Azure 自动化中启动 Runbook](automation-starting-a-runbook.md)。
 以下示例命令演示了如何使用带参数的 Azure Resource Manager cmdlet 将计划链接到 Runbook。
 
 ```powershell
@@ -114,7 +114,7 @@ Register-AzureRmAutomationScheduledRunbook –AutomationAccountName $automationA
 
 ### <a name="to-disable-a-schedule-with-windows-powershell"></a>使用 Windows PowerShell 禁用计划
 
-可使用 [Set-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/set-azurermautomationschedule) cmdlet 更改现有计划的属性。 若要禁用计划，请将“IsEnabled”参数指定为“false”。
+可使用 [Set-AzureRmAutomationSchedule](https://docs.microsoft.com/powershell/module/azurerm.automation/set-azurermautomationschedule) cmdlet 更改现有计划的属性。 若要禁用计划，请将“IsEnabled”参数指定为“false”。
 
 以下示例命令演示了如何使用 Azure Resource Manager cmdlet 禁用 Runbook 的计划。
 

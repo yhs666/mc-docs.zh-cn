@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 05/10/2018
 ms.date: 05/28/2018
 ms.author: v-nany
-ms.openlocfilehash: 7aa5cc4dd095169e0b70ef40ef9d485ea933479f
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+ms.openlocfilehash: 390496a5b5dc58623f40f52ee9eb7e5bc39da277
+ms.sourcegitcommit: 48c75bdefe7c4e8c35d8ecad7cb8b8b039fe7647
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219643"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39416839"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>使用 REST 将文件上传到媒体服务帐户
 > [!div class="op_single_selector"]
@@ -97,7 +97,7 @@ ms.locfileid: "39219643"
 
     可以看到包含“access_token”的响应。 “test”脚本采用此值，并设置 **AccessToken** 环境变量（如前所述）。 如果检查环境变量的话，将会看到，此变量现在包含剩余操作中使用的访问令牌（持有者令牌）值。 
 
-    如果该令牌已过期，请再次执行“获取服务主体的 Azure AD 令牌”步骤。
+    如果该令牌已过期，请再次执行“获取服务主体的 Azure AD 令牌”步骤。 
 
 ## <a name="create-an-access-policy-with-write-permission"></a>创建具有写入权限的访问策略。
 

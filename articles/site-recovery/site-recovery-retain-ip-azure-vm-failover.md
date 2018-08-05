@@ -10,12 +10,12 @@ ms.date: 07/23/2018
 author: rockboyfor
 ms.topic: conceptual
 ms.author: v-yeche
-ms.openlocfilehash: d4e200e516fc1579c5aa5a089d0f9ec9bcda22d4
-ms.sourcegitcommit: f7ff09be9f3be5e3eb795e383c0c670f480f233d
+ms.openlocfilehash: 2353337e63e787e09e694f0a0cba7566fa834115
+ms.sourcegitcommit: f216d57a5a2732e2e2c4e20ac9747e206ac914e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39169034"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39416938"
 ---
 <!-- IMPORTANT: THIS ARTICLE DESCRIBE THE CONNECTION BETWEEN Source(China East) to Target(China North)-->
 # <a name="ip-address-retention-for-azure-virtual-machine-failover"></a>为 Azure 虚拟机故障转移保留 IP 地址
@@ -86,7 +86,9 @@ Azure Site Recovery 支持对 Azure VM 进行灾难恢复。 在从一个 Azure 
 
 ### <a name="further-considerations"></a>其他注意事项
 
-VPN 网关利用公共 IP 地址和网关跃点建立连接。 如果不想使用公用 IP 并/或希望避免额外的跃点，可以使用 Azure [虚拟网络对等互连](../virtual-network/virtual-network-peering-overview.md)在[受支持的 Azure 区域](../virtual-network/virtual-network-manage-peering.md#cross-region)之间将虚拟网络对等互连。
+VPN 网关利用公共 IP 地址和网关跃点建立连接。 
+<!-- Not Available on [Virtual Network peering](../virtual-network/virtual-network-peering-overview.md)-->
+<!-- Not Available on [supported Azure regions](../virtual-network/virtual-network-manage-peering.md#cross-region)-->
 
 ## <a name="on-premises-to-azure-connectivity"></a>本地到 Azure 的连接
 

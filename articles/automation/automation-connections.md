@@ -10,12 +10,12 @@ ms.topic: article
 origin.date: 03/15/2018
 ms.date: 07/23/2018
 ms.author: v-nany
-ms.openlocfilehash: 78db8406ff7ca57162891463c1034761f2b8588f
-ms.sourcegitcommit: 53972dcdef77da92529996667545d2e83716f7e2
+ms.openlocfilehash: af53b4bfcbdbdc0eab827aa9b28f347caa60b393
+ms.sourcegitcommit: 2a147231bf3d0a693adf58fceee76ab0fbcd6dbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39143395"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39335276"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Azure 自动化中的连接资产
 
@@ -85,7 +85,7 @@ New-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAcc
   
 ## <a name="using-a-connection-in-a-runbook-or-dsc-configuration"></a>在 Runbook 或 DSC 配置中使用连接
 
-请使用 **Get-AutomationConnection** cmdlet 检索 Runbook 或 DSC 配置中的连接。  不能使用 [Get-AzureRmAutomationConnection](https://docs.microsoft.com/powershell/resourcemanager/azurerm.automation/v1.0.12/Get-AzureRmAutomationConnection?redirectedfrom=msdn) 活动。  此活动检索连接中的不同字段的值，并将它们作为[哈希表](http://go.microsoft.com/fwlink/?LinkID=324844)返回，该哈希表随后可用于 Runbook 或 DSC 配置中的相应命令。
+请使用 **Get-AutomationConnection** cmdlet 检索 Runbook 或 DSC 配置中的连接。  不能使用 [Get-AzureRmAutomationConnection](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationconnection?view=azurermps-6.5.0) 活动。  此活动检索连接中的不同字段的值，并将它们作为[哈希表](http://go.microsoft.com/fwlink/?LinkID=324844)返回，该哈希表随后可用于 Runbook 或 DSC 配置中的相应命令。
 
 ### <a name="textual-runbook-sample"></a>文本 Runbook 示例
 

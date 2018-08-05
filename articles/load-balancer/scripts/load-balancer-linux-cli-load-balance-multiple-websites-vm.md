@@ -16,12 +16,12 @@ ms.workload: infrastructure
 origin.date: 04/20/2018
 ms.date: 06/18/2018
 ms.author: v-yeche
-ms.openlocfilehash: c27ce7411198efbc830e72c549961ecc14b3f7af
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 05f588522cfa39cf58027440bfec9cf4ca0c2cf9
+ms.sourcegitcommit: 2a147231bf3d0a693adf58fceee76ab0fbcd6dbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38938803"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39335281"
 ---
 # <a name="azure-cli-script-example-load-balance-multiple-websites"></a>Azure CLI 脚本示例：对多个网站进行负载均衡
 
@@ -248,7 +248,7 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.azure.cn/zh-cn/cli/overview?view=azure-cli-latest)。
+有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.azure.cn/zh-cn/cli?view=azure-cli-latest)。
 
 可在 [Azure 网络概述文档](../cli-samples.md?toc=%2fnetworking%2ftoc.json)中找到其他网络 CLI 脚本示例。
 <!-- Update_Description: new articles on load balancer linux clis load balancer with multiple websits vm  -->

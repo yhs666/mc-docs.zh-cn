@@ -4,16 +4,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: tutorial
-origin.date: 05/10/2018
-ms.date: 07/16/2018
+origin.date: 07/09/2018
+ms.date: 08/06/2018
 ms.author: v-yeche
 ms.reviewer: owend
-ms.openlocfilehash: 3a059b7652a04af9a8f7c0b2bcb5acf60248fd46
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.openlocfilehash: 6a772b5830b0939c57bf97e5c03b2337585246db
+ms.sourcegitcommit: c6205500afd23ac00f2829fe51858b51a622eaf1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168029"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39487846"
 ---
 <!--Notice: Verify successfully-->
 # <a name="tutorial-configure-server-administrator-and-user-roles"></a>教程：配置服务器管理员和用户角色
@@ -69,7 +69,7 @@ ms.locfileid: "39168029"
 
 ## <a name="add-a-user-account-to-the-server-administrator-role"></a>将用户帐户添加到服务器管理员角色
 
-在此任务中，请将用户或组帐户从 Azure AD 添加到服务器管理员角色。
+在此任务中，请将用户或组帐户从 Azure AD 添加到服务器管理员角色。 如果要添加安全组，必须将 `MailEnabled` 属性设置为 `True`。
 
 1. 在“对象资源管理器”中，右键单击服务器名称，然后单击“属性”。 
 2. 在“Analysis Server 属性”窗口中，单击“安全性” > “添加”。
@@ -125,7 +125,7 @@ ms.locfileid: "39168029"
     }
     ```
 
-3. 将 **"memberName": \"globalsales@adventureworks.com\"** 对象值更改为 Azure AD 中的用户或组帐户。
+3. 将 `"memberName": "globalsales@adventureworks.com"` 对象值更改为 Azure AD 中的用户或组帐户。
 4. 按 **F5** 执行脚本。
 
 ## <a name="verify-your-changes"></a>验证所做的更改
@@ -145,5 +145,4 @@ ms.locfileid: "39168029"
 > [!div class="nextstepaction"]
 > [教程：使用 Power BI Desktop 进行连接](analysis-services-tutorial-pbid.md)
 
-<!-- Update_Description: new articles on analysis service tutorial roles -->
-<!--ms.date: 07/16/2018-->
+<!-- Update_Description: update meta properties, wording update -->

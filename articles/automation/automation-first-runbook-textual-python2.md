@@ -10,12 +10,12 @@ ms.topic: article
 origin.date: 03/16/2018
 ms.date: 07/23/2018
 ms.author: v-nany
-ms.openlocfilehash: 3f504e94d1540ff36ebcb87f06eb6dec9f9cd06d
-ms.sourcegitcommit: 53972dcdef77da92529996667545d2e83716f7e2
+ms.openlocfilehash: 75960437a9139dadc0d0f085472b5339e883f9a5
+ms.sourcegitcommit: 2a147231bf3d0a693adf58fceee76ab0fbcd6dbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39143447"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39335279"
 ---
 # <a name="my-first-python-runbook"></a>我的第一个 Python Runbook
 
@@ -32,7 +32,7 @@ ms.locfileid: "39143447"
 要完成本教程，需要以下各项：
 
 - Azure 订阅。 如果没有订阅，可注册[试用版](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
-- [自动化帐户](automation-offering-get-started.md) ，用来保存 Runbook 以及向 Azure 资源进行身份验证。 此帐户必须有权启动和停止虚拟机。
+- [自动化帐户](/automation/) ，用来保存 Runbook 以及向 Azure 资源进行身份验证。 此帐户必须有权启动和停止虚拟机。
 - Azure 虚拟机。 需停止和启动该虚拟机，因此其不应为生产用 VM。
 
 ## <a name="create-a-new-runbook"></a>创建新的 Runbook
@@ -93,7 +93,7 @@ print("Hello World!")
 ## <a name="add-authentication-to-manage-azure-resources"></a>添加身份验证来管理 Azure 资源
 
 已经测试并发布 Runbook，但到目前为止它不执行任何有用的操作。 需要让其管理 Azure 资源。
-要管理 Azure 资源，脚本必须使用[自动化帐户](automation-offering-get-started.md)中的凭据进行身份验证。
+要管理 Azure 资源，脚本必须使用[自动化帐户](/automation/)中的凭据进行身份验证。
 
 > [!NOTE]
 > 创建的自动化帐户必须包含服务主体功能，以存在一个 RunAs 证书。

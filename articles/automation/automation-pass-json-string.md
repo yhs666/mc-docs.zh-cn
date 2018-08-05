@@ -12,12 +12,12 @@ ms.workload: TBD
 origin.date: 03/16/2018
 ms.date: 07/23/2018
 ms.author: v-nany
-ms.openlocfilehash: 9b52d2ff1b2614de572c8030fc4e6cbb940e930e
-ms.sourcegitcommit: 53972dcdef77da92529996667545d2e83716f7e2
+ms.openlocfilehash: 9636a13195d89eaf8263e296b1fc8f656c1f1854
+ms.sourcegitcommit: 2a147231bf3d0a693adf58fceee76ab0fbcd6dbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39143368"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39335233"
 ---
 # <a name="pass-a-json-object-to-an-azure-automation-runbook"></a>将 JSON 对象传递到 Azure 自动化 Runbook
 
@@ -25,7 +25,7 @@ ms.locfileid: "39143368"
 例如，你可能会创建包含所有想要传递给 Runbook 的参数的 JSON 文件。
 为此，必须先将 JSON 转换为字符串，将字符串转换为 PowerShell 对象，然后再将其内容传递到 Runbook。
 
-在此示例中，将创建一个调用 [Start-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx) 的 PowerShell 脚本来启动 PowerShell Runbook，将 JSON 的内容传递给 Runbook。
+在此示例中，将创建一个调用 [Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook?view=azurermps-6.5.0) 的 PowerShell 脚本来启动 PowerShell Runbook，将 JSON 的内容传递给 Runbook。
 PowerShell Runbook 会启动一个 Azure VM，从传入的 JSON 获取 VM 的参数。
 
 ## <a name="prerequisites"></a>先决条件

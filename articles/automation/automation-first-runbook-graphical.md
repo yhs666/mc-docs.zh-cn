@@ -10,12 +10,12 @@ ms.topic: article
 origin.date: 04/13/2018
 ms.date: 07/23/2018
 ms.author: v-nany
-ms.openlocfilehash: 1b117f4af13c1773035eba42ecd20b407e88692f
-ms.sourcegitcommit: 53972dcdef77da92529996667545d2e83716f7e2
+ms.openlocfilehash: c1e76fe9b65299cf23ffa878e9c30fe150bac945
+ms.sourcegitcommit: 2a147231bf3d0a693adf58fceee76ab0fbcd6dbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39143446"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39335332"
 ---
 # <a name="my-first-graphical-runbook"></a>我的第一个图形 Runbook
 
@@ -33,7 +33,7 @@ ms.locfileid: "39143446"
 要完成本教程，需要以下各项：
 
 * Azure 订阅。 如果没有 Azure 订阅，可在开始之前创建一个 [1 元试用](https://www.azure.cn/pricing/1rmb-trial/)帐户。
-* [自动化帐户](automation-offering-get-started.md) ，用来保存 Runbook 以及向 Azure 资源进行身份验证。 此帐户必须有权启动和停止虚拟机。
+* [自动化帐户](/automation/) ，用来保存 Runbook 以及向 Azure 资源进行身份验证。 此帐户必须有权启动和停止虚拟机。
 * Azure 虚拟机。 需停止和启动该虚拟机，因此其不应为生产用 VM。
 
 ## <a name="create-runbook"></a>创建 Runbook

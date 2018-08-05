@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 origin.date: 06/04/2018
 ms.date: 06/25/2018
 ms.author: v-nany
-ms.openlocfilehash: 833d149dbdc9bff0067ff738fe42052edd84a7d1
-ms.sourcegitcommit: 53972dcdef77da92529996667545d2e83716f7e2
+ms.openlocfilehash: 1b128acebbe2c510708ccfd84f6a43dddde2d17a
+ms.sourcegitcommit: 2a147231bf3d0a693adf58fceee76ab0fbcd6dbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39143398"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39335286"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>使用 webhook 启动 Azure 自动化 runbook
 
@@ -124,7 +124,7 @@ http://<Webhook Server>/token?=<Token Value>
 {"JobIds":["<JobId>"]}
 ```
 
-客户端无法从 Webhook 确定 Runbook 的作业何时完成或其完成状态。 可以使用作业 ID 并配合其他方法（例如 [Windows PowerShell](http://msdn.microsoft.com/library/azure/dn690263.aspx) 或 [Azure 自动化 API](/rest/api/automation/job)）来确定此信息。
+客户端无法从 Webhook 确定 Runbook 的作业何时完成或其完成状态。 可以使用作业 ID 并配合其他方法（例如 [Windows PowerShell](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjob?view=azurermps-6.5.0) 或 [Azure 自动化 API](https://docs.microsoft.com/rest/api/automation/job)）来确定此信息。
 
 ## <a name="sample-runbook"></a>示例 Runbook
 

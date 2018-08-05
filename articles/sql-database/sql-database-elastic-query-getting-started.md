@@ -1,5 +1,5 @@
 ---
-title: 跨扩展云数据库（横向分区）进行报告 | Microsoft 文档
+title: 跨扩展云数据库（横向分区）进行报告 | Azure
 description: 使用跨数据库数据库查询跨多个数据库进行报告。
 services: sql-database
 manager: digimobile
@@ -10,12 +10,12 @@ ms.topic: article
 origin.date: 04/01/2018
 ms.date: 04/17/2018
 ms.author: v-johch
-ms.openlocfilehash: d2f0312a3e460b180a241e07ada89087c8c4a525
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: c1e9b33f074903b746762fa1ed5f67ad912c38ea
+ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782346"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486533"
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>跨扩展云数据库进行报告（预览）
 可以使用[弹性查询](sql-database-elastic-query-overview.md)从单个连接点中的多个 Azure SQL 数据库中创建报告。 数据库必须进行横向分区（也称为“分片”）。
@@ -36,14 +36,14 @@ ms.locfileid: "31782346"
 2. 在命令窗口中键入“1”，并按 **Enter**。 这会创建分片映射管理器，并将两个分片添加到服务器。 “然”后“键”入“3”并按“Enter”；重复该操作四次。 这会在分片中插入示例数据行。
 3. [Azure 门户](https://portal.azure.cn)应显示服务器中的 3 个新数据库：
 
-    ![Visual Studio 确认][2]
+   ![Visual Studio 确认][2]
 
-    目前，通过弹性数据库客户端库支持跨数据库查询。 例如，在命令窗口中使用第 4 个选项。 来自多分片查询的结果始终是所有分片结果的 **UNION ALL** 。
+   目前，通过弹性数据库客户端库支持跨数据库查询。 例如，在命令窗口中使用第 4 个选项。 来自多分片查询的结果始终是所有分片结果的 **UNION ALL** 。
 
-    在下一部分，我们创建支持更丰富的跨分片数据查询的示例数据库终结点。
+   在下一部分，我们创建支持更丰富的跨分片数据查询的示例数据库终结点。
 
 ## <a name="create-an-elastic-query-database"></a>创建弹性查询数据库
-1. 打开 [Azure 门户](https://portal.azure.cn) 并登录。
+1. 打开 [Azure 门户](https://portal.azure.cn)并登录。
 2. 在与分片设置相同的服务器中创建新的 Azure SQL 数据库。 将数据库命名为“ElasticDBQuery”。
 
     ![Azure 门户和定价层][3]
@@ -59,53 +59,45 @@ ms.locfileid: "31782346"
 1. 在 Visual Studio 中打开 SQL Server Management Studio 或 SQL Server Data Tools。
 2. 连接到 ElasticDBQuery 数据库，并执行以下 T-SQL 命令：
 
-    ```
-    CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<password>';
+        CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<password>';
 
-    CREATE DATABASE SCOPED CREDENTIAL ElasticDBQueryCred
-    WITH IDENTITY = '<username>',
-    SECRET = '<password>';
-    ```
+        CREATE DATABASE SCOPED CREDENTIAL ElasticDBQueryCred
+        WITH IDENTITY = '<username>',
+        SECRET = '<password>';
 
     “username”和“password”应该与[弹性数据库工具入门](sql-database-elastic-scale-get-started.md)中[下载和运行示例应用](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app)的步骤 6 中使用的登录信息相同。
 
 ### <a name="external-data-sources"></a>外部数据源
 若要创建外部数据源，请对 ElasticDBQuery 数据库执行以下命令：
 
-```
-CREATE EXTERNAL DATA SOURCE MyElasticDBQueryDataSrc WITH
-  (TYPE = SHARD_MAP_MANAGER,
-  LOCATION = '<server_name>.database.chinacloudapi.cn',
-  DATABASE_NAME = 'ElasticScaleStarterKit_ShardMapManagerDb',
-  CREDENTIAL = ElasticDBQueryCred,
-   SHARD_MAP_NAME = 'CustomerIDShardMap'
-) ;
-```
+    CREATE EXTERNAL DATA SOURCE MyElasticDBQueryDataSrc WITH
+      (TYPE = SHARD_MAP_MANAGER,
+      LOCATION = '<server_name>.database.chinacloudapi.cn',
+      DATABASE_NAME = 'ElasticScaleStarterKit_ShardMapManagerDb',
+      CREDENTIAL = ElasticDBQueryCred,
+       SHARD_MAP_NAME = 'CustomerIDShardMap'
+    ) ;
 
  如果使用弹性数据库工具示例创建了分片映射和分片映射管理器，“CustomerIDShardMap”是分片映射的名称。 但是，如果为此示例使用了自定义设置，则它应该是你在应用程序中选择的分片映射名称。
 
 ### <a name="external-tables"></a>外部表
 通过对 ElasticDBQuery 数据库执行以下命令，创建与分片上的客户表匹配的外部表：
 
-```
-CREATE EXTERNAL TABLE [dbo].[Customers]
-( [CustomerId] [int] NOT NULL,
-  [Name] [nvarchar](256) NOT NULL,
-  [RegionId] [int] NOT NULL)
-WITH
-( DATA_SOURCE = MyElasticDBQueryDataSrc,
-  DISTRIBUTION = SHARDED([CustomerId])
-) ;
-```
+    CREATE EXTERNAL TABLE [dbo].[Customers]
+    ( [CustomerId] [int] NOT NULL,
+      [Name] [nvarchar](256) NOT NULL,
+      [RegionId] [int] NOT NULL)
+    WITH
+    ( DATA_SOURCE = MyElasticDBQueryDataSrc,
+      DISTRIBUTION = SHARDED([CustomerId])
+    ) ;
 
 ## <a name="execute-a-sample-elastic-database-t-sql-query"></a>执行示例弹性数据库 T-SQL 查询
 定义外部数据源和外部表后，可以对外部表使用完整的 T-SQL。
 
 对 ElasticDBQuery 数据库执行以下查询：
 
-```
-select count(CustomerId) from [dbo].[Customers]
-```
+    select count(CustomerId) from [dbo].[Customers]
 
 你将注意到，查询会从所有分片聚合结果并提供以下输出：
 
@@ -140,6 +132,7 @@ select count(CustomerId) from [dbo].[Customers]
 * 有关垂直分区数据的语法和示例查询，请参阅[查询垂直分区数据](sql-database-elastic-query-vertical-partitioning.md)
 * 有关水平分区数据的语法和示例查询，请参阅[查询水平分区数据](sql-database-elastic-query-horizontal-partitioning.md)
 * 请参阅 [sp\_execute \_remote](https://msdn.microsoft.com/library/mt703714)，了解在单个远程 Azure SQL 数据库或在水平分区方案中用作分片的一组数据库中执行 Transact-SQL 语句的存储过程。
+
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-query-getting-started/cmd-prompt.png

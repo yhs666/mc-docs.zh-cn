@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.component: authentication
 ms.topic: article
 origin.date: 06/16/2017
-ms.date: 06/14/2018
+ms.date: 08/03/2018
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: ae2357b07e75086c51a5e8e594a77044e9814434
-ms.sourcegitcommit: 7d01230972e7a7c4fd1aaf22220fb04a05726135
+ms.openlocfilehash: 097420760de0b918ea83b3d79e3821ba65d5c044
+ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2018
-ms.locfileid: "35568651"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39487020"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>有关 Azure 多重身份验证的常见问题
 
@@ -40,7 +40,7 @@ ms.locfileid: "35568651"
 
 但愿用户已配置多种验证方法。 请告诉他们再次尝试登录，但需要在登录页上选择另一种验证方法。
 
-可以让用户转到[最终用户故障排除指南](../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-troubleshoot.md)。
+可以让用户转到[最终用户故障排除指南](../user-help/multi-factor-authentication-end-user-troubleshoot.md)。
 
 
 **问：如果某个用户无法进入其帐户，我该办什么？**
@@ -91,4 +91,4 @@ ms.locfileid: "35568651"
 - 对于旧版 PhoneFactor 客户，如果有疑问或需要重置密码方面的帮助，请使用[密码重置](mailto:phonefactorsupport@microsoft.com)链接建立支持案例。
 - 通过 [Azure 多重身份验证服务器 (PhoneFactor) 支持](https://support.microsoft.com/oas/default.aspx?prid=14947)联系支持专业人员。 与我们联系时，尽可能包含有关问题的更多信息将很有帮助。 可以提供的信息包括出现错误的页面、特定错误代码、特定会话 ID 以及看到错误的用户的 ID。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

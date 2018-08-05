@@ -5,16 +5,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 04/12/2018
-ms.date: 07/16/2018
+origin.date: 07/03/2018
+ms.date: 08/06/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 84dd6c20d4aa24b2b1928d6bf0b63edb55b64b0c
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.openlocfilehash: 3279eaea7553229d257f034e7feb98600b94c875
+ms.sourcegitcommit: c6205500afd23ac00f2829fe51858b51a622eaf1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39167757"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39487793"
 ---
 # <a name="analysis-services-high-availability"></a>Analysis Services 高可用性
 本文说明如何确保 Azure Analysis Services 服务器的高可用性。 

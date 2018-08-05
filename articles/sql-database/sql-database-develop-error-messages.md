@@ -8,15 +8,15 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: develop apps
 ms.topic: article
-origin.date: 04/01/2018
-ms.date: 04/17/2018
+origin.date: 07/16/2018
+ms.date: 08/06/2018
 ms.author: v-johch
-ms.openlocfilehash: 4f6f87627e80cd0d369879bb6fdf16ed38131357
-ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
+ms.openlocfilehash: 5cc87206a5767d56651140265f4070c09a94d26a
+ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37800468"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486764"
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>SQL 数据库客户端应用程序的 SQL 错误代码：数据库连接错误和其他问题
 
@@ -92,8 +92,8 @@ Azure 基础结构能够在 SQL 数据库服务中出现大量工作负荷时动
 
 | 错误代码 | 严重性 | 说明 |
 | ---:| ---:|:--- |
-| 10928 |20 个 |资源 ID：%d。 数据库的 %s 限制是 %d 且已达到该限制。 有关详细信息，请参阅 [sql-database-dtu-resource-limits](sql-database-dtu-resource-limits.md)。<br/><br/>资源 ID 指示已达到限制的资源。 对于工作线程，资源 ID = 1。 对于会话，资源 ID = 2。<br/><br/>有关此错误以及如何解决此错误的详细信息，请参阅：<br/>• [Azure SQL 数据库资源限制](sql-database-service-tiers-dtu.md)。 |
-| 10929 |20 个 |资源 ID：%d。 %s 最小保证为 %d，最大限制为 %d，数据库的当前使用率为 %d。 但是，服务器当前太忙，无法支持针对该数据库的数目大于 %d 的请求。 有关详细信息，请参阅 [sql-database-dtu-resource-limits](sql-database-dtu-resource-limits.md)。 否则，请稍后再试。<br/><br/>资源 ID 指示已达到限制的资源。 对于工作线程，资源 ID = 1。 对于会话，资源 ID = 2。<br/><br/>有关此错误以及如何解决此错误的详细信息，请参阅：<br/>• [Azure SQL 数据库资源限制](sql-database-service-tiers.md)。 |
+| 10928 |20 个 |资源 ID：%d。 数据库的 %s 限制是 %d 且已达到该限制。 有关详细信息，请参阅 [sql-database-resource-limits](sql-database-resource-limits.md)。<br/><br/>资源 ID 指示已达到限制的资源。 对于工作线程，资源 ID = 1。 对于会话，资源 ID = 2。<br/><br/>有关此错误以及如何解决此错误的详细信息，请参阅：<br/>• [Azure SQL 数据库资源限制](sql-database-service-tiers-dtu.md)。 |
+| 10929 |20 个 |资源 ID：%d。 %s 最小保证为 %d，最大限制为 %d，数据库的当前使用率为 %d。 但是，服务器当前太忙，无法支持针对该数据库的数目大于 %d 的请求。 有关详细信息，请参阅 [sql-database-resource-limits](sql-database-resource-limits.md)。 否则，请稍后再试。<br/><br/>资源 ID 指示已达到限制的资源。 对于工作线程，资源 ID = 1。 对于会话，资源 ID = 2。<br/><br/>有关此错误以及如何解决此错误的详细信息，请参阅：<br/>• [Azure SQL 数据库资源限制](sql-database-service-tiers-dtu.md)。 |
 | 40544 |20 个 |数据库已达到大小配额。 请将数据分区或删除、删除索引或查阅文档以找到可能的解决方案。 |
 | 40549 |16 |由于有长时间运行的事务，已终止会话。 请尝试缩短事务运行时间。 |
 | 40550 |16 |由于会话获取的锁过多，已终止该会话。 请尝试在单个事务中读取或修改更少的行。 |
@@ -107,7 +107,7 @@ Azure 基础结构能够在 SQL 数据库服务中出现大量工作负荷时动
 | ErrorNumber | ErrorSeverity | ErrorFormat | ErrorInserts | ErrorCause | ErrorCorrectiveAction |
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | 1132 |EX_RESOURCE |弹性池已达到其存储限制。 弹性池的存储使用不能超过 (%d) MB。 |弹性池空间限制 (MB)。 |到达弹性池的存储限制时，尝试向数据库写入数据。 |在可能的情况下，考虑增加弹性池的 DTU 数并/或将存储添加到弹性池，以便提高其存储限制、减少弹性池中各数据库使用的存储，或者从弹性池中删除数据库。 |
-| 10929 |EX_USER |%s 最小保证为 %d，最大限制为 %d，数据库的当前使用率为 %d。 但是，服务器当前太忙，无法支持针对该数据库的数目大于 %d 的请求。 请参阅 [sql-database-resource-limits](sql-database-dtu-resource-limits.md) 获取帮助。 否则，请稍后再试。 |每个数据库的 DTU/vCore 最小值；每个数据库的 DTU/vCore 最大值 |弹性池中所有数据库上尝试的并发辅助进程（请求）总数超过池限制。 |在可能的情况下，考虑增加弹性池的 DTU 数或 vCores 数，以便提高其辅助角色限制，或者从弹性池中删除数据库。 |
+| 10929 |EX_USER |%s 最小保证为 %d，最大限制为 %d，数据库的当前使用率为 %d。 但是，服务器当前太忙，无法支持针对该数据库的数目大于 %d 的请求。 请参阅 [sql-database-resource-limits](sql-database-resource-limits.md) 获取帮助。 否则，请稍后再试。 |每个数据库的 DTU/vCore 最小值；每个数据库的 DTU/vCore 最大值 |弹性池中所有数据库上尝试的并发辅助进程（请求）总数超过池限制。 |在可能的情况下，考虑增加弹性池的 DTU 数或 vCores 数，以便提高其辅助角色限制，或者从弹性池中删除数据库。 |
 | 40844 |EX_USER |弹性池中数据库“%ls”（位于服务器“%ls”上）是“%ls”版本的数据库，不能有连续的复制关系。 |数据库名称, 数据库版本, 服务器名称 |针对弹性池中非高级数据库发出 StartDatabaseCopy 命令。 |即将支持 |
 | 40857 |EX_USER |找不到服务器“%ls”的弹性池，弹性池名称:“%ls”。 |服务器名称；弹性池名称 |指定的弹性池在指定的服务器中不存在。 |提供有效的弹性池名称。 |
 | 40858 |EX_USER |弹性池“%ls”已存在于服务器“%ls”中 |弹性池名称, 服务器名称 |指定的弹性池已存在于指定的逻辑服务器中。 |提供新弹性池名称。 |
@@ -208,5 +208,5 @@ Azure 基础结构能够在 SQL 数据库服务中出现大量工作负荷时动
 ## <a name="next-steps"></a>后续步骤
 * 阅读关于 [Azure SQL 数据库功能](sql-database-features.md)的信息。
 * 阅读关于[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)的信息。
-* 阅读关于[基于 vCore 的购买模型（预览版）](sql-database-service-tiers-vcore.md)的信息。
+* 阅读关于[基于 vCore 的购买模型](sql-database-service-tiers-vcore.md)的信息。
 

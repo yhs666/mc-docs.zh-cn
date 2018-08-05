@@ -13,14 +13,14 @@ ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
 origin.date: 06/15/2018
-ms.date: 07/16/2018
+ms.date: 08/13/2018
 ms.author: v-yiso
-ms.openlocfilehash: 2ee726eae496b6af050416b66fefa492cb9c03a6
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.openlocfilehash: f4a5f9f4f707231d38d3383f9846104f35ae2505
+ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873538"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39487047"
 ---
 # <a name="debug-your-apis-using-request-tracing"></a>使用请求跟踪调试 API
 
@@ -47,6 +47,9 @@ ms.locfileid: "37873538"
 5. 请确保包含名为 **Ocp-Apim-Trace**、值设置为 **true** 的 HTTP 标头。
 
     ![API 跟踪标头](media/api-management-howto-api-inspector/api-management-tracing-header.png)
+
+    > [!NOTE]
+    > 如果 Ocp-Apim-Subscription-Key 未自动填充，可以通过转到开发人员门户并在配置文件页面上公开密钥来检索它。
 
 6. 单击“发送”发出 API 调用。 
 7. 等待调用完成。 

@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 03/28/2018
+origin.date: 07/09/2018
 ms.author: v-yiso
-ms.date: 06/18/2018
-ms.openlocfilehash: 865fe205bb9a518f36cfb84a686622a8fddb6b18
-ms.sourcegitcommit: 794b9caca1147f1891513410dd61435708ef85ec
+ms.date: 08/13/2018
+ms.openlocfilehash: 3effe59903386037025519a3c6c50fc6bbe431f5
+ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34855393"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486924"
 ---
 # <a name="expressroute-routing-requirements"></a>ExpressRoute 路由要求
 若要使用 ExpressRoute 连接到 Microsoft 云服务，需要设置并管理路由。 某些连接服务提供商以托管服务形式提供路由的设置和管理。 请咨询连接服务提供商，以确定他们是否提供此类服务。 如果不提供，则必须遵守以下要求：
@@ -225,7 +225,7 @@ ExpressRoute 不能配置为传输路由器。 必须依赖连接服务提供商
 | --- | --- |
 | **美国政府** |  |
 | 美国亚利桑那州政府 | 12076:51106 |
-| 美国政府爱荷华州 | 12076:51109 |
+| US Gov 爱荷华州 | 12076:51109 |
 | 美国政府弗吉尼亚州 | 12076:51105 |
 | 美国德克萨斯州政府 | 12076:51108 |
 | 美国 DoD 中部 | 12076:51209 |

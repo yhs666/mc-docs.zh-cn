@@ -11,12 +11,12 @@ origin.date: 04/10/2018
 ms.date: 04/17/2018
 ms.author: v-nany
 ms.reviewer: douglasl
-ms.openlocfilehash: f507116be39294f4b8ae4a7fa09a3eb3da2a0775
-ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
+ms.openlocfilehash: 5cf0a2ba2f86a2aaa613a373533816e010bb29c0
+ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36948086"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486712"
 ---
 # <a name="set-up-sql-data-sync"></a>设置 SQL 数据同步
 本教程将介绍如何创建包含 Azure SQL 数据库和 SQL Server 实例的混合同步组，从而设置 Azure SQL 数据同步。 新的同步组进行了全面配置，可根据所设定的计划进行同步。

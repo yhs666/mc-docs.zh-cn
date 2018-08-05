@@ -11,15 +11,15 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/02/2017
+origin.date: 02/02/2018
 ms.author: v-yiso
-ms.date: 03/19/2018
-ms.openlocfilehash: 2abe74efbbf543ef877db5b870d89eca917d43fe
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.date: 08/13/2018
+ms.openlocfilehash: 0e0a18ce9e409f9fa1424df40c89bc8f0fddf972
+ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29870524"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39487061"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>如何使用 Git 保存和配置 API 管理服务
 
@@ -218,15 +218,15 @@ git push
 ### <a name="apis-folder"></a>apis 文件夹
 `apis` 文件夹包含一个适用于服务实例中每个 API 的文件夹，该实例包含以下项目。
 
-* `apis\<api name>\configuration.json` - 这是 API 的配置，包含关于后端服务 URL 和操作的信息。 这是使用 `export=true` 以 `application/json` 格式调用[获取特定 API](https://msdn.microsoft.com/library/azure/dn781423.aspx#GetAPI) 时会返回的相同信息。
-* `apis\<api name>\api.description.html` - 这是 API 的说明，对应于 [API 实体](https://msdn.microsoft.com/library/azure/dn781423.aspx#EntityProperties)的 `description` 属性。
-* `apis\<api name>\operations\` - 此文件夹包含映射到 API 中的操作的 `<operation name>.description.html` 文件。 每个文件包含 API 中单个操作的说明，该说明映射到 REST API 中[操作实体](https://msdn.microsoft.com/library/azure/dn781423.aspx#OperationProperties)的 `description` 属性。
+* `apis\<api name>\configuration.json` - 这是 API 的配置，包含关于后端服务 URL 和操作的信息。 这是使用 `export=true` 以 `application/json` 格式调用[获取特定 API](https://docs.microsoft.com/en-us/rest/api/apimanagement/api/get) 时会返回的相同信息。
+* `apis\<api name>\api.description.html` - 这是 API 的说明，对应于 [API 实体](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.table._entity_property)的 `description` 属性。
+* `apis\<api name>\operations\` - 此文件夹包含映射到 API 中的操作的 `<operation name>.description.html` 文件。 每个文件包含 API 中单个操作的说明，该说明映射到 REST API 中[操作实体](https://docs.microsoft.com/en-us/rest/api/visualstudio/operations/list#operationproperties)的 `description` 属性。
 
 ### <a name="groups-folder"></a>groups 文件夹
 `groups` 文件夹包含适用于服务实例中定义的每个组的文件夹。
 
-* `groups\<group name>\configuration.json` - 这是组的配置。 这是调用[获取特定组](https://msdn.microsoft.com/library/azure/dn776329.aspx#GetGroup)操作时会返回的相同信息。
-* `groups\<group name>\description.html` - 这是组的说明，对应于[组实体](https://msdn.microsoft.com/library/azure/dn776329.aspx#EntityProperties)的 `description` 属性。
+* `groups\<group name>\configuration.json` - 这是组的配置。 这是调用[获取特定组](https://docs.microsoft.com/en-us/rest/api/apimanagement/group/get)操作时会返回的相同信息。
+* `groups\<group name>\description.html` - 这是组的说明，对应于[组实体](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity)的 `description` 属性。
 
 ### <a name="policies-folder"></a>policies 文件夹
 `policies` 文件夹包含服务实例的策略声明。
@@ -245,8 +245,8 @@ git push
 ### <a name="products-folder"></a>products 文件夹
 `products` 文件夹包含适用于服务实例中定义的每个产品的文件夹。
 
-* `products\<product name>\configuration.json` - 这是产品的配置。 这是调用[获取特定产品](https://msdn.microsoft.com/library/azure/dn776336.aspx#GetProduct)操作时会返回的相同信息。
-* `products\<product name>\product.description.html` - 这是产品的说明，对应于 REST API 中[产品实体](https://msdn.microsoft.com/library/azure/dn776336.aspx#Product)的 `description` 属性。
+* `products\<product name>\configuration.json` - 这是产品的配置。 这是调用[获取特定产品](https://docs.microsoft.com/en-us/rest/api/apimanagement/product/get)操作时会返回的相同信息。
+* `products\<product name>\product.description.html` - 这是产品的说明，对应于 REST API 中[产品实体](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-product-entity)的 `description` 属性。
 
 ### <a name="templates"></a>模板
 `templates` 文件夹包含服务实例的[电子邮件模板](./api-management-howto-configure-notifications.md)配置。

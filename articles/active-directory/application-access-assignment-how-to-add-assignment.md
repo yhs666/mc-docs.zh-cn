@@ -3,23 +3,24 @@ title: 如何将用户和组分配到应用程序 | Microsoft Docs
 description: 将用户分配到应用程序以授予访问权限
 services: active-directory
 documentationcenter: ''
-author: yunan2016
-manager: digimobile
+author: barbkess
+manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/11/2017
-ms.date: 3/5/2018
-ms.author: v-nany
-ms.openlocfilehash: ea46ae3a95eb491a4b329126d790088ef4e020f1
-ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
+ms.date: 07/30/2018
+ms.author: v-junlch
+ms.openlocfilehash: 79b3b42c8e82e329a8d74ec630e885f1693e9eac
+ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2018
-ms.locfileid: "29993287"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39487056"
 ---
 # <a name="how-to-assign-users-and-groups-to-an-application"></a>如何将用户和组分配到应用程序
 
@@ -38,23 +39,19 @@ ms.locfileid: "29993287"
 
 -   [以管理员身份直接将用户分配到应用程序](#assign-a-user-directly-as-an-administrator)
 
-
-
 ## <a name="assign-a-user-directly-as-an-administrator"></a>以管理员身份直接将用户分配到应用程序
 
 要直接将一个或多个用户分配到应用程序，请按照以下步骤操作：
 
 1.  打开 [**Azure 门户**](https://portal.azure.cn/)，并以“全局管理员”身份登录。
 
-2.  在左侧主导航菜单顶部单击“所有服务”，打开“Azure Active Directory 扩展”。
-
-3.  在筛选器搜索框中键入“Azure Active Directory”，选择“Azure Active Directory”项。
+2.  选择“Azure Active Directory” 。
 
 4.  在 Azure Active Directory 的左侧导航菜单中，单击“企业应用程序”。
 
 5.  单击“所有应用程序”，查看所有应用程序的列表。
 
-  * 如果未看到要在此处显示的应用程序，请使用“所有应用程序列表”顶部的“筛选器”控件，并将“显示”选项设置为“所有应用程序”。
+    - 如果未看到要在此处显示的应用程序，请使用“所有应用程序列表”顶部的“筛选器”控件，并将“显示”选项设置为“所有应用程序”。
 
 6.  从列表中选择要向其分配用户的应用程序。
 
@@ -80,3 +77,4 @@ ms.locfileid: "29993287"
 
 
 
+<!-- Update_Description: wording update -->

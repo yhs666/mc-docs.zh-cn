@@ -1,5 +1,5 @@
 ---
-title: 始终加密：SQL 数据库 - Azure Key Vault | Microsoft 文档
+title: Always Encrypted：SQL 数据库 - Azure Key Vault | Azure
 description: 本文演示如何使用 SQL Server Management Studio 中的始终加密向导，通过数据加密来保护 SQL 数据库中的敏感数据。
 keywords: 数据加密, 加密密钥, 云加密
 services: sql-database
@@ -11,12 +11,12 @@ ms.topic: article
 origin.date: 04/01/2018
 ms.date: 04/17/2018
 ms.author: v-johch
-ms.openlocfilehash: 7574073c8e8ea7849e8a45f2e67ecd4d6aa6c1cb
-ms.sourcegitcommit: 53972dcdef77da92529996667545d2e83716f7e2
+ms.openlocfilehash: 57a3bd6860f969d366b14d2f69c39f37c3599bcb
+ms.sourcegitcommit: 2a147231bf3d0a693adf58fceee76ab0fbcd6dbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39143449"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39335319"
 ---
 # <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-azure-key-vault"></a>始终加密：保护 SQL 数据库中的敏感数据并将加密密钥存储在 Azure 密钥保管库中
 

@@ -10,12 +10,12 @@ ms.topic: article
 origin.date: 04/01/2018
 ms.date: 04/17/2018
 ms.author: v-nany
-ms.openlocfilehash: 95fb73ce4ef867cec5f6259078421b8b85f696dd
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: a9a17bafe25179bd6fa5e428cedd7c5d19f15e6e
+ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782418"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486558"
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>跨具有不同架构的云数据库进行查询（预览版）
 ![跨不同数据库中的表进行查询][1]
@@ -55,8 +55,8 @@ ms.locfileid: "31782418"
     <External_Data_Source> ::=
     CREATE EXTERNAL DATA SOURCE <data_source_name> WITH 
                (TYPE = RDBMS,
-                LOCATION = ’<fully_qualified_server_name>’,
-                DATABASE_NAME = ‘<remote_database_name>’,  
+                LOCATION = '<fully_qualified_server_name>',
+                DATABASE_NAME = '<remote_database_name>',  
                 CREDENTIAL = <credential_name> 
                 ) [;] 
 

@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 12/06/2017
 ms.author: v-yiso
-ms.date: 03/26/2018
-ms.openlocfilehash: c8d15a5dab19bea0580af6d5bb55512331b16b8a
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.date: 08/13/2018
+ms.openlocfilehash: 7be29a7326de21d16fe86f2c3e9c77a2d110aebd
+ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30077690"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39487034"
 ---
 # <a name="configure-a-site-to-site-vpn-over-expressroute-microsoft-peering"></a>通过 ExpressRoute Microsoft 对等互连配置站点到站点的 VPN
 
@@ -41,7 +41,7 @@ ms.locfileid: "30077690"
 
   ![高可用性选项](./media/site-to-site-vpn-over-microsoft-peering/HighAvailability.png)
 
-终止通过 Microsoft 对等互连配置的 VPN 隧道有两种方法：使用 VPN 网关；使用 Azure Marketplace 提供的合适的网络虚拟设备 (NVA)。 可通过加密隧道静态或动态地交换路由，无需向底层 Microsoft 对等互连公开路由交换。 在本文的示例中，BGP（与用于创建 Microsoft 对等互连的 BGP 会话不同）用于在加密隧道上动态交换前缀。
+终止通过 Microsoft 对等互连配置的 VPN 隧道有两种方法：使用 VPN 网关；使用 Azure 市场提供的合适的网络虚拟设备 (NVA)。 可通过加密隧道静态或动态地交换路由，无需向底层 Microsoft 对等互连公开路由交换。 在本文的示例中，BGP（与用于创建 Microsoft 对等互连的 BGP 会话不同）用于在加密隧道上动态交换前缀。
 
 >[!IMPORTANT]
 >对于本地端，通常会在 DMZ 上终止 Microsoft 对等互连，在核心网络区域终止专用对等互连。 两个区域使用防火墙分隔。 如果将 Microsoft 对等互连配置为专用于启用通过 ExpressRoute 配置的安全隧道，请记住只筛选相关的公共 IP，这些 IP 通过 Microsoft 对等互连播发。
@@ -72,7 +72,7 @@ ms.locfileid: "30077690"
 
 ## <a name="routefilter"></a>2.配置路由筛选器
 
-使用路由筛选器可标识要通过 ExpressRoute 线路的 Microsoft 对等互连使用的服务。 它实质上是所有 BGP 社区值的白名单。 
+使用路由筛选器可标识要通过 ExpressRoute 线路的 Microsoft 对等互连使用的服务。 它实质上是所有 BGP 社区值的允许列表。 
 
 ![路由筛选器](./media/site-to-site-vpn-over-microsoft-peering/route-filter.png)
 
@@ -168,7 +168,7 @@ Get-AzureRmBgpServiceCommunity
   "gatewayName": "vpnGw",                 // Name of the Azure VPN gateway
   "gatewaySku": "VpnGw1",                 // Azure VPN gateway SKU
   "vpnType": "RouteBased",                // type of VPN gateway
-  "sharedKey": "string",                  // shared secret needs to match with on-premise configuration
+  "sharedKey": "string",                  // shared secret needs to match with on-premises configuration
   "asnVpnGateway": 65000,                 // BGP Autonomous System number assigned to the VPN Gateway 
   "asnRemote": 65010,                     // BGP Autonmous Syste number assigned to the on-premises device
   "bgpPeeringAddress": "172.16.0.3",      // IP address of the remote BGP peer on-premises

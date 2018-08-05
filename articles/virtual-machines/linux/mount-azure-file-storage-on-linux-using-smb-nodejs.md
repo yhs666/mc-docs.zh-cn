@@ -15,12 +15,12 @@ ms.workload: infrastructure
 origin.date: 12/07/2016
 ms.date: 05/14/2018
 ms.author: v-yeche
-ms.openlocfilehash: 99afdd6f51949e6db869fa7101c1eefe95c5e40d
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.openlocfilehash: ce5a92d9c2071c417f4515413597b02b6685bd06
+ms.sourcegitcommit: 2a147231bf3d0a693adf58fceee76ab0fbcd6dbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "34062004"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39335283"
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-by-using-smb-with-azure-cli-10"></a>通过 Azure CLI 1.0 使用 SMB 在 Linux VM 上装载 Azure 文件存储
 
@@ -36,7 +36,8 @@ ms.locfileid: "34062004"
 - [Azure CLI 2.0](mount-azure-file-storage-on-linux-using-smb-nodejs.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) - 适用于资源管理部署模型的下一代 CLI
 
 ## <a name="quick-commands"></a>快速命令
-若要快速完成任务，请按照本部分的步骤执行操作。 如下更多详细信息和上下文，请从[“详细演练”](mount-azure-file-storage-on-linux-using-smb.md#detailed-walkthrough)部分开始。
+若要快速完成任务，请按照本部分的步骤执行操作。 如下更多详细信息和上下文，请从[“详细演练”](mount-azure-file-storage-on-linux-using-smb.md)部分开始。
+<!--Not Available on #detailed-walkthrough-->
 
 ### <a name="prerequisites"></a>先决条件
 * 资源组

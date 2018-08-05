@@ -5,16 +5,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 04/12/2018
-ms.date: 07/16/2018
+origin.date: 07/03/2018
+ms.date: 08/06/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 42b28e7904eb689d084b62eefa3b7cb4f6c58740
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.openlocfilehash: c4537a0cf572d18f497b020072fb5928edffea99
+ms.sourcegitcommit: c6205500afd23ac00f2829fe51858b51a622eaf1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39167688"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39487791"
 ---
 # <a name="alias-server-names"></a>服务器别名
 
@@ -59,4 +59,4 @@ protected void Page_Load(object sender, EventArgs e)
 [客户端库](analysis-services-data-providers.md)   
 [从 Power BI Desktop 进行连接](analysis-services-connect-pbi.md)
 
-<!-- Update_Description: update meta properties, update link -->
+<!-- Update_Description: update meta properties  -->

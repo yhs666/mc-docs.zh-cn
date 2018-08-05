@@ -10,12 +10,12 @@ ms.topic: article
 origin.date: 04/01/2018
 ms.date: 04/17/2018
 ms.author: v-johch
-ms.openlocfilehash: 55cf730e6719e006f17f30f41a2d179004fb3982
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 0f7a1a28051c242a445b4d7bc3d9bac43ce699e2
+ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782273"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486551"
 ---
 # <a name="upgrade-an-app-to-use-the-latest-elastic-database-client-library"></a>升级应用以使用最新的弹性数据库客户端库
 可通过 Visual Studio 中的 NuGet 和 NuGetPackage 管理器界面获取[弹性数据库客户端库](sql-database-elastic-database-client-library.md)的新版本。 升级包含客户端库的 bug 修复和新功能支持。
@@ -75,3 +75,4 @@ ms.locfileid: "31782273"
 
 <!--Image references-->
 [1]:./media/sql-database-elastic-scale-upgrade-client-library/nuget-upgrade.png
+

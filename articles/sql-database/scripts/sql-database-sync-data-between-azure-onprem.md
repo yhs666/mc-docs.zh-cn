@@ -18,12 +18,12 @@ origin.date: 04/01/2018
 ms.date: 04/17/2018
 ms.author: v-nany
 ms.reviewer: douglasl
-ms.openlocfilehash: b2f77da951d4c4bc61b1b57c85aadbab6a216cb7
-ms.sourcegitcommit: 53972dcdef77da92529996667545d2e83716f7e2
+ms.openlocfilehash: 6cf32278d7cbff4442420fc2abeb44b8fec3029e
+ms.sourcegitcommit: 2a147231bf3d0a693adf58fceee76ab0fbcd6dbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39143419"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39335318"
 ---
 # <a name="use-powershell-to-sync-between-a-sql-database-and-a-sql-server-on-premises-database"></a>使用 PowerShell 在 SQL 数据库和 SQL Server 本地数据库之间进行同步
 
@@ -375,15 +375,15 @@ Remove-AzureRmResourceGroup -ResourceGroupName $SyncDatabaseResourceGroupName
 
 | 命令 | 注释 |
 |---|---|
-| [New-AzureRmSqlSyncAgent](/powershell/module/azurerm.sql/New-AzureRmSqlSyncAgent) |  新建同步代理 |
-| [New-AzureRmSqlSyncAgentKey](/powershell/module/azurerm.sql/New-AzureRmSqlSyncAgentKey) |  生成与同步代理关联的代理密钥 |
-| [Get-AzureRmSqlSyncAgentLinkedDatabase](/powershell/module/azurerm.sql/Get-AzureRmSqlSyncAgentLinkedDatabase) |  获取有关同步代理的所有信息 |
-| [New-AzureRmSqlSyncMember](/powershell/module/azurerm.sql/New-AzureRmSqlSyncMember) |  向同步组中添加新成员 |
-| [Update-AzureRmSqlSyncSchema](/powershell/module/azurerm.sql/Update-AzureRmSqlSyncSchema) |  刷新数据库架构信息 |
-| [Get-AzureRmSqlSyncSchema](/powershell/module/azurerm.sql/Get-AzureRmSqlSyncSchema) |  获取数据库架构信息 |
-| [Update-AzureRmSqlSyncGroup](/powershell/module/azurerm.sql/Update-AzureRmSqlSyncGroup) |  更新同步组 |
-| [Start-AzureRmSqlSyncGroupSync](/powershell/module/azurerm.sql/Start-AzureRmSqlSyncGroupSync) | 触发同步 |
-| [Get-AzureRmSqlSyncGroupLog](/powershell/module/azurerm.sql/Get-AzureRmSqlSyncGroupLog) |  查看同步日志 |
+| [New-AzureRmSqlSyncAgent](https://docs.microsoft.com/powershell/module/azurerm.sql/New-AzureRmSqlSyncAgent) |  新建同步代理 |
+| [New-AzureRmSqlSyncAgentKey](https://docs.microsoft.com/powershell/module/azurerm.sql/New-AzureRmSqlSyncAgentKey) |  生成与同步代理关联的代理密钥 |
+| [Get-AzureRmSqlSyncAgentLinkedDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/Get-AzureRmSqlSyncAgentLinkedDatabase) |  获取有关同步代理的所有信息 |
+| [New-AzureRmSqlSyncMember](https://docs.microsoft.com/powershell/module/azurerm.sql/New-AzureRmSqlSyncMember) |  向同步组中添加新成员 |
+| [Update-AzureRmSqlSyncSchema](https://docs.microsoft.com/powershell/module/azurerm.sql/Update-AzureRmSqlSyncSchema) |  刷新数据库架构信息 |
+| [Get-AzureRmSqlSyncSchema](https://docs.microsoft.com/powershell/module/azurerm.sql/Get-AzureRmSqlSyncSchema) |  获取数据库架构信息 |
+| [Update-AzureRmSqlSyncGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/Update-AzureRmSqlSyncGroup) |  更新同步组 |
+| [Start-AzureRmSqlSyncGroupSync](https://docs.microsoft.com/powershell/module/azurerm.sql/Start-AzureRmSqlSyncGroupSync) | 触发同步 |
+| [Get-AzureRmSqlSyncGroupLog](https://docs.microsoft.com/powershell/module/azurerm.sql/Get-AzureRmSqlSyncGroupLog) |  查看同步日志 |
 |||
 
 ## <a name="next-steps"></a>后续步骤

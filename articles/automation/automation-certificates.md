@@ -10,12 +10,12 @@ ms.topic: article
 origin.date: 03/15/2018
 ms.date: 07/23/2018
 ms.author: v-nany
-ms.openlocfilehash: 314d4b772d8ca0164db5af0b189a61271e46d07d
-ms.sourcegitcommit: 53972dcdef77da92529996667545d2e83716f7e2
+ms.openlocfilehash: cf3ac565a0ed15c80486d4ef04134287e8e26659
+ms.sourcegitcommit: 2a147231bf3d0a693adf58fceee76ab0fbcd6dbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39143461"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39335265"
 ---
 # <a name="certificate-assets-in-azure-automation"></a>Azure 自动化中的证书资产
 
@@ -43,7 +43,7 @@ ms.locfileid: "39143461"
 |Get-AutomationCertificate|在 Runbook 或 DSC 配置中获取要使用的证书。 返回一个 [System.Security.Cryptography.X509Certificates.X509Certificate2](https://msdn.microsoft.com/library/system.security.cryptography.x509certificates.x509certificate2.aspx) 对象。|
 
 > [!NOTE] 
-> 应避免在 Runbook 或 DSC 配置中的 Get-AutomationCertificate 的 Name 参数中使用变量，因为这可能会使设计时发现 Runbook 或 DSC 配置与自动化变量之间的依赖关系变得复杂化。
+> 应避免在 Runbook 或 DSC 配置中的 **Get-AutomationCertificate** 的 - Name 参数中使用变量，因为这可能会使设计时发现 Runbook 或 DSC 配置与自动化变量之间的依赖关系变得复杂化。
 
 ## <a name="python2-functions"></a>Python2 函数
 
@@ -84,7 +84,7 @@ New-AzureRmAutomationCertificate -AutomationAccountName "MyAutomationAccount" -N
 
 ## <a name="using-a-certificate"></a>使用证书
 
-若要使用证书，请使用 Get-AutomationCertificate 活动。 不能使用 [Get-AzureRmAutomationCertificate](https://msdn.microsoft.com/library/mt603765.aspx) cmdlet，因为它返回有关证书资产的信息，而不是证书本身的信息。
+若要使用证书，请使用 Get-AutomationCertificate 活动。 不能使用 [Get-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationcertificate) cmdlet，因为它返回有关证书资产的信息，而不是证书本身的信息。
 
 ### <a name="textual-runbook-sample"></a>文本 Runbook 示例
 

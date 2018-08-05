@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 06/12/2018
 ms.date: 07/16/2018
 ms.author: v-yeche
-ms.openlocfilehash: 49ac3777a6680d715e9fd6b5d8566e2a85025d27
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.openlocfilehash: 4759b7a65e720a0ae63c050be58c6f90b4ffd4b7
+ms.sourcegitcommit: 2a147231bf3d0a693adf58fceee76ab0fbcd6dbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39167967"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39335314"
 ---
 # <a name="event-hubs-programming-guide"></a>事件中心编程指南
 
@@ -99,6 +99,7 @@ for (var i = 0; i < numMessagesToSend; i++)
 请通过异步方式将事件发送到事件中心。 以异步方式发送可以增大客户端发送事件的速率。 [SendAsync](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync?view=azure-dotnet) 返回 [Task](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx) 对象。 可以在客户端上使用 [RetryPolicy](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicebus.retrypolicy?view=azure-dotnet) 类来控制客户端重试选项。
 
 ## <a name="event-consumers"></a>事件使用者
+<a name="event-processor-host"></a>
 
 [EventProcessorHost][] 类处理来自事件中心的数据。 在 .NET 平台上构建事件读取者时，应该使用此实现。 [EventProcessorHost][] 为事件处理器实现提供线程安全、多进程安全的运行时环境，该环境还能提供检查点和分区租用管理。
 

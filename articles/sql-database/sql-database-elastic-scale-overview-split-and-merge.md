@@ -10,12 +10,12 @@ ms.topic: article
 origin.date: 04/01/2018
 ms.date: 04/17/2018
 ms.author: v-johch
-ms.openlocfilehash: c81b2e01290d32666503b8721bcd7533947939c1
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 6c998080110c00ef56ee95f8460c96008a1e3bc7
+ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782309"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486628"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>在扩大云数据库之间移动数据
 如果是软件即服务开发人员，并且应用突然遇到巨大需求，那么需要适应该需求增长。 因此，你添加了更多数据库（分片）。 如何在不破坏数据完整性的情况下将数据重新分配到新数据库？ 使用**拆分/合并工具**将数据从受约束的数据库移到新数据库。  
@@ -47,7 +47,7 @@ ms.locfileid: "31782309"
 
 **合并以实现缩减**
 
-由于业务的季节性，需要缩减容量。 当业务减少时，使用该工具减少到更少的缩放单位。 弹性缩放拆分/合并服务的“合并”功能可以满足此要求。 
+由于业务的季节性，需要缩减容量。 当业务减少时，使用该工具可减少到更少的缩放单元。 弹性缩放拆分/合并服务的“合并”功能可以满足此要求。 
 
 **通过移动 Shardlet 管理热点**
 
@@ -86,21 +86,19 @@ ms.locfileid: "31782309"
 
 有关引用表和分片表对比的信息可由分片映射上的 **SchemaInfo** API 提供。 以下示例说明了如何在给定分片映射管理器对象 smm 上使用这些 API： 
 
-```
-// Create the schema annotations 
-SchemaInfo schemaInfo = new SchemaInfo(); 
+    // Create the schema annotations 
+    SchemaInfo schemaInfo = new SchemaInfo(); 
 
-// Reference tables 
-schemaInfo.Add(new ReferenceTableInfo("dbo", "region")); 
-schemaInfo.Add(new ReferenceTableInfo("dbo", "nation")); 
+    // Reference tables 
+    schemaInfo.Add(new ReferenceTableInfo("dbo", "region")); 
+    schemaInfo.Add(new ReferenceTableInfo("dbo", "nation")); 
 
-// Sharded tables 
-schemaInfo.Add(new ShardedTableInfo("dbo", "customer", "C_CUSTKEY")); 
-schemaInfo.Add(new ShardedTableInfo("dbo", "orders", "O_CUSTKEY")); 
+    // Sharded tables 
+    schemaInfo.Add(new ShardedTableInfo("dbo", "customer", "C_CUSTKEY")); 
+    schemaInfo.Add(new ShardedTableInfo("dbo", "orders", "O_CUSTKEY")); 
 
-// Publish 
-smm.GetSchemaInfoCollection().Add(Configuration.ShardMapName, schemaInfo); 
-```
+    // Publish 
+    smm.GetSchemaInfoCollection().Add(Configuration.ShardMapName, schemaInfo); 
 
 将表“region”和表“nation”定义为引用表，并使用拆分/合并/移动操作复制它们， 而将“customer”和“orders”定义为分片表。 C_CUSTKEY 和 O_CUSTKEY 将用作分片键。 
 
@@ -154,25 +152,25 @@ smm.GetSchemaInfoCollection().Add(Configuration.ShardMapName, schemaInfo);
 ## <a name="deploy-diagnostics"></a>部署诊断
 针对 NuGet 包所提供的 Web 和辅助角色，若要使用诊断配置启用监视和诊断，请使用 Azure PowerShell 运行以下命令： 
 
-```
-$storage_name = "<YourAzureStorageAccount>" 
+    $storage_name = "<YourAzureStorageAccount>" 
 
-$key = "<YourAzureStorageAccountKey" 
+    $key = "<YourAzureStorageAccountKey" 
 
-$storageContext = New-AzureStorageContext -StorageAccountName $storage_name -StorageAccountKey $key  
+    $storageContext = New-AzureStorageContext -StorageAccountName $storage_name -StorageAccountKey $key  
 
-$config_path = "<YourFilePath>\SplitMergeWebContent.diagnostics.xml" 
 
-$service_name = "<YourCloudServiceName>" 
+    $config_path = "<YourFilePath>\SplitMergeWebContent.diagnostics.xml" 
 
-Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -DiagnosticsConfigurationPath $config_path -ServiceName $service_name -Slot Production -Role "SplitMergeWeb" 
+    $service_name = "<YourCloudServiceName>" 
 
-$config_path = "<YourFilePath>\SplitMergeWorkerContent.diagnostics.xml" 
+    Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -DiagnosticsConfigurationPath $config_path -ServiceName $service_name -Slot Production -Role "SplitMergeWeb" 
 
-$service_name = "<YourCloudServiceName>" 
 
-Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -DiagnosticsConfigurationPath $config_path -ServiceName $service_name -Slot Production -Role "SplitMergeWorker" 
-```
+    $config_path = "<YourFilePath>\SplitMergeWorkerContent.diagnostics.xml" 
+
+    $service_name = "<YourCloudServiceName>" 
+
+    Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -DiagnosticsConfigurationPath $config_path -ServiceName $service_name -Slot Production -Role "SplitMergeWorker" 
 
 可以在此处找到有关如何配置和部署诊断设置的详细信息：[在 Azure 云服务和虚拟机中启用诊断](../cloud-services/cloud-services-dotnet-diagnostics.md)。 
 
@@ -214,3 +212,4 @@ Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -Diagnostic
 [1]:./media/sql-database-elastic-scale-overview-split-and-merge/split-merge-overview.png
 [2]:./media/sql-database-elastic-scale-overview-split-and-merge/diagnostics.png
 [3]:./media/sql-database-elastic-scale-overview-split-and-merge/diagnostics-config.png
+

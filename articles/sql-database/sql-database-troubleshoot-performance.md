@@ -9,21 +9,23 @@ keywords: sql 性能优化, 数据库性能优化, sql 性能优化提示, sql �
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: troubleshooting
-origin.date: 04/01/2018
-ms.date: 04/17/2018
+origin.date: 07/16/2018
+ms.date: 08/06/2018
 ms.author: v-johch
-ms.openlocfilehash: 66cf18187e1fafaafcfe0469007595baece44cc1
-ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
+ms.openlocfilehash: e60f6b2ef5ea27fa113b359d1ffaa571211f744b
+ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36947886"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486556"
 ---
 # <a name="monitoring-and-performance-tuning"></a>监视和性能优化
 
 Azure SQL 数据库是自动托管且灵活的数据服务，你可以在其中轻松监视使用情况，添加或删除资源（CPU、内存、IO），查找可以改进你的数据库性能的建议，或者让数据库适应你的工作负荷并自动优化性能。
 
 本文概述了 Azure SQL 数据库中提供的监视和性能优化选项。
+
+[!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## <a name="monitoring-and-troubleshooting-database-performance"></a>监视数据库性能并对其进行故障排除
 
@@ -49,7 +51,7 @@ Azure SQL 数据库使得你可以通过查看[性能优化建议](sql-database-
 
 ## <a name="improving-database-performance-with-more-resources"></a>使用更多资源改进数据库性能
 
-最后，如果没有可操作项可以改进数据库性能，你可以更改 Azure SQL 数据库中提供的资源数量。 随时可以通过更改独立数据库的 [DTU 服务层](sql-database-service-tiers-dtu.md)或者增加弹性池的 eDTU 数目，来分配更多的资源。 或者，如果使用[基于 vCore 的购买模型（预览版）](sql-database-service-tiers-vcore.md)，则可更改服务层或增加分配给数据库的资源。 
+最后，如果没有可操作项可以改进数据库性能，你可以更改 Azure SQL 数据库中提供的资源数量。 随时可以通过更改独立数据库的 [DTU 服务层](sql-database-service-tiers-dtu.md)或者增加弹性池的 eDTU 数目，来分配更多的资源。 或者，如果使用[基于 vCore 的购买模型](sql-database-service-tiers-vcore.md)，则可更改服务层或增加分配给数据库的资源。 
 1. 对于独立数据库，可以根据需要[更改服务层](sql-database-service-tiers-dtu.md)或[计算资源](sql-database-service-tiers-vcore.md)以提高数据库性能。
 2. 对于多个数据库，请考虑使用[弹性池](sql-database-elastic-pool-guidance.md)自动调整资源规模。
 

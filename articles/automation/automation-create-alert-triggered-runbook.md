@@ -10,12 +10,12 @@ origin.date: 03/15/2018
 ms.date: 07/23/2018
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 9e5eb0389e1c9ff8c4ffb6a2be487df2774b8974
-ms.sourcegitcommit: 53972dcdef77da92529996667545d2e83716f7e2
+ms.openlocfilehash: 788c63f8866775980868e1ccaaa1d6f3f1d298f2
+ms.sourcegitcommit: 2a147231bf3d0a693adf58fceee76ab0fbcd6dbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39143484"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39335228"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>使用警报触发 Azure 自动化 Runbook
 
@@ -31,8 +31,8 @@ ms.locfileid: "39143484"
 
 |警报  |说明|负载架构  |
 |---------|---------|---------|
-|[活动日志警报](../monitoring-and-diagnostics/monitoring-activity-log-alerts.md?toc=%2fautomation%2ftoc.json)    |当 Azure 活动日志中的任何新事件符合特定条件时，就会发送通知。 例如，当 **myProductionResourceGroup** 中出现 `Delete VM` 操作或出现状态为 **Active** 的新 Azure 服务运行状况事件时。| [活动日志警报有效负载架构](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md?toc=%2fautomation%2ftoc.json#payload-schema)        |
-|[准实时指标警报](../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md?toc=%2fautomation%2ftoc.json)    |当一个或多个平台级指标满足指定条件时，就会以快于指标警报的速度发送通知。 例如，当 VM 的“CPU 百分比”大于 **90** 并且过去 5 分钟“网络传入”大于 **500 MB** 时。| [准实时指标警报有效负载架构](../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md?toc=%2fautomation%2ftoc.json#payload-schema)          |
+|[活动日志警报](/monitoring-and-diagnostics/monitoring-activity-log-alerts?toc=%2fautomation%2ftoc.json)    |当 Azure 活动日志中的任何新事件符合特定条件时，就会发送通知。 例如，当 **myProductionResourceGroup** 中出现 `Delete VM` 操作或出现状态为 **Active** 的新 Azure 服务运行状况事件时。| [活动日志警报有效负载架构](/monitoring-and-diagnostics/insights-auditlog-to-webhook-email?toc=%2fautomation%2ftoc.json#payload-schema)        |
+|[准实时指标警报](/monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts?toc=%2fautomation%2ftoc.json)    |当一个或多个平台级指标满足指定条件时，就会以快于指标警报的速度发送通知。 例如，当 VM 的“CPU 百分比”大于 **90** 并且过去 5 分钟“网络传入”大于 **500 MB** 时。| [准实时指标警报有效负载架构](/monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts?toc=%2fautomation%2ftoc.json#payload-schema)          |
 
 由于每种警报提供的数据不同，因此需要以不同的方式处理每种警报。 下一部分将介绍如何创建 Runbook 来处理不同类型的警报。
 
@@ -55,7 +55,7 @@ ms.locfileid: "39143484"
 1. 输入 **Stop-AzureVmInResponsetoVMAlert** 作为 Runbook 名称。 对于 runbook 类型，选择“PowerShell”。 然后选择“创建”。  
 1. 将以下 PowerShell 示例复制到“编辑”窗格中。 
 
-    ```powershell-interactive
+    ```powershell
     <#
     .SYNOPSIS
     This runbook stops a resource management VM in response to an Azure alert trigger.
@@ -210,11 +210,10 @@ ms.locfileid: "39143484"
    ![“添加操作组”页](./media/automation-create-alert-triggered-runbook/add-action-group.png)
 1. 若要创建操作组，请选择“确定”。
 
-可以在创建的[活动日志警报](../monitoring-and-diagnostics/monitoring-activity-log-alerts.md?toc=%2fautomation%2ftoc.json)和[准实时警报](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md?toc=%2fautomation%2ftoc.json#create-an-alert-rule-with-the-azure-portal)中使用此操作组。
+可以在创建的[活动日志警报](/monitoring-and-diagnostics/monitoring-activity-log-alerts?toc=%2fautomation%2ftoc.json)和[准实时警报](/monitoring-and-diagnostics/monitor-alerts-unified-usage?toc=%2fautomation%2ftoc.json#create-an-alert-rule-with-the-azure-portal)中使用此操作组。
 
 ## <a name="next-steps"></a>后续步骤
 
 * 有关使用 Webhook 启动自动化 Runbook 的详细信息，请参阅[从 Webhook 启动 Runbook](automation-webhooks.md)。
 * 有关以不同方式启动 Runbook 的详细信息，请参阅[启动 Runbook](automation-starting-a-runbook.md)。
-* 若要了解如何创建活动日志警报，请参阅[创建活动日志警报](../monitoring-and-diagnostics/monitoring-activity-log-alerts.md?toc=%2fautomation%2ftoc.json)。
-* 若要了解如何创建准实时警报，请参阅[在 Azure 门户中创建警报规则](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md?toc=%2fautomation%2ftoc.json#create-an-alert-rule-with-the-azure-portal)。
+* 若要了解如何创建活动日志警报，请参阅[创建活动日志警报](/monitoring-and-diagnostics/monitoring-activity-log-alerts?toc=%2fautomation%2ftoc.json)。

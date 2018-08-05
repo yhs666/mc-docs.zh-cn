@@ -16,12 +16,12 @@ ms.workload: infrastructure
 origin.date: 04/20/2018
 ms.date: 06/18/2018
 ms.author: v-yeche
-ms.openlocfilehash: 5a2be21f0c6b4f8be708a9a0af48d9d5b073a334
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: fe2ad99440421d0435b4758d43fd87df1bddf454
+ms.sourcegitcommit: 2a147231bf3d0a693adf58fceee76ab0fbcd6dbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939707"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39335267"
 ---
 # <a name="azure-cli-script-example-load-balance-traffic-to-vms-for-high-availability"></a>Azure CLI 脚本示例：对传入 VM 的流量进行负载均衡以实现高可用性
 
@@ -135,7 +135,7 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.azure.cn/zh-cn/cli/overview?view=azure-cli-latest)。
+有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.azure.cn/zh-cn/cli?view=azure-cli-latest)。
 
 可在 [Azure 网络文档](../cli-samples.md)中找到其他 Azure 网络 CLI 脚本示例。
 <!-- Update_Description: new articles on load balancer linux clis sample nlb -->

@@ -5,16 +5,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: quickstart
-origin.date: 05/23/2018
-ms.date: 07/16/2018
+origin.date: 07/03/2018
+ms.date: 08/06/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: b6e8f07611adcec5c00eaccec457afd625688964
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.openlocfilehash: 99db00c420d1bbaaaae5b9f3337793005716f76f
+ms.sourcegitcommit: c6205500afd23ac00f2829fe51858b51a622eaf1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39167711"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39487841"
 ---
 # <a name="quickstart-create-a-server---portal"></a>快速入门：创建服务器 - 门户
 
@@ -27,7 +27,7 @@ ms.locfileid: "39167711"
 
 ## <a name="log-in-to-the-azure-portal"></a>登录到 Azure 门户 
 
-登录到 [Azure 门户](https://portal.azure.cn)
+[登录到门户](https://portal.azure.cn)
 
 ## <a name="create-a-server"></a>创建服务器
 
@@ -62,4 +62,4 @@ ms.locfileid: "39167711"
 > [!div class="nextstepaction"]
 > [教程：将示例模型添加到服务器](analysis-services-create-sample-model.md)
 
-<!--Update_Description: update meta properties, wording update, update link -->
+<!--Update_Description: update meta properties, wording update -->

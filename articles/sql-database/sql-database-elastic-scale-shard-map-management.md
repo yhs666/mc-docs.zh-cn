@@ -11,12 +11,12 @@ ms.topic: article
 origin.date: 03/16/2018
 ms.date: 06/18/2018
 ms.author: v-nany
-ms.openlocfilehash: 3586c97282d85ca29523e443234d10b57de587ca
-ms.sourcegitcommit: d4176361d9c6da60729c06cc93a496cb4702d4c2
+ms.openlocfilehash: 5a5912d84cf680f3318d3b3d2cdd9b3e93716555
+ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2018
-ms.locfileid: "35324277"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486968"
 ---
 # <a name="scale-out-databases-with-the-shard-map-manager"></a>使用分片映射管理器扩大数据库
 若要轻松地扩大 SQL Azure 上的数据库，请使用分片映射管理器。 分片映射管理器是一个特殊的数据库，它维护一个分片集中有关所有分片（数据库）的全局映射信息。 元数据允许应用程序基于 **分片键**值连接到正确的数据库。 此外，在集中的每个分片都包含跟踪本地分片数据的映射（称为 shardlet）。 
@@ -148,7 +148,7 @@ else
 对于 .NET 版本，可以使用 PowerShell 来创建新的分片映射管理器。 [此处](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db)提供了一个示例。
 
 ## <a name="get-a-rangeshardmap-or-listshardmap"></a>获取 RangeShardMap 或 ListShardMap
-创建分片映射管理器以后，可以使用 TryGetRangeShardMap（[Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager.trygetrangeshardmap)、[.NET](https://docs.azure.cn/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager)）、TryGetListShardMap（[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager.trygetlistshardmap)、[.NET](https://docs.azure.cn/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager)）或 GetShardMap（[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager.getshardmap)、[.NET](https://docs.azure.cn/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager)）方法获取 RangeShardMap（Java、[.NET](https://docs.azure.cn/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1)）或 ListShardMap（Java、[.NET](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.listshardmap-1)）。
+创建分片映射管理器以后，可以使用 TryGetRangeShardMap（Java、[.NET](https://docs.azure.cn/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager)）、TryGetListShardMap（Java、[.NET](https://docs.azure.cn/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager)）或 GetShardMap（Java、[.NET](https://docs.azure.cn/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager)）方法获取 RangeShardMap（Java、[.NET](https://docs.azure.cn/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1)）或 ListShardMap（Java、[.NET](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.listshardmap-1)）。
 
 ```Java
 // Creates a new Range Shard Map with the specified name, or gets the Range Shard Map if it already exists.
@@ -239,7 +239,7 @@ public static RangeShardMap<T> CreateOrGetRangeShardMap<T>(ShardMapManager shard
   
     仅当映射处于“脱机”状态时才允许在分片映射上进行某些操作，其中包括 UpdateMapping 和 DeleteMapping。 当映射处于脱机状态时，基于该映射中所包含的键的数据依赖请求将返回一个错误。 此外，当范围首次处于脱机状态时，所有到受影响分片的连接都会自动终止，以防止因范围的更改而导致查询出现不一致或不完整的结果。 
 
-映射是 .Net 中的不可变对象。  以上会更改映射的所有方法也会使代码中任何对映射的引用失效。 为了更轻松地执行操作序列来更改映射的状态，所有会更改映射的方法都会返回新的映射引用，以便能够链接操作。 例如，若要在 shardmap sm 中删除包含键 25 的现有映射，可以执行以下命令： 
+映射是 .Net 中的不可变对象。  以上会更改映射的所有方法也会使代码中任何对映射的引用失效。 为了更轻松地执行操作序列来更改映射的状态，所有会更改映射的方法都将返回新的映射引用，以便能够链接操作。 例如，若要在 shardmap sm 中删除包含键 25 的现有映射，可以执行以下命令： 
 
 ```
     sm.DeleteMapping(sm.MarkMappingOffline(sm.GetMappingForKey(25)));

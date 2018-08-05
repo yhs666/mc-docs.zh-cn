@@ -10,12 +10,12 @@ ms.topic: article
 origin.date: 04/01/2018
 ms.date: 04/07/2018
 ms.author: v-johch
-ms.openlocfilehash: 41e0e24be20909e79918559e0c18441b8d0b016f
-ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
+ms.openlocfilehash: 80607a69e5f0411993efb3a17d7312e333794fd2
+ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36947918"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486629"
 ---
 # <a name="monitor-and-improve-performance"></a>监视和提高性能
 Azure SQL 数据库确定数据库中的潜在问题，并通过提供智能优化操作和建议来建议可以提高工作负荷性能的操作。
@@ -25,6 +25,7 @@ Azure SQL 数据库确定数据库中的潜在问题，并通过提供智能优�
    ![查看性能](./media/sql-database-performance/entries.png)
 
 在“支持 + 故障排除”部分中，可以使用以下页面：
+
 
 1. [性能概述](#performance-overview)：监视数据库的性能。 
 2. [性能建议](#performance-recommendations)：查找可提高工作负荷性能的性能建议。

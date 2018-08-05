@@ -10,12 +10,12 @@ ms.topic: article
 origin.date: 04/01/2018
 ms.date: 04/17/2018
 ms.author: v-johch
-ms.openlocfilehash: bd49da7c1334953fdc2b6326025a955c7b4de049
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 0e3b483a333f3334cbed33f6d9a8c30efecbb4df
+ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782372"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486522"
 ---
 # <a name="manage-historical-data-in-temporal-tables-with-retention-policy"></a>使用保留策略管理临时表中的历史数据
 与普通的表相比，临时表数据库大小的增长幅度可能更大，尤其是长时间保留历史数据时。 因此，针对历史数据创建保留策略是规划和管理每个临时表的生命周期的一个重要方面。 Azure SQL 数据库中的临时表附带了易用的保留机制，可帮助完成此任务。
@@ -182,3 +182,4 @@ SET TEMPORAL_HISTORY_RETENTION  ON
 访问第 9 频道收听[客户实施临时表的真实成功案例](https://channel9.msdn.com/Blogs/jsturtevant/Azure-SQL-Temporal-Tables-with-RockStep-Solutions)，观看[临时表现场演示](https://channel9.msdn.com/Shows/Data-Exposed/Temporal-in-SQL-Server-2016)。
 
 有关临时表的详细信息，请查看 [MSDN 文档](https://msdn.microsoft.com/library/dn935015.aspx)。
+

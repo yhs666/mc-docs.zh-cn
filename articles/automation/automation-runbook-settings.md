@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 origin.date: 03/19/2018
 ms.date: 05/14/2018
 ms.author: v-nany
-ms.openlocfilehash: 50569432ba148b301c06ff1caa1b22c6b37173d8
-ms.sourcegitcommit: 53972dcdef77da92529996667545d2e83716f7e2
+ms.openlocfilehash: 95bfaf825e27b181b0cb841683e93a37e16e1d2f
+ms.sourcegitcommit: 2a147231bf3d0a693adf58fceee76ab0fbcd6dbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39143413"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39335306"
 ---
 # <a name="runbook-settings"></a>Runbook 设置
 Azure 自动化中的每个 Runbook 都提供了多个设置用于帮助标识自身，以及更改它的日志记录行为。 下面会描述其中的每个设置，此后再介绍修改设置的过程。
@@ -45,17 +45,17 @@ Azure 自动化中的每个 Runbook 都提供了多个设置用于帮助标识�
 3. 单击 Runbook 的名称，转到 Runbook 的“设置”边栏选项卡。 可在此处指定或修改标记、Runbook 描述，配置日志记录和跟踪设置，以及访问有助于解决问题的支持工具。     
 
 ### <a name="changing-runbook-settings-with-windows-powershell"></a>使用 Windows PowerShell 更改 Runbook 设置
-可以使用 [Set-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603786.aspx) cmdlet 更改 Runbook 的设置。 如果想要指定多个标记，可以向 Tags 参数提供一个数组，或者一个包含逗号分隔值的字符串。 可以使用 [Get-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603728.aspx) 获取当前标记。
+可以使用 [Set-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/set-azurermautomationrunbook?view=azurermps-6.5.0) cmdlet 更改 Runbook 的设置。 如果想要指定多个标记，可以向 Tags 参数提供一个数组，或者一个包含逗号分隔值的字符串。 可以使用 [Get-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationrunbook?view=azurermps-6.5.0) 获取当前标记。
 
 以下示例命令演示了如何设置 Runbook 的属性。 此示例向现有标记添加了三个标记，并指定应该记录详细记录。
 
     $automationAccountName = "MyAutomationAccount"
     $runbookName = "Sample-TestRunbook"
     $tags = (Get-AzureRmAutomationRunbook -ResourceGroupName "ResourceGroup01" `
-    �AutomationAccountName $automationAccountName �Name $runbookName).Tags
+    -AutomationAccountName $automationAccountName -Name $runbookName).Tags
     $tags += "Tag1,Tag2,Tag3"
     Set-AzureRmAutomationRunbook -ResourceGroupName "ResourceGroup01" `
-    �AutomationAccountName $automationAccountName �Name $runbookName �LogVerbose $true �Tags $tags
+    -AutomationAccountName $automationAccountName -Name $runbookName -LogVerbose $true -Tags $tags
 
 ## <a name="next-steps"></a>后续步骤
 * 若要了解如何创建输出和错误消息以及如何从 Runbook 检索此类消息，请参阅 [Runbook 输出和消息](automation-runbook-output-and-messages.md) 

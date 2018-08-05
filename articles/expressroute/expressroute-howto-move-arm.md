@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 02/03/2017
-ms.date: 06/18/2018
+origin.date: 06/28/2018
+ms.date: 08/13/2018
 ms.author: v-yiso
-ms.openlocfilehash: a18479606b8c8aab59f30dc9f868434e43bcedf4
-ms.sourcegitcommit: 794b9caca1147f1891513410dd61435708ef85ec
+ms.openlocfilehash: dee32b90736b2a532d92e810bba689a03cbc627f
+ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34855387"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486983"
 ---
 # <a name="move-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model-using-powershell"></a>使用 PowerShell 将 ExpressRoute 线路从经典部署模型移动到 Resource Manager 部署模型
 
@@ -71,7 +71,7 @@ ms.locfileid: "34855387"
 1. 登录 Azure Resource Manager 环境。
 
   ```powershell
-  Login-AzureRmAccount
+  Connect-AzureRmAccount -Environment AzureChinaCloud
   ```
 
 2. 选择相应的 Azure 订阅。
@@ -95,7 +95,9 @@ ms.locfileid: "34855387"
 Move-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "DemoRG" -Location "West US" -ServiceKey "<Service-key>"
 ```
 
->[!NOTE]
+在经典模式下，ExpressRoute 线路没有绑定到区域的概念。 但是，在资源管理器中，每个资源都需要映射到 Azure 区域。 从技术上来讲，Move-AzureRmExpressRouteCircuit cmdlet 中指定的区域可以是任何区域。 对组织来说，建议选择一个最能代表对等位置的区域。
+
+> [!NOTE]
 > 转移完成之后，列在前一个 cmdlet 中的新名称用于处理资源。 线路实质上已重命名。
 > 
 
@@ -130,8 +132,8 @@ Move-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "DemoRG" -L
 
 5. 现在，可以使用经典 VNet 的经典部署模型命令以及 Resource Manager VNet 的 Resource Manager 命令来管理 ExpressRoute 线路的链接。 以下文章可帮助管理 ExpressRoute 线路的链接：
 
-- [在 Resource Manager 部署模型中将虚拟网络链接到 ExpressRoute 线路](./expressroute-howto-linkvnet-arm.md)
-- [在经典部署模型中将虚拟网络链接到 ExpressRoute 线路](./expressroute-howto-linkvnet-classic.md)
+    * [在 Resource Manager 部署模型中将虚拟网络链接到 ExpressRoute 线路](expressroute-howto-linkvnet-arm.md)
+    * [在经典部署模型中将虚拟网络链接到 ExpressRoute 线路](expressroute-howto-linkvnet-classic.md)
 
 ### <a name="to-disable-expressroute-circuit-access-to-the-classic-deployment-model"></a>禁用对经典部署模型的 ExpressRoute 线路访问
 运行以下 cmdlet 可禁止访问经典部署模型。

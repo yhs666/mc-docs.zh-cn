@@ -1,25 +1,26 @@
 ---
-title: 如何为给定 API 选择权限 | Azure
+title: 如何为给定 API 选择权限 | Microsoft Docs
 description: 如何使用 Azure AD 查找要开发或注册的自定义应用程序的身份验证终结点。
 services: active-directory
 documentationcenter: ''
-author: yunan2016
-manager: digimobile
+author: barbkess
+manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/11/2017
-ms.date: 1/1/2018
-ms.author: v-nany
-ms.openlocfilehash: 19ed98a48328e18815500ee2be3bf62a95b96566
-ms.sourcegitcommit: ba39acbdf4f7c9829d1b0595f4f7abbedaa7de7d
+ms.date: 07/30/2018
+ms.author: v-junlch
+ms.openlocfilehash: f43ecf9892e953c4ce5ddef01e78127d1c2014c5
+ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2018
-ms.locfileid: "29993229"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39487046"
 ---
 # <a name="how-to-select-permissions-for-a-given-api"></a>如何为给定 API 选择权限
 
@@ -36,4 +37,6 @@ ms.locfileid: "29993229"
 -   将特定于要使用的身份验证协议的终结点与应用程序 ID 结合使用，生成特定于应用程序的身份验证请求。
 
 ## <a name="next-steps"></a>后续步骤
-[Azure Active Directory 开发人员指南](./develop/active-directory-developers-guide.md#authentication-and-authorization-protocols)
+[Azure Active Directory 开发人员指南](/active-directory/develop/active-directory-developers-guide#authentication-and-authorization-protocols)
+
+<!-- Update_Description: link update -->

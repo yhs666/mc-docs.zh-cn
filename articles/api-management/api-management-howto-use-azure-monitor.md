@@ -13,14 +13,14 @@ ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
 origin.date: 06/15/2018
-ms.date: 07/16/2018
+ms.date: 08/13/2018
 ms.author: apimpm
-ms.openlocfilehash: 50100b75427a1e3163d6439f84bb5c7cae1a6977
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.openlocfilehash: f44e45e46bf10537e8bfbbb81a754acdd3d7dcb9
+ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873322"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486969"
 ---
 # <a name="monitor-published-apis"></a>监视已发布的 API
 
@@ -57,7 +57,9 @@ API 管理每分钟发出一次指标，几乎可让你实时了解 API 的状�
 
 2. 从下拉列表中选择所需的指标（可以添加多个指标）。  
     例如，从可用指标列表中选择“网关请求总数”和“失败的网关请求数”。
-3. 该图显示 API 调用总数。 此外还显示失败的 API 调用数。 
+3. 该图显示 API 调用总数。 此外还显示失败的 API 调用数。
+
+    ![指标图表](./media/api-management-azure-monitor/apim-monitor-metrics.png)
 
 ## <a name="set-up-an-alert-rule-for-unauthorized-request"></a>针对未经授权的请求设置警报规则
 
@@ -100,6 +102,10 @@ API 管理每分钟发出一次指标，几乎可让你实时了解 API 的状�
 2. 单击“活动日志”。
 
     ![活动日志](./media/api-management-azure-monitor/api-management-activity-logs-blade.png)
+
+3. 选择所需的筛选范围，然后单击“应用”。
+
+    ![活动日志](./media/api-management-azure-monitor/apim-monitor-activity-logs.png)
 
 ## <a name="diagnostic-logs"></a>诊断日志
 

@@ -13,14 +13,14 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 11/28/2017
-ms.date: 03/12/2018
+ms.date: 08/06/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4df6e5d376acc692284718ff7d366aae0aa55765
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: 915348225cce604cc06303f5564ce34266d3c87a
+ms.sourcegitcommit: c6205500afd23ac00f2829fe51858b51a622eaf1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
-ms.locfileid: "29797800"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39487842"
 ---
 # <a name="get-started-receiving-messages-with-the-event-processor-host-in-net-standard"></a>使用 .NET Standard 中的事件处理程序主机接收消息入门
 
@@ -34,7 +34,7 @@ ms.locfileid: "29797800"
 * [Microsoft Visual Studio 2015 或 2017](http://www.visualstudio.com)。 本教程中的示例使用 Visual Studio 2017，但也支持 Visual Studio 2015。
 * [.NET Core Visual Studio 2015 或 2017 工具](http://www.microsoft.com/net/core)。
 * Azure 订阅。
-* Azure 事件中心命名空间。
+* Azure 事件中心命名空间和事件中心。
 * 一个 Azure 存储帐户。
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>创建事件中心命名空间和事件中心  
@@ -124,11 +124,11 @@ ms.locfileid: "29797800"
     using System.Threading.Tasks;
     ```
 
-2. 向 `Program` 类添加常量作为事件中心连接字符串、事件中心名称、存储帐户容器名称、存储帐户名称和存储帐户密钥。 添加以下代码，并将占位符替换为其对应的值。
+2. 向 `Program` 类添加常量作为事件中心连接字符串、事件中心名称、存储帐户容器名称、存储帐户名称和存储帐户密钥。 添加以下代码，并将占位符替换为其对应的值：
 
     ```csharp
-    private const string EhConnectionString = "{Event Hubs connection string}";
-    private const string EhEntityPath = "{Event Hub path/name}";
+    private const string EventHubConnectionString = "{Event Hubs connection string}";
+    private const string EventHubName = "{Event Hub path/name}";
     private const string StorageContainerName = "{Storage account container name}";
     private const string StorageAccountName = "{Storage account name}";
     private const string StorageAccountKey = "{Storage account key}";
@@ -144,9 +144,9 @@ ms.locfileid: "29797800"
         Console.WriteLine("Registering EventProcessor...");
 
         var eventProcessorHost = new EventProcessorHost(
-            EhEntityPath,
+            EventHubName,
             PartitionReceiver.DefaultConsumerGroupName,
-            EhConnectionString,
+            EventHubConnectionString,
             StorageConnectionString,
             StorageContainerName);
 
@@ -175,13 +175,13 @@ ms.locfileid: "29797800"
 
         public class Program
         {
-            private const string EhConnectionString = "{Event Hubs connection string}";
-            private const string EhEntityPath = "{Event Hub path/name}";
+            private const string EventHubConnectionString = "{Event Hubs connection string}";
+            private const string EventHubName = "{Event Hub path/name}";
             private const string StorageContainerName = "{Storage account container name}";
             private const string StorageAccountName = "{Storage account name}";
             private const string StorageAccountKey = "{Storage account key}";
 
-            private static readonly string StorageConnectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}", StorageAccountName, StorageAccountKey);
+            private static readonly string StorageConnectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1};EndpointSuffix=core.chinacloudapi.cn", StorageAccountName, StorageAccountKey);
 
             public static void Main(string[] args)
             {
@@ -211,19 +211,20 @@ ms.locfileid: "29797800"
         }
     }
     ```
+    <!-- Add ;EndpointSuffix=core.chinacloudapi.cn -->
 
 4. 运行程序，并确保没有任何错误。
 
-祝贺！ 现在已使用事件处理器主机从事件中心接收消息。
+祝贺你！ 现在已使用事件处理器主机从事件中心接收消息。
 
 ## <a name="next-steps"></a>后续步骤
 访问以下链接可以了解有关事件中心的详细信息：
 
 * [事件中心概述](event-hubs-what-is-event-hubs.md)
 * [创建事件中心](event-hubs-create.md)
-* [事件中心常见问题](event-hubs-faq.md)
+* [事件中心常见问题解答](event-hubs-faq.md)
 
 [1]: ./media/event-hubs-dotnet-standard-getstarted-receive-eph/event-hubs-python1.png
-[2]: ./media/event-hubs-dotnet-standard-getstarted-receive-eph/netcore.png
+[2]: ./media/event-hubs-dotnet-standard-getstarted-receive-eph/netcorercv.png
 
 <!--Update_Description: update meta properties -->

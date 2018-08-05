@@ -11,12 +11,12 @@ ms.topic: article
 origin.date: 04/01/2018
 ms.date: 04/17/2018
 ms.author: v-haiqya
-ms.openlocfilehash: 129e32473455d1188f706697eb4c737bd0379ad5
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: e3313954b17641ccf6ec03e75acf8e1c195c0c7a
+ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782381"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486635"
 ---
 # <a name="extended-events-in-sql-database"></a>SQL 数据库中的扩展事件
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
@@ -47,6 +47,7 @@ ms.locfileid: "31782381"
 
 - [Azure 存储服务](https://www.azure.cn/home/features/storage/)
 
+
 - PowerShell
     - [对 Azure 存储使用 Azure PowerShell](../storage/common/storage-powershell-guide-full.md) - 提供有关 PowerShell 和 Azure 存储服务的综合信息。
 
@@ -54,9 +55,11 @@ ms.locfileid: "31782381"
 
 相关主题提供了两个代码示例：
 
+
 - [SQL 数据库中扩展事件的环形缓冲区目标代码](sql-database-xevent-code-ring-buffer.md)
     - 简短的 Transact-SQL 脚本。
     - 代码示例主题中强调，用完环形缓冲区目标时，应通过执行 alter-drop `ALTER EVENT SESSION ... ON DATABASE DROP TARGET ...;` 语句释放其资源。 然后可以通过 `ALTER EVENT SESSION ... ON DATABASE ADD TARGET ...` 添加环形缓冲区的另一个实例。
+
 
 - [SQL 数据库中扩展事件的事件文件目标代码](sql-database-xevent-code-event-file.md)
     - 阶段 1 是 PowerShell，用于创建 Azure 存储容器。
@@ -64,9 +67,12 @@ ms.locfileid: "31782381"
 
 ## <a name="transact-sql-differences"></a>Transact-SQL 的差异
 
+
 - 在 SQL Server 上执行 [CREATE EVENT SESSION](http://msdn.microsoft.com/library/bb677289.aspx) 命令时，请使用 **ON SERVER** 子句。 但在 SQL 数据库上，应改用 **ON DATABASE** 子句。
 
+
 - **ON DATABASE** 子句也适用于 [ALTER EVENT SESSION](http://msdn.microsoft.com/library/bb630368.aspx) 和 [DROP EVENT SESSION](http://msdn.microsoft.com/library/bb630257.aspx) Transact-SQL 命令。
+
 
 - 最佳做法是在 **CREATE EVENT SESSION** 或 **ALTER EVENT SESSION** 语句中包含 **STARTUP_STATE = ON** 的事件会话选项。
     - **= ON** 值支持在由于故障转移而重新配置逻辑数据库之后自动重新启动。
@@ -134,6 +140,7 @@ SELECT
         p.name,
         o.name;
 ```
+
 
 <a name="AzureXEventsTargets" id="AzureXEventsTargets"></a> &nbsp;
 

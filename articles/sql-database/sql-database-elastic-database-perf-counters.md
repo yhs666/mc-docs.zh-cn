@@ -10,12 +10,12 @@ ms.topic: article
 origin.date: 04/01/2018
 ms.date: 04/17/2018
 ms.author: v-johch
-ms.openlocfilehash: 45229222216b148d29a6b94f170ac78da9c77cba
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 55f45dbfe445bccf6e1fa5733df672878239ecd3
+ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782399"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486731"
 ---
 # <a name="performance-counters-for-shard-map-manager"></a>分片映射管理器的性能计数器
 可以捕获[分片映射管理器](sql-database-elastic-scale-shard-map-management.md)的性能，尤其是在使用[数据依赖型路由](sql-database-elastic-scale-data-dependent-routing.md)时。 计数器是使用 Microsoft.Azure.SqlDatabase.ElasticScale.Client 类的方法创建的。  
@@ -64,3 +64,4 @@ ms.locfileid: "31782399"
 
 <!--Anchors-->
 <!--Image references-->
+

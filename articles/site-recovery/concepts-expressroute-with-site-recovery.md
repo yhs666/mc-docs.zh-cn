@@ -10,12 +10,12 @@ ms.topic: article
 origin.date: 07/06/2018
 ms.date: 07/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: b2d0034ae2461e7cad445ffe441cbb175420ea05
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.openlocfilehash: ad217f84c2ea941c4e578c79613d7d7e06351ce0
+ms.sourcegitcommit: 54851a22f188f2401ed971931132b46febe7014e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168234"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39361341"
 ---
 # <a name="azure-expressroute-with-azure-site-recovery"></a>将 Azure ExpressRoute 与 Azure Site Recovery 结合使用
 
@@ -26,7 +26,7 @@ ms.locfileid: "39168234"
 
 ## <a name="expressroute-circuits"></a>ExpressRoute 线路
 
-ExpressRoute 线路表示通过连接提供商在本地基础结构与 Azure 云服务之间建立的逻辑连接。 可以订购多条 ExpressRoute 线路。 每条线路可以位于相同或不同的区域，且可以通过不同的连接提供商连接到各个场所。 从[此处](../expressroute/<!-- Notice: Change Microsoft cloud TO Azure cloud-->)详细了解 ExpressRoute 线路。
+ExpressRoute 线路表示通过连接提供商在本地基础结构与 Azure 云服务之间建立的逻辑连接。 可以订购多条 ExpressRoute 线路。 每条线路可以位于相同或不同的区域，且可以通过不同的连接提供商连接到各个场所。 从[此处](../expressroute/expressroute-circuit-peerings.md)详细了解 ExpressRoute 线路。
 <!-- Notice: Change Microsoft cloud TO Azure cloud-->
 
 ## <a name="expressroute-routing-domains"></a>ExpressRoute 路由域

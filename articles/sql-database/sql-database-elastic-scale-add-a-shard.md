@@ -10,12 +10,12 @@ ms.topic: article
 origin.date: 04/01/2018
 ms.date: 04/17/2018
 ms.author: v-nany
-ms.openlocfilehash: 7f12152cd613a60afa0e7e12a3cd47ed02772f61
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: cf614863e8d2cbfbd7174dce68f850ddf6a53023
+ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782361"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486542"
 ---
 # <a name="adding-a-shard-using-elastic-database-tools"></a>使用弹性数据库工具添加分片
 ## <a name="to-add-a-shard-for-a-new-range-or-key"></a>添加新范围或键的分片
@@ -75,3 +75,4 @@ sm.MarkMappingOnline(sm.UpdateMapping(sm.GetMappingForKey(25), upd));
 重要说明：仅当确定所更新映射的范围为空时，才使用此方法。  上述方法不会在数据中检查要移动的范围，因此最好在代码中包含检查操作。  如果要移动的范围中存在行，则实际的数据分布将与更新后的分片映射不匹配。 在这种情况下，请改用[拆分/合并工具](sql-database-elastic-scale-overview-split-and-merge.md)来执行操作。  
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
+

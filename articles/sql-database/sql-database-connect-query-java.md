@@ -11,12 +11,12 @@ ms.topic: quickstart
 origin.date: 04/01/2018
 ms.date: 04/17/2018
 ms.author: v-nany
-ms.openlocfilehash: 84620bf5114e4a595be9eab6db3a46d14906c120
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 2f486f32a4dfdcf980aae5de7eeab37e97da23e1
+ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38938775"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486749"
 ---
 # <a name="use-java-to-query-an-azure-sql-database"></a>使用 Java 查询 Azure SQL 数据库
 

@@ -10,12 +10,12 @@ ms.topic: overview
 origin.date: 03/07/2018
 ms.date: 06/18/2018
 ms.author: v-johch
-ms.openlocfilehash: 01878b3801d199fff3beab0a798477da627ddd67
-ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
+ms.openlocfilehash: 17594f16d9525c87e211b2afa5196e210606de91
+ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37800421"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486927"
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>什么是 Azure SQL 数据库服务？ 
 
@@ -96,7 +96,7 @@ SQL 数据库提供针对需要监视的查询的详细见解。 SQL 数据库�
 
 ### <a name="adaptive-query-processing"></a>自适应查询处理
 
-我们还将向 SQL 数据库添加[自适应查询处理](/sql/relational-databases/performance/adaptive-query-processing)系列功能，包括交错执行多语句表值函数，批处理模式内存授予反馈和批处理模式自适应联接。 每个自适应查询处理功能均应用类似的“学习和适应”技巧，帮助进一步解决与历史上棘手的查询优化问题相关的性能问题。
+我们还将向 SQL 数据库添加[自适应查询处理](https://docs.microsoft.com/sql/relational-databases/performance/adaptive-query-processing)系列功能，包括交错执行多语句表值函数，批处理模式内存授予反馈和批处理模式自适应联接。 每个自适应查询处理功能均应用类似的“学习和适应”技巧，帮助进一步解决与历史上棘手的查询优化问题相关的性能问题。
 
 ### <a name="intelligent-threat-detection"></a>智能威胁检测
 
@@ -112,7 +112,7 @@ SQL 数据库提供一系列[内置安全性和符合性功能](sql-database-sec
 
 ### <a name="data-encryption-at-rest"></a>静态数据加密
 
-SQL 数据库[透明数据加密](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)无需更改应用程序，即可对静态的数据库、关联的备份和事务日志文件执行实时加密和解密，帮助防止恶意活动的威胁。 从 2017 年 5 月起，所有新建的 Azure SQL 数据库均通过透明数据加密 (TDE) 进行自动保护。 TDE 是 SQL 经验证的静态加密技术，许多符合性标准都需要它来防止存储介质被盗。 客户可使用 Azure Key Vault 通过安全合规的方式管理 TDE 加密密钥和其他密钥。
+SQL 数据库[透明数据加密](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)无需更改应用程序，即可对静态的数据库、关联的备份和事务日志文件执行实时加密和解密，帮助防止恶意活动的威胁。 从 2017 年 5 月起，所有新建的 Azure SQL 数据库均通过透明数据加密 (TDE) 进行自动保护。 TDE 是 SQL 经验证的静态加密技术，许多符合性标准都需要它来防止存储介质被盗。 客户可使用 Azure Key Vault 通过安全合规的方式管理 TDE 加密密钥和其他密钥。
 
 ### <a name="data-encryption-in-motion"></a>动态数据加密
 

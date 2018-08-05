@@ -5,16 +5,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 04/12/2018
-ms.date: 07/16/2018
+origin.date: 07/03/2018
+ms.date: 08/06/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 876ae5312db51984e98b83f46d37b6b3d0e317d3
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.openlocfilehash: 89edbe8d76b706c3b70f7cdf05de3a3f1365e3c1
+ms.sourcegitcommit: c6205500afd23ac00f2829fe51858b51a622eaf1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39167956"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39487839"
 ---
 # <a name="supplemental-lesson---dynamic-security"></a>补充课程 - 动态安全性
 

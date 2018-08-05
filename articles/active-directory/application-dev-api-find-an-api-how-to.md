@@ -1,25 +1,26 @@
 ---
-title: 如何为自定义开发的应用程序查找所需的特定 API | Azure
+title: 如何为自定义开发的应用程序查找所需的特定 API | Microsoft Docs
 description: 如何配置访问自定义开发的 Azure AD 应用程序中的特定 API 所需的权限
 services: active-directory
 documentationcenter: ''
-author: yunan2016
-manager: digimobile
+author: barbkess
+manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/11/2017
-ms.date: 1/1/2018
-ms.author: v-nany
-ms.openlocfilehash: 38c475fa7d2dfa49981e68a5c7e0857f43133cb1
-ms.sourcegitcommit: 469a0ce3979408a4919a45c1eb485263f506f900
+ms.date: 07/30/2018
+ms.author: v-junlch
+ms.openlocfilehash: 8ebec350b07b43908aaeae4a846723ce11ab83ae
+ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
-ms.locfileid: "27548402"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486902"
 ---
 # <a name="how-to-find-a-specific-api-needed-for-a-custom-developed-application"></a>如何为自定义开发的应用程序查找所需的特定 API
 
@@ -27,16 +28,17 @@ ms.locfileid: "27548402"
 
 ## <a name="configuring-a-resource-application-to-expose-web-apis"></a>将资源应用程序配置为公开 Web API
 
-当 Web API 公开后，将权限添加到应用注册时，API 会显示在“选择 API”列表中。 要添加访问作用域，请按照[将访问作用域添加到资源应用程序](./develop/active-directory-integrating-applications.md#adding-access-scopes-to-your-resource-application)中概述的步骤操作。
+当 Web API 公开后，将权限添加到应用注册时，API 会显示在“选择 API”列表中。 要添加访问作用域，请按照[将访问作用域添加到资源应用程序](/active-directory/develop/active-directory-integrating-applications#adding-access-scopes-to-your-resource-application)中概述的步骤操作。
 
 ## <a name="configuring-a-client-application-to-access-web-apis"></a>将客户端应用程序配置为访问 Web API
 
-在将权限添加到应用注册时，可**添加 API 访问**到已公开的 Web API。 若要访问 Web API，请按照[添加凭据或权限以访问 Web API](./develop/active-directory-integrating-applications.md#to-add-credentials-or-permissions-to-access-web-apis)中概述的步骤操作。
+在将权限添加到应用注册时，可**添加 API 访问**到已公开的 Web API。 若要访问 Web API，请按照[添加凭据或权限以访问 Web API](/active-directory/develop/active-directory-integrating-applications#to-add-credentials-or-permissions-to-access-web-apis)中概述的步骤操作。
 
 ## <a name="next-steps"></a>后续步骤
 
--   [将应用程序与 Azure Active Directory 集成](./develop/active-directory-integrating-applications.md)
+-   [将应用程序与 Azure Active Directory 集成](/active-directory/develop/active-directory-integrating-applications)
 
--   [了解 Azure Active Directory 应用程序清单](./develop/active-directory-application-manifest.md)
+-   [了解 Azure Active Directory 应用程序清单](/active-directory/develop/active-directory-application-manifest)
 
 
+<!-- Update_Description: link update -->

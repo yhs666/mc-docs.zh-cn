@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 03/05/2018
-ms.date: 04/02/2018
+origin.date: 05/17/2018
+ms.date: 08/06/2018
 ms.author: v-yeche
-ms.openlocfilehash: c789b6b4f094d422b506616ad2fb872236d40e94
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: c419ce2da890efb1297900f922638fa3079eb8dd
+ms.sourcegitcommit: c6205500afd23ac00f2829fe51858b51a622eaf1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30222507"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39487812"
 ---
 # <a name="event-hubs-samples"></a>事件中心示例 
 

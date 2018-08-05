@@ -15,13 +15,13 @@ ms.workload: na
 origin.date: 08/24/2017
 ms.author: micflan
 ms.custom: accessibility
-ms.date: 10/16/2017
-ms.openlocfilehash: 60c39d1013a193c33125bd0c3f42497a1d9d73bb
-ms.sourcegitcommit: 9d3011bb050f232095f24e34f290730b33dff5e4
+ms.date: 08/13/2018
+ms.openlocfilehash: fda6c45ccbff8a15262723b9ff1eb37b82f5f879
+ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2017
-ms.locfileid: "22338740"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486925"
 ---
 # <a name="keyboard-shortcuts-in-the-azure-portal"></a>Azure 门户中的键盘快捷方式
 本文介绍了 Azure 门户中使用的键盘快捷方式。 各个服务可能有其自己的键盘快捷方式。
@@ -30,7 +30,7 @@ ms.locfileid: "22338740"
 |要执行此操作 |按 |
 | --- | --- |
 |创建新资源|G+N|
-|打开“更多服务”窗格|G+B|
+|打开“所有服务”窗格|G+B|
 |搜索资源|G+/| 
 |搜索资源菜单项|CTRL+/ |
 |上移所选的左窗格项 |ALT+Shift+向上键|

@@ -3,23 +3,24 @@ title: 如何配置新的多租户应用程序 | Microsoft Docs
 description: 如何为通过 Azure AD 进行开发和注册的自定义应用程序配置单一登录。
 services: active-directory
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: barbkess
+manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/11/2017
-ms.date: 07/28/2017
+ms.date: 07/30/2018
 ms.author: v-junlch
-ms.openlocfilehash: c0823900b5641b69d4c348491f9e927caefb4095
-ms.sourcegitcommit: 37a1524d71895b17b6f1d125053ad0b251b88df1
+ms.openlocfilehash: 79c9cdc642c7b706f743ae580a69b61c7fb9dc84
+ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39097629"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486913"
 ---
 # <a name="how-to-configure-a-new-multi-tenant-application"></a>如何配置新的多租户应用程序
 
@@ -39,7 +40,8 @@ ms.locfileid: "39097629"
 
 [在 iOS 中启用跨应用 SSO](/active-directory/develop/active-directory-sso-ios)<br>
 
+[将应用与 AzureAD 集成](/active-directory/develop/active-directory-integrating-applications)<br>
 
 [AzureAD StackOverflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

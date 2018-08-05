@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 origin.date: 03/28/2018
 ms.date: ''
 ms.author: v-yiso
-ms.openlocfilehash: 16e94fe2feea0f8bd4323a2fbc453d6d11eee0ee
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: d3d5306977a5866b2b6fda40d4c68eee05f98099
+ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33814957"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486971"
 ---
 # <a name="expressroute-prerequisites--checklist"></a>ExpressRoute 先决条件和清单  
 
@@ -48,8 +48,8 @@ ms.locfileid: "33814957"
 - 查找 ExpressRoute 连接服务提供商。 请参阅 [ExpressRoute 合作伙伴和对等位置](./expressroute-locations.md)。
 - 请参阅[路由](./expressroute-routing.md)的要求。
 - 配置 ExpressRoute 连接。
-    - [创建 ExpressRoute 线路](./expressroute-howto-circuit-classic.md)
-    - [配置路由](./expressroute-howto-routing-classic.md)
-    - [将 VNet 链接到 ExpressRoute 线路](./expressroute-howto-linkvnet-classic.md)
+  - [创建 ExpressRoute 线路](expressroute-howto-circuit-arm.md)
+  - [配置路由](expressroute-howto-routing-arm.md)
+  - [将 VNet 链接到 ExpressRoute 线路](expressroute-howto-linkvnet-arm.md)
     
 <!--Update_Description:update meta properties only-->    

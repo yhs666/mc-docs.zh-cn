@@ -10,12 +10,12 @@ ms.topic: tutorial
 origin.date: 04/01/2018
 ms.date: 04/01/2018
 ms.author: v-johch
-ms.openlocfilehash: 2878af155c4d8f8200becf4e105bae3582d0d397
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: cec32f36b799318e131511aaee75a5d8affaee60
+ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782438"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486702"
 ---
 # <a name="implement-a-geo-distributed-database"></a>实现地理分散的数据库
 
@@ -29,6 +29,7 @@ ms.locfileid: "31782438"
 > * 执行灾难恢复演练
 
 如果没有 Azure 订阅，可在开始前[创建一个 1 元人民币的试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -236,7 +237,7 @@ sudo apt-get install maven
    public class App {
 
       private static final String FAILOVER_GROUP_NAME = "myfailovergroupname";
-
+  
       private static final String DB_NAME = "mySampleDatabase";
       private static final String USER = "app_user";
       private static final String PASSWORD = "ChangeYourPassword1";
@@ -302,7 +303,7 @@ sudo apt-get install maven
       // Query the high water mark id that is stored in the table to be able to make unique inserts 
       String sql = "SELECT MAX(ProductId) FROM SalesLT.Product";
       int result = 1;
-
+        
       try (Connection connection = DriverManager.getConnection(READ_WRITE_URL); 
               Statement stmt = connection.createStatement();
               ResultSet resultSet = stmt.executeQuery(sql)) {
@@ -329,7 +330,7 @@ sudo apt-get install maven
 
    ```bash
    mvn -q -e exec:java "-Dexec.mainClass=com.sqldbsamples.App"
-
+   
    #######################################
    ## GEO DISTRIBUTED DATABASE TUTORIAL ##
    #######################################

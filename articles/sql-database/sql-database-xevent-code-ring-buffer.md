@@ -10,12 +10,12 @@ ms.topic: article
 origin.date: 04/01/2018
 ms.date: 04/17/2018
 ms.author: v-haiqya
-ms.openlocfilehash: 54fb55386c545bc10ba3ef699fd156a50f756b3c
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: ebb1ddc017836ce73e850edc6dd7e997e4db711b
+ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782401"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486527"
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-sql-database"></a>SQL 数据库中扩展事件的环形缓冲区目标代码
 
@@ -27,13 +27,13 @@ ms.locfileid: "31782401"
 
 1. 创建一个包含要演示的数据的表。
 2. 创建现有扩展事件的会话，即 **sqlserver.sql_statement_starting**。
-
+   
    * 此事件仅限于包含特定 Update 字符串的 SQL 语句： **statement LIKE '%UPDATE tabEmployee%'**。
    * 选择要将事件的输出发送给环形缓冲区类型的目标，即 **package0.ring_buffer**。
 3. 启动事件会话。
 4. 发出几个简单的 SQL UPDATE 语句。
 5. 发出 SQL SELECT 语句，从环形缓冲区检索事件输出。
-
+   
    * 将 **sys.dm_xe_database_session_targets** 和其他动态管理视图 (DMV) 联接在一起。
 6. 停止事件会话。
 7. 删除环形缓冲区目标以释放其资源。
@@ -43,11 +43,11 @@ ms.locfileid: "31782401"
 
 * Azure 帐户和订阅。 可以注册[试用版](https://www.azure.cn/pricing/1rmb-trial/)。
 * 可在其中创建表的任何数据库。
-
+  
   * 或者，也可以在几分钟内[创建一个 **AdventureWorksLT** 演示数据库](sql-database-get-started.md)。
 * SQL Server Management Studio (ssms.exe)，最好是每月最新更新版。 
   可从以下位置下载最新的 ssms.exe：
-
+  
   * 标题为[下载 SQL Server Management Studio](http://msdn.microsoft.com/library/mt238290.aspx) 的主题。
   * [直接指向下载位置的链接。](http://go.microsoft.com/fwlink/?linkid=616025)
 
@@ -68,6 +68,7 @@ GO
 SET NOCOUNT ON;
 GO
 
+
 IF EXISTS
     (SELECT * FROM sys.objects
         WHERE type = 'U' and name = 'tabEmployee')
@@ -75,6 +76,7 @@ BEGIN
     DROP TABLE tabEmployee;
 END
 GO
+
 
 CREATE TABLE tabEmployee
 (
@@ -85,11 +87,13 @@ CREATE TABLE tabEmployee
 );
 GO
 
+
 INSERT INTO tabEmployee ( EmployeeDescr )
     VALUES ( 'Jane Doe' );
 GO
 
 ---- Step set 2.
+
 
 IF EXISTS
     (SELECT * from sys.database_event_sessions
@@ -99,6 +103,7 @@ BEGIN
         ON DATABASE;
 END
 GO
+
 
 CREATE
     EVENT SESSION eventsession_gm_azuresqldb51
@@ -118,12 +123,14 @@ GO
 
 ---- Step set 3.
 
+
 ALTER EVENT SESSION eventsession_gm_azuresqldb51
     ON DATABASE
     STATE = START;
 GO
 
 ---- Step set 4.
+
 
 SELECT 'BEFORE_Updates', EmployeeKudosCount, * FROM tabEmployee;
 
@@ -137,6 +144,7 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM tabEmployee;
 GO
 
 ---- Step set 5.
+
 
 SELECT
     se.name                      AS [session-name],
@@ -177,12 +185,14 @@ GO
 
 ---- Step set 6.
 
+
 ALTER EVENT SESSION eventsession_gm_azuresqldb51
     ON DATABASE
     STATE = STOP;
 GO
 
 ---- Step set 7.
+
 
 ALTER EVENT SESSION eventsession_gm_azuresqldb51
     ON DATABASE
@@ -191,6 +201,7 @@ GO
 
 ---- Step set 8.
 
+
 DROP EVENT SESSION eventsession_gm_azuresqldb51
     ON DATABASE;
 GO
@@ -198,6 +209,7 @@ GO
 DROP TABLE tabEmployee;
 GO
 ```
+
 
 &nbsp;
 
@@ -243,6 +255,7 @@ GO
       <value>
 ---- Step set 4.
 
+
 SELECT 'BEFORE_Updates', EmployeeKudosCount, * FROM tabEmployee;
 
 UPDATE tabEmployee
@@ -283,6 +296,7 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM tabEmployee;
       <value>
 ---- Step set 4.
 
+
 SELECT 'BEFORE_Updates', EmployeeKudosCount, * FROM tabEmployee;
 
 UPDATE tabEmployee
@@ -298,6 +312,7 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM tabEmployee;
 </RingBufferTarget>
 ```
 
+
 #### <a name="release-resources-held-by-your-ring-buffer"></a>释放环形缓冲区占用的资源
 
 处理完环形缓冲区后，可以发出 **ALTER** 将它删除并释放其资源，如下所示：
@@ -308,6 +323,7 @@ ALTER EVENT SESSION eventsession_gm_azuresqldb51
     DROP TARGET package0.ring_buffer;
 GO
 ```
+
 
 事件会话的定义会更新，但不会删除。 然后可以将环形缓冲区的另一个实例添加到事件会话：
 
@@ -320,6 +336,7 @@ ALTER EVENT SESSION eventsession_gm_azuresqldb51
                 max_memory = 500   -- Units of KB.
             );
 ```
+
 
 ## <a name="more-information"></a>详细信息
 
@@ -337,5 +354,3 @@ ALTER EVENT SESSION eventsession_gm_azuresqldb51
 - Code sample for SQL Server: [Determine Which Queries Are Holding Locks](http://msdn.microsoft.com/library/bb677357.aspx)
 - Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
 -->
-
-<!--Update_Description: wording update (tsql->sql)-->

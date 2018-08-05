@@ -10,12 +10,12 @@ ms.topic: article
 origin.date: 06/13/2018
 ms.date: 07/02/2018
 ms.author: v-johch
-ms.openlocfilehash: e0ffea6fb8971dc7f0e0eb45a5ed94db6612293b
-ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
+ms.openlocfilehash: 74c1d58cc1300b3bec76d5319f617636ff747218
+ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36948047"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39487001"
 ---
 # <a name="configure-multi-factor-authentication-for-sql-server-management-studio-and-azure-ad"></a>为 SQL Server Management Studio 和 Azure AD 配置多重身份验证
 
@@ -26,7 +26,7 @@ ms.locfileid: "36948047"
 
 ## <a name="configuration-steps"></a>配置步骤
 
-1. **配置 Azure Active Directory** - 有关详细信息，请参阅[管理 Azure AD 目录](https://msdn.microsoft.com/library/azure/hh967611.aspx)、[将本地标识与 Azure Active Directory 集成](../active-directory/connect/active-directory-aadconnect.md)、[将自己的域名添加到 Azure AD](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/)、[Azure 现在支持与 Windows Server Active Directory 联合](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/)和[使用 Windows PowerShell 管理 Azure AD](https://msdn.microsoft.com/zh-cn/library/azure/jj151815.aspx)。
+1. **配置 Azure Active Directory** - 有关详细信息，请参阅[管理 Azure AD 目录](https://msdn.microsoft.com/library/azure/hh967611.aspx)、[将本地标识与 Azure Active Directory 集成](../active-directory/connect/active-directory-aadconnect.md)、[将自己的域名添加到 Azure AD](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/)、[Azure 现在支持与 Windows Server Active Directory 联合](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/)和[使用 Windows PowerShell 管理 Azure AD](https://msdn.microsoft.com/library/azure/jj151815.aspx)。
 2. **配置 MFA** - 有关分步说明，请参阅[什么是 Azure 多重身份验证？](../active-directory/authentication/multi-factor-authentication.md)。 
 3. **配置 SQL 数据库或 SQL 数据仓库以进行 Azure AD 身份验证** - 有关分步说明，请参阅[使用 Azure Active Directory 身份验证连接到 SQL 数据库或 SQL 数据仓库](sql-database-aad-authentication.md)。
 4. **下载 SSMS** - 在客户端计算机上，从[下载 SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx) 下载最新的 SSMS。 对于本主题中的所有功能，请至少使用 2017 年 7 月的版本 17.2。  

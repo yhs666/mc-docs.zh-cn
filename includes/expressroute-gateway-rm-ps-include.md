@@ -21,7 +21,7 @@
 1. 连接到 Azure 订阅。 
 
     ```powershell 
-    Login-AzureRmAccount -Environment $(Get-AzureRmEnvironment -Name AzureChinaCloud)
+    Connect-AzureRmAccount -Environment AzureChinaCloud
     Get-AzureRmSubscription 
     Select-AzureRmSubscription -SubscriptionName "Name of subscription"
     ```

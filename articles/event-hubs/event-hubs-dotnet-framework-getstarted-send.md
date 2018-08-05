@@ -12,19 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/01/2018
-ms.date: 03/12/2018
+origin.date: 07/03/2018
+ms.date: 08/06/2018
 ms.author: v-yeche
-ms.openlocfilehash: 15064fd6cbcbd665ffe0dd110dc8b39cbcf8ebce
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: f0d4f6f74ad5ab04ebdc5f2d74f862d4b575533d
+ms.sourcegitcommit: c6205500afd23ac00f2829fe51858b51a622eaf1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
-ms.locfileid: "29798015"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39487789"
 ---
 # <a name="send-events-to-azure-event-hubs-using-the-net-framework"></a>使用 .NET Framework 将事件发送到 Azure 事件中心
-
-## <a name="introduction"></a>简介
 
 事件中心是一个服务，可用于处理来自连接设备和应用程序的大量事件数据（遥测）。 将数据采集到事件中心后，可以使用任何实时分析提供程序或存储群集来转换和存储数据。 这种大规模事件收集和处理功能是现代应用程序体系结构（包括物联网 (IoT)）的重要组件。
 
@@ -32,7 +30,7 @@ ms.locfileid: "29798015"
 
 若要完成本教程，需要满足以下先决条件：
 
-* [Microsoft Visual Studio 2015 或更高版本](http://visualstudio.com)。 本教程中的屏幕截图使用 Visual Studio 2017。
+* [Microsoft Visual Studio 2017 或更高版本](http://visualstudio.com)。
 * 有效的 Azure 帐户。 如果没有帐户，只需几分钟的时间就能创建一个试用帐户。 有关详细信息，请参阅 [Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>创建事件中心命名空间和事件中心
@@ -61,8 +59,8 @@ ms.locfileid: "29798015"
 5. 将以下字段添加到 **Program** 类，并将占位符值分别替换为在上一节中创建的事件中心的名称和前面保存的命名空间级别连接字符串。
 
     ```csharp
-    static string eventHubName = "{Event Hub name}";
-    static string connectionString = "{send connection string}";
+    static string eventHubName = "Your Event Hub name";
+    static string connectionString = "namespace connection string";
     ```
 6. 将以下方法添加到 **Program** 类：
 
@@ -90,7 +88,7 @@ ms.locfileid: "29798015"
     }
     ```
 
-    此方法会不断地将事件发送到事件中心，迟延为 200 毫秒。
+  此方法不断将事件发送到事件中心，延迟为 200 毫秒。
 7. 最后，在 **Main** 方法中添加以下行：
 
     ```csharp

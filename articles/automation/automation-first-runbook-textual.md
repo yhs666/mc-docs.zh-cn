@@ -12,12 +12,12 @@ ms.topic: get-started-article
 origin.date: 03/16/2018
 ms.date: 07/23/2018
 ms.author: v-nany
-ms.openlocfilehash: 5fa8a825a8fdf97280f54ba6cbe6cef7195f7317
-ms.sourcegitcommit: 53972dcdef77da92529996667545d2e83716f7e2
+ms.openlocfilehash: 0c5cf8bafe9b02b3cdf433a8b866ac9a2f1a01dd
+ms.sourcegitcommit: 2a147231bf3d0a693adf58fceee76ab0fbcd6dbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39143403"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39335311"
 ---
 # <a name="my-first-powershell-workflow-runbook"></a>我的第一个 PowerShell 工作流 Runbook
 
@@ -35,7 +35,7 @@ ms.locfileid: "39143403"
 要完成本教程，需要以下各项：
 
 * Azure 订阅。 如果没有订阅，可注册[试用版](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
-* [自动化帐户](automation-offering-get-started.md) ，用来保存 Runbook 以及向 Azure 资源进行身份验证。  此帐户必须有权启动和停止虚拟机。
+* [自动化帐户](/automation/) ，用来保存 Runbook 以及向 Azure 资源进行身份验证。  此帐户必须有权启动和停止虚拟机。
 * Azure 虚拟机。 将停止和启动该虚拟机，因此它不应为生产用 VM。
 
 ## <a name="step-1---create-new-runbook"></a>步骤 1 - 创建新的 Runbook
