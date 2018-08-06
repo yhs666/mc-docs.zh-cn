@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 12/15/2016
 ms.author: v-yiso
 ms.date: 06/18/2018
-ms.openlocfilehash: 0401a4e201bf28533ef56f66378bba9e09d9e3f4
-ms.sourcegitcommit: 794b9caca1147f1891513410dd61435708ef85ec
+ms.openlocfilehash: 0f5eb49e30ddaefe923d85ec17c3481d5b9a86f3
+ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34855373"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39487002"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>如何委派用户注册和产品订阅
 可以通过委派使用现有网站处理开发人员的登录/注册和产品订阅事项，不需使用开发人员门户中的内置功能。 这样就可以让网站拥有用户数据，并通过自定义方式对这些步骤进行验证。
@@ -171,7 +171,7 @@ var signature = digest.toString('base64');
 [Delegating product subscription]: #delegate-product-subscription
 [请求单一登录 (SSO) 令牌]: https://docs.microsoft.com/rest/api/apimanagement/User/GenerateSsoUrl
 [创建用户]: https://docs.microsoft.com/en-us/rest/api/apimanagement/user/createorupdate
-[调用产品订阅 REST API]: http://go.microsoft.com/fwlink/?LinkId=507655#SSO
+[调用产品订阅 REST API]: https://docs.microsoft.com/rest/api/apimanagement/productsubscriptions
 [Next steps]: #next-steps
 [下文提供了示例代码]: #delegate-example-code
 

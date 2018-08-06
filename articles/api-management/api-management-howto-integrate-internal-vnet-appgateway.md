@@ -5,7 +5,7 @@ services: api-management
 documentationcenter: ''
 author: solankisamir
 manager: kjoshi
-editor: antonba
+editor: vlvinogr
 ms.assetid: a8c982b2-bca5-4312-9367-4a0bbc1082b1
 ms.service: api-management
 ms.workload: mobile
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 09/19/2017
 ms.author: sasolank
-ms.date: 06/18/2018
-ms.openlocfilehash: 2141db0c7532dae1229eeae4cd32235108f7ff83
-ms.sourcegitcommit: 794b9caca1147f1891513410dd61435708ef85ec
+ms.date: 08/13/2018
+ms.openlocfilehash: 78caba571ab8d726a8ffdbb1a3326f58701330f9
+ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34855415"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486944"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>在包含应用程序网关的内部 VNET 中集成 API 管理 
 
@@ -86,7 +86,7 @@ ms.locfileid: "34855415"
 登录 Azure
 
 ```powershell
-Login-AzureRmAccount -Environment $(Get-AzureRmEnvironment -Name AzureChinaCloud)
+Connect-AzureRmAccount -Environment AzureChinaCloud
 ```
 
 使用凭据进行身份验证。<BR>

@@ -15,12 +15,12 @@ ms.topic: conceptual
 origin.date: 06/14/2018
 ms.date: 07/09/2018
 ms.author: v-yeche
-ms.openlocfilehash: 777ebda11c8f345e6f74d80f0076b6dfae675718
-ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
+ms.openlocfilehash: f54e3fb3af7cf0431f05f83c071e05c33c1a6dce
+ms.sourcegitcommit: 54851a22f188f2401ed971931132b46febe7014e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37405399"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39361349"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>将资源移到新资源组或订阅中
 
@@ -58,9 +58,7 @@ ms.locfileid: "37405399"
 
     如果源订阅和目标订阅的租户 ID 不相同，可使用以下方法协调租户 ID：
 
-    <!-- Not Available on * [Transfer ownership of an Azure subscription to another account](../billing/billing-subscription-transfer.md) -->
-    * [如何将 Azure 订阅关联或添加到 Azure Active Directory](../active-directory/active-directory-how-subscriptions-associated-directory.md)
-    <!--URL not contains fundamentals directory-->
+    <!-- Not Available on * [Transfer ownership of an Azure subscription to another account](../billing/billing-subscription-transfer.md) --> <!-- Not Available on * [How to associate or add an Azure subscription to Azure Active Directory](../active-directory/active-directory-how-subscriptions-associated-directory.md)--> <!--URL not contains fundamentals directory-->
     
 2. 服务必须支持移动资源的功能。 本文列出了支持对资源进行移动的服务和不支持对资源进行移动的服务。
 3. 必须针对要移动的资源的资源提供程序注册目标订阅。 否则，会收到错误，指明 **未针对资源类型注册订阅**。 将资源移到新的订阅时，可能会遇到此问题，但该订阅从未配合该资源类型使用。

@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 05/04/2017
 ms.date: 07/05/2018
 ms.author: v-junlch
-ms.openlocfilehash: c4e100551935029d321007fda1fb5a2287a0456d
-ms.sourcegitcommit: 37a1524d71895b17b6f1d125053ad0b251b88df1
+ms.openlocfilehash: e49d819a9f57f98e30e4592e48ffd8598caccc78
+ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39097733"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486946"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory 概念证明操作手册：构建基块
 
@@ -133,7 +133,7 @@ ms.locfileid: "39097733"
 
 ### <a name="considerations"></a>注意事项
 
-1. 此构建基块中的 PoC 步骤为用户的所有登录活动显式设置 MFA。 还可以将其他工具（例如条件访问和 Identity Protection）将 MFA 配合使用，实现更多有针对性的方案。 从 POC 转移到生产环境时，需要考虑这种方法。
+1. 此构建基块中的 PoC 步骤为用户的所有登录活动显式设置 MFA。  
 2. 此构建基块中的 PoC 步骤显式使用电话呼叫作为 MFA 方法，以方便完成身份验证。 从 POC 过渡到生产环境时，我们建议尽量使用 [Microsoft 验证器](../multi-factor-authentication/end-user/microsoft-authenticator-app-how-to.md)等应用程序作为第二个因素。
 了解详细信息：[DRAFT NIST 专刊 800-63B](https://pages.nist.gov/800-63-3/sp800-63b.html)
 

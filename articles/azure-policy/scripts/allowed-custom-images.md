@@ -1,5 +1,5 @@
 ---
-title: Azure 策略示例 - 已批准的 VM 映像
+title: Azure Policy 示例 - 已批准的 VM 映像
 description: 此策略要求在环境中仅部署已批准的自定义映像。
 services: azure-policy
 documentationcenter: ''
@@ -16,12 +16,12 @@ origin.date: 06/03/2018
 ms.date: 07/23/2018
 ms.author: v-nany
 ms.custom: mvc
-ms.openlocfilehash: 1eb1b60527f10f1201a69cdddd6e07f32e53cd09
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.openlocfilehash: 8cd9f7c076c58945081f78c2745b4112fcfd9958
+ms.sourcegitcommit: 2a147231bf3d0a693adf58fceee76ab0fbcd6dbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39167716"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39335322"
 ---
 # <a name="approved-vm-images"></a>已批准的 VM 映像
 
@@ -190,11 +190,11 @@ Remove-AzureRmPolicyDefinition -Id $definition.ResourceId
 
 | 命令 | 注释 |
 |---|---|
-| [New-AzureRmPolicyDefinition](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermpolicydefinition) | 创建新的 Azure 策略定义。 |
+| [New-AzureRmPolicyDefinition](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermpolicydefinition) | 创建新的 Azure Policy 定义。 |
 | [Get-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermresourcegroup) | 获取单个资源组。 |
-| [New-AzureRmPolicyAssignment](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermpolicyassignment) | 创建新的 Azure 策略分配。 在此示例中，我们向其提供了一个定义，但它也可以接受计划。 |
-| [Remove-AzureRmPolicyAssignment](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermpolicyassignment) | 删除现有的 Azure 策略分配。 |
-| [Remove-AzureRmPolicyDefinition](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermpolicydefinition) | 删除现有的 Azure 策略定义。 |
+| [New-AzureRmPolicyAssignment](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermpolicyassignment) | 创建新的 Azure Policy 分配。 在此示例中，我们向其提供了一个定义，但它也可以接受计划。 |
+| [Remove-AzureRmPolicyAssignment](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermpolicyassignment) | 删除现有的 Azure Policy 分配。 |
+| [Remove-AzureRmPolicyDefinition](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermpolicydefinition) | 删除现有的 Azure Policy 定义。 |
 
 ## <a name="azure-cli"></a>Azure CLI
 
@@ -232,11 +232,11 @@ az policy definition delete --name `echo $definition | jq '.name' -r`
 
 | 命令 | 注释 |
 |---|---|
-| [az policy definition create](/cli/policy/definition?view=azure-cli-latest#az-policy-definition-create) | 创建新的 Azure 策略定义。 |
+| [az policy definition create](/cli/policy/definition?view=azure-cli-latest#az-policy-definition-create) | 创建新的 Azure Policy 定义。 |
 | [az group show](/cli/group?view=azure-cli-latest#az-group-show) | 获取单个资源组。 |
-| [az policy assignment create](/cli/policy/assignment?view=azure-cli-latest#az-policy-assignment-create) | 创建新的 Azure 策略分配。 在此示例中，我们向其提供了一个定义，但它也可以接受计划。 |
-| [az policy assignment delete](/cli/policy/assignment?view=azure-cli-latest#az-policy-assignment-delete) | 删除现有的 Azure 策略分配。 |
-| [az policy definition delete](/cli/policy/definition?view=azure-cli-latest#az-policy-definition-delete) | 删除现有的 Azure 策略定义。 |
+| [az policy assignment create](/cli/policy/assignment?view=azure-cli-latest#az-policy-assignment-create) | 创建新的 Azure Policy 分配。 在此示例中，我们向其提供了一个定义，但它也可以接受计划。 |
+| [az policy assignment delete](/cli/policy/assignment?view=azure-cli-latest#az-policy-assignment-delete) | 删除现有的 Azure Policy 分配。 |
+| [az policy definition delete](/cli/policy/definition?view=azure-cli-latest#az-policy-definition-delete) | 删除现有的 Azure Policy 定义。 |
 
 ## <a name="rest-api"></a>REST API
 
@@ -247,13 +247,13 @@ az policy definition delete --name `echo $definition | jq '.name' -r`
 - 创建策略定义（订阅范围）。 将[策略定义](#policy-definition) JSON 用于请求正文。
 
   ```http
-  PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyDefinitions/allowed-custom-images?api-version=2016-12-01
+  PUT https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyDefinitions/allowed-custom-images?api-version=2016-12-01
   ```
 
 - 创建策略分配（资源组范围）
 
   ```http
-  PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/YourResourceGroup/providers/Microsoft.Authorization/policyAssignments/allowed-custom-images-assignment?api-version=2017-06-01-preview
+  PUT https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/resourceGroups/YourResourceGroup/providers/Microsoft.Authorization/policyAssignments/allowed-custom-images-assignment?api-version=2017-06-01-preview
   ```
 
   将以下 JSON 示例用于请求正文：
@@ -280,26 +280,26 @@ az policy definition delete --name `echo $definition | jq '.name' -r`
 - 删除策略分配
 
   ```http
-  DELETE https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyAssignments/allowed-custom-images-assignment?api-version=2017-06-01-preview
+  DELETE https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyAssignments/allowed-custom-images-assignment?api-version=2017-06-01-preview
   ```
 
 - 删除策略定义
 
   ```http
-  DELETE https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyDefinitions/allowed-custom-images?api-version=2016-12-01
+  DELETE https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyDefinitions/allowed-custom-images?api-version=2016-12-01
   ```
 
 ### <a name="rest-api-explanation"></a>REST API 说明
 
 | 服务 | 组 | 操作 | 注释 |
 |---|---|---|---|
-| 资源管理 | 策略定义 | 创建[](https://docs.microsoft.com/rest/api/resources/policydefinitions/createorupdate) | 在订阅中创建新的 Azure 策略定义。 替代方法：[在管理组中创建](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup) |
-| 资源管理 | 策略分配 | 创建[](https://docs.microsoft.com/rest/api/resources/policyassignments/create) | 创建新的 Azure 策略分配。 在此示例中，我们向其提供了一个定义，但它也可以接受计划。 |
-| 资源管理 | 策略分配 | [删除](https://docs.microsoft.com/rest/api/resources/policyassignments/delete) | 删除现有的 Azure 策略分配。 |
-| 资源管理 | 策略定义 | [删除](https://docs.microsoft.com/rest/api/resources/policydefinitions/delete) | 删除现有的 Azure 策略定义。 替代方法：[在管理组中删除](/rest/api/resources/policydefinitions/deleteatmanagementgroup) |
+| 资源管理 | 策略定义 | [创建](https://docs.microsoft.com/rest/api/resources/policydefinitions/createorupdate) | 在订阅中创建新的 Azure Policy 定义。 替代方法：[在管理组中创建](https://docs.microsoft.com/rest/api/resources/policydefinitions/createorupdateatmanagementgroup) |
+| 资源管理 | 策略分配 | [创建](https://docs.microsoft.com/rest/api/resources/policyassignments/create) | 创建新的 Azure Policy 分配。 在此示例中，我们向其提供了一个定义，但它也可以接受计划。 |
+| 资源管理 | 策略分配 | [删除](https://docs.microsoft.com/rest/api/resources/policyassignments/delete) | 删除现有的 Azure Policy 分配。 |
+| 资源管理 | 策略定义 | [删除](https://docs.microsoft.com/rest/api/resources/policydefinitions/delete) | 删除现有的 Azure Policy 定义。 替代方法：[在管理组中删除](https://docs.microsoft.com/rest/api/resources/policydefinitions/deleteatmanagementgroup) |
 
 ## <a name="next-steps"></a>后续步骤
 
-- 查看其他 [Azure 策略示例](../json-samples.md)
-- 查看 [Azure 策略定义结构](../policy-definition.md)
-- 参阅[将策略应用于 Windows VM](../../virtual-machines/windows/policy.md) 中提供的用于虚拟机的 Azure 策略示例
+- 查看其他 [Azure Policy 示例](../json-samples.md)
+- 查看 [Azure Policy 定义结构](../policy-definition.md)
+- 参阅[将策略应用于 Windows VM](../../virtual-machines/windows/policy.md) 中提供的用于虚拟机的 Azure Policy 示例
