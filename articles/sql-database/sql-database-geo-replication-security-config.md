@@ -1,5 +1,5 @@
 ---
-title: 配置灾难恢复的 Azure SQL 数据库安全性 | Microsoft Docs
+title: 配置灾难恢复的 Azure SQL 数据库安全性 | Azure
 description: 了解在数据库还原或故障转移到辅助服务器后配置和管理安全性的安全注意事项。
 services: sql-database
 author: forester123
@@ -10,12 +10,12 @@ ms.topic: article
 origin.date: 04/01/2018
 ms.date: 04/17/2018
 ms.author: v-johch
-ms.openlocfilehash: 3963a164581e61480dd7a267241601fe3facd078
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 605be684673af6dd230be126d5d67204f39a0eda
+ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782368"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486756"
 ---
 # <a name="configure-and-manage-azure-sql-database-security-for-geo-restore-or-failover"></a>针对异地还原或故障转移配置和管理 Azure SQL 数据库的安全性 
 
@@ -52,42 +52,36 @@ ms.locfileid: "31782368"
 
 只有服务器管理员或 **LoginManager** 服务器角色的成员，才能使用以下 SELECT 语句确定源服务器上的登录名。 
 
-```
-SELECT [name], [sid] 
-FROM [sys].[sql_logins] 
-WHERE [type_desc] = 'SQL_Login'
-```
+    SELECT [name], [sid] 
+    FROM [sys].[sql_logins] 
+    WHERE [type_desc] = 'SQL_Login'
 
 只有 db_owner 数据库角色的成员、dbo 用户或服务器管理员，才能确定主数据库中的所有数据库用户主体。
 
-```
-SELECT [name], [sid]
-FROM [sys].[database_principals]
-WHERE [type_desc] = 'SQL_USER'
-```
+    SELECT [name], [sid]
+    FROM [sys].[database_principals]
+    WHERE [type_desc] = 'SQL_USER'
 
 #### <a name="2-find-the-sid-for-the-logins-identified-in-step-1"></a>2.查找步骤 1 中确定的登录名的 SID：
 通过将前一部分中所述的查询的输出进行比较以及对 SID 进行匹配，可以将服务器登录名映射到数据库用户。 包含数据库用户以及匹配的 SID 的登录名有权以该数据库用户主体的身份访问该数据库。 
 
 可以使用以下查询来查看所有用户主体及其在数据库中的 SID。 只有 db_owner 数据库角色的成员或服务器管理员才能运行此查询。
 
-```
-SELECT [name], [sid]
-FROM [sys].[database_principals]
-WHERE [type_desc] = 'SQL_USER'
-```
+    SELECT [name], [sid]
+    FROM [sys].[database_principals]
+    WHERE [type_desc] = 'SQL_USER'
 
 > [!NOTE]
 > INFORMATION_SCHEMA 和 sys 用户具有 NULL SID，guest SID 为 0x00。 如果数据库创建者是服务器管理员而不是 DbManager 的成员，则 dbo SID 可能以 0x01060000000001648000000000048454 开头。
+> 
+> 
 
 #### <a name="3-create-the-logins-on-the-target-server"></a>3.在目标服务器上创建登录名：
 最后一个步骤是转到一个或多个目标服务器，并使用相应的 SID 生成登录名。 基本语法如下。
 
-```
-CREATE LOGIN [<login name>]
-WITH PASSWORD = <login password>,
-SID = <desired login SID>
-```
+    CREATE LOGIN [<login name>]
+    WITH PASSWORD = <login password>,
+    SID = <desired login SID>
 
 > [!NOTE]
 > 如果要授予用户对辅助数据库而不是主数据库的访问权限，可以使用以下语法更改主服务器上的用户登录名来实现此目的。

@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 07/19/2017
 ms.date: 1/22/2017
 ms.author: v-haiqya
-ms.openlocfilehash: f5b2b26eae02ef05fc4c2875a66e25ad64d7ec1f
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+ms.openlocfilehash: 3f020876331be67f8a8bd68da5d2435b1a06a57f
+ms.sourcegitcommit: 48c75bdefe7c4e8c35d8ecad7cb8b8b039fe7647
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219569"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39416842"
 ---
 # <a name="media-encoder-standard-schema"></a>Media Encoder Standard 架构
 本文介绍 [Media Encoder Standard 预设](media-services-mes-presets-overview.md)基于的 XML 架构的一些元素和类型。 本文将解释元素及其有效值。  
@@ -178,11 +178,11 @@ ms.locfileid: "39219569"
 
 ![MESRoation1](./media/media-services-shemas/media-services-mes-roation1.png) 
 
-如果输入视频是以非零旋转捕获（例如，垂直持握的智能手机或平板电脑），则默认情况下，MES 将对输入视频应用编码分辨率设置（宽度、高度），然后补偿旋转。 有关示例，请参阅下图。 预设使用宽度 = “100%”，高度 = “100%”，MES 将此解释为所需输出为 1280 像素宽和 720 像素高。 旋转视频后，它会缩小图片适应窗口，左右两侧会出现黑边区域。  
+如果输入视频是以非零旋转捕获（例如，垂直持握的智能手机或平板电脑），则默认情况下，MES 将对输入视频应用编码分辨率设置（宽度、高度），然后补偿旋转。 有关示例，请参阅下图。 预设使用 Width = "100%"，Height = "100%"，MES 将此解释为所需输出为 1280 像素宽和 720 像素高。 旋转视频后，它会缩小图片适应窗口，左右两侧会出现黑边区域。  
 
 ![MESRoation2](./media/media-services-shemas/media-services-mes-roation2.png) 
 
-或者，可以使用 **PreserveResolutionAfterRotation** 标志并将其设置为“true”（默认值为“false”）。 因此，如果预设为宽度 = “100%”，高度 = “100%”，并将 PreserveResolutionAfterRotation 设置为“true”，则宽为 1280 像素、高为 720 像素，且 90 度旋转的输入视频将生成 0 度旋转、但宽为 720 像素、高为 1280 像素的输出视频。 参阅下图：  
+或者，可以使用 **PreserveResolutionAfterRotation** 标志，将其设置为“true”（默认值为“false”）。 因此，如果预设为 Width = "100%"，Height = "100%"，并将 PreserveResolutionAfterRotation 设置为 "true"，则宽为 1280 像素、高为 720 像素，且 90 度旋转的输入视频会生成 0 度旋转但宽为 720 像素、高为 1280 像素的输出视频。 参阅下图：  
 
 ![MESRoation3](./media/media-services-shemas/media-services-mes-roation3.png) 
 

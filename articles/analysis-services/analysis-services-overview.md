@@ -5,16 +5,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: overview
-origin.date: 06/05/2018
-ms.date: 07/16/2018
+origin.date: 06/21/2018
+ms.date: 08/06/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 415d3355d942ade963cc8d7c493d93911df12c26
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.openlocfilehash: 2a013b87befa662766c23f1f1e1d8e8cc9201ea6
+ms.sourcegitcommit: c6205500afd23ac00f2829fe51858b51a622eaf1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39167816"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39487859"
 ---
 # <a name="what-is-azure-analysis-services"></a>什么是 Azure Analysis Services？
 
@@ -29,7 +29,7 @@ Azure Analysis Services 是一个完全托管的平台即服务 (PaaS)，它在�
 
 在 Azure 门户中，数分钟即可[创建服务器](analysis-services-create-server.md)。 借助 Azure 资源管理器[模板](../azure-resource-manager/resource-manager-create-first-template.md)和 PowerShell，可以使用声明性模板来创建服务器。 利用单个模板可以部署服务器资源及其他 Azure 组件，例如存储帐户和 Azure Functions。 
 
-<!-- Not Available VIDEO on [Automating deployent](https://channel9.msdn.com/series/Azure-Analysis-Services/AzureAnalysisServicesAutomation)--> Azure Analysis Services 集成许多 Azure 服务，因此可以生成复杂的分析解决方案。 集成 [Azure Active Directory](../active-directory/active-directory-whatis.md) 后可以对关键数据进行安全的基于角色的访问。 可通过自定义代码将 [Azure 自动化](../automation/automation-intro.md)和 [Azure Functions](../azure-functions/functions-overview.md) 用于模型的轻型业务流程。 
+<!-- Not Available VIDEO on [Automating deployent](https://channel9.msdn.com/series/Azure-Analysis-Services/AzureAnalysisServicesAutomation)--> Azure Analysis Services 集成许多 Azure 服务，因此可以生成复杂的分析解决方案。 集成 [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) 后可以对关键数据进行安全的基于角色的访问。 可通过自定义代码将 [Azure 自动化](../automation/automation-intro.md)和 [Azure Functions](../azure-functions/functions-overview.md) 用于模型的轻型业务流程。 
 <!-- Not Available on [Azure Data Factory](../data-factory/introduction.md)-->
 
 ## <a name="the-right-tier-when-you-need-it"></a>符合需要的层级
@@ -59,7 +59,14 @@ Azure Analysis Services 是一个完全托管的平台即服务 (PaaS)，它在�
 |S3    |    400     |    100     |
 <!--Notice: Standared tier from S0 to S3 in Mooncake-->
 
-<!--Not Available on ## Availability by region-->
+## <a name="availability-by-region"></a>按区域列出的可用性
+“中国北部”区域目前支持 Azure Analysis Services。 支持的计划和查询副本可用性取决于所选的区域。 计划和查询副本可用性可能会根据每个区域的需求和可用资源而变化。 
+### <a name="china"></a>中国
+
+|区域  | 支持的计划 |
+|---------|---------|
+|中国北部     |    B1、B2、S0、S1、S2、S3    |
+
 ## <a name="scale-to-your-needs"></a>按需求缩放
 
 ### <a name="scale-updown-pause-and-resume"></a>纵向扩展\缩减、暂停和恢复
@@ -95,8 +102,7 @@ Azure Analysis Services 防火墙阻止所有客户端连接，规则中指定�
 
 ### <a name="authentication"></a>身份验证
 
-用户身份验证由 [Azure Active Directory (AAD)](../active-directory/active-directory-whatis.md) 处理。 登录时，用户需使用组织帐户标识对数据库进行基于角色的访问。 用户标识必须是服务器所在订阅的默认 Azure Active Directory 成员。 若要了解详细信息，请参阅[身份验证和用户权限](analysis-services-manage-users.md)。
-<!--Notice: fundamentals is not exists-->
+用户身份验证由 [Azure Active Directory (AAD)](../active-directory/fundamentals/active-directory-whatis.md) 处理。 登录时，用户需使用组织帐户标识对数据库进行基于角色的访问。 用户标识必须是服务器所在订阅的默认 Azure Active Directory 成员。 若要了解详细信息，请参阅[身份验证和用户权限](analysis-services-manage-users.md)。
 
 ### <a name="data-security"></a>数据安全性
 

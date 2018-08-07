@@ -1,5 +1,5 @@
 ---
-title: Azure SQL 数据库托管实例概述 | Microsoft Docs
+title: Azure SQL 数据库托管实例概述 | Azure
 description: 本主题介绍 Azure SQL 数据库托管实例，解释其工作原理，并说明它与 Azure SQL 数据库中的单一数据库的差别。
 services: sql-database
 author: yunan2016
@@ -8,15 +8,15 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-origin.date: 04/10/2018
-ms.date: 04/19/2018
+origin.date: 07/16/2018
+ms.date: 08/06/2018
 ms.author: v-nany
-ms.openlocfilehash: a35d55f40ad8ad30c8378b675370221c8d66a2ed
-ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
+ms.openlocfilehash: 02c9189d5df5fe8c3187a9f1f8b430889d4039fe
+ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36948080"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486954"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>什么是托管实例（预览版）？
 
@@ -65,13 +65,13 @@ Azure SQL 数据库托管实例（预览版）是 Azure SQL 数据库的一项�
 | --- | --- |
 |无需采购和管理硬件 <br>不产生底层基础结构的管理开销 <br>快速预配和服务缩放 <br>自动修补和版本升级 <br>与其他 PaaS 数据服务集成 |99.99% 的运行时间 SLA  <br>内置高可用性 <br>使用自动备份保护数据 <br>客户可配置的备份保留期（公共预览版中固定为 7 天） <br>用户启动的备份 <br>数据库时间点还原功能 |
 |**安全性和符合性** | **管理**|
-|隔离的环境、VNet 集成、单租户服务、专用的计算和存储资源 <br>传输中数据加密 <br>Azure AD 身份验证、单一登录支持 <br>符合 Azure SQL 数据库遵循的相同法规标准 <br>SQL 审核 <br>威胁检测 |用于自动预配和缩放服务的 Azure 资源管理器 API <br>用于手动预配和缩放服务的 Azure 门户功能 <br>数据迁移服务 
+|隔离的环境（VNet 集成、单租户服务、专用的计算和存储资源） <br>透明数据加密<br>Azure AD 身份验证、单一登录支持 <br>符合 Azure SQL 数据库遵循的相同法规标准 <br>SQL 审核 <br>威胁检测 |用于自动预配和缩放服务的 Azure 资源管理器 API <br>用于手动预配和缩放服务的 Azure 门户功能 <br>数据迁移服务 
 
 ![单一登录](./media/sql-database-managed-instance/sso.png) 
 
-## <a name="vcore-based-purchasing-model-preview"></a>基于 vCore 的购买模型（预览版）
+## <a name="vcore-based-purchasing-model"></a>基于 vCore 的购买模型
 
-基于 vCore 的购买模型（预览版）提供了灵活性、控制力和透明性，并且还提供了一种简单明了的方法来将本地工作负荷要求转换到云。 此模型允许根据工作负荷需求来缩放计算、内存和存储资源。 此外，借助[面向 SQL Server 的 Azure 混合使用权益](../virtual-machines/windows/hybrid-use-benefit-licensing.md)，vCore 模型能够节省高达 30% 的费用。
+基于 vCore 的购买模型提供了灵活性、控制力和透明性，并且还提供了一种简单明了的方法来将本地工作负荷要求转换到云。 此模型允许根据工作负荷需求来缩放计算、内存和存储资源。 此外，借助[面向 SQL Server 的 Azure 混合使用权益](../virtual-machines/windows/hybrid-use-benefit-licensing.md)，vCore 模型能够节省高达 30% 的费用。
 
 虚拟核心表示逻辑 CPU，提供不同代的硬件供客户选择。
 - 第 4 代逻辑 CPU 基于 Intel E5-2673 v3 (Haswell) 2.4 GHz 处理器。
@@ -82,13 +82,20 @@ Azure SQL 数据库托管实例（预览版）是 Azure SQL 数据库的一项�
 ||第 4 代|第 5 代|
 |----|------|-----|
 |硬件|Intel E5-2673 v3 (Haswell) 2.4 GHz 处理器、附加的 SSD vCore = 1 PP（物理核心）|Intel E5-2673 v4 (Broadwell) 2.3 GHz 处理器、快速 eNVM SSD、vCore=1 LP（超线程）|
-|性能级别|8、16、24 个 vCore|8、16、24、32、40 个 vCore|
-|内存|每个 vCore 7GB|每个 vCore 5.5GB|
+|性能级别|8、16、24 个 vCore|8、16、24、32、40、64、80 个 vCore|
+|内存|每个 vCore 7 GB|每个 vCore 5.5 GB|
 ||||
 
-## <a name="managed-instance-service-tier"></a>托管实例服务层
+## <a name="managed-instance-service-tiers"></a>托管实例服务层
 
-托管实例最初在单个服务层（“常规用途”）中提供，该层适用于具有典型可用性和一般 IO 延迟要求的应用程序。
+托管实例可在两个服务层中提供：
+- **常规用途**：为具有典型可用性和一般 IO 延迟要求的应用程序设计。
+- **业务关键**：为具有高可用性和低的 IO 延迟要求的应用程序设计。
+ 
+> [!IMPORTANT]
+> 在公共预览版中，不支持在常规用途和业务关键服务层之间切换。 如果想要将数据库迁移到不同服务层中的实例，可以创建新实例，从原始实例对数据库进行时间点还原，然后删除不再需要的原始实例。 
+
+### <a name="general-purpose-service-tier"></a>常规用途服务层
 
 以下列表描述了常规用途服务层的主要特征： 
 
@@ -102,15 +109,15 @@ Azure SQL 数据库托管实例（预览版）是 Azure SQL 数据库的一项�
  
 ![常规用途服务层](./media/sql-database-managed-instance/general-purpose-service-tier.png) 
 
-下面概述了常规用途服务层的主要功能：
+以下列表概述了常规用途服务层的主要特征：
 
 |功能 | 说明|
 |---|---|
-| vCore 数目* | 8、16、24（第 4 代）<br>8、16、24、32、40（第 5 代）|
+| vCore 数目* | 8、16、24（第 4 代）<br>8、16、24、32、40、64、80（第 5 代）|
 | SQL Server 版本/内部版本 | SQL Server（最新可用版本） |
 | 最小存储大小 | 32 GB |
 | 最大存储大小 | 8 TB |
-| 每个数据库的最大存储 | 8 TB |
+| 每个数据库的最大存储 | 由每个实例的最大存储大小决定 |
 | 预期的存储 IOPS | 每个数据文件 500-7500 IOPS（取决于数据文件）。 请参阅[高级存储](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes) |
 | 每个数据库的数据文件 (ROWS) 数目 | 多个 | 
 | 每个数据库的日志文件 (LOG) 数目 | 1 | 
@@ -126,6 +133,35 @@ Azure SQL 数据库托管实例（预览版）是 Azure SQL 数据库的一项�
 
   \* 虚拟核心表示逻辑 CPU，提供不同代的硬件供客户选择。 第 4 代逻辑 CPU 基于 Intel E5-2673 v3 (Haswell) 2.4 GHz 处理器，第 5 代逻辑 CPU 基于 Intel E5-2673 v4 (Broadwell) 2.3 GHz 处理器。 
 
+### <a name="business-critical-service-tier"></a>“业务关键”服务层
+
+业务关键服务层适用于具有高 IO 要求的应用程序。 它使用多个 Always On 独立副本，提供最高级别的故障恢复能力。 下图演示了此服务层的基础体系结构：
+
+![“业务关键”服务层](./media/sql-database-managed-instance/business-critical-service-tier.png)  
+
+以下列表概述了业务关键服务层的主要特征： 
+-   为具有最严苛性能和 HA 要求的商业应用程序设计 
+-   附带超高速 SSD 存储（第 4 代最多 1 TB），每个实例支持最多 100 个数据库 
+
+|功能 | 说明|
+|---|---|
+| vCore 数目* | 8、16、24（第 4 代）|
+| SQL Server 版本/内部版本 | SQL Server（最新可用版本） |
+| 其他功能 | [In-Memory OLTP](sql-database-in-memory.md)<br> 1 个额外的只读副本（[读取扩展](sql-database-read-scale-out.md)）
+| 最小存储大小 | 32 GB |
+| 最大存储大小 | 第 4 代：1 TB（所有 vCore 大小）|
+| 每个数据库的最大存储 | 由每个实例的最大存储大小决定 |
+| 每个数据库的数据文件 (ROWS) 数目 | 多个 | 
+| 每个数据库的日志文件 (LOG) 数目 | 1 | 
+| 受管理的自动备份 | 是 |
+| 高可用性 | 基于 [Always On 可用性组](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server)和 [Azure Service Fabric](../service-fabric/service-fabric-overview.md) |
+| 内置的实例和数据库监视与指标 | 是 |
+| 自动软件修补 | 是 |
+| VNet - Azure 资源管理器部署 | 是 |
+| VNet - 经典部署模型 | 否 |
+| 门户支持 | 是|
+|||
+
 ## <a name="advanced-security-and-compliance"></a>高级安全性和符合性 
 
 ### <a name="managed-instance-security-isolation"></a>托管实例安全隔离 
@@ -136,7 +172,7 @@ Azure SQL 数据库托管实例（预览版）是 Azure SQL 数据库的一项�
 - 仅通过专用 IP 地址公开 SQL 终结点，以便从专用 Azure 或混合网络建立安全连接
 - 具有专用底层基础结构（计算、存储）的单一租户
 
-下图概括描绘了隔离设计： 
+下图概述了应用程序的各种连接选项： 
 
 ![高可用性](./media/sql-database-managed-instance/application-deployment-topologies.png)  
 
@@ -148,15 +184,15 @@ Azure SQL 数据库托管实例（预览版）是 Azure SQL 数据库的一项�
 
 托管实例提供动态数据加密，使用传输层安全性保护数据。
 
-除传输层安全性以外，SQL 数据库托管实例使用 [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) 在动态、静态和查询处理期间提供敏感数据的保护。 Always Encrypted 是业界首创功能，可针对涉及关键数据被盗的漏洞提供无与伦比的数据安全性。 例如，借助 Always Encrypted，信用卡号即使在查询处理期间也始终加密存储在数据库中，允许经授权员工或需要处理该数据的应用程序在使用时进行解密。 
+除传输层安全性以外，SQL 数据库托管实例使用 [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) 在动态、静态和查询处理期间提供敏感数据的保护。 Always Encrypted 是业界首创功能，可针对涉及关键数据被盗的漏洞提供无与伦比的数据安全性。 例如，借助 Always Encrypted，信用卡号即使在查询处理期间也始终加密存储在数据库中，允许经授权员工或需要处理该数据的应用程序在使用时进行解密。 
 
 ### <a name="dynamic-data-masking"></a>动态数据屏蔽 
 
-SQL 数据库的[动态数据掩码](/sql/relational-databases/security/dynamic-data-masking)功能通过对非特权用户模糊化敏感数据来限制此类数据的泄漏。 动态数据掩码允许指定在对应用层产生最小影响的前提下可以透露的敏感数据量，从而帮助防止未经授权的用户访问敏感数据。 它是一种基于策略的安全功能，会在针对指定的数据库字段运行查询后返回的结果集中隐藏敏感数据，同时保持数据库中的数据不变。 
+SQL 数据库的[动态数据掩码](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking)功能通过对非特权用户模糊化敏感数据来限制此类数据的泄漏。 动态数据掩码允许指定在对应用层产生最小影响的前提下可以透露的敏感数据量，从而帮助防止未经授权的用户访问敏感数据。 它是一种基于策略的安全功能，会在针对指定的数据库字段运行查询后返回的结果集中隐藏敏感数据，同时保持数据库中的数据不变。 
 
 ### <a name="row-level-security"></a>行级别安全性 
 
-使用[行级别安全性](/sql/relational-databases/security/row-level-security)可以根据执行查询的用户特征（例如，按组成员身份或执行上下文），控制对数据库表中的行的访问。 行级别安全性 (RLS) 简化了应用程序中的安全性设计和编程。 使用 RLS 可针对数据行访问实施限制。 例如，确保工作人员只能访问与其部门相关的数据行，或者将可访问的数据限制为相关的数据。 
+使用[行级别安全性](https://docs.microsoft.com/sql/relational-databases/security/row-level-security)可以根据执行查询的用户特征（例如，按组成员身份或执行上下文），控制对数据库表中的行的访问。 行级别安全性 (RLS) 简化了应用程序中的安全性设计和编程。 使用 RLS 可针对数据行访问实施限制。 例如，确保工作人员只能访问与其部门相关的数据行，或者将可访问的数据限制为相关的数据。 
 
 ### <a name="threat-detection"></a>威胁检测 
 
@@ -191,7 +227,6 @@ Azure 数据库迁移服务是一项完全托管的服务，旨在实现从多�
 - 使用 [T-SQL RESTORE 命令](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql)。 
   - 有关介绍如何还原 Wide World Importers - 标准数据库备份文件的教程，请参阅[将备份文件还原到托管实例](sql-database-managed-instance-restore-from-backup-tutorial.md)。 本教程介绍如何将备份文件上传到 Azure 博客存储并使用共享访问签名 (SAS) 密钥进行保护。
   - 有关从 URL 还原的信息，请参阅[从 URL 本机还原](sql-database-managed-instance-migrate.md#native-restore-from-url)。
-- [从 BACPAC 文件导入](sql-database-import.md)
 
 ## <a name="sql-features-supported"></a>支持的 SQL 功能 
 
@@ -212,7 +247,7 @@ Azure 数据库迁移服务是一项完全托管的服务，旨在实现从多�
 - 托管实例不允许指定完整的物理路径，因此，必须以不同的方式支持所有相应方案：RESTORE DB 不支持 WITH MOVE，CREATE DB 不允许物理路径，BULK INSERT 仅适用于 Azure Blob，等等。 
 - 托管实例支持使用 [Azure AD 身份验证](sql-database-aad-authentication.md)作为 Windows 身份验证的云替代方法。 
 - 对于包含内存中 OLTP 对象的数据库，托管实例会自动管理 XTP 文件组和文件
- 
+
 ### <a name="managed-instance-administration-features"></a>托管实例管理功能  
 
 托管实例可让系统管理员专注于业务中最重要的事务。 许多系统管理员/DBA 活动都是不需要的，或者很简单。 例如，OS/RDBMS 安装和修补、动态实例大小调整和配置、备份、数据库复制（包括系统数据库）、高可用性配置，以及运行状况和性能监视数据流的配置。 
