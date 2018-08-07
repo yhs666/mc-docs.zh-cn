@@ -9,12 +9,12 @@ origin.date: 06/05/2018
 ms.date: 06/25/2018
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: a9071173ba72fb7af9f9462462105d83d9f5a558
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.openlocfilehash: 98a520729bf05f2562a77bf709b1951301fe0bbb
+ms.sourcegitcommit: 2a147231bf3d0a693adf58fceee76ab0fbcd6dbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315734"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39335580"
 ---
 # <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>高性价比标准存储以及非托管和托管 Azure VM 磁盘
 
@@ -45,8 +45,8 @@ Azure 标准存储为运行不区分延迟的工作负荷提供可靠、低成�
 
 **标准存储**：Azure 标准存储支持 Azure 磁盘、Azure Blob、Azure 文件、Azure 表和 Azure 队列。 要使用标准存储服务，请从[创建 Azure 存储帐户](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account)开始。
 
-**标准 SSD 磁盘：** 与标准 HDD 磁盘相比，标准 SSD 盘提供更可靠的性能，当前提供预览版。 有关标准 SSD 盘区域可用性的详细信息，请参阅[标准 SSD 盘（预览版）区域可用性](../articles/virtual-machines/windows/faq-for-disks.md#standard-ssds-azure-regions)。
-
+<!--Not Available on **Standard SSD disks:**-->
+<!--Not Available on [region availability of Standard SSD disks (Preview)](../articles/virtual-machines/windows/faq-for-disks.md#standard-ssds-azure-regions)-->
 **标准 HDD 磁盘：** 可将标准 HDD 磁盘附加到所有 Azure VM，包括与高级存储配合使用的不同大小系列的 VM，如 DSv2 系列。 标准 HDD 磁盘只能附加到一个 VM。 但是，可以将一个或多个此类磁盘附加到 VM，最多可附加为该 VM 大小定义的最大磁盘计数。 在下一部分讲述标准存储的可伸缩性和性能目标时会详细介绍规范。
 <!--Not Available on GS series-->
 
