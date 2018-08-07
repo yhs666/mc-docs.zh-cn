@@ -9,12 +9,12 @@ origin.date: 04/01/2018
 ms.date: 04/17/2018
 ms.author: v-johch
 ms.topic: article
-ms.openlocfilehash: b5e8a9fd25af3729d045dd9cfb5a74ba58ca28d7
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: ad489ea64b5ad8b0a66cb1ffe43473eecf4225de
+ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782305"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486595"
 ---
 # <a name="getting-started-with-json-features-in-azure-sql-database"></a>Azure SQL 数据库中的 JSON 功能入门
 使用 Azure SQL 数据库可以分析和查询以 JavaScript 对象表示法 [(JSON)](http://www.json.org/) 格式表示的数据，并将关系数据导出为 JSON 文本。
@@ -86,6 +86,7 @@ from Sales.Customers Customer
         on Customer.CustomerID = Orders.CustomerID
 where Customer.CustomerID = 931
 FOR JSON AUTO, WITHOUT_ARRAY_WRAPPER
+
 ```
 
 无需单独发送查询来获取 Customer 数据，再提取相关 Orders 列表，而可以通过一个查询来获取全部所需的数据，如以下示例输出中所示：
@@ -188,7 +189,6 @@ AS BEGIN
 
 END
 ```
-
 可以分析采用 JSON 数组格式并作为参数提供给存储过程的订单集合，并将它插入 Orders 表。
 
 ## <a name="next-steps"></a>后续步骤
@@ -199,3 +199,4 @@ END
 * [第 9 频道视频](https://channel9.msdn.com/Shows/Data-Exposed/SQL-Server-2016-and-JSON-Support)
 
 若要了解将 JSON 集成到应用程序的各种方案，请参阅[第 9 频道视频](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/JSON-as-a-bridge-betwen-NoSQL-and-relational-worlds)中的演示，或者在 [JSON 博客文章](http://blogs.msdn.com/b/sqlserverstorageengine/archive/tags/json/)中查找与用例相符的方案。
+

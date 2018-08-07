@@ -10,12 +10,12 @@ ms.topic: article
 origin.date: 07/06/2018
 ms.date: 07/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: fa33e7446e2af4f1e1df2034e6900ae0484dcdec
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.openlocfilehash: bc4ba6453d16eb718a86140f5169047960b40ac8
+ms.sourcegitcommit: 54851a22f188f2401ed971931132b46febe7014e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168282"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39361345"
 ---
 <!-- Notice: Source location Azure East, China East TO Target location Azure Sourth East, China North-->
 # <a name="azure-traffic-manager-with-azure-site-recovery"></a>将 Azure 流量管理器与 Azure Site Recovery 配合使用
@@ -89,9 +89,9 @@ Azure 流量管理器的[加权](../traffic-manager/traffic-manager-configure-we
 
 全球的企业往往通过定制其应用程序来满足区域需求，从而提高客户体验。 借助本地化和更低的延迟，可以在不同的区域之间拆分应用程序基础结构。 此外，企业需要遵守某些区域的数据法规，因此，需要选择将一部分应用程序基础结构隔离在区域边界内。  
 
-假设**公司 D** 拆分了其应用程序终结点，以便为德国和其他区域的客户提供服务。 **公司 D** 利用 Azure 流量管理器的[地理](../traffic-manager/traffic-manager-configure-geographic-routing-method.md)路由方法完成了此设置。 源自德国的所有流量将定向到**终结点 1**，源自德国境外的所有流量将定向到**终结点 2**。
+假设**公司 D** 拆分了其应用程序终结点，为中国和其他区域的客户分开提供服务。 **公司 D** 利用 Azure 流量管理器的[地理](../traffic-manager/traffic-manager-configure-geographic-routing-method.md)路由方法完成了此设置。 源自中国的所有流量定向到**终结点 1**，源自中国境外的所有流量定向到**终结点 2**。
 
-此设置的问题在于，如果**终结点 1** 出于任何原因停止工作，则不会将任何流量重定向到**终结点 2**。 来自德国的流量持续定向到**终结点 1**，而不管该终结点的运行状况如何，因此，德国用户无法访问**公司 D** 的应用程序。 同样，如果**终结点 2** 脱机，则不会将任何流量重定向到**终结点 1**。
+此设置的问题在于，如果**终结点 1** 出于任何原因停止工作，则不会将任何流量重定向到**终结点 2**。 来自中国的流量持续定向到**终结点 1**，而不管该终结点的运行状况如何，因此，中国用户无法访问**公司 D** 的应用程序。 同样，如果**终结点 2** 脱机，则不会将任何流量重定向到**终结点 1**。
 
 ![设置前的多区域应用程序](./media/concepts-traffic-manager-with-site-recovery/geographic-application-before.png)
 
@@ -103,7 +103,8 @@ Azure 流量管理器的[加权](../traffic-manager/traffic-manager-configure-we
 
 ![设置后的多区域应用程序](./media/concepts-traffic-manager-with-site-recovery/geographic-application-after.png)
 
-例如，如果德国中部的终结点发生故障，应用程序可以快速恢复到德国东北部。 新终结点处理来自德国的流量，只会给用户造成极短的停机。 同样，如果中国北部发生终结点服务中断，则可以将应用程序工作负荷恢复到中国北部，同时，让 Azure 流量管理器将 DNS 重定向到可用的终结点。
+例如，如果中国东部的终结点发生故障，应用程序可以快速恢复到中国北部。 新终结点处理来自中国的流量，只会给用户造成极短的停机。 
+<!--Not Available on Similarly an endpoint outage in China North can be handled by recovering the application workload to China North, with Azure Traffic Manager handling DNS redirects to the available endpoint.-->
 
 可以扩展上述设置，以根据需要包含区域和终结点的多种组合。 流量管理器最多允许 10 种级别的嵌套配置文件，但不允许在嵌套配置中使用循环。
 

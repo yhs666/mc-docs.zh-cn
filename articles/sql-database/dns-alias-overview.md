@@ -1,5 +1,5 @@
 ---
-title: Azure SQL 数据库的 DNS 别名 | Microsoft Docs
+title: Azure SQL 数据库的 DNS 别名 | Azure
 description: 应用程序可以连接到 Azure SQL 数据库服务器的别名。 另外，随时都可以更改别名所指向的 SQL 数据库，以方便执行测试和其他操作。
 services: sql-database
 author: yunan2016
@@ -11,12 +11,12 @@ origin.date: 02/05/2018
 ms.date: 02/28/2018
 ms.reviewer: genemi;ayolubek
 ms.author: v-nany
-ms.openlocfilehash: 1e29eabfe236770734b88f4b4ea22d0af1e2e638
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: d5b7e6d1a8bb2a1f5fa4c58c34eb79883f947af3
+ms.sourcegitcommit: 2a147231bf3d0a693adf58fceee76ab0fbcd6dbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782198"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39335271"
 ---
 # <a name="dns-alias-for-azure-sql-database"></a>Azure SQL 数据库的 DNS 别名
 
@@ -137,5 +137,4 @@ Comment as of:  2018-01-26
 ## <a name="next-steps"></a>后续步骤
 
 - [用于管理 Azure SQL 数据库 DNS 别名的 PowerShell](dns-alias-powershell.md)
-
 

@@ -18,12 +18,12 @@ origin.date: 03/13/2018
 ms.date: 05/07/2018
 ms.author: v-yeche
 ms.custom: ''
-ms.openlocfilehash: 09450cc0ac5337987e4d5649caf7f9d24fa22138
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.openlocfilehash: 7d695bca46a442e38ae9c99d84d9a6dbb6a0db36
+ms.sourcegitcommit: 54851a22f188f2401ed971931132b46febe7014e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39167737"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39361346"
 ---
 # <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>教程：通过 Azure 门户使用虚拟网络对等互连连接虚拟网络
 
@@ -189,8 +189,9 @@ ms.locfileid: "39167737"
 
 ## <a name="next-steps"></a>后续步骤
 
-本教程介绍了如何使用虚拟网络对等互连来连接同一 Azure 区域中的两个网络。 还可以将[不同 Azure 订阅](create-peering-different-subscriptions.md#portal)中的虚拟网络对等互连，并且可以使用对等互连创建[中心辐射型网络设计](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fvirtual-network%2ftoc.json#vnet-peering)。 若要详细了解虚拟网络对等互连，请参阅[虚拟网络对等互连概述](virtual-network-peering-overview.md)和[管理虚拟网络对等互连](virtual-network-manage-peering.md)。
+本教程介绍了如何使用虚拟网络对等互连来连接同一 Azure 区域中的两个网络。 还可以将[不同的 Azure 订阅](create-peering-different-subscriptions.md#portal)中的虚拟网络对等互连。 若要详细了解虚拟网络对等互连，请参阅[虚拟网络对等互连概述](virtual-network-peering-overview.md)和[管理虚拟网络对等互连](virtual-network-manage-peering.md)。
 <!--Not Available on Cross region peering -->
+<!--Not Available on [hub and spoke network designs](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fvirtual-network%2ftoc.json#vnet-peering)-->
 
 若要通过 VPN 将自己的计算机连接到虚拟网络，并与虚拟网络或对等互连的虚拟网络中的资源进行交互，请参阅[将计算机连接到虚拟网络](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fvirtual-network%2ftoc.json)。
 

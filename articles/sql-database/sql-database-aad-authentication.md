@@ -10,12 +10,12 @@ ms.topic: article
 origin.date: 06/13/2018
 ms.date: 07/02/2018
 ms.author: v-johch
-ms.openlocfilehash: 3f774c7b5842da0a3dd6b7443613cddfc5f7ac07
-ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
+ms.openlocfilehash: 204a204c173f7eb8353a360cee3d069db617684f
+ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36948027"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486561"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql-database-managed-instance-or-sql-data-warehouse"></a>将 Azure Active Directory 身份验证与 SQL 数据库、托管实例或 SQL 数据仓库结合使用
 Azure Active Directory 身份验证是使用 Azure Active Directory (Azure AD) 中的标识连接到 Azure [SQL 数据库](sql-database-technical-overview.md)和 [SQL 数据仓库](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)的一种机制。 

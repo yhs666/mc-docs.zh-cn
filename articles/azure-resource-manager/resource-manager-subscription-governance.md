@@ -15,12 +15,12 @@ ms.workload: na
 origin.date: 03/31/2017
 ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: fa5e15d32064b7ffc8a8c07648f584398fadc00a
-ms.sourcegitcommit: beee57ca976e21faa450dd749473f457e299bbfd
+ms.openlocfilehash: f9ff3b5d84db24352499230758629eee49362c8c
+ms.sourcegitcommit: 54851a22f188f2401ed971931132b46febe7014e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33937527"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39361347"
 ---
 # <a name="azure-enterprise-scaffold---prescriptive-subscription-governance"></a>Azure 企业基架 - 出于合规目的监管订阅
 为了实现敏捷性和灵活性，企业越来越多地采用公有云。 它们利用云的优势来产生营收或优化企业资源。 Azure 提供多种不同的服务，企业可以像构建块一样将它们组合，解决广泛的工作负荷与应用程序需求。 
@@ -117,8 +117,7 @@ Azure Resource Manager 策略是 Azure 工具包中的一个强大工具。 使�
 业务线应用程序的“传统 IT”订阅
 
 * 强制针对所有资源使用“部门”和“所有者”标记
-* 仅限在特定区域创建资源
-<!-- Notice: Change North American to Specific Region -->
+* 仅限在特定区域创建资源 <!-- Notice: Change North American to Specific Region -->
 <!-- Not Available on * Restrict the ability to create G-Series VMs and HDInsight Clusters-->
 
 创建云应用程序的业务单位使用的“敏捷”环境
@@ -240,12 +239,12 @@ Azure 在最初发布时，对订阅的访问控制非常简单：只允许管�
 
 > [!TIP]
 > 对于自动化：
-> * 创建 Azure 自动化帐户，查看 [Runbook 库](../automation/automation-runbook-gallery.md)中提供 Runbook（图形和命令行）。
 > * 导入并自定义重要的 Runbook 供自己使用。
 > 
 > 一种常见方案是按计划启动/关闭虚拟机。 库中提供了示例 Runbook，它们可以处理这种方案，同时解释如何对其扩展。
 > 
 > 
+<!-- Not Available on [Runbook Gallery](../automation/automation-runbook-gallery.md)-->
 
 <!-- Not Available on ## Azure Security Center-->
 

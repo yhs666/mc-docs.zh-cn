@@ -5,16 +5,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 04/12/2018
-ms.date: 07/16/2018
+origin.date: 07/03/2018
+ms.date: 08/06/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: e44ba3067e002e59f7e95db906a9d996eafc843b
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.openlocfilehash: f7471174350d14df3e96c8860a8601747b8ee922
+ms.sourcegitcommit: c6205500afd23ac00f2829fe51858b51a622eaf1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39167803"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39487850"
 ---
 # <a name="manage-database-roles-and-users"></a>管理数据库角色和用户
 
@@ -28,6 +28,9 @@ ms.locfileid: "39167803"
 *  **读取** - 用户可以使用客户端应用程序连接到模型数据库数据并进行分析。
 
 如果创建表格模型项目，请使用 SSDT 中的角色管理器创建角色并向这些角色添加用户或组。 如果向服务器部署，请使用 SSMS、[Analysis Services PowerShell cmdlet](https://msdn.microsoft.com/library/hh758425.aspx) 或[表格模型脚本语言](https://msdn.microsoft.com/library/mt614797.aspx) (TMSL) 添加或删除角色和用户成员。
+
+> [!NOTE]
+> 安全组必须已将 `MailEnabled` 属性设为 `True`。
 
 ## <a name="to-add-or-manage-roles-and-users-in-ssdt"></a>在 SSDT 中添加或管理角色和用户  
 
@@ -133,11 +136,11 @@ ms.locfileid: "39167803"
 
 |表|DAX 表达式|  
 |-----------|--------------------|  
-|区域|=Region[Country]="China"|  
+|区域|=Region[Country]="CHINA"|  
 |ProductCategory|=ProductCategory[Name]="Bicycles"|  
 |事务|=Transactions[Year]=2016|  
 
- 净效果是指成员可以查询若干行数据，其中客户位于中国，产品类别为自行车，年份是 2016 年。 用户无法查询中国之外的事务、不是自行车的事务或非 2016 年的事务，除非他们属于授予这些权限的另一角色。
+ 净效果是成员可以查询若干行数据，其中客户位于中国，产品类别为自行车，年份是 2016 年。 用户无法查询中国之外的事务、不是自行车的事务或非 2016 年的事务，除非他们属于授予这些权限的另一角色。
 <!-- Notice: Should Be China-->
 
  可以使用筛选器 =FALSE() 拒绝访问整个表的所有行。

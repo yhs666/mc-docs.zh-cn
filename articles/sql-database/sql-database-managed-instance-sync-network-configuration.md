@@ -1,5 +1,5 @@
 ---
-title: Azure 应用服务 - 同步网络配置 | Microsoft Docs
+title: Azure 应用服务 - 同步网络配置 | Azure
 description: 本文讨论了如何同步 Azure 应用服务托管计划的网络配置。
 ms.service: sql-database
 author: yunan2016
@@ -10,12 +10,12 @@ origin.date: 03/07/2018
 ms.date: 04/19/2018
 ms.author: v-nany
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 88937f362170f6d75a0dd09012f44ff61ab9d948
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 6c224995a5c08409944962684e9d57537b60ba2b
+ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782662"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486562"
 ---
 # <a name="sync-networking-configuration-for-azure-app-service-hosting-plan"></a>Azure 应用服务托管计划的同步网络配置
 
@@ -46,4 +46,3 @@ ms.locfileid: "31782662"
 ## <a name="next-steps"></a>后续步骤
 
 - 有关配置托管实例的 VNet 的信息，请参阅[托管实例 VNet 配置](sql-database-managed-instance-vnet-configuration.md)。
-

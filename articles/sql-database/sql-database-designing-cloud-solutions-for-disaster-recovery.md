@@ -8,15 +8,15 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
-origin.date: 04/04/2018
-ms.date: 04/17/2018
+origin.date: 07/16/2018
+ms.date: 08/06/2018
 ms.author: v-nany
-ms.openlocfilehash: 722df89f9df3551793ff1a51ab9a4b8635c895de
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 11d7db379182d16e75c71c20b120f6f89af814f7
+ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782451"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486571"
 ---
 # <a name="designing-highly-available-services-using-azure-sql-database"></a>使用 Azure SQL 数据库设计高可用性服务
 
@@ -29,7 +29,7 @@ ms.locfileid: "31782451"
 *   必须并置 Web 层和数据层以减少延迟和流量成本 
 *   从根本上讲，相比数据丢失，停机时间对于那些应用程序来说是更高的业务风险
 
-在这种情况下，当所有应用程序组件需要一同故障转移时，将针对处理区域灾难对应用程序部署拓扑进行优化。 下图展示了此拓扑。 对于地理冗余，应用程序的资源部署到区域 A 和 B。但是，只有当区域 A 失败后才会利用区域 B 中的资源。 两个区域之间会配置故障转移组，用于管理数据库连接、复制和故障转移。 两个区域中的 Web 服务配置为通过读写侦听器 **&lt;failover-group-name&gt;.database.chinacloudapi.cn** 访问数据库 (1)。 设置流量管理器以使用[优先级路由方法](../traffic-manager/traffic-manager-configure-priority-routing-method.md) (2)。  
+在这种情况下，当所有应用程序组件需要一同故障转移时，将针对处理区域灾难对应用程序部署拓扑进行优化。 下图展示了此拓扑。 为了实现地理冗余，应用程序的资源会部署到区域 A 和 B。但是，只有当区域 A 故障后才会利用区域 B 中的资源。 两个区域之间会配置故障转移组，用于管理数据库连接、复制和故障转移。 两个区域中的 Web 服务配置为通过读写侦听器 **&lt;failover-group-name&gt;.database.chinacloudapi.cn** 访问数据库 (1)。 设置流量管理器以使用[优先级路由方法](../traffic-manager/traffic-manager-configure-priority-routing-method.md) (2)。  
 
 > [!NOTE]
 > [Azure 流量管理器](../traffic-manager/traffic-manager-overview.md)在这篇文章中仅供说明之用。 可以使用任何支持优先级路由方法的负载均衡解决方案。    
@@ -131,7 +131,7 @@ ms.locfileid: "31782451"
 ![方案 3. 北欧中断。](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario3-c.png)
 
 > [!NOTE]
-> 可减少欧洲最终用户体验因长时间延迟而降级的时间。 为此，应该积极部署应用程序副本并在另一个本地区域（西欧）创建辅助数据库，作为北欧脱机应用程序实例的替换方案。 当后者回到联机状态时，可以决定是继续使用西欧还是删除当地应用程序副本并重新使用北欧，
+> 可减少欧洲最终用户的体验因长时间延迟而降级的时间。 为此，应该积极部署应用程序副本并在另一个本地区域（西欧）创建辅助数据库，作为北欧脱机应用程序实例的替换方案。 当后者回到联机状态时，可以决定是继续使用西欧还是删除当地应用程序副本并重新使用北欧，
 >
 
 此设计的关键优势是：

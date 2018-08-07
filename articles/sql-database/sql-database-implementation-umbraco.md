@@ -10,12 +10,12 @@ ms.topic: article
 origin.date: 04/01/2018
 ms.date: 04/17/2018
 ms.author: v-johch
-ms.openlocfilehash: 3c2e7545c6b47d9803bf86f13b69959344fc85f5
-ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
+ms.openlocfilehash: ec1de1531fb40d2929b4c37249da8b2e935af94c
+ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36947972"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486609"
 ---
 # <a name="umbraco-uses-azure-sql-database-to-quickly-provision-and-scale-services-for-thousands-of-tenants-in-the-cloud"></a>Umbraco 使用 Azure SQL 数据库为云中数千个租户快速预配和缩放服务
 ![Umbraco 徽标](./media/sql-database-implementation-umbraco/umbracologo.png)
@@ -66,7 +66,7 @@ UaaS 使 SaaS 客户能够使用他们以前未曾接触过的 Umbraco CMS 功�
    
    Umbraco 不需要异地复制，但它确实利用了 Azure 异地还原来帮助确保发生中断时将停机时间缩到最短。 异地还原依赖于异地冗余 Azure 存储中的数据库备份。 这样，用户便可以在主要区域发生中断时，从备份副本还原。
 5. 取消预配
-
+   
    删除项目环境后，将在 Azure 服务总线队列清理期间删除所有关联的数据库（开发、过渡或实时）。 此自动化过程将未使用的数据库还原为 Umbraco 的弹性数据库可用性池，这样既可充分利用这些数据库，又可将这些数据库用于将来的预配。
 
 ## <a name="elastic-pools-allow-uaas-to-scale-with-ease"></a>弹性池可让 UaaS 轻松缩放
@@ -85,7 +85,7 @@ UaaS 使 SaaS 客户能够使用他们以前未曾接触过的 Umbraco CMS 功�
 
 > “弹性池是最适合我们 SaaS 产品的选项，因为我们可以根据需要调大和调小容量。 预配相当简单，再配合我们的设置，可以发挥它的最大作用。”
 > 
-> — Morten Christensen，Umbraco 技术主管
+> - Morten Christensen，Umbraco 技术主管
 > 
 > 
 
@@ -120,3 +120,4 @@ Mikkel Madsen 总结，“除了将 Azure 服务总线与 Azure SQL 数据库配
 * 若要深入了解备份与恢复，请参阅[业务连续性](sql-database-business-continuity.md)。    
 * 若要深入了解监视池，请参阅[监视池](sql-database-elastic-pool-manage-portal.md)。    
 * 有关 Umbraco 的详细信息，请参阅 [Umbraco](https://umbraco.com/cloud)。
+

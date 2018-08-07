@@ -10,12 +10,12 @@ ms.topic: article
 origin.date: 04/01/2018
 ms.date: 04/17/2018
 ms.author: v-nany
-ms.openlocfilehash: 4a9db5b67f2eca44d3703015d13fce18062351ad
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 18242786400a576326e74e85e39821a3b4cdda24
+ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782436"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486583"
 ---
 # <a name="credentials-used-to-access-the-elastic-database-client-library"></a>用于访问弹性数据库客户端库的凭据
 [弹性数据库客户端库](sql-database-elastic-database-client-library.md)使用三种不同的凭据来访问[分片映射管理器](sql-database-elastic-scale-shard-map-management.md)。 使用凭据时，应根据需要尽可能采用最低访问级别。
@@ -40,7 +40,7 @@ ShardMapManager shardMapManager = ShardMapManagerFactory.GetSqlShardMapManager(s
  "Server=<yourserver>.database.chinacloudapi.cn;Database=<yourdatabase>;User ID=<yourmgmtusername>;Password=<yourmgmtpassword>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;" 
 ```
 
-请勿使用 username@server 格式的值 - 只需使用“username”格式的值。  这是因为凭据必须同时适用于分片映射管理器数据库和各个分片，而它们可能位于不同的服务器上。
+请勿使用“username@server”格式的值 - 只需使用“username”格式的值。  这是因为凭据必须同时适用于分片映射管理器数据库和各个分片，而它们可能位于不同的服务器上。
 
 ## <a name="access-credentials"></a>访问凭据
 在不用于管理分片映射的应用程序中创建分片映射管理器时，请使用在全局分片映射上具有只读权限的凭据。 在这些凭据下从全局分片映射检索到的信息可用于[数据相关路由](sql-database-elastic-scale-data-dependent-routing.md)，以及用于填充客户端上的分片映射缓存。 通过与 **GetSqlShardMapManager** 相同的调用模式提供凭据： 
@@ -62,7 +62,7 @@ using (SqlConnection conn = rangeMap.OpenConnectionForKey<int>(targetWarehouse, 
 在本示例中， **smmUserConnectionString** 包含用户凭据的连接字符串。 对于 Azure SQL DB，下面是用户凭据的典型连接字符串： 
 
 ```
-"User ID=<yourusername>; Password=<youruserpassword>; Trusted_Connection=False; Encrypt=True; Connection Timeout=30;”  
+"User ID=<yourusername>; Password=<youruserpassword>; Trusted_Connection=False; Encrypt=True; Connection Timeout=30;"  
 ```
 
 与管理员凭据一样，请不要使用“username@server”格式的值， 而应使用“username”格式的值。  另请注意，连接字符串不包含服务器名称和数据库名称。 这是因为，**OpenConnectionForKey** 调用会自动根据键将连接定向到正确的分片。 因此，不需提供数据库名称和服务器名称。 
@@ -74,3 +74,4 @@ using (SqlConnection conn = rangeMap.OpenConnectionForKey<int>(targetWarehouse, 
 
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
+

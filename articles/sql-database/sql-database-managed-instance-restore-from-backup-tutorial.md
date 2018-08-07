@@ -1,5 +1,5 @@
 ---
-title: 将备份还原到 Azure SQL 数据库托管实例 | Microsoft Docs
+title: 将备份还原到 Azure SQL 数据库托管实例 | Azure
 description: 使用 SSMS 将数据库备份还原到 Azure SQL 数据库托管实例。
 keywords: sql 数据库教程, sql 数据库托管实例, 还原备份
 services: sql-database
@@ -8,16 +8,16 @@ ms.reviewer: carlrab, srbozovi
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: tutorial
-origin.date: 06/07/2018
-ms.date: 07/02/2018
+origin.date: 07/06/2018
+ms.date: 08/06/2018
 ms.author: v-nany
 manager: digimobile
-ms.openlocfilehash: 8d1fea772a95034c7bbd36944e8232b6bbec77e7
-ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
+ms.openlocfilehash: ceb2f7adbffdf98ff78a233d565c247389de7d43
+ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36947903"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486703"
 ---
 # <a name="restore-a-database-backup-to-an-azure-sql-database-managed-instance"></a>将数据库备份还原到 Azure SQL 数据库托管实例
 
@@ -141,7 +141,7 @@ ms.locfileid: "36947903"
 
     ![文件列表](./media/sql-database-managed-instance-tutorial/file-list.png)
 
-4. 使用以下脚本从备份文件还原 Adventure Works 2012 数据库 - 提供包含备份文件的容器的 URL：
+4. 使用以下脚本从备份文件还原 Wide World Importers 数据库 - 提供包含备份文件的容器的 URL：
 
    ```sql
    RESTORE DATABASE [Wide World Importers] FROM URL =

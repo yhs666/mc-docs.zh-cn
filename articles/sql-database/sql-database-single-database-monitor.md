@@ -9,17 +9,18 @@ ms.service: sql-database
 ms.custom: monitor & tune
 ms.devlang: na
 ms.topic: article
-ms.date: 04/01/2018
+origin.date: 07/16/2018
+ms.date: 08/06/2018
 ms.author: v-nany
-ms.openlocfilehash: 87058b6e6774ccb9d58ec138ba8ac204678f40e5
-ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
+ms.openlocfilehash: ecea115af3583846d9587bab627ff781110bda6e
+ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36948070"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486612"
 ---
 # <a name="monitoring-database-performance-in-azure-sql-database"></a>在 Azure SQL 数据库中监视数据库性能
-若要监视 Azure 中的 SQL 数据库的性能，首先需要监视所选数据库性能级别相关的资源利用率。 监控功能可帮助确定数据库是否超出容量，或者因资源超限而遇到问题，并确定是否有必要调整[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)或[基于 vCore 的购买模型（预览版）](sql-database-service-tiers-vcore.md)中数据库的性能级别和服务层。 可以使用 [Azure 门户](https://portal.azure.cn)中的图形工具或使用 SQL [动态管理视图](https://msdn.microsoft.com/library/ms188754.aspx)来监视数据库。
+若要监视 Azure 中的 SQL 数据库的性能，首先需要监视所选数据库性能级别相关的资源利用率。 监控功能可帮助确定数据库是否超出容量，或者因资源超限而遇到问题，并确定是否有必要调整[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)或[基于 vCore 的购买模型](sql-database-service-tiers-vcore.md)中数据库的性能级别和服务层。 可以使用 [Azure 门户](https://portal.azure.cn)中的图形工具或使用 SQL [动态管理视图](https://msdn.microsoft.com/library/ms188754.aspx)来监视数据库。
 
 ## <a name="monitor-databases-using-the-azure-portal"></a>使用 Azure 门户监视数据库
 在 [Azure 门户](https://portal.azure.cn)中，可以通过选择数据库并单击“监视”图表来监视单一数据库的利用率。 这将显示“指标”窗口，可通过单击“编辑图表”按钮来对其进行更改。 添加以下指标：
@@ -29,7 +30,7 @@ ms.locfileid: "36948070"
 * 数据 IO 百分比
 * 数据库大小百分比
 
-添加这些指标后，可以继续在“监视”图表上查看它们，并可在“指标”窗口上查看更多详细信息。 **DTU** 的平均利用率百分比。 有关服务层的详细信息，请参阅[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)和[基于 vCore 的购买模型（预览版）](sql-database-service-tiers-vcore.md)文章。  
+添加这些指标后，可以继续在“监视”图表上查看它们，并可在“指标”窗口上查看更多详细信息。 **DTU** 的平均利用率百分比。 有关服务层的详细信息，请参阅[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)和[基于 vCore 的购买模型](sql-database-service-tiers-vcore.md)文章。  
 
 ![在服务层监视数据库性能。](./media/sql-database-single-database-monitoring/sqldb_service_tier_monitoring.png)
 
@@ -200,7 +201,7 @@ Azure SQL 数据库在每个服务器的 **master** 数据库的 **sys.resource_
     INNER JOIN sys.databases D ON (D.database_id = S.database_id)
     WHERE D.name = 'MyDatabase'
 
-同样，这些查询返回时间点计数。 如果在一段内收集多个样本，则会对会话的使用情况有最佳了解。
+同样，这些查询返回时间点计数。 如果在一段时间内收集多个样本，则可更好地了解会话使用情况。
 
 对于 SQL 数据库分析，也可以通过查询 [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) 视图并查看 **active_session_count** 列获取会话的历史统计信息。 
 

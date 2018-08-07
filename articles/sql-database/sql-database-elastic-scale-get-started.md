@@ -1,5 +1,5 @@
 ---
-title: 弹性数据库工具入门 | Microsoft Docs
+title: 弹性数据库工具入门 | Azure
 description: 大致介绍 Azure SQL 数据库的弹性数据库工具功能，包括易于使用的示例应用。
 services: sql-database
 manager: digimobile
@@ -10,12 +10,12 @@ ms.topic: article
 origin.date: 04/01/2018
 ms.date: 04/17/2018
 ms.author: v-nany
-ms.openlocfilehash: 1e612f1848a3d990c41ba03b562112fca9129c59
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 5a6c8186d440e268bc9e8423b3fa31c0ba83f051
+ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782343"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486753"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>弹性数据库工具入门
 本文档通过帮助你运行示例应用来介绍[弹性数据库客户端库](sql-database-elastic-database-client-library.md)的开发人员体验。 此示例应用将创建一个简单的分片应用程序，并探讨 Azure SQL 数据库的弹性数据库工具特性的主要功能。 它重点介绍[分片映射管理](sql-database-elastic-scale-shard-map-management.md)、[数据依赖型路由](sql-database-elastic-scale-data-dependent-routing.md)和[多分片查询](sql-database-elastic-scale-multishard-querying.md)的用例。 该客户端库可用于 Java 和 .NET。 
@@ -95,7 +95,7 @@ ms.locfileid: "31782343"
 ## <a name="key-pieces-of-the-code-sample"></a>重要的代码示例片段
 * 管理分片和分片映射：该代码演示如何在 ShardManagementUtils.cs 文件中处理分片、范围和映射。 有关详细信息，请参阅[使用分片映射管理器扩大数据库](sql-database-elastic-scale-shard-map-management.md)。  
 
-* **数据依赖型路由**：*DataDependentRoutingSample.cs* 演示了如何向正确的分片路由事务。 有关详细信息，请参阅[数据依赖型路由](sql-database-elastic-scale-data-dependent-routing.md)。 
+* 数据依赖型路由：DataDependentRoutingSample.cs 文件演示了如何向正确的分片路由事务。 有关详细信息，请参阅[数据依赖型路由](sql-database-elastic-scale-data-dependent-routing.md)。 
 
 * 查询多个分片：MultiShardQuerySample.cs 文件演示了如何跨多个分片进行查询。 有关详细信息，请参阅[多分片查询](sql-database-elastic-scale-multishard-querying.md)。
 

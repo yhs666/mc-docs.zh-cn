@@ -1,5 +1,5 @@
 ---
-title: Azure SQL 数据库的查询性能见解 | Microsoft 文档
+title: Azure SQL 数据库的查询性能见解 | Azure
 description: 查询性能监视可以识别 Azure SQL 数据库中 CPU 消耗最大的查询。
 services: sql-database
 author: forester123
@@ -10,12 +10,12 @@ ms.topic: article
 origin.date: 04/01/2018
 ms.date: 04/17/2018
 ms.author: v-johch
-ms.openlocfilehash: 86d1e1274435245e4f7e86ab433ea0c16e6dbf43
-ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
+ms.openlocfilehash: 6a7c19c65344f25281ca08929af15ca2293b10b7
+ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36948106"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486570"
 ---
 # <a name="azure-sql-database-query-performance-insight"></a>Azure SQL 数据库 Query Performance Insight
 管理和优化关系数据库性能是一项颇具挑战性的操作，需要投入大量的专业知识和时间。 查询性能见解通过提供以下功能使排查数据库性能问题花费的时间更少：
@@ -40,7 +40,7 @@ ms.locfileid: "36948106"
 查询性能见解很容易使用：
 
 * 打开 [Azure 门户](https://portal.azure.cn/)并找到要检查的数据库。 
-  * 在左侧菜单的“支持和疑难解答”下，选择“查询性能见解”。
+  * 在左侧菜单的“支持和故障排除”下，选择“Query Performance Insight”。
 * 在第一个选项卡上，查看资源占用排名靠前的查询列表。
 * 选择单个查询以查看其详细信息。
 * 打开 [SQL Azure 数据库顾问](sql-database-advisor.md)并检查是否存在任何可用的建议。
@@ -64,7 +64,7 @@ ms.locfileid: "36948106"
 2. 单击图表周围以获取详细信息。<br>最前面一行显示数据库的整体 DTU 百分比，条形显示所选查询在所选时间间隔内消耗的 CPU 百分比（例如，如果选择了“**过去一周**”，则每个条代表 1 天）。
    
     ![排名靠前的查询][2]
-
+   
     底部网格表示可见查询的聚合信息。
    
    * 查询 ID - 数据库内查询的唯一标识符。
@@ -125,7 +125,7 @@ ms.locfileid: "36948106"
 
 例如，许多数据驱动的网站大量访问每个用户请求的数据库。 连接池会有所帮助，增加的网络流量和处理数据库服务器上的负载可能会对性能产生消极影响。  通常建议将往返保持在绝对极小值。
 
-若要识别频繁执行的查询，即（“聊天式”）查询：
+若要识别频繁执行的查询（即“聊天式”查询），请执行以下操作：
 
 1. 在所选数据库的查询性能见解中打开“**自定义**”选项卡
 2. 将度量值更改为“**执行计数**”
@@ -145,7 +145,7 @@ ms.locfileid: "36948106"
 ![查询注释详情][7]
 
 ### <a name="multiple-annotations"></a>多个注释。
-由于缩放级别而导致距离彼此较近的注释折叠为一个注释，这是有可能的。 这会由特殊图标表示，单击该图标则会打开新的边栏选项卡，里面会显示分组注释列表。
+可能会由于缩放级别而导致距离彼此较近的注释折叠为一个注释。 这会由特殊图标表示，单击该图标则会打开新的边栏选项卡，里面会显示分组注释列表。
 关联查询和性能调优操作可以帮助更好地了解自己的工作负荷。 
 
 ## <a name="optimizing-the-query-store-configuration-for-query-performance-insight"></a>优化查询性能见解的“查询存储”配置

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 origin.date: 05/16/2018
 ms.date: 07/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 37b3744e81d3b0836adff377e6b80b1228874283
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.openlocfilehash: 2c54624e3d63c12da8cccbd37489cf03f9944522
+ms.sourcegitcommit: 54851a22f188f2401ed971931132b46febe7014e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39167888"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39361348"
 ---
 # <a name="plan-virtual-networks"></a>计划虚拟网络
 
@@ -32,7 +32,7 @@ ms.locfileid: "39167888"
 
 ## <a name="regions"></a>区域
 
-在 Azure 区域和订阅中创建所有 Azure 资源。 只能在与资源位于相同区域和订阅的虚拟网络中创建资源。 但是，可连接存在于不同订阅和区域中的虚拟网络。 有关详细信息，请参阅[连接性](#connectivity)。 在决定要在哪个区域部署资源时，请考虑资源的使用者位于何处：
+在 Azure 区域和订阅中创建所有 Azure 资源。 只能在与资源位于相同区域和订阅的虚拟网络中创建资源。 但是，可连接存在于不同订阅中的虚拟网络。 有关详细信息，请参阅[连接性](#connectivity)。 在决定要在哪个区域部署资源时，请考虑资源的使用者位于何处：<!--Not Available on 和不同区域 and regions -->
 
 - 资源的使用者通常希望其资源的网络延迟最低。 若要确定指定位置与 Azure 区域之间的相对延迟，请参阅[查看相对延迟](../network-watcher/view-relative-latencies.md?toc=%2fvirtual-network%2ftoc.json)。
 - 是否有数据驻留、主权、符合性或复原能力需求？ 如果有，选择符合需求的区域至关重要。 
@@ -102,8 +102,7 @@ Azure 为子网中的出站流量创建多个默认路由。 可通过创建路�
 
 可通过[站点到站点 VPN ](../vpn-gateway/vpn-gateway-tutorial-vpnconnection-powershell.md?toc=%2fvirtual-network%2ftoc.json)或与 Azure [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fvirtual-network%2ftoc.json) 的专用连接，使用 Azure [VPN 网关](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fvirtual-network%2ftoc.json)将虚拟网络连接到本地网络。
 
-例如，可将对等互连和 VPN 网关结合使用以创建[中心辐射网络](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fvirtual-network%2ftoc.json)，其中分支虚拟网络连接到中心虚拟网络，而中心虚拟网络则连接到本地网络。
-
+<!--Not Available on [hub and spoke networks](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fvirtual-network%2ftoc.json)-->
 ### <a name="name-resolution"></a>名称解析
 
 一个虚拟网络中的资源无法使用 Azure 的[内置 DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md) 来解析对等互连虚拟网络中的资源名称。 若要在对等互连虚拟网络中解析名称，请[部署自己的 DNS 服务器](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)或使用 Azure DNS 专用域。 在虚拟网络和本地网络的资源之间解析名称也需要部署自己的 DNS 服务器。
@@ -117,9 +116,9 @@ Azure 对资源使用[基于角色的访问控制](../role-based-access-control/
 <a name="policies"></a>
 ## <a name="policy"></a>策略
 
-通过 Azure 策略，可创建、分配和管理策略定义。 策略定义将在整个资源中强制实施不同的规则，使资源符合组织标准和服务级别协议。 Azure 策略对资源进行评估，扫描并找到与所定义策略不相符的资源。 例如，可以定义并应用只允许在特定资源组或区域中创建虚拟网络的策略。 另一个策略可能要求每个子网都有一个与之关联的网络安全组。 然后，在创建和更新资源时评估此策略。
+通过 Azure Policy，可创建、分配和管理策略定义。 策略定义将在整个资源中强制实施不同的规则，使资源符合组织标准和服务级别协议。 Azure 策略对资源进行评估，扫描并找到与所定义策略不相符的资源。 例如，可以定义并应用只允许在特定资源组或区域中创建虚拟网络的策略。 另一个策略可能要求每个子网都有一个与之关联的网络安全组。 然后，在创建和更新资源时评估此策略。
 
-策略应用于以下层次结构：订阅、管理组和资源组。 了解有关 [Azure 策略](../azure-policy/azure-policy-introduction.md?toc=%2fvirtual-network%2ftoc.json)或部署某些虚拟网络[策略模板](policy-samples.md)示例的详细信息。
+策略应用于以下层次结构：订阅、管理组和资源组。 了解有关 [Azure Policy](../azure-policy/azure-policy-introduction.md?toc=%2fvirtual-network%2ftoc.json) 或部署某些虚拟网络[策略模板](policy-samples.md)示例的详细信息。
 
 ## <a name="next-steps"></a>后续步骤
 

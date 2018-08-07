@@ -1,5 +1,5 @@
 ---
-title: 管理 Azure SQL 数据库长期备份保留 | Microsoft Docs
+title: 管理 Azure SQL 数据库长期备份保留 | Azure
 description: 了解如何在 SQL Azure 存储中存储自动备份，以及如何还原它们
 services: sql-database
 author: yunan2016
@@ -7,23 +7,20 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
-origin.date: 04/04/2018
-ms.date: 06/18/2018
+origin.date: 07/16/2018
+ms.date: 08/06/2018
 ms.author: v-nany
 ms.reviewer: carlrab
-ms.openlocfilehash: e343ad5906fc013fd42d7aaed681a346f17a349e
-ms.sourcegitcommit: d4176361d9c6da60729c06cc93a496cb4702d4c2
+ms.openlocfilehash: 0d8ccb18dbc6fe41eba8cf644bc50e8945f7a92b
+ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2018
-ms.locfileid: "35324289"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486652"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>管理 Azure SQL 数据库长期备份保留
 
 可以为 Azure SQL 数据库配置[长期备份保留](sql-database-long-term-retention.md)策略 (LTR) 来自动将备份在 Azure blob 存储中保留最多 10 年。 然后，可以通过 Azure 门户或 PowerShell 使用这些备份来恢复数据库。
-
-> [!NOTE]
-> 在 2016 年 10 月首次发行的此功能的预览版中，备份存储在 Azure 服务恢复服务保管库中。 此次更新删除了此依赖关系，但是，为了实现向后兼容性，原始 API 在 2018 年 5 月 31 之前仍受支持。 如果需要与 Azure 服务恢复保管库中的备份进行交互，请参阅[使用 Azure 服务恢复服务保管库的长期备份保留](sql-database-long-term-backup-retention-configure-vault.md)。 
 
 ## <a name="use-the-azure-portal-to-configure-long-term-retention-policies-and-restore-backups"></a>使用 Azure 门户配置长期保留策略并还原备份
 
@@ -82,6 +79,12 @@ ms.locfileid: "35324289"
 ## <a name="use-powershell-to-configure-long-term-retention-policies-and-restore-backups"></a>使用 PowerShell 配置长期保留策略并还原备份
 
 以下各部分展示了如何使用 PowerShell 配置长期备份保留、查看 Azure SQL 存储中的备份，以及从 Azure SQL 存储中的备份进行还原。
+
+> [!IMPORTANT]
+> 以下 PowerShell 版本支持 LTR V2 API：
+- [AzureRM.Sql-4.5.0](https://www.powershellgallery.com/packages/AzureRM.Sql/4.5.0) 或更高版本
+- [AzureRM-6.1.0](https://www.powershellgallery.com/packages/AzureRM/6.1.0) 或更高版本
+> 
 
 ### <a name="create-an-ltr-policy"></a>创建 LTR 策略
 
@@ -172,4 +175,3 @@ Restore-AzureRmSqlDatabase -FromLongTermRetentionBackup -ResourceId $ltrBackup.R
 
 - 若要了解服务生成的自动备份，请参阅[自动备份](sql-database-automated-backups.md)
 - 若要了解长期备份保留，请参阅[长期备份保留](sql-database-long-term-retention.md)
-

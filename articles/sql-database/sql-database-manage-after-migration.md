@@ -8,18 +8,18 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: migrate
 ms.topic: article
-origin.date: 03/16/2018
-ms.date: 06/18/2018
+origin.date: 06/20/2018
+ms.date: 08/06/2018
 ms.author: v-nany
 ms.suite: sql
 ms.prod_service: sql-database
 ms.component: migration
-ms.openlocfilehash: bf327c88572a10e8db63e355f3837a62c3fbe2c7
-ms.sourcegitcommit: d4176361d9c6da60729c06cc93a496cb4702d4c2
+ms.openlocfilehash: ea006bad087170517c10331b3463aa3bce380a56
+ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2018
-ms.locfileid: "35324299"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486967"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>云中的新 DBA  – 管理 Azure SQL 数据库中的数据库
 
@@ -34,12 +34,11 @@ ms.locfileid: "35324299"
 - 智能数据库监视和维护
 - 数据移动
 
-
 ## <a name="business-continuity-and-disaster-recovery-bcdr"></a>业务连续性和灾难恢复 (BCDR)
 发生灾难时，可以借助业务连续性和灾难恢复功能使业务像平时一样继续。 灾难可能是数据库级别的事件（例如，某人错误地删除了某个重要表）或数据中心级别的事件（区域性灾难，例如海啸）。 
 
 ### <a name="how-do-i-create-and-manage-backups-on-sql-database"></a>如何在 SQL 数据库中创建和管理备份？
-不要在 Azure SQL 数据库中创建备份，因为没有这个必要。 SQL 数据库会自动备份数据库，因此我们不再需要考虑如何计划、执行和管理备份。 该平台每周创建完整备份，每隔几小时创建差异备份，每隔 5 分钟创建日志备份，以确保灾难恢复的有效性，并尽量减少数据丢失。 创建数据库后，首次完整备份会立即发生。 这些备份会保留特定的期限（称为“保留期”），具体期限根据所选的性能层而异。  在 SQL 数据库中，可以使用[时间点恢复 (PITR)](sql-database-recovery-using-backups.md#point-in-time-restore) 还原到此保留期内的任意时间点。
+不要在 Azure SQL 数据库中创建备份，因为没有这个必要。 SQL 数据库会自动备份数据库，因此我们不再需要考虑如何计划、执行和管理备份。 该平台每周创建完整备份，每隔几小时创建差异备份，每隔 5 分钟创建日志备份，以确保灾难恢复的有效性，并尽量减少数据丢失。 创建数据库后，首次完整备份会立即发生。 这些备份会保留特定的期限（称为“保留期”），具体因所选性能层而异。  在 SQL 数据库中，可以使用[时间点恢复 (PITR)](sql-database-recovery-using-backups.md#point-in-time-restore) 还原到此保留期内的任意时间点。
 
 |性能层|保留期（天）|
 |---|:---:|
@@ -66,8 +65,8 @@ ms.locfileid: "35324299"
 SQL 数据库严肃对待安全性和隐私性。 SQL 数据库中的安全性在数据库级别和平台级别实施，在划分为多个层后最好理解。 在每个层，可以控制和提供应用程序的最佳安全性。 这些层包括：
 - 标识和身份验证（[Windows/SQL 身份验证和 Azure Active Directory [AAD] 身份验证](sql-database-control-access.md)。）
 - 监视活动（[审核](sql-database-auditing.md)和[威胁检测](sql-database-threat-detection.md)）。
-- 保护实际数据（[透明数据加密 [TDE]](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) 和 [Always Encrypted [AE]](/sql/relational-databases/security/encryption/always-encrypted-database-engine)）。 
-- 控制对敏感和特权数据的访问（[行级安全性](/sql/relational-databases/security/row-level-security)和[动态数据掩码](/sql/relational-databases/security/dynamic-data-masking)）。
+- 保护实际数据（[透明数据加密 [TDE]](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) 和 [Always Encrypted [AE]](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine)）。 
+- 控制对敏感和特权数据的访问（[行级安全性](https://docs.microsoft.com/sql/relational-databases/security/row-level-security)和[动态数据掩码](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking)）。
 
 
 ### <a name="what-user-authentication-methods-are-offered-in-sql-database"></a>SQL 数据库中提供哪些用户身份验证方法？
@@ -99,8 +98,14 @@ SQL 数据库中提供[两种身份验证方法](sql-database-control-access.md#
 可以在服务器级别或数据库级别创建防火墙规则。 可以通过门户或 SSMS 创建服务器级防火墙规则。 若要详细了解如何设置服务器和数据库级别的防火墙规则，请参阅：[在 SQL 数据库中创建防火墙规则](sql-database-security-tutorial.md#create-a-server-level-firewall-rule-in-the-azure-portal)。
 
 #### <a name="service-endpoints"></a>服务终结点
-默认情况下，SQL 数据库配置为“允许所有 Azure 服务”– 这意味着，Azure 中的任何虚拟机都可能会尝试连接到数据库。 这些尝试仍需经过身份验证。 但如果不想让任何 Azure IP 访问数据库，则可禁用“允许所有 Azure 服务”。 此外，还可配置[VNet 服务终结点](sql-database-vnet-service-endpoint-rule-overview.md)。
+默认情况下，SQL 数据库配置为“允许所有 Azure 服务”- 这意味着，Azure 中的任何虚拟机都可能会尝试连接到数据库。 这些尝试仍需经过身份验证。 但是，如果不希望数据库可供所有 Azure IP 访问，可禁用“允许所有 Azure 服务”。 此外，还可配置[VNet 服务终结点](sql-database-vnet-service-endpoint-rule-overview.md)。
 
+通过服务终结点 (SE) 可以仅向自己在 Azure 中的专用虚拟网络公开关键 Azure 资源。 以此从根本上阻止了对资源的公共访问。 虚拟网络与 Azure 间的流量位于 Azure 主干网络上。 无 SE 时，可获得强制隧道数据包路由。 虚拟网络强制组织的 Internet 流量和 Azure 服务流量通过相同的路由。 借助服务终结点，可优化这进程，因为数据包直接从虚拟网络流向 Azure 主干网络上的服务。
+
+![VNET 服务终结点](./media/sql-database-manage-after-migration/vnet-service-endpoints.png) 
+
+#### <a name="reserved-ips"></a>保留 IP
+另一种方法是为 VM 设置[保留 IP](../virtual-network/virtual-networks-reserved-public-ip.md)，并将服务器防火墙设置中的那些特定 VM IP 地址列入允许列表。 通过分配保留 IP，就可以避免通过更改 IP 地址来更新防火墙规则的麻烦。
 
 ### <a name="what-port-do-i-connect-to-sql-database-on"></a>要通过哪个端口连接到 SQL 数据库？
 
@@ -117,7 +122,7 @@ SQL 数据库中提供[两种身份验证方法](sql-database-control-access.md#
 - 数据和日志文件中的静态数据 
 - 正在处理的数据。 
 
-在 SQL 数据库中，默认情况下，存储子系统上的数据和日志文件中的静态数据始终完全通过[透明数据加密 [TDE]](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) 进行加密。 备份也会加密。 使用 TDE 时，不需要在访问此数据的应用程序端进行更改。 顾名思义，加密和解密以透明方式进行。 为了保护处理中和静态的敏感数据，SQL 数据库提供一项称作 [Always Encrypted (AE)](/sql/relational-databases/security/encryption/always-encrypted-database-engine) 的功能。 AE 是客户端加密的一种形式，它对数据库中的敏感列进行加密（因此，它们位于数据库管理员和未授权用户的已加密文本中）。 服务器首先接收加密的数据。 Always Encrypted 的密钥也存储在客户端，因此只有授权的客户端可以解密敏感列。 服务器和数据管理员无法看到敏感数据，因为加密密钥存储在客户端上。 AE 对表中的敏感列进行端到端加密，以防未经授权的客户端访问物理磁盘。 AE 目前支持等式比较，因此数据库管理员可以继续查询加密列，这是其 SQL 命令一部分。 Always Encrypted 可以与各种密钥存储选项结合使用，如 [Azure Key Vault](sql-database-always-encrypted-azure-key-vault.md)、Windows 证书存储和本地硬件安全模块。
+在 SQL 数据库中，默认情况下，存储子系统上的数据和日志文件中的静态数据始终完全通过[透明数据加密 [TDE]](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) 进行加密。 备份也会加密。 使用 TDE 时，不需要在访问此数据的应用程序端进行更改。 顾名思义，加密和解密以透明方式进行。 为了保护处理中和静态的敏感数据，SQL 数据库提供一项称作 [Always Encrypted (AE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) 的功能。 AE 是客户端加密的一种形式，它对数据库中的敏感列进行加密（因此，它们位于数据库管理员和未授权用户的已加密文本中）。 服务器首先接收加密的数据。 Always Encrypted 的密钥也存储在客户端，因此只有授权的客户端可以解密敏感列。 服务器和数据管理员无法看到敏感数据，因为加密密钥存储在客户端上。 AE 对表中的敏感列进行端到端加密，以防未经授权的客户端访问物理磁盘。 AE 目前支持等式比较，因此数据库管理员可以继续查询加密列，这是其 SQL 命令一部分。 Always Encrypted 可以与各种密钥存储选项结合使用，如 [Azure Key Vault](sql-database-always-encrypted-azure-key-vault.md)、Windows 证书存储和本地硬件安全模块。
 
 |**特征**|**Always Encrypted**|**透明数据加密**|
 |---|---|---|
@@ -133,20 +138,20 @@ SQL 数据库中提供[两种身份验证方法](sql-database-control-access.md#
 
 [动态数据掩码](sql-database-dynamic-data-masking-get-started.md)是一种数据掩码功能，它通过掩码应用层上的非特权用户来限制敏感数据的公开。 可以定义掩码规则来创建掩码模式（例如，只显示国家身份证社会安全号码的最后 4 位数：XXX-XX-0000，并将其余数字标记为 X），并确定哪些用户可以被排除在掩码规则之外。 掩码是即时发生的，对于不同的数据类别，可以使用不同的掩码功能。 动态数据掩码可以自动检测数据库中的敏感数据并对其应用掩码。
 
-使用[行级安全性](/sql/relational-databases/security/row-level-security)可在行级别控制访问。 这意味着，可以根据执行查询的用户（组成员或执行上下文）来隐藏数据库表中的某些行。 访问限制是在数据库层上完成的，而不是在应用层，以此简化你的应用逻辑。 首先创建筛选器谓词，过滤掉不要公开的行和安全策略，然后定义有权访问这些行的用户。 最后，最终用户运行其查询，根据该用户的特权，他们可以或者无法查看这些受限制的行。
+使用[行级安全性](https://docs.microsoft.com/sql/relational-databases/security/row-level-security)可在行级别控制访问。 这意味着，可以根据执行查询的用户（组成员或执行上下文）来隐藏数据库表中的某些行。 访问限制是在数据库层上完成的，而不是在应用层，以此简化你的应用逻辑。 首先创建筛选器谓词，过滤掉不要公开的行和安全策略，然后定义有权访问这些行的用户。 最后，最终用户运行其查询，根据该用户的特权，他们可以或者无法查看这些受限制的行。
 
 ### <a name="how-do-i-manage-encryption-keys-in-the-cloud"></a>如何在云中管理加密密钥？
 
 有用于 Always Encrypted（客户端加密）和透明数据加密（静态加密）的密钥管理选项。 建议定期轮换加密密钥。 轮换频率应与内部组织法规与符合性要求一致。
 
-透明数据加密 (TDE)：TDE 中有一个双密钥层次结构 — 每个用户数据库中的数据都通过对称 AES-256 数据库唯一的数据库加密密钥 (DEK) 进行加密，该密钥反过来又由服务器唯一的不对称 RSA 2048 主密钥进行加密。 主密钥的管理方式可以是：
+**透明数据加密 (TDE)**：TDE 中有一个双密钥层次结构 - 每个用户数据库中的数据都通过对称 AES-256 数据库唯一的数据库加密密钥 (DEK) 进行加密，该密钥反过来又由服务器唯一的不对称 RSA 2048 主密钥进行加密。 主密钥的管理方式可以是：
 - 由平台 - SQL 数据库自动管理。
 - 由你使用 [Azure Key Vault](sql-database-always-encrypted-azure-key-vault.md)（用作密钥存储）进行管理。
 
-为方便起见，透明数据加密的主密钥默认由 SQL 数据库服务托管。 如果组织想要控制主密钥，可以使用 Azure Key Vault (sql-database-always-encrypted-azure-key-vault.md) 作为密钥存储。 通过使用 Azure Key Vault，组织假定控制密钥预配、轮换使用和权限控制。 [轮换或切换 TDE 主密钥类型](/sql/relational-databases/security/encryption/transparent-data-encryption-byok-azure-sql-key-rotation)非常快，因为它仅重新加密 DEK。 对于安全性与数据管理角色分开的组织来说，安全管理员可以为 Azure Key Vault 中的 TDE 主密钥预配密钥材料，并为数据库管理员提供 Azure Key Vault 密钥标识符，用于在服务器上进行静态加密。 Key Vault 的设计可确保 Microsoft 不会看到或提取任何加密密钥。 此外，可对组织的密钥进行集中式管理。 
+为方便起见，透明数据加密的主密钥默认由 SQL 数据库服务托管。 如果组织想要控制主密钥，可以使用 Azure Key Vault (sql-database-always-encrypted-azure-key-vault.md) 作为密钥存储。 通过使用 Azure Key Vault，组织假定控制密钥预配、轮换使用和权限控制。 [轮换或切换 TDE 主密钥类型](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-byok-azure-sql-key-rotation)非常快，因为它仅重新加密 DEK。 对于安全性与数据管理角色分开的组织来说，安全管理员可以为 Azure Key Vault 中的 TDE 主密钥预配密钥材料，并为数据库管理员提供 Azure Key Vault 密钥标识符，用于在服务器上进行静态加密。 Key Vault 的设计可确保 Microsoft 不会看到或提取任何加密密钥。 此外，可对组织的密钥进行集中式管理。 
 
-**Always Encrypted**：Always Encrypted 中还有一个[双密钥层次结构](/sql/relational-databases/security/encryption/overview-of-key-management-for-always-encrypted) - 一列敏感数据通过 AES 256 列加密密钥 (CEK) 加密，而该密钥反过来又由列主密钥 (CMK) 进行加密。 为 Always Encrypted 提供的客户端驱动程序在 CMK 长度上没有任何限制。 CEK 的加密值存储在数据库中，而 CMK 存储在受信任的密钥存储库中，如 Windows 证书存储、Azure Key Vault 或硬件安全模块。 
-- [CEK 和 CMK](/sql/relational-databases/security/encryption/rotate-always-encrypted-keys-using-powershell) 都可轮换使用。 
+**Always Encrypted**：Always Encrypted 中还有一个[双密钥层次结构](https://docs.microsoft.com/sql/relational-databases/security/encryption/overview-of-key-management-for-always-encrypted) - 一列敏感数据通过 AES 256 列加密密钥 (CEK) 加密，而该密钥反过来又由列主密钥 (CMK) 进行加密。 为 Always Encrypted 提供的客户端驱动程序在 CMK 长度上没有任何限制。 CEK 的加密值存储在数据库中，而 CMK 存储在受信任的密钥存储库中，如 Windows 证书存储、Azure Key Vault 或硬件安全模块。 
+- [CEK 和 CMK](https://docs.microsoft.com/sql/relational-databases/security/encryption/rotate-always-encrypted-keys-using-powershell) 都可轮换使用。 
 - CEK 轮换是有一定规模的数据操作，根据包含加密列的表大小，此操作可能十分耗时。 因此，明智的做法是相应地规划 CEK 轮换。 
 - 但是，CMK 轮换不会影响数据库性能，并可以使用单独的角色来完成。
 下图显示了 Always Encrypted 中的列主密钥的密钥存储选项
@@ -165,11 +170,11 @@ SQL 数据库中提供[两种身份验证方法](sql-database-control-access.md#
 - [工作流](../expressroute/expressroute-workflows.md)
 
 ### <a name="is-sql-database-compliant-with-any-regulatory-requirements-and-how-does-that-help-with-my-own-organizations-compliance"></a>SQL 数据库是否符合任何规章要求，这对我组织的合规性有什么帮助？
-SQL 数据库符合一系列合规要求。 若要查看符合的最新一组合规要求，请访问 [Azure 信任中心](https://www.trustcenter.cn)，并向下钻取对你的组织而言至关重要的合规性，以了解 SQL 数据库是否包含在合规的 Azure 服务中。 需要注意的是，尽管 SQL 数据库可能被认证为合规服务，它有助于确保组织服务的合规性，但不会自动保证这一点。
+SQL 数据库符合一系列合规要求。 若要查看符合的最新一组合规要求，请访问 [Azure 信任中心](https://www.trustcenter.cn)，并向下钻取对你的组织而言至关重要的合规性，以了解 SQL 数据库是否包含在合规的 Azure 服务中。 需要注意的是，尽管 SQL 数据库可能被认证为合规服务，它有助于确保组织服务的符合性，但不会自动保证这一点。
 
 ## <a name="intelligent-database-monitoring-and-maintenance-after-migration"></a>迁移后的智能数据库监视和维护
 
-将数据库迁移到 SQL 数据库之后，可以监视数据库（例如，检查资源利用率的大致情况，或执行 DBCC 检查）和执行定期维护（例如，重新生成或重新组织索引、统计信息等）。 幸运的是，SQL 数据库是智能化的，即，它可以使用历史趋势和记录的指标与统计信息来主动帮助你监视和维护数据库，使应用程序始终以最佳方式运行。 在某些情况下，Azure SQL 数据库可以根据配置设置自动执行维护任务。 监视 SQL 数据库中的数据库需要考虑三个方面：
+将数据库迁移到 SQL 数据库之后，需要监视数据库（例如，检查资源利用率的大致情况，或执行 DBCC 检查）和执行定期维护（例如，重新生成或重新组织索引、统计信息等）。 幸运的是，SQL 数据库是智能化的，即，它可以使用历史趋势和记录的指标与统计信息来主动帮助你监视和维护数据库，使应用程序始终以最佳方式运行。 在某些情况下，Azure SQL 数据库可以根据配置设置自动执行维护任务。 监视 SQL 数据库中的数据库需要考虑三个方面：
 - 性能监视和优化。
 - 安全优化。
 - 成本优化。
@@ -191,7 +196,7 @@ Azure 安全中心不时地传送安全建议，只需点击一下鼠标就能�
 ### <a name="how-do-i-monitor-the-performance-and-resource-utilization-in-sql-database"></a>如何在 SQL 数据库中监视性能和资源利用率？
 
 在 SQL 数据库中，可以利用平台的智能见解来监视性能并相应地进行优化。 可以使用以下方法监视 SQL 数据库中的性能和资源利用率：
-- Azure 门户：Azure 门户通过选择数据库并单击“概述”窗格中的图表来显示单个数据库的利用率。 可以修改图表以显示多个指标，包括 CPU 百分比、DTU 百分比、数据 IO 百分比、会话百分比和数据库大小百分比。
+- **Azure 门户**：若要让 Azure 门户显示单个数据库的利用率，请选择数据库并单击“概览”窗格中的图表。 可以修改图表以显示多个指标，包括 CPU 百分比、DTU 百分比、数据 IO 百分比、会话百分比和数据库大小百分比。
 
    ![监视图表](./media/sql-database-manage-after-migration/monitoring-chart.png)
 
@@ -199,20 +204,20 @@ Azure 安全中心不时地传送安全建议，只需点击一下鼠标就能�
 
 在此图表中，还可以按资源配置警报。 通过这些警报，可以使用电子邮件响应资源状态，写入 HTTPS/HTTP 终结点或执行操作。 有关详细说明，请参阅[监视 SQL 数据库中的数据库性能](sql-database-single-database-monitor.md)。
 
-- **动态管理视图**：可以查询 [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) 动态管理视图，以返回最近一个小时的资源使用统计信息历史记录，也可以查询 [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 系统目录视图，返回过去 14 天的历史记录。
-- 查询性能见解：可以使用[查询性能见解](sql-database-query-performance.md)查看特定数据库那些排名靠前的资源消耗查询和长时间运行查询的历史记录。 可以根据资源利用率、持续时间和执行频率快速识别排名靠前的查询。 可以跟踪查询和检测回归。 此功能需要为数据库启用和激活[查询存储](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)。
+- **动态管理视图**：可以查询 [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) 动态管理视图，以返回最近一个小时的资源使用统计信息历史记录，也可以查询 [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 系统目录视图，返回过去 14 天的历史记录。
+- 查询性能见解：可以使用[查询性能见解](sql-database-query-performance.md)查看特定数据库那些排名靠前的资源消耗查询和长时间运行查询的历史记录。 可以根据资源利用率、持续时间和执行频率快速识别排名靠前的查询。 可以跟踪查询和检测回归。 此功能需要为数据库启用和激活[查询存储](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)。
 
    ![Query Performance Insight](./media/sql-database-manage-after-migration/query-performance-insight.png)
 
 
 ### <a name="i-am-noticing-performance-issues-how-does-my-sql-database-troubleshooting-methodology-differ-from-sql-server"></a>我遇到了性能问题：Azure SQL 数据库故障排除方法与 SQL Server 有何不同？
-诊断查询和数据库性能问题时所用的大多数故障排除方法是相同的。 毕竟云由同一个 SQL Server 引擎驱动。 但是，平台 - Azure SQL 数据库具有内置的“智能”。 它可以帮助你更轻松地排查和诊断性能问题。 此外，它还可以替你执行一些纠正措施；在某些情况下，会自动地主动修复问题。 
+诊断查询和数据库性能问题时所用的大多数故障排除方法是相同的。 毕竟云由同一个 SQL Server 引擎驱动。 但是，Azure SQL DB 平台具有内置的“智能”。 它可以帮助你更轻松地排查和诊断性能问题。 此外，它还可以替你执行一些纠正措施；在某些情况下，会自动地主动修复问题。 
 
-结合使用 [Query Performance Insight (QPI)](sql-database-query-performance.md) 和[数据库顾问](sql-database-advisor.md)等智能功能会极大地帮助排查性能问题，因此，故障排除方法的差别也体现在这些功能 – 不再需要执行手动操作来竭力发现本质原因，这些功能可帮助排查现有的问题。 平台能够自动解决棘手的工作。 一个例子就是 QPI。 使用 QPI 可以一路深化到查询级别，查看历史趋势并判断查询回归的确切时间。 数据库顾问可针对缺少索引、删除索引、参数化查询等方面提供建议，帮助提高总体性能。 
+结合使用 [Query Performance Insight (QPI)](sql-database-query-performance.md) 和[数据库顾问](sql-database-advisor.md)等智能功能对排查性能问题很有用，因此，故障排除方法的差别也体现在这方面 - 不再需要手动找出可能有助于排除手头问题的重要细节。 平台能够自动解决棘手的工作。 一个例子就是 QPI。 使用 QPI 可以一路深化到查询级别，查看历史趋势并判断查询回归的确切时间。 数据库顾问可针对缺少索引、删除索引、参数化查询等方面提供建议，帮助提高总体性能。 
 
-使用性能故障排除时，必须确定是应用程序还是依赖于应用程序的数据库影响了应用程序的性能。 通常，性能问题出现在应用程序层。 问题原因可能在于体系结构或数据访问模式。 例如，假设某个频繁通信的应用程序对网络延迟很敏感。 在这种情况下，由于有许多简短请求在应用程序与服务器之间来回传送（“琐碎 I/O”），因此应用程序的性能会受到影响；在拥塞的网络上，往返次数会快速增加。 若要在此情况下提高性能，可以使用[批处理查询](sql-database-performance-guidance.md#batch-queries)。 使用批处理可以带来很大的帮助，因为现在请求会在批中处理；因此，可帮助减少往返延迟并提高应用程序的性能。 
+进行性能故障排除时，请务必确定是应用程序，还是支持它的数据库影响了应用程序的性能。 通常，性能问题出现在应用程序层。 问题原因可能在于体系结构或数据访问模式。 例如，假设某个频繁通信的应用程序对网络延迟很敏感。 在这种情况下，由于有许多简短请求在应用程序与服务器之间来回传送（“琐碎 I/O”），因此应用程序的性能会受到影响；在拥塞的网络上，往返次数会快速增加。 若要在此情况下提高性能，可以使用[批处理查询](sql-database-performance-guidance.md#batch-queries)。 使用批处理可以带来很大的帮助，因为现在请求会在批中处理；因此，可帮助减少往返延迟并提高应用程序的性能。 
 
-此外，如果注意到数据库总体性能下降，则可以监视 [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) 和 [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 动态管理视图，了解 CPU、IO 和内存消耗情况。 由于数据库的资源严重不足，因此性能可能受到影响。 可能需要根据工作负荷的缩放需求来更改性能级别和/或服务层。 
+此外，如果注意到数据库总体性能下降，则可以监视 [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) 和 [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 动态管理视图，了解 CPU、IO 和内存消耗情况。 由于数据库的资源严重不足，因此性能可能受到影响。 可能需要根据工作负荷的缩放需求来更改性能级别和/或服务层。 
 
 有关优化性能问题的全套建议，请参阅：[优化数据库](sql-database-performance-guidance.md#tune-your-database)。
 
@@ -221,17 +226,17 @@ SQL 数据库提供了各种服务层：基本、标准和高级。 在每个服
 
 |**服务级别**|**常见用例方案**|
 |---|---|
-|**基本**|包含少量在高并发性、规模和性能方面没有要求的用户和数据库的应用程序。 |
+|**基本**|用户较少，数据库不具有高并发性、扩展性和性能要求的应用程序。 |
 |**标准**|并发性、规模和性能要求较高且结合了中低 IO 需求的应用程序。 |
 |**高级**|具有大量并发用户、高 CPU/内存和高 IO 需求的应用程序。 高并发性、高吞吐量和对延迟敏感的应用可利用高级等级。 |
 |||
 
-为确保处于正确的性能级别，可通过“如何监视 SQL 数据库中的性能和资源利用率”中所述的某种方式来监视查询和数据库资源消耗。 如果发现查询/数据库持续消耗大量的 CPU/内存等资源，可以考虑纵向扩展到更高的性能级别。 同样，如果发现即使在高峰期，资源用量看上去也不大，则可以考虑从当前性能级别缩减。 
+为确保处于正确的性能级别，可通过此前“如何监视 SQL 数据库中的性能和资源利用率”中所述的某种方式来监视查询和数据库资源消耗。 如果发现查询/数据库持续消耗大量的 CPU/内存等资源，可以考虑纵向扩展到更高的性能级别。 同样，如果注意到，即使在繁忙时间，似乎也没有使用多少资源，则可考虑下调当前性能等级。 
 
-如果实施 SaaS 应用模式或数据库整合方案，请考虑使用弹性池来优化成本。 弹性池是实现数据库整合和成本优化的极佳方式。 若要详细了解如何使用弹性池管理多个数据库，请参阅：[管理池和数据库](sql-database-elastic-pool.md#manage-elastic-pools-and-databases-using-the-azure-portal)。 
+如果实施 SaaS 应用模式或数据库整合方案，请考虑使用弹性池来优化成本。 弹性池是实现数据库整合和成本优化的极佳方式。 若要详细了解如何使用弹性池管理多个数据库，请参阅：[管理池和数据库](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases)。 
 
 ### <a name="how-often-do-i-need-to-run-database-integrity-checks-for-my-database"></a>需要以何种频率对数据库运行数据库完整性检查？
-SQL 数据库使用某些智能技术来自动处理特定类型的数据损坏，且不丢失任何数据。 这些技术已内置在服务中，由服务根据需要利用。 SQL 数据库会定期通过还原整个服务中的数据库备份并对其运行 DBCC CHECKDB，以对其进行测试。 如果存在问题，SQL 数据库会主动解决问题。 它利用[自动页面修复](/sql/sql-server/failover-clusters/automatic-page-repair-availability-groups-database-mirroring)来修复已损坏或出现数据完整性问题的页面。 始终使用可验证页面完整性的默认 CHECKSUM 设置来验证数据库页面。 SQL 数据库主动监视并审查数据库的数据完整性，如果出现问题，则以最高优先级解决问题。 除此之外，可以根据需要选择运行自己的完整性检查。  有关详细信息，请参阅 [SQL 数据库中的数据完整性](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/)
+SQL 数据库使用某些智能技术来自动处理特定类型的数据损坏，且不丢失任何数据。 这些技术已内置在服务中，由服务根据需要利用。 SQL 数据库会定期通过还原整个服务中的数据库备份并对其运行 DBCC CHECKDB，以对其进行测试。 如果存在问题，SQL 数据库会主动解决问题。 它利用[自动页面修复](https://docs.microsoft.com/sql/sql-server/failover-clusters/automatic-page-repair-availability-groups-database-mirroring)来修复已损坏或出现数据完整性问题的页面。 始终使用可验证页面完整性的默认 CHECKSUM 设置来验证数据库页面。 SQL 数据库主动监视并审查数据库的数据完整性，如果出现问题，则以最高优先级解决问题。 除此之外，可以根据需要选择运行自己的完整性检查。  有关详细信息，请参阅 [SQL 数据库中的数据完整性](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/)
 
 ## <a name="data-movement-after-migration"></a>迁移后的数据移动
 
@@ -247,8 +252,8 @@ SQL 数据库使用某些智能技术来自动处理特定类型的数据损坏�
 
 ### <a name="how-do-i-synchronize-data-between-sql-database-and-sql-server"></a>如何在 SQL 数据库与 SQL Server 之间同步数据？
 可通过多种方法实现此目的： 
-- **[数据同步](sql-database-sync-data.md)** – 可借助此功能将多个本地 SQL Server 数据库和 SQL 数据库之间的数据进行双向同步。 若要与本地 SQL Server 数据库同步，需要在本地计算机上安装并配置同步代理，并打开出站 TCP 端口 1433。
-- **[事务复制](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)** – 使用事务复制可将数据从本地同步到 Azure SQL 数据库，其中，本地为发布方，Azure SQL 数据库为订阅方。 目前仅支持此设置。 有关如何以最短的停机时间将数据从本地迁移到 Azure SQL 的详细信息，请参阅：[使用事务复制](sql-database-cloud-migrate.md#method-2-use-transactional-replication)
+- **[数据同步](sql-database-sync-data.md)** - 此功能可帮助你在多个本地 SQL Server 数据库和 SQL 数据库之间双向同步数据。 若要与本地 SQL Server 数据库同步，需要在本地计算机上安装并配置同步代理，并打开出站 TCP 端口 1433。
+- **[事务复制](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)** - 使用事务复制功能，可将数据从本地同步到 Azure SQL DB，本地服务器作为发布服务器，而 Azure SQL DB 作为订阅服务器。 目前仅支持此设置。 有关如何以最短的停机时间将数据从本地迁移到 Azure SQL 的详细信息，请参阅：[使用事务复制](sql-database-cloud-migrate.md#method-2-use-transactional-replication)
 
 ## <a name="next-steps"></a>后续步骤
 了解 [SQL 数据库](sql-database-technical-overview.md)。

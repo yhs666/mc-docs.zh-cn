@@ -10,12 +10,12 @@ ms.topic: article
 origin.date: 04/01/2018
 ms.date: 04/17/2018
 ms.author: v-johch
-ms.openlocfilehash: 76cbbadf2098b85e3675a04c404ed268cbc08780
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 27382591ac203edbb863603d20f3bfff13d4d8fb
+ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782455"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486536"
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>迁移要扩展的现有数据库
 使用 Azure SQL 数据库数据库工具（例如[弹性数据库客户端库](sql-database-elastic-database-client-library.md)）轻松管理现有的扩展共享数据库。 先转换现有数据库集，再使用[分片映射管理器](sql-database-elastic-scale-shard-map-management.md)。 
@@ -73,7 +73,7 @@ ms.locfileid: "31782455"
 
 或者可以使用“列表映射”  实现多租户数据库模型，以将多个租户分配给单一数据库。 例如，DB1 用于存储租户 ID 1 和 5 的相关信息，而 DB2 用于存储租户 7 和租户 10 的数据。 
 
-![单一数据库上的多个租户][3] 
+![单一 DB 上的多个租户][3] 
 
 **根据选择，选择以下选项之一：**
 
@@ -156,10 +156,7 @@ GitHub 上也提供了这些工具： [Azure/elastic-db-tools](https://github.co
 
 使用拆分/合并工具在多租户模型与单租户模型之间来回移动数据。 请参阅[拆分合并工具](sql-database-elastic-scale-get-started.md)。
 
-## <a name="additional-resources"></a>其他资源
 ## <a name="questions-and-feature-requests"></a>问题和功能请求
 如有问题，请使用 [SQL 数据库论坛](https://social.msdn.microsoft.com/Forums/zh-cn/home?forum=ssdsgetstarted)。
-<!--Image references-->
-[1]: ./media/sql-database-elastic-convert-to-use-elastic-tools/listmapping.png
-[2]: ./media/sql-database-elastic-convert-to-use-elastic-tools/rangemapping.png
-[3]: ./media/sql-database-elastic-convert-to-use-elastic-tools/multipleonsingledb.png
+<!--Image references--> [1]: ./media/sql-database-elastic-convert-to-use-elastic-tools/listmapping.png [2]: ./media/sql-database-elastic-convert-to-use-elastic-tools/rangemapping.png [3]: ./media/sql-database-elastic-convert-to-use-elastic-tools/multipleonsingledb.png
+

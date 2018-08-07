@@ -1,5 +1,5 @@
 ---
-title: 威胁检测 - Azure SQL 数据库托管实例 | Microsoft Docs
+title: 威胁检测 - Azure SQL 数据库托管实例 | Azure
 description: 威胁检测会检测异常的数据库活动，指出数据库有潜在的安全威胁。
 services: sql-database
 author: yunan2016
@@ -11,12 +11,12 @@ origin.date: 03/07/2018
 ms.date: 04/19/2018
 ms.author: v-nany
 ms.reviewer: carlrab
-ms.openlocfilehash: 5a05d5d0cd3c1f9abda9883a2fa118da2e5c4d32
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 0e7be8d70b989e8972eaf868411c9375e75867a9
+ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782664"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486769"
 ---
 # <a name="azure-sql-database-managed-instance-threat-detection"></a>Azure SQL 数据库托管实例威胁检测
 
@@ -49,7 +49,7 @@ SQL 威胁检测将警报与 [Azure 安全中心](https://azure.microsoft.com/se
 
    ![威胁检测电子邮件](./media/sql-database-managed-instance-threat-detection/threat-detection-email.png)
 
-2. 单击电子邮件中“查看最近的 SQL 警报”链接以启动 Azure 门户并显示 Azure 安全中心警报页面，该页面提供在托管实例的数据库上检测到的活动 SQL 威胁的概述。
+2. 单击电子邮件中的“查看最近的 SQL 警报”链接以启动 Azure 门户并显示 Azure 安全中心警报页面，该页面概述了在托管实例的数据库上检测到的活动 SQL 威胁。
 
    ![活动威胁](./media/sql-database-managed-instance-threat-detection/active-threats.png)
 
@@ -77,4 +77,3 @@ SQL 威胁检测将警报与 [Azure 安全中心](https://azure.microsoft.com/se
 - 了解有关托管实例的信息，请参阅[什么是托管实例](sql-database-managed-instance.md)
 - 详细了解[托管实例审核](https://go.microsoft.com/fwlink/?linkid=869430) 
 - 了解有关 [Azure 安全中心](https://docs.microsoft.com/azure/security-center/security-center-intro)的详细信息
-

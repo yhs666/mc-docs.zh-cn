@@ -1,5 +1,5 @@
 ---
-title: Azure SQL 数据库动态数据掩码 | Microsoft docs
+title: Azure SQL 数据库动态数据掩码 | Azure
 description: SQL 数据库动态数据掩码通过对非特权用户模糊化敏感数据来控制此类数据的泄露
 services: sql-database
 author: Hayley244
@@ -10,12 +10,12 @@ ms.topic: article
 origin.date: 04/01/2018
 ms.date: 04/17/2018
 ms.author: v-johch
-ms.openlocfilehash: 79ccb274f97bfef9fb92b940c078d3b3464ae70c
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: df82482dc325fc348a01b890a506f78b46a3ac45
+ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782391"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486564"
 ---
 # <a name="sql-database-dynamic-data-masking"></a>SQL 数据库动态数据掩码
 
@@ -55,3 +55,4 @@ DDM 建议引擎会将数据库中的某些字段标记为可能的敏感字段�
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-rest-api"></a>使用 REST API 为数据库设置动态数据掩码
 请参阅对 [Azure SQL 数据库](https://msdn.microsoft.com/library/dn505719.aspx)的操作。
+

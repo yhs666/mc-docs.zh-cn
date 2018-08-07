@@ -1,5 +1,5 @@
 ---
-title: 部署拆分 / 合并服务 | Microsoft 文档
+title: 部署拆分/合并服务 | Azure
 description: 可使用拆分/合并工具在分片数据库之间移动数据。
 services: sql-database
 author: forester123
@@ -10,12 +10,12 @@ ms.topic: article
 origin.date: 04/01/2018
 ms.date: 04/17/2018
 ms.author: v-johch
-ms.openlocfilehash: 79cee727a7d1e95b07557d10817ee9da2f510ab4
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 0fd0251dadf222cb733f1c4eb2a36378ea2af766
+ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782297"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486565"
 ---
 # <a name="deploy-a-split-merge-service"></a>部署拆分/合并服务
 可使用拆分/合并工具在分片数据库之间移动数据。 请参阅[在扩展云数据库之间移动数据](sql-database-elastic-scale-overview-split-and-merge.md)
@@ -43,16 +43,16 @@ ms.locfileid: "31782297"
 1. 在下载了拆分/合并程序集的文件夹中，创建 **SplitMergeService.cspkg** 随附的 **ServiceConfiguration.Template.cscfg** 文件的副本，并将其重命名为 **ServiceConfiguration.cscfg**。
 2. 在文本编辑器（如 Visual Studio）中打开 **ServiceConfiguration.cscfg** ，它会验证输入内容（例如证书指纹的格式）。
 3. 创建新的数据库或选择现有的数据库，以将其用作拆分/合并操作的状态数据库并检索该数据库的连接字符串。 
-
+   
    > [!IMPORTANT]
    > 目前，状态数据库必须使用拉丁语排序规则 (SQL\_Latin1\_General\_CP1\_CI\_AS)。 有关详细信息，请参阅 [Windows 排序规则名称 (Transact-SQL)](https://msdn.microsoft.com/library/ms188046.aspx)。
    >
 
    在 Azure SQL DB 中，连接字符串通常采用以下形式：
+      ```
+      Server=myservername.database.chinacloudapi.cn; Database=mydatabasename;User ID=myuserID; Password=mypassword; Encrypt=True; Connection Timeout=30
+      ```
 
-    ```
-    "Server=myservername.database.chinacloudapi.cn; Database=mydatabasename;User ID=myuserID; Password=mypassword; Encrypt=True; Connection Timeout=30" .
-    ```
 4. 同时在 ElasticScaleMetadata 设置的 **SplitMergeWeb** 和 **SplitMergeWorker** 角色部分中，在 cscfg 文件内输入此连接字符串。
 5. 对于 **SplitMergeWorker** 角色，在 **WorkerRoleSynchronizationStorageAccountConnectionString** 设置中输入有效的连接字符串用于连接到 Azure 存储。
 
@@ -64,23 +64,21 @@ ms.locfileid: "31782297"
 ### <a name="create-a-self-signed-certificate"></a>创建自签名证书
 创建新的目录并使用 [Visual Studio 的开发人员命令提示符](http://msdn.microsoft.com/library/ms229859.aspx)窗口从该目录执行以下命令：
 
-```
-makecert ^
--n "CN=*.chinacloudapp.cn" ^
--r -cy end -sky exchange -eku "1.3.6.1.5.5.7.3.1,1.3.6.1.5.5.7.3.2" ^
--a sha1 -len 2048 ^
--sr currentuser -ss root ^
--sv MyCert.pvk MyCert.cer
-```
+   ```
+    makecert ^
+    -n "CN=*.chinacloudapp.cn" ^
+    -r -cy end -sky exchange -eku "1.3.6.1.5.5.7.3.1,1.3.6.1.5.5.7.3.2" ^
+    -a sha1 -len 2048 ^
+    -sr currentuser -ss root ^
+    -sv MyCert.pvk MyCert.cer
+   ```
 
 会要求你提供密码以保护私钥。 输入强密码并进行确认。 之后，系统会提示再次输入该密码。 在完成后单击“是”，以将证书导入到“受信任的根证书颁发机构”存储中。
 
 ### <a name="create-a-pfx-file"></a>创建 PFX 文件
 从执行 makecert 的相同窗口中执行以下命令；使用用于创建证书的相同密码：
 
-```
-pvk2pfx -pvk MyCert.pvk -spc MyCert.cer -pfx MyCert.pfx -pi <password>
-```
+    pvk2pfx -pvk MyCert.pvk -spc MyCert.cer -pfx MyCert.pfx -pi <password>
 
 ### <a name="import-the-client-certificate-into-the-personal-store"></a>将客户端证书导入到个人存储中
 1. 在 Windows 资源管理器中，双击“MyCert.pfx” 。
@@ -102,22 +100,21 @@ pvk2pfx -pvk MyCert.pvk -spc MyCert.cer -pfx MyCert.pfx -pi <password>
 ### <a name="update-the-service-configuration-file"></a>更新服务配置文件
 将之前复制的证书指纹粘贴到这些设置的指纹/值属性中。
 对于辅助角色：
-
-```
-<Setting name="DataEncryptionPrimaryCertificateThumbprint" value="" />
-<Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
-```
+   ```
+    <Setting name="DataEncryptionPrimaryCertificateThumbprint" value="" />
+    <Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
+   ```
 
 对于 Web 角色：
 
-```
-<Setting name="AdditionalTrustedRootCertificationAuthorities" value="" />
-<Setting name="AllowedClientCertificateThumbprints" value="" />
-<Setting name="DataEncryptionPrimaryCertificateThumbprint" value="" />
-<Certificate name="SSL" thumbprint="" thumbprintAlgorithm="sha1" />
-<Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
-<Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
-```
+   ```
+    <Setting name="AdditionalTrustedRootCertificationAuthorities" value="" />
+    <Setting name="AllowedClientCertificateThumbprints" value="" />
+    <Setting name="DataEncryptionPrimaryCertificateThumbprint" value="" />
+    <Certificate name="SSL" thumbprint="" thumbprintAlgorithm="sha1" />
+    <Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
+    <Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
+   ```
 
 请注意，对于生产部署，应针对用于加密的 CA 使用单独的证书（服务器证书和客户端证书）。 有关此内容的详细说明，请参阅[安全配置](sql-database-elastic-scale-split-merge-security-configuration.md)。
 
@@ -126,7 +123,7 @@ pvk2pfx -pvk MyCert.pvk -spc MyCert.cer -pfx MyCert.pfx -pi <password>
 2. 单击左侧的“云服务”  选项卡，并选择用户之前创建的云服务。
 3. 单击“仪表板” 。
 4. 选择过渡环境，并单击“上传新的过渡部署” 。
-
+   
    ![过渡][3]
 5. 在对话框中，输入一个部署标签。 对于“程序包”和“配置”，单击“从本地”，并选择 **SplitMergeService.cspkg** 文件和之前配置的 cscfg 文件。
 6. 确保选中标记为“即使一个或多个角色包含单个实例也部署”  的复选框。
@@ -143,9 +140,9 @@ pvk2pfx -pvk MyCert.pvk -spc MyCert.cer -pfx MyCert.pfx -pi <password>
 * 检查服务器和数据库是否存在，以及用户 ID 和密码是否正确。
 * 对于 Azure SQL DB，连接字符串应采用以下形式：
 
-    ```
-    Server=myservername.database.chinacloudapi.cn; Database=mydatabasename;User ID=myuserID; Password=mypassword; Encrypt=True; Connection Timeout=30
-    ```
+   ```  
+   Server=myservername.database.chinacloudapi.cn; Database=mydatabasename;User ID=myuserID; Password=mypassword; Encrypt=True; Connection Timeout=30
+   ```
 
 * 确保服务器名称不以 **https://** 开头。
 * 确保 Azure SQL DB 服务器允许 Azure 服务与其连接。 为此，请打开 https://portal.azure.cn，单击左侧的“SQL 数据库”和顶部的“服务器”，然后选择你的服务器。 在顶部单击“配置”并确保将“Azure 服务”设置为“是”。 （请参阅此文章顶部的“先决条件”部分）。

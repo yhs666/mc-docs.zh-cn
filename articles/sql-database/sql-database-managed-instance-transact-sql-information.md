@@ -1,5 +1,5 @@
 ---
-title: Azure SQL 数据库托管实例的 T-SQL 差异 | Microsoft Docs
+title: Azure SQL 数据库托管实例的 T-SQL 差异 | Azure
 description: 本文讨论 Azure SQL 数据库托管实例与 SQL Server 之间的 T-SQL 差异。
 services: sql-database
 author: yunan2016
@@ -7,16 +7,16 @@ ms.reviewer: carlrab, bonova
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: article
-origin.date: 05/24/2018
-ms.date: 07/02/2018
+origin.date: 06/22/2018
+ms.date: 08/06/2018
 ms.author: v-nany
 manager: digimobile
-ms.openlocfilehash: f18619a53bc8f14d3379c25fe32a5d54a224bda3
-ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
+ms.openlocfilehash: 1f4debfaea96b2f390c4a6b222fe58d625e4610c
+ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36948107"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486639"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL 数据库托管实例与 SQL Server 之间的 T-SQL 差异 
 
@@ -209,6 +209,10 @@ WITH PRIVATE KEY ( <private_key_options> )
 - 不支持 `DBCC TRACEOFF`。 请参阅 [DBCC TRACEOFF](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceoff-transact-sql)。
 - 不支持 `DBCC TRACEON`。 请参阅 [DBCC TRACEON](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql)。
 
+### <a name="distributed-transactions"></a>分布式事务
+
+托管实例目前不支持 MSDTC 也不支持[弹性事务](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-transactions-overview)。
+
 ### <a name="extended-events"></a>扩展事件 
 
 不支持对 XEvents 使用某些特定于 Windows 的目标：
@@ -368,11 +372,11 @@ WITH PRIVATE KEY ( <private_key_options> )
 不支持以下各项： 
 - `FILESTREAM` 
 - `FILETABLE` 
-- `EXTERNAL TABLE` 
+- `EXTERNAL TABLE`
 - `MEMORY_OPTIMIZED`  
 
 有关创建和更改表的信息，请参阅 [CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql) 和 [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql)。
- 
+
 ## <a name="Changes"></a>行为更改 
  
 以下变量、函数和视图返回不同的结果：  
@@ -397,9 +401,11 @@ WITH PRIVATE KEY ( <private_key_options> )
 
 每个托管实例都为 Azure 高级磁盘空间保留了高达 35 TB 的存储空间，并且每个数据库文件都放置在单独的物理磁盘上。 磁盘大小可以为 128 GB、256 GB、512 GB、1 TB 或 4 TB。 磁盘上未使用的空间不收费，但 Azure 高级磁盘大小总计不能超过 35 TB。 在某些情况下，由于内部碎片，总共不需要 8 TB 的托管实例可能会超过 35 TB 的 Azure 存储大小限制。 
 
-例如，某托管实例的一个文件大小为 1.2 TB 而使用 4 TB 磁盘，另外 248 个大小均为 1 GB 的文件分别位于 248 个大小各为 128 GB 的磁盘上。 这种情况下，磁盘存储大小总计为 1 x 4 TB + 248 x 128 GB = 35 TB。 但是，数据库的总预留实例大小为 1 x 1.2 TB + 248 x 1 GB = 1.4 TB。 这说明在某些情况下，由于文件分布极为具体，托管实例可能会出乎意料地达到 Azure 高级磁盘存储空间上限。 
+例如，托管实例可以将一个大小为 1.2 TB 的文件放在 4 TB 磁盘上，将 248 个文件（每个大小为 1 GB）放在单独的 128 GB 磁盘上。 在此示例中， 
+* 磁盘存储总大小为 1 x 4 TB + 248 x 128 GB = 35 TB。 
+* 实例上的数据库的总预留空间为 1 x 1.2 TB + 248 x 1 GB = 1.4 TB。
 
-现有数据库不会出现任何错误，并且如果未添加新文件，这些数据库可增大且不会出现任何问题。但是，由于无足够的空间可用于新磁盘驱动器，即使所有数据库总大小未达到实例大小上限，也无法创建或还原新数据库。 这种情况下返回的错误并不明确。
+在此示例中，只要未添加新文件，现有数据库将继续工作并且可以毫无问题地增长。 但是，由于没有足够的空间用于新磁盘驱动器，因此无法创建或还原新数据库，即使所有数据库的总大小未达到实例大小限制也是如此。 这种情况下返回的错误并不明确。
 
 ### <a name="incorrect-configuration-of-sas-key-during-database-restore"></a>在还原数据库期间不正确地配置了 SAS 密钥
 

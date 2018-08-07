@@ -1,6 +1,6 @@
 ---
 title: 性能建议 - Azure SQL 数据库 | Azure
-description: Azure SQL 数据库提供有关 SQL 数据库的建议，以提升当前的查询性能。
+description: Azure SQL 数据库提供有关 SQL 数据库的建议，以提升当前查询性能。
 services: sql-database
 author: yunan2016
 manager: digimobile
@@ -10,12 +10,12 @@ ms.topic: article
 origin.date: 04/01/2018
 ms.date: 4/17/2018
 ms.author: v-nany
-ms.openlocfilehash: a1207f728542677ae80f8e61cbf82d1053917bc5
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: fb74dc803befe1223e16dd4b47f51a15ba6d28d7
+ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782223"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486593"
 ---
 # <a name="performance-recommendations-for-sql-database"></a>SQL 数据库性能建议
 
@@ -83,7 +83,7 @@ SQL 数据库持续监视正在运行的查询，并发现可以提升性能的�
 监视建议并继续应用它们以优化性能。 数据库工作负荷是动态的，并且不断地更改。 SQL 数据库顾问继续监视和提供可能提高数据库性能的建议。 
 
 * 有关数据库索引和查询执行计划自动优化的详细信息，请参阅 [Azure SQL 数据库自动优化](sql-database-automatic-tuning.md)。
-* 有关如何在 Azure 门户中使用性能建议的详细信息，请参阅 [Azure 门户中的性能建议](sql-database-advisor-portal.md)。
+*  有关如何在 Azure 门户中使用性能建议的详细信息，请参阅 [Azure 门户中的性能建议](sql-database-advisor-portal.md)。
 * 若要了解和查看排名靠前的查询的性能影响，请参阅[查询性能见解](sql-database-query-performance.md)。
 
 <!--Update_Description: add a tip for performance tuning;add two next step links-->

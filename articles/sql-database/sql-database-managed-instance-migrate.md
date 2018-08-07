@@ -1,5 +1,5 @@
 ---
-title: 将 SQL Server 实例迁移到 Azure SQL 数据库托管实例 | Microsoft Docs
+title: 将 SQL Server 实例迁移到 Azure SQL 数据库托管实例 | Azure
 description: 了解如何将 SQL Server 实例迁移到 Azure SQL 数据库托管实例。
 keywords: 数据库迁移, SQL Server 数据库迁移, 数据库迁移工具, 迁移数据库, 迁移 SQL 数据库
 services: sql-database
@@ -9,15 +9,15 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: article
-origin.date: 04/10/2018
-ms.date: 04/19/2018
+origin.date: 07/16/2018
+ms.date: 08/06/2018
 ms.author: v-nany
-ms.openlocfilehash: 43eae206ecba62894c8131efeccb70a3eccef805
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 608c567f6044cda056154d4929338810ac768658
+ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782663"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486728"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>将 SQL Server 实例迁移到 Azure SQL 数据库托管实例
 
@@ -79,14 +79,14 @@ SQL 数据库托管实例是现有 SQL 数据库服务的扩展，提供了第�
 
 - Azure 数据库迁移服务 - 在几乎不停机的情况下进行迁移
 - 通过 URL 进行本机还原 - 使用来自 SQL Server 的本机备份并需要一定的停机时间
-- 使用 BACPAC 文件进行迁移 - 使用来自 SQL Server 或 SQL 数据库的 BACPAC 文件并且需要一定的停机时间
+
 
 
 ### <a name="native-restore-from-url"></a>从 URL 本机还原
 
 还原从本地 SQL Server 或[虚拟机中的 SQL Server](https://www.azure.cn/home/features/virtual-machines/) 创建的、在 [Azure 存储](https://azure.microsoft.com/services/storage/)中保存的本机备份（.bak 文件），是 SQL 数据库托管实例的重要功能之一，可以实现快速轻松的脱机数据库迁移。 
 
-下图从较高层面解释了该过程：
+下图高度概括了该过程：
 
 ![迁移流](./media/sql-database-managed-instance-migration/migration-flow.png)
 
@@ -103,10 +103,6 @@ SQL 数据库托管实例是现有 SQL 数据库服务的扩展，提供了第�
 > 不支持还原系统数据库。 若要迁移实例级对象（存储在 master 或 msdb 数据库中），我们建议编写 T-SQL 脚本，并在目标实例上运行这些脚本。
 
 有关如何使用 SAS 凭据将数据库备份还原到托管实例的完整教程，请参阅[从备份还原到托管实例](sql-database-managed-instance-restore-from-backup-tutorial.md)。
-
-### <a name="migrate-using-bacpac-file"></a>使用 BACPAC 文件迁移
-
-可以在 BACPAC 文件中创建包含数据的原始数据库副本，将数据导入到 Azure SQL 数据库和托管实例。 请参阅[将 BACPAC 文件导入到新的 Azure SQL 数据库](sql-database-import.md)。
 
 ## <a name="monitor-applications"></a>监视应用程序
 

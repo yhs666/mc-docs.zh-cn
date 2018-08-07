@@ -10,12 +10,12 @@ ms.topic: article
 origin.date: 04/01/2018
 ms.date: 04/17/2018
 ms.author: v-nany
-ms.openlocfilehash: ca6d66abc6025ea231ca8d7ec5f9242174854e6e
-ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
+ms.openlocfilehash: ecadb49a1c6a89843813bb4ae0611f642bcf0621
+ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36948071"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486725"
 ---
 # <a name="daxkocsi-used-azure-to-accelerate-its-development-cycle-and-to-enhance-its-customer-services-and-performance"></a>Daxko/CSI 使用 Azure 来加速其开发周期和增强其客户服务与性能
 ![Daxko/CSI 徽标](./media/sql-database-implementation-daxko/csidaxkologo25.png)
@@ -38,7 +38,7 @@ Molina 补充道，“我们的客户立即感受到改变。 在使用弹性池
 为了消除这种开销，CSI Software 研究了云选项，以便能够将重心放在代码上而不是运营上。 该公司发现许多顶尖的云提供商都只提供基础结构即服务 (IaaS) 解决方案，而这种解决方案仍然需要大量 IT 人员来管理 IaaS 堆栈。 最后，CSI Software 认定 Azure PaaS 解决方案是最符合其需求的选项。 Molina 解释道，“Azure 为我们排除了硬件和系统软件的障碍，使我们可以专注于软件产品，同时也减少了 IT 开销。”
 
 ## <a name="making-the-transition-to-azure"></a>过渡到 Azure
-在选择 Azure 作为 PaaS 解决方案之后，CSI Software 开始将其后端基础结构和数据库迁移到云中。 在使用 Azure 之前，SpectrumNG 客户必须安装客户端应用程序才能与后端的 Windows Communication Foundation (WCF) 服务通信。 Molina 表示，“尽管有些客户将所有项目都托管在自己的数据中心内，但我们是将产品构建成多租户产品。 我们使用 SQL Server 作为数据存储，将所有内容都托管在休斯敦的数据中心内。
+在选择 Azure 作为 PaaS 解决方案之后，CSI Software 开始将其后端基础结构和数据库迁移到云中。 在使用 Azure 之前，SpectrumNG 客户必须安装客户端应用程序才能与后端的 Windows Communication Foundation (WCF) 服务通信。 Molina 表示，“尽管有些客户将所有项目都托管在自己的数据中心内，但我们是将产品构建成多租户产品。 我们使用 SQL Server 作为数据存储，将所有内容都托管在休斯敦的数据中心。”
 
 “我们的产品还包含一个面向会员的门户（以 ASP.net 编写），旨在以白标签方式匹配客户的 Web 空间；另外还包含一个 SOAP API，用于支持在线网页和任何第三方集成。”
 
@@ -88,4 +88,5 @@ Azure SQL 数据库不仅为 SpectrumNG 客户带来了好处，让他们享有�
 * 有关迁移 SQL Server 数据库的详细信息，请参阅[将 Azure SQL 数据库迁移到 Azure](sql-database-cloud-migrate.md)。
 * 有关活动异地复制的详细信息，请参阅[活动异地复制](sql-database-geo-replication-overview.md)。
 * 若要深入了解 Azure 服务总线，请参阅 [Azure 服务总线](https://www.azure.cn/home/features/messaging/)。
-* 有关自动缩放的详细信息，请参阅[缩放云服务](../cloud-services/cloud-services-how-to-scale.md)。
+* 有关自动缩放的详细信息，请参阅[缩放云服务](../cloud-services/cloud-services-how-to-scale-portal.md)。
+

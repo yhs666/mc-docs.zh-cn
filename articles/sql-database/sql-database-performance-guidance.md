@@ -1,5 +1,5 @@
 ---
-title: Azure SQL 数据库性能优化指南 | Microsoft Docs
+title: Azure SQL 数据库性能优化指南 | Azure
 description: 了解如何使用建议提高 Azure SQL 数据库查询性能。
 services: sql-database
 author: forester123
@@ -7,30 +7,30 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
-origin.date: 02/12/2018
-ms.date: 07/02/2018
+origin.date: 07/16/2018
+ms.date: 08/06/2018
 ms.author: v-johch
-ms.openlocfilehash: 3a1c84df6f726a97866f8f56722cb0fec79c8992
-ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
+ms.openlocfilehash: 4c7ace4424b98bcd23c0e6d77bb333587e929f13
+ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36947975"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486768"
 ---
 # <a name="tuning-performance-in-azure-sql-database"></a>在 Azure SQL 数据库中优化性能
 
 Azure SQL 数据库提供[建议](sql-database-advisor.md)，可用于提高数据库的性能，或者让 Azure SQL 数据库[自动适应你的应用程序](sql-database-automatic-tuning.md)，并应用可改善工作负荷性能的变更。
 
 如果你未收到任何适用的建议，但仍然遇到性能问题，可以使用以下方法来提高性能：
-- 在[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)或[基于 vCore 的购买模型（预览版）](sql-database-service-tiers-vcore.md)中增加服务层，为数据库提供更多资源。
+- 在[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)或[基于 vCore 的购买模型](sql-database-service-tiers-vcore.md)中增加服务层，为数据库提供更多资源。
 - 优化应用程序，应用某些可以提高性能的最佳做法。 
 - 通过更改索引和查询来优化数据库，以便更有效地处理数据。
 
-这些是手动方法，因为你需要决定哪些[基于 DTU 的模型资源限制](sql-database-dtu-resource-limits.md)和[基于 vCore 的模型资源限制（预览版）](sql-database-vcore-resource-limits.md)满足你的需求。 否则，你需要重写应用程序或数据库代码并部署更改。
+这些是手动方法，因为你需要确定满足需求所需的资源量。 否则，你需要重写应用程序或数据库代码并部署更改。
 
 ## <a name="increasing-performance-tier-of-your-database"></a>提高数据库的性能层
 
-Azure SQL 数据库提供了两种购买模型：即[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)和[基于 vCore 的购买模型（预览版）](sql-database-service-tiers-vcore.md)，你可以从中进行选择。 每个服务层可严格隔离 SQL 数据库可以使用的资源，并保证相应服务级别的可预测性能。 本文指导用户为其应用程序选择服务层， 并讨论如何通过多种方式调整应用程序，以便充分利用 Azure SQL 数据库。
+Azure SQL 数据库提供了两种可供选择的购买模型：[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)和[基于 vCore 的购买模型](sql-database-service-tiers-vcore.md)。 每个服务层可严格隔离 SQL 数据库可以使用的资源，并保证相应服务级别的可预测性能。 本文指导用户为其应用程序选择服务层， 并讨论如何通过多种方式调整应用程序，以便充分利用 Azure SQL 数据库。
 
 > [!NOTE]
 > 本文侧重于 Azure SQL 数据库中单一数据库的性能指南。 有关弹性池的性能指南，请参阅[弹性池的价格和性能注意事项](sql-database-elastic-pool-guidance.md)。 但请注意，可以将本文的许多优化建议应用到弹性池中的数据库，获得类似的性能优势。
@@ -39,11 +39,11 @@ Azure SQL 数据库提供了两种购买模型：即[基于 DTU 的购买模型]
 * 
   **基本**：可以通过基本服务层按小时对每个数据库进行准确的性能预测。 在基本数据库中，足够的资源可支持不具有多个并发请求的小型数据库中的良好性能。 基本服务层的典型用例包括：
   * **用户开始使用 Azure SQL 数据库**。 处于开发阶段的应用程序通常需要的性能级别不高。 基本数据库是进行数据库开发或测试的理想环境，价位较低。
-  * **数据库包含单个用户**。 将单个用户与某个数据库进行关联的应用程序通常在并发能力和性能方面不会有很高的要求。 这些应用程序适合使用基本服务层。
+  * **用户的数据库有一个用户**。 将单个用户与某个数据库进行关联的应用程序通常在并发能力和性能方面不会提出很高的要求。 这些应用程序适合使用基本服务层。
 * 
   **标准**：标准服务层改进了存在多个并发请求的数据库（例如工作组和 Web 应用程序）的性能可预测性并为其提供了良好的性能。 选择标准服务层数据库时，可以根据每分钟的可预测性能调整数据库应用程序的大小。
   * **用户的数据库有多个并发请求**。 同时为多个用户提供服务的应用程序通常需要更高的性能级别。 例如，IO 流量要求较低或者中等且支持多个并发查询的工作组或 Web 应用程序非常适合使用标准服务层。
-* **高级**：高级服务层为每个高级或业务关键（预览）数据库提供每秒的可预测性能。 选择高级服务层时，可以根据数据库应用程序的峰值负载调整该数据库的大小。 此计划会消除因性能变动而导致小型查询在完成易受延迟影响的操作时所花时间超出预期的情况。 此模型可大大简化需要明确表明最大资源需求、性能变动或查询延迟的应用程序的开发和产品验证环节。 大多数高级服务层用例具有下述一项或多项特征：
+* **高级**：高级服务层为每个高级或业务关键数据库提供每秒的可预测性能。 选择高级服务层时，可以根据数据库应用程序的峰值负载调整该数据库的大小。 此计划会消除因性能变动而导致小型查询在完成易受延迟影响的操作时所花时间超出预期的情况。 此模型可大大简化需要明确表明最大资源需求、性能变动或查询延迟的应用程序的开发和产品验证环节。 大多数高级服务层用例具有下述一项或多项特征：
   * **高峰值负载**。 需要大量 CPU、内存或输入/输出 (IO) 才能完成其操作的应用程序，需要专用、高性能级别。 例如，已知较长时间使用多个 CPU 内核的数据库操作非常适合高级服务层。
   * **并发请求数较多**。 某些数据库应用程序为许多并发请求提供服务（例如，为流量较高的网站提供服务）。 基本和标准服务层会限制每个数据库的并发请求数。 需要更多连接的应用程序将需要选择合适的预留大小，以处理最大所需的请求数。
   * **延迟较低**。 某些应用程序需要确保在最短时间内从数据库获得响应。 如果在更大范围的客户操作期间调用了特定存储过程，则有 99% 的时间可能需要在 20 毫秒内从该调用返回响应。 此类应用程序可充分利用高级服务层，确保提供所需计算能力。
@@ -274,8 +274,8 @@ SQL Server 用户经常将许多功能集中在单一数据库中。 例如，�
 某些数据库应用程序的工作负荷包含大量的读取操作。 缓存层可减少数据库上的负载，还有可能降低支持使用 Azure SQL 数据库的数据库所需的性能级别。 如果读取工作负荷较重，通过 [Azure Redis 缓存](https://www.azure.cn/home/features/redis-cache/)，只需读取数据一次（也许只需对每个应用层计算机读取一次，具体取决于其配置方式），然后将该数据存储在 SQL 数据库外部。 这样可降低数据库负载（CPU 和读取 IO），但对于事务一致性有影响，因为从缓存读取的数据可能与数据库中数据不同步。 虽然许多应用程序可接受一定程度的不一致，但并非所有工作负荷都是这样。 应该先完全了解任何应用程序要求，再实施应用程序层缓存策略。
 
 ## <a name="next-steps"></a>后续步骤
-* 有关基于 DTU 的服务层的详细信息，请参阅[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)和[基于 DTU 的模型资源限制](sql-database-dtu-resource-limits.md)
-* 有关基于 vCore 的服务层的详细信息，请参阅[基于 vCore 的购买模型（预览版）](sql-database-service-tiers-vcore.md)和[基于 vCore 的资源限制（预览版）](sql-database-vcore-resource-limits.md)
+* 有关基于 DTU 的服务层的详细信息，请参阅[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)。
+* 有关基于 vCore 的服务层的详细信息，请参阅[基于 vCore 的购买模型](sql-database-service-tiers-vcore.md)。
 * 有关弹性池的详细信息，请参阅[什么是 Azure 弹性池？](sql-database-elastic-pool.md)
 * 有关性能和弹性池的信息，请参阅[何时考虑弹性池](sql-database-elastic-pool-guidance.md)
 

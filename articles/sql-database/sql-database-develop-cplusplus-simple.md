@@ -11,12 +11,12 @@ ms.topic: article
 origin.date: 04/01/2018
 ms.date: 04/17/2018
 ms.author: v-johch
-ms.openlocfilehash: b1f512ca8c8b4be11d3c74658fa992393e2a9c22
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: a94d983e4b0382871be11f21af21485c0b59638b
+ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782315"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486748"
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>使用 C 和 C++ 连接到 SQL 数据库
 本文面向尝试连接到 Azure SQL DB 的 C 和 C++ 开发人员， 它分为多个部分，方便大家选择最感兴趣的部分进行查看。 
@@ -40,7 +40,7 @@ Azure 目前有两个用于托管 SQL Server 工作负荷的选项：Azure SQL �
 请参阅[入门页](sql-database-get-started-portal.md)，以了解如何创建示例数据库。
 
 ## <a id="ConnectionString"></a>步骤 2：获取连接字符串
-预配 Azure SQL 数据库后，需要执行以下步骤，确定连接信息及添加用于防火墙访问的客户端 IP。 
+设置 Azure SQL 数据库后，需要执行以下步骤来确定连接信息，并添加客户端 IP 用于防火墙访问。 
 
 在 [Azure 门户](https://portal.azure.cn/)中，使用**显示数据库连接字符串**（包含在数据库概述部分中）转到 Azure SQL 数据库 ODBC 连接字符串： 
 
@@ -58,7 +58,7 @@ Azure 目前有两个用于托管 SQL Server 工作负荷的选项：Azure SQL �
 此时，已配置好 Azure SQL DB，并已准备好通过 C++ 代码连接。 
 
 ## <a id="Windows"></a>步骤 4：从 Windows C/C++ 应用程序连接
-可以 [使用通过 Visual Studio 生成的此示例在 Windows 上轻松连接到使用 ODBC 的 Azure SQL DB](https://github.com/Microsoft/VCSamples/tree/master/VC2015Samples/ODBC%20database%20sample%20%28windows%29) 。 该示例实现可用于连接到 Azure SQL DB 的 ODBC 命令行解释器。 此示例将数据库源名称文件 (DSN) 文件作为命令行参数，或采用我们先前从 Azure 门户复制的详细连接字符串。 打开此项目的属性页，并将连接字符串作为命令行参数粘贴，如下所示： 
+可以 [使用通过 Visual Studio 生成的此示例在 Windows 上轻松连接到使用 ODBC 的 Azure SQL DB](https://github.com/Microsoft/VCSamples/tree/master/VC2015Samples/ODBC%20database%20sample%20%28windows%29) 。 此示例实现 ODBC 命令行解释程序，其可用来连接到我们的 Azure SQL DB。 此示例将数据库源名称文件 (DSN) 文件作为命令行参数，或我们先前从 Azure 门户复制的详细的连接字符串。 打开此项目的属性页，并将连接字符串作为命令行参数粘贴，如下所示： 
 
 ![DSN Propsfile](./media/sql-database-develop-cplusplus-simple/props.png)
 
@@ -81,14 +81,12 @@ Azure 目前有两个用于托管 SQL Server 工作负荷的选项：Azure SQL �
 
 按照以下步骤安装发行版 SQL 和 ODBC 所需的库：
 
-```
-sudo su
-sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/mssql-ubuntu-test/ xenial main" > /etc/apt/sources.list.d/mssqlpreview.list'
-sudo apt-key adv --keyserver apt-mo.trafficmanager.net --recv-keys 417A0893
-apt-get update
-apt-get install msodbcsql
-apt-get install unixodbc-dev-utf16 #this step is optional but recommended*
-```
+    sudo su
+    sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/mssql-ubuntu-test/ xenial main" > /etc/apt/sources.list.d/mssqlpreview.list'
+    sudo apt-key adv --keyserver apt-mo.trafficmanager.net --recv-keys 417A0893
+    apt-get update
+    apt-get install msodbcsql
+    apt-get install unixodbc-dev-utf16 #this step is optional but recommended*
 
 启动 Visual Studio。 在“工具”->“选项”->“跨平台”->“连接管理器” 下，添加到 Linux 框的连接： 
 
@@ -98,15 +96,13 @@ apt-get install unixodbc-dev-utf16 #this step is optional but recommended*
 
 ![新建项目模板](./media/sql-database-develop-cplusplus-simple/template.png)
 
-然后，可以添加 [ 新的 C 源文件，并将其替换为此内容](https://github.com/Microsoft/VCSamples/blob/master/VC2015Samples/ODBC%20database%20sample%20%28linux%29/odbcconnector/odbcconnector.c)。 使用 ODBC API SQLAllocHandle、SQLSetConnectAttr 和 SQLDriverConnect 时，应能够初始化并建立与数据库的连接。 和 Windows ODBC 示例一样，需要使用数据库连接字符串参数的详细信息（之前从 Azure 门户复制）替换 SQLDriverConnect 调用。 
+然后，可以添加 [ 新的 C 源文件，并将其替换为此内容](https://github.com/Microsoft/VCSamples/blob/master/VC2015Samples/ODBC%20database%20sample%20%28linux%29/odbcconnector/odbcconnector.c)。 使用 ODBC APIs SQLAllocHandle、SQLSetConnectAttr 和 SQLDriverConnect，应可以初始化并建立到数据库的连接。 和 Windows ODBC 示例一样，需要使用数据库连接字符串参数的详细信息（之前从 Azure 门户复制）替换 SQLDriverConnect 调用。 
 
-```
- retcode = SQLDriverConnect(
-    hdbc, NULL, "Driver=ODBC Driver 13 for SQL"
-                "Server;Server=<yourserver>;Uid=<yourusername>;Pwd=<"
-                "yourpassword>;database=<yourdatabase>",
-    SQL_NTS, outstr, sizeof(outstr), &outstrlen, SQL_DRIVER_NOPROMPT);
-```
+     retcode = SQLDriverConnect(
+        hdbc, NULL, "Driver=ODBC Driver 13 for SQL"
+                    "Server;Server=<yourserver>;Uid=<yourusername>;Pwd=<"
+                    "yourpassword>;database=<yourdatabase>",
+        SQL_NTS, outstr, sizeof(outstr), &outstrlen, SQL_DRIVER_NOPROMPT);
 
 编译之前的最后一步是将 **odbc** 添加为库依赖项： 
 
@@ -133,5 +129,5 @@ apt-get install unixodbc-dev-utf16 #this step is optional but recommended*
 * [ODBC API 参考](https://docs.microsoft.com/sql/odbc/reference/syntax/odbc-api-reference/)
 
 ## <a name="additional-resources"></a>其他资源
-* 浏览所有 [SQL 数据库的功能](https://www.azure.cn/home/features/sql-database/)。
+* 浏览所有 [SQL 数据库功能](https://www.azure.cn/home/features/sql-database/)
 <!--Update_Description: update metadata-->

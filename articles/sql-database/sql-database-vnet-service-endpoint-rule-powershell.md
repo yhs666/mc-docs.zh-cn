@@ -1,5 +1,5 @@
 ---
-title: SQL 中适用于虚拟网络服务终结点和规则的 PowerShell | Microsoft 文档
+title: Azure SQL 中适用于虚拟网络服务终结点和规则的 PowerShell | Azure
 description: 提供 PowerShell 脚本，用于创建和管理 Azure SQL 数据库和 SQL 数据仓库的虚拟服务终结点。
 services: sql-database
 author: yunan2016
@@ -11,12 +11,12 @@ origin.date: 06/13/2018
 ms.date: 07/02/2018
 ms.reviewer: genemi
 ms.author: v-nany
-ms.openlocfilehash: ec415293d167cf036a4de35166e5276ba7f6dfcc
-ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
+ms.openlocfilehash: 4d5495016933ef1e9bacbc21bf275288fd118a41
+ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36948094"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486766"
 ---
 # <a name="use-powershell-to-create-a-virtual-service-endpoint-and-rule-for-azure-sql-database-and-sql-data-warehouse"></a>使用 PowerShell 创建 Azure SQL 数据库和 SQL 数据仓库的虚拟服务终结点和规则
 
@@ -651,5 +651,4 @@ Good: Subnet found, and is already tagged as an endpoint of type 'Microsoft.Sql'
 [sql-db-vnet-service-endpoint-rule-overview-735r]: sql-database-vnet-service-endpoint-rule-overview.md
 
 [http-azure-portal-link-ref-477t]: https://portal.azure.cn/
-
 

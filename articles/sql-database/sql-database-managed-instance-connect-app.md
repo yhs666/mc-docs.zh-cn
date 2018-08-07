@@ -10,12 +10,12 @@ origin.date: 05/21/2018
 ms.date: 06/18/2018
 ms.author: v-nany
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 7b64a07e5f6177be5905cb58b9d1b5984382a73f
-ms.sourcegitcommit: d4176361d9c6da60729c06cc93a496cb4702d4c2
+ms.openlocfilehash: 75d7634545b8faad5118dd666dee2384b11c42fa
+ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2018
-ms.locfileid: "35324230"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486658"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>将应用程序连接到 Azure SQL 数据库托管实例
 
@@ -35,13 +35,13 @@ ms.locfileid: "35324230"
 
 ## <a name="connect-an-application-inside-a-different-vnet"></a>在不同的 VNet 中连接应用程序 
 
-此方案略微复杂，因为托管实例在其自身的 VNet 中具有专用 IP 地址。 若要建立连接，应用程序需要访问部署了托管实例的 VNet。 因此，首先需要在应用程序与托管实例 VNet 之间建立连接。 要正常实施此方案，VNet 不一定要位于同一个订阅中。 
+此方案略微复杂，因为托管实例在其自身的 VNet 中具有专用 IP 地址。 若要建立连接，应用程序需要访问部署了托管实例的 VNet。 因此，首先需要在应用程序与托管实例 VNet 之间建立连接。 若要正常实施此方案，不一定要将 VNet 置于同一订阅中。 
  
 可通过两个选项连接 VNet： 
 - [Azure 虚拟网络对等互连](../virtual-network/virtual-network-peering-overview.md) 
 - VNet 到 VNet VPN 网关（[Azure 门户](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)、[PowerShell](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)、[Azure CLI](../vpn-gateway/vpn-gateway-howto-vnet-vnet-cli.md)） 
  
-对等互连是首选的选项，因为对等互连使用 Microsoft 主干网络，因此，从连接角度看，对等互连 VNet 中的虚拟机与同一 VNet 中虚拟机之间的延迟没有明显差别。 VNet 对等互连限制为同一区域中的网络，不过，在某些区域，可以启用跨区域对等互连，以预览该功能。  
+对等互连是首选的选项，因为对等互连使用 Microsoft 主干网络，因此，从连接角度看，对等互连 VNet 中的虚拟机与同一 VNet 中虚拟机之间的延迟没有明显差别。 VNet 对等互连限于相同区域内的网络。  
  
 > [!IMPORTANT]
 > 适用于托管实例的 VNet 对等互连方案仅限同一区域中的网络，因为存在[全局虚拟网络对等互连约束](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints)。 

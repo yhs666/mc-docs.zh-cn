@@ -1,5 +1,5 @@
 ---
-title: PowerShell 示例-更新 SQL 数据同步的同步架构 | Microsoft Docs
+title: PowerShell 示例 - 更新 SQL 数据同步的同步架构 | Azure
 description: 用于更新 SQL 数据同步的同步架构的 Azure PowerShell 示例脚本
 services: sql-database
 documentationcenter: sql-database
@@ -18,12 +18,12 @@ origin.date: 01/10/2018
 ms.date: 01/22/2018
 ms.author: v-nany
 ms.reviewer: douglasl
-ms.openlocfilehash: 0f4ac341a58ae57b717366b71ced6c8df08c0c08
-ms.sourcegitcommit: 53972dcdef77da92529996667545d2e83716f7e2
+ms.openlocfilehash: ab4a33f4ada94f053ab53f190a7f4752bce07828
+ms.sourcegitcommit: 2a147231bf3d0a693adf58fceee76ab0fbcd6dbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39143410"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39335302"
 ---
 # <a name="use-powershell-to-update-the-sync-schema-in-an-existing-sync-group"></a>使用 PowerShell 更新现有同步组中的同步架构
 

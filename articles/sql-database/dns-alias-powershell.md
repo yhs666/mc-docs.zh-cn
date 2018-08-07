@@ -1,5 +1,5 @@
 ---
-title: 用于管理 Azure SQL DNS 别名的 PowerShell | Microsoft Docs
+title: 用于管理 Azure SQL DNS 别名的 PowerShell | Azure
 description: PowerShell cmdlet，例如新建 AzureRMSqlServerDNSAlias，可以将新客户端连接重定向到不同的 Azure SQL 数据库服务器，而无需触摸任何客户端配置。
 keywords: dns sql database
 services: sql-database
@@ -12,12 +12,12 @@ origin.date: 02/05/2018
 ms.date: 02/28/2018
 ms.reviewer: genemi;amagarwa;maboja
 ms.author: v-nany
-ms.openlocfilehash: dc088dc268977cef1cd6f899f8d2f05d4c097a2b
-ms.sourcegitcommit: 2793c9971ee7a0624bd0777d9c32221561b36621
+ms.openlocfilehash: 0e90adc33ba2990c66593dd39292e30e08e9cd14
+ms.sourcegitcommit: 2a147231bf3d0a693adf58fceee76ab0fbcd6dbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2018
-ms.locfileid: "30936292"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39335278"
 ---
 # <a name="powershell-for-dns-alias-to-azure-sql-database"></a>用于管理 Azure SQL 数据库 DNS 别名的 PowerShell
 
@@ -84,7 +84,7 @@ Write-Host " ";
 $yesno = Read-Host '[yes/no]  Do you need to log into Azure now?';
 if ('yes' -eq $yesno)
 {
-    Login-AzureRmAccount -EnvironmentName AzureChinaCloud -SubscriptionName $SubscriptionName;
+    Connect-AzureRmAccount -EnvironmentName AzureChinaCloud -SubscriptionName $SubscriptionName;
 }
 
 $SubscriptionGuid_Get = Get-AzureRmSubscription `
@@ -140,7 +140,7 @@ You must log into Azure once per powershell_ise.exe session,
 [yes/no]  Do you need to log into Azure now?: yes
 
 
-Environment           : AzureCloud
+Environment           : AzureChinaCloud
 Account               : gm@acorporation.com
 TenantId              : 72f988bf-1111-1111-1111-111111111111
 SubscriptionId        : 45651c69-2222-2222-2222-222222222222
@@ -176,5 +176,4 @@ gm-rg-dns-2       gm-sqldb-dns-2     unique-alias-name-food
 [install-azurerm-ps-84p]: https://docs.microsoft.com/powershell/azure/install-azurerm-ps
 
 [dns-alias-overview-37v]: dns-alias-overview.md
-
 

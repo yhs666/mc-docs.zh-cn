@@ -1,5 +1,5 @@
 ---
-title: Azure SQL 数据库托管实例 VNet 配置 | Microsoft Docs
+title: Azure SQL 数据库托管实例 VNet 配置 | Azure
 description: 本主题介绍使用 Azure SQL 数据库托管实例的虚拟网络 (VNet) 的配置选项。
 services: sql-database
 author: yunan2016
@@ -11,12 +11,12 @@ origin.date: 04/10/2018
 ms.date: 04/19/2018
 ms.author: v-nany
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 7aa8a58e80bdb4dfe9e6b612223dada487c63dd5
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 9229b9b73bd10ce8b946a539763fe8d313be10f4
+ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782672"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486762"
 ---
 # <a name="configure-a-vnet-for-azure-sql-database-managed-instance"></a>为 Azure SQL 数据库托管实例配置 VNet
 
@@ -40,7 +40,7 @@ Azure SQL 数据库托管实例（预览版）必须在 Azure [虚拟网络 (VNe
 ## <a name="requirements"></a>要求
 
 若要创建托管实例，需在 VNet 中专门指定一个符合以下要求的子网：
-- **为空**：该子网不能包含任何关联的其他云服务，并且不能是网关子网。 无法在包含除托管实例以外的资源的子网中创建托管实例，并且以后无法在子网中添加其他资源。
+- **为空**：该子网不能包含任何关联的其他云服务，并且不能是网关子网。 无法在所含资源不是托管实例的子网中创建托管实例，并且以后无法在子网中添加其他资源。
 - **无 NSG**：该子网不能有关联的网络安全组。
 - **具有特定的路由表**：该子网必须有一个用户路由表 (UDR)，并且向该路由表分配了 0.0.0.0/0 下一跃点 Internet 作为唯一路由。 有关详细信息，请参阅[创建并关联所需的路由表](#create-the-required-route-table-and-associate-it)
 3. **可选的自定义 DNS**：如果在 VNet 中指定了自定义 DNS，则必须将 Azure 的递归解析程序 IP 地址（例如 168.63.129.16）添加到列表。 有关详细信息，请参阅[配置自定义 DNS](sql-database-managed-instance-custom-dns.md)。
@@ -60,8 +60,9 @@ Azure SQL 数据库托管实例（预览版）必须在 Azure [虚拟网络 (VNe
 
 - Azure 使用子网中的 5 个 IP 地址来满足自身的需要 
 - 每个常规用途实例需要 2 个地址 
+- 每个业务关键实例需要四个地址
 
-**示例**：你打算创建 8 个托管实例。 这意味着，需要 5 + 8 * 2 = 21 个 IP 地址。 由于 IP 范围定义为 2 的 N 次方，因此需要 32 个 (2^5) IP 地址。 因此，需要保留子网掩码为 /27 的子网。 
+**示例**：你计划拥有三个常规用途和两个业务关键托管实例。 这意味着，需要 5 + 3 * 2 + 2 * 4 = 19 个 IP 地址。 由于 IP 范围定义为 2 的 N 次方，因此需要 32 个 (2^5) IP 地址。 因此，需要保留子网掩码为 /27 的子网。 
 
 ## <a name="create-a-new-virtual-network-for-managed-instances"></a>为托管实例创建新的虚拟网络 
 
@@ -76,7 +77,7 @@ Azure SQL 数据库托管实例（预览版）必须在 Azure [虚拟网络 (VNe
 
    ![虚拟网络创建窗体](./media/sql-database-managed-instance-tutorial/virtual-network-create-form.png)
 
-4. 单击“创建”。
+4. 单击**创建**。
 
    地址空间和子网以 CIDR 表示法指定。 
 
@@ -149,4 +150,3 @@ Azure SQL 数据库托管实例（预览版）必须在 Azure [虚拟网络 (VNe
 - 有关概述，请参阅[什么是托管实例](sql-database-managed-instance.md)
 - 有关如何创建 VNet、创建托管实例，以及从数据库备份还原数据库的教程，请参阅[创建 Azure SQL 数据库托管实例](sql-database-managed-instance-create-tutorial-portal.md)。
 - 有关 DNS 问题，请参阅[配置自定义 DNS](sql-database-managed-instance-custom-dns.md)
-

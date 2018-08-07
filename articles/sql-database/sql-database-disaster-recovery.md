@@ -7,15 +7,15 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
-origin.date: 04/04/2018
-ms.date: 04/17/2018
+origin.date: 07/16/2018
+ms.date: 08/06/2018
 ms.author: v-nany
-ms.openlocfilehash: 1f10e4bda0448fb77c9799849ce080a0466f9bf9
-ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
+ms.openlocfilehash: aa853627ec271ca3c5baf5ffd6b4188186139832
+ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37800400"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486755"
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>还原 Azure SQL 数据库或故障转移到辅助数据库
 Azure SQL 数据库提供以下功能，以便在服务中断后进行恢复：
@@ -27,7 +27,7 @@ Azure SQL 数据库提供以下功能，以便在服务中断后进行恢复：
 若要了解业务连续性方案以及支持这些方案的功能，请参阅[业务连续性](sql-database-business-continuity.md)。
 
 > [!NOTE]
-> 如果使用区域冗余高级或业务关键数据库或池（预览），将自动执行恢复过程，此材料的其余部分将不适用。 
+> 如果使用区域冗余高级或业务关键数据库或池，将自动执行恢复过程，此材料的其余部分将不适用。 
 
 ### <a name="prepare-for-the-event-of-an-outage"></a>准备好应对中断事件
 为了使用故障转移组或异地冗余备份成功恢复到其他数据区域，需要为下一次数据中心服务中断准备服务器，以便在需要时使其成为新的主服务器，还需要记录、测试各项明确定义的步骤，确保顺利恢复数据。 准备步骤包括：
@@ -57,7 +57,7 @@ Azure SQL 数据库提供以下功能，以便在服务中断后进行恢复：
 Azure 团队会努力尽快还原服务可用性，但视根本原因而定，有可能需要数小时或数天的时间。  如果应用程序可以容忍长时间停机，则可以等待恢复完成。 在此情况下，不需要采取任何操作。 可在 [Azure 服务运行状况仪表板](https://www.azure.cn/support/service-dashboard/)上查看当前服务状态。 在区域恢复后，会还原应用程序的可用性。
 
 ## <a name="fail-over-to-geo-replicated-secondary-server-in-the-failover-group"></a>故障转移到故障转移组中异地复制的辅助服务器
-如果应用程序停机可能会带来业务责任，则应当使用故障转移组。 这样，应用程序在发生中断时，就可以快速还原其他区域的可用性。 了解如何[配置故障转移组](sql-database-geo-replication-portal.md)。
+如果应用程序停机可能会带来业务责任，则应使用故障转移组。 这样，应用程序在发生中断时，就可以快速还原其他区域的可用性。 了解如何[配置故障转移组](sql-database-geo-replication-portal.md)。
 
 若要还原数据库的可用性，必须使用其中一种受支持的方法，启动到辅助服务器的故障转移。
 
@@ -67,13 +67,13 @@ Azure 团队会努力尽快还原服务可用性，但视根本原因而定，�
 * [使用 PowerShell 故障转移到辅助服务器](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
 
 ## <a name="recover-using-geo-restore"></a>使用异地还原进行恢复
-如果应用程序停机不会带来业务责任，则可以使用[异地还原](sql-database-recovery-using-backups.md)作为恢复应用程序数据库的方法。 它会从其最新的异地冗余备份创建数据库的副本。
+如果应用程序停机不会带来业务责任，则可以使用[异地还原](sql-database-recovery-using-backups.md)作为恢复应用程序数据库的方法。 它会从最新的异地冗余备份创建数据库的副本。
 
 ## <a name="configure-your-database-after-recovery"></a>恢复后配置数据库
 服务中断后，如果使用异地还原进行恢复，则必须确保已正确配置与新数据库的连接，以便恢复正常的应用程序功能。 以下任务清单用于让恢复的数据库做好生产准备。
 
 ### <a name="update-connection-strings"></a>更新连接字符串
-因为恢复的数据库将位于不同的服务器中，所以必须更新应用程序的连接字符串以指向该服务器。
+因为恢复的数据库将位于不同的服务器中，所以必须更新应用程序的连接字符串，使之指向该服务器。
 
 若要深入了解如何更改连接字符串，请参阅[连接库](sql-database-libraries.md)的相应开发语言。
 

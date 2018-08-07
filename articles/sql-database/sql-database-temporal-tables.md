@@ -10,12 +10,12 @@ ms.topic: article
 origin.date: 03/21/2018
 ms.date: 06/18/2018
 ms.author: v-johch
-ms.openlocfilehash: 82d1f77ad390b168f5a88b6bb00265e47669830f
-ms.sourcegitcommit: d4176361d9c6da60729c06cc93a496cb4702d4c2
+ms.openlocfilehash: b67dbf0c497246aa81570c9ea2efcf4796b9cdf6
+ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2018
-ms.locfileid: "35324294"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486707"
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database"></a>Azure SQL 数据库中的临时表入门
 临时表是 Azure SQL 数据库中新的可编程功能，可用于跟踪和分析数据更改的完整历史记录，而无需编写自定义代码。 临时表保存与时间上下文密切相关的数据，因此，只有特定时段内的存储事实才会解译为有效。 利用临时表的这种属性，可执行基于时间的有效分析，并从数据演变中获得见解。
@@ -38,7 +38,7 @@ ms.locfileid: "35324294"
 > 
 
 ### <a name="create-new-table"></a>创建新表
-在 SSMS 对象资源管理器中使用上下文菜单项“新建版本由系统控制的表”打开包含时态表模板脚本的查询编辑器，并使用“指定模板参数的值”(Ctrl+Shift+M) 来填充模板：
+在 SSMS 对象资源管理器中使用上下文菜单项“新建版本由系统控制的表”打开包含临时表模板脚本的查询编辑器，然后使用“指定模板参数的值”(Ctrl+Shift+M) 来填充模板：
 
 ![SSMSNewTable](./media/sql-database-temporal-tables/AzureTemporal2.png)
 
@@ -105,14 +105,14 @@ WITH (DROP_EXISTING = ON);
 ## <a name="step-2-run-your-workload-regularly"></a>步骤 2：定期运行工作负荷
 临时表的主要优点是，不需要以任何方式更改或调整网站就可以执行更改跟踪。 创建临时表后，每当对数据进行修改时，以前的行版本都会自动保存。 
 
-若要为此特定方案使用自动更改跟踪功能，只需在每次用户结束网站上的会话时更新列 **PagesVisited** ：
+若要利用此特定方案的自动更改跟踪功能，只需在每次用户结束网站上的会话时更新列 **PagesVisited** ：
 
 ````
 UPDATE WebsiteUserInfo  SET [PagesVisited] = 5 
 WHERE [UserID] = 1;
 ````
 
-请务必注意，更新查询不需要知道实际操作进行的时间，也不需要知道如何保留历史数据以供将来分析使用。 Azure SQL 数据库会自动处理这两个方面。 下图演示了如何在每次更新时生成历史记录数据。
+请务必注意，更新查询不需要知道实际操作进行的具体时间，也不需要知道如何保留历史数据以供将来分析使用。 Azure SQL 数据库会自动处理这两个方面。 下图演示了如何在每次更新时生成历史记录数据。
 
 ![TemporalArchitecture](./media/sql-database-temporal-tables/AzureTemporal5.png)
 
