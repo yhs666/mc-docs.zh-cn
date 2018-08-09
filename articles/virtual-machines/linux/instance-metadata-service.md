@@ -234,7 +234,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 **响应**
 
 > [!NOTE] 
-> 响应为 JSON 字符串。 以下响应示例以美观的形式输出以提高可读性。
+> 此响应是 JSON 字符串。 以下响应示例以美观的形式输出以提高可读性。
 
 ```json
 {
@@ -351,7 +351,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 **响应**
 
 > [!NOTE] 
-> 此响应是 JSON 字符串。 以下响应示例以美观的形式输出以提高可读性。
+> 此响应是 JSON 字符串。 以下示例响应显示清晰，可供阅读。
 
 ```json
 {
