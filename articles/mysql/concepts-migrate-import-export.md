@@ -4,17 +4,17 @@ description: 本文介绍使用 MySQL Workbench 等工具在 Azure Database for 
 services: mysql
 author: v-chenyh
 ms.author: v-chenyh
-manager: kfile
+manager: digimobile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
 ms.date: 06/16/2018
-ms.openlocfilehash: 7e097a8266954b920abd49b824ea3229e560f6f4
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.openlocfilehash: a47d78ebe6127ea86bdfef9756d8406697776cd1
+ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873590"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39722995"
 ---
 # <a name="migrate-your-mysql-database-by-using-import-and-export"></a>使用导入和导出迁移 MySQL 数据库
 

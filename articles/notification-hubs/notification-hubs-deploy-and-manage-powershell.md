@@ -13,14 +13,14 @@ ms.tgt_pltfrm: powershell
 ms.devlang: na
 ms.topic: article
 origin.date: 04/14/2018
-ms.date: 07/09/2018
+ms.date: 08/09/2018
 ms.author: v-junlch
-ms.openlocfilehash: 8bc4f86f2ed9ab40084c08703b72beb5c17200b4
-ms.sourcegitcommit: e950fe5260c519e05f8c5bbf193a8ef733a6a2d2
+ms.openlocfilehash: 1ea4aae234dc5c71d050cf626b95790740d5e757
+ms.sourcegitcommit: 2d44abf2c428316c5e60cc701bafe8c40356c8eb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37936341"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39722766"
 ---
 # <a name="deploy-and-manage-notification-hubs-using-powershell"></a>使用 PowerShell 部署和管理通知中心
 ## <a name="overview"></a>概述
@@ -29,13 +29,12 @@ ms.locfileid: "37936341"
 - 创建通知中心
 - 设置凭据
 
-如果还需要为通知中心创建新的服务总线命名空间，请参阅[使用 PowerShell 管理服务总线](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.servicebus/v0.0.2/azurerm.servicebus)。
 
 不支持直接使用 Azure PowerShell 随附的 cmdlet 来管理通知中心。 在 PowerShell 中，最佳方法是引用 Microsoft.Azure.NotificationHubs.dll 程序集。 该程序集是随 [Azure 通知中心 NuGet 包](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)一起分发的。
 
 ## <a name="prerequisites"></a>先决条件
 
-- Azure 订阅。 Azure 是基于订阅的平台。 有关如何获取订阅的详细信息，请参阅[购买选项]或 [1 元试用]。
+- Azure 订阅。 Azure 是基于订阅的平台。 若要详细了解如何获取订阅，请参阅 [1 元试用]。
 - 配备 Azure PowerShell 的计算机。 有关说明，请参阅 [安装和配置 Azure PowerShell]。
 - 大致了解 PowerShell 脚本、NuGet 包和 .NET Framework。
 
@@ -72,9 +71,8 @@ catch [System.Exception]
 ```
 
 ## <a name="create-the-namespacemanager-class"></a>创建 NamespaceManager 类
-若要预配通知中心，请从 SDK 创建 [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.namespacemanager.aspx) 类的实例。 
 
-可以使用 Azure PowerShell 随附的 [Get-AzureSBAuthorizationRule] cmdlet 来检索用于提供连接字符串的授权规则。 对 `NamespaceManager` 实例的引用存储于 `$NamespaceManager` 变量中。 `$NamespaceManager` 用于设置通知中心。
+可以使用 Azure PowerShell 随附的 `Get-AzureSBAuthorizationRule` cmdlet 来检索用于提供连接字符串的授权规则。 对 `NamespaceManager` 实例的引用存储于 `$NamespaceManager` 变量中。 `$NamespaceManager` 用于设置通知中心。
 
 ``` powershell
 $sbr = Get-AzureSBAuthorizationRule -Namespace $Namespace
@@ -86,7 +84,7 @@ Write-Output "NamespaceManager object for the [$Namespace] namespace has been su
 
 
 ## <a name="provisioning-a-new-notification-hub"></a>设置新通知中心
-若要预配新的通知中心，请使用通知中心的 .NET API。
+若要预配新的通知中心，请使用 [通知中心的 .NET API]。
 
 该脚本的此部分会设置四个本地变量。 
 
@@ -147,20 +145,16 @@ else
 
 
 ## <a name="additional-resources"></a>其他资源
-- [使用 PowerShell 管理服务总线](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.servicebus/v0.0.2/azurerm.servicebus)
-- [如何使用 PowerShell 脚本创建 Service Bus 队列、主题和订阅](http://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
+- [How to create Service Bus queues, topics and subscriptions using a PowerShell script（如何使用 PowerShell 脚本创建服务总线队列、主题和订阅）](http://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
 - [如何使用 PowerShell 脚本创建 Service Bus 命名空间和事件中心](http://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
 
 一些现成的脚本也可供下载：
 
 - [服务总线 PowerShell 脚本](https://code.msdn.microsoft.com/windowsazure/Service-Bus-PowerShell-a46b7059)
 
-[购买选项]: https://www.azure.cn/pricing/purchase-options/
 [1 元试用]: https://www.azure.cn/pricing/1rmb-trial/
 [安装和配置 Azure PowerShell]: /powershell-install-configure
-[Get-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495122.aspx
-[New-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495165.aspx
-[Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/library/azure/dn495113.aspx
+[通知中心的 .NET API]: https://docs.azure.cn/zh-cn/dotnet/api/overview/notification-hubs?view=azure-dotnet
 
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

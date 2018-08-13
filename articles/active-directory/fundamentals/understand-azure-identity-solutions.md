@@ -7,7 +7,7 @@ manager: mtillman
 ms.reviewer: jsnow
 ms.author: v-junlch
 origin.date: 07/17/2017
-ms.date: 06/25/2018
+ms.date: 08/07/2018
 ms.topic: overview
 ms.prod: ''
 ms.service: azure-directory
@@ -15,12 +15,12 @@ ms.component: fundamentals
 ms.technology: ''
 ms.assetid: ''
 ms.custom: it-pro
-ms.openlocfilehash: dc9d85a98d34a0e34be1df632e612cfb7aea73a5
-ms.sourcegitcommit: 37a1524d71895b17b6f1d125053ad0b251b88df1
+ms.openlocfilehash: 32dc20f15da5377b79e8dc0decf644e686611eea
+ms.sourcegitcommit: 7cdf4633aea04e524cb48cb1990b750ae8be841c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39097932"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39584258"
 ---
 # <a name="understand-azure-identity-solutions"></a>了解 Azure 标识解决方案
 Azure Active Directory (Azure AD) 是一个标识和访问管理云解决方案，它提供目录服务、标识监管和应用程序访问管理功能。 Azure AD 可以快速启用到 [Azure AD 应用程序库](https://azure.microsoft.com/marketplace/active-directory/all/)中的 1,000 个预先集成的商业和自定义应用的单一登录 (SSO)。 你可能已在使用其中的许多应用，例如 Office 365、Salesforce.com、Box、ServiceNow 和 Workday。
@@ -75,12 +75,6 @@ Azure AD 是多客户公共目录服务，这意味着用户可以在 Azure AD �
 > [!TIP]
 > 想要详细了解如何在 Office 365 中使用 Azure AD 标识管理？ [获取电子书](https://info.microsoft.com/Extend-Office-365-security-with-EMS.html)。
 
-## <a name="azure-identity-solutions"></a>Azure 标识解决方案
-
-Azure 允许以多种方式管理用户的标识，不管这些标识是完全在本地维护、只在云中维护，还是在两者之间的某个位置维护。 这些选项包括：Azure 中的自制 (DIY) AD DS、Azure Active Directory (Azure AD)、混合标识和 Azure AD 域服务。
-
-### <a name="do-it-yourself-diy-ad-ds"></a>自己动手 (DIY) AD DS
-对于不经常使用云的公司，可以使用 Azure 中的**自制 (DIY) AD DS**。 此选项支持许多非常适合 Azure 中虚拟机 (VM) 形式的部署的 Windows Server AD DS 方案。 例如，可以创建域控制器形式的、在与远程网络连接的远地数据中心运行的 Azure VM。 VM 可通过该数据中心支持来自远程用户的身份验证请求，并提高身份验证性能。 此选项还可以在 Azure 上托管少量的域控制器和单个虚拟网络，因此适合用作一种相对经济节省的方案来取代其他成本不菲的灾难恢复站点。 最后，你可能需要在 Azure 上部署需要 Windows Server AD DS、但不依赖本地网络或企业 Windows Server Active Directory 的应用程序，如 SharePoint。 在这种情况下，可以在 Azure 上部署一个独立的林以满足 SharePoint 服务器场的要求。 同样，也支持部署需要连接到本地网络和本地 Active Directory 的网络应用程序。
 
 ## <a name="common-scenarios-and-recommendations"></a>常见方案和建议
 
@@ -96,7 +90,7 @@ Azure 允许以多种方式管理用户的标识，不管这些标识是完全�
 
 - [使用 Azure AD Connect 启用目录的混合管理](../connect/active-directory-aadconnect.md)
 - [在互联世界中提高安全性](../authentication/multi-factor-authentication.md)
-- [从任意位置管理密码](../active-directory-passwords-update-your-own-password.md)
+- [从任意位置管理密码](../user-help/active-directory-passwords-update-your-own-password.md)
 - [使用 Azure Active Directory 组管理对资源的访问](active-directory-manage-groups.md)
 
 ## <a name="next-steps"></a>后续步骤
@@ -108,3 +102,4 @@ Azure 允许以多种方式管理用户的标识，不管这些标识是完全�
 
 [在生产环境中部署 Azure AD](https://aka.ms/aad-onboard)
 
+<!-- Update_Description: link update -->

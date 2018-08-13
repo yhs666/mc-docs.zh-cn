@@ -9,12 +9,12 @@ ms.topic: quickstart
 origin.date: 04/10/2018
 ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: 9a951023e9c0e5e689d2b316c6ae30ca6ecbe7c4
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.openlocfilehash: c726ce267dde5a3f9bd2224c899bd2eb2164aef3
+ms.sourcegitcommit: 543a18c71c0910a5b9878a2d2668f317468906f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39167701"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39625531"
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Azure 容器注册表的最佳做法
 
@@ -27,12 +27,7 @@ ms.locfileid: "39167701"
 临近网络部署是使用私有容器注册表的主要原因之一。 Docker 映像具有有效的[分层构造](https://docs.docker.com/engine/userguide/storagedriver/imagesandcontainers/)，可实现增量部署。 但是，新节点需要拉取给定映像所需的全部构造层。 此初始 `docker pull` 可以快速增加多个千兆字节。 将私有注册表置于临近部署的位置可最小化网络延迟。
 此外，所有公有云（包括 Azure）都实施了网络出口费用。 除了延迟之外，将映像从一个数据中心拉取到另一个数据中心还会增加网络出口费用。
 
-<!-- Notice: Need to verfiy
-## Geo-replicate multi-region deployments
-
-Use Azure Container Registry's [geo-replication](container-registry-geo-replication.md) feature if you're deploying containers to multiple regions. Whether you're serving global customers from local data centers or your development team is in different locations, you can simplify registry management and minimize latency by geo-replicating your registry. Geo-replication is available only with [Premium](container-registry-skus.md) registries.
--->
-若要了解如何使用异地复制，请参阅 [Azure 容器注册表中的异地复制](container-registry-tutorial-prepare-registry.md)教程，该教程分为三部分。
+<!-- Not Available on ## Geo-replicate multi-region deployments -->
 
 ## <a name="repository-namespaces"></a>存储库命名空间
 
@@ -66,7 +61,8 @@ Azure 容器注册表的身份验证有两种主要方案：单个身份验证�
 
 ## <a name="manage-registry-size"></a>管理注册表大小
 
-每个[容器注册表 SKU][container-registry-skus] 的存储约束旨在与典型方案保持一致，即基本 SKU 适用于入门，标准 SKU 适用于大部分生产应用程序，高级 SKU 适用于超大规模提升性能和[异地复制][container-registry-geo-replication]。 在注册表的整个生命周期中，应定期删除未使用的内容，管理注册表大小。
+每个[容器注册表 SKU][container-registry-skus] 的存储约束旨在与典型方案保持一致，即基本 SKU 适用于入门，标准 SKU 适用于大部分生产应用程序，高级 SKU 适用于超大规模提升性能。 在注册表的整个生命周期中，应定期删除未使用的内容，管理注册表大小。
+<!-- Not Available on [geo-replication][container-registry-geo-replication]-->
 
 在 Azure 门户的容器注册表“概述”中，可以查看注册表的当前使用情况：
 
@@ -106,7 +102,5 @@ Azure 容器注册表可用于多层（称为 SKU），每层提供不同功能�
 [az-acr-repository-delete]: https://docs.azure.cn/zh-cn/cli/acr/repository?view=azure-cli-latest#az_acr_repository_delete
 [azure-cli]: https://docs.azure.cn/zh-cn/cli/azure?view=azure-cli-latest
 [azure-portal]: https://portal.azure.cn
-[container-registry-geo-replication]: container-registry-geo-replication.md
-[container-registry-skus]: container-registry-skus.md
-<!-- Update_Description: new articles on container registry best practices -->
-<!--ms.date: 07/02/2018-->
+<!-- Not Available on [container-registry-geo-replication]: container-registry-geo-replication.md--> [container-registry-skus]：container-registry-skus.md <!-- Update_Description: new articles on container registry best practices -->
+<!--ms.date: 07/02/2018-->>

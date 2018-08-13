@@ -10,14 +10,14 @@ ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 origin.date: 01/26/2018
-ms.date: 06/01/2018
+ms.date: 08/08/2018
 ms.author: v-junlch
-ms.openlocfilehash: b26427752a69f21adda1625e98c2669e72108f5c
-ms.sourcegitcommit: 4fe9905d17a8df9f2270543a5a0ce1762a5830c9
+ms.openlocfilehash: 0560ae4b443736cc2951ef1f3e05155bf8a2308a
+ms.sourcegitcommit: a1c6a743b4be62477e7debfc9ea5f03afca2bc8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34855798"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39625179"
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>通过 Azure 门户使用基于路径的路由规则创建应用程序网关
 
@@ -107,7 +107,7 @@ ms.locfileid: "34855798"
 2. 运行以下命令以在虚拟机上安装 IIS： 
 
     ```azurepowershell
-    $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/davidmu1/samplescripts/master/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
+    $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
     Set-AzureRmVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -Location chinanorth `
@@ -145,8 +145,8 @@ ms.locfileid: "34855798"
 
 1. 依次单击“规则”、“基于路径”。
 2. 输入 *rule2* 作为名称。
-3. 输入 *Images* 作为第一个路径的名称。 输入 */images/** 作为路径。 选择后端池的 **imagesBackendPool**。
-4. 输入 *Video* 作为第二个路径的名称。 输入 */video/** 作为路径。 选择后端池的 **videoBackendPool**。
+3. 输入 *Images* 作为第一个路径的名称。 输入 */images/*\* 作为路径。 选择后端池的 **imagesBackendPool**。
+4. 输入 *Video* 作为第二个路径的名称。 输入 */video/*\* 作为路径。 选择后端池的 **videoBackendPool**。
 
     ![创建基于路径的规则](./media/create-url-route-portal/application-gateway-route-rule.png)
 
@@ -158,11 +158,11 @@ ms.locfileid: "34855798"
 
     ![记下应用程序网关的公共 IP 地址](./media/create-url-route-portal/application-gateway-record-ag-address.png)
 
-2. 复制该公共 IP 地址，并将其粘贴到浏览器的地址栏。 例如，http://http://40.121.222.19。
+2. 复制该公共 IP 地址，并将其粘贴到浏览器的地址栏。 例如，http://40.121.222.19。
 
     ![在应用程序网关中测试基 URL](./media/create-url-route-portal/application-gateway-iistest.png)
 
-3. 将 URL 更改为 http://&lt;ip-address&gt;:8080/video/test.htm（请将 &lt;ip-address&gt; 替换为自己的 IP 地址），然后，应会看到如以下示例所示的内容：
+3. 将 URL 更改为 http://&lt;ip-address&gt;:8080/images/test.htm（请将 &lt;ip-address&gt; 替换为自己的 IP 地址），然后，应会看到如以下示例所示的内容：
 
     ![在应用程序网关中测试映像 URL](./media/create-url-route-portal/application-gateway-iistest-images.png)
 
@@ -183,3 +183,4 @@ ms.locfileid: "34855798"
 
 若要详细了解应用程序网关及其关联的资源，请继续阅读操作指南文章。
 
+<!-- Update_Description: wording update -->

@@ -8,15 +8,15 @@ editor: tysonn
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-origin.date: 01/18/2018
-ms.date: 06/07/2018
+origin.date: 07/14/2018
+ms.date: 08/08/2018
 ms.author: v-junlch
-ms.openlocfilehash: a1e6702cb939f823f0e5c175a8913cf5bc0736f7
-ms.sourcegitcommit: 4fe9905d17a8df9f2270543a5a0ce1762a5830c9
+ms.openlocfilehash: f7606da477daec56df592772a3510e8439d93361
+ms.sourcegitcommit: a1c6a743b4be62477e7debfc9ea5f03afca2bc8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34855743"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39625142"
 ---
 # <a name="create-an-application-gateway-with-ssl-termination-using-the-azure-cli"></a>通过 Azure CLI 使用 SSL 终端创建应用程序网关
 
@@ -65,20 +65,20 @@ az group create --name myResourceGroupAG --location chinanorth
 使用 [az network vnet create](/cli/network/vnet#az_net) 创建名为 *myVNet* 的虚拟网络和名为 *myAGSubnet* 的子网。 然后，可以使用 [az network vnet subnet create](/cli/network/vnet/subnet#az_network_vnet_subnet_create) 添加后端服务器所需的名为 *myBackendSubnet* 的子网。 使用 [az network public-ip create](/cli/network/public-ip#az_network_public_ip_create) 创建名为 *myAGPublicIPAddress* 的公共 IP 地址。
 
 ```azurecli
-az network vnet create \
-  --name myVNet \
-  --resource-group myResourceGroupAG \
-  --location chinanorth \
-  --address-prefix 10.0.0.0/16 \
-  --subnet-name myAGSubnet \
+az network vnet create `
+  --name myVNet `
+  --resource-group myResourceGroupAG `
+  --location chinanorth `
+  --address-prefix 10.0.0.0/16 `
+  --subnet-name myAGSubnet `
   --subnet-prefix 10.0.1.0/24
-az network vnet subnet create \
-  --name myBackendSubnet \
-  --resource-group myResourceGroupAG \
-  --vnet-name myVNet \
+az network vnet subnet create `
+  --name myBackendSubnet `
+  --resource-group myResourceGroupAG `
+  --vnet-name myVNet `
   --address-prefix 10.0.2.0/24
-az network public-ip create \
-  --resource-group myResourceGroupAG \
+az network public-ip create `
+  --resource-group myResourceGroupAG `
   --name myAGPublicIPAddress
 ```
 
@@ -89,20 +89,20 @@ az network public-ip create \
 将应用程序网关分配给之前创建的 *myAGSubnet* 和 *myAGPublicIPAddress*。 在此示例中，在创建应用程序网关时将关联所创建的证书及其密码。 
 
 ```azurecli
-az network application-gateway create \
-  --name myAppGateway \
-  --location chinanorth \
-  --resource-group myResourceGroupAG \
-  --vnet-name myVNet \
-  --subnet myAGsubnet \
-  --capacity 2 \
-  --sku Standard_Medium \
-  --http-settings-cookie-based-affinity Disabled \
-  --frontend-port 443 \
-  --http-settings-port 80 \
-  --http-settings-protocol Http \
-  --public-ip-address myAGPublicIPAddress \
-  --cert-file appgwcert.pfx \
+az network application-gateway create `
+  --name myAppGateway `
+  --location chinanorth `
+  --resource-group myResourceGroupAG `
+  --vnet-name myVNet `
+  --subnet myAGsubnet `
+  --capacity 2 `
+  --sku Standard_Medium `
+  --http-settings-cookie-based-affinity Disabled `
+  --frontend-port 443 `
+  --http-settings-port 80 `
+  --http-settings-protocol Http `
+  --public-ip-address myAGPublicIPAddress `
+  --cert-file appgwcert.pfx `
   --cert-password "Azure123456!"
 
 ```
@@ -120,31 +120,31 @@ az network application-gateway create \
 在此示例中，将创建虚拟机规模集，以便为应用程序网关的默认后端池提供服务器。 规模集中的虚拟机与 *myBackendSubnet* 和 *appGatewayBackendPool* 相关联。 若要创建规模集，可以使用 [az vmss create](/cli/vmss#az_vmss_create)。
 
 ```azurecli
-az vmss create \
-  --name myvmss \
-  --resource-group myResourceGroupAG \
-  --image UbuntuLTS \
-  --admin-username azureuser \
-  --admin-password Azure123456! \
-  --instance-count 2 \
-  --vnet-name myVNet \
-  --subnet myBackendSubnet \
-  --vm-sku Standard_DS2 \
-  --upgrade-policy-mode Automatic \
-  --app-gateway myAppGateway \
+az vmss create `
+  --name myvmss `
+  --resource-group myResourceGroupAG `
+  --image UbuntuLTS `
+  --admin-username azureuser `
+  --admin-password Azure123456! `
+  --instance-count 2 `
+  --vnet-name myVNet `
+  --subnet myBackendSubnet `
+  --vm-sku Standard_DS2 `
+  --upgrade-policy-mode Automatic `
+  --app-gateway myAppGateway `
   --backend-pool-name appGatewayBackendPool
 ```
 
 ### <a name="install-nginx"></a>安装 NGINX
 
 ```azurecli
-az vmss extension set \
-  --publisher Microsoft.Azure.Extensions \
-  --version 2.0 \
-  --name CustomScript \
-  --resource-group myResourceGroupAG \
-  --vmss-name myvmss \
-  --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"],
+az vmss extension set `
+  --publisher Microsoft.Azure.Extensions `
+  --version 2.0 `
+  --name CustomScript `
+  --resource-group myResourceGroupAG `
+  --vmss-name myvmss `
+  --settings '{ "fileUris": ["https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/install_nginx.sh"],
   "commandToExecute": "./install_nginx.sh" }'
 ```
 
@@ -153,10 +153,10 @@ az vmss extension set \
 若要获取应用程序网关的公共 IP 地址，可以使用 [az network public-ip show](/cli/network/public-ip#az_network_public_ip_show)。 复制该公共 IP 地址，并将其粘贴到浏览器的地址栏。
 
 ```azurepowershell
-az network public-ip show \
-  --resource-group myResourceGroupAG \
-  --name myAGPublicIPAddress \
-  --query [ipAddress] \
+az network public-ip show `
+  --resource-group myResourceGroupAG `
+  --name myAGPublicIPAddress `
+  --query [ipAddress] `
   --output tsv
 ```
 
@@ -178,4 +178,4 @@ az network public-ip show \
 
 若要详细了解应用程序网关及其关联的资源，请继续阅读操作指南文章。
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: code update -->

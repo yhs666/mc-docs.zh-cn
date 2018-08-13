@@ -1,12 +1,14 @@
-
+---
+ title: include 文件 description: include 文件 services: notification-hubs author: spelluru ms.service: notification-hubs ms.topic: include origin.date: 03/28/2018 ms.date: 08/09/2018 ms.author: v-junlch ms.custom: include file
+---
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 
-2. 选择“创建资源” > “Web + 移动” > “通知中心”。
+2. 选择“创建资源” > “移动” > “通知中心”。
    
       ![Azure 门户 - 创建通知中心](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-create.png)
       
-3. 在“通知中心”框中，键入一个唯一名称。 选择“位置”、“订阅”和“资源组”（如果已经有一个）。 
+3. 在“通知中心”框中，键入一个唯一名称。 选择“区域”、“订阅”和“资源组”（如果已经有一个）。 
    
       如果尚无服务总线命名空间，可以使用基于中心名称创建的默认名称（如果该命名空间名称可用）。
     
@@ -30,4 +32,4 @@
       ![Azure 门户 - 通知中心连接字符串](./media/notification-hubs-portal-create-new-hub/notification-hubs-connection-strings-portal.png)
 
 
-<!-- ms.date: 07/10/2018 -->
+<!-- ms.date: 08/09/2018 -->

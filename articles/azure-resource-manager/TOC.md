@@ -2,15 +2,18 @@
 
 # 概述
 ## [什么是 Resource Manager？](resource-group-overview.md)
-## [资源提供程序和类型](resource-manager-supported-services.md)
 ## [资源管理器部署和经典部署](resource-manager-deployment-model.md)
-## [订阅管理](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/subscription-governance)
-<!-- Not Available on ## [Organize resources with management groups](management-groups-overview.md) -->
 
 # 入门
 ## [创建和部署模板](resource-manager-create-first-template.md)
 ## [模板的 VS Code 扩展](resource-manager-vscode-extension.md)
 ## [Visual Studio 与 Resource Manager](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
+
+# 概念
+## [资源提供程序和类型](resource-manager-supported-services.md)
+<!-- Not Available on ## [Management groups](management-groups-overview.md)-->
+<!-- Not Available on ## [Subscription governance](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/subscription-governance?toc=%2fazure-resource-manager%2ftoc.json)-->
+## [用于提供云一致性的模板](templates-cloud-consistency.md)
 
 # 如何
 ## 创建模板
@@ -107,4 +110,4 @@
 ## [限制请求](resource-manager-request-limits.md)
 ## [跟踪异步操作](resource-manager-async-operations.md)
 ## [视频](https://www.azure.cn/video-center/)
-<!--ms.date: 07/09/2018 -->
+<!--ms.date: 08/13/2018 -->

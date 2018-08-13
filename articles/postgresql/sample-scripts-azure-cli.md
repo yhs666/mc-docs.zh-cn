@@ -2,21 +2,21 @@
 title: 用于 PostgreSQL 的 Azure 数据库的 Azure CLI 示例
 description: 本文列出了多个可用于与适用于 PostgreSQL 服务器的 Azure 数据库交互的 Azure CLI 代码示例。
 services: postgresql
-author: v-chenyh
-ms.author: v-chenyh
-manager: kfile
+author: WenJason
+ms.author: v-jay
+manager: digimobile
 editor: jasonwhowell
 ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: sample
 ms.custom: sample, mvc
 ms.date: 06/22/2018
-ms.openlocfilehash: e3e93799e12b684912dc3bf94bd55625bc8a977d
-ms.sourcegitcommit: d744d18624d2188adbbf983e1c1ac1110d53275c
+ms.openlocfilehash: 2397061f63b5e9b8159658b6034e57e10c01a679
+ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36314360"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39722977"
 ---
 # <a name="azure-cli-samples-for-azure-database-for-postgresql"></a>用于 PostgreSQL 的 Azure 数据库的 Azure CLI 示例 
 下表包含指向示例 Azure CLI 脚本的链接，这些脚本针对用于 PostgreSQL 的 Azure 数据库。

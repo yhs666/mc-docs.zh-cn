@@ -4,7 +4,7 @@ description: 在本文档中，可以学习如何在 Azure 中部署 AD FS 以�
 keywords: 在 Azure 中部署 AD FS, 部署 Azure ADFS, Azure ADFS, Azure AD FS, 部署 ADFS, 部署 AD FS, Azure 中的 ADFS, 在 Azure 中部署 ADFS, 在 Azure 中部署 AD FS, ADFS Azure, AD FS 简介, Azure, Azure 中的 AD FS, IaaS, ADFS, 将 ADFS 移动到 Azure
 services: active-directory
 documentationcenter: ''
-author: anandyadavmsft
+author: billmath
 manager: mtillman
 editor: ''
 ms.assetid: 692a188c-badc-44aa-ba86-71c0e8074510
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 07/17/2017
-ms.date: 06/22/2018
+ms.date: 08/06/2018
 ms.component: hybrid
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7cc4127887f3cca6bee89ca39c5c9a122cd73d8d
-ms.sourcegitcommit: d744d18624d2188adbbf983e1c1ac1110d53275c
+ms.openlocfilehash: a32da7a8fde27ff1e834b7c1f6991af1c1f36c83
+ms.sourcegitcommit: 7cdf4633aea04e524cb48cb1990b750ae8be841c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36314282"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39584294"
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>在 Azure 中部署 Active Directory 联合身份验证服务
 AD FS 提供简化、安全的标识联合与 Web 单一登录 (SSO) 功能。 与 Azure AD 或 O365 联合可让用户使用本地凭据进行身份验证，并访问云中的所有资源。 这样，就务必建立高度可用的 AD FS 基础结构来确保能够访问本地和云中的资源。 在 Azure 中部署 AD FS 有助于以最少量的工作实现所需的高可用性。
@@ -296,7 +296,7 @@ AD FS 提供简化、安全的标识联合与 Web 单一登录 (SSO) 功能。 �
 
 1. 使用 PowerShell 在 AD FS 服务器上运行以下 cmdlet，以将它设置为启用。
    Set-AdfsProperties -EnableIdPInitiatedSignonPage $true 
-2. 从任何外部计算机访问 https://adfs.thecloudadvocate.com/adfs/ls/IdpInitiatedSignon.aspx  
+2. 从任何外部计算机访问 https:\//adfs-server.contoso.com/adfs/ls/IdpInitiatedSignon.aspx。  
 3. 应会看到如下所示的 AD FS 页：
 
 ![测试登录页](./media/active-directory-aadconnect-azure-adfs/test1.png)
@@ -354,4 +354,4 @@ AD FS 提供简化、安全的标识联合与 Web 单一登录 (SSO) 功能。 �
 - [使用 Azure AD Connect 配置和管理 AD FS](active-directory-aadconnectfed-whatis.md)
 - [使用 Azure 流量管理器在 Azure 中部署高可用性跨地域 AD FS](../active-directory-adfs-in-azure-with-azure-traffic-manager.md)
 
-<!--Update_Description: wording update -->
+<!--Update_Description: link update -->

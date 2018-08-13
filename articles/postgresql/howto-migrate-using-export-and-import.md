@@ -2,19 +2,20 @@
 title: 使用 Azure Database for PostgreSQL 中的导入和导出功能迁移数据库
 description: 介绍了如何将 PostgreSQL 数据库解压到脚本文件，以及如何将数据从该文件导入目标数据库。
 services: postgresql
-author: v-chenyh
-ms.author: v-chenyh
-manager: kfile
+author: WenJason
+ms.author: v-jay
+manager: digimobile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 06/22/2018
-ms.openlocfilehash: 0e268105277d9269962f23a35a5b5490cd5ad10c
-ms.sourcegitcommit: d744d18624d2188adbbf983e1c1ac1110d53275c
+origin.date: 06/01/2018
+ms.date: 08/13/2018
+ms.openlocfilehash: 7117de8ee75dd9c78ab714169ccb45ef8fc1a56c
+ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36314384"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39723102"
 ---
 # <a name="migrate-your-postgresql-database-using-export-and-import"></a>使用导入和导出功能迁移 PostgreSQL 数据库
 可以使用 [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) 将 PostgreSQL 数据库解压到脚本文件，并使用 [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) 将数据从该文件导入目标数据库。
@@ -42,7 +43,7 @@ pg_dump --host=localhost --username=masterlogin --dbname=testdb --file=testdb.sq
 ```bash
 psql --file=<database>.sql --host=<server name> --port=5432 --username=<user@servername> --dbname=<target database name>
 ```
-此示例使用 psql 实用程序和前一步骤中名为 **testdb.sql** 的脚本文件，将数据导入到目标服务器 **mydemoserver.database.chinacloudapi.cn** 上的数据库 **mypgsqldb** 中。
+此示例使用 psql 实用程序和前一步骤中名为 **testdb.sql** 的脚本文件，将数据导入到目标服务器 **mydemoserver.postgres.database.chinacloudapi.cn** 上的数据库 **mypgsqldb** 中。
 ```bash
 psql --file=testdb.sql --host=mydemoserver.database.windows.net --port=5432 --username=mylogin@mydemoserver --dbname=mypgsqldb
 ```

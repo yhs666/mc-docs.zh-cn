@@ -14,16 +14,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 04/27/2017
-ms.date: 07/03/2018
+ms.date: 08/06/2018
 ms.author: v-junlch
 ms.reviewer: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 3b54d6990bbe4176ad90f06f954affac9d04640f
-ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
+ms.openlocfilehash: 94f080dcb00ff64dc3f092d974f2cb1575a1a3be
+ms.sourcegitcommit: 7cdf4633aea04e524cb48cb1990b750ae8be841c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37800464"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39584249"
 ---
 # <a name="integrating-with-azure-active-directory"></a>与 Azure Active Directory 集成
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -47,7 +47,7 @@ Azure Active Directory 为组织的云应用程序提供企业级标识管理。
 
             **使用 Azure AD 控制谁有权访问应用程序。**  Azure AD 中的管理员和应用程序所有者可以将应用程序访问权限分配给特定的用户和组。 使用图形 API，可以读取此列表并使用它来控制资源的设置和取消设置，以及应用程序中的访问权限。
 
-**使用 Azure AD 进行基于角色的访问控制。**  管理员和应用程序所有者可以向你在 Azure AD 中注册应用程序时定义的角色分配用户和组。 角色信息会在登录令牌中发送到应用程序，并可使用图形 API 来读取。 了解有关 [使用 Azure AD 进行授权](http://blogs.technet.com/b/ad/archive/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles.aspx)的详细信息。
+**使用 Azure AD 进行基于角色的访问控制。**  管理员和应用程序所有者可以向你在 Azure AD 中注册应用程序时定义的角色分配用户和组。 角色信息会在登录令牌中发送到应用程序，并可使用图形 API 来读取。 了解有关 [使用 Azure AD 进行授权](https://cloudblogs.microsoft.com/enterprisemobility/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles/)的详细信息。
 
 ### <a name="get-access-to-users-profile-calendar-email-contacts-files-and-more"></a>获取对用户配置文件、日历、电子邮件、联系人、文件等的访问权限
 **Azure AD 是 Office 365 和其他 Microsoft 业务服务的授权服务器。**  如果支持使用 Azure AD 登录到应用程序，或者支持将当前用户帐户链接到使用 OAuth 2.0 的 Azure AD 用户帐户，则可以请求对用户配置文件、日历、电子邮件、联系人、文件和其他信息的读取和写入访问权限。 可以一气呵成地将事件写入用户日历，并在其 OneDrive 中读取或写入文件。 了解有关 [访问 Office 365 API](https://msdn.microsoft.com/office/office365/howto/platform-development-overview)的详细信息。
@@ -86,4 +86,4 @@ Azure Active Directory 为组织的云应用程序提供企业级标识管理。
 
 [使用 Azure AD 登录用户](active-directory-authentication-scenarios.md)
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: link update -->

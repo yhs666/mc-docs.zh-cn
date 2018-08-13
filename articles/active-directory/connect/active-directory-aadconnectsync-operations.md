@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 07/13/2017
-ms.date: 06/25/2018
+ms.date: 08/06/2018
 ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: d9a73cc6eafc10c7dbfac7a1bb11f38e43680253
-ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
+ms.openlocfilehash: 0fe48cdfca6453584412efc626b0c306e6d1ab4f
+ms.sourcegitcommit: 7cdf4633aea04e524cb48cb1990b750ae8be841c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36947961"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39584281"
 ---
 # <a name="azure-ad-connect-sync-operational-tasks-and-consideration"></a>Azure AD Connect 同步：操作任务和注意事项
 本主题旨在介绍 Azure AD Connect 同步的操作任务。
@@ -241,7 +241,7 @@ do
     {
         Write-Host Hit the maximum users processed without completion... -ForegroundColor Yellow
 
-        #export the collection of users as as CSV
+        #export the collection of users as a CSV
         Write-Host Writing processedusers${outputfilecount}.csv -ForegroundColor Yellow
         $objOutputUsers | Export-Csv -path processedusers${outputfilecount}.csv -NoTypeInformation
 
@@ -275,4 +275,5 @@ $objOutputUsers | Export-Csv -path processedusers${outputfilecount}.csv -NoTypeI
 - [Azure AD Connect 同步：理解和自定义同步](active-directory-aadconnectsync-whatis.md)  
 - [将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)  
 
-<!-- Update_Description: update metedata properties -->
+
+<!-- Update_Description: wording update -->

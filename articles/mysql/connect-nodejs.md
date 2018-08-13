@@ -2,21 +2,22 @@
 title: 通过 Node.js 连接到 Azure Database for MySQL
 description: 本快速入门提供多个 Node.js 代码示例，使用这些示例可连接到适用于 MySQL 的 Azure 数据库并查询其中的数据。
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
-manager: kfile
+author: WenJason
+ms.author: v-jay
+manager: digimobile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.custom: mvc
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 06/15/2018
-ms.openlocfilehash: fd6590effd731b0d6719b010515fc6c56fd0a1d9
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+origin.date: 02/28/2018
+ms.date: 08/13/2018
+ms.openlocfilehash: 0d1623b50ac76215083b28e2718dec56f39ab60e
+ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873407"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39723048"
 ---
 # <a name="azure-database-for-mysql-use-nodejs-to-connect-and-query-data"></a>适用于 MySQL 的 Azure 数据库：使用 Node.js 进行连接并查询数据
 
@@ -113,7 +114,7 @@ const mysql = require('mysql2');
 
 var config =
 {
-    host: 'mydemoserver.database.chinacloudapi.cn',
+    host: 'mydemoserver.mysql.database.chinacloudapi.cn',
     user: 'myadmin@mydemoserver',
     password: 'your_password',
     database: 'quickstartdb',
@@ -180,7 +181,7 @@ const mysql = require('mysql2');
 
 var config =
 {
-    host: 'mydemoserver.database.chinacloudapi.cn',
+    host: 'mydemoserver.mysql.database.chinacloudapi.cn',
     user: 'myadmin@mydemoserver',
     password: 'your_password',
     database: 'quickstartdb',
@@ -232,7 +233,7 @@ const mysql = require('mysql2');
 
 var config =
 {
-    host: 'mydemoserver.database.chinacloudapi.cn',
+    host: 'mydemoserver.mysql.database.chinacloudapi.cn',
     user: 'myadmin@mydemoserver',
     password: 'your_password',
     database: 'quickstartdb',
@@ -280,7 +281,7 @@ const mysql = require('mysql2');
 
 var config =
 {
-    host: 'mydemoserver.database.chinacloudapi.cn',
+    host: 'mydemoserver.mysql.database.chinacloudapi.cn',
     user: 'myadmin@mydemoserver',
     password: 'your_password',
     database: 'quickstartdb',

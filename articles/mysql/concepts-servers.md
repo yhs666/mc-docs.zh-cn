@@ -4,17 +4,17 @@ description: 本主题提供使用 Azure Database for MySQL 服务器的注意�
 services: mysql
 author: v-chenyh
 ms.author: v-chenyh
-manager: kfile
+manager: digimobile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
 ms.date: 06/16/2018
-ms.openlocfilehash: f87d0086bb13c5b997b87b93cf605f89f838be57
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.openlocfilehash: 6ee0739cbd809edea8a8baad1022ae9d2c9e1128
+ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873473"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39723122"
 ---
 # <a name="server-concepts-in-azure-database-for-mysql"></a>Azure Database for MySQL 中的服务器概念
 

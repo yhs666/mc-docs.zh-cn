@@ -12,29 +12,26 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-origin.date: 08/02/2017
-ms.date: 05/14/2018
+origin.date: 06/26/2018
+ms.date: 08/09/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f3dc18a264209b3175034bd0651d9bde90b7db76
-ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
+ms.openlocfilehash: 783232eb67b54f7be95cecc5e8de1a47d4ed3076
+ms.sourcegitcommit: f8bb533368ab2ef8efdf47e186672993ad8334cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "34173354"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39722328"
 ---
 # <a name="create-queries-to-list-batch-resources-efficiently"></a>创建可高效列出 Batch 资源的查询
 
-本文介绍如何通过减少使用[批处理 .NET][api_net] 库查询作业、任务和计算节点时该服务返回的数据量，提高 Azure Batch 应用程序的性能。
+本文介绍如何通过减少使用 [Batch .NET][api_net] 库查询作业、任务、计算节点及其他资源时该服务返回的数据量，提高 Azure Batch 应用程序的性能。
 
 几乎所有批处理应用程序都需执行某类监视操作或其他查询批处理服务的操作（通常按固定的时间间隔）。 例如，若要确定作业中是否还有排队的任务，必须获取作业中每个任务的相关数据。 若要确定池中节点的状态，必须获取池中每个节点的相关数据。 本文介绍如何以最有效的方式执行此类查询。
 
 > [!NOTE]
-> Batch 服务为作业中的计数任务这类常见方案提供特殊 API 支持。 可以调用[获取任务计数][rest_get_task_counts]操作，而不是使用查询列表。 获取任务计数指示正在挂起、正在运行或已完成任务的数量以及已成功或已失败的任务数量。 获取任务计数比查询列表更有效。 有关详细信息，请参阅[按状态对作业中的任务进行计数（预览）](batch-get-task-counts.md)。 
->
-> 早于 2017-06-01.5.1 版的 Batch 服务不提供“获取任务计数”操作。 如果使用的是该服务的较旧版本，请改用列表查询对作业中的任务计数。
->
-> 
+> Batch 服务为作业中的任务计数以及 Batch 池中的计算节点计数这类常见方案提供特殊 API 支持。 对于这些方案可以调用[获取任务计数][rest_get_task_counts]和[列出池节点计数][rest_get_node_counts]操作，而不是使用列表查询。 这些操作比列表查询更高效，但返回的信息更有限。 请参阅[按状态对任务和计算节点计数](batch-get-resource-counts.md)。 
+
 
 ## <a name="meet-the-detaillevel"></a>符合 DetailLevel 要求
 在生产型批处理应用程序中，作业、任务和计算节点等实体的数目成千上万。 请求这些资源的相关信息时，可能需要将大量数据从 Batch 服务“跨网络”传输到执行每个查询的应用程序。 通过限制查询时返回的项数和信息类型，可以提高查询速度，因此也会提高应用程序的性能。
@@ -250,15 +247,12 @@ internal static ODATADetailLevel OnlyChangedAfter(DateTime time)
 ### <a name="parallel-node-tasks"></a>并行节点任务
 [通过并发节点任务最大限度提高 Azure Batch 计算资源的使用率](batch-parallel-node-tasks.md)是另一篇与批处理应用程序性能相关的文章。 在数量较少但规模更大的计算节点上执行并行任务适合某些类型的工作负荷。 若需详细了解此类方案，请查看文章中的[示例方案](batch-parallel-node-tasks.md#example-scenario)。
 
-### <a name="batch-forum"></a>Batch 论坛
-MSDN 上的 [Azure Batch 论坛][forum]是探讨 Batch 服务以及咨询相关问题的一个好去处。 欢迎前往浏览这些帮忙解决“棘手问题”的贴子，并发布在构建 Batch 解决方案时遇到的问题。
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_listjobs]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listjobs.aspx
 [api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
 [batch_metrics]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchMetrics
 [efficient_query_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/EfficientListQueries
-[forum]: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azurebatch
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [odata]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.odatadetaillevel.aspx
 [odata_ctor]: https://msdn.microsoft.com/library/azure/dn866178.aspx
@@ -303,5 +297,6 @@ MSDN 上的 [Azure Batch 论坛][forum]是探讨 Batch 服务以及咨询相关�
 [net_task]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.aspx
 
 [rest_get_task_counts]: https://docs.microsoft.com/rest/api/batchservice/get-the-task-counts-for-a-job
+[rest_get_node_counts]: https://docs.microsoft.com/rest/api/batchservice/account/listpoolnodecounts
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

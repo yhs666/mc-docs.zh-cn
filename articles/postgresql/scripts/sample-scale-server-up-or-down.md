@@ -2,21 +2,22 @@
 title: Azure CLI 脚本 - 缩放 Azure Database for PostgreSQL
 description: Azure CLI 脚本示例 - 在查询指标后用于 PostgreSQL 服务器的 Azure 数据库缩放为不同的性能级别。
 services: postgresql
-author: v-chenyh
-ms.author: v-chenyh
-manager: kfile
+author: WenJason
+ms.author: v-jay
+manager: digimobile
 editor: jasonwhowell
 ms.service: postgresql
 ms.devlang: azure-cli
 ms.custom: mvc
 ms.topic: sample
-ms.date: 06/21/2018
-ms.openlocfilehash: c3c0f3c5647f7c6f4803919fa1366a47f140aedf
-ms.sourcegitcommit: d744d18624d2188adbbf983e1c1ac1110d53275c
+origin.date: 04/05/2018
+ms.date: 08/13/2018
+ms.openlocfilehash: f11891711cd0ff1201a6ff337d56c2c26558e33a
+ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36314389"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39723010"
 ---
 # <a name="monitor-and-scale-a-single-postgresql-server-using-azure-cli"></a>使用 Azure CLI 监视和缩放单个 PostgreSQL 服务器
 此示例 CLI 脚本在查询指标后用于 PostgreSQL 服务器的单个 Azure 数据库缩放为不同的性能级别。 本文需要 Azure CLI 2.0 或更高版本。 通过运行 `az --version` 来查看版本。 请参阅[安装 Azure CLI 2.0]( /cli/install-azure-cli)，了解如何安装或升级 Azure CLI 的版本。
@@ -24,7 +25,7 @@ ms.locfileid: "36314389"
 ## <a name="sample-script"></a>示例脚本
 在此示例脚本中，编辑突出显示的行，将管理员用户名和密码更新为你自己的。 将 `az monitor` 命令中使用的 SubscriptionID 替换为自己的订阅 ID。
 
-```bash
+```cli
 #!/bin/bash
 
 # Add the Azure CLI extension 
@@ -33,7 +34,7 @@ az extension add --name rdbms
 # Create a resource group
 az group create \
 --name myresourcegroup \
---location 
+--location chinaeast2
 
 # Create a PostgreSQL server in the resource group
 # Name of a server maps to DNS name and is thus required to be globally unique in Azure.
@@ -41,10 +42,10 @@ az group create \
 az postgres server create \
 --name mydemoserver \
 --resource-group myresourcegroup \
---location  \
+--location chinaeast2 \
 --admin-user myadmin \
 --admin-password <server_admin_password> \
---sku-name GP_Gen4_2 \
+--sku-name GP_Gen5_2 \
 
 # Monitor usage metrics - CPU
 az monitor metrics list \

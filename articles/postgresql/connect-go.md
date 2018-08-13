@@ -2,21 +2,22 @@
 title: 使用 Go 语言连接到 Azure Database for PostgreSQL
 description: 本快速入门提供了一个 Go 编程语言示例，你可以使用它来连接到 Azure Database for PostgreSQL 并查询其中的数据。
 services: postgresql
-author: v-chenyh
-ms.author: v-chenyh
-manager: kfile
+author: WenJason
+ms.author: v-jay
+manager: digimobile
 editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.devlang: go
 ms.topic: quickstart
-ms.date: 06/22/2018
-ms.openlocfilehash: a262d0cdf5917e582b83c39a94ddbc8dc2d2a691
-ms.sourcegitcommit: d744d18624d2188adbbf983e1c1ac1110d53275c
+origin.date: 02/28/2018
+ms.date: 08/13/2018
+ms.openlocfilehash: 5ec612b0c1d18c3d5496ab3b7691020c36f55075
+ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36314400"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39723058"
 ---
 # <a name="azure-database-for-postgresql-use-go-language-to-connect-and-query-data"></a>Azure Database for PostgreSQL：使用 Go 语言进行连接并查询数据
 本快速入门演示如何使用以 [Go](https://golang.org/) 语言 (golang) 编写的代码连接到 Azure Database for PostgreSQL。 同时还介绍了如何使用 SQL 语句在数据库中查询、插入、更新和删除数据。 本文假设你熟悉如何使用 Go 进行开发，但不熟悉如何使用 Azure Database for PostgreSQL。
@@ -115,7 +116,7 @@ import (
 
 const (
     // Initialize connection constants.
-    HOST     = "mydemoserver.database.chinacloudapi.cn"
+    HOST     = "mydemoserver.postgres.database.chinacloudapi.cn"
     DATABASE = "mypgsqldb"
     USER     = "mylogin@mydemoserver"
     PASSWORD = "<server_admin_password>"
@@ -181,7 +182,7 @@ import (
 
 const (
     // Initialize connection constants.
-    HOST     = "mydemoserver.database.chinacloudapi.cn"
+    HOST     = "mydemoserver.postgres.database.chinacloudapi.cn"
     DATABASE = "mypgsqldb"
     USER     = "mylogin@mydemoserver"
     PASSWORD = "<server_admin_password>"
@@ -248,7 +249,7 @@ import (
 
 const (
     // Initialize connection constants.
-    HOST     = "mydemoserver.database.chinacloudapi.cn"
+    HOST     = "mydemoserver.postgres.database.chinacloudapi.cn"
     DATABASE = "mypgsqldb"
     USER     = "mylogin@mydemoserver"
     PASSWORD = "<server_admin_password>"
@@ -301,7 +302,7 @@ import (
 
 const (
     // Initialize connection constants.
-    HOST     = "mydemoserver.database.chinacloudapi.cn"
+    HOST     = "mydemoserver.postgres.database.chinacloudapi.cn"
     DATABASE = "mypgsqldb"
     USER     = "mylogin@mydemoserver"
     PASSWORD = "<server_admin_password>"

@@ -1,20 +1,21 @@
 ---
 title: Azure Database for MySQL 数据复制存储过程
-description: Azure Database for MySQL 数据复制存储过程
+description: 本文介绍了所有用于数据复制的存储过程。
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
-manager: kfile
+author: WenJason
+ms.author: v-jay
+manager: digimobile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
-ms.date: 06/16/2018
-ms.openlocfilehash: d9a41cba26386348426841c3e717dc360f383c04
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+origin.date: 05/18/2018
+ms.date: 08/13/2018
+ms.openlocfilehash: 46667bc7440137f4eabb02652e8f43b757cad92f
+ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873522"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39723022"
 ---
 # <a name="azure-database-for-mysql-data-in-replication-stored-procedures"></a>Azure Database for MySQL 数据复制存储过程
 
@@ -25,16 +26,12 @@ ms.locfileid: "37873522"
 
 下面的存储过程用于在主体和副本之间设置或删除数据复制。
 
-> [!div class="mx-tableFixed"]
-
-|     |     |     |     |
-|-----|-----|-----|-----|
 |**存储过程名称**|**输入参数**|**输出参数**|**用法说明**|
-|mysql.az_replication_change_primary|master_host；master_user；master_password；master_port；master_log_file；master_log_pos；master_ssl_ca|不适用|若要使用 SSL 模式传输数据，请将 CA 证书的上下文传递到 master_ssl_ca 参数中。 若要不使用 SSL 模式传输数据，请将空字符串传递到 master_ssl_ca 参数中。|
+|-----|-----|-----|-----|
+|mysql.az_replication_change_primary|master_host<br/>master_user<br/>master_password<br/>master_port<br/>master_log_file<br/>master_log_pos<br/>master_ssl_ca|不适用|若要使用 SSL 模式传输数据，请将 CA 证书的上下文传递到 master_ssl_ca 参数中。 </br><br>若要不使用 SSL 模式传输数据，请将空字符串传递到 master_ssl_ca 参数中。|
 |mysql.az_replication _start|不适用|不适用|开始复制。|
 |mysql.az_replication _stop|不适用|不适用|停止复制。|
 |mysql.az_replication _remove_primary|不适用|不适用|删除主体和副本之间的复制关系。|
 |mysql.az_replication_skip_counter|不适用|不适用|跳过一个复制错误。|
-|     |     |     |     |
 
 若要在主体和 Azure Database for MySQL 副本之间设置数据复制，请参阅[如何配置数据复制](howto-data-in-replication.md)。

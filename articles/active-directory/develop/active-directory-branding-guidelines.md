@@ -14,16 +14,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 04/27/2017
-ms.date: 07/03/2018
+ms.date: 08/06/2018
 ms.author: v-junlch
-ms.reviewer: arielgo; skwan
+ms.reviewer: arielgo, skwan
 ms.custom: aaddev
-ms.openlocfilehash: 707ff170211dc4d246f3eab4f1cc8b48d2fb9165
-ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
+ms.openlocfilehash: 182d45c876a497fbc3b224556e1575e7533bff72
+ms.sourcegitcommit: 7cdf4633aea04e524cb48cb1990b750ae8be841c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37800497"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39584284"
 ---
 # <a name="branding-guidelines-for-applications"></a>适用于应用程序的品牌准则
 

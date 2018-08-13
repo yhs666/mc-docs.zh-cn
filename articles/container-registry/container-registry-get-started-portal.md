@@ -10,16 +10,17 @@ origin.date: 03/03/2018
 ms.date: 07/02/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 574c6648bfb19f9d122cf9633068ef0190e70011
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.openlocfilehash: 266a5f39d710aa36753f137af035d906564dc2ea
+ms.sourcegitcommit: 543a18c71c0910a5b9878a2d2668f317468906f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39167749"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39625482"
 ---
 # <a name="quickstart-create-a-container-registry-using-the-azure-portal"></a>快速入门：使用 Azure 门户创建容器注册表
 
-Azure 容器注册表是 Azure 中的专用 Docker 注册表，你可在其中存储和管理专用 Docker 容器映像。 在本快速入门中，请通过 Azure 门户创建一个容器注册表，将容器映像推送到注册表中，并最终将容器从注册表部署到 Azure 容器实例 (ACI) 中。
+Azure 容器注册表是 Azure 中的专用 Docker 注册表，你可在其中存储和管理专用 Docker 容器映像。 在本快速入门中，请使用 Azure 门户创建容器注册表，然后将容器映像推送到注册表中。 
+<!--Not Available on and finally deploy the container from your registry into Azure Container Instances (ACI).-->
 
 要完成本快速入门，必须在本地安装 Docker。 Docker 提供的包可在任何 [Mac][docker-mac]、[Windows][docker-windows] 或 [Linux][docker-linux] 系统上轻松配置 Docker。
 
@@ -151,7 +152,4 @@ v1: digest: sha256:f2867748615cc327d31c68b1172cc03c0544432717c4d2ba2c1c2d34b18c6
 [docker-windows]: https://docs.docker.com/docker-for-windows/
 
 <!-- LINKS - internal -->
-[container-instances-tutorial-prepare-app]: ../container-instances/container-instances-tutorial-prepare-app.md
-[container-registry-skus]: container-registry-skus.md
-<!-- Update_Description: new article on container registry get started portal -->
-<!--ms.date: 07/02/2018-->
+<!-- Not Availble on [container-instances-tutorial-prepare-app]: ../container-instances/container-instances-tutorial-prepare-app.md--> [container-registry-skus]：container-registry-skus.md <!-- Update_Description: update link, wording update -->

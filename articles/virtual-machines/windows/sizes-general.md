@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 07/06/2018
 ms.date: 07/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: e008713e9b9d063a4dfdc158199fcef89cf433bd
-ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
+ms.openlocfilehash: 38989ceeb0771444c2cdf8fbc676cafa86940fd7
+ms.sourcegitcommit: 62a0389a743cd18665bd127e9bf14800867008eb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39307061"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39624938"
 ---
 # <a name="general-purpose-virtual-machine-sizes"></a>常规用途虚拟机大小
 
@@ -32,10 +32,11 @@ ms.locfileid: "39307061"
 ## <a name="other-sizes"></a>其他大小
 - [计算优化](sizes-compute.md)
 - [内存优化](sizes-memory.md)
-<!--Not Available [Storage optimized]-->
-<!--Not Available [GPU optimized]-->
-<!--Not Available [High performance compute]-->
+- [GPU 优化](sizes-gpu.md)
 - [前几代](sizes-previous-gen.md)
+
+<!--Not Available [Storage optimized]-->
+<!--Not Available [High performance compute]-->
 
 ## <a name="next-steps"></a>后续步骤
 了解有关 [Azure 计算单元 (ACU)](acu.md) 如何帮助跨 Azure SKU 比较计算性能的详细信息。

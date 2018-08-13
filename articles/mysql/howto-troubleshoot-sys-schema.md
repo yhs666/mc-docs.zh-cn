@@ -6,15 +6,15 @@ author: v-chenyh
 ms.author: v-chenyh
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
 ms.date: 06/16/2018
-ms.openlocfilehash: ef0fb6ccbef45e5a839df6e6f8e0530644d53a63
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.openlocfilehash: 94358fa429d5b1e9a08f3172b419160a52ff4d98
+ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873529"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39722956"
 ---
 # <a name="how-to-use-sysschema-for-performance-tuning-and-database-maintenance-in-azure-database-for-mysql"></a>如何在 Azure Database for MySQL 中使用 sys_schema 进行性能优化和数据库维护
 

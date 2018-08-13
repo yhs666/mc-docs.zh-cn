@@ -8,15 +8,15 @@ editor: tysonn
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-origin.date: 01/25/2018
-ms.date: 06/07/2018
+origin.date: 07/14/2018
+ms.date: 08/08/2018
 ms.author: v-junlch
-ms.openlocfilehash: 17bb7a1dd4196f0b30d3537991c317af83798158
-ms.sourcegitcommit: 4fe9905d17a8df9f2270543a5a0ce1762a5830c9
+ms.openlocfilehash: f754d599e83ecd94d175e93d82647e10aa4692b6
+ms.sourcegitcommit: a1c6a743b4be62477e7debfc9ea5f03afca2bc8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34855723"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39625139"
 ---
 # <a name="create-an-application-gateway-with-a-virtual-machine-scale-set-using-the-azure-cli"></a>通过 Azure CLI 使用虚拟机规模集创建应用程序网关
 
@@ -122,7 +122,7 @@ az vmss extension set `
   --name CustomScript `
   --resource-group myResourceGroupAG `
   --vmss-name myvmss `
-  --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"], "commandToExecute": "./install_nginx.sh" }'
+  --settings '{ "fileUris": ["https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/install_nginx.sh"], "commandToExecute": "./install_nginx.sh" }'
 ```
 
 ## <a name="test-the-application-gateway"></a>测试应用程序网关
@@ -150,4 +150,4 @@ az network public-ip show `
 
 若要详细了解应用程序网关及其关联的资源，请继续阅读操作指南文章。
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: code update -->

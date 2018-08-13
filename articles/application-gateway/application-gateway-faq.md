@@ -7,15 +7,15 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-origin.date: 05/21/2018
-ms.date: 07/02/2018
+origin.date: 06/20/2018
+ms.date: 08/08/2018
 ms.author: v-junlch
-ms.openlocfilehash: f7a14d4df1f283538612f4abc8793878d4412dcd
-ms.sourcegitcommit: f0bfa3f8dca94099a2181492952e6a575fbdbcc8
+ms.openlocfilehash: 1799943524175cee180d45c6e5bf9a9de7d5760b
+ms.sourcegitcommit: a1c6a743b4be62477e7debfc9ea5f03afca2bc8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37142580"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39625190"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>应用程序网关常见问题
 
@@ -116,7 +116,7 @@ Set-AzureRmApplicationGateway -ApplicationGateway $gw
 
 应用程序网关子网支持网络安全组，但具有以下限制：
 
-- 必须针对端口 65503-65534 上的传入流量设置异常，后端运行状况才能正常工作。
+- 必须提交端口 65503-65534 上传入流量的异常。 此端口范围是进行 Azure 基础结构通信所必需的。 它们受 Azure 证书的保护（处于锁定状态）。 如果没有适当的证书，外部实体（包括这些网关的客户）将无法对这些终结点做出任何更改。
 
 - 不能阻止出站 Internet 连接。
 
@@ -160,13 +160,17 @@ Host 字段指定要将探测发送到的名称。 仅在应用程序网关上�
 
 - 允许来自源 IP/IP 范围的传入流量。
 
-- 允许来自所有源的请求传入端口 65503-65534，进行[后端运行状况通信](application-gateway-diagnostics.md)。
+- 允许来自所有源的请求传入端口 65503-65534，进行[后端运行状况通信](application-gateway-diagnostics.md)。 此端口范围是进行 Azure 基础结构通信所必需的。 它们受 Azure 证书的保护（处于锁定状态）。 如果没有适当的证书，外部实体（包括这些网关的客户）将无法对这些终结点做出任何更改。
 
 - 允许 [NSG](../virtual-network/security-overview.md) 上的传入 Azure 负载均衡器探测（AzureLoadBalancer 标记）和入站虚拟网络流量（VirtualNetwork 标记）。
 
 - 使用“全部拒绝”规则阻止其他所有传入流量。
 
 - 允许发往 Internet 的所有目标的出站流量。
+
+**问：能否对面向公共和面向私人的侦听器使用相同的端口？**
+
+否，不支持这样做。
 
 ## <a name="performance"></a>性能
 

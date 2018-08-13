@@ -6,15 +6,15 @@ author: v-chenyh
 ms.author: v-chenyh
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
 ms.date: 06/16/2018
-ms.openlocfilehash: fdc8cc3e508900cbf526d2c3774fa2cfd808e2c2
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.openlocfilehash: ea302aedf1246b0b6d7af031ac8dc672e598d64e
+ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873403"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39723110"
 ---
 # <a name="how-to-use-explain-to-profile-query-performance-in-azure-database-for-mysql"></a>如何使用 EXPLAIN 分析 Azure Database for MySQL 中的查询性能
 

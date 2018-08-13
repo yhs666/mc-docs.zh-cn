@@ -2,21 +2,22 @@
 title: 使用 Ruby 连接到 Azure Database for PostgreSQL
 description: 本快速入门提供了一个 Ruby 代码示例，你可以使用它来连接到 Azure Database for PostgreSQL 并查询其中的数据。
 services: postgresql
-author: v-chenyh
-ms.author: v-chenyh
-manager: kfile
+author: WenJason
+ms.author: v-jay
+manager: digimobile
 editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.devlang: ruby
 ms.topic: quickstart
-ms.date: 06/22/2018
-ms.openlocfilehash: 694424f8950aea41e4a74314efd33331526ef1e9
-ms.sourcegitcommit: d744d18624d2188adbbf983e1c1ac1110d53275c
+origin.date: 02/28/2018
+ms.date: 08/13/2018
+ms.openlocfilehash: 407e95a136db6eafb72ff6d6d557efe96a4bca72
+ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36314380"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39723127"
 ---
 # <a name="azure-database-for-postgresql-use-ruby-to-connect-and-query-data"></a>Azure Database for PostgreSQL：使用 Ruby 进行连接并查询数据
 本快速入门演示了如何使用 [Ruby](https://www.ruby-lang.org) 应用程序连接到 Azure Database for PostgreSQL。 同时还介绍了如何使用 SQL 语句在数据库中查询、插入、更新和删除数据。 本文中的步骤假定你熟悉如何使用 Ruby 进行开发，但不熟悉如何使用 Azure Database for PostgreSQL。
@@ -77,7 +78,7 @@ require 'pg'
 
 begin
     # Initialize connection variables.
-    host = String('mydemoserver.database.chinacloudapi.cn')
+    host = String('mydemoserver.postgres.database.chinacloudapi.cn')
     database = String('postgres')
     user = String('mylogin@mydemoserver')
     password = String('<server_admin_password>')
@@ -120,7 +121,7 @@ require 'pg'
 
 begin
     # Initialize connection variables.
-    host = String('mydemoserver.database.chinacloudapi.cn')
+    host = String('mydemoserver.postgres.database.chinacloudapi.cn')
     database = String('postgres')
     user = String('mylogin@mydemoserver')
     password = String('<server_admin_password>')
@@ -154,7 +155,7 @@ require 'pg'
 
 begin
     # Initialize connection variables.
-    host = String('mydemoserver.database.chinacloudapi.cn')
+    host = String('mydemoserver.postgres.database.chinacloudapi.cn')
     database = String('postgres')
     user = String('mylogin@mydemoserver')
     password = String('<server_admin_password>')
@@ -188,7 +189,7 @@ require 'pg'
 
 begin
     # Initialize connection variables.
-    host = String('mydemoserver.database.chinacloudapi.cn')
+    host = String('mydemoserver.postgres.database.chinacloudapi.cn')
     database = String('postgres')
     user = String('mylogin@mydemoserver')
     password = String('<server_admin_password>')

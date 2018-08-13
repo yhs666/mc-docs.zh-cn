@@ -14,15 +14,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 11/16/2017
-ms.date: 07/03/2018
+ms.date: 08/06/2018
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: 19b1807544bccf5b9dd98fdceb3b03e5fdf1c202
-ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
+ms.reviewer: elisol
+ms.openlocfilehash: bff10ca22063925751eee54b1ee435aa07924722
+ms.sourcegitcommit: 7cdf4633aea04e524cb48cb1990b750ae8be841c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37800435"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39584287"
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Azure Active Directory 开发人员词汇表
 本文包含一些核心 Azure Active Directory (AD) 开发人员概念的定义，帮助你了解 Azure AD 的应用程序开发。
@@ -133,7 +134,7 @@ Azure AD 向应用程序注册颁发的唯一标识符，用于标识特定应�
 
 角色是资源定义的字符串（例如“开支审批人”、“只读”、“Directory.ReadWrite.All”），在 [Azure 门户][AZURE-portal]中通过资源的[应用程序清单](#application-manifest)进行管理，并且存储在资源的 [appRoles 属性][AAD-Graph-Sp-Entity]中。 也可通过 Azure 门户为用户分配“用户”角色，并配置用于访问“应用程序”角色的客户端[应用程序权限](#permissions)。
 
-有关 Azure AD 图形 API 公开的应用程序角色的详细介绍，请参阅 [Graph API Permission Scopes][AAD-Graph-Perm-Scopes]（图形 API 权限范围）。 
+有关 Azure AD 图形 API 公开的应用程序角色的详细介绍，请参阅 [Graph API Permission Scopes][AAD-Graph-Perm-Scopes]（图形 API 权限范围）。 有关分步实现示例，请参阅[使用 RBAC 和 Azure 门户管理访问权限][AAD-RBAC]。
 
 ## <a name="scopes"></a>范围
 与[角色](#roles)一样，范围提供某种方式让[资源服务器](#resource-server)控制其受保护资源的访问权限。 对于已获得资源所有者委托资源访问权限的[客户端应用程序](#client-application)，范围可用于实现[基于范围][OAuth2-Access-Token-Scopes]的访问控制。
@@ -202,6 +203,7 @@ Azure AD 目录的实例称为 Azure AD 租户。 它提供的一些功能包括
 [AAD-Security-Token-Claims]: ./active-directory-authentication-scenarios.md#claims-in-azure-ad-security-tokens
 [AAD-Tokens-Claims]: ./active-directory-token-and-claims.md
 [AZURE-portal]: https://portal.azure.cn
+[AAD-RBAC]: ../../role-based-access-control/role-assignments-portal.md
 [JWT]: https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32
 [Microsoft-Graph]: https://graph.microsoft.io
 [O365-Perm-Ref]: https://msdn.microsoft.com/office/office365/howto/application-manifest

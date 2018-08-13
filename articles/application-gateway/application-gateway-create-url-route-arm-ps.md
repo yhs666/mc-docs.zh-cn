@@ -9,14 +9,14 @@ ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 origin.date: 01/26/2018
-ms.date: 07/02/2018
+ms.date: 08/08/2018
 ms.author: v-junlch
-ms.openlocfilehash: 4f53b45b568d3f5f67d9d96e19a009ebc8166356
-ms.sourcegitcommit: f0bfa3f8dca94099a2181492952e6a575fbdbcc8
+ms.openlocfilehash: fbb679efc63aa9cd9c84b764556bd668445f7c07
+ms.sourcegitcommit: a1c6a743b4be62477e7debfc9ea5f03afca2bc8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37142677"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39625185"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-routing-rules-using-azure-powershell"></a>通过 Azure PowerShell 使用基于 URL 路径的路由规则创建应用程序网关
 
@@ -323,7 +323,7 @@ for ($i=1; $i -le 3; $i++)
 ### <a name="install-iis"></a>安装 IIS
 
 ```azurepowershell
-$publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/davidmu1/samplescripts/master/appgatewayurl.ps1"); 
+$publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1"); 
   "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
 
 for ($i=1; $i -le 3; $i++)
@@ -372,3 +372,4 @@ Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublic
 
 若要了解有关应用程序网关及其关联资源的详细信息，请继续阅读操作指南文章。
 
+<!-- Update_Description: code update -->

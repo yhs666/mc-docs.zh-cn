@@ -2,21 +2,22 @@
 title: 通过 Python 连接到 Azure Database for MySQL
 description: 本快速入门提供了多个 Python 代码示例，你可以使用它来连接到 Azure Database for MySQL 并查询其中的数据。
 services: mysql
-author: jasonwhowell
-ms.author: jasonh
-manager: kfile
+author: WenJason
+ms.author: v-jay
+manager: digimobile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.custom: mvc
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 06/15/2018
-ms.openlocfilehash: c4e6f26f0fa6bc7b56adfb61c83a8d117fff39d7
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+origin.date: 02/28/2018
+ms.date: 08/13/2018
+ms.openlocfilehash: 9af353f087a342c62a9fc93d740d6b46b45fcfcb
+ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873323"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39723052"
 ---
 # <a name="azure-database-for-mysql-use-python-to-connect-and-query-data"></a>Azure Database for MySQL：使用 Python 进行连接并查询数据
 
@@ -89,7 +90,7 @@ from mysql.connector import errorcode
 
 # Obtain connection string information from the portal
 config = {
-  'host':'mydemoserver.database.chinacloudapi.cn',
+  'host':'mydemoserver.mysql.database.chinacloudapi.cn',
   'user':'myadmin@mydemoserver',
   'password':'yourpassword',
   'database':'quickstartdb'
@@ -145,7 +146,7 @@ from mysql.connector import errorcode
 
 # Obtain connection string information from the portal
 config = {
-  'host':'mydemoserver.database.chinacloudapi.cn',
+  'host':'mydemoserver.mysql.database.chinacloudapi.cn',
   'user':'myadmin@mydemoserver',
   'password':'yourpassword',
   'database':'quickstartdb'
@@ -194,7 +195,7 @@ from mysql.connector import errorcode
 
 # Obtain connection string information from the portal
 config = {
-  'host':'mydemoserver.database.chinacloudapi.cn',
+  'host':'mydemoserver.mysql.database.chinacloudapi.cn',
   'user':'myadmin@mydemoserver',
   'password':'yourpassword',
   'database':'quickstartdb'
@@ -238,7 +239,7 @@ from mysql.connector import errorcode
 
 # Obtain connection string information from the portal
 config = {
-  'host':'mydemoserver.database.chinacloudapi.cn',
+  'host':'mydemoserver.mysql.database.chinacloudapi.cn',
   'user':'myadmin@mydemoserver',
   'password':'yourpassword',
   'database':'quickstartdb'

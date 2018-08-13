@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 origin.date: 05/22/2017
-ms.date: 06/29/2018
+ms.date: 08/08/2018
 ms.author: v-junlch
-ms.openlocfilehash: 17a6097c01fc46d5e7ab117a4a65205c3e4cb569
-ms.sourcegitcommit: c587cc1c53b1f92b45fae0d1ff8e1f7bd544bc55
+ms.openlocfilehash: 9f82ca16e82124d19a6b7827c031fc655c72fc1f
+ms.sourcegitcommit: f8bb533368ab2ef8efdf47e186672993ad8334cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103252"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39722329"
 ---
 # <a name="run-tasks-under-user-accounts-in-batch"></a>在 Batch 中的用户帐户下运行任务
 
@@ -335,8 +335,5 @@ Batch 服务版本 2017-01-01.4.0 引入了一项重大更改，已将早期版�
 
 ## <a name="next-steps"></a>后续步骤
 
-### <a name="batch-forum"></a>Batch 论坛
-
-MSDN 上的 [Azure Batch 论坛](https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch)是探讨 Batch 服务以及咨询相关问题的一个好去处。 欢迎前往浏览这些精华贴子，并发布你在构建 Batch 解决方案时遇到的问题。
-
-<!-- Update_Description: code update -->
+- 有关 Batch 深入概述的信息，请参阅[使用 Batch 开发大规模并行计算解决方案](batch-api-basics.md)。
+<!-- Update_Description: wording update -->

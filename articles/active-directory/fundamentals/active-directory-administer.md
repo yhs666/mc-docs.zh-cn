@@ -10,16 +10,16 @@ ms.workload: identity
 ms.component: fundamentals
 ms.topic: overview
 origin.date: 08/23/2017
-ms.date: 06/22/2018
+ms.date: 08/07/2018
 ms.author: v-junlch
 ms.reviewer: jeffsta
 ms.custom: it-pro;oldportal
-ms.openlocfilehash: 75d5e7ec7c6f91d4a993d2ce398866b427ee5a39
-ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
+ms.openlocfilehash: 26049c0e9fca592a6f1183f9e45c39044bcd2fb1
+ms.sourcegitcommit: 7cdf4633aea04e524cb48cb1990b750ae8be841c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36948674"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39584310"
 ---
 # 管理 Azure AD 目录 <a name="manage-your-azure-ad-directory"></a>
 
@@ -110,5 +110,6 @@ Azure AD 要求删除目录之前必须符合特定的条件。 这可以降低�
 - [Azure 多重身份验证论坛](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=windowsazureactiveauthentication)
 - [StackOverflow for Azure 问题](https://stackoverflow.com/questions/tagged/azure-active-directory)
 - [Azure Active Directory PowerShell](https://docs.microsoft.com/powershell/azure/active-directory)
-- [在 Azure AD 中分配管理员角色](../active-directory-assign-admin-roles-azure-portal.md)
+- [在 Azure AD 中分配管理员角色](../users-groups-roles/directory-assign-admin-roles.md)
 
+<!-- Update_Description: link update -->

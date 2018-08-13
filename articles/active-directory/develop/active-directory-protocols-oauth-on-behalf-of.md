@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/06/2017
-ms.date: 07/03/2018
+ms.date: 08/06/2018
 ms.author: v-junlch
-ms.reviewer: hirsin; nacanuma
+ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 5e0912233b38ddba7887838462ac32b0d5caf3a7
-ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
+ms.openlocfilehash: 1ad64229717f739b02aa3d8980b64e91a4d82532
+ms.sourcegitcommit: 7cdf4633aea04e524cb48cb1990b750ae8be841c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37800473"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39584275"
 ---
 # <a name="service-to-service-calls-using-delegated-user-identity-in-the-on-behalf-of-flow"></a>代理流中使用委派用户标识的服务到服务调用
 OAuth 2.0 (OBO) 代理流适用于这样的用例：其中应用程序调用某个服务/web API，而后者又需要调用另一个服务/web API。 思路是通过请求链传播委托用户标识和权限。 要使中间层服务向下游服务发出身份验证请求，该服务需要代表用户保护 Azure Active Directory (Azure AD) 提供的访问令牌。
@@ -210,4 +210,4 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6InowMzl6ZHNGdW
 - [在 Azure AD 中使用 OAuth 2.0 客户端凭据授予执行服务到服务身份验证](active-directory-protocols-oauth-service-to-service.md)
 - [Azure AD 中的 OAuth 2.0](active-directory-protocols-oauth-code.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

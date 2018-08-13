@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/13/2017
-ms.date: 06/22/2018
+ms.date: 08/06/2018
 ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 061176f7a32e3348046d02e3256f42a31d33005c
-ms.sourcegitcommit: d744d18624d2188adbbf983e1c1ac1110d53275c
+ms.openlocfilehash: 435002292fc544ac9a513b63ae6b9d519e4e5576
+ms.sourcegitcommit: 7cdf4633aea04e524cb48cb1990b750ae8be841c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36314269"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39584230"
 ---
 # <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>存在现有的租户时如何使用 Azure AD Connect
 有关如何使用 Azure AD Connect 的大多数主题假设一开始使用的是新 Azure AD 租户，其中不包含任何用户或其他对象。 但是，如果一开始使用的 Azure AD 租户中填充了用户和其他对象，现在想要使用 Connect，那么，本主题适合你阅读。
@@ -50,6 +50,9 @@ Azure AD 中的对象在云中 (Azure AD) 或本地掌控。 对于单个对象�
 
 如果使用软匹配匹配了对象，则 **sourceAnchor** 已添加到 Azure AD 中的对象，因此以后可以使用硬匹配。
 
+>[!IMPORTANT]
+> Microsoft 强烈建议不要将本地帐户与 Azure Active Directory 中已有的管理帐户同步。
+
 ### <a name="hard-match-vs-soft-match"></a>硬匹配与软匹配
 对于全新的 Connect 安装，软匹配与硬匹配之间没有实质的差别。 主要差别在于灾难恢复情形。 如果解除了装有 Azure AD Connect 的服务器，可以重新安装一个新实例，而不会丢失任何数据。 在初始安装期间，会向 Connect 发送一个包含 sourceAnchor 的对象。 然后，客户端 (Azure AD Connect) 便可以评估匹配，与在 Azure AD 中执行相同的操作相比，速度要快得多。 硬匹配同时由 Connect 和 Azure AD 评估。 软匹配只由 Azure AD 评估。
 
@@ -63,4 +66,4 @@ Azure AD 中的对象在云中 (Azure AD) 或本地掌控。 对于单个对象�
 ## <a name="next-steps"></a>后续步骤
 了解有关 [将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)的详细信息。
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

@@ -2,19 +2,20 @@
 title: Azure Database for MySQL 中支持的版本
 description: 说明 Azure Database for MySQL 中支持的版本。
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
-manager: kfile
+author: WenJason
+ms.author: v-jay
+manager: digimobile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
-ms.date: 06/16/2018
-ms.openlocfilehash: dead40571b2a96751e6a72fc047dd3e3ea00576f
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+origin.date: 05/23/2018
+ms.date: 08/13/2018
+ms.openlocfilehash: db3fa0b8458c69842a867de7bf617f54d0527a24
+ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873307"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39723113"
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>支持的 Azure Database for MySQL 服务器版本
 
@@ -23,11 +24,11 @@ ms.locfileid: "37873307"
 
 使用 InnoDB 引擎通过 [MySQL Community Edition](https://www.mysql.com/products/community/) 开发 Azure Database for MySQL。  Azure Database for MySQL 目前支持以下版本：
 
-## <a name="mysql-version-5638"></a>MySQL 5.6.38 版
-若要详细了解 MySQL 5.6.38 中的改进和修复，请参阅 MySQL [文档](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-38.html)。
+## <a name="mysql-version-5639"></a>MySQL 版本 5.6.39
+若要详细了解 MySQL 5.6.39 中的改进和修复，请参阅 MySQL [文档](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-39.html)。
 
-## <a name="mysql-version-5720"></a>MySQL 5.7.20 版
-若要了解 MySQL 5.7.20 中的改进和修复，请参阅 MySQL [文档](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-20.html)。
+## <a name="mysql-version-5721"></a>MySQL 版本 5.7.21
+若要了解 MySQL 5.7.21 中的改进和修复，请参阅 MySQL [文档](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-21.html)。
 
 > [!NOTE]
 > 在服务中，网关用于将连接重定向到服务器实例。 建立连接后，MySQL 客户端显示网关中设置的 MySQL 版本，而不是 MySQL 服务器实例上运行的实际版本。 若要确定 MySQL 服务器实例的版本，可在 MySQL 提示符处使用 `SELECT VERSION();` 命令。 

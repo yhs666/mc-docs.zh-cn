@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 01/24/2017
-ms.date: 06/04/2018
+origin.date: 07/14/2018
+ms.date: 08/08/2018
 ms.author: v-junlch
-ms.openlocfilehash: 31e99a7bb7f97991d511a2257ac37d4e03061fb0
-ms.sourcegitcommit: 4fe9905d17a8df9f2270543a5a0ce1762a5830c9
+ms.openlocfilehash: d61ee09ce077329f52c5f85c177c8a3fdc859c43
+ms.sourcegitcommit: a1c6a743b4be62477e7debfc9ea5f03afca2bc8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34855805"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39625175"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-the-azure-cli"></a>使用 Azure CLI 创建支持内部重定向的应用程序网关
 
@@ -194,7 +194,7 @@ az vmss extension set `
   --name CustomScript `
   --resource-group myResourceGroupAG `
   --vmss-name myvmss `
-  --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"],
+  --settings '{ "fileUris": ["https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/install_nginx.sh"],
   "commandToExecute": "./install_nginx.sh" }'
 ```
 
@@ -228,3 +228,4 @@ az network public-ip show `
 > * 使用后端池创建虚拟机规模集
 > * 在域中创建 CNAME 记录
 
+<!-- Update_Description: code update -->

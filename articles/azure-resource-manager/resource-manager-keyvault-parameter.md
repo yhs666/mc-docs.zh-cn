@@ -1,31 +1,37 @@
 ---
 title: Key Vault 机密与 Azure 资源管理器模板 | Azure
 description: 说明在部署期间如何以参数形式从密钥保管库传递机密。
-services: azure-resource-manager,key-vault
+services: azure-resource-manager
 documentationcenter: na
 author: rockboyfor
-manager: digimobile
 editor: tysonn
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 04/11/2018
-ms.date: 04/30/2018
+origin.date: 07/09/2018
+ms.date: 08/13/2018
 ms.author: v-yeche
-ms.openlocfilehash: a455e67022c09716811376e58d5df95f64d33b5e
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: a3edfa7a57d0b1827e66315aa106c89b0eeca311
+ms.sourcegitcommit: 543a18c71c0910a5b9878a2d2668f317468906f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121240"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39625519"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>在部署过程中使用 Azure Key Vault 传递安全参数值
 
-在部署过程中，需要将安全值（例如密码）作为参数传递时，可从 [Azure Key Vault](../key-vault/key-vault-whatis.md) 检索值。 通过引用参数文件中的密钥保管库和密钥来检索值。 值永远不会公开，因为仅引用其密钥保管库 ID。 不需要每次部署资源时手动输入机密的值。 密钥保管库与部署到的资源组不需要位于同一订阅中。 引用密钥保管库时，需要包括订阅 ID。
+在部署过程中，需要将安全值（例如密码）作为参数传递时，可从 [Azure Key Vault](../key-vault/key-vault-whatis.md) 检索值。 通过引用参数文件中的密钥保管库和密钥来检索值。 值永远不会公开，因为仅引用其密钥保管库 ID。 密钥保管库与部署到的资源组不需要位于同一订阅中。
 
-创建密钥保管库时，将 enabledForTemplateDeployment 属性设置为 true。 通过将该值设置为 true，在部署过程中可允许来自资源管理器模板的访问。
+## <a name="enable-access-to-the-secret"></a>启用密钥访问权限
+
+要在部署模板期间访问 Key Vault，必须满足两个重要的条件：
+
+1. Key Vault 属性 `enabledForTemplateDeployment` 必须为 `true`。
+2. 部署模板的用户必须有权访问该机密。 用户必须具有 Key Vault 的 `Microsoft.KeyVault/vaults/deploy/action` 权限。 [所有者](../role-based-access-control/built-in-roles.md#owner)和[参与者](../role-based-access-control/built-in-roles.md#contributor)角色均授予该访问权限。
+
+使用 Key Vault 部署[托管应用程序](../managed-applications/overview.md)的模板时，必须授予对设备资源提供程序服务主体的访问权限。 有关详细信息，请参阅[部署 Azure 托管应用程序时访问 Key Vault 机密](../managed-applications/key-vault-access.md)。
 
 ## <a name="deploy-a-key-vault-and-secret"></a>部署密钥保管库和机密
 
@@ -62,12 +68,9 @@ $secretvalue = ConvertTo-SecureString $password -AsPlainText -Force
 Set-AzureKeyVaultSecret -VaultName $vaultname -Name "examplesecret" -SecretValue $secretvalue
 ```
 
-## <a name="enable-access-to-the-secret"></a>启用密钥访问权限
-
-无论使用的是新密钥保管库还是现有密钥保管库，请确保部署模板的用户可以访问密钥。 部署引用某个密钥的模板的用户必须具有密钥保管库的 `Microsoft.KeyVault/vaults/deploy/action` 权限。 [所有者](../role-based-access-control/built-in-roles.md#owner)和[参与者](../role-based-access-control/built-in-roles.md#contributor)角色均授予该访问权限。
-
 ## <a name="reference-a-secret-with-static-id"></a>通过静态 ID 引用机密
-接收 key vault 机密的模板与任何其他模板类似。 这是因为在参数文件（而不是在模板）中引用 key vault。 下图显示了参数文件如何引用机密并将该值传递到模板。
+
+接收密钥保管库机密的模板与任何其他模板一样。 这是因为在参数文件（而不是在模板）中引用 key vault。 下图显示了参数文件如何引用机密并将该值传递到模板。
 
 ![静态 ID](./media/resource-manager-keyvault-parameter/statickeyvault.png)
 
@@ -142,7 +145,7 @@ Set-AzureKeyVaultSecret -VaultName $vaultname -Name "examplesecret" -SecretValue
 现在，部署模板并传入参数文件。 可以使用 GitHub 中的示例模板，但必须使用本地参数文件并将值设置为自己的环境。
 
 >[!NOTE]
-> 必须修改从 GitHub 存储库 [sqlserver.json](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/keyvaultparameter/sqlserver.json) 下载的模板，以适应 Azure 中国云环境。 例如，替换某些终结点（将“blob.core.windows.net”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“chinacloudapp.cn”）；更改某些不受支持的 VM 映像；更改某些不受支持的 VM 大小。
+> 必须修改从 GitHub 存储库 [sqlserver.json](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/keyvaultparameter/sqlserver.json) 下载的模板，以适应 Azure 中国云环境。 例如，替换某些终结点（将“blob.core.windows.net”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“chinacloudapp.cn”）；更改某些不受支持的 VM 映像；更改某些不受支持的 VM 大小、SKU 以及资源提供程序的 API 版本。
 
 对于 Azure CLI，请使用：
 

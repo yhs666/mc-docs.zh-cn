@@ -2,19 +2,20 @@
 title: Azure Database for MySQL 中的限制
 description: 本文介绍了 Azure Database for MySQL 中的限制，例如连接数和存储引擎选项。
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
-manager: kfile
+author: WenJason
+ms.author: v-jay
+manager: digimobile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
-ms.date: 06/16/2018
-ms.openlocfilehash: 30c8ef9d79bfb328b002f65777af483b1d4ed83d
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+origin.date: 06/30/2018
+ms.date: 08/13/2018
+ms.openlocfilehash: 72e2ce2ace7a58b09f0f2de0bfcb93998ef8a840
+ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873393"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39723026"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Azure Database for MySQL 中的限制
 
@@ -23,33 +24,24 @@ ms.locfileid: "37873393"
 
 以下各部分介绍了数据库服务中的容量、存储引擎支持、特权支持、数据操作语句支持和功能限制。 另请参阅适用于 MySQL 数据库引擎的[常规限制](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html)。
 
-## <a name="service-tier-maximums"></a>服务层最大值
-创建服务器时，Azure Database for MySQL 中提供多个可供选择的服务层。 有关详细信息，请参阅 [Azure Database for MySQL 定价层](concepts-pricing-tiers.md)。  
+## <a name="maximum-connections"></a>最大连接数
+每个定价层的最大连接数和 vCore 数如下所示： 
 
-每个服务层中的连接数、计算单位和存储均有最大值限制，如下所示： 
+|**定价层**|**vCore(s)**| 最大连接数|
+|---|---|---|
+|基本| 1| 50|
+|基本| 2| 100|
+|常规用途| 2| 300|
+|常规用途| 4| 625|
+|常规用途| 8| 1250|
+|常规用途| 16| 2500|
+|常规用途| 32| 5000|
+|内存优化| 2| 600|
+|内存优化| 4| 1250|
+|内存优化| 8| 2500|
+|内存优化| 16| 5000|
 
-|**定价层**| **计算代**|**vCore(s)**| 最大连接数|
-|---|---|---|---|
-|基本| 第 4 代| 1| 50|
-|基本| 第 4 代| 2| 100|
-|基本| 第 5 代| 1| 50|
-|基本| 第 5 代| 2| 100|
-|常规用途| 第 4 代| 2| 300|
-|常规用途| 第 4 代| 4| 625|
-|常规用途| 第 4 代| 8| 1250|
-|常规用途| 第 4 代| 16| 2500|
-|常规用途| 第 4 代| 32| 5000|
-|常规用途| 第 5 代| 2| 300|
-|常规用途| 第 5 代| 4| 625|
-|常规用途| 第 5 代| 8| 1250|
-|常规用途| 第 5 代| 16| 2500|
-|常规用途| 第 5 代| 32| 5000|
-|内存优化| 第 5 代| 2| 600|
-|内存优化| 第 5 代| 4| 1250|
-|内存优化| 第 5 代| 8| 2500|
-|内存优化| 第 5 代| 16| 5000|
-
-连接数过多时，可能会收到以下错误：
+当连接数超出限制时，可能会收到以下错误：
 > 错误 1040 (08004): 连接过多
 
 ## <a name="storage-engine-support"></a>存储引擎支持
@@ -73,31 +65,32 @@ ms.locfileid: "37873393"
 ## <a name="data-manipulation-statement-support"></a>数据操作语句支持
 
 ### <a name="supported"></a>支持
-- LOAD DATA INFILE：受支持，但它必须指定定向到 UNC 路径（通过 XSMB 装载的 Azure 存储）的 [LOCAL] 参数。
+- 支持 `LOAD DATA INFILE`，但必须指定 `[LOCAL]` 参数，并将其定向到 UNC 路径（通过 SMB 装载的 Azure 存储空间）。
 
 ### <a name="unsupported"></a>不支持
-- SELECT ...INTO OUTFILE
+- `SELECT ... INTO OUTFILE`
 
 ## <a name="functional-limitations"></a>功能限制
 
 ### <a name="scale-operations"></a>缩放操作
-- 目前不支持跨定价层动态缩放服务器。 即，在“基本”、“常规用途”和“内存优化”定价层之间进行切换。
+- 目前不支持动态缩放到“基本”定价层或从该层动态缩放。
 - 不支持减小服务器存储大小。
 
 ### <a name="server-version-upgrades"></a>服务器版本升级
 - 目前不支持在主要数据库引擎版本之间进行自动迁移。
 
 ### <a name="point-in-time-restore"></a>时间点还原
-- 不允许还原到不同的服务层和/或计算单元和存储大小。
+- 使用 PITR 功能时，将使用与新服务器所基于的服务器相同的配置创建新服务器。
 - 不支持还原已删除的服务器。
 
-## <a name="functional-limitations"></a>功能限制
+### <a name="vnet-service-endpoints"></a>VNet 服务终结点
+- 只有常规用途和内存优化服务器才支持 VNet 服务终结点。
 
 ### <a name="subscription-management"></a>订阅管理
 - 目前不支持跨订阅和资源组动态移动预先创建的服务器。
 
 ## <a name="current-known-issues"></a>当前已知的问题
-- 建立连接后，MySQL 服务器实例显示错误的服务器版本。 若要获得正确的服务器实例版本控制，请在 MySQL 提示符处使用 select version(); 命令。
+- 建立连接后，MySQL 服务器实例显示错误的服务器版本。 若要获取正确的服务器实例引擎版本，请使用 `select version();` 命令。
 
 ## <a name="next-steps"></a>后续步骤
 - [每个服务层中有哪些可用资源](concepts-pricing-tiers.md)

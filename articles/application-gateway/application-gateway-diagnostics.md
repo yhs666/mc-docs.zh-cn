@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 04/02/2018
-ms.date: 06/07/2018
+origin.date: 06/20/2018
+ms.date: 08/08/2018
 ms.author: v-junlch
-ms.openlocfilehash: 1e6ccb6098fc11282f78a11152493efd08d45ea4
-ms.sourcegitcommit: 4fe9905d17a8df9f2270543a5a0ce1762a5830c9
+ms.openlocfilehash: e7b7e8605d1aecf46abf385b722d3ae1ecc20131
+ms.sourcegitcommit: a1c6a743b4be62477e7debfc9ea5f03afca2bc8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34855759"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39625133"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>应用程序网关的后端运行状况、诊断日志和指标
 
@@ -35,7 +35,7 @@ ms.locfileid: "34855759"
 后端运行状况报告反映对后端实例的应用程序网关运行状况探测的输出。 如果探测成功且后端能够接收流量，则可认为后端运行状况正常， 否则不正常。
 
 > [!IMPORTANT]
-> 如果应用程序网关子网上存在网络安全组 (NSG)，则请在应用程序网关子网上打开端口范围 65503-65534，以便接收入站流量。 这些端口是后端运行状况 API 正常工作所必需的。
+> 如果应用程序网关子网上存在网络安全组 (NSG)，则请在应用程序网关子网上打开端口范围 65503-65534，以便接收入站流量。 此端口范围是进行 Azure 基础结构通信所必需的。 它们受 Azure 证书的保护（处于锁定状态）。 如果没有适当的证书，外部实体（包括这些网关的客户）将无法对这些终结点做出任何更改。
 
 
 ### <a name="view-back-end-health-through-the-portal"></a>通过门户查看后端运行状况

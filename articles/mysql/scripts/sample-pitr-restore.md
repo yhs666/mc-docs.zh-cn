@@ -11,12 +11,12 @@ ms.devlang: azure-cli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 06/16/2018
-ms.openlocfilehash: 94f213856333f5244b2630e95fd8d544e23a5c27
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.openlocfilehash: 357670514df5183710147f91f78924b84055f84c
+ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873484"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39723014"
 ---
 # <a name="restore-an-azure-database-for-mysql-server-using-azure-cli"></a>使用 Azure CLI 还原 Azure Database for MySQL 服务器
 
@@ -31,29 +31,31 @@ ms.locfileid: "37873484"
 ```cli
 #!/bin/bash
 
+# Add the Azure CLI extension 
+az extension add --name rdbms
+
 # Create a resource group
 az group create \
---name myresource \
---location chinaeast
+--name myresourcegroup \
+--location chinaeast2
 
 # Create a MySQL server in the resource group
 # Name of a server maps to DNS name and is thus required to be globally unique in Azure.
 # Substitute the <server_admin_password> with your own value.
 az mysql server create \
---name mysqlserver4demo \
---resource-group myresource \
---location chinaeast \
+--name mydemoserver \
+--resource-group myresourcegroup \
+--location chinaeast2 \
 --admin-user myadmin \
 --admin-password <server_admin_password> \
---performance-tier Basic \
---compute-units 50
+--sku-name GP_Gen5_2 \
 
 # Restore a server from backup to a new server
 az mysql server restore \
---name mysqlserver4demo-new \
---resource-group myresource \
---restore-point-in-time "2017-10-13T13:10:00Z" \
---source-server mysqlserver4demo
+--name mydemoserver-restored \
+--resource-group myresourcegroup \
+--restore-point-in-time "2018-02-11T13:10:00Z" \
+--source-server mydemoserver
 ```
 
 ## <a name="clean-up-deployment"></a>清理部署

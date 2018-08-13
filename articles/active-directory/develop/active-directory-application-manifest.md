@@ -14,16 +14,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 07/20/2017
-ms.date: 07/03/2018
+ms.date: 08/06/2018
 ms.author: v-junlch
 ms.custom: aaddev
-ms.reviewer: elisol
-ms.openlocfilehash: 7b76192e0d85606b20760a43df56658d944d806d
-ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
+ms.reviewer: elisol, sureshja
+ms.openlocfilehash: e2f788eb2a8a73293a7f0bfb37ce17017c066990
+ms.sourcegitcommit: 7cdf4633aea04e524cb48cb1990b750ae8be841c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37800364"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39584229"
 ---
 # <a name="azure-active-directory-application-manifest"></a>Azure Active Directory 应用程序清单
 与 Azure AD 集成的应用必须向 Azure AD 租户注册。 可以在 [Azure 门户](https://portal.azure.cn)中使用应用清单（在“Azure AD”边栏选项卡下）配置此应用。
@@ -81,4 +81,4 @@ ms.locfileid: "37800364"
 [O365-PERM-DETAILS]: https://msdn.microsoft.com/office/office365/HowTo/application-manifest
 [O365-SERVICE-DAEMON-APPS]: https://msdn.microsoft.com/office/office365/howto/building-service-apps-in-office-365
 
-<!--Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

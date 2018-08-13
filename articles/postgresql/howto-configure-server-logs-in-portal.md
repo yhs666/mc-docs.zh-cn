@@ -2,19 +2,19 @@
 title: 在 Azure 门户中配置和访问 PostgreSQL 的服务器日志
 description: 本文介绍了如何从 Azure 门户配置和访问 Azure Database for PostgreSQL 中的服务器日志。
 services: postgresql
-author: v-chenyh
-ms.author: v-chenyh
-manager: kfile
+author: WenJason
+ms.author: v-jay
+manager: digimobile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 06/22/2018
-ms.openlocfilehash: 947f2bb176e08bd9c84b7ad6684ea8889716c5f9
-ms.sourcegitcommit: d744d18624d2188adbbf983e1c1ac1110d53275c
+ms.openlocfilehash: 5fd430dfe057c6f9d6723dbe00752f30cf1bdbe5
+ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36314385"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39723064"
 ---
 # <a name="configure-and-access-server-logs-in-the-azure-portal"></a>在 Azure 门户中配置和访问服务器日志
 

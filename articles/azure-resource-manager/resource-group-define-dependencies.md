@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 06/06/2018
-ms.date: 07/09/2018
+origin.date: 07/05/2018
+ms.date: 08/13/2018
 ms.author: v-yeche
-ms.openlocfilehash: 652dbb2ac31abf5b96757f0ab578d2e2fa3a5a37
-ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
+ms.openlocfilehash: 70d3e31091674d4fa3bfd5d82e2ee924980ac599
+ms.sourcegitcommit: 543a18c71c0910a5b9878a2d2668f317468906f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37405367"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39625513"
 ---
 # <a name="define-the-order-for-deploying-resources-in-azure-resource-manager-templates"></a>定义 Azure 资源管理器模板中部署资源的顺序
 对于给定的资源，可能有部署资源之前必须存在的其他资源。 例如，SQL Server 必须存在，才能尝试部署 SQL 数据库。 可通过将一个资源标记为依赖于其他资源来定义此关系。 使用 **dependsOn** 元素或 **reference** 函数定义依赖项。 
@@ -56,12 +56,12 @@ Resource Manager 将评估资源之间的依赖关系，并根据其依赖顺序
 
 ```json
 "dependsOn": [
-  "[concat('Microsoft.Network/loadBalancers/', variables('loadBalancerName'))]",
-  "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]"
+  "[resourceId('Microsoft.Network/loadBalancers', variables('loadBalancerName'))]",
+  "[resourceId('Microsoft.Network/virtualNetworks', variables('virtualNetworkName'))]"
 ]
 ``` 
 
-尽管你可能倾向使用 dependsOn 来映射资源之间的关系，但请务必了解这么做的理由。 例如，若要记录资源的互连方式，那么，dependsOn 方法并不合适。 部署之后，你无法查询 dependsOn 元素中定义了哪些资源。 使用 dependsOn 可能会影响部署时间，因为资源管理器不会并行部署两个具有依赖关系的资源。 若要记录资源之间的关系，请改为使用 [资源链接](https://docs.microsoft.com/rest/api/resources/resourcelinks)。
+尽管你可能倾向使用 dependsOn 来映射资源之间的关系，但请务必了解这么做的理由。 例如，若要记录资源的互连方式，那么，dependsOn 方法并不合适。 部署之后，你无法查询 dependsOn 元素中定义了哪些资源。 使用 dependsOn 可能会影响部署时间，因为资源管理器不会并行部署两个具有依赖关系的资源。 
 
 ## <a name="child-resources"></a>子资源
 资源属性允许指定与所定义的资源相关的子资源。 子资源总共只能定义五级。 请务必注意子资源和父资源之间不能创建隐式依赖关系。 如果要在父级资源后部署子资源，则必须使用 dependsOn 属性明确声明该依赖关系。 
@@ -169,4 +169,4 @@ Resource Manager 可在模板验证过程中确定循环依赖项。 如果收�
 * 若要了解有关创建 Azure Resource Manager模板的信息，请参阅[创作模板](resource-group-authoring-templates.md)。 
 * 有关模板中的可用函数列表，请参阅[模板函数](resource-group-template-functions.md)。
 
-<!--Update_Description: wording update, update link-->
+<!--Update_Description: wording update, update meta properties -->

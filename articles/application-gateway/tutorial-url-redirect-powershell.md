@@ -7,16 +7,16 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: tutorial
 ms.workload: infrastructure-services
-origin.date: 03/23/2018
-ms.date: 07/02/2018
+origin.date: 07/13/2018
+ms.date: 08/07/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 325f99cd5ac7818fe230aa6915456b2d8be83395
-ms.sourcegitcommit: f0bfa3f8dca94099a2181492952e6a575fbdbcc8
+ms.openlocfilehash: 340597e0cd076a859f8c1a3bae3c98e69260a236
+ms.sourcegitcommit: a1c6a743b4be62477e7debfc9ea5f03afca2bc8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37142666"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39625135"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-redirection-using-azure-powershell"></a>使用 Azure PowerShell 创建支持基于 URL 路径的重定向的应用程序网关
 
@@ -466,7 +466,7 @@ for ($i=1; $i -le 3; $i++)
 ### <a name="install-iis"></a>安装 IIS
 
 ```azurepowershell
-$publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/davidmu1/samplescripts/master/appgatewayurl.ps1"); 
+$publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1"); 
   "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
 
 for ($i=1; $i -le 3; $i++)
@@ -527,3 +527,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroupAG
 > [!div class="nextstepaction"]
 > [详细了解应用程序网关的作用](application-gateway-introduction.md)
 
+<!-- Update_Description: code update -->

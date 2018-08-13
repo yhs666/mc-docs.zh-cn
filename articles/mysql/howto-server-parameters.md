@@ -6,15 +6,15 @@ author: v-chenyh
 ms.author: v-chenyh
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
 ms.date: 06/16/2018
-ms.openlocfilehash: cdf68c1745db60fd18049d280d1e1e07de7b05f8
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.openlocfilehash: adc925e9186ff8bb2c63c2e4873c73804303cfb2
+ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873692"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39723077"
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mysql-by-using-the-azure-portal"></a>如何使用 Azure 门户在适用于 MySQL 的 Azure 数据库中配置服务器参数
 
@@ -44,15 +44,8 @@ InnoDB 缓冲池和最大连接数不可配置，因[定价层](concepts-service
 
 |**定价层**| **计算代**|**vCore(s)**|InnoDB 缓冲池 (MB)| 最大连接数|
 |---|---|---|---|--|
-|基本| 第 4 代| 1| 1024| 50|
-|基本| 第 4 代| 2| 2560| 100|
 |基本| 第 5 代| 1| 1024| 50|
 |基本| 第 5 代| 2| 2560| 100|
-|常规用途| 第 4 代| 2| 3584| 300|
-|常规用途| 第 4 代| 4| 7680| 625|
-|常规用途| 第 4 代| 8| 15360| 1250|
-|常规用途| 第 4 代| 16| 31232| 2500|
-|常规用途| 第 4 代| 32| 62976| 5000|
 |常规用途| 第 5 代| 2| 3584| 300|
 |常规用途| 第 5 代| 4| 7680| 625|
 |常规用途| 第 5 代| 8| 15360| 1250|

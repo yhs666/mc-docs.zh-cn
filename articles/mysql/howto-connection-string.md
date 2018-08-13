@@ -2,19 +2,20 @@
 title: 将应用程序连接到 Azure Database for MySQL
 description: 本文档中列出了目前支持的用于将应用程序连接到 Azure Database for MySQL 的连接字符串，包括 ADO.NET (C#)、JDBC、Node.js、ODBC、PHP、Python 和 Ruby。
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
+author: WenJason
+ms.author: v-jay
 editor: jasonwhowell
-manager: kfile
-ms.service: mysql-database
+manager: digimobile
+ms.service: mysql
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: 0e610db2f9c18efa351e1deaa134d3da16f3dbcc
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+origin.date: 02/28/2018
+ms.date: 08/13/2018
+ms.openlocfilehash: 573cddf1353a222f55463addb066acce21a6e529
+ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873311"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39722970"
 ---
 # <a name="how-to-connect-applications-to-azure-database-for-mysql"></a>如何将应用程序连接到 Azure Database for MySQL
 
@@ -24,7 +25,7 @@ ms.locfileid: "37873311"
 本主题列出了 Azure Database for MySQL 支持的连接字符串以及模板和示例。 你可能会在连接字符串中使用不同的参数和设置。
 
 - 若要获取证书，请参阅[如何配置 SSL](./howto-configure-ssl.md)。
-- {your_host} = <servername>.database.chinacloudapi.cn
+- {your_host} = <servername>.mysql.database.chinacloudapi.cn
 - {your_user}@{servername} = userID 格式是用于身份验证的正确格式。  如果只使用 userID，身份验证将失败。
 
 ## <a name="adonet"></a>ADO.NET
@@ -35,7 +36,7 @@ Server={your_host};Port={your_port};Database={your_database};Uid={username@serve
 在此示例中，服务器名称为 `mydemoserver`，数据库名称为 `wpdb`，用户名为 `WPAdmin`，密码为 `mypassword!2`。 因此，连接字符串应为：
 
 ```ado.net
-Server= "mydemoserver.database.chinacloudapi.cn"; Port=3306; Database= "wpdb"; Uid= "WPAdmin@mydemoserver"; Pwd="mypassword!2"; SslMode=Required;
+Server= "mydemoserver.mysql.database.chinacloudapi.cn"; Port=3306; Database= "wpdb"; Uid= "WPAdmin@mydemoserver"; Pwd="mypassword!2"; SslMode=Required;
 ```
 
 ## <a name="jdbc"></a>JDBC

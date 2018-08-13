@@ -9,14 +9,14 @@ ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 origin.date: 12/28/2017
-ms.date: 06/01/2018
+ms.date: 08/08/2018
 ms.author: v-junlch
-ms.openlocfilehash: b084cd7b4353816b6c93f821f792ffe39ddf3982
-ms.sourcegitcommit: 4fe9905d17a8df9f2270543a5a0ce1762a5830c9
+ms.openlocfilehash: c3fbc0c7eadc8b1edb52d10c4d78509b48d8a97e
+ms.sourcegitcommit: a1c6a743b4be62477e7debfc9ea5f03afca2bc8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34855791"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39625164"
 ---
 # <a name="create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>使用 Azure 门户创建和配置托管多个网站的应用程序网关
 
@@ -107,7 +107,7 @@ ms.locfileid: "34855791"
 2. 运行以下命令以在虚拟机上安装 IIS： 
 
     ```azurepowershell
-    $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/davidmu1/samplescripts/master/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
+    $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
     Set-AzureRmVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -Location chinanorth `
@@ -193,3 +193,4 @@ ms.locfileid: "34855791"
 > * 创建路由规则
 > * 在域中创建 CNAME 记录
 
+<!-- Update_Description: code update -->

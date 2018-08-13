@@ -2,21 +2,22 @@
 title: Azure CLI 脚本 - 创建 Azure Database for PostgreSQL
 description: Azure CLI 示例脚本 - 为 PostgreSQL 服务器创建 Azure 数据库，并配置服务器级防火墙规则。
 services: postgresql
-author: v-chenyh
-ms.author: v-chenyh
-manager: kfile
+author: WenJason
+ms.author: v-jay
+manager: digimobile
 editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.devlang: azure-cli
 ms.topic: sample
-ms.date: 06/21/2018
-ms.openlocfilehash: aa8db7919ef7742afd51483033116ca1d070df45
-ms.sourcegitcommit: d744d18624d2188adbbf983e1c1ac1110d53275c
+origin.date: 02/28/2018
+ms.date: 08/13/2018
+ms.openlocfilehash: 31ae556468c7a41d39d42fda3150689d4f852077
+ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36314363"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39722935"
 ---
 # <a name="create-an-azure-database-for-postgresql-server-and-configure-a-firewall-rule-using-the-azure-cli"></a>使用 Azure CLI 为 PostgreSQL 服务器创建 Azure 数据库并配置防火墙规则
 此示例 CLI 脚本为 PostgreSQL 服务器创建 Azure 数据库，并配置服务器级防火墙规则。 成功运行此脚本后，可以通过所有 Azure 服务和配置的 IP 地址访问 PostgreSQL 服务器。 本文需要 Azure CLI 2.0 或更高版本。 通过运行 `az --version` 来查看版本。 请参阅[安装 Azure CLI 2.0]( /cli/install-azure-cli)，了解如何安装或升级 Azure CLI 的版本。
@@ -24,7 +25,7 @@ ms.locfileid: "36314363"
 ## <a name="sample-script"></a>示例脚本
 在此示例脚本中，编辑突出显示的行，将管理员用户名和密码更新为你自己的。
 
-```bash
+```cli
 #!/bin/bash
 
 # Add the Azure CLI extension 
@@ -33,7 +34,7 @@ az extension add --name rdbms
 # Create a resource group
 az group create \
 --name myresourcegroup \
---location chinaeast
+--location chinaeast2
 
 # Create a PostgreSQL server in the resource group
 # Name of a server maps to DNS name and is thus required to be globally unique in Azure.
@@ -41,10 +42,10 @@ az group create \
 az postgres server create \
 --name mydemoserver \
 --resource-group myresourcegroup \
---location chinaeast \
+--location chinaeast2 \
 --admin-user myadmin \
 --admin-password <server_admin_password> \
---sku-name GP_Gen4_2 \
+--sku-name GP_Gen5_2 \
 
 # Configure a firewall rule for the server
 # The ip address range that you want to allow to access your server

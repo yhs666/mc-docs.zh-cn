@@ -2,21 +2,22 @@
 title: 教程：使用 Azure CLI 设计 Azure Database for PostgreSQL
 description: 本教程演示如何使用 Azure CLI 创建、配置和查询第一个 Azure Database for PostgreSQL 服务器。
 services: postgresql
-author: v-chenyh
-ms.author: v-chenyh
+author: WenJason
+ms.author: v-jay
 manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.devlang: azure-cli
 ms.topic: tutorial
-ms.date: 06/22/2018
-ms.openlocfilehash: ca6da14d374f10ccc7fd46e2547d20aa064f0219
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+origin.date: 04/01/2018
+ms.date: 08/13/2018
+ms.openlocfilehash: d4cbfc276bf017e8f07e2a95e223276eaefad1a6
+ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873638"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39723121"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql-using-azure-cli"></a>教程：使用 Azure CLI 设计 Azure Database for PostgreSQL 
 在本教程中，需使用 Azure CLI（命令行接口）以及其他实用工具了解如何完成以下操作：
@@ -39,9 +40,9 @@ az account set --subscription 00000000-0000-0000-0000-000000000000
 ```
 
 ## <a name="create-a-resource-group"></a>创建资源组
-使用 [az group create](/cli/group#az_group_create) 命令创建 [Azure 资源组](../azure-resource-manager/resource-group-overview.md)。 资源组是在其中以组的形式部署和管理 Azure 资源的逻辑容器。 以下示例在 `chinaeast` 位置创建名为 `myresourcegroup` 的资源组。
+使用 [az group create](/cli/group#az_group_create) 命令创建 [Azure 资源组](../azure-resource-manager/resource-group-overview.md)。 资源组是在其中以组的形式部署和管理 Azure 资源的逻辑容器。 以下示例在 `chinaeast2` 位置创建名为 `myresourcegroup` 的资源组。
 ```cli
-az group create --name myresourcegroup --location chinaeast
+az group create --name myresourcegroup --location chinaeast2
 ```
 
 ## <a name="create-an-azure-database-for-postgresql-server"></a>创建 Azure Database for PostgreSQL 服务器
@@ -49,8 +50,14 @@ az group create --name myresourcegroup --location chinaeast
 
 下面的示例使用服务器管理员登录名 `myadmin` 在资源组 `myresourcegroup` 中创建名为 `mydemoserver` 的服务器。 服务器的名称映射到 DNS 名称，因此需要在 Azure 中全局唯一。 用自己的值替换 `<server_admin_password>`。 它是第 4 代常规用途服务器，带有 2 个 2 vCore。
 ```cli
-az postgres server create --resource-group myresourcegroup --name mydemoserver --location chinaeast --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 9.6
+az postgres server create --resource-group myresourcegroup --name mydemoserver --location chinaeast2 --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 --version 9.6
 ```
+sku-name 参数值遵循 {定价层}\_{计算层代}\_{vCore 数} 约定，如以下示例中所示：
++ `--sku-name B_Gen5_4` 映射到基本、第 5 代和 4 个 vCore。
++ `--sku-name GP_Gen5_32` 映射到常规用途、第 5 层和 32 个 vCore。
++ `--sku-name MO_Gen5_2` 映射到内存优化、第 5 层和 2 个 vCore。
+
+请参阅[定价层](./concepts-pricing-tiers.md)文档来了解适用于每个区域和每个层的有效值。
 
 > [!IMPORTANT]
 > 此处指定的服务器管理员登录名和密码是以后在本快速入门中登录到服务器及其数据库所必需的。 请牢记或记录此信息，以后会使用到它。
@@ -86,15 +93,15 @@ az postgres server show --resource-group myresourcegroup --name mydemoserver
 {
   "administratorLogin": "myadmin",
   "earliestRestoreDate": null,
-  "fullyQualifiedDomainName": "mydemoserver.database.chinacloudapi.cn",
+  "fullyQualifiedDomainName": "mydemoserver.postgres.database.chinacloudapi.cn",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforPostgreSQL/servers/mydemoserver",
-  "location": "chinaeast",
+  "location": "chinaeast2",
   "name": "mydemoserver",
   "resourceGroup": "myresourcegroup",
   "sku": {
     "capacity": 2,
-    "family": "Gen4",
-    "name": "GP_Gen4_2",
+    "family": "Gen5",
+    "name": "GP_Gen5_2",
     "size": null,
     "tier": "GeneralPurpose"
   },
@@ -120,10 +127,10 @@ az postgres server show --resource-group myresourcegroup --name mydemoserver
 psql --host=<servername> --port=<port> --username=<user@servername> --dbname=<dbname>
 ```
 
-  例如，以下命令使用访问凭据连接到 PostgreSQL 服务器 **mydemoserver.database.chinacloudapi.cn** 上名为“postgres”的默认数据库。 提示输入密码时，输入之前选择的 `<server_admin_password>`。
+  例如，以下命令使用访问凭据连接到 PostgreSQL 服务器 **mydemoserver.postgres.database.chinacloudapi.cn** 上名为“postgres”的默认数据库。 提示输入密码时，输入之前选择的 `<server_admin_password>`。
   
   ```cli
-psql --host=mydemoserver.database.chinacloudapi.cn --port=5432 --username=myadmin@mydemoserver --dbname=postgres
+psql --host=mydemoserver.postgres.database.chinacloudapi.cn --port=5432 --username=myadmin@mydemoserver --dbname=postgres
 ```
 
 2.  连接到服务器后，在出现提示时创建空数据库：

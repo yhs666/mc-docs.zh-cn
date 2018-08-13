@@ -6,16 +6,16 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
 ms.workload: infrastructure-services
-origin.date: 03/22/2018
-ms.date: 07/02/2018
+origin.date: 07/13/2018
+ms.date: 08/07/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 1a095a2fd29ee787eb4bac2d2abbc97aac3d49ac
-ms.sourcegitcommit: f0bfa3f8dca94099a2181492952e6a575fbdbcc8
+ms.openlocfilehash: 89b9f2a10513ae25a91e337710dfb266cf0fa557
+ms.sourcegitcommit: a1c6a743b4be62477e7debfc9ea5f03afca2bc8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37142659"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39625200"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-azure-powershell"></a>使用 Azure PowerShell 创建托管多个网站的应用程序网关
 
@@ -248,7 +248,7 @@ for ($i=1; $i -le 2; $i++)
 ### <a name="install-iis"></a>安装 IIS
 
 ```azurepowershell
-$publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/davidmu1/samplescripts/master/appgatewayurl.ps1"); 
+$publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1"); 
   "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
 
 for ($i=1; $i -le 2; $i++)
@@ -312,3 +312,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroupAG
 > [!div class="nextstepaction"]
 > [使用基于 URL 路径的路由规则创建应用程序网关](./tutorial-url-route-powershell.md)
 
+<!-- Update_Description: code update -->

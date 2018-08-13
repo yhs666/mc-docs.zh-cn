@@ -13,15 +13,15 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
 origin.date: 02/27/2017
-ms.date: 05/14/2018
+ms.date: 08/08/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c0badcd86f7b1c635362f352c19e76f863d9842e
-ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
+ms.openlocfilehash: d0dd20ab2d66f1575355e7ed7a3b5cc18d20c0ce
+ms.sourcegitcommit: f8bb533368ab2ef8efdf47e186672993ad8334cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "34173357"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39722332"
 ---
 # <a name="get-started-with-the-batch-sdk-for-python"></a>适用于 Python 的 Batch SDK 入门
 
@@ -158,9 +158,10 @@ Batch 包含的内置支持支持与 Azure 存储交互。 存储帐户中的容
 - **应用程序**：此容器存储任务运行的 Python 脚本 *python_tutorial_task.py*。
 - 
             **输入**：任务会从*输入*容器下载所要处理的数据文件。
-- **输出**： 当任务完成输入文件的处理时，会将其结果上传到 *输出* 容器。
+- 
+            **输出**：当任务完成输入文件的处理时，会将其结果上传到*输出*容器。
 
-为了与存储帐户交互并创建容器，我们将使用 [azure-storage][pypi_storage] 包来创建 [BlockBlobService][py_blockblobservice] 对象 -“Blob 客户端”。 然后，使用 Blob 客户端在存储帐户中创建三个容器。
+为了与存储帐户交互并创建容器，我们使用 [azure-storage][pypi_storage] 包来创建 BlockBlobService 对象 -“Blob 客户端”。 然后，使用 Blob 客户端在存储帐户中创建三个容器。
 
 ```python
 import azure.storage.blob as azureblob
@@ -275,8 +276,9 @@ def upload_file_to_container(block_blob_client, container_name, path):
 ### <a name="shared-access-signature-sas"></a>共享访问签名 (SAS)
 共享访问签名是一些字符串，可以提供对 Azure 存储中容器和 Blob 的安全访问。 *python_tutorial_client.py* 脚本使用 Blob 和容器共享访问签名，并演示如何从存储服务获取这些共享访问签名字符串。
 
-- **Blob 共享访问签名**：池的 StartTask 在从存储下载任务脚本和输入数据文件时使用 Blob 共享访问签名（请参阅下面的 [步骤 3](#step-3-create-batch-pool) ）。 *python_tutorial_client.py* 中的 `upload_file_to_container` 函数包含可用于获取每个 Blob 的共享访问签名的代码。 它通过调用存储模块中的 [BlockBlobService.make_blob_url][py_make_blob_url] 实现此目的。
-- **容器共享访问签名**：每个任务在计算节点上完成其工作后，会将其输出文件上传到 Azure 存储中的 *输出* 容器。 为此，*python_tutorial_task.py* 将使用提供容器写入访问权限的容器共享访问签名。 *python_tutorial_client.py* 中的 `get_container_sas_token` 函数获取容器的共享访问签名，然后该签名以命令行参数的形式传递给任务。 步骤 5 [将任务添加到作业](#step-5-add-tasks-to-job)介绍了容器 SAS 的用法。
+- **Blob 共享访问签名**：池的 StartTask 在从存储下载任务脚本和输入数据文件时使用 Blob 共享访问签名（请参阅下面的 [步骤 3](#step-3-create-batch-pool) ）。 *python_tutorial_client.py* 中的 `upload_file_to_container` 函数包含可用于获取每个 Blob 的共享访问签名的代码。 它通过调用存储模块中的 BlockBlobService.make_blob_url 实现此目的。
+- 
+            **容器共享访问签名**：每个任务在计算节点上完成其工作后，会将其输出文件上传到 Azure 存储中的*输出*容器。 为此，*python_tutorial_task.py* 将使用提供容器写入访问权限的容器共享访问签名。 *python_tutorial_client.py* 中的 `get_container_sas_token` 函数获取容器的共享访问签名，然后该签名以命令行参数的形式传递给任务。 步骤 5 [将任务添加到作业](#step-5-add-tasks-to-job)介绍了容器 SAS 的用法。
 
 > [!TIP]
 > 请查看有关共享访问签名的两篇系列教程的[第 1 部分：了解 SAS 模型](../storage/common/storage-dotnet-shared-access-signature-part-1.md)和[第 2 部分：创建 SAS 并将其用于 Blob 服务](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md)，详细了解如何提供对存储帐户中数据的安全访问。
@@ -374,7 +376,7 @@ def create_pool(batch_service_client, pool_id,
 
 - 池的 **ID**（*id* - 必需）<p/>与 Batch 中的大多数实体一样，新池在 Batch 帐户中必须具有唯一 ID。 代码将使用池 ID 引用此池，这也是在 Azure [门户][azure_portal]中识别池的方式。
 - **计算节点数**（*target_dedicated* - 必需）<p/>此属性指定应在池中部署多少个 VM。 必须注意，所有批处理帐户都有默认**配额**，用于限制批处理帐户中的**核心**（因此也包括计算节点）数目。 可以在 [Quotas and limits for the Azure Batch service](batch-quota-limit.md)（Azure Batch 服务的配额和限制）中找到默认配额以及如何[提高配额](batch-quota-limit.md#increase-a-quota)（例如批处理帐户中的核心数目上限）的说明。 如果有类似于“为什么我的池不能包含 X 个以上的节点？ ”的疑惑，则原因可能在于此核心配额。
-- 节点的**操作系统**（*virtual_machine_configuration* **或** *cloud_service_configuration* - 必需）<p/>在 *python_tutorial_client.py* 中，使用 [VirtualMachineConfiguration][py_vm_config] 创建 Linux 节点池。 `common.helpers` 中的 `select_latest_verified_vm_image_with_node_agent_sku` 函数简化了 [Azure 虚拟机应用商店][vm_marketplace]映像的用法。 有关使用应用商店映像的详细信息，请参阅[在 Azure Batch 池中预配 Linux 计算节点](batch-linux-nodes.md)。
+- 节点的**操作系统**（*virtual_machine_configuration* **或** *cloud_service_configuration* - 必需）<p/>在 *python_tutorial_client.py* 中，使用 [VirtualMachineConfiguration][py_vm_config] 创建 Linux 节点池。 `common.helpers` 中的 `select_latest_verified_vm_image_with_node_agent_sku` 函数简化了 [Azure 虚拟机市场][vm_marketplace]映像的用法。 有关使用市场映像的详细信息，请参阅[在 Azure Batch 池中预配 Linux 计算节点](batch-linux-nodes.md)。
 - **计算节点的大小**（*vm_size* - 必需）<p/>由于我们要为 [VirtualMachineConfiguration][py_vm_config] 指定 Linux 节点，因此应根据 [Azure 中虚拟机的大小](../virtual-machines/linux/sizes.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)指定 VM 大小（在本示例中为 `STANDARD_A1`）。 同样，请参阅 [在 Azure Batch 池中预配 Linux 计算节点](batch-linux-nodes.md) 获取详细信息。
 - **启动任务**（*start_task* - 可选）<p/>还可以连同上述物理节点属性一起指定池的 [StartTask][py_starttask]（可选）。 StartTask 在每个节点加入池以及每次重新启动节点时在该节点上运行。 StartTask 特别适合用于准备计算节点，以便执行任务，例如安装任务将要运行的应用程序。<p/>在此示例应用程序中，StartTask 将它从存储下载的文件（使用 StartTask 的 **resource_files** 属性指定），从 StartTask *工作目录*复制到在节点上运行的所有任务可以访问的*共享*目录。 本质上，这会在节点加入池时，将 `python_tutorial_task.py` 复制到每个节点上的共享目录，因此该节点上运行的任何任务都可以访问它。
 
@@ -580,7 +582,7 @@ def download_blobs_from_container(block_blob_client,
 >
 
 ## <a name="step-8-delete-containers"></a>步骤 8：删除容器
-由于需要对位于 Azure 存储中的数据付费，因此我们建议删除 Batch 作业不再需要的所有 Blob。 在 *python_tutorial_client.py* 中，可通过调用 [BlockBlobService.delete_container][py_delete_container] 三次来实现此目的：
+由于需要对位于 Azure 存储中的数据付费，因此我们建议删除 Batch 作业不再需要的所有 Blob。 在 *python_tutorial_client.py* 中，可通过调用 BlockBlobService.delete_container 三次来实现此目的：
 
 ```python
 # Clean up storage resources
@@ -655,7 +657,7 @@ Press ENTER to exit...
 - 如果对 Batch 服务不熟悉，建议查看 [Azure Batch 功能概述](batch-api-basics.md) 一文。
 - 通过 [TopNWords][github_topnwords] 示例了解有关使用 Batch 处理“前 N 个单词”工作负荷的不同实现方式。
 
-[azure_batch]: https://azure.microsoft.com/services/batch/
+[azure_batch]: https://www.azure.cn/home/features/batch/
 [azure_free_account]: https://www.azure.cn/pricing/1rmb-trial/
 [azure_portal]: https://portal.azure.cn
 [blog_linux]: http://blogs.technet.com/b/windowshpc/archive/2016/03/30/introducing-linux-support-on-azure-batch.aspx
@@ -669,35 +671,23 @@ Press ENTER to exit...
 [nuget_packagemgr]: https://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c
 [nuget_restore]: https://docs.nuget.org/consume/package-restore/msbuild-integrated#enabling-package-restore-during-build
 
-[py_account_ops]: http://azure-sdk-for-python.readthedocs.org/en/latest/ref/azure.batch.operations.html#azure.batch.operations.AccountOperations
 [py_azure_sdk]: https://pypi.python.org/pypi/azure
-[py_batch_docs]: http://azure-sdk-for-python.readthedocs.org/en/latest/ref/azure.batch.html
 [py_batch_package]: https://pypi.python.org/pypi/azure-batch
-[py_batchserviceclient]: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.html#azure.batch.BatchServiceClient
-[py_blockblobservice]: http://azure.github.io/azure-storage-python/ref/azure.storage.blob.blockblobservice.html#azure.storage.blob.blockblobservice.BlockBlobService
-[py_cloudtask]: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.models.html#azure.batch.models.CloudTask
-[py_computenodeuser]: http://azure-sdk-for-python.readthedocs.org/en/latest/ref/azure.batch.models.html#azure.batch.models.ComputeNodeUser
-[py_cs_config]: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.models.html#azure.batch.models.CloudServiceConfiguration
-[py_delete_container]: http://azure.github.io/azure-storage-python/ref/azure.storage.blob.baseblobservice.html#azure.storage.blob.baseblobservice.BaseBlobService.delete_container
-[py_gen_blob_sas]: http://azure.github.io/azure-storage-python/ref/azure.storage.blob.baseblobservice.html#azure.storage.blob.baseblobservice.BaseBlobService.generate_blob_shared_access_signature
-[py_gen_container_sas]: http://azure.github.io/azure-storage-python/ref/azure.storage.blob.baseblobservice.html#azure.storage.blob.baseblobservice.BaseBlobService.generate_container_shared_access_signature
-[py_image_ref]: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.models.html#azure.batch.models.ImageReference
-[py_imagereference]: http://azure-sdk-for-python.readthedocs.org/en/latest/ref/azure.batch.models.html#azure.batch.models.ImageReference
-[py_job]: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.operations.html#azure.batch.operations.JobOperations
-[py_jobpreptask]: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.models.html#azure.batch.models.JobPreparationTask
-[py_jobreltask]: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.models.html#azure.batch.models.JobReleaseTask
-[py_list_skus]: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.operations.html#azure.batch.operations.AccountOperations.list_node_agent_skus
-[py_make_blob_url]: http://azure.github.io/azure-storage-python/ref/azure.storage.blob.baseblobservice.html#azure.storage.blob.baseblobservice.BaseBlobService.make_blob_url
-[py_pool]: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.operations.html#azure.batch.operations.PoolOperations
-[py_pooladdparam]: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.models.html#azure.batch.models.PoolAddParameter
-[py_poolinfo]: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.models.html#azure.batch.models.PoolInformation
-[py_resource_file]: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.models.html#azure.batch.models.ResourceFile
+[py_batchserviceclient]: https://docs.microsoft.com/en-us/python/api/azure.batch.batchserviceclient?view=azure-python
+[py_cloudtask]: https://docs.microsoft.com/en-us/python/api/azure.batch.models.CloudTask?view=azure-python
+[py_job]: https://docs.microsoft.com/en-us/python/api/azure.batch.operations.JobOperations?view=azure-python
+[py_jobpreptask]: https://docs.microsoft.com/en-us/python/api/azure.batch.models.JobPreparationTask?view=azure-python
+[py_jobreltask]: https://docs.microsoft.com/en-us/python/api/azure.batch.models.JobReleaseTask?view=azure-python
+[py_pool]: https://docs.microsoft.com/en-us/python/api/azure.batch.operations.PoolOperations?view=azure-python
+[py_pooladdparam]: https://docs.microsoft.com/en-us/python/api/azure.batch.models.PoolAddParameter?view=azure-python
+[py_poolinfo]: https://docs.microsoft.com/en-us/python/api/azure.batch.models.PoolInformation?view=azure-python
+[py_resource_file]: https://docs.microsoft.com/en-us/python/api/azure.batch.models.ResourceFile?view=azure-python
 [py_samples_github]: https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch/
-[py_starttask]: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.models.html#azure.batch.models.StartTask
-[py_starttask]: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.models.html#azure.batch.models.StartTask
-[py_task]: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.models.html#azure.batch.models.CloudTask
-[py_taskstate]: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.models.html#azure.batch.models.TaskState
-[py_vm_config]: http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.batch.models.html#azure.batch.models.VirtualMachineConfiguration
+[py_starttask]: https://docs.microsoft.com/en-us/python/api/azure.batch.models.StartTask?view=azure-python
+[py_starttask]: https://docs.microsoft.com/en-us/python/api/azure.batch.models.StartTask?view=azure-python
+[py_task]: https://docs.microsoft.com/en-us/python/api/azure.batch.models.CloudTask?view=azure-python
+[py_taskstate]: https://docs.microsoft.com/en-us/python/api/azure.batch.models.TaskState?view=azure-python
+[py_vm_config]: https://docs.microsoft.com/en-us/python/api/azure.batch.models.VirtualMachineConfiguration?view=azure-python
 [pypi_batch]: https://pypi.python.org/pypi/azure-batch
 [pypi_storage]: https://pypi.python.org/pypi/azure-storage
 [pypi_install]: https://packaging.python.org/installing/
@@ -717,4 +707,4 @@ Press ENTER to exit...
 [10]: ./media/batch-python-tutorial/credentials_storage_sm.png "门户中的存储空间凭据"
 [11]: ./media/batch-python-tutorial/batch_workflow_minimal_sm.png "Batch 解决方案工作流（精简流程图）"
 
-<!-- Update_Description: code update -->
+<!-- Update_Description: link update -->

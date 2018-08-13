@@ -5,16 +5,16 @@ services: mysql
 author: v-chenyh
 ms.author: v-chenyh
 editor: jasonwhowell
-manager: kfile
-ms.service: mysql-database
+manager: digimobile
+ms.service: mysql
 ms.topic: article
 ms.date: 06/16/2018
-ms.openlocfilehash: b48cc6fc05264a8d874f3e079ae9105309604c6c
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.openlocfilehash: f461ce4bba2d10329dd08579c2ae651c2e9c68df
+ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873596"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39723055"
 ---
 # <a name="ssl-connectivity-in-azure-database-for-mysql"></a>Azure Database for MySQL 中的 SSL 连接
 

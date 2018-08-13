@@ -14,15 +14,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 10/19/2017
-ms.date: 07/03/2018
+ms.date: 08/06/2018
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: beca7b8bb26b9ab10a45d39d6d4061b2b170c592
-ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
+ms.reviewer: elisol
+ms.openlocfilehash: ef2267bc9ba1fb6c4f66c0a50f6b2794faf4a9a0
+ms.sourcegitcommit: 7cdf4633aea04e524cb48cb1990b750ae8be841c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37800350"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39584302"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory-azure-ad"></a>Azure Active Directory (Azure AD) 中的应用程序对象和服务主体对象
 在 Azure AD 的上下文中使用时，术语“应用程序”的含义有时可能会被误解。 本文旨在阐述 Azure AD 应用程序集成的概念和具体层面，并演示如何注册和同意[多租户应用程序](active-directory-dev-glossary.md#multi-tenant-application)。
@@ -82,4 +83,4 @@ Azure AD 应用程序由其唯一一个应用程序对象来定义，该对象�
 [AAD-Graph-Sp-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity
 [AZURE-Portal]: https://portal.azure.cn
 
-<!--Update_Description: link update-->
+<!-- Update_Description: update metedata properties -->

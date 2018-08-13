@@ -1,21 +1,22 @@
 ---
-title: 使用 Azure CLI 创建和管理 Azure Database for PostgreSQL VNet 服务终结点和规则 | Microsoft Docs
+title: 使用 Azure CLI 创建和管理 Azure Database for PostgreSQL VNet 服务终结点和规则 | Azure
 description: 本文介绍如何使用 Azure CLI 命令行创建和管理 Azure Database for PostgreSQL VNet 服务终结点和规则。
 services: postgresql
-author: v-chenyh
-ms.author: v-chenyh
-manager: jhubbard
+author: WenJason
+ms.author: v-jay
+manager: digimobile
 editor: jasonwhowell
 ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 06/22/2018
-ms.openlocfilehash: 14c83c396c9ccb7695462532b50815ea6aeb0594
-ms.sourcegitcommit: d744d18624d2188adbbf983e1c1ac1110d53275c
+origin.date: 06/01/2018
+ms.date: 08/13/2018
+ms.openlocfilehash: bfcdec1ebce8ed2be5cc020e40248c389a93b7a6
+ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36314383"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39722982"
 ---
 # <a name="create-and-manage-azure-database-for-postgresql-vnet-service-endpoints-using-azure-cli"></a>使用 Azure CLI 创建和管理 Azure Database for PostgreSQL VNet 服务终结点
 虚拟网络 (VNet) 服务终结点和规则将虚拟网络的专用地址空间扩展到你的 Azure Database for PostgreSQL 服务器。 使用便捷的 Azure 命令行接口 (CLI) 命令，可创建、更新、删除、列出和显示 VNet 服务终结点和规则，用于管理服务器。 有关 Azure Database for PostgreSQL VNet 服务终结点（包括限制）的概述，请参阅 [Azure Database for PostgreSQL Server VNet 服务终结点](concepts-data-access-and-security-vnet.md)。 对所有支持 Azure Database for PostgreSQL 的区域提供 VNet 服务终结点的公共预览版。
@@ -30,6 +31,8 @@ ms.locfileid: "36314383"
 
 ## <a name="configure-vnet-service-endpoints-for-azure-database-for-postgresql"></a>配置 Azure Database for PostgreSQL Vnet 服务终结点
 [az network vnet](https://docs.azure.cn/cli/network/vnet?view=azure-cli-latest) 命令用于配置虚拟网络。
+
+如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
 
 如果选择在本地安装并使用 CLI，本文要求运行 Azure CLI 2.0 版或更高版本。 若要查看安装的版本，请运行 `az --version` 命令。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0]( /cli/install-azure-cli)。 
 
@@ -82,7 +85,7 @@ az account set --subscription <subscription id>
 # Create a resource group
 az group create \
 --name myresourcegroup \
---location chinaeast
+--location chinaeast2
 
 # Create a PostgreSQL server in the resource group
 # Name of a server maps to DNS name and is thus required to be globally unique in Azure.
@@ -90,22 +93,22 @@ az group create \
 az postgres server create \
 --name mydemoserver \
 --resource-group myresourcegroup \
---location chinaeast \
+--location chinaeast2 \
 --admin-user mylogin \
 --admin-password <server_admin_password> \
---sku-name GP_Gen4_2
+--sku-name GP_Gen5_2
 
 # Get available service endpoints for Azure region output is JSON
-# Use the command below to get the list of services supported for endpoints, for an Azure region, say "chinaeast".
+# Use the command below to get the list of services supported for endpoints, for an Azure region, say "chinaeast2".
 az network vnet list-endpoint-services \
--l chinaeast
+-l chinaeast2
 
 # Add Azure SQL service endpoint to a subnet *mySubnet* while creating the virtual network *myVNet* output is JSON
 az network vnet create \
 -g myresourcegroup \
 -n myVNet \
 --address-prefixes 10.0.0.0/16 \
--l chinaeast
+-l chinaeast2
 
 # Creates the service endpoint
 az network vnet subnet create \

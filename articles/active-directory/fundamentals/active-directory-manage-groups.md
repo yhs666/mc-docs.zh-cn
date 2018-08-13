@@ -11,19 +11,19 @@ ms.workload: identity
 ms.component: fundamentals
 ms.topic: overview
 origin.date: 08/28/2017
-ms.date: 06/25/2018
+ms.date: 08/07/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017;it-pro
 ms.reviewer: piotrci
-ms.openlocfilehash: 31176f09dd0ad07c66cfab411ccb311e0647ca7e
-ms.sourcegitcommit: 37a1524d71895b17b6f1d125053ad0b251b88df1
+ms.openlocfilehash: f0b195537e9a8883e59d4ab0f2f351bef3c47f03
+ms.sourcegitcommit: 7cdf4633aea04e524cb48cb1990b750ae8be841c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39097063"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39584260"
 ---
 # <a name="manage-access-to-resources-with-azure-active-directory-groups"></a>使用 Azure Active Directory 组管理对资源的访问权限
-Azure Active Directory (Azure AD) 是综合性的标识和访问管理解决方案，它提供一套稳健的功能来管理对本地和云应用程序及资源（包括诸如 Office 365 的 Microsoft 联机服务和众多非 Microsoft SaaS 应用程序）的安全访问。 本文提供了概述，但如果要立即开始使用 Azure AD 组，请遵循[在 Azure AD 中管理安全组](active-directory-groups-create-azure-portal.md)中的说明。 若要了解如何使用 PowerShell 来管理 Azure Active directory 中的组，则可以在[用于管理组的 Azure Active Directory cmdlet](../active-directory-accessmanagement-groups-settings-v2-cmdlets.md) 中阅读更多信息。
+Azure Active Directory (Azure AD) 是综合性的标识和访问管理解决方案，它提供一套稳健的功能来管理对本地和云应用程序及资源（包括诸如 Office 365 的 Microsoft 联机服务和众多非 Microsoft SaaS 应用程序）的安全访问。 本文提供了概述，但如果要立即开始使用 Azure AD 组，请遵循[在 Azure AD 中管理安全组](active-directory-groups-create-azure-portal.md)中的说明。 若要了解如何使用 PowerShell 来管理 Azure Active directory 中的组，则可以在[用于管理组的 Azure Active Directory cmdlet](../users-groups-roles/groups-settings-v2-cmdlets.md) 中阅读更多信息。
 
 > [!NOTE]
 > 要使用 Azure Active Directory，需要一个 Azure 帐户。 如果没有帐户，可以[注册 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/)。

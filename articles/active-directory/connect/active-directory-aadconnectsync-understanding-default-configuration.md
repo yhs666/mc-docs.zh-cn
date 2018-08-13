@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/13/2017
-ms.date: 06/26/2018
+ms.date: 08/06/2018
 ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: d6cf1373d4b455e23772d33189e5213e64c933ca
-ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
+ms.openlocfilehash: 3418dbda91740532275fef3df0b5fd8ab8afdacd
+ms.sourcegitcommit: 7cdf4633aea04e524cb48cb1990b750ae8be841c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36948042"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39584309"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Azure AD Connect 同步：了解默认配置
 本文介绍现成的配置规则。 其中将说明这些规则及其对配置有何影响。 此外还会逐步介绍如何完成 Azure AD Connect 同步的默认配置。其目的是让读者了解配置模型（名为声明性设置）在实际示例中的运行情形。 本文假设已使用安装向导安装并配置了 Azure AD Connect 同步。
@@ -78,11 +78,11 @@ ms.locfileid: "36948042"
 
 - 联系人必须已启用邮件。 这可以使用以下规则来验证：
   - `IsPresent([proxyAddresses]) = True)`。 必须填充 proxyAddresses 属性。
-  - 可在 proxyAddresses 属性或 mail 属性中找到主要电子邮件地址。 存在的 @ 用于验证内容是否为电子邮件地址。 以下两条规则之一必须评估为 True。
-    - `(Contains([proxyAddresses], "SMTP:") > 0) && (InStr(Item([proxyAddresses], Contains([proxyAddresses], "SMTP:")), "@") > 0))`。 是否存在包含“SMTP:”的项，如果有，是否可在字符串中找到 @？
-    - `(IsPresent([mail]) = True && (InStr([mail], "@") > 0)`。 是否已填充邮件属性，如果是，是否可在字符串中找到 @？
+  - 可在 proxyAddresses 属性或 mail 属性中找到主要电子邮件地址。 提供的 \@ 用于验证内容是否为电子邮件地址。 以下两条规则之一必须评估为 True。
+    - `(Contains([proxyAddresses], "SMTP:") > 0) && (InStr(Item([proxyAddresses], Contains([proxyAddresses], "SMTP:")), "@") > 0))`。 是否有包含“SMTP:”的项，如果有，是否可在字符串中找到 \@？
+    - `(IsPresent([mail]) = True && (InStr([mail], "@") > 0)`。 是否已填充邮件属性，如果是，是否可在字符串中找到 \@？
 
-以下联系人对象 **不会** 同步到 Azure AD：
+以下联系人对象**不会**同步到 Azure AD：
 
 - `IsPresent([isCriticalSystemObject])`。 确保不会同步标记为关键的联系人对象。 不应是任何使用默认配置的项。
 - `((InStr([displayName], "(MSOL)") > 0) && (CBool([msExchHideFromAddressLists])))`。
@@ -241,4 +241,5 @@ NULL
 - [将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)
 
 
-<!-- Update_Description: update metedata properties -->
+
+<!-- Update_Description: wording update -->

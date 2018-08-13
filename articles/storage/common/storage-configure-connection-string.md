@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 04/12/2017
 ms.date: 10/16/2017
 ms.author: v-johch
-ms.openlocfilehash: b1b0d6fcadeca71d87f95ab14f924cd0c855977c
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.openlocfilehash: 7958790f15551fc3c4fe2fcac53a51ed7427aea4
+ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295733"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39723080"
 ---
 # <a name="configure-azure-storage-connection-strings"></a>配置 Azure 存储连接字符串
 
@@ -55,7 +55,7 @@ ms.locfileid: "39295733"
 
 例如，连接字符串可能如下所示：
 
-`DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=<account-key>`
+`DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=<account-key>;EndpointSuffix=core.chinacloudapi.cn`
 
 尽管 Azure 存储连接字符串同时支持 HTTP 和 HTTPS，但强烈建议使用 HTTPS。
 

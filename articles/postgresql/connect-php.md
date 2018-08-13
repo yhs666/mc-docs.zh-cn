@@ -2,21 +2,22 @@
 title: 使用 PHP 连接到 Azure Database for PostgreSQL
 description: 本快速入门提供了一个 PHP 代码示例，你可以使用它来连接到 Azure Database for PostgreSQL 并查询其中的数据。
 services: postgresql
-author: v-chenyh
-ms.author: v-chenyh
-manager: kfile
+author: WenJason
+ms.author: v-jay
+manager: digimobile
 editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.devlang: php
 ms.topic: quickstart
-ms.date: 06/22/2018
-ms.openlocfilehash: ab6ef34bc11df3457b9c0b242bde3eb760cb3c69
-ms.sourcegitcommit: d744d18624d2188adbbf983e1c1ac1110d53275c
+origin.date: 02/28/2018
+ms.date: 08/13/2018
+ms.openlocfilehash: b79601a7067d38bbc6b74ca613b61757e58e4a4c
+ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36314394"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39723076"
 ---
 # <a name="azure-database-for-postgresql-use-php-to-connect-and-query-data"></a>Azure Database for PostgreSQL：使用 PHP 进行连接并查询数据
 本快速入门演示了如何使用 [PHP](http://php.net/manual/intro-whatis.php) 应用程序连接到 Azure Database for PostgreSQL。 同时还介绍了如何使用 SQL 语句在数据库中查询、插入、更新和删除数据。 本文中的步骤假定你熟悉如何使用 PHP 进行开发，但不熟悉如何使用 Azure Database for PostgreSQL。
@@ -64,7 +65,7 @@ ms.locfileid: "36314394"
 ```php
 <?php
     // Initialize connection variables.
-    $host = "mydemoserver.database.chinacloudapi.cn";
+    $host = "mydemoserver.postgres.database.chinacloudapi.cn";
     $database = "mypgsqldb";
     $user = "mylogin@mydemoserver";
     $password = "<server_admin_password>";
@@ -122,7 +123,7 @@ ms.locfileid: "36314394"
 ```php
 <?php
     // Initialize connection variables.
-    $host = "mydemoserver.database.chinacloudapi.cn";
+    $host = "mydemoserver.postgres.database.chinacloudapi.cn";
     $database = "mypgsqldb";
     $user = "mylogin@mydemoserver";
     $password = "<server_admin_password>";
@@ -160,7 +161,7 @@ ms.locfileid: "36314394"
 ```php
 <?php
     // Initialize connection variables.
-    $host = "mydemoserver.database.chinacloudapi.cn";
+    $host = "mydemoserver.postgres.database.chinacloudapi.cn";
     $database = "mypgsqldb";
     $user = "mylogin@mydemoserver";
     $password = "<server_admin_password>";
@@ -195,7 +196,7 @@ ms.locfileid: "36314394"
 ```php
 <?php
     // Initialize connection variables.
-    $host = "mydemoserver.database.chinacloudapi.cn";
+    $host = "mydemoserver.postgres.database.chinacloudapi.cn";
     $database = "mypgsqldb";
     $user = "mylogin@mydemoserver";
     $password = "<server_admin_password>";

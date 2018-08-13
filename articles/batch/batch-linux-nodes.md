@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: na
 origin.date: 06/01/2018
-ms.date: 06/29/2018
+ms.date: 08/08/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0de5f74e08b93cf65adb1b4fa7801313bbc95c42
-ms.sourcegitcommit: c587cc1c53b1f92b45fae0d1ff8e1f7bd544bc55
+ms.openlocfilehash: a1fcc45da7e571fcb03b6999adbe3dae457895cb
+ms.sourcegitcommit: f8bb533368ab2ef8efdf47e186672993ad8334cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103249"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39722327"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>在 Batch 池中预配 Linux 计算节点
 
@@ -69,9 +69,9 @@ Batch 节点代理是一个程序，它在池中的每个节点上运行，并�
 >
 
 ## <a name="create-a-linux-pool-batch-python"></a>创建 Linux 池：Batch Python
-以下代码片段示范如何使用 [用于 Python 的 Azure Batch 客户端库][py_batch_package] 创建 Ubuntu Server 计算节点池。 有关 Batch Python 模块的参考文档可在“阅读文档”上的 azure.batch 包处找到。
+以下代码片段示范如何使用 [用于 Python 的 Azure Batch 客户端库][py_batch_package] 创建 Ubuntu Server 计算节点池。 有关 Batch Python 模块的参考文档可在“阅读文档”上的 [azure.batch package][py_batch_docs] 处找到。
 
-此代码片段显式创建 ImageReference，并指定它的每个属性（publisher、offer、SKU、version）。 但是，我们建议在生产代码中使用 list_node_agent_skus 方法在运行时从可用映像和节点代理 SKU 组合中做出决定和选择。
+此代码片段显式创建 [ImageReference][py_imagereference]，并指定它的每个属性（publisher、offer、SKU、version）。 但是，我们建议在生产代码中使用 list_node_agent_skus 方法在运行时从可用映像和节点代理 SKU 组合中做出决定和选择。
 
 ```python
 # Import the required modules from the
@@ -127,7 +127,7 @@ new_pool.virtual_machine_configuration = vmc
 client.pool.add(new_pool)
 ```
 
-如上所述，我们建议不要显式创建 ImageReference，而是使用 list_node_agent_skus 方法从当前支持的节点代理/应用商店映像组合中动态选择。 以下 Python 代码片段演示如何使用此方法。
+如上所述，建议不要显式创建 [ImageReference][py_imagereference]，而应使用 list_node_agent_skus 方法从当前支持的节点代理/市场映像组合中动态进行选择。 以下 Python 代码片段演示如何使用此方法。
 
 ```python
 # Get the list of node agents from the Batch service
@@ -318,7 +318,7 @@ tvm-1219235766_3-20160414t192511z | ComputeNodeState.idle | 13.91.7.57 | 50002
 tvm-1219235766_4-20160414t192511z | ComputeNodeState.idle | 13.91.7.57 | 50001
 ```
 
-在节点上创建用户时不需要指定密码，而可以指定 SSH 公钥。 在 Python SDK 中，请在 ComputeNodeUser 上使用 **ssh_public_key** 参数。 在 .NET 中，请使用 [ComputeNodeUser][net_computenodeuser].[SshPublicKey][net_ssh_key] 属性。
+在节点上创建用户时不需要指定密码，而可以指定 SSH 公钥。 在 Python SDK 中，请在 [ComputeNodeUser][py_computenodeuser] 上使用 ssh_public_key 参数。 在 .NET 中，请使用 [ComputeNodeUser][net_computenodeuser].[SshPublicKey][net_ssh_key] 属性。
 
 ## <a name="pricing"></a>定价
 Azure Batch 构建在 Azure 云服务和 Azure 虚拟机技术基础之上。 Batch 服务本身是免费提供的，这意味着，只需支付 Batch 解决方案使用的计算资源费用。 如果选择“云服务配置”，系统会根据[云服务定价][cloud_services_pricing]结构收费。 如果选择“虚拟机配置”，系统会根据[虚拟机定价][vm_pricing]结构收费。 
@@ -327,23 +327,19 @@ Azure Batch 构建在 Azure 云服务和 Azure 虚拟机技术基础之上。 Ba
 
 ## <a name="next-steps"></a>后续步骤
 ### <a name="batch-python-tutorial"></a>Batch Python 教程
-有关如何配合 Python 使用 Batch 的更深入教程，请参阅 [Get started with the Azure Batch Python client](batch-python-tutorial.md)（Azure Batch Python 客户端入门）。 该教程随附的[代码示例][github_samples_pyclient]包含一个帮助器函数 `get_vm_config_for_distro`，用于演示获取虚拟机配置的另一种方法。
+有关如何配合 Python 使用 Batch 的更深入教程，请参阅 [Get started with the Azure Batch Python client](batch-python-tutorial.md)（Azure Batch Python 客户端入门）。 该教程随附的代码示例包含一个帮助器函数 `get_vm_config_for_distro`，用于演示获取虚拟机配置的另一种方法。
 
 ### <a name="batch-python-code-samples"></a>Batch Python 代码示例
 GitHub 上 [azure-batch-samples][github_samples] 存储库中的 [Python 代码示例][github_samples_py]包含演示如何执行常见 Batch 操作（例如创建池、作业和任务）的多个脚本。 Python 示例随附的 [README][github_py_readme] 文件包含有关如何安装所需包的详细信息。
-
-### <a name="batch-forum"></a>Batch 论坛
-MSDN 上的 [Azure Batch 论坛][forum]是探讨 Batch 服务以及咨询相关问题的一个好地方。 欢迎前往阅读这些“精华”贴子，并发布构建 Batch 解决方案时遇到的问题。
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_mgmt]: https://msdn.microsoft.com/library/azure/mt463120.aspx
 [api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
 [cloud_services_pricing]: https://www.azure.cn/pricing/details/cloud-services/
-[forum]: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azurebatch
 [github_py_readme]: https://github.com/Azure/azure-batch-samples/blob/master/Python/Batch/README.md
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [github_samples_py]: https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch
-[github_samples_pyclient]: https://github.com/Azure/azure-batch-samples/blob/master/Python/Batch/article_samples/python_tutorial_client.py
+
 [portal]: https://portal.azure.cn
 [net_cloudpool]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx
 [net_computenodeuser]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenodeuser.aspx
@@ -354,7 +350,10 @@ MSDN 上的 [Azure Batch 论坛][forum]是探讨 Batch 服务以及咨询相关�
 [nuget_batch_net]: https://www.nuget.org/packages/Microsoft.Azure.Batch/
 [rest_add_pool]: https://msdn.microsoft.com/library/azure/dn820174.aspx
 [py_azure_sdk]: https://pypi.python.org/pypi/azure
+[py_batch_docs]: https://azure-sdk-for-python.readthedocs.io/batch.html
 [py_batch_package]: https://pypi.python.org/pypi/azure-batch
+[py_computenodeuser]: https://docs.microsoft.com/python/api/azure.batch.models.computenodeuser
+[py_imagereference]: https://docs.microsoft.com/python/api/azure.mgmt.batch.models.imagereference
 [vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
 [vm_pricing]: https://www.azure.cn/pricing/details/virtual-machines/
 

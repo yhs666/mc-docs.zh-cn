@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 01/24/2018
-ms.date: 06/07/2018
+origin.date: 07/14/2018
+ms.date: 08/07/2018
 ms.author: v-junlch
-ms.openlocfilehash: fe8c8cee01432001fdcab11e43a878002196eac9
-ms.sourcegitcommit: 4fe9905d17a8df9f2270543a5a0ce1762a5830c9
+ms.openlocfilehash: c96e957c5848f3162857c97fe4df36e178633ec0
+ms.sourcegitcommit: a1c6a743b4be62477e7debfc9ea5f03afca2bc8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34855717"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39625180"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-the-azure-cli"></a>使用 Azure CLI 创建支持内部重定向的应用程序网关
 
@@ -190,7 +190,7 @@ az vmss extension set \
   --name CustomScript \
   --resource-group myResourceGroupAG \
   --vmss-name myvmss \
-  --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"],
+  --settings '{ "fileUris": ["https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/install_nginx.sh"],
   "commandToExecute": "./install_nginx.sh" }'
 ```
 
@@ -228,4 +228,4 @@ az network public-ip show \
 > [!div class="nextstepaction"]
 > [详细了解应用程序网关的作用](./application-gateway-introduction.md)
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: code update -->

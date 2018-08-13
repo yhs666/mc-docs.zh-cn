@@ -5,16 +5,16 @@ services: backup
 author: markgalioto
 ms.author: v-junlch
 origin.date: 03/23/2018
-ms.date: 07/05/2018
+ms.date: 08/08/2018
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: b581df3054b872cd01340e60888e9d061b8fae07
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.openlocfilehash: fb32a39f3e4f1d55d30ee6b2b2a65b946e3c81c5
+ms.sourcegitcommit: 543a18c71c0910a5b9878a2d2668f317468906f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873379"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39625516"
 ---
 # <a name="back-up-azure-file-shares"></a>备份 Azure 文件共享
 本文介绍如何使用 Azure 门户备份和还原 [Azure 文件共享](../storage/files/storage-files-introduction.md)。
@@ -29,17 +29,19 @@ ms.locfileid: "37873379"
 > * 删除备份数据
 
 ## <a name="prerequisites"></a>先决条件
-在备份 Azure 文件共享之前，请确保其类型为[支持的存储帐户类型](troubleshoot-azure-files.md#preview-boundaries)。 验证这个之后，即可对文件共享进行保护。
+在备份 Azure 文件共享之前，请确保其类型为[支持的存储帐户类型](backup-azure-files.md#limitations-for-azure-file-share-backup-during-preview)。 验证这个之后，即可对文件共享进行保护。
 
 ## <a name="limitations-for-azure-file-share-backup-during-preview"></a>预览版期间 Azure 文件共享备份的限制
-Azure 文件共享备份处于预览状态。 请注意预览版的以下限制：
-- 无法在存储帐户中使用区域冗余存储 (ZRS) 或[读取访问权限异地冗余存储 (RA-GRS)](../storage/common/storage-redundancy-grs.md) 复制保护 Azure 文件共享。
-- 无法保护已启用虚拟网络的存储帐户中的 Azure 文件共享。
-- 无法使用 PowerShell 或 CLI 保护 Azure 文件。
+Azure 文件共享备份处于预览状态。 Azure 文件共享不支持以下备份场景：
+- 不能保护具有[读取访问异地冗余存储](../storage/common/storage-redundancy-grs.md) (RA-GRS) 复制功能的存储帐户中的 Azure 文件共享\*。
+- 不能保护已启用虚拟网络或防火墙的存储帐户中的 Azure 文件共享。
+- 无法使用 PowerShell 或 CLI 通过 Azure 备份来保护 Azure 文件。
 - 每天的计划备份数上限为 1。
 - 每天的按需备份数上限为 4。
 - 在存储帐户上使用[资源锁定](/cli/resource/lock?view=azure-cli-latest)，防止意外删除恢复服务保管库中的备份。
-- 请勿删除由 Azure 备份创建的快照。 删除快照可能导致恢复点丢失和/或还原失败。 
+- 请勿删除由 Azure 备份创建的快照。 删除快照可能导致恢复点丢失和/或还原失败。
+
+\*具有[读取访问异地冗余存储](../storage/common/storage-redundancy-grs.md) (RA-GRS) 复制功能的存储帐户中的 Azure 文件共享将作为 GRS 发挥作用并按 GRS 价格计费。
 
 ## <a name="configuring-backup-for-an-azure-file-share"></a>为 Azure 文件共享配置备份
 所有备份数据都存储在恢复服务保管库中。 本教程假定你已建立 Azure 文件共享。 若要备份 Azure 文件共享，请执行以下操作：
@@ -193,4 +195,4 @@ Azure 备份提供在 Azure 门户中浏览还原点的功能。 若要还原所
 - [Azure 文件共享备份常见问题解答](backup-azure-files-faq.md)
 - [排查 Azure 文件共享备份问题](troubleshoot-azure-files.md)
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

@@ -2,20 +2,21 @@
 title: 配置 Azure Database for PostgreSQL 中的 SSL 连接
 description: 有关如何配置 Azure Database for PostgreSQL 和关联应用程序以正确使用 SSL 连接的说明和信息。
 services: postgresql
-author: v-chenyh
-ms.author: v-chenyh
+author: WenJason
+ms.author: v-jay
 editor: jasonwhowell
-manager: kfile
+manager: digimobile
 ms.service: postgresql
 ms.custom: ''
 ms.topic: article
-ms.date: 06/21/2018
-ms.openlocfilehash: 40293af76b6538a9dd10c32792468de2b64424f9
-ms.sourcegitcommit: d744d18624d2188adbbf983e1c1ac1110d53275c
+origin.date: 02/28/2018
+ms.date: 08/13/2018
+ms.openlocfilehash: 5f96c2f732c6a279642cfe8d3707082ed928f223
+ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36314378"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39723135"
 ---
 # <a name="configure-ssl-connectivity-in-azure-database-for-postgresql"></a>配置 Azure Database for PostgreSQL 中的 SSL 连接
 Azure Database for PostgreSQL 倾向于使用安全套接字层 (SSL) 将客户端应用程序连接到 PostgreSQL 服务。 通过在数据库服务器与客户端应用程序之间强制实施 SSL 连接，可以加密服务器与应用程序之间的数据流，有助于防止“中间人”攻击。
@@ -52,7 +53,7 @@ az postgres server update --resource-group myresourcegroup --name mydemoserver -
 在某些情况下，应用程序需要具备从受信任的证书颁发机构 (CA) 证书文件 (.cer) 生成的本地证书文件才能实现安全连接。 请参阅以下步骤获取 .cer 文件，解码证书并将其绑定到应用程序。
 
 ### <a name="download-the-certificate-file-from-the-certificate-authority-ca"></a>从证书颁发机构 (CA) 下载证书文件 
-可在[此处](https://www.digicert.com/CACerts/DigiCertGlobalRootCA.crt)找到通过 SSL 与 Azure Database for PostgreSQL 服务器通信所需的证书。 本地下载证书文件。
+可在[此处](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt)找到通过 SSL 与 Azure Database for PostgreSQL 服务器通信所需的证书。 本地下载证书文件。
 
 ### <a name="download-and-install-openssl-on-your-machine"></a>在计算机上下载并安装 OpenSSL 
 若要解码应用程序安全连接到数据库服务器所需的本地证书文件，需要在本地计算机上安装 OpenSSL。
@@ -106,7 +107,7 @@ OpenSSL 1.1.0e 7 Apr 2014
 下载的根 CA 文件采用加密格式。 使用 OpenSSL 解码证书文件。 要执行此操作，请运行此 OpenSSL 命令：
 
 ```dos
-openssl x509 -inform DER -in DigiCertGlobalRootCA.crt -text -out root.crt
+openssl x509 -inform DER -in BaltimoreCyberTrustRoot.crt -text -out root.crt
 ```
 
 ### <a name="connecting-to-azure-database-for-postgresql-with-ssl-certificate-authentication"></a>连接到具有 SSL 证书身份验证的 Azure Database for PostgreSQL
@@ -117,7 +118,7 @@ openssl x509 -inform DER -in DigiCertGlobalRootCA.crt -text -out root.crt
 
 使用 PostgreSQL 命令行接口执行以下命令：
 ```bash
-psql "sslmode=verify-ca sslrootcert=root.crt host=mydemoserver.database.chinacloudapi.cn dbname=postgres user=mylogin@mydemoserver"
+psql "sslmode=verify-ca sslrootcert=root.crt host=mydemoserver.postgres.database.chinacloudapi.cn dbname=postgres user=mylogin@mydemoserver"
 ```
 如果成功，则会收到以下输出：
 ```bash

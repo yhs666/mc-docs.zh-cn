@@ -11,15 +11,15 @@ ms.workload: identity
 ms.component: fundamentals
 ms.topic: conceptual
 origin.date: 09/12/2017
-ms.date: 06/22/2018
+ms.date: 08/07/2018
 ms.author: v-junlch
 ms.custom: it-pro
-ms.openlocfilehash: 835fd3cc68fa4ecd95f1eff314e8352368bceb07
-ms.sourcegitcommit: 37a1524d71895b17b6f1d125053ad0b251b88df1
+ms.openlocfilehash: ddb17e1d01c23f89fa5c317603da06d715dd5888
+ms.sourcegitcommit: 7cdf4633aea04e524cb48cb1990b750ae8be841c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39097626"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39584273"
 ---
 # <a name="managing-owners-for-a-group"></a>管理组的所有者
 当资源所有者将资源访问权限分配给一个 Azure AD 组，该组所有者即可管理组的成员身份。 实际上，资源所有者是将其资源的用户访问权限委派给了组的所有者。
@@ -33,7 +33,7 @@ ms.locfileid: "39097626"
 
 ## <a name="remove-an-owner-from-a-group"></a>删除组所有者
 
-1. 在 [Azure 门户](https://aad.portal.azure.cn)中，选择“组”。
+1. 在 [Azure 门户](https://portal.azure.cn)中，选择“组”。
 2. 选择“所有组”，再打开要从中删除所有者的组。
 3. 选择“所有者”  选项卡。
 4. 选择要从该组中删除的所有者，并选择“删除” 。
@@ -45,3 +45,4 @@ ms.locfileid: "39097626"
 - [什么是 Azure Active Directory？](active-directory-whatis.md)
 - [将本地标识与 Azure Active Directory 集成](../connect/active-directory-aadconnect.md)
 
+<!-- Update_Description: link update -->

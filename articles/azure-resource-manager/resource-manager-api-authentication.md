@@ -9,18 +9,18 @@ editor: tysonn
 ms.assetid: 17b2b40d-bf42-4c7d-9a88-9938409c5088
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 11/15/2017
-ms.date: 11/27/2017
+origin.date: 07/12/2018
+ms.date: 08/13/2018
 ms.author: v-yeche
-ms.openlocfilehash: d36a5e63d56683538b17854154559005ca5b3012
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 414d52c4985ee2e5f652ad4b5e31dd8369f2812a
+ms.sourcegitcommit: 543a18c71c0910a5b9878a2d2668f317468906f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
-ms.locfileid: "29285412"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39625544"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>使用 Resource Manager 身份验证 API 访问订阅
 ## <a name="introduction"></a>简介
@@ -31,7 +31,7 @@ ms.locfileid: "29285412"
 1. **用户 + 应用访问**：适用于代表登录用户访问资源的应用。 此方法适用于仅处理“交互式管理”Azure 资源的应用，例如 Web 应用和命令行工具。
 2. **仅限应用的访问**：适用于运行守护程序服务和计划作业的应用。 应用的标识获得资源的直接访问权限。 此方法适用于需要长期无提示（无人参与）访问 Azure 的应用。
 
-本文提供创建应用来利用这两种授权方法的逐步说明。 其中说明如何使用 REST API 或 C# 执行每个步骤。 完整的 ASP.NET MVC 应用程序可在 [https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense](https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense) 中找到。
+本文提供创建应用来利用这两种授权方法的逐步说明。 其中说明如何使用 REST API 或 C# 执行每个步骤。 完整的 ASP.NET MVC 应用程序位于 [https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense](https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense)。
 
 ## <a name="what-the-web-app-does"></a>Web 应用的功能
 Web 应用：
@@ -43,7 +43,7 @@ Web 应用：
 5. 获取仅限应用的访问令牌。
 6. 使用令牌（来自步骤 5）通过 Resource Manager 管理订阅中的资源。
 
-下面是 Web 应用程序的端到端流程。
+下面是 Web 应用程序的流程。
 
 ![Resource Manager 身份验证流](./media/resource-manager-api-authentication/Auth-Swim-Lane.png)
 
@@ -68,21 +68,27 @@ Web 应用：
 ![连接订阅](./media/resource-manager-api-authentication/sample-ux-7.png)
 
 ## <a name="register-application"></a>注册应用程序
-在开始编写代码之前，请先使用 Azure Active Directory (AD) 注册 Web 应用。 应用注册会在 Azure AD 中为你的应用创建一个中心标识。 该标识保留有关应用程序的基本信息，例如应用程序用来进行身份验证和访问 Azure Resource Manager API 的 OAuth 客户端 ID、回复 URL 和凭据。 应用注册还会记录应用程序在代表用户访问 Microsoft API 时所需的各种委派权限。
+在开始编写代码之前，请先使用 Azure Active Directory (AD) 注册 Web 应用。 应用注册会在 Azure AD 中为你的应用创建一个中心标识。 该标识保留有关应用程序的基本信息，例如应用程序用来进行身份验证和访问 Azure Resource Manager API 的 OAuth 客户端 ID、回复 URL 和凭据。 应用注册还会记录应用程序在代表用户访问 Azure API 时所需的各种委托权限。
 
 由于应用访问其他订阅，必须将它配置为多租户应用程序。 若要通过验证，请提供与 Azure Active Directory 关联的域。 若要查看与 Azure Active Directory 关联的域，请登录门户。
 
 以下示例演示如何使用 Azure PowerShell 注册应用。 必须拥有最新版本（2016 年 8 月）Azure PowerShell 才能正常运行此命令。
 
-    $app = New-AzureRmADApplication -DisplayName "{app name}" -HomePage "https://{your domain}/{app name}" -IdentifierUris "https://{your domain}/{app name}" -Password "{your password}" -AvailableToOtherTenants $true
+```Powershell
+$app = New-AzureRmADApplication -DisplayName "{app name}" -HomePage "https://{your domain}/{app name}" -IdentifierUris "https://{your domain}/{app name}" -Password "{your password}" -AvailableToOtherTenants $true
+```
 
 若要以 AD 应用程序登录，需要使用应用程序的 ID 和密码。 若要查看前一命令返回的应用程序 ID，请使用：
 
-    $app.ApplicationId
+```Powershell
+$app.ApplicationId
+```
 
 以下示例演示如何使用 Azure CLI 注册应用。
 
-    azure ad app create --name {app name} --home-page https://{your domain}/{app name} --identifier-uris https://{your domain}/{app name} --password {your password} --available true
+```cli
+az ad app create --display-name {app name} --homepage https://{your domain}/{app name} --identifier-uris https://{your domain}/{app name} --password {your password} --available-to-other-tenants true
+```
 
 结果包含 AppId，以应用程序的形式进行身份验证时需要此数据。
 
@@ -101,8 +107,7 @@ Azure AD 还支持应用程序的证书凭据：创建自签名证书、保留�
 ## <a name="get-user--app-access-token"></a>获取用户和应用访问令牌
 应用程序使用 OAuth 2.0 授权请求将用户重定向到 Azure AD - 以验证用户的凭据并取回授权代码。 应用程序使用授权代码来访问 Resource Manager 的令牌。 [ConnectSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/Controllers/HomeController.cs#L42) 方法创建授权请求。
 
-本问说明用于对用户进行身份验证的 REST API 请求。 也可以使用帮助库在代码中执行身份验证。 有关这些库的详细信息，请参阅 [Azure Active Directory 身份验证库](../active-directory/develop/active-directory-authentication-libraries.md)。 若要通过指南了解如何在应用程序中集成标识管理，请参阅 [Azure Active Directory 开发人员指南](../active-directory/develop/active-directory-developers-guide.md)。
-<!-- This develop directory in correct  (../active-directory/develop/active-directory-authentication-libraries.md) and (../active-directory/develop/active-directory-developers-guide.md) -->
+本问说明用于对用户进行身份验证的 REST API 请求。 也可以使用帮助库在代码中执行身份验证。 有关这些库的详细信息，请参阅 [Azure Active Directory 身份验证库](../active-directory/active-directory-authentication-libraries.md)。 若要通过指南了解如何在应用程序中集成标识管理，请参阅 [Azure Active Directory 开发人员指南](../active-directory/active-directory-developers-guide.md)。
 
 ### <a name="auth-request-oauth-20"></a>授权请求 (OAuth 2.0)
 将 Open ID Connect/OAuth2.0 授权请求发送到 Azure AD 授权终结点：

@@ -7,16 +7,16 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: tutorial
 ms.workload: infrastructure-services
-origin.date: 05/16/2018
-ms.date: 06/04/2018
+origin.date: 07/14/2018
+ms.date: 08/07/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: d41a479e2d85c3205f08ac64381356c4cc92f437
-ms.sourcegitcommit: 4fe9905d17a8df9f2270543a5a0ce1762a5830c9
+ms.openlocfilehash: 97e375ed2fe374fc530e66c8c2a0bf0d93d1e08b
+ms.sourcegitcommit: a1c6a743b4be62477e7debfc9ea5f03afca2bc8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34855796"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39625198"
 ---
 # <a name="tutorial-manage-web-traffic-with-an-application-gateway-using-the-azure-cli"></a>教程：通过 Azure CLI 使用应用程序网关管理 Web 流量
 
@@ -128,7 +128,7 @@ az vmss extension set `
   --name CustomScript `
   --resource-group myResourceGroupAG `
   --vmss-name myvmss `
-  --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"], "commandToExecute": "./install_nginx.sh" }'
+  --settings '{ "fileUris": ["https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/install_nginx.sh"], "commandToExecute": "./install_nginx.sh" }'
 ```
 
 ## <a name="test-the-application-gateway"></a>测试应用程序网关
@@ -165,3 +165,4 @@ az group delete --name myResourceGroupAG --location chinanorth
 > [!div class="nextstepaction"]
 > [使用 Web 应用程序防火墙限制 Web 流量](./tutorial-restrict-web-traffic-cli.md)
 
+<!-- Update_Description: code update -->

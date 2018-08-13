@@ -2,21 +2,22 @@
 title: 从 C# 连接到 Azure Database for PostgreSQL
 description: 本快速入门提供了一个 C# (.NET) 代码示例，可以使用它来连接到 Azure Database for PostgreSQL 并查询其中的数据。
 services: postgresql
-author: v-chenyh
-ms.author: v-chenyh
-manager: kfile
+author: WenJason
+ms.author: v-jay
+manager: digimobile
 editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc, devcenter
 ms.devlang: csharp
 ms.topic: quickstart
-ms.date: 06/22/2018
-ms.openlocfilehash: 5c02e81c04915f0997b2deab53bec7b6bcc07139
-ms.sourcegitcommit: d744d18624d2188adbbf983e1c1ac1110d53275c
+origin.date: 02/28/2018
+ms.date: 08/13/2018
+ms.openlocfilehash: 68b41869dc1e57e83332d5a551adda18beee7b26
+ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36314404"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39722955"
 ---
 # <a name="azure-database-for-postgresql-use-net-c-to-connect-and-query-data"></a>Azure Database for PostgreSQL：使用 .NET (C#) 进行连接并查询数据
 本快速入门演示了如何使用 C# 应用程序连接到 Azure Database for PostgreSQL。 同时还介绍了如何使用 SQL 语句在数据库中查询、插入、更新和删除数据。 本文中的步骤假定你熟悉如何使用 C# 进行开发，但不熟悉如何使用 Azure Database for PostgreSQL。
@@ -59,7 +60,7 @@ namespace Driver
     {
         // Obtain connection string information from the portal
         //
-        private static string Host = "mydemoserver.database.chinacloudapi.cn";
+        private static string Host = "mydemoserver.postgres.database.chinacloudapi.cn";
         private static string User = "mylogin@mydemoserver";
         private static string DBname = "mypgsqldb";
         private static string Password = "<server_admin_password>";
@@ -136,7 +137,7 @@ namespace Driver
     {
         // Obtain connection string information from the portal
         //
-        private static string Host = "mydemoserver.database.chinacloudapi.cn";
+        private static string Host = "mydemoserver.postgres.database.chinacloudapi.cn";
         private static string User = "mylogin@mydemoserver";
         private static string DBname = "mypgsqldb";
         private static string Password = "<server_admin_password>";
@@ -206,7 +207,7 @@ namespace Driver
     {
         // Obtain connection string information from the portal
         //
-        private static string Host = "mydemoserver.database.chinacloudapi.cn";
+        private static string Host = "mydemoserver.postgres.database.chinacloudapi.cn";
         private static string User = "mylogin@mydemoserver";
         private static string DBname = "mypgsqldb";
         private static string Password = "<server_admin_password>";
@@ -272,7 +273,7 @@ namespace Driver
     {
         // Obtain connection string information from the portal
         //
-        private static string Host = "mydemoserver.database.chinacloudapi.cn";
+        private static string Host = "mydemoserver.postgres.database.chinacloudapi.cn";
         private static string User = "mylogin@mydemoserver";
         private static string DBname = "mypgsqldb";
         private static string Password = "<server_admin_password>";

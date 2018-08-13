@@ -9,16 +9,16 @@ ms.workload: identity
 ms.component: fundamentals
 ms.topic: quickstart
 origin.date: 11/14/2017
-ms.date: 06/25/2018
+ms.date: 08/07/2018
 ms.author: v-junlch
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 2a070bae997b8c895209652ab1dd843151b50ab6
-ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
+ms.openlocfilehash: 70d3a01e20c9ca404dfeeae9f9d6aaa7ac0f4f7c
+ms.sourcegitcommit: 7cdf4633aea04e524cb48cb1990b750ae8be841c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36948692"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39584247"
 ---
 # <a name="quickstart-add-a-custom-domain-name-to-azure-active-directory"></a>快速入门：将自定义域名添加到 Azure Active Directory
 
@@ -56,7 +56,7 @@ ms.locfileid: "36948692"
 3. 选择需要验证但尚未验证的域名。
 4. 检查条目，然后选择“验证”完成验证。
 
-现在，可以[分配包含自定义域名的用户名](../active-directory-domains-manage-azure-portal.md)。 可使用自定义域名创建基于云的用户帐户，或更新先前同步的本地用户帐户信息。 还可以使用 [Microsoft PowerShell](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains) 或[图形 API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations) 更改已同步的用户帐户域后缀信息。
+现在，可以[分配包含自定义域名的用户名](../users-groups-roles/domains-manage.md)。 可使用自定义域名创建基于云的用户帐户，或更新先前同步的本地用户帐户信息。 还可以使用 [Microsoft PowerShell](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains) 或[图形 API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations) 更改已同步的用户帐户域后缀信息。
 
 > [!TIP]
 > 最多可添加 900 个托管域名。 若要配置所有域以便与 Active Directory 本地联合，最多可在每个目录中添加 450 个域名。 有关详细信息，请参阅[联合域名和托管域名](/active-directory/active-directory-add-domain-concepts#federated-and-managed-domain-names)。
@@ -70,12 +70,13 @@ ms.locfileid: "36948692"
   - DNS 条目与 Azure AD 提供的 DNS 条目不完全匹配。 
   
   如果无权访问域名注册机构以更新域的 DNS 记录，请与组织内具有此访问权限的个人或团队共享 DNS 条目，并请他们添加 DNS 条目。
-3. **从 Azure AD 的另一个目录删除域名**。 域名只能在单个目录中验证。 如果域名当前已在其他目录中经过验证，则在此目录中将其删除前，它无法在新目录上进行验证。 若要了解如何删除域名，请参阅[管理自定义域名](../active-directory-domains-manage-azure-portal.md)。    
+3. **从 Azure AD 的另一个目录删除域名**。 域名只能在单个目录中验证。 如果域名当前已在其他目录中经过验证，则在此目录中将其删除前，它无法在新目录上进行验证。 若要了解如何删除域名，请参阅[管理自定义域名](../users-groups-roles/domains-manage.md)。    
 
 重复执行本文中的相关步骤添加每个域名。
 
 ## <a name="learn-more"></a>了解详细信息
-[Azure AD 中自定义域名的概念性概述](../active-directory-domains-manage-azure-portal.md)
+[Azure AD 中自定义域名的概念性概述](../users-groups-roles/domains-manage.md)
 
-[管理自定义域名](../active-directory-domains-manage-azure-portal.md)
+[管理自定义域名](../users-groups-roles/domains-manage.md)
 
+<!-- Update_Description: link update -->

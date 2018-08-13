@@ -15,12 +15,12 @@ ms.topic: get-started-article
 origin.date: 07/01/2018
 ms.date: 07/30/2018
 ms.author: v-johch
-ms.openlocfilehash: 7eda018e65aa3f0dec451bb6f776ad1221252dab
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+ms.openlocfilehash: 0c2fd37a77fb7bb828201e1af4e8739ba5cb61ca
+ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219516"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39723005"
 ---
 # <a name="create-an-azure-media-services-account-using-the-azure-portal"></a>利用 Azure 门户创建 Azure 媒体服务帐户
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ ms.locfileid: "39219516"
 
 使用 Azure 门户，可以快速创建 Azure 媒体服务 (AMS) 帐户。 可以使用自己的帐户访问媒体服务，通过这些服务可以在 Azure 中存储、加密、编码、管理和流式传输媒体内容。 创建媒体服务帐户时，还会在此帐户所在的地理区域内创建一个关联的媒体服务帐户（或使用现有存储帐户）。 
 
-可以将“常规用途 v1”或“常规用途 v2”作为主存储帐户。 目前，Azure 门户仅允许选择 v1，但在使用 API 或 Powershell 创建帐户时，可以添加 v2。 有关存储类型的详细信息，请参阅[关于 Azure 存储帐户](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account)。
+可以将“常规用途 v1”或“常规用途 v2”作为主存储帐户。 目前，Azure 门户仅允许选择 v1，但在使用 API 或 Powershell 创建帐户时，可以添加 v2。 有关存储类型的详细信息，请参阅[关于 Azure 存储帐户](/storage/common/storage-create-storage-account)。
 
 本文介绍一些常见概念，并展示如何使用 Azure 门户创建媒体服务帐户。
 

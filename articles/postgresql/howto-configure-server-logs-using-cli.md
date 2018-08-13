@@ -2,20 +2,21 @@
 title: 使用 Azure CLI 配置和访问 PostgreSQL 的服务器日志
 description: 本文介绍如何使用 Azure CLI 命令行在 Azure Database for PostgreSQL 中配置和访问服务器日志。
 services: postgresql
-author: v-chenyh
-ms.author: v-chenyh
-manager: kfile
+author: WenJason
+ms.author: v-jay
+manager: digimobile
 editor: jasonwhowell
 ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 06/22/2018
-ms.openlocfilehash: 049bd1c1e73092c3762c3dc451371251153c0f56
-ms.sourcegitcommit: d744d18624d2188adbbf983e1c1ac1110d53275c
+origin.date: 02/28/2018
+ms.date: 08/13/2018
+ms.openlocfilehash: 8e3d6543cf851f8bf3c70d461f6a9b380db266cf
+ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36314395"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39722925"
 ---
 # <a name="configure-and-access-server-logs-by-using-azure-cli"></a>使用 Azure CLI 配置和访问服务器日志
 可以使用命令行接口 (Azure CLI) 下载 PostgreSQL 服务器错误日志。 但不支持访问事务日志。 
@@ -36,14 +37,14 @@ ms.locfileid: "36314395"
 ## <a name="list-logs-for-azure-database-for-postgresql-server"></a>列出 Azure Database for PostgreSQL 服务器的日志
 若要列出服务器的可用日志文件，请运行 [az postgres server-logs list](/cli/postgres/server-logs#az_postgres_server_logs_list) 命令。
 
-可以列出资源组“myresourcegroup”下的服务器 **mydemoserver.database.chinacloudapi.cn** 的日志文件。 然后在日志文件列表中找到名为“log\_files\_list.txt”的文本文件。
+可以列出资源组“myresourcegroup”下的服务器 **mydemoserver.postgres.database.chinacloudapi.cn** 的日志文件。 然后在日志文件列表中找到名为“log\_files\_list.txt”的文本文件。
 ```azurecli-interactive
 az postgres server-logs list --resource-group myresourcegroup --server mydemoserver > log_files_list.txt
 ```
 ## <a name="download-logs-locally-from-the-server"></a>从服务器将日志下载到本地
 使用 [az postgres server-logs download](/cli/postgres/server-logs#az_postgres_server_logs_download) 命令可下载服务器的单独日志文件。 
 
-使用下列示例，可以将资源组“myresourcegroup”下服务器 **mydemoserver.database.chinacloudapi.cn** 的特定日志文件下载到本地环境。
+使用以下示例，可以将资源组“myresourcegroup”下服务器 **mydemoserver.postgres.database.chinacloudapi.cn** 的特定日志文件下载到本地环境。
 ```azurecli-interactive
 az postgres server-logs download --name 20170414-mydemoserver-postgresql.log --resource-group myresourcegroup --server mydemoserver
 ```

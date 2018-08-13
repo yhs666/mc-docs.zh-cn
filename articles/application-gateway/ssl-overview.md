@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 origin.date: 07/19/2017
-ms.date: 06/07/2018
+ms.date: 08/08/2018
 ms.author: v-junlch
-ms.openlocfilehash: 4489b9dcde164b20b75918cb7be10d3f6a68c112
-ms.sourcegitcommit: 4fe9905d17a8df9f2270543a5a0ce1762a5830c9
+ms.openlocfilehash: f2f78c929cc09381f76d12b7f21263c347f7f35b
+ms.sourcegitcommit: a1c6a743b4be62477e7debfc9ea5f03afca2bc8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34855780"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39625197"
 ---
 # <a name="overview-of-end-to-end-ssl-with-application-gateway"></a>应用程序网关的端到端 SSL 概述
 
@@ -43,9 +43,10 @@ ms.locfileid: "34855780"
 
 ## <a name="next-steps"></a>后续步骤
 
-了解端到端 SSL 后，可转到[在应用程序网关上启用端到端 SSL](tutorial-ssl-cli.md)，使用端到端 SSL 创建应用程序网关。
+了解端到端 SSL 后，请转到[使用 Azure 门户为应用程序网关配置 SSL 终止](create-ssl-portal.md)，了解如何使用端到端 SSL 创建应用程序网关。
 
 <!--Image references-->
 
 [1]: ./media/ssl-overview/scenario.png
 
+<!-- Update_Description: wording update -->

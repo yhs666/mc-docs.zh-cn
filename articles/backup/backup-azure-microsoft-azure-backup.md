@@ -4,20 +4,20 @@ description: 使用 Azure 备份服务器保护工作负荷或将其备份到 Az
 services: backup
 author: PVRK
 manager: shivamg
-keywords: Azure 备份服务器；保护工作负荷；备份工作负荷
+keywords: Azure 备份服务器; 保护工作负荷; 备份工作负荷
 ms.service: backup
 ms.topic: conceptual
-origin.date: 05/14/2018
-ms.date: 07/06/2018
+origin.date: 07/10/2018
+ms.date: 08/08/2018
 ms.author: v-junlch
-ms.openlocfilehash: 0fe3e197e982b3fe82aa40b7760116c8cdc812bb
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 0afec0551f10c84ba9ad5283abf3ed6f11084785
+ms.sourcegitcommit: 543a18c71c0910a5b9878a2d2668f317468906f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939590"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39625553"
 ---
-# <a name="preparing-to-back-up-workloads-using-azure-backup-server"></a>准备使用 Azure 备份服务器来备份工作负荷
+# <a name="install-and-configure-azure-backup-server"></a>安装和配置 Azure 备份服务器
 > [!div class="op_single_selector"]
 > * [Azure 备份服务器](backup-azure-microsoft-azure-backup.md)
 > * [SCDPM](backup-azure-dpm-introduction.md)
@@ -225,7 +225,7 @@ Azure 备份服务器需要连接到 Azure 备份服务才能成功运行。 若
 ### <a name="recovering-from-loss-of-connectivity"></a>连接断开后进行恢复
 如果防火墙或代理导致无法访问 Azure，需要将防火墙/代理配置文件中的以下域地址列入允许列表：
 
-- www.msftncsi.com
+- `http://www.msftncsi.com/ncsi.txt`
 - \*.Microsoft.com
 - \*.WindowsAzure.com
 - \*.microsoftonline.com
@@ -252,5 +252,4 @@ Azure 备份服务器需要连接到 Azure 备份服务才能成功运行。 若
 - [SharePoint Server 备份](backup-azure-backup-sharepoint.md)
 - [备用服务器备份](backup-azure-alternate-dpm-server.md)
 
-
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

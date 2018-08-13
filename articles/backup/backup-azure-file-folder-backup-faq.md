@@ -7,15 +7,15 @@ manager: shreeshd
 keywords: 备份和灾难恢复;备份服务
 ms.service: backup
 ms.topic: conceptual
-origin.date: 07/18/2017
-ms.date: 07/05/2018
+origin.date: 06/25/2018
+ms.date: 08/08/2018
 ms.author: v-junlch
-ms.openlocfilehash: 81707e9c6689c87eb2e0d9fcba507c852ad371f6
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.openlocfilehash: 275a5a85258c5998f5391a59a5bb75cb75578a12
+ms.sourcegitcommit: 543a18c71c0910a5b9878a2d2668f317468906f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873345"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39625545"
 ---
 # <a name="questions-about-the-azure-backup-agent"></a>有关 Azure 备份代理的问题
 本文提供常见问题的解答，有助于快速了解 Azure 备份代理组件。 某些答案提供内含全面信息的文章的链接。 还可以在 [论坛](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)中发布有关 Azure 备份服务的问题。
@@ -59,7 +59,7 @@ ms.locfileid: "37873345"
 是的。 在来宾 Windows OS 上安装 Azure 备份代理，并将文件和文件夹备份到临时存储。 擦除临时存储数据后，备份作业会失败。此外，如果临时存储数据已被删除，则你只能还原到非易失性存储。
 
 ### <a name="whats-the-minimum-size-requirement-for-the-cache-folder-br"></a>针对缓存文件夹的最小大小要求是什么？ <br/>
-缓存文件夹的大小取决于要备份的数据量。 缓存文件夹应是数据存储所需空间的 5%。
+缓存文件夹的大小取决于要备份的数据量。 与备份数据的总大小相比时，缓存文件夹的卷应至少有 5-10% 可用空间。 如果卷的可用空间少于 5%，请增大卷大小，或[将缓存文件夹移到具有足够可用空间的卷](backup-azure-file-folder-backup-faq.md#backup)。
 
 ### <a name="how-do-i-register-my-server-to-another-datacenterbr"></a>如何将我的服务器注册到其他数据中心？<br/>
 备份数据会发送到它所注册到的保管库的数据中心。 更改数据中心的最简便方法是卸载代理，并将代理安装并注册到属于所需数据中心的新保管库。
@@ -124,3 +124,4 @@ Azure 备份代理依赖于 NTFS。 [可以指定的文件路径的长度受限�
 ### <a name="i-receive-the-warning-azure-backups-have-not-been-configured-for-this-server-even-though-i-configured-a-backup-policy-br"></a>即使配置了备份策略，仍会显示警告“尚未为此服务器配置 Azure 备份” <br/>
 在本地服务器上存储的备份计划设置与备份保管库中存储的设置不同时，可能会出现此警告。 服务器或设置恢复为已知良好状态后，备份计划可能会失去同步。 如果收到此警告，请[重新配置备份策略](backup-azure-manage-windows-server.md)，并**立即运行备份**，以便将本地服务器与 Azure 重新同步。
 
+<!-- Update_Description: wording update -->

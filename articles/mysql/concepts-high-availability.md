@@ -2,19 +2,19 @@
 title: Azure Database for MySQL 中的高可用性概念
 description: 本主题介绍了使用 Azure Database for MySQL 时的高可用性概念
 services: mysql
-author: jasonwhowell
-ms.author: jasonh
+author: WenJason
+ms.author: v-jay
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: cb10e21159d2881f66c23bc23af57c3722c107ab
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.openlocfilehash: c12ac06bf5d4b559a43e409c289ef1706beced6d
+ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873690"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39723075"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-mysql"></a>Azure Database for MySQL 中的高可用性概念
 

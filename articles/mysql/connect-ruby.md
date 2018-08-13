@@ -2,21 +2,22 @@
 title: 使用 Ruby 连接到 Azure Database for MySQL
 description: 本快速入门提供多个 Ruby 代码示例，使用这些示例可连接到适用于 MySQL 的 Azure 数据库并查询其中的数据。
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
-manager: kfile
+author: WenJason
+ms.author: v-jay
+manager: digimobile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.custom: mvc
 ms.devlang: ruby
 ms.topic: quickstart
-ms.date: 06/15/2018
-ms.openlocfilehash: b4d37d3d69b66eea5105126ac22a9106a618be7a
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+origin.date: 02/28/2018
+ms.date: 08/13/2018
+ms.openlocfilehash: a7a1f5055d206217d0ff9c582e8b8529d72cbff6
+ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873294"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39723030"
 ---
 # <a name="azure-database-for-mysql-use-ruby-to-connect-and-query-data"></a>适用于 MySQL 的 Azure 数据库：使用 Ruby 进行连接并查询数据
 
@@ -82,7 +83,7 @@ require 'mysql2'
 
 begin
     # Initialize connection variables.
-    host = String('mydemoserver.database.chinacloudapi.cn')
+    host = String('mydemoserver.mysql.database.chinacloudapi.cn')
     database = String('quickstartdb')
     username = String('myadmin@mydemoserver')
     password = String('yourpassword')
@@ -128,7 +129,7 @@ require 'mysql2'
 
 begin
     # Initialize connection variables.
-    host = String('mydemoserver.database.chinacloudapi.cn')
+    host = String('mydemoserver.mysql.database.chinacloudapi.cn')
     database = String('quickstartdb')
     username = String('myadmin@mydemoserver')
     password = String('yourpassword')
@@ -167,7 +168,7 @@ require 'mysql2'
 
 begin
     # Initialize connection variables.
-    host = String('mydemoserver.database.chinacloudapi.cn')
+    host = String('mydemoserver.mysql.database.chinacloudapi.cn')
     database = String('quickstartdb')
     username = String('myadmin@mydemoserver')
     password = String('yourpassword')
@@ -204,7 +205,7 @@ require 'mysql2'
 
 begin
     # Initialize connection variables.
-    host = String('mydemoserver.database.chinacloudapi.cn')
+    host = String('mydemoserver.mysql.database.chinacloudapi.cn')
     database = String('quickstartdb')
     username = String('myadmin@mydemoserver')
     password = String('yourpassword')

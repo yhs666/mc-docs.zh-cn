@@ -4,17 +4,17 @@ description: 介绍了 Azure Database for MySQL 中提供的日志，以及用�
 services: mysql
 author: v-chenyh
 ms.author: v-chenyh
-manager: kfile
+manager: digimobile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
 ms.date: 06/16/2018
-ms.openlocfilehash: 5c85bb77a9ac6456e59ce430795e791e4f97e8b8
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.openlocfilehash: d49d70f11b17c5dbf771d36789c94cbea84b04b9
+ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873285"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39723007"
 ---
 # <a name="server-logs-in-azure-database-for-mysql"></a>Azure Database for MySQL 中的服务器日志
 

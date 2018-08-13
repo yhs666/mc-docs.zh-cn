@@ -2,21 +2,22 @@
 title: Azure CLI 脚本 - 更改服务器配置
 description: 此示例 CLI 脚本列出所有可用的服务器配置选项，并更新某个选项的值。
 services: postgresql
-author: v-chenyh
-ms.author: v-chenyh
-manager: kfile
+author: WenJason
+ms.author: v-jay
+manager: digimobile
 editor: jasonwhowell
 ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: sample
 ms.custom: mvc
-ms.date: 06/21/2018
-ms.openlocfilehash: 63990305b96b8dde1108c02dc23895d4a20ce045
-ms.sourcegitcommit: d744d18624d2188adbbf983e1c1ac1110d53275c
+origin.date: 02/28/2018
+ms.date: 08/13/2018
+ms.openlocfilehash: 545ff69d2a56909ef972cfef4cd38f959f1057f8
+ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36314368"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39723116"
 ---
 # <a name="list-and-update-configurations-of-an-azure-database-for-postgresql-server-using-azure-cli"></a>使用 Azure CLI 列出和更新 Azure Database for PostgreSQL 服务器的配置
 此示例 CLI 脚本列出所有 Azure Database for PostgreSQL 服务器的可用配置参数及其允许的值，并将 log_retention_days 设置为默认值以外的值。 本文需要 Azure CLI 2.0 或更高版本。 通过运行 `az --version` 来查看版本。 请参阅[安装 Azure CLI 2.0]( /cli/install-azure-cli)，了解如何安装或升级 Azure CLI 的版本。 
@@ -24,7 +25,7 @@ ms.locfileid: "36314368"
 ## <a name="sample-script"></a>示例脚本
 在此示例脚本中，编辑突出显示的行，将管理员用户名和密码更新为你自己的。
 
-```bash
+```cli
 #!/bin/bash
 
 # Add the Azure CLI extension 
@@ -33,7 +34,7 @@ az extension add --name rdbms
 # Create a resource group
 az group create \
 --name myresourcegroup \
---location chinaeast
+--location chinaeast2
 
 # Create a PostgreSQL server in the resource group
 # Name of a server maps to DNS name and is thus required to be globally unique in Azure.
@@ -41,10 +42,10 @@ az group create \
 az postgres server create \
 --name mydemoserver \
 --resource-group myresourcegroup \
---location chinaeast \
+--location chinaeast2 \
 --admin-user myadmin \
 --admin-password <server_admin_password> \
---sku-name GP_Gen4_2 \
+--sku-name GP_Gen5_2 \
 
 # Display all available configurations with valid values of an Azure Database for PostgreSQL server
 az postgres server configuration list \

@@ -2,19 +2,20 @@
 title: 如何在 Azure Database for PostgreSQL 中转储和还原
 description: 介绍如何在 Azure Database for PostgreSQL 中将 PostgreSQL 数据库解压缩为转储文件，以及如何从 pg_dump 创建的文件进行还原。
 services: postgresql
-author: v-chenyh
-ms.author: v-chenyh
-manager: kfile
+author: WenJason
+ms.author: v-jay
+manager: digimobile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 06/22/2018
-ms.openlocfilehash: ce7133c8b5269662ada4988d53b8d128f81b5469
-ms.sourcegitcommit: d744d18624d2188adbbf983e1c1ac1110d53275c
+origin.date: 06/01/2018
+ms.date: 08/13/2018
+ms.openlocfilehash: 4abe3668c762271cd66baca32a3690dfd191a048
+ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36314371"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39723108"
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>使用转储和还原迁移 PostgreSQL 数据库
 可以使用 [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) 将 PostgreSQL 数据库提取到转储文件，并使用 [pg_restore](https://www.postgresql.org/docs/9.3/static/app-pgrestore.html) 从 pg_dump 创建的存档文件中还原 PostgreSQL 数据库。
@@ -47,9 +48,9 @@ pg_restore -v --no-owner –-host=<server name> --port=<port> --username=<user@s
 ```
 包括 --no-owner 参数会导致还原过程中创建的所有对象由使用 --username 指定的用户拥有。 有关详细信息，请参阅有关 [pg_restore](https://www.postgresql.org/docs/9.6/static/app-pgrestore.html) 的正式 PostgreSQL 文档。
 
-在此示例中，将数据从转储文件 **testdb.dump** 还原到目标服务器 **mydemoserver.database.chinacloudapi.cn** 上的数据库 **mypgsqldb**。 
+在此示例中，请将数据从转储文件 **testdb.dump** 还原到目标服务器 **mydemoserver.postgres.database.chinacloudapi.cn** 上的数据库 **mypgsqldb**。 
 ```bash
-pg_restore -v --no-owner --host=mydemoserver.database.chinacloudapi.cn --port=5432 --username=mylogin@mydemoserver --dbname=mypgsqldb testdb.dump
+pg_restore -v --no-owner --host=mydemoserver.postgres.database.chinacloudapi.cn --port=5432 --username=mylogin@mydemoserver --dbname=mypgsqldb testdb.dump
 ```
 
 ## <a name="next-steps"></a>后续步骤

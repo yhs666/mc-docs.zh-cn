@@ -8,14 +8,14 @@ keywords: 项级恢复; 从 Azure VM 备份恢复文件; 从 Azure VM 还原文�
 ms.service: backup
 ms.topic: conceptual
 origin.date: 12/20/2017
-ms.date: 07/06/2018
+ms.date: 08/08/2018
 ms.author: v-junlch
-ms.openlocfilehash: 7b57d912cb6bf90b3575ec399926671206b58ca5
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.openlocfilehash: 75827d6c42be6eb033633a3e59bb207c2db9566b
+ms.sourcegitcommit: 543a18c71c0910a5b9878a2d2668f317468906f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873479"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39625541"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>从 Azure 虚拟机备份恢复文件
 
@@ -174,7 +174,7 @@ $ mount [RAID Disk Path] [/mountpath]
 | Windows Server 2012    | Windows 8  |
 | Windows Server 2008 R2 | Windows 7   |
 
-### <a name="for-linux"></a>对于 Linux
+### <a name="for-linux-os"></a>对于 Linux OS
 
 在 Linux 中，用于还原文件的计算机的 OS 必须支持受保护虚拟机的文件系统。 选择用于运行脚本的计算机时，请确保计算机具有兼容的 OS，并使用下表中认定的版本之一：
 

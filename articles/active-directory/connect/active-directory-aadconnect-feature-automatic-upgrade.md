@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 07/13/2017
-ms.date: 06/22/2018
+origin.date: 06/16/2018
+ms.date: 08/06/2018
 ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 7e5c545b97ca7ecdd517aa03e56fdf2031316746
-ms.sourcegitcommit: 5b6a2fc55e5b16ae480bd497c3ac2c3a2fd44703
+ms.openlocfilehash: 29c8aee1c9553d5895dfcdad7a7238005e2c437c
+ms.sourcegitcommit: 7cdf4633aea04e524cb48cb1990b750ae8be841c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38999172"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39584238"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect：自动升级
 此功能是随内部版本 1.1.105.0（于 2016 年 2 月发布）一起推出的。
@@ -53,6 +53,8 @@ ms.locfileid: "38999172"
 首先，不建议在新版本发行的第一天就自动升级。 由于升级前有刻意设计的随机性，因此，不用担心安装没有立即升级。
 
 如果认为有问题，请先运行 `Get-ADSyncAutoUpgrade` 确保已启用自动升级。
+
+然后，确保已在防火墙中打开所需的 URL。
 
 确认与 Azure AD 建立连接后，可以深入了解事件日志。 启动事件查看器，并查看 **应用程序** 事件日志。 为源 Azure AD Connect 升级和事件 ID 范围 300-399 添加事件日志筛选器。  
 ![用于自动升级的事件日志筛选器](./media/active-directory-aadconnect-feature-automatic-upgrade/eventlogfilter.png)  
@@ -98,4 +100,4 @@ ms.locfileid: "38999172"
 ## <a name="next-steps"></a>后续步骤
 了解有关 [将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)的详细信息。
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

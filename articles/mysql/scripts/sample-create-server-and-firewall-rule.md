@@ -2,21 +2,22 @@
 title: Azure CLI 脚本 - 创建 Azure Database for MySQL
 description: 此示例 CLI 脚本创建 Azure Database for MySQL 服务器，并配置服务器级防火墙规则。
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
-manager: kfile
+author: WenJason
+ms.author: v-jay
+manager: digimobile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.devlang: azure-cli
 ms.custom: mvc
 ms.topic: sample
-ms.date: 06/16/2018
-ms.openlocfilehash: 3f94e8a922b332cc8acc79425da26c9372f34cdf
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+origin.date: 02/28/2018
+ms.date: 08/13/2018
+ms.openlocfilehash: 7e9e236b655288eebf8f5443145a07914c687c19
+ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873297"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39722965"
 ---
 # <a name="create-a-mysql-server-and-configure-a-firewall-rule-using-the-azure-cli"></a>使用 Azure CLI 创建 MySQL 服务器并配置防火墙规则
 
@@ -31,28 +32,30 @@ ms.locfileid: "37873297"
 ```cli
 #!/bin/bash
 
+# Add the Azure CLI extension 
+az extension add --name rdbms
+
 # Create a resource group
 az group create \
---name myresource \
---location chinaeast
+--name myresourcegroup \
+--location chinaeast2
 
 # Create a MySQL server in the resource group
 # Name of a server maps to DNS name and is thus required to be globally unique in Azure.
 # Substitute the <server_admin_password> with your own value.
 az mysql server create \
---name mysqlserver4demo \
---resource-group myresource \
---location chinaeast \
+--name mydemoserver \
+--resource-group myresourcegroup \
+--location chinaeast2 \
 --admin-user myadmin \
 --admin-password <server_admin_password> \
---performance-tier Basic \
---compute-units 50
+--sku-name GP_Gen5_2 \
 
 # Configure a firewall rule for the server
 # The ip address range that you want to allow to access your server
 az mysql server firewall-rule create \
---resource-group myresource \
---server mysqlserver4demo \
+--resource-group myresourcegroup \
+--server mydemoserver \
 --name AllowIps \
 --start-ip-address 0.0.0.0 \
 --end-ip-address 255.255.255.255

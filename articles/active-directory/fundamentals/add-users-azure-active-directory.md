@@ -10,16 +10,16 @@ ms.workload: identity
 ms.component: fundamentals
 ms.topic: quickstart
 origin.date: 01/08/2018
-ms.date: 06/25/2018
+ms.date: 08/07/2018
 ms.author: v-junlch
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: eabae2d17814dd9ea8d49a321cf67116eeff63da
-ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
+ms.openlocfilehash: 75c03c05d7400da32c9230b411d4276c89e3dce6
+ms.sourcegitcommit: 7cdf4633aea04e524cb48cb1990b750ae8be841c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36948664"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39584251"
 ---
 # <a name="quickstart-add-new-users-to-azure-active-directory"></a>快速入门：将新用户添加到 Azure Active Directory
 本文介绍如何使用 Azure 门户或通过同步本地 Windows Server AD 用户帐户数据，在组织的 Azure Active Directory (Azure AD) 租户中删除或添加组织中的用户。 
@@ -31,7 +31,7 @@ ms.locfileid: "36948664"
    ![选择“添加”命令](./media/add-users-azure-active-directory/add-user.png)
 4. 输入用户的详细信息，如**名称**和**用户名**。 用户名的域名部分必须是初始默认域名“[domain name].partner.onmschina.cn”或已验证的非联合[自定义域名](add-custom-domain.md)（例如“contoso.com”）。
 5. 复制或以其他方式记下生成的用户密码，以便在此过程完成后可以提供给用户。
-6. （可选）可以打开“个人资料”、“组”或“目录角色”并在其中填写用户信息。 有关用户和管理员角色的详细信息，请参阅[在 Azure AD 中分配管理员角色](../active-directory-assign-admin-roles-azure-portal.md)。
+6. （可选）可以打开“个人资料”、“组”或“目录角色”并在其中填写用户信息。 有关用户和管理员角色的详细信息，请参阅[在 Azure AD 中分配管理员角色](../users-groups-roles/directory-assign-admin-roles.md)。
 7. 在“用户”上，选择“创建”。
 8. 以安全方式将生成的密码分发给新用户，以便用户可以登录。
 
@@ -48,3 +48,4 @@ ms.locfileid: "36948664"
 - [在 Azure AD 中为用户分配角色](active-directory-users-assign-role-azure-portal.md)
 - [管理用户个人资料](active-directory-users-profile-azure-portal.md)
 
+<!-- Update_Description: link update -->

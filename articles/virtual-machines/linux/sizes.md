@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 07/06/2018
 ms.date: 07/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 128d346a77aad2be847d94a6451112c0d517e97e
-ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
+ms.openlocfilehash: 057699f9dbeb44e368d7e35f2582961e6a69b324
+ms.sourcegitcommit: 62a0389a743cd18665bd127e9bf14800867008eb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39306965"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39624930"
 ---
 # <a name="sizes-for-linux-virtual-machines-in-azure"></a>Azure 中 Linux 虚拟机的大小
 本文介绍可用于运行 Linux 应用和工作负荷的 Azure 虚拟机的可用大小与选项。 此外，还提供在计划使用这些资源时要考虑的部署注意事项。 本文也适用于 [Windows 虚拟机](../windows/sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
@@ -32,11 +32,11 @@ ms.locfileid: "39306965"
 | [计算优化](sizes-compute.md)        | Fsv2、Fs、F             | 高 CPU 与内存之比。 适用于中等流量的 Web 服务器、网络设备、批处理和应用程序服务器。        |
 | [内存优化](sizes-memory.md)         | Esv3、Ev3、DSv2、Dv2   | 高内存与 CPU 之比。 适用于关系数据库服务器、中到大型规模的缓存和内存中分析。                 |
 <!--PENDING FOR NC series GA ANOUNCEMENT -->
-| [GPU](sizes-gpu.md)            | NV、NC、NCv2、NCv3、ND            | 针对大量图形绘制和视频编辑的专用虚拟机，以及带有深度学习功能的模型定型和推断 (ND)。 可选择单个或多个 GPU。       |
+| [GPU](sizes-gpu.md)            |     NCv3           | 针对大量图形绘制和视频编辑的专用虚拟机，以及带有深度学习功能的模型定型和推断 (ND)。 可选择单个或多个 GPU。       |
 <!--PENDING FOR NC series GA ANOUNCEMENT -->
 
 <!--Not Available Ls-->
-<!--Not Available NV, NC, NCv2, NCv3, ND-->
+<!--Not Available NV, NC, NCv2, ND-->
 <!--Not Available H -->
 
 <br>

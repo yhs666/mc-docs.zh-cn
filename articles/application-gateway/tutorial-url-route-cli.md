@@ -7,16 +7,16 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: tutorial
 ms.workload: infrastructure-services
-origin.date: 04/27/2018
-ms.date: 06/04/2018
+origin.date: 07/14/2018
+ms.date: 08/07/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 7f980fa0c963b4f539f08c5f826a0806c98559a6
-ms.sourcegitcommit: 4fe9905d17a8df9f2270543a5a0ce1762a5830c9
+ms.openlocfilehash: 8f16213b00632d9d89c6a06f4fcba28915466b0c
+ms.sourcegitcommit: a1c6a743b4be62477e7debfc9ea5f03afca2bc8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34855779"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39625199"
 ---
 # <a name="tutorial-route-web-traffic-based-on-the-url-using-the-azure-cli"></a>教程 - 使用 Azure CLI 基于 URL 对 Web 流量进行路由
 
@@ -227,7 +227,7 @@ for i in `seq 1 3`; do
     --name CustomScript `
     --resource-group myResourceGroupAG `
     --vmss-name myvmss$i `
-    --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"], "commandToExecute": "./install_nginx.sh" }'
+    --settings '{ "fileUris": ["https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/install_nginx.sh"], "commandToExecute": "./install_nginx.sh" }'
 done
 ```
 
@@ -245,7 +245,7 @@ az network public-ip show `
 
 ![在应用程序网关中测试基 URL](./media/tutorial-url-route-cli/application-gateway-nginx.png)
 
-将 URL 更改为 http://&lt;ip-address&gt;:8080/video/test.html（请将 &lt;ip-address&gt; 替换为自己的 IP 地址），应会看到如以下示例所示的内容：
+将 URL 更改为 http://&lt;ip-address&gt;:8080/images/test.html（请将 &lt;ip-address&gt; 替换为自己的 IP 地址），应会看到如以下示例所示的内容：
 
 ![在应用程序网关中测试映像 URL](./media/tutorial-url-route-cli/application-gateway-nginx-images.png)
 
@@ -273,3 +273,4 @@ az group delete --name myResourceGroupAG --location chinanorth
 > [!div class="nextstepaction"]
 > [创建支持基于 URL 路径进行重定向的应用程序网关](./tutorial-url-redirect-cli.md)
 
+<!-- Update_Description: code update -->

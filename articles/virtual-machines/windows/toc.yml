@@ -337,8 +337,6 @@
           href: reset-network-interface.md
         - name: 启动诊断
           href: boot-diagnostics.md
-        - name: 串行控制台
-          href: serial-console.md
         - name: 创建 VM
           href: troubleshoot-deployment-new-vm.md
         - name: 部署问题

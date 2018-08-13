@@ -2,20 +2,21 @@
 title: 使用 Azure CLI 创建和管理 Azure Database for PostgreSQL 防火墙规则
 description: 本文介绍如何使用 Azure CLI 命令行创建和管理 Azure Database for PostgreSQL 防火墙规则。
 services: postgresql
-author: v-chenyh
-ms.author: v-chenyh
-manager: kfile
+author: WenJason
+ms.author: v-jay
+manager: digimobile
 editor: jasonwhowell
 ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 06/22/2018
-ms.openlocfilehash: 7e8a8b6fcc35001941f504f5293b2be5840b9f17
-ms.sourcegitcommit: d744d18624d2188adbbf983e1c1ac1110d53275c
+origin.date: 05/04/2018
+ms.date: 08/13/2018
+ms.openlocfilehash: 08ca0a838313d1367dc2ba7364f3063d267553f7
+ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36314366"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39723099"
 ---
 # <a name="create-and-manage-azure-database-for-postgresql-firewall-rules-using-azure-cli"></a>使用 Azure CLI 创建和管理 Azure Database for PostgreSQL 防火墙规则
 使用服务器级防火墙规则，管理员可以管理特定 IP 地址或一系列 IP 地址对 Azure Database for PostgreSQL 服务器的访问权限。 使用便捷的 Azure CLI 命令，可创建、更新、删除、列出和显示防火墙规则，用于管理服务器。 有关 Azure Database for PostgreSQL 防火墙规则的概述，请参阅 [Azure Database for PostgreSQL 服务器防火墙规则](concepts-firewall-rules.md)
@@ -40,7 +41,7 @@ az postgres server firewall-rule list --resource-group myresourcegroup --server-
 ## <a name="create-firewall-rule"></a>创建防火墙规则
 若要在服务器上创建新的防火墙规则，请运行 [az postgres server firewall-rule create](/cli/postgres/server/firewall-rule#az_postgres_server_firewall_rule_create) 命令。 
 
-通过指定 0.0.0.0 作为 `--start-ip-address`，指定 255.255.255.255 作为 `--end-ip-address` 范围，以下示例允许所有 IP 地址访问服务器 **mydemoserver.database.chinacloudapi.cn**
+以下示例指定 0.0.0.0 作为 `--start-ip-address`，并指定 255.255.255.255 作为 `--end-ip-address` 范围，因此所有 IP 地址均可访问服务器 **mydemoserver.postgres.database.chinacloudapi.cn**
 ```cli
 az postgres server firewall-rule create --resource-group myresourcegroup --server-name mydemoserver --name AllowIpRange --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
 ```

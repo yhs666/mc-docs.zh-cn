@@ -14,15 +14,16 @@ ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
 origin.date: 04/30/2018
-ms.date: 07/03/2018
+ms.date: 08/06/2018
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: 77567f6c51b6a83f68556eb52de40dd545c34731
-ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
+ms.reviewer: jmprieur
+ms.openlocfilehash: 7e9125b48abf3ade3d3192121c65115d907321f3
+ms.sourcegitcommit: 7cdf4633aea04e524cb48cb1990b750ae8be841c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37800461"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39584298"
 ---
 # <a name="azure-ad-ios-getting-started"></a>Azure AD iOS 入门
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]

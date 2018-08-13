@@ -11,12 +11,12 @@ ms.custom: mvc
 origin.date: 06/26/2018
 ms.date: 08/06/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4a89984b53dba321ab38466728bc70cd3b69538f
-ms.sourcegitcommit: c6205500afd23ac00f2829fe51858b51a622eaf1
+ms.openlocfilehash: d8b3dc1bd40f1a5fc71cd2ccd29ba70b016912fe
+ms.sourcegitcommit: 62a0389a743cd18665bd127e9bf14800867008eb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39487905"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39624929"
 ---
 # <a name="quickstart-process-event-streams-using-azure-cli-and-java"></a>快速入门：使用 Azure CLI 和 Java 处理事件流
 
@@ -295,8 +295,7 @@ public void onEvents(PartitionContext context, Iterable<EventData> events) throw
 > [将事件中心数据流中的数据异常可视化](event-hubs-tutorial-visualize-anomalies.md)
 
 [创建一个试用帐户]: https://www.azure.cn/pricing/1rmb-trial/
-[Install Azure CLI 2.0]: https://docs.azure.cn/zh-cn/cli/install-azure-cli
-?view=azure-cli-latest
+[Install Azure CLI 2.0]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
 [az group create]: https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
 

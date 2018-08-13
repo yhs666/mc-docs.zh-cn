@@ -1,20 +1,21 @@
 ---
-title: Azure Database for PostgreSQL 服务器 vnet 服务终结点概述 | Microsoft Docs
+title: Azure Database for PostgreSQL 服务器 VNet 服务终结点概述 | Azure
 description: 介绍 vnet 服务终结点如何为 Azure Database for PostgreSQL 服务器工作。
 services: postgresql
-author: v-chenyh
-ms.author: v-chenyh
-manager: jhubbard
+author: WenJason
+ms.author: v-jay
+manager: digimobile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
+origin.date: 05/29/2018
 ms.date: 06/21/2018
-ms.openlocfilehash: 495482958529c670696800b8e3065ce5b2d902a3
-ms.sourcegitcommit: d744d18624d2188adbbf983e1c1ac1110d53275c
+ms.openlocfilehash: 5fa3e5ccfb647b71a4b2cb886399179f872e556c
+ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36314376"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39722972"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql"></a>使用适用于Azure Database for PostgreSQL 的虚拟网络服务终结点和规则
 
@@ -55,7 +56,7 @@ ms.locfileid: "36314376"
 
 ### <a name="a-allow-access-to-azure-services"></a>A. 允许访问 Azure 服务
 
-“连接安全性”窗格有一个标记为“允许访问 Azure 服务”的“启用/禁用”按钮。 “启用”设置允许来自所有 Azure IP 地址和所有 Azure 子网的通信。 这些 Azure IP 或子网可能不是你所拥有的。 此“启用”设置可能超出你在开放方面对 Azure Database for PostgreSQL 数据库的需要。 虚拟网络规则功能提供精细得多的控制。
+“连接安全性”窗格有一个标签为“允许访问 Azure 服务”的“启用/禁用”按钮。 “启用”设置允许来自所有 Azure IP 地址和所有 Azure 子网的通信。 这些 Azure IP 或子网可能不是你所拥有的。 此“启用”设置可能超出你在开放方面对 Azure Database for PostgreSQL 数据库的需要。 虚拟网络规则功能提供精细得多的控制。
 
 ### <a name="b-ip-rules"></a>B. IP 规则
 

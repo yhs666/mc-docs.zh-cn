@@ -2,19 +2,19 @@
 title: 使用转储和还原将 MySQL 数据库迁移到 Azure Database for MySQL
 description: 本文介绍使用 mysqldump、MySQL Workbench 和 PHPMyAdmin 等工具在 Azure Database for MySQL 中备份和还原数据库的两种常见方式。
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
-manager: kfile
+author: WenJason
+ms.author: v-jay
+manager: digimobile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 06/16/2018
-ms.openlocfilehash: ff493c903983844230e1c6a8c959f0658f6882ed
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.openlocfilehash: 2010e301951f190a3af8d72d9dd0e9120b154066
+ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873694"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39723034"
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>使用转储和还原将 MySQL 数据库迁移到 Azure Database for MySQL
 
@@ -49,13 +49,14 @@ ms.locfileid: "37873694"
 ## <a name="performance-considerations"></a>性能注意事项
 若要优化性能，请在转储大型数据库时留意这些注意事项：
 -   转储数据库时，请使用 mysqldump 中的 `exclude-triggers` 选项。 从转储文件中排除触发器，避免在还原数据期间触发触发器命令。 
--   使用 `single-transaction` 选项，将事务隔离模式设置为 REPEATABLE READ 并在转储数据之前将 START TRANSACTION SQL 语句发送到服务器。 在单个事务中转储多个表会在还原过程中占用一些额外的存储空间。 `single-transaction` 选项和 `lock-tables` 选项彼此互斥，因为 LOCK TABLES 会导致所有挂起的事务隐式提交。若要转储大型表，请将 `single-transaction` 选项和 `quick` 选项配合使用。 
+-   使用 `single-transaction` 选项，将事务隔离模式设置为 REPEATABLE READ 并在转储数据之前将 START TRANSACTION SQL 语句发送到服务器。 在单个事务中转储多个表会在还原过程中占用一些额外的存储空间。 选项 `single-transaction` 和 `lock-tables` 互斥，因为 LOCK TABLES 导致所有挂起的事务均为隐式提交。 若要转储大型表，请结合使用选项 `single-transaction` 和 `quick`。 
 -   使用其中包含多个 VALUE 列表的 `extended-insert` 多行语法。 这可使转储文件较小并在重新加载文件时加快插入。
 -  转储数据库时，使用 mysqldump 中的 `order-by-primary` 选项，以便按主键顺序编写数据脚本。
 -   转储数据时，使用 mysqldump 中的 `disable-keys` 选项，以便在加载前，禁用外键约束。 禁用外键检查可提高性能。 启用约束并在加载后验证数据，确保引用完整性。
 -   适当时使用已分区表。
 -   并行加载数据。 避免太多将导致达到资源限制的并行度，并通过使用 Azure 门户中提供的指标监视资源。 
 -   转储数据库时，使用 mysqlpump 中的 `defer-table-indexes` 选项，以便在加载表数据后创建索引。
+-   将备份文件复制到 Azure blob/存储，并在其中执行还原，这应该比通过 Internet 执行还原要快得多。
 
 ## <a name="create-a-backup-file-from-the-command-line-using-mysqldump"></a>使用 mysqldump 从命令行创建备份文件
 若要备份本地服务器或虚拟机中的现有 MySQL 数据库，请运行以下命令： 
@@ -79,7 +80,6 @@ $ mysqldump -u root -p testdb > testdb_backup.sql
 ```bash
 $ mysqldump -u root -p testdb table1 table2 > testdb_tables_backup.sql
 ```
-
 若要一次性备份多个数据库，请使用 --database 切换并列出数据库名（用空格隔开）。 
 ```bash
 $ mysqldump -u root -p --databases testdb1 testdb3 testdb5 > testdb135_backup.sql 
@@ -108,26 +108,26 @@ mysql -h [hostname] -u [uname] -p[pass] [db_to_restore] < [backupfile.sql]
 ```
 在此示例中，将数据还原到在 Azure Database for MySQL 目标服务器上新创建的数据库中。
 ```bash
-$ mysql -h mydemoserver.database.chinacloudapi.cn -u myadmin@mydemoserver -p testdb < testdb_backup.sql
+$ mysql -h mydemoserver.mysql.database.chinacloudapi.cn -u myadmin@mydemoserver -p testdb < testdb_backup.sql
 ```
 
 ## <a name="export-using-phpmyadmin"></a>使用 PHPMyAdmin 进行导出
 若要导出，可以使用可能已安装在本地环境中的常用工具 phpMyAdmin。 使用 PHPMyAdmin 导出 MySQL 数据库：
-- 打开 phpMyAdmin。
-- 选择数据库。 单击左侧列表中的数据库名称。 
-- 单击“导出”链接。 这将显示一个新页面，可查看数据库转储情况。
-- 在“导出”区域中，单击“全选”链接，选择数据库中的表。 
-- 在 SQL 选项区域中，单击适当的选项。 
-- 单击“另存为文件”选项及相应的压缩选项，然后单击“执行”按钮。 将出现一个对话框，提示在本地保存该文件。
+1. 打开 phpMyAdmin。
+2. 选择数据库。 单击左侧列表中的数据库名称。 
+3. 单击“导出”链接。 这将显示一个新页面，可查看数据库转储情况。
+4. 在“导出”区域中，单击“全选”链接，选择数据库中的表。 
+5. 在 SQL 选项区域中，单击适当的选项。 
+6. 单击“另存为文件”选项及相应的压缩选项，然后单击“执行”按钮。 将出现一个对话框，提示在本地保存该文件。
 
 ## <a name="import-using-phpmyadmin"></a>使用 PHPMyAdmin 进行导入
 导入数据库的方法与导出类似。 执行以下操作：
-- 打开 phpMyAdmin。 
-- 在 phpMyAdmin 设置页中，单击“添加”可添加 Azure Database for MySQL 服务器。 提供连接详细信息和登录信息。
-- 创建适当命名的数据库，并在屏幕左侧选中该数据库。 若要重写现有数据库，单击数据库名称，选中所有表名称旁边的复选框，然后选择“删除”，删除现有表。 
-- 单击“SQL”链接，显示可在其中键入 SQL 命令或上传 SQL 文件的页面。 
-- 使用“浏览”按钮查找数据库文件。 
-- 单击“执行”按钮，导出备份、执行 SQL 命令并重新创建数据库。
+1. 打开 phpMyAdmin。 
+2. 在 phpMyAdmin 设置页中，单击“添加”可添加 Azure Database for MySQL 服务器。 提供连接详细信息和登录信息。
+3. 创建适当命名的数据库，并在屏幕左侧选中该数据库。 若要重写现有数据库，请单击数据库名称，选中所有表名称旁边的复选框，再选择“删除”以删除现有表。 
+4. 单击“SQL”链接，显示可在其中键入 SQL 命令或上传 SQL 文件的页面。 
+5. 使用“浏览”按钮查找数据库文件。 
+6. 单击“执行”按钮，导出备份、执行 SQL 命令并重新创建数据库。
 
 ## <a name="next-steps"></a>后续步骤
-[将应用程序连接到 Azure Database for MySQL](./howto-connection-string.md)
+[将应用程序连接到 Azure Database for MySQL](./howto-connection-string.md)。

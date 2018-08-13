@@ -2,21 +2,22 @@
 title: Azure CLI 脚本 - 下载 Azure Database for MySQL 中的服务器日志
 description: 此示例 Azure CLI 脚本演示如何启用和下载 Azure Database for MySQL 服务器的服务器日志。
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
-manager: kfile
+author: WenJason
+ms.author: v-jay
+manager: digimobile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: sample
 ms.custom: mvc
-ms.date: 06/16/2018
-ms.openlocfilehash: 2cecb467499e0036ac379ae926cfe1d5dfa13fb3
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+origin.date: 02/28/2018
+ms.date: 08/13/2018
+ms.openlocfilehash: 9112d74f34c905347cb6f501b7934dfda52dc1fb
+ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873476"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39722933"
 ---
 # <a name="enable-and-download-server-slow-query-logs-of-an-azure-database-for-mysql-server-using-azure-cli"></a>使用 Azure CLI 启用和下载 Azure Database for MySQL 服务器的服务器慢查询日志
 
@@ -31,61 +32,57 @@ ms.locfileid: "37873476"
 ```cli
 #!/bin/bash
 
+# Add the Azure CLI extension 
+az extension add --name rdbms
+
 # Create a resource group
 az group create \
---name myresource \
---location westus
+--name myresourcegroup  \
+--location chinaeast2
 
 # Create a MySQL server in the resource group
 # Name of a server maps to DNS name and is thus required to be globally unique in Azure
 # Substitute the <server_admin_password> with your own value
 az mysql server create \
---name mysqlserver4demo \
---resource-group myresource \
---location westus \
+--name mydemoserver \
+--resource-group myresourcegroup \
+--location chinaeast2 \
 --admin-user myadmin \
 --admin-password <server_admin_password> \
---performance-tier Basic \
---compute-units 50
+--sku-name GP_Gen5_2 \
 
 # List the configuration options for review
 az mysql server configuration list \
---resource-group myresource \
---server mysqlserver4demo
+--resource-group myresourcegroup  \
+--server mydemoserver
 
-# Turn on slow query log
+# Turn on statement level log
 az mysql server configuration set \
---name slow_query_log \
---resource-group myresource \
---server mysqlserver4demo \
---value ON
+--name log_statement \
+--resource-group myresourcegroup \
+--server mydemoserver \
+--value all
 
-# Set long query time to 10 sec
+# Set log_min_duration_statement time to 10 sec
 az mysql server configuration set \
---name long_query_time \
---resource-group myresource \
---server mysqlserver4demo \
---value 10
-
-# Turn off the logging of slow admin statement
-az mysql server configuration set \
---name log_slow_admin_statements \
---resource-group myresource \
---server mysqlserver4demo \
---value OFF
+--name log_min_duration_statement \
+--resource-group myresourcegroup \
+--server mydemoserver \
+--value 10000
 
 # List the available log files and direct to a text file
 az mysql server-logs list \
---resource-group myresource \
---server mysqlserver4demo > log_files_list.txt
+--resource-group myresourcegroup \
+--server mydemoserver > log_files_list.txt
 
-# Download logs to your environment
-# Use "cat log_files_list.txt" to find the server log file name
+# Download log file from Azure 
+# Review log_files_list.txt to find the server log file name for the desired timeframe
 # Substitute the <log_file_name> with your server log file name
+# Creates the postgresql-<date>_000000.log file in the current command line path
 az mysql server-logs download \
 --name <log_file_name> \
---resource-group myresource \
---server mysqlserver4demo
+--resource-group myresourcegroup \
+--server mydemoserver
 ```
 
 ## <a name="clean-up-deployment"></a>清理部署

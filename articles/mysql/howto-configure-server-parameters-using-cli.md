@@ -2,20 +2,21 @@
 title: 在 Azure Database for MySQL 中配置服务参数
 description: 本文介绍如何使用 Azure CLI 命令行实用工具在 Azure Database for MySQL 中配置服务参数。
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
-manager: kfile
+author: WenJason
+ms.author: v-jay
+manager: digimobile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 06/16/2018
-ms.openlocfilehash: 07edd00e00e077e23af5c71a4d2d2d14a718dfd9
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+origin.date: 02/28/2018
+ms.date: 08/13/2018
+ms.openlocfilehash: d67b86bb167fdf6e27b16529c9db6a9fe8120f15
+ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873636"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39723015"
 ---
 # <a name="customize-server-configuration-parameters-by-using-azure-cli"></a>使用 Azure CLI 自定义服务器配置参数
 
@@ -32,7 +33,7 @@ ms.locfileid: "37873636"
 ## <a name="list-server-configuration-parameters-for-azure-database-for-mysql-server"></a>列出 Azure Database for MySQL 服务器的服务器配置参数
 若要列出服务器中的所有可修改参数及其值，请运行 [az mysql server configuration list](/cli/mysql/server/configuration#az_mysql_server_configuration_list) 命令。
 
-可以列出资源组“myresourcegroup”下服务器 **mydemoserver.database.chinacloudapi.cn** 的服务器配置参数。
+可以列出资源组“myresourcegroup”下服务器 **mydemoserver.mysql.database.chinacloudapi.cn** 的服务器配置参数。
 ```cli
 az mysql server configuration list --resource-group myresourcegroup --server mydemoserver
 ```
@@ -41,14 +42,14 @@ az mysql server configuration list --resource-group myresourcegroup --server myd
 ## <a name="show-server-configuration-parameter-details"></a>显示服务器配置参数详细信息
 若要显示服务器的某个特定配置参数的详细信息，请运行 [az mysql server configuration show](/cli/mysql/server/configuration#az_mysql_server_configuration_show) 命令。
 
-本示例显示了资源组“myresourcegroup”下服务器 **mydemoserver.database.chinacloudapi.cn** 的服务器配置参数 **slow\_query\_log** 的详细信息。
+本示例显示了资源组“myresourcegroup”下服务器 **mydemoserver.mysql.database.chinacloudapi.cn** 的服务器配置参数 **slow\_query\_log** 的详细信息。
 ```cli
 az mysql server configuration show --name slow_query_log --resource-group myresourcegroup --server mydemoserver
 ```
 ## <a name="modify-a-server-configuration-parameter-value"></a>修改服务器配置参数值
 此外，你还可以修改某个服务器配置参数的值，这会更新 MySQL 服务器引擎的基础配置值。 若要更新配置，请使用 [az mysql server configuration set](/cli/mysql/server/configuration#az_mysql_server_configuration_set) 命令。 
 
-更新资源组“myresourcegroup”下服务器 **mydemoserver.database.chinacloudapi.cn** 的服务器配置参数 **slow\_query\_log**。
+更新资源组“myresourcegroup”下服务器 **mydemoserver.mysql.database.chinacloudapi.cn** 的服务器配置参数 **slow\_query\_log**。
 ```cli
 az mysql server configuration set --name slow_query_log --resource-group myresourcegroup --server mydemoserver --value ON
 ```

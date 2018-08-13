@@ -7,14 +7,14 @@ manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 origin.date: 05/15/2017
-ms.date: 07/06/2018
+ms.date: 08/08/2018
 ms.author: v-junlch
-ms.openlocfilehash: 16adc76f1b9cde45ebad5b70712dde5ea4c66b9f
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.openlocfilehash: e7a7efe390d26d5f78fb78fcb18c0df1e5ae9e82
+ms.sourcegitcommit: 543a18c71c0910a5b9878a2d2668f317468906f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873423"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39625520"
 ---
 # <a name="install-azure-backup-server-v2"></a>安装 Azure 备份服务器 v2
 
@@ -68,7 +68,7 @@ Azure 备份服务器可帮助保护虚拟机 (VM)、工作负荷、文件和文
 
     检查可能需要几分钟。 检查完成之后，选择“下一步”。
 
-    ![安装程序 - SQL 设置“检查并安装”按钮](./media/backup-mabs-upgrade-to-v2/mabs-installer-s5a-check-and fix-settings.png)
+    ![安装程序 - SQL 设置“检查并安装”按钮](./media/backup-mabs-upgrade-to-v2/mabs-installer-s5a-check-and-fix-settings.png)
 
 8. 在“安装设置”页上，对安装备份服务器的位置或“暂存位置”进行任何更改。 选择“**下一步**”。
 
@@ -284,4 +284,4 @@ Azure 备份服务器和 OS 均更新后，便可以使用新式备份存储保�
 - [将 Modern Backup Storage 与备份服务器配合使用](backup-mabs-add-storage.md)
 
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: image update -->

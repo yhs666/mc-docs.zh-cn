@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 07/17/2017
 ms.date: 06/25/2018
 ms.author: v-haiqya
-ms.openlocfilehash: 0260ff8f98917d39d68118adf2338aa06d08b199
-ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
+ms.openlocfilehash: 6d9565e0b98212895deb63cfb31b3d11bef54238
+ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36748436"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39723123"
 ---
 # <a name="using-azure-media-packager-to-accomplish-static-packaging-tasks"></a>使用 Azure 媒体包装器完成静态打包任务
 > [!NOTE]
@@ -352,7 +352,7 @@ ms.locfileid: "36748436"
                 IAsset outputAsset = CreateSmoothStreamEncryptedWithPlayReady(clearSmoothStreamAsset);
 
 
-                // You can use the http://smf.cloudapp.net/healthmonitor player 
+                // You can use the http://smf.chinacloudapp.cn/healthmonitor player 
                 // to test the smoothStreamURL URL.
                 string smoothStreamURL = outputAsset.GetSmoothStreamingUri().ToString();
                 Console.WriteLine("Smooth Streaming URL:");

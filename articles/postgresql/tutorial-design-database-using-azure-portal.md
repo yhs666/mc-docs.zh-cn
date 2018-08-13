@@ -2,20 +2,21 @@
 title: 教程：使用 Azure 门户设计 Azure Database for PostgreSQL
 description: 本教程演示如何使用 Azure 门户设计第一个 Azure Database for PostgreSQL。
 services: postgresql
-author: v-chenyh
-ms.author: v-chenyh
-manager: kfile
+author: WenJason
+ms.author: v-jay
+manager: digimobile
 editor: jasonwhowell
 ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
-ms.date: 06/22/2018
-ms.openlocfilehash: 62b53a636c805f5cab0cbc186140fc4a9e0c95f2
-ms.sourcegitcommit: d744d18624d2188adbbf983e1c1ac1110d53275c
+origin.date: 03/20/2018
+ms.date: 08/13/2018
+ms.openlocfilehash: 31c88673e47ba6644b96786792c042fe6832ea67
+ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36314406"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39723042"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql-using-the-azure-portal"></a>教程：使用 Azure 门户设计 Azure Database for PostgreSQL
 
@@ -30,6 +31,9 @@ ms.locfileid: "36314406"
 > * 查询数据
 > * 更新数据
 > * 还原数据
+
+## <a name="prerequisites"></a>先决条件
+如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
 
 ## <a name="log-in-to-the-azure-portal"></a>登录到 Azure 门户
 登录到 [Azure 门户](https://portal.azure.cn)。
@@ -57,7 +61,7 @@ ms.locfileid: "36314406"
    > [!IMPORTANT]
    > 此处指定的服务器管理员登录名和密码是以后在本教程中登录到服务器及其数据库所必需的。 请牢记或记录此信息，以后会使用到它。
 
-4.  单击“定价层”以指定新服务器的定价层。 对于本教程，请选择“常规用途”、“第 4 代”计算代，2 个 **vCore**、5 GB 的**存储**和 7 天的**备份保留期**。 选择“异地冗余”备份冗余选项，以便将服务器的自动备份存储到异地冗余存储中。
+4.  单击“定价层”以指定新服务器的定价层。 对于本教程，请选择“常规用途”、“第 5 代”计算代，2 个 **vCore**、5 GB 的**存储**和 7 天的**备份保留期**。 选择“异地冗余”备份冗余选项，以便将服务器的自动备份存储到异地冗余存储中。
  ![Azure Database for PostgreSQL - 选取定价层](./media/tutorial-design-database-using-azure-portal/2-pricing-tier.png)
 
 5.  单击“确定” 。
@@ -123,10 +127,10 @@ Azure Database for PostgreSQL 服务在服务器级别使用防火墙。 默认�
    psql --host=<myserver> --port=<port> --username=<server admin login> --dbname=<database name>
    ```
 
-   例如，以下命令使用访问凭据连接到 PostgreSQL 服务器 **mydemoserver.database.chinacloudapi.cn** 上名为“postgres”的默认数据库。 在出现提示时输入服务器管理员密码。
+   例如，以下命令使用访问凭据连接到 PostgreSQL 服务器 **mydemoserver.postgres.database.chinacloudapi.cn** 上名为“postgres”的默认数据库。 在出现提示时输入服务器管理员密码。
 
    ```bash
-   psql --host=mydemoserver.database.chinacloudapi.cn --port=5432 --username=myadmin@mydemoserver --dbname=postgres
+   psql --host=mydemoserver.postgres.database.chinacloudapi.cn --port=5432 --username=myadmin@mydemoserver --dbname=postgres
    ```
 
 ## <a name="create-a-new-database"></a>新建数据库

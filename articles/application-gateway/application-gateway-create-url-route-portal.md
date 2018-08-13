@@ -9,14 +9,14 @@ ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 origin.date: 03/26/2018
-ms.date: 06/07/2018
+ms.date: 08/08/2018
 ms.author: v-junlch
-ms.openlocfilehash: 785e8f0363fd0aec9ebd15f4063ee6bcd43c1dfd
-ms.sourcegitcommit: 4fe9905d17a8df9f2270543a5a0ce1762a5830c9
+ms.openlocfilehash: a88bd4ee3dab95077202f1a093b78553adb52719
+ms.sourcegitcommit: a1c6a743b4be62477e7debfc9ea5f03afca2bc8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34855777"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39625176"
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>通过 Azure 门户使用基于路径的路由规则创建应用程序网关
 
@@ -102,7 +102,7 @@ ms.locfileid: "34855777"
 2. 运行以下命令以在虚拟机上安装 IIS： 
 
     ```azurepowershell
-    $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/davidmu1/samplescripts/master/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
+    $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
     Set-AzureRmVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -Location chinanorth `
@@ -140,8 +140,8 @@ ms.locfileid: "34855777"
 
 1. 依次单击“规则”、“基于路径”。
 2. 输入 *rule2* 作为名称。
-3. 输入 *Images* 作为第一个路径的名称。 输入 */images/** 作为路径。 选择后端池的 **imagesBackendPool**。
-4. 输入 *Video* 作为第二个路径的名称。 输入 */video/** 作为路径。 选择后端池的 **videoBackendPool**。
+3. 输入 *Images* 作为第一个路径的名称。 输入 */images/*\* 作为路径。 选择后端池的 **imagesBackendPool**。
+4. 输入 *Video* 作为第二个路径的名称。 输入 */video/*\* 作为路径。 选择后端池的 **videoBackendPool**。
 
     ![创建基于路径的规则](./media/application-gateway-create-url-route-portal/application-gateway-route-rule.png)
 
@@ -178,4 +178,4 @@ ms.locfileid: "34855777"
 
 若要详细了解应用程序网关及其关联的资源，请继续阅读操作指南文章。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->

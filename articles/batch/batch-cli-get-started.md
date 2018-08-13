@@ -13,21 +13,21 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
 origin.date: 09/28/2017
-ms.date: 03/07/2018
+ms.date: 08/09/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b51c11a179ccdba1abd4b824e665c6182ede5c33
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.openlocfilehash: 3c672b5c724f1446294d0b648b49bea54eccbcb7
+ms.sourcegitcommit: f8bb533368ab2ef8efdf47e186672993ad8334cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30155510"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39722325"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>使用 Azure CLI 管理 Batch 资源
 
 Azure CLI 2.0 是 Azure 的新命令行体验，用于管理 Azure 资源。 它可以在 macOS、Linux 和 Windows 上使用。 Azure CLI 2.0 已经过优化，可以从命令行管理 Azure 资源。 可以使用 Azure CLI 管理 Azure Batch 帐户，以及管理池、作业、任务等资源。 对于通过 Batch API、Azure 门户和 Batch PowerShell cmdlet 执行的任务，许多都可以使用 Azure CLI 来编写脚本。
 
-本文概述如何将 [Azure CLI 2.0 版](/cli/overview)与 Batch 配合使用。 请参阅 [Azure CLI 2.0 入门](/cli/get-started-with-azure-cli)，大致了解如何将 CLI 与 Azure 配合使用。
+本文概述如何将 [Azure CLI 2.0 版](/cli)与 Batch 配合使用。 请参阅 [Azure CLI 2.0 入门](/cli/get-started-with-azure-cli)，大致了解如何将 CLI 与 Azure 配合使用。
 
 Microsoft 建议使用最新版的 Azure CLI，即 2.0 版。 有关 2.0 版的详细信息，请参阅 [Azure Command Line 2.0 now generally available](https://azure.microsoft.com/blog/announcing-general-availability-of-vm-storage-and-network-azure-cli-2-0/)（Azure 命令行 2.0 现已公开发布）。
 
@@ -177,15 +177,14 @@ az batch task list --job-id job001
 - 使用 `-v` 和 `-vv` 显示**详细的**命令输出。 包括 `-vv` 标志时，Azure CLI 显示实际的 REST 请求和响应。 使用这些开关可以方便地显示完整的错误输出。
 - 可以使用 `--json` 选项查看 **JSON 格式的命令输出**。 例如， `az batch pool show pool001 --json` 以 JSON 格式显示 pool001 的属性。 然后，可以复制并修改此输出，以便在 `--json-file` 中使用（请参阅本文前面的 [JSON 文件](#json-files) ）。
 <!---Loc Comment: Please, check link [JSON files] since it's not redirecting to any location.--->
-- [Batch 论坛][batch_forum]由 Batch 团队成员监管。 如果遇到问题或需要具体操作方面的帮助，可将问题发布到该论坛。
+
 
 ## <a name="next-steps"></a>后续步骤
 
-- 有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](/cli/overview)。
+- 有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](/cli)。
 - 有关 Batch 资源的详细信息，请参阅[适用于开发人员的 Azure Batch 概述](batch-api-basics.md)。
 - 若要详细了解如何在不编写代码的情况下使用 Batch 模板来创建池、作业和任务，请参阅[使用 Azure Batch CLI 模板和文件传输（预览版）](batch-cli-templates.md)。
 
-[batch_forum]: https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch
 [github_readme]: https://github.com/Azure/azure-xplat-cli/blob/dev/README.md
 [rest_api]: https://msdn.microsoft.com/library/azure/dn820158.aspx
 [rest_add_pool]: https://msdn.microsoft.com/library/azure/dn820174.aspx

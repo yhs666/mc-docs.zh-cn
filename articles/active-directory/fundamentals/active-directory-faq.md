@@ -14,14 +14,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.devlang: na
 origin.date: 12/14/2017
-ms.date: 06/22/2018
+ms.date: 08/07/2018
 ms.author: v-junlch
-ms.openlocfilehash: 4c81f6d7354f72986bba39c352038b9b60c9eb09
-ms.sourcegitcommit: 37a1524d71895b17b6f1d125053ad0b251b88df1
+ms.openlocfilehash: 32c618af87b4f1c1971735672a63101867039310
+ms.sourcegitcommit: 7cdf4633aea04e524cb48cb1990b750ae8be841c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39097114"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39584248"
 ---
 # <a name="azure-active-directory-faq"></a>Azure Active Directory 常见问题
 Azure Active Directory (Azure AD) 是综合性的标识即服务 (IDaaS) 解决方案，涉及到标识、访问管理和安全的方方面面。
@@ -52,7 +52,7 @@ Azure AD 付费型服务（例如企业移动性 + 安全性）可通过综合�
 如果其他人需要使用同一个订阅登录和访问服务，则可将其添加为共同管理员。 此角色具有与服务管理员一样的访问特权，但不能更改订阅与 Azure 目录之间的关联关系。  
 
 
-Azure AD 提供另一组管理员角色来管理与目录和标识相关的功能。  这些管理员将有权访问 Azure 门户中的各种功能。 管理员的角色决定了其所能执行的操作，例如创建或编辑用户、向其他用户分配管理角色、重置用户密码、管理用户许可证，或者管理域。  有关 Azure AD 目录管理员及其角色的其他信息，请参阅[在 Azure Active Directory 中分配管理员角色](../active-directory-assign-admin-roles-azure-portal.md)。
+Azure AD 提供另一组管理员角色来管理与目录和标识相关的功能。  这些管理员将有权访问 Azure 门户中的各种功能。 管理员的角色决定了其所能执行的操作，例如创建或编辑用户、向其他用户分配管理角色、重置用户密码、管理用户许可证，或者管理域。  有关 Azure AD 目录管理员及其角色的其他信息，请参阅[在 Azure Active Directory 中分配管理员角色](../users-groups-roles/directory-assign-admin-roles.md)。
 
 另外，Azure AD 付费型服务（例如企业移动性 + 安全性）可通过综合性的企业级管理和安全解决方案来弥补其他 Web 服务（例如 Office 365 和 Azure）的不足。
 
@@ -175,4 +175,4 @@ Azure AD 提供另一组管理员角色来管理与目录和标识相关的功�
 
 **答：** 不可以。 Azure AD 不支持 LDAP 协议。
 
-<!--Update_Description: wording update -->
+<!--Update_Description: link update -->

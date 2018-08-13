@@ -7,16 +7,16 @@ tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: tutorial
 ms.workload: infrastructure-services
-origin.date: 03/22/2018
-ms.date: 07/02/2018
+origin.date: 07/13/2018
+ms.date: 08/07/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 925d050a652d6b94de5623e985501a7fd8ebad86
-ms.sourcegitcommit: f0bfa3f8dca94099a2181492952e6a575fbdbcc8
+ms.openlocfilehash: ea41f6a061cbf12ae447297fda2a99a929399023
+ms.sourcegitcommit: a1c6a743b4be62477e7debfc9ea5f03afca2bc8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37142668"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39625189"
 ---
 # <a name="create-an-application-gateway-with-ssl-termination-using-azure-powershell"></a>通过 Azure PowerShell 使用 SSL 终端创建应用程序网关
 
@@ -256,7 +256,7 @@ New-AzureRmVmss `
 ### <a name="install-iis"></a>安装 IIS
 
 ```azurepowershell
-$publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/davidmu1/samplescripts/master/appgatewayurl.ps1"); 
+$publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1"); 
   "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
 
 $vmss = Get-AzureRmVmss -ResourceGroupName myResourceGroupAG -VMScaleSetName myvmss
@@ -309,3 +309,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroupAG
 > [!div class="nextstepaction"]
 > [创建托管多个网站的应用程序网关](./tutorial-multiple-sites-powershell.md)
 
+<!-- Update_Description: code update -->

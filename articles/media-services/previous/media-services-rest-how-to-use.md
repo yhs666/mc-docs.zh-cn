@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 12/05/2017
 ms.date: 07/30/2018
 ms.author: v-nany
-ms.openlocfilehash: 2205c0a9bd4e564c2b9b14dd5b06576883f41fcf
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+ms.openlocfilehash: a9ee85fbf9b0bb50dc3f77867dae1409e96fd534
+ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219617"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39723063"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>媒体服务操作 REST API 概述
 [!INCLUDE [media-services-selector-setup](../../../includes/media-services-selector-setup.md)]
@@ -45,7 +45,7 @@ ms.locfileid: "39219617"
         MaxDataServiceVersion: 3.0
         x-ms-version: 2.17
         Authorization: Bearer <ENCODED JWT TOKEN> 
-        Host: media.windows.net
+        Host: media.chinacloudapi.cn
   
         {
             "Name" : "NewTestJob", 

@@ -9,14 +9,14 @@ ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 origin.date: 01/25/2018
-ms.date: 07/02/2018
+ms.date: 08/08/2018
 ms.author: v-junlch
-ms.openlocfilehash: 12387435e066c8dfd12d89662148e34eb8113fdd
-ms.sourcegitcommit: f0bfa3f8dca94099a2181492952e6a575fbdbcc8
+ms.openlocfilehash: 9fc28b95f4cd064ad4bb76e3df185e975ddb04f9
+ms.sourcegitcommit: a1c6a743b4be62477e7debfc9ea5f03afca2bc8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37142658"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39625165"
 ---
 # <a name="create-an-application-gateway-and-virtual-machine-scale-set-using-azure-powershell"></a>使用 Azure PowerShell 创建应用程序网关和虚拟机规模集
 
@@ -192,7 +192,7 @@ New-AzureRmVmss `
 ### <a name="install-iis"></a>安装 IIS
 
 ```azurepowershell
-$publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/davidmu1/samplescripts/master/appgatewayurl.ps1"); 
+$publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1"); 
   "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
 $vmss = Get-AzureRmVmss -ResourceGroupName myResourceGroupAG -VMScaleSetName myvmss
 Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss `
@@ -228,3 +228,4 @@ Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublic
 
 若要详细了解应用程序网关及其关联的资源，请继续阅读操作指南文章。
 
+<!-- Update_Description: code update -->

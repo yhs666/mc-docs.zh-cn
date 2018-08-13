@@ -2,19 +2,19 @@
 title: Azure Database for PostgreSQL 中支持的版本
 description: 说明 Azure Database for PostgreSQL 中支持的版本。
 services: postgresql
-author: v-chenyh
-ms.author: v-chenyh
-manager: kfile
+author: WenJason
+ms.author: v-jay
+manager: digimobile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 06/22/2018
-ms.openlocfilehash: 2d731ec5dc8fad6aa7c1fb9eaca7854f9fdf0b57
-ms.sourcegitcommit: d744d18624d2188adbbf983e1c1ac1110d53275c
+ms.openlocfilehash: 89ffe9f9fa1d204abc241eb435c67d04cdd7ad59
+ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36314367"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39723011"
 ---
 # <a name="supported-postgresql-database-versions"></a>支持的 PostgreSQL Database 版本
 Microsoft 计划在 Azure Database for PostgreSQL 服务中支持 n-2 版本的 PostgreSQL 引擎，即当前发布的主要版本 (n) 和两个主要版本 (-2)。

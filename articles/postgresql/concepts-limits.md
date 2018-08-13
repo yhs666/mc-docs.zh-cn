@@ -2,19 +2,20 @@
 title: Azure Database for PostgreSQL 中的限制
 description: 本文介绍了 Azure Database for PostgreSQL 中的限制，例如连接数和存储引擎选项。
 services: postgresql
-author: v-chenyh
-ms.author: v-chenyh
-manager: kfile
+author: WenJason
+ms.author: v-jay
+manager: digimobile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 06/21/2018
-ms.openlocfilehash: f7452ec5e08c0ef1ee6d4690d58d8293f55e9234
-ms.sourcegitcommit: d744d18624d2188adbbf983e1c1ac1110d53275c
+oeigin.date: 06/30/2018
+ms.date: 08/13/2018
+ms.openlocfilehash: 897796741a410603c8df7058607ebe17bf6314af
+ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36314393"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39723129"
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>Azure Database for PostgreSQL 中的限制
 下列各部分介绍数据库服务中的容量和功能限制。
@@ -51,6 +52,9 @@ Azure 系统需要使用五个连接来监视 Azure Database for PostgreSQL 服�
 
 ### <a name="subscription-management"></a>订阅管理
 - 目前不支持跨订阅和资源组动态移动服务器。
+
+### <a name="vnet-service-endpoints"></a>VNet 服务终结点
+- 只有常规用途和内存优化服务器才支持 VNet 服务终结点。
 
 ### <a name="point-in-time-restore-pitr"></a>时间点还原 (PITR)
 - 使用 PITR 功能时，将使用与新服务器所基于的服务器相同的配置创建新服务器。

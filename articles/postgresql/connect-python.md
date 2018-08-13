@@ -2,21 +2,22 @@
 title: 从 Python 连接到 Azure Database for PostgreSQL
 description: 本快速入门提供了一个 Python 代码示例，你可以使用它来连接到 Azure Database for PostgreSQL 并查询其中的数据。
 services: postgresql
-author: v-chenyh
-ms.author: v-chenyh
-manager: kfile
+author: WenJason
+ms.author: v-jay
+manager: digimobile
 editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc, devcenter
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 06/22/2018
-ms.openlocfilehash: d458c4b381bb71c16f375a2edb9592a908e2cf79
-ms.sourcegitcommit: d744d18624d2188adbbf983e1c1ac1110d53275c
+origin.date: 02/28/2018
+ms.date: 08/13/2018
+ms.openlocfilehash: d9bf43e603e7fce1b10434d7de89954f0bdd2834
+ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36314401"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39723126"
 ---
 # <a name="azure-database-for-postgresql-use-python-to-connect-and-query-data"></a>Azure Database for PostgreSQL：使用 Python 进行连接并查询数据
 本快速入门演示了如何使用 [Python](https://python.org) 连接到 Azure Database for PostgreSQL， 同时还演示了如何通过 macOS、Ubuntu Linux 和 Windows 平台，使用 SQL 语句在数据库中查询、插入、更新和删除数据。 本文中的步骤假定你熟悉如何使用 Python 进行开发，但不熟悉如何使用 Azure Database for PostgreSQL。
@@ -75,7 +76,7 @@ ms.locfileid: "36314401"
 import psycopg2
 
 # Update connection string information obtained from the portal
-host = "mydemoserver.database.chinacloudapi.cn"
+host = "mydemoserver.postgres.database.chinacloudapi.cn"
 user = "mylogin@mydemoserver"
 dbname = "mypgsqldb"
 password = "<server_admin_password>"
@@ -119,7 +120,7 @@ conn.close()
 import psycopg2
 
 # Update connection string information obtained from the portal
-host = "mydemoserver.database.chinacloudapi.cn"
+host = "mydemoserver.postgres.database.chinacloudapi.cn"
 user = "mylogin@mydemoserver"
 dbname = "mypgsqldb"
 password = "<server_admin_password>"
@@ -153,7 +154,7 @@ conn.close()
 import psycopg2
 
 # Update connection string information obtained from the portal
-host = "mydemoserver.database.chinacloudapi.cn"
+host = "mydemoserver.postgres.database.chinacloudapi.cn"
 user = "mylogin@mydemoserver"
 dbname = "mypgsqldb"
 password = "<server_admin_password>"
@@ -183,7 +184,7 @@ conn.close()
 import psycopg2
 
 # Update connection string information obtained from the portal
-host = "mydemoserver.database.chinacloudapi.cn"
+host = "mydemoserver.postgres.database.chinacloudapi.cn"
 user = "mylogin@mydemoserver"
 dbname = "mypgsqldb"
 password = "<server_admin_password>"

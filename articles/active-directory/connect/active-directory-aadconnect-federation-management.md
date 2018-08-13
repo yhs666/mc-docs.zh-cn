@@ -4,7 +4,7 @@ description: 使用 Azure AD Connect 管理 AD FS 并使用 Azure AD Connect 和
 keywords: AD FS, ADFS, AD FS 管理, AAD Connect, Connect, 登录, AD FS 自定义, 修复信任, O365, 联合, 信赖方
 services: active-directory
 documentationcenter: ''
-author: anandyadavmsft
+author: billmath
 manager: mtillman
 editor: ''
 ms.assetid: 2593b6c6-dc3f-46ef-8e02-a8e2dc4e9fb9
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/18/2017
-ms.date: 06/22/2018
+ms.date: 08/06/2018
 ms.component: hybrid
 ms.author: v-junlch
 ms.custom: seohack1
-ms.openlocfilehash: 71cd30d4f2618468b8cc2dae9f74876496ed5f1a
-ms.sourcegitcommit: d744d18624d2188adbbf983e1c1ac1110d53275c
+ms.openlocfilehash: cd26ecd0e7671302a00762c09883a9120016e58a
+ms.sourcegitcommit: 7cdf4633aea04e524cb48cb1990b750ae8be841c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36314293"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39584312"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>使用 Azure AD Connect 管理和自定义 Active Directory 联合身份验证服务
 本文介绍如何使用 Azure Active Directory (Azure AD) Connect 管理和自定义 Active Directory 联合身份验证服务 (AD FS)。 另外，还介绍了可能需要针对完整的 AD FS 场配置执行的其他常见 AD FS 任务。
@@ -190,7 +190,7 @@ ms.locfileid: "36314293"
 若要更改“登录”页上显示的公司徽标，请使用以下 Windows PowerShell cmdlet 和语法。
 
 > [!NOTE]
-> 建议徽标维度为 260 x 35 @ 96 dpi，且文件大小不应超过 10 KB。
+> 建议徽标维度为 260 x 35 \@ 96 dpi，且文件大小不应超过 10 KB。
 
     Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.PNG"}
 
@@ -247,33 +247,10 @@ AD FS 支持丰富的声明语言，让你用来创建自定义声明规则。 �
 > 这些规则的顺序非常重要。
 
 ### <a name="sso-with-a-subdomain-upn"></a>具有子域 UPN 的 SSO
-可以使用 Azure AD Connect 添加要联合的多个域（如[添加新联合域](active-directory-aadconnect-federation-management.md#addfeddomain)中所述）。 必须修改用户主体名称 (UPN) 声明，以便颁发者 ID 对应于根域而非子域，因为联合根域也涵盖子级。
 
-默认情况下，发布者 ID 的声明规则设置为：
-
-    c:[Type
-    == “http://schemas.xmlsoap.org/claims/UPN“]
-
-    => issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(c.Value, “.+@(?<domain>.+)“, “http://${domain}/adfs/services/trust/“));
-
-![默认颁发者 ID 声明](./media/active-directory-aadconnect-federation-management/issuer_id_default.png)
-
-默认规则只需使用 UPN 后缀，并将其用于颁发者 ID 声明中。 例如，John 是 sub.contoso.com 中的用户，而 contoso.com 与 Azure AD 联合。 John 在登录到 Azure AD 时输入 john@sub.contoso.com 作为用户名。 AD FS 中的默认颁发者 ID 声明规则按以下方式处理该名称：
-
-    c:[Type
-    == “http://schemas.xmlsoap.org/claims/UPN“]
-
-    => issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(john@sub.contoso.com, “.+@(?<domain>.+)“, “http://${domain}/adfs/services/trust/“));
-
-**声明值：**http://sub.contoso.com/adfs/services/trust/
-
-若要只在颁发者声明值中包含根域，请更改声明规则，使其与以下内容相符：
-
-    c:[Type == “http://schemas.xmlsoap.org/claims/UPN“]
-
-    => issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(c.Value, “^((.*)([.|@]))?(?<domain>[^.]*[.].*)$”, “http://${domain}/adfs/services/trust/“));
+可以使用 Azure AD Connect 添加要联合的多个域（如[添加新联合域](active-directory-aadconnect-federation-management.md#addfeddomain)中所述）。 Azure AD Connect 版本 1.1.553.0 和最新版本会自动为 issuerID 创建正确的声明规则。 如果不能使用 Azure AD Connect 版本 1.1.553.0 或最新版本，则建议使用 [Azure AD RPT 声明规则](https://aka.ms/aadrptclaimrules)工具来为 Azure AD 信赖方信任生成和设置正确的声明规则。
 
 ## <a name="next-steps"></a>后续步骤
 了解有关[用户登录选项](active-directory-aadconnect-user-signin.md)的详细信息。
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

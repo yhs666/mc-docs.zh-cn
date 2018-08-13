@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 03/19/2018
-ms.date: 06/22/2018
+ms.date: 08/06/2018
 ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: c432b573b29c87a4839a0b5c20d048104c2407a0
-ms.sourcegitcommit: d744d18624d2188adbbf983e1c1ac1110d53275c
+ms.openlocfilehash: 9563c2f3f2b7502dcac4eb2cc74720245a6e35a7
+ms.sourcegitcommit: 7cdf4633aea04e524cb48cb1990b750ae8be841c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36314272"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39584245"
 ---
 # <a name="integrate-your-on-premises-directories-with-azure-active-directory"></a>将本地目录与 Azure Active Directory 集成
 Azure AD Connect 会将本地目录与 Azure Active Directory 集成。 这样便可以为集成到 Azure AD 的 Office 365、Azure 和 SaaS 应用程序的用户提供一个通用标识。 本主题指导用户完成规划、部署和操作步骤。 其中统合了与这些操作相关的主题的链接。
@@ -34,8 +34,9 @@ Azure AD Connect 会将本地目录与 Azure Active Directory 集成。 这样�
 
 > 
 > - 将用户同步到 Azure AD 是一项**免费功能**，不需要客户付费购买任何订阅。
->- 同步的用户**不会自动获得***任何*许可证。 管理员仍对许可证分配拥有总体控制权。 
+> - 同步的用户**不会自动获得***任何*许可证。 管理员仍对许可证分配拥有总体控制权。 
 > - Microsoft 建议让 IT 管理员同步其所有用户。 这不仅可以解除阻止用户访问任何 Azure AD 集成资源，而且还能为 IT 管理员提供更宽广的视图，让他们查看其用户正在访问哪些应用程序。 
+> - Microsoft 强烈建议不要在 AAD 中将用户与管理员角色同步。
 
 ![什么是 Azure AD Connect](./media/active-directory-aadconnect/arch.png)
 
@@ -48,8 +49,7 @@ Azure AD Connect 会将本地目录与 Azure Active Directory 集成。 这样�
 ### <a name="how-azure-ad-connect-works"></a>Azure AD Connect 工作原理
 Azure Active Directory Connect 由三个主要组件构成：同步服务、可选的 Active Directory 联合身份验证服务组件。
 
-<center>![Azure AD Connect 堆栈](./media/active-directory-aadconnect-how-it-works/AADConnectStack2.png)
-</center>
+![Azure AD Connect 堆栈](./media/active-directory-aadconnect-how-it-works/AADConnectStack2.png)
 
 - 同步 - 此组件负责创建用户、组和其他对象。 它还负责确保本地用户和组的标识信息与云匹配。
 - AD FS - 联合身份验证是 Azure AD Connect 的可选部件，可用于使用本地 AD FS 基础结构配置混合环境。 组织可以使用此部件来解决复杂的部署，例如域加入 SSO、实施 AD 登录策略以及智能卡或第三方 MFA。
@@ -164,4 +164,5 @@ Azure AD Connect 提供多项功能，简化了使用 AD FS 通过 Azure AD 进�
 
 有关将本地目录扩展到云的 Ignite 2015 演示文稿。
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->
+

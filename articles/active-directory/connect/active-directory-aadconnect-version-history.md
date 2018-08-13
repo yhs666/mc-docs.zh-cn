@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 05/31/2018
-ms.date: 06/26/2018
+ms.date: 08/06/2018
 ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 35cfde5e61d3ba102f7aef1fc517722187685f21
-ms.sourcegitcommit: 5b6a2fc55e5b16ae480bd497c3ac2c3a2fd44703
+ms.openlocfilehash: 5a70306852103942fe702fe79ac9245dd2a287d0
+ms.sourcegitcommit: 7cdf4633aea04e524cb48cb1990b750ae8be841c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38999224"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39584303"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect：版本发布历史记录
 Azure Active Directory (Azure AD) 团队会定期更新 Azure AD Sync 的新特性和功能。 并非所有的新增内容都适用于所有受众。
@@ -912,7 +912,7 @@ AD FS 管理
 
 **新的预览功能：**
 
-- 支持 [Azure AD 域服务](../active-directory-passwords-update-your-own-password.md)密码同步。
+- 支持 [Azure AD 域服务](../user-help/active-directory-passwords-update-your-own-password.md)密码同步。
 
 **新的受支持方案：**
 
@@ -1060,4 +1060,4 @@ AD FS 管理
 ## <a name="next-steps"></a>后续步骤
 了解有关 [将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)的详细信息。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

@@ -12,15 +12,15 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 06/14/2018
-ms.date: 07/09/2018
+origin.date: 07/02/2018
+ms.date: 08/13/2018
 ms.author: v-yeche
-ms.openlocfilehash: f54e3fb3af7cf0431f05f83c071e05c33c1a6dce
-ms.sourcegitcommit: 54851a22f188f2401ed971931132b46febe7014e
+ms.openlocfilehash: 846e00c7d17f281d464795c8b166e52245f8c5b2
+ms.sourcegitcommit: 543a18c71c0910a5b9878a2d2668f317468906f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39361349"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39625549"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>将资源移到新资源组或订阅中
 
@@ -58,7 +58,8 @@ ms.locfileid: "39361349"
 
     如果源订阅和目标订阅的租户 ID 不相同，可使用以下方法协调租户 ID：
 
-    <!-- Not Available on * [Transfer ownership of an Azure subscription to another account](../billing/billing-subscription-transfer.md) --> <!-- Not Available on * [How to associate or add an Azure subscription to Azure Active Directory](../active-directory/active-directory-how-subscriptions-associated-directory.md)--> <!--URL not contains fundamentals directory-->
+    <!-- Not Available on * [Transfer ownership of an Azure subscription to another account](../billing/billing-subscription-transfer.md) --> <!-- Not Available on * [How to associate or add an Azure subscription to Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)-->
+    
     
 2. 服务必须支持移动资源的功能。 本文列出了支持对资源进行移动的服务和不支持对资源进行移动的服务。
 3. 必须针对要移动的资源的资源提供程序注册目标订阅。 否则，会收到错误，指明 **未针对资源类型注册订阅**。 将资源移到新的订阅时，可能会遇到此问题，但该订阅从未配合该资源类型使用。
@@ -117,17 +118,19 @@ ms.locfileid: "39361349"
 * 应用服务应用（Web 应用）- 请参阅[应用服务限制](#app-service-limitations)
 * 应用服务证书 <!-- Not Available * Application Insights-->
 * Analysis Services
-* 自动化
+* 自动化 <!-- Not Available * Azure Active Directory B2C-->
 * Azure Cosmos DB <!-- Not Available * Azure Relay -->
 * Batch <!-- Not Available * Bing Maps -->
 * CDN
 * 云服务 - 请参阅 [经典部署限制](#classic-deployment-limitations)
-* 认知服务 <!-- Not Available * Content Moderator-->
+* 认知服务 <!-- Not Available * Container Registry-->
+<!-- Not Available * Content Moderator-->
 <!-- Not Available * Data Catalog-->
-<!-- Not Available * Data Factory - V1 can be moved, but moving V2 (preview) is not supported-->
+<!-- Not Available * Data Factory -->
 <!-- Not Available * Data Lake Analytics-->
 <!-- Not Available * Data Lake Store-->
 <!-- Not Available * DNS-->
+<!-- Not Available * Event Grid-->
 * 事件中心
 * HDInsight 群集 - 请参阅 [HDInsight 限制](#hdinsight-limitations)
 * IoT 中心
@@ -138,17 +141,17 @@ ms.locfileid: "39361349"
 * 媒体服务 <!-- Not Available * Mobile Engagement-->
 * 通知中心 <!-- Not Available * Operational Insights-->
 <!-- Not Available * Operations Management-->
+* 门户仪表板
 * Power BI - Power BI Embedded 和 Power BI 工作区集合
 * 公共 IP - 请参阅[公共 IP 限制](#pip-limitations)
 * Redis 缓存
 * 计划程序 <!-- Not Available * Search-->
-<!-- Not Available * Server Management-->
 * 服务总线
-* Service Fabric
+* Service Fabric <!-- Not Available * SignalR Service-->
 * 存储
 * 存储（经典）- 请参阅[经典部署限制](#classic-deployment-limitations)
 * 流分析 - 当流分析作业处于运行状态时，则无法进行移动。
-* SQL 数据库服务器 - 数据库和服务器必须位于同一个资源组中。 移动 SQL 服务器时，也会移动其所有数据库。 此行为适用于 Azure SQL 数据库和 Azure SQL 数据仓库数据库。 
+* SQL 数据库服务器 - 数据库和服务器必须位于同一个资源组中。 移动 SQL 服务器时，也会移动其所有数据库。 此行为适用于 Azure SQL 数据库和 Azure SQL 数据仓库数据库。
 * 流量管理器
 * 虚拟机 - 包含托管磁盘的 VM 无法移动。 请参阅[虚拟机限制](#virtual-machines-limitations)
 * 虚拟机（经典）- 请参阅[经典部署限制](#classic-deployment-limitations)
@@ -163,20 +166,23 @@ ms.locfileid: "39361349"
 <!-- Not Available * AD Domain Services-->
 * AD 混合运行状况服务
 * 应用程序网关
-* Azure Database for MySQL <!-- Not Available * Azure Database for PostgreSQL-->
-<!-- Not Available * Azure Migrate-->
-<!-- Not Available * BizTalk Services-->
+* Azure Database for MySQL
+* Azure Database for PostgreSQL <!-- Not Available * Azure Database Migration-->
+<!-- Not Available * Azure Databricks-->
 * 证书 - 应用服务证书可以移动，但上传的证书存在[限制](#app-service-limitations)。
 <!-- Not Available * Container Service-->
-<!-- Not Available * DevTest Labs - move to new resource group in same subscription is enabled, but cross subscription move is not enabled.-->
 <!-- Not Available * Dynamics LCS-->
 * Express Route <!-- Not Available * Kubernetes Service-->
+<!-- Not Available * Lab Services-->
 * 负载均衡器 - 请参阅[负载均衡器限制](#lb-limitations)
 <!-- Not Available * Managed Applications-->
 * 托管磁盘 - 请参阅[虚拟机限制](#virtual-machines-limitations)
+<!-- Not Available * Azure Genomics-->
 * 公共 IP - 请参阅[公共 IP 限制](#pip-limitations)
 * 恢复服务保管库 - 此外，也不可以移动与恢复服务保管库关联的计算、网络和存储资源，请参阅[恢复服务限制](#recovery-services-limitations)。
-* 安全性 <!-- Not Available * StorSimple Device Manager-->
+<!-- Not Available * SAP HANA on Azure-->
+* 安全性
+* Site Recovery <!-- Not Available * StorSimple Device Manager-->
 * 虚拟网络（经典）- 请参阅[经典部署限制](#classic-deployment-limitations)
 
 ## <a name="virtual-machines-limitations"></a>虚拟机限制

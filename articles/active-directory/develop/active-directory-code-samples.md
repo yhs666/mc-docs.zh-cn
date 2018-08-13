@@ -14,16 +14,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 04/24/2018
-ms.date: 07/03/2018
+ms.date: 08/06/2018
 ms.author: v-junlch
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7afa8a9e25c359d57dbf4f331f4f209fc9c17283
-ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
+ms.openlocfilehash: bd13568afe417c9335e93ea0bf9335e37f351843
+ms.sourcegitcommit: 7cdf4633aea04e524cb48cb1990b750ae8be841c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37800414"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39584291"
 ---
 # <a name="azure-active-directory-code-samples-v1-endpoint"></a>Azure Active Directory 代码示例（V1 终结点）
 
@@ -107,9 +107,11 @@ ASP.NET 4.5 | [dotnet-webapi-onbehalfof-ca](https://github.com/azure-samples/act
 
 此示例展示了如何编写受 Azure AD 保护的单页面应用程序。
 
- 平台 |  调用 Microsoft Graph | 调用自身的 API
- -------- |  --------------------- | -------------------------
-JavaScript (Angular) / ASP.NET 4.x |  | [angularjs-singlepageapp](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp)
+ 平台 |  调用 Microsoft Graph | 调用自身的 API | 调用其他 Web API
+ -------- |  --------------------- | ------------------ | ----------------
+JavaScript / ASP.NET 4.x |  | [javascript-singlepageapp](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) |
+JavaScript (AngularJS) / ASP.NET 4.x |  | [angularjs-singlepageapp](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp) |
+JavaScript (AngularJS) / ASP.NET 4.x |  |  | [angularjs-singlepageapp-cors](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp-dotnet-webapi)
 
 ## <a name="other-microsoft-graph-samples"></a>其他 Microsoft Graph 示例
 
@@ -123,3 +125,4 @@ JavaScript (Angular) / ASP.NET 4.x |  | [angularjs-singlepageapp](https://github
 
 [Azure AD 图形 API 帮助程序库](https://www.nuget.org/packages/Microsoft.Azure.ActiveDirectory.GraphClient)
 
+<!-- Update_Description: wording update -->

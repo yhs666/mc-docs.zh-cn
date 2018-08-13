@@ -9,12 +9,12 @@ origin.date: 07/05/2018
 ms.date: 07/30/2018
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: bda70dc037ad591ce694bc8c8a4c1939fb025979
-ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
+ms.openlocfilehash: b6017c03af250348775368ebd20892d2c76be5f2
+ms.sourcegitcommit: 62a0389a743cd18665bd127e9bf14800867008eb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39307271"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39625660"
 ---
 Azure 定期执行更新，以提高虚拟机的主机基础结构的可靠性、性能及安全性。 此类更新包括修补宿主环境（例如操作系统、虚拟机监控程序以及主机上部署的各种代理）中的软件组件、升级网络组件以及硬件解除授权等多项内容。 大多数此类更新在执行时不会影响托管的虚拟机。 但是，也会存在更新产生影响的情况：
 
@@ -56,7 +56,8 @@ Azure 定期执行更新，以提高虚拟机的主机基础结构的可靠性�
 
 #### <a name="paired-regions"></a>配对区域
 
-每个 Azure 区域与同一地理位置中另一个区域配对，共同组成一个区域对。 在计划性维护期间，Azure 只会更新一个区域对中单个区域的 VM。 例如，更新中国北部的虚拟机时，Azure 不会同时更新中国东部的任何虚拟机。 但是，中国北部等其他区域可以与中国东部同时进行维护。 了解区域对的工作原理有助于更好地跨区域分配 VM。
+每个 Azure 区域与同一地理位置中另一个区域配对，共同组成一个区域对。 在计划性维护期间，Azure 只会更新一个区域对中单个区域的 VM。 例如，更新中国北部的虚拟机时，Azure 不会同时更新中国东部的任何虚拟机。 了解区域对的工作原理有助于更好地跨区域分配 VM。
+<!-- Not Available on However, other regions such as China North can be under maintenance at the same time as China East. -->
 <!-- Not Available on  For more information, see [Azure region pairs](/best-practices-availability-paired-regions) -->
 
 #### <a name="availability-sets-and-scale-sets"></a>可用性集和规模集

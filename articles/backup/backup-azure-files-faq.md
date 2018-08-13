@@ -5,26 +5,26 @@ services: backup
 author: markgalioto
 ms.author: v-junlch
 origin.date: 02/21/2018
-ms.date: 07/05/2018
+ms.date: 08/08/2018
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 4261a4c336fd1a264dc533d445cc9e98cba24021
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.openlocfilehash: 67ebba7d09df2b3d7e005a72a0dd289a7b8166ea
+ms.sourcegitcommit: 543a18c71c0910a5b9878a2d2668f317468906f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873518"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39625473"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>有关如何备份 Azure 文件的问题
-本文回答了有关如何备份 Azure 文件的常见问题。 某些答案提供内含全面信息的文章的链接。 还可以在 [论坛](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)中发布有关 Azure 备份服务的问题。
+本文回答了有关如何备份 Azure 文件的常见问题。 某些答案提供内含全面信息的文章的链接。 也可以在 [论坛](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)中发布有关 Azure 备份服务的问题。
 
 若要快速浏览本文的各个部分，请使用右侧“本文内容”下的链接。
 
 ## <a name="configuring-the-backup-job-for-azure-files"></a>为 Azure 文件配置备份作业
 
 ### <a name="why-cant-i-see-some-of-my-storage-accounts-i-want-to-protect-that-contain-valid-azure-file-shares-br"></a>为什么我看不到需要保护的部分存储帐户？这些帐户中包含的 Azure 文件共享都是有效的。 <br/>
-在预览期间，Azure 文件共享的备份并不支持所有类型的存储帐户。 请参阅[此处](troubleshoot-azure-files.md#preview-boundaries)的列表，了解一系列受支持的存储帐户。 还有一种可能是，要查找的存储帐户已受保护或已注册到另一保管库中。 从保管库中[注销](troubleshoot-azure-files.md#configuring-backup)可发现其他保管库中要保护的存储帐户。
+在预览期间，Azure 文件共享的备份并不支持所有类型的存储帐户。 请参阅[此处](troubleshoot-azure-files.md#limitations-for-azure-file-share-backup-during-preview)的列表，了解一系列受支持的存储帐户。 还有一种可能是，要查找的存储帐户已受保护或已注册到另一保管库中。 从保管库中[注销](troubleshoot-azure-files.md#configuring-backup)可发现其他保管库中要保护的存储帐户。
 
 ### <a name="why-cant-i-see-some-of-my-azure-file-shares-in-the-storage-account-when-im-trying-to-configure-backup-br"></a>尝试配置备份时，为什么看不到存储帐户中的部分 Azure 文件共享？ <br/>
 检查是否已在同一恢复服务保管库中对 Azure 文件共享进行保护，或者已在最近将其删除。
@@ -40,12 +40,12 @@ ms.locfileid: "37873518"
 
 
 ### <a name="how-many-azure-file-shares-can-i-protect-in-a-vaultbr"></a>可以在保管库中保护多少 Azure 文件共享？<br/>
-在预览期间，一个保管库中最多可以保护 25 个存储帐户的 Azure 文件共享。 也可在单个保管库中保护多达 200 个 Azure 文件共享。
+在预览期，一个保管库中最多可以保护 50 个存储帐户的 Azure 文件共享。 也可在单个保管库中保护多达 200 个 Azure 文件共享。
 
 ### <a name="can-i-protect-two-different-file-shares-from-the-same-storage-account-to-different-vaults"></a>是否可以在不同的保管库中对同一存储帐户中的两个不同的文件共享进行保护？
-否。 只能由同一保管库对某个存储帐户中的所有文件共享进行保护。
+不是。 只能由同一保管库对某个存储帐户中的所有文件共享进行保护。
 
-## <a name="backup"></a>Backup
+## <a name="backup"></a>备份
 
 ### <a name="how-many-on-demand-backups-can-i-take-per-file-share-br"></a>每个文件共享可以进行多少个按需备份？ <br/>
 在任何时间点，最多可以有一个文件共享的 200 个快照。 此限制包括由 Azure 备份根据策略的定义创建的快照。 如果在达到此限制后无法进行备份，请删除按需还原点，以便将来能够成功地进行备份。

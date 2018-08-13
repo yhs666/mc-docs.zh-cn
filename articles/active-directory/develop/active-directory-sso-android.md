@@ -13,101 +13,52 @@ ms.workload: identity
 ms.tgt_pltfrm: android
 ms.devlang: java
 ms.topic: article
-origin.date: 04/07/2017
-ms.date: 07/03/2018
+origin.date: 06/13/2018
+ms.date: 08/06/2018
 ms.author: v-junlch
 ms.reviewer: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 4e5fa8382b636b5ad3aff81e86f0b5ddba7b81ff
-ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
+ms.openlocfilehash: 4bfd90c09d8f10fa7aee34cd7f9f85d7220a94d4
+ms.sourcegitcommit: 7cdf4633aea04e524cb48cb1990b750ae8be841c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37800494"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39584279"
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>如何使用 ADAL 在 Android 上启用跨应用 SSO
-客户现在都希望提供单一登录 (SSO)，以便用户只需输入一次凭据，然后这些凭据就会自动在多个应用程序中生效。 要用户在一个小屏幕上输入用户名和密码，这本身就是一项很难的操作，通常还伴有其他身份验证方式 (2FA)，例如电话呼叫或短信代码。如果在使用产品时必须多次执行这些操作，用户很快就会产生不满情绪。
+提供单一登录 (SSO) 以便用户只需输入一次凭据并使这些凭据能够自动跨应用程序工作，已成为一项行业标准。 要用户在一个小屏幕上输入用户名和密码，这本身就是一项很难的操作，通常还伴有其他身份验证方式 (2FA)，例如电话呼叫或短信代码，如果用户必须多次登录，将会很快导致不满。
 
-此外，如果应用其他应用程序可以使用的标识平台（例如 Microsoft 帐户或 Office365 中的工作帐户），客户会希望不管供应商是谁，他们都可以在所有应用程序中使用这些凭据。
+此外，如果应用其他应用程序可以使用的标识平台（例如 Microsoft 帐户或 Microsoft365 中的工作帐户），客户会希望不管发布者是谁，他们都可以在所有应用程序中使用这些凭据。
 
-Microsoft 标识平台以及 Microsoft 标识 SDK 能够为你完成所有这些繁琐的工作，并可让你使用 SSO 在自己的应用程序套件中为客户提供满意服务，或者使用中转站功能和 Authenticator 应用程序在整个设备上提供良好的用户体验。
+Microsoft 标识平台以及 Microsoft 标识 SDK 可让你使用 SSO 在自己的应用程序套件中为客户提供满意服务，或者使用中转站功能和 Authenticator 应用程序在整个设备上提供良好的用户体验。
 
-本演练介绍如何在应用程序中配置 SDK，以便向客户提供此项优点。
+本演练介绍如何在应用程序中配置 SDK，以便向客户提供 SSO。
 
-
-前面的文档假设你已了解如何[在旧版门户中为 Azure Active Directory 预配应用程序](active-directory-how-to-integrate.md)，并且已将应用程序与 [Microsoft Identity Android SDK](https://github.com/AzureAD/azure-activedirectory-library-for-android) 集成。
+前面的文档假设你已了解如何将应用程序与 [Microsoft Identity Android SDK](https://github.com/AzureAD/azure-activedirectory-library-for-android) 集成。
 
 ## <a name="sso-concepts-in-the-microsoft-identity-platform"></a>Microsoft 标识平台中的 SSO 概念
 ### <a name="microsoft-identity-brokers"></a>Microsoft 标识中转站
-Microsoft 为每个移动平台提供了应用程序，可在来自不同供应商的应用程序之间桥接凭据，并支持需要一个安全位置来验证凭据的特殊增强功能。 我们称之为 **中转站**。 在 iOS 和 Android 平台上，它们通过可下载的应用程序提供，客户可以独立安装这些应用程序，也可以由负责管理其员工的部分或全部设备的公司推送到设备。 根据 IT 管理员的需要，这些中转站支持管理部分应用程序或整个设备的安全性。 在 Windows 中，此功能由内置于操作系统的帐户选择器提供，在技术上被称为 Web 身份验证中转站。
-
-若要详细了解我们如何使用这些中转站以及你的客户如何在 Microsoft 标识平台的登录流中查看这些中转站，请继续阅读。
-
-### <a name="patterns-for-logging-in-on-mobile-devices"></a>移动设备上的登录模式
-在设备上访问凭据遵循 Microsoft 标识平台的两种基本模式：
-
-- 非中转站辅助的登录
-- 中转站辅助的登录
-
-#### <a name="non-broker-assisted-logins"></a>无中转站辅助的登录
-无中转站辅助的登录是一种与应用程序内联的登录体验，使用设备上针对该应用程序的本地存储。 此存储可以跨应用程序共享，但凭据紧密绑定到使用该凭据的应用或应用套件。 你最有可能在许多移动应用程序中有过此体验，当你在应用程序本身中输入用户名和密码时。
-
-这种登录具有以下优点：
-
-- 用户体验完全存在于应用程序中。
-- 凭据可在由同一证书签名的应用程序间共享，从而为应用程序套件提供单一登录体验。
-- 关于登录体验的控件在登录之前和之后提供给应用程序。
-
-这种登录具有以下缺点：
-
-- 用户不能在使用 Microsoft 标识的所有应用上体验单一登录，而只能在应用程序已配置的这些 Microsoft 标识上体验它。
-- 应用程序不能用于更高级的业务功能，如条件性访问，或使用 InTune 产品套件。
-- 应用程序不能支持业务用户使用基于证书的身份验证。
-
-下面介绍了 Microsoft 标识 SDK 如何与应用程序的共享存储配合工作以启用 SSO：
-
-```
-+------------+ +------------+  +-------------+
-|            | |            |  |             |
-|   App 1    | |   App 2    |  |   App 3     |
-|            | |            |  |             |
-|            | |            |  |             |
-+------------+ +------------+  +-------------+
-| Azure SDK  | | Azure SDK  |  | Azure SDK   |
-+------------+-+------------+--+-------------+
-|                                            |
-|            App Shared Storage              |
-+--------------------------------------------+
-```
+Microsoft 为每个移动平台提供了应用程序，可在来自不同供应商的应用程序之间桥接凭据，并支持需要一个安全位置来验证凭据的特殊增强功能。 SDK 将其称之为**中转站**。 在 iOS 和 Android 平台上，中转站通过可下载的应用程序提供，客户可以独立安装这些应用程序，也可以由负责管理其员工的部分或全部设备的公司推送到设备。 根据 IT 管理员的需要，这些中转站支持管理部分应用程序或整个设备的安全性。 在 Windows 中，此功能由内置于操作系统的帐户选择器提供，在技术上被称为 Web 身份验证中转站。
 
 #### <a name="broker-assisted-logins"></a>中转站辅助的登录
-中转站辅助的登录是一种发生在中转站应用程序中的登录体验，它使用中转站的存储和安全性在设备上应用 Microsoft 标识平台的所有应用程序间共享凭据。 这意味着，应用程序依赖于中转站才能完成用户登录。 在 iOS 和 Android 平台上，通过可下载的应用程序提供这些中转站。可以由客户独立安装这些应用程序，也可以由负责管理其用户的设备的公司将这些应用程序推送到设备。 例如，iOS 上的 Microsoft Authenticator 应用程序就是此类应用程序。 在 Windows 环境中，此功能由内置于操作系统的帐户选择器提供，在技术上被称为 Web 身份验证中转站。
-具体的体验因平台而异，如果未正确管理，有时会给用户带来麻烦。 
+中转站辅助的登录是一种发生在中转站应用程序中的登录体验，它使用中转站的存储和安全性在设备上应用 Microsoft 标识平台的所有应用程序间共享凭据。 这意味着，应用程序依赖于中转站才能完成用户登录。 在 iOS 和 Android 平台上，通过可下载的应用程序提供这些中转站。可以由客户独立安装这些应用程序，也可以由负责管理其用户的设备的公司将这些应用程序推送到设备。 例如，iOS 上的 Microsoft Authenticator 应用程序就是此类应用程序。 在 Windows 中，此功能由内置于操作系统的帐户选择器提供，在技术上被称为 Web 身份验证中转站。
+具体的体验因平台而异，如果未正确管理，有时会给用户带来麻烦。 Microsoft 标识平台使用相同的模式。
 
-对于 iOS，这会导致“过渡”动画，将你的应用程序发送到后台，而将 Microsoft Authenticator 应用程序发送到前台，让用户选择其登录时使用的帐户。 
-
-对于 Android 和 Windows，帐户选择器会显示在应用程序顶部，这给用户带来的麻烦较少。
+在 Android 上，帐户选择器会在对用户中断较小的基础上显示应用程序。
 
 #### <a name="how-the-broker-gets-invoked"></a>如何调用中转站
-如果在设备上安装了 Microsoft Authenticator 应用程序等兼容的中转站，当用户指出其希望在 Microsoft 标识平台上使用某个帐户登录时，Microsoft 标识 SDK 将自动为你调用中转站。 此帐户可以是 Microsoft 个人帐户，也可以是工作或学校帐户。
+如果在设备上安装了 Microsoft Authenticator 应用程序等兼容的中转站，当用户指出其希望在 Microsoft 标识平台上使用某个帐户登录时，Microsoft 标识 SDK 将自动为你调用中转站。 
  
- #### <a name="how-we-ensure-the-application-is-valid"></a>我们如何确保应用程序有效
+ #### <a name="how-microsoft-ensures-the-application-is-valid"></a>Microsoft 如何确保应用程序有效
  
- 必须确保调用中转站的应用程序的标识有效，这对于维护中转站辅助登录的安全性至关重要。 iOS 和 Android 都不会强制实施仅对给定应用程序有效的唯一标识符，因此恶意应用程序可能“假冒”合法应用程序的标识符，并接收对合法应用程序适用的令牌。 为了确保在运行时始终与适当的应用程序通信，我们会要求开发人员在将其应用程序注册到 Microsoft 时提供自定义重定向 URI。 下面详细讨论开发人员应如何设计此重定向 URI。 此自定义重定向 URI 包含应用程序的证书指纹，并由 Google Play Store 确保其对应用程序是唯一的。 当应用程序调用中转站时，中转站会请求 Android 操作系统为其提供调用中转站的证书指纹。 在调用我们的标识系统时，中转站会向 Microsoft 提供此证书指纹。 如果应用程序的证书指纹与开发人员在注册期间提供给我们的证书指纹不匹配，我们将拒绝应用程序访问所请求的资源的令牌。 此检查可确保只有开发人员注册的应用程序收到令牌。
+ 必须确保调用中转站的应用程序的标识有效，这对于维护中转站辅助登录的安全性至关重要。 iOS 和 Android 都不会强制实施仅对给定应用程序有效的唯一标识符，因此恶意应用程序可能“假冒”合法应用程序的标识符，并接收对合法应用程序适用的令牌。 为了确保在运行时 Microsoft 始终与适当的应用程序进行通信，我们会要求开发人员在将其应用程序注册到 Microsoft 时提供自定义重定向 URI。 下面详细讨论开发人员应如何设计此重定向 URI。 此自定义重定向 URI 包含应用程序的证书指纹，并由 Google Play Store 确保其对应用程序是唯一的。 当应用程序调用中转站时，中转站会请求 Android 操作系统为其提供调用中转站的证书指纹。 在调用我们的标识系统时，中转站会向 Microsoft 提供此证书指纹。 如果应用程序的证书指纹与开发人员在注册期间提供给我们的证书指纹不匹配，我们将拒绝应用程序访问所请求的资源的令牌。 此检查可确保只有开发人员注册的应用程序收到令牌。
 
-**开发人员可以选择 Microsoft 标识 SDK 是调用中转站，还是使用无中转站辅助的流。** 但是，如果开发人员选择不使用中转站辅助的流，他们将会失去使用用户可能已添加到设备的 SSO 凭据的优势，因此其应用程序无法使用 Microsoft 为客户提供的业务功能，例如条件性访问、Intune 管理功能和基于证书的身份验证。
-
-这种登录具有以下优点：
+SSO 中转登录具有以下优点：
 
 - 无论供应商是谁，用户都可以在所有应用程序中体验 SSO。
-- 应用程序可以使用更高级的业务功能（如条件性访问），或使用 InTune 产品套件。
+- 应用程序可以使用更高级的业务功能。
 - 应用程序可以支持业务用户使用基于证书的身份验证。
-- 登录体验要安全得多，因为中转站应用程序会使用附加的安全算法和加密来验证应用程序与用户的标识。
-
-这种登录具有以下缺点：
-
-- 在 iOS 中，当用户选择凭据时，会被转换到应用程序的体验之外。
-- 无法管理客户在应用程序中的登录体验。
+- 登录体验更安全，因为中转站应用程序将使用附加的安全算法和加密来验证应用程序与用户的标识。
 
 下面介绍了 Microsoft 标识 SDK 如何与中转站应用程序配合工作以启用 SSO：
 
@@ -136,95 +87,26 @@ Microsoft 为每个移动平台提供了应用程序，可在来自不同供应�
 
 ```
 
-了解这些背景信息后，应该可以更好地理解 SSO 并使用 Microsoft 标识平台和 SDK 在应用程序中实现它。
-
-## <a name="enabling-cross-app-sso-using-adal"></a>使用 ADAL 启用跨应用 SSO
-这里，我们将使用 ADAL Android SDK 来执行以下操作：
-
-- 为应用套件打开非中转站辅助的 SSO
-- 启用对中转站辅助 SSO 的支持
-
-### <a name="turning-on-sso-for-non-broker-assisted-sso"></a>针对无中转站辅助 SSO 启用 SSO
-对于跨应用程序的非中转站辅助 SSO，使用 Microsoft 标识 SDK 可以大大消除 SSO 的复杂性。 这包括在缓存中查找适当的用户，以及维护已登录用户列表以供你查询。
-
-若要跨拥有的应用程序启用 SSO，需要执行以下操作：
-
-1. 确保所有应用程序都使用相同的客户端 ID 或应用程序 ID。
-2. 确保所有应用程序都具有相同的 SharedUserID 集。
-3. 确保所有应用程序都共享来自 Google Play Store 的同一签名证书，以便可以共享存储。
-
-#### <a name="step-1-using-the-same-client-id--application-id-for-all-the-applications-in-your-suite-of-apps"></a>步骤 1：对应用套件中的所有应用程序使用相同的客户端 ID/应用程序 ID
-为了让 Microsoft 标识平台知道可以跨应用程序共享令牌，每个应用程序都需要共享同一个客户端 ID 或应用程序 ID。 这是在门户中注册第一个应用程序时提供的唯一标识符。
-
-如果应用使用相同的应用程序 ID，你可能想要知道如何在 Microsoft 标识服务中标识不同的应用。 答案是使用重定向 URI。 每个应用程序可以在登记门户中注册多个重定向 URI。 套件中的每个应用程序具有不同的重定向 URI。 下面显示了这种情况的示例：
-
-App1 重定向 URI： `msauth://com.example.userapp/IcB5PxIyvbLkbFVtBI%2FitkW%2Fejk%3D`
-
-App2 重定向 URI： `msauth://com.example.userapp1/KmB7PxIytyLkbGHuI%2UitkW%2Fejk%4E`
-
-App3 重定向 URI： `msauth://com.example.userapp2/Pt85PxIyvbLkbKUtBI%2SitkW%2Fejk%9F`
-
-....
-
-这些应用嵌套在同一个客户端 ID/应用程序 ID 下，可以根据你在 SDK 配置中返回给我们的重定向 URI 来查找。
-
-```
-+-------------------+
-|                   |
-|  Client ID        |
-+---------+---------+
-          |
-          |           +-----------------------------------+
-          |           |  App 1 Redirect URI               |
-          +----------^+                                   |
-          |           +-----------------------------------+
-          |
-          |           +-----------------------------------+
-          +----------^+  App 2 Redirect URI               |
-          |           |                                   |
-          |           +-----------------------------------+
-          |
-          +----------^+-----------------------------------+
-                      |  App 3 Redirect URI               |
-                      |                                   |
-                      +-----------------------------------+
-
-```
-
-
-*请注意，下面介绍了这些重定向 URI 的格式。你可以使用任何重定向 URI，除非你想要支持中转站，在这种情况下，它们必须如上所示*
-
-#### <a name="step-2-configuring-shared-storage-in-android"></a>步骤 2：在 Android 中配置共享存储
-设置 `SharedUserID` 超出了本文档的范围，但可以阅读有关 [清单](http://developer.android.com/guide/topics/manifest/manifest-element.html)的 Google Android 文档来了解具体操作。 重要的是，需要决定 sharedUserID 的调用方式，并在所有应用程序中使用它。
-
-在所有应用程序中设置 `SharedUserID` 后，即可使用 SSO。
-
-> [!WARNING]
-> 在应用程序之间共享存储之后，任何应用程序都可以删除用户，更糟的是，删除整个应用程序的所有令牌。 如果应用程序依赖于这些令牌来执行后台工作，后果特别严重。 要共享存储，就必须十分警惕通过 Microsoft 标识 SDK 执行的任意和所有删除操作。
-> 
-> 
-
-就这么简单！ Microsoft 标识 SDK 现在会在所有应用程序之间共享凭据。 此外还会在应用程序实例之间共享用户列表。
+了解这些背景信息后，应该可以更好地理解 SSO 并使用 Microsoft 标识平台和 SDK 在应用程序中实现 SSO。
 
 ### <a name="turning-on-sso-for-broker-assisted-sso"></a>针对中转站辅助 SSO 启用 SSO
-**默认关闭**应用程序使用安装在设备上的任何中转站的功能。 要让应用程序使用中转站，必须执行一些额外配置，并将一些代码添加到应用程序。
+**默认关闭**应用程序使用安装在设备上的任何中转站的功能。 要向中转站使用应用程序必须执行一些额外配置，并将一些代码添加到应用程序。
 
 要遵循的步骤如下：
 
-1. 在应用程序代码对 MS SDK 的调用中启用中转站模式
+1. 启用应用程序代码调用到 MS SDK 中的中转站模式
 2. 建立新的重定向 URI，并向应用和应用注册提供该 URI
 3. 在 Android 清单中设置正确的权限
 
 #### <a name="step-1-enable-broker-mode-in-your-application"></a>步骤 1：在应用程序中启用中转站模式
-为身份验证实例创建“设置”或初始设置时，即会打开应用程序使用中转站的功能。 在代码中设置 ApplicationSettings 类型即可执行此操作：
+为身份验证实例创建“设置”或初始设置时，即会打开应用程序使用中转站的功能。 在应用中执行此操作：
 
 ```
 AuthenticationSettings.Instance.setUseBroker(true);
 ```
 
-
 #### <a name="step-2-establish-a-new-redirect-uri-with-your-url-scheme"></a>步骤 2：使用 URL 方案建立新的重定向 URI
-为了确保始终将凭据令牌返回到正确的应用程序，我们需要确保以 Android 操作系统可以验证的方式回调应用程序。 Android 操作系统使用 Google Play Store 中的证书哈希。 此哈希不会被恶意应用程序欺骗。 因此，我们会利用这以及中转站应用程序以确保令牌返回到正确的应用程序的 URI。 我们要求在应用程序中建立此唯一重定向 URI 这两个并为我们的开发人员门户中的重定向 URI 进行设置。
+为了确保由正确的应用程序接收返回的凭据令牌，我们需要确保以 Android 操作系统可以验证的方式回调应用程序。 Android 操作系统使用 Google Play Store 中的证书哈希。 恶意应用程序无法欺骗此证书哈希。 结合中转站应用程序的 URI，Microsoft 可确保令牌返回到正确的应用程序。 必须在应用程序中注册唯一的重定向 URI。
 
 重定向 URI 必须采用正确的格式：
 
@@ -232,10 +114,10 @@ AuthenticationSettings.Instance.setUseBroker(true);
 
 例如：*msauth://com.example.userapp/IcB5PxIyvbLkbFVtBI%2FitkW%2Fejk%3D*
 
-需要使用 [Azure 门户](https://portal.azure.cn/)在应用注册中指定此重定向 URI。 有关 Azure AD 应用注册的详细信息，请参阅[与 Azure Active Directory 集成](active-directory-how-to-integrate.md)。
+可以使用 [Azure 门户](https://portal.azure.cn/)在应用注册中注册此重定向 URI。 有关 Azure AD 应用注册的详细信息，请参阅[与 Azure Active Directory 集成](active-directory-how-to-integrate.md)。
 
 #### <a name="step-3-set-up-the-correct-permissions-in-your-application"></a>步骤 3：在应用程序中设置正确的权限
-Android 中的中转站应用程序使用 Android OS 的帐户管理器功能来跨应用程序管理凭据。 若要在 Android 中使用中转站，应用清单必须有权使用 AccountManager 帐户。 [Google 帐户管理器文档](http://developer.android.com/reference/android/accounts/AccountManager.html)
+Android 中的中转站应用程序使用 Android OS 的帐户管理器功能来管理跨应用程序的凭据。 若要在 Android 中使用中转站，应用清单必须有权使用 AccountManager 帐户。 [Google 帐户管理器文档](http://developer.android.com/reference/android/accounts/AccountManager.html)中详细介绍了这些权限
 
 具体而言，这些权限如下：
 
@@ -249,4 +131,4 @@ MANAGE_ACCOUNTS
 现在，Microsoft 标识 SDK 自动在应用程序之间共享凭据并调用中转站（如果在设备上存在）。
 
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

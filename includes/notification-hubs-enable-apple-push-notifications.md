@@ -1,5 +1,5 @@
 ---
- title: include 文件 description: include 文件 services: notification-hubs author: spelluru ms.service: notification-hubs ms.topic: include origin.date: 04/11/2018 ms.date: 07/09/2018 ms.author: v-junlch ms.custom: include file
+ title: include 文件 description: include 文件 services: notification-hubs author: spelluru ms.service: notification-hubs ms.topic: include origin.date: 04/11/2018 ms.date: 08/09/2018 ms.author: v-junlch ms.custom: include file
 ---
 
 ## <a name="generate-the-certificate-signing-request-file"></a>生成证书签名请求文件
@@ -25,7 +25,7 @@ Apple Push Notification 服务 (APNS) 使用证书对推送通知进行身份验
 ## <a name="register-your-app-for-push-notifications"></a>为推送通知注册应用程序
 要将推送通知发送到 iOS 应用程序，你必须向 Apple 注册应用程序，还要注册推送通知。  
 
-1. 如果尚未注册应用程序，请导航到 Apple 开发人员中心的 <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS 设置门户</a>，使用 Apple ID 登录，依次单击“Identifiers”（标识符）、“App IDs”（应用 ID）、“+”号注册新的应用。
+1. 如果尚未注册应用程序，请导航到 Apple 开发人员中心的 <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS 设置门户</a>，使用 Apple ID 登录，单击“Identifiers”（标识符），然后单击“App IDs”（应用 ID），最后单击“+”号注册新的应用。
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-ios-appids.png)
       
@@ -115,4 +115,4 @@ Apple Push Notification 服务 (APNS) 使用证书对推送通知进行身份验
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-profile-ready.png)
 
-<!-- ms.date: 07/10/2018 -->
+<!-- ms.date: 08/09/2018 -->

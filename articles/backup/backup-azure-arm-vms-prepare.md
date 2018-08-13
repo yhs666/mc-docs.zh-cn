@@ -7,15 +7,15 @@ manager: carmonm
 keywords: 备份; 备份;
 ms.service: backup
 ms.topic: conceptual
-origin.date: 03/01/2018
-ms.date: 07/05/2018
+origin.date: 06/21/2018
+ms.date: 08/08/2018
 ms.author: v-junlch
-ms.openlocfilehash: 9aac14e3bafeeb5caa606e77f73fb31fe4ece155
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.openlocfilehash: 3a949e542584a517a9b4228179ed76867dd8e7b4
+ms.sourcegitcommit: 543a18c71c0910a5b9878a2d2668f317468906f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873426"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39625555"
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>准备环境以备份 Resource Manager 部署的虚拟机
 
@@ -35,11 +35,14 @@ ms.locfileid: "37873426"
 如果环境已满足这些条件，请转到[备份 VM](backup-azure-arm-vms.md) 一文。 如果需要设置或检查上述任何先决条件，本文将逐步引导你完成各个步骤。
 
 ## <a name="supported-operating-systems-for-backup"></a>支持用于备份的操作系统
- - **Linux**：Azure 备份支持 [Azure 认可的分发版列表](../virtual-machines/linux/endorsed-distros.md)，但 CoreOS Linux 除外。 
- 
+
+ - **Linux**：Azure 备份支持 [Azure 认可的分发版列表](../virtual-machines/linux/endorsed-distros.md)，但 CoreOS Linux 除外。 有关支持还原文件的 Linux 操作系统的列表，请参阅[从虚拟机备份恢复文件](backup-azure-restore-files-from-vm.md#for-linux-os)。
+
     > [!NOTE] 
     > 只要虚拟机上装有 VM 代理且支持 Python，其他自带 Linux 发行版应该也能正常运行。 但是，不支持这些发行版。
- - **Windows Server**：不支持低于 Windows Server 2008 R2 的版本。
+    >
+ - **Windows Server**、**Windows 客户端**：不支持低于 Windows Server 2008 R2 或 Windows 7 的版本。
+
 
 ## <a name="limitations-when-backing-up-and-restoring-a-vm"></a>备份和还原 VM 时的限制
 准备环境之前，请务必了解限制：
@@ -169,7 +172,7 @@ ms.locfileid: "37873426"
 如果注册虚拟机出现问题，请参阅以下信息，了解安装 VM 代理的方法和网络连接的相关信息。 如果要保护在 Azure 中创建的虚拟机，则可能不需要以下信息。 但是，如果已将虚拟机迁移到 Azure，请确保已正确安装 VM 代理，并且虚拟机可与虚拟网络通信。
 
 ## <a name="install-the-vm-agent-on-the-virtual-machine"></a>在虚拟机上安装 VM 代理
-若要正常运行备份扩展，必须在 Azure 虚拟机上安装 Azure VM 代理。 如果 VM 是从 Azure 市场创建的，则虚拟机上已安装 VM 代理。 
+要正常运行备份扩展，必须在 Azure 虚拟机上安装 Azure [VM 代理](../virtual-machines/extensions/agent-windows.md)。 如果 VM 是从 Azure 市场创建的，则虚拟机上已安装 VM 代理。 
 
 以下信息适用于不是使用从 Azure 市场创建的 VM 的情况。 **例如，从本地数据中心迁移了某个 VM。在这种情况下，需要安装 VM 代理才能保护虚拟机。**
 
@@ -179,7 +182,7 @@ ms.locfileid: "37873426"
 
 | **操作** | **Windows** | **Linux** |
 | --- | --- | --- |
-| 安装 VM 代理 |下载并安装 [代理 MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)。 需要管理员权限才能完成安装。 |<li> 安装最新的 Linux 代理。 需要管理员权限才能完成安装。 我们建议从分发存储库安装代理。 我们 **不建议** 直接从 github 安装 Linux VM 代理。  |
+| 安装 VM 代理 |下载并安装 [代理 MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)。 需要管理员权限才能完成安装。 |<li> 安装最新的 [Linux 代理](../virtual-machines/extensions/agent-linux.md)。 需要管理员权限才能完成安装。 我们建议从分发存储库安装代理。 我们 **不建议** 直接从 github 安装 Linux VM 代理。  |
 | 更新 VM 代理 |更新 VM 代理与重新安装 [VM 代理二进制文件](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)一样简单。 <br>确保在更新 VM 代理时，没有任何正在运行的备份操作。 |按照[更新 Linux VM 代理](../virtual-machines/linux/update-agent.md)中的说明进行操作。 我们建议从分发存储库更新代理。 我们**不建议**直接从 github 更新 Linux VM 代理。<br>确保在更新 VM 代理时，没有任何正在运行的备份操作。 |
 | 验证 VM 代理安装 |<li>导航到 Azure VM 中的 *C:\WindowsAzure\Packages* 文件夹。 <li>应会发现 WaAppAgent.exe 文件已存在。<li> 右键单击该文件，转到“**属性**”，并选择“**详细信息**”选项卡。“产品版本”字段应为 2.6.1198.718 或更高。 |不适用 |
 
@@ -307,4 +310,4 @@ Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -T
 - [规划 VM 备份基础结构](backup-azure-vms-introduction.md)
 - [管理虚拟机备份](backup-azure-manage-vms.md)
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

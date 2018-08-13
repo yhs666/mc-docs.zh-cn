@@ -10,16 +10,17 @@ origin.date: 05/08/2018
 ms.date: 07/02/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 37fe11efb42a94140a45bdf2638cb176f4880989
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.openlocfilehash: bcc62762da390c05ae1e3891c6d793f873c4205d
+ms.sourcegitcommit: 543a18c71c0910a5b9878a2d2668f317468906f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39167735"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39625468"
 ---
 # <a name="quickstart-create-an-azure-container-registry-using-powershell"></a>教程：使用 PowerShell 创建 Azure 容器注册表
 
-Azure 容器注册表是托管的专用 Docker 容器注册表服务，用于生成、存储和提供 Docker 容器映像。 本快速入门介绍如何使用 PowerShell 创建 Azure 容器注册表。 创建注册表以后，请向其推送容器映像，然后将容器从注册表部署到 Azure 容器实例 (ACI) 中。
+Azure 容器注册表是托管的专用 Docker 容器注册表服务，用于生成、存储和提供 Docker 容器映像。 本快速入门介绍如何使用 PowerShell 创建 Azure 容器注册表。 创建注册表以后，向其推送容器映像。 
+<!-- Not Available on  then deploy the container from your registry into Azure Container Instances (ACI)-->
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -31,7 +32,7 @@ Azure 容器注册表是托管的专用 Docker 容器注册表服务，用于生
 
 ## <a name="sign-in-to-azure"></a>登录 Azure
 
-使用 [Connect-AzureRmAccount -Environment AzureChinaCloud][Connect-AzureRmAccount] 命令登录到 Azure 订阅，并按屏幕说明操作。
+使用 [Connect-AzureRmAccount][Connect-AzureRmAccount] 命令登录到 Azure 订阅，然后按屏幕说明操作。
 
 ```powershell
 Connect-AzureRmAccount -Environment AzureChinaCloud
@@ -143,7 +144,7 @@ v1: digest: sha256:565dba8ce20ca1a311c2d9485089d7ddc935dd50140510050345a1b0ea4ff
 
 ## <a name="clean-up-resources"></a>清理资源
 
-使用完在本快速入门中创建的资源以后，请通过 [Remove-AzureRmResourceGroup][Remove-AzureRmResourceGroup] 命令删除资源组、容器注册表和容器实例：
+使用完在本快速入门中创建的资源以后，请通过 [Remove-AzureRmResourceGroup][Remove-AzureRmResourceGroup] 命令删除资源组和容器注册表：<!-- Not Available on  and the container instance-->
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup
@@ -151,10 +152,10 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 ## <a name="next-steps"></a>后续步骤
 
-本快速入门介绍了如何使用 Azure CLI 创建 Azure 容器注册表，以及如何在 Azure 容器实例中启动该注册表的一个实例。 若要加深对 ACI 的了解，请继续阅读 Azure 容器实例教程。
+在本快速入门教程中，你已使用 Azure CLI 创建 Azure 容器注册表。
+<!-- Not Available on , and launched an instance of it in Azure Container Instances. Continue to the Azure Container Instances tutorial for a deeper look at ACI.-->
 
-> [!div class="nextstepaction"]
-> [Azure 容器实例教程](../container-instances/container-instances-tutorial-prepare-app.md)
+<!-- Not Available on > [Azure Container Instances tutorial](../container-instances/container-instances-tutorial-prepare-app.md)-->
 
 <!-- LINKS - external -->
 [aci-helloworld-github]: https://github.com/Azure-Samples/aci-helloworld

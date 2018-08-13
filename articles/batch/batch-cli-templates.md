@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: article
 ms.workload: big-compute
 origin.date: 12/18/2017
-ms.date: 06/29/2018
+ms.date: 08/09/2018
 ms.author: v-junlch
-ms.openlocfilehash: 8928bba7430376469e005cc91fc311d92e223463
-ms.sourcegitcommit: c587cc1c53b1f92b45fae0d1ff8e1f7bd544bc55
+ms.openlocfilehash: dcdb54e38bf2a0637c3c79f4ac28df5b200e9795
+ms.sourcegitcommit: f8bb533368ab2ef8efdf47e186672993ad8334cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103251"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39722331"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer-preview"></a>使用 Azure Batch CLI 模板和文件传输（预览版）
 
@@ -259,11 +259,11 @@ az batch file download --file-group ffmpeg-output --local-path
 
 目前仅对 Azure CLI 添加了模板和文件传输支持。 目标是向无需使用 Batch API 开发代码的用户（如研究人员、IT 用户等）展开可使用 Batch 的受众。 了解 Azure、Batch 和 Batch 运行的应用程序的用户无需编码即可创建模板以创建池和作业。 有了模板参数，对批处理和应用程序没有深入了解的用户也可使用这些模板。
 
-试用 Azure CLI 的 Batch 扩展，并通过本文的评论区或 [Azure Batch 论坛](https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch)向我们提供任何反馈或建议。
+试用 Azure CLI 的 Batch 扩展，并通过本文的评论区或 [Batch 社区存储库](https://github.com/Azure/Batch)向我们提供任何反馈或建议。
 
 ## <a name="next-steps"></a>后续步骤
 
 - 请参阅批处理模板博客文章：[Running Azure Batch jobs using the Azure CLI – no code required](https://azure.microsoft.com/blog/running-azure-batch-jobs-using-the-azure-cli-no-code-required/)（使用 Azure CLI 运行 Azure 批处理作业 - 无需代码）。
 - 有关安装和使用情况的详细文档、示例和源代码，请参阅 [Azure GitHub 存储库](https://github.com/Azure/azure-batch-cli-extensions)。
 
-<!-- Update_Description: code update -->
+<!-- Update_Description: link update -->

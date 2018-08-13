@@ -6,15 +6,15 @@ author: v-chenyh
 ms.author: v-chenyh
 manager: kfile
 editor: jasonwhowell
-ms.service: MySQL
+ms.service: mysql
 ms.topic: article
 ms.date: 06/16/2018
-ms.openlocfilehash: 8facb812d31a705dd45dcecbb5428d82bbdf1e96
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.openlocfilehash: 068a71648ffc05f399eae7a6bf339dea130f876d
+ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873693"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39723130"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-mysql"></a>有关使用 Azure Database for MySQL 确保业务连续性的概述
 > [!NOTE]

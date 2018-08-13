@@ -2,19 +2,19 @@
 title: 有助于保护使用 Azure 备份的混合备份的安全功能
 description: 了解如何在 Azure 备份中使用安全功能，使备份更加安全
 services: backup
-author: JPallavi
+author: trinadhk
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
 origin.date: 06/08/2017
-ms.date: 07/06/2018
+ms.date: 08/08/2018
 ms.author: v-junlch
-ms.openlocfilehash: 484fa79ee6dda5bb6f8c5711b52a4184ef000564
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.openlocfilehash: 7fc4d0c7d768a35521fa92a451eaaf2a4e419380
+ms.sourcegitcommit: 543a18c71c0910a5b9878a2d2668f317468906f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873475"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39625475"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>有助于保护使用 Azure 备份的混合备份的安全功能
 对安全问题（例如恶意软件、勒索软件、入侵）的关注在逐渐上升。 这些安全问题可能会代价高昂（就金钱和数据来说）。 为了防止此类攻击，Azure 备份现提供可保护混合备份的安全功能。 本文介绍如何通过 Azure 恢复服务代理和 Azure 备份服务器来启用和使用这些功能。 这些功能包括：
@@ -115,5 +115,4 @@ ms.locfileid: "37873475"
 - [下载最新的 Azure 备份服务器](https://aka.ms/latest_azurebackupserver)，保护工作负荷并防止备份数据受到攻击。
 - [下载适用于 System Center 2012 R2 Data Protection Manager 的 UR12](https://support.microsoft.com/help/3209592/update-rollup-12-for-system-center-2012-r2-data-protection-manager) 或[下载适用于 System Center 2016 Data Protection Manager 的 UR2](https://support.microsoft.com/help/3209593/update-rollup-2-for-system-center-2016-data-protection-manager)，保护工作负荷和备份数据免受攻击。
 
-
-<!-- Update_Description: link update -->
+<!-- Update_Description: update metedata properties -->

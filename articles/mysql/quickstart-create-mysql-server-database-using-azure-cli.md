@@ -2,21 +2,22 @@
 title: 快速入门：创建 Azure Database for MySQL 服务器 - Azure CLI
 description: 本快速入门教程介绍如何使用 Azure CLI 在 Azure 资源组中为 MySQL 服务器创建 Azure 数据库。
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
-manager: kfile
+author: WenJason
+ms.author: v-jay
+manager: digimobile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: quickstart
-ms.date: 06/15/2018
+ms.date: 04/01/2018
+origin.date: 08/13/2018
 ms.custom: mvc
-ms.openlocfilehash: 13f256fa798d00a04128a90402cca3ef7ff6a521
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.openlocfilehash: 08159e2971dc88df8ff100686421530869586c40
+ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873480"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39723125"
 ---
 # <a name="create-an-azure-database-for-mysql-server-using-azure-cli"></a>使用 Azure CLI 为 MySQL 服务器创建 Azure 数据库
 
@@ -25,9 +26,9 @@ ms.locfileid: "37873480"
 
 本快速入门教程介绍如何使用 Azure CLI 在大约 5 分钟内在 Azure 资源组中为 MySQL 服务器创建 Azure 数据库。 Azure CLI 用于从命令行或脚本创建和管理 Azure 资源。
 
-如果你还没有 Azure 订阅，可以在开始前创建一个[免费](https://azure.microsoft.com/free/)帐户。
+如果没有 Azure 订阅，请在开始之前创建一个[免费](https://azure.microsoft.com/free/)帐户。
 
-如果选择在本地安装并使用 CLI，本文要求运行 Azure CLI 2.0 版或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0]( /cli/install-azure-cli)。 
+本文要求运行 Azure CLI 2.0 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0]( /cli/install-azure-cli)。 
 
 如果有多个订阅，请选择资源所在的相应订阅或对资源进行计费的订阅。 使用 [az account set](/cli/account#az_account_set) 命令选择帐户下的特定订阅 ID。
 ```cli
@@ -37,29 +38,34 @@ az account set --subscription 00000000-0000-0000-0000-000000000000
 ## <a name="create-a-resource-group"></a>创建资源组
 使用 [az group create](/cli/group#az_group_create) 命令创建 [Azure 资源组](../azure-resource-manager/resource-group-overview.md)。 资源组是在其中以组的形式部署和管理 Azure 资源的逻辑容器。
 
-以下示例在 `chinaeast` 位置创建名为 `myresourcegroup` 的资源组。
+以下示例在 `chinaeast2` 位置创建名为 `myresourcegroup` 的资源组。
 
 ```cli
-az group create --name myresourcegroup --location chinaeast
+az group create --name myresourcegroup --location chinaeast2
 ```
 
 ## <a name="create-an-azure-database-for-mysql-server"></a>创建 Azure Database for MySQL 服务器
 使用 **[az mysql server create](/cli/mysql/server#az_mysql_server_create)** 命令创建 Azure Database for MySQL 服务器。 一个服务器可以管理多个数据库。 通常，每个项目或每个用户使用一个单独的数据库。
 
-下面的示例使用服务器管理员登录名 `myadmin` 在资源组 `myresourcegroup` 中创建位于“中国东部”区域的名为 `mydemoserver` 的服务器。 这是**第 4 代****常规用途**服务器，带有 2 个 **vCore**。 服务器的名称映射到 DNS 名称，因此需要在 Azure 中全局唯一。 用自己的值替换 `<server_admin_password>`。
+下面的示例使用服务器管理员登录名 `myadmin` 在资源组 `myresourcegroup` 中创建位于“中国东部 2”区域的名为 `mydemoserver` 的服务器。 这是**第 5 代****常规用途**服务器，带有 2 个 **vCore**。 服务器的名称映射到 DNS 名称，因此需要在 Azure 中全局唯一。 用自己的值替换 `<server_admin_password>`。
 ```cli
-az mysql server create --resource-group myresourcegroup --name mydemoserver  --location chinaeast --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 5.7
+az mysql server create --resource-group myresourcegroup --name mydemoserver  --location chinaeast2 --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 --version 5.7
 ```
+sku-name 参数值遵循 {定价层}\_{计算层代}\_{vCore 数} 约定，如以下示例中所示：
++ `--sku-name B_Gen5_4` 映射到基本、第 5 代和 4 个 vCore。
++ `--sku-name GP_Gen5_32` 映射到常规用途、第 5 层和 32 个 vCore。
++ `--sku-name MO_Gen5_2` 映射到内存优化、第 5 层和 2 个 vCore。
+
+请参阅[定价层](./concepts-pricing-tiers.md)文档来了解适用于每个区域和每个层的有效值。
 
 ## <a name="configure-firewall-rule"></a>配置防火墙规则
 使用 **[az mysql server firewall-rule create](/cli/mysql/server/firewall-rule#az_mysql_server_firewall_rule_create)** 命令创建 Azure Database for MySQL 服务器级防火墙规则。 服务器级防火墙规则允许外部应用程序（如 **mysql.exe** 命令行工具或 MySQL Workbench）通过 Azure MySQL 服务防火墙连接到服务器。 
 
-以下示例为预定义的地址范围创建了防火墙规则，该地址范围在本示例中是整个可能的 IP 地址范围。
+以下示例创建名为 `AllowMyIP` 的防火墙规则，该规则允许从特定的 IP 地址 (192.168.0.1) 进行连接。 替代与要从其进行连接的地址相对应的 IP 地址或 IP 地址范围。 
 
 ```cli
-az mysql server firewall-rule create --resource-group myresourcegroup --server mydemoserver --name AllowYourIP --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
+az mysql server firewall-rule create --resource-group myresourcegroup --server mydemoserver --name AllowMyIP --start-ip-address 192.168.0.1 --end-ip-address 192.168.0.1
 ```
-允许所有 IP 地址是不安全的。 提供此示例是为了简单起见，但在实际方案中，需了解为应用程序和用户添加的准确的 IP 地址范围。 
 
 > [!NOTE]
 > 连接到 Azure Database for MySQL 时，经端口 3306 进行通信。 如果尝试从企业网络内部进行连接，则可能不允许经端口 3306 的出站流量。 如果是这样，则无法连接到服务器，除非 IT 部门打开了端口 3306。
@@ -88,15 +94,15 @@ az mysql server show --resource-group myresourcegroup --name mydemoserver
 {
   "administratorLogin": "myadmin",
   "earliestRestoreDate": null,
-  "fullyQualifiedDomainName": "mydemoserver.database.chinacloudapi.cn",
+  "fullyQualifiedDomainName": "mydemoserver.mysql.database.chinacloudapi.cn",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforMySQL/servers/mydemoserver",
-  "location": "chinaeast",
+  "location": "chinaeast2",
   "name": "mydemoserver",
   "resourceGroup": "myresourcegroup",
   "sku": {
     "capacity": 2,
-    "family": "Gen4",
-    "name": "GP_Gen4_2",
+    "family": "Gen5",
+    "name": "GP_Gen5_2",
     "size": null,
     "tier": "GeneralPurpose"
   },
@@ -120,7 +126,7 @@ az mysql server show --resource-group myresourcegroup --name mydemoserver
 
 1. 使用 **mysql** 命令行工具连接到服务器：
 ```cli
- mysql -h mydemoserver.database.chinacloudapi.cn -u myadmin@mydemoserver -p
+ mysql -h mydemoserver.mysql.database.chinacloudapi.cn -u myadmin@mydemoserver -p
 ```
 
 2. 查看服务器状态：
@@ -130,7 +136,7 @@ az mysql server show --resource-group myresourcegroup --name mydemoserver
 如果一切顺利，命令行工具应输出以下文本：
 
 ```dos
-C:\Users\>mysql -h mydemoserver.database.chinacloudapi.cn -u myadmin@mydemoserver -p
+C:\Users\>mysql -h mydemoserver.mysql.database.chinacloudapi.cn -u myadmin@mydemoserver -p
 Enter password: ***********
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 65512
@@ -155,7 +161,7 @@ SSL:                    Not in use
 Using delimiter:        ;
 Server version:         5.6.26.0 MySQL Community Server (GPL)
 Protocol version:       10
-Connection:             mydemoserver.database.chinacloudapi.cn via TCP/IP
+Connection:             mydemoserver.mysql.database.chinacloudapi.cn via TCP/IP
 Server characterset:    latin1
 Db     characterset:    latin1
 Client characterset:    gbk
@@ -183,7 +189,7 @@ mysql>
 |---|---|---|
 |   连接名称 | 我的连接 | 指定此连接的标签（这可以是任何内容） |
 | 连接方法 | 选择“标准(TCP/IP)” | 使用 TCP/IP 协议连接到 Azure Database for MySQL |
-| 主机名 | mydemoserver.database.chinacloudapi.cn | 先前记下的服务器名称。 |
+| 主机名 | mydemoserver.mysql.database.chinacloudapi.cn | 先前记下的服务器名称。 |
 | 端口 | 3306 | 使用 MySQL 的默认端口。 |
 | 用户名 | myadmin@mydemoserver | 先前记下的服务器管理员登录名。 |
 | 密码 | **** | 使用之前配置的管理员帐户密码。 |

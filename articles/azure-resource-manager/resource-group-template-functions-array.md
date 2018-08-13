@@ -9,18 +9,18 @@ editor: tysonn
 ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 09/05/2017
-ms.date: 10/23/2017
+ms.date: 08/13/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4cc3a1c7de9cf414c8f953b1e0b2865116a954f5
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: 080c0bb467502e9e2e8db7d9a5f4a32a54b89fcb
+ms.sourcegitcommit: 543a18c71c0910a5b9878a2d2668f317468906f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867478"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39625552"
 ---
 # <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>用于 Azure Resource Manager 模板的数组和对象函数 
 
@@ -78,7 +78,7 @@ Resource Manager 提供以下用于处理数组和对象的函数。
         },
         "stringToConvert": {
             "type": "string",
-            "defaultValue": "a"
+            "defaultValue": "efgh"
         },
         "objectToConvert": {
             "type": "object",
@@ -106,10 +106,10 @@ Resource Manager 提供以下用于处理数组和对象的函数。
 
 上述示例中使用默认值的输出为：
 
-| Name | Type | 值 |
+| Name | 类型 | 值 |
 | ---- | ---- | ----- |
 | intOutput | Array | [1] |
-| stringOutput | Array | ["a"] |
+| stringOutput | Array | ["efgh"] |
 | objectOutput | Array | [{"a": "b", "c": "d"}] |
 
 要使用 Azure CLI 部署此示例模板，请使用：
@@ -192,7 +192,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 上述示例中使用默认值的输出为：
 
-| Name | Type | 值 |
+| Name | 类型 | 值 |
 | ---- | ---- | ----- |
 | stringOutput | String | 默认值 |
 | intOutput | int | 1 |
@@ -270,7 +270,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 上述示例中使用默认值的输出为：
 
-| Name | Type | 值 |
+| Name | 类型 | 值 |
 | ---- | ---- | ----- |
 | return | Array | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
@@ -310,7 +310,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 上述示例中使用默认值的输出为：
 
-| Name | Type | 值 |
+| Name | 类型 | 值 |
 | ---- | ---- | ----- |
 | concatOutput | String | prefix-5yj4yjf5mbg72 |
 
@@ -399,7 +399,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 上述示例中使用默认值的输出为：
 
-| Name | Type | 值 |
+| Name | 类型 | 值 |
 | ---- | ---- | ----- |
 | stringTrue | Bool | True |
 | stringFalse | Bool | False |
@@ -481,7 +481,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 上述示例中使用默认值的输出为：
 
-| Name | Type | 值 |
+| Name | 类型 | 值 |
 | ---- | ---- | ----- |
 | stringArray | Array | ["a", "b", "c"] |
 | intArray | Array | [1, 2, 3] |
@@ -561,7 +561,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 上述示例中使用默认值的输出为：
 
-| Name | Type | 值 |
+| Name | 类型 | 值 |
 | ---- | ---- | ----- |
 | arrayEmpty | Bool | True |
 | objectEmpty | Bool | True |
@@ -627,7 +627,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 上述示例中使用默认值的输出为：
 
-| Name | Type | 值 |
+| Name | 类型 | 值 |
 | ---- | ---- | ----- |
 | arrayOutput | String | one |
 | stringOutput | String | O |
@@ -706,7 +706,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 上述示例中使用默认值的输出为：
 
-| Name | Type | 值 |
+| Name | 类型 | 值 |
 | ---- | ---- | ----- |
 | objectOutput | 对象 | {"one": "a", "three": "c"} |
 | arrayOutput | Array | ["two", "three"] |
@@ -763,7 +763,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 上述示例中使用默认值的输出为：
 
-| Name | Type | 值 |
+| Name | 类型 | 值 |
 | ---- | ---- | ----- |
 | jsonOutput | 对象 | {"a": "b"} |
 | nullOutput | 布尔 | True |
@@ -828,7 +828,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 上述示例中使用默认值的输出为：
 
-| Name | Type | 值 |
+| Name | 类型 | 值 |
 | ---- | ---- | ----- |
 | arrayOutput | String | three |
 | stringOutput | String | e |
@@ -900,7 +900,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 上述示例中使用默认值的输出为：
 
-| Name | Type | 值 |
+| Name | 类型 | 值 |
 | ---- | ---- | ----- |
 | arrayLength | int | 3 |
 | stringLength | int | 13 |
@@ -975,7 +975,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 上述示例中使用默认值的输出为：
 
-| Name | Type | 值 |
+| Name | 类型 | 值 |
 | ---- | ---- | ----- |
 | arrayOutput | int | 5 |
 | intOutput | int | 5 |
@@ -1039,7 +1039,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 上述示例中使用默认值的输出为：
 
-| Name | Type | 值 |
+| Name | 类型 | 值 |
 | ---- | ---- | ----- |
 | arrayOutput | int | 0 |
 | intOutput | int | 0 |
@@ -1104,7 +1104,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 上述示例中使用默认值的输出为：
 
-| Name | Type | 值 |
+| Name | 类型 | 值 |
 | ---- | ---- | ----- |
 | rangeOutput | Array | [5, 6, 7] |
 
@@ -1184,7 +1184,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 上述示例中使用默认值的输出为：
 
-| Name | Type | 值 |
+| Name | 类型 | 值 |
 | ---- | ---- | ----- |
 | arrayOutput | Array | ["three"] |
 | stringOutput | String | two three |
@@ -1265,7 +1265,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 上述示例中使用默认值的输出为：
 
-| Name | Type | 值 |
+| Name | 类型 | 值 |
 | ---- | ---- | ----- |
 | arrayOutput | Array | ["one", "two"] |
 | stringOutput | String | on |
@@ -1344,7 +1344,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 上述示例中使用默认值的输出为：
 
-| Name | Type | 值 |
+| Name | 类型 | 值 |
 | ---- | ---- | ----- |
 | objectOutput | 对象 | {"one": "a", "two": "b", "three": "c2", "four": "d", "five": "e"} |
 | arrayOutput | Array | ["one", "two", "three", "four"] |

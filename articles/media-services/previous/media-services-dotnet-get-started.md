@@ -15,12 +15,12 @@ ms.topic: hero-article
 origin.date: 12/10/2017
 ms.date: 12/25/2017
 ms.author: v-nany
-ms.openlocfilehash: f2ce83297aaa1afbb31906748e36d61b1b378ea5
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+ms.openlocfilehash: d9a67a5e9de42d104ed9c52a67ac8a17d6a6285b
+ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219547"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39723062"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>使用 .NET SDK 开始传送点播内容
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
@@ -59,7 +59,7 @@ ms.locfileid: "39219547"
 
 <a href="./media/media-services-dotnet-get-started/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-dotnet-get-started/media-services-overview-object-model-small.png"></a> 
 
-可在 [此处](https://media.windows.net/API/$metadata?api-version=2.15)查看完整模型。  
+可在 [此处](https://media.chinacloudapi.cn/API/$metadata?api-version=2.15)查看完整模型。  
 
 ## <a name="start-streaming-endpoints-using-the-azure-portal"></a>使用 Azure 门户启动流式处理终结点
 

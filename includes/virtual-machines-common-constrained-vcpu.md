@@ -9,12 +9,12 @@ origin.date: 03/09/2018
 ms.date: 07/30/2018
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 9283226734348041a9b1420f465ac34d384afd34
-ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
+ms.openlocfilehash: d08bf4dac12e7a8c57b35fba55909039d3d80cb2
+ms.sourcegitcommit: 62a0389a743cd18665bd127e9bf14800867008eb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39307276"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39625654"
 ---
 某些数据库工作负荷（例如 SQL Server 或 Oracle）要求高内存、高存储和高 I/O 带宽，但不要求高核心计数。 许多数据库工作负荷不是 CPU 密集型的。 Azure 提供特定的 VM 大小，允许你对 VM vCPU 计数进行限制，在保留相同的内存、存储和 I/O 带宽的同时，降低软件许可成本。
 
@@ -25,9 +25,18 @@ ms.locfileid: "39307276"
 
 | Name                | vCPU | 规格           |
 |---------------------|------|-----------------|
-<!-- 不可用于| Standard_DS11-1_v2  | 1    | 与 DS11_v2 相同 |-->
-<!-- 不可用于| Standard_DS12-2_v2  | 2    | 与 DS12_v2 相同 |-->
-<!-- 不可用于| Standard_DS12-1_v2  | 1    | 与 DS12_v2 相同 |-->
+| Standard_E4-2s_v3   | 2    | 与 E4s_v3 相同  |
+| Standard_E8-4s_v3   | 4    | 与 E8s_v3 相同  |
+| Standard_E8-2s_v3   | 2    | 与 E8s_v3 相同  |
+| Standard_E16-8s_v3  | 8    | 与 E16s_v3 相同 |
+| Standard_E16-4s_v3  | 4    | 与 E16s_v3 相同 |
+| Standard_E32-16_v3  | 16   | 与 E32s_v3 相同 |
+| Standard_E32-8s_v3  | 8    | 与 E32s_v3 相同 |
+| Standard_E64-32s_v3 | 32   | 与 E64s_v3 相同 |
+| Standard_E64-16s_v3 | 16   | 与 E64s_v3 相同 |
+| Standard_DS11-1_v2  | 1    | 与 DS11_v2 相同 |
+| Standard_DS12-2_v2  | 2    | 与 DS12_v2 相同 |
+| Standard_DS12-1_v2  | 1    | 与 DS12_v2 相同 |
 | Standard_DS13-4_v2  | 4    | 同 DS13_v2 |
 | Standard_DS13-2_v2  | 2    | 同 DS13_v2 |
 | Standard_DS14-8_v2  | 8    | 同 DS14_v2 |

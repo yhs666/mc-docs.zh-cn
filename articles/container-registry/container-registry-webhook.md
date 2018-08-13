@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: container-registry
 ms.topic: article
 origin.date: 12/02/2017
-ms.date: 07/02/2018
+ms.date: 08/13/2018
 ms.author: v-yeche
-ms.openlocfilehash: c138917bda4919b2340b5924ee1dcc8849c578af
-ms.sourcegitcommit: 2cf6961f692f318ce7034e7b4d994ee51d902199
+ms.openlocfilehash: 359838108eb94a3fad25e6a8597ad7b89304b09f
+ms.sourcegitcommit: 543a18c71c0910a5b9878a2d2668f317468906f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36947674"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39625502"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>使用 Azure 容器注册表 webhook
 

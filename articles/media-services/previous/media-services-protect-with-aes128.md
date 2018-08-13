@@ -1,6 +1,6 @@
 ---
 title: 使用 AES-128 动态加密和密钥传递服务 | Azure
-description: 借助 Microsoft Azure 媒体服务，可以传送使用 AES 128 位加密密钥加密的内容。 媒体服务还提供密钥传送服务，将加密密钥传送给已授权的用户。 本主题说明如何使用 AES-128 动态加密以及如何使用密钥传送服务。
+description: 借助 Azure 媒体服务，可以传送使用 AES 128 位加密密钥加密的内容。 媒体服务还提供密钥传送服务，将加密密钥传送给已授权的用户。 本主题说明如何使用 AES-128 动态加密以及如何使用密钥传送服务。
 services: media-services
 documentationcenter: ''
 author: yunan2016
@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 08/25/2017
 ms.date: 12/22/2017
 ms.author: v-nany
-ms.openlocfilehash: a19dd64b6d61611807b980dc5597343f8f3bc782
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+ms.openlocfilehash: aff62bcb44cc3cb7718a44c9ed115f5e953f7d7c
+ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219564"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39723060"
 ---
 # <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>使用 AES-128 动态加密和密钥传递服务
 > [!div class="op_single_selector"]

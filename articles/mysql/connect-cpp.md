@@ -2,21 +2,22 @@
 title: 通过 C++ 连接到 Azure Database for MySQL
 description: 本快速入门提供一个 C++ 代码示例，使用该示例可连接到 Azure Database for MySQL 并查询其中的数据。
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
-manager: kfile
+author: WenJason
+ms.author: v-jay
+manager: digimobile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.custom: mvc
 ms.devlang: C++
 ms.topic: quickstart
-ms.date: 06/15/2018
-ms.openlocfilehash: 370c9171f53dfd9ae51ab3bb25753423c8871f89
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+origin.date: 04/12/2018
+ms.date: 08/13/2018
+ms.openlocfilehash: 20f5e082064614c90abf2eeb999fb6caa949387f
+ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873327"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39723131"
 ---
 # <a name="azure-database-for-mysql-use-connectorc-to-connect-and-query-data"></a>Azure Database for MySQL：使用 Connector/C++ 进行连接并查询数据
 
@@ -78,7 +79,7 @@ ms.locfileid: "37873327"
 using namespace std;
 
 //for demonstration only. never save your password in the code!
-const string server = "tcp://yourservername.database.chinacloudapi.cn:3306";
+const string server = "tcp://yourservername.mysql.database.chinacloudapi.cn:3306";
 const string username = "username@servername";
 const string password = "yourpassword";
 
@@ -153,7 +154,7 @@ int main()
 using namespace std;
 
 //for demonstration only. never save your password in the code!
-const string server = "tcp://yourservername.database.chinacloudapi.cn:3306";
+const string server = "tcp://yourservername.mysql.database.chinacloudapi.cn:3306";
 const string username = "username@servername";
 const string password = "yourpassword";
 
@@ -212,7 +213,7 @@ int main()
 using namespace std;
 
 //for demonstration only. never save your password in the code!
-const string server = "tcp://yourservername.database.chinacloudapi.cn:3306";
+const string server = "tcp://yourservername.mysql.database.chinacloudapi.cn:3306";
 const string username = "username@servername";
 const string password = "yourpassword";
 
@@ -270,7 +271,7 @@ int main()
 using namespace std;
 
 //for demonstration only. never save your password in the code!
-const string server = "tcp://yourservername.database.chinacloudapi.cn:3306";
+const string server = "tcp://yourservername.mysql.database.chinacloudapi.cn:3306";
 const string username = "username@servername";
 const string password = "yourpassword";
 

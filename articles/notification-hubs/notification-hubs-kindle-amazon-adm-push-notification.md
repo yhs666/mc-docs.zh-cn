@@ -14,14 +14,14 @@ ms.devlang: Java
 ms.topic: tutorial
 ms.custom: mvc
 origin.date: 04/14/2018
-ms.date: 07/09/2018
+ms.date: 08/09/2018
 ms.author: v-junlch
-ms.openlocfilehash: 4453e4b58b69b3d42a7686df6bc2d70dbbf6d97c
-ms.sourcegitcommit: e950fe5260c519e05f8c5bbf193a8ef733a6a2d2
+ms.openlocfilehash: 3f50996f2df243c81759306ef895d20a96f41baf
+ms.sourcegitcommit: 2d44abf2c428316c5e60cc701bafe8c40356c8eb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37936326"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39722767"
 ---
 # <a name="get-started-with-notification-hubs-for-kindle-apps"></a>通知中心入门（Kindle 应用）
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -43,7 +43,7 @@ ms.locfileid: "37936326"
 ## <a name="prerequisites"></a>先决条件
 
 - 从 <a href="http://go.microsoft.com/fwlink/?LinkId=389797">Android 站点</a>获取 Android SDK（假设你使用的是 Eclipse）。
-- 按照<a href="https://developer.amazon.com/appsandservices/resources/development-tools/ide-tools/tech-docs/01-setting-up-your-development-environment">设置开发环境</a>中的步骤设置 Kindle 的开发环境。
+- 按照<a href="https://developer.amazon.com/docs/fire-tablets/ft-set-up-your-development-environment.html">设置开发环境</a>中的步骤设置 Kindle 的开发环境。
 
 ## <a name="add-a-new-app-to-the-developer-portal"></a>向开发人员门户添加新应用程序
 1. 首先，请在 [Amazon 开发人员门户]中创建一个应用。
@@ -300,4 +300,4 @@ static void Main(string[] args)
 [6]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-new-java-class.png
 [7]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-notification.png
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

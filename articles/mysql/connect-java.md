@@ -2,21 +2,22 @@
 title: 使用 Java 连接到 Azure Database for MySQL
 description: 本快速入门提供了一个 Java 代码示例，你可以使用它来连接到 Azure Database for MySQL 数据库并查询其中的数据。
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
-manager: kfile
+author: WenJason
+ms.author: v-jay
+manager: digimobile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.custom: mvc, devcenter
 ms.topic: quickstart
 ms.devlang: java
-ms.date: 06/15/2018
-ms.openlocfilehash: 00ef5d73f69efed2ee4cbdae9ccd689886d8412a
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+origin.date: 02/28/2018
+ms.date: 08/13/2018
+ms.openlocfilehash: 96ab9853713f99ab5e911bec3cfbdfb034c92005
+ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873400"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39723112"
 ---
 # <a name="azure-database-for-mysql-use-java-to-connect-and-query-data"></a>Azure Database for MySQL：使用 Java 进行连接并查询数据
 
@@ -61,7 +62,7 @@ public class CreateTableInsertRows {
     public static void main (String[] args)  throws Exception
     {
         // Initialize connection variables. 
-        String host = "mydemoserver.database.chinacloudapi.cn";
+        String host = "mydemoserver.mysql.database.chinacloudapi.cn";
         String database = "quickstartdb";
         String user = "myadmin@mydemoserver";
         String password = "<server_admin_password>";
@@ -163,7 +164,7 @@ public class ReadTable {
     public static void main (String[] args)  throws Exception
     {
         // Initialize connection variables.
-        String host = "mydemoserver.database.chinacloudapi.cn";
+        String host = "mydemoserver.mysql.database.chinacloudapi.cn";
         String database = "quickstartdb";
         String user = "myadmin@mydemoserver";
         String password = "<server_admin_password>";
@@ -249,7 +250,7 @@ public class UpdateTable {
     public static void main (String[] args)  throws Exception
     {
         // Initialize connection variables. 
-        String host = "mydemoserver.database.chinacloudapi.cn";
+        String host = "mydemoserver.mysql.database.chinacloudapi.cn";
         String database = "quickstartdb";
         String user = "myadmin@mydemoserver";
         String password = "<server_admin_password>";
@@ -330,7 +331,7 @@ public class DeleteTable {
     public static void main (String[] args)  throws Exception
     {
         // Initialize connection variables.
-        String host = "mydemoserver.database.chinacloudapi.cn";
+        String host = "mydemoserver.mysql.database.chinacloudapi.cn";
         String database = "quickstartdb";
         String user = "myadmin@mydemoserver";
         String password = "<server_admin_password>";

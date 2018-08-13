@@ -2,19 +2,20 @@
 title: Azure Database for PostgreSQL 中的服务器概念
 description: 本文提供配置和管理 Azure Database for PostgreSQL 服务器的注意事项和指南。
 services: postgresql
-author: v-chenyh
-ms.author: v-chenyh
-manager: kfile
+author: WenJason
+ms.author: v-jay
+manager: digimobile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 06/21/2018
-ms.openlocfilehash: 8750ad3fb27118919f487b470d08f112ae0cf234
-ms.sourcegitcommit: d744d18624d2188adbbf983e1c1ac1110d53275c
+origin.date: 05/22/2018
+ms.date: 08/13/2018
+ms.openlocfilehash: 426222de327d6640ae56959bd623e6aa0bd73644
+ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36314362"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39723001"
 ---
 # <a name="azure-database-for-postgresql-servers"></a>Azure Database for PostgreSQL 服务器
 本文提供使用 Azure Database for PostgreSQL 服务器的注意事项和指南。
@@ -29,7 +30,7 @@ Azure Database for PostgreSQL 服务器：
 - 为数据库提供了一个命名空间。
 - 是具有强生存期语义的容器 - 删除服务器时会删除所包含的数据库。
 - 并置区域中的资源。
-- 为服务器和数据库访问提供连接终结点 (.database.chinacloudapi.cn)。
+- 为服务器和数据库访问提供连接终结点 (.postgres.database.chinacloudapi.cn)。
 - 提供应用于其数据库的管理策略的作用域：登录名、防火墙、用户、角色、配置等。
 - 在多个版本内可用。 有关详细信息，请参阅[支持的 PostgreSQL 数据库版本](concepts-supported-versions.md)。
 - 用户可将其进行扩展。 有关详细信息，请参阅 [PostgreSQL 扩展](concepts-extensions.md)。

@@ -2,21 +2,22 @@
 title: 使用 Java 连接到 Azure Database for PostgreSQL
 description: 本快速入门提供了一个 Java 代码示例，你可以使用它来连接到 Azure Database for PostgreSQL 并查询其中的数据。
 services: postgresql
-author: v-chenyh
-ms.author: v-chenyh
-manager: kfile
+author: WenJason
+ms.author: v-jay
+manager: digimobile
 editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 06/22/2018
-ms.openlocfilehash: 973d8f294c1fd5f6819de11f54a80b64e2468065
-ms.sourcegitcommit: d744d18624d2188adbbf983e1c1ac1110d53275c
+origin.date: 02/28/2018
+ms.date: 08/13/2018
+ms.openlocfilehash: 863c966aa74c1fa237bf5b0bd5d75e58e198d929
+ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36314387"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39723028"
 ---
 # <a name="azure-database-for-postgresql-use-java-to-connect-and-query-data"></a>Azure Database for PostgreSQL：使用 Java 进行连接并查询数据
 本快速入门演示了如何使用 Java 应用程序连接到 Azure Database for PostgreSQL。 同时还介绍了如何使用 SQL 语句在数据库中查询、插入、更新和删除数据。 本文中的步骤假定你熟悉如何使用 Java 进行开发，但不熟悉如何使用 Azure Database for PostgreSQL。
@@ -54,7 +55,7 @@ public class CreateTableInsertRows {
     {
 
         // Initialize connection variables.
-        String host = "mydemoserver.database.chinacloudapi.cn";
+        String host = "mydemoserver.postgres.database.chinacloudapi.cn";
         String database = "mypgsqldb";
         String user = "mylogin@mydemoserver";
         String password = "<server_admin_password>";
@@ -154,7 +155,7 @@ public class ReadTable {
     {
 
         // Initialize connection variables.
-        String host = "mydemoserver.database.chinacloudapi.cn";
+        String host = "mydemoserver.postgres.database.chinacloudapi.cn";
         String database = "mypgsqldb";
         String user = "mylogin@mydemoserver";
         String password = "<server_admin_password>";
@@ -240,7 +241,7 @@ public class UpdateTable {
     {
 
         // Initialize connection variables.
-        String host = "mydemoserver.database.chinacloudapi.cn";
+        String host = "mydemoserver.postgres.database.chinacloudapi.cn";
         String database = "mypgsqldb";
         String user = "mylogin@mydemoserver";
         String password = "<server_admin_password>";
@@ -320,7 +321,7 @@ public class DeleteTable {
     {
 
         // Initialize connection variables.
-        String host = "mydemoserver.database.chinacloudapi.cn";
+        String host = "mydemoserver.postgres.database.chinacloudapi.cn";
         String database = "mypgsqldb";
         String user = "mylogin@mydemoserver";
         String password = "<server_admin_password>";

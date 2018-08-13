@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 05/30/2018
-ms.date: 07/09/2018
+ms.date: 08/13/2018
 ms.author: v-yeche
-ms.openlocfilehash: c4e95cb8c0af249d9249dd955d693c76b599f718
-ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
+ms.openlocfilehash: d984f19e0a912c7dadc9a07eb1da01859fe02287
+ms.sourcegitcommit: 543a18c71c0910a5b9878a2d2668f317468906f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37405337"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39625547"
 ---
-# <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>了解 Azure Resource Manager 模板的结构和语法
+# <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>了解 Azure 资源管理器模板的结构和语法
 本文介绍 Azure 资源管理器模板的结构。 演示了模板的不同部分，以及可在相应部分使用的属性。 模板中包含可用于为部署构造值的 JSON 和表达式。 有关创建模板的分步教程，请参阅[创建第一个 Azure Resource Manager 模板](resource-manager-create-first-template.md)。
 
 ## <a name="template-format"></a>模板格式
@@ -216,6 +216,8 @@ ms.locfileid: "37405337"
 定义用户函数时，存在一些限制：
 
 * 该函数不能访问变量。
+* 该函数无法访问模板参数。 也就是说，[参数函数](resource-group-template-functions-deployment.md#parameters)仅限于函数参数。
+* 该函数不能调用其他用户定义的函数。
 * 该函数不能使用[引用函数](resource-group-template-functions-resource.md#reference)。
 * 该函数的参数不能具有默认值。
 
@@ -307,7 +309,7 @@ ms.locfileid: "37405337"
 * 64 个输出值
 * 模板表达式中不超过 24,576 个字符
 
-通过使用嵌套模板，可超出某些模板限制。 有关详细信息，请参阅[部署 Azure 资源时使用链接的模板](resource-group-linked-templates.md)。 若要减少参数、变量或输出的数量，可以将几个值合并为一个对象。 有关详细信息，请参阅[对象即参数](http://docs.microsoft.com/zh-cn/azure/architecture/building-blocks/extending-templates/objects-as-parameters)。
+通过使用嵌套模板，可超出某些模板限制。 有关详细信息，请参阅[部署 Azure 资源时使用链接的模板](resource-group-linked-templates.md)。 若要减少参数、变量或输出的数量，可以将几个值合并为一个对象。 
 <!-- Not Available on redirect to /azure/architecture/building-blocks/extending-templates/objects-as-parameters for [Objects as parameters](resource-manager-objects-as-parameters.md)  -->
 
 ## <a name="next-steps"></a>后续步骤

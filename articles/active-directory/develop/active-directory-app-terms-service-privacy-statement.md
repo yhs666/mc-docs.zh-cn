@@ -13,16 +13,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 05/23/2018
-ms.date: 07/03/2018
+ms.date: 08/06/2018
 ms.author: v-junlch
-ms.reviwer: lenalepa; sureshja
+ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
-ms.openlocfilehash: d8d018656fc3f7fe4424760a99c875741a5a25d8
-ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
+ms.openlocfilehash: 28afe226a0b372be059d27c0e4e97d3830fd87e2
+ms.sourcegitcommit: 7cdf4633aea04e524cb48cb1990b750ae8be841c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37800578"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39584290"
 ---
 # <a name="terms-of-service-and-privacy-statement-for-registered-azure-active-directory-apps"></a>已注册 Azure Active Directory 应用的服务条款和隐私声明
 
@@ -63,8 +63,8 @@ ms.locfileid: "37800578"
 
 1. 登录  [Azure 门户](https://portal.azure.cn/)。
 2. 导航到“应用注册”部分并选择应用 **** 。
-3. 打开应用的“属性” **** 部分。
-4. 填写“服务条款 URL”和“隐私声明 URL”字段 ****  **** 。
+3. 打开应用的 **“属性”** 部分。
+4. 填写 **“服务条款 URL”** 和 **“隐私声明 URL”** 字段。
 5. 保存所做更改。
 
 ![含有服务条款和隐私声明 URL 的应用属性部分](./media/active-directory-integrating-applications/azure-portal-terms-service-privacy-statement-urls.png)
@@ -78,3 +78,4 @@ ms.locfileid: "37800578"
         "privacy": “<your_privacy_statement_url>” 
     }
 ```
+<!-- Update_Description: update metedata properties -->

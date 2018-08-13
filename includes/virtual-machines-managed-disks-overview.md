@@ -9,12 +9,12 @@ origin.date: 06/03/2018
 ms.date: 07/30/2018
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 06419a3bbf97376786f84d6ffe869e42bded0e18
-ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
+ms.openlocfilehash: a18c3c1bd50e41250abfa9f2ba923c8258e07458
+ms.sourcegitcommit: 62a0389a743cd18665bd127e9bf14800867008eb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39307285"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39625668"
 ---
 # <a name="azure-managed-disks-overview"></a>Azure 托管磁盘概述
 
@@ -58,7 +58,9 @@ Azure 磁盘具备 99.999% 的可用性。 数据具有三个副本，高持久�
 
 下面将更详细地介绍各选项。
 
-**存储类型：** 托管磁盘提供 3 个性能层：[标准 HDD](../articles/virtual-machines/windows/standard-storage.md)、标准 SSD（预览）和[高级](../articles/virtual-machines/windows/premium-storage.md)。 托管磁盘的计费取决于为磁盘选择的存储类型。
+**存储类型：** 托管磁盘提供 2 个性能层：[标准 HDD](../articles/virtual-machines/windows/standard-storage.md) 和[高级](../articles/virtual-machines/windows/premium-storage.md)。 托管磁盘的计费取决于为磁盘选择的存储类型。
+<!--Not Available on 标准 SSD（预览）-->
+<!--Not Available on Standard SSD (Preview)-->
 
 **磁盘大小**：托管磁盘的计费取决于磁盘的预配大小。 Azure 会将预配大小映射（四舍五入）到下面各表中指定的最接近的托管磁盘选项。 每个托管磁盘将映射到其中一种受支持的预配大小并相应地计费。 例如，如果创建了一个标准托管磁盘并将预配大小指定为 200 GB，则会根据 S15 磁盘类型的定价向你收费。
 
@@ -68,11 +70,7 @@ Azure 磁盘具备 99.999% 的可用性。 数据具有三个副本，高持久�
 |------------------|---------|---------|---------|---------|---------|----------------|----------------|----------------|  
 | 磁盘大小        | 32 GiB   | 64 GiB   | 128 GiB  | 256 GiB  | 512 GiB  | 1024 GiB (1 TiB) | 2048 GiB (2 TiB) | 4095 GiB (4 TiB) | 
 
-下面是标准 SSD 托管磁盘可用的磁盘大小：
-
-| 标准 SSD 托管<br>磁盘类型 | E10 | E15 | E20 | E30 | E40 | E50 |
-|------------------|--------|--------|--------|----------------|----------------|----------------| 
-| 磁盘大小        | 128 GiB | 256 GiB | 512 GiB | 1024 GiB (1 TiB) | 2048 GiB (2 TiB) | 4095 GiB (4 TiB) | 
+<!--Not Available on standard SSD managed disk:-->
 
 下面是标准 HDD 托管磁盘可用的磁盘大小：
 
@@ -82,7 +80,7 @@ Azure 磁盘具备 99.999% 的可用性。 数据具有三个副本，高持久�
 
 **事务数**：根据在标准托管磁盘上执行的事务数计费。
 
-标准 SSD 盘使用大小为 256 KB 的 IO 单位。 如果要传输的数据小于 256 KB，该数据将被视为 1 个 I/O 单位。 更大的 I/O 大小被视为多个 256 KB 大小的 I/O。 例如，1,100 KB I/O 会被视为 5 个 I/O 单位。
+<!-- Not Available on Standard SSD Disks -->
 
 高级托管磁盘不产生事务费用。
 
@@ -153,6 +151,7 @@ Azure 磁盘加密允许加密 IaaS 虚拟机使用的 OS 磁盘和数据磁盘�
 * [高级·SSD 盘](../articles/virtual-machines/windows/premium-storage.md)
 
 * [标准 SSD 和 HDD 盘](../articles/virtual-machines/windows/standard-storage.md)
+<!--Not Available on Standard SSD disks -->
 
 ### <a name="operational-guidance"></a>操作指南
 

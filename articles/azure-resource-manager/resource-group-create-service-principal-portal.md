@@ -3,23 +3,23 @@ title: 在门户中创建 Azure 应用标识 | Azure
 description: 介绍如何创建新的 Azure Active Directory 应用程序和服务主体，在 Azure Resource Manager 中将此服务主体与基于角色的访问控制配合使用可以管理对资源的访问权限。
 services: azure-resource-manager
 documentationcenter: na
-author: luanmafeng
+author: rockboyfor
 manager: digimobile
 editor: tysonn
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 03/21/2018
-ms.date: 05/28/2018
+ms.date: 08/13/2018
 ms.author: v-yeche
-ms.openlocfilehash: f8e1172129fb9f9af0d0a68e0f22b5f880677356
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: bc67f92aab940e0714914b470252ba7574cce0e7
+ms.sourcegitcommit: 543a18c71c0910a5b9878a2d2668f317468906f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554321"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39625478"
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>使用门户创建可访问资源的 Azure Active Directory 应用程序和服务主体
 
@@ -47,7 +47,7 @@ ms.locfileid: "34554321"
 
     ![查看应用注册](./media/resource-group-create-service-principal-portal/view-app-registrations.png)
 
-1. 如果应用注册设置已设置为“否”，则只有[全局管理员](../active-directory/active-directory-assign-admin-roles-azure-portal.md)可以注册应用。 检查帐户是否为 Active AD 租户的管理员。 选择“概述”并查看用户信息。 如果将帐户分配到“用户”角色，但（前面步骤中设置的）应用注册设置仅限于管理员用户，请要求管理员为你分配“全局管理员”角色或允许用户注册应用。
+1. 如果应用注册设置已设置为“否”，则只有[全局管理员](../active-directory/users-groups-roles/directory-assign-admin-roles.md)可以注册应用。 检查帐户是否为 Active AD 租户的管理员。 选择“概述”并查看用户信息。 如果将帐户分配到“用户”角色，但（前面步骤中设置的）应用注册设置仅限于管理员用户，请要求管理员为你分配“全局管理员”角色或允许用户注册应用。
 
     ![查找用户](./media/resource-group-create-service-principal-portal/view-user-info.png)
 
@@ -84,9 +84,8 @@ ms.locfileid: "34554321"
 
     ![添加应用](./media/resource-group-create-service-principal-portal/select-add-app.png)
 
-1. 为应用提供名称和 URL。 选择“Web 应用/API”作为要创建的应用程序的类型。 无法创建原生应用程序的凭据，因此这种类型不适用于自动化应用程序。 。
-    <!-- Not Available on [Native application](../active-directory/active-directory-application-proxy-native-client.md) -->
-    ![命名应用程序](./media/resource-group-create-service-principal-portal/create-app.png)
+1. 为应用提供名称和 URL。 选择“Web 应用/API”作为要创建的应用程序的类型。 无法创建原生应用程序的凭据，因此这种类型不适用于自动化应用程序。 设置这些值后，选择“创建”。
+    <!-- Not Available on [Native application](../active-directory/manage-apps/application-proxy-configure-native-client-application.md) --> ![命名应用程序](./media/resource-group-create-service-principal-portal/create-app.png)
 
 已创建应用程序。
 
@@ -98,7 +97,7 @@ ms.locfileid: "34554321"
 
     ![选择应用程序](./media/resource-group-create-service-principal-portal/select-app.png)
 
-1. 复制“应用程序 ID”并将其存储在应用程序代码中。 一些[示例应用程序](#log-in-as-the-application)将此值称为“客户端 ID”。
+1. 复制“应用程序 ID”并将其存储在应用程序代码中。 某些[示例应用程序](#log-in-as-the-application)将此值作为客户端 ID。
 
     ![客户端 ID](./media/resource-group-create-service-principal-portal/copy-app-id.png)
 
@@ -106,7 +105,7 @@ ms.locfileid: "34554321"
 
    ![选择“设置”](./media/resource-group-create-service-principal-portal/select-settings.png)
 
-1. 若要生成身份验证密钥，请选择“密钥” 。
+1. 若要生成身份验证密钥，请选择“密钥”。
 
     ![选择密钥](./media/resource-group-create-service-principal-portal/select-keys.png)
 
@@ -114,7 +113,7 @@ ms.locfileid: "34554321"
 
     ![保存密钥](./media/resource-group-create-service-principal-portal/save-key.png)
 
-   保存密钥后，密钥的值显示。 复制此值，因为稍后不能检索密钥。 提供密钥值及应用程序 ID 登录为该应用程序。 将密钥值存储在应用程序可检索的位置。
+   保存密钥后, 会显示密钥的值。 复制此值，因为稍后不能检索密钥。 提供密钥值及应用程序 ID 登录为该应用程序。 将密钥值存储在应用程序可检索的位置。
 
    ![保存的密钥](./media/resource-group-create-service-principal-portal/copy-key.png)
 
@@ -122,7 +121,7 @@ ms.locfileid: "34554321"
 
 以编程方式登录时，需要随身份验证请求传递租户 ID。
 
-1. 选择“Azure Active Directory” 。
+1. 选择“Azure Active Directory”。
 
     ![选择 azure active directory](./media/resource-group-create-service-principal-portal/select-active-directory.png)
 
@@ -171,4 +170,4 @@ ms.locfileid: "34554321"
 * 若要了解如何指定安全策略，请参阅 [Azure 基于角色的访问控制](../role-based-access-control/role-assignments-portal.md)。  
 * 有关可对用户授予或拒绝的可用操作的列表，请参阅 [Azure 资源管理器资源提供程序操作](../role-based-access-control/resource-provider-operations.md)。
 
-<!--Update_Description: update meta properties, wording update, update link -->
+<!--Update_Description: update meta properties, wording update -->

@@ -2,19 +2,19 @@
 title: 通过 Azure 门户在 Azure Database for PostgreSQL 中配置服务器参数
 description: 本文介绍如何通过 Azure 门户在 Azure Database for PostgreSQL 中配置服务器参数。
 services: postgresql
-author: v-chenyh
-ms.author: v-chenyh
-manager: kfile
+author: WenJason
+ms.author: v-jay
+manager: digimobile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 06/22/2018
-ms.openlocfilehash: 56a007cfe63e186c5381cef6e74aa92884ef1451
-ms.sourcegitcommit: d744d18624d2188adbbf983e1c1ac1110d53275c
+ms.date: 08/22/2018
+ms.openlocfilehash: a42f7f18dd3232e4e83355e5377b40a2c5649947
+ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36314359"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39723023"
 ---
 # <a name="configure-server-parameters-in-azure-portal"></a>在 Azure 门户中配置服务器参数
 可以通过 Azure 门户列出、显示和更新 Azure Database for PostgreSQL 的配置参数。

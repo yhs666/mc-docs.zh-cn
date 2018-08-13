@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 04/23/2018
 ms.date: 07/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: bedf3ec02691a00cc4ead78c5081775f99486354
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.openlocfilehash: d07479bfbc74ffd440067ecd316cbbeaba36255d
+ms.sourcegitcommit: 543a18c71c0910a5b9878a2d2668f317468906f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39167724"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39625501"
 ---
 # <a name="azure-container-registry-authentication-with-service-principals"></a>使用服务主体的 Azure 容器注册表身份验证
 
@@ -51,10 +51,10 @@ Azure AD“服务主体”提供对订阅中的 Azure 资源的访问权限。 �
 
 在创建服务主体并向其授予对容器注册表的访问权限后，可以在应用程序和服务中使用其凭据进行注册表交互。
 
-虽然对个体应用程序进行配置以使用服务主体凭据不在本文的讨论范围内，但是可以在此处找到针对一些特定服务和平台的说明：
+<!--Not Available on Comments-->
 
 <!--Not Available on * [Authenticate with Azure Container Registry from Azure Kubernetes Service (AKS)](container-registry-auth-aks.md)-->
-* [使用 Azure 容器注册表从 Azure 容器实例 (ACI) 进行身份验证](container-registry-auth-aci.md)
+<!--Not Available on * [Authenticate with Azure Container Registry from Azure Container Instances (ACI)](container-registry-auth-aci.md)-->
 
 <!-- LINKS - External -->
 [acr-scripts-cli]: https://github.com/Azure/azure-docs-cli-python-samples/tree/master/container-registry
@@ -62,5 +62,4 @@ Azure AD“服务主体”提供对订阅中的 Azure 资源的访问权限。 �
 
 <!-- LINKS - Internal -->
 [az-acr-login]: https://docs.azure.cn/zh-cn/cli/acr?view=azure-cli-latest#az_acr_login
-<!-- Update_Description: new articles on container registry auth service principal -->
-<!--ms.date: 07/02/2018-->
+<!-- Update_Description: update link, update meta properties -->

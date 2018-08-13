@@ -14,15 +14,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 04/27/2017
-ms.date: 07/03/2018
+ms.date: 08/06/2018
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: 9933be85beed7fe418a0025082fd54d2f670c469
-ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
+ms.reviewer: hirsin
+ms.openlocfilehash: c5e2e0225f3360cbd2eda0f5e6c964a2d243fadb
+ms.sourcegitcommit: 7cdf4633aea04e524cb48cb1990b750ae8be841c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37800353"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39584278"
 ---
 # <a name="azure-active-directory-authentication-protocols"></a>Azure Active Directory 身份验证协议
 Azure Active Directory (Azure AD) 支持多个最广泛使用的身份验证和授权协议。 本部分中的主题介绍 Azure AD 中支持的协议及其实现。 这些主题包括支持的声明类型的回顾、联合元数据的使用简介、详细的 OAuth 2.0. 和 SAML 2.0 协议参考文档，以及故障排除部分。
@@ -42,4 +43,4 @@ Azure Active Directory (Azure AD) 支持多个最广泛使用的身份验证和�
 
 [Active Directory 代码示例](active-directory-code-samples.md)
 
-<!--Update_Description: wording update-->
+<!-- Update_Description: update metedata properties -->

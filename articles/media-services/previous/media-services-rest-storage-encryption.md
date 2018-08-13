@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 06/17/2018
 ms.date: 07/30/2018
 ms.author: v-haiqya
-ms.openlocfilehash: c82e2c4fc878327033e5bbf16ccaeb12a613974e
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+ms.openlocfilehash: 1274d4954368b03a188050eac1a08bfdd4f4dd5d
+ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219444"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39723078"
 ---
 # <a name="encrypting-your-content-with-storage-encryption"></a>通过存储加密来加密内容
 
@@ -46,8 +46,8 @@ ms.locfileid: "39219444"
 |加密选项|说明|媒体服务 v2|
 |---|---|---|
 |媒体服务存储加密|AES-256 加密，媒体服务管理的密钥|支持<sup>(1)</sup>|
-|[静态数据的存储服务加密](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|由 Azure 存储提供的服务器端加密，由 Azure 或客户管理的密钥|支持|
-|[存储客户端加密](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|由 Azure 存储提供的客户端加密，由 Key Vault 中的客户管理的密钥|不支持|
+|[静态数据的存储服务加密](/storage/common/storage-service-encryption)|由 Azure 存储提供的服务器端加密，由 Azure 或客户管理的密钥|支持|
+|[存储客户端加密](/storage/common/storage-client-side-encryption)|由 Azure 存储提供的客户端加密，由 Key Vault 中的客户管理的密钥|不支持|
 
 <sup>1</sup> 虽然媒体服务确实支持处理明文形式（未经过任何形式的加密）的内容，但不建议这样做。
 
@@ -259,7 +259,6 @@ AMS 存储加密将 **AES-CTR** 模式加密应用于整个文件。  AES-CTR �
 
 如果成功，返回以下响应：
 
-```
     HTP/1.1 201 Created
     Cache-Control: no-cache
     Content-Length: 452
@@ -286,10 +285,10 @@ AMS 存储加密将 **AES-CTR** 模式加密应用于整个文件。  AES-CTR �
        "StorageAccountName":"storagetestaccount001"
     }
 
-## Associate the ContentKey with an Asset
-After creating the ContentKey, associate it with your Asset using the $links operation, as shown in the following example:
+## <a name="associate-the-contentkey-with-an-asset"></a>将 ContentKey 与资产关联
+创建 ContentKey 后，使用 $links 操作将其与资产关联，如以下示例所示：
 
-Request:
+请求：
 
     POST https://media.chinacloudapi.cn/api/Assets('nb%3Acid%3AUUID%3Afbd7ce05-1087-401b-aaae-29f16383c801')/$links/ContentKeys HTTP/1.1
     DataServiceVersion: 1.0;NetFx
@@ -303,18 +302,18 @@ Request:
 
     {"uri":"https://wamsbayclus001rest-hs.chinacloudapp.cn/api/ContentKeys('nb%3Akid%3AUUID%3A01e6ea36-2285-4562-91f1-82c45736047c')"}
 
-Response:
+响应：
 
     HTTP/1.1 204 No Content 
 
-## Create an AssetFile
-The [AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) entity represents a video or audio file that is stored in a blob container. An asset file is always associated with an asset, and an asset may contain one or many asset files. The Media Services Encoder task fails if an asset file object is not associated with a digital file in a blob container.
+## <a name="create-an-assetfile"></a>创建 AssetFile
+[AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) 实体表示 blob 容器中存储的视频或音频文件。 一个资产文件始终与一个资产关联，而一个资产则可能包含一个或多个资产文件。 如果资产文件对象未与 blob 容器中的数字文件关联，则媒体服务编码器任务将失败。
 
-The **AssetFile** instance and the actual media file are two distinct objects. The AssetFile instance contains metadata about the media file, while the media file contains the actual media content.
+**AssetFile** 实例和实际媒体文件是两个不同的对象。 AssetFile 实例包含有关媒体文件的元数据，而媒体文件包含实际媒体内容。
 
-After you upload your digital media file into a blob container, you will use the **MERGE** HTTP request to update the AssetFile with information about your media file (not shown in this article). 
+将数字媒体文件上传到 blob 容器后，需要使用 MERGE HTTP 请求来更新 AssetFile 中有关媒体文件的信息（本文中未展示）。 
 
-**HTTP Request**
+**HTTP 请求**
 
     POST https://media.chinacloudapi.cn/api/Files HTTP/1.1
     Content-Type: application/json
@@ -340,7 +339,7 @@ After you upload your digital media file into a blob container, you will use the
        "ParentAssetId":"nb:cid:UUID:9bc8ff20-24fb-4fdb-9d7c-b04c7ee573a1"
     }
 
-**HTTP Response**
+**HTTP 响应**
 
     HTTP/1.1 201 Created
     Cache-Control: no-cache

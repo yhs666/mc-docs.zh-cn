@@ -11,21 +11,21 @@ ms.workload: identity
 ms.component: fundamentals
 ms.topic: quickstart
 origin.date: 08/04/2017
-ms.date: 06/22/2018
+ms.date: 08/07/2018
 ms.author: v-junlch
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: ba34d29fbc797650006af60321e14bbecb4617c7
-ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
+ms.openlocfilehash: 8bd01b10acd197a9e785288d4e47378ba9127ae1
+ms.sourcegitcommit: 7cdf4633aea04e524cb48cb1990b750ae8be841c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36948665"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39584235"
 ---
 # <a name="create-a-group-and-add-members-in-azure-active-directory"></a>在 Azure Active Directory 中创建组并添加成员
 > [!div class="op_single_selector"]
 > * [Azure 门户](active-directory-groups-create-azure-portal.md)
-> * [PowerShell](../active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
+> * [PowerShell](../users-groups-roles/groups-settings-v2-cmdlets.md)
 
 本文介绍如何在 Azure Active Directory 中创建和填充新组。 使用组来执行管理任务，例如一次向多个用户或设备分配许可证或权限。
 
@@ -57,3 +57,4 @@ ms.locfileid: "36948665"
 - [管理组的成员](active-directory-groups-members-azure-portal.md)
 - [管理组的成员身份](active-directory-groups-membership-azure-portal.md)
 
+<!-- Update_Description: link update -->

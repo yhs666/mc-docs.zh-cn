@@ -4,18 +4,18 @@ description: 以下文档介绍了如何填充 UserPrincipalName 属性。
 author: billmath
 ms.component: hybrid
 ms.author: v-junlch
-origin.date: 02/02/2018
-ms.date: 06/26/2018
+origin.date: 06/26/2018
+ms.date: 08/06/2018
 ms.topic: article
 ms.workload: identity
 ms.service: active-Directory
 manager: mtillman
-ms.openlocfilehash: b1cbbbb228019d5eb0f3d464c7fcd51c03d43d0c
-ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
+ms.openlocfilehash: 98f1c77642d519731b622a56d44a1202fc46ce78
+ms.sourcegitcommit: 7cdf4633aea04e524cb48cb1990b750ae8be841c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36947874"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39584295"
 ---
 # <a name="azure-ad-userprincipalname-population"></a>Azure AD UserPrincipalName 填充
 
@@ -48,7 +48,7 @@ Azure AD 使用 UPN 让用户登录。  用户可以使用的 UPN 取决于域�
    ![未验证的域](./media/active-directory-aadconnect-get-started-express/unverifieddomain.png) 
 
 ## <a name="alternate-login-id"></a>备用登录 ID
-在某些环境中，由于公司政策或本地业务线应用程序的依赖关系，最终用户只知道其电子邮件地址，而不知道其 UPN。
+在一些环境中，最终用户可能仅知道自己的电子邮件地址，但不知道自己的 UPN。  使用电子邮件地址的原因可能是公司策略或本地业务线应用程序依赖项。
 
 备用登录 ID 允许配置登录体验，用户可以使用其 UPN 以外的属性（如邮件）登录。
 
@@ -87,6 +87,8 @@ Azure AD 使用 UPN 让用户登录。  用户可以使用的 UPN 取决于域�
 
 ### <a name="scenario-1-non-verified-upn-suffix---initial-synchronization"></a>方案 1：未验证的 UPN 后缀 – 初始同步
 
+![方案 1](./media/active-directory-aadconnect-userprincipalname/example1.png)
+
 本地用户对象：
 - mailNickName：&lt;未设置&gt;
 - proxyAddresses：{SMTP:us1@contoso.com}
@@ -105,6 +107,8 @@ Azure AD 租户用户对象：
 
 ### <a name="scenario-2-non-verified-upn-suffix---set-on-premises-mailnickname-attribute"></a>方案 2：未验证的 UPN 后缀 – 设置本地 mailNickName 属性
 
+![方案 2](./media/active-directory-aadconnect-userprincipalname/example2.png)
+
 本地用户对象：
 - mailNickName：us4
 - proxyAddresses：{SMTP:us1@contoso.com}
@@ -120,6 +124,8 @@ Azure AD 租户用户对象：
 - UserPrincipalName：us1@contoso.partner.onmschina.cn
 
 ### <a name="scenario-3-non-verified-upn-suffix---update-on-premises-userprincipalname-attribute"></a>方案 3：未验证的 UPN 后缀 – 更新本地 userPrincipalName 属性
+
+![方案 3](./media/active-directory-aadconnect-userprincipalname/example3.png)
 
 本地用户对象：
 - mailNickName：us4
@@ -138,6 +144,8 @@ Azure AD 租户用户对象：
 
 ### <a name="scenario-4-non-verified-upn-suffix---update-primary-smtp-address-and-on-premises-mail-attribute"></a>方案 4：未验证的 UPN 后缀 – 更新主要 SMTP 地址和本地 mail 属性
 
+![方案 4](./media/active-directory-aadconnect-userprincipalname/example4.png)
+
 本地用户对象：
 - mailNickName：us4
 - proxyAddresses：{SMTP:us6@contoso.com}
@@ -145,13 +153,15 @@ Azure AD 租户用户对象：
 - userPrincipalName：us5@contoso.com
 
 将本地 mail 属性和主要 SMTP 地址的更新同步到 Azure AD 租户
-- 完成用户对象的初始同步后，本地 mail 属性和主要 SMTP 地址的更新既不影响 Azure AD MailNickName 属性，也不影响 UserPrincipalName 属性。
+- 完成用户对象的初始同步后，本地 mail 属性和主要 SMTP 地址的更新不会影响 Azure AD MailNickName 或 UserPrincipalName 属性。
 
 Azure AD 租户用户对象：
 - MailNickName：us4
 - UserPrincipalName：us4@contoso.partner.onmschina.cn
 
 ### <a name="scenario-5-verified-upn-suffix---update-on-premises-userprincipalname-attribute-suffix"></a>方案 5：已验证的 UPN 后缀 – 更新本地 userPrincipalName 属性后缀
+
+![方案 5](./media/active-directory-aadconnect-userprincipalname/example5.png)
 
 本地用户对象：
 - mailNickName：us4
@@ -171,4 +181,5 @@ Azure AD 租户用户对象：
 - [将本地目录与 Azure Active Directory 进行集成](active-directory-aadconnect.md)
 - [Azure AD Connect 的自定义安装](active-directory-aadconnect-get-started-custom.md)
 
-<!-- Update_Description: update metedata properties -->
+
+<!-- Update_Description: wording update -->

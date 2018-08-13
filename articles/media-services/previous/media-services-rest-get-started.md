@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 04/13/2018
 ms.date: 07/30/2018
 ms.author: v-nany
-ms.openlocfilehash: 11320040b5dbd8c692c89ed2201e84ab17d7e055
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+ms.openlocfilehash: aaa25c25e180b672503d866a2f765b4033715c02
+ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219628"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39723067"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>开始使用 REST 传送点播内容
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
@@ -270,7 +270,7 @@ SAS URL 采用以下格式：
 
 * 一项给定的资产一次最多只能与五个唯一的定位符相关联。 
 * 如果需要立即上传文件，应将 StartTime 值设置为当前时间前五分钟。 这是因为客户端计算机与媒体服务之间可能存在时钟偏差。 此外，StartTime 值必须采用以下 DateTime 格式：YYYY-MM-DDTHH:mm:ssZ（例如，“2014-05-23T17:53:50Z”）。    
-* 定位符从创建到可用可能会有 30-40 秒的延迟。 [SAS URL](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) 和源定位符都会出现这个问题。
+* 定位符从创建到可用可能会有 30-40 秒的延迟。 [SAS URL](/azure/storage/common/storage-dotnet-shared-access-signature-part-1) 和源定位符都会出现这个问题。
 
 以下示例说明了如何创建 SAS URL 定位符，由请求正文中的 Type 属性定义（“1”表示 SAS 定位符，“2”表示按需来源定位符）。 返回的 **Path** 属性包含上传文件时必须使用的 URL。
 
@@ -388,14 +388,14 @@ SAS URL 采用以下格式：
 
 **HTTP 请求**
 
-    DELETE https://wamsbayclus001rest-hs.cloudapp.net/api/AccessPolicies('nb%3Apid%3AUUID%3Abe0ac48d-af7d-4877-9d60-1805d68bffae') HTTP/1.1
+    DELETE https://wamsbayclus001rest-hs.chinacloudapp.cn/api/AccessPolicies('nb%3Apid%3AUUID%3Abe0ac48d-af7d-4877-9d60-1805d68bffae') HTTP/1.1
     DataServiceVersion: 1.0;NetFx
     MaxDataServiceVersion: 3.0;NetFx
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN>
     x-ms-version: 2.17
-    Host: wamsbayclus001rest-hs.cloudapp.net
+    Host: wamsbayclus001rest-hs.chinacloudapp.cn
 
 **HTTP 响应**
 

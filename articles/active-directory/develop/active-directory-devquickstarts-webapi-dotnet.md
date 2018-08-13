@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 01/23/2017
-ms.date: 07/03/2018
+ms.date: 08/06/2018
 ms.author: v-junlch
-ms.reviewer: dastrock
+ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 973c3c2f91aa0584787234a8bd5457f451a0bd7a
-ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
+ms.openlocfilehash: ec3bd104ffdb414a073dfc668fb7756ad690b44f
+ms.sourcegitcommit: 7cdf4633aea04e524cb48cb1990b750ae8be841c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37800437"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39584234"
 ---
 # <a name="azure-ad-net-web-api-getting-started"></a>Azure AD .NET Web API 入门
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]

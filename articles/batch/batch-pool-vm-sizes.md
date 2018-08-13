@@ -12,15 +12,15 @@ ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/01/2018
-ms.date: 04/09/2018
+origin.date: 06/27/2018
+ms.date: 08/08/2018
 ms.author: v-junlch
-ms.openlocfilehash: 90a7bf1f5535600422874a1081701e629f9a1806
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.openlocfilehash: e5c97ed63ae8b641d85df2eaa1afc8d9a44200ab
+ms.sourcegitcommit: f8bb533368ab2ef8efdf47e186672993ad8334cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31359526"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39722307"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>选择 Azure Batch 池中计算节点的 VM 大小
 
@@ -42,9 +42,8 @@ ms.locfileid: "31359526"
 | 基本 A 系列 | Basic_A0 (A0) |
 | A 系列 | Standard_A0 |
 | B 系列 | 全部 |
-| Fsv2 系列<sup>*</sup> | 全部 |
 
-<sup>*</sup>此系列的大小在将来提供支持的路线图上。
+
 
 ### <a name="pools-in-cloud-service-configuration"></a>云服务配置中的池
 
@@ -81,3 +80,5 @@ ms.locfileid: "31359526"
 
 - 有关 Batch 深入概述的信息，请参阅[使用 Batch 开发大规模并行计算解决方案](batch-api-basics.md)。
 
+
+<!-- Update_Description: wording update -->

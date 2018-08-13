@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 07/06/2018
 ms.date: 07/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 5fa65cfa483d08095bac74364ddb46bc82e11707
-ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
+ms.openlocfilehash: 3c537d420e6bbb4d36d9a2d87c2fcabbdde53d92
+ms.sourcegitcommit: 62a0389a743cd18665bd127e9bf14800867008eb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39306973"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39624934"
 ---
 # <a name="sizes-for-windows-virtual-machines-in-azure"></a>Azure 中 Windows 虚拟机的大小
 
@@ -69,7 +69,10 @@ ms.locfileid: "39306973"
 - [常规用途](sizes-general.md)
 - [计算优化](sizes-compute.md)
 - [内存优化](../virtual-machines-windows-sizes-memory.md)
+- [GPU 优化](sizes-gpu.md)
+- 查看[上一代](sizes-previous-gen.md)页，了解 A Standard、Dv1（D1-4 和 D11-14 v1）
+
 <!-- Not Available on - [Storage optimized](../virtual-machines-windows-sizes-storage.md) -->
-<!-- Not Available on - [GPU optimized](sizes-gpu.md) -->
 <!-- Not Available on - [High performance compute](sizes-hpc.md)-->
-- 查看[上一代](sizes-previous-gen.md)页，了解 A Standard、Dv1（D1-4 和 D11-14 v1）<!--Update_Description: update meta properties, update link, wording update -->
+
+<!--Update_Description: update meta properties, update link, wording update -->

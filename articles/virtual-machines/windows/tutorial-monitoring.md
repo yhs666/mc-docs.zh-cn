@@ -17,12 +17,12 @@ origin.date: 05/04/2017
 ms.date: 07/30/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 9b6a7fa6a1a1352112eefd9a0522f30d7e43407d
-ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
+ms.openlocfilehash: b339d89cf332e0a5085ea4c9d623639a65d91f95
+ms.sourcegitcommit: 62a0389a743cd18665bd127e9bf14800867008eb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39306967"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39624937"
 ---
 # <a name="tutorial-monitor-and-update-a-windows-virtual-machine-in-azure"></a>教程：监视和更新 Azure 中的 Windows 虚拟机
 
@@ -34,9 +34,9 @@ Azure 监视使用代理从 Azure VM 收集启动和性能数据，将此数据�
 > * 在 VM 上启用启动诊断
 > * 查看启动诊断
 > * 查看 VM 主机指标
-> * 安装诊断扩展 <!-- Not Available on> * View VM metrics -->
-<!-- Not Available on> * Create an alert -->
-<!-- Not Available on> * Manage Windows updates -->
+> * 安装诊断扩展
+> * 查看 VM 指标
+> * 创建警报 <!-- Not Available on> * Manage Windows updates -->
 <!-- Not Available on> * Monitor changes and inventory -->
 <!-- Not Available on> * Set up advanced monitoring -->
 
@@ -91,8 +91,28 @@ Windows VM 在 Azure 中有一个与它交互的专用主机 VM。 系统会自�
 
     ![查看诊断指标](./media/tutorial-monitoring/enable-diagnostics-extension.png)
 
-<!-- Not Available on ## View VM metrics -->
-<!-- Not Available on ## Create alerts -->
+## <a name="view-vm-metrics"></a>查看 VM 指标
+
+可以像查看主机 VM 指标一样查看 VM 指标：
+
+1. 在 Azure 门户中单击“资源组”，选择“myResourceGroupMonitor”，并在资源列表中选择“myVM”。
+2. 要查看 VM 的性能情况，请在 VM 边栏选项卡上单击“指标”，并选择“可用指标”下的任一诊断指标。
+
+    ![查看 VM 指标](./media/tutorial-monitoring/monitor-vm-metrics.png)
+
+## <a name="create-alerts"></a>创建警报
+
+可以根据特定的性能指标创建警报。 例如，当平均 CPU 使用率超过特定的阈值或者可用磁盘空间低于特定的空间量时，警报可用于发出通知。 警报显示在 Azure 门户中，也可以通过电子邮件发送。 还可以触发 Azure 自动化 Runbook 或 Azure 逻辑应用来响应生成的警报。
+
+以下示例针对平均 CPU 使用率创建警报。
+
+1. 在 Azure 门户中单击“资源组”，选择“myResourceGroupMonitor”，并在资源列表中选择“myVM”。
+2. 在 VM 边栏选项卡上单击“警报规则”，然后单击警报边栏选项卡顶部的“添加指标警报”。
+3. 为警报提供**名称**，例如 *myAlertRule*
+4. 若要在 CPU 百分比持续 5 分钟超过 1.0 时触发警报，请选中其他所有默认值。
+5. （可选）选中“电子邮件所有者、参与者和读者”对应的框，以便向他们发送电子邮件通知。 默认操作是在门户中显示通知。
+6. 单击“确定”按钮。
+
 <!-- Metric select is no option for user choice-->
 
 
@@ -109,10 +129,8 @@ Windows VM 在 Azure 中有一个与它交互的专用主机 VM。 系统会自�
 > * 查看启动诊断
 > * 查看主机指标
 > * 安装诊断扩展
-
-<!-- Not Available on > * View VM metrics -->
-<!-- Not Available on > * Create an alert -->
-<!-- Not Available on > * Manage Windows updates -->
+> * 查看 VM 指标
+> * 创建警报 <!-- Not Available on > * Manage Windows updates -->
 <!-- Not Available on > * Monitor changes and inventory -->
 <!-- Not Available on > * Set up advanced monitoring -->
 

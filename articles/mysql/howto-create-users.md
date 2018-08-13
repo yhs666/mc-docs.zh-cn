@@ -2,21 +2,22 @@
 title: 在 Azure Database for MySQL 服务器中创建用户
 description: 本文介绍如何创建新的用户帐户，以与 Azure Database for MySQL 服务器进行交互。
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
+author: WenJason
+ms.author: v-jay
 editor: jasonwhowell
-manager: kfile
-ms.service: mysql-database
+manager: digimobile
+ms.service: mysql
 ms.topic: article
-ms.date: 06/16/2018
-ms.openlocfilehash: 2887f6920b8ab13cc720138b1146acad0a4024aa
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+origin.date: 02/28/2018
+ms.date: 08/13/2018
+ms.openlocfilehash: 3d9071a782f8dcbcbb08bf2c521966b4ea7a6bd7
+ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873302"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39723036"
 ---
-# <a name="create-users-in-azure-database-for-mysql-server"></a>在 Azure Database for MySQL 服务器中创建用户
+# <a name="create-users-in-azure-database-for-mysql-server"></a>在 Azure Database for MySQL 服务器中创建用户 
 
 > [!NOTE]
 > 将要查看的是 Azure Database for MySQL 的新服务。 若要查看经典 MySQL Database for Azure 的文档，请访问[此页](https://docs.azure.cn/zh-cn/mysql/)。
@@ -85,7 +86,7 @@ ms.locfileid: "37873302"
 5. 使用新用户名和密码登录到服务器，指定选定的数据库。 此示例显示了 mysql 命令行。 使用此命令，会提示你输入用户名的密码。 替换你自己的服务器名称、数据库名称和用户名。
 
    ```cli
-   mysql --host mydemoserver.database.chinacloudapi.cn --database testdb --user db_user@mydemoserver -p
+   mysql --host mydemoserver.mysql.database.chinacloudapi.cn --database testdb --user db_user@mydemoserver -p
    ```
 
 ## <a name="next-steps"></a>后续步骤

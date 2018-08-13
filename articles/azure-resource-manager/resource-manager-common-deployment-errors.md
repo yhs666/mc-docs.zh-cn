@@ -10,18 +10,18 @@ editor: tysonn
 keywords: 部署错误, azure 部署, 部署到 azure
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: support-article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 03/08/2018
-ms.date: 04/30/2018
+origin.date: 07/16/2018
+ms.date: 08/13/2018
 ms.author: v-yeche
-ms.openlocfilehash: bdc4bc18f984693f3c43eb7cf8caeb8d59a80c0f
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 095862208a3a688f5e4d1e5ff78fa6d1390778f2
+ms.sourcegitcommit: 543a18c71c0910a5b9878a2d2668f317468906f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121767"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39625548"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>排查使用 Azure Resource Manager 时的常见 Azure 部署错误
 
@@ -105,7 +105,21 @@ ms.locfileid: "32121767"
 
 ### <a name="deployment-errors"></a>部署错误
 
-如果操作通过了验证但部署期间失败，则通知中会出现错误。 选择通知。
+如果操作通过验证但在部署期间失败，将收到部署错误。
+
+若要通过 PowerShell 查看部署错误代码和消息，请使用：
+
+```Powershell
+(Get-AzureRmResourceGroupDeploymentOperation -DeploymentName exampledeployment -ResourceGroupName examplegroup).Properties.statusMessage
+```
+
+若要通过 Azure CLI 查看部署错误代码和消息，请使用：
+
+```azurecli
+az group deployment operation list --name exampledeployment -g examplegroup --query "[*].properties.statusMessage"
+```
+
+在门户中，选择通知。
 
 ![通知错误](./media/resource-manager-common-deployment-errors/notification.png)
 
@@ -119,59 +133,91 @@ ms.locfileid: "32121767"
 
 ## <a name="enable-debug-logging"></a>启用调试日志记录
 
-有时需要有关请求和响应的详细信息才能了解出现的问题。 使用 PowerShell 或 Azure CLI 可以请求在部署期间记录更多信息。
+有时需要有关请求和响应的详细信息才能了解出现的问题。 部署过程中，可以请求在部署期间记录更多信息。 
 
-- PowerShell
+### <a name="powershell"></a>PowerShell
 
-   在 PowerShell 中，将 **DeploymentDebugLogLevel** 参数设置为 All、ResponseContent 或 RequestContent。
+在 PowerShell 中，将 **DeploymentDebugLogLevel** 参数设置为 All、ResponseContent 或 RequestContent。
 
-  ```powershell
-  New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile c:\Azure\Templates\storage.json -DeploymentDebugLogLevel All
-  ```
+```powershell
+New-AzureRmResourceGroupDeployment `
+  -Name exampledeployment `
+  -ResourceGroupName examplegroup `
+  -TemplateFile c:\Azure\Templates\storage.json `
+  -DeploymentDebugLogLevel All
+```
 
-   使用以下 cmdlet 检查请求内容：
+使用以下 cmdlet 检查请求内容：
 
-  ```powershell
-  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName storageonly -ResourceGroupName startgroup).Properties.request | ConvertTo-Json
-  ```
+```powershell
+(Get-AzureRmResourceGroupDeploymentOperation `
+-DeploymentName exampledeployment `
+-ResourceGroupName examplegroup).Properties.request `
+| ConvertTo-Json
+```
 
-   或者，使用以下命令检查响应内容：
+或者，使用以下命令检查响应内容：
 
-  ```powershell
-  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName storageonly -ResourceGroupName startgroup).Properties.response | ConvertTo-Json
-  ```
+```powershell
+(Get-AzureRmResourceGroupDeploymentOperation `
+-DeploymentName exampledeployment `
+-ResourceGroupName examplegroup).Properties.response `
+| ConvertTo-Json
+```
 
-   此信息可帮助确定模板中某个值的设置是否错误。
+此信息可帮助确定模板中某个值的设置是否错误。
 
-- Azure CLI
+### <a name="azure-cli"></a>Azure CLI
 
-   使用以下命令检查部署操作：
+目前，Azure CLI 不支持启用调试日志记录，但可以检索调试日志记录。
 
-  ```azurecli
-  az group deployment operation list --resource-group ExampleGroup --name vmlinux
-  ```
+使用以下命令检查部署操作：
 
-- 嵌套模板
+```azurecli
+az group deployment operation list \
+  --resource-group examplegroup \
+  --name exampledeployment
+```
 
-   若要记录嵌套模板的调试信息，请使用 **debugSetting** 元素。
+使用以下命令检查请求内容：
 
-  ```json
-  {
-      "apiVersion": "2016-09-01",
-      "name": "nestedTemplate",
-      "type": "Microsoft.Resources/deployments",
-      "properties": {
-          "mode": "Incremental",
-          "templateLink": {
-              "uri": "{template-uri}",
-              "contentVersion": "1.0.0.0"
-          },
-          "debugSetting": {
-             "detailLevel": "requestContent, responseContent"
-          }
-      }
-  }
-  ```
+```azurecli
+az group deployment operation list \
+  --name exampledeployment \
+  -g examplegroup \
+  --query [].properties.request
+```
+
+使用以下命令检查响应内容：
+
+```azurecli
+az group deployment operation list \
+  --name exampledeployment \
+  -g examplegroup \
+  --query [].properties.response
+```
+
+### <a name="nested-template"></a>嵌套模板
+
+若要记录嵌套模板的调试信息，请使用 **debugSetting** 元素。
+
+```json
+{
+    "apiVersion": "2016-09-01",
+    "name": "nestedTemplate",
+    "type": "Microsoft.Resources/deployments",
+    "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+            "uri": "{template-uri}",
+            "contentVersion": "1.0.0.0"
+        },
+        "debugSetting": {
+           "detailLevel": "requestContent, responseContent"
+        }
+    }
+}
+```
 
 ## <a name="create-a-troubleshooting-template"></a>创建故障排除模板
 

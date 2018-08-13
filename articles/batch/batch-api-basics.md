@@ -13,15 +13,15 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
 origin.date: 04/06/2018
-ms.date: 06/28/2018
+ms.date: 08/09/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 366284e18014a7a2e2da6f0e6ac24609f6a5a167
-ms.sourcegitcommit: c587cc1c53b1f92b45fae0d1ff8e1f7bd544bc55
+ms.openlocfilehash: 454145bf365910107a9b47a0d182ec994b67c668
+ms.sourcegitcommit: f8bb533368ab2ef8efdf47e186672993ad8334cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103261"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39722308"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>使用 Batch 开发大规模并行计算解决方案
 
@@ -153,6 +153,7 @@ Azure Batch 池构建在核心 Azure 计算平台的顶层。 它们提供大规
 #### <a name="container-support-in-virtual-machine-pools"></a>虚拟机池中的容器支持
 
 使用 Batch API 创建虚拟机配置池时，可以将池设置为在 Docker 容器中运行任务。 目前，必须使用支持 Docker 容器的映像创建池。 将 Windows Server 2016 Datacenter 与 Azure 市场中的容器映像配合使用，或者提供自定义 VM 映像（其中包含 Docker Community Edition 或 Enterprise Edition 以及任何必需的驱动程序）。 池设置必须包括[容器配置](https://docs.microsoft.com/rest/api/batchservice/pool/add#definitions_containerconfiguration)，该配置在创建池时将容器映像复制到 VM。 然后，在池中运行的任务即可引用容器映像和容器运行选项。
+
 
 ## <a name="compute-node-type-and-target-number-of-nodes"></a>计算节点类型和目标节点数
 
@@ -475,7 +476,7 @@ Batch 可以处理使用 Azure 存储将应用程序包存储及部署到计算�
 可通过远程登录到计算节点来进一步执行调试和故障排除。 可以使用 Azure 门户下载 Windows 节点的远程桌面协议 (RDP) 文件，并获取 Linux 节点的安全外壳 (SSH) 连接信息。 也可以使用 Batch API（例如，使用 [Batch .NET][net_rdpfile] 或 [Batch Python](batch-linux-nodes.md#connect-to-linux-nodes-using-ssh)）执行此操作。
 
 > [!IMPORTANT]
-> 若要通过 RDP 或 SSH 连接到某个节点，必须先在该节点上创建一个用户。 为此，可以使用 Azure 门户通过 Batch REST API [将用户帐户添加到节点][rest_create_user]、在 Batch .NET 中调用 [ComputeNode.CreateComputeNodeUser][net_create_user] 方法，或在 Batch Python 模块中调用 **add_user** 方法。
+> 若要通过 RDP 或 SSH 连接到某个节点，必须先在该节点上创建一个用户。 为此，可以使用 Azure 门户通过 Batch REST API [将用户帐户添加到节点][rest_create_user]、在 Batch .NET 中调用 [ComputeNode.CreateComputeNodeUser][net_create_user] 方法，或在 Batch Python 模块中调用 [add_user][py_add_user] 方法。
 >
 >
 
@@ -505,9 +506,8 @@ Batch 可以处理使用 Azure 存储将应用程序包存储及部署到计算�
 ## <a name="next-steps"></a>后续步骤
 - 了解适用于生成批处理解决方案的[批处理 API 和工具](batch-apis-tools.md)。
 - 在 [Get started with the Azure Batch Library for .NET](batch-dotnet-get-started.md)（适用于 .NET 的 Azure Batch 库入门）中逐步演练一个示例 Batch 应用程序。 另请参阅该教程的 [Python 版本](batch-python-tutorial.md) ，其中介绍了如何在 Linux 计算节点上运行工作负荷。
-- 下载并安装 [BatchLabs][batch_labs]，供开发 Batch 解决方案时使用。 借助 BatchLabs 来创建、调试和监视 Azure Batch 应用程序。 
-- 了解如何 [创建 Linux 计算节点池](batch-linux-nodes.md)。
-- 访问 MSDN 上的 [Azure Batch 论坛][batch_forum] 。 无论你是新手还是 Batch 专家，该论坛都是一个提问的好去处。
+- 下载并安装开发 Batch 解决方案时使用的 BatchLabs。 借助 BatchLabs 来创建、调试和监视 Azure Batch 应用程序。 
+- 请参阅社区资源，包括 [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-batch)、[Batch 社区存储库](https://github.com/Azure/Batch)和 MSDN 上的 [Azure Batch 论坛][batch_forum]。 
 
 [1]: ./media/batch-api-basics/node-folder-structure.png
 
@@ -517,7 +517,6 @@ Batch 可以处理使用 Azure 存储将应用程序包存储及部署到计算�
 [msmpi]: https://msdn.microsoft.com/library/bb524831.aspx
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [github_sample_taskdeps]:  https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies
-[batch_labs]: https://azure.github.io/BatchLabs/
 [batch_net_api]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [msdn_env_vars]: https://msdn.microsoft.com/library/azure/mt743623.aspx
 [net_cloudjob_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.jobmanagertask.aspx
@@ -540,6 +539,8 @@ Batch 可以处理使用 Azure 存储将应用程序包存储及部署到计算�
 [net_offline_option]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.common.disablecomputenodeschedulingoption.aspx
 [net_rdpfile]: https://msdn.microsoft.com/library/azure/Mt272127.aspx
 [vnet]: https://msdn.microsoft.com/library/azure/dn820174.aspx#bk_netconf
+
+[py_add_user]: https://docs.microsoft.com/en-us/python/azure/?view=azure-python
 
 [batch_rest_api]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
 [rest_add_job]: https://msdn.microsoft.com/library/azure/mt282178.aspx

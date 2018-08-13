@@ -2,21 +2,22 @@
 title: Azure CLI 脚本 - 还原 Azure Database for PostgreSQL 服务器
 description: 此示例 Azure CLI 脚本演示如何将 Azure Database for PostgreSQL 服务器及其数据库还原到前一个时间点。
 services: postgresql
-author: v-chenyh
-ms.author: v-chenyh
-manager: kfile
+author: WenJason
+ms.author: v-jay
+manager: digimobile
 editor: jasonwhowell
 ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: sample
 ms.custom: mvc
-ms.date: 06/21/2018
-ms.openlocfilehash: 2cdafbb59b87f3d1a5c806004802bb5812923382
-ms.sourcegitcommit: d744d18624d2188adbbf983e1c1ac1110d53275c
+origin.date: 02/28/2018
+ms.date: 08/13/2018
+ms.openlocfilehash: 7a9e22b0c4320742f06a5e99330b6c0716a534c7
+ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36314388"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39722938"
 ---
 # <a name="restore-an-azure-database-for-postgresql-server-using-azure-cli"></a>使用 Azure CLI 还原 Azure Database for PostgreSQL 服务器
 此示例 CLI 脚本可将单个 Azure Database for PostgreSQL 服务器还原到前一个时间点。 本文需要 Azure CLI 2.0 或更高版本。 通过运行 `az --version` 来查看版本。 请参阅[安装 Azure CLI 2.0](/cli/install-azure-cli)，了解如何安装或升级 Azure CLI 的版本。
@@ -24,7 +25,7 @@ ms.locfileid: "36314388"
 ## <a name="sample-script"></a>示例脚本
 在此示例脚本中，编辑突出显示的行，将管理员用户名和密码更新为你自己的。 将 `az monitor` 命令中使用的订阅 ID 替换为自己的订阅 ID。
 
-```bash
+```cli
 #!/bin/bash
 
 # Add the Azure CLI extension 
@@ -33,7 +34,7 @@ az extension add --name rdbms
 # Create a resource group
 az group create \
 --name myresourcegroup \
---location chinaeast
+--location chinaeast2
 
 # Create a PostgreSQL server in the resource group
 # Name of a server maps to DNS name and is thus required to be globally unique in Azure.
@@ -41,10 +42,10 @@ az group create \
 az postgres server create \
 --name mydemoserver \
 --resource-group myresourcegroup \
---location chinaeast \
+--location chinaeast2 \
 --admin-user myadmin \
 --admin-password <server_admin_password> \
---sku-name GP_Gen4_2 \
+--sku-name GP_Gen5_2 \
 
 # Restore a server from backup to a new server
 az postgres server restore \

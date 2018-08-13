@@ -24,7 +24,7 @@
 ## [管理组和成员](fundamentals/active-directory-manage-groups.md)
 ### 管理组
 #### [Azure 门户](fundamentals/active-directory-groups-create-azure-portal.md)
-#### [用于 Graph 的 Azure AD PowerShell (v2)](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
+#### [用于 Graph 的 Azure AD PowerShell (v2)](users-groups-roles/groups-settings-v2-cmdlets.md)
 ### [管理组成员](fundamentals/active-directory-groups-members-azure-portal.md)
 ### [管理组所有者](fundamentals/active-directory-accessmanagement-managing-group-owners.md)
 ### [管理组成员身份](fundamentals/active-directory-groups-membership-azure-portal.md)
@@ -41,9 +41,10 @@
 
 ## 管理密码
 ### 用户文档
-#### [重置或更改密码](active-directory-passwords-update-your-own-password.md)
+#### [重置或更改密码](user-help/active-directory-passwords-update-your-own-password.md)
 #### [密码最佳做法](active-directory-secure-passwords.md)
-#### [注册自助密码重置](active-directory-passwords-reset-register.md)
+#### [注册自助密码重置](user-help/active-directory-passwords-reset-register.md)
+
 ### IT 管理员：重置密码
 #### [Azure 门户](fundamentals/active-directory-users-reset-password-azure-portal.md)
 
@@ -55,29 +56,38 @@
 #### [删除用户](manage-apps/remove-user-or-group-access-portal.md)
 #### [查看我的所有应用](manage-apps/view-applications-portal.md)
 #### [从用户体验中隐藏应用程序](manage-apps/hide-application-from-user-portal.md)
-### [故障排除](active-directory-application-troubleshoot-content-map.md)
-#### [应用程序开发](active-directory-application-dev-troubleshoot-content-map.md)
-##### [配置和注册](active-directory-application-dev-config-content-map.md)
-##### [开发](active-directory-application-dev-development-content-map.md)
-#### [应用程序管理](active-directory-application-management-troubleshoot-content-map.md)
-##### [登录](active-directory-application-sign-in-content-map.md)
-##### [管理访问](active-directory-application-access-content-map.md)
+
+
+#### 应用程序注册
+##### [为应用程序对象填写字段](application-dev-registration-config-specific-application-property-how-to.md)
+
+#### 身份验证
+##### [配置终结点](application-dev-registration-config-how-to.md)
+
+#### 管理访问权限
+##### [为应用分配用户和组](application-access-assignment-how-to-add-assignment.md)
+
+#### 权限
+##### [为应用授予权限](application-dev-registration-config-grant-permissions-how-to.md)
+##### [应用程序许可](application-dev-consent-framework.md)
+
 ### [开发应用](active-directory-applications-guiding-developers-for-lob-applications.md)
 
 ## 管理目录
 ### [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ### 自定义域名
 #### [快速入门](fundamentals/add-custom-domain.md)
-#### [添加自定义域名](active-directory-domains-manage-azure-portal.md)
+#### [添加自定义域名](users-groups-roles/domains-manage.md)
 ### [管理目录](fundamentals/active-directory-administer.md)
-### [删除目录](directory-delete-howto.md)
-### [自助注册](active-directory-self-service-signup.md)
+### [删除目录](users-groups-roles/directory-delete-howto.md)
+### [自助注册](users-groups-roles/directory-self-service-signup.md)
+
 ### [使用 Azure AD Connect 集成本地标识](./connect/active-directory-aadconnect.md)
 
 ## 委托对资源的访问权限
-### [管理员角色](active-directory-assign-admin-roles-azure-portal.md)
-#### [向用户分配管理员角色](fundamentals/active-directory-users-assign-role-azure-portal.md) 
-#### [比较成员和来宾的用户权限](fundamentals/users-default-permissions.md) 
+### [管理员角色](users-groups-roles/directory-assign-admin-roles.md)
+#### [向用户分配管理员角色](fundamentals/active-directory-users-assign-role-azure-portal.md)
+#### [比较成员和来宾的用户权限](fundamentals/users-default-permissions.md)
 
 ## 保护标识
 ### 基于证书的身份验证
@@ -100,9 +110,9 @@
 # 参考
 ## [代码示例](https://azure.microsoft.com/resources/samples/?service=active-directory)
 ## [Azure PowerShell cmdlet](https://docs.microsoft.com/powershell/azure/overview)
-## [Java API 参考](/java/api/?view=azure-java-stable)
+## [Java API 参考](/java/api)
 ## [.NET API](http://docs.microsoft.com/active-directory/adal/microsoft.identitymodel.clients.activedirectory)
-## [服务限制和局限性](active-directory-service-limits-restrictions.md)
+## [服务限制和局限性](users-groups-roles/directory-service-limits-restrictions.md)
 
 # 相关内容
 ## [多重身份验证](/multi-factor-authentication/)

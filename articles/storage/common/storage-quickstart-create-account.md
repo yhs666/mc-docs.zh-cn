@@ -10,12 +10,12 @@ ms.topic: quickstart
 origin.date: 01/19/2018
 ms.date: 3/5/2018
 ms.author: v-nany
-ms.openlocfilehash: 1ad5aed8066e70ebc01c55f867c296169263f7ff
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.openlocfilehash: 51348ceee14cf5151ff45c6ae7dc3d1f366c1858
+ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295759"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39723081"
 ---
 # <a name="create-a-storage-account"></a>创建存储帐户
 
@@ -63,8 +63,6 @@ Connect-AzureRmAccount -Environment AzureChinaCloud
 ```
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
-
-若要启动 Azure Cloud Shell，请登录到 [Azure 门户](https://portal.azure.cn)。
 
 若要登录到本地安装的 CLI，请运行登录命令：
 

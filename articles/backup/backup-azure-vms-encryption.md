@@ -2,32 +2,28 @@
 title: 使用 Azure 备份来备份和还原已加密的 VM
 description: 本文介绍如何备份和还原使用 Azure 磁盘加密功能加密的 VM。
 services: backup
-author: JPallavi
+author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-origin.date: 10/13/2017
-ms.date: 07/06/2018
+origin.date: 07/10/2018
+ms.date: 08/08/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b7bdfb10ec0b0790c084a8dd2eaaad34441fa2d6
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.openlocfilehash: 0dd647dfacb57fb84a2a4f6d9e372aa67de99dc9
+ms.sourcegitcommit: 543a18c71c0910a5b9878a2d2668f317468906f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873352"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39625504"
 ---
 # <a name="back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>使用 Azure 备份来备份和还原已加密的虚拟机
 本文介绍使用 Azure 备份来备份和还原虚拟机 (VM) 的步骤。 此外，提供有关受支持的方案、先决条件以及针对错误案例的疑难解答步骤的详细信息。
 
 ## <a name="supported-scenarios"></a>支持的方案
 
- - 只有使用 Azure 资源管理器部署模型的已加密 VM 才支持备份和还原。 使用经典部署模型的 VM 不支持备份和还原。 <br>
- - 使用 Azure 磁盘加密的 Windows 和 Linux VM 支持备份和还原。 磁盘加密使用 Windows 的行业标准 BitLocker 功能和 Linux 的 dm-crypt 功能提供磁盘加密。 <br>
- 
- 下表显示了仅使用 BitLocker 加密密钥 (BEK) 加密的 VM 支持的方案，以及使用 BEK 和密钥加密密钥 (KEK) 加密的 VM 支持的方案：
- 
- 
+ 只有使用 Azure 资源管理器部署模型的已加密 VM 才支持备份和还原。 使用经典部署模型的 VM 不支持备份和还原。 使用 Azure 磁盘加密的 Windows 和 Linux VM 支持备份和还原加密的 VM。 磁盘加密使用 Windows 的行业标准 BitLocker 功能和 Linux 的 dm-crypt 功能提供磁盘加密。 下表显示了加密类型和对 VM 的支持。
+
    |  | BEK + KEK VM | 仅限 BEK 的 VM |
    | --- | --- | --- |
    | **非托管 VM**  | 是 | 是  |
@@ -143,4 +139,4 @@ ms.locfileid: "37873352"
 | 还原 |无法还原此加密的 VM，因为与此 VM 关联的密钥和机密不存在。 |参阅[使用 Azure 备份还原 Key Vault 密钥和机密](backup-azure-restore-key-secret.md)来还原密钥和机密（如果不存在）。 |
 | 还原 |备份服务未获授权访问订阅中的资源。 |如前所述，请先遵循[选择 VM 还原配置](backup-azure-arm-restore-vms.md#choose-a-vm-restore-configuration)的“还原已备份的磁盘”部分中所述的步骤来还原磁盘。 之后，使用 PowerShell [从已还原的磁盘创建 VM](backup-azure-vms-automation.md#create-a-vm-from-restored-disks)。 |
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

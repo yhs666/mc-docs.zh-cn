@@ -2,20 +2,21 @@
 title: 通过 PHP 连接到 Azure Database for MySQL
 description: 本快速入门提供了多个 PHP 代码示例，你可以使用它来连接到 Azure Database for MySQL 并查询其中的数据。
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
-manager: kfile
+author: WenJason
+ms.author: v-jay
+manager: digimobile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 06/15/2018
-ms.openlocfilehash: 3698d64f920fb6a7dd717a4ced73597635514e00
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+origin.date: 02/28/2018
+ms.date: 08/13/2018
+ms.openlocfilehash: 3aef46c6b5ca8955c9603ffcf88d9d4b66373d09
+ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873563"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39723132"
 ---
 # <a name="azure-database-for-mysql-use-php-to-connect-and-query-data"></a>Azure Database for MySQL：使用 PHP 进行连接并查询数据
 
@@ -62,7 +63,7 @@ ms.locfileid: "37873563"
 
 ```php
 <?php
-$host = 'mydemoserver.database.chinacloudapi.cn';
+$host = 'mydemoserver.mysql.database.chinacloudapi.cn';
 $username = 'myadmin@mydemoserver';
 $password = 'your_password';
 $db_name = 'your_database';
@@ -101,7 +102,7 @@ mysqli_close($conn);
 
 ```php
 <?php
-$host = 'mydemoserver.database.chinacloudapi.cn';
+$host = 'mydemoserver.mysql.database.chinacloudapi.cn';
 $username = 'myadmin@mydemoserver';
 $password = 'your_password';
 $db_name = 'your_database';
@@ -136,7 +137,7 @@ mysqli_close($conn);
 
 ```php
 <?php
-$host = 'mydemoserver.database.chinacloudapi.cn';
+$host = 'mydemoserver.mysql.database.chinacloudapi.cn';
 $username = 'myadmin@mydemoserver';
 $password = 'your_password';
 $db_name = 'your_database';
@@ -169,7 +170,7 @@ mysqli_close($conn);
 
 ```php
 <?php
-$host = 'mydemoserver.database.chinacloudapi.cn';
+$host = 'mydemoserver.mysql.database.chinacloudapi.cn';
 $username = 'myadmin@mydemoserver';
 $password = 'your_password';
 $db_name = 'your_database';
@@ -207,7 +208,7 @@ mysqli_close($conn);
 
 ```php
 <?php
-$host = 'mydemoserver.database.chinacloudapi.cn';
+$host = 'mydemoserver.mysql.database.chinacloudapi.cn';
 $username = 'myadmin@mydemoserver';
 $password = 'your_password';
 $db_name = 'your_database';

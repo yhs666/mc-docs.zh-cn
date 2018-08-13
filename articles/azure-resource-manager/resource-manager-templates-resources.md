@@ -4,26 +4,25 @@ description: 介绍了使用声明性 JSON 语法的 Azure 资源管理器模板
 services: azure-resource-manager
 documentationcenter: na
 author: rockboyfor
-manager: digimobile
 editor: tysonn
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 12/13/2017
-ms.date: 07/09/2018
+origin.date: 07/11/2018
+ms.date: 08/13/2018
 ms.author: v-yeche
-ms.openlocfilehash: 5406a9b036d7016736a86a108fb912e52384ce17
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.openlocfilehash: 62e590443938214d66a1d0533b222c03533954f6
+ms.sourcegitcommit: 543a18c71c0910a5b9878a2d2668f317468906f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39167914"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39625534"
 ---
 # <a name="resources-section-of-azure-resource-manager-templates"></a>Azure 资源管理器模板的 Resources 节
 
-在 resources 节，可以定义部署或更新的资源。 此节可能比较复杂，因为用户必须了解要部署哪些类型才能提供正确的值。
+在 resources 节，可以定义部署或更新的资源。 本部分可能比较复杂，因为必须了解所部署类型才能提供正确的值。
 
 ## <a name="available-properties"></a>可用属性
 
@@ -32,7 +31,7 @@ ms.locfileid: "39167914"
 ```json
 "resources": [
   {
-      "condition": "<boolean-value-whether-to-deploy>",
+      "condition": "<true-to-deploy-this-resource>",
       "apiVersion": "<api-version-of-resource>",
       "type": "<resource-provider-namespace/resource-type-name>",
       "name": "<name-of-the-resource>",
@@ -85,34 +84,57 @@ ms.locfileid: "39167914"
 
 | 元素名称 | 必须 | 说明 |
 |:--- |:--- |:--- |
-| 条件 | 否 | 指示是否部署资源的布尔值。 |
+| 条件 | 否 | 布尔值，该值指示在此部署期间是否将预配资源。 为 `true` 时，在部署期间创建资源。 为 `false` 时，此部署将跳过资源。 |
 | apiVersion |是 |用于创建资源的 REST API 版本。 |
 | type |是 |资源的类型。 此值是资源提供程序的命名空间和资源类型（例如 **Microsoft.Storage/storageAccounts**）的组合。 |
-| name |是 |资源的名称。 该名称必须遵循 RFC3986 中定义的 URI 构成部分限制。 此外，向第三方公开资源名称的 Azure 服务将验证名称，以确保它不是尝试窃取另一个身份。 |
-| location |多种多样 |提供的资源支持的地理位置。 可以选择任何可用位置，但通常选取靠近用户的位置。 通常，在同一区域放置彼此交互的资源也很有用。 大多数资源类型需要一个位置，但某些类型 （如角色分配）不需要位置。 |
+| name |是 |资源的名称。 该名称必须遵循 RFC3986 中定义的 URI 构成部分限制。 此外，向第三方公开资源名称的 Azure 服务会验证名称，以确保它不会尝试窃取另一身份。 |
+| location |多种多样 |提供的资源支持的地理位置。 可以选择任何可用位置，但通常选取靠近用户的位置。 通常还会将彼此交互的资源置于同一区域。 大多数资源类型需要一个位置，但某些类型（如角色分配）不需要位置。 |
 | 标记 |否 |与资源关联的标记。 应用可以在订阅中对资源进行逻辑组织的标记。 |
 | 注释 |否 |用于描述模板中资源的注释 |
-| 复制 |否 |如果需要多个实例，则为要创建的资源数。 默认模式为并行。 如果你不希望同时部署所有资源，请指定串行模式。 有关详细信息，请参阅[在 Azure Resource Manager 中创建多个资源实例](resource-group-create-multiple.md)。 |
-| dependsOn |否 |部署此资源之前必须部署的资源。 Resource Manager 评估资源之间的依赖关系，并根据正确顺序进行部署。 如果资源不相互依赖，则可并行部署资源。 该值可以是资源名称或资源唯一标识符的逗号分隔列表。 在此模板中仅部署列出的资源。 此模板中未定义的资源必须已存在。 避免添加不必要的依赖项，因为这些依赖项可能会降低部署速度并创建循环依赖项。 有关设置依赖项的指导，请参阅[在 Azure Resource Manager 模板中定义依赖项](resource-group-define-dependencies.md)。 |
-| properties |否 |特定于资源的配置设置。 properties 的值与创建资源时，在 REST API 操作（PUT 方法）的请求正文中提供的值相同。 还可以指定 copy 数组来创建属性的多个实例。 |
+| 复制 |否 |如果需要多个实例，则为要创建的资源数。 默认模式为并行。 若不想同时部署所有资源，请指定为串行模式。 有关详细信息，请参阅[在 Azure Resource Manager 中创建多个资源实例](resource-group-create-multiple.md)。 |
+| dependsOn |否 |部署此资源之前必须部署的资源。 Resource Manager 会评估资源之间的依赖关系，并按正确的顺序部署资源。 如果资源互不依赖，则会并行部署资源。 该值可以是资源名称或资源唯一标识符的逗号分隔列表。 在此模板中仅部署列出的资源。 未在此模板中定义的资源必须是已存在的资源。 避免添加不必要的依赖项，因为这些依赖项可能会降低部署速度并创建循环依赖项。 有关设置依赖项的指导，请参阅[在 Azure Resource Manager 模板中定义依赖项](resource-group-define-dependencies.md)。 |
+| properties |否 |特定于资源的配置设置。 properties 的值与创建资源时，在 REST API 操作（PUT 方法）的请求正文中提供的值相同。 还可以指定副本数组，为一个属性创建多个实例。 |
 | sku | 否 | 某些资源接受定义了要部署的 SKU 的值。 例如，可以为存储帐户指定冗余类型。 |
 | kind | 否 | 某些资源接受定义了你部署的资源类型的值。 例如，可以指定要创建的 Cosmos DB 的类型。 |
 | 计划 | 否 | 某些资源接受定义了要部署的计划的值。 例如，可以为虚拟机指定市场映像。 | 
 | 资源 |否 |依赖于所定义的资源的子资源。 只能提供父资源的架构允许的资源类型。 子资源的完全限定类型包含父资源类型，例如 **Microsoft.Web/sites/extensions**。 不隐式表示对父资源的依赖。 必须显式定义该依赖关系。 |
+
+## <a name="condition"></a>条件
+
+如果必须在部署期间决定是否创建资源，请使用 `condition` 元素。 此元素的值将解析为 true 或 false。 如果值为 true，将创建资源。 如果值为 false，将不会创建资源。 通常，当要创建新资源或使用现有资源时，可以使用此值。 例如，若要指定是要部署新的存储帐户还是使用现有存储帐户，请使用：
+
+```json
+{
+    "condition": "[equals(parameters('newOrExisting'),'new')]",
+    "type": "Microsoft.Storage/storageAccounts",
+    "name": "[variables('storageAccountName')]",
+    "apiVersion": "2017-06-01",
+    "location": "[resourceGroup().location]",
+    "sku": {
+        "name": "[variables('storageAccountType')]"
+    },
+    "kind": "Storage",
+    "properties": {}
+}
+```
+
+有关使用 `condition` 元素的完整示例模板，请参阅[具有新的或现有虚拟网络、存储和公共 IP 的 VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions)。
 
 ## <a name="resource-specific-values"></a>特定于资源的值
 
 每种资源类型的 **apiVersion**、**type** 和 **properties** 均不同。 **sku**、**kind** 和 **plan** 元素可用于某些资源类型，但非全部。 若要确定这些属性的值，请参阅[模板参考](https://docs.microsoft.com/zh-cn/azure/templates/)。
 
 ## <a name="resource-names"></a>资源名称
+
 通常，会在 Resource Manager 中使用三种类型的资源名称：
 
 * 必须唯一的资源名称。
-* 不一定要唯一的资源名称，不过，选择提供的名称应有助于识别资源。
+* 不一定是唯一的资源名称，不过，可以选择提供可帮助识别资源的名称。
 * 通用的资源名称。
 
 ### <a name="unique-resource-names"></a>唯一的资源名称
-对于具有数据访问终结点的任何资源类型，必须提供唯一的资源名称。 需要唯一名称的一些常见资源类型包括：
+
+对于具有数据访问终结点的任何资源类型，请提供唯一的资源名称。 需要唯一名称的一些常见资源类型包括：
 
 * Azure 存储<sup>1</sup> 
 * Azure 应用服务的 Web 应用功能
@@ -241,7 +263,7 @@ az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites']
 
 ## <a name="child-resources"></a>子资源
 
-在某些资源类型内，还可以定义子资源数组。 子资源是只存在于另一资源的上下文内的资源。 例如，SQL 数据库不能在没有 SQL Server 的情况下存在，因此此数据库是此 Server 的子资源。 可以在此 Server 的定义内定义此数据库。
+在某些资源类型内，还可以定义子资源数组。 子资源是只存在于另一资源的上下文内的资源。 例如，如果没有 SQL 服务器，则不存在 SQL 数据库；因此，此数据库是此服务器的子资源。 可以在此 Server 的定义内定义此数据库。
 
 ```json
 {
@@ -260,13 +282,13 @@ az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites']
 }
 ```
 
-在嵌套的情况下，类型设置为 `databases`，但完整资源类型为 `Microsoft.Sql/servers/databases`。 不提供 `Microsoft.Sql/servers/` 是因为它取自父资源类型。 子资源名称设置为 `exampledatabase` ，但完整名称包括父名称。 不提供 `exampleserver` 是因为它取自父资源。
+在嵌套的情况下，类型设置为 `databases`，但完整资源类型为 `Microsoft.Sql/servers/databases`。 可不提供 `Microsoft.Sql/servers/`，因为假设它继承父资源类型。 子资源名称设置为 `exampledatabase` ，但完整名称包括父名称。 可不提供 `exampleserver`，因为假设它继承父资源。
 
 子资源类型的格式为： `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`
 
 子资源名称的格式为： `{parent-resource-name}/{child-resource-name}`
 
-但是，无需在此 Server 内定义此数据库。 可以定义顶级子资源。 使用此方法的前提是：父资源未在同一模板中部署，或者需要使用 `copy` 创建多个子资源。 使用此方法时，必须提供完整的资源类型，并将父资源名称包括在子资源名称中。
+但是，无需在服务器内定义数据库。 可以定义顶级子资源。 如果父资源未部署在同一模板中，或者想要使用 `copy` 创建多个子资源，可以使用此方法。 使用此方法时，必须提供完整的资源类型，并将父资源名称包括在子资源名称中。
 
 ```json
 {
@@ -285,7 +307,7 @@ az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites']
 }
 ```
 
-构造对资源的完全限定引用时，组合类型和名称段的顺序并不只是将这两者串联。  而是，在命名空间后面，使用*类型/名称*对的序列（从最不具体到最具体）：
+向资源构造完全限定的引用时，类型和名称的分段组合顺序并不是这两者的简单串联。 而是，在命名空间后面，使用*类型/名称*对的序列（从最不具体到最具体）：
 
 ```json
 {resource-provider-namespace}/{parent-resource-type}/{parent-resource-name}[/{child-resource-type}/{child-resource-name}]*
@@ -410,8 +432,8 @@ az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites']
 ## <a name="next-steps"></a>后续步骤
 * 若要查看许多不同类型的解决方案的完整模型，请参阅 [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates/)（Azure 快速入门模板）。
 * 有关用户可以使用的来自模板中的函数的详细信息，请参阅 [Azure Resource Manager Template Functions](resource-group-template-functions.md)（Azure Resource Manager 模板函数）。
-* 要在部署期间合并多个模板，请参阅[将已链接的模板与 Azure 资源管理器配合使用](resource-group-linked-templates.md)。
+* 若要在部署期间使用多个模板，请参阅[将已链接的模板与 Azure 资源管理器配合使用](resource-group-linked-templates.md)。
 * 可能需要使用不同资源组中的资源。 使用跨多个资源组共享的存储帐户或虚拟网络时，此方案很常见。 有关详细信息，请参阅 [resourceId 函数](resource-group-template-functions-resource.md#resourceid)。
 <!--Not Available on [Recommended naming conventions for Azure resources](../guidance/guidance-naming-conventions.md) -->
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties， wording update -->

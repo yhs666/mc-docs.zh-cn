@@ -2,19 +2,19 @@
 title: 有关使用 Azure Database for PostgreSQL 确保业务连续性的概述
 description: 有关使用 Azure Database for PostgreSQL 确保业务连续性的概述。
 services: postgresql
-author: v-chenyh
-ms.author: v-chenyh
-manager: kfile
+author: WenJason
+ms.author: v-jay
+manager: digimobile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 06/21/2018
-ms.openlocfilehash: 251493b9055b5f36a526caeb477b00123e7f1fb6
-ms.sourcegitcommit: d744d18624d2188adbbf983e1c1ac1110d53275c
+ms.openlocfilehash: 3083d79907a3074ba04a2630bd2fcc36a2483bd8
+ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36314354"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39722932"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql"></a>有关使用 Azure Database for PostgreSQL 确保业务连续性的概述
 
@@ -29,6 +29,7 @@ Azure Database for PostgreSQL 提供了业务连续性功能，这包括自动�
 | **功能** | **基本** | **常规用途** | **内存优化** |
 | :------------: | :-------: | :-----------------: | :------------------: |
 | 从备份执行时间点还原 | 保留期内的任何还原点 | 保留期内的任何还原点 | 保留期内的任何还原点 |
+| 从异地复制的备份执行异地还原 | 不支持 | ERT < 12 小时<br/>RPO < 1 小时 | ERT < 12 小时<br/>RPO < 1 小时 |
 
 > [!IMPORTANT]
 > 如果删除服务器，则属于该服务器的所有数据库也会被删除且不可恢复。 无法还原已删除的服务器。
@@ -38,6 +39,17 @@ Azure Database for PostgreSQL 提供了业务连续性功能，这包括自动�
 可以使用服务的备份在发生各种破坏性事件后对服务器进行恢复。 用户可能会不小心删除某些数据、无意中删除重要的表，甚至删除整个数据库。 应用程序可能因为自身缺陷，意外以错误数据覆盖正确数据，等等。
 
 可以执行时间点还原来创建服务器在已知良好的时间点的副本。 此时间点必须在为服务器配置的备份保留期内。 在将数据还原到新服务器后，可以将原始服务器替换为新还原的服务器，或者将所需的数据从还原的服务器复制到原始服务器。
+
+## <a name="recover-from-an-azure-regional-data-center-outage"></a>在 Azure 发生区域性数据中心中断后进行恢复
+
+Azure 数据中心会罕见地发生中断。 发生中断时，可能仅导致业务中断持续几分钟，也可能持续数小时。
+
+一个选项是等待数据中心中断结束时，服务器重新联机。 这适用于可以承受服务器脱机一段时间的应用程序，例如开发环境。 数据中心中断时，不知道中断会持续多久，因此该选项仅适用于暂时不需要服务器的情况。
+
+另一个选项是使用 Azure Database for PostgreSQL 的异地还原功能，该功能使用异地冗余备份来还原服务器。 即使托管你的服务器的区域处于脱机状态，也可访问这些备份。 可以使用这些备份还原到任何其他区域并使服务器恢复联机。
+
+> [!IMPORTANT]
+> 只有当为服务器预配了异地冗余备份存储时，异地还原才是可行的。
 
 ## <a name="next-steps"></a>后续步骤
 - 若要详细了解自动备份，请参阅 [Azure Database for PostgreSQL 中的备份](concepts-backup.md)。 

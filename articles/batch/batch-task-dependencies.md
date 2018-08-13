@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 origin.date: 05/22/2017
-ms.date: 05/14/2018
+ms.date: 08/08/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f2094f974058cffb6f60c4f29cd111afe41c1c02
-ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
+ms.openlocfilehash: 67eb1fb81ff30d498ac11e3fb812fa4207f2d41e
+ms.sourcegitcommit: f8bb533368ab2ef8efdf47e186672993ad8334cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "34173377"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39722326"
 ---
 # <a name="create-task-dependencies-to-run-tasks-that-depend-on-other-tasks"></a>创建任务依赖关系，以运行依赖于其他任务的任务
 
@@ -69,7 +69,7 @@ new CloudTask("Flowers", "cmd.exe /c echo Flowers")
 此代码片段创建任务 ID 为“Flowers”的依赖任务。 “Flowers”任务依赖于“Rain”和“Sun”任务。 “Flowers”任务将计划为仅在“Rain”和“Sun”任务已成功完成后才在计算节点上运行。
 
 > [!NOTE]
-> 当任务处于**已完成**状态并且其**退出代码**为 `0` 时，该任务视为已成功完成。 在 Batch .NET 中，这意味着 [CloudTask][net_cloudtask].[State][net_taskstate] 属性值为 `Completed`，CloudTask 的 [TaskExecutionInformation][net_taskexecutioninformation].[ExitCode][net_exitcode] 属性值为 `0`。
+> 默认情况下，当任务处于“已完成”状态并且其“退出代码”为 `0` 时，该任务视为已成功完成。 在 Batch .NET 中，这意味着 [CloudTask][net_cloudtask].[State][net_taskstate] 属性值为 `Completed`，CloudTask 的 [TaskExecutionInformation][net_taskexecutioninformation].[ExitCode][net_exitcode] 属性值为 `0`。 有关如何更改此设置，请参阅[依赖项操作](#dependency-actions)部分。
 > 
 > 
 
@@ -122,7 +122,9 @@ new CloudTask("Flowers", "cmd.exe /c echo Flowers")
 若要创建该依赖关系，请在填充 [CloudTask][net_cloudtask] 的 [DependsOn][net_dependson] 属性时，为 [TaskDependencies][net_taskdependencies].[OnIdRange][net_onidrange] 静态方法提供该范围内的第一个和最后一个任务 ID。
 
 > [!IMPORTANT]
-> 将任务 ID 范围用于依赖关系时，范围内的任务 ID 必须采用整数值的字符串表示形式。
+> 将任务 ID 范围用于依赖项时，只有 ID 表示整数值的任务将由范围选定。 因此范围 `1..10` 将选择任务 `3` 和 `7`，而不是 `5flamingoes`。 
+> 
+> 在评估范围依赖关系时，前导零不重要，因此，带字符串标识符 `4`、`04` 和 `004` 的任务都将处于范围内，它们将全部视为任务 `4`，因此，要完成的第一个任务将满足依赖关系。
 > 
 > 范围内的每个任务必须通过成功完成或者已完成但出现了映射到设置为 **Satisfy** 的某个依赖关系操作的失败，来满足该依赖关系。 有关详细信息，请参阅[依赖关系操作](#dependency-actions)部分。
 >
@@ -174,22 +176,22 @@ new CloudTask("4", "cmd.exe /c echo 4")
 new CloudTask("A", "cmd.exe /c echo A")
 {
     // Specify exit conditions for task A and their dependency actions.
-    ExitConditions = new ExitConditions()
+    ExitConditions = new ExitConditions
     {
         // If task A exits with a pre-processing error, block any downstream tasks (in this example, task B).
-        PreProcessingError = new ExitOptions()
+        PreProcessingError = new ExitOptions
         {
             DependencyAction = DependencyAction.Block
         },
         // If task A exits with the specified error codes, block any downstream tasks (in this example, task B).
-        ExitCodes = new List<ExitCodeMapping>()
+        ExitCodes = new List<ExitCodeMapping>
         {
             new ExitCodeMapping(10, new ExitOptions() { DependencyAction = DependencyAction.Block }),
             new ExitCodeMapping(20, new ExitOptions() { DependencyAction = DependencyAction.Block })
         },
         // If task A succeeds or fails with any other error, any downstream tasks become eligible to run 
         // (in this example, task B).
-        Default = new ExitOptions()
+        Default = new ExitOptions
         {
             DependencyAction = DependencyAction.Satisfy
         }
@@ -240,4 +242,4 @@ new CloudTask("B", "cmd.exe /c echo B")
 [2]: ./media/batch-task-dependency/02_one_to_many.png "关系图：一对多依赖关系"
 [3]: ./media/batch-task-dependency/03_task_id_range.png "Diagram: task id range dependency"
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

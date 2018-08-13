@@ -2,21 +2,22 @@
 title: Azure CLI 脚本 - 缩放 Azure Database for MySQL 服务器
 description: 此示例 CLI 脚本在查询指标后用于 MySQL 服务器的 Azure 数据库缩放为不同的性能级别。
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
-manager: kfile
+author: WenJason
+ms.author: v-jay
+manager: digimobile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: sample
 ms.custom: mvc
-ms.date: 06/16/2018
-ms.openlocfilehash: acdc6924e68f031cf53e15ddd5e2cacc4c1e3753
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+origin.date: 04/05/2018
+ms.date: 08/13/2018
+ms.openlocfilehash: c70c16ce5eeaf0a5718f28d5a749efb80398d689
+ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873275"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39723118"
 ---
 # <a name="monitor-and-scale-an-azure-database-for-mysql-server-using-azure-cli"></a>使用 Azure CLI 监视和缩放用于 MySQL 服务器的 Azure 数据库
 
@@ -31,40 +32,48 @@ ms.locfileid: "37873275"
 ```cli
 #!/bin/bash
 
+# Add the Azure CLI extension 
+az extension add --name rdbms
+
 # Create a resource group
 az group create \
---name myresource \
---location chinaeast
+--name myresourcegroup \
+--location chinaeast2
 
 # Create a MySQL server in the resource group
 # Name of a server maps to DNS name and is thus required to be globally unique in Azure.
 # Substitute the <server_admin_password> with your own value.
 az mysql server create \
---name mysqlserver4demo \
---resource-group myresource \
---location chinaeast \
+--name mydemoserver \
+--resource-group myresourcegroup \
+--location chinaeast2 \
 --admin-user myadmin \
 --admin-password <server_admin_password> \
---performance-tier Basic \
---compute-units 50
+--sku-name GP_Gen5_2 \
 
-# Monitor usage metrics - Compute
+# Monitor usage metrics - CPU
 az monitor metrics list \
---resource-id "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresource/providers/Microsoft.DBforMySQL/servers/mysqlserver4demo" \
---metric-names compute_consumption_percent \
---time-grain PT1M
+--resource "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforMySQL/servers/mydemoserver" \
+--metric cpu_percent \
+--interval PT1M
 
 # Monitor usage metrics - Storage
 az monitor metrics list \
---resource-id "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresource/providers/Microsoft.DBforMySQL/servers/mysqlserver4demo" \
---metric-names storage_used \
---time-grain PT1M
+--resource-id "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforMySQL/servers/mydemoserver" \
+--metric storage_used \
+--interval PT1M
 
-# Scale up the server to provision more Compute Units within the same Tier
+# Scale up the server to provision more vCores within the same Tier
 az mysql server update \
---resource-group myresource \
---name mysqlserver4demo \
---compute-units 100
+--resource-group myresourcegroup \
+--name mydemoserver \
+--vcore 4
+
+# Scale up the server to provision a storage size of 7GB
+az mysql server update \
+--resource-group myresourcegroup \
+--name mydemoserver \
+--storage-size 7168
 ```
 
 ## <a name="clean-up-deployment"></a>清理部署

@@ -14,12 +14,12 @@ ms.topic: hero-article
 origin.date: 07/10/2017
 ms.date: 09/25/2017
 ms.author: v-johch
-ms.openlocfilehash: 8c502b4412a7ff0a6f09758e3bb3469c1e9a654e
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+ms.openlocfilehash: 7e629f74b36b5b3a7020d427cf2f005e391f76a0
+ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219568"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39723044"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>媒体服务功能的跨数据中心方案和可用性
 
@@ -48,7 +48,7 @@ ms.locfileid: "39219568"
 
 <a href="./media/media-services-overview/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-overview/media-services-overview-object-model-small.png"></a> 
 
-可以在[此处](https://media.windows.net/API/$metadata?api-version=2.15)查看整个模型。  
+可以在[此处](https://media.chinacloudapi.cn/API/$metadata?api-version=2.15)查看整个模型。  
 
 ## <a name="protect-content-in-storage-and-deliver-streaming-media-in-the-clear-non-encrypted"></a>保护存储中的内容并以明文（非加密）形式交付流式处理媒体
 

@@ -9,12 +9,12 @@ origin.date: 07/06/2018
 ms.date: 07/30/2018
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 8f910e0425885782095f30a37a50a8f5d2f5a6a5
-ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
+ms.openlocfilehash: 46699a4b4b925b01a19a54b1d8cc11481eb8fa44
+ms.sourcegitcommit: 62a0389a743cd18665bd127e9bf14800867008eb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39307074"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39625666"
 ---
 内存优化 VM 大小提供适用于关系数据库服务器、中到大型规模的缓存和内存中分析的高内存 CPU 比率。 本文介绍了此分组中各个大小的 vCPU 数、数据磁盘数、NIC 数、存储吞吐量及网络带宽的相关信息。 
 <!-- Not Available M-Series -->
@@ -85,6 +85,7 @@ Ev3 系列实例基于 2.3 GHz Intel XEON® E5-2673 v4 (Broadwell) 处理器，�
 <!-- Not Available on ## M-series <sup>1</sup> -->
 <!-- Not Available on ## GS-series <sup>1</sup> -->
 <!-- Not Available ## G-series-->
+<a name="dsv2-series-11-15"></a>
 ## <a name="dsv2-series-11-15"></a>DSv2 系列 11-15
 
 <!-- NOTICE: 最大 NIC 数/预期网络带宽 (Mbps) SHOULD BE (Mbps) --> ACU：210 - 250 <sup>1</sup>

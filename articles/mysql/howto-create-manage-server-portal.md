@@ -2,19 +2,20 @@
 title: 使用 Azure 门户创建和管理 Azure Database for MySQL 服务器
 description: 本文介绍了如何使用 Azure 门户快速创建一个新的 Azure Database for MySQL 服务器，以及如何使用 Azure 门户管理该服务器。
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
+author: WenJason
+ms.author: v-jay
 editor: jasonwhowell
-manager: kfile
-ms.service: mysql-database
+manager: digimobile
+ms.service: mysql
 ms.topic: article
-ms.date: 06/16/2018
-ms.openlocfilehash: cb899d3e203fb13fee6e64928e45a45350acf5f3
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+origin.date: 02/28/2018
+ms.date: 08/13/2018
+ms.openlocfilehash: fb2ecece81af4564d70863f1fad589dfa80b2616
+ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873589"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39723002"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-server-using-azure-portal"></a>使用 Azure 门户创建和管理 Azure Database for MySQL 服务器
 
@@ -48,10 +49,10 @@ ms.locfileid: "37873589"
     | *服务器管理员登录名* | myadmin（设置管理员帐户名称） |
     | *密码* | 设置管理员帐户密码 |
     | *确认密码* | 确认管理员帐户密码 |
-    | *位置* | 中国东部（在“中国东部”和“中国北部”之间选择） |
+    | *位置* | 中国东部 2（在“中国东部 2”和“中国北部 2”之间选择） |
     | *版本* | 5.7（选择 Azure Database for MySQL 服务器版本） |
 
-4. 单击“定价层”，为新服务器指定服务层和性能级别。 选择“常规用途”选项卡。“第 4 代”、“2 个 vCore”、“5 GB”和“7 天”分别是“计算代”、“vCore”、“存储”和“备份保留期”的默认值。 可以将这些滑块保留原样。 若要在异地冗余存储中启用服务器备份，请从“备份冗余选项”中选择“异地冗余”。
+4. 单击“定价层”，为新服务器指定服务层和性能级别。 选择“常规用途”选项卡。“第 5 代”、“2 vCore”、“5 GB”和“7 天”分别是“计算代”、“vCore”、“存储”和“备份保留期”的默认值。 可以将这些滑块保留原样。 若要在异地冗余存储中启用服务器备份，请从“备份冗余选项”中选择“异地冗余”。
 
    ![create-server-pricing-tier](./media/howto-create-manage-server-portal/create-server-pricing-tier.png)
 

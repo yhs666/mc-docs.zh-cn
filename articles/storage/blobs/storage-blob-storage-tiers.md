@@ -15,12 +15,12 @@ ms.topic: get-started-article
 origin.date: 12/11/2017
 ms.date: 07/30/2018
 ms.author: v-johch
-ms.openlocfilehash: 908bf9f6e3b74346b2352c10fe62422a51f62954
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.openlocfilehash: e5c53ae485def3c0ad64e8ffc043a1a8b3e56aff
+ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295576"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39723071"
 ---
 # <a name="azure-blob-storage-hot-cool-storage-tiers"></a>Azure Blob 存储：热、冷存储层
 
@@ -132,7 +132,7 @@ GPv1 和 GPv2 帐户的定价结构不同，客户在决定使用 GPv2 帐户之
 
 是的，可以通过设置存储帐户上的“访问层”属性来更改默认存储层。 更改存储层适用于存储在帐户中的所有对象，前提是该帐户没有显式设置层。 将存储层从热切换为冷只对 GPv2 帐户中没有设置层的所有 Blob 产生写入操作次数（以 10,000 次为单位）收费，而从冷切换为热则会对 Blob 存储和 GPv2 帐户中的所有 Blob 产生读取操作次数（以 10,000 次为单位）和数据检索量（以 GB 为单位）收费。
 
-**在哪些区域提供热、冷、存档存储层？**
+**在哪些区域提供热层和冷层？**
 
 所有区域均提供热存储层和冷存储层以及 Blob 级别的分层。 
 

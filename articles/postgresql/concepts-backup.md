@@ -2,19 +2,19 @@
 title: 在 Azure Database for PostgreSQL 中进行备份和还原
 description: 了解如何自动备份和还原 Azure Database for PostgreSQL 服务器。
 services: postgresql
-author: v-chenyh
-ms.author: v-chenyh
-manager: kfile
+author: WenJason
+ms.author: v-jay
+manager: digimobile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 06/21/2018
-ms.openlocfilehash: fd4bc35ab79d9870a89ee17734d96ac910a0e251
-ms.sourcegitcommit: d744d18624d2188adbbf983e1c1ac1110d53275c
+ms.openlocfilehash: 2c947e0fa5aeb6ec2aafe521275879b2259d0c43
+ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36314374"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39722941"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql"></a>在 Azure Database for PostgreSQL 中进行备份和还原
 
@@ -28,6 +28,13 @@ Azure Database for PostgreSQL 可以进行完整备份、差异备份和事务�
 
 通常情况下，完整备份每周进行一次，差异备份每天进行两次，事务日志备份每五分钟进行一次。 第一次完整备份在创建服务器后立即进行计划。 初始备份在大型已还原服务器上可能耗时较长。 新服务器可以还原到的最早时间点是完成初始完整备份的时间。
 
+### <a name="backup-redundancy-options"></a>备份冗余选项
+
+使用 Azure Database for PostgreSQL 时，可以灵活地在“常规用途”层和“内存优化”层中选择本地冗余或异地冗余备份存储。 当备份存储在异地冗余备份存储中时，这些备份不仅会存储在托管服务器所在的区域中，还会复制到配对的数据中心。 这样可以在发生灾难时提供更好的保护，并且可以将服务器还原到其他区域。 “基本”层仅提供本地冗余备份存储。
+
+> [!IMPORTANT]
+> 只能在服务器创建期间为备份配置本地冗余或异地冗余存储。 预配服务器以后，不能更改备份存储冗余选项。
+
 ### <a name="backup-storage-cost"></a>备份存储成本
 
 Azure Database for PostgreSQL 最高可以提供 100% 的已预配服务器存储作为备份存储，不收取任何额外费用。 通常情况下，这适合将备份保留七天。 超出的备份存储使用量按每月每 GB 标准收费。
@@ -38,7 +45,10 @@ Azure Database for PostgreSQL 最高可以提供 100% 的已预配服务器存�
 
 在 Azure Database for PostgreSQL 中进行还原时，会根据原始服务器的备份创建新的服务器。
 
+可以使用两种类型的还原：
+
 - **时间点还原**：可以与任一备份冗余选项配合使用，所创建的新服务器与原始服务器位于同一区域。
+- **异地还原**：只能在已将服务器配置为进行异地冗余存储的情况下使用，用于将服务器还原到另一区域。
 
 估计的恢复时间取决于若干因素，包括数据库大小、事务日志大小、网络带宽，以及在同一区域同时进行恢复的数据库总数。 恢复时间通常少于 12 小时。
 
@@ -47,11 +57,15 @@ Azure Database for PostgreSQL 最高可以提供 100% 的已预配服务器存�
 
 ### <a name="point-in-time-restore"></a>时间点还原
 
-可以还原到备份保留期中的任意时间点。 新服务器在原始服务器所在的 Azure 区域中创建。 它在创建时，使用原始服务器在定价层、计算的代、vCore 数、存储大小、备份保留期和备份冗余选项方面的配置。
+可以还原到备份保留期中的任意时间点，不管备份冗余选项如何。 新服务器在原始服务器所在的 Azure 区域中创建。 它在创建时，使用原始服务器在定价层、计算的代、vCore 数、存储大小、备份保留期和备份冗余选项方面的配置。
 
 多种情况下可以使用时间点还原。 例如，用户意外删除了数据、删除了重要的表或数据库，或者应用程序因为缺陷而意外地使用错误数据覆盖了正确数据。
 
 可能需要等到下一个事务日志备份进行后，才能还原到上一个五分钟内的某个时间点。
+
+### <a name="geo-restore"></a>异地还原
+
+如果已将服务器配置为进行异地冗余备份，则可将服务器还原到另一 Azure 区域，只要服务在该区域可用即可。 当服务器因其所在的区域发生事故而不可用时，异地还原是默认的恢复选项。 如果区域中出现的大规模事件导致数据库应用程序不可用，可以根据异地冗余备份将服务器还原到任何其他区域中的服务器。 提取备份后，会延迟一段时间才会将其复制到其他区域中。 此延迟可能长达一小时，因此发生灾难时，会有长达 1 小时的数据丢失风险。
 
 ### <a name="perform-post-restore-tasks"></a>执行还原后任务
 

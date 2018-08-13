@@ -4,21 +4,21 @@ description: 本文列出了可用于与用于 MySQL 的 Azure 数据库交互�
 services: mysql
 author: v-chenyh
 ms.author: v-chenyh
-manager: kfile
+manager: digimobile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 06/15/2018
-ms.openlocfilehash: 309f82103a22a03b7c631d4062366bc3a23a41cd
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.openlocfilehash: 5f0b708fd2a5a7f44daa87274b35d39e3688c94f
+ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873416"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39722927"
 ---
-# <a name="azure-cli-samples-for-azure-database-for-mysql"></a>用于 MySQL 的 Azure 数据库的 Azure CLI 示例
+# <a name="azure-cli-samples-for-azure-database-for-mysql"></a>用于 MySQL 的 Azure 数据库的 Azure CLI 示例 
 
 > [!NOTE]
 > 将要查看的是 Azure Database for MySQL 的新服务。 若要查看经典 MySQL Database for Azure 的文档，请访问[此页](https://docs.azure.cn/zh-cn/mysql/)。

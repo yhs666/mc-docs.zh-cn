@@ -8,13 +8,14 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 06/16/2018
-ms.openlocfilehash: 9c4e4e979664532291c3162011836fbd28d81542
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+origin.date: 02/28/2018
+ms.date: 08/13/2018
+ms.openlocfilehash: 401f845cc8b93ffb394cf435e8baa7b3fc6fc46c
+ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873648"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39723073"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>在 Azure Database for MySQL 中进行备份和还原
 
@@ -30,6 +31,13 @@ Azure Database for MySQL 可以进行完整备份、差异备份和事务日志�
 ### <a name="backup-frequency"></a>备份频率
 
 通常情况下，完整备份每周进行一次，差异备份每天进行两次，事务日志备份每五分钟进行一次。 第一次完整备份在创建服务器后立即进行计划。 初始备份在大型已还原服务器上可能耗时较长。 新服务器可以还原到的最早时间点是完成初始完整备份的时间。
+
+### <a name="backup-redundancy-options"></a>备份冗余选项
+
+使用 Azure Database for MySQL 时，可以灵活地在“常规用途”层和“内存优化”层中选择本地冗余或异地冗余备份存储。 当备份存储在异地冗余备份存储中时，这些备份不仅会存储在托管服务器所在的区域中，还会复制到配对的数据中心。 这样可以在发生灾难时提供更好的保护，并且可以将服务器还原到其他区域。 “基本”层仅提供本地冗余备份存储。
+
+> [!IMPORTANT]
+> 只能在服务器创建期间为备份配置本地冗余或异地冗余存储。 预配服务器以后，不能更改备份存储冗余选项。
 
 ### <a name="backup-storage-cost"></a>备份存储成本
 
@@ -58,6 +66,10 @@ Azure Database for MySQL 最高可以提供 100% 的已预配服务器存储作�
 多种情况下可以使用时间点还原。 例如，用户意外删除了数据、删除了重要的表或数据库，或者应用程序因为缺陷而意外地使用错误数据覆盖了正确数据。
 
 可能需要等到下一个事务日志备份进行后，才能还原到上一个五分钟内的某个时间点。
+
+### <a name="geo-restore"></a>异地还原
+
+如果已将服务器配置为进行异地冗余备份，则可将服务器还原到另一 Azure 区域，只要服务在该区域可用即可。 当服务器因其所在的区域发生事故而不可用时，异地还原是默认的恢复选项。 如果区域中出现的大规模事件导致数据库应用程序不可用，可以根据异地冗余备份将服务器还原到任何其他区域中的服务器。 提取备份后，会延迟一段时间才会将其复制到其他区域中。 此延迟可能长达一小时，因此发生灾难时，会有长达 1 小时的数据丢失风险。
 
 ### <a name="perform-post-restore-tasks"></a>执行还原后任务
 
