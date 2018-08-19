@@ -5,11 +5,11 @@
 > 
 > 
 
-若要使用 StackExchange.Redis NuGet 包配置客户端应用程序，请在“解决方案资源管理器”中右键单击项目，然后选择“管理 NuGet 包”。 
+如果要使用 StackExchange.Redis NuGet 包配置客户端应用程序，请在“解决方案资源管理器”中右键单击项目，并选择“管理 NuGet 包”。 
 
 ![管理 NuGet 包](./media/redis-cache-configure-stackexchange-redis-nuget/redis-cache-manage-nuget-menu.png)
 
-在“搜索”文本框中键入 **StackExchange.Redis** 或 **StackExchange.Redis.StrongName**，从结果选择所需版本，然后单击“安装”。
+在“搜索”文本框中键入 **StackExchange.Redis** 或 **StackExchange.Redis.StrongName**，从结果选择所需版本，并单击“安装”。
 
 > [!NOTE]
 > 如果希望使用 **StackExchange.Redis** 客户端库强名称版本，请选择 **StackExchange.Redis.StrongName**；否则选择 **StackExchange.Redis**。
@@ -25,8 +25,10 @@ NuGet 程序包会给客户端应用程序下载并添加所需的程序集引�
 > 
 > 
 
-也可安装 StackExchange.Redis NuGet 包，方法是：依次单击“工具”菜单中的“NuGet 包管理器”、“包管理器控制台”，然后在“包管理器控制台”窗口中运行以下命令。
-
+也可安装 StackExchange.Redis NuGet 包，方法是：依次单击“工具”菜单中的“NuGet 包管理器”、“包管理器控制台”，并在“包管理器控制台”窗口中运行以下命令。
+    
 ```
 Install-Package StackExchange.Redis
 ```
+
+<!-- ms.date: 08/13/2018 -->
