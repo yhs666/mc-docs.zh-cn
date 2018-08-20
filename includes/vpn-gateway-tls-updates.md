@@ -1,5 +1,5 @@
 ---
- title: include 文件 description: include 文件 services: vpn-gateway author: cherylmc ms.service: vpn-gateway ms.topic: include origin.date: 06/05/2018 ms.date: 07/10/2018 ms.author: v-junlch ms.custom: include file
+ title: include 文件 description: include 文件 services: vpn-gateway author: cherylmc ms.service: vpn-gateway ms.topic: include origin.date: 06/05/2018 ms.date: 08/13/2018 ms.author: v-junlch ms.custom: include file
 ---
 从 2018 年 7 月 1 日开始，Azure VPN 网关将不再支持 TLS 1.0 和 1.1。 VPN 网关将仅支持 TLS 1.2。 若要对使用 TLS 的 Windows 7 和 Windows 8 点到站点客户端保留 TLS 支持和连接性，建议安装以下更新：
 
@@ -13,6 +13,5 @@ TLS 也将于 2018 年 7 月 1 日起弃用以下旧算法：
 - DES（数据加密算法）
 - 3DES（三重数据加密算法）
 - MD5（消息摘要 5）
-- SHA-1（安全哈希算法 1）
 
-<!-- ms.date: 07/10/2018 -->
+<!-- ms.date: 08/13/2018 -->

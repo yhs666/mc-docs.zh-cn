@@ -1,11 +1,17 @@
+---
+ title: include 文件 description: include 文件 services: vpn-gateway author: cherylmc ms.service: vpn-gateway ms.topic: include origin.date: 03/21/2018 ms.date: 08/13/2018 ms.author: v-junlch ms.custom: include file
+---
 ### <a name="is-bgp-supported-on-all-azure-vpn-gateway-skus"></a>BGP 是否在所有 Azure VPN 网关 SKU 上受支持？
 否，BGP 在 Azure **VpnGw1**、**VpnGw2**、**VpnGw3**、标准 VPN 网关和高性能 VPN 网关上受支持。 **基本** SKU。
 
-### <a name="can-i-use-bgp-with-azure-policy-based-vpn-gateways"></a>能否将 BGP 用于 Azure 基于策略的 VPN 网关？
+### <a name="can-i-use-bgp-with-azure-policy-based-vpn-gateways"></a>能否将 BGP 用于基于 Azure Policy 的 VPN 网关？
 否，只有基于路由的 VPN 网关支持 BGP。
 
 ### <a name="can-i-use-private-asns-autonomous-system-numbers"></a>能否使用专用 ASN（自治系统编号）？
 能，可以将自己的公共 ASN 或专用 ASN 同时用于本地网络和 Azure 虚拟网络。
+
+### <a name="can-i-use-32-bit-asns-autonomous-system-numbers"></a>能否使用 32 位 ASN（自治系统编号）？
+否，Azure VPN 网关目前支持 16 位 ASN。
 
 ### <a name="are-there-asns-reserved-by-azure"></a>是否存在由 Azure 保留的 ASN？
 是，Azure 保留了以下 ASN 用于内部和外部的对等互连：
@@ -73,4 +79,4 @@ Azure 本地网关为本地网络指定初始地址前缀。 使用 BGP 时，�
 ### <a name="what-should-i-add-to-my-on-premises-vpn-device-for-the-bgp-peering-session"></a>应为 BGP 对等会话添加到本地 VPN 设备什么内容？
 应在指向 IPsec S2S VPN 隧道的 VPN 设备上添加 Azure BGP 对等节点 IP 地址的主机路由。 例如，如果 Azure VPN 对等节点 IP 为“10.12.255.30”，则应在 VPN 设备上添加“10.12.255.30”的主机路由（包含匹配的 IPsec 隧道接口的下一跃点接口）。
 
-<!-- ms.date: 07/10/2018 -->
+<!-- ms.date: 08/13/2018 -->

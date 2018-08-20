@@ -1,5 +1,5 @@
 ---
- title: include 文件 description: include 文件 services: vpn-gateway author: cherylmc ms.service: vpn-gateway ms.topic: include origin.date: 03/21/2018 ms.date: 05/08/2018 ms.author: v-junlch ms.custom: include file
+ title: include 文件 description: include 文件 services: vpn-gateway author: cherylmc ms.service: vpn-gateway ms.topic: include origin.date: 03/21/2018 ms.date: 08/13/2018 ms.author: v-junlch ms.custom: include file
 ---
 
 创建虚拟网络网关时，需要指定要使用的网关 SKU。 请根据工作负荷、吞吐量、功能和 SLA 的类型，选择满足需求的 SKU。
@@ -38,4 +38,4 @@
 
 如果使用老版 SKU（旧版），则推荐使用的生产 SKU 为标准和高性能。 有关老版 SKU 的信息和说明，请参阅[网关 SKU（旧版）](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md)。
 
-<!-- ms.date: 05/08/2018 -->
+<!-- ms.date: 08/13/2018 -->

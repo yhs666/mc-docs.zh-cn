@@ -1,5 +1,5 @@
 ---
- title: include 文件 description: include 文件 services: vpn-gateway author: cherylmc ms.service: vpn-gateway ms.topic: include origin.date: 06/04/2018 ms.date: 07/10/2018 ms.author: v-junlch ms.custom: include file
+ title: include 文件 description: include 文件 services: vpn-gateway author: cherylmc ms.service: vpn-gateway ms.topic: include origin.date: 06/04/2018 ms.date: 08/13/2018 ms.author: v-junlch ms.custom: include file
 ---
 ### <a name="supportedclientos"></a>点到站点连接可以用于哪些客户端操作系统？
 
@@ -79,10 +79,10 @@ Azure 支持两种类型的点到站点 VPN 选项：
 
 ### <a name="other-than-windows-and-mac-which-other-platforms-does-azure-support-for-p2s-vpn"></a>除了 Windows 和 Mac 以外，Azure 还支持在其他哪些平台上使用 P2S VPN？
 
-Azure 仅支持在 Windows 和 Mac 上使用 P2S VPN。
+Azure 支持将 Windows、Mac 和 Linux 用于 P2S VPN。
 
 ### <a name="i-already-have-an-azure-vpn-gateway-deployed-can-i-enable-radius-andor-ikev2-vpn-on-it"></a>我已部署 Azure VPN 网关。 是否可在该网关上启用 RADIUS 和/或 IKEv2 VPN？
 
 是的，可以使用 Powershell 或 Azure 门户在已部署的网关上启用这些新功能，前提是所用网关 SKU 支持 RADIUS 和/或 IKEv2。 例如，VPN 网关基本 SKU 不支持 RADIUS 或 IKEv2。
 
-<!-- ms.date: 07/10/2018 -->
+<!-- ms.date: 08/13/2018 -->
