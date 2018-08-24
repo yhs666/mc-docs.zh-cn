@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 06/12/2018
-ms.date: 07/30/2018
+ms.date: 08/27/2018
 ms.author: v-yeche
-ms.openlocfilehash: 36ba7325d61d830984deba7cf900cd2da0d43973
-ms.sourcegitcommit: 35889b4f3ae51464392478a72b172d8910dd2c37
+ms.openlocfilehash: 8d0e6a9a8cdfd651102c0638d2e2b533dccc32f9
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39261967"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42871670"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>适用于 Linux 的 DSC 扩展 (Microsoft.OSTCExtensions.DSCForLinux)
 
@@ -48,7 +48,8 @@ DSC Linux 扩展支持[扩展支持的 OS](https://azurewiki.cloudapp.netvmagent
 | Ubuntu| 12.04 LTS、14.04 LTS 和 16.04 LTS  |
 | openSUSE| 13.1 和更高版本  |
 | SUSE Linux Enterprise Server| 11 SP3 和更高版本  |
-<!-- 不可用于 | RHEL| 6.5 和更高版本  |-->
+
+<!-- Not Available on | RHEL| 6.5 and higher  |-->
 
 ### <a name="internet-connectivity"></a>Internet 连接
 
@@ -424,11 +425,10 @@ az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 
 ### <a name="support"></a>支持
 
-如果对本文中的任何观点存在疑问，可以联系 [Azure 支持站点](https://www.azure.cn/support/contact/)上的 Azure 专家。 有关使用 Azure 支持的信息，请阅读 [Azure 支持常见问题](https://www.azure.cn/support/faq/)。
+如果对本文中的任何观点存在疑问，可以联系 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/contact/) 上的 Azure 专家。 有关使用 Azure 支持的信息，请阅读 [Azure 支持常见问题](https://www.azure.cn/support/faq/)。
 <!-- Not Available on [MSDN Azure and CSDN Azure](https://www.azure.cn/support/community/)-->
 
 ## <a name="next-steps"></a>后续步骤
 有关扩展的详细信息，请参阅[适用于 Linux 的虚拟机扩展和功能](features-linux.md)。
 
-<!-- Update_Description: new articles on virutal machine dsc linux  -->
-<!--ms.date: 07/30/2018-->
+<!-- Update_Description: update meta properties, wording update  -->

@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 07/18/2017
-ms.date: 06/04/2018
+ms.date: 08/27/2018
 ms.author: v-yeche
-ms.openlocfilehash: d2179573bc49d702a6360c932901abf41b29160d
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: f08430371091340e0e7c09a04af983b107b38d9e
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867652"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42871599"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Azure Resource Manager 模板中的虚拟机
 
@@ -463,4 +463,4 @@ start.ps1 脚本可以完成许多配置任务。 例如，在本示例中已添
 - 参考[使用 Resource Manager 模板创建 Windows 虚拟机](ps-template.md)部署创建的模板。
 - 请参阅[使用 Azure PowerShell 模块创建并管理 Windows VM](tutorial-manage-vm.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)，了解如何管理创建的 VM。
 
-<!--Update_Description: update meta properties, update link-->
+<!--Update_Description: update meta properties -->

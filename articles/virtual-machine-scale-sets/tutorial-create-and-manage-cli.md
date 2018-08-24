@@ -3,7 +3,7 @@ title: 教程 - 创建和管理 Azure 虚拟机规模集 | Microsoft Docs
 description: 了解如何使用 Azure CLI 2.0 创建虚拟机规模集以及某些常见的管理任务，例如如何启动和停止实例，或者如何更改规模集容量。
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 03/27/2018
-ms.date: 04/24/2018
+ms.date: 08/13/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: d1e2a201e72e37a5fdd9488fc3cfa648dab366b1
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 4eb1a2320360b1520e66f61d0a851019b46822a9
+ms.sourcegitcommit: 56ed1b03d83f222db6118fe1e2f2485a9488507f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32122095"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41705286"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>教程：使用 Azure CLI 2.0 创建和管理虚拟机规模集
 利用虚拟机规模集，可以部署和管理一组相同的、自动缩放的虚拟机。 在虚拟机规模集的整个生命周期内，可能需要运行一个或多个管理任务。 本教程介绍如何执行下列操作：
@@ -96,7 +96,7 @@ az vmss get-instance-view \
 
 
 ## <a name="list-connection-information"></a>列出连接信息
-可以将公共 IP 地址分配给负载均衡器，由后者将流量路由到各个 VM 实例。 默认情况下，会将网络地址转换 (NAT) 规则添加到 Azure 负载均衡器，由后者将远程连接流量转发给给定端口上的每个 VM。 若要连接到规模集中的 VM 实例，请创建一个可连接到已分配的公共 IP 地址和端口号的远程连接。
+系统将公共 IP 地址分配给负载均衡器，由后者将流量路由到各个 VM 实例。 默认情况下，会将网络地址转换 (NAT) 规则添加到 Azure 负载均衡器，由后者将远程连接流量转发给给定端口上的每个 VM。 若要连接到规模集中的 VM 实例，请创建一个可连接到已分配的公共 IP 地址和端口号的远程连接。
 
 若要列出规模集中连接到 VM 实例的地址和端口，请使用 [az vmss list-instance-connection-info](/cli/vmss#az_vmss_list_instance_connection_info)：
 
@@ -193,11 +193,12 @@ VM 实例大小或 *SKU* 决定了可供 VM 实例使用的计算资源（如 CP
 ### <a name="vm-instance-sizes"></a>VM 实例大小
 下表将常用 VM 大小按类别分成了多个用例。
 
-| 类型                     | 常见大小           |    说明       |
+| Type                     | 常见大小           |    说明       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [常规用途](../virtual-machines/linux/sizes-general.md)         |Dsv3、Dv3、DSv2、Dv2、DS、D、Av2、A0-7| CPU 与内存之比均衡。 适用于开发/测试、小到中型应用程序和数据解决方案。  |
 | [计算优化](../virtual-machines/linux/sizes-compute.md)   | Fs, F             | 高 CPU 与内存之比。 适用于中等流量的应用程序、网络设备和批处理。        |
 | [内存优化](../virtual-machines/linux/sizes-memory.md)    | Esv3、Ev3、M、GS、G、DSv2、DS、Dv2、D   | 较高的内存核心比。 适用于关系数据库、中到大型缓存和内存中分析。                 |
+| [GPU](../virtual-machines/linux/sizes-gpu.md)          | NV, NC            | 专门针对大量图形绘制和视频编辑的 VM。       |
 
 ### <a name="find-available-vm-instance-sizes"></a>查找可用的 VM 实例大小
 若要查看在特定区域可用的 VM 实例大小的列表，请使用 [az vm list-sizes](/cli/vm#az_vm_list_sizes) 命令。
@@ -211,8 +212,8 @@ az vm list-sizes --location chinanorth --output table
 ```azurecli
   MaxDataDiskCount    MemoryInMb  Name                      NumberOfCores    OsDiskSizeInMb    ResourceDiskSizeInMb
 ------------------  ------------  ----------------------  ---------------  ----------------  ----------------------
-                 4          3584  Standard_DS1                       1           1047552                    7168
-                 8          7168  Standard_DS2                      2           1047552                   14336
+                 4          3584  Standard_DS1_v2                       1           1047552                    7168
+                 8          7168  Standard_DS2_v2                       2           1047552                   14336
 [...]
                  1           768  Standard_A0                           1           1047552                   20480
                  2          1792  Standard_A1                           1           1047552                   71680
@@ -225,7 +226,7 @@ az vm list-sizes --location chinanorth --output table
 ```
 
 ### <a name="create-a-scale-set-with-a-specific-vm-instance-size"></a>创建特定 VM 实例大小的规模集
-可以根据 [az vm list-sizes](/cli/vm#az_vm_list_sizes) 的输出指定其他 VM 实例大小。 以下示例会使用 `--vm-sku` 参数创建一个规模集，以便指定 VM 实例大小 *Standard_F1*。 由于只需数分钟即可创建和配置所有的规模集资源和 VM 实例，因此不需部署以下规模集：
+在教程开头创建规模集时，为 VM 实例提供了默认 VM SKU *Standard_D1_v2*。 可以根据 [az vm list-sizes](/cli/vm#az_vm_list_sizes) 的输出指定其他 VM 实例大小。 以下示例会使用 `--vm-sku` 参数创建一个规模集，以便指定 VM 实例大小 *Standard_F1*。 由于只需数分钟即可创建和配置所有的规模集资源和 VM 实例，因此不需部署以下规模集：
 
 ```azurecli
 az vmss create `
@@ -314,5 +315,6 @@ az group delete --name myResourceGroup --no-wait --yes
 请转到下一教程，了解规模集磁盘。
 
 > [!div class="nextstepaction"]
-> [通过规模集使用数据磁盘](tutorial-use-disks-cli.md)
+> [将数据磁盘与规模集配合使用](tutorial-use-disks-cli.md)
 
+<!-- Update_Description: wording update -->

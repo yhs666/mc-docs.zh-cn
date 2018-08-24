@@ -15,15 +15,15 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 04/26/2018
-ms.date: 06/25/2018
+ms.date: 08/27/2018
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 1e66bec4513af6b9aa8893a285be68231b777049
-ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
+ms.openlocfilehash: 95cf16fbada6c14feb45fc5dcc95387ac28d4dec
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36747508"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41704060"
 ---
 # <a name="connect-to-hdinsight-hadoop-using-ssh"></a>使用 SSH 连接到 HDInsight (Hadoop)
 
@@ -33,7 +33,7 @@ HDInsight 可以使用 Linux (Ubuntu) 作为 Hadoop 群集中节点的操作系�
 
 | 地址 | 端口 | 连接到... |
 | ----- | ----- | ----- |
-| `<clustername>-ed-ssh.azurehdinsight.cn` | 22 | 边缘节点（HDInsight 上的 R Server） |
+| `<clustername>-ed-ssh.azurehdinsight.cn` | 22 | 边缘节点 (ML Services on HDInsight) |
 | `<edgenodename>.<clustername>-ssh.azurehdinsight.cn` | 22 | 边缘节点（如果存在边缘节点，则可以是任何其他群集类型） |
 | `<clustername>-ssh.azurehdinsight.cn` | 22 | 主头节点 |
 | `<clustername>-ssh.azurehdinsight.cn` | 23 | 辅助头节点 |
@@ -68,7 +68,7 @@ Linux、Unix 和 macOS 系统提供 `ssh` 和 `scp` 命令。 `ssh` 客户端通
 * [OpenSSH 客户端 (Beta)](https://blogs.msdn.microsoft.com/powershell/2017/12/15/using-the-openssh-beta-in-windows-10-fall-creators-update-and-windows-server-1709/)：这是 Windows 10 Fall Creators Update 中引入的可选功能。
 * [Git (https://git-scm.com/)](https://git-scm.com/)：通过 GitBash 命令行提供 `ssh` 和 `scp` 命令。
 
-还可以使用多个图形 SSH 客户端，例如 [PuTTY (http://www.chiark.greenend.org.uk/~sgtatham/putty/)](http://www.chiark.greenend.org.uk/~sgtatham/putty/) 和 [MobaXterm (http://mobaxterm.mobatek.net/)](http://mobaxterm.mobatek.net/)。 尽管可以使用这些客户端连接到 HDInsight，但连接的过程与使用 `ssh` 实用工具时不同。 有关详细信息，请参阅所用图形客户端的文档。
+还有多个图形 SSH 客户端，如 [PuTTY (http://www.chiark.greenend.org.uk/~sgtatham/putty/)](http://www.chiark.greenend.org.uk/~sgtatham/putty/) 和 [MobaXterm (http://mobaxterm.mobatek.net/)](http://mobaxterm.mobatek.net/)。 尽管可以使用这些客户端连接到 HDInsight，但连接的过程与使用 `ssh` 实用工具时不同。 有关详细信息，请参阅所用图形客户端的文档。
 
 ## <a id="sshkey"></a>身份验证：SSH 密钥
 
@@ -80,7 +80,7 @@ SSH 密钥使用[公钥加密](https://en.wikipedia.org/wiki/Public-key_cryptogr
 
 * 可以指定__私钥的路径__。 在 `ssh` 客户端中，可使用 `-i` 参数指定私钥的路径。 例如，`ssh -i ~/.ssh/id_rsa sshuser@myedge.mycluster-ssh.azurehdinsight.cn`。
 
-* 如果对不同的服务器使用__多个私钥__，可以考虑使用 [ssh-agent (https://en.wikipedia.org/wiki/Ssh-agent)](https://en.wikipedia.org/wiki/Ssh-agent) 之类的实用工具。 在建立 SSH 会话时，可以通过 `ssh-agent` 实用工具自动选择要使用的密钥。
+* 如果将__多个私钥__用于不同的服务器，可以考虑使用 [ssh-agent (https://en.wikipedia.org/wiki/Ssh-agent)](https://en.wikipedia.org/wiki/Ssh-agent) 之类的实用工具。 在建立 SSH 会话时，可以通过 `ssh-agent` 实用工具自动选择要使用的密钥。
 
 > [!IMPORTANT]
 >
@@ -132,12 +132,6 @@ SSH 密钥使用[公钥加密](https://en.wikipedia.org/wiki/Public-key_cryptogr
 ### <a name="change-the-ssh-password"></a>更改 SSH 密码
 
 有关更改 SSH 用户帐户密码的信息，请参阅 [Manage HDInsight](hdinsight-administer-use-portal-linux.md#change-passwords)（管理 HDInsight）文档的 __Change passwords__（更改密码）部分。
-
-## <a id="domainjoined"></a>身份验证：已加入域的 HDInsight
-
-如果使用__已加入域的 HDInsight 群集__，必须在通过 SSH 建立连接后使用 `kinit` 命令。 此命令会提示输入域用户和密码，并在与群集关联的 Azure Active Directory 域中对会话进行身份验证。
-
-有关详细信息，请参阅 [Configure domain-joined HDInsight](./domain-joined/apache-domain-joined-configure.md)（配置已加入域的 HDInsight）。
 
 ## <a name="connect-to-nodes"></a>连接到节点
 

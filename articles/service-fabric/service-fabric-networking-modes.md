@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 02/23/2018
-ms.date: 05/28/2018
+ms.date: 08/20/2018
 ms.author: v-yeche
-ms.openlocfilehash: e88cce31dfdda3d350de2075da18cb3ca3c2ccbe
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: 5d2ab499764d8d205ddb3d631b9c603cae590cfa
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554254"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41704474"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Service Fabric 容器网络模式
 
@@ -232,6 +232,22 @@ ms.locfileid: "34554254"
      </Endpoints>
    </Resources>
    ```
+
+6. 对于 Windows，VM 重新启动将导致重新创建开放网络。 这是为了缓解网络堆栈中的底层问题。 默认行为是重新创建网络。 如果需要关闭此行为，则可以使用以下配置，然后进行配置升级。
+
+```json
+"fabricSettings": [
+                {
+                    "name": "Setup",
+                    "parameters": [
+                    {
+                            "name": "SkipContainerNetworkResetOnReboot",
+                            "value": "true"
+                    }
+                    ]
+                }
+            ],          
+ ``` 
 
 ## <a name="next-steps"></a>后续步骤
 * [了解 Service Fabric 应用程序模型](service-fabric-application-model.md)

@@ -1,31 +1,23 @@
 ---
 title: Azure 上的 Linux VM 磁盘的标准存储 | Azure
 description: 介绍高性价比标准存储以及非托管和托管 Linux VM 磁盘。
-services: virtual-machines-linux
-documentationcenter: ''
+services: virtual-machines-linux,storage
 author: rockboyfor
-manager: digimobile
-editor: tysonn
 tags: azure-resource-manager
-ms.assetid: e2a20625-6224-4187-8401-abadc8f1de91
 ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.tgt_pltfrm: linux
 ms.topic: article
 origin.date: 06/13/2017
-ms.date: 11/27/2017
+ms.date: 08/27/2018
 ms.author: v-yeche
-ms.openlocfilehash: 924a21b8e43f49c2b11c6a4dd84d4a2d8be59735
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.component: disks
+ms.openlocfilehash: aa333575a0587346b864ba9ae0e9489cee27cb95
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38938738"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42871671"
 ---
 [!INCLUDE [virtual-machines-common-standard-storage.md](../../../includes/virtual-machines-common-standard-storage.md)]
-<!--Not Available the parent file of includes file of virtual-machines-common-standard-storage.md-->
-<!--ms.date:11/27/2017-->
 
-<!--Not Available the parent file of includes file of virtual-machines-common-standard-storage.md-->
-<!--ms.date:11/27/2017-->
+<!-- Update_Description: update meta properties -->

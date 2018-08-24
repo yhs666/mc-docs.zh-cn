@@ -9,16 +9,16 @@ ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-origin.date: 05/16/2018
-ms.date: 07/02/2018
+origin.date: 06/29/2018
+ms.date: 08/13/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6dd5b2dfea91ee01a34f9fca1f941c7fe365ab01
-ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
+ms.openlocfilehash: d4e402f41f6d6ec5b13506b3bb46004772f0c849
+ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37070327"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41705077"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>适用于 SQL API 的 Azure Cosmos DB Java SDK：发行说明和资源
 > [!div class="op_single_selector"]

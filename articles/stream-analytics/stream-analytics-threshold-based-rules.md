@@ -9,13 +9,13 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 04/30/2018
-ms.date: 06/18/2018
-ms.openlocfilehash: c78e4ce7c09127cb2a581feea3dff5c4eeee84a7
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.date: 08/20/2018
+ms.openlocfilehash: 9a2a44a0dffaa3b9e207b8a58022c1fac818fe4d
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "35416872"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41704027"
 ---
 # <a name="process-configurable-threshold-based-rules-in-azure-stream-analytics"></a>处理 Azure 流分析中基于可配置阈值的规则
 本文介绍如何使用参考数据实现在 Azure 流分析中使用基于可配置阈值的规则的警报解决方案。
@@ -292,3 +292,4 @@ HAVING
 "alert":"hot node AVG CPU over 90","avg":96.5,"min":95.0,"max":98.0,
 "dim0":null,"dim1":null,"dim2":"N024","dim3":null,"dim4":null}
 ```
+<!--Update_Description: updat meta properties, wording update-->

@@ -3,7 +3,7 @@ title: 教程 - 使用 Azure CLI 2.0 在规模集中安装应用程序 | Microso
 description: 了解如何使用自定义脚本扩展通过 Azure CLI 2.0 将应用程序安装到虚拟机规模集中
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 03/27/2018
-ms.date: 04/24/2018
+ms.date: 08/13/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 43d94a46177d9e9e0dee4ebcce06d2d21cc036a8
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 8eacc0d62058d9f58dd8d277f37147d2dc0852f4
+ms.sourcegitcommit: 56ed1b03d83f222db6118fe1e2f2485a9488507f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32122090"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41704466"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-the-azure-cli-20"></a>教程：使用 Azure CLI 2.0 在虚拟机规模集中安装应用程序
 若要在规模集中的虚拟机 (VM) 实例上运行应用程序，首先需要安装应用程序组件和所需文件。 前一篇教程介绍了如何创建自定义 VM 映像并使用它来部署 VM 实例。 使用此自定义映像可以手动安装和配置应用程序。 也可以在部署每个 VM 实例之后，将应用程序自动安装到规模集，或者更新已在规模集中运行的应用程序。 本教程介绍如何执行下列操作：
@@ -179,3 +179,4 @@ az group delete --name myResourceGroup --no-wait --yes
 > [!div class="nextstepaction"]
 > [自动缩放规模集](tutorial-autoscale-cli.md)
 
+<!-- Update_Description: update metedata properties -->

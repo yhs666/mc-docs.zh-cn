@@ -15,14 +15,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 11/14/2017
-ms.date: 02/26/2018
+ms.date: 08/27/2018
 ms.author: v-yiso
-ms.openlocfilehash: 87200228f04f09c684b13a1b7ed263d6c0e11a1f
-ms.sourcegitcommit: 71cc4b7ee5ea4bb27fcc9986dcfcb9dcaff0afaa
+ms.openlocfilehash: 4472b535e1b87bf3ef8cca172b71517281c7abdf
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/24/2018
-ms.locfileid: "29552353"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41705096"
 ---
 # <a name="deep-dive---advanced-analytics"></a>深入探讨 - 高级分析
 
@@ -65,13 +65,14 @@ HDInsight 提供可从大量结构化、非结构化和快速移动的数据中�
 HDInsight 提供多个适用于高级分析工作流的机器学习选项：
 
 * [机器学习和 Spark](#machine-learning-and-spark)
-* [R 和 R Server](#r-and-r-server)
+* [R 和 ML Services](#r-and-r-server)
 * [Azure 机器学习和 Hive](#azure-machine-learning-and-hive)
 * [Spark 和深度学习](#spark-and-deep-learning)
 
 ### <a name="machine-learning-and-spark"></a>机器学习和 Spark
 
-[HDInsight Spark](../spark/apache-spark-overview.md) 是 Azure 托管的 [Spark](http://spark.apache.org/) 产品，它是统一的开源并行数据处理框架，使用内存中处理来大幅提升大数据分析性能。 Spark 处理引擎是专为速度、易用性和复杂分析打造的产品。 Spark 的内存中分布式计算功能使其成为机器学习和图形计算中使用的迭代算法的最佳选择。 
+
+  [HDInsight Spark](../spark/apache-spark-overview.md) 是 Azure 托管的 [Spark](http://spark.apache.org/) 产品，它是统一的开源并行数据处理框架，使用内存中处理来大幅提升大数据分析性能。 Spark 处理引擎是专为速度、易用性和复杂分析打造的产品。 Spark 的内存中分布式计算功能使其成为机器学习和图形计算中使用的迭代算法的最佳选择。 
 
 有三个可缩放的机器学习库向此分布式环境引入了算法建模功能。
 

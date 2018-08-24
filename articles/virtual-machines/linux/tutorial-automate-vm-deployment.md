@@ -17,12 +17,12 @@ origin.date: 05/30/2018
 ms.date: 07/30/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 4a8a366cae4ac137784c4b3b10f60d287f84a081
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.openlocfilehash: 4ede8765a64cd3f4d0c0d3684ffb6c1110f8126b
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295827"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42871668"
 ---
 # <a name="tutorial---how-to-use-cloud-init-to-customize-a-linux-virtual-machine-in-azure-on-first-boot"></a>教程 - 如何在 Azure 中的 Linux 虚拟机首次启动时使用 cloud-init 对其进行自定义
 
@@ -52,7 +52,8 @@ Cloud-init 还支持不同的发行版。 例如，不需使用 apt-get install 
 | UbuntuLTS |Canonical |UbuntuServer |14.04.5-LTS |最新 |
 | CoreOS |CoreOS |CoreOS |Stable |最新 |
 | | OpenLogic | CentOS | 7-CI | 最新 |
-<!-- 不可用于 | | RedHat | RHEL | 7-RAW-CI | latest-->
+
+<!-- Not Available on | | RedHat | RHEL | 7-RAW-CI | latest-->
 
 ## <a name="create-cloud-init-config-file"></a>创建 cloud-init 配置文件
 若要运行 cloud-init，请创建一个 VM，以便安装 NGINX 并运行简单的“Hello World”Node.js 应用。 以下 cloud-init 配置会安装所需的程序包，创建 Node.js 应用，然后初始化并启动该应用。

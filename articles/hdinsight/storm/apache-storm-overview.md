@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 12/08/2017
-ms.date: 01/15/2018
+origin.date: 02/27/2018
+ms.date: 08/27/2018
 ms.author: v-yiso
-ms.openlocfilehash: bca8766863e19aa70f8edb983d6cbb27c6ad3f3c
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.openlocfilehash: 7e049dd37f5f22ac8b78e0f3639fc2102b8baef1
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873420"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41704105"
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>什么是 Azure HDInsight 上的 Apache Storm？
 
@@ -150,7 +150,7 @@ Apache Storm 可以提供不同级别的有保证的消息处理。 例如，基
 
 ### <a name="ibasicbolt"></a>IBasicBolt
 
-读取输入元组，发出零个或多个元组，并在执行方法结束时立即询问输入元组，这种模式非常普通。 Storm 提供 [IBasicBolt](https://storm.apache.org/releases/1.1.0/javadocs/org/apache/storm/topology/IBasicBolt.html) 接口来自动执行这种模式。
+读取输入元组，发出零个或多个元组，并在执行方法结束时立即询问输入元组，这种模式非常普通。 Storm 提供 [IBasicBolt](http://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/IBasicBolt.html) 接口来自动执行这种模式。
 
 ### <a name="joins"></a>联接
 

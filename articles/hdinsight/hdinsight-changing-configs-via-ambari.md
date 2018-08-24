@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 01/09/2018
-ms.date: 02/26/2018
+origin.date: 07/09/2018
+ms.date: 08/27/2018
 ms.author: ashish
-ms.openlocfilehash: e8ea567805745c5eb7cd4936e73ce72ecd29bf28
-ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
+ms.openlocfilehash: d1252b899f4167bd3cac4549b3e4330905c535ba
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34450096"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41704908"
 ---
 # <a name="use-ambari-to-optimize-hdinsight-cluster-configurations"></a>使用 Ambari 优化 HDInsight 群集配置
 

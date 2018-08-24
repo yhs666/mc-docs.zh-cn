@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 03/30/2018
-ms.date: 06/25/2018
+ms.date: 08/27/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5737614265252827ccaf5a25a942f5143ed71f05
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.openlocfilehash: 55d6b20252fa79132f7a9f2d13cd3bc16f72b315
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315402"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42871621"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>适用于 Windows 的虚拟机扩展和功能
 
@@ -135,7 +135,7 @@ Set-AzureRmVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM"
     -Password $cred.GetNetworkCredential().Password -typeHandlerVersion "2.0"
 ```
 
-`Set-AzureRmVMExtension` 命令可用于启动任何 VM 扩展。 有关详细信息，请参阅 [Set-AzureRmVMExtension 参考](https://msdn.microsoft.com/library/mt603745.aspx)。
+`Set-AzureRmVMExtension` 命令可用于启动任何 VM 扩展。 有关详细信息，请参阅 [Set-AzureRmVMExtension 参考](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmextension)。
 
 <!-- Not Available on ### Azure portal-->
 ### <a name="azure-resource-manager-templates"></a>Azure Resource Manager 模板

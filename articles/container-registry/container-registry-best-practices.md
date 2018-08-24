@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: container-registry
 ms.topic: quickstart
 origin.date: 04/10/2018
-ms.date: 07/02/2018
+ms.date: 08/27/2018
 ms.author: v-yeche
-ms.openlocfilehash: c726ce267dde5a3f9bd2224c899bd2eb2164aef3
-ms.sourcegitcommit: 543a18c71c0910a5b9878a2d2668f317468906f2
+ms.openlocfilehash: 6385ec6ad886dab9135c1da143033416c79e6476
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39625531"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42872312"
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Azure 容器注册表的最佳做法
 
@@ -99,8 +99,7 @@ Azure 容器注册表可用于多层（称为 SKU），每层提供不同功能�
 [registry-overview-quotas]: ./media/container-registry-best-practices/registry-overview-quotas.png
 
 <!-- LINKS - Internal -->
-[az-acr-repository-delete]: https://docs.azure.cn/zh-cn/cli/acr/repository?view=azure-cli-latest#az_acr_repository_delete
-[azure-cli]: https://docs.azure.cn/zh-cn/cli/azure?view=azure-cli-latest
+[az-acr-repository-delete]: https://docs.azure.cn/zh-cn/cli/acr/repository?view=azure-cli-latest#az-acr-repository-delete
+[azure-cli]: https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest
 [azure-portal]: https://portal.azure.cn
-<!-- Not Available on [container-registry-geo-replication]: container-registry-geo-replication.md--> [container-registry-skus]：container-registry-skus.md <!-- Update_Description: new articles on container registry best practices -->
-<!--ms.date: 07/02/2018-->>
+<!-- Not Available on [container-registry-geo-replication]: container-registry-geo-replication.md--> [container-registry-skus]: container-registry-skus.md <!-- Update_Description: update meta properties, wording update -->>

@@ -9,13 +9,13 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 08/08/2017
-ms.date: 07/02/2018
-ms.openlocfilehash: 60fcfa2a72b0244c178c31175dee57d2849592af
-ms.sourcegitcommit: 2cf6961f692f318ce7034e7b4d994ee51d902199
+ms.date: 08/20/2018
+ms.openlocfilehash: 06d9fc7fff49354cd92176a570a892b43961b47b
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36947661"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41705252"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>常用流分析使用模式的查询示例
 

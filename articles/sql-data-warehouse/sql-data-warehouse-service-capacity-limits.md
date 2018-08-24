@@ -7,16 +7,16 @@ manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
-origin.date: 04/17/2018
-ms.date: 06/25/2018
+origin.date: 06/28/2018
+ms.date: 08/20/2018
 ms.author: v-yeche
 ms.reviewer: igorstan
-ms.openlocfilehash: 92e3abadcd6a1ee61d9e8b83a7a11303901db237
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.openlocfilehash: fe98b27f74da9dabb4e77f4848798a42be2444b9
+ms.sourcegitcommit: 02c4716e07b3d83104fa419b379a15589ae8017e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315510"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41704056"
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>SQL 数据仓库容量限制
 Azure SQL 数据仓库的各个组件允许的最大值。

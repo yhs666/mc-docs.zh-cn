@@ -9,14 +9,14 @@ ms.component: cosmosdb-mongo
 ms.devlang: na
 ms.topic: overview
 origin.date: 11/15/2017
-ms.date: 07/02/2018
+ms.date: 08/13/2018
 ms.author: v-yeche
-ms.openlocfilehash: 2846e1be951b2bb7b0a45fc4037014eb54424e80
-ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
+ms.openlocfilehash: 05651eb426a8b5c9d36e357bd322330e0816e2a2
+ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37070197"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41705081"
 ---
 # <a name="mongodb-api-support-for-mongodb-features-and-syntax"></a>MongoDB API 对 MongoDB 功能和语法的支持
 
@@ -25,13 +25,19 @@ Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务
 
 通过使用 Azure Cosmos DB MongoDB API，可以像以往一样从 MongoDB API 中受益，并且可使用 Azure Cosmos DB 提供的所有企业功能：[多区域分发](distribute-data-globally.md)、[自动分片](partition-data.md)、可用性和延迟保证、自动编制每个字段的索引、静态加密和备份等。
 
+## <a name="mongodb-protocol-support"></a>MongoDB 协议支持
+
+默认情况下，Azure Cosmos DB MongoDB API 兼容 MongoDB Server 版本 **3.2**。 支持的运算符以及限制或例外已列在下面。 在 MongoDB 版本 **3.4** 中添加的功能或查询运算符目前以预览版功能形式提供。 任何理解这些协议的客户端驱动程序应该都可以使用 MongoDB API 连接到 Cosmos DB。
+
+[MongoDB 聚合管道](#aggregation-pipeline)目前也以单独的预览版功能形式提供。
+
 ## <a name="mongodb-query-language-support"></a>MongoDB 查询语言支持
 
 Azure Cosmos DB MongoDB API 为 MongoDB 查询语言构造提供全面的支持。 可以在下面查找当前支持的操作、运算符、阶段、命令和选项的详细列表。
 
 ## <a name="database-commands"></a>数据库命令
 
-在所有 MongoDB API 帐户上，Azure Cosmos DB 都支持以下数据库命令。 
+在所有 MongoDB API 帐户上，Azure Cosmos DB 都支持以下数据库命令。
 
 ### <a name="query-and-write-operation-commands"></a>查询和写入操作命令
 - 删除
@@ -288,7 +294,11 @@ $all | ```{ "Location.coordinates": { $all: [-121.758, 46.87] } }``` |
 $elemMatch | ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } } }``` |  
 $size | ```{ "Location.coordinates": { $size: 2 } }``` | 
 $comment |  ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } }, $comment: "Negative values"}``` | 
-$text |  | 不支持。 请改用 $regex 
+$text |  | 不支持。 改为使用 $regex。
+
+## <a name="unsupported-operators"></a>不支持的运算符
+
+```$where``` 和 ```$eval``` 运算符不受 Azure Cosmos DB 支持。
 
 ### <a name="methods"></a>方法
 
@@ -318,6 +328,10 @@ Azure Cosmos 数据库尚不支持用户和角色。 Azure Cosmos DB 支持基�
 
 Azure Cosmos DB 支持在最低层进行自动的本机复制。 此逻辑还可以扩展，实现低延迟的多区域复制。 Azure Cosmos DB 不支持手动复制命令。
 
+## <a name="write-concern"></a>写关注
+
+某些 MongoDB API 支持指定[写关注](https://docs.mongodb.com/manual/reference/write-concern/)，后者指定写入操作期间需要的响应数。 考虑到 Cosmos DB 在后台处理复制的方式，所有写入默认情况下都自动成为仲裁。 由客户端代码指定的任何写关注都会被系统忽略。 有关详细信息，请参阅[使用一致性级别最大化可用性和性能](consistency-levels.md)。
+
 ## <a name="sharding"></a>分片
 
 Azure Cosmos DB 支持服务器端自动分片。 Azure Cosmos DB 不支持手动分片命令。
@@ -328,4 +342,4 @@ Azure Cosmos DB 支持服务器端自动分片。 Azure Cosmos DB 不支持手�
 - 了解如何配合 MongoDB 数据库 API 来[使用 Robo 3T](mongodb-robomongo.md)。
 - 浏览具有 MongoDB 协议支持的 Azure Cosmos DB [示例](mongodb-samples.md)。
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties, wording update, add the content of Write Concerns -->

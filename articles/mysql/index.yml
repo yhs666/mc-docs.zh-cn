@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 5b2d7edc483c228f27e1c176097d3133e68c9a60
-ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
+ms.openlocfilehash: 32a66ca55bc3ccfabc3d7fee9b0c70d1f3154b46
+ms.sourcegitcommit: 5ccfb836b271e60d44ba8a871b8904a695fe8e27
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39722961"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41705249"
 documentType: LandingData
 title: 用于 MySQL 的 Azure 数据库文档
 metadata:
@@ -45,8 +45,8 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: '设计数据库& #58; <a href="/mysql/tutorial-design-database-using-portal">Azure 门户</a> | <a href="/azure/mysql/tutorial-design-database-using-cli">Azure CLI</a>'
-    - html: 创建 Web 应用&#58; <a href="https://portal.azure.com/#create/hub">Wordpress - 门户</a> | <a href="../app-service-web/app-service-web-tutorial-php-mysql.md?toc=%2fazure%2fmysql%2ftoc.json">PHP - Azure CLI</a>
+    - html: '设计数据库& #58; <a href="/mysql/tutorial-design-database-using-portal">Azure 门户</a> | <a href="/mysql/tutorial-design-database-using-cli">Azure CLI</a>'
+    - html: 创建 Web 应用&#58; <a href="https://portal.azure.cn/#create/hub">Wordpress - 门户</a> | <a href="../app-service-web/app-service-web-tutorial-php-mysql.md?toc=%2fmysql%2ftoc.json">PHP - Azure CLI</a>
 - title: 参考
   items:
   - type: list

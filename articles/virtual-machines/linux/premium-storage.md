@@ -1,26 +1,21 @@
 ---
 title: Linux VM 的高性能高级存储和 Azure 托管磁盘 | Azure
 description: 了解 Azure VM 的高性能高级存储和托管磁盘。 Azure DS 系列、DSv2 系列、GS 系列和 Fs 系列 VM 都支持高级存储。
-services: virtual-machines-linux
-documentationcenter: ''
+services: virtual-machines-linux,storage
 author: rockboyfor
-manager: digimobile
-editor: tysonn
-ms.assetid: e2a20625-6224-4187-8401-abadc8f1de91
 ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.tgt_pltfrm: linux
 ms.topic: article
 origin.date: 03/30/2018
-ms.date: 05/14/2018
+ms.date: 08/27/2018
 ms.author: v-yeche
-ms.openlocfilehash: cc54ddaf975b258c3ad019cda7d3f0be61ca2e74
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.component: disks
+ms.openlocfilehash: a6f1b67920c5e993e0c1747ae35f9615e4830bb8
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38940080"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42871632"
 ---
 [!INCLUDE [virtual-machines-common-premium-storage.md](../../../includes/virtual-machines-common-premium-storage.md)]
 
@@ -35,7 +30,4 @@ ms.locfileid: "38940080"
 * [Azure Premium Storage generally available](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/)（Azure 高级存储已正式推出）
 * [Announcing the GS-Series: Adding Premium Storage Support to the Largest VMs in the Public Cloud](https://azure.microsoft.com/blog/azure-has-the-most-powerful-vms-in-the-public-cloud/)（GS 系列公告：将高级存储支持添加到公有云中的最大 VM）
 
-<!--The parent file of includes file of virtual-machines-common-premium-storage.md-->
-<!--ms.date:05/14/2018-->
-
-<!--Update_Description: update meta properties, wording update, update link -->
+<!--Update_Description: update meta properties -->

@@ -1,26 +1,22 @@
 ---
 title: Azure 上的 Windows VM 磁盘的标准存储 | Azure
 description: 介绍高性价比标准存储以及非托管和托管 Windows VM 磁盘。
-services: virtual-machines-windows
-documentationcenter: ''
+services: virtual-machines-windows,storage
 author: rockboyfor
-manager: digimobile
-editor: tysonn
 tags: azure-resource-manager
-ms.assetid: e2a20625-6224-4187-8401-abadc8f1de91
 ms.service: virtual-machines-windows
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 06/13/2017
-ms.date: 11/27/2017
+ms.date: 08/27/2018
 ms.author: v-yeche
-ms.openlocfilehash: 2dd3e6bbc1f0f976aeb7bdd2fd14bd4f038c2331
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.component: disks
+ms.openlocfilehash: 99dffa3ec6054fd87f55fad2dd882f7ff8a7ba90
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38938787"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42872335"
 ---
 [!INCLUDE [virtual-machines-common-standard-storage.md](../../../includes/virtual-machines-common-standard-storage.md)]
+
+<!-- Update_Description: update meta properties -->

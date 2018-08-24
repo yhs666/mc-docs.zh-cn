@@ -3,7 +3,7 @@ title: 快速入门 - 使用 Azure 模板创建 Windows 虚拟机规模集 | Mic
 description: 了解如何使用 Azure 资源管理器模板来部署示例应用和配置自动缩放规则，以便快速创建 Windows 虚拟机规模集
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
 origin.date: 03/27/18
-ms.date: 06/11/2018
+ms.date: 08/13/2018
 ms.author: v-junlch
-ms.openlocfilehash: 4598703b49d52a75600a839332bf7796f0f763f9
-ms.sourcegitcommit: a63d392037f3eca3196026c500ac7d2d26d85a7c
+ms.openlocfilehash: ee4b53f26eee2bcfaa07ea3fb21c6a4c0752a209
+ms.sourcegitcommit: 56ed1b03d83f222db6118fe1e2f2485a9488507f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35253180"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41704055"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-scale-set-with-an-azure-template"></a>快速入门：使用 Azure 模板创建 Windows 虚拟机规模集
 利用虚拟机规模集，可以部署和管理一组相同的、自动缩放的虚拟机。 可以手动缩放规模集中的 VM 数，也可以定义规则，以便根据资源使用情况（如 CPU 使用率、内存需求或网络流量）进行自动缩放。 然后，Azure 负载均衡器会将流量分配到规模集中的 VM 实例。 在本快速入门中，我们将使用 Azure 资源管理器模板创建虚拟机规模集并部署一个示例应用程序。
@@ -187,4 +187,4 @@ Remove-AzureRmResourceGroup -Name "myResourceGroup" -Force -AsJob
 > [!div class="nextstepaction"]
 > [创建和管理 Azure 虚拟机规模集](tutorial-create-and-manage-powershell.md)
 
-<!-- Update_Description: code update -->
+<!-- Update_Description: update metedata properties -->

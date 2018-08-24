@@ -13,18 +13,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 02/02/2018
-ms.date: 05/28/2018
+ms.date: 08/20/2018
 ms.author: v-yeche
-ms.openlocfilehash: 523bcdb2b7d3b31152ef80c64246427bb523b38a
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: 57941a3f7020e7a4e689cfd3f61f81a424ea7cef
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554427"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41705251"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>使用 Service Fabric Explorer 可视化群集
 
-Service Fabric Explorer (SFX) 是一种用于检验和管理 Azure Service Fabric 群集的开源工具。 Service Fabric Explorer 是适用于 Windows 和 Linux 的桌面应用程序。 即将推出针对 MacOS 的支持。
+Service Fabric Explorer (SFX) 是一种用于检验和管理 Azure Service Fabric 群集的开源工具。 Service Fabric Explorer 是适用于 Windows、macOS 和 Linux 的桌面应用程序。
 
 ## <a name="service-fabric-explorer-download"></a>Service Fabric Explorer 下载
 
@@ -52,7 +52,7 @@ Service Fabric Explorer 同时在 Service Fabric 群集的 HTTP 管理终结点�
 对于开发人员工作站设置，可以通过导航到 https://localhost:19080/Explorer 在本地群集上启动 Service Fabric Explorer。 阅读本文，了解如何[准备开发环境](service-fabric-get-started.md)。
 
 ## <a name="connect-to-a-service-fabric-cluster"></a>连接到 Service Fabric 群集
-若要连接到 Service Fabric 群集，需要群集管理终结点 (FQDN/IP) 和 HTTP 管理终结点端口（默认情况下为 19080）。 例如，https://mysfcluster.chinanorth.cloudapp.chinacloudapi.cn:19080。 使用“连接到 localhost”复选框，连接到工作站上的本地群集。
+若要连接到 Service Fabric 群集，需要群集管理终结点 (FQDN/IP) 和 HTTP 管理终结点端口（默认情况下为 19080）。 例如， https://mysfcluster.chinanorth.cloudapp.chinacloudapi.cn:19080 。 使用“连接到 localhost”复选框，连接到工作站上的本地群集。
 
 ### <a name="connect-to-a-secure-cluster"></a>连接到安全群集
 可以使用证书或 Azure Active Directory (AAD) 控制客户端对 Service Fabric 群集的访问。

@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 12/13/2017
-ms.date: 07/30/2018
+ms.date: 08/27/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7f7d6d65700177769c36a7390d8b01a7422e34d6
-ms.sourcegitcommit: 35889b4f3ae51464392478a72b172d8910dd2c37
+ms.openlocfilehash: 95db2fd57e1ea05ea1fe2d396903c6862b6a0b6a
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39261961"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42872377"
 ---
 # <a name="how-to-expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>如何使用 Azure CLI 扩展 Linux VM 上的虚拟硬盘
 在 Azure 的 Linux 虚拟机 (VM) 上，操作系统 (OS) 的默认虚拟硬盘大小通常为 30 GB。 可通过[添加数据磁盘](add-disk.md)来扩充存储空间，但也可能想要扩展现有的数据磁盘。 本文详述如何使用 Azure CLI 2.0 扩展 Linux VM 的托管磁盘。 
@@ -47,7 +47,7 @@ ms.locfileid: "39261961"
     > [!NOTE]
     > 只有释放 VM 才能扩展虚拟硬盘。 `az vm stop` 不释放计算资源。 若要释放计算资源，请使用 `az vm deallocate`。
 
-2. 使用 [az disk list](https://docs.azure.cn/zh-cn/cli/disk?view=azure-cli-latest#az-disk-list) 查看资源组中的托管磁盘列表。 以下示例显示名为 myResourceGroup 的资源组中的托管磁盘列表：
+1. 使用 [az disk list](https://docs.azure.cn/zh-cn/cli/disk?view=azure-cli-latest#az-disk-list) 查看资源组中的托管磁盘列表。 以下示例显示名为 myResourceGroup 的资源组中的托管磁盘列表：
 
     ```azurecli
     az disk list \
@@ -68,7 +68,7 @@ ms.locfileid: "39261961"
     > [!NOTE]
     > 扩展托管磁盘时，更新的大小会映射到最近的托管磁盘大小。 有关可用托管磁盘大小和层的表，请参阅 [Azure 托管磁盘概述 - 定价和计费](../windows/managed-disks-overview.md#pricing-and-billing)。
 
-3. 使用 [az vm start](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-start) 启动 VM。 以下示例在名为 myResourceGroup 的资源组中启动名为 myVM 的 VM：
+1. 使用 [az vm start](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-start) 启动 VM。 以下示例在名为 myResourceGroup 的资源组中启动名为 myVM 的 VM：
 
     ```azurecli
     az vm start --resource-group myResourceGroup --name myVM
@@ -83,7 +83,7 @@ ms.locfileid: "39261961"
     az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --o tsv
     ```
 
-2. 若要使用扩展磁盘，需扩展基础分区和文件系统。
+1. 若要使用扩展磁盘，需扩展基础分区和文件系统。
 
     a. 如果已装载，请卸载磁盘：
 
@@ -124,25 +124,25 @@ ms.locfileid: "39261961"
 
     d. 若要退出，请输入 `quit`
 
-3. 重设分区大小后，请使用 `e2fsck` 验证分区一致性：
+1. 重设分区大小后，请使用 `e2fsck` 验证分区一致性：
 
     ```bash
     sudo e2fsck -f /dev/sdc1
     ```
 
-4. 现在使用 `resize2fs` 重设文件系统大小：
+1. 现在使用 `resize2fs` 重设文件系统大小：
 
     ```bash
     sudo resize2fs /dev/sdc1
     ```
 
-5. 将分区安装到目标位置，例如 `/datadrive`：
+1. 将分区安装到目标位置，例如 `/datadrive`：
 
     ```bash
     sudo mount /dev/sdc1 /datadrive
     ```
 
-6. 若要验证是否已调整 OS 磁盘的大小，请使用 `df -h`。 以下示例输出显示数据驱动器 (/dev/sdc1) 现在为 200 GB：
+1. 若要验证是否已调整 OS 磁盘的大小，请使用 `df -h`。 以下示例输出显示数据驱动器 (/dev/sdc1) 现在为 200 GB：
 
     ```bash
     Filesystem      Size   Used  Avail Use% Mounted on
@@ -151,4 +151,4 @@ ms.locfileid: "39261961"
 
 ## <a name="next-steps"></a>后续步骤
 如需更多存储，也可[向 Linux VM 添加数据磁盘](add-disk.md)。 有关磁盘加密的详细信息，请参阅[使用 Azure CLI 加密 Linux VM 上的磁盘](encrypt-disks.md)。
-<!--Update_Description: update meta properties, update link -->
+<!--Update_Description: update meta properties  -->

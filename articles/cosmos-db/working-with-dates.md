@@ -8,17 +8,17 @@ ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 05/25/2017
-ms.date: 07/02/2018
+ms.date: 08/13/2018
 ms.author: v-yeche
-ms.openlocfilehash: c96edefee26ebb76fdfa540de4e3d37dda0aa66b
-ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
+ms.openlocfilehash: 7b7d3b9f26d345637f287f5c457775536ef76c65
+ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37070108"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41705241"
 ---
 # <a name="working-with-dates-in-azure-cosmos-db"></a>使用 Azure Cosmos DB 中的日期
-Azure Cosmos DB 通过本机 [JSON](http://www.json.org) 数据模型提供架构灵活性和丰富的索引。 所有 Azure Cosmos DB 资源（包括数据库、集合、文档和存储过程）均作为 JSON 文档进行建模和存储。 JSON（和 Azure Cosmos DB）仅支持一小部分基本类型：字符串、数字、布尔值、数组、对象和 Null。这是对可移植性的要求。 但是，JSON 具有相当的灵活性，允许开发人员和框架使用这些基元并将其编写为对象或数组，以便表示更复杂的类型。 
+Azure Cosmos DB 通过本机 [JSON](http://www.json.org) 数据模型提供架构灵活性和丰富的索引。 所有 Azure Cosmos DB 资源（包括数据库、容器、文档和存储过程）均作为 JSON 文档进行建模和存储。 JSON（和 Azure Cosmos DB）仅支持一小部分基本类型：字符串、数字、布尔值、数组、对象和 Null。这是对可移植性的要求。 但是，JSON 具有相当的灵活性，允许开发人员和框架使用这些基元并将其编写为对象或数组，以便表示更复杂的类型。 
 
 除了基本类型，许多应用程序还需要表示日期和时间戳的 [DateTime](https://msdn.microsoft.com/library/system.datetime(v=vs.110).aspx) 类型。 本文介绍开发人员可如何使用 .NET SDK 在 Azure Cosmos DB 中存储、检索和查询日期。
 
@@ -88,4 +88,4 @@ SQL .NET SDK 自动支持通过 LINQ 查询存储在 Azure Cosmos DB 中的数�
 * 详细了解 [SQL 查询](sql-api-sql-query.md)
 * 详细了解 [Azure Cosmos DB 索引策略](indexing-policies.md)
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, wording update -->

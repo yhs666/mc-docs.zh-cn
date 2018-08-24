@@ -13,14 +13,14 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/18/2017
-ms.date: 05/28/2018
+ms.date: 08/20/2018
 ms.author: v-yeche
-ms.openlocfilehash: 8a0a8a3d376c2609ddf9590cb2da8ca81df8efc1
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: 44b0a7611e7e37582f160d600cfa6c5b065d350a
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554573"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41705099"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Service Fabric 常见问题
 
@@ -160,7 +160,7 @@ Reliable Services 通常已分区，因此，存储量仅受限于群集中的�
 
 ### <a name="how-does-service-fabric-relate-to-containers"></a>Service Fabric 如何与容器关联？
 
-容器提供打包服务及其依赖项的简单方法，以便它们能够在所有环境中一致地运行并且可在单台计算机上以隔离方式运行。 使用 Service Fabric 可以部署和管理服务，包括[在容器中打包的服务](service-fabric-containers-overview.md)。
+容器提供打包服务及其依赖项的简单方法，以便它们能够在所有环境中一致地运行并且可在单台计算机上以隔离方式运行。 Service Fabric 提供部署和管理服务的方法，包括 [已打包在容器中的服务](service-fabric-containers-overview.md)。
 
 ### <a name="are-you-planning-to-open-source-service-fabric"></a>你们是否打算开放 Service Fabric 源代码？
 

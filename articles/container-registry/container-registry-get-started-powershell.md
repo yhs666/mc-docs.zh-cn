@@ -10,12 +10,12 @@ origin.date: 05/08/2018
 ms.date: 07/02/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: bcc62762da390c05ae1e3891c6d793f873c4205d
-ms.sourcegitcommit: 543a18c71c0910a5b9878a2d2668f317468906f2
+ms.openlocfilehash: 42f0395ea3a4fbbac8c90a69356029a45960d954
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39625468"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41705174"
 ---
 # <a name="quickstart-create-an-azure-container-registry-using-powershell"></a>教程：使用 PowerShell 创建 Azure 容器注册表
 
@@ -150,11 +150,7 @@ v1: digest: sha256:565dba8ce20ca1a311c2d9485089d7ddc935dd50140510050345a1b0ea4ff
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
-## <a name="next-steps"></a>后续步骤
-
-在本快速入门教程中，你已使用 Azure CLI 创建 Azure 容器注册表。
-<!-- Not Available on , and launched an instance of it in Azure Container Instances. Continue to the Azure Container Instances tutorial for a deeper look at ACI.-->
-
+<!-- Not Available on ## Next steps-->
 <!-- Not Available on > [Azure Container Instances tutorial](../container-instances/container-instances-tutorial-prepare-app.md)-->
 
 <!-- LINKS - external -->
@@ -173,9 +169,11 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 [Get-AzureRmContainerRegistryCredential]: https://docs.microsoft.com/powershell/module/azurerm.containerregistry/get-azurermcontainerregistrycredential
 [Get-Module]: https://docs.microsoft.com/powershell/module/microsoft.powershell.core/get-module
 [New-AzureRmContainerGroup]: https://docs.microsoft.com/powershell/module/azurerm.containerinstance/new-azurermcontainergroup
-[New-AzureRMContainerRegistry]: https://docs.microsoft.com/powershell/module/containerregistry/New-AzureRMContainerRegistry
+[New-AzureRMContainerRegistry]: https://docs.microsoft.com/en-us/powershell/module/azurerm.containerregistry/new-azurermcontainerregistry
+<!--URL is correct on module/azurerm.containerregistry-->
 [New-AzureRmResourceGroup]: https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup
 [Remove-AzureRmResourceGroup]: https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup
+<
 
 <!-- IMAGES> -->
 [qs-psh-01-running-app]: ./media/container-registry-get-started-powershell/qs-psh-01-running-app.png

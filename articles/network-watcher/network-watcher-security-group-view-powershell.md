@@ -13,26 +13,25 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/22/2017
-ms.date: 11/20/2017
+ms.date: 08/13/2018
 ms.author: v-yeche
-ms.openlocfilehash: e7685a985649ed59de67cfd18773068a71079f63
-ms.sourcegitcommit: b24a9ead8c486caecf17be7584c41104bb8114cf
+ms.openlocfilehash: 486079e7ff082817718c5d8a38d3f5a7cad42e37
+ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/14/2017
-ms.locfileid: "24519530"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41704507"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-powershell"></a>使用 PowerShell 通过安全组视图分析虚拟机安全性
 
 > [!div class="op_single_selector"]
 > - [PowerShell](network-watcher-security-group-view-powershell.md)
-> - [CLI 1.0](network-watcher-security-group-view-cli-nodejs.md)
-> - [CLI 2.0](network-watcher-security-group-view-cli.md)
+> - [Azure CLI](network-watcher-security-group-view-cli.md)
 > - [REST API](network-watcher-security-group-view-rest.md)
 
 安全组视图返回已应用于虚拟机的已配置的有效网络安全规则。 此功能可用于审核和诊断已在 VM 上配置以确保正确允许或拒绝流量的网络安全组和规则。 在本文中，我们将说明如何使用 PowerShell 检索虚拟机的已配置的有效安全规则
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="before-you-begin"></a>准备阶段
 
 在此方案中，运行 `Get-AzureRmNetworkWatcherSecurityGroupView` cmdlet 检索安全规则信息。
 
@@ -47,7 +46,7 @@ ms.locfileid: "24519530"
 第一步是检索网络观察程序实例。 将此变量传递给 `Get-AzureRmNetworkWatcherSecurityGroupView` cmdlet。
 
 ```powershell
-$nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "chinaeast" }
+$nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "chinanorth" }
 $networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName
 ```
 
@@ -132,4 +131,4 @@ NetworkInterfaces : [
 
 请访问[使用网络观察程序审核网络安全组 (NSG)](network-watcher-nsg-auditing-powershell.md)，了解如何自动执行网络安全组的验证。
 
-<!--Update_Description: new articles on network watcher security group view powershell -->
+<!--Update_Description: update meta propreties -->

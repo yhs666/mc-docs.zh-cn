@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 08/02/2017
-ms.date: 06/25/2018
+ms.date: 08/27/2018
 ms.author: v-yeche
-ms.openlocfilehash: 1f12fb5d9d0f921df0dfcacbb7fe98debf452f10
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.openlocfilehash: 49cdbd9e511c2496a6fa80cfccd79dcd68d81715
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315593"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42872367"
 ---
 # <a name="how-to-update-the-azure-linux-agent-on-a-vm"></a>如何更新 VM 上的 Azure Linux 代理
 
@@ -439,4 +439,4 @@ waagent -version
 
 有关 Azure Linux 代理的详细信息，请参阅 [Azure Linux 代理自述文件](https://github.com/Azure/WALinuxAgent)。
 
-<!-- Update_Description: wording update, update link -->
+<!-- Update_Description: wording update -->

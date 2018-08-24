@@ -14,14 +14,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 02/21/2018
-ms.date: 06/25/2018
+ms.date: 08/27/2018
 ms.author: v-yiso
-ms.openlocfilehash: 0dbe7b6b2247dc1394bf3ffdb1d27fb3f8ec454a
-ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
+ms.openlocfilehash: a5873e7d2c9caf6290cdf71e4545fd46c982b3bf
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36747469"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41704108"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>使用 Azure 虚拟网络扩展 Azure HDInsight
 
@@ -94,7 +94,7 @@ ms.locfileid: "36747469"
         az network nsg list --resource-group $RESOURCEGROUP
         ```
 
-        有关详细信息，请参阅[排查网络安全组问题](../virtual-network/virtual-network-nsg-troubleshoot-portal.md)文档。
+        有关详细信息，请参阅[排查网络安全组问题](../virtual-network/diagnose-network-traffic-filter-problem.md)文档。
 
         > [!IMPORTANT]
         > 网络安全组规则按规则优先级顺序应用。 将应用与流量模式匹配的第一条规则，而不应用该流量的其他规则。 权限级别从最高到最低排列的顺序规则。 有关详细信息，请参阅[使用网络安全组筛选网络流量](../virtual-network/security-overview.md)文档。
@@ -111,7 +111,7 @@ ms.locfileid: "36747469"
         az network route-table list --resource-group $RESOURCEGROUP
         ```
 
-        有关详细信息，请参阅[排查路由问题](../virtual-network/virtual-network-routes-troubleshoot-portal.md)文档。
+        有关详细信息，请参阅[排查路由问题](../virtual-network/diagnose-network-routing-problem.md)文档。
 
 4. 创建一个 HDInsight 群集，并在配置过程中选择 Azure 虚拟网络。 使用以下文档中的步骤了解群集创建过程：
 

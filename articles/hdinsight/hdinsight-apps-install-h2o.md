@@ -12,17 +12,15 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 origin.date: 01/10/2018
 ms.author: v-yiso
-ms.date: 03/26/2018
-ms.openlocfilehash: f703cb7e3e14b6832633412ee77709dfcb5b8397
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.date: 08/27/2018
+ms.openlocfilehash: 7b504418b70e53e172172c76020142720a7ac198
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30073805"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41704022"
 ---
 # <a name="install-published-application---h2o-sparkling-water"></a>安装已发布的应用程序 - H2O Sparkling Water
 
@@ -41,7 +39,7 @@ H2O Sparkling Water 提供：
 
 ### <a name="resource-links"></a>资源链接
 
-* [H2O.ai 工程路线图](https://jira.h2o.ai/)
+* [H2O.ai 工程路线图](http://jira.h2o.ai/)
 * [H2O.ai 主页](http://www.h2o.ai/)
 * [H2O.ai 文档](http://docs.h2o.ai/)
 * [H2O.ai 支持](https://support.h2o.ai/)
@@ -104,7 +102,8 @@ H2O Sparkling Water 提供：
 
 * [H2O 文档](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/index.html)
 * [安装自定义 HDInsight 应用程序](hdinsight-apps-install-custom-applications.md)：了解如何将未发布的 HDInsight 应用程序部署到 HDInsight。
-* [发布 HDInsight 应用程序](hdinsight-apps-publish-applications.md)：了解如何将自定义 HDInsight 应用程序发布到 Azure Marketplace。
+* 
+  [发布 HDInsight 应用程序](hdinsight-apps-publish-applications.md)：了解如何将自定义 HDInsight 应用程序发布到 Azure 市场。
 * [MSDN：安装 HDInsight 应用程序](https://msdn.microsoft.com/library/mt706515.aspx)：了解如何定义 HDInsight 应用程序。
 * [使用脚本操作自定义基于 Linux 的 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md)：了解如何使用脚本操作安装其他应用程序。
 * [在 HDInsight 中使用空边缘节点](hdinsight-apps-use-edge-node.md)：了解如何使用空边缘节点访问 HDInsight 群集、测试和托管 HDInsight 应用程序。

@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-origin.date: 06/19/2018
-ms.date: 07/30/2018
+origin.date: 07/30/2018
+ms.date: 08/27/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9092c7a0646930a0ea2f84548e121ced32313f2d
-ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
+ms.openlocfilehash: c10500d3871c77237b6afac3f782499a01501bc5
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39307088"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42871544"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>在运行 Linux 的 N 系列 VM 上安装 NVIDIA GPU 驱动程序
 
@@ -224,7 +224,7 @@ sudo reboot
 8. 将下列内容添加到 `/etc/nvidia/gridd.conf`：
 
   ```
-  IgnoreSP=TRUE
+  IgnoreSP=FALSE
   ```
 9. 重新启动 VM，并继续验证安装。
 
@@ -287,7 +287,7 @@ sudo reboot
 8. 将下列内容添加到 `/etc/nvidia/gridd.conf`：
 
   ```
-  IgnoreSP=TRUE
+  IgnoreSP=FALSE
   ```
 9. 重新启动 VM，并继续验证安装。
 
@@ -345,5 +345,4 @@ fi
 ## <a name="next-steps"></a>后续步骤
 
 * 若要捕获安装了 NVIDIA 驱动程序的 Linux VM 映像，请参阅[如何通用化和捕获 Linux 虚拟机](capture-image.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
-<!--The parent file of includes file of virtual-machines-n-series-linux-support.md-->
-<!--ms.date:07/30/2018-->
+<!-- Update_Description: update meta properties -->

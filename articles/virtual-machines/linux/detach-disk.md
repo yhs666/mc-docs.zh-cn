@@ -13,30 +13,95 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.topic: article
-origin.date: 11/17/2017
-ms.date: 12/18/2017
+origin.date: 07/18/2018
+ms.date: 08/27/2018
 ms.author: v-yeche
-ms.openlocfilehash: 3562862f3c367ba8866a08714b554b41c65cd4da
-ms.sourcegitcommit: 408c328a2e933120eafb2b31dea8ad1b15dbcaac
+ms.openlocfilehash: 5196d2c82a952667a437f239917dd6329e6f380f
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
-ms.locfileid: "26727518"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42872374"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-linux-virtual-machine"></a>如何从 Linux 虚拟机中分离数据磁盘
 
-不再需要附加到虚拟机的数据磁盘时，可以轻松地分离它。 这会从虚拟机中删除该磁盘，但不会从存储中删除它。 
+不再需要附加到虚拟机的数据磁盘时，可以轻松地分离它。 这会从虚拟机中删除该磁盘，但不会从存储中删除它。 在本文中，我们使用的是 Ubuntu LTS 16.04 分发版。 如果使用的是其他分发版，则卸载磁盘的说明可能会有所不同。
 
 > [!WARNING]
-> 如果用户分离磁盘，它不会自动删除。 如果订阅了高级存储，则将继续承担该磁盘的存储费用。 有关详细信息，请参阅[使用高级存储时的定价和计费方式](../windows/premium-storage.md#pricing-and-billing)。 
+> 如果用户分离磁盘，它不会自动删除。 如果用户订阅了高级存储，则将继续承担该磁盘的存储费用。 有关详细信息，请参阅[使用高级存储时的定价和计费方式](../windows/premium-storage.md#pricing-and-billing)。 
 > 
 > 
 
 如果希望再次使用磁盘上的现有数据，可以将其重新附加到相同的虚拟机或另一个虚拟机。  
 
+## <a name="connect-to-the-vm-to-unmount-the-disk"></a>连接到 VM 以卸载磁盘
+
+在使用 CLI 或门户分离磁盘之前，需要卸载磁盘并从 fstab 文件中删除对其的引用。
+
+连接到 VM。 在本示例中，VM 的公共 IP 地址为 *10.0.1.4*，用户名为 *azureuser*： 
+
+```bash
+ssh azureuser@10.0.1.4
+```
+
+首先，找到要分离的数据磁盘。 以下示例使用 dmesg 来筛选 SCSI 磁盘：
+
+```bash
+dmesg | grep SCSI
+```
+
+输出类似于以下示例：
+
+```bash
+[    0.294784] SCSI subsystem initialized
+[    0.573458] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 252)
+[    7.110271] sd 2:0:0:0: [sda] Attached SCSI disk
+[    8.079653] sd 3:0:1:0: [sdb] Attached SCSI disk
+[ 1828.162306] sd 5:0:0:0: [sdc] Attached SCSI disk
+```
+
+此处，*sdc* 是我们要分离的磁盘。 还应该获取磁盘的 UUID。
+
+```bash
+sudo -i blkid
+```
+
+输出与以下示例类似：
+
+```bash
+/dev/sda1: UUID="11111111-1b1b-1c1c-1d1d-1e1e1e1e1e1e" TYPE="ext4"
+/dev/sdb1: UUID="22222222-2b2b-2c2c-2d2d-2e2e2e2e2e2e" TYPE="ext4"
+/dev/sdc1: UUID="33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e" TYPE="ext4"
+```
+
+编辑 */etc/fstab* 文件以删除对该磁盘的引用。 
+
+> [!NOTE]
+> 错误地编辑 **/etc/fstab** 文件可能会导致系统无法引导。 如果没有把握，请参考分发的文档来获取有关如何正确编辑该文件的信息。 另外，建议在编辑前备份 /etc/fstab 文件。
+
+在文本编辑器中打开 */etc/fstab* 文件，如下所示：
+
+```bash
+sudo vi /etc/fstab
+```
+
+在此示例中，需要从 */etc/fstab* 文件中删除以下行：
+
+```bash
+UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail   1   2
+```
+
+使用 `umount` 卸载磁盘。 以下示例从 */datadrive* 装入点卸载 */dev/sdc1* 分区：
+
+```bash
+sudo umount /dev/sdc1 /datadrive
+```
+
 ## <a name="detach-a-data-disk-using-cli-20"></a>使用 CLI 2.0 分离数据磁盘
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
+此示例将 *myDataDisk* 磁盘与 *myResourceGroup* 中名为 *myVM* 的 VM 分离。
 
 ```azurecli
 az vm disk detach \
@@ -48,6 +113,7 @@ az vm disk detach \
 磁盘保留在存储中，但不再附加到虚拟机。
 
 ## <a name="detach-a-data-disk-using-the-portal"></a>使用门户分离数据磁盘
+
 1. 在左侧菜单中，选择“虚拟机”。
 2. 选择具有要分离的数据磁盘的虚拟机，并单击“停止”以解除分配 VM。
 3. 在虚拟机窗格中，选择“磁盘”。
@@ -60,4 +126,4 @@ az vm disk detach \
 
 ## <a name="next-steps"></a>后续步骤
 要重新使用数据磁盘，只需[将其附加到其他 VM](add-disk.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 即可。
-<!--Update_Description: wording update -->
+<!--Update_Description: wording update, add content of connect the vm to umount the disk -->

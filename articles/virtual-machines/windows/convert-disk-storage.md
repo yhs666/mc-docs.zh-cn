@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 08/07/2017
-ms.date: 07/30/2018
+ms.date: 08/27/2018
 ms.author: v-yeche
-ms.openlocfilehash: 44ffbeaf28f78aafebae416e8745c861518ffae9
-ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
+ms.openlocfilehash: 1a2d4b2b35fd9c9ed47c8999ecb07034bfa1e934
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39306995"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42872366"
 ---
 # <a name="convert-azure-managed-disks-storage-from-standard-to-premium-and-vice-versa"></a>Azure 标准与高级托管磁盘存储的相互转换
 
@@ -39,7 +39,7 @@ ms.locfileid: "39306995"
 
 以下示例展示如何将 VM 的所有磁盘从标准存储切换到高级存储。 若要使用高级托管磁盘，VM 必须使用支持高级存储的 [VM 大小](sizes.md)。 此示例还切换到了支持高级存储的大小。
 
-```powershell
+```PowerShell
 # Name of the resource group that contains the VM
 $rgName = 'yourResourceGroup'
 
@@ -83,7 +83,7 @@ Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 
 对于开发/测试工作负荷，可能需要同时具有标准磁盘和高级磁盘，以减少成本。 可通过仅将需要更佳性能的磁盘升级到高级存储来实现此目的。 以下示例展示如何将 VM 的单个磁盘在标准存储与高级存储之间相互切换。 若要使用高级托管磁盘，VM 必须使用支持高级存储的 [VM 大小](sizes.md)。 此示例还切换到了支持高级存储的大小。
 
-```powershell
+```PowerShell
 
 $diskName = 'yourDiskName'
 # resource group that contains the managed disk
@@ -96,12 +96,12 @@ $size = 'Standard_DS2_v2'
 $disk = Get-AzureRmDisk -DiskName $diskName -ResourceGroupName $rgName
 
 # Get parent VM resource
-$vmResource = Get-AzureRmResource -ResourceId $disk.diskId
+$vmResource = Get-AzureRmResource -ResourceId $disk.ManagedBy
 
 # Stop and deallocate the VM before changing the storage type
-Stop-AzureRmVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name -Force
+Stop-AzureRmVM -ResourceGroupName $vm.ResourceGroupName -Name $vmResource.Name -Force
 
-$vm = Get-AzureRmVM $vmResource.ResourceGroupName -Name $vmResource.ResourceName 
+$vm = Get-AzureRmVM -ResourceGroupName $vmResource.ResourceGroupName -Name $vmResource.Name 
 
 # Change the VM size to a size that supports premium storage
 # Skip this step if converting storage from premium to standard

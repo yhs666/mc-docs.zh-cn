@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 03/27/2018
-ms.date: 05/28/2018
+ms.date: 08/20/2018
 ms.author: v-yeche
-ms.openlocfilehash: a1300c5174db72fb8be9776942b1c00a8013d068
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: 1e4d159d932a8ebe22852ade4c19eccbd42aa21e
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554398"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41705094"
 ---
 # <a name="add-logging-to-your-service-fabric-application"></a>向 Service Fabric 应用程序添加日志记录
 

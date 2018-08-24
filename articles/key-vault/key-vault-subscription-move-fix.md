@@ -15,12 +15,12 @@ ms.topic: hero-article
 origin.date: 01/07/2017
 ms.date: 07/10/2018
 ms.author: v-junlch
-ms.openlocfilehash: 6905cc4c34212a38add6dbbddd1496feb11e81c1
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: e2ff445d80a11fc2dc8bc2e3beeb0d3b3a0d3610
+ms.sourcegitcommit: 56aa1615ef7402444111495f72afbdd6b2dfff78
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939558"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "41704102"
 ---
 # <a name="change-a-key-vault-tenant-id-after-a-subscription-move"></a>订阅移动后更改密钥保管库租户 ID
 ### <a name="q-my-subscription-was-moved-from-tenant-a-to-tenant-b-how-do-i-change-the-tenant-id-for-my-existing-key-vault-and-set-correct-acls-for-principals-in-tenant-b"></a>问：我的订阅已从租户 A 移动到租户 B。如何更改我的现有密钥保管库的租户 ID，并为租户 B 中的主体设置正确的 ACL？
@@ -43,7 +43,7 @@ Set-AzureRmResource -ResourceId $vaultResourceId -Properties $vault.Properties
 
 因为移动前此保管库位于租户 A，所以 $vault.Properties.TenantId 的原始值为租户 A，而 (Get-AzureRmContext).Tenant.TenantId 的值为租户 B。
 
-现在，保管库已与正确的租户 ID 相关联，并且旧访问策略条目已删除，请使用 [Set-AzureRmKeyVaultAccessPolicy](https://msdn.microsoft.com/library/mt603625.aspx)设置新的访问策略条目。
+现在，保管库已与正确的租户 ID 相关联，并且旧访问策略条目已删除，请使用 *Set-AzureRmKeyVaultAccessPolicy*设置新的访问策略条目。
 
 ## <a name="next-steps"></a>后续步骤
 如果在 Azure Key Vault 方面有任何问题，请访问 [Azure Key Vault 论坛](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault)。

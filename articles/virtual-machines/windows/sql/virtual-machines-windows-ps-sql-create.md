@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 02/15/2018
-ms.date: 06/04/2018
+ms.date: 08/27/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7b88fb7168701bdf29e135be16c8d7e830197b81
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 614617fa333e6830abf1dbbe52f72aa796c3c921
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702836"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42871647"
 ---
 # <a name="how-to-provision-sql-server-virtual-machines-with-azure-powershell"></a>如何使用 Azure PowerShell 预配 SQL Server 虚拟机
 
@@ -33,7 +33,7 @@ ms.locfileid: "34702836"
 
 ## <a name="configure-your-subscription"></a>配置订阅
 
-1. 打开 PowerShell，通过运行 **Connect-AzureRmAccount -Environment AzureChinaCloud ** 命令建立对 Azure 帐户的访问。
+1. 打开 PowerShell，通过运行 **Connect-AzureRmAccount** 命令建立对 Azure 帐户的访问。
 
     ```PowerShell
     Connect-AzureRmAccount -Environment AzureChinaCloud
@@ -131,7 +131,7 @@ New-AzureRmResourceGroup -Name $ResourceGroupName -Location $Location
 ```
 
 ## <a name="create-a-storage-account"></a>创建存储帐户
-虚拟机需要使用存储资源来存储操作系统磁盘及 SQL Server 数据和日志文件。 为简单起见，我们为这两者创建了单个磁盘。 稍后可以使用 [Add-Azure Disk](https://docs.microsoft.com/powershell/module/azure/add-azuredisk) cmdlet 来附加其他磁盘，以便将 SQL Server 数据和日志文件放在专用磁盘上。 使用 [New-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/new-azurermstorageaccount) cmdlet，以前面初始化的变量所定义的存储帐户名称、存储 SKU 名称和位置在新资源组中创建标准存储帐户。
+虚拟机需要使用存储资源来存储操作系统磁盘及 SQL Server 数据和日志文件。 为简单起见，我们为这两者创建了单个磁盘。 稍后可以使用 [Add-Azure Disk](https://docs.microsoft.com/powershell/module/servicemanagement/azure/add-azuredisk) cmdlet 来附加其他磁盘，以便将 SQL Server 数据和日志文件放在专用磁盘上。 使用 [New-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/new-azurermstorageaccount) cmdlet，以前面初始化的变量所定义的存储帐户名称、存储 SKU 名称和位置在新资源组中创建标准存储帐户。
 
 执行以下 cmdlet，以创建新的存储帐户。
 
@@ -329,7 +329,7 @@ Stop-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
 还可以使用 **Remove-AzureRmResourceGroup** 命令永久删除与虚拟机关联的所有资源。 请小心使用此命令，因为它也会永久删除该虚拟机。
 
 ## <a name="example-script"></a>示例脚本
-以下脚本包含本教程的完整 PowerShell 脚本。 其中假设已将 Azure 订阅设置为配合使用 **Connect-AzureRmAccount -Environment AzureChinaCloud ** 和 **Select-AzureRmSubscription** 命令。
+以下脚本包含本教程的完整 PowerShell 脚本。 其中假设已将 Azure 订阅设置为配合使用 **Connect-AzureRmAccount** 和 **Select-AzureRmSubscription** 命令。
 
 ```PowerShell
 # Variables

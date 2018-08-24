@@ -15,14 +15,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 05/16/2018
-ms.date: 06/25/2018
+ms.date: 08/27/2018
 ms.author: v-yiso
-ms.openlocfilehash: 2e1b55690f48223bac2d1cf5962e43554841fcd2
-ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
+ms.openlocfilehash: d8449d33af805144e4e6d474df1a51258d682773
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36747334"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41704063"
 ---
 # <a name="understand-and-resolve-errors-received-from-webhcat-on-hdinsight"></a>了解和解决从 HDInsight 上的 WebHCat 收到的错误
 
@@ -95,7 +95,7 @@ ms.locfileid: "36747334"
 | 通过 WebHCat 提交的作业有超过 500 个处于挂起状态 |等到当前挂起的作业完成再提交更多作业 |
 
 [maximum-applications]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.3/bk_system-admin-guide/content/setting_application_limits.html
-[max-procs]: https://hive.apache.org/javadocs/hcat-r0.5.0/configuration.html
+[max-procs]: https://cwiki.apache.org/confluence/display/Hive/WebHCat+Configure#WebHCatConfigure-WebHCatConfiguration
 [max-age-ms]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.0.6.0/ds_Hadoop/hadoop-mapreduce-client/hadoop-mapreduce-client-core/mapred-default.xml
 
 <!--Update_Description: wording update-->

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 02/14/2017
 ms.date: 02/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: a0753887c048ded9cb4eef54473ceac7fe296142
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 71fba8aa27f32d51cb184b276b55e6e4a17a24ea
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
-ms.locfileid: "29286173"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42872363"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>适用于 Linux 的网络观察程序代理虚拟机扩展
 
@@ -44,8 +44,9 @@ ms.locfileid: "29286173"
 | Suse | 11 和 12 |
 | OpenSuse | 7.0 |
 | CentOS | 7.0 |
-<!-- 不可用 | RedHat | 6.x 和 7.x | -->
-<!-- 不可用| Oracle Linux | 7x | -->
+
+<!-- Not Available | RedHat | 6.x and 7.x | -->
+<!-- Not Available| Oracle Linux | 7x | -->
 
 请注意，目前不支持 CoreOS。
 
@@ -77,7 +78,7 @@ ms.locfileid: "29286173"
 
 ### <a name="property-values"></a>属性值
 
-| Name | 值/示例 |
+| 名称 | 值/示例 |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | 发布者 | Microsoft.Azure.NetworkWatcher |

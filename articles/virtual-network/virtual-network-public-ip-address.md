@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 09/25/2017
 ms.date: 07/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: f6d5c826745d56fb0de1c52b5d61614a301e3e44
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.openlocfilehash: ac40304eadfbd7734ceff84bd7e864754af9e69b
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39167801"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42871678"
 ---
 # <a name="create-change-or-delete-a-public-ip-address"></a>创建、更改或删除公共 IP 地址
 
@@ -58,8 +58,10 @@ ms.locfileid: "39167801"
     |订阅|是|必须与要将公共 IP 地址关联到的资源位于同一[订阅](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#subscription)中。|
     |资源组|是|可与要将公共 IP 地址关联到的资源位于相同或不同的[资源组](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#resource-group)中。|
     |位置|是|必须与要将公共 IP 地址关联到的资源位于同一[位置](https://www.azure.cn/support/service-dashboard/)（也称为“区域”）。|
-    <!-- 不可用于 |SKU|是|引入 SKU 之前创建的所有公共 IP 地址均为基本 SKU 公共 IP 地址。  创建公共 IP 地址后，无法更改此 SKU。 独立虚拟机、可用性集内的虚拟机或虚拟机规模集可使用基本 SKU 或标准 SKU。  不允许在可用性集或规模集内的虚拟机之间混用 SKU。 基本 SKU：如果要在支持可用性区域的区域内创建公共 IP 地址，“可用性区域”设置默认设为“无”。 可选择一个可用性区域，保证公共 IP 地址具有一个特定区域。 标准 SKU：标准 SKU 公共 IP 可关联到虚拟机或负载均衡器前端。 如果要在支持可用性区域的区域内创建公共 IP 地址，“可用性区域”设置默认设为“区域冗余”。 有关可用性区域的详细信息，请参阅“可用性区域”设置。 将地址关联到标准负载均衡器时需使用标准 SKU。  标准 SKU 目前为预览版本。 创建标准 SKU 公共 IP 地址之前，必须先完成“注册标准 SKU 预览版”中的步骤，然后在支持的位置（区域）中创建该公共 IP 地址。 有关支持位置的列表，请密切关注 [Azure 虚拟网络更新](https://www.azure.cn/what-is-new/)页面，了解其他的区域支持信息。 将标准 SKU 公共 IP 地址分配到虚拟机的网络接口时，必须使用[网络安全组](security-overview.md#network-security-groups)显式允许预期流量。 创建并关联网络安全组且显式允许所需流量之后，才可与资源通信。| -->
-    <!-- Not Avaialbe on Load Balancer Standard --> <!-- Line 49 Not Available on [Azure load balancer standard SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fvirtual-network%2ftoc.json) --> <!-- Not Available on Available zone -->
+    
+    <!-- No Available on |SKU|Yes|All public IP addresses created before the introduction of SKUs are **Basic** SKU public IP addresses.  You cannot change the SKU after the public IP address is created. A standalone virtual machine, virtual machines within an availability set, or virtual machine scale sets can use Basic or Standard SKUs.  Mixing SKUs between virtual machines within availability sets or scale sets is not allowed. **Basic** SKU: If you are creating a public IP address in a region that supports availability zones, the **Availability zone** setting is set to *None* by default. You can choose to select an availability zone to guarantee a specific zone for your public IP address. **Standard** SKU: A Standard SKU public IP can be associated to a virtual machine or a load balancer front end. If you're creating a public IP address in a region that supports availability zones, the **Availability zone** setting is set to *Zone-redundant* by default. For more information about availability zones, see the **Availability zone** setting. The standard SKU is required if you associate the address to a Standard load balancer.  The Standard SKU is in preview release. Before creating a Standard SKU public IP address, you must first complete the steps in register for the standard SKU preview and create the public IP address in a supported location (region). For a list of supported locations, monitor the [Azure Virtual Network updates](https://www.azure.cn/what-is-new/) page for additional region support. When you assign a standard SKU public IP address to a virtual machine's network interface, you must explicitly allow the intended traffic with a [network security group](security-overview.md#network-security-groups). Communication with the resource fails until you create and associate a network security group and explicitly allow the desired traffic.| --> <!-- Not Avaialbe on Load Balancer Standard -->
+    <!-- Line 49 Not Available on [Azure load balancer standard SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fvirtual-network%2ftoc.json) -->
+    <!-- Not Available on Available zone -->
 
 命令
 
@@ -114,6 +116,6 @@ ms.locfileid: "39167801"
 ## <a name="next-steps"></a>后续步骤
 
 - 使用 [PowerShell](powershell-samples.md) 或 [Azure CLI](cli-samples.md) 示例脚本或使用 Azure [资源管理器模板](template-samples.md)创建公共 IP 地址
-- 为公共 IP 地址创建并应用 [Azure 策略](policy-samples.md)
+- 为公共 IP 地址创建并应用 [Azure Policy](policy-samples.md)
 
 <!-- Update_Description: wording update, update link -->

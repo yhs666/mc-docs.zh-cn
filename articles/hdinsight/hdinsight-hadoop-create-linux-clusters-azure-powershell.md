@@ -15,14 +15,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 02/21/2018
-ms.date: 05/28/2018
+ms.date: 08/27/2018
 ms.author: v-yiso
-ms.openlocfilehash: 35953598ccf71aa466bb43c3f9c267ca696153f0
-ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
+ms.openlocfilehash: 0b30501878201706086e924f9444da93dbbc02c5
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34450013"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41705293"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-azure-powershell"></a>使用 Azure PowerShell 在 HDInsight 中创建基于 Linux 的群集
 
@@ -142,8 +142,7 @@ New-AzureRmHDInsightCluster `
 
 还可以使用 `New-AzureRmHDInsightClusterConfig` cmdlet 创建 HDInsight 配置对象。 然后，可以修改此配置对象，为群集启用其他配置选项。 最后，使用 `New-AzureRmHDInsightCluster` cmdlet 的 `-Config` 参数以利用该配置。
 
-以下脚本创建配置对象以添加其他存储帐户。
-
+下面的脚本创建了一个配置对象，用于在 HDInsight 群集类型上配置 ML Services。 该配置支持边缘节点、RStudio 和其他存储帐户。
 ```powershell
 $additionalStorageAccountName = Read-Host -Prompt "Enter the name of the additional storage account"
 
@@ -220,5 +219,4 @@ New-AzureRmHDInsightCluster `
 * [使用 Livy 在 Spark 群集中远程运行作业](spark/apache-spark-livy-rest-interface.md)
 * [Spark 和 BI：使用 HDInsight 中的 Spark 和 BI 工具执行交互式数据分析](spark/apache-spark-use-bi-tools.md)
 * [Spark 和机器学习：使用 HDInsight 中的 Spark 预测食品检查结果](spark/apache-spark-machine-learning-mllib-ipython.md)
-* [Spark 流式处理：使用 HDInsight 中的 Spark 生成实时流式处理应用程序](spark/apache-spark-eventhub-streaming.md)
 

@@ -8,15 +8,15 @@ ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 10/20/2017
-ms.date: 07/02/2018
+ms.date: 08/13/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6080b8d3127fcf34c4a8eb505fdfaa74f4de9971
-ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
+ms.openlocfilehash: 0301a55563ffbb2d6562415dd7c9829015d0367b
+ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37070337"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41705085"
 ---
 # <a name="working-with-geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>使用 Azure Cosmos DB 中的地理空间和 GeoJSON 位置数据
 本文介绍了 [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) 中的地理空间功能。 在阅读本文之后，能够回答以下问题：
@@ -101,7 +101,7 @@ GeoJSON 中的多边形
 现今最常使用的 CRS 是世界测地系统 [WGS-84](http://earth-info.nga.mil/GandG/wgs84/)。 GPS 设备和许多地图服务（包括谷歌地图和必应地图 API）均使用 WGS-84。 Azure Cosmos DB 仅支持对使用 WGS-84 CRS 的地理空间数据进行索引编制和查询。 
 
 ## <a name="creating-documents-with-spatial-data"></a>创建包含空间数据的文档
-创建包含 GeoJSON 值的文档时，值会根据集合的索引策略，自动以空间索引进行索引编制。 如果以动态类型化语言（如 Python 或 Node.js）使用 Azure Cosmos DB SDK，则必须创建有效的 GeoJSON。
+创建包含 GeoJSON 值的文档时，值会根据容器的索引策略，自动以空间索引进行索引编制。 如果以动态类型化语言（如 Python 或 Node.js）使用 Azure Cosmos DB SDK，则必须创建有效的 GeoJSON。
 
 **在 Node.js 中创建包含地理空间数据的文档**
 

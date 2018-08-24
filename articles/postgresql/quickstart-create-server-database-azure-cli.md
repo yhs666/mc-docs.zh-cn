@@ -12,19 +12,19 @@ ms.topic: quickstart
 origin.date: 04/01/2018
 ms.date: 08/13/2018
 ms.custom: mvc
-ms.openlocfilehash: 3d7201a0553360b58d015743ca25b52ce60ce0eb
-ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
+ms.openlocfilehash: 81678b5f981f635b5f109ead34c65a4a72ea8ebd
+ms.sourcegitcommit: 664584f55e0a01bb6558b8d3349d41d3f05ba4d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39723138"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41705104"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-using-the-azure-cli"></a>快速入门：使用 Azure CLI 创建 Azure Database for PostgreSQL
 用于 PostgreSQL 的 Azure 数据库是一种托管服务，可用于在云中运行、管理和缩放具有高可用性的 PostgreSQL 数据库。 Azure CLI 用于从命令行或脚本创建和管理 Azure 资源。 本快速入门指南介绍了如何使用 Azure CLI 在 [Azure 资源组](https://docs.azure.cn/azure-resource-manager/resource-group-overview)中创建 Azure Database for PostgreSQL 服务器。
 
 如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
 
-如果选择在本地安装并使用 CLI，本文要求运行 Azure CLI 2.0 版或更高版本。 若要查看安装的版本，请运行 `az --version` 命令。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0]( /cli/azure/install-azure-cli)。 
+如果选择在本地安装并使用 CLI，本文要求运行 Azure CLI 2.0 版或更高版本。 若要查看安装的版本，请运行 `az --version` 命令。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0]( /cli/install-azure-cli)。 
 
 如果在本地运行 CLI，需要使用 [az login](/cli/authenticate-azure-cli?view=interactive-log-in) 命令登录帐户。 记下与订阅名称相对应的命令输出中的 **id** 属性。
 ```cli

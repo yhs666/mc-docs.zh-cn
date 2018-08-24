@@ -8,19 +8,19 @@ ms.topic: conceptual
 origin.date: 05/16/2018
 ms.author: v-yiso
 ms.date: 07/23/2018
-ms.openlocfilehash: 1beea6f74ab3ab9f02db51ec3bbc6f868296fc5e
-ms.sourcegitcommit: 479954e938e4e3469d6998733aa797826e4f300b
+ms.openlocfilehash: 9ff413248810bbf4c5c77097c93c2840a177b743
+ms.sourcegitcommit: 664584f55e0a01bb6558b8d3349d41d3f05ba4d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39031782"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41704910"
 ---
 # <a name="azure-monitor-cli-20-quick-start-samples"></a>Azure Monitor CLI 2.0 快速入门示例
 本文演示有助于访问 Azure 监视器功能的示例命令行接口 (CLI) 命令。 Azure Monitor 允许基于配置的遥测数据值自动缩放云服务、虚拟机和 Web 应用，以及发送警报通知或调用 Web URL。
 
 ## <a name="prerequisites"></a>先决条件
 
-如果尚未安装 Azure CLI，请按照[安装 Azure CLI 2.0](/cli/install-azure-cli) 的说明进行操作。 
+如果尚未安装 Azure CLI，请按照[安装 Azure CLI 2.0](/cli/install-azure-cli) 的说明进行操作。 请参阅 [Azure Monitor CLI 参考](/cli/monitor?view=azure-cli-latest)中的所有可用命令的完整参考。 
 
 ## <a name="log-in-to-azure"></a>登录 Azure
 第一步是登录 Azure 帐户。

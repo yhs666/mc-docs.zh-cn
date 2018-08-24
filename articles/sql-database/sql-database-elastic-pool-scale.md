@@ -10,12 +10,12 @@ ms.topic: conceptual
 origin.date: 06/20/2018
 ms.date: 08/06/2018
 ms.author: carlrab
-ms.openlocfilehash: a56e60eb69515bda48a94cce4be42bf33c48394f
-ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
+ms.openlocfilehash: f9e3294974cc321822a91709475c9ed4f3ac2467
+ms.sourcegitcommit: 02c4716e07b3d83104fa419b379a15589ae8017e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39486843"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41704939"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>在 Azure SQL 数据库中缩放弹性池资源
 
@@ -24,8 +24,8 @@ ms.locfileid: "39486843"
 ## <a name="vcore-based-purchasing-model-change-elastic-pool-storage-size"></a>基于 vCore 的购买模型：更改弹性池存储大小
 
 - 可将存储预配到最大大小限制。 
- - 对于标准存储，可以 10 GB 为增量增加或减少大小
- - 对于高级存储，可以 250 GB 为增量增加或减少大小
+  - 对于标准存储，可以 10 GB 为增量增加或减少大小
+  - 对于高级存储，可以 250 GB 为增量增加或减少大小
 - 可以通过增大或减小其最大大小来预配弹性池的存储空间。
 - 弹性池的存储价格等于存储量乘以服务层的存储单价。 有关额外存储价格的详细信息，请参阅 [SQL 数据库定价](https://azure.cn/pricing/details/sql-database/)。
 

@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 04/30/2018
-ms.date: 05/23/2018
+ms.date: 08/27/2018
 ms.author: v-yeche
-ms.openlocfilehash: e92115379d0b04ed55658fd3f6f85b50ae08ee2b
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 547e00256b381b77742115596dcdb76e20f3cd8c
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939669"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42872382"
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-resource-manager"></a>在 Azure 虚拟机上配置 SQL Server 的 Azure Key Vault 集成 (Resource Manager)
 
@@ -71,6 +71,5 @@ SQL Server 加密功能多种多样，包括[透明数据加密 (TDE)](https://m
 
 [!INCLUDE [AKV Integration Next Steps](../../../../includes/virtual-machines-sql-server-akv-next-steps.md)]
 
-<!--The parent file of includes file of virtual-machines-sql-server-akv-prepare.md-->
-<!--ms.date:06/04/2018-->
-<!--Update_Description: update meta data, update link -->
+
+<!--Update_Description: update meta data -->

@@ -17,12 +17,12 @@ origin.date: 03/23/2018
 ms.date: 07/30/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 548a3586ca0c935e88400d0eae287dc9c06f4941
-ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
+ms.openlocfilehash: 62021d999ea5bbde67f5548338c30b846ccb0db6
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39306932"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42871548"
 ---
 # <a name="tutorial-create-and-manage-windows-vms-with-azure-powershell"></a>教程：使用 Azure PowerShell 创建和管理 Windows VM
 
@@ -166,9 +166,8 @@ New-AzureRmVm `
 | [常规用途](sizes-general.md)         |Dsv3、Dv3、DSv2、Dv2、DS、D、Av2、A0-7| CPU 与内存之比均衡。 适用于开发/测试、小到中型应用程序和数据解决方案。  |
 | [计算优化](sizes-compute.md)   | Fs, F             | 高 CPU 与内存之比。 适用于中等流量的应用程序、网络设备和批处理。        |
 | [内存优化](sizes-memory.md)    | Esv3、Ev3、DSv2、DS、Dv2、D   | 较高的内存核心比。 适用于关系数据库、中到大型缓存和内存中分析。                 |
-<!--PENDING FOR NC series GA ANOUNCEMENT -->
-| [GPU](sizes-gpu.md)          | NV、NC            | 专门针对大量图形绘制和视频编辑的 VM。       |
-<!--PENDING FOR NC series GA ANOUNCEMENT -->
+| [GPU](sizes-gpu.md)          | NV, NC            | 专门针对大量图形绘制和视频编辑的 VM。       |
+
 <!-- Not Available on M, GS, G Series -->
 <!-- Not Available on | Storage optimized       | Ls   -->
 <!-- Not Available on | GPU           | NV, NC         -->

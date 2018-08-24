@@ -14,15 +14,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 03/27/2017
-ms.date: 07/30/2018
+ms.date: 08/27/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 78c5c301c7eee7c60b36b6ea30a1cb39cd05f252
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.openlocfilehash: 67d1c8ca68c9b20520c8f3b11869d77460cf5764
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295630"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42871582"
 ---
 # <a name="tutorial-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>教程：使用 Jenkins、GitHub 和 Docker 在 Azure 中的 Linux VM 上创建开发基础结构
 
@@ -41,8 +41,8 @@ ms.locfileid: "39295630"
 如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.30 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。
 
 ## <a name="create-jenkins-instance"></a>创建 Jenkins 实例
-在有关[如何在首次启动时自定义 Linux 虚拟机](tutorial-automate-vm-deployment.md)的上一个教程中，你已了解如何使用 cloud-init 自动执行 VM 自定义。 本教程使用 cloud-init 文件在 VM 上安装 Jenkins 和 Docker。 
-<!--Not Available /jenkins/ -->
+在有关[如何在首次启动时自定义 Linux 虚拟机](tutorial-automate-vm-deployment.md)的上一个教程中，你已了解如何使用 cloud-init 自动执行 VM 自定义。 本教程使用 cloud-init 文件在 VM 上安装 Jenkins 和 Docker。 Jenkins 是一种常用的开放源代码自动化服务器，它与 Azure 无缝集成以支持持续集成 (CI) 和持续交付 (CD)。
+<!--Not Available [Jenkins in Azure hub](/jenkins/)-->
 
 在当前 shell 中，创建名为 cloud-init.txt 的文件并粘贴下面的配置。 例如，在本地计算机中创建文件。 输入 `sensible-editor cloud-init-jenkins.txt` 以创建文件并查看可用编辑器的列表。请确保已正确复制整个 cloud-init 文件，尤其是第一行：<!--Not Available on Cloud Shell -->
 
@@ -152,7 +152,7 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 - 在“常规”部分下面，选择“GitHub”项目并输入分叉的存储库的 URL，例如 *https://github.com/cynthn/nodejs-docs-hello-world*
 - 在“源代码管理”部分下，选择“Git”并输入分支存储库 *.git* 的 URL，例如 *https://github.com/cynthn/nodejs-docs-hello-world.git*
 - 在“生成触发器”部分下面，选择“用于 GITscm 轮询的 GitHub 挂钩触发器”。
-- 在“生成”部分下面，选择“添加生成步骤”。 选择“执行 shell”，并在命令窗口中输入 `echo "Testing"`。
+- 在“生成”部分下面，选择“添加生成步骤”。 选择“执行 shell”，并在命令窗口中输入 `echo "Test"`。
 - 选择作业窗口底部的“保存”。
 
 ## <a name="test-github-integration"></a>测试 GitHub 集成

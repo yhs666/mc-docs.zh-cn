@@ -2,28 +2,27 @@
 title: 使用资源管理器模板自动启用诊断设置
 description: 了解如何使用 Resource Manager 模板创建诊断设置，以便将诊断日志流式传输到事件中心，或者将其存储在存储帐户中。
 author: johnkemnetz
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: a8a88a8c-4a48-4df6-8f7e-d90634d39c57
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 origin.date: 03/26/2018
-ms.date: 07/23/2018
+ms.date: 08/20/2018
 ms.author: v-yiso
-ms.openlocfilehash: c1a51043c52ba03c3125869f7151228d339371a2
-ms.sourcegitcommit: 479954e938e4e3469d6998733aa797826e4f300b
+ms.component: ''
+ms.openlocfilehash: 42a44e2b25d1efed791306f75b930ce157abe88a
+ms.sourcegitcommit: 664584f55e0a01bb6558b8d3349d41d3f05ba4d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39031770"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41704479"
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>在创建资源时使用 Resource Manager 模板自动启用诊断设置
 本文介绍如何使用 [Azure 资源管理器模板](../azure-resource-manager/resource-group-authoring-templates.md)在创建资源时配置资源的诊断设置。 这样可以让用户在创建资源时自动将诊断日志和指标流式传输到事件中心、将其存档在存储帐户中，或者发送到 Log Analytics。
+
+> [!WARNING]
+> 存储帐户中日志数据的格式将在 2018 年 11 月 1 日更改为 JSON Lines。 [请参阅此文章来了解此影响，以及如何通过更新工具来处理新格式。](./monitor-diagnostic-logs-append-blobs.md) 
+>
+> 
 
 通过 Resource Manager 模板启用诊断日志时，所用方法取决于资源类型。
 
@@ -82,7 +81,7 @@ ms.locfileid: "39031770"
     "resources": [
       {
         "type": "providers/diagnosticSettings",
-        "name": "Microsoft.Insights/[parameters('settingName')]",
+        "name": "[concat('Microsoft.Insights/', parameters('settingName'))]",
         "dependsOn": [
           "[/*resource Id for which Diagnostic Logs will be enabled>*/]"
         ],
@@ -212,7 +211,7 @@ ms.locfileid: "39031770"
       "resources": [
         {
           "type": "providers/diagnosticSettings",
-          "name": "Microsoft.Insights/[parameters('settingName')]",
+          "name": "[concat('Microsoft.Insights/', parameters('settingName'))]",
           "dependsOn": [
             "[resourceId('Microsoft.Logic/workflows', parameters('logicAppName'))]"
           ],

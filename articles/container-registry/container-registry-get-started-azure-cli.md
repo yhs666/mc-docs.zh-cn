@@ -7,15 +7,15 @@ manager: digimobile
 ms.service: container-registry
 ms.topic: quickstart
 origin.date: 03/03/2018
-ms.date: 08/13/2018
+ms.date: 08/27/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: c1752c04d86a8644c09dcc8b87e3814499aeab6e
-ms.sourcegitcommit: 543a18c71c0910a5b9878a2d2668f317468906f2
+ms.openlocfilehash: 62d6ead54e0fd7a33807f6633dde67c5e665dc1e
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39625476"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42871704"
 ---
 # <a name="quickstart-create-a-container-registry-using-the-azure-cli"></a>快速入门：使用 Azure CLI 创建容器注册表
 
@@ -42,9 +42,7 @@ az group create --name myResourceGroup --location chinanorth
 
 [!INCLUDE [container-registry-sku-matrix](../../includes/container-registry-sku-matrix.md)]
 
-使用 [az acr create][az-acr-create] 命令创建 ACR 实例。
-
-注册表名称在 Azure 中必须唯一，并且包含 5-50 个字母数字字符。 以下示例使用 myContainerRegistry007。 将其更新为唯一值。
+使用 [az acr create][az-acr-create] 命令创建 ACR 实例。 注册表名称在 Azure 中必须唯一，并且包含 5-50 个字母数字字符。 以下示例使用 myContainerRegistry007。 将其更新为唯一值。
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name myContainerRegistry007 --sku Basic
@@ -155,10 +153,9 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>后续步骤
 
-本快速入门介绍了如何使用 Azure CLI 创建 Azure 容器注册表，如何将容器映像推送到注册表，以及如何通过 Azure 容器实例启动该注册表的一个实例。 若要加深对 ACI 的了解，请继续阅读 Azure 容器实例教程。
-
-> [!div class="nextstepaction"]
-> [Azure 容器实例教程][container-instances-tutorial-prepare-app]
+本快速入门介绍了如何使用 Azure CLI 创建 Azure 容器注册表，如何将容器映像推送到注册表，以及如何通过 Azure 容器实例启动该注册表的一个实例。
+<!-- Not Available on  Continue to the Azure Container Instances tutorial for a deeper look at ACI.-->
+<!-- Not Available on  > [Azure Container Instances tutorial][container-instances-tutorial-prepare-app]-->
 
 <!-- IMAGES> -->
 [aci-app-browser]: ../container-instances/media/container-instances-quickstart/aci-app-browser.png
@@ -172,13 +169,11 @@ az group delete --name myResourceGroup
 [docker-windows]: https://docs.docker.com/docker-for-windows/
 
 <!-- LINKS - internal -->
-[az-acr-create]: https://docs.azure.cn/zh-cn/cli/acr?view=azure-cli-latest#az_acr_create
-[az-acr-login]: https://docs.azure.cn/zh-cn/cli/acr?view=azure-cli-latest#az_acr_login
-[az-group-create]: https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create
-[az-group-delete]: https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_delete
+[az-acr-create]: https://docs.azure.cn/zh-cn/cli/acr?view=azure-cli-latest#az-acr-create
+[az-acr-login]: https://docs.azure.cn/zh-cn/cli/acr?view=azure-cli-latest#az-acr-login
+[az-group-create]: https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create
+[az-group-delete]: https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-delete
 [azure-cli]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
-[az-container-show]: https://docs.azure.cn/zh-cn/cli/container?view=azure-cli-latest#az_container_show
-[container-instances-tutorial-prepare-app]: ../container-instances/container-instances-tutorial-prepare-app.md
-[container-registry-skus]: container-registry-skus.md
-[container-registry-auth-aci]: container-registry-auth-aci.md
-<!-- Update_Description: wording update, updat meta properties -->
+<!--Not Available on [az-container-show]: https://docs.azure.cn/zh-cn/cli/container?view=azure-cli-latest#az-container-show-->
+<!--Not Available on [container-instances-tutorial-prepare-app]: ../container-instances/container-instances-tutorial-prepare-app.md--> [container-registry-skus]: container-registry-skus.md <!--Not Available on [container-registry-auth-aci]: container-registry-auth-aci.md-->
+<!-- Update_Description: wording update, updat meta properties -->>

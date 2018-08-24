@@ -3,7 +3,7 @@ title: Azure PowerShell 示例 - 启用基于主机的自动缩放 | Microsoft D
 description: Azure PowerShell 示例
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,15 +14,15 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 03/27/2018
-ms.date: 04/28/2018
+ms.date: 08/13/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 235c28daac98b4d954cfa0b87768fcf964fe6b06
-ms.sourcegitcommit: 17369f8efdf3ec80c2448412e3425ee10042a31a
+ms.openlocfilehash: 02416ed3e2a83eb9ff60ec6a7cdc65e719059d09
+ms.sourcegitcommit: 56ed1b03d83f222db6118fe1e2f2485a9488507f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32637667"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41705086"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-with-powershell"></a>使用 PowerShell 自动缩放虚拟机规模集
 此脚本创建运行 Windows Server 2016 的虚拟机规模集，当 CPU 负载发生变化时，它会使用基于主机的指标自动缩放。
@@ -66,7 +66,7 @@ $myRuleScaleOut = New-AzureRmAutoscaleRule `
   -Operator "GreaterThan" `
   -Threshold 70 `
   -ScaleActionDirection "Increase" `
-  –ScaleActionScaleType "ChangeCount" `
+  �ScaleActionScaleType "ChangeCount" `
   -ScaleActionValue 3 `
   -ScaleActionCooldown 00:05:00
 
@@ -82,7 +82,7 @@ $myRuleScaleIn = New-AzureRmAutoscaleRule `
   -TimeWindow 00:05:00 `
   -ScaleActionCooldown 00:05:00 `
   -ScaleActionDirection "Decrease" `
-  –ScaleActionScaleType "ChangeCount" `
+  �ScaleActionScaleType "ChangeCount" `
   -ScaleActionValue 1
 
 # Create the autoscale profle that includes the scale out and scale in rules
@@ -126,3 +126,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 可以在 [Azure 虚拟机规模集文档](../powershell-samples.md)中找到其他虚拟机规模集 PowerShell 脚本示例。
 
+<!-- Update_Description: update metedata properties -->

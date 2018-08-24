@@ -11,14 +11,14 @@ ms.component: cosmosdb-sql
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 03/26/2018
-ms.date: 07/02/2018
+ms.date: 08/13/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0827163dc273fb3c9b1405f122a50e3e42dfa756
-ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
+ms.openlocfilehash: f18371e8700eaf117ac94694bca68c4440ec060d
+ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37070342"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41705244"
 ---
 # <a name="sql-queries-for-azure-cosmos-db"></a>Azure Cosmos DB 的 SQL 查询
 
@@ -1337,7 +1337,7 @@ Cosmos DB 是一个 JSON 数据库，与 JavaScript 运算符以及其评估语�
 不同于 JavaScript，SQL API 不会执行隐式转换。 例如，类似 `SELECT * FROM Person p WHERE p.Age = 21` 的查询与包含值为 21 的 Age 属性的文档相匹配。 任何其他 Age 属性与字符串“21”匹配或包含其他无数可能的变量（“021”、“21.0”、“0021”和“00021”等等）的文档则不匹配。 这与 JavaScript 相反，在 JavaScript 中，字符串会隐式转换为数字（基于运算符 ex: ==）。 此选择对于 SQL API 中的高效索引匹配至关重要。 
 
 ## <a name="parameterized-sql-queries"></a>参数化 SQL 查询
-Cosmos DB 支持使用带有常用的 @ 表示法的参数进行查询。 参数化 SQL 为用户输入提供可靠的处理和转义，可防止通过 SQL 注入发生意外的数据泄露。 
+Cosmos DB 支持使用通过常用 \@ 表示法表示的参数进行查询。 参数化 SQL 为用户输入提供可靠的处理和转义，可防止通过 SQL 注入发生意外的数据泄露。 
 
 例如，可以编写一个将姓氏和省/自治区/直辖市地址作为参数的查询，然后基于用户输入针对姓氏和省/自治区/直辖市地址执行此查询。
 
@@ -1483,7 +1483,7 @@ Cosmos DB 还支持使用许多内置函数进行常见操作，这些函数可�
 | [LENGTH (str_expr)](../cosmos-db/sql-api-sql-query-reference.md#bk_length) |返回指定字符串的字符数 |
 | [CONCAT (str_expr, str_expr [, str_expr])](../cosmos-db/sql-api-sql-query-reference.md#bk_concat) |返回一个字符串，该字符串是连接两个或多个字符串值的结果。 |
 | [SUBSTRING (str_expr, num_expr, num_expr)](../cosmos-db/sql-api-sql-query-reference.md#bk_substring) |返回部分字符串表达式。 |
-| [STARTSWITH (str_expr, str_expr)](../cosmos-db/sql-api-sql-query-reference.md#bk_startswith) |返回一个布尔值，该值指示第一个字符串表达式是否以第二个字符串表达式结尾 |
+| [STARTSWITH (str_expr, str_expr)](../cosmos-db/sql-api-sql-query-reference.md#bk_startswith) |返回一个布尔值，指示第一个字符串表达式是否以第二个字符串表达式开头 |
 | [ENDSWITH (str_expr, str_expr)](../cosmos-db/sql-api-sql-query-reference.md#bk_endswith) |返回一个布尔值，该值指示第一个字符串表达式是否以第二个字符串表达式结尾 |
 | [CONTAINS (str_expr, str_expr)](../cosmos-db/sql-api-sql-query-reference.md#bk_contains) |返回一个布尔值，该值指示第一个字符串表达式是否包含第二个字符串表达式。 |
 | [INDEX_OF (str_expr, str_expr)](../cosmos-db/sql-api-sql-query-reference.md#bk_index_of) |返回第一个指定的字符串表达式中第一次出现第二个字符串表达式的起始位置，如果未找到字符串，则返回 -1。 |
@@ -2203,7 +2203,6 @@ Cosmos DB 使用存储过程和触发器，为对集合直接执行基于 JavaSc
 ## <a name="references"></a>参考
 1. [Azure Cosmos DB 简介][introduction]
 2. [Azure Cosmos DB SQL 规范](/cosmos-db/sql-api-sql-query-reference)
-<!-- http://go.microsoft.com/fwlink/p/?LinkID=510612 Redirect to cosmos-db/sql-api-sql-query-reference-->
 3. [Azure Cosmos DB .NET 示例](https://github.com/Azure/azure-documentdb-net)
 4. [Azure Cosmos DB 一致性级别][consistency-levels]
 5. ANSI SQL 2011 [http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)

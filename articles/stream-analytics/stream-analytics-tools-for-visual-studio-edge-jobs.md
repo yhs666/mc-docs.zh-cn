@@ -9,13 +9,13 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 03/13/2018
-ms.date: 06/18/2018
-ms.openlocfilehash: 6902fee889b94555845b70d33caf0676896989db
-ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
+ms.date: 08/20/2018
+ms.openlocfilehash: dbe20ccd24c7f2c9e0e99b62a53935d80e4872ae
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37405352"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41705091"
 ---
 # <a name="develop-stream-analytics-edge-jobs-using-visual-studio-tools"></a>使用 Visual Studio 工具开发流分析 Edge 作业
 
@@ -118,11 +118,10 @@ FROM EdgeInput
 
 ![作业关系图和其他选项](./media/stream-analytics-tools-for-visual-studio-edge-jobs/job-diagram-and-other-options.png) 
 
-## <a name="next-steps"></a>后续步骤
+<!-- Not Available on ## Next steps-->
 
-<!-- Not Aailable on * [More information on Azure Iot Edge](../iot-edge/how-iot-edge-works.md)-->
+<!-- Not Aailable on * [More information on Azure Iot Edge](../iot-edge/about-iot-edge.md)-->
 <!-- Not Aailable on * [ASA on IoT Edge tutorial](../iot-edge/tutorial-deploy-stream-analytics.md)-->
 <!-- Not Aailable on * [Send feedback to the team using this survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u)-->
 
-<!-- Update_Description: new articles on stream analytics -->
-<!--ms.date: 06/18/2018-->
+<!-- Update_Description: wording update -->

@@ -15,14 +15,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 04/30/2018
-ms.date: 06/25/2018
+ms.date: 08/27/2018
 ms.author: v-yiso
-ms.openlocfilehash: b157a03b978de873c6ee899a6964d701817973cb
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.openlocfilehash: 9c0954fc23dcfc118e148ca7c4e95d596a26d082
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873621"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41705089"
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>在 HDInsight 上使用 Python 开发 Apache Storm 拓扑
 
@@ -43,7 +43,7 @@ ms.locfileid: "37873621"
 
 * Maven 3
 
-* （可选）本地 Storm 开发环境。 仅当想要在本地运行拓扑时，才需要本地 Storm 环境。 有关详细信息，请参阅[设置开发环境](http://storm.apache.org/releases/1.1.0/Setting-up-development-environment.html)。
+* （可选）本地 Storm 开发环境。 仅当想要在本地运行拓扑时，才需要本地 Storm 环境。 有关详细信息，请参阅[设置开发环境](http://storm.apache.org/releases/1.1.2/Setting-up-development-environment.html)。
 
 ## <a name="storm-multi-language-support"></a>Storm 多语言支持
 
@@ -102,7 +102,7 @@ storm jar WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux -l -R /topology.
 ```
 
 > [!NOTE]
-> 此命令要求提供本地 Storm 开发环境。 有关详细信息，请参阅[设置开发环境](http://storm.apache.org/releases/1.0.1/Setting-up-development-environment.html)
+> 此命令要求提供本地 Storm 开发环境。 有关详细信息，请参阅[设置开发环境](http://storm.apache.org/releases/current/Setting-up-development-environment.html)
 
 拓扑启动后，它会向本地控制台发出类似如下文本的信息：
 

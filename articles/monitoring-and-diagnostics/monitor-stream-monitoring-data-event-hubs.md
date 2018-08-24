@@ -2,24 +2,18 @@
 title: 将 Azure 监视数据流式传输到事件中心
 description: 了解如何将所有 Azure 监视数据流式传输到事件中心，以将数据获取到合作伙伴 SIEM 或分析工具。
 author: johnkemnetz
-manager: robb
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-origin.date: 03/05/2018
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
+origin.date: 07/06/2018
 ms.author: v-yiso
-ms.date: 04/16/2018
-ms.openlocfilehash: e6de76eabdcd9dfa2fefe98e9c33a60ebe90c944
-ms.sourcegitcommit: 479954e938e4e3469d6998733aa797826e4f300b
+ms.date: 08/20/2018
+ms.openlocfilehash: ff007028739b5396b3396b74e702883e0edad89a
+ms.sourcegitcommit: 664584f55e0a01bb6558b8d3349d41d3f05ba4d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39031757"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41705103"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>将 Azure 监视数据流式传输到事件中心以便外部工具使用
 
@@ -70,7 +64,7 @@ Azure 资源将发出两种类型的监视数据：
 使用资源诊断设置将两种类型的数据发送到事件中心。 [按照本指南](./monitoring-stream-diagnostic-logs-to-event-hubs.md)在特定资源上设置资源诊断设置。 在要从其收集日志的每个资源上设置资源诊断设置。
 
 > [!TIP]
-> 可使用 Azure 策略，[在策略规则中使用 DeployIfNotExists 效果](../azure-policy/policy-definition.md#policy-rule)，确保特定范围内的每个资源始终设置了诊断设置。 DeployIfNotExists 现仅支持内置策略。
+> 可使用 Azure Policy，[在策略规则中使用 DeployIfNotExists 效果](../azure-policy/policy-definition.md#policy-rule)，确保特定范围内的每个资源始终设置了诊断设置。 DeployIfNotExists 现仅支持内置策略。
 
 ## <a name="how-do-i-set-up-guest-os-monitoring-data-to-be-streamed-to-an-event-hub"></a>如何将来宾 OS 监视数据设置为流式传输到事件中心？
 
@@ -97,7 +91,7 @@ Azure 资源将发出两种类型的监视数据：
 * **IBM QRadar** -Microsoft Azure DSM 和 Microsoft Azure 事件中心协议均可从 [IBM 支持网站](http://www.ibm.com/support)下载。 可以[在此处了解 Azure 集成](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0)。
 * **Splunk** - 有两种方法，具体取决于 Splunk 设置：
     1. [适用于 Splunk 的 Azure Monitor 加载项](https://splunkbase.splunk.com/app/3534/)可在 Splunkbase 中找到，它是一个开源项目。 [文档见此处](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk)。
-    2. 如果无法在 Splunk 实例中安装加载项（例如， 如果使用代理或在 Splunk Cloud 上运行），可以使用[此函数（由事件中心中的新消息触发）](https://github.com/sebastus/AzureFunctionForSplunkVS)将这些事件转发到 Splunk HTTP 事件收集器。
+    2. 如果无法在 Splunk 实例中安装加载项（例如， 如果使用代理或在 Splunk Cloud 上运行），可以使用[此函数（由事件中心中的新消息触发）](https://github.com/Microsoft/AzureFunctionforSplunkVS)将这些事件转发到 Splunk HTTP 事件收集器。
 * **SumoLogic** - 将 SumoLogic 设置为使用来自事件中心的数据的说明[见此处](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub)
 
 ## <a name="next-steps"></a>后续步骤

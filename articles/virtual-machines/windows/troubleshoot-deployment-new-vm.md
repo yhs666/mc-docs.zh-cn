@@ -14,15 +14,15 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 06/15/2018
-ms.date: 06/25/2018
+ms.date: 08/27/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9fef40457cbc6b508be763798ea81b16740bbeec
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.openlocfilehash: abf7bf16582a07f6e451dcaf1499cb8a7aa2b9e5
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315515"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42871633"
 ---
 # <a name="troubleshoot-deployment-issues-when-creating-a-new-windows-vm-in-azure"></a>排查在 Azure 中新建 Windows VM 时遇到的部署问题
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -55,7 +55,7 @@ N2：如果 OS 是专用的 Windows，但是以通用设置上传的，则会发
 
 **解决方法**
 
-若要解决这两个错误，请使用 [Add-AzureRmVhd 上传原始 VHD](https://msdn.microsoft.com/library/mt603554.aspx)（可在本地找到），其设置与 OS 的设置相同（通用/专用）。 若要以通用设置上传，请记得先运行 sysprep。
+若要解决这两个错误，请使用 [Add-AzureRmVhd 上传原始 VHD](https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvhd)（可在本地找到），其设置与 OS 的设置相同（通用/专用）。 若要以通用设置上传，请记得先运行 sysprep。
 
 **捕获错误：**
 
@@ -93,4 +93,4 @@ N2：如果 OS 是专用的 Windows，但是以通用设置上传的，则会发
 ## <a name="next-steps"></a>后续步骤
 如果在 Azure 中启动已停止的 Windows VM 或调整现有 Windows VM 的大小时遇到问题，请参阅[排查在 Azure 中重新启动现有 Windows 虚拟机或调整其大小时遇到的 Resource Manager 部署问题](restart-resize-error-troubleshooting.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties, update link -->

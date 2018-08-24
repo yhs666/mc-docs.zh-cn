@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 10/02/2017
-ms.date: 05/28/2018
+ms.date: 08/20/2018
 ms.author: v-yeche
-ms.openlocfilehash: dcbd089c307a9b98ba46bf0cd6e051dc1d6abd0a
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: 89005ac0f3401fb1d8ffa2685d5d8ec011f2b499
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554373"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41704469"
 ---
 # <a name="configuring-reliable-actors--kvsactorstateprovider"></a>配置 Reliable Actors - KVSActorStateProvider
 通过更改 Microsoft Visual Studio 程序包根目录下的指定执行组件的 Config 文件夹中生成的 settings.xml 文件，可以修改 KVSActorStateProvider 的默认配置。
@@ -36,6 +36,10 @@ Azure Service Fabric 运行时在 settings.xml 文件中查找预定义的节名
 复制器安全配置用于保护复制过程中使用的通信通道的安全。 这意味着服务无法看到对方的复制流量，从而确保高度可用的数据也处于安全状态。
 默认情况下，空的安全配置节会影响复制安全。
 
+> [!IMPORTANT]
+> 在 Linux 节点上，证书必须是 PEM 格式。 若要详细了解如何查找和配置适用于 Linux 的证书，请参阅[在 Linux 上配置证书](./service-fabric-configure-certificates-linux.md)。 
+> 
+
 ### <a name="section-name"></a>节名称
 &lt;ActorName&gt;ServiceReplicatorSecurityConfig
 
@@ -47,7 +51,6 @@ Azure Service Fabric 运行时在 settings.xml 文件中查找预定义的节名
 &lt;ActorName&gt;ServiceReplicatorConfig
 
 ### <a name="configuration-names"></a>配置名称
-
 | Name | 计价单位 | 默认值 | 备注 |
 | --- | --- | --- | --- |
 | BatchAcknowledgementInterval |秒 |0.015 |收到操作后，在向主要复制器送回确认之前，辅助复制器等待的时间段。 为在此间隔内处理的操作发送的任何其他确认都作为响应发送。 |
@@ -65,14 +68,12 @@ Azure Service Fabric 运行时在 settings.xml 文件中查找预定义的节名
 &lt;ActorName&gt;ServiceLocalStoreConfig
 
 ### <a name="configuration-names"></a>配置名称
-
 | Name | 计价单位 | 默认值 | 备注 |
 | --- | --- | --- | --- |
 | MaxAsyncCommitDelayInMilliseconds |毫秒 |200 |设置持久的本地存储提交的最大批处理间隔。 |
 | MaxVerPages |页数 |16384 |本地存储数据库中的最大版本页数。 它确定未完成事务的最大数目。 |
 
 ## <a name="sample-configuration-file"></a>示例配置文件
-
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -95,8 +96,7 @@ Azure Service Fabric 运行时在 settings.xml 文件中查找预定义的节名
 </Settings>
 ```
 ## <a name="remarks"></a>备注
-
 BatchAcknowledgementInterval 参数用于控制复制延迟。 “0”值导致可能的最低延迟，但代价是牺牲吞吐量（因为必须发送和处理更多确认消息，每个包含较少的确认）。
 BatchAcknowledgementInterval 的值越大，整体复制吞吐量就越高，但代价是导致更高的操作延迟。 这直接转换为事务提交的延迟。
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties, wording update -->

@@ -15,14 +15,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 06/11/2018
-ms.date: 06/25/2018
+ms.date: 08/27/2018
 ms.author: v-yeche
-ms.openlocfilehash: c5a2355f0a4b4fe8e34bc520abc7461b0dd58813
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.openlocfilehash: 24b7f54c84113bc1daa09c98deb2f7fb735fd207
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315601"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42871611"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>在 Azure 虚拟机上配置 SQL Server 故障转移群集实例
 
@@ -110,7 +110,7 @@ S2D 支持两种类型的体系结构 - 聚合与超聚合。 本文档中所述
 
    - 在 Azure 门户中，单击 **+** 打开 Azure 市场。 搜索“可用性集”。
    - 单击“可用性集”。
-   - 单击“创建”。
+   - 单击**创建**。
    - 在“创建可用性集”边栏选项卡中设置以下值： 
       - **名称**：可用性集的名称。
       - **订阅**：Azure 订阅。
@@ -284,7 +284,7 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") -StaticAddr
 
 1. 保存访问密钥和容器 URL。
 
-1. 配置故障转移群集仲裁见证。 请参阅 [在用户界面中配置仲裁见证] (http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness) 在 UI 中。
+1. 配置故障转移群集仲裁见证。 请参阅[在用户界面中配置仲裁见证](http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness)。
 
 ### <a name="add-storage"></a>添加存储
 
@@ -361,7 +361,7 @@ S2D 的磁盘需是空的，不包含分区或其他数据。 若要清除磁盘
 
 1. 单击“+ 添加”。 在市场中搜索“负载均衡器”。 单击“负载均衡器”。
 
-1. 单击“创建”。
+1. 单击**创建**。
 
 1. 为负载均衡器配置以下属性：
 
@@ -498,4 +498,4 @@ Azure 虚拟机上的 FCI 不支持 Microsoft 分布式事务处理协调器 (DT
 
 [SQL Server support for S2D](https://blogs.technet.microsoft.com/dataplatforminsider/2016/09/27/sql-server-2016-now-supports-windows-server-2016-storage-spaces-direct/)
 
-<!--Update_Description: update meta properties, update link, wording update -->
+<!--Update_Description: update meta properties, wording update -->

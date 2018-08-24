@@ -9,18 +9,18 @@ editor: ''
 ms.assetid: 02b51f11-5d78-4c54-bb68-8e128677783e
 ms.service: service-fabric
 ms.devlang: java
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 01/27/2018
-ms.date: 05/28/2018
+origin.date: 06/18/2018
+ms.date: 08/20/2018
 ms.author: v-yeche
-ms.openlocfilehash: 9db33023732a34a0a213408a9e56a8e7c74f984f
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: f41b8dc30384b7ba9579af4eab7683dc6ad3ce4d
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554312"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41705291"
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>在 Linux 上创建第一个 Java Service Fabric Reliable Actors 应用程序
 > [!div class="op_single_selector"]
@@ -220,10 +220,25 @@ Service Fabric Java 依赖项从 Maven 提取。 若要生成和使用 Service F
 应用程序部署完以后，请打开浏览器并导航到 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)，其地址为 [http://localhost:19080/Explorer](http://localhost:19080/Explorer)。
 然后，展开“应用程序”节点，注意现在有一个条目是用于应用程序类型，另一个条目用于该类型的第一个实例。
 
+> [!IMPORTANT]
+> 必须将证书配置为向 Service Fabric 运行时验证应用程序，才能将应用程序部署到 Azure 中的安全 Linux 群集。 这样可便于 Reliable Actors 服务与基础 Service Fabric 运行时 API 通信。 若要了解详细信息，请参阅[将 Reliable Services 应用程序配置为在 Linux 群集上运行](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters)。  
+>
+
 ## <a name="start-the-test-client-and-perform-a-failover"></a>启动测试客户端并执行故障转移
 执行组件本身不执行任何操作，它们需要其他服务或客户端向其发送消息。 执行组件模板包含简单的测试脚本，可用于与执行组件服务交互。
 
+> [!Note]
+> 测试客户端使用 ActorProxy 类与执行组件进行通信，执行组件必须在执行组件服务所在的群集内运行或共享相同的 IP 地址空间。  可以在本地开发群集所在的计算机上运行测试客户端。  但是，若要与远程群集中的执行组件进行通信，必须在处理与执行组件的外部通信的群集上部署网关。
+
 1. 使用监视实用工具运行脚本，查看执行组件服务的输出。  测试脚本对角色调用 `setCountAsync()` 方法来递增计数器，对角色调用 `getCountAsync()` 方法来获取新的计数器值，并向控制台显示该值。
+
+   若为 MAC OS X，需要运行下面的附加命令，将 HelloWorldTestClient 文件夹复制到容器内的某位置。    
+
+    ```bash
+     docker cp HelloWorldTestClient [first-four-digits-of-container-ID]:/home
+     docker exec -it [first-four-digits-of-container-ID] /bin/bash
+     cd /home
+     ```
 
     ```bash
     cd HelloWorldActorTestClient
@@ -255,8 +270,8 @@ Service Fabric Java 库已托管在 Maven 中。 可以在项目的 ``pom.xml`` 
   ```XML
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
-      <artifactId>sf-actors-preview</artifactId>
-      <version>0.12.0</version>
+      <artifactId>sf-actors</artifactId>
+      <version>1.0.0</version>
   </dependency>
   ```
 
@@ -265,7 +280,7 @@ Service Fabric Java 库已托管在 Maven 中。 可以在项目的 ``pom.xml`` 
       mavenCentral()
   }
   dependencies {
-      compile 'com.microsoft.servicefabric:sf-actors-preview:0.12.0'
+      compile 'com.microsoft.servicefabric:sf-actors:1.0.0'
   }
   ```
 
@@ -276,8 +291,8 @@ Service Fabric Java 库已托管在 Maven 中。 可以在项目的 ``pom.xml`` 
   ```XML
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
-      <artifactId>sf-services-preview</artifactId>
-      <version>0.12.0</version>
+      <artifactId>sf-services</artifactId>
+      <version>1.0.0</version>
   </dependency>
   ```
 
@@ -286,7 +301,7 @@ Service Fabric Java 库已托管在 Maven 中。 可以在项目的 ``pom.xml`` 
       mavenCentral()
   }
   dependencies {
-      compile 'com.microsoft.servicefabric:sf-services-preview:0.12.0'
+      compile 'com.microsoft.servicefabric:sf-services:1.0.0'
   }
   ```
 
@@ -298,8 +313,8 @@ Service Fabric Java 库已托管在 Maven 中。 可以在项目的 ``pom.xml`` 
   ```XML
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
-      <artifactId>sf-transport-preview</artifactId>
-      <version>0.12.0</version>
+      <artifactId>sf-transport</artifactId>
+      <version>1.0.0</version>
   </dependency>
   ```
 
@@ -308,7 +323,7 @@ Service Fabric Java 库已托管在 Maven 中。 可以在项目的 ``pom.xml`` 
       mavenCentral()
   }
   dependencies {
-      compile 'com.microsoft.servicefabric:sf-transport-preview:0.12.0'
+      compile 'com.microsoft.servicefabric:sf-transport:1.0.0'
   }
   ```
 
@@ -319,8 +334,8 @@ Service Fabric Java 库已托管在 Maven 中。 可以在项目的 ``pom.xml`` 
   ```XML
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
-      <artifactId>sf-preview</artifactId>
-      <version>0.12.0</version>
+      <artifactId>sf</artifactId>
+      <version>1.0.0</version>
   </dependency>
   ```
 
@@ -329,7 +344,7 @@ Service Fabric Java 库已托管在 Maven 中。 可以在项目的 ``pom.xml`` 
       mavenCentral()
   }
   dependencies {
-      compile 'com.microsoft.servicefabric:sf-preview:0.12.0'
+      compile 'com.microsoft.servicefabric:sf:1.0.0'
   }
   ```
 

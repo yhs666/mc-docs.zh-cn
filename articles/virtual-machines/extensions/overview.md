@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 03/30/2018
-ms.date: 07/30/2018
+ms.date: 08/27/2018
 ms.author: v-yeche
-ms.openlocfilehash: 505876d2ceece5c1b2861d6cb77b385fe167b85c
-ms.sourcegitcommit: 35889b4f3ae51464392478a72b172d8910dd2c37
+ms.openlocfilehash: db984d5218645b0350fc9acf25509d13d58a63f4
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39261861"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42871681"
 ---
 # <a name="azure-virtual-machine-extensions-and-features"></a>Azure 虚拟机扩展和功能
 Azure 虚拟机 (VM) 扩展是小型应用程序，可在 Azure VM 上提供部署后配置和自动化任务，用户可以使用现有映像并将其自定义为部署的一部分，摆脱构建自定义映像的麻烦。
@@ -57,4 +57,4 @@ Azure 平台可承载许多扩展，其中包括 VM 配置、监视、安全性�
 * 有关 Windows 来宾代理和扩展工作原理的详细信息，请参阅[适用于 Windows 的 Azure VM 扩展和功能](features-windows.md)。  
 * 若要安装 Windows 来宾代理，请参阅 [Azure Windows 虚拟机代理概述](agent-windows.md)。  
 * 若要安装 Linux 代理，请参阅 [Azure Linux 虚拟机代理概述](agent-linux.md)。
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties -->

@@ -12,14 +12,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 origin.date: 02/15/2018
-ms.date: 06/04/2018
+ms.date: 08/27/2018
 ms.author: v-yeche
-ms.openlocfilehash: b136675782af4135d9bfac9011413694916b1117
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: db3c6c8e190b78df7601f27f6d1442ef1b73cc3c
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702818"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42871652"
 ---
 # <a name="quickstart-create-a-sql-server-windows-virtual-machine-with-azure-powershell"></a>快速入门：使用 Azure PowerShell 创建 SQL Server Windows 虚拟机
 
@@ -43,7 +43,7 @@ ms.locfileid: "34702818"
 
 ## <a name="configure-powershell"></a>配置 PowerShell
 
-1. 打开 PowerShell，通过运行 **Connect-AzureRmAccount -Environment AzureChinaCloud ** 命令建立对 Azure 帐户的访问。
+1. 打开 PowerShell，通过运行 **Connect-AzureRmAccount** 命令建立对 Azure 帐户的访问。
 
    ```PowerShell
    Connect-AzureRmAccount -Environment AzureChinaCloud
@@ -85,7 +85,7 @@ ms.locfileid: "34702818"
 
    # Create a virtual network
    $Vnet = New-AzureRmVirtualNetwork -ResourceGroupName $ResourceGroupName -Location $Location `
-      -Name VnetName -AddressPrefix 192.168.0.0/16 -Subnet $SubnetConfig
+      -Name $VnetName -AddressPrefix 192.168.0.0/16 -Subnet $SubnetConfig
 
    # Create a public IP address and specify a DNS name
    $Pip = New-AzureRmPublicIpAddress -ResourceGroupName $ResourceGroupName -Location $Location `
@@ -198,4 +198,4 @@ Stop-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
 
 > [!div class="nextstepaction"]
 > [将数据库迁移到 SQL VM](virtual-machines-windows-migrate-sql.md)
-<!-- Update_Description: wording update  -->
+<!-- Update_Description: wording update, update meta properties  -->

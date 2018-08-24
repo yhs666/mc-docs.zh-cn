@@ -9,13 +9,13 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 04/20/2017
-ms.date: 05/07/2018
-ms.openlocfilehash: 5d5fe473baa5e288c30aa06922fea3f0f317a773
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.date: 08/20/2018
+ms.openlocfilehash: 07e17532a2fdec8a1102e1c2ae0fbc2de7805846
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33815312"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41705093"
 ---
 # <a name="azure-stream-analytics-event-order-considerations"></a>Azure 流分析事件顺序注意事项
 
@@ -23,7 +23,7 @@ ms.locfileid: "33815312"
 
 在事件的时态数据流中，每个事件都分配有一个时间戳。 Azure 流分析使用到达时间或应用程序时间向每个事件分配一个时间戳。 “System.Timestamp”列包含已分配给事件的时间戳。 
 
-当事件抵达源时，会在输入源中分配到达时间。 可以使用事件中心的 **EventEnqueuedTime** 属性以及 Blob 输入的 [BlobProperties.LastModified](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.windowsazure.storage.blob.blobproperties.lastmodified?view=azure-dotnet?view=azurestorage-8.1.3) 属性来访问到达时间。 
+当事件抵达源时，会在输入源中分配到达时间。 可以使用事件中心输入的 **EventEnqueuedUtcTime** 属性、IoT 中心的 **IoTHub.EnqueuedTime** 属性以及 Blob 输入的 [BlobProperties.LastModified](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.windowsazure.storage.blob.blobproperties.lastmodified?view=azure-dotnet?view=azurestorage-8.1.3) 属性来访问到达时间。 
 
 生成事件时，会分配应用程序时间。应用程序时间是有效负载的一部分。 若要按应用程序时间处理事件，可在 select 查询中使用 **Timestamp by** 子句。 如果缺少 **Timestamp by** 子句，则会按到达时间处理事件。 
 
@@ -111,7 +111,7 @@ Azure 流分析按时间戳顺序生成输出，并提供设置来处理无序�
 
 配置与示例 2 相同。 但是，如果一个分区中缺少数据，可能会按照额外的延迟到达容错时限将输出延迟。
 
-## <a name="handling-event-producers-with-differing-timelines"></a>使用不同的时间线处理事件生成者
+## <a name="handling-event-producers-with-differing-timelines-with-substreams"></a>使用“子流”通过不同的时间线处理事件生成者
 单个输入事件流通常包含来自多个事件生成者（例如各个设备）的事件。 这些事件可能会出于前面所述的原因而不按顺序到达。 在这种情况下，尽管跨事件生成者的失序程度可能很大，但单个生成者中的事件失序程度较小（甚至不存在失序情况）。
 
 Azure 流分析提供了常规机制用于处理失序事件。 此类机制会导致处理延迟（因为要等待散乱的事件到达系统）和/或事件被删除或调整。

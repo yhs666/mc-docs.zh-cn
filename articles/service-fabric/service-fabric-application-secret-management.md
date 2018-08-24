@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 03/21/2018
-ms.date: 05/28/2018
+ms.date: 08/20/2018
 ms.author: v-yeche
-ms.openlocfilehash: 00e0356d659258b166be8d199b33f19215c15e8f
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: fc302e8267e5facf0d3cb00e8c55cecf9c9cc310
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554244"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41705090"
 ---
 # <a name="manage-secrets-in-service-fabric-applications"></a>管理 Service Fabric 应用程序中的机密
 本指南逐步讲解管理 Service Fabric 应用程序中的机密的步骤。 机密可以是任何敏感信息，例如存储连接字符串、密码或其他不应以明文形式处理的值。
@@ -45,7 +45,7 @@ ms.locfileid: "34554244"
 必须在群集中的每个节点上安装此证书。 在运行时，使用此证书解密服务的 Settings.xml 中存储的值。 有关设置说明，请参阅 [how to create a cluster using Azure Resource Manager][service-fabric-cluster-creation-via-arm] （如何使用 Azure Resource Manager 创建群集）。 
 
 ## <a name="encrypt-application-secrets"></a>加密应用程序机密
-在部署应用程序时使用证书加密机密值，并将其注入服务的 Settings.xml 配置文件。 Service Fabric SDK 提供内置的机密加密和解密函数。 可以在生成时加密机密值，在服务代码中以编程方式解密和读取机密值。 
+在部署应用程序时使用证书加密机密值，并将其注入服务的 Settings.xml 配置文件。 Service Fabric SDK 提供内置的机密加密和解密函数。 可以在生成时加密机密值，然后在服务代码中以编程方式解密和读取机密值。 
 
 以下 PowerShell 命令用于加密机密。 此命令仅加密值；它并 **不** 对密码文本进行签名。 若要生成机密值的密文，必须使用群集中安装的同一个加密证书：
 
@@ -173,4 +173,4 @@ SecureString mySecretValue = configPackage.Settings.Sections["MySettings"].Param
 <!-- Images -->
 [overview]:./media/service-fabric-application-secret-management/overview.png
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, wording update -->

@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/25/2017
-ms.date: 12/25/2017
+ms.date: 08/13/2018
 ms.author: v-yeche
-ms.openlocfilehash: 5378745412ca749a676c716f671b0d8ec01355e5
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: da5352e14307dbd8137507232d28b8a95875f367
+ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
-ms.locfileid: "29285285"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41705083"
 ---
 # <a name="read-nsg-flow-logs"></a>读取 NSG 流日志
 
@@ -38,44 +38,48 @@ NSG 流日志存储于[块 blob](https://docs.microsoft.com/rest/api/storageserv
 
 ## <a name="retrieve-the-block-list"></a>检索块列表
 
-下方 PowerShell 设置查询 NSG 流日志 blob 和列出 [CloudBlockBlob](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob?view=azurestorage-8.1.3) 块 blob 中的块所需的变量。 更新脚本以包含适合你环境的有效值。
+下方 PowerShell 设置查询 NSG 流日志 blob 和列出 [CloudBlockBlob](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob?view=azure-dotnet?view=azurestorage-8.1.3) 块 blob 中的块所需的变量。 更新脚本以包含适合你环境的有效值。
 
 ```powershell
-# The SubscriptionID to use
-$subscriptionId = "00000000-0000-0000-0000-000000000000"
+function Get-NSGFlowLogBlockList {
+    [CmdletBinding()]
+    param (
+        [string] [Parameter(Mandatory=$true)] $subscriptionId,
+        [string] [Parameter(Mandatory=$true)] $NSGResourceGroupName,
+        [string] [Parameter(Mandatory=$true)] $NSGName,
+        [string] [Parameter(Mandatory=$true)] $storageAccountName,
+        [string] [Parameter(Mandatory=$true)] $storageAccountResourceGroup,
+        [string] [Parameter(Mandatory=$true)] $macAddress,
+        [datetime] [Parameter(Mandatory=$true)] $logTime
+    )
 
-# Resource group that contains the Network Security Group
-$resourceGroupName = "<resourceGroupName>"
+    process {
+        # Retrieve the primary storage account key to access the NSG logs
+        $StorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $storageAccountResourceGroup -Name $storageAccountName).Value[0]
 
-# The name of the Network Security Group
-$nsgName = "NSGName"
+        # Setup a new storage context to be used to query the logs
+        $ctx = New-AzureStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
 
-# The storage account name that contains the NSG logs
-$storageAccountName = "<storageAccountName>" 
+        # Container name used by NSG flow logs
+        $ContainerName = "insights-logs-networksecuritygroupflowevent"
 
-# The date and time for the log to be queried, logs are stored in hour intervals.
-[datetime]$logtime = "06/16/2017 20:00"
+        # Name of the blob that contains the NSG flow log
+        $BlobName = "resourceId=/SUBSCRIPTIONS/${subscriptionId}/RESOURCEGROUPS/${NSGResourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/${NSGName}/y=$($logTime.Year)/m=$(($logTime).ToString("MM"))/d=$(($logTime).ToString("dd"))/h=$(($logTime).ToString("HH"))/m=00/macAddress=$($macAddress)/PT1H.json"
 
-# Retrieve the primary storage account key to access the NSG logs
-$StorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName).Value[0]
+        # Gets the storage blog
+        $Blob = Get-AzureStorageBlob -Context $ctx -Container $ContainerName -Blob $BlobName
 
-# Setup a new storage context to be used to query the logs
-$ctx = New-AzureStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
+        # Gets the block blog of type 'Microsoft.WindowsAzure.Storage.Blob.CloudBlob' from the storage blob
+        $CloudBlockBlob = [Microsoft.WindowsAzure.Storage.Blob.CloudBlockBlob] $Blob.ICloudBlob
 
-# Container name used by NSG flow logs
-$ContainerName = "insights-logs-networksecuritygroupflowevent"
+        # Stores the block list in a variable from the block blob.
+        $blockList = $CloudBlockBlob.DownloadBlockList()
 
-# Name of the blob that contains the NSG flow log
-$BlobName = "resourceId=/SUBSCRIPTIONS/${subscriptionId}/RESOURCEGROUPS/${resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/${nsgName}/y=$($logtime.Year)/m=$(($logtime).ToString("MM"))/d=$(($logtime).ToString("dd"))/h=$(($logtime).ToString("HH"))/m=00/PT1H.json"
-
-# Gets the storage blog
-$Blob = Get-AzureStorageBlob -Context $ctx -Container $ContainerName -Blob $BlobName
-
-# Gets the block blog of type 'Microsoft.WindowsAzure.Storage.Blob.CloudBlob' from the storage blob
-$CloudBlockBlob = [Microsoft.WindowsAzure.Storage.Blob.CloudBlockBlob] $Blob.ICloudBlob
-
-# Stores the block list in a variable from the block blob.
-$blockList = $CloudBlockBlob.DownloadBlockList()
+        # Return the Block List
+        $blockList
+    }
+}
+$blockList = Get-NSGFlowLogBlockList -subscriptionId "00000000-0000-0000-0000-000000000000" -NSGResourceGroupName "resourcegroupname" -storageAccountName "storageaccountname" -storageAccountResourceGroup "sa-rg" -macAddress "000D3AF8196E" -logTime "03/07/2018 22:00"
 ```
 
 `$blockList` 变量返回 blob 中块的列表。 每个块 blob 至少包含两个块。  第一个块长度为 `21` 字节，此块包含 json 日志的开括号。 另一个块是闭括号，其长度为 `9` 字节。  正如你所见，下面的示例日志中具有 7 个条目，其中每个皆为单独条目。 日志中所有新条目会被添加到末尾、最后一个块之前。
@@ -83,7 +87,7 @@ $blockList = $CloudBlockBlob.DownloadBlockList()
 ```
 Name                                         Length Committed
 ----                                         ------ ---------
-ZDk5MTk5N2FkNGE0MmY5MTk5ZWViYjA0YmZhODRhYzY=     21      True
+ZDk5MTk5N2FkNGE0MmY5MTk5ZWViYjA0YmZhODRhYzY=     12      True
 NzQxNDA5MTRhNDUzMGI2M2Y1MDMyOWZlN2QwNDZiYzQ=   2685      True
 ODdjM2UyMWY3NzFhZTU3MmVlMmU5MDNlOWEwNWE3YWY=   2586      True
 ZDU2MjA3OGQ2ZDU3MjczMWQ4MTRmYWNhYjAzOGJkMTg=   2688      True
@@ -91,7 +95,7 @@ ZmM3ZWJjMGQ0ZDA1ODJlOWMyODhlOWE3MDI1MGJhMTc=   2775      True
 ZGVkYTc4MzQzNjEyMzlmZWE5MmRiNjc1OWE5OTc0OTQ=   2676      True
 ZmY2MjUzYTIwYWIyOGU1OTA2ZDY1OWYzNmY2NmU4ZTY=   2777      True
 Mzk1YzQwM2U0ZWY1ZDRhOWFlMTNhYjQ3OGVhYmUzNjk=   2675      True
-ZjAyZTliYWE3OTI1YWZmYjFmMWI0MjJhNzMxZTI4MDM=      9      True
+ZjAyZTliYWE3OTI1YWZmYjFmMWI0MjJhNzMxZTI4MDM=      2      True
 ```
 
 ## <a name="read-the-block-blob"></a>读取块 blob
@@ -159,6 +163,7 @@ A","1497646742,10.0.0.4,168.62.32.14,44942,443,T,O,A","1497646742,10.0.0.4,52.24
 ## <a name="next-steps"></a>后续步骤
 
 若要详细了解查看 NSG 流日志的其他方式，请访问[使用开源工具可视化 Azure 网络观察程序 NSG 流日志](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)。
-<!--Not Available To learn more about storage blobs visit: [Azure Functions Blob storage bindings](../azure-functions/functions-bindings-storage-blob.md) -->
 
-<!--Update_Description: update meta properties -->
+若要了解有关存储 blob 的详细信息，请访问 [Azure Functions Blob 存储绑定](../azure-functions/functions-bindings-storage-blob.md)
+
+<!--Update_Description: update meta properties, update link, wording update -->

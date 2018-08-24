@@ -1,26 +1,20 @@
 ---
-title: Azure 诊断 1.2 配置架构 | Microsoft Docs
+title: Azure 诊断扩展 1.2 的配置架构
 description: 只有在用户将 Azure SDK 2.5 与 Azure 虚拟机、虚拟机规模集、Service Fabric 或云服务配合使用时，才相关。
-services: monitoring-and-diagnostics
-documentationcenter: .net
+services: azure-monitor
 author: rboucher
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: reference
 origin.date: 05/15/2017
-ms.date: 12/11/2017
+ms.date: 08/20/2018
 ms.author: v-yiso
-ms.openlocfilehash: 9558309a450145f08ca033fd0b09b4a34e2c423a
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 9d659e675513c64f6c94d9c73740998bd049247b
+ms.sourcegitcommit: 664584f55e0a01bb6558b8d3349d41d3f05ba4d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
-ms.locfileid: "26045153"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41704109"
 ---
 # <a name="azure-diagnostics-12-configuration-schema"></a>Azure 诊断 1.2 配置架构
 > [!NOTE]
@@ -32,7 +26,7 @@ Azure 诊断可以与其他 Microsoft 诊断产品（例如 Azure Monitor）结�
 此架构定义了多种可能的值，可以使用这些值在诊断监视器启动时初始化诊断配置设置。  
 
 
- 通过执行以下 PowerShell 命令来下载公共配置文件架构定义：  
+ 通过执行以下 PowerShell 命令下载公共配置文件架构定义：  
 
 ```PowerShell  
 (Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File –Encoding utf8 -FilePath 'C:\temp\WadConfig.xsd'  
@@ -115,12 +109,12 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |------------------|-----------------|  
 |**DiagnosticMonitorConfiguration**|必需。 可选属性：<br /><br /> -                     **overallQuotaInMB** - 由 Azure 诊断收集的各类诊断数据使用的最大本地磁盘空间量。 默认设置是 5120 MB。<br /><br /> -                     **useProxyServer** - 将 Azure 诊断配置为使用在 IE 设置中设置的代理服务器设置。|  
 |**CrashDumps**|启用故障转储收集。 可选属性：<br /><br /> -                     **containerName** - Azure 存储帐户中用于存储故障转储的 Blob 容器的名称。<br /><br /> -                     **crashDumpType** - 将 Azure 诊断配置为收集少量或完整故障转储。<br /><br /> -                     **directoryQuotaPercentage** - 配置 VM 上为故障转储保留的 **overallQuotaInMB** 的百分比。|  
-|**DiagnosticInfrastructureLogs**|启用收集 Azure 诊断生成的日志。 诊断基础结构日志可用于解决诊断系统本身的故障。 可选属性：<br /><br /> -                     **scheduledTransferLogLevelFilter** - 配置收集的日志的最低严重级别。<br /><br /> -                     **scheduledTransferPeriod** - 到存储空间的计划传输之间的时间间隔，向上舍入为最接近的分钟数。 值是 [XML“持续时间数据类型。”](http://www.w3schools.com/schema/schema_dtypes_date.asp)|  
-|**Directories**|启用收集目录内容、IIS 失败的访问请求日志和/或 IIS 日志。 可选属性：<br /><br /> **scheduledTransferPeriod** - 到存储空间的计划传输之间的时间间隔，向上舍入为最接近的分钟数。 值是 [XML“持续时间数据类型。”](http://www.w3schools.com/schema/schema_dtypes_date.asp)|  
+|**DiagnosticInfrastructureLogs**|启用收集 Azure 诊断生成的日志。 诊断基础结构日志可用于解决诊断系统本身的故障。 可选属性：<br /><br /> -                     **scheduledTransferLogLevelFilter** - 配置收集的日志的最低严重级别。<br /><br /> -                     **scheduledTransferPeriod** - 到存储空间的计划传输之间的时间间隔，向上舍入为最接近的分钟数。 值是 [XML“持续时间数据类型。”](http://www.w3schools.com/xml/schema_dtypes_date.asp)|  
+|**Directories**|启用收集目录内容、IIS 失败的访问请求日志和/或 IIS 日志。 可选属性：<br /><br /> **scheduledTransferPeriod** - 到存储空间的计划传输之间的时间间隔，向上舍入为最接近的分钟数。 值是 [XML“持续时间数据类型。”](http://www.w3schools.com/xml/schema_dtypes_date.asp)|  
 |**EtwProviders**|配置从基于 EventSource 和/或 ETW 清单的提供程序收集 ETW 事件。|  
-|**指标**|此元素可以生成针对快速查询进行优化的性能计数器表。 在 **PerformanceCounters** 元素中定义的每个性能计数器除存储在性能计数器表内外，还存储在度量值表中。 必需属性：<br /><br /> **resourceId** - 这是要将 Azure 诊断部署到的虚拟机的资源 ID。 从 [Azure 门户](https://portal.azure.cn)获取 **resourceID**。 选择“浏览” -> “资源组” -> “<名称\>”。 单击“属性”磁贴，并从“ID”字段复制值。|  
-|**PerformanceCounters**|启用性能计数器收集。 可选属性：<br /><br /> **scheduledTransferPeriod** - 到存储空间的计划传输之间的时间间隔，向上舍入为最接近的分钟数。 值是 [XML“持续时间数据类型。”](http://www.w3schools.com/schema/schema_dtypes_date.asp)|  
-|**WindowsEventLog**|启用收集 Windows 事件日志。 可选属性：<br /><br /> **scheduledTransferPeriod** - 到存储空间的计划传输之间的时间间隔，向上舍入为最接近的分钟数。 值是 [XML“持续时间数据类型。”](http://www.w3schools.com/schema/schema_dtypes_date.asp)|  
+|**指标**|此元素可以生成针对快速查询进行优化的性能计数器表。 在 **PerformanceCounters** 元素中定义的每个性能计数器除存储在性能计数器表内外，还存储在度量值表中。 必需属性：<br /><br /> **resourceId** - 这是要将 Azure 诊断部署到的虚拟机的资源 ID。 从 [Azure 门户](https://portal.azure.com)获取 **resourceID**。 选择“浏览” -> “资源组” -> “<名称\>”。 单击“属性”磁贴，并从“ID”字段复制值。|  
+|**PerformanceCounters**|启用性能计数器收集。 可选属性：<br /><br /> **scheduledTransferPeriod** - 到存储空间的计划传输之间的时间间隔，向上舍入为最接近的分钟数。 值是 [XML“持续时间数据类型。”](http://www.w3schools.com/xml/schema_dtypes_date.asp)|  
+|**WindowsEventLog**|启用收集 Windows 事件日志。 可选属性：<br /><br /> **scheduledTransferPeriod** - 到存储空间的计划传输之间的时间间隔，向上舍入为最接近的分钟数。 值是 [XML“持续时间数据类型。”](http://www.w3schools.com/xml/schema_dtypes_date.asp)|  
 
 ## <a name="crashdumps-element"></a>CrashDumps 元素  
  启用故障转储收集。 下表介绍子元素：  
@@ -160,8 +154,8 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |元素名称|说明|  
 |------------------|-----------------|  
-|**EtwEventSourceProviderConfiguration**|配置收集从 [EventSource 类](http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx)生成的事件。 必需属性：<br /><br /> **provider** - EventSource 事件的类名称。<br /><br /> 可选属性：<br /><br /> -                     **scheduledTransferLogLevelFilter** - 要传输到存储帐户的最低严重级别。<br /><br /> -                     **scheduledTransferPeriod** - 到存储空间的计划传输之间的时间间隔，向上舍入为最接近的分钟数。 值是 [XML 持续时间数据类型](http://www.w3schools.com/schema/schema_dtypes_date.asp)。|  
-|**EtwManifestProviderConfiguration**|必需属性：<br /><br /> **provider** - 事件提供程序的 GUID<br /><br /> 可选属性：<br /><br /> - **scheduledTransferLogLevelFilter** - 要传输到存储帐户的最低严重级别。<br /><br /> -                     **scheduledTransferPeriod** - 到存储空间的计划传输之间的时间间隔，向上舍入为最接近的分钟数。 值是 [XML 持续时间数据类型](http://www.w3schools.com/schema/schema_dtypes_date.asp)。|  
+|**EtwEventSourceProviderConfiguration**|配置收集从 [EventSource 类](http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx)生成的事件。 必需属性：<br /><br /> **provider** - EventSource 事件的类名称。<br /><br /> 可选属性：<br /><br /> -                     **scheduledTransferLogLevelFilter** - 要传输到存储帐户的最低严重级别。<br /><br /> -                     **scheduledTransferPeriod** - 到存储空间的计划传输之间的时间间隔，向上舍入为最接近的分钟数。 值是 [XML 持续时间数据类型](http://www.w3schools.com/xml/schema_dtypes_date.asp)。|  
+|**EtwManifestProviderConfiguration**|必需属性：<br /><br /> **provider** - 事件提供程序的 GUID<br /><br /> 可选属性：<br /><br /> - **scheduledTransferLogLevelFilter** - 要传输到存储帐户的最低严重级别。<br /><br /> -                     **scheduledTransferPeriod** - 到存储空间的计划传输之间的时间间隔，向上舍入为最接近的分钟数。 值是 [XML 持续时间数据类型](http://www.w3schools.com/xml/schema_dtypes_date.asp)。|  
 
 ## <a name="etweventsourceproviderconfiguration-element"></a>EtwEventSourceProviderConfiguration 元素  
  配置收集从 [EventSource 类](http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx)生成的事件。 下表介绍子元素：  
@@ -184,7 +178,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |元素名称|说明|  
 |------------------|-----------------|  
-|**MetricAggregation**|必需属性：<br /><br /> **scheduledTransferPeriod** - 到存储空间的计划传输之间的时间间隔，向上舍入为最接近的分钟数。 值是 [XML 持续时间数据类型](http://www.w3schools.com/schema/schema_dtypes_date.asp)。|  
+|**MetricAggregation**|必需属性：<br /><br /> **scheduledTransferPeriod** - 到存储空间的计划传输之间的时间间隔，向上舍入为最接近的分钟数。 值是 [XML 持续时间数据类型](http://www.w3schools.com/xml/schema_dtypes_date.asp)。|  
 
 ## <a name="performancecounters-element"></a>PerformanceCounters 元素  
  启用性能计数器收集。 下表介绍子元素：  

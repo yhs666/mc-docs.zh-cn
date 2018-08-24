@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: ''
 ms.topic: tutorial
 origin.date: 03/29/2018
-ms.date: 07/30/2018
+ms.date: 08/27/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 67577bbb878ef964e42f86ee70df33839cf1b62e
-ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
+ms.openlocfilehash: 9792fe5713c3f31535cf510009facb09a2de8d9e
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39306990"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42871634"
 ---
 # <a name="tutorial-create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-windows-with-azure-powershell"></a>教程：使用 Azure PowerShell 在 Windows 上创建虚拟机规模集和部署高度可用的应用
 利用虚拟机规模集，可以部署和管理一组相同的、自动缩放的虚拟机。 可以手动缩放规模集中的 VM 数，也可以定义规则，以便根据资源使用情况（如 CPU 使用率、内存需求或网络流量）进行自动缩放。 在本教程中，将在 Azure 中部署虚拟机规模集。 你将学习如何执行以下操作：
@@ -46,7 +46,7 @@ ms.locfileid: "39306990"
 ## <a name="create-a-scale-set"></a>创建规模集
 使用 [New-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvmss) 创建虚拟机规模集。 以下示例创建名为 *myScaleSet* 且使用 *Windows Server 2016 Datacenter* 平台映像的规模集。 虚拟网络、公共 IP 地址和负载均衡器的 Azure 网络资源均会自动创建。 出现提示时，请针对规模集中的 VM 实例提供自己的所需管理凭据：
 
-```powershell
+```PowerShell
 New-AzureRmVmss `
   -ResourceGroupName "myResourceGroupScaleSet" `
   -Location "ChinaEast" `
@@ -65,7 +65,7 @@ New-AzureRmVmss `
 
 使用自定义脚本扩展安装基本的 IIS Web 服务器。 应用可安装 IIS 的自定义脚本扩展，如下所示：
 
-```powershell
+```PowerShell
 # Define the script for your Custom Script Extension to run
 $publicSettings = @{
     "fileUris" = (,"https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/automate-iis.ps1");
@@ -95,7 +95,7 @@ Update-AzureRmVmss `
 ## <a name="test-your-scale-set"></a>测试规模集
 若要查看运行中的规模集，请使用 [Get-AzureRmPublicIPAddress](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermpublicipaddress) 获取负载均衡器的公共 IP 地址。 以下示例获取作为规模集的一部分创建的 myPublicIP 的 IP 地址：
 
-```powershell
+```PowerShell
 Get-AzureRmPublicIPAddress `
     -ResourceGroupName "myResourceGroupScaleSet" `
     -Name "myPublicIPAddress" | select IpAddress
@@ -113,7 +113,7 @@ Get-AzureRmPublicIPAddress `
 ### <a name="view-vms-in-a-scale-set"></a>查看规模集中的 VM
 若要在规模集中查看 VM 实例的列表，请使用 [Get-AzureRmVmssVM](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmssvm)，如下所示：
 
-```powershell
+```PowerShell
 Get-AzureRmVmssVM -ResourceGroupName "myResourceGroupScaleSet" -VMScaleSetName "myScaleSet"
 ```
 
@@ -128,14 +128,14 @@ MYRESOURCEGROUPSCALESET   myScaleSet_1   chinaeast Standard_DS1_v2          1   
 
 若要查看特定 VM 实例的其他信息，请将 `-InstanceId` 参数添加到 [Get-AzureRmVmssVM](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmssvm)。 以下示例查看 VM 实例 *1* 的相关信息：
 
-```powershell
+```PowerShell
 Get-AzureRmVmssVM -ResourceGroupName "myResourceGroupScaleSet" -VMScaleSetName "myScaleSet" -InstanceId "1"
 ```
 
 ### <a name="increase-or-decrease-vm-instances"></a>增加或减少 VM 实例
 若要查看规模集中当前包含的实例数，请使用 [Get-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss) 并查询 sku.capacity：
 
-```powershell
+```PowerShell
 Get-AzureRmVmss -ResourceGroupName "myResourceGroupScaleSet" `
     -VMScaleSetName "myScaleSet" | `
     Select -ExpandProperty Sku
@@ -143,7 +143,7 @@ Get-AzureRmVmss -ResourceGroupName "myResourceGroupScaleSet" `
 
 然后，可以使用 [Update-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss) 手动增加或减少规模集中虚拟机的数目。 以下示例将规模集中 VM 的数目设置为 *3*：
 
-```powershell
+```PowerShell
 # Get current scale set
 $scaleset = Get-AzureRmVmss `
   -ResourceGroupName "myResourceGroupScaleSet" `
@@ -161,7 +161,7 @@ Update-AzureRmVmss -ResourceGroupName "myResourceGroupScaleSet" `
 ### <a name="configure-autoscale-rules"></a>配置自动缩放规则
 你可以定义自动缩放规则，而不是手动缩放规模集中实例的数目。 这些规则监视规模集中的实例，并根据所定义的指标和阈值做出相应响应。 如果在 5 分钟内平均 CPU 负载高于 60%，以下示例将增加一个实例。 如果平均 CPU 负载低于 30% 且持续时间超过 5 分钟，则将减少一个实例：
 
-```powershell
+```PowerShell
 # Define your scale set information
 $mySubscriptionId = (Get-AzureRmSubscription)[0].Id
 $myResourceGroup = "myResourceGroupScaleSet"
@@ -200,7 +200,7 @@ $myScaleProfile = New-AzureRmAutoscaleProfile `
   -DefaultCapacity 2  `
   -MaximumCapacity 10 `
   -MinimumCapacity 2 `
-  -Rules $myRuleScaleUp,$myRuleScaleDown `
+  -Rule $myRuleScaleUp,$myRuleScaleDown `
   -Name "autoprofile"
 
 # Apply the autoscale rules
@@ -209,7 +209,7 @@ Add-AzureRmAutoscaleSetting `
   -Name "autosetting" `
   -ResourceGroup $myResourceGroup `
   -TargetResourceId $myScaleSetId `
-  -AutoscaleProfiles $myScaleProfile
+  -AutoscaleProfile $myScaleProfile
 ```
 
 有关使用自动缩放的详细设计信息，请参阅[自动缩放最佳做法](https://docs.microsoft.com/azure/architecture/best-practices/auto-scaling)。

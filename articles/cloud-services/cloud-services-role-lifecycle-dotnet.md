@@ -11,15 +11,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/06/2016
+origin.date: 07/18/2017
 ms.author: v-yiso
-ms.date: 01/25/2017
-ms.openlocfilehash: 86bf3cb63c309dd22d2fbe5be3055adc34ed0b56
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.date: 08/20/2017
+ms.openlocfilehash: b8b2ef9bee47448bc04aa59aa3cedec8722c0be8
+ms.sourcegitcommit: 664584f55e0a01bb6558b8d3349d41d3f05ba4d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
-ms.locfileid: "20184688"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41705258"
 ---
 # <a name="customize-the-lifecycle-of-a-web-or-worker-role-in-net"></a>在 .NET 中自定义 Web 角色或辅助角色的生命周期
 

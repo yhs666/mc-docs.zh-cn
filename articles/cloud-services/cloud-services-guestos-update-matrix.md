@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-origin.date: 06/01//2018
+origin.date: 07/03//2018
 ms.author: v-yiso
-ms.date: 07/16/2018
-ms.openlocfilehash: 2fb93d68503ebfb154de2bc5ebdf6f4dd76460e2
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.date: 08/20/2018
+ms.openlocfilehash: 7fa6e7752fa398fdc45127dd19d73ef600651abe
+ms.sourcegitcommit: 664584f55e0a01bb6558b8d3349d41d3f05ba4d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873485"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41704067"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure 来宾 OS 版本和 SDK 兼容性对照表
 提供适用于云服务的最新 Azure 来宾 OS 版本的最新信息。 此信息可帮助在禁用来宾 OS 之前规划升级路径。 如果根据 [Azure 来宾 OS 更新设置][Azure Guest OS Update Settings]中所述将角色配置为使用自动进行来宾 OS 更新，则不一定要阅读本页面。
@@ -44,6 +44,10 @@ ms.locfileid: "37873485"
 不确定如何更新来宾 OS？ 查看[此处的][cloud updates]。
 
 ## <a name="news-updates"></a>新闻更新
+
+###### <a name="july-3-2018"></a>**2018 年 7 月 3 日**
+6 月版来宾 OS 已发布。
+
 ###### <a name="june-1-2018"></a>**2018 年 6 月 1 日**
 5 月版来宾 OS 已发布。
 
@@ -71,9 +75,6 @@ ms.locfileid: "37873485"
 ###### <a name="november-8-2017"></a>2017 年 11 月 8 日
 10 月版来宾 OS 已发布。
 
-###### <a name="october-6-2017"></a>**2017 年 10 月 6日**
-9 月版来宾 OS 已发布。 对于 2016 年 9 月版本的 Windows Server，默认启用 netfx3。 在以下情况下，客户应在其 OnStart 中添加“dism /online /disable-feature /featurename:netfx3”：客户工作流要求客户使用 4.x 运行时运行 .NET 2.x 应用，或者客户运行了 .NET 2.x 应用，处理了错误，然后运行了 .NET 4.x 应用。
-
 
 
 ## <a name="releases"></a>发行版本
@@ -90,8 +91,9 @@ ms.locfileid: "37873485"
 
 | 配置字符串 | 发行日期 | 停用日期 | 失效日期 |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-5.20_201806-01 |2018 年 7 月 3 日 |Post 5.22 |TBD |
 | WA-GUEST-OS-5.19_201805-01 |2018 年 6 月 1 日 |发布 5.21 |TBD |
-| WA-GUEST-OS-5.18_201804-01 |2018 年 5 月 4 日 |发布 5.20 |TBD |
+|~~WA-GUEST-OS-5.18_201804-01~~ |2018 年 5 月 4 日 |2018 年 7 月 3 日 |TBD |
 |~~WA-GUEST-OS-5.17_201803-01~~ |2018 年 4 月 6 日 |2018 年 6 月 1 日|TBD |
 |~~WA-GUEST-OS-5.16_201802-01~~ |2018 年 3 月 12 日 |2018 年 5 月 4 日 |TBD |
 |~~WA-GUEST-OS-5.15_201801-01~~ |2018 年 1 月 4 日 |2018 年 4 月 6 日 |TBD |
@@ -99,7 +101,6 @@ ms.locfileid: "37873485"
 |~~WA-GUEST-OS-5.13_201711-01~~ |2017 年 12 月 14 日 |2018 年 1 月 4 日|TBD |
 |~~WA-GUEST-OS-5.12_201710-02~~ |2017 年 11 月 8 日 |2018 年 1 月 4 日 |TBD |
 |~~WA-GUEST-OS-5.11_201709-01~~ |2017 年 10 月 6日 |2017 年 12 月 14 日 |TBD |
-|~~WA-GUEST-OS-5.10_201708-01~~ |2017 年 8 月 24 日 |2017 年 12 月 14 日 |TBD |
 
 
 ## <a name="family-4-releases"></a>系列 4 发行版本
@@ -114,8 +115,9 @@ ms.locfileid: "37873485"
 
 | 配置字符串 | 发行日期 | 停用日期 | 失效日期 |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-4.55_201806-01 |2018 年 7 月 3 日 |Post 4.57 |TBD |
 | WA-GUEST-OS-4.54_201805-01 |2018 年 6 月 1 日 |发布 4.56 |TBD |
-| WA-GUEST-OS-4.53_201804-01 |2018 年 5 月 4 日 |发布 4.55 |TBD |
+|~~WA-GUEST-OS-4.53_201804-01~~ |2018 年 5 月 4 日 |2018 年 7 月 3 日 |TBD |
 |~~WA-GUEST-OS-4.52_201803-01~~ |2018 年 4 月 6 日 |2018 年 6 月 1 日 |TBD |
 |~~WA-GUEST-OS-4.51_201802-01~~ |2018 年 3 月 12 日 |2018 年 5 月 4 日 |TBD |
 |~~WA-GUEST-OS-4.50_201801-01~~ |2018 年 1 月 4 日 |2018 年 4 月 6 日 |TBD |
@@ -123,7 +125,6 @@ ms.locfileid: "37873485"
 |~~WA-GUEST-OS-4.48_201711-01~~ |2017 年 12 月 14 日 |2018 年 1 月 4 日 |TBD |
 |~~WA-GUEST-OS-4.47_201710-02~~ |2017 年 11 月 8 日 |2018 年 1 月 4 日 |TBD |
 |~~WA-GUEST-OS-4.46_201709-01~~ |2017 年 10 月 6日 |2017 年 12 月 14 日 |TBD |
-|~~WA-GUEST-OS-4.45_201708-01~~ |2017 年 8 月 24 日 |2017 年 12 月 14 日 |TBD |
 
 
 
@@ -139,8 +140,9 @@ ms.locfileid: "37873485"
 
 | 配置字符串 | 发行日期 | 停用日期 | 失效日期 |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-3.62_201806-01 |2018 年 7 月 3 日 |Post 3.64 |TBD |
 | WA-GUEST-OS-3.61_201805-01 |2018 年 6 月 1 日 |发布 3.63 |TBD |
-| WA-GUEST-OS-3.60_201804-01 |2018 年 5 月 4 日 |发布 3.62 |TBD |
+|~~WA-GUEST-OS-3.60_201804-01~~ |2018 年 5 月 4 日 |2018 年 7 月 3 日 |TBD |
 |~~WA-GUEST-OS-3.59_201803-01~~ |2018 年 4 月 6 日 |2018 年 6 月 1 日 |TBD |
 |~~WA-GUEST-OS-3.58_201802-01~~ |2018 年 3 月 19 日 |2018 年 5 月 4 日 |TBD |
 |~~WA-GUEST-OS-3.57_201801-01~~ |2018 年 1 月 29 日 |2018 年 4 月 6 日 |TBD |
@@ -163,8 +165,9 @@ ms.locfileid: "37873485"
 
 | 配置字符串 | 发行日期 | 停用日期 | 失效日期 |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-2.75_201806-01 |2018 年 7 月 3 日 |Post 2.77 |TBD |
 | WA-GUEST-OS-2.74_201805-01 |2018 年 6 月 1 日 |发布 2.76 |TBD |
-| WA-GUEST-OS-2.73_201804-01 |2018 年 5 月 4 日 |发布 2.75 |TBD |
+|~~WA-GUEST-OS-2.73_201804-01~~ |2018 年 5 月 4 日 |2018 年 7 月 3 日 |TBD |
 |~~WA-GUEST-OS-2.72_201803-01~~ |2018 年 4 月 6 日 |2018 年 6 月 1 日 |TBD |
 |~~WA-GUEST-OS-2.71_201802-01~~ |2018 年 3 月 12 日 |2018 年 5 月 4 日 |TBD |
 |~~WA-GUEST-OS-2.70_201801-01~~ |2018 年 1 月 29 日 |2018 年 4 月 6 日 |TBD |

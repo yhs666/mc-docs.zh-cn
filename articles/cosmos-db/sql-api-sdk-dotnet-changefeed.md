@@ -9,14 +9,14 @@ ms.component: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
 origin.date: 05/21/2018
-ms.date: 07/02/2018
+ms.date: 08/13/2018
 ms.author: v-yeche
-ms.openlocfilehash: 033ae8c8fb7e20206eed18e801786c204d084a86
-ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
+ms.openlocfilehash: 188ace8af72cf5872e29d2079c263c57858d808f
+ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37070335"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41704097"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET 更改源处理器 SDK：下载和发行说明
 > [!div class="op_single_selector"]

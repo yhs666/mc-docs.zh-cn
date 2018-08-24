@@ -10,14 +10,14 @@ ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: sample
 origin.date: 11/29/2017
-ms.date: 07/02/2018
+ms.date: 08/13/2018
 ms.author: v-yeche
-ms.openlocfilehash: 04af79158539844c275956c29905e157df8e6e54
-ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
+ms.openlocfilehash: 43d5ca50736d2a041a1161218fe6e3cc3c497328
+ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37070135"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41705163"
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db"></a>用于 Azure Cosmos DB 的 Azure CLI 示例
 

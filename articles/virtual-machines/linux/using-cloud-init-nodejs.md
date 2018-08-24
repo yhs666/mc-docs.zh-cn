@@ -16,12 +16,12 @@ ms.topic: article
 origin.date: 10/26/2016
 ms.date: 06/25/2018
 ms.author: v-yeche
-ms.openlocfilehash: c567cf7cef8c8d84726c272dd5d906e1b7744147
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.openlocfilehash: be29e79faf08cfc8f6a25036cba7c641fb7a4464
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315550"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42871626"
 ---
 # <a name="use-cloud-init-to-customize-a-linux-vm-during-creation-with-the-azure-cli-10"></a>通过 Azure CLI 1.0 使用 cloud-init 在创建期间自定义 Linux VM
 本文说明如何制作 cloud-init 脚本来设置主机名、更新已安装的包及管理用户帐户。  在 VM 创建期间可以从 Azure CLI 调用 cloud-init 脚本。  本文需要以下条件：
@@ -99,14 +99,15 @@ Azure 有三种不同的方法可在部署或启动 Linux VM 时对其进行更�
 > 
 
 ## <a name="cloud-init-availability-on-azure-vm-quick-create-image-aliases"></a>Azure VM 上的 Cloud-init 可用性快速创建映像别名：
-| 别名 | 发布者 | 产品 | SKU | 版本 | Cloud-init |
+| 别名 | 发布者 | 产品/服务 | SKU | 版本 | Cloud-init |
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | CentOS |OpenLogic |Centos |7.2 |最新 |否 |
 | CoreOS |CoreOS |CoreOS |Stable |最新 |是 |
 | Debian |credativ |Debian |8 |最新 |否 |
 | openSUSE |SUSE |openSUSE |13.2 |最新 |否 |
 | UbuntuLTS |Canonical |UbuntuServer |14.04.4-LTS |最新 |是 |
-<!-- 不可用于 | RHEL |RedHat |RHEL |7.2 |最新 |否 |-->
+
+<!-- Not Available on | RHEL |RedHat |RHEL |7.2 |latest |no |-->
 
 Microsoft 正在与合作伙伴协作将 cloud-init 包含在用户向 Azure 提供的映像中并让它在其中正常工作。
 

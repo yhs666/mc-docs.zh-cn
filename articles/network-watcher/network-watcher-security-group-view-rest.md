@@ -13,28 +13,27 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/22/2017
-ms.date: 11/20/2017
+ms.date: 08/13/2018
 ms.author: v-yeche
-ms.openlocfilehash: 9a90353c56a98d78ddc80012c2bf5b9d377334a2
-ms.sourcegitcommit: b24a9ead8c486caecf17be7584c41104bb8114cf
+ms.openlocfilehash: 9aef4ce5b718d5304039e2de46dca612c3793615
+ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/14/2017
-ms.locfileid: "24519534"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41705164"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-rest-api"></a>使用 REST API 通过安全组视图分析虚拟机安全性
 
 > [!div class="op_single_selector"]
 > - [PowerShell](network-watcher-security-group-view-powershell.md)
-> - [CLI 1.0](network-watcher-security-group-view-cli-nodejs.md)
-> - [CLI 2.0](network-watcher-security-group-view-cli.md)
+> - [Azure CLI](network-watcher-security-group-view-cli.md)
 > - [REST API](network-watcher-security-group-view-rest.md)
 
 安全组视图返回已应用于虚拟机的已配置的有效网络安全规则。 此功能可用于审核和诊断已在 VM 上配置以确保正确允许或拒绝流量的网络安全组和规则。 在本文中，我们将说明如何使用 REST API 检索应用于虚拟机的有效安全规则
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="before-you-begin"></a>准备阶段
 
-在此方案中，将调用网络观察程序 Rest API 获取虚拟机的安全组视图。 ARMclient 用于使用 PowerShell 调用 REST API。 根据 [Chocolatey 上的 ARMClient](https://chocolatey.org/packages/ARMClient) 中所述在 chocolatey 上找到 ARMClient
+在此方案中，将调用网络观察程序 Rest API 获取虚拟机的安全组视图。 通过 PowerShell 调用 REST API 时，使用的是 ARMclient。 根据 [Chocolatey 上的 ARMClient](https://chocolatey.org/packages/ARMClient) 中所述在 chocolatey 上找到 ARMClient
 
 此方案假定已按照[创建网络观察程序](network-watcher-create.md)中的步骤创建网络观察程序。 此外，本方案假设要使用一个包含有效虚拟机的资源组。
 
@@ -99,8 +98,10 @@ pute/virtualMachines/{vmName}/extensions/CustomScriptExtension"
 ```powershell
 $subscriptionId = "<subscription id>"
 $resourceGroupName = "<resource group name>"
-$networkWatcherName = "<network watcher name>"
-$targetUri = "<uri of target resource>" # Example: /subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.compute/virtualMachine/$vmName
+$networkWatcherName = "NetworkWatcher_chinaeast"
+$networkWatcherGroupName = "NetworkWatcherRG"
+$vmName="<virtual machiche name>"
+$targetUri = "<uri of target resource>" # Example: /subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.compute/virtualMachines/$vmName
 
 $requestBody = @"
 {
@@ -108,8 +109,9 @@ $requestBody = @"
 
 }
 "@
-armclient post "https://management.chinacloudapi.cn/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/securityGroupView?api-version=2016-12-01" $requestBody -verbose
+armclient post "https://management.chinacloudapi.cn/subscriptions/${subscriptionId}/ResourceGroups/${networkWatcherGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/securityGroupView?api-version=2016-12-01" $requestBody -verbose
 ```
+<!-- Notice: Add networkWatcherGroupName parameters-->
 
 ## <a name="view-the-response"></a>查看响应
 
@@ -185,4 +187,4 @@ armclient post "https://management.chinacloudapi.cn/subscriptions/${subscription
 
 请访问[使用网络观察程序审核网络安全组 (NSG)](network-watcher-security-group-view-powershell.md)，了解如何自动执行网络安全组的验证。
 
-<!--Update_Description: new articles on network watcher security group view rest -->
+<!--Update_Description: update link, wording update -->

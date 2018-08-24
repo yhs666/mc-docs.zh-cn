@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: container-registry
 ms.topic: article
 origin.date: 03/15/2018
-ms.date: 07/02/2018
+ms.date: 08/27/2018
 ms.author: v-yeche
-ms.openlocfilehash: 2a5b7891fe6ab28f552d0aeebde33d9f2ad0563f
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.openlocfilehash: 093ee22726828de988bd5a420e2ae168b6f5a48f
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39167811"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42872336"
 ---
 # <a name="azure-container-registry-skus"></a>Azure 容器注册表 SKU
 
@@ -100,11 +100,10 @@ az acr update --name myregistry --sku Premium
 [container-registry-uservoice]: https://www.azure.cn/support/support-azure/
 
 <!-- LINKS - Internal -->
-[az-acr-update]: https://docs.azure.cn/zh-cn/cli/acr?view=azure-cli-latest#az_acr_update
+[az-acr-update]: https://docs.azure.cn/zh-cn/cli/acr?view=azure-cli-latest#az-acr-update
 [container-registry-geo-replication]: container-registry-geo-replication.md
 [container-registry-upgrade]: container-registry-upgrade.md
 [container-registry-storage]: container-registry-storage.md
 [container-registry-webhook]: container-registry-webhook.md
 
-<!-- Update_Description: new article on container registry skus -->
-<!--ms.date: 07/02/2018-->
+<!-- Update_Description: update meta properties, wording update -->

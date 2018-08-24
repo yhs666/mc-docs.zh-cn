@@ -11,14 +11,14 @@ ms.custom: tutorial-develop, mvc
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 05/10/2017
-ms.date: 07/02/2018
+ms.date: 08/13/2018
 ms.author: v-yeche
-ms.openlocfilehash: 66342ecfec889986fb4e0c86b1c8b73044f38f11
-ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
+ms.openlocfilehash: 9213c89203b187a0f19568047d747d98820d69d8
+ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37070191"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41704935"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-sql-api"></a>教程：使用 SQL API 查询 Azure Cosmos DB
 
@@ -123,14 +123,10 @@ Azure Cosmos DB [SQL API](documentdb-introduction.md) 支持使用 SQL 查询文
     FROM Families f 
     JOIN c IN f.children 
     WHERE f.id = 'WakefieldFamily'
-    ORDER BY f.children.grade ASC
 
 **结果**
 
-    [
-      { "givenName": "Jesse" }, 
-      { "givenName": "Lisa"}
-    ]
+[ { "givenName": "Jesse" }, { "givenName": "Lisa" } ]
 
 ## <a name="next-steps"></a>后续步骤
 

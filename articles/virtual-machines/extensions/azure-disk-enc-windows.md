@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 06/12/2018
-ms.date: 07/30/2018
+ms.date: 08/27/2018
 ms.author: v-yeche
-ms.openlocfilehash: 49df6f9f180fa5b5687560f8938834b6a5b6de66
-ms.sourcegitcommit: 35889b4f3ae51464392478a72b172d8910dd2c37
+ms.openlocfilehash: d203e88705a4d5bf72ba52df2b670492914bfe0c
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39261966"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42871660"
 ---
 # <a name="azure-disk-encryption-for-windows-microsoftazuresecurityazurediskencryption"></a>适用于 Windows 的 Azure 磁盘加密 (Microsoft.Azure.Security.AzureDiskEncryption)
 
@@ -31,14 +31,17 @@ Azure 磁盘加密利用 Bitlocker 在运行 Windows 的 Azure 虚拟机上提�
 ## <a name="prerequisites"></a>先决条件
 
 有关先决条件的完整列表，请参阅 [Azure 磁盘加密先决条件](../../security/azure-security-disk-encryption.md#prerequisites)。
+<!--Pending on (../../security/azure-security-disk-encryption-prerequisites.md)-->
 
 ### <a name="operating-system"></a>操作系统
 
 有关当前 Windows 版本的列表，请参阅 [Azure 磁盘加密先决条件](../../security/azure-security-disk-encryption.md#prerequisites)。
+<!--Pending on (../../security/azure-security-disk-encryption-prerequisites.md)-->
 
 ### <a name="internet-connectivity"></a>Internet 连接
 
 Azure 磁盘加密需要 Internet 连接才能访问 Active Directory、Key Vault、存储和包管理终结点。  有关网络安全设置的详细信息，请参阅 [Azure 磁盘加密先决条件](../../security/azure-security-disk-encryption.md#prerequisites)。
+<!--Pending on (../../security/azure-security-disk-encryption-prerequisites.md)-->
 
 ## <a name="extension-schema"></a>扩展架构
 
@@ -70,7 +73,7 @@ Azure 磁盘加密需要 Internet 连接才能访问 Active Directory、Key Vaul
 
 ### <a name="property-values"></a>属性值
 
-| Name | 值/示例 | 数据类型 |
+| 名称 | 值/示例 | 数据类型 |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | 日期 |
 | 发布者 | Microsoft.Azure.Security | 字符串 |
@@ -99,10 +102,9 @@ Azure 磁盘加密需要 Internet 连接才能访问 Active Directory、Key Vaul
 
 ## <a name="support"></a>支持
 
-如果对本文中的任何观点存在疑问，可以联系 [Azure 支持站点](https://www.azure.cn/support/contact/)上的 Azure 专家。 有关使用 Azure 支持的信息，请阅读 [Azure 支持常见问题](https://www.azure.cn/support/faq/)。
+如果对本文中的任何观点存在疑问，可以联系 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/contact/) 上的 Azure 专家。 有关使用 Azure 支持的信息，请阅读 [Azure 支持常见问题](https://www.azure.cn/support/faq/)。
 <!-- Not Available on [MSDN Azure and CSDN Azure](https://www.azure.cn/support/community/)-->
 
 ## <a name="next-steps"></a>后续步骤
 有关扩展的详细信息，请参阅[适用于 Windows 的虚拟机扩展和功能](features-windows.md)。
-<!-- Update_Description: new articles on azure disk encrypt windows  -->
-<!--ms.date: 07/30/2018-->
+<!-- Update_Description: wording update, update meta propertiess  -->

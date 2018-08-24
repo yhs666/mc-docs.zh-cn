@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 04/16/2018
-ms.date: 06/25/2018
+ms.date: 08/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 8f867c9dc80665e97da06a017e95b7c11590a87c
-ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
+ms.openlocfilehash: bb0563bbcdd0ab5af8281ac884db9f247963965f
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36747535"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41704516"
 ---
 # <a name="quickstart-create-a-kafka-on-hdinsight-cluster"></a>快速入门：创建 Kafka on HDInsight 群集
 
@@ -106,6 +106,7 @@ New-AzureStorageContainer -Name $containerName -Context $storageContext
 通过 [New-AzureRmHDInsightCluster](https://docs.microsoft.com/en-us/powershell/module/AzureRM.HDInsight/New-AzureRmHDInsightCluster) 创建 Kafka on HDInsight 群集。
 
 ```powershell
+# Create a Kafka 1.0 cluster
 $clusterName = Read-Host -Prompt "Enter the name of the Kafka cluster"
 $httpCredential = Get-Credential -Message "Enter the cluster login credentials" `
     -UserName "admin"
@@ -117,6 +118,9 @@ $clusterType="Kafka"
 $clusterOS="Linux"
 $disksPerNode=2
 
+$kafkaConfig = New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]"
+$kafkaConfig.Add("kafka", "1.0")
+
 New-AzureRmHDInsightCluster `
         -ResourceGroupName $resourceGroup `
         -ClusterName $clusterName `
@@ -125,8 +129,9 @@ New-AzureRmHDInsightCluster `
         -ClusterType $clusterType `
         -OSType $clusterOS `
         -Version $clusterVersion `
+        -ComponentVersion $kafkaConfig `
         -HttpCredential $httpCredential `
-        -DefaultStorageAccountName "$storageAccount.blob.core.windows.net" `
+        -DefaultStorageAccountName "$storageName.blob.core.windows.net" `
         -DefaultStorageAccountKey $storageKey `
         -DefaultStorageContainer $clusterName `
         -SshCredential $sshCredentials `
@@ -183,9 +188,9 @@ Last login: Thu Mar 29 13:25:27 2018 from 108.252.109.241
 ssuhuser@hn0-mykafk:~$
 ```
 
-## <a id="getkafkainfo"></a>获取 Zookeeper 和中转站主机信息
+## <a id="getkafkainfo"></a>获取 Zookeeper 主机和代理主机信息
 
-使用 Kafka 时，必须了解 Zookeeper 和代理主机。 Kafka API 以及 Kafka 随附的许多实用工具都使用这些主机。
+使用 Kafka 时，必须了解 Zookeeper 和代理主机。 这些主机配合 Kafka API 和 Kafka 随附的许多实用工具一起使用。
 
 在本部分中，可以从群集上的 Ambari REST API 获取主机信息。
 
@@ -274,7 +279,7 @@ Kafka 在主题中存储数据流。 可以使用 `kafka-topics.sh` 实用工具
 
         * 创建新主题或分区
 
-        * 扩展群集
+        * 纵向扩展群集
 
 * 若要列出主题，请使用以下命令：
 
@@ -303,7 +308,7 @@ Kafka 在主题中存储数据流。 可以使用 `kafka-topics.sh` 实用工具
 
 ## <a name="produce-and-consume-records"></a>生成和使用记录
 
-Kafka 将*记录*存储在主题中。 记录由*生成者*生成，由*使用者*使用。 生产者与使用者通过 Kafka 代理服务通信。 HDInsight 群集中的每个辅助角色节点都是 Kafka 代理主机。
+Kafka 将记录存储在主题中。 记录由生成者生成，由使用者使用。 生产者与使用者通过 Kafka 代理服务通信。 HDInsight 群集中的每个工作节点都是 Kafka 代理主机。
 
 若要将记录存储到之前创建的测试主题，并通过使用者对其进行读取，请使用以下步骤：
 
@@ -323,12 +328,12 @@ Kafka 将*记录*存储在主题中。 记录由*生成者*生成，由*使用�
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --topic test --from-beginning
     ```
    
-    此命令从主题中检索并显示记录。 使用 `--from-beginning` 告知使用者要从流的开头开始读取，以便检索所有记录。
+    此命令从主题中检索并显示记录。 使用 `--from-beginning` 告知使用者从流的开头开始，以检索所有记录。
 
     > [!NOTE]
     > 如果使用的是较旧版本的 Kafka，请将 `--bootstrap-server $KAFKABROKERS` 替换为 `--zookeeper $KAFKAZKHOSTS`。
 
-4. 使用 __Ctrl + C__ 停止使用者。
+4. 使用 __Ctrl + C__ 阻止使用者。
 
 还可以以编程方式创建生产者和使用者。 有关如何使用此 API 的示例，请参阅[将 Kafka 生产者和使用者 API 与 HDInsight 配合使用](apache-kafka-producer-consumer-api.md)文档。
 
@@ -341,7 +346,7 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 ```
 
 > [!WARNING]
-> HDInsight 群集计费在创建群集之后便会开始，删除群集后才会停止。 HDInsight 群集按分钟收费，因此不再需要使用群集时，应将其删除。
+> HDInsight 群集计费在创建群集之后便会开始，删除群集后才会停止。 群集以每分钟按比例收费，因此无需再使用群集时，应始终将其删除。
 > 
 > 删除 Kafka on HDInsight 群集会删除存储在 Kafka 中的任何数据。
 

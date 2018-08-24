@@ -9,14 +9,14 @@ ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
 origin.date: 01/02/2018
-ms.date: 07/02/2018
+ms.date: 08/13/2018
 ms.author: v-yeche
-ms.openlocfilehash: 2b4872729811a9b897d071741e97a2812b87bfe8
-ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
+ms.openlocfilehash: a99539e8e5c9398894dd5cccd31509806ca6abc2
+ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37070249"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41705084"
 ---
 > [!div class="op_single_selector"]
 > * [异步 Java](performance-tips-async-java.md)
@@ -80,7 +80,7 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 3. **使用网关模式时，增加每个主机的 MaxPoolSize**
 
     使用网关模式时，Azure Cosmos DB 请求是通过 HTTPS/REST 发出的，并受制于每个主机名或 IP 地址的默认连接限制。 可能需要将 MaxPoolSize 设置为较大的值 (200-1000)，以便客户端库能够同时利用多个连接来访问 Azure Cosmos DB。 在 Java SDK 中，[ConnectionPolicy.getMaxPoolSize](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._connection_policy) 的默认值为 100。 使用 [setMaxPoolSize]( https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._connection_policy.setmaxpoolsize) 可更改该值。
-<!-- URL is valid on ._connection_policy without gsetmaxpoolsize -->
+    <!-- URL is valid on ._connection_policy without gsetmaxpoolsize -->
 
 4. **优化分区集合的并行查询。**
 
@@ -151,8 +151,8 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
     response.getRequestCharge();
     ```             
 
-    在此标头中返回的请求费用是预配吞吐量的一小部分。 例如，如果预配了 2000 RU/s，上述查询返回 1000 个 1KB 文档，则操作成本为 1000。 因此在一秒内，服务器在限制后续请求之前，只接受两个此类请求。 有关详细信息，请参阅[请求单位](request-units.md)和[请求单位计算器](https://www.documentdb.com/capacityplanner)。
-<a name="429"></a>
+    在此标头中返回的请求费用是预配吞吐量的一小部分。 例如，如果预配了 2000 RU/s，上述查询返回 1000 个 1KB 文档，则操作成本为 1000。 因此在一秒内，服务器在对后续请求进行速率限制之前，只接受两个此类请求。 有关详细信息，请参阅[请求单位](request-units.md)和[请求单位计算器](https://www.documentdb.com/capacityplanner)。
+    <a name="429"></a>
 2. **处理速率限制/请求速率太大**
 
     客户端尝试超过帐户保留的吞吐量时，服务器的性能不会降低，并且不会使用超过保留级别的吞吐量容量。 服务器将抢先结束 RequestRateTooLarge（HTTP 状态代码 429）的请求并返回 [x-ms-retry-after-ms](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) 标头，该标头指示重新尝试请求前用户必须等待的时间量（以毫秒为单位）。

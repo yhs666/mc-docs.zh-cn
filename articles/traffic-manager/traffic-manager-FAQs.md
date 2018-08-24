@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 05/09/2018
-ms.date: 07/09/2018
+ms.date: 08/20/2018
 ms.author: v-yeche
-ms.openlocfilehash: 2f33b165e14bdbff594b5eae312866cd1f5c3d48
-ms.sourcegitcommit: 037a777484c32657c30778c14c27c14db36d39c3
+ms.openlocfilehash: d6acddaca1cb6a5613eee148435861988c69bf54
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37799959"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41705171"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>流量管理器常见问题解答 (FAQ)
 
@@ -65,7 +65,7 @@ ms.locfileid: "37799959"
 
 否。 DNS 标准不允许 CNAME 与其他同名的 DNS 记录共存。 DNS 区域的顶点（或根）始终包含两条预先存在的 DNS 记录：SOA 和权威 NS 记录。 这意味着在不违反 DNS 标准的情况下，无法在区域顶点位置创建 CNAME 记录。
 
-流量管理器需要使用一条 DNS CNAME 记录来映射虚构 DNS 名称。 例如，将 www.contoso.com 映射到流量管理器配置文件 DNS 名称 contoso.trafficmanager.cn。 此外，流量管理器配置文件还会返回另一条 DNS CNAME 来指示客户端应连接到的终结点。
+流量管理器需要使用一条 DNS CNAME 记录来映射虚构 DNS 名称。 例如，将 `www.contoso.com` 映射到流量管理器配置文件 DNS 名称 `contoso.trafficmanager.cn`。 此外，流量管理器配置文件还会返回另一条 DNS CNAME 来指示客户端应连接到的终结点。
 
 要解决此问题，我们建议使用 HTTP 重定向将流量从裸域名定向到不同的 URL，然后即可使用流量管理器。 例如，裸域“contoso.com”可将用户重定向到指向流量管理器 DNS 名称的 CNAME“www.contoso.com”。
 

@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/23/2017
-ms.date: 05/28/2018
+ms.date: 08/20/2018
 ms.author: v-yeche
-ms.openlocfilehash: 70961325b2bde68def5649037a1bc51a2b269d69
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: 7ed1e4eb1ccdf3f15a398449636268785e2b490b
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554326"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41705296"
 ---
 # <a name="update-your-previous-java-service-fabric-application-to-fetch-java-libraries-from-maven"></a>更新旧式 Java Service Fabric 应用程序，以便从 Maven 提取 Java 库
 我们最近已将 Service Fabric Java 二进制文件从 Service Fabric Java SDK 移至 Maven 托管。 现在，你可以使用 mavencentral 来提取最新的 Service Fabric Java 依赖项。 本快速入门介绍如何更新现有的 Java 应用程序（此前使用 Yeoman 模板或 Eclipse 创建，可与 Service Fabric Java SDK 配合使用），使之与基于 Maven 的版本兼容。
@@ -54,8 +54,8 @@ Service Fabric Java 库已托管在 Maven 中。 可以在项目的 ``pom.xml`` 
   ```XML
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
-      <artifactId>sf-actors-preview</artifactId>
-      <version>0.10.0</version>
+      <artifactId>sf-actors</artifactId>
+      <version>1.0.0</version>
   </dependency>
   ```
 
@@ -64,7 +64,7 @@ Service Fabric Java 库已托管在 Maven 中。 可以在项目的 ``pom.xml`` 
       mavenCentral()
   }
   dependencies {
-      compile 'com.microsoft.servicefabric:sf-actors-preview:0.10.0'
+      compile 'com.microsoft.servicefabric:sf-actors:1.0.0'
   }
   ```
 
@@ -75,8 +75,8 @@ Service Fabric Java 库已托管在 Maven 中。 可以在项目的 ``pom.xml`` 
   ```XML
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
-      <artifactId>sf-services-preview</artifactId>
-      <version>0.10.0</version>
+      <artifactId>sf-services</artifactId>
+      <version>1.0.0</version>
   </dependency>
   ```
 
@@ -85,7 +85,7 @@ Service Fabric Java 库已托管在 Maven 中。 可以在项目的 ``pom.xml`` 
       mavenCentral()
   }
   dependencies {
-      compile 'com.microsoft.servicefabric:sf-services-preview:0.10.0'
+      compile 'com.microsoft.servicefabric:sf-services:1.0.0'
   }
   ```
 
@@ -97,8 +97,8 @@ Service Fabric Java 库已托管在 Maven 中。 可以在项目的 ``pom.xml`` 
   ```XML
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
-      <artifactId>sf-transport-preview</artifactId>
-      <version>0.10.0</version>
+      <artifactId>sf-transport</artifactId>
+      <version>1.0.0</version>
   </dependency>
   ```
 
@@ -107,7 +107,7 @@ Service Fabric Java 库已托管在 Maven 中。 可以在项目的 ``pom.xml`` 
       mavenCentral()
   }
   dependencies {
-      compile 'com.microsoft.servicefabric:sf-transport-preview:0.10.0'
+      compile 'com.microsoft.servicefabric:sf-transport:1.0.0'
   }
   ```
 
@@ -118,8 +118,8 @@ Service Fabric Java 库已托管在 Maven 中。 可以在项目的 ``pom.xml`` 
   ```XML
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
-      <artifactId>sf-preview</artifactId>
-      <version>0.10.0</version>
+      <artifactId>sf</artifactId>
+      <version>1.0.0</version>
   </dependency>
   ```
 
@@ -128,7 +128,7 @@ Service Fabric Java 库已托管在 Maven 中。 可以在项目的 ``pom.xml`` 
       mavenCentral()
   }
   dependencies {
-      compile 'com.microsoft.servicefabric:sf-preview:0.10.0'
+      compile 'com.microsoft.servicefabric:sf:1.0.0'
   }
   ```
 
@@ -179,15 +179,15 @@ configurations {
 
 dependencies {
     compile project(':Interface')
-    azuresf ('com.microsoft.servicefabric:sf-services-preview:0.10.0')
+    azuresf ('com.microsoft.servicefabric:sf-services:1.0.0')
     compile fileTree(dir: 'lib', include: '*.jar')
 }
 
 task explodeDeps(type: Copy, dependsOn:configurations.azuresf) { task ->
-    configurations.azuresf.filter { it.toString().contains("native-preview") }.each{
+    configurations.azuresf.filter { it.toString().contains("native") }.each{
         from zipTree(it)
     }
-    configurations.azuresf.filter { !it.toString().contains("native-preview") }.each {
+    configurations.azuresf.filter { !it.toString().contains("native") }.each {
         from it
     }
     into "lib"
@@ -252,15 +252,15 @@ configurations {
 }
 
 dependencies {
-    azuresf ('com.microsoft.servicefabric:sf-actors-preview:0.10.0')
+    azuresf ('com.microsoft.servicefabric:sf-actors:1.0.0')
     compile fileTree(dir: 'lib', include: '*.jar')
 }
 
 task explodeDeps(type: Copy, dependsOn:configurations.azuresf) { task ->
-    configurations.azuresf.filter { it.toString().contains("native-preview") }.each{
+    configurations.azuresf.filter { it.toString().contains("native") }.each{
         from zipTree(it)
     }
-    configurations.azuresf.filter { !it.toString().contains("native-preview") }.each {
+    configurations.azuresf.filter { !it.toString().contains("native") }.each {
         from it
     }
     into "lib"
@@ -325,15 +325,15 @@ configurations {
 
 dependencies {
     compile project(':MyactorInterface')
-    azuresf ('com.microsoft.servicefabric:sf-actors-preview:0.10.0')
+    azuresf ('com.microsoft.servicefabric:sf-actors:1.0.0')
     compile fileTree(dir: 'lib', include: '*.jar')
 }
 
 task explodeDeps(type: Copy, dependsOn:configurations.azuresf) { task ->
-    configurations.azuresf.filter { it.toString().contains("native-preview") }.each{
+    configurations.azuresf.filter { it.toString().contains("native") }.each{
         from zipTree(it)
     }
-    configurations.azuresf.filter { !it.toString().contains("native-preview") }.each {
+    configurations.azuresf.filter { !it.toString().contains("native") }.each {
         from it
     }
     into "lib"
@@ -425,15 +425,15 @@ configurations {
 
 dependencies {
     compile project(':MyactorInterface')
-    azuresf ('com.microsoft.servicefabric:sf-actors-preview:0.10.0')
+    azuresf ('com.microsoft.servicefabric:sf-actors:1.0.0')
     compile fileTree(dir: 'lib', include: '*.jar')
 }
 
 task explodeDeps(type: Copy, dependsOn:configurations.azuresf) { task ->
-    configurations.azuresf.filter { it.toString().contains("native-preview") }.each{
+    configurations.azuresf.filter { it.toString().contains("native") }.each{
         from zipTree(it)
     }
-    configurations.azuresf.filter { !it.toString().contains("native-preview") }.each {
+    configurations.azuresf.filter { !it.toString().contains("native") }.each {
         from it
     }
     into "lib"

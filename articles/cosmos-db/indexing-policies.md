@@ -9,14 +9,14 @@ ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 03/26/2018
-ms.date: 07/02/2018
+ms.date: 08/13/2018
 ms.author: v-yeche
-ms.openlocfilehash: 144a61f1720336a8cb12fab71f2d81803edcbcc0
-ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
+ms.openlocfilehash: 649d6b916f83d18a74a3b468f0b74afefc1e3130
+ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37070250"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41704510"
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Azure Cosmos DB 如何为数据编制索引？
 
@@ -141,6 +141,7 @@ Azure Cosmos DB 将 JSON 文档和索引建模为树。 可调整树中路径的
 
 下面的示例通过范围索引和 20 个字节的自定义精度值来配置特定路径：
 
+```
     var collection = new DocumentCollection { Id = "rangeSinglePathCollection" };    
 
     collection.IndexingPolicy.IncludedPaths.Add(
@@ -161,6 +162,74 @@ Azure Cosmos DB 将 JSON 文档和索引建模为树。 可调整树中路径的
         });
 
     collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), pathRange);
+```
+
+添加路径以进行索引时，会对这些路径中的数字和字符串进行索引。 因此，即使只为字符串定义索引，Azure Cosmos DB 也会为数字添加默认定义。 换句话说，Azure Cosmos DB 可以从索引策略中排除路径，但不能从特定路径中排除类型。 下面是一个示例，请注意，只为两个路径（路径 =“/*”和路径 =“/\"attr1\"/?”）指定了一个索引，但数字数据类型也添加到结果中。
+
+```
+var indices = new[]{
+                new IncludedPath  {
+                    Indexes = new Collection<Index>
+                    {
+                        new RangeIndex(DataType.String) { Precision = 3 }// <- note: only 1 index specified
+                    },
+                    Path =  "/*"
+                },
+                new IncludedPath  {
+                    Indexes = new Collection<Index>
+                    {
+                        new RangeIndex(DataType.String) { Precision = 3 } // <- note: only 1 index specified
+                    },
+                    Path =  "/\"attr1\"/?"
+                }
+            };...
+
+            foreach (var index in indices)
+            {
+                documentCollection.IndexingPolicy.IncludedPaths.Add(index);
+            }
+```
+
+创建索引的结果：
+
+```json
+{
+    "indexingMode": "consistent",
+    "automatic": true,
+    "includedPaths": [
+        {
+            "path": "/*",
+            "indexes": [
+                {
+                    "kind": "Range",
+                    "dataType": "String",
+                    "precision": 3
+                },
+                {
+                    "kind": "Range",
+                    "dataType": "Number",
+                    "precision": -1
+                }
+            ]
+        },
+        {
+            "path": "/\"attr\"/?",
+            "indexes": [
+                {
+                    "kind": "Range",
+                    "dataType": "String",
+                    "precision": 3
+                },
+                {
+                    "kind": "Range",
+                    "dataType": "Number",
+                    "precision": -1
+                }
+            ]
+        }
+    ],
+}
+```
 
 ### <a name="index-data-types-kinds-and-precisions"></a>索引数据类型、种类和精度
 配置路径的索引策略时，有多个选项。 可以为每个路径指定一个或多个索引定义：

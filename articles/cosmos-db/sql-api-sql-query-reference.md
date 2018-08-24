@@ -9,14 +9,14 @@ ms.component: cosmosdb-sql
 ms.devlang: na
 ms.topic: reference
 origin.date: 10/18/2017
-ms.date: 07/02/2018
+ms.date: 08/13/2018
 ms.author: v-yeche
-ms.openlocfilehash: 526656b95863aa33b92fef3bad07e7599841d6c6
-ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
+ms.openlocfilehash: d2bad457370d0f045ed4a4f39e018c137a5c9353
+ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37070349"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41704463"
 ---
 # <a name="azure-cosmos-db-sql-syntax-reference"></a>Azure Cosmos DB SQL 语法参考
 
@@ -466,7 +466,7 @@ ORDER BY <sort_specification>
 
 -   `parameter_name`  
 
-     表示指定的参数名称的值。 参数名称必须以单个 @ 作为第一个字符。  
+     表示指定的参数名称的值。 参数名称必须以单个 \@ 作为第一个字符。  
 
  **备注**  
 
@@ -1898,7 +1898,7 @@ SELECT
 |[LOWER](#bk_lower)|[LTRIM](#bk_ltrim)|[REPLACE](#bk_replace)|  
 |[REPLICATE](#bk_replicate)|[REVERSE](#bk_reverse)|[RIGHT](#bk_right)|  
 |[RTRIM](#bk_rtrim)|[STARTSWITH](#bk_startswith)|[SUBSTRING](#bk_substring)|  
-|[UPPER](#bk_upper)|||  
+|[ToString](#bk_tostring)|[UPPER](#bk_upper)||  
 
 <a name="bk_concat"></a>
 ####  <a name="concat"></a>CONCAT  
@@ -2426,7 +2426,81 @@ SELECT SUBSTRING("abc", 1, 1)
 ```  
 [{"$1": "b"}]  
 ```  
+<a name="bk_tostring"></a>
+####  <a name="tostring"></a>ToString  
+ 返回标量表达式的字符串表示形式。 
 
+ **语法**  
+
+```  
+ToString(<expr>)
+```  
+
+ **参数**  
+
+-   `expr`  
+
+     为任何有效的标量表达式。  
+
+ **返回类型**  
+
+ 返回一个字符串表达式。  
+
+ **示例**  
+
+ 以下示例演示 ToString 在不同类型中的行为方式。   
+
+```  
+SELECT ToString(1.0000), ToString("Hello World"), ToString(NaN), ToString(Infinity),
+ToString(IS_STRING(ToString(undefined))), IS_STRING(ToString(0.1234), ToString(false), ToString(undefined))
+```  
+
+ 下面是结果集。  
+
+```  
+[{"$1": "1", "$2": "Hello World", "$3": "NaN", "$4": "Infinity", "$5": "false", "$6": true, "$7": "false"}]  
+```  
+ 给定以下输入：
+```  
+{"Products":[{"ProductID":1,"Weight":4,"WeightUnits":"lb"},{"ProductID":2,"Weight":32,"WeightUnits":"kg"},{"ProductID":3,"Weight":400,"WeightUnits":"g"},{"ProductID":4,"Weight":8999,"WeightUnits":"mg"}]}
+```    
+ 以下示例演示 ToString 如何与其他字符串函数（如 CONCAT）一起使用。   
+
+```  
+SELECT 
+CONCAT(ToString(p.Weight), p.WeightUnits) 
+FROM p in c.Products 
+```  
+
+ 下面是结果集。  
+
+```  
+[{"$1":"4lb" },
+ {"$1":"32kg"},
+ {"$1":"400g" },
+ {"$1":"8999mg" }]
+
+```  
+给定以下输入。
+```
+{"id":"08259","description":"Cereals ready-to-eat, KELLOGG, KELLOGG'S CRISPIX","nutrients":[{"id":"305","description":"Caffeine","units":"mg"},{"id":"306","description":"Cholesterol, HDL","nutritionValue":30,"units":"mg"},{"id":"307","description":"Sodium, NA","nutritionValue":612,"units":"mg"},{"id":"308","description":"Protein, ABP","nutritionValue":60,"units":"mg"},{"id":"309","description":"Zinc, ZN","nutritionValue":null,"units":"mg"}]}
+```
+ 以下示例演示 ToString 如何与其他字符串函数（如 REPLACE）一起使用。   
+```
+SELECT 
+    n.id AS nutrientID,
+    REPLACE(ToString(n.nutritionValue), "6", "9") AS nutritionVal
+FROM food 
+JOIN n IN food.nutrients
+```
+ 下面是结果集。  
+ ```
+[{"nutrientID":"305"},
+{"nutrientID":"306","nutritionVal":"30"},
+{"nutrientID":"307","nutritionVal":"912"},
+{"nutrientID":"308","nutritionVal":"90"},
+{"nutrientID":"309","nutritionVal":"null"}]
+ ```  
 <a name="bk_upper"></a>
 ####  <a name="upper"></a>UPPER  
  返回在将小写字符数据转换为大写后的字符串表达式。  
@@ -2860,4 +2934,4 @@ SELECT ST_ISVALIDDETAILED({
 ## <a name="next-steps"></a>后续步骤  
  [Azure Cosmos DB 的 SQL 语法和 SQL 查询](sql-api-sql-query.md)   
  [Azure Cosmos DB 文档](/cosmos-db/)
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, add bk_tostring content -->

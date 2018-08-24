@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-origin.date: 12/13/2017
-ms.date: 07/30/2018
+origin.date: 08/15/2018
+ms.date: 08/27/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 13eb93f1b4f93ffa3fd6d801a7a234002d8f20a0
-ms.sourcegitcommit: 35889b4f3ae51464392478a72b172d8910dd2c37
+ms.openlocfilehash: 725b1b85b764e20438bf75be2f10c492b26ce12e
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39261927"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42871656"
 ---
 # <a name="create-a-fully-qualified-domain-name-in-the-azure-portal-for-a-linux-vm"></a>在 Azure 门户中为 Linux VM 创建完全限定的域名
 
@@ -41,6 +41,4 @@ VM 已经有公共 IP 和 DNS 名称，现在可以部署通用应用程序框�
 
 也可以深入了解[使用 Resource Manager](../../azure-resource-manager/resource-group-overview.md)，获取生成 Azure 部署的相关提示。
 
-<!--Not Available the parent file of includes file of virtual-machines-common-portal-create-fqdn.md-->
-<!--ms.date:01/08/2018-->
 <!--Update_Description: update meta properties -->

@@ -13,17 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/19/2017
-ms.date: 05/14/2018
+ms.date: 08/27/2018
 ms.author: v-yeche
-ms.openlocfilehash: 523d5c4595a3aa8b47b31907f99fdb308ba94af9
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 82b32f2d069ab0f1f1c1b9c731f397d43c8c4ff5
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939667"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42871608"
 ---
 [!INCLUDE [virtual-machines-common-premium-storage.md](../../../includes/virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks.md)]
-<!--The parent file of includes file of virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks.md-->
-<!--The parent file of includes file of virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks.md-->
-<!--ms.date:05/14/2017-->
+
 <!--Update_Description: update meta properties-->

@@ -9,19 +9,19 @@ ms.component: cosmosdb-mongo
 ms.devlang: na
 ms.topic: quickstart
 origin.date: 07/21/2017
-ms.date: 07/02/2018
+ms.date: 08/13/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 0d041495a35fc67170d2c63f58ed6112c063c199
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 88f87c6af34009c31283186e666dc1e5e2b19748
+ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939433"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41704099"
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-golang-and-the-azure-portal"></a>Azure Cosmos DB：使用 Golang 和 Azure 门户生成 MongoDB API 控制台应用
 
-Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务。 可以快速创建和查询文档数据库，这些数据库受益于 Azure Cosmos DB 核心的多区域分布和水平缩放功能。
+Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务。 可快速创建和查询文档数据库，这些数据库受益于 Azure Cosmos DB 核心的多区域分布和水平缩放功能。
 <!-- Notice: 全球分布 to 多个区域分布 -->
 <!-- Notice: global to multiple-region -->
 <!-- Not Available on key/value an dGraph -->
@@ -213,7 +213,7 @@ if err != nil {
 ## <a name="run-the-app"></a>运行应用程序
 
 1. 在 Goglang 中，确保 GOPATH（依次单击“文件”、“设置”、“Go”、“GOPATH”即可找到）包含安装 gopkg 时所在的位置，默认为 USERPROFILE\go。 
-2. 注释掉用于删除文档的行（即第 91-96 行），这样就能在运行应用后看到文档。
+2. 注释掉用于删除文档的行（即第 103-107 行），这样就能在运行应用后看到文档。
 3. 在 Goglang 中依次单击“运行”、“运行‘生成 main.go 并运行’”。
 
     应用完成后，将会显示在[创建文档](#create-document)中创建的文档的说明。
@@ -251,4 +251,4 @@ if err != nil {
 > [!div class="nextstepaction"]
 > [将 MongoDB API 的数据导入 Azure Cosmos DB](mongodb-migrate.md)
 
-<!--Update_Description: update meta properties  -->
+<!--Update_Description: update meta properties, wording update  -->

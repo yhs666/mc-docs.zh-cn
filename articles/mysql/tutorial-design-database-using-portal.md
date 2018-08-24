@@ -11,12 +11,12 @@ ms.topic: tutorial
 origin.date: 03/20/2018
 ms.date: 08/13/2018
 ms.custom: mvc
-ms.openlocfilehash: 82070e9f0383719cf74b43b1436453406509549b
-ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
+ms.openlocfilehash: 9b0056e6799c125dfb4c56b61e761389f372d8d7
+ms.sourcegitcommit: 664584f55e0a01bb6558b8d3349d41d3f05ba4d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39723136"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41704031"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-database-using-the-azure-portal"></a>教程：使用 Azure 门户设计 Azure Database for MySQL 数据库
 
@@ -37,7 +37,7 @@ Azure Database for MySQL 是一种托管服务，可用于在云中运行、管�
 > * 还原数据
 
 ## <a name="sign-in-to-the-azure-portal"></a>登录到 Azure 门户
-打开最喜爱的 Web 浏览器，然后访问 [Microsoft Azure 门户](https://portal.azure.com/)。 输入登录到门户所需的凭据。 默认视图是服务仪表板。
+打开最喜爱的 Web 浏览器，然后访问 [Microsoft Azure 门户](https://portal.azure.cn/)。 输入登录到门户所需的凭据。 默认视图是服务仪表板。
 
 ## <a name="create-an-azure-database-for-mysql-server"></a>创建 Azure Database for MySQL 服务器
 创建 Azure Database for MySQL 服务器时，会使用定义好的一组[计算和存储资源](./concepts-compute-unit-and-storage.md)。 将在 [Azure 资源组](../azure-resource-manager/resource-group-overview.md)中创建服务器。
@@ -83,7 +83,7 @@ Azure Databases for MySQL 受防火墙保护。 默认情况下，会拒绝与�
 ## <a name="get-connection-information"></a>获取连接信息
 从 Azure 门户获取 Azure Database for MySQL 服务器的完全限定**服务器名称**和**服务器管理员登录名**。 使用 mysql 命令行工具通过完全限定的服务器名称连接到服务器。 
 
-1. 在 [Azure 门户](https://portal.azure.com/)中，单击左侧菜单中的“所有资源”，键入名称，然后搜索“Azure Database for MySQL 服务器”。 选择服务器名称以查看详细信息。
+1. 在 [Azure 门户](https://portal.azure.cn/)中，单击左侧菜单中的“所有资源”，键入名称，然后搜索“Azure Database for MySQL 服务器”。 选择服务器名称以查看详细信息。
 
 2. 在“概述”页上，记下**服务器名称**和**服务器管理员登录名**。 可以单击每个字段旁边的“复制”按钮，将其复制到剪贴板。
    ![4-2 服务器属性](./media/tutorial-design-database-using-portal/2-server-properties.png)

@@ -10,12 +10,12 @@ origin.date: 07/16/2018
 ms.date: 08/06/2018
 manager: digimobile
 ms.author: v-nany
-ms.openlocfilehash: 0eaf4455fc69397619c363ed7548c27b1f6996be
-ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
+ms.openlocfilehash: 4d74dfc3596c270b363086c184a5022cc408c35d
+ms.sourcegitcommit: 02c4716e07b3d83104fa419b379a15589ae8017e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39486555"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41705167"
 ---
 # <a name="choosing-a-vcore-service-tier-compute-memory-storage-and-io-resources"></a>选择 vCore 服务层、计算、内存、存储和 IO 资源
 
@@ -26,8 +26,8 @@ ms.locfileid: "39486555"
 ||**常规用途**|**业务关键**|
 |---|---|---|
 |最适用于|大多数业务工作负荷。 提供预算导向的、均衡且可缩放的计算和存储选项。|IO 要求高的业务应用程序。 使用多个独立副本，提供最高级别的故障恢复能力。|
-|计算|1 到 80 个 vCore，Gen4 |1 到 80 个 vCore，Gen4|
-|内存|每个核心 7 GB |每个核心 7 GB |
+|计算|1 到 80 vCore，Gen4 和 Gen5 |1 到 80 vCore，Gen4 和 Gen5|
+|内存|Gen4：每个核心 7 GB<br>Gen5：每个核心 5.5 GB | Gen4：每个核心 7 GB<br>Gen5：每个核心 5.5 GB |
 |存储|高级远程存储，5 GB – 4 TB|本地 SSD 存储，5 GB – 4 TB|
 |IO 吞吐量（近似）|每个 vCore 提供 500 IOPS，最大 7000 IOPS|每个 vCore 提供 5000 IOPS，最大 200000 IOPS|
 |可用性|1 个副本，无读取缩放组|3 个副本，1 个[读取缩放](sql-database-read-scale-out.md)组，区域冗余高可用性|

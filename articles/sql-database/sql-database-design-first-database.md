@@ -10,12 +10,12 @@ ms.topic: tutorial
 origin.date: 07/16/2018
 ms.date: 08/06/2018
 ms.author: v-johch
-ms.openlocfilehash: 4e305cf7e412493b9710b0d5255d89cb9888604b
-ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
+ms.openlocfilehash: d818fcb08b9ffbe1887361f0d1d51323cabb2896
+ms.sourcegitcommit: 02c4716e07b3d83104fa419b379a15589ae8017e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39486632"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41704551"
 ---
 # <a name="tutorial-design-your-first-azure-sql-database-using-ssms"></a>教程：使用 SSMS 设计第一个 Azure SQL 数据库
 
@@ -240,10 +240,10 @@ SQL 数据库服务在服务器级别创建一个防火墙。除非创建了防�
 
 2. 右键单击以下链接并将它们保存到 **SampleTableData** 文件夹。 
 
-   - [SampleCourseData](https://sqldbtutorial.blob.core.chinacloudapi.cn/tutorials/SampleCourseData)
-   - [SamplePersonData](https://sqldbtutorial.blob.core.chinacloudapi.cn/tutorials/SamplePersonData)
-   - [SampleStudentData](https://sqldbtutorial.blob.core.chinacloudapi.cn/tutorials/SampleStudentData)
-   - [SampleCreditData](https://sqldbtutorial.blob.core.chinacloudapi.cn/tutorials/SampleCreditData)
+   - [SampleCourseData](https://sqldbtutorial.blob.core.windows.net/tutorials/SampleCourseData)
+   - [SamplePersonData](https://sqldbtutorial.blob.core.windows.net/tutorials/SamplePersonData)
+   - [SampleStudentData](https://sqldbtutorial.blob.core.windows.net/tutorials/SampleStudentData)
+   - [SampleCreditData](https://sqldbtutorial.blob.core.windows.net/tutorials/SampleCreditData)
 
 3. 打开命令提示符窗口并导航到 SampleTableData 文件夹。
 

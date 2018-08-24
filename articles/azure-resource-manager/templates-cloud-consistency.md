@@ -12,12 +12,12 @@ ms.workload: na
 origin.date: 07/05/2018
 ms.date: 08/13/2018
 ms.author: v-yeche
-ms.openlocfilehash: 8be21612f26d47d3fb98d5661df0a9092fbb4935
-ms.sourcegitcommit: 543a18c71c0910a5b9878a2d2668f317468906f2
+ms.openlocfilehash: 69c2ba668071a31dbdbb8b87a7b0c0d3c6f4e8aa
+ms.sourcegitcommit: 57f5fd57fc1077252885b656263e79aaeca4763a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39625582"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41704911"
 ---
 # <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>开发用于实现云一致性的 Azure 资源管理器模板
 

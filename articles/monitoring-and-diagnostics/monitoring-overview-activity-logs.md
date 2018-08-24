@@ -4,19 +4,16 @@ description: 了解什么是 Azure 活动日志，以及如何通过它了解发
 author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 05/30/2018
 ms.author: v-yiso
-ms.date: 07/23/2018
-ms.openlocfilehash: 8955435117c297463f11f1b194e2e628a76fee56
-ms.sourcegitcommit: 479954e938e4e3469d6998733aa797826e4f300b
+ms.date: 08/20/2018
+ms.openlocfilehash: f1a6943d093d13fe8af433653b07e8284cc0b29b
+ms.sourcegitcommit: 664584f55e0a01bb6558b8d3349d41d3f05ba4d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39031742"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41704481"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>使用 Azure 活动日志监视订阅活动
 **Azure 活动日志**是一种方便用户深入了解 Azure 中发生的订阅级别事件的订阅日志。 这包括从 Azure 资源管理器操作数据到服务运行状况事件更新的一系列数据。 活动日志之前称为“审核日志”或“操作日志”，因为“管理”类别报告订阅的控制面事件。 通过活动日志，可确定订阅中资源上进行的任何写入操作 (PUT, POST, DELETE) 的“什么操作、谁操作和操作时间”等信息。 还可以了解该操作和其他相关属性的状态。 活动日志未包括读取 (GET) 操作或针对使用经典/“RDFE”模型的资源的操作。
@@ -94,13 +91,18 @@ ms.locfileid: "39031742"
 * 应该导出哪些区域（位置）。 确保包含“全局”，因为活动日志中的事件多为全局事件。
 * 活动日志应当在存储帐户中保留多长时间。
     - 保留期为零天表示日志将永久保留。 如果不需永久保留，则可将该值设置为 1 到 2147483647 之间的任意天数。
-    - 如果设置了保留策略，但禁止将日志存储在存储帐户中（例如，如果仅选择事件中心或 OMS 选项），则保留策略无效。
-    - 保留策略按天应用，因此在一天结束时 (UTC)，将会删除当天已超过保留策略期限的日志。 例如，假设保留策略的期限为一天，则在今天开始时，会删除前天的日志。
+    - 如果设置了保留策略，但禁止将日志存储在存储帐户中（例如，如果仅选择了“事件中心”或“Log Analytics”选项），则保留策略无效。
+    - 保留策略按天应用，因此在一天结束时 (UTC)，将会删除当天已超过保留策略期限的日志。 例如，假设保留策略的期限为一天，则在今天开始时，会删除前天的日志。 删除过程从 UTC 晚上 12 点开始，但请注意，可能需要最多 24 小时才能将日志从存储帐户中删除。
 
-可以使用与发出日志的订阅不同的订阅中的存储帐户或事件中心命名空间。 配置设置的用户必须对这两个订阅具有相应的 RBAC 访问权限。
+可以使用与发出日志的存储帐户或事件中心命名空间不在同一订阅中的存储帐户或事件中心命名空间。 配置设置的用户必须对这两个订阅具有相应的 RBAC 访问权限。
 
 > [!NOTE]
 >  当前无法将数据存档到安全虚拟网络中的存储帐户。
+
+> [!WARNING]
+> 存储帐户中日志数据的格式将在 2018 年 11 月 1 日更改为 JSON Lines。 [请参阅此文章来了解此影响，以及如何通过更新工具来处理新格式。](./monitor-diagnostic-logs-append-blobs.md) 
+>
+> 
 
 可通过门户中“活动日志”边栏选项卡的“导出”选项配置这些设置。 还可 [使用 Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931927.aspx)、PowerShell cmdlet 或 CLI 以编程方式配置这些设置。 一个订阅只能有一个日志配置文件。
 
@@ -131,7 +133,7 @@ Get-AzureRmLogProfile
 
 #### <a name="add-a-log-profile"></a>添加日志配置文件
 ```
-Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus -RetentionInDays 90 -Categories Write,Delete,Action
+Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Location global,chinaeast,chinanorth -RetentionInDays 90 -Category Write,Delete,Action
 ```
 
 | 属性 | 必须 | 说明 |
@@ -141,7 +143,7 @@ Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/r
 | serviceBusRuleId |否 |服务总线命名空间（需在其中创建事件中心）的服务总线规则 ID。 是以下格式的字符串： `{service bus resource ID}/authorizationrules/{key name}`。 |
 | 位置 |是 |要为其收集活动日志事件的逗号分隔区域的列表。 |
 | RetentionInDays |是 |事件的保留天数，介于 1 到 2147483647 之间。 值为零时，将无限期（永久）存储日志。 |
-| Categories |否 |应收集的事件类别的逗号分隔列表。 可能值包括：Write、Delete 和 Action。 |
+| 类别 |否 |应收集的事件类别的逗号分隔列表。 可能值包括：Write、Delete 和 Action。 |
 
 #### <a name="remove-a-log-profile"></a>删除日志配置文件
 ```

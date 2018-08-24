@@ -3,7 +3,7 @@ title: 教程 - 创建和管理 Azure 虚拟机规模集 | Microsoft Docs
 description: 了解如何使用 Azure PowerShell 创建虚拟机规模集以及某些常见的管理任务，例如如何启动和停止实例，或者如何更改规模集容量。
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 05/18/2018
-ms.date: 07/10/2018
+ms.date: 08/13/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 3f3a5d3a3f451eb7ae290050ec17bb6744aa9904
-ms.sourcegitcommit: a22129c95c9f877a04c6b5b428edf7f4e953fd97
+ms.openlocfilehash: c294cc17fa54837b49e34c5451f02e7b338c0601
+ms.sourcegitcommit: 56ed1b03d83f222db6118fe1e2f2485a9488507f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37937376"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41704101"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-azure-powershell"></a>教程：使用 Azure PowerShell 创建和管理虚拟机规模集
 利用虚拟机规模集，可以部署和管理一组相同的、自动缩放的虚拟机。 在虚拟机规模集的整个生命周期内，可能需要运行一个或多个管理任务。 本教程介绍如何执行下列操作：
@@ -205,7 +205,7 @@ VM 实例大小或 *SKU* 决定了可供 VM 实例使用的计算资源（如 CP
 | [常规用途](../virtual-machines/windows/sizes-general.md)         |Dsv3、Dv3、DSv2、Dv2、DS、D、Av2、A0-7| CPU 与内存之比均衡。 适用于开发/测试、小到中型应用程序和数据解决方案。  |
 | [计算优化](../virtual-machines/windows/sizes-compute.md)   | Fs, F             | 高 CPU 与内存之比。 适用于中等流量的应用程序、网络设备和批处理。        |
 | [内存优化](../virtual-machines/windows/sizes-memory.md)    | Esv3、Ev3、M、GS、G、DSv2、DS、Dv2、D   | 较高的内存核心比。 适用于关系数据库、中到大型缓存和内存中分析。                 |
-| [存储优化](../virtual-machines/windows/sizes-storage.md)      | LS                | 高磁盘吞吐量和 IO。 适用于大数据、SQL 和 NoSQL 数据库。                                                         |
+| [GPU](../virtual-machines/windows/sizes-gpu.md)          | NV, NC            | 专门针对大量图形绘制和视频编辑的 VM。       |
 
 ### <a name="find-available-vm-instance-sizes"></a>查找可用的 VM 实例大小
 若要查看在特定区域可用的 VM 实例大小的列表，请使用 [Get-AzureRmVMSize](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmsize) 命令。 

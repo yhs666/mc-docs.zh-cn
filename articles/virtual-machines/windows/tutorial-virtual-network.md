@@ -14,15 +14,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 02/27/2018
-ms.date: 07/30/2018
+ms.date: 08/27/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 1bf781915e44d70635cb0b6c7c4952f7b1e94312
-ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
+ms.openlocfilehash: 35460a192eb0745af13d558f8e768dde6359cee1
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39307024"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42872372"
 ---
 # <a name="tutorial-create-and-manage-azure-virtual-networks-for-windows-virtual-machines-with-azure-powershell"></a>教程：使用 Azure PowerShell 为 Windows 虚拟机创建和管理 Azure 虚拟网络
 
@@ -48,7 +48,7 @@ Azure 虚拟网络在虚拟机、Internet 与其他 Azure 服务（例如 Azure 
 - *myVNet* - VM 彼此进行通信以及与 Internet 进行通信时使用的虚拟网络。
 - *myFrontendSubnet* - *myVNet* 中供前端资源使用的子网。
 - *myPublicIPAddress* - 用于从 Internet 访问 *myFrontendVM* 的公共 IP 地址。
-- *myFrontentNic* - *myFrontendVM* 用来与 *myBackendVM* 进行通信的网络接口。
+- *myFrontendNic* - *myFrontendVM* 用来与 *myBackendVM* 进行通信的网络接口。
 - *myFrontendVM* - 用于在 Internet 和 *myBackendVM* 之间进行通信的 VM。
 - *myBackendNSG* - 控制 *myFrontendVM* 和 *myBackendVM* 之间的通信的网络安全组。
 - *myBackendSubnet* - 与 *myBackendNSG* 关联且供后端资源使用的子网。
@@ -61,7 +61,7 @@ Azure 虚拟网络在虚拟机、Internet 与其他 Azure 服务（例如 Azure 
 
 创建虚拟网络之前，需使用 [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) 创建资源组。 以下示例在 ChinaEast 位置创建名为 myRGNetwork 的资源组：
 
-```powershell
+```PowerShell
 New-AzureRmResourceGroup -ResourceGroupName myRGNetwork -Location ChinaEast
 ```
 
@@ -69,7 +69,7 @@ New-AzureRmResourceGroup -ResourceGroupName myRGNetwork -Location ChinaEast
 
 使用 [New-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig) 创建一个名为 *myFrontendSubnet* 的子网配置：
 
-```powershell
+```PowerShell
 $frontendSubnet = New-AzureRmVirtualNetworkSubnetConfig `
   -Name myFrontendSubnet `
   -AddressPrefix 10.0.0.0/24
@@ -77,7 +77,7 @@ $frontendSubnet = New-AzureRmVirtualNetworkSubnetConfig `
 
 然后，创建一个名为 *myBackendSubnet* 的子网配置：
 
-```powershell
+```PowerShell
 $backendSubnet = New-AzureRmVirtualNetworkSubnetConfig `
   -Name myBackendSubnet `
   -AddressPrefix 10.0.1.0/24
@@ -87,7 +87,7 @@ $backendSubnet = New-AzureRmVirtualNetworkSubnetConfig `
 
 通过 [New-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetwork) 使用 *myFrontendSubnet* 和 *myBackendSubnet* 创建名为“myVNet”的 VNET：
 
-```powershell
+```PowerShell
 $vnet = New-AzureRmVirtualNetwork `
   -ResourceGroupName myRGNetwork `
   -Location ChinaEast `
@@ -106,7 +106,7 @@ $vnet = New-AzureRmVirtualNetwork `
 
 使用 [New-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermpublicipaddress) 创建名为 *myPublicIPAddress* 的公共 IP 地址：
 
-```powershell
+```PowerShell
 $pip = New-AzureRmPublicIpAddress `
   -ResourceGroupName myRGNetwork `
   -Location ChinaEast `
@@ -120,7 +120,7 @@ $pip = New-AzureRmPublicIpAddress `
 
 VM 需要虚拟网络接口 (NIC) 才能在虚拟网络中进行通信。 使用 [New-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermnetworkinterface) 创建 NIC：
 
-```powershell
+```PowerShell
 $frontendNic = New-AzureRmNetworkInterface `
   -ResourceGroupName myRGNetwork `
   -Location ChinaEast `
@@ -131,13 +131,13 @@ $frontendNic = New-AzureRmNetworkInterface `
 
 使用 [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential) 设置 VM 上管理员帐户所需的用户名和密码。 若要使用这些凭据连接到 VM，请执行其他步骤：
 
-```powershell
+```PowerShell
 $cred = Get-Credential
 ```
 
 使用 [New-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm) 创建 VM。
 
-```powershell
+```PowerShell
 New-AzureRmVM `
    -Credential $cred `
    -Name myFrontend `
@@ -167,7 +167,7 @@ NSG 规则定义要允许或拒绝哪些网络端口上的流量。 这些规则
 
 使用 [New-AzureRmNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig) 创建名为 *myFrontendNSGRule* 的入站规则以允许 *myFrontendVM* 上的传入 Web 流量：
 
-```powershell
+```PowerShell
 $nsgFrontendRule = New-AzureRmNetworkSecurityRuleConfig `
   -Name myFrontendNSGRule `
   -Protocol Tcp `
@@ -182,7 +182,7 @@ $nsgFrontendRule = New-AzureRmNetworkSecurityRuleConfig `
 
 可通过为后端子网创建 NSG，将内部流量限制为仅从 myFrontendVM 流向 myBackendVM。 以下示例创建名为“myBackendNSGRule”的 NSG 规则：
 
-```powershell
+```PowerShell
 $nsgBackendRule = New-AzureRmNetworkSecurityRuleConfig `
   -Name myBackendNSGRule `
   -Protocol Tcp `
@@ -197,7 +197,7 @@ $nsgBackendRule = New-AzureRmNetworkSecurityRuleConfig `
 
 使用 [New-AzureRmNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermnetworksecuritygroup) 添加名为 *myFrontendNSG* 的网络安全组：
 
-```powershell
+```PowerShell
 $nsgFrontend = New-AzureRmNetworkSecurityGroup `
   -ResourceGroupName myRGNetwork `
   -Location ChinaEast `
@@ -207,7 +207,7 @@ $nsgFrontend = New-AzureRmNetworkSecurityGroup `
 
 现在，使用 New-AzureRmNetworkSecurityGroup 添加名为 *myBackendNSG* 的网络安全组：
 
-```powershell
+```PowerShell
 $nsgBackend = New-AzureRmNetworkSecurityGroup `
   -ResourceGroupName myRGNetwork `
   -Location ChinaEast `
@@ -217,7 +217,7 @@ $nsgBackend = New-AzureRmNetworkSecurityGroup `
 
 将网络安全组添加到子网：
 
-```powershell
+```PowerShell
 $vnet = Get-AzureRmVirtualNetwork `
   -ResourceGroupName myRGNetwork `
   -Name myVNet
@@ -242,7 +242,7 @@ Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
 创建 myBackendNic：
 
-```powershell
+```PowerShell
 $backendNic = New-AzureRmNetworkInterface `
   -ResourceGroupName myRGNetwork `
   -Location ChinaEast `
@@ -252,13 +252,13 @@ $backendNic = New-AzureRmNetworkInterface `
 
 使用 Get-Credential 设置 VM 上管理员帐户所需的用户名和密码：
 
-```powershell
+```PowerShell
 $cred = Get-Credential
 ```
 
 创建 myBackendVM。
 
-```powershell
+```PowerShell
 New-AzureRmVM `
    -Credential $cred `
    -Name myBackend `

@@ -15,14 +15,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
 origin.date: 05/02/2018
-ms.date: 07/30/2018
+ms.date: 08/27/2018
 ms.author: v-yeche
-ms.openlocfilehash: 987f513096119fd88abb614775514b76b9c41a7d
-ms.sourcegitcommit: 35889b4f3ae51464392478a72b172d8910dd2c37
+ms.openlocfilehash: 3e173fab739f2cf9a88d17bc03e1f85b8b2b32b8
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39261915"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42872353"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Desired State Configuration 扩展与 Azure 资源管理器模板
 
@@ -250,7 +250,7 @@ DSC 扩展继承默认扩展属性。
 },
 "protectedSettings": {
     "Items": {
-        "registrationKeyPrivate": "[parameters('registrationKey1']"
+        "registrationKeyPrivate": "[parameters('registrationKey1')]"
     }
 }
 ```

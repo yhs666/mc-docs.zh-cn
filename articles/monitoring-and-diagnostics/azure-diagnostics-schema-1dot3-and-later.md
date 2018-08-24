@@ -1,26 +1,25 @@
 ---
 title: Azure 诊断扩展 1.3 及更高版本的配置架构
 description: Microsoft Azure SDK 2.4 及更高版本中附带了 Azure 诊断 1.3 及更高版本的架构。
-services: monitoring-and-diagnostics
-documentationcenter: .net
+services: azure-monitor
 author: rboucher
 manager: carmonm
 editor: ''
 ms.assetid: ''
-ms.service: monitoring-and-diagnostics
+ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: reference
 origin.date: 05/15/2017
-ms.date: 03/19/2018
+ms.date: 08/20/2018
 ms.author: v-yiso
-ms.openlocfilehash: e6f9c531ff77aeb4169c7961265491f19304633b
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: bac68fdb5790acb240c1fad5a553e33579e524af
+ms.sourcegitcommit: 664584f55e0a01bb6558b8d3349d41d3f05ba4d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29870807"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41705175"
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Azure 诊断 1.3 及更高版本的配置架构
 > [!NOTE]
@@ -368,7 +367,7 @@ PublicConfig 和 PrivateConfig 是分开的，因为在大多数使用案例中�
  以下标记大致按上述示例中显示的顺序。  如果未看到预期的完整说明，请在页面中搜索元素或属性。  
 
 ## <a name="common-attribute-types"></a>常见的属性类型  
- **scheduledTransferPeriod** 属性显示在多个元素中。 它是到存储空间的计划传输之间的间隔，向上舍入为最接近的分钟数。 值是 [XML“持续时间数据类型。”](http://www.w3schools.com/schema/schema_dtypes_date.asp)
+ **scheduledTransferPeriod** 属性显示在多个元素中。 它是到存储空间的计划传输之间的间隔，向上舍入为最接近的分钟数。 值是 [XML“持续时间数据类型。”](http://www.w3schools.com/xml/schema_dtypes_date.asp)
 
 
 ## <a name="diagnosticsconfiguration-element"></a>DiagnosticsConfiguration 元素  
@@ -421,7 +420,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |子元素|说明|  
 |--------------------|-----------------|  
 |**CrashDumps**|在此页的其他位置查看说明。|  
-|**DiagnosticInfrastructureLogs**|启用收集 Azure 诊断生成的日志。 诊断基础结构日志可用于解决诊断系统本身的故障。 可选属性：<br /><br /> - **scheduledTransferLogLevelFilter** - 配置收集的日志的最低严重级别。<br /><br /> - **scheduledTransferPeriod** - 到存储空间的计划传输之间的时间间隔，向上舍入为最接近的分钟数。 值是 [XML“持续时间数据类型。”](http://www.w3schools.com/schema/schema_dtypes_date.asp) |  
+|**DiagnosticInfrastructureLogs**|启用收集 Azure 诊断生成的日志。 诊断基础结构日志可用于解决诊断系统本身的故障。 可选属性：<br /><br /> - **scheduledTransferLogLevelFilter** - 配置收集的日志的最低严重级别。<br /><br /> - **scheduledTransferPeriod** - 到存储空间的计划传输之间的时间间隔，向上舍入为最接近的分钟数。 值是 [XML“持续时间数据类型。”](http://www.w3schools.com/xml/schema_dtypes_date.asp) |  
 |**Directories**|在此页的其他位置查看说明。|  
 |**EtwProviders**|在此页的其他位置查看说明。|  
 |**指标**|在此页的其他位置查看说明。|  
@@ -494,8 +493,8 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |子元素|说明|  
 |--------------------|-----------------|  
-|**EtwEventSourceProviderConfiguration**|配置收集从 [EventSource 类](http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx)生成的事件。 必需属性：<br /><br /> **provider** - EventSource 事件的类名称。<br /><br /> 可选属性：<br /><br /> - **scheduledTransferLogLevelFilter** - 要传输到存储帐户的最低严重级别。<br /><br /> - **scheduledTransferPeriod** - 到存储空间的计划传输之间的时间间隔，向上舍入为最接近的分钟数。 值是 [XML“持续时间数据类型。”](http://www.w3schools.com/schema/schema_dtypes_date.asp) |  
-|**EtwManifestProviderConfiguration**|必需属性：<br /><br /> **provider** - 事件提供程序的 GUID<br /><br /> 可选属性：<br /><br /> - **scheduledTransferLogLevelFilter** - 要传输到存储帐户的最低严重级别。<br /><br /> - **scheduledTransferPeriod** - 到存储空间的计划传输之间的时间间隔，向上舍入为最接近的分钟数。 值是 [XML“持续时间数据类型。”](http://www.w3schools.com/schema/schema_dtypes_date.asp) |  
+|**EtwEventSourceProviderConfiguration**|配置收集从 [EventSource 类](http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx)生成的事件。 必需属性：<br /><br /> **provider** - EventSource 事件的类名称。<br /><br /> 可选属性：<br /><br /> - **scheduledTransferLogLevelFilter** - 要传输到存储帐户的最低严重级别。<br /><br /> - **scheduledTransferPeriod** - 到存储空间的计划传输之间的时间间隔，向上舍入为最接近的分钟数。 值是 [XML“持续时间数据类型。”](http://www.w3schools.com/xml/schema_dtypes_date.asp) |  
+|**EtwManifestProviderConfiguration**|必需属性：<br /><br /> **provider** - 事件提供程序的 GUID<br /><br /> 可选属性：<br /><br /> - **scheduledTransferLogLevelFilter** - 要传输到存储帐户的最低严重级别。<br /><br /> - **scheduledTransferPeriod** - 到存储空间的计划传输之间的时间间隔，向上舍入为最接近的分钟数。 值是 [XML“持续时间数据类型。”](http://www.w3schools.com/xml/schema_dtypes_date.asp) |  
 
 
 
@@ -530,7 +529,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |子元素|说明|  
 |--------------------|-----------------|  
-|**MetricAggregation**|必需属性：<br /><br /> **scheduledTransferPeriod** - 到存储空间的计划传输之间的时间间隔，向上舍入为最接近的分钟数。 值是 [XML“持续时间数据类型。”](http://www.w3schools.com/schema/schema_dtypes_date.asp) |  
+|**MetricAggregation**|必需属性：<br /><br /> **scheduledTransferPeriod** - 到存储空间的计划传输之间的时间间隔，向上舍入为最接近的分钟数。 值是 [XML“持续时间数据类型。”](http://www.w3schools.com/xml/schema_dtypes_date.asp) |  
 
 
 

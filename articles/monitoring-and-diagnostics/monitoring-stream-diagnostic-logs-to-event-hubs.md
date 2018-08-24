@@ -2,25 +2,18 @@
 title: 将 Azure 诊断日志流式传输到事件中心
 description: 了解如何将 Azure 诊断日志流式传输到事件中心。
 author: johnkemnetz
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 42bc4845-c564-4568-b72d-0614591ebd80
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-origin.date: 04/042018
-ms.date: 05/14/2018
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
+origin.date: 06/20/2018
+ms.date: 08/20/2018
 ms.author: v-yiso
-ms.openlocfilehash: d91a599f159d511214f7f6b2599a0533623325c9
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: 5040cb5851cf19a0eb5276751262ab7e86c7bac3
+ms.sourcegitcommit: 664584f55e0a01bb6558b8d3349d41d3f05ba4d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33815399"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41704477"
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>将 Azure 诊断日志流式传输到事件中心
 可将 **[Azure 诊断日志](monitoring-overview-of-diagnostic-logs.md)** 近实时地流式传输到任何应用程序，方法是使用门户中的内置“导出到事件中心”选项，或者通过 Azure PowerShell Cmdlet 或 Azure CLI 2.0 在诊断设置中启用事件中心授权规则 ID。
@@ -47,7 +40,8 @@ ms.locfileid: "33815399"
 * **生成自定义遥测和日志记录平台** – 如果已经有一个自定义生成的遥测平台，或者正想生成一个，则可利用事件中心高度可缩放的发布-订阅功能，灵活地引入诊断日志。 
 
 ## <a name="enable-streaming-of-diagnostic-logs"></a>启用诊断日志的流式传输
-可以通过门户或使用 [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/servicediagnosticsettings) 以编程方式启用诊断日志的流式传输。 无论采用哪种方式，都可以创建一个诊断设置并在其中指定事件中心命名空间，以及要发送到该命名空间的日志类别和指标。 在该命名空间中针对每个启用的日志类别创建一个事件中心。 诊断**日志类别**是一类可供资源收集的日志。
+
+可以通过门户或使用 [Azure Monitor REST API](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings) 以编程方式启用诊断日志的流式传输。 无论采用哪种方式，都可以创建一个诊断设置并在其中指定事件中心命名空间，以及要发送到该命名空间的日志类别和指标。 在该命名空间中针对每个启用的日志类别创建一个事件中心。 诊断**日志类别**是一类可供资源收集的日志。
 
 > [!WARNING]
 > 从计算资源（例如，VM 或 Service Fabric）启用诊断日志并对其进行流式传输[需要另一组步骤](../event-hubs/event-hubs-streaming-azure-diags-data.md)。
@@ -96,7 +90,7 @@ Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -EventHubAuthorizati
 
 ### <a name="via-azure-cli-20"></a>通过 Azure CLI 2.0
 
-若要通过 [Azure CLI 2.0](insights-cli-samples.md) 启用流式传输，可以使用 [az monitor diagnostic-settings create](/cli/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) 命令。
+若要通过 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/monitor?view=azure-cli-latest) 启用流式传输，可以使用 [az monitor diagnostic-settings create](/cli/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) 命令。
 
 ```azurecli
 az monitor diagnostic-settings create --name <diagnostic name> \

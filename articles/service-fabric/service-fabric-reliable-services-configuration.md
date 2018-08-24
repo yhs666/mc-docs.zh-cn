@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 10/02/2017
-ms.date: 05/28/2018
+ms.date: 08/20/2018
 ms.author: v-yeche
-ms.openlocfilehash: 096ae31c62962d948afaf7510f4370fae339d3e5
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: dfb97553a4c254ec24ba90ecc96898b46702e020
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554560"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41705100"
 ---
 # <a name="configure-stateful-reliable-services"></a>配置有状态 Reliable Services
 有两组配置设置可供 Reliable Services 使用。 一组适用于群集中的所有 Reliable Services，而另一组特定于特定的 Reliable Service。
@@ -47,7 +47,7 @@ ms.locfileid: "34554560"
         }]
     }]
 
-### <a name="sample-local-developer-cluster-manifest-section"></a>本地开发人员群集清单部分示例
+### <a name="sample-local-developer-cluster-manifest-section"></a>示例本地开发人员群集清单部分
 如果想要在本地开发环境中更改此设置，需要编辑本地 clustermanifest.xml 文件。
 
 ```xml
@@ -83,6 +83,11 @@ SharedLogSizeInMB 指定要预先分配给所有节点上的默认共享日志�
 
 ### <a name="replicator-security-configuration"></a>复制器安全配置
 复制器安全配置用于保护在复制过程中使用的通信通道的安全。 这意味着服务无法看到对方的复制流量，从而确保高度可用的数据也处于安全状态。 默认情况下，空的安全配置节会影响复制安全。
+
+> [!IMPORTANT]
+> 在 Linux 节点上，证书必须是 PEM 格式。 若要详细了解如何查找和配置适用于 Linux 的证书，请参阅[在 Linux 上配置证书](./service-fabric-configure-certificates-linux.md)。 
+> 
+> 
 
 ### <a name="default-section-name"></a>默认节名称
 ReplicatorSecurityConfig
@@ -187,4 +192,4 @@ SharedLogId 和 SharedLogPath 设置始终一起使用，使服务可以使用�
 * [在 Visual Studio 中调试 Service Fabric 应用程序](service-fabric-debugging-your-application.md)
 * [Reliable Services 的开发人员参考](https://msdn.microsoft.com/library/azure/dn706529.aspx)
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, wording update -->

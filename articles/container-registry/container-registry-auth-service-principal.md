@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: container-registry
 ms.topic: article
 origin.date: 04/23/2018
-ms.date: 07/02/2018
+ms.date: 08/27/2018
 ms.author: v-yeche
-ms.openlocfilehash: d07479bfbc74ffd440067ecd316cbbeaba36255d
-ms.sourcegitcommit: 543a18c71c0910a5b9878a2d2668f317468906f2
+ms.openlocfilehash: e809b8c14114acfbf1fa0fd08a09c96cb94b6f1d
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39625501"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42871574"
 ---
 # <a name="azure-container-registry-authentication-with-service-principals"></a>使用服务主体的 Azure 容器注册表身份验证
 
@@ -61,5 +61,5 @@ Azure AD“服务主体”提供对订阅中的 Azure 资源的访问权限。 �
 [acr-scripts-psh]: https://github.com/Azure/azure-docs-powershell-samples/tree/master/container-registry
 
 <!-- LINKS - Internal -->
-[az-acr-login]: https://docs.azure.cn/zh-cn/cli/acr?view=azure-cli-latest#az_acr_login
+[az-acr-login]: https://docs.azure.cn/zh-cn/cli/acr?view=azure-cli-latest#az-acr-login
 <!-- Update_Description: update link, update meta properties -->

@@ -9,13 +9,13 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 05/22/2018
-ms.date: 07/02/2018
-ms.openlocfilehash: 0e73bbaff8c78cf88f5a7fe9b1d71460089c4085
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.date: 08/20/2018
+ms.openlocfilehash: c1961b2b5c6a86efdec36ff6d275b764bef39557
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939211"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41705168"
 ---
 # <a name="clean-up-your-azure-stream-analytics-job"></a>清理 Azure 流分析作业
 
@@ -56,5 +56,4 @@ ms.locfileid: "38939211"
 
 若要使用 REST API 停止作业，请参阅[停止](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-job#stop)方法。 若要使用 REST API 删除作业，请参阅[删除](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-job#delete)方法。
 
-<!-- Update_Description: new article on stream analytics clean up job -->
-<!--ms.date: 07/02/2018-->
+<!-- Update_Description: update meta properties -->

@@ -13,15 +13,15 @@ ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
 origin.date: 12/06/2017
-ms.date: 05/28/2018
+ms.date: 08/20/2018
 ms.author: v-yeche
 ms.custom: ''
-ms.openlocfilehash: ec0f3fe9ad8bab0c9dd2f21fc7c4f7826d5e3551
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: 02d4a906c3b7cd779d8297482001bceca1ab127b
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554073"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41704020"
 ---
 # <a name="add-an-application-certificate-to-a-service-fabric-cluster"></a>将应用程序证书添加到 Service Fabric 群集
 

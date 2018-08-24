@@ -16,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 origin.date: 03/22/2018
-ms.date: 05/28/2018
+ms.date: 08/27/2018
 ms.author: v-yiso
-ms.openlocfilehash: 866327d329d91bcc7d966be9b4618a10442d8811
-ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
+ms.openlocfilehash: e41f05538bfd3364c60894808a50ceff3c82ee1e
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34450073"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41705095"
 ---
 # <a name="availability-and-reliability-of-hadoop-clusters-in-hdinsight"></a>HDInsight 中 Hadoop 群集的可用性和可靠性
 
@@ -68,7 +68,9 @@ Storm 群集提供了 Nimbus 节点。 Nimbus 节点通过在辅助角色节点�
 
 边缘节点不主动参与群集内的数据分析。 在使用 Hadoop 时，它由开发人员或数据科学家使用。 边缘节点与群集中的其他节点一样驻留在同一个 Azure 虚拟网络中，可直接访问其他所有节点。 可以在不将资源带离关键的 Hadoop 服务或分析作业的情况下使用边缘节点。
 
-有关使用边缘节点的信息，请参阅[在 HDInsight 中使用边缘节点](hdinsight-apps-use-edge-node.md)文档。
+目前，HDInsight 上的 ML Services 是默认提供边缘节点的唯一群集类型。 对于 HDInsight 上的 ML Services 而言，边缘节点用于在将 R 代码提交到群集进行分布式处理之前，在本地节点上对这些代码进行测试。
+
+若要了解如何将边缘节点与其他群集类型配合使用，请参阅[在 HDInsight 中使用边缘节点](hdinsight-apps-use-edge-node.md)文档。
 
 ## <a name="accessing-the-nodes"></a>访问节点
 

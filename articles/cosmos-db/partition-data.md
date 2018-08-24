@@ -8,15 +8,15 @@ ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 05/07/2018
-ms.date: 07/02/2018
+ms.date: 08/13/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e4e875a9e4a958d2fab3fbbc9755d5d4acd09d3b
-ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
+ms.openlocfilehash: 1e960f3031068d691398c862ec53088742eb955a
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37070245"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42872328"
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中分区和缩放
 
@@ -56,8 +56,9 @@ ms.locfileid: "37070245"
 | --- | --- | --- |
 | SQL | 自定义分区键路径 | 固定 `id` | 
 | MongoDB | 自定义分片键  | 固定 `_id` | 
-<!-- 不可用 | Gremlin | 自定义分区键属性 | 固定 `id` | -->
-<!-- 不可用 | 表 | 固定 `PartitionKey` | 固定 `RowKey` | -->
+
+<!-- Not Available | Gremlin | Custom partition key property | Fixed `id` | -->
+<!-- Not Available | Table | Fixed `PartitionKey` | Fixed `RowKey` | -->
 
 Azure Cosmos DB 使用基于哈希的分区。 写入某个项时，Azure Cosmos DB 将对分区键值进行哈希处理，并使用经过哈希处理的结果来确定要在其中存储该项的分区。 Azure Cosmos DB 将分区键相同的所有项存储在同一个物理分区中。 
 

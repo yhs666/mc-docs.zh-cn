@@ -3,8 +3,8 @@ title: 将行级别安全性用于 Power BI 工作区集合
 description: 有关将行级别安全性用于 Power BI 工作区集合的详细信息
 services: power-bi-embedded
 documentationcenter: ''
-author: alexchen2016
-manager: digimobile
+author: markingmyname
+manager: kfile
 editor: ''
 tags: ''
 ROBOTS: NOINDEX
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 origin.date: 09/20/2017
-ms.date: 10/24/2017
+ms.date: 08/14/2018
 ms.author: v-junlch
-ms.openlocfilehash: 5c4e112be7296bd3fdf42c9baa5659274ca17b84
-ms.sourcegitcommit: 140d09254b5ded4b408980b43c0fc5d3643320a1
+ms.openlocfilehash: 810ef1487736f809082bfa8b71e209c00229f7ce
+ms.sourcegitcommit: 6824b75ea1576e6227c3b4c74d486b35aea9c557
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2017
-ms.locfileid: "23580303"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "41704103"
 ---
 # <a name="row-level-security-with-power-bi-workspace-collections"></a>将行级别安全性用于 Power BI 工作区集合
 
@@ -30,7 +30,7 @@ ms.locfileid: "23580303"
 ![Power BI 工作区集合中的行级别安全性流程](./media/row-level-security/flow-1.png)
 
 > [!IMPORTANT]
-> Power BI 工作区集合已弃用，到 2018 年 6 月或合同指示时可用。 建议你规划到 Power BI Embedded 的迁移以避免应用程序中断。 有关如何将数据迁移到 Power BI Embedded 的信息，请参阅[如何将 Power BI 工作区集合内容迁移到 Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/)。
+> Power BI 工作区集合已弃用，到 2018 年 6 月 或合同指示时可用。 建议你规划到 Power BI Embedded 的迁移以避免应用程序中断。 有关如何将数据迁移到 Power BI Embedded 的信息，请参阅[如何将 Power BI 工作区集合内容迁移到 Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/)。
 
 若要利用 RLS，必须了解三个重要概念：用户、角色和规则。 下面更详细地讲解每个概念：
 
@@ -94,14 +94,14 @@ RLS 是在 Power BI Desktop 中编写的。 打开数据集和报表时，可以
 1. “文件” -> “选项和设置” -> “预览功能” -> “为 DirectQuery 启用两个方向的交叉筛选”。
 2. “文件” -> “选项和设置” -> “DirectQuery” -> “允许 DirectQuery 模式下不受限制的度量”。
 
-若要了解有关双向交叉筛选的详细信息，请下载 [Bidirectional cross-filtering in SQL Server Analysis Services 2016 and Power BI Desktop](http://download.microsoft.com/download/2/7/8/2782DF95-3E0D-40CD-BFC8-749A2882E109/Bidirectional cross-filtering in Analysis Services 2016 and Power BI.docx)（SQL Server Analysis Services 2016 和 Power BI Desktop 中的双向交叉筛选）白皮书。
+若要了解有关双向交叉筛选的详细信息，请下载 [Bidirectional cross-filtering in SQL Server Analysis Services 2016 and Power BI Desktop](http://download.microsoft.com/download/2/7/8/2782DF95-3E0D-40CD-BFC8-749A2882E109/Bidirectional%20cross-filtering%20in%20Analysis%20Services%202016%20and%20Power%20BI.docx)（SQL Server Analysis Services 2016 和 Power BI Desktop 中的双向交叉筛选）白皮书。
 
 这就是需要在 Power BI Desktop 中完成的所有工作，但要使定义的 RLS 规则能够在 Power BI Embedded 中正常运行，还有一个小问题需要解决。 用户由应用程序进行身份验证和授权，应用令牌用于授予用户对特定 Power BI Embedded 报表的访问权限。 Power BI Embedded 并不具体地知道谁是用户。 要使 RLS 正常运行，需要将一些附加上下文作为应用令牌的一部分传递：
 
 - **username**（可选）- 与 RLS 一起使用，这是一个字符串，可以在应用 RLS 规则时帮助标识用户。 请参阅“Using Row Level Security with Power BI Embedded”（在 Power BI Embedded 中使用行级别安全性）
 - **roles** - 一个字符串，包含应用行级别安全性规则时可选择的角色。 如果传递多个角色，则应当以字符串数组形式传递它们。
 
-使用 [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#Microsoft_PowerBI_Security_PowerBIToken_CreateReportEmbedToken_System_String_System_String_System_String_System_DateTime_System_String_System_Collections_Generic_IEnumerable_System_String__) 方法创建令牌。 如果提供 username 属性，则也必须在角色中至少传递一个值。
+使用 [CreateReportEmbedToken](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#Microsoft_PowerBI_Security_PowerBIToken_CreateReportEmbedToken_System_String_System_String_System_String_System_DateTime_System_String_System_Collections_Generic_IEnumerable_System_String__) 方法创建令牌。 如果提供 username 属性，则也必须在角色中至少传递一个值。
 
 例如，可更改 EmbedSample。 DashboardController 第 55 行无法执行以下更新：从
 

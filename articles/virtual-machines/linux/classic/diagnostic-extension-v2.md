@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 12/15/2015
-ms.date: 06/04/2018
+ms.date: 08/27/2018
 ms.author: v-yeche
-ms.openlocfilehash: cd925c733e2c0d7036f101e71476f4a7163dc072
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 5bd5b05774370badb31034080182526650527afa
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702724"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42871669"
 ---
 # <a name="use-the-linux-diagnostic-extension-to-monitor-the-performance-and-diagnostic-data-of-a-linux-vm"></a>使用 Linux 诊断扩展监视 Linux VM 的性能和诊断数据
 
@@ -91,7 +91,7 @@ Linux 诊断扩展可帮助用户监视 Azure 上运行的 Linux VM。 它具有
         "storageAccountKey" : "the key of the account"
     }
 
-步骤 2. 运行 **azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExtensions 2.* --private-config-path PrivateConfig.json**。
+步骤 2. 运行 **azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExtensions 2.\* --private-config-path PrivateConfig.json**。
 
 ### <a name="scenario-2-customize-the-performance-monitor-metrics"></a>方案 2. 自定义性能监视器指标
 
@@ -166,4 +166,4 @@ Linux 诊断扩展可帮助用户监视 Azure 上运行的 Linux VM。 它具有
 ## <a name="known-issues"></a>已知问题
 
 * 只能通过脚本访问 Rsyslog 信息和客户指定日志文件。
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties, wording update -->

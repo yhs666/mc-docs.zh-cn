@@ -11,14 +11,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/06/2016
+origin.date: 09/06/2016
+ms.date: 08/20/2018
 ms.author: v-yiso
-ms.openlocfilehash: b8f2421a6bd900d9088bbc654de2425efb48cd9b
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+ms.openlocfilehash: 71d40a7a66475933bfe8c6cd970dd9cdae4ac7f7
+ms.sourcegitcommit: 664584f55e0a01bb6558b8d3349d41d3f05ba4d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
-ms.locfileid: "20181539"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41704065"
 ---
 # <a name="enable-diagnostics-in-azure-cloud-services-using-powershell"></a>使用 PowerShell 在 Azure 云服务中启用诊断
 
@@ -88,7 +89,7 @@ New-AzureDeployment -ServiceName $service_name -Slot Production -Package $servic
 
 Visual Studio Online 使用类似的方法通过诊断扩展自动部署云服务。 有关完整示例，请参阅 [Publish-AzureCloudDeployment.ps1](https://github.com/Microsoft/vso-agent-tasks/blob/master/Tasks/AzureCloudPowerShellDeployment/Publish-AzureCloudDeployment.ps1) 。
 
-如果在诊断配置中未指定 `StorageAccount` ，则需要将 *StorageAccountName* 参数传递给 cmdlet。 如果指定了 *StorageAccountName* 参数，则 cmdlet 会始终使用该参数中指定的存储帐户，而不使用诊断配置文件中指定的存储帐户。
+如果未在诊断配置中指定 `StorageAccount`，则需要将 StorageAccountName 参数传递给 cmdlet。 如果指定了 *StorageAccountName* 参数，cmdlet 始终使用该参数中指定的存储帐户，而不使用诊断配置文件中指定的存储帐户。
 
 如果诊断存储帐户与云服务属于不同的订阅，则需要将 StorageAccountName 和 StorageAccountKey 参数显式传递给 cmdlet。 当诊断存储帐户在同一订阅中时，不需要 *StorageAccountKey* 参数，因为 cmdlet 可以在启用诊断扩展时自动查询和设置密钥值。 但是，如果诊断存储帐户在不同的订阅中，则 cmdlet 可能无法自动获取密钥，需要通过 *StorageAccountKey* 参数显式指定该密钥。
 
@@ -98,8 +99,7 @@ $workerrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "Worke
 ```
 
 ## <a name="enable-diagnostics-extension-on-an-existing-cloud-service"></a>在现有的云服务上启用诊断扩展
-
-可以使用 [Set-AzureServiceDiagnosticsExtension](https://msdn.microsoft.com/zh-cn/library/azure/mt589140.aspx) cmdlet 在已运行的云服务上启用或更新诊断配置。 
+可以使用 [Set-AzureServiceDiagnosticsExtension](https://docs.microsoft.com/zh-cn//powershell/module/azure/set-azureservicediagnosticsextension?view=azuresmps-3.7.0) cmdlet 在已运行的云服务上启用或更新诊断配置。
 
 [!INCLUDE [cloud-services-wad-warning](../../includes/cloud-services-wad-warning.md)]
 
@@ -115,14 +115,14 @@ Set-AzureServiceDiagnosticsExtension -DiagnosticsConfiguration @($webrole_diagco
 ```
 
 ## <a name="get-current-diagnostics-extension-configuration"></a>获取当前诊断扩展配置
-使用 [Get AzureServiceDiagnosticsExtension](https://msdn.microsoft.com/zh-cn/library/azure/mt589204.aspx) cmdlet 可以获取云服务的当前诊断配置。
+使用 [Get AzureServiceDiagnosticsExtension](https://docs.microsoft.com/zh-cn//powershell/module/azure/get-azureservicediagnosticsextension?view=azuresmps-3.7.0) cmdlet 可以获取云服务的当前诊断配置。
 
 ```powershell
 Get-AzureServiceDiagnosticsExtension -ServiceName "MyService"
 ```
 
 ## <a name="remove-diagnostics-extension"></a>删除诊断扩展
-若要在云服务上关闭诊断，可以使用 [Remove-AzureServiceDiagnosticsExtension](https://msdn.microsoft.com/zh-cn/library/azure/mt589183.aspx) cmdlet。
+若要在云服务上关闭诊断，可以使用 [Remove-AzureServiceDiagnosticsExtension](https://docs.microsoft.com/zh-cn//powershell/module/azure/remove-azureservicediagnosticsextension?view=azuresmps-3.7.0) cmdlet。
 
 ```powershell
 Remove-AzureServiceDiagnosticsExtension -ServiceName "MyService"

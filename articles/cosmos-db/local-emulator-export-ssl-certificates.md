@@ -10,15 +10,15 @@ ms.service: cosmos-db
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 06/06/2017
-ms.date: 07/02/2018
+ms.date: 08/13/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4c6c7184429a97b4945683a82987671c765b29bc
-ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
+ms.openlocfilehash: 7aba426f5500476f6fa3b894ce4ae02bf19b810a
+ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37070154"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41705080"
 ---
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs"></a>使用 Java、Python 和 Node.js 导出要使用的 Azure Cosmos DB 模拟器证书
 
@@ -100,6 +100,9 @@ Azure Cosmos DB 模拟器提供了一个模拟用于开发的 Azure Cosmos DB �
 > * 导出 SSL 证书
 > * 了解如何在 Java、Python 和 Node.js 中使用证书
 
-<!-- Not Available on [Create an Azure Function with input from Azure Cosmos DB](tutorial-functions-http-trigger.md) -->
+现在可以转到“概念”部分详细了解 Azure Cosmos DB。 
 
-<!--Update_Description: update meta properties -->
+> [!div class="nextstepaction"]
+>[Azure Cosmos DB 中的可优化数据一致性级别](../cosmos-db/consistency-levels.md)
+
+<!--Update_Description: update meta properties, update link -->

@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 10/02/2017
-ms.date: 05/28/2018
+ms.date: 08/20/2018
 ms.author: v-yeche
-ms.openlocfilehash: d5fb74f3eeb1b91db4c2b20075cd5505fe55bb77
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: 98ea2748df3c8c3938c08c99397c9c902712e68c
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554406"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41704472"
 ---
 # <a name="configuring-reliable-actors--reliabledictionaryactorstateprovider"></a>配置 Reliable Actors - ReliableDictionaryActorStateProvider
 通过更改 Visual Studio 包根目录下的指定执行组件的 Config 文件夹中生成的 settings.xml 文件，可以修改 ReliableDictionaryActorStateProvider 的默认配置。
@@ -40,7 +40,6 @@ Azure Service Fabric 运行时在 settings.xml 文件中查找预定义的节名
 群集清单是单个 XML 文件，可保留适用于群集中所有节点和服务的设置与配置。 此文件通常称为 ClusterManifest.xml。 可以使用 Get-ServiceFabricClusterManifest powershell 命令查看群集的群集清单。
 
 ### <a name="configuration-names"></a>配置名称
-
 | Name | 计价单位 | 默认值 | 备注 |
 | --- | --- | --- | --- |
 | WriteBufferMemoryPoolMinimumInKB |千字节 |8388608 |以内核模式分配给记录器写入缓冲区内存池的最小 KB 数。 此内存池用于在将状态信息写入磁盘之前缓存这些信息。 |
@@ -50,7 +49,6 @@ Azure Service Fabric 运行时在 settings.xml 文件中查找预定义的节名
 | SharedLogSizeInMB |兆字节 |8192 |指定以静态方式分配给共享日志的磁盘空间 MB 数。 此值必须为 2048 或更大。 |
 
 ### <a name="sample-cluster-manifest-section"></a>群集清单节示例
-
 ```xml
    <Section Name="KtlLogger">
      <Parameter Name="WriteBufferMemoryPoolMinimumInKB" Value="8192" />
@@ -72,6 +70,10 @@ SharedLogSizeInMB 指定要预先分配给所有节点上的默认共享日志�
 复制器安全配置用于保护复制过程中使用的通信通道的安全。 这意味着服务无法看到对方的复制流量，从而确保高度可用的数据也处于安全状态。
 默认情况下，空的安全配置节会影响复制安全。
 
+> [!IMPORTANT]
+> 在 Linux 节点上，证书必须是 PEM 格式。 若要详细了解如何查找和配置适用于 Linux 的证书，请参阅[在 Linux 上配置证书](./service-fabric-configure-certificates-linux.md)。 
+> 
+
 ### <a name="section-name"></a>节名称
 &lt;ActorName&gt;ServiceReplicatorSecurityConfig
 
@@ -83,7 +85,6 @@ SharedLogSizeInMB 指定要预先分配给所有节点上的默认共享日志�
 &lt;ActorName&gt;ServiceReplicatorConfig
 
 ### <a name="configuration-names"></a>配置名称
-
 | Name | 计价单位 | 默认值 | 备注 |
 | --- | --- | --- | --- |
 | BatchAcknowledgementInterval |秒 |0.015 |收到操作后，在向主要复制器送回确认之前，辅助复制器等待的时间段。 为在此间隔内处理的操作发送的任何其他确认都作为响应发送。 |
@@ -98,7 +99,6 @@ SharedLogSizeInMB 指定要预先分配给所有节点上的默认共享日志�
 | SharedLogPath |完全限定的路径名 |"" |指定要在其中创建此副本共享日志文件的完全限定路径。 通常情况下，服务不应使用此设置。 但是如果指定了 SharedLogPath，还必须指定 SharedLogId。 |
 
 ## <a name="sample-configuration-file"></a>示例配置文件
-
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -131,4 +131,4 @@ MaxRecordSizeInKB 设置用于定义可由复制器写入日志文件的记录�
 
 SharedLogId 和 SharedLogPath 设置始终一起使用，使服务可以使用与节点的默认共享日志不同的共享日志。 为获得最佳效率，应让尽可能多的服务指定相同共享日志。 共享日志文件应置于仅用于共享日志文件的磁盘上，以便减少磁头运动争用。 我们预期这些值只在极少数情况下需要更改。
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties, wording update -->

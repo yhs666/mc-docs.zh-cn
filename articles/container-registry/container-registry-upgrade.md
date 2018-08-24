@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: container-registry
 ms.topic: article
 origin.date: 03/15/2018
-ms.date: 07/02/2018
+ms.date: 08/27/2018
 ms.author: v-yeche
-ms.openlocfilehash: cdbfc8ac7f40c3806bd0e1289f1e9dc3f44dd675
-ms.sourcegitcommit: 5b6a2fc55e5b16ae480bd497c3ac2c3a2fd44703
+ms.openlocfilehash: 410eda0e7bc3e23bf58559ac94e20d88f53f7565
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38999157"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42872370"
 ---
 # <a name="upgrade-a-classic-container-registry"></a>升级经典容器注册表
 
@@ -127,8 +127,7 @@ az acr update --name myclassicregistry --sku Premium
 [update-classic-04-updated]: ./media/container-registry-upgrade\update-classic-04-updated.png
 
 <!-- LINKS - internal -->
-[az-acr-update]: https://docs.azure.cn/zh-cn/cli/acr?view=azure-cli-latest#az_acr_update
+[az-acr-update]: https://docs.azure.cn/zh-cn/cli/acr?view=azure-cli-latest#az-acr-update
 [azure-cli]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
 [azure-portal]: https://portal.azure.cn
-<!-- Update_Description: new article on container registry upgrade -->
-<!--ms.date: 07/02/2018-->
+<!-- Update_Description: wording update -->

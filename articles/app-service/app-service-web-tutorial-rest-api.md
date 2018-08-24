@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
 origin.date: 02/28/2018
-ms.date: 04/30/2018
+ms.date: 09/03/2018
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: c31376f7ccc2ad24b1cd84c8f2b7ec7be2553692
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: a5f211a30a18f9f351ef71da7ceccfbb881054ae
+ms.sourcegitcommit: 1b682acdc2a5e0974fbff809967d7cefcbbbe8ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939843"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42871040"
 ---
-# <a name="host-a-restful-api-with-cors-in-azure-app-service"></a>在 Azure 应用服务中托管启用了 CORS 的 RESTful API
+# <a name="tutorial-host-a-restful-api-with-cors-in-azure-app-service"></a>教程：在 Azure 应用服务中托管启用了 CORS 的 RESTful API
 
 [Azure 应用服务](app-service-web-overview.md)提供高度可缩放、自修补的 Web 托管服务。 另外，应用服务还为 RESTful API 提供对[跨域资源共享 (CORS)](https://wikipedia.org/wiki/Cross-Origin_Resource_Sharing) 的内置支持。 本教程介绍如何将 ASP.NET Core API 应用部署到提供 CORS 支持的应用服务。 请使用命令行工具来配置应用，使用 Git 来部署应用。 
 
@@ -34,6 +34,7 @@ ms.locfileid: "38939843"
 > * 使用 Git 将 RESTful API 部署到 Azure
 > * 启用应用服务 CORS 支持
 
+可以在 macOS、Linux、Windows 中执行本教程中的步骤。
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -131,13 +132,13 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
 
 ### <a name="browse-to-the-azure-web-app"></a>浏览到 Azure Web 应用
 
-在浏览器中导航到 `http://<app_name>.chinacloudapi.cn/swagger`，开始使用 Swagger UI。
+在浏览器中导航到 `http://<app_name>.chinacloudsites.cn/swagger`，开始使用 Swagger UI。
 
 ![在 Azure 应用服务中运行的 ASP.NET Core API](./media/app-service-web-tutorial-rest-api/azure-run.png)
 
-导航到 `http://<app_name>.chinacloudapi.cn/swagger/v1/swagger.json` 即可看到已部署 API 的 _swagger.json_。
+导航到 `http://<app_name>.chinacloudsites.cn/swagger/v1/swagger.json` 即可看到已部署 API 的 _swagger.json_。
 
-导航到 `http://<app_name>.chinacloudapi.cn/api/todo` 即可看到已部署 API 正在运行。
+导航到 `http://<app_name>.chinacloudsites.cn/api/todo` 即可看到已部署 API 正在运行。
 
 ## <a name="add-cors-functionality"></a>添加 CORS 功能
 
@@ -147,7 +148,7 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
 
 在本地存储库中，打开 _wwwroot/index.html_。
 
-在第 51 中，将 `apiEndpoint` 变量设置为已部署 API 的 URL (`http://<app_name>.chinacloudapi.cn`)。 在应用服务中将 _\<appname>_ 替换为你的应用名称。
+在第 51 中，将 `apiEndpoint` 变量设置为已部署 API 的 URL (`http://<app_name>.chinacloudsites.cn`)。 在应用服务中将 _\<appname>_ 替换为你的应用名称。
 
 在本地终端窗口中，再次运行示例应用。
 
@@ -159,7 +160,7 @@ dotnet run
 
 ![浏览器客户端中的 CORS 错误](./media/app-service-web-tutorial-rest-api/cors-error.png)
 
-由于浏览器应用 (`http://localhost:5000`) 和远程资源 (`http://<app_name>.chinacloudapi.cn`) 的域不匹配，并且由于应用服务中的 API 未发送 `Access-Control-Allow-Origin` 标头，因此浏览器已阻止跨域内容在浏览器应用中加载。
+由于浏览器应用 (`http://localhost:5000`) 和远程资源 (`http://<app_name>.chinacloudsites.cn`) 的域不匹配，并且由于应用服务中的 API 未发送 `Access-Control-Allow-Origin` 标头，因此浏览器已阻止跨域内容在浏览器应用中加载。
 
 在生产中，浏览器应用会有一个公共 URL 而不是 localhost URL，但对 localhost URL 启用 CORS 的方式与对公共 URL 相同。
 

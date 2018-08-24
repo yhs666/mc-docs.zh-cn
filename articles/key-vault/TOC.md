@@ -12,7 +12,6 @@
 ## [从 Key Vault 读取机密](tutorial-web-application-keyvault.md)
 ## [Key Vault 入门](key-vault-get-started.md)
 ## [设置密钥轮换和审核](key-vault-key-rotation-log-monitoring.md)
-## [从 Web 应用使用 Key Vault](key-vault-use-from-web-application.md)
 # 示例
 ## [代码示例](https://azure.microsoft.com/resources/samples/?service=key-vault)
 # 概念
@@ -38,14 +37,13 @@
 ### [Azure 自动化](automation-manage-key-vault.md)
 
 # 参考
-## [代码示例](https://azure.microsoft.com/en-us/resources/samples/?service=key-vault)
 ## [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault)
 ## [Azure CLI](/cli/keyvault)
-## [.NET](/dotnet/api/microsoft.azure.keyvault)
-## [Java](/java/api/com.microsoft.azure.keyvault)
+## [.NET](https://docs.azure.cn/zh-cn/dotnet/api/overview/keyvault/client?view=azure-dotnet)
+## [Java](/java/api/overview/keyvault?view=azure-java-stable)
 ## Node.js
-### [保管库管理](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
-### [保管库内容管理](http://azure.github.io/azure-sdk-for-node/azure-keyvault/latest)
+### [保管库管理](https://docs.microsoft.com/javascript/api/azure-keyvault/index?view=azure-node-latest)
+### [保管库内容管理](https://docs.microsoft.com/javascript/api/azure-arm-keyvault/index?view=azure-node-latest)
 ## [REST](https://docs.microsoft.com/rest/api/keyvault)
 ## 开发
 ### [开发人员快速入门视频](http://channel9.msdn.com/Blogs/Windows-Azure/Azure-Key-Vault-Developer-Quick-Start)
@@ -76,4 +74,3 @@
 ## [价格](https://www.azure.cn/pricing/details/key-vault/)
 ## [定价计算器](https://www.azure.cn/pricing/calculator/)
 
-<!--Update_Description: wording update -->

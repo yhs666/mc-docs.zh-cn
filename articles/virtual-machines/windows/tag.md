@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 07/05/2016
-ms.date: 05/21/2018
+ms.date: 08/27/2018
 ms.author: v-yeche
-ms.openlocfilehash: 2cf0d020e35ebcea46c5f1113393267920298de3
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 89297a9124777e0786cfb5d70c89c2d75af050b0
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939352"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42871577"
 ---
 # <a name="how-to-tag-a-windows-virtual-machine-in-azure"></a>如何在 Azure 中标记 Windows 虚拟机
 本文介绍了在 Azure 中通过 Resource Manager 部署模型标记 Windows 虚拟机的不同方式。 标记是用户定义的键/值对，可直接放置在资源或资源组中。 针对每个资源和资源组，Azure 当前支持最多 15 个标记。 标记可以在创建时放置在资源中或添加到现有资源中。 请注意，只有通过 Resource Manager 部署模型创建的资源支持标记。 如果想要标记 Linux 虚拟机，请参阅[如何在 Azure 中标记 Linux 虚拟机](../linux/tag.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
@@ -99,7 +99,7 @@ ms.locfileid: "38939352"
 <!-- Not Available on [Understanding your Azure Bill][Understanding your Azure Bill] and [Gain insights into your Azure resource consumption][Gain insights into your Azure resource consumption]-->
 
 [PowerShell environment with Azure Resource Manager]: ../../azure-resource-manager/powershell-azure-resource-manager.md
-[Azure Resource Cmdlets]: https://msdn.microsoft.com/library/azure/dn757692.aspx
+[Azure Resource Cmdlets]: https://docs.microsoft.com/powershell/module/azurerm.resources/
 [Azure Resource Manager Overview]: ../../azure-resource-manager/resource-group-overview.md
 [Using Tags to organize your Azure Resources]: ../../azure-resource-manager/resource-group-using-tags.md
 <!-- Not Available on [Understanding your Azure Bill]: ../../billing/billing-understand-your-bill.md -->

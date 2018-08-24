@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 06/01/2017
-ms.date: 03/19/2018
+ms.date: 08/27/2018
 ms.author: v-yeche
-ms.openlocfilehash: 6943702749d313b14689ce90a07d25512c58699f
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: 11b6776511429376785a27b18fa9679643aab8f1
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
-ms.locfileid: "29965348"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42872301"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>将 Azure 高级存储用于虚拟机上的 SQL Server
 ## <a name="overview"></a>概述
@@ -121,6 +121,7 @@ ms.locfileid: "29965348"
 
 1. 使用 **Get-AzureVM** 命令获取附加到 VM 的磁盘列表：
 
+        
         Get-AzureVM -ServiceName <servicename> -Name <vmname> | Get-AzureDataDisk
 2. 记下 Diskname 和 LUN。
 
@@ -190,7 +191,7 @@ ms.locfileid: "29965348"
     $xiostorage = Get-AzureStorageKey -StorageAccountName $newxiostorageaccountname
 
     ##Generate storage acc contexts
-    $xioContext = New-AzureStorageContext -Environment AzureChinaCloud -StorageAccountName $newxiostorageaccountname -StorageAccountKey $xiostorage.Primary   
+    $xioContext = New-AzureStorageContext -Environment AzureChinaCloud-StorageAccountName $newxiostorageaccountname -StorageAccountKey $xiostorage.Primary   
 
     #Create container
     $containerName = 'vhds'
@@ -420,7 +421,7 @@ ms.locfileid: "29965348"
 ##### <a name="advantages"></a>优点
 * 在将新 SQL Server（SQL Server 和应用程序）添加到 Always On 之前，可以对其进行测试。
 * 可以根据确切需求更改 VM 大小和自定义存储。 但是，保持所有 SQL 文件路径不变会非常有益。
-* 可以控制何时开始将数据库备份传输到辅助副本。 这不同于使用 Azure **Start-AzureStorageBlobCopy** commandlet 复制 VHD，因为这是异步复制。
+* 可控制何时开始将 DB 备份转移到辅助副本。 这不同于使用 Azure **Start-AzureStorageBlobCopy** commandlet 复制 VHD，因为这是异步复制。
 
 ##### <a name="disadvantages"></a>缺点
 * 使用 Windows 存储池时，在对新的附加节点进行完整群集验证的过程中，会存在群集停机时间。
@@ -640,8 +641,7 @@ ms.locfileid: "29965348"
 
 在之后的迁移步骤中，需要使用引用负载均衡器的更新后的 IP 地址来更新 AlwaysOn 侦听器，此操作涉及到删除和添加 IP 地址资源。 更新 IP 之后，你需要确保已在 DNS 区域中更新新的 IP 地址并且客户端将更新其本地 DNS 缓存。
 
-如果客户端驻留在不同网络段，并引用不同的 DNS 服务器，则需要考虑在迁移期间将发生哪些与 DNS 区域传送相关的事件，因为应用程序重新连接时间将至少受到侦听器的任何新 IP 地址的区域传送时间的约束。 如果在此处受到时间约束，则应与 Windows 团队讨论并测试强制增量区域传送，同时还应将 DNS 主机记录设为较小的生存时间 (TTL)，以使客户端更新。 有关详细信息，请参阅[增量区域传送](https://technet.microsoft.com/library/cc958973.aspx)和 [Start-DnsServerZoneTransfer](https://docs.microsoft.com/zh-cn/powershell/module/dnsserver/Start-DnsServerZoneTransfer)。
-<!-- URL is CORRECT ON [Start-DnsServerZoneTransfer](https://docs.microsoft.com/zh-cn/powershell/module/dnsserver/Start-DnsServerZoneTransfer) -->
+如果你的客户端驻留在不同的网络段中且引用不同的 DNS 服务器，则需要考虑到迁移期间 DNS 区域复制发生的情况，因为侦听器的任意新 IP 地址的区域复制时间都会制约应用程序连接时间（可能还有其他制约情况）。 如果在此处受到时间约束，则应与 Windows 团队讨论并测试强制增量区域传送，同时还应将 DNS 主机记录设为较小的生存时间 (TTL)，以使客户端更新。 有关详细信息，请参阅[增量区域传送](https://technet.microsoft.com/library/cc958973.aspx)和 [Start-DnsServerZoneTransfer](https://docs.microsoft.com/powershell/module/dnsserver/start-dnsserverzonetransfer)。
 
 与 Azure AlwaysOn 侦听器关联的 DNS 记录的 TTL 默认为 1200 秒。 如果在迁移期间受到时间约束，你可能希望减少此时间，以确保客户端使用侦听器更新后的 IP 地址更新其 DNS。 可以通过转储 VNN 的配置来查看并修改该配置：
 

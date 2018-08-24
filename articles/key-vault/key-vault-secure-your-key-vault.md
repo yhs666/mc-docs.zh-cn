@@ -15,12 +15,12 @@ ms.topic: hero-article
 origin.date: 05/10/2017
 ms.date: 06/11/2018
 ms.author: v-junlch
-ms.openlocfilehash: 503331ebc3689279b94e8e30ff48c39faa737ca5
-ms.sourcegitcommit: 306fba1a7125ef6f0555781524afa8f535bea2a0
+ms.openlocfilehash: 35b5bd79cd3ae1ba821c4db69e35aa611efbd266
+ms.sourcegitcommit: 56aa1615ef7402444111495f72afbdd6b2dfff78
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35253376"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "41704549"
 ---
 # <a name="secure-your-key-vault"></a>保护密钥保管库
 Azure Key Vault 是一种云服务，用于保护云应用程序的加密密钥和机密（例如证书、连接字符串、密码）。 因为此数据是敏感数据和业务关键数据，会希望保护对密钥保管库的访问，以便只有得到授权的应用程序和用户可以访问密钥保管库。 本文概述密钥保管库访问模型，介绍身份验证和授权，并举例说明如何保护对云应用程序密钥保管库的访问。
@@ -238,9 +238,6 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzureR
   
   机密访问控制参考文档的链接。
 - [Secret access control（机密访问控制）](https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_SecretAccessControl)
-  
-  密钥访问控制参考文档的链接。
-- 使用 PowerShell [设置](https://msdn.microsoft.com/library/mt603625.aspx)和[删除](https://msdn.microsoft.com/library/mt619427.aspx)密钥保管库访问策略
   
   有关用于管理密钥保管库访问策略的 PowerShell cmdlet 的参考文档链接。
 

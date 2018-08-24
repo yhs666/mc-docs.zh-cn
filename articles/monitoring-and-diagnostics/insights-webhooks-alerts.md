@@ -1,26 +1,19 @@
 ---
-title: 针对 Azure 指标警报配置 Webhook
-description: 了解如何将 Azure 警报重新路由到其他非 Azure 系统。
-author: johnkemnetz
-manager: carmonm
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 8b3ae540-1d19-4f3d-a635-376042f8a5bb
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+title: 使用 Webhook 让经典指标警报通知非 Azure 系统
+description: 了解如何将 Azure 指标警报重新路由到其他非 Azure 系统。
+author: snehithm
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 origin.date: 04/03/2017
 ms.author: v-yiso
-ms.date: 03/19/2018
-ms.openlocfilehash: 244c57b8308114e4ece19071c308134eb1163409
-ms.sourcegitcommit: 479954e938e4e3469d6998733aa797826e4f300b
+ms.date: 08/20/2018
+ms.openlocfilehash: df0af98669e997bea47ce87e0ab020593c0452ce
+ms.sourcegitcommit: 664584f55e0a01bb6558b8d3349d41d3f05ba4d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39031710"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41704478"
 ---
 # <a name="configure-a-webhook-on-an-azure-metric-alert"></a>针对 Azure 度量值警报配置 webhook
 可以使用 Webhook 将 Azure 警报通知路由到其他系统，以便进行后续处理或自定义操作。 可以针对警报使用 Webhook，以将警报路由到可以发送短信的服务，以记录 Bug、通过聊天/消息服务通知团队，或进行各种其他操作。 
@@ -44,37 +37,34 @@ POST 操作对于所有基于指标的警报包含以下 JSON 有效负载和架
 
 ```JSON
 {
-    "WebhookName": "Alert1515515157799",
-    "RequestBody": {
-        "status": "Activated",
-        "context": {
-            "timestamp": "2015-08-14T22:26:41.9975398Z",
-            "id": "/subscriptions/s1/resourceGroups/useast/providers/microsoft.insights/alertrules/ruleName1",
-            "name": "ruleName1",
-            "description": "some description",
-            "conditionType": "Metric",
-            "condition": {
-                "metricName": "Requests",
-                "metricUnit": "Count",
-                "metricValue": "10",
-                "threshold": "10",
-                "windowSize": "15",
-                "timeAggregation": "Average",
-                "operator": "GreaterThanOrEqual"
-            },
-            "subscriptionId": "s1",
-            "resourceGroupName": "useast",                                
-            "resourceName": "mysite1",
-            "resourceType": "microsoft.foo/sites",
-            "resourceId": "/subscriptions/s1/resourceGroups/useast/providers/microsoft.foo/sites/mysite1",
-            "resourceRegion": "centralus",
-            "portalLink": "https://portal.azure.cn/#resource/subscriptions/s1/resourceGroups/useast/providers/microsoft.foo/sites/mysite1"
+    "status": "Activated",
+    "context": {
+        "timestamp": "2015-08-14T22:26:41.9975398Z",
+        "id": "/subscriptions/s1/resourceGroups/useast/providers/microsoft.insights/alertrules/ruleName1",
+        "name": "ruleName1",
+        "description": "some description",
+        "conditionType": "Metric",
+        "condition": {
+            "metricName": "Requests",
+            "metricUnit": "Count",
+            "metricValue": "10",
+            "threshold": "10",
+            "windowSize": "15",
+            "timeAggregation": "Average",
+            "operator": "GreaterThanOrEqual"
         },
-"properties": {
-              "key1": "value1",
-              "key2": "value2"
-              }
-          }
+        "subscriptionId": "s1",
+        "resourceGroupName": "useast",
+        "resourceName": "mysite1",
+        "resourceType": "microsoft.foo/sites",
+        "resourceId": "/subscriptions/s1/resourceGroups/useast/providers/microsoft.foo/sites/mysite1",
+        "resourceRegion": "centralus",
+        "portalLink": "https://portal.azure.cn/#resource/subscriptions/s1/resourceGroups/useast/providers/microsoft.foo/sites/mysite1"
+    },
+    "properties": {
+        "key1": "value1",
+        "key2": "value2"
+    }
 }
 ```
 
@@ -111,4 +101,4 @@ POST 操作对于所有基于指标的警报包含以下 JSON 有效负载和架
 >
 
 ## <a name="next-steps"></a>后续步骤
-- [Execute Azure Automation scripts (Runbooks) on Azure alerts](http://go.microsoft.com/fwlink/?LinkId=627081)（对 Azure 警报执行 Azure 自动化脚本 (Runbook)）
+* 了解如何[对 Azure 警报执行 Azure 自动化脚本 (Runbook)](http://go.microsoft.com/fwlink/?LinkId=627081)。

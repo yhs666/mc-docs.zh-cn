@@ -9,15 +9,15 @@ ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 03/27/2018
-ms.date: 07/02/2018
+ms.date: 08/13/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e6a0424325cf1d110a4d6b2f61112540cb6c939d
-ms.sourcegitcommit: 54851a22f188f2401ed971931132b46febe7014e
+ms.openlocfilehash: c39ab2fd401480019b872e4d7ef5cfac6fb65a12
+ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39361352"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41705165"
 ---
 # <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>Azure Cosmos DB 中的可优化数据一致性级别
 Azure Cosmos DB 是从无到有开发出来的，其设计考虑到了每个数据模型的多区域分发。 它旨在提供可预测的低延迟保证以及多个完善定义的宽松一致性模型。 目前，Azure Cosmos DB 提供五种一致性级别：非常一致性、有限过期一致性、会话一致性、一致前缀一致性和最终一致性。 有限过期、会话、一致性前缀和最终级别称为“宽松一致性模型”，因为它们提供的一致性比非常一致性更差，后者是可用的最高一致性模型。 
@@ -56,7 +56,7 @@ Azure Cosmos 数据库提供 99.99% 的全面 [SLA](https://www.azure.cn/support
 一致性的粒度归并为单个用户请求。 写入请求可能对应于插入、替换、插入更新或删除事务。 与写入操作一样，读取/查询事务也归并为单个用户请求。 用户可能需要在跨越多个分区的大型结果集中分页，但每个读取事务归并为单个页面，并从单个分区内部进行。
 
 ## <a name="consistency-levels"></a>一致性级别
-可以配置数据库帐户的默认一致性级别，以应用于 Cosmos DB 帐户下的所有集合（和数据库）。 所有针对用户定义的资源发出的读取和查询，默认都会使用数据库帐户上指定的默认一致性级别。 可以放松在每个支持的 API 中使用的特定读取/查询请求的一致性级别。 如本部分所述，Azure Cosmos DB 复制协议支持五种类型的一致性级别，这些级别可在特定的一致性保证与性能之间提供明确的折衷。
+可以配置数据库帐户的默认一致性级别，将其应用于 Cosmos DB 帐户下的所有容器（和数据库）。 所有针对用户定义的资源发出的读取和查询，默认都会使用数据库帐户上指定的默认一致性级别。 可以放松在每个支持的 API 中使用的特定读取/查询请求的一致性级别。 如本部分所述，Azure Cosmos DB 复制协议支持五种类型的一致性级别，这些级别可在特定的一致性保证与性能之间提供明确的折衷。
 
 <a name="strong"></a>
 **强**： 
@@ -110,7 +110,7 @@ Azure Cosmos 数据库提供 99.99% 的全面 [SLA](https://www.azure.cn/support
     ![屏幕截图：突出显示“设置”图标和默认一致性条目](./media/consistency-levels/database-consistency-level-1.png)
 
 ## <a name="consistency-levels-for-queries"></a>查询的一致性级别
-默认情况下，对于用户定义的资源，查询的一致性级别与读取的一致性级别相同。 默认情况下，每次在 Cosmos DB 容器中插入、替换或删除项时，都会同步更新索引。 这个行为让查询能够使用与点读取相同的一致性级别。 虽然 Azure Cosmos DB 针对写入进行了优化，且支持写入，以及同步索引维护和提供一致的查询服务，但仍也可以配置某些集合，使其索引延迟更新。 延迟索引编制可大大提高写入性能，非常适合工作负荷主要具有大量读取操作的批量引入方案。  
+默认情况下，对于用户定义的资源，查询的一致性级别与读取的一致性级别相同。 默认情况下，每次在 Cosmos DB 容器中插入、替换或删除项时，都会同步更新索引。 这个行为让查询能够使用与时点读取相同的一致性级别。 虽然 Azure Cosmos DB 针对写入进行了优化，且支持持续大量写入，以及同步索引维护和提供一致的查询服务，但也可以配置某些容器，使其索引延迟更新。 延迟索引编制可大大提高写入性能，非常适合工作负荷主要具有大量读取操作的批量引入方案。  
 
 | 索引模式 | 读取 | 查询 |
 | --- | --- | --- |

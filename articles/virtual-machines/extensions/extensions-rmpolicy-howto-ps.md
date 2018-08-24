@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure 策略限制 VM 扩展安装 | Azure
-description: 使用 Azure 策略限制扩展部署。
+title: 使用 Azure Policy 限制 VM 扩展安装 | Azure
+description: 使用 Azure Policy 限制扩展部署。
 services: virtual-machines-linux
 documentationcenter: ''
 author: rockboyfor
@@ -12,22 +12,21 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 03/23/2018
-ms.date: 06/04/2018
+ms.date: 08/27/2018
 ms.author: v-yeche
-ms.openlocfilehash: ac03f41153d14907f79b7152f1b1a77d2bb90b96
-ms.sourcegitcommit: c1f196ee0a345620ea22b330c13718bc00a7dc4a
+ms.openlocfilehash: c610ee91e621448c54ec1f42bef06f5a6b3f5e35
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36208895"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42872356"
 ---
-# <a name="use-azure-policy-to-restrict-extensions-installation-on-windows-vms"></a>使用 Azure 策略限制 Windows VM 上的扩展安装
+# <a name="use-azure-policy-to-restrict-extensions-installation-on-windows-vms"></a>使用 Azure Policy 限制 Windows VM 上的扩展安装
 
-如果想要阻止在 Windows VM 上使用或安装某些扩展，可以使用 PowerShell 创建 Azure 策略以限制资源组中的 VM 扩展。 
+如果想要阻止在 Windows VM 上使用或安装某些扩展，可以使用 PowerShell 创建 Azure Policy 以限制资源组中的 VM 扩展。 
 
 本教程在本地 Shell 中使用 Azure PowerShell。如果选择在本地安装并使用 PowerShell，则本教程需要安装 Azure PowerShell 模块 3.6 或更高版本。 运行 ` Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 
 <!-- Notice: Remove the cloud shell -->
-
 
 ## <a name="create-a-rules-file"></a>创建规则文件
 
@@ -38,7 +37,7 @@ ms.locfileid: "36208895"
 
 <!-- Not Available on [Cloud Shell](https://shell.azure.com/powershell)-->
 
-```powershell
+```PowerShell
 nano $home/clouddrive/rules.json
 ```
 
@@ -79,7 +78,7 @@ nano $home/clouddrive/rules.json
 
 <!-- Not Available on [Cloud Shell](https://shell.azure.com/powershell)-->
 
-```powershell
+```PowerShell
 nano $home/clouddrive/parameters.json
 ```
 
@@ -107,7 +106,7 @@ nano $home/clouddrive/parameters.json
  策略规则和参数是在本地 shell 中创建并存储为 .json 文件的文件。
 <!-- Notice: Change cloud shell to local shell -->
 
-```powershell
+```PowerShell
 $definition = New-AzureRmPolicyDefinition `
    -Name "not-allowed-vmextension-windows" `
    -DisplayName "Not allowed VM Extensions" `
@@ -122,7 +121,7 @@ $definition = New-AzureRmPolicyDefinition `
 
 使用 [Get-AzureRMSubscription | Format-Table](https://docs.microsoft.com/powershell/module/azurerm.profile/get-azurermsubscription) cmdlet 获取你的订阅 ID 以替换此示例中的订阅 ID。
 
-```powershell
+```PowerShell
 $scope = "/subscriptions/<subscription id>/resourceGroups/myResourceGroup"
 $assignment = New-AzureRMPolicyAssignment `
    -Name "not-allowed-vmextension-windows" `
@@ -143,7 +142,7 @@ $assignment
 
 若要测试策略，请尝试使用 VM 访问扩展。 以下命令将失败并显示消息“Set-AzureRmVMAccessExtension：策略不允许使用资源 'myVMAccess'”。
 
-```powershell
+```PowerShell
 Set-AzureRmVMAccessExtension `
    -ResourceGroupName "myResourceGroup" `
    -VMName "myVM" `
@@ -155,17 +154,16 @@ Set-AzureRmVMAccessExtension `
 
 ## <a name="remove-the-assignment"></a>删除分配
 
-```powershell
+```PowerShell
 Remove-AzureRMPolicyAssignment -Name not-allowed-vmextension-windows -Scope $scope
 ```
 
 ## <a name="remove-the-policy"></a>删除策略
 
-```powershell
+```PowerShell
 Remove-AzureRmPolicyDefinition -Name not-allowed-vmextension-windows
 ```
 
 ## <a name="next-steps"></a>后续步骤
-有关详细信息，请参阅 [Azure 策略](../../azure-policy/azure-policy-introduction.md)。
-<!-- Update_Description: new articles on use cli to manage policy -->
-<!--ms.date: 06/04/2018-->
+有关详细信息，请参阅 [Azure Policy](../../azure-policy/azure-policy-introduction.md)。
+<!-- Update_Description: update meta properties, wording update -->
