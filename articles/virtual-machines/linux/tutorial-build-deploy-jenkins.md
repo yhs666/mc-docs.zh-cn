@@ -3,24 +3,23 @@ title: 教程 - 使用 Team Services 通过 Jenkins 实现到 Azure VM 的 CI/CD
 description: 本教程介绍如何从 Visual Studio Team Services 或 Microsoft Team Foundation Server 中的 Release Management，通过使用 Jenkins 将 Node.js 应用设置为持续集成 (CI) 和持续部署 (CD) 到 Azure VM
 author: rockboyfor
 manager: digimobile
-editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
-ms.service: virtual-machines-linux
+ms.service: devops
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-origin.date: 10/19/2017
-ms.date: 07/30/2018
+origin.date: 07/31/2018
+ms.date: 08/27/2018
 ms.author: v-yeche
-ms.custom: mvc
-ms.openlocfilehash: 24ed1b9394cd6af575943def99aac858cb5658b3
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.custom: jenkins
+ms.openlocfilehash: 7cb46efd1a763a7a4a3832fecb7022d133b70f60
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295580"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42871688"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-visual-studio-team-services"></a>教程：使用 Jenkins 和 Visual Studio Team Services 将应用部署到 Azure 中的 Linux 虚拟机
 
@@ -171,6 +170,10 @@ ms.locfileid: "39295580"
 7. 提交更改。
 8. 数分钟后，你将看到 Team Services 或 Team Foundation Server 的“发布”页上创建了一个新发布。 打开此发布可以看到部署正在进行。 祝贺！
 
+## <a name="troubleshooting-the-jenkins-plugin"></a>排查 Jenkins 插件问题
+
+如果 Jenkins 插件出现任何 bug，请在 [Jenkins JIRA](https://issues.jenkins-ci.org/) 中提出特定组件的问题。
+
 ## <a name="next-steps"></a>后续步骤
 
 在本教程中，你通过使用 Jenkins 进行生成并使用 Team Services 进行发布，自动将一个应用部署到 Azure。 你已了解如何：
@@ -186,4 +189,4 @@ ms.locfileid: "39295580"
 > [!div class="nextstepaction"]
 > [部署 LAMP 堆栈](tutorial-lamp-stack.md)
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties, wording update, update link -->

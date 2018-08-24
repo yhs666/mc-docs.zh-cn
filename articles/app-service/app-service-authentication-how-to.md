@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 origin.date: 03/14/2018
-ms.date: 07/02/2018
+ms.date: 09/03/2018
 ms.author: v-yiso
-ms.openlocfilehash: 2097b0e5f9d2441f782b12876cf8787e70de129b
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.openlocfilehash: c9b7ca6432ef3031c2340c7a0891e3819328835c
+ms.sourcegitcommit: 1b682acdc2a5e0974fbff809967d7cefcbbbe8ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315566"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42871013"
 ---
 # <a name="customize-authentication-and-authorization-in-azure-app-service"></a>在 Azure 应用服务中自定义身份验证和授权
 
@@ -47,6 +47,12 @@ ms.locfileid: "36315566"
 ```
 
 当用户单击其中一个链接时，系统会打开相应的登录页让用户登录。
+
+若要将登录后用户重定向到自定义 URL，请使用 `post_login_redirect_url` 查询字符串参数（不要与标识提供者配置中的重定向 URI 混淆）。 例如，若要在登录后将用户导航至 `/Home/Index`，使用以下 HTML 代码：
+
+```HTML
+<a href="/.auth/login/<provider>?post_login_redirect_url=/Home/Index">Log in</a>
+```
 
 ## <a name="access-user-claims"></a>访问用户声明
 

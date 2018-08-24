@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 02/28/2018
-ms.date: 07/30/2018
+ms.date: 08/27/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 68abbb8bd806f5dd51f9e08d7a8129b244daae4d
-ms.sourcegitcommit: 35889b4f3ae51464392478a72b172d8910dd2c37
+ms.openlocfilehash: 53b2734dda90feae3ebec1d6b0f2d4156baf3895
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39261876"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42871690"
 ---
 # <a name="how-to-find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>如何使用 Azure CLI 在 Azure 市场中查找 Linux VM 映像
 本主题介绍如何使用 Azure CLI 2.0 在 Azure 市场中查找 VM 映像。 使用 CLI、资源管理器模板或其他工具以编程方式创建 VM 时，使用此信息指定市场映像。
@@ -57,6 +57,7 @@ SLES           SUSE                    12-SP2              SUSE:SLES:12-SP2:late
 UbuntuServer   Canonical               16.04-LTS           Canonical:UbuntuServer:16.04-LTS:latest                         UbuntuLTS            latest
 ...
 ```
+
 <!-- Not Available on RHEL           RedHat                  7.3                 RedHat:RHEL:7.3:latest                                          RHEL                 latest-->
 
 

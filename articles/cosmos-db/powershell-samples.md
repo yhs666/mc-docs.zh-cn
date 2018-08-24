@@ -10,18 +10,18 @@ ms.custom: mvc
 ms.devlang: na
 ms.topic: sample
 origin.date: 10/16/2017
-ms.date: 07/02/2018
+ms.date: 08/13/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7f00a412c35af7f26ca3763c5e366d70fa8f4b29
-ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
+ms.openlocfilehash: ff2f9e4efd429f4d8166ca4b8c1967ebd198336a
+ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37070130"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41703963"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db"></a>适用于 Azure Cosmos DB 的 Azure PowerShell 示例
 
-下表包含指向适用于 Azure Cosmos DB 的示例 Azure PowerShell 脚本的链接。 目前只能通过 PowerShell 管理 Azure Cosmos DB 帐户；不能通过 PowerShell 管理数据库和集合等其他资源。
+下表包含指向适用于 Azure Cosmos DB 的示例 Azure PowerShell 脚本的链接。 目前只能通过 PowerShell 管理 Azure Cosmos DB 帐户；不能通过 PowerShell 管理数据库和容器等其他资源。
 
 | |  |
 |---|---|

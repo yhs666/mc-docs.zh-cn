@@ -1,22 +1,21 @@
 ---
 title: 关于 Azure Windows VM 的非托管（页 blob）和托管磁盘存储 | Azure
 description: 了解有关 Azure 中的 Windows 虚拟机的非托管（页 blob）和托管磁盘存储的基础知识。
-services: virtual-machines
+services: virtual-machines-windows,storage
 author: rockboyfor
-manager: digimobile
-ms.service: virtual-machines
-ms.workload: storage
+ms.service: virtual-machines-windows
 ms.tgt_pltfrm: windows
 ms.topic: article
 origin.date: 11/15/2017
-ms.date: 06/25/2018
+ms.date: 08/27/2018
 ms.author: v-yeche
-ms.openlocfilehash: ee18e53e530977f06ed70d9ed8e0a292881424f2
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.component: disks
+ms.openlocfilehash: 5acf2a97c5b4d9819936a4f8923e5445cf757b29
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315561"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42871961"
 ---
 # <a name="about-disks-storage-for-azure-windows-vms"></a>关于 Azure Windows VM 的磁盘存储
 就像其他任何计算机一样，Azure 中的虚拟机将磁盘用作存储操作系统、应用程序和数据的位置。 所有 Azure 虚拟机都至少有两个磁盘，即 Windows 操作系统磁盘和临时磁盘。 操作系统磁盘基于映像创建，操作系统磁盘和该映像都存储在 Azure 存储帐户中的虚拟硬盘 (VHD) 内。 虚拟机还可以有一个或多个数据磁盘，而这些磁盘也存储为 VHD。 

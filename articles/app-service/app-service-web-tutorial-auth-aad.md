@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-origin.date: 04/03/2018
-ms.date: 07/02/2018
+origin.date: 08/07/2018
+ms.date: 09/03/2018
 ms.author: v-yiso
-ms.openlocfilehash: da4d6100b78cbeb2ef87389890b0d16c200abaa1
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.openlocfilehash: 8b14439b1dee7f63081afef9cb14f9cb44644630
+ms.sourcegitcommit: 1b682acdc2a5e0974fbff809967d7cefcbbbe8ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315488"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42871022"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>教程：在 Azure 应用服务中对用户进行端到端身份验证和授权
 
@@ -241,7 +241,7 @@ git push frontend master
 
 遵循前端应用的步骤进行操作，但跳过最后一步。 对于前端应用，不需要“应用程序 ID”。 让“Azure Active Directory 设置”页保持打开状态。
 
-根据需要导航到 `http://<front_end_app_name>.chinacloudapi.cn.net`。 现在你会被定向到登录页。 登录后仍无法从后端应用访问数据，因为仍需执行三项操作：
+根据需要导航到 `http://<front_end_app_name>.chinacloudapi.cn.net`。 现在你会被定向到安全登录页。 登录后仍无法从后端应用访问数据，因为仍需执行三项操作：
 
 - 授予前端访问后端的权限
 - 对应用服务进行配置，使之返回可用令牌
@@ -342,7 +342,7 @@ git push frontend master
 
 在 Cloud Shell 中，使用 [`az resource update`](/cli/azure/resource#az_resource_update) 命令对客户端的 URL 启用 CORS。 替换 _\<back\_end\_app\_name>_ 和 _\<front\_end\_app\_name>_ 占位符。
 
-```azurecli-interactive
+```azurecli
 az resource update --name web --resource-group myAuthResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<back_end_app_name> --set properties.cors.allowedOrigins="['https://<front_end_app_name>.chinacloudapi.cn.net']" --api-version 2015-06-01
 ```
 
@@ -352,7 +352,7 @@ az resource update --name web --resource-group myAuthResourceGroup --namespace M
 
 在本地存储库中，打开 _wwwroot/index.html_。
 
-在第 51 行中，将 `apiEndpoint` 变量设置为后端应用的 URL (`http://<back_end_app_name>.chinacloudapi.cn.net`)。 在应用服务中将 _\<back\_end\_app\_name>_ 替换为你的应用名称。
+在第 51 行中，将 `apiEndpoint` 变量设置为后端应用的 URL (`https://<back_end_app_name>.chinacloudapi.cn.net`)。 在应用服务中将 _\<back\_end\_app\_name>_ 替换为你的应用名称。
 
 在本地存储库中打开 _wwwroot/app/scripts/todoListSvc.js_，然后就会看到 `apiEndpoint` 已前置到所有 API 调用。 Angular.js 应用现在可以调用后端 API 了。 
 
@@ -406,7 +406,7 @@ git commit -m "add authorization header for Angular"
 git push frontend master
 ```
 
-再次导航到 `http://<front_end_app_name>.chinacloudapi.cn.net`。 现在应该可以直接在 Angular.js 应用中通过后端应用创建、读取、更新和删除数据了。
+再次导航到 `https://<front_end_app_name>.chinacloudapi.cn.net`。 现在应该可以直接在 Angular.js 应用中通过后端应用创建、读取、更新和删除数据了。
 
 祝贺！ 客户端代码现在可以代表经身份验证的用户访问后端数据了。
 

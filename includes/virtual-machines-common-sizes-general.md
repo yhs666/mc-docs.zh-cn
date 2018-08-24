@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
 origin.date: 07/06/2018
-ms.date: 07/30/2018
+ms.date: 08/27/2018
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: b014d6b78ff877bc1fe512e64c6e58931113c6de
-ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
+ms.openlocfilehash: 68a89aa948ed5b67f3c99439aa24f5f3ae6c454f
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39307072"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42872058"
 ---
 <!-- NOTICE: 最大 NIC 数/预期网络带宽 (Mbps) SHOULD BE (Mbps) --> 常规用途 VM 大小提供均衡的 CPU 与内存之比。 适用于测试和开发、小到中型数据库和低到中等流量 Web 服务器。 本文介绍了此分组中各个大小的 vCPU 数、数据磁盘数、NIC 数和存储吞吐量。 
 
@@ -22,7 +22,7 @@ ms.locfileid: "39307072"
 
 - Dv2 系列是原 D 系列的后续系列，其特点是 CPU 功能更强大。 Dv2 系列 CPU 比 D 系列 CPU 快大约 35%。 它基于最新一代的 2.4 GHz Intel Xeon® E5-2673 v3 2.4 GHz (Haswell) 或 E5-2673 v4 2.3 GHz (Broadwell) 处理器，通过英特尔睿频加速技术 2.0 可以达到 3.1 GHz。 Dv2 系列的内存和磁盘配置与 D 系列相同。
 
-- Dv3 系列采用的处理器与 Dv2 系列相同，但在超线程配置中，Dv3 系列针对最常规用途的工作负荷提供了更好的价值主张，并且使 Dv3 更适用于大多数其他云的常规用途 VM。  在磁盘和网络限制已基于核心进行了调整以适应超线程技术的同时，内存已扩展（从 ~3.5 GiB/vCPU 到 4 GiB/vCPU）。  Dv3 不再有 D/Dv2 系列的高内存 VM 大小，那些已成为新的 EV3 系列。
+- Dv3 系列在超线程配置中采用 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) 处理器或最新的 2.3 GHz Intel XEON ® E5-2673 v4 (Broadwell) 处理器，针对最常规用途的工作负荷提供了更好的价值主张。  在磁盘和网络限制已基于核心进行了调整以适应超线程技术的同时，内存已扩展（从 ~3.5 GiB/vCPU 到 4 GiB/vCPU）。  Dv3 不再有 D/Dv2 系列的高内存 VM 大小，那些已成为新的 EV3 系列。
 
 ## <a name="b-series"></a>B 系列
 
@@ -101,6 +101,7 @@ ACU：210-250
 | Standard_DS3_v2 |4 |14 |28 |16 |16,000 / 128 (172) |12,800 / 192 |4 / 3000 |
 | Standard_DS4_v2 |8 |28 |56 |32 |32,000 / 256 (344) |25,600 / 384 |8 / 6000 |
 | Standard_DS5_v2 |16 |56 |112 |64 |64,000 / 512 (688) |51,200 / 768 |8 / 12000 |
+
 <!-- Please acknowledge that the Max Data Disks are 4,8,16,32,64 for DSV2-series-->
 
 ## <a name="dv2-series"></a>Dv2 系列
@@ -118,6 +119,7 @@ ACU：210-250
 | Standard_D3_v2 | 4    | 14          | 200                    | 12000/187/93                                           | 16             | 16x500           | 4 / 3000                                       |
 | Standard_D4_v2 | 8    | 28          | 400                    | 24000/375/187                                          | 32             | 32x500           | 8 / 6000                                       |
 | Standard_D5_v2 | 16   | 56          | 800                    | 48000/750/375                                          | 64             | 64x500           | 8 / 12000                                    |
+
 <!-- Please acknowledge that the Max Data Disks are 4,8,16,32,64 for DV2-series-->
 
 ## <a name="av2-series"></a>Av2 系列
@@ -137,6 +139,7 @@ ACU：100
 | Standard_A2m_v2 | 2         | 16          | 20 个             | 2000/40/20                                           | 4/4x500               | 2 / 500                 |
 | Standard_A4m_v2 | 4         | 32          | 40             | 4000/80/40                                           | 8/8x500               | 4 / 1000                     |
 | Standard_A8m_v2 | 8         | 64          | 80             | 8000/160/80                                          | 16/16x500             | 8 / 2000                     |
+
 <!-- Correct, No Need to update-->
 
 <br>

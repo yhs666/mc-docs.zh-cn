@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 origin.date: 02/24/2017
-ms.date: 10/30/2017
+ms.date: 09/03/2018
 ms.author: v-yiso
-ms.openlocfilehash: 3b2dd44699c790a17fe09d7fb9e382d1b556618a
-ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
+ms.openlocfilehash: f2cc4969474e271e6332c0cf5b2ea791cdf1aef6
+ms.sourcegitcommit: 1b682acdc2a5e0974fbff809967d7cefcbbbe8ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
-ms.locfileid: "23475122"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42870894"
 ---
 # <a name="azure-sdk-for-net-29-release-notes"></a>用于 .NET 的 Azure SDK 2.9 发行说明
 
@@ -33,7 +33,7 @@ ms.locfileid: "23475122"
 
 ### <a name="visual-studio-2017-release-candidate"></a>Visual Studio 2017 候选发布
 
-- 在 Visual Studio 2017 RC 中，此版本的用于 .NET 的 Azure SDK 内置于 Azure 工作负荷中。 从目前开始，进行 Azure 开发所需的所有工具都会成为 Visual Studio 2017 RC 的一部分。 对于 Visual Studio 2015 和 Visual Studio 2013，仍可通过 WebPI 获取 SDK。 当 Visual Studio 2017 作为最终产品发布时，我们停止为 Visual Studio 2013 发布用于 .NET 的 Azure SDK。 通过此链接可下载 Visual Studio 2017 RC：https://www.visualstudio.com/vs/visual-studio-2017-rc/
+- 在 Visual Studio 2017 RC 中，此版本的用于 .NET 的 Azure SDK 内置于 Azure 工作负荷中。 从目前开始，进行 Azure 开发所需的所有工具都会成为 Visual Studio 2017 RC 的一部分。 对于 Visual Studio 2015 和 Visual Studio 2013，仍可通过 WebPI 获取 SDK。 当 Visual Studio 2017 作为最终产品发布时，我们停止为 Visual Studio 2013 发布用于 .NET 的 Azure SDK。 单击此链接下载 Visual Studio 2017 RC：https://www.visualstudio.com/vs/visual-studio-2017-rc/
 
 ### <a name="azure-diagnostics"></a>Azure 诊断
 
@@ -43,7 +43,7 @@ ms.locfileid: "23475122"
 
 ### <a name="windows-server-2016-virtual-machines"></a>Windows Server 2016 虚拟机
 
-- Visual Studio 现在支持将云服务部署到 OS 系列 5 (Windows Server 2016) 虚拟机。 对于现有的云服务，可以更改设置以针对新的 OS 系列。 创建新的云服务时，如果选择使用 .net 4.6 或更高版本创建服务，则服务默认使用 OS 系列 5。  有关详细信息，可查看[来宾 OS 系列支持表](/cloud-services/cloud-services-guestos-update-matrix/)。
+- Visual Studio 现在支持将云服务部署到 OS 系列 5 (Windows Server 2016) 虚拟机。 对于现有云服务，可更改设置以面向新的 OS 系列。 创建新的云服务时，如果选择使用 .net 4.6 或更高版本创建服务，则服务默认使用 OS 系列 5。  有关详细信息，可查看[来宾 OS 系列支持表](/cloud-services/cloud-services-guestos-update-matrix/)。
 
 #### <a name="known-issues"></a>已知问题
 

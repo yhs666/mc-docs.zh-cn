@@ -10,15 +10,15 @@ ms.component: cosmosdb-mongo
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 05/07/2018
-ms.date: 07/02/2018
+ms.date: 08/13/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 4958f6da429088695f3ea696a65b90b8087b4836
-ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
+ms.openlocfilehash: bd6359e1b2ce4ca8c7d90fe13a08d7f234e6adf1
+ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37070124"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41704936"
 ---
 # <a name="azure-cosmos-db-import-mongodb-data"></a>Azure Cosmos DB：导入 MongoDB 数据 
 
@@ -26,7 +26,7 @@ ms.locfileid: "37070124"
 
 * 从 [MongoDB 下载中心](https://www.mongodb.com/download-center)下载社区服务器并进行安装。
 * 使用安装在“安装文件夹/bin”目录中的 mongoimport.exe 或 mongorestore.exe 文件。 
-* 获取 [API for MongoDB 连接字符串](connect-mongodb-account.md)。
+* 获取[适用于 MongoDB 的 API 连接字符串](connect-mongodb-account.md)。
 
 如果要从 MongoDB 导入数据，并计划将其与 Azure Cosmos DB SQL API 搭配使用，则应使用[数据迁移工具](import-data.md)来导入数据。
 
@@ -81,9 +81,9 @@ ms.locfileid: "37070124"
 
 1. 预创建和缩放集合：
 
-    * 默认情况下，Azure Cosmos DB 预配有一个吞吐量为每秒 1,000 个请求单位（RU/秒）的新 MongoDB 集合。 使用 mongoimport、mongorestore 或 mongomirror 开始迁移之前，通过 [Azure 门户](https://portal.azure.cn)或 MongoDB 驱动程序和工具预创建所有集合。 如果集合大小超过 10 GB，请务必创建包含相应分片键的[分片/分区集合](partition-data.md)。
+    * 默认情况下，Azure Cosmos DB 预配有一个吞吐量为每秒 1,000 个请求单位（RU/秒）的新 MongoDB 集合。 使用 mongoimport、mongorestore 或 mongomirror 开始迁移之前，通过 [Azure 门户](https://portal.azure.cn)或 MongoDB 驱动程序和工具预创建所有集合。 如果集合大小超过 10GB，请务必创建包含相应分片键的[分片/分区集合](partition-data.md)。
 
-    * 在 [Azure 门户](https://portal.azure.cn)中，仅出于迁移目的，提高集合吞吐量，单分区集合的起始吞吐量为 1,000 个 RU/秒，分片集合的起始吞吐量为 2,500 个 RU/秒。 提高吞吐量后，可避免发生限制，并缩短迁移时间。 由于 Azure Cosmos DB 采用按小时计费，因此可以在迁移后立即降低吞吐量，以节省成本。
+    * 在 [Azure 门户](https://portal.azure.cn)中，仅出于迁移目的，提高集合吞吐量，单分区集合的起始吞吐量为 1,000 个 RU/秒，分片集合的起始吞吐量为 2,500 个 RU/秒。 提高吞吐量后，可避免受到速率限制，并缩短迁移时间。 由于 Azure Cosmos DB 采用按小时计费，因此可以在迁移后立即降低吞吐量，以节省成本。
 
     * 除了在集合级别预配 RU/秒之外，还可以在父数据库级别为一组集合预配 RU/秒。 这需要预先创建数据库和集合，以及为每个集合定义分片键。
 

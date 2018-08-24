@@ -1,27 +1,23 @@
 ---
-title: 在逻辑应用中添加 Office 365 Outlook 连接器
-description: 使用 Office 365 连接器创建逻辑应用，启用与 Office 365 的交互。 例如：创建、编辑和更新联系人和日历项。
-services: ''
-documentationcenter: ''
-author: MandiOhlinger
-manager: anneta
-editor: ''
-tags: connectors
-ms.assetid: b2f6cc2c-bba2-493a-b0ba-841785462a80
-ms.service: logic-apps
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
-origin.date: 10/18/2016
+title: 连接到 Office 365 Outlook - Azure 逻辑应用 | Microsoft Docs
+description: 使用 Office 365 REST API 和 Azure 逻辑应用管理电子邮件、联系人和日历
+author: ecfan
+manager: jeconnoc
 ms.author: v-yiso
-ms.date: 03/26/2018
-ms.openlocfilehash: 4f58258fb7f914eccfb6f83c6fca53d474180b43
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+origin.date: 10/18/2016
+ms.date: 09/03/2018
+ms.topic: article
+ms.service: logic-apps
+services: logic-apps
+ms.reviewer: klam, LADocs
+ms.suite: integration
+tags: connectors
+ms.openlocfilehash: 80c3674e8eea6c98a0020508193439aa368ca072
+ms.sourcegitcommit: 1b682acdc2a5e0974fbff809967d7cefcbbbe8ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939026"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42871005"
 ---
 # <a name="get-started-with-the-office-365-outlook-connector"></a>Office 365 Outlook 连接器入门
 Office 365 Outlook 连接器在 Office 365 中启用与 Outlook 的交互。 使用此连接器创建、编辑和更新联系人和日历项，还可以获取、发送和回复电子邮件。

@@ -14,14 +14,14 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 origin.date: 05/11/2018
-ms.date: 06/04/2018
+ms.date: 09/03/2018
 ms.author: v-yiso
-ms.openlocfilehash: 43fc3d6684c1c6d88cd3d1e1dff9e7b9d627086c
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: 56952095b6fe43a672960bca8585c3528b484820
+ms.sourcegitcommit: 1b682acdc2a5e0974fbff809967d7cefcbbbe8ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554557"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42870968"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Azure Web 应用配置及管理常见问题解答
 
@@ -87,7 +87,7 @@ ms.locfileid: "34554557"
 
 ## <a name="why-do-i-see-the-message-partially-succeeded-when-i-try-to-back-up-my-web-app"></a>当我尝试备份 Web 应用时，为何看到消息“已部分成功”？
 
-备份失败的一个常见原因是应用程序正在使用某些文件。 执行备份时，正在使用的文件会被锁定。 这会阻止对这些文件的备份操作，并可能导致“部分成功”状态。 可以通过将文件从备份过程中排除来防止这种情况发生。 可以选择仅备份所需文件。 有关详细信息，请参阅 [Azure Web 应用仅备份站点的重要部分](http://www.zainrizvi.io/2015/06/05/creating-partial-backups-of-your-site-with-azure-web-apps/)。
+备份失败的一个常见原因是应用程序正在使用某些文件。 执行备份时，正在使用的文件会被锁定。 这会阻止对这些文件的备份操作，并可能导致“部分成功”状态。 可以通过将文件从备份过程中排除来防止这种情况发生。 可以选择仅备份所需文件。 有关详细信息，请参阅 [Azure Web 应用仅备份站点的重要部分](http://zainrizvi.io/blog/creating-partial-backups-of-your-site-with-azure-web-apps/)。
 
 ## <a name="how-do-i-remove-a-header-from-the-http-response"></a>如何从 HTTP 响应中删除标头？
 
@@ -222,7 +222,7 @@ Exception: System.Data.Entity.Core.EntityException: The underlying provider fail
 如果你的应用服务证书在 24 小时后继续显示此消息，请运行以下 PowerShell 脚本。 该脚本会联系[证书提供商](https://www.godaddy.com/)直接解决问题。
 
 ```
-Login-AzureRmAccount
+Connect-AzureRmAccount -Environment AzureChinaCloud
 Set-AzureRmContext -SubscriptionId <subId>
 $actionProperties = @{
     "Name"= "<Customer Email Address>"
@@ -238,7 +238,7 @@ Invoke-AzureRmResourceAction -ResourceGroupName "<App Service Certificate Resour
 
 ## <a name="how-do-i-redirect-the-default-chinacloudsitescn-domain-to-my-azure-web-apps-custom-domain"></a>如何将默认 *.chinacloudsites.cn 域重定向到 Azure Web 应用的自定义域？
 
-在 Azure 中使用 Web 应用创建新网站时，将向你的站点分配一个默认 *sitename*.chinacloudsites.cn 域。 如果将自定义主机名添加到站点，并且不希望用户能够访问默认 *.chinacloudsites.cn 域，可以将默认 URL 进行重定向。 若要了解如何将源自网站默认域的所有通信流重定向到自定义域，请参阅[将默认域重定向到 Azure Web 应用中的自定义域](http://www.zainrizvi.io/2016/04/07/block-default-azure-websites-domain/)。
+在 Azure 中使用 Web 应用创建新网站时，将向你的站点分配一个默认 *sitename*.chinacloudsites.cn 域。 如果将自定义主机名添加到站点，并且不希望用户能够访问默认 *.chinacloudsites.cn 域，可以将默认 URL 进行重定向。 若要了解如何将源自网站默认域的所有通信流重定向到自定义域，请参阅[将默认域重定向到 Azure Web 应用中的自定义域](http://zainrizvi.io/blog/block-default-azure-websites-domain/)。
 
 ## <a name="how-do-i-determine-which-version-of-net-version-is-installed-in-app-service"></a>如何确定应用服务中安装的 .NET 版本？
 

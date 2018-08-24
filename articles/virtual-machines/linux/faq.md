@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 03/22/2018
-ms.date: 05/14/2018
+ms.date: 08/27/2018
 ms.author: v-yeche
-ms.openlocfilehash: 3525fb75f84675f0532ee164f3209c9e941f178f
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.openlocfilehash: 9ce78136d53adec893be347fee6c2cbf40d3ad84
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "34062116"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42872108"
 ---
 # <a name="frequently-asked-question-about-linux-virtual-machines"></a>有关 Linux 虚拟机的常见问题
 本文讨论有关在 Azure 中使用 Resource Manager 部署模型创建的 Linux 虚拟机的一些常见问题。 有关本主题的 Windows 版本，请参阅[有关 Windows 虚拟机的常见问题](../windows/faq.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -116,4 +116,4 @@ Azure 存储帐户还可为操作系统磁盘和任何数据磁盘提供存储�
         <td style="text-align:center">iloveyou!</td>
     </tr>
 </table>
-<!--Update_Description: update meta properties, update links-->
+<!--Update_Description: update meta properties -->

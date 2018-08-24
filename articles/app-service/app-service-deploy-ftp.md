@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 06/05/2018
 ms.date: 07/02/2018
 ms.author: v-yiso
-ms.openlocfilehash: 1ef494c127fe577eb7e7547f54b38d31c1df15bf
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.openlocfilehash: 3c3fcdf8e48c97a4bc599a71d62c7135ada35eba
+ms.sourcegitcommit: 1b682acdc2a5e0974fbff809967d7cefcbbbe8ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315650"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42871029"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>使用 FTP/S 将应用部署到 Azure 应用服务
 本文介绍了如何使用 FTP 或 FTPS 将 Web 应用、移动应用后端或 API 应用部署到 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)。
@@ -43,7 +43,7 @@ ms.locfileid: "36315650"
 
 建议你使用**应用凭据**部署到应用，因为它对每个应用都是唯一的。 但是，如果单击“用户凭据”，会将可用于 FTP/S 登录的用户级凭据设置到订阅中的所有应用服务应用。
 
-## <a name="step-3-deploy-files-to-azure"></a>步骤 3：将文件部署到 Azure
+## <a name="deploy-files-to-azure"></a>将文件部署到 Azure
 
 1. 从 FTP 客户端（例如 [Visual Studio](https://www.visualstudio.com/vs/community/) 或 [FileZilla](https://filezilla-project.org/download.php?type=client)），使用收集到的连接信息连接到应用。
 3. 将文件及其各自的目录结构复制到 Azure 中的 [/site/wwwroot 目录](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure)（对于 Web 作业，复制到 /site/wwwroot/App_Data/Jobs/ 目录）。
@@ -66,7 +66,7 @@ ms.locfileid: "36315650"
 
 如果应用的资源页位于 [Azure 门户](https://portal.azure.cn)中，请在左侧导航中选择“应用设置”。
 
-若要禁用未加密的 FTP，请选择“仅 FTPS”。 若要将 FTP 和 FTPS 都禁用，请选择“禁用”。 完成后，单击“保存”。
+若要禁用未加密的 FTP，请选择“仅 FTPS”。 若要将 FTP 和 FTPS 都禁用，请选择“禁用”。 完成后，单击“保存”。 如果使用“仅 FTPS”，则必须通过导航到 Web 应用的“SSL 设置”边栏选项卡来强制实施 TLS 1.1 或更高版本。 TLS 1.0 不支持“仅 FTPS”。
 
 ![禁用 FTP/S](./media/app-service-deploy-ftp/disable-ftp.png)
 

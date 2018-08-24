@@ -19,8 +19,7 @@
 
 了解如何：
 
-- 
-  [从 Azure 市场部署 Chef Automate](https://market.azure.cn/zh-cn/marketplace/apps/chef-software.chef-automate?tab=Overview)。
+<!--Not Avaiable on [Deploy Chef Automate from the Azure Marketplace](https://market.azure.cn/zh-cn/marketplace/apps/chef-software.chef-automate?tab=Overview)-->
 - [在 Windows 上安装 Chef 并创建 Azure VM](../articles/virtual-machines/windows/chef-automation.md)。
 
 <!--Not Available ## Puppet-->
@@ -31,12 +30,13 @@ Cloud-init 还支持不同的发行版。 例如，不需使用 apt-get install 
 
  我们正在积极地与我们认可的 Linux 发行版合作伙伴合作，以便在 Azure 市场中提供已启用 cloud-init 的映像。 这些映像可使 cloud-init 部署和配置无缝地应用于 VM 和虚拟机规模集。 下表概述了当前启用了 cloud-init 的映像在 Azure 平台上的可用性：
 
-| 发布者 | 产品 | SKU | 版本 | cloud-init 就绪 |
+| 发布者 | 产品/服务 | SKU | 版本 | cloud-init 就绪 |
 |:--- |:--- |:--- |:--- |:--- |
 |Canonical |UbuntuServer |16.04-LTS |最新 |是 | 
 |Canonical |UbuntuServer |14.04.5-LTS |最新 |是 |
 |CoreOS |CoreOS |Stable |最新 |是 |
 |OpenLogic |CentOS |7-CI |最新 |预览 |
+
 <!-- Not Available on RedHat -->
 
 了解有关 Azure 上的 cloud-init 的更多详细信息：
@@ -62,8 +62,8 @@ DSC 配置定义要在计算机上安装的内容，以及如何配置主机。 
 
 了解如何：
 
-- [通过 Azure CLI 创建 Linux VM 并使用自定义脚本扩展](../articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md?toc=%2fcli%2fazure%2ftoc.json)。
-- [通过 Azure PowerShell 创建 Windows VM 并使用自定义脚本扩展](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-iis.md?toc=%2fpowershell%2fmodule%2ftoc.json)。
+- [通过 Azure CLI 创建 Linux VM 并使用自定义脚本扩展](../articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md)。
+- [通过 Azure PowerShell 创建 Windows VM 并使用自定义脚本扩展](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-iis.md)。
 
 ## <a name="packer"></a>Packer
 在 Azure 中创建自定义 VM 映像时，[Packer](https://www.packer.io) 会自动完成生成过程。 可以使用 Packer 来定义 OS 并运行配置后脚本，根据具体需求来自定义 VM。 配置完成后，会将 VM 作为托管磁盘映像捕获。 Packer 自动完成创建源 VM、网络和存储资源，运行配置脚本，然后创建 VM 映像这一过程。

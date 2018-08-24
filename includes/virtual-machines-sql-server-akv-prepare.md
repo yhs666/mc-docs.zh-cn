@@ -11,15 +11,15 @@ ms.topic: include
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 04/30/2018
-ms.date: 06/04/2018
+ms.date: 08/27/2018
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: e78b01e0f81951e15a24e533dcb41d98bbbd0b57
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 151e59defd3263617ce7cc031b8aca1f7badcd36
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702893"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42872141"
 ---
 ## <a name="prepare-for-akv-integration"></a>准备 AKV 集成
 若要使用 Azure Key Vault 集成来配置 SQL Server VM，有以下几个先决条件： 
@@ -52,7 +52,7 @@ ms.locfileid: "34702893"
 
 * 应用程序 ID 和机密将还可用于在 SQL Server 中创建凭据。
 
-* 必须为此新的客户端 ID 授予以下访问权限：加密、解密、密钥换行、取消密钥换行、签名和验证。 可通过 [Set-AzureRmKeyVaultAccessPolicy](https://msdn.microsoft.com/library/azure/mt603625.aspx) cmdlet 实现此操作。 有关详细信息，请参阅[授权应用程序使用密钥或密码](../articles/key-vault/key-vault-get-started.md#authorize)。
+* 必须为此新的客户端 ID 授予以下访问权限：**获取**、**密钥换行**、**取消密钥换行**。 可通过 [Set-AzureRmKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Set-AzureRmKeyVaultAccessPolicy) cmdlet 实现此操作。 有关详细信息，请参阅[授权应用程序使用密钥或密码](../articles/key-vault/key-vault-get-started.md#authorize)。
 
 <a name="createkeyvault"></a>
 ###  <a name="create-a-key-vault"></a>创建密钥保管库

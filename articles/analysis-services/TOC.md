@@ -34,6 +34,7 @@
 ### [配置服务器名称别名](analysis-services-server-alias.md)
 <!-- Not Available on ### [Configure scale-out](analysis-services-scale-out.md)-->
 <!-- Not Available on ### [Install and configure an on-premises data gateway](analysis-services-gateway-install.md)-->
+<!-- Not Available on ### [Use gateway for data sources on an Azure Virtual Network](analysis-services-vnet-gateway.md)-->
 ### [管理服务器](analysis-services-manage.md)
 ### [监视服务器指标](analysis-services-monitor.md)
 ### [设置诊断日志记录](analysis-services-logging.md)
@@ -42,10 +43,10 @@
 ### [将服务主体添加到服务器管理员角色](analysis-services-addservprinc-admins.md)
 
 ## 型号
-### [导入 Power BI Desktop 文件](analysis-services-import-pbix.md)
+<!-- Not Available on ### [Import a Power BI Desktop file](analysis-services-import-pbix.md)-->
 <!-- Not Available on ### [Create a model in Azure portal (preview)](analysis-services-create-model-portal.md)-->
 <!-- Not Available on ### [Deploy from Visual Studio (SSDT)](analysis-services-deploy.md)-->
-## 教程
+<!-- Not Available on ### [Refresh with REST API](analysis-services-async-refresh.md)-->
 ### [Visual Studio 中的数据建模 - Adventure Works (1400) 教程](tutorials/aas-adventure-works-tutorial.md)
 #### [1 - 创建表格模型项目](tutorials/aas-lesson-1-create-a-new-tabular-model-project.md)
 #### [2 - 获取数据](tutorials/aas-lesson-2-get-data.md)
@@ -86,12 +87,12 @@
 
 ## [示例](analysis-services-samples.md)
 <!-- Not Availabel ## [Analysis Services team blog](https://blogs.msdn.microsoft.com/analysisservices/)-->
-<!-- Not Availabel ## [Azure Analysis Services forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureAnalysisServices)-->
+## [Azure Analysis Services 论坛](https://www.azure.cn/support/contact/)
 <!-- Not Availabel ## [Azure Roadmap](https://www.azure.cn/roadmap/?category=intelligence-analytics)-->
 ## [Azure 状态](https://www.azure.cn/support/service-dashboard/)
 ## [反馈](https://www.azure.cn/support/support-azure/)
 ## [价格](https://www.azure.cn/pricing/details/analysis-services/)
 ## [定价计算器](https://www.azure.cn/pricing/calculator/)
 <!-- Not Availabel ## [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-analysis-services)-->
-<!-- Not Availabel ## [Videos](https://www.azure.cn/video-center/&sort=newest)-->
-<!--ms.date: 07/16/2018 -->
+## [视频](https://www.azure.cn/zh-cn/video-center/)
+<!--ms.date: 08/27/2018 -->

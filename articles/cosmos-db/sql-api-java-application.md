@@ -10,14 +10,14 @@ ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: tutorial
 origin.date: 08/22/2017
-ms.date: 07/02/2018
+ms.date: 08/13/2018
 ms.author: v-yeche
-ms.openlocfilehash: 63e3610f6787e79f01176b73c5a6b89d1afbeba6
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: d27bf21e447c65f85e20246e6c8fc51baaac619c
+ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939835"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41704545"
 ---
 # <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>使用 Azure Cosmos DB 和 SQL API 构建 Java Web 应用程序
 > [!div class="op_single_selector"]
@@ -760,4 +760,4 @@ GitHub 上的 [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) 
 20. 在“服务器”选项卡上，右键单击“localhost 上的 Tomcat v7.0 服务器”，并单击“重新启动”。
 21. 在浏览器中，导航到 http://localhost:8080/azure-documentdb-java-sample/ 并开始向任务列表添加内容。 请注意，如果更改了默认端口值，请将 8080 更改成选择的值。
 22. 要将项目部署到 Azure 网站，请参阅[步骤 6.将应用程序部署到 Azure 网站](#Deploy)。
-<!-- Update_Description: update meta properties, wording update, update link -->
+<!-- Update_Description: update meta properties, wording update -->

@@ -7,16 +7,16 @@ manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-origin.date: 05/07/2018
-ms.date: 06/25/2018
+origin.date: 07/10/2018
+ms.date: 08/20/2018
 ms.author: v-yeche
 ms.reviewer: igorstan
-ms.openlocfilehash: 4e1ac7548fda80e7a50570469de5d70d4f29c58a
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.openlocfilehash: feecc2d6dceeaf3312d994b8c9a7f3858696f3d7
+ms.sourcegitcommit: 02c4716e07b3d83104fa419b379a15589ae8017e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315475"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41703887"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-sql-data-warehouse"></a>Azure SQL 数据仓库的内存和并发限制
 查看分配给 Azure SQL 数据仓库中的各个性能级别和资源类的内存和并发限制。 若要了解详细信息并将这些功能应用于你的工作负荷管理计划，请参阅[用于工作负荷管理的资源类](resource-classes-for-workload-management.md)。 
@@ -73,7 +73,7 @@ ms.locfileid: "36315475"
 
 <!--Pending on Gen2-->
 ### <a name="gen2"></a>Gen2
-
+ 
 **静态资源类**
 
 下表显示了每个[静态资源类](resource-classes-for-workload-management.md)的最大并发查询数和并发槽位数。  
@@ -84,7 +84,7 @@ ms.locfileid: "36315475"
 | DW1500c       | 32                         |   60                        | 1         | 2          | 4          | 8          | 16         | 32         | 32         |  32        |
 | DW2000c       | 48                         |   80                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         |  64        |
 | DW2500c       | 48                         |  100                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         |  64        |
-| DW3000c       | 64                         |  120                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
+| DW3000c       | 64                         |  120                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         |  64        |
 | DW5000c       | 64                         |  200                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
 | DW6000c       | 128                        |  240                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
 | DW7500c       | 128                        |  300                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
@@ -115,6 +115,8 @@ ms.locfileid: "36315475"
 8                   | 280                    |
 | DW15000c      | 32                         |  600                        | 18                    | 60                     | 132                   | 420                    |
 | DW30000c      | 32                         | 1200                        | 36                    | 120                    | 264                   | 840                    |
+
+
 
 #### <a name="gen1"></a>Gen1
 
@@ -159,6 +161,7 @@ ms.locfileid: "36315475"
 | DW2000        | 48                         |  80                         | 1       | 16       | 32      |  64      |
 | DW3000        | 64                         | 120                         | 1       | 16       | 32      |  64      |
 | DW6000        | 128                        | 240                         | 1       | 32       | 64      | 128      |
+
 
 满足其中一个阈值时，就会按“先进先出”原则排队执行新查询。  如果查询已完成并且查询数和槽位数低于限制，则 Azure SQL 数据仓库会释放排队的查询。 
 

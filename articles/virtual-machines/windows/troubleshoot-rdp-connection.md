@@ -15,14 +15,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 03/23/2018
-ms.date: 06/25/2018
+ms.date: 08/27/2018
 ms.author: v-yeche
-ms.openlocfilehash: c80972d4225a714a619f450d8f8775bb92f3ea01
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.openlocfilehash: 4419417f5fb5cd9a6b6af097dfc25a0c2e42c90d
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315455"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42871734"
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>排查 Azure 虚拟机的远程桌面连接问题
 与基于 Windows 的 Azure 虚拟机 (VM) 的远程桌面协议 (RDP) 连接可能会因各种原因而失败，使用户无法访问 VM。 问题可能出在 VM 上的远程桌面服务、网络连接或主计算机上的远程桌面客户端。 本文介绍解决 RDP 连接问题的一些最常见方法。 
@@ -56,7 +56,7 @@ ms.locfileid: "36315455"
 
 还可以查找有关针对使用 [经典部署模型](#troubleshoot-vms-created-using-the-classic-deployment-model)创建的 VM 进行故障排除的步骤。
 
-<a id="fix-common-remote-desktop-errors"></a>
+<a name="fix-common-remote-desktop-errors"></a>
 <a name="using-the-azure-portal"></a>
 ## <a name="troubleshoot-using-the-azure-portal"></a>使用 Azure 门户进行故障排除
 在执行每个故障排除步骤之后，请尝试再次连接到 VM。 如果仍然无法连接，请尝试下一步。
@@ -242,4 +242,4 @@ ms.locfileid: "36315455"
 如果未发生上述任何错误但仍无法通过远程桌面连接到 VM，请阅读详细的[远程桌面故障排除指南](detailed-troubleshoot-rdp.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
 * 有关用于访问 VM 上运行的应用程序的故障排除步骤，请参阅[对在 Azure VM 上运行的应用程序的访问进行故障排除](../linux/troubleshoot-app-connection.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 * 如果在 Azure 中使用 Secure Shell (SSH) 连接到 Linux VM 时遇到问题，请参阅[对 Azure 中到 Linux VM 的 SSH 连接进行故障排除](../linux/troubleshoot-ssh-connection.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
-<!--Update_Description: update meta properties, wording update, wording update -->
+<!--Update_Description: update meta properties, wording update  -->

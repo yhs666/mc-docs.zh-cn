@@ -17,12 +17,12 @@ origin.date: 05/30/2018
 ms.date: 07/30/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 696878d1e08c5356425ed4ef4e8d9fd72e390f96
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.openlocfilehash: 7a26145a97056134f2a50eeeb08a3f2325ad0483
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295803"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42871947"
 ---
 # <a name="tutorial---manage-azure-disks-with-the-azure-cli-20"></a>教程 - 使用 Azure CLI 2.0 管理 Azure 磁盘
 
@@ -50,13 +50,14 @@ Azure 虚拟机 (VM) 使用磁盘来存储操作系统、应用程序和数据�
 临时磁盘- 临时磁盘使用 VM 所在的 Azure 主机上的固态驱动器。 临时磁盘具有高性能，可用于临时数据处理等操作。 但是，如果将 VM 移动到新的主机，临时磁盘上存储的数据都将被删除。 临时磁盘的大小由 VM 大小决定。 临时磁盘标记为“/dev/sdb”，且装载点为 /mnt。
 
 ### <a name="temporary-disk-sizes"></a>临时磁盘大小
-
 <!--Pending on B series, E series -->
+
 | 类型 | 常见大小 | 临时磁盘大小上限 (GiB) |
 |----|----|----|
 | [常规用途](sizes-general.md) | A、B、D 系列 | 1600 |
 | [计算优化](sizes-compute.md) | F 系列 | 576 |
 | [内存优化](sizes-memory.md) | D 和 E 系列 | 6144 |
+
 <!--Pending on E series -->
 <!-- Not Available on G, and M series-->
 <!-- Not Available on | [Storage optimized](sizes-storage.md) | L series | 5630 |-->

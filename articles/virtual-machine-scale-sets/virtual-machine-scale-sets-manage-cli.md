@@ -3,7 +3,7 @@ title: 使用 Azure CLI 2.0 自管理虚拟机规模集 | Microsoft Docs
 description: 管理虚拟机规模集常用的 Azure CLI 2.0 命令，如管理如何启动和停止实例，或更改此规模集容量。
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/29/2018
-ms.date: 07/10/2018
+ms.date: 08/13/2018
 ms.author: v-junlch
-ms.openlocfilehash: 2cdf1c109f2357e6f9aeba13cac2d6e331f9851d
-ms.sourcegitcommit: a22129c95c9f877a04c6b5b428edf7f4e953fd97
+ms.openlocfilehash: 802106b3f34001f5ed047369ea7624a1f2d0d86d
+ms.sourcegitcommit: 56ed1b03d83f222db6118fe1e2f2485a9488507f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37937368"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41703965"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>使用 Azure CLI 2.0 管理虚拟机规模集
 在虚拟机规模集的整个生命周期内，可能需要运行一个或多个管理任务。 此外，可能还需要创建自动执行各种生命周期任务的脚本。 本文详细介绍了执行这些任务常用的一些 Azure CLI 2.0 命令。
@@ -141,4 +141,4 @@ az vmss delete-instances --resource-group myResourceGroup --name myScaleSet --in
 ## <a name="next-steps"></a>后续步骤
 规模集的其他常见任务包括如何[部署应用程序](virtual-machine-scale-sets-deploy-app.md)和[升级 VM 实例](virtual-machine-scale-sets-upgrade-scale-set.md)。 也可使用 Azure CLI 来[配置自动缩放规则](virtual-machine-scale-sets-autoscale-overview.md)。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

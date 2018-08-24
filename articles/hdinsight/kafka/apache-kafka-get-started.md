@@ -3,9 +3,8 @@ title: Apache Kafka 入门 - Azure HDInsight 快速入门 | Microsoft Docs
 description: 在此快速入门中，了解如何在 Azure HDInsight 上使用 Azure 门户创建 Apache Kafka 群集。 还可以了解 Kafka 主题、订阅服务器和使用者。
 services: hdinsight
 documentationcenter: ''
-author: Blackmist
+author: dhgoelmsft
 manager: jhubbard
-editor: cgronlun
 ms.assetid: 43585abf-bec1-4322-adde-6db21de98d7f
 ms.service: hdinsight
 ms.custom: mvc,hdinsightactive
@@ -14,14 +13,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 05/23/2018
-ms.date: 07/23/2018
+ms.date: 08/27/2018
 ms.author: v-yiso
-ms.openlocfilehash: d6b89c58ad42c5ab3a99944e4cf2ae2942ae78ba
-ms.sourcegitcommit: 479954e938e4e3469d6998733aa797826e4f300b
+ms.openlocfilehash: 7badfb03910a19c084ff279bd704201caeaf44a9
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39031748"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41703971"
 ---
 # <a name="quickstart-create-a-kafka-on-hdinsight-cluster"></a>快速入门：创建 Kafka on HDInsight 群集
 
@@ -76,7 +75,7 @@ Kafka 是开源分布式流式处理平台。 通常用作消息代理，因为�
     | 设置 | 值 |
     | --- | --- |
     | 群集类型 | Kafka |
-    | 版本 | Kafka 0.10.0 (HDI 3.6) |
+    | 版本 | Kafka 1.0.0 (HDI 3.6) |
 
     使用“选择”按钮保存群集类型设置，然后返回“基本信息”。
 

@@ -11,14 +11,14 @@ ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: sample
 origin.date: 03/23/2018
-ms.date: 07/02/2018
+ms.date: 08/13/2018
 ms.author: v-yeche
-ms.openlocfilehash: 17fb4ecb8b865ef831bbf087bef922167bebff2d
-ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
+ms.openlocfilehash: b158db7b03afd84fd089ffa0fad2b1a627e35017
+ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37070203"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41704782"
 ---
 # <a name="build-an-azure-cosmos-db-api-for-mongodb-app-using-nodejs"></a>使用 Node.js 生成 Azure Cosmos DB: API for MongoDB 应用
 > [!div class="op_single_selector"]
@@ -27,8 +27,6 @@ ms.locfileid: "37070203"
 > * [Java](sql-api-java-get-started.md)
 > * [用于 MongoDB 的 Node.js](mongodb-samples.md)
 > * [Node.js](sql-api-nodejs-get-started.md)
-> * [C++](sql-api-cpp-get-started.md)
->  
 >
 
 此示例说明如何使用 Node.js 生成 Azure Cosmos DB: API for MongoDB 控制台应用。
@@ -179,4 +177,4 @@ ms.locfileid: "37070203"
 ## <a name="next-steps"></a>后续步骤
 * 了解如何配合[使用 MongoChef](mongodb-mongochef.md) 与 Azure Cosmos DB: API for MongoDB 帐户。
 
-<!-- Update_Description: update meta properties  -->
+<!-- Update_Description: update meta properties, update link -->

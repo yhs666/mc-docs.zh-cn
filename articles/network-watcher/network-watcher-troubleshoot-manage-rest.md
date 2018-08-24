@@ -13,22 +13,21 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 06/19/2017
-ms.date: 04/30/2018
+ms.date: 08/13/2018
 ms.author: v-yeche
-ms.openlocfilehash: 234232af434df285f9ad17c3625ecd81fb06a687
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: d1049caa797e71da02dc2b4938f4bb62ed1e236d
+ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121326"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41703962"
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher"></a>使用 Azure 网络观察程序排查虚拟网络网关和连接问题
 
 > [!div class="op_single_selector"]
-> - [Portal](network-watcher-troubleshoot-manage-portal.md)
+> - [Portal](diagnose-communication-problem-between-networks.md)
 > - [PowerShell](network-watcher-troubleshoot-manage-powershell.md)
-> - [CLI 1.0](network-watcher-troubleshoot-manage-cli-nodejs.md)
-> - [CLI 2.0](network-watcher-troubleshoot-manage-cli.md)
+> - [Azure CLI](network-watcher-troubleshoot-manage-cli.md)
 > - [REST API](network-watcher-troubleshoot-manage-rest.md)
 
 网络观察程序提供了许多功能，因为它关系到了解 Azure 中的网络资源。 其中一项功能就是资源故障排除。 可以通过门户、PowerShell、CLI 或 REST API 调用资源故障排除。 调用后，网络观察程序会检查虚拟网络网关或连接的运行状况，并返回调查结果。
@@ -81,7 +80,7 @@ $requestBody = @"
 }
 "@
 
-armclient post "https://management.chinacloudapi.cn/subscriptions/${subscriptionId}/ResourceGroups/${NWresourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/troubleshoot?api-version=2016-03-30" -verbose
+armclient post "https://management.chinacloudapi.cn/subscriptions/${subscriptionId}/ResourceGroups/${NWresourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/troubleshoot?api-version=2016-03-30" $requestBody -verbose
 ```
 
 由于此操作会长时间运行，因此会在响应标头中返回用于查询操作的 URI 以及结果的 URI，如以下响应中所示：
@@ -208,7 +207,7 @@ $requestBody = @{
 }
 
 }
-armclient post "https://management.chinacloudapi.cn/subscriptions/${subscriptionId}/ResourceGroups/${NWresourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/troubleshoot?api-version=2016-03-30 "
+armclient post "https://management.chinacloudapi.cn/subscriptions/${subscriptionId}/ResourceGroups/${NWresourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/troubleshoot?api-version=2016-03-30 $requestBody"
 ```
 
 > [!NOTE]
@@ -330,4 +329,4 @@ is a transient state while the Azure platform is being updated.",
 
 如果停止 VPN 连接的设置已更改，请参阅[管理网络安全组](../virtual-network/manage-network-security-group.md)找到可能有问题的网络安全组和安全规则。
 
-<!--Update_Description: update link -->
+<!--Update_Description: update link, wording update -->

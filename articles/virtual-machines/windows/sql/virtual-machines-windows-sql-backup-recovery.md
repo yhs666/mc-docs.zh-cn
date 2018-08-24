@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 origin.date: 06/04/2018
 ms.date: 07/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: aa8655731bfc03922422272cb6878d10bd0817f0
-ms.sourcegitcommit: 62a0389a743cd18665bd127e9bf14800867008eb
+ms.openlocfilehash: 5fcb1b3608676e34e57abebfc90f43551cce4351
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39624939"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42872319"
 ---
 # <a name="backup-and-restore-for-sql-server-in-azure-virtual-machines"></a>Azure 虚拟机中 SQL Server 的备份和还原
 
@@ -148,7 +148,8 @@ SQL Server 2016 和更高版本的 VM 提供更多的自定义选项，以及自
 | 合并的故障电子邮件警报 |   | ![是](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
 | 使用 SSMS 或 Transact-SQL 脚本监视备份作业 | ![是](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![是](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![是](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
 | 使用 SSMS 或 Transact-SQL 脚本还原数据库 | ![是](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   | ![是](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
-<!-- 不可用于 | 基于 OMS 自定义监视 |   | ![是](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |-->
+
+<!-- Not Available on | Customize monitoring based on OMS |   | ![Yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |-->
 ## <a name="next-steps"></a>后续步骤
 
 规划 Azure VM 中的 SQL Server 部署时，可在以下指南中找到预配指导：[如何在 Azure 门户中预配 Windows SQL Server 虚拟机](virtual-machines-windows-portal-sql-server-provision.md)。

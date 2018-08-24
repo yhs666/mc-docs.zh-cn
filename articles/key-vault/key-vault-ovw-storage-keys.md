@@ -10,12 +10,12 @@ ms.author: v-junlch
 manager: mbaldwin
 origin.date: 10/12/2017
 ms.date: 07/10/2018
-ms.openlocfilehash: 2589104243aa65b46fbd2515340b4ce017cfe41c
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 8304654e8f486bf2ea81428c6c79eba81a31b618
+ms.sourcegitcommit: 56aa1615ef7402444111495f72afbdd6b2dfff78
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939719"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "41704901"
 ---
 # <a name="azure-key-vault-storage-account-keys"></a>Azure Key Vault 存储帐户密钥
 
@@ -233,8 +233,6 @@ Set-AzureStorageBlobContent -Container cont1-file "./file.txt" -Context $context
 
 - Key Vault 会列出对存储帐户资源的 RBAC 权限。
 - Key Vault 会通过操作和非操作的正则表达式匹配来验证响应。
-
-可在 [Key Vault - 托管存储帐户密钥示例](https://github.com/Azure/azure-sdk-for-net/blob/psSdkJson6/src/SDKs/KeyVault/dataPlane/Microsoft.Azure.KeyVault.Samples/samples/HelloKeyVault/Program.cs#L167)中找到一些支持示例。
 
 如果该标识没有“重新生成”权限，或者 Key Vault 第一方标识没有“列出”或“重新生成”权限，则登记请求会失败，并返回相应的错误代码和消息。
 

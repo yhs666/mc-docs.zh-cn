@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
 ms.topic: article
 origin.date: 05/30/2017
-ms.date: 07/30/2018
+ms.date: 08/27/2018
 ms.author: v-yeche
-ms.openlocfilehash: d17fdcac269511bdbf856e2b5e2dec5ac1b09300
-ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
+ms.openlocfilehash: 975d6c9f3b1b8c39638eab6f332bfc1dce2bf3d8
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39307012"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42872157"
 ---
 # <a name="automating-azure-virtual-machine-deployment-with-chef"></a>使用 Chef 自动部署 Azure 虚拟机
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -60,7 +60,7 @@ Chef 工作站是管理工作站，将在其中创建策略并执行管理命令
 
 现在，需要下载 Azure 设置文件，以便 Chef 可以与 Azure 订阅通信。
 
-使用 PowerShell Azure [Get-AzurePublishSettingsFile](https://docs.microsoft.com/powershell/module/azure/get-azurepublishsettingsfile?view=azuresmps-4.0.0) 命令下载发布设置。 
+使用 PowerShell Azure [Get-AzurePublishSettingsFile](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azurepublishsettingsfile?view=azuresmps-4.0.0) 命令下载发布设置。 
 
 将发布设置文件保存到 C:\chef 中。
 
@@ -199,7 +199,7 @@ Chef 使用指南定义用户希望在托管客户端上执行的一组命令。
 
 下面显示的是该命令的一个示例。
 
-    knife azure server create --azure-dns-name 'diegotest01' --azure-vm-name 'testserver01' --azure-vm-size 'Small' --azure-storage-account 'portalvhdsxxxx' --bootstrap-protocol 'cloud-api' --azure-source-image 'a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-Datacenter-201411.01-en.us-127GB.vhd' --azure-service-location 'China North' --winrm-user azureuser --winrm-password 'myPassword123' --tcp-endpoints 80,3389 --r 'recipe[webserver]'
+    knife azure server create --azure-dns-name 'diegotest01' --azure-vm-name 'testserver01' --azure-vm-size 'Small' --azure-storage-account 'portalvhdsxxxx' --bootstrap-protocol 'cloud-api' --azure-source-image 'a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-Datacenter-201411.01-en.us-127GB.vhd' --azure-service-location 'China East' --winrm-user azureuser --winrm-password 'myPassword123' --tcp-endpoints 80,3389 --r 'recipe[webserver]'
 
 各个参数的意义不言自明。 替换特定变量并运行。
 
@@ -241,4 +241,4 @@ Chef 使用指南定义用户希望在托管客户端上执行的一组命令。
 
 <!--Link references-->
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: wording update, update link -->

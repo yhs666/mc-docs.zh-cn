@@ -15,18 +15,18 @@ ms.topic: article
 origin.date: 10/01/2016
 ms.author: v-yiso
 ms.date: 11/06/2017
-ms.openlocfilehash: da626b5ab318c460d731fae9deb8dc5a7a34cfdf
-ms.sourcegitcommit: 30d9af196daa9b80bbe1739fff1081b6b4dcc72d
+ms.openlocfilehash: 7c1696b3858ec30af0677d0ff92a1ebf4cf33695
+ms.sourcegitcommit: 1b682acdc2a5e0974fbff809967d7cefcbbbe8ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2017
-ms.locfileid: "23635078"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42870985"
 ---
 # <a name="how-to-use-ios-client-library-for-azure-mobile-apps"></a>如何使用适用于 Azure 移动应用的 iOS 客户端库
 
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
-本指南介绍如何使用最新的 [Azure 移动应用 iOS SDK][1]执行常见任务。 对于 Azure 移动应用的新手，请先完成 [Azure Mobile Apps Quick Start] （Azure 移动应用快速入门），创建后端、创建表并下载预先生成的 iOS Xcode 项目。 本指南侧重于客户端 iOS SDK。 若要了解有关用于后端的服务器端 SDK 的详细信息，请参阅 Server SDK 操作方法。
+本指南介绍如何使用最新的 [Azure 移动应用 iOS SDK][1]执行常见任务。 对于 Azure 移动应用的新手，请先完成 [Azure 移动应用快速入门] （Azure 移动应用快速入门），创建后端、创建表并下载预先生成的 iOS Xcode 项目。 本指南侧重于客户端 iOS SDK。 若要了解有关用于后端的服务器端 SDK 的详细信息，请参阅 Server SDK 操作方法。
 
 ## <a name="reference-documentation"></a>参考文档
 
@@ -253,7 +253,7 @@ query.parameters = ["myKey1": "value1", "myKey2": "value2"]
 
 可以配置不同的页面大小，以提高性能。 如果有大量小型数据记录，增大页面大小可减少服务器往返次数。 
 
-此设置仅控制客户端侧的页面大小。 如果客户端请求的页面大小超过移动应用后端支持的大小，则页面大小受限于后端配置为支持的最大值。 
+此设置仅控制客户端侧的页面大小。 如果客户端所需的页面大小大于移动应用后端支持的页面大小，则页面大小的上限为后端配置所支持的最大大小。 
 
 此设置也是数据记录的数目，而不是字节大小。
 
@@ -515,7 +515,7 @@ let iOSTemplate = ["templateName": ["body": ["aps": ["alert": "$(message)"]]]]
 
 ##<a name="errors"></a>如何：处理错误
 
-调用 Azure 应用服务移动后端时，完成块包含 `NSError` 参数。 如果出错，此参数为非 nil 值。 应该在代码中检查此参数，并根据需要处理错误，如前面的代码片段中所示。
+调用 Azure 应用服务移动后端时，完成块包含 `NSError` 参数。 如果出错，此参数为非 nil 值。 在代码中，应检查此参数，并根据需要处理错误，如上面代码片段中所示。
 
 文件 [`<WindowsAzureMobileServices/MSError.h>`][6] 定义常量 `MSErrorResponseKey`、`MSErrorRequestKey` 和 `MSErrorServerItemKey`。 若要获取与错误相关的更多数据，请执行以下操作：
 
@@ -566,10 +566,10 @@ Pod：
 
 4. 根据使用的语言，将以下代码添加到应用程序。 在每个应用程序中，进行以下替换：
 
-    * 将 **INSERT-AUTHORITY-HERE** 替换为在其中预配应用程序的租户的名称。 格式应为 https://login.chinacloudapi.cn/contoso.onmicrosoft.com。可以从 [ Azure 经典管理门户]中的 Azure Active Directory 的“域”选项卡复制此值。
+    * 将 **INSERT-AUTHORITY-HERE** 替换为在其中预配应用程序的租户的名称。 格式应为 https://login.chinacloudapi.cn/contoso.onmicrosoft.com。 可以从 [Azure 经典管理门户]中的 Azure Active Directory 的“域”选项卡复制此值。
     * 将 **INSERT-RESOURCE-ID-HERE** 替换移动应用后端的客户端 ID。 可以在门户中“Azure Active Directory 设置”下面的“高级”选项卡获取此客户端 ID。
     * 将 **INSERT-CLIENT-ID-HERE** 替换为从本机客户端应用程序复制的客户端 ID。
-    * 使用 HTTPS 方案将 **INSERT-REDIRECT-URI-HERE** 替换为站点的 _/.auth/login/done_ 终结点。 此值应类似于 _https://contoso.azurewebsites.cn/.auth/login/done_。
+    * 使用 HTTPS 方案将 **INSERT-REDIRECT-URI-HERE** 替换为站点的 _/.auth/login/done_ 终结点。 此值应类似于 _https://contoso.chinacloudsites.cn/.auth/login/done_。
 
 **Objective-C**：
 
@@ -664,7 +664,7 @@ func authenticate(parent: UIViewController, completion: (MSUser?, NSError?) -> V
 <!-- Images. -->
 
 <!-- URLs. -->
-[Azure Mobile Apps Quick Start]: ./app-service-mobile-ios-get-started.md
+[Azure 移动应用快速入门]: ./app-service-mobile-ios-get-started.md
 
 
 
@@ -680,7 +680,7 @@ func authenticate(parent: UIViewController, completion: (MSUser?, NSError?) -> V
 [NSDictionary object]: http://go.microsoft.com/fwlink/p/?LinkId=301965
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [CLI to manage Mobile Services tables]: https://docs.azure.cn/zh-cn/cli/get-started-with-az-cli2?view=azure-cli-lastest
-[ Azure 经典管理门户]: http://manage.windowsazure.cn
+[Azure 经典管理门户]: http://manage.windowsazure.cn
 [Fabric Dashboard]: https://www.fabric.io/home
 [Fabric for iOS - Getting Started]: https://docs.fabric.io/ios/fabric/getting-started.html
 [1]: https://github.com/Azure/azure-mobile-apps-ios-client/blob/master/README.md#ios-client-sdk
@@ -690,7 +690,7 @@ func authenticate(parent: UIViewController, completion: (MSUser?, NSError?) -> V
 [5]: http://azure.github.io/azure-mobile-services/iOS/v3/Classes/MSClient.html#//api/name/invokeAPI:data:HTTPMethod:parameters:headers:completion:
 [6]: https://github.com/Azure/azure-mobile-services/blob/master/sdk/iOS/src/MSError.h
 [7]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
-[8]: ../active-directory/active-directory-devquickstarts-ios.md
+[8]:../active-directory/develop/quickstart-v1-ios.md
 [9]: ../app-service/app-service-mobile-how-to-configure-facebook-authentication.md
 [10]: https://developers.facebook.com/docs/ios/getting-started
 

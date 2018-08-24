@@ -2,25 +2,18 @@
 title: 将 Azure 活动日志流式传输到事件中心
 description: 了解如何将 Azure 活动日志流式传输到事件中心。
 author: johnkemnetz
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationCenter: monitoring-and-diagnostics
-ms.assetid: ec4c2d2c-8907-484f-a910-712403a06829
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 origin.date: 03/02/2018
 ms.author: v-yiso
-ms.date: 04/16/2018
-ms.openlocfilehash: 8937791bba455d752e7f180fc809c9da20b8904d
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.date: 08/20/2018
+ms.openlocfilehash: 700d5d39a8a781703f4bc15d7ae02e30ed365ccf
+ms.sourcegitcommit: 664584f55e0a01bb6558b8d3349d41d3f05ba4d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33814996"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41704717"
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>将 Azure 活动日志流式传输到事件中心
 可以选择下列两种方式之一将 [Azure 活动日志](monitoring-overview-activity-logs.md)准实时流式传输到任何应用程序：
@@ -56,6 +49,11 @@ ms.locfileid: "33814996"
 3. 在显示出的部分选择“所有区域”。 不要选择特定的区域。
    
    ![导出部分](./media/monitoring-stream-activity-logs-event-hubs/export-audit.png)
+
+   > [!WARNING]  
+   > 如果选择了任何“所有区域”以外的选项，你将遗漏想要接收的关键事件。 活动日志是全局性（非区域性）日志，因此大多数事件并不具备相关联的区域。 
+   >
+
 4. 选择“保存”保存这些设置。 这些设置会即时应用到订阅。
 5. 如果有多个订阅，请重复此操作，并将所有数据发送至同一事件中心。
 
@@ -81,7 +79,7 @@ ms.locfileid: "33814996"
    $eventHubNamespace = "<event hub namespace>"
 
    # Build the service bus rule Id from the settings above
-   $serviceBusRuleId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.EventHub/namespaces/$eventHubNamespaceName/authorizationrules/RootManageSharedAccessKey"
+   $serviceBusRuleId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.EventHub/namespaces/$eventHubNamespace/authorizationrules/RootManageSharedAccessKey"
 
    Add-AzureRmLogProfile -Name $logProfileName -Location $locations -ServiceBusRuleId $serviceBusRuleId
    ```

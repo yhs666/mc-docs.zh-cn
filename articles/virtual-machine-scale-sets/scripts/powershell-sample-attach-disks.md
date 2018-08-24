@@ -3,7 +3,7 @@ title: Azure PowerShell 示例 - 附加并使用数据磁盘 | Microsoft Docs
 description: Azure PowerShell 示例
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,15 +14,15 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 03/27/2018
-ms.date: 04/28/2018
+ms.date: 08/13/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 57f2b3b92b607708e2b66dac4c4617ca203008e0
-ms.sourcegitcommit: 17369f8efdf3ec80c2448412e3425ee10042a31a
+ms.openlocfilehash: ec548c9c56bc0121f5d19401a50993438fd05578
+ms.sourcegitcommit: 56ed1b03d83f222db6118fe1e2f2485a9488507f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32637655"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41704587"
 ---
 # <a name="attach-and-use-data-disks-with-a-virtual-machine-scale-set-with-powershell"></a>使用 PowerShell 为虚拟机规模集附加并使用数据磁盘
 此脚本创建虚拟机规模集并附加和准备数据磁盘。
@@ -100,3 +100,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 可以在 [Azure 虚拟机规模集文档](../powershell-samples.md)中找到其他虚拟机规模集 PowerShell 脚本示例。
 
+<!-- Update_Description: update metedata properties -->

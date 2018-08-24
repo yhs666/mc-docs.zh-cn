@@ -14,19 +14,17 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 04/13/2018
-ms.date: 05/14/2018
+ms.date: 08/27/2018
 ms.author: v-yeche
-ms.openlocfilehash: 579dc71b0587435f982dea22daf7ec04e1a07e8c
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: ba10462628efd87f645f188e97a0a986ee9e3f1f
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939522"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42872125"
 ---
 # <a name="troubleshoot-allocation-failures-when-you-create-restart-or-resize-linux-vms-in-azure"></a>排查在 Azure 中创建、重启 Linux VM 或调整其大小时发生的分配故障
 
 [!INCLUDE [virtual-machines-common-allocation-failure](../../../includes/virtual-machines-common-allocation-failure.md)]
 
-<!--The parent file of includes file of virtual-machines-common-allocation-failure.md-->
-<!--ms.date:05/14/2018-->
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties -->

@@ -9,19 +9,20 @@ editor: ''
 ms.assetid: 03c584f1-a93c-4e3d-ac1b-c82b50c75d3e
 ms.service: app-service-web
 ms.workload: web
+ms.technology: vs-azure
 ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
 origin.date: 06/25/2018
-ms.date: 07/30/2018
+ms.date: 09/03/2018
 ms.author: v-yiso
 ms.custom: mvc, devcenter
-ms.openlocfilehash: cfba445cc90ae18cff5b41a5cc22c9c9b875396d
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.openlocfilehash: 6234230b73a8af30d54ee307d7352908bc01e4a7
+ms.sourcegitcommit: 1b682acdc2a5e0974fbff809967d7cefcbbbe8ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39167826"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42870969"
 ---
 # <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>教程：使用 SQL 数据库在 Azure 中构建 ASP.NET 应用
 
@@ -56,7 +57,7 @@ ms.locfileid: "39167826"
 
 提取（解压缩）*dotnet-sqldb-tutorial-master.zip* 文件。
 
-此示例项目包含一个基本的 [ASP.NET MVC](https://www.asp.net/mvc) CRUD（创建-读取-更新-删除）应用，它使用 [Entity Framework Code First](https://docs.microsoft.com/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application)。
+此示例项目包含一个使用 [Entity Framework Code First](https://docs.microsoft.com/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application) 的基本 [ASP.NET MVC](https://www.asp.net/mvc) 创建-读取-更新-删除 (CRUD) 应用。
 
 ### <a name="run-the-app"></a>运行应用程序
 

@@ -2,7 +2,6 @@
 title: 用于 IntelliJ 的 Azure 工具包：为 HDInsight 群集创建 Spark 应用程序 | Azure
 description: 使用用于 IntelliJ 的 Azure 工具包开发以 Scala 编写的 Spark 应用程序，并将其提交到 HDInsight Spark 群集。
 services: hdinsight
-documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -10,19 +9,16 @@ tags: azure-portal
 ms.assetid: 73304272-6c8b-482e-af7c-cd25d95dab4d
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 11/25/2017
-ms.date: 06/25/2018
+ms.date: 08/27/2018
 ms.author: v-yiso
-ms.openlocfilehash: e94c0902ec568f58aba141cf7034d278ca96edbf
-ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
+ms.openlocfilehash: 98642297d897ef39d4dca65ba91be56d98448b0c
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36747458"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41704792"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-spark-applications-for-an-hdinsight-cluster"></a>使用用于 IntelliJ 的 Azure 工具包为 HDInsight 群集创建 Spark 应用程序
 
@@ -73,9 +69,10 @@ ms.locfileid: "36747458"
    
     ![展开的群集名称节点](./media/apache-spark-intellij-tool-plugin/view-explorer-4.png)
 
-<h2 id="linkcluster">链接群集</h2>
-可以使用 Ambari 管理的用户名链接标准群集，还可以使用域用户名（例如：user1@contoso.com）链接安全 hadoop 群集。 
-1. 从 **Azure 资源管理器**单击“链接群集”。
+## <a name="link-a-cluster"></a>链接群集
+可以使用 Ambari 管理的用户名链接标准 HDInsight 群集。 同样，对于已加入域的 HDInsight 群集，也可使用这种域和用户名（例如 user1@contoso.com）进行链接。
+
+1. 从“Azure 资源管理器”选择“链接群集”。
 
    ![链接群集上下文菜单](./media/apache-spark-intellij-tool-plugin/link-a-cluster-context-menu.png)
 

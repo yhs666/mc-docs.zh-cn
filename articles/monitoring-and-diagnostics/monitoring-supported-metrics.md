@@ -4,19 +4,16 @@ description: 可在 Azure 监视器中为每种资源类型使用的指标的列
 author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: reference
 origin.date: 03/30/2018
-ms.date: 06/18/2018
+ms.date: 08/20/2018
 ms.author: v-yiso
-ms.openlocfilehash: 7006cb6872130461ef3eb01ec871d1c8c9a0b180
-ms.sourcegitcommit: 479954e938e4e3469d6998733aa797826e4f300b
+ms.openlocfilehash: ab29e19b46e5d49f2874652aac055009ef7b62b8
+ms.sourcegitcommit: 664584f55e0a01bb6558b8d3349d41d3f05ba4d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39031785"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41703932"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Azure 监视器支持的指标
 Azure 监视器提供多种方式来与指标交互，包括在门户中制作指标图表、通过 REST API 访问指标，或者使用 PowerShell 或 CLI 查询指标。 下面是目前可在 Azure 监视器的指标管道中使用的完整指标列表。 其他指标可在门户或旧版 API 中使用。 下面的此列表仅包含可以通过合并的 Azure Monitor 指标管道使用的指标。 若要查询和访问这些指标，请使用 [2018-01-01 API 版本](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
@@ -469,6 +466,38 @@ Azure 监视器提供多种方式来与指标交互，包括在门户中制作�
 |DCIPredictiveMatchPoliciesCount|预测匹配计数|计数|最后一个||无维度|
 |DCIPredictionsCount|预测计数|计数|最后一个||无维度|
 
+## <a name="microsoftdbformysqlservers"></a>Microsoft.DBforMySQL/servers
+
+|指标|指标显示名称|计价单位|聚合类型|说明|维度|
+|---|---|---|---|---|---|
+|cpu_percent|CPU 百分比|百分比|平均值|CPU 百分比|无维度|
+|memory_percent|内存百分比|百分比|平均值|内存百分比|无维度|
+|io_consumption_percent|IO 百分比|百分比|平均值|IO 百分比|无维度|
+|storage_percent|存储空间百分比|百分比|平均值|存储空间百分比|无维度|
+|storage_used|已用的存储量|字节|平均值|已用的存储量|无维度|
+|storage_limit|存储限制|字节|平均值|存储限制|无维度|
+|serverlog_storage_percent|服务器日志存储空间百分比|百分比|平均值|服务器日志存储空间百分比|无维度|
+|serverlog_storage_usage|服务器日志已用的存储量|字节|平均值|服务器日志已用的存储量|无维度|
+|serverlog_storage_limit|服务器存储空间上限|字节|平均值|服务器存储空间上限|无维度|
+|active_connections|活动连接总数|计数|平均值|活动连接总数|无维度|
+|connections_failed|失败连接总数|计数|总计|失败连接总数|无维度|
+
+## <a name="microsoftdbforpostgresqlservers"></a>Microsoft.DBforPostgreSQL/servers
+
+|指标|指标显示名称|计价单位|聚合类型|说明|维度|
+|---|---|---|---|---|---|
+|cpu_percent|CPU 百分比|百分比|平均值|CPU 百分比|无维度|
+|memory_percent|内存百分比|百分比|平均值|内存百分比|无维度|
+|io_consumption_percent|IO 百分比|百分比|平均值|IO 百分比|无维度|
+|storage_percent|存储空间百分比|百分比|平均值|存储空间百分比|无维度|
+|storage_used|已用的存储量|字节|平均值|已用的存储量|无维度|
+|storage_limit|存储限制|字节|平均值|存储限制|无维度|
+|serverlog_storage_percent|服务器日志存储空间百分比|百分比|平均值|服务器日志存储空间百分比|无维度|
+|serverlog_storage_usage|服务器日志已用的存储量|字节|平均值|服务器日志已用的存储量|无维度|
+|serverlog_storage_limit|服务器存储空间上限|字节|平均值|服务器存储空间上限|无维度|
+|active_connections|活动连接总数|计数|总计|活动连接总数|无维度|
+|connections_failed|失败连接总数|计数|总计|失败连接总数|无维度|
+
 ## <a name="microsoftdevicesiothubs"></a>Microsoft.Devices/IotHubs
 
 |指标|指标显示名称|计价单位|聚合类型|说明|维度|
@@ -787,76 +816,69 @@ Azure 监视器提供多种方式来与指标交互，包括在门户中制作�
 
 |指标|指标显示名称|计价单位|聚合类型|说明|维度|
 |---|---|---|---|---|---|
-|Average_% Free Inodes|Average_% Free Inodes|计数|平均值|Average_% Free Inodes|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
-|Average_% Free Space|Average_% Free Space|计数|平均值|Average_% Free Space|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
-|Average_% Used Inodes|Average_% Used Inodes|计数|平均值|Average_% Used Inodes|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
-|Average_% Used Space|Average_% Used Space|计数|平均值|Average_% Used Space|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
-|Average_Disk Read Bytes/sec|Average_Disk Read Bytes/sec|计数|平均值|Average_Disk Read Bytes/sec|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
-|Average_Disk Reads/sec|Average_Disk Reads/sec|计数|平均值|Average_Disk Reads/sec|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
-|Average_Disk Transfers/sec|Average_Disk Transfers/sec|计数|平均值|Average_Disk Transfers/sec|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
-|Average_Disk Write Bytes/sec|Average_Disk Write Bytes/sec|计数|平均值|Average_Disk Write Bytes/sec|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
-|Average_Disk Writes/sec|Average_Disk Writes/sec|计数|平均值|Average_Disk Writes/sec|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
-|Average_Free Megabytes|Average_Free Megabytes|计数|平均值|Average_Free Megabytes|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
-|Average_Logical Disk Bytes/sec|Average_Logical Disk Bytes/sec|计数|平均值|Average_Logical Disk Bytes/sec|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
-|Average_% Available Memory|Average_% Available Memory|计数|平均值|Average_% Available Memory|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
-|Average_% Available Swap Space|Average_% Available Swap Space|计数|平均值|Average_% Available Swap Space|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
-|Average_% Used Memory|Average_% Used Memory|计数|平均值|Average_% Used Memory|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
-|Average_% Used Swap Space|Average_% Used Swap Space|计数|平均值|Average_% Used Swap Space|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
-|Average_Available MBytes Memory|Average_Available MBytes Memory|计数|平均值|Average_Available MBytes Memory|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
-|Average_Available MBytes Swap|Average_Available MBytes Swap|计数|平均值|Average_Available MBytes Swap|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
-|Average_Page Reads/sec|Average_Page Reads/sec|计数|平均值|Average_Page Reads/sec|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
-|Average_Page Writes/sec|Average_Page Writes/sec|计数|平均值|Average_Page Writes/sec|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
-|Average_Pages/sec|Average_Pages/sec|计数|平均值|Average_Pages/sec|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
-|Average_Used MBytes Swap Space|Average_Used MBytes Swap Space|计数|平均值|Average_Used MBytes Swap Space|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
-|Average_Used Memory MBytes|Average_Used Memory MBytes|计数|平均值|Average_Used Memory MBytes|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
-|Average_Total Bytes Transmitted|Average_Total Bytes Transmitted|计数|平均值|Average_Total Bytes Transmitted|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
-|Average_Total Bytes Received|Average_Total Bytes Received|计数|平均值|Average_Total Bytes Received|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
-|Average_Total Bytes|Average_Total Bytes|计数|平均值|Average_Total Bytes|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
-|Average_Total Packets Transmitted|Average_Total Packets Transmitted|计数|平均值|Average_Total Packets Transmitted|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
-|Average_Total Packets Received|Average_Total Packets Received|计数|平均值|Average_Total Packets Received|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
-|Average_Total Rx Errors|Average_Total Rx Errors|计数|平均值|Average_Total Rx Errors|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
-|Average_Total Tx Errors|Average_Total Tx Errors|计数|平均值|Average_Total Tx Errors|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
-|Average_Total Collisions|Average_Total Collisions|计数|平均值|Average_Total Collisions|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
-|Average_Avg. 磁盘秒数/读取|Average_Avg. 磁盘秒数/读取|计数|平均值|Average_Avg. 磁盘秒数/读取|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
-|Average_Avg. 磁盘秒数/传输|Average_Avg. 磁盘秒数/传输|计数|平均值|Average_Avg. 磁盘秒数/传输|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
-|Average_Avg. 磁盘秒数/写入|Average_Avg. 磁盘秒数/写入|计数|平均值|Average_Avg. 磁盘秒数/写入|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
-|Average_Physical Disk Bytes/sec|Average_Physical Disk Bytes/sec|计数|平均值|Average_Physical Disk Bytes/sec|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
-|Average_Pct Privileged Time|Average_Pct Privileged Time|计数|平均值|Average_Pct Privileged Time|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
-|Average_Pct User Time|Average_Pct User Time|计数|平均值|Average_Pct User Time|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
-|Average_Used Memory kBytes|Average_Used Memory kBytes|计数|平均值|Average_Used Memory kBytes|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
-|Average_Virtual Shared Memory|Average_Virtual Shared Memory|计数|平均值|Average_Virtual Shared Memory|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
-|Average_% DPC Time|Average_% DPC Time|计数|平均值|Average_% DPC Time|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
-|Average_% Idle Time|Average_% Idle Time|计数|平均值|Average_% Idle Time|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
-|Average_% Interrupt Time|Average_% Interrupt Time|计数|平均值|Average_% Interrupt Time|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
-|Average_% IO Wait Time|Average_% IO Wait Time|计数|平均值|Average_% IO Wait Time|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
-|Average_% Nice Time|Average_% Nice Time|计数|平均值|Average_% Nice Time|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
-|Average_% Privileged Time|Average_% Privileged Time|计数|平均值|Average_% Privileged Time|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
-|Average_% Processor Time|Average_% Processor Time|计数|平均值|Average_% Processor Time|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
-|Average_% User Time|Average_% User Time|计数|平均值|Average_% User Time|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
-|Average_Free Physical Memory|Average_Free Physical Memory|计数|平均值|Average_Free Physical Memory|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
-|Average_Free Space in Paging Files|Average_Free Space in Paging Files|计数|平均值|Average_Free Space in Paging Files|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
-|Average_Free Virtual Memory|Average_Free Virtual Memory|计数|平均值|Average_Free Virtual Memory|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
-|Average_Processes|Average_Processes|计数|平均值|Average_Processes|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
-|Average_Size Stored In Paging Files|Average_Size Stored In Paging Files|计数|平均值|Average_Size Stored In Paging Files|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
-|Average_Uptime|Average_Uptime|计数|平均值|Average_Uptime|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
-|Average_Users|Average_Users|计数|平均值|Average_Users|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
-|Average_Avg. 磁盘秒数/读取|Average_Avg. 磁盘秒数/读取|计数|平均值|Average_Avg. 磁盘秒数/读取|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
-|Average_Avg. 磁盘秒数/写入|Average_Avg. 磁盘秒数/写入|计数|平均值|Average_Avg. 磁盘秒数/写入|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
-|Average_Current Disk Queue Length|Average_Current Disk Queue Length|计数|平均值|Average_Current Disk Queue Length|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
-|Average_Disk Reads/sec|Average_Disk Reads/sec|计数|平均值|Average_Disk Reads/sec|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
-|Average_Disk Transfers/sec|Average_Disk Transfers/sec|计数|平均值|Average_Disk Transfers/sec|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
-|Average_Disk Writes/sec|Average_Disk Writes/sec|计数|平均值|Average_Disk Writes/sec|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
-|Average_Free Megabytes|Average_Free Megabytes|计数|平均值|Average_Free Megabytes|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
-|Average_% Free Space|Average_% Free Space|计数|平均值|Average_% Free Space|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
-|Average_Available MBytes|Average_Available MBytes|计数|平均值|Average_Available MBytes|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
-|Average_% Committed Bytes In Use|Average_% Committed Bytes In Use|计数|平均值|Average_% Committed Bytes In Use|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
-|Average_Bytes Received/sec|Average_Bytes Received/sec|计数|平均值|Average_Bytes Received/sec|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
-|Average_Bytes Sent/sec|Average_Bytes Sent/sec|计数|平均值|Average_Bytes Sent/sec|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
-|Average_Bytes Total/sec|Average_Bytes Total/sec|计数|平均值|Average_Bytes Total/sec|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
-|Average_% Processor Time|Average_% Processor Time|计数|平均值|Average_% Processor Time|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
-|Average_Processor Queue Length|Average_Processor Queue Length|计数|平均值|Average_Processor Queue Length|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
-|检测信号|检测信号|计数|平均值|检测信号|Computer、OSType、Version、SourceComputerId|
-|更新|更新|计数|平均值|更新|Computer、Product、Classification、UpdateState、Optional、Approved|
+Average_% Free Inodes|可用 Inode 百分比|计数|平均值|Average_% Free Inodes|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
+Average_% Free Space|可用空间百分比|计数|平均值|Average_% Free Space|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
+Average_% Used Inodes|已用 Inode 百分比|计数|平均值|Average_% Used Inodes|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
+Average_% Used Space|已用空间百分比|计数|平均值|Average_% Used Space|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
+Average_Disk Read Bytes/sec|磁盘读取字节数/秒|计数|平均值|Average_Disk Read Bytes/sec|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
+Average_Disk Reads/sec|磁盘读取数/秒|计数|平均值|Average_Disk Reads/sec|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
+Average_Disk Transfers/sec|磁盘传输数/秒|计数|平均值|Average_Disk Transfers/sec|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
+Average_Disk Write Bytes/sec|磁盘写入字节数/秒|计数|平均值|Average_Disk Write Bytes/sec|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
+Average_Disk Writes/sec|磁盘写入数/秒|计数|平均值|Average_Disk Writes/sec|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
+Average_Free Megabytes|可用 MB 数|计数|平均值|Average_Free Megabytes|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
+Average_Logical Disk Bytes/sec|逻辑磁盘字节数/秒|计数|平均值|Average_Logical Disk Bytes/sec|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
+Average_% Available Memory|可用内存百分比|计数|平均值|Average_% Available Memory|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
+Average_% Available Swap Space|可用交换空间百分比|计数|平均值|Average_% Available Swap Space|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
+Average_% Used Memory|已用内存百分比|计数|平均值|Average_% Used Memory|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
+Average_% Used Swap Space|已用交换空间百分比|计数|平均值|Average_% Used Swap Space|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
+Average_Available MBytes Memory|可用内存 MB 数|计数|平均值|Average_Available MBytes Memory|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
+Average_Available MBytes Swap|可用交换空间 MB 数|计数|平均值|Average_Available MBytes Swap|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
+Average_Page Reads/sec|页面读取数/秒|计数|平均值|Average_Page Reads/sec|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
+Average_Page Writes/sec|页面写入数/秒|计数|平均值|Average_Page Writes/sec|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
+Average_Pages/sec|页面数/秒|计数|平均值|Average_Pages/sec|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
+Average_Used MBytes Swap Space|可用内存 MB 数|计数|平均值|Average_Used MBytes Swap Space|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
+Average_Used Memory MBytes|可用交换空间 MB 数|计数|平均值|Average_Used Memory MBytes|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
+Average_Total Bytes Transmitted|已传输的字节数总计|计数|平均值|Average_Total Bytes Transmitted|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
+Average_Total Bytes Received|已接收的字节数总计|计数|平均值|Average_Total Bytes Received|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
+Average_Total Bytes|字节数总计|计数|平均值|Average_Total Bytes|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
+Average_Total Packets Transmitted|已传输的包数总计|计数|平均值|Average_Total Packets Transmitted|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
+Average_Total Packets Received|已接收的包数总计|计数|平均值|Average_Total Packets Received|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
+Average_Total Rx Errors|Rx 错误数总计|计数|平均值|Average_Total Rx Errors|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
+Average_Total Tx Errors|Tx 错误数总计|计数|平均值|Average_Total Tx Errors|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
+Average_Total Collisions|冲突数总计|计数|平均值|Average_Total Collisions|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
+Average_Avg. 磁盘秒数/读取|平均值磁盘秒数/读取|计数|平均值|Average_Avg. 磁盘秒数/读取|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
+Average_Avg. 磁盘秒数/传输|平均值磁盘秒数/传输|计数|平均值|Average_Avg. 磁盘秒数/传输|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
+Average_Avg. 磁盘秒数/写入|平均值磁盘秒数/写入|计数|平均值|Average_Avg. 磁盘秒数/写入|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
+Average_Physical Disk Bytes/sec|物理磁盘字节数/秒|计数|平均值|Average_Physical Disk Bytes/sec|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
+Average_Pct Privileged Time|特权时间百分比|计数|平均值|Average_Pct Privileged Time|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
+Average_Pct User Time|用户时间百分比|计数|平均值|Average_Pct User Time|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
+Average_Used Memory kBytes|已用内存 KB 数|计数|平均值|Average_Used Memory kBytes|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
+Average_Virtual Shared Memory|虚拟共享内存|计数|平均值|Average_Virtual Shared Memory|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
+Average_% DPC Time|DPC 时间百分比|计数|平均值|Average_% DPC Time|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
+Average_% Idle Time|空闲时间百分比|计数|平均值|Average_% Idle Time|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
+Average_% Interrupt Time|中断时间百分比|计数|平均值|Average_% Interrupt Time|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
+Average_% IO Wait Time|IO 等待时间百分比|计数|平均值|Average_% IO Wait Time|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
+Average_% Nice Time|良好时间百分比|计数|平均值|Average_% Nice Time|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
+Average_% Privileged Time|特权时间百分比|计数|平均值|Average_% Privileged Time|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
+Average_% Processor Time|处理器时间百分比|计数|平均值|Average_% Processor Time|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
+Average_% User Time|用户时间百分比|计数|平均值|Average_% User Time|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
+Average_Free Physical Memory|可用物理内存|计数|平均值|Average_Free Physical Memory|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
+Average_Free Space in Paging Files|分页文件中的可用空间|计数|平均值|Average_Free Space in Paging Files|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
+Average_Free Virtual Memory|可用虚拟内存|计数|平均值|Average_Free Virtual Memory|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
+Average_Processes|进程|计数|平均值|Average_Processes|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
+Average_Size Stored In Paging Files|分页文件中存储的大小|计数|平均值|Average_Size Stored In Paging Files|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
+Average_Uptime|运行时间|计数|平均值|Average_Uptime|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
+Average_Users|用户|计数|平均值|Average_Users|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
+Average_Current Disk Queue Length|当前的磁盘队列长度|计数|平均值|Average_Current Disk Queue Length|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
+Average_Available MBytes|可用兆字节数|计数|平均值|Average_Available MBytes|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
+Average_% Committed Bytes In Use|提交的在用字节数百分比|计数|平均值|Average_% Committed Bytes In Use|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
+Average_Bytes Received/sec|收到的字节数/秒|计数|平均值|Average_Bytes Received/sec|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
+Average_Bytes Sent/sec|发送的字节数/秒|计数|平均值|Average_Bytes Sent/sec|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
+Average_Bytes Total/sec|字节总数/秒|计数|平均值|Average_Bytes Total/sec|Computer、ObjectName、InstanceName、CounterPath、SourceSystem|
+检测信号|检测信号|计数|平均值|检测信号|Computer、OSType、Version、SourceComputerId|
+更新|更新|计数|平均值|更新|Computer、Product、Classification、UpdateState、Optional、Approved|
+事件|事件|计数|平均值|事件|Source, EventLog, Computer, EventCategory, EventLevel, EventLevelName, EventID|
+
 
 ## <a name="microsoftpowerbidedicatedcapacities"></a>Microsoft.PowerBIDedicated/capacities
 

@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 origin.date: 12/13/2017
-ms.date: 07/30/2018
+ms.date: 09/03/2018
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: 521ce4f84cd5f2d4f0c79ea7c096c83dfabd9572
-ms.sourcegitcommit: 48c75bdefe7c4e8c35d8ecad7cb8b8b039fe7647
+ms.openlocfilehash: 7d9cc3961556d01789adf42892dff850574e9ce9
+ms.sourcegitcommit: 1b682acdc2a5e0974fbff809967d7cefcbbbe8ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39416836"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42871030"
 ---
 # <a name="create-a-php-web-app-in-azure"></a>在 Azure 中创建 PHP Web 应用
 
@@ -194,4 +194,7 @@ git push azure master
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
-<!--Update_Description: add a note about Azure CLI 2.0 version-->
+## <a name="next-steps"></a>后续步骤
+
+> [!div class="nextstepaction"]
+> [带 MySQL 的 PHP](app-service-web-tutorial-php-mysql.md)

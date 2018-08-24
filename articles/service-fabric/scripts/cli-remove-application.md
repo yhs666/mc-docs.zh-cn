@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric CLI 脚本删除示例
+title: Azure Service Fabric CLI (sfctl) 脚本删除示例
 description: 使用 Azure Service Fabric CLI 从 Azure Service Fabric 群集中删除应用程序
 services: service-fabric
 documentationcenter: ''
@@ -13,19 +13,19 @@ ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
 origin.date: 12/06/2017
-ms.date: 01/01/2018
+ms.date: 08/20/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 66c7faf7668a97effcb03909487e5c2c380a7219
-ms.sourcegitcommit: 90e4b45b6c650affdf9d62aeefdd72c5a8a56793
+ms.openlocfilehash: f1b15b3be0c10a8165a95d9668d92902c73d8c76
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2017
-ms.locfileid: "27548520"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41703928"
 ---
 # <a name="remove-an-application-from-a-service-fabric-cluster"></a>从 Service Fabric 群集中删除应用程序
 
-此示例脚本会删除正在运行的 Service Fabric 应用程序实例，并从群集中注销应用程序类型和版本。  删除应用程序实例时也会删除与该应用程序关联的所有正在运行的服务实例。 接下来，会从映像存储区中删除应用程序文件。 
+此示例脚本删除了正在运行的 Service Fabric 应用程序实例，并从群集中取消注册了应用程序类型和版本。  删除应用程序实例时也会删除与该应用程序关联的所有正在运行的服务实例。 接下来，会从映像存储区中删除应用程序文件。 
 
 如果需要，请安装 [Service Fabric CLI](../service-fabric-cli.md)。
 

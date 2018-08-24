@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
 origin.date: 07/06/2018
-ms.date: 07/30/2018
+ms.date: 08/27/2018
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 46699a4b4b925b01a19a54b1d8cc11481eb8fa44
-ms.sourcegitcommit: 62a0389a743cd18665bd127e9bf14800867008eb
+ms.openlocfilehash: ae26eae410d1d3e674e2f576aa9f112f4234fa41
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39625666"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42871786"
 ---
 内存优化 VM 大小提供适用于关系数据库服务器、中到大型规模的缓存和内存中分析的高内存 CPU 比率。 本文介绍了此分组中各个大小的 vCPU 数、数据磁盘数、NIC 数、存储吞吐量及网络带宽的相关信息。 
 <!-- Not Available M-Series -->
@@ -76,12 +76,13 @@ Ev3 系列实例基于 2.3 GHz Intel XEON® E5-2673 v4 (Broadwell) 处理器，�
 | Standard_E16_v3 | 16        | 128         | 400            | 32             | 24000/375/187                                            | 8 / 8,000                     |
 | Standard_E32_v3 | 32        | 256         | 800            | 32             | 48000/750/375                                            | 8 / 16,000                 |
 | Standard_E64_v3 | 64        | 432         | 1600           | 32             | 96000/1000/500                                           | 8 / 30,000           |
-| Standard_E64i_v3&nbsp;<sup>2</sup> | 64        | 432         | 1600           | 32             | 96000/1000/500                                           | 8 / 30,000           |
+| Standard_E64i_v3&nbsp;<sup>2、&nbsp;3</sup> | 64        | 432         | 1600           | 32             | 96000/1000/500                                           | 8 / 30,000           |
 
 <sup>1</sup> Ev3 系列 VM 的 Intel® 超线程技术功能。
 
-<sup>2</sup> 受约束的可用核心大小。 
-<!--PENDIND ON Ev3-series, Updte carefully -->
+<sup>2</sup> 受约束的可用核心大小。
+
+<sup>3</sup> 实例与专用于单个客户的硬件隔离。
 <!-- Not Available on ## M-series <sup>1</sup> -->
 <!-- Not Available on ## GS-series <sup>1</sup> -->
 <!-- Not Available ## G-series-->
@@ -92,7 +93,7 @@ Ev3 系列实例基于 2.3 GHz Intel XEON® E5-2673 v4 (Broadwell) 处理器，�
 
 高级存储：支持
 
-高级存储缓存：不支持
+高级存储缓存：支持
 
 | 大小 | vCPU | 内存：GiB | 临时存储 (SSD) GiB | 最大数据磁盘数 | 缓存和临时存储的最大吞吐量：IOPS/MBps（以 GiB 为单位的缓存大小） | 非缓存磁盘最大吞吐量：IOPS / MBps | 最大 NIC 数/预期网络带宽 (MBps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -101,6 +102,7 @@ Ev3 系列实例基于 2.3 GHz Intel XEON® E5-2673 v4 (Broadwell) 处理器，�
 | Standard_DS13_v2&nbsp;<sup>3</sup> |8 |56 |112 |32 |32,000 / 256 (288) |25,600 / 384 |8 / 6000 |
 | Standard_DS14_v2&nbsp;<sup>3</sup>|16 |112 |224 |64 |64,000 / 512 (576) |51,200 / 768 |8 / 12000 |
 | Standard_DS15_v2&nbsp;<sup>2</sup> |20 个 |140 |280 |64 |80,000 / 640 (720) |64,000 / 960 |8 / 25000&nbsp;<sup>4</sup>
+
 <!-- Please acknowledge that DSv2 Max Disk Count are 8,16,32,64,64 -->
 
 <sup>1</sup> DSv2 系列 VM 可能的最大磁盘吞吐量（IOPS 或 MBps）可能受限于附加磁盘的数量、大小和条带化。  有关详细信息，请参阅[高级存储：适用于 Azure 虚拟机工作负荷的高性能存储](../articles/virtual-machines/windows/premium-storage.md)。
@@ -128,6 +130,7 @@ ACU：210 - 250
 | Standard_D13_v2   | 8         | 56          | 400            | 24000/375/187                                        | 32/32x500                       | 8 / 6000                     |
 | Standard_D14_v2   | 16        | 112         | 800            | 48000/750/375                                        | 64/64x500                       | 8 / 12000          |
 | Standard_D15_v2&nbsp;<sup>1</sup> | 20 个        | 140         | 1,000          | 60000/937/468                                        | 64/64x500                       | 8 / 25000&nbsp;<sup>2</sup> |
+
 <!-- Please acknowledge that Dv2 Max Disk Count are 8,16,32,64,64 -->
 
 <sup>1</sup> 实例对于专用于单个客户的硬件独立。 
@@ -135,3 +138,5 @@ ACU：210 - 250
 <sup>2</sup> 25000 Mbps，具有加速网络。
 
 <br>
+
+<!-- Update_Description: update meta properties, wording update -->

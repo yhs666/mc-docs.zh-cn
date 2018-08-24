@@ -10,20 +10,18 @@ editor: cgronlun
 ms.assetid: 870098f0-f416-4491-9719-78994bf4a369
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 05/25/2017
-ms.date: 12/25/2017
+ms.date: 08/27/2018
 ms.author: v-yiso
 ROBOTS: NOINDEX
-ms.openlocfilehash: 05c15b1315bfab66891c5dc3531801870bceea0f
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.openlocfilehash: 1c3494ce2fb1d7a73ce134900a2372360d9248c0
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873339"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41704789"
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-in-hdinsight"></a>在 HDInsight 中将 Oozie 与 Hadoop 配合使用以定义和运行工作流
 [!INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
@@ -247,7 +245,7 @@ Azure PowerShell 目前不提供任何用于定义 Oozie 作业的 cmdlet。 可
     Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
     try{Get-AzureRmContext}
     catch{
-        Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+        Connect-AzureRmAccount -EnvironmentName AzureChinaCloud
         Select-AzureRmSubscription -SubscriptionId $subscriptionID
     }
     #endregion

@@ -2,21 +2,21 @@
 title: 如何为入站 IP 地址更改做准备 - Azure
 description: 如果入站 IP 地址将要更改，请了解如何在更改后继续运行应用。
 services: app-service\web
-author: tdykstra
+author: cephalin
 manager: cfowler
 editor: ''
 ms.service: app-service-web
 ms.workload: web
 ms.topic: article
 origin.date: 06/28/2018
-ms.date: 07/30/2018
+ms.date: 09/03/2018
 ms.author: v-yiso
-ms.openlocfilehash: 477629e94b5ba6bae37602089251d9270939333b
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.openlocfilehash: e3c74be0dd70588971b0245bddcc136b8e981ae2
+ms.sourcegitcommit: 1b682acdc2a5e0974fbff809967d7cefcbbbe8ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168026"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42870971"
 ---
 # <a name="how-to-prepare-for-an-inbound-ip-address-change"></a>如何为入站 IP 地址更改做准备
 
@@ -42,6 +42,7 @@ ms.locfileid: "39168026"
 
 3. 从列表中选择自己的应用服务应用。
 
+4. 如果应用是一个函数应用，请参阅[函数应用入站 IP 地址](../azure-functions/ip-addresses.md#function-app-inbound-ip-address)。
 4. 在“设置”标题下，单击左侧导航栏中的“属性”，找到标有“虚拟 IP 地址”的部分。
 
 5. 复制 IP 地址并重新配置域记录或 IP 机制。

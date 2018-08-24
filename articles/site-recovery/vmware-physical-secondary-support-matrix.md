@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 07/06/2018
 ms.date: 07/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7ac7c867bcc6c1011154ff8b37d7a2d8356ab6e4
-ms.sourcegitcommit: 74f9f0acb00fb728ff6e9bd67ac86a0c1bcd8d13
+ms.openlocfilehash: 6de4475e2f0d08367c986f1bbdbb5ba9c0cb4c3b
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39218918"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42872029"
 ---
 # <a name="support-matrix-for-replication-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>将 VMware VM 或物理服务器复制到辅助站点时的支持矩阵
 
@@ -64,8 +64,9 @@ Linux | Centos 6.5、6.6、6.7、6.8、6.9、7.0、7.1、7.2 <br/><br/>  SUSE Li
 来宾 VM - IPv4 | 是
 来宾 VM - Windows/Linux - 静态 IP 地址 | 是
 来宾 VM - 多 NIC | 是
-<!-- 在主机上不可用 - IPv6 | 否 -->
-<!-- 在来宾 VM 上不可用 - IPv6 | 否 -->
+
+<!-- Not Avaialable on Host - IPv6 | No -->
+<!-- Not Avaialable on Guest VM - IPv6 | No -->
 
 ## <a name="storage"></a>存储
 

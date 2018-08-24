@@ -1,4 +1,10 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: 4bd041278d438f9408047e6fb353828918b83778
+ms.sourcegitcommit: 56aa1615ef7402444111495f72afbdd6b2dfff78
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "41704016"
 documentType: LandingData
 title: Key Vault 文档
 metadata:
@@ -13,12 +19,6 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.openlocfilehash: 05f35bbd54a94b030ae102ced3204f6f4754a094
-  ms.sourcegitcommit: 306fba1a7125ef6f0555781524afa8f535bea2a0
-  ms.translationtype: HT
-  ms.contentlocale: zh-CN
-  ms.lasthandoff: 06/11/2018
-  ms.locfileid: "35253394"
 origin.date: 01/23/2017
 ms.date: 06/11/2018
 ms.author: v-junlch
@@ -50,12 +50,7 @@ sections:
     style: cards
     className: cardsFTitle
     items:
-    - title: 通过 Web 应用程序开始使用密钥保管库
-      href: /key-vault/key-vault-use-from-web-application
-      image:
-        src: media/index/get-started.svg
-        href: /key-vault/key-vault-use-from-web-application
-    - title: 使用端到端密钥轮替和审核设置 Azure 密钥保管库
+    - title: 使用端到端密钥轮替和审核设置 Azure Key Vault
       href: /key-vault/key-vault-key-rotation-log-monitoring
       image:
         src: media/index/tutorial.svg
@@ -67,7 +62,7 @@ sections:
     className: cardsD
     items:
     - title: 命令行
-      html: <p><a href="https://docs.microsoft.com/powershell/resourcemanager/azurerm.keyvault/v2.3.0/azurerm.keyvault">PowerShell</a></p><p><a href="/cli/keyvault">Azure CLI 2</a></p>
+      html: <p><a href="/cli/keyvault">Azure CLI 2</a></p>
     - title: 语言
       html: <p><a href="/dotnet/api/overview//key-vault">.NET</a></p><p><a href="/java/api/overview/keyvault">Java</a></p><p><a href="https://docs.microsoft.com/python/api/overview/azure/key-vault">Python</a></p><p><a href="https://docs.microsoft.com/javascript/api/overview/azure/key-vault">Node.js</a></p>
     - title: REST

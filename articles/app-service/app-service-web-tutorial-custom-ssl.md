@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
 origin.date: 06/19/2018
-ms.date: 07/30/2018
+ms.date: 09/03/2018
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: eccd4b3322286f7fd7f591fbef248eb0560b3d57
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.openlocfilehash: 036c2dbc4bf5ff2c35b91b442abf195d1a17797c
+ms.sourcegitcommit: 1b682acdc2a5e0974fbff809967d7cefcbbbe8ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39167795"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42870912"
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>教程：将现有的自定义 SSL 证书绑定到 Azure Web 应用
 

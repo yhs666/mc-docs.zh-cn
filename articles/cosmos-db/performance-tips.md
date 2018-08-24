@@ -9,14 +9,14 @@ ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 01/24/2018
-ms.date: 07/02/2018
+ms.date: 08/13/2018
 ms.author: v-yeche
-ms.openlocfilehash: d7533766d0fac503ed0508bd0a015a6036b396cf
-ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
+ms.openlocfilehash: 6acc50e559cec9674c7df15fb2ed8395b0299266
+ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37070264"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41703920"
 ---
 > [!div class="op_single_selector"]
 > * [异步 Java](performance-tips-async-java.md)
@@ -201,7 +201,7 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
          }
     ```             
 
-    在此标头中返回的请求费用是预配吞吐量的一小部分（即 2000 RU/秒）。 例如，如果上述查询返回 1000 个 1KB 文档，则操作开销为 1000。 因此在一秒内，服务器在限制后续请求之前，只接受两个此类请求。 有关详细信息，请参阅[请求单位](request-units.md)和[请求单位计算器](https://www.documentdb.com/capacityplanner)。
+    在此标头中返回的请求费用是预配吞吐量的一小部分（即 2000 RU/秒）。 例如，如果上述查询返回 1000 个 1KB 的文档，则操作成本是 1000。 因此在一秒内，服务器在对后续请求进行速率限制之前，只接受两个此类请求。 有关详细信息，请参阅[请求单位](request-units.md)和[请求单位计算器](https://www.documentdb.com/capacityplanner)。
 <a name="429"></a>
 2. **处理速率限制/请求速率太大**
 

@@ -13,12 +13,12 @@ origin.date: 07/06/2018
 ms.date: 07/23/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 10a107fb9846f4609addcade58118b44568e818a
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.openlocfilehash: c9526c50638fc880f3e41dd48bc3b8e131625225
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168429"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42871890"
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>使用 Azure Site Recovery 保护文件服务器 
 
@@ -62,7 +62,8 @@ DFSR 使用称为远程差分压缩 (RDC) 的压缩算法，该算法可用于�
 |---------|---------|---------|
 |带有或不带 DFSR 的文件服务器环境|   [使用 Site Recovery 进行复制](#replicate-an-on-premises-file-server-by-using-site-recovery)   |    Site Recovery 不支持共享磁盘群集或网络附加存储 (NAS)。 如果环境使用上述任何配置，请相应地使用其他任何方法。 <br> Site Recovery 不支持 SMB 3.0。 仅当已在文件原始位置更新了对文件所做的更改时，复制的 VM 才会合并更改。
 |带有 DFSR 的文件服务器环境     |  [将 DFSR 扩展到 Azure IaaS 虚拟机](#extend-dfsr-to-an-azure-iaas-virtual-machine)  |      DFSR 可在带宽严重不足的环境中正常工作。 此方法要求一直保持运行某个 Azure VM。 需要在规划中考虑该 VM 的成本。         |
-<!-- 不可用于 |Azure IaaS VM     |     [文件同步](#use-azure-file-sync-service-to-replicate-your-files)   |     如果在灾难恢复场景中使用文件同步，则在故障转移期间，需要采取手动操作来确保可在客户端计算机上以透明方式访问文件共享。 文件同步要求在客户端计算机上开放端口 445。     | -->
+
+<!-- Not Available on |Azure IaaS VM     |     [File Sync ](#use-azure-file-sync-service-to-replicate-your-files)   |     If you use File Sync in a disaster recovery scenario, during failover you must take manual actions to make sure that the file shares are accessible to the client machine in a transparent way. File Sync requires port 445 to be open from the client machine.     | -->
 <!-- URL should be replicate-an-onpremises-file-server without servers  -->
 
 ### <a name="site-recovery-support"></a>Site Recovery 支持

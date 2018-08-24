@@ -3,7 +3,7 @@ title: 将云服务连接到自定义域控制器 | Azure
 description: 了解如何使用 Powershell 和 AD 域扩展将 Web/辅助角色连接到自定义 AD 域
 services: cloud-services
 documentationcenter: ''
-author: Thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: 1e2d7c87-d254-4e7a-a832-67f84411ec95
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 07/18/2017
 ms.author: v-yiso
-ms.date: 04/09/2018
-ms.openlocfilehash: 4376d333d3b452edd5dbe918aaacdf92deee4b12
-ms.sourcegitcommit: 4e2ee8ad9e6f30e31d3f0c24c716cc78f780dbf5
+ms.date: 08/20/2018
+ms.openlocfilehash: a3b2588cc42f979ebecb13153ea78f7f9fcbc34f
+ms.sourcegitcommit: 664584f55e0a01bb6558b8d3349d41d3f05ba4d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/30/2018
-ms.locfileid: "30293785"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41703896"
 ---
 # <a name="connecting-azure-cloud-services-roles-to-a-custom-ad-domain-controller-hosted-in-azure"></a>将 Azure 云服务角色连接到 Azure 中托管的自定义 AD 域控制器
 我们先在 Azure 中设置一个虚拟网络 (VNet)。 然后将 Active Directory 域控制器（托管在 Azure 虚拟机上）添加到该 VNet。 接下来，将现有云服务角色添加预先创建的 VNet，然后将它们连接到域控制器。

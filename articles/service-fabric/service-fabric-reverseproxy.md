@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 origin.date: 11/03/2017
-ms.date: 05/28/2018
+ms.date: 08/20/2018
 ms.author: v-yeche
-ms.openlocfilehash: 6b0d267c761f748cdda9ef845fc89a1d723b716f
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: 695ce9d8c541db0d0c0e3dfaf78fd8f2b81605b1
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554532"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41703929"
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Azure Service Fabric 中的反向代理
 借助 Azure Service Fabric 中内置的反向代理，Service Fabric 群集中运行的微服务可以发现包含 http 终结点的其他服务，并与之通信。
@@ -58,8 +58,13 @@ Service Fabric 中的微服务在群集中的部分节点上运行，可以出�
 ![外部通信][0]
 
 > [!WARNING]
-> 在负载均衡器中配置反向代理的端口后，可从群集外部访问群集中公开 HTTP 终结点的所有微服务。
+> 在负载均衡器中配置反向代理的端口后，可从群集外部访问群集中公开 HTTP 终结点的所有微服务。 这意味着微服务设计为内部的可能会被确定的恶意用户发现。 这潜在地提供可被利用的严重漏洞；例如：
 >
+> * 恶意用户可以通过反复调用没有足够强化的攻击面的内部服务来发起拒绝服务攻击。
+> * 恶意用户可能会将格式错误的数据包传送到内部服务，从而导致意外行为。
+> * 设计为内部的服务可能会返回不应公开给群集外部的服务的私有或敏感信息，从而将此敏感信息泄露给恶意用户。 
+>
+> 在公开反向代理端口之前，请确保完全了解并减轻对群集及其上运行的应用程序的潜在安全影响。 
 >
 
 ## <a name="uri-format-for-addressing-services-by-using-the-reverse-proxy"></a>使用反向代理访问服务时所用的 URI 格式
@@ -323,4 +328,4 @@ http://10.0.0.5:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/
 [0]: ./media/service-fabric-reverseproxy/external-communication.png
 [1]: ./media/service-fabric-reverseproxy/internal-communication.png
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update  -->

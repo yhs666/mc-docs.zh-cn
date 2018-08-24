@@ -10,14 +10,14 @@ ms.technology: vs-azure
 ms.workload: azure
 ms.topic: conceptual
 origin.date: 08/24/2017
-ms.date: 07/12/2018
+ms.date: 08/14/2018
 ms.author: v-junlch
-ms.openlocfilehash: 7fa670f77227e43a2da60b13d061d3c03f8cf271
-ms.sourcegitcommit: 5b6a2fc55e5b16ae480bd497c3ac2c3a2fd44703
+ms.openlocfilehash: 13cdbc61ab164e219447981837af4da0ee3ed526
+ms.sourcegitcommit: 5ccfb836b271e60d44ba8a871b8904a695fe8e27
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38999215"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41703889"
 ---
 # <a name="browse-and-manage-storage-resources-by-using-server-explorer"></a>使用服务器资源管理器浏览和管理存储资源
 
@@ -158,7 +158,7 @@ Blob 数据在本地缓存，并且对照 Azure Blob 存储中 Blob 的最后修
 
 ![查看队列](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC651470.png)
 
-有关存储服务队列的详细信息，请参阅[通过 .NET 开始使用 Azure 队列存储](http://go.microsoft.com/fwlink/?LinkID=264702)。 有关存储服务队列的 Web 服务的详细信息，请参阅 [Queue Service Concepts](http://go.microsoft.com/fwlink/?LinkId=264788)（队列服务的概念）。 
+有关存储服务队列的详细信息，请参阅[通过 .NET 开始使用 Azure 队列存储](http://go.microsoft.com/fwlink/?LinkID=264702)。 有关存储服务队列的 Web 服务的详细信息，请参阅 [Queue Service Concepts](http://go.microsoft.com/fwlink/?LinkId=264788)（队列服务的概念）。 有关如何使用 Visual Studio 将消息发送到存储服务队列的信息，请参阅 [Sending Messages to a Storage Services Queue](https://docs.microsoft.com/azure/visual-studio/vs-storage-cloud-services-getting-started-queues)（将消息发送到存储服务队列）。
 
 > [!NOTE]
 > 存储服务队列不同于 Azure 服务总线队列。 有关服务总线队列的详细信息，请参阅[服务总线队列、主题和订阅](/service-bus-messaging/service-bus-queues-topics-subscriptions)。
@@ -220,7 +220,7 @@ Azure 表存储可存储大量结构化数据。 该服务是一个 NoSQL 数据
 1. 查询生成完毕后，关闭该对话框。 所生成文本格式的查询以 WCF 数据服务筛选器的形式显示在文本框中。
 1. 若要运行查询，请选择绿色三角形图标。
 
-如果在筛选文本框中直接输入 WCF Data Services 筛选器字符串，还可以筛选“表设计器”中显示的实体数据。 此类字符串类似 SQL WHERE 语句，但以 HTTP 请求的形式发送到服务器。 
+如果在筛选文本框中直接输入 WCF Data Services 筛选器字符串，还可以筛选“表设计器”中显示的实体数据。 此类字符串类似 SQL WHERE 语句，但以 HTTP 请求的形式发送到服务器。 有关如何构造筛选器字符串的信息，请参阅[构造表设计器的筛选器字符串](/vs-azure-tools-table-designer-construct-filter-strings)。
 
 下图显示了有效筛选器字符串的示例：
 
@@ -298,4 +298,3 @@ Azure 表存储可存储大量结构化数据。 该服务是一个 NoSQL 数据
 
 若要详细了解如何使用 Azure 存储服务，请参阅[访问 Azure 存储服务](https://msdn.microsoft.com/library/azure/ee405490.aspx)。
 
-<!-- Update_Description: update metedata properties -->

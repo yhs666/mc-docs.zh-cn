@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 04/15/2015
-ms.date: 06/04/2018
+ms.date: 08/27/2018
 ms.author: v-yeche
-ms.openlocfilehash: 103be02abe0a766b6377588e72f4c7d576055720
-ms.sourcegitcommit: c1f196ee0a345620ea22b330c13718bc00a7dc4a
+ms.openlocfilehash: 9ab62110d7715cbec288b1c49f0308c16c85456b
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36208888"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42872176"
 ---
 # <a name="mariadb-mysql-cluster-azure-tutorial"></a>MariaDB (MySQL) 群集：Azure 教程
 > [!IMPORTANT]
@@ -51,32 +51,32 @@ ms.locfileid: "36208888"
 1. 创建地缘组，将资源保存在一起。
 
         azure account affinity-group create mariadbcluster --location "China North" --label "MariaDB Cluster"
-2. 创建虚拟网络。
+1. 创建虚拟网络。
 
         azure network vnet create --address-space 10.0.0.0 --cidr 8 --subnet-name mariadb --subnet-start-ip 10.0.0.0 --subnet-cidr 24 --affinity-group mariadbcluster mariadbvnet
-3. 创建存储帐户，托管所有磁盘。 不得将超过 40 个常用磁盘放置在同一存储帐户上，以免达到存储帐户的 20,000 IOPS 上限。 在本例中，将远低于该上限，所以为了简单起见，可以将所有磁盘存储在同一帐户上。
+1. 创建存储帐户，托管所有磁盘。 不得将超过 40 个常用磁盘放置在同一存储帐户上，以免达到存储帐户的 20,000 IOPS 上限。 在本例中，将远低于该上限，所以为了简单起见，可以将所有磁盘存储在同一帐户上。
 
         azure storage account create mariadbstorage --label mariadbstorage --affinity-group mariadbcluster
-4. 查找 CentOS 7 虚拟机映像的名称。
+1. 查找 CentOS 7 虚拟机映像的名称。
 
         azure vm image list | findstr CentOS
    输出类似于 `5112500ae3b842c8b9c604889f8753c3__OpenLogic-CentOS-70-20140926`。
 
    在以下步骤中使用该名称。
-5. 创建 VM 模板，将 /path/to/key.pem 替换为生成的 .pem SSH 密钥的存储路径。
+1. 创建 VM 模板，将 /path/to/key.pem 替换为生成的 .pem SSH 密钥的存储路径。
 
         azure vm create --virtual-network-name mariadbvnet --subnet-names mariadb --blob-url "http://mariadbstorage.blob.core.chinacloudapi.cn/vhds/mariadbhatemplate-os.vhd" --vm-size Medium --ssh 22 --ssh-cert "/path/to/key.pem" --no-ssh-password mariadbtemplate 5112500ae3b842c8b9c604889f8753c3__OpenLogic-CentOS-70-20140926 azureuser
-6. 将 4 个 500 GB 的数据磁盘附加到 VM，以便在 RAID 配置中使用。
+1. 将 4 个 500 GB 的数据磁盘附加到 VM，以便在 RAID 配置中使用。
 
         FOR /L %d IN (1,1,4) DO azure vm disk attach-new mariadbhatemplate 512 http://mariadbstorage.blob.core.chinacloudapi.cn/vhds/mariadbhatemplate-data-%d.vhd
-7. 使用 SSH 登录到在 mariadbhatemplate.chinacloudapp.cn:22 创建的模板 VM，并使用私钥进行连接。
+1. 使用 SSH 登录到在 mariadbhatemplate.chinacloudapp.cn:22 创建的模板 VM，并使用私钥进行连接。
 
 ### <a name="software"></a>软件
 1. 获取根。
 
         sudo su
 
-2. 安装 RAID 支持：
+1. 安装 RAID 支持：
 
     a. 安装 mdadm。
 
@@ -103,7 +103,7 @@ ms.locfileid: "36208888"
 
         mount /mnt/data
 
-3. 安装 MariaDB。
+1. 安装 MariaDB。
 
     a. 创建 MariaDB.repo 文件。
 
@@ -123,7 +123,7 @@ ms.locfileid: "36208888"
 
         yum install MariaDB-Galera-server MariaDB-client galera
 
-4. 将 MySQL 数据目录移动到 RAID 块设备。
+1. 将 MySQL 数据目录移动到 RAID 块设备。
 
     a. 将当前 MySQL 目录复制到其新位置，然后删除旧目录。
 
@@ -137,12 +137,12 @@ ms.locfileid: "36208888"
 
         ln -s /mnt/data/mysql /var/lib/mysql
 
-5. 由于 [SELinux 会干扰群集操作](http://galeracluster.com/documentation-webpages/configuration.html#selinux)，因此在当前会话中有必要将其禁用。 编辑 `/etc/selinux/config` ，禁止其随后重新启动。
+1. 由于 [SELinux 会干扰群集操作](http://galeracluster.com/documentation-webpages/configuration.html#selinux)，因此在当前会话中有必要将其禁用。 编辑 `/etc/selinux/config` ，禁止其随后重新启动。
 
         setenforce 0
 
     然后编辑 `/etc/selinux/config`，设置 `SELINUX=permissive`
-6. 验证 MySQL 是否运行。
+1. 验证 MySQL 是否运行。
 
    a. 启动 MySQL。
 
@@ -159,7 +159,7 @@ ms.locfileid: "36208888"
    d. 停止 MySQL。
 
         service mysql stop
-7. 创建配置占位符。
+1. 创建配置占位符。
 
    a. 编辑 MySQL 配置，以便为群集设置创建一个占位符。 暂时不要替换 **`<Variables>`** 或取消注释。 在基于此模板创建 VM 后，才需执行此操作。
 
@@ -180,7 +180,7 @@ ms.locfileid: "36208888"
         #wsrep_cluster_address="gcomm://mariadb1,mariadb2,mariadb3" # CHANGE: Uncomment and Add all your servers
         #wsrep_node_address='<ServerIP>' # CHANGE: Uncomment and set IP address of this server
         #wsrep_node_name='<NodeName>' # CHANGE: Uncomment and set the node name of this server
-8. 在 CentOS 7 上使用 FirewallD 打开防火墙上的所需端口。
+1. 在 CentOS 7 上使用 FirewallD 打开防火墙上的所需端口。
 
    * MySQL： `firewall-cmd --zone=public --add-port=3306/tcp --permanent`
    * GALERA： `firewall-cmd --zone=public --add-port=4567/tcp --permanent`
@@ -188,7 +188,7 @@ ms.locfileid: "36208888"
    * RSYNC： `firewall-cmd --zone=public --add-port=4444/tcp --permanent`
    * 重新加载防火墙： `firewall-cmd --reload`
 
-9. 优化系统性能。 有关详细信息，请参阅[性能优化策略](optimize-mysql.md)。
+1. 优化系统性能。 有关详细信息，请参阅[性能优化策略](optimize-mysql.md)。
 
    a. 再次编辑 MySQL 配置文件。
 
@@ -207,12 +207,12 @@ ms.locfileid: "36208888"
         innodb_log_buffer_size = 128M # The log buffer allows transactions to run without having to flush the log to disk before the transactions commit
         innodb_flush_log_at_trx_commit = 2 # The setting of 2 enables the most data integrity and is suitable for Master in MySQL cluster
         query_cache_size = 0
-10. 停止 MySQL 并禁止 MySQL 服务在启动时运行，以免在添加节点时导致群集混乱，并取消预配计算机。
+1. 停止 MySQL 并禁止 MySQL 服务在启动时运行，以免在添加节点时导致群集混乱，并取消预配计算机。
 
         service mysql stop
         chkconfig mysql off
         waagent -deprovision
-11. 通过门户捕获 VM。 （目前，[Azure CLI 工具中的问题 #1268](https://github.com/Azure/azure-xplat-cli/issues/1268) 描述的事实是，Azure CLI 工具所捕获的映像并没有捕获所附加的数据磁盘。）
+1. 通过门户捕获 VM。 （目前，[Azure CLI 工具中的问题 #1268](https://github.com/Azure/azure-xplat-cli/issues/1268) 描述的事实是，Azure CLI 工具所捕获的映像并没有捕获所附加的数据磁盘。）
 
     a. 通过门户关闭计算机。
 
@@ -248,7 +248,7 @@ ms.locfileid: "36208888"
         --ssh 22
         --vm-name mariadb1
         mariadbha mariadb-galera-image azureuser
-2. 再创建两个虚拟机，将其连接到 mariadbha 云服务。 更改 VM 名称，并将 SSH 端口更改为不与同一云服务中的其他 VM 冲突的唯一端口。
+1. 再创建两个虚拟机，将其连接到 mariadbha 云服务。 更改 VM 名称，并将 SSH 端口更改为不与同一云服务中的其他 VM 冲突的唯一端口。
 
         azure vm create
         --virtual-network-name mariadbvnet
@@ -272,20 +272,20 @@ ms.locfileid: "36208888"
         --ssh 24
         --vm-name mariadb3
         --connect mariadbha mariadb-galera-image azureuser
-3. 需要获取三个 VM 各自的内部 IP 地址，才能执行下一步：
+1. 需要获取三个 VM 各自的内部 IP 地址，才能执行下一步：
 
     ![获取 IP 地址](./media/mariadb-mysql-cluster/IP.png)
-4. 使用 SSH 登录到这三个 VM，并编辑每个 VM 的配置文件。
+1. 使用 SSH 登录到这三个 VM，并编辑每个 VM 的配置文件。
 
         sudo vi /etc/my.cnf.d/server.cnf
 
     通过删除行首的 **#** 取消注释 **`wsrep_cluster_name`** 和 **`wsrep_cluster_address`**。
     此外，将 **`wsrep_node_address`** 中的 **`<ServerIP>`** 和 **`wsrep_node_name`** 中的 **`<NodeName>`** 分别替换为 VM 的 IP 地址和名称，然后同样取消注释这些行。
-5. 启动 MariaDB1 上的群集，并让其在启动时运行。
+1. 启动 MariaDB1 上的群集，并让其在启动时运行。
 
         sudo service mysql bootstrap
         chkconfig mysql on
-6. 在 MariaDB2 和 MariaDB3 上启动 MySQL，并允许其在启动时运行。
+1. 在 MariaDB2 和 MariaDB3 上启动 MySQL，并允许其在启动时运行。
 
         sudo service mysql start
         chkconfig mysql on
@@ -362,4 +362,4 @@ CLI 将负载均衡器探测间隔设置为 15 秒，这可能有点太长。 �
 [MariaDBs]:https://mariadb.org/en/about/
 [创建用于身份验证的 SSH 密钥]:http://www.jeff.wilcox.name/2013/06/secure-linux-vms-with-ssh-certificates/
 [issue #1268 in the Azure CLI]:https://github.com/Azure/azure-xplat-cli/issues/1268
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties -->

@@ -1,24 +1,20 @@
 ---
 title: 接收有关 Azure 服务通知的活动日志警报
 description: 在 Azure 服务发生时，通过短信、电子邮件或 webhook 接收通知。
-author: johnkemnetz
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+author: shawntabrizi
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 origin.date: 06/09/2018
-ms.date: 07/23/2018
+ms.date: 08/20/2018
 ms.author: v-yiso
-ms.openlocfilehash: c449af3115ff466c4908555987645fb3dd69fb78
-ms.sourcegitcommit: 479954e938e4e3469d6998733aa797826e4f300b
+ms.component: alerts
+ms.openlocfilehash: 340f9f1e310d3b4bc8310ba0e18410738ed1443c
+ms.sourcegitcommit: 664584f55e0a01bb6558b8d3349d41d3f05ba4d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39031777"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41704598"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>创建有关服务通知的活动日志警报
 ## <a name="overview"></a>概述
@@ -30,6 +26,9 @@ ms.locfileid: "39031777"
 - 受影响的订阅。
 - 受影响的服务。
 - 受影响的区域。
+
+> [!NOTE]
+> 服务运行状况通知不会发送有关资源运行状况事件的警报。
 
 还可以配置向其发送警报的人员：
 

@@ -13,14 +13,14 @@ ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 05/16/2018
-ms.date: 06/25/2018
+ms.date: 08/27/2018
 ms.author: v-yiso
-ms.openlocfilehash: c36e8788bcc9fac7729d089b29cee53a2eae462f
-ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
+ms.openlocfilehash: 948fabdca9979c41272817bde75fb319d5f7c8e0
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36747427"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41704788"
 ---
 # <a name="run-hive-queries-using-hdinsight-net-sdk"></a>使用 HDInsight .NET SDK 运行 Hive 查询
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
@@ -145,7 +145,7 @@ HDInsight .NET SDK 提供 .NET 客户端库，可简化从 .NET 中使用 HDInsi
 * [Azure HDInsight 入门](apache-hadoop-linux-tutorial-get-started.md)
 * [在 HDInsight 中创建 Hadoop 群集](../hdinsight-hadoop-provision-linux-clusters.md)
 * [使用 Azure 门户管理 HDInsight 中的 Hadoop 群集](../hdinsight-administer-use-management-portal.md)
-* [HDInsight .NET SDK 参考](https://msdn.microsoft.com/library/mt271028.aspx)
+* [HDInsight .NET SDK 参考](https://docs.azure.cn/zh-cn/dotnet/api/overview/hdinsight)
 * [将 Pig 与 HDInsight 配合使用](hdinsight-use-pig.md)
 * [将 Sqoop 与 HDInsight 配合使用](apache-hadoop-use-sqoop-mac-linux.md)
 * [创建非交互式身份验证 .NET HDInsight 应用程序](../hdinsight-create-non-interactive-authentication-dotnet-applications.md)

@@ -15,12 +15,12 @@ ms.topic: hero-article
 origin.date: 05/10/2018
 ms.date: 06/11/2018
 ms.author: v-junlch
-ms.openlocfilehash: 1f69ebe3824a6da45e78efcfa9821d5ac80999e6
-ms.sourcegitcommit: 306fba1a7125ef6f0555781524afa8f535bea2a0
+ms.openlocfilehash: bcce0d965f0449494b68cc91ae2baa3f703ef92a
+ms.sourcegitcommit: 56aa1615ef7402444111495f72afbdd6b2dfff78
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35253369"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "41704547"
 ---
 # <a name="get-started-with-azure-key-vault"></a>Azure 密钥保管库入门
 本文有助于使用 PowerShell 完成 Azure Key Vault 入门，并详细介绍如何完成以下活动：
@@ -288,7 +288,6 @@ Remove-AzureRmResourceGroup -ResourceGroupName 'ContosoResourceGroup'
 ## <a name="next-steps"></a>后续步骤
 
 - 有关 Azure 密钥保管库的概述信息，请参阅 [什么是 Azure 密钥保管库？](key-vault-whatis.md)
-- 有关在 web 应用程序中使用 Azure Key Vault 的后续教程，请参阅[从 Web 应用程序使用 Azure Key Vault](key-vault-use-from-web-application.md)。
 - 有关编程参考，请参阅 [Azure 密钥保管库开发人员指南](key-vault-developers-guide.md)。
 - 有关 Azure Key Vault 的最新 Azure PowerShell cmdlet 列表，请参阅 [Azure Key Vault Cmdlet](https://docs.microsoft.com/powershell/module/azurerm.keyvault/#key_vault)。
 

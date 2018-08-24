@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 10/10/2017
-ms.date: 05/21/2018
+ms.date: 08/27/2018
 ms.author: v-yeche
-ms.openlocfilehash: bd23601f1f30daab7e7eb5169ab7504b4ee2e047
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.openlocfilehash: 80d0eb05d556b7b1e567cff38f0e3c8262c6df8c
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34258486"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42872213"
 ---
 [!INCLUDE [virtual-machines-common-migration-faq](../../../includes/virtual-machines-common-classic-resource-manager-migration-overview.md)]
 
@@ -31,7 +31,9 @@ ms.locfileid: "34258486"
 * [规划从经典部署模型到 Azure Resource Manager 的 IaaS 资源迁移](migration-classic-resource-manager-plan.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 * [使用 PowerShell 将 IaaS 资源从经典部署模型迁移到 Azure 资源管理器](migration-classic-resource-manager-ps.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 * [使用 CLI 将 IaaS 资源从经典部署模型迁移到 Azure 资源管理器](../linux/migration-classic-resource-manager-cli.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
+* [VPN 网关从经典部署模型迁移到资源管理器部署模型](/vpn-gateway/vpn-gateway-classic-resource-manager-migration)
+* [将 ExpressRoute 线路和关联的虚拟网络从经典部署模型迁移到资源管理器部署模型](/expressroute/expressroute-migration-classic-resource-manager)
 * [用于帮助将 IaaS 资源从经典部署模型迁移到 Azure 资源管理器部署模型的社区工具](migration-classic-resource-manager-community-tools.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 * [查看最常见的迁移错误](migration-classic-resource-manager-errors.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 * [查看有关将 IaaS 资源从经典部署模型迁移到 Azure 资源管理器部署模型的最常见问题](migration-classic-resource-manager-faq.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties, update link -->

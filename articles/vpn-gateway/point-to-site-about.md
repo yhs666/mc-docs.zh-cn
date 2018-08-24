@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 06/06/2018
-ms.date: 07/10/2018
+ms.date: 08/13/2018
 ms.author: v-junlch
-ms.openlocfilehash: ae86c3ab7e69a5025a0f9e2cde57122fba2af962
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 1e669f39888b815f75ed9d550194cc2ea3756fba
+ms.sourcegitcommit: ec76e0b9a869eb833f76f6bebbabd2d61ed17e0c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939084"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "41704711"
 ---
 # <a name="about-point-to-site-vpn"></a>关于点到站点 VPN
 
@@ -59,7 +59,7 @@ AD 域身份验证可让用户使用其组织域凭据连接到 Azure。 它需�
 
 RADIUS 服务器还能与其他外部标识系统集成。 这样就为 P2S VPN 提供了大量的身份验证选项，包括多重身份验证选项。
 
-![point-to-site]](./media/point-to-site-about/p2s.png "Point-to-Site")
+![点到站点](./media/point-to-site-about/p2s.png "点到站点")
 
 ## <a name="what-are-the-client-configuration-requirements"></a>客户端配置要求是什么？
 

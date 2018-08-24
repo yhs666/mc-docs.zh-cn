@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/06/2016
-ms.date: 04/02/2018
+ms.date: 09/03/2018
 ms.author: v-yiso
-ms.openlocfilehash: 0ef5e0e5e4a5c6612cac398d406527229262d716
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 8a58927e9f10a215c3073a4fa624e43838a5c8b9
+ms.sourcegitcommit: 1b682acdc2a5e0974fbff809967d7cefcbbbe8ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782234"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42870947"
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>在 Azure 应用服务中启用 Web 应用的诊断日志记录
 ## <a name="overview"></a>概述

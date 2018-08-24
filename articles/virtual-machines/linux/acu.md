@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 12/05/2017
-ms.date: 05/14/2018
+ms.date: 08/27/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0a37a92af0e2665543be1f75ff46c53ab1c862bf
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.openlocfilehash: 4ec7c0cd69e41639541527d670961c2746331c2a
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "34061955"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42872207"
 ---
 # <a name="azure-compute-unit-acu"></a>Azure 计算单元 (ACU)
 
@@ -31,4 +31,6 @@ ms.locfileid: "34061955"
 - [通用](sizes-general.md)
 - [内存优化](sizes-memory.md)
 - [计算优化](sizes-compute.md)
+- [GPU 优化](sizes-gpu.md)
+
 <!-- Update_Description: update meta properties -->

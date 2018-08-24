@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 11/02/2017
-ms.date: 05/28/2018
+ms.date: 08/20/2018
 ms.author: v-yeche
-ms.openlocfilehash: f8def018c97fa2999a03ce356f212af387de5e29
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: 9df9ef47e98f9331678f676248bf9be883d2ce55
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554361"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41703890"
 ---
 # <a name="debug-your-java-service-fabric-application-using-eclipse"></a>使用 Eclipse 调试 Java Service Fabric 应用程序
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ ms.locfileid: "34554361"
 2. 更新要调试的服务的 entryPoint.sh，让其使用远程调试参数启动 java 进程。 可在以下位置找到此文件： ``ApplicationName\ServiceNamePkg\Code\entrypoint.sh``。 设置了端口 8001，以便在此示例中进行调试。
 
     ```sh
-    java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=y -Djava.library.path=$LD_LIBRARY_PATH -jar myapp.jar
+    java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=n -Djava.library.path=$LD_LIBRARY_PATH -jar myapp.jar
     ```
 3. 更新应用程序清单，将要调试服务的实例计数或副本计数设置为 1。 此设置可避免用于调试的端口出现冲突。 例如，对于无状态服务，设置 ``InstanceCount="1"``；对于有状态服务，将目标和最小副本集大小设置为 1，如下所示：`` TargetReplicaSetSize="1" MinReplicaSetSize="1"``。
 

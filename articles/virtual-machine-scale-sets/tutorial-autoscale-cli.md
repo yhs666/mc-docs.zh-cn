@@ -3,7 +3,7 @@ title: 教程 - 使用 Azure CLI 2.0 自动缩放规模集 | Microsoft Docs
 description: 了解如何使用 Azure CLI 2.0 随 CPU 需求的增减自动缩放虚拟机规模集
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 05/18/2018
-ms.date: 06/11/2018
+ms.date: 08/13/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 832a20dd080e38ce78bd76e41b5f398afccd131c
-ms.sourcegitcommit: a63d392037f3eca3196026c500ac7d2d26d85a7c
+ms.openlocfilehash: 08906b7c7ce4304b92c58bcdaad93e9945ccbb9f
+ms.sourcegitcommit: 56ed1b03d83f222db6118fe1e2f2485a9488507f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35253178"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41703966"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>教程：使用 Azure CLI 2.0 自动缩放虚拟机规模集
 
@@ -61,7 +61,7 @@ az vmss create `
 
 ## <a name="define-an-autoscale-profile"></a>定义自动缩放配置文件
 
-若要在规模集上启用自动缩放，首先要定义自动缩放配置文件。 此配置文件定义默认、最小和最大规模集容量。 这些限制可让你通过不继续创建 VM 实例来控制成本，并可使用缩小事件中保留的最小数量的实例均衡可接受的性能。 使用 [az monitor autoscale create](https://docs.microsoft.com/en-us/cli/azure/monitor/autoscale#az-monitor-autoscale-create) 创建自动缩放配置文件。 以下示例设置了默认值，以及最小容量 2 个 VM 实例、最大容量 10 个 VM：
+若要在规模集上启用自动缩放，首先要定义自动缩放配置文件。 此配置文件定义默认、最小和最大规模集容量。 这些限制可让你通过不继续创建 VM 实例来控制成本，并可使用缩小事件中保留的最小数量的实例均衡可接受的性能。 使用 [az monitor autoscale create](/cli/monitor/autoscale#az-monitor-autoscale-create) 创建自动缩放配置文件。 以下示例设置了默认值，以及最小容量 2 个 VM 实例、最大容量 10 个 VM：
 
 ```azurecli
 az monitor autoscale create `
@@ -78,7 +78,7 @@ az monitor autoscale create `
 
 如果应用程序需求提高，规模集中 VM 实例上的负载将会增大。 如果这种负载增大持续稳定，而不只是短暂的需求，那么可以配置自动缩放规则来增加规模集中的 VM 实例数。 创建这些 VM 实例及部署应用程序后，规模集会开始通过负载均衡器将流量分配到这些实例和应用程序。 可以控制要监视的指标（例如 CPU 或磁盘）、应用程序负载必须处于给定阈值内的时间，以及要添加到规模集的 VM 实例数。
 
-让我们使用 [az monitor autoscale rule create](https://docs.microsoft.com/en-us/cli/azure/monitor/autoscale/rule#az-monitor-autoscale-rule-create) 创建一个规则，当平均 CPU 负载在 5 分钟内超过 70% 时，该规则会增加规模集中的 VM 实例数。 触发规则时，VM 实例数增加 3。
+让我们使用 [az monitor autoscale rule create](/cli/monitor/autoscale/rule#az-monitor-autoscale-rule-create) 创建一个规则，当平均 CPU 负载在 5 分钟内超过 70% 时，该规则会增加规模集中的 VM 实例数。 触发规则时，VM 实例数增加 3。
 
 ```azurecli
 az monitor autoscale rule create `
@@ -92,7 +92,7 @@ az monitor autoscale rule create `
 
 在夜间或周末，应用程序需求可能会降低。 如果这种负载降低在一段时间内持续稳定，可以配置自动缩放规则来减少规模集中的 VM 实例数。 这种横向缩减操作可以减少运行规模集所需的成本，因为只运行满足当前需求所需的实例数。
 
-让我们使用 [az monitor autoscale rule create](https://docs.microsoft.com/en-us/cli/azure/monitor/autoscale/rule#az-monitor-autoscale-rule-create) 创建另一个规则，当平均 CPU 负载随后在 5 分钟内低于 30% 时，该规则会减少规模集中的 VM 实例数。 以下示例定义将 VM 实例数减 1 的规则：
+让我们使用 [az monitor autoscale rule create](/cli/monitor/autoscale/rule#az-monitor-autoscale-rule-create) 创建另一个规则，当平均 CPU 负载随后在 5 分钟内低于 30% 时，该规则会减少规模集中的 VM 实例数。 以下示例定义将 VM 实例数减 1 的规则：
 
 ```azurecli
 az monitor autoscale rule create `

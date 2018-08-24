@@ -9,28 +9,26 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: 7f4a4e02-45ab-40dd-842b-3ec034f256c9
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 02/05/2017
-ms.date: 12/25/2017
+ms.date: 08/27/2018
 ms.author: v-yiso
 ROBOTS: NOINDEX
-ms.openlocfilehash: a95f574a68072ddffc7e1bb37b151e2e9526c3df
-ms.sourcegitcommit: 25dbb1efd7ad6a3fb8b5be4c4928780e4fbe14c9
+ms.openlocfilehash: 7f7ff2564f55c18fafc4c7881bdfb702a0be6462
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/15/2017
-ms.locfileid: "26721330"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41704557"
 ---
 # <a name="use-maven-to-build-java-applications-that-use-hbase-with-windows-based-hdinsight-hadoop"></a>借助 Maven 构建可将 HBase 与基于 Windows 的 HDInsight (Hadoop) 配合使用的 Java 应用程序
 了解如何通过使用 Apache Maven 在 Java 中创建和构建 [Apache HBase](http://hbase.apache.org/) 应用程序。 然后，将该应用程序用于 Azure HDInsight (Hadoop)。
 
-[Maven](http://maven.apache.org/) 是一种软件项目管理和综合工具，可用于为 Java 项目构建软件、文档和报告。 在本文中，可了解如何使用 Maven 创建一个基本的 Java 应用程序，该应用程序可在 Azure HDInsight 群集中创建、查询和删除 HBase 表。
+[Maven](http://maven.apache.org/) 是一种软件项目管理和综合工具，可用于为 Java 项目构建软件、文档和报告。 本文介绍如何使用 Maven 创建基本 Java 应用程序，该应用程序可在 Azure HDInsight 群集中创建、查询和删除 HBase 表。
 
 > [!IMPORTANT]
-> 本文档中的步骤需要使用 Windows 的 HDInsight 群集。 Linux 是在 HDInsight 3.4 版或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
+> 本文档中的步骤需要使用 Windows 的 HDInsight 群集。 Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 ## <a name="requirements"></a>要求
 
@@ -529,7 +527,7 @@ ms.locfileid: "26721330"
             $sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
             if(-not($sub))
             {
-                throw "No active Azure subscription found! If you have a subscription, use the Login-AzureRmAccount cmdlet to login to your subscription."
+                throw "No active Azure subscription found! If you have a subscription, use the Connect-AzureRmAccount cmdlet to login to your subscription."
             }
         }
 
@@ -601,7 +599,7 @@ ms.locfileid: "26721330"
 
     将 **hdinsightclustername** 替换为 HDInsight 群集的名称。
 
-    此命令使用 **SearchByEmail** 类搜索任何 **contactinformation** 列系列和 **email** 列包含字符串 **contoso.com** 的行。应该会收到以下结果：
+    此命令使用 **SearchByEmail** 类搜索任何 **contactinformation** 列系列和 **email** 列包含字符串 **contoso.com** 的行。 应该会收到以下结果：
 
           Franklin Holtz - ID: 2
           Franklin Holtz - franklin@contoso.com - ID: 2

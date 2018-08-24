@@ -14,14 +14,14 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 origin.date: 05/11/2018
-ms.date: 06/04/2018
+ms.date: 09/03/2018
 ms.author: v-yiso
-ms.openlocfilehash: baf161c10d4fcfbae063aa10ec6c206a3bd78a33
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: 90beff29d6e726257debb5250c4b4393f975ae78
+ms.sourcegitcommit: 1b682acdc2a5e0974fbff809967d7cefcbbbe8ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554606"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42870994"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Azure 中 Web 应用的应用程序性能常见问题解答
 
@@ -47,9 +47,9 @@ ms.locfileid: "34554606"
 
 ## <a name="how-do-i-view-my-web-apps-event-logs"></a>如何查看 Web 应用的事件日志？
 
-若要查看 Web 应用的事件日志，请执行以下操作：
+查看 Web 应用的事件日志：
 
-1. 登录到 Kudu 网站：https://*yourwebsitename*.scm.chinacloudsites.cn。
+1. 登录到 [Kudu 网站](https://*yourwebsitename*.scm.chinacloudsites.cn)。
 2. 在菜单中，选择“调试控制台” > “CMD”。
 3. 选择“LogFiles”文件夹。
 4. 若要查看事件日志，请选择“eventlog.xml”旁边的铅笔图标。
@@ -57,9 +57,9 @@ ms.locfileid: "34554606"
 
 ## <a name="how-do-i-capture-a-user-mode-memory-dump-of-my-web-app"></a>如何捕获 Web 应用的用户模式内存转储？
 
-若要捕获 Web 应用的用户模式内存转储，请执行以下操作：
+捕获 Web 应用的用户模式内存转储:
 
-1. 登录到 Kudu 网站：https://*yourwebsitename*.scm.chinacloudsites.cn。
+1. 登录到 [Kudu 网站](https://*yourwebsitename*.scm.chinacloudsites.cn)。
 2. 选择“进程资源管理器”菜单。
 3. 右键单击“w3wp.exe”进程或 WebJob 进程。
 4. 选择“下载内存转储” > “完全转储”。
@@ -72,7 +72,7 @@ ms.locfileid: "34554606"
     1. 打开 Web 应用的“进程资源管理器”。
     2. 若要查看详细信息，请选择“w3wp.exe”进程。
 *   在 Kudu 控制台中：
-    1. 登录到 Kudu 网站：https://*yourwebsitename*.scm.chinacloudsites.cn。
+    1. 登录到 [Kudu 网站](https://*yourwebsitename*.scm.chinacloudsites.cn)。
     2. 选择“进程资源管理器”菜单。
     3. 对于“w3wp.exe”进程，选择“属性”。
 
@@ -158,7 +158,7 @@ ms.locfileid: "34554606"
 
 有关详细信息，请参阅[在应用服务中配置 web 应用](web-sites-configure.md)。
 
-## <a name="why-does-my-request-time-out-after-240-seconds"></a>为什么请求在 240 秒后超时？
+## <a name="why-does-my-request-time-out-after-230-seconds"></a>为何我的请求在 230 秒后超时？
 
 Azure 负载均衡器的默认空闲超时设置为四分钟。 这通常是 Web 请求合理的响应时间限制。 如果 Web 应用需要后台处理，建议使用 Azure WebJobs。 Azure Web 应用可以调用 WebJobs，并在后台处理完成时收到通知。 有多种方法可用于使用 WebJobs，包括队列和触发器。
 

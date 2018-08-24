@@ -11,12 +11,12 @@ origin.date: 06/04/2018
 ms.date: 07/02/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 86e66feee1eaf1fa6dbca5b50512c76b8da2c41c
-ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
+ms.openlocfilehash: d24e2c17db87eef5cc15110737d7bdbb71bffb21
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37070188"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42872205"
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>停用 S1、S2 和 S3 性能级别
 
@@ -53,7 +53,8 @@ S1、S2 和 S3 性能级别无法提供标准 Azure Cosmos DB 产品提供的灵
 |最大吞吐量|无限制|10K RU/s|250 RU/秒|1 K RU/秒|2.5 K RU/秒|
 |最小吞吐量|2.5 K RU/秒|400 RU/s|250 RU/s|1 K RU/秒|2.5 K RU/秒|
 |最大存储|无限制|10 GB|10 GB|10 GB|10 GB|
-<!-- 不可用 |价格|吞吐量：6 美元/100 RU/秒<br><br>存储：0.25 美元/GB|吞吐量：6 美元/100 RU/s<br><br>存储：0.25 美元/GB|25 美元|50 美元|100 美元|-->
+
+<!-- Not Avaialbel |Price|Throughput: $6 / 100 RU/s<br><br>Storage: $0.25/GB|Throughput: $6 / 100 RU/s<br><br>Storage: $0.25/GB|$25 USD|$50 USD|$100 USD|-->
 
 是 EA 客户吗？ 如果是，请参阅 [如果我是 EA 客户，我会受到怎样的影响？](#ea-customer)
 

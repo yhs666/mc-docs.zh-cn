@@ -1,27 +1,22 @@
 ---
-title: Azure 订阅限制和配额 | Microsoft Docs
+title: Azure 订阅限制和配额
 description: 提供常见的 Azure 订阅和服务限制、配额和约束的列表。 这包括有关如何增加限制以及最大值的信息。
-services: ''
-documentationcenter: ''
+services: multiple
 author: rothja
 manager: jeffreyg
-editor: ''
 tags: billing
 ms.assetid: 60d848f9-ff26-496e-a5ec-ccf92ad7d125
 ms.service: billing
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-origin.date: 03/29/2018
-ms.date: 07/12/2018
+origin.date: 07/13/2018
+ms.date: 08/14/2018
 ms.author: v-junlch
-ms.openlocfilehash: 0001eb27e2e4e55f98380aa6978f36f35f5e625c
-ms.sourcegitcommit: 5b6a2fc55e5b16ae480bd497c3ac2c3a2fd44703
+ms.openlocfilehash: fab4ea757c28a937a754b9dac3498e2de093925a
+ms.sourcegitcommit: 5ccfb836b271e60d44ba8a871b8904a695fe8e27
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38999220"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41704018"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 订阅和服务限制、配额和约束
 本文列出了一些最常见的 Azure 限制，有时也称为配额。 本文当前并不涵盖所有 Azure 服务。 随着时间的推移，此列表将进行扩展和更新，以涵盖更多平台。
@@ -41,7 +36,8 @@ ms.locfileid: "38999220"
 
 > [!NOTE]
 > 请务必强调 Azure 资源组中的资源配额是用户的订阅可以访问的每个区域，而不像服务管理配额那样是可以访问的每个订阅。 让我们以 vCPU 配额为例。 如果要根据对 vCPU 的支持请求增加配额，则需要决定要在哪些区域中使用多少 vCPU，然后针对所需的 Azure 资源组 vCPU 配额的数量和区域发出特定请求。 因此，如果需要在中国北部使用 20 个 vCPU 以在那里运行应用程序，则应专门在中国北部请求 20 个 vCPU。 但这不会增加任何其他区域的 vCPU 配额。
-> <!-- --> 因此，可以考虑针对任意区域中的工作负荷来确定所需的 Azure 资源组配额，然后在每个考虑在其中进行部署的区域请求相应的量。 有关发现特定区域的当前配额的更多帮助，请参阅[排查部署问题](resource-manager-common-deployment-errors.md)。
+> <!-- -->
+> 因此，可能会发现考虑决定你在任何一个区域中的工作负荷所需的 Azure 资源组配额数量，以及请求你考虑在其中进行部署的每个区域的数量很有用。 有关发现特定区域的当前配额的更多帮助，请参阅[排查部署问题](resource-manager-common-deployment-errors.md)。
 >
 >
 
@@ -246,4 +242,4 @@ Azure Cosmos DB 是全局缩放数据库，可对吞吐量和存储进行缩放�
 
 [云服务的大小](cloud-services/cloud-services-sizes-specs.md)
 
-<!--Update_Description: update limits and quotas -->
+<!-- Update_Description: update metedata properties -->

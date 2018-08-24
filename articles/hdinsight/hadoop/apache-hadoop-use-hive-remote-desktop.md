@@ -10,19 +10,19 @@ tags: azure-portal
 ms.assetid: 8c228e35-d58a-4f22-917a-1d20c9da89b4
 ms.service: hdinsight
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 01/12/2017
-ms.date: 12/18/2017
+ms.date: 08/27/2018
 ms.author: v-yiso
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6a88aa46679246bb9a5a43739d73c38770dc2ee6
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.openlocfilehash: 507e3392976ecf531ea9ee74197ccd7edd11148e
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873657"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41703895"
 ---
 # <a name="use-hive-with-hadoop-on-hdinsight-with-remote-desktop"></a>通过远程桌面将 Hive 与 HDInsight 上的 Hadoop 配合使用
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
@@ -101,7 +101,7 @@ ms.locfileid: "37873657"
      应返回三行数据，所有行都包含 t4 列中的 [ERROR]。
 
 ## <a id="summary"></a>摘要
-Hive 命令提供了一种简单的方法，可以交互方式在 HDInsight 群集上运行 Hive 查询、监视作业状态，以及检索输出。
+如你所见，Hive 命令提供了简单的方法让你以交互方式在 HDInsight 群集上运行 Hive 查询、监视作业状态，以及检索输出。
 
 ## <a id="nextsteps"></a>后续步骤
 有关 HDInsight 中的 Hive 的一般信息：

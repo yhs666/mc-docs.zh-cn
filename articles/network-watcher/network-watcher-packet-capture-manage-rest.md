@@ -13,22 +13,21 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/22/2017
-ms.date: 11/20/2017
+ms.date: 08/13/2018
 ms.author: v-yeche
-ms.openlocfilehash: 8e6cbd551583142ce5822114a43b0d3ed259b11b
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 575ec75e6c5bc94d8b711c32a29c50dbaa881c0b
+ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
-ms.locfileid: "29285124"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41703855"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-azure-rest-api"></a>通过 Azure REST API 使用 Azure 网络观察程序管理数据包捕获
 
 > [!div class="op_single_selector"]
 > - [Azure 门户](network-watcher-packet-capture-manage-portal.md)
 > - [PowerShell](network-watcher-packet-capture-manage-powershell.md)
-> - [CLI 1.0](network-watcher-packet-capture-manage-cli-nodejs.md)
-> - [CLI 2.0](network-watcher-packet-capture-manage-cli.md)
+> - [Azure CLI](network-watcher-packet-capture-manage-cli.md)
 > - [Azure REST API](network-watcher-packet-capture-manage-rest.md)
 
 使用网络观察程序数据包捕获，可以创建捕获会话以跟踪进出虚拟机的流量。 为捕获会话提供了筛选器以确保仅捕获所需的流量。 数据包捕获有助于以主动和被动方式诊断网络异常。 其他用途包括收集网络统计信息，获得网络入侵信息，调试客户端与服务器之间的通信，等等。 由于能够远程触发数据包捕获，此功能可减轻手动运行数据包捕获的负担，并可在所需计算机上运行，从而可节省宝贵的时间。
@@ -48,8 +47,7 @@ ms.locfileid: "29285124"
 
 本方案假设已根据[创建网络观察程序](network-watcher-create.md)中的步骤创建了网络观察程序。
 
-> 数据包捕获需要虚拟机扩展 `AzureNetworkWatcherExtension`。 
-<!-- Wait for [Azure Network Watcher Agent virtual machine extension for Windows](../virtual-machines/windows/extensions-nwa.md) and for Linux VM visit [Azure Network Watcher Agent virtual machine extension for Linux](../virtual-machines/linux/extensions-nwa.md) -->
+> 数据包捕获需要虚拟机扩展 `AzureNetworkWatcherExtension`。 有关在 Windows VM 上安装扩展的信息，请访问[适用于 Windows 的 Azure 网络观察程序代理虚拟机扩展](../virtual-machines/windows/extensions-nwa.md)；有关 Linux VM 的信息，请访问[适用于 Linux 的 Azure 网络观察程序代理虚拟机扩展](../virtual-machines/linux/extensions-nwa.md)。
 
 ## <a name="log-in-with-armclient"></a>使用 ARMClient 登录
 
@@ -306,4 +304,4 @@ armclient delete "https://management.chinacloudapi.cn/subscriptions/${subscripti
 
 <!--Not Available on [Create an alert triggered packet capture](network-watcher-alert-triggered-packet-capture.md) -->
 
-<!--Update_Description: new articles on network watcher packet capture manage rest -->
+<!--Update_Description: update link, wording update -->

@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 origin.date: 12/13/2017
-ms.date: 06/04/2018
+ms.date: 09/03/2018
 ms.author: v-yiso
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 54182e162362e947f170b6f24cf3670095b36370
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 7293285e6f37413de4e22b527509a29edc5926d4
+ms.sourcegitcommit: 1b682acdc2a5e0974fbff809967d7cefcbbbe8ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939604"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42871020"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>在 Azure 中创建 Node.js Web 应用
 
@@ -70,9 +70,9 @@ npm start
 
 ## <a name="create-a-web-app"></a>创建 Web 应用
 
-在终端窗口中，使用 [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) 命令在 `myAppServicePlan` 应用服务计划中创建一个 Web 应用。 
+在终端窗口中，使用 [`az webapp create`](/cli/webapp?view=azure-cli-latest#az_webapp_create) 命令在 `myAppServicePlan` 应用服务计划中创建一个 Web 应用。 
 
-在以下示例中，将 `<app_name>` 替换为全局唯一的应用名称（有效字符是 `a-z`、`0-9` 和 `-`）。 运行时设置为 `NODE|6.9`。 若要查看所有受支持的运行时，请运行 [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_list_runtimes)。 
+在以下示例中，将 `<app_name>` 替换为全局唯一的应用名称（有效字符是 `a-z`、`0-9` 和 `-`）。 运行时设置为 `NODE|6.9`。 若要查看所有受支持的运行时，请运行 [`az webapp list-runtimes`](/cli/webapp?view=azure-cli-latest#az_webapp_list_runtimes)。 
 
 ```azurecli
 # Bash

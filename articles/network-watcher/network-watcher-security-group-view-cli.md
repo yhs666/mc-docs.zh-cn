@@ -13,21 +13,20 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/22/2017
-ms.date: 12/25/2017
+ms.date: 08/13/2018
 ms.author: v-yeche
-ms.openlocfilehash: 1766186d0e771e8dccd6850b1f155814e200000d
-ms.sourcegitcommit: 3e0cad765e3d8a8b121ed20b6814be80fedee600
+ms.openlocfilehash: a320e5219e30beda573cbb01e5904f1540d84460
+ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
-ms.locfileid: "27162850"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41704781"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-azure-cli-20"></a>使用 Azure CLI 2.0 通过安全组视图分析虚拟机安全性
 
 > [!div class="op_single_selector"]
 > - [PowerShell](network-watcher-security-group-view-powershell.md)
-> - [CLI 1.0](network-watcher-security-group-view-cli-nodejs.md)
-> - [CLI 2.0](network-watcher-security-group-view-cli.md)
+> - [Azure CLI](network-watcher-security-group-view-cli.md)
 > - [REST API](network-watcher-security-group-view-rest.md)
 
 安全组视图返回已应用于虚拟机的已配置的有效网络安全规则。 此功能可用于审核和诊断已在 VM 上配置以确保正确允许或拒绝流量的网络安全组和规则。 在本文中，我们将说明如何使用 Azure CLI 检索虚拟机的已配置的有效安全规则

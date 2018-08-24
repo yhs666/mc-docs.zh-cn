@@ -9,13 +9,13 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 04/27/2018
-ms.date: 07/02/2018
-ms.openlocfilehash: 7d083436dba60e48163a6b3c36157f3c83463170
-ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
+ms.date: 08/20/2018
+ms.openlocfilehash: e35086fba640251d3ff23eabb4402e24ddd703d9
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37405220"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41703891"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>将数据作为流分析的输入进行流式传输
 
@@ -142,7 +142,7 @@ CSV 格式的输入需要标头行来定义数据集的字段，并且所有标�
 | **存储帐户** | 存储 Blob 文件所在的存储帐户的名称。 |
 | **存储帐户密钥** | 与存储帐户关联的密钥。 此选项会自动进行填充，除非已选择手动提供 Blob 存储设置的选项。 |
 | **容器** | 用于 Blob 输入的容器。 容器对存储在 Azure Blob 服务中的 blob 进行逻辑分组。 将 Blob 上传到 Azure Blob 存储服务时，必须为该 Blob 指定一个容器。 可以选择“使用现有”，以便使用现有的容器；也可以选择“新建”，以便创建新的容器。|
-| **路径模式**（可选） | 用于定位指定容器中的 blob 的文件路径。 在路径中，可以指定以下 3 个变量的一个或多个实例：`{date}`、`{time}` 或 `{partition}`<br/><br/>示例 1：`cluster1/logs/{date}/{time}/{partition}`<br/><br/>示例 2：`cluster1/logs/{date}`<br/><br/>`*` 字符不是路径前缀允许使用的值。 仅允许使用有效的 <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">Azure blob 字符</a>。 容器名称不能是路径模式的一部分。 |
+| **路径模式**（可选） | 用于定位指定容器中的 blob 的文件路径。 在路径中，可以指定以下 3 个变量的一个或多个实例：`{date}`、`{time}` 或 `{partition}`<br/><br/>示例 1：`cluster1/logs/{date}/{time}/{partition}`<br/><br/>示例 2：`cluster1/logs/{date}`<br/><br/>`*` 字符不是路径前缀允许使用的值。 仅允许使用有效的 <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">Azure blob 字符</a>。 不包括容器名称或文件名。 |
 | **日期格式**（可选） | 如果在路径中使用日期变量，则为组织文件的日期格式。 示例： `YYYY/MM/DD` |
 | **时间格式**（可选） |  如果在路径中使用时间变量，则为组织文件的时间格式。 目前唯一支持的值是 `HH`，表示小时。 |
 | **事件序列化格式** | 传入数据流的序列化格式（JSON、CSV 或 Avro）。  请确保该 JSON 格式符合规范，对于十进制数字不包括前导 0。 |

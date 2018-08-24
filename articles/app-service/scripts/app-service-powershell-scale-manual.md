@@ -10,25 +10,25 @@ tags: azure-service-management
 ms.assetid: de5d4285-9c7d-4735-a695-288264047375
 ms.service: app-service
 ms.devlang: multiple
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web
 origin.date: 03/20/2017
-ms.date: 10/30/2017
+ms.date: 09/03/018
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: 00de6c66f386589480baca53f180d207c511a613
-ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
+ms.openlocfilehash: 3410e2d40ccdc266a39e8de9584a92ee17e3ef71
+ms.sourcegitcommit: 1b682acdc2a5e0974fbff809967d7cefcbbbe8ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
-ms.locfileid: "23475201"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42870992"
 ---
 # <a name="scale-a-web-app-manually"></a>手动缩放 Web 应用
 
-通过此方案可以了解如何创建资源组、应用服务计划和 Web 应用。 然后，将应用服务计划从单个实例扩展到多个实例。
+在此方案中，将了解如何创建资源组、应用服务计划和 Web 应用。 然后，将应用服务计划从单个实例扩展到多个实例。
 
-必要时，请使用 [Azure PowerShell 指南](https://docs.microsoft.com/powershell/azure/overview)中的说明安装 Azure PowerShell，并运行 `Login-AzureRmAccount -EnvironmentName AzureChinaCloud` 创建与 Azure 的连接。
+必要时，请使用 [Azure PowerShell 指南](https://docs.microsoft.com/powershell/azure/overview)中的说明安装 Azure PowerShell，并运行 `Connect-AzureRmAccount -EnvironmentName AzureChinaCloud` 创建与 Azure 的连接。
 
 ## <a name="sample-script"></a>示例脚本
 
@@ -67,7 +67,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 此脚本使用以下命令。 表中的每条命令均链接到特定于命令的文档。
 
-| 命令 | 说明 |
+| 命令 | 注释 |
 |---|---|
 | [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) | 创建用于存储所有资源的资源组。 |
 | [New-AzureRmAppServicePlan](https://docs.microsoft.com/powershell/module/azurerm.websites/new-azurermappserviceplan) | 创建应用服务计划。 |

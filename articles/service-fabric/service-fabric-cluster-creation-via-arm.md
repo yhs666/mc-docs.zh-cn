@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 12/07/2017
-ms.date: 07/09/2018
+ms.date: 08/20/2018
 ms.author: v-yeche
-ms.openlocfilehash: e218efd757afae8ceba39d060f57c9808fab19f1
-ms.sourcegitcommit: 292f22020e00c607229c1693229f25fb2837d8af
+ms.openlocfilehash: 7c190de93dd48c168f0cf4c357cb3b39773fbeba
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37910589"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41704555"
 ---
 # <a name="create-a-service-fabric-cluster-by-using-azure-resource-manager"></a>使用 Azure Resource Manager 创建 Service Fabric 群集 
 > [!div class="op_single_selector"]
@@ -113,6 +113,10 @@ az account set --subscription $subscriptionId
 
 以下命令用于创建 Windows 和 Linux 群集，你只需相应地指定 OS。 PowerShell/CLI 命令还会在指定的 CertificateOutputFolder 中输出证书，但要确保已创建该证书文件夹。 命令还采用类似于 VM SKU 的其他参数。
 
+> [!NOTE]
+> 以下 Powershell 命令仅适用于 Azure 资源管理器 PowerShell 6.1 以上版本。 若要检查 Azure 资源管理器 PowerShell 版的当前版本，请运行以下 PowerShell 命令“Get-Module AzureRM”。 单击此链接升级 Azure 资源管理器 PowerShell 版。 https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.3.0
+>
+>
 ```PowerShell
 $resourceGroupLocation="chinanorth"
 $resourceGroupName="mycluster"
@@ -575,6 +579,14 @@ Test-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -Templa
 下图演示密钥保管库和 Azure AD 配置在 Resource Manager 模板中的作用。
 
 ![Resource Manager 依赖关系图][cluster-security-arm-dependency-map]
+
+## <a name="encrypting-the-disks-attached-to-your-windows-cluster-nodevirtual-machine-instances"></a>对附加到 Windows 群集节点/虚拟机实例的磁盘进行加密
+
+对附加到节点的磁盘（OS 驱动器和其他托管磁盘）进行加密时，我们利用了 Azure 磁盘加密。 Azure 磁盘加密是可帮助你[加密 Windows 虚拟机磁盘](service-fabric-enable-azure-disk-encryption-windows.md)的新功能。 Azure 磁盘加密利用 Windows 的行业标准 [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) 功能来为 OS 卷提供卷加密。 该解决方案与 [Azure Key Vault](/key-vault/) 集成，帮助用户管理 Key Vault 订阅中的磁盘加密密钥和机密。 此解决方案还可确保虚拟机磁盘上的所有数据在 Azure 存储中静态加密。 
+
+## <a name="encrypting-the-disks-attached-to-your-linux-cluster-nodevirtual-machine-instances"></a>对附加到 Linux 群集节点/虚拟机实例的磁盘进行加密
+
+对附加到节点的磁盘（数据驱动器和其他托管磁盘）进行加密时，我们利用了 Azure 磁盘加密。 Azure 磁盘加密是可帮助你[加密 Linux 虚拟机磁盘](service-fabric-enable-azure-disk-encryption-linux.md)的新功能。 Azure 磁盘加密利用 Linux 的行业标准 [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) 功能来为数据磁盘提供卷加密。 该解决方案与 [Azure Key Vault](/key-vault/) 集成，帮助用户管理 Key Vault 订阅中的磁盘加密密钥和机密。 此解决方案还可确保虚拟机磁盘上的所有数据在 Azure 存储中静态加密。 
 
 ## <a name="create-the-cluster-using-azure-resource-template"></a>使用 Azure 资源模板创建群集 
 

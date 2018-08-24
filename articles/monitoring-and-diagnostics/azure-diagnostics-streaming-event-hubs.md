@@ -1,26 +1,22 @@
 ---
 title: 将 Azure 诊断数据流式传输到事件中心
 description: 使用事件中心从头到尾配置 Azure 诊断，包括对常见方案的指导。
-services: event-hubs
-documentationcenter: na
+services: azure-monitor
 author: rboucher
-manager: carmonm
-editor: ''
-ms.assetid: edeebaac-1c47-4b43-9687-f28e7e1e446a
-ms.service: monitoring-and-diagnostics
+ms.service: azure-monitor
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 07/13/2017
-ms.date: 07/23/2018
+ms.date: 08/20/2018
 ms.author: v-yiso
-ms.openlocfilehash: c2ccd87ba9767db26684a6e6db2ff9761aafbb03
-ms.sourcegitcommit: 479954e938e4e3469d6998733aa797826e4f300b
+ms.openlocfilehash: f0ee6008a93bfdd95afb37b03cb78011ac0f85de
+ms.sourcegitcommit: 664584f55e0a01bb6558b8d3349d41d3f05ba4d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39031733"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41704597"
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>使用事件中心流式处理热路径中的 Azure 诊断数据
 Azure 诊断提供了灵活的方法用于收集来自云服务虚拟机 (VM) 的指标和日志，并将结果传输到 Azure 存储。 从 2016 年 3 月 (SDK 2.9) 这一时间范围开始，可以将诊断发送到自定义数据源，并使用 [Azure 事件中心](https://azure.microsoft.com/services/event-hubs/)在数秒内传输热路径数据。
@@ -395,9 +391,11 @@ namespace EventHubListener
 </ServiceConfiguration>
 ```
 
-虚拟机基于 Json 的等效设置如下所示：
+虚拟机的等效 JSON 设置如下所示：
+
+公共设置：
 ```JSON
-"settings": {
+{
     "WadCfg": {
         "DiagnosticMonitorConfiguration": {
             "overallQuotaInMB": 4096,
@@ -493,8 +491,11 @@ namespace EventHubListener
     "StorageAccount": "{account name}"
 }
 
+```
 
-"protectedSettings": {
+受保护的设置：
+```JSON
+{
     "storageAccountName": "{account name}",
     "storageAccountKey": "{account key}",
     "storageAccountEndPoint": "{storage endpoint}",

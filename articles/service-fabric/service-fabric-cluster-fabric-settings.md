@@ -12,15 +12,15 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 01/09/2018
-ms.date: 07/09/2018
+origin.date: 06/27/2018
+ms.date: 08/20/2018
 ms.author: v-yeche
-ms.openlocfilehash: 47f668581df8d85bc49634b2c2301b5828a3cdaf
-ms.sourcegitcommit: 292f22020e00c607229c1693229f25fb2837d8af
+ms.openlocfilehash: 5fa16dee04d2ff5197bdcdb65e38107a855ce055
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37910593"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41704521"
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>自定义 Service Fabric 群集设置和结构升级策略
 本文档说明如何为 Service Fabric 群集自定义各种结构设置和结构升级策略。 可以通过 [Azure 门户](https://portal.azure.cn)或使用 Azure 资源管理器模板完成自定义。
@@ -728,6 +728,7 @@ ms.locfileid: "37910593"
 |FabricLogRoot |String | 不允许 |Service Fabric 日志根目录。 这是 SF 日志和跟踪的放置位置。 |
 |NodesToBeRemoved|string，默认值为“”| 动态 |应在配置升级过程中删除的节点。 （仅适用于独立部署）|
 |ServiceRunAsAccountName |String | 不允许 |运行结构主机服务的帐户名。 |
+|SkipContainerNetworkResetOnReboot|bool，默认值为 FALSE|NotAllowed|是否在重启时跳过容器网络重置。|
 |SkipFirewallConfiguration |Bool，默认值为 false | 不允许 |指定是否需要由系统设置防火墙设置。 仅当使用 Windows 防火墙时才适用。 如果使用第三方防火墙，必须打开要使用的系统和应用程序的端口 |
 
 ## <a name="tokenvalidationservice"></a>TokenValidationService

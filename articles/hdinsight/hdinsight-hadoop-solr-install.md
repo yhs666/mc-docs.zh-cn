@@ -9,20 +9,18 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: b1e6f338-8ac1-4b38-bbb5-2f7388b9de3b
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 02/05/2016
-ms.date: 12/25/2017
+ms.date: 08/27/2018
 ms.author: v-yiso
 ROBOTS: NOINDEX
-ms.openlocfilehash: 8106f8cd6f79e50d1d52e92f56751aa275bfa056
-ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
+ms.openlocfilehash: b077a60217cb41164f9504405879ebda3a550fab
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36747380"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41704026"
 ---
 # <a name="install-and-use-solr-on-windows-based-hdinsight-clusters"></a>在基于 Windows 的 HDInsight 群集上安装并使用 Solr
 
@@ -151,19 +149,25 @@ ms.locfileid: "36747380"
            http://localhost:8983/solr/replication?command=backup
 
        应该看到如下所示的响应：
-
-           <?xml version="1.0" encoding="UTF-8"?>
-           <response>
+            
+      ```xml
+      <?xml version="1.0" encoding="UTF-8"?>
+          <response>
              <lst name="responseHeader">
                <int name="status">0</int>
                <int name="QTime">9</int>
              </lst>
-             <str name="status">OK</str>
-           </response>
-   2. 在远程会话中，导航到 {SOLR_HOME}\{Collection}\data。 对于通过示例脚本创建的群集，该目录应该是 C:\apps\dist\solr-4.7.2\example\solr\collection1\data。 在此位置，应该会看到使用类似于 **snapshot.* timestamp*** 的名称创建的快照文件夹。
+            <str name="status">OK</str>
+          </response>
+      ```
+      
+   2. 在远程会话中，导航到 {SOLR_HOME}\{Collection}\data。 对于通过示例脚本创建的群集，此位置应为 `C:\apps\dist\solr-4.7.2\example\solr\collection1\data`。 在此位置，应该会看到使用类似于 **snapshot.* timestamp*** 的名称创建的快照文件夹。
+   
    3. 压缩快照文件夹，并将其上传到 Azure Blob 存储。 从 Hadoop 命令行，通过使用以下命令导航到快照文件夹所在的位置：
 
-             hadoop fs -CopyFromLocal snapshot._timestamp_.zip /example/data
+      ```
+      hadoop fs -CopyFromLocal snapshot._timestamp_.zip /example/data
+      ```
 
        此命令会将快照复制到与群集关联的默认存储帐户中容器下方的 /example/data/。
 
@@ -183,6 +187,5 @@ ms.locfileid: "36747380"
 
 [powershell-install-configure]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
 [hdinsight-provision]: hdinsight-provision-clusters.md
-[hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md

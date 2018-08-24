@@ -3,7 +3,7 @@ title: 教程 - 使用 Azure 模板自动缩放规模集 | Microsoft Docs
 description: 了解如何使用 Azure 资源管理器模板随 CPU 需求的增减自动缩放虚拟机规模集
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 03/27/2018
-ms.date: 07/10/2018
+ms.date: 08/13/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 3098a245de27085fc0a1f8c6a0cfd827891ecf95
-ms.sourcegitcommit: a22129c95c9f877a04c6b5b428edf7f4e953fd97
+ms.openlocfilehash: 42e34ec7373c978c42ceff94f1842ad06f5a192b
+ms.sourcegitcommit: 56ed1b03d83f222db6118fe1e2f2485a9488507f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37937377"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41703925"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-an-azure-template"></a>教程：使用 Azure 模板自动缩放虚拟机规模集
 创建规模集时，可定义想运行的 VM 实例数。 若应用程序需要更改，可自动增加或减少 VM 实例数。 通过自动缩放功能，可随客户需求的改变而进行调整，或在应用的整个生命周期内响应应用程序性能更改。 本教程介绍如何执行下列操作：
@@ -284,4 +284,4 @@ az group delete --name myResourceGroup --yes --no-wait
 > [!div class="nextstepaction"]
 > [适用于 Azure CLI 2.0 的规模集脚本示例](cli-samples.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

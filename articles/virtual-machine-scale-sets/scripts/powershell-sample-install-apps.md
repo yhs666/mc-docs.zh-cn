@@ -3,7 +3,7 @@ title: Azure PowerShell 示例 - 安装应用 | Microsoft Docs
 description: Azure PowerShell 示例
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,15 +14,15 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 03/27/2018
-ms.date: 04/28/2018
+ms.date: 08/13/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: bd901d22d8b0166a3f9fa92529277d66b5ef54bc
-ms.sourcegitcommit: 17369f8efdf3ec80c2448412e3425ee10042a31a
+ms.openlocfilehash: 912180688eb7a376e4a4119eed0fca60c403ce58
+ms.sourcegitcommit: 56ed1b03d83f222db6118fe1e2f2485a9488507f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32637657"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41704897"
 ---
 # <a name="install-applications-into-a-virtual-machine-scale-set-with-powershell"></a>使用 PowerShell 将应用程序安装到虚拟机规模集中
 此脚本创建运行 Windows Server 2016 的虚拟机规模集，并使用自定义脚本扩展安装基本 Web 应用程序。 运行脚本后，可以通过 Web 浏览器访问该 Web 应用。
@@ -104,3 +104,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 可以在 [Azure 虚拟机规模集文档](../powershell-samples.md)中找到其他虚拟机规模集 PowerShell 脚本示例。
 
+<!-- Update_Description: update metedata properties -->

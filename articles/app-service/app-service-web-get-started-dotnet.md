@@ -9,19 +9,20 @@ editor: ''
 ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.service: app-service-web
 ms.workload: web
+ms.technology: vs-azure
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 origin.date: 06/11/2018
-ms.date: 07/02/2018
+ms.date: 09/03/2018
 ms.author: v-yiso
-ms.custom: mvc
-ms.openlocfilehash: 02ddf4afc641b49b495796a731ce12d451d168aa
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.custom: mvc, devcenter, vs-azure
+ms.openlocfilehash: 4ec6ec4fd5db80c9e438ef7b126db5701b603ea6
+ms.sourcegitcommit: 1b682acdc2a5e0974fbff809967d7cefcbbbe8ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315478"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42871006"
 ---
 # <a name="create-an-aspnet-core-web-app-in-azure"></a>在 Azure 中创建 ASP.NET Core Web 应用
 
@@ -121,7 +122,7 @@ ms.locfileid: "36315478"
 
 ![已在 Azure 中发布的 ASP.NET Web 应用](./media/app-service-web-get-started-dotnet/web-app-running-live.png)
 
-将[创建和发布步骤](#create-and-publish-the-web-app)中指定的 Web 应用名称用作 `http://<app_name>.chinacloudapi.cn` 格式的 URL 前缀。
+将[创建和发布步骤](#create-and-publish-the-web-app)中指定的 Web 应用名称用作 `http://<app_name>.chinacloudsites.cn` 格式的 URL 前缀。
 
 恭喜，ASP.NET Core Web 应用已在 Azure 应用服务中实时运行！
 

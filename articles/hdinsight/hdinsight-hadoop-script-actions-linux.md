@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 04/10/2018
-ms.date: 05/28/2018
+ms.date: 08/27/2018
 ms.author: v-yiso
-ms.openlocfilehash: dd2ac8ad845a6fef908088ecc3e7243fa969ece9
-ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
+ms.openlocfilehash: c1af7428fcc78dafb918615edbd70875cdf42efe
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34450089"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41704943"
 ---
 # <a name="script-action-development-with-hdinsight"></a>使用 HDInsight 进行脚本操作开发
 
@@ -316,7 +316,7 @@ fi
 下面是在准备部署脚本时执行的步骤：
 
 * 将包含自定义脚本的文件放置在群集节点在部署期间可访问的位置中。 例如，群集的默认存储。 还可以将文件存储在可公开读取的托管服务中。
-* 验证脚本是否幂等。 这样，便可以在同一个节点上执行脚本多次。
+* 验证脚本是幂等的。 这样，便可以在同一个节点上执行脚本多次。
 * 使用临时文件目录 /tmp 来保存脚本使用的下载文件，并在执行脚本后将其清除。
 * 如果更改了 OS 级别设置或 Hadoop 服务配置文件，可能需要重新启动 HDInsight 服务。
 
@@ -375,6 +375,6 @@ Microsoft 提供了在 HDInsight 群集上安装组件的示例脚本。 参阅�
 ## <a name="seeAlso"></a>后续步骤
 
 * 了解如何[使用脚本操作自定义 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md)
-* 通过 [HDInsight.NET SDK 参考](https://msdn.microsoft.com/library/mt271028.aspx)详细了解如何创建用于管理 HDInsight 的 .NET 应用程序
+* 通过 [HDInsight.NET SDK 参考](https://docs.azure.cn/dotnet/api/overview/hdinsight)详细了解如何创建用于管理 HDInsight 的 .NET 应用程序
 * 使用 [HDInsight REST API](https://msdn.microsoft.com/library/azure/mt622197.aspx) 了解如何通过 REST 在 HDInsight 群集上执行管理操作。
 <!--Update_Description: wording update-->

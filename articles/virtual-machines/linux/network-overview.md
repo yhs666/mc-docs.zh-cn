@@ -14,18 +14,17 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 07/17/2017
-ms.date: 07/30/2018
+ms.date: 08/27/2018
 ms.author: v-yeche
-ms.openlocfilehash: 5a2ea018853d7e2965a2942a0e12865df8de7215
-ms.sourcegitcommit: 35889b4f3ae51464392478a72b172d8910dd2c37
+ms.openlocfilehash: 5c8c6e71841ea4daab205b72d20f6086a4e27073
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39261865"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42872212"
 ---
 # <a name="virtual-networks-and-virtual-machines-in-azure"></a>Azure 中的虚拟网络和虚拟机 
 
 [!INCLUDE [virtual-machines-common-network-overview](../../../includes/virtual-machines-common-network-overview.md)]
 
-<!--The parent file of includes file of virtual-machines-common-network-overview.md-->
-<!--ms.date:07/30/2018-->
+<!-- Update_Description: update meta properties -->

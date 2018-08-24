@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 05/14/2018
-ms.date: 06/25/2018
+origin.date: 07/09/2018
+ms.date: 08/27/2018
 ms.author: v-yiso
-ms.openlocfilehash: 34156db502cb550177f9f9b8851807ce75ff12fe
-ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
+ms.openlocfilehash: d3d46cd630f11ed786c18132bb4ecb0c587368ae
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36747409"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41704790"
 ---
 # <a name="create-hadoop-cluster-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>在 Azure HDInsight 中使用安全传输存储帐户创建 Hadoop 群集
 

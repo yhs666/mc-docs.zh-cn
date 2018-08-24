@@ -12,20 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/06/2016
-ms.date: 04/30/2018
+origin.date: 07/06/2018
+ms.date: 09/03/2018
 ms.author: v-yiso
-ms.openlocfilehash: a33718e81bfa7885d8e35ac958a926d9ed2b12aa
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.openlocfilehash: b44202149c676b4147b21d8ef50d804e4083e5ad
+ms.sourcegitcommit: 1b682acdc2a5e0974fbff809967d7cefcbbbe8ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315633"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42871028"
 ---
 # <a name="restore-an-app-in-azure"></a>在 Azure 中还原应用
 本文演示如何在 [Azure 应用服务](../app-service/app-service-web-overview.md)中还原已事先备份的应用（请参阅[在 Azure 中备份应用](web-sites-backup.md)）。 可以根据需要将应用及其链接的数据库还原到以前的状态，或者基于原始应用的备份之一创建新的应用。 Azure 应用服务支持用于备份和还原的以下数据库：
 - [SQL 数据库](https://www.azure.cn/home/features/sql-database/)
-- Azure Database for MySQL
+- [Azure Database for MySQL](https://www.azure.cn/home/features/mysql)
+- [Azure Database for PostgreSQL](https://www.azure.cn/home/features/postgresql)
 
 从备份还原适用于在**标准**和**高级**层中运行的应用。 有关向上缩放应用的信息，请参阅[在 Azure 中向上缩放应用](web-sites-scale.md)。 相比于**标准**层，**高级**层允许执行更多的每日备份量。
 
@@ -35,6 +36,7 @@ ms.locfileid: "36315633"
 1. 在 Azure 门户中应用的“设置”页上，单击“备份”以显示“备份”页。 然后，单击“还原”。
    
     ![选择“立即还原”][ChooseRestoreNow]
+    
 2. 在“还原”页中，首先选择备份源。
    
     ![](./media/web-sites-restore/021ChooseSource1.png)
@@ -51,6 +53,11 @@ ms.locfileid: "36315633"
    > 
    > 
    
+   > [!WARNING]
+   > 如果应用服务在还原数据库时正在向数据库写入数据，则可能会导致违反主键和数据丢失等症状。 建议在开始还原数据库之前先停止应用服务。
+   > 
+   > 
+   
     可选择“现有应用”将应用备份还原到同一资源组中的其他应用。 使用此选项之前，应已使用应用备份中定义的镜像数据库配置在资源组中创建了其他应用。 还可以创建一个**新**应用，以便将内容还原到其中。
 
 4. 单击 **“确定”**。
@@ -63,9 +70,11 @@ ms.locfileid: "36315633"
 3. 在存储帐户页中，选择所需的容器
    
     ![查看容器][ViewContainers]
+    
 4. 选择要下载或删除的备份文件。
 
     ![ViewContainers](./media/web-sites-restore/03ViewFiles.png)
+    
 5. 单击“下载”或“删除”，具体取决于要执行的操作。  
 
 <a name="OperationLogs"></a>

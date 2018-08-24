@@ -11,16 +11,16 @@ ms.service: azure-portal
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: conceptual
 origin.date: 06/05/2016
-ms.date: 01/15/2018
+ms.date: 09/03/2018
 ms.author: v-yiso
-ms.openlocfilehash: c5941109934963cc5141c22743bb670290513715
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: 0f22f5caaa9f5071c62b852b1d68a2ce76820432
+ms.sourcegitcommit: 1b682acdc2a5e0974fbff809967d7cefcbbbe8ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
-ms.locfileid: "27604371"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42870939"
 ---
 # <a name="tutorial-devops-with-the-azure-portal"></a>教程：Azure 门户中的 DevOps
 
@@ -36,13 +36,13 @@ Azure 平台提供各式各样的灵活 DevOps 工作流。 在本教程中，�
 
 ## <a name="creating-a-web-app-and-enabling-continuous-deployment"></a>创建 Web 应用程序和启用连续部署
 
-创建一个包含 [Azure App Service](../app-service/index.md) 的 Web 应用，本教程剩余部分中将使用该应用。 首先，需要启用从源代码存储库到正在运行的 Azure 环境的持续部署。
+创建一个包含 [Azure App Service](../app-service/index.md) 的 Web 应用，本教程剩余部分中将使用该应用。 首先，你要将源代码存储库持续部署到正在运行 Azure 的环境中。
 
 1.  登录到 Azure 门户
 
 2.  依次选择“应用服务”&gt;“添加图标”并输入名称，选择订阅，然后创建要用作该服务的容器的新资源组。
 
-    资源组可让你管理解决方案的各个方面，例如计费、部署和监视，所有这些操作都可以通过 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) 以单个组的形式完成。
+   有了资源组之后，你可以通过 [Azure资源管理器](../azure-resource-manager/resource-group-overview.md)将解决方案的各个方面（如计费、部署和监控等）全部纳入一个组进行管理。
 
     ![image1][image1]
 
@@ -54,7 +54,7 @@ Azure 平台提供各式各样的灵活 DevOps 工作流。 在本教程中，�
 
     ![image3][image3]    
 
-3.  Azure 门户可使持续部署过程变得十分简单，只需几个步骤即可完成。 在 Azure 门户中，通过刚刚创建的应用服务对应的图标选择设置。
+5. Azure 门户可使持续部署过程变得十分简单，只需几个步骤即可完成。 在 Azure 门户中，从你创建的应用服务对应的图标中选择设置。
 
     ![Image4][image4]
 
@@ -66,7 +66,7 @@ Azure 平台提供各式各样的灵活 DevOps 工作流。 在本教程中，�
 
     ![image6][image6]
 
-1.  对于本示例，请选择“GitHub”。 （可选）选择所需的存储库，并设置授权凭据。
+7. 对于本示例，请选择 GitHub。 另外，还可选择所需的存储库，并设置授权凭据。
 
     ![image7][image7]
 
@@ -105,8 +105,7 @@ Azure 平台提供各式各样的灵活 DevOps 工作流。 在本教程中，�
     通过 Azure 门户启用持续部署是很轻松的体验。 你还可以构建更复杂的发布管道，并配合现有源代码管理和连续集成系统使用其他许多技术来部署到 Azure，例如利用自动化构建和发布管理系统。
 
 ## <a name="develop-and-test-an-app"></a>开发和测试应用
-
-接下来，对基本代码进行一些更改并快速部署这些更改。 此外，还将为 Web 应用设置一些性能测试。
+接下来，对基本代码进行一些更改并快速部署这些更改。 此外，还将针对 Web 应用设置一些性能测试。
 
 1.  在 Azure 门户中，从导航窗格选择“应用服务”，然后找到你的应用服务。
 
@@ -190,7 +189,7 @@ Azure 平台提供各式各样的灵活 DevOps 工作流。 在本教程中，�
 
 Azure 提供了许多功能，用于对正在运行的应用程序进行监视和故障排除。
 
-1.  在 Web 应用的 Azure 门户中选择“工具”。
+1. 在用于 Web 应用的 Azure 门户中选择“工具”。
 
     ![image37][image37]
 
@@ -224,7 +223,7 @@ Azure 提供了许多功能，用于对正在运行的应用程序进行监视�
 
 7.  向下滚动到“功能”类别，并选择“诊断日志”。
 
-       ![image45][image45]
+    ![image45][image45]
 
 8.  请注意日志记录的各个选项。 打开“Web 服务器日志记录”，然后单击“保存”。
 
@@ -261,8 +260,8 @@ Azure 提供了许多功能，用于对正在运行的应用程序进行监视�
     ![image54][image54]
 
     ![image55][image55]
-
-    Azure 门户提供强大且熟悉的工具体验，以帮助你对正在运行的应用程序进行监视和故障排除。 你还可以通过执行任务（例如回收进程、启用和禁用各种数据收集，甚至与 Microsoft 专家支持相集成）来快速采取措施。
+    
+    Azure 门户提供了强大且熟悉的工具体验，有助于监控和排查所运行应用程序的问题。 你还可以通过执行任务（例如回收进程、启用和禁用各种数据收集，甚至与 Microsoft 专家支持相集成）来快速采取措施。
 
 ## <a name="general-application-management"></a>常规应用程序管理
 

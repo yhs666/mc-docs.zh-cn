@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
 ms.topic: article
 origin.date: 04/20/2018
-ms.date: 06/04/2018
+ms.date: 08/27/2018
 ms.author: v-yeche
-ms.openlocfilehash: a58daf9999f368e4776710699362c5774b7ceab5
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 122c4ec7fd7851f50e2680221248d2a33c0bfb94
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702905"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42872286"
 ---
 # <a name="how-to-install-and-configure-trend-micro-deep-security-as-a-service-on-a-windows-vm"></a>如何在 Windows VM 上安装和配置 Trend Micro Deep Security 即服务
 [!INCLUDE [virtual-machines-extensions-deprecation-statement](../../../includes/virtual-machines-extensions-deprecation-statement.md)]
@@ -39,7 +39,7 @@ ms.locfileid: "34702905"
 ## <a name="install-the-deep-security-agent-on-an-existing-vm"></a>在现有 VM 上安装 Deep Security Agent
 若要在现有 VM 上安装代理，需要以下各项：
 
-* 在本地计算机上安装 Azure PowerShell 模块 0.8.2 版或更高版本。 可以使用 **Get-Module azure | format-table version** 命令查看已安装的 Azure PowerShell 的版本。 有关说明以及指向最新版本的链接，请参阅[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。 使用 `Add-AzureAccount -Environment AzureChinaCloud ` 登录到 Azure 订阅。
+* 在本地计算机上安装 Azure PowerShell 模块 0.8.2 版或更高版本。 可以使用 **Get-Module azure | format-table version** 命令查看已安装的 Azure PowerShell 的版本。 有关说明以及指向最新版本的链接，请参阅[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。 使用 `Add-AzureAccount -Environment AzureChinaCloud` 登录到 Azure 订阅。
 * 在目标虚拟机上安装 VM 代理。
 
 首先，请验证是否已安装 VM 代理。 填写云服务名称和虚拟机名称，并在管理员级别的 Azure PowerShell 命令提示符下运行以下命令。 替换引号内的所有内容，包括 < and > 字符。
@@ -80,5 +80,4 @@ ms.locfileid: "34702905"
 [如何登录到运行 Windows Server 的虚拟机]:../windows/classic/connect-logon.md
 [Azure VM 扩展和功能]: /virtual-machines/windows/extensions-features
 
-<!-- Update_Description: new articles on trend extension  -->
-<!--ms.date: 06/04/2018-->
+<!-- Update_Description: wording update -->

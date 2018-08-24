@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 01/17/2017
-ms.date: 06/25/2018
+ms.date: 08/27/2018
 ms.author: v-yeche
-ms.openlocfilehash: c86aaf787dde42c70e17f0b8997f5962ea5d349a
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.openlocfilehash: f9b3eaf428d9c43568d18bd5da0f64ab47d2bdb6
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315712"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42872057"
 ---
 # <a name="custom-script-extension-for-windows-using-the-classic-deployment-model"></a>使用经典部署模型完成的适用于 Windows 的自定义脚本扩展
 
@@ -75,7 +75,7 @@ ms.locfileid: "36315712"
 
 ### <a name="property-values"></a>属性值
 
-| Name | 值/示例 |
+| 名称 | 值/示例 |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | 发布者 | Microsoft.Compute |
@@ -90,7 +90,7 @@ ms.locfileid: "36315712"
 
 ## <a name="powershell-deployment"></a>PowerShell 部署
 
-可以使用 `Set-AzureVMCustomScriptExtension` 命令将自定义脚本扩展添加到现有虚拟机。 有关详细信息，请参阅 [Set-AzureRmVMCustomScriptExtension ](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.1.0/set-azurermvmcustomscriptextension)。
+可以使用 `Set-AzureVMCustomScriptExtension` 命令将自定义脚本扩展添加到现有虚拟机。 有关详细信息，请参阅 [Set-AzureRmVMCustomScriptExtension ](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmcustomscriptextension)。
 
 ```powershell
 # create vm object
@@ -129,5 +129,4 @@ C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.*\Downloads
 
 如果对本文中的任何观点存在疑问，可以联系 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/) 上的 Azure 专家。 或者，也可以提交 Azure 支持事件。 请转到 [Azure 支持站点](https://www.azure.cn/support/contact/)并选择“获取支持”。 有关使用 Azure 支持的信息，请阅读 [Azure 支持常见问题](https://www.azure.cn/support/faq/)。
 
-<!-- Update_Description: new articles on virtual machine extension of custom script classic -->
-<!--ms.date: 06/25/2018-->
+<!-- Update_Description: update meta properties, wording update -->

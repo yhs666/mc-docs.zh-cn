@@ -8,15 +8,15 @@ ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-origin.date: 05/18/2018
-ms.date: 07/02/2018
+origin.date: 06/20/2018
+ms.date: 08/13/2018
 ms.author: v-yeche
-ms.openlocfilehash: d769b19bc81921c88bba68cd2487d673f79ffb97
-ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
+ms.openlocfilehash: e2aa4156b3fc5eef6b1f74b93a37ee790e5d11a9
+ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37070172"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41703918"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>用于 SQL API 的 Azure Cosmos DB Async Java SDK：发行说明和资源
 > [!div class="op_single_selector"]
@@ -32,7 +32,6 @@ ms.locfileid: "37070172"
 > * [SQL](../cosmos-db/sql-api-sql-query-reference.md)
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
-<!-- Redirecrt https://msdn.microsoft.com/library/azure/dn782250.aspx to sql-api-sql-query-reference.md -->
 
 SQL API Async Java SDK 与 SQL API Java SDK 的区别在于，前者通过支持 [Netty 库](http://netty.io/)提供异步操作。 先存在的 [SQL API Java SDK](sql-api-sdk-java.md) 不支持异步操作。 
 
@@ -40,7 +39,7 @@ SQL API Async Java SDK 与 SQL API Java SDK 的区别在于，前者通过支持
 
 <tr><td>**SDK 下载**</td><td>[Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb)</td></tr>
 
-<tr><td>**API 文档**</td><td>[Java API 参考文档](https://azure.github.io/azure-cosmosdb-java/)</td></tr>
+<tr><td>**API 文档**</td><td>[Java API 参考文档](https://docs.azure.cn/java/api/cosmosdb/client/async?view=azure-java-stable)</td></tr>
 
 <tr><td>**参与 SDK**</td><td>[GitHub](https://github.com/Azure/azure-cosmosdb-java)</td></tr>
 

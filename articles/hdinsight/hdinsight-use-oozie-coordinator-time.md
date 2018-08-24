@@ -10,19 +10,17 @@ editor: cgronlun
 ms.assetid: 00c3a395-d51a-44ff-af2d-1f116c4b1c83
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 10/04/2017
-ms.date: 12/25/2017
+ms.date: 08/27/2018
 ms.author: v-yiso
-ms.openlocfilehash: 23a3691bd48d3ffcde8cb662fe11390b4bab8045
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.openlocfilehash: 93c5279748d195922e9717c1311c96c1b64ca344
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873675"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41703866"
 ---
 # <a name="use-time-based-oozie-coordinator-with-hadoop-in-hdinsight-to-define-workflows-and-coordinate-jobs"></a>将基于时间的 Oozie 协调器与 HDInsight 中的 Hadoop 配合使用以定义工作流和协调作业
 
@@ -755,7 +753,7 @@ $conn.close()
 [powershell-download]: /downloads/
 [powershell-about-profiles]: http://go.microsoft.com/fwlink/?LinkID=113729
 [powershell-install-configure]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
-[powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
+[powershell-start]: https://docs.microsoft.com/en-us/powershell/scripting/setup/starting-windows-powershell?view=powershell-6
 [powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
 
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx

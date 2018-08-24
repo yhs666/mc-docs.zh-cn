@@ -13,22 +13,21 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 06/19/2017
-ms.date: 04/30/2018
+ms.date: 08/13/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0fbe9b11dc37f9471a3451ca3fbd2a5bbba4d6c4
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 4610a7e07389910f1e0c1271b2dd466d2fde0d49
+ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121133"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41703884"
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-azure-cli-20"></a>使用 Azure 网络观察程序 Azure CLI 2.0 对虚拟网络网关和连接进行故障排除
 
 > [!div class="op_single_selector"]
-> - [Portal](network-watcher-troubleshoot-manage-portal.md)
+> - [Portal](diagnose-communication-problem-between-networks.md)
 > - [PowerShell](network-watcher-troubleshoot-manage-powershell.md)
-> - [CLI 1.0](network-watcher-troubleshoot-manage-cli-nodejs.md)
-> - [CLI 2.0](network-watcher-troubleshoot-manage-cli.md)
+> - [Azure CLI](network-watcher-troubleshoot-manage-cli.md)
 > - [REST API](network-watcher-troubleshoot-manage-rest.md)
 
 网络观察程序提供了许多功能，因为它关系到了解 Azure 中的网络资源。 其中一项功能就是资源故障排除。 可以通过门户、PowerShell、CLI 或 REST API 调用资源故障排除。 调用后，网络观察程序会检查虚拟网络网关或连接的运行状况，并返回调查结果。

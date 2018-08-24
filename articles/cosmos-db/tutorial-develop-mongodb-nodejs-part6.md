@@ -9,16 +9,16 @@ ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
-origin.date: 09/05/2017
-ms.date: 07/02/2018
+origin.date: 06/17/2018
+ms.date: 08/13/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: fb61d2eb391a6c95cd321a2779ab800a339bb0c6
-ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
+ms.openlocfilehash: fb454cdf51aa2a0e2060ff6cb95e183010e73b63
+ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37070142"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41704012"
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-6-add-post-put-and-delete-functions-to-the-app"></a>通过 Angular 和 Azure Cosmos DB 创建 MongoDB 应用 - 第 6 部分：向应用添加 Post、Put 和 Delete 函数
 
@@ -55,7 +55,7 @@ ms.locfileid: "37070142"
 
    ```javascript
    function postHero(req, res) {
-     const originalHero = { id: req.body.id, name: req.body.name, saying: req.body.saying };
+     const originalHero = { uid: req.body.uid, name: req.body.name, saying: req.body.saying };
      const hero = new Hero(originalHero);
      hero.save(error => {
        if (checkServerError(res, error)) return;
@@ -106,11 +106,11 @@ ms.locfileid: "37070142"
 1. 在 routes.js 中的 post 路由器后添加 `put` 和 `delete` 路由器。
 
     ```javascript
-    router.put('/hero/:id', (req, res) => {
+    router.put('/hero/:uid', (req, res) => {
       heroService.putHero(req, res);
     });
 
-    router.delete('/hero/:id', (req, res) => {
+    router.delete('/hero/:uid', (req, res) => {
       heroService.deleteHero(req, res);
     });
     ```
@@ -123,11 +123,11 @@ ms.locfileid: "37070142"
    ```javascript
    function putHero(req, res) {
      const originalHero = {
-       id: parseInt(req.params.id, 10),
+       uid: parseInt(req.params.uid, 10),
        name: req.body.name,
        saying: req.body.saying
      };
-     Hero.findOne({ id: originalHero.id }, (error, hero) => {
+     Hero.findOne({ uid: originalHero.uid }, (error, hero) => {
        if (checkServerError(res, error)) return;
        if (!checkFound(res, hero)) return;
 
@@ -142,8 +142,8 @@ ms.locfileid: "37070142"
    }
 
    function deleteHero(req, res) {
-     const id = parseInt(req.params.id, 10);
-     Hero.findOneAndRemove({ id: id })
+     const uid = parseInt(req.params.uid, 10);
+     Hero.findOneAndRemove({ uid: uid })
        .then(hero => {
          if (!checkFound(res, hero)) return;
          res.status(200).json(hero);

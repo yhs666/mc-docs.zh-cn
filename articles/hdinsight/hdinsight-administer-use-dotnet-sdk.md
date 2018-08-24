@@ -13,21 +13,21 @@ ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 05/14/2018
-ms.date: 06/25/2018
+ms.date: 08/27/2018
 ms.author: v-yiso
-ms.openlocfilehash: 2e02995d50d30681565e0d0c840e35d7b9a22363
-ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
+ms.openlocfilehash: b19071710ba25a335bf9e833397f33e4717ea53d
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36747399"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41704715"
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>使用 .NET SDK 管理 HDInsight 中的 Hadoop 群集
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
-了解如何使用 [HDInsight.NET SDK](https://msdn.microsoft.com/library/mt271028.aspx) 管理 HDInsight 群集。
+了解如何使用 [HDInsight.NET SDK](https://docs.azure.cn/dotnet/api/overview/hdinsight) 管理 HDInsight 群集。
 
 **先决条件**
 
@@ -274,7 +274,7 @@ foreach (var key in results.Configuration.Keys)
 请参阅[将数据上传到 HDInsight][hdinsight-upload-data]。
 
 ## <a name="see-also"></a>另请参阅
-* [HDInsight .NET SDK 参考文档](https://msdn.microsoft.com/library/mt271028.aspx)
+* [HDInsight .NET SDK 参考文档](https://docs.azure.cn/dotnet/api/overview/hdinsight)
 * [使用 Azure 门户管理 HDInsight][hdinsight-admin-portal]
 * [使用命令行借口管理 HDInsight][hdinsight-admin-cli]
 * [创建 HDInsight 群集][hdinsight-provision]

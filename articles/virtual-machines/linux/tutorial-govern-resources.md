@@ -11,16 +11,16 @@ ms.workload: infrastructure
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: tutorial
-origin.date: 02/21/2018
-ms.date: 06/25/2018
+origin.date: 07/20/2018
+ms.date: 08/27/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: a8a72db005b8b1420ca902b668669d0762f6794e
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 8dc3cdb3d8c27fbc2a9714f9b8d7f9af7f141dca
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939951"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42872143"
 ---
 # <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-cli-20"></a>教程：了解如何使用 Azure CLI 2.0 控制 Linux 虚拟机
 
@@ -56,8 +56,7 @@ az group create --name myResourceGroup --location "China East"
 * [网络参与者](../../role-based-access-control/built-in-roles.md#network-contributor)
 * [存储帐户参与者](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
-通常情况下，与其向单个用户分配角色，不如为需要进行相似操作的用户[创建一个 Azure Active Directory 组](../../active-directory/active-directory-groups-create-azure-portal.md)， 然后向该组分配相应的角色。 为了简单起见，本文创建一个没有成员的 Azure Active Directory 组。 仍然可以为该组分配一个负责某个范围的角色。 
-<!-- Notice: URL is not contains fundamentals -->
+通常情况下，与其向单个用户分配角色，不如为需要进行相似操作的用户[创建一个 Azure Active Directory 组](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)， 然后向该组分配相应的角色。 为了简单起见，本文创建一个没有成员的 Azure Active Directory 组。 仍然可以为该组分配一个负责某个范围的角色。 
 
 以下示例创建一个邮件别名为 *vmDemoGroup* 且名为 *VMDemoContributors* 的 Azure Active Directory 组。 邮件别名用作组的别名。
 
@@ -73,13 +72,9 @@ az role assignment create --assignee-object-id $adgroupId --role "Virtual Machin
 
 通常情况下，请对*网络参与者*和*存储帐户参与者*重复执行此过程，确保分配用户来管理已部署的资源。 在本文中，可以跳过这些步骤。
 
-## <a name="azure-policies"></a>Azure 策略
+## <a name="azure-policy"></a>Azure Policy
 
-[!INCLUDE [Resource Manager governance policy](../../../includes/resource-manager-governance-policy.md)]
-
-### <a name="apply-policies"></a>应用策略
-
-订阅已经有多个策略定义。 若要查看可用的策略定义，请使用 [az policy definition list](https://docs.azure.cn/zh-cn/cli/policy/definition?view=azure-cli-latest#az-policy-definition-list) 命令：
+[Azure Policy](../../azure-policy/azure-policy-introduction.md) 可帮助确保订阅中的所有资源符合企业标准。 订阅已经有多个策略定义。 若要查看可用的策略定义，请使用 [az policy definition list](https://docs.azure.cn/zh-cn/cli/policy/definition?view=azure-cli-latest#az-policy-definition-list) 命令：
 
 ```azurecli
 az policy definition list --query "[].[displayName, policyType, name]" --output table
@@ -209,7 +204,6 @@ az vm stop --ids $(az resource list --tag Environment=Test --query "[?type=='Mic
 ```
 
 <!-- Not Available on ### View costs by tag values -->
-
 <!-- Not Available on [!INCLUDE [Resource Manager governance tags billing](../../../includes/resource-manager-governance-tags-billing.md)] -->
 
 ## <a name="clean-up-resources"></a>清理资源

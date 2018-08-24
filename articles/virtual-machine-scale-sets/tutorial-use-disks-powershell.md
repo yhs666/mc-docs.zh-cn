@@ -3,7 +3,7 @@ title: 教程 - 通过 Azure PowerShell 创建和使用规模集的磁盘 | Micr
 description: 了解如何通过 Azure PowerShell 对虚拟机规模集创建和使用托管磁盘，包括如何添加、准备、列出和分离磁盘。
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 03/27/2018
-ms.date: 06/08/2018
+ms.date: 08/13/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 10298b3966919aca46d35598ce56f748a927c5f3
-ms.sourcegitcommit: a63d392037f3eca3196026c500ac7d2d26d85a7c
+ms.openlocfilehash: 587d55bf7b8a2503f6032240b6b3c64645cfa4c3
+ms.sourcegitcommit: 56ed1b03d83f222db6118fe1e2f2485a9488507f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35253183"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41703967"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-azure-powershell"></a>教程：通过 Azure PowerShell 对虚拟机规模集创建和使用磁盘
 虚拟机规模集使用磁盘来存储 VM 实例的操作系统、应用程序和数据。 创建和管理规模集时，请务必选择适用于所需工作负荷的磁盘大小和配置。 本教程介绍如何创建和管理 VM 磁盘。 本教程介绍如何执行下列操作：
@@ -52,7 +52,7 @@ ms.locfileid: "35253183"
 | [常规用途](../virtual-machines/windows/sizes-general.md) | A、B、D 系列 | 1600 |
 | [计算优化](../virtual-machines/windows/sizes-compute.md) | F 系列 | 576 |
 | [内存优化](../virtual-machines/windows/sizes-memory.md) | D、E、G、M 系列 | 6144 |
-| [存储优化](../virtual-machines/windows/sizes-storage.md) | L 系列 | 5630 |
+| [GPU](../virtual-machines/windows/sizes-gpu.md) | N 系列 | 1440 |
 
 ## <a name="azure-data-disks"></a>Azure 数据磁盘
 可添加额外的数据磁盘，用于安装应用程序和存储数据。 在任何需要持久和灵敏数据存储的情况下，都应使用数据磁盘。 每个数据磁盘的最大容量为 4 TB。 VM 实例的大小决定可附加的数据磁盘数。 对于每个 VM vCPU，都可以附加两个数据磁盘。
@@ -63,7 +63,7 @@ ms.locfileid: "35253183"
 | [常规用途](../virtual-machines/windows/sizes-general.md) | A、B、D 系列 | 64 |
 | [计算优化](../virtual-machines/windows/sizes-compute.md) | F 系列 | 64 |
 | [内存优化](../virtual-machines/windows/sizes-memory.md) | D、E、G、M 系列 | 64 |
-| [存储优化](../virtual-machines/windows/sizes-storage.md) | L 系列 | 64 |
+| [GPU](../virtual-machines/windows/sizes-gpu.md) | N 系列 | 64 |
 
 ## <a name="vm-disk-types"></a>VM 磁盘类型
 Azure 提供两种类型的磁盘。
@@ -167,7 +167,7 @@ Update-AzureRmVmss `
 
 若要确认磁盘是否已正确地准备好，请通过 RDP 连接到某个 VM 实例。 
 
-首先，使用 [Get-AzureRmLoadBalancer](https://docs.microsoft.com/powershell/module/AzureRM.Network/Get-AzureRmLoadBalancer) 获取负载均衡器对象。 然后使用 *Get-AzureRmLoadBalancerInboundNatRuleConfig* 查看入站 NAT 规则： NAT 规则列出了 RDP 侦听的每个 VM 实例的 *FrontendPort*。 最后，使用 [Get-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/module/AzureRM.Network/Get-AzureRmPublicIpAddress) 获取负载均衡器的公共 IP 地址：
+首先，使用 [Get-AzureRmLoadBalancer](https://docs.microsoft.com/powershell/module/AzureRM.Network/Get-AzureRmLoadBalancer) 获取负载均衡器对象。 然后使用 [Get-AzureRmLoadBalancerInboundNatRuleConfig](https://docs.microsoft.com/powershell/module/AzureRM.Network/Get-AzureRmLoadBalancerInboundNatRuleConfig) 查看入站 NAT 规则： NAT 规则列出了 RDP 侦听的每个 VM 实例的 *FrontendPort*。 最后，使用 [Get-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/module/AzureRM.Network/Get-AzureRmPublicIpAddress) 获取负载均衡器的公共 IP 地址：
 
 ```azurepowershell
 # Get the load balancer object

@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
 origin.date: 04/11/2018
-ms.date: 06/04/2018
+ms.date: 09/03/2018
 ms.author: v-yiso
-ms.openlocfilehash: b96bd34a2dc39c86345f5c92b01c9b04f0696a57
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: 52e67221b398214311dccaf169f0b5c223bd5070
+ms.sourcegitcommit: 1b682acdc2a5e0974fbff809967d7cefcbbbe8ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554170"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42870949"
 ---
 # <a name="configure-php-in-azure-app-service-web-apps"></a>在 Azure 应用服务 Web 应用中配置 PHP
 ## <a name="introduction"></a>简介
@@ -48,7 +48,7 @@ PHP 7.0 和 PHP 7.2 也可用，但它们在默认情况下不启用。 若要�
 ### <a name="azure-powershell-windows"></a>Azure PowerShell (Windows)
 1. 打开 Azure PowerShell 并登录到帐户：
 
-        PS C:\> Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+        PS C:\> Connect-AzureRmAccount -EnvironmentName AzureChinaCloud
     
 2. 设置 Web 应用的 PHP 版本。
 
@@ -100,8 +100,8 @@ PHP 7.0 和 PHP 7.2 也可用，但它们在默认情况下不启用。 若要�
 
 ### <a name="changing-phpinisystem-configuration-settings"></a>更改 PHP\_INI\_SYSTEM 配置设置
 1. 向 Web 应用添加一个键为 `PHP_INI_SCAN_DIR` 且值为 `d:\home\site\ini` 的应用设置
-2. 使用 Kudu 控制器 (http://&lt;site-name&gt;.scm.azurewebsite.net) 在 `d:\home\site\ini` 目录中创建一个 `settings.ini` 文件。
-3. 使用要在 php.ini 文件中使用的语法，将配置设置添加到 `settings.ini` 文件。 例如，如果希望将 `curl.cainfo` 设置指向 `*.crt` 文件并将“wincache.maxfilesize”设置为 512K，则 `settings.ini` 文件应包含以下文本：
+1. 使用 Kudu 控制器 (http://&lt;site-name&gt;.scm.azurewebsite.net) 在 `d:\home\site\ini` 目录中创建一个 `settings.ini` 文件。
+1. 使用会在 `php.ini` 文件中使用的语法，将配置设置添加到 `settings.ini` 文件。 例如，如果希望将 `curl.cainfo` 设置指向 `*.crt` 文件并将“wincache.maxfilesize”设置为 512K，则 `settings.ini` 文件应包含以下文本：
 
         ; Example Settings
         curl.cainfo="%ProgramFiles(x86)%\Git\bin\curl-ca-bundle.crt"
@@ -114,10 +114,10 @@ PHP 7.0 和 PHP 7.2 也可用，但它们在默认情况下不启用。 若要�
 
 ### <a name="configure-via-ini-settings"></a>通过 ini 设置进行配置
 1. 将 `ext` 目录添加到 `d:\home\site` 目录。
-2. 将 `.dll` 扩展文件置于 `ext` 目录中（例如 `php_xdebug.dll`）。 确保扩展与默认版本的 PHP兼容，并且是 VC9 版本且与非线程安全 (nts) 兼容。
-3. 向 Web 应用添加一个键为 `PHP_INI_SCAN_DIR` 且值为 `d:\home\site\ini` 的应用设置
-4. 在 `d:\home\site\ini` 中创建名为 `extensions.ini` 的 `ini` 文件。
-5. 使用要在 php.ini 文件中使用的语法，将配置设置添加到 `extensions.ini` 文件。 例如，如果你想要启用 MongoDB 和 XDebug 扩展，则 `extensions.ini` 文件包含此文本：
+1. 将 `.dll` 扩展文件置于 `ext` 目录中（例如 `php_xdebug.dll`）。 确保扩展与默认版本的 PHP兼容，并且是 VC9 版本且与非线程安全 (nts) 兼容。
+1. 向 Web 应用添加一个键为 `PHP_INI_SCAN_DIR` 且值为 `d:\home\site\ini` 的应用设置
+1. 在 `d:\home\site\ini` 中创建名为 `extensions.ini` 的 `ini` 文件。
+1. 使用会在 `php.ini` 文件中使用的语法，将配置设置添加到 `extensions.ini` 文件。 例如，如果你想要启用 MongoDB 和 XDebug 扩展，则 `extensions.ini` 文件包含此文本：
 
         ; Enable Extensions
         extension=d:\home\site\ext\php_mongo.dll
@@ -132,10 +132,12 @@ PHP 7.0 和 PHP 7.2 也可用，但它们在默认情况下不启用。 若要�
 4. 在 Azure 门户中浏览到 Web 应用，然后单击“设置”按钮。
 
     ![Web 应用设置][settings-button]
+    
 1. 在“设置”边栏选项卡中选择“应用程序设置”，并滚动到“应用设置”部分。
 6. 在“应用设置”部分中，创建 **PHP_EXTENSIONS** 键。 此键的值将是相对于网站根目录的一个路径：**bin\your-ext-file**。
 
     ![启用应用程序设置中的扩展][php-extensions]
+    
 7. 单击“Web 应用设置”边栏选项卡顶部的“保存”按钮。
 
     ![保存配置设置][save-button]

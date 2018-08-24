@@ -14,13 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 orgin.date: 07/05/2017
 ms.author: v-yiso
-ms.date: 06/18/2018
-ms.openlocfilehash: 6cf81ffe15fead9034c8418515d6d57a11d546a0
-ms.sourcegitcommit: 794b9caca1147f1891513410dd61435708ef85ec
+ms.date: 09/03/2018
+ms.openlocfilehash: f29e19a7372732f25918e994a147d321e7b4a5b6
+ms.sourcegitcommit: 1b682acdc2a5e0974fbff809967d7cefcbbbe8ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34855378"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42870997"
 ---
 # <a name="add-authentication-to-your-xamarinios-app"></a>向 Xamarin.iOS 应用添加身份验证
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -56,8 +56,7 @@ ms.locfileid: "34855378"
 
 接下来，更新客户端应用，以使用经过身份验证的用户从移动应用后端请求资源。
 
-##<a name="add-authentication-to-the-app"></a>向应用程序添加身份验证
-
+## <a name="add-authentication-to-the-app"></a>向应用程序添加身份验证
 本部分介绍如何修改应用程序，以便在显示数据之前显示登录屏幕。 应用启动时，它不会连接到应用服务，并且不会显示任何数据。 用户首次执行刷新笔势后，显示登录屏幕；成功登录后，显示 Todo 项列表。
 
 1. 在客户端项目中，打开文件 **QSTodoService.cs**，向 QSTodoService 类添加以下 using 语句和带访问器的 `MobileServiceUser`：

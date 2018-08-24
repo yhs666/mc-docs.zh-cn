@@ -8,15 +8,15 @@ ms.service: cosmos-db
 ms.devlang: na
 ms.topic: overview
 origin.date: 04/08/2018
-ms.date: 07/02/2018
+ms.date: 08/13/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 3d26e5db1c225552da64a73868b70dbf6506a563
-ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
+ms.openlocfilehash: e0d4942693f26a075369807c361399c4daee7985
+ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37070189"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41703919"
 ---
 <!-- Notice in meta : 全球 to 多个区域 -->
 # <a name="welcome-to-azure-cosmos-db"></a>欢迎使用 Azure Cosmos DB
@@ -51,7 +51,7 @@ Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库。 �
 * **在中国范围内按需求灵活且独立地缩放吞吐量和存储**
     * 以[秒](request-units.md)为时间粒度轻松缩放数据库吞吐量，并随时对其进行更改。 
     * [透明且自动地](partition-data.md)缩放存储大小，以满足现在和将来对大小的要求。
-<!-- NOTICE: 全球分布 TO 多区域分布 -->
+    <!-- NOTICE: 全球分布 TO 多区域分布 -->
 
 * 构建快速响应的任务关键型应用程序
     * Azure Cosmos DB 向其客户保证了 99% 的情况下端到端的低延迟。 
@@ -64,7 +64,7 @@ Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库。 �
 
 * **编写多区域分布式应用程序的正确方式**
     * 五个定义完善、实用且直观的[一致性模型](consistency-levels.md)提供了一系列的一致性：从类似于 SQL 的“强”一致性到类似于 NoSQL 的“宽松”终极一致性，以及介于二者之间的其他一致性。 
-<!-- NOTICE: 全球分布 TO 多区域分布 -->
+    <!-- NOTICE: 全球分布 TO 多区域分布 -->
 
 * 退款保证
     * 针对任务关键型数据提供的有关可用性、延迟、吞吐量和一致性的[服务级别协议](https://www.azure.cn/support/sla/documentdb/) (SLA) 具有行业领先、财务支持充分、内容全面的特点。 
@@ -74,7 +74,7 @@ Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库。 �
     * Azure Cosmos DB 的数据库引擎完全与架构无关 - 它自动索引所引入的所有数据而无需任何架构或索引，并提供速度超快的快速查询。 
 
 * 拥有成本低廉
-    * [成本效益](https://aka.ms/cosmos-db-tco-paper)是非托管解决方案或本地 NoSQL 解决方案的 5 到 10 倍。
+    * 成本效益是非托管解决方案或本地 NoSQL 解决方案的 5 到 10 倍。
     * 是 AWS DynamoDB 或 Google Spanner 价格的三分之一。
 
 ## <a name="capability-comparison"></a>功能比较

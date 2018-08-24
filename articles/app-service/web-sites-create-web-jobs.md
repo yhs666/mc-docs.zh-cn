@@ -3,7 +3,7 @@ title: 在 Azure 应用服务中使用 WebJobs 运行后台任务
 description: 了解如何使用 WebJobs 在 Azure 应用服务 Web 应用、API 应用或移动应用中运行后台任务。
 services: app-service
 documentationcenter: ''
-author: tdykstra
+author: ggailey777
 manager: erikre
 editor: jimbe
 ms.assetid: af01771e-54eb-4aea-af5f-f883ff39572b
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/09/2017
-ms.date: 10/30/2017
+ms.date: 09/03/2018
 ms.author: v-yiso
-ms.openlocfilehash: 368b9fb17b90889f14faae1054f7590db6956045
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.openlocfilehash: a4ed4c899b6503b247898450a1a734ae1440dfdb
+ms.sourcegitcommit: 1b682acdc2a5e0974fbff809967d7cefcbbbe8ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30155507"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42871024"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>在 Azure 应用服务中使用 WebJobs 运行后台任务
 
@@ -31,6 +31,7 @@ WebJobs 是 [Azure 应用服务](https://docs.azure.cn/zh-cn/app-service/)的一
 
 可以结合 WebJobs 使用 Azure WebJobs SDK 来简化许多编程任务。 有关详细信息，请参阅[什么是 WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki)。
 
+Azure Functions 提供了运行程序和脚本的另一种方式。 有关 WebJobs 与 Functions 之间的比较，请参阅[在 Flow、逻辑应用、Functions 与 WebJobs 之间选择](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md)。
 
 ## <a name="webjob-types"></a>Web 作业类型
 
@@ -171,15 +172,7 @@ when making changes in one don't forget the other two.
 
 ## <a name="cron-expressions"></a>CRON 表达式
 
-[CRON 表达式](https://en.wikipedia.org/wiki/Cron)由六个字段组成：`{second} {minute} {hour} {day} {month} {day of the week}`。  下面是一些示例：
-
-* 每隔 15 分钟：`0 */15 * * * *`
-* 每隔 1 小时（即每当分钟数为 0 时）：`0 0 * * * *` 
-* 从上午 9 点到下午 5 点每隔一小时：`0 0 9-17 * * *` 
-* 每天上午 9:30： `0 30 9 * * *`
-* 每个工作日的上午 9:30：`0 30 9 * * 1-5`
-
-可以在门户中输入 CRON 表达式，或者在 Web 作业 *.zip* 文件的根目录中包含一个 `settings.job` 文件，如以下示例中所示：
+可以在门户中输入 [CRON 表达式](../azure-functions/functions-bindings-timer.md#cron-expressions)，或者在 Web 作业 .zip 文件的根目录中包含一个 `settings.job` 文件，如以下示例中所示：
 
 ```json
 {

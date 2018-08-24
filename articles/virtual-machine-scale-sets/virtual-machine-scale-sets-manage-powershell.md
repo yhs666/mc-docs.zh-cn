@@ -3,7 +3,7 @@ title: 使用 Azure PowerShell 管理虚拟机规模集 | Microsoft Docs
 description: 管理虚拟机规模集常用的 Azure PowerShell cmdlets，如管理如何启动和停止实例，或更改此规模集容量。
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/29/2018
-ms.date: 07/10/2018
+ms.date: 08/13/2018
 ms.author: v-junlch
-ms.openlocfilehash: 1a1102ae3b7c85537b8f5d521aa481efbea80a41
-ms.sourcegitcommit: a22129c95c9f877a04c6b5b428edf7f4e953fd97
+ms.openlocfilehash: 5cc2559400ac95ebe55db33ef7455026709b0ac3
+ms.sourcegitcommit: 56ed1b03d83f222db6118fe1e2f2485a9488507f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37937363"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41704785"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-azure-powershell"></a>使用 Azure PowerShell 管理虚拟机规模集
 在虚拟机规模集的整个生命周期内，可能需要运行一个或多个管理任务。 此外，可能还需要创建自动执行各种生命周期任务的脚本。 本文详细介绍了执行这些任务常用的一些 Azure PowerShell cmdlet。
@@ -113,4 +113,4 @@ Remove-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScale
 ## <a name="next-steps"></a>后续步骤
 规模集的其他常见任务包括如何[部署应用程序](virtual-machine-scale-sets-deploy-app.md)和[升级 VM 实例](virtual-machine-scale-sets-upgrade-scale-set.md)。 也可使用 Azure PowerShell 来[配置自动缩放规则](virtual-machine-scale-sets-autoscale-overview.md)。
 
-<!--Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

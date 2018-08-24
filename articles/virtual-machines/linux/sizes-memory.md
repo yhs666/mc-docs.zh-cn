@@ -15,14 +15,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 07/06/2018
-ms.date: 07/30/2018
+ms.date: 08/27/2018
 ms.author: v-yeche
-ms.openlocfilehash: 9d3e2a5fcf6d7eb17c4aefbf0e75b435f245161e
-ms.sourcegitcommit: 35889b4f3ae51464392478a72b172d8910dd2c37
+ms.openlocfilehash: 1cc035390a789400bff7cbb36fba28a1f13d2b11
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39261926"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42872206"
 ---
 # <a name="memory-optimized-virtual-machine-sizes"></a>内存优化虚拟机大小
 
@@ -33,14 +33,12 @@ ms.locfileid: "39261926"
 ## <a name="other-sizes"></a>其他大小
 - [常规用途](sizes-general.md)
 - [计算优化](sizes-compute.md)
-<!--Not Avaialble - [Storage optimized](sizes-storage.md)-->
-<!--Not Avaialble - [GPU](../windows/sizes-gpu.md)-->
-<!--Not Avaialble - [High performance compute](sizes-hpc.md)-->
+- [GPU](sizes-gpu.md)
 - [前几代](sizes-previous-gen.md)
 
+<!--Not Avaialble - [Storage optimized](sizes-storage.md)-->
+<!--Not Avaialble - [High performance compute](sizes-hpc.md)-->
 ## <a name="next-steps"></a>后续步骤
 了解有关 [Azure 计算单元 (ACU)](acu.md) 如何帮助跨 Azure SKU 比较计算性能的详细信息。
 
-<!--The parent file of includes file of virtual-machines-common-sizes-memory.md-->
-<!--ms.date:07/30/2018-->
 <!-- Update_Description: update meta properties  -->

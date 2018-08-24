@@ -11,14 +11,14 @@ ms.component: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: tutorial
 origin.date: 08/14/2017
-ms.date: 07/02/2018
+ms.date: 08/13/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7fc82c596a7e469f1c905e70aa2030ab64957228
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 8686fdd2174bd1cfed885ef29d869d278c975a63
+ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38938999"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41703921"
 ---
 # <a name="nodejs-tutorial-use-the-sql-api-in-azure-cosmos-db-to-create-a-nodejs-console-application"></a>Node.js 教程：在 Azure Cosmos DB 中使用 SQL API 创建 Node.js 控制台应用程序
 
@@ -28,7 +28,6 @@ ms.locfileid: "38938999"
 > * [用于 MongoDB 的 Node.js](mongodb-samples.md)
 > * [Node.js](sql-api-nodejs-get-started.md)
 > * [Java](sql-api-java-get-started.md)
-> * [C++](sql-api-cpp-get-started.md)
 
 欢迎使用 Azure Cosmos DB Node.js SDK 的 Node.js 教程！ 学习本教程后，将拥有一个可创建并查询 Azure Cosmos DB 资源的控制台应用程序。
 
@@ -270,8 +269,6 @@ ms.locfileid: "38938999"
 
 > [!WARNING]
 > createCollection 将创建新的集合，它牵涉定价。 有关详细信息，请访问 [定价页](https://www.azure.cn/pricing/details/cosmos-db/)。
-> 
-> 
 
 可以使用 **DocumentClient** 类的 [createCollection](https://docs.microsoft.com/javascript/api/documentdb/documentclient) 函数创建[集合](sql-api-resources.md#collections)。 集合是 JSON 文档和相关联的 JavaScript 应用程序逻辑的容器。
 
@@ -454,7 +451,6 @@ Azure Cosmos DB 支持替换 JSON 文档。
         console.log(`Replacing document:\n${document.id}\n`);
         let documentUrl = uriFactory.createDocumentUri(databaseId, collectionId, document.id);
         document.children[0].grade = 6;
-
         return new Promise((resolve, reject) => {
             client.replaceDocument(documentUrl, document, (err, result) => {
                 if (err) reject(err);

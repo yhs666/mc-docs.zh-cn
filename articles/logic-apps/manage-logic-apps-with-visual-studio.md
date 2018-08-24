@@ -16,19 +16,19 @@ ms.custom: mvc
 origin.date: 03/15/2018
 ms.author: v-yiso
 ms.date: 07/02/2018
-ms.openlocfilehash: 5c6d39b03c7e41375f7d9abe2e6cc3c9a70fc6f7
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.openlocfilehash: db49c7f6f63db681ef9844752e20583cc52a410e
+ms.sourcegitcommit: 1b682acdc2a5e0974fbff809967d7cefcbbbe8ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315465"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42870999"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>使用 Visual Studio 管理逻辑应用
 
 尽管可以在 <a href="https://portal.azure.cn" target="_blank">Azure 门户</a>中创建、编辑、管理和部署逻辑应用，但在需要将逻辑应用添加到源代码管理、发布不同的版本，以及为不同的部署环境创建 [Azure 资源管理器](../azure-resource-manager/resource-group-overview.md)模板时，也可以使用 Visual Studio。 使用 Visual Studio Cloud Explorer 可以查找和管理逻辑应用以及其他 Azure 资源。 例如，可以打开、下载、编辑、运行、禁用和启用已在 Azure 门户中部署的逻辑应用，以及查看其运行历史记录。 如果你还不太熟悉如何在 Visual Studio 中处理 Azure 逻辑应用，请参阅[如何使用 Visual Studio 创建逻辑应用](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)。
 
 > [!IMPORTANT]
-> 从 Visual Studio 部署或发布逻辑应用会覆盖该应用在 Azure 门户中的版本。 因此，若要在 Azure 门户进行更改并保存这些更改，请务必通过 Azure 门户[在 Visual Studio 中刷新逻辑应用](#refresh)，然后，便可以通过 Visual Studio 部署或发布该应用。
+> 从 Visual Studio 部署或发布逻辑应用会覆盖该应用在 Azure 门户中的版本。 因此，若要在 Azure 门户进行更改并保存这些更改，请务必通过 Azure 门户[刷新 Visual Studio 中的逻辑应用](#refresh)，然后，便可以通过 Visual Studio 部署或发布该应用。
 
 <a name="requirements"></a>
 
@@ -162,6 +162,9 @@ ms.locfileid: "36315465"
 
 ![禁用逻辑应用](./media/manage-logic-apps-with-visual-studio/disable-logic-app.png)
 
+> [!NOTE]
+> 禁用逻辑应用后，任何新运行都不会实例化。 所有正在进行的和挂起的运行将继续进行，直到完成，这可能要花费一些时间才能完成。 
+
 准备好让逻辑应用恢复操作时，可以重新激活逻辑应用。 在 Cloud Explorer 中打开逻辑应用的快捷菜单，选择“启用”。
 
 ![启用逻辑应用](./media/manage-logic-apps-with-visual-studio/enable-logic-app.png)
@@ -171,6 +174,9 @@ ms.locfileid: "36315465"
 若要从 Azure 门户删除逻辑应用，请在 Cloud Explorer 中打开逻辑应用的快捷菜单，并选择“删除”。
 
 ![删除逻辑应用](./media/manage-logic-apps-with-visual-studio/delete-logic-app.png)
+
+> [!NOTE]
+> 删除逻辑应用后，任何新运行都不会实例化。 所有正在进行和挂起的运行都将取消。 如果有成千上万个运行，取消操作可能需要很长时间才能完成。 
 
 ## <a name="next-steps"></a>后续步骤
 

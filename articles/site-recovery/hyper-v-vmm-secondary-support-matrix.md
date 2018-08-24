@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 07/06/2018
 ms.date: 07/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: d94a1971795ae4e618969d7dc242cce2219a805b
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.openlocfilehash: c35b5d89707aa3a5c33051d42736cfb29a52c5bf
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168424"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42871783"
 ---
 # <a name="support-matrix-for-replication-of-hyper-v-vms-to-a-secondary-site"></a>将 Hyper-V VM 复制到辅助站点时的支持矩阵
 
@@ -61,7 +61,8 @@ Windows Server 2012 R2 | Windows Server 2012 R2 上的[Hyper-V 支持](https://d
 来宾 VM - IPv4 | 是
 来宾 VM - Windows/Linux - 静态 IP 地址 | 是
 来宾 VM - 多 NIC | 是
-<!-- 在来宾 VM 上不可用 - IPv6 | 否 -->
+
+<!-- Not Available on Guest VM - IPv6 | No -->
 
 ## <a name="storage"></a>存储
 

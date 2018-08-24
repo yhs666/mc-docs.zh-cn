@@ -3,7 +3,7 @@ title: Azure CLI 2.0 示例 - 安装应用 | Microsoft Docs
 description: Azure CLI 2.0 示例
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,15 +14,15 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 03/27/2018
-ms.date: 04/25/2018
+ms.date: 08/13/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 197425f84fa6bdcad2305ccadf65e937ef7bb8a6
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 6bba964cc5a53f274c0b1c4745da712bf22c5c54
+ms.sourcegitcommit: 56ed1b03d83f222db6118fe1e2f2485a9488507f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38940169"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41704900"
 ---
 # <a name="install-applications-into-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>使用 Azure CLI 2.0 将应用程序安装到虚拟机规模集中
 此脚本创建运行 Ubuntu 的虚拟机规模集，并使用自定义脚本扩展安装一个基本 Web 应用程序。 运行脚本后，可以通过 Web 浏览器访问该 Web 应用。
@@ -96,7 +96,8 @@ az group delete --name myResourceGroup
 | [az group delete](/cli/ad/group#delete) | 删除资源组，包括所有嵌套的资源。 |
 
 ## <a name="next-steps"></a>后续步骤
-有关 Azure CLI 2.0 的详细信息，请参阅 [Azure CLI 2.0 文档](/cli/)。
+有关 Azure CLI 2.0 的详细信息，请参阅 [Azure CLI 2.0 文档](/cli/overview)。
 
 可以在 [Azure 虚拟机规模集文档](../cli-samples.md)中找到其他虚拟机规模集 Azure CLI 2.0 脚本示例。
 
+<!-- Update_Description: link update -->

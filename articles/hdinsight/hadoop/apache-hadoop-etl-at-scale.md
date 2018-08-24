@@ -12,17 +12,15 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 origin.date: 11/14/2017
-ms.date: 05/21/2018
+ms.date: 08/27/2018
 ms.author: v-yiso
-ms.openlocfilehash: 419ce86ba82b5d171d37df0ccc518089a40d2f37
-ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
+ms.openlocfilehash: 4a62475b43449d4d90415f0b1655d9e1afc38f9d
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34450009"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41704029"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>大规模提取、转换和加载 (ETL)
 

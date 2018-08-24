@@ -11,18 +11,18 @@ origin.date: 04/17/2018
 ms.date: 06/25/2018
 ms.author: v-yeche
 ms.reviewer: igorstan
-ms.openlocfilehash: 42b031811170930a059e127520ed8f8af2ce788f
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.openlocfilehash: cd95fa6c132d10f1c97dda966ddd3927c60e94d2
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315665"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42872351"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>快速入门：在 Azure 门户中创建和查询 Azure SQL 数据仓库
 
 使用 Azure 门户快速创建和查询 Azure SQL 数据仓库。
 
-如果还没有 Azure 订阅，可以在开始前创建一个[免费](https://www.azure.cn/pricing/1rmb-trial/)帐户。
+如果没有 Azure 订阅，请在开始之前创建一个[免费](https://www.azure.cn/pricing/1rmb-trial/)帐户。
 
 > [!NOTE]
 > 创建 SQL 数据仓库可能会导致新的计费服务。  有关详细信息，请参阅 [SQL 数据仓库定价](https://www.azure.cn/pricing/details/sql-data-warehouse/)。
@@ -57,7 +57,8 @@ ms.locfileid: "36315665"
     | **订阅** | 你的订阅  | 有关订阅的详细信息，请参阅[订阅](https://account.windowsazure.cn/Subscriptions)。 |
     | **资源组** | MyResourceGroup | 有关有效的资源组名称，请参阅 [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)（命名规则和限制）。 |
     | **选择源** | 空白数据库 | 创建空数据库。 请注意，数据仓库是一种数据库。 |
-<!-- 在 2018 年 3 月 6 日 不可用    | 选择示例 | AdventureWorksDW | 指定加载 AdventureWorksDW 示例数据库。  | -->
+
+    <!-- Not Avaiable on 6th Mar 2018    | **Select sample** | AdventureWorksDW | Specifies to load the AdventureWorksDW sample database.  | -->
 
     ![创建数据仓库](media/create-data-warehouse-portal/select-sample.png)
 
@@ -117,7 +118,7 @@ SQL 数据仓库服务在服务器级别创建一个防火墙，阻止外部应�
 
 4. 在工具栏上单击“添加客户端 IP”，将当前的 IP 地址添加到新的防火墙规则。 防火墙规则可以针对单个 IP 地址或一系列 IP 地址打开端口 1433。
 
-5. 单击“保存” 。 此时会针对当前的 IP 地址创建服务器级防火墙规则，在逻辑服务器上打开 端口 1433。
+5. 单击“保存”。 此时会针对当前的 IP 地址创建服务器级防火墙规则，在逻辑服务器上打开 端口 1433。
 
 6. 单击“确定”，然后关闭“防火墙设置”页。
 

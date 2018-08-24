@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 05/14/2018
-ms.date: 06/25/2018
+origin.date: 07/09/2018
+ms.date: 08/27/2018
 ms.author: v-yiso
-ms.openlocfilehash: 2acf90a286785e3372c74f5cfe2247ac5282564e
-ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
+ms.openlocfilehash: 5a3856c64a248dc7ba4af4e639a2255bf3a984e8
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36747505"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41704021"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>使用 .NET SDK 在 HDInsight 中创建基于 Linux 的群集
 

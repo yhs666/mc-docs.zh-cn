@@ -12,14 +12,14 @@ ms.custom: Azure Cosmos DB active
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 03/20/2018
-ms.date: 07/02/2018
+ms.date: 08/13/2018
 ms.author: v-yeche
-ms.openlocfilehash: 587e3bd4ff7ac871f384c38d5c0045cd94b1e108
-ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
+ms.openlocfilehash: 3efc0ed23da6570c17f21bc58da0dd1c58059e63
+ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37070254"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41704010"
 ---
 # <a name="manage-azure-cosmos-db-in-azure-storage-explorer"></a>在 Azure 存储资源管理器中管理 Azure Cosmos DB
 
@@ -41,7 +41,7 @@ ms.locfileid: "37070254"
    ![插件图标](./media/storage-explorer/plug-in-icon.png)
 
 2. 在“添加 Azure 帐户”中选择值“Azure 中国”，然后单击“登录”。
-<!-- Select the Azure China value in Add an Azure Account -->
+    <!-- Select the Azure China value in Add an Azure Account -->
 
    ![连接到 Azure 订阅](./media/storage-explorer/connect-to-azure-subscription.png)
 

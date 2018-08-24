@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 04/25/2018
-ms.date: 07/30/2018
+ms.date: 08/27/2018
 ms.author: v-yeche
-ms.openlocfilehash: 2da1091003a1cb995ea45f2c9072d8dad27bc2f1
-ms.sourcegitcommit: 35889b4f3ae51464392478a72b172d8910dd2c37
+ms.openlocfilehash: 3d9603a1d3230dc707dd21fc9c23b394162de1e8
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39261913"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42872155"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>在 Linux 虚拟机上使用 Azure 自定义脚本扩展版本 2
 自定义脚本扩展版本 2 在 Azure 虚拟机上下载和运行脚本。 此扩展适用于部署后配置、软件安装或其他任何配置/管理任务。 可以从 Azure 存储或其他可访问的 Internet 位置下载脚本，或者将脚本提供给扩展运行时。 
@@ -104,7 +104,7 @@ ms.locfileid: "39261913"
 
 ### <a name="property-values"></a>属性值
 
-| Name | 值/示例 | 数据类型 | 
+| 名称 | 值/示例 | 数据类型 | 
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | 日期 |
 | 发布者 | Microsoft.Compute.Extensions | 字符串 |
@@ -220,7 +220,7 @@ CustomScript 使用以下算法来执行脚本。
       },
     "protectedSettings": {
       "commandToExecute": "sh hello.sh <param2>",
-      "fileUris": ["https://github.com/MyProject/Archive/MyPythonScript.py"
+      "fileUris": ["https://github.com/MyProject/Archive/hello.sh"
       ]  
     }
   }

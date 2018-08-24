@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 origin.date: 05/10/2018
-ms.date: 06/25/2018
+ms.date: 08/27/2018
 ms.author: v-yeche
-ms.openlocfilehash: 3887960bfe10fe22792ef3d0759a93d2f783efaa
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.openlocfilehash: 647646b18a94a5e002e6972d9614074a09dd0193
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315632"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42872297"
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli-20"></a>配合使用 VMAccess 扩展和 Azure CLI 2.0 管理管理用户、SSH，并检查或修复 Linux VM 上的磁盘
 ## <a name="overview"></a>概述
@@ -42,8 +42,9 @@ VM 访问扩展可以针对这些 Linux 分发运行：
 | OpenSuse | openSUSE Leap 42.2+ |
 | CentOS | CentOS 6.3+、7.0+ |
 | CoreOS | 494.4.0+ |
-<!-- 不可用于 | Oracle Linux | 6.4+、7.0+ |-->
-<!--不可用于 | RedHat | RHEL 6.7+、7.1+ |--->
+
+<!-- Not Available on | Oracle Linux | 6.4+、7.0+ |-->
+<!--Not Available on | RedHat | RHEL 6.7+, 7.1+ |--->
 
 ## <a name="ways-to-use-the-vmaccess-extension"></a>使用 VMAccess 扩展的方法
 可通过两种方法在 Linux VM 上使用 VMAccess 扩展：

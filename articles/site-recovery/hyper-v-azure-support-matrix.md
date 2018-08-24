@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 07/06/2018
 ms.date: 07/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 1cf18e6fb288b1dcd2af6080f71bb7b398427e44
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.openlocfilehash: 034184b1f1116ac76394742a4db19d5b2c3ba185
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168497"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42872140"
 ---
 # <a name="support-matrix-for-hyper-v-replication-to-azure"></a>用于 Hyper-V 到 Azure 的复制的支持矩阵
 
@@ -71,7 +71,8 @@ Azure 流量管理器 | 是 | 是
 IPv4 | 是 | 是
 保留源 IP 地址 | 是 | 是
 Azure 虚拟网络服务终结点<br/> （不带 Azure 存储防火墙） | 是 | 是
-<!-- 在加速网络上不可用 | 否 | 否-->
+
+<!-- Not Available on Accelerated Networking | No | No-->
 
 ## <a name="hyper-v-host-storage"></a>Hyper-V 主机存储
 

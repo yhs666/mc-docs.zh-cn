@@ -12,15 +12,15 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-origin.date: 11/11/2016
-ms.date: 05/11/2018
+origin.date: 06/28/2018
+ms.date: 08/14/2018
 ms.author: v-junlch
-ms.openlocfilehash: 97a0b9eacf72f29dff351ffa5eebae628d475b1e
-ms.sourcegitcommit: 998ab63adf55fb37d4cdfbdc314831f88a511fe0
+ms.openlocfilehash: a0c1781ab4b9ae9029581e1691aca99a0eb4769a
+ms.sourcegitcommit: 5ccfb836b271e60d44ba8a871b8904a695fe8e27
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34060340"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41704904"
 ---
 # <a name="set-up-diagnostics-for-azure-cloud-services-and-virtual-machines"></a>为 Azure 云服务和虚拟机设置诊断
 需要对 Azure 云服务或虚拟机进行故障排除时，可使用 Visual Studio 更轻松地设置 Azure 诊断。 诊断可以在运行云服务的虚拟机和虚拟机实例上捕获系统数据和日志记录数据。 诊断数据传输到所选的存储帐户。 有关 Azure 中诊断日志记录的详细信息，请参阅[为 Azure 应用服务中的 Web 应用启用诊断日志记录](app-service/web-sites-enable-diagnostic-log.md)。
@@ -88,7 +88,11 @@ ms.locfileid: "34060340"
    - 如果选择“你的订阅”，则可选择要使用的 Azure 订阅，然后输入帐户名称。 若要管理 Azure 订阅，请选择“管理帐户”。
    - 如果选择“手动输入的凭据”选项，则请输入要使用的 Azure 帐户的名称和密钥。
 5. 若要查看“诊断配置”对话框，请选择“配置”。 每个选项卡（“常规”和“日志目录”除外）都表示可以收集的诊断数据源。 默认的“常规”选项卡提供以下诊断数据收集选项：“仅限错误”、“所有信息”和“自定义计划”。 默认的“仅限错误”选项占用最少量的存储，因为该选项不传输警告或跟踪消息。 “所有信息”选项传输的信息最多，占用最多的存储，因此是成本最高的选项。
-   
+
+   > [!NOTE]
+   > “磁盘配额(以 MB 为单位)”支持的最小大小为 4GB。 但是，如果要收集内存转储，请将此限制提高到更高值（如 10GB）。
+   >
+  
     ![启用 Azure 诊断和配置](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC758144.png)
 6. 对于此示例，请选择“自定义计划”选项，以便自定义所收集的数据。
 7. 在“磁盘配额(MB)”框中，可以设置需要在存储帐户中为诊断数据分配的空间量。 可以更改或接受默认值。
@@ -121,7 +125,7 @@ ms.locfileid: "34060340"
    
     ![启用 Azure 诊断和配置](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC758144.png)
    
-    默认选项卡“常规”提供了以下诊断数据收集选项：“仅限错误”、“所有信息”和“自定义计划”。 默认选项“仅限错误”占用最少量的存储空间，因为该选项不传输警告或跟踪消息。 “所有信息”选项传输的信息最多，因此就存储来说是成本最高的选项。
+    默认选项卡“常规”提供以下诊断数据收集选项：“仅限错误”、“所有信息”和“自定义计划”。 默认选项“仅限错误”占用最少量的存储空间，因为该选项不传输警告或跟踪消息。 “所有信息”选项传输的信息最多，因此就存储来说是成本最高的选项。
 7. 对于此示例，可以选择“自定义计划”选项，以便自定义所收集的数据。
 8. “磁盘配额(MB)”框指定要在存储帐户中为诊断数据分配的空间量。 可以根据需要更改默认值。
 9. 在要收集的诊断数据的每个选项卡上，选中其“启用\<日志类型\>的传输”复选框。

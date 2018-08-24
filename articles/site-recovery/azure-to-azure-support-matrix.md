@@ -10,12 +10,12 @@ ms.topic: article
 origin.date: 07/13/2018
 ms.date: 07/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: db617d55eb0c9319f8f063b0e9b560cd17d91847
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.openlocfilehash: f5c242ed8a6a659c40a442202fa3f270623502ac
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168360"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42872342"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>用于在 Azure 区域之间进行复制的支持矩阵
 
@@ -195,7 +195,8 @@ Azure 托管 DNS | 支持 |
 本地站点到站点 VPN（使用或不使用 ExpressRoute）| 支持 | 确保将 UDR 和 NSG 配置为站点恢复流量不会路由到本地。 请参阅[网络指南文档。](site-recovery-azure-to-azure-networking-guidance.md)  
 VNET 到 VNET 连接 | 支持 | 请参阅[网络指南文档。](site-recovery-azure-to-azure-networking-guidance.md)  
 虚拟网络服务终结点 | 支持 | 不支持虚拟网络的 Azure 存储防火墙。 不支持访问用于存储复制数据的缓存存储帐户上特定的 Azure 虚拟网络。
-<!-- 在加速网络上不可用 | 不支持 | 可以复制启用了加速网络的 VM，但故障转移 VM 不会启用加快网络。 而且，还会在故障回复后禁用源 VM 的加速网络。-->
+
+<!-- Not Available on Accelerated Networking | Not supported | A VM with Accelerated Networking enabled can be replicated, but the failover VM will not have Accelerated Networking enabled. Accelerated Networking will also be disabled for source VM on failback.-->
 
 ## <a name="next-steps"></a>后续步骤
 - 详细了解 [Azure VM 复制网络指南](site-recovery-azure-to-azure-networking-guidance.md)

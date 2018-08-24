@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 07/13/2018
 ms.date: 07/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 280e9b38d03bd25bf7f6c00e00670cd74ed7f5aa
-ms.sourcegitcommit: 74f9f0acb00fb728ff6e9bd67ac86a0c1bcd8d13
+ms.openlocfilehash: 25fac13892f5e6de321ac15f2e992d352542b3d1
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39218926"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42872344"
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>VMware 和物理服务器到 Azure 的复制支持矩阵
 
@@ -132,8 +132,9 @@ XFSv5 | 从版本 9.10 开始，移动服务支持 XFS 文件系统上的 XFSv5 
 来宾/服务器网络静态 IP (Windows) | 是的。
 来宾/服务器网络静态 IP (Linux) | 是的。 <br/><br/>VM 配置为在故障回复时使用 DHCP。
 来宾/服务器网络多个 NIC | 是的。
-<!-- 在主机网络 IPv6 上不可用 | 否。 -->
-<!-- 在来宾/服务器网络 IPv6 上不可用 | 否。 -->
+
+<!-- Not Available on Host network IPv6 | No. -->
+<!-- Not Available on Guest/server network IPv6 | No. -->
 
 ## <a name="azure-vm-network-after-failover"></a>Azure VM 网络（故障转移后）
 
@@ -148,7 +149,8 @@ Azure 流量管理器 | 是
 IPv4 | 是
 保留源 IP 地址 | 是
 Azure 虚拟网络服务终结点<br/> （不带 Azure 存储防火墙） | 是
-<!-- 在加速网络上不可用 | 否-->
+
+<!-- Not Available on Accelerated Networking | No-->
 
 <a name="support-for-storage"></a>
 ## <a name="storage"></a>存储

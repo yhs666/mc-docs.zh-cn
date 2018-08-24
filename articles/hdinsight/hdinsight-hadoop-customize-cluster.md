@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 10/05/2016
-ms.date: 06/25/2018
+ms.date: 08/27/2018
 ms.author: v-yiso
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5700e3f422eb2cfdf60222cff80fdc2cd88ca0c2
-ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
+ms.openlocfilehash: e9db09368967a371b4d21c6c01bde8c0512f0beb
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36747504"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41704942"
 ---
 # <a name="customize-windows-based-hdinsight-clusters-using-script-action"></a>使用脚本操作自定义基于 Windows 的 HDInsight 群集
 在创建群集的过程中，可以使用脚本操作来调用[自定义脚本](hdinsight-hadoop-script-actions.md)，以便在群集上安装其他软件。
@@ -89,7 +89,7 @@ HDInsight 提供了多个脚本用于在 HDInsight 群集上安装以下组件�
 以下 PowerShell 脚本演示如何在基于 Windows 的 HDInsight 群集上安装 Spark。  
 
     # Provide values for these variables
-    $subscriptionID = "<Azure Suscription ID>" # After "Login-AzureRmAccount -EnvironmentName AzureChinaCloud", use "Get-AzureRmSubscription" to list IDs.
+    $subscriptionID = "<Azure Suscription ID>" # After "Connect-AzureRmAccount -EnvironmentName AzureChinaCloud", use "Get-AzureRmSubscription" to list IDs.
 
     $nameToken = "<Enter A Name Token>"  # The token is use to create Azure service names.
     $namePrefix = $nameToken.ToLower() + (Get-Date -Format "MMdd")
@@ -112,7 +112,7 @@ HDInsight 提供了多个脚本用于在 HDInsight 群集上安装以下组件�
         Get-AzureRmSubscription
     }
     Catch{
-        Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+        Connect-AzureRmAccount -EnvironmentName AzureChinaCloud
     }
     Select-AzureRmSubscription -SubscriptionId $subscriptionID
 

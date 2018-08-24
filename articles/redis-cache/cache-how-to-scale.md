@@ -13,14 +13,14 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 origin.date: 04/11/2017
-ms.date: 04/26/2018
+ms.date: 08/13/2018
 ms.author: v-junlch
-ms.openlocfilehash: 991b7c4136faf8027c7b708c09aa877ee1fd743c
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 5a7c87894f9d4b468e91ef39b28d3d1b4320abb3
+ms.sourcegitcommit: 56ed1b03d83f222db6118fe1e2f2485a9488507f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121561"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41703859"
 ---
 # <a name="how-to-scale-azure-redis-cache"></a>如何缩放 Azure Redis 缓存
 Azure Redis 缓存具有不同的缓存产品/服务，使缓存大小和功能的选择更加灵活。 创建缓存后，如果应用程序的要求发生更改，可以缩放缓存的大小和定价层。 本文演示如何使用 Azure 门户以及 Azure PowerShell 和 Azure CLI 等工具来缩放缓存。
@@ -35,7 +35,7 @@ Azure Redis 缓存具有不同的缓存产品/服务，使缓存大小和功能�
 - 网络带宽
 - CPU 使用率
 
-如果确定缓存不再满足应用程序的要求，可以缩放到适合应用程序的更大或更小缓存定价层。 有关确定应使用哪个缓存定价层的详细信息，请参阅[我应当使用哪些 Redis 缓存产品/服务和大小](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)。
+如果确定缓存不再满足应用程序的要求，可以缩放到适合应用程序的更大或更小缓存定价层。 有关确定应使用哪个缓存定价层的详细信息，请参阅 [我应当使用哪些 Redis 缓存产品/服务和大小](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)。
 
 ## <a name="scale-a-cache"></a>缩放缓存
 若要缩放缓存，请在 [Azure 门户](https://portal.azure.cn)中[浏览到缓存](cache-configure.md#configure-redis-cache-settings)，然后从“资源”菜单单击“缩放”。
@@ -70,7 +70,7 @@ Azure Redis 缓存具有不同的缓存产品/服务，使缓存大小和功能�
 - [使用 MAML 进行缩放](#scale-using-maml)
 
 ### <a name="scale-using-powershell"></a>使用 PowerShell 进行缩放
-修改 `Size`、`Sku` 或 `ShardCount` 属性后，可以在 PowerShell 中使用 [Set-AzureRmRedisCache](https://msdn.microsoft.com/library/azure/mt634518.aspx) cmdlet 缩放 Azure Redis 缓存实例。 以下示例演示了如何将名为 `myCache` 的缓存缩放为 2.5 GB 缓存。 
+修改 `Size`、`Sku` 或 `ShardCount` 属性后，可以在 PowerShell 中使用 *Set-AzureRmRedisCache* cmdlet 缩放 Azure Redis 缓存实例。 以下示例演示了如何将名为 `myCache` 的缓存缩放为 2.5 GB 缓存。 
 
     Set-AzureRmRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
 
@@ -155,7 +155,7 @@ Azure Redis 缓存具有不同的缓存产品/服务，使缓存大小和功能�
 - **基本**缓存在缩放为不同大小的操作期间处于脱机状态。 基本缓存在从**基本**缩放到**标准**时仍然可用，但可能会出现较小的连接故障。 如果发生连接故障，redis 客户端应能立即重新建立连接。
 
 
-### <a name="scaling-limitations-with-geo-relication"></a>异地复制的缩放限制
+### <a name="scaling-limitations-with-geo-replication"></a>异地复制的缩放限制
 
 向两个缓存之间添加异地复制链接后，便无法在群集中启动缩放操作或更改分片数。 若要发布这些命令，必须取消链接缓存。 有关详细信息，请参阅[配置异地复制](cache-how-to-geo-replication.md)。
 

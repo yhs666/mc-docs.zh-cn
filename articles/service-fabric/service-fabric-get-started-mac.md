@@ -2,25 +2,25 @@
 title: 在 Mac OS X 上设置开发环境以使用 Azure Service Fabric | Azure
 description: 安装运行时、SDK 和工具并创建本地开发群集。 完成此设置后，就可以在 Mac OS X 上开始生成应用程序了。
 services: service-fabric
-documentationcenter: java
+documentationcenter: linux
 author: rockboyfor
 manager: digimobile
 editor: ''
 ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
 ms.service: service-fabric
-ms.devlang: java
-ms.topic: get-started-article
+ms.devlang: linux
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 11/17/2017
-ms.date: 05/28/2018
+ms.date: 08/20/2018
 ms.author: v-yeche
-ms.openlocfilehash: 93845484a489dcaf76a6b87cfa02042dc88020ae
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: 655e9bed0bcbe05c339c199d58bbb337ee389d0f
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554520"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41704520"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>在 Mac OS X 上设置开发环境
 > [!div class="op_single_selector"]
@@ -128,6 +128,8 @@ Azure Service Fabric 不在 Mac OS X 本机上运行。为了运行本地 Servic
  以下是在 Mac 的容器中运行的本地群集的已知限制： 
 
  * DNS 服务无法运行且不受支持 [问题 #132](https://github.com/Microsoft/service-fabric/issues/132)
+
+ * 目前无法将容器应用程序部署到此本地群集
 
 ## <a name="set-up-the-service-fabric-cli-sfctl-on-your-mac"></a>在 Mac 上设置 Service Fabric CLI (sfctl)
 
