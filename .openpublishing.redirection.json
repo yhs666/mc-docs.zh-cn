@@ -11053,7 +11053,12 @@
         "source_path": "articles/virtual-network/virtual-network-routes-troubleshoot-powershell.md",
         "redirect_url": "/virtual-network/diagnose-network-routing-problem",
         "redirect_document_id": true
-    }
+    },
+    {
+            "source_path": "articles/azure-stack/user/azure-stack-powershell-download.md",
+            "redirect_url": "/azure-stack/azure-stack-powershell-download",
+            "redirect_document_id": false
+        }
 
   ]
 }
