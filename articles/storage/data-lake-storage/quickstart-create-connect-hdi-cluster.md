@@ -236,10 +236,10 @@ HDInsight 应用程序是用户可以在基于 Linux 的 HDInsight 群集上安�
 * webhcat-site.xml
 * yarn-site.xml
 
-有关详细信息，请参阅[使用 Bootstrap 自定义 HDInsight 群集](../../hdinsight/hdinsight-hadoop-customize-cluster-bootstrap.md)。
+有关详细信息，请参阅 [使用 Bootstrap 自定义 HDInsight 群集 ](../../hdinsight/hdinsight-hadoop-customize-cluster-bootstrap.md)。
 
 ## <a name="advanced-settings-extend-clusters-with-a-virtual-network"></a>高级设置：使用虚拟网络扩展群集
-如果解决方案需要分布在多种 HDInsight 群集类型上的技术，可以使用 [Azure 虚拟网络](../../hdinsight/https://docs.microsoft.com/azure/virtual-network)连接所需的群集类型。 此配置允许群集以及部署到群集的任何代码直接相互通信。
+如果解决方案需要分布在多种 HDInsight 群集类型上的技术，可以使用 [Azure 虚拟网络 ](../../hdinsight/https://docs.microsoft.com/azure/virtual-network)连接所需的群集类型。 此配置允许群集以及部署到群集的任何代码直接相互通信。
 
 有关将 Azure 虚拟网络与 HDInsight 配合使用的详细信息，请参阅 [使用 Azure 虚拟网络扩展 HDInsight](../../hdinsight/hdinsight-extend-hadoop-virtual-network.md)。
 

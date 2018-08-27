@@ -28,7 +28,7 @@ ms.locfileid: "42869432"
 
 登录到 Azure Stack 门户。 Azure Stack 门户的地址取决于要连接到的 Azure Stack 产品：
 
-* 对于 Azure Stack 开发工具包 (ASDK)，请转到：https://portal.local.azurestack.external。
+* 对于 Azure Stack 开发工具包 (ASDK)，请转到： https://portal.local.azurestack.external。
 * 对于 Azure Stack 集成系统，请转到 Azure Stack 运营商提供的 URL。
 
 ## <a name="create-a-virtual-machine"></a>创建虚拟机

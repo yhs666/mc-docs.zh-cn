@@ -111,7 +111,7 @@ ms.locfileid: "42872384"
 
 - **生存期和规模已知的工作负荷**。 例如，全年需要且已预测其需求的应用。
 
-若要对 SQL Server VM 使用 BYOL，必须拥有 SQL Server Standard 或 Enterprise 的许可证以及软件保障，这是某些批量许可计划的必需选项，而对其他计划而言为可选购买。 根据协议类型以及 SQL Server 的数量和/或对其的承诺，批量许可计划提供的定价级别各不相同。 但一般而言，针对连续生产工作负荷自带许可证具有以下优点：<!-- Not Available on [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default.aspx#tab=1)-->
+若要对 SQL Server VM 使用 BYOL，必须拥有 SQL Server Standard 或 Enterprise 的许可证以及软件保障，这是某些批量许可计划的必需选项，而对其他计划而言为可选购买。 根据协议类型以及 SQL Server 的数量和/或对其的承诺，批量许可计划提供的定价级别各不相同。 但一般而言，针对连续生产工作负荷自带许可证具有以下优点： <!-- Not Available on [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default.aspx#tab=1)-->
 
 | BYOL 权益 | 说明 |
 |-----|-----|
@@ -157,7 +157,7 @@ SQL Server 的许可成本直接与 vCPU 数相关。 请选择与 CPU、内存�
 
 例如，如果只在 Azure VM 上试用 SQL Server，就不会希望因使其意外运行数周而滋生费用。 一种解决方案是使用[自动关闭功能](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/)。
 
-![SQL VM 自动关闭](./media/virtual-machines-windows-sql-server-pricing-guidance/sql-vm-auto-shutdown.png)
+![SQL VM 自动关闭 ](./media/virtual-machines-windows-sql-server-pricing-guidance/sql-vm-auto-shutdown.png)
 <!-- Not Available on  [Azure DevTest Labs](https://www.azure.cn/home/features/devtest-lab/). -->
 
 对于其他工作流，请考虑使用脚本解决方案（如 [Azure 自动化](https://www.azure.cn/home/features/automation/)）自动关闭并重启 Azure VM。
@@ -167,7 +167,7 @@ SQL Server 的许可成本直接与 vCPU 数相关。 请选择与 CPU、内存�
 
 ## <a name="next-steps"></a>后续步骤
 
-<!-- Not Available on [Prevent unexpected costs with Azure billing and cost management](../../../billing/billing-getting-started.md).  --> 有关虚拟机最新定价（包括 SQL Server），请参阅 [Azure VM 定价页](https://www.azure.cn/pricing/details/virtual-machines/)。
+<!-- Not Available on [Prevent unexpected costs with Azure billing and cost management](../../../billing/billing-getting-started.md).  --> 有关虚拟机最新定价（包括 SQL Server），请参阅 [Azure VM 定价页 ](https://www.azure.cn/pricing/details/virtual-machines/)。
 
 有关 Azure 虚拟机上运行的 SQL Server 概述，请参阅以下文章：
 

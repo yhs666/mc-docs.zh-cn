@@ -213,8 +213,8 @@ Service Fabric 系统服务（例如，群集管理器服务或图像存储服�
 ## <a name="next-steps"></a>后续步骤
 完成容量规划并设置群集后，请阅读以下文章：
 
-* [Service Fabric 群集安全性](service-fabric-cluster-security.md)
-<!-- Not Avaiable on * [Service Fabric cluster scaling](service-fabric-cluster-scaling.md)-->
+* [Service Fabric 群集安全性 ](service-fabric-cluster-security.md) 
+ <!-- Not Avaiable on * [Service Fabric cluster scaling](service-fabric-cluster-scaling.md)-->
 * [灾难恢复规划](service-fabric-disaster-recovery.md)
 * [Nodetype 与虚拟机规模集的关系](service-fabric-cluster-nodetypes.md)
 
