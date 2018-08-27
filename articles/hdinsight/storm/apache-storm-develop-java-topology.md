@@ -18,12 +18,12 @@ origin.date: 02/20/2018
 ms.date: 03/26/2018
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: a99947001b786e5a5cf9fb9534b3f3c80d83c94d
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.openlocfilehash: 7dc7c85dc2cfd559bd3c0d9e392d31a152119dc8
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873667"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41705294"
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>以 Java 语言创建 Apache Storm 拓扑
 
@@ -86,7 +86,7 @@ mvn archetype:generate -DarchetypeArtifactId=maven-archetype-quickstart -DgroupI
 
 ## <a name="add-maven-repositories"></a>添加 Maven 存储库
 
-由于 HDInsight 基于 Hortonworks Data Platform (HDP)，因此我们建议使用 Hortonworks 存储库来下载 Apache Storm 项目的依赖项。 在 __pom.xml__ 文件中，在 `<url>http://maven.apache.org</url>` 行后添加以下 XML：
+由于 HDInsight 基于 Hortonworks Data Platform (HDP)，因此我们建议使用 Hortonworks 存储库来下载 Apache Storm 项目的依赖项。 在 __pom.xml__ 文件中，在  `<url>http://maven.apache.org</url>` 行后添加以下 XML：
 
 ```xml
 <repositories>
@@ -602,10 +602,10 @@ Flux 是 Storm 0.10.0 及更高版本随附的一个新框架，可以将配置�
 
 YAML 文件定义了要用于拓扑的组件以及它们之间的数据流。 可以包括一个 YAML 文件（作为 jar 文件的一部分），也可以使用外部 YAML 文件。
 
-有关 Flux 的详细信息，请参阅 [Flux 框架 (https://storm.apache.org/releases/0.10.0/flux.html)](https://storm.apache.org/releases/0.10.0/flux.html)。
+有关 Flux 的详细信息，请参阅 [Flux 框架 (https://storm.apache.org/releases/1.0.6/flux.html)](https://storm.apache.org/releases/1.0.6/flux.html)。
 
 > [!WARNING]
-> 由于 Storm 1.0.1 的 [bug (https://issues.apache.org/jira/browse/STORM-2055)](https://issues.apache.org/jira/browse/STORM-2055)，可能需要安装 [Storm 开发环境](https://storm.apache.org/releases/1.0.1/Setting-up-development-environment.html)，在本地运行 Flux 拓扑。
+> 由于 Storm 1.0.1 的 [bug (https://issues.apache.org/jira/browse/STORM-2055)](https://issues.apache.org/jira/browse/STORM-2055)，可能需要安装 [Storm 开发环境](http://storm.apache.org/releases/current/Setting-up-development-environment.html)，在本地运行 Flux 拓扑。
 
 1. 将 `WordCountTopology.java` 文件移出项目。 以前，此文件定义了拓扑，但有了 Flux，就不需要此文件了。
 
@@ -724,9 +724,9 @@ YAML 文件定义了要用于拓扑的组件以及它们之间的数据流。 �
     ```
 
     > [!WARNING]
-    > 如果拓扑使用 Storm 1.0.1 位，此命令会失败。 此失败是由 [https://issues.apache.org/jira/browse/STORM-2055](https://issues.apache.org/jira/browse/STORM-2055) 导致的。 相反，[在开发环境中安装 Storm](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html)，并按照以下步骤操作：
+    > 如果拓扑使用 Storm 1.0.1 位，此命令会失败。 此失败是由 [https://issues.apache.org/jira/browse/STORM-2055](https://issues.apache.org/jira/browse/STORM-2055) 导致的。 相反，[在开发环境中安装 Storm](http://storm.apache.org/releases/current/Setting-up-development-environment.html)，并按照以下步骤操作：
     >
-    > 如果已[在开发环境中安装 Storm](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html)，则可以改用以下命令：
+    > 如果已[在开发环境中安装 Storm](http://storm.apache.org/releases/current/Setting-up-development-environment.html)，则可以改用以下命令：
     >
     > ```bash
     > mvn compile package
@@ -772,7 +772,7 @@ YAML 文件定义了要用于拓扑的组件以及它们之间的数据流。 �
 
     启动拓扑后，应会发现发出批的间隔时间已发生更改，反映 newtopology.yaml 中的值。 因此可以看到，无需重新编译拓扑即可通过 YAML 文件更改配置。
 
-有关 Flux 框架的上述功能和其他功能的详细信息，请参阅 [Flux https://storm.apache.org/releases/0.10.0/flux.html)](https://storm.apache.org/releases/0.10.0/flux.html)。
+有关 Flux 框架的上述功能和其他功能的详细信息，请参阅 [Flux https://storm.apache.org/releases/1.0.6/flux.html)](https://storm.apache.org/releases/1.0.6/flux.html)。
 
 ## <a name="trident"></a>Trident
 

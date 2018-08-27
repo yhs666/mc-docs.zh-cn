@@ -9,12 +9,12 @@ origin.date: 07/03/2018
 ms.date: 08/06/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 041c274e2e85d00144018eeb3e61058f22fd65b8
-ms.sourcegitcommit: c6205500afd23ac00f2829fe51858b51a622eaf1
+ms.openlocfilehash: 9ce374191d2899d8277c93085cc509ff49316560
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39487803"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42871596"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services 中支持的数据源
 
@@ -32,7 +32,8 @@ ms.locfileid: "39487803"
 |Azure HDInsight HDFS*     |     是     |   否       |
 |Azure HDInsight Spark*     |   是       |   否       |
 ||||
-<!-- 不可用 |Azure Data Lake Store*     |   是       |    否      | -->
+
+<!-- Not Avaiable |Azure Data Lake Store*     |   Yes       |    No      | -->
 
 \* 仅限表格 1400 模型。
 

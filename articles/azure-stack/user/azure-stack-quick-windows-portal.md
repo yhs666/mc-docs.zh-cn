@@ -6,17 +6,17 @@ author: brenduns
 manager: femila
 ms.service: azure-stack
 ms.topic: quickstart
-origin.date: 04/23/2018
-ms.date: 05/23/2018
+origin.date: 08/15/2018
+ms.date: 08/27/2018
 ms.author: v-junlch
 ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: f3dceb8968fc22766d4f50f7ccbfbead33f7fbbc
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: c76e9eeed663300d3b22a6f732f6294ed21e9414
+ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475041"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42869432"
 ---
 # <a name="quickstart-create-a-windows-server-virtual-machine-with-the-azure-stack-portal"></a>快速入门：使用 Azure Stack 门户创建 Windows Server 虚拟机
 
@@ -28,25 +28,25 @@ ms.locfileid: "34475041"
 
 登录到 Azure Stack 门户。 Azure Stack 门户的地址取决于要连接到的 Azure Stack 产品：
 
-- 对于 Azure Stack 开发工具包 (ASDK)，请转到：https://portal.local.azurestack.external。
-- 对于 Azure Stack 集成系统，请转到 Azure Stack 运营商提供的 URL。
+* 对于 Azure Stack 开发工具包 (ASDK)，请转到：https://portal.local.azurestack.external。
+* 对于 Azure Stack 集成系统，请转到 Azure Stack 运营商提供的 URL。
 
 ## <a name="create-a-virtual-machine"></a>创建虚拟机
 
-1. 单击“新建” > “计算” > “Windows Server 2016 Datacenter Eval” > “创建”。 如果未看到“Windows Server 2016 Datacenter Eval”项，请联系 Azure Stack 运营商。 根据[将 Windows Server 2016 VM 映像添加到 Azure Stack Marketplace](../azure-stack-add-default-image.md) 一文中所述，请求运营商将此映像添加到 Marketplace。
+1. 单击“新建” > “计算” > “Windows Server 2016 Datacenter Eval” > “创建”。 如果未看到“Windows Server 2016 Datacenter Eval”项，请联系 Azure Stack 运营商。 根据[将 Windows Server 2016 VM 映像添加到 Azure Stack 市场](../azure-stack-add-default-image.md)一文中所述，请求运营商将此映像添加到市场。
 
-    ![在门户中创建 Windows 虚拟机的步骤](./media/azure-stack-quick-windows-portal/image01.png)
+    ![在门户中创建 Windows 虚拟机的步骤](media/azure-stack-quick-windows-portal/image01.png)
 2. 在“基本信息”下，键入**名称**、**用户名**和**密码**。 选择“订阅”。 创建一个**资源组**或选择现有资源组，选择一个**位置**，然后单击“确定”。
 
-    ![配置基本设置](./media/azure-stack-quick-windows-portal/image02.png)
+    ![配置基本设置](media/azure-stack-quick-windows-portal/image02.png)
 3. 在“选择大小”下，单击“D1 标准” > “选择”。
-    ![选择虚拟机大小](./media/azure-stack-quick-windows-portal/image03.png)
+    ![选择虚拟机大小](media/azure-stack-quick-windows-portal/image03.png)
 4. 在“设置”下，接受默认值，然后单击“确定”。
-    ![配置虚拟机设置](./media/azure-stack-quick-windows-portal/image04.png)
+    ![配置虚拟机设置](media/azure-stack-quick-windows-portal/image04.png)
 5. 在“摘要”下，单击“确定”创建虚拟机。
-    ![查看摘要和创建虚拟机](./media/azure-stack-quick-windows-portal/image05.png)
+    ![查看摘要和创建虚拟机](media/azure-stack-quick-windows-portal/image05.png)
 6. 若要查看新虚拟机，请单击“所有资源”，搜索该虚拟机名称，然后在搜索结果中单击其名称。
-    ![查看虚拟机](./media/azure-stack-quick-windows-portal/image06.png)
+    ![查看虚拟机](media/azure-stack-quick-windows-portal/image06.png)
 
 ## <a name="clean-up-resources"></a>清理资源
 

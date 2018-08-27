@@ -7,17 +7,17 @@ manager: carmonm
 keyword: backups; vm backup
 ms.service: backup
 ms.topic: conceptual
-origin.date: 04/18/2018
-ms.date: 07/06/2018
+origin.date: 08/01/2018
+ms.date: 08/23/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 keywords: 备份; VM 备份
-ms.openlocfilehash: 1ef3603ba1a692f65a285191c3a4c024ec978add
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.openlocfilehash: 8f6c9c66382b541baf4e0dc6780ab9a3d794a005
+ms.sourcegitcommit: 85cdb61361dc61147bac991d4907f454f0684ea0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873404"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42709699"
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vault"></a>将 Azure 虚拟机备份到恢复服务保管库
 

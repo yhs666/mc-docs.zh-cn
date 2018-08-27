@@ -6,12 +6,12 @@ description: 了解如何使用 Azure 云服务构建和管理功能强大的应
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: 1627d87cd223a900ae3c1c3865507877e6905403
-ms.sourcegitcommit: 158812303d7c6b96837f3ca13230a39b124a03ce
+ms.openlocfilehash: b00c50b673236b1647bbcce4cdb60f13c99bfd5a
+ms.sourcegitcommit: b63dc9c6ad116671a5e4dec9f3c5dddf0bb1a1e4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39201927"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42709170"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -110,7 +110,7 @@ ms.locfileid: "39201927"
                                                     <li><a class="barLink" href="/monitoring-and-diagnostics/">Azure Monitor</a></li>
                                                     <li><a class="barLink" href="/backup/">Azure 备份</a></li>
                                                     <li><a class="barLink" href="/site-recovery/">Azure Site Recovery</a></li>
-                                                    <li><a class="barLink" href="/azure-policy/">Azure 策略</a></li>
+                                                    <li><a class="barLink" href="/azure-policy/">Azure Policy</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -217,7 +217,7 @@ Go</a>
                                                 <h3>命令行工具</h3>
                                                 <ul class="noBullet">
                                                     <li>
-                                                        <a class="barLink" href="/cli/overview">
+                                                        <a class="barLink" href="/cli/">
                                                             <img src="media/index/azure_dev-7.svg" alt="">
 Azure CLI </a>
                                                     </li>
@@ -407,6 +407,12 @@ Azure PowerShell </a>
                                                 <p>服务总线</p>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="/logic-apps/">
+                                                <img src="media/index/LogicApp.svg" alt="" />
+                                                <p>Logic Apps</p>
+                                            </a>
+                                        </li>
                                     </ul>
                                     <h3>媒体</h3>
                                     <ul>
@@ -548,6 +554,15 @@ Azure PowerShell </a>
                                             </a>
                                         </li>
                                     </ul>
+                                    <h3>迁移</h3>
+                                    <ul>
+                                        <li>
+                                            <a href="/site-recovery/">
+                                                <img src="media/index/SiteRecovery.svg" alt="" />
+                                                <p>站点恢复</p>
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </div>
                             </li>
                             <li>
@@ -558,6 +573,12 @@ Azure PowerShell </a>
                                             <a href="/storage/">
                                                 <img src="media/index/Storage.svg" alt="" />
                                                 <p>存储</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/storage/data-lake-storage/introduction">
+                                                <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
+                                                <p>Data Lake Storage Gen2</p>
                                             </a>
                                         </li>
                                         <li>
@@ -594,6 +615,12 @@ Azure PowerShell </a>
                                             <a href="/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows">
                                                 <img src="media/index/storage.svg" alt="" />
                                                 <p>存储资源管理器</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/storage/blobs/storage-blob-storage-tiers">
+                                                <img src="media/index/storage.svg" alt="" />
+                                                <p>存档存储</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -681,6 +708,12 @@ Azure PowerShell </a>
                                             <a href="/stream-analytics/">
                                                 <img src="media/index/StreamAnalytics.svg" alt="" />
                                                 <p>流分析</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/logic-apps/">
+                                                <img src="media/index/LogicApp.svg" alt="" />
+                                                <p>Logic Apps</p>
                                             </a>
                                         </li>
                                         <li>
@@ -893,9 +926,15 @@ Azure PowerShell </a>
                                         </li>
                                         <li>
                                         <li>
+                                            <a href="/app-service-mobile">
+                                                <img src="https://docs.microsoft.com/media/common/i_mobile-app-developement.svg" alt="" />
+                                                <p>Azure 移动应用</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure-policy/">
                                                 <img src="media/index/governance.svg" alt="" />
-                                                <p>Azure 策略</p>
+                                                <p>Azure Policy</p>
                                             </a>
                                         </li>
                                             <a href="/billing/">
@@ -1275,7 +1314,26 @@ Azure PowerShell </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>存储</h3>
-                                                    <p>持久、高度可用、高度可缩放的云存储</p>
+                                                    <p>持久、高度可用且高度可缩放的云存储</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/storage/data-lake-storage/introduction">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Data Lake Storage Gen2</h3>
+                                                    <p>与 Blob 存储集成的、高度可缩放的安全 Data Lake 存储</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1390,6 +1448,25 @@ Azure PowerShell </a>
                                                 <div class="cardText">
                                                     <h3>存储资源管理器</h3>
                                                     <p>在任意位置从 Windows、macOS 和 Linux 轻松管理存储</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/storage/blobs/storage-blob-storage-tiers">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/storage.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>存档存储</h3>
+                                                    <p>对不常访问的数据进行低成本且安全的云存储</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2675,7 +2752,7 @@ Azure PowerShell </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure 策略</h3>
+                                                    <h3>Azure Policy</h3>
                                                     <p>为 Azure 资源大规模实施公司管理和标准</p>
                                                 </div>
                                             </div>
@@ -2918,7 +2995,7 @@ Azure PowerShell </a>
                                                     <a href="/dotnet/">入门</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/dotnet/api/overview/">API 参考</a>
+                                                    <a href="/dotnet/api/overview/?view=azure-dotnet">API 参考</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2987,7 +3064,7 @@ Azure PowerShell </a>
                                                     <a href="/java">入门</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/java/api/">API 参考</a>
+                                                    <a href="/java/api">API 参考</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -3084,38 +3161,6 @@ Azure CLI </h3>
                                                 </p>
                                                 <p>
                                                     <a target="_blank" href="https://docs.microsoft.com/powershell/azure/overview">参考</a>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="cardSize">
-                                    <div class="cardPadding">
-                                        <div class="card">
-                                            <div class="cardImageOuter">
-                                                <div class="cardImage">
-                                                    <img src="media/index/azure_dev-10.svg" alt="" />
-                                                </div>
-                                            </div>
-                                            <div class="cardText">
-                                                <h3>
-Azure CLI </h3>
-                                                <p>
-                                                    <a href="/xplat-cli-install?toc=%2fvirtual-machines%2flinux%2ftoc.json">入门</a>
-                                                </p>
-                                                <p>
-                                                    <a target="_blank" href="http://aka.ms/linux-azure-cli">下载用于 Linux 的 Azure CLI</a>
-                                                </p>
-                                                <p>
-                                                    <a target="_blank" href="http://aka.ms/mac-azure-cli">下载用于 Mac 的 Azure CLI</a>
-                                                </p>
-                                                <p>
-                                                    <a target="_blank" href="http://aka.ms/webpi-azure-cli">下载用于 Windows 的 Azure CLI</a>
-                                                </p>
-                                                <p>
-                                                    <a href="/virtual-machines/azure-cli-arm-commands?toc=%2fvirtual-machines%2flinux%2ftoc.json">参考</a>
                                                 </p>
                                             </div>
                                         </div>

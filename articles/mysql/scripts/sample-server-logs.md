@@ -12,12 +12,12 @@ ms.topic: sample
 ms.custom: mvc
 origin.date: 02/28/2018
 ms.date: 08/13/2018
-ms.openlocfilehash: 9112d74f34c905347cb6f501b7934dfda52dc1fb
-ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
+ms.openlocfilehash: 1a8624ed39bb61fd85abefab067cf967c8d06750
+ms.sourcegitcommit: 6dd65fba579a2ce25c63ac69ff3b71d814a9d256
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39722933"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42703880"
 ---
 # <a name="enable-and-download-server-slow-query-logs-of-an-azure-database-for-mysql-server-using-azure-cli"></a>使用 Azure CLI 启用和下载 Azure Database for MySQL 服务器的服务器慢查询日志
 
@@ -98,13 +98,13 @@ az group delete --name myresource
 
 | **命令** | **说明** |
 |---|---|
-| [az group create](/cli/group#az_group_create) | 创建用于存储所有资源的资源组。 |
-| [az mysql server create](/cli/mysql/server#az_msql_server_create) | 创建用于托管数据库的 MySQL 服务器。 |
-| [az mysql server configuration list](/cli/mysql/server/configuration#az_mysql_server_configuration_list) | 列出服务器的配置值。 |
-| [az mysql server configuration set](/cli/mysql/server/configuration#az_mysql_server_configuration_set) | 更新服务器的配置。 |
-| [az mysql server-logs list](/cli/mysql/server-logs#az_mysql_server_logs_list) | 列出服务器的日志文件。 |
-| [az mysql server-logs download](/cli/mysql/server-logs#az_mysql_server_logs_download) | 下载日志文件。 |
-| [az group delete](/cli/group#az_group_delete) | 删除资源组，包括所有嵌套的资源。 |
+| [az group create](/cli/group#az-group-create) | 创建用于存储所有资源的资源组。 |
+| [az mysql server create](/cli/mysql/server#az-msql-server-create) | 创建用于托管数据库的 MySQL 服务器。 |
+| [az mysql server configuration list](/cli/mysql/server/configuration#az-mysql-server-configuration-list) | 列出服务器的配置值。 |
+| [az mysql server configuration set](/cli/mysql/server/configuration#az-mysql-server-configuration-set) | 更新服务器的配置。 |
+| [az mysql server-logs list](/cli/mysql/server-logs#az-mysql-server-logs-list) | 列出服务器的日志文件。 |
+| [az mysql server-logs download](/cli/mysql/server-logs#az-mysql-server-logs-download) | 下载日志文件。 |
+| [az group delete](/cli/group#az-group-delete) | 删除资源组，包括所有嵌套的资源。 |
 
 ## <a name="next-steps"></a>后续步骤
 - 有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](/cli)。
