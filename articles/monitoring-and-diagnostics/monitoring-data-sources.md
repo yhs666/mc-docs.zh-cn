@@ -7,16 +7,16 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-origin.date: 03/27/2017
+ms.topic: conceptual
+origin.date: 06/12/2018
 ms.author: v-yiso
-ms.date: 07/23/2018
-ms.openlocfilehash: 2019a5f2042d5e739573ca03173c95ec61ebbeea
-ms.sourcegitcommit: 479954e938e4e3469d6998733aa797826e4f300b
+ms.date: 08/20/2018
+ms.openlocfilehash: 3fbeda9711382f0e2ae252cc7a7bb977d22ca3e7
+ms.sourcegitcommit: 664584f55e0a01bb6558b8d3349d41d3f05ba4d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39031714"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41706236"
 ---
 # <a name="consume-monitoring-data-from-azure"></a>使用 Azure 中的监视数据
 

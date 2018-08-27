@@ -11,13 +11,13 @@ ms.devlang: azure-cli
 ms.topic: sample
 ms.custom: mvc
 origin.date: 04/05/2018
-ms.date: 08/13/2018
-ms.openlocfilehash: c70c16ce5eeaf0a5718f28d5a749efb80398d689
-ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
+ms.date: 08/27/2018
+ms.openlocfilehash: ee4e7025f0781ebe74563f50fbc8aa0380306fda
+ms.sourcegitcommit: 6dd65fba579a2ce25c63ac69ff3b71d814a9d256
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39723118"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42703830"
 ---
 # <a name="monitor-and-scale-an-azure-database-for-mysql-server-using-azure-cli"></a>使用 Azure CLI 监视和缩放用于 MySQL 服务器的 Azure 数据库
 
@@ -89,10 +89,10 @@ az group delete --name myresource
 
 | **命令** | **说明** |
 |---|---|
-| [az group create](/cli/group#az_group_create) | 创建用于存储所有资源的资源组。 |
-| [az mysql server create](/cli/mysql/server#az_mysql_server_create) | 创建用于托管数据库的 MySQL 服务器。 |
-| [az monitor metrics list](/cli/monitor/metrics#az_monitor_metrics_list) | 列出资源的指标值。 |
-| [az group delete](/cli/group#az_group_delete) | 删除资源组，包括所有嵌套的资源。 |
+| [az group create](/cli/group#az-group-create) | 创建用于存储所有资源的资源组。 |
+| [az mysql server create](/cli/mysql/server#az-mysql-server-create) | 创建用于托管数据库的 MySQL 服务器。 |
+| [az monitor metrics list](/cli/monitor/metrics#az-monitor-metrics-list) | 列出资源的指标值。 |
+| [az group delete](/cli/group#az-group-delete) | 删除资源组，包括所有嵌套的资源。 |
 
 ## <a name="next-steps"></a>后续步骤
 - 有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](/cli)。

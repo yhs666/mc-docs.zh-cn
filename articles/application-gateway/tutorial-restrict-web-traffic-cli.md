@@ -8,15 +8,15 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.workload: infrastructure-services
 origin.date: 07/14/2018
-ms.date: 08/07/2018
+ms.date: 08/22/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: b0f22148effd0beedb5e1ac66662ced8f5dbc4dc
-ms.sourcegitcommit: a1c6a743b4be62477e7debfc9ea5f03afca2bc8f
+ms.openlocfilehash: f27924374fd682079c950beb5769008c3b6f2e25
+ms.sourcegitcommit: da9f7b0825e493636d6596eb6ae95d03e0626583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39625144"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "41734349"
 ---
 # <a name="tutorial-enable-web-application-firewall-using-the-azure-cli"></a>教程：使用 Azure CLI 启用 Web 应用程序防火墙
 
@@ -40,7 +40,7 @@ ms.locfileid: "39625144"
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
-资源组是在其中部署和管理 Azure 资源的逻辑容器。 使用 [az group create](/cli/group#az_group_create) 创建名为 *myResourceGroupAG* 的 Azure 资源组。
+资源组是在其中部署和管理 Azure 资源的逻辑容器。 使用 [az group create](/cli/group#az-group-create) 创建名为 *myResourceGroupAG* 的 Azure 资源组。
 
 ```azurecli 
 az group create --name myResourceGroupAG --location chinanorth
@@ -48,7 +48,7 @@ az group create --name myResourceGroupAG --location chinanorth
 
 ## <a name="create-network-resources"></a>创建网络资源
 
-虚拟网络和子网用于提供与应用程序网关及其关联资源的网络连接。 分别使用 [az network vnet create](/cli/network/vnet#az_network_vnet_create) 和 [az network vnet subnet create](/cli/network/vnet/subnet#az_network_vnet_subnet_create) 创建名为 *myVNet* 的虚拟网络和名为 *myAGSubnet* 的子网。 使用 [az network public-ip create](/cli/network/public-ip#az_network_public_ip_create) 创建名为 *myAGPublicIPAddress* 的公共 IP 地址。
+虚拟网络和子网用于提供与应用程序网关及其关联资源的网络连接。 分别使用 [az network vnet create](/cli/network/vnet#az-network-vnet-create) 和 [az network vnet subnet create](/cli/network/vnet/subnet#az-network-vnet-subnet-create) 创建名为 *myVNet* 的虚拟网络和名为 *myAGSubnet* 的子网。 使用 [az network public-ip create](/cli/network/public-ip#az-network-public-ip-create) 创建名为 *myAGPublicIPAddress* 的公共 IP 地址。
 
 ```azurecli
 az network vnet create `
@@ -72,7 +72,7 @@ az network public-ip create `
 
 ## <a name="create-an-application-gateway-with-a-waf"></a>创建具有 WAF 的应用程序网关
 
-可以使用 [az network application-gateway create](/cli/network/application-gateway#az_application_gateway_create) 创建名为 *myAppGateway* 的应用程序网关。 使用 Azure CLI 创建应用程序网关时，请指定配置信息，例如容量、sku 和 HTTP 设置。 将应用程序网关分配给之前创建的 *myAGSubnet* 和 *myPublicIPSddress*。
+可以使用 [az network application-gateway create](/cli/network/application-gateway#az-application-gateway-create) 创建名为 *myAppGateway* 的应用程序网关。 使用 Azure CLI 创建应用程序网关时，请指定配置信息，例如容量、sku 和 HTTP 设置。 将应用程序网关分配给之前创建的 *myAGSubnet* 和 *myPublicIPSddress*。
 
 ```azurecli
 az network application-gateway create `
@@ -107,7 +107,7 @@ az network application-gateway waf-config set `
 
 ## <a name="create-a-virtual-machine-scale-set"></a>创建虚拟机规模集
 
-在此示例中，将创建虚拟机规模集，以便为应用程序网关的后端池提供两个服务器。 规模集中的虚拟机与 *myBackendSubnet* 子网相关联。 若要创建规模集，可以使用 [az vmss create](/cli/vmss#az_vmss_create)。
+在此示例中，将创建虚拟机规模集，以便为应用程序网关的后端池提供两个服务器。 规模集中的虚拟机与 *myBackendSubnet* 子网相关联。 若要创建规模集，可以使用 [az vmss create](/cli/vmss#az-vmss-create)。
 
 ```azurecli
 az vmss create `
@@ -139,7 +139,7 @@ az vmss extension set `
 
 ## <a name="test-the-application-gateway"></a>测试应用程序网关
 
-若要获取应用程序网关的公共 IP 地址，请使用 [az network public-ip show](/cli/network/public-ip#az_network_public_ip_show)。 复制该公共 IP 地址，并将其粘贴到浏览器的地址栏。
+若要获取应用程序网关的公共 IP 地址，请使用 [az network public-ip show](/cli/network/public-ip#az-network-public-ip-show)。 复制该公共 IP 地址，并将其粘贴到浏览器的地址栏。
 
 ```azurepowershell
 az network public-ip show `
@@ -172,4 +172,4 @@ az group delete --name myResourceGroupAG --location chinanorth
 > [!div class="nextstepaction"]
 > [使用 SSL 终端创建应用程序网关](./tutorial-ssl-cli.md)
 
-<!-- Update_Description: code update -->
+<!-- Update_Description: link update -->

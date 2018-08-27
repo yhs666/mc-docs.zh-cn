@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/18/2017
-ms.date: 05/28/2018
+ms.date: 08/20/2018
 ms.author: v-yeche
-ms.openlocfilehash: 8fab462406ce9411dae27d5c884602aca202e443
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: 5ab1b4b57e544abbd54cb7dc3df04610b40fe720
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554652"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41706230"
 ---
 # <a name="reliable-services-lifecycle-overview"></a>Reliable Services 生命周期概述
 > [!div class="op_single_selector"]
@@ -80,7 +80,10 @@ ms.locfileid: "34554652"
     - 如果该服务目前是主要服务，则调用该服务的 `StatefulServiceBase.RunAsync()` 方法。
 4. 所有副本侦听器的 `OpenAsync()` 调用完成并已调用 `RunAsync()` 后，将调用 `StatefulServiceBase.OnChangeRoleAsync()`。 此调用是服务中不常见的重写。
 
-类似于无状态服务，创建和打开侦听器的顺序以及调用 **RunAsync** 的时间不会经过协调。 如果需要协调，解决方法大致相同。 对于有状态服务，还存在一种情况。 假设抵达通信侦听器的调用需要在某个 [Reliable Collections](service-fabric-reliable-services-reliable-collections.md) 中保存信息。 由于通信侦听器可能在 Reliable Collections 可读或可写之前打开，因此，在 **RunAsync** 可以启动之前，必须经过一定的附加协调。 最简单且最常见的解决方法是让通信侦听器返回错误代码，告知客户端重试请求。
+    类似于无状态服务，创建和打开侦听器的顺序以及调用 **RunAsync** 的时间不会经过协调。 如果需要协调，解决方法大致相同。 对于有状态服务，还存在一种情况。 假设抵达通信侦听器的调用需要在某个 [Reliable Collections](service-fabric-reliable-services-reliable-collections.md) 中保存信息。
+
+    > [!NOTE]  
+    > 由于通信侦听器可能在 Reliable Collections 可读或可写之前打开，因此，在 **RunAsync** 可以启动之前，必须经过一定的附加协调。 最简单且最常见的解决方法是让通信侦听器返回错误代码，告知客户端重试请求。
 
 ## <a name="stateful-service-shutdown"></a>有状态服务关闭
 与无状态服务一样，关闭期间的生命周期事件与启动期间是相同的，但顺序相反。 关闭有状态服务时，将发生以下事件：
@@ -137,4 +140,4 @@ Service Fabric 更改有状态服务的主要副本的原因有多种。 最常�
 - [Reliable Services 快速启动](service-fabric-reliable-services-quick-start.md)
 - [副本和实例](service-fabric-concepts-replica-lifecycle.md)
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties  -->

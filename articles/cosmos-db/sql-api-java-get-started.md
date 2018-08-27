@@ -10,14 +10,14 @@ ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: tutorial
 origin.date: 05/22/2017
-ms.date: 07/02/2018
+ms.date: 08/13/2018
 ms.author: v-yeche
-ms.openlocfilehash: 49bf601e49d0b389cb0cb19959914a6fd1a41170
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: e9624d0ee1120bb103ad04075942f1e0da47dbc7
+ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38938996"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41706222"
 ---
 # <a name="nosql-tutorial-build-a-sql-api-java-console-application"></a>NoSQL 教程：构建 SQL API Java 控制台应用程序
 > [!div class="op_single_selector"]
@@ -26,7 +26,6 @@ ms.locfileid: "38938996"
 > * [用于 MongoDB 的 Node.js](mongodb-samples.md)
 > * [Node.js](sql-api-nodejs-get-started.md)
 > * [Java](sql-api-java-get-started.md)
-> * [C++](sql-api-cpp-get-started.md)
 >  
 > 
 
@@ -201,4 +200,4 @@ Azure Cosmos DB 支持使用 [deleteDocument](https://docs.azure.cn/java/api/com
 * 在 [Query Playground](https://www.documentdb.com/sql/demo)中对示例数据集运行查询。
 
 [keys]: media/sql-api-get-started/nosql-tutorial-keys.png
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties, update link -->

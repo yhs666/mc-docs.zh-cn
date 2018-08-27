@@ -10,14 +10,14 @@ ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: quickstart
 ms.date: 04/01/2018
-origin.date: 08/13/2018
+origin.date: 08/27/2018
 ms.custom: mvc
-ms.openlocfilehash: 08159e2971dc88df8ff100686421530869586c40
-ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
+ms.openlocfilehash: 3d5b5c466a410beff2d9f6996f1480adadce8df8
+ms.sourcegitcommit: 6dd65fba579a2ce25c63ac69ff3b71d814a9d256
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39723125"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42703824"
 ---
 # <a name="create-an-azure-database-for-mysql-server-using-azure-cli"></a>使用 Azure CLI 为 MySQL 服务器创建 Azure 数据库
 
@@ -26,7 +26,7 @@ ms.locfileid: "39723125"
 
 本快速入门教程介绍如何使用 Azure CLI 在大约 5 分钟内在 Azure 资源组中为 MySQL 服务器创建 Azure 数据库。 Azure CLI 用于从命令行或脚本创建和管理 Azure 资源。
 
-如果没有 Azure 订阅，请在开始之前创建一个[免费](https://azure.microsoft.com/free/)帐户。
+如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
 
 本文要求运行 Azure CLI 2.0 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0]( /cli/install-azure-cli)。 
 
@@ -36,7 +36,7 @@ az account set --subscription 00000000-0000-0000-0000-000000000000
 ```
 
 ## <a name="create-a-resource-group"></a>创建资源组
-使用 [az group create](/cli/group#az_group_create) 命令创建 [Azure 资源组](../azure-resource-manager/resource-group-overview.md)。 资源组是在其中以组的形式部署和管理 Azure 资源的逻辑容器。
+使用 [az group create](/cli/group#az-group-create) 命令创建 [Azure 资源组](/azure-resource-manager/resource-group-overview)。 资源组是在其中以组的形式部署和管理 Azure 资源的逻辑容器。
 
 以下示例在 `chinaeast2` 位置创建名为 `myresourcegroup` 的资源组。
 
@@ -45,7 +45,7 @@ az group create --name myresourcegroup --location chinaeast2
 ```
 
 ## <a name="create-an-azure-database-for-mysql-server"></a>创建 Azure Database for MySQL 服务器
-使用 **[az mysql server create](/cli/mysql/server#az_mysql_server_create)** 命令创建 Azure Database for MySQL 服务器。 一个服务器可以管理多个数据库。 通常，每个项目或每个用户使用一个单独的数据库。
+使用 **[az mysql server create](/cli/mysql/server#az-mysql-server-create)** 命令创建 Azure Database for MySQL 服务器。 一个服务器可以管理多个数据库。 通常，每个项目或每个用户使用一个单独的数据库。
 
 下面的示例使用服务器管理员登录名 `myadmin` 在资源组 `myresourcegroup` 中创建位于“中国东部 2”区域的名为 `mydemoserver` 的服务器。 这是**第 5 代****常规用途**服务器，带有 2 个 **vCore**。 服务器的名称映射到 DNS 名称，因此需要在 Azure 中全局唯一。 用自己的值替换 `<server_admin_password>`。
 ```cli
@@ -59,7 +59,7 @@ sku-name 参数值遵循 {定价层}\_{计算层代}\_{vCore 数} 约定，如�
 请参阅[定价层](./concepts-pricing-tiers.md)文档来了解适用于每个区域和每个层的有效值。
 
 ## <a name="configure-firewall-rule"></a>配置防火墙规则
-使用 **[az mysql server firewall-rule create](/cli/mysql/server/firewall-rule#az_mysql_server_firewall_rule_create)** 命令创建 Azure Database for MySQL 服务器级防火墙规则。 服务器级防火墙规则允许外部应用程序（如 **mysql.exe** 命令行工具或 MySQL Workbench）通过 Azure MySQL 服务防火墙连接到服务器。 
+使用 **[az mysql server firewall-rule create](/cli/mysql/server/firewall-rule#az-mysql-server-firewall-rule-create)** 命令创建 Azure Database for MySQL 服务器级防火墙规则。 服务器级防火墙规则允许外部应用程序（如 **mysql.exe** 命令行工具或 MySQL Workbench）通过 Azure MySQL 服务防火墙连接到服务器。 
 
 以下示例创建名为 `AllowMyIP` 的防火墙规则，该规则允许从特定的 IP 地址 (192.168.0.1) 进行连接。 替代与要从其进行连接的地址相对应的 IP 地址或 IP 地址范围。 
 
@@ -120,7 +120,7 @@ az mysql server show --resource-group myresourcegroup --name mydemoserver
 ```
 
 ## <a name="connect-to-the-server-using-the-mysqlexe-command-line-tool"></a>使用 mysql.exe 命令行工具连接到服务器
-使用 mysql.exe 命令行工具连接到服务器。 可从[此处](https://dev.mysql.com/downloads/)下载 MySQL 并将其安装在计算机上。 还可以单击代码示例上的“试用”按钮或 Azure 门户中右上角工具栏的 `>_` 按钮，启动“Azure Cloud Shell”。
+使用 mysql.exe 命令行工具连接到服务器。 可从[此处](https://dev.mysql.com/downloads/)下载 MySQL 并将其安装在计算机上。 
 
 键入下一命令： 
 

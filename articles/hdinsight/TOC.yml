@@ -1,5 +1,6 @@
+items:
 - name: HDInsight 文档
-  href: index.md
+  href: index.yml
 - name: Hadoop
   href: ./hadoop/apache-hadoop-introduction.md
 - name: Spark
@@ -12,3 +13,9 @@
   href: ./kafka/apache-kafka-introduction.md
 - name: Storm
   href: ./storm/apache-storm-overview.md
+ms.openlocfilehash: 0c9d5a3e2c80ed57a55c6f3f9171f0215b15f792
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41705338"

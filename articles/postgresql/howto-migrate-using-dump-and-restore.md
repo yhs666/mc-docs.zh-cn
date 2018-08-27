@@ -8,14 +8,14 @@ manager: digimobile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-origin.date: 06/01/2018
-ms.date: 08/13/2018
-ms.openlocfilehash: 4abe3668c762271cd66baca32a3690dfd191a048
-ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
+origin.date: 07/19/2018
+ms.date: 08/27/2018
+ms.openlocfilehash: 2ebad184cf61cfe57a845856b0eb590245d60c02
+ms.sourcegitcommit: 6dd65fba579a2ce25c63ac69ff3b71d814a9d256
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39723108"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42703847"
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>使用转储和还原迁移 PostgreSQL 数据库
 可以使用 [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) 将 PostgreSQL 数据库提取到转储文件，并使用 [pg_restore](https://www.postgresql.org/docs/9.3/static/app-pgrestore.html) 从 pg_dump 创建的存档文件中还原 PostgreSQL 数据库。
@@ -47,6 +47,12 @@ pg_dump -Fc -v --host=localhost --username=masterlogin --dbname=testdb > testdb.
 pg_restore -v --no-owner –-host=<server name> --port=<port> --username=<user@servername> --dbname=<target database name> <database>.dump
 ```
 包括 --no-owner 参数会导致还原过程中创建的所有对象由使用 --username 指定的用户拥有。 有关详细信息，请参阅有关 [pg_restore](https://www.postgresql.org/docs/9.6/static/app-pgrestore.html) 的正式 PostgreSQL 文档。
+
+> [!NOTE]
+> 如果 PostgreSQL 服务器需要 SSL 连接（默认情况下在 Azure Database for PostgreSQL 服务器中启用），请设置环境变量 `PGSSLMODE=require`，以便 pg_restore 工具使用 SSL 连接。 如果不使用 SSL，错误可能会显示为 `FATAL:  SSL connection is required. Please specify SSL options and retry.`
+>
+> 在 Windows 命令行中，在运行 pg_restore 命令之前运行命令 `SET PGSSLMODE=require`。 在 Linux 或 Bash 中，在运行 pg_restore 命令之前运行命令 `export PGSSLMODE=require`。
+>
 
 在此示例中，请将数据从转储文件 **testdb.dump** 还原到目标服务器 **mydemoserver.postgres.database.chinacloudapi.cn** 上的数据库 **mypgsqldb**。 
 ```bash

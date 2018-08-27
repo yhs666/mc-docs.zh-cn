@@ -8,15 +8,15 @@ tags: azure-resource-manager, virtual-machine-backup
 ms.service: backup
 ms.topic: tutorial
 origin.date: 02/14/2018
-ms.date: 07/06/2018
+ms.date: 08/22/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: eaa9060c6cac83129ca50874bc3929fd1a558d95
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.openlocfilehash: b8dc272692510ccc6ff8e704bbd27eb72c8875bd
+ms.sourcegitcommit: 85cdb61361dc61147bac991d4907f454f0684ea0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873628"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42709730"
 ---
 # <a name="restore-files-to-a-virtual-machine-in-azure"></a>将文件还原到 Azure 中的虚拟机
 Azure 备份可创建恢复点，这些恢复点存储在异地冗余的恢复保管库中。 从恢复点还原时，可以还原整个 VM，也可以还原单个文件。 本文将详细介绍如何还原单个文件。 本教程介绍如何执行下列操作：
@@ -44,7 +44,7 @@ Azure 备份可创建恢复点，这些恢复点存储在异地冗余的恢复�
 ## <a name="delete-a-file-from-a-vm"></a>从 VM 中删除文件
 如果意外删除文件或对文件进行了更改，则可以从恢复点还原单个文件。 此过程允许你浏览恢复点中备份的文件并仅还原所需的文件。 在此示例中，我们从 Web 服务器中删除文件来演示文件级恢复过程。
 
-1. 若要连接到 VM，请使用 [az vm show](/cli/vm?view=azure-cli-latest#az_vm_show) 获取 VM 的 IP 地址：
+1. 若要连接到 VM，请使用 [az vm show](/cli/vm?view=azure-cli-latest#az-vm-show) 获取 VM 的 IP 地址：
 
      ```azurecli
      az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --o tsv
@@ -80,7 +80,7 @@ Azure 备份可创建恢复点，这些恢复点存储在异地冗余的恢复�
 ## <a name="generate-file-recovery-script"></a>生成文件恢复脚本
 为了还原文件，Azure 备份提供了一个脚本，以在将恢复点连接为本地驱动器的 VM 上运行。 你可以浏览该本地驱动器，将文件还原到该 VM，然后断开恢复点。 Azure 备份将根据计划和保留的分配策略继续备份数据。
 
-1. 若要列出 VM 的恢复点，请使用 [az backup recoverypoint list](/cli/backup/recoverypoint?view=azure-cli-latest#az_backup_recoverypoint_list) 命令。 在此示例中，我们为在 myRecoveryServicesVault 中受保护的名为 myVM 的 VM 选择最近的恢复点：
+1. 若要列出 VM 的恢复点，请使用 [az backup recoverypoint list](/cli/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-list) 命令。 在此示例中，我们为在 myRecoveryServicesVault 中受保护的名为 myVM 的 VM 选择最近的恢复点：
 
     ```azurecli
     az backup recoverypoint list \
@@ -92,7 +92,7 @@ Azure 备份可创建恢复点，这些恢复点存储在异地冗余的恢复�
         --output tsv
     ```
 
-2. 若要获取将恢复点连接或装载到 VM 的脚本，请使用 [az backup restore files mount-rp](/cli/backup/restore/files?view=azure-cli-latest#az_backup_restore_files_mount_rp) 命令。 下面的示例可为在 myRecoveryServicesVault 中受保护的名为 myVM 的 VM 获取脚本。
+2. 若要获取将恢复点连接或装载到 VM 的脚本，请使用 [az backup restore files mount-rp](/cli/backup/restore/files?view=azure-cli-latest#az-backup-restore-files-mount-rp) 命令。 下面的示例可为在 myRecoveryServicesVault 中受保护的名为 myVM 的 VM 获取脚本。
 
     将 myRecoveryPointName 替换为你在前一个命令中获取的恢复点的名称：
 
@@ -139,7 +139,7 @@ Azure 备份可创建恢复点，这些恢复点存储在异地冗余的恢复�
     ./myVM_we_1571974050985163527.sh
     ```
 
-    在脚本运行时，系统会提示你输入密码以访问恢复点。 输入在上一个生成恢复脚本的 [az backup restore files mount-rp](/cli/backup/restore/files?view=azure-cli-latest#az_backup_restore_files_mount_rp) 命令输出中显示的密码。
+    在脚本运行时，系统会提示你输入密码以访问恢复点。 输入在上一个生成恢复脚本的 [az backup restore files mount-rp](/cli/backup/restore/files?view=azure-cli-latest#az-backup-restore-files-mount-rp) 命令输出中显示的密码。
 
     脚本的输出将提供恢复点的路径。 下面的示例输出显示恢复点已装入 /home/azureuser/myVM-20170919213536/Volume1：
 
@@ -179,7 +179,7 @@ Azure 备份可创建恢复点，这些恢复点存储在异地冗余的恢复�
     exit
     ```
 
-8. 使用 [az backup restore files unmount-rp](/cli/backup/restore/files?view=azure-cli-latest#az_backup_restore_files_unmount_rp) 从 VM 卸载恢复点。 下面的示例从 myRecoveryServicesVault 中名为 myVM 的 VM 卸载恢复点。
+8. 使用 [az backup restore files unmount-rp](/cli/backup/restore/files?view=azure-cli-latest#az-backup-restore-files-unmount-rp) 从 VM 卸载恢复点。 下面的示例从 myRecoveryServicesVault 中名为 myVM 的 VM 卸载恢复点。
 
     将 myRecoveryPointName 替换为你在之前命令中获取的恢复点的名称。
     
@@ -205,4 +205,4 @@ Azure 备份可创建恢复点，这些恢复点存储在异地冗余的恢复�
 > [!div class="nextstepaction"]
 > [将 Windows Server 备份到 Azure](tutorial-backup-windows-server-to-azure.md)
 
-<!--Update_Description: update metedata properties -->
+<!-- Update_Description: link update -->

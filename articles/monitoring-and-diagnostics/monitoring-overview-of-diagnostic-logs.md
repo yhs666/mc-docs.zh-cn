@@ -6,14 +6,14 @@ services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 origin.date: 06/07/2018
-ms.date: 07/23/2018
+ms.date: 08/20/2018
 ms.author: v-yiso
-ms.openlocfilehash: 01a8efcadba4f2083c4be679649dc919810c51e9
-ms.sourcegitcommit: 479954e938e4e3469d6998733aa797826e4f300b
+ms.openlocfilehash: 8fd2214bdb3e85d9af928db4cd6ed1e4fb26535e
+ms.sourcegitcommit: 664584f55e0a01bb6558b8d3349d41d3f05ba4d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39031740"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41706237"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>从 Azure 资源收集和使用日志数据
 
@@ -42,6 +42,11 @@ ms.locfileid: "39031740"
 > [!NOTE]
 >  当前无法将数据存档到安全虚拟网络中的存储帐户。
 
+> [!WARNING]
+> 存储帐户中日志数据的格式将在 2018 年 11 月 1 日更改为 JSON Lines。 [请参阅此文章来了解此影响，以及如何通过更新工具来处理新格式。](./monitor-diagnostic-logs-append-blobs.md) 
+>
+> 
+
 ## <a name="resource-diagnostic-settings"></a>资源诊断设置
 非计算资源的资源诊断日志是使用资源诊断设置配置的。 资源控制的**资源诊断设置**：
 
@@ -50,7 +55,7 @@ ms.locfileid: "39031740"
 * 应该将每个日志类别在存储帐户中保留多长时间
     - 保留期为 0 天意味着永久保留日志。 如果不需永久保留，则可将该值设置为 1 到 2147483647 之间的任意天数。
     - 如果设置了保留策略，但禁止将日志存储在存储帐户中（例如，如果仅选择事件中心），则保留策略无效。
-    - 保留策略按天应用，因此在一天结束时 (UTC)，将会删除当天已超过保留策略期限的日志。 例如，假设保留策略的期限为一天，则在今天开始时，会删除前天的日志。
+    - 保留策略按天应用，因此在一天结束时 (UTC)，将会删除当天已超过保留策略期限的日志。 例如，假设保留策略的期限为一天，则在今天开始时，会删除前天的日志。 删除过程从 UTC 晚上 12 点开始，但请注意，可能需要最多 24 小时才能将日志从存储帐户中删除。
 
 这些设置可以通过诊断设置（适用于 Azure 门户中的资源）、Azure PowerShell 和 CLI 命令或 [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931943.aspx) 轻松进行配置。
 

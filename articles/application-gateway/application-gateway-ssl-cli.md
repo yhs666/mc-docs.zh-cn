@@ -9,14 +9,14 @@ ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 origin.date: 07/14/2018
-ms.date: 08/08/2018
+ms.date: 08/22/2018
 ms.author: v-junlch
-ms.openlocfilehash: f7606da477daec56df592772a3510e8439d93361
-ms.sourcegitcommit: a1c6a743b4be62477e7debfc9ea5f03afca2bc8f
+ms.openlocfilehash: 25d85037a76492b7891ff1c677f84e8914f43279
+ms.sourcegitcommit: da9f7b0825e493636d6596eb6ae95d03e0626583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39625142"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "41734319"
 ---
 # <a name="create-an-application-gateway-with-ssl-termination-using-the-azure-cli"></a>通过 Azure CLI 使用 SSL 终端创建应用程序网关
 
@@ -62,7 +62,7 @@ az group create --name myResourceGroupAG --location chinanorth
 
 ## <a name="create-network-resources"></a>创建网络资源
 
-使用 [az network vnet create](/cli/network/vnet#az_net) 创建名为 *myVNet* 的虚拟网络和名为 *myAGSubnet* 的子网。 然后，可以使用 [az network vnet subnet create](/cli/network/vnet/subnet#az_network_vnet_subnet_create) 添加后端服务器所需的名为 *myBackendSubnet* 的子网。 使用 [az network public-ip create](/cli/network/public-ip#az_network_public_ip_create) 创建名为 *myAGPublicIPAddress* 的公共 IP 地址。
+使用 [az network vnet create](/cli/network/vnet#az-net) 创建名为 *myVNet* 的虚拟网络和名为 *myAGSubnet* 的子网。 然后，可以使用 [az network vnet subnet create](/cli/network/vnet/subnet#az-network_vnet_subnet_create) 添加后端服务器所需的名为 *myBackendSubnet* 的子网。 使用 [az network public-ip create](/cli/network/public-ip#az-network_public_ip_create) 创建名为 *myAGPublicIPAddress* 的公共 IP 地址。
 
 ```azurecli
 az network vnet create `
@@ -117,7 +117,7 @@ az network application-gateway create `
 
 ## <a name="create-a-virtual-machine-scale-set"></a>创建虚拟机规模集
 
-在此示例中，将创建虚拟机规模集，以便为应用程序网关的默认后端池提供服务器。 规模集中的虚拟机与 *myBackendSubnet* 和 *appGatewayBackendPool* 相关联。 若要创建规模集，可以使用 [az vmss create](/cli/vmss#az_vmss_create)。
+在此示例中，将创建虚拟机规模集，以便为应用程序网关的默认后端池提供服务器。 规模集中的虚拟机与 *myBackendSubnet* 和 *appGatewayBackendPool* 相关联。 若要创建规模集，可以使用 [az vmss create](/cli/vmss#az-vmss-create)。
 
 ```azurecli
 az vmss create `
@@ -150,7 +150,7 @@ az vmss extension set `
 
 ## <a name="test-the-application-gateway"></a>测试应用程序网关
 
-若要获取应用程序网关的公共 IP 地址，可以使用 [az network public-ip show](/cli/network/public-ip#az_network_public_ip_show)。 复制该公共 IP 地址，并将其粘贴到浏览器的地址栏。
+若要获取应用程序网关的公共 IP 地址，可以使用 [az network public-ip show](/cli/network/public-ip#az-network_public_ip_show)。 复制该公共 IP 地址，并将其粘贴到浏览器的地址栏。
 
 ```azurepowershell
 az network public-ip show `
@@ -178,4 +178,4 @@ az network public-ip show `
 
 若要详细了解应用程序网关及其关联的资源，请继续阅读操作指南文章。
 
-<!-- Update_Description: code update -->
+<!-- Update_Description: link update -->

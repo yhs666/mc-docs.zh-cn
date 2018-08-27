@@ -6,15 +6,15 @@ author: saurabhsensharma
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
-origin.date: 01/04/2018
-ms.date: 07/06/2018
+origin.date: 08/06/2018
+ms.date: 08/23/2018
 ms.author: v-junlch
-ms.openlocfilehash: d323022e736ab361a3a732550423fa63bae25c0b
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.openlocfilehash: 965111c5af55a7250aa695794aa2722257d655f7
+ms.sourcegitcommit: 85cdb61361dc61147bac991d4907f454f0684ea0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873301"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42709740"
 ---
 # <a name="restore-files-to-a-windows-server-or-windows-client-machine-using-resource-manager-deployment-model"></a>使用 Resource Manager 部署模型将文件还原到 Windows Server 或 Windows 客户端计算机
 
@@ -53,6 +53,9 @@ ms.locfileid: "37873301"
 
     ![浏览文件](./media/backup-azure-restore-windows-server/samemachine_selectrecoverymode_instantrestore.png)
 
+    > [!IMPORTANT]
+    > 还原“单个文件和文件夹”选项需要 .NET Framework 4.5.2 或更高版本。 如果未看到“单个文件和文件夹”选项，则必须将 .NET Framework 升级到 4.5.2 或更高版本，然后重试。
+
 5. 在“选择卷和日期”  窗格中，选择包含想要还原的文件和/或文件夹的卷。
 
     在日历中选择恢复点。 可从任意恢复时间点还原。 以 **粗体** 显示的日期表示至少有一个可用的恢复点。 选择日期后，如果有多个恢复点可用，请从“时间”  下拉菜单中选择特定的恢复点。
@@ -68,7 +71,7 @@ ms.locfileid: "37873301"
     ![恢复选项](./media/backup-azure-restore-windows-server/samemachine_browserecover_instantrestore.png)
 
 
-8. 在 Windows 资源管理器中，复制想要还原的文件和/或文件夹，将其粘贴到服务器或计算机本地的任何位置。 可以从恢复卷直接打开或流式传输文件，并验证是否恢复了正确的版本。
+8. 在 Windows 资源管理器中，复制想要还原的文件和/或文件夹，将其粘贴到服务器或计算机本地的任何位置。 可从恢复卷直接打开或流式传输文件，并验证是否恢复的是正确的版本。
 
     ![将文件和文件夹从装载的卷复制并粘贴到本地位置](./media/backup-azure-restore-windows-server/samemachine_copy_instantrestore.png)
 
@@ -145,35 +148,7 @@ ms.locfileid: "37873301"
     > 如果不单击“卸载”，恢复卷将保持装载 6 个小时（从装载时算起）。 但是，如果正在持续进行文件复制，装载时间延长至最多 24 小时。 装载卷时，不会运行任何备份操作。 计划为在装载卷时运行的任何备份操作会在卸载恢复卷后运行。
     >
 
-## <a name="troubleshooting"></a>故障排除
-如果即使在单击“装载”几分钟后 Azure 备份仍无法成功装载恢复卷，或者无法装载具有一个或多个错误的恢复卷，请按照以下步骤正常恢复。
-
-1.  取消正在进行的安装过程（如果它已运行了几分钟）。
-
-2.  确保使用的是最新版本的 Azure 备份代理。 若要了解 Azure 备份代理的版本信息，请在 Azure 备份控制台的“操作”窗格上单击“关于 Azure 恢复服务代理”，并确保“版本”号等于或高于[本文](https://go.microsoft.com/fwlink/?linkid=229525)中提到的版本。 可以在[此处](https://go.microsoft.com/fwLink/?LinkID=288905)下载最新版本
-
-3.  转到“设备管理器” -> “存储控制器”，确保可以找到“Microsoft iSCSI 发起程序”。 如果可以找到它，请直接转到下面的步骤 7。 
-
-4.  如果无法在步骤 3 中找到“Microsoft iSCSI 发起程序”服务，请检查是否可以在“设备管理器” -> “存储控制器”下找到硬件 ID 为“ROOT\ISCSIPRT”的“未知设备”条目。
-
-5.  右键单击“未知设备”并选择“更新驱动程序软件”。
-
-6.  选择“自动搜索更新的驱动程序软件”选项，更新驱动程序。 完成更新后，“未知设备”应更改为“Microsoft iSCSI 发起程序”，如下所示。 
-
-    ![Encryption](./media/backup-azure-restore-windows-server/UnknowniSCSIDevice.png)
-
-7.  转到“任务管理器” -> “服务(本地)” -> “Microsoft iSCSI 发起程序服务”。 
-
-    ![Encryption](./media/backup-azure-restore-windows-server/MicrosoftInitiatorServiceRunning.png)
-    
-8.  右键单击服务，单击“停止”，然后再次右键单击服务并单击“启动”，即可重启 Microsoft iSCSI 发起程序服务。
-
-9.  使用即时还原重试恢复。 
-
-如果恢复仍失败，请重启服务器/客户端。 如果无法重启或重启服务器后恢复仍然失败，请尝试从备用计算机恢复，并通过转到 [Azure 门户](https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)并提交支持请求，与 Azure 支持部门联系。
-
 ## <a name="next-steps"></a>后续步骤
 - 恢复文件和文件夹后，可以[管理备份](backup-azure-manage-windows-server.md)。
 
-
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

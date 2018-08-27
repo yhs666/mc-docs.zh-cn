@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 06/08/2018
-ms.date: 06/27/2018
+ms.date: 08/27/2018
 ms.author: v-junlch
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: cfcd7832ac3f15c52c01a6b765f2bf656ba212c0
-ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
+ms.openlocfilehash: 13bee9c81ebad5ab587646095e2c94fcb31e40ce
+ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37027205"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42869429"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>教程：将应用部署到 Azure 和 Azure Stack
 
@@ -41,49 +41,49 @@ ms.locfileid: "37027205"
 
 使用混合方法的其他优势还有：
 
-- 可以在本地 Azure Stack 环境和 Azure 公有云中使用一组一致的开发工具。  使用通用的工具集可以更轻松地实施 CI/CD 模式和做法。
-- 在 Azure 或 Azure Stack 中部署的应用和服务可以互换，相同的代码可在任一位置运行。 可以利用本地和公有云的特性与功能。
+* 可以在本地 Azure Stack 环境和 Azure 公有云中使用一组一致的开发工具。  使用通用的工具集可以更轻松地实施 CI/CD 模式和做法。
+* 在 Azure 或 Azure Stack 中部署的应用和服务可以互换，相同的代码可在任一位置运行。 可以利用本地和公有云的特性与功能。
 
 若要详细了解 CI 和 CD，请参阅：
 
-- [什么是持续集成？](https://www.visualstudio.com/learn/what-is-continuous-integration/)
-- [什么是持续交付？](https://www.visualstudio.com/learn/what-is-continuous-delivery/)
+* [什么是持续集成？](https://www.visualstudio.com/learn/what-is-continuous-integration/)
+* [什么是持续交付？](https://www.visualstudio.com/learn/what-is-continuous-delivery/)
 
 ## <a name="prerequisites"></a>先决条件
 
 需要准备好组件才能生成混合 CI/CD 管道。 以下组件的准备需要一定的时间：
 
-- Azure OEM/硬件合作伙伴可以部署生产型 Azure Stack。 所有用户都可以部署 Azure Stack 开发工具包 (ASDK)。
-- 此外，Azure Stack 操作员必须部署应用服务、创建计划和套餐、创建租户订阅，并添加 Windows Server 2016 映像。
+* Azure OEM/硬件合作伙伴可以部署生产型 Azure Stack。 所有用户都可以部署 Azure Stack 开发工具包 (ASDK)。
+* 此外，Azure Stack 操作员必须部署应用服务、创建计划和套餐、创建租户订阅，并添加 Windows Server 2016 映像。
 
 >[!NOTE]
 >如果已部署其中的某些组件，请确保它们符合所有要求，然后开始本教程。
 
 本教程假设你对 Azure 和 Azure Stack 有一些基本的了解。 若要在开始本教程之前了解更多信息，请阅读以下文章：
 
-- [Azure 简介](https://azure.microsoft.com/overview/what-is-azure/)
-- [Azure Stack 的重要概念](/azure-stack/azure-stack-key-features)
+* [Azure 简介](https://azure.microsoft.com/overview/what-is-azure/)
+* [Azure Stack 的重要概念](/azure-stack/azure-stack-key-features)
 
 ### <a name="azure-requirements"></a>Azure 要求
 
-- 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
-- 在 Azure 中创建 [Web 应用](/app-service/app-service-web-overview)。 记下需在本教程中使用的 Web 应用 URL。
+* 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
+* 在 Azure 中创建 [Web 应用](/app-service/app-service-web-overview)。 记下需在本教程中使用的 Web 应用 URL。
 
 ### <a name="azure-stack-requirements"></a>Azure Stack 要求
 
-- 使用 Azure Stack 集成系统，或部署 Azure Stack 开发工具包 (ASDK)。 若要部署 ASDK，请遵循以下要求：
-    - [教程：使用安装程序部署 ASDK](/azure-stack/asdk/asdk-deploy) 提供了详细的部署说明。
-    - 使用 [ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1 ) PowerShell 脚本自动完成 ASDK 部署后步骤。
+* 使用 Azure Stack 集成系统，或部署 Azure Stack 开发工具包 (ASDK)。 若要部署 ASDK，请遵循以下要求：
+    * [教程：使用安装程序部署 ASDK](/azure-stack/asdk/asdk-deploy) 提供了详细的部署说明。
+    * 使用 [ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1 ) PowerShell 脚本自动完成 ASDK 部署后步骤。
 
     > [!Note]
     > ASDK 安装需要约七小时才能完成，因此请相应地做好规划。
 
- - 将[应用服务](/azure-stack/azure-stack-app-service-deploy) PaaS 服务部署到 Azure Stack。
- - 在 Azure Stack 中创建[计划/套餐](/azure-stack/azure-stack-plan-offer-quota-overview)。
- - 在 Azure Stack 中创建[租户订阅](/azure-stack/azure-stack-subscribe-plan-provision-vm)。
- - 在租户订阅中创建 Web 应用。 记下新 Web 应用的 URL，供稍后使用。
- - 在租户订阅中部署 VSTS 虚拟机。
-- 提供一个 Windows Server 2016 映像，其中包含用于虚拟机 (VM) 的 .NET 3.5。 将在 Azure Stack 上生成此 VM，作为专用的生成代理。
+ * 将[应用服务](/azure-stack/azure-stack-app-service-deploy) PaaS 服务部署到 Azure Stack。
+ * 在 Azure Stack 中创建[计划/套餐](/azure-stack/azure-stack-plan-offer-quota-overview)。
+ * 在 Azure Stack 中创建[租户订阅](/azure-stack/azure-stack-subscribe-plan-provision-vm)。
+ * 在租户订阅中创建 Web 应用。 记下新 Web 应用的 URL，供稍后使用。
+ * 在租户订阅中部署 VSTS 虚拟机。
+* 提供一个 Windows Server 2016 映像，其中包含用于虚拟机 (VM) 的 .NET 3.5。 将在 Azure Stack 上生成此 VM，作为专用的生成代理。
 
 ### <a name="developer-tool-requirements"></a>开发人员工具要求
 
@@ -189,7 +189,7 @@ Visual Studio Team Services (VSTS) 使用服务主体对 Azure 资源管理器�
 
 ### <a name="role-based-access-control"></a>基于角色的访问控制
 
-‎Azure 基于角色的访问控制 (RBAC) 为 Azure 提供精细的访问管理。 使用 RBAC，可以控制用户执行其作业所需的访问权限级别。 有关基于角色的访问控制的详细信息，请参阅[管理对 Azure 订阅资源的访问](/role-based-access-control/role-assignments-portal?toc=%252fazure%252factive-directory%252ftoc.json)。
+‎Azure 基于角色的访问控制 (RBAC) 为 Azure 提供精细的访问管理。 使用 RBAC，可以控制用户执行其作业所需的访问权限级别。 有关基于角色的访问控制的详细信息，请参阅[管理对 Azure 订阅资源的访问](/role-based-access-control/role-assignments-portal?toc=%252factive-directory%252ftoc.json)。
 
 ### <a name="vsts-agent-pools"></a>VSTS 代理池
 
@@ -270,9 +270,9 @@ Visual Studio Team Services (VSTS) 使用服务主体对 Azure 资源管理器�
 
 本教程的此部分介绍以下操作：
 
-- 将代码添加到 VSTS 项目。
-- 创建独立的 Web 应用部署。
-- 配置持续部署过程
+* 将代码添加到 VSTS 项目。
+* 创建独立的 Web 应用部署。
+* 配置持续部署过程
 
 > [!Note]
  > Azure Stack 环境需要联合正确的映像才能运行 Windows Server 和 SQL Server。 它还必须部署应用服务。 查看应用服务文档的“先决条件”部分，了解 Azure Stack 操作员的要求。
@@ -291,7 +291,7 @@ Visual Studio Team Services (VSTS) 使用服务主体对 Azure 资源管理器�
 
 ### <a name="create-self-contained-web-app-deployment-for-app-services-in-both-clouds"></a>为这两个云中的应用服务创建独立的 Web 应用部署
 
-1. 编辑 **WebApplication.csproj** 文件：选择 **Runtimeidentifier**，然后添加 `win10-x64.`。有关详细信息，请参阅[独立部署](https://docs.microsoft.com/en-us/dotnet/core/deploying/#self-contained-deployments-scd)文档。
+1. 编辑 **WebApplication.csproj** 文件：选择 **Runtimeidentifier**，然后添加 `win10-x64.`。有关详细信息，请参阅[独立部署](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd)文档。
 
     ![配置 Runtimeidentifier](media\azure-stack-solution-hybrid-pipeline\019_runtimeidentifer.png)
 
@@ -308,7 +308,7 @@ Visual Studio Team Services (VSTS) 使用服务主体对 Azure 资源管理器�
 
     ![添加参数生成定义](media\azure-stack-solution-hybrid-pipeline\020_publish_additions.png)
 
-4. 运行生成。 [独立部署生成](https://docs.microsoft.com/en-us/dotnet/core/deploying/#self-contained-deployments-scd)过程将发布可在 Azure 和 Azure Stack 上运行的项目。
+4. 运行生成。 [独立部署生成](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd)过程将发布可在 Azure 和 Azure Stack 上运行的项目。
 
 ### <a name="use-an-azure-hosted-build-agent"></a>使用 Azure 托管生成代理
 

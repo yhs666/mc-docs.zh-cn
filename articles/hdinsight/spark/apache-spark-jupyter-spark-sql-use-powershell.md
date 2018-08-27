@@ -9,15 +9,15 @@ ms.service: hdinsight
 ms.devlang: na
 ms.topic: quickstart
 origin.date: 05/07/2018
-ms.date: 06/25/2018
+ms.date: 08/27/2018
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: 0355ae73aaf6d1721f69e59e03bdbfe40d39feb5
-ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
+ms.openlocfilehash: 4b5921cee86cd3c5310b2fd4a3fc82b1d5055655
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36747526"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41706227"
 ---
 # <a name="quickstart-create-a-spark-cluster-in-hdinsight-using-powershell"></a>快速入门：使用 PowerShell 在 HDInsight 中创建 Spark 群集
 了解如何在 Azure HDInsight 中创建 Apache Spark 群集，以及如何对 Hive 表运行 Spark SQL 查询。 通过 Apache Spark 可以使用内存处理进行快速数据分析和群集计算。 有关 Spark on HDInsight 的信息，请参阅[概述：Azure HDInsight 上的 Apache Spark](apache-spark-overview.md)。
@@ -27,7 +27,7 @@ ms.locfileid: "36747526"
 > [!IMPORTANT]
 > HDInsight 群集是基于分钟按比例收费，而不管用户是否正在使用它们。 请务必在使用完之后删除群集。 有关详细信息，请参阅本文的[清理资源](#clean-up-resources)部分。
 
-如果没有 Azure 订阅，可以在开始前[创建一个免费帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+如果没有 Azure 订阅，请在开始之前[创建一个免费帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
 ## <a name="create-an-hdinsight-spark-cluster"></a>创建 HDInsight Spark 群集
 
@@ -35,7 +35,7 @@ ms.locfileid: "36747526"
 
 - Azure 资源组。 Azure 资源组是 Azure 资源的容器。 
 - Azure 存储帐户或 Azure Data Lake Store。  每个 HDInsight 群集都需要依赖的数据存储。 在本快速入门中，创建存储帐户。
-- 不同群集类型的 HDInsight 群集。  在本快速入门中，创建 Spark 2.2 群集。
+- 不同群集类型的 HDInsight 群集。  在本快速入门中，你将创建 Spark 2.3 群集。
 
 使用 PowerShell 脚本创建资源。  运行脚本时，系统会提示输入以下值：
 
@@ -54,7 +54,7 @@ ms.locfileid: "36747526"
 2. 在 Cloud Shell 中复制并粘贴以下 PowerShell 脚本。 
 
     ```azurepowershell
-    ### Create a Spark 2.2 cluster in Azure HDInsight
+    ### Create a Spark 2.3 cluster in Azure HDInsight
         
     # Create the resource group
     $resourceGroupName = Read-Host -Prompt "Enter the resource group name"
@@ -76,7 +76,7 @@ ms.locfileid: "36747526"
                                     -StorageAccountName $defaultStorageAccountName `
                                     -StorageAccountKey $defaultStorageAccountKey
     
-    # Create a Spark 2.2 cluster
+    # Create a Spark 2.3 cluster
     $clusterName = Read-Host -Prompt "Enter the name of the HDInsight cluster"
     # Cluster login is used to secure HTTPS services hosted on the cluster
     $httpCredential = Get-Credential -Message "Enter Cluster login credentials" -UserName "admin"
@@ -97,7 +97,7 @@ ms.locfileid: "36747526"
         -Name $clusterName -Context $defaultStorageContext 
     
     $sparkConfig = New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]"
-    $sparkConfig.Add("spark", "2.2")
+    $sparkConfig.Add("spark", "2.3")
     
     # Create the HDInsight cluster
     New-AzureRmHDInsightCluster `
@@ -138,7 +138,7 @@ Jupyter Notebook 是支持各种编程语言的交互式笔记本环境。 通�
 
    ![创建 Jupyter Notebook 来运行交互式 Spark SQL 查询](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "创建 Jupyter Notebook 来运行交互式 Spark SQL 查询")
 
-   新 Notebook 随即会创建，并以 Untitled(Untitled.pynb) 名称打开。
+   新笔记本随即已创建，并以 Untitled(Untitled.pynb) 名称打开。
 
 
 ## <a name="run-spark-sql-statements"></a>运行 Spark SQL 语句
@@ -176,7 +176,7 @@ SQL（结构化查询语言）是用于查询和定义数据的最常见、最�
 2. 请在 Notebook 的“文件”菜单中选择“关闭并停止”。 关闭 Notebook 会释放群集资源。
 
 ## <a name="clean-up-resources"></a>清理资源
-HDInsight 将数据保存在 Azure 存储或 Azure Data Lake Store 中，因此可以在未使用群集时安全地删除群集。 此外，还需要支付 HDInsight 群集费用，即使未使用。 由于群集费用高于存储空间费用数倍，因此在不使用群集时将其删除可以节省费用。 如果要立即开始[后续步骤](#next-steps)中所列的教程，可能需要保留群集。
+HDInsight 将数据保存在 Azure 存储或 Azure Data Lake Store 中，因此可以在未使用群集时安全地删除群集。 此外，还需要为 HDInsight 群集付费，即使不用也是如此。 由于群集费用数倍于存储空间费用，因此在群集不用时删除群集可以节省费用。 如果要立即开始[后续步骤](#next-steps)中所列的教程，可能需要保留群集。
 
 切换回 Azure 门户，并选择“删除”。
 

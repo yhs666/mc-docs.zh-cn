@@ -2,19 +2,20 @@
 title: 如何在 Azure Database for MySQL 中使用 sys_schema 进行性能优化和数据库维护
 description: 本文介绍如何在 Azure Database for MySQL 中使用 sys_schema 发现性能问题和维护数据库。
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
+author: WenJason
+ms.author: v-jay
 manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 06/16/2018
-ms.openlocfilehash: 94358fa429d5b1e9a08f3172b419160a52ff4d98
-ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
+origin.date: 08/01/2018
+ms.date: 08/27/2018
+ms.openlocfilehash: 185e6db920fc5a2a73a4b66a16926ad8f9c800d3
+ms.sourcegitcommit: 6dd65fba579a2ce25c63ac69ff3b71d814a9d256
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39722956"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42703855"
 ---
 # <a name="how-to-use-sysschema-for-performance-tuning-and-database-maintenance-in-azure-database-for-mysql"></a>如何在 Azure Database for MySQL 中使用 sys_schema 进行性能优化和数据库维护
 
@@ -45,7 +46,7 @@ IO 是数据库中开销最高的操作。 我们可以通过查询 *sys.user_su
 
 ![125 GB 时的 IO 延迟](./media/howto-troubleshoot-sys-schema/io-latency-125GB.png)
 
-由于 Azure Database for MySQL 可根据存储缩放 IO，将预配存储增大到 1 TB 后，IO 延迟减小为 571 毫秒，表示性能提升了 26 倍！
+由于 Azure Database for MySQL 可根据存储缩放 IO，将预配存储增大到 1 TB 后，IO 延迟减小为 571 毫秒。
 
 ![1 TB 时的 IO 延迟](./media/howto-troubleshoot-sys-schema/io-latency-1TB.png)
 

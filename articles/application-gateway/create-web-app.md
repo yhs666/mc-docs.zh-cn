@@ -1,25 +1,19 @@
 ---
-title: 通过 Azure 应用程序网关保护 Web 应用 - PowerShell | Microsoft Docs
+title: 通过 Azure 应用程序网关保护 Web 应用 - PowerShell
 description: 本文提供的指南介绍如何在现有的或新的应用程序网关上将 Web应用配置为后端主机。
-documentationcenter: na
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: ''
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-origin.date: 07/25/2017
-ms.date: 06/01/2018
+ms.topic: article
+origin.date: 08/01/2018
+ms.date: 08/22/2018
 ms.author: v-junlch
-ms.openlocfilehash: 9fd993d343eff49601cc787d895dacaa4f921f6d
-ms.sourcegitcommit: 4fe9905d17a8df9f2270543a5a0ce1762a5830c9
+ms.openlocfilehash: 7b7c2b87e5c588c14f886911a0f73c28bf123ab3
+ms.sourcegitcommit: da9f7b0825e493636d6596eb6ae95d03e0626583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34855787"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "41734346"
 ---
 # <a name="configure-app-service-web-apps-with-application-gateway"></a>使用应用程序网关配置应用服务 Web 应用 
 
@@ -33,8 +27,11 @@ ms.locfileid: "34855787"
 # FQDN of the web app
 $webappFQDN = "<enter your webapp FQDN i.e mywebsite.chinacloudsites.cn>"
 
+# Retrieve the resource group
+$rg = Get-AzureRmResourceGroup -Name 'your resource group name'
+
 # Retrieve an existing application gateway
-$gw = Get-AzureRmApplicationGateway -Name ContosoAppGateway -ResourceGroupName $rg.ResourceGroupName
+$gw = Get-AzureRmApplicationGateway -Name 'your application gateway name' -ResourceGroupName $rg.ResourceGroupName
 
 # Define the status codes to match for the probe
 $match=New-AzureRmApplicationGatewayProbeHealthResponseMatch -StatusCode 200-399
@@ -163,3 +160,4 @@ DnsSettings              : {
 
 若要了解如何配置重定向，请访问：[使用 PowerShell 在应用程序网关上配置重定向](redirect-overview.md)。
 
+<!-- Update_Description: wording update -->

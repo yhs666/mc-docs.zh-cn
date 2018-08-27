@@ -1,6 +1,6 @@
 ---
-title: Hadoop、Spark、Kafka、HBase 的群集设置 - Azure HDInsight
-description: 通过浏览器、Azure CLI、Azure PowerShell、REST 或 SDK 设置适用于 HDInsight 的 Hadoop、Kafka、Spark、HBase 或 Storm 群集。
+title: 针对 Hadoop、Spark、Kafka、HBase 或 ML Services 的群集设置 - Azure HDInsight
+description: 通过浏览器、Azure CLI、Azure PowerShell、REST 或 SDK 为 HDInsight 设置 Hadoop、Kafka、Spark、HBase、ML Services 或 Storm 群集。
 keywords: hadoop 群集设置, kafka 群集设置, spark 群集设置, 什么是 hadoop 群集
 services: hdinsight
 documentationcenter: ''
@@ -13,23 +13,21 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: big-data
 origin.date: 05/14/2018
-ms.date: 06/25/2018
+ms.date: 08/27/2018
 ms.author: v-yiso
-ms.openlocfilehash: faf34661105fa3c1aad682b70c6d89dd26d5325a
-ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
+ms.openlocfilehash: 0e5fa6a9ae923e2a8edd60daf1b099119a90016c
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36747460"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41705399"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>使用 Hadoop、Spark、Kafka 等等在 HDInsight 中设置群集
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-了解如何使用 Hadoop、Spark、Kafka、交互式查询、HBase、R Server 或 Storm 在 HDInsight 中设置和配置群集。 另外，了解如何自定义群集，并将它们加入域以提高安全性。
+了解如何使用 Hadoop、Spark、Kafka、交互式查询、HBase、ML Services 或 Storm 在 HDInsight 中设置和配置群集。 另外，了解如何自定义群集，并将它们加入域以提高安全性。
 
 Hadoop 群集由用于对任务进行分布式处理的多个虚拟机（节点）组成。 Azure HDInsight 对各个节点的安装和配置的实现细节进行处理，因此你只需提供常规配置信息。 
 
@@ -244,9 +242,9 @@ HDInsight 应用程序是用户可以在基于 Linux 的 HDInsight 群集上安�
 ## <a name="advanced-settings-extend-clusters-with-a-virtual-network"></a>高级设置：使用虚拟网络扩展群集
 如果解决方案需要分布在多种 HDInsight 群集类型上的技术，可以使用 [Azure 虚拟网络](/virtual-network)连接所需的群集类型。 此配置允许群集以及部署到群集的任何代码直接相互通信。
 
-有关将 Azure 虚拟网络与 HDInsight 配合使用的详细信息，请参阅[使用 Azure 虚拟网络扩展 HDInsight](hdinsight-extend-hadoop-virtual-network.md)。
+有关将 Azure 虚拟网络与 HDInsight 配合使用的详细信息，请参阅 [使用 Azure 虚拟网络扩展 HDInsight](hdinsight-extend-hadoop-virtual-network.md)。
 
-有关在一个 Azure 虚拟网络中使用两种群集类型的示例，请参阅[结合使用 Spark Structured Streaming 和 Kafka](hdinsight-apache-kafka-spark-structured-streaming.md)。 有关将 HDInsight 与虚拟网络配合使用的详细信息（包括虚拟网络的特定配置要求），请参阅[使用 Azure 虚拟网络扩展 HDInsight 功能](hdinsight-extend-hadoop-virtual-network.md)。
+有关在一个 Azure 虚拟网络中使用两种群集类型的示例，请参阅 [结合使用 Spark Structured Streaming 和 Kafka](hdinsight-apache-kafka-spark-structured-streaming.md)。 有关将 HDInsight 与虚拟网络配合使用的详细信息（包括虚拟网络的特定配置要求），请参阅[使用 Azure 虚拟网络扩展 HDInsight 功能](hdinsight-extend-hadoop-virtual-network.md)。
 
 ## <a name="troubleshoot-access-control-issues"></a>排查访问控制问题
 

@@ -10,18 +10,18 @@ ms.assetid: 35086e62-d6d8-4ccf-8cae-00073464a1e1
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 02/22/2018
-ms.date: 03/26/2018
+ms.date: 08/27/2018
 ms.author: v-yiso
-ms.openlocfilehash: d35dd0e80d816f545dc69e3b404768996a453949
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.openlocfilehash: c04d7de83966d3e6817e9efca6d9fc638356985c
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873588"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41706228"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-hdinsight"></a>在 HDInsight 上部署和管理 Apache Storm 拓扑
 
@@ -45,9 +45,9 @@ ms.locfileid: "37873588"
 
     下列其中一个版本的 Visual Studio：
 
-  * Visual Studio 2012 [Update 4](http://www.microsoft.com/download/details.aspx?id=39305)
+  * Visual Studio 2012 Update 4
 
-  * Visual Studio 2013 [Update 4](http://www.microsoft.com/download/details.aspx?id=44921) 或 [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?LinkId=517284)
+  * Visual Studio 2013 Update 4 或 [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?LinkId=517284)
   * [Visual Studio 2015](https://www.visualstudio.com/downloads/)
 
   * Visual Studio 2015（任何版本）
@@ -217,7 +217,7 @@ Storm UI 的主页面提供以下信息：
 
 Storm UI 是以 REST API 为基础生成的，因此，可以使用 API 执行类似的管理和监视功能。 使用 REST API 可以创建自定义工具来管理和监视 Storm 拓扑。
 
-有关详细信息，请参阅 [Storm UI REST API](http://storm.apache.org/releases/0.9.6/STORM-UI-REST-API.html)。 以下信息特定于将 REST API 与 Apache Storm on HDInsight 配合使用的情况。
+有关详细信息，请参阅 [Storm UI REST API](http://storm.apache.org/releases/current/STORM-UI-REST-API.html)。 以下信息特定于将 REST API 与 Apache Storm on HDInsight 配合使用的情况。
 
 > [!IMPORTANT]
 > Storm REST API 不能通过 Internet 公开使用，而必须使用与 HDInsight 群集头节点建立的 SSH 隧道来访问。 若要了解如何创建和使用 SSH 隧道，请参阅[使用 SSH 隧道访问 Ambari Web UI、ResourceManager、JobHistory、NameNode、Oozie 和其他 Web UI](../hdinsight-linux-ambari-ssh-tunnel.md)。

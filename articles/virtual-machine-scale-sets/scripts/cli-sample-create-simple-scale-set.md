@@ -3,7 +3,7 @@ title: Azure CLI 2.0 示例 - 创建虚拟机规模集 | Microsoft Docs
 description: Azure CLI 2.0 示例
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,15 +14,15 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 03/27/2018
-ms.date: 04/25/2018
+ms.date: 08/13/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: e7ebd39eb8fdf9115a31273d8c8713bd2b9a4756
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 0a28065cba1d29aed58771ab8b82ce40b53a1487
+ms.sourcegitcommit: 56ed1b03d83f222db6118fe1e2f2485a9488507f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38940155"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41705390"
 ---
 # <a name="create-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>使用 Azure CLI 2.0 创建虚拟机规模集
 此脚本使用 Ubuntu 操作系统和相关网络资源（包括负载均衡器）创建 Azure 虚拟机规模集。 运行脚本后，可通过 SSH 访问 VM 实例。
@@ -67,7 +67,8 @@ az group delete --name myResourceGroup
 | [az group delete](/cli/ad/group#delete) | 删除资源组，包括所有嵌套的资源。 |
 
 ## <a name="next-steps"></a>后续步骤
-有关 Azure CLI 2.0 的详细信息，请参阅 [Azure CLI 2.0 文档](/cli/)。
+有关 Azure CLI 2.0 的详细信息，请参阅 [Azure CLI 2.0 文档](/cli/overview)。
 
 可以在 [Azure 虚拟机规模集文档](../cli-samples.md)中找到其他虚拟机规模集 Azure CLI 2.0 脚本示例。
 
+<!-- Update_Description: link update -->

@@ -11,14 +11,14 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 04/23/2018
-ms.date: 06/07/2018
+ms.date: 08/22/2018
 ms.author: v-junlch
-ms.openlocfilehash: ed3a624555f4930a1dbeba6c0a6edce0b9055a80
-ms.sourcegitcommit: 4fe9905d17a8df9f2270543a5a0ce1762a5830c9
+ms.openlocfilehash: 3fae5c7148f5d53e29dd3773d093ac20f994d24e
+ms.sourcegitcommit: da9f7b0825e493636d6596eb6ae95d03e0626583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34855781"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "41734322"
 ---
 # <a name="azure-application-gatewaty-url-path-based-routing-overview"></a>Azure 应用程序网关基于 URL 路径的路由概述
 
@@ -100,5 +100,6 @@ PathBasedRouting 规则的代码片段：
 
 ## <a name="next-steps"></a>后续步骤
 
-了解基于 URL 的内容路由之后，请转到[使用基于 URL 的路由创建应用程序网关](tutorial-url-route-cli.md)，使用 URL 路由规则创建应用程序网关。
+了解基于 URL 的内容路由之后，请转到[使用基于 URL 的路由创建应用程序网关](tutorial-url-route-powershell.md)，使用 URL 路由规则创建应用程序网关。
 
+<!-- Update_Description: link update -->

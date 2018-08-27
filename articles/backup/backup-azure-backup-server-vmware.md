@@ -7,14 +7,14 @@ manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 origin.date: 07/24/2017
-ms.date: 07/05/2018
+ms.date: 08/23/2018
 ms.author: v-junlch
-ms.openlocfilehash: f407596bdc4c39e9c5b41bd29b677bef39e037b9
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.openlocfilehash: e2f2cb5c757a1d4e719d0f3f90ff628e279c6f9e
+ms.sourcegitcommit: 85cdb61361dc61147bac991d4907f454f0684ea0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873422"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42709697"
 ---
 # <a name="back-up-a-vmware-server-to-azure"></a>将 VMware 服务器备份到 Azure
 
@@ -152,8 +152,8 @@ Azure 备份服务器使用用户名和密码通过 vCenter 服务器进行身�
 
   单击“确定”后，“角色”面板的列表中会显示新角色。
 
-|vCenter 6.0 的特权| vCenter 5.5 的特权|
-|--------------------------|---------------------------|
+|vCenter 6.0 和 6.5 的特权| vCenter 5.5 的特权|
+|----------------------------------|---------------------------|
 |Datastore.AllocateSpace   | Datastore.AllocateSpace|
 |Global.ManageCustomFields | Global.ManageCustomerFields|
 |Global.SetCustomFields    |   |
@@ -382,4 +382,4 @@ Azure 备份服务器使用用户名和密码通过 vCenter 服务器进行身�
 
 若要了解代理注册、保护组配置或作业备份方面的问题，请参阅[排查 Azure 备份服务器问题](./backup-azure-mabs-troubleshoot.md)。
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

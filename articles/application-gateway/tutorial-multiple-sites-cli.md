@@ -8,15 +8,15 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.workload: infrastructure-services
 origin.date: 07/14/2018
-ms.date: 08/07/2018
+ms.date: 08/22/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: f1e20b008983c76126596e7ae90e3b2c5e206a7b
-ms.sourcegitcommit: a1c6a743b4be62477e7debfc9ea5f03afca2bc8f
+ms.openlocfilehash: c3f00af4d309acdc31390c9df0bfbc28cb03b823
+ms.sourcegitcommit: da9f7b0825e493636d6596eb6ae95d03e0626583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39625172"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "41734289"
 ---
 # <a name="tutorial-create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>教程：使用 Azure CLI 创建托管多个网站的应用程序网关
 
@@ -53,7 +53,7 @@ az group create --name myResourceGroupAG --location chinanorth
 
 ## <a name="create-network-resources"></a>创建网络资源 
 
-使用 [az network vnet create](/cli/network/vnet#az_net) 创建虚拟网络和名为 *myAGSubnet* 的子网。 然后，可以使用 [az network vnet subnet create](/cli/network/vnet/subnet#az_network_vnet_subnet_create) 添加后端服务器所需的子网。 使用 [az network public-ip create](/cli/network/public-ip#az_network_public_ip_create) 创建名为 *myAGPublicIPAddress* 的公共 IP 地址。
+使用 [az network vnet create](/cli/network/vnet#az-net) 创建虚拟网络和名为 *myAGSubnet* 的子网。 然后，可以使用 [az network vnet subnet create](/cli/network/vnet/subnet#az-network_vnet_subnet_create) 添加后端服务器所需的子网。 使用 [az network public-ip create](/cli/network/public-ip#az-network_public_ip_create) 创建名为 *myAGPublicIPAddress* 的公共 IP 地址。
 
 ```azurecli
 az network vnet create `
@@ -105,7 +105,7 @@ az network application-gateway create `
 
 ### <a name="add-the-backend-pools"></a>添加后端池
 
-使用 [az network application-gateway address-pool create](/cli/network/application-gateway#az_network_application_gateway_address_pool_create) 添加包含后端服务器所需的后端池。
+使用 [az network application-gateway address-pool create](/cli/network/application-gateway#az-network_application_gateway_address_pool_create) 添加包含后端服务器所需的后端池。
 
 ```azurecli
 az network application-gateway address-pool create `
@@ -121,7 +121,7 @@ az network application-gateway address-pool create `
 
 ### <a name="add-backend-listeners"></a>添加后端侦听器
 
-使用 [az network application-gateway http-listener create](/cli/network/application-gateway#az_network_application_gateway_http_listener_create) 添加路由流量所需的后端侦听器。
+使用 [az network application-gateway http-listener create](/cli/network/application-gateway#az-network_application_gateway_http_listener_create) 添加路由流量所需的后端侦听器。
 
 ```azurecli
 az network application-gateway http-listener create `
@@ -145,7 +145,7 @@ az network application-gateway http-listener create `
 
 规则按其列出的顺序进行处理，并且流量使用匹配的第一个规则进行定向，而无论特殊性如何。 例如，如果在同一端口上同时有使用基本侦听器的规则和使用多站点侦听器的规则，则使用多站点侦听器的规则必须在使用基本侦听器的规则之前列出，多站点规则才能正常运行。 
 
-在此示例中，将创建两个新规则并删除在创建应用程序网关时创建的默认规则。 可以使用 [az network application-gateway rule create](/cli/network/application-gateway#az_network_application_gateway_rule_create) 添加规则。
+在此示例中，将创建两个新规则并删除在创建应用程序网关时创建的默认规则。 可以使用 [az network application-gateway rule create](/cli/network/application-gateway#az-network_application_gateway_rule_create) 添加规则。
 
 ```azurecli
 az network application-gateway rule create `
@@ -222,7 +222,7 @@ done
 
 ## <a name="create-a-cname-record-in-your-domain"></a>在域中创建 CNAME 记录
 
-使用其公共 IP 地址创建应用程序网关后，可以获取 DNS 地址并使用它在域中创建 CNAME 记录。 可以使用 [az network public-ip show](/cli/network/public-ip#az_network_public_ip_show) 获取应用程序网关的 DNS 地址。 复制 DNSSettings 的 *fqdn* 值并使用它作为所创建的 CNAME 记录的值。 
+使用其公共 IP 地址创建应用程序网关后，可以获取 DNS 地址并使用它在域中创建 CNAME 记录。 可以使用 [az network public-ip show](/cli/network/public-ip#az-network_public_ip_show) 获取应用程序网关的 DNS 地址。 复制 DNSSettings 的 *fqdn* 值并使用它作为所创建的 CNAME 记录的值。 
 
 ```azurecli
 az network public-ip show `
@@ -267,4 +267,4 @@ az group delete --name myResourceGroupAG --location chinanorth
 > [!div class="nextstepaction"]
 > [使用基于 URL 路径的路由规则创建应用程序网关](./tutorial-url-route-cli.md)
 
-<!-- Update_Description: code update -->
+<!-- Update_Description: link update -->

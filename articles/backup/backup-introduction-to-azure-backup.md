@@ -7,16 +7,16 @@ manager: carmonm
 keywords: 备份和还原;恢复服务;备份解决方案
 ms.service: backup
 ms.topic: overview
-origin.date: 03/01/2018
-ms.date: 07/06/2018
+origin.date: 08/02/2018
+ms.date: 08/23/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 61de10d37b2cdf364fd6f1c806b6c28f16792ac8
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.openlocfilehash: de24fc8c80454623a4d9b6ba5cfd824acf88ef0a
+ms.sourcegitcommit: 85cdb61361dc61147bac991d4907f454f0684ea0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873494"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42709723"
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Azure 备份功能概述
 Azure 备份是基于 Azure 的服务，可用于备份（或保护）和还原 Azure 云中的数据。 Azure 备份取代了现有的本地或异地备份解决方案，并且是可靠、安全、高性价比的基于云的解决方案。 Azure 备份提供多个组件，可将其下载并部署到适当的计算机、服务器或云中。 依据要保护的内容选择部署的组件或代理。 无论是保护本地数据还是云中数据，所有 Azure 备份组件均可用于将数据备份到 Azure 的恢复服务保管库中。 请参阅本文稍后部分的 [Azure 备份组件表格](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use)，了解保护特定数据、应用程序或工作负荷所用的组件。
@@ -156,8 +156,8 @@ Azure 备份可以还原使用托管磁盘的完整 VM，或者将托管磁盘�
 ### <a name="security"></a>安全性
 | 功能 | Azure 备份代理 | System Center DPM | Azure 备份服务器 | Azure IaaS VM 备份 |
 | --- | --- | --- | --- | --- |
-| 网络安全性<br/> （到 Azure） |![是][green] |![是][green] |![是][green] |![部分][yellow] |
-| 数据安全<br/> （在 Azure 中） |![是][green] |![是][green] |![是][green] |![部分][yellow] |
+| 网络安全性<br/> （到 Azure） |![是][green] |![是][green] |![是][green] |![是][green] |
+| 数据安全性<br/> （在 Azure 中） |![是][green] |![是][green] |![是][green] |![是][green] |
 
 ![表键](./media/backup-introduction-to-azure-backup/table-key.png)
 
@@ -170,7 +170,7 @@ Azure 备份可以还原使用托管磁盘的完整 VM，或者将托管磁盘�
 >
 
 #### <a name="data-security"></a>数据安全性
-备份 Azure VM 时，需要在虚拟机 *内部* 设置加密。 在 Windows 虚拟机上使用 BitLocker，在 Linux 虚拟机上使用 **dm-crypt** 。 Azure 备份不会自动加密来自此路径的备份数据。
+备份 Azure VM 时，需要在虚拟机 *内部* 设置加密。 Azure 备份支持 Azure 磁盘加密，后者在 Windows 虚拟机上使用 BitLocker，在 Linux 虚拟机上使用 **dm-crypt**。 在后端，Azure 备份使用 [Azure 存储服务加密](../storage/common/storage-service-encryption.md)来保护静态数据。
 
 ### <a name="network"></a>网络
 | 功能 | Azure 备份代理 | System Center DPM | Azure 备份服务器 | Azure IaaS VM 备份 |
@@ -246,4 +246,4 @@ Azure 备份保护本地和云端的数据。 Azure Site Recovery 就虚拟机�
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png
 [red]: ./media/backup-introduction-to-azure-backup/red.png
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

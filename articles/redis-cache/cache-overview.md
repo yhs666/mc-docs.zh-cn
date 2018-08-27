@@ -12,23 +12,23 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: overview
 origin.date: 03/26/2018
-ms.date: 05/25/2018
+ms.date: 08/13/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: fe616f5f4ca8641607a6bcc83a503d919ca82bd8
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: 61fd0e3848fc55a1891ac940b620ebdc472ad371
+ms.sourcegitcommit: 56ed1b03d83f222db6118fe1e2f2485a9488507f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554679"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41705329"
 ---
 # <a name="what-is-azure-redis-cache"></a>什么是 Azure Redis 缓存
 
-Azure Redis 缓存以常用的开放源 [Redis 缓存](https://redis.io/)为基础。 它通常用作缓存，目的是提高极其依赖后端数据存储的系统的性能和可伸缩性。 提高性能的方式是将经常访问的数据暂时复制到靠近应用程序的快速存储。 使用 [Redis 缓存](https://redis.io/)时，此快速存储位于 Redis 缓存的内存中，而不是通过数据库从磁盘加载。
+Azure Redis 缓存基于流行的开放源代码 [Redis 缓存](https://redis.io/)。 它通常用作缓存，目的是提高极其依赖后端数据存储的系统的性能和可伸缩性。 提高性能的方式是将经常访问的数据暂时复制到靠近应用程序的快速存储。 使用 [Redis 缓存](https://redis.io/)时，此快速存储位于 Redis 缓存的内存中，而不是通过数据库从磁盘加载。
 
 Azure Redis 缓存也可用作内存中数据结构存储、分布式非关系数据库以及消息代理。 若要提高应用程序性能，可充分利用 Redis 引擎低延迟、高吞吐量的性能特点。
 
-可以通过 Azure Redis 缓存来访问安全、专用的 Redis 缓存，该缓存由 Microsoft 管理，托管在 Azure 中，可供 Azure 中的任何应用程序访问。
+可以通过 Azure Redis 缓存来访问安全、专用的 Redis 缓存，该缓存由 Microsoft 管理，托管在 Azure 中，可供 Azure 内或外的任何应用程序访问。
 
 ## <a name="why-use-azure-redis-cache"></a>为什么使用 Azure Redis 缓存
 
@@ -64,7 +64,7 @@ Azure Redis 缓存提供以下层：
 
 | 功能说明 | 高级 | 标准 | 基本 |
 | ------------------- | :-----: | :------: | :---: |
-| [服务级别协议 (SLA)](https://www.azure.cn/support/legal/sla/cache/v1_0/) |✔|✔|-|
+| [服务级别协议 (SLA)](https://www.azure.cn/support/sla/redis-cache/) |✔|✔|-|
 | [Redis 数据持久性](cache-how-to-premium-persistence.md) |✔|-|-|
 | [Redis 群集](cache-how-to-premium-clustering.md) |✔|-|-|
 | [通过防火墙规则确保安全性](cache-configure.md#firewall) |✔|✔|✔|
@@ -78,7 +78,9 @@ Azure Redis 缓存提供以下层：
 
 - [ASP.NET Web 应用快速入门](cache-web-app-howto.md)：创建简单的使用 Azure Redis 缓存的 ASP.NET Web 应用。
 - [.NET 快速入门](cache-dotnet-how-to-use-azure-redis-cache.md)：创建使用 Azure Redis 缓存的 .NET 应用。
+- [.NET Core 快速入门](cache-dotnet-core-quickstart.md)：创建使用 Azure Redis 缓存的 .NET Core 应用。
 - [Node.js 快速入门](cache-nodejs-get-started.md)：创建简单的使用 Azure Redis 缓存的 Node.js 应用。
 - [Java 快速入门](cache-java-get-started.md)：创建简单的使用 Azure Redis 缓存的 Java 应用。
 - [Python 快速入门](cache-python-get-started.md)：创建使用 Azure Redis 缓存的 Python 应用。
 
+<!-- Update_Description: wording update -->

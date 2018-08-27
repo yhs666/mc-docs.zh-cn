@@ -3,7 +3,7 @@ title: 快速入门 - 使用 Azure CLI 2.0 创建虚拟机规模集 | Microsoft 
 description: 了解如何使用 Azure PowerShell 快速创建虚拟机规模集
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: ''
@@ -15,14 +15,14 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.custom: mvc
 origin.date: 03/27/18
-ms.date: 04/24/2018
+ms.date: 08/13/2018
 ms.author: v-junlch
-ms.openlocfilehash: b53870bd0921fb529e88a3983f3fcbabf14c861c
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 2567e7662c2c5f93229a6caecad9d10688df507c
+ms.sourcegitcommit: 56ed1b03d83f222db6118fe1e2f2485a9488507f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32122085"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41705327"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>快速入门：使用 Azure CLI 2.0 创建虚拟机规模集
 利用虚拟机规模集，可以部署和管理一组相同的、自动缩放的虚拟机。 可以手动缩放规模集中的 VM 数，也可以定义规则，以便根据资源使用情况（如 CPU 使用率、内存需求或网络流量）进行自动缩放。 然后，Azure 负载均衡器会将流量分配到规模集中的 VM 实例。 在本快速入门中，我们将使用 Azure CLI 2.0 创建虚拟机规模集并部署一个示例应用程序。
@@ -118,3 +118,4 @@ az group delete --name myResourceGroup --yes --no-wait
 > [创建和管理 Azure 虚拟机规模集](tutorial-create-and-manage-cli.md)
 
 
+<!-- Update_Description: update metedata properties -->

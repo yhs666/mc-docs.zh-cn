@@ -11,22 +11,22 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 07/02/2018
-ms.date: 07/25/2018
+origin.date: 08/07/2018
+ms.date: 08/23/2018
 ms.author: v-junlch
 ms.reviewer: bagovind
-ms.openlocfilehash: e1af48b726b818dbfcb8f9a14561123d62197950
-ms.sourcegitcommit: cce18df2de12353f0d8f01c649307a5789d59cd4
+ms.openlocfilehash: a6c39548ac3cdf39cab3082934acac72ad238f30
+ms.sourcegitcommit: 64af85591634684abc62e7f79d8270705c95c109
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39246133"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42866363"
 ---
 # <a name="what-is-role-based-access-control-rbac"></a>什么是基于角色的访问控制 (RBAC)？
 
 对于任何使用云的组织而言，云资源的访问权限管理都是一项重要功能。 基于角色的访问控制 (RBAC) 可帮助你管理谁有权访问 Azure 资源、他们可以对这些资源执行哪些操作以及他们有权访问哪些区域。
 
-RBAC 是在 [Azure 资源管理器](../azure-resource-manager/resource-group-overview.md)基础上构建的授权系统，针对 Azure 中的资源提供精细的访问权限管理。 使用 RBAC，可以在团队中实现职责分离，仅向用户授予执行作业所需的访问权限。 无需向每个人授予 Azure 订阅或资源的无限制权限，可以仅允许在特定的范围执行某些操作。
+RBAC 是在 [Azure 资源管理器](../azure-resource-manager/resource-group-overview.md)基础上构建的授权系统，针对 Azure 中的资源提供精细的访问权限管理。
 
 ## <a name="what-can-i-do-with-rbac"></a>RBAC 的作用是什么？
 
@@ -36,6 +36,14 @@ RBAC 是在 [Azure 资源管理器](../azure-resource-manager/resource-group-ove
 - 让 DBA 组管理订阅中的 SQL 数据库
 - 让某个用户管理资源组中的所有资源，例如虚拟机、网站和子网
 - 让某个应用程序访问资源组中的所有资源
+
+## <a name="best-practice-for-using-rbac"></a>使用 RBAC 的最佳做法
+
+使用 RBAC，可以在团队中对职责进行分配，仅向用户授予执行作业所需的访问权限。 请勿向每个人授予 Azure 订阅或资源的无限制权限，只能允许他们在特定的范围执行某些操作。
+
+规划访问控制策略时，最佳做法是授予用户完成工作所需的最低权限。 下图显示了与 RBAC 使用有关的建议模式。
+
+![RBAC 和最小特权](./media/overview/rbac-least-privilege.png)
 
 ## <a name="how-rbac-works"></a>RBAC 的工作原理
 
@@ -72,11 +80,11 @@ Azure 引入了数据操作（目前以预览版提供），用于授予对对�
 
 范围是访问权限适用的边界。 分配角色时，可以通过定义范围来进一步限制允许的操作。 若要将某人分配为[网站参与者](built-in-roles.md#website-contributor)，但只针对一个资源组执行此分配，则可使用范围。
 
-在 Azure 中，可在下述多个级别指定范围：订阅、资源组或资源。 范围以父子关系构建，其中的每个子级只有一个父级。
+在 Azure 中，可在下述多个级别指定范围：订阅、资源组或资源。 范围采用父子关系结构。
 
 ![角色分配的范围](./media/overview/rbac-scope.png)
 
-在父范围分配的访问权限将继承到子范围。 例如：
+在父范围授予访问权限时，这些权限会继承到子范围。 例如：
 
 - 如果在订阅范围向某个组分配了[读取者](built-in-roles.md#reader)角色，则该组的成员可以查看订阅中的每个资源组和资源。
 - 如果在资源组范围向某个应用程序分配了[参与者](built-in-roles.md#contributor)角色，则该应用程序可以管理该资源组中所有类型的资源，但不能管理订阅中其他资源组的资源。

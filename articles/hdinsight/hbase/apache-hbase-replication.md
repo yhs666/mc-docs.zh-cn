@@ -9,18 +9,18 @@ editor: cgronlun
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 05/11/2018
-ms.date: 06/25/2018
+ms.date: 08/27/2018
 ms.author: v-yiso
-ms.openlocfilehash: 1ef405ca421c4c262f517749d0e966caa827825c
-ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
+ms.openlocfilehash: f9f534ac6096eb9f66f5da55ea3a292504f95592
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36747501"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41705398"
 ---
 # <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>在 Azure 虚拟网络中设置 HBase 群集复制
 
@@ -65,7 +65,7 @@ ms.locfileid: "36747501"
 
 ### <a name="set-up-two-virtual-networks-in-two-different-regions"></a>在两个不同的区域中设置两个虚拟网络
 
-若要在两个不同区域创建两个虚拟网络并在 VNet 之间创建 VPN 连接，请选择下图来创建。 模板存储在[公共 Blob 存储]](https://hditutorialdata.blob.core.windows.net/hbaseha/azuredeploy.json)中。
+若要使用模板在两个不同区域创建两个虚拟网络并在 VNet 之间创建 VPN 连接，请选择下面的“部署到 Azure”按钮。 模板定义存储在[公共 blob 存储](https://hditutorialdata.blob.core.windows.net/hbaseha/azuredeploy.json)中。
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhbaseha%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
 

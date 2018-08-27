@@ -6,15 +6,15 @@ author: vhorne
 manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
-origin.date: 06/15/2018
-ms.date: 07/02/2018
+origin.date: 08/06/2018
+ms.date: 08/22/2018
 ms.author: v-junlch
-ms.openlocfilehash: aee3852660c1bbc8f458a7ba443ce7a5cb142acf
-ms.sourcegitcommit: f0bfa3f8dca94099a2181492952e6a575fbdbcc8
+ms.openlocfilehash: e22c41386888d2049f93980f5e250181359a14bd
+ms.sourcegitcommit: da9f7b0825e493636d6596eb6ae95d03e0626583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37142576"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "41734353"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>应用程序网关运行状况监视概述
 
@@ -39,7 +39,7 @@ ms.locfileid: "37142576"
 下面是匹配条件： 
 
 - **HTTP 响应状态代码匹配** - 接受用户指定的 http 响应代码或响应代码范围的探测匹配条件。 支持逗号分隔的单个响应状态代码，或一系列状态代码。
-- **HTTP 响应正文匹配** - 查找 HTTP 响应正文并匹配用户指定字符串的探测匹配条件。 请注意，该匹配操作只会在响应正文中确定是否存在用户指定的字符串，而不执行完整正则表达式匹配。
+- **HTTP 响应正文匹配** - 查找 HTTP 响应正文并匹配用户指定字符串的探测匹配条件。 该匹配操作只会在响应正文中确定是否存在用户指定的字符串，而不执行完整正则表达式匹配。
 
 可以使用 `New-AzureRmApplicationGatewayProbeHealthResponseMatch` cmdlet 指定匹配条件。
 
@@ -56,14 +56,20 @@ $match = New-AzureRmApplicationGatewayProbeHealthResponseMatch -Body "Healthy"
 | 探测属性 | 值 | 说明 |
 | --- | --- | --- |
 | 探测 URL |http://127.0.0.1:\<port\>/ |URL 路径 |
-| 时间间隔 |30 |探测间隔（秒） |
-| 超时 |30 |探测超时（秒） |
-| 不正常阈值 |3 |探测重试计数。 连续探测失败计数达到不正常阈值后，后端服务器标记为故障。 |
+| 时间间隔 |30 |发送下一个运行状况探测前需要等待的时间（以秒为单位）。|
+| 超时 |30 |将探测标记为不正常前，应用程序网关等待探测响应的时间（以秒为单位）。 如果探测返回为正常，则相应的后端立即被标记为正常。|
+| 不正常阈值 |3 |控制在定期运行状况探测出现故障的情况下要发送的探测数。 快速连续发送这些额外的运行状况探测，以快速确定后端的运行状况，并且无需等待探测时间间隔。 连续探测失败计数达到不正常阈值后，后端服务器标记为故障。 |
 
 > [!NOTE]
 > 该端口与后端 HTTP 设置的端口相同。
 
-默认探测只查看 http://127.0.0.1:\<port\> 来判断运行状况。 如果需要配置运行状况探测以使其转到自定义 URL 或修改任何其他设置，必须使用以下步骤中所述的自定义探测：
+默认探测只查看 http://127.0.0.1:\<port\> 来判断运行状况。 如果需要配置运行状况探测以使其转到自定义 URL 或修改任何其他设置，必须使用自定义探测。
+
+### <a name="probe-intervals"></a>探测间隔
+
+应用程序网关的所有实例探测相互独立的后端。 相同的探测配置适用于每个应用程序网关实例。 例如，如果探测配置为每 30 秒发送运行状况探测，并且应用程序网关包含两个实例，则这两个实例均每隔 30 秒发送运行状况探测。
+
+此外，如果存在多个侦听器，则每个侦听器探测相互独立的后端。 例如，如果有两个侦听器指向两个不同端口上的同一后端池（由两个后端 http 设置配置），则每个侦听器独立探测同一后端。 在这种情况下，两个侦听器的每个应用程序网关实例都有两个探测。 如果此方案中的应用程序网关包含两个实例，则在每个配置的探测间隔中，可看到四个探测。
 
 ## <a name="custom-health-probe"></a>自定义的运行状况探测
 

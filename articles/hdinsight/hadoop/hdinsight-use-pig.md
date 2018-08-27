@@ -15,14 +15,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 04/23/2018
-ms.date: 06/25/2018
+ms.date: 08/27/2018
 ms.author: v-yiso
-ms.openlocfilehash: c6fa88938bfe02b1ba108d324858c2e4db177714
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.openlocfilehash: 9bb2fd3d9e7e0d013a15dd5fc6a86a316d0208c4
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873340"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41705339"
 ---
 # <a name="use-pig-with-hadoop-on-hdinsight"></a>将 Pig 与 HDInsight 上的 Hadoop 配合使用
 
@@ -58,7 +58,7 @@ Pig 是一个平台，可以使用名为 *Pig Latin* 的过程语言为 Hadoop �
 
 Pig Latin 还支持使用用户定义函数 (UDF) 来调用外部组件，以便实现难以在 Pig Latin 中建模的逻辑。
 
-有关 Pig Latin 的详细信息，请参阅 [Pig Latin Reference Manual 1](http://pig.apache.org/docs/r0.7.0/piglatin_ref1.html)（Pig Latin 参考手册 1）和 [Pig Latin Reference Manual 2](http://pig.apache.org/docs/r0.7.0/piglatin_ref2.html)（Pig Latin 参考手册 2）。
+有关 Pig Latin 的详细信息，请参阅 [Pig Latin Reference Manual 1](http://archive.cloudera.com/cdh/3/pig/piglatin_ref1.html)（Pig Latin 参考手册 1）和 [Pig Latin Reference Manual 2](http://archive.cloudera.com/cdh/3/pig/piglatin_ref2.html)（Pig Latin 参考手册 2）。
 
 如需通过 Pig 使用 UDF 的示例，请参阅以下文档：
 

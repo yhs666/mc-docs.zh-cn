@@ -12,15 +12,15 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 01/04/2018
-ms.date: 07/09/2018
+origin.date: 06/27/2018
+ms.date: 08/20/2018
 ms.author: v-yeche
-ms.openlocfilehash: 11023353bccb6ce8a25da2ee75061b7aade95f03
-ms.sourcegitcommit: 292f22020e00c607229c1693229f25fb2837d8af
+ms.openlocfilehash: a84c545f2fe8a9242a02b183e161481f999930fd
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37910588"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41706231"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Service Fabric 群集容量规划注意事项
 对于任何生产部署，容量规划都是一个重要的步骤。 下面是在规划过程中必须注意的一些事项。
@@ -28,6 +28,10 @@ ms.locfileid: "37910588"
 * 群集一开始需要的节点类型数目
 * 每个节点类型的属性（大小、是否为主节点、是否面向 Internet、VM 数目，等等）
 * 群集的可靠性和持久性特征
+
+> [!NOTE]
+> 规划期间至少应该查看所有“不允许的”升级策略值。 这样可以确保正确设置值，并且可以减少不可更改的系统配置设置所导致的群集使用。 
+> 
 
 让我们简单地了解其中每一项。
 
@@ -47,6 +51,8 @@ ms.locfileid: "37910588"
 每个节点类型是不同的规模集，可以独立扩展或缩减，可以打开不同的端口集，并且有不同的容量指标。 若要详细了解节点类型和虚拟机规模集之间关系、如何 RDP 到任一实例、如何打开新的端口等，请参阅 [Service Fabric 群集节点类型](service-fabric-cluster-nodetypes.md)。
 
 Service Fabric 群集可以包含不止一个节点类型。 在这种情况下，群集包含一个主节点类型以及一个或多个非主节点类型。
+
+<!-- Not Available on Scaling on MC-->
 
 ### <a name="primary-node-type"></a>主节点类型
 
@@ -78,7 +84,7 @@ Service Fabric 系统服务（例如，群集管理器服务或图像存储服�
 
 > [!WARNING]
 > 以青铜级持续性运行的节点类型不具有任何特权。 这意味着，不会停止或延迟对无状态工作负荷产生影响的基础结构作业，这可能影响工作负荷。 对仅运行无状态工作负荷的节点类型仅使用“青铜”。 对于生产工作负荷，建议运行“白银”或以上级别。 
-> 
+>
 
 **使用“白银”或“黄金”耐久性级别的优点**
 
@@ -158,6 +164,7 @@ Service Fabric 系统服务（例如，群集管理器服务或图像存储服�
 
 对于生产工作负荷： 
 
+- 建议将群集的主要节点类型提供给系统服务，使用位置约束将应用程序部署到辅助节点类型。
 - 建议的 VM SKU 为标准 D3 或标准 D3_V2，或者相当于一块至少 14 GB 的本地 SSD 的容量。
 - 支持使用的最小 VM SKU 为标准 D1 或标准 D1_V2，或者相当于一块至少 14 GB 的本地 SSD 的容量。 
 - 生产工作负荷不支持不完整的核心 VM SKU，例如标准 A0。

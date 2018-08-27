@@ -13,14 +13,14 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 05/11/2018
-ms.date: 06/13/2018
+ms.date: 08/13/2018
 ms.author: v-junlch
-ms.openlocfilehash: f5627e6121c08882c47c302701693667c21d14e6
-ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
+ms.openlocfilehash: 61dd4ee949006782e7ed5ca7f1d77553fa01148a
+ms.sourcegitcommit: ec76e0b9a869eb833f76f6bebbabd2d61ed17e0c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2018
-ms.locfileid: "35568337"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "41705330"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>故障排除：Azure 点到站点连接问题
 
@@ -306,11 +306,11 @@ SMB 协议用于文件共享访问。 连接启动时，VPN 客户端添加了�
 ## <a name="error-the-revocation-function-was-unable-to-check-revocation-because-the-revocation-server-was-offlineerror-0x80092013"></a>错误：“吊销功能无法检查吊销，因为吊销服务器已脱机。(错误 0x80092013)”
 
 ### <a name="causes"></a>原因
-如果客户端无法访问 http://crl3.digicert.com/ssca-sha2-g1.crl 和 http://crl4.digicert.com/ssca-sha2-g1.cr，则会出现此错误消息。进行吊销检查需要访问这两个站点。  此问题通常发生在配置了代理服务器的客户端上。 在某些环境中，如果请求不通过代理服务器，则在边缘防火墙处会被拒绝。
+如果客户端无法访问 http://crl3.digicert.com/ssca-sha2-g1.crl 和 http://crl4.digicert.com/ssca-sha2-g1.crl，则会出现此错误消息。  进行吊销检查需要访问这两个站点。  此问题通常发生在配置了代理服务器的客户端上。 在某些环境中，如果请求不通过代理服务器，则在边缘防火墙处会被拒绝。
 
 ### <a name="solution"></a>解决方案
 
-请检查代理服务器设置，确保客户端可以访问 http://crl3.digicert.com/ssca-sha2-g1.crl 和 http://crl4.digicert.com/ssca-sha2-g1.cr。
+请检查代理服务器设置，确保客户端可以访问 http://crl3.digicert.com/ssca-sha2-g1.crl 和 http://crl4.digicert.com/ssca-sha2-g1.crl。
 
 ## <a name="error-405-when-you-download-root-certificate-from-vpn-gateway"></a>从 VPN 网关下载根证书时出现“错误 405”
 
@@ -360,4 +360,5 @@ Azure VPN 网关类型必须是 VPN，VPN 类型必须是 RouteBased。
 
 在 VPN 客户端运行的计算机中检查睡眠和休眠设置。
 
-<!-- Update_Description: update metedata properties -->
+
+<!-- Update_Description: wording update -->

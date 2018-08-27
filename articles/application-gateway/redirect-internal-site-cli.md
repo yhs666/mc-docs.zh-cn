@@ -11,14 +11,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/14/2018
-ms.date: 08/08/2018
+ms.date: 08/22/2018
 ms.author: v-junlch
-ms.openlocfilehash: d61ee09ce077329f52c5f85c177c8a3fdc859c43
-ms.sourcegitcommit: a1c6a743b4be62477e7debfc9ea5f03afca2bc8f
+ms.openlocfilehash: 136b52ae93a4ae79e6902047cfe54a3ddc8cf9c2
+ms.sourcegitcommit: da9f7b0825e493636d6596eb6ae95d03e0626583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39625175"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "41734282"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-the-azure-cli"></a>使用 Azure CLI 创建支持内部重定向的应用程序网关
 
@@ -49,7 +49,7 @@ az group create --name myResourceGroupAG --location chinanorth
 
 ## <a name="create-network-resources"></a>创建网络资源 
 
-使用 [az network vnet create](/cli/network/vnet#az_net) 创建名为 *myVNet* 的虚拟网络和名为 *myAGSubnet* 的子网。 然后，可以使用 [az network vnet subnet create](/cli/network/vnet/subnet#az_network_vnet_subnet_create) 添加后端服务器池所需的名为 *myBackendSubnet* 的子网。 使用 [az network public-ip create](/cli/network/public-ip#az_network_public_ip_create) 创建名为 *myAGPublicIPAddress* 的公共 IP 地址。
+使用 [az network vnet create](/cli/network/vnet#az-net) 创建名为 *myVNet* 的虚拟网络和名为 *myAGSubnet* 的子网。 然后，可以使用 [az network vnet subnet create](/cli/network/vnet/subnet#az-network_vnet_subnet_create) 添加后端服务器池所需的名为 *myBackendSubnet* 的子网。 使用 [az network public-ip create](/cli/network/public-ip#az-network_public_ip_create) 创建名为 *myAGPublicIPAddress* 的公共 IP 地址。
 
 ```azurecli
 az network vnet create `
@@ -102,7 +102,7 @@ az network application-gateway create `
 
 应用程序网关需要侦听器才能适当地将流量路由到后端池。 在本教程中，将为两个域创建两个侦听器。 在此示例中，将为域 *www.contoso.com* 和 *www.contoso.org* 创建侦听器。
 
-使用 [az network application-gateway http-listener create](/cli/network/application-gateway#az_network_application_gateway_http_listener_create) 添加路由流量所需的后端侦听器。
+使用 [az network application-gateway http-listener create](/cli/network/application-gateway#az-network_application_gateway_http_listener_create) 添加路由流量所需的后端侦听器。
 
 ```azurecli
 az network application-gateway http-listener create `
@@ -123,7 +123,7 @@ az network application-gateway http-listener create `
 
 ### <a name="add-the-redirection-configuration"></a>添加重定向配置
 
-使用 [az network application-gateway redirect-config create](/cli/network/application-gateway/redirect-config#az_network_application_gateway_redirect_config_create) 在应用程序网关中添加从 *www.consoto.org* 将流量发送到 *www.contoso.com* 的侦听器的重定向配置。
+使用 [az network application-gateway redirect-config create](/cli/network/application-gateway/redirect-config#az-network_application_gateway_redirect_config_create) 在应用程序网关中添加从 *www.consoto.org* 将流量发送到 *www.contoso.com* 的侦听器的重定向配置。
 
 ```azurecli
 az network application-gateway redirect-config create `
@@ -140,7 +140,7 @@ az network application-gateway redirect-config create `
 
 规则按照其创建顺序进行处理，并且使用与发送到应用程序网关的 URL 匹配的第一个规则定向流量。 例如，如果在同一端口上同时有使用基本侦听器的规则和使用多站点侦听器的规则，则使用多站点侦听器的规则必须在使用基本侦听器的规则之前列出，多站点规则才能正常运行。 
 
-在此示例中，将创建两个新规则并删除创建的默认规则。  可以使用 [az network application-gateway rule create](/cli/network/application-gateway#az_network_application_gateway_rule_create) 添加规则。
+在此示例中，将创建两个新规则并删除创建的默认规则。  可以使用 [az network application-gateway rule create](/cli/network/application-gateway#az-network_application_gateway_rule_create) 添加规则。
 
 ```azurecli
 az network application-gateway rule create `
@@ -200,7 +200,7 @@ az vmss extension set `
 
 ## <a name="create-cname-record-in-your-domain"></a>在域中创建 CNAME 记录
 
-使用其公共 IP 地址创建应用程序网关后，可以获取 DNS 地址并使用它在域中创建 CNAME 记录。 可以使用 [az network public-ip show](/cli/network/public-ip#az_network_public_ip_show) 获取应用程序网关的 DNS 地址。 复制 DNSSettings 的 *fqdn* 值并使用它作为所创建的 CNAME 记录的值。 不建议使用 A 记录，因为重新启动应用程序网关后 VIP 可能会变化。
+使用其公共 IP 地址创建应用程序网关后，可以获取 DNS 地址并使用它在域中创建 CNAME 记录。 可以使用 [az network public-ip show](/cli/network/public-ip#az-network_public_ip_show) 获取应用程序网关的 DNS 地址。 复制 DNSSettings 的 *fqdn* 值并使用它作为所创建的 CNAME 记录的值。 不建议使用 A 记录，因为重新启动应用程序网关后 VIP 可能会变化。
 
 ```azurecli
 az network public-ip show `
@@ -228,4 +228,4 @@ az network public-ip show `
 > * 使用后端池创建虚拟机规模集
 > * 在域中创建 CNAME 记录
 
-<!-- Update_Description: code update -->
+<!-- Update_Description: link update -->

@@ -11,14 +11,14 @@ ms.devlang: azurecli
 ms.topic: article
 ms.workload: infrastructure-services
 origin.date: 01/25/2018
-ms.date: 06/07/2018
+ms.date: 08/22/2018
 ms.author: v-junlch
-ms.openlocfilehash: c0ce051af79e537bec83914d8adb532195cda190
-ms.sourcegitcommit: 4fe9905d17a8df9f2270543a5a0ce1762a5830c9
+ms.openlocfilehash: c2280288691e49880c5291390d3c97384abe7b86
+ms.sourcegitcommit: da9f7b0825e493636d6596eb6ae95d03e0626583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34855711"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "41734357"
 ---
 # <a name="create-an-application-gateway-using-the-azure-cli"></a>使用 Azure CLI 创建应用程序网关
 
@@ -31,7 +31,7 @@ ms.locfileid: "34855711"
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
-使用 [az group create](/cli/group#az_group_create) 创建资源组。 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。 
+使用 [az group create](/cli/group#az-group-create) 创建资源组。 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。 
 
 以下示例在“chinanorth”位置创建名为“myResourceGroupAG”的资源组。
 
@@ -41,7 +41,7 @@ az group create --name myResourceGroupAG --location chinanorth
 
 ## <a name="create-network-resources"></a>创建网络资源 
 
-使用 [az network vnet create](/cli/network/vnet#az_vnet_create) 创建虚拟网络和子网。 使用 [az network public-ip create](/cli/network/public-ip#az_public_ip_create) 创建公共 IP 地址。
+使用 [az network vnet create](/cli/network/vnet#az-network-vnet-create) 创建虚拟网络和子网。 使用 [az network public-ip create](/cli/network/public-ip#az-public-ip-create) 创建公共 IP 地址。
 
 ```azurecli
 az network vnet create \
@@ -111,7 +111,7 @@ runcmd:
   - nodejs index.js
 ```
 
-使用 [az network nic create](/cli/network/nic#az_network_nic_create) 创建网络接口。 使用 [az vm create](/cli/vm#az_vm_create) 创建虚拟机。
+使用 [az network nic create](/cli/network/nic#az-network-nic-create) 创建网络接口。 使用 [az vm create](/cli/vm#az-vm-create) 创建虚拟机。
 
 ```azurecli
 for i in `seq 1 2`; do
@@ -133,7 +133,7 @@ done
 
 ## <a name="create-the-application-gateway"></a>创建应用程序网关
 
-使用 [az network application-gateway create](/cli/network/application-gateway#az_application_gateway_create) 创建应用程序网关。 使用 Azure CLI 创建应用程序网关时，请指定配置信息，例如容量、sku 和 HTTP 设置。 将添加网络接口的专用 IP 地址作为应用程序网关后端池中的服务器。
+使用 [az network application-gateway create](/cli/network/application-gateway#az-application-gateway-create) 创建应用程序网关。 使用 Azure CLI 创建应用程序网关时，请指定配置信息，例如容量、sku 和 HTTP 设置。 将添加网络接口的专用 IP 地址作为应用程序网关后端池中的服务器。
 
 ```azurecli
 address1=$(az network nic show --name myNic1 --resource-group myResourceGroupAG | grep "\"privateIpAddress\":" | grep -oE '[^ ]+$' | tr -d '",')
@@ -161,7 +161,7 @@ az network application-gateway create \
 
 ## <a name="test-the-application-gateway"></a>测试应用程序网关
 
-若要获取应用程序网关的公共 IP 地址，请使用 [az network public-ip show](/cli/network/public-ip#az_network_public_ip_show)。 复制该公共 IP 地址，并将其粘贴到浏览器的地址栏。
+若要获取应用程序网关的公共 IP 地址，请使用 [az network public-ip show](/cli/network/public-ip#az-network-public-ip-show)。 复制该公共 IP 地址，并将其粘贴到浏览器的地址栏。
 
 ```azurepowershell
 az network public-ip show \
@@ -175,7 +175,7 @@ az network public-ip show \
 
 ## <a name="clean-up-resources"></a>清理资源
 
-如果不再需要资源组、应用程序网关和所有相关资源，可以使用 [az group delete](/cli/group#az_group_delete) 命令将其删除。
+如果不再需要资源组、应用程序网关和所有相关资源，可以使用 [az group delete](/cli/group#az-group-delete) 命令将其删除。
 
 ```azurecli 
 az group delete --name myResourceGroupAG
@@ -186,4 +186,4 @@ az group delete --name myResourceGroupAG
 在本快速入门中，创建了资源组、网络资源和后端服务器。 然后可以使用这些资源来创建应用程序网关。 若要了解有关应用程序网关及其关联资源的详细信息，请继续阅读操作指南文章。
 
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: link update -->

@@ -7,15 +7,15 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-origin.date: 06/20/2018
-ms.date: 08/08/2018
+origin.date: 08/10/2018
+ms.date: 08/22/2018
 ms.author: v-junlch
-ms.openlocfilehash: 1799943524175cee180d45c6e5bf9a9de7d5760b
-ms.sourcegitcommit: a1c6a743b4be62477e7debfc9ea5f03afca2bc8f
+ms.openlocfilehash: 1f0b2b1bd77ee0bf827a91a6314f948bfb7e716b
+ms.sourcegitcommit: da9f7b0825e493636d6596eb6ae95d03e0626583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39625190"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "41734337"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>应用程序网关常见问题
 
@@ -94,6 +94,8 @@ Set-AzureRmApplicationGateway -ApplicationGateway $gw
 
 支持。应用程序网关会将 x-forwarded-for、x-forwarded-proto 和 x-forwarded-port 标头插入转发到后端的请求中。 x-forwarded-for 标头的格式是逗号分隔的“IP:端口”列表。 x-forwarded-proto 的有效值为 http 或 https。 x-forwarded-port 指定请求抵达应用程序网关时所在的端口。
 
+应用程序网关还会插入 X-Original-Host 标头，其中包含随请求到达的原始主机标头。 此标头在 Azure 网站集成之类的场景中比较有用，在这类场景中，传入的主机标头在流量路由到后端之前会修改。
+
 **问：部署应用程序网关需要多长时间？更新时应用程序网关是否仍正常工作？**
 
 预配新应用程序网关部署最多需 20 分钟。 更改实例大小/计数不会出现中断，且在此期间网关仍处于活动状态。
@@ -121,6 +123,12 @@ Set-AzureRmApplicationGateway -ApplicationGateway $gw
 - 不能阻止出站 Internet 连接。
 
 - 必须允许来自 AzureLoadBalancer 标记的流量。
+
+**问：应用程序网关子网是否支持用户定义的路由？**
+
+只要用户定义的路由 (UDR) 未更改端到端请求/响应通信，则应用程序网关子网支持用户定义的路由。
+
+例如，可以在应用程序网关子网中设置 UDR 来指向用于数据包检查的防火墙设备，但必须确保数据包在检查后可以到达其预定目的地。 如果做不到这一点，可能会导致不正确的运行状况探测或流量路由行为。 这包括已了解的路由或通过 ExpressRoute 或 VPN 网关在虚拟网络中传播的默认 0.0.0.0/0 路由。
 
 **问：应用程序网关有哪些限制？是否可以提高这些限制？**
 

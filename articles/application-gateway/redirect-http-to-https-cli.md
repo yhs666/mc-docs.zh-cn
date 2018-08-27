@@ -9,14 +9,14 @@ ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 origin.date: 07/14/2018
-ms.date: 08/08/2018
+ms.date: 08/22/2018
 ms.author: v-junlch
-ms.openlocfilehash: dabe5657e5380892acff40d3950fded76aaf3b0f
-ms.sourcegitcommit: a1c6a743b4be62477e7debfc9ea5f03afca2bc8f
+ms.openlocfilehash: c95065e7faadf593c52ab2b80e2bcbf39c1cebc3
+ms.sourcegitcommit: da9f7b0825e493636d6596eb6ae95d03e0626583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39625195"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "41734339"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-cli"></a>使用 Azure CLI 创建支持 HTTP 到 HTTPS 重定向的应用程序网关
 
@@ -63,7 +63,7 @@ az group create --name myResourceGroupAG --location chinanorth
 
 ## <a name="create-network-resources"></a>创建网络资源
 
-使用 [az network vnet create](/cli/network/vnet#az_net) 创建名为 *myVNet* 的虚拟网络和名为 *myAGSubnet* 的子网。 然后，可以使用 [az network vnet subnet create](/cli/network/vnet/subnet#az_network_vnet_subnet_create) 添加后端服务器所需的名为 *myBackendSubnet* 的子网。 使用 [az network public-ip create](/cli/network/public-ip#az_network_public_ip_create) 创建名为 *myAGPublicIPAddress* 的公共 IP 地址。
+使用 [az network vnet create](/cli/network/vnet#az-net) 创建名为 *myVNet* 的虚拟网络和名为 *myAGSubnet* 的子网。 然后，可以使用 [az network vnet subnet create](/cli/network/vnet/subnet#az-network_vnet_subnet_create) 添加后端服务器所需的名为 *myBackendSubnet* 的子网。 使用 [az network public-ip create](/cli/network/public-ip#az-network_public_ip_create) 创建名为 *myAGPublicIPAddress* 的公共 IP 地址。
 
 ```azurecli
 az network vnet create `
@@ -85,7 +85,7 @@ az network public-ip create `
 
 ## <a name="create-the-application-gateway"></a>创建应用程序网关
 
-可以使用 [az network application-gateway create](/cli/network/application-gateway#az_network_application_gateway_create) 创建名为 *myAppGateway* 的应用程序网关。 使用 Azure CLI 创建应用程序网关时，请指定配置信息，例如容量、sku 和 HTTP 设置。 
+可以使用 [az network application-gateway create](/cli/network/application-gateway#az-network_application_gateway_create) 创建名为 *myAppGateway* 的应用程序网关。 使用 Azure CLI 创建应用程序网关时，请指定配置信息，例如容量、sku 和 HTTP 设置。 
 
 将应用程序网关分配给之前创建的 *myAGSubnet* 和 *myAGPublicIPAddress*。 在此示例中，在创建应用程序网关时将关联所创建的证书及其密码。 
 
@@ -120,7 +120,7 @@ az network application-gateway create `
 
 ### <a name="add-the-http-port"></a>添加 HTTP 端口
 
-可以使用 [az network application-gateway frontend-port create](/cli/network/application-gateway/frontend-port#az_network_application_gateway_frontend_port_create) 向应用程序网关添加 HTTP 端口。
+可以使用 [az network application-gateway frontend-port create](/cli/network/application-gateway/frontend-port#az-network_application_gateway_frontend_port_create) 向应用程序网关添加 HTTP 端口。
 
 ```azurecli
 az network application-gateway frontend-port create `
@@ -132,7 +132,7 @@ az network application-gateway frontend-port create `
 
 ### <a name="add-the-http-listener"></a>添加 HTTP 侦听器
 
-可以使用 [az network application-gateway http-listener create](/cli/network/application-gateway/http-listener#az_network_application_gateway_http_listener_create) 向应用程序网关添加名为 *myListener* 的侦听器。
+可以使用 [az network application-gateway http-listener create](/cli/network/application-gateway/http-listener#az-network_application_gateway_http_listener_create) 向应用程序网关添加名为 *myListener* 的侦听器。
 
 ```azurecli
 az network application-gateway http-listener create `
@@ -145,7 +145,7 @@ az network application-gateway http-listener create `
 
 ### <a name="add-the-redirection-configuration"></a>添加重定向配置
 
-使用 [az network application-gateway redirect-config create](/cli/network/application-gateway/redirect-config#az_network_application_gateway_redirect_config_create) 将 HTTP 到 HTTPS 重定向配置添加到应用程序网关。
+使用 [az network application-gateway redirect-config create](/cli/network/application-gateway/redirect-config#az-network_application_gateway_redirect_config_create) 将 HTTP 到 HTTPS 重定向配置添加到应用程序网关。
 
 ```azurecli
 az network application-gateway redirect-config create `
@@ -160,7 +160,7 @@ az network application-gateway redirect-config create `
 
 ### <a name="add-the-routing-rule"></a>添加路由规则
 
-使用 [az network application-gateway rule create](/cli/network/application-gateway/rule#az_network_application_gateway_rule_create) 将具有重定向配置的名为 *rule2* 的路由规则添加到应用程序网关。
+使用 [az network application-gateway rule create](/cli/network/application-gateway/rule#az-network_application_gateway_rule_create) 将具有重定向配置的名为 *rule2* 的路由规则添加到应用程序网关。
 
 ```azurecli
 az network application-gateway rule create `
@@ -174,7 +174,7 @@ az network application-gateway rule create `
 
 ## <a name="create-a-virtual-machine-scale-set"></a>创建虚拟机规模集
 
-在此示例中，将创建一个名为 *myvmss* 的虚拟机规模集，以便为应用程序网关的后端池提供服务器。 规模集中的虚拟机与 *myBackendSubnet* 和 *appGatewayBackendPool* 相关联。 若要创建规模集，可以使用 [az vmss create](/cli/vmss#az_vmss_create)。
+在此示例中，将创建一个名为 *myvmss* 的虚拟机规模集，以便为应用程序网关的后端池提供服务器。 规模集中的虚拟机与 *myBackendSubnet* 和 *appGatewayBackendPool* 相关联。 若要创建规模集，可以使用 [az vmss create](/cli/vmss#az-vmss-create)。
 
 ```azurecli
 az vmss create `
@@ -207,7 +207,7 @@ az vmss extension set `
 
 ## <a name="test-the-application-gateway"></a>测试应用程序网关
 
-若要获取应用程序网关的公共 IP 地址，可以使用 [az network public-ip show](/cli/network/public-ip#az_network_public_ip_show)。 复制该公共 IP 地址，并将其粘贴到浏览器的地址栏。
+若要获取应用程序网关的公共 IP 地址，可以使用 [az network public-ip show](/cli/network/public-ip#az-network_public_ip_show)。 复制该公共 IP 地址，并将其粘贴到浏览器的地址栏。
 
 ```azurepowershell
 az network public-ip show `
@@ -236,4 +236,4 @@ az network public-ip show `
 
 
 
-<!-- Update_Description: code update -->
+<!-- Update_Description: link update -->

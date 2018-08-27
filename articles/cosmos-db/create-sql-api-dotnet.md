@@ -13,12 +13,12 @@ origin.date: 04/10/2018
 ms.date: 07/02/2018
 ms.author: v-yeche
 clicktale: true
-ms.openlocfilehash: 0764179779bbf9c28edcd5466e33c85ad3190dc6
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: f2a5ced878debd7b02faefc214344a8ad904ea99
+ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939038"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41705321"
 ---
 # <a name="quickstart-build-a-net-web-app-with-azure-cosmos-db-using-the-sql-api-and-the-azure-portal"></a>快速入门：使用 SQL API 和 Azure 门户生成包含 Azure Cosmos DB 的 .NET Web 应用
 
@@ -59,7 +59,7 @@ Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务
 
 ## <a name="clone-the-sample-application"></a>克隆示例应用程序
 
-现在，让我们转到如何使用代码上来。 接下来，克隆 GitHub 中的一个 SQL API 应用，设置连接字符串，并运行该应用。 会看到以编程方式处理数据是多么容易。 
+现在，让我们转到如何使用代码上来。 接下来，克隆 [GitHub 中的 SQL API](https://github.com/Azure-Samples/documentdb-dotnet-todo-app) 应用程序，设置连接字符串，并运行应用程序。 会看到以编程方式处理数据是多么容易。 
 
 1. 打开命令提示符，新建一个名为“git-samples”的文件夹，然后关闭命令提示符。
 

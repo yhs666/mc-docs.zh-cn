@@ -13,19 +13,19 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 04/20/2017
-ms.date: 05/28/2018
+ms.date: 08/20/2018
 ms.author: v-yeche
-ms.openlocfilehash: 84f8754243ee1fc43a972c5dc67bc6be0838cb2b
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: c3c1e3a41219c8e7e354c528b5fac6b5af9b2518
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554281"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41705337"
 ---
 # <a name="configure-fabrictransport-settings-for-reliable-actors"></a>配置 Reliable Actors 的 FabricTransport 设置
 
 以下为用户可以配置的设置：
-- C#: [FabricTransportRemotingSettings](https://docs.azure.cn/java/api/microsoft.servicefabric.services.remoting.fabrictransport._fabric_transport_remoting_settings)
+- C#:[FabricTransportRemotingSettings](https://docs.azure.cn/java/api/microsoft.servicefabric.services.remoting.fabrictransport._fabric_transport_remoting_settings)
 - Java：[FabricTransportRemotingSettings](https://docs.azure.cn/java/api/microsoft.servicefabric.services.remoting.fabrictransport._fabric_transport_remoting_settings)
 
 可以通过以下方式修改 FabricTransport 的默认配置。
@@ -51,6 +51,10 @@ ms.locfileid: "34554281"
 ## <a name="config-package"></a>配置包
 
 可以使用[配置包](service-fabric-application-and-service-manifests.md)修改默认配置。
+
+> [!IMPORTANT]
+> 在 Linux 节点上，证书必须是 PEM 格式。 若要详细了解如何查找和配置适用于 Linux 的证书，请参阅[在 Linux 上配置证书](./service-fabric-configure-certificates-linux.md)。 
+> 
 
 ### <a name="configure-fabrictransport-settings-for-the-actor-service"></a>配置执行组件服务的 FabricTransport 设置
 
@@ -154,4 +158,4 @@ ms.locfileid: "34554281"
     <Parameter Name="CertificateProtectionLevel" Value="EncryptAndSign" />
     </Section>
      ```
-<!-- Update_Description: update meta properties  -->
+<!-- Update_Description: update meta properties, wording update  -->

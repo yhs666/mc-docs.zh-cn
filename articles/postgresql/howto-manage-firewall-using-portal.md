@@ -2,19 +2,20 @@
 title: 在 Azure Database for PostgreSQL 中创建和管理防火墙规则
 description: 使用 Azure 门户创建和管理 Azure Database for PostgreSQL 防火墙规则
 services: postgresql
-author: v-chenyh
-ms.author: v-chenyh
+author: WenJason
+ms.author: v-jay
 manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 06/22/2018
-ms.openlocfilehash: db731f559ec72c3b031ffaeabc50e3c8769511ac
-ms.sourcegitcommit: d744d18624d2188adbbf983e1c1ac1110d53275c
+origin.date: 02/28/2018
+ms.date: 08/27/2018
+ms.openlocfilehash: 2e3946c1c2bf57c8bba6e6fea56da5fbfa43dae0
+ms.sourcegitcommit: 6dd65fba579a2ce25c63ac69ff3b71d814a9d256
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36314381"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42703852"
 ---
 # <a name="create-and-manage-azure-database-for-postgresql-firewall-rules-using-the-azure-portal"></a>使用 Azure 门户创建和管理 Azure Database for PostgreSQL 防火墙规则
 使用服务器级防火墙规则，管理员可以从指定的 IP 地址或某个范围的 IP 地址访问 Azure Database for PostgreSQL 服务器。 

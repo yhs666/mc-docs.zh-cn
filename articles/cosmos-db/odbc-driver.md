@@ -9,14 +9,14 @@ ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 03/22/2018
-ms.date: 07/02/2018
+ms.date: 08/13/2018
 ms.author: v-yeche
-ms.openlocfilehash: 5f6885214a17603cf068a5478ce07558297fa225
-ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
+ms.openlocfilehash: ba9373fb34942ac431d9efdf5520e6c644d49a30
+ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37070345"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41705324"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>使用 BI 分析工具和 ODBC 驱动程序连接到 Azure Cosmos DB
 
@@ -66,7 +66,7 @@ Azure Cosmos DB 是一种无架构数据库，它允许应用程序即时迭代�
 4. 单击“测试”按钮，确保可以连接到 Azure Cosmos DB 帐户。 
 5. 单击“高级选项”  并设置以下值：
     - **查询一致性**：选择操作的[一致性级别](consistency-levels.md)。 默认值为“会话”。
-    - **重试次数**：输入初始请求因服务限制而未能完成时，重试操作的次数。
+    - **重试次数**：输入当初始请求因服务速率限制而未能完成时，重试操作的次数。
     - **架构文件**：此处有多个选项。
         - 默认情况下，可将此项保留原样（空白），驱动程序将在第一页的数据中扫描所有集合，确定每个集合的架构。 这称为“集合映射”。 如果未定义架构文件，驱动程序必须针对每个驱动程序会话执行扫描，这可能会导致使用 DSN 启动应用程序时需要更长的时间。 我们建议始终关联 DSN 的架构文件。
         - 如果已有一个架构文件（也许是使用[架构编辑器](#schema-editor)创建的文件），则可以单击“浏览”，导航到该文件，单击“保存”，并单击“确定”。

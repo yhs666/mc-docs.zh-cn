@@ -10,12 +10,12 @@ origin.date: 03/03/2018
 ms.date: 07/02/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 266a5f39d710aa36753f137af035d906564dc2ea
-ms.sourcegitcommit: 543a18c71c0910a5b9878a2d2668f317468906f2
+ms.openlocfilehash: 4ad71d1c3a465da25dd37c96ee31c494f7ec6d3c
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39625482"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41705401"
 ---
 # <a name="quickstart-create-a-container-registry-using-the-azure-portal"></a>快速入门：使用 Azure 门户创建容器注册表
 
@@ -119,12 +119,10 @@ v1: digest: sha256:f2867748615cc327d31c68b1172cc03c0544432717c4d2ba2c1c2d34b18c6
 
 ![在 Azure 门户中创建容器注册表][qs-portal-08]
 
-## <a name="next-steps"></a>后续步骤
+<!-- Not Availble on ## Next stepsvvvvvvvvvvvvvvvvvvvvv-->
 
-本快速入门介绍了如何使用 Azure CLI 创建 Azure 容器注册表，以及如何通过 Azure 容器实例启动该注册表的一个实例。 若要加深对 ACI 的了解，请继续阅读 Azure 容器实例教程。
 
-> [!div class="nextstepaction"]
-> [Azure 容器实例教程][container-instances-tutorial-prepare-app]
+<!-- Not Availble on > [Azure Container Instances tutorials][container-instances-tutorial-prepare-app]-->
 
 <!-- IMAGES -->
 [qs-portal-01]: ./media/container-registry-get-started-portal/qs-portal-01.png

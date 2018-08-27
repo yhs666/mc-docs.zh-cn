@@ -8,15 +8,15 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.workload: infrastructure-services
 origin.date: 06/05/2018
-ms.date: 08/07/2018
+ms.date: 08/22/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 3c62aaa0f524ad90af3baab3e3bb50ac4322f19e
-ms.sourcegitcommit: a1c6a743b4be62477e7debfc9ea5f03afca2bc8f
+ms.openlocfilehash: a00fe2d83dda892e8842c10f23b49121d72e32c4
+ms.sourcegitcommit: da9f7b0825e493636d6596eb6ae95d03e0626583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39625161"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "41734267"
 ---
 # <a name="manage-web-traffic-with-an-application-gateway-using-azure-powershell"></a>通过 Azure PowerShell 使用应用程序网关管理 Web 流量
 
@@ -264,4 +264,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroupAG
 > [!div class="nextstepaction"]
 > [使用 Web 应用程序防火墙限制 Web 流量](./tutorial-restrict-web-traffic-powershell.md)
 
-<!-- Update_Description: code update -->
+<!-- Update_Description: update metedata properties -->

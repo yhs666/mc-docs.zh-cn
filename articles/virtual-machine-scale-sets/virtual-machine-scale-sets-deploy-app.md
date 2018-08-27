@@ -3,7 +3,7 @@ title: 将应用程序部署到 Azure 虚拟机规模集 | Microsoft Docs
 description: 了解如何将应用程序部署到规模集中的 Linux 和 Windows 虚拟机实例
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/29/2018
-ms.date: 07/10/2018
+ms.date: 08/13/2018
 ms.author: v-junlch
-ms.openlocfilehash: 6c150aa4b1c41dd20c2b705fca99b6d42fcd1d7b
-ms.sourcegitcommit: a22129c95c9f877a04c6b5b428edf7f4e953fd97
+ms.openlocfilehash: 61d5955599174aedfa2f4c0d47fad44b46704721
+ms.sourcegitcommit: 56ed1b03d83f222db6118fe1e2f2485a9488507f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37937365"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41705325"
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>在虚拟机规模集上部署应用程序
 若要在规模集中的虚拟机 (VM) 实例上运行应用程序，首先需要安装应用程序组件和所需文件。 本文介绍如何为规模集中的实例生成自定义 VM 映像，或在现有 VM 实例上自动运行安装脚本。 本文还将介绍如何跨规模集管理应用程序或 OS 更新。
@@ -121,4 +121,4 @@ az vmss create `
 ## <a name="next-steps"></a>后续步骤
 生成应用程序并将其部署到规模集时，可参阅[规模集设计概述](virtual-machine-scale-sets-design-overview.md)。 若要深入了解如何管理规模集，请参阅[使用 PowerShell 管理规模集](virtual-machine-scale-sets-windows-manage.md)。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->
