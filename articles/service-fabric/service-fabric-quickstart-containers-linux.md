@@ -1,6 +1,6 @@
 ---
-title: 在 Linux 上创建 Azure Service Fabric 容器应用程序 | Azure
-description: 在本快速入门中，请在 Azure Service Fabric 上创建第一个 Linux 容器应用程序。  生成包含应用程序的 Docker 映像，将该映像推送到容器注册表，并生成并部署 Service Fabric 容器应用程序。
+title: 在 Azure 中的 Service Fabric 上创建 Linux 容器应用 | Azure
+description: 在此快速入门中，将使用你的应用程序生成 Docker 映像、将映像推送到容器注册表，然后将容器部署到 Service Fabric 群集。
 services: service-fabric
 documentationcenter: linux
 author: rockboyfor
@@ -13,18 +13,19 @@ ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 04/11/2018
-ms.date: 04/30/2018
+ms.date: 08/20/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: b86a29537f0ee64a6e007d779a70ef7e2fd77420
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: cf28f9bf84c6450c790c574836cae3492d017bb8
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121595"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41705290"
 ---
-# <a name="quickstart-deploy-an-azure-service-fabric-linux-container-application-on-azure"></a>快速入门：在 Azure 上部署 Azure Service Fabric Linux 容器应用程序
-Azure Service Fabric 是一款分布式系统平台，可用于部署和管理可缩放的可靠微服务和容器。 
+# <a name="quickstart-deploy-linux-containers-to-service-fabric"></a>快速入门：将 Linux 容器部署到 Service Fabric
+
+Azure Service Fabric 是一款分布式系统平台，可用于部署和管理可缩放的可靠微服务和容器。
 
 本快速入门介绍如何将 Linux 容器部署到 Service Fabric 群集。 完成后，Service Fabric 群集中会运行一个由 Python Web 前端和 Redis 后端组成的 Voting 应用程序。 此外还介绍如何对群集中的应用程序进行故障转移和缩放。
 
@@ -34,7 +35,9 @@ Azure Service Fabric 是一款分布式系统平台，可用于部署和管理�
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
+<!-- Not Available on Cloud Shell-->
 ## <a name="get-the-application-package"></a>获取应用程序包
+
 若要将容器部署到 Service Fabric，需要一组描述各个容器以及应用程序的清单文件（应用程序定义）。
 
 在本地 Shell 中，使用 git 克隆一份应用程序定义，然后将目录更改为克隆中的 `Voting` 目录。
@@ -57,23 +60,43 @@ cd service-fabric-containers/Linux/container-tutorial/Voting
 >
 
 ## <a name="configure-your-environment"></a>配置环境
+
 Service Fabric 提供多种可以用来管理群集及其应用程序的工具：
 
 - Service Fabric Explorer，一种基于浏览器的工具。
 - Service Fabric 命令行界面 (CLI)，在 Azure CLI 2.0 基础上运行。
-- PowerShell 命令。 
+- PowerShell 命令。
 
-在本快速入门中，请使用 Service Fabric Explorer。
+在本快速入门中，请使用 Service Fabric CLI（在本地 Shell 中）和 Service Fabric Explorer。 以下部分介绍如何安装证书，该证书是使用上述工具连接到安全群集所需的。
 
-<!-- Not Available on ### Configure certificate for the Service Fabric CLI -->
+### <a name="configure-certificate-for-the-service-fabric-cli"></a>为 Service Fabric CLI 配置证书
 
-## <a name="deploy-the-service-fabric-application"></a>部署 Service Fabric 应用程序 
-1. 在本地 Shell 中，使用 CLI 连接到 Azure 中的 Service Fabric 群集。
+若要在本地 Shell 中使用 CLI，需要上传证书 PFX 文件，然后使用它来创建 PEM 文件。
+2. 若要将 PFX 文件转换为 PEM 文件，请使用以下命令。 （对于合作群集，可以从“自述文件”页上的说明中复制特定于 PFX 文件的命令以及密码。）
+
+    ```bash
+    openssl pkcs12 -in party-cluster-1486790479-client-cert.pfx -out party-cluster-1486790479-client-cert.pem -nodes -passin pass:1486790479
+    ```
+
+### <a name="configure-certificate-for-service-fabric-explorer"></a>为 Service Fabric Explorer 配置证书
+
+若要使用 Service Fabric Explorer，需要将从门户网站下载的证书 PFX 文件导入到证书存储（Windows 或 Mac）中，或者导入到浏览器本身 (Ubuntu) 中。
+
+请使用最熟悉的方法将证书导入到系统中。 例如：
+
+- 在 Windows 上：双击 PFX 文件，按提示在个人存储 `Certificates - Current User\Personal\Certificates` 中安装证书。 也可以使用**自述文件**说明中的 PowerShell 命令。
+- 在 Mac 上：双击 PFX 文件，按提示在 Keychain 中安装证书。
+- 在 Ubuntu 上：Mozilla Firefox 是 Ubuntu 16.04 中的默认浏览器。 若要将证书导入 Firefox，请单击浏览器右上角的菜单按钮，然后单击“选项”。 在“首选项”页上，使用搜索框搜索“证书”。 单击“查看证书”，选择“你的证书”选项卡，单击“导入”，然后按提示导入证书。
+
+   ![在 Firefox 上安装证书](./media/service-fabric-quickstart-containers-linux/install-cert-firefox.png)
+
+## <a name="deploy-the-service-fabric-application"></a>部署 Service Fabric 应用程序
+
+1. 在本地 Shell 中，使用 CLI 连接到 Azure 中的 Service Fabric 群集。 此终结点是群集的管理终结点。 已在上一部分创建 PEM 文件。
 
 ```bash
 sfctl cluster select --endpoint https://linh1x87d1d.chinanorth.cloudapp.chinacloudapi.cn:19080 --pem party-cluster-1277863181-client-cert.pem --no-verify
 ```
-
 
 2. 使用安装脚本将 Voting 应用程序定义复制到群集，注册应用程序类型，并创建应用程序的实例。
 
@@ -98,6 +121,7 @@ sfctl cluster select --endpoint https://linh1x87d1d.chinanorth.cloudapp.chinaclo
 > ```
 
 ## <a name="fail-over-a-container-in-a-cluster"></a>故障转移群集中的容器
+
 Service Fabric 可确保在发生故障时，将容器实例自动转移到群集中的其他节点。 也可以手动清空容器的节点，然后将其正常转移到群集中的其他节点。 Service Fabric 提供多种缩放服务的方式。 在以下步骤中，请使用 Service Fabric Explorer。
 
 若要故障转移前端容器，请执行以下步骤：
@@ -110,6 +134,7 @@ Service Fabric 可确保在发生故障时，将容器实例自动转移到群�
     ![Service Fabric Explorer 中的“节点”视图][sfxquickstartshownodetype]
 
 ## <a name="scale-applications-and-services-in-a-cluster"></a>在群集中缩放应用程序和服务
+
 可以跨群集轻松缩放 Service Fabric 服务，以适应服务上的负载。 可以通过更改群集中运行的实例数量来缩放服务。
 
 若要缩放 Web 前端服务，请按照以下步骤操作：
@@ -119,7 +144,7 @@ Service Fabric 可确保在发生故障时，将容器实例自动转移到群�
 
     ![Service Fabric Explorer 缩放服务开始][containersquickstartscale]
 
-  现在可以缩放 Web 前端服务的实例数量。
+    现在可以缩放 Web 前端服务的实例数量。
 
 3. 将数字更改为 2，再单击“缩放服务”。
 4. 在树视图中单击“fabric:/Voting/azurevotefront”节点，展开分区节点（以 GUID 表示）。
@@ -131,11 +156,12 @@ Service Fabric 可确保在发生故障时，将容器实例自动转移到群�
 通过这一简单的管理任务，你已让前端服务用来处理用户负载的资源数量翻了一番。 有必要了解的是，服务无需多个实例便能可靠运行。 如果服务出现故障，Service Fabric 可确保在群集中运行新的服务实例。
 
 ## <a name="clean-up-resources"></a>清理资源
-1. 使用模板中提供的卸载脚本 (uninstall.sh) 从群集中删除应用程序实例并取消注册应用程序类型。 此脚本需要一定的时间来清理实例，因此不应在运行此脚本后立即运行 install script。 可以使用 Service Fabric Explorer 来确定实例何时已删除以及应用程序类型何时已取消注册。 
 
-```bash
-./uninstall.sh
-```
+1. 使用模板中提供的卸载脚本 (uninstall.sh) 从群集中删除应用程序实例并取消注册应用程序类型。 此脚本需要一定的时间来清理实例，因此不应在运行此脚本后立即运行 install script。 可以使用 Service Fabric Explorer 来确定实例何时已删除以及应用程序类型何时已取消注册。
+
+    ```bash
+    ./uninstall.sh
+    ```
 
 2. 如果群集已使用完毕，则可从证书存储中删除证书。 例如：
    - 在 Windows 上：使用[“证书”MMC 管理单元](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in?view=azure-dotnet)。 在添加管理单元时，确保选择“我的用户帐户”。 导航到 `Certificates - Current User\Personal\Certificates`，然后删除证书。
@@ -143,7 +169,10 @@ Service Fabric 可确保在发生故障时，将容器实例自动转移到群�
    - 在 Ubuntu 上：按照查看证书时所使用的步骤删除此证书。
 ## <a name="next-steps"></a>后续步骤
 
-<!-- Not Availabel on [Create a Linux container app](./service-fabric-tutorial-create-container-images.md)-->
+在本快速入门中，你已将 Linux 容器应用程序部署到 Azure 中的 Service Fabric 群集，在应用程序上执行了故障转移，并在群集中缩放了应用程序。 若要详细了解如何在 Service Fabric 中使用 Linux 容器，请继续学习适用于 Linux 容器应用的教程。
+
+> [!div class="nextstepaction"]
+> [创建 Linux 容器应用](./service-fabric-tutorial-create-container-images.md)
 
 [sfx]: ./media/service-fabric-quickstart-containers-linux/containersquickstartappinstance.png
 [quickstartpic]: ./media/service-fabric-quickstart-containers-linux/votingapp.png

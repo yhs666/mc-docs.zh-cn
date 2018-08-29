@@ -9,12 +9,12 @@ origin.date: 06/21/2018
 ms.date: 08/06/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2a013b87befa662766c23f1f1e1d8e8cc9201ea6
-ms.sourcegitcommit: c6205500afd23ac00f2829fe51858b51a622eaf1
+ms.openlocfilehash: be815e29bf29bf9f569b1ce8bdcd677eaaa80903
+ms.sourcegitcommit: 5cbdd6fa48ae92d77b1d4a002971af761b72d989
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39487859"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41705245"
 ---
 # <a name="what-is-azure-analysis-services"></a>什么是 Azure Analysis Services？
 
@@ -56,8 +56,8 @@ Azure Analysis Services 是一个完全托管的平台即服务 (PaaS)，它在�
 |S0   |    40     |    10 个     |
 |S1    |    100     |    25     |
 |S2    |    200     |    50     |
-|S3    |    400     |    100     |
-<!--Notice: Standared tier from S0 to S3 in Mooncake-->
+|S4    |    400     |    100     |
+<!--Notice: Standared tier from S0,S1,S2,S4 in Mooncake-->
 
 ## <a name="availability-by-region"></a>按区域列出的可用性
 “中国北部”区域目前支持 Azure Analysis Services。 支持的计划和查询副本可用性取决于所选的区域。 计划和查询副本可用性可能会根据每个区域的需求和可用资源而变化。 
@@ -65,7 +65,8 @@ Azure Analysis Services 是一个完全托管的平台即服务 (PaaS)，它在�
 
 |区域  | 支持的计划 |
 |---------|---------|
-|中国北部     |    B1、B2、S0、S1、S2、S3    |
+|中国北部     |    B1, B2, S0, S1, S2, S4    |
+<!--Notice: Standared tier from S0,S1,S2,S4 in Mooncake-->
 
 ## <a name="scale-to-your-needs"></a>按需求缩放
 
@@ -132,7 +133,7 @@ Analysis Services 使用[基于角色的授权](https://docs.microsoft.com/sql/a
 ### <a name="azure-governance"></a>Azure 监管
 
 Azure Analysis Services 受 [Microsoft 联机服务条款](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)和 [Microsoft 隐私声明](https://privacy.microsoft.com/privacystatement)的约束。
-有关 Azure 安全性的详细信息，请参阅 [Microsoft 信任中心](https://www.microsoft.com/trustcenter)。
+若要详细了解 Azure 安全性，请参阅 [Azure 信任中心](https://www.trustcenter.cn/zh-cn/cloudservices/azure.html)。
 
 ## <a name="use-the-tools-you-already-know"></a>使用熟悉的工具
 
