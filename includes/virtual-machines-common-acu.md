@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
 origin.date: 03/09/2018
-ms.date: 07/30/2018
+ms.date: 08/27/2018
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: e5f3caf11764b6fba70a4b2bc90bc7493d673ed6
-ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
+ms.openlocfilehash: 7c857796bcb6a3c1835cb3fba9fa1895fe9f7db8
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39307114"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42871163"
 ---
 Azure 计算单位 (ACU) 这一概念提供一种比较 Azure SKU 的计算 (CPU) 性能的方法。 这有助于轻松确定最有可能满足性能需求的 SKU。  ACU 目前在小型 (Standard_A1) VM 上标准为 100，而所有其他 SKU 表示 SKU 在运行标准基准测试时大约可以有多快。 
 
@@ -53,6 +53,4 @@ Azure 计算单位 (ACU) 这一概念提供一种比较 Azure SKU 的计算 (CPU
 
 ACU 标有 *使用 Intel® Turbo 技术来增加 CPU 频率，并提升性能。  提升量可能因 VM 大小、工作负荷和同一主机上运行的其他工作负荷而有所不同。
 
-**超线程。
-
-<!--Update_Description: update meta properties -->
+**超线程，能够运行嵌套虚拟化 <!--Update_Description: update meta properties -->

@@ -1,5 +1,5 @@
 ---
-title: Azure Stack 的标识体系结构 | Microsoft Docs
+title: Azure Stack 的标识体系结构 | Azure
 description: 了解可与 Azure Stack 配合使用的标识体系结构。
 services: azure-stack
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 02/28/2018
-ms.date: 05/24/2018
+origin.date: 08/01/2018
+ms.date: 08/27/2018
 ms.author: v-junlch
 ms.reviewer: ''
-ms.openlocfilehash: ec2381fdc167d6abf5efd6812df5cffce53015ee
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 8200f5ceda13bad1e291ef2863e2973ddfe7f7a4
+ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34474975"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42869466"
 ---
 # <a name="identity-architecture-for-azure-stack"></a>Azure Stack 的标识体系结构
 在选择要与 Azure Stack 配合使用的标识提供者之前，请了解 Azure Active Directory (Azure AD) 的选项与 Active Directory 联合身份验证服务 (AD FS) 的选项之间的重要区别。 
@@ -35,7 +35,7 @@ ms.locfileid: "34474975"
 |------------------------------|----------|-------|
 |连接到 Internet     |是       |可选|
 |对多租户的支持     |是       |否      |
-|Marketplace 联合       |是       |是的。 需要使用[脱机 Marketplace 联合](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario)工具。|
+|在市场中提供商品 |是       |是的。 需要使用[脱机市场联合](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario)工具。|
 |对 Active Directory 身份验证库 (ADAL) 的支持 |是 |是|
 |支持 Azure CLI、Visual Studio 和 PowerShell 等工具  |是 |是|
 |通过 Azure 门户创建服务主体     |是 |否|
@@ -54,7 +54,7 @@ ms.locfileid: "34474975"
 - 所有用户都属于同一租户。
 - 服务提供程序托管着组织的 Azure Stack 实例。 
 
-![结合 Azure AD 的 Azure Stack 单租户拓扑](./media/azure-stack-identity-architecture/single-tenant.png)
+![结合 Azure AD 的 Azure Stack 单租户拓扑](media/azure-stack-identity-architecture/single-tenant.png)
 
 此拓扑具有以下特征：
 - Azure Stack 将所有应用程序和服务注册到同一 Azure AD 租户目录。 
@@ -68,7 +68,7 @@ ms.locfileid: "34474975"
 多租户拓扑非常适用于下列情况：
 - 服务提供商希望允许多个组织中的用户访问 Azure Stack。
 
-![结合 Azure AD 的 Azure Stack 多租户拓扑](./media/azure-stack-identity-architecture/multi-tenant.png)
+![结合 Azure AD 的 Azure Stack 多租户拓扑](media/azure-stack-identity-architecture/multi-tenant.png)
 
 此拓扑具有以下特征：
 - 对资源的访问权限应当以组织为单位。 
@@ -80,7 +80,7 @@ ms.locfileid: "34474975"
 - Azure Stack 不会连接到 Internet。
 - Azure Stack 可以连接到 Internet，但你选择为标识提供者使用 AD FS。
   
-![使用 AD FS 的 Azure Stack 拓扑](./media/azure-stack-identity-architecture/adfs.png)
+![使用 AD FS 的 Azure Stack 拓扑](media/azure-stack-identity-architecture/adfs.png)
 
 此拓扑具有以下特征：
 - 为了支持在生产环境中使用此拓扑，必须通过联合信任将内置的 Azure Stack AD FS 实例与由 Active Directory 提供支持的现有 AD FS 实例进行集成。 
@@ -99,5 +99,4 @@ ms.locfileid: "34474975"
 ## <a name="next-steps"></a>后续步骤
 - [标识概述](azure-stack-identity-overview.md)   
 - [数据中心集成 - 标识](azure-stack-integrate-identity.md)
-
 <!-- Update_Description: link update -->

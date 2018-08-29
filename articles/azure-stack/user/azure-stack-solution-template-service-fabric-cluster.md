@@ -1,5 +1,5 @@
 ---
-title: 在 Azure Stack 中部署受保护的 Service Fabric 群集 | Microsoft Docs
+title: 在 Azure Stack 中部署受保护的 Service Fabric 群集 | Azure
 description: 了解如何在 Azure Stack 中部署受保护的 Service Fabric 群集
 services: azure-stack
 documentationcenter: ''
@@ -12,19 +12,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 05/08/2018
-ms.date: 05/23/2018
+ms.date: 08/27/2018
 ms.author: v-junlch
 ms.reviewer: shnatara
-ms.openlocfilehash: 752d11f7cd2b4325425fc665225fdda049bd35bf
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: fba0e6e8560251a1537c509fe130b8d00e2945be
+ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475142"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42869519"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>在 Azure Stack 中部署 Service Fabric 群集
 
-使用 Azure Marketplace 中的“Service Fabric 群集”项在 Azure Stack 中部署受保护的 Service Fabric 群集。 
+使用 Azure 市场中的“Service Fabric 群集”项在 Azure Stack 中部署受保护的 Service Fabric 群集。 
 
 有关使用 Service Fabric 的详细信息，请参阅 Azure 文档中的 [Azure Service Frabric 概述](/service-fabric/service-fabric-overview)和 [Service Fabric 群集安全方案](/service-fabric/service-fabric-cluster-security)。
 
@@ -42,7 +42,8 @@ ms.locfileid: "34475142"
 
 2.  **管理客户端证书**这是客户端用于在 Service Fabric 群集中进行身份验证的证书，可以是自签名的证书。 请参阅创建此客户端证书所要满足的[要求](/service-fabric/service-fabric-cluster-security)。
 
-3.  **必须在 Azure Stack Marketplace 中提供以下各项：**
+3.  
+  **必须在 Azure Stack 市场中提供以下各项：**
      - **Windows Server 2016** - 模板使用 Windows Server 2016 映像来创建群集。  
      - **客户脚本扩展** - Microsoft 提供的虚拟机扩展。  
      - **PowerShell Desired Stage Configuration** - Microsoft 提供的虚拟机扩展。
@@ -119,7 +120,7 @@ ms.locfileid: "34475142"
 
 有关详细信息，请参阅[使用 PowerShell 管理 Azure Stack 上的 KeyVault](/azure-stack/user/azure-stack-kv-manage-powershell)。
 
-## <a name="deploy-the-marketplace-item"></a>部署 Marketplace 项
+## <a name="deploy-the-marketplace-item"></a>部署市场项
 
 1. 在用户门户中，转到“新建” > “计算” > “Service Fabric 群集”。 
 
@@ -127,11 +128,11 @@ ms.locfileid: "34475142"
 
 2. 填写每个页（例如“基本信息”）中的部署窗体。 如果不确定要指定哪个值，请使用默认值。 选择“确定”转到下一页：
 
-   ![基础知识](./media/azure-stack-solution-template-service-fabric-cluster/image3.png)
+   ![基础知识](media/azure-stack-solution-template-service-fabric-cluster/image3.png)
 
 3. 在“网络设置”页上，可以指定要对应用程序打开的特定端口：
 
-   ![网络设置](./media/azure-stack-solution-template-service-fabric-cluster/image4.png)
+   ![网络设置](media/azure-stack-solution-template-service-fabric-cluster/image4.png)
 
 4. 在“安全性”页上，添加在[创建 Azure KeyVault](#add-a-secret-to-key-vault) 中获取的值并上传机密。
 
@@ -142,9 +143,9 @@ ms.locfileid: "34475142"
    - 群集证书指纹：指定脚本结果中的 *Cluster Certificate Thumbprint*（群集证书指纹）。
    - 管理客户端证书指纹：指定在先决条件部分创建的管理客户端证书指纹。 
 
-   ![脚本输出](./media/azure-stack-solution-template-service-fabric-cluster/image5.png)
+   ![脚本输出](media/azure-stack-solution-template-service-fabric-cluster/image5.png)
 
-   ![安全性](./media/azure-stack-solution-template-service-fabric-cluster/image6.png)
+   ![安全性](media/azure-stack-solution-template-service-fabric-cluster/image6.png)
 
 5. 完成向导，然后选择“创建”以部署 Service Fabric 群集。
 
@@ -166,19 +167,19 @@ ms.locfileid: "34475142"
 
     c. 确保在“文件资源管理器”窗口的扩展下拉列表中选择“个人信息交换”。  
 
-       ![个人信息交换](./media/azure-stack-solution-template-service-fabric-cluster/image8.png)  
+       ![个人信息交换](media/azure-stack-solution-template-service-fabric-cluster/image8.png)  
 
     d. 在“证书存储”页上选择“个人”，然后完成向导。  
-       ![证书存储](./media/azure-stack-solution-template-service-fabric-cluster/image9.png)  
+       ![证书存储](media/azure-stack-solution-template-service-fabric-cluster/image9.png)  
 2. 若要查找 Service Fabric 群集的 FQDN：  
 
     a. 转到与 Service Fabric 群集关联的资源组，并找到“公共 IP 地址”资源。 选择与“公共 IP 地址”关联的对象，打开“公共 IP 地址”边栏选项卡。  
 
-      ![公共 IP 地址](./media/azure-stack-solution-template-service-fabric-cluster/image10.png)   
+      ![公共 IP 地址](media/azure-stack-solution-template-service-fabric-cluster/image10.png)   
 
     b. 在“公共 IP 地址”边栏选项卡上，FQDN 显示为“DNS 名称”。  
 
-      ![DNS 名称](./media/azure-stack-solution-template-service-fabric-cluster/image11.png)  
+      ![DNS 名称](media/azure-stack-solution-template-service-fabric-cluster/image11.png)  
 
 3. 若要查找 Service Fabric Explorer 的 URL 和客户端连接终结点，请查看模板部署的结果。
 
@@ -187,7 +188,7 @@ ms.locfileid: "34475142"
 
 5. 若要在站点中进行身份验证，必须选择要使用的证书。 选择“更多选项”，选择适当的证书，然后单击“确定”连接到 Service Fabric Explorer。 
 
-   ![身份验证](./media/azure-stack-solution-template-service-fabric-cluster/image14.png)
+   ![身份验证](media/azure-stack-solution-template-service-fabric-cluster/image14.png)
 
 
 
@@ -199,13 +200,13 @@ ms.locfileid: "34475142"
     
     a. 转到“控制面板” > “系统和安全” > “系统”并选择“高级系统设置”。  
     
-      ![控制面板](./media/azure-stack-solution-template-service-fabric-cluster/image15.png) 
+      ![控制面板](media/azure-stack-solution-template-service-fabric-cluster/image15.png) 
 
     b. 在“系统属性”的“高级”选项卡上，选择“环境变量”。  
 
     c. 对于“系统变量”，请编辑“路径”，并确保 **C:\\Program Files\\Microsoft Service Fabric\\bin\\Fabric\\Fabric.Code** 位于环境变量列表的最前面。  
 
-      ![环境变量列表](./media/azure-stack-solution-template-service-fabric-cluster/image16.png)
+      ![环境变量列表](media/azure-stack-solution-template-service-fabric-cluster/image16.png)
 
 3. 更改环境变量的顺序后，重启 PowerShell，然后运行以下 PowerShell 脚本获取 Service Fabric 群集的访问权限：
 
@@ -225,4 +226,3 @@ ms.locfileid: "34475142"
    > [!NOTE]  
    > 脚本中群集名称的前面没有 *https://*。 必须指定端口 19000。
  
-

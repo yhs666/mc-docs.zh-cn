@@ -1,5 +1,5 @@
 ---
-title: 在 Azure Stack 中使用 SQL 数据库 | Microsoft Docs
+title: 在 Azure Stack 上使用 SQL 数据库 | Azure
 description: 了解如何在 Azure Stack 中部署 SQL 数据库即服务，并通过便捷的步骤部署 SQL Server 资源提供程序适配器。
 services: azure-stack
 documentationCenter: ''
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/13/2018
-ms.date: 07/20/2018
+ms.date: 08/27/2018
 ms.author: v-junlch
 ms.reviewer: jeffgo
-ms.openlocfilehash: 530da6319b1787a93ae02808833116434de6189a
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.openlocfilehash: 1e0cd247f5aba02e06386cb4f5758d7310a16543
+ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168395"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42869508"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack"></a>在 Azure Stack 上部署 SQL Server 资源提供程序
 可以使用 Azure Stack SQL Server 资源提供程序来将 SQL 数据库公开为 Azure Stack 服务。 SQL 资源提供程序以服务的形式在 Windows Server 2016 Server Core 虚拟机 (VM) 上运行。
@@ -96,7 +96,7 @@ _仅适用于集成系统安装_。 必须提供 [Azure Stack 部署 PKI 要求]
 # Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2017-03-09-profile
-Install-Module  -Name AzureStack -RequiredVersion 1.3.0
+Install-Module  -Name AzureStack -RequiredVersion 1.4.0
 
 # Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time.
 $domain = "AzureStack"
@@ -150,5 +150,4 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 ## <a name="next-steps"></a>后续步骤
 
 [添加宿主服务器](azure-stack-sql-resource-provider-hosting-servers.md)
-
 <!-- Update_Description: wording update -->

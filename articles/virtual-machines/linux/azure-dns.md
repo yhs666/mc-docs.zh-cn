@@ -3,8 +3,8 @@ title: Azure 中 Linux 虚拟机的 DNS 名称解析选项
 description: 适用于 Azure IaaS 中 Linux 虚拟机的名称解析方案，包括提供的 DNS 服务、混合外部 DNS 和自带 DNS 服务器。
 services: virtual-machines
 documentationcenter: na
-author: RicksterCDN
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 ms.assetid: 787a1e04-cebf-4122-a1b4-1fcf0a2bbf5f
 ms.service: virtual-machines-linux
@@ -13,19 +13,19 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 10/19/2016
-ms.date: 07/03/2017
-ms.author: v-dazen
-ms.openlocfilehash: bb2e69e94c76d1007eb3855b7d04bd3c4a7a3159
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.date: 08/27/2018
+ms.author: v-yeche
+ms.openlocfilehash: 5158326e51e74d72aa0f2113c830da8e7795c6a7
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
-ms.locfileid: "29285934"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42872073"
 ---
 # <a name="dns-name-resolution-options-for-linux-virtual-machines-in-azure"></a>Azure 中 Linux 虚拟机的 DNS 名称解析选项
 Azure 默认提供单个虚拟网络内的所有虚拟机的 DNS 名称解析。 在 Azure 托管的虚拟机上配置自己的 DNS 服务，即可实现自己的 DNS 名称解析解决方案。 以下方案可帮助你选择适合你情况的解决方案。
 
-* [Azure 提供的名称解析](#azure-provided-name-resolution)
+* [Azure 提供的名称解析](#name-resolution-that-azure-provides)
 * [使用自己的 DNS 服务器的名称解析](#name-resolution-using-your-own-dns-server)
 
 使用的名称解析类型取决于虚拟机和角色实例需要彼此进行通信的方式。
@@ -116,7 +116,7 @@ resolv.conf 文件是自动生成的，不应进行编辑。 添加“options”
 2. 通过运行“netconfig update”进行更新。
 
 Rogue Wave Software 的 CentOS（之前为 OpenLogic）（使用 NetworkManager）
-1. 将“echo "options timeout:1 attempts:5"”添加到“/etc/NetworkManager/dispatcher.d/11-dhclient”。
+1. 将“RES_OPTIONS="timeout:1 attempts:5"”添加到“/etc/sysconfig/network”。
 2. 通过运行“service network restart”进行更新。
 
 ## <a name="name-resolution-using-your-own-dns-server"></a>使用自己的 DNS 服务器的名称解析
@@ -143,3 +143,5 @@ DNS 转发还可用于在虚拟网络之间进行 DNS 解析，并允许本地�
 > 为了获得最佳性能，在 Azure DNS 服务器中使用虚拟机时，请禁用 IPv6 并为每个 DNS 服务器虚拟机分配[实例级公共 IP](../../virtual-network/virtual-networks-instance-level-public-ip.md)。  
 >
 >
+
+<!-- Update_Description: wording update -->

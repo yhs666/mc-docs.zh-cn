@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 origin.date: 03/27/2018
 ms.author: v-yiso
-ms.date: 04/30/2018
-ms.openlocfilehash: ea6eea2113ac935283efef0528cc0c4dae528403
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.date: 09/03/2018
+ms.openlocfilehash: 9eb1b7c6fcd0f90684adc63f42a0fa5bf20ac053
+ms.sourcegitcommit: 1b682acdc2a5e0974fbff809967d7cefcbbbe8ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782186"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42870942"
 ---
 # <a name="azure-resource-health-faq"></a>Azure 资源运行状况常见问题解答
 获取 Azure 资源运行状况常见问题的解答。
@@ -63,7 +63,7 @@ ms.locfileid: "31782186"
 ## <a name="where-do-i-find-resource-health"></a>在何处查找资源运行状况？
 登录 Azure 门户以后，即可通过多种方式访问资源运行状况：
 - 导航到资源。 在左侧导航栏中，选择“资源运行状况”
-- 转到 Azure Monitor 边栏选项卡。  在左侧导航栏中，选择“资源运行状况”。
+- 转到“Azure 服务运行状况”边栏选项卡。  在左侧导航栏中，选择“资源运行状况”。
 - 通过选择门户右上角的问号，并选择“帮助 + 支持”，打开“帮助 + 支持”边栏选项卡。 该边栏选项卡打开后，选择“资源运行状况”
 
 也可使用资源运行状况 API，获取资源运行状况的相关信息。
@@ -77,7 +77,7 @@ ms.locfileid: "31782186"
 ## <a name="is-resource-health-available-for-all-azure-regions"></a>资源运行状况是否适用于所有 Azure 区域？ 
 资源运行状况适用于除以下区域之外的所有 Azure 地理区域：
 - 美国政府弗吉尼亚州
-- 美国政府爱荷华州
+- US Gov 爱荷华州
 - 美国 DoD 东部
 - 美国 DoD 中部
 - 德国中部

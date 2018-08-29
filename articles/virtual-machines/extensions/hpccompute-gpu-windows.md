@@ -1,6 +1,6 @@
 ---
-title: NVIDIA GPU 驱动程序扩展 - Azure Windows VM | Microsoft Docs
-description: 用于在运行 Windows 的 N 系列计算 VM 上安装 NVIDIA GPU 驱动程序的 Microsoft Azure 扩展。
+title: NVIDIA GPU 驱动程序扩展 - Azure Windows VM | Azure
+description: 用于在运行 Windows 的 N 系列计算 VM 上安装 NVIDIA GPU 驱动程序的 Azure 扩展。
 services: virtual-machines-windows
 documentationcenter: ''
 author: rockboyfor
@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 07/03/2018
+origin.date: 08/20/2018
+ms.date: 08/27/2018
 ms.author: v-yeche
-ms.openlocfilehash: dc8e678dfa585e616d7dfcaf26f2159911e4363a
-ms.sourcegitcommit: c6205500afd23ac00f2829fe51858b51a622eaf1
+ms.openlocfilehash: a48856c922eadc619862679cd923afd2d51cbe5b
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39487907"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42871799"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>适用于 Windows 的 NVIDIA GPU 驱动程序扩展
 
@@ -45,7 +46,7 @@ NVIDIA 最终用户许可协议条款位于此处 - https://go.microsoft.com/fwl
 
 ### <a name="internet-connectivity"></a>Internet 连接
 
-用于 NVIDIA GPU 驱动程序的 Microsoft Azure 扩展要求目标虚拟机连接到 Internet 并具有访问权限。
+用于 NVIDIA GPU 驱动程序的 Azure 扩展要求目标虚拟机连接到 Internet 并具有访问权限。
 
 ## <a name="extension-schema"></a>扩展架构
 
@@ -63,7 +64,8 @@ NVIDIA 最终用户许可协议条款位于此处 - https://go.microsoft.com/fwl
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "NvidiaGpuDriverWindows",
-    "typeHandlerVersion": "1.0",
+    "typeHandlerVersion": "1.2",
+    "autoUpgradeMinorVersion": true,
     "settings": {
     }
   }
@@ -72,16 +74,14 @@ NVIDIA 最终用户许可协议条款位于此处 - https://go.microsoft.com/fwl
 
 ### <a name="property-values"></a>属性值
 
-| Name | 值/示例 | 数据类型 |
+| 名称 | 值/示例 | 数据类型 |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | 日期 |
 | 发布者 | Microsoft.HpcCompute | 字符串 |
 | type | NvidiaGpuDriverWindows | 字符串 |
-| typeHandlerVersion | 1.0 | int |
-
+| typeHandlerVersion | 1.2 | int |
 
 ## <a name="deployment"></a>部署
-
 
 ### <a name="azure-resource-manager-template"></a>Azure Resource Manager 模板 
 
@@ -103,7 +103,8 @@ NVIDIA 最终用户许可协议条款位于此处 - https://go.microsoft.com/fwl
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "NvidiaGpuDriverWindows",
-    "typeHandlerVersion": "1.0",
+    "typeHandlerVersion": "1.2",
+    "autoUpgradeMinorVersion": true,
     "settings": {
     }
   }
@@ -116,11 +117,11 @@ NVIDIA 最终用户许可协议条款位于此处 - https://go.microsoft.com/fwl
 Set-AzureRmVMExtension
     -ResourceGroupName "myResourceGroup" `
     -VMName "myVM" `
-    -Location "southcentralus" `
+    -Location "chinaeast" `
     -Publisher "Microsoft.HpcCompute" `
     -ExtensionName "NvidiaGpuDriverWindows" `
     -ExtensionType "NvidiaGpuDriverWindows" `
-    -TypeHandlerVersion 1.0 `
+    -TypeHandlerVersion 1.2 `
     -SettingString '{ `
     }'
 ```
@@ -133,7 +134,7 @@ az vm extension set `
   --vm-name myVM `
   --name NvidiaGpuDriverWindows `
   --publisher Microsoft.HpcCompute `
-  --version 1.0 `
+  --version 1.2 `
   --settings '{ `
   }'
 ```
@@ -164,16 +165,18 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.HpcCompute.NvidiaGpuDriverMicrosoft\
 | :---: | --- | --- |
 | 0 | 操作成功 |
 | 1 | 操作成功。 需要重新启动。 |
-| 4, 10 | 操作超时。 | 请重试操作。
+| 100 | 操作不受支持或无法完成。 | 可能的原因：不支持的 PowerShell 版本、VM 大小不是 N 系列 VM、下载数据失败。 请检查日志文件，以确定错误原因。 |
+| 240, 840 | 操作超时。 | 请重试操作。 |
 | -1 | 发生异常。 | 请检查日志文件，以确定异常原因。 |
 | -5x | 由于重新启动未完成，导致操作中断。 | 重新启动 VM。 重新启动后将继续安装。 应手动调用卸载。 |
 
-
 ### <a name="support"></a>支持
 
-如果对本文中的任何内容需要更多帮助，可以联系 [MSDN Azure 和 Stack Overflow 论坛](https://azure.microsoft.com/support/community/)上的 Azure 专家。 或者，你也可以提出 Azure 支持事件。 请转到 [Azure 支持站点](https://azure.microsoft.com/support/options/)并选择“获取支持”。 有关使用 Azure 支持的信息，请阅读 [Microsoft Azure 支持常见问题解答](https://azure.microsoft.com/support/faq/)。
+如果对本文中的任何观点存在疑问，可以联系 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/contact/) 上的 Azure 专家。 有关使用 Azure 支持的信息，请阅读 [Azure 支持常见问题](https://www.azure.cn/support/faq/)。
 
 ## <a name="next-steps"></a>后续步骤
 有关扩展的详细信息，请参阅[适用于 Windows 的虚拟机扩展和功能](features-windows.md)。
 
 有关 N 系列 VM 的详细信息，请参阅 [GPU 优化虚拟机大小](../windows/sizes-gpu.md)。
+
+<!-- Update_Description: wording update -->

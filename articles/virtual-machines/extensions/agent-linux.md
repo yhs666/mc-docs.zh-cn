@@ -14,15 +14,15 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 10/17/2016
-ms.date: 06/04/2018
+ms.date: 08/27/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2d86daa9723320e1ca8aa0e16e94cc5cf7f9667d
-ms.sourcegitcommit: a85142cc230b17b45d8105a6acfd1c0ba3c8c325
+ms.openlocfilehash: cdd5cfc1afb0446d749cc5d799773496ebd52aed
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36298409"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42871662"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>了解和使用 Azure Linux 代理
 
@@ -61,7 +61,7 @@ Azure Linux 代理 (waagent) 可以管理 Linux 与 FreeBSD 预配，以及 VM �
   * 当用于 Linux 的 VMM 代理在 System Center Virtual Machine Manager 2012 R2 环境中运行时对其进行检测并启动
 * **VM 扩展**
 
-  * 将 Microsoft 和合作伙伴授权的组件注入 Linux VM (IaaS)，以便实现软件和配置的自动化
+  * 将 Azure 和合作伙伴授权的组件注入 Linux VM (IaaS)，以便实现软件和配置的自动化
   * [https://github.com/Azure/azure-linux-extensions](https://github.com/Azure/azure-linux-extensions) 上的 VM 扩展参考实现
 
 ## <a name="communication"></a>通信
@@ -83,7 +83,9 @@ Azure Linux 代理 (waagent) 可以管理 Linux 与 FreeBSD 预配，以及 VM �
 * Debian 7.0+
 * Ubuntu 12.04+
 * openSUSE 12.3+
-* SLES 11 SP3+ <!-- Not Available on * Red Hat Enterprise Linux 6.7+-->
+* SLES 11 SP3+
+
+<!-- Not Available on * Red Hat Enterprise Linux 6.7+-->
 <!-- Not Available on * Oracle Linux 6.4+-->
 
 其他受支持的系统：
@@ -344,5 +346,4 @@ Ubuntu 云映像利用 [cloud-init](https://launchpad.net/ubuntu/+source/cloud-i
 
   * [Ubuntu Wiki：配置交换分区](http://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
   * [将自定义数据注入到 Azure 虚拟机中](../windows/classic/inject-custom-data.md)
-<!-- Update_Description: new articles on agent linux -->
-<!--ms.date: 06/04/2018-->
+<!-- Update_Description: update meta properties, wording update -->

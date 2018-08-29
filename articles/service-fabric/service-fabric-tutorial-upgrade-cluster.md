@@ -1,5 +1,5 @@
 ---
-title: 升级 Azure Service Fabric 运行时 | Azure
+title: 在 Azure 中升级 Service Fabric 运行时 | Azure
 description: 本教程介绍如何使用 PowerShell 升级 Azure 托管的 Service Fabric 群集的运行时。
 services: service-fabric
 documentationcenter: .net
@@ -13,17 +13,17 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 11/28/2017
-ms.date: 05/28/2018
+ms.date: 08/20/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 3250bf68675d66998e4d5bc0f5610422dd14a32d
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: f4bb210584afa0ca27f5121bdc42b346ad916992
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554317"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41704106"
 ---
-# <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster"></a>教程：升级 Service Fabric 群集的运行时
+# <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster-in-azure"></a>教程：升级 Azure 中 Service Fabric 群集的运行时
 
 本教程是系列教程的第 3 部分，介绍如何升级 Azure Service Fabric 群集上的 Service Fabric 运行时。 本教程部分是针对 Azure 上运行的 Service Fabric 群集编写的，不适用于独立 Service Fabric 群集。
 
@@ -38,7 +38,7 @@ ms.locfileid: "34554317"
 > * 读取群集版本
 > * 设置群集版本
 
-在此系列教程中，你将学习如何：
+在此系列教程中，你会学习如何：
 > [!div class="checklist"]
 > * 使用模板在 Azure 上创建安全的 [Windows 群集](service-fabric-tutorial-create-vnet-and-windows-cluster.md)或 [Linux 群集](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
 > * [缩小或扩大群集](service-fabric-tutorial-scale-cluster.md)
@@ -46,18 +46,21 @@ ms.locfileid: "34554317"
 > * [部署 API 管理与 Service Fabric](service-fabric-tutorial-deploy-api-management.md)
 
 ## <a name="prerequisites"></a>先决条件
+
 在开始学习本教程之前：
-- 如果还没有 Azure 订阅，请创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)
-- 安装 [Azure PowerShell 模块 4.1 或更高版本](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)或 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。
-- 在 Azure 上创建安全的 [Windows 群集](service-fabric-tutorial-create-vnet-and-windows-cluster.md)或 [Linux 群集](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
-- 如果部署 Windows 群集，请设置 Windows 开发环境。 安装 [Visual Studio 2017](http://www.visualstudio.com) 和 **Azure 开发**、**ASP.NET 和 Web 开发**以及 **.NET Core 跨平台开发**工作负荷。  然后设置 [.NET 开发环境](service-fabric-get-started.md)。
-- 如果部署 Linux 群集，请在 [Linux](service-fabric-get-started-linux.md) 或 [MacOS](service-fabric-get-started-mac.md) 上设置一个 Java 开发环境。  安装 [Service Fabric CLI](service-fabric-cli.md)。 
+
+* 如果还没有 Azure 订阅，请创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)
+* 安装 [Azure PowerShell 模块 4.1 或更高版本](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)或 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。
+* 在 Azure 上创建安全的 [Windows 群集](service-fabric-tutorial-create-vnet-and-windows-cluster.md)或 [Linux 群集](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
+* 如果部署 Windows 群集，请设置 Windows 开发环境。 安装 [Visual Studio 2017](http://www.visualstudio.com) 和 **Azure 开发**、**ASP.NET 和 Web 开发**以及 **.NET Core 跨平台开发**工作负荷。  然后设置 [.NET 开发环境](service-fabric-get-started.md)。
+* 如果部署 Linux 群集，请在 [Linux](service-fabric-get-started-linux.md) 或 [MacOS](service-fabric-get-started-mac.md) 上设置一个 Java 开发环境。  安装 [Service Fabric CLI](service-fabric-cli.md)。
 
 ### <a name="sign-in-to-azure"></a>登录 Azure
+
 执行 Azure 命令之前，登录到你的 Azure 帐户并选择你的订阅。
 
 ```powershell
-Connect-AzureRmAccount -Environment AzureChinaCloud 
+Connect-AzureRmAccount -Environment AzureChinaCloud
 Get-AzureRmSubscription
 Set-AzureRmContext -SubscriptionId <guid>
 ```
@@ -99,7 +102,7 @@ Set-AzureRmServiceFabricUpgradeType -ResourceGroupName SFCLUSTERTUTORIALGROUP `
 > [!IMPORTANT]
 > 群集运行时升级可能需要较长时间才能完成。 运行升级时，PowerShell 将被阻止。 可以使用另一个 PowerShell 会话来检查升级状态。
 
-可以使用 PowerShell 或 `sfctl` CLI 监视升级状态。
+可以使用 PowerShell 或 Azure Service Fabric CLI (sfctl) 监视升级状态。
 
 首先，请使用在本教程第一部分中创建的 SSL 证书连接到群集。 使用 `Connect-ServiceFabricCluster` cmdlet 或 `sfctl cluster upgrade-status`。
 
@@ -193,7 +196,8 @@ sfctl cluster upgrade-status
 }
 ```
 
-## <a name="conclusion"></a>结论
+## <a name="next-steps"></a>后续步骤
+
 在本教程中，你已学习了如何执行以下操作：
 
 > [!div class="checklist"]
@@ -203,5 +207,5 @@ sfctl cluster upgrade-status
 
 接下来，转到以下教程了解如何使用 Service Fabric 群集部署 API 管理。
 > [!div class="nextstepaction"]
-> [部署 API 管理与 Service Fabric](service-fabric-tutorial-deploy-api-management.md)
+> [使用 Service Fabric 部署 API 管理](service-fabric-tutorial-deploy-api-management.md)
 <!-- Update_Description: update meta properties, wording update -->

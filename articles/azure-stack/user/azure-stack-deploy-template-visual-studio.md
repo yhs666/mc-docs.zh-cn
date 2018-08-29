@@ -1,5 +1,5 @@
 ---
-title: 在 Azure Stack 中使用 Visual Studio 部署模板 | Microsoft 文档
+title: 在 Azure Stack 中使用 Visual Studio 部署模板 | Azure
 description: 了解如何在 Azure Stack 中使用 Visual Studio 部署模板。
 services: azure-stack
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/24/2018
-ms.date: 06/27/2018
+origin.date: 08/15/2018
+ms.date: 08/27/2018
 ms.author: v-junlch
 ms.reviewer: ''
-ms.openlocfilehash: d2d769e275c82920b5173a99fbe77541185bcfa2
-ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
+ms.openlocfilehash: 36da564c6f74ea9d230b68c38c32b9c106ba9c3a
+ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37027120"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42869544"
 ---
 # <a name="deploy-templates-in-azure-stack-using-visual-studio"></a>使用 Visual Studio 在 Azure Stack 中部署模板
 
@@ -46,7 +46,7 @@ ms.locfileid: "37027120"
 
 ## <a name="next-steps"></a>后续步骤
 
-- [通过命令行部署模板](azure-stack-deploy-template-command-line.md)
-- [为 Azure Stack 开发模板](azure-stack-develop-templates.md)
+* [通过命令行部署模板](azure-stack-deploy-template-command-line.md)
+* [为 Azure Stack 开发模板](azure-stack-develop-templates.md)
 
 <!-- Update_Description: wording update -->

@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure CLI 在 Azure Stack 中创建 Windows 虚拟机 | Microsoft Docs
+title: 使用 Azure CLI 在 Azure Stack 中创建 Windows 虚拟机 | Azure
 description: 了解如何使用 Azure CLI 在 Azure Stack 中创建 Windows VM
 services: azure-stack
 documentationcenter: ''
@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 origin.date: 04/23/2018
-ms.date: 05/23/2018
+ms.date: 08/27/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: f85d119228a61ce41a151a88aef007ee24577b91
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 1123d102e0a043b2ba5dbae2bf2d8d7481434007
+ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34474930"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42869512"
 ---
 # <a name="quickstart-create-a-windows-server-virtual-machine-by-using-azure-cli-in-azure-stack"></a>快速入门：在 Azure Stack 中使用 Azure CLI 创建 Windows Server 虚拟机
 
@@ -29,19 +29,19 @@ ms.locfileid: "34474930"
 
 可以使用 Azure CLI 创建 Windows Server 2016 虚拟机。 请按照本文中的步骤创建和使用虚拟机。 本文还提供了以下步骤：
 
-- 通过远程客户端连接到虚拟机。
-- 安装 IIS Web 服务器并查看默认主页。
-- 清理资源。
+* 通过远程客户端连接到虚拟机。
+* 安装 IIS Web 服务器并查看默认主页。
+* 清理资源。
 
 ## <a name="prerequisites"></a>先决条件
 
-- 确保 Azure Stack 操作员已将 **Windows Server 2016** 映像添加到 Azure Stack Marketplace。
+* 确保 Azure Stack 操作员已将 **Windows Server 2016** 映像添加到 Azure Stack 市场。
 
-- Azure Stack 需要使用特定版本的 Azure CLI 来创建和管理资源。 如果未针对 Azure Stack 配置 Azure CLI，请遵循[安装和配置 Azure CLI](azure-stack-version-profiles-azurecli2.md) 的步骤。
+* Azure Stack 需要使用特定版本的 Azure CLI 来创建和管理资源。 如果未针对 Azure Stack 配置 Azure CLI，请遵循[安装和配置 Azure CLI](azure-stack-version-profiles-azurecli2.md) 的步骤。
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
-资源组是一个逻辑容器，可以在其中部署和管理 Azure Stack 资源。 从 Azure Stack 环境中，运行 [az group create](/cli/group#az_group_create) 命令来创建资源组。
+资源组是一个逻辑容器，可以在其中部署和管理 Azure Stack 资源。 从 Azure Stack 环境中，运行 [az group create](/cli/group#az-group-create) 命令来创建资源组。
 
 >[!NOTE]
  代码示例中为所有变量都分配了值。 但是，如果愿意，也可以分配新值。
@@ -54,7 +54,7 @@ az group create --name myResourceGroup --location local
 
 ## <a name="create-a-virtual-machine"></a>创建虚拟机
 
-可以使用 [az vm create](/cli/vm#az_vm_create) 命令创建虚拟机 (VM)。 以下示例创建名为 myVM 的 VM。 此示例使用 Demouser 作为管理用户名，使用 Demouser@123 作为用户密码。 将这些值更改为适合你的环境的值。
+可以使用 [az vm create](/cli/vm#az-vm-create) 命令创建虚拟机 (VM)。 以下示例创建名为 myVM 的 VM。 此示例使用 Demouser 作为管理用户名，使用 Demouser@123 作为用户密码。 将这些值更改为适合你的环境的值。
 
 ```cli
 az vm create \
@@ -103,7 +103,7 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 ## <a name="clean-up-resources"></a>清理资源
 
-清理不再需要的资源。 可以使用 [az group delete](/cli/group#az_group_delete) 命令来删除资源组、虚拟机和所有相关的资源。
+清理不再需要的资源。 可以使用 [az group delete](/cli/group#az-group-delete) 命令来删除资源组、虚拟机和所有相关的资源。
 
 ```cli
 az group delete --name myResourceGroup

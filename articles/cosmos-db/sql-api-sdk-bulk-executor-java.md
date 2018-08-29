@@ -1,6 +1,6 @@
 ---
 title: Azure Cosmos DB：BulkExecutor Java API、SDK 和资源 | Azure
-description: 了解有关 BulkExecutor Java API 的所有信息。
+description: 了解有关批量执行程序 Java API 的所有信息。
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
@@ -10,16 +10,16 @@ ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
 origin.date: 05/07/2018
-ms.date: 07/02/2018
+ms.date: 08/13/2018
 ms.author: v-yeche
-ms.openlocfilehash: 70640405d483e8bd466a6455c29d8682d9d79d4b
-ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
+ms.openlocfilehash: edb1aba7fb77c79e34804c1778f145391d96574d
+ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37070334"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41704008"
 ---
-# <a name="java-bulkexecutor-library-download-information"></a>Java BulkExecutor 库：下载信息
+# <a name="java-bulk-executor-library-download-information"></a>Java 批量执行程序库：下载信息
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
@@ -31,13 +31,13 @@ ms.locfileid: "37070334"
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST 资源提供程序](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
-> * [SQL](../cosmos-db/documentdb-sql-query-reference.md)
-> * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
-> * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
+> * [SQL](../cosmos-db/sql-api-sql-query-reference.md)
+> * [批量执行程序 - .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [批量执行程序 - Java](sql-api-sdk-bulk-executor-java.md)
 
 <table>
 
-<tr><td>**说明**</td><td>BulkExecutor 库允许客户端应用程序在 Azure Cosmos DB 帐户中执行批量操作。 BulkExecutor 库提供 BulkImport 和 BulkUpdate 命名空间。 BulkImport 模块可以批量以优化方式引入文档，以便最大程度地使用为集合配置的吞吐量。 BulkUpdate 模块可以作为修补程序批量更新 Azure Cosmos DB 容器中的现有数据。</td></tr>
+<tr><td>**说明**</td><td>批量执行程序库允许客户端应用程序在 Azure Cosmos DB 帐户中执行批量操作。 批量执行程序库提供 BulkImport 和 BulkUpdate 命名空间。 BulkImport 模块可以批量以优化方式引入文档，以便最大程度地使用为集合配置的吞吐量。 BulkUpdate 模块可以作为修补程序批量更新 Azure Cosmos DB 容器中的现有数据。</td></tr>
 
 <tr><td>**SDK 下载**</td><td>[Maven](https://search.maven.org/#search%7Cga%7C1%7Cdocumentdb-bulkexecutor)</td></tr>
 
@@ -45,7 +45,7 @@ ms.locfileid: "37070334"
 
 <tr><td>**API 文档**</td><td>[.Net API 参考文档](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb.bulkexecutor)</td></tr>
 
-<tr><td>**入门**</td><td>[BulkExecutor 库 Java SDK 入门](bulk-executor-java.md)</td></tr>
+<tr><td>**入门**</td><td>[批量执行程序库 Java SDK 入门](bulk-executor-java.md)</td></tr>
 
 <tr><td>受支持的最小运行时</td><td>JDK 7</td></tr>
 </table></br>

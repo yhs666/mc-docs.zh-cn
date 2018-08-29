@@ -15,12 +15,12 @@ ms.workload: na
 origin.date: 05/10/2018
 ms.date: 05/28/2018
 ms.author: v-yeche
-ms.openlocfilehash: b1040d3d4ed5d19902ef0adcef54670fb5ec2ae0
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: 947bc4d9c7e846033e0503effb12d115d3c9eccc
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554187"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41703864"
 ---
 # <a name="use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>通过 Azure PowerShell 使用证书创建服务主体
 
@@ -29,8 +29,7 @@ ms.locfileid: "34554187"
 * 将不同于自己的权限的权限分配给应用标识。 通常情况下，这些权限仅限于应用需执行的操作。
 * 执行无人参与的脚本时，使用证书进行身份验证。
 
-<!-- Not Available on MSI(Management Service Identity -->
-本文演示如何创建使用证书进行身份验证的服务主体。 若要使用密码设置服务主体，请参阅[使用 Azure PowerShell 创建 Azure 服务主体](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps)。
+<!-- Not Available on MSI(Management Service Identity --> 本文演示如何创建使用证书进行身份验证的服务主体。 若要使用密码设置服务主体，请参阅[使用 Azure PowerShell 创建 Azure 服务主体](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps)。
 
 必须拥有[最新版本](https://docs.microsoft.com/powershell/azure/get-started-azureps) PowerShell 才能演练本文中的示例。
 
@@ -117,7 +116,7 @@ Param (
 
 ## <a name="create-service-principal-with-certificate-from-certificate-authority"></a>使用证书颁发机构提供的证书创建服务主体
 
-以下示例使用证书颁发机构颁发的证书创建服务主体。 分配的范围限定为指定的 Azure 订阅。 它将服务主体添加到[“参与者”](../role-based-access-control/built-in-roles.md#contributor)角色。 如果在角色分配过程中发生错误，它会重试分配。
+以下示例使用证书颁发机构颁发的证书创建服务主体。 分配的范围限定为指定的 Azure 订阅。 它将服务主体添加到[参与者](../role-based-access-control/built-in-roles.md#contributor)角色。 如果在角色分配过程中发生错误，它会重试分配。
 
 ```powershell
 Param (
@@ -206,7 +205,8 @@ Param (
 
 ## <a name="change-credentials"></a>更改凭据
 
-若要更改 AD 应用的凭据（为了保障安全或由于凭据过期的缘故），请使用 [Remove-AzureRmADAppCredential](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.3.0/remove-azurermadappcredential) 和 [New-AzureRmADAppCredential](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermadappcredential) cmdlet。
+若要更改 AD 应用的凭据（为了保障安全或由于凭据过期的缘故），请使用 [Remove-AzureRmADAppCredential](https://docs.microsoft.com/en-us/powershell/module/azurerm.resources/remove-azurermadappcredential) 和 [New-AzureRmADAppCredential](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermadappcredential) cmdlet。
+<!--URL is correct on [Remove-AzureRmADAppCredential](https://docs.microsoft.com/en-us/powershell/module/azurerm.resources/remove-azurermadappcredential)-->
 
 若要删除应用程序的所有凭据，请使用：
 

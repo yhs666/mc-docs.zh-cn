@@ -1,5 +1,5 @@
 ---
-title: Azure Stack 中虚拟机的差异和注意事项 | Microsoft Docs
+title: Azure Stack 中虚拟机的差异和注意事项 | Azure
 description: 了解 Azure Stack 中虚拟机的差异和用法注意事项。
 services: azure-stack
 documentationcenter: ''
@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/23/2018
-ms.date: 07/20/2018
+origin.date: 08/15/2018
+ms.date: 08/27/2018
 ms.author: v-junlch
-ms.openlocfilehash: c4aa4127844810098aed254f5e6f9c7d31163f6d
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.openlocfilehash: edb8a40ec0166c434e19b4ff8dd0f63118003d1e
+ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168371"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42869446"
 ---
 # <a name="considerations-for-using-virtual-machines-in-azure-stack"></a>在 Azure Stack 中使用虚拟机时的注意事项
 
@@ -85,7 +85,7 @@ Get-AzureRmVmImagePublisher -Location local | `
 
 Azure Stack 中的虚拟机功能支持以下 API 版本：
 
-![VM 资源类型](./media/azure-stack-vm-considerations/vm-resoource-types.png)
+![VM 资源类型](media/azure-stack-vm-considerations/vm-resoource-types.png)
 
 可以使用以下 PowerShell 脚本来获取 Azure Stack 环境中可用的虚拟机功能的 API 版本：
 

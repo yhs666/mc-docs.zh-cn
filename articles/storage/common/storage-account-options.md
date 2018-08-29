@@ -10,12 +10,12 @@ ms.topic: get-started-article
 origin.date: 07/14/2018
 ms.date: 07/30/2018
 ms.author: v-nany
-ms.openlocfilehash: 28b55d7e4840928f39fd4e8bfdb4b0061d909971
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.openlocfilehash: 9f5703aefc27e17c050166c7f8da4327951c423b
+ms.sourcegitcommit: 3691ddcfde4382a8a034e8d2278d5e10d38a4d5e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295744"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41705102"
 ---
 # <a name="azure-storage-account-options"></a>Azure 存储帐户选项
 
@@ -73,7 +73,7 @@ az storage account update -g <resource-group> -n <storage-account> --set kind=St
 
 ### <a name="general-purpose-v1-accounts"></a>常规用途 v1 帐户
 
-常规用途 v1 (GPv1) 帐户可以访问所有 Azure 存储服务，但可能没有最新功能，其单 GB 定价也可能不是最低的。 例如，GPv1 不支持冷存储和存档存储。 GPv1 事务定价较低，因此改动率或读取率高的工作负荷适合此帐户类型。
+常规用途 v1 (GPv1) 帐户可以访问所有 Azure 存储服务，但可能没有最新功能，其单 GB 定价也可能不是最低的。 例如，GPv1 中不支持冷存储。 GPv1 事务定价较低，因此改动率或读取率高的工作负荷适合此帐户类型。
 
 常规用途 v1 (GPv1) 存储帐户是最老式的存储帐户，也是能够在经典部署模型中使用的唯一帐户类型。 
 
@@ -100,7 +100,7 @@ Blob 存储帐户支持 GPv2 帐户所支持的所有块 Blob 功能，但其局
 所有存储帐户使用的定价模型都适用于 Blob 存储，具体取决于每个 Blob 的层。 使用存储帐户时，需要考虑到以下计费因素：
 
 * **存储成本**：除了存储的数据量，存储数据的成本将因存储层而异。 层越冷，单 GB 成本越低。
-* **数据访问成本**：层越冷，数据访问费用越高。 对于冷存储层和存档存储层中的数据，需要按 GB 支付读取方面的数据访问费用。
+* **数据访问成本**：层越冷，数据访问费用越高。 对于冷存储层中的数据，需要按 GB 支付读取方面的数据访问费用。
 * **事务成本**：层越冷，每个层的按事务收费越高。
 * **异地复制数据传输成本**：此费用仅适用于配置了异地复制的帐户，包括 GRS 和 RA-GRS。 异地复制数据传输会产生每 GB 费用。
 * **出站数据传输成本**：出站数据传输（传出 Azure 区域的数据）会按每 GB 产生带宽使用费，与通用存储帐户一致。
@@ -117,8 +117,6 @@ Blob 存储帐户支持 GPv2 帐户所支持的所有块 Blob 功能，但其局
 * [如何将 GPv1 或 Blob 存储帐户转换为 GPv2 存储帐户](#convert-a-gpv1-or-blob-storage-account-to-a-gpv2-storage-account-using-the-azure-portal)。
 * [如何在 GPv2 或 Blob 存储帐户中设置帐户层。](#change-the-storage-tier-of-a-gpv2-storage-account-using-the-azure-portal)
 * [如何在 GPv2 或 Blob 存储帐户中设置 Blob 层。](#change-the-storage-tier-of-a-blob-using-the-azure-portal)
-
-在以下示例中，不能将访问层设置为存档，因为该设置适用于整个存储帐户。 只能在特定 Blob 上设置存档。
 
 ### <a name="create-a-gpv2-storage-account-using-the-azure-portal"></a>使用 Azure 门户创建 GPv2 存储帐户
 
@@ -186,7 +184,7 @@ Blob 存储帐户支持 GPv2 帐户所支持的所有块 Blob 功能，但其局
 
 2. 若要导航到存储帐户中的 Blob：请依次选择“所有资源”、存储帐户、容器、Blob。
 
-3. 在 Blob 属性边栏选项卡中单击“访问层”下拉菜单，选择“热”、“冷”或“存档”存储层。
+3. 在“Blob 属性”边栏选项卡中单击“访问层”下拉菜单以选择“热”或“冷”存储层。
 
 5. 单击边栏选项卡顶部的“保存”。
 
@@ -323,7 +321,7 @@ GPv2 存储帐户的特点是，单 GB 存储成本最低，而且事务和数�
 
 **是否可以将对象存储在同一帐户中的两个存储层中？**
 
-是的。 在帐户级别设置的“访问层”属性是一个默认层，适用于该帐户中没有显式设置层的所有对象。 但是，Blob 级别分层允许在对象级别设置访问层，不管该帐户上的访问层设置如何。 这三个存储层（热、冷或存档）中任何一层的 Blob 都可以存在于同一帐户中。
+是的。 在帐户级别设置的“访问层”属性是一个默认层，适用于该帐户中没有显式设置层的所有对象。 但是，Blob 级别分层允许在对象级别设置访问层，不管该帐户上的访问层设置如何。 这两个存储层（热或冷）中任何一层的 Blob 都可以存在于同一帐户中。
 
 **是否可以更改 GPv2 存储帐户的存储层？**
 
@@ -335,7 +333,7 @@ GPv2 存储帐户的特点是，单 GB 存储成本最低，而且事务和数�
 
 冷存储层中 Blob 的行为方式是否与热存储层中的不同？
 
-GPv2 和 Blob 存储帐户的热存储层中 Blob 的延迟与 GPv1 存储帐户中 Blob 的延迟相同。 冷存储层中 Blob 的延迟（以毫秒为单位）与热层中 Blob 的延迟类似。 存档存储层中的 Blob 有数小时的延迟。
+GPv2 和 Blob 存储帐户的热存储层中 Blob 的延迟与 GPv1 存储帐户中 Blob 的延迟相同。 冷存储层中 Blob 的延迟（以毫秒为单位）与热层中 Blob 的延迟类似。 
 
 冷存储层中的 Blob 具有的可用性服务级别 (SLA) 比存储在热存储层中的 Blob 略低。 有关详细信息，请参阅[存储的 SLA](https://azure.microsoft.com/support/legal/sla/storage)。
 

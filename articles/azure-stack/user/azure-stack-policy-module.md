@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Stack 策略模块 | Microsoft Docs
+title: 使用 Azure Stack 策略模块 | Azure
 description: 了解如何限制 Azure 订阅使其行为像 Azure Stack 订阅
 services: azure-stack
 documentationcenter: ''
@@ -12,21 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/16/2018
-ms.date: 05/23/2018
+origin.date: 08/15/2018
+ms.date: 08/27/2018
 ms.author: v-junlch
-ms.openlocfilehash: 16c79993289358d72b81b3e786d5bf17b8601e89
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: ed7c2e480d91a6fcde677b9e15e1c8bbde6d5cc5
+ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34474901"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42869476"
 ---
-# <a name="manage-azure-policy-using-the-azure-stack-policy-module"></a>使用 Azure Stack 策略模块管理 Azure 策略
+# <a name="manage-azure-policy-using-the-azure-stack-policy-module"></a>使用 Azure Stack 策略模块管理 Azure Policy
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-使用 Azure Stack 策略模块，可为 Azure 订阅配置与 Azure Stack 相同的版本控制和服务可用性。  该模块使用 **New-AzureRMPolicyAssignment** cmdlet 创建 Azure 策略，限制订阅中可用的资源类型和服务。  配置策略后，可以使用 Azure 订阅来开发针对 Azure Stack 的应用。
+使用 Azure Stack 策略模块，可为 Azure 订阅配置与 Azure Stack 相同的版本控制和服务可用性。  该模块使用 **New-AzureRMPolicyAssignment** cmdlet 创建 Azure Policy，限制订阅中可用的资源类型和服务。  配置策略后，可以使用 Azure 订阅来开发针对 Azure Stack 的应用。
 
 ## <a name="install-the-module"></a>安装模块
 
@@ -62,20 +62,21 @@ Add-AzureRmAccount
 $rgName = 'myRG01'
 $s = Select-AzureRmSubscription -SubscriptionName "<Azure Subscription Name>"
 $policy = New-AzureRmPolicyDefinition -Name AzureStackPolicyDefinition -Policy (Get-AzsPolicy)
+$subscriptionID = $s.Subscription.SubscriptionId
 New-AzureRmPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /subscriptions/$subscriptionID/resourceGroups/$rgName
 
 ```
 
 ## <a name="policy-in-action"></a>执行中的策略
 
-部署 Azure 策略后，当你尝试部署策略禁止的资源时会收到错误。
+部署 Azure Policy 后，当你尝试部署策略禁止的资源时会收到错误。
 
 ![由于策略约束而资源部署失败的结果](./media/azure-stack-policy-module/image1.png)
 
 ## <a name="next-steps"></a>后续步骤
 
-- [通过 PowerShell 部署模板](azure-stack-deploy-template-powershell.md)
-- [使用 Azure CLI 部署模板](azure-stack-deploy-template-command-line.md)
-- [使用 Visual Studio 部署模板](azure-stack-deploy-template-visual-studio.md)
+* [通过 PowerShell 部署模板](azure-stack-deploy-template-powershell.md)
+* [使用 Azure CLI 部署模板](azure-stack-deploy-template-command-line.md)
+* [使用 Visual Studio 部署模板](azure-stack-deploy-template-visual-studio.md)
 
 <!-- Update_Description: wording update -->

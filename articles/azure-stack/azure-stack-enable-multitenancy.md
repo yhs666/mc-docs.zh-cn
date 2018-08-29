@@ -1,5 +1,5 @@
 ---
-title: 在 Azure Stack 中启用多租户 | Microsoft Docs
+title: Azure Stack 中的多租户 | Azure
 description: 了解如何在 Azure Stack 中支持多个 Azure Active Directory 目录
 services: azure-stack
 documentationcenter: ''
@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/18/2018
-ms.date: 06/26/2018
+origin.date: 07/23/2018
+ms.date: 08/27/2018
 ms.author: v-junlch
-ms.openlocfilehash: 01ef5a953d59621316e101976c4ea8bb32702944
-ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
+ms.openlocfilehash: 29864ac9485e18e20531ea59765d2dc0beedf1c6
+ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37027196"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42869541"
 ---
-# <a name="enable-multi-tenancy-in-azure-stack"></a>在 Azure Stack 中启用多租户
+# <a name="multi-tenancy-in-azure-stack"></a>Azure Stack 中的多租户
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
@@ -33,7 +33,7 @@ ms.locfileid: "37027196"
 
 本指南提供了此方案上下文中所需的步骤，用于在 Azure Stack 中配置多租户。 在此方案中，你和 Mary 必须完成相关步骤以使 Fabrikam 中的用户能够登录并使用 Contoso 中部署的 Azure Stack 提供的服务。  
 
-## <a name="before-you-begin"></a>准备阶段
+## <a name="enable-multi-tenancy"></a>启用多租户
 
 在 Azure Stack 中配置多租户之前，需要考虑几个先决条件：
   
@@ -48,14 +48,14 @@ ms.locfileid: "37027196"
 
  - Mary 将需要 Azure Stack 的 [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) 访问权限。 
 
-## <a name="configure-azure-stack-directory"></a>配置 Azure Stack 目录
+### <a name="configure-azure-stack-directory"></a>配置 Azure Stack 目录
+
 在本部分中，将配置 Azure Stack 以允许从 Fabrikam Azure AD 目录租户登录。
 
-### <a name="onboard-guest-directory-tenant"></a>加入来宾目录租户
-接下来，将来宾目录租户 (Fabrikam) 加入到 Azure Stack。  此步骤将 Azure 资源管理器配置为接受来自来宾目录租户的用户和服务主体。
+通过将 Azure 资源管理器配置为接受来自来宾目录租户的用户和服务主体，将来宾目录租户 (Fabrikam) 加入到 Azure Stack。
 
 ````PowerShell  
-## The following ARM endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
+## The following Azure Resource Manager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
 $adminARMEndpoint = "https://adminmanagement.local.azurestack.external"
 
 ## Replace the value below with the Azure Stack directory
@@ -67,6 +67,9 @@ $guestDirectoryTenantToBeOnboarded = "fabrikam.partner.onmschina.cn"
 ## Replace the value below with the name of the resource group in which the directory tenant registration resource should be created (resource group must already exist).
 $ResourceGroupName = "system.local"
 
+## Replace the value below with the region location of the resource group. 
+$location = "local"
+
 Register-AzSGuestDirectoryTenant -AdminResourceManagerEndpoint $adminARMEndpoint `
  -DirectoryTenantName $azureStackDirectoryTenant `
  -GuestDirectoryTenantName $guestDirectoryTenantToBeOnboarded `
@@ -74,16 +77,16 @@ Register-AzSGuestDirectoryTenant -AdminResourceManagerEndpoint $adminARMEndpoint
  -ResourceGroupName $ResourceGroupName
 ````
 
+### <a name="configure-guest-directory"></a>配置来宾目录
 
-
-## <a name="configure-guest-directory"></a>配置来宾目录
 完成 Azure Stack 目录中的步骤后，Mary 必须允许 Azure Stack 访问来宾目录，并将 Azure Stack 注册到来宾目录。 
 
-### <a name="registering-azure-stack-with-the-guest-directory"></a>将 Azure Stack 注册到来宾目录
+#### <a name="registering-azure-stack-with-the-guest-directory"></a>将 Azure Stack 注册到来宾目录
+
 来宾目录管理员允许 Azure Stack 访问 Fabrikam 的目录后，Mary 必须将 Azure Stack 注册到 Fabrikam 的目录租户。
 
 ````PowerShell
-## The following ARM endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
+## The following Azure Resource Manager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
 $tenantARMEndpoint = "https://management.local.azurestack.external"
     
 ## Replace the value below with the guest tenant directory. 
@@ -94,14 +97,63 @@ Register-AzSWithMyDirectoryTenant `
  -DirectoryTenantName $guestDirectoryTenantName `
  -Verbose 
 ````
-## <a name="direct-users-to-sign-in"></a>指导用户登录
+
+> [!IMPORTANT]
+> 如果你的 Azure Stack 管理员将来安装新服务或更新，则你可能需要再次运行此脚本。
+>
+> 随时可以再次运行此脚本来检查目录中的 Azure Stack 应用程序的状态。
+
+### <a name="direct-users-to-sign-in"></a>指导用户登录
+
 现在，你和 Mary 已完成到加入 Mary 目录的步骤，Mary 可以指导 Fabrikam 用户登录。  Fabrikam 用户（即，具有 fabrikam.partner.onmschina.cn 后缀的用户）通过访问 https://portal.local.azurestack.external 登录。  
 
 Mary 将指导 Fabrikam 目录中的任何[外部主体](../role-based-access-control/rbac-and-directory-admin-roles.md)（即，Fabrikam 目录中没有 fabrikam.partner.onmschina.cn 后缀的用户）使用 https://portal.local.azurestack.external/fabrikam.partner.onmschina.cn 登录。  如果他们不使用此 URL，则将被发送到其默认目录 (Fabrikam)，并收到一个错误，指出其管理员未许可。
 
+## <a name="disable-multi-tenancy"></a>禁用多租户
+
+如果 Azure Stack 中不再需要有多个租户，可以按顺序执行以下步骤来禁用多租户：
+
+1. 以来宾目录的管理员身份（在此场景中为 Mary）运行 *Unregister-AzsWithMyDirectoryTenant*。 该 cmdlet 从新目录中卸载所有 Azure Stack 应用程序。
+
+    ``` PowerShell
+    ## The following Azure Resource Manager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
+    $tenantARMEndpoint = "https://management.local.azurestack.external"
+        
+    ## Replace the value below with the guest tenant directory. 
+    $guestDirectoryTenantName = "fabrikam.partner.onmschina.cn"
+    
+    Unregister-AzsWithMyDirectoryTenant `
+     -TenantResourceManagerEndpoint $tenantARMEndpoint `
+     -DirectoryTenantName $guestDirectoryTenantName `
+     -Verbose 
+    ```
+
+2. 以 Azure Stack 的服务管理员身份（在此场景中是你）运行 *Unregister-AzSGuestDirectoryTenant*。 
+
+    ``` PowerShell  
+    ## The following Azure Resource Manaager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
+    $adminARMEndpoint = "https://adminmanagement.local.azurestack.external"
+    
+    ## Replace the value below with the Azure Stack directory
+    $azureStackDirectoryTenant = "contoso.partner.onmschina.cn"
+    
+    ## Replace the value below with the guest tenant directory. 
+    $guestDirectoryTenantToBeDecommissioned = "fabrikam.partner.onmschina.cn"
+    
+    ## Replace the value below with the name of the resource group in which the directory tenant registration resource should be created (resource group must already exist).
+    $ResourceGroupName = "system.local"
+    
+    Unregister-AzSGuestDirectoryTenant -AdminResourceManagerEndpoint $adminARMEndpoint `
+     -DirectoryTenantName $azureStackDirectoryTenant `
+     -GuestDirectoryTenantName $guestDirectoryTenantToBeDecommissioned `
+     -ResourceGroupName $ResourceGroupName
+    ```
+
+    > [!WARNING]
+    > 禁用多租户步骤必须按顺序执行。 如果首先完成步骤 1，则步骤 2 将失败。
+
 ## <a name="next-steps"></a>后续步骤
 
 - [管理委派提供程序](azure-stack-delegated-provider.md)
-- [Azure Stack 关键概念](azure-stack-key-features.md)
-
-<!-- Update_Description: wording update -->
+- [Azure Stack 的重要概念](azure-stack-key-features.md)
+<!-- Update_Description: Disable multi-tenancy -->

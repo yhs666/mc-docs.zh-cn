@@ -14,13 +14,13 @@ ms.devlang: node
 ms.topic: article
 origin.date: 10/01/2016
 ms.author: v-yiso
-ms.date: 05/14/2018
-ms.openlocfilehash: 38864e1328803fa49475fbbfb89c6645b671b0cc
-ms.sourcegitcommit: 479954e938e4e3469d6998733aa797826e4f300b
+ms.date: 09/03/2018
+ms.openlocfilehash: 08fefa23281e1e52c649a1554e1727e25b403475
+ms.sourcegitcommit: 1b682acdc2a5e0974fbff809967d7cefcbbbe8ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39031766"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42871034"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>如何使用移动应用 Node.js SDK
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -158,7 +158,7 @@ Visual Studio 2015 需要使用一个扩展在 IDE 中开发 Node.js 应用程�
 4. 使用 Git 克隆 URL 执行 `git clone` 命令。 根据需要输入密码，如以下示例所示：
 
     ```
-    $ git clone https://username@todolist.scm.azurewebsites.cn:443/todolist.git
+    $ git clone https://username@todolist.scm.chinacloudsites.cn:443/todolist.git
     ```
 
 5. 浏览到本地目录（在上述示例中为 `/todolist`），可以看到项目文件已下载。 在 `/tables` 目录中找到 todoitem.json 文件。 此文件定义表上的权限。 另外，在同一目录中找到 todoitem.js 文件。 该文件定义表的 CRUD 操作脚本。
@@ -428,6 +428,7 @@ azureMobile.js 文件中的大多数设置在 [Azure 门户]中都有对等的�
 3. 选择“服务器”。 在“新建服务器”窗格中的“服务器名称”框内输入唯一的服务器名称，并提供合适的服务器管理员登录名和密码。 请确保选中“允许 Azure 服务访问服务器”。 选择“确定” 。
 
    ![创建 Azure SQL 数据库][6]
+   
 4. 在“新建数据库”窗格中，选择“确定”。
 5. 返回“添加数据连接”窗格，选择“连接字符串”，并输入创建数据库时提供的登录名与密码。 如果使用现有数据库，请提供该数据库的登录凭据。 选择“确定” 。
 6. 再次返回“添加数据连接”窗格，选择“确定”创建数据库。
@@ -438,8 +439,8 @@ azureMobile.js 文件中的大多数设置在 [Azure 门户]中都有对等的�
 
 ### <a name="howto-tables-auth"></a>要求在访问表时进行身份验证
 若要对 `tables` 终结点使用应用服务身份验证，必须先在 [Azure 门户]中配置应用服务身份验证。 有关详细信息，请参阅要使用的标识提供者的配置指南：
-- [如何配置 Azure Active Directory 身份验证]
-- [如何配置 Microsoft 身份验证]
+- [配置 Azure Active Directory 身份验证]
+- [配置 Microsoft 身份验证]
 
 每个表都有一个访问属性用于控制对表的访问。 以下示例显示了以静态方式定义的、要求身份验证的表。
 
@@ -943,12 +944,12 @@ Node.js 应用程序可访问各种诊断日志工具。 在内部，移动应�
 [Xamarin.Forms 客户端快速入门]: ./app-service-mobile-xamarin-forms-get-started.md
 [Windows 应用商店客户端快速入门]: ./app-service-mobile-windows-store-dotnet-get-started.md
 [脱机数据同步]: ./app-service-mobile-offline-data-sync.md
-[如何配置 Azure Active Directory 身份验证]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
-[如何配置 Microsoft 身份验证]: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md
+[配置 Azure Active Directory 身份验证]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
+[配置 Microsoft 身份验证]: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md
 [Azure 应用服务部署指南]: ../app-service/app-service-deploy-local-git.md
-[Monitoring an Azure App Service]: ../app-service/web-sites-monitor.md
+[监视 Azure 应用服务]: ../app-service/web-sites-monitor.md
 [在 Azure 应用服务中启用诊断日志记录]: ../app-service/web-sites-enable-diagnostic-log.md
-[Troubleshoot an Azure App Service in Visual Studio]: ../app-service/web-sites-dotnet-troubleshoot-visual-studio.md
+[在 Visual Studio 中对 Azure 应用服务进行故障排除]: ../app-service/web-sites-dotnet-troubleshoot-visual-studio.md
 [指定 Node 版本]: ../nodejs-specify-node-version-azure-apps.md
 [使用 Node 模块]: ../nodejs-use-node-modules-azure-apps.md
 [Create a new Azure App Service]: ../app-service/

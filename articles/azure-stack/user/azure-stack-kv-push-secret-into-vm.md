@@ -1,5 +1,5 @@
 ---
-title: 使用安全地存放在 Azure Stack 上的证书部署虚拟机 | Microsoft Docs
+title: 使用安全地存放在 Azure Stack 上的证书部署虚拟机 | Azure
 description: 了解如何在 Azure Stack 中部署虚拟机，并使用密钥保管库将证书推送到该虚拟机
 services: azure-stack
 documentationcenter: ''
@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 06/28/2018
-ms.date: 07/20/2018
+origin.date: 08/15/2018
+ms.date: 08/27/2018
 ms.author: v-junlch
-ms.openlocfilehash: add8b0baf2a52262e38f74c8e98d67288452e4fc
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.openlocfilehash: 31d9f5fdf79839cee07df3ab55832cff9e0e3a66
+ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168413"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42869479"
 ---
 # <a name="create-a-virtual-machine-and-install-a-certificate-retrieved-from-an-azure-stack-key-vault"></a>创建虚拟机，并安装从 Azure Stack 密钥保管库检索到的证书
 
@@ -32,9 +32,9 @@ ms.locfileid: "39168413"
 
 在许多情况下都会使用证书，例如向 Active Directory 进行身份验证或加密 Web 流量。 可以安全地将证书作为机密存储在 Azure Stack 密钥保管库中。 使用 Azure Stack 密钥保管库的好处是：
 
-- 证书不会在脚本、命令行历史记录或模板中公开。
-- 简化了证书管理流程。
-- 可以控制访问证书的密钥。
+* 证书不会在脚本、命令行历史记录或模板中公开。
+* 简化了证书管理流程。
+* 可以控制访问证书的密钥。
 
 ### <a name="process-description"></a>过程说明
 
@@ -49,9 +49,9 @@ ms.locfileid: "39168413"
 
 ## <a name="prerequisites"></a>先决条件
 
-- 必须订阅包含 Key Vault 服务的产品/服务。
-- [安装适用于 Azure Stack 的 PowerShell。](azure-stack-powershell-install.md)
-- [配置 Azure Stack 用户的 PowerShell 环境](azure-stack-powershell-configure-user.md)
+* 必须订阅包含 Key Vault 服务的产品/服务。
+* [安装适用于 Azure Stack 的 PowerShell。](azure-stack-powershell-install.md)
+* [配置 Azure Stack 用户的 PowerShell 环境](azure-stack-powershell-configure-user.md)
 
 ## <a name="create-a-key-vault-secret"></a>创建 Key Vault 机密
 
@@ -177,12 +177,12 @@ New-AzureRmResourceGroupDeployment `
 
 成功部署模板后，会生成以下输出：
 
-![模板部署结果](./media/azure-stack-kv-push-secret-into-vm/deployment-output.png)
+![模板部署结果](media/azure-stack-kv-push-secret-into-vm/deployment-output.png)
 
 在部署期间，Azure Stack 会将证书推送到虚拟机。 证书的位置取决于 VM 的操作系统：
 
-- 在 Windows 中，系统会利用用户提供的证书存储，将证书添加到 LocalMachine 证书位置。
-- 在 Linux 中，证书会置于 /var/lib/waagent 目录下，其中 x509 证书文件的文件名为 &lt;UppercaseThumbprint&gt;.crt，且私钥的文件名为 &lt;UppercaseThumbprint&gt;.prv。
+* 在 Windows 中，系统会利用用户提供的证书存储，将证书添加到 LocalMachine 证书位置。
+* 在 Linux 中，证书会置于 /var/lib/waagent 目录下，其中 x509 证书文件的文件名为 &lt;UppercaseThumbprint&gt;.crt，且私钥的文件名为 &lt;UppercaseThumbprint&gt;.prv。
 
 ## <a name="retire-certificates"></a>停用证书
 
@@ -196,7 +196,7 @@ Set-AzureKeyVaultSecretAttribute -VaultName contosovault -Name servicecert -Vers
 
 ## <a name="next-steps"></a>后续步骤
 
-- [使用密钥保管库密码部署 VM](azure-stack-kv-deploy-vm-with-secret.md)
-- [允许应用程序访问 Key Vault](azure-stack-kv-sample-app.md)
+* [使用密钥保管库密码部署 VM](azure-stack-kv-deploy-vm-with-secret.md)
+* [允许应用程序访问 Key Vault](azure-stack-kv-sample-app.md)
 
 <!-- Update_Description: wording update -->

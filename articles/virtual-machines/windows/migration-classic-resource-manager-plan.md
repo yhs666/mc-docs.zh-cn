@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 04/01/2017
-ms.date: 05/21/2018
+ms.date: 08/27/2018
 ms.author: v-yeche
-ms.openlocfilehash: 57b80ace610459e3432c99bb7f23b6a3288ad61f
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.openlocfilehash: 18deb3ed15547628d921d4cc2c78b1c7c9b879ac
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34256776"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42871646"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>规划将 IaaS 资源从经典部署模型迁移到 Azure Resource Manager
 尽管 Azure 资源管理器提供了许多精彩功能，但请务必计划迁移，以确保一切顺利进行。 花时间进行规划可确保执行迁移活动时不会遇到问题。
@@ -178,7 +178,7 @@ ms.locfileid: "34256776"
 
 ### <a name="patterns-of-success"></a>成功模式
 
-实际迁移前，应考虑和缓解“实验室测试”部分中的技术指南。  通过充分测试，实际上迁移不属于事件。  对于生产环境，具有其他支持（如受信任的 Azure.cn 合作伙伴或 Azure.cn 高级服务等）会很有帮助。
+实际迁移前，应考虑和缓解“实验室测试”部分中的技术指南。  通过充分测试，实际上迁移不属于事件。  对于生产环境，具有其他支持（如受信任的 Azure 合作伙伴或 Azure 高级服务等）会很有帮助。
 <!-- Notice: Change Microsoft to Azure.cn-->
 
 ### <a name="pitfalls-to-avoid"></a>需避免的错误
@@ -205,7 +205,7 @@ ms.locfileid: "34256776"
 - [使用 Azure Resource Manager 模板以更轻松、更可控的方式完成部署](../../azure-resource-manager/resource-group-overview.md#template-deployment)。
 - [标记](../../azure-resource-manager/resource-group-using-tags.md)。
 - [活动控制](../../azure-resource-manager/resource-group-audit.md)
-<!--Not Available on - [Azure Policies](../../azure-policy/azure-policy-introduction.md)-->
+- [Azure 策略](../../azure-policy/azure-policy-introduction.md)
 
 ### <a name="pitfalls-to-avoid"></a>需避免的错误
 
@@ -217,6 +217,8 @@ ms.locfileid: "34256776"
 * [有关平台支持的从经典部署模型到 Azure Resource Manager 部署模型的迁移的技术深入探讨](migration-classic-resource-manager-deep-dive.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 * [使用 PowerShell 将 IaaS 资源从经典部署模型迁移到 Azure 资源管理器](migration-classic-resource-manager-ps.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 * [使用 CLI 将 IaaS 资源从经典部署模型迁移到 Azure 资源管理器](../linux/migration-classic-resource-manager-cli.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
+* [VPN 网关从经典部署模型迁移到资源管理器部署模型](/vpn-gateway/vpn-gateway-classic-resource-manager-migration)
+* [将 ExpressRoute 线路和关联的虚拟网络从经典部署模型迁移到资源管理器部署模型](/expressroute/expressroute-migration-classic-resource-manager)
 * [用于帮助将 IaaS 资源从经典部署模型迁移到 Azure 资源管理器部署模型的社区工具](migration-classic-resource-manager-community-tools.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 * [查看最常见的迁移错误](migration-classic-resource-manager-errors.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 * [查看有关将 IaaS 资源从经典部署模型迁移到 Azure 资源管理器部署模型的最常见问题](migration-classic-resource-manager-faq.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)

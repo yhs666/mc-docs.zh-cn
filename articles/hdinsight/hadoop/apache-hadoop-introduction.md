@@ -15,14 +15,14 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 05/07/2018
-ms.date: 06/25/2018
+ms.date: 08/27/2018
 ms.author: v-yiso
-ms.openlocfilehash: bd528feee131b2a3ad37056ff7e93c54fe8fcdc2
-ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
+ms.openlocfilehash: a81c03942b19ee930f093c78696ca2d1da2984e4
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36747462"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41705173"
 ---
 # <a name="what-is-azure-hdinsight-and-the-hadoop-technology-stack"></a>什么是 Azure HDInsight 和 Hadoop 技术堆栈
 本文介绍 Azure HDInsight 上的 Apache Hadoop。 Azure HDInsight 是适用于企业的分析服务，具有完全托管、全面且开源的特点。 可以使用 Hadoop、Spark、Hive、LLAP、Kafka、Storm、R 等开源框架。 
@@ -48,11 +48,11 @@ Azure HDInsight 是 [Hortonworks Data Platform (HDP)](https://hortonworks.com/pr
 
 |功能  |说明  |
 |---------|---------|
-|云原生     |     可以使用 Azure HDInsight 在 Azure 上为 [Hadoop](apache-hadoop-linux-tutorial-get-started.md)、 [Spark](../spark/apache-spark-jupyter-spark-sql.md)、 [交互式查询 (LLAP)](../interactive-query/apache-interactive-query-get-started.md)、 [Kafka](../kafka/apache-kafka-get-started.md)、 [Storm](../storm/apache-storm-tutorial-get-started-linux.md)、 [HBase](../hbase/apache-hbase-tutorial-get-started-linux.md) 和  [R Server](../r-server/r-server-get-started.md) 创建优化群集。 HDInsight 还在所有生产工作负荷上提供端到端 SLA。  |
+|云原生     |     可以使用 Azure HDInsight 在 Azure 上为 [Hadoop](apache-hadoop-linux-tutorial-get-started.md)、 [Spark](../spark/apache-spark-jupyter-spark-sql.md)、 [交互式查询 (LLAP)](../interactive-query/apache-interactive-query-get-started.md)、 [Kafka](../kafka/apache-kafka-get-started.md)、 [Storm](../storm/apache-storm-tutorial-get-started-linux.md) 和 [HBase](../hbase/apache-hbase-tutorial-get-started-linux.md) 创建优化群集。 HDInsight 还在所有生产工作负荷上提供端到端 SLA。  |
 |低成本且可缩放     | 可以通过 HDInsight 纵向[缩放](../hdinsight-administer-use-portal-linux.md) 工作负荷。 可以通过 [创建按需群集](../hdinsight-hadoop-create-linux-clusters-adf.md) 来降低成本，只为自己使用的东西付费。 还可以生成数据管道，使作业可操作化。 使计算和存储分离，提高性能和灵活性。 |
 |既安全又合规    | HDInsight 允许通过 [Azure 虚拟网络](../hdinsight-extend-hadoop-virtual-network.md)、[加密](../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md)以及与 [Azure Active Directory](../domain-joined/apache-domain-joined-introduction.md) 集成来保护企业数据资产。 HDInsight 还满足最常用的行业和政府[符合性标准](https://azure.microsoft.com/overview/trusted-cloud)。        |
 |既安全又合规    | HDInsight 允许通过 [Azure 虚拟网络](../hdinsight-extend-hadoop-virtual-network.md)、[加密](../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md)来保护企业数据资产。        |
-|工作效率     |  Azure HDInsight 允许将各种适用于 Hadoop 和 Spark 的高效工具与首选的开发环境配合使用。 这些开发环境包括 [Visual Studio](apache-hadoop-visual-studio-tools-get-started.md)、[Eclipse](../spark/apache-spark-eclipse-tool-plugin.md) 和 [IntelliJ](../spark/apache-spark-intellij-tool-plugin.md)，可以提供 Scala、Python、R、Java 和 .NET 支持。 数据科学家也可以使用 [Jupyter](../spark/apache-spark-jupyter-notebook-kernels.md) 和 [Zeppelin](../spark/apache-spark-zeppelin-notebook.md) 等常用 Notebook 进行协作。    |
+|工作效率     |  Azure HDInsight 允许将各种适用于 Hadoop 和 Spark 的高效工具与首选的开发环境配合使用。 这些开发环境包括 [Visual Studio](apache-hadoop-visual-studio-tools-get-started.md)、[VSCode](../hdinsight-for-vscode.md)、[Eclipse](../spark/apache-spark-eclipse-tool-plugin.md) 和 [IntelliJ](../spark/apache-spark-intellij-tool-plugin.md)，可以提供 Scala、Python、R、Java 和 .NET 支持。 数据科学家也可以使用 [Jupyter](../spark/apache-spark-jupyter-notebook-kernels.md) 和 [Zeppelin](../spark/apache-spark-zeppelin-notebook.md) 等常用 Notebook 进行协作。    |
 |可扩展性     |  可以使用[脚本操作](../hdinsight-hadoop-customize-cluster-linux.md)通过安装的组件（Hue、Presto 等）来扩展 HDInsight 群集，具体方法是：[添加边缘节点](../hdinsight-apps-use-edge-node.md)或[集成其他大数据认证应用程序](../hdinsight-apps-install-applications.md)。 |
 ## <a name="scenarios-for-using-hdinsight"></a>使用 HDInsight 的方案
 

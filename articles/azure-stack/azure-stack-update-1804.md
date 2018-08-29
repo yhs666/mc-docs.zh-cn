@@ -1,5 +1,5 @@
 ---
-title: Azure Stack 1804 更新 | Microsoft Docs
+title: Azure Stack 1804 更新 | Azure
 description: 了解 Azure Stack 集成系统 1804 更新的功能、已知问题和更新下载位置。
 services: azure-stack
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/11/2018
-ms.date: 07/18/2018
+origin.date: 08/01/2018
+ms.date: 08/27/2018
 ms.author: v-junlch
 ms.reviewer: justini
-ms.openlocfilehash: 3d96a4eac835b4cd75c9ea592088cf1a79e81bea
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.openlocfilehash: cddfe20cffde14981a7f2e4a099712b2597e283d
+ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168368"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42869564"
 ---
 # <a name="azure-stack-1804-update"></a>Azure Stack 1804 更新
 
@@ -81,7 +81,10 @@ Azure Stack 1804 更新内部版本号为 **20180513.1**。
 ## <a name="before-you-begin"></a>准备阶段    
 
 ### <a name="prerequisites"></a>先决条件
-- 在应用 Azure Stack 1804 更新之前安装 Azure Stack [1803 更新](azure-stack-update-1803.md)。    
+- 在应用 Azure Stack 1804 更新之前安装 Azure Stack [1803 更新](azure-stack-update-1803.md)。  
+  
+- 安装最新可用的 [1803 版更新或修补程序](azure-stack-update-1803.md#post-update-steps)。 
+
 
 ### <a name="known-issues-with-the-update-process"></a>更新过程的已知问题   
 - 在安装 1804 更新期间，可能会看到标题如下的警报：*错误 - 缺少 FaultType UserAccounts.New 的模板。*  可以放心地忽略这些警报。 更新到 1804 后，这些警报将自动关闭。   
@@ -100,6 +103,8 @@ Azure Stack 1804 更新内部版本号为 **20180513.1**。
 下面是内部版本 **20180513.1** 的安装后已知问题。
 
 #### <a name="portal"></a>门户
+- <!-- TBD - IS ASDK --> 不能通过将 OEM 扩展包用于此版本的 Azure Stack 来应用驱动程序更新。  对于此问题，目前没有解决方法。
+
 - <!-- 1272111 - IS --> 安装或更新到此 Azure Stack 版本后，可能无法在管理门户中查看 Azure Stack 缩放单元。  
   解决方法：使用 PowerShell 查看有关缩放单元的信息。 有关详细信息，请参阅 Azure Stack 模块 1.3.0 的[帮助](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.3.0)内容。 
 
@@ -113,7 +118,7 @@ Azure Stack 1804 更新内部版本号为 **20180513.1**。
     - 对于 Azure Stack 集成系统，请使用 https://aka.ms/newsupportrequest。
 
 - <!-- 2403291 - IS ASDK --> 可能无法使用管理员和用户门户底部的水平滚动条。 如果无法访问水平滚动条，请使用痕迹导航到门户中的上一边栏选项卡，只需从门户左上角的痕迹列表中选择要查看的边栏选项卡的名称即可。
-  ![痕迹](./media/azure-stack-update-1804/breadcrumb.png) 
+  ![痕迹](media/azure-stack-update-1804/breadcrumb.png) 
 
 - <!-- TBD - IS --> 无法在管理员门户中查看计算或存储资源。 此问题的原因是更新安装过程中出错，导致系统错误地将更新报告为成功。 如果发生此问题，请联系 Microsoft 客户支持服务部门以寻求帮助。
 

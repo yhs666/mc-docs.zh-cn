@@ -1,5 +1,5 @@
 ---
-title: Azure Stack 存储的工具 | Microsoft Docs
+title: 适用于 Azure Stack 存储的工具 | Azure
 description: 了解 Azure Stack 存储数据传送工具
 services: azure-stack
 documentationcenter: ''
@@ -11,15 +11,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 07/03/2018
-ms.date: 07/20/2018
+ms.date: 08/27/2018
 ms.author: v-junlch
 ms.reviewer: xiaofmao
-ms.openlocfilehash: e11d294e1f949a39d50ef1cfd5b75c0569a6ee8c
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.openlocfilehash: ca4d2557266c2b06f5788c07d9b0c0336d7c7dd4
+ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168363"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42869556"
 ---
 # <a name="use-data-transfer-tools-for-azure-stack-storage"></a>使用 Azure Stack 存储的数据传输工具
 
@@ -29,23 +29,23 @@ Azure Stack 提供了一组存储服务，适用于磁盘、Blob、表、队列�
 
 你的需求决定了以下哪些工具最适合你：
 
-- [AzCopy](#azcopy)
+* [AzCopy](#azcopy)
 
     一个特定于存储的命令行实用工具，下载后即可在存储帐户中将数据从一个对象复制到另一个对象，或者在存储帐户之间复制。
 
-- [Azure PowerShell](#azure-powershell)
+* [Azure PowerShell](#azure-powershell)
 
     一种基于任务的命令行 Shell 和脚本语言，专为系统管理而设计。
 
-- [Azure CLI](#azure-cli)
+* [Azure CLI](#azure-cli)
 
     一种开源的跨平台工具，提供了一组适用于 Azure 和 Azure Stack 平台的命令。
 
-- [Microsoft 存储资源管理器](#microsoft-azure-storage-explorer)
+* [Microsoft 存储资源管理器](#microsoft-azure-storage-explorer)
 
     一个易于使用的独立应用，带有用户界面。
 
-- [Blobfuse ](#blobfuse)
+* [Blobfuse ](#blobfuse)
 
     一个适用于 Azure Blob 存储的虚拟文件系统驱动程序，用于通过 Linux 文件系统访问存储帐户中的现有块 Blob 数据。 
 
@@ -222,9 +222,9 @@ $blobs | Get-AzureStorageBlobContent -Destination $DestinationFolder
 
 ### <a name="powershell-known-issues"></a>PowerShell 已知问题
 
-目前兼容 Azure Stack 的 Azure PowerShell 模块版本为 1.3.0。 它不同于最新版本的 Azure PowerShell。 这种差异影响存储服务操作：
+目前兼容的 Azure Stack 的 Azure PowerShell 模块版本为 1.2.11，用于用户操作。 它不同于最新版本的 Azure PowerShell。 这种差异影响存储服务操作：
 
-- 在版本 1.3.0 中，`Get-AzureRmStorageAccountKey` 的返回值格式有两个属性：`Key1` 和 `Key2`，而当前的 Azure 版本返回的数组包含所有帐户密钥。
+* 在版本 1.2.11 中，`Get-AzureRmStorageAccountKey` 的返回值格式有两个属性：`Key1` 和 `Key2`，而当前的 Azure 版本返回的数组包含所有帐户密钥。
 
    ```
    # This command gets a specific key for a storage account, 
@@ -253,10 +253,10 @@ Azure Stack 需要 Azure CLI 2.0 版。 若要详细了解如何通过 Azure Sta
 
 完成 CLI 安装和配置后，可尝试以下步骤，使用一个小的 shell 示例脚本来与 Azure Stack 存储资源交互。 此脚本完成以下操作：
 
-- 在存储帐户中创建一个新容器。
-- 将一个现有文件（作为 Blob）上传到该容器。
-- 列出该容器中的所有 Blob。
-- 将文件下载到本地计算机上的指定目标。
+* 在存储帐户中创建一个新容器。
+* 将一个现有文件（作为 Blob）上传到该容器。
+* 列出该容器中的所有 Blob。
+* 将文件下载到本地计算机上的指定目标。
 
 运行此脚本之前，请确保可以成功连接并登录到目标 Azure Stack。
 
@@ -303,8 +303,8 @@ echo "Done"
 
 Azure 存储资源管理器是 Microsoft 提供的独立应用， 它可用来在 Windows、macOS 和 Linux 计算机上轻松处理 Azure 存储和 Azure Stack 存储数据。 如果希望通过某种方式轻松管理 Azure Stack 存储数据，请考虑使用 Azure 存储资源管理器。
 
-- 若要详细了解如何配置 Azure 存储资源管理器，使之能够用于 Azure Stack，请参阅[将存储资源管理器连接到 Azure Stack 订阅](azure-stack-storage-connect-se.md)。
-- 若要详细了解 Azure 存储资源管理器，请参阅[存储资源管理器入门](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
+* 若要详细了解如何配置 Azure 存储资源管理器，使之能够用于 Azure Stack，请参阅[将存储资源管理器连接到 Azure Stack 订阅](azure-stack-storage-connect-se.md)。
+* 若要详细了解 Azure 存储资源管理器，请参阅[存储资源管理器入门](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
 
 ## <a name="blobfuse"></a>Blobfuse 
 
@@ -334,9 +334,9 @@ Azure 存储资源管理器是 Microsoft 提供的独立应用， 它可用来�
 
 ## <a name="next-steps"></a>后续步骤
 
-- [将存储资源管理器连接到 Azure Stack 订阅](azure-stack-storage-connect-se.md)
-- [存储资源管理器入门](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
-- [与 Azure 一致的存储：差异和注意事项](azure-stack-acs-differences.md)
-- [Azure 存储简介](../../storage/common/storage-introduction.md)
+* [将存储资源管理器连接到 Azure Stack 订阅](azure-stack-storage-connect-se.md)
+* [存储资源管理器入门](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
+* [与 Azure 一致的存储：差异和注意事项](azure-stack-acs-differences.md)
+* [Azure 存储简介](../../storage/common/storage-introduction.md)
 
 <!-- Update_Description: wording update -->

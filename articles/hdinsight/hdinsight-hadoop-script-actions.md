@@ -12,15 +12,15 @@ ms.service: hdinsight
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 05/25/2017
-ms.date: 05/28/2018
+ms.date: 08/27/2018
 ms.author: v-yiso
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4bf7ef7144167e6757e802827d764021e24bbb35
-ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
+ms.openlocfilehash: 05682020355968bf9ec0eb9f53e4f0739b9da9c9
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34450054"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41704471"
 ---
 # <a name="develop-script-action-scripts-for-hdinsight-windows-based-clusters"></a>为 HDInsight 基于 Windows 的群集开发脚本操作脚本
 了解如何为 HDInsight 编写脚本操作脚本。 有关如何使用脚本操作脚本的信息，请参阅[使用脚本操作自定义 HDInsight 群集](hdinsight-hadoop-customize-cluster.md)。 有关为基于 Linux 的 HDInsight 群集编写的同一篇文章，请参阅[为 HDInsight 开发脚本操作脚本](hdinsight-hadoop-script-actions-linux.md)。
@@ -100,10 +100,12 @@ HDInsight 提供了多个脚本用于在 HDInsight 群集上安装附加组件�
 
 | Name | 脚本 |
 | --- | --- |
-| **安装 Spark** |https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1。 请参阅 [在 HDInsight 群集上安装并使用 Spark][hdinsight-install-spark]。 |
-| **安装 R** |https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1。 请参阅 [在 HDInsight 群集上安装并使用 R][hdinsight-r-scripts]。 |
-| **安装 Solr** |https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1。 请参阅[在 HDInsight 群集上安装并使用 Solr](hdinsight-hadoop-solr-install.md)。 |
-| - **安装 Giraph** |https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1。 请参阅[在 HDInsight 群集上安装并使用 Giraph](hdinsight-hadoop-giraph-install.md)。 |
+| **安装 Spark** | `https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1`。 请参阅 [在 HDInsight 群集上安装并使用 Spark][hdinsight-install-spark]。 |
+| **安装 R** | `https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1`。 请参阅[在 HDInsight 群集上安装并使用 R](r-server/r-server-hdinsight-manage.md#install-additional-r-packages-on-the-cluster)。 |
+| **安装 Solr** | `https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1`。 请参阅[在 HDInsight 群集上安装并使用 Solr](hdinsight-hadoop-solr-install.md)。 |
+| **安装 Giraph** | `https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1`。 请参阅[在 HDInsight 群集上安装并使用 Giraph](hdinsight-hadoop-giraph-install.md)。 |
+| **预加载 Hive 库** | `https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1`。 请参阅[在 HDInsight 群集上添加 Hive 库](hdinsight-hadoop-add-hive-libraries.md) |
+
 
 脚本操作可以从 Azure 门户、Azure PowerShell 或通过使用 HDInsight .NET SDK 来部署。  有关详细信息，请参阅 [使用脚本操作自定义 HDInsight 群集][hdinsight-cluster-customize]。
 
@@ -163,7 +165,7 @@ HDInsight 提供了多个脚本用于在 HDInsight 群集上安装附加组件�
 * 提供指向脚本资源的可靠链接
 
     用户应确保自定义群集过程中使用的所有脚本和其他项目在群集的整个生存期内都必须一直可用，并且这些文件的版本在此期间也不会发生更改。 如果需要为群集中的节点重新制作映像，则需要用到这些资源。 最佳做法是，下载用户控制的存储帐户中的所有内容并将其存档。 这可能是默认存储帐户，也可能是在部署自定义群集时指定的其他任何存储帐户。
-    例如，在文档提供的 Spark 和 R 自定义群集示例中，此存储帐户中的资源具有一个本地副本：https://hdiconfigactions.blob.core.windows.net/。
+    例如，在文档提供的 Spark 和 R 自定义群集示例中，此存储帐户中的资源具有一个本地副本： https://hdiconfigactions.blob.core.windows.net/。
 * 确保群集自定义脚本是幂等的
 
     用户必须预料到在群集生存期内对 HDInsight 群集的节点重置映像。 只要对群集重新制作映像，就会运行群集自定义脚本。 从某种意义上讲，此脚本必须设计为幂等的，即重置映像时，该脚本应确保将群集恢复为在初次创建群集时首次运行脚本后所处的自定义状态。 例如，如果自定义脚本在其首次运行时在 D:\AppLocation 上安装了应用程序，则在随后每次运行时，重新制作映像后，该脚本应检查应用程序是否在 D:\AppLocation 位置存在，然后才能继续在该脚本中执行其他步骤。
@@ -183,7 +185,7 @@ HDInsight 提供了多个脚本用于在 HDInsight 群集上安装附加组件�
 本部分提供有关实现你在编写自己的自定义脚本时可能遇到的一些常见使用模式的指导。
 
 ### <a name="configure-environment-variables"></a>配置环境变量
-通常，在脚本操作开发中，需要设置环境变量。 例如，最可能的情况是，从外部站点下载二进制文件时，将其安装在群集上，并将其安装位置添加到“PATH”环境变量中。 以下代码段介绍了如何在自定义脚本中设置环境变量。
+通常，在脚本操作开发中，需要设置环境变量。 例如，最可能的情况是，从外部站点下载二进制文件，将其安装在群集上，并将其安装位置添加到“PATH”环境变量中。 以下代码段介绍了如何在自定义脚本中设置环境变量。
 
     Write-HDILog "Starting environment variable setting at: $(Get-Date)";
     [Environment]::SetEnvironmentVariable('MDS_RUNNER_CUSTOM_CLUSTER', 'true', 'Machine');
@@ -233,7 +235,7 @@ HDInsight 提供了多个脚本用于在 HDInsight 群集上安装附加组件�
 1. 将包含自定义脚本的文件放置在群集节点在部署期间可访问的位置中。 这可能是在部署群集时指定的任何默认或其他存储帐户，或任何其他可公共访问的存储容器。
 2. 向脚本中添加检查，以确保这些脚本可以幂等方式执行，从而使脚本可在同一节点上多次执行。
 3. 使用 **Write-Output** Azure PowerShell cmdlet 输出到 STDOUT 以及 STDERR。 请勿使用 **Write-Host**。
-4. 使用临时文件夹（例如 $env:TEMP）保存下载的文件，并在执行脚本后将其清除。
+4. 使用临时文件夹（例如“$env:TEMP”）保存脚本使用的下载文件，并在执行脚本后将其清除。
 5. 仅在 D:\ 或 C:\apps 上安装自定义软件。 不应使用 C: 驱动器上的其他位置，因为这些位置已保留。 在 C: 盘的 C:\apps 文件夹外安装文件可能会导致在对节点重置映像时设置失败。
 6. 如果 OS 级设置或 Hadoop 服务配置文件发生更改，则你可能需要重新启动 HDInsight 服务，使其可以选取任何 OS 级设置，例如脚本中设置的环境变量。
 
@@ -295,14 +297,12 @@ HDInsight 提供了多个脚本用于在 HDInsight 群集上安装附加组件�
 ## <a name="see-also"></a>另请参阅
 * [使用脚本操作自定义 HDInsight 群集][hdinsight-cluster-customize]
 * [在 HDInsight 群集上安装并使用 Spark][hdinsight-install-spark]
-* [在 HDInsight 群集上安装并使用 R][hdinsight-r-scripts]
 * [在 HDInsight 群集上安装并使用 Solr](hdinsight-hadoop-solr-install.md)。
 * [在 HDInsight 群集上安装并使用 Giraph](hdinsight-hadoop-giraph-install.md)。
 
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
-[hdinsight-r-scripts]: hdinsight-hadoop-r-scripts.md
 [powershell-install-configure]: install-configure-powershell.md
 
 <!--Reference links in article-->

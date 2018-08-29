@@ -7,15 +7,15 @@ manager: digimobile
 ms.service: container-registry
 ms.topic: article
 origin.date: 11/29/2017
-ms.date: 07/02/2018
+ms.date: 08/27/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 539a93903ee44c9d7d9890417ac10795477ac033
-ms.sourcegitcommit: 543a18c71c0910a5b9878a2d2668f317468906f2
+ms.openlocfilehash: 6e905d3f9ba46ef9d2a77b10f152384768b263d6
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39625466"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42872309"
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>使用 Docker CLI 将第一个映像推送到专用 Docker 容器注册表
 
@@ -36,16 +36,13 @@ Azure 容器注册表存储和管理专用 [Docker](http://hub.docker.com) 容�
 az acr login --name myregistry
 ```
 
-也可以使用 [docker login](https://docs.docker.com/engine/reference/commandline/login/) 登录。 以下示例传递了 Azure Active Directory [服务主体](../active-directory/active-directory-application-objects.md)的 ID 和密码。 例如，你可能在自动化方案中向注册表[分配了服务主体](container-registry-authentication.md#service-principal)。
+<!-- Not Available on  [service principal](../active-directory/active-directory-application-objects.md)-->
+<!-- Not Available on docker login myregistry.azurecr.cn -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword-->
 
-```Bash
-docker login myregistry.azurecr.cn -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
-```
 
-完成后，这两个命令将返回 `Login Succeeded`。 如果使用 `docker login`，可能会看见建议使用 `--password-stdin` 参数的安全警告。 虽然本文中未介绍它的用法，但我们建议按照此最佳做法进行操作。 有关详细信息，请参阅 [docker login](https://docs.docker.com/engine/reference/commandline/login/) 命令参考。
+完成后，命令将返回 `Login Succeeded`。
 
-> [!TIP]
-> 使用 `docker login` 以及标记要推送到注册表的映像时，请始终指定完全限定的注册表名称（全部小写）。 在本文的示例中，完全限定的名称为 *myregistry.azurecr.cn*。
+<!-- Not Available on docker login cmdlet-->
 
 ## <a name="pull-the-official-nginx-image"></a>提取正式的 Nginx 映像
 
@@ -131,5 +128,4 @@ az acr repository delete --name myregistry --repository samples/nginx --tag late
 <!-- Not Available on * [Azure Kubernetes Service (AKS)](../aks/tutorial-kubernetes-prepare-app.md)-->
 <!-- Not Available on * [Azure Container Instances](../container-instances/container-instances-tutorial-prepare-app.md)-->
 <!-- Not Available on * [Service Fabric](../service-fabric/service-fabric-tutorial-create-container-images.md)-->
-<!-- Update_Description: new article on container registry get started docker cli -->
-<!--ms.date: 07/02/2018-->
+<!-- Update_Description: update meta properties, wording update -->

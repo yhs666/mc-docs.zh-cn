@@ -13,14 +13,14 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 origin.date: 07/13/2017
-ms.date: 03/01/2018
+ms.date: 08/13/2018
 ms.author: v-junlch
-ms.openlocfilehash: 9bbc624fefd3d2be6fa7496796d584d64fb13655
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: b0f0a74532cf438c1fd9e74f3975cf3c3a102ccc
+ms.sourcegitcommit: 56ed1b03d83f222db6118fe1e2f2485a9488507f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
-ms.locfileid: "29730957"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41703926"
 ---
 # <a name="how-to-monitor-azure-redis-cache"></a>如何监视 Azure Redis 缓存
 Azure Redis 缓存使用 [Azure Monitor](/monitoring-and-diagnostics/) 提供用于监视缓存实例的几个选项。 可以查看度量值、将度量值图表固定到启动板、自定义监视图表的日期和时间范围、在图表中添加和删除度量值，以及设置符合特定条件时发出的警报。 借助这些工具，可以监视 Azure Redis 缓存实例的运行状况，以及管理缓存应用程序。
@@ -46,7 +46,7 @@ Azure Redis 缓存使用 [Azure Monitor](/monitoring-and-diagnostics/) 提供用
 ![监视图表](./media/cache-how-to-monitor/redis-cache-monitoring-part.png)
 
 ### <a name="usage-charts"></a>图表使用情况
-“概述”边栏选项卡中的“使用情况”部分包含“Redis 服务器负载”、“内存使用情况”、“网络带宽”和“CPU 使用率”图表，并且还显示缓存实例的“定价层”。
+“概述”边栏选项卡中的“使用情况”部分有“Redis 服务器负载”、“内存使用情况”、“网络带宽”和“CPU 使用率”图表，并且还显示缓存实例的“定价层”。
 
 ![图表使用情况](./media/cache-how-to-monitor/redis-cache-usage-part.png)
 
@@ -100,20 +100,24 @@ Azure Redis 缓存使用 [Azure Monitor](/monitoring-and-diagnostics/) 提供用
 | 指标 | 说明 |
 | --- | --- |
 | 缓存命中数 |在指定的报告间隔期间，成功的键查找次数。 此值映射到 Redis [INFO](http://redis.io/commands/info) 命令输出中的 `keyspace_hits`。 |
+| 缓存延迟（预览） | 基于缓存的节点间延迟计算缓存的延迟。 该指标以微秒为单位，具有三个维度：“Avg”、“Min”和“Max”，分别表示指定的报告间隔期间缓存的平均延迟、最小延迟和最大延迟。 |
 | 缓存未命中数 |在指定的报告间隔期间，失败的键查找次数。 此值映射到 Redis INFO 命令输出中的 `keyspace_misses` 。 缓存未命中并不一定意味着缓存出现了问题。 例如，在使用缓存端编程模式时，应用程序会首先查找缓存中的项。 如果该项不存在（缓存未命中），则将从数据库中检索该项并将其添加到下一次缓存中。 对于缓存端编程模式，缓存未命中是正常行为。 如果缓存未命中数大于预期值，请检查从缓存中填充并读取的应用程序逻辑。 如果由于内存压力而导致项目从缓存中逐出，则可能存在一些缓存未命中的情况，但指标 `Used Memory` 或 `Evicted Keys` 可以更好的监视内存压力。 |
-| 连接的客户端数 |指定的报告间隔期间，客间户端与缓存的连接数。 此值映射到 Redis INFO 命令输出中的 `connected_clients` 。 一旦达到了[连接限制](cache-configure.md#default-redis-server-configuration)，则对缓存的后续连接尝试将失败。 注意，即使没有任何活动的客户端应用程序，由于内部进程和连接，仍可能存在一些连接的客户端的实例。 |
-| 逐出的密钥数 |由于 `maxmemory` 限制，指定的报告间隔期间从缓存中逐出的项目数。 此值映射到 Redis INFO 命令输出中的 `evicted_keys` 。 |
-| 过期的密钥数 |指定的报告间隔期间，缓存中过期的项目数。 此值映射到 Redis INFO 命令输出中的 `expired_keys`。 |
-| 总密钥数  | 在上一个报告时段缓存中的最大密钥数。 此值映射到 Redis INFO 命令输出中的 `keyspace`。 由于基础指标系统存在限制，对于已启用群集的缓存，“总密钥数”将返回在上一个报告时段内密钥数最多的分片的最大密钥数。  |
-| 获取数 |指定的报告间隔期间，缓存中的获取操作数。 此值是以下 Redis INFO 所有命令中的值的总和：`cmdstat_get`、`cmdstat_hget`、`cmdstat_hgetall`、`cmdstat_hmget`、`cmdstat_mget`、`cmdstat_getbit` 和 `cmdstat_getrange`，并且等效于报告间隔期间缓存命中和未命中数的总和。 |
-| Redis 服务器负载 |Redis 服务器忙于处理消息并且非空闲等待消息的周期百分比。 如果此计数器达到 100，则意味着 Redis 服务器已达到性能上限并且 CPU 无法更快地工作。 如果看到高 Redis 服务器负载，则会在客户端看到超时异常。 在这种情况下，应该考虑将数据扩大或分区到多个缓存。 |
-| 设置数 |指定的报告间隔期间，对缓存的设置操作数。 此值是以下 Redis INFO 所有命令中的值的总和：`cmdstat_set`、`cmdstat_hset`、`cmdstat_hmset`、`cmdstat_hsetnx`、`cmdstat_lset`、`cmdstat_mset`、`cmdstat_msetnx`、`cmdstat_setbit`、`cmdstat_setex`、`cmdstat_setrange` 和 `cmdstat_setnx`。 |
-| 总操作数 |指定的报告间隔期间，由缓存服务器处理的命令总数。 此值映射到 Redis INFO 命令输出中的 `total_commands_processed` 。 注意，当 Azure Redis 缓存纯粹用于发布/订阅时，将不存在 `Cache Hits`、`Cache Misses`、`Gets` 或 `Sets` 的指标，但存在 `Total Operations` 指标，该指标反映发布/订阅操作的缓存使用情况。 |
-| 已用内存 |在指定报告间隔期间，缓存中的键/值对所用的缓存内存量（以 MB 为单位）。 此值映射到 Redis INFO 命令输出中的 `used_memory` 。 这不包括元数据或碎片。 |
-| 已用内存 RSS |指定报告间隔期间所用的缓存内存量（以 MB 为单位），包括碎片和元数据。 此值映射到 Redis INFO 命令输出中的 `used_memory_rss` 。 |
-| CPU |指定报告间隔期间，Azure Redis 缓存服务器的 CPU 使用率（以百分比表示）。 此值映射到操作系统 `\Processor(_Total)\% Processor Time` 性能计数器。 |
 | 缓存读取量 |指定报告间隔期间，从缓存中读取的数据量，以每秒兆字节数（MB/秒）为单位。 此值来源于支持虚拟机的网络接口卡，该虚拟机托管缓存，但并不特定于 Redis。 **此值对应于该缓存使用的网络带宽。如果要针对服务器端网络带宽限制设置警报，则可使用此 `Cache Read` 计数器来创建警报。请参阅[此表](cache-faq.md#cache-performance)，了解各种缓存定价层和大小所遵循的带宽限制。** |
 | 缓存写入量 |指定报告间隔期间，写入缓存中的数据量，以每秒兆字节数（MB/秒）为单位。 此值来源于支持虚拟机的网络接口卡，该虚拟机托管缓存，但并不特定于 Redis。 此值对应于从客户端发送到缓存的数据的网络带宽。 |
+| 连接的客户端数 |指定的报告间隔期间，客间户端与缓存的连接数。 此值映射到 Redis INFO 命令输出中的 `connected_clients` 。 一旦达到了[连接限制](cache-configure.md#default-redis-server-configuration)，则对缓存的后续连接尝试将失败。 注意，即使没有任何活动的客户端应用程序，由于内部进程和连接，仍可能存在一些连接的客户端的实例。 |
+| CPU |指定报告间隔期间，Azure Redis 缓存服务器的 CPU 使用率（以百分比表示）。 此值映射到操作系统 `\Processor(_Total)\% Processor Time` 性能计数器。 |
+| 错误 | 在指定的报告间隔期间，缓存可能会出现的特定故障和性能问题。 该指标具有八个维度，表示不同的错误类型，但在将来可能会添加更多维度。 现在所代表的错误类型如下所示： <br/><ul><li>**Failover** - 缓存故障转移时（从属设备提升为主机）</li><li>**Crash** - 缓存在任一节点上意外故障时</li><li>**Dataloss** - 缓存上发生数据丢失时</li><li>**UnresponsiveClients** - 客户端从服务器读取数据的速度不够快时</li><li>**AOF** - 存在与 AOF 暂留有关的问题时</li><li>**RDB** - 存在与 RDB 暂留有关的问题时</li><li>**Import** - 存在与导入 RDB 有关的问题时</li><li>**Export** - 存在与导出 RDB 有关的问题时</li></ul> |
+| 逐出的密钥数 |由于 `maxmemory` 限制，指定的报告间隔期间从缓存中逐出的项目数。 此值映射到 Redis INFO 命令输出中的 `evicted_keys` 。 |
+| 过期的密钥数 |指定的报告间隔期间，缓存中过期的项目数。 此值映射到 Redis INFO 命令输出中的 `expired_keys` 。|
+| 获取数 |指定的报告间隔期间，缓存中的获取操作数。 此值是以下 Redis INFO 所有命令中的值的总和：`cmdstat_get`、`cmdstat_hget`、`cmdstat_hgetall`、`cmdstat_hmget`、`cmdstat_mget`、`cmdstat_getbit` 和 `cmdstat_getrange`，并且等效于报告间隔期间缓存命中和未命中数的总和。 |
+| 每秒操作数 | 指定的报告间隔期间，由缓存服务器处理的每秒命令总数。  此值映射到 Redis INFO 命令中的“instantaneous_ops_per_sec”。 |
+| Redis 服务器负载 |Redis 服务器忙于处理消息并且非空闲等待消息的周期百分比。 如果此计数器达到 100，则意味着 Redis 服务器已达到性能上限并且 CPU 无法更快地工作。 如果看到高 Redis 服务器负载，则会在客户端看到超时异常。 在这种情况下，应该考虑将数据扩大或分区到多个缓存。 |
+| 设置数 |指定的报告间隔期间，对缓存的设置操作数。 此值是以下 Redis INFO 所有命令中的值的总和：`cmdstat_set`、`cmdstat_hset`、`cmdstat_hmset`、`cmdstat_hsetnx`、`cmdstat_lset`、`cmdstat_mset`、`cmdstat_msetnx`、`cmdstat_setbit`、`cmdstat_setex`、`cmdstat_setrange` 和 `cmdstat_setnx`。 |
+| 总密钥数  | 在上一个报告时段缓存中的最大密钥数。 此值映射到 Redis INFO 命令输出中的 `keyspace`。 由于基础指标系统存在限制，对于已启用群集的缓存，“总密钥数”将返回在上一个报告时段内密钥数最多的分片的最大密钥数。  |
+| 总操作数 |指定的报告间隔期间，由缓存服务器处理的命令总数。 此值映射到 Redis INFO 命令输出中的 `total_commands_processed` 。 注意，当 Azure Redis 缓存纯粹用于发布/订阅时，将不存在 `Cache Hits`、`Cache Misses`、`Gets` 或 `Sets` 的指标，但存在 `Total Operations` 指标，该指标反映发布/订阅操作的缓存使用情况。 |
+| 已用内存 |在指定报告间隔期间，缓存中的键/值对所用的缓存内存量（以 MB 为单位）。 此值映射到 Redis INFO 命令输出中的 `used_memory` 。 这不包括元数据或碎片。 |
+| 已用内存百分比 | 指定报告间隔期间使用的总内存的百分比。  这引用 Redis INFO 命令中的“used_memory”值计算百分比。 |
+| 已用内存 RSS |指定报告间隔期间所用的缓存内存量（以 MB 为单位），包括碎片和元数据。 此值映射到 Redis INFO 命令输出中的 `used_memory_rss` 。 |
 
 <a name="operations-and-alerts"></a>
 ## <a name="alerts"></a>警报
@@ -121,7 +125,6 @@ Azure Redis 缓存使用 [Azure Monitor](/monitoring-and-diagnostics/) 提供用
 
 - 发送电子邮件通知
 - 调用 Webhook
-- 调用 Azure 逻辑应用
 
 若要配置缓存的预警规则，从“资源菜单”单击“预警规则”。
 

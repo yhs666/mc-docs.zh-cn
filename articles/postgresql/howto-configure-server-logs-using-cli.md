@@ -11,12 +11,12 @@ ms.devlang: azure-cli
 ms.topic: article
 origin.date: 02/28/2018
 ms.date: 08/13/2018
-ms.openlocfilehash: 8e3d6543cf851f8bf3c70d461f6a9b380db266cf
-ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
+ms.openlocfilehash: a56762cfe5ef33028f7c6981489b3dbc2a23d729
+ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39722925"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42869545"
 ---
 # <a name="configure-and-access-server-logs-by-using-azure-cli"></a>使用 Azure CLI 配置和访问服务器日志
 可以使用命令行接口 (Azure CLI) 下载 PostgreSQL 服务器错误日志。 但不支持访问事务日志。 
@@ -24,7 +24,7 @@ ms.locfileid: "39722925"
 ## <a name="prerequisites"></a>先决条件
 若要逐步执行本操作方法指南，需要：
 - [Azure Database for PostgreSQL 服务器](quickstart-create-server-database-azure-cli.md)
-- [Azure CLI 2.0](/cli/install-azure-cli) 命令行实用工具或浏览器中的 Azure Cloud Shell
+- [Azure CLI 2.0](/cli/install-azure-cli) 命令行实用程序
 
 ## <a name="configure-logging-for-azure-database-for-postgresql"></a>为 Azure Database for PostgreSQL 配置日志记录
 可以将服务器配置为访问查询日志和错误日志。 错误日志包含自动清空、连接和检查点等信息。

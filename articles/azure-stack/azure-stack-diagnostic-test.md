@@ -1,6 +1,6 @@
 ---
-title: 在 Azure Stack 中运行验证测试 | Microsoft Docs
-description: 如何收集日志文件以在 Azure Stack 中进行诊断
+title: 在 Azure Stack 中运行验证测试 | Azure
+description: 如何收集日志文件以在 Azure Stack 中进行诊断。
 services: azure-stack
 author: mattbriggs
 manager: femila
@@ -11,37 +11,37 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/08/2018
-ms.date: 06/26/2018
+origin.date: 07/19/2018
+ms.date: 08/27/2018
 ms.author: v-junlch
-ms.openlocfilehash: b95b6f07dbc8a003188b1bcc3852eee65da02ee7
-ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
+ms.openlocfilehash: f632e218d5155dc952b260293c0dd01884c645dc
+ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37027062"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42869552"
 ---
 # <a name="run-a-validation-test-for-azure-stack"></a>为 Azure Stack 运行验证测试
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
  
-可以验证 Azure Stack 的状态。 遇到问题时，请联系 Microsoft 客户服务支持。 支持人员会要求你从管理节点运行 Test-AzureStack。 验证测试会对故障进行隔离。 然后，支持人员可以分析详细日志，专注于发生问题的区域，并与你协作来解决问题。
+可以验证 Azure Stack 的状态。 遇到问题时，请联系 Azure 客户服务支持。 支持人员会要求你从管理节点运行 **Test-AzureStack**。 验证测试会对故障进行隔离。 然后，支持人员可以分析详细日志，专注于发生问题的区域，并与你协作来解决问题。
 
 ## <a name="run-test-azurestack"></a>运行 Test-AzureStack
 
-遇到问题时，请联系 Microsoft 客户服务支持，然后**运行 Test-AzureStack**。
+遇到问题时，请联系 Azure 客户服务支持，然后**运行 Test-AzureStack**。
 
 1. 遇到问题。
-2. 联系 Microsoft 客户服务支持。
+2. 联系 Azure 客户服务支持。
 3. 从特权终结点运行 **Test-AzureStack**。
     1. 访问特权终结点。 有关说明，请参阅[使用 Azure Stack 中的特权终结点](azure-stack-privileged-endpoint.md)。 
     2. 在 ASDK 上，以 **AzureStack\CloudAdmin** 身份登录到管理主机。  
     在集成系统上，需要使用 OEM 硬件供应商为管理特权终结点提供的 IP 地址。
     3. 以管理员身份打开 PowerShell。
-    4. 运行： `Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint`
+    4. 运行： `Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint`
     5. 运行： `Test-AzureStack`
 4. 如果有任何测试报告了失败，请运行：`Get-AzureStackLog -FilterByRole SeedRing -OutputPath <Log output path>`。此 cmdlet 从 Test-AzureStack 收集日志。 有关诊断日志的详细信息，请参阅 [Azure Stack 诊断工具](azure-stack-diagnostics.md)。
-5. 将 **SeedRing** 日志发送给 Microsoft 客户服务支持。 Microsoft 客户服务支持将与你协作来解决问题。
+5. 将 **SeedRing** 日志发送给 Azure 客户服务支持。 Azure 客户服务支持将与你协作来解决问题。
 
 ## <a name="reference-for-test-azurestack"></a>Test-AzureStack 参考
 
@@ -52,7 +52,7 @@ ms.locfileid: "37027062"
 验证 Azure Stack 的状态。 此 cmdlet 报告 Azure Stack 硬件和软件的状态。 支持人员可以使用此报告来缩短解决 Azure Stack 支持案例所需的时间。
 
 > [!Note]  
-> Test-AzureStack 可能会检测到不会导致云中断的故障，例如单一故障磁盘或单一物理主机节点故障。
+> **Test-AzureStack** 可能会检测到不会导致云中断的故障，例如单一故障磁盘或单一物理主机节点故障。
 
 #### <a name="syntax"></a>语法
 
@@ -60,9 +60,9 @@ ms.locfileid: "37027062"
   Test-AzureStack
 ````
 
-#### <a name="parameters"></a>parameters
+#### <a name="parameters"></a>参数
 
-| 参数               | 值           | 必须 | 默认 |
+| 参数               | 值           | 必需 | 默认 |
 | ---                     | ---             | ---      | ---     |
 | ServiceAdminCredentials | PSCredential    | 否       | FALSE   |
 | DoNotDeployTenantVm     | SwitchParameter | 否       | FALSE   |
@@ -70,6 +70,9 @@ ms.locfileid: "37027062"
 | 列出                    | SwitchParameter | 否       | FALSE   |
 | 忽略                  | String          | 否       | 不可用      |
 | 包括                 | String          | 否       | 不可用      |
+| BackupSharePath         | String          | 否       | 不可用      |
+| BackupShareCredential   | PSCredential    | 否       | 不可用      |
+
 
 Test-AzureStack cmdlet 支持以下通用参数：Verbose、Debug、ErrorAction、ErrorVariable、WarningAction、WarningVariable、OutBuffer、PipelineVariable 和 OutVariable。 有关详细信息，请参阅[有关通用参数](http://go.microsoft.com/fwlink/?LinkID=113216)。 
 
@@ -82,13 +85,13 @@ Test-AzureStack cmdlet 支持以下通用参数：Verbose、Debug、ErrorAction�
 在 PEP 会话中，运行：
 
 ````PowerShell
-  Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint `
-      Test-AzureStack
+    Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint -Credential $localcred
+    Test-AzureStack
 ````
 
 #### <a name="run-test-azurestack-with-cloud-scenarios"></a>在有云方案的情况下运行 Test-AzureStack
 
-可以使用 Test-AzureStack 针对 Azure Stack 运行云方案。 这些方案包括：
+可以使用 **Test-AzureStack** 针对 Azure Stack 运行云方案。 这些方案包括：
 
  - 创建资源组
  - 创建计划
@@ -101,14 +104,14 @@ Test-AzureStack cmdlet 支持以下通用参数：Verbose、Debug、ErrorAction�
 
 云方案需要云管理员凭据。 
 > [!Note]  
-> 不能使用 Active Directory 联合服务 (ADFS) 凭据运行云方案。 只能通过 PEP 访问 **Test-AzureStack** cmdlet。 但是，PEP 不支持 ADFS 凭据。
+> 不能使用 Active Directory 联合服务 (AD FS) 凭据运行云方案。 只能通过 PEP 访问 **Test-AzureStack** cmdlet。 但是，PEP 不支持 AD FS 凭据。
 
 以 UPN 格式 serviceadmin@contoso.partner.onmschina.cn (AAD) 键入云管理员用户名。 出现提示时，键入云管理员帐户的密码。
 
 在 PEP 会话中，运行：
 
 ````PowerShell
-  Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint `
+  Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint -Credential $localcred
   Test-AzureStack -ServiceAdminCredentials <Cloud administrator user name>
 ````
 
@@ -117,7 +120,7 @@ Test-AzureStack cmdlet 支持以下通用参数：Verbose、Debug、ErrorAction�
 在 PEP 会话中，运行：
 
 ````PowerShell
-  $session = New-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint `
+  $session = New-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint -Credential $localcred
   Invoke-Command -Session $session -ScriptBlock {Test-AzureStack}
 ````
 
@@ -126,7 +129,7 @@ Test-AzureStack cmdlet 支持以下通用参数：Verbose、Debug、ErrorAction�
 在 PEP 会话中，运行：
 
 ````PowerShell
-  Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint `
+  Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint -Credential $localcred
   Test-AzureStack -List
 ````
 
@@ -135,20 +138,44 @@ Test-AzureStack cmdlet 支持以下通用参数：Verbose、Debug、ErrorAction�
 在 PEP 会话中，运行：
 
 ````PowerShell
-  Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint `
+  Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint -Credential $localcred
   Test-AzureStack -Include AzsSFRoleSummary, AzsInfraCapacity
 ````
 
 排除特定的测试：
 
 ````PowerShell
-  Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint `
-  Test-AzureStack -Ignore AzsInfraPerformance
+    Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint  -Credential $localcred
+    Test-AzureStack -Ignore AzsInfraPerformance
 ````
+
+### <a name="run-test-azurestack-to-test-infrastructure-backup-settings"></a>运行 Test-AzureStack 来测试基础结构备份设置
+
+在配置基础结构备份之前，可以使用 **AzsBackupShareAccessibility** 测试来测试备份共享路径和凭据。
+
+在 PEP 会话中，运行：
+
+```PowerShell
+    Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint -Credential $localcred
+    Test-AzureStack -Include AzsBackupShareAccessibility -BackupSharePath "\\<fileserver>\<fileshare>" -BackupShareCredential <PSCredentials-for-backup-share>
+```
+配置备份后，可以运行 AzsBackupShareAccessibility 来验证是否可以从 ERCS 访问共享，从 PEP 会话运行以下命令：
+
+```PowerShell
+    Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint  -Credential $localcred
+    Test-AzureStack -Include AzsBackupShareAccessibility
+```
+
+若要使用已配置的备份共享测试新凭据，请从 PEP 会话运行以下命令：
+
+```PowerShell
+    Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint -Credential $localcred
+    Test-AzureStack -Include AzsBackupShareAccessibility -BackupShareCredential <PSCredential for backup share>
+```
 
 ### <a name="validation-test"></a>验证类型
 
-下表总结了 Test-AzureStack 运行的验证测试。
+下表汇总了 **Test-AzureStack** 运行的验证测试。
 
 | Name                                                                                                                              |
 |-----------------------------------------------------------------------------------------------------------------------------------|-----------------------|
@@ -168,10 +195,9 @@ Test-AzureStack cmdlet 支持以下通用参数：Verbose、Debug、ErrorAction�
 | Azure Stack 服务资源消耗摘要                                                                                  |
 | Azure Stack 缩放单元关键事件（过去 8 小时）                                                                             |
 | Azure Stack 存储服务物理磁盘摘要                                                                               |
+|Azure Stack 备份共享可访问性摘要                                                                                     |
 
 ## <a name="next-steps"></a>后续步骤
 
  - 若要详细了解 Azure Stack 诊断工具和问题日志记录，请参阅 [Azure Stack 诊断工具](azure-stack-diagnostics.md)。
  - 若要了解有关故障排除的详细信息，请参阅 [Azure Stack 故障排除](azure-stack-troubleshooting.md)
-
-<!-- Update_Description: wording update -->

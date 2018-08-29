@@ -1,5 +1,5 @@
 ---
-title: 在 Azure Stack 中管理更新概述 | Microsoft Docs
+title: 在 Azure Stack 中管理更新概述 | Azure
 description: 了解 Azure Stack 集成系统的更新管理。
 services: azure-stack
 documentationcenter: ''
@@ -13,24 +13,24 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/11/2017
-ms.date: 07/18/2018
+ms.date: 08/27/2018
 ms.author: v-junlch
-ms.openlocfilehash: 5f91c6e52635af92cb9b8bcf57503fc2dd6bb7aa
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.openlocfilehash: 76b432cf1c378d615fcc2ff84c1838e388f516fe
+ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168432"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42869485"
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>在 Azure Stack 中管理更新概述
 
 *适用于：Azure Stack 集成系统*
 
-Azure Stack 集成系统的 Microsoft 更新包通常大约在每月的第四个星期二发布。 请向你的 OEM 咨询具体的通知流程以确保更新能够到达你的组织。 还可以检查位于“概述” > “发行说明”下的此文档库来了解处于有效支持状态的发行版的信息。 
+Azure Stack 集成系统的 Azure 更新包通常大约在每月的第四个星期二发布。 请向你的 OEM 咨询具体的通知流程以确保更新能够到达你的组织。 还可以查看位于“概述” > “发行说明”下的此文档库来了解有关处于有效支持状态的发行版的信息。 
 
-每次发布的 Microsoft 软件更新均打包为单个更新包。 Azure Stack 操作员可以从管理员门户导入和安装这些更新包，并监视这些更新包的安装进度。 
+每次发布的 Azure 软件更新均打包为单个更新包。 Azure Stack 操作员可以从管理员门户导入和安装这些更新包，并监视这些更新包的安装进度。 
 
-原始设备制造商 (OEM) 硬件供应商也会发布更新，例如驱动程序和固件更新。 虽然这些更新是由 OEM 硬件供应商作为单独的包提供的，但它们采用与来自 Microsoft 更新的更新包相同的方式进行导入、安装和管理。
+原始设备制造商 (OEM) 硬件供应商也会发布更新，例如驱动程序和固件更新。 虽然这些更新是由 OEM 硬件供应商作为单独的包提供的，但它们采用与来自 Azure 更新包的更新包相同的方式进行导入、安装和管理。
 
 若要保持系统受支持，必须始终将 Azure Stack 更新为特定版本级别。 请务必查看 [Azure Stack 服务策略](azure-stack-servicing-policy.md)。
 
@@ -39,7 +39,7 @@ Azure Stack 集成系统的 Microsoft 更新包通常大约在每月的第四个
 
 ## <a name="the-update-resource-provider"></a>更新资源提供程序
 
-Azure Stack 包含协调 Microsoft 软件更新应用的更新资源提供程序。 此资源提供程序可确保在所有物理主机、Service Fabric 应用程序和运行时以及所有基础结构虚拟机及其关联的服务上应用更新。
+Azure Stack 包含协调 Azure 软件更新应用程序的更新资源提供程序。 此资源提供程序可确保在所有物理主机、Service Fabric 应用程序和运行时以及所有基础结构虚拟机及其关联的服务上应用更新。
 
 当更新安装时，由于更新进程以 Azure Stack 中的各种子系统（例如，物理主机和基础结构虚拟机）为目标，因此你可以查看高级状态。
 

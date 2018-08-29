@@ -1,5 +1,5 @@
 ---
-title: 定义和管理 Azure 微服务中的状态 | Azure
+title: 管理 Azure Service Fabric 微服务中的状态 | Azure
 description: 如何定义和管理 Service Fabric 中的服务状态
 services: service-fabric
 documentationcenter: .net
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/18/2017
-ms.date: 05/28/2018
+ms.date: 08/20/2018
 ms.author: v-yeche
-ms.openlocfilehash: d92cdb6e522ba6079eff91268a6b974de501b20a
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: d5b7b6cc60660eb400775a837ef3c52731dd378b
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554304"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41704590"
 ---
 # <a name="service-state"></a>服务状态
 服务状态指的是服务正常运行所需的内存中数据或磁盘上数据。 这包括（例如）服务为正常工作而读取和写入的数据结构和成员变量等。 这可能还包括存储在磁盘上的文件或其他资源，具体取决于服务的体系结构。 例如，数据库用于存储数据和事务日志的文件。
