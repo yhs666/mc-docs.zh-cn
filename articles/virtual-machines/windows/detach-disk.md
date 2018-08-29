@@ -1,6 +1,6 @@
 ---
 title: 从 Windows VM 分离数据磁盘 - Azure | Azure
-description: 了解如何从使用 Resource Manager 部署模型的 Azure 中的虚拟机分离磁盘。
+description: 在 Azure 中从使用资源管理器部署模型的虚拟机分离磁盘。
 services: virtual-machines-windows
 documentationcenter: ''
 author: rockboyfor
@@ -13,17 +13,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-origin.date: 11/17/2017
-ms.date: 05/21/2018
+origin.date: 07/17/2018
+ms.date: 08/27/2018
 ms.author: v-yeche
-ms.openlocfilehash: fefe96e7d87fa289397b06f7be32b47ba06bac9f
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: 7f4a0ebc884ad470ec32b354ba97faab4591c928
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867576"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42871645"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>如何从 Windows 虚拟机分离数据磁盘
+
 当不再需要附加到虚拟机的数据磁盘时，可以轻松地分离它。 这会从虚拟机中删除磁盘，但不会从存储中删除它。
 
 > [!WARNING]
@@ -32,6 +33,20 @@ ms.locfileid: "34867576"
 >
 
 如果希望再次使用磁盘上的现有数据，可以将其重新附加到相同的虚拟机或另一个虚拟机。
+
+## <a name="detach-a-data-disk-using-powershell"></a>使用 PowerShell 分离数据磁盘
+
+可以使用 PowerShell 热删除数据磁盘，但在从 VM 中分离磁盘之前，请确保没有任何设备正在使用该磁盘。
+
+在此示例中，我们从 **myResourceGroup** 资源组的 VM **myVM** 中删除名为 **myDisk** 的磁盘。 首先，使用 [Remove-AzureRmVMDataDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/remove-azurermvmdatadisk) cmdlet 删除磁盘。 然后，使用 [Update-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvm) cmdlet 更新虚拟机的状态以完成数据磁盘删除过程。
+
+```PowerShell
+$VirtualMachine = Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"
+Remove-AzureRmVMDataDisk -VM $VirtualMachine -Name "myDisk"
+Update-AzureRmVM -ResourceGroupName "myResourceGroup" -VM $VirtualMachine
+```
+
+磁盘保留在存储中，但不再附加到虚拟机。
 
 ## <a name="detach-a-data-disk-using-the-portal"></a>使用门户分离数据磁盘
 
@@ -45,21 +60,6 @@ ms.locfileid: "34867576"
 
 磁盘保留在存储中，但不再附加到虚拟机。
 
-## <a name="detach-a-data-disk-using-powershell"></a>使用 PowerShell 分离数据磁盘
-在此示例中，第一个命令将使用 [Get-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvm) 获取 RG11 资源组中名为 MyVM07 的虚拟机，并将其存储在 $VirtualMachine 变量中。
-
-第二行将使用 [Remove-AzureRmVMDataDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/remove-azurermvmdatadisk) cmdlet 从虚拟机中删除名为 DataDisk3 的数据磁盘。
-
-第三行将使用 [Update-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvm) cmdlet 更新虚拟机的状态以完成数据磁盘删除过程。
-
-```powershell
-$VirtualMachine = Get-AzureRmVM -ResourceGroupName "RG11" -Name "MyVM07"
-Remove-AzureRmVMDataDisk -VM $VirtualMachine -Name "DataDisk3"
-Update-AzureRmVM -ResourceGroupName "RG11" -VM $VirtualMachine
-```
-
-有关详细信息，请参阅 [Remove-AzureRmVMDataDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/remove-azurermvmdatadisk)。
-
 ## <a name="next-steps"></a>后续步骤
-要重新使用数据磁盘，只需[将其附加到其他 VM](attach-managed-disk-portal.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) 即可
-<!--Update_Description: update meta properties -->
+若要重新使用数据磁盘，只需[将其附加到其他 VM](attach-managed-disk-portal.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
+<!--Update_Description: update meta properties, wording update --> 即可

@@ -1,6 +1,6 @@
 ---
-title: 缩放 Azure Service Fabric 群集 | Azure
-description: 本教程介绍如何快速缩放 Service Fabric 群集。
+title: 在 Azure 中缩放 Service Fabric 群集 | Azure
+description: 本教程介绍如何在 Azure 中快速缩放 Service Fabric 群集。
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
@@ -13,17 +13,17 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 02/06/2018
-ms.date: 05/28/2018
+ms.date: 08/20/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: b12c76a93825926acf044b9d9650664c4e0d2e3a
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: 1eb52274623269018cc0fb66894d5e6756c0062a
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554287"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41705253"
 ---
-# <a name="tutorial-scale-a-service-fabric-cluster"></a>教程：缩放 Service Fabric 群集
+# <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>教程：在 Azure 中缩放 Service Fabric 群集
 
 本教程是系列教程的第二部分，介绍如何扩大和缩小现有群集。 完成时，将知道如何缩放群集以及如何清理剩余的资源。
 
@@ -34,7 +34,7 @@ ms.locfileid: "34554287"
 > * 添加群集节点（扩大）
 > * 移除群集节点（缩小）
 
-在此系列教程中，你将学习如何：
+在此系列教程中，你会学习如何：
 > [!div class="checklist"]
 > * 使用模板在 Azure 上创建安全的 [Windows 群集](service-fabric-tutorial-create-vnet-and-windows-cluster.md)或 [Linux 群集](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
 > * 缩小或扩大群集
@@ -42,18 +42,21 @@ ms.locfileid: "34554287"
 > * [部署 API 管理与 Service Fabric](service-fabric-tutorial-deploy-api-management.md)
 
 ## <a name="prerequisites"></a>先决条件
+
 在开始学习本教程之前：
-- 如果还没有 Azure 订阅，请创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)
-- 安装 [Azure PowerShell 模块 4.1 或更高版本](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)或 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。
-- 在 Azure 上创建安全的 [Windows 群集](service-fabric-tutorial-create-vnet-and-windows-cluster.md)或 [Linux 群集](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
-- 如果部署 Windows 群集，请设置 Windows 开发环境。 安装 [Visual Studio 2017](http://www.visualstudio.com) 和 **Azure 开发**、**ASP.NET 和 Web 开发**以及 **.NET Core 跨平台开发**工作负荷。  然后设置 [.NET 开发环境](service-fabric-get-started.md)。
-- 如果部署 Linux 群集，请在 [Linux](service-fabric-get-started-linux.md) 或 [MacOS](service-fabric-get-started-mac.md) 上设置一个 Java 开发环境。  安装 [Service Fabric CLI](service-fabric-cli.md)。 
+
+* 如果还没有 Azure 订阅，请创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)
+* 安装 [Azure PowerShell 模块 4.1 或更高版本](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)或 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。
+* 在 Azure 上创建安全的 [Windows 群集](service-fabric-tutorial-create-vnet-and-windows-cluster.md)或 [Linux 群集](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
+* 如果部署 Windows 群集，请设置 Windows 开发环境。 安装 [Visual Studio 2017](http://www.visualstudio.com) 和 **Azure 开发**、**ASP.NET 和 Web 开发**以及 **.NET Core 跨平台开发**工作负荷。  然后设置 [.NET 开发环境](service-fabric-get-started.md)。
+* 如果部署 Linux 群集，请在 [Linux](service-fabric-get-started-linux.md) 或 [MacOS](service-fabric-get-started-mac.md) 上设置一个 Java 开发环境。  安装 [Service Fabric CLI](service-fabric-cli.md)。
 
 ## <a name="sign-in-to-azure"></a>登录 Azure
+
 执行 Azure 命令之前，登录到你的 Azure 帐户并选择你的订阅。
 
 ```powershell
-Connect-AzureRmAccount -Environment AzureChinaCloud 
+Connect-AzureRmAccount -Environment AzureChinaCloud
 Get-AzureRmSubscription
 Set-AzureRmContext -SubscriptionId <guid>
 ```
@@ -87,11 +90,11 @@ sfctl cluster select --endpoint https://aztestcluster.chinaeast.cloudapp.chinacl
 --pem ./aztestcluster201709151446.pem --no-verify
 ```
 
-连接后，即可使用命令获取群集中每个节点的状态。 对于 PowerShell，请使用 `Get-ServiceFabricClusterHealth` 命令，而对于 sfctl，请使用 `sfctl cluster select` 命令。
+连接后，即可使用命令获取群集中每个节点的状态。 对于 **PowerShell**，请使用 `Get-ServiceFabricClusterHealth` 命令，而对于 **sfctl**，请使用 `sfctl cluster select` 命令。
 
-## <a name="scale-out"></a>向外扩展
+## <a name="scale-out"></a>横向扩展
 
-扩大时，添加更多虚拟机实例到规模集。 这些实例成为 Service Fabric 使用的节点。 Service Fabric 知道规模集什么时候添加了更多实例（通过扩大实现）并自动做出反应。 以下代码按名称获取规模集，并使规模集的容量增加 1。
+横向扩展时，会添加更多虚拟机实例到规模集。 这些实例成为 Service Fabric 使用的节点。 Service Fabric 知道规模集什么时候添加了更多实例（通过扩大实现）并自动做出反应。 以下代码按名称获取规模集，并使规模集的容量增加 1。
 
 ```powershell
 $scaleset = Get-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm
@@ -119,7 +122,7 @@ az vmss scale -g sfclustertutorialgroup -n nt1vm --new-capacity 6
 > [!NOTE]
 > 此部分仅应用于 Bronze 持续性层。 有关持续性的详细信息，请参阅 [Service Fabric 群集容量规划][durability]。
 
-缩小虚拟机规模集时，规模集（大多情况下）会移除上次创建的虚拟机实例。 因此，需要找到上次创建的相应 Service Fabric 节点。 可以通过检查 Service Fabric 节点上最大 `NodeInstanceId` 属性值找到最近的节点。 下面的代码示例按节点实例排序并返回有最大 ID 值的实例的详细信息。 
+缩小虚拟机规模集时，规模集（大多情况下）会移除上次创建的虚拟机实例。 因此，需要找到上次创建的相应 Service Fabric 节点。 可以通过检查 Service Fabric 节点上最大 `NodeInstanceId` 属性值找到最近的节点。 下面的代码示例按节点实例排序并返回有最大 ID 值的实例的详细信息。
 
 ```powershell
 Get-ServiceFabricNode | Sort-Object { $_.NodeName.Substring($_.NodeName.LastIndexOf('_') + 1) } -Descending | Select-Object -First 1
@@ -133,15 +136,15 @@ Service Fabric 群集需要了解此节点将被移除。 需要执行以下三�
 
 1. 禁用节点，使其不再是数据复制。  
 PowerShell：`Disable-ServiceFabricNode`  
-sfcli：`sfctl node disable`
+sfctl：`sfctl node disable`
 
 2. 停止节点，使 Service Fabric 运行时完全关闭且应用获取终止请求。  
 PowerShell：`Start-ServiceFabricNodeTransition -Stop`  
-sfcli：`sfctl node transition --node-transition-type Stop`
+sfctl：`sfctl node transition --node-transition-type Stop`
 
 2. 从群集移除节点。  
 PowerShell：`Remove-ServiceFabricNodeState`  
-sfcli：`sfctl node remove-state`
+sfctl：`sfctl node remove-state`
 
 对节点执行这三个步骤后，即可将其从规模集中移除。 如果使用除 [bronze][durability] 以外的任意持续性层，在移除规模集实例时会完成这些步骤。
 
@@ -221,10 +224,10 @@ sfctl node remove-state --node-name _nt1vm_5
 > [!TIP]
 > 使用以下“sfctl”查询检查每个步骤的状态。
 >
-> **检查停用状态**  
+> **检查停用状态**
 > `sfctl node list --query "sort_by(items[*], &name)[-1].nodeDeactivationInfo"`
 >
-> **检查停止状态**  
+> **检查停止状态**
 > `sfctl node list --query "sort_by(items[*], &name)[-1].isStopped"`
 >
 
@@ -251,7 +254,7 @@ az vmss scale -g sfclustertutorialgroup -n nt1vm --new-capacity 5
 
 ## <a name="next-steps"></a>后续步骤
 
-在本教程中，你已学习了如何执行以下操作：
+本教程介绍了以下操作：
 
 > [!div class="checklist"]
 > * 读取群集节点计数

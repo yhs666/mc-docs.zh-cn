@@ -1,5 +1,5 @@
 ---
-title: 在 Azure Stack 中使用命令行部署模板 | Microsoft Docs
+title: 在 Azure Stack 中使用命令行部署模板 | Azure
 description: 了解如何使用跨平台命令行接口 (CLI) 将模板部署到 Azure Stack。
 services: azure-stack
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/30/2018
-ms.date: 04/23/2018
+origin.date: 08/15/2018
+ms.date: 08/27/2018
 ms.author: v-junlch
 ms.reviewer: ''
-ms.openlocfilehash: a2529c232c36c2e6d66c5a81457979f5040a8562
-ms.sourcegitcommit: 85828a2cbfdb58d3ce05c6ef0bc4a24faf4d247b
+ms.openlocfilehash: f401a27330fd64f91b528e5f5774418c8c20fbda
+ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31805391"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42869456"
 ---
 # <a name="deploy-templates-in-azure-stack-using-the-command-line"></a>使用命令行在 Azure Stack 中部署模板
 

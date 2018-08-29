@@ -11,12 +11,12 @@ ms.custom: mvc
 origin.date: 06/26/2018
 ms.date: 08/06/2018
 ms.author: v-yeche
-ms.openlocfilehash: d8b3dc1bd40f1a5fc71cd2ccd29ba70b016912fe
-ms.sourcegitcommit: 62a0389a743cd18665bd127e9bf14800867008eb
+ms.openlocfilehash: c15ab72ea75e8b710adfdb958930b21d6e4d195d
+ms.sourcegitcommit: 57f5fd57fc1077252885b656263e79aaeca4763a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39624929"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41703977"
 ---
 # <a name="quickstart-process-event-streams-using-azure-cli-and-java"></a>快速入门：使用 Azure CLI 和 Java 处理事件流
 
@@ -32,7 +32,7 @@ Azure 事件中心是高度可缩放的数据流平台和引入服务，每秒�
 
 ## <a name="log-on-to-azure"></a>登录到 Azure
 
-如果在 Cloud Shell 中运行命令，则不需要执行以下步骤。 如果本地运行 CLI，请执行以下步骤登录到 Azure 并设置当前订阅：
+如果本地运行 CLI，请执行以下步骤登录到 Azure 并设置当前订阅：<!-- Not Available on Cloud Shell-->
 
 运行以下命令登录到 Azure：
 

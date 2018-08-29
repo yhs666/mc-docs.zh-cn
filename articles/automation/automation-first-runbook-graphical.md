@@ -10,12 +10,12 @@ ms.topic: article
 origin.date: 04/13/2018
 ms.date: 07/23/2018
 ms.author: v-nany
-ms.openlocfilehash: c1e76fe9b65299cf23ffa878e9c30fe150bac945
-ms.sourcegitcommit: 2a147231bf3d0a693adf58fceee76ab0fbcd6dbb
+ms.openlocfilehash: 7cc20e237defbcf184edff09adaeda4e7fe47875
+ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39335332"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41703885"
 ---
 # <a name="my-first-graphical-runbook"></a>我的第一个图形 Runbook
 
@@ -132,6 +132,7 @@ ms.locfileid: "39335332"
 1. 在“参数值”页中，选择“活动输出”作为“数据源”，并从列表中选择“获取运行方式连接”，在“字段路径”文本框中键入“ApplicationId”，单击“确定”。 需指定“字段路径”的属性的名称，因为活动所输出的对象包含多个属性。
 1. 单击“CERTIFICATETHUMBPRINT”，并在“参数值”页中，选择“活动输出”作为“数据源”。 从列表中选择“获取运行方式连接”，在“字段路径”文本框中键入“CertificateThumbprint”，并单击“确定”。
 1. 单击“SERVICEPRINCIPAL”，在“参数值”页中选择“ConstantValue”作为“数据源”，单击选项“True”，并单击“确定”。
+1. 单击“ENVIRONMENTNAME”，在“参数值”页中，选择“ConstantValue”作为“数据源”，在文本框中输入“AzureChinaCloud”，然后单击“确定”。
 1. 单击“TENANTID”，并在“参数值”页中，选择“活动输出”作为“数据源”。 从列表中选择“获取运行方式连接”，在“字段路径”文本框中键入“TenantId”，并单击“确定”两次。
 1. 在“库”控件的搜索文本框中，键入“Set-AzureRmContext”。
 1. 将 **Set-AzureRmContext** 添加到画布。
@@ -139,7 +140,7 @@ ms.locfileid: "39335332"
 1. 单击“参数”，此时会显示“活动参数配置”页。
 1. **Set-AzureRmContext** 有多个参数集，因此需要选择其中一个，才能提供参数值。 单击“参数集”，并选择“SubscriptionId”参数集。
 1. 选择参数集后，这些参数会显示在“活动参数配置”页中。 单击 **SubscriptionID**
-1. 在“参数值”页中，选择“变量资产”作为“数据源”，从列表中选择“AzureSubscriptionId”，并单击“确定”两次。
+1. 在“参数值”页中，选择“ConstantValue”作为“数据源”，将 SubscriptionId 写入文本框，然后单击“确定”两次。
 1. 将鼠标悬停在“登录到 Azure”上方，直到在该形状的底部显示一个圆圈。 **Specify Subscription Id**。
 
 此时，Runbook 看起来将如下所示： <br>![Runbook 身份验证配置](media/automation-first-runbook-graphical/runbook-auth-config.png)

@@ -10,14 +10,14 @@ ms.service: cosmos-db
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 04/20/2018
-ms.date: 07/02/2018
+ms.date: 08/13/2018
 ms.author: v-yeche
-ms.openlocfilehash: 3b143f31d4a2f3b2de7b8b52f2b8514c529ccb82
-ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
+ms.openlocfilehash: d6a7cdb3d366ac1cf25ae6798640f906dd1419fb
+ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37070348"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41705166"
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>将 Azure Cosmos DB 模拟器用于本地开发和测试
 
@@ -60,7 +60,7 @@ ms.locfileid: "37070348"
 Azure Cosmos DB 模拟器提供对 Azure Cosmos DB 服务的高保真模拟。 它支持和 Azure Cosmos DB 相同的功能，包括支持创建和查询 JSON 文档、预配集合和调整集合的规模，以及执行存储过程和触发器。 可以使用 Azure Cosmos DB 模拟器开发和测试应用程序，并通过对 Azure Cosmos DB 的连接终结点进行单一配置更改将其部署到多区域范围的 Azure。
 <!-- Notice: 全球 to 多个区域 -->
 
-虽然创建了实际 Azure Cosmos DB 服务的高保真本地模拟，但是 Azure Cosmos DB 模拟器的实现不同于该服务。 例如，Azure Cosmos DB 模拟器针对持久性使用标准 OS 组件（如本地文件系统），针对连接性使用 HTTPS 协议堆栈。 这意味着，不可通过 Azure Cosmos DB 模拟器使用某些依赖于 Azure 基础结构的功能，如多区域复制、读/写的单位数毫秒延迟，以及可调整的一致性级别。
+虽然模拟 Azure Cosmos DB 服务很逼真，但模拟器的实现不同于服务。 例如，模拟器使用标准 OS 组件，例如用于暂留的本地文件系统和用于连接的 HTTPS 协议堆栈。 不可使用依赖于 Azure 基础结构的功能，如多区域复制、读/写的单位数毫秒延迟，以及可调整的一致性级别。
 <!-- Notice: 全球 to 多个区域 -->
 
 ## <a name="differences-between-the-emulator-and-the-service"></a>模拟器和服务之间的差异 
@@ -72,7 +72,7 @@ Azure Cosmos DB 模拟器提供对 Azure Cosmos DB 服务的高保真模拟。 �
 * Azure Cosmos DB 模拟器不模拟不同的 [Azure Cosmos DB 一致性级别](consistency-levels.md)。
 * Azure Cosmos DB 模拟器不模拟[多区域复制](distribute-data-globally.md)。
 * Azure Cosmos DB 模拟器不支持服务配额替代，而 Azure Cosmos DB 服务支持（例如文档大小限制、增加的已分区集合存储）。
-* 由于 Azure Cosmos DB 模拟器副本不一定能反映 Azure Cosmos DB 服务的最新更改，因此请使用 [Azure Cosmos DB Capacity Planner](https://www.documentdb.com/capacityplanner) 准确估计应用程序的生产吞吐量 (RU) 需求。
+* 由于 Azure Cosmos DB 模拟器副本不一定能反映 Azure Cosmos DB 服务的最新更改，因此应使用 [Azure Cosmos DB Capacity Planner](https://www.documentdb.com/capacityplanner) 准确估计应用程序的生产吞吐量 (RU) 需求。
 <!-- Not Available on Table, Graph, and Cassandra APIs are not yet supported -->
 
 ## <a name="system-requirements"></a>系统要求
@@ -85,7 +85,7 @@ Azure Cosmos DB 模拟器具有以下硬件和软件要求：
   * 10-GB 可用硬盘空间
 
 ## <a name="installation"></a>安装
-可以从 [Microsoft 下载中心](https://aka.ms/cosmosdb-emulator)下载并安装 Azure Cosmos DB 模拟器，也可以在用于 Windows 的 Docker 上运行模拟器。 有关在用于 Windows 的 Docker 上使用模拟器的说明，请参阅[在 Docker 上运行](#running-on-docker)。 
+可以从[下载中心](https://aka.ms/cosmosdb-emulator)下载并安装 Azure Cosmos DB 模拟器，也可以在用于 Windows 的 Docker 上运行模拟器。 有关在用于 Windows 的 Docker 上使用模拟器的说明，请参阅[在 Docker 上运行](#running-on-docker)。 
 
 > [!NOTE]
 > 若要安装、配置和运行 Azure Cosmos DB 模拟器，必须在计算机上具有管理权限。
@@ -100,7 +100,7 @@ Azure Cosmos DB 模拟器具有以下硬件和软件要求：
 
 默认情况下 Azure Cosmos DB 模拟器在本地计算机（“localhost”）上运行，侦听端口 8081。
 
-默认情况下，Azure Cosmos DB 模拟器安装到 `C:\Program Files\Azure Cosmos DB Emulator` 目录。 还可以从命令行启动和停止该模拟器。 有关详细信息，请参阅[命令行工具参考](#command-line)。
+Azure Cosmos DB 模拟器默认安装到 `C:\Program Files\Azure Cosmos DB Emulator`。 还可以从命令行启动和停止模拟器。 有关详细信息，请参阅[命令行工具参考](#command-line)。
 
 ## <a name="start-data-explorer"></a>启动数据资源管理器
 
@@ -126,11 +126,11 @@ Azure Cosmos DB 模拟器启动时，会在浏览器中自动打开 Azure Cosmos
 > [!NOTE] 
 > 如果使用“/Key”选项启动仿真器，请使用生成的密钥而不是“C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==”
 
-此外，与 Azure Cosmos DB 服务一样，Azure Cosmos DB 模拟器仅支持采用 SSL 的安全通信。
+就像使用 Azure Cosmos DB 服务一样，Azure Cosmos DB 模拟器仅支持采用 SSL 的安全通信。
 
 ## <a name="running-on-a-local-network"></a>在本地网络上运行
 
-可在本地网络中运行仿真器。 要启用网络访问，请在[命令行](#command-line-syntax)中指定 /AllowNetworkAccess 选项（同时还需指定 /Key=key_string 或 /KeyFile=file_name）。 可使用 /GenKeyFile=file_name 提前生成具有随机密钥的文件。  然后可将其传递至 /KeyFile=file_name 或 /Key=contents_of_file。
+可在本地网络中运行仿真器。 若要启用网络访问，请在[命令行](#command-line-syntax)中指定 /AllowNetworkAccess 选项（同时还需指定 /Key=key_string 或 /KeyFile=file_name）。 可使用 /GenKeyFile=file_name 提前生成具有随机密钥的文件。  然后可将其传递至 /KeyFile=file_name 或 /Key=contents_of_file。
 
 首次启用网络访问时，用户应关闭模拟器，并删除模拟器的数据目录 (C:\Users\user_name\AppData\Local\CosmosDBEmulator)。
 
@@ -398,13 +398,13 @@ docker pull microsoft/azure-cosmosdb-emulator
 通过命令行：
 ```cmd 
 md %LOCALAPPDATA%\CosmosDBEmulatorCert 2>null
-docker run -v %LOCALAPPDATA%\CosmosDBEmulatorCert:c:\CosmosDBEmulator\CosmosDBEmulatorCert -P -t -i -m 2GB microsoft/azure-cosmosdb-emulator 
+docker run -v %LOCALAPPDATA%\CosmosDBEmulatorCert:C:\CosmosDB.Emulator\CosmosDBEmulatorCert -P -t -i -m 2GB microsoft/azure-cosmosdb-emulator 
 ```
 
 通过 PowerShell：
 ```powershell
 md $env:LOCALAPPDATA\CosmosDBEmulatorCert 2>null
-docker run -v $env:LOCALAPPDATA\CosmosDBEmulatorCert:c:\CosmosDBEmulator\CosmosDBEmulatorCert -P -t -i -m 2GB microsoft/azure-cosmosdb-emulator 
+docker run -v $env:LOCALAPPDATA\CosmosDBEmulatorCert:C:\CosmosDB.Emulator\CosmosDBEmulatorCert -P -t -i -m 2GB microsoft/azure-cosmosdb-emulator 
 ```
 
 响应类似于以下内容：
@@ -531,7 +531,7 @@ cd $env:LOCALAPPDATA\CosmosDBEmulatorCert
 
 > [!div class="checklist"]
 > * 安装本地模拟器
-> * 在适用于 Windows 的 Docker 上运行模拟器
+> * 在用于 Windows 的 Docker 上运行模拟器
 > * 经过身份验证的请求
 > * 在模拟器中使用数据资源管理器
 > * 导出 SSL 证书

@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
 origin.date: 07/02/2018
-ms.date: 07/30/2018
+ms.date: 08/27/2018
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 27c50ea4656e6f39b1f727e7a468731ffc596d64
-ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
+ms.openlocfilehash: f1df6ee0e8bf3d169972520d7bcff1536912e90d
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39307066"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42871641"
 ---
 ## <a name="view-vms-scheduled-for-maintenance-in-the-portal"></a>在门户中查看计划用于维护的虚拟机
 
@@ -39,6 +39,7 @@ ms.locfileid: "39307066"
       | 已经更新 | VM 已更新，目前不需进一步操作。 | 
       | 稍后重试 | 已经启动维护，但没有成功。 可以稍后使用自助式维护选项。 | 
       | 立即重试 | 可以重试以前未成功的自行启动的维护。 | 
+      | - | 你的虚拟机不属于计划内维护。 |
 
     **“维护 - 自助”时段**：显示可以自行启动 VM 维护的时间范围。
 

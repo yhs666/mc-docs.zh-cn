@@ -1,5 +1,5 @@
 ---
-title: 使用模板验证工具检查 Azure Stack 的模板 | Microsoft Docs
+title: 使用模板验证工具检查 Azure Stack 的模板 | Azure
 description: 检查要部署到 Azure Stack 的模板
 services: azure-stack
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/17/2018
-ms.date: 06/27/2018
+origin.date: 08/15/2018
+ms.date: 08/27/2018
 ms.author: v-junlch
 ms.reviewer: jeffgo
-ms.openlocfilehash: 6ecff578f7c833aba0b806718651ba7658a4a580
-ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
+ms.openlocfilehash: 1541cff510af685e8f7f31d32587589344aae141
+ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37027154"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42869527"
 ---
 # <a name="check-your-templates-for-azure-stack-with-the-template-validation-tool"></a>使用模板验证工具检查 Azure Stack 的模板
 

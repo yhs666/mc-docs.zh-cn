@@ -12,12 +12,12 @@ ms.devlang: azure-cli
 ms.topic: tutorial
 origin.date: 04/01/2018
 ms.date: 08/13/2018
-ms.openlocfilehash: d4cbfc276bf017e8f07e2a95e223276eaefad1a6
-ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
+ms.openlocfilehash: 390b08099ec39254a8cf280467bc5f3dd2913d5b
+ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39723121"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42869453"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql-using-azure-cli"></a>教程：使用 Azure CLI 设计 Azure Database for PostgreSQL 
 在本教程中，需使用 Azure CLI（命令行接口）以及其他实用工具了解如何完成以下操作：
@@ -30,7 +30,7 @@ ms.locfileid: "39723121"
 > * 更新数据
 > * 还原数据
 
-可在浏览器中使用 Azure Cloud Shell，或在自己的计算机上[安装 Azure CLI 2.0]( /cli/install-azure-cli)，运行本教程中的命令。
+可以在自己的计算机上[安装 Azure CLI 2.0]( /cli/install-azure-cli) 以运行本教程中的命令。
 
 如果选择在本地安装并使用 CLI，本文要求运行 Azure CLI 2.0 版或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0]( /cli/install-azure-cli)。 
 

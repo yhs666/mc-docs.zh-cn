@@ -1,22 +1,22 @@
 ---
-title: Azure Stack 数据中心集成 - 发布终结点 | Microsoft Docs
+title: Azure Stack 数据中心集成 - 发布终结点 | Azure
 description: 了解如何在数据中心发布 Azure Stack 终结点
 services: azure-stack
 author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-origin.date: 07/16/2018
-ms.date: 07/20/2018
+origin.date: 08/02/2018
+ms.date: 08/27/2018
 ms.author: v-junlch
 ms.reviewer: wamota
 keywords: ''
-ms.openlocfilehash: 0fb81c9abdde889b4b51635d42c3a77a31cf700e
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.openlocfilehash: d09a8941412d1befa7c7da32eb96f49c35c6fc61
+ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168401"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42869450"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack 数据中心集成 - 发布终结点
 Azure Stack 为其基础结构角色设置虚拟 IP 地址 (VIP)。 这些 VIP 是从公共 IP 地址池分配的。 每个 VIP 受软件定义的网络层中的访问控制列表 (ACL) 保护。 还可以在物理交换机（TOR 和 BMC）之间使用 ACL 来进一步强化解决方案。 将会根据部署时的指定，针对外部 DNS 区域中的每个终结点创建一个 DNS 条目。
@@ -24,7 +24,7 @@ Azure Stack 为其基础结构角色设置虚拟 IP 地址 (VIP)。 这些 VIP �
 
 以下体系结构图显示了不同的网络层和 ACL：
 
-![结构化图片](./media/azure-stack-integrate-endpoints/Integrate-Endpoints-01.png)
+![结构化图片](media/azure-stack-integrate-endpoints/Integrate-Endpoints-01.png)
 
 ## <a name="ports-and-protocols-inbound"></a>端口和协议（入站）
 
@@ -82,5 +82,4 @@ Azure Stack 仅支持透明代理服务器。 如果部署中的透明代理上�
 ## <a name="next-steps"></a>后续步骤
 
 [Azure Stack PKI 要求](azure-stack-pki-certs.md)
-
 <!-- Update_Description: wording update -->

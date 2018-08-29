@@ -1,5 +1,5 @@
 ---
-title: 在 Azure Stack 上部署应用服务之前 | Microsoft Docs
+title: 在 Azure Stack 上部署应用服务之前 | Azure
 description: 在 Azure Stack 上部署应用服务之前需要完成的步骤
 services: azure-stack
 documentationcenter: ''
@@ -12,15 +12,15 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/05/2018
-ms.date: 07/20/2018
+origin.date: 08/20/2018
+ms.date: 08/27/2018
 ms.author: v-junlch
-ms.openlocfilehash: 83522391bdefde231ef3ef6a06cf8775a8bbdb7b
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.openlocfilehash: 2323da50d1a5fbfbc4d5a57b580a460bfd15b642
+ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168355"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42869553"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>在 Azure Stack 上开始使用应用服务之前
 
@@ -29,7 +29,7 @@ ms.locfileid: "39168355"
 在 Azure Stack 上部署 Azure 应用服务之前，必须完成本文中的先决条件步骤。
 
 > [!IMPORTANT]
-> 请将 1804 更新应用于 Azure Stack 集成系统，或部署最新的 Azure Stack 开发工具包 (ASDK)，然后部署 Azure 应用服务 1.2。
+> 请将 1807 更新应用于 Azure Stack 集成系统，或部署最新的 Azure Stack 开发工具包 (ASDK)，然后部署 Azure 应用服务 1.3。
 
 ## <a name="download-the-installer-and-helper-scripts"></a>下载安装程序与帮助器脚本
 
@@ -65,7 +65,7 @@ Azure Stack 1802 更新增加了对容错域的支持。 Azure Stack 上新的 A
 运行以下 PowerShell 命令时，必须为 AzureStack\CloudAdmin 提供特权终结点和凭据。
 
 ```PowerShell
-Get-AzureStackRootCert.ps1
+    Get-AzureStackRootCert.ps1
 ```
 
 #### <a name="get-azurestackrootcertps1-script-parameters"></a>Get-AzureStackRootCert.ps1 脚本参数
@@ -242,27 +242,6 @@ net share %WEBSITES_SHARE% /delete
 net share %WEBSITES_SHARE%=%WEBSITES_FOLDER% /grant:Everyone,full
 ```
 
-### <a name="add-the-fileshareowners-group-to-the-local-administrators-group"></a>将 FileShareOwners 组添加到本地管理员组
-
-为了让 Windows 远程管理正常运行，必须将 FileShareOwners 组添加到本地管理员组。
-
-#### <a name="active-directory"></a>Active Directory
-
-在文件服务器上或充当故障转移群集节点的每个文件服务器上，在权限提升的命令提示符下运行以下命令。 将 `<DOMAIN>` 的值替换为要使用的域名。
-
-```DOS
-set DOMAIN=<DOMAIN>
-net localgroup Administrators %DOMAIN%\FileShareOwners /add
-```
-
-#### <a name="workgroup"></a>工作组
-
-在文件服务器上，在权限提升的命令提示符下运行以下命令：
-
-```DOS
-net localgroup Administrators FileShareOwners /add
-```
-
 ### <a name="configure-access-control-to-the-shares"></a>配置共享访问控制
 
 在文件服务器上或故障转移群集节点（当前的群集资源所有者）上，在权限提升的命令提示符下运行以下命令。 将斜体显示的值替换为环境特定的值。
@@ -343,7 +322,7 @@ icacls %WEBSITES_FOLDER% /grant *S-1-1-0:(OI)(CI)(IO)(RA,REA,RD)
 14. 选择“所需的权限” > “授予权限” > “是”。
 
 ```PowerShell
-Create-AADIdentityApp.ps1
+    Create-AADIdentityApp.ps1
 ```
 
 | 参数 | 必需还是可选 | 默认值 | 说明 |
@@ -354,6 +333,7 @@ Create-AADIdentityApp.ps1
 | AzureStackAdminCredential | 必须 | Null | Azure AD 服务管理员凭据。 |
 | CertificateFilePath | 必须 | Null | 前面生成的标识应用程序证书文件的**完整路径**。 |
 | CertificatePassword | 必须 | Null | 帮助保护证书私钥的密码。 |
+| 环境 | 可选 | AzureChinaCloud | 其中目标 Azure Active Directory Graph 服务可用的受支持云环境的名称。  允许的值：“AzureCloud”、“AzureChinaCloud”。|
 
 ## <a name="create-an-active-directory-federation-services-application"></a>创建 Active Directory 联合身份验证服务应用程序
 
@@ -378,7 +358,7 @@ Create-AADIdentityApp.ps1
 6. 提供[前面创建的证书](/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack)的证书文件路径和证书密码。 默认情况下值，为此步骤创建的证书是 **sso.appservice.local.azurestack.external.pfx**。
 
 ```PowerShell
-Create-ADFSIdentityApp.ps1
+    Create-ADFSIdentityApp.ps1
 ```
 
 | 参数 | 必需还是可选 | 默认值 | 说明 |

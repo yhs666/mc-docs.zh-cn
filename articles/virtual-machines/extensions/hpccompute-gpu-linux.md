@@ -1,6 +1,6 @@
 ---
-title: NVIDIA GPU 驱动程序扩展 - Azure Linux VM | Microsoft Docs
-description: 用于在运行 Linux 的 N 系列计算 VM 上安装 NVIDIA GPU 驱动程序的 Microsoft Azure 扩展。
+title: NVIDIA GPU 驱动程序扩展 - Azure Linux VM | Azure
+description: 用于在运行 Linux 的 N 系列计算 VM 上安装 NVIDIA GPU 驱动程序的 Azure 扩展。
 services: virtual-machines-linux
 documentationcenter: ''
 author: rockboyfor
@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/03/2018
+origin.date: 08/20/2018
+ms.date: 08/27/2018
 ms.author: v-yeche
-ms.openlocfilehash: 19e6331110f74a05f3b4d096e10f4c2e8e309b04
-ms.sourcegitcommit: c6205500afd23ac00f2829fe51858b51a622eaf1
+ms.openlocfilehash: c8f99de8074d033682a5a8474733dfa5af19aa04
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39487811"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42872322"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>适用于 Linux 的 NVIDIA GPU 驱动程序扩展
 
@@ -41,11 +42,12 @@ NVIDIA 最终用户许可协议条款位于此处 - https://go.microsoft.com/fwl
 |---|---|
 | Linux：Ubuntu | 16.04 LTS |
 | Linux：CentOS | 7.3, 7.4 |
-<!--不可用于 | Linux：Red Hat Enterprise Linux | 7.3, 7.4 |-->
+
+<!--Not Available on | Linux: Red Hat Enterprise Linux | 7.3, 7.4 |-->
 
 ### <a name="internet-connectivity"></a>Internet 连接
 
-用于 NVIDIA GPU 驱动程序的 Microsoft Azure 扩展要求目标虚拟机连接到 Internet 并具有访问权限。
+用于 NVIDIA GPU 驱动程序的 Azure 扩展要求目标虚拟机连接到 Internet 并具有访问权限。
 
 ## <a name="extension-schema"></a>扩展架构
 
@@ -63,7 +65,8 @@ NVIDIA 最终用户许可协议条款位于此处 - https://go.microsoft.com/fwl
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "NvidiaGpuDriverLinux",
-    "typeHandlerVersion": "1.0",
+    "typeHandlerVersion": "1.1",
+    "autoUpgradeMinorVersion": true,
     "settings": {
     }
   }
@@ -72,16 +75,14 @@ NVIDIA 最终用户许可协议条款位于此处 - https://go.microsoft.com/fwl
 
 ### <a name="property-values"></a>属性值
 
-| Name | 值/示例 | 数据类型 |
+| 名称 | 值/示例 | 数据类型 |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | 日期 |
 | 发布者 | Microsoft.HpcCompute | 字符串 |
 | type | NvidiaGpuDriverLinux | 字符串 |
-| typeHandlerVersion | 1.0 | int |
-
+| typeHandlerVersion | 1.1 | int |
 
 ## <a name="deployment"></a>部署
-
 
 ### <a name="azure-resource-manager-template"></a>Azure Resource Manager 模板 
 
@@ -103,7 +104,8 @@ NVIDIA 最终用户许可协议条款位于此处 - https://go.microsoft.com/fwl
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "NvidiaGpuDriverLinux",
-    "typeHandlerVersion": "1.0",
+    "typeHandlerVersion": "1.1",
+    "autoUpgradeMinorVersion": true,
     "settings": {
     }
   }
@@ -116,11 +118,11 @@ NVIDIA 最终用户许可协议条款位于此处 - https://go.microsoft.com/fwl
 Set-AzureRmVMExtension
     -ResourceGroupName "myResourceGroup" `
     -VMName "myVM" `
-    -Location "southcentralus" `
+    -Location "chinaeast2" `
     -Publisher "Microsoft.HpcCompute" `
     -ExtensionName "NvidiaGpuDriverLinux" `
     -ExtensionType "NvidiaGpuDriverLinux" `
-    -TypeHandlerVersion 1.0 `
+    -TypeHandlerVersion 1.1 `
     -SettingString '{ `
     }'
 ```
@@ -133,7 +135,7 @@ az vm extension set `
   --vm-name myVM `
   --name NvidiaGpuDriverLinux `
   --publisher Microsoft.HpcCompute `
-  --version 1.0 `
+  --version 1.1 `
   --settings '{ `
   }'
 ```
@@ -166,18 +168,18 @@ az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 | 1 | 扩展的用法不正确。 | 请带着执行输出日志联系支持人员。 |
 | 10 个 | 用于 Hyper-V 和 Azure 的 Linux Integration Services 不可用或未安装。 | 请检查 lspci 输出。 |
 | 11 | 在此 VM 大小上找不到 NVIDIA GPU。 | 请使用[支持的 VM 大小和 OS](../linux/n-series-driver-setup.md)。 |
+| 12 | 不支持的映像产品/服务 |
+| 13 | 不支持的 VM 大小 | 请使用 N 系列 VM 部署 |
 | 14 | 操作失败 | |
 | 21 | 在 Ubuntu 上更新失败 | 请检查“sudo apt-get update”的输出 |
 
-
 ### <a name="support"></a>支持
 
-如果对本文中的任何内容需要更多帮助，可以联系 [MSDN Azure 和 Stack Overflow 论坛](https://azure.microsoft.com/support/community/)上的 Azure 专家。 或者，你也可以提出 Azure 支持事件。 请转到 [Azure 支持站点](https://azure.microsoft.com/support/options/)并选择“获取支持”。 有关使用 Azure 支持的信息，请阅读 [Microsoft Azure 支持常见问题解答](https://azure.microsoft.com/support/faq/)。
+如果对本文中的任何观点存在疑问，可以联系 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/contact/) 上的 Azure 专家。 有关使用 Azure 支持的信息，请阅读 [Azure 支持常见问题](https://www.azure.cn/support/faq/)。
 
 ## <a name="next-steps"></a>后续步骤
 有关扩展的详细信息，请参阅[适用于 Linux 的虚拟机扩展和功能](features-linux.md)。
 
 有关 N 系列 VM 的详细信息，请参阅 [GPU 优化虚拟机大小](../linux/sizes-gpu.md)。
 
-<!-- Update_Description: new articles on hpc compute gpu linux -->
-<!--ms.date: 07/30/2018-->
+<!-- Update_Description: wording update -->

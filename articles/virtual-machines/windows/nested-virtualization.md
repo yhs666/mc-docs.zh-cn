@@ -7,27 +7,29 @@ author: rockboyfor
 manager: digimobile
 ms.author: v-yeche
 origin.date: 10/09/2017
-ms.date: 07/30/2018
+ms.date: 08/27/2018
 ms.topic: howto
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: f32ed1ab00cb6eba7a31ca122ef5968bb8c848f3
-ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
+ms.openlocfilehash: dfd4c89808644976fb8d68c826c29d86bd870dc5
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39306978"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42872378"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>如何在 Azure VM 中启用嵌套虚拟化
 
-Azure 虚拟机的 Dv3 和 Ev3 系列支持嵌套虚拟化。 此功能可在支持开发、测试、培训和演示环境等方面提供极大的灵活性。 
+多个 Azure 虚拟机系列支持嵌套虚拟化。 此功能可在支持开发、测试、培训和演示环境等方面提供极大的灵活性。   
 
-所有 Dv3 和 Ev3 系列虚拟机都支持嵌套虚拟化，而无需添加配置。  本文逐步介绍如何在 Azure VM 上启用 Hyper-V，并配置到该来宾虚拟机的 Internet 连接。
+本文逐步介绍如何在 Azure VM 上启用 Hyper-V，并配置到该来宾虚拟机的 Internet 连接。
 
-## <a name="create-a-dv3-or-ev3-series-azure-vm"></a>创建 Dv3 或 Ev3 系列 Azure VM
+## <a name="create-a-nesting-capable-azure-vm"></a>创建支持嵌套的 Azure VM
 
-创建新的 Windows Server 2016 Azure VM 并从 Dv3 或 Ev3 系列中选择一个大小。 请确保选择的大小要足以能够支持来宾虚拟机的需求。 在此示例中，我们将使用 D3_v3 大小的 Azure VM。 
+创建新的 Windows Server 2016 Azure VM。  为了快速参考，所有 v3 虚拟机都支持嵌套虚拟化。 有关支持嵌套的虚拟机大小的完整列表，请查看 [Azure 计算单位](acu.md)一文。
+
+请记住选择足够大的 VM 大小来支持来宾虚拟机的需求。 在此示例中，我们将使用 D3_v3 大小的 Azure VM。 
 
 可以在[此处](https://www.azure.cn/zh-cn/home/features/products-by-region)查看 Dv3 或 Ev3 系列虚拟机的区域可用性。
 
@@ -179,4 +181,4 @@ New-NetNat -Name "InternalNat" -InternalIPInterfaceAddressPrefix 192.168.0.0/24
 在来宾虚拟机中，打开浏览器并导航到网页。
     ![GuestVM](./media/virtual-machines-nested-virtualization/guest-virtual-machine.png)
 
-<!-- Update_Description: Update meta properties -->
+<!-- Update_Description: Update meta properties, wording update -->

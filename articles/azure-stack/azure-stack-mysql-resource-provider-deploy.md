@@ -1,5 +1,5 @@
 ---
-title: 在 Azure Stack 中使用 MySQL 数据库 | Microsoft Docs
+title: 在 Azure Stack 上使用 MySQL 数据库 | Azure
 description: 了解如何在 Azure Stack 中部署 MySQL 数据库即服务，并通过便捷的步骤部署 MySQL Server 资源提供程序适配器。
 services: azure-stack
 documentationCenter: ''
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/13/2018
-ms.date: 07/20/2018
+ms.date: 08/27/2018
 ms.author: v-junlch
 ms.reviewer: jeffgo
-ms.openlocfilehash: 5f329e8c9506b426add199c168e1ec3cf22710cc
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.openlocfilehash: b80a2e36c72b64b147f019fcbdc68b5508ead32b
+ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168435"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42869521"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack"></a>在 Azure Stack 上部署 MySQL 资源提供程序
 
@@ -30,16 +30,16 @@ ms.locfileid: "39168435"
 
 需要先实施几个先决条件，然后才能部署 Azure Stack MySQL 资源提供程序。 若要满足这些要求，请在可访问特权终结点 VM 的计算机上完成本文中的步骤。
 
-- 向 Azure [注册 Azure Stack](.\azure-stack-registration.md)（如果尚未执行此操作），以便可以下载 Azure 市场项。
-- 必须在将运行此安装的系统上安装 Azure 和 Azure Stack PowerShell 模块。 该系统必须是具有最新版本的 .NET 运行时的 Windows 10 或 Windows Server 2016 映像。 请参阅[安装适用于 Azure Stack 的 PowerShell](.\azure-stack-powershell-install.md)。
-- 下载 **Windows Server 2016 Datacenter - Server Core** 映像，将所需的 Windows Server 核心 VM 添加到 Azure Stack 市场。
+* 向 Azure [注册 Azure Stack](.\azure-stack-registration.md)（如果尚未执行此操作），以便可以下载 Azure 市场项。
+* 必须在将运行此安装的系统上安装 Azure 和 Azure Stack PowerShell 模块。 该系统必须是具有最新版本的 .NET 运行时的 Windows 10 或 Windows Server 2016 映像。 请参阅[安装适用于 Azure Stack 的 PowerShell](.\azure-stack-powershell-install.md)。
+* 下载 **Windows Server 2016 Datacenter - Server Core** 映像，将所需的 Windows Server 核心 VM 添加到 Azure Stack 市场。
 
-- 下载 MySQL 资源提供程序二进制文件，然后运行自解压程序，将内容解压缩到一个临时目录。
+* 下载 MySQL 资源提供程序二进制文件，然后运行自解压程序，将内容解压缩到一个临时目录。
 
   >[!NOTE]
   >若要在无法访问 Internet 的系统上部署 MySQL 提供程序，请将 [mysql-connector-net-6.10.5.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi) 文件复制到本地路径。 使用 **DependencyFilesLocalPath** 参数提供路径名称。
 
-- 资源提供程序有一个相应的 Azure Stack 最低内部版本。 请务必下载适用于你运行的 Azure Stack 版本的正确二进制文件：
+* 资源提供程序有一个相应的 Azure Stack 最低内部版本。 请务必下载适用于你运行的 Azure Stack 版本的正确二进制文件：
 
     | Azure Stack 版本 | MySQL RP 版本|
     | --- | --- |
@@ -68,12 +68,12 @@ _仅适用于集成系统安装_。 必须提供 [Azure Stack 部署 PKI 要求]
 
 运行 **DeployMySqlProvider.ps1** 脚本，以完成以下任务：
 
-- 将证书和其他项目上传到 Azure Stack 上的存储帐户。
-- 发布库包，以便可以使用库部署 MySQL 数据库。
-- 发布用于部署宿主服务器的库包。
-- 使用下载的 Windows Server 2016 核心映像部署 VM，然后安装 MySQL 资源提供程序。
-- 注册映射到资源提供程序 VM 的本地 DNS 记录。
-- 将资源提供程序注册到操作员帐户的本地 Azure 资源管理器。
+* 将证书和其他项目上传到 Azure Stack 上的存储帐户。
+* 发布库包，以便可以使用库部署 MySQL 数据库。
+* 发布用于部署宿主服务器的库包。
+* 使用下载的 Windows Server 2016 核心映像部署 VM，然后安装 MySQL 资源提供程序。
+* 注册映射到资源提供程序 VM 的本地 DNS 记录。
+* 将资源提供程序注册到操作员帐户的本地 Azure 资源管理器。
 
 > [!NOTE]
 > 当 MySQL 资源提供程序部署开始时，将创建 **system.local.mysqladapter** 资源组。 可能需要花费多达 75 分钟才能完成此资源组的必需部署。
@@ -104,7 +104,7 @@ _仅适用于集成系统安装_。 必须提供 [Azure Stack 部署 PKI 要求]
 # Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2017-03-09-profile
-Install-Module -Name AzureStack -RequiredVersion 1.3.0
+Install-Module -Name AzureStack -RequiredVersion 1.4.0
 
 # Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time.
 $domain = "AzureStack"  

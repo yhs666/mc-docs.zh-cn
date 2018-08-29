@@ -1,5 +1,5 @@
 ---
-title: Azure Stack 中的配置文件支持的资源提供程序 API 版本 | Microsoft Docs
+title: Azure Stack 中的配置文件支持的资源提供程序 API 版本 | Azure
 description: 了解 Azure Stack 中的配置文件支持的 Azure 资源管理器版本。
 services: azure-stack
 documentationcenter: ''
@@ -10,16 +10,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/27/2018
-ms.date: 07/20/2018
+origin.date: 08/17/2018
+ms.date: 08/27/2018
 ms.author: v-junlch
 ms.reviewer: sijuman
-ms.openlocfilehash: 603f7921e646c3c2b7689f9fb3e9904450a93209
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.openlocfilehash: 4c39d9d99ddb10619c956d824a3820e28e89a082
+ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168374"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42869569"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Azure Stack 中的配置文件支持的资源提供程序 API 版本
 
@@ -194,27 +194,27 @@ API 配置文件使用三个命名约定：
 | 资源类型 | API 版本 |
 |-----------------------------------------|-------------------|
 | 应用程序注册 | 2015-01-01 |
-| 检查资源名称 | 2015-012016-09-01 |
+| 检查资源名称 | 2016-09-01 |
 | 委托的提供程序 | 2015-01-01 |
 | 委托的提供程序/产品（服务） | 2015-01-01 |
 | 委托的提供程序/产品（服务）/估算价格 | 2015-01-01 |
 | 部署 | 2016-0209-01 |
 | 部署/操作 | 2016-0209-01 |
 | 扩展元数据 | 2015-01-01 |
-| 链接 | 2015-012016-09-01 |
+| 链接 | 2016-09-01 |
 | 位置 | 2015-01-01 |
 | 产品 | 2015-01-01 |
 | 操作 | 2015-01-01 |
 | 提供程序 | 2015-012017-08-01 |
-| 资源组 | 2015-012016-09-01 |
-| 资源 | 2015-012016-09-01 |
-| 订阅 | 2015-012016-09-01 |
-| 订阅/位置 | 2015-012016-09-01 |
-| 订阅/操作结果 | 2015-012016-09-01 |
+| 资源组 | 2016-09-01 |
+| 资源 | 2016-09-01 |
+| 订阅 | 2016-09-01 |
+| 订阅/位置 | 2016-09-01 |
+| 订阅/操作结果 | 2016-09-01 |
 | 订阅/提供程序 | 2015-012017-08-01 |
-| 订阅/资源组 | 2015-012016-09-01 |
-| 订阅/资源组/资源 | 2015-012016-09-01 |
-| 订阅/资源 | 2015-012016-09-01 |
+| 订阅/资源组 | 2016-09-01 |
+| 订阅/资源组/资源 | 2016-09-01 |
+| 订阅/资源 | 2016-09-01 |
 | 订阅/标记名称 | 2016-0609-01 |
 | 订阅/标记名称/标记值 | 2016-0609-01 |
 | 租户 | 2015-012017-08-01 |
@@ -329,7 +329,7 @@ API 配置文件使用三个命名约定：
 
 ## <a name="next-steps"></a>后续步骤
 
-- [安装适用于 Azure Stack 的 PowerShell](azure-stack-powershell-install.md)
-- [配置 Azure Stack 用户的 PowerShell 环境](azure-stack-powershell-configure-user.md)  
+* [安装适用于 Azure Stack 的 PowerShell](azure-stack-powershell-install.md)
+* [配置 Azure Stack 用户的 PowerShell 环境](azure-stack-powershell-configure-user.md)  
 
 <!-- Update_Description: wording update -->

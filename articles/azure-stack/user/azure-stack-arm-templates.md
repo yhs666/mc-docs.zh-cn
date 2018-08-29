@@ -1,5 +1,5 @@
 ---
-title: 在 Azure Stack 中使用 Azure 资源管理器模板 | Microsoft Docs
+title: 在 Azure Stack 中使用 Azure 资源管理器模板 | Azure
 description: 了解如何在 Azure Stack 中使用 Azure 资源管理器模板来部署资源。
 services: azure-stack
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/16/2018
-ms.date: 05/23/2018
+origin.date: 08/15/2018
+ms.date: 08/27/2018
 ms.author: v-junlch
 ms.reviewer: ''
-ms.openlocfilehash: f034b0a2ac3d6a21035c3ae1fab5fd7214596d95
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: d31203b090f716f0d298fc62355fde31ad2eb237
+ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34474905"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42869482"
 ---
 # <a name="use-azure-resource-manager-templates-in-azure-stack"></a>在 Azure Stack 中使用 Azure 资源管理器模板
 
@@ -37,31 +37,31 @@ ms.locfileid: "34474905"
 
 使用 PowerShell DSC 扩展创建包含以下资源的 SharePoint Server 2013 场：
 
-- 虚拟网络
-- 三个存储帐户
-- 两个外部负载均衡器
-- 一个虚拟机 (VM)，配置为包含单个域的新林的域控制器
-- 一个 VM，配置为 SQL Server 2014 独立服务器
-- 一个 VM，配置为单机 SharePoint Server 2013 场
+* 虚拟网络
+* 三个存储帐户
+* 两个外部负载均衡器
+* 一个虚拟机 (VM)，配置为包含单个域的新林的域控制器
+* 一个 VM，配置为 SQL Server 2014 独立服务器
+* 一个 VM，配置为单机 SharePoint Server 2013 场
 
 ## <a name="deploy-ad-non-high-availability-deployment"></a>部署 AD（非高可用性部署）
 
 使用 PowerShell DSC 扩展创建包含以下资源的 AD 域控制器服务器：
 
-- 虚拟网络
-- 一个存储帐户
-- 一个外部负载均衡器
-- 一个虚拟机 (VM)，配置为包含单个域的新林的域控制器
+* 虚拟网络
+* 一个存储帐户
+* 一个外部负载均衡器
+* 一个虚拟机 (VM)，配置为包含单个域的新林的域控制器
 
 ## <a name="deploy-adsql-non-high-availability-deployment"></a>部署 AD/SQL（非高可用性部署）
 
 使用 PowerShell DSC 扩展创建包含以下资源的 SQL Server 2014 独立服务器：
 
-- 虚拟网络
-- 两个存储帐户
-- 一个外部负载均衡器
-- 一个虚拟机 (VM)，配置为包含单个域的新林的域控制器
-- 一个 VM，配置为 SQL Server 2014 独立服务器
+* 虚拟网络
+* 两个存储帐户
+* 一个外部负载均衡器
+* 一个虚拟机 (VM)，配置为包含单个域的新林的域控制器
+* 一个 VM，配置为 SQL Server 2014 独立服务器
 
 ## <a name="vm-dsc-extension-azure-automation-pull-server"></a>VM-DSC-Extension-Azure-Automation-Pull-Server
 
@@ -81,7 +81,7 @@ ms.locfileid: "34474905"
 
 ## <a name="next-steps"></a>后续步骤
 
-- [通过门户部署模板](azure-stack-deploy-template-portal.md)
-- [Azure Resource Manager 概述](../../azure-resource-manager/resource-group-overview.md)
+* [通过门户部署模板](azure-stack-deploy-template-portal.md)
+* [Azure Resource Manager 概述](../../azure-resource-manager/resource-group-overview.md)
 
 <!-- Update_Description: wording update -->

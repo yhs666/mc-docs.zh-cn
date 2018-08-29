@@ -1,5 +1,5 @@
 ---
-title: 本教程介绍如何使用模板创建 Azure Stack VM | Microsoft Docs
+title: 本教程介绍如何使用模板创建 Azure Stack VM | Azure
 description: 介绍如何使用 ASDK 通过预定义模板和 GitHub 自定义模板来创建 VM。
 services: azure-stack
 documentationcenter: ''
@@ -13,16 +13,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-origin.date: 06/08/2018
-ms.date: 06/27/2018
+origin.date: 08/15/2018
+ms.date: 08/27/2018
 ms.author: v-junlch
 ms.reviewer: ''
-ms.openlocfilehash: a9c6c99a58cbd0a0b6b9d25afe69b4c7f1611c8e
-ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
+ms.openlocfilehash: 4579be71e516c5eb12dd2495bb309b6c3a3fac83
+ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37027277"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42869499"
 ---
 # <a name="tutorial-create-a-vm-using-a-community-template"></a>教程：使用社区模板创建 VM
 作为 Azure Stack 操作员或用户，你可以使用[自定义 GitHub 快速入门模板](https://github.com/Azure/AzureStack-QuickStart-Templates)来创建 VM，不需通过 Azure Stack 市场来手动进行部署。
@@ -68,35 +68,35 @@ Minikube 是一种工具，方便用户在本地运行 Kubernetes。 Minikube �
 
 1.  单击“+新建” > “自定义” > “模板部署”。
 
-    ![](./media/azure-stack-create-vm-template/1.PNG) 
+    ![](media/azure-stack-create-vm-template/1.PNG) 
 
 2. 单击“编辑模板”。
 
-   ![](./media/azure-stack-create-vm-template/2.PNG) 
+   ![](media/azure-stack-create-vm-template/2.PNG) 
 
 3.  单击“快速入门模板”。
 
-       ![](./media/azure-stack-create-vm-template/3.PNG)
+       ![](media/azure-stack-create-vm-template/3.PNG)
 
 4. 使用“选择模板”下拉列表从可用模板中选择 **101-vm-linux-minikube**，然后单击“确定”。  
 
-   ![](./media/azure-stack-create-vm-template/4.PNG)
+   ![](media/azure-stack-create-vm-template/4.PNG)
 
 5. 如果需要修改模板 JSON，你可以这样做；如果不需要修改，或者已经完成，请单击“保存”，关闭“编辑模板”对话框。
 
-   ![](./media/azure-stack-create-vm-template/5.PNG) 
+   ![](media/azure-stack-create-vm-template/5.PNG) 
 
 6.  单击“参数”，根据需要填充或修改适用的字段，然后单击“确定”。 选择要使用的订阅，创建一个资源组名称或选择一个现有的名称，然后单击“创建”以启动模板部署。
 
-       ![](./media/azure-stack-create-vm-template/6.PNG)
+       ![](media/azure-stack-create-vm-template/6.PNG)
 
 7. 选择要使用的订阅，创建一个资源组名称或选择一个现有的名称，然后单击“创建”以启动模板部署。
 
-   ![](./media/azure-stack-create-vm-template/7.PNG)
+   ![](media/azure-stack-create-vm-template/7.PNG)
 
 8. 资源组部署需要数分钟的时间来创建基于模板的自定义 VM。 可以通过通知和资源组属性来监视安装状态。 
 
-   ![](./media/azure-stack-create-vm-template/8.PNG)
+   ![](media/azure-stack-create-vm-template/8.PNG)
 
    >[!NOTE]
    > 部署完成后，VM 将处于运行状态。 
@@ -106,11 +106,11 @@ Minikube 是一种工具，方便用户在本地运行 Kubernetes。 Minikube �
 
 1. 部署完成后，请单击“连接”，以便查看将要用来连接到 Linux VM 的公用 IP 地址。 
 
-   ![](./media/azure-stack-create-vm-template/9.PNG)
+   ![](media/azure-stack-create-vm-template/9.PNG)
 
 2. 从提升的命令提示符处运行 **mstsc.exe**，以便打开远程桌面连接并连接到在上一步发现的 Linux VM 的公用 IP 地址。 当系统提示你登录 xRDP 时，请使用在创建 VM 时指定的凭据。
 
-   ![](./media/azure-stack-create-vm-template/10.PNG)
+   ![](media/azure-stack-create-vm-template/10.PNG)
 
 3. 打开终端仿真器并输入以下命令，以便启动 minikube：
 
@@ -120,11 +120,11 @@ Minikube 是一种工具，方便用户在本地运行 Kubernetes。 Minikube �
     >    
     >    `sudo minikube dashboard --url`
 
-   ![](./media/azure-stack-create-vm-template/11.PNG)
+   ![](media/azure-stack-create-vm-template/11.PNG)
 
 4. 打开 Web 浏览器，访问 Kubernetes 仪表板地址。 恭喜，你现在已使用 minikube 完成了一个功能完全正常的 Kubernetes 安装！
 
-   ![](./media/azure-stack-create-vm-template/12.PNG)
+   ![](media/azure-stack-create-vm-template/12.PNG)
 
 5. 若要部署示例应用程序，请访问 Kubernetes 的官方文档页，跳过“创建 Minikube 群集”部分，因为你已经在上面创建了一个。 直接跳到“创建 Node.js 应用程序”部分，网址为 https://kubernetes.io/docs/tutorials/stateless-application/hello-minikube/。
 
@@ -136,5 +136,4 @@ Minikube 是一种工具，方便用户在本地运行 Kubernetes。 Minikube �
 > * 了解 Azure Stack 快速入门模板 
 > * 使用自定义 GitHub 模板创建 VM
 > * 启动 minikube 并安装应用程序
-
 

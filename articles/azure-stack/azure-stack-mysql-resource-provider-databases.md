@@ -1,5 +1,5 @@
 ---
-title: 在 Azure Stack 上使用 MySQL Adapter RP 提供的数据库 | Microsoft Docs
+title: 在 Azure Stack 上使用 MySQL Adapter RP 提供的数据库 | Azure
 description: 如何创建和管理使用 MySQL 适配器资源提供程序预配的 MySQL 数据库
 services: azure-stack
 documentationCenter: ''
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/26/2018
-ms.date: 07/20/2018
+ms.date: 08/27/2018
 ms.author: v-junlch
 ms.reviewer: jeffgo
-ms.openlocfilehash: d1cb969d57e0c1b3d484ab34ce6969870f5209dd
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.openlocfilehash: 9f77e54ca339c0cd2abcca3645f78466b11709f9
+ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168487"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42869522"
 ---
 # <a name="create-mysql-databases"></a>创建 MySQL 数据库
 
@@ -36,7 +36,7 @@ ms.locfileid: "39168487"
 
 4. 在“创建数据库”下，选择“SKU”。 在“选择 MySQL SKU”下，为数据库选取 SKU。
 
-    ![选择 MySQL SKU](./media/azure-stack-mysql-rp-deploy/mysql-select-a-sku.png)
+    ![选择 MySQL SKU](./media/azure-stack-mysql-rp-deploy/mysql-select-sku.png)
 
     >[!Note]
     >向 Azure Stack 添加宿主服务器时，系统会为它们分配 SKU。 将在 SKU 的宿主服务器池中创建数据库。

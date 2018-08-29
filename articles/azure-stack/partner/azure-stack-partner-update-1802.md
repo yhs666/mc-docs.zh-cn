@@ -1,0 +1,34 @@
+---
+title: Azure Stack 验证即服务 1802 更新。 | Azure
+description: 本文包含 Azure Stack 1802 验证即服务更新的发行说明。
+services: azure-stack
+documentationcenter: ''
+author: WenJason
+manager: digimobile
+ms.service: azure-stack
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+origin.date: 07/24/2018
+ms.date: 08/27/2018
+ms.author: v-jay
+ms.reviewer: John.Haskin
+ms.openlocfilehash: da603452ee3ab76c3ff6c37a83088e78df1333f8
+ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42869666"
+---
+# <a name="release-notes---1802"></a>发行说明 - 1802
+
+[!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
+
+## <a name="1802"></a>1802
+
+在本文中查找 Azure Stack 1802 验证即服务的发行说明。
+
+## <a name="next-steps"></a>后续步骤
+
+- 详细了解 [Azure Stack 验证即服务](/azure-stack/partner)。

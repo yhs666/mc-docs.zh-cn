@@ -1,5 +1,5 @@
 ---
-title: Azure Stack 中支持的虚拟机大小 | Microsoft Docs
+title: Azure Stack 中支持的虚拟机大小 | Azure
 description: Azure Stack 中支持的 VM 大小参考。
 services: azure-stack
 documentationcenter: ''
@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/17/2018
-ms.date: 07/20/2018
+origin.date: 08/15/2018
+ms.date: 08/27/2018
 ms.author: v-junlch
-ms.openlocfilehash: 79e1fc2c4b863fbc2e8041b7abf3ac20b5c7f114
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.openlocfilehash: 84e05dd95260327e3112f4c13f70e7a1bd26653d
+ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168361"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42869546"
 ---
 # <a name="virtual-machine-sizes-supported-in-azure-stack"></a>Azure Stack 中支持的虚拟机大小
 

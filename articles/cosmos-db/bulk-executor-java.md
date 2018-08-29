@@ -1,6 +1,6 @@
 ---
-title: 使用 BulkExecutor Java 库在 Azure Cosmos DB 中执行批量操作 | Azure
-description: 使用 Azure Cosmos DB 的 BulkExecutor Java 库在 Azure Cosmos DB 集合中批量导入和更新文档。
+title: 使用批量执行程序 Java 库在 Azure Cosmos DB 中执行批量操作 | Azure
+description: 使用 Azure Cosmos DB 的批量执行程序 Java 库在 Azure Cosmos DB 容器中批量导入和更新文档。
 keywords: Java 批量执行程序
 services: cosmos-db
 author: rockboyfor
@@ -9,18 +9,18 @@ ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
 origin.date: 05/07/2018
-ms.date: 07/02/2018
+ms.date: 08/13/2018
 ms.author: v-yeche
-ms.openlocfilehash: 1f1e358e5c0bec6ca0b118e5a2bca4ad77503b2a
-ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
+ms.openlocfilehash: 35183431db9dbc90bc50885b71bae9413fc93bfb
+ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37070287"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41703923"
 ---
-# <a name="use-bulkexecutor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>使用 BulkExecutor Java 库针对 Azure Cosmos DB 数据执行批量操作
+# <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>使用 Bulk Executor Java 库针对 Azure Cosmos DB 数据执行批量操作
 
-本教程说明了如何使用 Azure Cosmos DB 的批量执行程序 Java 库导入和更新 Azure Cosmos DB 文档。 若要了解 BulkExecutor 库及它如何帮助你利用大量吞吐量和存储，请参阅 [ BulkExecutor 库概述](bulk-executor-overview.md)一文。 在本教程中，我们将构建一个可生成随机文档的 Java 应用程序，然后将文档批量导入 Azure Cosmos DB 集合。 导入后，我们将批量更新文档的某些属性。 
+本教程说明了如何使用 Azure Cosmos DB 的批量执行程序 Java 库导入和更新 Azure Cosmos DB 文档。 若要了解 Bulk Executor 库及它如何帮助你利用大量吞吐量和存储，请参阅 [Bulk Executor 库概述](bulk-executor-overview.md)一文。 在本教程中，我们将构建一个可生成随机文档的 Java 应用程序，然后将文档批量导入 Azure Cosmos DB 容器。 导入后，我们将批量更新文档的某些属性。 
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -79,7 +79,7 @@ ms.locfileid: "37070287"
      DATABASE_NAME,
      COLLECTION_NAME,
      collection.getPartitionKey(),
-     offerThroughput) // throughput you want to allocate for bulk import out of the collection's total throughput
+     offerThroughput) // throughput you want to allocate for bulk import out of the container's total throughput
 
    // Instantiate DocumentBulkExecutor
    DocumentBulkExecutor bulkExecutor = bulkExecutorBuilder.build()
@@ -89,7 +89,7 @@ ms.locfileid: "37070287"
    client.getConnectionPolicy().getRetryOptions().setMaxRetryAttemptsOnThrottledRequests(0);
 ```
 
-4. 调用 importAll API，用于生成要批量导入 Azure Cosmos DB 集合的随机文档。 可以在 CmdLineConfiguration.java 文件中配置命令行配置。
+4. 调用 importAll API，用于生成要批量导入 Azure Cosmos DB 容器的随机文档。 可以在 CmdLineConfiguration.java 文件中配置命令行配置。
 
    ```java
    BulkImportResponse bulkImportResponse = bulkExecutor.importAll(documents, false, true, null);
@@ -156,7 +156,7 @@ ms.locfileid: "37070287"
     }).collect(Collectors.toCollection(() -> updateItems));
    ```
 
-2. 调用 updateAll API，用于生成随后要批量导入 Azure Cosmos DB 集合的随机文档。 可以在 CmdLineConfiguration.java 文件中配置要传递的命令行配置。
+2. 调用 updateAll API，用于生成随后要批量导入 Azure Cosmos DB 容器的随机文档。 可以在 CmdLineConfiguration.java 文件中配置要传递的命令行配置。
 
    ```java
    BulkUpdateResponse bulkUpdateResponse = bulkExecutor.updateAll(updateItems, null)
@@ -199,7 +199,7 @@ ms.locfileid: "37070287"
 
 ## <a name="performance-tips"></a>性能提示 
 
-使用 BulkExecutor 库时，请注意以下几点，以获得更好的性能：
+使用 Bulk Executor 库时，请注意以下几点，以获得更好的性能：
 
 * 为获得最佳性能，请从 Cosmos DB 帐户写入区域中的 Azure VM 运行应用程序。  
 * 为实现更高的吞吐量：  
@@ -207,10 +207,10 @@ ms.locfileid: "37070287"
    * 请将 JVM 的堆大小设为足够大的数字，以免在处理大量文档时出现任何内存问题。 建议的堆大小：max(3GB, 3 * sizeof(在一个批中传递给批量导入 API 的文档总数))。  
    * 会有一段预处理时间，因此，在对大量的文档执行批量操作时可以获得更高的吞吐量。 如果想要导入 10,000,000 个文档，针对 10 批文档（每个批的大小为 1,000,000）运行批量导入 10 次，比针对 100 批文档（每个批的大小为 100,000 个文档）运行批量导入 100 次会更有利。  
 
-* 建议在单个虚拟机中，为整个应用程序实例化对应于特定 Azure Cosmos DB 集合的单个 DocumentBulkExecutor 对象。  
+* 建议在单个虚拟机中，为整个应用程序实例化对应于特定 Azure Cosmos DB 容器的单个 DocumentBulkExecutor 对象。  
 
-* 原因是单个批量操作 API 执行会消耗客户端计算机的大量 CPU 和网络 IO。 而发生这种情况的原因是在内部生成了多个任务，因此，每次执行批量操作 API 调用时，请避免在应用程序进程中生成多个并发任务。 如果单个虚拟机上运行的单个批量操作 API 调用无法占用整个集合的吞吐量（如果集合吞吐量超过 100 万 RU/秒），最好是创建独立的虚拟机来并发执行批量操作 API 调用。
+* 原因是单个批量操作 API 执行会消耗客户端计算机的大量 CPU 和网络 IO。 而发生这种情况的原因是在内部生成了多个任务，因此，每次执行批量操作 API 调用时，请避免在应用程序进程中生成多个并发任务。 如果单个虚拟机上运行的单个批量操作 API 调用无法占用整个容器的吞吐量（如果容器吞吐量超过 100 万 RU/秒），最好是创建独立的虚拟机来并发执行批量操作 API 调用。
 
 ## <a name="next-steps"></a>后续步骤
-* 若要了解 maven 包的详细信息以及 BulkExecutor Java 库的发行说明，请参阅 [BulkExecutor SDK 详细信息](sql-api-sdk-bulk-executor-java.md)。
+* 若要了解 maven 包的详细信息以及 Bulk Executor Java 库的发行说明，请参阅 [Bulk Executor SDK 详细信息](sql-api-sdk-bulk-executor-java.md)。
 <!-- Update_Description: update meta properties -->

@@ -9,14 +9,14 @@ ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 11/15/2017
-ms.date: 07/02/2018
+ms.date: 08/13/2018
 ms.author: v-yeche
-ms.openlocfilehash: 087ca7dded9b8bdda62849a88e73e6cd6f91886f
-ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
+ms.openlocfilehash: 2daacde1bdb280e9e4096dd64a612a31a22ff6fc
+ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37070234"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41704584"
 ---
 # <a name="azure-cosmos-db-database-security"></a>Azure Cosmos DB 数据库安全性
 
@@ -40,7 +40,7 @@ ms.locfileid: "37070234"
 
 - 网络安全和防火墙设置
 - 用户身份验证和精细用户控制
-- 能够全局复制数据来应对区域性故障
+- 能够复制多区域数据来应对区域性故障
 - 能够执行从一个数据中心到另一个数据中心的故障转移
 - 在数据中心内执行本地数据复制
 - 自动数据备份
@@ -66,14 +66,14 @@ ms.locfileid: "37070234"
 |---|---|---|
 |网络安全性|使用 IP 防火墙是用于保护数据库的第一个保护层。 Azure Cosmos DB 支持使用基于 IP 的策略驱动访问控制来提供入站防火墙支持。 基于 IP 的访问控制类似于传统数据库系统使用的防火墙规则，但已经过扩展，确保只能通过获批准的一组计算机或云服务访问 Azure Cosmos DB 数据库帐户。 <br><br>使用 Azure Cosmos DB 可以启用特定的 IP 地址 (168.61.48.0)、IP 范围 (168.61.48.0/8) 以及 IP 和范围的组合。 <br><br>从此允许列表之外的计算机发出的所有请求会被 Azure Cosmos DB 阻止。 从获批准计算机和云服务发出的请求必须完成身份验证过程才能获得资源的访问控制权。<br><br>可以在 [Azure Cosmos DB 防火墙支持](firewall-support.md)中了解详细信息。|
 |授权|Azure Cosmos DB 使用基于哈希的消息身份验证代码 (HMAC) 进行授权。 <br><br>每个请求将使用机密帐户密钥进行哈希处理，后续的 base-64 编码哈希将连同每个调用发送到 Azure Cosmos DB。 要验证请求，Azure Cosmos DB 服务需使用正确的机密密钥和属性生成哈希值，然后将该值与请求中的值进行比较。 如果两个值匹配，则成功为操作授权并处理请求，否则，会发生授权失败并拒绝请求。<br><br>可以使用[主密钥](secure-access-to-data.md#master-keys)或[资源令牌](secure-access-to-data.md#resource-tokens)对文档等资源进行精细访问。<br><br>可以在[保护对 Azure Cosmos DB 资源的访问](secure-access-to-data.md)中了解详细信息。|
-|用户和权限|使用帐户的[主密钥](secure-access-to-data.md#master-key)可为每个数据库创建用户资源和权限资源。 [资源令牌](secure-access-to-data.md#resource-tokens)与数据库中的权限相关联，确定用户是否对数据库中的应用程序资源拥有访问权限（读写、只读或无访问权限）。 应用程序资源包括集合、文档、附件、存储过程、触发器和 UDF。 然后，在身份验证期间，使用资源令牌来允许或拒绝访问资源。<br><br>可以在[保护对 Azure Cosmos DB 资源的访问](secure-access-to-data.md)中了解详细信息。|
+|用户和权限|使用帐户的[主密钥](secure-access-to-data.md#master-key)可为每个数据库创建用户资源和权限资源。 [资源令牌](secure-access-to-data.md#resource-tokens)与数据库中的权限相关联，确定用户是否对数据库中的应用程序资源拥有访问权限（读写、只读或无访问权限）。 应用程序资源包括容器、文档、附件、存储过程、触发器和 UDF。 然后，在身份验证期间，使用资源令牌来允许或拒绝访问资源。<br><br>可以在[保护对 Azure Cosmos DB 资源的访问](secure-access-to-data.md)中了解详细信息。|
 |Active Directory 集成 (RBAC)| 还可以在 Azure 门户中使用访问控制 (IAM) 向数据库帐户提供访问权限，如此表后面的屏幕截图所示。 IAM 提供基于角色的访问控制并与 Active Directory 集成。 对于个人和组，可如下图中所示使用内置角色或自定义角色。|
 |多区域复制|Azure Cosmos DB 提供统包式多区域分发。只需单击一下按钮，就能将数据复制到 Azure 的任何一个跨中国的数据中心。 多区域复制可以实现多区域缩放，以较低的延迟访问中国的数据。<br><br>从安全角度来看，多区域复制可确保数据受到保护，防范区域性故障。<br><br>在[分发多区域数据](distribute-data-globally.md)中了解详细信息。|
 |区域性故障转移|如果已将数据复制到多个数据中心，当区域数据中心脱机时，Azure Cosmos DB 会自动切换操作。 可以使用数据复制到的区域创建故障转移区域的优先级列表。 <br><br>可以在 [Azure Cosmos DB 中的区域性故障转移](regional-failover.md)中了解详细信息。|
 |本地复制|即使是在单个数据中心内，Azure Cosmos DB 也会自动复制数据来实现高可用性，并允许选择[一致性级别](consistency-levels.md)。 这可保证为所有单区域帐户和具有松散一致性的所有多区域帐户提供 99.99% 的[可用性 SLA](https://www.azure.cn/support/sla/cosmos-db)，为所有多区域数据库帐户提供 99.999% 的读取可用性。|
 |自动联机备份|Azure Cosmos DB 数据库定期备份并存储在异地冗余的存储中。 <br><br>可以在[使用 Azure Cosmos DB 进行自动联机备份和还原](online-backup-and-restore.md)中了解详细信息。|
 |还原已删除的数据|可以使用自动联机备份来恢复大约 30 天内意外删除的数据。 <br><br>可以在[使用 Azure Cosmos DB 进行自动联机备份和还原](online-backup-and-restore.md)中了解详细信息|
-|保护和隔离敏感数据|[新增功能？](#whats-new)中列出的区域中的所有数据现已处于静态加密状态。<br><br>可将个人数据和其他机密数据隔离到特定的集合，并限制为只能由特定的用户进行读写或只读访问。|
+|保护和隔离敏感数据|[新增功能？](#whats-new)中列出的区域中的所有数据现已处于静态加密状态。<br><br>可将个人数据和其他机密数据隔离到特定的容器，并限制为只能由特定的用户进行读写或只读访问。|
 |响应攻击|联系 Azure 支持部门举报潜在的攻击行为后，将启动由 5 个步骤构成的事件响应过程。 该 5 步骤过程的目的是在检测到问题并启动调查后，尽快将服务安全性和操作恢复正常。<br><br>在[云中的 Azure 安全响应](https://aka.ms/securityresponsepaper)中了解详细信息。|
 |地域隔离|Azure Cosmos DB 确保符合主权区域（例如德国、中国和美国政府）的数据治理要求。|
 |受保护的设施|Azure Cosmos DB 中的数据存储在 Azure 的受保护数据中心内的 SSD 上。<br><br> |
@@ -97,6 +97,6 @@ ms.locfileid: "37070234"
 
 <!-- Not Available on [Azure Cosmos DB diagnostic logging](logging.md) -->
 
-有关 Microsoft 认证的详细信息，请参阅 [Azure 信任中心](https://www.trustcenter.cn/)。
+有关 Azure 认证的详细信息，请参阅 [Azure 信任中心](https://www.trustcenter.cn/zh-cn/cloudservices/azure.html)。
 
 <!--Update_Description: update meta properties, wording update -->

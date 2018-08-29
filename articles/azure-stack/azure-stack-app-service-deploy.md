@@ -1,5 +1,5 @@
 ---
-title: 部署应用服务：Azure Stack | Microsoft Docs
+title: 部署应用程序服务：Azure Stack | Azure
 description: 在 Azure Stack 中部署应用服务的详细指南
 services: azure-stack
 documentationcenter: ''
@@ -12,15 +12,15 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/29/2018
-ms.date: 07/20/2018
+origin.date: 08/15/2018
+ms.date: 08/27/2018
 ms.author: v-junlch
-ms.openlocfilehash: 8dbe57c05ebc9a98c08ac6f24338126c87286719
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.openlocfilehash: 1f302720c93f709360b2c7b54ef3d6a5ab72cc6f
+ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168353"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42869573"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>将应用服务资源提供程序添加到 Azure Stack
 
@@ -29,7 +29,7 @@ ms.locfileid: "39168353"
 根据本文中的指南在 Azure Stack 中部署应用服务。
 
 >[!IMPORTANT]  
->请将 1804 更新应用于 Azure Stack 集成系统，或部署最新的 Azure Stack 开发工具包 (ASDK)，然后部署 Azure 应用服务 1.2。
+>请将 1807 更新应用于 Azure Stack 集成系统，或部署最新的 Azure Stack 开发工具包 (ASDK)，然后部署 Azure 应用服务 1.3。
 
 可以让用户能够创建 Web 应用程序和 API 应用程序。 若要让用户创建这些应用程序，必须：
 
@@ -132,6 +132,18 @@ ms.locfileid: "39168353"
 
     > [!NOTE]
     > 在继续下一步之前，安装程序会尝试测试与 SQL Server 的连接。 不过，如果是部署到现有的虚拟网络，此连接测试可能会失败。 系统会发出警告，并提示你继续操作。 如果 SQL Server 信息是正确的，请继续部署。
+    >
+    > 从 Azure Stack 1.3 上的 Azure 应用服务开始，安装程序将检查 SQL Server 是否在 SQL Server 级别启用了数据库包含。  如果未启用，则会出现以下异常提示：
+    > ```sql
+    >    Enable contained database authentication for SQL server by running below command on SQL server (Ctrl+C to copy)
+    >    ***********************************************************
+    >    sp_configure 'contained database authentication', 1;  
+    >    GO  
+    >    RECONFIGURE;  
+    >    GO
+    >    ***********************************************************
+    > ```
+    > 有关更多详细信息，请参阅 [Azure Stack 1.3 上的 Azure 应用服务的发行说明](azure-stack-app-service-release-notes-update-three.md)。
 
     ![应用服务安装程序][11]
 
@@ -189,7 +201,7 @@ ms.locfileid: "39168353"
 
 2. 在状态下的概览中，检查“状态”是否显示“所有角色已就绪”。
 
-    ![应用服务管理](./media/azure-stack-app-service-deploy/image12.png)
+    ![应用服务管理](media/azure-stack-app-service-deploy/image12.png)
 
    >[!IMPORTANT]
    >如果部署到现有虚拟网络并使用内部 IP 地址连接到文件服务器，则必须添加出站安全规则。 此规则允许辅助角色子网和文件服务器之间的 SMB 流量。  为此，请转到管理门户中的 WorkersNsg 并添加具有以下属性的出站安全规则：<br>

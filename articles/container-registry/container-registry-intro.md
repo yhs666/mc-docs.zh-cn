@@ -7,15 +7,15 @@ manager: digimobile
 ms.service: container-registry
 ms.topic: overview
 origin.date: 05/08/2018
-ms.date: 07/02/2018
+ms.date: 08/27/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: a7de19f8bd2f6ce5b897335b13505b7c6acede08
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.openlocfilehash: 24b6df53fb0e9e9193eaca0bee077c2cb08ac771
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39167728"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42872137"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Azure 中的专用 Docker 容器注册表简介
 
@@ -30,7 +30,7 @@ Azure 容器注册表是基于开源 Docker 注册表 2.0 的托管 [Docker 注�
 将 Azure 容器注册表中的映像提取到各种部署目标：
 
 * 用于跨主机群集管理容器化应用程序的**可缩放协调系统**，包括 [DC/OS](https://docs.mesosphere.com/)、[Docker Swarm](https://docs.docker.com/swarm/) 和 [Kubernetes](http://kubernetes.io/docs/)。
-* 支持大规模构建和运行应用程序的 **Azure 服务**，包括[应用服务](/app-service/index.md)、[Batch](../batch/index.yml)、[Service Fabric](/service-fabric/) 等。
+* 支持大规模构建和运行应用程序的 **Azure 服务**，包括[应用服务](/app-service/)、[Batch](../batch/index.yml)、[Service Fabric](/service-fabric/) 等。
 <!-- Not Available on [Azure Kubernetes Service (AKS)](../aks/index.yml)-->
 
 开发人员还可以在执行容器开发工作流的过程中将内容推送到容器注册表。 例如，通过连续集成和部署工具（如 [Visual Studio Team Services](https://www.visualstudio.com/docs/overview) 或 [Jenkins](https://jenkins.io/)）将目标设置为容器注册表。
@@ -39,10 +39,12 @@ Azure 容器注册表是基于开源 Docker 注册表 2.0 的托管 [Docker 注�
 
 ## <a name="key-concepts"></a>关键概念
 
-* **注册表** - 在 Azure 订阅中创建一个或多个容器注册表。 注册表以三种 SKU 形式提供：[基本、标准和高级](container-registry-skus.md)，每一种都支持 webhook 集成、通过 Azure Active Directory 进行的注册表身份验证，以及删除功能。 在与部署相同的 Azure 位置创建注册表，充分利用容器映像的本地闭合网络存储。 将高级注册表的[异地复制](container-registry-geo-replication.md)功能用于高级复制和容器映像分发方案。 完全限定的注册表名称采用以下格式：`myregistry.azurecr.cn`。
-
-  可以使用使用 Azure Active Directory 支持的 [服务主体](../active-directory/active-directory-application-objects.md)或提供的管理员帐户来[控制访问](container-registry-authentication.md)容器注册表。 运行标准 `docker login` 命令可对注册表进行身份验证。
-
+* **注册表** - 在 Azure 订阅中创建一个或多个容器注册表。 注册表以三种 SKU 形式提供：[基本、标准和高级](container-registry-skus.md)，每一种都支持 webhook 集成、通过 Azure Active Directory 进行的注册表身份验证，以及删除功能。 在与部署相同的 Azure 位置创建注册表，充分利用容器映像的本地闭合网络存储。 完全限定的注册表名称采用以下格式：`myregistry.azurecr.cn`。
+  <!-- Not Available on [geo-replication](container-registry-geo-replication.md)-->
+  使用所提供的管理员帐户[控制对容器注册表的访问权限](container-registry-authentication.md)。 
+  <!-- Not Available on [service principal](../active-directory/active-directory-application-objects.md)-->
+  <!-- Not Available on  `docker login` -->
+  
 * **存储库** - 一个注册表包含一个或多个存储库（容器映像组）。 Azure 容器注册表支持多级存储库命名空间。 使用多级命名空间可将特定应用相关的映像集合分组，或者将特定开发或运营团队的应用集合分组。 例如：
 
   * `myregistry.azurecr.cn/aspnetcore:1.0.1` 表示企业范围的映像
@@ -59,6 +61,5 @@ Azure 容器注册表是基于开源 Docker 注册表 2.0 的托管 [Docker 注�
 
 * [使用 Azure 门户创建容器注册表](container-registry-get-started-portal.md)
 * [使用 Azure CLI 创建容器注册表](container-registry-get-started-azure-cli.md)
-<!-- Not Available on * [Automate OS and framework patching with ACR Build](container-registry-build-overview.md) (Preview)-->
-<!-- Update_Description: new article on container registry intro -->
-<!--ms.date: 07/02/2018-->
+<!-- Not Available on * [Automate OS and framework patching with ACR Build](container-registry-build-overview.md)-->
+<!-- Update_Description: update meta properties -->

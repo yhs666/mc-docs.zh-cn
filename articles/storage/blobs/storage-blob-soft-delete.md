@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 07/15/2018
 ms.date: 07/30/2018
 ms.author: v-johch
-ms.openlocfilehash: a913e62e25435d3e744f537d9ed414efa6b4dac5
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.openlocfilehash: be94f9a40ad52b56bac0c7519e376cc1dd71109b
+ms.sourcegitcommit: 3691ddcfde4382a8a034e8d2278d5e10d38a4d5e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295633"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41704559"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Azure 存储 Blob 的软删除
 Azure 存储现提供 Blob 对象软删除，目的是为了在应用程序或其他存储帐户用户错误地修改或删除数据后可以更轻松地恢复数据。
@@ -47,14 +47,11 @@ Azure 存储现提供 Blob 对象软删除，目的是为了在应用程序或�
 > [!NOTE]  
 > 对目标 blob 的帐户启用软删除时，软删除仅对复制操作提供覆盖保护。
 
-> [!NOTE]  
-> 软删除不会对存档层中的 blob 提供覆盖保护。 如果存档层中的 blob 被任何层中的新 blob 覆盖，则被覆盖的 blob 将永久过期。
-
 对快照调用“删除 Blob”时，该快照会被标记为软删除。 此时不会生成新的快照。
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-explicit-delete-snapshot.png)
 
-软删除数据呈现为灰色，而活动数据为蓝色。新写入的数据显示在旧数据下方。调用 Snapshot Blob 时，B0 将变为快照，B1 成为该 blob 的活动状态。如果删除 B0 快照，它将被标记为软删除*。
+软删除数据呈现为灰色，而活动数据为蓝色。新写入的数据显示在旧数据下方。调用 Snapshot Blob 时，B0 将变为快照，B1 成为该 blob 的活动状态。如果删除 B0 快照，它将被标记为软删除。
 
 如果对基础 blob（本身不是快照的任何 blob）调用“删除 Blob”，该 blob 将被标记为软删除。 与以前的行为一致，对具有活动快照的 blob 调用“删除 Blob”将返回错误。 对具有软删除快照的 blob 调用“删除 Blob”不会返回错误。 启用软删除后，仍可在单个操作中删除 blob 及其所有快照。 执行该操作会将基础 blob 和快照标记为软删除。
 
@@ -92,7 +89,7 @@ Azure 存储现提供 Blob 对象软删除，目的是为了在应用程序或�
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-recover.png)
 
-软删除数据呈现为灰色，而活动数据为蓝色。新写入的数据显示在旧数据下方。此处对 blob B 调用了撤销删除 Blob，从而将基础 blob B1 和所有相关快照（此处仅为 B0）还原为活动状态。第二步中将 B0 复制到了基础 blob。此复制操作将生成 B1 的软删除快照*。
+软删除数据呈现为灰色，而活动数据为蓝色。新写入的数据显示在旧数据下方。此处对 blob B 调用了撤销删除 Blob，从而将基础 blob B1 和所有相关快照（此处仅为 B0）还原为活动状态。第二步中将 B0 复制到了基础 blob。此复制操作将生成 B1 的软删除快照。
 
 若要查看软删除 blob 和 blob 快照，可选择将已删除数据包含在列表 Blob 中。 可选择仅查看软删除的基础 blob，或者也将软删除的 blob 快照包含在内。 对于所有软删除数据，可以查数据删除的时间以及数据永久过期的剩余天数。
 
@@ -283,7 +280,7 @@ blockBlob.StartCopy(copySource);
 是的，软删除适用于 Blob 存储帐户以及常规用途（GPv1 和 GPv2）存储帐户中的 Blob。 这同时适用于标准和高级帐户。 软删除不适用于托管磁盘。
 
 **软删除是否适用于所有存储层？**  
-是的，软删除适用于所有存储层，包括热、冷和存档层。 但是，软删除对存档层中的 blob 不提供覆盖保护。
+是的，软删除适用于所有存储层，包括热层和冷层。
 
 **是否可以使用“设置 Blob 层 API”将 Blob 与软删除的快照置于一层？**  
 是的。 软删除的快照会保留在原始层中，但基础 Blob 会移到新层中。 

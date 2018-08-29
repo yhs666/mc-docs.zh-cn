@@ -8,24 +8,24 @@ manager: digimobile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 05/29/2017
-ms.date: 07/02/2018
+origin.date: 06/27/2018
+ms.date: 08/13/2018
 ms.author: v-yeche
-ms.openlocfilehash: 1c65cbdb884f50cf97a3bf35e16ebb0f6deb5408
-ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
+ms.openlocfilehash: e3f330e144fc793cbcf0669f09b8ad11cfc68923
+ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37070221"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41704054"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>使用 Azure Cosmos DB 进行社交
-生活在大规模互连的社会中，这意味着有时候你也成了社交网络中的一部分。 我们使用社交网络与朋友、同事和家人保持联系，有时还会与有共同兴趣的人分享我们的激情。
+生活在大规模互连的社会中，这意味着有时候你也成了社交网络中的一部分。 使用社交网络与朋友、同事和家人保持联系，有时还会与有共同兴趣的人分享我们的激情。
 
-作为工程师或开发人员，我们可能想知道这些网络如何存储数据以及如何将这些数据相互联系起来，甚至有可能被要求自行为特定的间隙市场创建或构建新的社交网络。 这时就会产生一个大问题：所有这些数据是如何存储的？
+作为工程师或开发人员，你可能想知道这些网络如何存储数据以及如何将这些数据相互联系起来，甚至有可能被要求自行为特定的间隙市场创建或构建新的社交网络。 这时就会产生一个大问题：所有这些数据是如何存储的？
 
-假设我们正在创建一个新型时尚的社交网络，用户可以在此网络中发布与媒体相关的文章，例如图片、视频，甚至音乐。 用户可以对帖子发表评论并打分以进行评级。 主网站登录页上提供用户可见并可进行交互的帖子源。 这听起来似乎并不复杂（最初），但为简单起见，我们就止步于此（我们可以深入了解受这些关系影响的自定义用户源，但它超出了本文的目的）。
+假设正在创建一个新型时尚的社交网络，用户可以在此网络中发布与媒体相关的文章，例如图片、视频，甚至音乐。 用户可以对帖子发表评论并打分以进行评级。 主网站登录页上提供用户可见并可进行交互的帖子源。 这听起来似乎并不复杂（最初），但为简单起见，我们就止步于此（你可以深入了解受这些关系影响的自定义用户源，但它超出了本文的目的）。
 
-那么，我们如何存储此数据以及存储在何处？
+那么，如何存储此数据以及存储在何处？
 
 很多人可能使用过 SQL 数据库，或至少了解[数据的关系建模](https://en.wikipedia.org/wiki/Relational_model)，还可能忍不住开始绘制以下类似图形：
 
@@ -35,9 +35,9 @@ ms.locfileid: "37070221"
 
 请不要误会我的意思，我的一生都在与 SQL 数据库打交道，它们的确很不错，但就像每一种模式、每一次实践以及每一个软件平台一样，并非对每一种方案都适用。
 
-为什么在此方案中 SQL 不是最佳选择？ 让我们看一下单个 post 结构，如果想要在网站或应用程序中显示文章，可能不得不执行查询... 只加入 8 个表以显示单个 post。现在请想象一下：动态地上传一系列贴子并将其显示在屏幕上。你可能明白我的意思了。
+为什么在此方案中 SQL 不是最佳选择？ 让我们看一下单个 post 结构，如果想要在网站或应用程序中显示文章，可能不得不执行查询... 只加入八个表以显示单个 post。现在请想象一下：动态地上传一系列贴子并将其显示在屏幕上。你可能明白我的意思了。
 
-当然，我们也可以使用一个功能足够强大的超大 SQL 实例来解决数以千计的查询，其中可以使用许多这些连接来为我们提供内容，但当已经有一个更简单的解决方案存在时，我们为什么还要选择这种呢？
+当然，也可以使用一个功能足够强大的超大 SQL 实例来解决数以千计的查询，其中可以使用许多这些连接来为你提供内容，但当已经有一个更简单的解决方案存在时，为什么还要选择这种呢？
 
 ## <a name="the-nosql-road"></a>NoSQL 加载
 本文介绍如何以经济高效的方式使用 Azure 的 NoSQL 数据库 [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) 对社交平台的数据进行建模。 使用 [NoSQL](https://en.wikipedia.org/wiki/NoSQL) 方法以 JSON 格式存储数据并应用[非规范化](https://en.wikipedia.org/wiki/Denormalization)，就可以将我们以前的复杂帖子转换为单个[文档](https://en.wikipedia.org/wiki/Document-oriented_database)：<!-- Not Available [Gremlin Graph API](../cosmos-db/graph-introduction.md) -->
@@ -61,9 +61,9 @@ ms.locfileid: "37070221"
 
 可以使用单个查询获得，且无需联接。 这种方法更简单且更直观，且在预算方面，它所需要的资源更少，但得到的结果更好。
 
-Azure Cosmos DB 可确保所有属性通过其自动索引功能进行索引，此功能甚至可以进行[自定义](indexing-policies.md)。 自由架构方法可以让我们存储具有不同和动态结构的文档，也许明天我们希望帖子上显示一系列类别或与其关联的哈希标记，我们不需要执行任何额外操作，Cosmos DB 将自行使用添加的属性处理新文档。
+Azure Cosmos DB 可确保所有属性通过其自动索引功能进行索引，此功能甚至可以进行[自定义](indexing-policies.md)。 使用无架构方法可以存储不同结构和动态结构的文档，也许明天你希望帖子中具有一系列类别或与其关联的哈希标记，Cosmos DB 将使用添加的属性处理新文档，无需我们进行任何额外操作。
 
-可以将对帖子的评论视为具有父属性的其他帖子（这可以简化我们的对象映射）。 
+可以将对帖子的评论视为具有父属性的其他帖子（这可以简化对象映射）。 
 
     {
         "id":"1234-asd3-54ts-199a",
@@ -99,9 +99,9 @@ Azure Cosmos DB 可确保所有属性通过其自动索引功能进行索引，�
         {"relevance":7, "post":"w34r-qeg6-ref6-8565"}
     ]
 
-我们可以有一个“最新”流（其中帖子按创建日期排序）和一个“最热门”流（其中包括在过去 24 小时内获得了更多赞的帖子），甚至还可以基于逻辑点赞粉丝和兴趣为每个用户实现客户流，且它仍然可以是一个帖子列表。 虽然如何生成这些列表还是一个问题，但读取性能仍然不受阻碍。 一旦我们获得其中一个列表之后，我们就可以使用 [IN 运算符](sql-api-sql-query.md#WhereClause) 向 Cosmos DB 发出单个查询以一次性获取帖子的所有页面。
+可以有一个“最新”流（其中帖子按创建日期排序）和一个“最热门”流（其中包括在过去 24 小时内获得了更多赞的帖子），甚至还可以基于逻辑点赞粉丝和兴趣为每个用户实现客户流，且它仍然可以是一个帖子列表。 虽然如何生成这些列表还是一个问题，但读取性能仍然不受阻碍。 在获得其中一个列表之后，使用 [IN 运算符](sql-api-sql-query.md#WhereClause)向 Cosmos DB 发布单个查询以一次性获取帖子的所有页面。
 
-可以使用 [Azure 应用服务](https://www.azure.cn/home/features/app-service/)的后台进程 - [Web 作业](../app-service/web-sites-create-web-jobs.md) - 来构建源流。 创建一个帖子后，可以通过使用 [Azure 存储](https://www.azure.cn/home/features/storage/)、[队列](../storage/queues/storage-dotnet-how-to-use-queues.md)和 Web 作业（通过 [Azure Webjobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki) 触发）触发后台处理，从而根据我们自己的自定义逻辑实现流内的帖子传播。 
+可以使用 [Azure 应用服务](https://www.azure.cn/home/features/app-service/)的后台进程 - [Web 作业](../app-service/web-sites-create-web-jobs.md) - 来构建源流。 创建一个帖子后，可以通过使用 [Azure 存储](https://www.azure.cn/home/features/storage/)[队列](../storage/queues/storage-dotnet-how-to-use-queues.md)和 Web 作业（通过 [Azure Webjobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki) 触发）触发后台处理，从而根据自己的自定义逻辑实现流内的帖子传播。 
 
 通过使用这种相同的技术创建最终一致性环境还可以以延迟方式处理评分和点赞。
 
@@ -118,9 +118,9 @@ Azure Cosmos DB 可确保所有属性通过其自动索引功能进行索引，�
         ]
     }
 
-这对于拥有数千位关注者的用户可能有用，但如果有名人加入我们的排名，此方法会生成大型文档，并可能最终达到文档大小上限。
+这对于拥有数千位关注者的用户可能有用，但如果有名人加入排名，此方法会生成大型文档，并可能最终达到文档大小上限。
 
-为了解决此问题，我们可以使用一种混合方法。 我们可以在用户统计信息文档中存储关注者人数：
+为了解决此问题，可以使用一种混合方法。 可以在用户统计信息文档中存储关注者人数：
 
     {
         "id":"234d-sd23-rrf2-552d",
@@ -135,9 +135,9 @@ Azure Cosmos DB 可确保所有属性通过其自动索引功能进行索引，�
 ## <a name="the-ladder-pattern-and-data-duplication"></a>“阶梯”模式和数据重复
 可能已注意到，在引用帖子的 JSON 文档中，某个用户出现了多次。 而且你猜得没错，这意味着鉴于这种非规范化，表示用户的信息可能显示在多处。
 
-为了允许更快速地查询，我们引发了数据重复。 此负面影响的问题在于，如果通过一些操作，用户的数据发生更改，那么我们需要查找该用户曾经执行过的所有活动并对这些活动全部进行更新。 听上去不太实用，对不对？
+为了允许更快速地查询，请引发数据重复。 此负面影响的问题在于，如果通过一些操作，用户的数据发生更改，那么需要查找该用户曾经执行过的所有活动并对这些活动全部进行更新。 听上去不太实用，对不对？
 
-我们将通过识别用户的“密钥”属性解决该问题。对于每个活动，我们都会在应用程序中显示此属性。 如果我们在应用程序中直观显示一个帖子并仅显示创建者的姓名和照片，那么为什么还要在“createdBy”属性中存储用户的所有数据呢？ 如果对于每一条评论我们都只显示用户的照片，那么我们的确不需要关于该用户的其余信息。 在这里我称之为“阶梯模式”的模式将开始发挥作用。
+将通过识别用户的“密钥”属性解决该问题。对于每个活动，都会在应用程序中显示此属性。 如果在应用程序中直观显示一个帖子并仅显示创建者的姓名和照片，那么为什么还要在“createdBy”属性中存储用户的所有数据呢？ 如果对于每一条评论都只显示用户的照片，那么的确不需要关于该用户的其余信息。 在这里我称之为“阶梯模式”的模式将开始发挥作用。
 
 我们以用户信息为例：
 
@@ -155,17 +155,17 @@ Azure Cosmos DB 可确保所有属性通过其自动索引功能进行索引，�
         "totalPosts":24
     }
 
-通过查看此信息，我们可以快速检测哪些信息是关键信息，哪些不是，从而形成“阶梯”：
+通过查看此信息，可以快速检测出哪些是重要的信息，哪些不是，从而就会创建一个“阶梯”：
 
 ![阶梯模式关系图](./media/social-media-apps/social-media-apps-ladder.png)
 
-最简单的一步称为 UserChunk，这是标识用户的最小信息块并可用于数据重复。 通过减少重复数据的大小直到只留下我们将要“显示”的信息，可以降低大规模更新的可能性。
+最简单的一步称为 UserChunk，这是标识用户的最小信息块并可用于数据重复。 通过减少重复数据的大小直到只留下将要“显示”的信息，可以降低大规模更新的可能性。
 
 中间步骤被称为用户，这是将对 Cosmos DB 执行的大多数依赖性能查询上使用的完整数据，也是最常访问和最重要的数据。 它包括由 UserChunk 表示的信息。
 
 最复杂的一步是扩展用户。 它包括所有重要的用户信息以及并不需要快速读取的其他数据，或者它的使用情况就是最终结果（就像登录过程一样）。 此数据可以存储在 Cosmos DB 外、Azure SQL 数据库或 Azure 表存储中。
 
-为什么我们要拆分用户，甚至将此信息存储在不同的位置？ 因为，从性能角度考虑，文档越大，查询成本将越高。 保持文档精简，包含用于对社交网络执行所有依赖性能的查询的适当信息，并为最终方案（例如完整的配置文件编辑、登录名，甚至使用情况分析和大数据方案的数据挖掘）存储其他额外信息。 我们实际上并不关心用于数据分析的数据收集速度是否减慢了，因为它是在 Azure SQL 数据库上运行的，然而我们确实很在意我们的用户是否具有快速和精简的用户体验。 在 Cosmos DB 中存储的用户外观如下所示：
+为什么要拆分用户，甚至将此信息存储在不同的位置？ 因为，从性能角度考虑，文档越大，查询成本将越高。 保持文档精简，包含用于对社交网络执行所有依赖性能的查询的适当信息，并为最终方案（例如完整的配置文件编辑、登录名，甚至使用情况分析和大数据方案的数据挖掘）存储其他额外信息。 实际上，你并不关心用于数据分析的数据收集速度是否减慢了，因为它是在 Azure SQL 数据库上运行的，然而确实很在意用户是否具有快速和精简的用户体验。 在 Cosmos DB 中存储的用户外观如下所示：
 
     {
         "id":"dse4-qwe2-ert4-aad2",
@@ -193,25 +193,25 @@ Azure Cosmos DB 可确保所有属性通过其自动索引功能进行索引，�
 <!-- Not Available ## The search box -->
 
 ## <a name="the-underlying-knowledge"></a>基础知识
-存储所有此内容（每天会不断增加）后，我们可能会思考这样一个问题：我可以使用所有来自用户的此信息流做些什么？
+存储所有此内容（每天会不断增加）后，可能会思考这样一个问题：我可以使用所有来自用户的此信息流做些什么？
 
 答案非常简单：将其投入使用并从中进行学习。
 
-但我们可以学到什么呢？ 一些简单的示例包括[观点分析](https://en.wikipedia.org/wiki/Sentiment_analysis)、基于用户首选项的内容建议，甚至自动执行的内容审查方，内容审查方可确保通过社交网络发布的所有内容对该系列均安全。
+但是，可以学到什么？ 一些简单的示例包括[情绪分析](https://en.wikipedia.org/wiki/Sentiment_analysis)、基于用户首选项的内容建议，甚至自动执行的内容审查方，内容审查方可确保通过社交网络发布的所有内容对该系列均安全。
 
 由于想要深入了解，你可能会认为自己需要更多数学科学方面的知识才能从简单数据库和文件中提取出这些模式和信息，其实不然。
 
-Azure 机器学习（Cortana Intelligence Suite 的一部分）是一项全面托管的云服务，可让你在简单的拖放界面中使用算法创建工作流、为你自己在 [R](https://en.wikipedia.org/wiki/R_\(programming_language\)) 中的算法编码，或使用部分已生成的就绪型 API（如[文本分析](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2)、[内容审查器](https://www.microsoft.com/moderator)）。
+<!-- Not Available on Azure Machine Learning-->
 <!-- Not Available on [Recommendations](https://gallery.cortanaanalytics.com/MachineLearningAPI/Recommendations-2) -->
 <!-- Not Available on [Azure Machine Learning](https://www.azure.cn/home/features/machine-learning/)-->
 <!-- URL is not Correct on  [Cortana Intelligence Suite](https://www.microsoft.com/en/server-cloud/cortana-analytics-suite/overview.aspx) -->
 
 <!-- Not Available  [Azure Data Lake](https://www.azure.cn/home/features/data-lake-store/) -->
 
-另一个可用的选项是使用 [Microsoft 认知服务](https://www.microsoft.com/cognitive-services) 分析用户内容：不仅可以更好地理解它们（通过分析使用 [文本分析 API](https://www.microsoft.com/cognitive-services/text-analytics-api)编写的内容），而且还可以检测不需要或不成熟的内容，并使用[计算机构想 API](https://www.microsoft.com/cognitive-services/computer-vision-api)解决相关问题。 认知服务包括大量不需要使用任何一种机器学习知识的现成的可用解决方案。
+一个可用的选项是使用 [Microsoft 认知服务](https://www.microsoft.com/cognitive-services) 分析用户内容：不仅可以更好地理解它们（通过分析使用 [文本分析 API](https://www.microsoft.com/cognitive-services/text-analytics-api)编写的内容），而且还可以检测不需要或不成熟的内容，并使用[计算机视觉 API](https://www.microsoft.com/cognitive-services/computer-vision-api)解决相关问题。 认知服务包括大量不需要使用任何一种机器学习知识的现成的可用解决方案。
 
 ## <a name="a-multiple-region-scalesocial-experience"></a>多区域缩放社交体验
-最后，还必须说明一个非常重要的主题：**可伸缩性**。 在设计体系结构时，因为需要处理更多的数据和/或希望拥有更大的地理覆盖范围，所以每个组件的自行可伸缩性至关重要。 幸运的是，通过使用 Cosmos DB 完成此类复杂任务是一种**统包体验**。
+最后，还必须说明一个非常重要的项目：可伸缩性。 在设计体系结构时，因为需要处理更多的数据和/或希望拥有更大的地理覆盖范围，所以每个组件的自行可伸缩性至关重要。 幸运的是，通过使用 Cosmos DB 完成此类复杂任务是一种**统包体验**。
 <!-- Notice: 全球 to 多个区域 -->
 
 Cosmos DB 根据给定的**分区键**（定义为文档中的一个属性）自动创建分区，从而支持现成可用的[动态分区](https://azure.microsoft.com/blog/10-things-to-know-about-documentdb-partitioned-collections/)。 必须在设计时定义正确的分区键，并记住可用的[最佳做法](../cosmos-db/partition-data.md#designing-for-partitioning)；对于社交体验，分区策略必须与查询（需要在同一分区内进行读取）和写入（通过在多个分区上分散写入来避免“热点”）方式保持一致。 一些相关选项是：基于临时键（日/月/周）的分区，按内容类别、地理区域和用户进行划分；这一切都取决于查询数据并将其显示在社交体验中的方式。 

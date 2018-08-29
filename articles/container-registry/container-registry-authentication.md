@@ -7,15 +7,15 @@ manager: digimobile
 ms.service: container-registry
 ms.topic: article
 origin.date: 01/23/2018
-ms.date: 07/02/2018
+ms.date: 08/27/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6b9883f50f0b355fe6cdf645954771460eceab8f
-ms.sourcegitcommit: 5b6a2fc55e5b16ae480bd497c3ac2c3a2fd44703
+ms.openlocfilehash: 1849f2d91d5224817eec9470537bd21a9cf583ac
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38999194"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42872251"
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>使用私有 Docker 容器注册表进行身份验证
 
@@ -38,6 +38,7 @@ az acr login --name <acrName>
 ## <a name="service-principal"></a>服务主体
 
 可以为注册表分配[服务主体](../active-directory/develop/active-directory-application-objects.md)，并且应用程序或服务可以将其用于无外设身份验证。 服务主体允许通过[基于角色的访问](../role-based-access-control/role-assignments-portal.md)来访问注册表，并且可以为注册表分配多个服务主体。 如果拥有多个服务主体，则可为不同应用程序定义不同的访问权限。
+<!--Pending [service principal](../active-directory/develop/app-objects-and-service-principals.md)-->
 
 可用的角色如下：
 
@@ -47,8 +48,8 @@ az acr login --name <acrName>
 
 服务主体在推送和拉取方案中启用到注册表的“无外设”连接，如下所示：
 
-  * *读者*：从注册表到业务流程系统（包括 Kubernetes、DC/OS 和 Docker Swarm）的容器部署。 还可从容器注册表进行拉取并推送到相关 Azure 服务，例如 [AKS](../aks/index.yml)、[应用服务](../app-service/index.yml)、[Batch](../batch/index.yml) 和 [Service Fabric](/service-fabric/) 等。
-
+  * *读者*：从注册表到业务流程系统（包括 Kubernetes、DC/OS 和 Docker Swarm）的容器部署。 还可从容器注册表进行拉取并推送到相关 Azure 服务，例如 [应用服务](../app-service/index.yml)、[Batch](../batch/index.yml) 和 [Service Fabric](/service-fabric/) 等。
+  <!-- Not Available on [AKS](../aks/index.yml)-->
   * *参与者*：生成容器映像并将它们推送到注册表的持续集成和部署解决方案（如 Visual Studio Team Services (VSTS) 或 Jenkins）。
 
 > [!TIP]
@@ -99,5 +100,4 @@ az acr update -n <acrName> --admin-enabled true
 
 <!-- IMAGES -->
 [auth-portal-01]: ./media/container-registry-authentication/auth-portal-01.png
-<!-- Update_Description: new articles on container registry authentication -->
-<!--ms.date: 07/02/2018-->
+<!-- Update_Description: update meta properties, wording update -->

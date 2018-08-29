@@ -1,5 +1,5 @@
 ---
-title: Azure Stack 存储的差异和注意事项 | Microsoft Docs
+title: Azure Stack 存储差异和注意事项 | Azure
 description: 了解 Azure Stack 存储与 Azure 存储之间的差异，以及 Azure Stack 部署注意事项。
 services: azure-stack
 documentationcenter: ''
@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 05/21/2018
-ms.date: 06/27/2018
+origin.date: 08/15/2018
+ms.date: 08/27/2018
 ms.author: v-junlch
 ms.reviwer: xiaofmao
-ms.openlocfilehash: 9002df302e4a6124a7398e89453fa7c2b99bcde1
-ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
+ms.openlocfilehash: 1db1bfd88e72eef24b807dcb04d6d57290b0cece
+ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37027145"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42869571"
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Azure Stack 存储：差异和注意事项
 
@@ -53,8 +53,8 @@ Azure Stack 存储是 Azure Stack 中的一组存储云服务。 Azure Stack 存
 
 存储指标也有一些差异：
 
-- 存储指标中的事务数据不区分内部或外部网络带宽。
-- 存储指标中的事务数据不包含虚拟机对所装载的驱动器的访问。
+* 存储指标中的事务数据不区分内部或外部网络带宽。
+* 存储指标中的事务数据不包含虚拟机对所装载的驱动器的访问。
 
 ## <a name="api-version"></a>API 版本
 
@@ -96,8 +96,8 @@ Azure Stack 存储支持以下客户端库：
 
 ## <a name="next-steps"></a>后续步骤
 
-- [Azure Stack 存储开发工具入门](azure-stack-storage-dev.md)
-- [Azure Stack 存储简介](azure-stack-storage-overview.md)
+* [Azure Stack 存储开发工具入门](azure-stack-storage-dev.md)
+* [Azure Stack 存储简介](azure-stack-storage-overview.md)
 
 
 <!-- Update_Description: wording update -->

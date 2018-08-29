@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: virtual-machines-windows
 ms.topic: include
 origin.date: 04/14/2018
-ms.date: 06/04/2018
+ms.date: 08/27/2018
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: eebdea656fdd16f6ce0cceeb7a44a5c57973f142
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 5f19f2b08c031ffc245a4b8f492ac770424a1a50
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34723117"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42871160"
 ---
 创建虚拟机 (VM)、重启已停止（已解除分配）的 VM 或重设 VM 大小时，Azure 会为订阅分配计算资源。 我们会不断投入其他基础结构和功能，确保始终提供可用于支持客户需求的所有 VM 类型。 但是，偶尔可能因特定区域中前所未有的 Azure 服务需求增长而遇到资源分配失败的情况。 当尝试在区域中创建或启动 VM，同时 VM 显示以下错误代码和消息时，会出现此问题：
 
@@ -24,7 +24,7 @@ ms.locfileid: "34723117"
 
 本文说明一些常见分配故障的原因，并建议可能的补救方法。
 
-如果本文未解决 Azure 问题，请访问 [MSDN 和 Stack Overflow](https://www.azure.cn/support/forums/) 上的 Azure 论坛。  可以通过在 [Azure 支持](https://www.azure.cn/support/contact/)站点上选择“获取支持”来发出 Azure 支持请求。
+如果本文未解决你的 Azure 问题，请访问 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/contact/)。
 <!--Not Available on You can post your issue on these forums or to @AzureSupport on Twitter.-->
 
 在你首选的 VM 类型在首选区域中提供前，建议遇到部署问题的客户考虑下表中的指南，作为临时解决办法。 
@@ -68,8 +68,7 @@ ms.locfileid: "34723117"
 ### <a name="workaround"></a>解决方法
 
 如果使用 Dv1、DSv1、Av1、D15v2 或 DS15v2 之类的较旧 VM 系列或大小，请考虑移到较新版本。 对特定的 VM 大小参阅以下建议。
-如果没有使用其他 VM 大小的选项，请尝试部署到同一地域中的其他区域。
-<!-- Not Available on https://aka.ms/azure-regions -->
+如果没有使用其他 VM 大小的选项，请尝试部署到同一地域中的其他区域。 有关每个区域中可用的 VM 大小的详细信息，请访问 https://www.azure.cn/zh-cn/home/features/products-by-region <!-- Not Available on https://aka.ms/azure-regions -->
 
 <!-- Not Available on availability zones -->
 
@@ -82,9 +81,9 @@ ms.locfileid: "34723117"
 |旧版 VM 系列/大小|建议使用新版 VM 系列/大小|详细信息|
 |----------------------|----------------------------|--------------------|
 |Av1 系列|[Av2 系列](../articles/virtual-machines/windows/sizes-general.md#av2-series)|https://azure.microsoft.com/blog/new-av2-series-vm-sizes/
-|Dv1 或 DSv1 系列（D1 到 D5）|[Dv3 或 DSv3 系列](../articles/virtual-machines/windows/sizes-general.md#dsv3-series-sup1sup)|https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/
-|Dv1 或 DSv1 系列（D11 到 D14）|[Ev3 或 ESv3 系列](../articles/virtual-machines/windows/sizes-memory.md#ev3-series)|
-|D15v2 或 DS15v2|如果你使用资源管理器部署模型以便充分利用更大的 VM 大小，请考虑移动到 D16v3/DS16v3 或 D32v3/DS32v3。 这些为在最新硬件上运行而设计。 如果使用资源管理器部署模型以确保你的 VM 实例独立于单个客户专用的硬件，请考虑移动到新的独立 VM 大小 E64i_v3 或 E64is_v3，它们为在最新硬件上运行而设计。 |https://azure.microsoft.com/blog/new-isolated-vm-sizes-now-available/
+|Dv1 或 DSv1 系列（D1 到 D5）|[Dv3 或 Dsv3 系列](../articles/virtual-machines/windows/sizes-general.md#dsv3-series-sup1sup)|https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/
+|Dv1 或 DSv1 系列（D11 到 D14）|[Ev3 或 Esv3 系列](../articles/virtual-machines/windows/sizes-memory.md#esv3-series)|
+|D15v2 或 DS15v2|如果使用资源管理器部署模型以便充分利用更大的 VM 大小，请考虑移动到 E16v3/E16sv3 或 E32v3/E32sv3。 这些为在最新硬件上运行而设计。 如果使用资源管理器部署模型以确保你的 VM 实例独立于单个客户专用的硬件，请考虑移动到新的独立 VM 大小 E64i_v3 或 E64is_v3，它们为在最新硬件上运行而设计。 |https://azure.microsoft.com/blog/new-isolated-vm-sizes-now-available/
 
 ## <a name="allocation-failures-for-large-deployments-more-than-500-cores"></a>大型部署（超过 500 个内核）的分配失败
 

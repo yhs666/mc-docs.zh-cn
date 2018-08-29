@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 08/29/2016
-ms.date: 04/30/2018
+ms.date: 09/03/2018
 ms.author: v-yiso
-ms.openlocfilehash: 95766eac5fd9c07a8761157b5d5a9ede2ff21f5c
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: e37b6dddf339e5dd5cce7b3ffe681eafe0c28de9
+ms.sourcegitcommit: 1b682acdc2a5e0974fbff809967d7cefcbbbe8ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939486"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42870932"
 ---
 # <a name="troubleshoot-a-web-app-in-azure-app-service-using-visual-studio"></a>使用 Visual Studio 对 Azure 应用服务中的 Web 应用进行故障排除
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
 ## <a name="overview"></a>概述
-本教程介绍如何使用 Visual Studio 工具，通过远程运行[调试模式](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx)或查看应用程序日志和 Web 服务器日志帮助调试[应用服务](http://go.microsoft.com/fwlink/?LinkId=529714)中的 Web 应用。
+本教程介绍如何使用 Visual Studio 工具，通过远程运行[调试模式](https://docs.microsoft.com/visualstudio/debugger/)或查看应用程序日志和 Web 服务器日志帮助调试[应用服务](http://go.microsoft.com/fwlink/?LinkId=529714)中的 Web 应用。
 
 [!INCLUDE [azure-visual-studio-login-guide](../../includes/azure-visual-studio-login-guide.md)]
 
@@ -45,7 +45,7 @@ ms.locfileid: "38939486"
 如果有 Visual Studio Ultimate，还可以使用 [IntelliTrace](http://msdn.microsoft.com/library/vstudio/dd264915.aspx) 进行调试。 本教程未介绍 IntelliTrace。
 
 ## <a name="prerequisites"></a>先决条件
-本教程适用于 [Azure 和 ASP.NET 入门][GetStarted]中设置的开发环境、Web 项目和 Azure Web 应用。 对于 WebJobs 部分，需要用到在 [Azure WebJobs SDK 入门][GetStartedWJ]中创建的应用程序。
+本教程适用于在 [Azure 和 ASP.NET 入门](app-service-web-get-started-dotnet-framework.md)中设置的开发环境、Web 项目和 Azure Web 应用。 对于 WebJobs 部分，需要用到在 [Azure WebJobs SDK 入门][GetStartedWJ]中创建的应用程序。
 
 在本教程中所示的代码示例适用于 C# MVC Web 应用程序，但对于 Visual Basic 和 Web 窗体应用程序，故障排除过程是一样的。
 
@@ -65,9 +65,9 @@ ms.locfileid: "38939486"
    >
    >
 
-    有关从 Visual Studio 连接至 Azure 资源的详细信息，请参阅[管理帐户、订阅和管理角色](/active-directory/role-based-access-control-configure)。
+    有关从 Visual Studio 连接至 Azure 资源的详细信息，请参阅[管理帐户、订阅和管理角色](/role-based-access-control/role-assignments-portal#BKMK_AccountVCert)。
 2. 在“服务资源管理器”中，展开“Azure”，并展开“应用服务”。
-3. 展开包含[在 Azure 中创建 ASP.NET Web 应用](app-service-web-get-started-dotnet.md)中创建的 Web 应用的资源组，右键单击该 Web 应用节点，并单击“查看设置”。
+3. 展开包含[在 Azure 中创建 ASP.NET Web 应用](app-service-web-get-started-dotnet-framework.md)中创建的 Web 应用的资源组，右键单击该 Web 应用节点，并单击“查看设置”。
 
     ![在服务器资源管理器中查看设置](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-viewsettings.png)
 
@@ -124,9 +124,9 @@ ms.locfileid: "38939486"
 
 远程调试不适用于 Visual Studio Express 版。
 
-本部分介绍如何使用在[在 Azure 中创建 ASP.NET Web 应用](app-service-web-get-started-dotnet.md)中创建的项目进行远程调试。
+本部分介绍如何使用在[在 Azure 中创建 ASP.NET Web 应用](app-service-web-get-started-dotnet-framework.md)中创建的项目进行远程调试。
 
-1. 打开在[在 Azure 中创建 ASP.NET Web 应用](app-service-web-get-started-dotnet.md)中创建的 Web 项目。
+1. 打开在[在 Azure 中创建 ASP.NET Web 应用](app-service-web-get-started-dotnet-framework.md)中创建的 Web 项目。
 
 2. 打开 *Controllers\HomeController.cs*。
 3. 删除 `About()` 方法并在其位置插入以下代码。
@@ -139,10 +139,12 @@ public ActionResult About()
     return View();
 }
 ```
-4. 在 `ViewBag.Message` 行上[设置一个断点](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx)。
+
+4. 在 `ViewBag.Message` 行上[设置一个断点](https://docs.microsoft.com/visualstudio/debugger/)。
+
 5. 在“解决方案资源管理器”中，右键单击该项目并单击“发布”。
 
-6. 在“配置文件”下拉列表中，选择在[在 Azure 中创建 ASP.NET Web 应用](app-service-web-get-started-dotnet.md)中使用的相同配置文件。 然后，单击“设置”。
+6. 在“配置文件”下拉列表中，选择在[在 Azure 中创建 ASP.NET Web 应用](app-service-web-get-started-dotnet-framework.md)中使用的相同配置文件。 然后，单击“设置”。
 
 7. 在“发布”对话框中，单击“设置”选项卡，将“配置”更改为“调试”，然后单击“保存”。
 
@@ -184,7 +186,8 @@ public ActionResult About()
 
 1. 打开在 [Azure WebJobs SDK 入门][GetStartedWJ]中创建的 Web 项目。
 2. 在 ContosoAdsWebJob 项目中，打开 *Functions.cs*。
-3. 在 `GnerateThumbnail` 方法的第一个语句中[设置一个断点](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx)。
+
+3. 在 `GnerateThumbnail` 方法的第一个语句中[设置一个断点](https://docs.microsoft.com/visualstudio/debugger/)。
 
     ![设置断点](./media/web-sites-dotnet-troubleshoot-visual-studio/wjbreakpoint.png)
 4. 在“解决方案资源管理器”中，右键单击该 Web 项目（而非 WebJob 项目），并单击“发布”。
@@ -241,8 +244,7 @@ public ActionResult About()
   <httpRuntime targetFramework="4.5" />
 </system.web>
 ```
-
-* 如果发现调试程序没有针对希望调试的代码展开行动，可能需要更改“仅我的代码”设置。  有关详细信息，请参阅[限制为仅逐行调试我的代码](http://msdn.microsoft.com/library/vstudio/y740d9d3.aspx#BKMK_Restrict_stepping_to_Just_My_Code)。
+* 如果发现调试程序没有针对希望调试的代码展开行动，可能需要更改“仅我的代码”设置。  有关详细信息，请参阅[指定是否仅使用 Visual Studio 中的“仅我的代码”调试用户代码](https://docs.microsoft.com/visualstudio/debugger/just-my-code)。
 * 启用远程调试功能时，服务器上会出现一个计时器，48 小时后该功能自动关闭。 这一 48 小时的限制是出于安全性与性能的考虑。 可以根据需要轻松地多次重启该功能。 我们建议，在不主动进行调试的时候，保持其处于禁用状态。
 * 可以手动将调试器附加到任何进程，而不仅仅是 Web 应用进程 (w3wp.exe)。 有关如何在 Visual Studio 中使用调试模式的信息，请参阅[在 Visual Studio 中进行调试](http://msdn.microsoft.com/library/vstudio/sc65sadd.aspx)。
 
@@ -265,7 +267,7 @@ public ActionResult About()
 ## <a name="apptracelogs"></a>创建并查看应用程序跟踪日志
 在本部分中执行以下任务：
 
-* 将跟踪语句添加到在 [Azure 和 ASP.NET 入门][GetStarted]中创建的 Web 项目。
+* 将跟踪语句添加到在 [Azure 和 ASP.NET 入门](app-service-web-get-started-dotnet-framework.md)中创建的 Web 项目。
 * 本地运行该项目时查看日志。
 * 查看由运行于 Azure 中的应用程序生成的日志。
 
@@ -412,9 +414,11 @@ Web 服务器日志将记录 Web 应用上所有的 HTTP 活动。 若要在“�
 1. 在通过“服务器资源管理器”打开的“Azure Web 应用配置”选项卡上，将“Web 服务器日志记录”的状态更改为“开启”，然后单击“保存”。
 
     ![启用 Web 服务器日志记录](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-webserverloggingon.png)
+    
 2. 在“输出”窗口中，单击“指定要监视的 Azure 日志”按钮。
 
     ![指定要监视的 Azure 日志。](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-specifylogs.png)
+    
 3. 在“Azure 日志记录选项”对话框中，选择“Web 服务器日志”，并单击“确定”。
 
     ![监视 Web 服务器日志](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-monitorwslogson.png)
@@ -438,7 +442,7 @@ Web 服务器日志将记录 Web 应用上所有的 HTTP 活动。 若要在“�
 3. 在“Azure 日志记录选项”对话框中单击“所有日志”，并单击“确定”。
 
     ![监视所有日志](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-monitorall.png)
-4. 在浏览器的地址栏中，向 URL 添加一个额外字符以导致 404 错误（例如 `http://localhost:53370/Home/Contactx`），并按 Enter。
+4. 在浏览器的地址栏中，向 URL 添加一个额外字符以导致 404 错误（例如 `http://localhost:53370/Home/Contactx` ），并按 Enter。
 
     几秒后，详细的错误日志显示在 Visual Studio 的“输出”窗口中。
 
@@ -493,7 +497,7 @@ Storage accounts offer more storage and longer-lasting retention for logs compar
 
     The name must be must be unique (no other Azure storage account can have the same name). If the name you enter is already in use you'll get a chance to change it.
 
-    The URL to access your storage account will be *{name}*.core.chinacloudapi.cn.
+    The URL to access your storage account will be *{name}*.core.chinacloudsites.cn.
 2. Set the **Region or Affinity Group** drop-down list to the region closest to you.
 
     This setting specifies which Azure datacenter will host your storage account. For this tutorial your choice won't make a noticeable difference, but for a production web app you want your web server and your storage account to be in the same region to minimize latency and data egress charges. The web app (which you'll create later) should run in a region as close as possible to the browsers accessing your web app in order to minimize latency.

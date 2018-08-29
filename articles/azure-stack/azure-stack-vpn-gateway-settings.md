@@ -1,5 +1,5 @@
 ---
-title: Azure Stack 的 VPN 网关设置 | Microsoft Docs
+title: Azure Stack 的 VPN 网关设置 | Azure
 description: 了解在 Azure Stack 中使用的 VPN 网关的设置。
 services: azure-stack
 documentationcenter: ''
@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 06/12/2018
-ms.date: 06/27/2018
+origin.date: 08/14/2018
+ms.date: 08/27/2018
 ms.author: v-junlch
-ms.openlocfilehash: 7e87e8a6db003b4490f0df4c01046c552d08484f
-ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
+ms.openlocfilehash: 1f149d0a99109adfffa79ad60170e883b6b3b892
+ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37027198"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42869533"
 ---
 # <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>Azure Stack 的 VPN 网关配置设置
 
@@ -82,7 +82,7 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 
 在 Resource Manager 部署模型中，每个配置都需要特定的虚拟网络网关连接类型。 **-ConnectionType** 的可用资源管理器 PowerShell 值为：
 
-- IPsec
+* IPsec
 
 以下 PowerShell 示例创建需要 IPsec 连接类型的 S2S 连接。
 
@@ -101,12 +101,12 @@ New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName t
 >
 > 此外，由于自定义 IPSec/IKE 策略配置尚不受支持，因此 Azure Stack 目前不支持对基于路由的网关使用基于策略的流量选择器。
 
-- **PolicyBased**：基于策略的 VPN 会根据使用本地网络和 Azure Stack VNet 之间的地址前缀的各种组合配置的 IPsec 策略，加密数据包并引导其通过 IPsec 隧道。 通常会在 VPN 设备配置中将策略或流量选择器定义为访问列表。
+* **PolicyBased**：基于策略的 VPN 会根据使用本地网络和 Azure Stack VNet 之间的地址前缀的各种组合配置的 IPsec 策略，加密数据包并引导其通过 IPsec 隧道。 通常会在 VPN 设备配置中将策略或流量选择器定义为访问列表。
 
-    >[!NOTE]
-    >PolicyBased 在 Azure 中受支持，但在 Azure Stack 中不受支持。
+  >[!NOTE]
+  >PolicyBased 在 Azure 中受支持，但在 Azure Stack 中不受支持。
 
-- **RouteBased**：RouteBased VPN 使用 IP 转发或路由表中配置的路由将数据包定向到相应的隧道接口。 然后，隧道接口会加密或解密出入隧道的数据包。 RouteBased VPN 的策略或流量选择器配置为任意到任意（或使用通配符）。默认情况下，无法更改这些 VPN。 基于路由的 VPN 类型的值为 RouteBased。
+* **RouteBased**：RouteBased VPN 使用 IP 转发或路由表中配置的路由将数据包定向到相应的隧道接口。 然后，隧道接口会加密或解密出入隧道的数据包。 RouteBased VPN 的策略或流量选择器配置为任意到任意（或使用通配符）。默认情况下，无法更改这些 VPN。 基于路由的 VPN 类型的值为 RouteBased。
 
 以下 PowerShell 示例将 **-VpnType** 指定为 RouteBased。 在创建网关时，必须确保用于配置的 **-VpnType** 正确。
 
@@ -187,11 +187,12 @@ Azure Stack 仅支持一个产品/服务，这与 Azure 不同，后者支持将
 |加密和哈希算法（身份验证） | GCMAES256|
 |SA 生存期（时间）  | 27,000 秒<sup>请参阅注释 1</sup> |
 |SA 生存期（字节数） | 33,553,408<sup>请参阅注释 2</sup>     |
-|完全向前保密 (PFS) |PFS2048 |
+|完全向前保密 (PFS) |无<sup>请参阅注释 3</sup> |
 |死对等体检测 | 支持|  
 
-- *注释 1：* 在版本 1803 以前，Azure Stack 使用值 14,400 作为 SA 生存期（时间）。
-- *注释 2：* 在版本 1803 以前，Azure Stack 使用值 819,200 作为 SA 生存期（字节）。
+* *注释 1：* 在版本 1803 以前，Azure Stack 使用值 14,400 作为 SA 生存期（时间）。
+* *注释 2：* 在版本 1803 以前，Azure Stack 使用值 819,200 作为 SA 生存期（字节）。
+* *注释 3：* 在版本 1807 以前，Azure Stack 使用值 PFS2048 作为“完全向前保密(PFS)”值。
 
 ## <a name="next-steps"></a>后续步骤
 

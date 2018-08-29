@@ -1,5 +1,5 @@
 ---
-title: Azure Stack 1805 更新 | Microsoft Docs
+title: Azure Stack 1805 更新 | Azure
 description: 了解 Azure Stack 集成系统 1805 更新的新增功能，包括已知问题和更新下载位置。
 services: azure-stack
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/11/2018
-ms.date: 07/18/2018
+origin.date: 08/01/2018
+ms.date: 08/27/2018
 ms.author: v-junlch
 ms.reviewer: justini
-ms.openlocfilehash: 340160d40020471a4ca7bcbbb54fdff6c9fa37dc
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.openlocfilehash: 4a8b270afe597933583c45fece9d59c483cdbbba
+ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168359"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42869498"
 ---
 # <a name="azure-stack-1805-update"></a>Azure Stack 1805 更新
 
@@ -73,7 +73,8 @@ Azure Stack 1805 更新内部版本号为 **1.1805.1.47**。
 ## <a name="before-you-begin"></a>准备阶段    
 
 ### <a name="prerequisites"></a>先决条件
-- 在应用 Azure Stack 1805 更新之前安装 Azure Stack [1804 更新](azure-stack-update-1804.md)。    
+- 在应用 Azure Stack 1805 更新之前安装 Azure Stack [1804 更新](azure-stack-update-1804.md)。  
+- 安装最新可用的 [1804 版更新或修补程序](azure-stack-update-1804.md#post-update-steps)。   
 - 开始安装更新 1805 之前，请先运行 [Test-AzureStack](azure-stack-diagnostic-test.md) 来验证 Azure Stack 的状态，并解决出现的所有操作问题。 另外，请查看活动警报，并解决所有需要采取措施的警报。 
 
 ### <a name="known-issues-with-the-update-process"></a>更新过程的已知问题   
@@ -91,6 +92,8 @@ Azure Stack 1805 更新内部版本号为 **1.1805.1.47**。
 下面是此内部版本的安装后已知问题。
 
 ### <a name="portal"></a>门户  
+- <!-- TBD - IS ASDK --> 不能通过将 OEM 扩展包用于此版本的 Azure Stack 来应用驱动程序更新。  对于此问题，目前没有解决方法。
+
 - <!-- 2551834 - IS, ASDK --> 在管理员门户或用户门户中选择存储帐户的“概述”时，“概要”窗格中的信息不会显示。  “概要”窗格显示有关帐户的信息，例如其资源组、位置和订阅 ID。  可以访问“概述”中的其他选项，例如“服务”和“监视”，以及“在资源管理器中打开”或“删除存储帐户”。 
 
   若要查看未显示的信息，请使用 [Get-azureRMstorageaccount](https://docs.microsoft.com/powershell/module/azurerm.storage/get-azurermstorageaccount?view=azurermps-6.2.0) PowerShell cmdlet。 
@@ -106,7 +109,7 @@ Azure Stack 1805 更新内部版本号为 **1.1805.1.47**。
 - <!-- TBD - IS ASDK --> 某些管理订阅类型不可用。  将 Azure Stack 升级到此版本时，控制台中不会显示[版本 1804 引入](azure-stack-update-1804.md#new-features)的两个订阅类型。 这是正常情况。 不可用的订阅类型为“计量订阅”和“消耗订阅”。 从版本 1804 开始，这些订阅类型会在新的 Azure Stack 环境中显示，但尚不可用。 请继续使用“默认提供程序”订阅类型。  
 
 - <!-- 2403291 - IS ASDK --> 可能无法使用管理员和用户门户底部的水平滚动条。 如果无法访问水平滚动条，请使用痕迹导航到门户中的上一边栏选项卡，只需从门户左上角的痕迹列表中选择要查看的边栏选项卡的名称即可。
-  ![痕迹](./media/azure-stack-update-1804/breadcrumb.png)
+  ![痕迹](media/azure-stack-update-1804/breadcrumb.png)
 
 - <!-- TBD - IS --> 无法在管理员门户中查看计算或存储资源。 此问题的原因是更新安装过程中出错，导致系统错误地将更新报告为成功。 如果发生此问题，请联系 Microsoft 客户支持服务部门以寻求帮助。
 

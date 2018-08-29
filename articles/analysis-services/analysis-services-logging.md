@@ -9,12 +9,12 @@ origin.date: 06/15/2018
 ms.date: ''
 ms.author: v-junlch
 ms.reviewer: minewiskan
-ms.openlocfilehash: a3db180b5b27712b603e73a4e383a22faf076c98
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.openlocfilehash: 36d7c50674ba4c46275151ddd989090f74aac027
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168014"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41704906"
 ---
 <!--Notice: Verify successfully-->
 # <a name="setup-diagnostic-logging"></a>设置诊断日志记录
@@ -93,9 +93,7 @@ ms.locfileid: "39168014"
 
 3. 单击“保存” 。
 
-    如果收到一个错误，指出“无法更新 \<工作区名称> 的诊断。 订阅 \<订阅 ID> 未注册，无法使用 microsoft.insights。”， 请按 [Azure 诊断故障排除](/log-analytics/log-analytics-azure-storage)说明注册帐户，然后重试此过程。
-
-    若要更改在将来的任意时间点保存诊断日志的方式，可以随时返回此页以修改设置。
+    <!-- Not Available on [Troubleshoot Azure Diagnostics](/log-analytics/log-analytics-azure-storage)--> 若要在将来的任意时间点更改诊断日志的保存方式，可以返回此页修改设置。
 
 ### <a name="powershell"></a>PowerShell
 
@@ -127,9 +125,9 @@ ms.locfileid: "39168014"
 
 可以结合这些参数启用多个输出选项。
 
-### <a name="rest-api"></a>REST API
+<!-- Not Available on ### REST API-->
 
-了解如何[使用 Azure Monitor REST API 更改诊断设置](https://msdn.microsoft.com/library/azure/dn931931.aspx)。 
+<!-- URL is not exist on [change diagnostics settings by using the Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931931.aspx)-->
 
 ### <a name="resource-manager-template"></a>Resource Manager 模板
 

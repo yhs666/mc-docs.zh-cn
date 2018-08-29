@@ -1,5 +1,5 @@
 ---
-title: 在 Azure Stack 中提供虚拟机规模集 | Microsoft Docs
+title: 在 Azure Stack 中提供虚拟机规模集 | Azure
 description: 了解云操作员如何向 Azure Stack 市场中添加虚拟机规模集
 services: azure-stack
 author: brenduns
@@ -8,15 +8,15 @@ editor: ''
 ms.service: azure-stack
 ms.topic: article
 origin.date: 06/05/2018
-ms.date: 06/26/2018
+ms.date: 08/27/2018
 ms.author: v-junlch
 ms.reviewer: kivenkat
-ms.openlocfilehash: c644dba96966a3a3d4f3b70b6977346cff1ed653
-ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
+ms.openlocfilehash: 13ef117691adcba7b95c350029f7b28e983a1201
+ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37027075"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42869536"
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>在 Azure Stack 中提供虚拟机规模集
 
@@ -27,15 +27,15 @@ ms.locfileid: "37027075"
 本文将指导你完成在 Azure Stack 市场中提供规模集的过程。 完成此过程之后，用户将可以将虚拟机规模集添加到其订阅。
 
 Azure Stack 上的虚拟机规模集与 Azure 上的虚拟机规模集类似。 有关详细信息，请参阅以下视频：
-- [Mark Russinovich talks Azure scale sets](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/)（Mark Russinovich 谈论 Azure 规模集）
-- [Guy Bowerman 介绍虚拟机规模集](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
+* [Mark Russinovich talks Azure scale sets](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/)（Mark Russinovich 谈论 Azure 规模集）
+* [Guy Bowerman 介绍虚拟机规模集](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
 
 在 Azure Stack 上，虚拟机规模集不支持自动缩放。 可以使用资源管理器模板、CLI 或 PowerShell 将更多实例添加到规模集。
 
 ## <a name="prerequisites"></a>先决条件
 
-- **市场联合**  
-    将 Azure Stack 注册到 Azure 公有云可以启用市场联合。 请遵照[将 Azure Stack 注册到 Azure](azure-stack-registration.md) 中的说明操作。
+- **市场**  
+    将 Azure Stack 注册到全球 Azure 以启用市场中项目的可用性。 请遵照[将 Azure Stack 注册到 Azure](azure-stack-registration.md) 中的说明操作。
 - **操作系统映像**  
     如果尚未将操作系统映像添加到 Azure Stack 市场，请参阅[从 Azure 添加 Azure Stack 市场项](asdk/asdk-marketplace-item.md)。
 
@@ -43,11 +43,11 @@ Azure Stack 上的虚拟机规模集与 Azure 上的虚拟机规模集类似。 
 
 1. 打开 Azure Stack 市场并连接到 Azure。 选择“市场管理”> “+ 从 Azure 添加”。
 
-    ![市场管理](./media/azure-stack-compute-add-scalesets/image01.png)
+    ![市场管理](media/azure-stack-compute-add-scalesets/image01.png)
 
 2. 添加并下载虚拟机规模集市场项。
 
-    ![虚拟机规模集](./media/azure-stack-compute-add-scalesets/image02.png)
+    ![虚拟机规模集](media/azure-stack-compute-add-scalesets/image02.png)
 
 ## <a name="update-images-in-a-virtual-machine-scale-set"></a>更新虚拟机规模集中的映像
 
@@ -89,7 +89,7 @@ Azure Stack 上的虚拟机规模集与 Azure 上的虚拟机规模集类似。 
 若要删除虚拟机规模集库项，请运行以下 PowerShell 命令：
 
 ```PowerShell  
-Remove-AzsGalleryItem
+    Remove-AzsGalleryItem
 ````
 
 > [!NOTE]
@@ -97,5 +97,3 @@ Remove-AzsGalleryItem
 
 ## <a name="next-steps"></a>后续步骤
 [Azure Stack 常见问题解答](azure-stack-faq.md)
-
-<!-- Update_Description: wording update -->

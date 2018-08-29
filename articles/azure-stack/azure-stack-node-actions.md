@@ -1,5 +1,5 @@
 ---
-title: Azure Stack 中的缩放单元节点操作 | Microsoft Docs
+title: Azure Stack 中的缩放单元节点操作 | Azure
 description: 了解如何在 Azure Stack 集成系统中查看节点状态，以及使用开机、关机、清空和恢复节点操作。
 services: azure-stack
 documentationcenter: ''
@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/05/2018
-ms.date: 06/26/2018
+origin.date: 08/14/2018
+ms.date: 08/27/2018
 ms.author: v-junlch
 ms.reviewer: ppacent
-ms.openlocfilehash: 4590d5150e91712ff8f07a998e0d7de550bcc689
-ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
+ms.openlocfilehash: 73f46eb608f574f2d1d1e583e3428976483a4fa8
+ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37027157"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42869443"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Azure Stack 中的缩放单元节点操作
 
@@ -50,7 +50,7 @@ ms.locfileid: "37027157"
 - 总内存量
 - 各个节点的列表及其状态：“正在运行”或“已停止”。
 
-![显示每个节点运行状态的缩放单元磁贴](./media/azure-stack-node-actions/ScaleUnitStatus.PNG)
+![显示每个节点运行状态的缩放单元磁贴](media/azure-stack-node-actions/ScaleUnitStatus.PNG)
 
 ## <a name="view-information-about-a-scale-unit-node"></a>查看缩放单元节点的相关信息
 
@@ -63,7 +63,7 @@ ms.locfileid: "37027157"
 - 内核总数
 - 总内存量
  
-![显示每个节点运行状态的缩放单元磁贴](./media/azure-stack-node-actions/NodeActions.PNG)
+![显示每个节点运行状态的缩放单元磁贴](media/azure-stack-node-actions/NodeActions.PNG)
 
 还可以在此处执行缩放单元节点操作。
 
@@ -71,7 +71,6 @@ ms.locfileid: "37027157"
 
 查看缩放单元节点的相关信息时，也可以执行节点操作，例如：
 
-- 开机和关机
 - 清空和恢复
 - 修复
 
@@ -155,6 +154,4 @@ ms.locfileid: "37027157"
 
 ## <a name="next-steps"></a>后续步骤
 
-若要详细了解 Azure Stack Fabric 管理员模块，请参阅 [Azs.Fabric.Admin](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.3.0)。
-
-<!-- Update_Description: wording update -->
+若要详细了解 Azure Stack Fabric 管理员模块，请参阅 [Azs.Fabric.Admin](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.4.0)。

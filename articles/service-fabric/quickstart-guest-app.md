@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 12/06/2017
-ms.date: 05/28/2018
+ms.date: 08/20/2018
 ms.author: v-yeche
-ms.openlocfilehash: fa60574634cd6370327c586d9a1af9c6f35ded4e
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: 19aca3c771d83355d01276cd3202672cbabc75d6
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554294"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41704025"
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>在 Azure Service Fabric 上托管 Node.js 应用程序
 
@@ -103,7 +103,7 @@ Visual Studio 会创建应用程序项目和执行组件服务项目，并在解
 
 右键单击项目，选择“发布...”，此时会打开一个将内容发布到 Azure 所需的对话框。
 
-![用于 Service Fabric 服务的“发布到 Azure”对话框][publish]
+![用于 Service Fabric 服务的“发布到 Azure”对话框][发布]
 
 选择 **PublishProfiles\Cloud.xml** 目标配置文件。
 
@@ -113,7 +113,7 @@ Visual Studio 会创建应用程序项目和执行组件服务项目，并在解
 
 创建 Service Fabric 群集时，请确保将“自定义终结点”设置设为“80”。
 
-![终结点为自定义的 Service Fabric 节点类型配置][custom-endpoint]
+![具有自定义终结点的 Service Fabric 节点类型配置][自定义终结点]
 
 创建新的 Service Fabric 群集需要一段时间来完成。 创建完以后，请回到发布对话框，并选择**&lt;刷新&gt;**。 新群集列在下拉列表框中；请将其选中。
 
@@ -129,7 +129,7 @@ Visual Studio 会创建应用程序项目和执行组件服务项目，并在解
 
 检查服务地址的概览边栏选项卡。 使用“客户端连接终结点”属性中的域名。 例如，`http://mysvcfab1.chinanorth.cloudapp.chinacloudapi.cn`。
 
-![Azure 门户中的 Service Fabric 概览边栏选项卡][overview]
+![Azure 门户中的 Service Fabric 概述边栏选项卡][概述]
 
 导航到该地址，可以在其中看到 `HELLO WORLD` 响应。
 
@@ -144,10 +144,7 @@ Visual Studio 会创建应用程序项目和执行组件服务项目，并在解
 
 [new-project]: ./media/quickstart-guest-app/new-project.png
 [new-service]: ./media/quickstart-guest-app/template.png
-<!-- Not Available [solution-exp]: ./media/quickstart-guest-app/solution-explorer.png -->
-[publish]: ./media/quickstart-guest-app/publish.png
-[overview]: ./media/quickstart-guest-app/overview.png
-[custom-endpoint]: ./media/quickstart-guest-app/custom-endpoint.png
+<!-- Not Available [solution-exp]: ./media/quickstart-guest-app/solution-explorer.png --> [publish]: ./media/quickstart-guest-app/publish.png [overview]: ./media/quickstart-guest-app/overview.png [custom-endpoint]: ./media/quickstart-guest-app/custom-endpoint.pngg
 
 [download-sample]: https://github.com/MicrosoftDocs/azure-cloud-services-files/raw/temp/service-fabric-node-website.zip
 [create-account]: https://www.azure.cn/pricing/1rmb-trial

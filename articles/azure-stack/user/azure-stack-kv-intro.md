@@ -1,5 +1,5 @@
 ---
-title: Azure Stack Key Vault 简介 | Microsoft Docs
+title: Azure Stack Key Vault 简介 | Azure
 description: 了解 Azure Stack Key Vault 如何管理密钥和机密
 services: azure-stack
 documentationcenter: ''
@@ -15,36 +15,36 @@ ms.topic: get-started-article
 origin.date: 03/04/2017
 ms.date: 03/08/2018
 ms.author: v-junlch
-ms.openlocfilehash: 7136c52f65e9509b3ce17669d2f67c3516aadc38
-ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
+ms.openlocfilehash: f7473ffa18a97c73be004e3640ce7d8cf05a8e12
+ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29925259"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42869467"
 ---
 # <a name="introduction-to-key-vault-in-azure-stack"></a>Azure Stack 中的 Key Vault 简介
 
 ## <a name="prerequisites"></a>先决条件 
 
-- 必须订阅包含 Azure Key Vault 服务的产品/服务。  
-- [PowerShell 配置为搭配 Azure Stack 使用](azure-stack-powershell-configure-user.md)。
+* 必须订阅包含 Azure Key Vault 服务的产品/服务。  
+* [PowerShell 配置为搭配 Azure Stack 使用](azure-stack-powershell-configure-user.md)。
  
 ## <a name="key-vault-basics"></a>Key Vault 基础知识
 Azure Stack 中的 Key Vault 可帮助保护云应用程序和服务使用的加密密钥和机密。 通过使用 Key Vault，可以加密密钥和机密，例如：
-   - 身份验证密钥 
-   - 存储帐户密钥
-   - 数据加密密钥
-   - .pfx 文件
-   - 密码
+   * 身份验证密钥 
+   * 存储帐户密钥
+   * 数据加密密钥
+   * .pfx 文件
+   * 密码
 
 密钥保管库简化了密钥管理过程，可让你控制用于访问和加密数据的密钥。 开发人员可以在几分钟内创建用于开发和测试的密钥，并无缝地将其迁移到生产密钥。 安全管理员可以根据需要授予（和吊销）密钥权限。
 
 只要拥有 Azure Stack 订阅，任何人都可以创建和使用密钥保管库。 尽管 Key Vault 能够为开发人员和安全管理员提供便利，但管理组织的其他 Azure Stack 服务的操作员也可以实现和管理 Key Vault。 例如，Azure Stack 操作员可以使用 Azure Stack 订阅登录、创建组织用来存储密钥的保管库，并负责执行以下操作任务：
 
-- 创建或导入密钥或机密。
-- 撤销或删除密钥或机密。
-- 授权用户或应用程序访问密钥保管库，以便管理或使用其密钥和机密。
-- 配置密钥用法（例如，签名或加密）。
+* 创建或导入密钥或机密。
+* 撤销或删除密钥或机密。
+* 授权用户或应用程序访问密钥保管库，以便管理或使用其密钥和机密。
+* 配置密钥用法（例如，签名或加密）。
 
 然后，操作员可以向开发人员提供统一资源标识符 (URI)，以便从其应用程序调用。 操作员也可以向安全管理员提供密钥用法记录信息。
 
@@ -66,11 +66,11 @@ Azure Stack 中的 Key Vault 可帮助保护云应用程序和服务使用的加
 ### <a name="chief-security-officer-cso"></a>首席安全官 (CSO)
 **问题：** 我想要确保我的组织掌控密钥生命周期，并可监视密钥使用情况。
 
-**说明：** Key Vault 的设计可确保 Microsoft 无法看到或提取你的密钥。 当应用程序必须使用客户密钥来执行加密操作时，Key Vault 会代表应用程序来使用密钥。 应用程序看不到客户的密钥。 即使我们使用多个 Azure Stack 服务和资源，你可以从 Azure Stack 中的单一位置管理密钥。 不论你在 Azure Stack 中有几个保管库、保管库支持哪些区域以及使用哪些应用程序使用这些保管库，保管库都可提供单一界面。
+**说明：** Key Vault 的设计可确保 Azure 无法看到或提取你的密钥。 当应用程序必须使用客户密钥来执行加密操作时，Key Vault 会代表应用程序来使用密钥。 应用程序看不到客户的密钥。 即使我们使用多个 Azure Stack 服务和资源，你可以从 Azure Stack 中的单一位置管理密钥。 不论你在 Azure Stack 中有几个保管库、保管库支持哪些区域以及使用哪些应用程序使用这些保管库，保管库都可提供单一界面。
 
 ## <a name="next-steps"></a>后续步骤
 
-- [使用门户管理 Azure Stack 中的 Key Vault](azure-stack-kv-manage-portal.md)  
-- [使用 PowerShell 管理 Azure Stack 中的 Key Vault](azure-stack-kv-manage-powershell.md)
+* [使用门户管理 Azure Stack 中的 Key Vault](azure-stack-kv-manage-portal.md)  
+* [使用 PowerShell 管理 Azure Stack 中的 Key Vault](azure-stack-kv-manage-powershell.md)
 
 

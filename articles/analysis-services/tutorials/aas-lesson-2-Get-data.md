@@ -6,15 +6,15 @@ manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 origin.date: 07/03/2018
-ms.date: 08/06/2018
+ms.date: 08/27/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2934db37ae796af9bad1f92f81692998f3c11462
-ms.sourcegitcommit: c6205500afd23ac00f2829fe51858b51a622eaf1
+ms.openlocfilehash: 345e05e1a7a2ef8afd5d451c1edf695de8816cb3
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39487851"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42872302"
 ---
 # <a name="get-data"></a>获取数据
 
@@ -53,11 +53,11 @@ ms.locfileid: "39487851"
 
 5.  在导航器中，选择“AdventureWorksDW2014”数据库，并单击“确定”。这会创建到该数据库的连接。 
 
-6.  在导航器中，选中下列表的复选框：“DimCustomer”、“DimDate”、“DimGeography”、“DimProduct”、“DimProductCategory”、“DimProductSubcategory”和“FactInternetSales”。  
+6.  在导航器中，选中下列表的复选框：“DimCustomer”、“DimDate”、“DimGeography”、“DimProduct”、“DimProductCategory”、“DimProductSubcategory”和“FactInternetSales”，并单击“编辑”。
 
     ![aas-lesson2-select-tables](../tutorials/media/aas-lesson2-select-tables.png)
 
-单击“确定”后，将打开“查询编辑器”。 在下一部分中，仅选择要导入的数据。
+    此时会打开查询编辑器。 在下一部分中，仅选择要导入的数据。
 
 ## <a name="filter-the-table-data"></a>筛选表数据  
 AdventureWorksDW2014 示例数据库中的表具有不需要包括在模型中的数据。 如果可能，可筛选掉不必要的数据，节省模型使用的内存中空间。 筛选掉表中的一些列，以便在部署工作区数据库或模型数据库后不会将这些列导入到该数据库中。 
@@ -152,4 +152,4 @@ AdventureWorksDW2014 示例数据库中的表具有不需要包括在模型中�
 ## <a name="whats-next"></a>后续步骤
 [第 3 课：标记为日期表](../tutorials/aas-lesson-3-mark-as-date-table.md)。
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, wording update -->

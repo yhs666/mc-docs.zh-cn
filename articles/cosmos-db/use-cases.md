@@ -8,14 +8,14 @@ ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 05/07/2017
-ms.date: 07/02/2018
+ms.date: 08/13/2018
 ms.author: v-yeche
-ms.openlocfilehash: 170165b7d504d088a67c6776a5ef90e88a1a56f6
-ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
+ms.openlocfilehash: be91b1c32daab7178cb0d8efd08e80188357f2eb
+ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37070228"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41704509"
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Azure Cosmos DB 常见用例
 本文概述了 Azure Cosmos DB 的几个常见用例。  本文中的建议可以作为使用 Cosmos DB 开发应用程序的一个起点。   
@@ -54,7 +54,7 @@ IoT 用例在引入、处理和存储数据方法方面通常具有相同的模�
 
 ![Azure Cosmos DB IoT 参考体系结构](./media/use-cases/iot.png)
 
-由于 Azure 事件中心可以低延迟引入高吞吐量数据，因此它可以引入激增数据。 可以将需要进行实时分析的引入数据传输至 Azure 流分析，以进行实时分析。 可将数据加载到 Azure Cosmos DB 中进行即席查询。 将数据加载到 Azure Cosmos DB 后，即可对其进行查询。 此外，可以在更改源中读取新数据以及对现有数据的更改。 更改源是持久性的、仅限追加的日志，可按顺序存储对 Cosmos DB 集合的更改。 Azure Cosmos DB 中的所有数据或者仅仅对数据所做的更改可用作实时分析中的参考数据。 此外，通过将 Azure Cosmos DB 数据连接到 HDInsight 进行 Pig、Hive 或 Map/Reduce 作业，可进一步优化和处理数据。  经过优化的数据随后被加载回 Azure Cosmos DB 用于报告。   
+由于 Azure 事件中心可以低延迟引入高吞吐量数据，因此它可以引入激增数据。 可以将需要进行实时分析的引入数据传输至 Azure 流分析，以进行实时分析。 可将数据加载到 Azure Cosmos DB 中进行即席查询。 将数据加载到 Azure Cosmos DB 后，即可对其进行查询。 此外，可以在更改源中读取新数据以及对现有数据的更改。 更改源是持久性的、仅限追加的日志，可按顺序存储对 Cosmos DB 容器的更改。 Azure Cosmos DB 中的所有数据或者仅仅对数据所做的更改可用作实时分析中的参考数据。 此外，通过将 Azure Cosmos DB 数据连接到 HDInsight 进行 Pig、Hive 或 Map/Reduce 作业，可进一步优化和处理数据。  经过优化的数据随后被加载回 Azure Cosmos DB 用于报告。   
 
 有关使用 Azure Cosmos DB、EventHubs 和 Storm 的 IoT 解决方案示例，请参阅 [GitHub 上的 hdinsight-storm-examples 存储库](https://github.com/hdinsight/hdinsight-storm-examples/)。
 
@@ -114,6 +114,7 @@ Cosmos DB 支持的 JSON 格式是一种用于呈现 UI 布局数据的有效格
 
 或者，如果想要了解有关使用 Cosmos DB 的客户的详细信息，可参阅以下客户案例：
 
+<!-- NOTICE: CAREFULLY TO CHANGE THE MICROSOFT/AZURE IN THE FOLLOWING REFERENCE LINK-->
 * [Jet.com](https://jet.com)。 电子商务挑战者的目标是占领最高位置，即在 Microsoft 云端运行并在多区域范围内利用 Cosmos DB。
 * [Asos.com](http://www.asos.com/)。 Asos.com 是英国的一家在线时尚与美容商店。 Asos 的产品主要面向年轻的成年人，销售 850 多个品牌，以及自营的一系列服装和饰品。
 * [Toyota](https://www.toyota.com/)。 Toyota Motor Corporation 是一家日本汽车制造商。 Toyota 对全球 IoT 应用利用 Cosmos DB。
@@ -138,6 +139,6 @@ Cosmos DB 支持的 JSON 格式是一种用于呈现 UI 布局数据的有效格
 * [Weka](https://customers.microsoft.com/story/weka-smart-fridge-improves-vaccine-management-so-more-people-can-be-protected-against-diseases)。 Weka 智能冰箱可改善疫苗管理，保护更多人免受疾病侵扰
 * [Orange Tribes](https://customers.microsoft.com/story/theres-more-to-that-food-app-than-meets-the-eye-or-the-mouth)。 使用这款食品应用，得到的不仅仅是视觉或味觉上的满足。
 * [Real Madrid](https://customers.microsoft.com/story/real-madrid-brings-the-stadium-closer-to-450-million-f)。 皇家马德里足球俱乐部借助 Microsoft 云拉近体育场与全球 4.5 亿粉丝之间的距离。
-* [Tuku](https://customers.microsoft.com/story/tuku-makes-car-buying-fun-with-help-from-azure-services)。 TUKU 借助 Azure 服务增加购买汽车的乐趣
+* [Tuku](https://customers.microsoft.com/story/tuku-makes-car-buying-fun-with-help-from-azure-services)。 TUKU 借助 Azure 服务增加购买汽车的乐趣 <!-- NOTICE: CAREFULLY TO CHANGE THE MICROSOFT/AZURE IN THE FOLLOWING REFERENCE LINK-->
 
 <!--Update_Description: wording update, update link-->

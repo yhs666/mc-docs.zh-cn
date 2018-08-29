@@ -1,5 +1,5 @@
 ---
-title: 在 Azure Stack 离线环境中部署应用服务 | Microsoft Docs
+title: 在 Azure Stack 离线环境中部署应用服务 | Azure
 description: 有关如何在受 AD FS 保护且已断开连接的 Azure Stack 环境中部署应用服务的详细指南。
 services: azure-stack
 documentationcenter: ''
@@ -12,22 +12,22 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/15/2018
-ms.date: 06/26/2018
+origin.date: 08/15/2018
+ms.date: 08/27/2018
 ms.author: v-junlch
-ms.openlocfilehash: fe6250cbc6c92d70e83d404585cdde60af470bc1
-ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
+ms.openlocfilehash: df938855ef363f6a35f0d2086aa4057f9382afe4
+ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37027225"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42869523"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>将应用服务资源提供程序添加到受 AD FS 保护且已断开连接的 Azure Stack 环境
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 > [!IMPORTANT]
-> 请将 1804 更新应用于 Azure Stack 集成系统，或部署最新的 Azure Stack 开发工具包，然后部署 Azure 应用服务 1.2。
+> 请将 1807 更新应用于 Azure Stack 集成系统，或部署最新的 Azure Stack 开发工具包，然后部署 Azure 应用服务 1.3。
 >
 >
 
@@ -55,7 +55,7 @@ ms.locfileid: "37027225"
 
 3. 应用服务安装程序创建脱机安装包并显示其路径。 可以单击“打开文件夹”，在文件资源管理器中打开该文件夹。
 
-    ![应用服务安装程序](./media/azure-stack-app-service-deploy-offline/image02.png)
+    ![应用服务安装程序](media/azure-stack-app-service-deploy-offline/image02.png)
 
 4. 将安装程序 (AppService.exe) 和脱机安装包复制到 Azure Stack 主机。
 
@@ -69,7 +69,7 @@ ms.locfileid: "37027225"
 
 3. 浏览到以前创建的脱机安装包的位置，然后单击“下一步”。
 
-    ![应用服务安装程序](./media/azure-stack-app-service-deploy-offline/image04.png)
+    ![应用服务安装程序](media/azure-stack-app-service-deploy-offline/image04.png)
 
 4. 查看并接受 Microsoft 软件许可条款，然后单击“下一步”。
 
@@ -84,10 +84,10 @@ ms.locfileid: "37027225"
         - 提供管理员帐户。 例如，cloudadmin@azurestack.local。 输入密码，并单击“登录”。
     2. 在“Azure Stack 订阅”框中，选择“默认提供商订阅”。
     
-        > [!NOTE]
-        > 目前，应用服务只能部署到“默认提供程序订阅”。  在将来的更新中，应用服务将部署到 Azure Stack 1804 中引入的新“计量订阅”，所有现有部署也会迁移到此新订阅。
-        >
-        >
+    > [!NOTE]
+    > 目前，应用服务只能部署到“默认提供程序订阅”。  在将来的更新中，应用服务将部署到 Azure Stack 1804 中引入的新“计量订阅”，所有现有部署也会迁移到此新订阅。
+    >
+    >
     
     3. 在“Azure Stack 位置”框中，选择要部署到的区域所对应的位置。 例如，如果要部署到 Azure Stack 开发工具包，请选择“本地”。
     4. 单击“下一步”。
@@ -139,7 +139,17 @@ ms.locfileid: "37027225"
     > [!NOTE]
     > 在继续下一步之前，安装程序会尝试测试与 SQL Server 的连接。  但是，如果前面已选择部署到现有虚拟网络，则安装程序可能无法连接到 SQL Server，并显示警告来询问是否继续。  请检查 SQL Server 信息，如果正确，则继续。
     >
-    >
+    > 从 Azure Stack 1.3 上的 Azure 应用服务开始，安装程序将检查 SQL Server 是否在 SQL Server 级别启用了数据库包含。  如果未启用，则会出现以下异常提示：
+    > ```sql
+    >    Enable contained database authentication for SQL server by running below command on SQL server (Ctrl+C to copy)
+    >    ***********************************************************
+    >    sp_configure 'contained database authentication', 1;  
+    >    GO  
+    >    RECONFIGURE;  
+    >    GO
+    >    ***********************************************************
+    > ```
+    > 有关更多详细信息，请参阅 [Azure Stack 1.3 上的 Azure 应用服务的发行说明](azure-stack-app-service-release-notes-update-three.md)。
    
    ![应用服务安装程序][12]
 
@@ -161,7 +171,7 @@ ms.locfileid: "37027225"
     ![应用服务安装程序][14]
 
     > [!NOTE]
-    > **不支持将 Windows Server 2016 Core 平台映像与 Azure Stack 上的 Azure 应用服务配合使用。请勿将评估映像用于生产部署。**
+    > **不支持将 Windows Server 2016 Core 平台映像与 Azure Stack 上的 Azure 应用服务配合使用。请勿将评估映像用于生产部署。Azure Stack上的 Azure 应用服务要求在用于部署的映像上激活 Microsoft.Net 3.5.1 SP1。 通过“市场”发布的 Windows Server 2016 映像未启用此功能。**
 
 14. 在“选择平台映像”框中选择部署型 Windows Server 2016 虚拟机映像，该映像由应用服务云的计算资源提供程序提供。 单击“下一步”。
 
@@ -191,7 +201,7 @@ ms.locfileid: "37027225"
 
 2. 在状态下的概览中，检查“状态”是否显示“所有角色已就绪”。
 
-    ![应用服务管理](./media/azure-stack-app-service-deploy/image12.png)
+    ![应用服务管理](media/azure-stack-app-service-deploy/image12.png)
     
 > [!NOTE]
 > 如果选择部署到现有虚拟网络和内部 IP 地址以连接到文件服务器，则必须添加出站安全规则，以便在工作子网和文件服务器之间启用 SMB 流量。  为此，请转到管理门户中的 WorkersNsg 并添加具有以下属性的出站安全规则：

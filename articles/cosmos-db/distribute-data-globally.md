@@ -8,27 +8,27 @@ ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 03/26/2018
-ms.date: 07/02/2018
+ms.date: 08/13/2018
 ms.author: v-yeche
-ms.openlocfilehash: 733687dda09992d983c50d7539d03fe38c0fa7d6
-ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
+ms.openlocfilehash: 28161dcbd01ef23c010123cd1e2034ee37c5a3a3
+ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37070272"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41705243"
 ---
 <!-- Notice in meta: 全球分布 to 多个区域分布 -->
 <!-- Notice in meta: 全球范围 to 多个数据中心范围 -->
 
 # <a name="how-to-distribute-data-multiple-region-with-azure-cosmos-db"></a>如何使用 Azure Cosmos DB 在多个区域分配数据
-Azure 无所不在 - 遍布多个区域（跨中国的多个地理区域）并且仍在持续扩展中。 遍及中国的 Azure 为开发人员提供一种差异化功能，让他们可以轻松构建、部署和管理多区域分布的应用程序。 
+Azure 无所不在 - 遍布多个区域（跨中国的多个地理区域）并且仍在持续扩展中。 凭借其多区域存在，Azure 为其开发人员提供的差异化功能之一是能够轻松构建、部署和管理多区域分布式应用程序。 
 <!-- Notice: 全球 to 多个区域分布 -->
 
-[Azure Cosmos DB](../cosmos-db/introduction.md) 是 21Vianet 针对任务关键型应用程序提供的多区域分布式多模型数据库服务。 Azure Cosmos DB 在全球范围内提供统包多区域分发、[吞吐量和存储弹性缩放](../cosmos-db/partition-data.md)、99% 情况下低至个位数的毫秒级延迟、[五个妥善定义的一致性模型](consistency-levels.md)，以及得到保证的高可用性，所有这些均由[行业领先的综合 SLA](https://www.azure.cn/support/sla/cosmos-db/) 提供支持。 Azure Cosmos DB [自动为所有数据编制索引](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)，无需客户管理架构或索引。 它是多模型服务并支持文档和列系列数据模型。 上获取。 作为一种云服务，Azure Cosmos DB 通过多租户和多区域分发实现全面彻底的精心设计。
+[Azure Cosmos DB](../cosmos-db/introduction.md) 是 21Vianet 针对任务关键型应用程序提供的多区域分布式多模型数据库服务。 Azure Cosmos DB 在中国各地提供统包多区域分发、[吞吐量和存储弹性缩放](../cosmos-db/partition-data.md)、99% 情况下低至个位数的毫秒级延迟、[五个妥善定义的一致性模型](consistency-levels.md)，以及得到保证的高可用性，所有这些均由[行业领先的综合 SLA](https://www.azure.cn/support/sla/cosmos-db/) 提供支持。 Azure Cosmos DB [自动为所有数据编制索引](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)，无需客户管理架构或索引。 它是多模型服务并支持文档和列系列数据模型。 上获取。 作为一种云服务，Azure Cosmos DB 通过多租户和多区域分发实现全面彻底的精心设计。
 <!-- Not Available on Key/Value and Graph -->
 <!-- Notice: 全球分布 to 多个区域分布 -->
 
-![已分区并分布在三个区域的 Azure Cosmos DB 集合](./media/distribute-data-globally/global-apps.png)
+![跨 3 个区域进行分区和分布的 Azure Cosmos DB 容器](./media/distribute-data-globally/global-apps.png)
 
 **跨多个 Azure 区域进行分区和分布的一个 Azure Cosmos DB 容器**
 
@@ -222,7 +222,7 @@ CAP 定理更全面的变体名为 [PACELC](http://cs-www.cs.yale.edu/homes/dna/
 ## <a name="throughput-guarantees"></a>吞吐量保证 
 Azure Cosmos DB 允许根据需求，灵活地跨任意数量区域缩放吞吐量（以及存储）。 
 
-![Azure Cosmos DB 分布式分区集合](../cosmos-db/media/introduction/azure-cosmos-db-global-distribution.png)
+![Azure Cosmos DB 分布容器和分区容器](../cosmos-db/media/introduction/azure-cosmos-db-global-distribution.png)
 
 单个 Azure Cosmos DB 容器 横向分区（跨区域内的三个资源分区），然后跨三个 Azure 区域进行多区域分布
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Stack 基础结构备份服务参考 | Microsoft Docs
+title: Azure Stack 基础结构备份服务参考 | Azure
 description: 本文包含 Azure Stack 基础结构备份服务的参考资料。
 services: azure-stack
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/20/2017
-ms.date: 05/24/2018
+origin.date: 07/17/2017
+ms.date: 08/27/2018
 ms.author: v-junlch
 ms.reviewer: hectorl
-ms.openlocfilehash: f5c9eb2e29b1d3e49b2f8721b0d52bd1862886e5
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 248349f02dfb355a6b0a19b227267e068ab42783
+ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475082"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42869537"
 ---
 # <a name="infrastructure-backup-service-reference"></a>基础结构备份服务参考
 

@@ -10,14 +10,14 @@ ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 01/19/2018
-ms.date: 07/02/2018
+ms.date: 08/13/2018
 ms.author: v-yeche
-ms.openlocfilehash: 3fe567cefc6fdd6c32cd88972c7e9e6f7bed7681
-ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
+ms.openlocfilehash: 9bc7ce1763801ec17e88a19b9d929f2266ae3a49
+ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37070263"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41704461"
 ---
 # <a name="azure-cosmos-db-implement-a-lambda-architecture-on-the-azure-platform"></a>Azure Cosmos DB：在 Azure 平台上实现 lambda 体系结构 
 
@@ -35,7 +35,7 @@ ms.locfileid: "37070263"
 
 
 ## <a name="what-is-a-lambda-architecture"></a>什么是 lambda 体系结构？
-lambda 体系结构是一种通用、可缩放且容错的数据处理体系结构，可以解决 Nathan Marz 所述的批处理和速度延迟方案。
+lambda 体系结构是一种通用、可缩放且容错的数据处理体系结构，可以解决批处理和速度延迟方案。
 <!-- Not Avaiable on (https://twitter.com/nathanmarz) -->
 
 ![显示 lambda 体系结构的示意图](./media/lambda-architecture/lambda-architecture-intro.png)

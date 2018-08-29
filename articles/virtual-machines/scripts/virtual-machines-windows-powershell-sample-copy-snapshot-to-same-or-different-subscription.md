@@ -14,18 +14,18 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 06/06/2017
-ms.date: 10/30/2017
+ms.date: 08/27/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7d4f72efd9b6b91d5815b5cfd844f6e88d8ea3f7
-ms.sourcegitcommit: da3265de286410af170183dd1804d1f08f33e01e
+ms.openlocfilehash: 32049945c9f53deed80d614b46382ef5d6e68e37
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2017
-ms.locfileid: "23629595"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42872289"
 ---
 # <a name="copy-snapshot-of-a-managed-disk-in-same-subscription-or-different-subscription-with-powershell"></a>在相同或不同订阅中通过 PowerShell 复制托管磁盘的快照
 
-此脚本在相同或不同订阅中创建快照副本。 使用此脚本将快照移到其他订阅中，进行数据保留。 不同订阅中的存储快照可防止意外删除主订阅中的快照。 
+此脚本在同一订阅或不同订阅中创建某个快照的副本。 使用此脚本将快照移到其他订阅中，进行数据保留。 不同订阅中的存储快照可防止意外删除主订阅中的快照。 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 
@@ -70,17 +70,17 @@ New-AzureRmSnapshot -Snapshot $snapshotConfig -SnapshotName $snapshotName -Resou
 
 此脚本使用以下命令，通过源快照的 ID 在目标订阅中创建快照。 表中的每条命令均链接到特定于命令的文档。
 
-| 命令 | 说明 |
+| 命令 | 注释 |
 |---|---|
 | [New-AzureRmSnapshotConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/New-AzureRmSnapshotConfig) | 创建用于创建快照的快照配置。 包括父快照的资源 ID 以及与父快照相同的位置。  |
 | [New-AzureRmSnapshot](https://docs.microsoft.com/powershell/module/azurerm.compute/New-AzureRmDisk) | 使用快照配置、快照名称和作为参数传递的资源组名称创建快照。 |
 
 ## <a name="next-steps"></a>后续步骤
 
-[从快照创建虚拟机](./virtual-machines-windows-powershell-sample-create-vm-from-snapshot.md?toc=%2fpowershell%2fmodule%2ftoc.json)
+[从快照创建虚拟机](./virtual-machines-windows-powershell-sample-create-vm-from-snapshot.md)
 
 有关 Azure PowerShell 模块的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/overview)。
 
-可以在 [Azure Windows VM 文档](../../virtual-machines/windows/powershell-samples.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)中找到其他虚拟机 PowerShell 脚本示例。
+可以在 [Azure Windows VM 文档](../windows/powershell-samples.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)中找到其他虚拟机 PowerShell 脚本示例。
 
 <!--Update_Description: update meta properties, update link-->

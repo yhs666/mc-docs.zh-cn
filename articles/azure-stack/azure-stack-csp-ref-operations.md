@@ -1,5 +1,5 @@
 ---
-title: 在 Azure Stack 中注册租户以便进行使用情况跟踪 | Microsoft Docs
+title: 在 Azure Stack 中注册租户以跟踪使用情况 | Azure
 description: 详细介绍用于管理租户注册的操作，以及如何在 Azure Stack 中跟踪租户使用情况。
 services: azure-stack
 documentationcenter: ''
@@ -15,12 +15,12 @@ origin.date: 06/08/2018
 ms.date: 06/26/2018
 ms.author: v-junlch
 ms.reviewer: alfredo
-ms.openlocfilehash: 6b92732c0bf0954384773f18f337d3088fd97052
-ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
+ms.openlocfilehash: 7fbcd0ae08445fbe0761e6e66fa455fab6df3828
+ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37027123"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42869451"
 ---
 # <a name="manage-tenant-registration-in-azure-stack"></a>在 Azure Stack 中管理租户注册
 
@@ -36,6 +36,13 @@ ms.locfileid: "37027123"
 
 请注意，只有一个 Azure 订阅可以与租户相关联。 如果尝试将第二个订阅添加到现有租户，则第一个订阅将被覆盖。 
 
+### <a name="use-api-profiles"></a>使用 API 配置文件
+
+本文中的 cmdlet 要求你在运行 PowerShell 时指定一个 API 配置文件。 API 配置文件表示一组 Azure 资源提供程序及其 API 版本。 当与多个 Azure 云进行交互时（例如使用全局 Azure 和 Azure Stack 时），它们可帮助你使用 API 的正确版本。 配置文件是通过与其发行日期匹配的名称指定的。 对于本文，需要使用 **2017-09-03** 配置文件。
+
+有关 Azure Stack 和 API 配置文件的详细信息，请参阅[在 Azure Stack 中管理 API 版本配置文件](user/azure-stack-version-profiles.md)。 有关通过 PowerShell 启动和运行 API 配置文件的说明，请参阅[在 Azure Stack 中使用适用于 PowerShell 的 API 版本配置文件](user/azure-stack-version-profiles-powershell.md)。
+
+### <a name="parameters"></a>参数
 
 | 参数                  | 说明 |
 |---                         | --- |
@@ -49,7 +56,7 @@ ms.locfileid: "37027123"
 
 ### <a name="powershell"></a>PowerShell
 
-使用 New-AzureRmResource cmdlet 更新注册资源。 使用用于初始注册的帐户登录到 Azure (`Login-AzureRMAccount -EnvironmentName AzureChinaCloud`)。 下面是演示如何添加租户的示例：
+使用 New-AzureRmResource cmdlet 更新注册资源。 使用用于初始注册的帐户登录到 Azure (`Add-AzureRmAccount -EnvironmentName AzureChinaCloud`)。 下面是演示如何添加租户的示例：
 
 ```powershell
   New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties
@@ -80,10 +87,10 @@ ms.locfileid: "37027123"
 
 ### <a name="powershell"></a>PowerShell
 
-使用 Get-AzureRmResovurce cmdlet 列出所有已注册的租户。 使用用于初始注册的帐户登录到 Azure (`Login-AzureRMAccount -EnvironmentName AzureChinaCloud`)。 下面是演示如何添加租户的示例：
+使用 Get-AzureRmResovurce cmdlet 列出所有已注册的租户。 使用用于初始注册的帐户登录到 Azure (`Add-AzureRmAccount -EnvironmentName AzureChinaCloud`)。 下面是演示如何添加租户的示例：
 
 ```powershell
-  Get-AzureRmResovurce -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions" -ApiVersion 2017-06-01
+  Get-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions" -ApiVersion 2017-06-01
 ```
 
 ### <a name="api-call"></a>API 调用

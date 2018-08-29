@@ -7,16 +7,16 @@ manager: femila
 ms.service: azure-stack
 ms.topic: article
 origin.date: 02/28/2018
-ms.date: 03/22/2018
+ms.date: 08/27/2018
 ms.author: v-junlch
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: 7c3adb41898092eab2e3af26427c4eb94ebe0de4
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.openlocfilehash: 1a5e656a2481151a82d97d3166e21c880912988b
+ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30155659"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42869487"
 ---
 # <a name="azure-stack-datacenter-integration---dns"></a>Azure Stack 数据中心集成 - DNS
 若要从 Azure Stack 外部访问 Azure Stack 终结点（`portal`、`adminportal`、`management`、`adminmanagement` 等），需将 Azure Stack DNS 服务与托管 DNS 区域（需在 Azure Stack 中使用）的 DNS 服务器集成。
@@ -61,7 +61,7 @@ Azure Stack 部署和终结点的完全限定域名 (FQDN) 是区域参数和外
 
 Azure Stack 包括权威 DNS 服务器和递归 DNS 服务器。 递归服务器用于解析所有项的名称，该 Azure Stack 部署的内部专用区域和外部公用 DNS 区域除外。 
 
-![Azure Stack DNS 体系结构](./media/azure-stack-integrate-dns/Integrate-DNS-01.png)
+![Azure Stack DNS 体系结构](media/azure-stack-integrate-dns/Integrate-DNS-01.png)
 
 ## <a name="resolving-external-dns-names-from-azure-stack"></a>通过 Azure Stack 解析外部 DNS 名称
 
@@ -116,7 +116,7 @@ Azure Stack DNS 服务器的 FQDN 具有以下格式：
 
 在名为 `AzureStackStampDeploymentInfo.json` 的文件中，此信息也会在所有 Azure Stack 部署的末尾创建。 该文件位于部署虚拟机的 `C:\CloudDeployment\logs` 文件夹中。 如果不确定对 Azure Stack 部署使用了什么值，可以从该文件中获取这些值。
 
-如果部署虚拟机不再可用或无法访问，则可连接到特权终结点并运行 `Get-AzureStackInfo` PowerShell cmdlet，以便获取这些值。 有关特权终结点的详细信息，请参阅（在此处插入文章的链接）。
+如果部署虚拟机不再可用或无法访问，则可连接到特权终结点并运行 `Get-AzureStackInfo` PowerShell cmdlet，以便获取这些值。 有关详细信息，请参阅[特权终结点](azure-stack-privileged-endpoint.md)。
 
 ## <a name="setting-up-conditional-forwarding-to-azure-stack"></a>设置到 Azure Stack 的条件性转发
 
@@ -142,5 +142,4 @@ Azure Stack DNS 服务器的 FQDN 具有以下格式：
 ## <a name="next-steps"></a>后续步骤
 
 [防火墙集成](azure-stack-firewall.md)
-
 <!-- Update_Description: update metedata properties -->

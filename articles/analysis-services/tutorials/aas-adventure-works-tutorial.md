@@ -6,25 +6,24 @@ manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 origin.date: 07/03/2018
-ms.date: 08/06/2018
+ms.date: 08/27/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 23ddf73789ffd8a8bedf71af18b8ee5842e851b7
-ms.sourcegitcommit: c6205500afd23ac00f2829fe51858b51a622eaf1
+ms.openlocfilehash: b270fb9fd0783340c8039d4d7d83f62e74c2910c
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39487852"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42871607"
 ---
 # <a name="azure-analysis-services---adventure-works-tutorial"></a>Azure Analysis Services - Adventure Works 教程
 
-本教程提供的课程介绍了如何将 Visual Studio 与 [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt) 配合使用，在 1400 兼容级别创建和部署表格模型。  
-
+本教程提供的课程介绍了如何使用 Visual Studio [Analysis Services 项目](https://marketplace.visualstudio.com/items?itemName=ProBITools.MicrosoftAnalysisServicesModelingProjects)或 [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)，在 1400 兼容级别创建和部署表格模型。  
 如果不熟悉 Analysis Services 和表格建模，则完成本教程是了解如何使用 Visual Studio 创建和部署基本表格模型的最快方法。 在满足所有先决条件后，需花费两到三个小时来完成本教程。  
 
 ## <a name="what-you-learn"></a>学习内容   
 
--   如何在 Visual Studio 中使用 SSDT 在 **1400 兼容级别**创建新的表格模型项目。
+-   如何在 Visual Studio 中以 **1400 兼容级别**创建新的表格模型项目。
 
 -   如何将数据从关系数据库导入到表格模型项目工作区数据库中。  
 
@@ -38,7 +37,7 @@ ms.locfileid: "39487852"
 
 -   如何通过创建包含用户成员的角色来保护模型对象和数据的安全。  
 
--   如何使用 SSDT 将表格模型部署到 **Azure Analysis Services** 服务器或 **SQL Server 2017 Analysis Services** 服务器。  
+-   如何使用 Visual Studio 将表格模型部署到 **Azure Analysis Services** 服务器或 **SQL Server 2017 Analysis Services** 服务器。  
 
 ## <a name="prerequisites"></a>先决条件  
 要完成本教程，需要：  
@@ -96,4 +95,4 @@ ms.locfileid: "39487852"
 ## <a name="next-steps"></a>后续步骤  
 若要开始，请参阅[第 1 课：创建新的表格模型项目](../tutorials/aas-lesson-1-create-a-new-tabular-model-project.md)。
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties， wording update, update link -->

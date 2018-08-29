@@ -10,15 +10,15 @@ ms.service: key-vault
 ms.workload: identity
 ms.topic: tutorial
 origin.date: 05/17/2018
-ms.date: 06/11/2018
+ms.date: 08/14/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 2697a8a306c21b566ea4da0014eb03354947e0a3
-ms.sourcegitcommit: 306fba1a7125ef6f0555781524afa8f535bea2a0
+ms.openlocfilehash: b1b7ace348a3fec50715d9aea2ecc9a3f6fcf4a1
+ms.sourcegitcommit: 56aa1615ef7402444111495f72afbdd6b2dfff78
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35253403"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "41704017"
 ---
 # <a name="tutorial-configure-an-azure-web-application-to-read-a-secret-from-key-vault"></a>教程：将 Azure Web 应用程序配置为从 Key Vault 读取机密
 
@@ -128,8 +128,8 @@ az keyvault secret show --name "AppSecret" --vault-name "ContosoKeyVault"
 3. 选中搜索框旁边的复选框。 **包括预发行版**
 4. 搜索下面列出的两个 NuGet 包，并确认将其添加到解决方案：
 
-    - [Microsoft.Azure.Services.AppAuthentication (预览版)](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) - 方便提取服务到 Azure 服务身份验证方案的访问令牌。 
-    - [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault/2.4.0-preview) - 包含用来与 Key Vault 交互的方法。
+    - [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) - 方便提取服务到 Azure 服务身份验证方案的访问令牌。 
+    - [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) - 包含用来与 Key Vault 交互的方法。
 
 5. 使用解决方案资源管理器打开 `Program.cs`，将 Program.cs 文件的内容替换为以下代码。 将 ```<YourKeyVaultName>``` 替换为 Key Vault 的名称：
 
@@ -142,37 +142,33 @@ az keyvault secret show --name "AppSecret" --vault-name "ContosoKeyVault"
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.Configuration.AzureKeyVault;
     
-        namespace WebKeyVault
-        {
-        public class Program
-        {
+    namespace WebKeyVault
+    {
         public static void Main(string[] args)
         {
-        BuildWebHost(args).Run();
+            BuildWebHost(args).Run();
         }
-    
-            public static IWebHost BuildWebHost(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .ConfigureAppConfiguration((ctx, builder) =>
+
+        public static IWebHost BuildWebHost(string[] args) =>
+        WebHost.CreateDefaultBuilder(args)
+            .ConfigureAppConfiguration((ctx, builder) =>
+            {
+                var keyVaultEndpoint = GetKeyVaultEndpoint();
+                if (!string.IsNullOrEmpty(keyVaultEndpoint))
                 {
-                    var keyVaultEndpoint = GetKeyVaultEndpoint();
-                    if (!string.IsNullOrEmpty(keyVaultEndpoint))
-                    {
-                        var azureServiceTokenProvider = new AzureServiceTokenProvider();
-                        var keyVaultClient = new KeyVaultClient(
-                            new KeyVaultClient.AuthenticationCallback(
-                                azureServiceTokenProvider.KeyVaultTokenCallback));
-                        builder.AddAzureKeyVault(
-                            keyVaultEndpoint, keyVaultClient, new DefaultKeyVaultSecretManager());
-                    }
+                    var azureServiceTokenProvider = new AzureServiceTokenProvider();
+                    var keyVaultClient = new KeyVaultClient(
+                        new KeyVaultClient.AuthenticationCallback(
+                            azureServiceTokenProvider.KeyVaultTokenCallback));
+                    builder.AddAzureKeyVault(
+                        keyVaultEndpoint, keyVaultClient, new DefaultKeyVaultSecretManager());
                 }
-             )
-                .UseStartup<Startup>()
-                .Build();
-    
-            private static string GetKeyVaultEndpoint() => "https://<YourKeyVaultName>.vault.azure.cn";
-        }
-        }
+            }
+         ).UseStartup<Startup>()
+          .Build();
+
+        private static string GetKeyVaultEndpoint() => "https://<YourKeyVaultName>.vault.azure.cn";
+    }
     ```
 
 6. 使用解决方案资源管理器导航到“页面”部分并打开 `About.cshtml`。 将 **About.cshtml.cs** 的内容替换为以下代码：
@@ -243,3 +239,4 @@ az keyvault secret show --name "AppSecret" --vault-name "ContosoKeyVault"
 > [!div class="nextstepaction"]
 > [Azure Key Vault 开发人员指南](key-vault-developers-guide.md)
 
+<!-- Update_Description: wording and code update -->

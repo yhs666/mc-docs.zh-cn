@@ -1,5 +1,5 @@
 ---
-title: 在 Azure Stack 中将 API 版本配置文件与 Ruby 配合使用 | Microsoft Docs
+title: 在 Azure Stack 中将 API 版本配置文件与 Ruby 配合使用 | Azure
 description: 了解如何在 Azure Stack 中将 API 版本配置文件与 Ruby 配合使用。
 services: azure-stack
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/10/2018
-ms.date: 07/20/2018
+origin.date: 08/15/2018
+ms.date: 08/27/2018
 ms.author: v-junlch
 ms.reviewer: sijuman
-ms.openlocfilehash: 796798bff459f522966d18ae12c646b2cfc51e57
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.openlocfilehash: 6ab308a3f2f8f10d0d2f4c9afb2643f7e402677c
+ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168449"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42869505"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack"></a>在 Azure Stack 中将 API 版本配置文件与 Ruby 配合使用
 
@@ -217,94 +217,94 @@ end
 
 1. 克隆存储库。
 
-      ````Bash
-      git clone https://github.com/Azure-Samples/resource-manager-ruby-resources-and-groups.git
-      ````
+    ````Bash
+    git clone https://github.com/Azure-Samples/resource-manager-ruby-resources-and-groups.git
+    ````
 
 2. 使用捆绑安装依赖项。
 
-      ````Bash
-      cd resource-manager-ruby-resources-and-groups\Hybrid\
-      bundle install
-      ````
+    ````Bash
+    cd resource-manager-ruby-resources-and-groups\Hybrid\
+    bundle install
+    ````
 
 3. 使用 PowerShell 创建 Azure 服务主体，然后检索所需的值。 
 
     有关如何创建服务主体的说明，请参阅[使用 Azure PowerShell 创建具有证书的服务主体](/azure-stack/azure-stack-create-service-principals)。
 
-    所需值为：
-    - 租户 ID
-    - 客户端 ID
-    - 客户端机密
-    - 订阅 ID
-    - 资源管理器终结点
+  所需值为：
+  - 租户 ID
+  - 客户端 ID
+  - 客户端机密
+  - 订阅 ID
+  - 资源管理器终结点
 
-    使用从已创建的服务主体检索的信息设置以下环境变量。
+  使用从已创建的服务主体检索的信息设置以下环境变量。
 
-    - export AZURE_TENANT_ID={你的租户 ID}
-    - export AZURE_CLIENT_ID={你的客户端 ID}
-    - export AZURE_CLIENT_SECRET={你的客户端机密}
-    - export AZURE_SUBSCRIPTION_ID={你的订阅 ID}
-    - export ARM_ENDPOINT={你的 AzureStack 资源管理器 URL}
+  - export AZURE_TENANT_ID={你的租户 ID}
+  - export AZURE_CLIENT_ID={你的客户端 ID}
+  - export AZURE_CLIENT_SECRET={你的客户端机密}
+  - export AZURE_SUBSCRIPTION_ID={你的订阅 ID}
+  - export ARM_ENDPOINT={你的 AzureStack 资源管理器 URL}
 
-    > [!Note]  
-    > 在 Windows 上，请使用 set 而不是 export。
+  > [!Note]  
+  > 在 Windows 上，请使用 set 而不是 export。
 
 4. 确保将位置变量设置为你的 AzureStack 位置。 例如，LOCAL="local"
 
 5. 如果使用 Azure Stack 或其他私有云以适当的 Active Directory 终结点为目标，请在以下代码行中添加。
 
-    ````Ruby  
-    active_directory_settings = get_active_directory_settings(ENV['ARM_ENDPOINT'])
-    ````
+  ````Ruby  
+  active_directory_settings = get_active_directory_settings(ENV['ARM_ENDPOINT'])
+  ````
 
 6. 在 options 变量中添加 Active Directory 设置和适用于 Azure Stack 的基 URL。 
 
-    ````Ruby  
-    options = {
-      credentials: credentials,
-      subscription_id: subscription_id,
-      active_directory_settings: active_directory_settings,
-      base_url: ENV['ARM_ENDPOINT']
-    }
-    ````
+  ````Ruby  
+  options = {
+    credentials: credentials,
+    subscription_id: subscription_id,
+    active_directory_settings: active_directory_settings,
+    base_url: ENV['ARM_ENDPOINT']
+  }
+  ````
 
 7. 创建以 Azure Stack 配置文件为目标的配置文件客户端：
 
-    ````Ruby  
-      client = Azure::Resources::Profiles::V2017_03_09::Mgmt::Client.new(options)
-    ````
+  ````Ruby  
+    client = Azure::Resources::Profiles::V2017_03_09::Mgmt::Client.new(options)
+  ````
 
 8. 若要通过 Azure Stack 进行服务主体身份验证，应使用 **get_active_directory_settings()** 来定义终结点。 此方法使用的 **ARM_Endpoint** 环境变量是你在构建自己的环境变量时设置的。
 
-    ````Ruby  
-    def get_active_directory_settings(armEndpoint)
-      settings = MsRestAzure::ActiveDirectoryServiceSettings.new
-      response = Net::HTTP.get_response(URI("#{armEndpoint}/metadata/endpoints?api-version=1.0"))
-      status_code = response.code
-      response_content = response.body
-      unless status_code == "200"
-        error_model = JSON.load(response_content)
-        fail MsRestAzure::AzureOperationError.new("Getting Azure Stack Metadata Endpoints", response, error_model)
-      end
-      result = JSON.load(response_content)
-      settings.authentication_endpoint = result['authentication']['loginEndpoint'] unless result['authentication']['loginEndpoint'].nil?
-      settings.token_audience = result['authentication']['audiences'][0] unless result['authentication']['audiences'][0].nil?
-      settings
+  ````Ruby  
+  def get_active_directory_settings(armEndpoint)
+    settings = MsRestAzure::ActiveDirectoryServiceSettings.new
+    response = Net::HTTP.get_response(URI("#{armEndpoint}/metadata/endpoints?api-version=1.0"))
+    status_code = response.code
+    response_content = response.body
+    unless status_code == "200"
+      error_model = JSON.load(response_content)
+      fail MsRestAzure::AzureOperationError.new("Getting Azure Stack Metadata Endpoints", response, error_model)
     end
-    ````
+    result = JSON.load(response_content)
+    settings.authentication_endpoint = result['authentication']['loginEndpoint'] unless result['authentication']['loginEndpoint'].nil?
+    settings.token_audience = result['authentication']['audiences'][0] unless result['authentication']['audiences'][0].nil?
+    settings
+  end
+  ````
 
 9. 运行示例。
 
-    ````Ruby
-      bundle exec ruby example.rb
-    ````
+  ````Ruby
+    bundle exec ruby example.rb
+  ````
 
 ## 
 
 ## <a name="next-steps"></a>后续步骤
 
-- [安装适用于 Azure Stack 的 PowerShell](azure-stack-powershell-install.md)
-- [配置 Azure Stack 用户的 PowerShell 环境](azure-stack-powershell-configure-user.md)  
+* [安装适用于 Azure Stack 的 PowerShell](azure-stack-powershell-install.md)
+* [配置 Azure Stack 用户的 PowerShell 环境](azure-stack-powershell-configure-user.md)  
 
 <!-- Update_Description: wording update -->

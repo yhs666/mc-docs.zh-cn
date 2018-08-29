@@ -12,22 +12,23 @@ ms.workload: na
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: hero-article
-origin.date: 10/01/2016
-ms.date: 01/29/2018
+origin.date: 08/17/2018
+ms.date: 09/03/2018
 ms.author: v-yiso
-ms.openlocfilehash: 875d0f9e03ed3382c79d425303f4270c9ff096d7
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: bf137e0b029d5688d1a44cfefcc08fbe2e35105e
+ms.sourcegitcommit: 1b682acdc2a5e0974fbff809967d7cefcbbbe8ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939477"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42870563"
 ---
 #<a name="create-an-ios-app"></a>创建 iOS 应用
 
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
 ## <a name="overview"></a>概述
-本教程说明如何将云后端服务 [Azure 移动应用](app-service-mobile-value-prop.md)添加到 iOS 应用。 首先将创建新的移动后端。 然后，使用一个简单的待办事项列表 iOS 应用在 Azure 中存储数据。
+
+本教程说明如何将云后端服务 [Azure 应用服务移动应用](app-service-mobile-value-prop.md)添加到 iOS 应用。 第一步是在 Azure 上创建一个新的移动后端。 然后，下载一个简单的“待办事项列表”iOS 示例应用以在 Azure 中存储数据。
 
 若要完成本教程，需要一台 Mac 和 [一个 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/)
 

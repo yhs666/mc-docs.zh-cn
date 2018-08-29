@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: overview
-origin.date: 03/01/2017
-ms.date: 07/17/2017
+origin.date: 04/17/2018
+ms.date: 08/20/2017
 ms.author: v-yeche
-ms.openlocfilehash: 8e9dabb2a4a493bfc871735b1be29a5028a8257d
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.openlocfilehash: b33c2436a0da9298d977faef61a5a6d6106620cb
+ms.sourcegitcommit: 02c4716e07b3d83104fa419b379a15589ae8017e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30155657"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41704903"
 ---
 # <a name="sql-data-warehouse-frequently-asked-questions"></a>SQL 数据仓库常见问题解答
 
@@ -69,7 +69,7 @@ A. 虽然 SQL 数据仓库支持许多功能，但不支持某些功能，这些
 
 问： Visual Studio 中是否支持数据库项目？
 
-A. 目前 Visual Studio 对于 SQL 数据仓库，不支持数据库项目。 如果想通过投票获取此功能，请访问 User Voice [数据库项目功能请求]。
+A. 目前 Visual Studio 对于 SQL 数据仓库，不支持数据库项目。 如果想通过投票获取此功能，请访问“用户之声”[数据库项目功能请求]。
 
 问： SQL 数据仓库是否支持 REST API？
 
@@ -84,8 +84,7 @@ A. 可在[连接字符串]页找到 DW 驱动程序支持
 
 问：使用 SQL 数据仓库时，PolyBase 支持哪些文件格式？
 
-答：Orc、RC、Parquet 和平面分隔文本
-<!--Azure Data Lake Store not available in Azure.cn-->
+答：Orc、RC、Parquet 和平面分隔文本 <!--Azure Data Lake Store not available in Azure.cn-->
 
 问：连接 Azure 存储 Blob 或 ADLS 时能否进行计算下推？ 
 
@@ -98,6 +97,7 @@ A. 可在[连接字符串]页找到 DW 驱动程序支持
 ## <a name="next-steps"></a>后续步骤
 若要深入了解 SQL 数据仓库的概述信息，请参阅[概述]页。
 
+
 <!-- Article references -->
 [UserVoice]: https://feedback.azure.com/forums/307516-sql-data-warehouse
 [连接字符串]: ./sql-data-warehouse-connection-strings.md
@@ -107,8 +107,4 @@ A. 可在[连接字符串]页找到 DW 驱动程序支持
 [容量限制]: ./sql-data-warehouse-service-capacity-limits.md
 [数据类型]: ./sql-data-warehouse-tables-data-types.md
 [不支持的表功能]: ./sql-data-warehouse-tables-overview.md#unsupported-table-features
-<!-- Not Available on [Azure Data Lake Store]: ./sql-data-warehouse-load-from-azure-data-lake-store.md -->
-[Azure Storage Blobs]: ./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
-[数据库项目功能请求]: https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/13313247-database-project-from-visual-studio-to-support-azu
-[MSDN]: https://msdn.microsoft.com/en-us/library/azure/mt163685.aspx
-[概述]: ./sql-data-warehouse-overview-faq.md
+<!-- Not Available on [Azure Data Lake Store]: ./sql-data-warehouse-load-from-azure-data-lake-store.md --> [Azure 存储 Blob]：./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md [数据库项目功能请求]：https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/13313247-database-project-from-visual-studio-to-support-azu [MSDN]：https://msdn.microsoft.com/library/azure/mt163685.aspx [概述]：./sql-data-warehouse-overview-faq.mdd

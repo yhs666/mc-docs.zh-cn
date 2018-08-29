@@ -8,20 +8,23 @@ manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
 ms.service: virtual-machines-windows
+ms.technology: vs-azure
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.prod: vs-devops-alm
 origin.date: 03/02/2018
-ms.date: 07/30/2018
+ms.date: 08/27/2018
 ms.author: v-yeche
 keywords: visualstudio
-ms.openlocfilehash: a89b2ef746ef6df8f185624f964e2da4b7f69c26
-ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
+ms.openlocfilehash: eb9565d8cac866c111780df3b98917f3462c9866
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39307016"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42872575"
 ---
 <a name="top"></a>
 # <a name="visual-studio-images-on-azure"></a>Azure 上的 Visual Studio 映像
@@ -35,9 +38,9 @@ ms.locfileid: "39307016"
 
 | 发行版本                                              | 版本                     |     产品版本     |
 |:------------------------------------------------------------:|:----------------------------:|:-----------------------:|
-| Visual Studio 2017：最新（版本 15.7）                    |    Enterprise、Community     |      版本 15.7.5     |
-| Visual Studio 2017：最新预览版（版本 15.8，预览版 4） |    Enterprise、Community     |      版本 15.8.4     |
-|         Visual Studio 2017：RTW                              |    Enterprise、Community     |      版本 15.0.15    |
+| Visual Studio 2017：最新（版本 15.8）                    |    Enterprise、Community     |      版本 15.8.0     |
+| Visual Studio 2017：最新预览版（版本 15.8，预览版 5） |    Enterprise、Community     |      版本 15.8.5     |
+|         Visual Studio 2017：RTW                              |    Enterprise、Community     |      版本 15.0.17    |
 |   Visual Studio 2015：最新 (Update 3)                      |    Enterprise、Community     |  版本 14.0.25431.01  |
 |         Visual Studio 2015：RTW                              |             无             | （已过期，无法进行维护） |
 
@@ -88,7 +91,7 @@ Azure 提供各种虚拟机大小。 由于 Visual Studio 是一个功能强大�
 
 ## <a name="after-the-vm-is-running-whats-next"></a>VM 运行后，下一步是什么？
 Visual Studio 遵循 Azure 中的“自带许可”模式。 与专有硬件上的安装一样，第一步是授权 Visual Studio 安装。 若要解锁 Visual Studio，请执行以下任一操作：
-- 使用与 Visual Studio 订阅关联的 Microsoft 帐户登录 
+- 使用与 Visual Studio 订阅关联的 Azure 帐户登录 
 - 使用最初购买附带的产品密钥解锁 Visual Studio
 
 有关详细信息，请参阅[登录 Visual Studio](https://docs.microsoft.com/zh-cn/visualstudio/ide/signing-in-to-visual-studio) 和[如何解锁 Visual Studio](https://docs.microsoft.com/zh-cn/visualstudio/ide/how-to-unlock-visual-studio)。
@@ -117,4 +120,4 @@ Visual Studio 遵循 Azure 中的“自带许可”模式。 与专有硬件上�
 
 * [通过 Azure 门户创建 VM](quick-create-portal.md)
 * [Windows 虚拟机概述](overview.md)
-<!-- Update_Description: update link, wording update-->
+<!-- Update_Description: update meta properties, wording update-->

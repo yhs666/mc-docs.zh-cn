@@ -9,14 +9,14 @@ ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
 origin.date: 03/27/2018
-ms.date: 07/02/2018
+ms.date: 08/13/2018
 ms.author: v-yeche
-ms.openlocfilehash: c3ab21797ad13b8925eaa695bb1fa78630d5a3cc
-ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
+ms.openlocfilehash: 133fb003ad9cd1c0d6faad226de87be7a77a475e
+ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37070210"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41704508"
 ---
 > [!div class="op_single_selector"]
 > * [异步 Java](performance-tips-async-java.md)
@@ -50,7 +50,7 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
 3. **优化 ConnectionPolicy**
 
-    使用 Async Java SDK 时，Azure Cosmos DB 请求是通过 HTTPS/REST 发出的，并且受制于默认的最大连接池大小 (1000)。 此默认值对于大多数用例是很理想的。 但是，如果你有一个包含许多分区的极大型集合，则可以使用 setMaxPoolSize 将最大连接池大小设置为更大的数字（例如 1500）。
+    使用 Async Java SDK 时，Azure Cosmos DB 请求是通过 HTTPS/REST 发出的，并且受制于默认的最大连接池大小 (1000)。 此默认值对于大多数用例是很理想的。 但是，如果你有一个包含许多分区的大型集合，则可以使用 setMaxPoolSize 将最大连接池大小设置为更大的数字（例如 1500）。
 
 4. **优化分区集合的并行查询。**
 
@@ -127,14 +127,14 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
     有关详细信息，请查看 Async Java SDK 的 [Github 页](https://github.com/Azure/azure-cosmosdb-java)。
 
-10. **禁用 netty 日志记录**Netty 库日志记录非常琐碎，因此需要将其关闭（在配置中禁用日志可能并不足够），以避免产生额外的 CPU 开销。 如果不处于调试模式，请一起禁用 netty 日志记录。 因此，如果要使用 log4j 来消除 netty 中 ``org.apache.log4j.Category.callAppenders()`` 产生的额外 CPU 开销，请将以下行添加到基代码：
+10. **禁用 netty 日志记录** Netty 库日志记录非常琐碎，因此需要将其关闭（在配置中禁止登录可能并不足够），以避免产生额外的 CPU 开销。 如果不处于调试模式，请一起禁用 netty 日志记录。 因此，如果要使用 log4j 来消除 netty 中 ``org.apache.log4j.Category.callAppenders()`` 产生的额外 CPU 开销，请将以下行添加到基代码：
 
     ```java
     org.apache.log4j.Logger.getLogger("io.netty").setLevel(org.apache.log4j.Level.OFF);
     ```
 
-11. **OS 打开文件资源限制** 某些 Linux 系统（例如 CentOS）对打开的文件数和连接总数施加上限。 运行以下命令以查看当前限制：
-
+11. **OS 打开文件资源限制** 某些 Linux 系统（例如 CentOS）对打开的文件数和连接总数施加上限。 运行以下命令以查看当前限制：<!-- Notice: Replace the Red Hat with CentOS-->
+    
     ```bash
     ulimit -a
     ```
@@ -171,7 +171,7 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
     </dependency>
     ```
 
-对于其他平台（CentOS、Windows、Mac 等），请参考 https://netty.io/wiki/forked-tomcat-native.html 中的说明
+对于其他平台（CentOS、Windows、Mac 等），请参考 https://netty.io/wiki/forked-tomcat-native.html 中的说明 <!-- Notice: Replace the Red Hat with CentOS-->
 
 ## <a name="indexing-policy"></a>索引策略
 
@@ -210,7 +210,7 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
     response.getRequestCharge();
     ```             
 
-    在此标头中返回的请求费用是预配吞吐量的一小部分。 例如，如果预配了 2000 RU/s，上述查询返回 1000 个 1KB 文档，则操作成本为 1000。 因此在一秒内，服务器在限制后续请求之前，只接受两个此类请求。 有关详细信息，请参阅[请求单位](request-units.md)和[请求单位计算器](https://www.documentdb.com/capacityplanner)。
+    在此标头中返回的请求费用是预配吞吐量的一小部分。 例如，如果预配了 2000 RU/s，上述查询返回 1000 个 1KB 文档，则操作成本为 1000。 因此在一秒内，服务器在对后续请求进行速率限制之前，只接受两个此类请求。 有关详细信息，请参阅[请求单位](request-units.md)和[请求单位计算器](https://www.documentdb.com/capacityplanner)。
 <a name="429"></a>
 2. **处理速率限制/请求速率太大**
 

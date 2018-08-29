@@ -6,17 +6,17 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-origin.date: 05/15/2018
-ms.date: 06/26/2018
+origin.date: 08/07/2018
+ms.date: 08/27/2018
 ms.author: v-junlch
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: 7886c2bcbe17be9f3cc2f06349221da82aa1aed5
-ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
+ms.openlocfilehash: bbe4c4447ecef0297350875a6ac7f8cdb9ecd5a7
+ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37027202"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42869452"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Azure Stack 数据中心集成 - 标识
 可以使用 Azure Active Directory (Azure AD) 或 Active Directory 联合身份验证服务 (AD FS) 作为标识提供者来部署 Azure Stack。 必须在部署 Azure Stack 之前做出选择。 使用 AD FS 的部署也称为在断开连接模式下部署 Azure Stack。
@@ -27,7 +27,7 @@ ms.locfileid: "37027202"
 |---------|---------|---------|
 |计费|必须是“容量”<br> 仅限企业协议 (EA)|“容量”或“即用即付”<br>“EA”或“云解决方案提供商”(CSP)|
 |标识|必须是“AD FS”|“Azure AD”或“AD FS”|
-|市场联合|支持<br>BYOL 许可|支持<br>BYOL 许可|
+|市场 |支持<br>BYOL 许可|支持<br>BYOL 许可|
 |注册|建议选项，需要使用可移动媒体<br> 和独立的连接设备。|自动|
 |修补和更新|必需选项，需要使用可移动媒体<br> 和独立的连接设备。|可以直接从 Internet<br> 将更新包下载到 Azure Stack。|
 
@@ -40,7 +40,7 @@ ms.locfileid: "37027202"
 
 身份验证是标识的一部分。 若要在 Azure Stack 中管理基于角色的访问控制 (RBAC)，必须配置 Graph 组件。 委托资源的访问权限后，Graph 组件使用 LDAP 协议来查找现有 Active Directory 林中的用户帐户。
 
-![Azure Stack AD FS 体系结构](./media/azure-stack-integrate-identity/Azure-Stack-ADFS-architecture.png)
+![Azure Stack AD FS 体系结构](media/azure-stack-integrate-identity/Azure-Stack-ADFS-architecture.png)
 
 现有 AD FS 是将声明发送到 Azure Stack AD FS（资源 STS）的帐户安全令牌服务 (STS)。 在 Azure Stack 中，自动化功能将与现有 AD FS 的元数据终结点建立声明提供程序信任关系。
 
@@ -152,7 +152,7 @@ Azure Stack 中的 Graph 服务使用以下协议和端口来与目标 Active Di
 
 ## <a name="setting-up-ad-fs-integration-by-providing-federation-metadata-file"></a>通过提供联合元数据文件来设置 AD FS 集成
 
-如果符合以下任一条件，则可以使用此方法：
+从版本 1807 开始，如果符合以下任一条件，则可以使用此方法：
 
 - AD FS 的证书链不同于 Azure Stack 中的其他所有终结点。
 - 未在 Azure Stack 的 AD FS 实例与现有 AD FS 服务器之间建立网络连接。
@@ -163,7 +163,7 @@ Azure Stack 中的 Graph 服务使用以下协议和端口来与目标 Active Di
 |参数|说明|示例|
 |---------|---------|---------|
 |CustomAdfsName|声明提供程序的名称。 AD FS 登录页上会显示此名称。|Contoso|
-|CustomADFSFederationMetadataFile|联合元数据文件|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml|
+|CustomADFSFederationMetadataFileContent|元数据内容|$using:federationMetadataFileContent|
 
 ### <a name="create-federation-metadata-file"></a>创建联合元数据文件
 
@@ -177,27 +177,22 @@ Azure Stack 中的 Graph 服务使用以下协议和端口来与目标 Active Di
    $Metadata.outerxml|out-file c:\metadata.xml
    ```
 
-2. 将元数据文件复制到可从特权终结点访问的共享。
-
+2. 将元数据文件复制到可以与特权终结点通信的计算机。
 
 ### <a name="trigger-automation-to-configure-claims-provider-trust-in-azure-stack"></a>触发自动化以便在 Azure Stack 中配置声明提供程序信任
 
-对于此过程，请使用能够与 Azure Stack 中特权终结点通信的计算机。
+对于此过程，请使用可以与 Azure Stack 中的特权终结点进行通信的计算机，并且该计算机可以访问在上一步中创建的元数据文件。
 
-1. 打开权限提升的 Windows PowerShell 会话并连接到特权终结点。
+1. 打开提升的 Windows PowerShell 会话。
 
    ```PowerShell  
+   $federationMetadataFileContent = get-content c:\metadata.cml
    $creds=Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
+   Register-CustomAdfs -CustomAdfsName Contoso -CustomADFSFederationMetadataFileContent $using:federationMetadataFileContent
    ```
 
-2. 连接到特权终结点之后，使用适用于环境的参数运行以下命令：
-
-   ```PowerShell  
-   Register-CustomAdfs -CustomAdfsName Contoso - CustomADFSFederationMetadataFile \\share\metadataexample.xml
-   ```
-
-3. 使用适用于环境的参数运行以下命令，更新默认提供商订阅的所有者：
+2. 使用适用于环境的参数运行以下命令，更新默认提供商订阅的所有者：
 
    ```PowerShell  
    Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"
@@ -347,5 +342,4 @@ Microsoft 提供了用于配置信赖方信任（包括声明转换规则）的�
 ## <a name="next-steps"></a>后续步骤
 
 [集成外部监视解决方案](azure-stack-integrate-monitor.md)
-
-<!-- Update_Description: wording update -->
+<!-- Update_Description: Trigger automation to configure claims provider trust in Azure Stack -->

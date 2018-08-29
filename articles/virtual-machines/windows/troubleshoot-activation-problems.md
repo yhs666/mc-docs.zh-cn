@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 05/11/2018
 ms.date: 07/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 08447f484046e7c9cae7cc8893a0afd7df4ac5f0
-ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
+ms.openlocfilehash: 451f1a6864af31edbbda4ed88e6f0297501e7715
+ms.sourcegitcommit: 3691ddcfde4382a8a034e8d2278d5e10d38a4d5e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39307037"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41704909"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>排查 Azure Windows 虚拟机激活问题
 
@@ -43,7 +43,8 @@ Azure 使用不同的终结点进行 KMS 激活，具体取决于 VM 所在的�
 **错误: 0xC004F074 软件授权服务报告无法激活计算机。无法联系任何密钥管理服务(KMS)。有关其他信息，请参阅应用程序事件日志。**
 
 ## <a name="cause"></a>原因
-通常情况下，如果未使用相应的 KMS 客户端安装密钥配置 Windows VM，或 Windows VM 与 Azure KMS 服务（kms.core.chinacloudapi.cn，端口 1668）的连接出现问题，便会出现 Azure VM 激活问题。 
+通常情况下，如果未使用相应的 KMS 客户端安装密钥配置 Windows VM，或 Windows VM 与 Azure KMS 服务（kms.core.chinacloudapi.cn，端口 1688）的连接出现问题，便会出现 Azure VM 激活问题。 
+<!--Notice: Port shold be 1688 -->
 
 ## <a name="solution"></a>解决方案
 

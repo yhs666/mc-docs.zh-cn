@@ -1,5 +1,5 @@
 ---
-title: Azure Stack 中的 DNS | Microsoft Docs
+title: Azure Stack 中的 DNS | Azure
 description: 使用 Azure Stack 中的 DNS
 services: azure-stack
 documentationcenter: ''
@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/15/2018
-ms.date: 05/23/2018
+origin.date: 08/15/2018
+ms.date: 08/27/2018
 ms.author: v-junlch
-ms.openlocfilehash: 99e4206c7ead122c6f2d03dc683781cac22febeb
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 06b4a6e0c0d3ab01481f6c3d84c43208c4171971
+ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475023"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42869540"
 ---
 # <a name="using-dns-in-azure-stack"></a>使用 Azure Stack 中的 DNS
 
@@ -27,8 +27,8 @@ ms.locfileid: "34475023"
 
 Azure Stack 支持以下域名系统 (DNS) 功能：
 
-- DNS 主机名解析
-- 使用 API 创建和管理 DNS 区域和记录
+* DNS 主机名解析
+* 使用 API 创建和管理 DNS 区域和记录
 
 ## <a name="support-for-dns-hostname-resolution"></a>支持 DNS 主机名解析
 
@@ -41,7 +41,7 @@ Azure Stack 支持以下域名系统 (DNS) 功能：
 
 下面的屏幕捕获显示了使用门户创建公用 IP 地址时的“创建公用 IP 地址”对话框。
 
-![创建公用 IP 地址](./media/azure-stack-whats-new-dns/image01.png)
+![创建公共 IP 地址](media/azure-stack-whats-new-dns/image01.png)
 
 **示例方案**
 
@@ -59,13 +59,13 @@ Azure Stack DNS 的基础结构比 Azure 的更为精简。 Azure Stack 部署�
 
 Azure Stack 中的 DNS 类似于 Azure 中的 DNS，但有几个重要例外，你需要了解它们。
 
-- **不支持 AAAA 记录**
+* **不支持 AAAA 记录**
 
     Azure Stack 不支持 AAAA 记录，因为 Azure Stack 不支持 IPv6 地址。  这是 Azure DNS 与 Azure Stack DNS 之间的主要差异。
-- **不是多租户**
+* **不是多租户**
 
     Azure Stack 中的 DNS 服务不是多租户的。 各个租户不能创建相同的 DNS 区域。 仅首个订阅尝试创建区域会成功，后续请求都会失败。  这是已知问题，也是 Azure DNS 和 Azure Stack DNS 之间的主要差异。 此问题将在未来版本中解决。
-- **标记、元数据和 Etag**
+* **标记、元数据和 Etag**
 
     Azure Stack DNS 在处理标记、元数据、Etag 和限制的方式方面也有一些细微差异。
 

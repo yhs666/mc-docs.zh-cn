@@ -1,0 +1,58 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: d85068dfab37b78caac1974255741d5a0ca3cccd
+ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42869698"
+documentType: LandingData
+title: Azure Stack 合作伙伴文档
+metadata:
+  document_id: 
+  title: Azure Stack 合作伙伴文档 - 教程、API 参考
+  description: 了解如何验证硬件是否可以用来承载 Azure Stack。 验证即服务是一项原生 Azure 服务，它适用于与 Azure 联合对 Azure Stack 产品/服务进行工程设计的解决方案合作伙伴。
+  services: azure-stack
+  author: WenJason
+  manager: digimobile
+  ms.service: azure-stack
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  origin.date: 07/25/2018
+  ms.date: 08/27/2018
+  ms.author: v-jay
+  ms.reviewer: John.Haskin
+abstract:
+  description: 可以使用验证即服务来验证硬件是否可以与 Azure Stack 配合使用。 该服务是一项原生 Azure 服务，它适用于与 Azure 联合对 Azure Stack 产品/服务进行工程设计的解决方案合作伙伴。
+sections:
+- title: 5 分钟快速入门
+  items:
+  - type: paragraph
+    text: 了解如何将 VM 和计算机载入到安全中心并连接安全解决方案。
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: media/i_account-management.svg
+      text: 使用验证即服务门户来计划你的第一次测试
+      href: /azure-stack/partner/azure-stack-vaas-schedule-your-first-test
+- title: 分步教程
+  items:
+  - type: paragraph
+    text: 了解如何验证 Azure Stack 硬件。
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure-stack/partner/azure-stack-vaas-test-vm">部署本地代理并测试虚拟机</a>
+    - html: <a href="/azure-stack/partner/azure-stack-vaas-automate-with-powershell">使用 PowerShell 自动执行 Azure Stack 验证</a>
+    - html: <a href="/azure-stack/partner/azure-stack-vaas-validate-solution-new">验证新的 Azure Stack 解决方案</a>
+    - html: <a href="/azure-stack/partner/azure-stack-vaas-validate-oem-package">验证 OEM 程序包</a>
+    - html: <a href="/azure-stack/partner/azure-stack-vaas-validate-microsoft-updates">验证来自 Microsoft 的软件更新</a>
+- title: 参考
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: 验证即服务
+      html: <a href="/azure-stack/partner/azure-stack-vaas-parameters">验证配置文件</a>

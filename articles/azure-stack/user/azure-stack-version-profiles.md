@@ -1,5 +1,5 @@
 ---
-title: 管理 Azure Stack 中的 API 版本配置文件 | Microsoft Docs
+title: 管理 Azure Stack 中的 API 版本配置文件 | Azure
 description: 了解 Azure Stack 中的 API 版本配置文件。
 services: azure-stack
 documentationcenter: ''
@@ -10,16 +10,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/21/2018
-ms.date: 06/27/2018
+origin.date: 08/15/2018
+ms.date: 08/27/2018
 ms.author: v-junlch
 ms.reviewer: sijuman
-ms.openlocfilehash: 0af22155541e401a43a01816073f949e12ac4a64
-ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
+ms.openlocfilehash: 31ae688168507a82a6425be2fe1646a8468fe7c3
+ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37027115"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42869468"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack"></a>管理 Azure Stack 中的 API 版本配置文件
 
@@ -91,8 +91,8 @@ API 配置文件可与使用 Azure 资源管理器的工具（例如 PowerShell�
 
 ## <a name="next-steps"></a>后续步骤
 
-- [安装适用于 Azure Stack 的 PowerShell](azure-stack-powershell-install.md)
-- [配置 Azure Stack 用户的 PowerShell 环境](azure-stack-powershell-configure-user.md)
-- [查看配置文件支持的资源提供程序 API 版本的详细信息](azure-stack-profiles-azure-resource-manager-versions.md)。
+* [安装适用于 Azure Stack 的 PowerShell](azure-stack-powershell-install.md)
+* [配置 Azure Stack 用户的 PowerShell 环境](azure-stack-powershell-configure-user.md)
+* [查看配置文件支持的资源提供程序 API 版本的详细信息](azure-stack-profiles-azure-resource-manager-versions.md)。
 
 <!-- Update_Description: wording update -->

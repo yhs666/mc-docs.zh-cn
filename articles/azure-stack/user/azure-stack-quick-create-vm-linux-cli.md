@@ -1,5 +1,5 @@
 ---
-title: 在 Azure Stack 中使用 Azure CLI 创建 Linux 虚拟机 | Microsoft Docs
+title: 在 Azure Stack 中使用 Azure CLI 创建 Linux 虚拟机 | Azure
 description: 在 Azure Stack 中使用 CLI 创建 Linux 虚拟机。
 services: azure-stack
 documentationcenter: ''
@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 origin.date: 04/24/2018
-ms.date: 05/23/2018
+ms.date: 08/27/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 79cc6273a4660647a5359fcc9e9f8a188346936d
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 22334035506883a9696562703f0d8e485297ad59
+ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475092"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42869462"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-by-using-azure-cli-in-azure-stack"></a>快速入门：在 Azure Stack 中使用 Azure CLI 创建 Linux 服务器虚拟机
 
@@ -29,23 +29,24 @@ ms.locfileid: "34475092"
 
 可以使用 Azure CLI 创建 Ubuntu Server 16.04 LTS 虚拟机。 请按照本文中的步骤创建和使用虚拟机。 本文还提供了执行以下操作的步骤：
 
-- 通过远程客户端连接到虚拟机。
-- 安装 NGINX Web 服务器并查看默认主页。
-- 清理未使用的资源。
+* 通过远程客户端连接到虚拟机。
+* 安装 NGINX Web 服务器并查看默认主页。
+* 清理未使用的资源。
 
 ## <a name="prerequisites"></a>先决条件
 
-- **Azure Stack Marketplace 中的 Linux 映像**
+* 
+  **Azure Stack 市场中的 Linux 映像**
 
-   默认情况下，Azure Stack Marketplace 不包含 Linux 映像。 让 Azure Stack 操作员提供你需要的 **Ubuntu Server 16.04 LTS** 映像。 操作员可以使用[将 Marketplace 项从 Azure 下载到 Azure Stack](../azure-stack-download-azure-marketplace-item.md) 一文中介绍的步骤。
+   默认情况下，Azure Stack 市场不包含 Linux 映像。 让 Azure Stack 操作员提供你需要的 **Ubuntu Server 16.04 LTS** 映像。 操作员可以使用[将市场项从 Azure 下载到 Azure Stack](../azure-stack-download-azure-marketplace-item.md) 一文中介绍的步骤。
 
-- Azure Stack 需要使用特定版本的 Azure CLI 来创建和管理资源。 如果尚未针对 Azure Stack 配置 Azure CLI，请登录到[开发工具包](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop)，或登录到基于 Windows 的外部客户端（如果[已通过 VPN 建立了连接](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn)），按照相应的步骤[安装并配置 Azure CLI](azure-stack-version-profiles-azurecli2.md)。
+* Azure Stack 需要使用特定版本的 Azure CLI 来创建和管理资源。 如果尚未针对 Azure Stack 配置 Azure CLI，请登录到[开发工具包](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop)，或登录到基于 Windows 的外部客户端（如果[已通过 VPN 建立了连接](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn)），按照相应的步骤[安装并配置 Azure CLI](azure-stack-version-profiles-azurecli2.md)。
 
-- Windows 用户配置文件的 .ssh 目录中保存的名为 id_rsa.pub 的 SSH 公钥。 有关创建 SSH 密钥的详细信息，请参阅[在 Windows 上创建 SSH 密钥](../../virtual-machines/linux/ssh-from-windows.md)。
+* Windows 用户配置文件的 .ssh 目录中保存的名为 id_rsa.pub 的 SSH 公钥。 有关创建 SSH 密钥的详细信息，请参阅[在 Windows 上创建 SSH 密钥](../../virtual-machines/linux/ssh-from-windows.md)。
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
-资源组是一个逻辑容器，可以在其中部署和管理 Azure Stack 资源。 在开发工具包或 Azure Stack 集成系统中，运行 [az group create](/cli/group#az_group_create) 命令创建资源组。
+资源组是一个逻辑容器，可以在其中部署和管理 Azure Stack 资源。 在开发工具包或 Azure Stack 集成系统中，运行 [az group create](/cli/group#az-group-create) 命令创建资源组。
 
 >[!NOTE]
  代码示例中为所有变量都分配了值。 但是，如果愿意，也可以分配新值。
@@ -58,7 +59,7 @@ az group create --name myResourceGroup --location local
 
 ## <a name="create-a-virtual-machine"></a>创建虚拟机
 
-可以使用 [az vm create](/cli/vm#az_vm_create) 命令创建虚拟机。 以下示例创建名为 myVM 的 VM。 此示例使用 Demouser 作为管理用户名，使用 Demouser@123 作为用户密码。 将这些值更改为适合你的环境的值。
+可以使用 [az vm create](/cli/vm#az-vm-create) 命令创建虚拟机。 以下示例创建名为 myVM 的 VM。 此示例使用 Demouser 作为管理用户名，使用 Demouser@123 作为用户密码。 将这些值更改为适合你的环境的值。
 
 ```cli
 az vm create \
@@ -111,7 +112,7 @@ apt-get -y install nginx
 
 ## <a name="clean-up-resources"></a>清理资源
 
-清理不再需要的资源。 可以使用 [az group delete](/cli/group#az_group_delete) 命令删除这些资源。 若要删除资源组及其所有资源，请运行以下命令：
+清理不再需要的资源。 可以使用 [az group delete](/cli/group#az-group-delete) 命令删除这些资源。 若要删除资源组及其所有资源，请运行以下命令：
 
 ```cli
 az group delete --name myResourceGroup

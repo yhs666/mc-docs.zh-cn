@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 06/05/2018
 ms.date: 07/02/2018
 ms.author: v-yiso
-ms.openlocfilehash: 1001d707c532408024ec7b9a91986ce973d85f86
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 2b3e284a176602bd670f94d0fd1abdce3ecba3c3
+ms.sourcegitcommit: 1b682acdc2a5e0974fbff809967d7cefcbbbe8ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939480"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42870991"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>从本地 Git 部署到 Azure 应用服务
 
@@ -45,7 +45,8 @@ git clone https://github.com/Azure-Samples/nodejs-docs-hello-world.git
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ### <a name="create-a-deployment-user"></a>创建部署用户
-[!INCLUDE [Configure a deployment user](../../includes/configure-deployment-user.md)]
+
+[!INCLUDE [Configure a deployment user](../../includes/configure-deployment-user-no-h.md)]
 
 ### <a name="enable-local-git-with-kudu"></a>使用 Kudu 启用本地 Git
 
@@ -144,7 +145,9 @@ git push vsts master
 
 浏览到应用以验证内容已部署。
 
-## <a name="troubleshooting"></a>故障排除
+[!INCLUDE [What happens to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]
+
+## <a name="troubleshooting-kudu-deployment"></a>排查 Kudu 部署问题
 
 以下是使用 Git 发布到 Azure 中的应用服务应用时遇到的常见错误或问题：
 
@@ -203,7 +206,7 @@ git config --global http.postBuffer 524288000
 **解决方法**：应在发生此错误之前记录包含“npm ERR!” 的其他消息，这些消息可提供有关失败的其他上下文。 以下是该错误的已知原因和相应的“npm ERR!” 消息:
 
 * **package.json 文件格式不正确**：npm ERR! 无法读取依赖项。
-* **不具有 Windows 的二进制分发的本机模块**：
+* **没有 Windows 的二进制分发的本机模块**：
 
   * `npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1`
 
@@ -214,3 +217,5 @@ git config --global http.postBuffer 524288000
 
 * [项目 Kudu 文档](https://github.com/projectkudu/kudu/wiki)
 * [连续部署到 Azure 应用服务](app-service-continuous-deployment.md)
+* [示例：从本地 Git 存储库创建 Web 应用并部署代码 (Azure CLI)](./scripts/app-service-cli-deploy-local-git.md?toc=%2fcli%2ftoc.json)
+* [示例：从本地 Git 存储库创建 Web 应用并部署代码 (PowerShell)](./scripts/app-service-powershell-deploy-local-git.md?toc=%2fpowershell%2fmodule%2ftoc.json)

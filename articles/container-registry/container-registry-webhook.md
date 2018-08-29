@@ -6,15 +6,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: container-registry
 ms.topic: article
-origin.date: 12/02/2017
-ms.date: 08/13/2018
+origin.date: 08/20/2017
+ms.date: 08/27/2018
 ms.author: v-yeche
-ms.openlocfilehash: 359838108eb94a3fad25e6a8597ad7b89304b09f
-ms.sourcegitcommit: 543a18c71c0910a5b9878a2d2668f317468906f2
+ms.openlocfilehash: 7ea66fbb43aa610e26f258640acee31961503cc0
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39625502"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42872330"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>使用 Azure 容器注册表 webhook
 
@@ -96,6 +96,11 @@ az acr webhook delete --registry mycontainerregistry --name myacrwebhook01
 
 ## <a name="next-steps"></a>后续步骤
 
+### <a name="webhook-schema-reference"></a>Webhook 架构参考
+
+有关 Azure 容器注册表发出的 JSON 事件负载的格式和属性的详细信息，请参阅 Webhook 架构参考：
+
 [Azure 容器注册表 Webhook 架构参考](container-registry-webhook-reference.md)
-<!-- Update_Description: new article on container registry webhook -->
-<!--ms.date: 07/02/2018-->
+
+<!--Not Available on  ### Event Grid events-->
+<!-- Update_Description: wording update, update meta properties -->

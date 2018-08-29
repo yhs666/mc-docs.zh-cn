@@ -1,6 +1,6 @@
 ---
 title: Azure 流分析的概述
-description: 了解流分析，这是一种托管服务，可以帮助你分析物联网 (IoT) 实时提供的流式数据。
+description: 了解流分析，这是一种托管的服务，可以帮助你分析物联网 (IoT) 实时提供的流式数据。
 services: stream-analytics
 author: rockboyfor
 ms.author: v-yeche
@@ -11,13 +11,13 @@ ms.topic: overview
 ms.workload: data-services
 ms.custom: mvc
 origin.date: 03/27/2018
-ms.date: 06/18/2018
-ms.openlocfilehash: db74dc388673ca4f34d7595641dd2fd6fb85efd7
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.date: 08/20/2018
+ms.openlocfilehash: c8e0bd05f4dbad4c2f2a719491507ada9b72da2e
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "35416853"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41703863"
 ---
 # <a name="what-is-stream-analytics"></a>什么是流分析？
 
@@ -55,8 +55,9 @@ Azure 流分析经过专门的设计，具有易用、灵活、可靠的特点�
 
 Azure 流分析易于入门。 只需点击几下即可连接到多个源和接收器并创建端到端管道。 流分析可以连接到 [Azure 事件中心](/event-hubs/)和 [Azure IoT 中心](/iot-hub/)进行流数据引入， 还可以连接到 [Azure Blob 存储](/storage/storage-introduction)服务进行历史数据引入。 它可以将事件中心的数据与其他数据源和处理引擎组合在一起使用。 作业输入也可以包含静态的或不怎么变化的引用数据，你可以通过将流数据联接到该引用数据来执行查找操作。
 
-流分析可以将作业输出路由到许多存储系统，例如 [Azure Blob](/storage/storage-introduction)、[Azure SQL 数据库](/sql-database/)或 [Azure Cosmos DB](/cosmos-db/introduction)。 进行存储以后，可以通过 Azure HDInsight 运行批处理分析，或者将输出发送到其他服务（例如事件中心）以供使用。
-<!-- Not Available [Azure Data Lake Stores](/data-lake-store/)-->
+流分析可以将作业输出路由到许多存储系统，例如 [Azure Blob](/storage/storage-introduction) 和 [Azure SQL 数据库](/sql-database/)。 进行存储以后，可以通过 Azure HDInsight 运行批处理分析，或者将输出发送到其他服务（例如事件中心）以供使用。
+<!-- Not Available on [Azure Data Lake Stores](/data-lake-store/)-->
+<!-- Not Available on [Azure Cosmos DB](/cosmos-db/introduction)-->
 <!-- Not Available [Power BI](/power-bi/) -->
 
 ## <a name="programmer-productivity"></a>程序员工作效率
@@ -82,7 +83,7 @@ Azure 流分析是 Azure 中的一项完全托管的无服务器 (PaaS) 产品/�
 
 ## <a name="performance"></a>性能
 
-Azure 流分析进行了高性能优化，可以处理流数据，还可以进行内存中计算。 可以通过它进行纵向缩放，以便操控实时且复杂的事件处理应用程序。 流分析通过分区来提供性能支持。 可以在多个流节点上对复杂查询进行并行化处理，然后执行该查询。 
+Azure 流分析进行了高性能优化，可以处理流数据，还可以执行内存中计算。 可以通过它进行纵向缩放，以便操控实时且复杂的事件处理应用程序。 流分析通过分区来提供性能支持。 可以在多个流节点上对复杂查询进行并行化处理，然后执行该查询。 
 
 ## <a name="next-steps"></a>后续步骤
 

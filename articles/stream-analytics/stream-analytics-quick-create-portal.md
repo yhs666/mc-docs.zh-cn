@@ -3,19 +3,19 @@ title: 使用 Azure 门户创建流分析作业 | Azure
 description: 本快速入门介绍如何开始创建流分析作业、配置输入和输出，以及定义查询。
 services: stream-analytics
 author: rockboyfor
-manager: digimobile
+ms.author: v-yeche
 origin.date: 05/11/2018
+ms.date: 08/20/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
-ms.author: v-yeche
-ms.date: 06/18/2018
-ms.openlocfilehash: 5a44b75b4d7d1edcfd79b753ff2f638b39ba56f6
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+manager: digimobile
+ms.openlocfilehash: c3444a3094e0440462f9402b61a94d78cb0c34cb
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939761"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41703862"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>快速入门：使用 Azure 门户创建流分析作业
 
@@ -41,15 +41,15 @@ ms.locfileid: "38939761"
      "hmdt": 44
     }
     ```
-2. 登录到 Azure 门户。  
+2. 登录到 [Azure 门户](https://portal.azure.cn/)。  
 
-3. 从 Azure 门户的左上角选择“创建资源” > “存储” > “存储帐户”。 填充“存储帐户作业”页，将“名称”设置为“myasastorageaccount”，将“位置”设置为“中国北部 2”，将“资源组”设置为“MyRG”（请将存储帐户托管在流式处理作业所在的资源组中，以便提高性能）。 余下设置可以保留默认值。  
+3. 从 Azure 门户的左上角选择“创建资源” > “存储” > “存储帐户”。 填充“存储帐户作业”页，将“名称”设置为“asaquickstartstorage”，将“位置”设置为“中国北部 2”，将“资源组”设置为“asaquickstart-resourcegroup”（请将存储帐户托管在流式处理作业所在的资源组中，以便提高性能）。 余下设置可以保留默认值。  
 
    ![创建存储帐户](./media/stream-analytics-quick-create-portal/create-a-storage-account.png)
 
 4. 在“所有资源”页中找到上一步创建的存储帐户。 打开“概览”页，然后打开“Blob”磁贴。  
 
-5. 从“Blob 服务”页中选择“容器”，为容器提供一个**名称**（例如 *container1*），然后将“公共访问级别”更改为“Blob”（匿名读取访问权限仅适用于 Blob），然后选择“确定”。  
+5. 从“Blob 服务”页中选择“容器”，为容器提供一个**名称**（例如 *container1*），然后将“公共访问级别”更改为“专用”（禁止匿名访问），最后选择“确定”。  
 
    ![创建容器](./media/stream-analytics-quick-create-portal/create-a-storage-container.png)
 
@@ -67,15 +67,15 @@ ms.locfileid: "38939761"
 
 4. 使用以下信息填写“流分析作业”页：
 
-    |**设置**  |建议的值  |**说明**  |
-    |---------|---------|---------|
-    |作业名称   |  myJob   |   输入用于标识流分析作业的名称。 流分析作业名称只能包含字母数字字符、连字符和下划线，其长度必须介于 3 到 63 个字符之间。 |
-    |订阅  | 
+   |**设置**  |建议的值  |**说明**  |
+   |---------|---------|---------|
+   |作业名称   |  myasajob   |   输入用于标识流分析作业的名称。 流分析作业名称只能包含字母数字字符、连字符和下划线，其长度必须介于 3 到 63 个字符之间。 |
+   |订阅  | 
             \<订阅\> |  选择要用于此作业的 Azure 订阅。 |
-    |资源组   |   MyResourceGroup  |   选择“新建”，然后输入帐户的新资源组名称。 |
-    |位置  |  \<选择离用户最近的区域\> | 选择可以在其中托管流分析作业的地理位置。 使用最靠近用户的位置，以便改进性能并减少数据传输成本。 |
-    |流式处理单位  | 1  |   流单元表示执行作业所需的计算资源。 默认情况下，此值设置为 1。 若要了解如何缩放流单元，请参阅[了解和调整流单元](stream-analytics-streaming-unit-consumption.md)一文。   |
-    |宿主环境  |  云  |   流分析作业可以部署到云或边缘设备。 可以通过“Cloud”部署到 Azure Cloud，通过“Edge”部署到 IoT Edge 设备。 |
+   |资源组   |   asaquickstart-resourcegroup  |   选择“新建”，然后输入帐户的新资源组名称。 |
+   |位置  |  \<选择离用户最近的区域\> | 选择可以在其中托管流分析作业的地理位置。 使用最靠近用户的位置，以便改进性能并减少数据传输成本。 |
+   |流式处理单位  | 1  |   流单元表示执行作业所需的计算资源。 默认情况下，此值设置为 1。 若要了解如何缩放流单元，请参阅[了解和调整流单元](stream-analytics-streaming-unit-consumption.md)一文。   |
+   |宿主环境  |  云  |   流分析作业可以部署到云或边缘设备。 可以通过“Cloud”部署到 Azure Cloud，通过“Edge”部署到 IoT Edge 设备。 |
 
    ![创建作业](./media/stream-analytics-quick-create-portal/create-job.png)
 
@@ -95,13 +95,13 @@ ms.locfileid: "38939761"
 
 3. 使用以下值填写“Blob 存储”页：
 
-    |**设置**  |建议的值  |**说明**  |
-    |---------|---------|---------|
-    |输入别名  |  BlobInput   |  输入一个名称，用于标识作业的输入。   |
-    |订阅   |  
+   |**设置**  |建议的值  |**说明**  |
+   |---------|---------|---------|
+   |输入别名  |  BlobInput   |  输入一个名称，用于标识作业的输入。   |
+   |订阅   |  
             \<订阅\> |  选择包含已创建的存储帐户的 Azure 订阅。 存储帐户可以在同一订阅中，也可以在另一订阅中。 此示例假定已在同一订阅中创建存储帐户。 |
-    |存储帐户  |  myasastorageaccount |  选择或输入存储帐户的名称。 如果在同一订阅中创建存储帐户名称，则会自动将其删除。 |
-    |容器  | container1 | 选择包含示例数据的容器的名称。 如果在同一订阅中创建容器名称，则会自动将其删除。 |
+   |存储帐户  |  myasastorageaccount |  选择或输入存储帐户的名称。 如果在同一订阅中创建存储帐户名称，则会自动将其删除。 |
+   |容器  | container1 | 选择包含示例数据的容器的名称。 如果在同一订阅中创建容器名称，则会自动将其删除。 |
 
 4. 让其他选项保留默认值，然后选择“保存”以保存设置。  
 
@@ -115,13 +115,14 @@ ms.locfileid: "38939761"
 
 3. 使用以下值填写“Blob 存储”页：
 
-    |**设置**  |建议的值  |**说明**  |
-    |---------|---------|---------|
-    |输出别名 |   BlobOutput   |   输入一个名称，用于标识作业的输出。 |
-    |订阅  |  
+   |**设置**  |建议的值  |**说明**  |
+   |---------|---------|---------|
+   |输出别名 |   BlobOutput   |   输入一个名称，用于标识作业的输出。 |
+   |订阅  |  
             \<订阅\>  |  选择包含已创建的存储帐户的 Azure 订阅。 存储帐户可以在同一订阅中，也可以在另一订阅中。 此示例假定已在同一订阅中创建存储帐户。 |
-    |存储帐户 |  myasastorageaccount |   选择或输入存储帐户的名称。 如果在同一订阅中创建存储帐户名称，则会自动将其删除。       |
-    |容器 |   container2  |  在曾经用于输入的存储帐户中创建新的容器。   |
+   |存储帐户 |  asaquickstartstorage |   选择或输入存储帐户的名称。 如果在同一订阅中创建存储帐户名称，则会自动将其删除。       |
+   |容器 |   container1  |  选择你在存储帐户中创建的现有容器。   |
+   |路径模式 |   output  |  输入一个名称作为输出的现有容器中的路径。   |
 
 4. 让其他选项保留默认值，然后选择“保存”以保存设置。  
 
@@ -158,7 +159,7 @@ ms.locfileid: "38939761"
 
    ![启动作业](./media/stream-analytics-quick-create-portal/start-the-job.png)
 
-3. 数分钟后，在门户中找到存储帐户以及此前已配置为作业输出的容器。 现在可以在容器中看到输出文件。 此作业的首次启动需要数分钟的时间，但在启动后，只要有数据到达，它就会持续运行。  
+3. 数分钟后，在门户中找到存储帐户以及此前已配置为作业输出的容器。 选择输出路径。 现在可以在容器中看到输出文件。 此作业的首次启动需要数分钟的时间，但在启动后，只要有数据到达，它就会持续运行。  
 
    ![转换的输出](./media/stream-analytics-quick-create-portal/transformed-output.png)
 
@@ -177,5 +178,4 @@ ms.locfileid: "38939761"
 > [!div class="nextstepaction"]
 > [使用 Azure 流分析实时检测欺诈行为](stream-analytics-real-time-fraud-detection.md)
 
-<!-- Update_Description: new articles on stream analytics quick create portal -->
-<!--ms.date: 06/18/2018-->
+<!-- Update_Description: wording update, update meta properties -->

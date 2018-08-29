@@ -9,18 +9,18 @@ ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
 origin.date: 03/26/2018
-ms.date: 07/02/2018
+ms.date: 08/13/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4f19bce57ce823b83c059ab47c4feb2bb3acf7b3
-ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
+ms.openlocfilehash: e4a5e69f9cda676decc264aa5da0d919195a419a
+ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37070261"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41704896"
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>使用 Azure Cosmos DB 中的更改源支持
 
-[Azure Cosmos DB](../cosmos-db/introduction.md) 是一种快速且灵活的全局复制数据库，适用于 IoT、游戏、零售以及运营日志记录应用程序。 在这些应用程序中，一个常见的设计模式是根据对数据所做的更改来触发其他操作。 这些其他操作可以是下述任何操作： 
+[Azure Cosmos DB](../cosmos-db/introduction.md) 是一种快速且灵活的多区域复制数据库，适用于 IoT、游戏、零售以及运营日志记录应用程序。 在这些应用程序中，一个常见的设计模式是根据对数据所做的更改来触发其他操作。 这些其他操作可以是下述任何操作： 
 
 * 插入或修改文档时触发 API 通知或调用。
 * 针对 IoT 进行流式处理，或者执行分析。
@@ -215,64 +215,162 @@ Azure Cosmos DB 中的更改源支持的工作原理是：侦听 Azure Cosmos DB
 
 安装更改源处理器 NuGet 包之前，请先安装： 
 
-* Microsoft.Azure.DocumentDB 1.13.1 或更高版本 
-* Newtonsoft.Json 9.0.1 或更高版本
+* Microsoft.Azure.DocumentDB 最新版本。
+* Newtonsoft.Json 最新版本
 
 然后安装 [Microsoft.Azure.DocumentDB.ChangeFeedProcessor Nuget 包](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)并将其作为引用包括进去。
 
 若要实现更改源处理器库，必须执行以下操作：
 
 1. 实现 DocumentFeedObserver 对象，以便实现 IChangeFeedObserver。
+    ```csharp
+    using System;
+    using System.Collections.Generic;
+    using System.Threading;
+    using System.Threading.Tasks;
+    using Microsoft.Azure.Documents;
+    using Microsoft.Azure.Documents.ChangeFeedProcessor.FeedProcessing;
+    using Microsoft.Azure.Documents.Client;
 
-2. 实现 DocumentFeedObserverFactory，以便实现 IChangeFeedObserverFactory。
+2. Implement a **DocumentFeedObserverFactory**, which implements a **IChangeFeedObserverFactory**.
 
-3. 在 DocumentFeedObserverFacory 的 CreateObserver 方法中，实例化在步骤 1 中创建的 ChangeFeedObserver，然后将其返回。
+3. In the **CreateObserver** method of **DocumentFeedObserverFacory**, instantiate the **ChangeFeedObserver** that you created in step 1 and return it.
 
-    ```
-    public IChangeFeedObserver CreateObserver()
-    {
-              DocumentFeedObserver newObserver = new DocumentFeedObserver(this.client, this.collectionInfo);
-              return newObserver;
+        /// <summary>
+        /// Called when change feed observer is opened; 
+        /// this function prints out observer partition key id. 
+        /// </summary>
+        /// <param name="context">The context specifying partition for this observer, etc.</param>
+        /// <returns>A Task to allow asynchronous execution</returns>
+        public Task OpenAsync(IChangeFeedObserverContext context)
+        {
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.WriteLine("Observer opened for partition Key Range: {0}", context.PartitionKeyRangeId);
+            return Task.CompletedTask;
+        }
+
+        /// <summary>
+        /// Called when change feed observer is closed; 
+        /// this function prints out observer partition key id and reason for shut down. 
+        /// </summary>
+        /// <param name="context">The context specifying partition for this observer, etc.</param>
+        /// <param name="reason">Specifies the reason the observer is closed.</param>
+        /// <returns>A Task to allow asynchronous execution</returns>
+        public Task CloseAsync(IChangeFeedObserverContext context, ChangeFeedObserverCloseReason reason)
+        {
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("Observer closed, {0}", context.PartitionKeyRangeId);
+            Console.WriteLine("Reason for shutdown, {0}", reason);
+            return Task.CompletedTask;
+        }
+
+        public Task ProcessChangesAsync(IChangeFeedObserverContext context, IReadOnlyList<Document> docs, CancellationToken cancellationToken)
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Change feed: PartitionId {0} total {1} doc(s)", context.PartitionKeyRangeId, Interlocked.Add(ref totalDocs, docs.Count));
+            foreach (Document doc in docs)
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine(doc.Id.ToString());
+            }
+
+            return Task.CompletedTask;
+        }
     }
     ```
 
-4. 实例化 DocumentObserverFactory。
+2. 实现 DocumentFeedObserverFactory，以便实现 IChangeFeedObserverFactory。
+    ```csharp
+     using Microsoft.Azure.Documents.ChangeFeedProcessor.FeedProcessing;
 
-5. 实例化 ChangeFeedEventHost：
+    /// <summary>
+    /// Factory class to create instance of document feed observer. 
+    /// </summary>
+    public class DocumentFeedObserverFactory : IChangeFeedObserverFactory
+    {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DocumentFeedObserverFactory" /> class.
+        /// Saves input DocumentClient and DocumentCollectionInfo parameters to class fields
+        /// </summary>
+        public DocumentFeedObserverFactory()
+        {
+        }
+
+        /// <summary>
+        /// Creates document observer instance with client and destination collection information
+        /// </summary>
+        /// <returns>DocumentFeedObserver with client and destination collection information</returns>
+        public IChangeFeedObserver CreateObserver()
+        {
+            DocumentFeedObserver newObserver = new DocumentFeedObserver();
+            return newObserver as IChangeFeedObserver;
+        }
+    }
+    ```
+
+3. 定义 CancellationTokenSource 和 ChangeFeedProcessorBuilder
 
     ```csharp
-    ChangeFeedEventHost host = new ChangeFeedEventHost(
-                     hostName,
-                     documentCollectionLocation,
-                     leaseCollectionLocation,
-                     feedOptions,
-                     feedHostOptions);
+    private readonly CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
+    private readonly ChangeFeedProcessorBuilder builder = new ChangeFeedProcessorBuilder();
     ```
 
 6. 向主机注册 DocumentFeedObserverFactory。
 
-步骤 4 到 6 的代码为： 
+    ```csharp
+            string hostName = Guid.NewGuid().ToString();
 
-```
-ChangeFeedOptions feedOptions = new ChangeFeedOptions();
-feedOptions.StartFromBeginning = true;
+            // monitored collection info 
+            DocumentCollectionInfo documentCollectionInfo = new DocumentCollectionInfo
+            {
+                Uri = new Uri(this.monitoredUri),
+                MasterKey = this.monitoredSecretKey,
+                DatabaseName = this.monitoredDbName,
+                CollectionName = this.monitoredCollectionName
+            };
 
-ChangeFeedHostOptions feedHostOptions = new ChangeFeedHostOptions();
+            DocumentCollectionInfo leaseCollectionInfo = new DocumentCollectionInfo
+                {
+                    Uri = new Uri(this.leaseUri),
+                    MasterKey = this.leaseSecretKey,
+                    DatabaseName = this.leaseDbName,
+                    CollectionName = this.leaseCollectionName
+                };
+            DocumentFeedObserverFactory docObserverFactory = new DocumentFeedObserverFactory();
+            ChangeFeedOptions feedOptions = new ChangeFeedOptions();
 
-// Customizing lease renewal interval to 15 seconds.
-// Can customize LeaseRenewInterval, LeaseAcquireInterval, LeaseExpirationInterval, FeedPollDelay
-feedHostOptions.LeaseRenewInterval = TimeSpan.FromSeconds(15);
+            /* ie customize StartFromBeginning so change feed reads from beginning
+                can customize MaxItemCount, PartitonKeyRangeId, RequestContinuation, SessionToken and StartFromBeginning
+            */
 
-using (DocumentClient destClient = new DocumentClient(destCollInfo.Uri, destCollInfo.MasterKey))
-{
-        DocumentFeedObserverFactory docObserverFactory = new DocumentFeedObserverFactory(destClient, destCollInfo);
-        ChangeFeedEventHost host = new ChangeFeedEventHost(hostName, documentCollectionLocation, leaseCollectionLocation, feedOptions, feedHostOptions);
-        await host.RegisterObserverFactoryAsync(docObserverFactory);
-        await host.UnregisterObserversAsync();
-}
-```
+            feedOptions.StartFromBeginning = true;
 
-就这么简单。 经过这些步骤以后，文档将介绍 DocumentFeedObserver ProcessChangesAsync 方法。 在 [GitHub 存储库](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeedProcessor)中查找上述代码
+            ChangeFeedProcessorOptions feedProcessorOptions = new ChangeFeedProcessorOptions();
+
+            // ie. customizing lease renewal interval to 15 seconds
+            // can customize LeaseRenewInterval, LeaseAcquireInterval, LeaseExpirationInterval, FeedPollDelay 
+            feedProcessorOptions.LeaseRenewInterval = TimeSpan.FromSeconds(15);
+
+            this.builder
+                .WithHostName(hostName)
+                .WithFeedCollection(documentCollectionInfo)
+                .WithLeaseCollection(leaseCollectionInfo)
+                .WithProcessorOptions (feedProcessorOptions)
+                .WithObserverFactory(new DocumentFeedObserverFactory());               
+                //.WithObserver<DocumentFeedObserver>();  If no factory then just pass an observer
+
+            var result =  await this.builder.BuildAsync();
+            await result.StartAsync();
+            Console.Read();
+            await result.StopAsync();    
+    ```
+
+就这么简单。 完成这几个步骤后，文档会开始显示在 **DocumentFeedObserver ProcessChangesAsync** 方法中。
+
+上述代码用于说明目的，以显示不同类型的对象及其交互。 必须定义适当的变量并使用正确的值启动它们。 可从 [GitHub 存储库](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeedProcessorV2)获取本文中使用的完整代码。
+
+> [!NOTE]
+> 不应在代码或配置文件中包含主密钥，如上述代码所示。 请参阅[如何使用 Key Vault 检索密钥](https://sarosh.wordpress.com/2017/11/23/cosmos-db-and-key-vault/)。
 
 ## <a name="faq"></a>常见问题
 
@@ -282,7 +380,7 @@ using (DocumentClient destClient = new DocumentClient(destCollInfo.Uri, destColl
 
 * **[使用 Azure Cosmos DB SQL API .NET SDK](#sql-sdk)**
 
-   使用此方法可对更改源进行低级控制。 可以管理检查点、访问特定的分区键，等等。如果有多个读取器，则可使用 [](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.documents.client.changefeedoptions?view=azure-dotnet)ChangeFeedOptions 将读取负载分发到不同的线程或客户端。 上获取。
+   使用此方法可对更改源进行低级控制。 可以管理检查点、访问特定的分区键，等等。如果有多个读取器，则可使用 [ChangeFeedOptions](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.documents.client.changefeedoptions?view=azure-dotnet) 将读取负载分发到不同的线程或客户端。 上获取。
 
 * **[使用 Azure Cosmos DB 更改源处理器库](#change-feed-processor)**
 
@@ -434,4 +532,4 @@ Azure Functions 由更改源系统自动调用，检查点等内容由 Azure 函
 
 * [SDK 信息页](sql-api-sdk-dotnet.md)
 
-<!--Update_Description: update meta properties, wording update, add content of FAQ -->
+<!--Update_Description: update meta properties, wording update, update link -->

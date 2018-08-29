@@ -1,5 +1,5 @@
 ---
-title: 管理充当云服务提供商的 Azure Stack 的使用情况和计费 | Microsoft Docs
+title: 管理充当云服务提供商的 Azure Stack 的使用情况和计费 | Azure
 description: 详细介绍如何将 Azure Stack 注册为云提供商 (CSP) 并添加客户以便计费。
 services: azure-stack
 documentationcenter: ''
@@ -12,15 +12,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/12/2018
-ms.date: 07/20/2018
+ms.date: 08/27/2018
 ms.author: v-junlch
 ms.reviewer: alfredo
-ms.openlocfilehash: 7a3e1474def9e270b5420cf05a516491e8eca803
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.openlocfilehash: 4a15730016b6618fb2d48523adef78e8d773f5e1
+ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168411"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42869577"
 ---
 # <a name="manage-usage-and-billing-for-azure-stack-as-a-cloud-service-provider"></a>管理充当云服务提供商的 Azure Stack 的使用情况和计费 
 
@@ -83,6 +83,6 @@ Azure Stack 可以通过注册执行以下操作：
 
 ## <a name="next-steps"></a>后续步骤
 
- - 若要详细了解 CSP 计划，请参阅[云解决方案提供商计划](https://partnercenter.microsoft.com/en-us/partner/programs)。
+ - 若要详细了解 CSP 计划，请参阅[云解决方案提供商计划](https://partner.microsoft.com/solutions/microsoft-cloud-solutions)。
  - 若要详细了解如何从 Azure Stack 检索资源使用情况信息，请参阅 [Azure Stack 中的使用情况和计费](azure-stack-billing-and-chargeback.md)。
 <!-- Update_Description: wording update -->

@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/06/2016
-ms.date: 10/30/2017
+ms.date: 09/03/2018
 ms.author: v-yiso
-ms.openlocfilehash: d1069b8c7cf1e3afc5e73d1063d0d6898ef54fc9
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 35c1aacb1d61fbe2bf7893c169c96768f292c76f
+ms.sourcegitcommit: 1b682acdc2a5e0974fbff809967d7cefcbbbe8ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939603"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42870974"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>按可预见的方式在 Azure 中设置和部署微服务
 
@@ -67,10 +67,22 @@ ms.locfileid: "38939603"
 ## <a name="get-the-sample-resource-group-template"></a>获取示例资源组模板
 现在让我们开始吧。
 
-1. 请参阅[使用 Azure App Service 进行敏捷软件开发](app-service-agile-software-development.md)，了解如何部署 [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) 应用服务示例。
-6. 登录到 Azure 门户。 请注意，Web 应用已连接到“外部项目”下的 GitHub 存储库。 
-
+1. 导航到 [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) 应用服务示例。
+2. 在 readme.md 中，单击“部署到 Azure”。
+3. 会转到[部署到 Azure](https://deploy.azure.com) 站点并需要输入部署参数。 请注意大多数字段将填充以存储库名称和某些随机字符串。 可以更改所有字段（如果想），但唯一一项必须输入的内容是 SQL Server 管理登录名和密码，并单击“下一步”。
+   
+   ![](./media/app-service-deploy-complex-application-predictably/gettemplate-1-deploybuttonui.png)
+   
+4. 接下来，单击“部署”启动部署进程。 进程运行至完成时，请单击 http://todoapp*XXXX*.azurewebsites.net 链接以浏览部署的应用程序。 
+   
+   ![](./media/app-service-deploy-complex-application-predictably/gettemplate-2-deployprogress.png)
+   
+   首次浏览到 UI 时它的显示会慢些，因为应用刚刚启动，但应确信它是一个功能齐全运行正常的应用程序。
+5. 返回到“部署”页，单击**管理**链接以查看 Azure 门户中的新应用程序。
+6. 在“必备”下拉列表中，单击资源组链接。 还要注意，Web 应用已连接到“外部项目”下的 GitHub 存储库。 
+   
    ![](./media/app-service-deploy-complex-application-predictably/gettemplate-3-portalresourcegroup.png)
+   
 7. 在资源组边栏选项卡中，请注意资源组中已存在两个 Web 应用和一个 SQL 数据库。
 
    ![](./media/app-service-deploy-complex-application-predictably/gettemplate-4-portalresourcegroupclicked.png)
@@ -88,6 +100,7 @@ ms.locfileid: "38939603"
 1. 使用最喜欢的 git 工具克隆 [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) 存储库。 在下面的屏幕截图中，我会在 Visual Studio 2013 的团队资源管理器中执行此操作。
 
    ![](./media/app-service-deploy-complex-application-predictably/examinejson-1-vsclone.png)
+   
 2. 在 Visual Studio 中从存储库根打开 azuredeploy.json。 如果没有看到“JSON 概要”窗格，则需要安装 Azure.NET SDK。
 
    ![](./media/app-service-deploy-complex-application-predictably/examinejson-2-vsjsoneditor.png)
@@ -169,7 +182,7 @@ Web 应用取决于两个不同的资源。 这意味着只有在创建应用服
 请注意，在 `dependsOn` 元素中，除 Web 应用资源本身外，`sourcecontrols/web` 也取决于 `config/appsettings` 和 `config/connectionstrings`。 这是因为一旦配置 `sourcecontrols/web` 后，Azure 部署进程自动尝试部署、构建和启动应用程序代码。 因此，插入此依赖项可帮助你确保在运行应用程序代码之前，应用程序有权访问所需的应用设置和连接字符串。 
 
 > [!NOTE]
-> 另请注意，`IsManualIntegration` 应设置为 `true`。 此属性在本教程中是必需的，由于你实际上并不拥有 GitHub 存储库，因此不能实际授权 Azure 配置从 [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) 的连续发布（即，将自动存储库更新推送到 Azure）。 即使你拥有 GitHub 存储库，在 Azure 中国区也尚不支持设置 GitHub 凭据。
+> 另请注意，`IsManualIntegration` 应设置为 `true`。 此属性在本教程中是必需的，由于你实际上并不拥有 GitHub 存储库，因此不能实际授权 Azure 配置从 [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) 的连续发布（即，将自动存储库更新推送到 Azure）。 只有当之前已在 [Azure 门户](https://portal.azure.cn/)中配置了所有者的 GitHub 凭据时，才可将默认值 `false` 用于指定的存储库。 换言之，如果之前已在 [Azure 门户](https://portal.azure.cn/)中使用用户凭据为任何应用将源代码管理设置到 GitHub，则 Azure 将记住凭据并在将来每当从 GitHub 或 BitBucket 部署任何应用时使用这些凭据。 但是，如果还没有完成此操作，Azure 资源管理器尝试配置 Web 应用的源代码管理设置时 JSON 模板的部署会失败，因为它不能使用存储库所有者的凭据登录到 GitHub。
 > 
 > 
 
@@ -180,14 +193,17 @@ Web 应用取决于两个不同的资源。 这意味着只有在创建应用服
 2. 单击“Visual C#” > “云” > “Azure 资源组”，然后单击“确定”。
 
    ![](./media/app-service-deploy-complex-application-predictably/deploy-1-vsproject.png)
+   
 3. 在“选择 Azure 模板”中，选择“空白模板”，然后单击“确定”。
 4. 将 azuredeploy.json 拖动到新项目的“模板”文件夹。
 
    ![](./media/app-service-deploy-complex-application-predictably/deploy-2-copyjson.png)
+   
 5. 从解决方案资源管理器中打开复制的 azuredeploy.json。
 6. 为方便演示，现在单击“添加资源”，将一些标准 Application Insight 资源添加到 JSON 文件。 如果只对部署 JSON 文件感兴趣，请跳至部署步骤。
 
    ![](./media/app-service-deploy-complex-application-predictably/deploy-3-newresource.png)
+   
 7. 选择“适用于 Web 应用的 Application Insights”，确保选中现有的应用服务计划和 Web 应用，然后单击“添加”。
 
    ![](./media/app-service-deploy-complex-application-predictably/deploy-4-newappinsight.png)
@@ -195,17 +211,21 @@ Web 应用取决于两个不同的资源。 这意味着只有在创建应用服
    现在你能够看到几个新资源在应用服务计划或 Web 应用上具有依赖项，具体取决于该资源及它的作用。 这些资源不由其现有定义启用，而你将要对此进行更改。
 
    ![](./media/app-service-deploy-complex-application-predictably/deploy-5-appinsightresources.png)
+   
 8. 在“JSON 概要”中，单击“appInsights AutoScale”  以突出显示其 JSON 代码。 这是针对应用服务计划的缩放设置。
 9. 在突出显示的 JSON 代码中，找到 `location` 和 `enabled` 属性并对其进行如下设置。
 
    ![](./media/app-service-deploy-complex-application-predictably/deploy-6-autoscalesettings.png)
+   
 10. 在“JSON 概要”中，单击“CPUHigh appInsights”  以突出显示其 JSON 代码。 这是一个警报。
 11. 找到 `location` 和 `isEnabled` 属性并对其进行设置，如下所示。 对其他三个警报（紫色警报）执行相同的操作。
 
     ![](./media/app-service-deploy-complex-application-predictably/deploy-7-alerts.png)
+    
 12. 现在可以开始部署了。 右键单击该项目，然后选择“部署” > “新建部署”。
 
     ![](./media/app-service-deploy-complex-application-predictably/deploy-8-newdeployment.png)
+    
 13. 如果尚未执行该操作，则登录到 Azure 帐户。
 14. 选择订阅中的现有资源组或新建一个资源组，选择“azuredeploy.json”，然后单击“编辑参数”。
 
@@ -214,6 +234,7 @@ Web 应用取决于两个不同的资源。 这意味着只有在创建应用服
     现在你能够在一张不错的表中编辑在模板文件中定义的所有参数。 定义默认值的参数已具有其默认值，并且定义允许值的列表的参数显示为下拉列表。
 
     ![](./media/app-service-deploy-complex-application-predictably/deploy-10-parametereditor.png)
+    
 15. 填写所有空参数，并使用 [repoUrl](https://github.com/azure-appservice-samples/ToDoApp.git) 中的 **ToDoApp 的 GitHub 存储库地址**。 然后，单击“保存”。
 
     ![](./media/app-service-deploy-complex-application-predictably/deploy-11-parametereditorfilled.png)

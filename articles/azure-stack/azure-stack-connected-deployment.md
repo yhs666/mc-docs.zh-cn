@@ -1,5 +1,5 @@
 ---
-title: Azure Stack 集成系统的 Azure 连接型部署决策 | Microsoft Docs
+title: Azure Stack 集成系统的 Azure 连接型部署决策 | Azure
 description: 确定多节点 Azure Stack Azure 连接型部署的部署计划决策。
 services: azure-stack
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/06/2018
-ms.date: 03/01/2018
+origin.date: 08/01/2018
+ms.date: 08/27/2018
 ms.author: v-junlch
 ms.reviewer: wfayed
-ms.openlocfilehash: 2a96b9e57ed4f10dbdde819a516e1700378ae392
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: b238b43ce2d11e9892476dbc607516ac0e47fb8b
+ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
-ms.locfileid: "29731061"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42869548"
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Azure Stack 集成系统的 Azure 连接型部署计划决策
 在决定[如何将 Azure Stack 集成到混合云环境](azure-stack-connection-models.md)后，可以完成 Azure Stack 部署决策。
@@ -40,8 +40,8 @@ ms.locfileid: "29731061"
 
 1. **全局管理员帐户**（仅连接型部署需要） 这种 Azure 帐户用于为 Azure Active Directory 中的 Azure Stack 基础结构服务创建应用程序和服务主体。 此帐户必须拥有 Azure Stack 系统部署时所在目录的管理员权限。 它将成为 Azure AD 租户的“云操作员”全局管理员，可用于以下操作： 
     - 预配和委托应用程序和服务主体，这适用于所有需要与 Azure Active Directory 和图形 API 交互的 Azure Stack 服务。 
-    - 充当服务管理员帐户。 这是默认提供商订阅（可以稍后更改）的所有者。 可以使用此帐户登录到 Azure Stack 管理门户，可以使用它在 Azure Stack 中创建产品/服务和计划、设置配额，以及执行其他管理功能。
-2. **计费帐户**（连接型部署和断开连接型部署都需要）。 此 Azure 帐户用来在 Azure Stack 集成系统和 Azure 商务后端之间建立计费关系。 这是将对其收取 Azure Stack 费用的帐户。 此帐户还可用于 Marketplace 联合和其他混合方案。 
+    - 充当服务管理员帐户。 这是默认提供商订阅（可以稍后更改）的所有者。 可以使用此帐户登录到 Azure Stack 管理门户，可以使用它在 Azure Stack 中创建套餐和计划、设置配额，以及执行其他管理功能。
+2. **计费帐户**（连接型部署和断开连接型部署都需要）。 此 Azure 帐户用来在 Azure Stack 集成系统和 Azure 商务后端之间建立计费关系。 这是将对其收取 Azure Stack 费用的帐户。 此帐户还将用于提供市场中的项目和其他混合方案。 
 
 ### <a name="ad-fs-identity-store"></a>AD FS 标识存储
 如果需要将自己的标识存储（例如公司 Active Directory）用于服务管理员帐户，请选择此选项。  
@@ -65,7 +65,7 @@ ms.locfileid: "29731061"
 ### <a name="capacity-based-billing"></a>按容量计费
 如果决定使用容量计费模型，则必须根据系统的容量购买 Azure Stack 容量计划 SKU。 需要知道 Azure Stack 中的物理核心数才能确保购买的数量是正确的。 
 
-容量计费需要企业协议 (EA) Azure 订阅才能注册。 原因在于，注册会设置联合，而联合则需要 Azure 订阅。 此订阅不适用于 Azure Stack 使用情况。
+容量计费需要企业协议 (EA) Azure 订阅才能注册。 原因是注册设置了市场中项目的可用性，这需要 Azure 订阅。 此订阅不适用于 Azure Stack 使用情况。
 
 ## <a name="learn-more"></a>了解详细信息
 - 有关用例、购买、合作伙伴和 OEM 硬件供应商的信息，请参阅 [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) 产品页。
@@ -74,4 +74,3 @@ ms.locfileid: "29731061"
 
 ## <a name="next-steps"></a>后续步骤
 [数据中心网络集成](azure-stack-network.md)
-

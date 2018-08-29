@@ -1,5 +1,5 @@
 ---
-title: 为 Azure Stack 开发模板 | Microsoft 文档
+title: 为 Azure Stack 开发模板 | Azure
 description: 了解 Azure Stack 模板的最佳做法
 services: azure-stack
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/16/2018
-ms.date: 05/23/2018
+origin.date: 08/15/2018
+ms.date: 08/27/2018
 ms.author: v-junlch
 ms.reviewer: jeffgo
-ms.openlocfilehash: f1209a8cbf2cbcf49b1fd80a8f4ca453471836f2
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: d802634c98060c1f0b8ac9628e5cc802f279b7d4
+ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34474917"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42869501"
 ---
 # <a name="azure-resource-manager-template-considerations"></a>Azure 资源管理器模板注意事项
 
@@ -57,14 +57,14 @@ Azure 服务版本在 Azure 和 Azure Stack 之间可能有所不同。 每个�
 
 Azure 资源管理器[函数](../../azure-resource-manager/resource-group-template-functions.md)提供生成动态模板所需的功能。 例如，可以对如下任务使用函数：
 
-- 连接或修整字符串。
-- 引用其他资源的值。
-- 对资源进行迭代以部署多个实例。
+* 连接或修整字符串。
+* 引用其他资源的值。
+* 对资源进行迭代以部署多个实例。
 
 以下函数在 Azure Stack 中不可用：
 
-- 跳过
-- Take
+* 跳过
+* Take
 
 ## <a name="resource-location"></a>资源位置
 
@@ -85,8 +85,8 @@ Azure 资源管理器[函数](../../azure-resource-manager/resource-group-templa
 
 ## <a name="next-steps"></a>后续步骤
 
-- [通过 PowerShell 部署模板](azure-stack-deploy-template-powershell.md)
-- [使用 Azure CLI 部署模板](azure-stack-deploy-template-command-line.md)
-- [通过 Visual Studio 部署模板](azure-stack-deploy-template-visual-studio.md)
+* [通过 PowerShell 部署模板](azure-stack-deploy-template-powershell.md)
+* [使用 Azure CLI 部署模板](azure-stack-deploy-template-command-line.md)
+* [通过 Visual Studio 部署模板](azure-stack-deploy-template-visual-studio.md)
 
 <!-- Update_Description: wording update -->

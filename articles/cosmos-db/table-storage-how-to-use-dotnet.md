@@ -9,14 +9,14 @@ ms.component: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
 origin.date: 03/14/2018
-ms.date: 07/02/2018
+ms.date: 08/13/2018
 ms.author: v-yeche
-ms.openlocfilehash: ff3c23a1f933d1b2e4317386c6b935296502f325
-ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
+ms.openlocfilehash: f777087f11b3db4215ba7087a9d1a665c72df00b
+ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37070253"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41704709"
 ---
 # <a name="get-started-with-azure-table-storage-using-net"></a>通过 .NET 开始使用 Azure 表存储
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -28,7 +28,7 @@ ms.locfileid: "37070253"
 可以使用表存储来存储灵活的数据集，例如 Web 应用程序的用户数据、通讯簿、设备信息，或者服务需要的其他类型的元数据。 可以在表中存储任意数量的实体，并且一个存储帐户可以包含任意数量的表，直至达到存储帐户的容量极限。
 <!--Not Available on Azure Cosmos DB Table API -->
 
-### <a name="about-this-sample"></a>关于本示例
+### <a name="about-this-sample"></a>关于此示例
 本示例演示如何在常见的 Azure 表存储方案中使用[适用于 .NET 的 Azure CosmosDB 表库](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table)。 该包的名称表示它适合与 Azure Cosmos DB 配合使用，但其实该包也适合与 Azure 表存储配合使用，只不过每个服务具有独特的终结点。 本文使用 C# 探索这些方案，演示如何：<!--Not Available on Azure Cosmos DB Table API -->
 * 创建和删除表
 * 插入、更新和删除行
@@ -40,7 +40,7 @@ ms.locfileid: "37070253"
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 * [适用于 .NET 的 Azure 存储通用库（预览版）](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)。 这是受生产环境支持的必需预览包。 
-<!-- Not Available on [Azure CosmosDB Table Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) -->
+* [适用于 .NET 的 Azure CosmosDB 表库](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table)
 * [适用于 .NET 的 Azure Configuration Manager](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
 * [Azure 存储帐户](../storage/common/storage-create-storage-account.md#create-a-storage-account)
 
@@ -81,7 +81,8 @@ ms.locfileid: "37070253"
 若要完成此示例，需要在项目中引用三个建议使用的包：
 
 * [适用于 .NET 的 Azure 存储通用库（预览版）](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common)。 
-* [用于 .NET 的 Azure Cosmos DB 表库](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table)。 使用此包能够以编程方式访问 Azure 表存储帐户或 Azure Cosmos DB 表 API 帐户中的数据资源。
+* [用于 .NET 的 Azure Cosmos DB 表库](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table)。 使用此包能够以编程方式访问 Azure 表存储帐户中的数据资源。
+<!--Not Available on or Azure Cosmos DB Table API account.-->
 * [适用于 .NET 的 Azure Configuration Manager 库](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)：此包提供用于分析配置文件中连接字符串的类，而不考虑应用程序在何处运行。
 
 可以使用 NuGet 获取这两个包。 执行以下步骤：
@@ -97,7 +98,7 @@ ms.locfileid: "37070253"
 > 
 
 > [!TIP]
-> 已熟悉 Azure 表存储的开发人员过去可能使用了 [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage/) 包。 建议所有新的表应用程序使用 [Azure 存储通用库](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table)和 [Azure Cosmos DB 表库](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table)，但是 WindowsAzure.Storage 包仍受支持。 如果使用 WindowsAzure.Storage 库，请在 using 语句中包括 Microsoft.WindowsAzure.Storage.Table。
+> 已熟悉 Azure 表存储的开发人员过去可能使用了 [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage/) 包。 建议所有新的表应用程序使用 [Azure 存储通用库](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common)和 [Azure Cosmos DB 表库](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table)，但是 WindowsAzure.Storage 包仍受支持。 如果使用 WindowsAzure.Storage 库，请在 using 语句中包括 Microsoft.WindowsAzure.Storage.Table。
 >
 >
 

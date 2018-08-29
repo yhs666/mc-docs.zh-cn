@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
 origin.date: 06/03/2018
-ms.date: 07/30/2018
+ms.date: 08/27/2018
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: c31eb6466431b288ba50c3c2bd6b1385c3b4ebb3
-ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
+ms.openlocfilehash: b20940dfaaf5a5548b544f61ed8652ad60de2d94
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39307248"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42871691"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>有关 Azure IaaS VM 磁盘以及托管和非托管高级磁盘的常见问题解答
 
@@ -68,7 +68,7 @@ ms.locfileid: "39307248"
 
 托管磁盘是否是 Azure 门户中的默认选项？
 
-是的。 
+是的。
 
 是否可以创建一个空托管磁盘？
 
@@ -123,20 +123,28 @@ Azure 托管磁盘当前仅支持本地冗余存储托管磁盘。
 不可以。 无法更新计算机名称属性。 新 VM 从创建操作系统磁盘时所用的父 VM 继承该属性。 
 
 在哪里可找到用于使用托管磁盘创建 VM 的示例 Azure 资源管理器模板？
-* [List of templates using Managed Disks](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list)（使用托管磁盘的模板列表）
+* [List of templates using Managed Disks](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)（使用托管磁盘的模板列表）
 * https://github.com/chagarw/MDPP
 
 是否可以在同一 VM 上归置非托管和托管磁盘？
 
 否。
 
+**基于 blob 创建磁盘时，与该源 blob 之间是否会一直保持任何现有关系？**
+
+否，创建新磁盘时，它是该 blob 在该时间的完整独立副本，两者之间没有联系。 如果你愿意，可以在创建磁盘后删除源 blob，这对新创建的磁盘没有任何影响。
+
+**创建托管或非托管磁盘后，是否可以对其进行重命名？**
+
+对于托管磁盘，无法对其进行重命名。 但是，可以对非托管磁盘进行重命名，只要它当前未附加到 VHD 或 VM。
+
 <!-- Not Available on ## Standard SSD disks (Preview)-->
 
-## <a name="migrate-to-managed-disks"></a>迁移到托管磁盘 
+## <a name="migrate-to-managed-disks"></a>迁移到托管磁盘
 
 迁移到托管磁盘之前/之后，需要在现有的 Azure 备份服务配置中进行哪些更改？
 
-不需要进行任何更改。 
+不需要进行任何更改。
 
 在迁移之前通过 Azure 备份服务创建的 VM 备份是否可继续工作？
 
@@ -144,15 +152,15 @@ Azure 托管磁盘当前仅支持本地冗余存储托管磁盘。
 
 迁移到托管磁盘之前/之后，需要在现有的 Azure 磁盘加密配置中进行哪些更改？
 
-不需要进行任何更改。 
+不需要进行任何更改。
 
 是否支持将现有虚拟机规模集从非托管磁盘自动迁移到托管磁盘？
 
-不可以。 可以使用包含非托管磁盘的旧规模集中的映像创建包含托管磁盘的新规模集。 
+不可以。 可以使用包含非托管磁盘的旧规模集中的映像创建包含托管磁盘的新规模集。
 
 是否可以通过迁移到托管磁盘之前创建的页 Blob 快照创建托管磁盘？
 
-不可以。 可将页 Blob 快照导出为页 Blob，然后从导出的页 Blob 创建托管磁盘。 
+不可以。 可将页 Blob 快照导出为页 Blob，然后从导出的页 Blob 创建托管磁盘。
 
 是否可将 Azure Site Recovery 保护的本地计算机故障转移到包含托管磁盘的 VM？
 
@@ -166,7 +174,7 @@ Azure 托管磁盘当前仅支持本地冗余存储托管磁盘。
 
 是
 
-## <a name="managed-disks-and-storage-service-encryption"></a>托管磁盘和存储服务加密 
+## <a name="managed-disks-and-storage-service-encryption"></a>托管磁盘和存储服务加密
 
 创建托管磁盘时，是否会默认启用 Azure 存储服务加密？
 
