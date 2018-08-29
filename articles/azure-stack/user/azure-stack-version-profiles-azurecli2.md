@@ -1,5 +1,5 @@
 ---
-title: 使用 CLI 连接到 Azure Stack | Microsoft Docs
+title: 使用 CLI 连接到 Azure Stack | Azure
 description: 了解如何使用跨平台命令行接口 (CLI) 管理和部署 Azure Stack 上的资源
 services: azure-stack
 documentationcenter: ''
@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/25/2018
-ms.date: 07/20/2018
+origin.date: 08/15/2018
+ms.date: 08/27/2018
 ms.author: v-junlch
 ms.reviewer: sijuman
-ms.openlocfilehash: 6398cf23d41837683b9915e0a7e714f1d9398476
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.openlocfilehash: 4a76739afc7027725eccb7e4f70d6937b60d8a21
+ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168488"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42869335"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-20-in-azure-stack"></a>在 Azure Stack 中将 API 版本配置文件与 Azure CLI 2.0 配合使用
 
@@ -41,11 +41,11 @@ az --version
 
 2. 在计算机上找到证书位置。 该位置根据 Python 的安装位置而异。 需要安装 [pip](https://pip.pypa.io) 和 [certifi](https://pypi.org/project/certifi/) 模块。 可在 bash 提示符下使用以下 Python 命令：
 
-    ```bash  
+  ```bash  
     python -c "import certifi; print(certifi.where())"
-    ```
+  ```
 
-    记下证书位置。 例如，`~/lib/python3.5/site-packages/certifi/cacert.pem`。 具体的路径取决于安装的 Python 的 OS 和版本。
+  记下证书位置。 例如，`~/lib/python3.5/site-packages/certifi/cacert.pem`。 具体的路径取决于安装的 Python 的 OS 和版本。
 
 ### <a name="set-the-path-for-a-development-machine-inside-the-cloud"></a>设置开发计算机在云中的路径
 
@@ -110,7 +110,7 @@ Write-Host "Python Cert store was updated for allowing the azure stack CA root c
 
 ## <a name="get-the-virtual-machine-aliases-endpoint"></a>获取虚拟机别名终结点
 
-在使用 CLI 创建虚拟机之前，用户必须联系 Azure Stack 运营商，并获取虚拟机别名终结点 URI。 例如，Azure 使用以下 URI：https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json。 云管理员应使用 Azure Stack 市场中提供的映像，为 Azure Stack 设置类似的终结点。 用户需将终结点 URI 传递给 `az cloud register` 命令的 `endpoint-vm-image-alias-doc` 参数，如以下部分所示。 
+在使用 CLI 创建虚拟机之前，用户必须联系 Azure Stack 运营商，并获取虚拟机别名终结点 URI。 例如，Azure 使用以下 URI： https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json。 云管理员应使用 Azure Stack 市场中提供的映像，为 Azure Stack 设置类似的终结点。 用户需将终结点 URI 传递给 `az cloud register` 命令的 `endpoint-vm-image-alias-doc` 参数，如以下部分所示。 
    
 
 ## <a name="connect-to-azure-stack"></a>连接到 Azure Stack
@@ -166,7 +166,7 @@ Write-Host "Python Cert store was updated for allowing the azure stack CA root c
 
 4. 使用 `az login` 命令登录到 Azure Stack 环境。 可以用户身份或以[服务主体](/active-directory/develop/active-directory-application-objects)的形式登录到 Azure Stack 环境。 
 
-   - 以用户身份登录：可以直接在 `az login` 命令中指定用户名和密码，或使用浏览器进行身份验证。 如果帐户已启用多重身份验证，则必须采用后一种方法。
+   * 以用户身份登录：可以直接在 `az login` 命令中指定用户名和密码，或使用浏览器进行身份验证。 如果帐户已启用多重身份验证，则必须采用后一种方法。
 
       ```azurecli
       az login \
@@ -177,7 +177,7 @@ Write-Host "Python Cert store was updated for allowing the azure stack CA root c
       > [!NOTE]
       > 如果用户帐户已启用多重身份验证，则可以使用不带 `-u` 参数的 `az login command` 命令。 运行此命令会提供一个 URL 以及身份验证时必须使用的代码。
    
-   - 以服务主体的形式登录：在登录之前，请通过 [Azure 门户](azure-stack-create-service-principals.md)或 CLI 创建一个服务主体，并为其分配角色。 接下来，使用以下命令登录：
+   * 以服务主体的形式登录：在登录之前，请通过 [Azure 门户](azure-stack-create-service-principals.md)或 CLI 创建一个服务主体，并为其分配角色。 接下来，使用以下命令登录：
 
       ```azurecli
       az login \
@@ -198,7 +198,7 @@ az group create \
 
 如果成功创建了资源组，则上述命令会输出新建资源的以下属性：
 
-![资源组创建输出](./media/azure-stack-connect-cli/image1.png)
+![资源组创建输出](media/azure-stack-connect-cli/image1.png)
 
 ## <a name="known-issues"></a>已知问题
 在 Azure Stack 中使用 CLI 时，必须注意一些已知问题：

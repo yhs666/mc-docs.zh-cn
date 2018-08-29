@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 origin.date: 05/08/2017
-ms.date: 05/28/2018
+ms.date: 08/20/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7da24bc49757e3bb8de80bb2e8da736edfbfab78
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: ac7e86487024e4546288b03a8611448d7aa995a1
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554500"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41705393"
 ---
 # <a name="reliable-collection-object-serialization-in-azure-service-fabric"></a>Azure Service Fabric 中的 Reliable Collection 对象序列化
 Reliable Collections 通过复制和保留项目，确保这些项目在机器故障和电力中断时能够持久。
@@ -57,7 +57,7 @@ Reliable State Manager 拥有针对以下类型的内置串行化程序：
 自定义串行化程序通常用于提高性能，或用于在网络传输时以及在磁盘上加密数据。 除了其他原因外，自定义序列化程序还通常比通用序列化程序更高效，因为它们不需要串行化有关类型的信息。 
 
 <!-- URL is Correct on [IReliableStateManager.TryAddStateSerializer<T>](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer?view=azure-dotnet) -->
-[IReliableStateManager.TryAddStateSerializer<T>](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer?view=azure-dotnet) 用于为给定类型 T 注册自定义串行化程序。此注册应在 StatefulServiceBase 构造内发生，以确保在开始恢复前，所有 Reliable Collections 都有权访问相关串行化程序来读取其保留的数据。
+[IReliableStateManager.TryAddStateSerializer<T>](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer?view=azure-dotnet) 用于为给定类型 T 注册自定义序列化程序。此注册应在 StatefulServiceBase 构造内发生，以确保在开始恢复前，所有可靠集合都有权访问相关序列化程序来读取其保留的数据。
 
 ```csharp
 public StatefulBackendService(StatefulServiceContext context)
