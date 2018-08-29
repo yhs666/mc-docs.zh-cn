@@ -7,15 +7,15 @@ manager: shreeshd
 keywords: azure vm 备份, azure vm 还原, 备份策略
 ms.service: backup
 ms.topic: conceptual
-origin.date: 07/18/2017
-ms.date: 07/06/2018
+origin.date: 08/16/2018
+ms.date: 08/23/2018
 ms.author: v-junlch
-ms.openlocfilehash: e9dde1c6f1ce9e8c684fbd325086bb9b5c11cd40
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.openlocfilehash: 91d2d899a11ead67ae20c25225552414b5c43164
+ms.sourcegitcommit: 85cdb61361dc61147bac991d4907f454f0684ea0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873284"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42709726"
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>有关 Azure VM 备份服务的问题
 本文提供常见问题的解答，有助于快速了解 Azure VM 备份组件。 某些答案提供内含全面信息的文章的链接。 还可以在 [论坛](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)中发布有关 Azure 备份服务的问题。
@@ -74,6 +74,9 @@ ms.locfileid: "37873284"
 2. [将还原的磁盘转换为托管磁盘](tutorial-restore-disk.md#convert-the-restored-disk-to-a-managed-disk)
 3. [使用托管磁盘创建 VM](tutorial-restore-disk.md#create-a-vm-from-the-restored-disk) <br>
 有关 Powershell cmdlet，请参阅[此处](backup-azure-vms-automation.md#restore-an-azure-vm)。
+
+### <a name="can-i-restore-the-vm-if-my-vm-is-deleted"></a>如果我的 VM 被删除，是否可以还原 VM？
+是的。 VM 的生命周期及其相应的备份项是不同的。 因此，即使你删除了 VM，也可以转到恢复服务保管库中的相应备份项，并使用其中一个恢复点触发还原。 
 
 ## <a name="manage-vm-backups"></a>管理 VM 备份
 ### <a name="what-happens-when-i-change-a-backup-policy-on-vms"></a>在 VM 上更改备份策略时，会发生什么情况？

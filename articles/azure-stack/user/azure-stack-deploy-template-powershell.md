@@ -1,5 +1,5 @@
 ---
-title: 在 Azure Stack 中使用 PowerShell 部署模板 | Microsoft Docs
+title: 在 Azure Stack 中使用 PowerShell 部署模板 | Azure
 description: 使用 PowerShell 将模板部署到 Azure Stack。
 services: azure-stack
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/25/2017
-ms.date: 05/23/2018
+origin.date: 08/15/2018
+ms.date: 08/27/2018
 ms.author: v-junlch
 ms.reviewer: ''
-ms.openlocfilehash: 7d3ff30dbac8d31d5e3c84f454af8495ac1b0d63
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 5e6581fd625c6fa456167d8d4f5fe22dc27b1b75
+ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34474912"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42869327"
 ---
 # <a name="deploy-a-template-to-azure-stack-using-powershell"></a>使用 PowerShell 将模板部署到 Azure Stack
 

@@ -1,5 +1,5 @@
 ---
-title: 创建 Azure Stack 的服务主体 | Microsoft Docs
+title: 创建适用于 Azure Stack 的服务主体 | Azure
 description: 介绍了如何创建服务主体，并在 Azure 资源管理器中将此服务主体与基于角色的访问控制配合使用以管理对资源的访问权限。
 services: azure-resource-manager
 documentationcenter: na
@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 06/21/2018
-ms.date: 07/20/2018
+origin.date: 08/15/2018
+ms.date: 08/27/2018
 ms.author: v-junlch
 ms.reviewer: thoroet
-ms.openlocfilehash: c3f42dec57dcae09288884dbbdce500860e22d1a
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.openlocfilehash: f2179b54725005ded04ae6caef50707bfcffef9a
+ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168321"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42869413"
 ---
 # <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>通过创建服务主体向应用程序授予对 Azure Stack 资源的访问权限
 
@@ -30,9 +30,9 @@ ms.locfileid: "39168321"
 
 应当为应用程序使用服务主体，这是一种最佳做法。 与使用自己的凭据运行应用相比，使用服务主体更优，原因如下：
 
-- 可以向服务主体分配不同于自己的帐户权限的权限。 通常情况下，服务主体的权限仅限于应用需执行的确切操作。
-- 角色或职责变化时，无需更改应用的凭据。
-- 运行无人参与的脚本时，可以使用证书自动执行身份验证。
+* 可以向服务主体分配不同于自己的帐户权限的权限。 通常情况下，服务主体的权限仅限于应用需执行的确切操作。
+* 角色或职责变化时，无需更改应用的凭据。
+* 运行无人参与的脚本时，可以使用证书自动执行身份验证。
 
 ## <a name="example-scenario"></a>示例方案
 
@@ -42,14 +42,14 @@ ms.locfileid: "39168321"
 
 使用本文中的步骤作为指南来完成以下任务：
 
-- 为应用创建服务主体。
-- 注册应用并创建身份验证密钥。
-- 将应用分配到某个角色。
+* 为应用创建服务主体。
+* 注册应用并创建身份验证密钥。
+* 将应用分配到某个角色。
 
 你为 Azure Stack 配置 Active Directory 的方式决定了你如何创建服务主体。 选择以下选项之一：
 
-- 创建适用于 [Azure Active Directory (Azure AD)](azure-stack-create-service-principals.md#create-service-principal-for-azure-ad) 的服务主体。
-- 创建适用于 [Active Directory 联合身份验证服务 (AD FS)](azure-stack-create-service-principals.md#create-service-principal-for-ad-fs) 的服务主体。
+* 创建适用于 [Azure Active Directory (Azure AD)](azure-stack-create-service-principals.md#create-service-principal-for-azure-ad) 的服务主体。
+* 创建适用于 [Active Directory 联合身份验证服务 (AD FS)](azure-stack-create-service-principals.md#create-service-principal-for-ad-fs) 的服务主体。
 
 将服务主体分配到角色的步骤对于 Azure AD 和 AD FS 是相同的。 创建服务主体后，可以通过将其分配到某个角色来[委派权限](azure-stack-create-service-principals.md#assign-role-to-service-principal)。
 
@@ -66,7 +66,7 @@ ms.locfileid: "39168321"
 
 1. 通过 [Azure 门户](https://portal.azure.cn)登录到 Azure 帐户。
 2. 选择“Azure Active Directory” > “应用注册” > “添加”。
-3. 为应用提供名称和 URL。 选择“Web 应用/API”或“本机”作为要创建的应用程序的类型。 。
+3. 为应用提供名称和 URL。 选择“Web 应用/API”或“本机”作为要创建的应用程序的类型。 设置这些值后，选择“创建”。
 
 ### <a name="get-credentials"></a>获取凭据
 
@@ -92,9 +92,9 @@ ms.locfileid: "39168321"
 
 如果部署了使用 AD FS 作为标识存储的 Azure Stack，则可以使用 PowerShell 执行以下任务：
 
-- 创建服务主体。
-- 将服务主体分配到某个角色。
-- 使用服务主体的标识进行登录。
+* 创建服务主体。
+* 将服务主体分配到某个角色。
+* 使用服务主体的标识进行登录。
 
 有关如何创建服务主体的详细信息，请参阅[为 AD FS 创建服务主体](../azure-stack-create-service-principals.md#create-service-principal-for-ad-fs)。
 
@@ -130,4 +130,3 @@ ms.locfileid: "39168321"
 ## <a name="next-steps"></a>后续步骤
 
 [管理用户权限](azure-stack-manage-permissions.md)
-

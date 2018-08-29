@@ -1,6 +1,6 @@
 ---
-title: 在 Azure Service Fabric 中保护服务远程处理通信 | Azure
-description: 了解如何保护 Azure Service Fabric 群集中运行的 Reliable Services 的基于服务远程处理的通信。
+title: 在 Azure Service Fabric 中通过 C# 保护服务远程处理通信 | Azure
+description: 了解如何保护 Azure Service Fabric 群集中运行的 C# Reliable Services 的基于服务远程处理的通信。
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
@@ -13,25 +13,25 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 origin.date: 04/20/2017
-ms.date: 05/28/2018
+ms.date: 08/20/2018
 ms.author: v-yeche
-ms.openlocfilehash: 28eeb3a6947bbc3fbb6823126c422e3708e7a9de
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: 097c67e1abc72e6ea175492f29339f2f46a3a871
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554353"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41705400"
 ---
-# <a name="secure-service-remoting-communications-for-a-service"></a>保护服务的服务远程处理通信
+# <a name="secure-service-remoting-communications-in-a-c-service"></a>保护 C# 服务的服务远程处理通信
 > [!div class="op_single_selector"]
 > * [Windows 上的 C#](service-fabric-reliable-services-secure-communication.md)
 > * [Linux 上的 Java](service-fabric-reliable-services-secure-communication-java.md)
 >
 >
 
-安全是通信最为重视的要素之一。 Reliable Services 应用程序框架提供了一些预先生成的通信堆栈和工具供你用来提高安全性。 本文介绍如何在使用服务远程处理时提高安全性。
+安全是通信最为重视的要素之一。 Reliable Services 应用程序框架提供了一些预先生成的通信堆栈和工具供你用来提高安全性。 本文介绍如何在 C# 服务中使用服务远程处理时提高安全性。 它基于现有的[示例](service-fabric-reliable-services-communication-remoting.md)构建，该示例解释了如何为使用 C# 编写的 Reliable Services 设置远程处理。 
 
-我们将使用一个现有[示例](service-fabric-reliable-services-communication-remoting.md)来解释如何为 Reliable Services 设置远程处理。 若要在使用服务远程处理时帮助保护服务，请遵循以下步骤：
+若要在 C# 服务中使用服务远程处理时帮助保护服务，请遵循以下步骤：
 
 1. 创建接口 `IHelloWorldStateful`，用于定义可供服务的远程过程调用使用的方法。 服务将使用 `Microsoft.ServiceFabric.Services.Remoting.FabricTransport.Runtime` 命名空间中声明的 `FabricTransportServiceRemotingListener`。 这是可以提供远程处理功能的 `ICommunicationListener` 实现。
 
@@ -58,7 +58,12 @@ ms.locfileid: "34554353"
     ```
 2. 添加侦听器设置和安全凭据。
 
-    确保要用来帮助保护服务通信的证书安装在群集中的所有节点上。 有两种方式可用于提供侦听器设置和安全凭据：
+    确保要用来帮助保护服务通信的证书安装在群集中的所有节点上。 
+
+    > [!NOTE]
+    > 在 Linux 节点上，该证书必须以 PEM 格式的文件形式存在于 */var/lib/sfcerts* 目录中。 有关详细信息，请参阅 [Linux 节点上的 X.509 证书的位置和格式](./service-fabric-configure-certificates-linux.md#location-and-format-of-x509-certificates-on-linux-nodes)。 
+
+    有两种方式可用于提供侦听器设置和安全凭据：
 
     1. 在服务代码中直接提供：
 
@@ -95,7 +100,7 @@ ms.locfileid: "34554353"
         ```
     2. 使用[配置包](service-fabric-application-and-service-manifests.md)提供：
 
-        在 settings.xml 文件中添加 `TransportSettings` 节。
+       在 settings.xml 文件中添加名为 `TransportSettings` 的节。
 
         ```xml
         <Section Name="HelloWorldStatefulTransportSettings">
@@ -205,4 +210,4 @@ ms.locfileid: "34554353"
     ```
 
 有关后续步骤，请阅读 [Reliable Services 中使用 OWIN 的 Web API](service-fabric-reliable-services-communication-webapi.md)。
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update -->

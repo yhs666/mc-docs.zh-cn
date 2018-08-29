@@ -1,5 +1,5 @@
 ---
-title: 适用于 Azure Stack 的云服务提供商的使用情况报告基础结构 | Microsoft Docs
+title: 适用于 Azure Stack 的云服务提供商的使用情况报告基础结构 | Azure
 description: Azure Stack 包含跟踪由云服务提供商 (CSP) 提供服务的租户的使用情况所需的基础结构，并将使用情况转发到 Azure。
 services: azure-stack
 documentationcenter: ''
@@ -12,15 +12,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/12/2018
-ms.date: 07/20/2018
+ms.date: 08/27/2018
 ms.author: v-junlch
 ms.reviewer: alfredo
-ms.openlocfilehash: 986f414278e0d56e71c4ff9a4be1442e556827d7
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.openlocfilehash: 8c86562b26565ca3b3479c514b1eeb909c47e22b
+ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168248"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42869408"
 ---
 ## <a name="usage-reporting-infrastructure-for-cloud-service-providers"></a>适用于云服务提供商的使用情况报告基础结构
 
@@ -66,7 +66,7 @@ Azure Stack 和 Azure 中的服务计价方式有一些差异。 例如，在 Az
 
 ## <a name="next-steps"></a>后续步骤
 
- - 若要详细了解 CSP 计划，请参阅[云解决方案提供商计划](https://partnercenter.microsoft.com/en-us/partner/programs)。
+ - 若要详细了解 CSP 计划，请参阅[云解决方案提供商计划](https://partner.microsoft.com/solutions/microsoft-cloud-solutions)。
  - 若要详细了解如何从 Azure Stack 检索资源使用情况信息，请参阅 [Azure Stack 中的使用情况和计费](azure-stack-billing-and-chargeback.md)。
 
 <!-- Update_Description: wording update -->

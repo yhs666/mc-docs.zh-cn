@@ -16,12 +16,12 @@ origin.date: 05/10/2018
 ms.date: 05/24/2018
 ms.author: v-junlch
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 51b69002146e032c6cae72b4e4ecfbfd675466ba
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 002ef5ffa1a1514f745dd38ab75fa0aca4edcbf7
+ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475060"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42869390"
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>管理 Azure Stack 的存储容量
 
@@ -39,7 +39,7 @@ ms.locfileid: "34475060"
 - 回收容量
 - 迁移容器
 
-当共享利用率达到 100% 时，不再能够针对该共享运行存储服务。 若要获取共享还原操作的帮助，请联系 Microsoft 支持部门。
+当共享利用率达到 100% 时，不再能够针对该共享运行存储服务。 若要获取共享还原操作的帮助，请联系 Azure 支持部门。
 
 ## <a name="understand-volumes-and-shares-containers-and-disks"></a>了解卷、共享、容器和磁盘
 ### <a name="volumes-and-shares"></a>卷和共享
@@ -96,7 +96,7 @@ VM 磁盘包括操作系统磁盘，由租户添加到容器。 VM 还可能包�
 使用管理员门户时，会收到有关共享空间不足的警报。
 
 > [!IMPORTANT]
-> 云操作员可以避免共享达到用完状态。 当共享利用率达到 100% 时，不再能够针对该共享运行存储服务。 若要在共享利用率达到 100% 时恢复可用空间和执行还原操作，必须联系 Microsoft 支持部门。
+> 云操作员可以避免共享达到用完状态。 当共享利用率达到 100% 时，不再能够针对该共享运行存储服务。 若要在共享利用率达到 100% 时恢复可用空间和执行还原操作，必须联系 Azure 支持部门。
 
 **警告**：当文件共享利用率超过 80% 时，管理员门户中会显示“警告”警报：![示例：警告警报](./media/azure-stack-manage-storage-shares/alert-warning.png)
 
@@ -202,7 +202,7 @@ VM 磁盘包括操作系统磁盘，由租户添加到容器。 VM 还可能包�
 ### <a name="move-vm-disks"></a>移动 VM 磁盘
 *此选项仅适用于多节点部署。*
 
-用于管理空间的最极端方法涉及到移动虚拟机磁盘。 移动附加容器（包含 VM 磁盘的容器）的过程很复杂，请在 Microsoft 支持部门的帮助下完成此操作。
+用于管理空间的最极端方法涉及到移动虚拟机磁盘。 由于移动附加容器（包含 VM 磁盘的容器）的过程很复杂，请在 Azure 支持部门的帮助下完成此操作。
 
 ## <a name="next-steps"></a>后续步骤
 详细了解如何[将虚拟机提供给用户](azure-stack-tutorial-tenant-vm.md)。

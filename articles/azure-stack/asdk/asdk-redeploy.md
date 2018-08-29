@@ -1,5 +1,5 @@
 ---
-title: 重新部署 Azure Stack 开发工具包 (ASDK) | Microsoft Docs
+title: 重新部署 Azure Stack 开发工具包 (ASDK) | Azure
 description: 本文介绍如何重新安装 ASDK。
 services: azure-stack
 documentationcenter: ''
@@ -13,16 +13,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.custom: ''
-origin.date: 06/07/2018
-ms.date: 06/27/2018
+origin.date: 08/01/2018
+ms.date: 08/27/2018
 ms.author: v-junlch
 ms.reviewer: misainat
-ms.openlocfilehash: 7b59a3628e996dfca29650d179bdb5d27dc8036e
-ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
+ms.openlocfilehash: bc5e2ffe29bb77a4492cca6a541fcb1fb4dd810d
+ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37027124"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42869365"
 ---
 # <a name="redeploy-the-asdk"></a>重新部署 ASDK
 本文介绍如何在非生产环境中重新部署 Azure Stack 开发工具包 (ASDK)。 由于不支持 ASDK 升级，因此若要改用较新的版本，需彻底地进行重新部署。 也可随时根据需要从头开始重新部署 ASDK。
@@ -31,7 +31,7 @@ ms.locfileid: "37027124"
 > 不支持将 ASDK 升级到新的版本。 每次需要对较新版的 Azure Stack 进行评估时，需在开发工具包主机上重新部署 ASDK。
 
 ## <a name="remove-azure-registration"></a>删除 Azure 注册 
-如果以前已将 ASDK 安装注册到 Azure，则应在重新部署 ASDK 之前删除注册资源。 重新部署 ASDK 时，请重新注册 ASDK，以便启用市场联合功能。 如果以前未将 ASDK 注册到 Azure 订阅，则可跳过此部分。
+如果以前已将 ASDK 安装注册到 Azure，则应在重新部署 ASDK 之前删除注册资源。 重新部署 ASDK 时，请重新注册 ASDK 以使市场中可以提供项目。 如果以前未将 ASDK 注册到 Azure 订阅，则可跳过此部分。
 
 若要删除注册资源，请使用 **Remove-AzsRegistration** cmdlet 注销 Azure Stack。 然后，使用 **Remove-AzureRMRsourceGroup** cmdlet 从 Azure 订阅中删除 Azure Stack 资源组：
 
@@ -39,29 +39,32 @@ ms.locfileid: "37027124"
 
 2. 运行以下 PowerShell 命令，注销 ASDK 安装并从 Azure 订阅中删除 **azurestack** 资源组：
 
-    ```Powershell    
-    #Import the registration module that was downloaded with the GitHub tools
-    Import-Module C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1
+  ```Powershell    
+  #Import the registration module that was downloaded with the GitHub tools
+  Import-Module C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1
 
-    # Provide Azure subscription admin credentials
-    Add-AzureRmAccount -EnvironmentName AzureChinaCloud
+  # Provide Azure subscription admin credentials
+  Add-AzureRmAccount -EnvironmentName AzureChinaCloud
 
-    # Provide ASDK admin credentials
-    $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the cloud domain credentials to access the privileged endpoint"
+  # Provide ASDK admin credentials
+  $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the cloud domain credentials to access the privileged endpoint"
 
-    # Unregister Azure Stack
-    Remove-AzsRegistration `
-        -PrivilegedEndpointCredential $CloudAdminCred `
-        -PrivilegedEndpoint AzS-ERCS01
+  # Unregister Azure Stack
+  Remove-AzsRegistration `
+      -PrivilegedEndpointCredential $CloudAdminCred `
+      -PrivilegedEndpoint AzS-ERCS01
 
-    # Remove the Azure Stack resource group
-    Remove-AzureRmResourceGroup -Name azurestack -Force
-    ```
+  # Remove the Azure Stack resource group
+  Remove-AzureRmResourceGroup -Name azurestack -Force
+  ```
 
 3. 当脚本运行时，系统会提示你登录 Azure 订阅和本地 ASDK 安装。
 4. 脚本完成后，会看到与以下示例类似的消息：
 
-    ` De-Activating Azure Stack (this may take up to 10 minutes to complete).` ` Your environment is now unable to syndicate items and is no longer reporting usage data.` ` Remove registration resource from Azure...` ` "Deleting the resource..." on target "/subscriptions/<subscription information>"` ` ********** End Log: Remove-AzsRegistration ********* `
+    ` De-Activating Azure Stack (this may take up to 10 minutes to complete).` ` Your environment is now unable to syndicate items and is no longer reporting usage data.`
+    ` Remove registration resource from Azure...`
+    ` "Deleting the resource..." on target "/subscriptions/<subscription information>"`
+    ` ********** End Log: Remove-AzsRegistration ********* `
 
 
 
@@ -73,11 +76,11 @@ ms.locfileid: "37027124"
 ### <a name="redeploy-the-asdk-using-the-installer-script"></a>使用安装程序脚本重新部署 ASDK
 1. 在 ASDK 计算机上打开提升了权限的 PowerShell 控制台，导航到非系统驱动器上 **AzureStack_Installer** 目录中的 asdk-installer.ps1 脚本。 运行脚本，然后单击“重启”。
 
-   ![运行 asdk-installer.ps1 脚本](./media/asdk-redeploy/1.png)
+   ![运行 asdk-installer.ps1 脚本](media/asdk-redeploy/1.png)
 
 2. 选择基础操作系统（非 **Azure Stack**），然后单击“下一步”。
 
-   ![重启到主机操作系统中](./media/asdk-redeploy/2.png)
+   ![重启到主机操作系统中](media/asdk-redeploy/2.png)
 
 3. 在开发工具包主机重启到基本操作系统中以后，以本地管理员身份登录。 找到并删除先前的部署过程中使用过的 **C:\CloudBuilder.vhdx** 文件。 
 
@@ -88,7 +91,7 @@ ms.locfileid: "37027124"
 
 1. 在 ASDK 计算机上运行 **msconfig.exe**，以便启动系统配置实用程序。 在“启动”选项卡上选择主机操作系统（不是 Azure Stack），单击“设置为默认值”，然后单击“确定”。 出现提示时单击“重启”。
 
-      ![设置启动配置](./media/asdk-redeploy/4.png)
+      ![设置启动配置](media/asdk-redeploy/4.png)
 
 2. 在开发工具包主机重启到基本操作系统中以后，以开发工具包主机本地管理员身份登录。 找到并删除先前的部署过程中使用过的 **C:\CloudBuilder.vhdx** 文件。 
 
@@ -97,7 +100,6 @@ ms.locfileid: "37027124"
 
 ## <a name="next-steps"></a>后续步骤
 [安装 ASDK 后的配置任务](asdk-post-deploy.md)
-
 
 
 

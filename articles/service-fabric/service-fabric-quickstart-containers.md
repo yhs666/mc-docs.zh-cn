@@ -1,5 +1,5 @@
 ---
-title: 创建 Azure Service Fabric Windows 容器应用程序 | Azure
+title: 在 Azure 中的 Service Fabric 上创建 Windows 容器应用 | Azure
 description: 在本快速入门中，请在 Azure Service Fabric 上创建第一个 Windows 容器应用程序。
 services: service-fabric
 documentationcenter: .net
@@ -13,22 +13,23 @@ ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 04/30/2018
-ms.date: 05/28/2018
+ms.date: 08/20/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: c1cd385a4e886c38a1ec8005e0dbd7a36437400a
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: 4d571c0a0ada48db9d7d05327da94d4d4c016d3f
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554283"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41703867"
 ---
-# <a name="quickstart-deploy-a-service-fabric-windows-container-application-on-azure"></a>快速入门：在 Azure 上部署 Service Fabric Windows 容器应用程序
-Azure Service Fabric 是一款分布式系统平台，可用于部署和管理可缩放的可靠微服务和容器。 
+# <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>快速入门：将 Windows 容器部署到 Service Fabric
+
+Azure Service Fabric 是一款分布式系统平台，可用于部署和管理可缩放的可靠微服务和容器。
 
 在 Service Fabric 群集上运行 Windows 容器中的现有应用程序不需要对应用程序进行任何更改。 本快速入门介绍如何在 Service Fabric 应用程序中部署预建的 Docker 容器映像。 完成后，你会有一个正在运行的 Windows Server 2016 Nano Server 和 IIS 容器。 本快速入门介绍如何部署 Windows 容器。若要部署 Linux 容器，请阅读[此快速入门](service-fabric-quickstart-containers-linux.md)。
 
-![iis-default][iis-default]
+![IIS 默认网页][iis-default]
 
 此快速入门介绍如何：
 
@@ -38,12 +39,14 @@ Azure Service Fabric 是一款分布式系统平台，可用于部署和管理�
 * 将容器应用程序部署到 Azure
 
 ## <a name="prerequisites"></a>先决条件
+
 * 一个 Azure 订阅（可以创建[试用帐户](https://www.azure.cn/pricing/1rmb-trial)）。
 * 一台运行以下软件的开发计算机：
   * Visual Studio 2015 或 Visual Studio 2017。
   * [Service Fabric SDK 和工具](service-fabric-get-started.md)。
 
 ## <a name="package-a-docker-image-container-with-visual-studio"></a>使用 Visual Studio 打包 Docker 映像容器
+
 Service Fabric SDK 和工具提供服务模板，用于将容器部署到 Service Fabric 群集。
 
 以“管理员”身份启动 Visual Studio。  选择“文件” > “新建” > “项目”。
@@ -52,7 +55,7 @@ Service Fabric SDK 和工具提供服务模板，用于将容器部署到 Servic
 
 从“托管的容器和应用程序”模板中选择“容器”。
 
-在“映像名称”中输入“microsoft/iis:nanoserver”，即 [Windows Server Nano Server 和 IIS 基映像](https://hub.docker.com/r/microsoft/iis/)。 
+在“映像名称”中输入“microsoft/iis:nanoserver”，即 [Windows Server Nano Server 和 IIS 基映像](https://hub.docker.com/r/microsoft/iis/)。
 
 配置容器的“端口到主机”端口映射，使端口 80 上针对服务的传入请求映射到容器上的端口 80。  将“容器端口”设置为“80”并将“主机端口”设置为“80”。  
 
@@ -60,17 +63,56 @@ Service Fabric SDK 和工具提供服务模板，用于将容器部署到 Servic
 
 ![新服务对话框][new-service]
 
+## <a name="specify-the-os-build-for-your-container-image"></a>为容器映像指定 OS 版本
+使用特定 Windows Server 版本生成的容器可能无法在运行不同 Windows Server 版本的主机上运行。 例如，使用 Windows Server 版本 1709 生成的容器不会在运行 Windows Server 2016 的主机上运行。 若要了解更多信息，请参阅 [Windows Server 容器 OS 与主机 OS 的兼容性](service-fabric-get-started-containers.md#windows-server-container-os-and-host-os-compatibility)。 
+
+使用 Service Fabric 运行时版本 6.1 及更新版本，可以为每个容器指定多个 OS 映像，并使用它应该部署到的 OS 的内部版本来标记每个 OS 映像。 这有助于确保应用程序能够在运行不同版本 Windows 操作系统的主机上运行。 若要了解详细信息，请参阅[指定特定于 OS 内部版本的容器映像](service-fabric-get-started-containers.md#specify-os-build-specific-container-images)。 
+
+Azure 为不同版本的 Windows Server 上生成的 IIS 版本发布不同的映像。 若要确保 Service Fabric 部署的容器与在部署应用程序的群集节点上运行的 Windows Server 版本兼容，请将以下行添加到 *ApplicationManifest.xml* 文件。 Windows Server 2016 的内部版本为 14393，Windows Server 版本 1709 的内部版本为 16299。 
+
+```xml
+    <ContainerHostPolicies CodePackageRef="Code"> 
+      <ImageOverrides> 
+        ...
+          <Image Name="microsoft/iis:nanoserverDefault" /> 
+          <Image Name= "microsoft/iis:nanoserver" Os="14393" /> 
+          <Image Name="microsoft/iis:windowsservercore-1709" Os="16299" /> 
+      </ImageOverrides> 
+    </ContainerHostPolicies> 
+```
+
+服务清单继续为 nanoserver (`microsoft/iis:nanoserver`) 只指定一个映像。 
+
 ## <a name="create-a-cluster"></a>创建群集
-若要将应用程序部署到 Azure 中的群集，可[在 Azure 上创建自己的群集](service-fabric-tutorial-create-vnet-and-windows-cluster.md)。
-<!-- Notice: follow the previous code due to there is no party service fabric in china-->
-<!-- Not Avaiable on Party clusters -->
+
+若要将应用程序部署到 Azure 中的群集，该群集将使用单个自签名证书来确保节点到节点和客户端到节点的安全性。 如果决定设置并使用自己的群集，该群集必须在支持容器的 SKU（例如，包含容器的 Windows Server 2016 Datacenter）上运行。
+
+<!-- Not Available on Join Party-->
+<!-- Not Available on [join a Windows cluster](http://aka.ms/tryservicefabric)-->
+
+在 Windows 计算机上，将 PFX 安装到 *CurrentUser\My* 证书存储中。
+
+```powershell
+PS C:\mycertificates> Import-PfxCertificate -FilePath .\party-cluster-873689604-client-cert.pfx -CertStoreLocation Cert:\CurrentUser\My -Password (ConvertTo-SecureString 873689604 -AsPlainText -Force)
+
+  PSParentPath: Microsoft.PowerShell.Security\Certificate::CurrentUser\My
+
+Thumbprint                                Subject
+----------                                -------
+3B138D84C077C292579BA35E4410634E164075CD  CN=zwin7fh14scd.chinanorth.cloudapp.chinacloudapi.cn
+```
+
+请记住以下步骤的指纹。
+
 ## <a name="deploy-the-application-to-azure-using-visual-studio"></a>使用 Visual Studio 将应用程序部署到 Azure
+
 至此，应用程序已准备就绪，可以直接通过 Visual Studio 将它部署到群集了。
 
 在解决方案资源管理器中右键单击“MyFirstContainer”，选择“发布”。 此时，“发布”对话框显示。
 
-将 Party 群集页面中的“连接终结点”复制到“连接终结点”字段。 例如，`zwin7fh14scd.chinanorth.cloudapp.chinacloudapi.cn:19000`。
-<!-- Not Avaiable on Click **Advanced Connection Parameters** and fill in the following information.  *FindValue* and *ServerCertThumbprint* values must match the thumbprint of the certificate installed in the previous step. -->
+将 Party 群集页面中的“连接终结点”复制到“连接终结点”字段。 例如，`zwin7fh14scd.chinanorth.cloudapp.chinacloudapi.cn:19000`。 单击“高级连接参数”，验证连接参数信息。  *FindValue* 和 *ServerCertThumbprint* 值必须与前一步骤中安装的证书的指纹匹配。
+
+![“发布”对话框](./media/service-fabric-quickstart-containers/publish-app.png)
 
 单击“发布”。
 
@@ -78,92 +120,8 @@ Service Fabric SDK 和工具提供服务模板，用于将容器部署到 Servic
 
 打开浏览器并导航到“合作群集”页中指定的“连接终结点”。 可以选择性地在 URL 的前面添加方案标识符 `http://`，并在后面追加端口 `:80`。 例如，http://zwin7fh14scd.chinanorth.cloudapp.chinacloudapi.cn:80。 此时会看到 IIS 默认网页：![IIS 默认网页][iis-default]
 
-## <a name="complete-example-service-fabric-application-and-service-manifests"></a>Service Fabric 应用程序和服务清单的完整示例
-以下是用在本快速入门中的完整服务和应用程序清单。
-
-### <a name="servicemanifestxml"></a>ServiceManifest.xml
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<ServiceManifest Name="MyContainerServicePkg"
-                 Version="1.0.0"
-                 xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <ServiceTypes>
-    <!-- This is the name of your ServiceType.
-         The UseImplicitHost attribute indicates this is a guest service. -->
-    <StatelessServiceType ServiceTypeName="MyContainerServiceType" UseImplicitHost="true" />
-  </ServiceTypes>
-
-  <!-- Code package is your service executable. -->
-  <CodePackage Name="Code" Version="1.0.0">
-    <EntryPoint>
-      <!-- Follow this link for more information about deploying Windows containers to Service Fabric: https://aka.ms/sfguestcontainers -->
-      <ContainerHost>
-        <ImageName>microsoft/iis:nanoserver</ImageName>
-      </ContainerHost>
-    </EntryPoint>
-    <!-- Pass environment variables to your container: -->
-    <!--
-    <EnvironmentVariables>
-      <EnvironmentVariable Name="VariableName" Value="VariableValue"/>
-    </EnvironmentVariables>
-    -->
-  </CodePackage>
-
-  <!-- Config package is the contents of the Config directoy under PackageRoot that contains an 
-       independently-updateable and versioned set of custom configuration settings for your service. -->
-  <ConfigPackage Name="Config" Version="1.0.0" />
-
-  <Resources>
-    <Endpoints>
-      <!-- This endpoint is used by the communication listener to obtain the port on which to 
-           listen. Please note that if your service is partitioned, this port is shared with 
-           replicas of different partitions that are placed in your code. -->
-      <Endpoint Name="MyContainerServiceTypeEndpoint" UriScheme="http" Port="80" Protocol="http"/>
-    </Endpoints>
-  </Resources>
-</ServiceManifest>
-```
-### <a name="applicationmanifestxml"></a>ApplicationManifest.xml
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<ApplicationManifest ApplicationTypeName="MyFirstContainerType"
-                     ApplicationTypeVersion="1.0.0"
-                     xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <Parameters>
-    <Parameter Name="MyContainerService_InstanceCount" DefaultValue="-1" />
-  </Parameters>
-  <!-- Import the ServiceManifest from the ServicePackage. The ServiceManifestName and ServiceManifestVersion 
-       should match the Name and Version attributes of the ServiceManifest element defined in the 
-       ServiceManifest.xml file. -->
-  <ServiceManifestImport>
-    <ServiceManifestRef ServiceManifestName="MyContainerServicePkg" ServiceManifestVersion="1.0.0" />
-    <ConfigOverrides />
-    <Policies>
-      <ContainerHostPolicies CodePackageRef="Code">
-        <PortBinding ContainerPort="80" EndpointRef="MyContainerServiceTypeEndpoint"/>
-      </ContainerHostPolicies>
-    </Policies>
-  </ServiceManifestImport>
-  <DefaultServices>
-    <!-- The section below creates instances of service types, when an instance of this 
-         application type is created. You can also create one or more instances of service type using the 
-         ServiceFabric PowerShell module.
-
-         The attribute ServiceTypeName below must match the name defined in the imported ServiceManifest.xml file. -->
-    <Service Name="MyContainerService" ServicePackageActivationMode="ExclusiveProcess">
-      <StatelessService ServiceTypeName="MyContainerServiceType" InstanceCount="[MyContainerService_InstanceCount]">
-        <SingletonPartition />
-      </StatelessService>
-    </Service>
-  </DefaultServices>
-</ApplicationManifest>
-```
-
 ## <a name="next-steps"></a>后续步骤
+
 在此快速入门中，读者学习了如何：
 
 * 打包 Docker 映像容器

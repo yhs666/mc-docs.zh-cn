@@ -2,19 +2,20 @@
 title: 如何在 Azure Database for MySQL 中还原服务器
 description: 本文介绍如何使用 Azure 门户在 Azure Database for MySQL 中还原服务器。
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
-manager: kfile
+author: WenJason
+ms.author: v-jay
+manager: digimobile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
-ms.date: 06/16/2018
-ms.openlocfilehash: 72206363a7819b66887ad6c13cdd5924d99bf375
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+origin.date: 04/01/2018
+ms.date: 08/27/2018
+ms.openlocfilehash: 38b57ea16ae8f918b6d6a1bcc254bb37bea7bd5c
+ms.sourcegitcommit: 6dd65fba579a2ce25c63ac69ff3b71d814a9d256
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873454"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42703850"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-portal"></a>如何使用 Azure 门户在 Azure Database for MySQL 中备份和还原服务器
 
@@ -30,7 +31,13 @@ Azure Database for MySQL 服务器定期进行备份以便启用还原功能。 
 
 ## <a name="set-backup-configuration"></a>设置备份配置
 
-通过 Azure 门户创建服务器时，请在“定价层”窗口中选择“备份保留期”- 希望存储服务器备份多长时间（天数）。
+创建服务器时，可以在“定价层”窗口中选择将服务器配置为进行本地冗余备份或异地冗余备份。
+
+> [!NOTE]
+> 创建服务器后，无法在异地冗余或本地冗余之间切换服务器冗余类型。
+>
+
+通过 Azure 门户创建服务器时，在“定价层”窗口中为服务器选择是进行**本地冗余**备份还是**异地冗余**备份。 也在此窗口中选择“备份保留期” - 希望存储服务器备份多长时间（天数）。
 
    ![定价层 - 选择备份冗余](./media/howto-restore-server-portal/pricing-tier.png)
 
@@ -73,6 +80,26 @@ Azure Database for MySQL 服务器定期进行备份以便启用还原功能。 
 
 >[!Note]
 >请注意，通过时间点还原创建的新服务器具有在所选时间点对现有服务器有效的相同服务器管理员登录名和密码。 可以从新服务器的“概述”页更改密码。
+
+## <a name="geo-restore"></a>异地还原
+如果为服务器配置了异地冗余备份，则可以从该现有服务器的备份创建新服务器。 可以在 Azure Database for MySQL 可用的任何区域中创建此新服务器。  
+
+1. 选择门户左上角的“创建资源”按钮 (+)。 在搜索框中键入 **Azure Database for MySQL** 以查找该服务。
+
+   ![“Azure Database for MySQL”选项](./media/howto-restore-server-portal/2_navigate-to-mysql.png)
+
+2. 在窗体的“选择源”下拉列表中，选择“备份”。 此操作将加载已启用异地冗余备份的服务器列表。 选择这些备份之一作为新服务器的源。
+   ![选择源：备份和异地冗余备份的列表](./media/howto-restore-server-portal/2-georestore.png)
+
+   > [!NOTE]
+   > 首次创建服务器时，该服务器可能不会立即可用于异地还原。 填充必需的元数据可能需要几个小时。
+   >
+
+3. 根据需要填写窗体的其余部分。 可以选择任意**位置**。 选择位置后，可以选择**定价层**。 默认情况下将显示要从中还原的现有服务器的参数。 可以单击“确定”，以不进行任何更改继承这些设置。 也可以更改**计算的代**（如果在所选区域中可用）、**vCore** 数、**备份保留期**和**备份冗余选项**。 不支持在还原过程中更改**定价层**（“基本”、“常规用途”或“内存优化”）或**存储**大小。
+
+>[!Note]
+>通过异地还原创建的新服务器具有在启动还原时对现有服务器有效的相同服务器管理员登录名和密码。 可以从新服务器的“概述”页更改密码。
+
 
 ## <a name="next-steps"></a>后续步骤
 - 详细了解服务的[备份](concepts-backup.md)。

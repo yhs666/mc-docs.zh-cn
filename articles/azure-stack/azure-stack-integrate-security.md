@@ -1,99 +1,305 @@
 ---
-title: Azure Stack 数据中心集成 - 安全性
-description: 了解如何将 Azure Stack 安全性与数据中心安全性集成
+title: Azure Stack Syslog 转发
+description: 了解如何通过 Syslog 转发将 Azure Stack 与监视解决方案集成
 services: azure-stack
 author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-origin.date: 02/28/2018
-ms.date: 03/26/2018
+origin.date: 08/14/2018
+ms.date: 08/27/2018
 ms.author: v-junlch
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: c6f7c929ce8d9ce1a59e45ac1a0c97f1627b7405
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: dab8b2467783c9e75a9e2321210edb6a4e949b67
+ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30222477"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42869549"
 ---
-# <a name="azure-stack-datacenter-integration---security"></a>Azure Stack 数据中心集成 - 安全性
-Azure Stack 在设计和构建时已将安全性考虑进去。 Azure Stack 是锁定的系统，因此不支持安装软件安全代理。
+# <a name="azure-stack-datacenter-integration---syslog-forwarding"></a>Azure Stack 数据中心集成 - Syslog 转发
 
-本文帮助你将 Azure Stack 的安全功能与数据中心内已部署的安全解决方案相集成。
+本文介绍如何使用 Syslog 将 Azure Stack 基础结构与已经部署在数据中心的外部安全解决方案集成。 例如，安全信息和事件管理 (SIEM) 系统。 Syslog 通道会公开由 Azure Stack 基础结构的所有组件提供的审核、警报和安全日志。 使用 Syslog 转发可以与安全监视解决方案集成，并且/或者可以检索所有审核、警报和安全日志，将其以存储方式保留。 
 
-## <a name="security-logs"></a>安全日志
+从 1805 更新开始，Azure Stack 有了一个集成的 Syslog 客户端，该客户端在配置后可以通过通用事件格式 (CEF) 的有效负载发出 Syslog 消息。 
 
-Azure Stack 每隔两分钟收集一次基础结构角色和缩放单位节点的操作系统和安全事件。 这些日志存储在存储帐户 Blob 容器中。
+> [!IMPORTANT]
+> Syslog 转发为预览版。 在生产环境中不应该依赖此功能。 
 
-每个基础结构角色都有一个存储帐户，所有典型的操作系统事件也有一个常规存储帐户。
+下图显示了参与 Syslog 集成的主要组件。
 
-运行状况资源提供程序可通过 REST 协议调用，将 URL 检索到 Blob 容器。 第三方安全解决方案可以使用 API 和存储帐户来检索事件以供处理。
+![Syslog 转发图](media/azure-stack-integrate-security/syslog-forwarding.png)
 
-### <a name="use-azure-storage-explorer-to-view-events"></a>使用 Azure 存储资源管理器查看事件
+## <a name="configuring-syslog-forwarding"></a>配置 Syslog 转发
 
-可以使用名为“Azure 存储资源管理器”的工具来检索 Azure Stack 收集的事件。 可从 [http://storageexplorer.com](http://storageexplorer.com) 下载 Azure 存储资源管理器。
+Azure Stack 中的 Syslog 客户端支持以下配置：
 
-以下过程示例可用于配置 Azure Stack 的 Azure 存储资源管理器：
+1. **基于 TCP 的 Syslog，支持相互身份验证（客户端和服务器）和 TLS 1.2 加密：** 在此配置中，Syslog 服务器和 Syslog 客户端都可以通过证书验证彼此的标识。 消息通过 TLS 1.2 加密的通道发送。
 
-1. 以操作员身份登录 Azure Stack 管理员门户。
-2. 浏览“存储帐户”，并找到 **frphealthaccount**。 **frphealthaccount** 帐户是用于存储所有操作系统事件的常规存储帐户。
+2. **基于 TCP 的 Syslog，支持服务器身份验证和 TLS 1.2 加密：** 在此配置中，Syslog 客户端可以通过证书验证 Syslog 服务器的标识。 消息通过 TLS 1.2 加密的通道发送。
 
-   ![存储帐户](./media/azure-stack-integrate-security/storage-accounts.png)
+3. **基于 TCP 的 Syslog，不加密：** 在此配置中，Syslog 客户端和 Syslog 服务器均不验证彼此的标识。 消息通过 TCP 以明文形式发送。
 
-3. 选择“frphealthaccount”，单击“访问密钥”。
+4. **基于 UDP 的 Syslog，不加密：** 在此配置中，Syslog 客户端和 Syslog 服务器均不验证彼此的标识。 消息通过 UDP 以明文形式发送。
 
-   ![访问密钥](./media/azure-stack-integrate-security/access-keys.png)
+> [!IMPORTANT]
+> 强烈建议将支持身份验证和加密（配置 1，或者至少为配置 2）的 TCP 用于生产环境，防范人为干预攻击和消息窃听。
 
-4. 将访问密钥复制到剪贴板。
-5. 打开 Azure 存储资源管理器。
-6. 在“编辑”菜单中，选择“目标 Azure Stack”。
-7. 选择“添加帐户”，然后选择“使用存储帐户名和密钥”。
+### <a name="cmdlets-to-configure-syslog-forwarding"></a>用于配置 Syslog 转发的 cmdlet
+配置 Syslog 转发需要访问特权终结点 (PEP)。 已将两个 PowerShell cmdlet 添加到 PEP 来配置 Syslog 转发：
 
-   ![连接存储](./media/azure-stack-integrate-security/connect-storage.png)
 
-8. 单击“下一步”。
-9. 在“附加外部存储”页上：
+```powershell
+### cmdlet to pass the syslog server information to the client and to configure the transport protocol, the encryption and the authentication between the client and the server
 
-   a. 键入帐户名称 **frphealthaccount**。
+Set-SyslogServer [-ServerName <String>] [-NoEncryption] [-SkipCertificateCheck] [-SkipCNCheck] [-UseUDP] [-Remove]
 
-   b. 粘贴存储帐户访问密钥。
+### cmdlet to configure the certificate for the syslog client to authenticate with the server
 
-   c. 在“存储终结点域”下选择“其他”，并指定存储终结点的 **[区域].[域名]**。
+Set-SyslogClient [-pfxBinary <Byte[]>] [-CertPassword <SecureString>] [-RemoveCertificate] 
+```
+#### <a name="cmdlets-parameters"></a>cmdlet 参数
 
-   d.单击“验证存储凭据”以验证存储帐户。 选中“使用 HTTP”复选框。
+*Set-SyslogServer* cmdlet 的参数：
 
-   ![附加外部存储](./media/azure-stack-integrate-security/attach-storage.png)
+| 参数 | 说明 | 类型 |
+|---------|---------| ---------|
+| *ServerName* | Syslog 服务器的 FQDN 或 IP 地址 | String |
+|*NoEncryption*| 强制客户端以明文形式发送 Syslog 消息 | 标志 | 
+|*SkipCertificateCheck*| 在 TLS 初次握手期间跳过对 Syslog 服务器所提供证书的验证 | 标志 |
+|*SkipCNCheck*| 在 TLS 初次握手期间跳过对 Syslog 服务器所提供证书的“公用名称”值的验证 | 标志 |
+|*UseUDP*| 使用 Syslog 时将 UDP 用作传输协议 |标志 |
+|*Remove*| 从客户端删除服务器的配置并停止 Syslog 转发| 标志 |
 
-10. 单击“下一步”、查看摘要，然后**完成**向导。
-11. 现在可以浏览各个 Blob 容器并下载事件。
+*Set-SyslogClient* cmdlet 的参数：
+| 参数 | 说明 | 类型 |
+|---------|---------| ---------|
+| *pfxBinary* | pfx 文件，其中包含的证书可供客户端用作对 Syslog 服务器进行身份验证的标识  | Byte[] |
+| *CertPassword* |  密码，用于导入与 pfx 文件关联的私钥 | SecureString |
+|*RemoveCertificate* | 从客户端删除证书 | 标志|
 
-   ![浏览 Blob](./media/azure-stack-integrate-security/browse-blob.png)
+### <a name="configuring-syslog-forwarding-with-tcp-mutual-authentication-and-tls-12-encryption"></a>使用 TCP、相互身份验证和 TLS 1.2 加密配置 Syslog 转发
 
-### <a name="use-programming-languages-to-access-events"></a>使用编程语言访问事件
+在此配置中，Azure Stack 中的 Syslog 客户端使用 TLS 1.2 加密将消息通过 TCP 转发到 Syslog 服务器。 在初次握手期间，客户端会验证服务器是否提供了有效且可信的证书；类似地，客户端也会向服务器提供证书来证明其身份。 此配置是最安全的，因为它对客户端和服务器的标识都进行了完整的验证，且消息也是通过加密的通道发送。 
 
-可以使用各种编程语言来访问存储帐户。 使用以下文档选择与语言匹配的示例：
+> [!IMPORTANT]
+> 强烈建议将此配置用于生产环境。 
 
-[https://azure.microsoft.com/resources/samples/?term=storage+account](https://azure.microsoft.com/resources/samples/?term=storage+account)
+若要使用 TCP、相互身份验证和 TLS 1.2 加密配置 Syslog 转发，请运行下述两个 cmdlet：
+```powershell
+# Configure the server
+Set-SyslogServer -ServerName <FQDN or ip address of syslog server>
 
-## <a name="device-access-auditing"></a>设备访问审核
+# Provide certificate to the client to authenticate against the server
+Set-SyslogClient -pfxBinary <Byte[] of pfx file> -CertPassword <SecureString, password for accessing the pfx file>
+```
+客户端证书的根必须与部署 Azure Stack 期间提供的根相同。 它还必须包含私钥。
 
-Azure Stack 中的所有物理设备都支持使用 TACACS 或 RADIUS。 这包括访问基板管理控制器 (BMC) 和网络交换机。
+```powershell
+##Example on how to set your syslog client with the ceritificate for mutual authentication. 
+##Run these cmdlets from your hardware lifecycle host or privileged access workstation.
 
-Azure Stack 解决方案在推出时并未内置 RADIUS 或 TACACS。 但是，经验证，这些解决方案支持使用市面上现有的 RADIUS 或 TACACS 解决方案。
+$ErcsNodeName = "<yourPEP>"
+$password = ConvertTo-SecureString -String "<your cloudAdmin account password" -AsPlainText -Force
+ 
+$cloudAdmin = "<your cloudAdmin account name>"
+$CloudAdminCred = New-Object System.Management.Automation.PSCredential ($cloudAdmin, $password)
+ 
+$certPassword = $password
+$certContent = Get-Content -Path C:\cert\<yourClientCertificate>.pfx -Encoding Byte
+ 
+$params = @{ 
+    ComputerName = $ErcsNodeName 
+    Credential = $CloudAdminCred 
+    ConfigurationName = "PrivilegedEndpoint" 
+}
 
-对于 RADIUS，只有 MSCHAPv2 经过了验证。 它代表使用 RADIUS 的最安全实现。
-请咨询 OEM 硬件供应商，在 Azure Stack 解决方案包含的设备中启用 TACAS 或 RADIUS。
+$session = New-PSSession @params
+ 
+$params = @{ 
+    Session = $session 
+    ArgumentList = @($certContent, $certPassword) 
+}
+Write-Verbose "Invoking cmdlet to set syslog client certificate..." -Verbose 
+Invoke-Command @params -ScriptBlock { 
+    param($CertContent, $CertPassword) 
+    Set-SyslogClient -PfxBinary $CertContent -CertPassword $CertPassword 
+```
 
-## <a name="syslog"></a>Syslog
+### <a name="configuring-syslog-forwarding-with-tcp-server-authentication-and-tls-12-encryption"></a>使用 TCP、服务器身份验证和 TLS 1.2 加密配置 Syslog 转发
 
-Azure Stack 中的所有物理设备都可以发送 Syslog 消息。 Azure Stack 解决方案未随附 Syslog 服务器。 但是，经验证，这些解决方案支持将消息发送到市面上现有的 Syslog 解决方案。
+在此配置中，Azure Stack 中的 Syslog 客户端使用 TLS 1.2 加密将消息通过 TCP 转发到 Syslog 服务器。 在初次握手期间，客户端也会验证服务器是否提供了有效且可信的证书。 这样可以防止客户端将消息发送至不受信任的目标。
+使用身份验证和加密的 TCP 是默认的配置，代表我们建议的用于生产环境的最低安全级别。 
 
-Syslog 目标地址是针对部署所收集的可选参数，但也可以在部署后添加此参数。
+```powershell
+Set-SyslogServer -ServerName <FQDN or ip address of syslog server>
+```
 
+如果需要使用自签名证书和/或不受信任的证书来测试 Syslog 服务器与 Azure Stack 客户端的集成，可以使用这些标记来跳过在初次握手期间由客户端执行的服务器验证。
+
+```powershell
+ #Skip validation of the Common Name value in the server certificate. Use this flag if you provide an IP address for your syslog server
+ Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -SkipCNCheck
+ 
+ #Skip entirely the server certificate validation
+ Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -SkipCertificateCheck
+```
+> [!IMPORTANT]
+> 建议不要对生产环境使用 -SkipCertificateCheck 标记。 
+
+
+### <a name="configuring-syslog-forwarding-with-tcp-and-no-encryption"></a>使用 TCP 在不加密的情况下配置 Syslog 转发
+
+在此配置中，Azure Stack 中的 Syslog 客户端在不加密的情况下将消息通过 TCP 转发到 Syslog 服务器。 客户端既不验证服务器的标识，也不将自己的标识提供给服务器进行验证。 
+
+```powershell
+Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -NoEncryption
+```
+> [!IMPORTANT]
+> 建议不要将此配置用于生产环境。 
+
+
+### <a name="configuring-syslog-forwarding-with-udp-and-no-encryption"></a>使用 UDP 在不加密的情况下配置 Syslog 转发
+
+在此配置中，Azure Stack 中的 Syslog 客户端在不加密的情况下将消息通过 UDP 转发到 Syslog 服务器。 客户端既不验证服务器的标识，也不将自己的标识提供给服务器进行验证。 
+
+```powershell
+Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -UseUDP
+```
+不加密的 UDP 是最容易配置的，但不能防范人为干预攻击和消息窃听。 
+
+> [!IMPORTANT]
+> 建议不要将此配置用于生产环境。 
+
+
+## <a name="removing-syslog-forwarding-configuration"></a>删除 Syslog 转发配置
+
+若要完全删除 Syslog 服务器配置并停止 Syslog 转发，请执行以下操作：
+
+**从客户端删除 Syslog 服务器配置**
+
+```PowerShell  
+Set-SyslogServer -Remove
+```
+
+**从客户端删除客户端证书**
+
+```PowerShell  
+Set-SyslogClient -RemoveCertificate
+```
+
+## <a name="verifying-the-syslog-setup"></a>验证 Syslog 设置
+
+如果已成功地将 Syslog 客户端连接到 Syslog 服务器，则很快就可以开始接收事件。 如果看不到任何事件，请运行以下 cmdlet，对 Syslog 客户端的配置进行验证：
+
+**验证 Syslog 客户端中的服务器配置**
+
+```PowerShell  
+Get-SyslogServer
+```
+
+**验证 Syslog 客户端中的证书设置**
+
+```PowerShell  
+Get-SyslogClient
+```
+
+## <a name="syslog-message-schema"></a>Syslog 消息架构
+
+Azure Stack 基础结构的 Syslog 转发在发送消息时采用通用事件格式 (CEF)。
+每条 Syslog 消息的结构基于以下架构： 
+
+```Syslog
+<Time> <Host> <CEF payload>
+```
+
+CEF 有效负载基于下面的结构，但每个字段的映射因消息类型（Windows 事件、创建的警报、关闭的警报）而异。
+
+```CEF
+# Common Event Format schema
+CEF: <Version>|<Device Vendor>|<Device Product>|<Device Version>|<Signature ID>|<Name>|<Severity>|<Extensions>
+* Version: 0.0 
+* Device Vendor: Azure
+* Device Product: Azure Stack
+* Device Version: 1.0
+```
+
+### <a name="cef-mapping-for-windows-events"></a>Windows 事件的 CEF 映射
+```
+* Signature ID: ProviderName:EventID
+* Name: TaskName
+* Severity: Level (for details, see the severity table below)
+* Extension: Custom Extension Name (for details, see the Custom Extension table below)
+```
+
+Windows 事件的严重性表： 
+| CEF 严重性值 | Windows 事件级别 | 数字值 |
+|--------------------|---------------------| ----------------|
+|0|Undefined|值：0。 指示所有级别的日志|
+|10 个|关键|值：1。 指示严重警报的日志|
+|8|错误| 值：2。 指示错误的日志|
+|5|警告|值：3。 指示警告的日志|
+|2|信息|值：4。 指示信息性消息的日志|
+|0|详细|值：5。 指示所有级别的日志|
+
+Azure Stack 中 Windows 事件的自定义扩展表：
+| 自定义扩展名称 | Windows 事件示例 | 
+|-----------------------|---------|
+|MasChannel | 系统|
+|MasComputer | test.azurestack.contoso.com|
+|MasCorrelationActivityID| C8F40D7C-3764-423B-A4FA-C994442238AF|
+|MasCorrelationRelatedActivityID| C8F40D7C-3764-423B-A4FA-C994442238AF|
+|MasEventData| svchost!!4132,G,0!!!!EseDiskFlushConsistency!!ESENT!!0x800000|
+|MasEventDescription| 用户的组策略设置已成功处理。 自从上次成功处理组策略后，尚未检测到任何更改。|
+|MasEventID|1501|
+|MasEventRecordID|26637|
+|MasExecutionProcessID | 29380|
+|MasExecutionThreadID |25480|
+|MasKeywords |0x8000000000000000|
+|MasKeywordName |审核成功|
+|MasLevel |4|
+|MasOpcode |1|
+|MasOpcodeName |info|
+|MasProviderEventSourceName ||
+|MasProviderGuid |AEA1B4FA-97D1-45F2-A64C-4D69FFFD92C9|
+|MasProviderName |Microsoft-Windows-GroupPolicy|
+|MasSecurityUserId |\<Windows SID\> |
+|MasTask |0|
+|MasTaskCategory| 创建进程|
+|MasUserData|KB4093112!!5112!!Installed!!0x0!!WindowsUpdateAgent Xpath: /Event/UserData/*|
+|MasVersion|0|
+
+### <a name="cef-mapping-for-alerts-created"></a>已创建警报的 CEF 映射
+```
+* Signature ID: Azure Stack Alert Creation : FaultTypeId
+* Name: FaultTypeId : AlertId
+* Severity: Alert Severity (for details, see alerts severity table below)
+* Extension: Custom Extension Name (for details, see the Custom Extension table below)
+```
+警报严重性表：
+| 严重性 | 级别 |
+|----------|-------|
+|0|Undefined|
+|10 个|关键|
+|5|警告|
+
+Azure Stack 中已创建警报的自定义扩展表：
+| 自定义扩展名称 | 示例 | 
+|-----------------------|---------|
+|MasEventDescription|说明：已为 \<TestDomain\> 创建用户帐户 \<TestUser\>。 它是潜在的安全风险。 -- 补救措施：联系支持部门。 解决此问题需要客户协助。 不要试图在没有他们协助的情况下解决此问题。 在提交支持请求之前，请根据 https://aka.ms/azurestacklogfiles 中的指南启动日志文件收集过程 |
+
+### <a name="cef-mapping-for-alerts-closed"></a>已关闭警报的 CEF 映射
+```
+* Signature ID: Azure Stack Alert Creation : FaultTypeId
+* Name: FaultTypeId : AlertId
+* Severity: Information
+```
+
+以下示例显示一条包含 CEF 有效负载的 Syslog 消息：
+```
+2018:05:17:-23:59:28 -07:00 TestHost CEF:0.0|Azure|Azure Stack|1.0|3|TITLE: User Account Created -- DESCRIPTION: A user account \<TestUser\> was created for \<TestDomain\>. It's a potential security risk. -- REMEDIATION: Please contact Support. Customer Assistance is required to resolve this issue. Do not try to resolve this issue without their assistance. Before you open a support request, start the log file collection process using the guidance from https://aka.ms/azurestacklogfiles|10
+```
 ## <a name="next-steps"></a>后续步骤
 
 [服务策略](azure-stack-servicing-policy.md)
-
-<!-- Update_Description: update metedata properties -->

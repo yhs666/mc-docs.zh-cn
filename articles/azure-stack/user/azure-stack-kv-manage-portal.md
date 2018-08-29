@@ -1,5 +1,5 @@
 ---
-title: 使用门户管理 Azure Stack 中的 Key Vault | Microsoft Docs
+title: 使用门户管理 Azure Stack 中的 Key Vault | Azure
 description: 了解如何使用门户管理 Azure Stack 中的 Key Vault
 services: azure-stack
 documentationcenter: ''
@@ -13,14 +13,14 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/07/2018
-ms.date: 05/23/2018
+ms.date: 08/27/2018
 ms.author: v-junlch
-ms.openlocfilehash: b1a42313f9838bce3f8d4199c14f5e7b2c635b79
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: e4427f62efec159194bc3e5fdfbfee2e7ef52559
+ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475085"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42869387"
 ---
 # <a name="manage-key-vault-in-azure-stack-by-using-the-portal"></a>使用门户管理 Azure Stack 中的 Key Vault
 
@@ -36,7 +36,7 @@ ms.locfileid: "34475085"
 
 2. 从仪表板中选择“新建” > “安全 + 标识” > “密钥保管库”。
 
-    ![“密钥保管库”屏幕](./media/azure-stack-kv-manage-portal/image1.png)
+    ![“密钥保管库”屏幕](media/azure-stack-kv-manage-portal/image1.png)
 
 3. 在“创建密钥保管库”窗格中，为保管库分配**名称**。 保管库名称只能包含字母数字字符和特殊字符连字符 (-)。 它们不得以数字开头。
 
@@ -76,7 +76,7 @@ ms.locfileid: "34475085"
 
 成功创建密钥后，可以在“密钥”下选择该密钥，并查看或修改其属性。 属性部分包含**密钥标识符**，即外部应用程序用来访问此密钥的统一资源标识符 (URI)。 若要限制对此密钥的操作，请在“允许的操作”下配置设置。
 
-![密钥 URI](./media/azure-stack-kv-manage-portal/image4.png)
+![密钥 URI](media/azure-stack-kv-manage-portal/image4.png)
 
 ### <a name="create-a-secret"></a>创建机密
 
@@ -95,11 +95,11 @@ ms.locfileid: "34475085"
 
 成功创建机密后，可以在“机密”下选择该机密，并查看或修改其属性。 **机密标识符**是外部应用程序可用来访问此机密的 URI。
 
-![机密 URI](./media/azure-stack-kv-manage-portal/image5.png)
+![机密 URI](media/azure-stack-kv-manage-portal/image5.png)
 
 ## <a name="next-steps"></a>后续步骤
 
-- [检索 Key Vault 中存储的密码来部署 VM](azure-stack-kv-deploy-vm-with-secret.md)
-- [使用 Key Vault 中存储的证书来部署 VM](azure-stack-kv-push-secret-into-vm.md)
+* [检索 Key Vault 中存储的密码来部署 VM](azure-stack-kv-deploy-vm-with-secret.md)
+* [使用 Key Vault 中存储的证书来部署 VM](azure-stack-kv-push-secret-into-vm.md)
 
 <!-- Update_Description: wording update -->

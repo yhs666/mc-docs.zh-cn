@@ -1,21 +1,22 @@
 ---
-title: 如何在 Azure Database for PostgreSQL 中备份和还原服务器 | Microsoft Docs
+title: 如何在 Azure Database for PostgreSQL 中备份和还原服务器 | Azure
 description: 了解如何使用 Azure CLI 在 Azure Database for PostgreSQL 中备份和还原服务器。
 services: postgresql
-author: v-chenyh
-ms.author: v-chenyh
-manager: kfile
+author: WenJason
+ms.author: v-jay
+manager: digimobile
 editor: jasonwhowell
 ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 06/22/2018
-ms.openlocfilehash: e5317b247b53b9467a81c03e5d8fdeed88e45fe4
-ms.sourcegitcommit: d744d18624d2188adbbf983e1c1ac1110d53275c
+origin.date: 04/01/2018
+ms.date: 08/27/2018
+ms.openlocfilehash: ba38896d180a2091ad092dc8258bcad347a3c36a
+ms.sourcegitcommit: 6dd65fba579a2ce25c63ac69ff3b71d814a9d256
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36314402"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42703853"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-cli"></a>如何使用 Azure CLI 在 Azure Database for PostgreSQL 中备份和还原服务器
 
@@ -28,32 +29,6 @@ Azure Database for PostgreSQL 服务器定期进行备份以便启用还原功�
 
 > [!IMPORTANT]
 > 本操作方法指南要求使用 Azure CLI 版本 2.0 或更高版本。 若要确认版本，请在 Azure CLI 命令提示符下输入 `az --version`。 若要安装或升级，请参阅[安装 Azure CLI 2.0]( /cli/install-azure-cli)。
-
-## <a name="add-the-extension"></a>添加扩展
-使用以下命令添加更新的 Azure Database for PostgreSQL 管理扩展：
-```cli
-az extension add --name rdbms
-``` 
-
-检查是否已安装正确的扩展版本。 
-```cli
-az extension list
-```
-
-返回的 JSON 应包括以下内容： 
-```json
-{
-    "extensionType": "whl",
-    "name": "rdbms",
-    "version": "0.0.5"
-}
-```
-
-如果未返回版本 0.0.5，请运行以下命令来更新扩展： 
-```cli
-az extension update --name rdbms
-```
-
 
 ## <a name="set-backup-configuration"></a>设置备份配置
 
@@ -72,7 +47,7 @@ az extension update --name rdbms
 可以如下所述更改服务器的备份保留期：
 
 ```cli
-az postgres server update --name mydemoserver --resource-group myresourcegroup --backup-retention-days 10
+az postgres server update --name mydemoserver --resource-group myresourcegroup --backup-retention 10
 ```
 
 前面的示例将 mydemoserver 的备份保留期更改为 10 天。
@@ -105,6 +80,48 @@ az postgres server restore --resource-group myresourcegroup --name mydemoserver-
 还原的服务器的位置值和定价层值与原始服务器保持相同。 
 
 还原过程完成后，找到新服务器，验证数据是否已按预期还原。
+
+还原期间创建的新服务器没有原始服务器上存在的防火墙规则。 需要为此新服务器单独设置防火墙规则。
+
+## <a name="geo-restore"></a>异地还原
+如果为服务器配置了异地冗余备份，则可以从该现有服务器的备份创建新服务器。 可以在 Azure Database for PostgreSQL 可用的任何区域中创建此新服务器。  
+
+若要使用异地冗余备份创建服务器，请使用 Azure CLI `az postgres server georestore` 命令。
+
+> [!NOTE]
+> 首次创建服务器时，该服务器可能不会立即可用于异地还原。 填充必需的元数据可能需要几个小时。
+>
+
+若要异地还原服务器，请在 Azure CLI 命令提示符下输入以下命令：
+
+```cli
+az postgres server georestore --resource-group myresourcegroup --name mydemoserver-georestored --source-server mydemoserver --location chinaeast2 --sku-name GP_Gen5_8 
+```
+此命令在“中国东部 2”中创建一个名为 *mydemoserver-georestored* 且将属于 *myresourcegroup* 的新服务器。 它是第 5 代常规用途服务器，具有 8 个 vCore。 该服务器是基于也在资源组 *myresourcegroup* 中的 *mydemoserver* 的异地冗余备份创建的。
+
+如果希望在与现有服务器不同的资源组中创建新服务器，则需要如下例所示在 `--source-server` 参数中限定服务器名称：
+
+```cli
+az postgres server georestore --resource-group newresourcegroup --name mydemoserver-georestored --source-server "/subscriptions/$<subscription ID>/resourceGroups/$<resource group ID>/providers/Microsoft.DBforPostgreSQL/servers/mydemoserver" --location chinaeast2 --sku-name GP_Gen5_8
+
+```
+
+`az postgres server georestore` 命令需要以下参数：
+| 设置 | 建议的值 | 说明  |
+| --- | --- | --- |
+|resource-group| myresourcegroup | 新服务器将属于的资源组的名称。|
+|name | mydemoserver-georestored | 新服务器的名称。 |
+|source-server | mydemoserver | 将使用其异地冗余备份的现有服务器的名称。 |
+|location | chinaeast2 | 新服务器的位置。 |
+|sku-name| GP_Gen5_8 | 此参数设置新服务器的定价层、计算层代和 vCore 数。 GP_Gen5_8 映射为一个第 5 代常规用途服务器，具有 8 个 vCore。|
+
+
+>[!Important]
+>通过异地还原创建新服务器时，它将继承与源服务器相同的存储大小和定价层。 在创建过程中无法更改这些值。 创建新服务器后，可以纵向扩展其存储大小。
+
+还原过程完成后，找到新服务器，验证数据是否已按预期还原。
+
+还原期间创建的新服务器没有原始服务器上存在的防火墙规则。 需要为此新服务器单独设置防火墙规则。
 
 ## <a name="next-steps"></a>后续步骤
 - 详细了解服务的[备份](concepts-backup.md)。

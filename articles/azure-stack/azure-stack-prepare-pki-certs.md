@@ -1,5 +1,5 @@
 ---
-title: 为 Azure Stack 集成系统部署准备 Azure Stack 公钥基础结构证书 | Microsoft Docs
+title: 为 Azure Stack 集成系统部署准备 Azure Stack 公钥基础结构证书 | Azure
 description: 介绍如何为 Azure Stack 集成系统准备 Azure Stack PKI 证书。
 services: azure-stack
 documentationcenter: ''
@@ -16,12 +16,12 @@ origin.date: 03/22/2018
 ms.date: 05/24/2018
 ms.author: v-junlch
 ms.reviewer: ppacent
-ms.openlocfilehash: 7b21454af488dbda41011aac399c21116af814a2
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: ae2c961d69048848ebc55bc66bbab176ffc3a0ac
+ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34474890"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42869348"
 ---
 # <a name="prepare-azure-stack-pki-certificates-for-deployment"></a>为部署准备 Azure Stack PKI 证书
 必须使用与 Azure Stack的证书要求匹配的属性导入和导出[从所选 CA 获取](azure-stack-get-pki-certs.md)的证书文件。
@@ -32,9 +32,9 @@ ms.locfileid: "34474890"
 
 ### <a name="import-the-certificate"></a>导入证书
 
-1. 将[从所选 CA 获取](azure-stack-get-pki-certs.md)的原始证书版本复制到部署主机上的目录。 
-    > [!WARNING]
-    > 如果已以任何方式导入、导出或更改直接由 CA 提供的文件，请勿复制该文件。
+1.  将[从所选 CA 获取](azure-stack-get-pki-certs.md)的原始证书版本复制到部署主机上的目录。 
+  > [!WARNING]
+  > 如果已以任何方式导入、导出或更改直接由 CA 提供的文件，请勿复制该文件。
 
 2. 右键单击证书并选择“安装证书”或“安装PFX”，具体取决于从 CA 传送证书的方式。
 
@@ -70,8 +70,8 @@ ms.locfileid: "34474890"
 
 5. 从证书管理员控制台的任务栏中，选择“操作” > “所有任务” > “导出”。 选择“**下一步**”。
 
-    > [!NOTE]
-    > 根据你拥有 Azure Stack 证书的数量，可能需要多次完成此过程。
+  > [!NOTE]
+  > 根据你拥有 Azure Stack 证书的数量，可能需要多次完成此过程。
 
 4. 选择“是，导出私钥”，并单击“下一步”。
 

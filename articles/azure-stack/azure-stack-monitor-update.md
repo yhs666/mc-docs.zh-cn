@@ -1,5 +1,5 @@
 ---
-title: 使用特权终结点监视 Azure Stack 中的更新 | Microsoft Docs
+title: 使用特权终结点监视 Azure Stack 中的更新 | Azure
 description: 了解如何使用特权终结点监视 Azure Stack 集成系统中的更新状态。
 services: azure-stack
 documentationcenter: ''
@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/18/2017
-ms.date: 03/02/2018
+origin.date: 08/17/2018
+ms.date: 08/27/2018
 ms.author: v-junlch
-ms.openlocfilehash: 884c834dbdd734658a91af5f4e5a9ececa2657a4
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: 26837841fde6289f8cf010e45e86a1b9cb2cf208
+ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
-ms.locfileid: "29798115"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42869385"
 ---
 # <a name="monitor-updates-in-azure-stack-using-the-privileged-endpoint"></a>使用特权终结点监视 Azure Stack 中的更新
 
@@ -33,7 +33,6 @@ Azure Stack 集成系统 1710 更新版中包含以下用于更新管理的新 P
 | Cmdlet  | 说明  |
 |---------|---------|
 | `Get-AzureStackUpdateStatus` | 返回当前正在运行的、已完成的或失败的更新状态。 提供更新操作的高级状态以及描述当前步骤和相应状态的 XML 文档。 |
-| `Get-AzureStackUpdateVerboseLog` | 返回更新生成的详细日志。 |
 | `Resume-AzureStackUpdate` | 从更新失败的位置恢复更新。 在某些情况下，可能需要先完成风险缓解步骤，然后才能恢复更新。         |
 | | |
 
@@ -79,7 +78,6 @@ Azure Stack 集成系统 1710 更新版中包含以下用于更新管理的新 P
    CommandType     Name                                               Version    Source                                                  PSComputerName
     -----------     ----                                               -------    ------                                                  --------------
    Function        Get-AzureStackUpdateStatus                         0.0        Microsoft.Azurestack.UpdateManagement                   Contoso-ercs01
-   Function        Get-AzureStackUpdateVerboseLog                     0.0        Microsoft.Azurestack.UpdateManagement                   Contoso-ercs01
    Function        Resume-AzureStackUpdate                            0.0        Microsoft.Azurestack.UpdateManagement                   Contoso-ercs01
    ``` 
 
@@ -161,29 +159,6 @@ $updateStatus.SelectNodes("//Step[@Status='InProgress']")
     Task          : Task
 ```
 
-### <a name="get-the-verbose-progress-log"></a>获取详细进度日志
-
-可将日志写入文件供检查。 这有助于诊断更新失败问题。
-
-```powershell
-$log = Invoke-Command -Session $pepSession -ScriptBlock { Get-AzureStackUpdateVerboseLog }
-
-$log > ".\UpdateVerboseLog.txt" 
-```
-
-### <a name="actively-view-the-verbose-logging"></a>主动查看详细日志
-
-若要在更新运行期间主动查看详细日志并跳转到最新条目，请运行以下命令，以交互模式进入会话，然后显示日志：
-
-```powershell
-Enter-PSSession -Session $pepSession 
-
-Get-AzureStackUpdateVerboseLog -Wait 
-```
-日志每隔 60 秒更新一次，新内容（如果有）将写入控制台。 
-
-在长时间运行后台进程期间，可能有一段时间不会将控制台输出写入控制台。 若要取消交互式输出，请按 Ctrl+C。 
-
 ### <a name="resume-a-failed-update-operation"></a>恢复失败的更新操作
 
 如果更新失败，可以从更新中断的位置恢复更新运行。
@@ -199,6 +174,5 @@ Invoke-Command -Session $pepSession -ScriptBlock { Resume-AzureStackUpdate }
 ## <a name="next-steps"></a>后续步骤
 
 - [在 Azure Stack 中管理更新](azure-stack-updates.md) 
-
 
 

@@ -9,18 +9,18 @@ editor: ''
 ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 01/09/2018
-ms.date: 05/28/2018
+ms.date: 08/20/2018
 ms.author: v-yeche
-ms.openlocfilehash: bd8c9fe6740ab943f1cbf6a3ffdf01695169a5f8
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: 5005e5013b8cdd01a407c4c7b5e9bae784c8a7c0
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554518"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41705335"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>在 Linux 上创建第一个 Service Fabric 容器应用程序
 > [!div class="op_single_selector"]
@@ -120,7 +120,7 @@ docker run -d -p 4000:80 --name my-web-site helloworldapp
 
 *name* 为运行的容器（而不是容器 ID）命名。
 
-连接到正在运行的容器。 打开 Web 浏览器，指向端口 4000 上返回的 IP 地址，例如 http://localhost:4000。 此时会看到标题“Hello World!” 显示在浏览器中。
+连接到正在运行的容器。 打开 Web 浏览器，指向端口 4000 上返回的 IP 地址，例如 http://localhost:4000 。 此时会看到标题“Hello World!” 显示在浏览器中。
 
 ![Hello World!][hello-world]
 
@@ -145,19 +145,19 @@ docker rm my-web-site
 以下示例传递了 Azure Active Directory [服务主体](../active-directory/develop/active-directory-application-objects.md)的 ID 和密码。 例如，在自动化方案中，可能已向注册表分配了服务主体。  或者，可以使用注册表用户名和密码登录。
 
 ```bash
-docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
+docker login myregistry.azurecr.cn -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
 ```
 
 以下命令使用注册表的完全限定路径创建映像的标记或别名。 此示例将映像置于 `samples` 命名空间，以免注册表根目录中出现混乱。
 
 ```bash
-docker tag helloworldapp myregistry.azurecr.io/samples/helloworldapp
+docker tag helloworldapp myregistry.azurecr.cn/samples/helloworldapp
 ```
 
 将映像推送到容器注册表：
 
 ```bash
-docker push myregistry.azurecr.io/samples/helloworldapp
+docker push myregistry.azurecr.cn/samples/helloworldapp
 ```
 
 ## <a name="package-the-docker-image-with-yeoman"></a>使用 Yeoman 打包 Docker 映像
@@ -167,32 +167,18 @@ docker push myregistry.azurecr.io/samples/helloworldapp
 
 为应用程序命名（例如 `mycontainer`），以及为应用程序服务命名（例如 `myservice`）。
 
-对于映像名称，请提供容器映像在容器注册表中的 URL（例如“myregistry.azurecr.io/samples/helloworldapp”）。 
+对于映像名称，请提供容器映像在容器注册表中的 URL（例如“myregistry.azurecr.cn/samples/helloworldapp”）。 
 
 此映像中定义了一个工作负荷入口点，因此不需显式指定输入命令（命令在容器中运行，这可以在启动后使容器保持运行）。 
 
 指定实例计数“1”。
 
+以适当的格式指定端口映射。 对于本文，需要提供 ```80:4000``` 作为端口映射。 通过这样做，已将主机上到达端口 4000 的所有传入请求都重定向到容器上的端口 80。
+
 ![适用于容器的 Service Fabric Yeoman 生成器][sf-yeoman]
 
-## <a name="configure-port-mapping-and-container-repository-authentication"></a>配置端口映射和容器存储库身份验证
-容器化服务需要使用一个终结点进行通信。 现在，将协议、端口和类型添加到 ServiceManifest.xml 文件中“Resources”标记下面的 `Endpoint`。 本文所述的容器化服务在端口 4000 上侦听： 
-
-```xml
-
-<Resources>
-    <Endpoints>
-      <!-- This endpoint is used by the communication listener to obtain the port on which to 
-           listen. Please note that if your service is partitioned, this port is shared with 
-           replicas of different partitions that are placed in your code. -->
-      <Endpoint Name="myServiceTypeEndpoint" UriScheme="http" Port="4000" Protocol="http"/>
-    </Endpoints>
-  </Resources>
- ```
-
-提供 `UriScheme` 即可向 Service Fabric 命名服务自动注册容器终结点，确保其可以被发现。 本文末尾提供完整的 ServiceManifest.xml 示例文件。 
-
-在 ApplicationManifest.xml 文件的 `ContainerHostPolicies` 中指定 `PortBinding` 策略，以便配置容器端口到主机端口的映射。 在本文中，`ContainerPort` 为 80（容器根据 Dockerfile 中的指定值公开端口 80），`EndpointRef` 为“myServiceTypeEndpoint”（服务清单中定义的终结点）。 传入到端口 4000 上的服务的请求映射到容器上的端口 80。 如果容器需要通过专用存储库进行身份验证，则添加 `RepositoryCredentials`。 在本文中，请为 myregistry.azurecr.io 容器注册表添加帐户名和密码。 确保将策略添加到对应于适当服务包的“ServiceManifestImport”标记下面。
+## <a name="configure-container-repository-authentication"></a>配置容器存储库身份验证
+ 如果容器需要通过专用存储库进行身份验证，则添加 `RepositoryCredentials`。 在本文中，请为 myregistry.azurecr.cn 容器注册表添加帐户名和密码。 确保将策略添加到对应于适当服务包的“ServiceManifestImport”标记下面。
 
 ```xml
    <ServiceManifestImport>
@@ -230,14 +216,6 @@ docker push myregistry.azurecr.io/samples/helloworldapp
 
 若要禁用整个 Service Fabric 群集的 **HEALTHCHECK** 集成，则需将 [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md) 设置为 **false**。
 
-## <a name="build-and-package-the-service-fabric-application"></a>生成并打包 Service Fabric 应用程序
-Service Fabric Yeoman 模板包含 [Gradle](https://gradle.org/) 的生成脚本，可用于从终端生成应用程序。 若要生成并打包应用程序，请运行以下命令：
-
-```bash
-cd mycontainer
-gradle
-```
-
 ## <a name="deploy-the-application"></a>部署应用程序
 生成应用程序后，可以使用 Service Fabric CLI 将其部署到本地群集。
 
@@ -255,7 +233,7 @@ sfctl cluster select --endpoint http://localhost:19080
 
 打开浏览器并导航到位于 http://localhost:19080/Explorer 的 Service Fabric Explorer（如果在 Mac OS X 上使用 Vagrant，则使用 VM 的专用 IP 替换 localhost）。 展开应用程序节点，注意现在有一个条目是用于应用程序类型，另一个条目用于该类型的第一个实例。
 
-连接到正在运行的容器。 打开 Web 浏览器，指向端口 4000 上返回的 IP 地址，例如 http://localhost:4000。 此时会看到标题“Hello World!” 显示在浏览器中。
+连接到正在运行的容器。 打开 Web 浏览器，指向端口 4000 上返回的 IP 地址，例如 http://localhost:4000 。 此时会看到标题“Hello World!” 显示在浏览器中。
 
 ![Hello World!][hello-world]
 
@@ -270,7 +248,7 @@ sfctl cluster select --endpoint http://localhost:19080
 
 ```
 docker rmi helloworldapp
-docker rmi myregistry.azurecr.io/samples/helloworldapp
+docker rmi myregistry.azurecr.cn/samples/helloworldapp
 ```
 
 ## <a name="complete-example-service-fabric-application-and-service-manifests"></a>Service Fabric 应用程序和服务清单的完整示例
@@ -296,7 +274,7 @@ docker rmi myregistry.azurecr.io/samples/helloworldapp
       <!-- Follow this link for more information about deploying containers 
       to Service Fabric: https://aka.ms/sfguestcontainers -->
       <ContainerHost>
-        <ImageName>myregistry.azurecr.io/samples/helloworldapp</ImageName>
+        <ImageName>myregistry.azurecr.cn/samples/helloworldapp</ImageName>
         <!-- Pass comma delimited commands to your container: dotnet, myproc.dll, 5" -->
         <!--Commands> dotnet, myproc.dll, 5 </Commands-->
         <Commands></Commands>
@@ -431,13 +409,13 @@ Service Fabric 运行时为下载和解压缩容器映像分配了 20 分钟的�
 
 ## <a name="set-container-retention-policy"></a>设置容器保留策略
 
-为了帮助诊断容器启动故障，Service Fabric（6.1 或更高版本）支持保留终止的或无法启动的容器。 此策略可以在 **ApplicationManifest.xml** 文件中设置，如以下代码片段所示：
+为了帮助诊断容器启动故障，Service Fabric（6.1 或更高版本）支持保留终止的或无法启动的容器。 此策略可以在 ApplicationManifest.xml 文件中设置，如以下代码片段所示：
 
 ```xml
  <ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="process" ContainersRetentionCount="2"  RunInteractive="true"> 
 ```
 
-**ContainersRetentionCount** 设置指定在容器故障时需保留的容器数。 如果指定一个负值，则会保留所有故障容器。 如果不指定 **ContainersRetentionCount** 属性，则不会保留任何容器。 **ContainersRetentionCount** 属性还支持应用程序参数，因此用户可以为测试性群集和生产群集指定不同的值。 使用此功能时可使用放置约束，将容器服务的目标设置为特定的节点，防止将容器服务移至其他节点。 使用此功能保留的容器必须手动删除。
+ContainersRetentionCount 设置指定在容器故障时需保留的容器数。 如果指定一个负值，则会保留所有故障容器。 如果不指定 **ContainersRetentionCount** 属性，则不会保留任何容器。 ContainersRetentionCount 属性还支持应用程序参数，因此用户可以为测试性群集和生产群集指定不同的值。 使用此功能时可使用放置约束，将容器服务的目标设置为特定的节点，防止将容器服务移至其他节点。 使用此功能保留的容器必须手动删除。
 
 ## <a name="start-the-docker-daemon-with-custom-arguments"></a>使用自定义参数启动 Docker 守护程序
 

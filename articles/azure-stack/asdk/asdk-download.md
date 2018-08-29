@@ -1,5 +1,5 @@
 ---
-title: 下载并提取 Azure Stack 开发工具包 (ASDK) | Microsoft Docs
+title: 下载并提取 Azure Stack 开发工具包 (ASDK) | Azure
 description: 介绍如何下载并提取 Azure Stack 开发工具包 (ASDK)。
 services: azure-stack
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/16/2018
-ms.date: 03/22/2018
+origin.date: 08/10/2018
+ms.date: 08/27/2018
 ms.author: v-junlch
 ms.reviewer: misainat
-ms.openlocfilehash: 3328c09c74a1ddbfd2e5367498cd5b066126634f
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.openlocfilehash: 018ed807adb26e7f55b4ccfcc9effe0d991e1dba
+ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30155679"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42869360"
 ---
 # <a name="download-and-extract-the-azure-stack-development-kit-asdk"></a>下载并提取 Azure Stack 开发工具包 (ASDK)
 在确保开发工具包主机满足安装 ASDK 的基本要求以后，下一步是下载并提取 ASDK 部署包，以获取 Cloudbuilder.vhdx。
@@ -44,7 +44,7 @@ ms.locfileid: "30155679"
 2. 查看并接受自解压缩程序向导的“许可协议”页中显示的许可协议，然后单击“下一步”。
 3. 查看自解压缩程序向导的“重要说明”页上显示的隐私声明信息，然后单击“下一步”。
 4. 在自解压缩程序向导的“选择目标位置”页上选择要将 Azure Stack 安装程序文件提取到其中的位置，然后单击“下一步”。 默认位置为：当前文件夹\Azure Stack Development Kit。 
-5. 查看自解压缩程序向导的“准备提取”页上的目标位置摘要，然后单击“提取”以提取 CloudBuilder.vhdx（约 25GB）和 ThirdPartyLicenses.rtf 文件。 此过程需要一些时间才能完成。
+5. 查看自解压缩程序向导的“准备提取”页上的目标位置摘要，然后单击“提取”以提取 CloudBuilder.vhdx（约 28GB）和 ThirdPartyLicenses.rtf 文件。 此过程需要一些时间才能完成。
 6. 将 CloudBuilder.vhdx 文件复制或移动到 ASDK 主机上的 C:\ 驱动器的根目录 (C:\CloudBuilder.vhdx)。
 
 > [!NOTE]

@@ -10,12 +10,12 @@ ms.service: mysql
 ms.topic: article
 origin.date: 02/28/2018
 ms.date: 08/13/2018
-ms.openlocfilehash: fb2ecece81af4564d70863f1fad589dfa80b2616
-ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
+ms.openlocfilehash: 8246aa8a1301330577ce1516440022df18ce85fa
+ms.sourcegitcommit: 6dd65fba579a2ce25c63ac69ff3b71d814a9d256
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39723002"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42703873"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-server-using-azure-portal"></a>使用 Azure 门户创建和管理 Azure Database for MySQL 服务器
 
@@ -32,7 +32,7 @@ ms.locfileid: "39723002"
 
 1. 单击 Azure 门户左上角的“创建资源”按钮。
 
-2. 在“新建”页面上，选择“数据库”，然后在“数据库”页面上选择“Azure Database for MySQL”。
+2. 在搜索框中键入 **Azure Database for MySQL** 以查找该服务。
 
     > 创建的 Azure Database for MySQL 服务器中包含一组已定义的[计算和存储](./concepts-pricing-tiers.md)资源。 创建的数据库位于 Azure Database for MySQL 服务器的 Azure 资源组中。
 

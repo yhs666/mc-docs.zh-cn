@@ -1,26 +1,20 @@
 ---
-title: Azure 诊断概述 | Microsoft Docs
+title: Azure 诊断扩展概述
 description: 使用 Azure 诊断在云服务、虚拟机和 Service Fabric 中进行调试、性能度量、监视和流量分析
-services: multiple
-documentationcenter: .net
+services: azure-monitor
 author: rboucher
-manager: ''
-editor: ''
-ms.assetid: baad40d8-c915-4f93-b486-8b160bf33463
-ms.service: multiple
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
 ms.devlang: dotnet
-ms.topic: article
-origin.date: 05/01/2017
-ms.date: 06/18/2018
+ms.topic: conceptual
+origin.date: 07/13/2018
+ms.date: 08/20/2018
 ms.author: v-yiso
-ms.openlocfilehash: 342e7780672e54cc66d4d45b84deebfb70e57fa3
-ms.sourcegitcommit: 794b9caca1147f1891513410dd61435708ef85ec
+ms.openlocfilehash: e8192f089cbf49535f630263708fb54e295646da
+ms.sourcegitcommit: 664584f55e0a01bb6558b8d3349d41d3f05ba4d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34855359"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41703976"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>什么是 Azure 诊断扩展
 Azure 诊断扩展是 Azure 中可对部署的应用程序启用诊断数据收集的代理。 可以使用于自许多不同源的诊断扩展。 目前支持 Azure 云服务（经典）Web 和辅助角色、虚拟机、虚拟机规模集，以及 Service Fabric。 其他 Azure 服务具有不同的诊断方法。 请参阅 [Azure 中的监控概述](monitoring-overview.md)。 
@@ -38,13 +32,17 @@ Azure 诊断扩展可收集以下类型的数据：
 | Windows 事件日志 |发送到 Windows 事件日志记录系统的信息 |
 | .NET 事件源 |使用 .NET [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) 类的代码编写事件  |
 | IIS Logs |有关 IIS 网站的信息 |
-| 基于清单的 ETW |由任何进程生成的 Windows 事件的事件跟踪 |
+| 基于清单的 ETW |由任何进程生成的 Windows 事件的事件跟踪。(1) |
 | 故障转储 |有关应用程序崩溃时进程状态的信息 |
 | 自定义错误日志 |应用程序或服务创建的日志 |
 | Azure Diagnostics基础结构日志 |有关诊断自身的信息 |
 
+(1) 要获取 ETW 提供程序列表，在要收集信息的计算机的控制台窗口中运行 `c:\Windows\System32\logman.exe query providers`。 
+
 ## <a name="data-storage"></a>数据存储
-该扩展将其数据存储在你指定的 [Azure 存储帐户](azure-diagnostics-storage.md)中。 Azure 诊断扩展可将此数据传输到 Azure 存储帐户，或者发送到服务。 可以将这些数据用于调试和故障排除、度量性能、监视资源使用状况、进行流量分析和容量规划以及进行审核。
+该扩展将其数据存储在你指定的 [Azure 存储帐户](azure-diagnostics-storage.md)中。 
+
+此外，可以将其流式传输到[事件中心](../event-hubs/event-hubs-what-is-event-hubs.md)，然后就可将其发送到非 Azure 监控服务。 
 
 
 ## <a name="versioning-and-configuration-schema"></a>版本控制和配置架构

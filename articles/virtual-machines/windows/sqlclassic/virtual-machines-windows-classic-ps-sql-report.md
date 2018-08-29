@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 01/11/2017
-ms.date: 05/21/2018
+ms.date: 08/27/2018
 ms.author: v-yeche
-ms.openlocfilehash: e158a6eebecc95da5b3ba48328eb3df92f64a222
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.openlocfilehash: aa366257a77c4beea6262ada64ecdb1d6a90c72a
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34267612"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42872113"
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>使用 PowerShell 创建运行本机模式报表服务器的 Azure VM
 > [!IMPORTANT] 
@@ -41,14 +41,14 @@ ms.locfileid: "34267612"
   * 若要增加核心配额，请联系 [Azure 支持](https://www.azure.cn/support/contact/)。 有关 VM 大小信息，请参阅 [Azure 的虚拟机大小](../sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
 * **Windows PowerShell 脚本**：本主题假定你具有有关 Windows PowerShell 的基础知识。 有关使用 Windows PowerShell 的详细信息，请参阅以下部分：
 
-  * [在 Windows Server 上启动 Windows PowerShell](https://technet.microsoft.com/library/hh847814.aspx)
+  * [在 Windows Server 上启动 Windows PowerShell](https://docs.microsoft.com/powershell/scripting/setup/starting-windows-powershell)
   * [Windows PowerShell 入门](https://technet.microsoft.com/library/hh857337.aspx)
 
 ## <a name="step-1-provision-an-azure-virtual-machine"></a>步骤 1：设置 Azure 虚拟机
 1. 浏览到 Azure 门户。
 2. 在左侧窗格中单击“虚拟机”。
 
-    ![Microsoft Azure 虚拟机](./media/virtual-machines-windows-classic-ps-sql-report/IC660124.gif)
+    ![Azure 虚拟机](./media/virtual-machines-windows-classic-ps-sql-report/IC660124.gif)
 3. 单击“新建” 。
 
     ![新建按钮](./media/virtual-machines-windows-classic-ps-sql-report/IC692019.gif)
@@ -486,8 +486,7 @@ ms.locfileid: "34267612"
 9. 该脚本当前是为 Reporting Services 配置的。 如果要为 Reporting Services 运行该脚本，请在 Get-WmiObject 语句上将命名空间的路径版本部分修改为“v11”。
 10. 运行该脚本。
 
-**验证**：若要验证基本报表服务器功能是否正常工作，请参阅本主题后面的 [验证配置](#verify-the-configuration) 部分。 要验证证书绑定，请使用具有管理权限的身份打开命令提示符，并运行以下命令：
-<!-- URL is CORRECT ON [Verify the configuration](#verify-the-configuration) -->
+**验证**：若要验证基本报表服务器功能是否正常工作，请参阅本主题后面的 [验证配置](#verify-the-configuration) 部分。 若要验证证书绑定，请使用管理权限打开命令提示符，并运行以下命令：<!-- URL is CORRECT ON [Verify the configuration](#verify-the-configuration) -->
 
     netsh http show sslcert
 
@@ -590,7 +589,7 @@ ms.locfileid: "34267612"
 
   * [适用于 Visual Studio 2013 的 Microsoft SQL Server Data Tools-Business Intelligence](https://www.microsoft.com/download/details.aspx?id=42313)
   * [Microsoft SQL Server Data Tools - Business Intelligence for Visual Studio 2012](https://www.microsoft.com/download/details.aspx?id=36843)
-  * [SQL Server Data Tools 和 SQL Server Business Intelligence (SSDT-BI)](http://curah.microsoft.com/30004/sql-server-data-tools-ssdt-and-sql-server-business-intelligence)
+  * [SQL Server Data Tools 和 SQL Server Business Intelligence (SSDT-BI)](https://docs.microsoft.com/sql/ssdt/previous-releases-of-sql-server-data-tools-ssdt-and-ssdt-bi)
 * **SQL Server Data Tools：远程**：在本地计算机上，在 SQL Server Data Tools 中创建一个包含 Reporting Services 报表的 Reporting Services 项目。 将项目配置为连接到 Web 服务 URL。
 
     ![SSRS 项目的 ssdt 项目属性](./media/virtual-machines-windows-classic-ps-sql-report/IC650114.gif)
@@ -602,8 +601,7 @@ ms.locfileid: "34267612"
 
 ## <a name="more-information"></a>更多信息
 ### <a name="resources"></a>资源
-* 有关对 SQL Server Business Intelligence 和 SharePoint 2013 进行单一服务器部署的相关类似内容，请参阅[使用 Windows PowerShell 创建装有 SQL Server BI 和 SharePoint 2013 的 Azure VM](https://msdn.microsoft.com/library/azure/dn385843.aspx)。
-* 有关对 SQL Server Business Intelligence 和 SharePoint 2013 进行多服务器部署的相关类似内容，请参阅[在 Azure 虚拟机中部署 SQL Server Business Intelligence](https://msdn.microsoft.com/library/dn321998.aspx)。
+* 有关对 SQL Server Business Intelligence 和 SharePoint 2013 进行单一服务器部署的相关类似内容，请参阅[使用 Windows PowerShell 创建装有 SQL Server BI 和 SharePoint 2013 的 Azure VM](https://blogs.technet.microsoft.com/ptsblog/2013/10/24/use-powershell-to-create-a-windows-azure-vm-with-sql-server-bi-and-sharepoint-2013/)。
 * 有关在 Azure 虚拟机上部署 SQL Server Business Intelligence 的常规信息，请参阅[在 Azure 虚拟机中部署 SQL Server Business Intelligence](virtual-machines-windows-classic-ps-sql-bi.md)。
 * 有关 Azure 计算费用成本的详细信息，请参阅 [Azure 定价计算器](https://www.azure.cn/pricing/calculator/)的“虚拟机”选项卡。
 
@@ -612,4 +610,4 @@ ms.locfileid: "34267612"
 
 ### <a name="links-to-other-resources-for-sql-server-in-azure-vms"></a>指向 Azure VM 中 SQL Server 的其他资源的链接
 [Azure 虚拟机上的 SQL Server 概述](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties, wording update， update link -->

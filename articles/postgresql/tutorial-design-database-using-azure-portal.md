@@ -11,12 +11,12 @@ ms.custom: tutorial, mvc
 ms.topic: tutorial
 origin.date: 03/20/2018
 ms.date: 08/13/2018
-ms.openlocfilehash: 31c88673e47ba6644b96786792c042fe6832ea67
-ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
+ms.openlocfilehash: d66bbc4fe4128f89fb69deb8136ec44038f30eb5
+ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39723042"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42869347"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql-using-the-azure-portal"></a>教程：使用 Azure 门户设计 Azure Database for PostgreSQL
 
@@ -44,7 +44,7 @@ ms.locfileid: "39723042"
 
 可以按照以下步骤创建用于 PostgreSQL 的 Azure 数据库：
 1.  在 Azure 门户的左上角单击“创建资源”。
-2.  从“新建”页中选择“数据库”，并从“数据库”页中选择“用于 PostgreSQL 的 Azure 数据库”。
+2.  在搜索框中键入 **Azure Database for PostgreSQL** 以查找该服务。
   ![用于 PostgreSQL 的 Azure 数据库 - 创建数据库](./media/tutorial-design-database-using-azure-portal/1-create-database.png)
 
 3.  使用以下信息填写“新服务器详细信息”窗体：
@@ -111,18 +111,9 @@ Azure Database for PostgreSQL 服务在服务器级别使用防火墙。 默认�
    ![用于 PostgreSQL 的 Azure 数据库 - 服务器管理员登录名](./media/tutorial-design-database-using-azure-portal/6-server-name.png)
 
 
-## <a name="connect-to-postgresql-database-using-psql-in-cloud-shell"></a>在 Cloud Shell 中使用 psql 连接到 PostgreSQL 数据库
+## <a name="connect-to-postgresql-database-using-psql-in-powershell"></a>在 PowerShell 中使用 psql 连接到 PostgreSQL 数据库
 
-现在，使用 [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) 命令行实用工具连接到 Azure Database for PostgreSQL 服务器。 
-1. 通过顶部导航窗格中的终端图标启动 Azure Cloud Shell。
-
-   ![用于 PostgreSQL 的 Azure 数据库 - Azure Cloud Shell 终端图标](./media/tutorial-design-database-using-azure-portal/7-cloud-shell.png)
-
-2. Azure Cloud Shell 会在浏览器中打开，并允许键入 bash 命令。
-
-   ![用于 PostgreSQL 的 Azure 数据库 - Azure Shell Bash 提示符](./media/tutorial-design-database-using-azure-portal/8-bash.png)
-
-3. 在 Cloud Shell 提示符下，使用 psql 命令连接到“用于 PostgreSQL 的 Azure 数据库”服务器。 借助 [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) 实用工具可以使用以下格式连接到用于 PostgreSQL 的 Azure 数据库：
+现在，使用 [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) 命令行实用工具连接到 Azure Database for PostgreSQL 服务器。 在 PowerShell 提示符下，使用 psql 命令连接到 Azure Database for PostgreSQL 服务器。 借助 [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) 实用工具可以使用以下格式连接到用于 PostgreSQL 的 Azure 数据库：
    ```bash
    psql --host=<myserver> --port=<port> --username=<server admin login> --dbname=<database name>
    ```

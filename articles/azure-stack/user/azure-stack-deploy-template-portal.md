@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Stack 门户部署模板 | Microsoft Docs
+title: 在 Azure Stack 中使用门户部署模板 | Azure
 description: 了解如何使用 Azure Stack 门户部署模板。
 services: azure-stack
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/24/2018
-ms.date: 06/27/2018
+origin.date: 08/15/2018
+ms.date: 08/27/2018
 ms.author: v-junlch
 ms.reviewer: ''
-ms.openlocfilehash: aa0e1de960c70331d8a72c7bf8a2e00ce8811d3f
-ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
+ms.openlocfilehash: c51449bb26e434024781a3224589d76f87e639b0
+ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37027233"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42869403"
 ---
 # <a name="deploy-templates-using-the-azure-stack-portal"></a>使用 Azure Stack 门户部署模板
 
@@ -41,6 +41,6 @@ ms.locfileid: "37027233"
 
 ## <a name="next-steps"></a>后续步骤
 
-- [通过 PowerShell 部署模板](azure-stack-deploy-template-powershell.md)
+* [通过 PowerShell 部署模板](azure-stack-deploy-template-powershell.md)
 
 <!-- Update_Description: wording update -->

@@ -1,5 +1,5 @@
 ---
-title: 安装 Visual Studio 并连接到 Azure Stack | Microsoft Docs
+title: 安装 Visual Studio 并连接到 Azure Stack | Azure
 description: 了解安装 Visual Studio 并连接到 Azure Stack 所需的步骤
 services: azure-stack
 documentationcenter: ''
@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/08/2018
-ms.date: 06/27/2018
+origin.date: 08/15/2018
+ms.date: 08/27/2018
 ms.author: v-junlch
 ms.reviewer: unknown
-ms.openlocfilehash: 228e7059cf33ebb8e226af9b5112b9c7548ea4d5
-ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
+ms.openlocfilehash: 4ad2c10c1915637bcff1a14ecade8fb487afd034
+ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37027112"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42869368"
 ---
 # <a name="install-visual-studio-and-connect-to-azure-stack"></a>安装 Visual Studio 并连接到 Azure Stack
 

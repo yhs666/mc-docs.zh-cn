@@ -13,22 +13,21 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/22/2017
-ms.date: 11/20/2017
+ms.date: 08/13/2018
 ms.author: v-yeche
-ms.openlocfilehash: 970ad5833cb94843d20413dd47addd250634c603
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.openlocfilehash: 91a99396b7e9927d603b2031c50ae1db86e7451a
+ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
-ms.locfileid: "29285392"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41705079"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>在门户中使用 Azure 网络观察程序管理数据包捕获
 
 > [!div class="op_single_selector"]
 > - [Azure 门户](network-watcher-packet-capture-manage-portal.md)
 > - [PowerShell](network-watcher-packet-capture-manage-powershell.md)
-> - [CLI 1.0](network-watcher-packet-capture-manage-cli-nodejs.md)
-> - [CLI 2.0](network-watcher-packet-capture-manage-cli.md)
+> - [Azure CLI](network-watcher-packet-capture-manage-cli.md)
 > - [Azure REST API](network-watcher-packet-capture-manage-rest.md)
 
 使用网络观察程序数据包捕获，可以创建捕获会话以跟踪进出虚拟机的流量。 为捕获会话提供了筛选器以确保仅捕获所需的流量。 数据包捕获有助于以主动和被动方式诊断网络异常。 其他用途包括收集网络统计信息，获得网络入侵信息，调试客户端与服务器之间的通信，等等。 由于能够远程触发数据包捕获，此功能可减轻手动运行数据包捕获的负担，并可在所需计算机上运行，从而可节省宝贵的时间。
@@ -48,8 +47,7 @@ ms.locfileid: "29285392"
 - 已启用数据包捕获扩展的虚拟机。
 
 > [!IMPORTANT]
-> 数据包捕获需要虚拟机扩展 `AzureNetworkWatcherExtension`。
-<!-- Not Available [Azure Network Watcher Agent virtual machine extension for Windows](../virtual-machines/windows/extensions-nwa.md) and for Linux VM visit [Azure Network Watcher Agent virtual machine extension for Linux](../virtual-machines/linux/extensions-nwa.md) -->
+> 数据包捕获需要虚拟机扩展 `AzureNetworkWatcherExtension`。 有关在 Windows VM 上安装扩展的信息，请访问[适用于 Windows 的 Azure 网络观察程序代理虚拟机扩展](../virtual-machines/windows/extensions-nwa.md)；有关 Linux VM 的信息，请访问[适用于 Linux 的 Azure 网络观察程序代理虚拟机扩展](../virtual-machines/linux/extensions-nwa.md)。
 
 ### <a name="packet-capture-agent-extension-through-the-portal"></a>通过门户安装数据包捕获代理扩展
 
@@ -64,7 +62,10 @@ ms.locfileid: "29285392"
 概述页显示现有的所有数据包捕获列表，不管其状态如何。
 
 > [!NOTE]
-> 数据包捕获需要通过端口 443 来与存储帐户建立连接。
+> 数据包捕获需要以下连接。
+> * 通过端口 443 与存储帐户的出站连接。
+> * 与 169.254.169.254 的入站和出站连接
+> * 与 168.63.129.16 的入站和出站连接
 
 ![数据包捕获概述屏幕][1]
 
@@ -83,10 +84,11 @@ ms.locfileid: "29285392"
 
 **捕获配置**
 
+- 本地文件路径 - 保存数据包捕获的虚拟机上的本地路径（仅在选择“[file]”时有效）。 必须指定有效的路径。 如果使用 Linux 虚拟机，路径必须以 /var/captures 开头。
 - **存储帐户** - 确定是否将数据包捕获保存在存储帐户中。
 - **文件** - 确定是否将数据包捕获保存在虚拟机本地。
 - **存储帐户** - 用于保存数据包捕获的选定存储帐户。 默认位置为 https://{存储帐户名称}.blob.core.chinacloudapi.cn/network-watcher-logs/subscriptions/{订阅 ID}/resourcegroups/{资源组名称}/providers/microsoft.compute/virtualmachines/{虚拟机名称}/{YY}/{MM}/{DD}/packetcapture_{HH}_{MM}_{SS}_{XXX}.cap。 （仅当选择了“存储”时才启用此选项）
-- **本地文件路径** - 虚拟机上保存数据包捕获的本地路径。 （仅当选择了“文件”时才启用此选项）。 必须提供有效的路径
+- **本地文件路径** - 虚拟机上保存数据包捕获的本地路径。 （仅当选择了“文件”时才启用此选项）。 必须提供有效的路径。 对于 Linux 虚拟机，路径必须以 /var/captures 开头。
 - **每个数据包的最大字节数** - 从每个数据包捕获的字节数，如果留空，将捕获所有字节。
 - **每个会话的最大字节数** - 捕获的字节总数，一旦达到此值，就会停止数据包捕获。
 - **时间限制(秒)** - 设置停止数据包捕获的时间限制。 默认值为 18000 秒。
@@ -130,7 +132,7 @@ ms.locfileid: "29285392"
 
 ## <a name="download-a-packet-capture"></a>下载数据包捕获
 
-完成数据包捕获会话后，捕获文件将上传到 Blob 存储或 VM 上的本地文件。 数据包捕获的存储位置是在创建会话时定义的。 用于访问这些保存到存储帐户的捕获文件的便利工具是 Azure 存储资源管理器，可以在此处下载：http://storageexplorer.com/
+完成数据包捕获会话后，捕获文件将上传到 Blob 存储或 VM 上的本地文件。 数据包捕获的存储位置是在创建会话时定义的。 用于访问这些保存到存储帐户的捕获文件的便利工具是 Azure 存储资源管理器，下载地址为：http://storageexplorer.com/
 
 如果指定了存储帐户，则数据包捕获文件将保存到以下位置的存储帐户：
 ```
@@ -141,7 +143,7 @@ https://{storageAccountName}.blob.core.chinacloudapi.cn/network-watcher-logs/sub
 
 <!--Not Available [Create an alert triggered packet capture](network-watcher-alert-triggered-packet-capture.md) -->
 
-访问[查看“IP 流验证”](network-watcher-check-ip-flow-verify-portal.md)，了解是否允许某些流量传入和传出 VM
+访问[查看“IP 流验证”](diagnose-vm-network-traffic-filtering-problem.md)，了解是否允许某些流量传入和传出 VM
 
 <!-- Image references -->
 [1]: ./media/network-watcher-packet-capture-manage-portal/figure1.png
@@ -150,4 +152,4 @@ https://{storageAccountName}.blob.core.chinacloudapi.cn/network-watcher-logs/sub
 [4]: ./media/network-watcher-packet-capture-manage-portal/figure4.png
 [agent]: ./media/network-watcher-packet-capture-manage-portal/agent.png
 
-<!--Update_Description: new articles on network watcher packet capture manage portal -->
+<!--Update_Description: update link, wording update -->

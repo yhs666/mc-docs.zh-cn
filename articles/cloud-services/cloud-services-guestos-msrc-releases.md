@@ -12,18 +12,43 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-origin.date: 06/01/2018
+origin.date: 07/06/2018
 ms.author: v-yiso
 ms.date: 07/16/2018
-ms.openlocfilehash: 11b5fd40e0569b548afdce4142fbccd465546e7f
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.openlocfilehash: c4661e6ae6ed6869d22000164c14e62d87bd6ff2
+ms.sourcegitcommit: 664584f55e0a01bb6558b8d3349d41d3f05ba4d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873698"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41705298"
 ---
 # <a name="azure-guest-os"></a>Azure 来宾 OS
 下表显示了适用于 Azure 来宾 OS 的 Microsoft 安全响应中心 (MSRC) 更新。 要确定特定的更新是否适用于使用的来宾 OS，请搜索本文。 引入这些更新的特定[系列][family-explain]始终会包含这些更新。
+
+## <a name="june-guest-os"></a>6 月来宾 OS
+| 产品类别 | 上层知识库文章 | 漏洞描述 | 来宾 OS | 首次引入日期 |
+| --- | --- | --- | --- | --- |
+| Rel 18-06 | [4284880] |Windows 10 安全性 |5.20 |2018 年 6 月 12 日 |
+| Rel 18-06 | [4284867] |仅 Windows 安全性 |2.75 |2018 年 6 月 12 日 |
+| Rel 18-06 | [4284846] |仅 Windows 安全性 |3.62 |2018 年 6 月 12 日 |
+| Rel 18-06 | [4284878] |仅 Windows 安全性 |4.55 |2018 年 6 月 12 日 |
+| Rel 18-06 | [4230450] |Internet Explorer |2.75, 3.62, 4.75 |2018 年 6 月 12 日 |
+| Rel 18-06 | [4287903] |闪烁 |3.62, 4.75, 5.20 |2018 年 6 月 12 日 |
+| 不适用 | [4103718] |5 月非安全性汇总 |2.75 |2018 年 5 月 8 日 |
+| 不适用 | [4103730] |5 月非安全性汇总 |3.62 |2018 年 5 月 8 日 |
+| 不适用 | [4103725] |5 月非安全性汇总 |4.55 |2018 年 5 月 8 日 |
+| 不适用 | [4040980], [4040977] |9 月17 日 .NET 非安全性汇总 |2.75 |2017 年 11 月 14 日 |
+| 不适用 | [4095874] |5 月 .NET 3.5 非安全性发布 |2.75 |2018 年 5 月 8 日 |
+| 不适用 | [4096495] |5 月 .NET 4.x 非安全性发布 |2.75 |2018 年 5 月 8 日 |
+| 不适用 | [4040975] |9 月17 日 .NET 非安全性汇总 |3.62 |2017 年 11 月 14 日 |
+| 不适用 | [4095872] |5 月 .NET 3.5 非安全性发布 |3.62 |2018 年 5 月 8 日 |
+| 不适用 | [4096494] |5 月 .NET 4.x 非安全性发布 |3.62 |2018 年 5 月 8 日 |
+| 不适用 | [4096416] |5 月 .NET 4.5x 非安全性发布 |3.62 |2018 年 5 月 8 日 |
+| 不适用 | [4040974], [4040972] |9 月17 日 .NET 非安全性汇总 |4.55 |2017 年 11 月 14 日 |
+| 不适用 | [4043763] |10 月17 日 .NET 非安全性汇总 |4.55 |2017 年 9 月 12 日 |
+| 不适用 | [4095876] |5 月 .NET 4.x 非安全性发布 |4.55 |2018 年 5 月 8 日 |
+| 不适用 | [4096417] |5 月 .NET 4.5x 非安全性发布 |4.55 |2018 年 5 月 8 日 |
+| 不适用 | [4132216] |5 月 SSU |5.20 |2018 年 5 月 8 日 |
 
 ## <a name="may-guest-os"></a>5 月来宾 OS
 | 产品类别 | 上层知识库文章 | 漏洞描述 | 来宾 OS | 首次引入日期 |
@@ -648,6 +673,32 @@ ms.locfileid: "37873698"
 | 不适用 |[3007054] |在 Windows 的 Windows 应用商店应用程序中打印文档时，始终显示 PIN 保护的打印选项 |4.15、3.22、2.34 |2015 年 1 月 13 日 |
 | 不适用 |[2999802] |在 Windows 中打印时，虚线变成实线 |4.15、3.22、2.34 |2015 年 1 月 13 日 |
 | 不适用 |[2896881] |在 Windows 中登录期间使用 AddPrinterConnection VBScript 命令映射用户的打印机时，登录时间过长 |4.15、3.22、2.34 |2015 年 1 月 13 日 |
+
+
+[4284880]: http://support.microsoft.com/kb/4284880
+[4284867]: http://support.microsoft.com/kb/4284867
+[4284846]: http://support.microsoft.com/kb/4284846
+[4284878]: http://support.microsoft.com/kb/4284878
+[4230450]: http://support.microsoft.com/kb/4230450
+[4287903]: http://support.microsoft.com/kb/4287903
+[4103718]: http://support.microsoft.com/kb/4103718
+[4103718]: http://support.microsoft.com/kb/4103718
+[4103730]: http://support.microsoft.com/kb/4103730
+[4103725]: http://support.microsoft.com/kb/4103725
+[4040980]: http://support.microsoft.com/kb/4040980
+[4040977]: http://support.microsoft.com/kb/4040977
+[4095874]: http://support.microsoft.com/kb/4095874
+[4096495]: http://support.microsoft.com/kb/4096495
+[4040975]: http://support.microsoft.com/kb/4040975
+[4095872]: http://support.microsoft.com/kb/4095872
+[4096494]: http://support.microsoft.com/kb/4096494
+[4096416]: http://support.microsoft.com/kb/4096416
+[4040974]: http://support.microsoft.com/kb/4040974
+[4040972]: http://support.microsoft.com/kb/4040972
+[4043763]: http://support.microsoft.com/kb/4043763
+[4095876]: http://support.microsoft.com/kb/4095876
+[4096417]: http://support.microsoft.com/kb/4096417
+[4132216]: http://support.microsoft.com/kb/4132216
 
 [4103721]: http://support.microsoft.com/kb/4103721
 [4103727]: http://support.microsoft.com/kb/4103727 

@@ -11,15 +11,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 origin.date: 05/07/2018
-ms.date: 06/25/2018
+ms.date: 08/27/2018
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: e850ce95762b72bb997a495977ea9b56522c02c7
-ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
+ms.openlocfilehash: 31bd04eb62edad192d9fe7af191e80f313f78916
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36747524"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41705396"
 ---
 # <a name="quickstart-create-a-spark-cluster-in-hdinsight-using-the-azure-portal"></a>快速入门：使用 Azure 门户在 HDInsight 中创建 Spark 群集
 了解如何在 Azure HDInsight 中创建 Apache Spark 群集，以及如何对 Hive 表运行 Spark SQL 查询。 通过 Apache Spark 可以使用内存处理进行快速数据分析和群集计算。 有关 Spark on HDInsight 的信息，请参阅[概述：Azure HDInsight 上的 Apache Spark](apache-spark-overview.md)。
@@ -29,7 +29,7 @@ ms.locfileid: "36747524"
 > [!IMPORTANT]
 > HDInsight 群集是基于分钟按比例收费，而不管用户是否正在使用它们。 请务必在使用完之后删除群集。 有关详细信息，请参阅本文的[清理资源](#clean-up-resources)部分。
 
-如果没有 Azure 订阅，可以在开始前[创建一个免费帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+如果没有 Azure 订阅，请在开始之前[创建一个免费帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
 ## <a name="create-an-hdinsight-spark-cluster"></a>创建 HDInsight Spark 群集
 
@@ -88,7 +88,7 @@ Jupyter Notebook 是支持各种编程语言的交互式笔记本环境。 通�
 
    ![创建 Jupyter Notebook 来运行交互式 Spark SQL 查询](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "创建 Jupyter Notebook 来运行交互式 Spark SQL 查询")
 
-   新 Notebook 随即会创建，并以 Untitled(Untitled.pynb) 名称打开。
+   新笔记本随即已创建，并以 Untitled(Untitled.pynb) 名称打开。
 
 
 ## <a name="run-spark-sql-statements"></a>运行 Spark SQL 语句
@@ -126,7 +126,7 @@ SQL（结构化查询语言）是用于查询和定义数据的最常见、最�
 2. 请在 Notebook 的“文件”菜单中选择“关闭并停止”。 关闭 Notebook 会释放群集资源。
 
 ## <a name="clean-up-resources"></a>清理资源
-HDInsight 将数据保存在 Azure 存储或 Azure Data Lake Store 中，因此可以在未使用群集时安全地删除群集。 此外，还需要支付 HDInsight 群集费用，即使未使用。 由于群集费用高于存储空间费用数倍，因此在不使用群集时将其删除可以节省费用。 如果要立即开始[后续步骤](#next-steps)中所列的教程，可能需要保留群集。
+HDInsight 将数据保存在 Azure 存储中，因此可以在群集不用时安全地删除群集。 此外，还需要支付 HDInsight 群集费用，即使未使用。 由于群集费用数倍于存储空间费用，因此在群集不用时删除群集可以节省费用。 如果要立即开始[后续步骤](#next-steps)中所列的教程，可能需要保留群集。
 
 切换回 Azure 门户，并选择“删除”。
 

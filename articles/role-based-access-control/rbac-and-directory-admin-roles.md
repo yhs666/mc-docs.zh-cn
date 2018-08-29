@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-origin.date: 07/02/2018
-ms.date: 07/25/2018
+origin.date: 08/07/2018
+ms.date: 08/23/2018
 ms.author: v-junlch
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: f81919af16166e5e769456e42a3ac24fd03dd51a
-ms.sourcegitcommit: cce18df2de12353f0d8f01c649307a5789d59cd4
+ms.openlocfilehash: b7a569c7428f4d535f2d8ca22f6a46d6c847ec2c
+ms.sourcegitcommit: 64af85591634684abc62e7f79d8270705c95c109
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39246123"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42866332"
 ---
 # <a name="classic-subscription-administrator-roles-vs-azure-rbac-roles-vs-azure-ad-administrator-roles"></a>经典订阅管理员角色、Azure RBAC 角色与Azure AD 管理员角色
 
@@ -64,7 +64,7 @@ Azure 订阅可帮助你组织 Azure 资源的访问权限。 它们还可帮助
 帐户和订阅在 [Azure 帐户中心](https://account.windowsazure.cn/Subscriptions)进行管理。
 ## <a name="azure-rbac-roles"></a>Azure RBAC 角色
 
-Azure RBAC 是基于 [Azure 资源管理器](../azure-resource-manager/resource-group-overview.md)构建的授权系统，它针对 Azure 资源（例如计算和存储）提供精细的访问权限管理。 Azure RBAC 包括 60 多个内置角色。 有四个基本的 RBAC 角色。 前三个角色适用于所有资源类型：
+Azure RBAC 是基于 [Azure 资源管理器](../azure-resource-manager/resource-group-overview.md)构建的授权系统，它针对 Azure 资源（例如计算和存储）提供精细的访问权限管理。 Azure RBAC 包括 70 多个内置角色。 有四个基本的 RBAC 角色。 前三个角色适用于所有资源类型：
 
 | Azure RBAC 角色 | 权限 | 说明 |
 | --- | --- | --- |
@@ -89,11 +89,11 @@ Azure RBAC 是基于 [Azure 资源管理器](../azure-resource-manager/resource-
 
 Azure AD 管理员角色用于管理目录中的 Azure AD 资源，例如，创建或编辑用户、将管理角色分配给其他人、重置用户密码、管理用户许可证以及管理域。 下表描述了几个更重要的 Azure AD 管理员角色。
 
-| Azure AD 管理员角色 | 权限 | 注释 |
+| Azure AD 管理员角色 | 权限 | 说明 |
 | --- | --- | --- |
-| [全局管理员](../active-directory/active-directory-assign-admin-roles-azure-portal.md#global-administrator) | <ul><li>管理对 Azure Active Directory 中所有管理功能的访问，以及与 Azure Active Directory 联合的服务</li><li>将管理员角色分配给其他人</li><li>重置任何用户和所有其他管理员的密码</li></ul> | 注册 Azure Active Directory 租户的人员将成为全局管理员。 |
-| [用户管理员](../active-directory/active-directory-assign-admin-roles-azure-portal.md#user-account-administrator) | <ul><li>创建和管理用户与组的所有方面</li><li>管理支持票证</li><li>监视服务运行状况</li><li>更改用户、支持管理员和其他用户管理员的密码</li></ul> |  |
-| [计费管理员](../active-directory/active-directory-assign-admin-roles-azure-portal.md#billing-administrator) | <ul><li>购买产品</li><li>管理订阅</li><li>管理支持票证</li><li>监视服务运行状况</li></ul> |  |
+| [全局管理员](../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator) | <ul><li>管理对 Azure Active Directory 中所有管理功能的访问，以及与 Azure Active Directory 联合的服务</li><li>将管理员角色分配给其他人</li><li>重置任何用户和其他所有管理员的密码</li></ul> | 注册 Azure Active Directory 租户的人员将成为全局管理员。 |
+| [用户管理员](../active-directory/users-groups-roles/directory-assign-admin-roles.md#user-account-administrator) | <ul><li>创建和管理用户与组的所有方面</li><li>管理支持票证</li><li>监视服务运行状况</li><li>更改用户、支持管理员和其他用户帐户管理员的密码</li></ul> |  |
+| [计费管理员](../active-directory/users-groups-roles/directory-assign-admin-roles.md#billing-administrator) | <ul><li>购买产品</li><li>管理订阅</li><li>管理支持票证</li><li>监视服务运行状况</li></ul> |  |
 
 有关所有 Azure AD 管理员角色的列表，请参阅[在 Azure Active Directory 中分配管理员角色](/active-directory/active-directory-assign-admin-roles-azure-portal)。
 
@@ -109,7 +109,7 @@ Azure AD 管理员角色用于管理目录中的 Azure AD 资源，例如，创�
 | --- | --- |
 | 管理对 Azure 资源的访问 | 管理对 Azure Active Directory 资源的访问 |
 | 支持自定义角色 | 无法创建自己的角色 |
-| 可在多个级别（管理组、订阅、资源组、资源）指定范围 | 范围为租户级别 |
+| 可在多个级别（订阅、资源组、资源）指定范围 | 范围为租户级别 |
 | 可在 Azure 门户、Azure CLI、Azure PowerShell、Azure 资源管理器模板、REST API 中访问角色信息 | 可在 Azure 管理门户、Office 365 管理门户、Microsoft Graph、AzureAD PowerShell 中访问角色信息 |
 
 ### <a name="do-azure-rbac-roles-and--azure-ad-administrator-roles-overlap"></a>Azure RBAC 角色与 Azure AD 管理员角色是否重叠？

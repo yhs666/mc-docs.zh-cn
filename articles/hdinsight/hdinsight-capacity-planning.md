@@ -10,19 +10,17 @@ editor: cgronlun
 ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/22/2017
-ms.date: 12/25/2017
+ms.date: 08/27/2018
 ms.author: v-yiso
-ms.openlocfilehash: 198b739ee7aa0b9b501110b4f442af5daa1d56ba
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.openlocfilehash: ececedc7f6bfee447eb50cc79ef3e3023386551b
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30073837"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41703975"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>HDInsight 群集的容量规划
 
@@ -95,8 +93,7 @@ VM 大小和类型由 CPU 处理能力、RAM 大小和网络延迟决定：
 
 ### <a name="cluster-lifecycle"></a>群集生命周期
 
-在群集的生存期内会产生费用。 如果仅在特定时间需要群集启动且正在运行， 
-<!-- [create on-demand clusters using Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md). -->
+在群集的生存期内会产生费用。 如果仅在特定时间需要群集启动且正在运行，<!-- [create on-demand clusters using Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md). -->
 可以创建 PowerShell 脚本用于预配和删除群集，然后使用 [Azure 自动化](/automation/)计划这些脚本。
 
 > [!NOTE]
@@ -119,5 +116,5 @@ VM 大小和类型由 CPU 处理能力、RAM 大小和网络延迟决定：
 
 ## <a name="next-steps"></a>后续步骤
 
-* [使用 Hadoop、Spark、Kafka 等在 HDInsight 中设置群集](hdinsight-hadoop-provision-linux-clusters.md)：了解如何使用 Hadoop、Spark、Kafka、交互式 Hive、HBase、R Server 或 Storm 在 HDInsight 中设置和配置群集。
+* [使用 Hadoop、Spark、Kafka 等在 HDInsight 中设置群集](hdinsight-hadoop-provision-linux-clusters.md)：了解如何使用 Hadoop、Spark、Kafka、交互式 Hive、HBase、ML Services 或 Storm 在 HDInsight 中设置和配置群集。
 * [监视群集性能](hdinsight-key-scenarios-to-monitor.md)：了解要在 HDInsight 群集中监视的、可能会影响群集容量的关键情况。

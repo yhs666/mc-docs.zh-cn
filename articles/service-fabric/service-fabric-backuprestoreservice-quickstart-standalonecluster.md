@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric（预览版）中的定期备份和还原 | Azure
-description: 使用 Service Fabric 的定期备份和还原功能防止应用程序丢失数据。
+title: 快速入门 - Azure Service Fabric（预览版）中的定期备份和还原 | Azure
+description: 使用 Service Fabric 的定期备份和还原功能来实现应用程序数据的定期数据备份。
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 04/04/2018
-ms.date: 05/28/2018
+ms.date: 08/20/2018
 ms.author: v-yeche
-ms.openlocfilehash: 10e4dcbcd653e8e3fc2b95da008b9e877d86b215
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: 9887bfccc37ca33093735f614160ab34999ba30f
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554673"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41705394"
 ---
-# <a name="periodic-backup-and-restore-in-azure-service-fabric-preview"></a>Azure Service Fabric（预览版）中的定期备份和还原
+# <a name="quickstart-periodic-backup-and-restore-in-azure-service-fabric-preview"></a>快速入门：Azure Service Fabric（预览版）中的定期备份和还原
 > [!div class="op_single_selector"]
 > * [Azure 上的群集](service-fabric-backuprestoreservice-quickstart-azurecluster.md) 
 > * [独立群集](service-fabric-backuprestoreservice-quickstart-standalonecluster.md)
@@ -224,12 +224,12 @@ FailureError            :
 ## <a name="preview-limitation-caveats"></a>预览限制/注意事项
 - PowerShell cmdlet 中没有生成的 Service Fabric。
 - 不支持 Service Fabric CLI。
-- 不支持自动备份清除。 需要手动清理备份。
+-  不支持自动备份清除。 设置基于脚本的外部自动化时可以参考[备份保留脚本](https://github.com/Microsoft/service-fabric-scripts-and-templates/tree/master/scripts/BackupRetentionScript)来清除备份。
 - Linux 上不支持 Service Fabric 群集。
 
 ## <a name="next-steps"></a>后续步骤
+- [了解定期备份配置](./service-fabric-backuprestoreservice-configure-periodic-backup.md)
 - [备份还原 REST API 参考](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
 
 [0]: ./media/service-fabric-backuprestoreservice/PartitionBackedUpHealthEvent.png
-<!-- Update_Description: new articles on service fabric backuprestoreservice quickstart standalonecluster -->
-<!--ms.date: 05/28/2018-->
+<!-- Update_Description: update meta properties, wording update -->

@@ -1,5 +1,5 @@
 ---
-title: 在 Azure Stack 中将 API 版本配置文件与 Python 配合使用 | Microsoft Docs
+title: 在 Azure Stack 中将 API 版本配置文件与 Python 配合使用 | Azure
 description: 了解如何在 Azure Stack 中将 API 版本配置文件与 Python 配合使用。
 services: azure-stack
 documentationcenter: ''
@@ -10,17 +10,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/21/2018
-ms.date: 06/27/2018
+origin.date: 08/15/2018
+ms.date: 08/27/2018
 ms.author: v-junlch
 ms.reviewer: sijuman
 <!-- dev: viananth -->
-ms.openlocfilehash: 489f077317aefdb0b7502e7b10a27a4c6bc4e528
-ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
+ms.openlocfilehash: 24da4646cbc38f899664993add13ebbd7900fd85
+ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37027224"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42869418"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack"></a>在 Azure Stack 中将 API 版本配置文件与 Python 配合使用
 
@@ -123,7 +123,7 @@ Python SDK 支持 API 版本配置文件将不同的云平台（例如 Azure Sta
 
 6.  设置以下变量并将这些环境变量导出到当前 shell 中。 
 
-    ````bash
+    ```bash
     export AZURE_TENANT_ID={your tenant id}
     export AZURE_CLIENT_ID={your client id}
     export AZURE_CLIENT_SECRET={your client secret}
@@ -131,33 +131,30 @@ Python SDK 支持 API 版本配置文件将不同的云平台（例如 Azure Sta
     export ARM_ENDPOINT={your AzureStack Resource Manager Endpoint}
     ```
 
-7.  In order to run this sample, Ubuntu 16.04-LTS and WindowsServer 2012-R2-Datacenter images must be present in Azure Stack market place. These can be either [downloaded from Azure](/azure-stack/azure-stack-download-azure-marketplace-item) or [added to Platform Image Repository](/azure-stack/azure-stack-add-vm-image).
+7.  若要运行此示例，Ubuntu 16.04-LTS 和 WindowsServer 2012-R2-Datacenter 映像必须存在于 Azure Stack 市场中。 可以[从 Azure 下载](/azure-stack/azure-stack-download-azure-marketplace-item)这些映像或者将其[添加到平台映像存储库](/azure-stack/azure-stack-add-vm-image)。
 
-8. Run the sample.
+8. 运行示例。
 
     ```
     python unmanaged-disks\example.py
     ```
 
-## Notes
+## <a name="notes"></a>注释
 
-You may be tempted to try to retrieve a VM's OS disk by using
-`virtual_machine.storage_profile.os_disk`.
-In some cases, this may do what you want,
-but be aware that it gives you an `OSDisk` object.
-In order to update the OS Disk's size, as `example.py` does,
-you need not an `OSDisk` object but a `Disk` object.
-`example.py` gets the `Disk` object with the following:
+你可能会尝试使用 `virtual_machine.storage_profile.os_disk` 检索 VM 的 OS 磁盘。
+在某些情况下，这可能能够实现你的目的，但请注意，它提供的是 `OSDisk` 对象。
+若要像 `example.py` 那样更新 OS 磁盘的大小，需要的是 `OSDisk` 对象而不是 `Disk` 对象。
+`example.py` 使用以下信息获取 `Disk` 对象：
 
 ```python
 os_disk_name = virtual_machine.storage_profile.os_disk.name
 os_disk = compute_client.disks.get(GROUP_NAME, os_disk_name)
 ```
 
-## Next steps
+## <a name="next-steps"></a>后续步骤
 
-- [Azure Python Development Center](/develop/python/)
-- [Azure Virtual Machines documentation](https://www.azure.cn/home/features/virtual-machines/)
-- [Learning Path for Virtual Machines](https://azure.microsoft.com/documentation/learning-paths/virtual-machines/)
-- If you don't have a Azure subscription you can get a trial account [here](https://www.azure.cn/pricing/1rmb-trial).
+- [Azure Python 开发中心](/develop/python/)
+- [Azure 虚拟机文档](https://www.azure.cn/home/features/virtual-machines/)
+- [虚拟机的学习路径](https://azure.microsoft.com/documentation/learning-paths/virtual-machines/)
+- 如果没有 Azure 订阅，可从[此处](https://www.azure.cn/pricing/1rmb-trial)获取试用帐户。
 

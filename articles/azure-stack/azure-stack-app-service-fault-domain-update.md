@@ -1,5 +1,5 @@
 ---
-title: Azure Stack 上的应用服务：容错域更新 | Microsoft Docs
+title: Azure Stack 上的应用服务：容错域更新 | Azure
 description: 如何跨容错域在 Azure Stack 上重新分配 Azure 应用服务
 services: azure-stack
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/29/2018
-ms.date: 07/20/2018
+ms.date: 08/27/2018
 ms.author: v-junlch
-ms.openlocfilehash: 50372f5755d14ddd444b161458f8662d9146a77c
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.openlocfilehash: fe5c2c4ff0d6675e28fda98d514ef644181ef180
+ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168460"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42869384"
 ---
 # <a name="how-to-redistribute-azure-app-service-on-azure-stack-across-fault-domains"></a>如何跨容错域在 Azure Stack 上重新分配 Azure 应用服务
 
@@ -35,13 +35,13 @@ ms.locfileid: "39168460"
 
 若要为应用服务资源提供程序重新分配部署的规模集，必须针对每个规模集执行本文中的步骤。 默认情况下，规模集名称为：
 
-- ManagementServersScaleSet
-- FrontEndsScaleSet
-- PublishersScaleSet
-- SharedWorkerTierScaleSet
-- SmallWorkerTierScaleSet
-- MediumWorkerTierScaleSet
-- LargeWorkerTierScaleSet
+* ManagementServersScaleSet
+* FrontEndsScaleSet
+* PublishersScaleSet
+* SharedWorkerTierScaleSet
+* SmallWorkerTierScaleSet
+* MediumWorkerTierScaleSet
+* LargeWorkerTierScaleSet
 
 >[!NOTE]
 > 如果某些辅助角色层规模集中未部署任何实例，则无需重新均衡这些规模集。 以后在缩放规模集时，规模集将会正确均衡。
@@ -82,8 +82,8 @@ ms.locfileid: "39168460"
 
 还可以试用其他[平台即服务 (PaaS) 服务](azure-stack-tools-paas-services.md)。
 
-- [SQL Server 资源提供程序](azure-stack-sql-resource-provider-deploy.md)
-- [MySQL 资源提供程序](azure-stack-mysql-resource-provider-deploy.md)
+* [SQL Server 资源提供程序](azure-stack-sql-resource-provider-deploy.md)
+* [MySQL 资源提供程序](azure-stack-mysql-resource-provider-deploy.md)
 
 <!--Image references-->
 [1]: ./media/azure-stack-app-service-fault-domain-update/app-service-scale-sets.png

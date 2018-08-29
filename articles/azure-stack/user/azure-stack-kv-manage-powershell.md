@@ -1,5 +1,5 @@
 ---
-title: 使用 PowerShell 管理 Azure Stack 中的 Key Vault | Microsoft Docs
+title: 使用 PowerShell 管理 Azure Stack 中的 Key Vault | Azure
 description: 了解如何使用 PowerShell 管理 Azure Stack 中的 Key Vault
 services: azure-stack
 documentationcenter: ''
@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/10/2018
-ms.date: 05/23/2018
+origin.date: 08/15/2018
+ms.date: 08/27/2018
 ms.author: v-junlch
-ms.openlocfilehash: a430686c179c58cb26748e8288dc81b5b204e1d5
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 00c4341dd31a600640b9ab239c248868cc27230a
+ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475080"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42869346"
 ---
 # <a name="manage-key-vault-in-azure-stack-using-powershell"></a>使用 PowerShell 管理 Azure Stack 中的 Key Vault
 
@@ -28,18 +28,18 @@ ms.locfileid: "34475080"
 
 可以使用 PowerShell 管理 Azure Stack 中的 Key Vault。 了解如何使用 Key Vault PowerShell cmdlet 执行以下操作：
 
-- 创建密钥保管库。
-- 存储和管理加密密钥和机密。
-- 授权用户或应用程序调用保管库中的操作。
+* 创建密钥保管库。
+* 存储和管理加密密钥和机密。
+* 授权用户或应用程序调用保管库中的操作。
 
 >[!NOTE]
 >本文中介绍的 Key Vault PowerShell cmdlet 在 Azure PowerShell SDK 中提供。
 
 ## <a name="prerequisites"></a>先决条件
 
-- 必须订阅包含 Azure Key Vault 服务的产品/服务。
-- [安装适用于 Azure Stack 的 PowerShell](azure-stack-powershell-install.md)。
-- [配置 Azure Stack 用户的 PowerShell 环境](azure-stack-powershell-configure-user.md)。
+* 必须订阅包含 Azure Key Vault 服务的产品/服务。
+* [安装适用于 Azure Stack 的 PowerShell](azure-stack-powershell-install.md)。
+* [配置 Azure Stack 用户的 PowerShell 环境](azure-stack-powershell-configure-user.md)。
 
 ## <a name="enable-your-tenant-subscription-for-key-vault-operations"></a>启用适用于 Key Vault 操作的租户订阅
 
@@ -53,7 +53,7 @@ Get-AzureRmResourceProvider -ProviderNamespace Microsoft.KeyVault | ft -Autosize
 
 如果订阅可以进行保管库操作，则输出会显示某个密钥保管库的所有资源类型的“RegistrationState”为“已注册”。
 
-![密钥保管库注册状态](./media/azure-stack-kv-manage-powershell/image1.png)
+![密钥保管库注册状态](media/azure-stack-kv-manage-powershell/image1.png)
 
 如果未启用保管库操作，则请调用以下命令，以便注册订阅中的 Key Vault 服务：
 
@@ -65,7 +65,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.KeyVault
 
 如果注册成功，则返回以下输出：
 
-![注册](./media/azure-stack-kv-manage-powershell/image2.png) 调用密钥保管库密钥时，可能会遇到错误，例如“该订阅未注册为使用命名空间 'Microsoft.KeyVault'。”如果遇到错误，请确认已按以前提到过的说明[启用 Key Vault 资源提供程序](#enable-your-tenant-subscription-for-vault-operations)。
+![注册](media/azure-stack-kv-manage-powershell/image2.png) 调用密钥保管库密钥时，可能会遇到错误，例如“该订阅未注册为使用命名空间 'Microsoft.KeyVault'。”如果遇到错误，请确认已按以前提到过的说明[启用 Key Vault 资源提供程序](#enable-your-tenant-subscription-for-vault-operations)。
 
 ## <a name="create-a-key-vault"></a>创建密钥保管库
 
@@ -78,7 +78,7 @@ New-AzureRmResourceGroup -Name “VaultRG” -Location local -verbose -Force
 
 **输出**
 
-![新建资源组](./media/azure-stack-kv-manage-powershell/image3.png)
+![新建资源组](media/azure-stack-kv-manage-powershell/image3.png)
 
 现在，请使用 **New-AzureRMKeyVault** command 在以前创建的资源组中创建一个密钥保管库。 此命令读取三个必需参数：资源组名称、密钥保管库名称和地理位置。
 
@@ -90,7 +90,7 @@ New-AzureRmKeyVault -VaultName “Vault01” -ResourceGroupName “VaultRG” -L
 
 **输出**
 
-![新的 Key Vault](./media/azure-stack-kv-manage-powershell/image4.png)
+![新的 Key Vault](media/azure-stack-kv-manage-powershell/image4.png)
 
 此命令的输出会显示创建的密钥保管库的属性。 当应用程序访问此保管库时，它必须使用“保管库 URI”属性（在本例中为“https://vault01.vault.local.azurestack.external”）。
 
@@ -123,12 +123,12 @@ Add-AzureKeyVaultKey -VaultName “Vault01” -Name “Key01” -verbose -Destin
 
 **输出**
 
-![新建密钥](./media/azure-stack-kv-manage-powershell/image5.png)
+![新建密钥](media/azure-stack-kv-manage-powershell/image5.png)
 
 现在可以通过已创建密钥的 URI 来引用该密钥。 如果创建或导入的密钥的名称与现有密钥相同，则会使用新密钥中指定的值来更新原始密钥。 可以使用密钥的特定于版本的 URI 来访问以前的版本。 例如：
 
-- 使用“https://vault10.vault.local.azurestack.external:443/keys/key01”总能获得当前版本。
-- 使用“https://vault010.vault.local.azurestack.external:443/keys/key01/d0b36ee2e3d14e9f967b8b6b1d38938a”获取此特定版本。
+* 使用“https://vault10.vault.local.azurestack.external:443/keys/key01”总能获得当前版本。
+* 使用“https://vault010.vault.local.azurestack.external:443/keys/key01/d0b36ee2e3d14e9f967b8b6b1d38938a”获取此特定版本。
 
 ### <a name="get-a-key"></a>获取密钥
 
@@ -149,7 +149,7 @@ Set-AzureKeyVaultSecret -VaultName “Vault01” -Name “Secret01” -SecretVal
 
 **输出**
 
-![创建机密](./media/azure-stack-kv-manage-powershell/image6.png)
+![创建机密](media/azure-stack-kv-manage-powershell/image6.png)
 
 ### <a name="get-a-secret"></a>获取机密
 
@@ -178,7 +178,7 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalNa
 
 ## <a name="next-steps"></a>后续步骤
 
-- [使用 Key Vault 中存储的密码来部署 VM](azure-stack-kv-deploy-vm-with-secret.md)
-- [使用 Key Vault 中存储的证书来部署 VM](azure-stack-kv-push-secret-into-vm.md)
+* [使用 Key Vault 中存储的密码来部署 VM](azure-stack-kv-deploy-vm-with-secret.md)
+* [使用 Key Vault 中存储的证书来部署 VM](azure-stack-kv-push-secret-into-vm.md)
 
 <!-- Update_Description: wording update -->

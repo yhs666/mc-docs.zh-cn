@@ -1,5 +1,5 @@
 ---
-title: 允许云服务提供商管理 Azure Stack 订阅 | Microsoft Docs
+title: 允许云服务提供商管理 Azure Stack 订阅 | Azure
 description: 允许云服务提供商访问 Azure Stack 中的订阅。
 services: azure-stack
 documentationcenter: ''
@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/27/2018
-ms.date: 05/23/2018
+origin.date: 08/15/2018
+ms.date: 08/27/2018
 ms.author: v-junlch
 ms.reviewer: alfredop
-ms.openlocfilehash: aec53070da13c71053fba7c9e7aaffdb3e3d85f6
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 728af8ab897081cf79d360002db3fa55e5183c55
+ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475034"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42869378"
 ---
 # <a name="enable-a-cloud-service-provider-to-manage-your-azure-stack-subscription"></a>允许云服务提供商管理 Azure Stack 订阅
 
@@ -28,8 +28,8 @@ ms.locfileid: "34475034"
 
 如果你通过云服务提供商 (CSP) 使用 Azure Stack，则可以选择管理自己的订阅以访问 Azure 和 Azure Stack 中的资源。 还可以让提供商管理你的订阅。 本文介绍以下操作：
 
- - 让服务提供商访问你的订阅。
- - 确保服务提供商可以管理你的服务。
+ * 让服务提供商访问你的订阅。
+ * 确保服务提供商可以管理你的服务。
 
 > [!Note]
 >  如果 CSP 没有管理你的帐户，并且你跳过以下步骤，则 CSP 无法为你管理 Azure Stack 订阅。

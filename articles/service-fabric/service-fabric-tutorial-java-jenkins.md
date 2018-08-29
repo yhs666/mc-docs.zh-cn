@@ -1,5 +1,5 @@
 ---
-title: 设置 Azure Service Fabric Java 应用程序的 CI/CD | Azure
+title: 在 Azure 中为 Service Fabric 上的 Java 应用配置 Jenkins | Azure
 description: 本教程介绍如何设置使用 Jenkins 部署 Java Service Fabric 应用程序的持续集成。
 services: service-fabric
 documentationcenter: java
@@ -13,18 +13,19 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 02/26/2018
-ms.date: 04/09/2018
+ms.date: 08/20/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: ccf8e115ef904823be4582d94dbf58357bcb9545
-ms.sourcegitcommit: 4c7503b3814668359d31501100ce54089fa50555
+ms.openlocfilehash: af74d462844ec6daed96dd3294238fd54584de63
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30845232"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41704064"
 ---
-# <a name="tutorial-set-up-a-jenkins-environment-with-service-fabric"></a>教程：使用 Service Fabric 设置 Jenkins 环境
-本教程是系列教程的第五部分， 介绍如何使用 Jenkins 将升级部署到应用程序。 本教程结合使用 Service Fabric Jenkins 插件和托管投票应用程序的 Github 存储库，将应用程序部署到群集。 
+# <a name="tutorial-configure-a-jenkins-environment-to-enable-cicd-for-a-java-application-on-service-fabric"></a>教程：配置 Jenkins 环境以便为 Service Fabric 上的 Java 应用程序启用 CI/CD
+
+本教程是系列教程的第五部分， 介绍如何使用 Jenkins 将升级部署到应用程序。 本教程结合使用 Service Fabric Jenkins 插件和托管投票应用程序的 Github 存储库，将应用程序部署到群集。
 
 本系列教程的第五部分介绍以下操作：
 > [!div class="checklist"]
@@ -41,13 +42,15 @@ ms.locfileid: "30845232"
 > * 设置 CI/CD
 
 ## <a name="prerequisites"></a>先决条件
-- 通过 [Git 下载页](https://git-scm.com/downloads)在本地计算机上安装 Git。 有关 Git 的详细信息，请参阅 [Git 文档](https://git-scm.com/docs)。
-- 在 [Jenkins](https://jenkins.io/) 方面有实践经验。
-- 创建 [GitHub](https://github.com/) 帐户并知道如何使用 GitHub。
-- 在计算机上安装 [Docker](https://www.docker.com/community-edition)。
+
+* 通过 [Git 下载页](https://git-scm.com/downloads)在本地计算机上安装 Git。 有关 Git 的详细信息，请参阅 [Git 文档](https://git-scm.com/docs)。
+* 在 [Jenkins](https://jenkins.io/) 方面有实践经验。
+* 创建 [GitHub](https://github.com/) 帐户并知道如何使用 GitHub。
+* 在计算机上安装 [Docker](https://www.docker.com/community-edition)。
 
 ## <a name="pull-and-deploy-service-fabric-jenkins-container-image"></a>提取并部署 Service Fabric Jenkins 容器映像
-可在 Service Fabric 群集内部或外部设置 Jenkins。 以下说明介绍如何使用提供的 Docker 映像在群集外部设置 Jenkins。 但也可以使用预配置的 Jenkins 生成环境。 以下容器映像已连同 Service Fabric 插件一起安装，随时可与 Service Fabric 配合使用。 
+
+可在 Service Fabric 群集内部或外部设置 Jenkins。 以下说明介绍如何使用提供的 Docker 映像在群集外部设置 Jenkins。 但也可以使用预配置的 Jenkins 生成环境。 以下容器映像已连同 Service Fabric 插件一起安装，随时可与 Service Fabric 配合使用。
 
 1. 拉取 Service Fabric Jenkins 容器映像：``docker pull rapatchi/jenkins:v10``。 此映像附带了预安装的 Service Fabric Jenkins 插件。
 
@@ -69,7 +72,7 @@ ms.locfileid: "30845232"
     * 从门户 ``http://<HOST-IP>:8080`` 登录到 Jenkins 仪表板时需要此密码
     * 首次登录后，可以创建自己的用户帐户或使用管理员帐户。
 
-5. 使用[生成新的 SSH 密钥并将其添加到 SSH 代理](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)中所述的步骤，将 GitHub 设置为使用 Jenkins。 由于命令是从 Docker 容器运行的，因此请遵照适用于 Linux 环境的说明。 
+5. 使用[生成新的 SSH 密钥并将其添加到 SSH 代理](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)中所述的步骤，将 GitHub 设置为使用 Jenkins。 由于命令是从 Docker 容器运行的，因此请遵照适用于 Linux 环境的说明。
     * 使用 GitHub 提供的说明生成 SSH 密钥。 接下来，将 SSH 密钥添加到托管存储库的 GitHub 帐户。
     * 在 Jenkins Docker shell（而不是主机）中运行上述链接中提到的命令。
     * 若要从主机登录到 Jenkins shell，请使用以下命令：
@@ -78,7 +81,7 @@ ms.locfileid: "30845232"
     docker exec -t -i [first-four-digits-of-container-ID] /bin/bash
     ```
 
-    确保托管 Jenkins 容器映像的群集或计算机使用公共 IP。 使用公共 IP 可让 Jenkins 实例从 GitHub 接收通知。    
+    确保托管 Jenkins 容器映像的群集或计算机使用公共 IP。 使用公共 IP 可让 Jenkins 实例从 GitHub 接收通知。
 
 ## <a name="create-and-configure-a-jenkins-job"></a>创建和配置 Jenkins 作业
 
@@ -86,7 +89,7 @@ ms.locfileid: "30845232"
 
 2. 在 Jenkins 仪表板上创建一个**新项**。
 
-3. 输入项名称（例如 MyJob）。 选择“自由格式的项目”，并单击“确定”。
+3. 输入项名称（例如 **MyJob**）。 选择“自由格式的项目”，并单击“确定”。
 
 4. 转到作业页，单击“配置”。
 
@@ -112,7 +115,7 @@ ms.locfileid: "30845232"
 
     ![Service Fabric Jenkins 生成操作](./media/service-fabric-tutorial-java-jenkins/jenkinsbuildscreenshot.png)
 
-8. 在“生成后操作”下拉列表中，选择“部署 Service Fabric 项目”。 此处需要提供有关在何处部署 Jenkins 编译的 Service Fabric 应用程序的群集详细信息。 证书的路径是卷的装载位置 (/tmp/myCerts)。 
+8. 在“生成后操作”下拉列表中，选择“部署 Service Fabric 项目”。 此处需要提供有关在何处部署 Jenkins 编译的 Service Fabric 应用程序的群集详细信息。 证书的路径是卷的装载位置 (/tmp/myCerts)。
 
     还可以提供用于部署应用程序的其他详细信息。 有关应用程序详细信息的示例，请参阅以下屏幕截图：
 
@@ -122,11 +125,11 @@ ms.locfileid: "30845232"
     > 如果使用 Service Fabric 部署 Jenkins 容器映像，此处的群集可与托管 Jenkins 容器应用程序的群集相同。
     >
 
-## <a name="update-your-existing-application"></a>更新现有应用程序 
+## <a name="update-your-existing-application"></a>更新现有应用程序
 
-1. 使用 **Service Fabric 投票示例 V2** 更新 *VotingApplication/VotingWebPkg/Code/wwwroot/index.html* 文件中 HTML 的标题。 
+1. 使用 **Service Fabric 投票示例 V2** 更新 *VotingApplication/VotingWebPkg/Code/wwwroot/index.html* 文件中 HTML 的标题。
 
-    ```html 
+    ```html
     <div ng-app="VotingApp" ng-controller="VotingAppController" ng-init="refresh()">
         <div class="container-fluid">
             <div class="row">
@@ -138,7 +141,7 @@ ms.locfileid: "30845232"
     </div>
     ```
 
-2. 在 *Voting/VotingApplication/ApplicationManifest.xml* 文件中，将 **ApplicationTypeVersion** 和 **ServiceManifestVersion** 版本更新为 **2.0.0**。 
+2. 在 *Voting/VotingApplication/ApplicationManifest.xml* 文件中，将 **ApplicationTypeVersion** 和 **ServiceManifestVersion** 版本更新为 **2.0.0**。
 
     ```xml
     <?xml version="1.0" encoding="utf-8" standalone="no"?>
@@ -155,13 +158,13 @@ ms.locfileid: "30845232"
              <StatelessService InstanceCount="1" ServiceTypeName="VotingWebType">
                 <SingletonPartition/>
              </StatelessService>
-          </Service>      
+          </Service>
        <Service Name="VotingDataService">
                 <StatefulService MinReplicaSetSize="3" ServiceTypeName="VotingDataServiceType" TargetReplicaSetSize="3">
                     <UniformInt64Partition HighKey="9223372036854775807" LowKey="-9223372036854775808" PartitionCount="1"/>
                 </StatefulService>
             </Service>
-        </DefaultServices>      
+        </DefaultServices>
     </ApplicationManifest>
     ```
 
@@ -177,17 +180,18 @@ ms.locfileid: "30845232"
     </CodePackage>
     ```
 
-4. 若要初始化执行应用程序升级的 Jenkins 作业，请将新更改推送到 Github 存储库。 
+4. 若要初始化执行应用程序升级的 Jenkins 作业，请将新更改推送到 Github 存储库。
 
 5. 在 Service Fabric Explorer 中，单击“应用程序”下拉列表。 若要查看升级状态，请单击“正在进行升级”选项卡。
 
     ![正在进行升级](./media/service-fabric-tutorial-create-java-app/upgradejava.png)
 
-6. 如果访问 **http://\<主机 IP >:8080**，会看到具有完整功能的投票应用程序正在运行。 
+6. 如果访问 **http://\<主机 IP >:8080**，会看到具有完整功能的投票应用程序正在运行。
 
     ![本地 Voting 应用](./media/service-fabric-tutorial-java-jenkins/votingv2.png)
 
 ## <a name="next-steps"></a>后续步骤
+
 在本教程中，你已学习了如何执行以下操作：
 
 > [!div class="checklist"]
@@ -197,5 +201,4 @@ ms.locfileid: "30845232"
 
 * 查看其他 [Java 示例](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 
-<!-- Update_Description: new articles on service fabric turoial java jenkins -->
-<!--ms.date: 04/09/2018-->
+<!-- Update_Description: update meta properties, wording update  -->

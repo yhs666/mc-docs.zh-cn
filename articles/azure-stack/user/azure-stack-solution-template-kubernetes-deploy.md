@@ -1,5 +1,5 @@
 ---
-title: 将 Kubernetes 群集部署到 Azure Stack | Microsoft Docs
+title: 将 Kubernetes 群集部署到 Azure Stack | Azure
 description: 了解如何将 Kubernetes 群集部署到 Azure Stack。
 services: azure-stack
 documentationcenter: ''
@@ -11,29 +11,29 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/29/2018
-ms.date: 06/27/2018
+origin.date: 08/09/2018
+ms.date: 08/27/2018
 ms.author: v-junlch
 ms.reviewer: waltero
-ms.openlocfilehash: 51c95eacea012affed31e9d6978fb65fb5dfa6c3
-ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
+ms.openlocfilehash: bfe47d5ace1d4ee80844f39a6e6e222d3b4c50e5
+ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37027227"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42869369"
 ---
 # <a name="deploy-a-kubernetes-cluster-to-azure-stack"></a>将 Kubernetes 群集部署到 Azure Stack
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 > [!Note]  
-> Azure Stack 上的 Azure 容器服务 (ACS) Kubernetes 目前为个人预览版。 Azure Stack 操作员需请求 Kubernetes 市场项的访问权限，该项是根据本文中的说明进行操作所必需的。
+> Azure Stack 上的 Azure Kubernetes 服务 (AKS) Kubernetes 目前以个人预览版提供。 Azure Stack 操作员需请求 Kubernetes 市场项的访问权限，该项是根据本文中的说明进行操作所必需的。
 
 下面的文章着眼于使用 Azure 资源管理器解决方案模板通过单个协调的操作为 Kubernetes 部署和预配资源。 需收集有关 Azure Stack 安装的必需信息，生成模板，然后再部署到云。
 
 ## <a name="kubernetes-and-containers"></a>Kubernetes 和容器
 
-可以使用 Azure 资源管理器模板来安装 Kubernetes，该模板由 Azure Stack 上的 Azure 容器服务 (ACS) 引擎生成。 [Kubernetes](https://kubernetes.io) 是一个开源系统，可以自动部署、缩放和管理容器中的应用程序。 [容器](https://www.docker.com/what-container)受限于映像，与 VM 类似。 与 VM 不同的是，容器映像只包含运行应用程序所需的资源，例如代码、执行代码所需的运行时、特定库以及设置。
+可以使用 Azure 资源管理器模板来安装 Kubernetes，该模板由 Azure Stack 上的 Azure Kubernetes 服务 (AKS) 引擎生成。 [Kubernetes](https://kubernetes.io) 是一个开源系统，可以自动部署、缩放和管理容器中的应用程序。 [容器](https://www.docker.com/what-container)受限于映像，与 VM 类似。 与 VM 不同的是，容器映像只包含运行应用程序所需的资源，例如代码、执行代码所需的运行时、特定库以及设置。
 
 可以使用 Kubernetes 执行以下操作：
 
@@ -109,11 +109,11 @@ ms.locfileid: "37027227"
 
 2. 选择“+新建” > “计算” > “Kubernetes 群集”。 单击**创建**。
 
-    ![部署解决方案模板](./media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
+    ![部署解决方案模板](media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
 
 3. 在“创建 Kubernetes 群集”中选择“基本设置”。
 
-    ![部署解决方案模板](./media/azure-stack-solution-template-kubernetes-deploy/02_kub_config_basic.png)
+    ![部署解决方案模板](media/azure-stack-solution-template-kubernetes-deploy/02_kub_config_basic.png)
 
 2. 输入 **Linux VM 管理员用户名**。 构成 Kubernetes 群集和 DVM 的 Linux 虚拟机的用户名。
 
@@ -142,7 +142,7 @@ ms.locfileid: "37027227"
 
 1. 选择“Azure Stack 戳设置”。
 
-    ![部署解决方案模板](./media/azure-stack-solution-template-kubernetes-deploy/03_kub_config_settings.png)
+    ![部署解决方案模板](media/azure-stack-solution-template-kubernetes-deploy/03_kub_config_settings.png)
 
 2. 输入**租户 Arm 终结点**。 这是在连接后即可为 Kubernetes 群集创建资源组的 Azure 资源管理器终结点。 需从集成系统的 Azure Stack 操作员处获取此终结点。 对于 Azure Stack 开发工具包 (ASDK)，可以使用 `https://management.local.azurestack.external`。
 

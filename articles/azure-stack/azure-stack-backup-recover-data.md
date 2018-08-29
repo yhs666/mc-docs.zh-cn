@@ -1,5 +1,5 @@
 ---
-title: 使用基础结构备份服务在 Azure Stack 中发生灾难性数据丢失后进行恢复 | Microsoft Docs
+title: 使用基础结构备份服务在 Azure Stack 中发生灾难性数据丢失后进行恢复 | Azure
 description: 当灾难性故障导致 Azure Stack 失败后，在重新建立 Azure Stack 部署时可以还原基础结构数据。
 services: azure-stack
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/20/2017
-ms.date: 05/24/2018
+origin.date: 07/17/2017
+ms.date: 08/27/2018
 ms.author: v-junlch
 ms.reviewer: hectorl
-ms.openlocfilehash: eb7d884ad64823f1dd875fab992b71ad0d5269d8
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 7d65d2ec4adbf274e4286a03c3ae671f86a9fa64
+ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34474921"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42869326"
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>在发生灾难性数据丢失后进行恢复
 
@@ -66,11 +66,11 @@ Azure Stack 支持称为云恢复模式的部署类型。 只有当灾难或产�
  - 内部标识系统
  - 联合标识配置（断开连接部署）
  - 内部证书颁发机构使用的根证书
- - Azure 资源管理器配置用户数据，例如订阅、计划、产品/服务，以及存储、网络和计算资源的配额
+ - Azure 资源管理器配置用户数据，例如订阅、计划、套餐，以及存储、网络和计算资源的配额
  - KeyVault 机密和保管库
  - RBAC 策略分配和角色分配 
 
-在部署期间不会恢复任何用户基础结构即服务 (IaaS) 或平台即服务 (PaaS) 资源。 也就是说，IaaS VM、存储帐户、blob、表、网络配置等等都会丢失。 云恢复的目的是为了确保操作员和用户在部署完成后可以重新登录回门户。 重新登录回来的用户不会看到其任何资源。 用户将还原其订阅以及由管理员定义的原始计划和产品/服务策略。 重新登录回系统的用户在操作时将受原始解决方案在发生灾难前施加的相同约束制约。 在云恢复完成后，操作员可以手动还原增值 RP 和第三方 RP 以及关联的数据。
+在部署期间不会恢复任何用户基础结构即服务 (IaaS) 或平台即服务 (PaaS) 资源。 也就是说，IaaS VM、存储帐户、blob、表、网络配置等等都会丢失。 云恢复的目的是为了确保操作员和用户在部署完成后可以重新登录回门户。 重新登录回来的用户不会看到其任何资源。 用户将还原其订阅以及由管理员定义的原始计划和套餐策略。 重新登录回系统的用户在操作时将受原始解决方案在发生灾难前施加的相同约束制约。 在云恢复完成后，操作员可以手动还原增值 RP 和第三方 RP 以及关联的数据。
 
 ## <a name="next-steps"></a>后续步骤
 

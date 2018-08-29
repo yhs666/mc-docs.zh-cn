@@ -5,22 +5,45 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: reference
-origin.date: 06/08/2018
-ms.date: 07/23/2018
+origin.date: 07/06/2018
+ms.date: 08/20/2018
 ms.author: v-yiso
-ms.openlocfilehash: 8a176e65499b652c80f3c78cecfd148eef765e44
-ms.sourcegitcommit: 479954e938e4e3469d6998733aa797826e4f300b
+ms.component: logs
+ms.openlocfilehash: 8fec1724d4436a0f67a6db50a2a27deaa168759f
+ms.sourcegitcommit: 664584f55e0a01bb6558b8d3349d41d3f05ba4d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39031783"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41704480"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Azure 诊断日志支持的服务、架构和类别
 
-[Azure 资源诊断日志](monitoring-overview-of-diagnostic-logs.md)是 Azure 资源发出的日志，用于描述该资源的操作。 这些日志特定于资源类型。 在本文中，我们概要列出每个服务发出的事件支持的一组服务和事件架构。 本文还提供每种资源类型可用的日志类别的完整列表。
+[Azure 资源诊断日志](monitoring-overview-of-diagnostic-logs.md)是 Azure 资源发出的日志，用于描述该资源的操作。 通过 Azure Monitor 提供的所有诊断日志共享公共顶级架构，且每个服务都能灵活地为其事件发出唯一属性。
 
-## <a name="supported-services-and-schemas-for-resource-diagnostic-logs"></a>资源诊断日志支持的服务和架构
-资源诊断日志的架构因资源和日志类别而异。   
+资源类型（为 `resourceId` 属性时可用）和 `category` 的组合唯一标识架构。 本文介绍了诊断日志的顶级架构以及每个服务的架构链接。
+
+## <a name="top-level-diagnostic-logs-schema"></a>顶级诊断日志架构
+
+| Name | 必需/可选 | 说明 |
+|---|---|---|
+| time | 必须 | 事件时间戳 (UTC)。 |
+| ResourceId | 必须 | 发出事件的资源的资源 ID。 |
+| operationName | 必须 | 此事件表示的操作的名称。 如果该事件表示 RBAC 操作，则这是 RBAC 操作名称 （例如 Microsoft.Storage/storageAccounts/blobServices/blobs/Read）。 通常以资源管理器操作的形式建模，即使它们不是实际记录的资源管理器操作 (`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`) |
+| operationVersion | 可选 | 如果使用 API 执行 operationName，则 api-version 与该操作关联（例如 http://myservice.windowsazure.net/object?api-version=2016-06-01)。 如果没有与此操作相对应的 API，则该版本表示该操作的版本，以防与操作相关联的属性在将来发生更改。 |
+| category | 必须 | 事件的日志类别。 类别是可以在特定资源上启用或禁用日志的粒度。 在事件的属性 blob 内显示的属性在特定日志类别和资源类型中相同。 典型的日志类别是“Audit”、“Operational”、“Execution”和“Request”。 |
+| resultType | 可选 | 事件的状态。 典型值包括“Started”、“In Progress”、“Succeeded”、“Failed”、“Active”和“Resolved”。 |
+| resultSignature | 可选 | 事件的子状态。 如果此操作对应于 REST API 调用，则这是相应 REST 调用的 HTTP 状态代码。 |
+| resultDescription | 可选 | 此操作的静态文本说明，例如 “获取存储文件。” |
+| durationMs | 可选 | 操作持续时间，以毫秒为单位。 |
+| callerIpAddress | 可选 | 调用方 IP 地址，如果该操作对应于来自具有公开 IP 地址的实体的 API 调用。 |
+| correlationId | 可选 | 用于将一组相关事件组合在一起的 GUID。 通常情况下，如果两个事件具有相同 operationName，但具有两个不同状态（例如 “Started”和“Succeeded”），则它们共享相同的关联 ID。 这也可以代表事件之间的其他关系。 |
+| identity | 可选 | 描述执行操作的用户或应用程序的标识的 JSON Blob。 通常，这将包括 Active Directory 中的授权和声明/JWT 令牌。 |
+| 级别 | 可选 | 事件的严重级别。 必须是信息性、警告、错误或严重。 |
+| location | 可选 | 发出事件的资源区域，例如 “美国东部”或“法国南部” |
+| properties | 可选 | 与此特定类别的事件相关的任何扩展属性。 所有自定义/唯一属性都必须放入此架构的“B 部分”。 |
+
+## <a name="service-specific-schemas-for-resource-diagnostic-logs"></a>资源诊断日志的服务特定架构
+资源诊断日志的架构因资源和日志类别而异。 此列表显示使诊断日志和链接对服务和类别特定的架构可用的所有服务（如果可用）。
 
 | 服务 | 架构和文档 |
 | --- | --- |
@@ -35,6 +58,9 @@ ms.locfileid: "39031783"
 | IoT 中心 | [IoT 中心操作](../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
 | 密钥保管库 |[Azure 密钥保管库日志记录](../key-vault/key-vault-logging.md) |
 | 负载均衡器 |[Azure 负载均衡器的 Log Analytics](../load-balancer/load-balancer-monitor-log.md) |
+| 网络安全组 |[网络安全组 (NSG) 的 Log Analytics](../virtual-network/virtual-network-nsg-manage-log.md) |
+| DDOS 保护 | [管理 Azure DDoS 防护标准](../virtual-network/manage-ddos-protection.md) |
+| PowerBI 专用 | 架构不可用。 |
 | 恢复服务 | [Azure 备份的数据模型](../backup/backup-azure-reports-data-model.md)|
 | 搜索 |[允许并使用搜索流量分析](../search/search-traffic-analytics.md) |
 | 服务总线 |[Azure 服务总线诊断日志](../service-bus-messaging/service-bus-diagnostic-logs.md) |
@@ -55,6 +81,8 @@ ms.locfileid: "39031783"
 |Microsoft.Automation/automationAccounts|DscNodeStatus|Dsc 节点状态|
 |Microsoft.Batch/batchAccounts|ServiceLog|服务日志|
 |Microsoft.CustomerInsights/hubs|AuditEvents|AuditEvents|
+|Microsoft.DBforPostgreSQL/servers|PostgreSQLLogs|PostgreSQL 服务器日志|
+|Microsoft.DBforPostgreSQL/servers|PostgreSQLBackupEvents|PostgreSQL 备份事件|
 |Microsoft.Devices/IotHubs|连接|连接|
 |Microsoft.Devices/IotHubs|DeviceTelemetry|设备遥测|
 |Microsoft.Devices/IotHubs|C2DCommands|C2D 命令|
@@ -71,6 +99,7 @@ ms.locfileid: "39031783"
 |Microsoft.Devices/provisioningServices|ServiceOperations|服务操作|
 |Microsoft.DocumentDB/databaseAccounts|DataPlaneRequests|DataPlaneRequests|
 |Microsoft.DocumentDB/databaseAccounts|MongoRequests|MongoRequests|
+|Microsoft.DocumentDB/databaseAccounts|QueryRuntimeStatistics|QueryRuntimeStatistics|
 |Microsoft.EventHub/namespaces|ArchiveLogs|存档日志|
 |Microsoft.EventHub/namespaces|OperationalLogs|运行日志|
 |Microsoft.EventHub/namespaces|AutoScaleLogs|自动缩放日志|
@@ -90,7 +119,8 @@ ms.locfileid: "39031783"
 |Microsoft.Network/virtualNetworkGateways|IKEDiagnosticLog|IKE 诊断日志|
 |Microsoft.Network/virtualNetworkGateways|P2SDiagnosticLog|P2S 诊断日志|
 |Microsoft.Network/trafficManagerProfiles|ProbeHealthStatusEvents|流量管理器探测运行状况结果事件|
-|Microsoft.Network/expressRouteCircuits|GWMCountersTable|GWM 计数器表|
+|Microsoft.Network/expressRouteCircuits|GWMCountersTable|GWM 计数器的表|
+|Microsoft.PowerBIDedicated/capacities|引擎|引擎|
 |Microsoft.RecoveryServices/Vaults|AzureBackupReport|Azure 备份报告数据|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryJobs|Azure Site Recovery 作业|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryEvents|Azure Site Recovery 事件|

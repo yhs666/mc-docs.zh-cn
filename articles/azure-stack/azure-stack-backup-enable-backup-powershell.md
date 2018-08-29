@@ -1,5 +1,5 @@
 ---
-title: 使用 PowerShell 为 Azure Stack 启用备份 | Microsoft Docs
+title: 使用 PowerShell 为 Azure Stack 启用备份 | Azure
 description: 使用 Windows PowerShell 启用基础结构备份服务，以便出现故障时可以还原 Azure Stack。
 services: azure-stack
 documentationcenter: ''
@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/10/2018
-ms.date: 07/20/2018
+origin.date: 08/16/2018
+ms.date: 08/27/2018
 ms.author: v-junlch
 ms.reviewer: hectorl
-ms.openlocfilehash: cda4f2bdc7227a95ef44f6517f30fcc9618b9eb5
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.openlocfilehash: 5abcc5d84fcbcee4f75089e60f7fe91624c0ab0d
+ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168296"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42869433"
 ---
 # <a name="enable-backup-for-azure-stack-with-powershell"></a>使用 PowerShell 为 Azure Stack 启用备份
 
@@ -45,31 +45,26 @@ ms.locfileid: "39168296"
 | 变量        | 说明   |
 |---              |---                                        |
 | $username       | 使用共享驱动器位置具有足够访问权限的域和用户名输入**用户名**，以便读取和写入文件。 例如，`Contoso\backupshareuser`。 |
-| $key            | 键入用于加密每个备份的**加密密钥**。 |
 | $password       | 键入用户的**密码**。 |
 | $sharepath      | 键入**备份存储位置**的路径。 必须使用通用命名约定 (UNC) 字符串表示单独的设备上托管的文件共享的路径。 UNC 字符串指定资源（如共享文件或设备）的位置。 若要确保备份数据的可用性，设备应放置在单独的位置。 |
+| $frequencyInHours | “频率(小时)”决定了以何频率创建备份。 默认值为 12。 计划程序支持的最大值为 12，最小值为 4。|
+| $retentionPeriodInDays | “保留期(天)”决定了备份在外部位置保留多少天。 默认值为 7。 计划程序支持的最大值为 14，最小值为 2。 超过保留期的备份会自动从外部位置删除。|
+|     |     |
 
    ```powershell
+    # Example username:
     $username = "domain\backupadmin"
-   
-    $Secure = Read-Host -Prompt ("Password for: " + $username) -AsSecureString
-    $Encrypted = ConvertFrom-SecureString -SecureString $Secure
-    $password = ConvertTo-SecureString -String $Encrypted
-    
-    $BackupEncryptionKeyBase64 = ""
-    $tempEncryptionKeyString = ""
-    foreach($i in 1..64) { $tempEncryptionKeyString += -join ((65..90) + (97..122) | Get-Random | % {[char]$_}) }
-    $tempEncryptionKeyBytes = [System.Text.Encoding]::UTF8.GetBytes($tempEncryptionKeyString)
-    $BackupEncryptionKeyBase64 = [System.Convert]::ToBase64String($tempEncryptionKeyBytes)
-    $BackupEncryptionKeyBase64
-    
-    $Securekey = ConvertTo-SecureString -String $BackupEncryptionKeyBase64 -AsPlainText -Force
-    $Encryptedkey = ConvertFrom-SecureString -SecureString $Securekey
-    $key = ConvertTo-SecureString -String $Encryptedkey
-    
+    # Example share path:
     $sharepath = "\\serverIP\AzSBackupStore\contoso.com\seattle"
+   
+    $password = Read-Host -Prompt ("Password for: " + $username) -AsSecureString
+    
+    # The encryption key is generated using the New-AzsEncryptionKeyBase64 cmdlet provided in Azure Stack PowerShell.
+    # Make sure to store your encryption key in a secure location after it is generated.
+    $Encryptionkey = New-AzsEncryptionKeyBase64
+    $key = ConvertTo-SecureString -String ($Encryptionkey) -AsPlainText -Force
 
-    Set-AzSBackupShare -BackupShare $sharepath -Username $username -Password $password -EncryptionKey $key
+    Set-AzsBackupShare -BackupShare $sharepath -Username $username -Password $password -EncryptionKey $key
    ```
    
 ##  <a name="confirm-backup-settings"></a>确认备份设置
@@ -77,20 +72,39 @@ ms.locfileid: "39168296"
 在同一 PowerShell 会话中，运行以下命令：
 
    ```powershell
-    Get-AzsBackupLocation | Select-Object -Property Path, UserName, AvailableCapacity
+    Get-AzsBackupLocation | Select-Object -Property Path, UserName
    ```
 
-结果应类似于以下输出：
+结果应类似于以下示例输出：
 
    ```powershell
-    Path                        : \\serverIP\AzSBackupStore\contoso.com\seattle
+    Path                        : \\serverIP\AzsBackupStore\contoso.com\seattle
+    UserName                    : domain\backupadmin
+   ```
+
+## <a name="update-backup-settings"></a>更新备份设置
+在同一 PowerShell 会话中，可以更新备份的保留期和频率的默认值。 
+
+   ```powershell
+    #Set the backup frequency and retention period values.
+    $frequencyInHours = 10
+    $retentionPeriodInDays = 5
+
+    Set-AzsBackupShare -BackupFrequencyInHours $frequencyInHours -BackupRetentionPeriodInDays $retentionPeriodInDays
+    Get-AzsBackupLocation | Select-Object -Property Path, UserName, AvailableCapacity, BackupFrequencyInHours, BackupRetentionPeriodInDays
+   ```
+
+结果应类似于以下示例输出：
+
+   ```powershell
+    Path                        : \\serverIP\AzsBackupStore\contoso.com\seattle
     UserName                    : domain\backupadmin
     AvailableCapacity           : 60 GB
+    BackupFrequencyInHours      : 10
+    BackupRetentionPeriodInDays : 5
    ```
 
 ## <a name="next-steps"></a>后续步骤
 
  - 了解如何运行备份，请参阅[备份 Azure Stack](azure-stack-backup-back-up-azure-stack.md )。  
  - 了解如何验证备份是否已运行，请参阅[在管理门户中确认已完成的备份](azure-stack-backup-back-up-azure-stack.md )。
-
-<!-- Update_Description: wording update -->

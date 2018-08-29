@@ -1,6 +1,6 @@
 ---
 title: 将 ScaleR 和 SparkR 与 Azure HDInsight 配合使用 | Azure
-description: 将 ScaleR 和 SparkR 与 R Server 和 HDInsight 配合使用
+description: 将 ScaleR 和 SparkR 与 ML Services on HDInsight 配合使用
 services: hdinsight
 documentationcenter: ''
 author: bradsev
@@ -13,26 +13,26 @@ ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 06/19/2017
-ms.date: 05/28/2018
+ms.date: 08/27/2018
 ms.author: v-yiso
-ms.openlocfilehash: eb865c76c3260be215663795f2248663f6d5ddea
-ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
+ms.openlocfilehash: b355599375730d53de6835ad92bf903fef3adcf6
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34450053"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41705333"
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>在 HDInsight 中将 ScaleR 和 SparkR 配合使用
 
 本文档演示如何使用 **ScaleR** 逻辑回归模型来预测航班抵达延误时间。 此示例使用通过 **SparkR** 联接的航班延误数据和天气数据。
 
-虽然这两个程序包都在 Hadoop 的 Spark 执行引擎上运行，但是会阻止它们共享内存中数据，因为它们各自需要使用其自己的 Spark 会话。 在此问题在将来的 R Server 版本中得到解决之前，解决方法是保留非重叠的 Spark 会话，并通过中间文件交换数据。 此处的说明表明这些要求很容易实现。
+虽然这两个程序包都在 Hadoop 的 Spark 执行引擎上运行，但是会阻止它们共享内存中数据，因为它们各自需要使用其自己的 Spark 会话。 在即将发布的 ML Server 版本中解决此问题之前，解决方法是维护不重叠的 Spark 会话，并通过中间文件交换数据。 此处的说明表明这些要求很容易实现。
 
 此示例最初由 Mario Inchiosa 和 Roni Burd 在 Strata 2016 研讨会中分享。 也可在 [Building a Scalable Data Science Platform with R](http://event.on24.com/eventRegistration/console/EventConsoleNG.jsp?uimode=nextgeneration&eventid=1160288&sessionid=1&key=8F8FB9E2EB1AEE867287CD6757D5BD40&contenttype=A&eventuserid=305999&playerwidth=1000&playerheight=650&caller=previewLobby&text_language_id=en&format=fhaudio)（使用 R 构建可缩放的数据科学平台）中找到此研讨会。
 
-此代码原本是针对 Azure 上 HDInsight 群集中的 Spark 上运行的 R Server 编写的。 但是，在本地环境的上下文中，在同一脚本中混合使用 SparkR 和 ScaleR 的概念仍然有效。 
+此代码原本是针对 Azure 上 HDInsight 群集中的 Spark 上运行的 ML Server 编写的。 但是，在本地环境的上下文中，在同一脚本中混合使用 SparkR 和 ScaleR 的概念仍然有效。
 
-本文档中的步骤假定你对 R 和 R Server 的 [ScaleR](https://msdn.microsoft.com/microsoft-r/scaler-user-guide-introduction) 库有中等水平的了解。 在演练此方案时还会介绍 [SparkR](https://spark.apache.org/docs/2.1.0/sparkr.html)。
+本文档中的步骤假定你对 R 和 ML Server 的 [ScaleR](https://msdn.microsoft.com/microsoft-r/scaler-user-guide-introduction) 库有中等水平的了解。 在演练此方案时还会介绍 [SparkR](https://spark.apache.org/docs/2.1.0/sparkr.html)。
 
 ## <a name="the-airline-and-weather-datasets"></a>航班和天气数据集
 
@@ -201,7 +201,7 @@ rxDataStep(weatherDF, outFile = weatherDF1, rowsPerRead = 50000, overwrite = T,
 
 ## <a name="importing-the-airline-and-weather-data-to-spark-dataframes"></a>将航班和天气数据导入 Spark DataFrames
 
-现在，使用 SparkR [read.df()](https://docs.databricks.com/spark/latest/sparkr/functions/read.df.html) 函数将天气和航班数据导入 Spark DataFrame。 与其他许多 Spark 方法一样，此函数是惰式执行的，也就是说，它会排入执行队列，但只在需要时才会执行。
+现在，使用 SparkR [read.df()](https://docs.databricks.com/spark/1.6/sparkr/functions/read.df.html#read-df) 函数将天气和航班数据导入 Spark DataFrame。 与其他许多 Spark 方法一样，此函数是惰式执行的，也就是说，它会排入执行队列，但只在需要时才会执行。
 
 ```
 airPath     <- file.path(inputDataDir, "AirOnTime08to12CSV")
@@ -274,7 +274,7 @@ weatherDF <- rename(weatherDF,
 
 ## <a name="joining-the-weather-and-airline-data"></a>联接天气和航班数据
 
-现在，我们使用 SparkR [join()](https://docs.databricks.com/spark/latest/sparkr/functions/join.html) 函数根据出发地 AirportID 和日期时间，针对航班和天气数据执行左外部联接。 使用外部联接可以保留所有航班数据记录，即使没有匹配的天气数据。 通过此联接，我们删除了一些多余的列，并将保留的列重命名以删除联接时传入的 DataFrame 前缀。
+现在，我们使用 SparkR [join()](https://docs.databricks.com/spark/1.6/sparkr/functions/join.html#join) 函数根据出发地 AirportID 和日期时间，针对航班和天气数据执行左外部联接。 使用外部联接可以保留所有航班数据记录，即使没有匹配的天气数据。 通过此联接，我们删除了一些多余的列，并将保留的列重命名以删除联接时传入的 DataFrame 前缀。
 
 ```
 logmsg('Join airline data with weather at Origin Airport')
@@ -361,7 +361,7 @@ rxHadoopRemove(file.path(dataDir, "joined5Csv/_SUCCESS"))
 ```
 logmsg('Import the CSV to compressed, binary XDF format') 
 
-# set the Spark compute context for R Server 
+# set the Spark compute context for ML Services 
 rxSetComputeContext(sparkCC)
 rxGetComputeContext()
 
@@ -513,7 +513,7 @@ plot(logitRoc)
 
 ## <a name="scoring-elsewhere"></a>在其他位置评分
 
-我们还可以使用该模型在其他平台上为数据评分。 可以将数据保存到 RDS 文件，并将该 RDS 传输并导入到 SQL Server R Services 等目标评分环境。 请务必确保要评分的数据的系数级别与构建的模型上的级别匹配。 为实现此匹配，可以通过 ScaleR 的 `rxCreateColInfo()` 函数来提取并保存与建模数据关联的列信息，并将该列信息应用到输入数据源用于预测。 下面，我们将保存测试数据集的一些行，并在预测脚本中使用此示例中的列信息：
+我们还可以使用该模型在其他平台上为数据评分。 可以将数据保存到 RDS 文件，并将该 RDS 传输并导入到 SQL Server R Services 等目标评分环境。 请务必确保要评分的数据的系数级别与构建的模型上的级别匹配。 为此，可以通过 ScaleR 的 `rxCreateColInfo()` 函数来提取并保存与建模数据关联的列信息，然后将该列信息应用到预测用的输入数据源。 下面，我们将保存测试数据集的一些行，并在预测脚本中使用此示例中的列信息：
 
 ```
 # save the model and a sample of the test dataset 
@@ -538,13 +538,13 @@ logmsg(paste('Elapsed time=',sprintf('%6.2f',elapsed),'(sec)\n\n'))
 
 ## <a name="summary"></a>摘要
 
-在本文中，我们展示了如何在 Hadoop Spark 中将用于数据操作的 SparkR 和用于模型开发的 ScaleR 配合使用。 本方案要求你维护单独的 Spark 会话（一次仅运行一个会话），并通过 CSV 文件交换数据。 尽管此过程现已相当简单直接，但在将来的 R Server 版本中将会更加简单，因为到时 SparkR 和 ScaleR 可以共享 Spark 会话，因而也能共享 Spark DataFrames。
+在本文中，我们展示了如何在 Hadoop Spark 中将用于数据操作的 SparkR 和用于模型开发的 ScaleR 配合使用。 本方案要求你维护单独的 Spark 会话（一次仅运行一个会话），并通过 CSV 文件交换数据。 尽管此过程现已相当简单直接，但在将来的 ML Services 版本中还会得到进一步简化，因为到时 SparkR 和 ScaleR 可以共享 Spark 会话，因而也能共享 Spark DataFrame。
 
 ## <a name="next-steps-and-more-information"></a>后续步骤和详细信息
 
-- 有关使用 Spark 上的 R Server 的详细信息，请参阅 [MSDN 上的入门指南](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started)
+- 有关使用 Spark 上的 ML Server 的详细信息，请参阅[入门指南](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started)
 
-- 有关 R Server 的一般信息，请参阅 [Get started with R](https://msdn.microsoft.com/microsoft-r/microsoft-r-get-started-node)（R 入门）一文。
+- 有关 ML Server 的常规信息，请参阅 [R 入门](https://msdn.microsoft.com/microsoft-r/microsoft-r-get-started-node)一文。
 
 有关 SparkR 的用法的详细信息，请参阅：
 

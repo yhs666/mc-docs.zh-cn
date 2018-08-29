@@ -6,15 +6,15 @@ author: vhorne
 manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
-origin.date: 05/18/2018
-ms.date: 06/07/2018
+origin.date: 08/15/2018
+ms.date: 08/22/2018
 ms.author: v-junlch
-ms.openlocfilehash: 5bb13c74c88c2cf90f07ba4c03717a7d74b6c0aa
-ms.sourcegitcommit: 4fe9905d17a8df9f2270543a5a0ce1762a5830c9
+ms.openlocfilehash: df23dfddb7c0a5c49485c228f3e4344b336ce5e7
+ms.sourcegitcommit: da9f7b0825e493636d6596eb6ae95d03e0626583
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34855782"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "41734290"
 ---
 # <a name="renew-application-gateway-certificates"></a>续订应用程序网关证书
 
@@ -32,7 +32,7 @@ ms.locfileid: "34855782"
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
-若要使用 Azure PowerShell 续订证书，请使用以下 cmdlet：
+若要使用 Azure PowerShell 续订证书，请使用以下脚本：
 
 ```azurepowershell
 $appgw = Get-AzureRmApplicationGateway `
@@ -46,6 +46,8 @@ $password = ConvertTo-SecureString `
 
 set-azureRmApplicationGatewaySSLCertificate -Name <oldcertname> `
 -ApplicationGateway $appgw -CertificateFile <newcertPath> -Password $password
+
+Set-AzureRmApplicationGateway -ApplicationGateway $appgw
 ```
 ## <a name="azure-cli"></a>Azure CLI
 
@@ -62,3 +64,4 @@ az network application-gateway ssl-cert update `
 
 若要了解如何通过 Azure 应用程序网关来配置 SSL 卸载，请参阅[配置 SSL 卸载](application-gateway-ssl-portal.md)
 
+<!-- Update_Description: code update -->

@@ -9,13 +9,13 @@ editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
 origin.date: 07/11/2018
-ms.date: 08/13/2018
-ms.openlocfilehash: fda45560da5e50b032fa2746472df94799c6f6cd
-ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
+ms.date: 08/27/2018
+ms.openlocfilehash: 41d431bad8eac76f432378366d28ab8852e5f362
+ms.sourcegitcommit: 6dd65fba579a2ce25c63ac69ff3b71d814a9d256
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39723038"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42703879"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Azure Database for MySQL 定价层
 
@@ -65,6 +65,8 @@ ms.locfileid: "39723038"
 
 在创建服务器的过程中和之后，可以添加更多的存储容量。 “基本”层不提供 IOPS 保证。 在“常规用途”和“内存优化”定价层中，IOPS 与预配的存储大小按 3:1 的比例缩放。
 
+可以通过 Azure 门户或 Azure CLI 命令监视 I/O 使用情况。 要监视的相关指标是[存储上限、存储百分比、已用存储和 IO 百分比](concepts-monitoring.md)。
+
 ### <a name="reaching-the-storage-limit"></a>达到存储限制
 
 当可用存储量低于 5 GB 或 5% 的预配存储（以较低者为准）时，服务器会标记为只读。 例如，如果已预配 100 GB 的存储，而实际使用量超过 95 GB，则服务器会标记为只读。 或者，如果已预配 5 GB 的存储，则当可用存储少于 250 MB 时，服务器会标记为只读。  
@@ -73,7 +75,7 @@ ms.locfileid: "39723038"
 
 ## <a name="backup"></a>Backup
 
-服务自动对服务器进行备份。 备份的最短保留期为七天。 可以设置长达 35 天的保留期。 可以在服务器的生存期内随时对保留期进行调整。 可以在本地冗余备份和异地冗余备份之间进行选择。 异地冗余备份也存储在创建服务器时所在区域的[异地配对区域](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)中。 这种冗余可以在发生灾难时提供一定级别的保护。 也可获得将服务器还原到任何其他 Azure 区域的功能，前提是该区域提供的服务带有异地冗余备份。 创建服务器后，无法在这两个备份存储选项之间进行更改。
+服务自动对服务器进行备份。 备份的最短保留期为七天。 可以设置长达 35 天的保留期。 可以在服务器的生存期内随时对保留期进行调整。 可以在本地冗余备份和异地冗余备份之间进行选择。 异地冗余备份也存储在创建服务器时所在区域的异地配对区域中。 这种冗余可以在发生灾难时提供一定级别的保护。 也可获得将服务器还原到任何其他 Azure 区域的功能，前提是该区域提供的服务带有异地冗余备份。 创建服务器后，无法在这两个备份存储选项之间进行更改。
 
 ## <a name="scale-resources"></a>缩放资源
 

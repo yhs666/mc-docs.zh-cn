@@ -6,21 +6,23 @@ author: rockboyfor
 ms.service: storage
 ms.topic: include
 origin.date: 06/05/2018
-ms.date: 06/25/2018
+ms.date: 08/27/2018
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 98a520729bf05f2562a77bf709b1951301fe0bbb
-ms.sourcegitcommit: 2a147231bf3d0a693adf58fceee76ab0fbcd6dbb
+ms.openlocfilehash: 70b395817f6a84015ebfe22e664cfc637b68bd66
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39335580"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42871406"
 ---
 # <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>高性价比标准存储以及非托管和托管 Azure VM 磁盘
 
-Azure 标准存储为运行不区分延迟的工作负荷提供可靠、低成本的磁盘支持。 它还支持 Blob、表、队列和文件。 使用标准存储，数据将存储在硬盘驱动器 (HDD) 上。 使用 VM 时，可将标准 SSD 和 HDD 磁盘用于开发/测试方案和不太重要的工作负荷，将高级 SSD 磁盘用于任务关键型生产应用程序。 所有 Azure 区域均提供标准存储。 
+Azure 标准存储为运行不区分延迟的工作负荷提供可靠、低成本的磁盘支持。 它还支持 Blob、表、队列和文件。 使用标准存储，数据将存储在硬盘驱动器 (HDD) 上。 使用 VM 时，可将标准 HDD 磁盘用于开发/测试方案和不太重要的工作负荷，将高级 SSD 盘用于任务关键型生产应用程序。 所有 Azure 区域均提供标准存储。 
+<!--Not Available on Standard SSD-->
 
-本文重点介绍标准 SSD 和 HDD 磁盘的使用。 有关将存储用于 blob、表、队列和文件的详细信息，请参阅[存储简介](../articles/storage/common/storage-introduction.md)。
+本文重点介绍标准 HDD 磁盘的使用。 有关将存储用于 blob、表、队列和文件的详细信息，请参阅[存储简介](../articles/storage/common/storage-introduction.md)。
+<!--Not Available on Standard SSD-->
 
 ## <a name="disk-types"></a>磁盘类型
 
@@ -28,7 +30,8 @@ Azure 标准存储为运行不区分延迟的工作负荷提供可靠、低成�
 
 **非托管磁盘**：此类磁盘是管理用于存储与 VM 磁盘对应的 VHD 文件的存储帐户的原始方法。 VHD 文件作为页 Blob 存储在存储帐户中。 可将非托管磁盘附加到任意大小的 Azure VM，包括主要使用高级存储的 VM，如 DSv2 和 GS 系列。 Azure VM 支持附加多个标准磁盘，每个 VM 最多支持 256 TB 的存储容量。
 
-[**Azure 托管磁盘**](../articles/virtual-machines/windows/managed-disks-overview.md)：此功能管理用于 VM 磁盘的存储帐户。 指定所需的类型（高级 SSD、标准 SSD 或标准 HDD）和磁盘大小，Azure 即可创建和管理磁盘。 无需煞费苦心地将磁盘放置在多个存储帐户中，以确保保持在存储帐户的可伸缩性限制内 - Azure 将自动处理这一切。
+[**Azure 托管磁盘**](../articles/virtual-machines/windows/managed-disks-overview.md)：此功能管理用于 VM 磁盘的存储帐户。 指定所需的类型（高级 SSD 或标准 HDD）和磁盘大小，Azure 即可创建和管理磁盘。 无需煞费苦心地将磁盘放置在多个存储帐户中，以确保保持在存储帐户的可伸缩性限制内 - Azure 将自动处理这一切。
+<!-- Not Available on Standard SSD -->
 
 尽管这两种类型的磁盘都可用，但是我们建议使用托管磁盘以利用其许多功能。
 
@@ -121,7 +124,11 @@ Azure 标准存储为运行不区分延迟的工作负荷提供可靠、低成�
 
 **非托管存储数据和磁盘大小：** 对于非托管磁盘和其他数据（blob、表、队列和文件），只需为所使用的存储空间付费。 例如，如果 VM 的页 blob 预配为 127 GB，但 VM 实际只使用了 10 GB 的空间，则只需为 10 GB 空间付费。 我们支持最多 8191 GB 的标准存储和最多 4095 GB 的标准非托管磁盘。 
 
-**托管磁盘：** 托管磁盘按预配大小计费。 如果磁盘预配为 10 GB，即使只使用了 5 GB，仍要为预配的 10 GB 大小付费。
+**托管磁盘**：标准托管磁盘的计费取决于磁盘的预配大小。 Azure 会将预配大小映射（四舍五入）到下面各表中指定的最接近的托管磁盘选项。 每个托管磁盘将映射到其中一种受支持的预配大小并相应地计费。 例如，如果创建了一个标准托管磁盘并将预配大小指定为 200 GiB，则会根据 S15 磁盘类型的定价向你收费。
+
+| 标准 HDD 托管<br>磁盘类型 | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** |
+|------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------| 
+| 磁盘大小        | 32 GiB  | 64 GiB  | 128 GiB | 256 GiB | 512 GiB | 1024 GiB (1 TiB) | 2048 GiB (2 TiB) | 4095 GiB (4 TiB) | 
 
 **快照**：对标准磁盘的快照使用的额外容量计费。 有关快照的详细信息，请参阅 [Creating a Snapshot of a Blob](https://docs.microsoft.com/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob)（创建 Blob 的快照）。
 

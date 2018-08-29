@@ -1,5 +1,5 @@
 ---
-title: Azure Stack 的基础结构备份服务最佳做法 | Microsoft Docs
+title: Azure Stack 的基础结构备份服务最佳做法 | Azure
 description: 在数据中心内部署和管理 Azure Stack 时可以遵守一套最佳做法，以便在发生灾难性故障时帮助减轻数据损失。
 services: azure-stack
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/20/2017
-ms.date: 07/20/2018
+origin.date: 08/01/2017
+ms.date: 08/27/2018
 ms.author: v-junlch
 ms.reviewer: hectorl
-ms.openlocfilehash: a2206f67688848f861462c7ef9b4fb8b4561de79
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.openlocfilehash: 3d01b25420d01534bf65dfdbfb67800a7fa93132
+ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168339"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42869430"
 ---
 # <a name="infrastructure-backup-service-best-practices"></a>基础结构备份服务最佳做法
 
@@ -29,13 +29,13 @@ ms.locfileid: "39168339"
 
 在数据中心内部署和管理 Azure Stack 时可以遵守一些最佳做法，以便在发生灾难性故障时帮助减轻数据损失。
 
-应当定期复查最佳做法以验证当对操作流进行了更改时你的安装是否仍然符合最佳做法。 如果实现这些最佳做法时遇到任何问题，请联系 Microsoft 支持部门来寻求帮助。
+应当定期复查最佳做法以验证当对操作流进行了更改时你的安装是否仍然符合最佳做法。 如果实现这些最佳做法时遇到任何问题，请联系 Azure 支持部门来寻求帮助。
 
 ## <a name="configuration-best-practices"></a>配置最佳实践
 
 ### <a name="deployment"></a>部署
 
-在部署每个 Azure Stack 云后启用基础结构备份 可以使用 AzureStack-Tools 通过访问操作员管理 API 终结点从任何客户端/服务器来计划备份。
+在部署每个 Azure Stack 云后启用基础结构备份 可以使用 Azure Stack PowerShell 通过访问操作员管理 API 终结点从任何客户端/服务器来计划备份。
 
 ### <a name="networking"></a>网络
 

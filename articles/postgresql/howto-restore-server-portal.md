@@ -8,13 +8,14 @@ manager: digimobile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 06/22/2018
-ms.openlocfilehash: 4bf20dcfc63cf6abb528f687ef280ab60b33a180
-ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
+origin.date: 04/01/2018
+ms.date: 08/27/2018
+ms.openlocfilehash: 6f1ddeba7682e50cc75185281968f350ae9b11da
+ms.sourcegitcommit: 6dd65fba579a2ce25c63ac69ff3b71d814a9d256
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39722958"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42703885"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-portal"></a>如何使用 Azure 门户在 Azure Database for PostgreSQL 中备份和还原服务器
 
@@ -76,7 +77,7 @@ Azure Database for PostgreSQL 服务器定期进行备份以便启用还原功�
 ## <a name="geo-restore"></a>异地还原
 如果为服务器配置了异地冗余备份，则可以从该现有服务器的备份创建新服务器。 可以在 Azure Database for PostgreSQL 可用的任何区域中创建此新服务器。  
 
-1. 选择门户左上角的“创建资源”按钮 (+)。 选择“数据库” > “用于 PostgreSQL 的 Azure 数据库”。
+1. 选择门户左上角的“创建资源”按钮 (+)。 在搜索框中键入 **Azure Database for PostgreSQL** 以查找该服务。
 
    ![“用于 PostgreSQL 的 Azure 数据库”选项](./media/howto-restore-server-portal/1-navigate-to-postgres.png)
 

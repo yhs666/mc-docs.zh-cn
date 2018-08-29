@@ -1,5 +1,5 @@
 ---
-title: Azure Stack 开发工具包 (ASDK) 的部署后配置 | Microsoft Docs
+title: Azure Stack 开发工具包 (ASDK) 的部署后配置 | Azure
 description: 介绍在安装 Azure Stack 开发工具包 (ASDK) 之后建议做出的配置更改。
 services: azure-stack
 documentationcenter: ''
@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/05/2018
-ms.date: 07/20/2018
+ms.date: 08/27/2018
 ms.author: v-junlch
 ms.reviewer: misainat
-ms.openlocfilehash: fb51f9bd63b7c790c5835b5f655e97a4c621f421
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.openlocfilehash: c24427ae3431a7989b8a8ef1d247d6adb3cf756c
+ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168259"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42869412"
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>安装 ASDK 后的配置任务
 
@@ -57,8 +57,8 @@ Set-PSRepository `
   Use-AzureRmProfile `
     -Profile 2017-03-09-profile -Force
 
-  # Install Azure Stack Module Version 1.3.0. If running a pre-1804 version of Azure Stack, change the -RequiredVersion value to 1.2.11.
-  Install-Module -Name AzureStack -RequiredVersion 1.3.0 
+  # Install Azure Stack Module Version 1.4.0. If running a pre-1804 version of Azure Stack, change the -RequiredVersion value to 1.2.11.
+  Install-Module -Name AzureStack -RequiredVersion 1.4.0 
 
   ```
 
@@ -83,8 +83,8 @@ Set-PSRepository `
     -Name AzureStack `
     -Path $Path `
     -Force `
-  # Install Azure Stack Module Version 1.3.0. If running a pre-1804 version of Azure Stack, change the -RequiredVersion value to 1.2.11.  
-    -RequiredVersion 1.3.0
+  # Install Azure Stack Module Version 1.4.0. If running a pre-1804 version of Azure Stack, change the -RequiredVersion value to 1.2.11.  
+    -RequiredVersion 1.4.0
   ```
 
   接下来，将下载的包复制到 ASDK 计算机，将该位置注册为默认存储库，并从此存储库安装 AzureRM 和 AzureStack 模块：
@@ -138,7 +138,7 @@ Set-PSRepository `
 
 此项测试可能需要几分钟时间才能完成。 如果安装成功，将返回如下所示的输出：
 
-![test-azurestack](./media/asdk-post-deploy/test-azurestack.png)
+![test-azurestack](media/asdk-post-deploy/test-azurestack.png)
 
 如果失败，请遵循故障排除步骤来获取帮助。
 
@@ -169,10 +169,9 @@ Set-ADDefaultDomainPasswordPolicy -MaxPasswordAge 180.00:00:00 -Identity azurest
 4. 在右窗格中，双击“密码最长期限”。
 5. 在“密码最长期限属性”对话框中，将“密码有效天数”值更改为 **180**，然后单击“确定”。
 
-![组策略管理控制台](./media/asdk-post-deploy/gpmc.png)
+![组策略管理控制台](media/asdk-post-deploy/gpmc.png)
 
 
 ## <a name="next-steps"></a>后续步骤
 [将 ASDK 注册到 Azure](asdk-register.md)
-
 <!-- Update_Description: link update -->

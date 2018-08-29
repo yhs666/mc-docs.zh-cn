@@ -2,23 +2,23 @@
 title: 使用 Azure 门户创建和管理 Azure Database for MySQL VNet 服务终结点和规则 | Azure
 description: 使用 Azure 门户创建和管理 Azure Database for MySQL VNet 服务终结点和规则
 services: mysql
-author: v-jay
+author: WenJason
 ms.author: v-jay
 manager: digimobile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-origin.date: 06/01/2018
-ms.date: 08/13/2018
-ms.openlocfilehash: d5dfb4f51e9a344fac74c0e641af8894913b9bb5
-ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
+origin.date: 08/15/2018
+ms.date: 08/27/2018
+ms.openlocfilehash: 67bbd8335ebf78a5e35998442ab099519ce12d65
+ms.sourcegitcommit: 6dd65fba579a2ce25c63ac69ff3b71d814a9d256
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39723241"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42703849"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-vnet-service-endpoints-and-vnet-rules-by-using-the-azure-portal"></a>使用 Azure 门户创建和管理 Azure Database for MySQL VNet 服务终结点和 VNet 规则
-虚拟网络 (VNet) 服务终结点和规则将虚拟网络的专用地址空间扩展到 Azure Database for MySQL 服务器。 若要概览 Azure Database for MySQL VNet 服务终结点（包括限制），请参阅 [Azure Database for MySQL 服务器 VNet 服务终结点](concepts-data-access-and-security-vnet.md)。 在 Azure Database for MySQL 的所有支持区域，公共预览版提供 VNet 服务终结点。
+虚拟网络 (VNet) 服务终结点和规则将虚拟网络的专用地址空间扩展到 Azure Database for MySQL 服务器。 若要概览 Azure Database for MySQL VNet 服务终结点（包括限制），请参阅 [Azure Database for MySQL 服务器 VNet 服务终结点](concepts-data-access-and-security-vnet.md)。 在 Azure Database for MySQL 的所有支持区域中均提供 VNet 服务终结点。
 
 > [!NOTE]
 > 只有常规用途和内存优化服务器才支持 VNet 服务终结点。
