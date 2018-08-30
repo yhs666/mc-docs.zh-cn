@@ -1,5 +1,5 @@
 ---
-title: 将 ASDK 注册到 Azure | Microsoft Docs
+title: 将 ASDK 注册到 Azure | Azure
 description: 介绍如何将 Azure Stack 注册到 Azure，以实现市场联合并报告使用情况。
 services: azure-stack
 documentationcenter: ''
@@ -11,19 +11,19 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/26/2018
-ms.date: 07/20/2018
+origin.date: 08/01/2018
+ms.date: 08/27/2018
 ms.author: v-junlch
 ms.reviewer: misainat
-ms.openlocfilehash: b9219ba41c6a216921a1214e542b5700809162dc
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.openlocfilehash: bef58c4111932b5aff31148b1859e921efe77240
+ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168450"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42869370"
 ---
 # <a name="azure-stack-registration"></a>Azure Stack 注册
-可将 Azure Stack 开发工具包 (ASDK) 安装注册到 Azure，以便从 Azure 下载市场项，并设置向 Microsoft 报告商务数据的功能。 需要注册才能支持完整的 Azure Stack 功能，包括市场联合。 之所以建议注册，是因为这样可以测试重要的 Azure Stack 功能，例如市场联合和使用情况报告。 注册 Azure Stack 之后，使用情况将报告给 Azure 商业组件。 用于注册的订阅下会显示此信息。 但是，ASDK 用户无需付费，不管他们报告的用量是多少。
+可将 Azure Stack 开发工具包 (ASDK) 安装注册到 Azure，以便从 Azure 下载市场项，并设置向 Azure 报告商务数据的功能。 需要注册才能支持完整的 Azure Stack 功能，包括市场联合。 之所以建议注册，是因为这样可以测试重要的 Azure Stack 功能，例如市场联合和使用情况报告。 注册 Azure Stack 之后，使用情况将报告给 Azure 商业组件。 用于注册的订阅下会显示此信息。 但是，ASDK 用户无需付费，不管他们报告的用量是多少。
 
 如果未注册 ASDK，则可能会看到“需要激活”警告警报，建议注册 Azure Stack 开发工具包。 这是预期的行为。
 
@@ -32,7 +32,7 @@ ms.locfileid: "39168450"
 
 此外，在用于向 Azure 注册 ASDK 的计算机上，PowerShell 语言模式必须设置为 **FullLanguageMode**。 若要验证当前的语言模式是否设置为 Full，请打开权限提升的 PowerShell 窗口，并运行以下 PowerShell 命令：
 
-```powershell
+```PowerShell  
 $ExecutionContext.SessionState.LanguageMode
 ```
 
@@ -48,7 +48,9 @@ $ExecutionContext.SessionState.LanguageMode
 
 2. 运行以下 PowerShell 命令，将 ASDK 安装注册到 Azure。 需要同时登录到 Azure 订阅和本地 ASDK 安装。 如果没有 Azure 订阅，可[在此处创建一个 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/)。 注册 Azure Stack 不会对 Azure 订阅收取任何费用。
 
-    ```PowerShell
+如果使用同一 Azure 订阅 ID 在 Azure Stack 的多个实例上运行注册脚本，请在运行 **Set-AzsRegistration** cmdlet 时为注册设置唯一的名称。 **RegistrationName** 参数的默认值为 **AzureStackRegistration**。 但是，如果在多个 Azure Stack 实例上使用同一名称，该脚本会失败。
+
+  ```PowerShell  
     # Add the Azure cloud subscription environment name. Supported environment names are AzureCloud or, if using a China Azure Subscription, AzureChinaCloud.
     Add-AzureRmAccount -EnvironmentName "AzureChinaCloud"
 
@@ -62,29 +64,28 @@ $ExecutionContext.SessionState.LanguageMode
     $AzureContext = Get-AzureRmContext
     $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
     Set-AzsRegistration `
-        -PrivilegedEndpointCredential $CloudAdminCred `
-        -PrivilegedEndpoint AzS-ERCS01 `
-        -BillingModel Development
-    -ResourceGroupLocation "ChinaEast"
+    -PrivilegedEndpointCredential $CloudAdminCred `
+    -PrivilegedEndpoint AzS-ERCS01 `
+    -BillingModel Development `
+    -RegistrationName "<Unique-name>"
+  ```
+3. 该脚本完成后，会显示以下消息：“现已使用提供的参数注册并激活环境”。
 
-3. When the script completes, you should see this message: **Your environment is now registered and activated using the provided parameters.**
+    ![环境现已注册](media/asdk-register/1.PNG)
 
-    ![](./media/asdk-register/1.PNG)
+## <a name="verify-the-registration-was-successful"></a>验证注册是否成功
+遵循以下步骤来验证 ASDK 是否已成功注册到 Azure。
 
-## Verify the registration was successful
-Follow these steps to verify that the ASDK registration with Azure was successful.
+1. 登录到 [Azure Stack 管理门户](https://adminportal.local.azurestack.external)。
 
-1. Sign in to the [Azure Stack administration portal](https://adminportal.local.azurestack.external).
+2. 单击“市场管理” > “从 Azure 添加”。
 
-2. Click **Marketplace Management** > **Add from Azure**.
+    ![](media/asdk-register/2.PNG)
 
-    ![](./media/asdk-register/2.PNG)
+3. 如果看到 Azure 提供的项列表，则表示激活成功。
 
-3. If you see a list of items available from Azure, your activation was successful.
+    ![](media/asdk-register/3.PNG)
 
-    ![](./media/asdk-register/3.PNG)
-
-## Next steps
-[Add an Azure Stack marketplace item](../azure-stack-marketplace.md)
-
+## <a name="next-steps"></a>后续步骤
+[添加 Azure Stack 市场项](../azure-stack-marketplace.md)
 <!-- Update_Description: wording update -->

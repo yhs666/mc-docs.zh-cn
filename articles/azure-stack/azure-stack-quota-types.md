@@ -1,5 +1,5 @@
 ---
-title: Azure Stack 中的配额类型 | Microsoft Docs
+title: Azure Stack 中的配额类型 | Azure
 description: 查看可用于 Azure Stack 中的服务和资源的不同配额类型。
 services: azure-stack
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 06/12/2018
-ms.date: 06/26/2018
+origin.date: 07/30/2018
+ms.date: 08/27/2018
 ms.author: v-junlch
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 8f103c8884ab635316d6f7f1b87fd0bd3883ca96
-ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
+ms.openlocfilehash: f4d9520c88a350815c684b1d82a95c06e5ae104e
+ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37027146"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42869349"
 ---
 # <a name="quota-types-in-azure-stack"></a>Azure Stack 中的配额类型
 
@@ -29,8 +29,7 @@ ms.locfileid: "37027146"
 
 [配额](azure-stack-plan-offer-quota-overview.md#plans)定义用户订阅可以预配或使用的资源限制。 例如，配额可能允许用户最多创建五个 VM。 每个资源都可以有自已的配额类型。
 
-## <a name="compute-quota-types"></a>计算配额类型
-
+## <a name="compute-quota-types"></a>计算配额类型 
 | **类型** | **默认值** | **说明** |
 | --- | --- | --- |
 | 虚拟机的数目上限 | 20 个 | 订阅可以在此位置创建的虚拟机数目上限。 |
@@ -38,8 +37,7 @@ ms.locfileid: "37027146"
 | 可用性集的数目上限 | 10 个 | 可以在此位置创建的可用性集数目上限。 |
 | 虚拟机规模集的数目上限 | 20 个 | 可以在此位置创建的虚拟机规模集数目上限。 |
 
-## <a name="storage-quota-types"></a>存储配额类型
-
+## <a name="storage-quota-types"></a>存储配额类型 
 | **项目** | **默认值** | **说明** |
 | --- | --- | --- |
 | 最大容量 (GB) |500 |可供此位置的订阅使用的总存储容量。 |
@@ -48,8 +46,8 @@ ms.locfileid: "37027146"
 > [!NOTE]  
 > 强制实施存储配额最多可能需要两个小时。
 
-## <a name="network-quota-types"></a>网络配额类型
 
+## <a name="network-quota-types"></a>网络配额类型
 | **项目** | **默认值** | **说明** |
 | --- | --- | --- |
 | 公共 IP 的数目上限 |50 |订阅可以在此位置创建的公共 IP 数目上限。 |
@@ -61,10 +59,23 @@ ms.locfileid: "37027146"
 | 网络安全组的数目上限 |50 |订阅可以在此位置创建的网络安全组数目上限。 |
 
 ## <a name="view-an-existing-quota"></a>查看现有配额
-
-1. 选择“更多服务” > “资源提供程序”。
-2. 选择具有要查看的配额的服务。
+1. 在管理门户的默认仪表板上，找到“资源提供程序”磁贴。
+2. 选择要查看其配额的服务，例如“计算”或“存储”。
 3. 选择“配额”，然后选择要查看的配额。
+
+
+## <a name="edit-a-quota"></a>编辑配额  
+可以选择编辑配额的原始配置，而不[使用附加计划](create-add-on-plan.md)。 编辑配额时，新配置会自动全局应用到使用该配额的所有计划，以及使用这些计划的所有现有订阅。 编辑配额的效果不同于使用用户选择订阅的附加计划来提供修改的配额。 
+
+### <a name="to-edit-a-quota"></a>编辑配额  
+1. 在管理门户的默认仪表板上，找到“资源提供程序”磁贴。
+2. 选择要修改其配额的服务，例如“计算”、“网络”或“存储”。
+3. 接下来选择“配额”，然后选择要更改的配额。
+4. 在“设置配额”窗格中编辑值，然后选择“保存”。 
+
+该配额的新值将全局应用到使用已修改配额的所有计划，以及使用这些计划的所有现有订阅。 
+
+
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -72,4 +83,4 @@ ms.locfileid: "37027146"
   [详细了解计划、套餐和配额。](azure-stack-plan-offer-quota-overview.md)
 - [创建计划时创建配额。](azure-stack-create-plan.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: add edit a quota -->
