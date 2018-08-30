@@ -11059,6 +11059,146 @@
             "redirect_url": "/azure-stack/azure-stack-powershell-download",
             "redirect_document_id": false
         },
+    {
+        "source_path": "articles/cosmos-db/sql-api-cpp-get-started.md",
+        "redirect_url": "/cosmos-db/",
+        "redirect_document_id": "false"
+    },
+    {
+        "source_path": "articles/cosmos-db/tutorial-global-distribution-graph.md",
+        "redirect_url": "/cosmos-db/distribute-data-globally",
+        "redirect_document_id": "false"
+    },
+    {
+        "source_path": "articles/event-hubs/event-hubs-manage-with-ps.md",
+        "redirect_url": "/event-hubs/event-hubs-quickstart-powershell",
+        "redirect_document_id": "false"
+    },
+    {
+        "source_path": "articles/event-hubs/event-hubs-what-is-event-hubs.md",
+        "redirect_url": "/event-hubs/event-hubs-about",
+        "redirect_document_id": "false"
+    },
+    {
+        "source_path": "articles/network-watcher/network-watcher-nsg-flow-logging-cli-nodejs.md",
+        "redirect_url": "/network-watcher/network-watcher-nsg-flow-logging-cli",
+        "redirect_document_id": "true"
+    },
+    {
+        "source_path": "articles/network-watcher/network-watcher-packet-capture-manage-cli-nodejs.md",
+        "redirect_url": "/network-watcher/network-watcher-packet-capture-manage-cli",
+        "redirect_document_id": "true"
+    },
+    {
+        "source_path": "articles/network-watcher/network-watcher-security-group-view-cli-nodejs.md",
+        "redirect_url": "/network-watcher/network-watcher-security-group-view-cli",
+        "redirect_document_id": "true"
+    },
+    {
+        "source_path": "articles/network-watcher/network-watcher-troubleshoot-manage-cli-nodejs.md",
+        "redirect_url": "/network-watcher/network-watcher-troubleshoot-manage-cli",
+        "redirect_document_id": "true"
+    },
+    {
+        "source_path": "articles/service-fabric/service-fabric-update-vmss-sku.md",
+        "redirect_url": "/service-fabric/service-fabric-cluster-upgrade",
+        "redirect_document_id": "false"
+    },
+    {
+        "source_path": "articles/virtual-machines/linux/capture-image-nodejs.md",
+        "redirect_url": "/virtual-machines/linux/capture-image",
+        "redirect_document_id": "true"
+    },
+    {
+        "source_path": "articles/virtual-machines/linux/change-vm-size-nodejs.md",
+        "redirect_url": "/virtual-machines/linux/change-vm-size",
+        "redirect_document_id": "true"
+    },
+    {
+        "source_path": "articles/virtual-machines/linux/copy-vm-nodejs.md",
+        "redirect_url": "/virtual-machines/linux/copy-vm",
+        "redirect_document_id": "true"
+    },
+    {
+        "source_path": "articles/virtual-machines/linux/create-ssh-secured-vm-from-template-nodejs.md",
+        "redirect_url": "/virtual-machines/linux/create-ssh-secured-vm-from-template",
+        "redirect_document_id": "true"
+    },
+    {
+        "source_path": "articles/virtual-machines/linux/dockerextension-nodejs.md",
+        "redirect_url": "/virtual-machines/linux/dockerextension",
+        "redirect_document_id": "false"
+    },
+    {
+        "source_path": "articles/virtual-machines/linux/encrypt-disks-nodejs.md",
+        "redirect_url": "/virtual-machines/linux/encrypt-disks",
+        "redirect_document_id": "true"
+    },
+    {
+        "source_path": "articles/virtual-machines/linux/expand-disks-nodejs.md",
+        "redirect_url": "/virtual-machines/linux/expand-disks",
+        "redirect_document_id": "true"
+    },
+    {
+        "source_path": "articles/virtual-machines/linux/install-mongodb-nodejs.md",
+        "redirect_url": "/virtual-machines/linux/install-mongodb",
+        "redirect_document_id": "true"
+    },
+    {
+        "source_path": "articles/virtual-machines/linux/key-vault-setup-cli-nodejs.md",
+        "redirect_url": "/virtual-machines/linux/key-vault-setup",
+        "redirect_document_id": "true"
+    },
+    {
+        "source_path": "articles/virtual-machines/linux/mount-azure-file-storage-on-linux-using-smb-nodejs.md",
+        "redirect_url": "/virtual-machines/linux/mount-azure-file-storage-on-linux-using-smb",
+        "redirect_document_id": "true"
+    },
+    {
+        "source_path": "articles/virtual-machines/linux/multiple-nics-nodejs.md",
+        "redirect_url": "/virtual-machines/linux/multiple-nics",
+        "redirect_document_id": "true"
+    },
+    {
+        "source_path": "articles/virtual-machines/linux/nsg-quickstart-nodejs.md",
+        "redirect_url": "/virtual-machines/linux/nsg-quickstart",
+        "redirect_document_id": "true"
+    },
+    {
+        "source_path": "articles/virtual-machines/linux/static-dns-name-resolution-for-linux-on-azure-nodejs.md",
+        "redirect_url": "/virtual-machines/linux/static-dns-name-resolution-for-linux-on-azure",
+        "redirect_document_id": "true"
+    },
+    {
+        "source_path": "articles/virtual-machines/linux/tag-nodejs.md",
+        "redirect_url": "/virtual-machines/linux/tag",
+        "redirect_document_id": "true"
+    },
+    {
+        "source_path": "articles/virtual-machines/linux/troubleshoot-recovery-disks-nodejs.md",
+        "redirect_url": "/virtual-machines/linux/troubleshoot-recovery-disks",
+        "redirect_document_id": "true"
+    },
+    {
+        "source_path": "articles/virtual-machines/linux/upload-vhd-nodejs.md",
+        "redirect_url": "/virtual-machines/linux/upload-vhd",
+        "redirect_document_id": "true"
+    },
+    {
+        "source_path": "articles/virtual-machines/linux/using-cloud-init-nodejs.md",
+        "redirect_url": "/virtual-machines/linux/using-cloud-init",
+        "redirect_document_id": "true"
+    },
+    {
+        "source_path": "articles/virtual-machines/linux/using-vmaccess-extension-nodejs.md",
+        "redirect_url": "/virtual-machines/linux/using-vmaccess-extension",
+        "redirect_document_id": "true"
+    },
+    {
+        "source_path": "articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md",
+        "redirect_url": "/virtual-network/tutorial-filter-network-traffic",
+        "redirect_document_id": "true"
+    },
         {
             "source_path": "articles/sql-database/sql-database-servers-databases.md",
             "redirect_url": "/sql-database/sql-database-logical-servers",
