@@ -1,27 +1,24 @@
 ---
-title: 双重验证入门 - Azure AD | Microsoft Docs
-description: 本 Azure 多重身份验证页面会帮助最终用户开始使用 Azure 多重身份验证。
-services: multi-factor-authentication
-documentationcenter: ''
+title: 双重验证入门 - Azure Active Directory | Microsoft Docs
+description: 本 Azure Multi-Factor Authentication 页面会帮助你的最终用户开始使用 Azure Multi-Factor Authentication。
+services: active-directory
 author: eross-msft
 manager: mtillman
 ms.assetid: e02cc045-2ac0-41ff-b07f-e9255e320383
-ms.service: multi-factor-authentication
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: active-directory
+ms.component: user-help
 ms.topic: overview
 origin.date: 06/15/2017
-ms.date: 07/31/2018
+ms.date: 08/27/2018
 ms.author: v-junlch
 ms.reviewer: richagi
-ms.custom: end-user
-ms.openlocfilehash: 34c7c3c45d914379402eccdf9e6b4b38e05cb75e
-ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
+ms.openlocfilehash: e590b44214734f4f0fbb737e8fff8d0a6d47d270
+ms.sourcegitcommit: 75c2b5cdaf25ede92e080f6c48ca17d2f4ded4fb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39487488"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43115536"
 ---
 # <a name="what-does-azure-multi-factor-authentication-mean-for-me"></a>Azure 多重身份验证对我而言有什么用途？
 假设 IT 部门的某位同事或者你的老板向你发送了一封电子邮件，指出他们已对你的帐户添加了附加的安全验证。  那么，这是什么意思呢？
@@ -49,4 +46,4 @@ ms.locfileid: "39487488"
 | [更改设置](multi-factor-authentication-end-user-manage-settings.md) |说明如何更改设置，例如电话号码或首选注册方法。 |
 | [使用移动应用](microsoft-authenticator-app-how-to.md) |Microsoft Authenticator 应用适用于 [Android](https://go.microsoft.com/fwlink/?linkid=866594)、[iOS](https://go.microsoft.com/fwlink/?linkid=866594) 和 [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071)。 |
 
-<!--Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

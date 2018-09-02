@@ -7,19 +7,21 @@ author: ggailey777
 manager: cfowler
 editor: ''
 ms.service: functions
-ms.workload: na
+ms.technology: vs-azure
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.tgt_pltfrm: dotnet
 ms.devlang: na
 ms.topic: article
 origin.date: 05/23/2018
-ms.date: 07/23/2018
+ms.date: 08/31/2018
 ms.author: v-junlch
-ms.openlocfilehash: c20d16e50f6274d0d632f838a2d7e9e10f0375d8
-ms.sourcegitcommit: ba07d76f8394b5dad782fd983718a8ba49a9deb2
+ms.openlocfilehash: 8f9c4169113d96211800c0872245be9cce0fdb9c
+ms.sourcegitcommit: b2c9bc0ed28e73e8c43aa2041c6d875361833681
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39220208"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43330667"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>使用 Visual Studio 开发 Azure Functions  
 
@@ -52,7 +54,7 @@ Azure Functions 工具包含在 [Visual Studio 2017 版本 15.5](https://www.vis
 
 - 一个有效的 Azure 订阅。 如果没有 Azure 订阅，可以使用[试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
 
-- 一个 Azure 存储帐户。 若要创建存储帐户，请参阅[创建存储帐户](../storage/common/storage-create-storage-account.md#create-a-storage-account)。
+- 一个 Azure 存储帐户。 若要创建存储帐户，请参阅[创建存储帐户](../storage/common/storage-quickstart-create-account.md)。
 
 ### <a name="check-your-tools-version"></a>检查工具版本
 
@@ -133,7 +135,7 @@ Functions 运行时在内部使用 Azure 存储帐户。 对于除 HTTP 和 Webh
         }
     }
     ````
-    已向提供给入口点方法的每个绑定参数提供了特定于绑定的属性。 该属性采用绑定信息作为参数。 在上例中，第一个参数具应用了 QueueTrigger 属性，表示触发了队列的函数。 队列名称和连接字符串设置名称作为参数传递到“QueueTrigger”属性。
+    已向提供给入口点方法的每个绑定参数提供了特定于绑定的属性。 该属性采用绑定信息作为参数。 在上例中，第一个参数具应用了 QueueTrigger 属性，表示触发了队列的函数。 队列名称和连接字符串设置名称作为参数传递到“QueueTrigger”属性。 有关详细信息，请参阅 [Azure Functions 的 Azure 队列存储绑定](functions-bindings-storage-queue.md#trigger---c-example)。
     
 可以使用上述过程向函数应用项目添加更多的函数。 项目中的每个函数可以有不同的触发器，但每个函数的触发器必须刚好一个。 有关详细信息，请参阅 [Azure Functions 触发器和绑定概念](functions-triggers-bindings.md)。
 
@@ -199,7 +201,7 @@ Azure Functions Core Tools 允许在本地开发计算机上运行 Azure Functio
 
 - [使用 Azure 门户](functions-how-to-use-azure-function-app-settings.md#settings)。
 - [使用 `--publish-local-settings` 发布 Azure Functions Core Tools 中的选项](functions-run-local.md#publish)。
-- [使用 Azure CLI](/cli/functionapp/config/appsettings#az_functionapp_config_appsettings_set)。 
+- [使用 Azure CLI](/cli/functionapp/config/appsettings#az-functionapp-config-appsettings-set)。 
 
 ## <a name="next-steps"></a>后续步骤
 

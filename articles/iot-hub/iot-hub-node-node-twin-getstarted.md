@@ -1,26 +1,21 @@
 ---
 title: Azure IoT 中心设备孪生入门 (Node) | Azure
 description: 如何使用 Azure IoT 中心设备孪生添加标记，并使用 IoT 中心查询。 使用 Azure IoT SDK for Node.js 实现模拟设备应用，并实现可添加标记和运行 IoT 中心查询的服务应用。
-services: iot-hub
-documentationcenter: node
 author: fsautomata
-manager: timlt
-editor: ''
-ms.assetid: 314c88e4-cce1-441c-b75a-d2e08e39ae7d
+manager: ''
 ms.service: iot-hub
-ms.devlang: node
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: nodejs
+ms.topic: conceptual
 origin.date: 08/25/2017
-ms.date: 11/20/2017
+ms.date: 09/10/2018
 ms.author: v-yiso
-ms.openlocfilehash: 1431df1ba13cb438c5adcc5e863f821119605c47
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 791f5da0f1ce174f1462ef05a47faac5fd7b698d
+ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939130"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43328635"
 ---
 # <a name="get-started-with-device-twins-node"></a>设备孪生入门 (Node)
 
@@ -219,13 +214,13 @@ ms.locfileid: "38939130"
 [lnk-query]: ./iot-hub-devguide-query-language.md
 [lnk-identity]: ./iot-hub-devguide-identity-registry.md
 
-[lnk-iothub-getstarted]: ./iot-hub-node-node-getstarted.md
+[lnk-iothub-getstarted]: quickstart-send-telemetry-node.md
 [lnk-device-management]: ./iot-hub-node-node-device-management-get-started.md
 [lnk-iot-edge]: ./iot-hub-linux-iot-edge-get-started.md
 [lnk-connect-device]: https://www.azure.cn/develop/iot/
 
-[lnk-twin-how-to-configure]: ./iot-hub-node-node-twin-how-to-configure.md
+[lnk-twin-how-to-configure]: tutorial-device-twins.md
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 
-[lnk-methods-tutorial]: ./iot-hub-node-node-direct-methods.md
+[lnk-methods-tutorial]: quickstart-control-device-node.md
 [lnk-devguide-mqtt]: ./iot-hub-mqtt-support.md

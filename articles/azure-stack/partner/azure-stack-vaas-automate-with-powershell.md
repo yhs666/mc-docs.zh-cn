@@ -14,12 +14,12 @@ origin.date: 07/24/2018
 ms.date: 08/27/2018
 ms.author: v-jay
 ms.reviewer: johnhas
-ms.openlocfilehash: 611b7327cc60ed165a664a487c77cec85a016cf6
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.openlocfilehash: 7fd8f7dfe7d7a1ee4785617e5b096b1cb73bac6c
+ms.sourcegitcommit: bc7679a5ad24ea9120c44fc771e88a08b5d8b207
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869656"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "42998374"
 ---
 # <a name="automate-azure-stack-validation-with-powershell"></a>使用 PowerShell 自动执行 Azure Stack 验证 
 
@@ -45,7 +45,7 @@ ms.locfileid: "42869656"
     ````PowerShell  
     New-Item -ItemType Directory -Path <VaaSLaunchDirectory>
     Set-Location <VaaSLaunchDirectory>
-    Invoke-WebRequest -Uri https://vaastestpacksprodeastus.blob.core.chinacloudapi.cn/packages/Microsoft.VaaS.Scripts.3.0.0.nupkg -OutFile "LaunchVaaS.zip"
+    Invoke-WebRequest -Uri https://vaastestpacksprodeastus.blob.core.windows.net/packages/Microsoft.VaaS.Scripts.3.0.0.nupkg -OutFile "LaunchVaaS.zip"
     Expand-Archive -Path ".\LaunchVaaS.zip" -DestinationPath .\ -Force
     ````
 
@@ -64,7 +64,7 @@ ms.locfileid: "42869656"
         -ServiceAdminCreds $ServiceAdminCreds `
     ````
 
-    **参数**
+    **Parameters**
 
     | 参数 | 说明 |
     | --- | --- |

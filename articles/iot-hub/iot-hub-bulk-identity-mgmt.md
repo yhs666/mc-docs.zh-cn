@@ -1,26 +1,20 @@
 ---
 title: 导入和导出 Azure IoT 中心设备标识
 description: 如何使用 Azure IoT 服务 SDK 针对标识注册表执行批量操作，以导入和导出设备标识。 借助导入操作，可批量创建、更新和删除设备标识。
-services: iot-hub
-documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: 2ade1494-45ea-46a7-ade7-cf6e11ce62da
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 origin.date: 07/03/2017
 ms.author: v-yiso
-ms.date: 03/19/2018
-ms.openlocfilehash: f03911ba918b309e7e0274cbc2e6f405b38e9b93
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.date: 09/10/2018
+ms.openlocfilehash: 345ea2f724112d0fab5393d717f52ab6a5ce3c30
+ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121749"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43328954"
 ---
 # <a name="manage-your-iot-hub-device-identities-in-bulk"></a>批量管理 IoT 中心设备标识
 
@@ -415,12 +409,12 @@ static string GetContainerSasUri(CloudBlobContainer container)
 ## <a name="next-steps"></a>后续步骤
 在本文中，已学习如何对 IoT 中心内的标识注册表执行批量操作。 若要了解有关如何管理 Azure IoT 中心的详细信息，请参阅以下链接：
 
-* [IoT 中心指标][lnk-metrics]
-* [操作监视][lnk-monitor]
+* [IoT 中心指标](iot-hub-metrics.md)
+* [操作监视](iot-hub-operations-monitoring.md)
 
 若要进一步探索 IoT 中心的功能，请参阅：
 
-* [IoT 中心开发人员指南][lnk-devguide]
+* [IoT 中心开发人员指南](iot-hub-devguide.md)
 * [使用 Azure IoT Edge 将 AI 部署到边缘设备][lnk-iotedge]
 
 [lnk-metrics]: ./iot-hub-metrics.md

@@ -10,12 +10,12 @@ ms.topic: conceptual
 origin.date: 03/26/2018
 ms.date: 08/13/2018
 ms.author: v-yeche
-ms.openlocfilehash: 28161dcbd01ef23c010123cd1e2034ee37c5a3a3
-ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
+ms.openlocfilehash: a81a6fbe2b03e2e66a8ccbd9964648150ca86d2c
+ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41705243"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43328965"
 ---
 <!-- Notice in meta: 全球分布 to 多个区域分布 -->
 <!-- Notice in meta: 全球范围 to 多个数据中心范围 -->
@@ -51,12 +51,7 @@ Azure Cosmos DB 提供了以下功能，方便用户轻松编写多区域分布�
 Azure 通过上线[新区域](https://www.azure.cn/support/service-dashboard/)，不断扩大地理覆盖面。 Azure Cosmos DB 被归为 Azure 的基础服务，并且默认情况下在所有新的 Azure 区域中可用。 这样，一旦 Azure 开辟了新的业务区域，就能将某个地理区域与 Azure Cosmos DB 数据库帐户相关联。
 
 <a name="UnlimitedRegionsPerAccount"></a>
-### <a name="associating-an-unlimited-number-of-regions-with-your-azure-cosmos-db-database-account"></a>将数目不限的区域与 Azure Cosmos DB 数据库帐户相关联
-在 Azure Cosmos DB 中，可将任意数量的 Azure 区域与 Azure Cosmos DB 数据库帐户相关联。 除了地域隔离限制（例如在中国和德国）以外，可与 Azure Cosmos DB 数据库帐户关联的区域数目没有限制。 下图显示一个配置跨越 25 个 Azure 区域的数据库帐户。  
-
-![跨越 25 个 Azure 区域的 Azure Cosmos DB 数据库帐户](./media/distribute-data-globally/spanning-regions.png)
-
-**某个租户的跨 25 个 Azure 区域的 Azure Cosmos DB 数据库帐户**
+<!--Not Available on ### Associating an unlimited number of regions with your Azure Cosmos DB database account-->
 
 <a name="PolicyBasedGeoFencing"></a>
 ### <a name="policy-based-geo-fencing"></a>基于策略的地域隔离
@@ -203,8 +198,7 @@ Azure Cosmos DB 一致性 SLA 保证 100% 的读取请求满足指定的（数�
 
 <a name="ConsistencyAndAvailability"></a>
 ### <a name="consistencys-relationship-with-availability"></a>一致性与可用性的关系
-
-  [CAP 定理](https://people.eecs.berkeley.edu/~brewer/cs262b-2004/PODC-keynote.pdf)的[不可能结果](http://www.glassbeam.com/sites/all/themes/glassbeam/images/blog/10.1.1.67.6951.pdf)证明遇到故障时，系统确实不可能保持可用并提供线性一致性。 数据库服务必须选择采用 CP 还是 AP，其中 CP 系统会放弃可用性以支持线性一致性，而 AP 系统会放弃[线性一致性](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf)以支持可用性。 Azure Cosmos DB 绝不会违反所请求的一致性模型，由此可准确判断其为 CP 系统。 但在实践中，一致性并不是一个“全有或者全无”的命题；介于线性一致性和最终一致性之间的一致性范畴中还存在多个定义完善的一致性模型。 在 Azure Cosmos DB 中，标识数个适用于真实世界场景且可以直观使用的宽松一致性模型。 Azure Cosmos DB 提供[多个宽松但完善定义的一致性模型](consistency-levels.md)、99.99% 的一致性（对于所有单区域的数据库帐户）、99.999% 的读写可用性（对于所有多区域数据库帐户），从而进行一致性与可用性的权衡取舍。 
+[CAP 定理](https://people.eecs.berkeley.edu/~brewer/cs262b-2004/PODC-keynote.pdf)的[不可能结果](http://www.glassbeam.com/sites/all/themes/glassbeam/images/blog/10.1.1.67.6951.pdf)证明遇到故障时，系统确实不可能保持可用并提供线性一致性。 数据库服务必须选择采用 CP 还是 AP，其中 CP 系统会放弃可用性以支持线性一致性，而 AP 系统会放弃[线性一致性](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf)以支持可用性。 Azure Cosmos DB 绝不会违反所请求的一致性模型，由此可准确判断其为 CP 系统。 但在实践中，一致性并不是一个“全有或者全无”的命题；介于线性一致性和最终一致性之间的一致性范畴中还存在多个定义完善的一致性模型。 在 Azure Cosmos DB 中，标识数个适用于真实世界场景且可以直观使用的宽松一致性模型。 Azure Cosmos DB 提供[多个宽松但完善定义的一致性模型](consistency-levels.md)、99.99% 的一致性（对于所有单区域的数据库帐户）、99.999% 的读写可用性（对于所有多区域数据库帐户），从而进行一致性与可用性的权衡取舍。 
 
 <a name="ConsistencyAndAvailability"></a>
 ### <a name="consistencys-relationship-with-latency"></a>一致性与延迟的关系

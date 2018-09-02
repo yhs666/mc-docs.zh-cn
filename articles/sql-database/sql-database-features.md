@@ -1,21 +1,21 @@
 ---
-title: Azure SQL 数据库功能比较 | Azure
+title: Azure SQL 数据库功能比较 | Microsoft Docs
 description: 本文比较了不同风格的 Azure SQL 数据库中可用的 SQL Server 功能。
 services: sql-database
-author: yunan2016
+author: WenJason
 ms.reviewer: bonova, carlrab
 ms.service: sql-database
 ms.topic: article
-origin.date: 07/02/2018
-ms.date: 08/06/2018
+origin.date: 08/14/2018
+ms.date: 09/02/2018
 ms.author: v-nany
 manager: digimobile
-ms.openlocfilehash: 7cdf30c4d61c39f7ec4dac3c0ca11af34715d856
-ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
+ms.openlocfilehash: 4424e8e1b84b47bab89f84b150bcce773152d87d
+ms.sourcegitcommit: 2601e68563bffe148e70cce2bf1dcbe837a40f80
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39486948"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43249820"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>功能比较：Azure SQL 数据库与 SQL Server 
 

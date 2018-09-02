@@ -11,12 +11,12 @@ ms.topic: article
 origin.date: 03/19/2018
 ms.date: 04/19/2018
 ms.author: v-nany
-ms.openlocfilehash: 31bda771706694827fa7dd3697ab539d1a1f4477
-ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
+ms.openlocfilehash: 9d3a01fceb1842d34634b8b5ede422c5fe1941da
+ms.sourcegitcommit: 2601e68563bffe148e70cce2bf1dcbe837a40f80
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39486952"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43249841"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>开始使用 Azure SQL 数据库托管实例审核
 
@@ -110,8 +110,8 @@ ms.locfileid: "39486952"
     - [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
 
 7. 像针对 SQL Server 那样创建一个服务器审核规范或数据库审核规范：
-    - [创建服务器审核规范 T-SQL 指南](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-specification-transact-sql)
-    - [创建数据库审核规范 T-SQL 指南](https://docs.microsoft.com/sql/t-sql/statements/create-database-audit-specification-transact-sql)
+    - [创建服务器审核规范 T-SQL 指南](https://docs.microsoft.com/ sql/t-sql/statements/create-server-audit-specification-transact-sql)
+    - [创建数据库审核规范 T-SQL 指南](https://docs.microsoft.com/ sql/t-sql/statements/create-database-audit-specification-transact-sql)
 
 8. 启用在步骤 6 中创建的服务器审核：
 

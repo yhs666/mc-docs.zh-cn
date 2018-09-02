@@ -1,21 +1,21 @@
 ---
-title: Azure SQL 数据库的查询性能见解 | Azure
+title: Azure SQL 数据库的查询性能见解 | Microsoft 文档
 description: 查询性能监视可以识别 Azure SQL 数据库中 CPU 消耗最大的查询。
 services: sql-database
-author: forester123
+author: WenJason
 manager: digimobile
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.topic: article
+ms.topic: conceptual
 origin.date: 04/01/2018
-ms.date: 04/17/2018
-ms.author: v-johch
-ms.openlocfilehash: 6a7c19c65344f25281ca08929af15ca2293b10b7
-ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
+ms.date: 09/02/2018
+ms.author: v-jay
+ms.openlocfilehash: 85e9f7d6935d71a9c252e86c1ee83315003aa78f
+ms.sourcegitcommit: 2601e68563bffe148e70cce2bf1dcbe837a40f80
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39486570"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43249656"
 ---
 # <a name="azure-sql-database-query-performance-insight"></a>Azure SQL 数据库 Query Performance Insight
 管理和优化关系数据库性能是一项颇具挑战性的操作，需要投入大量的专业知识和时间。 查询性能见解通过提供以下功能使排查数据库性能问题花费的时间更少：
@@ -178,31 +178,29 @@ Query Store 处于关闭状态或参数未设置为最优时会发生第二种�
 
 建议将所有策略设置为“自动”，将清除策略设置为“30 天”：
 
-```
-ALTER DATABASE [YourDB] 
-SET QUERY_STORE (SIZE_BASED_CLEANUP_MODE = AUTO);
+    ALTER DATABASE [YourDB] 
+    SET QUERY_STORE (SIZE_BASED_CLEANUP_MODE = AUTO);
 
-ALTER DATABASE [YourDB] 
-SET QUERY_STORE (CLEANUP_POLICY = (STALE_QUERY_THRESHOLD_DAYS = 30));
+    ALTER DATABASE [YourDB] 
+    SET QUERY_STORE (CLEANUP_POLICY = (STALE_QUERY_THRESHOLD_DAYS = 30));
 
-ALTER DATABASE [YourDB] 
-SET QUERY_STORE (QUERY_CAPTURE_MODE = AUTO);
-```
+    ALTER DATABASE [YourDB] 
+    SET QUERY_STORE (QUERY_CAPTURE_MODE = AUTO);
 
 增加查询存储的大小。 为此，可在连接到数据库以后发出以下查询：
 
-```
-ALTER DATABASE [YourDB]
-SET QUERY_STORE (MAX_STORAGE_SIZE_MB = 1024);
-```
+    ALTER DATABASE [YourDB]
+    SET QUERY_STORE (MAX_STORAGE_SIZE_MB = 1024);
+
+应用这些设置最终会使 Query Store 收集新查询，但是如果不想等待则可清除 Query Store。 
 
 > [!NOTE]
 > 执行以下查询会删除当前位于查询存储中的所有信息。 
 > 
 > 
-```
-ALTER DATABASE [YourDB] SET QUERY_STORE CLEAR;
-```
+
+    ALTER DATABASE [YourDB] SET QUERY_STORE CLEAR;
+
 
 ## <a name="summary"></a>摘要
 Query Performance Insight 可帮助了解查询工作负荷的影响，以及它与数据库资源消耗的关系。 使用此功能可以了解排名靠前的消耗查询，并在发生问题之前轻松找出问题。

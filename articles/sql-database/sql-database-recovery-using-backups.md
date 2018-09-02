@@ -11,12 +11,12 @@ ms.topic: article
 origin.date: 06/20/2018
 ms.date: 08/06/2018
 ms.author: v-johch
-ms.openlocfilehash: c0c8d7e9c01f431ab6a8858da956aa78cf122594
-ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
+ms.openlocfilehash: f708f2ac9d69968d53a1c69efa6713d1da7d2432
+ms.sourcegitcommit: 2601e68563bffe148e70cce2bf1dcbe837a40f80
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39487051"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43249862"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>使用自动数据库备份恢复 Azure SQL 数据库
 SQL 数据库使用[自动数据库备份](sql-database-automated-backups.md)和[长期保留的备份](sql-database-long-term-retention.md)为数据库恢复提供这些选项。 可从数据库备份还原到：
@@ -62,7 +62,7 @@ SQL 数据库使用[自动数据库备份](sql-database-automated-backups.md)和
 没有任何内置功能用于执行批量还原。 [Azure SQL 数据库：完全恢复服务器](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666) 脚本是完成此任务的一种方法示例。
 
 > [!IMPORTANT]
-> 若要使用自动备份进行恢复，用户必须是订阅中的 SQL Server 参与者角色的成员或是订阅所有者。 可以使用 Azure 门户、PowerShell 或 REST API 进行恢复。 但不能使用 Transact-SQL。 
+> 若要使用自动备份进行恢复，用户必须是订阅中的 SQL Server 参与者角色的成员或是订阅所有者（请参阅 [RBAC：内置角色](../role-based-access-control/built-in-roles.md)）。 可以使用 Azure 门户、PowerShell 或 REST API 进行恢复。 但不能使用 Transact-SQL。 
 > 
 
 ## <a name="point-in-time-restore"></a>时间点还原

@@ -11,17 +11,17 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 06/06/2018
-ms.date: 07/04/2018
+ms.date: 08/29/2018
 ms.author: v-junlch
 ms.reviewer: luleon
-ms.openlocfilehash: 4ff58a8bbc3d46f61c21f07c3a4f4c71f1861a76
-ms.sourcegitcommit: 37a1524d71895b17b6f1d125053ad0b251b88df1
+ms.openlocfilehash: 5f41b0c3ebd620c5d8181d734f6fbc8e26fa874d
+ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39096330"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43164723"
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>在 Azure Active Directory 中向企业应用分配用户或组
 若要将用户或组分配到企业应用，必须具有适当的权限才能管理企业应用，并且必须是目录的全局管理员。
@@ -97,7 +97,7 @@ ms.locfileid: "39096330"
 
     ```powershell
     # Get the user to assign, and the service principal for the app to assign to
-    $user = Get-AzureADUser -ObjectId $username
+    $user = Get-AzureADUser -ObjectId "$username"
     $sp = Get-AzureADServicePrincipal -Filter "displayName eq '$app_name'"
     ```
         
@@ -126,3 +126,4 @@ ms.locfileid: "39096330"
 - [禁用企业应用的用户登录](disable-user-sign-in-portal.md)
 - [更改企业应用的名称或徽标](change-name-or-logo-portal.md)
 
+<!-- Update_Description: code update -->

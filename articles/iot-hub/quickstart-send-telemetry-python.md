@@ -1,25 +1,24 @@
 ---
 title: 向 Azure IoT 中心发送遥测数据 (Python) | Microsoft Docs
 description: 在本快速入门中，将会运行一个示例 Python 应用程序，向 IoT 中心发送模拟遥测数据，并从 IoT 中心使用实用工具读取遥测数据。
-services: iot-hub
 author: dominicbetts
 manager: timlt
-editor: ''
 ms.service: iot-hub
+services: iot-hub
 ms.devlang: python
 ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: ns
 origin.date: 04/30/2018
-ms.date: 08/06/2018
+ms.date: 09/10/2018
 ms.author: v-yiso
-ms.openlocfilehash: c42b183ca7f0740e5ebc9ad32a7e4c2474a38ce0
-ms.sourcegitcommit: d4092cf6aba0d949bf612093c76f964c2bdfd0ba
+ms.openlocfilehash: bc74b99cc527d8bc21da83676bf7f61179011334
+ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39306594"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43329175"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-python"></a>快速入门：将遥测数据从设备发送到 IoT 中心并使用后端应用程序从中心读取遥测数据 (Python)
 

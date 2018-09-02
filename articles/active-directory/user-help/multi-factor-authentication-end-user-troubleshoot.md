@@ -1,24 +1,24 @@
 ---
-title: 双重验证故障排除 - Azure AD | Microsoft Docs
+title: 双重验证故障排除 - Azure Active Directory | Microsoft Docs
 description: 为用户提供指导，让他们了解遇到 Azure 多重身份验证和双重验证问题时应采取什么操作。
-services: multi-factor-authentication
-documentationcenter: ''
+services: active-directory
 author: eross-msft
 manager: mtillman
 ms.assetid: 8f3aef42-7f66-4656-a7cd-d25a971cb9eb
-ms.service: multi-factor-authentication
 ms.workload: identity
+ms.service: active-directory
+ms.component: user-help
 ms.topic: conceptual
 origin.date: 07/16/2018
-ms.date: 07/31/2018
+ms.date: 08/27/2018
 ms.author: v-junlch
 ms.reviewer: kexia
-ms.openlocfilehash: 118d463056528300e04d29b9b7d6972b88398d2f
-ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
+ms.openlocfilehash: 5e328774d503549f7801c0c9395c953ccf7f1170
+ms.sourcegitcommit: 75c2b5cdaf25ede92e080f6c48ca17d2f4ded4fb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39487496"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43115525"
 ---
 # <a name="get-help-with-two-step-verification"></a>获取有关双重验证的帮助
 
@@ -62,3 +62,4 @@ ms.locfileid: "39487496"
 
 - [Microsoft Authenticator 应用程序常见问题](microsoft-authenticator-app-faq.md)
 
+<!-- Update_Description: update metedata properties -->

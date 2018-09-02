@@ -11,12 +11,12 @@ ms.author: v-jay
 ms.reviewer: douglasl
 manager: digimobile
 ms.custom: data-sync
-ms.openlocfilehash: 211f2f5845d2859843cceeef34e809a8a6962e99
-ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
+ms.openlocfilehash: ff1e537644ba159028edf493d8db342546eb9ffa
+ms.sourcegitcommit: 2601e68563bffe148e70cce2bf1dcbe837a40f80
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39486856"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43249792"
 ---
 # <a name="automate-the-replication-of-schema-changes-in-azure-sql-data-sync"></a>在 Azure SQL 数据同步中自动复制架构更改
 

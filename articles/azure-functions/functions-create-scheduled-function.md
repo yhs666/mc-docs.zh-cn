@@ -14,15 +14,15 @@ ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 03/28/2018
-ms.date: 04/10/2018
+ms.date: 08/31/2018
 ms.author: v-junlch
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 1172fb001f850f7772e257df89031d3e826dbca6
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 4237ae767f6860a819fd68a4e92d2b05623201c6
+ms.sourcegitcommit: b2c9bc0ed28e73e8c43aa2041c6d875361833681
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939710"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43330834"
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>在 Azure 中创建由计时器触发的函数
 
@@ -63,7 +63,7 @@ ms.locfileid: "38939710"
     | 设置 | 建议的值 | 说明 |
     |---|---|---|
     | **名称** | 默认 | 定义计时器触发的函数的名称。 |
-    | **[计划](http://en.wikipedia.org/wiki/Cron#CRON_expression)** | 0 \*/1 \* \* \* \* | 六字段 [CRON 表达式](http://en.wikipedia.org/wiki/Cron#CRON_expression)，计划函数每分钟运行一次。 |
+    | **计划** | 0 \*/1 \* \* \* \* | 六字段 [CRON 表达式](functions-bindings-timer.md#cron-expressions)，计划函数每分钟运行一次。 |
 
 2. 单击**创建**。 将使用所选语言创建一个每分钟运行一次的函数。
 
@@ -95,3 +95,4 @@ ms.locfileid: "38939710"
 
 有关计时器触发器的详细信息，请参阅[使用 Azure Functions 计划代码执行](functions-bindings-timer.md)。
 
+<!-- Update_Description: wording update -->

@@ -3,7 +3,7 @@ title: 测试 Azure Functions | Microsoft Docs
 description: 使用 Postman、cURL 和 Node.js 测试 Azure functions。
 services: functions
 documentationcenter: na
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -15,15 +15,15 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 02/02/2017
-ms.date: 07/23/2018
+ms.date: 08/31/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a85670ec58c838ae725743a775f49892c69b7288
-ms.sourcegitcommit: ba07d76f8394b5dad782fd983718a8ba49a9deb2
+ms.openlocfilehash: ae63e704b0f0ab128c99177ae7affe96229dc9a0
+ms.sourcegitcommit: b2c9bc0ed28e73e8c43aa2041c6d875361833681
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39220228"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43330817"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>在 Azure Functions 中测试代码的策略
 

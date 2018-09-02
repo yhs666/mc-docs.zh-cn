@@ -3,8 +3,8 @@ title: Azure Functions 的计时器触发器
 description: 了解如何在 Azure Functions 中使用计时器触发器。
 services: functions
 documentationcenter: na
-author: tdykstra
-manager: cfowler
+author: ggailey777
+manager: jeconnoc
 editor: ''
 tags: ''
 keywords: Azure Functions，函数，事件处理，动态计算，无服务体系结构
@@ -14,16 +14,16 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-origin.date: 02/27/2017
-ms.date: 07/24/2018
+origin.date: 08/08/2018
+ms.date: 08/31/2018
 ms.author: v-junlch
 ms.custom: ''
-ms.openlocfilehash: 9b30cc5b77202141bda0ccdff82acb29a3577023
-ms.sourcegitcommit: ba07d76f8394b5dad782fd983718a8ba49a9deb2
+ms.openlocfilehash: 6d98dac93fead982bec45e98b5373d21f4f12806
+ms.sourcegitcommit: b2c9bc0ed28e73e8c43aa2041c6d875361833681
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39220199"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43330706"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Azure Functions 的计时器触发器 
 
@@ -51,6 +51,7 @@ ms.locfileid: "39220199"
 - [C# 脚本 (.csx)](#trigger---c-script-example)
 - [F#](#trigger---f-example)
 - [JavaScript](#trigger---javascript-example)
+- [Java](#trigger---java-example)
 
 ### <a name="c-example"></a>C# 示例
 
@@ -152,6 +153,21 @@ module.exports = function (context, myTimer) {
 };
 ```
 
+### <a name="java-example"></a>Java 示例
+
+以下示例函数的触发和执行间隔为 5 分钟。 函数上的 `@TimerTrigger` 注释使用与 [CRON 表达式](http://en.wikipedia.org/wiki/Cron#CRON_expression)相同的字符串格式定义计划。
+
+```java
+@FunctionName("keepAlive")
+public void keepAlive(
+  @TimerTrigger(name = "keepAliveTrigger", schedule = "0 *&#47;5 * * * *") String timerInfo,
+      ExecutionContext context
+ ) {
+     // timeInfo is a JSON string, you can deserialize it to an object using your favorite JSON library
+     context.getLogger().info("Timer is triggered: " + timerInfo);
+}
+```
+
 ## <a name="attributes"></a>属性
 
 在 [C# 类库](functions-dotnet-class-library.md)中，使用 [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs)。
@@ -206,7 +222,7 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWr
 
 ## <a name="cron-expressions"></a>CRON 表达式 
 
-Azure Functions 计时器触发器的 CRON 表达式包含以下六个字段： 
+Azure Functions 使用 [NCronTab](https://github.com/atifaziz/NCrontab) 库来解释 CRON 表达式。 CRON 表达式包含六个字段：
 
 `{second} {minute} {hour} {day} {month} {day-of-week}`
 
@@ -220,7 +236,12 @@ Azure Functions 计时器触发器的 CRON 表达式包含以下六个字段：
 |一组值（`,` 运算符）|<nobr>"5,8,10 * * * * *"</nobr>|在 hh:mm:05、hh:mm:08 和 hh:mm:10，其中 hh:mm 表示每小时的每分钟（每分钟 3 次）|
 |一个间隔值（`/` 运算符）|<nobr>"0 */5 * * * *"</nobr>|在 hh:05:00、hh:10:00、hh:15:00，依此类推，直到 hh:55:00，其中 hh 表示每小时（每小时 12 次）|
 
-若要指定月份或星期，可以使用三字母缩写而不是数字值。 例如，使用 Jan 表示一月份，或使用 Sun 表示周日。
+若要指定月份或天，可以使用数字值、名称或名称的缩写：
+
+- 对于天，数字值为 0 到 6，其中 0 表示星期日。
+- 名称采用英语。 例如：`Monday`、`January`。
+- 名称不区分大小写。
+- 名称可缩写。 三字母是建议的缩写长度。  例如：`Mon`、`Jan`。 
 
 ### <a name="cron-examples"></a>CRON 示例
 
@@ -228,13 +249,13 @@ Azure Functions 计时器触发器的 CRON 表达式包含以下六个字段：
 
 |示例|何时触发  |
 |---------|---------|
-|"0 */5 * * * *"|每五分钟一次|
-|"0 0 * * * *"|每小时一次（在每小时的开头）|
-|"0 0 */2 * * *"|每两小时一次|
-|"0 0 9-17 * * *"|从上午 9 点到下午 5 点每小时一次|
-|"0 30 9 * * *"|每天上午 9:30|
-|"0 30 9 * * 1-5"|每个工作日的上午 9:30|
-
+|`"0 */5 * * * *"`|每五分钟一次|
+|`"0 0 * * * *"`|每小时一次（在每小时的开头）|
+|`"0 0 */2 * * *"`|每两小时一次|
+|`"0 0 9-17 * * *"`|从上午 9 点到下午 5 点每小时一次|
+|`"0 30 9 * * *"`|每天上午 9:30|
+|`"0 30 9 * * 1-5"`|每个工作日的上午 9:30|
+|`"0 30 9 * Jan Mon"`|在一月份每星期一的上午 9:30|
 >[!NOTE]   
 >你可以在线找到 CRON 表达式示例，但它们中的许多都省略了 `{second}` 字段。 如果从这些字段之一复制，请添加缺少的 `{second}` 字段。 通常，你希望该字段的值为零，而不是星号。
 
@@ -247,14 +268,16 @@ CRON 表达式使用的默认时区为协调世界时 (UTC)。 若要让 CRON �
 例如，东部标准时间是 UTC-05:00。 若要让计时器触发器每天在美国东部时间上午 10:00 触发，可使用表示 UTC 时区的以下 CRON 表达式：
 
 ```json
-"schedule": "0 0 15 * * *",
+"schedule": "0 0 15 * * *"
 ``` 
 
 或者为你的函数应用创建一个名为 `WEBSITE_TIME_ZONE` 的应用设置并将值设置为 **Eastern Standard Time**。  然后使用以下 CRON 表达式： 
 
 ```json
-"schedule": "0 0 10 * * *",
+"schedule": "0 0 10 * * *"
 ``` 
+
+当使用 `WEBSITE_TIME_ZONE`，时间将针对特定时区中的时间更改进行调整，例如夏令时。 
 
 ## <a name="timespan"></a>TimeSpan
 

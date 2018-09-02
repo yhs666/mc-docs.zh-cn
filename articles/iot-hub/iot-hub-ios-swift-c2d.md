@@ -1,26 +1,20 @@
 ---
 title: 使用 Azure IoT 中心发送云到设备消息 (iOS) | Microsoft Docs
 description: 如何使用用于 iOS 的 Azure IoT SDK 将云到设备消息从 Azure IoT 中心发送到设备。
-services: iot-hub
-documentationcenter: ''
 author: kgremban
 manager: timlt
-editor: ''
-ms.assetid: ''
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 origin.date: 04/19/2018
-ms.date: 06/11/2018
+ms.date: 09/10/2018
 ms.author: v-yiso
-ms.openlocfilehash: 1fc6a915c04ed1f5fb24943bf279ff8f2a66276b
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 65cb66f50be9a58e556a185d3f5cd656b75a7f61
+ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695277"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43329052"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-ios"></a>使用 IoT 中心发送云到设备消息 (iOS)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]

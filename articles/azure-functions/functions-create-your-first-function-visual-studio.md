@@ -13,17 +13,18 @@ ms.service: functions
 ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.technology: vs-azure
+ms.workload: azure-vs
 origin.date: 05/22/2018
-ms.date: 07/23/2018
+ms.date: 08/31/2018
 ms.author: v-junlch
-ms.custom: mvc, devcenter, 23113853-34f2-4f
-ms.openlocfilehash: 3041ffbcd6541c6427183a7f6e27d7f8975f3508
-ms.sourcegitcommit: ba07d76f8394b5dad782fd983718a8ba49a9deb2
+ms.custom: mvc, devcenter, , vs-azure, 23113853-34f2-4f
+ms.openlocfilehash: 4901ddcf6f3175aa0a2fc5412dc52175f4d1ae67
+ms.sourcegitcommit: b2c9bc0ed28e73e8c43aa2041c6d875361833681
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39220195"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43330732"
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>使用 Visual Studio 创建你的第一个函数
 
@@ -92,4 +93,4 @@ Visual Studio 将创建一个项目，并在该项目中创建一个包含所选
 - [了解如何添加与其他服务集成的输入和输出绑定。](functions-develop-vs.md#add-bindings)
 - [详细了解如何将函数开发为 .NET 类库](functions-dotnet-class-library.md)。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

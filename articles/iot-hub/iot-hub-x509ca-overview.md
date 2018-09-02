@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 09/18/2017
-ms.date: 08/06/2018
+ms.date: 09/10/2018
 ms.author: v-yiso
-ms.openlocfilehash: 0e04322e226e4229e99529c8770a11ac86ee7568
-ms.sourcegitcommit: d4092cf6aba0d949bf612093c76f964c2bdfd0ba
+ms.openlocfilehash: 2834e4b2858c746e2f844b40a0e9112e44fc451f
+ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39306554"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43328626"
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>使用 X.509 CA 证书进行设备身份验证
 
@@ -37,7 +37,7 @@ ms.locfileid: "39306554"
 
 ## <a name="prerequisite"></a>先决条件
 
-使用 X.509 CA 功能需要有一个 IoT 中心帐户。  [了解如何创建 IoT 中心实例](iot-hub-csharp-csharp-getstarted.md)（如果没有）。
+使用 X.509 CA 功能需要有一个 IoT 中心帐户。  [了解如何创建 IoT 中心实例](quickstart-send-telemetry-dotnet.md)（如果没有）。
 
 ## <a name="how-to-get-an-x509-ca-certificate"></a>如何获取 X.509 CA 证书
 
@@ -71,7 +71,7 @@ X.509 CA 证书的所有者能以加密方式为某个中间 CA 签名，而该 
 
 ## <a name="how-to-create-a-device-on-iot-hub"></a>如何在 IoT 中心创建设备
 
-为了防止设备模拟，IoT 中心要求告知设备的预期。  为此，可在 IoT 中心的设备注册表中创建一个设备条目。  使用 IoT 中心[设备预配服务](https://azure.microsoft.com/en-us/blog/azure-iot-hub-device-provisioning-service-preview-automates-device-connection-configuration/) (DPS) 时，此过程会自动化。 
+为了防止设备模拟，IoT 中心要求告知设备的预期。  为此，可在 IoT 中心的设备注册表中创建一个设备条目。  使用 IoT 中心[设备预配服务](https://azure.microsoft.com/blog/azure-iot-hub-device-provisioning-service-preview-automates-device-connection-configuration/)时，此过程会自动执行。 
 
 在此处了解如何[在 IoT 中心手动创建设备](iot-hub-security-x509-get-started.md#createdevice)。
 

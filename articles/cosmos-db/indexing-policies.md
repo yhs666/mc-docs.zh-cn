@@ -9,14 +9,14 @@ ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 03/26/2018
-ms.date: 08/13/2018
+ms.date: 09/03/2018
 ms.author: v-yeche
-ms.openlocfilehash: 649d6b916f83d18a74a3b468f0b74afefc1e3130
-ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
+ms.openlocfilehash: 59c5f886a8ec4c61f31e752cb544d0940ed3955e
+ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41704510"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43164775"
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Azure Cosmos DB 如何为数据编制索引？
 
@@ -317,9 +317,9 @@ Azure Cosmos DB 还针对每个路径支持空间索引类型，可为 Point、P
 
 ![索引工作原理 - Azure Cosmos DB 联机索引转换](./media/indexing-policies/index-transformations.png)
 
-索引转换是联机进行的。 这意味着按照旧策略索引的文档可以按照新策略有效转换，而不会影响集合的写入可用性或预配的吞吐量。 在索引转换过程中，使用 REST API、SDK 或在存储过程和触发器中执行读取和写入操作的一致性不会受到影响。 更改索引策略时，应用程序的性能不会下降，也没有停机时间。
+索引转换是联机进行的。 这意味着按照旧策略索引的文档可以按照新策略有效转换，而不会影响集合的写入可用性或预配的吞吐量。 在索引转换过程中，使用 REST API、SDK 或在存储过程和触发器中执行读取和写入操作的一致性不会受到影响。 
 
-但是，无论索引模式配置如何（一致或延迟），在执行索引转换期间查询始终一致。 这适用于使用所有接口（REST API、SDK）或从存储过程和触发器中进行的查询。 与延迟索引一样，使用特定副本可用的备用资源在后台以异步方式对副本执行索引转换。 
+更改索引策略是一个异步过程，完成操作的时间取决于文档数量、预配的 RU 和文档大小。 在重新编制索引的过程中，如果查询使用的是正在修改的索引，则查询可能不会返回所有匹配的结果且不会返回任何错误/失败。 虽然正在重新编制索引，但是，无论索引模式配置如何（一致或延迟），期间查询始终一致。 索引转换完成后，将继续看到一致的结果。 这适用于使用所有接口（REST API、SDK）或从存储过程和触发器中进行的查询。 与延迟索引一样，使用特定副本可用的备用资源在后台以异步方式对副本执行索引转换。 
 
 索引转换也已到位。 Azure Cosmos DB 不维护索引的两个副本，并用新索引替换旧索引。 这就意味着，索引转换发生时集合中不需要也不占用额外的磁盘空间。
 
@@ -368,7 +368,7 @@ Azure Cosmos DB 还针对每个路径支持空间索引类型，可为 Point、P
 **删除集合的索引**
 
     // Switch to Lazy indexing mode.
-    Console.WriteLine("Dropping index by changing to to the None IndexingMode.");
+    Console.WriteLine("Dropping index by changing to the None IndexingMode.");
 
     collection.IndexingPolicy.IndexingMode = IndexingMode.None;
 

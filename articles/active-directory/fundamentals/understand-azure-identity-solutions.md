@@ -7,7 +7,7 @@ manager: mtillman
 ms.reviewer: jsnow
 ms.author: v-junlch
 origin.date: 07/17/2017
-ms.date: 08/07/2018
+ms.date: 08/29/2018
 ms.topic: overview
 ms.prod: ''
 ms.service: azure-directory
@@ -15,15 +15,15 @@ ms.component: fundamentals
 ms.technology: ''
 ms.assetid: ''
 ms.custom: it-pro
-ms.openlocfilehash: 32dc20f15da5377b79e8dc0decf644e686611eea
-ms.sourcegitcommit: 7cdf4633aea04e524cb48cb1990b750ae8be841c
+ms.openlocfilehash: 05c66a75a926b736c04c4eeedf8c7c2deed05df1
+ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39584258"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43164896"
 ---
 # <a name="understand-azure-identity-solutions"></a>了解 Azure 标识解决方案
-Azure Active Directory (Azure AD) 是一个标识和访问管理云解决方案，它提供目录服务、标识监管和应用程序访问管理功能。 Azure AD 可以快速启用到 [Azure AD 应用程序库](https://azure.microsoft.com/marketplace/active-directory/all/)中的 1,000 个预先集成的商业和自定义应用的单一登录 (SSO)。 你可能已在使用其中的许多应用，例如 Office 365、Salesforce.com、Box、ServiceNow 和 Workday。
+Azure Active Directory (Azure AD) 是一个标识和访问管理云解决方案，它提供目录服务、标识监管和应用程序访问管理功能。 
 
 在创建 Azure 订阅时，单个 Azure AD 目录自动与其进行关联。 然后，作为 Azure 中的标识服务，Azure AD 为基于云的资源提供所有标识管理和访问控制功能。 这些资源可能包括个体租户（组织）的用户、应用和组，如下图中所示：
 
@@ -83,7 +83,6 @@ Azure AD 是多客户公共目录服务，这意味着用户可以在 Azure AD �
 |标识方案| 建议|
 |-----|-----|
 |我的业务立足于云，我们未投资购置任何本地标识解决方案。| 对于只在云中开展业务，对本地解决方案未做任何投资的企业而言，[Azure Active Directory](/active-directory/active-directory-whatis) 是最佳选择。|
-|我需要在 Azure 中支持少量的虚拟机，但公司仍在本地 Active Directory (AD DS) 方面做了大量投资。|需要支持少量的虚拟机并在本地 AD DS 方面做了大笔投资时，可以通过 [DIY AD DS](https://msdn.microsoft.com/library/azure/jj156090.aspx) 来使用 Azure VM。 |
 
 ## <a name="where-can-i-learn-more"></a>可以从何处了解详细信息？
 我们提供了大量的优秀在线资源，以帮助用户了解 Azure AD 的方方面面。 下面是一些有助于快速入门的优秀文章：
@@ -100,6 +99,4 @@ Azure AD 是多客户公共目录服务，这意味着用户可以在 Azure AD �
 
 [详细了解 Azure 概念证明环境](https://aka.ms/aad-poc)
 
-[在生产环境中部署 Azure AD](https://aka.ms/aad-onboard)
-
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

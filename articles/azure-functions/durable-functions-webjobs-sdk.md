@@ -2,7 +2,7 @@
 title: 如何以 WebJobs 的形式运行 Durable Functions - Azure
 description: 了解如何使用 WebJobs SDK 编写 Durable Functions 的代码，并将其配置为在 WebJobs 中运行。
 services: functions
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 04/25/2018
-ms.date: 05/28/2018
+ms.date: 08/31/2018
 ms.author: v-junlch
-ms.openlocfilehash: d2d498b7c27b47698e0a4cb120b7cb7df4c009ce
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: f70aab3cddf43065629b798589c15dd87d204b6b
+ms.sourcegitcommit: b2c9bc0ed28e73e8c43aa2041c6d875361833681
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34567344"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43330757"
 ---
 # <a name="how-to-run-durable-functions-as-webjobs"></a>如何以 WebJobs 的形式运行 Durable Functions
 
@@ -164,3 +164,4 @@ while (true)
 若要详细了解 WebJobs SDK，请参阅[如何使用 WebJobs SDK](../app-service/webjobs-sdk-how-to.md)。
 
 
+<!-- Update_Description: update metedata properties -->

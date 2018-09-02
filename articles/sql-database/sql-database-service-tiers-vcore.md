@@ -1,21 +1,21 @@
 ---
-title: Azure SQL 数据库服务 - vCore | Azure
+title: Azure SQL 数据库服务 - vCore | Microsoft 文档
 description: 使用基于 vCore 的购买模型，可以单独缩放计算和存储资源，匹配本地性能，以及优化价格。
 services: sql-database
 author: WenJason
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-origin.date: 07/16/2018
-ms.date: 08/06/2018
+origin.date: 08/15/2018
+ms.date: 09/02/2018
 manager: digimobile
-ms.author: v-nany
-ms.openlocfilehash: 4d74dfc3596c270b363086c184a5022cc408c35d
-ms.sourcegitcommit: 02c4716e07b3d83104fa419b379a15589ae8017e
+ms.author: v-jay
+ms.openlocfilehash: 85fc9e4f6b591255960e81417b84c88e0996013c
+ms.sourcegitcommit: 2601e68563bffe148e70cce2bf1dcbe837a40f80
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41705167"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43249683"
 ---
 # <a name="choosing-a-vcore-service-tier-compute-memory-storage-and-io-resources"></a>选择 vCore 服务层、计算、内存、存储和 IO 资源
 
@@ -28,10 +28,10 @@ ms.locfileid: "41705167"
 |最适用于|大多数业务工作负荷。 提供预算导向的、均衡且可缩放的计算和存储选项。|IO 要求高的业务应用程序。 使用多个独立副本，提供最高级别的故障恢复能力。|
 |计算|1 到 80 vCore，Gen4 和 Gen5 |1 到 80 vCore，Gen4 和 Gen5|
 |内存|Gen4：每个核心 7 GB<br>Gen5：每个核心 5.5 GB | Gen4：每个核心 7 GB<br>Gen5：每个核心 5.5 GB |
-|存储|高级远程存储，5 GB – 4 TB|本地 SSD 存储，5 GB – 4 TB|
+|存储|[高级远程存储](../virtual-machines/windows/premium-storage.md)，<br/>单一实例数据库：5 GB – 4 TB |本地 SSD 存储，<br/>单一数据库：5 GB – 4 TB |
 |IO 吞吐量（近似）|每个 vCore 提供 500 IOPS，最大 7000 IOPS|每个 vCore 提供 5000 IOPS，最大 200000 IOPS|
 |可用性|1 个副本，无读取缩放组|3 个副本，1 个[读取缩放](sql-database-read-scale-out.md)组，区域冗余高可用性|
-|备份|RA-GRS，7-35 天（默认为 7 天）|RA-GRS，7-35 天（默认为 7 天）|
+|备份|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md)，7-35 天（默认为 7 天）|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md)，7-35 天（默认为 7 天）|
 |内存中|不适用|支持|
 |||
 
@@ -44,9 +44,9 @@ ms.locfileid: "41705167"
 
 请注意以下几点：
 - 分配的存储由数据文件 (MDF) 和日志文件 (LDF) 使用。
-- 每个性能级别支持最大数据库大小，默认最大大小为 32 GB。
-- 配置所需的数据库大小（MDF 大小）时，系统会自动额外添加 30% 的存储来支持 LDF
-- 可以选择 10 GB 与受支持最大值之间的任何数据库大小
+- 每个单一实例数据库性能级别支持一个最大数据库大小，默认最大大小为 32 GB。
+- 配置所需的单一实例数据库大小（MDF 大小）时，系统会自动额外添加 30% 的存储来支持 LDF
+- 可以选择介于 10 GB 与受支持最大值之间的任何单一实例数据库大小
  - 对于标准存储，可以按 10 GB 的增量增大或减小大小
  - 对于高级存储，可以按 250 GB 的增量增大或减小大小
 - 在“常规用途”服务层中，`tempdb` 使用附加的 SSD，此存储成本包含在 vCore 价格中。
@@ -57,13 +57,15 @@ ms.locfileid: "41705167"
 
 若要监视 MDF 和 LDF 的当前总大小，请使用 [sp_spaceused](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-spaceused-transact-sql)。 若要监视单个 MDF 和 LDF 文件的当前大小，请使用 [sys.database_files](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-database-files-transact-sql)。
 
+> [!IMPORTANT]
+> 在某些情况下，可能需要收缩数据库来回收未使用的空间。 有关详细信息，请参阅[管理 Azure SQL 数据库中的文件空间](sql-database-file-space-management.md)。
+
 ## <a name="backups-and-storage"></a>备份和存储
 
-为数据库备份分配存储，以支持 SQL 数据库的时间点还原 (PITR) 和长期保留 (LTR) 功能。 此存储空间针对每个数据库单独分配，并根据数据库费用分开计费。 
+为数据库备份分配存储，以支持 SQL 数据库的时间点还原 (PITR) 和[长期保留 (LTR)](sql-database-long-term-retention.md) 功能。 此存储空间针对每个数据库单独分配，并根据数据库费用分开计费。 
 
-- **PITR**：自动将各个数据库备份复制到 RA-GRS 存储。 创建新备份时，存储大小动态递增。  存储由每周完整备份、每日差异备份和 5 分钟复制一次的事务日志备份使用。 存储消耗量取决于数据库变化率和保留期。 可单独为每个数据库配置 7 到 35 天的保留期。 提供与 1 倍数据库大小相等的最小存储量，不收取额外费用。 对于大多数数据库而言，此容量足以将备份存储 7 天。
-- 
-  **LTR**：SQL 数据库提供相应的选项用于将完整备份的长期保留期配置为最多 10 年。 如果启用了 LTR 策略，则这些备份将自动存储在 RA-GRS 存储中，但你可以控制复制备份的频率。 为了满足不同的符合性要求，可为每周、每月和/或每年备份选择不同的保留期。 此配置将定义要为 LTR 备份使用多少存储。 可以使用 LTR 定价计算器来估算 LTR 存储成本。 有关详细信息，请参阅 [长期保留](sql-database-long-term-retention.md)。
+- **PITR**：自动将各个数据库备份复制到 [RA-GRS 存储](../storage/common/storage-designing-ha-apps-with-ragrs.md)。 创建新备份时，存储大小动态递增。  存储由每周完整备份、每日差异备份和 5 分钟复制一次的事务日志备份使用。 存储消耗量取决于数据库变化率和保留期。 可单独为每个数据库配置 7 到 35 天的保留期。 提供与 1 倍数据库大小相等的最小存储量，不收取额外费用。 对于大多数数据库而言，此容量足以将备份存储 7 天。
+- **LTR**：SQL 数据库提供相应的选项用于将完整备份的长期保留期配置为最多 10 年。 如果启用了 LTR 策略，则这些备份将自动存储在 RA-GRS 存储中，但你可以控制复制备份的频率。 为了满足不同的符合性要求，可为每周、每月和/或每年备份选择不同的保留期。 此配置将定义要为 LTR 备份使用多少存储。 可以使用 LTR 定价计算器来估算 LTR 存储成本。 有关详细信息，请参阅 [长期保留](sql-database-long-term-retention.md)。
 
 ## <a name="azure-hybrid-use-benefit"></a>Azure 混合使用权益
 

@@ -14,19 +14,19 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: ''
 origin.date: 04/20/2017
-ms.date: 07/23/2018
+ms.date: 08/30/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 39e22657cc79e1a8b12554c04271245a67a33554
-ms.sourcegitcommit: ba07d76f8394b5dad782fd983718a8ba49a9deb2
+ms.openlocfilehash: 499d8133596ce4e9224db65ca9a03e8aff488bdf
+ms.sourcegitcommit: b2c9bc0ed28e73e8c43aa2041c6d875361833681
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39220255"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43330821"
 ---
 # <a name="create-a-function-app-that-connects-to-an-azure-storage-account"></a>创建一个可连接到 Azure 存储帐户的函数应用
 
-此 Azure Functions 示例脚本先创建一个函数应用，然后将该函数连接到 Azure 存储帐户。 创建的应用设置（包含连接）可以与[[存储触发器或绑定](..\functions-bindings-storage-blob.md)配合使用。 
+此 Azure Functions 示例脚本先创建一个函数应用，然后将该函数连接到 Azure 存储帐户。 创建的应用设置（包含连接）可以与[存储触发器或绑定](..\functions-bindings-storage-blob.md)配合使用。 
 
 [!INCLUDE [upgrade runtime](../../../includes/functions-cli-version-note.md)]
 

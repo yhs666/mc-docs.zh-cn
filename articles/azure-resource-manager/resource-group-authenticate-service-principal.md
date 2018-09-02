@@ -3,24 +3,24 @@ title: 使用 PowerShell 创建 Azure 应用标识 | Azure
 description: 介绍如何使用 Azure PowerShell 创建 Azure Active Directory 应用程序和服务主体，并通过基于角色的访问控制向其授予资源访问权限。 它演示如何使用证书对应用程序进行身份验证。
 services: azure-resource-manager
 documentationcenter: na
-author: luanmafeng
+author: rockboyfor
 manager: digimobile
 editor: tysonn
 ms.assetid: d2caf121-9fbe-4f00-bf9d-8f3d1f00a6ff
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 05/10/2018
-ms.date: 05/28/2018
+ms.date: 09/03/2018
 ms.author: v-yeche
-ms.openlocfilehash: 947bc4d9c7e846033e0503effb12d115d3c9eccc
-ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
+ms.openlocfilehash: 6b6b616622fe820bbe3293aa66740b4ee058b21e
+ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41703864"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43164920"
 ---
 # <a name="use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>通过 Azure PowerShell 使用证书创建服务主体
 
@@ -83,35 +83,14 @@ $cert = Get-ChildItem -path Cert:\CurrentUser\my | where {$PSitem.Subject -eq 'C
 以服务主体方式登录时，需提供 AD 应用所在目录的租户 ID。 租户是 Azure Active Directory 的实例。
 
 ```powershell
-Param (
+$TenantId = (Get-AzureRmSubscription -SubscriptionName "Contoso Default").TenantId
+$ApplicationId = (Get-AzureRmADApplication -DisplayNameStartWith exampleapp).ApplicationId
 
- [Parameter(Mandatory=$true)]
- [String] $CertSubject,
-
- [Parameter(Mandatory=$true)]
- [String] $ApplicationId,
-
- [Parameter(Mandatory=$true)]
- [String] $TenantId
- )
-
- $Thumbprint = (Get-ChildItem cert:\CurrentUser\My\ | Where-Object {$_.Subject -match $CertSubject }).Thumbprint
- Login-AzureRmAccount -EnvironmentName AzureChinaCloud -ServicePrincipal `
+ $Thumbprint = (Get-ChildItem cert:\CurrentUser\My\ | Where-Object {$_.Subject -match "CN=exampleappScriptCert" }).Thumbprint
+ Connect-AzureRmAccount -Environment AzureChinaCloud -ServicePrincipal `
   -CertificateThumbprint $Thumbprint `
   -ApplicationId $ApplicationId `
   -TenantId $TenantId
-```
-
-应用程序 ID 和租户 ID 不敏感，因此可以直接将它们嵌入脚本中。 如果需要检索租户 ID，请使用：
-
-```powershell
-(Get-AzureRmSubscription -SubscriptionName "Contoso Default").TenantId
-```
-
-如果需要检索应用程序 ID，请使用：
-
-```powershell
-(Get-AzureRmADApplication -DisplayNameStartWith {display-name}).ApplicationId
 ```
 
 ## <a name="create-service-principal-with-certificate-from-certificate-authority"></a>使用证书颁发机构提供的证书创建服务主体
@@ -133,7 +112,7 @@ Param (
  [String] $CertPlainPassword
  )
 
- Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+ Connect-AzureRmAccount -Environment AzureChinaCloud
  Import-Module AzureRM.Resources
  Set-AzureRmContext -Subscription $SubscriptionId
 
@@ -185,7 +164,7 @@ Param (
   -ArgumentList @($CertPath, $CertPassword)
  $Thumbprint = $PFXCert.Thumbprint
 
- Login-AzureRmAccount -EnvironmentName AzureChinaCloud -ServicePrincipal `
+ Connect-AzureRmAccount -Environment AzureChinaCloud -ServicePrincipal `
   -CertificateThumbprint $Thumbprint `
   -ApplicationId $ApplicationId `
   -TenantId $TenantId
@@ -205,19 +184,18 @@ Param (
 
 ## <a name="change-credentials"></a>更改凭据
 
-若要更改 AD 应用的凭据（为了保障安全或由于凭据过期的缘故），请使用 [Remove-AzureRmADAppCredential](https://docs.microsoft.com/en-us/powershell/module/azurerm.resources/remove-azurermadappcredential) 和 [New-AzureRmADAppCredential](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermadappcredential) cmdlet。
-<!--URL is correct on [Remove-AzureRmADAppCredential](https://docs.microsoft.com/en-us/powershell/module/azurerm.resources/remove-azurermadappcredential)-->
+若要更改 AD 应用的凭据（为了保障安全或由于凭据过期的缘故），请使用 [Remove-AzureRmADAppCredential](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermadappcredential) 和 [New-AzureRmADAppCredential](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermadappcredential) cmdlet。
 
 若要删除应用程序的所有凭据，请使用：
 
 ```powershell
-Remove-AzureRmADAppCredential -ApplicationId 8bc80782-a916-47c8-a47e-4d76ed755275 -All
+Get-AzureRmADApplication -DisplayName exampleapp | Remove-AzureRmADAppCredential
 ```
 
 要添加证书值，请按本文所示创建自签名证书。 然后，使用：
 
 ```powershell
-New-AzureRmADAppCredential -ApplicationId 8bc80782-a916-47c8-a47e-4d76ed755275 `
+Get-AzureRmADApplication -DisplayName exampleapp | New-AzureRmADAppCredential `
   -CertValue $keyValue `
   -EndDate $cert.NotAfter `
   -StartDate $cert.NotBefore

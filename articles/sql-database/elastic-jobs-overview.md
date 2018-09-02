@@ -1,20 +1,20 @@
 ---
-title: Azure SQL 弹性数据库作业 | Azure
+title: Azure SQL 弹性数据库作业 | Microsoft Docs
 description: 使用弹性数据库作业跨由一个或多个 Azure SQL 数据库组成的集合运行 Transact-SQL (T-SQL) 脚本
 services: sql-database
 author: WenJason
 manager: digimobile
 ms.service: sql-database
 ms.topic: overview
-origin.date: 06/14/2018
-ms.date: 08/06/2018
+origin.date: 07/26/2018
+ms.date: 09/02/2018
 ms.author: v-jay
-ms.openlocfilehash: 17f14437a71266ba9f9cb00e2665b7eda5c35f7e
-ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
+ms.openlocfilehash: 5fdda2e95835c2cea48c6ca7fe841d9789f59c9d
+ms.sourcegitcommit: 2601e68563bffe148e70cce2bf1dcbe837a40f80
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39486854"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43249665"
 ---
 # <a name="manage-groups-of-databases-with-elastic-database-jobs"></a>通过弹性数据库作业管理数据库组
 
@@ -107,11 +107,25 @@ ms.locfileid: "39486854"
 > [!TIP]
 > 在执行作业时，动态枚举会重新评估包含服务器或池的目标组中的数据库集。 动态枚举确保**在执行作业时，作业可以跨服务器或池中存在的所有数据库运行**。 在池或服务器成员身份更改频繁的情况下，在运行时重新评估数据库列表特别有用。
 
-
 可以将池和单个数据库指定为包括在组中或从组中排除。 这样就可以使用任意数据库组合来创建目标组。 例如，可以向目标组添加一个服务器，但将弹性池中的特定数据库排除出去（也可以排除整个池）。
 
 目标组可以包括多个区域的多个订阅中的数据库。 请注意，跨区域执行的延迟高于同一区域内的执行。
 
+以下示例演示了如何在执行作业时动态枚举不同的目标组定义，以便确定作业要运行哪些数据库：
+
+![目标组示例](media/elastic-jobs-overview/targetgroup-examples1.png)
+
+**示例 1** 演示的目标组包含一个由各个数据库组成的列表。 使用此目标组执行某个作业步骤时，作业步骤的操作会在这其中的每个数据库中执行。<br>
+**示例 2** 演示的目标组包含一个充当目标的 Azure SQL Server。 使用此目标组执行某个作业步骤时，会动态枚举服务器，以便确定目前在服务器中的数据库的列表。 作业步骤的操作会在这其中的每个数据库中执行。<br>
+**示例 3** 演示的目标组与*示例 2* 的类似，但明确排除了单个数据库。 作业步骤的操作不会在排除的数据库中执行。<br>
+**示例 4** 演示的目标组包含一个充当目标的弹性池。 与*示例 2* 类似，此池会在作业运行时动态枚举，以便确定池中数据库的列表。
+<br><br>
+
+
+![目标组示例](media/elastic-jobs-overview/targetgroup-examples2.png)
+
+**示例 5** 和示例 6 演示高级方案，其中的 Azure SQL Server、弹性池和数据库可以使用包括和排除规则进行组合。<br>
+**示例 7** 表明分片映射中的分片也可在作业运行时进行评估。
 
 ### <a name="job"></a>作业
 

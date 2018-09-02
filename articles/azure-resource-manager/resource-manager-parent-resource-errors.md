@@ -1,25 +1,23 @@
 ---
 title: Azure 父资源错误 | Azure
 description: 说明如何在使用父资源时解决错误。
-services: azure-resource-manager,azure-portal
+services: azure-resource-manager
 documentationcenter: ''
 author: rockboyfor
-manager: digimobile
-editor: ''
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: support-article
-origin.date: 10/23/2017
-ms.date: 10/23/2017
+ms.topic: troubleshooting
+origin.date: 08/01/2018
+ms.date: 09/03/2018
 ms.author: v-yeche
-ms.openlocfilehash: 480e25dac2a6f49aca6d8b3a181a509472e28362
-ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
+ms.openlocfilehash: 942af82d8e2fdecf73f4ddf3bb094c942b402748
+ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
-ms.locfileid: "23475217"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43164957"
 ---
 # <a name="resolve-errors-for-parent-resources"></a>解决父资源的错误
 
@@ -36,7 +34,7 @@ Message=Can not perform requested operation on nested resource. Parent resource 
 
 ## <a name="cause"></a>原因
 
-如果一个资源是另一个资源的子级，则在创建子资源之前，父资源必须存在。 子资源的名称包括父名称。 例如，SQL 数据库可能定义为：
+如果一个资源是另一个资源的子级，则在创建子资源之前，父资源必须存在。 子资源的名称定义与父资源的连接。 子资源名称采用格式 `<parent-resource-name>/<child-resource-name>` 例如，SQL 数据库可能定义为：
 
 ```json
 {
@@ -45,11 +43,13 @@ Message=Can not perform requested operation on nested resource. Parent resource 
   ...
 ```
 
-但是，如果未在服务器上指定依赖关系，数据库部署可能会在部署服务器之前开始。
+如果在同一模板中部署服务器和数据库，但未在服务器上指定依赖关系，则可以在部署服务器之前启动数据库部署。 
+
+如果父资源已存在且未部署在同一模板中，则当资源管理器无法将子资源与父资源关联时，会出现此错误。 当子资源的格式不正确，或者子资源部署到与父资源的资源组不同的资源组时，可能会发生此错误。
 
 ## <a name="solution"></a>解决方案
 
-为更正此错误，请添加依赖关系。
+要在同一模板中部署父资源和子资源时解决此错误，请包含依赖关系。
 
 ```json
 "dependsOn": [
@@ -57,7 +57,36 @@ Message=Can not perform requested operation on nested resource. Parent resource 
 ]
 ```
 
+要在父资源先前部署在其他模板中时解决此错误，请不要设置依赖关系。 而是将子资源部署到同一资源组并提供父资源的名称。
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "sqlServerName": {
+            "type": "string"
+        },
+        "databaseName": {
+            "type": "string"
+        }
+    },
+    "resources": [
+        {
+            "apiVersion": "2014-04-01",
+            "type": "Microsoft.Sql/servers/databases",
+            "location": "[resourceGroup().location]",
+            "name": "[concat(parameters('sqlServerName'), '/', parameters('databaseName'))]",
+            "properties": {
+                "collation": "SQL_Latin1_General_CP1_CI_AS",
+                "edition": "Basic"
+            }
+        }
+    ],
+    "outputs": {}
+}
+```
+
 有关详细信息，请参阅[定义 Azure 资源管理器模板中部署资源的顺序](resource-group-define-dependencies.md)。
 
-
-<!--Update_Description: new articles on parent resource errors-->
+<!--Update_Description: add new content of sample json format in template -->

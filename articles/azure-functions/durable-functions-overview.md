@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 04/30/2018
-ms.date: 07/24/2018
+ms.date: 08/31/2018
 ms.author: v-junlch
-ms.openlocfilehash: 660b41b2db10da9e0c8d7a654207cd231f6bffbd
-ms.sourcegitcommit: ba07d76f8394b5dad782fd983718a8ba49a9deb2
+ms.openlocfilehash: 10f3c2ee4e421c83cc50266ab53ae4982d4e09b1
+ms.sourcegitcommit: b2c9bc0ed28e73e8c43aa2041c6d875361833681
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39220205"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43330784"
 ---
 # <a name="durable-functions-overview"></a>Durable Functions 概述
 
@@ -45,7 +45,7 @@ Durable Functions 的主要用例是简化无服务器应用程序中出现的�
 
 借助 Durable Functions，可在代码中简明地实现此模式。
 
-#### <a name="c"></a>C#
+#### <a name="c-script"></a>C# 脚本
 
 ```cs
 public static async Task<object> Run(DurableOrchestrationContext ctx)
@@ -63,6 +63,8 @@ public static async Task<object> Run(DurableOrchestrationContext ctx)
     }
 }
 ```
+> [!NOTE]
+> 编写 C# 预编译 Durable 函数与之前所示的 C# 脚本示例存在细微差别。 C# 预编译函数需要使用相应的属性来修饰 durable 参数。 例如，使用 `[OrchestrationTrigger]` 属性修饰 `DurableOrchestrationContext` 参数。 如果未正确修饰参数，则运行时将无法将变量插入到函数，并将引发错误。 有关更多示例，请访问[示例](https://github.com/Azure/azure-functions-durable-extension/blob/master/samples)。
 
 #### <a name="javascript-functions-v2-only"></a>JavaScript（仅限 Functions v2）
 
@@ -89,7 +91,7 @@ module.exports = df(function*(ctx) {
 
 对于普通函数，可通过使函数向一个队列发送多条消息来完成扇出。 但是，扇入回来更具挑战性。 需要编写代码，跟踪队列触发的函数何时结束，并存储函数输出。 Durable Functions 扩展可使用相对简单的代码处理这种模式。
 
-#### <a name="c"></a>C#
+#### <a name="c-script"></a>C# 脚本
 
 ```cs
 public static async Task Run(DurableOrchestrationContext ctx)
@@ -204,7 +206,7 @@ public static async Task<HttpResponseMessage> Run(
 
 使用 Durable Functions，可以通过几行代码创建观察任意终结点的多个监视器。 当某个条件满足时，监视器可以结束执行或由 [DurableOrchestrationClient](durable-functions-instance-management.md) 终止，可以基于某个条件更改其等待间隔（即指数回退）。下面的代码实现了基本的监视器。
 
-#### <a name="c"></a>C#
+#### <a name="c-script"></a>C# 脚本
 
 ```cs
 public static async Task Run(DurableOrchestrationContext ctx)
@@ -272,7 +274,7 @@ module.exports = df(function*(ctx) {
 
 可使用业务流程协调程序函数实现此模式。 业务流程协调程序使用[持久计时器](durable-functions-timers.md)来请求审批，并在发生超时的情况下进行上报。 该程序等待一个[外部事件](durable-functions-external-events.md)，该事件为某个人机交互生成的通知。
 
-#### <a name="c"></a>C#
+#### <a name="c-script"></a>C# 脚本
 
 ```cs
 public static async Task Run(DurableOrchestrationContext ctx)
@@ -301,7 +303,7 @@ public static async Task Run(DurableOrchestrationContext ctx)
 
 ```js
 const df = require("durable-functions");
-const moment = require('moment');
+const df = require('moment');
 
 module.exports = df(function*(ctx) {
     yield ctx.df.callActivityAsync("RequestApproval");

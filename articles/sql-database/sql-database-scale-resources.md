@@ -1,5 +1,5 @@
 ---
-title: Azure SQL 数据库缩放资源 | Azure
+title: Azure SQL 数据库缩放资源 | Microsoft Docs
 description: 本文介绍如何通过添加或删除已分配的资源来缩放数据库。
 services: sql-database
 author: WenJason
@@ -10,12 +10,12 @@ origin.date: 07/16/2018
 ms.date: 08/06/2018
 ms.author: v-jay
 manager: digimobile
-ms.openlocfilehash: 80ee57a2302784579e182bd54c8e8b51700e51f8
-ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
+ms.openlocfilehash: 110ee011f323d86b17b495b014c921c15b6c2f31
+ms.sourcegitcommit: 2601e68563bffe148e70cce2bf1dcbe837a40f80
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39486864"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43249691"
 ---
 # <a name="scale-database-resources"></a>缩放数据库资源
 
@@ -39,10 +39,12 @@ Azure SQL 数据库提供[基于 DTU 的购买模型](sql-database-service-tiers
 > 动态可伸缩性不同于自动缩放。 自动缩放是指服务根据条件自动缩放，而动态可伸缩性允许在无停机时间的情况下进行手动缩放。
 >
 
-
 单个 Azure SQL 数据库支持手动动态可伸缩性，但不支持自动缩放。 若要获得更多*自动*体验，请考虑使用弹性池，它允许数据库根据各个数据库需求共享池中的资源。
 但是，有一些脚本可帮助自动执行单个 Azure SQL 数据库的可伸缩性。 有关示例，请参阅[使用 PowerShell 监视和缩放单个 SQL 数据库](scripts/sql-database-monitor-and-scale-database-powershell.md)。
 
+可以随时更改 [DTU 服务层](sql-database-service-tiers-dtu.md)或 [vCore 特征](sql-database-vcore-resource-limits-single-databases.md)，将应用程序故障时间降至最低（通常在平均 4 秒以下）。 许多业务和应用只要能够创建数据库并按需调高或调低性能即可，尤其是当使用模式相对容易预测时。 但如果有无法预测的使用模式，则管理成本和业务模式就会变得相当困难。 对于这种情况，可以使用一个具有一定数量 eDTU 的弹性池，这些 eDTU 在池中的多个数据库之间共享。
+
+![SQL 数据库简介：按层和级别统计的单一数据库 DTU](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
 
 所有三种 Azure SQL 数据库都提供一些动态缩放数据库的功能：
 -   在 [Azure SQL 单一数据库](sql-database-single-database-scale.md)中，可以使用 [DTU](sql-database-dtu-resource-limits-single-databases.md) 或 [vCore](sql-database-vcore-resource-limits-single-databases.md) 模型来定义将分配给每个数据库的最大资源量。

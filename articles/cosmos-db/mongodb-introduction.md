@@ -10,14 +10,14 @@ ms.component: cosmosdb-mongo
 ms.devlang: na
 ms.topic: overview
 origin.date: 02/12/2018
-ms.date: 08/13/2018
+ms.date: 09/03/2018
 ms.author: v-yeche
-ms.openlocfilehash: b6f064f31849fd4288f11d6a29ca33d6846908ee
-ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
+ms.openlocfilehash: 0851babd225c1be7a47c375dce3870e898bfed09
+ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41704708"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43164927"
 ---
 # <a name="introduction-to-azure-cosmos-db-mongodb-api"></a>Azure Cosmos DB 简介：MongoDB API
 

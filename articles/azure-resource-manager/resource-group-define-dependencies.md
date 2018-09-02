@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 07/05/2018
-ms.date: 08/13/2018
+ms.date: 09/03/2018
 ms.author: v-yeche
-ms.openlocfilehash: 70d3e31091674d4fa3bfd5d82e2ee924980ac599
-ms.sourcegitcommit: 543a18c71c0910a5b9878a2d2668f317468906f2
+ms.openlocfilehash: b8aee9720cd8f5d61caa5d65efd4bb4e46fc8115
+ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39625513"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43164903"
 ---
 # <a name="define-the-order-for-deploying-resources-in-azure-resource-manager-templates"></a>定义 Azure 资源管理器模板中部署资源的顺序
 对于给定的资源，可能有部署资源之前必须存在的其他资源。 例如，SQL Server 必须存在，才能尝试部署 SQL 数据库。 可通过将一个资源标记为依赖于其他资源来定义此关系。 使用 **dependsOn** 元素或 **reference** 函数定义依赖项。 
@@ -109,7 +109,7 @@ Resource Manager 将评估资源之间的依赖关系，并根据其依赖顺序
 ```
 
 ## <a name="reference-and-list-functions"></a>reference 和 list 函数
-[引用函数](resource-group-template-functions-resource.md#reference)使表达式能够从其他 JSON 名值对或运行时资源中派生其值。 [list* 函数](resource-group-template-functions-resource.md#listkeys-listsecrets-and-list)从列表操作返回资源的值。  当引用的资源部署位于同一模板中并通过其名称（而不是资源 ID）引用时，reference 和 list 表达式隐式声明一个资源依赖于另一个资源。 如果将资源 ID 传入到 reference 或 list 函数中，则不会创建隐式引用。
+[引用函数](resource-group-template-functions-resource.md#reference)使表达式能够从其他 JSON 名值对或运行时资源中派生其值。 [list* 函数](resource-group-template-functions-resource.md#list)从列表操作返回资源的值。  当引用的资源部署位于同一模板中并通过其名称（而不是资源 ID）引用时，reference 和 list 表达式隐式声明一个资源依赖于另一个资源。 如果将资源 ID 传入到 reference 或 list 函数中，则不会创建隐式引用。
 
 reference 函数的一般格式为：
 
@@ -169,4 +169,4 @@ Resource Manager 可在模板验证过程中确定循环依赖项。 如果收�
 * 若要了解有关创建 Azure Resource Manager模板的信息，请参阅[创作模板](resource-group-authoring-templates.md)。 
 * 有关模板中的可用函数列表，请参阅[模板函数](resource-group-template-functions.md)。
 
-<!--Update_Description: wording update, update meta properties -->
+<!--Update_Description: wording update, update meta properties, update link -->

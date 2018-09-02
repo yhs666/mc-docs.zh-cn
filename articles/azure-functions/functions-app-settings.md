@@ -2,7 +2,7 @@
 title: Azure Functions 的应用设置参考
 description: 有关 Azure Functions 应用设置或环境变量的参考文档。
 services: functions
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 09/26/2017
-ms.date: 05/29/2018
+ms.date: 08/31/2018
 ms.author: v-junlch
-ms.openlocfilehash: 011a7a36167c141b9dbf2095c085748dd30a26dc
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 0e1964b89a2f8062fc23021315a224ea8528dd18
+ms.sourcegitcommit: b2c9bc0ed28e73e8c43aa2041c6d875361833681
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34567289"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43330794"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Azure Functions 的应用设置参考
 
@@ -141,4 +141,4 @@ Azure Functions 运行时针对除 HTTP 触发的函数以外的其他所有函�
 
 [查看应用服务应用的其他应用设置](https://github.com/projectkudu/kudu/wiki/Configurable-settings)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

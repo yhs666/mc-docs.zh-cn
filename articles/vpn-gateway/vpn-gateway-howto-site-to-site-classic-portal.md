@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 02/14/2018
 ms.date: 03/12/2018
 ms.author: v-junlch
-ms.openlocfilehash: d861b26e1bc214806b2f827752690939f6cecf7b
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 7ff41b5c6bdb496c86e84e2b2011c7e289660f11
+ms.sourcegitcommit: 6b4b15ace61cce249633faa065cf76abaa415fc9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38940130"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43252226"
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>使用 Azure 门户创建站点到站点连接（经典）
 
@@ -178,19 +178,19 @@ ms.locfileid: "38940130"
 
 1. 使用提升的权限打开 PowerShell 控制台，并连接到帐户。 使用下面的示例来帮助连接：
 
-  ```powershell
-  Add-AzureRmAccount -Environment AzureChinaCloud
-  ```
+    ```powershell
+    Add-AzureAccount -Environment AzureChinaCloud
+    ```
 2. 检查该帐户的订阅。
 
-  ```powershell
-  Get-AzureRmSubscription
-  ```
+    ```powershell
+    Get-AzureSubscription
+    ```
 3. 如果有多个订阅，请选择要使用的订阅。
 
-  ```powershell
-  Select-AzureRmSubscription -SubscriptionId "Replace_with_your_subscription_ID"
-  ```
+    ```powershell
+    Select-AzureSubscription -SubscriptionId "Replace_with_your_subscription_ID"
+    ```
 
 ### <a name="step-2-set-the-shared-key-and-create-the-connection"></a>步骤 2. 设置共享密钥并创建连接
 

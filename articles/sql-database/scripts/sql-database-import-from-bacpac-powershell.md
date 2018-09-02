@@ -1,5 +1,5 @@
 ---
-title: PowerShell 示例 - 导入 BACPAC 文件 - Azure SQL 数据库 | Azure
+title: 将 BACPAC 文件导入 Azure SQL 数据库的PowerShell 示例 | Microsoft Docs
 description: 将 BACPAC 文件导入 SQL 数据库的 Azure PowerShell 示例脚本
 services: sql-database
 documentationcenter: sql-database
@@ -14,15 +14,15 @@ ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-origin.date: 04/01/2018
-ms.date: 04/17/2018
+origin.date: 07/24/2018
+ms.date: 09/02/2018
 ms.author: v-johch
-ms.openlocfilehash: f009695eaca55a5d4d8a836d9c10341ae088c2ef
-ms.sourcegitcommit: 2a147231bf3d0a693adf58fceee76ab0fbcd6dbb
+ms.openlocfilehash: 9a6db97fe3b49105073fb54d12a877802de6a353
+ms.sourcegitcommit: 2601e68563bffe148e70cce2bf1dcbe837a40f80
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39335244"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43249697"
 ---
 # <a name="use-powershell-to-import-a-bacpac-file-into-an-azure-sql-database"></a>使用 PowerShell 将 BACPAC 文件导入 Azure SQL 数据库
 
@@ -68,6 +68,7 @@ $storagecontainer = New-AzureStorageContainer -Name $storagecontainername `
         -StorageAccountKey $(Get-AzureRmStorageAccountKey -ResourceGroupName $resourcegroupname -StorageAccountName $storageaccountname).Value[0])
 
 # Download sample database from Github
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 #required by Github
 Invoke-WebRequest -Uri "https://github.com/Microsoft/sql-server-samples/releases/download/wide-world-importers-v1.0/WideWorldImporters-Standard.bacpac" -OutFile $bacpacfilename
 
 # Upload sample database into storage container

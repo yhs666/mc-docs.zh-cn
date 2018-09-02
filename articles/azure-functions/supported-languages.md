@@ -3,8 +3,8 @@ title: Azure Functions 中支持的语言
 description: 了解支持哪些语言 (GA) 以及哪些语言是实验性的或处于预览状态。
 services: functions
 documentationcenter: na
-author: tdykstra
-manager: cfowler
+author: ggailey777
+manager: jeconnoc
 editor: ''
 tags: ''
 ms.service: functions
@@ -12,15 +12,15 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-origin.date: 11/07/2017
-ms.date: 04/18/2018
+origin.date: 08/02/2018
+ms.date: 08/31/2018
 ms.author: v-junlch
-ms.openlocfilehash: 5bfeab3667f630cf1cc5e45b1942d380867611e8
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 1c0ba0ed7399f765ecb3dcd49f6082109eb6e351
+ms.sourcegitcommit: b2c9bc0ed28e73e8c43aa2041c6d875361833681
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38940703"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43330832"
 ---
 # <a name="supported-languages-in-azure-functions"></a>Azure Functions 中支持的语言
 
@@ -42,13 +42,13 @@ ms.locfileid: "38940703"
 
 ### <a name="experimental-languages"></a>实验性语言
 
-1.x 中的实验性语言扩展性不好，并且不支持所有绑定。 例如，Python 速度慢，因为每次调用函数时，Functions 运行时都运行 *python.exe*。 并且虽然 Python 支持 HTTP 绑定，但它无法访问请求对象。
+1.x 版中的实验性语言扩展性不好，并且不支持所有绑定。 例如，Python 速度慢，因为每次调用函数时，Functions 运行时都运行 *python.exe*。 并且虽然 Python 支持 HTTP 绑定，但它无法访问请求对象。
 
-对 PowerShell 的实验性支持仅限于版本 4.0，因为运行函数应用的 VM 上只安装了该版本。 如果要运行 PowerShell 脚本，请考虑 [Azure 自动化](https://azure.microsoft.com/services/automation/)。
-
-2.x 运行时不支持实验性语言。 在 2.x 中，仅当某种语言扩展性好并且支持高级触发器时，我们才会添加对该语言的支持。
+对 PowerShell 的实验性支持仅限于 5.1 版，因为运行函数应用的 VM 上只默认安装了该版本。 如果要运行 PowerShell 脚本，请考虑 [Azure 自动化](https://www.azure.cn/home/features/automation/)。
 
 如果要使用仅在 1.x 中可用的某种语言，将停留在 1.x 运行时。 但不要对所依赖的任何内容使用实验性语言，因此对其没有官方支持。 可以通过[创建 GitHub 问题](https://github.com/Azure/azure-webjobs-sdk-script/issues)请求帮助，但不应为实验性语言问题建立支持案例。 
+
+2.x 版运行时不支持实验性语言。 只有在生产环境中支持该语言时，才会添加对新语言的支持。 
 
 ### <a name="language-extensibility"></a>语言扩展性
 
@@ -70,3 +70,4 @@ ms.locfileid: "38940703"
 > [!div class="nextstepaction"]
 > [Java](functions-reference-java.md)
 
+<!-- Update_Description: wording update -->

@@ -2,7 +2,7 @@
 title: Azure Functions 的 host.json 参考
 description: Azure Functions host.json 文件的参考文档。
 services: functions
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 02/12/2018
-ms.date: 04/17/2018
+ms.date: 08/31/2018
 ms.author: v-junlch
-ms.openlocfilehash: a8617f1093c92b5bb27d1ea16a41ed63f56d4e62
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 76162a6cd216fe5688ff1d304f1a610799425f7a
+ms.sourcegitcommit: b2c9bc0ed28e73e8c43aa2041c6d875361833681
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31781845"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43330802"
 ---
 # <a name="hostjson-reference-for-azure-functions"></a>Azure Functions 的 host.json 参考
 
@@ -103,7 +103,7 @@ ms.locfileid: "31781845"
 
 ## <a name="functions"></a>functions
 
-作业宿主要运行的函数列表。  空数组表示运行所有函数。  仅供在[本地运行](functions-run-local.md)时使用。 在函数应用中，请使用 *function.json* `disabled` 属性，而不要在 *host.json* 中使用此属性。
+作业宿主要运行的函数列表。 空数组表示运行所有函数。 仅供在[本地运行](functions-run-local.md)时使用。 在函数应用中，请使用 *function.json* `disabled` 属性，而不要在 *host.json* 中使用此属性。
 
 ```json
 {
@@ -253,21 +253,6 @@ ms.locfileid: "31781845"
 }
 ```
 
-## <a name="durabletask"></a>durableTask
-
-[Durable Functions](durable-functions-overview.md) 的[任务中心](durable-functions-task-hubs.md)名称。
-
-```json
-{
-  "durableTask": {
-    "HubName": "MyTaskHub"
-  }
-}
-```
-
-任务中心名称必须以字母开头且只能包含字母和数字。 如果未指定，则函数应用的默认任务中心名称是 **DurableFunctionsHub**。 有关详细信息，请参阅[任务中心](durable-functions-task-hubs.md)。
-
-
 ## <a name="next-steps"></a>后续步骤
 
 > [!div class="nextstepaction"]
@@ -276,3 +261,4 @@ ms.locfileid: "31781845"
 > [!div class="nextstepaction"]
 > [查看环境变量中的全局设置](functions-app-settings.md)
 
+<!-- Update_Description: wording update -->

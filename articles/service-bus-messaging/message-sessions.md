@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/02/2018
-ms.date: 04/30/2018
+ms.date: 09/10/2018
 ms.author: v-yiso
-ms.openlocfilehash: 0e34a1378e8a3f7ecd6ca529b43b97402c65f9cf
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 036ad910a2cd445621c26f8c71bd3164fbf0c54e
+ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782233"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43328986"
 ---
 # <a name="message-sessions-first-in-first-out-fifo"></a>消息会话：先进先出 (FIFO) 
 

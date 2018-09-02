@@ -10,15 +10,15 @@ ms.service: functions
 ms.workload: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/24/2018
-ms.date: 07/23/2018
+origin.date: 07/29/2018
+ms.date: 08/31/2018
 ms.author: v-junlch
-ms.openlocfilehash: 15d4364f3a218b54b651a105a7233df700cd234f
-ms.sourcegitcommit: ba07d76f8394b5dad782fd983718a8ba49a9deb2
+ms.openlocfilehash: bc719e29b076330bdf28bdcedd536fb24da62d35
+ms.sourcegitcommit: b2c9bc0ed28e73e8c43aa2041c6d875361833681
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39220231"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43330744"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Azure Functions 运行时版本概述
 
@@ -27,7 +27,9 @@ ms.locfileid: "39220231"
 | 运行时 | 状态 |
 |---------|---------|
 |1.x|正式发布 (GA)|
-|2.x|预览|
+|2.x|预览<sup></sup>*|
+
+*<sup></sup>若要接收版本 2.x 的重要更新，包括中断性变更公告，请留意 [Azure 应用服务公告](https://github.com/Azure/app-service-announcements/issues)存储库。
 
 > [!NOTE] 
 > 本文引用了云服务 Azure Functions。 如需深入了解可运行本地 Azure Functions 的产品，请参阅 [Azure Functions 运行时概述](functions-runtime-overview.md)。

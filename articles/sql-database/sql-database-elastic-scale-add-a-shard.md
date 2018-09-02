@@ -1,21 +1,21 @@
 ---
-title: 使用弹性数据库工具添加分片 | Azure
+title: 使用弹性数据库工具添加分片 | Microsoft Docs
 description: 如何使用弹性缩放 API 将新分片添加到分片集。
 services: sql-database
 manager: digimobile
-author: yunan2016
+author: WenJason
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
 origin.date: 04/01/2018
-ms.date: 04/17/2018
-ms.author: v-nany
-ms.openlocfilehash: cf614863e8d2cbfbd7174dce68f850ddf6a53023
-ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
+ms.date: 09/02/2018
+ms.author: v-jay
+ms.openlocfilehash: 34bbcd06e35cd96e735f98e431385b800c418de5
+ms.sourcegitcommit: 2601e68563bffe148e70cce2bf1dcbe837a40f80
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39486542"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43249527"
 ---
 # <a name="adding-a-shard-using-elastic-database-tools"></a>使用弹性数据库工具添加分片
 ## <a name="to-add-a-shard-for-a-new-range-or-key"></a>添加新范围或键的分片
@@ -24,7 +24,7 @@ ms.locfileid: "39486542"
 如果新的键值范围还不是现有映射的组成部分，则添加新分片以及将新的键或范围关联到该分片很简单。 
 
 ### <a name="example--adding-a-shard-and-its-range-to-an-existing-shard-map"></a>示例：将分片及其范围添加到现有的分片映射
-本示例使用 TryGetShard（Java、[.NET](https://msdn.microsoft.com/library/azure/dn823929.aspx)）、CreateShard（Java、[.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.createshard.aspx)）、CreateRangeMapping（Java、[.NET](https://msdn.microsoft.com/library/azure/dn807221.aspx#M:Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.RangeShardMap`1.CreateRangeMapping\(Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.RangeMappingCreationInfo{`0}\))）方法，并创建 ShardLocation（Java、[.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardlocation.shardlocation.aspx#M:Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.ShardLocation.)）类的实例。 在以下示例中，创建了一个名为 sample_shard_2 的数据库以及其中所有必要的架构对象，用于保存范围 [300, 400)。  
+本示例使用 TryGetShard（[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.map._shard_map.trygetshard)、[.NET](https://msdn.microsoft.com/library/azure/dn823929.aspx)）、CreateShard（[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.map._shard_map.createshard)、[.NET](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap)）、CreateRangeMapping（[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map.createrangemapping)、[.NET](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1)）方法，并创建 ShardLocation（[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.base._shard_location)、[.NET](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardlocation)）类的实例。 在以下示例中，创建了一个名为 sample_shard_2 的数据库以及其中所有必要的架构对象，用于保存范围 [300, 400)。  
 
 ```csharp
 // sm is a RangeShardMap object.

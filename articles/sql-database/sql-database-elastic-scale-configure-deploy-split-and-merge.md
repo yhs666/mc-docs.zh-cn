@@ -10,12 +10,12 @@ ms.topic: article
 origin.date: 04/01/2018
 ms.date: 04/17/2018
 ms.author: v-johch
-ms.openlocfilehash: 0fd0251dadf222cb733f1c4eb2a36378ea2af766
-ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
+ms.openlocfilehash: afdf72118e98c8ec3f4fcae9c1ed41d20f87ab82
+ms.sourcegitcommit: 2601e68563bffe148e70cce2bf1dcbe837a40f80
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39486565"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43249812"
 ---
 # <a name="deploy-a-split-merge-service"></a>部署拆分/合并服务
 可使用拆分/合并工具在分片数据库之间移动数据。 请参阅[在扩展云数据库之间移动数据](sql-database-elastic-scale-overview-split-and-merge.md)
@@ -161,104 +161,105 @@ ms.locfileid: "39486565"
 3. **GetMappings.ps1** - 可输出分片映射的当前状态的最上层示例脚本。
 4. **ShardManagement.psm1** - 可包装 ShardManagement API 的帮助程序脚本
 5. **SqlDatabaseHelpers.psm1** - 用于创建和管理 SQL 数据库的帮助程序脚本
-
-<table style="width:100%">
-  <tr>
-    <th>PowerShell 文件</th>
-    <th>步骤</th>
-  </tr>
-  <tr>
-    <th rowspan="5">SetupSampleSplitMergeEnvironment.ps1</th>
-    <td>1.    创建分片映射管理器数据库</td>
-  </tr>
-  <tr>
-    <td>2.    创建 2 个分片数据库。
-  </tr>
-  <tr>
-    <td>3.    为这些数据库创建一个分片映射（删除这些数据库上的任何现有分片映射）。 </td>
-  </tr>
-  <tr>
-    <td>4.    在这两个分片中创建一个小的示例表，然后使用一个分片填充该表。</td>
-  </tr>
-  <tr>
-    <td>5.    声明分片表的 SchemaInfo。</td>
-  </tr>
-
-</table>
-
-<table style="width:100%">
-  <tr>
-    <th>PowerShell 文件</th>
-    <th>步骤</th>
-  </tr>
-<tr>
-    <th rowspan="4">ExecuteSampleSplitMerge.ps1 </th>
-    <td>1.    将拆分请求发送到拆分/合并服务 Web 前端，以将数据从第一个分片到第二个分片拆分为两半。</td>
-  </tr>
-  <tr>
-    <td>2.    轮询拆分请求状态的 Web 前端并等待该请求完成。</td>
-  </tr>
-  <tr>
-    <td>3.    将合并请求发送到拆分/合并服务 Web 前端，以将数据从第二个分片移回到第一个分片。</td>
-  </tr>
-  <tr>
-    <td>4.    轮询合并请求状态的 Web 前端并等待该请求完成。</td>
-  </tr>
-</table>
-
+   
+   <table style="width:100%">
+     <tr>
+       <th>PowerShell 文件</th>
+       <th>步骤</th>
+     </tr>
+     <tr>
+       <th rowspan="5">SetupSampleSplitMergeEnvironment.ps1</th>
+       <td>1.    创建分片映射管理器数据库</td>
+     </tr>
+     <tr>
+       <td>2.    创建 2 个分片数据库。
+     </tr>
+     <tr>
+       <td>3.    为这些数据库创建一个分片映射（删除这些数据库上的任何现有分片映射）。 </td>
+     </tr>
+     <tr>
+       <td>4.    在这两个分片中创建一个小的示例表，然后使用一个分片填充该表。</td>
+     </tr>
+     <tr>
+       <td>5.    声明分片表的 SchemaInfo。</td>
+     </tr>
+   </table>
+   <table style="width:100%">
+     <tr>
+       <th>PowerShell 文件</th>
+       <th>步骤</th>
+     </tr>
+   <tr>
+       <th rowspan="4">ExecuteSampleSplitMerge.ps1 </th>
+       <td>1.    将拆分请求发送到拆分/合并服务 Web 前端，以将数据从第一个分片到第二个分片拆分为两半。</td>
+     </tr>
+     <tr>
+       <td>2.    轮询拆分请求状态的 Web 前端并等待该请求完成。</td>
+     </tr>
+     <tr>
+       <td>3.    将合并请求发送到拆分/合并服务 Web 前端，以将数据从第二个分片移回到第一个分片。</td>
+     </tr>
+     <tr>
+       <td>4.    轮询合并请求状态的 Web 前端并等待该请求完成。</td>
+     </tr>
+   </table>
+   
 ## <a name="use-powershell-to-verify-your-deployment"></a>使用 PowerShell 验证部署
 1. 打开新的 PowerShell 窗口并导航到用户下载拆分/合并包的目录，并导航到“powershell”目录中。
 2. 创建将在其中创建分片映射管理器和分片的 Azure SQL 数据库服务器（或选择现有服务器）。
-
+   
    > [!NOTE]
    > 在默认情况下，SetupSampleSplitMergeEnvironment.ps1 脚本将在相同的服务器上创建所有这些数据库以简化脚本。 这并不表示拆分/合并服务本身存在限制。
    >
-
+   
    拆分/合并服务将需要具有数据库读/写访问权限的 SQL 身份验证登录，才能移动数据并更新分片映射。 由于拆分/合并服务在云中运行，因此它当前不支持集成的身份验证。
-
+   
    确保 Azure SQL 服务器已配置为允许从运行这些脚本的计算机的 IP 地址进行访问。 可以在“Azure SQL 服务器”/“配置”/“允许的 IP 地址”下找到此设置。
 3. 执行 SetupSampleSplitMergeEnvironment.ps1 脚本以创建示例环境。
-
+   
    运行此脚本会擦除分片映射管理器数据库和分片上任何现有的分片映射管理数据结构。 如果想要重新初始化分片映射或分片，重新运行脚本可能会很有用。
-
+   
    示例命令行：
 
    ```   
-   .\SetupSampleSplitMergeEnvironment.ps1
-      -UserName 'mysqluser' 
-      -Password 'MySqlPassw0rd' 
-      -ShardMapManagerServerName 'abcdefghij.database.chinacloudapi.cn'
+     .\SetupSampleSplitMergeEnvironment.ps1 
+   
+         -UserName 'mysqluser' 
+         -Password 'MySqlPassw0rd' 
+         -ShardMapManagerServerName 'abcdefghij.database.chinacloudapi.cn'
    ```      
 4. 执行 Getmappings.ps1 脚本以查看示例环境中当前存在的映射。
-
+   
    ```
-   .\GetMappings.ps1 
-      -UserName 'mysqluser' 
-      -Password 'MySqlPassw0rd'
-      -ShardMapManagerServerName 'abcdefghij.database.chinacloudapi.cn'
+     .\GetMappings.ps1 
+   
+         -UserName 'mysqluser' 
+         -Password 'MySqlPassw0rd' 
+         -ShardMapManagerServerName 'abcdefghij.database.chinacloudapi.cn'
 
    ```         
 5. 执行 ExecuteSampleSplitMerge.ps1 脚本以执行拆分操作（将第一个分片上一半的数据移至第二个分片），然后执行合并操作（将数据移回第一个分片）。 如果已配置 SSL 并且已将 http 终结点保留为禁用，请确保改为使用 https:// 终结点。
-
+   
    示例命令行：
 
    ```   
-   .\ExecuteSampleSplitMerge.ps1
-      -UserName 'mysqluser' 
-      -Password 'MySqlPassw0rd' 
-      -ShardMapManagerServerName 'abcdefghij.database.chinacloudapi.cn' 
-      -SplitMergeServiceEndpoint 'https://mysplitmergeservice.chinacloudapp.cn' 
-      -CertificateThumbprint '0123456789abcdef0123456789abcdef01234567'
+     .\ExecuteSampleSplitMerge.ps1
+   
+         -UserName 'mysqluser' 
+         -Password 'MySqlPassw0rd' 
+         -ShardMapManagerServerName 'abcdefghij.database.chinacloudapi.cn' 
+         -SplitMergeServiceEndpoint 'https://mysplitmergeservice.chinacloudapp.cn' 
+         -CertificateThumbprint '0123456789abcdef0123456789abcdef01234567'
    ```      
-
+   
    如果收到以下错误，很有可能是 Web 终结点证书出现了问题。 尝试使用最喜欢的 Web 浏览器连接到 Web 终结点并检查是否存在证书错误。
-
+   
      ```
      Invoke-WebRequest : The underlying connection was closed: Could not establish trust relationship for the SSL/TLSsecure channel.
      ```
-
+   
    如果成功，则输出应如下所示：
-
+   
    ```
    > .\ExecuteSampleSplitMerge.ps1 -UserName 'mysqluser' -Password 'MySqlPassw0rd' -ShardMapManagerServerName 'abcdefghij.database.chinacloudapi.cn' -SplitMergeServiceEndpoint 'http://mysplitmergeservice.chinacloudapp.cn' -CertificateThumbprint 0123456789abcdef0123456789abcdef01234567
    > Sending split request
@@ -337,3 +338,4 @@ ms.locfileid: "39486565"
 [3]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/staging.png
 [4]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/upload.png
 [5]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/storage.png
+

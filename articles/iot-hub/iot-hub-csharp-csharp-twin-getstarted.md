@@ -1,26 +1,21 @@
 ---
 title: Azure IoT 中心设备孪生入门 (.NET/.NET) | Azure
 description: 如何使用 Azure IoT 中心设备孪生添加标记，并使用 IoT 中心查询。 使用适用于 .NET 的 Azure IoT 设备 SDK 实现模拟设备应用，并使用适用于 .NET 的 Azure IoT 服务 SDK 实现可添加标记并运行 IoT 中心查询的服务应用。
-services: iot-hub
-documentationcenter: node
-author: dsk-2015
+author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: f7e23b6e-bfde-4fba-a6ec-dbb0f0e005f4
 ms.service: iot-hub
-ms.devlang: node
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: csharp
+ms.topic: conceptual
 origin.date: 05/15/2017
 ms.author: v-yiso
-ms.date: 06/11/2018
-ms.openlocfilehash: 5fabd92a49de7b0a04967946bc181e6ebc412691
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.date: 09/10/2018
+ms.openlocfilehash: 0cac9ef469d385e5ff2f454fd7a8bc9f7a22eeac
+ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38940022"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43329183"
 ---
 # <a name="get-started-with-device-twins-netnet"></a>设备孪生入门 (.NET/.NET)
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
@@ -91,8 +86,7 @@ ms.locfileid: "38940022"
    
     在更新后，它执行两个查询：第一个仅选择位于 **Redmond43** 工厂的设备的设备孪生，第二个将查询细化为仅选择还要通过移动电话网络连接的设备。
    
-    请注意上面的代码，当它创建 **query** 对象时，会指定返回的最大文档数。 
-            **query** 对象包含 **HasMoreResults** 布尔值属性，可以使用它多次调用 **GetNextAsTwinAsync** 方法来检索所有结果。 名为 **GetNextAsJson** 的方法可用于非设备孪生的结果（例如聚合查询的结果）。
+    请注意上面的代码，当它创建 **query** 对象时，会指定返回的最大文档数。 **query** 对象包含 **HasMoreResults** 布尔值属性，可以使用它多次调用 **GetNextAsTwinAsync** 方法来检索所有结果。 名为 **GetNextAsJson** 的方法可用于非设备孪生的结果（例如聚合查询的结果）。
 1. 最后，在 **Main** 方法中添加以下行：
    
         registryManager = RegistryManager.CreateFromConnectionString(connectionString);
@@ -229,9 +223,9 @@ ms.locfileid: "38940022"
 [lnk-query]: ./iot-hub-devguide-query-language.md
 [lnk-identity]: ./iot-hub-devguide-identity-registry.md
 
-[lnk-iothub-getstarted]: ./iot-hub-csharp-csharp-getstarted.md
-[lnk-methods-tutorial]: ./iot-hub-node-node-direct-methods.md
-[lnk-twin-how-to-configure]: iot-hub-csharp-csharp-twin-how-to-configure.md
+[lnk-iothub-getstarted]: quickstart-send-telemetry-dotnet.md
+[lnk-methods-tutorial]: quickstart-control-device-node.md
+[lnk-twin-how-to-configure]: tutorial-device-twins.md
 
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
 

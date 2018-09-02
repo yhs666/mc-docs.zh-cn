@@ -12,15 +12,15 @@ ms.workload: multiple
 ms.tgt_pltfrm: powershell
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 02/16/2018
-ms.date: 07/09/2018
+origin.date: 07/20/2018
+ms.date: 09/03/2018
 ms.author: v-yeche
-ms.openlocfilehash: 6fb0adaae8c74947c68b88e0ca70cbaee5e5493c
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: a050dc4145e55d2a243bdb345aa7f6948f62c056
+ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939594"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43164804"
 ---
 # <a name="manage-resources-with-azure-powershell"></a>使用 Azure PowerShell 管理资源
 
@@ -38,7 +38,7 @@ ms.locfileid: "38939594"
 
 让我们创建该资源组。
 
-```powershell
+```PowerShell
 Set-AzureRmContext -Subscription <subscription-name>
 New-AzureRmResourceGroup -Name myResourceGroup -Location ChinaEast
 ```
@@ -57,13 +57,12 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location ChinaEast
 * [网络参与者](../role-based-access-control/built-in-roles.md#network-contributor)
 * [存储帐户参与者](../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
-通常情况下，与其向单个用户分配角色，不如为需要进行相似操作的用户[创建一个 Azure Active Directory 组](../active-directory/active-directory-groups-create-azure-portal.md)， 然后向该组分配相应的角色。 为了简单起见，本文创建一个没有成员的 Azure Active Directory 组。 仍然可以为该组分配一个负责某个范围的角色。 
-<!-- URL not contains fundamentals directory-->
+通常情况下，与其向单个用户分配角色，不如为需要进行相似操作的用户[创建一个 Azure Active Directory 组](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)， 然后向该组分配相应的角色。 为了简单起见，本文创建一个没有成员的 Azure Active Directory 组。 仍然可以为该组分配一个负责某个范围的角色。 
 
 以下示例创建一个组，然后为其分配了资源组的“虚拟机参与者”角色。 若要运行 `New-AzureAdGroup` 命令，必须[下载 Azure AD PowerShell 模块](https://www.powershellgallery.com/packages/AzureAD/)。
 <!-- Not Available on [Azure Cloud Shell](/cloud-shell/overview)-->
 
-```powershell
+```PowerShell
 $adgroup = New-AzureADGroup -DisplayName VMDemoContributors `
   -MailNickName vmDemoGroup `
   -MailEnabled $false `
@@ -75,15 +74,11 @@ New-AzureRmRoleAssignment -ObjectId $adgroup.ObjectId `
 
 通常情况下，请对**网络参与者**和**存储帐户参与者**重复执行此过程，确保分配用户来管理已部署的资源。 在本文中，可以跳过这些步骤。
 
-## <a name="azure-policies"></a>Azure 策略
+## <a name="azure-policy"></a>Azure Policy
 
-[!INCLUDE [Resource Manager governance policy](../../includes/resource-manager-governance-policy.md)]
+[Azure Policy](../azure-policy/azure-policy-introduction.md) 可帮助确保订阅中的所有资源符合企业标准。 订阅已经有多个策略定义。 若要查看可用的策略定义，请使用：
 
-### <a name="apply-policies"></a>应用策略
-
-订阅已经有多个策略定义。 若要查看可用的策略定义，请使用：
-
-```powershell
+```PowerShell
 (Get-AzureRmPolicyDefinition).Properties | Format-Table displayName, policyType
 ```
 
@@ -93,7 +88,7 @@ New-AzureRmRoleAssignment -ObjectId $adgroup.ObjectId `
 * 限制虚拟机的 SKU
 * 审核不使用托管磁盘的虚拟机
 
-```powershell
+```PowerShell
 $locations ="chinaeast", "chinaeast2"
 $skus = "Standard_DS1_v2", "Standard_E2s_v2"
 
@@ -120,7 +115,7 @@ New-AzureRMPolicyAssignment -Name "Audit unmanaged disks" `
 
 分配角色和策略以后，即可部署解决方案。 默认大小为 Standard_DS1_v2，这是允许的 SKU 之一。 运行此步骤时，会提示输入凭据。 输入的值将配置为用于虚拟机的用户名和密码。
 
-```powershell
+```PowerShell
 New-AzureRmVm -ResourceGroupName "myResourceGroup" `
      -Name "myVM" `
      -Location "China East" `
@@ -141,7 +136,7 @@ New-AzureRmVm -ResourceGroupName "myResourceGroup" `
 
 若要锁定虚拟机和网络安全组，请使用：
 
-```powershell
+```PowerShell
 New-AzureRmResourceLock -LockLevel CanNotDelete `
   -LockName LockVM `
   -ResourceName myVM `
@@ -166,7 +161,7 @@ New-AzureRmResourceLock -LockLevel CanNotDelete `
 
 若要将标记应用到虚拟机，请使用：
 
-```powershell
+```PowerShell
 $r = Get-AzureRmResource -ResourceName myVM `
   -ResourceGroupName myResourceGroup `
   -ResourceType Microsoft.Compute/virtualMachines
@@ -177,13 +172,13 @@ Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test"; Project="Documentatio
 
 若要使用标记名称和值来查找资源，请使用：
 
-```powershell
+```PowerShell
 (Find-AzureRmResource -TagName Environment -TagValue Test).Name
 ```
 
 可以将返回的值用于管理任务，例如停止带有某个标记值的所有虚拟机。
 
-```powershell
+```PowerShell
 Find-AzureRmResource -TagName Environment -TagValue Test | Where-Object {$_.ResourceType -eq "Microsoft.Compute/virtualMachines"} | Stop-AzureRmVM
 ```
 
@@ -193,7 +188,7 @@ Find-AzureRmResource -TagName Environment -TagValue Test | Where-Object {$_.Reso
 
 在解除锁定之前，不能删除锁定的网络安全组。 若要解除锁定，请使用：
 
-```powershell
+```PowerShell
 Remove-AzureRmResourceLock -LockName LockVM `
   -ResourceName myVM `
   -ResourceType Microsoft.Compute/virtualMachines `
@@ -214,8 +209,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 * 若要了解如何监视虚拟机，请参阅[使用 Azure PowerShell 监视和更新 Windows 虚拟机](../virtual-machines/windows/tutorial-monitoring.md)。
 <!-- Not Available on [Monitor virtual machine security by using Azure Security Center](../virtual-machines/windows/tutorial-azure-security.md) -->
 * 可以将现有资源移动到新的资源组。 有关示例，请参阅[将资源移动到新的资源组或订阅中](resource-group-move-resources.md)。
-* 有关企业可如何使用 Resource Manager 有效管理订阅的指南，请参阅 [Azure 企业基架 - 出于合规目的监管订阅](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/subscription-governance)。
+<!-- Not Available on [Azure enterprise scaffold - prescriptive subscription governance](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/subscription-governance)-->
 
-<!--Update_Description: update meta properties, wording update, add Azure policy and apply policy content -->
-<!--The parent file of includes file of resource-manager-governance-tags-powershell.md-->
-<!--ms.date:07/09/2018-->
+<!--Update_Description: update meta properties, wording update -->
+

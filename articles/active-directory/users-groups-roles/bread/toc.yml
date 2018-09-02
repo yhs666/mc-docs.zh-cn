@@ -1,0 +1,51 @@
+items:
+- name: Azure
+  tocHref: /
+  topicHref: /index
+  items:
+  - name: Active Directory
+    tocHref: /role-based-access-control/
+    topicHref: /active-directory/index
+    items:
+    - name: 用户、组和角色
+      tocHref: /role-based-access-control/
+      topicHref: /active-directory/users-groups-roles/index
+- name: Azure
+  tocHref: /
+  topicHref: /index
+  items:
+  - name: Active Directory
+    tocHref: /active-directory/
+    topicHref: /active-directory/index
+    items:
+    - name: 用户、组和角色
+      tocHref: /active-directory/
+      topicHref: /active-directory/users-groups-roles/index
+- name: Azure
+  tocHref: /
+  topicHref: /index
+  items:
+  - name: Active Directory
+    tocHref: /active-directory/connect/
+    topicHref: /active-directory/index
+    items:
+    - name: 用户、组和角色
+      tocHref: /active-directory/connect/
+      topicHref: /active-directory/users-groups-roles/index
+- name: Azure
+  tocHref: /
+  topicHref: /index
+  items:
+  - name: Active Directory
+    tocHref: /active-directory/authentication/
+    topicHref: /active-directory/index
+    items:
+    - name: 用户、组和角色
+      tocHref: /active-directory/authentication/
+      topicHref: /active-directory/users-groups-roles/index
+ms.openlocfilehash: 4566e4e99fc6ed211880c6585b06ec17395add31
+ms.sourcegitcommit: 75c2b5cdaf25ede92e080f6c48ca17d2f4ded4fb
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43115545"

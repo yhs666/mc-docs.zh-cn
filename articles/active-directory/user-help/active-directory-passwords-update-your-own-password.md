@@ -1,28 +1,25 @@
 ---
-title: 重置密码 - Azure AD | Microsoft Docs
+title: 重置密码 - Azure Active Directory | Microsoft Docs
 description: 使用自助密码重置功能重新获取工作用户帐户或学校用户帐户的访问权限
 services: active-directory
-keywords: ''
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
 ms.reviewer: sahenry
 ms.assetid: 7ba69b18-317a-4a62-afa3-924c4ea8fb49
 ms.service: active-directory
+ms.component: user-help
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 origin.date: 01/11/2018
-ms.date: 07/31/2018
+ms.date: 08/27/2018
 ms.author: v-junlch
 ms.custom: end-user
-ms.openlocfilehash: 2fb162e786f5adcdf21902a24eabd15504a7277a
-ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
+ms.openlocfilehash: 0693b925472cf9113b51bd8fd2b6bc15f3bd42d6
+ms.sourcegitcommit: 75c2b5cdaf25ede92e080f6c48ca17d2f4ded4fb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39487537"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43115534"
 ---
 # <a name="reset-your-work-or-school-password"></a>重置工作或学校密码
 
@@ -137,4 +134,4 @@ ms.locfileid: "39487537"
 [ContactMethod]: ./media/active-directory-passwords-update-your-own-password/reset-contact-method-screen.png "验证身份验证数据"
 [ResetPassword]: ./media/active-directory-passwords-update-your-own-password/reset-password-screen.png "更改密码"
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

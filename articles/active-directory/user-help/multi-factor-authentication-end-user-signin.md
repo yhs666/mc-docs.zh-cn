@@ -2,27 +2,24 @@
 title: 使用双重验证的 Azure MFA 登录 | Microsoft 文档
 description: 本页提供有关在何处查看 Azure MFA 支持的各种登录方法的指导。
 keywords: 用户身份验证, 登录体验, 使用手机登录, 使用办公电话登录
-services: multi-factor-authentication
-documentationcenter: ''
+services: active-directory
 author: eross-msft
 manager: mtillman
 ms.assetid: b310b762-471b-4b26-887a-a321c9e81d46
-ms.service: multi-factor-authentication
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: active-directory
+ms.component: user-help
 ms.topic: conceptual
 origin.date: 04/02/2017
-ms.date: 07/31/2018
+ms.date: 08/27/2018
 ms.author: v-junlch
 ms.reviewer: librown
-ms.custom: end-user
-ms.openlocfilehash: e048d6c60e9316b8d836e65ea2af7072b7cdaeaf
-ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
+ms.openlocfilehash: 65cf00fc925c23ce7b209bb87781e59c9f445019
+ms.sourcegitcommit: 75c2b5cdaf25ede92e080f6c48ca17d2f4ded4fb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39487520"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43115465"
 ---
 # <a name="the-sign-in-experience-with-azure-multi-factor-authentication"></a>Azure 多重身份验证的登录体验
 > [!NOTE]
@@ -93,4 +90,4 @@ ms.locfileid: "39487520"
 
 了解如何[开始使用 Microsoft 验证器应用](microsoft-authenticator-app-how-to.md)，以便使用通知（而不是短信和电话呼叫）登录。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

@@ -16,6 +16,8 @@ items:
             href: create-sql-api-java.md
           - name: Node.js
             href: create-sql-api-nodejs.md
+          - name: Node.js - V2 预览版
+            href: create-sql-api-nodejs-preview.md
           - name: Python
             href: create-sql-api-python.md
       - name: MongoDB
@@ -77,8 +79,12 @@ items:
                         href: sql-api-dotnetcore-get-started.md
                       - name: Java
                         href: sql-api-java-get-started.md
+                      - name: 异步 Java
+                        href: sql-api-async-java-get-started.md
                       - name: Node.js
                         href: sql-api-nodejs-get-started.md
+                      - name: Node.js - V2 预览版
+                        href: sql-api-nodejs-get-started-preview.md
                   - name: 生成 Web 应用
                     items:
                       - name: .NET
@@ -87,6 +93,8 @@ items:
                         href: mobile-apps-with-xamarin.md
                       - name: Node.js
                         href: sql-api-nodejs-application.md
+                      - name: Node.js - V2 预览版
+                        href: sql-api-nodejs-application-preview.md
                       - name: Java
                         href: sql-api-java-application.md
                       - name: Python Flask
@@ -113,6 +121,8 @@ items:
                 href: sql-api-dotnet-samples.md
               - name: Node.js 示例
                 href: sql-api-nodejs-samples.md
+              - name: Node.js 示例 - V2 预览版
+                href: sql-api-nodejs-samples-preview.md
               - name: Python 示例
                 href: sql-api-python-samples.md
               - name: Java 示例
@@ -131,8 +141,6 @@ items:
                 href: bulk-executor-dot-net.md
               - name: BulkExecutor - Java
                 href: bulk-executor-java.md
-              - name: 使用存储资源管理器进行管理
-                href: storage-explorer.md
               - name: 查询
                 items:
                   - name: 执行 SQL 查询
@@ -143,8 +151,6 @@ items:
                 href: indexing-policies.md
               - name: SQL 数据分区
                 href: sql-api-partition-data.md
-              - name: 存储过程、触发器和 UDF
-                href: programming.md
               - name: 更改源
                 href: change-feed.md
               - name: 数据类型
@@ -213,8 +219,6 @@ items:
                 href: sql-api-sql-query-reference.md
           - name: 资源
             items:
-              - name: 使用存储资源管理器进行管理
-                href: storage-explorer.md
               - name: Visual Studio Code 扩展
                 href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
               - name: SQL 演练
@@ -251,7 +255,7 @@ items:
                 href: mongodb-migrate.md
               - name: 3 - 查询
                 href: tutorial-query-mongodb.md
-              - name: 4 - 全球分布
+              - name: 4 - 多区域分布
                 href: tutorial-global-distribution-mongodb.md
               - name: 5 - 本地开发
                 items:
@@ -275,44 +279,48 @@ items:
                 href: mongodb-indexing.md
               - name: 使用 Power BI 直观显示数据
                 href: powerbi-visualize.md
-              - name: 使用存储资源管理器进行管理
-                href: storage-explorer.md
           - name: 资源
             items:
               - name: Visual Studio Code 扩展
                 href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
   - name: 操作指南
     items:
-      - name: 密钥和一致性
-        href: manage-account.md
-      - name: 吞吐量
-        href: set-throughput.md
-      - name: 防火墙支持
-        href: firewall-support.md
-      - name: 监视 SLA
-        href: monitor-accounts.md
+      - name: 管理
+        items:
+          - name: 使用 PowerShell 管理
+            href: manage-account-with-powershell.md
+          - name: 使用存储资源管理器进行管理
+            href: storage-explorer.md
+          - name: 管理密钥和一致性级别
+            href: manage-account.md
+          - name: 吞吐量
+            href: set-throughput.md
+          - name: 生存时间
+            href: time-to-live.md
+      - name: 保护数据
+        items:
+          - name: 防火墙支持
+            href: firewall-support.md
+      - name: 监视
+        items:
+          - name: 监视 SLA
+            href: monitor-accounts.md
       - name: 备份和还原
-        href: online-backup-and-restore.md
-      - name: 区域性故障转移
-        href: regional-failover.md
-      - name: 存储过程、触发器和 UDF
-        href: programming.md
-      - name: BulkExecutor 概述
+        items:
+          - name: 联机备份和还原
+            href: online-backup-and-restore.md
+          - name: 区域性故障转移
+            href: regional-failover.md
+      - name: 自动化
+        items:
+          - name: 存储过程、触发器和 UDF
+            href: programming.md
+      - name: 批量执行程序库
         href: bulk-executor-overview.md
       - name: 以经济高效的方式读取和写入
         href: key-value-store-cost.md
-      - name: 使数据自动过期
-        href: time-to-live.md
-      - name: 使用 PowerShell 管理
-        href: manage-account-with-powershell.md
-      - name: 使用存储资源管理器进行管理
-        href: storage-explorer.md
-      - name: 多主设置
-        href: multi-master-workaround.md
   - name: 资源
     items:
-      - name: 查询备忘单
-        href: query-cheat-sheet.md
       - name: 视频
         href: 'https://www.azure.cn/video-center/'
       - name: 定价

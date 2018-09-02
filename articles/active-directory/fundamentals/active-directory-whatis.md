@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 origin.date: 04/09/2018
-ms.date: 06/25/2018
+ms.date: 08/29/2018
 ms.custom: it-pro
-ms.openlocfilehash: 6f205d5e98de9f0b8d5f70cd13b8400dd07fe365
-ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
+ms.openlocfilehash: d4c0d9f79a8e8031b93ca336bee253f93f056c7c
+ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36948666"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43164807"
 ---
 # <a name="what-is-azure-active-directory"></a>什么是 Azure Active Directory？
 Azure Active Directory (Azure AD) 是 Microsoft 推出的基于云的多租户目录，也是标识管理服务，可以将核心目录服务、应用程序访问管理和标识保护组合到单个解决方案中。 Azure AD 还提供功能丰富、基于标准的平台，该平台支持开发人员根据集中的策略和规则为应用程序提供访问控制。
@@ -53,10 +53,10 @@ Azure AD 的多租户、地理分布、高可用性设计意味着可以依赖�
 - [立即试用！](/active-directory/) - 现在就可以使用此链接注册试用版，并在不到五分钟内部署第一个云解决方案
 
 
-
-            **如果是开发人员：**
+**如果是开发人员：**
  
-- 查看 Azure Active Directory 的[开发人员指南](../develop/active-directory-developers-guide.md)
+- 查看 Azure Active Directory 的[开发人员指南](../develop/azure-ad-developers-guide.md)
 
 - [开始试用](https://www.azure.cn/pricing/1rmb-trial/) - 立即注册试用版，开始将应用集成到 Azure AD
 
+<!-- Update_Description: link update -->

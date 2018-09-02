@@ -4,19 +4,17 @@ description: 概述 Azure IoT 中心中的设备管理：企业设备生命周�
 author: bzurcher
 manager: ''
 ms.service: iot-hub
-ms.devlang: na
 services: iot-hub
 ms.topic: conceptual
-ms.workload: na
 origin.date: 08/24/2017
-ms.date: 08/06/2018
+ms.date: 09/10/2018
 ms.author: v-yiso
-ms.openlocfilehash: 0a2164c3952946cfbb95c0a8f0031beec9ba9a0e
-ms.sourcegitcommit: d4092cf6aba0d949bf612093c76f964c2bdfd0ba
+ms.openlocfilehash: 9d2257e33a71e697b6390c9dcec33c2b116899ba
+ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39306553"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43329159"
 ---
 # <a name="overview-of-device-management-with-iot-hub"></a>使用 IoT 中心进行设备管理的概述
 
@@ -107,12 +105,12 @@ IoT 中心启用以下设备管理模式集。  [设备管理教程][lnk-get-sta
 [lnk-twins-devguide]: ./iot-hub-devguide-device-twins.md
 [lnk-get-started]: ./iot-hub-node-node-device-management-get-started.md
 [lnk-twins-getstarted]: ./iot-hub-node-node-twin-getstarted.md
-[lnk-twin-properties]: ./iot-hub-node-node-twin-how-to-configure.md
-[lnk-hub-getstarted]: ./iot-hub-csharp-csharp-getstarted.md
+[lnk-twin-properties]: tutorial-device-twins.md
+[lnk-hub-getstarted]: quickstart-send-telemetry-dotnet.md
 [lnk-identity-registry]: ./iot-hub-devguide-identity-registry.md
 [lnk-bulk-identity]: ./iot-hub-bulk-identity-mgmt.md
 [lnk-query-language]: ./iot-hub-devguide-query-language.md
-[lnk-c2d-methods]: ./iot-hub-node-node-direct-methods.md
+[lnk-c2d-methods]: quickstart-control-device-node.md
 [lnk-methods-devguide]: ./iot-hub-devguide-direct-methods.md
 [lnk-jobs]: ./iot-hub-node-node-schedule-jobs.md
 [lnk-jobs-devguide]: ./iot-hub-devguide-jobs.md

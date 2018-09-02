@@ -1,28 +1,24 @@
 ---
-title: 注册自助密码重置 - Azure AD | Microsoft Docs
+title: 注册自助密码重置 - Azure Active Directory | Microsoft Docs
 description: 注册身份验证数据，以便进行 Azure AD 自助密码重置
 services: active-directory
-keywords: ''
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
 ms.reviewer: sahenry
 ms.assetid: ''
 ms.service: active-directory
+ms.component: user-help
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 origin.date: 01/11/2018
-ms.date: 07/31/2018
+ms.date: 08/27/2018
 ms.author: v-junlch
-ms.custom: end-user;seohack1
-ms.openlocfilehash: 11689f429d87c353224f646614871c47d0658a3a
-ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
+ms.openlocfilehash: ef41abc2102064561f4cd2cf1f44818ebc369fe6
+ms.sourcegitcommit: 75c2b5cdaf25ede92e080f6c48ca17d2f4ded4fb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39487490"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43115531"
 ---
 # <a name="register-for-self-service-password-reset"></a>注册自助密码重置
 
@@ -65,6 +61,7 @@ ms.locfileid: "39487490"
 - [密码重置门户](https://passwordreset.activedirectory.windowsazure.cn/)
 - [无法登录 Microsoft 帐户](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
 
-[Register]: ./media/active-directory-passwords-reset-register/1.png "密码重置注册页，其中显示已注册的方法和“完成”按钮"
+[Register]: ./media/active-directory-passwords-reset-register/register-2-methods.png "密码重置注册页，其中显示已注册的方法和“完成”按钮"
 
 
+<!-- Update_Description: update metedata properties -->

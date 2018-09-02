@@ -10,14 +10,14 @@ ms.component: cosmosdb-mongo
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 01/18/2018
-ms.date: 07/02/2018
+ms.date: 09/03/2018
 ms.author: v-yeche
-ms.openlocfilehash: c0df09f2853859fa437ca21823da28cee4810103
-ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
+ms.openlocfilehash: c0c4bd0321e8479a71a90767d502276de13de9f6
+ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37070340"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43164689"
 ---
 # <a name="azure-cosmos-db-use-studio-3t-with-a-mongodb-api-account"></a>Azure Cosmos DB：配合使用 Studio 3T 与 MongoDB API 帐户
 

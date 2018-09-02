@@ -11,12 +11,12 @@ ms.date: 08/27/2018
 ms.author: v-junlch
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: dab8b2467783c9e75a9e2321210edb6a4e949b67
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.openlocfilehash: 4ae50bcf42ff6e75265452a0a15ad641daa7dd24
+ms.sourcegitcommit: bc7679a5ad24ea9120c44fc771e88a08b5d8b207
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869549"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "42998369"
 ---
 # <a name="azure-stack-datacenter-integration---syslog-forwarding"></a>Azure Stack 数据中心集成 - Syslog 转发
 
@@ -220,8 +220,8 @@ CEF 有效负载基于下面的结构，但每个字段的映射因消息类型�
 # Common Event Format schema
 CEF: <Version>|<Device Vendor>|<Device Product>|<Device Version>|<Signature ID>|<Name>|<Severity>|<Extensions>
 * Version: 0.0 
-* Device Vendor: Azure
-* Device Product: Azure Stack
+* Device Vendor: Microsoft
+* Device Product: Microsoft Azure Stack
 * Device Version: 1.0
 ```
 
@@ -272,7 +272,7 @@ Azure Stack 中 Windows 事件的自定义扩展表：
 
 ### <a name="cef-mapping-for-alerts-created"></a>已创建警报的 CEF 映射
 ```
-* Signature ID: Azure Stack Alert Creation : FaultTypeId
+* Signature ID: Microsoft Azure Stack Alert Creation : FaultTypeId
 * Name: FaultTypeId : AlertId
 * Severity: Alert Severity (for details, see alerts severity table below)
 * Extension: Custom Extension Name (for details, see the Custom Extension table below)
@@ -291,14 +291,14 @@ Azure Stack 中已创建警报的自定义扩展表：
 
 ### <a name="cef-mapping-for-alerts-closed"></a>已关闭警报的 CEF 映射
 ```
-* Signature ID: Azure Stack Alert Creation : FaultTypeId
+* Signature ID: Microsoft Azure Stack Alert Creation : FaultTypeId
 * Name: FaultTypeId : AlertId
 * Severity: Information
 ```
 
 以下示例显示一条包含 CEF 有效负载的 Syslog 消息：
 ```
-2018:05:17:-23:59:28 -07:00 TestHost CEF:0.0|Azure|Azure Stack|1.0|3|TITLE: User Account Created -- DESCRIPTION: A user account \<TestUser\> was created for \<TestDomain\>. It's a potential security risk. -- REMEDIATION: Please contact Support. Customer Assistance is required to resolve this issue. Do not try to resolve this issue without their assistance. Before you open a support request, start the log file collection process using the guidance from https://aka.ms/azurestacklogfiles|10
+2018:05:17:-23:59:28 -07:00 TestHost CEF:0.0|Microsoft|Microsoft Azure Stack|1.0|3|TITLE: User Account Created -- DESCRIPTION: A user account \<TestUser\> was created for \<TestDomain\>. It's a potential security risk. -- REMEDIATION: Please contact Support. Customer Assistance is required to resolve this issue. Do not try to resolve this issue without their assistance. Before you open a support request, start the log file collection process using the guidance from https://aka.ms/azurestacklogfiles|10
 ```
 ## <a name="next-steps"></a>后续步骤
 

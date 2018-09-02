@@ -14,15 +14,15 @@ ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 03/28/2018
-ms.date: 04/10/2018
+ms.date: 08/31/2018
 ms.author: v-junlch
 ms.custom: mvc, devcenter, cc996988-fb4f-47
-ms.openlocfilehash: 6015774c0b8b7a808b74c716c3b68989aebc3253
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 8c8442837d60db74aa9637ffcb6f6704c189b0ff
+ms.sourcegitcommit: b2c9bc0ed28e73e8c43aa2041c6d875361833681
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939156"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43330818"
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>在 Azure 门户中创建第一个函数
 
@@ -31,6 +31,9 @@ Azure Functions 用于在[无服务器](https://azure.microsoft.com/overview/ser
 ![在 Azure 门户中创建 Function App](./media/functions-create-first-azure-function/function-app-in-portal-editor.png)
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+
+> [!NOTE]
+> C# 开发人员应考虑[在 Visual Studio 2017 中创建第一个函数](functions-create-your-first-function-visual-studio.md)，而不要在门户中这样做。 
 
 ## <a name="log-in-to-azure"></a>登录 Azure
 
@@ -89,3 +92,4 @@ Azure Functions 用于在[无服务器](https://azure.microsoft.com/overview/ser
 
 
 
+<!-- Update_Description: wording update -->

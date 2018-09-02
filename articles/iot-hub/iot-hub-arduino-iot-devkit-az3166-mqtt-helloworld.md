@@ -1,26 +1,21 @@
 ---
-title: 使用 Azure MQTT 客户端库向 MQTT 服务器发送消息
-description: 使用 DevKit 作为客户端向 MQTT 服务器发送消息。
-services: iot-hub
-documentationcenter: ''
+title: 使用 Azure MQTT 客户端库向 MQTT 服务器发送消息 | Microsoft Docs
+description: 使用 DevKit 作为客户端向 MQTT 服务器发送消息
 author: liydu
-manager: timlt
-tags: ''
-keywords: ''
+manager: jeffya
 ms.service: iot-hub
-ms.devlang: arduino
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
+ms.tgt_pltfrm: arduino
 origin.date: 04/02/2018
-ms.date: 06/11/2018
+ms.date: 09/10/2018
 ms.author: v-yiso
-ms.openlocfilehash: 5e7e10c6d3f7a691e2361b94cceb711b647c4cc5
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 6337aee28f7e12e9423006749202014a864f948d
+ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695115"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43328637"
 ---
 # <a name="send-messages-to-an-mqtt-server"></a>向 MQTT 服务器发送消息
 
@@ -43,7 +38,7 @@ ms.locfileid: "34695115"
 
 ## <a name="open-the-project-folder"></a>打开项目文件夹
 
-1. 如果 DevKit 已连接，将其从计算机断开连接。
+1. 如果 DevKit 已连接到计算机，请断开连接。
 
 2. 启动 VS Code。
 
@@ -63,7 +58,7 @@ ms.locfileid: "34695115"
 ![设备上传](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/device-upload.jpg)
 
 > [!NOTE]
-> 可能会出现“错误: AZ3166: 未知程序包”错误消息。 如果未正确刷新板包索引，则会出现此错误。 若要解决此错误，请参阅此 [FAQ](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development)（常见问题解答）。
+> 可能会出现“错误: AZ3166: 未知程序包”错误消息。 如果未正确刷新板包索引，则会出现此错误。 若要解决此错误，请参阅 [IoT DevKit 常见问题解答的开发部分](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development)。
 
 ## <a name="test-the-project"></a>测试项目
 
@@ -81,15 +76,14 @@ ms.locfileid: "34695115"
 
 ## <a name="problems-and-feedback"></a>问题和反馈
 
-如果遇到问题，请参阅 [FAQ](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/)（常见问题解答）或通过以下渠道进行联系：
+如果遇到问题，请参阅 [IoT DevKit 常见问题解答](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/)或通过以下渠道进行联系：
 
 * [Gitter.im](http://gitter.im/Microsoft/azure-iot-developer-kit)
 * [堆栈溢出](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## <a name="see-also"></a>另请参阅
 
-* [将 IoT DevKit AZ3166 连接到云中的 Azure IoT 中心]({{"/docs/getting-started/" | absolute_url }})
-* [摇一摇，摇一摇搜推文]({{"/docs/projects/shake-shake/" | absolute_url }})
+* [将 IoT DevKit AZ3166 连接到云中的 Azure IoT 中心](iot-hub-arduino-iot-devkit-az3166-get-started.md)
 
 ## <a name="next-steps"></a>后续步骤
 

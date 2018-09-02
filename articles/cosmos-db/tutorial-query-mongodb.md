@@ -9,15 +9,15 @@ ms.component: cosmosdb-mongo
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 03/29/2018
-ms.date: 07/02/2018
+ms.date: 09/03/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 8bd59f3e3b0cdc10a352a4d9fb617863e163b5cd
-ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
+ms.openlocfilehash: d2b1f7adbcd3d599177b6d20b057c71a9b35c446
+ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37070173"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43164642"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-mongodb-api"></a>教程：使用 MongoDB API 查询 Azure Cosmos DB
 
@@ -316,4 +316,4 @@ Azure Cosmos DB [MongoDB API](mongodb-introduction.md) 支持 [MongoDB shell 查
 > [!div class="nextstepaction"]
 > [全局分发数据](tutorial-global-distribution-sql-api.md)
 
-<!-- Update_Description: update link, wording update -->
+<!-- Update_Description: update meta properties -->

@@ -3,7 +3,7 @@ title: Azure Functions JavaScript 开发人员参考 | Microsoft 文档
 description: 了解如何使用 JavaScript 开发函数。
 services: functions
 documentationcenter: na
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -15,14 +15,14 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 03/04/2018
-ms.date: 05/29/2018
+ms.date: 08/31/2018
 ms.author: v-junlch
-ms.openlocfilehash: 50236f0d1026acb3aad28d69ee918c59347f9034
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: daadb8073debead8f195831f95c0d43ffea0c503
+ms.sourcegitcommit: b2c9bc0ed28e73e8c43aa2041c6d875361833681
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34567356"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43330827"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript 开发人员指南
 
@@ -95,7 +95,9 @@ context.bindings.myOutput = {
 context.done([err],[propertyBag])
 ```
 
-通知运行时代码已完成。 必须调用 `context.done`，否则，运行时永远不会知道函数已完成并且执行将超时。 
+通知运行时代码已完成。 如果你的函数使用了 `async function` 声明（使用 Functions 2.x 版本中的 Node 8+ 时可用），则不需要使用 `context.done()`。 `context.done` 回调是隐式调用的。
+
+如果你的函数不是一个异步函数，**则必须调用 `context.done`** 来告知运行时你的函数是完整的。 如果缺少它，则执行将超时。
 
 `context.done` 方法允许将用户定义的错误，以及一个将覆盖 `context.bindings` 对象上的属性的属性包传回运行时。
 
@@ -272,7 +274,7 @@ HTTP 和 webhook 触发器以及 HTTP 输出绑定使用请求和响应对象来
 | Functions 版本 | Node.js 版本 | 
 |---|---|
 | 1.x | 6.11.2（运行时锁定） |
-| 2.x  |>=8.4.0，建议使用当前的 LTS 8.9.4。 使用 WEBSITE_NODE_DEFAULT_VERSION [应用设置](functions-how-to-use-azure-function-app-settings.md#settings)来设置版本。|
+| 2.x  | 活动 LTS 和当前的 Node.js 版本（推荐 8.11.1 和 10.6.0）。 使用 WEBSITE_NODE_DEFAULT_VERSION [应用设置](functions-how-to-use-azure-function-app-settings.md#settings)来设置版本。|
 
 可以通过打印任何函数的 `process.version` 来查看运行时正在使用的当前版本。
 

@@ -1,10 +1,10 @@
 ---
-title: 包含 Azure VPN 网关的高可用性配置概述 | Azure
+title: 包含 Azure VPN 网关的高可用性配置概述 | Microsoft 文档
 description: 本文概述使用 Azure VPN 网关的高可用性配置选项。
 services: vpn-gateway
 documentationcenter: na
-author: yushwang
-manager: rossort
+author: WenJason
+manager: digimobile
 editor: ''
 tags: ''
 ms.assetid: a8bfc955-de49-4172-95ac-5257e262d7ea
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/24/2016
-ms.date: 11/07/2016
-ms.author: v-dazen
-ms.openlocfilehash: 4691ab1101d3a54cb25b0433c8cbdbd3dd679654
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.date: 09/02/2018
+ms.author: v-jay
+ms.openlocfilehash: 48e2180771bf6c17df19b6c21a0a0065bf9133b4
+ms.sourcegitcommit: e17577aca6df1a41d3ec164f33189f0435c5e060
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
-ms.locfileid: "20186445"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43252755"
 ---
 # <a name="highly-available-cross-premises-and-vnet-to-vnet-connectivity"></a>高可用性跨界连接与 VNet 到 VNet 连接
 本文概述使用 Azure VPN 网关的跨界连接和 VNet 到 VNet 连接的高可用性配置选项。
@@ -45,7 +45,7 @@ ms.locfileid: "20186445"
 
 此配置提供多个活动隧道用于从同一个 Azure VPN 网关连接到同一位置中的本地设备。 此配置有一些要求和限制：
 
-1. 需要创建从 VPN 设备到 Azure 的多个 S2S VPN 连接。 从同一个本地网络的多个 VPN 设备连接到 Azure 时，需要为每个 VPN 设备创建一个本地网络网关，以及一个从 Azure VPN 网关到本地网络网关的连接。
+1. 需要创建从 VPN 设备到 Azure 的多个 S2S VPN 连接。 将多个 VPN 设备从同一本地网络连接到 Azure 时，需要为每个 VPN 设备创建一个本地网络网关，以及一个从 Azure VPN 网关到每个本地网络网关的连接。
 2. 对应于 VPN 设备的本地网络网关在“GatewayIpAddress”属性中必须有唯一的公共 IP 地址。
 3. 此配置需要 BGP。 必须在“BgpPeerIpAddress”属性中为代表 VPN 设备的每个本地网络网关指定唯一的 BGP 对等 IP 地址。
 4. 每个本地网络网关中的 AddressPrefix 属性字段不能重叠。 应在 AddressPrefix 字段中指定 /32 CIDR 格式的“BgpPeerIpAddress”，例如 10.200.200.254/32。
@@ -55,7 +55,7 @@ ms.locfileid: "20186445"
 在此配置中，Azure VPN 网关仍处于主动-待机模式，因此，仍会发生 [上述](#activestandby)故障转移行为和短暂中断。 但是，这种设置可针对本地网络和 VPN 设备故障或中断提供保护。
 
 ### <a name="active-active-azure-vpn-gateway"></a>主动-主动 Azure VPN 网关
-现在，可以在主动-主动配置中创建一个 Azure VPN 网关，其中的两个网关 VM 实例将与本地 VPN 设备建立 S2S VPN 隧道，如下图所示：
+现在，可以在主动-主动配置中创建一个 Azure VPN 网关，其中的两个网关 VM 实例与本地 VPN 设备建立 S2S VPN 隧道，如下图所示：
 
 ![主动-主动](./media/vpn-gateway-highlyavailable/active-active.png)
 
@@ -63,7 +63,7 @@ ms.locfileid: "20186445"
 
 由于 Azure 网关实例采用主动-主动配置，因此，从 Azure 虚拟网络到本地网络的流量同时通过这两条隧道路由，即使本地 VPN 设备优先选择其中一个隧道，也是如此。 请注意，除非其中一个实例发生维护事件，否则相同的 TCP 或 UDP 流量始终会遍历相同的隧道或路径。
 
-当一个网关实例发生计划内维护或计划外事件时，从该实例到本地 VPN 设备的 IPsec 隧道将会断开。 VPN 设备上的对应路由应会自动删除或撤消，以便将流量切换到其他活动 IPsec 隧道。 在 Azure 端，将自动从受影响的实例切换到活动实例。
+当一个网关实例发生计划内维护或计划外事件时，从该实例到本地 VPN 设备的 IPsec 隧道会断开。 VPN 设备上的对应路由应会自动删除或撤消，以便将流量切换到其他活动 IPsec 隧道。 在 Azure 端，自动从受影响的实例切换到活动实例。
 
 ### <a name="dual-redundancy-active-active-vpn-gateways-for-both-azure-and-on-premises-networks"></a>双重冗余：Azure 和本地网络的主动-主动 VPN 网关
 最可靠的选项是结合网络和 Azure 上的主动-主动网关，如下图所示。
@@ -85,3 +85,4 @@ ms.locfileid: "20186445"
 
 ## <a name="next-steps"></a>后续步骤
 有关配置主动-主动跨界连接和 VNet 到 VNet 连接的步骤，请参阅 [Configuring Active-Active VPN Gateways for Cross-Premises and VNet-to-VNet Connections](vpn-gateway-activeactive-rm-powershell.md)（为跨界连接和 VNet 到 VNet 连接配置主动-主动 VPN 网关）。
+

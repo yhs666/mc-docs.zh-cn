@@ -8,15 +8,15 @@ ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-origin.date: 06/20/2018
-ms.date: 08/13/2018
+origin.date: 08/16/2018
+ms.date: 09/03/2018
 ms.author: v-yeche
-ms.openlocfilehash: e2aa4156b3fc5eef6b1f74b93a37ee790e5d11a9
-ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
+ms.openlocfilehash: 66b437fb454481c01a96e20c76e1fd052617e64a
+ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41703918"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43164670"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>用于 SQL API 的 Azure Cosmos DB Async Java SDK：发行说明和资源
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ SQL API Async Java SDK 与 SQL API Java SDK 的区别在于，前者通过支持
 
 <tr><td>**SDK 下载**</td><td>[Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb)</td></tr>
 
-<tr><td>**API 文档**</td><td>[Java API 参考文档](https://docs.azure.cn/java/api/cosmosdb/client/async?view=azure-java-stable)</td></tr>
+<tr><td>**API 文档**</td><td>[Java API 参考文档](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb.rx._async_document_client?view=azure-java-stable)</td></tr>
 
 <tr><td>**参与 SDK**</td><td>[GitHub](https://github.com/Azure/azure-cosmosdb-java)</td></tr>
 
@@ -61,4 +61,4 @@ SQL API Async Java SDK 与 SQL API Java SDK 的区别在于，前者通过支持
 
 ## <a name="see-also"></a>另请参阅
 若要了解有关 Cosmos DB 的详细信息，请参阅 [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) 服务页。
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update -->

@@ -3,7 +3,7 @@ title: 开始在 .NET 中使用 Azure 中继混合连接 HTTP 请求
 description: 使用 .NET 为 Azure 中继混合连接 HTTP 请求编写 C# 控制台应用程序。
 services: service-bus-relay
 documentationcenter: .net
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: d1386900-b942-4abf-acfc-38d2ef826253
@@ -12,15 +12,15 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-origin.date: 12/15/2017
-ms.date: 06/04/2018
+origin.date: 08/16/2018
+ms.date: 09/10/2018
 ms.author: v-yiso
-ms.openlocfilehash: d810ad37907d9ae4817e15afedf9de59e0b63d6d
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: e1f906f4ccecdd8328946fcba039ee08acc1d6b5
+ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939378"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43328472"
 ---
 # <a name="get-started-with-relay-hybrid-connections-http-requests-in-net"></a>开始在 .NET 中使用中继混合连接 HTTP 请求
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]

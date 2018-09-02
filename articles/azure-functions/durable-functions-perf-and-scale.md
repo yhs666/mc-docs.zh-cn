@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 04/25/2018
-ms.date: 07/24/2018
+ms.date: 08/31/2018
 ms.author: v-junlch
-ms.openlocfilehash: fd40e829ac23bc4d49cfb77821fc07cc364e3d55
-ms.sourcegitcommit: ba07d76f8394b5dad782fd983718a8ba49a9deb2
+ms.openlocfilehash: f3b6c8cda1fd03908bfc06757f5b53a7c13997e1
+ms.sourcegitcommit: b2c9bc0ed28e73e8c43aa2041c6d875361833681
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39220226"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43330813"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Durable Functions 中的性能和缩放 (Azure Functions)
 
@@ -177,5 +177,4 @@ Azure Functions 支持在单个应用实例中并发执行多个函数。 这种
 > [!div class="nextstepaction"]
 > [安装 Durable Functions 扩展和示例](durable-functions-install.md)
 
-
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 07/12/2018
-ms.date: 08/13/2018
+ms.date: 09/03/2018
 ms.author: v-yeche
-ms.openlocfilehash: 414d52c4985ee2e5f652ad4b5e31dd8369f2812a
-ms.sourcegitcommit: 543a18c71c0910a5b9878a2d2668f317468906f2
+ms.openlocfilehash: d4c6f04520b50b50ddf9b4af0577107fa8b26a7e
+ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39625544"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43164805"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>使用 Resource Manager 身份验证 API 访问订阅
 ## <a name="introduction"></a>简介
@@ -74,19 +74,19 @@ Web 应用：
 
 以下示例演示如何使用 Azure PowerShell 注册应用。 必须拥有最新版本（2016 年 8 月）Azure PowerShell 才能正常运行此命令。
 
-```Powershell
+```PowerShell
 $app = New-AzureRmADApplication -DisplayName "{app name}" -HomePage "https://{your domain}/{app name}" -IdentifierUris "https://{your domain}/{app name}" -Password "{your password}" -AvailableToOtherTenants $true
 ```
 
 若要以 AD 应用程序登录，需要使用应用程序的 ID 和密码。 若要查看前一命令返回的应用程序 ID，请使用：
 
-```Powershell
+```PowerShell
 $app.ApplicationId
 ```
 
 以下示例演示如何使用 Azure CLI 注册应用。
 
-```cli
+```azurecli
 az ad app create --display-name {app name} --homepage https://{your domain}/{app name} --identifier-uris https://{your domain}/{app name} --password {your password} --available-to-other-tenants true
 ```
 
@@ -370,4 +370,4 @@ ASP.net MVC 示例应用的 [RevokeRoleFromServicePrincipalOnSubscription 方法
 
 大功告成 - 用户现在可以使用应用程序来轻松连接和管理其 Azure 订阅。
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties, wording update, update link -->

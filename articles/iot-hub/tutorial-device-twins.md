@@ -12,15 +12,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 05/14/2018
-ms.date: 08/06/2018
+ms.date: 09/10/2018
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: 891d8f42d612968dfa693ce3ca54b9f99e8ec09a
-ms.sourcegitcommit: d4092cf6aba0d949bf612093c76f964c2bdfd0ba
+ms.openlocfilehash: 054e85d7f762595aa79bdfbd83be4bb47e2b882d
+ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39306567"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43328391"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
 
@@ -73,7 +73,7 @@ az extension add --name azure-cli-iot-ext
 az group create --name tutorial-iot-hub-rg --location $location
 
 # Create your free-tier IoT Hub. You can only have one free IoT Hub per subscription:
-az iot hub create --name $hubname --location $location --resource-group tutorial-iot-hub-rg --sku S1
+az iot hub create --name $hubname --location $location --resource-group tutorial-iot-hub-rg --sku F1
 
 # Make a note of the service connection string, you need it later:
 az iot hub show-connection-string --hub-name $hubname -o table

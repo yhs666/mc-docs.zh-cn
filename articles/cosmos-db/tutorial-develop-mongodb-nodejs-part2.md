@@ -10,15 +10,15 @@ ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
 origin.date: 09/05/2017
-ms.date: 07/02/2018
+ms.date: 09/03/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: d4dbecca200d3cc95dfba5b6038a2d72f6b7672b
-ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
+ms.openlocfilehash: c6f8a88666569e308d2e33d4152a4ff2feaa73db
+ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37070331"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43164664"
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-2-create-a-nodejs-express-app-with-the-angular-cli"></a>通过 Angular 和 Azure Cosmos DB 创建 MongoDB 应用 - 第 2 部分：通过 Angular CLI 创建 Node.js Express 应用 
 
@@ -35,8 +35,7 @@ ms.locfileid: "37070331"
 <!-- Not Available ## Video walkthrough-->
 ## <a name="prerequisites"></a>先决条件
 
-<!-- Not Available Before starting this part of the tutorial, ensure you've watched the [introduction video](tutorial-develop-mongodb-nodejs.md).-->
-<!-- Not Available tutorial-develop-mongodb-nodejs.md due to it is all the walkthrough of www.youtub.com-->
+在开始教程的此部分之前，请确保已观看[简介视频](tutorial-develop-mongodb-nodejs.md)。
 
 本教程还需要： 
 * [Node.js](https://nodejs.org/) 8.4.0 或更高版本。
@@ -117,10 +116,10 @@ ms.locfileid: "37070331"
 
    app.use(bodyParser.json());
    app.use(bodyParser.urlencoded({ extended: false }));
-   app.use(express.static(path.join(root, 'dist')));
+   app.use(express.static(path.join(root, 'dist/angular-cosmosdb')));
    app.use('/api', routes);
    app.get('*', (req, res) => {
-     res.sendFile('dist/index.html', {root});
+     res.sendFile('dist/angular-cosmosdb/index.html', {root});
    });
 
    app.listen(port, () => console.log(`API running on localhost:${port}`));

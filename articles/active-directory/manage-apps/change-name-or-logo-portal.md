@@ -11,18 +11,18 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 08/28/2017
-ms.date: 07/04/2018
+ms.date: 08/29/2018
 ms.author: v-junlch
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: 4b1ada99a4172a210f61e840632df4a3f2a348ba
-ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
+ms.openlocfilehash: fda2abb5529d1ac73b0c44f98a63c38887d9facd
+ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37800574"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43164710"
 ---
 # <a name="change-the-name-or-logo-of-an-enterprise-app-in-azure-active-directory"></a>在 Azure Active Directory 中更改企业应用的名称或徽标
 在 Azure Active Directory (Azure AD) 中更改自定义企业应用程序的名称或徽标很容易。 必须具有适当的权限才能进行这些更改，并且必须是自定义应用的创建者。
@@ -49,3 +49,4 @@ ms.locfileid: "37800574"
 - [删除企业应用的用户或组分配](remove-user-or-group-access-portal.md)
 - [禁用企业应用的用户登录](disable-user-sign-in-portal.md)
 
+<!-- Update_Description: update metedata properties -->

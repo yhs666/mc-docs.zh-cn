@@ -1,5 +1,5 @@
 ---
-title: SSMS：在 Azure SQL 数据库中进行连接和数据查询 | Azure
+title: SSMS：在 Azure SQL 数据库中进行连接和数据查询 | Microsoft Docs
 description: 了解如何通过使用 SQL Server Management Studio (SSMS) 连接到在 Azure 上的 SQL 数据库。 然后，通过运行 Transact-SQL (T-SQL) 语句来查询和编辑数据。
 keywords: 连接到 sql 数据库, sql server management studio
 services: sql-database
@@ -8,15 +8,15 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: mvc,DBs & servers
 ms.topic: quickstart
-origin.date: 04/01/2018
-ms.date: 04/17/2018
+origin.date: 08/01/2018
+ms.date: 09/02/2018
 ms.author: v-nany
-ms.openlocfilehash: 08620c764931ab5a33dc02559cb3a03d4d279ead
-ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
+ms.openlocfilehash: 5d37e8ca6d3e068b95cf384f4c0c2728d6d1ccef
+ms.sourcegitcommit: 2601e68563bffe148e70cce2bf1dcbe837a40f80
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39486582"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43249882"
 ---
 # <a name="azure-sql-database-use-sql-server-management-studio-to-connect-and-query-data"></a>Azure SQL 数据库：使用 SQL Server Management Studio 进行连接和数据查询
 
@@ -150,7 +150,6 @@ ms.locfileid: "39486582"
 
 ## <a name="next-steps"></a>后续步骤
 
-- 若要了解如何使用 Transact-SQL 创建和管理服务器和数据库，请参阅[了解 Azure SQL 数据库服务器和数据库](sql-database-servers-databases.md)。
 - 有关 SSMS 的信息，请参阅[使用 SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx)。
 - 若要使用 Azure 门户进行连接和查询，请参阅[使用 Azure 门户 SQL 查询编辑器进行连接和查询](sql-database-connect-query-portal.md)。
 - 若要使用 Visual Studio Code 进行连接和查询，请参阅[使用 Visual Studio Code 进行连接和查询](sql-database-connect-query-vscode.md)。

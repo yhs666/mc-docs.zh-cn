@@ -1,26 +1,20 @@
 ---
 title: 了解 Azure IoT 中心设备孪生
 description: 开发人员指南 - 使用设备孪生在 IoT 中心与设备之间同步状态和配置数据
-services: iot-hub
-documentationcenter: .net
 author: fsautomata
-manager: timlt
-editor: ''
-ms.assetid: 8a3da072-a5bf-46e5-8de4-24cdbb2a03fa
+manager: ''
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 origin.date: 01/29/2018
-ms.date: 06/11/2018
+ms.date: 09/10/2018
 ms.author: v-yiso
-ms.openlocfilehash: 7dcf4d647620fdab7a508e41be7158f76af3e5d5
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 49f4797488578d064a183919f3bf8350ee1db163
+ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695042"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43328945"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>了解并在 IoT 中心内使用设备孪生
 
@@ -381,7 +375,7 @@ IoT 中心开发人员指南中的其他参考主题包括：
 [lnk-devguide-directmethods]: ./iot-hub-devguide-direct-methods.md
 [lnk-devguide-jobs]: ./iot-hub-devguide-jobs.md
 [lnk-twin-tutorial]: ./iot-hub-node-node-twin-getstarted.md
-[lnk-twin-properties]: ./iot-hub-node-node-twin-how-to-configure.md
+[lnk-twin-properties]: tutorial-device-twins.md
 [lnk-twin-metadata]: ./iot-hub-devguide-device-twins.md#device-twin-metadata
 [lnk-concurrency]: ./iot-hub-devguide-device-twins.md#optimistic-concurrency
 [lnk-reconnection]: ./iot-hub-devguide-device-twins.md#device-reconnection-flow

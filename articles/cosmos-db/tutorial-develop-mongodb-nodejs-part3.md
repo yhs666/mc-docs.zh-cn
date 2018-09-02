@@ -10,15 +10,15 @@ ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
 origin.date: 09/05/2017
-ms.date: 07/02/2018
+ms.date: 09/03/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 17460b7eda07d73d66f32e1b1740fa2e296c52ac
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 9bad9d21750988a3bb4c8af2da29eff174fd6520
+ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939003"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43164971"
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-3-build-the-ui-with-angular"></a>通过 Angular 和 Azure Cosmos DB 创建 MongoDB 应用 - 第 3 部分：通过 Angular 生成 UI
 
@@ -111,8 +111,8 @@ ms.locfileid: "38939003"
 
     @Component({
       selector: 'app-heroes',
-      templateUrl: './heroes.component.html'
-        styleUrls: ['./heroes.component.scss']
+      templateUrl: './heroes.component.html',
+      styleUrls: ['./heroes.component.scss']
     })
     export class HeroesComponent implements OnInit {
       addingHero = false;
@@ -196,7 +196,7 @@ ms.locfileid: "38939003"
 2. 将以下代码复制到 styles.scss 文件中，替换文件的现有内容。
 
     ```css
-    /* You can add global styles to this file, and also import other style files */
+    /* You can add multiple-region styles to this file, and also import other style files */
 
     * {
       font-family: Arial;

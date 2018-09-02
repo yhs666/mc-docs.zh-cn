@@ -1,48 +1,42 @@
 ---
 title: 使用 Azure PowerShell 配置文件上传 | Azure
 description: 如何使用 Azure PowerShell cmdlet 配置 IoT 中心，以便从连接的设备上传文件。 包括有关配置目标 Azure 存储帐户的信息。
-services: iot-hub
-documentationcenter: ''
 author: dominicbetts
-manager: timlt
-editor: ''
-ms.assetid: 915f1597-272d-4fd4-8c5b-a0ccb1df0d91
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 origin.date: 08/08/2017
 ms.author: v-yiso
-ms.date: 09/25/2017
-ms.openlocfilehash: 6fb87f1c3d18e841da92fe2d952c6829e721289a
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.date: 09/10/2018
+ms.openlocfilehash: a0e1e8ec99ac0afef3376d9c7f46106fe8480cf6
+ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
-ms.locfileid: "26410438"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43328953"
 ---
 # <a name="configure-iot-hub-file-uploads-using-powershell"></a>使用 PowerShell 配置 IoT 中心文件上传
 
 [!INCLUDE [iot-hub-file-upload-selector](../../includes/iot-hub-file-upload-selector.md)]
 
-要使用 [IoT 中心的文件上传功能][lnk-upload]，必须先将 Azure 存储帐户与 IoT 中心关联。 可以使用现有存储帐户，也可以创建新的存储帐户。
+要使用 [IoT 中心的文件上传功能](iot-hub-devguide-file-upload.md)，必须先将 Azure 存储帐户与 IoT 中心关联。 可以使用现有存储帐户，也可以创建新的存储帐户。
 
-若要完成本教程，需要以下各项：
+要完成本教程，需要以下各项：
 
 * 有效的 Azure 帐户。 如果没有帐户，可以创建一个[试用帐户][lnk-free-trial]，只需几分钟即可完成。
-* [Azure PowerShell cmdlet][lnk-powershell-install]。
-* Azure IoT 中心。 如果没有 IoT 中心，可以使用 [New-AzureRmIoTHub cmdlet][lnk-powershell-iothub] 创建一个，或使用门户[创建 IoT 中心][lnk-portal-hub]。
-* 一个 Azure 存储帐户。 如果没有 Azure 存储帐户，可以使用 [Azure 存储 PowerShell cmdlet][lnk-powershell-storage] 创建一个，或使用门户[创建存储帐户][lnk-portal-storage]。
+* [Azure PowerShell cmdlet](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。
+* Azure IoT 中心。 如果没有 IoT 中心，可以使用 [New-AzureRmIoTHub cmdlet](https://docs.microsoft.com/powershell/module/azurerm.iothub/new-azurermiothub) 创建一个，或使用门户[创建 IoT 中心](iot-hub-create-through-portal.md)。
+
+* Azure 存储帐户。 如果没有 Azure 存储帐户，可以使用 [Azure 存储 PowerShell cmdlet](https://docs.microsoft.com/powershell/module/azurerm.storage/) 创建一个，或使用门户[创建存储帐户](../storage/common/storage-create-storage-account.md)
 
 ## <a name="sign-in-and-set-your-azure-account"></a>登录并设置 Azure 帐户
 
 登录到 Azure 帐户，并选择订阅。
 
-1. 在 PowerShell 提示符下，运行 **Login-AzureRmAccount** cmdlet：
+1. 在 PowerShell 提示符下，运行 Connect-AzureRmAccount cmdlet：
 
     ```powershell
-    Login-AzureRmAccount -Environment $(Get-AzureRmEnvironment -Name AzureChinaCloud)
+    Connect-AzureRmAccount -Environment AzureChinaCloud
     ```
 
 1. 如果有多个 Azure 订阅，则访问 Azure 即有权访问与凭据关联的所有 Azure 订阅。 使用以下命令，列出可供使用的 Azure 订阅：
@@ -97,7 +91,7 @@ Get-AzureRmStorageAccountKey `
 
 ## <a name="configure-your-iot-hub"></a>配置 IoT 中心
 
-现在可以配置 IoT 中心启用[文件上传功能][lnk-upload]使用存储帐户详细信息。
+现在可以使用存储帐户详细信息配置 IoT 中心以[将文件上传到 IoT 中心](iot-hub-devguide-file-upload.md)。
 
 配置需要以下值：
 
@@ -127,17 +121,17 @@ Set-AzureRmIotHub `
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 IoT 中心文件上传功能的详细信息，请参阅[从设备上传文件][lnk-upload]。
+有关 IoT 中心文件上传功能的详细信息，请参阅[从设备上传文件](iot-hub-devguide-file-upload.md)。
 
 若要了解有关如何管理 Azure IoT 中心的详细信息，请参阅以下链接：
 
-* [批量管理 IoT 设备][lnk-bulk]
-* [IoT 中心指标][lnk-metrics]
-* [操作监视][lnk-monitor]
+* [批量管理 IoT 设备](iot-hub-bulk-identity-mgmt.md)
+* [IoT 中心指标](iot-hub-metrics.md)
+* [操作监视](iot-hub-operations-monitoring.md)
 
 若要进一步探索 IoT 中心的功能，请参阅：
 
-* [IoT 中心开发人员指南][lnk-devguide]
+* [IoT 中心开发人员指南](iot-hub-devguide.md)
 * [使用 Azure IoT Edge 将 AI 部署到边缘设备][lnk-iotedge]
 * [从根本上保护 IoT 解决方案][lnk-securing]
 

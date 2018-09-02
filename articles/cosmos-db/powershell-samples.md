@@ -10,14 +10,14 @@ ms.custom: mvc
 ms.devlang: na
 ms.topic: sample
 origin.date: 10/16/2017
-ms.date: 08/13/2018
+ms.date: 09/03/2018
 ms.author: v-yeche
-ms.openlocfilehash: ff2f9e4efd429f4d8166ca4b8c1967ebd198336a
-ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
+ms.openlocfilehash: e10f966a4cea05b71eb0fc09e7b3f5773f7df8c7
+ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41703963"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43164781"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db"></a>适用于 Azure Cosmos DB 的 Azure PowerShell 示例
 
@@ -41,4 +41,4 @@ ms.locfileid: "41703963"
 <!-- Notice: 全球范围 to 多个数据中心范围 [将 Azure Cosmos DB 帐户复制到多个区域中并配置故障转移优先级] -->
 
 <!--Not Available for external TOC file ?toc=%2fpowershell%2fmodule%2ftoc.json -->
-<!--Update_Description: wording update, update meta properties -->
+<!--Update_Description: update meta properties -->

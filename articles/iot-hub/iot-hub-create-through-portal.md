@@ -1,26 +1,19 @@
 ---
 title: 使用 Azure 门户创建 IoT 中心 | Azure
 description: 如何通过 Azure 门户创建、管理和删除 Azure IoT 中心。 包括有关定价层、缩放、安全性和消息传递配置的信息。
-services: iot-hub
-documentationcenter: ''
 author: dominicbetts
-manager: timlt
-editor: ''
-ms.assetid: 0909cd2b-4c1e-49e0-b68a-75532caf0a6a
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 origin.date: 04/01/2018
 ms.author: v-yiso
-ms.date: 05/07/2018
-ms.openlocfilehash: 59f6e4c95e07394675fa8aecd84173966ee08807
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.date: 09/10/2018
+ms.openlocfilehash: 8af1e4ad419e328f1fb19374af99f91d142f4b24
+ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121467"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43328608"
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>使用 Azure 门户创建 IoT 中心
 
@@ -36,15 +29,15 @@ ms.locfileid: "32121467"
 可以在门户中的以下位置找到 IoT 中心服务：
 
 * 选择“+ 新建”，然后选择“物联网”。
-* 在 Marketplace 中选择“物联网”。
+* 在市场中选择“物联网”。
 
 ## <a name="create-an-iot-hub"></a>创建 IoT 中心
 可以使用以下方法创建 IoT 中心：
 
-* “+ 新建”选项可以打开下方屏幕截图中显示的边栏选项卡。 通过此方法和通过应用商店创建 IoT 中心的步骤完全相同。
-* 在 Marketplace 中选择“创建”可打开下方屏幕截图中显示的边栏选项卡。
+* “+ 新建”选项可以打开下方屏幕截图中显示的边栏选项卡。 通过此方法和通过市场创建 IoT 中心的步骤完全相同。
+* 在市场中选择“创建”可打开下方屏幕截图中显示的边栏选项卡。
 
-以下部分将介绍创建 IoT 中心所需的几个步骤：
+以下各部分介绍了创建 IoT 中心所需的几个步骤。
 
 ### <a name="choose-the-name-of-the-iot-hub"></a>选择 IoT 中心的名称
 
@@ -64,11 +57,11 @@ ms.locfileid: "32121467"
 
 ### <a name="device-to-cloud-partitions-and-resource-group"></a>设备到云分区和资源组
 
-可以更改 IoT 中心的分区数目。 分区的默认数量是 4，但可以从下拉列表中选择一个不同的数字。
+可以更改 IoT 中心的分区数目。 默认分区数目为 4，但可以从下拉列表中选择一个不同的数目。
 
-不需要显式创建空资源组。 在创建资源时，可以选择创建新的资源组，或使用现有的资源组。
+不需要显式创建空资源组。 在创建资源时，可以选择创建新的资源组，也可以使用现有的资源组。
 
-![][5]
+![显示了在 Azure 门户中创建中心的屏幕截图](./media/iot-hub-create-through-portal/location1.png)
 
 ### <a name="choose-subscription"></a>选择订阅
 
@@ -87,7 +80,7 @@ Azure IoT 中心自动列出用户帐户所链接的 Azure 订阅。 可以选�
 ## <a name="change-the-settings-of-the-iot-hub"></a>更改 IoT 中心的设置
 可以在通过“IoT 中心”边栏选项卡创建 IoT 中心后更改现有 IoT 中心的设置。
 
-![][8]
+![显示了 IoT 中心设置的屏幕截图](./media/iot-hub-create-through-portal/portal-settings.png)
 
 **共享访问策略**：这些策略定义设备与服务连接到 IoT 中心所需的权限。 可以单击“常规”下面的“共享访问策略”来访问这些策略。 在此边栏选项卡中，可以修改现有的策略或添加新策略。
 
@@ -100,12 +93,12 @@ Azure IoT 中心自动列出用户帐户所链接的 Azure 订阅。 可以选�
 
 * 单击“创建”将此新建策略添加到现有列表。
 
-![][10]
+   ![显示了添加共享访问策略的屏幕截图](./media/iot-hub-create-through-portal/shared-access-policies.png)
 
 ## <a name="endpoints"></a>终结点
 单击“终结点”  可显示要修改的 IoT 中心的终结点列表。 有两种类型的终结点：已内置到 IoT 中心的终结点，以及在创建后添加到 IoT 中心的终结点。
 
-![][11]
+![显示了添加终结点的屏幕截图](./media/iot-hub-create-through-portal/messaging-settings.png)
 
 ### <a name="built-in-endpoints"></a>内置终结点
 有两个内置终结点：**云到设备反馈**和**事件**。
@@ -129,18 +122,18 @@ Azure IoT 中心自动列出用户帐户所链接的 Azure 订阅。 可以选�
 ### <a name="custom-endpoints"></a>自定义终结点
 可通过门户将自定义终结点添加到 IoT 中心。 在“终结点”边栏选项卡中，单击顶部的“添加”，打开“添加终结点”边栏选项卡。 输入所需的信息，然后单击“确定”。  。
 
-![][13]
+![显示了创建自定义终结点的屏幕截图](./media/iot-hub-create-through-portal/endpoint-creation.png)
 
-有关自定义终结点的详细信息，请阅读 [参考 - IoT 中心终结点][lnk-devguide-endpoints]。
+有关自定义终结点的详细信息，请阅读[参考 - IoT 中心终结点](iot-hub-devguide-endpoints.md)。
 
 ## <a name="routes"></a>路由
 单击“路由”  ，管理 IoT 中心发送设备到云消息的方式。
 
-![][14]
+![显示了添加新路由的屏幕截图](./media/iot-hub-create-through-portal/routes-list.png)
 
 单击“路由”边栏选项卡顶部的“添加”，输入所需信息，然后单击“确定”，即可将路由添加到 IoT 中心。 然后路由就会在主“路由”边栏选项卡中列出。 在路由列表中单击路由即可对其进行编辑。 要启用路由，请在路由列表中单击它，然后将“启用”切换按钮设置为“关”。 若要保存更改，单击边栏选项卡底部的“确定”。
 
-![][15]
+![显示了编辑新路由规则的屏幕截图](./media/iot-hub-create-through-portal/route-edit.png)
 
 ## <a name="delete-the-iot-hub"></a>删除 IoT 中心
 
@@ -149,13 +142,13 @@ Azure IoT 中心自动列出用户帐户所链接的 Azure 订阅。 可以选�
 ## <a name="next-steps"></a>后续步骤
 若要了解有关如何管理 Azure IoT 中心的详细信息，请参阅以下链接：
 
-* [批量管理 IoT 设备][lnk-bulk]
-* [IoT 中心指标][lnk-metrics]
-* [操作监视][lnk-monitor]
+* [批量管理 IoT 设备](iot-hub-bulk-identity-mgmt.md)
+* [IoT 中心指标](iot-hub-metrics.md)
+* [操作监视](iot-hub-operations-monitoring.md)
 
 若要进一步探索 IoT 中心的功能，请参阅：
 
-* [IoT 中心开发人员指南][lnk-devguide]
+* [IoT 中心开发人员指南](iot-hub-devguide.md)
 * [使用 Azure IoT Edge 将 AI 部署到边缘设备][lnk-iotedge]
 * [从根本上保护 IoT 解决方案][lnk-securing]
 

@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 03/19/2018
-ms.date: 07/24/2018
+ms.date: 08/31/2018
 ms.author: v-junlch
-ms.openlocfilehash: 62e805f1ee338c3c0eecb26426213c011af167eb
-ms.sourcegitcommit: ba07d76f8394b5dad782fd983718a8ba49a9deb2
+ms.openlocfilehash: 26dfa9edb43a884cba079292f37972956e5fdf37
+ms.sourcegitcommit: b2c9bc0ed28e73e8c43aa2041c6d875361833681
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39220191"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43330736"
 ---
 # <a name="install-the-durable-functions-extension-and-samples-azure-functions"></a>安装 Durable Functions 扩展和示例 (Azure Functions)
 
@@ -147,14 +147,14 @@ Visual Studio Code 提供一种涵盖所有主要平台（Windows、macOS 和 Li
 
 ## <a name="azure-portal"></a>Azure 门户
 
-如果你愿意，可以使用 Azure 门户进行 Durable Functions 开发。
+如果你愿意，可以使用 [Azure 门户](https://portal.azure.cn)进行 Durable Functions 开发。
 
    > [!NOTE]
    > JavaScript 中的 Durable Functions 尚不可在门户中使用。
 
 ### <a name="create-an-orchestrator-function"></a>创建一个业务流程协调程序函数
 
-1. 在 [functions.azure.com](https://portal.azure.cn) 上创建一个新的函数应用。
+1. 在门户中创建一个新的函数应用，如 [Functions 快速入门文章](functions-create-first-azure-function.md#create-a-function-app)中所示。
 
 2. 对该函数应用进行配置以[使用 2.0 运行时版本](set-runtime-version.md)。
 

@@ -9,15 +9,15 @@ ms.service: azure-resource-manager
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-origin.date: 06/12/2018
-ms.date: 07/09/2018
+origin.date: 07/16/2018
+ms.date: 09/03/2018
 ms.author: v-yeche
-ms.openlocfilehash: f3a9a5e554a1603b66830db93bb30baff33f1ba9
-ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
+ms.openlocfilehash: 8bfddd8df8e5e4801c6ae7e02eddf121f6cf6ddc
+ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37405380"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43164636"
 ---
 # <a name="azure-resource-manager-documentation"></a>Azure Resource Manager 文档
 

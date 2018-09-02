@@ -1,27 +1,21 @@
 ---
 title: 了解 Azure IoT 中心直接方法
 description: 开发人员指南 - 使用直接方法从服务应用调用设备上的代码。
-services: iot-hub
-documentationcenter: .net
 author: nberdy
-manager: timlt
-editor: ''
-ms.assetid: 9f0535f1-02e6-467a-9fc4-c0950702102d
+manager: briz
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-origin.date: 06/01/2018
+services: iot-hub
+ms.topic: conceptual
+origin.date: 07/17/2018
 ms.custom: H1Hack27Feb2017
-ms.date: 07/09/2018
+ms.date: 09/10/2018
 ms.author: v-yiso
-ms.openlocfilehash: 727851222be5206ed0c982264ea2dae945ef75a2
-ms.sourcegitcommit: 039d75a641edc2edd13a9371251051c20fea2bb7
+ms.openlocfilehash: 6e0e4698bc1b71bbe046a1a0fdc1002f4c1a211e
+ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103389"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43328592"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>了解和调用 IoT 中心的直接方法
 借助 IoT 中心，用户可以从云中对设备调用直接方法。 直接方法表示与设备进行的请求-答复式交互，类似于会立即成功或失败（在用户指定的超时时间后）的 HTTP 调用。 此方法用于即时操作过程不同的情况，即时操作的不同取决于设备能否响应。
@@ -54,7 +48,12 @@ ms.locfileid: "37103389"
 ### <a name="method-invocation"></a>方法调用
 在设备上直接调用方法属于 HTTPS 调用，其中包括：
 
-* URI，特定于设备 (`{iot hub}/twins/{device id}/methods/`)
+* 特定于设备的请求 URI 以及 [API 版本](https://docs.microsoft.com/en-us/rest/api/iothub/service/invokedevicemethod)：
+
+    ```http
+    https://fully-qualified-iothubname.azure-devices.cn/twins/{deviceId}/methods?api-version=2018-06-30
+    ```
+
 * POST 方法
 * 标头，包含身份验证、请求 ID、内容类型和内容编码
 * 透明的 JSON *正文* ，采用以下格式：
@@ -71,6 +70,25 @@ ms.locfileid: "37103389"
     ```
 
 超时以秒为单位。 如果未设置超时，则默认为 30 秒。
+
+#### <a name="example"></a>示例
+
+有关使用 `curl` 的精简示例，请参阅下方。 
+
+```bash
+curl -X POST \
+  https://iothubname.azure-devices.cn/twins/myfirstdevice/methods?api-version=2018-06-30 \
+  -H 'Authorization: SharedAccessSignature sr=iothubname.azure-devices.cn&sig=x&se=x&skn=iothubowner' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "methodName": "reboot",
+    "responseTimeoutInSeconds": 200,
+    "payload": {
+        "input1": "someInput",
+        "input2": "anotherInput"
+    }
+}'
+```
 
 ### <a name="response"></a>响应
 由后端应用接收响应，其中包括：
@@ -161,6 +179,6 @@ IoT 中心开发人员指南中的其他参考主题包括：
 [lnk-devguide-mqtt]: ./iot-hub-mqtt-support.md
 
 [lnk-devguide-jobs]: ./iot-hub-devguide-jobs.md
-[lnk-methods-tutorial]: ./iot-hub-node-node-direct-methods.md
+[lnk-methods-tutorial]: quickstart-control-device-node.md
 [lnk-devguide-messages]: ./iot-hub-devguide-messaging.md
 [lnk-c2d-guidance]: ./iot-hub-devguide-c2d-guidance.md

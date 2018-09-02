@@ -1,24 +1,22 @@
 ---
 title: Azure IoT 中心简介
 description: 了解 Azure IoT 中心。 此 IoT 服务针对可缩放数据引入、设备管理和安全性而构建。
-services: iot-hub
-keywords: ''
 author: nberdy
 ms.author: v-yiso
 origin.date: 07/04/2018
-ms.date: 08/06/2018
+ms.date: 09/10/2018
 ms.topic: overview
 ms.custom: mvc
 ms.service: iot-hub
 documentationcenter: ''
 manager: timlt
 ms.devlang: na
-ms.openlocfilehash: c7f492f07ce8b8f1c71862ce864e1d9a6f282dd7
-ms.sourcegitcommit: d4092cf6aba0d949bf612093c76f964c2bdfd0ba
+ms.openlocfilehash: e01e92b7045b9d0930290fc51a8cdccaf1c9f0de
+ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39306610"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43328972"
 ---
 # <a name="what-is-azure-iot-hub"></a>Azure IoT 中心是什么？
 
@@ -30,7 +28,7 @@ IoT 中心的功能有助于生成可缩放且功能完整的 IoT 解决方案�
 
 ## <a name="scale-your-solution"></a>缩放解决方案
 
-IoT 中心可扩展为数百万个同时连接的设备，以及每秒数百万个事件以支持 IoT 工作负载。 IoT 中心提供多种服务级别，最大限度地满足你的缩放需求。 [了解详细信息](https://www.azure.cn/pricing/details/iot-hub/)。
+IoT 中心可扩展为数百万个同时连接的设备，以及每秒数百万个事件以支持 IoT 工作负载。 IoT 中心提供多种服务级别，最大限度地满足你的缩放需求。 若要了解详细信息，请参阅[定价页](https://www.azure.cn/pricing/details/iot-hub/)。
 
 ## <a name="secure-your-communications"></a>保护通信
 

@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 04/25/2018
-ms.date: 05/28/2018
+ms.date: 08/31/2018
 ms.author: v-junlch
-ms.openlocfilehash: 3fb1dad274c74478d2586d7dd2c48e6c2064924e
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: e78b1eea38b5e41aaa68a7253ad3649388ba3c59
+ms.sourcegitcommit: b2c9bc0ed28e73e8c43aa2041c6d875361833681
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34567337"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43330791"
 ---
 # <a name="disaster-recovery-and-geo-distribution"></a>灾难恢复和异地分发
 
@@ -51,7 +51,7 @@ ms.locfileid: "34567337"
 - 此方案考虑到了计算基础结构的中断，但存储帐户仍旧是函数应用的单一故障点。 如果出现存储中断，应用程序会遭遇停机。
 - 如果函数应用已故障转移，则延迟会增大，因为它会跨区域访问其存储帐户。
 - 由于网络出口流量方面的原因，从其他区域（不是函数应用所在的区域）访问存储服务会产生更高的成本。
-- 此方案依赖于流量管理器。 考虑到[流量管理器的工作原理](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works)，使用 Durable Function 的客户端应用程序可能在一段时间之后才需要再次从流量管理器查询函数应用地址。 
+- 此方案依赖于流量管理器。
 
 
 ## <a name="scenario-2---load-balanced-compute-with-regional-storage"></a>方案 2 - 使用区域存储进行负载均衡的计算
@@ -87,3 +87,4 @@ ms.locfileid: "34567337"
 
 详细了解如何[使用 RA-GRS 设计高度可用的应用程序](../storage/common/storage-designing-ha-apps-with-ragrs.md)
 
+<!-- Update_Description: link update -->

@@ -1,45 +1,40 @@
 ---
 title: 使用 Azure CLI (az.py) 配置到 IoT 中心的文件上传 | Azure
-description: 如何使用跨平台 Azure CLI 2.0 (az.py) 配置到 Azure IoT 中心的文件上传。
-services: iot-hub
-documentationcenter: ''
+description: 如何使用跨平台 Azure CLI 配置到 Azure IoT 中心的文件上传。
 author: dominicbetts
-manager: timlt
-editor: ''
-ms.assetid: 915f1597-272d-4fd4-8c5b-a0ccb1df0d91
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 origin.date: 08/08/2017
 ms.author: v-yiso
-ms.date: 12/18/2017
-ms.openlocfilehash: 9edb9b9cdbf667da7f1bb756d717089a1bd7de94
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.date: 09/10/2018
+ms.openlocfilehash: 7e6ca8c2ccf03701707d7fbf69df4aef4abdd4d9
+ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
-ms.locfileid: "26410544"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43329013"
 ---
 # <a name="configure-iot-hub-file-uploads-using-azure-cli"></a>使用 Azure CLI 配置 IoT 中心文件上传
 
 [!INCLUDE [iot-hub-file-upload-selector](../../includes/iot-hub-file-upload-selector.md)]
 
-若要使用 [IoT 中心的文件上传功能][lnk-upload]，必须先将 Azure 存储帐户与 IoT 中心关联。 可以使用现有存储帐户，也可以创建新的存储帐户。
+若要[从设备上传文件](iot-hub-devguide-file-upload.md)，必须先将 Azure 存储帐户与 IoT 中心关联。 可以使用现有存储帐户，也可以创建新的存储帐户。
 
-若要完成本教程，需要以下各项：
+要完成本教程，需要以下各项：
 
 * 有效的 Azure 帐户。 如果没有帐户，可以创建一个[试用帐户][lnk-free-trial]，只需几分钟即可完成。
-* [Azure CLI 2.0][lnk-CLI-install]。
-* Azure IoT 中心。 如果没有 IoT 中心，可以使用 `az iot hub create` [command][lnk-cli-create-iothub] 创建一个，或使用门户 [创建 IoT 中心][lnk-portal-hub]。
-* 一个 Azure 存储帐户。 如果没有 Azure 存储帐户，可以使用 [Azure CLI 2.0 - 管理存储帐户][lnk-manage-storage]创建一个，或使用门户[创建存储帐户][lnk-portal-storage]。
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)。
+
+* Azure IoT 中心。 如果没有 IoT 中心，可以使用 [`az iot hub create` 命令](https://docs.azure.cn/zh-cn/cli/iot/hub#az-iot-hub-create)创建一个，或[使用门户创建 IoT 中心](iot-hub-create-through-portal.md)。
+
+* 一个 Azure 存储帐户。 如果没有 Azure 存储帐户，可以使用 [Azure CLI - 管理存储帐户](../storage/common/storage-azure-cli.md#manage-storage-accounts)创建一个，或使用门户[创建存储帐户](../storage/common/storage-create-storage-account.md)。
 
 ## <a name="sign-in-and-set-your-azure-account"></a>登录并设置 Azure 帐户
 
 登录到 Azure 帐户，并选择订阅。
 
-1. 在命令提示符中，运行 [login 命令][lnk-login-command]：
+1. 在命令提示符中，运行 [login 命令](https://docs.azure.cn/zh-cn/cli/get-started-with-azure-cli?view=azure-cli-latest)：
 
     ```azurecli
     az login
@@ -87,7 +82,7 @@ az storage account show-connection-string --name {your storage account name} --r
 
 ## <a name="file-upload"></a>文件上传
 
-现在可以配置 IoT 中心启用[文件上传功能][lnk-upload]使用存储帐户详细信息。
+现在可以使用存储帐户详细信息配置 IoT 中心以[将文件上传到 IoT 中心](iot-hub-devguide-file-upload.md)。
 
 配置需要以下值：
 
@@ -106,25 +101,23 @@ az storage account show-connection-string --name {your storage account name} --r
 在 bash shell 中使用：
 
 ```azurecli
-az iot hub update --name {your iot hub name} --set properties.storageEndpoints.'$default'.connectionString="{your storage account connection string}"
-az iot hub update --name {your iot hub name} --set properties.storageEndpoints.'$default'.containerName="{your storage container name}"
-az iot hub update --name {your iot hub name} --set properties.storageEndpoints.'$default'.sasTtlAsIso8601=PT1H0M0S
+az iot hub update --name {your iot hub name} \
+  --set properties.storageEndpoints.'$default'.connectionString="{your storage account connection string}"
 
-az iot hub update --name {your iot hub name} --set properties.enableFileUploadNotifications=true
-az iot hub update --name {your iot hub name} --set properties.messagingEndpoints.fileNotifications.maxDeliveryCount=10
-az iot hub update --name {your iot hub name} --set properties.messagingEndpoints.fileNotifications.ttlAsIso8601=PT1H0M0S
-```
+az iot hub update --name {your iot hub name} \
+  --set properties.storageEndpoints.'$default'.containerName="{your storage container name}"
 
-在 Windows 命令提示符下使用：
+az iot hub update --name {your iot hub name} \
+  --set properties.storageEndpoints.'$default'.sasTtlAsIso8601=PT1H0M0S
 
-```azurecli
-az iot hub update --name {your iot hub name} --set "properties.storageEndpoints.$default.connectionString="{your storage account connection string}""
-az iot hub update --name {your iot hub name} --set "properties.storageEndpoints.$default.containerName="{your storage container name}""
-az iot hub update --name {your iot hub name} --set "properties.storageEndpoints.$default.sasTtlAsIso8601=PT1H0M0S"
+az iot hub update --name {your iot hub name} \
+  --set properties.enableFileUploadNotifications=true
 
-az iot hub update --name {your iot hub name} --set properties.enableFileUploadNotifications=true
-az iot hub update --name {your iot hub name} --set properties.messagingEndpoints.fileNotifications.maxDeliveryCount=10
-az iot hub update --name {your iot hub name} --set properties.messagingEndpoints.fileNotifications.ttlAsIso8601=PT1H0M0S
+az iot hub update --name {your iot hub name} \
+  --set properties.messagingEndpoints.fileNotifications.maxDeliveryCount=10
+
+az iot hub update --name {your iot hub name} \
+  --set properties.messagingEndpoints.fileNotifications.ttlAsIso8601=PT1H0M0S
 ```
 
 可以使用以下命令在 IoT 中心内查看文件上传配置：
@@ -135,17 +128,17 @@ az iot hub show --name {your iot hub name}
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 IoT 中心文件上传功能的详细信息，请参阅[从设备上传文件][lnk-upload]。
+有关 IoT 中心文件上传功能的详细信息，请参阅[从设备上传文件](iot-hub-devguide-file-upload.md)。
 
 若要了解有关如何管理 Azure IoT 中心的详细信息，请参阅以下链接：
 
-* [批量管理 IoT 设备][lnk-bulk]
-* [IoT 中心指标][lnk-metrics]
-* [操作监视][lnk-monitor]
+* [批量管理 IoT 设备](iot-hub-bulk-identity-mgmt.md)
+* [IoT 中心指标](iot-hub-metrics.md)
+* [操作监视](iot-hub-operations-monitoring.md)
 
 若要进一步探索 IoT 中心的功能，请参阅：
 
-* [IoT 中心开发人员指南][lnk-devguide]
+* [IoT 中心开发人员指南](iot-hub-devguide.md)
 * [使用 Azure IoT Edge 将 AI 部署到边缘设备][lnk-iotedge]
 * [从根本上保护 IoT 解决方案][lnk-securing]
 

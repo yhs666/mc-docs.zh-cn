@@ -1,26 +1,20 @@
 ---
 title: 了解 Azure IoT 中心作业 | Azure
 description: 开发人员指南 - 计划要在连接到 IoT 中心的多个设备上运行的作业。 作业可以更新标记和所需属性，并可在多个设备上调用直接方法。
-services: iot-hub
-documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: fe78458f-4f14-4358-ac83-4f7bd14ee8da
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 origin.date: 01/29/2018
-ms.date: 05/07/2018
+ms.date: 09/10/2018
 ms.author: v-yiso
-ms.openlocfilehash: 0b2c07b66bc39489f3349684e642ff4265b7c67f
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 8ce2c12a82a006168476a2328f30c1bba591ca82
+ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121509"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43330520"
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>在多个设备上计划作业
 
@@ -94,7 +88,7 @@ queryCondition = "deviceId IN ['MyDevice1']
     ```
 
 ## <a name="querying-for-progress-on-jobs"></a>查询作业的进度
-以下代码片段显示了用于[查询作业][lnk-query]的 HTTPS 1.1 请求详细信息：
+以下代码片段显示了用于查询作业的 HTTPS 1.1 请求详细信息：
 
     ```
     GET /jobs/v2/query?api-version=2016-11-14[&jobType=<jobType>][&jobStatus=<jobStatus>][&pageSize=<pageSize>][&continuationToken=<continuationToken>]
@@ -106,6 +100,8 @@ queryCondition = "deviceId IN ['MyDevice1']
     ```
 
 从响应提供 continuationToken。  
+
+可以使用[设备孪生、作业和消息路由的 IoT 中心查询语言][lnk-query]在每台设备上查询作业执行状态。
 
 ## <a name="jobs-properties"></a>作业属性
 以下列表显示了属性和相应说明，在查询作业或作业结果时可使用这些属性。
@@ -155,7 +151,7 @@ IoT 中心开发人员指南中的其他参考主题包括：
 [lnk-query]: ./iot-hub-devguide-query-language.md
 [lnk-devguide-mqtt]: ./iot-hub-mqtt-support.md
 [lnk-jobs-tutorial]: ./iot-hub-node-node-schedule-jobs.md
-[lnk-c2d-methods]: ./iot-hub-node-node-direct-methods.md
+[lnk-c2d-methods]: quickstart-control-device-node.md
 [lnk-dev-methods]: ./iot-hub-devguide-direct-methods.md
 [lnk-get-started-twin]: ./iot-hub-node-node-twin-getstarted.md
 [lnk-twin-devguide]: ./iot-hub-devguide-device-twins.md

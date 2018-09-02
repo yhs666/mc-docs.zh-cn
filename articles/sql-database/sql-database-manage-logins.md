@@ -1,29 +1,30 @@
 ---
-title: Azure SQL 登录名和用户 | Azure
+title: Azure SQL 登录名和用户 | Microsoft 文档
 description: 了解 SQL 数据库和 SQL 数据仓库安全管理，特别是如何通过服务器级的主体帐户管理数据库的访问和登录安全。
 keywords: sql 数据库安全,数据库安全管理,登录安全,数据库安全,数据库访问权限
 services: sql-database
-author: Hayley244
+author: WenJason
 manager: digimobile
 ms.service: sql-database
+ms.prod_service: sql-database, sql-data-warehouse
 ms.custom: security
-ms.topic: article
-origin.date: 06/13/2018
-ms.date: 07/02/2018
-ms.author: v-johch
-ms.openlocfilehash: 464b57ced0aab25a8b906f103e799faf0b8c753f
-ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
+ms.topic: conceptual
+origin.date: 08/15/2018
+ms.date: 09/02/2018
+ms.author: v-jay
+ms.openlocfilehash: be27dd44ab650aac7343e4064db960c2983192e3
+ms.sourcegitcommit: 2601e68563bffe148e70cce2bf1dcbe837a40f80
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36948111"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43249728"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>控制和授予对 SQL 数据库和 SQL 数据仓库的数据库访问权限
 
-配置防火墙规则后，可以使用某个管理员帐户、数据库所有者或数据库中数据库用户的身份连接到 Azure [SQL 数据库](sql-database-technical-overview.md)和 [SQL 数据仓库](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)。  
+配置防火墙规则后，可以使用数据库中的某个管理员帐户、数据库所有者或数据库用户的身份连接到 Azure [SQL 数据库](sql-database-technical-overview.md)和 [SQL 数据仓库](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)。  
 
 >  [!NOTE]  
->  本主题适用于 Azure SQL 服务器，同时也适用于在 Azure SQL 服务器中创建的 SQL 数据库和 SQL 数据仓库数据库。 为简单起见，在提到 SQL 数据库和 SQL 数据仓库时，本文统称 SQL 数据库。 
+>  本主题适用于 Azure SQL 服务器，也适用于在 Azure SQL 服务器中创建的 SQL 数据库和 SQL 数据仓库数据库。 为简单起见，在提到 SQL 数据库和 SQL 数据仓库时，本文统称 SQL 数据库。 
 
 > [!TIP]
 > 有关教程，请参阅[保护 Azure SQL 数据库](sql-database-security-tutorial.md)。
@@ -42,11 +43,11 @@ ms.locfileid: "36948111"
 **服务器管理员**和 **Azure AD 管理员**帐户具有以下特征：
 - 只有这些帐户才能自动连接到服务器上的任何 SQL 数据库。 （其他帐户若要连接到用户数据库，它们必须是数据库的所有者，或者在用户数据库中具有相应的用户帐户。）
 - 这些帐户将以 `dbo` 用户的身份进入用户数据库，在用户数据库中拥有所有权限。 （用户数据库的所有者也以 `dbo` 用户的身份进入数据库。） 
-- 这些帐户不会以 `dbo` 用户的身份进入 `master` 数据库，在 master 数据库中拥有受限的权限。 
-- 这些帐户不是标准 SQL Server `sysadmin` 固定服务器角色的成员，SQL 数据库中不提供此角色。  
-- 这些帐户可以在 master 数据库和服务器级防火墙规则中创建、更改及删除数据库、登录名与用户。
-- 这些帐户可在 `dbmanager` 与 `loginmanager` 角色中添加和删除成员。
-- 这些帐户可以查看 `sys.sql_logins` 系统表。
+- 不会以 `dbo` 用户的身份进入 `master` 数据库，在 master 数据库中拥有受限的权限。 
+- **不是**标准 SQL Server `sysadmin` 固定服务器角色的成员，SQL 数据库中未提供此角色。  
+- 可以在 master 数据库和服务器级防火墙规则中创建、更改及删除数据库、登录名与用户。
+- 可以在 `dbmanager` 和 `loginmanager` 角色中添加和删除成员。
+- 可以查看 `sys.sql_logins` 系统表。
 
 ### <a name="configuring-the-firewall"></a>配置防火墙
 为单个 IP 地址或地址范围配置服务器级防火墙后，**SQL 服务器管理员**和 **Azure Active Directory 管理员**可以连接到 master 数据库以及所有用户数据库。 初始服务器级防火墙可通过 [Azure 门户](sql-database-get-started-portal.md)、[PowerShell](sql-database-get-started-powershell.md) 或 [REST API](https://msdn.microsoft.com/library/azure/dn505712.aspx) 进行配置。 建立连接以后，还可以使用 [Transact-SQL](sql-database-configure-firewall-settings.md) 配置其他服务器级防火墙规则。
@@ -87,7 +88,7 @@ ms.locfileid: "36948111"
    
    ```sql
    CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER; -- To create a user with Azure Active Directory
-   CREATE USER Tran WITH PASSWORD = '<strong_password>'; -- To create a SQL Database contained database user
+   CREATE USER Ann WITH PASSWORD = '<strong_password>'; -- To create a SQL Database contained database user
    CREATE USER Mary FROM LOGIN Mary;  -- To create a SQL Server user based on a SQL Server authentication login
    ```
 

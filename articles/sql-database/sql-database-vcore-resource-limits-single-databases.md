@@ -1,5 +1,5 @@
 ---
-title: Azure SQL 数据库基于 vCore 的资源限制 - 单一数据库 | Azure
+title: Azure SQL 数据库基于 vCore 的资源限制 - 单一数据库| Microsoft Docs
 description: 本页介绍 Azure SQL 数据库的单一数据库中一些常见的基于 vCore 的资源限制。
 services: sql-database
 author: WenJason
@@ -7,15 +7,15 @@ manager: dogimobile
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-origin.date: 07/16/2018
-ms.date: 08/06/2018
+origin.date: 08/01/2018
+ms.date: 09/02/2018
 ms.author: v-jay
-ms.openlocfilehash: 7e4eb9921b80ac6262b8fd466b6831c8af27476b
-ms.sourcegitcommit: 02c4716e07b3d83104fa419b379a15589ae8017e
+ms.openlocfilehash: 8747f6e4698ecd783cf2d17a1f3c0e5a58fef703
+ms.sourcegitcommit: 2601e68563bffe148e70cce2bf1dcbe837a40f80
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41704552"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43249726"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>适用于单一数据库的 Azure SQL 数据库基于 vCore 的购买模型限制
 
@@ -23,9 +23,13 @@ ms.locfileid: "41704552"
 
 有关基于 DTU 的购买模型的限制，请参阅 [SQL 数据库基于 DTU 的资源限制](sql-database-dtu-resource-limits.md)。
 
+> [!IMPORTANT]
+> 在某些情况下，可能需要收缩数据库来回收未使用的空间。 有关详细信息，请参阅[管理 Azure SQL 数据库中的文件空间](sql-database-file-space-management.md)。
+
+
 ## <a name="single-database-storage-sizes-and-performance-levels"></a>单一数据库：存储大小和性能级别
 
-对于单一数据库，下表显示了可用于每个服务层和性能级别的单一数据库的资源。 可通过 [Azure 门户](sql-database-servers-databases-manage.md#azure-portal-manage-logical-servers-and-databases)、[Transact-SQL](sql-database-servers-databases-manage.md#transact-sql-manage-logical-servers-and-databases)、[PowerShell](sql-database-servers-databases-manage.md#powershell-manage-logical-servers-and-databases)、[Azure CLI](sql-database-servers-databases-manage.md#azure-cli-manage-logical-servers-and-databases) 或 [REST API](sql-database-servers-databases-manage.md#rest-api-manage-logical-servers-and-databases) 为单一数据库设置服务层、性能级别和存储量。
+对于单一数据库，下表显示了可用于每个服务层和性能级别的单一数据库的资源。 可通过 [Azure 门户](sql-database-single-databases-manage.md#azure-portal-manage-logical-servers-and-databases)、[Transact-SQL](sql-database-single-databases-manage.md#transact-sql-manage-logical-servers-and-databases)、[PowerShell](sql-database-single-databases-manage.md#powershell-manage-logical-servers-and-databases)、[Azure CLI](sql-database-single-databases-manage.md#azure-cli-manage-logical-servers-and-databases) 或 [REST API](sql-database-single-databases-manage.md#rest-api-manage-logical-servers-and-databases) 为单一数据库设置服务层、性能级别和存储量。
 
 ### <a name="general-purpose-service-tier"></a>常规用途服务层
 
@@ -41,7 +45,7 @@ ms.locfileid: "41704552"
 |IO 延迟（近似）|5-7 毫秒（写入）<br>5-10 毫秒（读取）|5-7 毫秒（写入）<br>5-10 毫秒（读取）|5-7 毫秒（写入）<br>5-10 毫秒（读取）|5-7 毫秒（写入）<br>5-10 毫秒（读取）|5-7 毫秒（写入）<br>5-10 毫秒（读取）|5-7 毫秒（写入）<br>5-10 毫秒（读取）|
 |最大数据大小 (GB)|1024|1024|1536|3072|4096|4096|
 |最大日志大小|307|307|461|922|1229|1229|
-|TempDB 大小 (DB)|32|64|128|256|384|384|
+|TempDB 大小 (GB)|32|64|128|256|384|384|
 |目标 IOPS (64 KB)|500|1000|2000|4000|7000|7000|
 |最大并发工作线程数（请求数）|200|400|800|1600|3200|4800|
 |允许的最大会话数|30000|30000|30000|30000|30000|30000|
@@ -56,15 +60,14 @@ ms.locfileid: "41704552"
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |
 |硬件代次|5|5|5|5|5|5|5|
 |vCore 数|2|4|8|16|24|32|40|80|
-|内存 (GB)|11|22|44|8
-8|132|176|220|440|
+|内存 (GB)|11|22|44|88|132|176|220|440|
 |列存储支持|是|是|是|是|是|是|是|是|
 |内存中 OLTP 存储 (GB)|不适用|不适用|不适用|不适用|不适用|不适用|不适用|不适用|
 |存储类型|高级（远程）存储|高级（远程）存储|高级（远程）存储|高级（远程）存储|高级（远程）存储|高级（远程）存储|高级（远程）存储|高级（远程）存储|
 |IO 延迟（近似）|5-7 毫秒（写入）<br>5-10 毫秒（读取）|5-7 毫秒（写入）<br>5-10 毫秒（读取）|5-7 毫秒（写入）<br>5-10 毫秒（读取）|5-7 毫秒（写入）<br>5-10 毫秒（读取）|5-7 毫秒（写入）<br>5-10 毫秒（读取）|5-7 毫秒（写入）<br>5-10 毫秒（读取）|5-7 毫秒（写入）<br>5-10 毫秒（读取）|5-7 毫秒（写入）<br>5-10 毫秒（读取）|
 |最大数据大小 (GB)|1024|1024|1536|3072|4096|4096|4096|4096|
 |最大日志大小|307|307|461|614|1229|1229|1229|1229|
-|TempDB 大小 (DB)|64|128|256|384|384|384|384|384|
+|TempDB 大小 (GB)|64|128|256|384|384|384|384|384|
 |目标 IOPS (64 KB)|500|1000|2000|4000|6000|7000|7000|7000|
 |最大并发工作线程数（请求数）|200|400|800|1600|2400|3200|4000|8000|
 |允许的最大会话数|30000|30000|30000|30000|30000|30000|30000|30000|
@@ -87,7 +90,7 @@ ms.locfileid: "41704552"
 |存储类型|本地 SSD|本地 SSD|本地 SSD|本地 SSD|本地 SSD|本地 SSD|
 |最大数据大小 (GB)|1024|1024|1024|1024|1024|1024|
 |最大日志大小|307|307|307|307|307|307|
-|TempDB 大小 (DB)|32|64|128|256|384|384|
+|TempDB 大小 (GB)|32|64|128|256|384|384|
 |目标 IOPS (64 KB)|5000|10000|20000|40000|80000|120000|
 |IO 延迟（近似）|1-2 毫秒（写入）<br>1-2 毫秒（读取）|1-2 毫秒（写入）<br>1-2 毫秒（读取）|1-2 毫秒（写入）<br>1-2 毫秒（读取）|1-2 毫秒（写入）<br>1-2 毫秒（读取）|1-2 毫秒（写入）<br>1-2 毫秒（读取）|1-2 毫秒（写入）<br>1-2 毫秒（读取）|
 |最大并发工作线程数（请求数）|200|400|800|1600|3200|4800|
@@ -103,15 +106,14 @@ ms.locfileid: "41704552"
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |--: |
 |硬件代次|5|5|5|5|5|5|5|5|
 |vCore 数|2|4|8|16|24|32|40|80|
-|内存 (GB)|11|22|44|8
-8|132|176|220|440|
+|内存 (GB)|11|22|44|88|132|176|220|440|
 |列存储支持|是|是|是|是|是|是|是|是|
 |内存中 OLTP 存储 (GB)|1.571|3.142|6.284|15.768|25.252|37.936|52.22|131.64|
 |存储类型|本地 SSD|本地 SSD|本地 SSD|本地 SSD|本地 SSD|本地 SSD|本地 SSD|本地 SSD|
 |IO 延迟（近似）|1-2 毫秒（写入）<br>1-2 毫秒（读取）|1-2 毫秒（写入）<br>1-2 毫秒（读取）|1-2 毫秒（写入）<br>1-2 毫秒（读取）|1-2 毫秒（写入）<br>1-2 毫秒（读取）|1-2 毫秒（写入）<br>1-2 毫秒（读取）|1-2 毫秒（写入）<br>1-2 毫秒（读取）|1-2 毫秒（写入）<br>1-2 毫秒（读取）|1-2 毫秒（写入）<br>1-2 毫秒（读取）|
 |最大数据大小 (GB)|1024|1024|1024|1024|2048|4096|4096|4096|
 |最大日志大小|307|307|307|307|614|1229|1229|1229|
-|TempDB 大小 (DB)|64|128|256|384|384|384|384|384|
+|TempDB 大小 (GB)|64|128|256|384|384|384|384|384|
 |目标 IOPS (64 KB)|5000|10000|20000|40000|60000|80000|100000|200000
 |最大并发工作线程数（请求数）|200|400|800|1600|2400|3200|4000|8000|
 |允许的最大会话数|30000|30000|30000|30000|30000|30000|30000|30000|

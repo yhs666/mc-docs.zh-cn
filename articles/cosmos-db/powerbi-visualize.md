@@ -8,19 +8,18 @@ manager: digimobile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 04/19/2018
-ms.date: 07/02/2018
+origin.date: 08/17/2018
+ms.date: 09/03/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0f5c2dd82b6e479f76b30fb3535c5685e6c744b8
-ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
+ms.openlocfilehash: 80776fbcbbd464ac4302222724d1067acfde0296
+ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37070347"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43164713"
 ---
 # <a name="power-bi-tutorial-for-azure-cosmos-db-visualize-data-using-the-power-bi-connector"></a>Azure Cosmos DB 的 Power BI 教程：使用 Power BI 连接器可视化数据
-
-            [PowerBI.com](https://powerbi.microsoft.com/) 是一个在线服务，在此处可以创建和共享包含对你和组织来说很重要的数据的仪表板和报表。  Power BI Desktop 是一个专用的报表创作工具，用于从各种数据源检索数据、合并和转换数据、创建功能强大的报表和可视化效果以及将报表发布到 Power BI。  使用最新版本的 Power BI Desktop，现在可以通过 Power BI 的 Azure Cosmos DB 连接器连接到 Azure Cosmos DB 帐户。   
+[PowerBI.com](https://powerbi.microsoft.com/) 是一个在线服务，在此处可以创建和共享包含对你和组织来说很重要的数据的仪表板和报表。  Power BI Desktop 是一个专用的报表创作工具，用于从各种数据源检索数据、合并和转换数据、创建功能强大的报表和可视化效果以及将报表发布到 Power BI。  使用最新版本的 Power BI Desktop，现在可以通过 Power BI 的 Azure Cosmos DB 连接器连接到 Azure Cosmos DB 帐户。   
 
 在此 Power BI 教程中，我们将逐步讲解各步骤 - 在 Power BI Desktop 中连接到 Azure Cosmos DB 帐户、使用导航器导航至我们想要在其中提取数据的集合、使用 Power BI Desktop 查询编辑器将 JSON 数据转换为表格格式、以及生成报表并将其发布到 PowerBI.com。
 
@@ -36,17 +35,17 @@ ms.locfileid: "37070347"
 > 用于 Azure Cosmos DB 连接到 Power BI Desktop 以获取和转换数据的 Power BI 连接器。 在 Power BI Desktop 中创建的报表随后可以发布到 PowerBI.com。 无法在 PowerBI.com 中执行 Azure Cosmos DB 数据的直接提取和转换。 
 
 > [!NOTE]
-> 若要使用 MongoDB API 将 Azure Cosmos DB 连接到 Power BI，必须使用 [Simba MongoDB ODBC 驱动程序](http://www.simba.com/drivers/mongodb-odbc-jdbc/)。
+> 目前，仅 Azure Cosmos DB SQL 和 MongoDB API 帐户支持使用 Power BI 连接器连接 Azure Cosmos DB。 若要使用 MongoDB API 将 Azure Cosmos DB 连接到 Power BI，必须使用 [Simba MongoDB ODBC 驱动程序](http://www.simba.com/drivers/mongodb-odbc-jdbc/)。
 
 ## <a name="prerequisites"></a>先决条件
 在按照此 Power BI 教程中的说明操作之前，请确保已拥有对以下资源的访问权限：
 
 * [最新版本的 Power BI Desktop](https://powerbi.microsoft.com/desktop)。
 * 在 Azure Cosmos DB 帐户中访问我们的演示帐户或数据。
-  * 演示帐户使用本教程中显示的火山数据填充。 此演示帐户未由任何 SLA 绑定且只用于演示目的。  我们保留对此演示帐户进行修改的权利，包括但不限于在任何时间无需提前通知或理由而终止帐户、更改密钥、限制访问、更改和删除数据。
-    * URL：https://analytics.documents.azure.cn
-    * 只读密钥：MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR+YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw==
-  * 或者，若要创建自己的帐户，请参阅“使用 Azure 门户创建 Azure Cosmos DB 数据库帐户”。 然后，要获取类似于本教程中使用的示例火山数据（但不包含 GeoJSON 块），请参阅 [NOAA 站点](https://www.ngdc.noaa.gov/nndc/struts/form?t=102557&s=5&d=5)，并使用 [Azure Cosmos DB 数据迁移工具](import-data.md)导入数据。
+    * 演示帐户使用本教程中显示的火山数据填充。 此演示帐户未由任何 SLA 绑定且只用于演示目的。  我们保留对此演示帐户进行修改的权利，包括但不限于在任何时间无需提前通知或理由而终止帐户、更改密钥、限制访问、更改和删除数据。
+        * URL： https://analytics.documents.azure.com
+        * 只读密钥：MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR+YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw==
+    * 或者，若要创建自己的帐户，请参阅“使用 Azure 门户创建 Azure Cosmos DB 数据库帐户”。 然后，要获取类似于本教程中使用的示例火山数据（但不包含 GeoJSON 块），请参阅 [NOAA 站点](https://www.ngdc.noaa.gov/nndc/struts/form?t=102557&s=5&d=5)，并使用 [Azure Cosmos DB 数据迁移工具](import-data.md)导入数据。
 <!-- Not Avaialble (https://azure.microsoft.com/documentation/articles/create-account/) -->
 
 要在 PowerBI.com 中共享报表，必须在 PowerBI.com 中拥有帐户。  若要了解更多有关 Power BI 免费版和 Power BI Pro 的信息，请访问 [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing)。
@@ -90,7 +89,7 @@ ms.locfileid: "37070347"
 
     ![Power BI Desktop 获取数据 - Power BI 连接器](./media/powerbi-visualize/power_bi_connector_pbigetdata.png)   
 6. 在“预览连接器”页中，单击“继续”。 此时会显示“Azure Cosmos DB”窗口。
-7. 如下所示指定想要从其中检索数据的 Azure Cosmos DB 帐户终结点 URL，并单击“确定”。 要使用自己的帐户，可以在 Azure 门户的[“密钥”](manage-account.md#keys)边栏选项卡的 URI 框检索 URL。 要使用此演示帐户，请为 URL 输入 `https://analytics.documents.azure.cn`。 
+7. 如下所示指定想要从其中检索数据的 Azure Cosmos DB 帐户终结点 URL，并单击“确定”。 要使用自己的帐户，可以在 Azure 门户的[“密钥”](manage-account.md#keys)边栏选项卡的 URI 框检索 URL。 要使用此演示帐户，请为 URL 输入 `https://analytics.documents.azure.com`。 
 
     数据库名称、集合名称和 SQL 语句都可留空，因为这些字段是可选的。  我们使用导航器选择数据库和集合以指定数据来源。
 

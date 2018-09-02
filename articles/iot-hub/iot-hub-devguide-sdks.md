@@ -1,27 +1,21 @@
 ---
-title: 了解 Azure IoT SDK | Azure
+title: 了解 Azure IoT SDK | Microsoft Docs
 description: 开发人员指南 - 介绍了相关链接，其指向可用于构建设备应用和后端应用的各种 Azure IoT 设备和服务 SDK。
-services: iot-hub
-documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: c5c9a497-bb03-4301-be2d-00edfb7d308f
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 origin.date: 03/12/2018
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
-ms.date: 05/07/2018
-ms.openlocfilehash: d39894c6348c3995e12674f02160dc30bdec5728
-ms.sourcegitcommit: 039d75a641edc2edd13a9371251051c20fea2bb7
+ms.date: 09/10/2018
+ms.openlocfilehash: 9166cf7a652d69c03940df77ec052fb31711fdd2
+ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103418"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43328901"
 ---
 # <a name="understand-and-use-azure-iot-hub-sdks"></a>了解和使用 Azure IoT 中心 SDK
 
@@ -74,6 +68,7 @@ Microsoft Azure IoT 设备 SDK 包含的代码可帮助构建连接到 Azure IoT
 
 ### <a name="os-platform-and-hardware-compatibility"></a>操作系统平台和硬件兼容性
 
+可以在此[文档](iot-hub-device-sdk-platform-support.md)中找到支持的 SDK 平台。
 有关与特定硬件设备的 SDK 兼容性的详细信息，请参阅 [Azure IoT 认证设备目录][lnk-certified]或个体存储库。
 
 ## <a name="azure-iot-service-sdks"></a>Azure IoT 服务 SDK
@@ -124,6 +119,7 @@ Azure IoT SDK 还提供了一组工具来帮助开发：
 * [配额和限制][lnk-devguide-quotas]
 * [IoT 中心 MQTT 支持][lnk-devguide-mqtt]
 * [IoT 中心 REST API 参考][lnk-rest-ref]
+* [Azure IoT SDK 平台支持](iot-hub-device-sdk-platform-support.md)
 
 <!-- Links and images -->
 

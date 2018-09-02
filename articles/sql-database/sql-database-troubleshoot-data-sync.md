@@ -1,21 +1,21 @@
 ---
-title: 排查 Azure SQL 数据同步问题 | Azure
+title: Azure SQL 数据同步故障排除| Microsoft 文档
 description: 了解如何排查 Azure SQL 数据同步的常见问题。
 services: sql-database
 origin.date: 07/16/2018
-ms.date: 08/06/2018
-ms.author: v-nany
-ms.topic: article
+ms.date: 09/02/2018
+ms.topic: conceptual
 ms.service: sql-database
-author: yunan2016
+author: WenJason
+ms.author: v-jay
 manager: digimobile
 ms.custom: data-sync
-ms.openlocfilehash: 2954659119b40ed0b597c2c5ff7e142a0835c280
-ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
+ms.openlocfilehash: d0150d93a8a96093d4c7b7d626bbf2ac4aeae6b2
+ms.sourcegitcommit: 2601e68563bffe148e70cce2bf1dcbe837a40f80
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39486719"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43249769"
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync"></a>排查 SQL 数据同步的问题
 
@@ -170,7 +170,7 @@ SQL 数据同步中的同步组长时间处于“正在处理”状态。 该同
 
 - **原因**。 出现此错误可能的原因是，自从创建代理和代理密码后，本地服务器上的密码已更改。
 
- - **解决方法**。 将代理的密码更新为当前服务器密码：
+- **解决方法**。 将代理的密码更新为当前服务器密码：
 
   1. 找到 SQL 数据同步客户端代理服务。  
     a. 选择“启动”。  
@@ -192,12 +192,15 @@ SQL 数据同步中的同步组长时间处于“正在处理”状态。 该同
 
 ![同步错误对话框 - 无法提交代理密钥](media/sql-database-troubleshoot-data-sync/sync-error-cant-submit-agent-key.png)
 
-在继续之前，请先检查是否符合以下先决条件：
+- **先决条件**。 在继续之前，请先检查是否符合以下先决条件：
 
--   SQL 数据同步 Windows 服务正在运行。  
--   SQL 数据同步 Windows 服务的服务帐户具有网络访问权限。    
--   出站 1433 端口在本地防火墙规则中处于打开状态。
--   本地 IP 已添加到同步元数据库的服务器或数据库防火墙规则。
+  - SQL 数据同步 Windows 服务正在运行。
+
+  - SQL 数据同步 Windows 服务的服务帐户具有网络访问权限。
+
+  - 出站 1433 端口在本地防火墙规则中处于打开状态。
+
+  - 本地 IP 已添加到同步元数据库的服务器或数据库防火墙规则。
 
 - **原因**。 代理密钥唯一标识每个本地代理。 密钥必须满足以下两个条件：
 
@@ -373,7 +376,6 @@ SQL 数据同步中的同步组长时间处于“正在处理”状态。 该同
 -   演示如何配置 SQL 数据同步的完整 PowerShell 示例：  
     -   [使用 PowerShell 在多个 Azure SQL 数据库之间进行同步](scripts/sql-database-sync-data-between-sql-databases.md)  
     -   [使用 PowerShell 在 Azure SQL 数据库和 SQL Server 本地数据库之间进行同步](scripts/sql-database-sync-data-between-azure-onprem.md)  
--   [下载 SQL 数据同步 REST API 文档](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
 
 有关 SQL 数据库的详细信息，请参阅：
 

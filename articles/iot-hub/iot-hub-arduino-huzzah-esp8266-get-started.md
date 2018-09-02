@@ -1,27 +1,21 @@
 ---
 title: ESP8266 到云 - 将 Feather HUZZAH ESP8266 连接到 Azure IoT 中心 | Azure
 description: 在本教程中了解如何设置 Adafruit Feather HUZZAH ESP8266 并将其连接到 Azure IoT 中心，使其能够将数据发送到 Azure 云平台。
-services: iot-hub
-documentationcenter: ''
-author: shizn
-manager: timlt
-tags: ''
-keywords: ''
-ms.assetid: c505aacf-89a8-40ed-a853-493b75bec524
+author: rangv
+manager: nasing
 ms.service: iot-hub
-ms.devlang: arduino
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
+ms.tgt_pltfrm: arduino
 origin.date: 04/11/2018
 ms.author: v-yiso
-ms.date: 07/09/2018
-ms.openlocfilehash: 7a467d6f9ba71b3b614dfbb92d5995d7c3cbebfd
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.date: 09/10/2018
+ms.openlocfilehash: 4af59ea02258fd59d1be16d85dc48e1b82625f66
+ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38938877"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43329012"
 ---
 # <a name="connect-adafruit-feather-huzzah-esp8266-to-azure-iot-hub-in-the-cloud"></a>将 Adafruit Feather HUZZAH ESP8266 连接到云中的 Azure IoT 中心
 
@@ -154,7 +148,7 @@ ms.locfileid: "38938877"
    git clone https://github.com/Azure-Samples/iot-hub-feather-huzzah-client-app.git
    ```
 
-在 Visual Studio Code 中安装 Feather HUZZAH ESP8266 的包：
+   接下来，在 Visual Studio Code 中安装 Feather HUZZAH ESP8266 的包。
 
 1. 打开存储示例应用程序的文件夹。
 1. 在 Visual Studio Code 中打开 app 文件夹中的 app.ino 文件。

@@ -11,53 +11,43 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-origin.date: 11/07/2017
-ms.date: 04/16/2018
+origin.date: 08/10/2018
+ms.date: 08/31/2018
 ms.author: v-junlch
-ms.openlocfilehash: 4bdbff8077215178812755d03c11c07006a1357e
-ms.sourcegitcommit: f97c9253d16fac8be0266c9473c730ebd528e542
+ms.openlocfilehash: bff8ec01de3d86c8f3fe938527825ece049f2fa5
+ms.sourcegitcommit: b2c9bc0ed28e73e8c43aa2041c6d875361833681
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43330811"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java 开发人员指南
-> [!div class="op_single_selector"]
-[!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
+
+[!INCLUDE [functions-java-preview-note](../../includes/functions-java-preview-note.md)]
 
 ## <a name="programming-model"></a>编程模型 
 
-Azure 函数应为处理输入并生成输出的无状态类方法。 虽然支持编写实例方法，但函数却不能依赖于类的任何实例字段。 所有函数方法都必须具有 `public` 访问修饰符。
+Azure 函数应为处理输入并生成输出的无状态类方法。 虽然可编写实例方法，但函数却不能依赖于类的任何实例字段。 所有函数方法都必须具有 `public` 访问修饰符。
+
+可在项目中放置多个函数。 不要将函数放入单独的 jar 中。
 
 ## <a name="triggers-and-annotations"></a>触发器和注释
 
-通常情况下，Azure 函数是因外部触发器而调用的。 函数需要处理该触发器以及与之关联的输入，并生成一个或多个输出。
+ Azure Functions 由触发器（例如 HTTP 请求、计时器或数据更新）进行调用。 函数需要处理该触发器和任何其他输入以生成一个或多个输出。
 
-`azure-functions-java-core` 包中包含了 Java 注释，以便将输入和输出绑定到方法。 下表中列出了受支持的输入触发器和输出绑定注释：
+使用 [ com.microsoft.azure.functions.annotation.*](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.functions.annotation) 包中附带的 Java 注释将输入和输出绑定到方法。 Azure Functions 绑定参考文档和每个注释的 [Java 参考文档](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.functions.annotation)中都提供了使用注释的示例代码，例如 [HTTP 触发器](/azure-functions/functions-bindings-http-webhook)。
 
-绑定 | 批注
----|---
-CosmosDB | 不适用
-HTTP | <ul><li>`HttpTrigger`</li><li>`HttpOutput`</li></ul>
-Mobile Apps | 不适用
-通知中心 | 不适用
-存储 Blob | <ul><li>`BlobTrigger`</li><li>`BlobInput`</li><li>`BlobOutput`</li></ul>
-存储队列 | <ul><li>`QueueTrigger`</li><li>`QueueOutput`</li></ul>
-存储表 | <ul><li>`TableInput`</li><li>`TableOutput`</li></ul>
-计时器 | <ul><li>`TimerTrigger`</li></ul>
-
-也可在 [function.json](/azure/azure-functions/functions-reference#function-code) 中定义应用程序的触发器输入和输出。
+也可在函数的 [function.json](/azure-functions/functions-reference#function-code) 中定义触发器输入和输出，而非通过注释定义。 不建议以此方式使用 `function.json` 而非注释。
 
 > [!IMPORTANT] 
-> 必须在 [local.settings.json](/azure/azure-functions/functions-run-local#local-settings-file) 中配置 Azure 存储帐户，才能本地运行 Azure 存储 Blob、队列或表触发器。
+> 必须在 [local.settings.json](/azure-functions/functions-run-local#local-settings-file) 中配置 Azure 存储帐户，才能本地运行 Azure 存储 Blob、队列或表触发器。
 
 使用注释的示例：
 
 ```java
-import com.microsoft.azure.serverless.functions.annotation.HttpTrigger;
-import com.microsoft.azure.serverless.functions.ExecutionContext;
-
 public class Function {
-    public String echo(@HttpTrigger(name = "req", methods = {"post"},  authLevel = AuthorizationLevel.ANONYMOUS) 
+    public String echo(@HttpTrigger(name = "req", 
+      methods = {"post"},  authLevel = AuthorizationLevel.ANONYMOUS) 
         String req, ExecutionContext context) {
         return String.format(req);
     }
@@ -100,9 +90,13 @@ public class MyClass {
 
 ```
 
+## <a name="third-party-libraries"></a>第三方库 
+
+Azure Functions 支持使用第三方库。 默认情况下，项目 `pom.xml` 文件中指定的所有依赖项将在 `mvn package` 目标期间自动进行绑定。 对于未在 `pom.xml` 文件中指定为依赖项的库，请将它们放在函数根目录的 `lib` 目录中。 放置在 `lib` 目录中的依赖项将在运行时添加到系统类加载器中。
+
 ## <a name="data-types"></a>数据类型
 
-可在 Java 中对输入和输出数据自由使用所有数据类型，包括本机类型、自定义 Java 类型和在 `azure-functions-java-core` 包中定义的专用 Azure 类型。 Azure Functions 运行时会尝试将接收的输入转换为代码请求的类型。
+可对输入和输出数据使用 Java 中的任何数据类型，包括本机类型、自定义的 Java 类型以及 `azure-functions-java-library` 包中定义的专用 Azure 类型。 Azure Functions 运行时会尝试将接收的输入转换为代码请求的类型。
 
 ### <a name="strings"></a>字符串
 
@@ -110,7 +104,7 @@ public class MyClass {
 
 ### <a name="plain-old-java-objects-pojos"></a>普通旧 Java 对象 (POJO)
 
-如果函数方法的输入需要该 Java 类型，则格式为 JSON 的字符串将被转换为 Java 类型。 通过此转换，可将 JSON 输入传递到函数并使用代码中的 Java 类型，无需在自己的代码中实现转换。
+如果函数的输入签名需要此 Java 类型，则使用 JSON 格式化的字符串将强制转换为 Java 类型。 此转换允许传入 JSON 并使用 Java 类型。
 
 用作函数输入的 POJO 类型必须具有与在函数中使用的函数方法相同的 `public` 访问修饰符。 无需声明 POJO 类字段 `public`。 例如，可将 JSON 字符串 `{ "x": 3 }` 转换为以下 POJO 类型：
 
@@ -149,12 +143,12 @@ public static String echoLength(byte[] content) {
 }
 ```
 
-使用 `OutputBinding<byte[]>` 类型进行二进制输出绑定。
+空输入值可将 `null` 作为函数参数，但推荐使用 `Optional<T>` 来处理可能存在的空值。
 
 
 ## <a name="function-method-overloading"></a>函数方法重载
 
-可以重载具有相同名称但具有不同类型的函数方法。 例如，一个类中可以同时具有 `String echo(String s)` 和 `String echo(MyType s)`，并且 Azure Functions 运行时可通过检查实际输入类型来决定调用哪种方法（对于 HTTP 输入，MIME 类型 `text/plain` 通向 `String`，而 `application/json` 表示 `MyType`）。
+可以重载具有相同名称但具有不同类型的函数方法。 例如，可在一个类中同时拥有 `String echo(String s)` 和 `String echo(MyType s)`。 Azure Functions 根据输入类型决定调用哪个方法（对于 HTTP 输入，MIME 类型 `text/plain` 导致 `String`，而 `application/json` 代表 `MyType`）。
 
 ## <a name="inputs"></a>输入
 
@@ -163,112 +157,56 @@ public static String echoLength(byte[] content) {
 ```java
 package com.example;
 
-import com.microsoft.azure.serverless.functions.annotation.BindingName;
-import java.util.Optional;
+import com.microsoft.azure.functions.annotation.*;
 
 public class MyClass {
-    public static String echo(Optional<String> in, @BindingName("item") MyObject obj) {
-        return "Hello, " + in.orElse("Azure") + " and " + obj.getKey() + ".";
+    @FunctionName("echo")
+    public static String echo(
+        @HttpTrigger(name = "req", methods = { "put" }, authLevel = AuthorizationLevel.ANONYMOUS, route = "items/{id}") String in,
+        @TableInput(name = "item", tableName = "items", partitionKey = "Example", rowKey = "{id}", connection = "AzureWebJobsStorage") MyObject obj
+    ) {
+        return "Hello, " + in + " and " + obj.getKey() + ".";
     }
 
-    private static class MyObject {
+    public static class MyObject {
         public String getKey() { return this.RowKey; }
         private String RowKey;
     }
 }
 ```
 
-`@BindingName` 注释接受了 `String` 属性，此属性表示在 `function.json` 中定义的绑定/触发器的名称：
-
-```json
-{
-  "scriptFile": "azure-functions-example.jar",
-  "entryPoint": "com.example.MyClass.echo",
-  "bindings": [
-    {
-      "type": "httpTrigger",
-      "name": "req",
-      "direction": "in",
-      "authLevel": "anonymous",
-      "methods": [ "put" ],
-      "route": "items/{id}"
-    },
-    {
-      "type": "table",
-      "name": "item",
-      "direction": "in",
-      "tableName": "items",
-      "partitionKey": "Example",
-      "rowKey": "{id}",
-      "connection": "ExampleStorageAccount"
-    },
-    {
-      "type": "http",
-      "name": "$return",
-      "direction": "out"
-    }
-  ]
-}
-```
-
-因此，调用此函数时，HTTP 请求有效负载会为参数 `in` 传递可选 `String` 并将 Azure 表存储 `MyObject` 类型传递给参数 `obj`。 使用 `Optional<T>` 类型来处理可能为 NULL 的函数输入。
+触发此函数时，由 `String in` 将 HTTP 请求传递给函数。 将根据路由 URL 中的 ID 从 Azure 表存储中检索条目，并在函数体中将此条目设置为 `obj`。
 
 ## <a name="outputs"></a>Outputs
 
 输出可以返回值或输出参数表示。 如果只有一个输出，则建议使用返回值。 对于多个输出，必须使用输出参数。
 
-返回值是输出的最简单形式，只需返回任何类型的值，Azure Functions 运行时即可尝试将其封送回实际类型（如 HTTP 响应）。 在 `functions.json` 中，使用 `$return` 作为输出绑定的名称。
+返回值是输出的最简单形式，只需返回任何类型的值，Azure Functions 运行时即可尝试将其封送回实际类型（如 HTTP 响应）。  可对函数方法应用任何输出注释（注释的 name 属性必须为 $return）以定义返回值输出。
 
-若要生成多个输出值，请使用 `azure-functions-java-core` 包中定义的 `OutputBinding<T>` 类型。 如果需要进行 HTTP 响应并将消息推送到队列，则可编写以下代码：
+若要生成多个输出值，请使用 `azure-functions-java-library` 包中定义的 `OutputBinding<T>` 类型。 如果需要进行 HTTP 响应并将消息推送到队列，则可编写以下代码：
+
+例如，blob 内容复制函数可定义为以下代码。 此处使用 `@StorageAccount` 注释来防止 `@BlobTrigger` 和 `@BlobOutput` 的连接属性重复。
 
 ```java
 package com.example;
 
-import com.microsoft.azure.serverless.functions.OutputBinding;
-import com.microsoft.azure.serverless.functions.annotation.BindingName;
+import com.microsoft.azure.functions.annotation.*;
 
 public class MyClass {
-    public static String echo(String body, 
-    @QueueOutput(queueName = "messages", connection = "AzureWebJobsStorage", name = "queue") OutputBinding<String> queue) {
-        String result = "Hello, " + body + ".";
-        queue.setValue(result);
-        return result;
+    @FunctionName("copy")
+    @StorageAccount("AzureWebJobsStorage")
+    @BlobOutput(name = "$return", path = "samples-output-java/{name}")
+    public static String copy(@BlobTrigger(name = "blob", path = "samples-input-java/{name}") String content) {
+        return content;
     }
 }
 ```
 
-此代码应在 `function.json` 中定义输出绑定：
+对于参数，请使用 `OutputBinding<byte[]`> 来生成二进制输出值；对于返回值，只需使用 `byte[]` 即可。
 
-```json
-{
-  "scriptFile": "azure-functions-example.jar",
-  "entryPoint": "com.example.MyClass.echo",
-  "bindings": [
-    {
-      "type": "httpTrigger",
-      "name": "req",
-      "direction": "in",
-      "authLevel": "anonymous",
-      "methods": [ "post" ]
-    },
-    {
-      "type": "queue",
-      "name": "queue",
-      "direction": "out",
-      "queueName": "messages",
-      "connection": "AzureWebJobsStorage"
-    },
-    {
-      "type": "http",
-      "name": "$return",
-      "direction": "out"
-    }
-  ]
-}
-```
 ## <a name="specialized-types"></a>专用类型
 
-有时，函数必须具有对输入和输出的详细控制。 提供 `azure-functions-java-core` 包中的专用类型，用于处理请求信息和定制 HTTP 触发器的返回状态：
+有时，函数必须具有对输入和输出的详细控制。 `azure-functions-java-core` 包中提供了专用类型，用于处理请求信息并定制 HTTP 触发器的返回状态：
 
 | 专用类型      |       目标        | 典型用途                  |
 | --------------------- | :-----------------: | ------------------------------ |
@@ -280,7 +218,7 @@ public class MyClass {
 
 ### <a name="metadata"></a>Metadata
 
-元数据来自不同的源，例如 HTTP 标头、HTTP 查询和[触发器元数据](/azure/azure-functions/functions-triggers-bindings#trigger-metadata-properties)。 配合使用 `@BindingName` 注释和元数据名称来获取值。
+元数据来自不同的源，例如 HTTP 标头、HTTP 查询和[触发器元数据](/azure-functions/functions-triggers-bindings#trigger-metadata-properties)。 配合使用 `@BindingName` 注释和元数据名称来获取值。
 
 例如，如果所请求的URL 为 `http://{example.host}/api/metadata?name=test`，则下列代码片段中的 `queryValue` 将为 `"test"`。
 
@@ -288,7 +226,8 @@ public class MyClass {
 package com.example;
 
 import java.util.Optional;
-import com.microsoft.azure.serverless.functions.annotation.*;
+import com.microsoft.azure.functions.annotation.*;
+
 
 public class MyClass {
     @FunctionName("metadata")
@@ -301,9 +240,9 @@ public class MyClass {
 }
 ```
 
-## <a name="functions-execution-context"></a>函数执行上下文
+## <a name="execution-context"></a>执行上下文
 
-可通过 `azure-functions-java-core` 包中定义的 `ExecutionContext` 对象与 Azure Functions 执行环境交互。 使用 `ExecutionContext` 对象以使用代码中的调用信息和函数运行时信息。
+通过 `azure-functions-java-library` 包中定义的 `ExecutionContext` 对象与 Azure Functions 执行环境进行交互。 使用 `ExecutionContext` 对象以使用代码中的调用信息和函数运行时信息。
 
 ### <a name="logging"></a>日志记录
 
@@ -312,8 +251,9 @@ public class MyClass {
 收到的请求正文为空时，以下示例代码将记录警告消息。
 
 ```java
-import com.microsoft.azure.serverless.functions.annotation.HttpTrigger;
-import com.microsoft.azure.serverless.functions.ExecutionContext;
+
+import com.microsoft.azure.functions.*;
+import com.microsoft.azure.functions.annotation.*;
 
 public class Function {
     public String echo(@HttpTrigger(name = "req", methods = {"post"}, authLevel = AuthorizationLevel.ANONYMOUS) String req, ExecutionContext context) {
@@ -327,9 +267,9 @@ public class Function {
 
 ## <a name="environment-variables"></a>环境变量
 
-出于安全性考虑，通常需要从源代码提取机密信息。 这允许向源代码存储库发布代码，而不会意外地向其他开发者提供凭据。 在本地运行 Azure Functions 时以及将函数部署到 Azure 时，只需使用坏境变量就可以实现这一点。
+出于安全原因，请保留源代码中的密钥或令牌等机密信息。 通过在环境变量中读取密钥和令牌，可在函数代码中使用它们。
 
-若要在本地运行 Azure Functions 时轻松地设置环境变量，可以选择将这些变量添加到 local.settings.json 文件。 如果函数项目的根目录中没有，请随意创建一个。 文件的内容应如下所示：
+要在本地运行 Azure Functions 时设置环境变量，可选择将这些变量添加到 local.settings.json 文件中。 如果函数项目的根目录中没有此文件，则可创建一个。 文件的内容应如下所示：
 
 ```xml
 {
@@ -344,9 +284,9 @@ public class Function {
 `values` 映射中的每个键/值映射都能在运行时用作环境变量，并可通过调用 `System.getenv("<keyname>")` 进行访问，例如 `System.getenv("AzureWebJobsStorage")`。 建议添加其他键/值对。
 
 > [!NOTE]
-> 如果采取这种方法，请务必考虑是否将 local.settings.json 文件添加到存储库忽略文件从而不提交此文件。
+> 如果采用此方法，请确保将 local.settings.json 文件添加到存储库忽略文件中，从而不提交此文件。
 
-现在你的代码依赖于这些环境变量，可以登录 Azure 门户在函数应用设置中设置相同的键/值对，从而让代码在本地测试和部署到 Azure 时等效运行。
+现在，你的代码依赖于这些环境变量，你可登录 Azure 门户以在函数应用设置中设置相同的键/值对，从而让代码在本地测试时和在部署到 Azure 时等效运行。
 
 ## <a name="next-steps"></a>后续步骤
 有关详细信息，请参阅以下资源：
@@ -356,3 +296,4 @@ public class Function {
 - [Azure Functions 触发器和绑定](functions-triggers-bindings.md)
 - [使用 Visual Studio Code 远程调试 Java Azure Functions](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud)
 
+<!-- Update_Description: wording update -->

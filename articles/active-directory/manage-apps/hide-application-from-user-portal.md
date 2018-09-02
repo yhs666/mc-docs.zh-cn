@@ -11,22 +11,22 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 01/04/2018
-ms.date: 07/04/2018
+ms.date: 08/29/2018
 ms.author: v-junlch
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: b9df734b84ce5fffeed59787d631d3732ef433df
-ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
+ms.openlocfilehash: e4803fdeadf59590e495c2941e2ef45cd6736b3a
+ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37800576"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43164977"
 ---
 # <a name="hide-an-application-from-users-experience-in-azure-active-directory"></a>使应用程序不出现在用户在 Azure Active Directory 中的体验中
 
-如果有不希望显示在用户的访问面板或 Office 365 启动器上的应用程序，可使用一个选项隐藏此应用磁贴。  
+如果有不希望显示在用户的访问面板或 Office 365 启动器上的应用程序，可使用隐藏此应用磁贴的选项。  以下两个选项可用于从用户的应用启动器中隐藏应用程序。
 
 - 使第三方应用程序不显示在用户访问面板和 Office 365 应用启动器中
 
@@ -58,3 +58,4 @@ ms.locfileid: "37800576"
 - [更改企业应用的名称或徽标](change-name-or-logo-portal.md)
 
 
+<!-- Update_Description: wording update -->

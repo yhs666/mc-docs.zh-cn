@@ -1,26 +1,20 @@
 ---
 title: 了解 Azure IoT 中心消息传送 | Azure
 description: 开发人员指南 - 使用 IoT 中心进行设备到云和云到设备的消息传送。 包括消息格式和支持的通信协议的相关信息。
-services: iot-hub
-documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: 3fc5f1a3-3711-4611-9897-d4db079b4250
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 origin.date: 01/29/2018
 ms.author: v-yiso
-ms.date: 06/11/2018
-ms.openlocfilehash: 0aa8b9e930bc6da849dd4e45685517ef362c8177
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.date: 09/10/2018
+ms.openlocfilehash: 72e6a5f3b49f6b1701e4c49de53f406ffcd3cfb9
+ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695049"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43328671"
 ---
 # <a name="device-to-cloud-and-cloud-to-device-messaging-with-iot-hub"></a>使用 IoT 中心进行设备到云和云到设备的消息传送
 
@@ -48,7 +42,7 @@ IoT 中心消息传送功能的核心属性是消息的可靠性和持久性。 
 * 了解有关 IoT 中心[云到设备消息传送][lnk-c2d]的信息。
 
 [lnk-azure-iot]: ./iot-hub-what-is-azure-iot.md
-[lnk-iot-hub-overview]: ./iot-hub-what-is-iot-hub.md
+[lnk-iot-hub-overview]: about-iot-hub.md
 [lnk-d2c]: ./iot-hub-devguide-messages-d2c.md
 [lnk-c2d]: ./iot-hub-devguide-messages-c2d.md
 [lnk-c2d-guidance]: ./iot-hub-devguide-c2d-guidance.md

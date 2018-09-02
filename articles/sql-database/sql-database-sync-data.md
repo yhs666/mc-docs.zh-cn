@@ -1,22 +1,22 @@
 ---
-title: Azure SQL 数据同步 | Azure
+title: Azure SQL 数据同步 | Microsoft Docs
 description: 此概述介绍 Azure SQL 数据同步
 services: sql-database
-author: yunan2016
+author: WenJason
 manager: digimobile
 ms.service: sql-database
 ms.custom: data-sync
-ms.topic: article
-origin.date: 07/16/2018
-ms.date: 08/06/2018
-ms.author: v-nany
+ms.topic: conceptual
+origin.date: 08/09/2018
+ms.date: 09/02/2018
+ms.author: v-jay
 ms.reviewer: douglasl
-ms.openlocfilehash: af7c5fa06b7a77bf9160ca682368f0af84be64fe
-ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
+ms.openlocfilehash: 56e3f096112899d3ebbe3e31906930a2e5b5e28e
+ms.sourcegitcommit: 2601e68563bffe148e70cce2bf1dcbe837a40f80
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39486723"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43249723"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>使用 SQL 数据同步跨多个云和本地数据库同步数据
 
@@ -56,7 +56,7 @@ SQL 数据同步使用中心辐射型拓扑来同步数据。 将同步组中的
 
 -   **全局分布式应用程序：** 许多企业的业务分布在多个区域，甚至是多个国家/地区。 为了最大限度地缩短网络延迟时间，最好将数据存储在靠近的区域中。 借助 SQL 数据同步，可轻松同步世界各地区域中的数据库。
 
-数据同步不适合以下方案：
+数据同步不是以下场景的首选解决方案：
 
 -   灾难恢复
 
@@ -118,7 +118,9 @@ SQL 数据同步使用插入、更新和删除触发器来跟踪更改。 它在
 
 -   表不能包含非主键标识列。
 
--   主键不能有 datetime 数据类型。
+-   主键不能具有以下数据类型：sql_variant、binary、varbinary、image、xml。 
+
+-   使用以下数据类型作为主键时请小心谨慎，因为支持的精度仅到秒：time、datetime、datetime2、datetimeoffset。
 
 -   对象（数据库、表和列）的名称不能包含可打印字符句点 (.)、左方括号 ([) 或右方括号 (])。
 
@@ -132,7 +134,7 @@ SQL 数据同步使用插入、更新和删除触发器来跟踪更改。 它在
 
 -   XMLSchemaCollection（支持 XML）
 
--   Cursor、Timestamp、Hierarchyid
+-   Cursor、RowVersion、Timestamp、Hierarchyid
 
 #### <a name="unsupported-column-types"></a>不支持的列类型
 
@@ -164,7 +166,7 @@ SQL 数据同步使用插入、更新和删除触发器来跟踪更改。 它在
 
 ### <a name="what-regions-support-data-sync"></a>哪些区域支持数据同步？
 
-SQL 数据同步在所有公共云区域中都可用。
+SQL 数据同步在所有区域中都可用。
 
 ### <a name="is-a-sql-database-account-required"></a>是否需要 SQL 数据库帐户？ 
 
@@ -177,7 +179,10 @@ SQL 数据同步在所有公共云区域中都可用。
 是的。 可以在由不同订阅拥有的资源组中的 SQL 数据库之间进行同步。
 -   如果订阅属于同一租户，并且你对所有订阅都有权限，则可以在 Azure 门户中配置同步组。
 -   否则，必须使用 PowerShell 来添加属于不同订阅的同步成员。
-   
+
+### <a name="can-i-use-data-sync-to-sync-between-sql-databases-that-belong-to-different-clouds-like-azure-public-cloud-and-azure-china"></a>是否可以使用“数据同步”在属于不同云（例如 Azure 公有云和 Azure 中国）的 SQL 数据库之间进行同步？
+是的。 可以在属于不同云的 SQL 数据库之间进行同步，但必须使用 PowerShell 添加属于不同订阅的同步成员。
+
 ### <a name="can-i-use-data-sync-to-seed-data-from-my-production-database-to-an-empty-database-and-then-sync-them"></a>是否可以使用数据同步将生产数据库中的数据种子植入到空数据库，然后将这两个数据库同步？
 
 是的。 通过从原始数据库编写脚本，在新数据库中手动创建架构。 创建架构后，将表添加到同步组以复制数据并使其同步。
@@ -229,7 +234,3 @@ SQL 数据同步是否按预期执行？ 若要监视活动和排查问题，请
 -   [SQL 数据库概述](sql-database-technical-overview.md)
 
 -   [数据库生命周期管理](https://msdn.microsoft.com/library/jj907294.aspx)
-
-### <a name="developer-reference"></a>开发人员参考
-
--   [下载 SQL 数据同步 REST API 文档](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)

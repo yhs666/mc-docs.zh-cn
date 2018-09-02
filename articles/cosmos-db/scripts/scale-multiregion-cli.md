@@ -13,14 +13,14 @@ ms.topic: sample
 ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 origin.date: 06/02/2017
-ms.date: 07/02/2018
+ms.date: 09/03/2018
 ms.author: v-yeche
-ms.openlocfilehash: af6d86190f4d6b55647869bb5e5095f5d1ea8c11
-ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
+ms.openlocfilehash: ccdda4636a6cde00e90d147c09b50743ed15c3af
+ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37070131"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43164925"
 ---
 # <a name="replicate-an-azure-cosmos-db-database-account-in-multiple-regions-and-configure-failover-priorities-using-the-azure-cli"></a>使用 Azure CLI 将 Azure Cosmos DB 数据库帐户复制到多个区域中并配置故障转移优先级
 
@@ -57,13 +57,13 @@ az cosmosdb create \
 az cosmosdb update \
     --name $name \
     --resource-group $resourceGroupName \
-    --locations chinanorth=0 chinaeast=1
+    --locations chinanorth=0 chinaeast=1 chinanorth2=2 chinaeast2=3
 
 # Modify regional failover priorities
 az cosmosdb update \
     --name $name \
     --resource-group $resourceGroupName \
-    --locations chinanorth=1 chinaeast=0
+    --locations chinanorth=3 chinaeast=2 chinanorth2=1 chinaeast2=0
 
 ```
 <!-- location ADVISE TO chinanorth -->
@@ -90,7 +90,7 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.azure.cn/zh-cn/cli/overview?view=azure-cli-latest)。
+有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.azure.cn/zh-cn/cli/index?view=azure-cli-latest)。
 
 有关其他 Azure Cosmos DB CLI 脚本示例，请参见 [Azure Cosmos DB CLI 文档](../cli-samples.md)。
 

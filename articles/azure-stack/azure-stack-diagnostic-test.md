@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 07/19/2018
 ms.date: 08/27/2018
 ms.author: v-junlch
-ms.openlocfilehash: f632e218d5155dc952b260293c0dd01884c645dc
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.openlocfilehash: 6faa6676e24f489ffee9fa39bbb44d4544be3ec9
+ms.sourcegitcommit: bc7679a5ad24ea9120c44fc771e88a08b5d8b207
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869552"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "42998371"
 ---
 # <a name="run-a-validation-test-for-azure-stack"></a>为 Azure Stack 运行验证测试
 
@@ -56,13 +56,13 @@ ms.locfileid: "42869552"
 
 #### <a name="syntax"></a>语法
 
-````PowerShell
+```PowerShell
   Test-AzureStack
-````
+```
 
-#### <a name="parameters"></a>参数
+#### <a name="parameters"></a>parameters
 
-| 参数               | 值           | 必需 | 默认 |
+| 参数               | 值           | 必须 | 默认 |
 | ---                     | ---             | ---      | ---     |
 | ServiceAdminCredentials | PSCredential    | 否       | FALSE   |
 | DoNotDeployTenantVm     | SwitchParameter | 否       | FALSE   |
@@ -84,10 +84,10 @@ Test-AzureStack cmdlet 支持以下通用参数：Verbose、Debug、ErrorAction�
 
 在 PEP 会话中，运行：
 
-````PowerShell
+```PowerShell
     Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint -Credential $localcred
     Test-AzureStack
-````
+```
 
 #### <a name="run-test-azurestack-with-cloud-scenarios"></a>在有云方案的情况下运行 Test-AzureStack
 
@@ -110,44 +110,44 @@ Test-AzureStack cmdlet 支持以下通用参数：Verbose、Debug、ErrorAction�
 
 在 PEP 会话中，运行：
 
-````PowerShell
+```PowerShell
   Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint -Credential $localcred
   Test-AzureStack -ServiceAdminCredentials <Cloud administrator user name>
-````
+```
 
 #### <a name="run-test-azurestack-without-cloud-scenarios"></a>在没有云方案的情况下运行 Test-AzureStack
 
 在 PEP 会话中，运行：
 
-````PowerShell
+```PowerShell
   $session = New-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint -Credential $localcred
   Invoke-Command -Session $session -ScriptBlock {Test-AzureStack}
-````
+```
 
 #### <a name="list-available-test-scenarios"></a>列出可用的测试方案：
 
 在 PEP 会话中，运行：
 
-````PowerShell
+```PowerShell
   Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint -Credential $localcred
   Test-AzureStack -List
-````
+```
 
 #### <a name="run-a-specified-test"></a>运行指定的测试
 
 在 PEP 会话中，运行：
 
-````PowerShell
+```PowerShell
   Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint -Credential $localcred
   Test-AzureStack -Include AzsSFRoleSummary, AzsInfraCapacity
-````
+```
 
 排除特定的测试：
 
-````PowerShell
+```PowerShell
     Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint  -Credential $localcred
     Test-AzureStack -Ignore AzsInfraPerformance
-````
+```
 
 ### <a name="run-test-azurestack-to-test-infrastructure-backup-settings"></a>运行 Test-AzureStack 来测试基础结构备份设置
 

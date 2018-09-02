@@ -10,15 +10,15 @@ ms.component: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: reference
 origin.date: 05/03/2018
-ms.date: 07/02/2018
+ms.date: 09/03/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0f10d277bc42cffad7ea1dcac616c36d34283a18
-ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
+ms.openlocfilehash: 26d6f9466deebaa497f51dca01c004ca643536f0
+ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37070292"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43164627"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>适用于 SQL API 的 Azure Cosmos DB Node.js SDK：发行说明和资源
 > [!div class="op_single_selector"]
@@ -34,31 +34,18 @@ ms.locfileid: "37070292"
 > * [SQL](../cosmos-db/sql-api-sql-query-reference.md)
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
-<!-- Redirecrt https://msdn.microsoft.com/library/azure/dn782250.aspx to sql-api-sql-query-reference.md -->
 
-<table>
+|资源  |链接  |
+|---------|---------|
+|下载 SDK  |   [NPM](https://www.npmjs.com/package/@azure/cosmos) 
+|API 文档  |  [JavaScript SDK 参考文档](https://docs.microsoft.com/javascript/api/%40azure/cosmos/?view=azure-node-latest)
+|SDK 安装说明  |  [安装说明](https://github.com/Azure/azure-cosmos-js#installation)
+|参与 SDK | [GitHub](https://github.com/Azure/azure-cosmos-js/tree/master)
+| 示例 | [Node.js 代码示例](sql-api-nodejs-samples-preview.md)
+| 入门教程 | [JavaScript SDK 入门](sql-api-nodejs-get-started-preview.md)
+| Web 应用教程 | [使用 Azure Cosmos DB 创建 Node.js Web 应用程序](sql-api-nodejs-application-preview.md)
+| 当前受支持的平台 | [Node.js v6.x](https://nodejs.org/en/blog/release/v6.10.3/) - 要求 SDK 版本 2.0.0 及更高版本。<br/>[Node.js v4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)<br/> [Node.js v0.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/> [Node.js v0.10](https://nodejs.org/en/blog/release/v0.10.0/) 
 
-<tr><td>**下载 SDK**</td><td>[NPM](https://www.npmjs.com/package/documentdb)</td></tr>
-
-<tr><td>**API 文档**</td><td>[Node.js API 参考文档](https://docs.microsoft.com/javascript/api/documentdb/?view=azure-node-latest)</td></tr>
-
-<tr><td>**SDK 安装说明**</td><td>[安装说明](http://azure.github.io/azure-documentdb-node/)</td></tr>
-
-<tr><td>**参与 SDK**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-node/tree/master/source)</td></tr>
-
-<tr><td>**示例**</td><td>[Node.js 代码示例](sql-api-nodejs-samples.md)</td></tr>
-
-<tr><td>**入门教程**</td><td>[Node.js SDK 入门](sql-api-nodejs-get-started.md)</td></tr>
-
-<tr><td>**Web 应用教程**</td><td>[使用 Azure Cosmos DB 创建 Node.js Web 应用程序](sql-api-nodejs-application.md)</td></tr>
-
-<tr><td>**当前受支持的平台**</td><td> 
-[Node.js v6.x](https://nodejs.org/en/blog/release/v6.10.3/)<br/> 
-[Node.js v4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)<br/> 
-[Node.js v0.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/> 
-[Node.js v0.10](https://nodejs.org/en/blog/release/v0.10.0/) 
-</td></tr>
-</table></br>
 
 <!-- Not Available on ## Release notes -->
 <!-- Not Available on ## Release & Retirement Dates -->
