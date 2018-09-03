@@ -1,26 +1,21 @@
 ---
 title: Azure IoT 中心的云到设备的消息 (Java) | Azure
 description: 如何使用 Azure IoT SDK for Java 将云到设备的消息从 Azure IoT 中心发送到设备。 修改模拟设备应用以接收云到设备消息，并修改后端应用以发送云到设备消息。
-services: iot-hub
-documentationcenter: java
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: 7f785ea8-e7c2-40c5-87ef-96525e9b9e1e
 ms.service: iot-hub
+services: iot-hub
 ms.devlang: java
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 origin.date: 06/28/2017
-ms.date: 07/09/2018
+ms.date: 09/10/2018
 ms.author: v-yiso
-ms.openlocfilehash: 5bb02c8a622b0a99b8ecb83acb6dd221a23f0c9e
-ms.sourcegitcommit: 039d75a641edc2edd13a9371251051c20fea2bb7
+ms.openlocfilehash: 8cb76e13a9a53e2b6c406b373cb155ffca38518f
+ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103413"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43328600"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-java"></a>使用 IoT 中心发送云到设备的消息 (Java)
 
@@ -41,8 +36,7 @@ Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备�
 在本教程的最后，会运行两个 Java 控制台应用：
 
 * **simulated-device**，这是在 [IoT 中心入门]中创建的应用的修改版本，可连接到 IoT 中心并接收云到设备的消息。
-* 
-            **send-c2d-messages**，它将“云到设备”消息通过 IoT 中心发送到模拟设备应用，并接收 IoT 中心的送达确认。
+* **send-c2d-messages**，它将“云到设备”消息通过 IoT 中心发送到模拟设备应用，并接收 IoT 中心的送达确认。
 
 > [!NOTE]
 > IoT 中心通过 Azure IoT 设备 SDK 对许多设备平台和语言（包括 C、Java 和 Javascript）提供 SDK 支持。 有关如何将设备连接到本教程的代码以及通常如何连接到 Azure IoT 中心的分步说明，请参阅 [Azure IoT 开发人员中心]。
@@ -51,7 +45,7 @@ Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备�
 
 要完成本教程，需要以下各项：
 
-* [IoT 中心入门](iot-hub-java-java-getstarted.md)或[处理 IoT 中心设备到云的消息](tutorial-routing.md)教程的完整有效版。
+* [IoT 中心入门](quickstart-send-telemetry-java.md)或[处理 IoT 中心设备到云的消息](tutorial-routing.md)教程的完整有效版。
 * 最新的 [Java SE 开发工具包 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 * [Maven 3](https://maven.apache.org/install.html)
 + 有效的 Azure 帐户。 （如果没有帐户，只需花费几分钟就能创建一个[帐户][lnk-free-trial]。）
@@ -204,7 +198,7 @@ Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备�
 [img-send-command]:  ./media/iot-hub-java-java-c2d/sendc2d.png
 <!-- Links -->
 
-[IoT 中心入门]: ./iot-hub-java-java-getstarted.md
+[IoT 中心入门]: quickstart-send-telemetry-java.md
 [IoT Hub Developer Guide - C2D]: ./iot-hub-devguide-messaging.md
 [IoT 中心开发人员指南]: ./iot-hub-devguide.md
 [Azure IoT 开发人员中心]: https://www.azure.cn/develop/iot

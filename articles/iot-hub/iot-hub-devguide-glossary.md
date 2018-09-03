@@ -6,17 +6,15 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 origin.date: 01/29/2018
 ms.author: v-yiso
-ms.date: 08/06/2018
-ms.openlocfilehash: 8983a3fb5a14ca2de72e824b354cdfb7f7d31a6f
-ms.sourcegitcommit: d4092cf6aba0d949bf612093c76f964c2bdfd0ba
+ms.date: 09/10/2018
+ms.openlocfilehash: d1dd8c48c036e12764d8db2b8e36ca025b87c7fa
+ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39306583"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43330519"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IoT 中心术语表
 本文列出了一些在 IoT 中心文章中使用的常用术语。
@@ -38,6 +36,9 @@ ms.locfileid: "39306583"
 
 ## <a name="azure-iot-service-sdks"></a>Azure IoT 服务 SDK
 提供了多种语言的 _服务 SDK_ ，以便于用户创建与 IoT 中心交互的 [后端应用](#back-end-app) 。 IoT 中心教程介绍了如何使用这些服务 SDK。 可以在此 GitHub [存储库](https://github.com/Azure/azure-iot-sdks)中找到有关服务 SDK 的源代码和进一步信息。
+
+## <a name="azure-iot-toolkit"></a>Azure IoT 工具包
+[Azure IoT 工具包](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)是一个跨平台的开放源代码 Visual Studio Code 扩展，可帮助你在 VS Code 中管理 Azure IoT 中心和设备。 使用 Azure IoT 工具包，IoT 开发人员可以轻松在 VS Code 中开发 IoT 项目。
 
 ## <a name="azure-portal"></a>Azure 门户
 [Microsoft Azure 门户](https://portal.azure.cn) 是一个中心位置，可在其中预配和管理 Azure 资源。 该门户使用 _边栏选项卡_组织其内容。
@@ -120,7 +121,7 @@ ms.locfileid: "39306583"
 [IoT 中心](#iot-hub) 支持常见的设备管理模式，包括重新启动、执行恢复出厂设置，以及执行设备的固件更新。
 
 ## <a name="device-rest-api"></a>设备 REST API
-在设备上使用[设备 REST API](https://docs.microsoft.com/rest/api/iothub/httpruntime)，可以将设备到云消息发送到 IoT 中心，并能从 IoT 中心接收[云到设备](#cloud-to-device)消息。 通常情况下，使用 IoT 中心教程中演示的一种较高级别的 [设备 SDK](#azure-iot-device-sdks) 。
+在设备上使用[设备 REST API](https://docs.microsoft.com/rest/api/iothub/device)，可以将设备到云消息发送到 IoT 中心，并能从 IoT 中心接收[云到设备](#cloud-to-device)消息。 通常情况下，使用 IoT 中心教程中演示的一种较高级别的 [设备 SDK](#azure-iot-device-sdks) 。
 
 ## <a name="device-provisioning"></a>Device Provisioning
 设备预配是将初始[设备数据](#device-data)添加到解决方案中的存储的过程。 要使新设备能够连接到中心，必须将新设备 ID 和密钥添加到 IoT 中心的[标识注册表](#identity-registry)。 在预配过程中，可能需要初始化其他解决方案存储中的设备特定数据。
@@ -150,7 +151,7 @@ IoT 中心公开了多个[终结点](./iot-hub-devguide-endpoints.md)，以便�
 若要读取发送到 IoT 中心的[设备到云](#device-to-cloud)消息，可以连接到中心上的终结点，并使用任何事件中心兼容的方法读取这些消息。 事件中心兼容的方法包括使用[事件中心 SDK](../event-hubs/event-hubs-programming-guide.md) 和 [Azure 流分析](../stream-analytics/stream-analytics-introduction.md)。
 
 ## <a name="field-gateway"></a>现场网关
-无法直接连接到 [IoT 中心](#iot-hub) 的设备可以通过现场网关进行连接，而现场网关通常与设备一起部署在本地。 有关详细信息，请参阅[什么是 Azure IoT 中心？](./iot-hub-what-is-iot-hub.md)
+无法直接连接到 [IoT 中心](#iot-hub) 的设备可以通过现场网关进行连接，而现场网关通常与设备一起部署在本地。 有关详细信息，请参阅[什么是 Azure IoT 中心？](about-iot-hub.md)
 
 ## <a name="free-account"></a>免费帐户
 可以创建[免费的 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/)，以便使用 IoT 中心服务（及其他 Azure 服务）完成 IoT 中心教程和试验。
@@ -167,7 +168,7 @@ IoT 中心公开了多个[终结点](./iot-hub-devguide-endpoints.md)，以便�
 [!INCLUDE [azure-iot-hub-edge-glossary-includes](../../includes/azure-iot-hub-edge-glossary-includes.md)]
 
 ## <a name="iot-hub"></a>IoT 中心
-IoT 中心是一项完全托管的 Azure 服务，可在数百万个设备和一个解决方案后端之间实现安全可靠的双向通信。 有关详细信息，请参阅[什么是 Azure IoT 中心？](./iot-hub-what-is-iot-hub.md) 使用 [Azure 订阅](#subscription)可以创建 IoT 中心来处理 IoT 消息传送工作负荷。
+IoT 中心是一项完全托管的 Azure 服务，可在数百万个设备和一个解决方案后端之间实现安全可靠的双向通信。 有关详细信息，请参阅[什么是 Azure IoT 中心？](about-iot-hub.md) 使用 [Azure 订阅](#subscription)可以创建 IoT 中心来处理 IoT 消息传送工作负荷。
 
 ## <a name="iot-hub-metrics"></a>IoT 中心度量值
 [IoT 中心指标](./iot-hub-metrics.md)向用户提供有关 [Azure 订阅](#subscription)中的 IoT 中心的状态数据。 可以使用 IoT 中心指标评估服务以及连接到服务的设备的总体运行状况。 IoT 中心指标可以帮助用户了解 IoT 中心发生的情况，并调查根本原因，而无需联系 Azure 支持部门。
@@ -185,7 +186,7 @@ Azure IoT 解决方案加速器将多个 Azure 服务一起打包到解决方案
 [适用于 Azure CLI 2.0 的 IoT 扩展](https://github.com/Azure/azure-iot-cli-extension)是一个跨平台的命令行工具。 使用该工具可以管理 [标识注册表](#identity-registry)中的设备、向设备发送消息和文件和接收来自设备的消息和文件，以及监视 IoT 中心的操作。
 
 ## <a name="job"></a>作业
-解决方案后端可以使用[作业](./iot-hub-devguide-jobs.md)来计划和跟踪在 IoT 中心注册的一组设备上的活动。 活动包括更新设备孪生[所需的属性](#desired-properties)、更新设备孪生[标记](#tags)，以及调用[直接方法](#direct-method)。 [IoT 中心](#iot-hub)还使用作业从[标识注册表](#identity-registry)进行[导入和导出](./iot-hub-devguide-identity-registry.md#import-and-export-device-identities)。
+解决方案后端可以使用[作业](iot-hub-devguide-jobs.md)来计划和跟踪在 IoT 中心注册的一组设备上的活动。 活动包括更新设备孪生[所需的属性](#desired-properties)、更新设备孪生[标记](#tags)，以及调用[直接方法](#direct-method)。 [IoT 中心](#iot-hub)还用于在[标识注册表](#identity-registry)中[导入和导出](iot-hub-devguide-identity-registry.md#import-and-export-device-identities)内容。
 
 ## <a name="mqtt"></a>MQTT
 [MQTT](http://mqtt.org/) 是 [IoT 中心](#iot-hub)支持的与设备进行通信的消息传递协议之一。 有关 IoT 中心支持的消息传递协议的详细信息，请参阅[使用 IoT 中心发送和接收消息](./iot-hub-devguide-messaging.md)。
@@ -200,7 +201,7 @@ Azure IoT 解决方案加速器将多个 Azure 服务一起打包到解决方案
 连接到 IoT 中心的面向设备或面向服务的终结点时， [连接字符串](#connection-string) 包含密钥以授予用户访问权限。 在[标识注册表](#identity-registry)中添加设备或者在中心添加[共享访问策略](#shared-access-policy)时，服务将生成主要和次要密钥。 拥有两个密钥能够在更新密钥时从一个密钥切换到另一个密钥，而不丢失对 IoT 中心的访问。
 
 ## <a name="protocol-gateway"></a>协议网关
-协议网关通常部署在云中，为连接到 [IoT 中心](#iot-hub)的设备提供协议转换服务。 有关详细信息，请参阅[什么是 Azure IoT 中心？](./iot-hub-what-is-iot-hub.md)
+协议网关通常部署在云中，为连接到 [IoT 中心](#iot-hub)的设备提供协议转换服务。 有关详细信息，请参阅[什么是 Azure IoT 中心？](about-iot-hub.md)
 
 ## <a name="quotas-and-throttling"></a>配额和限制
 各种[配额](./iot-hub-devguide-quotas-throttling.md)可用于 [IoT 中心](#iot-hub)，其中许多配额因所在的中心的层而异。 [IoT 中心](#iot-hub)在运行时也对服务的使用实施一些[限制](./iot-hub-devguide-quotas-throttling.md)。
@@ -221,6 +222,9 @@ Azure IoT 解决方案加速器将多个 Azure 服务一起打包到解决方案
 
 ## <a name="sasl-plain"></a>SASL PLAIN
 SASL PLAIN 是一种协议， [AMQP](#advanced-message-queue-protocol) 协议使用它传输安全令牌。
+
+## <a name="service-rest-api"></a>服务 REST API
+可以从解决方案后端使用[服务 REST API](https://docs.microsoft.com/rest/api/iothub/service) 来管理设备。 使用 API，不仅可以检索和更新[设备孪生](#device-twin)属性，还能调用[直接方法](#direct-method)并安排[作业](#job)。 通常情况下，使用 IoT 中心教程中演示的一种较高级别的 [服务 SDK](#azure-iot-service-sdks) 。
 
 ## <a name="shared-access-signature"></a>共享访问签名
 共享访问签名 (SAS) 是基于 SHA–256 安全哈希或 URI 的身份验证机制。 SAS 身份验证有两个组件：_共享访问策略_和_共享访问签名_（通常称为令牌）。 设备使用 SAS 在 IoT 中心进行身份验证。 [后端应用](#back-end-app) 也使用 SAS 在 IoT 中心的面向服务的终结点上进行身份验证。 通常，在 [连接字符串](#connection-string) 中包含 SAS 令牌，应用使用此令牌建立与 IoT 中心的连接。

@@ -1,26 +1,20 @@
 ---
 title: 了解 Azure IoT 中心消息格式 | Azure
 description: 开发人员指南 - 描述 IoT 中心消息的格式和预期内容。
-services: iot-hub
-documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: 3fc5f1a3-3711-4611-9897-d4db079b4250
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-origin.date: 03/20/2018
+services: iot-hub
+ms.topic: conceptual
+origin.date: 07/18/2018
 ms.author: v-yiso
-ms.date: 05/07/2018
-ms.openlocfilehash: a986df34ad4ceccb06477161ed0830279a5083f7
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.date: 09/10/2018
+ms.openlocfilehash: 8a4e45b523fc53616ff27e8702f9b3b611123df7
+ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121221"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43329014"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>创建和读取 IoT 中心消息
 
@@ -72,11 +66,11 @@ IoT 中心用于衡量消息大小的方法与协议无关，仅考虑实际有�
 
 有关 IoT 中心内消息大小限制的信息，请参阅 [IoT 中心配额和限制][lnk-quotas]。
 
-若要了解如何创建和读取使用各种编程语言的 IoT 中心消息，请参阅[入门][lnk-get-started]教程。
+若要了解如何用不同编程语言创建并读取 IoT 中心消息，请参阅[快速入门][lnk-get-started]。
 
 [lnk-messaging]: ./iot-hub-devguide-messaging.md
 [lnk-quotas]: ./iot-hub-devguide-quotas-throttling.md
-[lnk-get-started]: ./iot-hub-get-started.md
+[lnk-get-started]: quickstart-send-telemetry-node.md
 [lnk-sdks]: ./iot-hub-devguide-sdks.md
 [lnk-c2d]: ./iot-hub-devguide-messages-c2d.md
 [lnk-d2c]: ./iot-hub-devguide-messages-d2c.md

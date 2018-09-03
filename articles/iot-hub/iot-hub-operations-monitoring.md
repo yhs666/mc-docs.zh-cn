@@ -1,32 +1,28 @@
 ---
 title: Azure IoT 中心操作监视 | Azure
 description: 如何使用 Azure IoT 中心操作监视功能实时监视 IoT 中心上的操作状态。
-services: iot-hub
-documentationcenter: ''
 author: nberdy
-manager: timlt
-editor: ''
-ms.assetid: a299f3a5-b14d-4586-9c3b-44aea14ed013
+manager: briz
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
+services: iot-hub
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 10/10/2017
 ms.author: v-yiso
-ms.date: 06/11/2018
-ms.openlocfilehash: 6aaf91faa881767293a17dc12e69746adf8ceaf7
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.date: 09/10/2018
+ms.openlocfilehash: 99284118a09328ceea3a0a1c655946b8cd992fbb
+ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695129"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43328582"
 ---
 # <a name="iot-hub-operations-monitoring"></a>IoT 中心操作监视
 IoT 中心操作监视可让你实时监视其 IoT 中心上的操作状态。 IoT 中心可跨多个类别的操作跟踪事件。 可选择将一个或多个类别的事件发送到 IoT 中心终结点进行处理。 可以监视数据中是否有错误，或根据数据模式设置更复杂的处理行为。
 
 >[!NOTE]
->IoT 中心操作监视功能已弃用，并将于 2018 年 10 月 10 日从 IoT 中心中删除。 有关如何监视 IoT 中心的操作和运行状况，请参阅[监视 Azure IoT 中心运行状况并快速诊断问题][lnk-monitor]。 要详细了解弃用日程表，请参阅[利用 Azure Monitor 和 Azure 资源运行状况监视 Azure IoT 解决方案][lnk-blog-announcement]。
+>IoT 中心操作监视功能已弃用，并将于 2019 年 3 月 10 日从 IoT 中心中删除。 有关如何监视 IoT 中心的操作和运行状况，请参阅[监视 Azure IoT 中心运行状况并快速诊断问题][lnk-monitor]。 要详细了解弃用日程表，请参阅[利用 Azure Monitor 和 Azure 资源运行状况监视 Azure IoT 解决方案][lnk-blog-announcement]。
 
 IoT 中心监视 6 种类别的事件：
 
@@ -300,9 +296,9 @@ class Program
 [img-endpoints]: media/iot-hub-operations-monitoring/monitoring-endpoint.png
 [img-service-key]: media/iot-hub-operations-monitoring/service-key.png
 
-[lnk-blog-announcement]: https://azure.microsoft.com/blog/monitor-your-azure-iot-accelerators-with-azure-monitor-and-azure-resource-health
+[lnk-blog-announcement]: https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health
 [lnk-monitor]: iot-hub-monitor-resource-health.md
-[lnk-get-started]: ./iot-hub-csharp-csharp-getstarted.md
+[lnk-get-started]: quickstart-send-telemetry-dotnet.md
 [lnk-diagnostic-metrics]: ./iot-hub-metrics.md
 [lnk-scaling]: ./iot-hub-scaling.md
 [lnk-dr]: ./iot-hub-ha-dr.md

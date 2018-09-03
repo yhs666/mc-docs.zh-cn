@@ -10,12 +10,12 @@ ms.topic: conceptual
 origin.date: 06/26/2018
 ms.date: 08/13/2018
 ms.author: v-yeche
-ms.openlocfilehash: 952c5f798140e79cb701181c40c60f7f4e306696
-ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
+ms.openlocfilehash: d3aa18b6e1d5750117c752185d45e8835c179ac5
+ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41704460"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43328469"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Azure Cosmos DB 中的请求单位数
 
@@ -102,7 +102,7 @@ Azure Cosmos DB 通过保留资源提供了快速且可预测的性能，以满�
 
     ![将项上传到请求单位计算器][2]
 2. 若要预估数据存储需求，请输入预期要存储的项（例如文档、行或顶点）的总数。
-<!-- Not Available on tables or graphs -->
+    <!-- Not Available on tables or graphs -->
 3. 输入所需的创建、读取、更新和删除操作数目（以秒为单位）。 若要预估项更新操作的请求单位费用，请上传步骤 1 中包含典型字段更新的示例项的副本。 例如，如果项更新通常会修改名为 *lastLogin* 和 *userVisits* 的两个属性，则请复制示例项，更新这两个属性的值，并上传复制的项。
 
     ![在请求单位计算器中输入吞吐量要求][3]

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/02/2018
 ms.author: clemensv
 ms.custom: include file
-ms.openlocfilehash: 4a3f38e1423db0755d8c76f8850e41173d250f43
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 1fe0d74682305b12b213471ca341f17fb4d429d4
+ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695891"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43328229"
 ---
 ### <a name="create-a-console-application"></a>创建控制台应用程序
 
@@ -36,6 +36,7 @@ ms.locfileid: "34695891"
     using System.IO;
     using System.Threading;
     using System.Threading.Tasks;
+    using System.Net.Http;
     using Microsoft.Azure.Relay;
     ```
 2. 将常量添加到 `Program` 类，用于保存混合连接的连接详细信息。 将括号中的占位符替换为在创建混合连接时获得的值。 请务必使用完全限定的命名空间名称。
@@ -63,7 +64,7 @@ ms.locfileid: "34695891"
         };
         request.Headers.Add("ServiceBusAuthorization", token);
         var response = await client.SendAsync(request);
-        Console.WriteLine(await response.Content.ReadAsStringAsync());
+        Console.WriteLine(await response.Content.ReadAsStringAsync());        Console.ReadLine();
     }
     ```
 4. 在 `Program` 类的 `Main` 方法中添加以下代码行。

@@ -1,26 +1,23 @@
 ---
 title: 使用 Azure IoT 中心发送云到设备消息 (Python)
 description: 如何使用用于 Python 的 Azure IoT SDK 将云到设备消息从 Azure IoT 中心发送到设备。 修改模拟设备应用以接收云到设备消息，并修改后端应用以发送云到设备消息。
-services: iot-hub
-documentationcenter: python
 author: kgremban
 manager: timlt
-editor: ''
-ms.assetid: 3ca8a78f-ade2-46e8-8a49-d5d599cdf1f1
 ms.service: iot-hub
-ms.devlang: javascript
-ms.topic: article
+services: iot-hub
+ms.devlang: python
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 01/22/2018
-ms.date: 06/11/2018
+ms.date: 09/10/2018
 ms.author: v-yiso
-ms.openlocfilehash: 2332fb7596f5fa12f21951cb4315e5cf6a947967
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: d4e839c4787b4f52de72d002f70e6b10f2d683b1
+ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695071"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43328660"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-python"></a>使用 IoT 中心发送云到设备消息 (Python)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
@@ -317,7 +314,7 @@ Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备�
 [lnk-visual-c-redist]: http://www.microsoft.com/download/confirmation.aspx?id=48145
 [lnk-node-download]: https://nodejs.org/en/download/
 [lnk-install-pip]: https://pip.pypa.io/en/stable/installing/
-[IoT 中心入门]: iot-hub-node-node-getstarted.md
+[IoT 中心入门]: quickstart-send-telemetry-node.md
 [IoT Hub developer guide - C2D]: iot-hub-devguide-messaging.md
 [IoT 中心开发人员指南]: iot-hub-devguide.md
 [Azure IoT 开发人员中心]: http://www.azure.cn/develop/iot

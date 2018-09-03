@@ -1,26 +1,21 @@
 ---
 title: Azure IoT 中心的云到设备消息 (Node) | Azure
 description: 如何使用 Azure IoT SDK for Node.js 将云到设备消息从 Azure IoT 中心发送到设备。 修改模拟设备应用以接收云到设备消息，并修改后端应用以发送云到设备消息。
-services: iot-hub
-documentationcenter: nodejs
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: 3ca8a78f-ade2-46e8-8a49-d5d599cdf1f1
 ms.service: iot-hub
+services: iot-hub
 ms.devlang: javascript
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 origin.date: 06/16/2017
 ms.author: v-yiso
-ms.date: 06/11/2017
-ms.openlocfilehash: 9df395fa7455e499debbd6de02f1f2f466b81627
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.date: 09/10/2018
+ms.openlocfilehash: 0fc6e9be6478639803da61fbebb00fb08e8d813d
+ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695068"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43328625"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-node"></a>使用 IoT 中心发送云到设备消息 (Node)
 
@@ -195,7 +190,7 @@ Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备�
 
 <!-- Links -->
 
-[IoT 中心入门]: ./iot-hub-node-node-getstarted.md
+[IoT 中心入门]: quickstart-send-telemetry-node.md
 [IoT Hub Developer Guide - C2D]: ./iot-hub-devguide-messaging.md
 [IoT 中心开发人员指南]: ./iot-hub-devguide.md
 [Azure IoT 开发人员中心]: https://www.azure.cn/develop/iot/

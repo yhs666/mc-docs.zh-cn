@@ -13,14 +13,14 @@ ms.topic: sample
 ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 origin.date: 05/10/2017
-ms.date: 07/02/2018
+ms.date: 09/03/2018
 ms.author: v-yeche
-ms.openlocfilehash: 49526f95b0a45a313df61aaac56c6257417e2825
-ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
+ms.openlocfilehash: 9e5b31cb3aa0b77c6cf8efda315a46d8d2f0df63
+ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37070099"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43164787"
 ---
 # <a name="regenerate-an-azure-cosmos-db-account-key-using-powershell"></a>使用 PowerShell 重新生成 Azure Cosmos DB 帐户密钥
 
@@ -33,7 +33,7 @@ ms.locfileid: "37070099"
 ```powershell
 # Set the Azure resource group name and location
 $resourceGroupName = "myResourceGroup"
-$resourceGroupLocation = "China North"
+$resourceGroupLocation = "chinanorth"
 
 # Create the resource group
 New-AzureRmResourceGroup -Name $resourceGroupName -Location $resourceGroupLocation
@@ -42,9 +42,9 @@ New-AzureRmResourceGroup -Name $resourceGroupName -Location $resourceGroupLocati
 $DBName = "testdb"
 
 # Write and read locations and priorities for the database
-$locations = @(@{"locationName"="China North"; 
+$locations = @(@{"locationName"="chinanorth"; 
                  "failoverPriority"=0}, 
-               @{"locationName"="China East"; 
+               @{"locationName"="chinaeast"; 
                   "failoverPriority"=1})
 
 # Consistency policy
@@ -88,10 +88,10 @@ Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
 
 | 命令 | 注释 |
 |---|---|
-| [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/new-azurermresourcegroup) | 创建用于存储所有资源的资源组。 |
+| [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) | 创建用于存储所有资源的资源组。 |
 | [New-AzureRmResource](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresource?view=azurermps-3.8.0) | 创建用于托管数据库或弹性池的逻辑服务器。 |
 | [Invoke-AzureRmResourceAction](https://docs.microsoft.com/powershell/module/azurerm.resources/invoke-azurermresourceaction?view=azurermps-3.8.0) | 对 Azure CosmosDB 帐户调用某个操作。 |
-| [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/remove-azurermresourcegroup) | 删除资源组，包括所有嵌套的资源。 |
+| [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup) | 删除资源组，包括所有嵌套的资源。 |
 |||
 
 ## <a name="next-steps"></a>后续步骤
