@@ -1,27 +1,21 @@
 ---
 title: 了解 Azure IoT 中心标识注册表 | Azure
 description: 开发人员指南 - 说明 IoT 中心标识注册表以及如何使用它来管理设备。 包括批量导入和导出设备标识的相关信息。
-services: iot-hub
-documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: 0706eccd-e84c-4ae7-bbd4-2b1a22241147
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 origin.date: 01/29/2018
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
-ms.date: 06/11/2018
-ms.openlocfilehash: 13975d3d715270dc08458e84786ba1da48b9e576
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.date: 09/10/2018
+ms.openlocfilehash: 2804143ea9439f3cccafba0e027fa3c2ccc6abed
+ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695040"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43329162"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>了解 IoT 中心的标识注册表
 
@@ -269,4 +263,4 @@ IoT 中心开发人员指南中的其他参考主题包括：
 [lnk-devguide-directmethods]: ./iot-hub-devguide-direct-methods.md
 [lnk-devguide-jobs]: ./iot-hub-devguide-jobs.md
 
-[lnk-getstarted-tutorial]: ./iot-hub-csharp-csharp-getstarted.md
+[lnk-getstarted-tutorial]: quickstart-send-telemetry-dotnet.md

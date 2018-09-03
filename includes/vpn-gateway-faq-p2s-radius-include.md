@@ -1,3 +1,20 @@
+---
+title: include 文件
+description: include 文件
+services: vpn-gateway
+author: WenJason
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 09/02/2018
+ms.author: v-jay
+ms.custom: include file
+ms.openlocfilehash: 9b228e7af71f07cd8d9edd3ab198ab56343db49a
+ms.sourcegitcommit: e17577aca6df1a41d3ec164f33189f0435c5e060
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43252753"
+---
 [!INCLUDE [P2S FAQ All](vpn-gateway-faq-p2s-all-include.md)]
 
 ### <a name="is-radius-authentication-supported-on-all-azure-vpn-gateway-skus"></a>是否所有 Azure VPN 网关 SKU 都支持 RADIUS 身份验证？
@@ -32,6 +49,4 @@ RADIUS 身份验证在网关上支持的最大 SSTP 连接数没有变化。 它
 
 ### <a name="does-radius-authentication-work-with-both-ikev2-and-sstp-vpn"></a>RADIUS 身份验证是否同时适用于 IKEv2 和 SSTP VPN？
 
-是的，IKEv2 和 SSTP VPN 都支持 RADIUS 身份验证。  
-
-<!-- ms.date: 11/07/2017 -->
+是的，IKEv2 和 SSTP VPN 都支持 RADIUS 身份验证。 

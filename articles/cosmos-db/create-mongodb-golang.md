@@ -9,15 +9,15 @@ ms.component: cosmosdb-mongo
 ms.devlang: na
 ms.topic: quickstart
 origin.date: 07/21/2017
-ms.date: 08/13/2018
+ms.date: 09/03/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 88f87c6af34009c31283186e666dc1e5e2b19748
-ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
+ms.openlocfilehash: 5e84ce41480559349f0859d68ac227a80891f130
+ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41704099"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43164628"
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-golang-and-the-azure-portal"></a>Azure Cosmos DB：使用 Golang 和 Azure 门户生成 MongoDB API 控制台应用
 
@@ -251,4 +251,4 @@ if err != nil {
 > [!div class="nextstepaction"]
 > [将 MongoDB API 的数据导入 Azure Cosmos DB](mongodb-migrate.md)
 
-<!--Update_Description: update meta properties, wording update  -->
+<!--Update_Description: update meta properties  -->

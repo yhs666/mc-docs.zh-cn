@@ -1,26 +1,21 @@
 ---
 title: Azure IoT 中心设备管理入门 (.NET/.NET) | Microsoft Docs
 description: 如何使用 Azure IoT 中心设备管理启动远程设备重启。 使用适用于 .NET 的 Azure IoT 设备 SDK 实现包含直接方法的模拟设备应用，并使用适用于 .NET 的 Azure IoT 服务 SDK 实现调用直接方法的服务应用。
-services: iot-hub
-documentationcenter: .net
-author: JimacoMS2
+author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: ''
 ms.service: iot-hub
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: csharp
+ms.topic: conceptual
 origin.date: 09/15/2017
 ms.author: v-jamebr
-ms.date: 12/18/2017
-ms.openlocfilehash: 45ed69dd6f47e6061fd1dcd7bd88cffa95f4e062
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.date: 09/10/2017
+ms.openlocfilehash: 4dae1e2c2e5011e123fbcc7dda2357165eb8e53a
+ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38940001"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43328487"
 ---
 # <a name="get-started-with-device-management-netnet"></a>设备管理入门 (.NET/.NET)
 
@@ -44,7 +39,6 @@ ms.locfileid: "38940001"
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
-<a id="DeviceIdentity_csharp"></a>
 [!INCLUDE [iot-hub-get-started-create-device-identity-portal](../../includes/iot-hub-get-started-create-device-identity-portal.md)]
 
 ## <a name="trigger-a-remote-reboot-on-the-device-using-a-direct-method"></a>使用直接方法在设备上触发远程重新启动

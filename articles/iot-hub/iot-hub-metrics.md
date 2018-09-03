@@ -1,26 +1,20 @@
 ---
 title: 使用指标监视 Azure IoT 中心 | Azure
 description: 如何使用 Azure IoT 中心度量值评估和监视 IoT 中心的总体运行状况。
-services: iot-hub
-documentationcenter: ''
 author: nberdy
-manager: timlt
-editor: ''
-ms.assetid: a47108fd-f994-4105-b21d-5b8f697b699c
+manager: briz
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 origin.date: 08/25/2017
-ms.date: 12/18/2017
+ms.date: 09/10/2018
 ms.author: v-yiso
-ms.openlocfilehash: 84b8589a911d1cb06e8413372213482268857163
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.openlocfilehash: 4b277a658c7382f74bcfbae4103c919a0915b2cb
+ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
-ms.locfileid: "26576272"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43328603"
 ---
 # <a name="understand-iot-hub-metrics"></a>了解 IoT 中心指标
 IoT 中心度量值提供更棒的数据，清晰显示 Azure 订阅中的 Azure IoT 资源状态。 通过 IoT 中心度量值，可评估 IoT 中心服务及其所连接的设备的总体运行状况。 面向用户的统计信息非常重要，因为它们可以帮助了解 IoT 中心的情况，并可以帮助在不联系 Azure 支持人员的情况下解决根本问题。
@@ -39,7 +33,7 @@ IoT 中心度量值提供更棒的数据，清晰显示 Azure 订阅中的 Azure
 ## <a name="iot-hub-metrics-and-how-to-use-them"></a>IoT 中心度量值及其用法
 IoT 中心提供多个度量值，帮助你大致了解中心的运行状况以及所连接的设备总数。 可以结合多个度量值的信息，更清楚地了解 IoT 中心的状态。 下表描述了每个 IoT 中心所跟踪的度量值，以及每个度量值与 IoT 中心总体状态的关联。
 
-|度量值|指标显示名称|计价单位|聚合类型|说明|
+|指标|指标显示名称|计价单位|聚合类型|说明|
 |---|---|---|---|---|
 |d2c.telemetry.ingress.allProtocol|遥测消息发送尝试次数|计数|总计|尝试发送到 IoT 中心的、设备到云的遥测消息数|
 |d2c.telemetry.ingress.success|发送的遥测消息数|计数|总计|成功发送到 IoT 中心的、设备到云的遥测消息数|
@@ -107,7 +101,7 @@ IoT 中心提供多个度量值，帮助你大致了解中心的运行状况以�
 [1]: ./media/iot-hub-metrics/enable-metrics-1.png
 [2]: ./media/iot-hub-metrics/enable-metrics-2.png
 
-[lnk-get-started]: ./iot-hub-csharp-csharp-getstarted.md
+[lnk-get-started]: quickstart-send-telemetry-dotnet.md
 [lnk-operations-monitoring]: ./iot-hub-operations-monitoring.md
 [lnk-scaling]: ./iot-hub-scaling.md
 [lnk-dr]: ./iot-hub-ha-dr.md

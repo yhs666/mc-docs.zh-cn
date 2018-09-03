@@ -1,26 +1,20 @@
 ---
 title: 了解 Azure IoT 中心查询语言
 description: 开发人员指南 - 介绍了类似 SQL 的 IoT 中心查询语言，该语言用于在 IoT 中心检索设备/模块孪生和作业的相关信息。
-services: iot-hub
-documentationcenter: .net
 author: fsautomata
-manager: timlt
-editor: ''
-ms.assetid: 851a9ed3-b69e-422e-8a5d-1d79f91ddf15
+manager: ''
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 origin.date: 02/26/2018
 ms.author: v-yiso
-ms.date: 06/11/2018
-ms.openlocfilehash: a747e16666313c838c3cd7bde41ded3b48629b5a
-ms.sourcegitcommit: d4092cf6aba0d949bf612093c76f964c2bdfd0ba
+ms.date: 09/10/2018
+ms.openlocfilehash: 828c58eca6bb9b40c633fa9a9dd91c789747d88f
+ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39306580"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43328969"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>用于设备和模块孪生、作业和消息路由的 IoT 中心查询语言
 
@@ -314,7 +308,7 @@ WHERE devices.jobs.jobId = 'myJobId'
 
 可使用[设备到云的路由][lnk-devguide-messaging-routes]配置 IoT 中心，以将设备到云的消息分派给不同的终结点。 根据针对各消息计算的表达式进行分派。
 
-在克隆和作业查询中，路由 [条件][lnk-query-expressions] 使用相同的 IoT 中心查询语言作为条件。 根据消息标头和正文评估路由条件。 路由查询表达式可能只涉及消息标题、只涉及消息正文或同时涉及两者。 为了对消息进行路由，IoT 中心为标头和消息正文采用了特定的架构。 以下各节介绍了 IoT 中心正确进行路由所需满足的要求。
+路由[条件][lnk-query-expressions]使用 IoT 中心查询语言语法作为双查询和作业查询中的条件，但只有一部分函数可用。 根据消息标头和正文评估路由条件。 路由查询表达式可能只涉及到消息标头、消息正文，或者同时涉及到消息标头和消息正文。 IoT 中心假设标题和消息正文采用特定架构来路由消息，以下部分介绍了 IoT 中心正常路由所需的条件。
 
 ### <a name="routing-on-message-headers"></a>根据消息标头路由
 

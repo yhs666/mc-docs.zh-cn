@@ -10,20 +10,21 @@ ms.component: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: tutorial
 origin.date: 03/23/2018
-ms.date: 07/02/2018
+ms.date: 09/03/2018
 ms.author: v-yeche
-ms.openlocfilehash: 6267786cdf6bed5454229e79f0ff411fc361622e
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 159c9bc0b53970575936ee96c16b1d16ffe5b220
+ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939444"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43164732"
 ---
 <a name="_Toc395783175"></a>
 # <a name="build-a-nodejs-web-application-using-azure-cosmos-db"></a>使用 Azure Cosmos DB 生成 Node.js Web 应用程序
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
 > * [Node.js](sql-api-nodejs-application.md)
+> * [Node.js - v2.0 预览版](sql-api-nodejs-application-preview.md)
 > * [Java](sql-api-java-application.md)
 > * [Python](sql-api-python-application.md)
 > 
@@ -68,14 +69,20 @@ ms.locfileid: "38939444"
 2. 导航到要在其中存储新应用程序的目录。
 3. 使用 Express 生成器生成名叫 **todo**的新应用程序。
 
-        express todo
+    ```bash
+    express todo
+    ```
 4. 打开新的 **todo** 目录并安装依赖项。
 
-        cd todo
-        npm install
+    ```bash
+    cd todo
+    npm install
+    ```
 5. 运行新应用程序。
 
-        npm start
+    ```bash
+    npm start
+    ```
 6. 在浏览器中导航到 [http://localhost:3000](http://localhost:3000) 即可查看新应用程序。
 
     ![了解 Node.js - 浏览器窗口中 Hello World 应用程序的屏幕截图](./media/sql-api-nodejs-application/cosmos-db-node-js-express.png)
@@ -88,10 +95,14 @@ ms.locfileid: "38939444"
 
 1. 返回终端，通过 npm 安装 **async** 模块。
 
-        npm install async --save
+    ```bash
+    npm install async --save
+    ```
 2. 通过 npm 安装 **documentdb** 模块。 这是所有 Azure Cosmos DB magic 发生的模块。
 
-        npm install documentdb --save
+    ```bash
+    npm install documentdb --save
+    ```
 
 <a name="_Toc395783180"></a>
 ## <a name="step-4-using-the-azure-cosmos-db-service-in-a-node-application"></a>步骤 4：在 Node 应用程序中使用 Azure Cosmos DB 服务
@@ -384,7 +395,7 @@ ms.locfileid: "38939444"
     var DocumentDBClient = require('documentdb').DocumentClient;
     var config = require('./config');
     var TaskList = require('./routes/tasklist');
-    var TaskModel = require('./models/taskModel');
+    var TaskModel = require('./models/task-model');
     ```
 3. 此代码定义要使用的配置文件，并继续将此文件中的值读取到不久就要使用的一些变量中。
 4. 替换 **app.js** 文件中的以下两行：

@@ -3,7 +3,7 @@ title: 锁定 Azure 资源以防止更改 | Azure
 description: 通过对所有用户和角色应用锁，来防止用户更新或删除关键 Azure 资源。
 services: azure-resource-manager
 documentationcenter: ''
-author: luanmafeng
+author: rockboyfor
 manager: digimobile
 editor: tysonn
 ms.assetid: 53c57e8f-741c-4026-80e0-f4c02638c98b
@@ -11,16 +11,16 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 02/21/2018
-ms.date: 05/28/2018
+ms.date: 09/03/2018
 ms.author: v-yeche
-ms.openlocfilehash: 22d3d8fdcd9f14edfd5ba1c6d64dc3dd753f123c
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 31cad67b96c58d79ef9c4b79e750e391ec33c9c6
+ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939261"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43164964"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>锁定资源，以防止意外更改 
 
@@ -50,7 +50,7 @@ Resource Manager 锁仅适用于管理平面内发生的操作，包括发送到
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "hostingPlanName": {
@@ -159,7 +159,7 @@ Remove-AzureRmResourceLock -LockId $lockId
 
 ## <a name="azure-cli"></a>Azure CLI
 
-可以通过 Azure CLI 使用 [az lock create](https://docs.azure.cn/zh-cn/cli/lock?view=azure-cli-latest#az_lock_create) 命令锁定已部署的资源。
+可以通过 Azure CLI 使用 [az lock create](https://docs.azure.cn/zh-cn/cli/lock?view=azure-cli-latest#az-lock-create) 命令锁定已部署的资源。
 
 若要锁定某个资源，请提供该资源的名称、其资源类型及其资源组名称。
 
@@ -173,7 +173,7 @@ az lock create --name LockSite --lock-type CanNotDelete --resource-group example
 az lock create --name LockGroup --lock-type CanNotDelete --resource-group exampleresourcegroup
 ```
 
-若要获取有关某个锁的信息，请使用 [az lock list](https://docs.azure.cn/zh-cn/cli/lock?view=azure-cli-latest#az_lock_list)。 若要获取订阅中的所有锁，请使用：
+若要获取有关某个锁的信息，请使用 [az lock list](https://docs.azure.cn/zh-cn/cli/lock?view=azure-cli-latest#az-lock-list)。 若要获取订阅中的所有锁，请使用：
 
 ```azurecli
 az lock list
@@ -218,8 +218,8 @@ az lock delete --ids $lockid
 
 ## <a name="next-steps"></a>后续步骤
 * 有关使用逻辑方式组织资源的信息，请参阅[使用标记来组织资源](resource-group-using-tags.md)
-* 要更改资源位于哪个资源组，请参阅[将资源移到新的资源组](resource-group-move-resources.md)
-<!-- Not Available * You can apply restrictions and conventions across your subscription with customized policies. For more information, see [What is Azure Policy?](../azure-policy/azure-policy-introduction.md) -->
-* 有关企业可如何使用 Resource Manager 有效管理订阅的指南，请参阅 [Azure 企业基架 - 出于合规目的监管订阅](resource-manager-subscription-governance.md)。
+* 若要更改资源位于哪个资源组，请参阅[将资源移到新的资源组](resource-group-move-resources.md)
+* 可以使用自定义策略对订阅应用限制和约定。 有关详细信息，请参阅[什么是 Azure Policy？](../azure-policy/azure-policy-introduction.md)。
+<!-- Not Available on [Azure enterprise scaffold - prescriptive subscription governance](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/subscription-governance)-->
 
 <!--Update_Description: update meta properties, wording update, update cmdlet-->

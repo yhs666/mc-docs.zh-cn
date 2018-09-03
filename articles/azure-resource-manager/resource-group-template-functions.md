@@ -9,18 +9,18 @@ editor: tysonn
 ms.assetid: 0644abe1-abaa-443d-820d-1966d7d26bfd
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 04/09/2018
-ms.date: 04/30/2018
+origin.date: 08/03/2018
+ms.date: 09/03/2018
 ms.author: v-yeche
-ms.openlocfilehash: b2d820ae781647e2a46db5e02c518b45916925ce
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: bff7d8dbdded5cd55738c821af8b62ae563e3fac
+ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554444"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43164838"
 ---
 # <a name="azure-resource-manager-template-functions"></a>Azure Resource Manager 模板函数
 本文介绍可以在 Azure 资源管理器模板中使用的所有函数。
@@ -33,23 +33,23 @@ ms.locfileid: "34554444"
 
 若要创建自己的函数，请参阅[用户定义函数](resource-group-authoring-templates.md#functions)。
 
-<a id="array" />
-<a id="coalesce" />
-<a id="concatarray" />
-<a id="contains" />
-<a id="createarray" />
-<a id="empty" />
-<a id="first" />
-<a id="intersection" />
-<a id="json" />
-<a id="last" />
-<a id="length" />
-<a id="min" />
-<a id="max" />
-<a id="range" />
-<a id="skip" />
-<a id="take" />
-<a id="union" />
+<a name="array" />
+<a name="coalesce" />
+<a name="concatarray" />
+<a name="contains" />
+<a name="createarray" />
+<a name="empty" />
+<a name="first" />
+<a name="intersection" />
+<a name="json" />
+<a name="last" />
+<a name="length" />
+<a name="min" />
+<a name="max" />
+<a name="range" />
+<a name="skip" />
+<a name="take" />
+<a name="union" />
 
 ## <a name="array-and-object-functions"></a>数组和对象函数
 Resource Manager 提供以下用于处理数组和对象的函数。
@@ -72,11 +72,11 @@ Resource Manager 提供以下用于处理数组和对象的函数。
 * [take](resource-group-template-functions-array.md#take)
 * [union](resource-group-template-functions-array.md#union)
 
-<a id="equals" />
-<a id="less" />
-<a id="lessorequals" />
-<a id="greater" />
-<a id="greaterorequals" />
+<a name="equals" />
+<a name="less" />
+<a name="lessorequals" />
+<a name="greater" />
+<a name="greaterorequals" />
 
 ## <a name="comparison-functions"></a>比较函数
 Resource Manager 提供了多个用于在模板中进行比较的函数。
@@ -87,9 +87,9 @@ Resource Manager 提供了多个用于在模板中进行比较的函数。
 * [greater](resource-group-template-functions-comparison.md#greater)
 * [greaterOrEquals](resource-group-template-functions-comparison.md#greaterorequals)
 
-<a id="deployment" />
-<a id="parameters" />
-<a id="variables" />
+<a name="deployment" />
+<a name="parameters" />
+<a name="variables" />
 
 ## <a name="deployment-value-functions"></a>部署值函数
 Resource Manager 提供以下函数，用于从与部署相关的模板和值部分获取值：
@@ -98,11 +98,11 @@ Resource Manager 提供以下函数，用于从与部署相关的模板和值部
 * [参数](resource-group-template-functions-deployment.md#parameters)
 * [variables](resource-group-template-functions-deployment.md#variables)
 
-<a id="and" />
-<a id="bool" />
-<a id="if" />
-<a id="not" />
-<a id="or" />
+<a name="and" />
+<a name="bool" />
+<a name="if" />
+<a name="not" />
+<a name="or" />
 
 ## <a name="logical-functions"></a>逻辑函数
 资源管理器提供以下用于处理逻辑条件的函数：
@@ -113,16 +113,16 @@ Resource Manager 提供以下函数，用于从与部署相关的模板和值部
 * [not](resource-group-template-functions-logical.md#not)
 * [or](resource-group-template-functions-logical.md#or)
 
-<a id="add" />
-<a id="copyindex" />
-<a id="div" />
-<a id="float" />
-<a id="int" />
-<a id="minint" />
-<a id="maxint" />
-<a id="mod" />
-<a id="mul" />
-<a id="sub" />
+<a name="add" />
+<a name="copyindex" />
+<a name="div" />
+<a name="float" />
+<a name="int" />
+<a name="minint" />
+<a name="maxint" />
+<a name="mod" />
+<a name="mul" />
+<a name="sub" />
 
 ## <a name="numeric-functions"></a>数值函数
 Resource Manager 提供以下用于处理整数的函数：
@@ -138,17 +138,18 @@ Resource Manager 提供以下用于处理整数的函数：
 * [mul](resource-group-template-functions-numeric.md#mul)
 * [sub](resource-group-template-functions-numeric.md#sub)
 
-<a id="listkeys" />
-<a id="list" />
-<a id="providers" />
-<a id="reference" />
-<a id="resourcegroup" />
-<a id="resourceid" />
-<a id="subscription" />
+<a name="listkeys" />
+<a name="list" />
+<a name="providers" />
+<a name="reference" />
+<a name="resourcegroup" />
+<a name="resourceid" />
+<a name="subscription" />
 
 ## <a name="resource-functions"></a>Resource functions
 Resource Manager 提供以下用于获取资源值的函数：
 
+* [listAccountSas](resource-group-template-functions-resource.md#list)
 * [listKeys](resource-group-template-functions-resource.md#listkeys)
 * [listSecrets](resource-group-template-functions-resource.md#list)
 * [list*](resource-group-template-functions-resource.md#list)
@@ -158,36 +159,36 @@ Resource Manager 提供以下用于获取资源值的函数：
 * [resourceId](resource-group-template-functions-resource.md#resourceid)
 * [subscription](resource-group-template-functions-resource.md#subscription)
 
-<a id="base64" />
-<a id="base64tojson" />
-<a id="base64tostring" />
-<a id="concat" />
-<a id="containsstring" />
-<a id="datauri" />
-<a id="datauritostring" />
-<a id="emptystring" />
-<a id="endswith" />
-<a id="firststring" />
-<a id="guid" />
-<a id="indexof" />
-<a id="laststring" />
-<a id="lastindexof" />
-<a id="lengthstring" />
-<a id="padleft" />
-<a id="replace" />
-<a id="skipstring" />
-<a id="split" />
-<a id="startswith" />
-<a id="string" />
-<a id="substring" />
-<a id="takestring" />
-<a id="tolower" />
-<a id="toupper" />
-<a id="trim" />
-<a id="uniquestring" />
-<a id="uri" />
-<a id="uricomponent" />
-<a id="uricomponenttostring" />
+<a name="base64" />
+<a name="base64tojson" />
+<a name="base64tostring" />
+<a name="concat" />
+<a name="containsstring" />
+<a name="datauri" />
+<a name="datauritostring" />
+<a name="emptystring" />
+<a name="endswith" />
+<a name="firststring" />
+<a name="guid" />
+<a name="indexof" />
+<a name="laststring" />
+<a name="lastindexof" />
+<a name="lengthstring" />
+<a name="padleft" />
+<a name="replace" />
+<a name="skipstring" />
+<a name="split" />
+<a name="startswith" />
+<a name="string" />
+<a name="substring" />
+<a name="takestring" />
+<a name="tolower" />
+<a name="toupper" />
+<a name="trim" />
+<a name="uniquestring" />
+<a name="uri" />
+<a name="uricomponent" />
+<a name="uricomponenttostring" />
 
 ## <a name="string-functions"></a>字符串函数
 Resource Manager 提供以下用于处理字符串的函数：

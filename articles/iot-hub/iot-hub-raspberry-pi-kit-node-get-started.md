@@ -8,24 +8,22 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 origin.date: 04/11/2018
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
-ms.date: 08/06/2018
-ms.openlocfilehash: e32311a090d8d462671f20c14735c8dfd14d44cd
-ms.sourcegitcommit: d4092cf6aba0d949bf612093c76f964c2bdfd0ba
+ms.date: 09/10/2018
+ms.openlocfilehash: 8b1be6ba99081e2aeaa241dfd0c9cc95fa63312d
+ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39306564"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43330524"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>将 Raspberry Pi 连接到 Azure IoT 中心 (Node.js)
 
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
-在本教程中，首先学习有关使用运行 Raspbian 的 Raspberry Pi 的基础知识。 然后学习如何使用 [Azure IoT 中心](./iot-hub-what-is-iot-hub.md)将设备无缝连接到云。 有关 Windows 10 IoT Core 的示例，请访问 [Windows 开发人员中心](http://www.windowsondevices.com/)。
+在本教程中，首先学习有关使用运行 Raspbian 的 Raspberry Pi 的基础知识。 然后学习如何使用 [Azure IoT 中心](about-iot-hub.md)将设备无缝连接到云。 有关 Windows 10 IoT Core 的示例，请访问 [Windows 开发人员中心](http://www.windowsondevices.com/)。
 
 还没有工具包？ 试用 [Raspberry Pi 联机模拟器](./iot-hub-raspberry-pi-web-simulator-get-started.md)。 或在[此处](https://docs.azure.cn/zh-cn/develop/iot/iot-starter-kits)购买新工具包。
 
@@ -66,7 +64,7 @@ ms.locfileid: "39306564"
 
 
 > [!NOTE] 
-如果没有可选项，可以使用模拟的传感器数据。
+> 如果没有可选项，可以使用模拟的传感器数据。
 
 [!INCLUDE [iot-hub-get-started-create-hub-and-device](../../includes/iot-hub-get-started-create-hub-and-device.md)]
 
@@ -77,42 +75,50 @@ ms.locfileid: "39306564"
 准备用于安装 Raspbian 映像的 microSD 卡。
 
 1. 下载 Raspbian。
-   1. [下载 Raspbian Stretch](http://downloads.raspberrypi.org/raspbian/images/raspbian-2017-07-05/)（.zip 文件）。
+
+   a. [下载 Raspbian Stretch](http://downloads.raspberrypi.org/raspbian/images/raspbian-2017-07-05/)（.zip 文件）。
 
    > [!WARNING]
    > 请使用上面的链接来下载 `raspbian-2017-07-5` zip 映像。 Raspbian 映像的最新版本具有与接线 Pi 节点相关的已知问题，这可能会导致在接下来的步骤中发生故障。
-   >
-   >
-   
-   1. 将 Raspbian 映像解压缩到计算机的某个文件夹中。
-1. 将 Raspbian 安装到 microSD 卡。
-   1. [下载并安装 Etcher SD 卡刻录机实用工具](https://etcher.io/)。
-   1. 运行 Etcher 并选择已在步骤 1 中解压缩的 Raspbian 映像。
-   1. 选择 microSD 卡驱动器。 Etcher 可能已选择了正确的驱动器。
-   1. 单击“刷机”，将 Raspbian 安装到 microSD 卡。
-   1. 在安装完成后，从计算机中移除 microSD 卡。 可以安全地直接取出 microSD 卡，因为 Etcher 会在完成后自动弹出或卸载 microSD 卡。
-   1. 将 microSD 卡插入 Pi。
+ 
+   b. 将 Raspbian 映像解压缩到计算机的某个文件夹中。
+
+2. 将 Raspbian 安装到 microSD 卡。
+
+   a. [下载并安装 Etcher SD 卡刻录机实用工具](https://etcher.io/)。
+
+   b. 运行 Etcher 并选择已在步骤 1 中解压缩的 Raspbian 映像。
+
+   c. 选择 microSD 卡驱动器。 Etcher 可能已选择了正确的驱动器。
+
+   d. 单击“刷机”，将 Raspbian 安装到 microSD 卡。
+
+   e. 在安装完成后，从计算机中移除 microSD 卡。 可以安全地直接取出 microSD 卡，因为 Etcher 会在完成后自动弹出或卸载 microSD 卡。
+
+   f. 将 microSD 卡插入 Pi。
 
 ### <a name="enable-ssh-and-i2c"></a>启用 SSH 和 I2C
 
 1. 将 Pi 连接到监视器、键盘和鼠标。 
-1. 启动 Pi，然后使用 `pi` 作为用户名并使用 `raspberry` 作为密码来登录 Raspbian。
-1. 依次单击 Raspberry 图标 >“首选项” > “Raspberry Pi 配置”。
 
-   ![Raspbian 首选项菜单](./media/iot-hub-raspberry-pi-kit-node-get-started/1_raspbian-preferences-menu.png)
+2. 启动 Pi，然后使用 `pi` 作为用户名并使用 `raspberry` 作为密码来登录 Raspbian。
 
-1. 在“接口”选项卡上，将“I2C”和“SSH”设置为“启用”，然后单击“确定”。 如果没有物理传感器并且想要使用模拟的传感器数据，则此步骤是可选的。
+3. 依次单击 Raspberry 图标 >“首选项” > “Raspberry Pi 配置”。
 
-   ![在 Raspberry Pi 上启用 I2C 和 SSH](./media/iot-hub-raspberry-pi-kit-node-get-started/2_enable-i2c-ssh-on-raspberry-pi.png)
+   ![Raspbian 首选项菜单](media/iot-hub-raspberry-pi-kit-node-get-started/1_raspbian-preferences-menu.png)
+
+4. 在“接口”选项卡上，将“I2C”和“SSH”设置为“启用”，然后单击“确定”。 如果没有物理传感器并且想要使用模拟的传感器数据，则此步骤是可选的。
+
+   ![在 Raspberry Pi 上启用 I2C 和 SSH](media/iot-hub-raspberry-pi-kit-node-get-started/2_enable-i2c-ssh-on-raspberry-pi.png)
 
 > [!NOTE] 
-若要启用 SSH 和 I2C，可在 [raspberrypi.org](https://www.raspberrypi.org/documentation/remote-access/ssh/) 和 [Adafruit.com](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-4-gpio-setup/configuring-i2c) 中找到更多参考文档。
+> 若要启用 SSH 和 I2C，可在 [raspberrypi.org](https://www.raspberrypi.org/documentation/remote-access/ssh/) 和 [Adafruit.com](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-4-gpio-setup/configuring-i2c) 中找到更多参考文档。
 
 ### <a name="connect-the-sensor-to-pi"></a>将传感器连接到 Pi
 
 使用试验板和跳线，将 LED 灯和 BME280 连接到 Pi，如下所示。 如果没有该传感器，请[跳过此部分](#connect-pi-to-the-network)。
 
-![Raspberry Pi 和传感器连接](./media/iot-hub-raspberry-pi-kit-node-get-started/3_raspberry-pi-sensor-connection.png)
+![Raspberry Pi 和传感器连接](media/iot-hub-raspberry-pi-kit-node-get-started/3_raspberry-pi-sensor-connection.png)
 
 BME280 传感器可以收集温度和湿度数据。 当设备向云发送消息时，LED 将闪烁。 
 
@@ -127,7 +133,7 @@ BME280 传感器可以收集温度和湿度数据。 当设备向云发送消息
 | LED VDD（引脚 18F）        | GPIO 24（引脚 18）       | 白线   |
 | LED GND（引脚 17F）        | GND（引脚 20）           | 黑线   |
 
-单击查看 [Raspberry Pi 2 和 3 引脚映射](https://developer.microsoft.com/windows/iot/docs/pinmappingsrpi)以供参考。
+单击以查看 [Raspberry Pi 2 和 3 引脚映射](https://developer.microsoft.com/windows/iot/docs/pinmappingsrpi)以供参考。
 
 成功将 BME280 连接到 Raspberry Pi 后，它应如下图所示。
 
@@ -149,8 +155,10 @@ BME280 传感器可以收集温度和湿度数据。 当设备向云发送消息
 1. 从主计算机使用下列 SSH 客户端之一连接到 Raspberry Pi：
    
    **Windows 用户**
-   1. 下载并安装 [PuTTY](http://www.putty.org/) for Windows。 
-   1. 将 Pi 的 IP 地址复制到主机名（或 IP 地址）部分，并选择 SSH 作为连接类型。
+  
+   a. 下载并安装 [PuTTY](http://www.putty.org/) for Windows。 
+
+   b. 将 Pi 的 IP 地址复制到主机名（或 IP 地址）部分，并选择 SSH 作为连接类型。
    
    ![PuTTy](./media/iot-hub-raspberry-pi-kit-node-get-started/7_putty-windows.png)
    
@@ -158,7 +166,7 @@ BME280 传感器可以收集温度和湿度数据。 当设备向云发送消息
    
    使用 Ubuntu 或 macOS 上的内置 SSH 客户端。 可能需要运行 `ssh pi@<ip address of pi>`，以通过 SSH 连接 Pi。
    > [!NOTE] 
-   默认用户名是 `pi`，密码是 `raspberry`。
+   > 默认用户名是 `pi`，密码是 `raspberry`。
 
 1. 将 Node.js 和 NPM 安装到 Pi。
    

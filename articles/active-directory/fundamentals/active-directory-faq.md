@@ -14,14 +14,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.devlang: na
 origin.date: 12/14/2017
-ms.date: 08/07/2018
+ms.date: 08/29/2018
 ms.author: v-junlch
-ms.openlocfilehash: 32c618af87b4f1c1971735672a63101867039310
-ms.sourcegitcommit: 7cdf4633aea04e524cb48cb1990b750ae8be841c
+ms.openlocfilehash: 64f2e15184e02635bee18f9ea2ad2cf0fbbe8b44
+ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39584248"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43164644"
 ---
 # <a name="azure-active-directory-faq"></a>Azure Active Directory 常见问题
 Azure Active Directory (Azure AD) 是综合性的标识即服务 (IDaaS) 解决方案，涉及到标识、访问管理和安全的方方面面。
@@ -68,8 +68,7 @@ Azure AD 提供另一组管理员角色来管理与目录和标识相关的功�
 
 **问：如果我已被添加为协作者，该如何离开原来的租户？**
 
-
-            **答：** 如果被作为协作者添加到另一组织的租户，可使用右上角的“租户切换器”在租户之间切换。  目前还无法主动离开邀请组织，Microsoft 正致力于提供该功能。  在该功能推出之前，可以请求邀请组织将你从其租户中删除。
+**答：** 如果被作为协作者添加到另一组织的租户，可使用右上角的“租户切换器”在租户之间切换。  目前还无法主动离开邀请组织，Microsoft 正致力于提供该功能。  在该功能推出之前，可以请求邀请组织将你从其租户中删除。
 - - -
 **问：如何将我的本地目录连接到 Azure AD？**
 
@@ -138,11 +137,6 @@ Azure AD 提供另一组管理员角色来管理与目录和标识相关的功�
 
 有关预先集成的应用程序的完整列表，请参阅 [Active Directory 市场](https://azure.microsoft.com/marketplace/active-directory/)。
 
-- - -
-
-  **问：如果 Azure AD 市场中没有我需要的应用程序怎么办？**
-
-**答：** 使用 Azure AD Premium，可以添加和配置所需的任何应用程序。 可以根据应用程序的功能和自己的喜好来配置 SSO 和自动预配。  
 
 - - -
 **问：用户如何使用 Azure AD 来登录应用程序？**
@@ -161,7 +155,7 @@ Azure AD 提供另一组管理员角色来管理与目录和标识相关的功�
 
 有关详细信息，请参阅：
 
-- [Azure AD 的身份验证方案](../develop/active-directory-authentication-scenarios.md)
+- [Azure AD 的身份验证方案](../develop/authentication-scenarios.md)
 - [Active Directory 身份验证协议](/active-directory/develop/active-directory-developers-guide)
 
 - - -

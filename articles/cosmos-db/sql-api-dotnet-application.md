@@ -7,24 +7,27 @@ author: rockboyfor
 manager: digimobile
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
+ms.technology: vs-azure
+ms.workload: azure-vs
 ms.devlang: dotnet
 ms.topic: tutorial
 origin.date: 08/03/2017
-ms.date: 07/02/2018
+ms.date: 09/03/2018
 ms.author: v-yeche
-ms.custom: devcenter
-ms.openlocfilehash: d6ba72be842df6de7215d7dc07b07570cb2ab3f9
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.custom: devcenter, vs-azure
+ms.openlocfilehash: 1afb8de53c10f06f737586675a7bf79c679d6232
+ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939581"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43164939"
 ---
 <a name="_Toc395809351"></a>
 # <a name="aspnet-mvc-tutorial-web-application-development-with-azure-cosmos-db"></a>ASP.NET MVC 教程：开发采用 Azure Cosmos DB 的 Web 应用程序
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
 > * [Node.js](sql-api-nodejs-application.md)
+> * [Node.js - v2.0 预览版](sql-api-nodejs-application-preview.md)
 > * [Java](sql-api-java-application.md)
 > * [Python](sql-api-python-application.md)
 > 
@@ -153,8 +156,7 @@ ms.locfileid: "38939581"
             public bool Completed { get; set; }
         }
 
-    Azure Cosmos DB 中的所有数据都会通过线路传递，并存储为 JSON。 若要通过 JSON.NET 控制对象的序列化/反序列化方式，可以使用刚才创建的 **Item** 类中所示的 **JsonProperty** 属性。 
-            **不一定** 要这样做，但我想确保所有属性都按照 JSON camelCase 命名约定命名。 
+    Azure Cosmos DB 中的所有数据都会通过线路传递，并存储为 JSON。 若要通过 JSON.NET 控制对象的序列化/反序列化方式，可以使用刚才创建的 **Item** 类中所示的 **JsonProperty** 属性。 **不一定** 要这样做，但我想确保所有属性都按照 JSON camelCase 命名约定命名。 
 
     使用 JSON 时，不但可以控制属性名称的格式，还可以像我命名 **Description** 属性一样重命名 .NET 属性。 
 
@@ -252,7 +254,7 @@ ms.locfileid: "38939581"
         using System.Configuration;
         using System.Linq.Expressions;
         using System.Threading.Tasks;
-        using System.Net
+        using System.Net;
 
     现在将此代码 
 
@@ -327,7 +329,7 @@ ms.locfileid: "38939581"
 
     我们已经连接了 Azure Cosmos DB 存储库，现在让我们添加应用程序逻辑。
 
-5. 我们想要用待办事项列表应用程序做的第一件事就是显示未完成的项。  在 **DocumentDBRepository** 类中的任意位置复制并粘贴以下代码片段。
+1. 我们想要用待办事项列表应用程序做的第一件事就是显示未完成的项。  在 **DocumentDBRepository** 类中的任意位置复制并粘贴以下代码片段。
 
         public static async Task<IEnumerable<T>> GetItemsAsync(Expression<Func<T, bool>> predicate)
         {
@@ -344,7 +346,7 @@ ms.locfileid: "38939581"
 
             return results;
         }
-6. 打开我们先前添加的 **ItemController** ，并在命名空间声明上方添加以下 *using 语句* 。
+2. 打开我们先前添加的 **ItemController** ，并在命名空间声明上方添加以下 *using 语句* 。
 
         using System.Net;
         using System.Threading.Tasks;
@@ -368,7 +370,7 @@ ms.locfileid: "38939581"
             var items = await DocumentDBRepository<Item>.GetItemsAsync(d => !d.Completed);
             return View(items);
         }
-7. 打开 **Global.asax.cs** 并将以下行添加到 **Application_Start** 方法 
+3. 打开 **Global.asax.cs** 并将以下行添加到 **Application_Start** 方法 
 
         DocumentDBRepository<todo.Models.Item>.Initialize();
 
@@ -560,4 +562,4 @@ ms.locfileid: "38939581"
 
 若要向应用程序添加其他功能，请查看 [Azure Cosmos DB .NET 库](https://docs.azure.cn/zh-cn/dotnet/api/overview/cosmosdb?view=azure-dotnet)中提供的 API，并欢迎在 [GitHub][GitHub] 上的 Azure Cosmos DB .NET 库中补充内容。 
 
-<!-- Not Available on [\*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError --> [Visual Studio Express]：http://www.visualstudio.com/products/visual-studio-express-vs.aspx [Microsoft Web 平台安装程序]：http://www.microsoft.com/web/downloads/platform.aspx [防止跨站点请求伪造]：http://go.microsoft.com/fwlink/?LinkID=517254 [ASP.NET MVC 中的基本 CRUD 操作]：http://go.microsoft.com/fwlink/?LinkId=317598 [GitHub]：https://github.com/Azure-Samples/documentdb-net-todo-app <!-- Update_Description: update meta properties, update link -->
+<!-- Not Available on [\*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError --> [Visual Studio Express]： http://www.visualstudio.com/products/visual-studio-express-vs.aspx [Microsoft Web 平台安装程序]： http://www.microsoft.com/web/downloads/platform.aspx [防止跨站点请求伪造]： http://go.microsoft.com/fwlink/?LinkID=517254 [ASP.NET MVC 中的基本 CRUD 操作]： http://go.microsoft.com/fwlink/?LinkId=317598 [GitHub]： https://github.com/Azure-Samples/documentdb-net-todo-app <!-- Update_Description: update meta properties  -->

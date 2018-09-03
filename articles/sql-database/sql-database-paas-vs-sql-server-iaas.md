@@ -1,31 +1,37 @@
 ---
-title: SQL (PaaS) 数据库与云中 VM 上的 SQL Server (IaaS) | Azure
+title: SQL (PaaS) 数据库与云中 VM 上的 SQL Server (IaaS) | Microsoft Docs
 description: 了解哪个云 SQL Server 选项适合应用程序：Azure SQL (PaaS) 数据库或 Azure 虚拟机上云中的 SQL Server。
 services: sql-database, virtual-machines
 keywords: SQL Server 云, 云中 SQL Server, PaaS 数据库, 云 SQL Server, DBaaS
-author: yunan2016
+author: WenJason
 manager: digimobile
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.topic: article
-origin.date: 07/16/2018
-ms.date: 08/06/2018
-ms.author: v-nany
-ms.openlocfilehash: 63fabe1832d221a3f2b19405b4c5e0993f5f6a6d
-ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
+ms.topic: conceptual
+origin.date: 08/01/2018
+ms.date: 09/02/2018
+ms.author: v-jay
+ms.openlocfilehash: a508a3c208f4409e93890b88b879680e1de1390c
+ms.sourcegitcommit: 2601e68563bffe148e70cce2bf1dcbe837a40f80
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39487066"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43249892"
 ---
 # <a name="choose-a-cloud-sql-server-option-azure-sql-paas-database-or-sql-server-on-azure-vms-iaas"></a>选择云 SQL Server 选项：Azure SQL (PaaS) 数据库或 Azure VM 上的 SQL Server (IaaS)
 
 在 Azure 中，可让 SQL Server 工作负荷在托管的基础结构 (IaaS) 或托管的服务 ([PaaS](https://azure.microsoft.com/overview/what-is-paas/)) 中运行：
 
-* [Azure SQL 数据库](https://www.azure.cn/zh-cn/home/features/sql-database/)：基于 SQL Server 企业版的 SQL 数据库引擎，已针对新型应用程序开发进行优化。 Azure SQL 数据库提供逻辑服务器。 Azure SQL 数据库增加了 SQL Server 所不能提供的其他功能，例如内置智能和管理。 可以创建包含[单一数据库](sql-database-servers-databases.md)的逻辑服务器，并将服务器分组到[弹性池](sql-database-elastic-pool.md)，以共享资源和降低成本。 包含单一数据库和入池数据库的 Azure SQL 数据库逻辑服务器提供 SQL Server 具有的大多数面向数据库的功能。
-* [Azure 虚拟机上的 SQL Server](/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview)：在 Azure 上运行的云中 Windows Server 或 Linux 虚拟机 (VM) 上安装并托管的 SQL Server，也称为基础结构即服务 (IaaS)。 Azure 虚拟机上的 SQL Server 非常适合用于迁移本地 SQL Server 数据库和应用程序，无需进行任何数据库更改。 所有当前 SQL Server 版本都可安装在 IaaS 虚拟机中。 与 SQL 数据库之间的最重要差别在于，SQL Server VM 允许完全控制数据库引擎。 可以选择维护/修补何时开始、将恢复模式更改为简单模式或批量记录模式，以更快地加载更少的日志、根据需要暂停或启动引擎，并可以完全自定义 SQL Server 数据库引擎。 控制度的提高也意味着在管理虚拟机方面需要承担更大的责任。
+- [Azure SQL 数据库](https://www.azure.cn/zh-cn/home/features/sql-database/)：基于 SQL Server 企业版的 SQL 数据库引擎，已针对新型应用程序开发进行优化。 Azure SQL 数据库提供了多个部署选项：
+  - 可以将单个数据库部署到[逻辑服务器](sql-database-logical-servers.md)。
+  - 可以部署到[逻辑服务器](sql-database-logical-servers.md)上的[弹性池](sql-database-elastic-pool.md)以共享资源并降低成本。 
 
-了解每个选项如何配合 Microsoft 数据平台一起运行，并在匹配适合业务要求的选项时获得帮助。 无论以节省成本为优先考虑，还是将精简管理视为第一要素，本文都会帮助你确定哪种方法能够满足你最重视的业务要求。
+      > [!NOTE]
+      > 包含单一数据库和入池数据库的 Azure SQL 数据库提供 SQL Server 具有的大多数面向数据库的功能。
+
+- [Azure 虚拟机上的 SQL Server](/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview)：在 Azure 上运行的云中 Windows Server 或 Linux 虚拟机 (VM) 上安装并托管的 SQL Server，也称为基础结构即服务 (IaaS)。 Azure 虚拟机上的 SQL Server 非常适合用于迁移本地 SQL Server 数据库和应用程序，无需进行任何数据库更改。 所有当前 SQL Server 版本都可安装在 IaaS 虚拟机中。 与 SQL 数据库之间的最重要差别在于，SQL Server VM 允许完全控制数据库引擎。 可以选择维护/修补何时开始、将恢复模式更改为简单模式或批量记录模式，以更快地加载更少的日志、根据需要暂停或启动引擎，并可以完全自定义 SQL Server 数据库引擎。 控制度的提高也意味着在管理虚拟机方面需要承担更大的责任。
+
+了解每个部署选项如何配合 Microsoft 数据平台一起运行，并在匹配适合业务要求的选项时获得帮助。 无论以节省成本为优先考虑，还是将精简管理视为第一要素，本文都会帮助你确定哪种方法能够满足你最重视的业务要求。
 
 ## <a name="azures-sql-data-platform"></a>Azure 的 SQL 数据平台
 
@@ -46,7 +52,7 @@ ms.locfileid: "39487066"
 
 ## <a name="a-closer-look-at-azure-sql-database-and-sql-server-on-azure-vms"></a>Azure SQL 数据库和 Azure VM 中的 SQL Server 详述
 
-**Azure SQL 数据库**是托管在 Azure 云中的关系数据库即服务 (DBaaS)，属于*平台即服务 (PaaS)* 行业类别。 [SQL 数据库](sql-database-technical-overview.md)构建在 Microsoft 所拥有、托管及维护的标准化硬件和软件基础之上。 使用 SQL 数据库，可以使用需要在 SQL Server 中进行广泛配置的内置特性和功能。 使用 SQL 数据库时，可以即用即付，并使用向上或向外缩放选项获得更强大的功能且不会中断服务。 Azure SQL 数据库支持[单一数据库](sql-database-servers-databases.md)和用于共享资源的[弹性池](sql-database-elastic-pool.md)，是在云中开发新应用程序的理想环境。
+**Azure SQL 数据库**是托管在 Azure 云中的关系数据库即服务 (DBaaS)，属于*平台即服务 (PaaS)* 行业类别。 [SQL 数据库](sql-database-technical-overview.md)构建在 Microsoft 所拥有、托管及维护的标准化硬件和软件基础之上。 使用 SQL 数据库，可以使用需要在 SQL Server 中进行广泛配置的内置特性和功能。 使用 SQL 数据库时，可以即用即付，并使用向上或向外缩放选项获得更强大的功能且不会中断服务。 Azure SQL 数据库是用于在云中开发新应用程序的理想环境。
 
 **Azure 虚拟机 (VM) 上的 SQL Server** 属于*基础结构即服务 (IaaS)* 行业类别，可让你在云中的虚拟机上运行 SQL Server。 [SQL Server 虚拟机](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md)也在 Microsoft 所拥有、托管及维护的标准化硬件上运行。 使用 VM 上的 SQL Server 时，可以根据需要支付 SQL Server 映像中已包含的 SQL Server 许可证费用，或者直接使用现有许可证。 还可以根据需要停止或恢复 VM。
 
@@ -118,7 +124,7 @@ ms.locfileid: "39487066"
 
 对于 **SQL 数据库**，Azure 提供 99.99% 的可用性 SLA。 有关最新信息，请参阅[服务级别协议](https://www.azure.cn/support/sla/sql-data/)。 
 
-对于 Azure VM 上运行的 SQL Server，Azure 提供 99.95% 的可用性 SLA（仅涵盖虚拟机）。 此 SLA 不涵盖 VM 上运行的进程（例如 SQL Server），并且要求你在可用性集中托管至少两个 VM 实例。 有关最新信息，请参阅 [VM SLA](https://www.azure.cn/support/sla/virtual-machines/)。 为了在 VM 中实现数据库高可用性 (HA)，应在 SQL Server 中配置一个受支持的高可用性选项，例如 [AlwaysOn 可用性组](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx)。 使用支持的高可用性选项不会提供更多 SLA，但使用户能够实现 >99.99% 的数据库可用性。
+对于 Azure VM 上运行的 SQL Server，Azure 提供 99.95% 的可用性 SLA（仅涵盖虚拟机）。 此 SLA 不涵盖 VM 上运行的进程（例如 SQL Server），并且要求你在可用性集中托管至少两个 VM 实例。 有关最新信息，请参阅 [VM SLA](https://www.azure.cn/support/sla/virtual-machines/)。 为了在 VM 中实现数据库高可用性 (HA)，应在 SQL Server 中配置一个受支持的高可用性选项，例如 [AlwaysOn 可用性组](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server)。 使用支持的高可用性选项不会提供更多 SLA，但使用户能够实现 >99.99% 的数据库可用性。
 
 ### <a name="market"></a>迁移到 Azure 的时机
 当开发人员工作效率和新解决方案的快速面市时间至关重要时，**SQL 数据库逻辑服务器、弹性池和单一数据库**是云设计应用程序的理想解决方案。 此选项提供类似于编程 DBA 的功能，非常适合云架构师和开发人员，因为它能降低管理基础操作系统和数据库的需求。 

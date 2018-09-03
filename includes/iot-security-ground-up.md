@@ -28,7 +28,7 @@ Microsoft 的系统提供持续的入侵检测和防护、服务攻击预防、�
 
 Microsoft Azure IoT 套件使用内置于 Azure 平台中的安全和隐私功能，以及针对所有 Microsoft 软件的安全开发和操作提供的 SDL 和 OSA 过程。 这些过程提供基础结构保护、网络保护，以及标识与管理功能，作为任何解决方案安全的基础。
 
-[IoT 套件](../articles/iot-suite/iot-suite-what-is-azure-iot.md)内的 [Azure IoT 中心](../articles/iot-hub/iot-hub-what-is-iot-hub.md)提供完全托管的服务，使用每一设备的安全凭据和访问控制，在 IoT 设备与 Azure 服务之间启用可靠且安全的双向通信，例如 [Azure 流分析](../articles/stream-analytics/stream-analytics-introduction.md)。  
+[IoT 套件](../articles/iot-suite/iot-suite-what-is-azure-iot.md)内的 [Azure IoT 中心](../articles/iot-hub/about-iot-hub.md)提供完全托管的服务，使用每一设备的安全凭据和访问控制，在 IoT 设备与 Azure 服务之间启用可靠且安全的双向通信，例如 [Azure 流分析](../articles/stream-analytics/stream-analytics-introduction.md)。  
 
 为了以最佳方式传达内置于 Azure IoT 套件的安全和隐私功能，本文将套件细分为三个主要安全领域。
 

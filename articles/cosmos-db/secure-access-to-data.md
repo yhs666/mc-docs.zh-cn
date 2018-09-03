@@ -8,14 +8,14 @@ ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 05/24/2017
-ms.date: 08/13/2018
+ms.date: 09/03/2018
 ms.author: v-yeche
-ms.openlocfilehash: aadaa82a2dc0d37d5ceecda9ff4de7c183a305fb
-ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
+ms.openlocfilehash: 7eb302ab1869ac8b6411798af57f6519f88b1b8d
+ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41704098"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43164645"
 ---
 # <a name="securing-access-to-azure-cosmos-db-data"></a>保护对 Azure Cosmos DB 数据的访问
 本文概述了如何保护对存储在 [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) 中的数据的访问。

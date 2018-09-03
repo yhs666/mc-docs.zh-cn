@@ -15,12 +15,12 @@ ms.workload: na
 origin.date: 04/02/2018
 ms.author: v-yiso
 ms.date: 06/11/2018
-ms.openlocfilehash: 601c4ad37406b2b4e8b5208d6af664e6beeb5d0a
-ms.sourcegitcommit: d4092cf6aba0d949bf612093c76f964c2bdfd0ba
+ms.openlocfilehash: b806cddf115acb55530f01f9b9f2c5f2236bf2b0
+ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39306584"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43329156"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>选择适用于解决方案的 IoT 中心层
 
@@ -38,7 +38,7 @@ Azure IoT 中心提供两个层，即基本层和标准层，这两个层在所�
 
 IoT 中心的标准层启用了所有功能，是任何需要使用双向通信功能的 IoT 解决方案所必需的。 基本层启用了部分功能，适用于只需单向通信（从设备到云）的 IoT 解决方案。 这两个层提供相同的安全性和身份验证功能。
 
-创建 IoT 中心以后，即可从基本层升级到标准层，不需中断现有的操作。 有关详细信息，请参阅[如何升级 IoT 中心](iot-hub-upgrade.md)。 请注意，基本层 IoT 中心的分区限制为 8。 从基本层迁移到标准层时，此限制保持不变。
+创建 IoT 中心以后，即可从基本层升级到标准层，不需中断现有的操作。 有关详细信息，请参阅[如何升级 IoT 中心](iot-hub-upgrade.md)。 请注意，基本层 IoT 中心的最大分区限制为 8，标准层的为 32。 大多数 IoT 中心只需要 4 个分区。 分区限制是在创建 IoT 中心时选择的，它将设备到云消息关联到这些消息的并行读取器的数目。 从基本层迁移到标准层时，此值保持不变。 另请注意，每个 IoT 中心在每个层内只能选择一种类型的[版本](https://www.azure.cn/pricing/details/iot-hub/)。 例如，可以创建具有多个 S1 单元的 IoT 中心，但不能创建混合使用不同版本的单元，例如 S1 和 B3，或者 S1 和 S2。
 
 | 功能 | 基本层 | 标准层 |
 | ---------- | ---------- | ------------- |
@@ -60,34 +60,34 @@ IoT 中心基本层和标准层所支持的功能存在差异，也就是说，�
 
 | API | 基本层 | 标准层 |
 | --- | ---------- | ------------- |
-| [删除设备](https://docs.microsoft.com/rest/api/iothub/deviceapi/deletedevice) | 是 | 是 |
-| [获取设备](https://docs.microsoft.com/rest/api/iothub/deviceapi/getdevice) | 是 | 是 |
+| [删除设备](https://docs.microsoft.com/rest/api/iothub/service/deletedevice) | 是 | 是 |
+| [获取设备](https://docs.microsoft.com/rest/api/iothub/service/getdevice) | 是 | 是 |
 | 删除模块 | 是 | 是 |
 | 获取模块 | 是 | 是 |
-| [获取注册表统计信息](https://docs.microsoft.com/rest/api/iothub/deviceapi/getregistrystatistics) | 是 | 是 |
-| [获取服务统计信息](https://docs.microsoft.com/rest/api/iothub/deviceapi/getservicestatistics) | 是 | 是 |
-| [放置设备](https://docs.microsoft.com/rest/api/iothub/deviceapi/putdevice) | 是 | 是 |
+| [获取注册表统计信息](https://docs.microsoft.com/rest/api/iothub/service/getdeviceregistrystatistics) | 是 | 是 |
+| [获取服务统计信息](https://docs.microsoft.com/rest/api/iothub/service/getservicestatistics) | 是 | 是 |
+| [创建或更新设备](https://docs.microsoft.com/rest/api/iothub/service/createorupdatedevice) | 是 | 是 |
 | 放置模块 | 是 | 是 |
-| [查询设备](https://docs.microsoft.com/rest/api/iothub/deviceapi/querydevices) | 是 | 是 |
+| [查询 IoT 中心](https://docs.microsoft.com/rest/api/iothub/service/queryiothub) | 是 | 是 |
 | 查询模块 | 是 | 是 |
-| [创建文件上传 SAS URI](https://docs.microsoft.com/rest/api/iothub/httpruntime/createfileuploadsasuri) | 是 | 是 |
-| [接收发往设备的通知](https://docs.microsoft.com/rest/api/iothub/httpruntime/receivedeviceboundnotification) | 是 | 是 |
-| [发送设备事件](https://docs.microsoft.com/rest/api/iothub/httpruntime/senddeviceevent) | 是 | 是 |
+| [创建文件上传 SAS URI](https://docs.microsoft.com/rest/api/iothub/device/createfileuploadsasuri) | 是 | 是 |
+| [接收发往设备的通知](https://docs.microsoft.com/rest/api/iothub/device/receivedeviceboundnotification) | 是 | 是 |
+| [发送设备事件](https://docs.microsoft.com/rest/api/iothub/device/senddeviceevent) | 是 | 是 |
 | 发送模块事件 | 是 | 是 |
-| [更新文件上传状态](https://docs.microsoft.com/rest/api/iothub/httpruntime/updatefileuploadstatus) | 是 | 是 |
-| [批量设备操作](https://docs.microsoft.com/rest/api/iothub/deviceapi/bulkdeviceoperation) | 是的，IoT Edge 功能除外 | 是 | 
-| [清除命令队列](https://docs.microsoft.com/rest/api/iothub/deviceapi/purgecommandqueue) |   | 是 |
-| [获取设备孪生](https://docs.microsoft.com/rest/api/iothub/devicetwinapi/getdevicetwin) |   | 是 |
+| [更新文件上传状态](https://docs.microsoft.com/rest/api/iothub/device/updatefileuploadstatus) | 是 | 是 |
+| [批量设备操作](https://docs.microsoft.com/rest/api/iot-dps/deviceenrollment/bulkoperation) | 是的，IoT Edge 功能除外 | 是 | 
+| [清除命令队列](https://docs.microsoft.com/rest/api/iothub/service/purgecommandqueue) |   | 是 |
+| [获取设备孪生](https://docs.microsoft.com/rest/api/iothub/service/gettwin) |   | 是 |
 | 获取模块孪生 |   | 是 |
-| [调用设备方法](https://docs.microsoft.com/rest/api/iothub/devicetwinapi/invokedevicemethod) |   | 是 |
-| [更新设备孪生](https://docs.microsoft.com/rest/api/iothub/devicetwinapi/updatedevicetwin) |   | 是 | 
+| [调用设备方法](https://docs.microsoft.com/rest/api/iothub/service/invokedevicemethod) |   | 是 |
+| [更新设备孪生](https://docs.microsoft.com/rest/api/iothub/service/updatetwin) |   | 是 | 
 | 更新模块孪生 |   | 是 | 
-| [放弃发往设备的通知](https://docs.microsoft.com/rest/api/iothub/httpruntime/abandondeviceboundnotification) |   | 是 |
-| [完成发往设备的通知](https://docs.microsoft.com/rest/api/iothub/httpruntime/completedeviceboundnotification) |   | 是 |
-| [取消作业](https://docs.microsoft.com/rest/api/iothub/jobapi/canceljob) |   | 是 |
-| [创建作业](https://docs.microsoft.com/rest/api/iothub/jobapi/createjob) |   | 是 |
-| [获取作业](https://docs.microsoft.com/rest/api/iothub/jobapi/getjob) |   | 是 |
-| [查询作业](https://docs.microsoft.com/rest/api/iothub/jobapi/queryjobs) |   | 是 |
+| [放弃发往设备的通知](https://docs.microsoft.com/rest/api/iothub/device/abandondeviceboundnotification) |   | 是 |
+| [完成发往设备的通知](https://docs.microsoft.com/rest/api/iothub/device/completedeviceboundnotification) |   | 是 |
+| [取消作业](https://docs.microsoft.com/rest/api/iothub/service/canceljob) |   | 是 |
+| [创建作业](https://docs.microsoft.com/rest/api/iothub/service/createjob) |   | 是 |
+| [获取作业](https://docs.microsoft.com/rest/api/iothub/service/getjob) |   | 是 |
+| [查询作业](https://docs.microsoft.com/rest/api/iothub/service/queryjobs) |   | 是 |
 
 ## <a name="message-throughput"></a>消息吞吐量
 
@@ -113,6 +113,9 @@ IoT 中心基本层和标准层所支持的功能存在差异，也就是说，�
 由于大多数 IoT 中心标识注册表操作都与设备预配相关，因此不认为这些操作是运行时操作。
 
 有关具体的突发性能数字，请参阅 [IoT 中心配额和限制][IoT Hub quotas and throttles]。
+
+## <a name="auto-scale"></a>自动缩放
+如果即将达到 IoT 中心允许的消息限制，可以使用这些[用于自动缩放的步骤](https://azure.microsoft.com/resources/samples/iot-hub-dotnet-autoscale/)在同一 IoT 中心层内增加一个 IoT 中心单元。
 
 ## <a name="sharding"></a>分片
 尽管单个 IoT 中心可以扩展到数百万个设备，但有时解决方案所需的具体性能特征无法由单个 IoT 中心提供保证。 在这种情况下，可以跨多个 IoT 中心将设备分区。 多个 IoT 中心可以缓解流量喷发，并获得所需的吞吐量或操作速率。

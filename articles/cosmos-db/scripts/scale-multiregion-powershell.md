@@ -13,14 +13,14 @@ ms.topic: sample
 ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 origin.date: 05/10/2017
-ms.date: 07/02/2018
+ms.date: 09/03/2018
 ms.author: v-yeche
-ms.openlocfilehash: 258ca20d8cab481128777c6919f7cc9b4f7b4998
-ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
+ms.openlocfilehash: 7de5926feafbad8d549073244177971d2a4c5f7b
+ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37070281"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43164784"
 ---
 # <a name="replicate-an-azure-cosmos-db-database-account-in-multiple-regions-and-configure-failover-priorities-using-powershell"></a>使用 PowerShell 将 Azure Cosmos DB 数据库帐户复制到多个区域中并配置故障转移优先级
 
@@ -33,15 +33,18 @@ ms.locfileid: "37070281"
 ```powershell
 # Set the Azure resource group name and location
 $resourceGroupName = "myResourceGroup"
-$resourceGroupLocation = "China East"
+$resourceGroupLocation = "chinanorth"
 
 # Database name
 $DBName = "testdb"
 # Distribution locations
-$locations = @(@{"locationName"="China East"; 
+$locations = @(@{"locationName"="chinanorth"; 
+                 "failoverPriority"=2},
+               @{"locationName"="chinaeast"; 
                  "failoverPriority"=1},
-               @{"locationName"="China North"; 
+               @{"locationName"="chinanorth2"; 
                  "failoverPriority"=0})
+
 
 # Create the resource group
 New-AzureRmResourceGroup -Name $resourceGroupName -Location $resourceGroupLocation
@@ -65,7 +68,7 @@ New-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
                     -PropertyObject $DBProperties
 
 # Update failoverpolicy to make China North as a write region
-$NewfailoverPolicies = @(@{"locationName"="chinanorth"; "failoverPriority"=1}, @{"locationName"="chinaeast"; "failoverPriority"=0} )
+$NewfailoverPolicies = @(@{"locationName"="chinanorth"; "failoverPriority"=0}, @{"locationName"="chinaeast"; "failoverPriority"=1}, @{"locationName"="chinanorth2"; "failoverPriority"=2} )
 
 Invoke-AzureRmResourceAction `
     -Action failoverPriorityChange `
@@ -75,14 +78,15 @@ Invoke-AzureRmResourceAction `
     -Name $DBName `
     -Parameters @{"failoverPolicies"=$NewfailoverPolicies}
 
-
-```
-<!-- Not Available on add new location on Jun 26 2018
 # Add a new locations with priorities
-$newLocations = @(@{"locationName"="China North"; 
+$newLocations = @(@{"locationName"="chinanorth"; 
+                 "failoverPriority"=0},
+               @{"locationName"="chinaeast"; 
                  "failoverPriority"=1},
-               @{"locationName"="China East"; 
-                 "failoverPriority"=0})
+               @{"locationName"="chinanorth2"; 
+                 "failoverPriority"=2},
+               @{"locationName"="chinaeast2";
+                 "failoverPriority"=3})
 
 # Updated properties
 $updateDBProperties = @{"databaseAccountOfferType"="Standard";
@@ -94,7 +98,9 @@ Set-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
     -ResourceGroupName $resourceGroupName `
     -Name $DBName `
     -PropertyObject $UpdateDBProperties
--->
+
+```
+
 ## <a name="clean-up-deployment"></a>清理部署
 
 运行脚本示例后，可以使用以下命令删除资源组以及与其关联的所有资源。
@@ -109,10 +115,10 @@ Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
 
 | 命令 | 注释 |
 |---|---|
-| [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/new-azurermresourcegroup) | 创建用于存储所有资源的资源组。 |
+| [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) | 创建用于存储所有资源的资源组。 |
 | [New-AzureRmResource](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresource?view=azurermps-3.8.0) | 创建用于托管数据库或弹性池的逻辑服务器。 |
 | [Set-AzureRMResource](https://docs.microsoft.com/powershell/module/azurerm.resources/set-azurermresource?view=azurermps-3.8.0) | 修改数据库帐户。 |
-| [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/remove-azurermresourcegroup) | 删除资源组，包括所有嵌套的资源。 |
+| [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup) | 删除资源组，包括所有嵌套的资源。 |
 |||
 
 ## <a name="next-steps"></a>后续步骤

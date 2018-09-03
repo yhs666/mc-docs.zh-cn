@@ -4,15 +4,14 @@
 
 创建 IoT 中心以后，即可找到将设备和应用程序连接到 IoT 中心时需要使用的重要信息。 
 
-在 IoT 中心导航菜单中，打开“共享访问策略”。
-选择“iothubowner”策略，然后复制 IoT 中心的“连接字符串---主密钥”。 有关详细信息，请参阅[控制对 IoT 中心的访问](../articles/iot-hub/iot-hub-devguide-security.md)。
+在 IoT 中心导航菜单中，打开“共享访问策略”。 选择“iothubowner”策略，然后复制 IoT 中心的“连接字符串---主密钥”。 有关详细信息，请参阅[控制对 IoT 中心的访问](../articles/iot-hub/iot-hub-devguide-security.md)。
 
    > [!NOTE] 
-   > 此设置教程不需要此 iothubowner 连接字符串。 不过，在完成此设置以后，可能需要将其用于某些介绍其他 IoT 方案的教程。
+   > 本设置教程不需要 iothubowner 连接字符串。 不过，在完成此设置以后，可能需要将其用于某些介绍其他 IoT 方案的教程。
 
    ![获取 IoT 中心连接字符串](./media/iot-hub-get-started-create-hub-and-device/create-iot-hub5.png)
 
-## <a name="register-a-device-in-the-iot-hub-for-your-device"></a>在 IoT 中心为设备进行设备注册
+## <a name="register-your-device-in-the-iot-hub"></a>在 IoT 中心内注册设备
 
 1. 在 IoT 中心导航菜单中，打开“IoT 设备”，然后单击“添加”，在 IoT 中心注册设备。
 

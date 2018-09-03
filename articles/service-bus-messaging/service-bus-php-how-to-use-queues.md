@@ -14,16 +14,15 @@ ms.devlang: PHP
 ms.topic: article
 origin.date: 08/10/2017
 ms.author: v-yiso
-ms.date: 02/05/2018
-ms.openlocfilehash: bdeec4750365748104135e9afaf86d216d2a209f
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.date: 09/10/2018
+ms.openlocfilehash: d5bb00608d1ab1c300536bcc5a5cdb5ba600b9a3
+ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939324"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43328978"
 ---
-# <a name="how-to-use-service-bus-queues"></a>如何使用服务总线队列
-
+# <a name="how-to-use-service-bus-queues-with-php"></a>如何通过 PHP 使用服务总线队列
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
 本指南说明如何使用服务总线队列。 示例是用 PHP 编写的并使用了 [Azure SDK for PHP](../php-download-sdk.md)。 涉及的任务包括**创建队列**、**发送和接收消息**以及**删除队列**。
@@ -167,13 +166,14 @@ catch(ServiceException $e){
 服务总线队列在[标准层](service-bus-premium-messaging.md)中支持的最大消息大小为 256 KB，在[高级层](service-bus-premium-messaging.md)中则为 1 MB。 标头最大大小为 64 KB，其中包括标准和自定义应用程序属性。 一个队列中包含的消息数量不受限制，但消息的总大小受限制。 队列大小的上限为 5 GB。
 
 ## <a name="receive-messages-from-a-queue"></a>从队列接收消息
-从队列接收消息的最佳方法是使用 `ServiceBusRestProxy->receiveQueueMessage` 方法。 可通过两种不同的模式接收消息：[ReceiveAndDelete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode.receiveanddelete) 和 [PeekLock](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode.peeklock)。 **PeekLock** 是默认设置。
 
-使用 [ReceiveAndDelete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode.receiveanddelete) 模式时，接收是一项单步操作，即当服务总线接收到队列中某条消息的读取请求时，它会将该消息标记为“已使用”并将其返回给应用程序。 [ReceiveAndDelete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode.receiveanddelete) 模式是最简单的模式，最适合应用程序允许出现故障时不处理消息的方案。 为了理解这一点，可以考虑这样一种情形：使用方发出接收请求，但在处理该请求前发生了崩溃。 由于服务总线会将消息标记为“已使用”，因此当应用程序重启并重新开始使用消息时，它会遗漏在发生崩溃前使用的消息。
+从队列接收消息的最佳方法是使用 `ServiceBusRestProxy->receiveQueueMessage` 方法。 可通过两种不同的模式接收消息：[ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode) 和 [PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode#Microsoft_ServiceBus_Messaging_ReceiveMode_PeekLock)。 **PeekLock** 是默认设置。
 
-在默认的 [PeekLock](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode.peeklock) 模式下，接收消息会变成一个双阶段操作，这将能够支持不能允许丢失消息的应用程序。 当 Service Bus 收到请求时，它会找到要使用的下一个消息，将其锁定以防其他使用方接收它，并将该消息返回给应用程序。 应用程序完成消息处理（或可靠地存储消息以供日后处理）后，它会将收到的消息传递到 `ServiceBusRestProxy->deleteMessage`，从而完成接收过程的第二阶段。 当服务总线发现 `deleteMessage` 调用时，它会将消息标记为“已使用”并将其从队列中删除。
+使用 [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode) 模式时，接收是一项单步操作，即当服务总线接收到队列中某条消息的读取请求时，它会将该消息标记为“已使用”并将其返回给应用程序。 [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode) 模式是最简单的模式，最适合应用程序允许出现故障时不处理消息的方案。 为了理解这一点，可以考虑这样一种情形：使用方发出接收请求，但在处理该请求前发生了崩溃。 由于服务总线会将消息标记为“已使用”，因此当应用程序重启并重新开始使用消息时，它会遗漏在发生崩溃前使用的消息。
 
-以下示例演示了如何使用 [PeekLock](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode.peeklock) 模式（默认模式）接收和处理消息。
+在默认的 [PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode#Microsoft_ServiceBus_Messaging_ReceiveMode_PeekLock) 模式下，接收消息会变成一个双阶段操作，这将能够支持不能允许丢失消息的应用程序。 当 Service Bus 收到请求时，它会找到要使用的下一个消息，将其锁定以防其他使用方接收它，并将该消息返回给应用程序。 应用程序完成消息处理（或可靠地存储消息以供日后处理）后，它会将收到的消息传递到 `ServiceBusRestProxy->deleteMessage`，从而完成接收过程的第二阶段。 当服务总线发现 `deleteMessage` 调用时，它会将消息标记为“已使用”并将其从队列中删除。
+
+以下示例演示了如何使用 [PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode#Microsoft_ServiceBus_Messaging_ReceiveMode_PeekLock) 模式（默认模式）接收和处理消息。
 
 ```php
 require_once 'vendor/autoload.php';
@@ -213,7 +213,8 @@ catch(ServiceException $e){
 }
 ```
 
-## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>如何：处理应用程序崩溃和不可读消息
+## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>如何处理应用程序崩溃和不可读消息
+
 Service Bus 提供了相关功能来帮助你轻松地从应用程序错误或消息处理问题中恢复。 如果接收方应用程序出于某种原因无法处理消息，它可以对收到的消息调用 `unlockMessage` 方法（而不是 `deleteMessage` 方法）。 这会导致 Service Bus 解锁队列中的消息并使其能够重新被同一个正在使用的应用程序或其他正在使用的应用程序接收。
 
 还存在与队列中已锁定的消息相关联的超时，并且如果应用程序未能在锁定超时到期之前处理消息（例如，如果应用程序崩溃），服务总线则将自动解锁该消息，使它可以再次被接收。
@@ -225,6 +226,6 @@ Service Bus 提供了相关功能来帮助你轻松地从应用程序错误或�
 
 有关详细信息，另请访问 [PHP 开发人员中心](https://azure.microsoft.com/develop/php/)。
 
-[BrokeredMessage]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage
+[BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
 [Queues, Topics, and Subscriptions]: ./service-bus-queues-topics-subscriptions.md
 [require_once]: http://php.net/require_once

@@ -11,13 +11,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 07/04/2017
 ms.author: dobett
-ms.date: 08/06/2018
-ms.openlocfilehash: 3a645ac76388bada872317f3fcf8880d6b553dc1
-ms.sourcegitcommit: d4092cf6aba0d949bf612093c76f964c2bdfd0ba
+ms.date: 09/10/2018
+ms.openlocfilehash: 8c923521aee5170aed276b6929f6ce92bb01cf78
+ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39306563"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43328991"
 ---
 # <a name="get-started-with-device-twins-java"></a>设备孪生入门 (Java)
 
@@ -353,8 +353,8 @@ ms.locfileid: "39306563"
 
 充分利用以下资源：
 
-* 通过 [IoT 中心入门](./iot-hub-java-java-getstarted.md)教程学习如何从设备发送遥测数据。
-* 通过[使用直接方法](./iot-hub-java-java-direct-methods.md)教程学习如何以交互方式控制设备（例如从用户控制的应用打开风扇）。
+* 通过 [IoT 中心入门](quickstart-send-telemetry-java.md)教程学习如何从设备发送遥测数据。
+* 通过[使用直接方法](quickstart-control-device-java.md)教程学习如何以交互方式控制设备（例如从用户控制的应用打开风扇）。
 
 <!-- Images. -->
 [7]: ./media/iot-hub-java-java-twin-getstarted/invoke-method.png

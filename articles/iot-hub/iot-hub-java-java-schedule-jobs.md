@@ -1,25 +1,21 @@
 ---
 title: 使用 Azure IoT 中心计划作业 (Java)
 description: 如何安排 Azure IoT 中心作业对多台设备调用直接方法并设置必需属性。 使用适用于 Java 的 Azure IoT 设备 SDK 实现模拟设备应用，并使用适用于 Java 的 Azure IoT 服务 SDK 实现用于运行作业的服务应用。
-services: iot-hub
-documentationcenter: java
 author: dominicbetts
 manager: timlt
-editor: ''
 ms.service: iot-hub
+services: iot-hub
 ms.devlang: java
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 origin.date: 07/10/2017
 ms.author: v-yiso
-ms.date: 06/11/2018
-ms.openlocfilehash: bf573f1515aa25db7b21abdc326cbf9741975359
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.date: 09/10/2018
+ms.openlocfilehash: b4266fcaaefad9c638a9368ce79581d120089849
+ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939801"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43328591"
 ---
 # <a name="schedule-and-broadcast-jobs-java"></a>计划和广播作业 (Java)
 
@@ -36,7 +32,7 @@ ms.locfileid: "38939801"
 若要详细了解其中的每项功能，请参阅：
 
 * 设备孪生和属性：[设备孪生入门](iot-hub-java-java-twin-getstarted.md)
-* 直接方法：[IoT 中心开发人员指南 - 直接方法](iot-hub-devguide-direct-methods.md)和[教程：使用直接方法](iot-hub-java-java-direct-methods.md)
+* 直接方法：[IoT 中心开发人员指南 - 直接方法](iot-hub-devguide-direct-methods.md)和[教程：使用直接方法](quickstart-control-device-java.md)
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -487,5 +483,5 @@ schedule-jobs：使用作业来调用 lockDoor 直接方法，并在多个设备
 
 充分利用以下资源：
 
-* 通过 [IoT 中心入门](iot-hub-java-java-getstarted.md)教程学习如何从设备发送遥测数据。
-* 通过[使用直接方法](iot-hub-java-java-direct-methods.md)教程学习如何以交互方式控制设备（例如从用户控制的应用打开风扇）。
+* 通过 [IoT 中心入门](quickstart-send-telemetry-java.md)教程学习如何从设备发送遥测数据。
+* 通过[使用直接方法](quickstart-control-device-java.md)教程学习如何以交互方式控制设备（例如从用户控制的应用打开风扇）。

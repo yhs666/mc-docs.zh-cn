@@ -1,5 +1,5 @@
 ---
-title: Azure SQL 数据库基于 DTU 的资源限制 - 单一数据库 | Azure
+title: Azure SQL 数据库基于 DTU 的资源限制 - 单一数据库 | Microsoft Docs
 description: 本页介绍 Azure SQL 数据库中单一数据库的一些常见资源限制（基于 DTU）。
 services: sql-database
 author: WenJason
@@ -7,25 +7,28 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-origin.date: 06/29/2018
-ms.date: 08/06/2018
+origin.date: 08/03/2018
+ms.date: 09/02/2018
 ms.author: v-jay
-ms.openlocfilehash: 84db5e9f47fd5eed8434923e8b67bed5ef117fae
-ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
+ms.openlocfilehash: 6b0be710b16b244ca5667ef3d4aa7ac8c1f71f3f
+ms.sourcegitcommit: 2601e68563bffe148e70cce2bf1dcbe837a40f80
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39486950"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43249885"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-based-purchasing-model"></a>使用基于 DTU 的购买模型的单一数据库的资源限制 
 
-本文详细介绍了使用基于 DTU 的购买模型的 Azure SQL 数据库弹性池的资源限制。
+本文提供了针对使用基于 DTU 的购买模型的 Azure SQL 数据库的单一数据库的详细资源限制。
 
-有关弹性池的基于 DTU 的购买模型资源限制，请参阅[基于 DTU 的资源限制 - 弹性池](sql-database-dtu-resource-limits-elastic-pools.md)。 有关基于 vCore 的资源限制，请参阅[基于 vCore 的资源限制 - 单一数据库](sql-database-vcore-resource-limits-single-databases.md)和[基于 vCore 的资源限制 - 弹性池](sql-database-vcore-resource-limits-elastic-pools.md)。
+有关弹性池的基于 DTU 的购买模型资源限制，请参阅[基于 DTU 的资源限制 - 弹性池](sql-database-vcore-resource-limits-elastic-pools.md)。 有关基于 vCore 的资源限制，请参阅[基于 vCore 的资源限制 - 单一数据库](sql-database-vcore-resource-limits-single-databases.md)和[基于 vCore 的资源限制 - 弹性池](sql-database-vcore-resource-limits-elastic-pools.md)。
+
+> [!IMPORTANT]
+> 在某些情况下，可能需要收缩数据库来回收未使用的空间。 有关详细信息，请参阅[管理 Azure SQL 数据库中的文件空间](sql-database-file-space-management.md)。
 
 ## <a name="single-database-storage-sizes-and-performance-levels"></a>单一数据库：存储大小和性能级别
 
-对于单一数据库，下表显示了可用于每个服务层和性能级别的单一数据库的资源。 可通过 [Azure 门户](sql-database-servers-databases-manage.md#azure-portal-manage-logical-servers-and-databases)、[PowerShell](sql-database-servers-databases-manage.md#powershell-manage-logical-servers-and-databases)、[Azure CLI](sql-database-servers-databases-manage.md#azure-cli-manage-logical-servers-and-databases) 或 [REST API](sql-database-servers-databases-manage.md#rest-api-manage-logical-servers-and-databases) 为单一数据库设置服务层、性能级别和存储量。
+对于单一数据库，下表显示了可用于每个服务层和性能级别的单一数据库的资源。 可通过 [Azure 门户](sql-database-single-databases-manage.md#azure-portal-manage-logical-servers-and-databases)、[PowerShell](sql-database-single-databases-manage.md#powershell-manage-logical-servers-and-databases)、[Azure CLI](sql-database-single-databases-manage.md#azure-cli-manage-logical-servers-and-databases) 或 [REST API](sql-database-single-databases-manage.md#rest-api-manage-logical-servers-and-databases) 为单一数据库设置服务层、性能级别和存储量。
 
 ### <a name="basic-service-tier"></a>基本服务层
 | **性能级别** | **基本** |
@@ -40,7 +43,7 @@ ms.locfileid: "39486950"
 
 ### <a name="standard-service-tier"></a>标准服务层
 | **性能级别** | **S0** | **S1** | **S2** | **S3** |
-| :--- |---:| ---:|---:|---:|---:|
+| :--- |---:| ---:|---:|---:|
 | 最大 DTU | 10 个 | 20 | 50 | 100 |
 | 包含的存储 (GB) | 250 | 250 | 250 | 250 |
 | 最大存储选择 (GB) | 250 | 250 | 250 | 250, 500, 750, 1024 |
@@ -51,7 +54,7 @@ ms.locfileid: "39486950"
 
 ### <a name="standard-service-tier-continued"></a>标准服务层（续）
 | **性能级别** | **S4** | **S6** | S7 | S9 | S12 |
-| :--- |---:| ---:|---:|---:|---:|---:|
+| :--- |---:| ---:|---:|---:|---:|
 | 最大 DTU 数 | 200 | 400 | 800 | 1600 | 3000 |
 | 包含的存储 (GB) | 250 | 250 | 250 | 250 | 250 |
 | 最大存储选择 (GB) | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 |
@@ -78,12 +81,12 @@ ms.locfileid: "39486950"
 ## <a name="single-database-change-storage-size"></a>单一数据库：更改存储大小
 
 - 单一数据库的 DTU 价格附送了一定容量的存储，无需额外费用。 超出附送的量后，可花费额外的费用预配额外的存储，但不能超过存储上限，不超过 1 TB 时，以 250 GB 为增量进行预配，超出 1 TB 时，以 256 GB 为增量进行预配。 有关附送存储量和大小上限，请参阅[单一数据库：存储大小和性能级别](#single-database-storage-sizes-and-performance-levels)。
-- 可通过 [Azure portal](sql-database-servers-databases-manage.md#azure-portal-manage-logical-servers-and-databases)、[Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql)、[PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase)、[Azure CLI](/cli/sql/db#az_sql_db_update) 或 [REST API](https://docs.microsoft.com/rest/api/sql/databases/update) 为单一数据库增加大小上限，以预配额外存储。
+- 可通过 [Azure portal](sql-database-single-databases-manage.md#azure-portal-manage-logical-servers-and-databases)、[Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-database#examples)、[PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase)、[Azure CLI](/cli/sql/db#az_sql_db_update) 或 [REST API](https://docs.microsoft.com/rest/api/sql/databases/update) 为单一数据库增加大小上限，以预配额外存储。
 - 单一数据库的额外存储价格等于额外存储量乘以服务层的额外存储单价。 有关额外存储价格的详细信息，请参阅 [SQL 数据库定价](https://azure.cn/pricing/details/sql-database/)。
 
 ## <a name="single-database-change-dtus"></a>单一数据库：更改 DTU
 
-首先选择服务层、性能级别和存储量，然后使用 [Azure portal](sql-database-servers-databases-manage.md#azure-portal-manage-logical-servers-and-databases)、[Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql)、 [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase)、[Azure CLI](/cli/sql/db#az_sql_db_update) 或 [REST API](https://docs.microsoft.com/rest/api/sql/databases/update)，根据实际体验动态扩展或缩减单一数据库。 
+首先选择服务层、性能级别和存储量，然后使用 [Azure portal](sql-database-single-databases-manage.md#azure-portal-manage-logical-servers-and-databases)、[Transact-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-database#examples)、 [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase)、[Azure CLI](/cli/sql/db#az_sql_db_update) 或 [REST API](https://docs.microsoft.com/rest/api/sql/databases/update)，根据实际体验动态扩展或缩减单一数据库。 
 
 下面视频演示了如何动态更改性能层以增加单一数据库的可用 DTU。
 
@@ -108,6 +111,7 @@ ms.locfileid: "39486950"
 ## <a name="next-steps"></a>后续步骤
 
 - 有关常见问题的解答，请参阅 [SQL 数据库常见问题解答](sql-database-faq.md)。
+- 有关服务器和订阅级别限制的信息，请参阅 [Azure SQL 数据库资源限制概述](sql-database-resource-limits.md)。
 - 有关常规 Azure 限制的相关信息，请参阅 [Azure 订阅和服务限制、配额和约束](../azure-subscription-service-limits.md)。
 - 有关 DTU 和 eDTU 的信息，请参阅 [DTU 和 eDTU](sql-database-service-tiers.md#what-are-database-transaction-units-dtus)。
 - 有关 tempdb 大小限制的信息，请参阅 https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database。

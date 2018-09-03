@@ -1,27 +1,22 @@
 ---
 title: Azure IoT 中心模块标识和模块孪生 (.NET) 入门 | Microsoft Docs
 description: 了解如何使用用于 .NET 的 IoT SDK 创建模块标识和更新模块孪生。
-services: iot-hub
-documentationcenter: .net
 author: chrissie926
-manager: timlt
-editor: ''
-ms.assetid: f40604ff-8fd6-4969-9e99-8574fbcf036c
+manager: ''
 ms.service: iot-hub
-ms.devlang: dotnet
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: csharp
+ms.topic: conceptual
 origin.date: 04/26/2018
-ms.date: 07/09/2018
+ms.date: 09/10/2018
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6dd8804dfa486807005c7e758e47e6c4952c27c1
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: daa7287fe5154663f1db2a2e537853d1ed021d2b
+ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38938875"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43328981"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-net-back-end-and-net-device"></a>使用 .NET 后端和 .NET 设备创建 IoT 中心模块标识和模块孪生入门
 
@@ -45,11 +40,9 @@ ms.locfileid: "38938875"
 
 现已创建 IoT 中心，因此已具有完成本教程剩余部分所需的主机名和 IoT 中心连接字符串。
 
-<a id="DeviceIdentity_csharp"></a>
 [!INCLUDE [iot-hub-get-started-create-module-identity-csharp](../../includes/iot-hub-get-started-create-module-identity-csharp.md)]
 
 
-<a id="D2C_csharp"></a>
 ## <a name="update-the-module-twin-using-net-device-sdk"></a>使用 .NET 设备 SDK 更新模块孪生
 
 在本节中，将在更新模块孪生报告属性的模拟设备上创建 .NET 控制台应用。

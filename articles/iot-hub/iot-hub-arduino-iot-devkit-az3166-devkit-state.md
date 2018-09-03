@@ -1,26 +1,21 @@
 ---
 title: 使用 Azure 设备孪生控制 MXChip IoT DevKit 用户 LED | Microsoft Docs
 description: 本教程介绍如何使用 Azure IoT 中心设备孪生来监视 DevKit 状态和控制用户 LED。
-services: iot-hub
-documentationcenter: ''
 author: liydu
-manager: timlt
-tags: ''
-keywords: ''
+manager: jeffya
 ms.service: iot-hub
-ms.devlang: arduino
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
+ms.tgt_pltfrm: arduino
 origin.date: 04/04/2018
-ms.date: 06/11/2018
+ms.date: 09/10/2018
 ms.author: v-yiso
-ms.openlocfilehash: 08dd873dddd74d581ed1e73cb48ceb23644b22d8
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: d34f79cc2e9d86529caac9f9250cc9412b8e99cb
+ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695180"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43328456"
 ---
 # <a name="mxchip-iot-devkit"></a>MXChip IoT DevKit
 
@@ -35,9 +30,12 @@ ms.locfileid: "34695180"
 
 - 遵照[入门指南](./iot-hub-arduino-iot-devkit-az3166-get-started.md)设置开发环境。
 - 在 GitBash 终端窗口（或其他 Git 命令行接口）中键入以下命令：
-    - `git clone https://github.com/DevKitExamples/DevKitState.git`
-    - `cd DevKitState`
-    - `code .`
+
+   ```bash
+   git clone https://github.com/DevKitExamples/DevKitState.git
+   cd DevKitState
+   code .
+   ```
 
 ## <a name="provision-azure-services"></a>预配 Azure 服务
 
@@ -46,8 +44,8 @@ ms.locfileid: "34695180"
 3. 出现“要选择哪个订阅”提示消息时，请选择一个订阅。
 4. 选择一个资源组。 
  
-    > [!NOTE]
-    > 如果已有一个免费的 IoT 中心，则会跳过此步骤。
+   > [!NOTE]
+   > 如果已有一个免费的 IoT 中心，则可以跳过此步骤。
 
 5. 出现“要选择哪个 IoT 中心”提示消息时，请选择或创建一个 IoT 中心。
 6. 随后会显示类似于“函数应用: 函数应用名称: xxx”的内容。 记下函数应用名称，因为在后续步骤中需要用到。

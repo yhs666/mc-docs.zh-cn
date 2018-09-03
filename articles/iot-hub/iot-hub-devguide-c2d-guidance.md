@@ -1,26 +1,20 @@
 ---
-title: Azure IoT 中心从云到设备选项 | Azure
+title: Azure IoT 中心从云到设备选项 | Microsoft Docs
 description: 开发人员指南 - 指导用户何时使用直接方法、设备孪生的所需属性或云到设备的消息，以进行从云到设备的通信。
-services: iot-hub
-documentationcenter: ''
 author: fsautomata
-manager: timlt
-editor: ''
-ms.assetid: 1ac90923-1edf-4134-bbd4-77fee9b68d24
+manager: ''
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 origin.date: 01/29/2018
-ms.date: 07/09/2018
+ms.date: 09/10/2018
 ms.author: v-yiso
-ms.openlocfilehash: b0588ce19ffc2886e58d91175f55110b339e4ecb
-ms.sourcegitcommit: 039d75a641edc2edd13a9371251051c20fea2bb7
+ms.openlocfilehash: ef0726bdd783e5641bed3f54cdf658a16b433fe1
+ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103402"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43329105"
 ---
 # <a name="cloud-to-device-communications-guidance"></a>从云到设备通信指南
 IoT 中心提供三个选项，允许设备应用向后端应用公开功能：
@@ -55,6 +49,6 @@ IoT 中心提供三个选项，允许设备应用向后端应用公开功能：
 [lnk-jobs]: ./iot-hub-devguide-jobs.md
 [lnk-c2d]: ./iot-hub-devguide-messages-c2d.md
 [lnk-methods]: ./iot-hub-devguide-direct-methods.md
-[lnk-methods-tutorial]: ./iot-hub-node-node-direct-methods.md
-[lnk-twin-properties]: ./iot-hub-node-node-twin-how-to-configure.md
+[lnk-methods-tutorial]: quickstart-control-device-node.md
+[lnk-twin-properties]: tutorial-device-twins.md
 [lnk-c2d-tutorial]: ./iot-hub-node-node-c2d.md

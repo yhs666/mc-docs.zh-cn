@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 12/18/2017
-ms.date: 03/12/2018
+ms.date: 09/10/2018
 ms.author: v-yiso
-ms.openlocfilehash: 5b03f3fcc487156cc1753bfa62a763d505dc0c9d
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: d7151b5e85c2bc17854244066056d7a4e8353784
+ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
-ms.locfileid: "29731169"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43329139"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>通过服务总线消息传递进行分布式跟踪和关联
 
@@ -46,8 +46,8 @@ Microsoft Azure 服务总线消息传递已定义生成者与使用者应该用�
 [Microsoft Application Insights](https://azure.microsoft.com/services/application-insights/) 提供丰富的性能监视功能，包括自动请求和依赖项跟踪。
 
 请根据项目类型安装 Application Insights SDK：
-- [ASP.NET](../application-insights/app-insights-asp-net.md) 2.5-beta2 或更高版本
-- [ASP.NET Core](../application-insights/app-insights-asp-net-core.md) 2.2.0-beta2 或更高版本。
+- [ASP.NET](../application-insights/app-insights-asp-net.md) - 安装版本 2.5-beta2 或更高版本
+- [ASP.NET Core](../application-insights/app-insights-asp-net-core.md) - 安装版本 2.2.0-beta2 或更高版本。
 这些链接提供了有关安装 SDK、创建资源和配置 SDK（如果需要）的详细信息。 针对非 ASP.NET 应用程序，请参阅[适用于控制台应用程序的 Azure Application Insights](../application-insights/application-insights-console.md) 一文。
 
 如果使用[消息处理程序模式](/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler)来处理消息，则无需执行其他操作，系统会自动跟踪由服务所完成的所有服务总线调用，并将其与其他遥测项关联。 否则，请参考以下示例手动进行消息处理跟踪。

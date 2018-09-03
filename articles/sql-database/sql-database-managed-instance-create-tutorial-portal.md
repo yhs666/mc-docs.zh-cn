@@ -12,12 +12,12 @@ origin.date: 05/09/2018
 ms.date: 06/18/2018
 ms.author: v-nany
 manager: digimobile
-ms.openlocfilehash: e97289f0f08d2be78463c744eb18ccebf5daa839
-ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
+ms.openlocfilehash: 0e6b0502b848d9ec154208c11d28d1e78a098b78
+ms.sourcegitcommit: 2601e68563bffe148e70cce2bf1dcbe837a40f80
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39486708"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43249895"
 ---
 # <a name="create-an-azure-sql-database-managed-instance-in-the-azure-portal"></a>在 Azure 门户中创建 Azure SQL 数据库托管实例
 
@@ -40,7 +40,7 @@ ms.locfileid: "39486708"
 > [!IMPORTANT]
 > 有关目前支持托管实例的区域列表，请参阅[使用 Azure SQL 数据库托管实例将数据库迁移到完全托管的服务](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/)。
  
-## <a name="log-in-to-the-azure-portal"></a>登录到 Azure 门户
+## <a name="sign-in-to-the-azure-portal"></a>登录到 Azure 门户
 
 登录到 [Azure 门户](https://portal.azure.cn/#create/Microsoft.SQLManagedInstance)。
 
@@ -161,7 +161,7 @@ ms.locfileid: "39486708"
 2. 找到“托管实例”，然后选择“Azure SQL 数据库托管实例(预览版)”。
 3. 单击**创建**。
 
-   ![托管实例“创建”按钮](./media/sql-database-managed-instance-tutorial/managed-instance-create.png)
+   ![创建托管实例](./media/sql-database-managed-instance-tutorial/managed-instance-create.png)
 
 4. 选择订阅，并验证预览版条款是否显示“已接受”。
 
@@ -303,7 +303,7 @@ ms.locfileid: "39486708"
 8. 在系统提示时，单击“安装”即可开始。
 9. 安装完成后，单击“关闭”。
 10. 打开 SSMS。
-11. 在“连接到服务器”对话框的“服务器名称”框中输入托管实例的主机名*，选择“SQL Server 身份验证”，提供登录名和密码，然后单击“连接”。
+11. 在“连接到服务器”对话框的“服务器名称”框中输入托管实例的主机名，选择“SQL Server 身份验证”，提供登录名和密码，然后单击“连接”。
 
     ![ssms 连接](./media/sql-database-managed-instance-tutorial/ssms-connect.png)  
 

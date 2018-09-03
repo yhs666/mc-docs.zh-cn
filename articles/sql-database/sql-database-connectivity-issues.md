@@ -1,22 +1,22 @@
 ---
-title: 修复 SQL 连接错误和暂时性错误 | Azure
-description: '了解如何排查、诊断和防止 Azure SQL 数据库中的 SQL 连接错误或暂时性错误。 '
+title: 修复 SQL 连接错误和暂时性错误 |Microsoft 文档
+description: 了解如何排查、诊断和防止 Azure SQL 数据库中的 SQL 连接错误或暂时性错误。
 keywords: SQL 连接, 连接字符串, 连接问题, 暂时性错误, 连接错误
 services: sql-database
-author: yunan2016
+author: WenJason
 manager: digimobile
 ms.service: sql-database
 ms.custom: develop apps
-ms.topic: article
-origin.date: 04/01/2018
-ms.date: 04/17/2018
-ms.author: v-nany
-ms.openlocfilehash: b96a1d3464011f9a032c016fbf8ab0dd168970d8
-ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
+ms.topic: conceptual
+origin.date: 08/01/2018
+ms.date: 09/02/2018
+ms.author: v-jay
+ms.openlocfilehash: d8fc67203b3c61bac8f895124687bc0d1a45dae6
+ms.sourcegitcommit: 2601e68563bffe148e70cce2bf1dcbe837a40f80
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39486603"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43249864"
 ---
 # <a name="troubleshoot-diagnose-and-prevent-sql-connection-errors-and-transient-errors-for-sql-database"></a>排查、诊断和防止 SQL 数据库中的 SQL 连接错误和暂时性错误
 本文介绍如何防止、排查、诊断和减少客户端应用程序在与 Azure SQL 数据库交互时发生的连接错误和暂时性错误。 了解如何配置重试逻辑、生成连接字符串以及调整其他连接设置。
@@ -182,17 +182,21 @@ ms.locfileid: "39486603"
 
 <a id="d-connection-ado-net-4-5" name="d-connection-ado-net-4-5"></a>
 
-### <a name="connection-adonet-461"></a>连接：ADO.NET 4.6.1
-如果程序使用 **System.Data.SqlClient.SqlConnection** 等 ADO.NET 类来连接到 SQL 数据库，我们建议使用 .NET Framework 4.6.1 或更高版本。
+### <a name="connection-adonet-462-or-later"></a>连接：ADO.NET 4.6.2 或更高版本
+如果程序使用 **System.Data.SqlClient.SqlConnection** 等 ADO.NET 类来连接到 SQL 数据库，我们建议使用 .NET Framework 4.6.2 或更高版本。
 
-ADO.NET 4.6.1：
+从 ADO.NET 4.6.2 开始：
+
+- 将立即为 Azure SQL 数据库重试连接打开尝试，从而改进启用了云的应用的性能。
+
+从 ADO.NET 4.6.1 开始：
 
 * 对于 SQL 数据库，使用 **SqlConnection.Open** 方法打开连接可以获得更高的可靠性。 此 **Open** 方法现在结合了应对暂时性故障的最佳效果重试机制，用于处理连接超时期间发生的特定错误。
 * 支持连接池，其中包括有效验证提供给程序的连接对象是否正常运行的功能。
 
-如果要从连接池使用连接对象，我们建议，如果程序未立即使用连接，应暂时关闭连接。 重新打开连接的开销并不高，但要创建新连接。
+若要从连接池使用连接对象，我们建议，如果程序未立即使用连接，应暂时关闭连接。 重新打开连接的开销并不高，但要创建新连接。
 
-如果使用 ADO.NET 4.0 或更低版本，我们建议升级到最新的 ADO.NET。 从 2015 年 11 月开始，可以 [下载 ADO.NET 4.6.1](http://blogs.msdn.com/b/dotnet/archive/2015/11/30/net-framework-4-6-1-is-now-available.aspx)。
+如果使用 ADO.NET 4.0 或更低版本，我们建议升级到最新的 ADO.NET。 从 2018 年 8 月开始，可以[下载 ADO.NET 4.6.2](https://blogs.msdn.microsoft.com/dotnet/2018/04/30/announcing-the-net-framework-4-7-2/)。
 
 <a id="e-diagnostics-test-utilities-connect" name="e-diagnostics-test-utilities-connect"></a>
 
@@ -256,10 +260,8 @@ Enterprise Library 6 (EntLib60) 提供了 .NET 托管类来帮助进行日志记
 
 | 日志查询 | 说明 |
 |:--- |:--- |
-| `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` |
-  [sys.event_log](http://msdn.microsoft.com/library/dn270018.aspx) 视图提供有关各个事件的信息，包括一些可能导致暂时性错误或连接故障的事件。<br/><br/>理想情况下，可以将 **start_time** 或 **end_time** 值与有关客户端程序遇到问题时的信息相关联。<br/><br/>必须连接到 *master* 数据库才能运行此查询。 |
-| `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` |
-  [sys.database_connection_stats](http://msdn.microsoft.com/library/dn269986.aspx) 视图针对其他诊断提供事件类型的聚合计数。<br/><br/>必须连接到 *master* 数据库才能运行此查询。 |
+| `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` |[sys.event_log](http://msdn.microsoft.com/library/dn270018.aspx) 视图提供有关各个事件的信息，包括一些可能导致暂时性错误或连接故障的事件。<br/><br/>理想情况下，可以将 **start_time** 或 **end_time** 值与有关客户端程序遇到问题时的信息相关联。<br/><br/>必须连接到 *master* 数据库才能运行此查询。 |
+| `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` |[sys.database_connection_stats](http://msdn.microsoft.com/library/dn269986.aspx) 视图针对其他诊断提供事件类型的聚合计数。<br/><br/>必须连接到 *master* 数据库才能运行此查询。 |
 
 <a id="d-search-for-problem-events-in-the-sql-database-log" name="d-search-for-problem-events-in-the-sql-database-log"></a>
 
@@ -311,8 +313,6 @@ Enterprise Library 6 (EntLib60) 是 .NET 类的框架，可帮助你实施云服
 
 > [!NOTE]
 > EntLib60 的源代码可从[下载中心](http://go.microsoft.com/fwlink/p/?LinkID=290898)公开下载。 Microsoft 不打算对 EntLib 做进一步的功能更新或维护更新。
-> 
-> 
 
 <a id="entlib60-classes-for-transient-errors-and-retry" name="entlib60-classes-for-transient-errors-and-retry"></a>
 
@@ -322,12 +322,12 @@ Enterprise Library 6 (EntLib60) 是 .NET 类的框架，可帮助你实施云服
 在命名空间 **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling** 中：
 
 * **RetryPolicy** 类
-  
+
   * **ExecuteAction** 方法
 * **ExponentialBackoff** 类
 * **SqlDatabaseTransientErrorDetectionStrategy** 类
 * **ReliableSqlConnection** 类
-  
+
   * **ExecuteCommand** 方法
 
 在命名空间 **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.TestSupport**中：
@@ -345,7 +345,7 @@ Enterprise Library 6 (EntLib60) 是 .NET 类的框架，可帮助你实施云服
 
 ### <a name="entlib60-the-logging-block"></a>EntLib60：日志记录块
 * 日志记录块是极其灵活且可配置的解决方案，可用于：
-  
+
   * 创建日志消息并将其存储在各种不同的位置。
   * 分类与筛选消息。
   * 收集有助于调试和跟踪的上下文信息，以及用于满足审核和一般日志记录要求的上下文信息。
@@ -437,4 +437,3 @@ public bool IsTransient(Exception ex)
 [step-4-connect-resiliently-to-sql-with-ado-net-a78n]: https://docs.microsoft.com/sql/connect/ado-net/step-4-connect-resiliently-to-sql-with-ado-net
 
 [step-4-connect-resiliently-to-sql-with-php-p42h]: https://docs.microsoft.com/sql/connect/php/step-4-connect-resiliently-to-sql-with-php
-

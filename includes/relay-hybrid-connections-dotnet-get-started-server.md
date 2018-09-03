@@ -5,8 +5,10 @@
 ### <a name="add-the-relay-nuget-package"></a>添加中继 NuGet 包
 
 1. 右键单击新创建的项目，然后选择“管理 NuGet 包”。
-2. 选择“浏览”，然后搜索 **Microsoft.Azure.Relay**。 在搜索结果中，选择“Microsoft Azure 中继”。 
-3. 选择“安装”即可完成安装。 关闭对话框。
+2. 选择“包括预发行版”选项。 
+3. 选择“浏览”，然后搜索 **Microsoft.Azure.Relay**。 在搜索结果中，选择“Microsoft Azure 中继”。
+4. 对于版本，选择 **2.0.0-preview1-20180523**。 
+5. 选择“安装”即可完成安装。 关闭对话框。
 
 ### <a name="write-code-to-receive-messages"></a>编写接收消息的代码
 
@@ -17,6 +19,7 @@
     using System.IO;
     using System.Threading;
     using System.Threading.Tasks;
+    using System.Net;
     using Microsoft.Azure.Relay;
     ```
 2. 将常量添加到 `Program` 类，用于保存混合连接的连接详细信息。 将括号中的占位符替换为在创建混合连接时获得的值。 请务必使用完全限定的命名空间名称。

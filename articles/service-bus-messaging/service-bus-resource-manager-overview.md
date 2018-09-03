@@ -14,13 +14,13 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 origin.date: 04/11/2018
 ms.author: v-yiso
-ms.date: 04/30/2018
-ms.openlocfilehash: 48b259bde9a393415cbb56764c7ec4df2b8c2928
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.date: 09/10/2018
+ms.openlocfilehash: abb793dac81e89bd2d3076a35524dd4adbae663d
+ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782249"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43330525"
 ---
 # <a name="create-service-bus-resources-using-azure-resource-manager-templates"></a>使用 Azure Resource Manager 模板创建服务总线资源
 
@@ -164,7 +164,7 @@ Azure Resource Manager 模板可帮助你定义要为解决方案部署的资源
 在 PowerShell 提示符下，运行以下命令：
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount -Environment AzureChinaCloud
 ```
 
 系统会提示你登录到 Azure 帐户。 登录后，运行以下命令以查看可用订阅：
@@ -226,7 +226,7 @@ New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyD
 New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -parameterName "parameterValue"
 ```
 
-若要运行[完整](../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments)部署，请将 Mode 参数设置为 Complete：
+若要运行[完整](../azure-resource-manager/deployment-modes.md)部署，请将 Mode 参数设置为 Complete：
 
 ```powershell
 New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -Mode Complete -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json

@@ -1,5 +1,5 @@
 ---
-title: Azure SQL 数据库基于 vCore 的资源限制 - 弹性池 | Azure
+title: Azure SQL 数据库基于 vCore 的资源限制 - 弹性池 | Microsoft Docs
 description: 本页介绍 Azure SQL 数据库中弹性池的一些常见基于 vCore 的资源限制。
 services: sql-database
 author: WenJason
@@ -7,15 +7,15 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-origin.date: 07/16/2018
-ms.date: 08/06/2018
+origin.date: 08/01/2018
+ms.date: 09/02/2018
 ms.author: v-jay
-ms.openlocfilehash: 302df6865f5e74a2c67fef26b8dff73c9b97717b
-ms.sourcegitcommit: 02c4716e07b3d83104fa419b379a15589ae8017e
+ms.openlocfilehash: 08c7320743fed29c5d179893151c6c572ba8b9c6
+ms.sourcegitcommit: 2601e68563bffe148e70cce2bf1dcbe837a40f80
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41704057"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43249879"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-elastic-pools"></a>Azure SQL 数据库基于 vCore 的购买模型针对弹性池的限制
 
@@ -23,6 +23,8 @@ ms.locfileid: "41704057"
 
 有关基于 DTU 的购买模型限制，请参阅 [SQL 数据库基于 DTU 的资源限制 - 弹性池](sql-database-dtu-resource-limits-elastic-pools.md)。
 
+> [!IMPORTANT]
+> 在某些情况下，可能需要收缩数据库来回收未使用的空间。 有关详细信息，请参阅[管理 Azure SQL 数据库中的文件空间](sql-database-file-space-management.md)。
 
 ## <a name="elastic-pool-storage-sizes-and-performance-levels"></a>弹性池：存储大小和性能级别
 
@@ -62,8 +64,7 @@ ms.locfileid: "41704057"
 |:--- | --: |--: |--: |--: |--: |--: |--: |--: |
 |硬件代次|5|5|5|5|5|5|5|5|
 |vCore 数|2|4|8|16|24|32|40|80|
-|内存 (GB)|11|22|44|8
-8|132|176|220|440|
+|内存 (GB)|11|22|44|88|132|176|220|440|
 |列存储支持|是|是|是|是|是|是|是|是|
 |内存中 OLTP 存储 (GB)|不适用|不适用|不适用|不适用|不适用|不适用|不适用|不适用|
 |存储类型|高级（远程）存储|高级（远程）存储|高级（远程）存储|高级（远程）存储|高级（远程）存储|高级（远程）存储|高级（远程）存储|高级（远程）存储|
@@ -113,8 +114,7 @@ ms.locfileid: "41704057"
 |:--- | --: |--: |--: |--: |--: |--: |--: |--: |
 |硬件代次|5|5|5|5|5|5|5|5|
 |vCore 数|2|4|8|16|24|32|40|80|
-|内存 (GB)|11|22|44|8
-8|132|176|220|440|
+|内存 (GB)|11|22|44|88|132|176|220|440|
 |列存储支持|是|是|是|是|是|是|是|是|
 |内存中 OLTP 存储 (GB)|1.571|3.142|6.284|15.768|25.252|37.936|52.22|131.64|
 |存储类型|本地 SSD|本地 SSD|本地 SSD|本地 SSD|本地 SSD|本地 SSD|本地 SSD|本地 SSD|
@@ -149,4 +149,5 @@ ms.locfileid: "41704057"
 ## <a name="next-steps"></a>后续步骤
 
 - 有关常见问题的解答，请参阅 [SQL 数据库常见问题解答](sql-database-faq.md)。
+- 有关服务器和订阅级别限制的信息，请参阅 [Azure SQL 数据库资源限制概述](sql-database-resource-limits.md)。
 - 有关常规 Azure 限制的相关信息，请参阅 [Azure 订阅和服务限制、配额和约束](../azure-subscription-service-limits.md)。

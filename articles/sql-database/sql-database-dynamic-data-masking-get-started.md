@@ -2,20 +2,20 @@
 title: Azure SQL 数据库动态数据掩码 | Azure
 description: SQL 数据库动态数据掩码通过对非特权用户模糊化敏感数据来控制此类数据的泄露
 services: sql-database
-author: Hayley244
+author: WenJason
 manager: digimobile
 ms.service: sql-database
 ms.custom: security
 ms.topic: article
 origin.date: 04/01/2018
-ms.date: 04/17/2018
-ms.author: v-johch
-ms.openlocfilehash: df82482dc325fc348a01b890a506f78b46a3ac45
-ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
+ms.date: 09/02/2018
+ms.author: v-jay
+ms.openlocfilehash: fa6cb1927d4009c00e5d65747ebe69dfb780f2ae
+ms.sourcegitcommit: 2601e68563bffe148e70cce2bf1dcbe837a40f80
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39486564"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43249887"
 ---
 # <a name="sql-database-dynamic-data-masking"></a>SQL 数据库动态数据掩码
 
@@ -33,8 +33,7 @@ Azure 数据库管理员、服务器管理员或安全主管角色可以配置�
 
 ### <a name="dynamic-data-masking-policy"></a>动态数据屏蔽策略
 * **不对其进行掩码的 SQL 用户** - 一组可以在 SQL 查询结果中获取非掩码数据的 SQL 用户或 AAD 标识。 始终不会对拥有管理员权限的用户进行掩码，这些用户可以看到没有任何掩码的原始数据。
-* 
-            **掩码规则** - 一组规则，定义要掩码的指定字段，以及使用的掩码函数。 可以使用数据库架构名称、表名称和列名称定义指定的字段。
+* **掩码规则** - 一组规则，定义要掩码的指定字段，以及使用的掩码函数。 可以使用数据库架构名称、表名称和列名称定义指定的字段。
 * **掩码函数** - 一组方法，用于控制不同情况下的数据透露。
 
 | 掩码函数 | 掩码逻辑 |
@@ -51,7 +50,7 @@ Azure 数据库管理员、服务器管理员或安全主管角色可以配置�
 DDM 建议引擎会将数据库中的某些字段标记为可能的敏感字段，可以考虑对这些字段进行掩码。 在门户的“动态数据掩码”边栏选项卡中，会看到针对数据库建议的列。 用户只需针对一个或多个列单击“添加掩码”，单击“保存”，即可对这些字段应用掩码。
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-powershell-cmdlets"></a>使用 Powershell cmdlet 为数据库设置动态数据屏蔽
-请参阅 [Azure SQL 数据库 Cmdlet](https://msdn.microsoft.com/library/azure/mt574084.aspx)。
+请参阅 [Azure SQL 数据库 Cmdlet](https://docs.microsoft.com/powershell/module/azurerm.sql)。
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-rest-api"></a>使用 REST API 为数据库设置动态数据掩码
 请参阅对 [Azure SQL 数据库](https://msdn.microsoft.com/library/dn505719.aspx)的操作。

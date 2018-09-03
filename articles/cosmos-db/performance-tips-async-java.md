@@ -11,12 +11,12 @@ ms.topic: conceptual
 origin.date: 03/27/2018
 ms.date: 08/13/2018
 ms.author: v-yeche
-ms.openlocfilehash: 133fb003ad9cd1c0d6faad226de87be7a77a475e
-ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
+ms.openlocfilehash: e6a9a77a45120481dbe700b5bf78303eebd7db68
+ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41704508"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43329129"
 ---
 > [!div class="op_single_selector"]
 > * [异步 Java](performance-tips-async-java.md)
@@ -31,10 +31,10 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 如果有“如何改善数据库性能？”的疑问， 请考虑以下选项：
 
 ## <a name="networking"></a>网络
-   <a name="same-region"></a>
+    <a name="same-region"></a>
 1. **将客户端并置在同一 Azure 区域中以提高性能**
 
-    如果可能，请将任何调用 Azure Cosmos DB 的应用程序放在与 Azure Cosmos DB 数据库所在的相同区域中。 通过大致的比较发现，在同一区域中对 Azure Cosmos DB 的调用可在 1-2 毫秒内完成，而美国西海岸和美国东海岸之间的延迟则大于 50 毫秒。 根据请求采用的路由，各项请求从客户端传递到 Azure 数据中心边界时的此类延迟可能有所不同。 通过确保在与预配 Azure Cosmos DB 终结点所在的同一 Azure 区域中调用应用程序，可能会实现最低的延迟。 有关可用区域的列表，请参阅 [Azure Regions](https://www.azure.cn/support/service-dashboard/#services)（Azure 区域）。
+    如果可能，请将任何调用 Azure Cosmos DB 的应用程序放在与 Azure Cosmos DB 数据库所在的相同区域中。 根据请求采用的路由，各项请求从客户端传递到 Azure 数据中心边界时的此类延迟可能有所不同。 通过确保在与预配 Azure Cosmos DB 终结点所在的同一 Azure 区域中调用应用程序，可能会实现最低的延迟。 有关可用区域的列表，请参阅 [Azure Regions](https://www.azure.cn/support/service-dashboard/#services)（Azure 区域）。
 
     ![Azure Cosmos DB 连接策略演示](./media/performance-tips/same-region.png)
 
@@ -46,7 +46,7 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
     每个 AsyncDocumentClient 实例都是线程安全的，可执行高效的连接管理和地址缓存。 若要通过 AsyncDocumentClient 获得高效的连接管理和更好的性能，建议在应用程序生存期内对每个 AppDomain 使用单个 AsyncDocumentClient 实例。
 
-   <a name="max-connection"></a>
+    <a name="max-connection"></a>
 
 3. **优化 ConnectionPolicy**
 
@@ -75,7 +75,7 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
     使用基于名称的寻址，其中的链接格式为 `dbs/MyDatabaseId/colls/MyCollectionId/docs/MyDocumentId`，而不是使用格式为 `dbs/<database_rid>/colls/<collection_rid>/docs/<document_rid>` 的 SelfLinks (\_self)（旨在避免检索用于构造链接的所有资源的 ResourceId）。 此外，由于会重新创建这些资源（名称可能相同），因此，缓存这些资源的用处不大。
 
-   <a name="tune-page-size"></a>
+    <a name="tune-page-size"></a>
 8. **调整查询/读取源的页面大小以获得更好的性能**
 
     使用读取源功能（例如 readDocuments）执行批量文档读取时，或发出 SQL 查询时，如果结果集太大，则以分段方式返回结果。 默认情况下，以包括 100 个项的块或 1 MB 大小的块返回结果（以先达到的限制为准）。
@@ -211,7 +211,7 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
     ```             
 
     在此标头中返回的请求费用是预配吞吐量的一小部分。 例如，如果预配了 2000 RU/s，上述查询返回 1000 个 1KB 文档，则操作成本为 1000。 因此在一秒内，服务器在对后续请求进行速率限制之前，只接受两个此类请求。 有关详细信息，请参阅[请求单位](request-units.md)和[请求单位计算器](https://www.documentdb.com/capacityplanner)。
-<a name="429"></a>
+    <a name="429"></a>
 2. **处理速率限制/请求速率太大**
 
     客户端尝试超过帐户保留的吞吐量时，服务器的性能不会降低，并且不会使用超过保留级别的吞吐量容量。 服务器将抢先结束 RequestRateTooLarge（HTTP 状态代码 429）的请求并返回 [x-ms-retry-after-ms](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) 标头，该标头指示重新尝试请求前用户必须等待的时间量（以毫秒为单位）。

@@ -1,26 +1,23 @@
 ---
 title: 通过 Azure IoT 中心安排作业 (Node) | Azure
 description: 如何安排 Azure IoT 中心作业实现多台设备上的直接方法调用。 使用 Azure IoT SDK for Node.js 实现模拟设备应用以及用于运行作业的服务应用。
-services: iot-hub
-documentationcenter: .net
 author: juanjperez
-manager: timlt
-editor: ''
-ms.assetid: 2233356e-b005-4765-ae41-3a4872bda943
+manager: cberlin
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
+services: iot-hub
+ms.devlang: nodejs
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 10/06/2017
-ms.date: 08/06/2018
+ms.date: 09/10/2018
 ms.author: v-yiso
-ms.openlocfilehash: 34c41c3506464348b9ad53cbb9b7c058a9336ce1
-ms.sourcegitcommit: d4092cf6aba0d949bf612093c76f964c2bdfd0ba
+ms.openlocfilehash: 98bfa28c19c3279072d762c998b0705c9e332ac2
+ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39306548"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43329113"
 ---
 # <a name="schedule-and-broadcast-jobs-node"></a>计划和广播作业 (Node)
 
@@ -267,8 +264,8 @@ scheduleJobService.js，它调用模拟设备应用中的直接方法，并通�
 若要继续完成 IoT 中心入门内容，请参阅 [Azure IoT Edge 入门][lnk-iot-edge]。
 
 [lnk-get-started-twin]: ./iot-hub-node-node-twin-getstarted.md
-[lnk-twin-props]: ./iot-hub-node-node-twin-how-to-configure.md
-[lnk-c2d-methods]: ./iot-hub-node-node-direct-methods.md
+[lnk-twin-props]: tutorial-device-twins.md
+[lnk-c2d-methods]: quickstart-control-device-node.md
 [lnk-dev-methods]: ./iot-hub-devguide-direct-methods.md
 [lnk-fwupdate]: ./tutorial-firmware-update.md
 [lnk-iot-edge]: ./iot-hub-linux-iot-edge-get-started.md

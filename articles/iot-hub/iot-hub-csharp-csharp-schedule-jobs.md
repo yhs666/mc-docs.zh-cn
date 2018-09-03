@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 03/06/2018
-ms.date: 08/06/2018
+ms.date: 09/10/2018
 ms.author: v-yiso
-ms.openlocfilehash: bb5245331784caec084f1ed79a749dd83caf5c63
-ms.sourcegitcommit: d4092cf6aba0d949bf612093c76f964c2bdfd0ba
+ms.openlocfilehash: 5085d553bc5936c1cd15f88d4057be16e2cb9368
+ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39306577"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43329019"
 ---
 # <a name="schedule-and-broadcast-jobs-netnet"></a>计划和广播作业 (.NET/.NET)
 
@@ -294,8 +294,8 @@ ScheduleJob，该应用使用作业来调用 LockDoor 直接方法，并在多�
 [img-schedulejobs]: media/iot-hub-csharp-csharp-schedule-jobs/schedulejobs.png
 
 [lnk-get-started-twin]: iot-hub-csharp-csharp-twin-getstarted.md
-[lnk-twin-props]: iot-hub-csharp-csharp-twin-how-to-configure.md
-[lnk-c2d-methods]: iot-hub-csharp-csharp-direct-methods.md
+[lnk-twin-props]: tutorial-device-twins.md
+[lnk-c2d-methods]: quickstart-control-device-dotnet.md
 [lnk-dev-methods]: iot-hub-devguide-direct-methods.md
 [lnk-fwupdate]: tutorial-firmware-update.md
 [lnk-iot-edge]: ./iot-hub-linux-iot-edge-simulated-device.md

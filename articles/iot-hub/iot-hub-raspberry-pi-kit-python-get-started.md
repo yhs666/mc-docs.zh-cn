@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 04/11/2018
 ms.author: v-yiso
-ms.date: 05/07/2018
-ms.openlocfilehash: c03308f6f5a2db761838b8bfae65d81ca2af428e
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.date: 09/10/2018
+ms.openlocfilehash: 669a66194da60f2acb5e846979dc9922ba2f0704
+ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939119"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43328601"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-python"></a>将 Raspberry Pi 连接到 Azure IoT 中心 (Python)
 
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
-在本教程中，首先学习有关使用运行 Raspbian 的 Raspberry Pi 的基础知识。 然后学习如何使用 [Azure IoT 中心](iot-hub-what-is-iot-hub.md)将设备无缝连接到云。 有关 Windows 10 IoT Core 的示例，请访问 [Windows 开发人员中心](http://www.windowsondevices.com/)。
+在本教程中，首先学习有关使用运行 Raspbian 的 Raspberry Pi 的基础知识。 然后学习如何使用 [Azure IoT 中心](about-iot-hub.md)将设备无缝连接到云。 有关 Windows 10 IoT Core 的示例，请访问 [Windows 开发人员中心](http://www.windowsondevices.com/)。
 
 还没有工具包？ 试用 [Raspberry Pi 联机模拟器](iot-hub-raspberry-pi-web-simulator-get-started.md)。 或在[此处](https://docs.azure.cn/zh-cn/develop/iot/iot-starter-kits)购买新工具包。
 

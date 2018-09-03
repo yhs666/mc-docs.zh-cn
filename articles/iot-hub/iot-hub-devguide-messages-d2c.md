@@ -1,25 +1,20 @@
 ---
 title: 了解 Azure IoT 中心设备到云的消息 | Azure
 description: 开发人员指南 - 如何在 IoT 中心使用设备到云的消息传送。 包含有关发送遥测数据和非遥测数据，以及使用路由传送消息的信息。
-services: iot-hub
-documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-origin.date: 01/29/2018
+services: iot-hub
+ms.topic: conceptual
+origin.date: 07/18/2018
 ms.author: v-yiso
-ms.date: 06/11/2018
-ms.openlocfilehash: 616b1b611a10cb54f09642323ba8786afdbaf377
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.date: 09/10/2018
+ms.openlocfilehash: 83df4737398da4374a3200a6f661826f30696aa5
+ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695121"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43329177"
 ---
 # <a name="send-device-to-cloud-messages-to-iot-hub"></a>将设备到云的消息发送到 IoT 中心
 
@@ -34,7 +29,7 @@ IoT 中心使用流式消息传递模式实现设备到云的消息传递。 与
 * 设备到云的消息可持久保留在 IoT 中心的默认 **messages/events** 终结点长达 7 天。
 * 设备到云的消息最大可为 256 KB，而且可分成多个批以优化发送。 批最大可为 256 KB。
 * 如[控制 IoT 中心的访问权限][lnk-devguide-security]部分中所述，IoT 中心允许基于设备的身份验证和访问控制。
-* 使用 IoT 中心最多可创建 10 个自定义终结点。 基于 IoT 中心上配置的路由，将消息传递到终结点。 有关详细信息，请参阅[路由规则](#routing-rules)。
+* 使用 IoT 中心最多可创建 10 个自定义终结点。 基于 IoT 中心上配置的路由，将消息传递到终结点。 有关详细信息，请参阅[路由规则](iot-hub-devguide-query-language.md#device-to-cloud-message-routes-query-expressions)。
 * IoT 中心支持数百万个同时连接的设备（请参阅[配额和限制][lnk-quotas]）。
 * IoT 中心不允许任意分区。 设备到云的消息根据其源于的 **deviceId**进行分区。
 
@@ -67,8 +62,8 @@ IoT 中心使用流式消息传递模式实现设备到云的消息传递。 与
 
 ```json
 {
-  "scope": "{ hub | device}",
-  "type": "{ symkey | sas}",
+  "scope": "{ hub | device }",
+  "type": "{ symkey | sas | x509 }",
   "issuer": "iothub"
 }
 ```
@@ -77,13 +72,13 @@ IoT 中心使用流式消息传递模式实现设备到云的消息传递。 与
 
 有关可用于发送设备到云消息的 SDK 的信息，请参阅 [Azure IoT SDK][lnk-sdks]。
 
-[入门][lnk-get-started]教程介绍了如何从模拟设备和物理设备发送设备到云的消息。 有关更多详细信息，请参阅[使用路由处理 IoT 中心设备到云的消息][lnk-d2c-tutorial]教程。
+[快速入门][lnk-get-started] 介绍如何从模拟设备发送设备到云的消息。 有关更多详细信息，请参阅[使用路由处理 IoT 中心设备到云的消息][lnk-d2c-tutorial]教程。
 
 [lnk-devguide-builtin]: ./iot-hub-devguide-messages-read-builtin.md
 [lnk-devguide-custom]: ./iot-hub-devguide-messages-read-custom.md
 [lnk-comparison]: ./iot-hub-compare-event-hubs.md
 [lnk-d2c-guidance]: ./iot-hub-devguide-d2c-guidance.md
-[lnk-get-started]: ./iot-hub-get-started.md
+[lnk-get-started]: quickstart-send-telemetry-node.md
 
 [lnk-event-hubs]: /event-hubs/
 [lnk-servicebus]: /service-bus-messaging/

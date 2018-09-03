@@ -7,14 +7,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 origin.date: 04/02/2018
-ms.date: 08/06/2018
+ms.date: 09/10/2018
 ms.author: v-yiso
-ms.openlocfilehash: 8c88099062a4c61cb32fdd648e176df5bd2c3cca
-ms.sourcegitcommit: d4092cf6aba0d949bf612093c76f964c2bdfd0ba
+ms.openlocfilehash: 42e531aa68550ceaf656fedeb5f9a95398251162
+ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39306607"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43328963"
 ---
 # <a name="how-to-upgrade-your-iot-hub"></a>如何升级 IoT 中心
 
@@ -28,7 +28,7 @@ ms.locfileid: "39306607"
 
 这些更改均可在不中断现有操作的情况下进行。
 
-若要将 IoT 中心降级，可以删除单元以及缩小 IoT 中心的大小。 不过，不能降级到更低的层。 例如，可以从 S2 层移到 S1 层，但不能从 S2 层移到 B1 层。 
+若要将 IoT 中心降级，可以删除单元以及缩小 IoT 中心的大小。 不过，不能降级到更低的层。 例如，可以从 S2 层移到 S1 层，但不能从 S2 层移到 B1 层。 另请注意，每个 IoT 中心在每个层内只能选择一种类型的[版本](https://www.azure.cn/pricing/details/iot-hub/)。 例如，可以创建具有多个 S1 单元的 IoT 中心，但不能创建混合使用不同版本的单元，例如 S1 和 B3，或者 S1 和 S2。
 
 这些示例旨在演示如何根据解决方案的变化来调整 IoT 中心。 有关每个层的功能的具体信息，则应始终参阅 [Azure IoT 中心定价](https://www.azure.cn/pricing/details/iot-hub/)。 
 
@@ -46,7 +46,7 @@ ms.locfileid: "39306607"
 4. 若要更改中心的单元数，请在“IoT 中心单元数”下输入新值。 
 5. 选择“保存”以保存更改。 
 
-现在，IoT 中心已进行调整，但配置未更改。 请注意，基本层 IoT 中心的分区限制为 8。 从基本层迁移到标准层时，此限制保持不变。
+现在，IoT 中心已进行调整，但配置未更改。 请注意，基本层 IoT 中心的最大分区限制为 8，标准层的为 32。 大多数 IoT 中心只需要 4 个分区。 分区限制是在创建 IoT 中心时选择的，它将设备到云消息关联到这些消息的并行读取器的数目。 从基本层迁移到标准层时，此值保持不变。 
 
 ## <a name="next-steps"></a>后续步骤
 

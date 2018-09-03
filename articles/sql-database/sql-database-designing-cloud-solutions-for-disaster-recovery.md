@@ -1,26 +1,26 @@
 ---
-title: 使用 Azure SQL 数据库设计高可用性服务 | Azure
+title: 使用 Azure SQL 数据库设计全球可用的服务 | Microsoft Docs
 description: 了解如何使用 Azure SQL 数据库对应用程序设计高可用性服务。
 keywords: 云灾难恢复, 灾难恢复解决方案, 应用数据备份, 异地复制, 业务连续性规划
 services: sql-database
-author: yunan2016
+author: WenJason
 manager: digimobile
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
-origin.date: 07/16/2018
-ms.date: 08/06/2018
-ms.author: v-nany
-ms.openlocfilehash: 11d7db379182d16e75c71c20b120f6f89af814f7
-ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
+origin.date: 07/26/2018
+ms.date: 09/02/2018
+ms.author: v-jay
+ms.openlocfilehash: 20d79bb429314d25299a0398e749668b81e8168f
+ms.sourcegitcommit: 2601e68563bffe148e70cce2bf1dcbe837a40f80
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39486571"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43249863"
 ---
-# <a name="designing-highly-available-services-using-azure-sql-database"></a>使用 Azure SQL 数据库设计高可用性服务
+# <a name="designing-globally-available-services-using-azure-sql-database"></a>使用 Azure SQL 数据库设计全球可用的服务
 
-在 Azure SQL 数据库上生成和部署高度的可用服务时，可使用[故障转移组和活动异地复制](sql-database-geo-replication-overview.md)在发生区域中断和灾难性故障时进行复原。 它还可实现快速恢复到辅助数据库。 本文主要介绍常见应用程序模式并讨论每种模式的优势和选择时应考虑的因素。 有关弹性池的活动异地复制的信息，请参阅[弹性池灾难恢复策略](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md)。
+通过 Azure SQL 数据库生成和部署云服务时，可使用[故障转移组和活动异地复制](sql-database-geo-replication-overview.md)在发生区域性中断和灾难性故障时进行复原。 通过此功能，还可创建针对数据的本地访问进行了优化的全球分布式应用程序。 本文讨论了常见的应用程序模式，包括每种模式的优势和考量因素。 
 
 ## <a name="scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime"></a>方案 1：使用两个 Azure 区域来实现业务连续性，同时将停机时间减至最小
 在此方案中，应用程序具有以下特征： 

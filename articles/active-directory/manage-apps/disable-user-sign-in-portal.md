@@ -11,18 +11,18 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 08/28/2017
-ms.date: 07/04/2018
+ms.date: 08/29/2018
 ms.author: v-junlch
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: 51ea215e13053940d453d61f963fde4bd87bf61b
-ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
+ms.openlocfilehash: d941ebfaf7c96e3de00e74d4299f7704d6512a42
+ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37800600"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43164979"
 ---
 # <a name="disable-user-sign-ins-for-an-enterprise-app-in-azure-active-directory"></a>在 Azure Active Directory 中对企业应用禁用用户登录
 可以轻松地禁用企业应用程序，防止用户在 Azure Active Directory (Azure AD) 中登录该程序。 必须具有适当的权限才能管理企业应用，并且必须是目录的全局管理员。
@@ -47,3 +47,4 @@ ms.locfileid: "37800600"
 - [删除企业应用的用户或组分配](remove-user-or-group-access-portal.md)
 - [更改企业应用的名称或徽标](change-name-or-logo-portal.md)
 
+<!-- Update_Description: update metedata properties -->

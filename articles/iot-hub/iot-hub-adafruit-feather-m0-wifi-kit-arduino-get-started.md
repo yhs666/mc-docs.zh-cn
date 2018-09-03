@@ -1,34 +1,28 @@
 ---
 title: M0 到云：将 Feather M0 WiFi 连接到 Azure IoT 中心 | Microsoft Docs
 description: 在本教程中了解如何设置 Adafruit Feather M0 WiFi 并将其连接到 Azure IoT 中心，以便将数据发送到 Azure 云平台。
-services: iot-hub
-documentationcenter: ''
-author: shizn
-manager: timlt
-tags: ''
-keywords: ''
-ms.assetid: 51befcdb-332b-416f-a6a1-8aabdb67f283
+author: rangv
+manager: nasing
 ms.service: iot-hub
-ms.devlang: arduino
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
+ms.tgt_pltfrm: arduino
 origin.date: 04/11/2018
 ms.author: v-yiso
-ms.date: 07/09/2018
-ms.openlocfilehash: 4da6c71565a7aa5d8611a042f2716ddbc609d2c5
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.date: 09/10/2018
+ms.openlocfilehash: c9900073a064cbd39c5695d49dc8053d933b7f80
+ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939152"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43330464"
 ---
 # <a name="connect-adafruit-feather-m0-wifi-to-azure-iot-hub-in-the-cloud"></a>将 Adafruit Feather M0 WiFi 连接到云中的 Azure IoT 中心
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
 ![BME280、Feather M0 WiFi 与 IoT 中心之间的连接](./media/iot-hub-adafruit-feather-m0-wifi-get-started/1_connection-m0-feather-m0-iot-hub.png)
 
-在本教程中，从学习如何使用 Arduino 开发板的基础知识开始。 然后将学习如何使用 [Azure IoT 中心](iot-hub-what-is-iot-hub.md)将设备无缝连接到云。
+在本教程中，从学习如何使用 Arduino 开发板的基础知识开始。 然后将学习如何使用 [Azure IoT 中心](about-iot-hub.md)将设备无缝连接到云。
 
 ## <a name="what-you-do"></a>准备工作
 
@@ -81,7 +75,7 @@ ms.locfileid: "38939152"
 
 
 | 启动（传感器）           | 结束（开发板）            | 线缆颜色   |
-| -----------------------  | ---------------------- | ------------: |
+| -----------------------  | ---------------------- | ------------- |
 | VDD（引脚 27A）            | 3V（引脚 3A）            | 红线     |
 | GND（引脚 29A）            | GND（引脚 6A）           | 黑线   |
 | SCK（引脚 30A）            | SCK（引脚 12A）          | 黄色电缆  |
@@ -187,25 +181,29 @@ ms.locfileid: "38939152"
    * `Adafruit BME280 Library`
    * `Adafruit Unified Sensor`
 
-3. 手动安装 `Adafruit_WINC1500`。 转到[此网站](https://github.com/adafruit/Adafruit_WINC1500)，单击“克隆或下载” > “下载 ZIP”。 然后，在 Arduino IDE 中，转到“草图” > “包含库” > “添加 .zip 库”并添加该 zip 文件。
+3. 手动安装 `Adafruit_WINC1500`。 转到 [Adafruit_WINC1500 网页](https://github.com/adafruit/Adafruit_WINC1500)，然后单击“克隆或下载” > “下载 ZIP”。 然后，在 Arduino IDE 中，转到“草图” > “包含库” > “添加 .zip 库”并添加该 zip 文件。
 
 ### <a name="use-the-sample-application-if-you-dont-have-a-real-bme280-sensor"></a>如果没有真正的 BME280 传感器，请使用示例应用程序
 
 如果没有真正的 BME280 传感器，示例应用程序可以模拟温度和湿度数据。 若要设置示例应用程序以使用模拟的数据，请执行以下步骤：
 
 1. 打开 `app` 文件夹中的 `config.h` 文件。
-1. 找到以下代码行并将值从 `false` 更改为 `true`：
+
+2. 找到以下代码行并将值从 `false` 更改为 `true`。
+
    ```c
    define SIMULATED_DATA true
    ```
-   ![将示例应用程序配置为使用模拟数据](./media/iot-hub-adafruit-feather-m0-wifi-get-started/8_arduino-ide-configure-app-use-simulated-data.png)
 
-1. 使用 `Control-s` 保存文件。
+   ![将示例应用程序配置为使用模拟数据](media/iot-hub-adafruit-feather-m0-wifi-get-started/8_arduino-ide-configure-app-use-simulated-data.png)
+
+3. 单击 `Control-s` 以保存该文件。
 
 ### <a name="deploy-the-sample-application-to-feather-m0-wifi"></a>将示例应用程序部署到 Feather M0 WiFi
 
 1. 在 Arduino IDE 中，依次单击“工具” > “端口”，并单击 Feather M0 WiFi 的串行端口。
-1. 依次单击“草图” > “上传”，生成示例应用程序并将其部署到 Feather M0 WiFi。
+
+2. 依次单击“草图” > “上传”，生成示例应用程序并将其部署到 Feather M0 WiFi。
 
 ### <a name="enter-your-credentials"></a>输入凭据
 
@@ -226,7 +224,7 @@ ms.locfileid: "38939152"
 
 ### <a name="verify-that-the-sample-application-is-running-successfully"></a>验证示例应用程序是否成功运行
 
-如果串行监视器窗口中显示以下输出并且 Feather M0 WiFi 上的 LED 闪烁，则表明示例应用程序已成功运行。
+如果串行监视器窗口中显示以下输出并且 Feather M0 WiFi 上的 LED 闪烁，则表明示例应用程序已成功运行：
 
 ![Arduino IDE 中的最终输出](./media/iot-hub-adafruit-feather-m0-wifi-get-started/9_arduino-ide-final-output.png)
 

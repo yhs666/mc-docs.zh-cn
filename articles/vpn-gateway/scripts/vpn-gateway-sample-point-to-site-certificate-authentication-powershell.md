@@ -16,12 +16,12 @@ ms.workload: infrastructure
 origin.date: 04/17/2018
 ms.date: 07/10/2018
 ms.author: v-junlch
-ms.openlocfilehash: ede31e62929250cc7af5aa9fad4ae70dd6d91cd0
-ms.sourcegitcommit: a22129c95c9f877a04c6b5b428edf7f4e953fd97
+ms.openlocfilehash: 5efce2365a57e34836d37dd35dd9a973516a2d0f
+ms.sourcegitcommit: e17577aca6df1a41d3ec164f33189f0435c5e060
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37937410"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43252731"
 ---
 # <a name="create-a-vpn-gateway-and-add-point-to-site-configuration-using-powershell"></a>使用 PowerShell 创建 VPN 网关并添加点到站点配置
 
@@ -128,4 +128,3 @@ Remove-AzureRmResourceGroup -Name TestRG1
 ## <a name="next-steps"></a>后续步骤
 
 有关 Azure PowerShell 模块的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/overview)。
-

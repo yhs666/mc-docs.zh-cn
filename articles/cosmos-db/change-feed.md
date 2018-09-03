@@ -11,12 +11,12 @@ ms.topic: conceptual
 origin.date: 03/26/2018
 ms.date: 08/13/2018
 ms.author: v-yeche
-ms.openlocfilehash: e4a5e69f9cda676decc264aa5da0d919195a419a
-ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
+ms.openlocfilehash: 969f0cbcd4e175a470b8759a93a72a61de1b4e6f
+ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41704896"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43329131"
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>使用 Azure Cosmos DB 中的更改源支持
 
@@ -83,7 +83,8 @@ Azure Cosmos DB 中的更改源支持的工作原理是：侦听 Azure Cosmos DB
 
 如果使用的是 Azure Functions，则若要连接到 Azure Cosmos DB 更改源，最简单的方法是向 Azure Functions 应用添加 Azure Cosmos DB 触发器。 在 Azure Functions 应用中创建 Azure Cosmos DB 触发器时，请选择要连接到的 Azure Cosmos DB 集合。然后，每当出现集合更改时，系统就会触发该函数。 
 
-可以通过 Azure Functions 门户、Azure Cosmos DB 门户或编程方式创建触发器。 有关详细信息，请参阅 [Azure Cosmos DB：使用 Azure Functions 的无服务器数据库计算](serverless-computing-database.md)。
+可以通过 Azure Functions 门户、Azure Cosmos DB 门户或编程方式创建触发器。
+<!--Not Available on [Azure Cosmos DB: Serverless database computing using Azure Functions](serverless-computing-database.md)-->
 
 <a name="sql-sdk"></a>
 ## <a name="using-the-sdk"></a>使用 SDK
@@ -158,7 +159,7 @@ Azure Cosmos DB 中的更改源支持的工作原理是：侦听 Azure Cosmos DB
 > 
 >
 
-如果有多个读取器，则可使用 ChangeFeedOptions 将读取负载分发到不同的线程或客户端。
+如果有多个读取器，则可使用 **ChangeFeedOptions** 将读取负载分发到不同的线程或客户端。
 
 使用短短的几行代码即可读取更改源，就这么简单！ 可从 [GitHub 存储库](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeed)获取本文中使用的完整代码。
 

@@ -1,33 +1,28 @@
 ---
 title: Intel Edison 到云 (C) - 将 Intel Edison 连接到 Azure IoT 中心 | Azure
 description: 在本教程中了解如何设置 Intel Edison 并将其连接到 Azure IoT 中心，使 Intel Edison 能够将数据发送到 Azure 云平台。
-services: iot-hub
-documentationcenter: ''
 author: rangv
-manager: timlt
-tags: ''
+manager: ''
 keywords: azure iot intel edison, intel edison iot 中心, intel edison 发送数据到云, intel edison 到云
-ms.assetid: 4885fa2c-c2ee-4253-b37f-ccd55f92b006
 ms.service: iot-hub
+services: iot-hub
 ms.devlang: c
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-origin.date: 04/17/2017
+ms.topic: conceptual
+origin.date: 04/11/2018
 ms.author: v-yiso
-ms.date: 08/14/2017
-ms.openlocfilehash: e03198e7b87ff61ca629b3c209af68ad738c95c0
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.date: 09/10/2018
+ms.openlocfilehash: 9bf7b1b49c72a3c1da93b0b18287f668e973390b
+ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38938871"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43328692"
 ---
 # <a name="connect-intel-edison-to-azure-iot-hub-c"></a>将 Intel Edison 连接到 Azure IoT 中心 (C)
 
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
-在本教程中，从学习如何使用 Intel Edison 的基础知识开始。 然后学习如何使用 [Azure IoT 中心](./iot-hub-what-is-iot-hub.md)将设备无缝连接到云。
+在本教程中，从学习如何使用 Intel Edison 的基础知识开始。 然后学习如何使用 [Azure IoT 中心](about-iot-hub.md)将设备无缝连接到云。
 
 还没有工具包？ 从 [此处](https://www.azure.cn/develop/iot/iot-starter-kits)
 

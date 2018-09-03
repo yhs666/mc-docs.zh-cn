@@ -10,14 +10,14 @@ ms.custom: quick start connect, mvc
 ms.devlang: python
 ms.topic: quickstart
 origin.date: 10/02/2017
-ms.date: 07/02/2018
+ms.date: 09/03/2018
 ms.author: v-yeche
-ms.openlocfilehash: 330325090ec74f4e7ae2d48869ae6b36ce4b0251
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 5846749b14faf3afd5e4e123df55476bc46c97da
+ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38938994"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43164806"
 ---
 # <a name="azure-cosmos-db-build-a-flask-app-with-the-mongodb-api"></a>Azure Cosmos DB：借助 MongoDB API 构建 Flask 应用
 

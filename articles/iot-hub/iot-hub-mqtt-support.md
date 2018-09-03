@@ -1,26 +1,20 @@
 ---
 title: 了解 Azure IoT 中心 MQTT 支持 | Azure
 description: 开发人员指南 - 支持设备使用 MQTT 协议连接到面向设备的 IoT 中心终结点。 介绍了 Azure IoT 设备 SDK 中的内置 MQTT 支持。
-services: iot-hub
-documentationcenter: .net
 author: fsautomata
-manager: timlt
-editor: ''
-ms.assetid: 1d71c27c-b466-4a40-b95b-d6550cf85144
+manager: ''
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 origin.date: 03/05/2018
-ms.date: 07/09/2018
+ms.date: 09/10/2018
 ms.author: v-yiso
-ms.openlocfilehash: 18867ce6c138b1adbcb9f0728465f09c1b9f2dc9
-ms.sourcegitcommit: 039d75a641edc2edd13a9371251051c20fea2bb7
+ms.openlocfilehash: e870b33febd608f257fce7e8b8e45769d36dbecd
+ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103424"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43328322"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>使用 MQTT 协议与 IoT 中心通信
 
@@ -28,6 +22,8 @@ IoT 中心允许设备通过以下方式与 IoT 中心设备终结点通信：
 
 * 在端口 8883 上使用 [MQTT v3.1.1][lnk-mqtt-org]
 * 在端口 443 上使用基于 WebSocket 的 MQTT v3.1.1。
+
+IoT 中心不是功能完备的 MQTT 中转站，并未支持 MQTT v3.1.1 标准中指定的所有行为。 本文介绍设备如何使用受支持的 MQTT 行为来与 IoT 中心通信。
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
@@ -83,7 +79,16 @@ IoT 中心允许设备通过以下方式与 IoT 中心设备终结点通信：
 
     有关如何生成 SAS 令牌的详细信息，请参阅 [使用 IoT 中心安全令牌][lnk-sas-tokens]的设备部分。
 
-    测试时也可以使用[设备资源管理器][lnk-device-explorer]工具来快速生成可以复制并粘贴到自己的代码中的 SAS 令牌：
+  测试时，也可以使用 [Visual Studio Code 的跨平台 Azure IoT 工具包扩展](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)或 [Device Explorer][lnk-device-explorer] 工具快速生成可以复制并粘贴到自己的代码中的 SAS 令牌：
+
+对于 Azure IoT 工具包：
+
+  1. 展开 Visual Studio Code 左下角的“AZURE IOT 中心设备”选项卡。
+  2. 右键单击设备，然后选择“为设备生成 SAS 令牌”。
+  3. 设置“到期时间”，然后按 Enter。
+  4. 将创建 SAS 令牌并将其复制到剪贴板。
+
+对于 Device Explorer：
 
   1. 转到“设备资源管理器”中的“管理”选项卡。
   2. 单击“**SAS 令牌**”（右上角）。

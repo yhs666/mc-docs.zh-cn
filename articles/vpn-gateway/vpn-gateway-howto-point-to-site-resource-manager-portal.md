@@ -3,8 +3,8 @@ title: 使用点到站点和本机 Azure 证书身份验证将计算机连接到
 description: 使用 P2S 和自签名证书或 CA 颁发的证书将 Windows 和 Mac OS X 客户端安全地连接到 Azure 虚拟网络。 本文使用 Azure 门户。
 services: vpn-gateway
 documentationcenter: na
-author: cherylmc
-manager: jpconnock
+author: WenJason
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 ms.assetid: a15ad327-e236-461f-a18e-6dbedbf74943
@@ -14,14 +14,14 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/19/2018
-ms.date: 03/28/2018
-ms.author: v-junlch
-ms.openlocfilehash: fa43e3245a929fffa66ae2315d8794381f78dcad
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.date: 09/02/2018
+ms.author: v-jay
+ms.openlocfilehash: ea33bcc96185d97aa53ecaa460e0c1632bf04582
+ms.sourcegitcommit: e17577aca6df1a41d3ec164f33189f0435c5e060
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38938841"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43252774"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>使用本机 Azure 证书身份验证配置与 VNet 的点到站点连接：Azure 门户
 
@@ -34,31 +34,30 @@ ms.locfileid: "38938841"
 
 点到站点本机 Azure 证书身份验证连接使用可在此练习中配置的以下项目：
 
-- RouteBased VPN 网关。
-- 适用于根证书的公钥（.cer 文件），已上传到 Azure。 上传证书以后，该证书将被视为受信任的证书，用于身份验证。
-- 从根证书生成的客户端证书。 安装在要连接到 VNet 的每个客户端计算机上的客户端证书。 此证书用于客户端身份验证。
-- VPN 客户端配置。 VPN 客户端配置文件包含客户端连接到 VNet 时所需的信息。 这些文件对操作系统自带的现有 VPN 客户端进行配置。 必须使用配置文件中的设置对进行连接的每个客户端进行配置。
+* RouteBased VPN 网关。
+* 适用于根证书的公钥（.cer 文件），已上传到 Azure。 上传证书以后，该证书将被视为受信任的证书，用于身份验证。
+* 从根证书生成的客户端证书。 安装在要连接到 VNet 的每个客户端计算机上的客户端证书。 此证书用于客户端身份验证。
+* VPN 客户端配置。 VPN 客户端配置文件包含客户端连接到 VNet 时所需的信息。 这些文件对操作系统自带的现有 VPN 客户端进行配置。 必须使用配置文件中的设置对进行连接的每个客户端进行配置。
 
 #### <a name="example"></a>示例值
 
 可使用以下值创建测试环境，或参考这些值以更好地理解本文中的示例：
 
-- VNet 名称：VNet1
-- 地址空间：192.168.0.0/16<br>对于此示例，我们只使用一个地址空间。 VNet 可以有多个地址空间。
-- 子网名称：FrontEnd
-- 子网地址范围：192.168.1.0/24
-- 
-            **订阅：** 如果有多个订阅，请确保使用正确的订阅。
-- 资源组：TestRG
-- **位置：** 中国北部
-- 网关子网：192.168.200.0/24<br>
-- DNS 服务器：（可选）要用于名称解析的 DNS 服务器的 IP 地址。
-- 虚拟网关名称：VNet1GW
-- 网关类型：VPN
-- VPN 类型：基于路由
-- 公共 IP 地址名称：VNet1GWpip
-- 连接类型：点到站点
-- 客户端地址池：172.16.201.0/24<br>使用此点到站点连接连接到 VNet 的 VPN 客户端接收来自客户端地址池的 IP 地址。
+* VNet 名称：VNet1
+* 地址空间：192.168.0.0/16<br>对于此示例，我们只使用一个地址空间。 VNet 可以有多个地址空间。
+* 子网名称：FrontEnd
+* 子网地址范围：192.168.1.0/24
+* **订阅：** 如果有多个订阅，请确保使用正确的订阅。
+* 资源组：TestRG
+* **位置：** 中国北部
+* 网关子网：192.168.200.0/24<br>
+* DNS 服务器：（可选）要用于名称解析的 DNS 服务器的 IP 地址。
+* 虚拟网关名称：VNet1GW
+* 网关类型：VPN
+* VPN 类型：基于路由
+* 公共 IP 地址名称：VNet1GWpip
+* 连接类型：点到站点
+* 客户端地址池：172.16.201.0/24<br>使用此点到站点连接连接到 VNet 的 VPN 客户端接收来自客户端地址池的 IP 地址。
 
 ## <a name="createvnet"></a>1.创建虚拟网络
 
@@ -136,13 +135,13 @@ Azure 使用证书对通过点到站点 VPN 连接连接到 VNet 的客户端进
 2. 请确保已导出了格式为 Base-64 编码的 X.509 (.cer) 文件的根证书。 需要以这种格式导出证书，以便使用文本编辑器打开该证书。
 3. 使用记事本之类的文本编辑器打开该证书。 复制证书数据时，请确保将文本复制为一个无回车符或换行符的连续行。 可能需要在文本编辑器中将视图修改为“显示符号/显示所有字符”以查看回车符和换行符。 仅将以下部分复制为一个连续行：
 
-    ![证书数据](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/notepadroot.png)
+  ![证书数据](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/notepadroot.png)
 4. 将证书数据粘贴到“公共证书数据”字段中。 **命名**该证书，然后单击“保存”。 最多可以添加 20 个受信任的根证书。
 
-    ![证书上传](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/uploaded.png)
+  ![证书上传](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/uploaded.png)
 5. 单击页面顶部的“保存”来保存所有配置设置。
 
-    ![保存](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/save.png)
+  ![保存](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/save.png)
 
 ## <a name="installclientcert"></a>10.安装已导出的客户端证书
 
@@ -169,10 +168,10 @@ VPN 客户端配置文件包含的设置用来对设备进行配置以通过 P2S
 
 2. 在“连接”状态页上，单击“连接”以启动连接。 如果看到“选择证书”屏幕，请确保所显示的客户端证书是要用来连接的证书。 如果不是，请使用下拉箭头选择正确的证书，并单击“确定”。
 
-    ![VPN 客户端连接到 Azure](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/clientconnect.png)
+  ![VPN 客户端连接到 Azure](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/clientconnect.png)
 3. 连接已建立。
 
-    ![已建立连接](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/connected.png)
+  ![已建立连接](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/connected.png)
 
 #### <a name="troubleshoot-windows-p2s-connections"></a>对 Windows P2S 连接进行故障排除
 
@@ -181,6 +180,8 @@ VPN 客户端配置文件包含的设置用来对设备进行配置以通过 P2S
 ### <a name="to-connect-from-a-mac-vpn-client"></a>从 Mac VPN 客户端进行连接
 
 在“网络”对话框中，找到要使用的客户端配置文件，在 [VpnSettings.xml](point-to-site-vpn-client-configuration-azure-cert.md#installmac) 中指定设置，然后单击“连接”。
+
+请查看[安装 - Mac (OS X)](/vpn-gateway/point-to-site-vpn-client-configuration-azure-cert#installmac) 获取详细说明。
 
   ![Mac 连接](./media/vpn-gateway-howto-point-to-site-rm-ps/applyconnect.png)
 
@@ -191,18 +192,18 @@ VPN 客户端配置文件包含的设置用来对设备进行配置以通过 P2S
 1. 如果要验证用户的 VPN 连接是否处于活动状态，请打开提升的命令提示符，并运行 *ipconfig/all*。
 2. 查看结果。 请注意，收到的 IP 地址是在配置中指定的点到站点 VPN 客户端地址池中的地址之一。 结果与以下示例类似：
 
-    ```
-    PPP adapter VNet1:
-        Connection-specific DNS Suffix .:
-        Description.....................: VNet1
-        Physical Address................:
-        DHCP Enabled....................: No
-        Autoconfiguration Enabled.......: Yes
-        IPv4 Address....................: 172.16.201.3(Preferred)
-        Subnet Mask.....................: 255.255.255.255
-        Default Gateway.................:
-        NetBIOS over Tcpip..............: Enabled
-    ```
+  ```
+  PPP adapter VNet1:
+      Connection-specific DNS Suffix .:
+      Description.....................: VNet1
+      Physical Address................:
+      DHCP Enabled....................: No
+      Autoconfiguration Enabled.......: Yes
+      IPv4 Address....................: 172.16.201.3(Preferred)
+      Subnet Mask.....................: 255.255.255.255
+      Default Gateway.................:
+      NetBIOS over Tcpip..............: Enabled
+  ```
 
 ## <a name="connectVM"></a>连接到虚拟机
 

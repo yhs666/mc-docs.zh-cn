@@ -2,25 +2,18 @@
 title: Azure VPN 网关常见问题 | Microsoft 文档
 description: VPN 网关常见问题。 Azure 虚拟网络跨界连接、混合配置连接和 VPN 网关的常见问题。
 services: vpn-gateway
-documentationcenter: na
-author: cherylmc
-manager: jeconnoc
-editor: ''
-ms.assetid: 6ce36765-250e-444b-bfc7-5f9ec7ce0742
+author: WenJason
 ms.service: vpn-gateway
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-origin.date: 06/06/2018
-ms.date: 07/10/2018
-ms.author: v-junlch
-ms.openlocfilehash: d40578a348393edf7c44832a0aa88264594aa4fa
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.topic: conceptual
+origin.date: 07/27/2018
+ms.date: 09/02/2018
+ms.author: v-jay
+ms.openlocfilehash: a7960eafc2caf2a2a3da6161de3e92a29ec65bcf
+ms.sourcegitcommit: e17577aca6df1a41d3ec164f33189f0435c5e060
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38940129"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43252766"
 ---
 # <a name="vpn-gateway-faq"></a>VPN 网关常见问题
 
@@ -76,9 +69,9 @@ VPN 网关是一种虚拟网络网关。 VPN 网关通过公共连接在虚拟�
 否。 Azure Vnet 网关类型不能从基于策略更改为基于路由，反之亦然。 必须先删除该网关，然后再重新创建，此过程需时约 60 分钟。 不会保留网关的 IP 地址，也不会保留预共享密钥 (PSK)。
 1. 删除与要删除的网关相关联的任何连接。
 2. 删除网关：
-    - [Azure 门户](vpn-gateway-delete-vnet-gateway-portal.md)
-    - [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
-    - [Azure Powershell - 经典](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
+* [Azure 门户](vpn-gateway-delete-vnet-gateway-portal.md)
+* [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
+* [Azure Powershell - 经典](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 3. [创建所需类型的新网关并完成 VPN 设置](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway)
 
 ### <a name="do-i-need-a-gatewaysubnet"></a>是否需要“GatewaySubnet”？
@@ -105,7 +98,7 @@ Azure VPN 使用 PSK（预共享密钥）身份验证。 我们在创建 VPN 隧
 
 ### <a name="can-i-use-the-set-pre-shared-key-api-to-configure-my-policy-based-static-routing-gateway-vpn"></a>是否可以使用“设置预共享密钥 API”配置基于策略的（静态路由）网关 VPN？
 
-是，“设置预共享密钥 API”和 PowerShell cmdlet 可用于配置 Azure 基于策略的（静态）VPN 和基于路由的（动态）路由 VPN。
+可以，“设置预共享密钥 API”和 PowerShell cmdlet 可用于配置基于 Azure Policy 的（静态）VPN 和基于路由的（动态）路由 VPN。
 
 ### <a name="can-i-use-other-authentication-options"></a>是否可以使用其他身份验证选项？
 
@@ -115,12 +108,12 @@ Azure VPN 使用 PSK（预共享密钥）身份验证。 我们在创建 VPN 隧
 
 #### <a name="resource-manager-deployment-model"></a>Resource Manager 部署模型
 
-- PowerShell：使用“AddressPrefix”指定本地网络网关的流量。
-- Azure 门户：导航到“本地网关”>“配置”>“地址空间”。
+* PowerShell：使用“AddressPrefix”指定本地网络网关的流量。
+* Azure 门户：导航到“本地网关”>“配置”>“地址空间”。
 
 #### <a name="classic-deployment-model"></a>经典部署模型
 
-- Azure 门户：导航到“经典虚拟网络”>“VPN 连接”>“站点到站点 VPN 连接”>“本地站点名称”>“本地站点”>“客户端地址空间”。 
+* Azure 门户：导航到“经典虚拟网络”>“VPN 连接”>“站点到站点 VPN 连接”>“本地站点名称”>“本地站点”>“客户端地址空间”。 
 
 ### <a name="can-i-configure-force-tunneling"></a>是否可以配置强制隧道？
 
@@ -244,7 +237,6 @@ VPN 网关基本上是一个多宿主设备，其中一个 NIC 进入客户专�
 
 ## <a name="next-steps"></a>后续步骤
 
-- 有关 VPN 网关的详细信息，请参阅[关于 VPN 网关](vpn-gateway-about-vpngateways.md)。
-- 有关 VPN 网关配置设置的详细信息，请参阅[关于 VPN 网关配置设置](vpn-gateway-about-vpn-gateway-settings.md)。
-
+* 有关 VPN 网关的详细信息，请参阅[关于 VPN 网关](vpn-gateway-about-vpngateways.md)。
+* 有关 VPN 网关配置设置的详细信息，请参阅[关于 VPN 网关配置设置](vpn-gateway-about-vpn-gateway-settings.md)。
 <!-- Update_Description: wording update -->

@@ -1,26 +1,21 @@
 ---
 title: 使用 Azure IoT 中心发送云到设备消息 (.NET) | Azure
 description: 如何使用用于 .NET 的 Azure IoT SDK 将云到设备消息从 Azure IoT 中心发送到设备。 修改设备应用以接收云到设备消息，并修改后端应用以发送云到设备消息。
-services: iot-hub
-documentationcenter: .net
 author: fsautomata
-manager: timlt
-editor: ''
-ms.assetid: a31c05ed-6ec0-40f3-99ab-8fdd28b1a89a
+manager: ''
 ms.service: iot-hub
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: csharp
+ms.topic: conceptual
 origin.date: 08/24/2017
-ms.date: 06/11/2018
+ms.date: 09/10/2018
 ms.author: v-yiso
-ms.openlocfilehash: 518e8587db1e1043107d39ae89d5cec8d386b63f
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 7b580421cf986c0ae10f7e14885340644b87e100
+ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695019"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43328721"
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>使用 IoT 中心 (.NET) 将消息从云发送到设备
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
@@ -214,7 +209,7 @@ Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备�
 [IoT Hub Developer Guide - C2D]: ./iot-hub-devguide-messaging.md
 
 [IoT 中心开发人员指南]: ./iot-hub-devguide.md
-[IoT 中心入门]: ./iot-hub-csharp-csharp-getstarted.md
+[IoT 中心入门]: quickstart-send-telemetry-dotnet.md
 [lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/
 [Azure IoT 远程监视解决方案加速器]: /iot-suite/
 [Azure IoT 设备 SDK]: ./iot-hub-devguide-sdks.md

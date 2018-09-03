@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 origin.date: 05/23/2018
 ms.author: v-yiso
-ms.date: 07/09/2018
-ms.openlocfilehash: 1b08bb08be06a1e3d113162e69a7494f91dfb316
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.date: 09/10/2018
+ms.openlocfilehash: 828c1f096feba48059323f39cdefdf0f408ce6f1
+ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873644"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43329167"
 ---
 # <a name="azure-service-bus"></a>Azure 服务总线
 
@@ -44,7 +44,12 @@ ms.locfileid: "37873644"
 
 创建队列、主题或中继时，请对其进行命名。 结合对命名空间的任何命名，此名称可创建对象的唯一标识符。 应用程序可将此名称提供给服务总线，然后使用队列、主题或中继相互通信。 
 
-若要在中继场景中使用任意这些对象，Windows 应用程序可使用 Windows Communication Foundation (WCF)。 此服务称为 [WCF 中继](../service-bus-relay/relay-what-is-it.md)。 对于队列和主题，Windows 应用程序可使用服务总线定义的消息传送 API。 为了更轻松地通过非 Windows 应用程序使用这些对象，Microsoft 提供了 Java、Node.js 和其他语言的 SDK。 此外，也可以使用 [REST API](https://docs.microsoft.com/en-us/rest/api/servicebus/) 通过 HTTP 访问队列和主题。 
+ >**示例：**   
+     *https://&lt;servicebus-namespace-name&gt;.servicebus.chinacloudapi.cn/&lt;queue-name&gt;*  
+     *https://&lt;servicebus-namespace-name&gt;.servicebus.chinacloudapi.cn/&lt;topic-name&gt;*  
+     *https://&lt;servicebus-namespace-name&gt;.servicebus.chinacloudapi.cn/&lt;relay-name&gt;*  
+
+若要在中继场景中使用任意这些对象，Windows 应用程序可使用 Windows Communication Foundation (WCF)。 此服务称为 [WCF 中继](../service-bus-relay/relay-what-is-it.md)。 对于队列和主题，Windows 应用程序可使用服务总线定义的消息传送 API。 为了更轻松地通过非 Windows 应用程序使用这些对象，Microsoft 提供了 Java、Node.js 和其他语言的 SDK。 此外，也可以使用 [REST API](/rest/api/servicebus/) 通过 HTTP 访问队列和主题。 
 
 即使服务总线本身在云（即 Microsoft Azure 数据中心）中运行，使用它的应用程序也能随处运行，了解这一点很重要。 可以使用服务总线连接在 Azure 上运行的应用程序或在自己的数据中心内运行的应用程序。 也可以使用服务总线将 Azure 或其他云平台上运行的应用程序连接到本地应用程序，或通过平板电脑和手机连接。 服务总线是云中的通信机制，几乎可从任何位置对其进行访问。 使用服务总线的方式取决于应用程序需要执行的操作。
 

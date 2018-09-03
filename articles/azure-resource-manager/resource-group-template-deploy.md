@@ -3,24 +3,24 @@ title: 使用 PowerShell 和模板部署资源 | Azure
 description: 使用 Azure Resource Manager 和 Azure PowerShell 将资源部署到 Azure。 资源在 Resource Manager 模板中定义。
 services: azure-resource-manager
 documentationcenter: na
-author: luanmafeng
+author: rockboyfor
 manager: digimobile
 editor: tysonn
 ms.assetid: 55903f35-6c16-4c6d-bf52-dbf365605c3f
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 12/06/2017
-ms.date: 05/28/2018
+ms.date: 09/03/2018
 ms.author: v-yeche
-ms.openlocfilehash: de10f8c5c996f9827f3b63821ea5176b852bdbd3
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: 0b974ac9165f9bf9cec8cad085ca7cf5b32bc1d3
+ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554375"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43164969"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>使用 Resource Manager 模板和 Azure PowerShell 部署资源
 
@@ -28,9 +28,9 @@ ms.locfileid: "34554375"
 
 所部署的 Resource Manager 模板可以是计算机上的本地文件，也可以是位于 GitHub 等存储库中的外部文件。 本文中部署的模板可在[示例模板](#sample-template)部分找到，也可作为 [GitHub 中的存储帐户模板](https://github.com/Azure/azure-quickstart-templates/blob/master/101-storage-account-create/azuredeploy.json)。
 
-必要时，请使用 [Azure PowerShell 指南](https://docs.microsoft.com/powershell/azure/overview)中的说明安装 Azure PowerShell 模块，然后运行 `Connect-AzureRmAccount -EnvironmentName AzureChinaCloud` 创建与 Azure 的连接。
+必要时，请使用 [Azure PowerShell 指南](https://docs.microsoft.com/powershell/azure/overview)中的说明安装 Azure PowerShell 模块，然后运行 `Connect-AzureRmAccount` 创建与 Azure 的连接。
 
-<a id="deploy-local-template" />
+<a name="deploy-local-template" />
 
 ## <a name="deploy-a-template-from-your-local-machine"></a>从本地计算机部署模板
 
@@ -45,7 +45,7 @@ ms.locfileid: "34554375"
 以下示例将创建一个资源组，并从本地计算机部署模板：
 
 ```powershell
-Connect-AzureRmAccount -EnvironmentName AzureChinaCloud
+Connect-AzureRmAccount -Environment AzureChinaCloud
 
 Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
 
@@ -87,7 +87,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleResourceGroup `
 
 通常情况下，将模板中的所有资源部署到单个资源组。 不过，在某些情况下，你可能希望将一组资源部署在一起但将其放置在不同的资源组或订阅中。 在单个部署中可以仅部署到五个资源组。 有关详细信息，[将 Azure 资源部署到多个订阅或资源组](resource-manager-cross-resource-group-deployment.md)。
 
-<a id="parameter-file" />
+<a name="parameter-file" />
 
 ## <a name="parameter-files"></a>参数文件
 
@@ -160,15 +160,6 @@ Test-AzureRmResourceGroupDeployment : After parsing a value an unexpected charac
   ". Path 'variables', line 31, position 3.
 ```
 
-[!INCLUDE [resource-manager-deployments](../../includes/resource-manager-deployments.md)]
-
-若要使用完整模式，请使用 `Mode` 参数：
-
-```powershell
-New-AzureRmResourceGroupDeployment -Mode Complete -Name ExampleDeployment `
-  -ResourceGroupName ExampleResourceGroup -TemplateFile c:\MyTemplates\storage.json 
-```
-
 ## <a name="sample-template"></a>示例模板
 
 本文中的示例使用以下模板。 复制并将其另存为名为 storage.json 的文件。 若要了解如何创建此模板，请参阅[创建第一个 Azure Resource Manager 模板](resource-manager-create-first-template.md)。  
@@ -220,10 +211,10 @@ New-AzureRmResourceGroupDeployment -Mode Complete -Name ExampleDeployment `
 
 ## <a name="next-steps"></a>后续步骤
 * 本文中的示例将资源部署到默认订阅中的资源组。 若要使用其他订阅，请参阅[管理多个 Azure 订阅](https://docs.microsoft.com/powershell/azure/manage-subscriptions-azureps)。
-* 有关用于部署模板的完整示例脚本，请参阅 [Resource Manager 模板部署脚本](resource-manager-samples-powershell-deploy.md)。
+* 若要指定如何处理存在于资源组中但未在模板中定义的资源，请参阅 [Azure 资源管理器部署模式](deployment-modes.md)。
 * 若要了解如何在模板中定义参数，请参阅[了解 Azure Resource Manager 模板的结构和语法](resource-group-authoring-templates.md)。
 * 有关解决常见部署错误的提示，请参阅[排查使用 Azure Resource Manager 时的常见 Azure 部署错误](resource-manager-common-deployment-errors.md)。
 * 有关部署需要 SAS 令牌的模板的信息，请参阅[使用 SAS 令牌部署专用模板](resource-manager-powershell-sas-token.md)。
-* 有关企业可如何使用 Resource Manager 有效管理订阅的指南，请参阅 [Azure 企业基架 - 出于合规目的监管订阅](resource-manager-subscription-governance.md)。
+<!--Not Available on  [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md)-->
 
 <!--Update_Description: update meta properties, wording update -->

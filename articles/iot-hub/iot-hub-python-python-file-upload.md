@@ -1,26 +1,23 @@
 ---
-title: 使用 Python 将设备上的文件上传到 Azure IoT 中心
+title: 使用 Python 将设备上的文件上传到 Azure IoT 中心 | Microsoft Docs
 description: 如何使用适用于 Python 的 Azure IoT 设备 SDK 将文件上的设备上传到云端。 上传的文件存储在 Azure 存储 Blob 容器中。
-services: iot-hub
-documentationcenter: python
 author: kgremban
 manager: timlt
-editor: ''
-ms.assetid: 4759d229-f856-4526-abda-414f8b00a56d
 ms.service: iot-hub
+services: iot-hub
 ms.devlang: python
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 03/05/2018
-ms.date: 05/07/2018
+ms.date: 09/10/2018
 ms.author: v-yiso
-ms.openlocfilehash: 33205a4b91def33dade49726fb1c460710d28748
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 8a57d564bd4cdbfd94ca73538a281e134c851c25
+ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38940000"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43328917"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>使用 IoT 中心将文件从设备上传到云
 
@@ -31,7 +28,7 @@ ms.locfileid: "38940000"
 - 安全地提供存储容器用于文件上传。
 - 使用 Python 客户端通过 IoT 中心上传文件。
 
-[IoT 中心入门](iot-hub-node-node-getstarted.md)教程展示了 IoT 中心基本的设备到云消息功能。 但是，在某些情况下，无法轻松地将设备发送的数据映射为 IoT 中心接受的相对较小的设备到云消息。 需要从设备上传文件时，仍可以使用 IoT 中心的安全性和可靠性。
+[IoT 中心入门](quickstart-send-telemetry-node.md)教程展示了 IoT 中心基本的设备到云消息功能。 但是，在某些情况下，无法轻松地将设备发送的数据映射为 IoT 中心接受的相对较小的设备到云消息。 需要从设备上传文件时，仍可以使用 IoT 中心的安全性和可靠性。
 
 > [!NOTE]
 > IoT 中心 Python SDK 目前仅支持上传基于字符的文件，如 .txt 文件。

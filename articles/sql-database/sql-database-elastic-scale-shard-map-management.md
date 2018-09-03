@@ -1,22 +1,21 @@
 ---
-title: 横向扩展 Azure SQL 数据库 | Azure
+title: 扩大 Azure SQL 数据库 | Microsoft Docs
 description: 如何使用弹性数据库客户端库 ShardMapManager
 services: sql-database
 manager: digimobile
-author: yunan2016
-editor: ''
+author: WenJason
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 origin.date: 03/16/2018
-ms.date: 06/18/2018
-ms.author: v-nany
-ms.openlocfilehash: 5a5912d84cf680f3318d3b3d2cdd9b3e93716555
-ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
+ms.date: 09/02/2018
+ms.author: v-jay
+ms.openlocfilehash: b0ea078d99793170cc4aabbca0b104818444aea7
+ms.sourcegitcommit: 2601e68563bffe148e70cce2bf1dcbe837a40f80
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39486968"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43249872"
 ---
 # <a name="scale-out-databases-with-the-shard-map-manager"></a>使用分片映射管理器扩大数据库
 若要轻松地扩大 SQL Azure 上的数据库，请使用分片映射管理器。 分片映射管理器是一个特殊的数据库，它维护一个分片集中有关所有分片（数据库）的全局映射信息。 元数据允许应用程序基于 **分片键**值连接到正确的数据库。 此外，在集中的每个分片都包含跟踪本地分片数据的映射（称为 shardlet）。 
@@ -95,11 +94,11 @@ ms.locfileid: "39486968"
 3. 应用程序缓存：每个用于访问 ShardMapManager 对象的应用程序实例都可维护其映射的本地内存中缓存。 它存储最近检索到的路由信息。 
 
 ## <a name="constructing-a-shardmapmanager"></a>构造 ShardMapManager
-**ShardMapManager** 对象是使用工厂（Java、[.NET](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory)）模式构造的。 **ShardMapManagerFactory.GetSqlShardMapManager**（Java、[.NET](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager)）方法采用 **ConnectionString** 形式的凭据（包括用于保存 GSM 的服务器名称和数据库名称），返回 **ShardMapManager** 的实例。  
+ShardMapManager 对象是使用工厂（[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory)、[.NET](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory)）模式构造的。 通过 ShardMapManagerFactory.GetSqlShardMapManager（[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.getsqlshardmapmanager)、[.NET](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager)）方法可获取具有 ConnectionString 形式的凭据（包括用于保存 GSM 的服务器名称和数据库名称），并返回 ShardMapManager 的实例。  
 
 请注意：在应用程序的初始化代码内，每个应用域只应实例化 ShardMapManager 一次。 在同一个应用域中创建 ShardMapManager 的其他实例将导致应用程序的内存增加且 CPU 使用率增加。 **ShardMapManager** 可包含任意数量的分片映射。 尽管对于许多应用程序而言，单个分片映射可能是足够的，但有时针对不同的架构或出于特定目的，需使用不同的数据库集，在这些情况下多个分片映射可能更合适。 
 
-在此代码中，应用程序尝试使用 TryGetSqlShardMapManager（Java、[.NET](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager)）方法打开现有的 **ShardMapManager**。  如果数据库中尚不存在表示全局 **ShardMapManager** (GSM) 的对象，客户端库会使用 CreateSqlShardMapManager（Java、[.NET](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager)）方法在数据库中创建这些对象。
+在此代码中，应用程序尝试使用 TryGetSqlShardMapManager（[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.trygetsqlshardmapmanager)、[.NET](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager)）方法打开现有的 ShardMapManager。  如果数据库中尚不存在表示全局 ShardMapManager (GSM) 的对象，客户端库会使用 CreateSqlShardMapManager（[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.createsqlshardmapmanager)、[.NET](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager)）方法在数据库中创建这些对象。
 
 ```Java
 // Try to get a reference to the Shard Map Manager in the shardMapManager database.
@@ -148,7 +147,7 @@ else
 对于 .NET 版本，可以使用 PowerShell 来创建新的分片映射管理器。 [此处](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db)提供了一个示例。
 
 ## <a name="get-a-rangeshardmap-or-listshardmap"></a>获取 RangeShardMap 或 ListShardMap
-创建分片映射管理器以后，可以使用 TryGetRangeShardMap（Java、[.NET](https://docs.azure.cn/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager)）、TryGetListShardMap（Java、[.NET](https://docs.azure.cn/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager)）或 GetShardMap（Java、[.NET](https://docs.azure.cn/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager)）方法获取 RangeShardMap（Java、[.NET](https://docs.azure.cn/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1)）或 ListShardMap（Java、[.NET](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.listshardmap-1)）。
+创建分片映射管理器以后，可以使用 TryGetRangeShardMap（[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager.trygetrangeshardmap)、[.NET](https://docs.azure.cn/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager)）、TryGetListShardMap（[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager.trygetlistshardmap)、[.NET](https://docs.azure.cn/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager)）或 GetShardMap（[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager.getshardmap)、[.NET](https://docs.azure.cn/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager)）方法获取 RangeShardMap（[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map)、[.NET](https://docs.azure.cn/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1)）或 ListShardMap（[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.map._list_shard_map)、[.NET](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.listshardmap-1)）。
 
 ```Java
 // Creates a new Range Shard Map with the specified name, or gets the Range Shard Map if it already exists.
@@ -223,19 +222,19 @@ public static RangeShardMap<T> CreateOrGetRangeShardMap<T>(ShardMapManager shard
 
 这些方法作为构建基块一同工作，以便在分片的数据库环境中修改数据的总体分发情况。  
 
-* 若要添加或删除分片：请使用 Shardmap（Java、[.NET](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap)）类的 **CreateShard**（Java、[.NET](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap)）和 **DeleteShard**（Java、[.NET](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap)）。 
+* 若要添加或删除分片：请使用 Shardmap（[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.map._shard_map)、[.NET](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap)）类的 CreateShard（[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.map._shard_map.createshard)、[.NET](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap)）和 DeleteShard（[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.map._shard_map.deleteshard)、[.NET](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap)）。 
   
     若要执行这些操作，表示目标分片的服务器和数据库必须已经存在。 这些方法不会对数据库本身产生任何影响，仅对分片映射上的元数据产生影响。
-* 若要创建或删除映射到分片的点或范围：请使用 RangeShardMapping（Java、[.NET](https://docs.azure.cn/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1)）类的 **CreateRangeMapping**（Java、[.NET](https://msdn.microsoft.com/library/azure/dn841993.aspx)）和 **DeleteMapping**（Java、[.NET](https://docs.azure.cn/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1?)），以及 ListShardMap（Java、[.NET](https://docs.azure.cn/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.listshardmap-1)）类的 **CreatePointMapping**（Java、[.NET](https://docs.azure.cn/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.listshardmap-1)）。
+* 若要创建或删除映射到分片的点或范围：请使用 RangeShardMapping（[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map)、[.NET](https://docs.azure.cn/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1)）类的 CreateRangeMapping（[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map.createrangemapping)、[.NET](https://msdn.microsoft.com/library/azure/dn841993.aspx)）和 DeleteMapping（[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map.deletemapping)、[.NET](https://docs.azure.cn/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1?)），以及 ListShardMap（[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.map._list_shard_map)、[.NET](https://docs.azure.cn/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.listshardmap-1)）类的 CreatePointMapping（[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.map._list_shard_map.createpointmapping)、[.NET](https://docs.azure.cn/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.listshardmap-1)）。
   
     许多不同的点或范围可映射到相同的分片。 这些方法仅影响元数据，而不会影响已显示在分片中的任何数据。 如果为了与 **DeleteMapping** 操作保持一致而需要将数据从数据库中删除，需要单独执行这些操作，但需要结合使用这些方法。  
-* 若要将现有的范围拆分为两个，或将相邻的范围合并为一个：请使用 **SplitMapping**（Java、[.NET](https://docs.azure.cn/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1)）和 **MergeMappings**（Java、[.NET](https://docs.azure.cn/en-us/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1)）。  
+* 若要将现有的范围拆分为两个，或将相邻的范围合并为一个：请使用 SplitMapping（[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map.splitmapping)[.NET](https://docs.azure.cn/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1)）和 MergeMappings（[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map.mergemappings)、[.NET](https://docs.azure.cn/en-us/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1)）。  
   
     请注意，拆分和合并操作 **不更改键值要映射到的分片**。 拆分操作可将现有的范围拆分为两个部分，但在映射到相同分片时同时保留这两个部分。 对在已映射到相同分片的两个相邻的范围进行合并操作，从而可将其合并到单个范围中。  要在分片之间移动点或范围本身，需要将 **UpdateMapping** 与移动的实际数据结合使用，才能进行协调。  当需要移动数据时，可以使用弹性数据库工具中随附的**拆分/合并**服务，以将分片映射更改与数据移动相协调。 
 * 若要将单独的点或范围重新映射（或移动）到不同的分片：请使用 **UpdateMapping**（Java、[.NET](https://docs.azure.cn/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1)）。  
   
     由于可能需要将数据从一个分片移动到另一个分片，以便与 **UpdateMapping** 操作保持一致，因此需要单独执行此移动，但需要结合使用这些方法。
-* 若要在联机和脱机状态下执行映射：请使用 **MarkMappingOffline**（Java、[.NET](https://docs.azure.cn/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1)）和 **MarkMappingOnline**（Java、[.NET](https://docs.azure.cn/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1)）来控制映射的联机状态。 
+* 若要在联机和脱机状态下执行映射：请使用 MarkMappingOffline（[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map.markmappingoffline)、[.NET](https://docs.azure.cn/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1)）和 MarkMappingOnline（[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map.markmappingonline)、[.NET](https://docs.azure.cn/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1)）来控制映射的联机状态。 
   
     仅当映射处于“脱机”状态时才允许在分片映射上进行某些操作，其中包括 UpdateMapping 和 DeleteMapping。 当映射处于脱机状态时，基于该映射中所包含的键的数据依赖请求将返回一个错误。 此外，当范围首次处于脱机状态时，所有到受影响分片的连接都会自动终止，以防止因范围的更改而导致查询出现不一致或不完整的结果。 
 

@@ -1,5 +1,5 @@
 ---
-title: 缩放弹性池资源 - Azure SQL 数据库 | Azure
+title: 缩放弹性池资源 - Azure SQL 数据库 | Microsoft Docs
 description: 本页描述如何在 Azure SQL 数据库中缩放弹性池资源。
 services: sql-database
 author: WenJason
@@ -7,15 +7,15 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-origin.date: 06/20/2018
-ms.date: 08/06/2018
+origin.date: 08/01/2018
+ms.date: 09/02/2018
 ms.author: carlrab
-ms.openlocfilehash: f9e3294974cc321822a91709475c9ed4f3ac2467
-ms.sourcegitcommit: 02c4716e07b3d83104fa419b379a15589ae8017e
+ms.openlocfilehash: 8fa50fb8157741b448482b24a124d8dc2649d565
+ms.sourcegitcommit: 2601e68563bffe148e70cce2bf1dcbe837a40f80
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41704939"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43249890"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>在 Azure SQL 数据库中缩放弹性池资源
 
@@ -24,10 +24,13 @@ ms.locfileid: "41704939"
 ## <a name="vcore-based-purchasing-model-change-elastic-pool-storage-size"></a>基于 vCore 的购买模型：更改弹性池存储大小
 
 - 可将存储预配到最大大小限制。 
-  - 对于标准存储，可以 10 GB 为增量增加或减少大小
-  - 对于高级存储，可以 250 GB 为增量增加或减少大小
+ - 对于标准存储，可以 10 GB 为增量增加或减少大小
+ - 对于高级存储，可以 250 GB 为增量增加或减少大小
 - 可以通过增大或减小其最大大小来预配弹性池的存储空间。
 - 弹性池的存储价格等于存储量乘以服务层的存储单价。 有关额外存储价格的详细信息，请参阅 [SQL 数据库定价](https://azure.cn/pricing/details/sql-database/)。
+
+> [!IMPORTANT]
+> 在某些情况下，可能需要收缩数据库来回收未使用的空间。 有关详细信息，请参阅[管理 Azure SQL 数据库中的文件空间](sql-database-file-space-management.md)。
 
 ## <a name="vcore-based-purchasing-model-change-elastic-pool-compute-resources-vcores"></a>基于 vCore 的购买模型：更改弹性池计算资源 (vCore)
 
@@ -43,6 +46,9 @@ ms.locfileid: "41704939"
 - 弹性池的 eDTU 价格附送了一定容量的存储，无需额外费用。 超出附送的量后，可花费额外的费用预配额外的存储，但不能超过存储上限，不超过 1 TB 时，以 250 GB 为增量进行预配，超出 1 TB 时，以 256 GB 为增量进行预配。 有关附送存储量和大小上限，请参阅[弹性池：存储大小和性能级别](#elastic-pool-storage-sizes-and-performance-levels)。
 - 可通过 [Azure 门户](sql-database-elastic-pool-scale.md#azure-portal-manage-elastic-pools-and-pooled-databases)、[PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqlelasticpool)、[Azure CLI](/cli/sql/elastic-pool#az_sql_elastic_pool_update) 或 [REST API](https://docs.microsoft.com/rest/api/sql/elasticpools/update) 为弹性池增加大小上限，以预配额外存储。
 - 弹性池的额外存储价格等于额外存储量乘以服务层的额外存储单价。 有关额外存储价格的详细信息，请参阅 [SQL 数据库定价](https://azure.cn/pricing/details/sql-database/)。
+
+> [!IMPORTANT]
+> 在某些情况下，可能需要收缩数据库来回收未使用的空间。 有关详细信息，请参阅[管理 Azure SQL 数据库中的文件空间](sql-database-file-space-management.md)。
 
 ## <a name="dtu-based-purchasing-model-change-elastic-pool-compute-resources-edtus"></a>基于 DTU 的购买模型：更改弹性池计算资源 (eDTU)
 

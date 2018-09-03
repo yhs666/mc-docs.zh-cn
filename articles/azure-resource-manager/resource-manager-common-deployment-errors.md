@@ -14,14 +14,14 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 07/16/2018
-ms.date: 08/13/2018
+ms.date: 09/03/2018
 ms.author: v-yeche
-ms.openlocfilehash: 095862208a3a688f5e4d1e5ff78fa6d1390778f2
-ms.sourcegitcommit: 543a18c71c0910a5b9878a2d2668f317468906f2
+ms.openlocfilehash: c6c636b12d7f5f7583341a9f39ca405aca7ebec2
+ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39625548"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43164766"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>排查使用 Azure Resource Manager 时的常见 Azure 部署错误
 
@@ -43,7 +43,7 @@ ms.locfileid: "39625548"
 | DeploymentQuotaExceeded | 如果达到每个资源组的部署数限制 800，则会从历史记录中删除不再需要的部署。 可以使用 Azure CLI 的 [az group deployment delete](https://docs.azure.cn/zh-cn/cli/group/deployment?view=azure-cli-latest#az-group-deployment-delete) 或 PowerShell 中的 [Remove-AzureRmResourceGroupDeployment](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroupdeployment) 删除历史记录中的条目。 从部署历史记录中删除条目不会影响部署资源。 | |
 | DnsRecordInUse | DNS 记录名称必须唯一。 提供其他名称，或者修改现有的记录。 | |
 | ImageNotFound | 检查 VM 映像设置。 |  |
-| InUseSubnetCannotBeDeleted | 如果尝试更新某个资源时，系统却通过删除和创建该资源来处理该请求，这种情况下可能会遇到该错误。 请确保指定所有未更改的值。 | [更新资源](https://docs.microsoft.com/azure/architecture/building-blocks/extending-templates/update-resource) |
+| InUseSubnetCannotBeDeleted | 如果尝试更新某个资源时，系统却通过删除和创建该资源来处理该请求，这种情况下可能会遇到该错误。 请确保指定所有未更改的值。 | 更新资源 |
 | InvalidAuthenticationTokenTenant | 获取相应租户的访问令牌。 只能从帐户所属的租户获取该令牌。 | |
 | InvalidContentLink | 原因很可能是你尝试链接到一个不可用的嵌套模板。 请仔细检查提供给嵌套模板的 URI。 如果模板在存储帐户中存在，请确保 URI 可访问。 可能需要传递 SAS 令牌。 | [链接的模板](resource-group-linked-templates.md) |
 | InvalidParameter | 为资源提供的某个值与预期的值不符。 许多不同的条件可能会导致此错误。 例如，密码可能不符合要求，或者 blob 名称可能不正确。 请检查错误消息，确定哪个值需要更正。 | |
@@ -67,7 +67,7 @@ ms.locfileid: "39625548"
 | ParentResourceNotFound | 确保在创建子资源之前存在父资源。 | [解决父资源问题](resource-manager-parent-resource-errors.md) |
 | PrivateIPAddressInReservedRange | 指定的 IP 地址包括 Azure 所需的地址范围。 请更改 IP 地址，避免使用保留的范围。 | [IP 地址](../virtual-network/virtual-network-ip-addresses-overview-arm.md) |
 | PrivateIPAddressNotInSubnet | 指定的 IP 地址位于子网范围之外。 请更改 IP 地址，使之位于子网范围之内。 | [IP 地址](../virtual-network/virtual-network-ip-addresses-overview-arm.md) |
-| PropertyChangeNotAllowed | 已部署资源上的某些属性不能更改。 更新资源时，请仅更改允许的属性。 | [更新资源](https://docs.microsoft.com/azure/architecture/building-blocks/extending-templates/update-resource) |
+| PropertyChangeNotAllowed | 已部署资源上的某些属性不能更改。 更新资源时，请仅更改允许的属性。 | 更新资源 |
 | RequestDisallowedByPolicy | 订阅中的某个资源策略阻止你在部署期间尝试执行的操作。 请找出阻止该操作的策略。 如果可能，请修补部署，使之符合策略的限制。 |  |
 | ReservedResourceName | 提供不包含保留名称的资源名称。 | [保留的资源名称](resource-manager-reserved-resource-name.md) |
 | ResourceGroupBeingDeleted | 等待删除操作完成。 | |
@@ -81,6 +81,7 @@ ms.locfileid: "39625548"
 | SubnetsNotInSameVnet | 一个虚拟机只能有一个虚拟网络。 部署多个 NIC 时，请确保其属于同一虚拟网络。 | [多个 NIC](../virtual-machines/windows/multiple-nics.md) |
 | TemplateResourceCircularDependency | 删除不必要的依赖项。 | [解决循环依赖项](resource-manager-invalid-template-errors.md#circular-dependency) |
 | TooManyTargetResourceGroups | 减少单个部署的资源组数。 | [跨资源组部署](resource-manager-cross-resource-group-deployment.md) |
+
 <!-- Not Available on 67 RequestDisallowedByPolicy [Resolve policies](resource-manager-policy-requestdisallowedbypolicy-error.md) -->
 ## <a name="find-error-code"></a>查找错误代码
 
@@ -252,4 +253,4 @@ az group deployment operation list \
 * 若要了解审核操作，请参阅[使用 Resource Manager 执行审核操作](resource-group-audit.md)。
 * 若要了解部署期间为确定错误需要执行哪些操作，请参阅[查看部署操作](resource-manager-deployment-operations.md)。
 
-<!--Update_Description: update meta properties, wording update, update link -->
+<!--Update_Description: update meta properties, wording update -->

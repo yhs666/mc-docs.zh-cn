@@ -1,26 +1,23 @@
 ---
 title: Azure IoT 中心设备孪生入门 (Python)
 description: 如何使用 Azure IoT 中心设备孪生添加标记，并使用 IoT 中心查询。 使用用于 Python 的 Azure IoT SDK 来实现一个模拟设备应用，并实现可添加标记和运行 IoT 中心查询的一个服务应用。
-services: iot-hub
-documentationcenter: python
 author: kgremban
 manager: timlt
-editor: ''
-ms.assetid: 314c88e4-cce1-441c-b75a-d2e08e39ae7d
 ms.service: iot-hub
+services: iot-hub
 ms.devlang: python
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 12/04/2017
-ms.date: 03/19/2018
+ms.date: 09/10/2018
 ms.author: v-yiso
-ms.openlocfilehash: 38ddca28529013d8587569ef9d8fa9702d9e7420
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 27fcef77e6bfb4833fc0c355ce2680504126ea48
+ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939137"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43328968"
 ---
 # <a name="get-started-with-device-twins-python"></a>设备孪生入门 (Python)
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
@@ -290,13 +287,13 @@ ms.locfileid: "38939137"
 [lnk-query]: iot-hub-devguide-query-language.md
 [lnk-identity]: iot-hub-devguide-identity-registry.md
 
-[lnk-iothub-getstarted]: iot-hub-python-getstarted.md
+[lnk-iothub-getstarted]: quickstart-send-telemetry-python.md
 [lnk-device-management]: iot-hub-node-node-device-management-get-started.md
 [lnk-iot-edge]: iot-hub-linux-iot-edge-get-started.md
 [lnk-connect-device]: /develop/iot/
 
-[lnk-twin-how-to-configure]: iot-hub-node-node-twin-how-to-configure.md
+[lnk-twin-how-to-configure]: tutorial-device-twins.md
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 
-[lnk-methods-tutorial]: iot-hub-node-node-direct-methods.md
+[lnk-methods-tutorial]: quickstart-control-device-node.md
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md

@@ -63,7 +63,7 @@
 [img-solution-architecture]: ./media/iot-azure-and-iot/iot-reference-architecture.png
 [img-dashboard]: ./media/iot-azure-and-iot/iot-suite.png
 
-[lnk-iot-hub]: ../articles/iot-hub/iot-hub-what-is-iot-hub.md
+[lnk-iot-hub]: ../articles/iot-hub/about-iot-hub.md
 [lnk-iot-suite]: ../articles/iot-suite/iot-suite-overview.md
 [Azure IoT Suite]: http://azure.microsoft.com/solutions/iot
 [lnk-protocol-gateway]:  ../articles/iot-hub/iot-hub-protocol-gateway.md

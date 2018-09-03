@@ -11,18 +11,18 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 02/14/2018
-ms.date: 07/04/2018
+ms.date: 08/29/2018
 ms.author: v-junlch
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: 44ef49df672326ee1d44164ac29a18cd0e3770f0
-ms.sourcegitcommit: 37a1524d71895b17b6f1d125053ad0b251b88df1
+ms.openlocfilehash: 2e318d599a3a5cb9f3d32a97b4776c7008819079
+ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39097441"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43164952"
 ---
 # <a name="remove-a-user-or-group-assignment-from-an-enterprise-app-in-azure-active-directory"></a>在 Azure Active Directory 中删除企业应用的用户或组分配
 可以轻松地在 Azure Active Directory (Azure AD) 中删除用户或组对企业应用程序的已分配访问权限。 必须具有适当的权限才能管理企业应用，并且必须是目录的全局管理员。
@@ -52,3 +52,4 @@ ms.locfileid: "39097441"
 - [禁用企业应用的用户登录](disable-user-sign-in-portal.md)
 - [更改企业应用的名称或徽标](change-name-or-logo-portal.md)
 
+<!-- Update_Description: update metedata properties -->
