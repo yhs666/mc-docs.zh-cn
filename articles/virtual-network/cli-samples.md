@@ -17,10 +17,10 @@ origin.date: 03/20/2018
 ms.date: 05/07/2018
 ms.author: v-yeche
 ms.openlocfilehash: 5d085383f4d3bb57d82554c8772dab3c11f5bdb7
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.sourcegitcommit: e157751c560524d0bb828e987b87178130663547
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 09/04/2018
 ms.locfileid: "33815493"
 ---
 # <a name="azure-cli-samples-for-virtual-network"></a>适用于虚拟网络的 Azure CLI 示例

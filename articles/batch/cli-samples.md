@@ -18,10 +18,10 @@ ms.date: 05/15/2018
 ms.author: v-junlch
 ms.custom: mvc
 ms.openlocfilehash: 3f9d9fc3bb50ef50dab1d4a308161f47e2bfd329
-ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
+ms.sourcegitcommit: e157751c560524d0bb828e987b87178130663547
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
+ms.lasthandoff: 09/04/2018
 ms.locfileid: "34173266"
 ---
 # <a name="azure-cli-examples-for-azure-batch"></a>适用于 Azure Batch 的 Azure CLI 示例

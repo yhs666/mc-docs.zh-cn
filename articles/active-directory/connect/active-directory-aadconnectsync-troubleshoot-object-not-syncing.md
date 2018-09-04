@@ -12,23 +12,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/13/2017
-ms.date: 06/26/2018
+origin.date: 08/10/2018
+ms.date: 09/04/2018
 ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 3e0218877abb932695d8b7757799879bb5c2aee3
-ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
+ms.openlocfilehash: f27dc45af34fe16712508884355049497b596085
+ms.sourcegitcommit: e157751c560524d0bb828e987b87178130663547
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36947958"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43651105"
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad"></a>对未同步到 Azure AD 的对象进行故障排除
 
 如果某个对象没有按预期同步到 Azure AD，则可能有多种原因。 如果从 Azure AD 收到错误电子邮件，请改为阅读[排查导出错误](active-directory-aadconnect-troubleshoot-sync-errors.md)。 但如果是要排查不在 Azure AD 中的对象的问题，则本主题适用于你。 它介绍了如何在本地组件 Azure AD Connect 同步中查找错误。
 
 >[!IMPORTANT]
->对于 <verison> 或更高版本的 Azure Active Directory (AAD) Connect 部署，请使用向导中的[故障排除任务](active-directory-aadconnect-troubleshoot-objectsync.md)来排查对象同步问题。 
+>对于 1.1.749.0 或更高版本的 Azure Active Directory (AAD) Connect 部署，请使用向导中的[故障排除任务](active-directory-aadconnect-troubleshoot-objectsync.md)来排查对象同步问题。 
 
 若要查找错误，可以按以下顺序查看几个不同的位置：
 
@@ -71,7 +71,7 @@ ms.locfileid: "36947958"
 如果错误本身未提供足够的信息，则请查看数据本身。 可以单击具有对象标识符的链接并继续对 [连接器空间导入的对象](#cs-import)进行故障排除。
 
 ## <a name="connector-space-object-properties"></a>连接器空间对象属性
-如果没有在[“操作”](#operations)选项卡中找到任何错误，则下一步是从 Active Directory 到 metaverse 然后到 Azure AD 查找连接器空间对象的问题。 在此路径中，应能找到问题所在。
+如果没有在“操作”[](#operations)选项卡中找到任何错误，则下一步是从 Active Directory 到 metaverse 然后到 Azure AD 查找连接器空间对象的问题。 在此路径中，应能找到问题所在。
 
 ### <a name="search-for-an-object-in-the-cs"></a>搜索 CS 中的对象
 
@@ -102,7 +102,7 @@ ms.locfileid: "36947958"
 ![Sync Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/cslineageout.png)  
 在“PasswordSync”列中，还会发现入站连接器空间可进行密码更改，因为有一个同步规则的值为 **True**。 此密码接着会通过出站规则发送到 Azure AD。
 
-从“沿袭”选项卡中，可以单击[“Metaverse 对象属性”](#mv-attributes)转到 Metaverse。
+从“沿袭”选项卡中，可以单击“Metaverse 对象属性”转到 Metaverse。[](#mv-attributes)
 
 所有选项卡的底部都有两个按钮：“预览”和“日志”。
 
@@ -151,4 +151,4 @@ ms.locfileid: "36947958"
 
 了解有关[将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)的详细信息。
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->
