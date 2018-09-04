@@ -1,26 +1,23 @@
 ---
-title: 使用 Azure 存储在云中上传图像数据 | Azure
+title: 使用 Azure 存储在云中上传图像数据 | Microsoft Docs
 description: 将 Azure blob 存储与 Web 应用结合使用来存储应用数据
 services: storage
 documentationcenter: ''
-author: yunan2016
+author: WenJason
 manager: digimobile
-editor: ''
 ms.service: storage
-ms.workload: web
-ms.tgt_pltfrm: na
-ms.devlang: csharp
+ms.devlang: dotnet
 ms.topic: tutorial
 origin.date: 02/20/2018
-ms.date: 03/05/2018
-ms.author: v-nany
+ms.date: 09/10/2018
+ms.author: v-jay
 ms.custom: mvc
-ms.openlocfilehash: 1b590a62804e86b7e890015c15714e5021258816
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.openlocfilehash: a4500c3ca09abcb3d531de2ca82d1e85d1cc0817
+ms.sourcegitcommit: e157751c560524d0bb828e987b87178130663547
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295582"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43651007"
 ---
 # <a name="upload-image-data-in-the-cloud-with-azure-storage"></a>使用 Azure 存储在云中上传图像数据
 
@@ -53,9 +50,6 @@ az group create --name myResourceGroup --location chinanorth
 ## <a name="create-a-storage-account"></a>创建存储帐户
  
 此示例将图像上传到 Azure 存储帐户中的 blob 容器。 存储帐户提供唯一的命名空间来存储和访问 Azure 存储数据对象。 使用 [az storage account create](https://docs.azure.cn/cli/storage/account#az_storage_account_create) 命令在创建的资源组中创建存储帐户。 
-
-> [!IMPORTANT] 
-> 在本教程的第 2 部分中，你会对 blob 存储使用事件订阅。 当前仅对美国中西部和美国西部 2 的 Blob 存储帐户支持事件订阅。 由于存在此限制，因此必须创建由示例应用用于存储图像和缩略图的 Blob 存储帐户。   
 
 在以下命令中，请将 `<blob_storage_account>` 占位符替换成自己的 Blob 存储帐户的全局唯一名称。  
 

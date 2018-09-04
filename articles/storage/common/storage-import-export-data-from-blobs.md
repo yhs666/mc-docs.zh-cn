@@ -1,20 +1,19 @@
 ---
-title: 使用 Azure 导入/导出从 Azure Blob 导出数据 | Azure
+title: 使用 Azure 导入/导出服务从 Azure Blob 导出数据 | Microsoft Docs
 description: 了解如何在 Azure 门户中创建导出作业，以便从 Azure Blob 传输数据。
 author: WenJason
-manager: digimobile
 services: storage
 ms.service: storage
 ms.topic: article
-origin.date: 05/17/2018
-ms.date: 07/02/2018
+origin.date: 07/17/2018
+ms.date: 09/10/2018
 ms.author: v-jay
-ms.openlocfilehash: d8f82ed30d0dcb452cffe93c6f9597d1702f5d59
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.openlocfilehash: 05ea0118bdfea8af77e02b947093261353f6e25b
+ms.sourcegitcommit: e157751c560524d0bb828e987b87178130663547
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295705"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43651290"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>使用 Azure 导入/导出服务从 Azure Blob 存储导出数据
 本文分步说明如何使用 Azure 导入/导出服务从 Azure Blob 存储安全地导出大量数据。 该服务要求你将空驱动器寄送到 Azure 数据中心。 该服务将数据从存储帐户导出到驱动器，然后将驱动器寄回。
@@ -53,7 +52,7 @@ ms.locfileid: "39295705"
     
 3. 在“作业详细信息”中：
 
-    - 选择要导出的数据所在的存储帐户。 
+    - 选择要导出的数据所在的存储帐户。 使用附近位置的存储帐户。
     - 放置位置根据选定存储帐户所属的区域自动进行填充。 
     - 指定要从存储帐户导出到空驱动器的 blob 数据。 
     - 选择“全部导出”以导出存储帐户中的所有 blob 数据。
@@ -79,11 +78,18 @@ ms.locfileid: "39295705"
     - 从下拉列表中选择承运商。
     - 输入你已在该承运商那里创建的有效承运商帐户编号。 当导入作业完成后，我们使用此帐户寄回驱动器。 
     - 提供完整、有效的联系人姓名、电话号码、电子邮件地址、街道地址、城市、邮政编码、省/自治区/直辖市和国家/地区。
+
+        > [!TIP] 
+        > 请提供组电子邮件，而非为单个用户指定电子邮件地址。 这可确保即使管理员离开也会收到通知。
    
 5. 在“摘要”中：
 
     - 查看作业详细信息。
     - 记下作业名称以及为将磁盘寄送到 Azure 而提供的 Azure 数据中心寄送地址。 
+
+        > [!NOTE] 
+        > 始终将磁盘发送到 Azure 门户中记录的数据中心。 如果磁盘寄送到错误的数据中心，则不会处理该作业。
+
     - 单击“确定”以完成导出作业的创建。
 
 ## <a name="step-2-ship-the-drives"></a>步骤 2：寄送驱动器

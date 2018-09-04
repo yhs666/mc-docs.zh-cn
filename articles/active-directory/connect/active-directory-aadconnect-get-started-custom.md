@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 06/07/2018
-ms.date: 06/22/2018
+origin.date: 07/18/2018
+ms.date: 09/04/2018
 ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 2de6c62523e8ba53d84a1fae228ed4ba3bf4f54b
-ms.sourcegitcommit: 5b6a2fc55e5b16ae480bd497c3ac2c3a2fd44703
+ms.openlocfilehash: 2104e1f4f95b23660d7d4103cb4771d97eaf91d3
+ms.sourcegitcommit: e157751c560524d0bb828e987b87178130663547
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38999225"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43651474"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Azure AD Connect 的自定义安装
 如果希望有更多的安装选项，可以使用 Azure AD Connect“自定义设置”。 如果拥有多个林或希望配置未覆盖在快速安装中的可选功能，可以使用它。 它适用于[**快速安装**](active-directory-aadconnect-get-started-express.md)不能满足部署或拓扑的所有情况。
@@ -40,22 +40,13 @@ ms.locfileid: "38999225"
 | 可选配置 | 说明 |
 | --- | --- |
 | 使用现有的 SQL Server |允许指定 SQL Server 名称和实例名称。 如果已有一个要使用的数据库服务器，请选择此选项。 如果 SQL Server 没有启用浏览，请在“实例名称”  中输入实例名称，后接逗号和端口号。 |
-| 使用现有的服务帐户 |默认情况下，Azure AD Connect 将虚拟服务帐户用于为要使用的同步服务。 如果使用远程 SQL 服务器或使用需要身份验证的代理，则需使用**托管服务帐户**，或者使用域中的服务帐户并知道密码。 在这些情况下，请输入要使用的帐户。 确保运行安装的用户是 SQL 中的 SA，以便可以创建服务帐户的登录名。  请参阅 [Azure AD Connect 帐户和权限](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account)。 </br></br>现在，在使用最新版本的情况下，可以由 SQL 管理员在带外进行数据库预配，然后由具有数据库所有者权限的 Azure AD Connect 管理员完成安装。  有关详细信息，请参阅[使用 SQL 委派的管理员权限安装 Azure AD Connect](active-directory-aadconnect-sql-delegation.md)。|
+| 使用现有的服务帐户 |默认情况下，Azure AD Connect 将虚拟服务帐户用于为要使用的同步服务。 如果使用远程 SQL 服务器或使用需要身份验证的代理，则需使用**托管服务帐户**，或者使用域中的服务帐户并知道密码。 在这些情况下，请输入要使用的帐户。 确保运行安装的用户是 SQL 中的 SA，以便可以创建服务帐户的登录名。  请参阅 [Azure AD Connect 帐户和权限](active-directory-aadconnect-accounts-permissions.md#adsync-service-account)。 </br></br>现在，在使用最新版本的情况下，可以由 SQL 管理员在带外进行数据库预配，然后由具有数据库所有者权限的 Azure AD Connect 管理员完成安装。  有关详细信息，请参阅[使用 SQL 委派的管理员权限安装 Azure AD Connect](active-directory-aadconnect-sql-delegation.md)。|
 | 指定自定义同步组 |默认情况下，在安装同步服务时，Azure AD Connect 会在服务器本地创建四个组。 这些组是：管理员组、操作员组、浏览组和密码重置组。 在此可以指定自己的组。 组必须在服务器本地，并且不能位于域中。 |
 
 ### <a name="user-sign-in"></a>用户登录
 在安装所需的组件后，需要选择用户单一登录方法。 下表提供了可用选项的简短说明。 有关登录方法的完整说明，请参阅[用户登录](active-directory-aadconnect-user-signin.md)。
 
 ![用户登录](./media/active-directory-aadconnect-get-started-custom/usersignin4.png)
-
-| 单一登录选项 | 说明 |
-| --- | --- |
-| 密码哈希同步 |用户能够用在其本地网络中使用的相同密码登录到 Azure 云服务，例如 Office 365。 用户密码作为密码哈希同步到 Azure AD，并在云中进行身份验证。 有关详细信息，请参阅[密码哈希同步](active-directory-aadconnectsync-implement-password-hash-synchronization.md)。 |
-|直通身份验证|用户能够用在其本地网络中使用的相同密码登录到 Azure 云服务，例如 Office 365。  用户密码会传递到本地 Active Directory 域控制器进行验证。
-| 使用 AD FS 进行联合身份验证 |用户能够用在其本地网络中使用的相同密码登录到 Azure 云服务，例如 Office 365。  用户被重定向到他们的本地 AD FS 实例以进行登录，并在本地完成身份验证。 |
-| 使用 PingFederate 进行联合身份验证|用户能够用在其本地网络中使用的相同密码登录到 Azure 云服务，例如 Office 365。  用户被重定向到他们的本地 PingFederate 实例以进行登录，并在本地完成身份验证。 |
-| 不配置 |不安装和配置用户登录功能。 如果已有第三方联合服务器或部署了另一个现有解决方案，请选择此选项。 |
-|启用单一登录|此选项可用于密码同步。 </br>请注意，对于 AD FS 客户此选项不可用，因为 AD FS 已提供相同级别的单一登录。</br>
 
 ### <a name="connect-to-azure-ad"></a>连接到 Azure AD
 在“连接到 Azure AD”屏幕中，输入全局管理员的帐户和密码。 如果在前一个页面选择了“与 AD FS 联合”  ，不要以计划启用联合的域中的帐户登录。 建议使用默认“partner.onmschina.cn”  域中的帐户，Azure AD 目录随附该域。
@@ -80,14 +71,14 @@ ms.locfileid: "38999225"
 | 选项 | 说明 |
 | --- | --- |
 | 创建新帐户 | 如果需要使用 Azure AD Connect 向导创建一个 Azure AD Connect 需要的 AD DS 帐户，以便在目录同步期间连接到 AD 林，请选择此选项。 选择此选项时，请输入企业管理员帐户的用户名和密码。 Azure AD Connect 向导将使用提供的企业管理员帐户创建所需的 AD DS 帐户。 可以采用 NetBios 或 FQDN 格式输入域部分，即 FABRIKAM\administrator 或 fabrikam.com\administrator。 |
-| 使用现有帐户 | 如果需要提供一个现有的 AD DS 帐户，以便在目录同步期间用在 Azure AD Connect 中以连接到 AD 林，请选择此选项。 可以采用 NetBios 或 FQDN 格式输入域部分，即 FABRIKAM\syncuser 或 fabrikam.com\syncuser。 此帐户可以是普通的用户帐户，因为该帐户只需默认的读取权限。 不过，根据情况，可能会需要更多权限。 有关详细信息，请参阅 [Azure AD Connect 帐户和权限](active-directory-aadconnect-accounts-permissions.md#create-the-ad-ds-account)。 |
+| 使用现有帐户 | 如果需要提供一个现有的 AD DS 帐户，以便在目录同步期间用在 Azure AD Connect 中以连接到 AD 林，请选择此选项。 可以采用 NetBios 或 FQDN 格式输入域部分，即 FABRIKAM\syncuser 或 fabrikam.com\syncuser。 此帐户可以是普通的用户帐户，因为该帐户只需默认的读取权限。 不过，根据情况，可能会需要更多权限。 有关详细信息，请参阅 [Azure AD Connect 帐户和权限](active-directory-aadconnect-accounts-permissions.md##create-the-ad-ds-connector-account)。 |
 
 ![连接目录](./media/active-directory-aadconnect-get-started-custom/connectdir02.png)
 
 ### <a name="azure-ad-sign-in-configuration"></a>Azure AD 登录配置
 在此页中，可以查看本地 AD DS 中存在的 UPN 域，以及已在 Azure AD 中验证的 UPN 域。 还可以在此页中配置要用于 userPrincipalName 的属性。
 
-![未验证的域](./media/active-directory-aadconnect-get-started-custom/aadsigninconfig.png)  
+![未验证的域](./media/active-directory-aadconnect-get-started-custom/aadsigninconfig2.png)  
 查看标记为“未添加”和“未验证”的每个域。 确保使用的域都已在 Azure AD 中验证。 验证域后，请单击“刷新”符号。 有关详细信息，请参阅[添加和验证域](../add-custom-domain.md)
 
 **UserPrincipalName** - 属性 userPrincipalName 是用户登录 Azure AD 和 Office 365 时使用的属性。 应在同步处理用户前在 Azure AD 中对使用的域（也称为 UPN 后缀）进行验证。 Microsoft 建议保留默认属性 userPrincipalName。 如果此属性不可路由且无法验证，可以选择另一个属性。 例如，可以选择 email 作为保存登录 ID 的属性。 使用除 userPrincipalName 以外的其他属性被称为“替代 ID” 。 “替代 ID”属性值必须遵循 RFC822 标准。 替代 ID 可以配合密码同步和联合使用。 不得在 Active Directory 中将该属性定义为多值，即使它只有单个值。
@@ -118,7 +109,7 @@ ms.locfileid: "38999225"
 #### <a name="select-how-users-should-be-identified-in-your-on-premises-directories"></a>选择应如何在本地目录中标识用户
 “跨林匹配”功能允许定义如何在 Azure AD 中呈现 AD DS 林中的用户。 一个用户可以在所有林中只呈现一次，也可以使用已启用和已禁用帐户的组合。 在某些林中，用户还可以被呈现为联系人。
 
-![唯一](./media/active-directory-aadconnect-get-started-custom/unique.png)
+![唯一](./media/active-directory-aadconnect-get-started-custom/unique2.png)
 
 | 设置 | 说明 |
 | --- | --- |
@@ -133,7 +124,7 @@ sourceAnchor 属性是一个在用户对象的生命周期内不会改变的属�
 
 | 设置 | 说明 |
 | --- | --- |
-| 让 Azure 为我管理源定位点 | 如果希望 Azure AD 为你选取属性，请选择此选项。 如果选择此选项，Azure AD Connect 向导会应用 sourceAnchor 属性选择逻辑，该逻辑在相关文章的 [Azure AD Connect: Design concepts - Using msDS-ConsistencyGuid as sourceAnchor](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor)（Azure AD Connect：设计概念 - 使用 msDS-ConsistencyGuid 作为 sourceAnchor）部分进行了说明。 自定义安装完成后，向导会通知已选取哪个属性作为“源定位点”属性。 |
+| 让 Azure 为我管理源定位点 | 如果希望 Azure AD 为你选取属性，请选择此选项。 如果选择此选项，Azure AD Connect 向导会应用 sourceAnchor 属性选择逻辑，该逻辑在相关文章的 [Azure AD Connect: Design concepts - Using ms-DS-ConsistencyGuid as sourceAnchor](active-directory-aadconnect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor)（Azure AD Connect：设计概念 - 使用 ms-DS-ConsistencyGuid 作为 sourceAnchor）部分进行了说明。 自定义安装完成后，向导会通知已选取哪个属性作为“源定位点”属性。 |
 | 特定的属性 | 如果希望指定现有的 AD 属性作为 sourceAnchor 属性，请选择此选项。 |
 
 由于无法更改该属性，因此必须规划好要使用的合适属性。 objectGUID 就是不错的候选项。 除非在林/域之间移动用户帐户，否则此属性不会更改。 在要在林间移动帐户的多林环境中，必须使用另一个属性，例如具有 employeeID 的属性。 避免某人结婚时会改变的属性，或会更改分配的属性。 由于不可以使用带有 @-sign 符号的属性，因此无法使用 email 和 userPrincipalName。 属性也区分大小写，因此在林间移动对象时，请务必保留大写/小写。 二进制属性采用 base64 编码，但其他属性类型会保留未编码状态。 在联合方案和某些 Azure AD 接口中，此属性也称为 immutableID。 可以在[设计概念](active-directory-aadconnect-design-concepts.md#sourceanchor)中找到有关源定位点的详细信息。
@@ -153,7 +144,7 @@ sourceAnchor 属性是一个在用户对象的生命周期内不会改变的属�
 ### <a name="optional-features"></a>可选功能
 在此屏幕中可以针对特定方案选择可选功能。
 
-![可选功能](./media/active-directory-aadconnect-get-started-custom/optional.png)
+![可选功能](./media/active-directory-aadconnect-get-started-custom/optional2.png)
 
 > [!WARNING]
 > 如果当前启用了 DirSync 或 Azure AD Sync，请勿激活 Azure AD Connect 中的任何写回功能。
@@ -329,7 +320,6 @@ Azure AD Connect 将尝试验证从上一步中的 PingFederate 元数据检索�
 
 ### <a name="verify-federation-login"></a>验证联合登录
 最后，可以通过登录到联合域来验证新配置的联合登录流。 如果此操作成功，则说明已成功配置了使用 PingFederate 的联合身份验证。
-
 ![验证登录](./media/active-directory-aadconnect-get-started-custom/ping4.png)
 
 ## <a name="configure-and-verify-pages"></a>配置和验证页面
@@ -374,6 +364,28 @@ Intranet 连接检查
 - 在 Intranet 上，通过已加入域的计算机上的浏览器验证是否能够登录：连接到 https://login.partner.microsoftonline.cn，并使用登录帐户验证登录。 内置的 AD DS 管理员帐户未同步，因此无法用于验证。
 - 验证是否能够从 Extranet 中的设备登录。 在家庭计算机或移动设备上连接到 https://login.partner.microsoftonline.cn，并提供凭据。
 - 验证富客户端登录。 连接到 https://testconnectivity.microsoft.com，选择“Office 365”选项卡，并选择“Office 365 单一登录测试”。
+
+## <a name="troubleshooting"></a>故障排除
+以下部分包含故障排除内容以及在遇到 Azure AD Connect 安装问题时可以使用的信息。
+
+### <a name="the-adsync-database-already-contains-data-and-cannot-be-overwritten"></a>“ADSync 数据库已经包含数据，无法重写” 
+对 Azure AD Connect 进行自定义安装并在“安装所需的组件”页上选择“使用现有的 SQL Server”选项时，可能会遇到一个错误，指出“ADSync 数据库已经包含数据，无法重写。请删除现有的数据库，然后重试。”
+
+![错误](./media/active-directory-aadconnect-get-started-custom/error1.png)
+
+这是因为在 SQL Server 的 SQL 实例上已经有一个现成的名为 **ADSync** 的数据库，该数据库是在上面的文本框中指定的。
+
+这通常发生在卸载 Azure AD Connect 之后。  卸载时，此数据库不会从 SQL Server 中删除。
+
+若要修复此问题，请首先验证在卸载之前由 Azure AD Connect 使用的 **ADSync** 数据库是否不再处于使用状态。
+
+接下来，建议在删除数据库之前先备份数据库。 
+
+最后，需删除该数据库。  为此，可使用 **Microsoft SQL Server Management Studio** 连接到 SQL 实例。 找到 **ADSync** 数据库后右键单击它，从上下文菜单中选择“删除”。  然后单击“确定”按钮，将其删除。
+
+![错误](./media/active-directory-aadconnect-get-started-custom/error2.png)
+
+删除 **ADSync** 数据库后，可以单击“安装”按钮来重试安装。
 
 ## <a name="next-steps"></a>后续步骤
 安装完成后，请注销并再次登录到 Windows，即可使用同步服务管理器或同步规则编辑器。

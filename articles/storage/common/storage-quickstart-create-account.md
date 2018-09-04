@@ -1,21 +1,21 @@
 ---
-title: Azure 快速入门 - 创建存储帐户 | Azure
+title: Azure 快速入门 - 创建存储帐户 | Microsoft Docs
 description: 快速了解如何使用 Azure 门户、Azure PowerShell 或 Azure CLI 创建新的存储帐户。
 services: storage
-author: yunan2016
-manager: digimobile
+author: WenJason
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-origin.date: 01/19/2018
-ms.date: 3/5/2018
-ms.author: v-nany
-ms.openlocfilehash: 51348ceee14cf5151ff45c6ae7dc3d1f366c1858
-ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
+origin.date: 07/03/2018
+ms.date: 09/10/2018
+ms.author: v-jay
+ms.component: common
+ms.openlocfilehash: 4950c21ed4c644ac269f6b7e0afcd24c6e665276
+ms.sourcegitcommit: e157751c560524d0bb828e987b87178130663547
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39723081"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43651889"
 ---
 # <a name="create-a-storage-account"></a>创建存储帐户
 

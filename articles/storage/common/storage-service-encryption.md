@@ -1,92 +1,81 @@
 ---
-title: 静态数据的 Azure 存储服务加密 | Azure
-description: 使用 Azure 存储服务加密功能可在存储数据时在服务端加密 Azure Blob 存储，并在检索数据时解密数据。
+title: 静态数据的 Azure 存储服务加密 | Microsoft Docs
+description: 存储数据时，使用 Azure 存储服务加密功能在服务端加密 Azure 托管磁盘、Azure Blob 存储、Azure 文件、Azure 队列存储和 Azure 表存储；检索数据时，使用此功能来解密存储。
 services: storage
-author: yunan2016
-manager: digimobile
+author: WenJason
 ms.service: storage
 ms.topic: article
-origin.date: 06/12/2018
-ms.date: 07/02/2018
-ms.author: v-nany
-ms.openlocfilehash: 592b5eb0b629a347e1d3bd9eb3996c813f9639cb
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+origin.date: 08/01/2018
+ms.date: 09/10/2018
+ms.author: v-jay
+ms.component: common
+ms.openlocfilehash: 928507366d3bf136300290b4c202bfc0155ec9d4
+ms.sourcegitcommit: e157751c560524d0bb828e987b87178130663547
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295797"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43651210"
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>静态数据的 Azure 存储服务加密
-
-静态数据的 Azure 存储服务加密可帮助保护数据，使组织能够信守在安全性与合规性方面所做的承诺。 使用此功能，Azure 存储可以先自动加密数据，再将其保存到 Azure 存储，并在检索之前解密数据。 存储服务加密中的加密、静态加密、解密和密钥管理的处理对用户是透明的。 通过 256 位 [AES 加密](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)加密所有写入 Azure 存储的数据，AES 加密是现在最强大的分组加密之一。
+静态数据的 Azure 存储服务加密可帮助保护数据，使组织能够信守在安全性与合规性方面所做的承诺。 使用此功能，Azure 存储平台可以先自动加密数据，然后将其保存到 Azure 托管磁盘、Azure Blob 存储、Azure 文件或 Azure 队列存储，并在检索之前解密数据。 存储服务加密中的加密、静态加密、解密和密钥管理的处理对用户是透明的。 通过 256 位 [AES 加密](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)加密所有写入 Azure 存储平台的数据，AES 加密是现在最强大的分组加密之一。
 
 针对所有新的和现有的存储帐户启用存储服务加密，并且不能禁用。 因为数据默认受保护，所以无需修改代码或应用程序，即可使用存储服务加密。
 
 该功能会自动加密以下位置的数据：
 
+- Azure 存储服务：
+    - Azure 托管磁盘
+    - Azure Blob 存储
+    - Azure 文件
+    - Azure 队列存储
+    - Azure 表存储。  
 - 两个性能层（标准和高级）。
 - 两个部署模型（Azure 资源管理器模型和经典模型）。
-- 所有 Azure 存储服务（Blob 存储、队列存储、表存储和 Azure 文件）。 
 
-存储服务加密不影响 Azure 存储性能。
+存储服务加密不影响 Azure 存储服务的性能。
 
 
 ## <a name="view-encryption-settings-in-the-azure-portal"></a>在 Azure 门户中查看加密设置
-
 要查看存储服务加密设置，请登录 [Azure 门户](https://portal.azure.cn)，并选择存储帐户。 在“设置”窗格中，选择“加密”设置。
 
 ![显示加密设置的门户截图](./media/storage-service-encryption/image1.png)
 
 ## <a name="faq-for-storage-service-encryption"></a>存储服务加密的常见问题解答
+**如何在资源管理器存储帐户中加密数据？**  
+会为所有存储帐户（经典和资源管理器）启用存储服务加密，启用加密前创建的存储帐户中的任何已有文件都会由后台加密进程以追溯方式进行加密。
 
-**问：若已有经典存储帐户。能否对其启用存储服务加密？**
+**创建存储帐户时，是否会默认启用存储服务加密？**  
+是的，会为所有存储帐户和所有 Azure 存储服务启用存储服务加密。
 
-答：将对所有存储帐户（经典和资源管理器）启用存储服务加密。
+**我有一个资源管理器存储帐户。能否对其启用存储服务加密？**  
+默认对所有现有的资源管理器存储帐户启用存储服务加密。 Azure Blob 存储、Azure 文件、Azure 队列存储和表存储均支持此类加密。 
 
-**问：如何在经典存储帐户中加密数据？**
+**是否可以在存储帐户中禁用加密？**  
+加密默认已启用，无法预配为禁用存储帐户加密。 
 
-答：默认启用加密，Azure 存储自动加密新数据。 
+**如果启用存储服务加密，需另付多少 Azure 存储费用？**  
+没有任何额外费用。
 
-**答：若已有资源管理器存储帐户。能否对其启用存储服务加密？**
+**存储服务加密与 Azure 磁盘加密有何不同？**  
+Azure 磁盘加密在基于 OS 的解决方案（例如 BitLocker、DM-Crypt 和 Azure KeyVault）之间提供集成。 存储服务加密在虚拟机下面的 Azure 存储平台层上提供本机加密。
 
-答：默认对所有现有的资源管理器存储帐户启用存储服务加密。 Blob 存储、表存储、队列存储和 Azure 文件均支持。 
+**我有一个经典存储帐户。能否对其启用存储服务加密？**  
+会对所有存储帐户（经典和资源管理器）启用存储服务加密。
 
-**问：如何在资源管理器存储帐户中加密数据？**
+**如何在经典存储帐户中加密数据？**  
+默认启用加密后，Azure 存储服务中存储的所有数据会自动加密。 
 
-答：将对所有存储帐户（经典和资源管理器）启用存储服务加密，启用加密前创建的存储帐户中的任何已有文件都会由后台加密进程以追溯方式进行加密。
+**是否可以使用 Azure PowerShell 和 Azure CLI 创建存储帐户并启用存储服务加密？**  
+在创建任何存储帐户（经典或资源管理器）时默认启用存储服务加密。 可以使用 Azure PowerShell 和 Azure CLI 验证帐户属性。
 
-**问：是否可以使用 Azure PowerShell 和 Azure CLI 创建存储帐户并启用存储服务加密？**
+**我的存储帐户设置为异地冗余复制。如果启用存储服务加密，冗余副本是否也会加密？**  
+是的，所有存储帐户的副本都会加密。 支持所有冗余选项 - 本地冗余存储、异地冗余存储和读取访问异地冗余存储。
 
-答：在创建任何存储帐户（经典或资源管理器）时默认启用存储服务帐户。 可以使用 Azure PowerShell 和 Azure CLI 验证帐户属性。
+**存储服务加密是否仅允许在特定区域使用？**  
+存储服务加密已在所有区域推出。
 
-**问：如果启用存储服务加密，需另付多少 Azure 存储费用？**
-
-答：没有任何额外费用。
-
-
-**问：创建存储帐户时，是否会默认启用存储服务加密？**
-
-答：是的，将会为所有存储帐户和所有 Azure 存储服务启用存储服务加密。
-
-**问：此功能与 Azure 磁盘加密有何不同？**
-
-答：Azure 磁盘加密用于加密IaaS VM 中的 OS 和数据磁盘。 有关详细信息，请参阅[存储安全指南](../storage-security-guide.md)。
-
-**问：如果在数据磁盘上启用了 Azure 磁盘加密会怎样？**
-
-答：不会有任何问题。 这两种方法都将加密数据。
-
-**问：我的存储帐户设置为异地冗余复制。如果启用存储服务加密，冗余副本是否也会加密？**
-
-答：所有存储帐户的副本都会加密。 支持所有冗余选项 - 本地冗余存储、异地冗余存储和读取访问异地冗余存储。
-
-**问：是否能禁用存储账户上的加密？**
-
-答：加密默认已启用，无法预配为禁用存储帐户加密。 
-
-**问：存储服务加密是否仅允许在特定区域使用？**
-
-答：存储服务加密在所有区域针对所有服务提供。
+**存储服务加密是否符合 FIPS 140-2？**  
+是的，存储服务加密符合 FIPS 140-2。
 
 ## <a name="next-steps"></a>后续步骤
 Azure 存储提供一整套安全性功能，这些功能相辅相成，帮助开发人员构建安全的应用程序。 有关详细信息，请参阅[存储安全指南](../storage-security-guide.md)。

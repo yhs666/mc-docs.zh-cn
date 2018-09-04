@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/09/2018
-ms.date: 06/25/2018
+ms.date: 09/04/2018
 ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: c350213be39675784039a30991e53caa404beed0
-ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
+ms.openlocfilehash: 9a2468b068aada7d4ea174720abdb6d726f40800
+ms.sourcegitcommit: e157751c560524d0bb828e987b87178130663547
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36947930"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43652344"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Azure AD Connect 的先决条件
 本主题介绍 Azure AD Connect 的先决条件和硬件要求。
@@ -34,7 +34,7 @@ ms.locfileid: "36947930"
   - 还可以使用 [Azure 门户](https://portal.azure.cn)。 此门户不需要 Azure AD 许可证。
 - [添加并验证域](../add-custom-domain.md)，该域是计划在 Azure AD 中使用的。 例如，如果计划让用户使用 contoso.com，请确保此域已经过验证，并且不是直接使用 contoso.partner.onmschina.cn 默认域。
 - 默认情况下，一个 Azure AD 租户允许 5 万个对象。 在验证域后，该限制增加到 30 万个对象。 如果在 Azure AD 中需要更多的对象，则需要开具支持案例来请求增大此限制。 如果需要 50 万个以上的对象，则需要购买 Office 365、Azure AD Basic、Azure AD Premium 或企业移动性和安全性等许可证。
-- ADSyncPrep 是 PowerShell 脚本模块，提供为 Azure AD Connect 准备 Active Directory 环境的功能。  ADSyncPrep 需要 [Azure AD Microsoft Online v1.1 PowerShell 模块](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0)。  版本 2 将无法工作。  可以使用 `Install-Module` cmdlet 安装模块。  有关更多信息，请参见所提供的链接。
+- ADSyncPrep 是 PowerShell 脚本模块，提供为 Azure AD Connect 准备 Active Directory 环境的功能。  ADSyncPrep 需要 [Azure AD Microsoft Online v1.1 PowerShell 模块](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0)。  版本 2 将无法工作。 可以使用 `Install-Module` cmdlet 安装模块。  有关更多信息，请参见所提供的链接。
 
 ### <a name="prepare-your-on-premises-data"></a>准备本地数据
 - 使用 [IdFix](https://support.office.com/article/Install-and-run-the-Office-365-IdFix-tool-f4bd2439-3e41-4169-99f6-3fabdfa326ac) 确定目录中的错误，如重复项和格式设置问题，然后同步到 Azure AD 和 Office 365。
@@ -43,7 +43,6 @@ ms.locfileid: "36947930"
 ### <a name="on-premises-active-directory"></a>本地 Active Directory
 - AD 架构版本与林功能级别必须是 Windows Server 2003 或更高版本。 只要符合架构和林级别的要求，域控制器就能运行任何版本。
 - Azure AD 使用的域控制器必须可写。 **不支持**使用 RODC（只读域控制器），并且 Azure AD Connect 不会遵循任何写重定向。
-- **不支持**使用具有 SLD（单标签域）的本地林/域。
 - **不支持**通过“以点分隔的”（名称包含句点“.”）NetBios 名称使用本地林/域。
 - 建议[启用 Active Directory 回收站](active-directory-aadconnectsync-recycle-bin.md)。
 
@@ -64,8 +63,7 @@ ms.locfileid: "36947930"
 ### <a name="sql-server-used-by-azure-ad-connect"></a>Azure AD Connect 所使用的 SQL Server
 - Azure AD Connect 要求使用 SQL Server 数据库来存储标识数据。 默认安装 SQL Server 2012 Express LocalDB（轻量版本的 SQL Server Express）。 SQL Server Express 有 10GB 的大小限制，允许管理大约 100,000 个对象。 如果需要管理更多的目录对象，则需要将安装向导指向不同的 SQL Server 安装。
 - 如果使用独立的 SQL Server，则这些要求适用：
-  - Azure AD Connect 支持从 SQL Server 2008（包含最新的 Service Pack）到 SQL Server 2016 SP1 的所有版本 Microsoft SQL Server。 
-            **不支持**将 Azure SQL 数据库用作数据库。
+  - Azure AD Connect 支持从 SQL Server 2008（包含最新的 Service Pack）到 SQL Server 2016 SP1 的所有版本 Microsoft SQL Server。 **不支持**将 Azure SQL 数据库用作数据库。
   - 必须使用不区分大小写的 SQL 排序规则。 可通过名称中的 \_CI_ 识别这些排序规则。 **不支持**使用区分大小写的排序规则，该规则可通过其名称中的 \_CS_ 识别。
   - 每个 SQL 实例只能有一个同步引擎。 **不支持** 与 FIM/MIM Sync、DirSync 或 Azure AD Sync 共享 SQL 实例。
 
@@ -95,7 +93,7 @@ ms.locfileid: "36947930"
       </system.net>
   ```
 
-- 如果代理服务器要求身份验证，则[服务帐户](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account)必须位于域中，必须使用自定义的设置安装路径来指定[自定义服务帐户](active-directory-aadconnect-get-started-custom.md#install-required-components)。 还需要对 machine.config 进行不同的更改。在 machine.config 中进行此更改之后，安装向导和同步引擎响应来自代理服务器的身份验证请求。 在所有安装向导页中（“配置”页除外）都使用已登录用户的凭据。 在安装向导末尾的“配置”页上，上下文将切换到已创建的[服务帐户](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account)。 machine.config 节应如下所示。
+- 如果代理服务器要求身份验证，则[服务帐户](active-directory-aadconnect-accounts-permissions.md#adsync-service-account)必须位于域中，必须使用自定义的设置安装路径来指定[自定义服务帐户](active-directory-aadconnect-get-started-custom.md#install-required-components)。 还需要对 machine.config 进行不同的更改。在 machine.config 中进行此更改之后，安装向导和同步引擎响应来自代理服务器的身份验证请求。 在所有安装向导页中（“配置”页除外）都使用已登录用户的凭据。 在安装向导末尾的“配置”页上，上下文将切换到已创建的[服务帐户](active-directory-aadconnect-accounts-permissions.md#adsync-service-account)。 machine.config 节应如下所示。
 
   ```
       <system.net>
@@ -214,4 +212,4 @@ Azure AD Connect 依赖于 Microsoft PowerShell 和 .NET Framework 4.5.1。 服�
 ## <a name="next-steps"></a>后续步骤
 了解有关 [将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)的详细信息。
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

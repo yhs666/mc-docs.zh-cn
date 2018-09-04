@@ -9,16 +9,16 @@ ms.topic: article
 origin.date: 03/20/2018
 ms.date: 06/11/2018
 ms.author: v-nany
-ms.openlocfilehash: 6dcd42d86e53783e7a71c4c04d23b9df73d4b84d
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: 19e908d1d9ac56b1e4b430972983af8ae5971caf
+ms.sourcegitcommit: e157751c560524d0bb828e987b87178130663547
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867515"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43651237"
 ---
 # <a name="locally-redundant-storage-lrs-low-cost-data-redundancy-for-azure-storage"></a>本地冗余存储 (LRS)：Azure 存储的低成本数据冗余
 
-[!INCLUDE [storage-common-redundancy-LRS](../../../includes/storage-common-redundancy-LRS.md)]
+[!INCLUDE [storage-common-redundancy-LRS](../../../includes/storage-common-redundancy-lrs.md)]
 
 ## <a name="see-also"></a>另请参阅
 

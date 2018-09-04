@@ -1,20 +1,20 @@
 ---
-title: 使用 Azure 导入/导出将数据传输到 Azure 文件 | Azure
+title: 使用 Azure 导入/导出将数据传输到 Azure 文件 | Microsoft Docs
 description: 了解如何在 Azure 门户中创建导入作业，以便将数据传输到 Azure 文件。
 author: WenJason
-manager: digimobile
 services: storage
 ms.service: storage
 ms.topic: article
-origin.date: 05/17/2018
-ms.date: 07/02/2018
+origin.date: 07/17/2018
+ms.date: 09/10/2018
 ms.author: v-jay
-ms.openlocfilehash: d3f1062bd33c5af289fe4e2adaacb7e0cc6b257e
-ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
+ms.component: common
+ms.openlocfilehash: c944740fa681d4edfc66f565d9c14643dc963b2e
+ms.sourcegitcommit: e157751c560524d0bb828e987b87178130663547
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103141"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43651212"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>使用 Azure 导入/导出服务将数据导入到 Azure 文件
 
@@ -143,6 +143,9 @@ ms.locfileid: "37103141"
     - 输入你已在该承运商那里创建的有效承运商帐户编号。 当导入作业完成后，我们使用此帐户寄回驱动器。 
     - 提供完整、有效的联系人姓名、电话号码、电子邮件地址、街道地址、城市、邮政编码、省/自治区/直辖市和国家/地区。
 
+        > [!TIP] 
+        > 请提供组电子邮件，而非为单个用户指定电子邮件地址。 这可确保即使管理员离开也会收到通知。
+
        ![创建导入作业 - 步骤 3](./media/storage-import-export-data-to-blobs/import-to-blob5.png)
 
    
@@ -160,6 +163,10 @@ ms.locfileid: "37103141"
 ## <a name="step-4-update-the-job-with-tracking-information"></a>步骤 4：使用跟踪信息更新作业
 
 [!INCLUDE [storage-import-export-update-job-tracking](../../../includes/storage-import-export-update-job-tracking.md)]
+
+## <a name="step-5-verify-data-upload-to-azure"></a>步骤 5：验证数据上传到 Azure
+
+跟踪作业直至完成。 作业完成后，验证数据已上传到 Azure。 仅在已确认上传成功后才删除本地数据。
 
 ## <a name="samples-for-journal-files"></a>日志文件示例
 

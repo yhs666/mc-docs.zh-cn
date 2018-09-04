@@ -1,30 +1,24 @@
 ---
-title: Azure 存储指标迁移 | Azure
+title: Azure 存储指标迁移 | Microsoft Docs
 description: 了解如何将旧指标迁移到 Azure Monitor 托管的新指标。
 services: storage
-documentationcenter: na
 author: WenJason
-manager: digimobile
-editor: fhryo-msft
-ms.assetid: ''
 ms.service: storage
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage
 origin.date: 03/30/2018
-ms.date: 07/30/2018
+ms.date: 09/10/2018
 ms.author: v-jay
-ms.openlocfilehash: cca851d886e1e3ef935f0776cd2352af5a948ee3
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.component: common
+ms.openlocfilehash: fd4ddd30d7254e1f9f78047743f1748289adecda
+ms.sourcegitcommit: e157751c560524d0bb828e987b87178130663547
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295867"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43652595"
 ---
 # <a name="azure-storage-metrics-migration"></a>Azure 存储指标迁移
 
-按照 Azure 中统一监视体验的策略，Azure 存储会将指标集成到 Azure Monitor 平台。 将来，旧指标服务将会终止，并基于 Azure 策略进行提前通知。 如果使用旧存储指标，则需要在服务终止日期前进行迁移，以便保留指标信息。
+按照 Azure 中统一监视体验的策略，Azure 存储会将指标集成到 Azure Monitor 平台。 将来，旧指标服务将会终止，并基于 Azure Policy 进行提前通知。 如果使用旧存储指标，则需要在服务终止日期前进行迁移，以便保留指标信息。
 
 本文演示如何从旧指标迁移到新指标。
 
@@ -52,6 +46,7 @@ Azure 存储收集旧指标值，将其聚合并存储在同一存储帐户内�
 
 | 旧指标 | 新指标 |
 | ------------------- | ----------------- |
+| **容量**            | BlobCapacity（维度 BlobType 等于 BlockBlob 或 PageBlob） |
 | **ObjectCount**        | BlobCount（维度 BlobType 等于 BlockBlob 或 PageBlob） |
 | **ContainerCount**      | **ContainerCount** |
 
@@ -80,9 +75,19 @@ Azure 存储收集旧指标值，将其聚合并存储在同一存储帐户内�
 | **AnonymousSuccess** | 事务（维度 ResponseType 等于 Success） |
 | **AnonymousThrottlingError** | 事务（维度 ResponseType 等于 ClientThrottlingError 或 ServerBusyError） |
 | **AuthorizationError** | 事务（维度 ResponseType 等于 AuthorizationError） |
+| **可用性** | **可用性** |
+| **AverageE2ELatency** | **SuccessE2ELatency** |
+| **AverageServerLatency** | **SuccessServerLatency** |
 | **ClientOtherError** | 事务（维度 ResponseType 等于 ClientOtherError） |
 | **ClientTimeoutError** | 事务（维度 ResponseType 等于 ClientTimeoutError） |
 | **NetworkError** | 事务（维度 ResponseType 等于 NetworkError） |
+| **PercentAuthorizationError** | 事务（维度 ResponseType 等于 AuthorizationError） |
+| **PercentClientOtherError** | 事务（维度 ResponseType 等于 ClientOtherError） |
+| **PercentNetworkError** | 事务（维度 ResponseType 等于 NetworkError） |
+| **PercentServerOtherError** | 事务（维度 ResponseType 等于 ServerOtherError） |
+| **PercentSuccess** | 事务（维度 ResponseType 等于 Success） |
+| **PercentThrottlingError** | 事务（维度 ResponseType 等于 ClientThrottlingError 或 ServerBusyError） |
+| **PercentTimeoutError** | 事务（维度 ResponseType 等于 ServerTimeoutError 或 ResponseType 等于 ClientTimeoutError） |
 | **SASAuthorizationError** | 事务（维度 ResponseType 等于 AuthorizationError） |
 | **SASClientOtherError** | 事务（维度 ResponseType 等于 ClientOtherError） |
 | **SASClientTimeoutError** | 事务（维度 ResponseType 等于 ClientTimeoutError） |
@@ -96,6 +101,8 @@ Azure 存储收集旧指标值，将其聚合并存储在同一存储帐户内�
 | **Success** | 事务（维度 ResponseType 等于 Success） |
 | **ThrottlingError** | 事务（维度 ResponseType 等于 ClientThrottlingError 或 ServerBusyError）|
 | **TotalBillableRequests** | **Transactions** |
+| **TotalEgress** | **流出量** |
+| **TotalIngress** | **流入量** |
 | **TotalRequests** | **Transactions** |
 
 ## <a name="faq"></a>常见问题

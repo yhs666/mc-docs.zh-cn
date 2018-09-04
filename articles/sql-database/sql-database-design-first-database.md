@@ -10,12 +10,12 @@ ms.topic: tutorial
 origin.date: 07/16/2018
 ms.date: 08/06/2018
 ms.author: v-johch
-ms.openlocfilehash: d818fcb08b9ffbe1887361f0d1d51323cabb2896
-ms.sourcegitcommit: 02c4716e07b3d83104fa419b379a15589ae8017e
+ms.openlocfilehash: 386dea0d52bf1b87c04e67fba177576da2a0c8b7
+ms.sourcegitcommit: e157751c560524d0bb828e987b87178130663547
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41704551"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43651032"
 ---
 # <a name="tutorial-design-your-first-azure-sql-database-using-ssms"></a>教程：使用 SSMS 设计第一个 Azure SQL 数据库
 
@@ -84,15 +84,13 @@ Azure SQL 数据库与 Microsoft 云 (Azure) 中的数据库即服务 (DBaaS) �
 
    ![创建数据库 - s1](./media/sql-database-design-first-database/create-empty-database-pricing-tier.png)
 
-8. 若要使用“附加存储”选项，请接受预览版条款。 
+8. 选择服务器层、DTU 数和存储量后，单击“应用”。  
 
-9. 选择服务器层、DTU 数和存储量后，单击“应用”。  
+9. 选择空白数据库的“排序规则”（就本教程来说，请使用默认值）。 有关排序规则的详细信息，请参阅 [Collations](https://docs.microsoft.com/sql/t-sql/statements/collations)（排序规则）
 
-10. 选择空白数据库的“排序规则”（就本教程来说，请使用默认值）。 有关排序规则的详细信息，请参阅 [Collations](https://docs.microsoft.com/sql/t-sql/statements/collations)（排序规则）
+10. 完成 SQL 数据库表单后，即可单击“创建”对数据库进行预配。 预配需要数分钟。 
 
-11. 完成 SQL 数据库表单后，即可单击“创建”对数据库进行预配。 预配需要数分钟。 
-
-12. 在工具栏上，单击“通知”可监视部署过程。
+11. 在工具栏上，单击“通知”可监视部署过程。
     
      ![通知](./media/sql-database-get-started-portal/notification.png)
 

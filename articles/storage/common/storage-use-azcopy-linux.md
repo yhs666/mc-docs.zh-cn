@@ -1,33 +1,25 @@
 ---
-title: 使用 Linux 上的 AzCopy 将数据复制或移动到 Azure 存储 | Azure
+title: 使用 Linux 上的 AzCopy 将数据复制或移动到 Azure 存储 | Microsoft Docs
 description: 使用 Linux 上的 AzCopy 实用程序将数据移动或复制到 blob 和文件内容或从中移动或复制数据。 从本地文件将数据复制到 Azure 存储，或者在存储帐户中或存储帐户之间复制数据。 轻松地将数据迁移到 Azure 存储。
 services: storage
-documentationcenter: ''
-author: yunan2016
-manager: digimobile
-editor: tysonn
-ms.assetid: aa155738-7c69-4a83-94f8-b97af4461274
+author: WenJason
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 04/26/2018
-ms.date: 06/11/2018
-ms.author: v-nany
-ms.openlocfilehash: 9fedd6b3589936db24d3d19fcc715b1a3d761964
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.date: 09/10/2018
+ms.author: v-jay
+ms.openlocfilehash: 343c7efd68ace7b2256aacc01c50918a279d6a6e
+ms.sourcegitcommit: e157751c560524d0bb828e987b87178130663547
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295857"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43650757"
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>使用 Linux 上的 AzCopy 传输数据
 
 AzCopy 是一个命令行实用程序，专用于通过旨在实现最佳性能的简单命令将数据复制到 Azure Blob 和文件存储以及从这些位置复制数据。 可在文件系统和存储帐户之间或在存储帐户之间复制数据。  
 
-有两个版本的 AzCopy 可下载。 AzCopy on Linux 面向 Linux 平台，它提供 POSIX 样式的命令行选项。 
-  [AzCopy on Windows](../storage-use-azcopy.md) 提供 Windows 样式的命令行选项。 本文介绍 Linux 上的 AzCopy。 
+有两个版本的 AzCopy 可下载。 AzCopy on Linux 面向 Linux 平台，它提供 POSIX 样式的命令行选项。 [AzCopy on Windows](../storage-use-azcopy.md) 提供 Windows 样式的命令行选项。 本文介绍 Linux 上的 AzCopy。 
 
 > [!NOTE]  
 > 从 AzCopy 7.2 版本开始，.NET Core 依赖项随 AzCopy 包打包在一起。 如果使用的是 7.2 版或更高版本，则安装 .NET Core 不再是先决条件。
@@ -319,6 +311,9 @@ azcopy \
     --include "ab" \
     --set-content-type
 ```
+
+### <a name="customizing-the-mime-content-type-mapping"></a>自定义 MIME 内容类型映射
+AzCopy 使用一个配置文件，其中包含文件扩展名到内容类型的映射。 可以自定义此映射，并根据需要添加新对。 此映射位于 ```/usr/lib/azcopy/AzCopyConfig.json```
 
 ## <a name="blob-copy"></a>Blob：复制
 ### <a name="copy-single-blob-within-storage-account"></a>在存储帐户内复制单个 blob
@@ -695,5 +690,4 @@ azcopy \
 * [AzCopy: Support for read-access geo-redundant storage（AzCopy：支持读取访问异地冗余存储）](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/04/07/azcopy-support-for-read-access-geo-redundant-account.aspx)
 * [AzCopy: Transfer data with re-startable mode and SAS token](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)（AzCopy：使用可重启的模式和 SAS 令牌传输数据）
 * [AzCopy: Using cross-account Copy Blob（AzCopy：使用跨帐户复制 Blob）](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
-* [AzCopy: Uploading/downloading files for Azure Blobs](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
-<!--Update_Description:wording update-->（AzCopy：为 Azure Blob 上传/下载文件）
+* [AzCopy: Uploading/downloading files for Azure Blobs（AzCopy：为 Azure Blob 上传/下载文件）](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)

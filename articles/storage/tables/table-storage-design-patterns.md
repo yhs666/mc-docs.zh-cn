@@ -14,12 +14,12 @@ ms.workload: data-services
 origin.date: 04/23/2018
 ms.date: 07/02/2018
 ms.author: v-jay
-ms.openlocfilehash: 5f45ca51349144a521fd86afc1c0ab6a72d4930e
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.openlocfilehash: 14fc41c3209d01c7f6e716b5b8ec7ed2b9f221b3
+ms.sourcegitcommit: e157751c560524d0bb828e987b87178130663547
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295853"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43651604"
 ---
 # <a name="table-design-patterns"></a>表设计模式
 本文介绍适用于表服务解决方案的一些模式。 此外，还将了解如何实际解决其他表存储设计文章中提出的一些问题和权衡。 下图总结了不同模式之间的关系：  
@@ -88,7 +88,7 @@ ms.locfileid: "39295853"
 ### <a name="context-and-problem"></a>上下文和问题
 EGT 在多个共享同一分区键的实体之间启用原子事务。 由于性能和伸缩性原因，你可能会决定在不同分区或不同存储系统中存储具有一致性要求的实体：在这种情况下，不能使用 EGT 来维护一致性。 例如，可能需要保持以下对象之间的最终一致性：  
 
-* 存储在同一个表的两个不同分区中的实体、存储在不同表中的实体、存储在不同存储帐户中的实体。  
+* 存储在同一个表的两个不同分区中的实体、存储在不同表中的实体，或存储在不同存储帐户中的实体。  
 * 存储在表服务中的实体和存储在 Blob 服务中的 blob。  
 * 表服务中存储的实体和文件系统中的文件。  
 * 实体存储在表服务中还使用 Azure Search 服务编制了索引。  

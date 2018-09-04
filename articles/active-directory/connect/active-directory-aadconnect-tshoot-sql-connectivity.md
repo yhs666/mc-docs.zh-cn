@@ -11,15 +11,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/14/2018
-ms.date: 06/22/2018
+ms.date: 09/04/2018
 ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: bded8ff144c4aa6437b013929408ef64cdb8ca60
-ms.sourcegitcommit: d744d18624d2188adbbf983e1c1ac1110d53275c
+ms.openlocfilehash: ea28a677c0c032bd61d69b3a17993c13b727f7f1
+ms.sourcegitcommit: e157751c560524d0bb828e987b87178130663547
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36314361"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43650921"
 ---
 # <a name="troubleshoot-sql-connectivity-issues-with-azure-ad-connect"></a>排除使用 Azure AD Connect 时的 SQL 连接问题
 本文说明如何排查 Azure AD Connect 与 SQL Server 之间的连接问题。 
@@ -37,7 +37,7 @@ Import-Module "C:\Program Files\Azure Active Directory Connect\Tools\AdSyncTools
 
 >[!NOTE]
 >Install-Module 需要更新到 [PowerShell 5.0 (WMF 5.0)](https://www.microsoft.com/download/details.aspx?id=50395) 或更高版本；  
-或者安装 [PackageManagement PowerShell 模块预览 - 2016 年 3 月，适用于 PowerShell 3.0/4.0](https://www.microsoft.com/en-us/download/details.aspx?id=51451) 
+或者安装 [PackageManagement PowerShell 模块预览 - 2016 年 3 月，适用于 PowerShell 3.0/4.0](https://www.microsoft.com/download/details.aspx?id=51451) 
 
 - 显示所有命令：`Get-Command -Module AdSyncTools` 
 - 执行 powershell 函数：具有以下参数的 `Connect-ADSyncDatabase`
@@ -176,3 +176,4 @@ PS C:\Program Files\Azure Active Directory Connect\tools>
 - [将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)
 -  [Azure AD 与 Azure AD Connect 的连接](active-directory-aadconnect-troubleshoot-connectivity.md)
 
+<!-- Update_Description: link update -->

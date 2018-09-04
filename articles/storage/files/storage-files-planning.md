@@ -1,24 +1,23 @@
 ---
-title: 规划 Azure 文件部署 | Azure
+title: 规划 Azure 文件部署 | Microsoft Docs
 description: 了解规划 Azure 文件部署时应考虑的问题。
 services: storage
-author: forester123
-manager: digimobile
+author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 06/12/2018
-ms.date: 07/02/2018
-ms.author: v-johch
-ms.openlocfilehash: 51c0878bf707bc08db6753547bcdd244214addfa
-ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
+ms.date: 09/10/2018
+ms.author: v-jay
+ms.component: files
+ms.openlocfilehash: b1feab2fbedc15d30c3a22067304e7517788ffe8
+ms.sourcegitcommit: e157751c560524d0bb828e987b87178130663547
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103077"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43650047"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>规划 Azure 文件部署
-
-  [Azure 文件](storage-files-introduction.md)在云中提供完全托管的文件共享，这些共享项可通过行业标准 SMB 协议进行访问。 由于 Azure 文件是完全托管的，因此在生产方案中对其进行部署比部署和管理文件服务器或 NAS 设备简单得多。 本文介绍在组织内部署 Azure 文件共享以供生产使用时应考虑的主题。
+[Azure 文件](storage-files-introduction.md)在云中提供完全托管的文件共享，这些共享项可通过行业标准 SMB 协议进行访问。 由于 Azure 文件是完全托管的，因此在生产方案中对其进行部署比部署和管理文件服务器或 NAS 设备简单得多。 本文介绍在组织内部署 Azure 文件共享以供生产使用时应考虑的主题。
 
 ## <a name="management-concepts"></a>管理概念
  下图说明了 Azure 文件管理构造：

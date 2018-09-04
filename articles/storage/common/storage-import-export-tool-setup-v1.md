@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 01/15/2017
 ms.date: 08/28/2017
 ms.author: v-haiqya
-ms.openlocfilehash: b17c811cfa8a1c14412b8df3c98c0edd7fd4c432
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.openlocfilehash: 49f31d4d7b80f7555ed27bb9fbc4076fc673d984
+ms.sourcegitcommit: e157751c560524d0bb828e987b87178130663547
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295823"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43651058"
 ---
 # <a name="setting-up-the-azure-importexport-tool"></a>设置 Azure 导入/导出工具
 Azure 导入/导出工具是可与 Azure 导入/导出服务一起使用的驱动器准备和修复工具。 可以使用该工具实现以下功能：  
@@ -252,13 +252,14 @@ Examples:
         /j:9WM35C2V.jrn /id:session#1 /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GEL
         xmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /t:d /encrypt /srcdir:d:\movi
         es\drama /dstdir:movies/drama/ /skipwrite
+```  
   
-## Next steps
+## <a name="next-steps"></a>后续步骤
 
-* [Preparing hard drives for an import job](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
-* [Previewing Drive usage for an export job](../storage-import-export-tool-previewing-drive-usage-export-v1.md)   
-* [Reviewing job status with copy log files](../storage-import-export-tool-reviewing-job-status-v1.md)   
-* [Repairing an import job](../storage-import-export-tool-repairing-an-import-job-v1.md)   
-* [Repairing an export job](../storage-import-export-tool-repairing-an-export-job-v1.md)   
-* [Troubleshooting the Azure Import/Export Tool](storage-import-export-tool-troubleshooting-v1.md)
+* [为导入作业准备硬盘驱动器](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
+* [预览导出作业的驱动器使用情况](../storage-import-export-tool-previewing-drive-usage-export-v1.md)   
+* [使用复制日志文件查看作业状态](../storage-import-export-tool-reviewing-job-status-v1.md)   
+* [修复导入作业](../storage-import-export-tool-repairing-an-import-job-v1.md)   
+* [修复导出作业](../storage-import-export-tool-repairing-an-export-job-v1.md)   
+* [排查 Azure 导入/导出工具问题](storage-import-export-tool-troubleshooting-v1.md)
 <!--Update_Description: update link-->

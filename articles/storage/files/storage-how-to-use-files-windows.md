@@ -1,26 +1,19 @@
 ---
-title: 在 Windows 中使用 Azure 文件共享 | Azure
-description: 了解如何在 Windows 和 Windows Server 中使用 Azure 文件共享。
+title: 将 Azure 文件共享与 Windows 配合使用 | Microsoft Docs
+description: 了解如何将 Azure 文件共享与 Windows 和 Windows Server 配合使用。
 services: storage
-documentationcenter: na
-author: forester123
-manager: josefree
-editor: tysonn
-ms.assetid: ''
+author: WenJason
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: get-started-article
 origin.date: 06/07/2018
-ms.date: 07/02/2018
-ms.author: v-johch
-ms.openlocfilehash: 3fe3867c91669947f3f76beb05ee6b0a13f11f87
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.date: 09/10/2018
+ms.author: v-jay
+ms.openlocfilehash: 8c04c4d8637eb87788d685da77244807975d0dd9
+ms.sourcegitcommit: e157751c560524d0bb828e987b87178130663547
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295831"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43650956"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>在 Windows 中使用 Azure 文件共享
 [Azure 文件](storage-files-introduction.md)是易于使用的云文件系统。 可以在 Windows 和 Windows Server 中无缝使用 Azure 文件共享。 本文介绍在 Windows 和 Windows Server 中使用 Azure 文件共享时的注意事项。
@@ -53,20 +46,11 @@ ms.locfileid: "39295831"
 
 * **存储帐户密钥**：若要装载 Azure 文件共享，需要主（或辅助）存储密钥。 目前不支持使用 SAS 密钥进行装载。
 
-* **确保端口 445 处于打开状态**：SMB 协议要求 TCP 端口 445 处于打开状态；如果端口 445 已阻止，连接将会失败。 可以使用 `Test-NetConnection` cmdlet 检查防火墙是否阻止了端口 445。 以下 PowerShell 代码假设已安装 AzureRM PowerShell 模块。有关详细信息，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。 请记得将 `<your-storage-account-name>` 和 `<your-resoure-group-name>` 替换为存储帐户的相关名称。
+* **确保端口 445 处于打开状态**：SMB 协议要求 TCP 端口 445 处于打开状态；如果端口 445 已阻止，连接将会失败。 可以使用 `Test-NetConnection` cmdlet 检查防火墙是否阻止了端口 445。 记得将 `your-storage-account-name` 替换为存储帐户的相应名称。
 
     ```PowerShell
-    $resourceGroupName = "<your-resource-group-name>"
-    $storageAccountName = "<your-storage-account-name>"
-
-    # This command requires you to be logged into your Azure account, run Login-AzureRmAccount if you haven't
-    # already logged in.
-    $storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
-
-    # The ComputerName, or host, is <storage-account>.file.core.chinacloudapi.cn for Azure Public Regions.
-    # $storageAccount.Context.FileEndpoint is used because non-Public Azure regions, such as soverign clouds
-    # or Azure Stack deployments, will have different hosts for Azure file shares (and other storage resources).
-    Test-NetConnection -ComputerName [System.Uri]::new($storageAccount.Context.FileEndPoint).Host -Port 445
+    Test-NetConnection -ComputerName <your-storage-account-name>.core.chinacloudapi.cn -Port 445
+    
     ```
 
     如果连接成功，应会看到以下输出：
@@ -137,7 +121,7 @@ User: AZURE\<your-storage-account-name>
 ```PowerShell
 $password = ConvertTo-SecureString -String "<service-account-password>" -AsPlainText -Force
 $credential = New-Object System.Management.Automation.PSCredential -ArgumentList "<service-account-username>", $password
-Start-Process -FileName PowerShell.exe -Credential $credential -LoadUserProfile
+Start-Process -FilePath PowerShell.exe -Credential $credential -LoadUserProfile
 ```
 
 这会在服务帐户（或用户帐户）的用户上下文中打开一个新的 PowerShell 窗口。 然后，可以根据[前面](#persisting-azure-file-share-credentials-in-windows)所述使用 cmdkey 实用工具。
@@ -210,6 +194,26 @@ Remove-PSDrive -Name <desired-drive-letter>
 
 7. 做好卸载 Azure 文件共享的准备后，可在文件资源管理器中右键单击“网络位置”下对应于共享的条目，并选择“断开连接”。
 
+### <a name="accessing-share-snapshots-from-windows"></a>从 Windows 访问共享快照
+如果已手动或通过脚本或 Azure 备份等服务自动获取共享快照，则可以从 Windows 上的文件共享查看以前版本的共享、目录或特定文件。 可以通过 [Azure 门户](storage-how-to-use-files-portal.md)、[Azure PowerShell](storage-how-to-use-files-powershell.md) 和 [Azure CLI](storage-how-to-use-files-cli.md) 获取共享快照。
+
+#### <a name="list-previous-versions"></a>列出以前版本
+浏览到需要还原的项或父项。 通过双击转到所需的目录。 右键单击，然后从菜单中选择“属性”。
+
+![所选目录的右键单击菜单](./media/storage-how-to-use-files-windows/snapshot-windows-previous-versions.png)
+
+选择"以前版本”，以查看此目录的共享快照列表。 列表可能需要几秒钟才能加载，具体要取决于网速和目录中共享快照的数量。
+
+![“以前版本”选项卡](./media/storage-how-to-use-files-windows/snapshot-windows-list.png)
+
+可以选择“打开”以打开特定快照。 
+
+![打开的快照](./media/storage-how-to-use-files-windows/snapshot-browse-windows.png)
+
+#### <a name="restore-from-a-previous-version"></a>从以前版本还原
+选择“还原”，以递归方式将整个目录在共享快照创建时包含的内容复制到原始位置。
+ ![警告消息中的“还原”按钮](./media/storage-how-to-use-files-windows/snapshot-windows-restore.png) 
+
 ## <a name="securing-windowswindows-server"></a>保护 Windows/Windows Server
 若要在 Windows 上装载 Azure 文件共享，端口 445 必须可访问。 由于 SMB 1 固有的安全风险，许多组织会阻止端口 445。 SMB 1（也称为通用 Internet 文件系统，简称 CIFS）是 Windows 和 Windows Server 中随附的一个传统文件系统协议。 SMB 1 是一个已过时的低效协议，最重要的是，它不安全。 好消息是 Azure 文件不支持 SMB 1，所有支持的 Windows 和 Windows Server 版本允许删除或禁用 SMB 1。 我们始终[强烈建议](https://aka.ms/stopusingsmb1)在生产环境中使用 Azure 文件共享之前，删除或禁用 Windows 中的 SMB 1 客户端和服务器。
 
@@ -272,13 +276,21 @@ Disable-WindowsOptionalFeature -Online -FeatureName SMB1Protocol
 
 无法在早期版本的 Windows/Windows Server 上完全删除 SMB 1，但可以通过注册表将其禁用。 若要禁用 SMB 1，请创建 `DWORD` 类型的新注册表项 `SMB1`，并在 `HKEY_LOCAL_MACHINE > SYSTEM > CurrentControlSet > Services > LanmanServer > Parameters` 下面添加值 `0`。
 
-也可以使用以下 PowerShell cmdlet 轻松实现此目的：
+也可使用以下 PowerShell cmdlet 轻松完成该操作：
 
 ```PowerShell
 Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters" SMB1 -Type DWORD -Value 0 –Force
 ```
+
+创建此注册表项以后，必须重启服务器才能禁用 SMB 1。
+
+### <a name="smb-resources"></a>SMB 资源
+- [Stop using SMB 1](https://blogs.technet.microsoft.com/filecab/2016/09/16/stop-using-smb1/)（停止使用 SMB 1）
+- [SMB 1 Product Clearinghouse](https://blogs.technet.microsoft.com/filecab/2017/06/01/smb1-product-clearinghouse/)（SMB 1 产品交换所）
+- [Discover SMB 1 in your environment with DSCEA](https://blogs.technet.microsoft.com/ralphkyttle/2017/04/07/discover-smb1-in-your-environment-with-dscea/)（使用 DSCEA 发现环境中的 SMB 1）
+- [Disabling SMB 1 through Group Policy](https://blogs.technet.microsoft.com/secguide/2017/06/15/disabling-smbv1-through-group-policy/)（通过组策略禁用 SMB 1）
+
 ## <a name="next-steps"></a>后续步骤
 请参阅以下链接，获取有关 Azure 文件的更多信息：
-
 * [常见问题](../storage-files-faq.md)
 * [在 Windows 上进行故障排除](storage-troubleshoot-windows-file-connection-problems.md)      

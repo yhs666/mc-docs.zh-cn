@@ -13,18 +13,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 07/12/2017
-ms.date: 06/25/2018
+ms.date: 09/04/2018
 ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: b6a85c9015efdb00dbd2413602a7e571d1c6647b
-ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
+ms.openlocfilehash: d2208b3d920a01311318280b807d6bf23b6cdd60
+ms.sourcegitcommit: e157751c560524d0bb828e987b87178130663547
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36947891"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43651295"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Azure AD Connect 同步：目录扩展
-目录扩展支持使用本地 Active Directory 中自己的属性来扩展 Azure AD 中的架构。 借助此功能，可以构建 LOB 应用并让其使用可继续在本地管理的属性。 可以通过 [Azure AD Graph 目录扩展](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions)或 [Microsoft Graph](https://graph.microsoft.io/) 使用这些属性。 可以分别使用 Azure AD Graph 资源管理器和 [Microsoft Graph 资源管理器](https://developer.microsoft.com/zh-cn/graph/graph-explorer-china)查看可用属性。
+通过目录扩展，可以使用本地 Active Directory 中的属性扩展 Azure AD 中的架构。 此功能允许使用继续在本地管理的属性来构建 LOB 应用。 可以通过 [Azure AD Graph API 目录扩展](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions)或 [Microsoft Graph](https://graph.microsoft.io/) 使用这些属性。 可以使用 [Azure AD Graph 资源管理器](https://developer.microsoft.com/zh-cn/graph/graph-explorer-china/)和 [Microsoft Graph 资源管理器](https://developer.microsoft.com/graph/graph-explorer)查看可用属性。
 
 目前，没有任何 Office 365 工作负荷使用这些属性。
 
@@ -51,14 +51,10 @@ Azure AD 中的对象最多可以有 100 个目录扩展属性。 最大长度�
 ![架构扩展应用](./media/active-directory-aadconnectsync-feature-directory-extensions/extension3new.png)
 
 这些属性带有 extension \_{AppClientId}\_ 前缀。 对于 Azure AD 租户中的所有属性，AppClientId 具有相同的值。
-现在可以通过 Graph 使用这些属性：  
-![Azure AD 图形资源管理器](./media/active-directory-aadconnectsync-feature-directory-extensions/extension4.png)
-
-这些属性的前面带有扩展名 \_{AppClientId}\_ 前缀。 Azure AD 租户中的所有属性具有相同的 AppClientId 值。
 
 ## <a name="next-steps"></a>后续步骤
 了解有关 [Azure AD Connect 同步](active-directory-aadconnectsync-whatis.md)配置的详细信息。
 
 了解有关[将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)的详细信息。
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

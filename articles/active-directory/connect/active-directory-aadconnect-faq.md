@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/05/2018
-ms.date: 08/06/2018
+ms.date: 09/04/2018
 ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: b9756f118118f87a28b42ee2b03ea7bb15e1a902
-ms.sourcegitcommit: 7cdf4633aea04e524cb48cb1990b750ae8be841c
+ms.openlocfilehash: 0f3489b84849a491e4a831e22a9b493ed1a1720d
+ms.sourcegitcommit: e157751c560524d0bb828e987b87178130663547
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39584292"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43649590"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Azure Active Directory Connect 常见问题解答
 
@@ -53,7 +53,7 @@ ms.locfileid: "39584292"
 3. 针对现有的[远程 SQL 数据库](active-directory-aadconnect-existing-database.md)安装 Azure AD Connect。
    本文演示了如何改用本地 SQL 数据库。 如果改用远程 SQL 数据库，则在此过程的步骤 5 中，还必须输入用于运行 Windows 同步服务的现有服务帐户。 下面描述了此同步引擎服务帐户：
    
-      **使用现有的服务帐户**：默认情况下，Azure AD Connect 将虚拟服务帐户用于为要使用的同步服务。 如果使用远程 SQL Server 实例或使用需要身份验证的代理，请使用托管服务帐户，或者使用域中的服务帐户并知道密码。 在这些情况下，请输入要使用的帐户。 确保运行安装的用户是 SQL 中的系统管理员，以便可以创建服务帐户的登录凭据。 有关详细信息，请参阅 [Azure AD Connect 帐户和权限](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account)。 
+      **使用现有的服务帐户**：默认情况下，Azure AD Connect 将虚拟服务帐户用于为要使用的同步服务。 如果使用远程 SQL Server 实例或使用需要身份验证的代理，请使用托管服务帐户，或者使用域中的服务帐户并知道密码。 在这些情况下，请输入要使用的帐户。 确保运行安装的用户是 SQL 中的系统管理员，以便可以创建服务帐户的登录凭据。 有关详细信息，请参阅 [Azure AD Connect 帐户和权限](active-directory-aadconnect-accounts-permissions.md#adsync-service-account)。 
    
       现在，在使用最新版本的情况下，可以由 SQL 管理员在带外进行数据库预配，然后由具有数据库所有者权限的 Azure AD Connect 管理员完成安装。 有关详细信息，请参阅[使用 SQL 委派的管理员权限安装 Azure AD Connect](active-directory-aadconnect-sql-delegation.md)。
 
@@ -133,11 +133,11 @@ Azure AD Connect 不支持纯 IPv6 环境。
 
 若要手动进行升级，必须下载并运行最新版的 AADConnect.msi 文件。
  
-- 如果当前版本低于 1.1.750.0，请[下载并升级到最新版本](https://www.microsoft.com/en-us/download/details.aspx?id=47594)。
+-  如果当前版本低于 1.1.750.0，请[下载并升级到最新版本](https://www.microsoft.com/download/details.aspx?id=47594)。
 - 如果 Azure AD Connect 版本为 1.1.750.0 或更高，则不需要采取其他措施。 所用的版本已包含自动升级修复程序。 
 
 **问：我收到一封电子邮件，要求我升级到最新版本，以便重新启用自动升级。我使用的版本是 1.1.654.0，需要升级吗？**  
-需要。需要升级到 1.1.750.0 或更高版本才能重新启用自动升级。 [下载并升级到最新版本](https://www.microsoft.com/en-us/download/details.aspx?id=47594)。
+需要。需要升级到 1.1.750.0 或更高版本才能重新启用自动升级。 [下载并升级到最新版本](https://www.microsoft.com/download/details.aspx?id=47594)。
 
 **问：我收到一封电子邮件，要求我升级到最新版本，以便重新启用自动升级。如果我已经通过 PowerShell 启用了自动升级，是否仍需安装最新版本？**  
 是的，仍需要升级到 1.1.750.0 或更高版本。 通过 PowerShell 启用自动升级服务不会解决在 1.1.750.0 之前的版本中发现的自动升级问题。
@@ -182,8 +182,6 @@ Azure AD Connect 服务偶尔会在升级以后无法启动。 在这种情况�
 
 ## <a name="troubleshooting"></a>故障排除
 **问：如何获取有关 Azure AD Connect 的帮助？**
-
-[搜索 Microsoft 知识库 (KB)](https://www.microsoft.com/en-us/Search/result.aspx?q=azure%20active%20directory%20connect&form=mssupport)
 
 - 在知识库 (KB) 中搜索有关 Azure AD Connect 支持的常见故障维修服务问题的技术解决方案。
 

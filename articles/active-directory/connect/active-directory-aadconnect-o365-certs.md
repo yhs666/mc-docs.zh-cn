@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 10/20/2017
-ms.date: 06/25/2018
+ms.date: 09/04/2018
 ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 06799f882e410cae3113b557585d3bc6d78deafe
-ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
+ms.openlocfilehash: 65863a9093dce6b29ef43e5aac718f9a03c45275
+ms.sourcegitcommit: e157751c560524d0bb828e987b87178130663547
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36947884"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43651285"
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>续订 Office 365 和 Azure Active Directory 的联合身份验证证书
 ## <a name="overview"></a>概述
@@ -62,9 +62,7 @@ Azure AD 将尝试监视联合元数据，并按照此元数据的指示更新�
 ### <a name="step-1-check-the-autocertificaterollover-state"></a>步骤 1：检查 AutoCertificateRollover 状态
 在 AD FS 服务器上打开 PowerShell。 检查 AutoCertRollover 值是否设置为 True。
 
-```
-Get-Adfsproperties
-```
+    Get-Adfsproperties
 
 ![AutoCertificateRollover](./media/active-directory-aadconnect-o365-certs/autocertrollover.png)
 
@@ -72,22 +70,24 @@ Get-Adfsproperties
 >如果使用的是 AD FS 2.0，请先运行 Add-Pssnapin Microsoft.Adfs.Powershell。
 
 ### <a name="step-2-confirm-that-ad-fs-and-azure-ad-are-in-sync"></a>步骤 2：确认 AD FS 和 Azure AD 已同步
-在 AD FS 服务器上打开 Azure AD PowerShell 提示符，并连接到 Azure AD。
+在 AD FS 服务器上，打开 MSOnline PowerShell 提示符，并连接到 Azure AD。
 
 > [!NOTE]
-> 可在 [此处](https://technet.microsoft.com/library/jj151815.aspx)下载 Azure AD PowerShell。
->
+> MSOL-Cmdlet 是 MSOnline PowerShell 模块的一部分。
+> 可以直接从 PowerShell 库下载 MSOnline PowerShell 模块。
+> 
 >
 
-```
-Connect-MsolService -AzureEnvironment AzureChinaCloud
-```
+    Install-Module MSOnline
+
+使用 MSOnline PowerShell-Module 连接到 Azure AD。
+
+    Import-Module MSOnline
+    Connect-MsolService -AzureEnvironment AzureChinaCloud
 
 检查 AD FS 和 Azure AD 信任属性中针对指定域配置的证书。
 
-```
-Get-MsolFederationProperty -DomainName <domain.name> | FL Source, TokenSigningCertificate
-```
+    Get-MsolFederationProperty -DomainName <domain.name> | FL Source, TokenSigningCertificate
 
 ![Get-MsolFederationProperty](./media/active-directory-aadconnect-o365-certs/certsync.png)
 
@@ -182,4 +182,4 @@ https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 
 有关 AD FS 中令牌签名证书的详细信息，请参阅[获取和配置 AD FS 令牌签名证书和令牌解密证书](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ts-td-certs-ad-fs)
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

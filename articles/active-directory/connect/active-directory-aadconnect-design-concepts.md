@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Identity
-origin.date: 05/30/2018
-ms.date: 06/22/2018
+origin.date: 08/10/2018
+ms.date: 09/04/2018
 ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 07d77beabf365fcb3a1692c8db2483d4950c003c
-ms.sourcegitcommit: d744d18624d2188adbbf983e1c1ac1110d53275c
+ms.openlocfilehash: 4f71117bdb66fd7f225c87af20f1a63a8bdba0d2
+ms.sourcegitcommit: e157751c560524d0bb828e987b87178130663547
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36314285"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43650812"
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect：设计概念
 本文档旨在说明 Azure AD Connect 实现设计期间必须考虑到的各个方面。 本文档是特定领域的深入探讨，其他文档中也简要描述了这些概念。
@@ -71,22 +71,22 @@ sourceAnchor 属性区分大小写。 “JohnDoe”与“johndoe”是不同的�
 
 - 只能在初始安装期间设置 sourceAnchor 属性。 如果重新运行安装向导，此选项显示为只读。 如果需要更改此设置，则必须卸载并重新安装。
 - 如果要安装其他 Azure AD Connect 服务器，则必须选择以前所用的同一 sourceAnchor 属性。 如果以前使用 DirSync，现在想要迁移到 Azure AD Connect，则必须使用 **objectGUID** ，因为这是 DirSync 所用的属性。
-- 如果 sourceAnchor 值在对象导出到 Azure AD 之后发生更改，Azure AD Connect Sync 将引发错误，并且不允许在更正问题且在源目录中改回 sourceAnchor 之前，对此对象进行任何其他更改。
+- 如果 sourceAnchor 值在对象导出到 Azure AD 之后发生更改，Azure AD Connect 同步服务会引发错误，并且在更正问题且在源目录中改回 sourceAnchor 之前，不允许对此对象进行任何其他更改。
 
-## <a name="using-msds-consistencyguid-as-sourceanchor"></a>将 msDS-ConsistencyGuid 用作 sourceAnchor
-默认情况下，Azure AD Connect（1.1.486.0 及更低版本）将 objectGUID 用作 sourceAnchor 属性。 ObjectGUID 是系统生成的。 创建本地 AD 对象时，不能指定其值。 如 [sourceAnchor](#sourceanchor) 部分所述，在某些情况下，需要指定 sourceAnchor 值。 如果这些方案适合你的情况，则必须使用可配置的 AD 属性（例如 msDS-ConsistencyGuid）作为 sourceAnchor 属性。
+## <a name="using-ms-ds-consistencyguid-as-sourceanchor"></a>将 ms-DS-ConsistencyGuid 用作 sourceAnchor
+默认情况下，Azure AD Connect（1.1.486.0 及更低版本）将 objectGUID 用作 sourceAnchor 属性。 ObjectGUID 是系统生成的。 创建本地 AD 对象时，不能指定其值。 如 [sourceAnchor](#sourceanchor) 部分所述，在某些情况下，需要指定 sourceAnchor 值。 如果方案适用，则必须使用可配置的 AD 属性（例如 ms-DS-ConsistencyGuid）作为 sourceAnchor 属性。
 
-Azure AD Connect（1.1.524.0 及更高版本）现在可以方便地将 msDS-ConsistencyGuid 用作 sourceAnchor 属性。 使用此功能时，Azure AD Connect 会自动配置同步规则，以便：
+Azure AD Connect（1.1.524.0 及更高版本）现可帮助你将 ms-DS-ConsistencyGuid 用作 sourceAnchor 属性。 使用此功能时，Azure AD Connect 会自动配置同步规则，以便：
 
-1. 将 msDS-ConsistencyGuid 用作用户对象的 sourceAnchor 属性。 ObjectGUID 用于其他对象类型。
+1. 将 ms-DS-ConsistencyGuid 用作用户对象的 sourceAnchor 属性。 ObjectGUID 用于其他对象类型。
 
-2. 对于任何给定的本地 AD 用户对象，如果其 msDS-ConsistencyGuid 属性未填充，Azure AD Connect 会将其 objectGUID 值写回到本地 Active Directory 中的 msDS-ConsistencyGuid 属性。 填充 msDS-ConsistencyGuid 属性以后，Azure AD Connect 就会将对象导出到 Azure AD。
+2. 对于任何给定的本地 AD 用户对象，如果其 ms-DS-ConsistencyGuid 属性未填充，Azure AD Connect 会将其 objectGUID 值写回到本地 Active Directory 中的 ms-DS-ConsistencyGuid 属性。 填充 ms-DS-ConsistencyGuid 属性后，Azure AD Connect 会将对象导出到 Azure AD。
 
 >[!NOTE]
-> 一旦将本地 AD 对象导入 Azure AD Connect（即，导入 AD 连接器空间并投影到 Metaverse），就再也不能更改其 sourceAnchor 值。 若要为给定的本地 AD 对象指定 sourceAnchor 值，请先配置其 msDS-ConsistencyGuid 属性，然后再将其导入 Azure AD Connect。
+> 一旦将本地 AD 对象导入 Azure AD Connect（即，导入 AD 连接器空间并投影到 Metaverse），就再也不能更改其 sourceAnchor 值。 要为给定的本地 AD 对象指定 sourceAnchor 值，请先配置其 ms-DS-ConsistencyGuid 属性，然后再将其导入 Azure AD Connect。
 
 ### <a name="permission-required"></a>所需的权限
-若要使用此功能，必须向用来通过本地 Active Directory 进行同步的 AD DS 帐户授予对本地 Active Directory 中的 msDS-ConsistencyGuid 属性的写入权限。
+要使用此功能，必须向用于通过本地 Active Directory 进行同步的 AD DS 帐户授予对本地 Active Directory 中的 ms-DS-ConsistencyGuid 属性的写入权限。
 
 ### <a name="how-to-enable-the-consistencyguid-feature---new-installation"></a>如何启用 ConsistencyGuid 功能 - 全新安装
 可以在全新安装期间实现将 ConsistencyGuid 用作 sourceAnchor。 本部分详细介绍了快速安装和自定义安装两种情况。
@@ -105,7 +105,7 @@ Azure AD Connect（1.1.524.0 及更高版本）现在可以方便地将 msDS-Con
   >[!NOTE]
   > 只有较新版本的 Azure AD Connect（1.1.524.0 及更高版本）会将安装期间使用的 sourceAnchor 属性的相关信息存储在 Azure AD 租户中。 较旧版本的 Azure AD Connect 不这样做。
 
-- 如果有关所用 sourceAnchor 属性的信息不可用，则向导会在本地 Active Directory 中检查 msDS-ConsistencyGuid 属性的状态。 如果未在目录中的任何对象上配置该属性，向导会将 msDS-ConsistencyGuid 用作 sourceAnchor 属性。 如果已在目录中的一个或多个对象上配置该属性，向导就会认为该属性正由其他应用程序使用，不适合用作 sourceAnchor 属性...
+- 如果所用的 sourceAnchor 属性的相关信息不可用，向导会检查你本地 Active Directory 中的 ms-DS-ConsistencyGuid 属性的状态。 如果该属性未在目录中的任何对象上配置，向导会将 ms-DS-ConsistencyGuid 用作 sourceAnchor 属性。 如果已在目录中的一个或多个对象上配置该属性，向导就会认为该属性正由其他应用程序使用，不适合用作 sourceAnchor 属性...
 
 - 在这种情况下，向导将回退为使用 objectGUID 作为 sourceAnchor 属性。
 
@@ -141,7 +141,7 @@ Azure AD Connect（1.1.524.0 及更高版本）现在可以方便地将 msDS-Con
 
 3. 输入 Azure AD 管理员凭据并单击“下一步”。
 
-4. Azure AD Connect 向导会分析本地 Active Directory 中 msDS-ConsistencyGuid 属性的状态。 如果未在目录中的任何对象上配置该属性，则 Azure AD Connect 会断定当前没有任何其他应用程序在使用该属性，可以放心将该属性用作“源定位点”属性。 单击“下一步”以继续操作。
+4. Azure AD Connect 向导会分析本地 Active Directory 中 ms-DS-ConsistencyGuid 属性的状态。 如果未在目录中的任何对象上配置该属性，则 Azure AD Connect 会断定当前没有任何其他应用程序在使用该属性，可以放心将该属性用作“源定位点”属性。 单击“下一步”以继续操作。
 
    ![为现有部署启用 ConsistencyGuid - 步骤 4](./media/active-directory-aadconnect-design-concepts/consistencyguidexistingdeployment02.png)
 
@@ -149,7 +149,7 @@ Azure AD Connect（1.1.524.0 及更高版本）现在可以方便地将 msDS-Con
 
    ![为现有部署启用 ConsistencyGuid - 步骤 5](./media/active-directory-aadconnect-design-concepts/consistencyguidexistingdeployment03.png)
 
-6. 在配置完成后，向导会指出 msDS-ConsistencyGuid 现在正用作“源定位点”属性。
+6. 完成配置后，该向导将指示 ms-DS-ConsistencyGuid 现正用作 Source Anchor 属性。
 
    ![为现有部署启用 ConsistencyGuid - 步骤 6](./media/active-directory-aadconnect-design-concepts/consistencyguidexistingdeployment04.png)
 
@@ -171,7 +171,7 @@ Azure AD Connect（1.1.524.0 及更高版本）现在可以方便地将 msDS-Con
 ![第三方联合身份验证配置](./media/active-directory-aadconnect-design-concepts/consistencyGuid-03.png)
 
 ### <a name="adding-new-directories-to-existing-deployment"></a>向现有部署添加新目录
-假设你在部署 Azure AD Connect 时启用了 ConsistencyGuid 功能，现在要将另一目录添加到部署中。 尝试添加目录时，Azure AD Connect 向导会检查目录中 mSDS-ConsistencyGuid 属性的状态。 如果已在目录中的一个或多个对象上配置该属性，向导就会认为该属性正由其他应用程序使用，于是返回一个错误，如下图所示。 如果确定该属性未由现有应用程序使用，则需联系支持部门，了解如何取消显示该错误。
+假设你在部署 Azure AD Connect 时启用了 ConsistencyGuid 功能，现在要将另一目录添加到部署中。 尝试添加目录时，Azure AD Connect 向导会检查目录中 ms-DS-ConsistencyGuid 属性的状态。 如果已在目录中的一个或多个对象上配置该属性，向导就会认为该属性正由其他应用程序使用，于是返回一个错误，如下图所示。 如果确定该属性未由现有应用程序使用，则需联系支持部门，了解如何取消显示该错误。
 
 ![向现有部署添加新目录](./media/active-directory-aadconnect-design-concepts/consistencyGuid-04.png)
 

@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/31/2018
-ms.date: 06/26/2018
+ms.date: 09/04/2018
 ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 72f7bf0df1e0a66cf9cf3a8e022188c9893ffccc
-ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
+ms.openlocfilehash: 519dc3bd29847efe32f6856aa814066e5d8ec2c5
+ms.sourcegitcommit: e157751c560524d0bb828e987b87178130663547
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36947978"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43652249"
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>排查同步过程中发生的错误
 将标识数据从 Windows Server Active Directory (AD DS) 同步到 Azure Active Directory (Azure AD) 时可能会发生错误。 本文概述不同类型的同步错误、导致这些错误的某些可能情况，以及这些错误的可能解决方法。 本文介绍常见错误类型，不一定涵盖所有可能的错误。
@@ -219,5 +219,6 @@ a. 确保 userPrincipalName 属性包含支持的字符并使用所需的格式�
 
 ## <a name="related-links"></a>相关链接
 - [Locate Active Directory Objects in Active Directory Administrative Center（在 Active Directory 管理中心查找 Active Directory 对象）](https://technet.microsoft.com/library/dd560661.aspx)
+- [How to query Azure Active Directory for an object using Azure Active Directory PowerShell（如何使用 Azure Active Directory PowerShell 在 Azure Active Directory 中查询对象）](https://msdn.microsoft.com/library/azure/jj151815.aspx)
 
 <!--Update_Description: wording update -->

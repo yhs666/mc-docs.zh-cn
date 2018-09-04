@@ -1,20 +1,20 @@
 ---
-title: 使用 Azure 导入/导出将数据传输到 Azure Blob | Azure
+title: 使用 Azure 导入/导出将数据传输到 Azure Blob | Microsoft Docs
 description: 了解如何在 Azure 门户中创建导入和导出作业，以便将数据传入和传出 Azure Blob。
 author: WenJason
-manager: digimobile
 services: storage
 ms.service: storage
 ms.topic: article
-origin.date: 05/17/2018
-ms.date: 07/02/2018
+origin.date: 07/17/2018
+ms.date: 09/10/2018
 ms.author: v-jay
-ms.openlocfilehash: 84312ecc4ddb62fdd03762b583fdceba51ecf6fd
-ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
+ms.component: common
+ms.openlocfilehash: c684e1e86408a2515b0f9e2ac184f7a0b84173b4
+ms.sourcegitcommit: e157751c560524d0bb828e987b87178130663547
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103137"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43651975"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>使用 Azure 导入/导出服务将数据导入到 Azure Blob 存储
 
@@ -25,7 +25,9 @@ ms.locfileid: "37103137"
 在创建导入作业来将数据传输到 Azure Blob 存储之前，请仔细查看并完成此服务的以下先决条件列表。 必须具备以下条件：
 
 - 拥有可用于导入/导出服务的有效 Azure 订阅。
-- 拥有至少一个包含存储容器的 Azure 存储帐户。 请参阅[导入/导出服务支持的存储帐户和存储类型](storage-import-export-requirements.md)的列表。 有关创建新存储帐户的信息，请参阅[如何创建存储帐户](storage-create-storage-account.md#create-a-storage-account)。 有关存储容器的信息，请转到[创建存储容器](../blobs/storage-quickstart-blobs-portal.md#create-a-container)。
+- 拥有至少一个包含存储容器的 Azure 存储帐户。 请参阅[导入/导出服务支持的存储帐户和存储类型](storage-import-export-requirements.md)的列表。 
+    - 有关创建新存储帐户的信息，请参阅[如何创建存储帐户](storage-create-storage-account.md#create-a-storage-account)。 
+    - 有关存储容器的信息，请转到[创建存储容器](../blobs/storage-quickstart-blobs-portal.md#create-a-container)。
 - 拥有[受支持类型](storage-import-export-requirements.md#supported-disks)的足够数量的磁盘。 
 - 拥有运行[受支持 OS 版本](storage-import-export-requirements.md#supported-operating-systems)的 Windows 系统。 
 - 在 Windows 系统上启用 BitLocker。 请参阅[如何启用 BitLocker](http://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/)。
@@ -108,7 +110,10 @@ ms.locfileid: "37103137"
 
     - 从下拉列表中选择承运商。
     - 输入你已在该承运商那里创建的有效承运商帐户编号。 当导入作业完成后，我们使用此帐户寄回驱动器。 如果没有帐户编号，请创建一个 EMS 承运商帐户。
-    - 提供完整、有效的联系人姓名、电话号码、电子邮件地址、街道地址、城市、邮政编码、省/自治区/直辖市和国家/地区。
+    - 提供完整、有效的联系人姓名、电话号码、电子邮件地址、街道地址、城市、邮政编码、省/自治区/直辖市和国家/地区。 
+        
+        > [!TIP] 
+        > 请提供组电子邮件，而非为单个用户指定电子邮件地址。 这可确保即使管理员离开也会收到通知。
 
     ![创建导入作业 - 步骤 3](./media/storage-import-export-data-to-blobs/import-to-blob5.png)
    
@@ -117,7 +122,7 @@ ms.locfileid: "37103137"
     - 在摘要中复查提供的作业信息。 记下作业名称和 Azure 数据中心送货地址，以便将将磁盘寄回 Azure。 稍后将在发货标签中使用此信息。
     - 单击“确定”以创建导入作业。
 
-    ![创建导入作业 - 步骤 4](./media/storage-import-export-data-to-blobs/import-to-blob4.png)
+    ![创建导入作业 - 步骤 4](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
 
 ## <a name="step-3-ship-the-drives"></a>步骤 3：寄送驱动器 
 
@@ -128,6 +133,9 @@ ms.locfileid: "37103137"
 
 [!INCLUDE [storage-import-export-update-job-tracking](../../../includes/storage-import-export-update-job-tracking.md)]
 
+## <a name="step-5-verify-data-upload-to-azure"></a>步骤 5：验证数据上传到 Azure
+
+跟踪作业直至完成。 作业完成后，验证数据已上传到 Azure。 仅在已确认上传成功后才删除本地数据。
 
 ## <a name="next-steps"></a>后续步骤
 

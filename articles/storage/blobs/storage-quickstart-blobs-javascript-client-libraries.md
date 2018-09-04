@@ -11,12 +11,12 @@ ms.author: v-johch
 origin.date: 04/06/2018
 ms.date: 05/07/2018
 ms.topic: quickstart
-ms.openlocfilehash: 646a6fb3934f56c5b849cc7af4a81d13a0af8484
-ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
+ms.openlocfilehash: e3933fe1301e6ff9d3b2bc95f93dd3e5c541c5ca
+ms.sourcegitcommit: e157751c560524d0bb828e987b87178130663547
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103083"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43651308"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 

@@ -1,29 +1,22 @@
 ---
-title: Azure 文件简介 | Azure
+title: Azure 文件简介 | Microsoft Docs
 description: 本文概述 Azure 文件服务，使用该服务可以通过行业标准 SMB 协议在云中创建和使用网络文件共享。
 services: storage
-documentationcenter: ''
-author: forester123
-manager: digimobile
-editor: tysonn
-ms.assetid: ''
+author: WenJason
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: get-started-article
-origin.date: 10/08/2017
-ms.date: 1/29/2018
-ms.author: v-johch
-ms.openlocfilehash: e871cc4767232e6ff272cd1a1d816a31adb29be6
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+origin.date: 07/19/2018
+ms.date: 09/10/2018
+ms.author: v-jay
+ms.openlocfilehash: 63d65374f78518923d8d3e94a475a3ed406deaa4
+ms.sourcegitcommit: e157751c560524d0bb828e987b87178130663547
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295734"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43651877"
 ---
 # <a name="introduction-to-azure-files"></a>Azure 文件简介
-Azure 文件在云中提供可以通过行业标准的[服务器消息块 (SMB) 协议](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)（也称为通用 Internet 文件系统，简称 CIFS）访问的完全托管文件共享。 Azure 文件共享可由云或者 Windows、Linux 和 macOS 的本地部署同时装载。 此外，可以使用 Azure 文件同步（预览版）将 Azure 文件共享缓存在 Windows  Server 上，以加快访问速度（与在数据使用位置进行访问的速度相当）。
+Azure 文件在云端提供完全托管的文件共享，这些共享项可通过行业标准的[服务器消息块 (SMB) 协议](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)进行访问。 Azure 文件共享可由云或者 Windows、Linux 和 macOS 的本地部署同时装载。 此外，可以使用 Azure 文件同步将 Azure 文件共享缓存在 Windows Server 上，以加快访问速度（与在数据使用位置进行访问的速度相当）。
 
 
 ## <a name="why-azure-files-is-useful"></a>为何 Azure 文件很有用

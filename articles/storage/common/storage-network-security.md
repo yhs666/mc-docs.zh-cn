@@ -14,12 +14,12 @@ ms.workload: storage
 origin.date: 10/25/2017
 ms.date: 06/11/2018
 ms.author: v-nany
-ms.openlocfilehash: 95d1e9b5c55b7e667194ea488d58869bcca6389a
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.openlocfilehash: 1f6c7569badecda2586032b002dedeeea7216448
+ms.sourcegitcommit: e157751c560524d0bb828e987b87178130663547
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295657"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43650937"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>配置 Azure 存储防火墙和虚拟网络
 Azure 存储提供一种分层安全模型，用于保护存储帐户，使其仅可供一组特定的许可网络访问。  配置网络规则时，只有来自许可网络的应用程序才能访问存储帐户。  从许可网络进行调用时，应用程序仍需获得正确的授权（有效的访问密钥或 SAS 令牌）才能访问存储帐户。

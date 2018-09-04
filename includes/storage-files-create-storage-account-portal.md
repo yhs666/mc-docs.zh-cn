@@ -9,12 +9,12 @@ origin.date: 03/28/2018
 ms.date: 06/11/2018
 ms.author: v-nany
 ms.custom: include file
-ms.openlocfilehash: 7b1900131988dfc26bed9893ed0fc9ae5409f1f4
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 06e007279cd474d58a4cda22652777d2d7bbfc15
+ms.sourcegitcommit: e157751c560524d0bb828e987b87178130663547
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38940333"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43649190"
 ---
 存储帐户是一个共享的存储池，可以在其中部署 Azure 文件共享或其他存储资源，例如 Blob 或队列。 一个存储帐户可以包含无数个共享。 一个共享可以存储无数个文件，直至达到存储帐户的容量限制为止。
 
@@ -26,7 +26,7 @@ ms.locfileid: "38940333"
 
 3. 在“名称”中，输入 *mystorageacct* 并后接一些随机数字，直到出现绿色对号，指明该名称是唯一的。 存储帐户名称必须全部为小写，且全局唯一。 记下存储帐户名称。 稍后将使用它。 
 4. 在“部署模型”中，保留默认值“资源管理器”。 若要详细了解 Azure 资源管理器与经典部署模型之间的差别，请参阅[了解部署模型和资源状态](../articles/azure-resource-manager/resource-manager-deployment-model.md)。
-5. 在“帐户类型”中，选择“StorageV1”。 若要详细了解不同类型的存储帐户，请参阅[了解 Azure 存储帐户](../articles/storage/common/storage-account-options.md?toc=%2fstorage%2ffiles%2ftoc.json)。
+5. 在“帐户类型”中，选择“StorageV2”。 若要详细了解不同类型的存储帐户，请参阅[了解 Azure 存储帐户](../articles/storage/common/storage-account-options.md?toc=%2fstorage%2ffiles%2ftoc.json)。
 6. 在“性能”，保留默认值“标准存储”。 Azure 文件目前仅支持标准存储；即使选择 Azure 高级存储，文件共享也会存储在标准存储中。
 7. 在“复制”中，选择“本地冗余存储(LRS)”。 
 8. 在“需要安全传输”中，我们建议始终选择“已启用”。 若要详细了解此选项，请参阅[了解传输中加密](../articles/storage/common/storage-require-secure-transfer.md?toc=%2fstorage%2ffiles%2ftoc.json)。

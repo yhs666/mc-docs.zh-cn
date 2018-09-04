@@ -9,16 +9,16 @@ ms.topic: article
 origin.date: 03/20/2018
 ms.date: 06/11/2018
 ms.author: v-nany
-ms.openlocfilehash: 2821e34cafeb6c671992940b2c86e0b6a20fc2f1
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: 3bbf11399dc7b555dfad9f02c65ba14ff0b6961b
+ms.sourcegitcommit: e157751c560524d0bb828e987b87178130663547
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867512"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43651009"
 ---
 # <a name="geo-redundant-storage-grs-cross-regional-replication-for-azure-storage"></a>异地冗余存储 (GRS)：Azure 存储的跨区域复制
 
-[!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-GRS.md)]
+[!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-grs.md)]
 
 ## <a name="see-also"></a>另请参阅
 

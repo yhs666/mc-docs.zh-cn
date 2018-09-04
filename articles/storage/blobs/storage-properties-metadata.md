@@ -1,41 +1,34 @@
 ---
-title: 在 Azure 存储中设置和检索对象属性和元数据 | Azure
+title: 在 Azure 存储中设置和检索对象属性和元数据 | Microsoft Docs
 description: 在 Azure 存储中存储对象的自定义元数据，并设置和检索系统属性。
 services: storage
-documentationcenter: ''
-author: forester123
-manager: digimobile
-editor: tysonn
-ms.assetid: 036f9006-273e-400b-844b-3329045e9e1f
+author: WenJason
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-origin.date: 05/15/2017
-ms.date: 10/30/2017
-ms.author: v-johch
-ms.openlocfilehash: 95e5b0b367fc7df203053d37b81523c310b8b814
-ms.sourcegitcommit: 0b0d3b61e91a97277de8eda8d7a8e114b7c4d8c1
+origin.date: 07/16/2017
+ms.date: 09/10/2017
+ms.author: v-jay
+ms.openlocfilehash: 6edb948ef32fb7d8165ca30ac11ce440ec6cb838
+ms.sourcegitcommit: e157751c560524d0bb828e987b87178130663547
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/23/2018
-ms.locfileid: "29527557"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43650810"
 ---
 # <a name="set-and-retrieve-properties-and-metadata"></a>设置和检索属性与元数据
 
 除 Azure 存储中的对象包含的数据外，它们还支持系统属性和用户定义的元数据。 本文介绍如何使用[用于 .NET 的 Azure 存储客户端库](https://www.nuget.org/packages/WindowsAzure.Storage/)管理系统属性和用户定义元数据。
 
-* 系统属性：系统属性存在于每个存储资源上。 其中一些属性是可以读取或设置的，而另一些属性是只读的。 事实上，有些系统属性与某些标准 HTTP 标头对应。 Azure 存储客户端库将维护这些内容。
+* 系统属性：系统属性存在于每个存储资源上。 其中一些属性是可以读取或设置的，而另一些属性是只读的。 事实上，有些系统属性与某些标准 HTTP 标头对应。 Azure 存储客户端库将保留这些属性。
 
-* 用户定义的元数据：用户定义的元数据是在给定资源上以名称/值对的形式指定的元数据。 可以使用元数据存储存储资源的其他值。 这些其他元数据值仅用于自己的目的，并不会影响资源的行为方式。
+* **用户定义的元数据**：用户定义元数据包含一个或多个你为 Azure 存储资源指定的名称/值对对。 可以使用元数据存储资源的其他值。 元数据值仅用于你自己的目的，不会影响资源的行为方式。
 
-检索资源的属性和元数据值的过程分为两步。 在可以读取这些值之前，你必须通过调用 FetchAttributesAsync 方法显式提取它们。
+检索资源的属性和元数据值的过程分为两步。 必须先通过调用 FetchAttributes 或 FetchAttributesAsync 方法显式提取这些值，然后才能读取。 对资源调用 Exists 或 ExistsAsync 方法是例外情况。 调用以上一种方法时，Azure 存储将在调用 Exists 方法时以隐藏方式调用相应的 FetchAttributes 方法。
 
 > [!IMPORTANT]
-> 除非调用 FetchAttributesAsync 方法之一，否则不会填充存储资源的属性和元数据值。
+> 如果发现尚未填充存储资源的属性或元数据值，请检查代码是否调用了 FetchAttributes 或 FetchAttributesAsync 方法。
 >
-> 如果任何名称/值对包含非 ASCII 字符，则会收到 `400 Bad Request` 。 元数据名称/值对是有效的 HTTP 标头，因此必须遵循所有控制 HTTP 标头的限制。 因此，对于包含非 ASCII 字符的名称和值，建议使用 URL 编码或 Base64 编码。
+> 元数据名称/值对仅可包含 ASCII 字符。 元数据名称/值对是有效的 HTTP 标头，因此必须遵循所有控制 HTTP 标头的限制。 对于包含非 ASCII 字符的名称和值，建议使用 URL 编码或 Base64 编码。
 >
 
 ## <a name="setting-and-retrieving-properties"></a>设置和检索属性
@@ -68,7 +61,7 @@ Console.WriteLine();
 ```
 
 ## <a name="setting-and-retrieving-metadata"></a>设置和检索元数据
-可以在 Blob 或容器资源上指定元数据作为一个或多个名称/值对。 如果要设置元数据，请将名称/值对添加到资源上的 Metadata 集合，并调用 SetMetadata 方法以将值保存到服务。
+可将元数据指定为 Blob 或容器资源上的一个或多个名称/值对。 要设置元数据，请将名称/值对添加到资源上的 Metadata 集合，然后调用 SetMetadata 或 SetMetadataAsync 方法以将值保存到服务。
 
 > [!NOTE]
 > 元数据的名称必须符合 C# 标识符命名约定。
@@ -89,7 +82,7 @@ public static async Task AddContainerMetadataAsync(CloudBlobContainer container)
 }
 ```
 
-如果要检索元数据，请对 blob 或容器调用 FetchAttributes 方法以填充 Metadata 集合，并读取值，如下面的示例所示。
+要检索元数据，请对 blob 或容器调用 FetchAttributes 或 FetchAttributesAsync 方法以填充 Metadata 集合，然后读取值，如下面的示例所示。
 
 ```csharp
 public static async Task ListContainerMetadataAsync(CloudBlobContainer container)
@@ -110,5 +103,3 @@ public static async Task ListContainerMetadataAsync(CloudBlobContainer container
 ## <a name="next-steps"></a>后续步骤
 * [用于 .NET 的 Azure 存储客户端库参考](https://docs.azure.cn/zh-cn/dotnet/api/overview/storage)
 * [用于 .NET NuGet 包的 Azure 存储客户端库](https://www.nuget.org/packages/WindowsAzure.Storage/)
-
-<!--Update_Description: update code to use async await pattern-->

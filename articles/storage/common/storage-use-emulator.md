@@ -1,26 +1,20 @@
 ---
-title: 使用 Azure 存储模拟器进行开发和测试 | Azure
-description: Azure 存储模拟器为开发和测试 Azure 存储应用程序提供了免费的本地开发环境。 了解如何对请求进行身份验证、如何从应用程序连接到模拟器以及如何使用命令行工具。
+title: 使用 Azure 存储模拟器进行开发和测试 | Microsoft Docs
+description: Azure 存储模拟器为开发和测试 Azure 存储应用程序提供了免费的本地开发环境。 了解如何对请求进行授权、如何从应用程序连接到模拟器以及如何使用命令行工具。
 services: storage
-documentationcenter: ''
-author: hayley244
-manager: digimobile
-editor: tysonn
-ms.assetid: f480b059-df8a-4a63-b05a-7f2f5d1f5c2a
+author: WenJason
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-origin.date: 05/17/2018
-ms.date: 07/30/2018
-ms.author: v-haiqya
-ms.openlocfilehash: 14727fa77982d3b2b6d74be9f436a4f3cd379ae8
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+origin.date: 08/10/2018
+ms.date: 09/10/2018
+ms.author: v-jay
+ms.component: common
+ms.openlocfilehash: f3bff932a0745905c92d47005b57a6fc70dcf133
+ms.sourcegitcommit: e157751c560524d0bb828e987b87178130663547
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295739"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43651411"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>使用 Azure 存储模拟器进行开发和测试
 
@@ -178,8 +172,7 @@ https://storageaccount.blob.core.chinacloudapi.cn/sascontainer?sv=2012-02-12&se=
 | **停止** |停止存储模拟器。 |`AzureStorageEmulator.exe stop` | |
 | **状态** |打印存储模拟器的状态。 |`AzureStorageEmulator.exe status` | |
 | **清除** |清除命令行上指定的所有服务中的数据。 |`AzureStorageEmulator.exe clear [blob] [table] [queue] [all]                                                    ` |*blob*：清除 Blob 数据。 <br/>*queue*：清除队列数据。 <br/>*table*：清除表数据。 <br/>*all*：清除所有服务中的所有数据。 |
-| **Init** |执行一次性初始化以设置模拟器。 |<code>AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate&#124;-skipcreate] [-reserveports&#124;-unreserveports] [-inprocess]</code> |*-server serverName\instanceName*：指定托管 SQL 实例的服务器。 <br/>*-sqlinstance instanceName*：指定要在默认服务器实例中使用的 SQL 实例的名称。 <br/>*-forcecreate*：强制创建 SQL 数据库，即使该数据库已经存在。 <br/>*-skipcreate*：跳过创建 SQL 数据库的步骤。 此命令优先于 -forcecreate。<br/>*-reserveports*：尝试保留与服务关联的 HTTP 端口。<br/>
-  *-unreserveports*：尝试取消保留与服务关联的 HTTP 端口。 此命令优先于 -reserveports。<br/>*-inprocess*：在当前进程而不是生成新的进程中执行初始化。 如果更改端口保留设置，必须使用提升的权限启动当前进程。 |
+| **Init** |执行一次性初始化以设置模拟器。 |<code>AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate&#124;-skipcreate] [-reserveports&#124;-unreserveports] [-inprocess]</code> |*-server serverName\instanceName*：指定托管 SQL 实例的服务器。 <br/>*-sqlinstance instanceName*：指定要在默认服务器实例中使用的 SQL 实例的名称。 <br/>*-forcecreate*：强制创建 SQL 数据库，即使该数据库已经存在。 <br/>*-skipcreate*：跳过创建 SQL 数据库的步骤。 此命令优先于 -forcecreate。<br/>*-reserveports*：尝试保留与服务关联的 HTTP 端口。<br/>*-unreserveports*：尝试取消保留与服务关联的 HTTP 端口。 此命令优先于 -reserveports。<br/>*-inprocess*：在当前进程而不是生成新的进程中执行初始化。 如果更改端口保留设置，必须使用提升的权限启动当前进程。 |
 
 ## <a name="differences-between-the-storage-emulator-and-azure-storage"></a>存储模拟器与 Azure 存储之间的差异
 因为存储模拟器是在本地的 SQL 实例中运行的模拟环境，所以模拟器与云中的 Azure 存储帐户之间存在功能差异：
@@ -213,6 +206,12 @@ https://storageaccount.blob.core.chinacloudapi.cn/sascontainer?sv=2012-02-12&se=
 
 ## <a name="storage-emulator-release-notes"></a>存储模拟器发行说明
 
+### <a name="version-57"></a>版本 5.7
+修复了启用日志记录时可能导致崩溃的 bug。
+
+### <a name="version-56"></a>版本 5.6
+* 存储模拟器现在支持 Blob、队列和表服务终结点上的 2018-03-28 版本的存储服务。
+
 ### <a name="version-55"></a>版本 5.5
 * 存储模拟器现在支持 Blob、队列和表服务终结点上的 2017-11-09 版本的存储服务。
 * 已添加对 blob **Created** 属性的支持，该属性返回 blob 的创建时间。
@@ -228,7 +227,7 @@ https://storageaccount.blob.core.chinacloudapi.cn/sascontainer?sv=2012-02-12&se=
 * 修复了表属性值未正确编码的 bug。
 
 ### <a name="version-51"></a>版本 5.1
-* 修复了一个 Bug。出现该 Bug 时，存储模拟器会在某些不包含服务的响应中返回 `DataServiceVersion` 标头。
+修复了一个 Bug。出现该 Bug 时，存储模拟器会在某些不包含服务的响应中返回 `DataServiceVersion` 标头。
 
 ### <a name="version-50"></a>版本 5.0
 * 存储模拟器安装程序不再检查现有的 MSSQL 和 .NET Framework 是否已安装。
@@ -281,4 +280,3 @@ https://storageaccount.blob.core.chinacloudapi.cn/sascontainer?sv=2012-02-12&se=
 * 评估跨平台的、由社区维护的开源存储模拟器 [Azurite](https://github.com/arafato/azurite)。 
 * [使用 .NET 的 Azure 存储示例](../storage-samples-dotnet.md)包含开发应用程序时可使用的多个代码示例的链接。
 * 可使用 [Azure 存储资源管理器](http://storageexplorer.com)处理云存储帐户和存储模拟器中的资源。
-<!--Update_Description: update link-->
