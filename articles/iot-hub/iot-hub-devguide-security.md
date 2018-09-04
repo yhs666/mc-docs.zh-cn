@@ -6,15 +6,15 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-origin.date: 02/12/2018
+origin.date: 07/18/2018
 ms.author: v-yiso
-ms.date: 08/06/2018
-ms.openlocfilehash: e2a5758188dc4e78135973c35aeca99f811ed924
-ms.sourcegitcommit: d4092cf6aba0d949bf612093c76f964c2bdfd0ba
+ms.date: 09/10/2018
+ms.openlocfilehash: b3849c5550cf3fe8243f1a042897dc8456eadb1b
+ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39306581"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43328884"
 ---
 # <a name="control-access-to-iot-hub"></a>控制对 IoT 中心的访问
 
@@ -35,7 +35,7 @@ ms.locfileid: "39306581"
 ## <a name="access-control-and-permissions"></a>访问控制和权限
 可以通过以下方式授予 [权限](#iot-hub-permissions) ：
 
-* **IoT 中心级别的共享访问策略**。 共享访问策略可以授予任意[权限](#iot-hub-permissions)组合。 可以在 [Azure 门户][lnk-management-portal]中定义策略，或使用 [IoT 中心资源提供程序 REST API][lnk-resource-provider-apis] 以编程方式定义策略。 新建的 IoT 中心有以下默认策略：
+* **IoT 中心级别的共享访问策略**。 共享访问策略可以授予任意[权限](#iot-hub-permissions)组合。 可使用 [IoT 中心资源 REST API][lnk-resource-provider-apis] 或使用 [az iot 中心策略](https://docs.microsoft.com/cli/azure/iot/hub/policy?view=azure-cli-latest) CLI 以编程方式在 [Azure 门户][lnk-management-portal]中定义策略。 新建的 IoT 中心有以下默认策略：
   
   | 共享访问策略 | 权限 |
   | -------------------- | ----------- |
@@ -272,7 +272,7 @@ SharedAccessSignature sr=myhub.azure-devices.net%2fdevices%2fdevice1&sig=13y8ejU
 ```
 
 > [!NOTE]
-> 可使用 .NET [设备资源管理器][lnk-device-explorer]工具或基于 Python 的跨平台 [Azure CLI 2.0 IoT 扩展][lnk-IoT-extension-CLI-2.0] 命令行实用程序生成 SAS 令牌。
+> 可使用[设备资源管理器][lnk-device-explorer]工具或基于 Python 的跨平台 [Azure CLI 2.0 IoT 扩展][lnk-IoT-extension-CLI-2.0] 命令行实用程序生成 SAS 令牌。
 > 
 > 
 
@@ -357,7 +357,7 @@ SharedAccessSignature sr=myhub.azure-devices.cn%2fdevices&sig=JdyscqTpXdEJs49elI
 
 设备可以使用 X.509 证书或安全令牌进行身份验证，但不能同时使用这两者。
 
-有关使用证书颁发机构进行身份验证的详细信息，请参阅 [对 X.509 CA 证书的概念性理解](iot-hub-x509ca-concept.md)。
+有关使用证书颁发机构进行身份验证的详细信息，请参阅[使用 X.509 CA 证书进行设备身份验证](iot-hub-x509ca-overview.md)。
 
 ### <a name="register-an-x509-certificate-for-a-device"></a>为设备注册 X.509 证书
 [用于 C# 的 Azure IoT 服务 SDK][lnk-service-sdk]（版本 1.0.8+）支持注册使用 X.509 证书进行身份验证的设备。 其他 API（例如设备的导入/导出）也支持 X.509 证书。
@@ -495,6 +495,6 @@ IoT 中心开发人员指南中的其他参考主题包括：
 [lnk-device-explorer]: https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer
 [lnk-IoT-extension-CLI-2.0]: https://github.com/Azure/azure-iot-cli-extension
 
-[lnk-getstarted-tutorial]: ./iot-hub-csharp-csharp-getstarted.md
+[lnk-getstarted-tutorial]: quickstart-send-telemetry-node.md
 [lnk-c2d-tutorial]: ./iot-hub-csharp-csharp-c2d.md
 [lnk-d2c-tutorial]: tutorial-routing.md

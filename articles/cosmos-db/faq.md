@@ -9,14 +9,14 @@ ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 07/03/2018
-ms.date: 08/13/2018
+ms.date: 09/03/2018
 ms.author: v-yeche
-ms.openlocfilehash: 6815fa6e4a7d0f9efaa5909f91271617ea74bf2b
-ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
+ms.openlocfilehash: 5b311f4c71cfa00225a9415387a98fc836fcf208
+ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41703964"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43164663"
 ---
 <!-- meta.description: GLOBALLY to multiple-region -->
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB 常见问题解答

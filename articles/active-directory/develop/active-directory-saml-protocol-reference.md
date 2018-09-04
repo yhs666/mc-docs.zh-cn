@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/21/2017
-ms.date: 08/06/2018
+ms.date: 09/03/2018
 ms.author: v-junlch
 ms.custom: aaddev
 ms.reviewer: hirsin, dastrock
-ms.openlocfilehash: f64380545bac42a88d52b4fe9db5d6646972e546
-ms.sourcegitcommit: 7cdf4633aea04e524cb48cb1990b750ae8be841c
+ms.openlocfilehash: 6fd4a36c2d88fec37ddf0e85102dfc3ecd67237f
+ms.sourcegitcommit: 562cde32fc2271238f3d1ef5d2cc5ed037bdec2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39584293"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43531561"
 ---
 # <a name="how-azure-active-directory-uses-the-saml-protocol"></a>Azure Active Directory 如何使用 SAML 协议
-Azure Active Directory (Azure AD) 使用 SAML 2.0 协议，使应用程序能够为其用户提供单一登录体验。 Azure AD 的[单一登录](active-directory-single-sign-on-protocol-reference.md)和[单一注销](active-directory-single-sign-out-protocol-reference.md) SAML 配置文件说明了如何在标识提供者服务中使用 SAML 断言、协议和绑定。
+Azure Active Directory (Azure AD) 使用 SAML 2.0 协议，使应用程序能够为其用户提供单一登录体验。 Azure AD 的[单一登录](single-sign-on-saml-protocol.md)和[单一注销](single-sign-out-saml-protocol.md) SAML 配置文件说明了如何在标识提供者服务中使用 SAML 断言、协议和绑定。
 
 SAML 协议要求标识提供者 (Azure AD) 与服务提供者（应用程序）交换有关自身的信息。
 
@@ -40,6 +40,6 @@ Azure Active Directory 公开特定于租户的和公用的（独立于租户的
 
 - 独立于租户的终结点位于 `https://login.partner.microsoftonline.cn/common/FederationMetadata/2007-06/FederationMetadata.xml`。 此终结点地址中显示 **common**，而不是租户域名或 ID。
 
-有关 Azure AD 发布的联合元数据文档的信息，请参阅 [Federation Metadata](active-directory-federation-metadata.md)（联合元数据）。
+有关 Azure AD 发布的联合元数据文档的信息，请参阅 [Federation Metadata](azure-ad-federation-metadata.md)（联合元数据）。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

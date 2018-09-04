@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 10/25/2017
 ms.date: 04/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 2f69038cccb3fa8f9829f6e5ff274680e92386f5
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: 18d60d3b1fbfbe0b3a0d01c072b047b81da8aac0
+ms.sourcegitcommit: b2c9bc0ed28e73e8c43aa2041c6d875361833681
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31781983"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43330728"
 ---
 # <a name="azure-cosmos-db-sql-api-documentation"></a>Azure Cosmos DB：SQL API 文档
 
@@ -35,8 +35,8 @@ ms.locfileid: "31781983"
 
 - [SQL API 简介](sql-api-introduction.md)
 - [数据库资源模型](sql-api-resources.md)
-- 网站：[查询板块](https://www.documentdb.com/sql/demo)
-- 备忘单：[SQL 语法](query-cheat-sheet.md)
+- 网站：[Query playground](https://www.documentdb.com/sql/demo)
+<!-- Not Available on - Cheat sheet: [SQL grammar](query-cheat-sheet.md)-->（查询板块）
 
 ## <a name="quickstarts"></a>快速入门
 
@@ -75,7 +75,7 @@ ms.locfileid: "31781983"
 
 - [导入数据](import-data.md)
 - [查询](tutorial-query-sql-api.md)
-- [全局分配数据](tutorial-global-distribution-sql-api.md)
+- [全球分配数据](tutorial-global-distribution-sql-api.md)
 <!-- Not Available ### Work with Azure Functions -->
 <!-- Not Available - [Create an Azure Cosmos DB trigger](../azure-functions/functions-create-cosmos-db-triggered-function.md) -->
 <!-- Not Available - [Use Azure Cosmos DB in input and output bindings](../azure-functions/functions-integrate-store-unstructured-data-cosmosdb.md) -->

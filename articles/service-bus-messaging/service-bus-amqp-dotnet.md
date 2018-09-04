@@ -1,5 +1,5 @@
 ---
-title: 服务总线与 .NET 和 AMQP 1.0 | Azure
+title: Azure 服务总线与 .NET 和 AMQP 1.0 | Azure
 description: 使用 AMQP 通过 .NET 使用 Azure 服务总线
 services: service-bus
 documentationCenter: na
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 12/21/2017
+origin.date: 08/16/2018
 ms.author: v-yiso
-ms.date: 06/04/2018
-ms.openlocfilehash: dbbbae4dbaf4d9d87f34542c1c119a1463083415
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.date: 09/10/2018
+ms.openlocfilehash: 7ccc4afe74aba8cc3aec26c251b9826bed6a6509
+ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554377"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43329181"
 ---
 # <a name="use-service-bus-from-net-with-amqp-10"></a>使用 AMQP 1.0 通过 .NET 使用服务总线
 
@@ -30,7 +30,7 @@ AMQP 1.0 支持在服务总线包 2.1 版或更高版本中提供。 为确保�
 
 默认情况下，Service Bus .NET 客户端库使用基于 SOAP 的专用协议与 Service Bus 服务通信。 若要使用 AMQP 1.0 而非默认协议，需要对服务总线连接字符串进行显式配置，如下一部分所述。 除了此更改之外，在使用 AMQP 1.0 时应用程序代码基本保持不变。
 
-在当前版本中，有一些在使用 AMQP 时不受支持的 API 功能。 这些不受支持的功能会在后面的[不支持的功能、限制和行为差异](#unsupported-features-restrictions-and-behavioral-differences)部分中列出。 在使用 AMQP 时，一些高级配置设置还具有不同的含义。
+在当前版本中，有一些在使用 AMQP 时不受支持的 API 功能。 这些不受支持的功能在[行为差异](#behavioral-differences)部分列出。 在使用 AMQP 时，一些高级配置设置还具有不同的含义。
 
 ### <a name="configuration-using-appconfig"></a>使用 App.config 进行配置
 

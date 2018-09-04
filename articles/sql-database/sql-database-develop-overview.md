@@ -1,22 +1,22 @@
 ---
-title: SQL 数据库应用程序开发概述 | Azure
+title: SQL 数据库应用程序开发概述 | Microsoft Docs
 description: 了解可用于连接到 SQL 数据库的连接库和最佳实践。
 services: sql-database
-author: forester123
+author: WenJason
 manager: digimobile
-editor: genemi
+ms.reviewer: genemi
 ms.service: sql-database
 ms.custom: develop apps
-ms.topic: article
+ms.topic: conceptual
 origin.date: 06/20/2018
-ms.date: 08/06/2018
-ms.author: v-johch
-ms.openlocfilehash: 939d029cb004c2465ba57dab0c5a24a6a7ea237b
-ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
+ms.date: 09/02/2018
+ms.author: v-jay
+ms.openlocfilehash: 140e1612dbabbe9d675fa7b1f62063889f5ebc72
+ms.sourcegitcommit: 2601e68563bffe148e70cce2bf1dcbe837a40f80
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39486727"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43249722"
 ---
 # <a name="sql-database-application-development-overview"></a>SQL 数据库应用程序开发概述
 本文逐步讲解开发人员在编写代码以连接到 Azure SQL 数据库时应考虑的基本注意事项。
@@ -36,8 +36,8 @@ ms.locfileid: "39486727"
 ## <a name="resource-limitations"></a>资源限制
 Azure SQL 数据库使用两种不同的机制管理可用于数据库的资源：资源调控和强制限制。 有关详细信息，请参阅：
 
-- [基于 DTU 的资源模型限制 - 单一数据库](sql-database-dtu-resource-limits-elastic-pools.md)
-- [基于 DTU 的资源模型限制 - 单一数据库](sql-database-dtu-resource-limits-elastic-pools.md)
+- [基于 DTU 的资源模型限制 - 单一数据库](sql-database-dtu-resource-limits-single-databases.md)
+- [基于 DTU 的资源模型限制 - 弹性池](sql-database-dtu-resource-limits-elastic-pools.md)
 - [基于 vCore 的资源限制 - 单一数据库](sql-database-vcore-resource-limits-single-databases.md)
 - [基于 vCore 的资源限制 - 弹性池](sql-database-vcore-resource-limits-elastic-pools.md)
 

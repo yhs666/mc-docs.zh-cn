@@ -3,7 +3,7 @@ title: Azure Functions HTTP 和 webhook 绑定
 description: 了解如何在 Azure Functions 中使用 HTTP 和 webhook 触发器和绑定。
 services: functions
 documentationcenter: na
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -14,14 +14,14 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 11/21/2017
-ms.date: 07/24/2018
+ms.date: 08/31/2018
 ms.author: v-junlch
-ms.openlocfilehash: 98ef704aa5cb2bca0a89d8f9c906bde024c2f62e
-ms.sourcegitcommit: ba07d76f8394b5dad782fd983718a8ba49a9deb2
+ms.openlocfilehash: d1b226f8ba858a221a0314da398cd67ba799555f
+ms.sourcegitcommit: b2c9bc0ed28e73e8c43aa2041c6d875361833681
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39220240"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43330788"
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Azure Functions HTTP 和 webhook 绑定
 
@@ -59,6 +59,7 @@ HTTP 触发器可进行自定义以响应 [Webhook](https://en.wikipedia.org/wik
 - [C# 脚本 (.csx)](#trigger---c-script-example)
 - [F#](#trigger---f-example)
 - [JavaScript](#trigger---javascript-example)
+- [Java](#trigger---java-example)
 
 ### <a name="trigger---c-example"></a>触发器 - C# 示例
 
@@ -276,6 +277,45 @@ module.exports = function(context, req) {
     }
     context.done();
 };
+```
+
+### <a name="trigger---java-example"></a>触发器 - Java 示例
+
+以下示例演示 *function.json* 文件中的一个触发器绑定以及使用该绑定的 [Java 函数](functions-reference-java.md)。 此函数返回 HTTP 状态代码为 200 的响应和请求正文，触发性的请求正文带有“Hello, ”问候语前缀。
+
+
+function.json 文件如下所示：
+
+```json
+{
+    "disabled": false,    
+    "bindings": [
+        {
+            "authLevel": "anonymous",
+            "type": "httpTrigger",
+            "direction": "in",
+            "name": "req"
+        },
+        {
+            "type": "http",
+            "direction": "out",
+            "name": "res"
+        }
+    ]
+}
+```
+
+下面是 Java 代码：
+
+```java
+@FunctionName("hello")
+public HttpResponseMessage<String> hello(@HttpTrigger(name = "req", methods = {"post"}, authLevel = AuthorizationLevel.ANONYMOUS), Optional<String> request,
+                        final ExecutionContext context) 
+    {
+        // default HTTP 200 response code
+        return String.format("Hello, %s!", request);
+    }
+}
 ```
      
 ## <a name="trigger---webhook-example"></a>触发器 - Webhook 示例

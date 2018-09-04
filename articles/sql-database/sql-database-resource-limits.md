@@ -1,21 +1,21 @@
 ---
-title: Azure SQL 数据库资源限制概述 | Azure
-description: 本页介绍 Azure SQL 数据库中单一数据库的一些常见资源限制（基于 DTU）。
+title: Azure SQL 数据库资源限制概述 | Microsoft Docs
+description: 本页介绍了 Azure SQL 数据库中单一数据库的一些常见资源限制（基于 DTU）。
 services: sql-database
-author: CarlRabeler
-manager: craigg
+author: WenJason
+manager: digimobile
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-origin.date: 07/02/2018
-ms.date: 08/06/2018
-ms.author: carlrab
-ms.openlocfilehash: f72de6a7d8f83c20a5821d918469e0bea437a83a
-ms.sourcegitcommit: 02c4716e07b3d83104fa419b379a15589ae8017e
+origin.date: 08/01/2018
+ms.date: 09/02/2018
+ms.author: v-jay
+ms.openlocfilehash: a942db4025f5e75e90268a7ab670de3e0c44e0d0
+ms.sourcegitcommit: 2601e68563bffe148e70cce2bf1dcbe837a40f80
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41704513"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43249639"
 ---
 # <a name="overview-azure-sql-database-resource-limits"></a>Azure SQL 数据库资源限制概述 
 
@@ -23,16 +23,18 @@ ms.locfileid: "41704513"
 
 ## <a name="what-is-the-maximum-number-of-servers-and-databases"></a>服务器和数据库的最大数目是多少？
 
-| 最大值 | 值 |
+| 最大值 | 逻辑服务器 |
 | :--- | :--- |
 | 每个服务器的数据库数 | 5000 |
 | 任意区域中每个订阅的服务器默认数量 | 20 个 |
 | 任意区域中每个订阅的服务器数上限 | 200 |
 | 每个服务器的 DTU/eDTU 配额 | 54,000 |
+| 每个服务器的 vCore 配额 | 540 |
+| 每个服务器的最大池数 | 受限于 DTU 或 vCore 数 |
 |||
 
 > [!NOTE]
-> 若要获得超过默认数量的 DTU/eDTU 配额或服务器，可以在 Azure 门户中为订阅提交问题类型为“配额”的新支持请求。 每个服务器的 DTU/eDTU 配额和数据库限制约束了每个服务器的弹性池数。 
+> 若要获得超过默认数量的 DTU/eDTU 配额、vCore 配额或服务器，可以在 Azure 门户中为订阅提交问题类型为“配额”的新支持请求。 每个服务器的 DTU/eDTU 配额和数据库限制约束了每个服务器的弹性池数。 
 
 > [!IMPORTANT]
 > 随着数据库的数量接近每个服务器的限制，可能出现以下情况：
@@ -57,6 +59,7 @@ ms.locfileid: "41704513"
 
 - 提高数据库或弹性池的大小上限，或添加更多存储资源。 请参阅[缩放单一数据库资源](sql-database-single-database-scale.md)和[缩放弹性池资源](sql-database-elastic-pool-scale.md)。
 - 如果数据库在弹性池内，那么可选择将数据库移出弹性池，从而避免与其他数据库共享存储空间。
+- 收缩数据库来回收未使用的空间。 有关详细信息，请参阅[管理 Azure SQL 数据库中的文件空间](sql-database-file-space-management.md)
 
 ### <a name="sessions-and-workers-requests"></a>会话和辅助角色（请求） 
 

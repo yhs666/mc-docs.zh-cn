@@ -13,22 +13,22 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/18/2016
-ms.date: 08/06/2018
+ms.date: 09/03/2018
 ms.author: v-junlch
 ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
-ms.openlocfilehash: e6488e5e677a4296497a4443b16070d049e7368e
-ms.sourcegitcommit: 7cdf4633aea04e524cb48cb1990b750ae8be841c
+ms.openlocfilehash: e61da6bbb86f81aa790ce14fdd20698a533fdc99
+ms.sourcegitcommit: 562cde32fc2271238f3d1ef5d2cc5ed037bdec2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39584304"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43531569"
 ---
 # <a name="signing-key-rollover-in-azure-active-directory"></a>Azure Active Directory 中的签名密钥滚动更新
 本文介绍了需要了解的有关 Azure Active Directory (Azure AD) 中用来为安全令牌签名的公钥的信息。 请务必注意，这些密钥会定期滚动更新，紧急情况下可立即滚动更新。 所有使用 Azure AD 的应用程序应该都能以编程方式处理密钥滚动更新过程，或建立定期手动滚动更新过程。 继续阅读，了解密钥工作方式、如何评估应用程序的滚动更新的影响以及如何更新应用程序，或者在必要时建立定期手动滚动更新过程来处理密钥滚动更新。
 
 ## <a name="overview-of-signing-keys-in-azure-ad"></a>Azure AD 中的签名密钥概述
-Azure AD 使用基于行业标准构建的公钥加密，在它自己和使用它的应用程序之间建立信任关系。 具体而言，它的工作方式如下：Azure AD 使用包含公钥和私钥对的签名密钥。 当用户登录到使用 Azure AD 进行身份验证的应用程序时，Azure AD 会创建一个包含用户相关信息的安全令牌。 此令牌由 Azure AD 使用其私钥进行签名，并会发送回应用程序。 若要验证该令牌是否有效且来自 Azure AD，应用程序必须使用由 Azure AD 公开，包含在租户的 [OpenID Connect 发现文档](http://openid.net/specs/openid-connect-discovery-1_0.html)或 SAML/WS-Fed [联合元数据文档](active-directory-federation-metadata.md)中的公钥来验证令牌的签名。
+Azure AD 使用基于行业标准构建的公钥加密，在它自己和使用它的应用程序之间建立信任关系。 具体而言，它的工作方式如下：Azure AD 使用包含公钥和私钥对的签名密钥。 当用户登录到使用 Azure AD 进行身份验证的应用程序时，Azure AD 会创建一个包含用户相关信息的安全令牌。 此令牌由 Azure AD 使用其私钥进行签名，并会发送回应用程序。 若要验证该令牌是否有效且来自 Azure AD，应用程序必须使用由 Azure AD 公开，包含在租户的 [OpenID Connect 发现文档](http://openid.net/specs/openid-connect-discovery-1_0.html)或 SAML/WS-Fed [联合元数据文档](azure-ad-federation-metadata.md)中的公钥来验证令牌的签名。
 
 出于安全考虑，Azure AD 的签名密钥会定期更新，且紧急情况下，可立即滚动更新。 任何与 Azure AD 集成的应用程序都应准备好处理密钥滚动更新事件，而不管滚动更新可能发生的频率是多少。 如果未准备就绪，且应用程序尝试使用过期密钥验证令牌上的签名，则登录请求会失败。
 
@@ -309,4 +309,4 @@ namespace JWTValidation
 ## <a name="how-to-perform-a-manual-rollover-if-your-application-does-not-support-automatic-rollover"></a>如果应用程序不支持自动滚动更新，如何执行手动滚动更新
 如果应用程序**不**支持自动滚动更新，则需要建立一个定期监视 Azure AD 签名密钥的过程，并手动执行相应滚动更新。 [此 GitHub 存储库](https://github.com/AzureAD/azure-activedirectory-powershell-tokenkey)包含脚本和如何执行此操作的说明。
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: link update -->

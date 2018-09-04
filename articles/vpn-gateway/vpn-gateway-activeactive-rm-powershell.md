@@ -3,8 +3,8 @@ title: 配置与 VPN 网关的主动-主动 S2S VPN 连接：Azure 资源管理�
 description: 本文逐步讲解如何使用 Azure 资源管理器和 PowerShell 配置包含 Azure VPN 网关的主动-主动连接。
 services: vpn-gateway
 documentationcenter: na
-author: yushwang
-manager: rossort
+author: WenJason
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 238cd9b3-f1ce-4341-b18e-7390935604fa
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 01/24/2018
-ms.date: 06/14/2018
-ms.author: v-junlch
-ms.openlocfilehash: e67b2bb346aebc7a9fd92ea1e4793877de74fa5d
-ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
+origin.date: 07/24/2018
+ms.date: 09/02/2018
+ms.author: v-jay
+ms.openlocfilehash: ba8c893951e9990fc41e3a78460088065d3ca69a
+ms.sourcegitcommit: e17577aca6df1a41d3ec164f33189f0435c5e060
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2018
-ms.locfileid: "35568349"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43252776"
 ---
 # <a name="configure-active-active-s2s-vpn-connections-with-azure-vpn-gateways"></a>配置与 Azure VPN 网关的主动-主动 S2S VPN 连接
 
@@ -32,34 +32,34 @@ ms.locfileid: "35568349"
 
 本文提供有关设置两个虚拟网络之间的主动-主动跨界 VPN 连接以及主动-主动连接的说明。
 
-- [第 1 部分 - 创建并配置采用主动-主动模式的 Azure VPN 网关](#aagateway)
-- [第 2 部分 - 建立主动-主动跨界连接](#aacrossprem)
-- [第 3 部分 - 建立主动-主动 VNet 到 VNet 连接](#aav2v)
+* [第 1 部分 - 创建并配置采用主动-主动模式的 Azure VPN 网关](#aagateway)
+* [第 2 部分 - 建立主动-主动跨界连接](#aacrossprem)
+* [第 3 部分 - 建立主动-主动 VNet 到 VNet 连接](#aav2v)
 
 如果已有 VPN 网关，则可以：
-- [将现有 VPN 网关从主动-待机更新至主动-主动，或反之](#aaupdate)
+* [将现有 VPN 网关从主动-待机更新至主动-主动，或反之](#aaupdate)
 
 可以将这些选项结合起来，构建符合要求的更复杂、高度可用的网络拓扑。
 
 > [!IMPORTANT]
 > 主动-主动模式仅使用以下 SKU： 
-  - VpnGw1、VpnGw2、VpnGw3
-  - HighPerformance（适用于旧的传统 SKU）
+  * VpnGw1、VpnGw2、VpnGw3
+  * HighPerformance（适用于旧的传统 SKU）
 > 
 > 
 
 ## <a name ="aagateway"></a>第 1 部分 - 创建并设置主动-主动 VPN 网关
 以下步骤将 Azure VPN 网关配置为主动-主动模式。 主动-主动与主机-待机网关之间的重要差异：
 
-- 需要使用两个公共 IP 地址创建两个网关 IP 配置
-- 需要设置 EnableActiveActiveFeature 标志
-- 网关 SKU 必须为 VpnGw1、VpnGw2、VpnGw3 或 HighPerformance（旧 SKU）。
+* 需要使用两个公共 IP 地址创建两个网关 IP 配置
+* 需要设置 EnableActiveActiveFeature 标志
+* 网关 SKU 必须为 VpnGw1、VpnGw2、VpnGw3 或 HighPerformance（旧 SKU）。
 
 其他属性与非主动-主动网关相同。 
 
 ### <a name="before-you-begin"></a>准备阶段
-- 确保拥有 Azure 订阅。 如果还没有 Azure 订阅，可以注册一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
-- 需要安装 Azure Resource Manager PowerShell cmdlet。 有关安装 PowerShell cmdlet 的详细信息，请参阅 [Azure PowerShell 概述](https://docs.microsoft.com/powershell/azure/overview)。
+* 确保拥有 Azure 订阅。 如果还没有 Azure 订阅，可以注册一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* 需要安装 Azure Resource Manager PowerShell cmdlet。 有关安装 PowerShell cmdlet 的详细信息，请参阅 [Azure PowerShell 概述](https://docs.microsoft.com/powershell/azure/overview)。
 
 ### <a name="step-1---create-and-configure-vnet1"></a>步骤 1 - 创建并配置 VNet1
 #### <a name="1-declare-your-variables"></a>1.声明变量
@@ -186,10 +186,10 @@ $BGPPeerIP51 = "10.52.255.253"
 
 关于本地网关参数，有几个事项需要注意：
 
-- 本地网关可以与 VPN 网关在相同或不同的位置和资源组中。 本示例显示它们位于不同的资源组，但位于相同的 Azure 位置。
-- 如果只有一个本地 VPN 设备（如上所示），则不管是否使用 BGP 协议，主动-主动连接都可正常工作。 本示例对跨界连接使用 BGP。
-- 如果 BGP 已启用，需要为本地网关声明的最小前缀是 VPN 设备上的 BGP 对等节点 IP 地址中的主机地址。 在此示例中，它是“10.52.255.253/32”中的 /32 前缀。
-- 提醒一下，在本地网络与 Azure VNet 之间必须使用不同的 BGP ASN。 如果它们是相同的，则需要更改 VNet ASN（如果本地 VPN 设备已使用该 ASN 与其他 BGP 邻居对等）。
+* 本地网关可以与 VPN 网关在相同或不同的位置和资源组中。 本示例显示它们位于不同的资源组，但位于相同的 Azure 位置。
+* 如果只有一个本地 VPN 设备（如上所示），则不管是否使用 BGP 协议，主动-主动连接都可正常工作。 本示例对跨界连接使用 BGP。
+* 如果 BGP 已启用，需要为本地网关声明的最小前缀是 VPN 设备上的 BGP 对等节点 IP 地址中的主机地址。 在此示例中，它是“10.52.255.253/32”中的 /32 前缀。
+* 提醒一下，在本地网络与 Azure VNet 之间必须使用不同的 BGP ASN。 如果它们是相同的，则需要更改 VNet ASN（如果本地 VPN 设备已使用该 ASN 与其他 BGP 邻居对等）。
 
 #### <a name="2-create-the-local-network-gateway-for-site5"></a>2.为 Site5 创建本地网关
 继续操作之前，请确保仍与订阅 1 保持连接。 创建资源组（如果尚未创建）。
@@ -208,7 +208,7 @@ $lng5gw1 = Get-AzureRmLocalNetworkGateway  -Name $LNGName51 -ResourceGroupName $
 ```
 
 #### <a name="2-create-the-testvnet1-to-site5-connection"></a>2.创建 TestVNet1 到 Site5 的连接
-在本步骤中，创建从 TestVNet1 到 Site5_1 的连接，其“EnableBGP”设置为 $True。
+在此步骤中，请创建从 TestVNet1 到 Site5_1 的连接，并将“EnableBGP”设置为 True。
 
 ```powershell
 New-AzureRmVirtualNetworkGatewayConnection -Name $Connection151 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng5gw1 -Location $Location1 -ConnectionType IPsec -SharedKey 'AzureA1b2C3' -EnableBGP True
@@ -416,9 +416,9 @@ Add-AzureRmVirtualNetworkGatewayIpConfig -VirtualNetworkGateway $gw -Name $GWIPc
 
 在此步骤中，启用主动-主动模式并更新网关。 在此示例中，VPN 网关当前正在使用旧的标准 SKU。 但是，主动-主动模式不支持此标准 SKU。 若要将旧的 SKU 调整为受支持的版本（在此情况下，为 HighPerformance），只需指定要使用的受支持旧 SKU。
 
-- 使用此步骤无法将旧的 SKU 更改为新的 SKU。 只能将旧的 SKU 调整为另一个受支持的旧 SKU。 例如，无法将 SKU 从标准更改为 VpnGw1（即使主动-主动支持 VpnGw1 ），因为标准是旧的 SKU，而 VpnGw1 是当前的 SKU。 有关调整和迁移 SKU 的详细信息，请参阅[网关 SKU](vpn-gateway-about-vpngateways.md#gwsku)。
+* 使用此步骤无法将旧的 SKU 更改为新的 SKU。 只能将旧的 SKU 调整为另一个受支持的旧 SKU。 例如，无法将 SKU 从标准更改为 VpnGw1（即使主动-主动支持 VpnGw1 ），因为标准是旧的 SKU，而 VpnGw1 是当前的 SKU。 有关调整和迁移 SKU 的详细信息，请参阅[网关 SKU](vpn-gateway-about-vpngateways.md#gwsku)。
 
-- 如果想要调整当前 SKU 的大小，例如将 VpnGw1 调整为 VpnGw3，可以使用此步骤，因为这些 SKU 都属于相同的 SKU 系列。 为此，可以使用此值：```-GatewaySku VpnGw3```
+* 如果想要调整当前 SKU 的大小，例如将 VpnGw1 调整为 VpnGw3，可以使用此步骤，因为这些 SKU 都属于相同的 SKU 系列。 为此，可以使用此值：```-GatewaySku VpnGw3```
 
 在你的环境中使用时，如果不需要调整网关大小，也就不需要指定 -GatewaySku。 请注意在此步骤中，必须在 PowerShell 中设置网关对象以触发实际更新。 即使不调整网关，此更新也可能需要花费 30 到 45 分钟。
 

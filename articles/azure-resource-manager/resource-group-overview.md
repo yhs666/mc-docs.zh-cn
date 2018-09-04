@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 06/25/2018
-ms.date: 08/13/2018
+origin.date: 07/16/2018
+ms.date: 09/03/2018
 ms.author: v-yeche
-ms.openlocfilehash: e3125ed66d4c515f004b03755058eb6c009a4138
-ms.sourcegitcommit: 543a18c71c0910a5b9878a2d2668f317468906f2
+ms.openlocfilehash: 93f1d085fd24ece2c34dbed386290f2d2302e254
+ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39625529"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43164724"
 ---
 # <a name="azure-resource-manager-overview"></a>Azure Resource Manager 概述
 应用程序的基础结构通常由许多组件构成 - 可能包括虚拟机、存储帐户和虚拟网络，也可能包括 Web 应用、数据库、数据库服务器和第三方服务。 这些组件不作为独立的实体出现，而是作为单个实体的相关部件和依赖部件出现。 如果希望以组的方式部署、管理和监视这些这些组件， 那么，可以使用 Azure 资源管理器以组的方式处理解决方案中的资源。 可以通过一个协调的操作为解决方案部署、更新或删除所有资源。 可以使用一个模板来完成部署，该模板适用于不同的环境，例如测试、过渡和生产。 Resource Manager 提供安全、审核和标记功能，以帮助你在部署后管理资源。 
@@ -41,8 +41,7 @@ ms.locfileid: "39625529"
 * **资源组** - 一个容器，用于保存 Azure 解决方案的相关资源。 资源组可以包含解决方案的所有资源，也可以只包含以组的形式进行管理的资源。 根据对组织有利的原则，决定如何将资源分配到资源组。 请参阅 [资源组](#resource-groups)。
 * **资源提供程序** — 一种服务，提供可以通过 Resource Manager 进行部署和管理的资源。 每个资源提供程序提供用于处理所部署资源的操作。 部分常见资源提供程序包括 Microsoft.Compute（提供虚拟机资源）、Microsoft.Storage（提供存储帐户资源）和 Microsoft.Web（提供与 Web 应用相关的资源）。 请参阅 [资源提供程序](#resource-providers)。
 * **Resource Manager 模板** — 一个 JavaScript 对象表示法 (JSON) 文件，用于定义一个或多个要部署到资源组的资源。 它也会定义所部署资源之间的依赖关系。 使用模板能够以一致方式反复部署资源。 请参阅 [模板部署](#template-deployment)。
-* 
-            **声明性语法** - 一种语法，允许声明“以下是我想要创建的项目”，而不需要编写一系列编程命令来进行创建。 Resource Manager 模板便是声明性语法的其中一个示例。 在该文件中，可以定义要部署到 Azure 的基础结构的属性。 
+* **声明性语法** - 一种语法，允许声明“以下是我想要创建的项目”，而不需要编写一系列编程命令来进行创建。 Resource Manager 模板便是声明性语法的其中一个示例。 在该文件中，可以定义要部署到 Azure 的基础结构的属性。 
 
 ## <a name="the-benefits-of-using-resource-manager"></a>使用 Resource Manager 的优势
 Resource Manager 提供多种优势：
@@ -67,6 +66,8 @@ Resource Manager 提供了一种新方法来部署和管理解决方案。 如�
 
 <!-- Not Available on [Azure enterprise scaffold - prescriptive subscription governance](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/subscription-governance)-->
 
+<!--Pending on [Develop Azure Resource Manager templates for cloud consistency](templates-cloud-consistency.md)--> 有关如何创建可以跨多个区域的 Azure、Azure 主权云和 Azure Stack 使用的资源管理器模板的建议，请参阅[开发用于实现云一致性的 Azure 资源管理器模板](templates-cloud-consistency.md)。
+
 ## <a name="resource-groups"></a>资源组
 定义资源组时，需要考虑以下几个重要因素：
 
@@ -88,7 +89,7 @@ Resource Manager 提供了一种新方法来部署和管理解决方案。 如�
 开始部署资源之前，应了解可用的资源提供程序。 了解资源提供程序和资源的名称可帮助定义想要部署到 Azure 的资源。 此外，还需要知道每种资源类型的有效位置和 API 版本。 有关详细信息，请参阅[资源提供程序和类型](resource-manager-supported-services.md)。
 
 ## <a name="template-deployment"></a>模板部署
-使用 Resource Manager 可以创建（JSON 格式的）模板，用于定义 Azure 解决方案的基础结构和配置。 使用模板，可以在解决方案的整个生命周期内重复部署该解决方案，确保以一致的状态部署资源。 从门户创建解决方案时，该解决方案会自动包含部署模板。 无需从头开始创建模板，因为可以从解决方案的模板着手，并根据特定需求自定义该模板。 可以通过导出资源组的当前状态或查看特定部署所用的模板，来检索现有资源组的模板。 查看[导出的模板](resource-manager-export-template.md)是了解模板语法的有用方法。
+使用 Resource Manager 可以创建（JSON 格式的）模板，用于定义 Azure 解决方案的基础结构和配置。 使用模板，可以在解决方案的整个生命周期内重复部署该解决方案，确保以一致的状态部署资源。 从门户创建解决方案时，该解决方案自动包含部署模板。 无需从头开始创建模板，因为可以从解决方案的模板着手，并根据特定需求自定义该模板。 可以通过导出资源组的当前状态或查看特定部署所用的模板，来检索现有资源组的模板。 查看[导出的模板](resource-manager-export-template.md)是了解模板语法的有用方法。
 
 若要了解模板的格式及其构造方法，请参阅[创建第一个 Azure 资源管理器模板](resource-manager-create-first-template.md)。 若要查看资源类型的 JSON 语法，请参阅[定义 Azure Resource Manager 模板中的资源](https://docs.microsoft.com/zh-cn/azure/templates/)。
 
@@ -286,6 +287,7 @@ Azure SDK 适用于多种语言和平台。 每种语言实现可通过其生态
 * 有关如何创建模板的更全面演练，请参阅[创建第一个 Azure Resource Manager 模板](resource-manager-create-first-template.md)。
 * 若要了解可以在模板中使用的函数，请参阅[模板函数](resource-group-template-functions.md)
 * 有关将 Visual Studio 与资源管理器配合使用的信息，请参阅 [Creating and deploying Azure resource groups through Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)（通过 Visual Studio 创建和部署 Azure 资源组）。
+* 有关将资源从经典部署迁移到 ARM 的信息，请参阅[从经典部署迁移到 Azure 资源管理器](resource-manager-deployment-model.md#migrate-from-classic-to-resource-manager)
 
 <!--Not Available channel9 video -->
 [powershellref]: https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.2.0/azurerm.resources

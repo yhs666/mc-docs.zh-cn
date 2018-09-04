@@ -8,22 +8,21 @@ ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 05/07/2018
-ms.date: 07/02/2018
+ms.date: 09/03/2018
 ms.author: v-yeche
-ms.openlocfilehash: 5157d49c45c31932f20840885b486dc059f8c669
-ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
+ms.openlocfilehash: 79141ba2d12d8ca39cf251405a5831920f5ee73c
+ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37070365"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43164968"
 ---
 # <a name="multi-master-at-multiple-region-scale-with-azure-cosmos-db"></a>Azure Cosmos DB 的多区域规模多主数据库 
 
 开发能够以本地延迟做出响应，同时为中国的数据保持一致视图的多区域分布式应用程序具有一定的难度。 客户会使用多区域分布式数据库，因为他们需要改善数据访问延迟、实现较高的数据可用性、提供灾难恢复保障并满足其业务要求。 Azure Cosmos DB 中的多主数据库提供较高的可用性级别 (99.999%)、不到 10 毫秒的数据写入延迟和可伸缩性，并内置了全面且灵活的冲突解决方案支持。 这些功能极大地简化了多区域分布式应用程序的开发。 对于多区域分布式应用程序，多主数据库支持至关重要。 
 
-![多主体系结构](./media/multi-region-writers/multi-master-architecture.png)
-
-借助 Azure Cosmos DB 的多主数据库支持，可以针对分布在中国各地的数据容器（例如集合、图形、表）执行写入。 可以在与数据库帐户关联的任何区域中更新数据。 这些数据更新可以异步传播。 除了降低数据访问和写入延迟以外，多主数据库还提供可行的解决方案来解决故障转移和负载均衡问题。 总而言之，借助 Azure Cosmos DB，在中国任何位置，在 99% 的时间内都能获得 10 毫秒以下的写入延迟、99.999% 的写入和读取可用性，以及缩放写入和读取吞吐量的能力。   
+<!-- Not Available Suitable on ![Multi-master architecture](./media/multi-region-writers/multi-master-architecture.png)--> 借助 Azure Cosmos DB 的多主数据库支持，可以针对分布在中国各地的数据容器（例如集合）执行写入。 可以在与数据库帐户关联的任何区域中更新数据。 这些数据更新可以异步传播。 除了降低数据访问和写入延迟以外，多主数据库还提供可行的解决方案来解决故障转移和负载均衡问题。 总而言之，借助 Azure Cosmos DB，在中国任何位置，在 99% 的时间内都能获得 10 毫秒以下的写入延迟、99.999% 的写入和读取可用性，以及缩放写入和读取吞吐量的能力。   
+<!-- Not Available on  graphs, tables-->
 
 > [!IMPORTANT]
 > 多主数据库支持目前提供个人预览版，立即[注册](#sign-up-for-multi-master-support)以使用预览版。
@@ -66,18 +65,17 @@ ms.locfileid: "37070365"
 
 对于多区域分布式应用程序，多主数据库支持至关重要。 多主数据库由均等参与“随地写入”模型（主动-主动模式）的[多个主区域](distribute-data-globally.md)组成，用于确保数据在任何有需要的时候都保持可用。 对单个区域所做的更新会异步传播到其他所有区域（反过来这些区域本身又成了主区域）。 在多主配置中作为主区域运行的 Azure Cosmos DB 区域自动聚合所有副本的数据，并确保[全球一致性和数据完整性](consistency-levels.md)。 下图显示了单主和多主数据库的读/写复制。
 
-<!-- Not Available on ![Single-master and multi-master](./media/multi-region-writers/single-vs-multi-master.png)-->
+<!-- Not Available Suitable on ![Single-master and multi-master](./media/multi-region-writers/single-vs-multi-master.png)-->
 
 自行实施多主数据库会增大开发人员的负担。 尝试自行实施多主数据库的大型客户可能需要花费数百个小时来配置和测试一个全中国范围的多主配置，其中许多客户专门组建了工程师团队，其唯一的任务就是监视和维护多主数据库复制。 自行创建和管理多主设置会占用应用程序创新所需的时间和资源，并大幅提高成本。 Azure Cosmos DB 提供现成的多主数据库支持，可以消除开发人员的此项开销。  
 
 总之，多主数据库提供以下优势：
 
-* **改善灾难恢复、写入可用性和故障转移** - 多主数据库可将任务关键型数据库的高可用性保持在一个更高的程度。 例如，当服务中断或区域性灾难导致主要区域不可用时，多主数据库可将数据从一个区域复制到故障转移区域。 故障转移区域将充当完全正常运行的主要区域，为应用程序提供支持。 在出现自然灾害、断电和/或人为破坏等问题时，多主数据库可提供更好的“生存能力”保护，因为剩余的区域可以位于地理上不同的多主数据库范围内，其有保障的写入可用性超过 99.999%。 
+* **改善灾难恢复、写入可用性和故障转移** - 多主数据库可将任务关键型数据库的高可用性保持在一个更高的程度。 例如，当服务中断或区域性灾难导致主要区域不可用时，多主数据库可将数据从一个区域复制到故障转移区域。 故障转移区域将充当完全正常运行的主要区域，为应用程序提供支持。 在出现自然灾害、断电或人为破坏等问题时，多主数据库可提供更好的“生存能力”保护，因为剩余的区域可利用不同地理区域的多主数据库，其有保障的写入可用性超过 99.999%。 
 
 * **改善最终用户的写入延迟** - 数据（由你提供）越靠近最终用户，体验就越好。 例如，如果用户位于欧洲，而数据库位于美国或澳大利亚，则各自区域中的延迟会增加大约 140 毫秒和 300 毫秒。 许多流行游戏、银行业务或交互式应用程序（Web 或移动）根本不能接受延迟。 延迟在客户对优质体验的认知方面有很大的影响，已证实会在很大程度上影响用户的行为。 随着技术的改进，尤其是需要更高沉浸感和逼真体验的 AR、VR 和 MR 的问世，开发人员需要根据严格的延迟要求生成软件系统。 因此，提供本地可用的应用程序和数据（应用内容）更加重要。 借助 Azure Cosmos DB 中的多主数据库，性能与普通的本地读写相当，另外还能通过异地分布进行全局增强。  
 
-* 
-  **改善写入可伸缩性和写入吞吐量** - 多主数据库提供更高的吞吐量和更高的利用率，同时提供多个一致性模型和正确性保证，并有 SLA 的保障。 
+* **改善写入可伸缩性和写入吞吐量** - 多主数据库提供更高的吞吐量和更高的利用率，同时提供多个一致性模型和正确性保证，并有 SLA 的保障。 
 
   ![使用多主数据库缩放写入吞吐量](./media/multi-region-writers/scale-write-throughput.png)
 
@@ -105,11 +103,12 @@ ms.locfileid: "37070365"
 
 * **协作** - 适用于根据商品或消耗介质等项目的热门度排名的应用程序。跟踪不同地理区域中的热门度可能很复杂，尤其是需要支付会员费或实时做出广告决策时。 开发人员可以使用 Azure Cosmos DB 在中国许多区域实时进行排名、排序和报告，轻松交付功能，且不会增大延迟。 
 
-* **计量** - 使用 Azure Cosmos DB 多主数据库能够轻松地在全球实现用量（例如 API 调用数、每秒事务数，以及使用的分钟数）统计和调控。 内置冲突解决方案确保实时统计和调控的准确性。 
+* **计量** - 使用 Azure Cosmos DB 多主数据库能够轻松地在多个区域实现用量（例如 API 调用数、每秒事务数以及使用的分钟数）统计和调控。 内置冲突解决方案确保实时统计和调控的准确性。 
 
 * **个性化** - 不管是维护地理分布式计数器（用于触发会员积分奖励等操作），还是实施个性化的用户会话视图，应用程序都可以使用 Azure Cosmos DB 提供的高可用性和简化的地理分布式计数，来轻松提供较高的性能。 
 
-## <a name="conflict-resolution-with-multi-master"></a>使用多主数据库解决冲突 
+<!--Pending on Multi-Master request-->
+## <a name="conflict-resolution-with-multi-master"></a>使用多主数据库解决冲突
 
 使用多主数据库时，难点通常在于同一记录的两个（或更多个）副本可能同时由两个或更多个不同区域中的不同写入者更新。 同时写入可能导致同一记录出现两个不同的版本并且没有内置的冲突解决方案，应用程序本身必须执行冲突解决措施来解决这种不一致情况。  
 
@@ -126,6 +125,7 @@ Azure Cosmos DB 提供 3 种冲突解决模型。 冲突解决模型的语义如
 **最后一次写入优先 (LWW)** - 选择此策略可以根据系统定义的同步时间戳属性，或者有冲突的记录版本中定义的自定义属性解决冲突。 冲突解决发生在服务器端，选择具有最新时间戳的版本作为优先版本。  
 
 **自定义** - 可以通过注册存储过程来注册应用程序定义的冲突解决逻辑。 在服务器端检测到数据库事务造成的更新冲突时，将会调用该存储过程。 如果选择该选项但无法注册该存储过程（或者该存储过程在运行时引发异常），可以通过“冲突源”访问有冲突的所有版本，并逐个解决这些冲突。  
+<!--Pending on Multi-Master request-->
 
 ## <a name="next-steps"></a>后续步骤  
 
@@ -135,8 +135,7 @@ Azure Cosmos DB 提供 3 种冲突解决模型。 冲突解决模型的语义如
 
 * [了解 Azure Cosmos DB 中的自动故障转移](regional-failover.md)  
 
-* [了解 Azure Cosmos DB 的全球一致性](consistency-levels.md)  
+* [了解 Azure Cosmos DB 的多区域一致性](consistency-levels.md)  
 
-* 使用 Azure Cosmos DB 进行多个区域开发 - [SQL API](tutorial-global-distribution-sql-api.md)、[MongoDB API](tutorial-global-distribution-mongodb.md) 或[表 API](tutorial-global-distribution-table.md)
+* 使用 Azure Cosmos DB 进行多个区域的开发 - [SQL API](tutorial-global-distribution-sql-api.md)、[MongoDB API](tutorial-global-distribution-mongodb.md) 或[表 API](tutorial-global-distribution-table.md)
 <!-- Update_Description: new article on cosmos db multi region writers -->
-<!--ms.date: 07/02/2018-->

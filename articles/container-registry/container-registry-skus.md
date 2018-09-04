@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 03/15/2018
 ms.date: 08/27/2018
 ms.author: v-yeche
-ms.openlocfilehash: 093ee22726828de988bd5a420e2ae168b6f5a48f
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.openlocfilehash: edbdabd0822c9f1a94e9a374aa29a1715597a898
+ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42872336"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43328964"
 ---
 # <a name="azure-container-registry-skus"></a>Azure 容器注册表 SKU
 
@@ -24,8 +24,9 @@ Azure 容器注册表 (ACR) 分为多个服务层（称为“SKU”）。 这些
 | --- | :-------: | ----------- |
 | **基本** | 是 | 供开发者了解 Azure 容器注册表的入口点（已优化过成本）。 基本注册表的编程功能（Azure Active Directory 身份验证集成、映像删除和 Webhook）与标准注册表和高级注册表相同。不同之处在于大小和使用情况约束。 |
 | **标准** | 是 | 标准注册表的功能与基本注册表相同。不同之处在于，前者增加了存储空间上限和映像吞吐量。 标准注册表应能够满足大部分生产方案的需求。 |
-| **高级** | 是 | 高级注册表对存储和并发操作等功能的约束限制更高，支持大容量方案。 除了增加映像吞吐容量之外，高级注册表还增添了其他功能（如[异地复制][container-registry-geo-replication]，用于跨多个区域管理一个注册表，并在每个部署中维护网络封闭注册表）。 |
+| **高级** | 是 | 高级注册表对存储和并发操作等功能的约束限制更高，支持大容量方案。 除了更高的映像吞吐容量， |
 | 经典 | 否 | 经典注册表 SKU 在 Azure 中启用了首版 Azure 容器注册表。 经典注册表由 Azure 在订阅中创建的存储帐户提供支持，这会限制 ACR 提供更高级功能，如增加吞吐量和异地复制。 由于功能有限，我们计划在未来弃用经典 SKU。 |
+<!--Not Available on Line 23 Premium adds features like [geo-replication][container-registry-geo-replication]-->
 
 选择更高级别的 SKU 可以提供更好的性能和缩放，但是，所有托管的 SKU 都提供相同的编程功能。 使用多个服务层，你可以从基本层开始，然后随着注册表使用量增长转换到标准和高级层。
 
@@ -43,9 +44,10 @@ Azure 容器注册表 (ACR) 分为多个服务层（称为“SKU”）。 这些
 
 ### <a name="unmanaged-classic"></a>非托管的（经典）
 
-经典注册表是“非托管的”，这是因为，为经典注册表提供支持的存储帐户位于“你的” Azure 订阅中。 因此，将由你负责管理存储着你的容器映像的存储帐户。 使用非托管的注册表时，无法在需求发生变化时在各种 SKU 之间切换（除非[升级][container-registry-upgrade]到托管的注册表），并且无法使用托管的注册表的多项功能（例如，容器映像删除、[异地复制][container-registry-geo-replication]和 [Webhook][container-registry-webhook]）。
+经典注册表是“非托管的”，这是因为，为经典注册表提供支持的存储帐户位于“你的” Azure 订阅中。 因此，将由你负责管理存储着你的容器映像的存储帐户。 使用非托管的注册表时，无法在需求发生变化时在各种 SKU 之间切换（除非[升级][container-registry-upgrade]到托管的注册表），并且无法使用托管的注册表的多项功能（例如，容器映像删除和 [Webhook][container-registry-webhook]）。
+<!-- Not Available on [异地复制][container-registry-geo-replication]-->
 
-有关将经典注册表升级到托管的 SKU 之一的详细信息，请参阅[升级经典注册表][container-registry-upgrade]。
+若要详细了解如何将经典注册表升级到托管的 SKU 之一，请参阅[升级经典注册表][container-registry-upgrade]。
 
 ## <a name="sku-feature-matrix"></a>SKU 功能矩阵
 
@@ -71,13 +73,13 @@ az acr update --name myregistry --sku Premium
 
 ![在 Azure 门户中更新容器注册表 SKU][update-registry-sku]
 
-如果你有经典注册表，则无法在 Azure 门户中选择托管的 SKU。 而是必须先[升级][container-registry-upgrade]到托管的注册表（请参阅[转换经典注册表](#changing-from-classic)）。
+如果你有经典注册表，则无法在 Azure 门户中选择托管的 SKU。 而只能先[升级][container-registry-upgrade]到托管的注册表（请参阅[转换经典注册表](#changing-from-classic)）。
 
 ## <a name="changing-from-classic"></a>转换经典注册表
 
 将非托管的经典注册表迁移到托管的基本、标准或高级 SKU 之一时，需要考虑一些其他注意事项。 如果你的经典注册表包含大量映像，并且其大小为许多 GB，则迁移过程可能要花费一些时间。 此外，在迁移完成之前，`docker push` 操作会被禁用。
 
-有关将经典注册表升级到托管的 SKU 之一的详细信息，请参阅[升级经典容器注册表][container-registry-upgrade]。
+若要详细了解如何将经典注册表升级到托管的 SKU 之一，请参阅[升级经典容器注册表][container-registry-upgrade]。
 
 ## <a name="pricing"></a>定价
 
@@ -101,9 +103,6 @@ az acr update --name myregistry --sku Premium
 
 <!-- LINKS - Internal -->
 [az-acr-update]: https://docs.azure.cn/zh-cn/cli/acr?view=azure-cli-latest#az-acr-update
-[container-registry-geo-replication]: container-registry-geo-replication.md
-[container-registry-upgrade]: container-registry-upgrade.md
-[container-registry-storage]: container-registry-storage.md
-[container-registry-webhook]: container-registry-webhook.md
+<!--Not Avaialble on [container-registry-geo-replication]: container-registry-geo-replication.md--> [container-registry-upgrade]: container-registry-upgrade.md [container-registry-storage]: container-registry-storage.md [container-registry-webhook]: container-registry-webhook.mdd
 
 <!-- Update_Description: update meta properties, wording update -->

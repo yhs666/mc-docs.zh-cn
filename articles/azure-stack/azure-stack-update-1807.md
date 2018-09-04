@@ -16,12 +16,12 @@ origin.date: 08/20/2018
 ms.date: 08/27/2018
 ms.author: v-jay
 ms.reviewer: justini
-ms.openlocfilehash: 7658d69217fa56c8e223818148dad640471c837d
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.openlocfilehash: b12aeb59d60e772c4f3d1eec3e9c54dfdfcfb7f9
+ms.sourcegitcommit: bc7679a5ad24ea9120c44fc771e88a08b5d8b207
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869658"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "42998375"
 ---
 # <a name="azure-stack-1807-update"></a>Azure Stack 1807 更新
 
@@ -40,15 +40,15 @@ Azure Stack 1807 更新内部版本号为 **1.1807.0.76**。
 
 此更新包含对 Azure Stack 的以下改进。
 
-- <!-- 1658937 | ASDK, IS --> **按预定义的计划启动备份** - 作为一种设备，Azure Stack 现在可以定期自动触发基础结构备份，不需人为干预。 Azure Stack 还会自动清理那些超出已定义保留期限的备份的外部共享。 有关详细信息，请参阅[使用 PowerShell 为 Azure Stack 启用备份](azure-stack-backup-enable-backup-powershell.md)。
+- <!-- 1658937 | ASDK, IS --> **按预定义的计划启动备份** - 作为一种设备，Azure Stack 现在可以定期自动触发基础结构备份，不需人为干预。 Azure Stack 还会自动清理那些超出了所定义保留期的备份的外部共享。 有关详细信息，请参阅[使用 PowerShell 为 Azure Stack 启用备份](azure-stack-backup-enable-backup-powershell.md)。
 
-- <!-- 2496385 | ASDK, IS -->  **将数据传输时间添加到了总备份时间中。** 有关详细信息，请参阅[使用 PowerShell 为 Azure Stack 启用备份](azure-stack-backup-enable-backup-powershell.md)。
+- <!-- 2496385 | ASDK, IS -->  **将数据传输时间加到了总备份时间中。** 有关详细信息，请参阅[使用 PowerShell 为 Azure Stack 启用备份](azure-stack-backup-enable-backup-powershell.md)。
 
 - <!-- 1702130 | ASDK, IS -->  **备份外部容量现在显示正确的外部共享容量。** （以前，此项硬编码成 10 GB。）有关详细信息，请参阅[使用 PowerShell 为 Azure Stack 启用备份](azure-stack-backup-enable-backup-powershell.md)。
 
 - <!-- 2508488 |  IS   -->  **扩展容量**，方法是[添加更多的缩放单元节点](azure-stack-add-scale-node.md)。
 
-- <!-- 2753130 |  IS, ASDK   -->  **Azure 资源管理器模板现在支持 condition 元素** - 现在可以使用条件在 Azure 资源管理器模板中部署资源。 可以将模板设计为根据某个条件（例如评估是否存在某个参数值）来部署资源。 有关信息，请参阅 Azure 文档中 [Azure 资源管理器模板的 Variables 节](/azure-resource-manager/resource-manager-templates-variables)。 
+- <!-- 2753130 |  IS, ASDK   -->  **Azure 资源管理器模板现在支持 condition 元素** - 现在可以使用条件在 Azure 资源管理器模板中部署资源。 可以将模板设计为根据某个条件（例如评估是否存在某个参数值）来部署资源。 若要了解如何使用模板作为条件，请参阅 Azure 文档中的[按条件部署资源](https://docs.microsoft.com/azure/architecture/building-blocks/extending-templates/conditional-deploy)和 [Azure 资源管理器模板的 Variables 节](/azure-resource-manager/resource-manager-templates-variables)。 
 
    也可使用模板[将资源部署到多个订阅或资源组](/azure-resource-manager/resource-manager-cross-resource-group-deployment)。  
 
@@ -99,7 +99,7 @@ Azure Stack 1807 更新内部版本号为 **1.1807.0.76**。
 
 - <!-- 2360715 |  ASDK, IS -->  设置数据中心集成时，不再访问 Azure 文件共享中的 AD FS 元数据文件。 有关详细信息，请参阅[通过提供联合元数据文件来设置 AD FS 集成](azure-stack-integrate-identity.md#setting-up-ad-fs-integration-by-providing-federation-metadata-file)。 
 
-- <!-- 2388980 | ASDK, IS --> 修复了一个妨碍用户将此前已分配给某个网络接口或负载均衡器的现有公共 IP 地址分配给新的网络接口或负载均衡器的问题。  
+- <!-- 2388980 | ASDK, IS --> 修复了一个妨碍用户将此前已分配给某个网络接口或负载均衡器的现有公用 IP 地址分配给新的网络接口或负载均衡器的问题。  
 
 - <!-- 2551834 - IS, ASDK --> 在管理员门户或用户门户中选择存储帐户的“概览”时，“概要”窗格现在会正确显示所有预期的信息。 
 

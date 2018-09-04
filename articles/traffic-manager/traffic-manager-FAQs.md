@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 origin.date: 05/09/2018
 ms.date: 08/20/2018
 ms.author: v-yeche
-ms.openlocfilehash: d6acddaca1cb6a5613eee148435861988c69bf54
-ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
+ms.openlocfilehash: 539b8c42e4d60294e0576e57cc7702900c8791b2
+ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41705171"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43329146"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>流量管理器常见问题解答 (FAQ)
 
@@ -98,12 +98,14 @@ One of the metrics provided by Traffic Manager is the number of query responded 
 只要 Azure 客户需要根据地理区域辨识其用户，即可使用地理路由类型。 例如，通过使用地理流量路由方法可为特定区域的用户提供不同于其他区域的用户体验。 又比如，根据本地数据自主性的规定，只能由同一区域的终结点为用户提供数据。
 
 ### <a name="how-do-i-decide-if-i-should-use-performance-routing-method-or-geographic-routing-method"></a>如何决定我应当使用性能路由方法还是应当使用地理路由方法？ 
-这两种常用路由方法的主要区别为，在性能路由方法中，主要目标是将流量发送到可以为调用方提供最低延迟的终结点，但是，在地理路由中，主要目标是针对调用方实施地理围栏，以便可以特意将它们路由到特定终结点。 因为地理接近与延迟更低之间存在关联，所以这两种路由方法可能会存在重叠，但是并非始终会重叠。 如果另一地理位置中的终结点可以为调用方提供更好的延迟体验，在这种情况下，性能路由会将用户发送到该终结点，但地理路由始终将用户发送到你为其地理区域映射的终结点。 为了说得更明白一点，请考虑以下示例 - 使用地理路由，你可以进行不常见映射，例如，将来自亚洲的所有流量发送到美国的终结点，将美国的所有流量发送到亚洲的终结点。 在这种情况下，地理路由将特意执行你为其配置的要执行的确切操作，性能优化不是一个考虑因素。 
+这两种常用路由方法的主要区别为，在性能路由方法中，主要目标是将流量发送到可以为调用方提供最低延迟的终结点，但是，在地理路由中，主要目标是针对调用方实施地理围栏，以便可以特意将它们路由到特定终结点。 因为地理接近与延迟更低之间存在关联，所以这两种路由方法可能会存在重叠，但是并非始终会重叠。 如果另一地理位置中的终结点可以为调用方提供更好的延迟体验，在这种情况下，性能路由会将用户发送到该终结点，但地理路由始终将用户发送到你为其地理区域映射的终结点。 在这种情况下，地理路由将特意执行你为其配置的要执行的确切操作，性能优化不是一个考虑因素。 
 >[!NOTE]
->在某些场景中，你可能同时需要性能和地理路由功能，对于这些场景，嵌套式配置文件可能是不错的选择。 例如，你可以设置一个采用地理路由的父配置文件，用以将来自北美的所有流量发送到一个嵌套的配置文件，该配置文件包含美国的终结点并使用性能路由将那些流量发送到该终结点集合中最合适的终结点。 
+>在某些场景中，你可能同时需要性能和地理路由功能，对于这些场景，嵌套式配置文件可能是不错的选择。 
+<!--Not Available on  For example, you can set up a parent profile with geographic routing where you send all traffic from North America to a nested profile that has endpoints in the US and use performance routing to send those traffic to the best endpoint within that set.-->
 
 ### <a name="what-are-the-regions-that-are-supported-by-traffic-manager-for-geographic-routing"></a>进行地理路由时，流量管理器支持哪些区域？ 
-可在[此处](traffic-manager-geographic-regions.md)查找流量管理器使用的国家/地区层次结构。 更改会在此页进行更新，不过，也可以通过 [Azure 流量管理器 REST API](https://docs.microsoft.com/rest/api/trafficmanager/) 以编程方式检索相同的信息。 
+更改会在此页进行更新，不过，也可以通过 [Azure 流量管理器 REST API](https://docs.microsoft.com/rest/api/trafficmanager/) 以编程方式检索相同的信息。 
+<!--Not Available on [here](traffic-manager-geographic-regions.md)-->
 
 ### <a name="how-does-traffic-manager-determine-where-a-user-is-querying-from"></a>流量管理器如何确定用户从何处进行查询？ 
 流量管理器会查看查询的源 IP（很可能是本地 DNS 解析程序在代表用户执行查询），并使用内部 IP 通过区域映射的方式确定位置。 该映射会随时更新，以反映 Internet 中的变化。 
@@ -116,7 +118,8 @@ One of the metrics provided by Traffic Manager is the number of query responded 
 - 其次，流量管理器使用内部映射来执行 IP 地址到地理区域的转换。 尽管此映射会经过不断验证和更新来提高其准确性和阐释 Internet 的演变，但是我们的信息仍有可能不能确切反应所有 IP 地址的地理位置。
 
 ###  <a name="does-an-endpoint-need-to-be-physically-located-in-the-same-region-as-the-one-it-is-configured-with-for-geographic-routing"></a>是否需将终结点与进行地理路由时用来进行配置的终结点置于同一区域？ 
-否。终结点的位置不会限制可以向其映射哪些区域。 例如，可以将印度的所有用户定向到 US-Central Azure 区域的某个终结点。
+否。终结点的位置不会限制可以向其映射哪些区域。 
+<!--Not Available on For example, an endpoint in US-Central Azure region can have all users from India directed to it.-->
 
 ### <a name="can-i-assign-geographic-regions-to-endpoints-in-a-profile-that-is-not-configured-to-do-geographic-routing"></a>是否可以将地理区域分配给某个配置文件中的终结点，而该配置文件尚未进行地理路由所需的配置？ 
 
@@ -128,7 +131,8 @@ One of the metrics provided by Traffic Manager is the number of query responded 
 
 ###  <a name="why-is-it-strongly-recommended-that-customers-create-nested-profiles-instead-of-endpoints-under-a-profile-with-geographic-routing-enabled"></a>为何强烈建议客户创建嵌套式配置文件，而不是将终结点直接置于启用了地理路由的配置文件中？ 
 
-如果使用地理路由类型，则只能将一个区域分配给配置文件中的一个终结点。 如果该终结点不是带有子配置文件的嵌套类型，则当该终结点不正常时，流量管理器仍会继续向其发送流量，因为不发送流量也不会造成任何改善。 流量管理器不会故障转移到其他终结点，即使所分配的区域是分配给不正常终结点的区域的“父”区域（例如，如果终结点的“西班牙”区域不正常，不会故障转移到为其分配了“欧洲”区域的另一终结点）。 这样做是为了确保流量管理器遵守客户在其配置文件中设置的地理边界。 为了确保在某个终结点不正常时能够故障转移到其他终结点，建议为地理区域分配包含多个终结点（而不是单个终结点）的嵌套式配置文件。 这样一来，如果嵌套式子配置文件中的某个终结点故障，则可将流量故障转移到同一嵌套式子配置文件中的其他终结点。
+如果使用地理路由类型，则只能将一个区域分配给配置文件中的一个终结点。 如果该终结点不是带有子配置文件的嵌套类型，则当该终结点不正常时，流量管理器仍会继续向其发送流量，因为不发送流量也不会造成任何改善。 流量管理器不会故障转移到其他终结点，即使所分配的区域是分配给不正常终结点的区域的“父”区域。 这样做是为了确保流量管理器遵守客户在其配置文件中设置的地理边界。 为了确保在某个终结点不正常时能够故障转移到其他终结点，建议为地理区域分配包含多个终结点（而不是单个终结点）的嵌套式配置文件。 这样一来，如果嵌套式子配置文件中的某个终结点故障，则可将流量故障转移到同一嵌套式子配置文件中的其他终结点。
+<!--Not Available on (for example, if an endpoint that has region Spain goes unhealthy, we do not failover to another endpoint that has the region Europe assigned to it)-->
 
 ### <a name="are-there-any-restrictions-on-the-api-version-that-supports-this-routing-type"></a>对于支持此路由类型的 API 版本，是否存在任何限制？
 

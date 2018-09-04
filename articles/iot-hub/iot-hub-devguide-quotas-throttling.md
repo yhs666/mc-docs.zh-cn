@@ -10,20 +10,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 04/01/2018
 ms.author: v-yiso
-ms.date: 08/06/2018
-ms.openlocfilehash: 84245ac36083f28c30ace713289e860fee646b45
-ms.sourcegitcommit: d4092cf6aba0d949bf612093c76f964c2bdfd0ba
+ms.date: 09/10/2018
+ms.openlocfilehash: 5b168a3c7993ef7fdbaef8bebf4ec245b38c4723
+ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39306566"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43328970"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>参考 - IoT 中心配额和限制
 
 ## <a name="quotas-and-throttling"></a>配额和限制
 每个 Azure 订阅最多可以有 50 个 IoT 中心和 1 个免费中心。
 
-每个 IoT 中心都在特定层中预配了特定单位数。 有关详细信息，请参阅 [Azure IoT 中心定价][lnk-pricing]。 层和单位数决定了可以发送的消息的每日配额上限。
+每个 IoT 中心都在特定层中预配了特定单位数。 层和单位数决定了可以发送的消息的每日配额上限。 用于计算每日配额的消息大小为 0.5 KB（适用于中心的免费层）和 4 KB（适用于所有其他层）。 有关详细信息，请参阅 [Azure IoT 中心定价][lnk-pricing]。
 
 层还决定了 IoT 中心对所有操作强制实施的限制。
 
@@ -46,7 +46,7 @@ ms.locfileid: "39306566"
 | 孪生（设备和模块）读取<sup>1</sup> | 10/秒 | 高于 10/秒或 1/秒/单位 | 50/秒/单位 |
 | 孪生更新（设备和模块）<sup>1</sup> | 10/秒 | 高于 10/秒或 1/秒/单位 | 50/秒/单位 |
 | 作业操作<sup>1</sup> <br/> （创建、更新、列表、删除） | 1.67/秒/单位（100/分钟/单位） | 1.67/秒/单位（100/分钟/单位） | 83.33/秒/单位（5000/分钟/单位） |
-| 作业每设备操作吞吐量<sup>1</sup> | 10/秒 | 高于 10/秒或 1/秒/单位 | 50/秒/单位 |
+| 作业设备操作<sup>1</sup> <br/> （更新孪生、调用直接方法） | 10/秒 | 高于 10/秒或 1/秒/单位 | 50/秒/单位 |
 | 配置和 Edge 部署<sup>1</sup> <br/> （创建、更新、列表、删除） | 0.33/秒/单位（20/分钟/单位） | 0.33/秒/单位（20/分钟/单位） | 0.33/秒/单位（20/分钟/单位） |
 
 

@@ -3,7 +3,7 @@ title: Azure Functions 的 Azure Blob 存储绑定
 description: 了解如何在 Azure Functions 中使用 Azure Blob 存储触发器和绑定。
 services: functions
 documentationcenter: na
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -14,14 +14,14 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 02/12/2018
-ms.date: 07/24/2018
+ms.date: 08/31/2018
 ms.author: v-junlch
-ms.openlocfilehash: 4774fdb2b88c4f44dc20ba98f700da4404e30880
-ms.sourcegitcommit: ba07d76f8394b5dad782fd983718a8ba49a9deb2
+ms.openlocfilehash: 373a48435d97cad0bad078238fad1b40a451c8bf
+ms.sourcegitcommit: b2c9bc0ed28e73e8c43aa2041c6d875361833681
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39220235"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43330830"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Functions 的 Azure Blob 存储绑定
 
@@ -41,7 +41,7 @@ ms.locfileid: "39220235"
 
 ## <a name="packages---functions-2x"></a>包 - Functions 2.x
 
-[Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet 包 3.x 版中提供了 Blob 存储绑定。 [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/master/src/Microsoft.Azure.WebJobs.Storage/Blob) GitHub 存储库中提供了此包的源代码。
+[Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet 包 3.x 版中提供了 Blob 存储绑定。 azure-webjobs-sdk GitHub 存储库中提供了此包的源代码。
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
@@ -59,6 +59,7 @@ ms.locfileid: "39220235"
 - [C#](#trigger---c-example)
 - [C# 脚本 (.csx)](#trigger---c-script-example)
 - [JavaScript](#trigger---javascript-example)
+- [Java](#trigger---javascript-example)
 
 ### <a name="trigger---c-example"></a>触发器 - C# 示例
 
@@ -157,11 +158,50 @@ module.exports = function(context) {
 };
 ```
 
+### <a name="trigger---java-example"></a>触发器 - Java 示例
+
+以下示例显示了 *function.json* 文件中的一个 Blob 触发器绑定以及使用该绑定的 [Java 代码](functions-reference-java.md)。 在 `myblob` 容器中添加或更新 Blob 时，该函数会写入日志。
+
+function.json 文件如下所示：
+
+```json
+{
+    "disabled": false,
+    "bindings": [
+        {
+            "name": "file",
+            "type": "blobTrigger",
+            "direction": "in",
+            "path": "myblob/{name}",
+            "connection":"MyStorageAccountAppSetting"
+        }
+    ]
+}
+```
+
+下面是 Java 代码：
+
+```java
+ @FunctionName("blobprocessor")
+ public void run(
+    @BlobTrigger(name = "file",
+                  dataType = "binary",
+                  path = "myblob/filepath",
+                  connection = "myconnvarname") byte[] content,
+    @BindingName("name") String filename,
+     final ExecutionContext context
+ ) {
+     context.getLogger().info("Name: " + name + " Size: " + content.length + " bytes");
+ }
+
+```
+
+
 ## <a name="trigger---attributes"></a>触发器 - 特性
 
 对于 [C# 类库](functions-dotnet-class-library.md)，请使用以下属性来配置 blob 触发器：
 
-- [BlobTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobTriggerAttribute.cs)
+- BlobTriggerAttribute
 
   该特性的构造函数采用一个表示要监视的容器的路径字符串，并选择性地采用某种 [Blob 名称模式](#trigger---blob-name-patterns)。 下面是一个示例：
 
@@ -366,6 +406,7 @@ JavaScript 函数会将整个 blob 加载到内存中，并且如果绑定到 `s
 - [C#](#input---c-example)
 - [C# 脚本 (.csx)](#input---c-script-example)
 - [JavaScript](#input---javascript-example)
+- [Java](#input---java-example)
 
 ### <a name="input---c-example"></a>输入 - C# 示例
 
@@ -480,9 +521,26 @@ module.exports = function(context) {
 };
 ```
 
+### <a name="input---java-example"></a>输入 - Java 示例
+
+以下示例演示使用一个队列触发器和一个 Blob 输入绑定的 Java 函数。 队列消息包含该 blob 的名称，函数记录该 blob 的大小。
+
+```java
+@FunctionName("getBlobSize")
+@StorageAccount("AzureWebJobsStorage")
+public void blobSize(@QueueTrigger(name = "filename",  queueName = "myqueue-items") String filename,
+                    @BlobInput(name = "file", dataType = "binary", path = "samples-workitems/{queueTrigger") byte[] content,
+       final ExecutionContext context) {
+      context.getLogger().info("The size of \"" + filename + "\" is: " + content.length + " bytes");
+ }
+ ```
+
+  在 Java 函数运行时库中，对其值将来自 Blob 的参数使用 `@BlobInput` 注释。  可以将此注释与本机 Java 类型、POJO 或使用了 `Optional<T>` 的可为 null 的值一起使用。 
+
+
 ## <a name="input---attributes"></a>输入 - 特性
 
-在 [C# 类库](functions-dotnet-class-library.md)中，使用 [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs)。
+在 [C# 类库](functions-dotnet-class-library.md)中，使用 BlobAttribute。
 
 该特性的构造函数采用 Blob 的路径，以及一个表示读取或写入的 `FileAccess` 参数，如以下示例中所示：
 
@@ -562,6 +620,7 @@ public static void Run(
 - [C#](#output---c-example)
 - [C# 脚本 (.csx)](#output---c-script-example)
 - [JavaScript](#output---javascript-example)
+- [Java](#output---java-example)
 
 ### <a name="output---c-example"></a>输出 - C# 示例
 
@@ -694,9 +753,27 @@ module.exports = function(context) {
 };
 ```
 
+### <a name="output---java-example"></a>输出 - Java 示例
+
+下面的示例展示了 Java 函数中的 Blob 输入和输出绑定。 此函数创建文本 blob 的副本。 该函数由包含要复制的 Blob 名称的队列消息触发。 新 Blob 名为 {originalblobname}-Copy
+
+```java
+@FunctionName("copyTextBlob")
+@StorageAccount("AzureWebJobsStorage")
+@BlobOutput(name = "target", path = "samples-workitems/{queueTrigger}-Copy")
+public String blobCopy(
+    @QueueTrigger(name = "filename", queueName = "myqueue-items") String filename,
+    @BlobInput(name = "source", path = "samples-workitems/{queueTrigger}") String content ) {
+      return content;
+ }
+ ```
+
+ 在 Java 函数运行时库中，对其值将写入 Blob 存储中的对象的函数参数使用 `@BlobOutput` 注释。  参数类型应为 `OutputBinding<T>`，其中 T 是 POJO 的任何本机 Java 类型。
+
+
 ## <a name="output---attributes"></a>输出 - 特性
 
-在 [C# 类库](functions-dotnet-class-library.md)中，使用 [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs)。
+在 [C# 类库](functions-dotnet-class-library.md)中，使用 BlobAttribute。
 
 该特性的构造函数采用 Blob 的路径，以及一个表示读取或写入的 `FileAccess` 参数，如以下示例中所示：
 

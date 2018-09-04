@@ -1,21 +1,21 @@
 ---
-title: Azure SQL 数据库 - 读取副本的查询 | Azure
+title: Azure SQL 数据库 - 读取副本中的查询 | Microsoft Docs
 description: Azure SQL 数据库允许使用只读副本的容量（称为“读取横向扩展”）对只读的工作负荷进行负载均衡。
 services: sql-database
 author: WenJason
 manager: digimobile
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.topic: article
+ms.topic: conceptual
 origin.date: 07/16/2018
-ms.date: 08/06/2018
+ms.date: 09/02/2018
 ms.author: v-jay
-ms.openlocfilehash: 7b163c84f66c4845947926093480354683d1e66c
-ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
+ms.openlocfilehash: e5f10bff41f23d98cf8b0dd9b4dc88ba03e60ffa
+ms.sourcegitcommit: 2601e68563bffe148e70cce2bf1dcbe837a40f80
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39486963"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43249877"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>使用只读副本对只读的查询工作负荷进行负载均衡（预览版）
 
@@ -23,7 +23,11 @@ ms.locfileid: "39486963"
 
 ## <a name="overview-of-read-scale-out"></a>读取横向扩展的概述
 
-“高级”层（[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)）或“业务关键”层（[基于 vCore 的购买模型](sql-database-service-tiers-vcore.md)）中的每个数据库中已自动预配多个 Always ON 副本，以支持可用性 SLA。 为这些副本预配的性能级别与常规数据库连接使用的读写副本相同。 “读取扩展”功能允许使用一个只读副本的容量而不是共享读写副本，对 SQL 数据库只读工作负载进行负载均衡。 这样，只读工作负荷将与主要的读写工作负荷相隔离，不会影响其性能。 该功能适用于其中包括逻辑上独立的只读工作负荷（例如分析）的应用程序，因此可以在不增加成本的情况下使用此额外容量来获得性能优势。
+“高级”层（[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)）或“业务关键”层（[基于 vCore 的购买模型](sql-database-service-tiers-vcore.md)）中的每个数据库中已自动预配多个 Always ON 副本，以支持可用性 SLA。
+
+![只读副本](media/sql-database-managed-instance/business-critical-service-tier.png)
+
+为这些副本预配的性能级别与常规数据库连接使用的读写副本相同。 “读取扩展”功能允许使用一个只读副本的容量而不是共享读写副本，对 SQL 数据库只读工作负载进行负载均衡。 这样，只读工作负荷将与主要的读写工作负荷相隔离，不会影响其性能。 该功能适用于其中包括逻辑上独立的只读工作负荷（例如分析）的应用程序，因此可以在不增加成本的情况下使用此额外容量来获得性能优势。
 
 若要将读取横向扩展功能用于特定的数据库，必须在创建数据库时或者在之后通过更改其配置来显式启用此功能，可以采用以下方式执行此操作：使用 PowerShell 调用 [Set-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase) 或 [New-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabase) 命令，或者通过 Azure 资源管理器 REST API 使用[数据库 - 创建或更新](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)方法。 
 
@@ -113,7 +117,7 @@ Body:
 
 ## <a name="using-read-scale-out-with-geo-replicated-databases"></a>结合使用读取扩展与异地复制的数据库
 
-如果正在使用读取扩展在异地复制数据库（例如，作为故障转移组的一个成员）上对只读工作负载进行负载均衡，请确保主数据库和异地复制辅助数据库上都启用了读取扩展。 这可确保应用程序在故障转移后连接到新的主数据库时，具有相同的负载均衡效果。 如果要连接到启用了读取扩展的异地复制辅助数据库，则设置为 `ApplicationIntent=ReadOnly` 的会话将路由到其中一个副本，就像我们在主数据库上路由连接一样。  而未设为 `ApplicationIntent=ReadOnly` 的会话将路由到异地复制辅助数据库的主要副本，该副本也为只读。 由于异地复制辅助数据库的终结点与主数据库不同，因此之前访问辅助数据库不需要设置 `ApplicationIntent=ReadOnly`。 为确保后向兼容性，`sys.geo_replication_links` DMV 显示`secondary_allow_connections=2`（允许的任何客户端连接）。
+如果正在使用读取扩展在异地复制数据库（例如，作为故障转移组成员的数据库）上对只读工作负荷进行负载均衡操作，请确保主数据库和异地复制辅助数据库上都启用了读取扩展。 这可确保应用程序在故障转移后连接到新的主数据库时，具有相同的负载均衡效果。 如果要连接到启用了读取扩展的异地复制辅助数据库，则设置为 `ApplicationIntent=ReadOnly` 的会话将路由到其中一个副本，就像我们在主数据库上路由连接一样。  而未设为 `ApplicationIntent=ReadOnly` 的会话将路由到异地复制辅助数据库的主要副本，该副本也为只读。 由于异地复制辅助数据库的终结点与主数据库不同，因此之前访问辅助数据库不需要设置 `ApplicationIntent=ReadOnly`。 为确保后向兼容性，`sys.geo_replication_links` DMV 显示`secondary_allow_connections=2`（允许的任何客户端连接）。
 
 > [!NOTE]
 > 在预览期间，我们不会在辅助数据库的本地副本之间执行轮循机制或任何其他负载均衡路由。 

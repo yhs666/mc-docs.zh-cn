@@ -3,7 +3,7 @@ title: Azure Functions 的 Azure 服务总线绑定
 description: 了解如何在 Azure Functions 中使用 Azure 服务总线触发器和绑定。
 services: functions
 documentationcenter: na
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -15,14 +15,14 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 04/01/2017
-ms.date: 07/24/2018
+ms.date: 08/31/2018
 ms.author: v-junlch
-ms.openlocfilehash: 0bc8219652f860d2b4bc86ae82657fa64d1f707e
-ms.sourcegitcommit: ba07d76f8394b5dad782fd983718a8ba49a9deb2
+ms.openlocfilehash: 9793413cedf8771519aeeec2972f114e72334429
+ms.sourcegitcommit: b2c9bc0ed28e73e8c43aa2041c6d875361833681
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39220232"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43330793"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure Functions 的 Azure 服务总线绑定
 
@@ -54,6 +54,7 @@ ms.locfileid: "39220232"
 - [C# 脚本 (.csx)](#trigger---c-script-example)
 - [F#](#trigger---f-example)
 - [JavaScript](#trigger---javascript-example)
+- [Java](#trigger---java-example)
 
 ### <a name="trigger---c-example"></a>触发器 - C# 示例
 
@@ -178,6 +179,41 @@ module.exports = function(context, myQueueItem) {
     context.done();
 };
 ```
+
+### <a name="trigger---java-example"></a>触发器 - Java 示例
+
+以下示例演示了 function.json 文件中的服务总线触发器绑定以及使用该绑定的 [Java 函数](functions-reference-java.md)。 该函数由置于服务总线队列上的消息触发，还会记录队列消息。
+
+下面是 function.json 文件中的绑定数据：
+
+```json
+{
+"bindings": [
+    {
+    "queueName": "myqueuename",
+    "connection": "MyServiceBusConnection",
+    "name": "msg",
+    "type": "ServiceBusQueueTrigger",
+    "direction": "in"
+    }
+],
+"disabled": false
+}
+```
+
+下面是 Java 代码：
+
+```java
+@FunctionName("sbprocessor")
+ public void serviceBusProcess(
+    @ServiceBusQueueTrigger(name = "msg",
+                             queueName = "myqueuename",
+                             connection = "myconnvarname") String message,
+   final ExecutionContext context
+ ) {
+     context.getLogger().info(message);
+ }
+ ```
 
 ## <a name="trigger---attributes"></a>触发器 - 特性
 
@@ -317,6 +353,7 @@ Functions 1.x 允许你在 *host.json* 中配置 `autoRenewTimeout`，以映射�
 - [C# 脚本 (.csx)](#output---c-script-example)
 - [F#](#output---f-example)
 - [JavaScript](#output---javascript-example)
+- [Java](#output--java-example)
 
 ### <a name="output---c-example"></a>输出 - C# 示例
 
@@ -471,6 +508,25 @@ module.exports = function (context, myTimer) {
     context.done();
 };
 ```
+
+
+### <a name="output---java-example"></a>输出 - Java 示例
+
+以下示例演示了一个 Java 函数，该函数在由 HTTP 请求触发时将消息发送到服务总线队列 `myqueue`。
+
+```java
+@FunctionName("httpToServiceBusQueue")
+@ServiceBusQueueOutput(name = "message", queueName = "myqueue", connection = "AzureServiceBusConnection")
+public String pushToQueue(
+  @HttpTrigger(name = "request", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS)
+  final String message,
+  @HttpOutput(name = "response") final OutputBinding<T>; result ) {
+      result.setValue(message + " has been sent.");
+      return message;
+ }
+ ```
+
+ 在 Java 函数运行时库中，对其值将写入服务总线队列的函数参数使用 `@QueueOutput` 注释。  参数类型应为 `OutputBinding<T>`，其中 T 是 POJO 的任何本机 Java 类型。
 
 ## <a name="output---attributes"></a>输出 - 特性
 

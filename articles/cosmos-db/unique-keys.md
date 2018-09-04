@@ -9,15 +9,15 @@ editor: monicar
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 03/21/2018
-ms.date: 07/02/2018
+origin.date: 08/08/2018
+ms.date: 09/03/2018
 ms.author: v-yeche
-ms.openlocfilehash: 30d63b8227762054078e7dd91b0d22cfe583236b
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 7befdcc0b84c4e3f248020cb68111402e29ad862
+ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38938995"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43164777"
 ---
 # <a name="unique-keys-in-azure-cosmos-db"></a>Azure Cosmos DB 中的唯一键
 
@@ -130,6 +130,9 @@ private static async Task CreateCollectionIfNotExistsAsync(string dataBase, stri
 ## <a name="mongodb-api-sample"></a>MongoDB API 示例
 
 下面的命令示例显示了如何在 MongoDB API 用户集合的 firstName、lastName 和 email 字段上创建唯一索引。 这将确保跨集合中所有文档的所有三个字段组合的唯一性。 对于 MongoDB API 集合，在创建集合之后但在填充集合之前创建唯一索引。
+
+> [!NOTE]
+> MongoDB API 帐户的唯一密钥格式不同于 SQL API 帐户的唯一密钥格式，不必在字段名称之前指定反斜杠 (/) 字符。 
 
 ```
 db.users.createIndex( { firstName: 1, lastName: 1, email: 1 }, { unique: true } )

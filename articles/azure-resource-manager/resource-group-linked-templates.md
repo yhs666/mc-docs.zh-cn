@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 05/30/2018
-ms.date: 07/09/2018
+origin.date: 08/10/2018
+ms.date: 09/03/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4771045ee2e57a2239bff6bb0abb7cf288e38307
-ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
+ms.openlocfilehash: bfc66ef079892a30c17db4362dd966c7e73c4ed1
+ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37405377"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43164793"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>部署 Azure 资源时使用链接模版和嵌套模版
 
@@ -49,6 +49,8 @@ ms.locfileid: "37405377"
 ```
 
 为部署资源提供的属性将因要链接到外部模板，还是要将内联模板嵌套在主模板中而异。
+
+对于链接模板和嵌套模板，只能使用[增量](deployment-modes.md)部署模式。
 
 ### <a name="nested-template"></a>嵌套模板
 

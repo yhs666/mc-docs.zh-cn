@@ -3,8 +3,8 @@ title: Azure Functions 的 Azure 事件中心绑定
 description: 了解如何在 Azure Functions 中使用 Azure 事件中心绑定。
 services: functions
 documentationcenter: na
-author: tdykstra
-manager: cfowler
+author: ggailey777
+manager: jeconnoc
 editor: ''
 tags: ''
 keywords: Azure Functions，函数，事件处理，动态计算，无服务体系结构
@@ -15,14 +15,14 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 11/08/2017
-ms.date: 07/24/2018
+ms.date: 08/31/2018
 ms.author: v-junlch
-ms.openlocfilehash: cdaf83194b4409be7340ac191b2bcaeb5383f936
-ms.sourcegitcommit: ba07d76f8394b5dad782fd983718a8ba49a9deb2
+ms.openlocfilehash: 7ec14c9f8d8a5a3132da93a1ed23964de889d5d7
+ms.sourcegitcommit: b2c9bc0ed28e73e8c43aa2041c6d875361833681
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39220203"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43330742"
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Azure Functions 的 Azure 事件中心绑定
 
@@ -80,6 +80,7 @@ Azure Functions 的当前缩放逻辑的独特之处在于，N 大于分区数�
 - [C# 脚本 (.csx)](#trigger---c-script-example)
 - [F#](#trigger---f-example)
 - [JavaScript](#trigger---javascript-example)
+- [Java](#trigger---java-example)
 
 ### <a name="trigger---c-example"></a>触发器 - C# 示例
 
@@ -302,13 +303,44 @@ JavaScript 代码如下所示：
 module.exports = function (context, eventHubMessages) {
     context.log(`JavaScript eventhub trigger function called for message array ${eventHubMessages}`);
     
-    eventHubMessages.forEach(message => {
+    eventHubMessages.forEach((message, index) => {
         context.log(`Processed message ${message}`);
+        context.log(`EnqueuedTimeUtc = ${context.bindingData.enqueuedTimeUtcArray[index]}`);
+        context.log(`SequenceNumber = ${context.bindingData.sequenceNumberArray[index]}`);
+        context.log(`Offset = ${context.bindingData.offsetArray[index]}`);
     });
 
     context.done();
 };
 ```
+
+### <a name="trigger---java-example"></a>触发器 - Java 示例
+
+以下示例演示 function.json 文件中的一个事件中心触发器绑定以及使用该绑定的 [Java 函数](functions-reference-java.md)。 该函数记录事件中心触发器的消息正文。
+
+```json
+{
+  "type": "eventHubTrigger",
+  "name": "msg",
+  "direction": "in",
+  "eventHubName": "myeventhubname",
+  "connection": "myEventHubReadConnectionAppSetting"
+}
+```
+
+```java
+@FunctionName("ehprocessor")
+public void eventHubProcessor(
+  @EventHubTrigger(name = "msg",
+                  eventHubName = "myeventhubname",
+                  connection = "myconnvarname") String message,
+       final ExecutionContext context ) 
+       {
+          context.getLogger().info(message);
+ }
+ ```
+
+ 在 Java 函数运行时库中，对其值将来自事件中心的参数使用 `EventHubTrigger` 注释。 带有这些注释的参数会导致函数在事件到达时运行。  可以将此注释与本机 Java 类型、POJO 或使用了 Optional<T> 的可为 null 的值一起使用。 
 
 ## <a name="trigger---attributes"></a>触发器 - 特性
 
@@ -335,8 +367,8 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 |类型 | 不适用 | 必须设置为 `eventHubTrigger`。 在 Azure 门户中创建触发器时，会自动设置此属性。|
 |direction | 不适用 | 必须设置为 `in`。 在 Azure 门户中创建触发器时，会自动设置此属性。 |
 |**name** | 不适用 | 在函数代码中表示事件项的变量的名称。 | 
-|**路径** |**EventHubName** | 仅适用于 Functions 1.x。 事件中心的名称。  | 
-|**eventHubName** |**EventHubName** | 仅适用于 Functions 2.x。 事件中心的名称。  |
+|**路径** |**EventHubName** | 仅适用于 Functions 1.x。 事件中心的名称。 当事件中心名称也出现在连接字符串中时，该值会在运行时覆盖此属性。 | 
+|**eventHubName** |**EventHubName** | 仅适用于 Functions 2.x。 事件中心的名称。 当事件中心名称也出现在连接字符串中时，该值会在运行时覆盖此属性。 |
 |**consumerGroup** |**ConsumerGroup** | 一个可选属性，用于设置[使用者组](../event-hubs/event-hubs-features.md#event-consumers)，该组用于订阅事件中心中的事件。 如果将其省略，则会使用 `$Default` 使用者组。 | 
 |**基数** | 不适用 | 适用于 JavaScript。 设为 `many` 以启用批处理。  如果省略或设为 `one`，将向函数传递一条消息。 | 
 |**连接** |**Connection** | 应用设置的名称，该名称中包含事件中心命名空间的连接字符串。 单击 [命名空间](../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace) （而不是事件中心本身）的“连接信息”按钮，以复制此连接字符串。 此连接字符串必须至少具有读取权限才可激活触发器。|
@@ -379,6 +411,7 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 - [C# 脚本 (.csx)](#output---c-script-example)
 - [F#](#output---f-example)
 - [JavaScript](#output---javascript-example)
+- [Java](#output---java-example)
 
 ### <a name="output---c-example"></a>输出 - C# 示例
 
@@ -529,6 +562,21 @@ module.exports = function(context) {
 };
 ```
 
+### <a name="output---java-example"></a>输出 - Java 示例
+
+以下示例演示一个将包含当前时间的消息写入到事件中心的 Java 函数。
+
+```java
+@}FunctionName("sendTime")
+@EventHubOutput(name = "event", eventHubName = "samples-workitems", connection = "AzureEventHubConnection")
+public String sendTime(
+   @TimerTrigger(name = "sendTimeTrigger", schedule = "0 *&#47;5 * * * *") String timerInfo)  {
+     return LocalDateTime.now().toString();
+ }
+ ```
+
+在 Java 函数运行时库中，对其值将被发布到事件中心的参数使用 `@EventHubOutput` 注释。  此参数应为 `OutputBinding<T>` 类型，其中 T 是 POJO 或任何本机 Java 类型。 
+
 ## <a name="output---attributes"></a>输出 - 特性
 
 对于 [C# 类库](functions-dotnet-class-library.md)，请使用 `EventHubAttribute` 特性。
@@ -555,8 +603,8 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, Trac
 |类型 | 不适用 | 必须设置为“eventHub”。 |
 |direction | 不适用 | 必须设置为“out”。 在 Azure 门户中创建绑定时，会自动设置该参数。 |
 |**name** | 不适用 | 函数代码中使用的表示事件的变量名称。 | 
-|**路径** |**EventHubName** | 仅适用于 Functions 1.x。 事件中心的名称。  | 
-|**eventHubName** |**EventHubName** | 仅适用于 Functions 2.x。 事件中心的名称。  |
+|**路径** |**EventHubName** | 仅适用于 Functions 1.x。 事件中心的名称。 当事件中心名称也出现在连接字符串中时，该值会在运行时覆盖此属性。 | 
+|**eventHubName** |**EventHubName** | 仅适用于 Functions 2.x。 事件中心的名称。 当事件中心名称也出现在连接字符串中时，该值会在运行时覆盖此属性。 |
 |**连接** |**Connection** | 应用设置的名称，该名称中包含事件中心命名空间的连接字符串。 单击 *命名空间* （而不是事件中心本身）的“连接信息”按钮，以复制此连接字符串。 此连接字符串必须具有发送权限才可将消息发送到事件流。|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]

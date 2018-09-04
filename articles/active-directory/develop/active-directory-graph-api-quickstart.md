@@ -15,15 +15,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 04/02/2018
-ms.date: 07/03/2018
+ms.date: 09/03/2018
 ms.author: v-junlch
 ms.custom: aaddev
-ms.openlocfilehash: 69dce397e5eca014fe5c49192513409add349596
-ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
+ms.openlocfilehash: 8c654d9e4914638fd17e3f742e8a83c6d90eca2c
+ms.sourcegitcommit: 562cde32fc2271238f3d1ef5d2cc5ed037bdec2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37800463"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43531563"
 ---
 # <a name="quickstart-for-the-azure-ad-graph-api"></a>Azure AD 图形 API 快速入门
 Azure Active Directory (AD) Graph API 通过 OData REST API 终结点提供对 Azure AD 的编程访问权限。 应用程序可以使用 Azure AD 图形 API 对目录数据和对象执行创建、读取、更新和删除 (CRUD) 操作。 例如，可以使用 Azure AD 图形 API 创建新用户、查看或更新用户的属性、更改用户的密码、检查基于角色的访问的组成员身份、禁用或删除用户。 有关 Azure AD 图形 API 功能和应用方案的详细信息，请参阅 [Azure AD 图形 API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) 和 [Azure AD 图形 API 先决条件](https://msdn.microsoft.com/library/hh974476.aspx)。 
@@ -80,7 +80,7 @@ Azure Active Directory (AD) Graph API 通过 OData REST API 终结点提供对 A
 
 以下示例使用 Fiddler Web 调试器在 Azure AD 目录中创建一个新的安全组“MyTestGroup”。
 
-**获取访问令牌**：若要访问 Azure AD Graph，客户端需要先成功地向 Azure AD 进行身份验证。 有关详细信息，请参阅 [Azure AD 的身份验证方案](active-directory-authentication-scenarios.md)。
+**获取访问令牌**：若要访问 Azure AD Graph，客户端需要先成功地向 Azure AD 进行身份验证。 有关详细信息，请参阅 [Azure AD 的身份验证方案](authentication-scenarios.md)。
 
 **编写和运行查询**：请完成以下步骤：
 
@@ -124,4 +124,4 @@ Azure Active Directory (AD) Graph API 通过 OData REST API 终结点提供对 A
 - 了解有关 [Azure AD 图形 API 权限范围](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes)
 
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

@@ -7,18 +7,18 @@ manager: douge
 ms.assetid: 8b24adde-547e-4ffe-824a-2029ba210216
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.workload: azure
+ms.workload: azure-vs
 ms.topic: conceptual
 origin.date: 03/12/2018
-ms.date: 07/03/2018
+ms.date: 09/03/2018
 ms.author: v-junlch
-ms.custom: aaddev
-ms.openlocfilehash: 7558c492cce168e8836e7719847062a9b8394697
-ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
+ms.custom: aaddev, vs-azure
+ms.openlocfilehash: b82beca8f3c776781994552b557999cac39c064a
+ms.sourcegitcommit: 562cde32fc2271238f3d1ef5d2cc5ed037bdec2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37800376"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43531567"
 ---
 # <a name="what-happened-to-my-mvc-project-visual-studio-azure-active-directory-connected-service"></a>我的 MVC 项目（Visual Studio Azure Active Directory 连接服务）发生了什么情况？
 
@@ -165,7 +165,7 @@ ms.locfileid: "37800376"
 
 ## <a name="next-steps"></a>后续步骤
 
-- [Azure Active Directory 的身份验证方案](active-directory-authentication-scenarios.md)
-- [向 ASP.NET Web 应用添加 Microsoft 登录功能](guidedsetups/active-directory-aspnetwebapp-v1.md)
+- [Azure Active Directory 的身份验证方案](authentication-scenarios.md)
+- [向 ASP.NET Web 应用添加 Microsoft 登录功能](quickstart-v1-aspnet-webapp.md)
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: link update -->

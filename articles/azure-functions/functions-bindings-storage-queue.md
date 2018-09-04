@@ -3,7 +3,7 @@ title: Azure Functions 的 Azure 队列存储绑定
 description: 了解如何在 Azure Functions 中使用 Azure 队列存储触发器和输出绑定。
 services: functions
 documentationcenter: na
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -14,15 +14,15 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 10/23/2017
-ms.date: 07/24/2018
+ms.date: 08/31/2018
 ms.author: v-junlch
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 42f7f1d9479c18017f070924478cb00890b78f3b
-ms.sourcegitcommit: ba07d76f8394b5dad782fd983718a8ba49a9deb2
+ms.openlocfilehash: ba288be0e2b29b19b2971d3c35a4a76cb623f45f
+ms.sourcegitcommit: b2c9bc0ed28e73e8c43aa2041c6d875361833681
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39220193"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43330777"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure Functions 的 Azure 队列存储绑定
 
@@ -38,7 +38,7 @@ ms.locfileid: "39220193"
 
 ## <a name="packages---functions-2x"></a>包 - Functions 2.x
 
-[Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet 包 3.x 版中提供了队列存储绑定。 [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/master/src/Microsoft.Azure.WebJobs.Storage/Queue) GitHub 存储库中提供了此包的源代码。
+[Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet 包 3.x 版中提供了队列存储绑定。 azure-webjobs-sdk GitHub 存储库中提供了此包的源代码。
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
@@ -55,6 +55,7 @@ ms.locfileid: "39220193"
 - [C#](#trigger---c-example)
 - [C# 脚本 (.csx)](#trigger---c-script-example)
 - [JavaScript](#trigger---javascript-example)
+- [Java](#trigger---Java-example)
 
 ### <a name="trigger---c-example"></a>触发器 - C# 示例
 
@@ -168,11 +169,27 @@ module.exports = function (context) {
 
 [用法](#trigger---usage)部分解释了 function.json 中的 `name` 属性命名的 `myQueueItem`。  [消息元数据部分](#trigger---message-metadata)解释了所有其他所示变量。
 
+### <a name="trigger---java-example"></a>触发器 - Java 示例
+
+以下 Java 示例演示了一个存储队列触发器函数，该函数记录放置到队列 `myqueuename` 中的已触发消息。
+ 
+ ```java
+ @FunctionName("queueprocessor")
+ public void run(
+    @QueueTrigger(name = "msg",
+                   queueName = "myqueuename",
+                   connection = "myconnvarname") String message,
+     final ExecutionContext context
+ ) {
+     context.getLogger().info(message);
+ }
+ ```
+
 ## <a name="trigger---attributes"></a>触发器 - 特性
  
 在 [C# 类库](functions-dotnet-class-library.md)，请使用以下属性来配置队列触发器：
 
-- [QueueTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueTriggerAttribute.cs)
+- QueueTriggerAttribute
 
   该特性的构造函数采用要监视的队列的名称，如以下示例中所示：
 
@@ -300,6 +317,7 @@ module.exports = function (context) {
 - [C#](#output---c-example)
 - [C# 脚本 (.csx)](#output---c-script-example)
 - [JavaScript](#output---javascript-example)
+- [Java](#output---java-example)
 
 ### <a name="output---c-example"></a>输出 - C# 示例
 
@@ -430,9 +448,28 @@ module.exports = function(context) {
 };
 ```
 
+### <a name="output---java-example"></a>输出 - Java 示例
+
+ 以下示例演示一个 Java 函数，该函数在受到 HTTP 请求触发时创建一个队列消息。
+
+```java
+@FunctionName("httpToQueue")
+@QueueOutput(name = "item", queueName = "myqueue-items", connection = "AzureWebJobsStorage")
+ public String pushToQueue(
+     @HttpTrigger(name = "request", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS)
+     final String message,
+     @HttpOutput(name = "response") final OutputBinding&lt;String&gt; result) {
+       result.setValue(message + " has been added.");
+       return message;
+ }
+ ```
+
+在 Java 函数运行时库中，对其值将要写入队列存储的参数使用 `@QueueOutput` 注释。  参数类型应为 `OutputBinding<T>`，其中 T 是 POJO 的任何本机 Java 类型。
+
+
 ## <a name="output---attributes"></a>输出 - 特性
  
-在 [C# 类库](functions-dotnet-class-library.md)中，使用 [QueueAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs)。
+在 [C# 类库](functions-dotnet-class-library.md)中，使用 QueueAttribute。
 
 该特性将应用到 `out` 参数，或应用到函数的返回值。 该特性的构造函数采用队列的名称，如以下示例中所示：
 

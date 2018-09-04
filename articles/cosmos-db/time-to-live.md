@@ -9,14 +9,14 @@ ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 08/29/2017
-ms.date: 07/02/2018
+ms.date: 09/03/2018
 ms.author: v-yeche
-ms.openlocfilehash: 5746c27cd322b566fe42ac244b74e66ddba0a395
-ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
+ms.openlocfilehash: 73d738e2a011eb3216ef9005e2a9a6b6b3668969
+ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37070118"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43164646"
 ---
 # <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>利用生存时间使 Azure Cosmos DB 集合中的数据自动过期
 应用程序可以生成和存储大量数据。 其中的某些数据（如计算机生成的事件数据、日志和用户会话信息）仅在有限的一段时间内才有用。 当数据变得多余，应用程序不再需要时，可以安全地清除这些数据并减少应用程序的存储需求。
@@ -38,7 +38,7 @@ TTL 功能在两个级别受 TTL 属性控制 - 集合级别和文档级别。 �
    * 属性仅在对父集合设置 DefaultTTL 时适用。
    * 替代父集合的 DefaultTTL 值。
 
-只要文档已过期（`ttl` + `_ts` <= 当前服务器时间），则文档就会标记为“已过期”。 此时间过后，不允许对这些文档执行任何操作，这些文档也将从执行的任何查询结果中排除。 这些文档在系统中被物理删除，并且稍后找机会在后台删除。 这不占用集合预算的任何[请求单位 (RU)](request-units.md)。
+一旦文档过期（`ttl` + `_ts` <= 当前服务器时间），就会将文档标记为“已过期”。 此时间过后，不允许对这些文档执行任何操作，这些文档也将从执行的任何查询结果中排除。 这些文档在系统中被物理删除，并且稍后找机会在后台删除。 这不占用集合预算的任何[请求单位 (RU)](request-units.md)。
 
 上面的逻辑可显示在以下矩阵中：
 
@@ -49,7 +49,17 @@ TTL 功能在两个级别受 TTL 属性控制 - 集合级别和文档级别。 �
 | 文档上的 TTL = n |在文档级别没有要替代的内容。 系统未解释文档上的 TTL。 |TTL = n 的文档会在时间间隔 n 秒后过期。 其他文档将继承 -1 时间间隔，并且永不过期。 |TTL = n 的文档会在时间间隔 n 秒后过期。 其他文档将从集合中继承“n”时间间隔。 |
 
 ## <a name="configuring-ttl"></a>配置 TTL
-默认情况下，在所有 Cosmos DB 集合和所有文档上禁用生存时间。 可以编程方式设置 TTL，或在 Azure 门户下，集合的“设置”部分中进行设置。 
+默认情况下，在所有 Cosmos DB 集合和所有文档上禁用生存时间。 可采用编程方式或通过使用 Azure 门户来设置 TTL。 使用以下步骤从 Azure 门户配置 TTL：
+
+1. 登录到 [Azure 门户](https://portal.azure.cn/)，导航到 Azure Cosmos DB 帐户。  
+
+2. 导航到要设置 TTL 值的集合，打开“规模和设置”窗格。 可以看到生存时间默认设置为“关”。 可将其更改为“开(无默认设置)”或“开”。
+
+   **关** - 文档不会自动删除。  
+   **开(无默认设置)** - 此选项可将 TTL 值设置为“-1”（无限期），这意味着默认情况下文档不会过期。  
+   **开** - 最后一次修改后，文档过期“n”秒。  
+
+   ![设置生存时间](./media/time-to-live/set-ttl-in-portal.png)
 
 ## <a name="enabling-ttl"></a>启用 TTL
 要在集合或集合内的文档上启用 TTL，需要将集合的 DefaultTTL 属性设置为 -1 或非零正数。 将 DefaultTTL 设置为 -1 表示默认情况下，集合中的所有文档将永久生存，但 Cosmos DB 服务应该监视此集合中已替代此默认值的文档。
@@ -151,8 +161,7 @@ TTL 功能在两个级别受 TTL 属性控制 - 集合级别和文档级别。 �
 如果需要返回确切数据，请不要在索引模式设置为“延迟”时更改 TTL 值。 最好应选择一致的索引，以确保查询结果一致。 
 
 ## <a name="faq"></a>常见问题
-
-            **TTL 会收取我多少费用？**
+**TTL 会收取我多少费用？**
 
 在文档上设置 TTL 不会产生额外费用。
 

@@ -9,14 +9,14 @@ ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 11/15/2017
-ms.date: 08/13/2018
+ms.date: 09/03/2018
 ms.author: v-yeche
-ms.openlocfilehash: 2daacde1bdb280e9e4096dd64a612a31a22ff6fc
-ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
+ms.openlocfilehash: 2fa2c0e6e02097f0cfbb97f0017861c203be23b1
+ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41704584"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43164757"
 ---
 # <a name="azure-cosmos-db-database-security"></a>Azure Cosmos DB 数据库安全性
 
@@ -29,8 +29,8 @@ ms.locfileid: "41704584"
 
 ## <a name="how-do-i-secure-my-database"></a>如何保护我的数据库？ 
 
-数据安全性的责任由你、客户和数据库提供程序共同分担。 根据所选的数据库提供程序，要承担的责任大小将有所不同。 如果选择本地解决方案，则从终结点保护到硬件物理安全性的所有工作都由你负责 - 这不是一个轻松的任务。 如果选择 Azure Cosmos DB 等 PaaS 云数据库提供程序，要考虑的问题会明显减少。 下图摘自 Microsoft 的 [Shared Responsibilities for Cloud Computing](https://aka.ms/sharedresponsibility)（云计算的责任分担）白皮书，显示了使用 Azure Cosmos DB 等 PaaS 提供程序时，责任会得到怎样的减轻。
-<!-- Notice: Borrowed from Microsoft is Correct-->
+数据安全性的责任由你、客户和数据库提供程序共同分担。 根据所选的数据库提供程序，要承担的责任大小将有所不同。 如果选择本地解决方案，则从终结点保护到硬件物理安全性的所有工作都由你负责 - 这不是一个轻松的任务。 如果选择 Azure Cosmos DB 等 PaaS 云数据库提供程序，要考虑的问题会明显减少。 下图摘自我们的 [Shared Responsibilities for Cloud Computing](https://aka.ms/sharedresponsibility)（云计算的责任分担）白皮书，显示了使用 Azure Cosmos DB 等 PaaS 提供程序时，责任会得到怎样的减轻。
+<!-- Notice: update Microsoft to ours is Correct-->
 
 ![客户和数据库提供程序的责任](./media/database-security/nosql-database-security-responsibilities.png)
 
@@ -50,6 +50,7 @@ ms.locfileid: "41704584"
 - 响应攻击
 - 能够地域隔离数据以遵守数据监管限制
 - 对受保护数据中心内的服务器实施物理保护
+- 认证
 
 以下要求看似理所当然，但最近发生的[大规模数据库入侵](http://thehackernews.com/2017/01/mongodb-database-security.html)提醒我们这些要求尽管很简单，但却至关重要：
 - 将修补的服务器保持最新状态
@@ -81,7 +82,7 @@ ms.locfileid: "41704584"
 |静态加密|对存储在 Azure Cosmos DB 中的所有静态数据进行加密。 可以在 [Azure Cosmos DB 静态加密](.\database-encryption-at-rest.md)中了解详细信息。|
 |修补的服务器|作为一种托管的数据库，在 Azure Cosmos DB 中无需管理和修补服务器，系统会自动完成这些操作。|
 |使用强密码的管理帐户|难以相信，我们竟然还要提到这项要求。但与我们的某些竞争产品不同，在 Azure Cosmos DB 中，不带密码的管理帐户是根本不受允许的。<br><br> DocumentDB 中默认融入了基于 SSL 和 HMAC 机密的身份验证安全性。|
-|安全和数据保护认证|Azure Cosmos DB 已通过 [ISO 27001](https://www.microsoft.com/en-us/TrustCenter/Compliance/ISO-IEC-27001)、[欧洲示范条款 (EUMC)](https://www.microsoft.com/en-us/TrustCenter/Compliance/EU-Model-Clauses) 和 [HIPAA](https://www.trustcenter.cn/) 认证。 其他认证正在审批中。|
+|安全和数据保护认证|有关认证的最新数据列表，请参阅具有所有认证（搜索 Cosmos）的整体内容（Azure 符合性网站）[https://www.microsoft.com/trustcenter/compliance/complianceofferings]以及最新内容（Azure 符合性文档）[https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942]。 有关更具有针对性的阅读，请查看 2018 年 4 月 25 日的帖子（Azure #CosmosDB：安全性、隐私性、符合性）[https://azure.microsoft.com/blog/azure-cosmosdb-secure-private-compliant/]，其中包含 SOCS 1/2 类型 2、HITRUST、PCI DSS 1 级、ISO 27001、HIPPAA、FedRAMP High 和许多其他内容。
 
 <!-- Line: 72 Notice: 全球分布 to 多个区域分布 -->
 <!-- Line: 72 Notice  任何一个全球数据中心 to 多个数据中心之中任何一个 -->
@@ -99,4 +100,4 @@ ms.locfileid: "41704584"
 
 有关 Azure 认证的详细信息，请参阅 [Azure 信任中心](https://www.trustcenter.cn/zh-cn/cloudservices/azure.html)。
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties, wording update, wording update -->

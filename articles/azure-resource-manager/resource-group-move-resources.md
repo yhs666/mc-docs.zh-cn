@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 07/02/2018
-ms.date: 08/13/2018
+ms.date: 09/03/2018
 ms.author: v-yeche
-ms.openlocfilehash: 846e00c7d17f281d464795c8b166e52245f8c5b2
-ms.sourcegitcommit: 543a18c71c0910a5b9878a2d2668f317468906f2
+ms.openlocfilehash: 564a71c83478ef0e97cd9ab309cef4936ad2d77e
+ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39625549"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43164702"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>将资源移到新资源组或订阅中
 
@@ -119,12 +119,15 @@ ms.locfileid: "39625549"
 * 应用服务证书 <!-- Not Available * Application Insights-->
 * Analysis Services
 * 自动化 <!-- Not Available * Azure Active Directory B2C-->
-* Azure Cosmos DB <!-- Not Available * Azure Relay -->
-* Batch <!-- Not Available * Bing Maps -->
+* Azure Cosmos DB <!-- Not Available * Azure Maps -->
+<!-- Not Available * Azure Relay -->
+* Azure Stack - 注册 <!-- Not Available * Azure Migrate-->
+* Batch <!-- Not Available * BizTalk Services-->
+<!-- Not Available * Bot Service-->
 * CDN
 * 云服务 - 请参阅 [经典部署限制](#classic-deployment-limitations)
-* 认知服务 <!-- Not Available * Container Registry-->
-<!-- Not Available * Content Moderator-->
+* 认知服务
+* 容器注册表 <!-- Not Available * Content Moderator-->
 <!-- Not Available * Data Catalog-->
 <!-- Not Available * Data Factory -->
 <!-- Not Available * Data Lake Analytics-->
@@ -152,6 +155,7 @@ ms.locfileid: "39625549"
 * 存储（经典）- 请参阅[经典部署限制](#classic-deployment-limitations)
 * 流分析 - 当流分析作业处于运行状态时，则无法进行移动。
 * SQL 数据库服务器 - 数据库和服务器必须位于同一个资源组中。 移动 SQL 服务器时，也会移动其所有数据库。 此行为适用于 Azure SQL 数据库和 Azure SQL 数据仓库数据库。
+<!-- Not Available * Time Series Insights-->
 * 流量管理器
 * 虚拟机 - 包含托管磁盘的 VM 无法移动。 请参阅[虚拟机限制](#virtual-machines-limitations)
 * 虚拟机（经典）- 请参阅[经典部署限制](#classic-deployment-limitations)

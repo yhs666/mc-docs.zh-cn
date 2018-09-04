@@ -10,37 +10,34 @@ ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 03/26/2018
-ms.date: 08/13/2018
+origin.date: 08/10/2018
+ms.date: 09/03/2018
 ms.author: v-yeche
-ms.openlocfilehash: f18371e8700eaf117ac94694bca68c4440ec060d
-ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
+ms.openlocfilehash: fccde87eaac9244f5070bf6c68fd77cba7913a9e
+ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41705244"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43164735"
 ---
-# <a name="sql-queries-for-azure-cosmos-db"></a>Azure Cosmos DB 的 SQL 查询
+# <a name="query-azure-cosmos-db-data-with-sql-queries"></a>使用 SQL 查询来查询 Azure Cosmos DB 数据
 
-Azure Cosmos DB 通过将 SQL（结构化查询语言）用作 SQL API 帐户中的 JSON 查询语言来支持查询文档。 Azure Cosmos DB 是真正无架构的服务。 凭借其对数据库引擎内 JSON 数据模型的直接承诺，它可以提供 JSON 文档的自动索引，而无需显式架构或创建辅助索引。
+Azure Cosmos DB 通过将 SQL（结构化查询语言）用作 SQL API 帐户中的 JSON 查询语言来支持查询文档。 在设计 Azure Cosmos DB 的查询语言时，请考虑到以下两个目标：
 
-在设计 Cosmos DB 的查询语言时，我们有两个目标：
+* 我们不是要发明一种新的查询语言，而是使 Azure Cosmos DB 支持 SQL - 最常见和最常用的查询语言之一。 Azure Cosmos DB SQL 提供正式的编程模型，用于对 JSON 文档进行丰富查询。  
 
-* 我们希望支持 SQL，而不是发明一种新的 JSON 查询语言。 SQL 是最常见和最常用的查询语言之一。 Cosmos DB SQL 提供一种正式的编程模型，用于对 JSON 文档进行丰富的查询。
-* 由于 JSON 文档数据库能够在数据库引擎中直接执行 JavaScript，我们希望将 JavaScript 的编程模型用作查询语言的基础。 SQL API 植根于 JavaScript 的类型系统、表达式计算和函数调用中。 而这反过来为关系投影、跨 JSON 文档的分层导航、自联接、空间查询以及调用完全采用 JavaScript 编写的用户定义的函数 (UDF) 和其他功能提供了自然编程模型。 
+* Azure Cosmos DB 使用 JavaScript 的编程模型作为查询语言的基础。 SQL API 植根于 JavaScript 的类型系统、表达式计算和函数调用中。 而这反过来为关系投影、跨 JSON 文档的分层导航、自联接、空间查询以及调用完全采用 JavaScript 编写的用户定义的函数 (UDF) 和其他功能提供了自然编程模型。 
 
-我们相信这些功能是减少应用程序和数据库之间冲突的关键，并且对于开发人员的工作效率来说是至关重要的。
-
+本文使用简单的 JSON 文档来逐步讲解一些示例 SQL 查询。 若要了解 Azure Cosmos DB SQL 语言语法，请参阅 [SQL 语法参考](sql-api-sql-query-reference.md)一文。 
 <!-- Not Available on VIDEO prefix words -->
 <!-- Not Available on [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/DataExposedQueryingDocumentDB/player] -->
 
-然后，返回到本文中，我们将从 SQL 查询教程开始，指导完成一些简单的 JSON 文档和 SQL 命令。
 
 <a name="GettingStarted"></a>
-## <a name="getting-started-with-sql-commands-in-cosmos-db"></a>Cosmos DB 中的 SQL 命令入门
-为了解 Cosmos DB SQL 在工作时的情况，让我们以一些简单的 JSON 文档开始，并对它完成一些简单的查询。 考虑以下两个关于两个家庭的 JSON 文档。 使用 Cosmos DB 时不需要显式创建任何架构或辅助索引。 只需将 JSON 文档插入 Cosmos DB 集合中并随后进行查询。 这里，我们有一个包含 Andersen 家庭、父母、子女（以及他们的宠物）、地址和注册信息的简单 JSON 文档。 该文档拥有字符串、数字、布尔、数组和嵌套属性。 
+## <a name="get-started-with-sql-commands"></a>SQL 命令入门
+让我们创建两个简单的 JSON 文档，并针对它们执行查询。 假设有两个涉及到家庭的 JSON 文档。请将这些 JSON 文档插入集合，然后查询数据。 此处有一个涉及到 Andersen 和 Wakefield 家庭、父母、子女（及其宠物）、地址和注册信息的简单 JSON 文档。 该文档拥有字符串、数字、布尔、数组和嵌套属性。 
 
-**文档**  
+**Document1**  
 
 ```JSON
 {
@@ -66,7 +63,7 @@ Azure Cosmos DB 通过将 SQL（结构化查询语言）用作 SQL API 帐户中
 
 下面是另一个有着细微差异的文档 — 使用了 `givenName` 和 `familyName`，而不是 `firstName` 和 `lastName`。
 
-**文档**  
+**Document2**  
 
 ```json
 {
@@ -97,16 +94,19 @@ Azure Cosmos DB 通过将 SQL（结构化查询语言）用作 SQL API 帐户中
 }
 ```
 
-现在，让我们尝试对此数据执行一些查询来了解 Azure Cosmos DB 的 SQL 查询语言的一些重要方面。 例如，以下查询返回其中的 ID 字段与 `AndersenFamily` 匹配的文档。 由于它是 `SELECT *`，因此该查询的输出为完整的 JSON 文档：
+现在，让我们尝试对此数据执行一些查询来了解 Azure Cosmos DB 的 SQL 查询语言的一些重要方面。 
 
-**查询**
+**Query1**：例如，以下查询返回其中的 ID 字段与 `AndersenFamily` 匹配的文档。 由于它是一个 `SELECT *`，因此，查询输出是完整的 JSON 文档。若要了解语法，请参阅 [SELECT 语句](sql-api-sql-query-reference.md#select-query)：
 
+```sql
     SELECT * 
     FROM Families f 
     WHERE f.id = "AndersenFamily"
+```
 
 **结果**
 
+```json
     [{
         "id": "AndersenFamily",
         "lastName": "Andersen",
@@ -124,93 +124,175 @@ Azure Cosmos DB 通过将 SQL（结构化查询语言）用作 SQL API 帐户中
         "creationDate": 1431620472,
         "isRegistered": true
     }]
+```
 
-现在，考虑我们需要将 JSON 输出的格式重新设置为一种不同的形式。 地址的城市名称与省/自治区/直辖市名称相同时，此查询使用两个选定的字段 Name 和 City 表示新的 JSON 对象。 在这种情况下，“NY, NY”匹配。
+**Query2**：现在考虑我们需要将 JSON 输出的格式重新设置为一种不同的形式。 地址的城市名称与省/自治区/直辖市名称相同时，此查询使用两个选定的字段 Name 和 City 表示新的 JSON 对象。 在这种情况下，“NY, NY”匹配。   
 
-**查询**    
-
+```sql
     SELECT {"Name":f.id, "City":f.address.city} AS Family 
     FROM Families f 
     WHERE f.address.city = f.address.state
+```
 
 **结果**
 
+```json
     [{
         "Family": {
             "Name": "WakefieldFamily", 
             "City": "NY"
         }
     }]
+```
 
-下一个查询返回 ID与按居住城市排序的 `WakefieldFamily` 匹配的家庭中所有子女的给定名称。
+**Query3**：此查询返回其 ID与按居住城市排序的 `WakefieldFamily` 匹配的家庭中所有子女的给定名称。
 
-**查询**
-
+```sql
     SELECT c.givenName 
     FROM Families f 
     JOIN c IN f.children 
     WHERE f.id = 'WakefieldFamily'
     ORDER BY f.address.city ASC
+```
 
 **结果**
 
+```json
     [
       { "givenName": "Jesse" }, 
       { "givenName": "Lisa"}
     ]
+```
 
-我们希望通过我们目前已看到的示例来突出 Cosmos DB 查询语言一些值得注意的方面：  
+下面是到目前为止通过示例了解到的 Cosmos DB 查询语言的几个方面：  
 
 * 由于 SQL API 适用于 JSON 值，因此它可以处理三种形式的实体，而不是行和列。 因此，使用该语言可在任意深度引用树的节点，如 `Node1.Node2.Node3…..Nodem`，这类似于引用 `<table>.<column>` 的两个部分引用的关系型 SQL。   
+
 * 结构化查询语言适用于无架构的数据。 因此，需要动态绑定类型系统。 相同的表达式在不同文档上可能会产生不同的类型。 查询的结果是一个有效的 JSON 值，但不保证它为固定的架构。  
-* Cosmos DB 仅支持严格的 JSON 文档。 这意味着类型系统和表达式仅限于处理 JSON 类型。 有关更多详细信息，请参阅 [JSON 规范](http://www.json.org/)。  
+
+* Azure Cosmos DB 仅支持严格的 JSON 文档。 这意味着类型系统和表达式仅限于处理 JSON 类型。 有关更多详细信息，请参阅 [JSON 规范](http://www.json.org/)。  
+
 * Cosmos DB 集合是 JSON 文档的一个无架构容器。 集合中，文档内和跨文档的数据实体的关系是按包含关系隐式捕获的，而不是按主键和外键关系。 考虑到稍后会在本文中讨论文档内联接，因此这是一个值得注意的重要方面。
 
-<a name="Indexing"></a>
-##  <a name="cosmos-db-indexing"></a>Cosmos DB 索引
-了解 SQL 语法之前，有必要先了解 Azure Cosmos DB 中的索引设计。 
+<a name="SelectClause"></a>
+## <a name="select-clause"></a>Select 子句
 
-数据库索引的目的是在提供良好的吞吐量和低延迟的同时，以最小的资源消耗（如 CPU 和输入/输出）提供各种形式的查询。 通常，为查询数据库选择正确的索引需要大量的计划和试验。 此方法对数据不符合严格的架构并且快速发展的无架构数据库来说是一个挑战。 
+每个查询按 ANSI-SQL 标准由 SELECT 子句和可选的 FROM 和 WHERE 子句组成。 通常，对于每个查询，已枚举 FROM 子句中的源。 然后将 WHERE 子句中的筛选器应用到源以检索 JSON 文档的子集。 最后，使用 SELECT 子句以投影选择列表中请求的 JSON 值。 若要了解语法，请参阅 [SELECT 语法](sql-api-sql-query-reference.md#bk_select_query)。
 
-因此，设计 Cosmos DB 索引子系统时，我们设定了以下目标：
+下面的示例演示了典型的 SELECT 查询。 
 
-* 在无需架构的情况下索引文档：索引子系统不需要任何架构信息或对文档的架构做出任何假设。 
-* 支持高效、层次丰富的关系查询：索引高效地支持 Cosmos DB 查询语言，包括支持分层和关系投影。
-* 持续大量写入时支持一致的查询：对于使用一致的查询的高写入吞吐量工作负荷，在持续大量写入时可逐步、高效地联机更新索引。 一致的索引更新对在用户配置文档服务的一致性级别进行查询来说是至关重要的。
-* 支持多租户：在为跨租户的资源调控给定基于保留的模型的情况下，可以在为每个副本分配的系统资源（CPU、内存和每秒的输入/输出操作）的预算内执行索引更新。 
-* 存储效率：就成本效益而言，在磁盘上存储索引的开销是有限的，并且是可预测的。 这一点非常重要，因为 Cosmos DB 允许开发人员在索引开销与查询性能之间做出基于成本的权衡。  
+**查询**
 
-有关演示如何为集合配置索引策略的示例，请参阅 MSDN 上的 [Azure Cosmos DB 示例](https://github.com/Azure/azure-documentdb-net)。 现在，让我们开始详细了解 Azure Cosmos DB SQL 语法。
+```sql
+    SELECT f.address
+    FROM Families f 
+    WHERE f.id = "AndersenFamily"
+```
 
-<a name="Basics"></a>
-## <a name="basics-of-an-azure-cosmos-db-sql-query"></a>Azure Cosmos DB SQL 查询基础知识
-每个查询按 ANSI-SQL 标准由 SELECT 子句和可选的 FROM 和 WHERE 子句组成。 通常，对于每个查询，已枚举 FROM 子句中的源。 然后将 WHERE 子句中的筛选器应用到源以检索 JSON 文档的子集。 最后，使用 SELECT 子句以投影选择列表中请求的 JSON 值。
+**结果**
 
-    SELECT <select_list> 
-    [FROM <from_specification>] 
-    [WHERE <filter_condition>]
-    [ORDER BY <sort_specification]    
+```json
+    [{
+      "address": {
+        "state": "WA", 
+        "county": "King", 
+        "city": "seattle"
+      }
+    }]
+```
+
+### <a name="nested-properties"></a>嵌套属性
+在下面的示例中，我们投影两个嵌套的属性 `f.address.state` and `f.address.city`。
+
+**查询**
+
+```sql
+    SELECT f.address.state, f.address.city
+    FROM Families f 
+    WHERE f.id = "AndersenFamily"
+```
+
+**结果**
+
+```json
+    [{
+      "state": "WA", 
+      "city": "seattle"
+    }]
+```
+
+投影也支持 JSON 表达式，如下例所示：
+
+**查询**
+
+```sql
+    SELECT { "state": f.address.state, "city": f.address.city, "name": f.id }
+    FROM Families f 
+    WHERE f.id = "AndersenFamily"
+```
+
+**结果**
+
+```json
+    [{
+      "$1": {
+        "state": "WA", 
+        "city": "seattle", 
+        "name": "AndersenFamily"
+      }
+    }]
+```
+
+让我们看看此处的 `$1` 角色。 `SELECT` 子句需要创建 JSON 对象，并且由于没有提供任何密钥，因此我们使用以 `$1` 开头的隐式参数变量名。 例如，此查询返回了两个隐式参数变量，标为 `$1` 和 `$2`。
+
+**查询**
+
+```sql
+    SELECT { "state": f.address.state, "city": f.address.city }, 
+           { "name": f.id }
+    FROM Families f 
+    WHERE f.id = "AndersenFamily"
+```
+
+**结果**
+
+```json
+    [{
+      "$1": {
+        "state": "WA", 
+        "city": "seattle"
+      }, 
+      "$2": {
+        "name": "AndersenFamily"
+      }
+    }]
+```
 
 <a name="FromClause"></a>
 ## <a name="from-clause"></a>FROM 子句
-`FROM <from_specification>` 子句是可选的，除非稍后在查询中对源进行筛选或投影。 此子句的目的在于指定必须对其执行查询的数据源。 通常情况下，整个集合作为源，但可以将集合的子集指定为源。 
 
-一个类似 `SELECT * FROM Families` 的查询指示整个家庭集合是要枚举的源。 特殊标识符 ROOT 可以用来表示集合，而不使用集合名称来表示。 以下列表包含每个查询需要强制执行的规则：
+FROM <from_specification> 子句是可选的，除非稍后在查询中对源进行筛选或投影。 若要了解语法，请参阅 [FROM 语法](sql-api-sql-query-reference.md#bk_from_clause)。 一个类似 `SELECT * FROM Families` 的查询指示整个家庭集合是要枚举的源。 特殊标识符 ROOT 可以用来表示集合，而不使用集合名称来表示。 以下列表包含每个查询需要强制执行的规则：
 
-* 集合可以使用别名，如 `SELECT f.id FROM Families AS f` 或只需为 `SELECT f.id FROM Families f`。 此处，`f` 等效于 `Families`。 `AS` 是可选的关键字，用于为标识符取别名。
-* 一旦有了别名，则无法绑定原始的源。 例如，由于再也无法解析标识符“Families”，因此 `SELECT Families.id FROM Families f` 在语法上无效。
+* 集合可以使用别名，如 `SELECT f.id FROM Families AS f` 或只需为 `SELECT f.id FROM Families f`。 此处，`f` 等效于 `Families`。 `AS` 是可选的关键字，用于为标识符取别名。  
+
+* 一旦有了别名，则无法绑定原始的源。 例如，由于再也无法解析标识符“Families”，因此 `SELECT Families.id FROM Families f` 在语法上无效。  
+
 * 所有需要引用的属性都必须是完全限定的。 在没有遵循严格架构的情况下，会强制性地执行这一点以避免任何不确定的绑定。 因此，由于未绑定 `id` 属性，因此 `SELECT id FROM Families f` 在语法上无效。
 
-### <a name="subdocuments"></a>子文档
+### <a name="get-subdocuments-using-from-clause"></a>使用 FROM 子句获取子文档
+
 也可以将源缩小为更小的子集。 例如，要在每个文档中仅枚举子树，则子根可能变成源，如下例所示。
 
 **查询**
 
+```sql
     SELECT * 
     FROM Families.children
+```
 
 **结果**  
 
+```json
     [
       [
         {
@@ -239,35 +321,43 @@ Azure Cosmos DB 通过将 SQL（结构化查询语言）用作 SQL API 帐户中
         }
       ]
     ]
+```
 
 虽然上面的示例中使用数组作为源，但也可以使用对象作为源，如下例所示：在源中可以找到的任何有效 JSON 值（非未定义）都被视为包含在查询的结果中。 如果一些家庭没有 `address.state` 值，则会将他们排除在查询结果之外。
 
 **查询**
 
+```sql
     SELECT * 
     FROM Families.address.state
+```
 
 **结果**
 
+```json
     [
       "WA", 
       "NY"
     ]
+```
 
 <a name="WhereClause"></a>
 ## <a name="where-clause"></a>WHERE 子句
-WHERE 子句（**`WHERE <filter_condition>`**）可选。 它指定由源提供的 JSON 文档必须满足的条件，以便作为结果的一部分包含在内。 任何 JSON 文档必须将指定的条件评估为“true”以作为结果。 WHERE 子句由索引层使用，以确定可以作为结果的一部分的源文档的绝对最小子集。 
+WHERE 子句（**`WHERE <filter_condition>`**）可选。 它指定由源提供的 JSON 文档必须满足的条件，以便作为结果的一部分包含在内。 任何 JSON 文档必须将指定的条件评估为“true”以作为结果。 WHERE 子句由索引层使用，以确定可以作为结果的一部分的源文档的绝对最小子集。 若要了解语法，请参阅 [WHERE 语法](sql-api-sql-query-reference.md#bk_where_clause)。
 
 以下查询请求包含值为 `AndersenFamily`的名称属性的文档。 任何其他不具有名称属性或值与 `AndersenFamily` 不匹配的文档则被排除在外。 
 
 **查询**
 
+```sql
     SELECT f.address
     FROM Families f 
     WHERE f.id = "AndersenFamily"
+```
 
 **结果**
 
+```json
     [{
       "address": {
         "state": "WA", 
@@ -275,36 +365,23 @@ WHERE 子句（**`WHERE <filter_condition>`**）可选。 它指定由源提供�
         "city": "seattle"
       }
     }]
+```
 
 上面的示例演示了一个简单的等式查询。 SQL API 还支持各种标量表达式。 最常使用的是二进制和一元表达式。 来自源 JSON 对象的属性引用也是有效的表达式。 
 
 当前支持以下二进制运算符，它们可在查询中使用，如下例所示：  
 
-<table>
-<tr>
-<td>算术</td>    
-<td>+,-,*,/,%</td>
-</tr>
-<tr>
-<td>位</td>    
-<td>|、&、^、<<、>>、>>>（补零右移）</td>
-</tr>
-<tr>
-<td>逻辑</td>
-<td>AND、OR、NOT</td>
-</tr>
-<tr>
-<td>比较</td>    
-<td>=、!=、&lt;、&gt;、&lt;=、&gt;=、<></td>
-</tr>
-<tr>
-<td>String</td>    
-<td>||（连接）</td>
-</tr>
-</table>  
+|**运算符类型**  |**值**  |
+|---------|---------|
+|算术    |   +,-,*,/,%   |
+|位  |   |、&、^、<<、>>、>>>（补零右移）      |
+|逻辑   |   AND、OR、NOT      |
+|比较   |    =、!=、&lt;、&gt;、&lt;=、&gt;=、<>     |
+|String  |  || （连接）       |
 
 让我们查看一些使用二进制运算符的查询。
 
+```sql
     SELECT * 
     FROM Families.children[0] c
     WHERE c.grade % 2 = 1     -- matching grades == 5, 1
@@ -316,9 +393,11 @@ WHERE 子句（**`WHERE <filter_condition>`**）可选。 它指定由源提供�
     SELECT *
     FROM Families.children[0] c
     WHERE c.grade >= 5     -- matching grades == 5
+```
 
-也支持一元运算符 +、-、~ 和 NOT，它们可在查询中使用，如下例所示：
+还支持一元运算符 +、-、~ 和 NOT，它们可在查询中使用，如下例所示：
 
+```sql
     SELECT *
     FROM Families.children[0] c
     WHERE NOT(c.grade = 5)  -- matching grades == 1
@@ -326,6 +405,7 @@ WHERE 子句（**`WHERE <filter_condition>`**）可选。 它指定由源提供�
     SELECT *
     FROM Families.children[0] c
     WHERE (-c.grade = -5)  -- matching grades == 5
+```
 
 除了二进制和一元运算符以外，还允许使用属性引用。 例如，`SELECT * FROM Families f WHERE f.isRegistered` 返回包含 `isRegistered` 属性的文档，其中的属性值等于 JSON `true` 值。 任何其他值（false、null、Undefined、`<number>`、`<string>`、`<object>`、`<array>` 等等）都会导致源文档被排除在结果之外。 
 
@@ -504,31 +584,38 @@ Undefined </td>
 
 对于其他比较运算符（如 >、>=、!=、< 和 <=），以下规则适用：   
 
-* 跨类型比较结果为 Undefined。
+* 跨类型比较结果为 Undefined。  
 * 两个对象或两个数组之间比较结果为 Undefined。   
 
 如果筛选器中标量表达式的结果为 Undefined，则相应的文档不会包含在结果中，因为 Undefined 在逻辑上不等于“True”。
 
-### <a name="between-keyword"></a>BETWEEN 关键字
+## <a name="between-keyword"></a>BETWEEN 关键字
 还可以使用 BETWEEN 关键字来对一定范围内的值（如在 ANSI SQL 中）进行快速查询。 可对字符串或数字使用 BETWEEN。
 
 例如，此查询返回在其中第一个子女的年级为 1-5 之间（包括 1 和 5）的所有家庭文档。 
 
+```sql
     SELECT *
     FROM Families.children[0] c
     WHERE c.grade BETWEEN 1 AND 5
+```
 
 与在 ANSI-SQL 中不同，也可以使用 FROM 子句中的 BETWEEN 子句，如以下示例所示。
 
+```sql
     SELECT (c.grade BETWEEN 0 AND 10)
     FROM Families.children[0] c
-
-了更快地执行查询，请记得创建索引策略，该策略对在 BETWEEN 子句中筛选的任何数值属性/路径使用范围索引类型。 
+```
 
 在 SQL API 与在 ANSI SQL 中使用 BETWEEN 的主要不同之处在于，前者支持对混合类型的属性执行快速范围查询 - 例如，可以在某些文档中将“grade”设置为数字 (5)，并在其他文档中将其设置为字符串（“grade4”）。 在这些情况下（如在 JavaScript 中），在两种不同类型之间进行比较的结果为“undefined”，会跳过文档。
 
+> [!NOTE]
+> 了更快地执行查询，请记得创建索引策略，该策略对在 BETWEEN 子句中筛选的任何数值属性/路径使用范围索引类型。 
+
 ### <a name="logical-and-or-and-not-operators"></a>逻辑（AND、OR 和 NOT）运算符
 逻辑运算符对布尔值进行运算。 下表显示了这些运算符的逻辑真值表。
+
+**OR 运算符**
 
 | OR | True | False | Undefined |
 | --- | --- | --- | --- |
@@ -536,11 +623,15 @@ Undefined </td>
 | False |True |False |Undefined |
 | Undefined |True |Undefined |Undefined |
 
+**AND 运算符**
+
 | AND | True | False | Undefined |
 | --- | --- | --- | --- |
 | True |True |False |Undefined |
 | False |False |False |False |
 | Undefined |Undefined |False |Undefined |
+
+**NOT 运算符**
 
 | NOT |  |
 | --- | --- |
@@ -548,139 +639,77 @@ Undefined </td>
 | False |True |
 | Undefined |Undefined |
 
-### <a name="in-keyword"></a>IN 关键字
+## <a name="in-keyword"></a>IN 关键字
+
 IN 关键字可用于检查指定的值是否与列表中的任意值匹配。 例如，此查询返回 ID 为“WakefieldFamily”或“AndersenFamily”的所有家庭文档。 
 
+```sql
     SELECT *
     FROM Families 
     WHERE Families.id IN ('AndersenFamily', 'WakefieldFamily')
+```
 
 此示例返回状态为任何指定值的所有文档。
 
+```sql
     SELECT *
     FROM Families 
     WHERE Families.address.state IN ("NY", "WA", "CA", "PA", "OH", "OR", "MI", "WI", "MN", "FL")
+```
 
-### <a name="ternary--and-coalesce--operators"></a>三元 (?) 和联合 (??) 运算符
-三元和联合运算符可以用于生成条件表达式，类似于常用的编程语言（如 C# 和 JavaScript）。 
+## <a name="ternary--and-coalesce--operators"></a>三元 (?) 和联合 (??) 运算符
 
-当动态构建新的 JSON 属性时，使用三元 (?) 运算符会非常方便。 例如，现在可以写入查询以将类级别（初学者/中级/高级）分类到用户可读的表单中，如下面所示。
+三元和联合运算符可以用于生成条件表达式，类似于常用的编程语言（如 C# 和 JavaScript）。 当动态构建新的 JSON 属性时，使用三元 (?) 运算符会非常方便。 例如，现在可以写入查询以将类级别（初学者/中级/高级）分类到用户可读的表单中，如下面所示。
 
+```sql
      SELECT (c.grade < 5)? "elementary": "other" AS gradeLevel 
      FROM Families.children[0] c
+```
 
 也可以将调用嵌套到运算符，如以下查询中所示。
 
+```sql
     SELECT (c.grade < 5)? "elementary": ((c.grade < 9)? "junior": "high")  AS gradeLevel 
     FROM Families.children[0] c
+```
 
 如同使用其他查询运算符一样，如果任何文档中缺少条件表达式的引用属性，或者如果正在进行比较的类型不同，那么这些文档会被排除在查询结果之外。
 
 联合 (??) 运算符可用于有效地检查文档中是否存在属性（也称为 已定义）。 这在对半结构化数据或混合类型的数据执行查询时很有用。 例如，此查询返回“lastName”（如果存在）或“surname”（如果不存在）。
 
+```sql
     SELECT f.lastName ?? f.surname AS familyName
     FROM Families f
+```
 
 <a name="EscapingReservedKeywords"></a>
-### <a name="quoted-property-accessor"></a>带引号的属性访问器
+## <a name="quoted-property-accessor"></a>带引号的属性访问器
 也可以使用带引号的属性运算符 `[]` 访问属性。 例如，由于再也无法解析标识符“Families”，因此 `SELECT c.grade` and `SELECT c["grade"]` 是等效的。 此语法在需要转义包含空格和特殊字符的属性或正好将相同的名称作为 SQL 关键字或保留字共享的属性时很有用。
 
+```sql
     SELECT f["lastName"]
     FROM Families f
     WHERE f["id"] = "AndersenFamily"
+```
 
-<a name="SelectClause"></a>
-## <a name="select-clause"></a>SELECT 子句
-SELECT 子句 (**`SELECT <select_list>`**) 是强制性的，用于指定要从查询中检索的值，就如在 ANSI-SQL 中一样。 将在源文档顶端上筛选出来的子集传递给投影阶段，在其中检索指定的 JSON 值并为每个传递给它的输出构造新的 JSON 对象。 
+## <a name="aliasing"></a>别名
 
-下面的示例演示了典型的 SELECT 查询。 
-
-**查询**
-
-    SELECT f.address
-    FROM Families f 
-    WHERE f.id = "AndersenFamily"
-
-**结果**
-
-    [{
-      "address": {
-        "state": "WA", 
-        "county": "King", 
-        "city": "seattle"
-      }
-    }]
-
-### <a name="nested-properties"></a>嵌套属性
-在下面的示例中，我们投影两个嵌套的属性 `f.address.state` and `f.address.city`。
-
-**查询**
-
-    SELECT f.address.state, f.address.city
-    FROM Families f 
-    WHERE f.id = "AndersenFamily"
-
-**结果**
-
-    [{
-      "state": "WA", 
-      "city": "seattle"
-    }]
-
-投影也支持 JSON 表达式，如下例所示：
-
-**查询**
-
-    SELECT { "state": f.address.state, "city": f.address.city, "name": f.id }
-    FROM Families f 
-    WHERE f.id = "AndersenFamily"
-
-**结果**
-
-    [{
-      "$1": {
-        "state": "WA", 
-        "city": "seattle", 
-        "name": "AndersenFamily"
-      }
-    }]
-
-让我们看看此处的 `$1` 角色。 `SELECT` 子句需要创建 JSON 对象，并且由于没有提供任何密钥，因此我们使用以 `$1` 开头的隐式参数变量名。 例如，此查询返回了两个隐式参数变量，标为 `$1` 和 `$2`。
-
-**查询**
-
-    SELECT { "state": f.address.state, "city": f.address.city }, 
-           { "name": f.id }
-    FROM Families f 
-    WHERE f.id = "AndersenFamily"
-
-**结果**
-
-    [{
-      "$1": {
-        "state": "WA", 
-        "city": "seattle"
-      }, 
-      "$2": {
-        "name": "AndersenFamily"
-      }
-    }]
-
-### <a name="aliasing"></a>别名
 现在让我们使用值的显示别名对上面的示例进行扩展。 AS 是用于别名的关键字。 在将第二个值投影为 `NameInfo` 时，它如显示的那样是可选的。 
 
 如果查询包含两个具有相同名称的属性，则必须使用别名以重命名其中一个属性或两个属性，以便可以在投影的结果中消除它们的歧义。
 
 **查询**
-
+```sql
     SELECT 
            { "state": f.address.state, "city": f.address.city } AS AddressInfo, 
            { "name": f.id } NameInfo
     FROM Families f 
     WHERE f.id = "AndersenFamily"
+```
 
 **结果**
 
+```json
     [{
       "AddressInfo": {
         "state": "WA", 
@@ -690,41 +719,53 @@ SELECT 子句 (**`SELECT <select_list>`**) 是强制性的，用于指定要从�
         "name": "AndersenFamily"
       }
     }]
+```
 
-### <a name="scalar-expressions"></a>标量表达式
+## <a name="scalar-expressions"></a>标量表达式
 除了属性引用之外，SELECT 子句还支持标量表达式，如常量、算术表达式和逻辑表达式等。例如，下面是一个简单的“Hello World”查询。
 
 **查询**
 
+```sql
     SELECT "Hello World"
+```
 
 **结果**
 
+```json
     [{
       "$1": "Hello World"
     }]
+```
 
 下面是一个使用标量表达式的更复杂的示例。
 
 **查询**
 
+```sql
     SELECT ((2 + 11 % 7)-2)/3    
+```
 
 **结果**
 
+```json
     [{
       "$1": 1.33333
     }]
+```
 
 在下面的示例中，标量表达式的结果是布尔。
 
 **查询**
 
+```sql
     SELECT f.address.city = f.address.state AS AreFromSameCityState
     FROM Families f    
+```
 
 **结果**
 
+```json
     [
       {
         "AreFromSameCityState": false
@@ -733,17 +774,21 @@ SELECT 子句 (**`SELECT <select_list>`**) 是强制性的，用于指定要从�
         "AreFromSameCityState": true
       }
     ]
+```
 
-### <a name="object-and-array-creation"></a>对象和数组创建
+## <a name="object-and-array-creation"></a>对象和数组创建
 SQL API 的另一个重要功能是数组/对象创建。 请注意，在上一个示例中，我们已创建了一个新的 JSON 对象。 同样，也可以构造数组，如下例所示：
 
 **查询**
 
+```sql
     SELECT [f.address.city, f.address.state] AS CityState 
     FROM Families f    
+```
 
 **结果**  
 
+```json
     [
       {
         "CityState": [
@@ -758,30 +803,38 @@ SQL API 的另一个重要功能是数组/对象创建。 请注意，在上一�
         ]
       }
     ]
+```
 
 <a name="ValueKeyword"></a>
-### <a name="value-keyword"></a>VALUE 关键字
+## <a name="value-keyword"></a>VALUE 关键字
 **VALUE** 关键字提供一种返回 JSON 值的方法。 例如，下面所示的查询返回标量 `"Hello World"`，而不是 `{$1: "Hello World"}`。
 
 **查询**
 
+```sql
     SELECT VALUE "Hello World"
+```
 
 **结果**
 
+```json
     [
       "Hello World"
     ]
+```
 
 下面的查询在结果中返回不带 `"address"` 标签的 JSON 值。
 
 **查询**
 
+```sql
     SELECT VALUE f.address
     FROM Families f    
+```
 
 **结果**  
 
+```json
     [
       {
         "state": "WA", 
@@ -794,32 +847,40 @@ SQL API 的另一个重要功能是数组/对象创建。 请注意，在上一�
         "city": "NY"
       }
     ]
+```
 
 下面的示例对此进行了扩展，以演示如何返回 JSON 基元值（JSON 树的叶级别）。 
 
 **查询**
 
+```sql
     SELECT VALUE f.address.state
     FROM Families f    
+```
 
 **结果**
 
+```json
     [
       "WA",
       "NY"
     ]
+```
 
-### <a name="-operator"></a>* 运算符
+## <a name="-operator"></a>* 运算符
 支持使用特殊运算符 (*) 按原样投影文档。 在使用时，它必须仅为投影的字段。 当类似 `SELECT * FROM Families f` 的查询有效时，`SELECT VALUE * FROM Families f ` 和 `SELECT *, f.id FROM Families f ` 无效。
 
 **查询**
 
+```sql
     SELECT * 
     FROM Families f 
     WHERE f.id = "AndersenFamily"
+```
 
 **结果**
 
+```json
     [{
         "id": "AndersenFamily",
         "lastName": "Andersen",
@@ -837,18 +898,22 @@ SQL API 的另一个重要功能是数组/对象创建。 请注意，在上一�
         "creationDate": 1431620472,
         "isRegistered": true
     }]
+```
 
 <a name="TopKeyword"></a>
-### <a name="top-operator"></a>TOP 运算符
+## <a name="top-operator"></a>TOP 运算符
 TOP 关键字可用于限制来自查询中的值的数量。 当 TOP 与 ORDER BY 子句配合使用时，结果集被限制为有序值的前 N 个数；否则，它会返回未定义排序的结果中的前 N 数。 在 SELECT 语句中，最佳做法是始终使用带有 TOP 子句的 ORDER BY 子句。 这是可预测指示受 TOP 影响的行的唯一方法。 
 
 **查询**
 
+```sql
     SELECT TOP 1 * 
     FROM Families f 
+```
 
 **结果**
 
+```json
     [{
         "id": "AndersenFamily",
         "lastName": "Andersen",
@@ -866,46 +931,59 @@ TOP 关键字可用于限制来自查询中的值的数量。 当 TOP 与 ORDER 
         "creationDate": 1431620472,
         "isRegistered": true
     }]
+```
 
 可将 TOP 与常量值（如以上所示）或使用参数化查询的变量值配合使用。 有关更多详细信息，请参阅下面的参数化查询。
 
 <a name="Aggregates"></a>
-### <a name="aggregate-functions"></a>聚合函数
+## <a name="aggregate-functions"></a>聚合函数
 也可在 `SELECT` 子句中执行聚合操作。 聚合函数对一组值进行计算，返回单个值。 例如，以下查询返回集合中系列文档的计数。
 
 **查询**
 
+```sql
     SELECT COUNT(1) 
     FROM Families f 
+```
 
 **结果**
 
+```json
     [{
         "$1": 2
     }]
+```
 
 也可使用 `VALUE` 关键字返回聚合的标量值。 例如，以下查询将值的计数作为单个值返回：
 
 **查询**
 
+```sql
     SELECT VALUE COUNT(1) 
     FROM Families f 
+```
 
 **结果**
 
+```json
     [ 2 ]
+```
 
 也可组合使用筛选器来执行聚合。 例如，以下查询返回地址在华盛顿州的文档的计数。
 
 **查询**
 
+```sql
     SELECT VALUE COUNT(1) 
     FROM Families f
     WHERE f.address.state = "WA" 
+```
 
 **结果**
 
+```json
     [ 1 ]
+```
 
 下表显示了 SQL API 中受支持的聚合函数的列表。 `SUM` 和 `AVG` 基于数字值执行，而 `COUNT`、`MIN`、`MAX` 则可基于数字、字符串、布尔值和 null 值执行。 
 
@@ -933,12 +1011,15 @@ TOP 关键字可用于限制来自查询中的值的数量。 当 TOP 与 ORDER 
 
 **查询**
 
+```sql
     SELECT f.id, f.address.city
     FROM Families f 
     ORDER BY f.address.city
+```
 
 **结果**
 
+```json
     [
       {
         "id": "WakefieldFamily",
@@ -949,17 +1030,21 @@ TOP 关键字可用于限制来自查询中的值的数量。 当 TOP 与 ORDER 
         "city": "Seattle"    
       }
     ]
+```
 
 下面的查询按创建日期检索家庭，该创建日期存储为表示纪元时间的数字，即，自 1970 年 1 月 1 日起经过的时间（以秒为单位）。
 
 **查询**
 
+```sql
     SELECT f.id, f.creationDate
     FROM Families f 
     ORDER BY f.creationDate DESC
+```
 
 **结果**
 
+```json
     [
       {
         "id": "WakefieldFamily",
@@ -970,6 +1055,7 @@ TOP 关键字可用于限制来自查询中的值的数量。 当 TOP 与 ORDER 
         "creationDate": 1431620472    
       }
     ]
+```
 
 <a name="Advanced"></a>
 ## <a name="advanced-database-concepts-and-sql-queries"></a>高级数据库概念和 SQL 查询
@@ -980,11 +1066,14 @@ TOP 关键字可用于限制来自查询中的值的数量。 当 TOP 与 ORDER 
 
 **查询**
 
+```sql
     SELECT * 
     FROM Families.children
+```
 
 **结果**  
 
+```json
     [
       [
         {
@@ -1009,16 +1098,20 @@ TOP 关键字可用于限制来自查询中的值的数量。 当 TOP 与 ORDER 
         }
       ]
     ]
+```
 
 现在，让我们来看看对集合中的子女执行遍历的另一个查询。 请注意输出数组中的差异。 此示例拆分 `children` 并将结果合并为单个数组。  
 
 **查询**
 
+```sql
     SELECT * 
     FROM c IN Families.children
+```
 
 **结果**  
 
+```json
     [
       {
           "firstName": "Henriette Thaulow",
@@ -1039,35 +1132,44 @@ TOP 关键字可用于限制来自查询中的值的数量。 当 TOP 与 ORDER 
           "grade": 8
       }
     ]
+```
 
 这可用于对数组的单个实体执行进一步筛选，如下例所示：
 
 **查询**
 
+```sql
     SELECT c.givenName
     FROM c IN Families.children
     WHERE c.grade = 8
+```
 
 **结果**  
 
+```json
     [{
       "givenName": "Lisa"
     }]
+```
 
 也可基于数组迭代的结果进行聚合。 例如，以下查询对所有家庭的孩子计数。
 
 **查询**
 
+```sql
     SELECT COUNT(child) 
     FROM child IN Families.children
+```
 
 **结果**  
 
+```json
     [
       { 
         "$1": 3
       }
     ]
+```
 
 <a name="Joins"></a>
 ### <a name="joins"></a>联接
@@ -1079,25 +1181,32 @@ TOP 关键字可用于限制来自查询中的值的数量。 当 TOP 与 ORDER 
 
 **查询**
 
+```sql
     SELECT f.id
     FROM Families f
     JOIN f.NonExistent
+```
 
 **结果**  
 
+```json
     [{
     }]
+```
 
 在下面的示例中，联接位于文档根和 `children` 子根之间。 这是两个 JSON 对象之间的叉积。 子女是一个数组的事实在 JOIN 中无效，因为我们正在处理的是子女数组的单一根。 因此，由于每个带有数组的文档的叉积仅生成一个文档，因此结果仅包含两个结果。
 
 **查询**
 
+```sql
     SELECT f.id
     FROM Families f
     JOIN f.children
+```
 
 **结果**
 
+```json
     [
       {
         "id": "AndersenFamily"
@@ -1106,17 +1215,21 @@ TOP 关键字可用于限制来自查询中的值的数量。 当 TOP 与 ORDER 
         "id": "WakefieldFamily"
       }
     ]
+```
 
 下面的示例演示了更传统的联接：
 
 **查询**
 
+```sql
     SELECT f.id
     FROM Families f
     JOIN c IN f.children 
+```
 
 **结果**
 
+```json
     [
       {
         "id": "AndersenFamily"
@@ -1128,6 +1241,7 @@ TOP 关键字可用于限制来自查询中的值的数量。 当 TOP 与 ORDER 
         "id": "WakefieldFamily"
       }
     ]
+```
 
 首先要注意的是 **JOIN** 子句的 `from_source` 是迭代器。 因此，在此示例中的流程如下：  
 
@@ -1141,6 +1255,7 @@ JOIN 真正实用的地方通过以其他方式难以投影的形式基于叉积
 
 **查询**
 
+```sql
     SELECT 
         f.id AS familyName,
         c.givenName AS childGivenName,
@@ -1149,9 +1264,11 @@ JOIN 真正实用的地方通过以其他方式难以投影的形式基于叉积
     FROM Families f 
     JOIN c IN f.children 
     JOIN p IN c.pets
+```
 
 **结果**
 
+```json
     [
       {
         "familyName": "AndersenFamily", 
@@ -1169,9 +1286,11 @@ JOIN 真正实用的地方通过以其他方式难以投影的形式基于叉积
        "petName": "Shadow"
       }
     ]
+```
 
 此示例是前面示例的自然扩展，且执行双联接。 因此，可将叉积视为下面的伪代码：
 
+```
     for-each(Family f in Families)
     {    
         for-each(Child c in f.children)
@@ -1185,6 +1304,7 @@ JOIN 真正实用的地方通过以其他方式难以投影的形式基于叉积
             }
         }
     }
+```
 
 `AndersenFamily` 有一个拥有一只宠物的孩子。 因此，叉积从此家庭中生成一行 (1\*1\*1)。 尽管 WakefieldFamily 有两个孩子，但只有一个孩子“Jesse”拥有宠物。 不过，Jesse 有 2 只宠物。 因此叉积从此家庭中生成 1\*1\*2 = 2 行。
 
@@ -1192,6 +1312,7 @@ JOIN 真正实用的地方通过以其他方式难以投影的形式基于叉积
 
 **查询**
 
+```sql
     SELECT 
         f.id AS familyName,
         c.givenName AS childGivenName,
@@ -1201,9 +1322,11 @@ JOIN 真正实用的地方通过以其他方式难以投影的形式基于叉积
     JOIN c IN f.children 
     JOIN p IN c.pets
     WHERE p.givenName = "Shadow"
+```
 
 **结果**
 
+```json
     [
       {
        "familyName": "WakefieldFamily", 
@@ -1211,6 +1334,7 @@ JOIN 真正实用的地方通过以其他方式难以投影的形式基于叉积
        "petName": "Shadow"
       }
     ]
+```
 
 <a name="JavaScriptIntegration"></a>
 ## <a name="javascript-integration"></a>JavaScript 集成
@@ -1227,6 +1351,7 @@ Azure Cosmos DB 根据存储过程和触发器，为对集合直接执行基于 
 
 以下是如何在 Cosmos DB 数据库中（特别是在文档集合下）注册 UDF 的示例。
 
+```javascript
        UserDefinedFunction regexMatchUdf = new UserDefinedFunction
        {
            Id = "REGEX_MATCH",
@@ -1238,6 +1363,7 @@ Azure Cosmos DB 根据存储过程和触发器，为对集合直接执行基于 
        UserDefinedFunction createdUdf = client.CreateUserDefinedFunctionAsync(
            UriFactory.CreateDocumentCollectionUri("testdb", "families"), 
            regexMatchUdf).Result;  
+```
 
 之前的示例创建了名称为 `REGEX_MATCH` 的 UDF。 它接受两个 JSON 字符串值 `input` 和 `pattern`，并且使用 JavaScript 的 string.match() 函数检查第一个值是否与第二个值中指定的模式匹配。
 
@@ -1250,11 +1376,14 @@ Azure Cosmos DB 根据存储过程和触发器，为对集合直接执行基于 
 
 **查询**
 
+```sql
     SELECT udf.REGEX_MATCH(Families.address.city, ".*eattle")
     FROM Families
+```
 
 **结果**
 
+```json
     [
       {
         "$1": true
@@ -1263,26 +1392,32 @@ Azure Cosmos DB 根据存储过程和触发器，为对集合直接执行基于 
         "$1": false
       }
     ]
+```
 
 也可在 UDF 中使用筛选器，这同样要使用“udf.”前缀进行限定， 前缀：
 
 **查询**
 
+```sql
     SELECT Families.id, Families.address.city
     FROM Families
     WHERE udf.REGEX_MATCH(Families.address.city, ".*eattle")
+```
 
 **结果**
 
+```json
     [{
         "id": "AndersenFamily",
         "city": "Seattle"
     }]
+```
 
 从本质上来说，UDF 是有效的标量表达式且可在投影和筛选器中使用。 
 
 要扩展 UDF 的功能，让我们看看使用条件逻辑的另一个示例：
 
+```javascript
        UserDefinedFunction seaLevelUdf = new UserDefinedFunction()
        {
            Id = "SEALEVEL",
@@ -1302,16 +1437,20 @@ Azure Cosmos DB 根据存储过程和触发器，为对集合直接执行基于 
             UserDefinedFunction createdUdf = await client.CreateUserDefinedFunctionAsync(
                 UriFactory.CreateDocumentCollectionUri("testdb", "families"), 
                 seaLevelUdf);
+```
 
 以下是使用 UDF 的一个示例。
 
 **查询**
 
+```sql
     SELECT f.address.city, udf.SEALEVEL(f.address.city) AS seaLevel
     FROM Families f    
+```
 
 **结果**
 
+```json
      [
       {
         "city": "seattle", 
@@ -1322,6 +1461,7 @@ Azure Cosmos DB 根据存储过程和触发器，为对集合直接执行基于 
         "seaLevel": 410
       }
     ]
+```
 
 如前面的示例所示，UDF 使用 SQL API 集成 JavaScript 语言的功能以通过丰富的可编程接口执行复杂的过程，并在内置 JavaScript 运行时功能的帮助下，执行条件逻辑。
 
@@ -1341,12 +1481,15 @@ Cosmos DB 支持使用通过常用 \@ 表示法表示的参数进行查询。 �
 
 例如，可以编写一个将姓氏和省/自治区/直辖市地址作为参数的查询，然后基于用户输入针对姓氏和省/自治区/直辖市地址执行此查询。
 
+```sql
     SELECT * 
     FROM Families f
     WHERE f.lastName = @lastName AND f.address.state = @addressState
+```
 
 然后，可以将此请求作为参数化 JSON 查询发送到 Cosmos DB，如下所示。
 
+```sql
     {      
         "query": "SELECT * FROM Families f WHERE f.lastName = @lastName AND f.address.state = @addressState",     
         "parameters": [          
@@ -1354,15 +1497,18 @@ Cosmos DB 支持使用通过常用 \@ 表示法表示的参数进行查询。 �
             {"name": "@addressState", "value": "NY"},           
         ] 
     }
+```
 
 可以使用参数化查询设置 TOP 的参数，如下所示。
 
+```sql
     {      
         "query": "SELECT TOP @n * FROM Families",     
         "parameters": [          
             {"name": "@n", "value": 10},         
         ] 
     }
+```
 
 参数值可以为任何有效的 JSON（字符串、数字、布尔、null，甚至是数组或嵌套的 JSON）。 此外，由于 Cosmos DB 是无架构的，因此未针对任何类型对参数进行验证。
 
@@ -1409,22 +1555,24 @@ Cosmos DB 还支持使用许多内置函数进行常见操作，这些函数可�
 | [SIN (num_expr)](sql-api-sql-query-reference.md#bk_sin) | 返回指定表达式中指定角度的三角正弦（弧度）。 |
 | [TAN (num_expr)](sql-api-sql-query-reference.md#bk_tan) | 返回指定表达式中输入表达式的正切。 |
 
-例如，现在可以运行以下查询：
+<!-- We use sql-api-sql-query-reference.md to avoid the broken link in building process--> 例如，现在可以运行下面这样的查询：
 
 **查询**
 
+```sql
     SELECT VALUE ABS(-4)
+```
 
 **结果**
 
+```json
     [4]
-
+```
 与 ANSI SQL 相比，Cosmos DB 的函数的主要差异在于它们设计为可良好地适用于无架构和混合架构数据。 例如，如果拥有一个缺少 Size 属性或有一个非数值的值（如“unknown”）的文档，那么会跳过该文档，而不是返回错误。
 
 ### <a name="type-checking-functions"></a>类型检查函数
 类型检查函数允许检查 SQL 查询内表达式的类型。 类型是变量或未知时，可使用类型检查函数动态确定文档内属性的类型。 以下是支持的内置类型检查函数表。
 
-<!-- We use sql-api-sql-query-reference.md to avoid the broken link in building process-->
 <table>
 <tr>
   <td><strong>使用情况</strong></td>
@@ -1469,11 +1617,15 @@ Cosmos DB 还支持使用许多内置函数进行常见操作，这些函数可�
 
 **查询**
 
+```sql
     SELECT VALUE IS_NUMBER(-4)
+```
 
 **结果**
 
+```json
     [true]
+```
 
 ### <a name="string-functions"></a>字符串函数
 下面的标量函数对字符串输入值执行操作，并返回字符串、数值或布尔值。 以下是内置字符串函数表：
@@ -1501,25 +1653,32 @@ Cosmos DB 还支持使用许多内置函数进行常见操作，这些函数可�
 
 **查询**
 
+```sql
     SELECT VALUE UPPER(Families.id)
     FROM Families
+```
 
 **结果**
 
+```json
     [
         "WAKEFIELDFAMILY", 
         "ANDERSENFAMILY"
     ]
+```
 
 或如此示例中一样连接字符串：
 
 **查询**
 
+```sql
     SELECT Families.id, CONCAT(Families.address.city, ",", Families.address.state) AS location
     FROM Families
+```
 
 **结果**
 
+```json
     [{
       "id": "WakefieldFamily",
       "location": "NY,NY"
@@ -1528,21 +1687,26 @@ Cosmos DB 还支持使用许多内置函数进行常见操作，这些函数可�
       "id": "AndersenFamily",
       "location": "seattle,WA"
     }]
+```
 
 也可在 WHERE 子句中使用字符串函数来筛选结果，如下例所示：
 
 **查询**
 
+```sql
     SELECT Families.id, Families.address.city
     FROM Families
     WHERE STARTSWITH(Families.id, "Wakefield")
+```
 
 **结果**
 
+```json
     [{
       "id": "WakefieldFamily",
       "city": "NY"
     }]
+```
 
 ### <a name="array-functions"></a>数组函数
 下面的标量函数对数组输入值执行操作，并返回数值、布尔值或数组值。 以下是内置数组函数表：
@@ -1558,39 +1722,50 @@ Cosmos DB 还支持使用许多内置函数进行常见操作，这些函数可�
 
 **查询**
 
+```sql
     SELECT Families.id 
     FROM Families 
     WHERE ARRAY_CONTAINS(Families.parents, { givenName: "Robin", familyName: "Wakefield" })
+```
 
 **结果**
 
+```json
     [{
       "id": "WakefieldFamily"
     }]
+```
 
 可以指定一个部分片段来匹配数组中的元素。 以下查询查找 `givenName` 为 `Robin` 的所有父母。
 
 **查询**
 
+```sql
     SELECT Families.id 
     FROM Families 
     WHERE ARRAY_CONTAINS(Families.parents, { givenName: "Robin" }, true)
+```
 
 **结果**
 
+```json
     [{
       "id": "WakefieldFamily"
     }]
+```
 
 以下是使用 ARRAY_LENGTH 获取每个家庭的子女数的另一个示例。
 
 **查询**
 
+```sql
     SELECT Families.id, ARRAY_LENGTH(Families.children) AS numberOfChildren
     FROM Families 
+```
 
 **结果**
 
+```json
     [{
       "id": "WakefieldFamily",
       "numberOfChildren": 2
@@ -1599,6 +1774,7 @@ Cosmos DB 还支持使用许多内置函数进行常见操作，这些函数可�
       "id": "AndersenFamily",
       "numberOfChildren": 1
     }]
+```
 
 ### <a name="spatial-functions"></a>空间函数
 Cosmos DB 支持以下用于查询地理空间的开放地理空间信息联盟 (OGC) 内置函数。 
@@ -1634,15 +1810,19 @@ Cosmos DB 支持以下用于查询地理空间的开放地理空间信息联盟 
 
 **查询**
 
+```sql
     SELECT f.id 
     FROM Families f 
     WHERE ST_DISTANCE(f.location, {'type': 'Point', 'coordinates':[31.9, -4.8]}) < 30000
+```
 
 **结果**
 
+```json
     [{
       "id": "WakefieldFamily"
     }]
+```
 
 有关 Cosmos DB 中地理支持的更多详细信息，请参阅[在 Azure Cosmos DB 中使用地理数据](geospatial.md)。 这会完成空间函数和 Cosmos DB 的 SQL 语法。 现在，让我们来看看 LINQ 查询的工作方式，以及它如何与我们目前为止所看到的语法进行交互。
 
@@ -1659,6 +1839,7 @@ LINQ 是一个 .NET 编程模型，它将计算表示为对对象流的查询。
 
 **C# 类**
 
+```csharp
     public class Family
     {
         [JsonProperty(PropertyName="id")]
@@ -1702,9 +1883,11 @@ LINQ 是一个 .NET 编程模型，它将计算表示为对对象流的查询。
     Pet pet = new Pet { givenName = "Fluffy" };
     Address address = new Address { state = "NY", county = "Manhattan", city = "NY" };
     Family family = new Family { Id = "WakefieldFamily", parents = new Parent [] { mother, father}, children = new Child[] { child }, isRegistered = false };
+```
 
 **JSON**  
 
+```json
     {
         "id": "WakefieldFamily",
         "parents": [
@@ -1732,6 +1915,7 @@ LINQ 是一个 .NET 编程模型，它将计算表示为对对象流的查询。
         "address": { "state": "NY", "county": "Manhattan", "city": "NY" },
         "isRegistered": false
     };
+```
 
 ### <a name="linq-to-sql-translation"></a>LINQ 到 SQL 转换
 Cosmos DB 查询提供程序执行从 LINQ 查询到 Cosmos DB SQL 查询的最有效映射。 在以下描述中，我们假设读者对 LINQ 已经有了一个基本的了解。
@@ -1783,8 +1967,10 @@ Cosmos DB 查询提供程序执行从 LINQ 查询到 Cosmos DB SQL 查询的最�
 
 **SQL** 
 
+```sql
     SELECT VALUE f.parents[0].familyName
     FROM Families f
+```
 
 **LINQ Lambda 表达式**
 
@@ -1792,8 +1978,10 @@ Cosmos DB 查询提供程序执行从 LINQ 查询到 Cosmos DB SQL 查询的最�
 
 **SQL** 
 
+```sql
     SELECT VALUE f.children[0].grade + c
     FROM Families f 
+```
 
 **LINQ Lambda 表达式**
 
@@ -1805,9 +1993,11 @@ Cosmos DB 查询提供程序执行从 LINQ 查询到 Cosmos DB SQL 查询的最�
 
 **SQL** 
 
+```sql
     SELECT VALUE {"name":f.children[0].familyName, 
                   "grade": f.children[0].grade + 3 }
     FROM Families f
+```
 
 #### <a name="selectmany-operator"></a>SelectMany 运算符
 语法为 `input.SelectMany(x => f(x))`，其中 `f` 是返回集合类型的标量表达式。
@@ -1818,8 +2008,10 @@ Cosmos DB 查询提供程序执行从 LINQ 查询到 Cosmos DB SQL 查询的最�
 
 **SQL** 
 
+```sql
     SELECT VALUE child
     FROM child IN Families.children
+```
 
 #### <a name="where-operator"></a>Where 运算符
 语法为 `input.Where(x => f(x))`，其中 `f` 是返回布尔值的标量表达式。
@@ -1830,9 +2022,11 @@ Cosmos DB 查询提供程序执行从 LINQ 查询到 Cosmos DB SQL 查询的最�
 
 **SQL** 
 
+```sql
     SELECT *
     FROM Families f
     WHERE f.parents[0].familyName = "Smith" 
+```
 
 **LINQ Lambda 表达式**
 
@@ -1842,10 +2036,12 @@ Cosmos DB 查询提供程序执行从 LINQ 查询到 Cosmos DB SQL 查询的最�
 
 **SQL** 
 
+```sql
     SELECT *
     FROM Families f
     WHERE f.parents[0].familyName = "Smith"
     AND f.children[0].grade < 3
+```
 
 ### <a name="composite-sql-queries"></a>复合 SQL 查询
 可以将以上运算符组合在一起，形成功能更强大的查询。 由于 Cosmos DB 支持嵌套的集合，因此可以连接或嵌套运算符组合。
@@ -1860,9 +2056,11 @@ Cosmos DB 查询提供程序执行从 LINQ 查询到 Cosmos DB SQL 查询的最�
 
 **SQL**
 
+```sql
     SELECT *
     FROM Families f
     WHERE f.parents[0].familyName = "Smith"
+```
 
 **LINQ Lambda 表达式**
 
@@ -1871,9 +2069,11 @@ Cosmos DB 查询提供程序执行从 LINQ 查询到 Cosmos DB SQL 查询的最�
 
 **SQL** 
 
+```sql
     SELECT VALUE f.parents[0].familyName
     FROM Families f
     WHERE f.children[0].grade > 3
+```
 
 **LINQ Lambda 表达式**
 
@@ -1882,9 +2082,11 @@ Cosmos DB 查询提供程序执行从 LINQ 查询到 Cosmos DB SQL 查询的最�
 
 **SQL** 
 
+```sql
     SELECT *
     FROM Families f
     WHERE ({grade: f.children[0].grade}.grade > 3)
+```
 
 **LINQ Lambda 表达式**
 
@@ -1893,9 +2095,11 @@ Cosmos DB 查询提供程序执行从 LINQ 查询到 Cosmos DB SQL 查询的最�
 
 **SQL** 
 
+```sql
     SELECT *
     FROM p IN Families.parents
     WHERE p.familyName = "Smith"
+```
 
 #### <a name="nesting"></a>嵌套
 语法为 `input.SelectMany(x=>x.Q())`，其中 Q 是 `Select`、`SelectMany` 或 `Where` 运算符。
@@ -1909,9 +2113,11 @@ Cosmos DB 查询提供程序执行从 LINQ 查询到 Cosmos DB SQL 查询的最�
 
 **SQL** 
 
+```sql
     SELECT VALUE p.familyName
     FROM Families f
     JOIN p IN f.parents
+```
 
 **LINQ Lambda 表达式**
 
@@ -1920,10 +2126,12 @@ Cosmos DB 查询提供程序执行从 LINQ 查询到 Cosmos DB SQL 查询的最�
 
 **SQL** 
 
+```sql
     SELECT *
     FROM Families f
     JOIN c IN f.children
     WHERE c.familyName = "Jeff"
+```
 
 **LINQ Lambda 表达式**
 
@@ -1932,13 +2140,15 @@ Cosmos DB 查询提供程序执行从 LINQ 查询到 Cosmos DB SQL 查询的最�
 
 **SQL** 
 
+```sql
     SELECT *
     FROM Families f
     JOIN c IN f.children
     WHERE c.familyName = f.parents[0].familyName
+```
 
 <a name="ExecutingSqlQueries"></a>
-## <a name="executing-sql-queries"></a>执行 SQL 查询
+## <a name="execute-sql-queries"></a>执行 SQL 查询
 Cosmos DB 通过一个 REST API 来公开资源，任何可以发出 HTTP/HTTPS 请求的语言都可以调用该 REST API。 此外，Cosmos DB 还提供多种常用语言（如 .NET、Node.js、JavaScript 和 Python）的编程库。 REST API 和各种库均支持通过 SQL 进行查询。 除了 SQL 之外，.NET SDK 还支持 LINQ 查询。
 
 以下示例演示了如何对 Cosmos DB 数据库帐户创建和提交该查询。
@@ -1967,6 +2177,7 @@ Cosmos DB 通过 HTTP 提供开放的 RESTful 编程模型。 可以使用 Azure
 
 **结果**
 
+```
     HTTP/1.1 200 Ok
     x-ms-activity-id: 8b4678fa-a947-47d3-8dd3-549a40da6eed
     x-ms-item-count: 1
@@ -2014,6 +2225,7 @@ Cosmos DB 通过 HTTP 提供开放的 RESTful 编程模型。 可以使用 Azure
        ],
        "count":1
     }
+```
 
 第二个示例演示了从联接中返回多个结果的更复杂的查询。
 
@@ -2038,6 +2250,7 @@ Cosmos DB 通过 HTTP 提供开放的 RESTful 编程模型。 可以使用 Azure
 
 **结果**
 
+```
     HTTP/1.1 200 Ok
     x-ms-activity-id: 568f34e3-5695-44d3-9b7d-62f8b83e509d
     x-ms-item-count: 1
@@ -2066,6 +2279,7 @@ Cosmos DB 通过 HTTP 提供开放的 RESTful 编程模型。 可以使用 Azure
        ],
        "count":3
     }
+```
 
 如果查询的结果无法包含在一页内，那么 REST API 通过 `x-ms-continuation-token` 响应标头返回继续标记。 客户端可以通过在后续结果中包含该标头对结果进行分页。 可以通过 `x-ms-max-item-count` 数量标头控制每页的结果数。 如果指定的查询有一个聚合函数（例如 `COUNT`），则查询页可能会通过结果页返回部分聚合的值。 若要生成最终结果，客户端必须对这些结果执行二级聚合，例如，对各个页面中返回的计数进行总计，以便返回总的计数。
 

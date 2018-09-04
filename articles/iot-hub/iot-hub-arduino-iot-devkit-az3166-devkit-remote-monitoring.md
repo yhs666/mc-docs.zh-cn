@@ -1,26 +1,21 @@
 ---
 title: IoT DevKit 到云：将 IoT MXChip DevKit 连接到 Azure IoT 中心
 description: 本教程介绍了如何将 IoT DevKit AZ3166 上的传感器的状态发送到 Azure IoT 远程监视解决方案加速器。
-services: iot-hub
-documentationcenter: ''
 author: liydu
-manager: timlt
-tags: ''
-keywords: ''
+manager: jeffya
 ms.service: iot-hub
-ms.devlang: arduino
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
+ms.tgt_pltfrm: arduino
 origin.date: 02/02/2018
-ms.date: 06/11/2018
+ms.date: 09/10/2018
 ms.author: v-yiso
-ms.openlocfilehash: c9208f6960928d5a2c79f18ef3b2325d7fb86709
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 4d8ee6d58b2fcc428ddc7740154b73745c0b4354
+ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695123"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43329171"
 ---
 # <a name="connect-mxchip-iot-devkit-to-azure-iot-remote-monitoring-solution-accelerator"></a>将 MXChip IoT DevKit 连接到 Azure IoT 远程监视解决方案加速器
 
@@ -100,13 +95,13 @@ ms.locfileid: "34695123"
 
 1. 使用 `Ctrl+P` (macOS: `Cmd + P`) 并键入 **task config-device-connection**。
 
-2. 终端会询问你是否要使用通过 `task cloud-provision` 步骤进行检索的连接字符串。 还可以通过单击“新建...”输入你自己的设备连接字符串
+2. 终端会询问是否要使用它通过 `task cloud-provision` 步骤检索的连接字符串。 还可以通过单击“新建...”输入你自己的设备连接字符串
 
 3. 终端会提示进入配置模式。 为此，请长按按钮 A，然后按下重置按钮并松开。 屏幕将显示 DevKit ID 和“配置”。
 
   ![输入连接字符串](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/config-device-connection.png)
 
-4. 在 `task config-device-connection` 完成后，单击 `F1` 来加载 VS Code 命令并选择 `Arduino: Upload`，然后，VS Code 将开始验证并上传 Arduino 草图：
+4. 在 `task config-device-connection` 完成后，单击 `F1` 来加载 VS Code 命令并选择 `Arduino: Upload`。 VS Code 将开始验证并上传 Arduino 草图。
 
   ![验证并上传 Arduino 草图](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/arduino-upload.png)
 
@@ -114,7 +109,7 @@ DevKit 将重新启动并开始运行代码。
 
 ## <a name="test-the-project"></a>测试项目
 
-在示例应用运行时，DevKit 会通过 Wi-Fi 将传感器数据发送到 Azure IoT 远程监视解决方案加速器。 若要查看结果，请遵循以下步骤：
+在示例应用运行时，DevKit 会通过 WiFi 将传感器数据发送到 Azure IoT 远程监视解决方案加速器。 若要查看结果，请遵循以下步骤：
 
 1. 转到 Azure IoT 远程监视解决方案加速器，然后单击“仪表板”。
 
@@ -124,11 +119,11 @@ DevKit 将重新启动并开始运行代码。
 
 ## <a name="change-device-id"></a>更改设备 ID
 
-可以根据[此指南](https://microsoft.github.io/azure-iot-developer-kit/docs/customize-device-id/)在 IoT 中心内更改设备 ID。 如果希望在代码中将硬编码的 **AZ3166** 更改为自定义的设备 ID， 则[此处](https://github.com/Microsoft/devkit-sdk/blob/master/AZ3166/src/libraries/AzureIoT/examples/RemoteMonitoring/RemoteMonitoring.ino#L23)提供了可以修改的代码行。
+如果希望在代码中将硬编码的 **AZ3166** 更改为自定义的设备 ID，请修改[远程监视示例](https://github.com/Microsoft/devkit-sdk/blob/master/AZ3166/src/libraries/AzureIoT/examples/RemoteMonitoring/RemoteMonitoring.ino#L23)中显示的代码行。
 
 ## <a name="problems-and-feedback"></a>问题和反馈
 
-如果遇到问题，请参阅[常见问题解答](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/)或通过以下渠道联系我们：
+如果遇到问题，请参阅 [IoT 开发人员工具包常见问题解答](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/)，或通过以下渠道联系我们：
 
 * [Gitter.im](http://gitter.im/Microsoft/azure-iot-developer-kit)
 * [堆栈溢出](https://stackoverflow.com/questions/tagged/iot-devkit)
@@ -139,3 +134,5 @@ DevKit 将重新启动并开始运行代码。
 
 * [Azure IoT 解决方案加速器概述](/iot-suite/)
 * [将 MXChip IoT DevKit 设备连接到 Azure IoT Central 应用程序](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)
+
+* [IoT 开发人员工具包](https://microsoft.github.io/azure-iot-developer-kit/) 

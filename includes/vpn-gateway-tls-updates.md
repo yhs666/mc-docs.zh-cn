@@ -1,17 +1,16 @@
 ---
- title: include 文件 description: include 文件 services: vpn-gateway author: cherylmc ms.service: vpn-gateway ms.topic: include origin.date: 06/05/2018 ms.date: 08/13/2018 ms.author: v-junlch ms.custom: include file
+ title: include 文件 description: include 文件 services: vpn-gateway author: WenJason ms.service: vpn-gateway ms.topic: include origin.date: 07/30/2018 ms.date: 09/02/2018 ms.author: v-jay ms.custom: include file
 ---
-从 2018 年 7 月 1 日开始，Azure VPN 网关将不再支持 TLS 1.0 和 1.1。 VPN 网关将仅支持 TLS 1.2。 若要对使用 TLS 的 Windows 7 和 Windows 8 点到站点客户端保留 TLS 支持和连接性，建议安装以下更新：
+>[!NOTE]
+>从 2018 年 7 月 1 日开始，Azure VPN 网关将不再支持 TLS 1.0 和 1.1。 VPN 网关将仅支持 TLS 1.2。 若要保留支持，请参阅[通过更新启用对 TLS1.2 的支持](#tls1)。
 
-•   [支持使用 TLS 的 Microsoft EAP 实现的更新](https://support.microsoft.com/help/2977292/microsoft-security-advisory-update-for-microsoft-eap-implementation-th)
+另外，TLS 也将于 2018 年 7 月 1 日起弃用以下旧算法：
 
-•   [启用 TLS 1.1 和 TLS 1.2 作为 WinHTTP 中的默认安全协议的更新](https://support.microsoft.com/help/3140245/update-to-enable-tls-1-1-and-tls-1-2-as-a-default-secure-protocols-in)
+* RC4 (Rivest Cipher 4)
+* DES（数据加密算法）
+* 3DES（三重数据加密算法）
+* MD5（消息摘要 5）
 
-TLS 也将于 2018 年 7 月 1 日起弃用以下旧算法：
+### <a name="tls1"></a>如何在 Windows 7 和 Windows 8.1 中启用对 TLS 1.2 的支持？
 
-- RC4 (Rivest Cipher 4)
-- DES（数据加密算法）
-- 3DES（三重数据加密算法）
-- MD5（消息摘要 5）
-
-<!-- ms.date: 08/13/2018 -->
+[!INCLUDE [tls 1.2](vpn-gateway-tls-include.md)]

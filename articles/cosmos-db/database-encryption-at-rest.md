@@ -8,14 +8,14 @@ ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 05/23/2017
-ms.date: 07/02/2018
+ms.date: 09/03/2018
 ms.author: v-yeche
-ms.openlocfilehash: 94567272c33bd8ec9c552dd7f3d8309ef4ac2f48
-ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
+ms.openlocfilehash: 9e8d1233343e8a1ec523363d8381f3b6e4c2e310
+ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37070183"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43164651"
 ---
 # <a name="azure-cosmos-db-database-encryption-at-rest"></a>Azure Cosmos DB 数据库静态加密
 
@@ -47,7 +47,7 @@ ms.locfileid: "37070183"
 <!-- Notice:  Should Be 21Vianet -->
 
 ### <a name="q-how-often-are-encryption-keys-rotated"></a>问：隔多久轮换一次加密密钥？
-答：21Vianet 针对加密密钥轮换提供一组内部指导原则，Cosmos DB 必须遵守这些指导原则。 未发布具体的指导原则。 我们发布了[安全开发生命周期 (SDL)](https://www.microsoft.com/sdl/default.aspx)，可以将其视为内部指导原则的一部分，其中提供的最佳做法对开发人员很有用。
+答：21Vianet 针对加密密钥轮换提供一组内部指导原则，Cosmos DB 必须遵守这些指导原则。 未发布具体的指导原则。 Azure 发布了[安全开发生命周期 (SDL)](https://www.microsoft.com/sdl/default.aspx)，可以将其视为内部指导原则的一部分，其中提供的最佳做法对开发人员很有用。
 <!-- Notice:  Should Be 21Vianet -->
 
 ### <a name="q-can-i-use-my-own-encryption-keys"></a>问：可以使用自己的加密密钥吗？
@@ -65,7 +65,7 @@ ms.locfileid: "37070183"
 ## <a name="next-steps"></a>后续步骤
 
 有关 Cosmos DB 安全性和最新改进的概述，请参阅 [Azure Cosmos DB 数据库安全性](database-security.md)。
-有关我们的认证的详细信息，请参阅 [Azure 信任中心](https://www.trustcenter.cn/)。
+有关我们的认证的详细信息，请参阅 [Azure 信任中心](https://www.trustcenter.cn/zh-cn/cloudservices/azure.html)。
 <!-- Notice:  Should be OUR certifications -->
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update, update link -->

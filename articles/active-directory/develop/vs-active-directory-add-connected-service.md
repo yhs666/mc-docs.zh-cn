@@ -7,18 +7,19 @@ manager: douge
 ms.assetid: f599de6b-e369-436f-9cdc-48a0165684cb
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.workload: azure
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.devlang: multiple
 ms.topic: conceptual
 origin.date: 03/12/2018
-ms.date: 07/03/2018
+ms.date: 09/03/2018
 ms.author: v-junlch
-ms.openlocfilehash: 59c64916ebd30614d18d64e1025c01a75056ef6a
-ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
+ms.openlocfilehash: 801029a924334b6021d65afd1e2a48a8d667372a
+ms.sourcegitcommit: 562cde32fc2271238f3d1ef5d2cc5ed037bdec2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37800479"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43531575"
 ---
 # <a name="adding-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>在 Visual Studio 中使用连接服务添加 Azure Active Directory
 
@@ -75,7 +76,7 @@ ms.locfileid: "37800479"
 
 ## <a name="next-steps"></a>后续步骤
 
-- [Azure Active Directory 的身份验证方案](active-directory-authentication-scenarios.md)
-- [向 ASP.NET Web 应用添加 Microsoft 登录功能](guidedsetups/active-directory-aspnetwebapp-v1.md)
+- [Azure Active Directory 的身份验证方案](authentication-scenarios.md)
+- [向 ASP.NET Web 应用添加 Microsoft 登录功能](quickstart-v1-aspnet-webapp.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

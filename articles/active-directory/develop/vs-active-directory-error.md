@@ -7,18 +7,18 @@ manager: douge
 ms.assetid: dd89ea63-4e45-4da1-9642-645b9309670a
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.workload: azure
+ms.workload: azure-vs
 ms.topic: conceptual
 origin.date: 03/12/2018
-ms.date: 07/03/2018
+ms.date: 09/03/2018
 ms.author: v-junlch
-ms.custom: aaddev
-ms.openlocfilehash: 9775125917425556d1523b5c8549fbde1201a078
-ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
+ms.custom: aaddev, vs-azure
+ms.openlocfilehash: ee2bb20f01b14372d3f8a43bfdb624af9ee9314e
+ms.sourcegitcommit: 562cde32fc2271238f3d1ef5d2cc5ed037bdec2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37800356"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43531556"
 ---
 # <a name="diagnosing-errors-with-the-azure-active-directory-connected-service"></a>使用 Azure Active Directory 连接服务诊断错误
 
@@ -95,6 +95,6 @@ ms.locfileid: "37800356"
 
 若要更改身份验证类型，请删除不兼容的身份验证类型，并尝试重新添加连接服务。
 
-有关详细信息，请参阅 [Azure AD 的身份验证方案](active-directory-authentication-scenarios.md)。
+有关详细信息，请参阅 [Azure AD 的身份验证方案](authentication-scenarios.md)。
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: link update -->

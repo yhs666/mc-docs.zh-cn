@@ -1,22 +1,22 @@
 ---
-title: 管理多个具有弹性池的 SQL 数据库 - Azure | Azure
+title: 管理多个具有弹性池的 SQL 数据库 - Azure | Microsoft 文档
 description: 使用弹性池管理和缩放多个 SQL 数据库（成千上万的）。 可以按一个价格将资源分布到需要的任何位置。
 keywords: 多个数据库, 数据库资源, 数据库性能
 services: sql-database
-author: yunan2016
+author: WenJason
 manager: digimobile
 ms.service: sql-database
 ms.custom: DBs & servers
-origin.date: 07/16/2018
-ms.date: 08/06/2018
-ms.author: v-nany
-ms.topic: article
-ms.openlocfilehash: c58e8b2c373859c314149da4b14779a53cb2efeb
-ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
+origin.date: 07/27/2018
+ms.date: 09/02/2018
+ms.author: v-jay
+ms.topic: conceptual
+ms.openlocfilehash: ec7ef973f2f5e5fd1e0ac69a680e2af02f845f25
+ms.sourcegitcommit: 2601e68563bffe148e70cce2bf1dcbe837a40f80
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39486634"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43249768"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>弹性池有助于管理和缩放多个 Azure SQL 数据库
 
@@ -34,6 +34,9 @@ SaaS 开发人员构建在由多个数据库组成的大规模数据层上的应
 弹性池可让开发人员为由多个数据库共享的池购买资源，以适应单一数据库使用时段不可预测的情况。 可以根据[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)或[基于 vCore 的购买模型](sql-database-service-tiers-vcore.md)为池配置资源。 池的资源要求取决于其数据库的聚合使用量。 池可用的资源数量由开发者预算控制。 开发者只需将数据库添加到池，为数据库设置最小和最大资源（最小和最大 DTU 数，或者最小或最大 vCore 数，具体取决于所选的资源模型），然后基于预算设置池的资源。 开发人员可以使用池顺畅地扩大其服务，以渐增的规模从精简的新创公司发展到成熟的企业。
 
 在池中，单独的数据库都被赋予了在固定参数内自动缩放的灵活性。 高负荷下的数据库可能会消耗更多的资源以满足需求。 低负荷下的数据库消耗较少的资源，没有任何负荷的数据库不会消耗任何资源。 设置整个池（而非单个数据库）的资源简化了管理任务。 此外，必须具有该池的可预测预算。 可将更多资源添加现有池而不会造成数据库关闭，除非需要移动数据库以便提供更多计算资源来预留新 eDTU。 同样，随时可以从现有池中删除不再需要的额外资源。 并且可以向池添加或缩减数据库。 如果可以预测到数据库的资源利用率不足，则将其移出。
+
+> [!NOTE]
+> 将数据库移入或移出弹性池时，除了在操作结束时删除数据库连接时有短暂的停机时间（大约为几秒）外，几乎没有停机时间。
 
 ## <a name="when-should-you-consider-a-sql-database-elastic-pool"></a>何时应当考虑使用 SQL 数据库弹性池？
 
@@ -123,7 +126,7 @@ SQL数据库自动评估现有 SQL 数据库服务器中数据库的历史资源
 
 ### <a name="elastic-jobs-and-elastic-pools"></a>弹性作业和弹性池
 
-借助池，可以通过在**[弹性作业](sql-database-elastic-jobs-overview.md)** 中运行脚本来简化管理任务。 弹性作业可消除与大量数据库有关的大部分问题。
+借助池，可以通过在**弹性作业**中运行脚本来简化管理任务。 弹性作业可消除与大量数据库有关的大部分问题。
 
 有关用于操作多个数据库的其他数据库工具的详细信息，请参阅[使用 Azure SQL 数据库进行扩展](sql-database-elastic-scale-introduction.md)。
 
@@ -134,8 +137,7 @@ SQL数据库自动评估现有 SQL 数据库服务器中数据库的历史资源
 
 - **异地还原**：当数据库因其所在的区域发生事故而不可用时，异地还原会提供默认的恢复选项。 请参阅[还原 Azure SQL 数据库或故障转移到辅助数据库](sql-database-disaster-recovery.md)
 
-- 
-  **活动异地复制**：对于具有异地还原无法提供的更强烈的恢复要求的应用程序，请配置[活动异地复制](sql-database-geo-replication-overview.md)。
+- **活动异地复制**：对于具有异地还原无法提供的更强烈的恢复要求的应用程序，请配置[活动异地复制](sql-database-geo-replication-overview.md)。
 
 ## <a name="creating-a-new-sql-database-elastic-pool-using-the-azure-portal"></a>使用 Azure 门户创建新的 SQL 数据库弹性池
 

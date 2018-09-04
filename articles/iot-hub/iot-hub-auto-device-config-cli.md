@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 04/13/2018
 ms.date: 08/06/2018
 ms.author: chrisgre
-ms.openlocfilehash: f992dea9a06e2a95cbd99689ae8ec8574d10804d
-ms.sourcegitcommit: d4092cf6aba0d949bf612093c76f964c2bdfd0ba
+ms.openlocfilehash: 890486c8a69c608cc8989ac603705e9be8ab9199
+ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39306650"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43329100"
 ---
 # <a name="configure-and-monitor-iot-devices-at-scale-using-the-azure-cli"></a>使用 Azure CLI 大规模配置和监视 IoT 设备
 
@@ -40,7 +40,7 @@ Azure IoT 中心内的自动设备管理功能可将许多复杂且重复性的�
 
 ## <a name="implement-device-twins-to-configure-devices"></a>实施设备孪生以配置设备
 
-自动设备配置需要使用设备孪生来同步云与设备之间的状态。  有关使用设备孪生的指导，请参阅[了解并在 IoT 中心内使用设备孪生][lnk-device-twin]。
+自动设备配置需要使用设备孪生来同步云与设备之间的状态。  有关如何使用设备孪生的指南，请参阅[了解设备孪生并在 IoT 中心使用它](iot-hub-devguide-device-twins.md)。
 
 ## <a name="identify-devices-using-tags"></a>使用标记标识设备
 
@@ -56,7 +56,7 @@ Azure IoT 中心内的自动设备管理功能可将许多复杂且重复性的�
 ```
 ## <a name="define-the-target-content-and-metrics"></a>定义目标内容和指标
 
-目标内容和指标查询是作为 JSON 文档指定的，这些文档描述了要设置的设备孪生所需属性和要度量的报告属性。  若要使用 Azure CLI 2.0 创建自动设备配置，请将目标内容和指标在本地保存为 .txt 文件。 在下一部分中通过运行命令将配置应用到设备时，会用到这个文件路径。 
+目标内容和指标查询是作为 JSON 文档指定的，这些文档描述了要设置的设备孪生所需属性和要度量的报告属性。  若要使用 Azure CLI 2.0 创建自动设备配置，请将目标内容和指标在本地保存为 .txt 文件。 在随后的部分中通过运行命令将配置应用到设备时，会用到这个文件路径。 
 
 下面是一个基本的目标内容示例：
 
@@ -155,22 +155,24 @@ az iot hub configuration update --config-id [configuration id] --hub-name [hub n
 
 可使用以下命令来删除配置：
 
-   ```cli
-az iot hub configuration delete --config-id [configuration id] --hub-name [hub name] 
-   ```
-* **--config-id** - 存在于 IoT 中心内的配置的名称。
-* **--hub-name** - 配置所在的 IoT 中心的名称。 此中心必须在当前订阅中。 使用 `az account set -s [subscription name]` 命令切换到所需订阅
+```cli
+az iot hub configuration delete --config-id [configuration id] \
+   --hub-name [hub name] 
+```
+* --**config-id** - 存在于 IoT 中心的配置的名称。
+
+* --**hub-name** - 配置所在的 IoT 中心的名称。 此中心必须在当前订阅中。 使用 `az account set -s [subscription name]` 命令切换到所需订阅。
 
 ## <a name="next-steps"></a>后续步骤
 本文已介绍如何大规模配置和监视 IoT 设备。 若要了解有关如何管理 Azure IoT 中心的详细信息，请参阅以下链接：
 
-* [批量管理 IoT 中心设备标识][lnk-bulkIDs]
-* [IoT 中心指标][lnk-metrics]
-* [操作监视][lnk-monitor]
+* [批量管理 IoT 中心设备标识](iot-hub-bulk-identity-mgmt.md)
+* [IoT 中心指标](iot-hub-metrics.md)
+* [操作监视](iot-hub-operations-monitoring.md)
 
 若要进一步探索 IoT 中心的功能，请参阅：
 
-* [IoT 中心开发人员指南][lnk-devguide]
+* [IoT 中心开发人员指南](iot-hub-devguide.md)
 * [使用 Azure IoT Edge 将 AI 部署到边缘设备][lnk-iotedge]
 
 若要了解如何使用 IoT 中心设备预配服务启用零接触实时预配，请参阅： 

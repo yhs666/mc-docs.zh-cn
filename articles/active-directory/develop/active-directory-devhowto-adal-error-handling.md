@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 02/27/2017
-ms.date: 07/03/2018
+ms.date: 09/03/2018
 ms.custom: ''
-ms.openlocfilehash: e0d64c8c3a6b9ffae1d7793623a20fed346de8fe
-ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
+ms.openlocfilehash: 72cde24fddfbe7a29f9938c343b665dccae8d026
+ms.sourcegitcommit: 562cde32fc2271238f3d1ef5d2cc5ed037bdec2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37800424"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43531548"
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Azure Active Directory 身份验证库 (ADAL) 客户端的错误处理最佳做法
 
@@ -45,8 +45,8 @@ AcquireTokenSilent 在保证最终用户不会看到用户界面 (UI) 的情况�
 
 ### <a name="application-scenarios"></a>应用程序方案
 
-- [本机客户端](active-directory-dev-glossary.md#native-client)应用程序（iOS、Android、.NET 桌面或 Xamarin）
-- 调用[资源](active-directory-dev-glossary.md#resource-server) (.NET) 的 [Web 客户端](active-directory-dev-glossary.md#web-client)应用程序
+- [本机客户端](developer-glossary.md#native-client)应用程序（iOS、Android、.NET 桌面或 Xamarin）
+- 调用[资源](developer-glossary.md#resource-server) (.NET) 的 [Web 客户端](developer-glossary.md#web-client)应用程序
 
 ### <a name="error-cases-and-actionable-steps"></a>错误情况和操作步骤
 
@@ -586,11 +586,11 @@ window.Logging = {
 
 欢迎通过下方的“评论”部分提供反馈，帮助我们改进内容。
 
-[![“登录”按钮][AAD-Sign-In]][AAD-Sign-In]
-<!--Reference style links --> [AAD-Auth-Libraries]：./active-directory-authentication-libraries.md [AAD-Auth-Scenarios]：./active-directory-authentication-scenarios.md [AAD-Dev-Guide]：./active-directory-developers-guide.md [AAD-Integrating-Apps]：./active-directory-integrating-applications.md [AZURE-portal]：https://portal.azure.cn
+[![登录按钮][AAD-Sign-In]][AAD-Sign-In]
+<!--Reference style links --> [AAD-Auth-Libraries]: ./active-directory-authentication-libraries.md [AAD-Auth-Scenarios]:authentication-scenarios.md [AAD-Dev-Guide]:azure-ad-developers-guide.md [AAD-Integrating-Apps]:quickstart-v1-integrate-apps-with-azure-ad.md [AZURE-portal]: https://portal.azure.cn
 
 <!--Image references-->
 [AAD-Sign-In]:./media/active-directory-devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png
 
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: link update -->

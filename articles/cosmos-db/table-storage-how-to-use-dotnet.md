@@ -8,21 +8,22 @@ ms.service: cosmos-db
 ms.component: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
-origin.date: 03/14/2018
-ms.date: 08/13/2018
+origin.date: 08/17/2018
+ms.date: 09/03/2018
 ms.author: v-yeche
-ms.openlocfilehash: f777087f11b3db4215ba7087a9d1a665c72df00b
-ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
+ms.openlocfilehash: 7dfaa741179ad3466675c3ee39dc54ad117749c8
+ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41704709"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43164687"
 ---
 # <a name="get-started-with-azure-table-storage-using-net"></a>通过 .NET 开始使用 Azure 表存储
+<!--Not Available on Azure Cosmos DB Table API -->
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
-可以使用 Azure 表存储在云中存储结构化 NoSQL 数据，通过无架构设计提供键/属性存储。 因为表存储无架构，因此可以很容易地随着应用程序需求的发展使数据适应存储。
+可以使用 Azure 表存储在云中存储结构化 NoSQL 数据，通过无架构设计提供键/属性存储。 因为表存储无架构，因此可以很容易地随着应用程序需求的发展使数据适应存储。 对于许多类型的应用程序来说，访问表存储数据速度快且经济高效，在数据量相似的情况下，其成本通常比传统 SQL 要低。
 <!--Not Available on Azure Cosmos DB Table API -->
 
 可以使用表存储来存储灵活的数据集，例如 Web 应用程序的用户数据、通讯簿、设备信息，或者服务需要的其他类型的元数据。 可以在表中存储任意数量的实体，并且一个存储帐户可以包含任意数量的表，直至达到存储帐户的容量极限。
@@ -39,8 +40,8 @@ ms.locfileid: "41704709"
 若要成功完成此示例，需要以下项：
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
-* [适用于 .NET 的 Azure 存储通用库（预览版）](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)。 这是受生产环境支持的必需预览包。 
-* [适用于 .NET 的 Azure CosmosDB 表库](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table)
+* [适用于 .NET 的 Azure 存储通用库（预览版）](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)。 - 受生产环境支持的必需预览包。 
+* [适用于 .NET 的 Azure CosmosDB 表库](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) - 此库目前仅适用于 .NET Standard，尚不可用于 .NET Core。
 * [适用于 .NET 的 Azure Configuration Manager](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
 * [Azure 存储帐户](../storage/common/storage-create-storage-account.md#create-a-storage-account)
 
@@ -53,16 +54,14 @@ ms.locfileid: "41704709"
 [!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
 ### <a name="create-an-azure-storage-account"></a>创建 Azure 存储帐户
-创建第一个 Azure 存储帐户的最简单方法是使用 [Azure 门户](https://portal.azure.cn)。 若要了解更多信息，请参阅 [创建存储帐户](../storage/common/storage-create-storage-account.md#create-a-storage-account)。
+* 创建第一个 Azure 存储帐户的最简单方法是使用 [Azure 门户](https://portal.azure.cn)。 若要了解更多信息，请参阅 [创建存储帐户](../storage/common/storage-quickstart-create-account.md)。
 
-还可使用 [Azure PowerShell](../storage/common/storage-powershell-guide-full.md)、[Azure CLI](../storage/common/storage-azure-cli.md) 或[适用于 .NET 的存储资源提供程序客户端库](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.management.storage?view=azure-dotnet)创建 Azure 存储帐户。
+* 还可使用 [Azure PowerShell](../storage/common/storage-powershell-guide-full.md)、[Azure CLI](../storage/common/storage-azure-cli.md) 或[适用于 .NET 的存储资源提供程序客户端库](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.management.storage?view=azure-dotnet)创建 Azure 存储帐户。
 
-如果暂时不想创建存储帐户，也可以使用 Azure 存储模拟器在本地环境中运行和测试代码。 有关详细信息，请参阅 [使用 Azure 存储模拟器进行开发和测试](../storage/common/storage-use-emulator.md)。
+* 如果暂时不想创建存储帐户，也可以使用 Azure 存储模拟器在本地环境中运行和测试代码。 有关详细信息，请参阅 [使用 Azure 存储模拟器进行开发和测试](../storage/common/storage-use-emulator.md)。
 
 <!-- Not Available on ### Create an Azure Cosmos DB Table API account -->
 
-## <a name="set-up-your-development-environment"></a>设置开发环境
-接下来在 Visual Studio 中设置开发环境，即可试用本指南中的代码示例。
 
 ### <a name="create-a-windows-console-application-project"></a>创建 Windows 控制台应用程序项目
 在 Visual Studio 中创建新的 Windows 控制台应用程序。 以下步骤演示了如何在 Visual Studio 2017 中创建控制台应用程序。 在其他版本的 Visual Studio 中，这些步骤是类似的。
@@ -77,18 +76,19 @@ ms.locfileid: "41704709"
 
 可以在任意类型的 .NET 应用程序（包括 Azure 云服务或 Web 应用，以及桌面和移动应用程序）中使用 Azure CosmosDB 表库。 为简单起见，我们在本指南中使用控制台应用程序。
 
-### <a name="use-nuget-to-install-the-required-packages"></a>使用 NuGet 安装所需包
+### <a name="install-the-required-nuget-packages"></a>安装所需 NuGet 包
 若要完成此示例，需要在项目中引用三个建议使用的包：
 
-* [适用于 .NET 的 Azure 存储通用库（预览版）](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common)。 
-* [用于 .NET 的 Azure Cosmos DB 表库](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table)。 使用此包能够以编程方式访问 Azure 表存储帐户中的数据资源。
+* [适用于 .NET 的 Azure 存储通用库（预览版）](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common)。 - 使用小于或等于 9.0.0.1 (<= 9.0.0.1) 的版本。
+
+* [用于 .NET 的 Azure Cosmos DB 表库](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table)。 使用此包能够以编程方式访问 Azure 表存储帐户中的数据资源。 此库目前仅适用于 .NET Standard，尚不可用于 .NET Core。
 <!--Not Available on or Azure Cosmos DB Table API account.-->
 * [适用于 .NET 的 Azure Configuration Manager 库](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)：此包提供用于分析配置文件中连接字符串的类，而不考虑应用程序在何处运行。
 
-可以使用 NuGet 获取这两个包。 执行以下步骤：
+若要获取 NuGet 包，请执行以下步骤：
 
 1. 在“解决方案资源管理器”中，右键单击项目并选择“管理 NuGet 包”。
-2. 在线搜索“Microsoft.Azure.Storage.Common”，并选择“安装”以安装适用于 .NET 的 Azure 存储通用库（预览版）及其依赖项。 由于这是一个预览包，因此请确保选中“包括预发行版”。
+2. 在线搜索“Microsoft.Azure.Storage.Common”，选择“版本 <= 9.0.0.1”并选择“安装”以安装适用于 .NET 的 Azure 存储通用库（预览版）及其依赖项。 由于这是一个预览包，因此请确保选中“包括预发行版”。
 3. 在线搜索“Microsoft.Azure.CosmosDB.Table”，并选择“安装”以安装 Azure CosmosDB 表库。
 4. 在线搜索“WindowsAzure.ConfigurationManager”，并选择“安装”以安装 Azure Configuration Manager 库。
 
@@ -150,6 +150,7 @@ ms.locfileid: "41704709"
 <!-- Add the TableEndPoint configuration-->
 
 <!-- Not Available on Azure Cosmos DB Table -->
+<!-- Cosmos DB Table API should add TableEndpoint=https://chenyetable.table.cosmosdb.azure.cn:443/ in connectionstring -->
 
 若要以存储模拟器为目标，可使用映射到已知帐户名称和密钥的快捷方式。 在这种情况下，连接字符串设置如下所示：
 

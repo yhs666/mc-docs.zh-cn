@@ -1,28 +1,25 @@
 ---
-title: 管理双重验证设置 - Azure AD | Microsoft Docs
+title: 管理双重验证设置 - Azure Active Directory | Microsoft Docs
 description: 管理 Azure 多重身份验证的使用方式包括更改联系信息或配置设备。
-services: multi-factor-authentication
+services: active-directory
 keywords: 多重身份验证客户端, 身份验证问题, 相关性 ID
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
 ms.reviewer: richagi
 ms.assetid: d3372d9a-9ad1-4609-bdcf-2c4ca9679a3b
-ms.service: multi-factor-authentication
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: active-directory
+ms.component: user-help
 ms.topic: conceptual
 origin.date: 05/23/2017
-ms.date: 07/31/2018
+ms.date: 08/27/2018
 ms.author: v-junlch
-ms.custom: end-user
-ms.openlocfilehash: 832f079a515aa43a56790c3ec0018c858413d317
-ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
+ms.openlocfilehash: f0366d77387f5853b9842b9ec2215b93fc8d1b35
+ms.sourcegitcommit: 75c2b5cdaf25ede92e080f6c48ca17d2f4ded4fb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39487495"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43115532"
 ---
 # <a name="manage-your-settings-for-two-step-verification"></a>管理双重验证设置
 本文回答有关如何更新双重验证或多重身份验证的设置的问题。 如果在登录帐户时遇到问题，请参阅[使用双重验证时遇到问题](multi-factor-authentication-end-user-troubleshoot.md)获取疑难解答帮助。
@@ -77,4 +74,5 @@ ms.locfileid: "39487495"
 从设备上卸载该应用或重置设备时，不会删除应用在后端的激活。 有关详细信息，请参阅 [Microsoft Authenticator](./microsoft-authenticator-app-how-to.md)。
 
 ## <a name="next-steps"></a>后续步骤
-- 在[使用双重验证时遇到问题](./multi-factor-authentication-end-user-troubleshoot.md)中获得疑难解答提示和帮助
+- 在[使用双重验证时遇到问题](./multi-factor-authentication-end-user-troubleshoot.md)
+<!-- Update_Description: update metedata properties -->中获得故障排除提示和帮助

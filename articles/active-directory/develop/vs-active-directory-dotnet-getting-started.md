@@ -7,18 +7,18 @@ manager: douge
 ms.assetid: 1c8b6a58-5144-4965-a905-625b9ee7b22b
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.workload: azure
+ms.workload: azure-vs
 ms.topic: conceptual
 origin.date: 03/12/2018
-ms.date: 07/03/2018
+ms.date: 09/03/2018
 ms.author: v-junlch
-ms.custom: aaddev
-ms.openlocfilehash: b31a898ef873d8d1e1d632ddb0d65c8fe47d0eb1
-ms.sourcegitcommit: da6168fdb4abc6e5e4dd699486b406b16cd45801
+ms.custom: aaddev, vs-azure
+ms.openlocfilehash: 27e571f03fec4833bc00367d8a04e8afd8cff5b8
+ms.sourcegitcommit: 562cde32fc2271238f3d1ef5d2cc5ed037bdec2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37800360"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43531549"
 ---
 # <a name="getting-started-with-azure-active-directory-aspnet-mvc-projects"></a>Azure Active Directory（ASP.NET MVC 项目）入门
 
@@ -85,7 +85,7 @@ ms.locfileid: "37800360"
 
 ## <a name="next-steps"></a>后续步骤
 
-- [Azure Active Directory 的身份验证方案](active-directory-authentication-scenarios.md)
-- [向 ASP.NET Web 应用添加 Microsoft 登录功能](guidedsetups/active-directory-aspnetwebapp-v1.md)
+- [Azure Active Directory 的身份验证方案](authentication-scenarios.md)
+- [向 ASP.NET Web 应用添加 Microsoft 登录功能](quickstart-v1-aspnet-webapp.md)
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: link update -->

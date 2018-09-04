@@ -1,21 +1,21 @@
 ---
-title: Azure SQL 数据库常见问题解答 | Azure
+title: Azure SQL 数据库常见问题解答 | Microsoft Docs
 description: 客户就云数据库、Azure SQL 数据库、Microsoft 的关系数据库管理系统 (RDBMS) 和云中“数据库即服务”经常提出的问题的解答。
 services: sql-database
-author: yunan2016
+author: WenJason
 manager: digimobile
 ms.service: sql-database
 ms.custom: reference
-ms.topic: article
-origin.date: 07/16/2018
-ms.date: 08/06/2018
-ms.author: v-nany
-ms.openlocfilehash: e892602136c2ede6bae673b68c8ff23ed1b201f1
-ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
+ms.topic: conceptual
+origin.date: 07/27/2018
+ms.date: 09/02/2018
+ms.author: v-jay
+ms.openlocfilehash: 4a1ecb16964ebcc902eccf88b9e62eeb26e194d6
+ms.sourcegitcommit: 2601e68563bffe148e70cce2bf1dcbe837a40f80
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39486763"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43249791"
 ---
 # <a name="sql-database-faq"></a>SQL 数据库常见问题
 
@@ -91,7 +91,7 @@ SQL 数据库客户将获得与面向 SQL Server 的 Azure 混合权益相关的
 可为 PITR 配置 7 到 35 天的备份保留期。 如果备份存储超过存储量（等于最大数据大小），则会根据实际存储消耗量计费。 在预览版中，PITR 保留期默认设置为 7 天。 在许多情况下，最大数据大小足以存储 7 天的备份。
 
 ## <a name="why-do-you-allow-selection-of-the-hardware-generation-for-compute"></a>你们为何允许选择硬件代次进行计算？
-我们的目标是实现最大的灵活性，以便可以选择与应用程序需求最相符的性能配置。 上表显示了第 4 代与第 5 代的差别。 具体而言，第 4 代为每个 vCore 提供的内存要大得多。 但是，第 5 代硬件允许以高得多的力度纵向扩展计算资源。 我们希望这些差异透明化，使应用程序达到最高的性价比。
+我们的目标是实现最大的灵活性，以便可以选择与应用程序需求最相符的性能配置。 第 4 代为每个 vCore 提供的内存要大得多。 但是，第 5 代硬件允许以高得多的力度纵向扩展计算资源。 有关详细信息，请参阅 [vCore 购买模型](sql-database-service-tiers-vcore.md)
 
 ## <a name="do-i-need-to-take-my-application-offline-to-convert-from-a-dtu-based-database-to-a-vcore-based-service-tier"></a>是否需要将应用程序脱机，才能将基于 DTU 的数据库转换为基于 vCore 的服务层？ 
 新服务层提供简单的在线转换方式，与现有标准和高级服务层间的升级和降级过程类似。 可以使用 Azure 门户、PowerShell、Azure CLI、T-SQL 或 REST API 启动此转换。 请参阅[管理单一数据库](sql-database-single-database-scale.md)和[管理弹性池](sql-database-elastic-pool.md)。

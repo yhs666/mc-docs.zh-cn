@@ -8,15 +8,15 @@ ms.service: cosmos-db
 ms.devlang: multiple
 ms.topic: conceptual
 origin.date: 06/06/2018
-ms.date: 07/02/2018
+ms.date: 09/03/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e4c82f12390f17394987de624ebf9d04dd9986ed
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: e4b8ff5755d691b0ff5d7c38784ee5224588179c
+ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939572"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43164943"
 ---
 # <a name="perform-multi-region-writes-and-reads-by-choosing-the-right-partitioning-key"></a>通过选择正确的分区键来执行多区域写入和读取操作
 
@@ -173,8 +173,11 @@ Azure Cosmos DB 支持统包的[多区域复制](distribute-data-globally.md)，
 
 | 帐户名 | 写入区域 | 读取区域 |
 | --- | --- | --- |
-| `contentpubdatabase-usa.documents.azure.cn` | `China North` |`China North` |
-| `contentpubdatabase-europe.documents.azure.cn` | `China North` |`China North` |
+| `contentpubdatabase-chinanorth.documents.azure.cn` | `China North` |`China East` |
+| `contentpubdatabase-chinaeast.documents.azure.cn` | `China East` |`China North` |
+
+<!--Notice: China North and China East pair, one for write , the other for read-->
+<!--Notice: China North(West US) to China East(Eroupe)-->
 
 下图显示了如何在使用此设置的典型应用程序中执行读取和写入：
 
@@ -184,36 +187,37 @@ Azure Cosmos DB 支持统包的[多区域复制](distribute-data-globally.md)，
 
     ConnectionPolicy writeClientPolicy = new ConnectionPolicy { ConnectionMode = ConnectionMode.Direct, ConnectionProtocol = Protocol.Tcp };
     writeClientPolicy.PreferredLocations.Add(LocationNames.ChinaNorth);
-    writeClientPolicy.PreferredLocations.Add(LocationNames.NorthEurope);
+    writeClientPolicy.PreferredLocations.Add(LocationNames.ChinaEast);
 
     DocumentClient writeClient = new DocumentClient(
-        new Uri("https://contentpubdatabase-usa.documents.azure.cn"), 
+        new Uri("https://contentpubdatabase-chinanorth.documents.azure.cn"), 
         writeRegionAuthKey,
         writeClientPolicy);
 
     ConnectionPolicy readClientPolicy = new ConnectionPolicy { ConnectionMode = ConnectionMode.Direct, ConnectionProtocol = Protocol.Tcp };
-    readClientPolicy.PreferredLocations.Add(LocationNames.NorthEurope);
+    readClientPolicy.PreferredLocations.Add(LocationNames.ChinaEast);
     readClientPolicy.PreferredLocations.Add(LocationNames.ChinaNorth);
 
     DocumentClient readClient = new DocumentClient(
-        new Uri("https://contentpubdatabase-europe.documents.azure.cn"),
+        new Uri("https://contentpubdatabase-chinaeast.documents.azure.cn"),
         readRegionAuthKey,
         readClientPolicy);
 
-通过上述设置，数据访问层可以根据其部署位置将所有写入转发到本地帐户。 通过从两个帐户读取来执行读取以获得数据的全局视图。 这种方法可以扩展到所需的任意多个区域。 例如，以下是三个地理区域的设置：
+通过上述设置，数据访问层可以根据其部署位置将所有写入转发到本地帐户。 执行读取操作时，会从两个帐户读取，目的是获得数据的多区域视图。 这种方法可以扩展到所需的任意多个区域。 例如，以下是三个地理区域的设置：
 
 | 帐户名 | 写入区域 | 读取区域 1 | 读取区域 2 |
 | --- | --- | --- | --- |
-| `contentpubdatabase-usa.documents.azure.cn` | `China North` |`China North` |`China East` |
-| `contentpubdatabase-europe.documents.azure.cn` | `China North` |`China North` |`China East` |
-| `contentpubdatabase-asia.documents.azure.cn` | `China East` |`China North` |`China North` |
+| `contentpubdatabase-chinanorth.documents.azure.cn` | `China North` |`China East` |`China North 2` |
+| `contentpubdatabase-chinaeast.documents.azure.cn` | `China East` |`China North` |`China North 2` |
+| `contentpubdatabase-chinanorth2.documents.azure.cn` | `China North 2` |`China East` |`China North` |
 
 <a name="DataAccessImplementation"></a>
 ## <a name="data-access-layer-implementation"></a>数据访问层实现
 现在让我们看一下如何实现具有两个可写区域的应用程序的数据访问层 (DAL)。 DAL 必须执行以下步骤：
 
 * 为每个帐户创建多个 `DocumentClient` 实例。 在两个区域的情况下，每个 DAL 实例具有 1 个 `writeClient` 和 1 个 `readClient`。 
-* 根据应用程序的部署区域来配置 `writeclient` 和 `readClient` 的终结点。 例如，部署在 `China North` 中的 DAL 使用 `contentpubdatabase-usa.documents.azure.cn` 进行写入。 部署在 `NorthEurope` 中的 DAL 使用 `contentpubdatabase-europ.documents.azure.cn` 进行写入。
+* 根据应用程序的部署区域来配置 `writeclient` 和 `readClient` 的终结点。 例如，部署在 `China North` 中的 DAL 使用 `contentpubdatabase-chinanorth.documents.azure.cn` 进行写入。 部署在 `China East` 中的 DAL 使用 `contentpubdatabase-chinaeast.documents.azure.cn` 进行写入。
+<!--Notice: China North to China East-->
 
 通过上述设置，可以实现数据访问方法。 写入操作将写入转发到相应的 `writeClient`。
 
@@ -328,5 +332,4 @@ Azure Cosmos DB 支持统包的[多区域复制](distribute-data-globally.md)，
 * 使用 [Azure Cosmos DB - SQL API](tutorial-global-distribution-sql-api.md) 在使用多个区域的情况下进行开发
 * 使用 [Azure Cosmos DB - MongoDB API](tutorial-global-distribution-MongoDB.md) 通过多个区域进行开发
 * 使用 [Azure Cosmos DB - 表 API](tutorial-global-distribution-table.md)
-<!-- Update_Description: new article on cosmos db multi master workaround -->
-<!--ms.date: 07/02/2018--> 通过多个区域进行开发
+<!-- Update_Description: update link, wording update --> 进行多区域开发

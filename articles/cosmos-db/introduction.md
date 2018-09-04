@@ -1,6 +1,6 @@
 ---
 title: Azure Cosmos DB 简介 | Azure
-description: 了解 Azure Cosmos DB。 此多区域分布式多模型数据库是为了实现低延迟、弹性的可伸缩性和高可用性而构建的。
+description: 了解 Azure Cosmos DB。 此多区域分布式多模型数据库是为了实现低延迟、弹性可伸缩性和高可用性而构建的，提供对 NoSQL 数据的本机支持。
 services: cosmos-db
 author: rockboyfor
 manager: digimobile
@@ -8,15 +8,15 @@ ms.service: cosmos-db
 ms.devlang: na
 ms.topic: overview
 origin.date: 04/08/2018
-ms.date: 08/13/2018
+ms.date: 09/03/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: e0d4942693f26a075369807c361399c4daee7985
-ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
+ms.openlocfilehash: 2909132487cb2e85475f124a9cca16285d0f0215
+ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41703919"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43164973"
 ---
 <!-- Notice in meta : 全球 to 多个区域 -->
 # <a name="welcome-to-azure-cosmos-db"></a>欢迎使用 Azure Cosmos DB
@@ -103,4 +103,4 @@ Azure Cosmos DB 提供传统关系数据库和非关系数据库的最佳功能�
 <!--Not Available on * [Get started with Azure Cosmos DB Cassandra API](create-cassandra-dotnet.md) -->
 <!--Not Available on * [Get started with Azure Cosmos DB Gremlin API](create-graph-dotnet.md) -->
 <!--Not Available on * [Get started with Azure Cosmos DB Table API](create-table-dotnet.md) -->
-<!--Update_Description: update meta properties, update link, wording update-->
+<!--Update_Description: update meta properties, wording update-->

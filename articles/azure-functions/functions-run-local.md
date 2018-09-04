@@ -4,7 +4,7 @@ description: 了解如何通过本地计算机上的命令提示符或终端编�
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
+manager: jeconnoc
 editor: ''
 ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.service: functions
@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: multiple
 ms.topic: article
-origin.date: 06/26/2018
-ms.date: 07/23/2018
+origin.date: 08/14/2018
+ms.date: 08/31/2018
 ms.author: v-junlch
-ms.openlocfilehash: fd048acd1e5354dd6edbf5b385a3fc4132c9dea2
-ms.sourcegitcommit: ba07d76f8394b5dad782fd983718a8ba49a9deb2
+ms.openlocfilehash: 74631ad4c5a8d470469f332974815140b0fe1e1e
+ms.sourcegitcommit: b2c9bc0ed28e73e8c43aa2041c6d875361833681
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39220230"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43330783"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>使用 Azure Functions Core Tools
 
@@ -34,9 +34,9 @@ Azure Functions Core Tools 有两个版本。 使用的版本取决于本地开�
 
 + [版本 1.x](#v1)：支持 1.x 版的运行时，即正式版 (GA)。 此 Tools 版本仅在 Windows 计算机上受支持，需从 [npm 包](https://docs.npmjs.com/getting-started/what-is-npm)安装。 借助此版本，可以使用不受官方支持的试验性语言创建函数。 有关详细信息，请参阅 [Azure Functions 中支持的语言](supported-languages.md)。
 
-+ [2.x 版](#v2)：支持 2.x 版运行时。 此版本支持 [Windows](#windows-npm)、[macOS](#brew) 和 [Linux](#linux)。 使用特定于平台的包管理器或 npm 进行安装。 与 2.x 运行时一样，此 Core Tools 版本目前以预览版提供。
++ [2.x 版](#v2)：支持 [2.x 版运行时](functions-versions.md)。 此版本支持 [Windows](#windows-npm)、[macOS](#brew) 和 [Linux](#linux)。 使用特定于平台的包管理器或 npm 进行安装。 与 2.x 运行时一样，此 Core Tools 版本目前以预览版提供。 
 
-除非另有说明，否则本文中的示例适用于版本 2.x。
+除非另有说明，否则本文中的示例适用于版本 2.x。 若要接收 2.x 版的重要更新，包括中断性变更公告，请留意 [Azure 应用服务公告](https://github.com/Azure/app-service-announcements/issues)存储库。
 
 ## <a name="install-the-azure-functions-core-tools"></a>安装 Azure Functions Core Tools
 
@@ -63,7 +63,7 @@ npm install -g azure-functions-core-tools
 
 以下步骤使用 npm 在 Windows 上安装 Core Tools。 也可使用 [Chocolatey](https://chocolatey.org/)。 有关详细信息，请参阅 [Core Tools 自述文件](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows)。
 
-1. 安装[用于 Windows 的 .NET Core 2.0](https://www.microsoft.com/net/download/windows)。
+1. 安装[用于 Windows 的 .NET Core 2.1](https://www.microsoft.com/net/download/windows)。
 
 2. 安装 [Node.js]，其中包括 npm。 对于 2.x 版工具，仅支持 Node.js 8.5 和更高版本。
 
@@ -77,7 +77,7 @@ npm install -g azure-functions-core-tools
 
 以下步骤使用 Homebrew 在 macOS 上安装 Core Tools。
 
-1. 安装[用于 macOS 的 .NET Core 2.0](https://www.microsoft.com/net/download/macos)。
+1. 安装[用于 macOS 的 .NET Core 2.1](https://www.microsoft.com/net/download/macos)。
 
 2. 安装 [Homebrew](https://brew.sh/)（如果尚未安装）。
 
@@ -92,7 +92,7 @@ npm install -g azure-functions-core-tools
 
 以下步骤使用 [APT](https://wiki.debian.org/Apt) 在 Ubuntu/Debian Linux 发行版上安装 Core Tools。 有关其他 Linux 发行版，请参阅 [Core Tools 自述文件](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#linux)。
 
-1. 安装[用于 Linux 的 .NET Core 2.0](https://www.microsoft.com/net/download/linux)。
+1. 安装[用于 Linux 的 .NET Core 2.1](https://www.microsoft.com/net/download/linux)。
 
 2. 将 Microsoft 产品密钥注册为受信任的密钥：
 
@@ -132,12 +132,14 @@ Functions 项目目录包含文件 [host.json](functions-host-json.md) 和 [loca
 func init MyFunctionProj
 ```
 
+提供项目名称后，系统就会创建并初始化使用该名称的新文件夹， 否则会初始化当前文件夹。  
 在版本 2.x 中运行命令时，必须为项目选择一个运行时。 如果你打算开发 JavaScript 函数，请选择“节点”：
 
 ```output
 Select a worker runtime:
 dotnet
 node
+java
 ```
 
 使用向上/向下箭头键选择语言，然后按 Enter。 JavaScript 项目的输出如以下示例所示：
@@ -152,6 +154,9 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 ```
 
 若要创建不包含本地 Git 存储库的项目，请使用 `--no-source-control [-n]` 选项。
+
+> [!IMPORTANT]
+> 默认情况下，Core Tools 版本 2.x 会为 .NET 运行时创建函数应用项目作为 [C# 类项目](functions-dotnet-class-library.md) (.csproj)。 这些 C# 项目可以与 Visual Studio 2017 或 Visual Studio Code 结合使用，在测试期间以及发布到 Azure 时进行编译。 如果希望创建并使用在版本 1.x 和门户中创建的相同 C# 脚本 (.csx) 文件，则在创建和部署函数时必须包含 `--csx` 参数。
 
 ## <a name="register-extensions"></a>注册扩展
 
@@ -178,7 +183,7 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
     "CORS": "*"
   },
   "ConnectionStrings": {
-    "SQLConnectionString": "Value"
+    "SQLConnectionString": "<sqlclient-connection-string>"
   }
 }
 ```
@@ -190,7 +195,7 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 | **主机** | 在本地运行时，本部分中的设置会自定义 Functions 主机进程。 |
 | LocalHttpPort | 设置运行本地 Functions 主机时使用的默认端口（`func host start` 和 `func run`）。 `--port` 命令行选项优先于此值。 |
 | **CORS** | 定义[跨域资源共享 (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)可以使用的来源。 以逗号分隔的列表提供来源，其中不含空格。 支持通配符值 (\*)，它允许使用任何来源的请求。 |
-| ConnectionStrings | 不要将此集合用于函数绑定使用的连接字符串。 此集合仅供必须从配置文件的 **ConnectionStrings** 部分获取连接字符串的框架使用，例如[实体框架](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx)。 此对象中的连接字符串添加到提供者类型为 [System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx) 的环境中。 此集合中的项不使用其他应用设置发布到 Azure 中。 必须显式将这些值添加到你的函数应用的**应用程序设置**的**连接字符串**部分中。 |
+| ConnectionStrings | 不要将此集合用于函数绑定使用的连接字符串。 此集合仅供通常从配置文件的 **ConnectionStrings** 节获取连接字符串的框架使用，例如[实体框架](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx)。 此对象中的连接字符串添加到提供者类型为 [System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx) 的环境中。 此集合中的项不使用其他应用设置发布到 Azure 中。 必须将这些值显式添加到函数应用设置的**连接字符串**集合中。 如果要在函数代码中创建 [SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx)，则应将连接字符串值与其他连接一起存储在应用程序设置中。 |
 
 还可以在代码中将函数应用设置值读取为环境变量。 有关详细信息，请参阅以下特定于语言的参考主题的“环境变量”部分：
 
@@ -272,8 +277,9 @@ Writing C:\myfunctions\myMyFunctionProj\MyQueueTrigger\function.json
 | 参数     | 说明                            |
 | ------------------------------------------ | -------------------------------------- |
 | **`--language -l`**| C#、F# 或 JavaScript 等模板编程语言。 此选项在版本 1.x 中是必需的。 在版本 2.x 中，请不要使用此选项或选择项目的默认语言。 |
-| **`--template -t`** | 模板名称，可以是以下值之一：<br/><ul><li>`Blob trigger`</li><li>`Cosmos DB trigger`</li><li>`Event Grid trigger`</li><li>`HTTP trigger`</li><li>`Queue trigger`</li><li>`SendGrid`</li><li>`Service Bus Queue trigger`</li><li>`Service Bus Topic trigger`</li><li>`Timer trigger`</li></ul> |
+| **`--template -t`** | 使用 `func templates list` 命令查看每种受支持语言的可用模板的完整列表。   |
 | **`--name -n`** | 函数名称。 |
+| **`--csx`** | （版本 2.x）生成版本 1.x 和门户所用的相同 C# 脚本 (.csx) 模板。 |
 
 例如，若要在单个命令中创建 JavaScript HTTP 触发器，请运行：
 
@@ -294,19 +300,24 @@ func new --template "Queue Trigger" --name QueueTriggerJS
 ```bash
 func host start
 ```
+`host` 命令仅在版本 1.x 中为必需命令。
 
 `func host start` 支持以下选项：
 
 | 选项     | 说明                            |
 | ------------ | -------------------------------------- |
-|**`--port -p`** | 要侦听的本地端口。 默认值：7071。 |
-| **`--debug <type>`** | 在调试端口打开的情况下启动主机，以便可以从 [Visual Studio Code](https://code.visualstudio.com/tutorials/functions-extension/getting-started) 或 [Visual Studio 2017](functions-dotnet-class-library.md) 附加到 **func.exe** 进程。 *\<type\>* 选项为 `VSCode` 和 `VS`。  |
 | **`--cors`** | 以逗号分隔的 CORS 来源列表，其中不包含空格。 |
-| **`--nodeDebugPort -n`** | 节点调试程序要使用的端口。 默认值：launch.json 中的值或 5858。 |
-| **`--debugLevel -d`** | 控制台跟踪级别（关闭、详情、信息、警告或错误）。 默认：信息。|
+| **`--debug <type>`** | 在调试端口打开的情况下启动主机，以便可以从 [Visual Studio Code](https://code.visualstudio.com/tutorials/functions-extension/getting-started) 或 [Visual Studio 2017](functions-dotnet-class-library.md) 附加到 **func.exe** 进程。 *\<type\>* 选项为 `VSCode` 和 `VS`。  |
+| **`--port -p`** | 要侦听的本地端口。 默认值：7071。 |
 | **`--timeout -t`** | Functions 主机启动的超时时间（以秒为单位）。 默认值：20 秒。|
 | **`--useHttps`** | 绑定到 `https://localhost:{port}` ，而不是绑定到 `http://localhost:{port}` 。 默认情况下，此选项会在计算机上创建可信证书。|
-| **`--pause-on-error`** | 退出进程前，暂停增加其他输入。 从 Visual Studio 或 VS Code 启动 Core Tools 时使用。|
+| **`--build`** | 生成当前项目，然后再运行。 仅限 2.x 版和 C# 项目。 |
+| **`--cert`** | 包含私钥的 .pfx 文件的路径。 只能与 `--useHttps` 配合使用。 仅限 2.x 版。 | 
+| **`--password`** | 密码或包含 .pfx 文件密码的文件。 只能与 `--cert` 配合使用。 仅限 2.x 版。 |
+| **`--language-worker`** | 用于配置语言辅助角色的参数。 仅限 2.x 版。 |
+| **`--nodeDebugPort -n`** | 节点调试程序要使用的端口。 默认值：launch.json 中的值或 5858。 仅限 1.x 版。 |
+
+对于 C# 类库项目 (.csproj)，必须包括 `--build` 选项才能生成库 .dll。
 
 Functions 主机启动时，会输出 HTTP 触发的函数的 URL：
 
@@ -437,4 +448,3 @@ Azure Functions Core Tools 是[开源工具且托管在 GitHub 上](https://gith
 [Azure 门户]: https://portal.azure.cn 
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
 
-<!-- Update_Description: wording update -->

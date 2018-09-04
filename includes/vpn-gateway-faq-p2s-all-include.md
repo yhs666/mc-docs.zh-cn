@@ -1,37 +1,35 @@
 ---
- title: include 文件 description: include 文件 services: vpn-gateway author: cherylmc ms.service: vpn-gateway ms.topic: include origin.date: 06/04/2018 ms.date: 08/13/2018 ms.author: v-junlch ms.custom: include file
+ title: include 文件 description: include 文件 services: vpn-gateway author: WenJason ms.service: vpn-gateway ms.topic: include origin.date: 07/30/2018 ms.date: 09/02/2018 ms.author: v-jay ms.custom: include file
 ---
+### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>在我的点到站点配置中，可以有多少 VPN 客户端终结点？
+
+我们最多支持 128 个 VPN 客户端可同时连接到一个虚拟网络。
+
 ### <a name="supportedclientos"></a>点到站点连接可以用于哪些客户端操作系统？
 
 支持以下客户端操作系统：
 
-- Windows 7（32 位和 64 位）
-- Windows Server 2008 R2（仅 64 位）
-- Windows 8.1（32 位和 64 位）
-- Windows Server 2012（仅 64 位）
-- Windows Server 2012 R2（仅 64 位）
-- Windows Server 2016（仅 64 位）
-- Windows 10
-- Mac OS X 版本 10.11 (El Capitan)
-- Mac OS X 版本 10.12 (Sierra)
-- Linux (StrongSwan)
-- iOS
+* Windows 7（32 位和 64 位）
+* Windows Server 2008 R2（仅 64 位）
+* Windows 8.1（32 位和 64 位）
+* Windows Server 2012（仅 64 位）
+* Windows Server 2012 R2（仅 64 位）
+* Windows Server 2016（仅 64 位）
+* Windows 10
+* Mac OS X 版本 10.11 (El Capitan)
+* Mac OS X 版本 10.12 (Sierra)
+* Linux (StrongSwan)
+* iOS
 
->[!NOTE]
->[!INCLUDE [TLS](vpn-gateway-tls-updates.md)]
->
-
-### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>在我的点到站点配置中，可以有多少 VPN 客户端终结点？
-
-我们最多支持 128 个 VPN 客户端可同时连接到一个虚拟网络。
+[!INCLUDE [TLS](vpn-gateway-tls-updates.md)]
 
 ### <a name="can-i-traverse-proxies-and-firewalls-using-point-to-site-capability"></a>是否可以使用点到站点功能穿越代理和防火墙？
 
 Azure 支持两种类型的点到站点 VPN 选项：
 
-- 安全套接字隧道协议 (SSTP)。 SSTP 是 Microsoft 专有的基于 SSL 的解决方案，它可以穿透防火墙，因为大多数防火墙都打开了 443 SSL 使用的 TCP 端口。
+* 安全套接字隧道协议 (SSTP)。 SSTP 是 Microsoft 专有的基于 SSL 的解决方案，它可以穿透防火墙，因为大多数防火墙都打开了 443 SSL 使用的 TCP 端口。
 
-- IKEv2 VPN。 IKEv2 VPN 是一个基于标准的 IPsec VPN 解决方案，它使用 UDP 端口 500 和 4500 以及 IP 协议号  50。 防火墙并非始终打开这些端口，因此，IKEv2 VPN 有可能无法穿过代理和防火墙。
+* IKEv2 VPN。 IKEv2 VPN 是一个基于标准的 IPsec VPN 解决方案，它使用 UDP 端口 500 和 4500 以及 IP 协议号  50。 防火墙并非始终打开这些端口，因此，IKEv2 VPN 有可能无法穿过代理和防火墙。
 
 ### <a name="if-i-restart-a-client-computer-configured-for-point-to-site-will-the-vpn-automatically-reconnect"></a>如果重新启动进行过点到站点配置的客户端计算机，是否会自动重新连接 VPN？
 
@@ -65,11 +63,11 @@ Azure 支持两种类型的点到站点 VPN 选项：
 
 1. 安装更新。
 
-    | OS 版本 | 日期 | 编号/链接 |
-    |---|---|---|---|
-    | Windows Server 2016<br>Windows 10 版本 1607 | 2018 年 1 月 17 日 | [KB4057142](https://support.microsoft.com/help/4057142/windows-10-update-kb4057142) |
-    | Windows 10 版本 1703 | 2018 年 1 月 17 日 | [KB4057144](https://support.microsoft.com/help/4057144/windows-10-update-kb4057144) |
-    |  |  |  |  |
+  | OS 版本 | 日期 | 编号/链接 |
+  |---|---|---|---|
+  | Windows Server 2016<br>Windows 10 版本 1607 | 2018 年 1 月 17 日 | [KB4057142](https://support.microsoft.com/help/4057142/windows-10-update-kb4057142) |
+  | Windows 10 版本 1703 | 2018 年 1 月 17 日 | [KB4057144](https://support.microsoft.com/help/4057144/windows-10-update-kb4057144) |
+  |  |  |  |  |
 
 2. 设置注册表项值。 在注册表中创建“HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload”REG_DWORD 键或将其设置为 1。
 
@@ -84,5 +82,3 @@ Azure 支持将 Windows、Mac 和 Linux 用于 P2S VPN。
 ### <a name="i-already-have-an-azure-vpn-gateway-deployed-can-i-enable-radius-andor-ikev2-vpn-on-it"></a>我已部署 Azure VPN 网关。 是否可在该网关上启用 RADIUS 和/或 IKEv2 VPN？
 
 是的，可以使用 Powershell 或 Azure 门户在已部署的网关上启用这些新功能，前提是所用网关 SKU 支持 RADIUS 和/或 IKEv2。 例如，VPN 网关基本 SKU 不支持 RADIUS 或 IKEv2。
-
-<!-- ms.date: 08/13/2018 -->

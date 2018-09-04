@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 03/15/2018
 ms.date: 08/27/2018
 ms.author: v-yeche
-ms.openlocfilehash: 410eda0e7bc3e23bf58559ac94e20d88f53f7565
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.openlocfilehash: 95f193be8f93e7ced29899d55638c2708057f354
+ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42872370"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43328614"
 ---
 # <a name="upgrade-a-classic-container-registry"></a>升级经典容器注册表
 
@@ -27,8 +27,7 @@ Azure 容器注册表 (ACR) 分为多个服务层（[称为“SKU”](container-
 托管的注册表提供：
 
 * 用于[单次登录](container-registry-authentication.md#individual-login-with-azure-ad)的 Azure Active Directory 集成
-* 映像和标记删除支持
-* [异地复制](container-registry-geo-replication.md)
+* 映像和标记删除支持 <!--Not Available on * [Geo-replication](container-registry-geo-replication.md)-->
 * [Webhook](container-registry-webhook.md)
 
 最重要的是，经典注册表依赖 Azure 在用户创建注册表时在 Azure 订阅中自动预配的存储帐户。 相比之下，基本、标准和高级 SKU 通过以透明方式处理映像的存储来利用 Azure 的[高级存储功能](container-registry-storage.md)。 不在自己的订阅中创建单独的存储帐户。
