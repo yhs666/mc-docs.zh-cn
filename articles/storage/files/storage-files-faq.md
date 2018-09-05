@@ -1,28 +1,22 @@
 ---
-title: Azure 文件常见问题解答 | Azure
+title: Azure 文件常见问题解答 (FAQ) | Microsoft Docs
 description: 查看有关 Azure 文件的常见问题解答。
 services: storage
-documentationcenter: ''
-author: yunan2016
-manager: digimobile
-editor: tysonn
-ms.assetid: ''
+author: WenJason
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
-origin.date: 05/31/2018
-ms.date: 07/02/2018
-ms.author: v-nany
-ms.openlocfilehash: 7cd662db3e13a3606e8e0221995f66b490af1f0e
-ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
+origin.date: 07/19/2018
+ms.date: 09/10/2018
+ms.author: v-jay
+ms.component: files
+ms.openlocfilehash: 82122732ba7fd8822e2b5ecab9577a770cb33e47
+ms.sourcegitcommit: e157751c560524d0bb828e987b87178130663547
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103027"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43651407"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>有关 Azure 文件的常见问题解答 (FAQ)
-[Azure 文件](storage-files-introduction.md)在云端提供完全托管的文件共享，这些共享项可通过行业标准的[服务器消息块 (SMB) 协议](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)进行访问。 你可以在云或 Windows、Linux 和 macOS 的本地部署同时装载 Azure 文件共享。 另外，你也可以使用 Azure 文件同步（预览版）在 Windows Server 计算机上缓存 Azure 文件共享，以在靠近使用数据的位置实现快速访问。
+[Azure 文件](storage-files-introduction.md)在云端提供完全托管的文件共享，这些共享项可通过行业标准的[服务器消息块 (SMB) 协议](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)进行访问。 你可以在云或 Windows、Linux 和 macOS 的本地部署同时装载 Azure 文件共享。 另外，你也可以使用 Azure 文件同步在 Windows Server 计算机上缓存 Azure 文件共享，以在靠近使用数据的位置实现快速访问。
 
 
 ## <a name="general"></a>常规
@@ -46,7 +40,7 @@ ms.locfileid: "37103027"
     有关 Azure 文件和 Azure Blob 存储之间差异的深入描述，请参阅[确定何时使用 Azure Blob 存储、Azure 文件或 Azure 磁盘](../common/storage-decide-blobs-files-disks.md?toc=%2fstorage%2ffiles%2ftoc.json)。 若要了解有关 Azure Blob 存储的详细信息，请参阅 [Blob 存储简介](../blobs/storage-blobs-introduction.md)。
 
 * <a id="files-versus-disks"></a>**相对于 Azure 磁盘，我为什么要使用 Azure 文件共享？**  
-    Azure 磁盘中的磁盘只是一个磁盘。 独立磁盘本身并不能发挥太大作用。 若要充分利用 Azure 磁盘，必须将其与在 Azure 中运行的虚拟机相关联。 Azure 磁盘可用于在本地服务器上使用磁盘的所有内容。 你可将其用作操作系统磁盘、操作系统的交换空间，或者应用程序的专用存储空间。 Azure 磁盘其中一个有趣的用途是，可在云中创建一个文件服务器，以在可能使用 Azure 文件共享的相同位置使用。 当需要 Azure 文件当前不支持的部署选项（例如，NFS 协议支持或高级存储）时，在 Azure 虚拟机中部署文件服务器则是一种非常行之有效的获取 Azure 中文件存储的方法。 
+    Azure 磁盘中的磁盘只是一个磁盘。 若要充分利用 Azure 磁盘，必须将其与在 Azure 中运行的虚拟机相关联。 Azure 磁盘可用于在本地服务器上使用磁盘的所有内容。 你可将其用作操作系统磁盘、操作系统的交换空间，或者应用程序的专用存储空间。 Azure 磁盘其中一个有趣的用途是，可在云中创建一个文件服务器，以在可能使用 Azure 文件共享的相同位置使用。 当需要 Azure 文件当前不支持的部署选项（例如，NFS 协议支持或高级存储）时，在 Azure 虚拟机中部署文件服务器则是一种非常行之有效的获取 Azure 中文件存储的方法。 
 
     但是，相比使用 Azure 文件共享，通过将 Azure 磁盘作为后端存储来运行文件服务器的方式，由于多方面的原因，其经济成本通常会更高。 首先，除了为磁盘存储付费之外，还必须为运行一个或多个 Azure VM 的成本付费。 其次，你还必须管理用于运行文件服务器的 VM。 例如，负责操作系统升级。 最后，如果你最终需要在本地缓存数据，则还要自行安装和管理复制技术（例如，分布式文件系统复制 (DFSR)）来实现此目的。
 
@@ -65,11 +59,11 @@ ms.locfileid: "37103027"
 
 * <a id="redundancy-options"></a>
 **Azure 文件支持哪些存储冗余选项？**  
-    当前，Azure 文件仅支持本地冗余存储 (LRS) 和异地冗余存储 (GRS)。 将来我们计划支持区域冗余存储空间 (ZRS) 和读取访问权限异地冗余存储 (RA-GRS)，但目前还没有可分享的日程表。
+    目前，Azure 文件支持本地冗余存储 (LRS)、异地冗余存储 (GRS) 和读取访问权限异地冗余存储 (RA-GRS)。
 
-- <a id="tier-options"></a>
+* <a id="tier-options"></a>
 **Azure 文件支持哪些存储层？**  
-    Azure 文件目前仅支持标准存储层。 当前我们暂无有关高级存储和冷存储支持的日程表可供分享。 
+    Azure 文件目前仅支持标准存储层。 当前我们暂无有关高级存储支持的日程表可供分享。 
     
     > [!NOTE]
     > 你无法使用仅限 Blob 存储帐户或高级存储帐户创建 Azure 文件共享。
@@ -202,13 +196,9 @@ ms.locfileid: "37103027"
 **Azure 文件存在哪些缩放限制？**  
     有关 Azure 文件的可伸缩性和性能目标的信息，请参阅 [Azure 文件可伸缩性和性能目标](storage-files-scale-targets.md)。
 
-* 
-  <a id="need-larger-share">
-    </a>
-  
-
-  **我需要大于 Azure 文件目前提供的文件共享的文件共享。我是否可以增加 Azure 文件共享的大小？**  
-  否。 Azure 文件共享的上限是 5 TiB。 当前，这是硬限制，无法调整。 我们正致力于寻找将共享大小提升至 100 TiB 的解决方案，但当前尚无可供分享的时间表。
+* <a id="need-larger-share"></a>
+**我需要大于 Azure 文件目前提供的文件共享的文件共享。我是否可以增加 Azure 文件共享的大小？**  
+    否。 Azure 文件共享的上限是 5 TiB。 当前，这是硬限制，无法调整。 我们正致力于寻找将共享大小提升至 100 TiB 的解决方案，但当前尚无可供分享的时间表。
 
 * <a id="open-handles-quota"></a>
 **多少个客户端可以同时访问同一文件？**   

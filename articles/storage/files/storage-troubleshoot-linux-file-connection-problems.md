@@ -1,26 +1,20 @@
 ---
-title: 在 Linux 中排查 Azure 文件问题 | Azure
+title: 在 Linux 中排查 Azure 文件问题 | Microsoft Docs
 description: 在 Linux 中排查 Azure 文件问题
 services: storage
-documentationcenter: ''
-author: forester123
-manager: digimobile
-editor: na
+author: WenJason
 tags: storage
 ms.service: storage
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 05/11/2018
-ms.date: 06/11/2018
-ms.author: v-johch
-ms.openlocfilehash: 0c4f7e6c77ca19a18a67c89b788d4c22caefa4ca
-ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
+ms.date: 09/10/2018
+ms.author: v-jay
+ms.openlocfilehash: 04e62ec04ae418bc30909e11cdf1f38a64fd60ee
+ms.sourcegitcommit: e157751c560524d0bb828e987b87178130663547
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36748399"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43651535"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>在 Linux 中排查 Azure 文件问题
 
@@ -140,12 +134,16 @@ COPYFILE 中的强制标志 **f** 导致在 Unix 上执行 **cp -p -f**。 此�
 
 - 正在使用不兼容的 Linux 分发客户端。 建议使用以下 Linux 分发来连接 Azure 文件共享：
 
-    - Ubuntu Server 14.04+ 
-    - RHEL 7+ 
-    - CentOS 7+ 
-    - Debian 8 
-    - openSUSE 13.2+ 
-    - SUSE Linux Enterprise Server 12
+* **具有相应装载功能的最低建议版本（SMB 版本 2.1 与 SMB 版本 3.0）**    
+    
+    |   | SMB 2.1 <br>（装载在同一 Azure 区域内的 VM 上） | SMB 3.0 <br>（从本地和跨区域装载） |
+    | --- | :---: | :---: |
+    | Ubuntu Server | 14.04+ | 16.04+ |
+    | RHEL | 7+ | 7.5+ |
+    | CentOS | 7+ |  7.5+ |
+    | Debian | 8+ |   |
+    | openSUSE | 13.2+ | 42.3+ |
+    | SUSE Linux Enterprise Server | 12 | 12 SP3+ |
 
 - 客户端上未安装 CIFS 实用程序。
 - 客户端上未安装最低的 SMB/CIFS 版本 2.1。
@@ -171,6 +169,31 @@ COPYFILE 中的强制标志 **f** 导致在 Unix 上执行 **cp -p -f**。 此�
 - 4.9.48+
 - 4.12.11+
 - 4.13 或更高的所有版本
+
+## <a name="cannot-create-symbolic-links---ln-failed-to-create-symbolic-link-t-operation-not-supported"></a>无法创建符号链接 - ln: 未能创建符号链接 't': 操作不受支持
+
+### <a name="cause"></a>原因
+默认情况下，使用 CIFS 在 Linux 上装载 Azure 文件共享不会启用对符号链接的支持。 将会出现如下所示的错误链接：
+```
+ln -s linked -n t
+ln: failed to create symbolic link 't': Operation not supported
+```
+### <a name="solution"></a>解决方案
+Linux CIFS 客户端不支持通过 SMB2/3 协议创建 Windows 样式符号链接。 Linux 客户端目前支持使用称作 [Mishall+French 符号链接] (https://wiki.samba.org/index.php/UNIX_Extensions#Minshall.2BFrench_symlinks) 的另一种样式的符号链接来执行创建和跟踪操作。 需要符号链接的客户可以使用“mfsymlinks”装载选项。 通常建议使用“mfsymlinks”，因为这也是 Mac 使用的格式。
+
+若要使用符号链接，请将以下代码添加到 CIFS 装载命令的末尾：
+
+```
+,mfsymlinks
+```
+
+因此，命令如下所示：
+
+```
+sudo mount -t cifs //<storage-account-name>.file.core.chinacloudapi.cn/<share-name> <mount-point> -o vers=<smb-version>,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino,mfsynlinks
+```
+
+添加后，即可根据 [Wiki](https://wiki.samba.org/index.php/UNIX_Extensions#Storing_symlinks_on_Windows_servers) 中的建议创建符号链接。
 
 ## <a name="need-help-contact-support"></a>需要帮助？ 请联系支持人员。
 

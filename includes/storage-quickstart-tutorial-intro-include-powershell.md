@@ -1,12 +1,12 @@
 ## <a name="sign-in-to-azure"></a>登录 Azure
 
-使用 `Connect-AzureRmAccount -EnvironmentName AzureChinaCloud` 命令登录到 Azure 订阅，并按照屏幕上的说明进行操作。
+运行 `Connect-AzureRmAccount -EnvironmentName AzureChinaCloud` 命令以登录 Azure 订阅，并按照屏幕上的说明操作。
 
 ```powershell
 Connect-AzureRmAccount -EnvironmentName AzureChinaCloud
 ```
 
-如果你不知道要使用哪个位置，可以列出可用的位置。 显示列表后，找到要使用的位置。 此示例将使用“中国东部”。 将其存储在变量中，并使用该变量，这样就可以在某个位置更改它。
+如果你不知道要使用哪个位置，可以列出可用的位置。 显示列表后，找到要使用的位置。 此示例使用“中国东部”。 将其存储在变量中，并使用该变量，这样就可以在某个位置更改它。
 
 ```powershell
 Get-AzureRmLocation | select Location 

@@ -1,26 +1,19 @@
 ---
-title: 使用 Windows 上的 AzCopy 将数据复制或移动到 Azure 存储 | Azure
+title: 使用 Windows 上的 AzCopy 将数据复制或移动到 Azure 存储 | Microsoft Docs
 description: 使用 Windows 上的 AzCopy 实用工具将数据移动或复制到 Blob、表和文件内容或从 Blob、表和文件内容移动或复制数据。 从本地文件将数据复制到 Azure 存储，或者在存储帐户中或存储帐户之间复制数据。 轻松地将数据迁移到 Azure 存储。
 services: storage
-documentationcenter: ''
-author: yunan2016
-manager: digimobile
-editor: tysonn
-ms.assetid: aa155738-7c69-4a83-94f8-b97af4461274
+author: WenJason
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-origin.date: 05/17/2018
-ms.date: 07/02/2018
-ms.author: v-nany
-ms.openlocfilehash: f5f2c095f60cb3c1af044f3d404c36dc50bd586c
-ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
+origin.date: 08/13/2018
+ms.date: 09/10/2018
+ms.author: v-jay
+ms.openlocfilehash: b753cd6b5944c3ba720edf6bf055350599d121dd
+ms.sourcegitcommit: e157751c560524d0bb828e987b87178130663547
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103088"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43652900"
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>使用 Windows 上的 AzCopy 传输数据
 AzCopy 是一个命令行实用程序，专用于使用旨在实现最佳性能的简单命令将数据复制到 Microsoft Azure Blob、文件和表存储以及从这些位置复制数据。 可在文件系统和存储帐户之间或在存储帐户之间复制数据。  
@@ -29,16 +22,16 @@ AzCopy 是一个命令行实用程序，专用于使用旨在实现最佳性能�
 
 ## <a name="download-and-install-azcopy-on-windows"></a>下载并安装 AzCopy on Windows
 
-### <a name="latest-preview-version-v800"></a>最新预览版本 (v8.0.0)
-下载 [AzCopy on Windows 的最新预览版](https://aka.ms/downloadazcopypr)。 此预览版本提供了显着的性能改进，并在安装中打包了 .NET Core。
+### <a name="latest-version-v81"></a>最新版本 (v8.1)
+下载 [Windows 上的 AzCopy 最新版](https://aka.ms/downloadazcopy)。
 
-#### <a name="azcopy-on-windows-80-preview-release-notes"></a>AzCopy on Windows 8.0 预览版发行说明
-- 最新版本不再支持表服务。 如果使用表导出功能，请下载稳定版本。
+#### <a name="azcopy-on-windows-81-release-notes"></a>AzCopy on Windows 8.1 发行说明
+- 最新版本不再支持表服务。 如果使用表导出功能，请下载 AzCopy 7.3 版本。
 - 使用 .NET Core 2.1 构建，现在所有 .NET Core 依赖项都打包在安装中。
-- 上传和下载方案都有显著的性能改进
+- 添加了 OAuth 身份验证支持。 使用 ```azcopy login``` 通过 Azure Active Directory 登录。
 
-### <a name="latest-stable-version-v710"></a>最新稳定版本 (v7.1.0)
-下载 [AzCopy on Windows 的最新稳定版本](https://aka.ms/downloadazcopy)。
+### <a name="azcopy-with-table-support-v73"></a>带表支持的 Azcopy (v7.3)
+下载[带表支持的 AzCopy 7.3](https://aka.ms/downloadazcopynet)。
 
 ### <a name="post-installation-step"></a>安装后步骤
 
@@ -514,7 +507,8 @@ AzCopy /@:"C:\responsefiles\copyoperation.txt"
 
 如果将参数拆分到两行（如此处所示的 `/sourcekey` 参数），AzCopy 将会失败：
 
-http://myaccount.blob.core.chinacloudapi.cn/mycontainer C:\myfolder /sourcekey: <sourcekey> /S /Y
+http://myaccount.blob.core.chinacloudapi.cn/mycontainer C:\myfolder /sourcekey: <sourcekey>
+/S /Y
 
 ### <a name="use-multiple-response-files-to-specify-command-line-parameters"></a>使用多个响应文件指定命令行参数
 
