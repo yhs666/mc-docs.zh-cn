@@ -1,21 +1,21 @@
 ---
-title: Azure 自动化中的连接资产 | Microsoft Docs
-description: Azure 自动化中的连接资产包含从 Runbook 配置连接到外部服务或应用程序所需的信息。 本文介绍了有关连接的详细信息，以及如何在文本和图形创作中使用连接。
+title: Azure 自动化中的连接资产
+description: Azure 自动化中的连接资产包含从 Runbook 或 DSC 配置连接到外部服务或应用程序所需的信息。 本文介绍了有关连接的详细信息，以及如何在文本和图形创作中使用连接。
 services: automation
-author: yunan2016
-manager: digimobile
 ms.service: automation
-ms.devlang: na
-ms.topic: article
+ms.component: shared-capabilities
+author: WenJason
+ms.author: v-jay
 origin.date: 03/15/2018
-ms.date: 07/23/2018
-ms.author: v-nany
-ms.openlocfilehash: af53b4bfcbdbdc0eab827aa9b28f347caa60b393
-ms.sourcegitcommit: 2a147231bf3d0a693adf58fceee76ab0fbcd6dbb
+ms.date: 09/10/2018
+ms.topic: conceptual
+manager: digimobile
+ms.openlocfilehash: f4487921b6a1d632876c99eef117c7684770de4b
+ms.sourcegitcommit: 1b60848d25bbd897498958738644a4eb9cf3a302
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39335276"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43731225"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Azure 自动化中的连接资产
 
@@ -93,7 +93,7 @@ New-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAcc
 
 ```powershell
 $Conn = Get-AutomationConnection -Name AzureRunAsConnection 
-Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint -EnvironmentName "AzureChinaCloud" 
+Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint -EnvironmentName "AzureChinaCloud" 
 ```
 
 > [!IMPORTANT]

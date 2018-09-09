@@ -13,21 +13,38 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 01/26/2017
-ms.date: 08/14/2018
-ms.author: v-junlch
-ms.openlocfilehash: 416d73a76af0da7b17f11572109a6468bef2102b
-ms.sourcegitcommit: 56aa1615ef7402444111495f72afbdd6b2dfff78
+ms.date: 09/17/2018
+ms.author: v-biyu
+ms.openlocfilehash: dfa20f374df77e011b30d5ca090fc2562016843e
+ms.sourcegitcommit: d649060b55bac3ad9f4fc2bd2962748a4b5bf715
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "41705331"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44066166"
 ---
 # <a name="what-is-azure-key-vault"></a>什么是 Azure 密钥保管库？
 Azure 密钥保管库可帮助保护云应用程序和服务使用的加密密钥和机密。 借助 Key Vault，可使用密钥来加密密钥和机密（例如身份验证密钥、存储帐户密钥、数据加密密钥、.PFX 文件和密码）。
 
 密钥保管库简化了密钥管理过程，可让你控制用于访问和加密数据的密钥。 开发人员可以在几分钟内创建用于开发和测试的密钥，并无缝地将其迁移到生产密钥。 安全管理员可以根据需要授予（和吊销）密钥权限。
 
-使用下表更好地了解密钥保管库如何帮助达到开发人员和安全管理员的需求。
+## <a name="basic-concepts"></a>基本概念
+
+Azure Key Vault 是一个用于安全地存储和访问机密的工具。 机密是你希望严格控制对其的访问的任何东西，例如 API 密钥、密码或证书。
+下面是一些关键术语：
+- **租户** - 租户是拥有和管理特定的 Microsoft 云服务实例的组织。 它通常用来以确切的方式引用组织的 Azure 和 Office 365 服务集。
+- **保管库所有者** - 可以创建密钥保管库并获得它的完全访问权限和控制权。 管理员可以控制密钥生命周期。 他们可以滚动到密钥的新版本，对其进行备份，等等。
+- **资源** - 可通过 Azure 获取的可管理项。 部分常见资源包括虚拟机、存储帐户、Web 应用、数据库和虚拟网络，但这只是其中一小部分。
+- **资源组** - 一个容器，用于保存 Azure 解决方案的相关资源。 资源组可以包含解决方案的所有资源，也可以只包含想要作为组来管理的资源。 根据对组织有利的原则，决定如何将资源分配到资源组。 请参阅“资源组”。
+- **保管库使用者** - 当保管库所有者为他/她授予了访问权限时，可以对密钥保管库内的资产执行操作，具体取决于所授予的权限。
+- **[Azure Active Directory](/active-directory/fundamentals/active-directory-whatis)** 是用于给定租户的 Azure AD 服务。 每个目录有一个或多个域。 每个目录可以有多个订阅与之关联，但只有一个租户。 
+- **Azure 租户 ID** - 这是用于在 Azure 订阅中标识 Azure Active Directory 的唯一方法。 
+- **托管服务标识** - 虽然 Azure Key Vault 可用于安全存储凭据以及其他密钥和机密，但代码需要向密钥保管库证明身份才能检索它们。 托管服务标识 (MSI) 为 Azure 服务提供了 Azure Active Directory (Azure AD) 中的自动托管标识，更巧妙地解决了这个问题。 可以使用此标识向支持 Azure AD 身份验证的密钥保管库或任何服务证明身份，而无需在代码中放入任何凭据。 若要阅读有关 MSI 的详细信息，请参阅[此处](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)
+
+    
+
+## <a name="key-vault-roles"></a>密钥保管库角色
+
+使用下表详细了解密钥保管库如何帮助达到开发人员和安全管理员的需求。
 
 | 角色 | 问题陈述 | Azure 密钥保管库已解决问题 |
 | --- | --- | --- |

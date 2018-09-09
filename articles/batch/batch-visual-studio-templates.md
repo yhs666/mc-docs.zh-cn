@@ -13,22 +13,22 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 origin.date: 02/27/2017
-ms.date: 08/08/2018
+ms.date: 09/07/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0415902b654fdc66be56144fa5a73d40789f4341
-ms.sourcegitcommit: f8bb533368ab2ef8efdf47e186672993ad8334cd
+ms.openlocfilehash: 075f66a577c9063fe5d74ca11ced0736ffb3be4a
+ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39722330"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44068147"
 ---
 # <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>使用 Visual Studio 项目模板快速启动 Batch 解决方案
 
 Batch 的**作业管理器**和**任务处理器 Visual Studio 模板**提供代码，从而帮助以最少的精力在 Batch 上实现并运行计算密集型工作负荷。 本文档介绍这些模板，并提供其用法指导。
 
 > [!IMPORTANT]
-> 本文只介绍适用于这两个模板的信息，假设读者熟悉与其相关的 Batch 服务和重要概念：池、计算节点、作业和任务、作业管理器任务、环境变量和其他相关信息。 可以在 [Azure Batch 基础知识](batch-technical-overview.md)、[面向开发人员的 Batch 功能概述](batch-api-basics.md)和[用于 .NET 的 Azure Batch 库入门](batch-dotnet-get-started.md)中找到更多信息。
+> 本文只介绍适用于这两个模板的信息，假设读者熟悉与其相关的 Batch 服务和重要概念：池、计算节点、作业和任务、作业管理器任务、环境变量和其他相关信息。 可在 [Azure Batch 基础知识](batch-technical-overview.md)和[面向开发人员的 Batch 功能概述](batch-api-basics.md)中找到详细信息。
 > 
 > 
 

@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 origin.date: 04/18/2018
-ms.date: 06/29/2018
+ms.date: 09/07/2018
 ms.author: v-junlch
-ms.openlocfilehash: f57e725d35c4f118e810c37572e6117c0be9bcea
-ms.sourcegitcommit: c587cc1c53b1f92b45fae0d1ff8e1f7bd544bc55
+ms.openlocfilehash: e035147ee28fcb5b2aeef6f4e5ed859e024f60a3
+ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103254"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44068059"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>使用 Active Directory 对 Batch 服务解决方案进行身份验证
 
@@ -67,15 +67,15 @@ Azure Batch 资源终结点用于获取对 Batch 服务的请求进行身份验�
 
 使用 Azure AD 进行验证的第一步是在 Azure AD 租户中注册应用程序。 通过注册应用程序，可以从代码中调用 Azure [Active Directory 身份验证库][aad_adal] (ADAL)。 ADAL 提供了一个 API，用于从应用程序中使用 Azure AD 进行身份验证。 无论是计划使用集成身份验证还是服务主体，都必须注册应用程序。
 
-注册应用程序时，需要向 Azure AD 提供关于应用程序的信息。 然后，Azure AD 将提供一个应用程序 ID（也称为“客户端 ID”），在运行时，可以使用该 ID 将应用程序与 Azure AD 相关联。 若要详细信息应用程序 ID，请参阅 [Azure Active Directory 中的应用程序对象和服务主体对象](../active-directory/develop/active-directory-application-objects.md)。
+注册应用程序时，需要向 Azure AD 提供关于应用程序的信息。 然后，Azure AD 将提供一个应用程序 ID（也称为“客户端 ID”），在运行时，可以使用该 ID 将应用程序与 Azure AD 相关联。 若要详细信息应用程序 ID，请参阅 [Azure Active Directory 中的应用程序对象和服务主体对象](../active-directory/develop/app-objects-and-service-principals.md)。
 
-要注册批处理应用程序，请遵循[将应用程序与 Azure Active Directory 集成][aad_integrate]的[添加应用程序](../active-directory/develop/active-directory-integrating-applications.md#adding-an-application)部分中的步骤。 如果将应用程序注册为本机应用程序，可以为重定向 URI 指定任何有效 URI。 它不需要是实际的终结点。
+要注册批处理应用程序，请遵循[将应用程序与 Azure Active Directory 集成][aad_integrate]的[添加应用程序](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md#adding-an-application)部分中的步骤。 如果将应用程序注册为本机应用程序，可以为重定向 URI 指定任何有效 URI。 它不需要是实际的终结点。
 
 注册应用程序后，会看到应用程序 ID：
 
 ![将批处理应用程序注册到 Azure AD](./media/batch-aad-auth/app-registration-data-plane.png)
 
-有关使用 Azure AD 注册应用程序的详细信息，请参阅 [Azure AD 的身份验证方案](../active-directory/develop/active-directory-authentication-scenarios.md)。
+有关使用 Azure AD 注册应用程序的详细信息，请参阅 [Azure AD 的身份验证方案](../active-directory/develop/authentication-scenarios.md)。
 
 ## <a name="get-the-tenant-id-for-your-active-directory"></a>获取 Active Directory 的租户 ID
 
@@ -375,7 +375,7 @@ credentials = ServicePrincipalCredentials(
 
 - 有关 Azure AD 的详细信息，请阅读 [Azure Active Directory 文档](/active-directory/)。 演示如何使用 [Azure 代码示例](https://azure.microsoft.com/resources/samples/?service=active-directory)库中提供的 ADAL 的深度讲解示例。
 
-- 若要了解关于服务主体的详细信息，请参阅 [Azure Active Directory 中的应用程序和服务主体对象](../active-directory/develop/active-directory-application-objects.md)。 若要使用 Azure 门户创建服务主体，请参阅[使用门户创建可访问资源的 Active Directory 应用程序和服务主体](../resource-group-create-service-principal-portal.md)。 也可使用 PowerShell 或 Azure CLI 创建服务主体。
+- 若要了解关于服务主体的详细信息，请参阅 [Azure Active Directory 中的应用程序和服务主体对象](../active-directory/develop/app-objects-and-service-principals.md)。 若要使用 Azure 门户创建服务主体，请参阅[使用门户创建可访问资源的 Active Directory 应用程序和服务主体](../resource-group-create-service-principal-portal.md)。 也可使用 PowerShell 或 Azure CLI 创建服务主体。
 
 - 若要使用 Azure AD 对 Batch 应用程序进行验证，请参阅[使用 Active Directory 对 Batch 管理解决方案进行验证](batch-aad-auth-management.md)。
 
@@ -387,4 +387,4 @@ credentials = ServicePrincipalCredentials(
 [aad_integrate]: ../active-directory/develop/active-directory-integrating-applications.md
 [azure_portal]: http://portal.azure.cn
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

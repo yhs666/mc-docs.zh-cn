@@ -1,5 +1,5 @@
 ---
-title: Azure 中的出站连接（经典）| Azure
+title: Azure 中的出站连接（经典）| Microsoft Docs
 description: 本文介绍 Azure 如何让云服务与公共 Internet 服务通信。
 services: load-balancer
 documentationcenter: na
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 05/09/2018
-ms.date: 07/23/2018
+origin.date: 07/13/2018
+ms.date: 09/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7f245a449acf4b9584033bc17c5adf420d8ebb2f
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.openlocfilehash: 9d479fe72aae437776cff0c57a9e0578aa23def9
+ms.sourcegitcommit: fd49281c58f34de20cc310d6cefb4568992cd675
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39167813"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43858445"
 ---
 # <a name="outbound-connections-classic"></a>出站连接（经典）
 
@@ -107,7 +107,8 @@ SNAT 端口是根据[了解 SNAT 和 PAT](#snat) 部分中所述预先分配的�
 使用端口伪装 SNAT ([PAT](#pat)) 时，Azure 使用某种算法根据后端池的大小来确定可用的预先分配 SNAT 端口数目。 SNAT 端口是可用于特定公共 IP 源地址的临时端口。
 
 部署实例时，Azure 根据共享给定公共 IP 地址的 VM 或 Web 辅助角色实例数目预分配 SNAT 端口。  创建出站流后，当流关闭或[空闲超时](#idletimeout)时，[PAT](#pat) 动态使用（不超过预先分配的限制）和释放这些端口。
-<!-- Notice: Should be #idletimeout --> 下表显示了针对后端池大小层的 SNAT 端口预分配：
+<!-- Notice: Should be #idletimeout -->
+下表显示了针对后端池大小层的 SNAT 端口预分配：
 
 | Instances | 每个实例的预分配 SNAT 端口数 |
 | --- | --- |
@@ -121,6 +122,8 @@ SNAT 端口是根据[了解 SNAT 和 PAT](#snat) 部分中所述预先分配的�
 更改部署大小可能会影响建立的某些流。 如果后端池大小递增并转换为下一层，则在转换为下一个更大的后端池层期间，一半的预先分配 SNAT 端口将被回收。 与回收的 SNAT 端口关联的流会超时，必须重新建立连接。 如果尝试新流，则只要预先分配的端口可用，则该流就能立即成功。
 
 如果部署减小并转换到更低的层，可用的 SNAT 端口数会增多。 在这种情况下，现有的分配 SNAT 端口及其相应的流不会受到影响。
+
+如果重新部署或更改云服务，则基础结构可能会暂时报告后端池最多为实际大小的两倍，Azure 将转而为每个实例预分配比预期更少的 SNAT 端口。  这会暂时增加 SNAT 端口耗尽的可能性。 最终，池大小将转换为实际大小，Azure 将根据上表自动将预分配的 SNAT 端口增加到预期的数量。  此行为是设计使然，不可配置。
 
 SNAT 端口分配特定于 IP 传输协议（TCP 和 UDP 是分别维护的），并在以下条件下释放：
 

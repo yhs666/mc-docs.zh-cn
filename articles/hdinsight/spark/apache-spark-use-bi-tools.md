@@ -15,12 +15,12 @@ ms.topic: tutorial
 origin.date: 05/07/2018
 ms.date: 06/25/2018
 ms.author: v-yiso
-ms.openlocfilehash: 4c8da82c2a8b0f0e05cfaf5fad471a6e75bce8b7
-ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
+ms.openlocfilehash: 818d50708e74ac7367198abea2f8819028c4bc5a
+ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36747353"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44068034"
 ---
 # <a name="tutorial-analyze-spark-data-using-power-bi-in-hdinsight"></a>教程：使用 Power BI 在 HDInsight 中分析 Spark 数据 
 
@@ -53,8 +53,7 @@ ms.locfileid: "36747353"
 
     ![在 Spark 中显示表](./media/apache-spark-use-bi-tools/show-tables.png)
 
-    如果在开始本教程之前关闭笔记本，这会清除 `hvactemptable`，使其不包含在输出中。
-    只有元存储中存储的 Hive 表（由“isTemporary”列下的“False”表示）可从 BI 工具中进行访问。 在本教程中，将连接到创建的 hvac 表。
+    如果在开始本教程之前关闭笔记本，这会清除 `hvactemptable`，使其不包含在输出中。  只有元存储中存储的 Hive 表（由“isTemporary”列下的“False”表示）可从 BI 工具中进行访问。 在本教程中，将连接到创建的 hvac 表。
 
 2. 将以下代码粘贴到空白单元格中，然后按 Shift+Enter。 该代码验证表中的数据。
 
@@ -147,7 +146,7 @@ Power BI 服务允许在整个组织中共享报表和仪表板。 在本部分�
 
 5. 单击“编辑凭据”。
 
-    ![在 Power BI 服务中编辑凭据] (./media/apache-spark-use-bi-tools/apache-spark-bi-edit-credentials.png "在 Power BI 服务中编辑凭据")
+    ![在 Power BI 服务中编辑凭据](./media/apache-spark-use-bi-tools/apache-spark-bi-edit-credentials.png "在 Power BI 服务中编辑凭据")
 
 6. 输入 HDInsight 登录帐户信息，然后单击“登录”。 默认帐户名为 admin。
 

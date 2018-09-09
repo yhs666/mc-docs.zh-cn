@@ -14,20 +14,19 @@ ms.topic: article
 origin.date: 09/06/2016
 ms.date: 08/20/2018
 ms.author: v-yiso
-ms.openlocfilehash: 71d40a7a66475933bfe8c6cd970dd9cdae4ac7f7
-ms.sourcegitcommit: 664584f55e0a01bb6558b8d3349d41d3f05ba4d7
+ms.openlocfilehash: b29d8fe176b5c666ed177741668b15eb7b9c8034
+ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41704065"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44068078"
 ---
 # <a name="enable-diagnostics-in-azure-cloud-services-using-powershell"></a>使用 PowerShell 在 Azure 云服务中启用诊断
 
 可以使用 Azure 诊断扩展从云服务收集诊断数据（如应用程序日志和性能计数器等）。 本文介绍如何使用 PowerShell 为云服务启用 Azure 诊断扩展。  有关本文所需的先决条件，请参阅[如何安装和配置 Azure PowerShell](../powershell-install-configure.md)。
 
 ## <a name="enable-diagnostics-extension-as-part-of-deploying-a-cloud-service"></a>在部署云服务过程中启用诊断扩展
-
-此方法适合持续集成类型的方案，在这些方案中，可以在部署云服务的过程中启用诊断扩展。 创建新的云服务部署时，可以通过向 *New-AzureDeployment* cmdlet 传入 [ExtensionConfiguration](https://msdn.microsoft.com/zh-cn/library/azure/mt589089.aspx) 参数启用诊断扩展。 *ExtensionConfiguration* 参数取值为可使用 [New-AzureServiceDiagnosticsExtensionConfig](https://msdn.microsoft.com/zh-cn/library/azure/mt589168.aspx) cmdlet 创建的诊断配置数组。 
+此方法适合持续集成类型的方案，在这些方案中，可以在部署云服务的过程中启用诊断扩展。 创建新的云服务部署时，可以通过向 *New-AzureDeployment* cmdlet 传入 [ExtensionConfiguration](https://docs.microsoft.com/en-us/powershell/module/servicemanagement/azure/new-azuredeployment?view=azuresmps-3.7.0) 参数启用诊断扩展。 *ExtensionConfiguration* 参数取值为可使用 [New-AzureServiceDiagnosticsExtensionConfig](https://docs.microsoft.com/en-us/powershell/module/servicemanagement/azure/new-azureservicediagnosticsextensionconfig?view=azuresmps-3.7.0) cmdlet 创建的诊断配置数组。
 
 以下示例演示如何为某个云服务（其中的 WebRole 和 WorkerRole 拥有不同的诊断配置）启用诊断。
 
@@ -99,7 +98,7 @@ $workerrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "Worke
 ```
 
 ## <a name="enable-diagnostics-extension-on-an-existing-cloud-service"></a>在现有的云服务上启用诊断扩展
-可以使用 [Set-AzureServiceDiagnosticsExtension](https://docs.microsoft.com/zh-cn//powershell/module/azure/set-azureservicediagnosticsextension?view=azuresmps-3.7.0) cmdlet 在已运行的云服务上启用或更新诊断配置。
+可以使用 [Set-AzureServiceDiagnosticsExtension](https://docs.microsoft.com/zh-cn//powershell/module/servicemanagement/azure/set-azureservicediagnosticsextension?view=azuresmps-3.7.0) cmdlet 在已运行的云服务上启用或更新诊断配置。
 
 [!INCLUDE [cloud-services-wad-warning](../../includes/cloud-services-wad-warning.md)]
 
@@ -115,14 +114,14 @@ Set-AzureServiceDiagnosticsExtension -DiagnosticsConfiguration @($webrole_diagco
 ```
 
 ## <a name="get-current-diagnostics-extension-configuration"></a>获取当前诊断扩展配置
-使用 [Get AzureServiceDiagnosticsExtension](https://docs.microsoft.com/zh-cn//powershell/module/azure/get-azureservicediagnosticsextension?view=azuresmps-3.7.0) cmdlet 可以获取云服务的当前诊断配置。
+使用 [Get AzureServiceDiagnosticsExtension](https://docs.microsoft.com/zh-cn//powershell/module/servicemanagement/azure/get-azureservicediagnosticsextension?view=azuresmps-3.7.0) cmdlet 可以获取云服务的当前诊断配置。
 
 ```powershell
 Get-AzureServiceDiagnosticsExtension -ServiceName "MyService"
 ```
 
 ## <a name="remove-diagnostics-extension"></a>删除诊断扩展
-若要在云服务上关闭诊断，可以使用 [Remove-AzureServiceDiagnosticsExtension](https://docs.microsoft.com/zh-cn//powershell/module/azure/remove-azureservicediagnosticsextension?view=azuresmps-3.7.0) cmdlet。
+若要在云服务上关闭诊断，可以使用 [Remove-AzureServiceDiagnosticsExtension](https://docs.microsoft.com/zh-cn//powershell/module/servicemanagement/azure/remove-azureservicediagnosticsextension?view=azuresmps-3.7.0) cmdlet。
 
 ```powershell
 Remove-AzureServiceDiagnosticsExtension -ServiceName "MyService"
@@ -138,6 +137,6 @@ Remove-AzureServiceDiagnosticsExtension -ServiceName "MyService" -Role "WebRole"
 
 ## <a name="next-steps"></a>后续步骤
 
-- 有关使用 Azure 诊断和其他方法排查问题的详细说明，请参阅[在 Azure 云服务和虚拟机中启用诊断](./cloud-services-dotnet-diagnostics.md)。
-- [诊断配置架构](https://msdn.microsoft.com/zh-cn/library/azure/dn782207.aspx) 介绍了诊断扩展的各种 XML 配置选项。
-- 若要了解如何为虚拟机启用诊断扩展，请参阅 [使用 Azure Resource Manager 模板创建具有监视和诊断功能的 Windows 虚拟机](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md)
+* 有关使用 Azure 诊断和其他方法排查问题的详细说明，请参阅[在 Azure 云服务和虚拟机中启用诊断](./cloud-services-dotnet-diagnostics.md)。
+* [诊断配置架构](https://msdn.microsoft.com/zh-cn/library/azure/dn782207.aspx) 介绍了诊断扩展的各种 XML 配置选项。
+* 若要了解如何为虚拟机启用诊断扩展，请参阅 [使用 Azure Resource Manager 模板创建具有监视和诊断功能的 Windows 虚拟机](../virtual-machines/windows/extensions-diagnostics-template.md)

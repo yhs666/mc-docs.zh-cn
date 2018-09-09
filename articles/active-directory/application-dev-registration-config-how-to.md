@@ -11,16 +11,16 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 07/11/2017
-ms.date: 07/30/2018
+ms.date: 09/06/2018
 ms.author: v-junlch
-ms.openlocfilehash: f43ecf9892e953c4ce5ddef01e78127d1c2014c5
-ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
+ms.openlocfilehash: 14c0ea6337c27b7eadb3f113c22889776b8f390d
+ms.sourcegitcommit: fd49281c58f34de20cc310d6cefb4568992cd675
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39487046"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43858443"
 ---
 # <a name="how-to-select-permissions-for-a-given-api"></a>如何为给定 API 选择权限
 
@@ -39,4 +39,4 @@ ms.locfileid: "39487046"
 ## <a name="next-steps"></a>后续步骤
 [Azure Active Directory 开发人员指南](/active-directory/develop/active-directory-developers-guide#authentication-and-authorization-protocols)
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: update metedata properties -->

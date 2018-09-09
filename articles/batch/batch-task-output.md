@@ -12,15 +12,15 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 origin.date: 06/16/2017
-ms.date: 05/15/2018
+ms.date: 09/07/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 16574e708e8175b06943ed6f6c633e6489d9a46d
-ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
+ms.openlocfilehash: d09fe8dd7cdae7401dc7e6c49c431932fe0b3924
+ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "34173325"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44068082"
 ---
 # <a name="persist-job-and-task-output"></a>持久保存作业和任务输出
 
@@ -85,7 +85,7 @@ Batch 服务 API 允许从使用虚拟机配置创建的池将任务数据持久
 > 
 > 
 
-若要详细了解如何使用 Batch 服务 API 来持久保存任务输出，请参阅[使用 Batch 服务 API 将任务数据持久保存到 Azure 存储](batch-task-output-files.md)。 另请参阅 GitHub 上的 [PersistOutputs][github_persistoutputs] 示例项目，了解如何使用适用于 .NET 的 Batch 客户端库将任务输出持久保存到持久性存储。
+若要详细了解如何使用 Batch 服务 API 来持久保存任务输出，请参阅[使用 Batch 服务 API 将任务数据持久保存到 Azure 存储](batch-task-output-files.md)。 另请参阅 GitHub 上的 [PersistOutputs][github_persistoutputs] 示例项目，该示例演示了如何使用适用于 .NET 的 Batch 客户端库将任务输出保存到持久存储。
 
 ### <a name="use-the-batch-file-conventions-library-for-net"></a>使用适用于 .NET 的 Batch 文件约定库
 
@@ -101,9 +101,9 @@ Batch 服务 API 允许从使用虚拟机配置创建的池将任务数据持久
 - 想要执行检查点或初始结果的早期上传。
 - 需在 Azure 门户中查看任务输出。
 
-若要详细了解如何使用适用于 .NET 的文件约定库来持久保存任务输出，请参阅[使用适用于 .NET 的 Batch 文件约定库将作业和任务数据持久保存到 Azure 存储](batch-task-output-file-conventions.md)。 另请参阅 GitHub 上的 [PersistOutputs][github_persistoutputs] 示例项目，了解如何使用适用于 .NET 的文件约定库将任务输出持久保存到持久性存储。
+若要详细了解如何使用适用于 .NET 的文件约定库来持久保存任务输出，请参阅[使用适用于 .NET 的 Batch 文件约定库将作业和任务数据持久保存到 Azure 存储](batch-task-output-file-conventions.md)。 另请参阅 GitHub 上的 [PersistOutputs][github_persistoutputs] 示例项目，该示例演示了如何使用适用于 .NET 的文件约定库将任务输出保存到持久存储。
 
-GitHub 上的 [PersistOutputs][github_persistoutputs] 示例项目演示了如何使用适用于 .NET 的 Batch 客户端库将任务输出持久保存到持久性存储。
+GitHub 上的 [PersistOutputs][github_persistoutputs] 示例项目演示了如何使用适用于 .NET 的 Batch 客户端库将任务输出保存到持久存储。
 
 ### <a name="implement-the-batch-file-conventions-standard"></a>实现 Batch 文件约定标准
 
@@ -122,11 +122,12 @@ GitHub 上的 [PersistOutputs][github_persistoutputs] 示例项目演示了如�
 ## <a name="next-steps"></a>后续步骤
 
 - 在[使用 Batch 服务 API 将任务数据持久保存到 Azure 存储](batch-task-output-files.md)一文中，了解如何使用 Batch 服务 API 中的新功能来持久保存任务数据。
-- 在[使用适用于 .NET 的 Batch 文件约定库将作业和任务数据持久保存到 Azure 存储](batch-task-output-file-conventions.md)一文中了解如何使用适用于 .NET 的 Batch 文件约定库。
-- 请参阅 GitHub 上的 [PersistOutputs][github_persistoutputs] 示例项目，了解如何使用适用于 .NET 的 Batch 客户端库和适用于 .NET 的文件约定库将任务输出持久保存到持久性存储。
+- 在[使用适用于 .NET 的 Batch 文件约定库将作业和任务数据保存到 Azure 存储](batch-task-output-file-conventions.md)中，了解如何使用适用于 .NET 的 Batch 文件约定库。
+- 请参阅 GitHub 上的 [PersistOutputs][github_persistoutputs] 示例项目，该示例演示了如何使用适用于 .NET 的 Batch 客户端库和适用于 .NET 的文件约定库将任务输出保存到持久存储。
 
 [nuget_package]: https://www.nuget.org/packages/Microsoft.Azure.Batch.Conventions.Files
 [portal]: https://portal.azure.cn
 [storage_explorer]: http://storageexplorer.com/
+[github_persistoutputs]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/PersistOutputs 
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

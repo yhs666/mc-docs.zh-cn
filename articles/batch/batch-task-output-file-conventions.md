@@ -13,17 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 origin.date: 06/16/2017
-ms.date: 06/29/2018
+ms.date: 09/07/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3a14fd550178161eb9d382793268fde9d30f7d5f
-ms.sourcegitcommit: c587cc1c53b1f92b45fae0d1ff8e1f7bd544bc55
+ms.openlocfilehash: 5f28e701fa846567ef328ccbf64388f752f5baa3
+ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103246"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44068186"
 ---
-# <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net-to-persist"></a>使用适用于 .NET 的 Batch 文件约定库将作业和任务数据持久保存到 Azure 存储 
+# <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>使用适用于 .NET 的 Batch 文件约定库将作业和任务数据保存到 Azure 存储 
 
 [!INCLUDE [batch-task-output-include](../../includes/batch-task-output-include.md)]
 

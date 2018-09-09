@@ -13,14 +13,14 @@ ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
 origin.date: 06/15/2018
-ms.date: 07/16/2018
+ms.date: 09/17/2018
 ms.author: v-yiso
-ms.openlocfilehash: ea79ef02d67e5dda27964932946c4de93c08763e
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.openlocfilehash: cfaf4b566433efac065a6d3223e64280adbb9fd5
+ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873608"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44068178"
 ---
 # <a name="use-revisions-to-make-non-breaking-changes-safely"></a>使用修订安全做出非重大更改
 当 API 准备就绪并即将供开发人员使用时，你最终需要对该 API 进行更改，同时避免干扰 API 的调用方。 另一种有效的做法是让开发人员知道所做的更改。 可以在 Azure API 管理中使用**修订**实现此目的。 有关详细信息，请参阅[版本和修订](https://blogs.msdn.microsoft.com/apimanagement/2017/09/14/versions-revisions/)以及[使用 Azure API 管理进行 API 版本控制](https://blogs.msdn.microsoft.com/apimanagement/2017/09/13/api-versioning-with-azure-api-management/)。
@@ -63,7 +63,7 @@ ms.locfileid: "37873608"
 
 1. 从 API 列表中选择“演示会议 API”。
 2. 选择靠近屏幕顶部的“设计”选项卡。
-3. 请注意，**修订版选择器**（紧靠在“设计”选项卡的上方）显示当前修订版为“修订版 2”。
+3. 请注意，**修订版选择器**（位于“设计”选项卡正上方）显示“修订版 2”为当前所选项。
 
     > [!TIP]
     > 使用修订版选择器可在要使用的修订版之间切换。

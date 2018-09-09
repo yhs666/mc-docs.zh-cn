@@ -2,19 +2,20 @@
 title: 在 Azure 自动化中编辑文本 Runbook
 description: 本文提供的不同过程适用于在 Azure 自动化中通过文本编辑器来处理 PowerShell 和 PowerShell 工作流 Runbook。
 services: automation
-author: yunan2016
-manager: digimobile
 ms.service: automation
-ms.topic: article
-origin.date: 04/02/2018
-ms.date: 05/14/2018
-ms.author: v-nany
-ms.openlocfilehash: bead599ee61df8a156dea165bc3e26d4e643af6b
-ms.sourcegitcommit: 53972dcdef77da92529996667545d2e83716f7e2
+ms.component: process-automation
+author: WenJason
+ms.author: v-jay
+origin.date: 08/01/2018
+ms.date: 09/10/2018
+ms.topic: conceptual
+manager: digimobile
+ms.openlocfilehash: d3556be62a642b7395e205da34ca95aad699f9e1
+ms.sourcegitcommit: 1b60848d25bbd897498958738644a4eb9cf3a302
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39143392"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43731195"
 ---
 # <a name="editing-textual-runbooks-in-azure-automation"></a>在 Azure 自动化中编辑文本 Runbook
 
@@ -64,21 +65,19 @@ Azure 自动化中的每个 Runbook 都有两个版本：草稿版和已发布�
 
 ## <a name="to-edit-an-azure-automation-runbook-using-windows-powershell"></a>使用 Windows PowerShell 编辑 Azure 自动化 Runbook
 
-要使用 Windows PowerShell 来编辑 Runbook，可使用所选编辑器进行操作，然后将其保存到 .ps1 文件。 可以先使用 [Get-AzureAutomationRunbookDefinition](http://aka.ms/runbookauthor/cmdlet/getazurerunbookdefinition) cmdlet 检索 Runbook 的内容，然后使用 [Set-AzureAutomationRunbookDefinition](http://aka.ms/runbookauthor/cmdlet/setazurerunbookdefinition) cmdlet 将现有的草稿 Runbook 替换为已修改的 Runbook。
+要使用 Windows PowerShell 来编辑 Runbook，可使用所选编辑器进行操作，然后将其保存到 .ps1 文件。 可以先使用 [Export-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/AzureRM.Automation/Export-AzureRmAutomationRunbook) cmdlet 来检索 Runbook 的内容，然后使用 [Import-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/AzureRM.Automation/import-azurermautomationrunbook) cmdlet 将现有的草稿 Runbook 替换为已修改的 Runbook。
 
 ### <a name="to-retrieve-the-contents-of-a-runbook-using-windows-powershell"></a>使用 Windows PowerShell 检索 Runbook 的内容
 
 以下示例命令演示了如何检索 Runbook 的脚本并将其保存到脚本文件。 在此示例中，检索的是草稿版本。 也可以检索 Runbook 的已发布版本，不过该版本不能进行更改。
 
 ```powershell
+$resourceGroupName = "MyResourceGroup"
 $automationAccountName = "MyAutomationAccount"
-$runbookName = "Sample-TestRunbook"
-$scriptPath = "c:\runbooks\Sample-TestRunbook.ps1"
+$runbookName = "Hello-World"
+$scriptFolder = "c:\runbooks"
 
-$runbookDefinition = Get-AzureAutomationRunbookDefinition -AutomationAccountName $automationAccountName -Name $runbookName -Slot Draft
-$runbookContent = $runbookDefinition.Content
-
-Out-File -InputObject $runbookContent -FilePath $scriptPath
+Export-AzureRmAutomationRunbook -Name $runbookName -AutomationAccountName $automationAccountName -ResourceGroupName $resourceGroupName -OutputFolder $scriptFolder -Slot Draft
 ```
 
 ### <a name="to-change-the-contents-of-a-runbook-using-windows-powershell"></a>使用 Windows PowerShell 更改 Runbook 的内容
@@ -86,12 +85,13 @@ Out-File -InputObject $runbookContent -FilePath $scriptPath
 以下示例命令演示了如何使用脚本文件的内容替换 Runbook 的现有内容。 请注意，此示例过程与[使用 Windows PowerShell 从脚本文件中导入 Runbook](automation-creating-importing-runbook.md) 中的相同。
 
 ```powershell
+$resourceGroupName = "MyResourceGroup"
 $automationAccountName = "MyAutomationAccount"
-$runbookName = "Sample-TestRunbook"
-$scriptPath = "c:\runbooks\Sample-TestRunbook.ps1"
+$runbookName = "Hello-World"
+$scriptFolder = "c:\runbooks"
 
-Set-AzureAutomationRunbookDefinition -AutomationAccountName $automationAccountName -Name $runbookName -Path $scriptPath -Overwrite
-Publish-AzureAutomationRunbook �AutomationAccountName $automationAccountName �Name $runbookName
+Import-AzureRmAutomationRunbook -Path "$scriptfolder\Hello-World.ps1" -Name $runbookName -Type PowerShell -AutomationAccountName $automationAccountName -ResourceGroupName $resourceGroupName -Force
+Publish-AzureRmAutomationRunbook -Name $runbookName -AutomationAccountName $automationAccountName -ResourceGroupName $resourceGroupName
 ```
 
 ## <a name="related-articles"></a>相关文章

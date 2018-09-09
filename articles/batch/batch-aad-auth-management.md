@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 origin.date: 04/27/2017
-ms.date: 06/29/2018
+ms.date: 09/07/2018
 ms.author: v-junlch
-ms.openlocfilehash: 817aa7b155a06f339c7e078d742e3e5ad13c783c
-ms.sourcegitcommit: c587cc1c53b1f92b45fae0d1ff8e1f7bd544bc55
+ms.openlocfilehash: 9b40d7cb51ffbac673639d6bebebfb945ccaf80d
+ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103264"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44068041"
 ---
 # <a name="authenticate-batch-management-solutions-with-active-directory"></a>使用 Active Directory 对 Batch 管理解决方案进行身份验证
 
@@ -35,9 +35,9 @@ ms.locfileid: "37103264"
 
 ## <a name="register-your-application-with-azure-ad"></a>将应用程序注册到 Azure AD
 
-Azure [Active Directory 身份验证库][aad_adal] (ADAL) 提供一个可在应用程序中使用的 Azure AD 编程接口。 若要从应用程序调用 ADAL，必须在 Azure AD 租户中注册该应用程序。 注册应用程序时，请向 Azure AD 提供有关该应用程序的信息，包括该应用程序在 Azure AD 租户中的名称。 然后，Azure AD 将提供一个应用程序 ID，在运行时，可以使用该 ID 将应用程序与 Azure AD 相关联。 若要详细信息应用程序 ID，请参阅 [Azure Active Directory 中的应用程序对象和服务主体对象](../active-directory/develop/active-directory-application-objects.md)。
+Azure [Active Directory 身份验证库][aad_adal] (ADAL) 提供一个可在应用程序中使用的 Azure AD 编程接口。 若要从应用程序调用 ADAL，必须在 Azure AD 租户中注册该应用程序。 注册应用程序时，请向 Azure AD 提供有关该应用程序的信息，包括该应用程序在 Azure AD 租户中的名称。 然后，Azure AD 将提供一个应用程序 ID，在运行时，可以使用该 ID 将应用程序与 Azure AD 相关联。 若要详细信息应用程序 ID，请参阅 [Azure Active Directory 中的应用程序对象和服务主体对象](../active-directory/develop/app-objects-and-service-principals.md)。
 
-要注册 AccountManagement 示例应用程序，请遵循[将应用程序与 Azure Active Directory 集成][aad_integrate]的[添加应用程序](../active-directory/develop/active-directory-integrating-applications.md#adding-an-application)部分中的步骤。 指定“本机客户端应用程序”作为应用程序类型。 用于重定向 URI 的行业标准 OAuth 2.0 URI 是 `urn:ietf:wg:oauth:2.0:oob`。 但可为重定向 URI 指定任何有效的 URI（例如 `http://myaccountmanagementsample`），它不需要是实际的终结点：
+要注册 AccountManagement 示例应用程序，请遵循[将应用程序与 Azure Active Directory 集成][aad_integrate]的[添加应用程序](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md#adding-an-application)部分中的步骤。 指定“本机客户端应用程序”作为应用程序类型。 用于重定向 URI 的行业标准 OAuth 2.0 URI 是 `urn:ietf:wg:oauth:2.0:oob`。 但可为重定向 URI 指定任何有效的 URI（例如 `http://myaccountmanagementsample`），它不需要是实际的终结点：
 
 ![](./media/batch-aad-auth-management/app-registration-management-plane.png)
 
@@ -135,7 +135,7 @@ AuthenticationResult authResult = authContext.AcquireToken(ResourceUri,
 
 [aad_about]:../active-directory/fundamentals/active-directory-whatis.md
 [aad_adal]: ../active-directory/develop/active-directory-authentication-libraries.md
-[aad_auth_scenarios]: ../active-directory/develop/active-directory-authentication-scenarios.md
+[aad_auth_scenarios]:../active-directory/develop/authentication-scenarios.md
 [aad_integrate]: ../active-directory/develop/active-directory-integrating-applications.md
 [acct_mgmt_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/AccountManagement
 [azure_portal]: http://portal.azure.cn

@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 09/29/2017
 ms.author: v-yiso
-ms.date: 05/14/2018
-ms.openlocfilehash: dd0d393a810808cbc5daca74e0aa3f8961ba5f81
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.date: 09/17/2018
+ms.openlocfilehash: 1bc5d6bf4beca538d59196a65deecc2885d61834
+ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33814937"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44068069"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>在内部虚拟网络中使用 Azure API 管理服务
 使用 Azure 虚拟网络，Azure API 管理可以管理无法通过 Internet 访问的 API。 可以使用多种 VPN 技术建立连接。 可在虚拟网络中通过两种主要模式部署 API 管理：
@@ -62,6 +62,9 @@ ms.locfileid: "33814937"
 部署成功后，就会在仪表板上看到服务的内部虚拟 IP 地址。
 
 ![包含已配置的内部虚拟网络的 Azure API 管理仪表板][api-management-internal-vnet-dashboard]
+
+> [!NOTE]
+> Azure 门户上提供的测试控制台不适用于**内部** VNET 部署的服务，因为网关 URL 未在公共 DNS 上注册。 应改用**开发人员门户**上提供的测试控制台。
 
 ### <a name="enable-a-virtual-network-connection-by-using-powershell-cmdlets"></a>使用 PowerShell cmdlet 启用虚拟网络连接
 也可以使用 PowerShell cmdlet 启用虚拟网络连接。

@@ -1,27 +1,19 @@
 ---
 title: 修改 ExpressRoute 线路：PowerShell：Azure 经典 | Azure
 description: 本文逐步讲解检查状态以及更新或删除并预配 ExpressRoute 经典部署模型线路的步骤。
-documentationcenter: na
 services: expressroute
 author: ganesr
-manager: timlt
-editor: ''
-tags: azure-service-management
-ms.assetid: 0134d242-6459-4dec-a2f1-4657c3bc8b23
 ms.service: expressroute
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-origin.date: 11/08/2017
-ms.date: 12/11/2017
+ms.topic: conceptual
+origin.date: 07/26/2018
+ms.date: 09/17/2018
 ms.author: v-yiso
-ms.openlocfilehash: 1560ad41595d5b1b7aea017bf2f522941353a135
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 4c2d37429c975a8e44db06da7cba457b07a247e6
+ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
-ms.locfileid: "26044658"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44068095"
 ---
 # <a name="modify-an-expressroute-circuit-using-powershell-classic"></a>使用 PowerShell 修改 ExpressRoute 线路（经典）
 
@@ -40,15 +32,44 @@ ms.locfileid: "26044658"
 
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="before-you-begin"></a>准备阶段
 
-安装最新版本的 Azure 服务管理 (SM) PowerShell 模块
+安装最新版本的 Azure 服务管理 (SM) PowerShell 模块和 ExpressRoute 模块。  使用以下示例时，请注意，当更新版本的 cmdlet 发布时，版本号（在此示例中为 5.1.1）将更改。
 
-有关如何配置计算机以使用 Azure PowerShell 模块的分步指导，请遵循 [Azure PowerShell cmdlet 入门](../powershell-install-configure.md)中的说明。
+```powershell
+Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
+Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
+```
+
+如果需要有关 Azure PowerShell 的更多信息，请参阅 [Azure PowerShell cmdlet 入门](../powershell-install-configure.md)来获取有关如何配置计算机以使用 Azure PowerShell 模块的分步指导。
+
+若要登录到 Azure 帐户，请使用以下示例：
+
+1. 使用提升的权限打开 PowerShell 控制台，并连接到帐户。 使用下面的示例来帮助连接：
+
+  ```powershel
+  Connect-AzureRmAccount -Environment AzureChinaCloud
+  ```
+2. 检查该帐户的订阅。
+
+  ```powershell
+  Get-AzureRmSubscription
+  ```
+3. 如果有多个订阅，请选择要使用的订阅。
+
+  ```powershell
+  Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+  ```
+
+4. 接下来，使用以下 cmdlet 将 Azure 订阅添加到经典部署模型的 PowerShell。
+
+  ```powershell
+  Add-AzureAccount -Environment AzureChinaCloud
+  ```
 
 ## <a name="get-the-status-of-a-circuit"></a>获取线路的状态
 
-可以随时使用 `Get-AzureCircuit` cmdlet 检索此信息。 进行不带任何参数的调用将列出所有线路。
+可以随时使用 `Get-AzureCircuit` cmdlet 检索此信息。 不带任何参数的调用会列出所有线路。
 
 ```powershell
 Get-AzureDedicatedCircuit
@@ -66,17 +87,18 @@ Status                           : Enabled
 
 可以将服务密钥作为参数传递给调用，从而获取特定 ExpressRoute 线路的相关信息。
 
-    Get-AzureDedicatedCircuit -ServiceKey "*********************************"
+```powershell
+Get-AzureDedicatedCircuit -ServiceKey "*********************************"
 
-    Bandwidth                        : 200
-    CircuitName                      : MyTestCircuit
-    Location                         : Beijing
-    ServiceKey                       : *********************************
-    ServiceProviderName              : Beijing Telecom Ethernet
-    ServiceProviderProvisioningState : Provisioned
-    Sku                              : Standard
-    Status                           : Enabled
-
+Bandwidth                        : 200
+CircuitName                      : MyTestCircuit
+Location                         : Beijing
+ServiceKey                       : *********************************
+ServiceProviderName              : Beijing Telecom Ethernet
+ServiceProviderProvisioningState : Provisioned
+Sku                              : Standard
+Status                           : Enabled
+```
 
 可以通过运行以下示例获取所有这些参数的详细说明：
 
@@ -135,16 +157,16 @@ Status                           : Enabled
 
 ```powershell
 
-    Set-AzureDedicatedCircuitProperties -ServiceKey "*********************************" -Sku Standard
+Set-AzureDedicatedCircuitProperties -ServiceKey "*********************************" -Sku Standard
 
-    Bandwidth                        : 1000
-    CircuitName                      : TestCircuit
-    Location                         : Beijing
-    ServiceKey                       : *********************************
-    ServiceProviderName              : Beijing Telecom Ethernet
-    ServiceProviderProvisioningState : Provisioned
-    Sku                              : Standard
-    Status                           : Enabled
+Bandwidth                        : 1000
+CircuitName                      : TestCircuit
+Location                         : Beijing
+ServiceKey                       : *********************************
+ServiceProviderName              : Beijing Telecom Ethernet
+ServiceProviderProvisioningState : Provisioned
+Sku                              : Standard
+Status                           : Enabled
 ```
 
 ### <a name="update-the-expressroute-circuit-bandwidth"></a>更新 ExpressRoute 线路带宽
@@ -174,18 +196,19 @@ Sku                              : Standard
 Status                           : Enabled
 ```
 
-已经在 Microsoft 端估计线路的大小。 必须联系连接提供商，以便根据此更改更新其配置。 请注意，我们将从现在开始按照已更新的带宽选项计费。
+在 Microsoft 端调整线路大小后，必须联系连接提供商，让他们在那一边根据此更改更新配置。 从现在开始将按已更新的带宽选项计费。
 
-如果在增加线路带宽时看到以下错误，这意味着创建现有线路的物理端口上没有足够的带宽可用。 必须删除此线路，并创建所需大小的新线路。 
+如果在增加线路带宽时看到以下错误，这意味着创建现有线路的物理端口上没有足够的带宽可用。 必须删除此线路，并创建所需大小的新线路。
 
-    Set-AzureDedicatedCircuitProperties : InvalidOperation : Insufficient bandwidth available to perform this circuit
-    update operation
-    At line:1 char:1
-    + Set-AzureDedicatedCircuitProperties -ServiceKey ********************* ...
-    + ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        + CategoryInfo          : CloseError: (:) [Set-AzureDedicatedCircuitProperties], CloudException
-        + FullyQualifiedErrorId : Microsoft.WindowsAzure.Commands.ExpressRoute.SetAzureDedicatedCircuitPropertiesCommand
-
+```powershell
+Set-AzureDedicatedCircuitProperties : InvalidOperation : Insufficient bandwidth available to perform this circuit
+update operation
+At line:1 char:1
++ Set-AzureDedicatedCircuitProperties -ServiceKey ********************* ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  + CategoryInfo          : CloseError: (:) [Set-AzureDedicatedCircuitProperties], CloudException
+  + FullyQualifiedErrorId : Microsoft.WindowsAzure.Commands.ExpressRoute.SetAzureDedicatedCircuitPropertiesCommand
+```
 
 ## <a name="deprovision-and-delete-a-circuit"></a>取消预配和删除线路
 

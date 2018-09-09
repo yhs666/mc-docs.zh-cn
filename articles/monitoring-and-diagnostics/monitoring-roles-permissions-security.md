@@ -1,26 +1,19 @@
 ---
-title: Azure Monitor 的角色、权限和安全入门 | Microsoft Docs
+title: Azure 监视器中的角色、权限和安全性入门
 description: 了解如何使用 Azure Monitor 的内置角色和权限限制对监视资源的访问。
 author: johnkemnetz
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 2686e53b-72f0-4312-bcd3-3dc1b4a9b912
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 origin.date: 10/27/2017
-ms.date: 07/23/2018
+ms.date: 09/17/2018
 ms.author: v-yiso
-ms.openlocfilehash: b5e3b3f4dac0242cd6275ae2eb137e5ac8b2dd89
-ms.sourcegitcommit: 479954e938e4e3469d6998733aa797826e4f300b
+ms.openlocfilehash: 20920578eef862ea5a11cd13c37c123b10c58043
+ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39031725"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44068055"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Azure Monitor 的角色、权限和安全入门
 很多团队需要严格控制对监视数据和设置的访问。 例如，如果有专门负责监视的团队成员（支持工程师、DevOps 工程师），或者使用托管服务提供程序，则可能希望向他们授予仅访问监视数据的权限，同时限制其创建、修改或删除资源的能力。 本文说明如何在 Azure 中快速将内置监视 RBAC 角色应用到用户，或针对需要有限监视权限的用户构建自己的自定义角色。 然后讨论与 Azure Monitor 相关资源的安全注意事项，以及如何限制对它们所含数据的访问。
@@ -65,7 +58,7 @@ Azure 监视器的内置角色旨在帮助限制对订阅中资源的访问，�
 > 
 
 ## <a name="monitoring-permissions-and-custom-rbac-roles"></a>监视权限和自定义 RBAC 角色
-如果上述的内置角色不能满足团队的确切需求，则可以[创建具有更加细化的权限的自定义 RBAC 角色](../active-directory/role-based-access-control-custom-roles.md)。 下面是常见的 Azure 监视器 RBAC 操作及其说明。
+如果上述的内置角色不能满足团队的确切需求，则可以[创建具有更加细化的权限的自定义 RBAC 角色](../role-based-access-control/custom-roles.md)。 下面是常见的 Azure 监视器 RBAC 操作及其说明。
 
 | 操作 | 说明 |
 | --- | --- |

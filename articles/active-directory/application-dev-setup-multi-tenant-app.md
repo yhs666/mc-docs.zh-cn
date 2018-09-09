@@ -11,16 +11,16 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 07/11/2017
-ms.date: 07/30/2018
+ms.date: 09/06/2018
 ms.author: v-junlch
-ms.openlocfilehash: 5e21dbf08d63d77390b2f292cf8f12473b7e06d6
-ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
+ms.openlocfilehash: d04c5be99d16c0ffcbb8c5d7faa0c021d31da409
+ms.sourcegitcommit: fd49281c58f34de20cc310d6cefb4568992cd675
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39487006"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43858453"
 ---
 # <a name="how-to-configure-a-new-multi-tenant-application"></a>如何配置新的多租户应用程序
 

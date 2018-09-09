@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/18/2018
-ms.date: 05/14/2018
+ms.date: 09/17/2018
 ms.author: v-yiso
-ms.openlocfilehash: 48401cc9cf4995c621fbc6c19c8d547d162dd141
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: 9418cabf0eb6eeb51765a9de56f3c500c1a72884
+ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33815051"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44068101"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>结合 Azure Active Directory 和 API 管理使用 OAuth 2.0 保护 API
 
@@ -200,5 +200,6 @@ ms.locfileid: "33815051"
 * 详细了解 [Azure Active Directory 和 OAuth2.0](../active-directory/develop/active-directory-authentication-scenarios.md)。
 * 有关保护后端服务的其他方法，请参阅[使用证书进行相互身份验证](api-management-howto-mutual-certificates.md)。
 
-[Create an API Management service instance]: get-started-create-service-instance.md
-[Manage your first API]: import-and-publish.md
+* [创建 API 管理服务实例](get-started-create-service-instance.md)。
+
+* [管理第一个 API](import-and-publish.md)。

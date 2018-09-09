@@ -10,14 +10,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.workload: na
 origin.date: 04/05/2018
-ms.date: 08/08/2018
+ms.date: 09/07/2018
 ms.author: v-junlch
-ms.openlocfilehash: 731d0c5561e9d94b405711a883657c96786b3fd2
-ms.sourcegitcommit: f8bb533368ab2ef8efdf47e186672993ad8334cd
+ms.openlocfilehash: 2c6ed7ada620a6f5e79e6db0b57f9750ada0f19b
+ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39722323"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44068145"
 ---
 # <a name="monitor-batch-solutions"></a>监视 Batch 解决方案
 
@@ -35,7 +35,7 @@ Azure 和 Batch 服务提供了一系列服务、工具和 API 来监视 Batch �
 
 ## <a name="batch-account-level-monitoring"></a>Batch 帐户级监视
 
-使用 [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md) 的各项功能监视每个 Batch 帐户。 Azure Monitor 针对 Batch 帐户级别范围内的资源（例如池、作业和任务）收集[指标](../monitoring-and-diagnostics/monitoring-overview-metrics.md)以及可选的[诊断日志](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)。 可以手动或以编程方式收集并使用此数据来监视 Batch 帐户中的活动以及对问题进行诊断。 
+使用 [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md) 的各项功能监视每个 Batch 帐户。 Azure Monitor 针对 Batch 帐户级别范围内的资源（例如池、作业和任务）收集[指标](../monitoring-and-diagnostics/monitoring-overview-metrics.md)以及可选的[诊断日志](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)。 可以手动或以编程方式收集并使用此数据来监视 Batch 帐户中的活动以及对问题进行诊断。 有关详细信息，请参阅[用于诊断评估和监视的 Batch 指标、警报和日志](batch-diagnostics.md)。
  
 > [!NOTE]
 > 指标默认情况下在 Batch 帐户中可用，不需要进行额外配置，它们具有为期 30 天的滚动历史记录。 必须为 Batch 帐户启用诊断日志记录，并且，若要存储或处理诊断日志数据，可能会产生其他成本。 
@@ -57,5 +57,6 @@ Azure 和 Batch 服务提供了一系列服务、工具和 API 来监视 Batch �
 ## <a name="next-steps"></a>后续步骤
 
 - 了解适用于生成批处理解决方案的[批处理 API 和工具](batch-apis-tools.md)。
+- 详细了解使用 Batch [实现诊断日志记录](batch-diagnostics.md)。
 
 <!-- Update_Description: wording update -->

@@ -14,12 +14,12 @@ ms.topic: conceptual
 origin.date: 04/30/2018
 ms.date: 06/25/2018
 ms.author: v-yiso
-ms.openlocfilehash: 5472ed937f7b0bea983a68136638689ae8948da9
-ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
+ms.openlocfilehash: e98bd076260250cf9f3fc9c68756134a71d5f9ee
+ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36747483"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44068040"
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>构建适用于 Apache HBase 的 Java 应用程序
 
@@ -572,7 +572,7 @@ ms.locfileid: "36747483"
         $sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
         if(-not($sub))
         {
-            throw "No active Azure subscription found! If you have a subscription, use the Login-AzureRmAccount -EnvironmentName AzureChinaCloud cmdlet to login to your subscription."
+            throw "No active Azure subscription found! If you have a subscription, use the Connect-AzureRmAccount -EnvironmentName AzureChinaCloud cmdlet to login to your subscription."
         }
     }
 

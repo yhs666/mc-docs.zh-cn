@@ -1,21 +1,21 @@
 ---
 title: Azure 自动化中的凭据资产
-description: Azure 自动化中的凭据资产包含可用于向 Runbook 配置访问的资源进行身份验证的安全凭据。 本文介绍如何创建凭据资产并在 Runbook 配置中使用它们。
+description: Azure 自动化中的凭据资产包含可用于向 Runbook 或 DSC 配置访问的资源进行身份验证的安全凭据。 本文介绍如何创建凭据资产并在 Runbook 或 DSC 配置中使用它们。
 services: automation
-author: yunan2016
-manager: digimobile
 ms.service: automation
-ms.devlang: na
-ms.topic: article
+ms.component: shared-capabilities
+author: WenJason
+ms.author: v-jay
 origin.date: 05/08/2018
-ms.date: 05/28/2018
-ms.author: v-nany
-ms.openlocfilehash: b29fb6321220ce427e481e591a550a60c17a33b8
-ms.sourcegitcommit: 2a147231bf3d0a693adf58fceee76ab0fbcd6dbb
+ms.date: 09/10/2018
+ms.topic: conceptual
+manager: digimobile
+ms.openlocfilehash: 1e0c18ee438ca7283267a732522a64894794afa7
+ms.sourcegitcommit: 1b60848d25bbd897498958738644a4eb9cf3a302
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39335260"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43731224"
 ---
 # <a name="credential-assets-in-azure-automation"></a>Azure 自动化中的凭据资产
 
@@ -30,10 +30,10 @@ ms.locfileid: "39335260"
 
 | Cmdlet | 说明 |
 |:--- |:--- |
-| [Get-AzureAutomationCredential]() |检索有关凭据资产的信息。 只能从 **Get-AutomationPSCredential** 活动中检索凭据本身。 |
-| [New-AzureAutomationCredential]() |创建新的自动化凭据。 |
-| [Remove- AzureAutomationCredential]() |删除自动化凭据。 |
-| [Set- AzureAutomationCredential]() |设置现有自动化凭据的属性。 |
+| [Get-AzureAutomationCredential](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationcredential?view=azuresmps-3.7.0) |检索有关凭据资产的信息。 只能从 **Get-AutomationPSCredential** 活动中检索凭据本身。 |
+| [New-AzureAutomationCredential](https://docs.microsoft.com/powershell/module/servicemanagement/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |创建新的自动化凭据。 |
+| [Remove- AzureAutomationCredential](https://docs.microsoft.com/powershell/module/servicemanagement/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |删除自动化凭据。 |
+| [Set- AzureAutomationCredential](https://docs.microsoft.com/powershell/module/servicemanagement/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |设置现有自动化凭据的属性。 |
 
 ## <a name="azurerm-powershell-cmdlets"></a>AzureRM PowerShell cmdlet
 

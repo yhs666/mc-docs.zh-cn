@@ -11,14 +11,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 origin.date: 06/16/2017
-ms.date: 06/29/2018
+ms.date: 09/07/2018
 ms.author: v-junlch
-ms.openlocfilehash: f2859110e23f975b7d7023cf4bdeb43909cea1ce
-ms.sourcegitcommit: c587cc1c53b1f92b45fae0d1ff8e1f7bd544bc55
+ms.openlocfilehash: ae4f8a64516aa74d241fc2cc8fe285a9085146d2
+ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103244"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44068188"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>使用 Batch 服务 API 将任务数据持久保存到 Azure 存储
 

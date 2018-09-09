@@ -11,17 +11,17 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 07/11/2017
-ms.date: 07/27/2018
+ms.date: 09/06/2018
 ms.author: v-junlch
 ms.reviewer: asteen
-ms.openlocfilehash: aa4e212f7064471a4396aaa8ef75e99d30b27ab2
-ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
+ms.openlocfilehash: 335417f5a93c2ad2adc4f1c08fcd255722e1c003
+ms.sourcegitcommit: fd49281c58f34de20cc310d6cefb4568992cd675
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39486935"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43858455"
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>对应用程序执行许可时发生的意外错误
 
@@ -77,4 +77,4 @@ ms.locfileid: "39486935"
 
 [Azure Active Directory（v1 终结点）中的应用、权限和许可](/active-directory/develop/active-directory-integrating-applications)<br>
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

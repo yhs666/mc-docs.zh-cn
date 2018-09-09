@@ -4,19 +4,19 @@ description: 本文介绍如何更改用户设置，例如，强制用户再次�
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-origin.date: 06/23/2017
-ms.date: 08/03/2018
+ms.topic: conceptual
+origin.date: 07/11/2018
+ms.date: 09/04/2018
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: richagi
-ms.openlocfilehash: 5bb11621586ccd63fd5cf49f5b10f6fa51d92aa9
-ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
+ms.reviewer: michmcla
+ms.openlocfilehash: de56bcbbf7edc75a6993f7edce7e77cdb94b4b80
+ms.sourcegitcommit: c237baac64f847301ba7f67082ffffcd81c00142
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39487038"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43850811"
 ---
 # <a name="manage-user-settings-with-azure-multi-factor-authentication-in-the-cloud"></a>管理云中 Azure 多重身份验证的用户设置
 
@@ -60,4 +60,4 @@ ms.locfileid: "39487038"
 
 - 如果用户需要帮助，可让其参阅[双重验证用户指南](../user-help/multi-factor-authentication-end-user.md)
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: update metedata properties -->

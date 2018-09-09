@@ -2,21 +2,21 @@
 title: 在 Azure 自动化 Runbook 中部署 Azure 资源管理器模板
 description: 如何通过 Runbook 部署 Azure 存储中存储的 Azure 资源管理器模板
 services: automation
-author: yunan2016
+ms.service: automation
+ms.component: process-automation
+author: WenJason
+ms.author: v-jay
+origin.date: 03/16/2018
+ms.date: 09/10/2018
+ms.topic: conceptual
 manager: digimobile
 keywords: powershell, runbook, json, azure 自动化
-ms.service: automation
-ms.devlang: NA
-ms.topic: article
-origin.date: 03/16/2018
-ms.date: 05/14/2018
-ms.author: v-nany
-ms.openlocfilehash: b75969c19555d6b35d63999fcbb21e49df3e0b09
-ms.sourcegitcommit: 53972dcdef77da92529996667545d2e83716f7e2
+ms.openlocfilehash: 1c28019bf158cac4217de76968fd6c5ba45acb5d
+ms.sourcegitcommit: 1b60848d25bbd897498958738644a4eb9cf3a302
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39143425"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43731221"
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-an-azure-automation-powershell-runbook"></a>在 Azure 自动化 PowerShell Runbook 中部署 Azure 资源管理器模板
 
@@ -58,6 +58,13 @@ ms.locfileid: "39143425"
       "metadata": {
         "description": "Storage Account type"
       }
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+        "description": "Location for all resources."
+      }
     }
   },
   "variables": {
@@ -67,8 +74,8 @@ ms.locfileid: "39143425"
     {
       "type": "Microsoft.Storage/storageAccounts",
       "name": "[variables('storageAccountName')]",
-      "apiVersion": "2016-01-01",
-      "location": "[resourceGroup().location]",
+      "apiVersion": "2018-02-01",
+      "location": "[parameters('location')]",
       "sku": {
           "name": "[parameters('storageAccountType')]"
       },

@@ -4,19 +4,19 @@ description: 本文介绍如何在 Azure 门户中配置 Azure 多重身份验�
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-origin.date: 01/03/2018
-ms.date: 08/03/2018
+ms.topic: conceptual
+origin.date: 07/11/2018
+ms.date: 09/04/2018
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: richagi
-ms.openlocfilehash: b6809829fbc999254b65c3afef671f43626e5c8b
-ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
+ms.reviewer: michmcla
+ms.openlocfilehash: 63f062a67252dc6f87ec58ee3587b30b973a0519
+ms.sourcegitcommit: c237baac64f847301ba7f67082ffffcd81c00142
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39487011"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43850807"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>配置 Azure 多重身份验证设置
 
@@ -51,4 +51,4 @@ ms.locfileid: "39487011"
 
 6. 单击“保存” 。
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: update metedata properties -->

@@ -2,11 +2,6 @@
 title: 使用虚拟网络连接到 Kafka - Azure HDInsight | Azure
 description: 了解如何通过 Azure 虚拟网络直接连接到 Kafka on HDInsight。 了解如何使用 VPN 网关从开发客户端连接到 Kafka，或使用 VPN 网关设备从本地网络中的客户端连接到 Kafka。
 services: hdinsight
-documentationCenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
 ms.service: hdinsight
 ms.devlang: ''
 ms.custom: hdinsightactive
@@ -14,14 +9,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 05/02/2018
-ms.date: 06/25/2018
+ms.date: 09/17/2018
 ms.author: v-yiso
-ms.openlocfilehash: 0e87c46ad23b696664350ecd165b283ec16ea151
-ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
+ms.openlocfilehash: e9170bc7e98fbaff11c54903d4526182f3304399
+ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36747414"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44068072"
 ---
 # <a name="connect-to-kafka-on-hdinsight-through-an-azure-virtual-network"></a>通过 Azure 虚拟网络连接到 Kafka on HDInsight
 
@@ -94,7 +89,7 @@ HDInsight 不允许通过公共 Internet 直接连接到 Kafka。 Kafka 客户�
 2. 打开 PowerShell 提示符，并使用下列代码登录 Azure 订阅：
 
     ```powershell
-    Add-AzureRmAccount -EnvironmentName AzureChinaCloud
+    Connect-AzureRmAccount -EnvironmentName AzureChinaCloud
     # If you have multiple subscriptions, uncomment to set the subscription
     #Select-AzureRmSubscription -SubscriptionName "name of your subscription"
     ```

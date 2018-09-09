@@ -5,15 +5,15 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-origin.date: 03/02/2018
+origin.date: 07/25/2018
 ms.author: v-yiso
-ms.date: 08/20/2018
-ms.openlocfilehash: 700d5d39a8a781703f4bc15d7ae02e30ed365ccf
-ms.sourcegitcommit: 664584f55e0a01bb6558b8d3349d41d3f05ba4d7
+ms.date: 09/17/2018
+ms.openlocfilehash: 7a64b12db3b11c50a208a73d1a354ef1732f8a50
+ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41704717"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44068010"
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>将 Azure 活动日志流式传输到事件中心
 可以选择下列两种方式之一将 [Azure 活动日志](monitoring-overview-activity-logs.md)准实时流式传输到任何应用程序：
@@ -34,7 +34,7 @@ ms.locfileid: "41704717"
 
 共享访问策略定义流式处理机制具有的权限。 目前，流式传输到事件中心需要“管理”、“发送”和“侦听”权限。 在门户中针对事件中心命名空间的“配置”选项卡下，可以创建或修改事件中心命名空间的共享访问策略。 
 
-若要更新活动日志的日志配置文件，使之包括流式传输，则执行更改的用户必须在事件中心授权规则中拥有 ListKey 权限。 只要配置设置的用户同时拥有两个订阅的相应 RBAC 访问权限，事件中心命名空间就不必与发出日志的订阅位于同一订阅中。
+若要更新活动日志的日志配置文件，使之包括流式传输，则执行更改的用户必须在事件中心授权规则中拥有 ListKey 权限。 只要配置设置的用户同时拥有两个订阅的相应 RBAC 访问权限并且这两个订阅都在同一个 AAD 租户中，事件中心命名空间就不必与发出日志的订阅位于同一订阅中。
 
 ### <a name="via-the-azure-portal"></a>通过 Azure 门户
 1. 使用门户左侧的“全部”服务搜索浏览至“活动日志”部分。
@@ -54,8 +54,9 @@ ms.locfileid: "41704717"
    > 如果选择了任何“所有区域”以外的选项，你将遗漏想要接收的关键事件。 活动日志是全局性（非区域性）日志，因此大多数事件并不具备相关联的区域。 
    >
 
-4. 选择“保存”保存这些设置。 这些设置会即时应用到订阅。
-5. 如果有多个订阅，请重复此操作，并将所有数据发送至同一事件中心。
+4. 单击“Azure 事件中心”选项，并选择应发送日志的事件中心命名空间，然后单击“确定”。
+5. 选择“保存”保存这些设置。 这些设置会即时应用到订阅。
+6. 如果有多个订阅，请重复此操作，并将所有数据发送至同一事件中心。
 
 ### <a name="via-powershell-cmdlets"></a>通过 PowerShell Cmdlet
 如果日志配置文件已存在，首先需要删除现有日志配置文件，然后创建新的日志配置文件。
