@@ -13,15 +13,15 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
 origin.date: 04/06/2018
-ms.date: 08/09/2018
+ms.date: 09/07/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 454145bf365910107a9b47a0d182ec994b67c668
-ms.sourcegitcommit: f8bb533368ab2ef8efdf47e186672993ad8334cd
+ms.openlocfilehash: 465560b44e1aa6ee5b505e89406aa4b85032c5f3
+ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39722308"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44068150"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>使用 Batch 开发大规模并行计算解决方案
 
@@ -313,8 +313,7 @@ Azure Batch 池构建在核心 Azure 计算平台的顶层。 它们提供大规
 Batch 提供作业准备任务来设置作业前的执行。 作业释放任务用于作业后的维护或清理。
 
 - **作业准备任务**：在任何其他作业任务执行之前，作业准备任务在计划要运行任务的所有计算节点上运行。 可使用作业准备任务，复制所有任务共享的、但对作业而言唯一的数据。
-- 
-            **作业释放任务**：作业完成后，作业释放任务在池中至少运行了一个任务的每个节点上运行。 可使用作业释放任务，删除作业准备任务所复制的数据，或压缩并上传诊断日志数据。
+- **作业释放任务**：作业完成后，作业释放任务在池中至少运行了一个任务的每个节点上运行。 可使用作业释放任务，删除作业准备任务所复制的数据，或压缩并上传诊断日志数据。
 
 作业准备和释放任务允许指定调用任务时要运行的命令行。 这些任务提供许多功能，例如文件下载、以提升权限方式执行、自定义环境变量、最大执行持续时间、重试计数和文件保留时间。
 
@@ -505,8 +504,8 @@ Batch 可以处理使用 Azure 存储将应用程序包存储及部署到计算�
 
 ## <a name="next-steps"></a>后续步骤
 - 了解适用于生成批处理解决方案的[批处理 API 和工具](batch-apis-tools.md)。
-- 在 [Get started with the Azure Batch Library for .NET](batch-dotnet-get-started.md)（适用于 .NET 的 Azure Batch 库入门）中逐步演练一个示例 Batch 应用程序。 另请参阅该教程的 [Python 版本](batch-python-tutorial.md) ，其中介绍了如何在 Linux 计算节点上运行工作负荷。
-- 下载并安装开发 Batch 解决方案时使用的 BatchLabs。 借助 BatchLabs 来创建、调试和监视 Azure Batch 应用程序。 
+- 了解使用批处理 .NET 客户端库或 Python 开发支持批处理的应用程序的基本概念。 这些快速入门介绍了使用 Batch 服务在多个计算节点上执行工作负荷的示例应用程序，并说明了如何使用 Azure 存储进行工作负荷文件暂存和检索。
+- 下载并安装 [Batch Explorer][batch_labs]，供开发 Batch 解决方案时使用。 借助 Batch Explorer 来创建、调试和监视 Azure Batch 应用程序。 
 - 请参阅社区资源，包括 [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-batch)、[Batch 社区存储库](https://github.com/Azure/Batch)和 MSDN 上的 [Azure Batch 论坛][batch_forum]。 
 
 [1]: ./media/batch-api-basics/node-folder-structure.png
@@ -517,6 +516,7 @@ Batch 可以处理使用 Azure 存储将应用程序包存储及部署到计算�
 [msmpi]: https://msdn.microsoft.com/library/bb524831.aspx
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [github_sample_taskdeps]:  https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies
+[batch_labs]: https://azure.github.io/BatchExplorer/
 [batch_net_api]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [msdn_env_vars]: https://msdn.microsoft.com/library/azure/mt743623.aspx
 [net_cloudjob_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.jobmanagertask.aspx

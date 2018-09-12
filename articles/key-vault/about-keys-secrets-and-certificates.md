@@ -3,7 +3,7 @@ title: 关于密钥、机密和证书
 description: REST 接口和 KV 开发人员详细信息概述
 services: key-vault
 documentationcenter: ''
-author: lleonard-msft
+author: BryanLa
 manager: mbaldwin
 tags: azure-resource-manager
 ms.assetid: abd1b743-1d58-413f-afc1-d08ebf93828a
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/09/2018
-ms.date: 07/10/2018
-ms.author: v-junlch
-ms.openlocfilehash: 5848691c405cd6b6263abfbf7346c9b15ddd65ef
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.date: 09/17/2018
+ms.author: v-biyu
+ms.openlocfilehash: bde4ea89f1a8df60abdcafbe8ebe937fa7c9bc0e
+ms.sourcegitcommit: d649060b55bac3ad9f4fc2bd2962748a4b5bf715
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38938845"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44066170"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>关于密钥、机密和证书
 用户可以通过 Azure Key Vault 在 Azure 环境中存储和使用加密密钥。 Key Vault 支持多种密钥类型和算法。 此外，用户还可以使用 Key Vault 安全地存储机密。 机密是有限大小的八位组对象，无任何特定语义。 Key Vault 还支持基于密钥和机密并且添加了自动续订功能的证书。
@@ -39,7 +39,7 @@ ms.locfileid: "38938845"
 -   [RSA 算法](about-keys-secrets-and-certificates.md#BKMK_RSAAlgorithms)  
 -   [加密保护](about-keys-secrets-and-certificates.md#BKMK_Cryptographic)
 -   [密钥操作](about-keys-secrets-and-certificates.md#BKMK_KeyOperations)  
--   [密钥属性](about-keys-secrets-and-certificates.md#BKMK_KeyAttributes)  
+-   [密钥属性](#BKMK_KeyAttributes)  
 -   [密钥标记](about-keys-secrets-and-certificates.md#BKMK_Keytags)  
 
 **关于机密** 
@@ -142,7 +142,7 @@ Azure Key Vault 支持对密钥对象执行以下操作：
 -   备份：导出受保护窗体中的密钥。  
 -   还原：导入以前备份的密钥。  
 
-有关详细信息，请参阅[密钥操作](https://docs.microsoft.com/rest/api/keyvault/key-operations)。  
+有关详细信息，请参阅 [Key Vault REST API 中的密钥操作参考](https://docs.microsoft.com/rest/api/keyvault/key-operations)  
 
 在 Azure Key Vault 中创建密钥后，即可使用密钥执行以下加密操作：  
 
@@ -224,8 +224,8 @@ Azure Key Vault 还支持机密的 contentType 字段。 客户端可以指定�
 
 除机密数据外，还可以指定以下属性：  
 
-- exp：IntDate，可选，默认值为“永远”。 exp（过期时间）属性标识在不得检索机密数据当时或之后的过期时间，[特定情况](about-keys-secrets-and-certificates.md#BKMK_secret-date-time-ctrld-ops)除外。 处理 exp 属性要求当前日期/时间必须早于 exp 属性中列出的过期日期/时间。 Azure Key Vault 可能会稍微留有一些余地（通常不超过几分钟），以适应时钟偏差。 其值必须是包含 IntDate 值的数字。  
-- nbf：IntDate，可选，默认值为“现在”。 nbf（非过去）属性标识在不得检索机密数据之前的时间，[特定情况](about-keys-secrets-and-certificates.md#BKMK_secret-date-time-ctrld-ops)除外。 处理 nbf 属性要求当前日期/时间必须晚于或等于 nbf 属性中列出的非过去日期/时间。 Azure Key Vault 可能会稍微留有一些余地（通常不超过几分钟），以适应时钟偏差。 其值必须是包含 IntDate 值的数字。  
+- exp：IntDate，可选，默认值为“永远”。 exp（过期时间）属性标识在不应检索机密数据当时或之后的过期时间，[特定情况](about-keys-secrets-and-certificates.md#BKMK_secret-date-time-ctrld-ops)除外。 此字段仅供参考，因为它通知密钥保管库服务用户可能无法使用特定机密。 其值必须是包含 IntDate 值的数字。 
+- nbf：IntDate，可选，默认值为“现在”。 nbf（非过去）属性标识在不应检索机密数据之前的时间，[特定情况](about-keys-secrets-and-certificates.md#BKMK_secret-date-time-ctrld-ops)除外。  此字段仅供参考。 其值必须是包含 IntDate 值的数字。
 - enabled：布尔型，可选，默认值为 true。 此属性指定是否可以检索机密数据。 enabled 属性与 exp 结合使用，如果在 nbf 和 exp 之间出现操作，只有在 enabled 设置为 true 时，才允许该操作。 nbf 和 exp 时段外的操作会自动禁止，[特定情况](about-keys-secrets-and-certificates.md#BKMK_secret-date-time-ctrld-ops)除外。  
 
 在包含机密属性的任何响应中还包括以下其他只读属性：  
@@ -251,7 +251,7 @@ Azure Key Vault 中托管的机密的访问控制是在充当这些机密的容�
 -   删除：删除机密  
 -   所有：所有权限  
 
-有关使用机密的详细信息，请参阅[机密操作](https://docs.microsoft.com/rest/api/keyvault/secret-operations)。  
+有关使用机密的详细信息，请参阅 [Key Vault REST API 中的机密操作参考](https://docs.microsoft.com/rest/api/keyvault)。  
 
 ###  <a name="BKMK_SecretTags"></a> 机密标记  
 可以用标记的形式指定其他特定于应用程序的元数据。 Azure Key Vault 支持多达 15 种标记，每种标记可以有 256 个字符的名称和 256 个字符的值。  
@@ -409,11 +409,7 @@ Key Vault 允许使用其他颁发者提供者的配置创建多个颁发者对�
 -   删除颁发者：允许删除 Key Vault 证书颁发者  
 -   所有：授予所有权限  
 
-## <a name="additional-information-for-certificates"></a>证书的其他信息
-
-- [证书和策略](https://docs.microsoft.com/rest/api/keyvault/certificates-and-policies)
-- [证书颁发者](https://docs.microsoft.com/rest/api/keyvault/certificate-issuers)
-- [证书联系人](https://docs.microsoft.com/rest/api/keyvault/certificate-contacts)
+- 有关详细信息，请参阅 [Key Vault REST API 中的证书操作参考](https://docs.microsoft.com/rest/api/keyvault/)
 
 ## <a name="see-also"></a>另请参阅
 

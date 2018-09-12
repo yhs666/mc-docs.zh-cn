@@ -2,21 +2,20 @@
 title: Azure 自动化中的子 Runbook
 description: 介绍从 Azure 自动化中的一个 Runbook 启动另一个 Runbook 并在它们之间共享信息的不同方法。
 services: automation
-author: yunan2016
-manager: digimobile
-editor: tysonn
 ms.service: automation
-ms.devlang: na
-ms.topic: article
-origin.date: 05/04/2018
-ms.date: 05/28/2018
-ms.author: v-nany
-ms.openlocfilehash: e2298df859537736a42f2ae13d2b4a66adc7b650
-ms.sourcegitcommit: 2a147231bf3d0a693adf58fceee76ab0fbcd6dbb
+ms.component: process-automation
+author: WenJason
+ms.author: v-jay
+origin.date: 08/14/2018
+ms.date: 09/10/2018
+ms.topic: conceptual
+manager: digimobile
+ms.openlocfilehash: 7f373df897e2e94b6a2ea12f22e635cb6f356822
+ms.sourcegitcommit: 1b60848d25bbd897498958738644a4eb9cf3a302
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39335304"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43731190"
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Azure 自动化中的子 Runbook
 
@@ -26,7 +25,7 @@ ms.locfileid: "39335304"
 
 若要从另一个 Runbook 调用某个内嵌 Runbook，请使用被调用 Runbook 的名称并提供其参数值，就像使用活动或 cmdlet 时一样。  同一自动化帐户中的所有 Runbook 可按此方式相互使用。 父 Runbook 将等待子 Runbook 完成，并转移到下一行，并直接向父级返回任何输出。
 
-在调用某个内联 Runbook 时，它会在与父 Runbook 所在的同一个作业中运行。 父 Runbook 运行的子 Runbook 的作业历史记录中不会提供相应的指示。 子 Runbook 发生的任何异常和任何流输出都会与父级关联。 这减少了作业数，简化了作业的跟踪，并便于排查自从子 Runbook 引发任何异常以及将其流输出与父作业关联以来发生的问题。
+在调用某个内联 Runbook 时，它会在与父 Runbook 所在的同一个作业中运行。 父 Runbook 运行的子 Runbook 的作业历史记录中不会提供相应的指示。 子 Runbook 发生的任何异常和任何流输出都会与父级关联。 这减少了作业数，使得作业更容易跟踪和进行故障排除，因为子 Runbook 引发的任何异常及其任何流输出都与父作业相关联。
 
 发布某个 Runbook 时，必须事先发布它所调用的任何子 Runbook。 这是因为，在编译 Runbook 时，Azure 自动化会生成与任何子 Runbook 的关联。 如果未进行这种关联，父 Runbook 看似发布正常，但在启动时会生成异常。 如果发生这种情况，可以重新发布父 Runbook，以正确引用子 Runbook。 如果由于已创建关联而更改了任何子 Runbook，则你不需重新发布父 Runbook。
 
@@ -44,7 +43,7 @@ ms.locfileid: "39335304"
 
 * Runbook 的发布顺序仅对于 PowerShell 工作流和图形 PowerShell 工作流 Runbook 重要。
 
-在通过内联执行调用图形或 PowerShell 工作流子 Runbook 时，只需使用 Runbook 的名称。  调用 PowerShell 子 runbook 时，必须在其名称前面添加 *.\\*，以指定脚本位于本地目录中。 
+在通过内联执行调用图形或 PowerShell 工作流子 Runbook 时，只需使用 Runbook 的名称。  调用 PowerShell 子 runbook 时，必须使其名称以 *.\\* 开头，以指定脚本位于本地目录中。
 
 ### <a name="example"></a>示例
 
@@ -64,7 +63,7 @@ $output = .\PS-ChildRunbook.ps1 –VM $vm –RepeatCount 2 –Restart $true
 
 ## <a name="starting-a-child-runbook-using-cmdlet"></a>使用 cmdlet 启动子 Runbook
 
-可以根据[使用 Windows PowerShell 启动 Runbook](automation-starting-a-runbook.md#starting-a-runbook-with-windows-powershell) 中所述，使用 [Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook?view=azurermps-6.5.0) cmdlet 来启动 Runbook。 使用此 cmdlet 的模式有两种。  在第一个模式中，cmdlet 会在子 Runbook 的子作业创建时立即返回作业 ID。  在第二个模式（通过指定 **-wait** 参数启用）中，cmdlet 会等待子作业完成，并且会返回子 Runbook 的输出。
+可以根据[使用 Windows PowerShell 启动 Runbook](automation-starting-a-runbook.md#starting-a-runbook-with-windows-powershell) 中所述，使用 [Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/AzureRM.Automation/Start-AzureRmAutomationRunbook) cmdlet 来启动 Runbook。 使用此 cmdlet 的模式有两种。  在第一个模式中，cmdlet 会在子 Runbook 的子作业创建时立即返回作业 ID。  在第二个模式（通过指定 **-wait** 参数启用）中，cmdlet 会等待子作业完成，并且会返回子 Runbook 的输出。
 
 使用 cmdlet 启动的子 Runbook 的作业会在父 Runbook 的某个独立作业中运行。 这会导致比调用内联 Runbook 更多的作业，并使这些作业更难以跟踪。不过，父级可以异步启动多个子 Runbook，而无需等待每个子 Runbook 完成。 对于调用内联子 Runbook 的同一种并行执行，父 Runbook 需要使用[并行关键字](automation-powershell-workflow.md#parallel-processing)。
 
@@ -74,16 +73,37 @@ $output = .\PS-ChildRunbook.ps1 –VM $vm –RepeatCount 2 –Restart $true
 
 使用 cmdlet 启动的子 Runbook 的参数以哈希表形式提供，如 [Runbook 参数](automation-starting-a-runbook.md#runbook-parameters)中所述。 只能使用简单数据类型。 如果 Runbook 的参数使用复杂数据类型，则必须内联调用该 Runbook。
 
+如果使用多个订阅，则在调用子 Runbook 时可能会丢失订阅上下文。 若要确保将订阅上下文传递给子 Runbook，请将 `DefaultProfile` 参数添加到 cmdlet 并将上下文传递给它。
+
 ### <a name="example"></a>示例
 
-以下示例将启动一个包含参数的子 Runbook，并使用 Start-AzureRmAutomationRunbook -wait 参数等待其完成。 完成后，从子 Runbook 收集其输出。
+以下示例将启动一个包含参数的子 Runbook，并使用 Start-AzureRmAutomationRunbook -wait 参数等待其完成。 完成后，从子 Runbook 收集其输出。 若要使用 `Start-AzureRmAutomationRunbook`，必须向 Azure 订阅进行身份验证。
 
 ```azurepowershell
+# Connect to Azure with RunAs account
+$ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
+
+Add-AzureRmAccount `
+    -EnvironmentName AzureChinaCloud `
+    -ServicePrincipal `
+    -TenantId $ServicePrincipalConnection.TenantId `
+    -ApplicationId $ServicePrincipalConnection.ApplicationId `
+    -CertificateThumbprint $ServicePrincipalConnection.CertificateThumbprint
+
+$AzureContext = Select-AzureRmSubscription -SubscriptionId $ServicePrincipalConnection.SubscriptionID
+
 $params = @{"VMName"="MyVM";"RepeatCount"=2;"Restart"=$true}
-$joboutput = Start-AzureRmAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-ChildRunbook" -ResourceGroupName "LabRG" –Parameters $params –wait
+
+Start-AzureRmAutomationRunbook `
+    –AutomationAccountName 'MyAutomationAccount' `
+    –Name 'Test-ChildRunbook' `
+    -ResourceGroupName 'LabRG' `
+    -DefaultProfile $AzureContext `
+    –Parameters $params –wait
 ```
 
 ## <a name="comparison-of-methods-for-calling-a-child-runbook"></a>子 Runbook 调用方法的比较
+
 下表汇总了从一个 Runbook 调用另一个 Runbook 的两种方法的差异。
 
 |  | 内联 | Cmdlet |

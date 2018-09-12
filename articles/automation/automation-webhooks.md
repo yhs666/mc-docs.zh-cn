@@ -1,28 +1,25 @@
 ---
-title: 使用 webhook 启动 Azure 自动化 runbook | Azure
+title: 使用 webhook 启动 Azure 自动化 runbook
 description: 一个可供客户端通过 HTTP 调用在 Azure 自动化中启动 Runbook 的 Webhook。  本文介绍了如何创建 Webhook，以及如何通过调用 Webhook 来启动 Runbook。
 services: automation
-author: yunan2016
-manager: digimobile
-editor: tysonn
 ms.service: automation
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+ms.component: process-automation
+author: WenJason
+ms.author: v-jay
 origin.date: 06/04/2018
-ms.date: 06/25/2018
-ms.author: v-nany
-ms.openlocfilehash: 1b128acebbe2c510708ccfd84f6a43dddde2d17a
-ms.sourcegitcommit: 2a147231bf3d0a693adf58fceee76ab0fbcd6dbb
+ms.date: 09/10/2018
+ms.topic: conceptual
+manager: digimobile
+ms.openlocfilehash: c05f19111b496095ff4b5c4273e97d6e16ca0785
+ms.sourcegitcommit: 1b60848d25bbd897498958738644a4eb9cf3a302
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39335286"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43731208"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>使用 webhook 启动 Azure 自动化 runbook
 
-*Webhook* 可以用来在 Azure 自动化中通过单个 HTTP 请求来启动特定的 Runbook。 这样，外部服务（例如 Visual Studio Team Services、GitHub、Microsoft Operations Management Suite Log Analytics 或自定义应用程序）就可以在不通过 Azure 自动化 API 实现完整解决方案的情况下启动 Runbook。  
+*Webhook* 可以用来在 Azure 自动化中通过单个 HTTP 请求来启动特定的 Runbook。 这样，外部服务（例如 Visual Studio Team Services、GitHub 或自定义应用程序）就可以在不通过 Azure 自动化 API 实现完整解决方案的情况下启动 Runbook。  
 ![WebhooksOverview](media/automation-webhooks/webhook-overview-image.png)
 
 可以将 Webhook 与[在 Azure 自动化中启动 Runbook](automation-starting-a-runbook.md) 中其他启动 Runbook 的方法进行比较
@@ -94,12 +91,12 @@ Webhook 的安全性取决于其 URL 的私密性，可以通过 URL 中包含�
 2. 单击页面顶部的 **Webhook** 以打开“添加 Webhook”页。
 3. 单击“新建 Webhook”以打开“创建 Webhook”页。
 4. 指定 Webhook 的**名称**、**到期日期**，以及是否应启用它。 有关这些属性的详细信息，请参阅 [Webhook 详细信息](#details-of-a-webhook)。
-5. 单击复制图标，并按 Ctrl+C 以复制 Webhook 的 URL。  然后，将其记录在某个安全的位置。  **一旦创建 Webhook，就不能再次检索该 URL。** <br>
+5. 单击复制图标，并按 Ctrl+C 以复制 Webhook 的 URL。 然后，将其记录在某个安全的位置。 **一旦创建 Webhook，就不能再次检索该 URL。**
 
    ![Webhook URL](media/automation-webhooks/copy-webhook-url.png)
 
-6. 单击“参数”  为 Runbook 参数提供值。  如果 Runbook 包含必需的参数，除非提供了相应的值，否则无法创建 Webhook。
-7. 单击“创建”以创建 Webhook  。
+1. 单击“参数”  为 Runbook 参数提供值。 如果 Runbook 包含必需的参数，除非提供了相应的值，否则无法创建 Webhook。
+1. 单击“创建”以创建 Webhook  。
 
 ## <a name="using-a-webhook"></a>使用 Webhook
 
@@ -205,7 +202,7 @@ $jobid = (ConvertFrom-Json ($response.Content)).jobids[0]
 ]
 ```
 
-下图显示了从 Windows PowerShell 发送的请求以及生成的响应。 作业 ID 从响应中提取，并转换为字符串。
+下图显示了从 Windows PowerShell 发送的请求以及生成的响应。 作业 ID 是从响应中提取的，并转换为字符串。
 
 ![Webhook 按钮](media/automation-webhooks/webhook-request-response.png)
 

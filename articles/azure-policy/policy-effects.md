@@ -5,17 +5,17 @@ services: azure-policy
 author: WenJason
 ms.author: v-jay
 origin.date: 05/24/2018
-ms.date: 07/23/2018
+ms.date: 09/10/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: digimobile
 ms.custom: mvc
-ms.openlocfilehash: f83d8b2e025697e6d986b2405c636b620e8a5e02
-ms.sourcegitcommit: 2a147231bf3d0a693adf58fceee76ab0fbcd6dbb
+ms.openlocfilehash: f7f9fc0ff87450d6b889c3cdd8ea0d34860f1655
+ms.sourcegitcommit: 1b60848d25bbd897498958738644a4eb9cf3a302
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39335323"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43731223"
 ---
 # <a name="understanding-policy-effects"></a>了解策略效果
 
@@ -27,14 +27,14 @@ Azure Policy 中的每个策略定义都具有单一效果，在策略规则的 
 - 审核
 - AuditIfNotExists
 - 拒绝
-- DeployIfNotExists
+- DeployIfNotExists（仅适用于**内置**策略）
 
 ## <a name="order-of-evaluation"></a>评估顺序
 
 当通过 Azure 资源管理器请求创建或更新资源时，策略会在将请求交给适当的资源提供程序之前处理几种效果。
 这样做可以防止资源提供程序在资源不符合策略的设计治理控制时进行不必要的处理。 策略将按照策略或初始分配创建已分配的所有策略定义列表，该列表按照范围（不包括排除项）应用到资源，并准备根据每个定义评估资源。
 
-- 首先评估“附加”。 由于“附加”可能会改变请求，因此由“附加”所做的更改可能会阻止审核或拒绝触发的效果。
+- 首先评估“附加”。 由于“附加”可能会改变请求，因此由“附加”所做的更改可能会阻止“审核”或“拒绝”效果的触发。
 - 然后评估“拒绝”。 通过在“审核”之前评估“拒绝”，可以防止两次记录不需要的资源。
 - 然后在请求传输到资源提供程序之前评估“审核”。
 
@@ -42,7 +42,7 @@ Azure Policy 中的每个策略定义都具有单一效果，在策略规则的 
 
 ## <a name="append"></a>附加
 
-附加用于在创建或更新期间向请求的资源添加其他字段。 在诸如 costCenter 之类的资源上添加标记或为存储资源指定允许的 IP 可能会很有用。
+附加用于在创建或更新期间向请求的资源添加其他字段。 如果要在诸如 costCenter 之类的资源上添加标记或为存储资源指定允许的 IP，这种效果可能会很有用。
 
 ### <a name="append-evaluation"></a>“附加”评估
 
@@ -52,11 +52,11 @@ Azure Policy 中的每个策略定义都具有单一效果，在策略规则的 
 
 ### <a name="append-properties"></a>附加属性
 
-附加效果只有“详细信息”数组，它是必需的。 因为“详细信息”是一个数组，它可能需要单个字段/值对或倍数。 请参阅[策略定义](policy-definition.md#fields)，获取可接受的字段列表。
+附加效果只有“详细信息”数组，它是必需的。 因为“详细信息”是一个数组，它可能需要单个或多个字段/值对。 请参阅[策略定义](policy-definition.md#fields)，获取可接受的字段列表。
 
 ### <a name="append-examples"></a>附加示例
 
-示例 1：单个字段/值对附加标记。
+示例 1：单个字段/值对附加一个标记。
 
 ```json
 "then": {
@@ -215,6 +215,9 @@ AuditIfNotExists 效果的“details”属性具有定义要匹配的相关资�
 
 与 AuditIfNotExists 类似，DeployIfNotExists 在条件满足时执行模板部署。
 
+> [!WARNING]
+> DeployIfNotExists 仅适用于**内置**策略。
+
 ### <a name="deployifnotexists-evaluation"></a>DeployIfNotExists 评估
 
 DeployIfNotExists 也在资源提供程序处理针对资源的创建或更新请求并返回成功状态代码后运行。 如果没有相关资源或如果由 ExistenceCondition 定义的资源未评估为 true，则会触发此效果。 触发效果后，执行模板部署。
@@ -305,7 +308,7 @@ DeployIfNotExists 效果的“details”属性具有可定义要匹配的相关�
 
 ## <a name="layering-policies"></a>分层策略
 
-资源可能会受到多个分配的影响。 这些分配可能处于相同范围（特定资源、资源组、订阅）内或处于不同范围内。 这些分配中的每一个也可能具有不同的定义效果。 无论如何，每项策略的条件和效果（直接分配或作为初始分配的一部分）均为独立评估。 例如，如果策略 1 和策略 2 均已分配，其中策略 1 具有使用拒绝效果限制在“chinaeast”中创建订阅 A 的位置的条件，策略 2 可使用审核效果限制在“chinanorth”中创建资源组 B（位于订阅 A 中）中的资源，则所得到结果将是：
+资源可能会受到多个分配的影响。 这些分配可能处于相同范围（特定资源、资源组、订阅）内或处于不同范围内。 这些分配中的每一个也可能具有不同的定义效果。 无论如何，每项策略的条件和效果（直接分配或作为初始分配的一部分）均为独立评估。 例如，如果策略 1 和策略 2 均已分配，其中策略 1 具有使用拒绝效果限制仅在“chinaeast”中创建订阅 A 的资源位置的条件，策略 2 具有可使用审核效果限制仅在“chinanorth”中创建的资源组 B（位于订阅 A 中）的资源位置的条件，则所得到结果将是：
 
 - “chinanorth”中资源组 B 中的任何资源都符合策略 2，但被标记为不符合策略 1。
 - 任何在资源组 B 中不在“chinanorth”中的资源将被标记为不符合策略 2，并且如果不在“chinaeast”中，还将被标记为不符合策略 1。
