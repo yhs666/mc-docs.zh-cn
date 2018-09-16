@@ -10,16 +10,16 @@ origin.date: 08/08/2018
 ms.date: 09/10/2018
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 7e5d119a5347ae99012bedd57a450c30b8615c08
-ms.sourcegitcommit: 1b60848d25bbd897498958738644a4eb9cf3a302
+ms.openlocfilehash: 17a6d15e30a20e6de3f20e1b126d9b0be89fa8c6
+ms.sourcegitcommit: 2700f127c3a8740a83fb70739c09bd266f0cc455
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43731209"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45586627"
 ---
 # <a name="getting-started-with-azure-automation-state-configuration"></a>Azure Automation State Configuration 入门
 
-本文说明如何使用 Azure Automation State Configuration 执行最常见的任务，例如创建、导入、编译配置，加入要管理的计算机和查看报告。 有关 Azure Automation State Configuration 的概述，请参阅 [Azure Automation State Configuration 概述](automation-dsc-overview.md)。 有关 Desired State Configuration (DSC) 文档，请参阅 [Windows PowerShell Desired State Configuration 概述](/powershell/dsc/overview)。
+本文说明如何使用 Azure Automation State Configuration 执行最常见的任务，例如创建、导入、编译配置，加入要管理的计算机和查看报告。 有关 Azure Automation State Configuration 的概述，请参阅 [Azure Automation State Configuration 概述](automation-dsc-overview.md)。 有关 Desired State Configuration (DSC) 文档，请参阅 [Windows PowerShell Desired State Configuration 概述](https://docs.microsoft.com/powershell/dsc/overview)。
 
 本文提供有关如何使用 Azure Automation State Configuration 的分步指南。 如果需要一个已经设置好的示例环境，而不想按照本文所述步骤进行操作，则可使用以下资源管理器模板：[Azure 自动化托管节点模板](https://github.com/Azure/azure-quickstart-templates/tree/master/101-automation-configuration)。 此模板设置了一个完整的 Azure Automation State Configuration 环境，包括一个由 Azure Automation State Configuration 管理的 Azure VM。
 
@@ -32,7 +32,7 @@ ms.locfileid: "43731209"
 
 ## <a name="creating-a-dsc-configuration"></a>创建 DSC 配置
 
-将创建一个简单的 [DSC 配置](/powershell/dsc/configurations)，以确保存在（或不存在）**Web-Server** Windows 功能 (IIS)，具体取决于分配节点的方式。
+将创建一个简单的 [DSC 配置](https://docs.microsoft.com/powershell/dsc/configurations)，以确保存在（或不存在）**Web-Server** Windows 功能 (IIS)，具体取决于分配节点的方式。
 
 1. 启动 [VSCode](https://code.visualstudio.com/docs)（或任何文本编辑器）。
 1. 键入以下文本：
@@ -76,7 +76,7 @@ ms.locfileid: "43731209"
 
    ![**导入配置**边栏选项卡的屏幕截图](./media/automation-dsc-getting-started/AddConfig.png)
 
-1. 单击 **“确定”**。
+1. 单击“确定”。
 
 ## <a name="viewing-a-configuration-in-azure-automation"></a>查看 Azure 自动化中的配置
 

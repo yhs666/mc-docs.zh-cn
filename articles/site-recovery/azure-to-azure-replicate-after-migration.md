@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: article
 origin.date: 07/06/2018
-ms.date: 07/23/2018
+ms.date: 09/17/2018
 ms.author: v-yeche
-ms.openlocfilehash: e74c388378454a615c2f56b8e7c46a5c0977adf4
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.openlocfilehash: 8bbd6f0708045f322c217eb5aefe5ac619543bc2
+ms.sourcegitcommit: 96d06c506983906a92ff90a5f67199f8f7e10996
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168291"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45586839"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-after-migration-to-azure"></a>设置 Azure VM 迁移到 Azure 后的灾难恢复 
 
@@ -48,7 +48,7 @@ Azure [VM 代理](../virtual-machines/extensions/agent-windows.md)必须安装�
         ```
         MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\ASRSetupLogs\UnifiedAgentMSIUninstall.log"
         ```
-    - 对于 Linux，以根用户登录。 在终端中，转到 **/user/local/ASR**，运行以下命令：
+    - 对于 Linux，以根用户身份登录。 在终端中，转到 **/user/local/ASR**，运行以下命令：
         ```
         uninstall.sh -Y
         ```

@@ -15,12 +15,12 @@ ms.topic: conceptual
 origin.date: 08/10/2018
 ms.date: 09/03/2018
 ms.author: v-yeche
-ms.openlocfilehash: d624ab47e10e426d588ab43c5168a0e3e84a6195
-ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
+ms.openlocfilehash: 75da21e9d5204f536613bd54a44ea2f45103b68d
+ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43164686"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44515638"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>使用标记整理 Azure 资源
 
@@ -171,7 +171,7 @@ az group show -n examplegroup --query tags
 }
 ```
 
-或者，若要查看具有指定名称、类型和资源组的资源的现有标记，请使用：
+若要查看具有指定名称、类型和资源组的资源的现有标记，请使用：
 
 ```azurecli
 az resource show -n examplevnet -g examplegroup --resource-type "Microsoft.Network/virtualNetworks" --query tags
@@ -217,7 +217,7 @@ rt=$(echo $jsonrtag | tr -d '"{},' | sed 's/: /=/g')
 az resource tag --tags $rt Project=Redesign -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
 ```
 
-要将资源组中的所有标记应用于其资源，并且 *不保留资源上的现有标记*，请使用以下脚本：
+要将资源组中的所有标记应用于其资源，并且*不保留资源上的现有标记*，请使用以下脚本：
 
 ```azurecli
 groups=$(az group list --query [].name --output tsv)
@@ -265,14 +265,14 @@ Azure 门户和 PowerShell 均在后台使用[资源管理器 REST API](https://
 
 ## <a name="tags-and-billing"></a>标记和计费
 
-可使用标记对计费数据进行分组。 例如，如果要针对不同组织运行多个 VM，可以使用标记，对使用情况按成本中心进行分组。 还可使用标记根据运行时环境（例如，在生产环境中运行的 VM 的计费使用情况）对成本进行分类。
+可使用标记对计费数据进行分组。 例如，如果针对不同组织运行多个虚拟机，可以使用标记根据成本中心对使用情况进行分组。 还可使用标记根据运行时环境对成本进行分类；例如，在生产环境中运行的虚拟机的计费使用情况。
 
 可以检索有关使用情况逗号分隔值 (CSV) 文件的信息。 可以从 [Azure 帐户门户](https://account.windowsazure.cn/)下载使用情况文件。 有关 REST API 操作，请参阅 [Azure 计费 REST API 参考](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c)。
 <!-- Not Available [Azure Resource Usage and RateCard APIs](../billing/billing-usage-rate-card-overview.md) -->
 <!-- Not Available [EA portal](https://ea.azure.com) -->
 <!-- Not Available [Gain insights into your Azure resource consumption](../billing/billing-usage-rate-card-overview.md) -->
 
-为支持标记和计费的服务下载使用情况 CSV 时，标记将显示在“标记”列中。 有关详细信息，请参阅[了解 Azure 帐单](../billing-understand-your-bill.md)。
+在为支持标记和计费的服务下载使用情况 CSV 时，标记会显示在“标记”列中。
 <!-- Not Available on [Understand your bill for Azure](../billing/billing-understand-your-bill.md) -->
 
 ![在计费中查看标记](./media/resource-group-using-tags/billing_csv.png)

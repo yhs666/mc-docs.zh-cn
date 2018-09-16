@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: multiple
 origin.date: 06/29/2017
-ms.date: 05/28/2018
+ms.date: 09/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: f6bdae162021a46f3a102a3ab56d7131d2b86228
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: 6255881caaa26b3832c793bd1ed066c425855cd7
+ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554155"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44515596"
 ---
 # <a name="configure-the-upgrade-of-a-service-fabric-application-in-visual-studio"></a>在 Visual Studio 中配置 Service Fabric 应用程序的升级
 Azure Service Fabric 的 Visual Studio 工具提供发布到本地或远程群集的升级支持。 在测试和调试期间将应用程序升级到较新的版本而不是替换应用程序的三种方案：
@@ -32,7 +32,7 @@ Azure Service Fabric 的 Visual Studio 工具提供发布到本地或远程群�
 ## <a name="parameters-needed-to-upgrade"></a>升级所需的参数
 可以选择的部署类型有两种：常规或升级。 常规部署会将群集上所有先前的部署信息和数据都清除，而升级部署则将其保留。 在 Visual Studio 中升级 Service Fabric应用程序时，需要提供应用程序升级参数和运行状况检查策略。 应用程序升级参数可帮助控制升级，而运行状况检查策略可确定升级是否成功。 有关详细信息，请参阅 [Service Fabric 应用程序升级：升级参数](service-fabric-application-upgrade-parameters.md)。
 
-有三种升级模式：Monitored、UnmonitoredAuto 和 UnmonitoredManual。
+有三种升级模式：*Monitored*、*UnmonitoredAuto* 和 *UnmonitoredManual*。
 
 * Monitored 升级自动执行升级和应用程序运行状况检查。
 * UnmonitoredAuto 升级自动执行升级，但跳过应用程序运行状况检查。
@@ -44,16 +44,16 @@ Azure Service Fabric 的 Visual Studio 工具提供发布到本地或远程群�
 如果要使用 Visual Studio Service Fabric 工具升级 Service Fabric应用程序，可以选中“升级应用程序”复选框，将发布程序指定为升级而不是常规部署。
 
 ### <a name="to-configure-the-upgrade-parameters"></a>配置升级参数
-1. 单击复选框旁边的“设置”按钮。 此时将显示“编辑升级参数”对话框。 “编辑升级参数”对话框支持 Monitored、UnmonitoredAuto 和 UnmonitoredManual 升级模式。
+1. 单击复选框旁边的“**设置**”按钮。 此时将显示“编辑升级参数”对话框。 “**编辑升级参数**”对话框支持 Monitored、UnmonitoredAuto 和 UnmonitoredManual 升级模式。
 2. 选择想要使用的升级模式，并填写参数网格。
 
-    每个参数都有默认值。 可选参数 DefaultServiceTypeHealthPolicy 采用哈希表输入。 下面是 *DefaultServiceTypeHealthPolicy* 的哈希表输入格式示例：
+    每个参数都有默认值。 可选参数 *DefaultServiceTypeHealthPolicy* 采用哈希表输入。 下面是 *DefaultServiceTypeHealthPolicy* 的哈希表输入格式示例：
 
     ```
     @{ ConsiderWarningAsError = "false"; MaxPercentUnhealthyDeployedApplications = 0; MaxPercentUnhealthyServices = 0; MaxPercentUnhealthyPartitionsPerService = 0; MaxPercentUnhealthyReplicasPerPartition = 0 }
     ```
 
-     
+    *ServiceTypeHealthPolicyMap* 是另一个接受哈希表输入（格式如下）的可选参数：
 
     ```    
     @ {"ServiceTypeName" : "MaxPercentUnhealthyPartitionsPerService,MaxPercentUnhealthyReplicasPerPartition,MaxPercentUnhealthyServices"}
@@ -67,7 +67,7 @@ Azure Service Fabric 的 Visual Studio 工具提供发布到本地或远程群�
 3. 如果选择 UnmonitoredManual 升级模式，则必须手动启动 PowerShell 控制台才能继续并完成升级过程。 若要了解手动升级的工作方式，请参阅 [Service Fabric 应用程序升级：高级主题](service-fabric-application-upgrade-advanced.md)。
 
 ## <a name="upgrade-an-application-by-using-powershell"></a>使用 PowerShell 升级应用程序
-可以使用 PowerShell cmdlet 来升级 Service Fabric 应用程序。 有关详细信息，请参阅 [Service Fabric 应用程序升级教程](service-fabric-application-upgrade-tutorial.md)和 [Start-ServiceFabricApplicationUpgrade](https://msdn.microsoft.com/library/mt125975.aspx)。
+可以使用 PowerShell cmdlet 来升级 Service Fabric 应用程序。 有关详细信息，请参阅 [Service Fabric 应用程序升级教程](service-fabric-application-upgrade-tutorial.md)和 [Start-ServiceFabricApplicationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricapplicationupgrade)。
 
 ## <a name="specify-a-health-check-policy-in-the-application-manifest-file"></a>在应用程序清单文件中指定运行状况状态检查策略
 Service Fabric 应用程序中的每个服务可能有自身的运行状况策略参数，这些参数可重写默认值。 可以在应用程序清单文件中提供这些参数值。
@@ -90,4 +90,4 @@ Service Fabric 应用程序中的每个服务可能有自身的运行状况策�
 ## <a name="next-steps"></a>后续步骤
 有关升级应用程序的详细信息，请参阅[使用 Visual Studio 升级应用程序](service-fabric-application-upgrade-tutorial.md)。
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, update link -->

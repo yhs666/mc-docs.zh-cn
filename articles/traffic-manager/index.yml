@@ -1,4 +1,10 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: 2de402277e2ec38175b1e806263e3bfe674d668f
+ms.sourcegitcommit: 96d06c506983906a92ff90a5f67199f8f7e10996
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45586822"
 documentType: LandingData
 title: 流量管理器
 metadata:
@@ -14,14 +20,8 @@ metadata:
   ms.devlang: na
   ms.topic: landing-page
   origin.date: 04/26/2018
-  ms.date: 07/09/2018
+  ms.date: 09/17/2018
   ms.author: v-yeche
-  ms.openlocfilehash: b73d6edae8e9637909abd03402ff36dfca4a288a
-  ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
-  ms.translationtype: HT
-  ms.contentlocale: zh-CN
-  ms.lasthandoff: 07/06/2018
-  ms.locfileid: "37873281"
 abstract:
   description: 了解如何使用 Azure 流量管理器。 快速入门、教程、示例等内容说明了如何管理传入流量以实现最佳应用程序性能，以及如何将流量分配到 Azure 或外部服务终结点。
 sections:

@@ -1,31 +1,30 @@
 ---
 title: 设置源环境（物理服务器到 Azure）| Azure
-description: 本文介绍如何设置本地环境，以便开始将运行 Windows 或 Linux 的物理服务器复制到 Azure 中。
+description: 本文介绍如何设置本地环境，以便开始将运行 Windows 或 Linux 的物理服务器复制到 Azure。
 services: site-recovery
-documentationcenter: ''
 author: rockboyfor
-manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 07/06/2018
-ms.date: 07/23/2018
+origin.date: 07/21/2018
+ms.date: 09/17/2018
 ms.author: v-yeche
-ms.openlocfilehash: b961d0895da92e7d355eec69c7c8271dda4865bb
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.openlocfilehash: 91cc163399e8f61be55a59edfe7462a046dc1604
+ms.sourcegitcommit: 96d06c506983906a92ff90a5f67199f8f7e10996
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168279"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45586828"
 ---
 # <a name="set-up-the-source-environment-physical-server-to-azure"></a>设置源环境（物理服务器到 Azure）
 
-本文介绍如何设置本地环境，以便开始将运行 Windows 或 Linux 的物理服务器复制到 Azure 中。
+本文介绍如何设置本地环境，以便开始将运行 Windows 或 Linux 的物理服务器复制到 Azure。
 
 ## <a name="prerequisites"></a>先决条件
 
-本文假设已有：
-1. [Azure 门户](http://portal.azure.cn "Azure 门户")中的恢复服务保管库。
-3. 安装配置服务器的物理计算机。
+本文假设已具有：
+- [Azure 门户](http://portal.azure.cn "Azure 门户")中的恢复服务保管库。
+- 安装配置服务器的物理计算机。
+- 如果已在要安装配置服务器的计算机上禁用了 TLS 1.0，请确保该计算机上已启用 TLS 1.2 并已安装 .NET Framework 4.6 或更高版本（已禁用强加密）。 [了解详细信息](https://support.microsoft.com/help/4033999/how-to-resolve-azure-site-recovery-agent-issues-after-disabling-tls-1)。
 
 ### <a name="configuration-server-minimum-requirements"></a>配置服务器的最低要求
 下表列出了配置服务器的最低硬件、软件和网络要求。
@@ -51,7 +50,7 @@ ms.locfileid: "39168279"
     ![设置源](./media/physical-azure-set-up-source/plus-config-srv.png)
 2. 在“添加服务器”边栏选项卡中，检查“配置服务器”是否已出现在“服务器类型”中。
 4. 下载站点恢复统一安装程序安装文件。
-5. 下载保管库注册密钥。 运行统一安装程序时需要使用该注册密钥。 生成的密钥有效期为 5 天。
+5. 下载保管库注册密钥。 运行统一安装程序时，需要注册密钥。 生成的密钥有效期为 5 天。
 
     ![设置源](./media/physical-azure-set-up-source/set-source2.png)
 6. 在用作配置服务器的计算机上，运行 **Azure Site Recovery 统一安装程序**安装配置服务器、进程服务器和主目标服务器。
@@ -64,7 +63,7 @@ ms.locfileid: "39168279"
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
 > [!NOTE]
-> 可通过命令行安装配置服务器。 有关详细信息，请参阅[使用命令行工具安装配置服务器](http://aka.ms/installconfigsrv)。
+> 可通过命令行安装配置服务器。 [了解详细信息](physical-manage-configuration-server.md#install-from-the-command-line)。
 
 ## <a name="common-issues"></a>常见问题
 
@@ -74,4 +73,4 @@ ms.locfileid: "39168279"
 
 下一步涉及在 Azure 中[设置目标环境](physical-azure-set-up-target.md)。
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update, update link -->

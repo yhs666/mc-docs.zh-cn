@@ -1,5 +1,5 @@
 ---
-title: 容量限制 - Azure SQL 数据仓库 | Azure
+title: 容量限制 - Azure SQL 数据仓库 | Microsoft Docs
 description: Azure SQL 数据仓库的各个组件允许的最大值。
 services: sql-data-warehouse
 author: rockboyfor
@@ -7,16 +7,16 @@ manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
-origin.date: 06/28/2018
-ms.date: 08/20/2018
+origin.date: 07/26/2018
+ms.date: 09/17/2018
 ms.author: v-yeche
 ms.reviewer: igorstan
-ms.openlocfilehash: fe98b27f74da9dabb4e77f4848798a42be2444b9
-ms.sourcegitcommit: 02c4716e07b3d83104fa419b379a15589ae8017e
+ms.openlocfilehash: ee176e52c44ad32574e23761f9d326925de4500f
+ms.sourcegitcommit: 9a82a54c6b6f4d8074139e090011fe05b8018fcf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41704056"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44363145"
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>SQL 数据仓库容量限制
 Azure SQL 数据仓库的各个组件允许的最大值。
@@ -26,10 +26,10 @@ Azure SQL 数据仓库的各个组件允许的最大值。
 | 类别 | 说明 | 最大值 |
 |:--- |:--- |:--- |
 | [数据仓库单位 (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |单个 SQL 数据仓库的最大 DWU | 第 1 代：DW6000<br></br>第 2 代：DW30000c |
-| [数据仓库单位 (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |每个服务器的默认 DTU |54,000<br></br>默认情况下，每个 SQL Server（例如 myserver.database.chinacloudapi.cn）的 DTU 配额为 54,000，最多可以允许 DW6000c。 此配额仅仅只是安全限制。 可以通过[创建支持票证](https://support.windowsazure.cn/support/support-azure)并选择“配额”作为请求类型来增加配额。  要计算 DTU 需求，请将所需的 DWU 总数乘以 7.5 或将所需的 cDWU 总数乘以 9.0。 例如：<br></br>DW6000 x 7.5 = 45,000 DTU<br></br>DW6000c x 9.0 = 54,000 DTU。<br></br>可以在门户中的 SQL Server 选项中查看当前 DTU 消耗量。 已暂停和未暂停的数据库都计入 DTU 配额。 |
+| [数据仓库单位 (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |每个服务器的默认 DTU |54,000<br></br>默认情况下，每个 SQL Server（例如 myserver.database.chinacloudapi.cn）的 DTU 配额为 54,000，最多可以允许 DW6000c。 此配额仅仅只是安全限制。 要计算 DTU 需求，请将所需的 DWU 总数乘以 7.5 或将所需的 cDWU 总数乘以 9.0。 例如：<br></br>DW6000 x 7.5 = 45,000 DTU<br></br>DW6000c x 9.0 = 54,000 DTU。<br></br>可以在门户中的 SQL Server 选项中查看当前 DTU 消耗量。 已暂停和未暂停的数据库都计入 DTU 配额。 |
 | 数据库连接 |并发打开的会话 |1024<br/><br/>1024 个活动会话每一个都能同时向 SQL 数据仓库数据库提交请求。 请注意，可并发执行的查询数量是有限制的。 当超出并发限制时，请求将进入内部队列等待处理。 |
 | 数据库连接 |预处理语句的最大内存 |20 MB |
-| [工作负荷管理](resource-classes-for-workload-management.md) |并发查询数上限 |32<br/><br/> 默认情况下，SQL 数据仓库可以执行最多 32 个并发查询并将剩余查询排列起来。<br/><br/>当用户被分配到较高资源类或者 SQL 数据仓库具有较低的[数据仓库单位](memory-and-concurrency-limits.md)设置时，可减少并发查询的数量。 某些查询（如 DMV 查询）始终可以运行。 |
+| [工作负荷管理](resource-classes-for-workload-management.md) |并发查询数上限 |128<br/><br/> SQL 数据仓库可以执行最多 128 个并发查询并将剩余查询排列起来。<br/><br/>当用户被分配到较高资源类或者 SQL 数据仓库具有较低的[数据仓库单位](memory-and-concurrency-limits.md)设置时，可减少并发查询的数量。 某些查询（例如 DMV 查询）始终允许运行，并且不会影响并发查询限制。 有关并发查询执行的更多详细信息，请参阅[并发最大值](memory-and-concurrency-limits.md#concurrency-maximums)一文。 |
 | [tempdb](sql-data-warehouse-tables-temporary.md) |最大 GB |每 DW100 399 GB。 因此，在 DWU1000 的情况下，tempdb 的大小为 3.99 TB。 |
 <!--Pending on Gen2-->
 
@@ -46,8 +46,8 @@ Azure SQL 数据仓库的各个组件允许的最大值。
 | 表 |每个表的分区数 |15,000<br/><br/>为了实现高性能，建议在满足业务需求的情况下尽量减少所需的分区数。 随着分区数目的增长，数据定义语言 (DDL) 和数据操作语言 (DML) 操作的开销也会增长，导致性能下降。 |
 | 表 |每个分区边界值的字符数。 |4000 |
 | 索引 |每个表的非聚集索引数。 |50<br/><br/>仅适用于行存储表。 |
-| 索引 |每个表的聚集索引数。 |1<br><br/>适用于行存储和列存储表。 |
-| 索引 |索引键大小。 |900 字节。<br/><br/>仅适用于行存储索引。<br/><br/>如果创建索引时列中的现有数据未超过 900 字节，那么可以创建最大大小超过 900 字节的 varchar 列上的索引。 但是，以后导致总大小超过 900 字节的对列的 INSERT 或 UPDATE 操作将失败。 |
+| 索引 |每个表的聚集索引数。 |1<br><br/>适用于行存储表和列存储表。 |
+| 索引 |索引键大小。 |900 字节。<br/><br/>仅适用于行存储索引。<br/><br/>如果创建索引时列中的现有数据未超过 900 字节，那么可以创建最大大小超过 900 字节的 varchar 列上的索引。 但是，以后导致总大小超过 900 字节的对列的 INSERT 或 UPDATE 操作会失败。 |
 | 索引 |每个索引的键列数。 |16<br/><br/>仅适用于行存储索引。 聚集列存储索引包括所有列。 |
 | 统计信息 |组合的列值的大小。 |900 字节。 |
 | 统计信息 |每个统计对象的列数。 |32 |
@@ -68,16 +68,16 @@ Azure SQL 数据仓库的各个组件允许的最大值。
 | 查询 |系统视图的并发查询数。 |100 |
 | 查询 |系统视图的排队查询数。 |1000 |
 | 查询 |最大值参数 |2098 |
-| 批处理 |最大大小 |65,536*4096 |
-| SELECT 结果 |每个行的列数 |4096<br/><br/>在 SELECT 结果中每行的列数始终不得超过 4096。 无法保证最大值始终为 4096。 如果查询计划需要一个临时表，则可能应用每个表最多 1024 列的最大值。 |
+| Batch |最大大小 |65,536*4096 |
+| SELECT 结果 |每个行的列数 |4096<br/><br/>在 SELECT 结果中每行的列数始终不得超过 4096。 无法保证最大值始终为 4096。 如果查询计划需要一个临时表，那么将应用每个表最多 1024 列的最大值。 |
 | SELECT |嵌套子查询 |32<br/><br/>在 SELECT 语句中的嵌套子查询数始终不得超过 32 个。 无法保证最大值始终为 32 个。 例如，JOIN 可以将子查询引入查询计划。 还可以通过可用内存来限制子查询的数量。 |
 | SELECT |每个 JOIN 的列数 |1024 个列<br/><br/>JOIN 中的列数始终不得超过 1024。 无法保证最大值始终为 1024。 如果 JOIN 计划需要列数多于 JOIN 结果的临时表，那么将 1024 限制应用于此临时表。 |
 | SELECT |每个 GROUP BY 列的字节数。 |8060<br/><br/>GROUP BY 子句中的列的字节数最大为 8060 字节。 |
 | SELECT |每个 ORDER BY 列的字节数 |8060 字节<br/><br/>ORDER BY 子句中的列的字节数最大为 8060 字节 |
-| 每个语句的标识符数 |被引用的标识符数 |65,535<br/><br/>SQL 数据仓库会限制一条查询的单个表达式中可包含的标识符数。 超过此数字会导致 SQL Server 错误 8632。 有关详细信息，请参阅 [内部错误：已达到表达式服务限制][内部错误：已达到表达式服务限制]。 |
-| 字符串文本 | 一个语句中字符串文本的数量 | 20,000 <br/><br/>SQL 数据仓库会限制单个查询表达式中可包含的字符串常量数。 超过此数字会导致 SQL Server 错误 8632。|
+| 每个语句的标识符数 |被引用的标识符数 |65,535<br/><br/>SQL 数据仓库会限制一条查询的单个表达式中可包含的标识符数。 超过此数字将导致 SQL Server 错误 8632。 有关详细信息，请参阅 [内部错误：已达到表达式服务限制][内部错误：已达到表达式服务限制]。 |
+| 字符串文本 | 一个语句中字符串文本的数量 | 20,000 <br/><br/>SQL 数据仓库会限制单个查询表达式中可包含的字符串常量数。 超过此数字将导致 SQL Server 错误 8632。|
 
-## <a name="metadata"></a>Metadata
+## <a name="metadata"></a>元数据
 | 系统视图 | 最大行数 |
 |:--- |:--- |
 | sys.dm_pdw_component_health_alerts |10,000 |

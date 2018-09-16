@@ -2,6 +2,9 @@
 title: 安装适用于 Visual Studio 的 Azure 流分析工具
 description: 本文介绍安装要求以及如何安装适用于 Visual Studio 的 Azure 流分析工具。
 services: stream-analytics
+ms.technology: vs-azure
+ms.custom: vs-azure
+ms.workload: azure-vs
 author: rockboyfor
 ms.author: v-yeche
 manager: digimobile
@@ -9,22 +12,22 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 05/22/2018
-ms.date: 07/02/2018
-ms.openlocfilehash: 6b83452db64a1b1f0e6a2d59a4d9a01bf9984ab7
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.date: 09/17/2018
+ms.openlocfilehash: ab98591084bed9739d0450b9f223c8a270cd3217
+ms.sourcegitcommit: 2700f127c3a8740a83fb70739c09bd266f0cc455
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939213"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45586603"
 ---
 # <a name="install-azure-stream-analytics-tools-for-visual-studio"></a>安装适用于 Visual Studio 的 Azure 流分析工具
 Azure 流分析工具支持 Visual Studio 2017、2015 和 2013。 本文介绍如何安装和卸载工具。
 
-有关如何使用工具的详细信息，请参阅[适用于 Visual Studio 的流分析工具](/stream-analytics/stream-analytics-tools-for-visual-studio)。
+有关如何使用工具的详细信息，请参阅[适用于 Visual Studio 的流分析工具](stream-analytics-quick-create-vs.md)。
 
 ## <a name="install"></a>安装
 ### <a name="visual-studio-2017"></a>Visual Studio 2017
-* 下载 [Visual Studio 2017（15.3 或更高版本）](https://www.visualstudio.com/)。 支持 Enterprise (Ultimate/Premium)、Professional 和 Community 版本。 不支持 Express 版本。 
+* 下载 [Visual Studio 2017（15.3 或更高版本）](https://www.visualstudio.com/)。 支持 Enterprise (Ultimate/Premium)、Professional、Community 版本。 不支持 Express 版本。 
 * 流分析工具是 Visual Studio 2017 中 **Azure 开发**以及**数据存储和处理**工作负载的一部分。 在 Visual Studio 安装过程中，启用这两个工作负载中的任何一个。
 
 启用“数据存储和处理”工作负载，如下所示：
@@ -36,7 +39,7 @@ Azure 流分析工具支持 Visual Studio 2017、2015 和 2013。 本文介绍�
 ![选择“Azure 开发”工作负载](./media/stream-analytics-tools-for-visual-studio-install/stream-analytics-tools-for-vs-2017-install-02.png)
 
 ### <a name="visual-studio-2013-2015"></a>Visual Studio 2013、2015
-* 安装 Visual Studio 2015 或 Visual Studio 2013 Update 4。 支持 Enterprise (Ultimate/Premium)、Professional 和 Community 版本。 不支持 Express 版本。 
+* 安装 Visual Studio 2015 或 Visual Studio 2013 Update 4。 支持 Enterprise (Ultimate/Premium)、Professional、Community 版本。 不支持 Express 版本。 
 * 使用 [Web 平台安装程序](http://www.microsoft.com/web/downloads/platform.aspx)安装用于 .NET 的 Azure SDK 2.7.1 或更高版本。
 * 安装[适用于 Visual Studio 的 Azure 流分析工具](http://aka.ms/asatoolsvs)。
 

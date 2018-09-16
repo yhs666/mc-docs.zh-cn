@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: article
 origin.date: 07/06/2018
-ms.date: 07/23/2018
+ms.date: 09/17/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0f18638b49f62ed3807556d1507a1c34887c2ff7
-ms.sourcegitcommit: 74f9f0acb00fb728ff6e9bd67ac86a0c1bcd8d13
+ms.openlocfilehash: 2759c208a7b24a1247964ada96a520b013fdd8a7
+ms.sourcegitcommit: 96d06c506983906a92ff90a5f67199f8f7e10996
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39218896"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45586830"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>解决 VMware VM 和物理服务器的复制问题
 
@@ -74,25 +74,7 @@ ms.locfileid: "39218896"
 
 * **检查进程服务器上基于 URL 的防火墙是否未阻止访问**：如果在服务器上使用基于 URL 的防火墙规则，请确保将以下 URL 添加到防火墙配置。
 
-  `*.accesscontrol.chinacloudapi.cn:` 用于访问控制和标识管理
-
-  `*.backup.windowsazure.cn:` 用于复制数据传输和协调
-
-  `*.blob.core.chinacloudapi.cn:` 用于访问存储所复制数据的存储帐户
-
-  `*.hypervrecoverymanager.windowsazure.cn:` 用于复制管理操作和协调
-
-  `time.nist.gov` 和 `time.windows.com`：用于检查系统时间与全球时间之间的时间同步。
-
-**Azure 政府云**的 URL：
-
-`* .ugv.hypervrecoverymanager.windowsazure.us`
-
-`* .ugv.backup.windowsazure.us`
-
-`* .ugi.hypervrecoverymanager.windowsazure.us`
-
-`* .ugi.backup.windowsazure.us`
+[!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]  
 
 * **检查进程服务器上的代理设置是否未阻止访问**。  如果使用代理服务器，请确保代理服务器名称由 DNS 服务器解析。
 若要查看在配置服务器安装期间提供的信息， 请转到注册表项
@@ -104,8 +86,8 @@ ms.locfileid: "39218896"
 
 将其打开，再单击“操作”>“更改属性”。 “代理配置”选项卡下应显示代理地址，其应与注册表设置中显示的代理地址相同。 如果不同，请将其更改为相同的地址。
 
-* **检查进程服务器上的限制带宽是否不受约束**：增加带宽，并检查问题是否仍然存在。
+* **检查进程服务器上的限制带宽是否不受约束**：增加带宽，然后检查问题是否仍然存在。
 
 ## <a name="next-steps"></a>后续步骤
-如需更多帮助，请在 [Azure Site Recovery 论坛](https://www.azure.cn/support/contact/)提出疑问。 我们的社区非常活跃，工程师会提供帮助。
+如需更多帮助，请在 [Azure Site Recovery 论坛](https://www.azure.cn/support/contact/)提出疑问。 我们的社区非常活跃，我们的工程师将为你提供帮助。
 <!--Update_Description: update meta properties, wording update, update link -->

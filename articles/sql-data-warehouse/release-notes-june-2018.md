@@ -1,5 +1,5 @@
 ---
-title: Azure SQL 数据仓库发行说明（2018 年 6 月）| Azure
+title: Azure SQL 数据仓库发行说明（2018 年 6 月）| Microsoft Docs
 description: Azure SQL 数据仓库发行说明。
 services: sql-data-warehouse
 author: WenJason
@@ -7,16 +7,16 @@ manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-origin.date: 06/25/2018
-ms.date: 08/20/2018
+origin.date: 07/23/2018
+ms.date: 09/17/2018
 ms.author: v-jay
 ms.reviewer: twounder
-ms.openlocfilehash: 79edde209b4b267ad165bd33c9b5e8a7003d014c
-ms.sourcegitcommit: 02c4716e07b3d83104fa419b379a15589ae8017e
+ms.openlocfilehash: 574366e8cfd98742b474cb2dc87394d74be4f034
+ms.sourcegitcommit: 9a82a54c6b6f4d8074139e090011fe05b8018fcf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "40133066"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44363166"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-june-2018"></a>Azure SQL 数据仓库中的新增功能 2018 年 6 月
 Azure SQL 数据仓库持续得到改进。 本文介绍了 2018 年 6 月发行的版本中所引入的新功能和所做的更改。 

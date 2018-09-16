@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/03/2018
-ms.date: 08/06/2018
+ms.date: 09/17/2018
 ms.author: v-yeche
-ms.openlocfilehash: f0d4f6f74ad5ab04ebdc5f2d74f862d4b575533d
-ms.sourcegitcommit: c6205500afd23ac00f2829fe51858b51a622eaf1
+ms.openlocfilehash: 6176a8a5dae449153abdda2f309ccea9ea3671ed
+ms.sourcegitcommit: 2700f127c3a8740a83fb70739c09bd266f0cc455
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39487789"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45586601"
 ---
 # <a name="send-events-to-azure-event-hubs-using-the-net-framework"></a>使用 .NET Framework 将事件发送到 Azure 事件中心
 
@@ -28,7 +28,7 @@ ms.locfileid: "39487789"
 
 本教程说明如何使用 [Azure 门户](https://portal.azure.cn)创建事件中心， 并说明如何使用控制台应用程序（通过 .NET Framework 以 C# 编写）将事件发送到事件中心。 若要使用 .NET Framework 接收事件，请参阅[使用 .NET Framework 接收事件](event-hubs-dotnet-framework-getstarted-receive-eph.md)一文，或者单击左侧目录中的相应接收语言。
 
-若要完成本教程，需要满足以下先决条件：
+若要完成本教程，需要具备以下先决条件：
 
 * [Microsoft Visual Studio 2017 或更高版本](http://visualstudio.com)。
 * 有效的 Azure 帐户。 如果没有帐户，只需几分钟的时间就能创建一个试用帐户。 有关详细信息，请参阅 [Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。
@@ -50,7 +50,7 @@ ms.locfileid: "39487789"
     ![](./media/event-hubs-dotnet-framework-getstarted-send/create-sender-csharp2.png)
 
     Visual Studio 下载、安装 [Azure 服务总线库 NuGet 包](https://www.nuget.org/packages/WindowsAzure.ServiceBus)并添加对它的引用。
-4. 在 **Program.cs** 文件顶部添加以下 `using` 语句：
+4. 在 Program.cs 文件顶部添加以下 `using` 语句：
 
     ```csharp
     using System.Threading;
@@ -114,4 +114,4 @@ ms.locfileid: "39487789"
 [21]: ./media/event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs1.png
 [22]: ./media/event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs2.png
 
-<!--Update_Description: update meta properties, wording update, update link -->
+<!--Update_Description: update meta properties, wording update -->

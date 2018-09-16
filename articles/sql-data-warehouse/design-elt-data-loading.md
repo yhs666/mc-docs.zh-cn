@@ -1,21 +1,22 @@
 ---
-title: 为 Azure SQL 数据仓库设计 ELT | Azure
-description: 结合可将数据移入 Azure 并将数据载入 SQL 数据仓库的技术，来为 Azure SQL 数据仓库设计提取、加载和转换 (ELT) 过程。
+title: 为 Azure SQL 数据仓库设计 ELT 而非 ETL | Microsoft Docs
+description: 设计用于将数据加载到 Azure SQL 数据仓库的提取、加载和转换 (ELT) 过程而非 ETL 过程。
 services: sql-data-warehouse
 author: rockboyfor
 manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: design
-origin.date: 04/11/2018
-ms.date: 04/24/2018
+origin.date: 04/17/2018
+ms.date: 09/17/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0747f3d1fd7e0e6d596fb7c1f1b35fc65be18d32
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.reviewer: igorstan
+ms.openlocfilehash: fdf65362a21c82b9c28a8e3004f5c491a6bfeebe
+ms.sourcegitcommit: 9a82a54c6b6f4d8074139e090011fe05b8018fcf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121777"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44363155"
 ---
 # <a name="designing-extract-load-and-transform-elt-for-azure-sql-data-warehouse"></a>为 Azure SQL 数据仓库设计提取、加载和转换 (ELT)
 
@@ -47,17 +48,18 @@ PolyBase 技术可以通过 T-SQL 语言访问数据库外部的数据。 它是
 
 若要使用 PolyBase 加载数据，可以使用下列任一加载选项。
 
-- 如果数据位于 Azure Blob 存储中，则 [PolyBase 与 T-SQL](load-data-from-azure-blob-storage-using-polybase.md) 可以发挥作用。 使用此方法可以获得加载过程的最大控制度，不过同时需要定义外部数据对象。 其他方法在你将源表映射到目标表时，在幕后定义这些对象。  若要安排 T-SQL 加载，可以使用 SSIS。 
+- 如果数据位于 Azure Blob 存储中，则 [PolyBase 与 T-SQL](load-data-from-azure-blob-storage-using-polybase.md) 可以发挥作用。 使用此方法可以获得加载过程的最大控制度，不过同时需要定义外部数据对象。 其他方法在你将源表映射到目标表时，在幕后定义这些对象。  若要安排 T-SQL 加载，可以使用 SSIS。
 <!-- Not Available on Azure Data Lake Store,Azure Date Factory, Azure Functions-->
 - 如果源数据位于本地 SQL Server 或云中的 SQL Server，则 [PolyBase 与 SSIS](https://docs.microsoft.com/sql/integration-services/load-data-to-sql-data-warehouse) 可以发挥作用。 SSIS 定义源到目标表的映射，同时可协调负载。 如果已有 SSIS 包，可将这些包修改为使用新的数据仓库目标。 
 <!-- Not Available on [PolyBase with Azure Data Factory (ADF)](sql-data-warehouse-load-with-data-factory.md)-->
+<!--Not Available on [PolyBase with Azure DataBricks](../azure-databricks/databricks-extract-load-sql-data-warehouse.md)-->
 
 ### <a name="polybase-external-file-formats"></a>PolyBase 外部文件格式
 
 PolyBase 从 UTF-8 和 UTF-16 编码的带分隔符文本文件加载数据。 除了带分隔符的文本文件以外，它还可以从 Hadoop 文件格式、RC 文件、ORC 和 Parquet 加载数据。 PolyBase 可以从 Gzip 和 Snappy 压缩文件加载数据。 PolyBase 目前不支持扩展的 ASCII、固定宽度格式以及 WinZip、JSON 和 XML 等嵌套格式。
 
 ### <a name="non-polybase-loading-options"></a>非 PolyBase 加载选项
-如果数据与 PolyBase 不兼容，可以使用 [bcp](sql-data-warehouse-load-with-bcp.md) 或 [SQLBulkCopy API](https://msdn.microsoft.com/library/system.data.sqlclient.sqlbulkcopy.aspx)。 bcp 将数据直接加载到 SQL 数据仓库，而无需经过 Azure Blob 存储，但只适用于小规模的加载。 请注意，这些选项的加载性能明显低于 PolyBase。 
+如果数据与 PolyBase 不兼容，可以使用 [bcp](https://docs.microsoft.com/sql/tools/bcp-utility) 或 [SQLBulkCopy API](https://msdn.microsoft.com/library/system.data.sqlclient.sqlbulkcopy.aspx)。 bcp 将数据直接加载到 SQL 数据仓库，而无需经过 Azure Blob 存储，但只适用于小规模的加载。 请注意，这些选项的加载性能明显低于 PolyBase。 
 
 ## <a name="extract-source-data"></a>提取源数据
 
@@ -84,9 +86,9 @@ PolyBase 从 UTF-8 和 UTF-16 编码的带分隔符文本文件加载数据。 �
 在加载数据之前，需要在数据仓库中定义外部表。 PolyBase 使用外部表来定义和访问 Azure 存储中的数据。 外部表类似于常规表。 主要区别在于，外部表指向数据仓库外部存储的数据。 
 
 定义外部表涉及到指定数据源、文本文件的格式和表定义。 下面是需要的 T-SQL 语法主题：
-- [CREATE EXTERNAL DATA SOURCE](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql)
+- [CREATE EXTERNAL DATA SOURCE](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql)（创建外部数据源）
 - [CREATE EXTERNAL FILE FORMAT](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql)
-- [CREATE EXTERNAL TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql)
+- [创建外部表](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql)
 
 有关创建外部对象的示例，请参阅加载教程中的[创建外部表](load-data-from-azure-blob-storage-using-polybase.md#create-external-tables-for-the-sample-data)步骤。
 

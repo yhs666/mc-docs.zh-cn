@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: multiple
 origin.date: 08/04/2017
-ms.date: 05/28/2018
+ms.date: 09/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0d7c1ba86e2acbd27780fce1625cee6e63a70ee4
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: 722a7ef0edfe386837881006d83c03bcb2fbeffc
+ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554274"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44515605"
 ---
 # <a name="configure-secure-connections-to-a-service-fabric-cluster-from-visual-studio"></a>从 Visual Studio 配置与 Service Fabric 群集的安全连接
 
@@ -28,7 +28,7 @@ ms.locfileid: "34554274"
 
 ## <a name="cluster-connection-types"></a>群集连接类型
 
-Azure Service Fabric 群集支持两种连接：不安全连接和基于 x509 证书的安全连接。 （对于托管在本地环境的 Service Fabric 群集，还支持 Windows 和 dSTS 身份验证。）创建群集时，必须配置群集连接类型。 创建后，无法更改连接类型。
+Azure Service Fabric 群集支持两种连接：**不安全**连接和**基于 x509 证书**的安全连接。 （对于托管在本地环境的 Service Fabric 群集，还支持 **Windows** 和 **dSTS** 身份验证。）创建群集时，必须配置群集连接类型。 创建后，无法更改连接类型。
 
 Visual Studio Service Fabric 工具支持所有用于连接到群集来进行发布的身份验证类型。 有关如何设置安全 Service Fabric 群集的说明，请参阅[从 Azure 门户设置 Service Fabric 群集](service-fabric-cluster-creation-via-portal.md)。
 
@@ -48,13 +48,13 @@ Visual Studio Service Fabric 工具支持所有用于连接到群集来进行发
 
 2. 安装受信任的证书。 为此，请双击 .pfx 文件，或使用 PowerShell 脚本 Import-PfxCertificate 来导入证书。 将证书安装到 Cert:\LocalMachine\My。 导入证书时，可以接受所有默认设置。
 
-3. 在项目的快捷菜单上选择“发布...”命令，打开“发布 Azure 应用程序”对话框，然后选择目标群集。 该工具会自动解析连接，并将安全连接参数保存在发布配置文件中。
+3. 在项目的快捷菜单上选择“**发布...**”命令打开“**发布 Azure应用程序**”对话框，并选择目标群集。 该工具会自动解析连接，并将安全连接参数保存在发布配置文件中。
 
 4. 可选：可以编辑发布配置文件以指定安全群集连接。
 
-   由于此时正在手动编辑“发布配置文件”XML 文件以指定证书信息，因此请务必记下证书存储名称、存储位置以及证书指纹。 稍后需要为证书的存储名称和存储位置提供这些值。 有关详细信息，请参阅[如何：检索证书的指纹](https://msdn.microsoft.com/library/ms734695\(v=vs.110\).aspx)。
+   由于正在手动编辑“发布配置文件”XML 文件以指定证书信息，因此请务必记下证书存储名称、存储位置以及证书指纹。 稍后需要为证书的存储名称和存储位置提供这些值。 有关详细信息，请参阅[如何：检索证书的指纹](https://msdn.microsoft.com/library/ms734695\(v=vs.110\).aspx)。
 
-   可以使用 ClusterConnectionParameters 参数指定连接到 Service Fabric 群集时要使用的 PowerShell 参数。 Connect-ServiceFabricCluster cmdlet 所接受的任何参数均为有效参数。 有关可用参数的列表，请参阅 [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx)。
+   可以使用 *ClusterConnectionParameters* 参数指定连接到 Service Fabric 群集时要使用的 PowerShell 参数。 有效的参数是 Connect-ServiceFabricCluster cmdlet 所接受的任何参数。 有关可用参数的列表，请参阅 [Connect-ServiceFabricCluster](https://docs.microsoft.com/powershell/module/servicefabric/connect-servicefabriccluster)。
 
    如果要发布到远程群集，需要指定该特定群集的相应参数。 下面是连接到不安全群集的示例：
 
@@ -72,7 +72,7 @@ Visual Studio Service Fabric 工具支持所有用于连接到群集来进行发
    StoreLocation="CurrentUser"
    StoreName="My" />
    ```
-5. 编辑其他任何所需的设置（例如升级参数和应用程序参数文件位置），然后从 Visual Studio 中的“发布 Service Fabric 应用程序”对话框发布应用程序。
+5. 编辑其他任何所需的设置（例如升级参数和应用程序参数文件位置），并从 Visual Studio 中的“**发布 Service Fabric应用程序**”对话框发布应用程序。
 
 ## <a name="next-steps"></a>后续步骤
 有关访问 Service Fabric 群集的详细信息，请参阅[使用 Service Fabric Explorer 可视化群集](service-fabric-visualizing-your-cluster.md)。
@@ -81,4 +81,4 @@ Visual Studio Service Fabric 工具支持所有用于连接到群集来进行发
 [publishdialog]:./media/service-fabric-visualstudio-configure-secure-connections/publishdialog.png
 [selectsfcluster]:./media/service-fabric-visualstudio-configure-secure-connections/selectsfcluster.png
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties, wording update, update link -->

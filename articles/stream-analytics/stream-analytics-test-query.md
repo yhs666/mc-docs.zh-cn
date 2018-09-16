@@ -10,13 +10,13 @@ manager: digimobile
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 04/27/2018
-ms.date: 06/18/2018
-ms.openlocfilehash: d02f20f9882708a999978bfcc9e7aa37eb12e0b9
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.date: 09/17/2018
+ms.openlocfilehash: c8e6fba966d9ed2b121c33bee8bbfc69d1de501e
+ms.sourcegitcommit: 2700f127c3a8740a83fb70739c09bd266f0cc455
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "35416744"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45586570"
 ---
 # <a name="test-a-stream-analytics-query-with-sample-data"></a>使用样本数据测试流分析查询
 
@@ -30,9 +30,7 @@ ms.locfileid: "35416744"
 
 3. 在“流分析作业”页上的“作业拓扑”标题下，选择“查询”以打开“查询编辑器”窗口。 
 
-4. 若要使用样本输入数据来测试查询，请右键单击任意输入，  并选择“上传文件中的样本数据”。
-
-   数据必须仅限 JSON 格式数据。 如果数据采用其他格式（如 CSV），则应在上传前将其转换为 JSON 格式。 可以使用任何开源转换工具（如 [CSV 到 JSON 转换器](http://www.convertcsv.com/csv-to-json.htm)）将数据转换为 JSON 格式。
+4. 若要使用样本输入数据来测试查询，请右键单击任意输入，  并选择“上传文件中的样本数据”。 此数据必须以 JSON、CSV 或 AVRO 进行序列化。
 
     ![流分析查询编辑器测试查询](media/stream-analytics-test-query/stream-analytics-test-query-editor-upload.png)
 
@@ -54,4 +52,4 @@ ms.locfileid: "35416744"
 > [!div class="nextstepaction"]
 > [Azure 流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 
-<!--Update_Description: update meta properties, wording update, update link -->
+<!--Update_Description: update meta properties, wording update -->

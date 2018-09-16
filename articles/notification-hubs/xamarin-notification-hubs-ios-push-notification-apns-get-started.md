@@ -15,14 +15,14 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
 origin.date: 04/14/2018
-ms.date: 08/09/2018
+ms.date: 09/10/2018
 ms.author: v-junlch
-ms.openlocfilehash: 9700150cd98c2e403fa4413dbea3f1bfabe3cb60
-ms.sourcegitcommit: 2d44abf2c428316c5e60cc701bafe8c40356c8eb
+ms.openlocfilehash: ac6a321a51dd7f071605b0abd28916339ae08624
+ms.sourcegitcommit: 1471663f5f5a1c4e1fbead7c4d351610cb0086bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39722765"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44363572"
 ---
 # <a name="tutorial-push-notifications-to-xamarinios-apps-using-azure-notification-hubs"></a>教程：使用 Azure 通知中心向 Xamarin.iOS 应用推送通知
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -30,7 +30,7 @@ ms.locfileid: "39722765"
 ## <a name="overview"></a>概述
 本教程演示如何使用 Azure 通知中心将推送通知发送到 iOS 应用程序。 你将创建一个空白 Xamarin.iOS 应用，它使用 [Apple Push Notification 服务 (APNs)](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html) 接收推送通知。 
 
-完成后，你将能够使用通知中心将推送通知广播到运行你的应用的所有设备。 [NotificationHubs][GitHub] 应用程序示例中提供了完成的代码。
+完成后，你将能够使用通知中心将推送通知广播到运行你的应用的所有设备。 [NotificationHubs 应用][GitHub]示例中提供了完成的代码。
 
 在本教程中，你创建/更新代码来执行以下任务： 
 
@@ -50,7 +50,7 @@ ms.locfileid: "39722765"
 - [Visual Studio for Mac]
   
   > [!NOTE]
-  > 由于 iOS 推送通知配置要求，你必须在物理 iOS 设备（iPhone 或 iPad）而不是在模拟器上部署和测试示例应用程序。
+  > 由于 iOS 推送通知配置要求，必须在物理 iOS 设备（iPhone 或 iPad）而不是在模拟器上部署和测试示例应用程序。
 
 只有在完成本教程后，才能完成有关 Xamarin iOS 应用的所有其他通知中心教程。
 
@@ -140,7 +140,7 @@ ms.locfileid: "39722765"
         }
     ```
 
-10. 重写 AppDelegate.cs 中的 RegisteredForRemoteNotifications() 方法：
+10. 重写 **AppDelegate.cs** 中的 **RegisteredForRemoteNotifications()** 方法：
    
     ```csharp
         public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
@@ -163,7 +163,7 @@ ms.locfileid: "39722765"
         }
     ```
 
-11. 重写 AppDelegate.cs 中的 ReceivedRemoteNotification() 方法：
+11. 重写 **AppDelegate.cs** 中的 **ReceivedRemoteNotification()** 方法：
    
     ```csharp
         public override void ReceivedRemoteNotification(UIApplication application, NSDictionary userInfo)
@@ -172,7 +172,7 @@ ms.locfileid: "39722765"
         }
     ```
 
-12. 在 AppDelegate.cs 中创建以下 ProcessNotification() 方法：
+12. 在 **AppDelegate.cs** 中创建以下 **ProcessNotification()** 方法：
    
     ```csharp
         void ProcessNotification(NSDictionary options, bool fromFinishedLaunching)
@@ -210,7 +210,7 @@ ms.locfileid: "39722765"
         }
     ```
    > [!NOTE]
-   > 可选择覆盖 FailedToRegisterForRemoteNotifications() 以处理无网络连接等情况。 如果用户可能会在脱机模式（例如飞行模式）下启动应用程序，并且你想要处理应用特定的推送消息传送方案，则此操作特别重要。
+   > 可以选择覆盖 **FailedToRegisterForRemoteNotifications()** 以处理无网络连接等情况。 如果用户可能会在脱机模式（例如飞行模式）下启动应用程序，并且你想要处理应用特定的推送消息传送方案，则此操作特别重要。
   
 
 13. 在设备上运行应用程序。
@@ -220,7 +220,7 @@ ms.locfileid: "39722765"
 
 ![Azure 门户 - 测试性发送][30]
 
-通常，推送通知是在后端服务（例如，Mobile Apps，或者使用兼容库的 ASP.NET）中发送的。 如果后端没有可用库，也可使用 REST API 直接发送通知消息。
+通常，推送通知是在后端服务（例如，移动应用，或者使用兼容库的 ASP.NET）中发送的。 如果后端没有可用库，也可使用 REST API 直接发送通知消息。
 
 ## <a name="next-steps"></a>后续步骤
 本教程介绍了如何将广播通知发送到所有注册到后端的 iOS 设备。 若要了解如何向特定的 iOS 设备推送通知，请转到以下教程： 
@@ -249,8 +249,8 @@ ms.locfileid: "39722765"
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 [Visual Studio for Mac]: https://www.visualstudio.com/vs/visual-studio-mac/
-[Use Notification Hubs to push notifications to users]: /notification-hubs/notification-hubs-aspnet-backend-windows-dotnet-wns-notification
-[Use Notification Hubs to send breaking news]: /notification-hubs/notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns
+[Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
+[Use Notification Hubs to send breaking news]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
 
 [Local and Push Notification Programming Guide]:https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/HandlingRemoteNotifications.html#//apple_ref/doc/uid/TP40008194-CH6-SW1
 
@@ -258,3 +258,4 @@ ms.locfileid: "39722765"
 [GitHub]: https://github.com/xamarin/mobile-samples/tree/master/Azure/NotificationHubs
 [Azure 门户]: https://portal.azure.cn
 
+<!-- Update_Description: link update -->

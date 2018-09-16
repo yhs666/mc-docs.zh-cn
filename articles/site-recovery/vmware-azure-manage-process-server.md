@@ -4,15 +4,15 @@ description: 本文介绍如何在 Azure Site Recovery 中管理为 VMware VM �
 author: rockboyfor
 ms.service: site-recovery
 ms.topic: conceptual
-origin.date: 06/20/2018
-ms.date: 07/23/2018
+origin.date: 07/21/2018
+ms.date: 09/17/2018
 ms.author: v-yeche
-ms.openlocfilehash: abd68257ee5a9a9c383bbbd34ea0c197c0e2650f
-ms.sourcegitcommit: f7ff09be9f3be5e3eb795e383c0c670f480f233d
+ms.openlocfilehash: 6df59cc1768a3a9fa0666ba7a517a621ee008c85
+ms.sourcegitcommit: 96d06c506983906a92ff90a5f67199f8f7e10996
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39169049"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45586824"
 ---
 # <a name="manage-process-servers"></a>管理进程服务器
 
@@ -77,5 +77,5 @@ ms.locfileid: "39169049"
 
 [!INCLUDE [site-recovery-vmware-unregister-process-server](../../includes/site-recovery-vmware-unregister-process-server.md)]
 
-<!--The parent file of includes file of site-recovery-vmware-upgrade-process-server-internal.md-->
-<!--ms.date:07/23/2018-->
+<!--Update_Description: update meta properties, wording update -->
+

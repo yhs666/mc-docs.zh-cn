@@ -9,14 +9,14 @@ ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc
 origin.date: 06/26/2018
-ms.date: 08/06/2018
+ms.date: 09/17/2018
 ms.author: v-yeche
-ms.openlocfilehash: c15ab72ea75e8b710adfdb958930b21d6e4d195d
-ms.sourcegitcommit: 57f5fd57fc1077252885b656263e79aaeca4763a
+ms.openlocfilehash: d1ee7342f18f54fb2e021b675a0e034f6510c2b5
+ms.sourcegitcommit: 2700f127c3a8740a83fb70739c09bd266f0cc455
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "41703977"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45586610"
 ---
 # <a name="quickstart-process-event-streams-using-azure-cli-and-java"></a>快速入门：使用 Azure CLI 和 Java 处理事件流
 
@@ -158,6 +158,7 @@ final ConnectionStringBuilder connStr = new ConnectionStringBuilder()
         .setSasKeyName("Your policy name")
         .setSasKey("Your primary SAS key");
 ```
+<!-- Notice: SetEndPoint configuration-->
 
 然后，将包含事件有效负载的 Java 对象转换为 Json：
 
@@ -296,8 +297,8 @@ public void onEvents(PartitionContext context, Iterable<EventData> events) throw
 
 [创建一个试用帐户]: https://www.azure.cn/pricing/1rmb-trial/
 [Install Azure CLI 2.0]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
-[az group create]: https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create
+[az group create]: https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
 
-<!-- Update_Description: new articles on event hubs quickstart cli  -->
-<!--ms.date: 08/06/2018-->
+<!-- Update_Description: update meta properties, wording update  -->
+

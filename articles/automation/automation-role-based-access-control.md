@@ -11,12 +11,12 @@ origin.date: 05/17/2018
 ms.date: 09/10/2018
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 7e58fee5f78bfd99cc1d5ac32edd2d28fd119286
-ms.sourcegitcommit: 1b60848d25bbd897498958738644a4eb9cf3a302
+ms.openlocfilehash: 62b58551d9a2c0d7aa07517e84fdc35fd740e963
+ms.sourcegitcommit: 2700f127c3a8740a83fb70739c09bd266f0cc455
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43731215"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45586621"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Azure 自动化中基于角色的访问控制
 
@@ -257,7 +257,7 @@ Remove-AzureRmRoleAssignment -SignInName <sign-in Id of a user you wish to remov
 
 通过 Azure 自动化，可以将 RBAC 分配给特定的 Runbook。 若要执行此操作，运行以下脚本将用户添加到特定 Runbook。 以下脚本可由自动化帐户管理员或租户管理员运行。
 
-```azurepowershell-interactive
+```powershell
 $rgName = "<Resource Group Name>" # Resource Group name for the Automation Account
 $automationAccountName ="<Automation Account Name>" # Name of the Automation Account
 $rbName = "<Name of Runbook>" # Name of the runbook

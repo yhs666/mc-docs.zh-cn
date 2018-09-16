@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 03/19/2018
-ms.date: 05/28/2018
+ms.date: 09/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: 867222d2ae08250a8a9d0c957d8d3a7373ad91e7
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: 563f0a424e4e02766911730979981b5de1f943bc
+ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554562"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44515745"
 ---
 # <a name="implementing-service-level-features-in-your-actor-service"></a>在执行组件服务中实现服务级功能
 如[服务分层](service-fabric-reliable-actors-platform.md#service-layering)中所述，执行组件服务本身是一项可靠的服务。  可以编写自己的派生自 `ActorService` 的服务，并且以与继承 StatefulService 时一样的方式实现服务级别的功能，例如：
@@ -51,7 +51,7 @@ CompletableFuture<?> MyActorMethod()
 }
 ```
 
-与所有 Reliable Services 一样，执行组件服务必须使用 Service Fabric 运行时中的服务类型注册。 为了使执行组件服务能够运行执行组件实例，还必须向执行组件服务注册执行组件类型。 `ActorRuntime` 注册方法为执行组件执行此操作。 最简单的情况是，用户只需注册执行组件类型，并隐式使用具有默认设置的执行组件服务：
+与所有 Reliable Services 一样，执行组件服务必须使用 Service Fabric 运行时中的服务类型注册。 为了使执行组件服务能够运行执行组件实例，还必须向执行组件服务注册执行组件类型。 `ActorRuntime` 注册方法将为执行组件执行此操作。 最简单的情况是，只需注册执行组件类型，然后隐式使用具有默认设置的执行组件服务：
 
 ```csharp
 static class Program
@@ -149,24 +149,53 @@ public class Program
 ## <a name="implementing-actor-backup-and-restore"></a>实现执行组件备份和还原
 自定义执行组件服务可通过利用于 `ActorService` 中已存在的远程侦听器公开备份执行组件数据的方法。  有关示例，请参阅[备份和还原执行组件](service-fabric-reliable-actors-backup-and-restore.md)。
 
+## <a name="actor-using-remoting-v2interfacecompatible-stack"></a>使用 Remoting V2(InterfaceCompatible) 堆栈的执行组件
+Remoting V2（InterfaceCompatible 又称为 V2_1）堆栈除了是与 Remoting V1 堆栈接口兼容的堆栈外，还具有 V2 Remoting 堆栈的所有功能，但不向后兼容 V2 和 V1。 若要在不影响服务可用性的情况下从 V1 升级到 V2_1，请按照下面的[文章](#actor-service-upgrade-to-remoting-v2interfacecompatible-stack-without-impacting-service-availability)进行操作。
+
+需要进行以下更改才能使用 Remoting V2_1 堆栈。
+ 1. 在参与者界面中添加以下程序集属性。
+   ```csharp
+   [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2_1,RemotingClientVersion = RemotingClientVersion.V2_1)]
+   ```
+
+ 2. 生成并升级 ActorService 和参与者客户端项目以开始使用 V2 堆栈。
+
+#### <a name="actor-service-upgrade-to-remoting-v2interfacecompatible-stack-without-impacting-service-availability"></a>在不影响服务可用性的情况下将执行组件服务升级到 Remoting V2(InterfaceCompatible) 堆栈。
+这项更改是包括 2 个步骤的升级过程。 按照所列的顺序执行步骤。
+
+1.  在参与者界面中添加以下程序集属性。 此属性针对 ActorService 启动两个侦听器：V1（现有）和 V2_1 侦听器。 通过此项更改升级 ActorService。
+
+  ```csharp
+  [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V1|RemotingListenerVersion.V2_1,RemotingClientVersion = RemotingClientVersion.V2_1)]
+  ```
+
+2. 完成上述升级后，升级 ActorClients。
+此步骤确保执行组件代理使用 Remoting V2_1 堆栈。
+
+3. 此步骤是可选的。 更改上述属性可删除 V1 侦听器。
+
+    ```csharp
+    [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2_1,RemotingClientVersion = RemotingClientVersion.V2_1)]
+    ```
+
 ## <a name="actor-using-remoting-v2-stack"></a>使用 Remoting V2 堆栈的参与者
 借助 2.8 Nuget 包，用户现在可以使用更高性能的 Remoting V2 堆栈，它提供自定义序列化等功能。 Remoting V2 不与现有的 Remoting 堆栈（称为 V1 Remoting 堆栈）向后兼容。
 
 需要进行以下更改才能使用 Remoting V2 堆栈。
  1. 在参与者界面中添加以下程序集属性。
    ```csharp
-   [assembly:FabricTransportActorRemotingProvider(RemotingListener = RemotingListener.V2Listener,RemotingClient = RemotingClient.V2Client)]
+   [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2,RemotingClientVersion = RemotingClientVersion.V2)]
    ```
 
  2. 生成并升级 ActorService 和参与者客户端项目以开始使用 V2 堆栈。
 
-### <a name="actor-service-upgrade-to-remoting-v2-stack-without-impacting-service-availability"></a>在不影响服务可用性的情况下将参与者服务升级到 Remoting V2 堆栈。
+#### <a name="actor-service-upgrade-to-remoting-v2-stack-without-impacting-service-availability"></a>在不影响服务可用性的情况下将参与者服务升级到 Remoting V2 堆栈。
 这项更改是包括 2 个步骤的升级过程。 按照所列的顺序执行步骤。
 
 1.  在参与者界面中添加以下程序集属性。 此属性针对 ActorService 启动两个侦听器：V1（现有）和 V2 侦听器。 通过此项更改升级 ActorService。
 
   ```csharp
-  [assembly:FabricTransportActorRemotingProvider(RemotingListener = RemotingListener.CompatListener,RemotingClient = RemotingClient.V2Client)]
+  [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V1|RemotingListenerVersion.V2,RemotingClientVersion = RemotingClientVersion.V2)]
   ```
 
 2. 完成上述升级后，升级 ActorClients。
@@ -175,7 +204,7 @@ public class Program
 3. 此步骤是可选的。 更改上述属性可删除 V1 侦听器。
 
     ```csharp
-    [assembly:FabricTransportActorRemotingProvider(RemotingListener = RemotingListener.V2Listener,RemotingClient = RemotingClient.V2Client)]
+    [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2,RemotingClientVersion = RemotingClientVersion.V2)]
     ```
 
 ## <a name="next-steps"></a>后续步骤
@@ -191,4 +220,4 @@ public class Program
 [3]: ./media/service-fabric-reliable-actors-platform/actor-partition-info.png
 [4]: ./media/service-fabric-reliable-actors-platform/actor-replica-role.png
 [5]: ./media/service-fabric-reliable-actors-introduction/distribution.png
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update -->

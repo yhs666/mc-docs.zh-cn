@@ -11,17 +11,18 @@ ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.technology: vs-azure
+ms.workload: azure-vs
 origin.date: 03/26/2018
-ms.date: 08/20/2018
+ms.date: 09/10/2018
 ms.author: v-yeche
-ms.custom: mvc, devcenter
-ms.openlocfilehash: ae5786888a1c7dc1a52076722fcb0119914794a9
-ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
+ms.custom: mvc, devcenter, vs-azure
+ms.openlocfilehash: d0ea1701098acf061ce638d53b1b2df39218f5b7
+ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41706235"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44515671"
 ---
 # <a name="quickstart-deploy-a-net-reliable-services-application-to-service-fabric"></a>快速入门：将 .NET Reliable Services 应用程序部署到 Service Fabric
 
@@ -43,12 +44,12 @@ Azure Service Fabric 是一款分布式系统平台，可用于部署和管理�
 
 ## <a name="prerequisites"></a>先决条件
 
-若要完成本快速入门教程，需先执行以下操作：
+完成本快速入门教程：
 
-1. [安装 Visual Studio 2017](https://www.visualstudio.com/)，其中包含 Azure 开发以及 ASP.NET 和 Web 开发工作负荷。
+1. [安装 Visual Studio 2017](https://www.visualstudio.com/)，其中包含 Azure 开发以及 ASP.NET 和 Web 开发工作负载。
 2. [安装 Git](https://git-scm.com/)
 3. [安装 Azure Service Fabric SDK](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK)
-4. 运行以下命令，以便 Visual Studio 将应用程序部署到本地 Service Fabric 群集：
+4. 运行以下命令，将 Visual Studio 启用为把应用程序部署到本地 Service Fabric 群集：
     ```powershell
     Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
     ```
@@ -129,7 +130,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
     * 在方法 (1) 的第一行，`StateManager` 获取或添加一个可靠字典 `counts`。
     * 与可靠字典中的值进行的所有交互都需要使用事务，这个 using 语句（图中标识为2）负责创建此事务。
     * 在事务中更新投票选项的相关键值，并提交操作 (3)。 提交方法返回后，便会更新字典中的数据，并将数据复制到群集中的其他节点。 数据现在安全地存储在群集中，并且后端服务可以故障转移到其他节点，同时数据仍可用。
-5. 按 F5 继续操作
+5. 按 F5 以继续操作
 
 若要停止调试会话，请按 Shift+F5。
 
@@ -205,7 +206,7 @@ Service Fabric Explorer 在所有 Service Fabric 群集中运行，并能通过�
 
 ## <a name="perform-a-rolling-application-upgrade"></a>执行应用程序滚动升级
 
-将新更新部署到应用程序时，Service Fabric 会安全地分阶段发布更新。 借助滚动升级，可以杜绝升级时的故障时间，并在出错时自动回退。
+将新更新部署到应用程序时，Service Fabric 会安全地分阶段发布更新。 借助滚动升级，可以杜绝升级时的故障时间，并在出错时自动回滚。
 
 若要升级应用程序，请执行以下操作：
 
@@ -245,4 +246,4 @@ Service Fabric Explorer 在所有 Service Fabric 群集中运行，并能通过�
 > [!div class="nextstepaction"]
 > [Service Fabric 上的 .NET 应用程序](service-fabric-tutorial-create-dotnet-app.md)
 
-<!--Update_Description: update meta properties, wording update, update link -->
+<!--Update_Description: update meta properties, wording update  -->

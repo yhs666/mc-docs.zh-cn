@@ -10,12 +10,12 @@ origin.date: 08/08/2018
 ms.date: 09/10/2018
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 4874c1e614a803dd594867d403388adc5f07b698
-ms.sourcegitcommit: 1b60848d25bbd897498958738644a4eb9cf3a302
+ms.openlocfilehash: b3f280261b5b492125fc06345337e8e2c46a3cb6
+ms.sourcegitcommit: 2700f127c3a8740a83fb70739c09bd266f0cc455
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43731203"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45586617"
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>用例：使用 Automation State Configuration 和 Chocolatey 持续部署到虚拟机
 
@@ -39,27 +39,27 @@ DevOps 领域中有许多工具可帮助你处理持续集成管道中的各个�
 
 Desired State Configuration (DSC)（[概述](https://docs.microsoft.com/powershell/dsc/overview)）是一个 PowerShell 工具，可使用它为计算机声明所需的配置。 例如，可以说“我想要安装 Chocolatey、我想要安装 IIS、我想要打开端口 80、我想要安装网站 1.0.0 版”。 DSC 本地配置管理器 (LCM) 实现该配置。 DSC“拉”服务器有一个存储库用于保存计算机的配置。 每台计算机上的 LCM 定期检查计算机的配置是否与存储的配置匹配。 它可以报告状态，也可以尝试让计算机恢复到与存储的配置匹配。 可以编辑“拉”服务器上存储的配置，使一台计算机或一组计算机与更改的配置匹配。
 
-Azure 自动化是 Microsoft Azure 中的托管服务，可让你使用 Runbook、节点、凭据、资源以及计划和全局变量之类的资产，将各种任务自动化。
+Azure 自动化是 Azure 中的托管服务，允许使用 Runbook、节点、凭据、资源以及资产（如计划和全局变量），自动执行各种任务。
 Azure Automation State Configuration 扩展了此自动化功能，包含 PowerShell DSC 工具。 下面是全面的[概述](automation-dsc-overview.md)。
 
-DSC 资源是具有特定功能的代码模块，例如管理网络、Active Directory 或 SQL Server。 Chocolatey DSC 资源知道如何访问 NuGet 服务器（以及其他组件）、下载包、安装包，等等。 [PowerShell 库](http://www.powershellgallery.com/packages?q=dsc+resources&prerelease=&sortOrder=package-title)中有其他许多 DSC 资源。
+DSC 资源是具有特定功能的代码模块，例如管理网络、Active Directory 或 SQL Server。 Chocolatey DSC 资源知道如何访问 NuGet 服务器（以及其他组件）、下载包、安装包，等等。 [PowerShell 库](http://www.powershellgallery.com/packages?q=dsc+resources&prerelease=&sortOrder=package-title)中有许多其他 DSC 资源。
 这些模块已安装到 Azure Automation State Configuration 拉取服务器（由你安装）以供配置使用。
 
 Resource Manager 模板以声明方式生成基础结构，例如网络、子网、网络安全性和路由、负载均衡器、NIC、VM，等等。 这篇[文章](../azure-resource-manager/resource-manager-deployment-model.md)比较资源管理器部署模型（声明性）和 Azure 服务管理（ASM 或经典）部署模型（命令性），并讨论核心资源提供程序、计算、存储和网络。
 
-Resource Manager 模板的一项主要功能是能够在预配时将 VM 扩展安装到 VM 中。 VM 扩展模块具有特定功能，例如运行自定义脚本、安装防病毒软件或运行 DSC 配置脚本。 有许多其他类型的 VM 扩展。
+资源管理器模板的一项主要功能是在预配时将 VM 扩展安装到 VM 中。 VM 扩展模块具有特定功能，例如运行自定义脚本、安装防病毒软件或运行 DSC 配置脚本。 有许多其他类型的 VM 扩展。
 
 ## <a name="quick-trip-around-the-diagram"></a>示意图速览
 
-首先，需要编写、生成和测试代码，并创建安装包。
-Chocolatey 可以处理各种类型的安装包，例如 MSI、MSU、ZIP。 如果 Chocolatey 的本机功能不足以满足需要，还有 PowerShell 的完整功能可执行实际安装。 将包放入可访问的位置 – 包存储库。 本用例使用 Azure Blob 存储帐户中的公共文件夹，但它可以位于任何位置。 Chocolatey 原生可配合 NuGet 服务器和其他某些工具一起管理包元数据。 [本文](https://github.com/chocolatey/choco/wiki/How-To-Host-Feed) 介绍了相应的选项。 本用例使用 NuGet。 Nuspec 是包的元数据。 Nuspec 将“编译”成 NuPkg，然后存储在 NuGet 服务器中。 当配置按名称请求某个包并引用 NuGet 服务器时，Chocolatey DSC 资源（现在位于 VM 中）将获取并安装包。 也可以请求特定版本的包。
+首先，需要编写、生成和测试代码，然后创建安装包。
+Chocolatey 可以处理各种类型的安装包，例如 MSI、MSU、ZIP。 如果 Chocolatey 的本机功能不足以满足需要，还有 PowerShell 的完整功能可执行实际安装。 将包放入可访问的位置 – 包存储库。 本用例使用 Azure Blob 存储帐户中的公共文件夹，但它可以位于任何位置。 Chocolatey 原生可配合 NuGet 服务器和其他某些工具一起管理包元数据。 [本文](https://github.com/chocolatey/choco/wiki/How-To-Host-Feed)介绍了相应的选项。 本用例使用 NuGet。 Nuspec 是包的元数据。 Nuspec 将“编译”成 NuPkg，然后存储在 NuGet 服务器中。 当配置按名称请求某个包并引用 NuGet 服务器时，Chocolatey DSC 资源（现在位于 VM 中）将获取并安装包。 也可以请求特定版本的包。
 
 示意图左下方有一个 Azure 资源管理器模板。 在本用例中，VM 扩展将 VM 注册到 Azure Automation State Configuration“拉”服务器（即请求服务器）成为“节点”。 配置存储在“拉”服务器中。
-实际上存储两次：一次存储为纯文本，另一次编译成 MOF 文件（适用于对此有所了解的人）。在门户，MOF 是“节点配置”（而不只是“配置”）。 它是与“节点”关联的项目，因此节点知道它的配置。 以下详细信息演示如何将节点配置分配给节点。
+实际上存储两次：一次存储为纯文本，另一次编译成 MOF 文件（适用于对此有所了解的人）。在门户，MOF 是“节点配置”（而不只是“配置”）。 它是与“节点”关联的项目，节点知道它的配置。 以下详细信息演示如何将节点配置分配给节点。
 
-也许已执行了开头的一点或大部分操作。 创建和编译 nuspec 并将其存储在 NuGet 服务器中是一件很简单的事。 并且已在管理 VM。 持续部署的下一步需要设置拉取服务器（一次）、向它注册节点（一次），然后创建配置并存储到节点中（初步）。 接下来，当包升级并部署到存储库时，请刷新“拉”服务器中的“配置”和“节点配置”（根据需要重复）。
+也许已执行了开头的一点或大部分操作。 创建和编译 nuspec 并将其存储在 NuGet 服务器中是一件很简单的事。 此外，你已在管理 VM。 持续部署的下一步需要设置拉取服务器（一次）、向它注册节点（一次），然后创建配置并存储到节点中（初步）。 接下来，当包升级并部署到存储库时，请刷新“拉”服务器中的“配置”和“节点配置”（根据需要重复）。
 
-如果不是从资源管理器模板开始，也没关系。 有一些 PowerShell Cmdlet 可帮助你向“拉”服务器注册 VM，以及完成余下的所有工作。 有关详细信息，请参阅以下文章：[载入由 Azure Automation State Configuration 管理的计算机](automation-dsc-onboarding.md)。
+如果不是从资源管理器模板开始，也没关系。 有一些 PowerShell Cmdlet 可帮助你向拉取服务器注册 VM，以及完成余下的所有工作。 有关详细信息，请参阅以下文章：[载入由 Azure Automation State Configuration 管理的计算机](automation-dsc-onboarding.md)。
 
 ## <a name="step-1-setting-up-the-pull-server-and-automation-account"></a>步骤 1：设置“拉”服务器和自动化帐户
 
@@ -76,7 +76,7 @@ Chocolatey 可以处理各种类型的安装包，例如 MSI、MSU、ZIP。 如�
 ## <a name="step-3-adding-required-dsc-resources-to-the-pull-server"></a>步骤 3：将所需的 DSC 资源添加到“拉”服务器
 
 适用于 Windows 计算机的 PowerShell 集成模块的文件夹结构与 Azure 自动化所需的文件夹结构稍有不同。
-需要稍微缩放一下。 但这并不困难，并且每个资源只需调整一次（除非将来想要升级）。） 有关创作 PowerShell 集成模块的详细信息，请参阅以下文章： [Authoring Integration Modules for Azure Automation](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/)
+需要稍微缩放一下。 但这并不困难，并且每个资源只需调整一次（除非将来想要升级）。有关创作 PowerShell 集成模块的详细信息，请参阅以下文章：[Authoring Integration Modules for Azure Automation](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/)（创作 Azure 自动化的集成模块）
 
 - 将所需的模块安装到工作站，如下所示：
   - 安装 [Windows Management Framework v5](http://aka.ms/wmf5latest)（对于 Windows 10 不需要安装）
@@ -93,11 +93,11 @@ Chocolatey 可以处理各种类型的安装包，例如 MSI、MSU、ZIP。 如�
     -Name MODULE-NAME –ContentLink 'https://STORAGE-URI/CONTAINERNAME/MODULE-NAME.zip'
   ```
 
-随附的示例针对 cChoco 和 xNetworking 执行这些步骤。 有关 cChoco 的特殊处理，请参阅 [注释](#notes) 。
+随附的示例针对 cChoco 和 xNetworking 执行这些步骤。 有关 cChoco 的特殊处理，请参阅[注释](#notes)。
 
 ## <a name="step-4-adding-the-node-configuration-to-the-pull-server"></a>步骤 4：将节点配置添加到“拉”服务器
 
-首次将配置导入请求服务器并进行编译时并没有什么特别之处。 后续导入/编译相同的配置时，过程完全相同。 每次更新包且需要向外推送到生产环境时，在确保配置文件（包括包的新版本）正确之后，就可以执行此步骤。 下面是配置文件和 PowerShell：
+首次将配置导入到“拉”服务器并进行编译并没有什么特别之处。 后续导入/编译相同的配置时，过程完全相同。 每次更新包且需要向外推送到生产环境时，在确保配置文件（包括包的新版本）正确之后，就可以执行此步骤。 下面是配置文件和 PowerShell：
 
 ISVBoxConfig.ps1：
 
@@ -169,12 +169,12 @@ Get-AzureRmAutomationDscCompilationJob `
 ## <a name="step-5-creating-and-maintaining-package-metadata"></a>步骤 5：创建和维护包元数据
 
 对于放入包存储库中的每一个包，需要使用 nuspec 来描述它。
-该 nuspec 必须经过编译并存储在 NuGet 服务器中。 [此处](http://docs.nuget.org/create/creating-and-publishing-a-package)对该过程进行了说明。 可以使用 MyGet.org 作为 NuGet 服务器。 他们销售这种服务，但也提供免费的初始 SKU。 在 NuGet.org 中，可以找到有关为专用包安装 NuGet 服务器的说明。
+该 nuspec 必须经过编译并存储在 NuGet 服务器中。 [此处](http://docs.nuget.org/create/creating-and-publishing-a-package)对该过程进行了说明。 可以使用 MyGet.org 作为 NuGet 服务器。 他们销售这种服务，但也提供免费的初始 SKU。 在 NuGet.org 中，可以找到为专用包安装你自己的 NuGet 服务器的说明。
 
 ## <a name="step-6-tying-it-all-together"></a>步骤 6：汇总
 
 每当有某个版本通过 QA 和部署批准时，即会创建包，更新 nuspec 和 nupkg 并将其部署到 NuGet 服务器。 此外，还必须更新配置（上述步骤 4）以便与新版本号匹配。 配置必须发送到“拉”服务器并进行编译。
-然后，依赖于该配置的 VM 提取并安装更新。 其中的每项更新都很简单 - 只需一两行的 PowerShell 命令。 以 Visual Studio Team Services 为例，有些更新封装在可一起链接到内部版本内的生成任务中。 [本文](https://www.visualstudio.com/docs/alm-devops-feature-index#continuous-delivery) 提供更多详细信息。 此 [GitHub 存储库](https://github.com/Microsoft/vso-agent-tasks) 详细介绍了各种可用的生成任务。
+然后，依赖于该配置的 VM 提取并安装更新。 其中的每项更新都很简单 - 只需一两行的 PowerShell 命令。 以 Visual Studio Team Services 为例，有些更新封装在可一起链接到内部版本内的生成任务中。 [本文](https://www.visualstudio.com/docs/alm-devops-feature-index#continuous-delivery)提供更多详细信息。 此 [GitHub 存储库](https://github.com/Microsoft/vso-agent-tasks)详细介绍了各种可用的生成任务。
 
 ## <a name="notes"></a>注释
 
@@ -185,7 +185,7 @@ Get-AzureRmAutomationDscCompilationJob `
 
 当然，在生产环境中的 VM 上更新包时，在安装更新的过程中，需要将 VM 从轮转列表中排除。 具体的操作根据情况而有很大的差异。 例如，如果 VM 在 Azure 负载均衡器后面，则可以添加自定义探测。 更新 VM 时，让探测终结点返回 400。 可在配置中进行所需的调整来造成这种更改，但更新完成时，调整将切换为返回 200。
 
-GitHub 上的 [此 Visual Studio 项目](https://github.com/sebastus/ARM/tree/master/CDIaaSVM) 中提供了本用例的完整源代码。
+GitHub 上的[此 Visual Studio 项目](https://github.com/sebastus/ARM/tree/master/CDIaaSVM)中提供了本用例的完整源代码。
 
 ## <a name="related-articles"></a>相关文章
 * [Azure 自动化 DSC 概述](automation-dsc-overview.md)

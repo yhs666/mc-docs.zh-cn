@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: c
 ms.devlang: csharp
 ms.topic: article
-origin.date: 12/04/2017
-ms.date: 07/16/2018
+origin.date: 08/16/2018
+ms.date: 09/17/2018
 ms.author: v-yeche
-ms.openlocfilehash: bf3a6a7d563d378a02e7789a329c71c1f92452e1
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.openlocfilehash: 9ff1c6f3cf1c05d174e8f5c6b49cb4d20a3f8a3d
+ms.sourcegitcommit: 2700f127c3a8740a83fb70739c09bd266f0cc455
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39167678"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45586568"
 ---
 # <a name="send-events-to-azure-event-hubs-using-c"></a>使用 C 将事件发送到 Azure 事件中心
 
 ## <a name="introduction"></a>简介
-事件中心是一个高度可缩放的引入系统，每秒可引入数百万事件，从而使应用程序能够处理和分析连接的设备和应用程序所产生的海量数据。 将数据采集到事件中心后，可以使用任何实时分析提供程序或存储群集来转换和存储数据。
+事件中心是一个具备高度伸缩性的引入系统，每秒可收入大量事件，从而使应用程序能够处理和分析连接的设备和应用程序所产生的海量数据。 将数据采集到事件中心后，可以使用任何实时分析提供程序或存储群集来转换和存储数据。
 
 有关详细信息，请参阅[事件中心概述](/event-hubs/event-hubs-overview)。
 
@@ -61,7 +61,7 @@ ms.locfileid: "39167678"
     cmake -DCMAKE_INSTALL_PREFIX=/usr ..
     sudo make install
     ```
-5. 在工作目录中，创建一个包含以下代码的名为 sender.c 的新文件。 请记得替换为你的 SAS 密钥/名称、事件中心名称和命名空间的值。 还必须用密钥的 URL 编码版本替换之前创建的 **SendRule**。 可以在 [此处](http://www.w3schools.com/tags/ref_urlencode.asp)对它进行 URL 编码。
+5. 在工作目录中，创建一个包含以下代码的名为 sender.c 的新文件。 请记得替换为你的 SAS 密钥/名称、事件中心名称和命名空间的值。 还必须用密钥的 URL 编码版本替换之前创建的 **SendRule**。 可以在[此处](http://www.w3schools.com/tags/ref_urlencode.asp)对它进行 URL 编码。
 
     ```c
     #include "proton/message.h"
@@ -142,7 +142,7 @@ ms.locfileid: "39167678"
         return 0;
     }
     ```
-6. 使用 **gcc**编译该文件：
+6. 使用 **gcc** 编译该文件：
 
     ```
     gcc sender.c -o sender -lqpid-proton
@@ -155,7 +155,7 @@ ms.locfileid: "39167678"
 访问以下链接可以了解有关事件中心的详细信息：
 
 * [事件中心概述](event-hubs-what-is-event-hubs.md)
-* [事件中心常见问题](event-hubs-faq.md)
+* [事件中心常见问题解答](event-hubs-faq.md)
 
 <!-- Images. -->
 [21]: ./media/event-hubs-c-ephcs-getstarted/run-csharp-ephcs1.png

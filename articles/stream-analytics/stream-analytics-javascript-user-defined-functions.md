@@ -8,18 +8,18 @@ manager: digimobile
 ms.assetid: ''
 ms.service: stream-analytics
 ms.topic: tutorial
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.custom: mvc
 origin.date: 04/01/2018
-ms.date: 05/07/2018
+ms.date: 09/17/2018
 ms.workload: data-services
 ms.author: v-yeche
-ms.openlocfilehash: edde8d3498b289ef4743c8d2a56c82bd25889fd8
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.openlocfilehash: f1e68c67e27bb0981ffeb6cbd3288bda10d5b16c
+ms.sourcegitcommit: 2700f127c3a8740a83fb70739c09bd266f0cc455
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33815175"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45586605"
 ---
 # <a name="tutorial-azure-stream-analytics-javascript-user-defined-functions"></a>教程：Azure 流分析 JavaScript 用户定义的函数
 
@@ -54,7 +54,7 @@ JavaScript 用户定义的函数支持仅用于计算的且不需要外部连接
 若要在现有的流分析作业中创建一个简单的 JavaScript 用户定义的函数，请执行以下步骤：
 
 1. 在 Azure 门户中找到流分析作业。
-2. 在“作业拓扑”下面选择函数。 此时显示一个空白的函数列表。
+2. 在“作业拓扑”下面选择函数。 此时会显示一个空白的函数列表。
 3. 若要新建用户的定义函数，请选择“添加”。
 4. 在“新建函数”边栏选项卡中，为“函数类型”选择“JavaScript”。 编辑器中会显示默认函数模板。
 5. 为“UDF 别名”输入 **hex2Int**，并按如下所示更改函数实现：
@@ -66,8 +66,8 @@ JavaScript 用户定义的函数支持仅用于计算的且不需要外部连接
     }
     ```
 
-6. 选择“其他安全性验证” 。 该函数随即显示在函数列表中。
-7. 选择新的 **hex2Int** 函数并检查函数定义。 所有函数的函数别名带有 **UDF** 前缀。 在流分析查询中调用该函数时，需要 *包含该前缀* 。 在本例中，调用的是 **UDF.hex2Int**。
+6. 选择“保存”。 该函数随即显示在函数列表中。
+7. 选择新的 **hex2Int** 函数并检查函数定义。 所有函数的函数别名带有 **UDF** 前缀。 在流分析查询中调用该函数时，需要*包含该前缀*。 在本例中，调用的是 **UDF.hex2Int**。
 
 ## <a name="call-a-javascript-user-defined-function-in-a-query"></a>在查询中调用 JavaScript 用户定义的函数
 
@@ -94,11 +94,11 @@ Azure 流分析 JavaScript 用户定义的函数支持标准的内置 JavaScript
 
 流分析查询语言与 JavaScript 支持的类型有差别。 下表列出了两者之间的转换映射：
 
-流分析 | Javascript
+流分析 | JavaScript
 --- | ---
 bigint | 数字（JavaScript 只能精确呈现最大 2^53 的整数）
 DateTime | 日期（JavaScript 仅支持毫秒）
-Double | Number
+double | Number
 nvarchar(MAX) | String
 记录 | 对象
 Array | Array
@@ -106,9 +106,9 @@ Null | Null
 
 下面是 JavaScript 到流分析的转换：
 
-Javascript | 流分析
+JavaScript | 流分析
 --- | ---
-Number | 如果数字已舍入并介于 long.MinValue 和 long.MaxValue 之间，则为 Bigint；否则为 double日期
+Number | 如果数字已舍入并介于 long.MinValue 和 long.MaxValue 之间，则为 Bigint；否则为 double
 日期 | DateTime
 String | nvarchar(MAX)
 对象 | 记录
@@ -117,11 +117,11 @@ Null、Undefined | Null
 其他任何类型（例如函数或错误） | 不支持（导致运行时错误）
 
 ## <a name="troubleshooting"></a>故障排除
-JavaScript 运行时错误被视为严重错误，可通过活动日志查看。 如果要检索日志，请在 Azure 门户中转到用户的作业，并选择“活动日志”。
+JavaScript 运行时错误被视为严重错误，可通过活动日志查看。 要检索日志，请在 Azure 门户中转到作业，然后选择“活动日志”。
 
 ## <a name="other-javascript-user-defined-function-patterns"></a>JavaScript 用户定义的函数的其他模式
 
-### <a name="write-nested-json-to-output"></a>编写要输出的嵌套 JSON
+### <a name="write-nested-json-to-output"></a>编写嵌套的 JSON 输出
 如果后续处理步骤需要使用流分析作业输出作为输入并且要求采用 JSON 格式，可以编写要输出的 JSON 字符串。 以下示例调用 **JSON.stringify()** 函数封装输入的所有名称/值对，并将其写入为输出中的单个字符串值。
 
 **JavaScript 用户定义的函数定义：**
@@ -149,15 +149,13 @@ FROM
 
 若不再需要资源组、流式处理作业以及所有相关资源，请将其删除。 删除作业可避免对作业使用的流单元进行计费。 如果计划在将来使用该作业，可以先停止该作业，以后在需要时再重启该作业。 如果不打算继续使用该作业，请按照以下步骤删除本快速入门创建的所有资源：
 
-1. 在 Azure 门户的左侧菜单中，单击“资源组”，然后单击已创建资源的名称。  
+1. 在 Azure 门户的左侧菜单中，单击“资源组”，并单击已创建资源的名称。  
 2. 在资源组页上单击“删除”，在文本框中键入要删除的资源的名称，并单击“删除”。
 
 ## <a name="get-help"></a>获取帮助
 如需更多帮助，请访问我们的 [Azure 流分析论坛](https://www.azure.cn/support/contact/)。
 
-## <a name="next-steps"></a>后续步骤
-
-在本教程中，创建了一个运行简单的 JavaScript 用户定义函数的流分析作业。
+<!-- Not Available on ## Next steps-->
 <!-- Not Available on [Real-time Twitter sentiment analysis in Azure Stream Analytics](stream-analytics-twitter-sentiment-analysis-trends.md)-->
 
 <!--Update_Description: update meta properties, wording update -->

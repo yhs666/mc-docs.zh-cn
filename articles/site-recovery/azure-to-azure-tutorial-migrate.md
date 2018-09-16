@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: site-recovery
 ms.topic: tutorial
 origin.date: 07/06/2018
-ms.date: 07/23/2018
+ms.date: 09/17/2018
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: 00ea5ce9f534f878de3b59161baba9251d808359
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.openlocfilehash: f513d2fc453293a00b27b6ad6524baf26fda8e10
+ms.sourcegitcommit: 96d06c506983906a92ff90a5f67199f8f7e10996
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168476"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45586848"
 ---
 # <a name="migrate-azure-vms-to-another-region"></a>将 Azure VM 迁移到另一区域
 
@@ -89,14 +89,14 @@ ms.locfileid: "39168476"
 2. 在“源”中，选择“Azure”。
 3. 在“源位置”中，选择当前运行 VM 的 Azure 源区域。
 4. 选择“资源管理器”部署模型。 然后选择**源资源组**。
-5. 单击“确定”  保存设置。
+5. 单击“确定”保存设置。
 
 ## <a name="enable-replication-for-azure-vms"></a>为 Azure VM 启用复制
 
 Site Recovery 会检索与订阅和资源组关联的 VM 列表。
 
 1. 在 Azure 门户中，单击“虚拟机”。
-2. 选择要迁移的 VM。 。
+2. 选择要迁移的 VM。 然后单击“确定”。
 3. 在“设置”中，单击“灾难恢复”。
 4. 在“配置灾难恢复” > “目标区域”中，选择要复制到的目标区域。
 5. 对于本教程，接受其他默认设置。

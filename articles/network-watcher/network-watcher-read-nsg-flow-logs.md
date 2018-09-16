@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/25/2017
-ms.date: 08/13/2018
+ms.date: 09/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: da5352e14307dbd8137507232d28b8a95875f367
-ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
+ms.openlocfilehash: aaddc00a23d1e6ab62e0eecfb0d306688a3d6e02
+ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41705083"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44515722"
 ---
 # <a name="read-nsg-flow-logs"></a>读取 NSG 流日志
 
@@ -28,9 +28,9 @@ ms.locfileid: "41705083"
 NSG 流日志存储于[块 blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs) 中的存储帐户中。 块 blob 由一些更小的块组成。 每个日志是每个一小时生成的单独块 blob。 每隔一小时会生成新的日志，每隔几分钟会以包含最新数据的新条目来更新日志。 本文介绍如何读取部分流日志。
 <!-- Remove .md IN understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs-->
 
-## <a name="scenario"></a>方案
+## <a name="scenario"></a>场景
 
-在如下方案中，你有一个存储在存储帐户的示例流日志。 我们将逐步介绍如何选择性地读取 NSG 流日志中的最新事件。 虽然本文中我们将使用 PowerShell，但本文中讨论到的概念并不限于编程语言，而是适用于 Azure 存储 API 支持的所有语言。
+在如下方案中，你有一个存储在存储帐户的示例流日志。 了解如何选择性地读取 NSG 流日志中的最新事件。 虽然本文中将使用 PowerShell，但本文中讨论到的概念并不限于编程语言，而是适用于 Azure 存储 API 支持的所有语言。
 
 ## <a name="setup"></a>设置
 
@@ -100,7 +100,7 @@ ZjAyZTliYWE3OTI1YWZmYjFmMWI0MjJhNzMxZTI4MDM=      2      True
 
 ## <a name="read-the-block-blob"></a>读取块 blob
 
-接下来我们需要读取 `$blocklist` 变量以检索数据。 在此示例中我们循环访问阻止列表，从每个块读取字节并将它们存储在数组中。 我们使用 [DownloadRangeToByteArray](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadrangetobytearray?view=azurestorage-8.1.3#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadRangeToByteArray_System_Byte___System_Int32_System_Nullable_System_Int64__System_Nullable_System_Int64__Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) 方法来检索数据。
+接下来需要读取 `$blocklist` 变量以检索数据。 在此示例中我们循环访问阻止列表，从每个块读取字节并将它们存储在数组中。 使用 [DownloadRangeToByteArray](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadrangetobytearray?view=azurestorage-8.1.3#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadRangeToByteArray_System_Byte___System_Int32_System_Nullable_System_Int64__System_Nullable_System_Int64__Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) 方法来检索数据。
 
 ```powershell
 # Set the size of the byte array to the largest block
@@ -134,7 +134,7 @@ $valuearray += $value
 }
 ```
 
-现在 `$valuearray` 数组包含每个块的字符串值。 若要验证该条目，请通过运行 `$valuearray[$valuearray.Length-2]` 从数组获取倒数第二个值。 我们不需要最后一个值，因其是闭括号。
+现在 `$valuearray` 数组包含每个块的字符串值。 若要验证该条目，请通过运行 `$valuearray[$valuearray.Length-2]` 从数组获取倒数第二个值。 不需要最后一个值，因为它是闭括号。
 
 此值的结果如下例所示：
 

@@ -1,10 +1,10 @@
 ---
-title: Azure 点播媒体编码器概述和比较 | Azure
-description: 本主题概述并比较 Azure 点播媒体编码器。
+title: 概述并比较 Azure 点播媒体编码器 | Microsoft Docs
+description: 本主题简要介绍并比较了 Azure 点播媒体编码器。
 services: media-services
 documentationcenter: ''
-author: juliako
-manager: erikre
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: e6bfc068-fa46-4d68-b1ce-9092c8f3a3c9
 ms.service: media-services
@@ -12,30 +12,29 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/10/2017
-ms.author: v-johch
-ms.openlocfilehash: aac0b7f53883ce5add4906cf91787fc93b0d1490
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+origin.date: 03/10/2017
+ms.date: 10/17/2018
+ms.author: v-jay
+ms.openlocfilehash: 0144cc3110b1c7cada3843bdc7f8a64c282a8ade
+ms.sourcegitcommit: 9a82a54c6b6f4d8074139e090011fe05b8018fcf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219536"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44363142"
 ---
-# <a name="overview-and-comparison-of-azure-on-demand-media-encoders"></a>Azure 点播媒体编码器概述和比较
+# <a name="overview-and-comparison-of-azure-on-demand-media-encoders"></a>概述并比较 Azure 点播媒体编码器
 ## <a name="encoding-overview"></a>编码概述
 Azure 媒体服务提供了多个用于在云中对媒体进行编码的选项。
 
-开始使用媒体服务时，了解编解码器与文件格式之间的区别很重要。
+一开始使用媒体服务时，了解编解码器与文件格式之间的区别很重要。
 编解码器是实现压缩/解压缩算法的软件，而文件格式是用于保存压缩视频的容器。
 
 媒体服务所提供的动态打包，允许以媒体服务支持的流格式（MPEG DASH、HLS、平滑流式处理）传送自适应比特率 MP4 或平滑流式处理编码内容，而无须重新打包成这些流格式。
 
 > [!NOTE]
-> 创建 AMS 帐户后，会将一个处于“已停止”状态的**默认**流式处理终结点添加到帐户。  若要开始对内容进行流式处理并利用动态打包和动态加密功能，必须确保要从其流式获取内容的流式处理终结点处于“正在运行”状态。 若要使用[动态打包](media-services-dynamic-packaging-overview.md)，必须执行下列操作：
->
->此外，将源文件编码成一组自适应比特率 MP4 文件或自适应比特率平滑流式处理文件（本教程稍后将演示编码步骤）。
+> 创建 AMS 帐户后，会将一个处于“已停止”状态的**默认**流式处理终结点添加到帐户。 若要开始流式传输内容并利用动态打包和动态加密，要从中流式传输内容的流式处理终结点必须处于“正在运行”状态。 
 
-媒体服务支持在本文中介绍的以下按需编码器：
+媒体服务支持会在本文中介绍的以下按需编码器：
 
 * [Media Encoder Standard](media-services-encode-asset.md#media-encoder-standard)
 
@@ -44,7 +43,7 @@ Azure 媒体服务提供了多个用于在云中对媒体进行编码的选项�
 >[!NOTE]
 >默认情况下每个媒体服务帐户同时只能有一个活动的编码任务。 可以预留编码单元，使用它们可以同时运行多个编码任务，购买的每个编码预留单位对应一个任务。 有关信息，请参阅[缩放编码单位](media-services-scale-media-processing-overview.md)。
 
-## <a name="media-encoder-standard"></a>Media Encoder Standard
+## <a name="media-encoder-standard"></a>媒体编码器标准版
 ### <a name="how-to-use"></a>如何使用
 [如何使用 Media Encoder Standard 进行编码](media-services-dotnet-encode-with-media-encoder-standard.md)
 
@@ -72,7 +71,7 @@ Media Encoder Standard 使用[此处](media-services-mes-presets-overview.md)所
 [媒体服务博客](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)
 
 ### <a name="known-issues"></a>已知问题
-如果输入视频不包含隐藏式字幕，输出资产仍包含一个空的 TTML 文件。
+如果输入视频不包含隐藏式字幕，输出资产仍将包含一个空的 TTML 文件。
 
 ## <a name="related-articles"></a>相关文章
 * [通过自定义 Media Encoder Standard 预设执行高级编码任务](media-services-custom-mes-presets-with-dotnet.md)

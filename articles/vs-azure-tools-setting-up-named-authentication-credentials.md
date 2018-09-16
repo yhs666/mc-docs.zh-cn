@@ -7,17 +7,18 @@ manager: douge
 assetId: 61570907-42a1-40e8-bcd6-952b21a55786
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.workload: azure
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.topic: conceptual
 origin.date: 11/11/2017
-ms.date: 07/12/2018
+ms.date: 09/10/2018
 ms.author: v-junlch
-ms.openlocfilehash: e99b2c9218c574f72ed8175dfe24b88473d81ade
-ms.sourcegitcommit: 5b6a2fc55e5b16ae480bd497c3ac2c3a2fd44703
+ms.openlocfilehash: 19b78f186c2462069289e2d3618a42b026e1895d
+ms.sourcegitcommit: 40456700212200e707d6cb3147cf96ad161d3ff2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38999201"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44269513"
 ---
 # <a name="set-up-named-authentication-credentials"></a>设置命名的身份验证凭据
 
@@ -42,7 +43,7 @@ ms.locfileid: "38999201"
 
 - [Web 应用一般概述](/app-service/)
 - [将应用部署到 Azure 应用服务](/app-service/app-service-deploy-local-git) 
-- [使用 Visual Studio 部署 Web 作业](/app-service/websites-dotnet-deploy-webjobs)
+- [使用 Visual Studio 部署 WebJobs](/app-service/websites-dotnet-deploy-webjobs)
 - [创建和部署云服务](/cloud-services/cloud-services-how-to-create-deploy-portal)
 
 <!-- Update_Description: update metedata properties -->

@@ -9,12 +9,12 @@ ms.topic: how-to
 origin.date: 05/22/2018
 ms.date: 07/02/2018
 ms.author: v-nany
-ms.openlocfilehash: 2d88067d363565b4fe5c4ef78b3775ea58db08e4
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.openlocfilehash: 7b08b23263ba22d36b47832b27ee5d53aa4d9a93
+ms.sourcegitcommit: 2700f127c3a8740a83fb70739c09bd266f0cc455
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295698"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45586613"
 ---
 # <a name="using-the-azure-storage-rest-api"></a>使用 Azure 存储 REST API
 
@@ -49,7 +49,7 @@ git clone https://github.com/Azure-Samples/storage-dotnet-rest-api-with-auth.git
 
 REST 是指表述性状态转移。 有关具体定义，请参阅 [Wikipedia](http://en.wikipedia.org/wiki/Representational_state_transfer)。
 
-基本上，REST 是在调用 API 或使 API 可调用时使用的体系结构。 无论一方发生什么，以及在发送或接收 REST 调用时使用什么其他软件，它都不会受影响。 你可以编写一个在 Mac、Windows、Linux、Android 手机或平板电脑、iPhone、iPod 或网站上运行的应用程序，并为所有这些平台使用相同的 REST API。 调用 REST API 时，可以传入和/或传出数据。 REST API 不关心从中进行调用的平台 – 重要的是在请求中传递的信息以及在响应中提供的数据。
+基本上，REST 是在调用 API 或使 API 可调用时使用的体系结构。 无论一方发生什么，以及在发送或接收 REST 调用时使用什么其他软件，它都不会受影响。 你可以编写一个在 Mac、Windows、Linux、Android 手机或平板电脑、iPhone、iPod 或网站上运行的应用程序，并为所有这些平台使用相同的 REST API。 调用 REST API 时，可以传入和/或传出数据。 REST API 不关心从中进行调用的平台 - 重要的是在请求中传递的信息以及在响应中提供的数据。
 
 了解如何使用 REST 是一项非常有用的技能。 Azure 产品团队会频繁发布新功能。 很多时候，新功能可通过 REST 接口访问，但尚未通过所有存储客户端库或 UI 显示（如 Azure 门户）。 如果要始终使用最新且最好的功能，则需要学习 REST。 此外，如果想要编写你自己的库以便与 Azure 存储进行交互，或者想要使用没有 SDK 或存储客户端库的编程语言访问 Azure 存储，则可以使用 REST API。
 
@@ -57,15 +57,15 @@ REST 是指表述性状态转移。 有关具体定义，请参阅 [Wikipedia](h
 
 示例应用程序列出了存储帐户中的容器。 一旦了解 REST API 文档中的信息如何关联到实际代码后，其他 REST 调用将更容易理解。 
 
-若参阅 [Blob 服务 REST API](/rest/api/storageservices/Blob-Service-REST-API)，你将会了解到所有可以在 blob 存储中执行的操作。 存储客户端库是 REST API 的包装器 – 它们可使你轻松访问存储而无需直接使用 REST API。 但如上所述，有时你会想要使用 REST API 而不是存储客户端库。
+若参阅 [Blob 服务 REST API](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API)，你将会了解到所有可以在 blob 存储中执行的操作。 存储客户端库是 REST API 的包装器 – 它们可使你轻松访问存储而无需直接使用 REST API。 但如上所述，有时你会想要使用 REST API 而不是存储客户端库。
 
 ## <a name="rest-api-reference-list-containers-api"></a>REST API 参考：列出容器 API
 
-让我们看一下 REST API 参考中的 [ListContainers](/rest/api/storageservices/List-Containers2) 操作页面，以便了解请求中某些字段的出处，并在下一部分中使用代码进行响应。
+让我们看一下 REST API 参考中的 [ListContainers](https://docs.microsoft.com/rest/api/storageservices/List-Containers2) 操作页面，以便了解请求中某些字段的出处，并在下一部分中使用代码进行响应。
 
 请求方法：GET。 此谓词是你指定为请求对象属性的 HTTP 方法。 此谓词的其他值包括 HEAD、PUT 和 DELETE，具体将取决于正在调用的 API。
 
-**请求 URI**：https://myaccount.blob.core.chinacloudapi.cn/?comp=list 它是从 blob 存储帐户终结点 `http://myaccount.blob.core.chinacloudapi.cn` 和资源字符串 `/?comp=list` 创建的。
+**请求 URI**： https://myaccount.blob.core.chinacloudapi.cn/?comp=list 它是从 blob 存储帐户终结点 `http://myaccount.blob.core.chinacloudapi.cn` 和资源字符串 `/?comp=list` 创建的。
 
 [URI 参数](https://docs.microsoft.com/rest/api/storageservices/List-Containers2#uri-parameters)：调用 ListContainers 时可以使用的其他查询参数。 其中有些参数为调用超时（以秒计）和前缀，后者用于筛选。
 
@@ -81,7 +81,7 @@ REST 是指表述性状态转移。 有关具体定义，请参阅 [Wikipedia](h
 
 [请求正文](https://docs.microsoft.com/rest/api/storageservices/List-Containers2#request-body)：ListContainers 没有请求正文。 上传 blob 时，会在所有 PUT 操作上使用请求正文，以及 SetContainerAccessPolicy，以允许在要应用的存储访问策略的 XML 列表中发送 blob。 有关存储访问策略，将在[使用共享访问签名 (SAS)](storage-dotnet-shared-access-signature-part-1.md) 一文中展开讨论。
 
-[响应状态代码](https://docs.microsoft.com/rest/api/storageservices/List-Containers2#status-code)：告知你需要知道的任何状态代码。 在此示例中，HTTP 状态代码可以是 200。 有关 HTTP 状态代码的完整列表，请参阅[状态代码定义](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)。 若要查看特定于存储 REST API 的错误代码，请参阅[常见的 REST API 错误代码](/rest/api/storageservices/common-rest-api-error-codes)
+[响应状态代码](https://docs.microsoft.com/rest/api/storageservices/List-Containers2#status-code)：告知你需要知道的任何状态代码。 在此示例中，HTTP 状态代码可以是 200。 有关 HTTP 状态代码的完整列表，请参阅[状态代码定义](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)。 若要查看特定于存储 REST API 的错误代码，请参阅[常见的 REST API 错误代码](https://docs.microsoft.com/rest/api/storageservices/common-rest-api-error-codes)
 
 [响应标头](https://docs.microsoft.com/rest/api/storageservices/List-Containers2#response-headers)：其中包括 Content Type；x-ms-request-id（传入的请求ID，如适用）；x-ms-version（指示所使用的 Blob 服务的版本）和 Date（UTC，告知发出请求的时间）。
 
@@ -103,7 +103,7 @@ REST 是指表述性状态转移。 有关具体定义，请参阅 [Wikipedia](h
 你需要一些基本信息： 
 
 *  对于 ListContainers，方法是 `GET`。 在实例化请求时设置此值。 
-*  资源是指示正在调用的 API 的 URI 查询部分，因此，值为 `/?comp=list`。 如前文所述，该资源位于显示有关 [ListContainers API](/rest/api/storageservices/List-Containers2) 信息的参考文档页上。
+*  资源是指示正在调用的 API 的 URI 查询部分，因此，值为 `/?comp=list`。 如前文所述，该资源位于显示有关 [ListContainers API](https://docs.microsoft.com/rest/api/storageservices/List-Containers2) 信息的参考文档页上。
 *  URI 是通过为该存储帐户创建 Blob 服务终结点并连结该资源而构建的。 请求 URI 的值最终为 `http://contosorest.blob.core.chinacloudapi.cn/?comp=list`。
 *  对于 ListContainers，requestBody 为 null 并且没有任何额外标头。
 
@@ -141,7 +141,7 @@ using (var httpRequestMessage = new HttpRequestMessage(HttpMethod.Get, uri)
     //   the authorization header. 
 ```
 
-调用创建授权标头的方法，并将其添加到请求标头。 你将在本文的后面部分了解如何创建授权标头。 方法名称为 GetAuthorizationHeader，你可以在此代码段中看到：
+调用创建授权标头的方法，并将其添加到请求标头。 本文的后面部分将介绍如何创建授权标头。 方法名称为 GetAuthorizationHeader，你可以在此代码段中看到：
 
 ```csharp
     // Get the authorization header and add it.
@@ -153,7 +153,7 @@ using (var httpRequestMessage = new HttpRequestMessage(HttpMethod.Get, uri)
 
 ## <a name="call-the-rest-api-with-the-request"></a>使用请求调用 REST API
 
-至此，你已经有了请求，接下来即可调用 SendAsync 来发送 REST 请求。 SendAsync 调用 API，并获取响应。 检查响应状态代码（可以是 200），然后分析响应。 在这种情况下，你将获取到一个容器的 XML 列表。 让我们看一下调用 GetRESTRequest 方法以创建请求、执行请求的代码，然后检查对容器列表的响应。
+至此，你已经有了请求，接下来即可调用 SendAsync 来发送 REST 请求。 SendAsync 调用 API，并获取响应。 检查响应状态代码（可以是 200），然后分析响应。 在这种情况下，你将获取到一个容器的 XML 列表。 让我们看一下用于调用 GetRESTRequest 方法的代码，以创建请求、执行请求，然后检查对容器列表的响应。
 
 ```csharp 
     // Send the request.
@@ -262,7 +262,7 @@ Content-Length: 1511
 </EnumerationResults>
 ```
 
-现在，你已了解如何创建请求、调用服务和分析结果，接下来我们来看下如何创建授权标头。 创建标头比较复杂，但好消息是，代码一旦运行成功，它将适用于所有存储服务 REST API。
+现在已了解如何创建请求、调用服务和分析结果，接下来我们来看下如何创建授权标头。 创建标头比较复杂，但好消息是，代码一旦运行成功，它将适用于所有存储服务 REST API。
 
 ## <a name="creating-the-authorization-header"></a>创建授权标头
 
@@ -275,7 +275,7 @@ Content-Length: 1511
 Authorization="SharedKey <storage account name>:<signature>"  
 ```
 
-签名字段是基于哈希的消息身份验证代码 (HMAC)，该代码通过请求创建并使用 SHA256 算法计算而得，然后使用 Base64 编码进行编码。 是否明白了？ （不要急，你还没有听说过“规范化”一词。）
+签名字段是基于哈希的消息身份验证代码 (HMAC)，该代码通过请求创建并使用 SHA256 算法计算而得，然后使用 Base64 编码进行编码。 是否明白了？ （不要急，你还没有听说过标准化一词。）
 
 此代码段演示了共享密钥签名字符串的格式：
 
@@ -353,7 +353,7 @@ private static string GetCanonicalizedHeaders(HttpRequestMessage httpRequestMess
 /contosorest/\ncomp:list
 ```
 
-如果你有查询参数，还将包括这些参数。 以下是代码，该代码还处理其他查询参数和具有多个值的查询参数。 请记住，你正在生成此代码以使其适用于所有 REST API，因此，你想要包括所有可能性，即使 ListContainers 方法不需要所有这些参数。
+如果你有查询参数，还将包括这些参数。 以下是代码，该代码还处理其他查询参数和具有多个值的查询参数。 请记住，需要生成此代码，使其适用于所有 REST API，因此，建议包括所有可能性，即使 ListContainers 方法不需要所有这些参数。
 
 ```csharp 
 private static string GetCanonicalizedResource(Uri address, string storageAccountName)
@@ -375,7 +375,7 @@ private static string GetCanonicalizedResource(Uri address, string storageAccoun
 }
 ```
 
-现在，已设置规范化字符串，我们接着来看下如何创建授权标头本身。 首先，创建一个如前文所述的 StringToSign 格式的消息签名字符串。 在代码中使用注释会更容易解释这一概念，因此，下面提供了返回授权标头的最后一种方法：
+现在，已设置规范化字符串，我们接着来看如何创建授权标头本身。 首先，创建一个如前文所述的 StringToSign 格式的消息签名字符串。 在代码中使用注释会更容易解释这一概念，因此，下面提供了返回授权标头的最后一种方法：
 
 ```csharp
 internal static AuthenticationHeaderValue GetAuthorizationHeader(

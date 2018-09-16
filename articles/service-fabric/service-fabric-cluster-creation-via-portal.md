@@ -13,18 +13,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 02/09/2018
-ms.date: 05/28/2018
+ms.date: 09/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4dfa0e35cee6cb48b935393a1ff943d45db139f1
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: 7f28c67d79e37a3ab560b3fde48f6f4b1b360d4c
+ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867485"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44515721"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>使用 Azure 门户在 Azure 中创建 Service Fabric 群集
 > [!div class="op_single_selector"]
-> * [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
+> * [Azure 资源管理器](service-fabric-cluster-creation-via-arm.md)
 > * [Azure 门户](service-fabric-cluster-creation-via-portal.md)
 > 
 > 
@@ -35,7 +35,7 @@ ms.locfileid: "34867485"
 * 使用证书对管理员进行身份验证。
 
 > [!NOTE]
-> 有关更高级的安全选项（例如使用 Azure Active Directory 进行用户身份验证和设置应用程序安全证书），请参阅 [create your cluster using Azure Resource Manager][create-cluster-arm]（使用 Azure Resource Manager 创建群集）。
+> 有关更高级的安全选项（例如使用 Azure Active Directory 进行用户身份验证和设置应用程序安全证书），请参阅[使用 Azure 资源管理器创建群集][create-cluster-arm]。
 > 
 > 
 
@@ -57,12 +57,12 @@ ms.locfileid: "34867485"
 * 证书的使用者名称必须与访问 Service Fabric 群集使用的域相匹配。 只有符合此要求，才能为群集的 HTTPS 管理终结点和 Service Fabric Explorer 提供 SSL。 无法从证书颁发机构 (CA) 获取 `.cloudapp.chinacloudapi.cn` 域的 SSL 证书。 获取群集的自定义域名。 在从 CA 请求证书时，该证书的使用者名称必须与用于群集的自定义域名匹配。
 
 #### <a name="client-authentication-certificates"></a>客户端身份验证证书
-其他客户端证书可对执行群集管理任务的管理员进行身份验证。 Service Fabric 有两个访问级别：**管理员**和**只读用户**。 至少应使用一个证书进行管理访问。 若要进行其他用户级别的访问，必须提供单独的证书。 有关访问角色的详细信息，请参阅 [role-based access control for Service Fabric clients][service-fabric-cluster-security-roles]（适用于 Service Fabric 客户端的基于角色的访问控制）。
+其他客户端证书可对执行群集管理任务的管理员进行身份验证。 Service Fabric 有两个访问级别：**管理员**和**只读用户**。 至少应使用一个证书进行管理访问。 若要进行其他用户级别的访问，必须提供单独的证书。 有关访问角色的详细信息，请参阅[适用于 Service Fabric 客户端的基于角色的访问控制][service-fabric-cluster-security-roles]。
 
-无需将客户端身份验证证书上传到 Key Vault 即可使用 Service Fabric。 只需将这些证书提供给有权管理群集的用户。 
+无需将客户端身份验证证书上传到密钥保管库即可使用 Service Fabric。 只需将这些证书提供给有权管理群集的用户。 
 
 > [!NOTE]
-> 建议使用 Azure Active Directory 对执行群集管理操作的客户端进行身份验证。 若要使用 Azure Active Directory，必须[使用 Azure Resource Manager 创建群集][create-cluster-arm]。
+> 建议使用 Azure Active Directory 对执行群集管理操作的客户端进行身份验证。 若要使用 Azure Active Directory，必须[使用 Azure 资源管理器创建群集][create-cluster-arm]。
 > 
 > 
 
@@ -72,7 +72,7 @@ ms.locfileid: "34867485"
 * 加密和解密应用程序配置值
 * 在复制期间跨节点加密数据 
 
-通过 Azure 门户创建群集时，无法配置应用程序证书。 若要在设置群集时配置应用程序证书，必须 [使用 Azure Resource Manager 创建群集][create-cluster-arm]。 也可以在创建群集后将应用程序证书添加到群集。
+[通过 Azure 门户创建群集](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-fabric/service-fabric-cluster-creation-via-portal.md)时，无法配置应用程序证书。 若要在设置群集时配置应用程序证书，必须[使用 Azure 资源管理器创建群集][create-cluster-arm]。 也可以在创建群集后将应用程序证书添加到群集。
 
 <a name="create-cluster-portal" ></a>
 
@@ -84,12 +84,12 @@ ms.locfileid: "34867485"
 ![在 Azure 门户中搜索 Service Fabric 群集模板。][SearchforServiceFabricClusterTemplate]
 
 1. 登录到 [Azure 门户][azure-portal]。
-2. 单击“创建资源”以添加新的资源模板。 在“**全部**”下面的“**应用商店**”中搜索 Service Fabric 群集模板。
+2. 单击“创建资源”以添加新的资源模板。 在“全部”下面的“市场”中搜索 Service Fabric 群集模板。
 3. 从列表中选择“**Service Fabric 群集**”。
-4. 导航到“Service Fabric 群集”边栏选项卡，单击“创建”，
+4. 导航到“**Service Fabric 群集**”边栏选项卡，并单击“**创建**”。
 5. “创建 Service Fabric 群集”边栏选项卡包含以下四个步骤：
 
-#### <a name="1-basics"></a>1.基础知识
+#### <a name="1-basics"></a>1.基础
 ![创建新资源组的屏幕截图。][CreateRG]
 
 在“基本信息”边栏选项卡中，需要提供群集的基本详细信息。
@@ -97,13 +97,13 @@ ms.locfileid: "34867485"
 1. 输入群集的名称。
 2. 输入 VM 远程桌面的**用户名**和**密码**。
 3. 务必选择要将群集部署到的**订阅**，尤其是在拥有多个订阅时。
-4. 创建 **新的资源组**。 最好让它与群集同名，这样稍后就可以轻松找到它们，在尝试更改部署或删除群集时非常有用。
+4. 创建**新的资源组**。 最好让它与群集同名，这样稍后就可以轻松找到它们，在尝试更改部署或删除群集时非常有用。
 
    > [!NOTE]
    > 尽管可以决定使用现有资源组，但最好还是创建新的资源组。 这样做可以轻松删除群集及其使用的所有资源。
    > 
    > 
-5. 选择要在其中创建群集的 **区域** 。 如果计划使用已上传到 Key Vault 的现有证书，则必须使用 Key Vault 所在的区域。 
+5. 选择要在其中创建群集的**区域**。 如果计划使用已上传到 Key Vault 的现有证书，则必须使用 Key Vault 所在的区域。 
 
 #### <a name="2-cluster-configuration"></a>2.群集配置
 ![创建节点类型][CreateNodeType]
@@ -120,16 +120,16 @@ ms.locfileid: "34867485"
 3. 选择 VM 大小。 D 系列 VM 具有 SSD 驱动器，强烈建议用于有状态应用程序。 不要使用任何具有部分核心或可用磁盘容量小于 10 GB 的 VM SKU。 如需选择 VM 大小的帮助，请参阅 [Service Fabric 群集规划注意事项文档][service-fabric-cluster-capacity]。
 4. 选择节点类型的 VM 数目。 可在以后增加或减少节点类型中的 VM 数目，但对主节点类型，生产工作负荷的最小数是 5。 其他节点类型最少可以拥有一个 VM。主节点类型的 VM 数可促进群集的可靠性。  
 5. **单个节点群集和三个节点群集** - 这些仅用于测试。 它们不支持任何正在运行的生产工作负荷。
-6. 配置自定义终结点。 可在此字段中输入以逗号分隔的端口列表，可以通过 Azure 负载均衡器针对应用程序向公共 Internet 公开这些端口。 例如，如果计划在群集中部署 Web 应用程序，请在此处输入“80”，允许端口 80 的流量进入群集。 有关终结点的详细信息，请参阅 [communicating with applications][service-fabric-connect-and-communicate-with-services]
+6. 配置自定义终结点。 可在此字段中输入以逗号分隔的端口列表，可以通过 Azure 负载均衡器针对应用程序向公共 Internet 公开这些端口。 例如，如果计划在群集中部署 Web 应用程序，请在此处输入“80”，允许端口 80 的流量进入群集。 有关终结点的详细信息，请参阅[与应用程序通信][service-fabric-connect-and-communicate-with-services]
 7. 配置群集 **诊断**。 默认情况下，已在群集上启用诊断，以帮助排查问题。 若要禁用诊断，请将其“状态”切换为“关”。 **不**建议关闭诊断。 
 <!-- Not Available on Application Insights -->
-8. 选择要将群集设置到的结构升级模式。 如果希望系统自动选取最新可用版本并尝试将群集升级到该最新版本，则选择“自动”。 如果想要选择受支持的版本，则将模式设置为“手动”。 有关结构升级模式的详细信息，请参阅 [service-fabric-cluster-upgrade 文档][service-fabric-cluster-upgrade]。
+8. 选择要将群集设置到的 Fabric 升级模式。 如果希望系统自动选取最新可用版本并尝试将群集升级到该最新版本，则选择“自动”。 如果想要选择受支持的版本，则将模式设置为“**手动**”。 有关结构升级模式的详细信息，请参阅 [service-fabric-cluster-upgrade 文档][service-fabric-cluster-upgrade]。
 
 > [!NOTE]
-> 我们仅支持那些运行受支持的 Service Fabric 版本的群集。 选择“手动”模式，即表示由你负责将群集升级到受支持的版本。 > 
+> 我们仅支持那些运行受支持的 Service Fabric 版本的群集。 通过选择“**手动**”模式，由你负责将群集升级到受支持的版本。 > 
 > 
 
-#### <a name="3-security"></a>3.安全性
+#### <a name="3-security"></a>3.安全
 ![Azure 门户上安全配置的屏幕截图。][BasicSecurityConfigs]
 
 为轻松设置安全测试群集，我们提供了“基本”选项。 如果已有证书且已上传到 Key Vault（并已启用 Key Vault 进行部署），则使用“自定义”选项
@@ -195,7 +195,7 @@ ms.locfileid: "34867485"
 
 创建群集后，可以在门户检查群集：
 
-1. 转到“浏览”，然后单击“Service Fabric 群集”。
+1. 转到“**浏览**”，并单击“**Service Fabric 群集**”。
 2. 找到该群集并单击它。
 3. 现在，仪表板会显示群集的详细信息，包括群集的公共终结点和 Service Fabric Explorer 的链接。
 

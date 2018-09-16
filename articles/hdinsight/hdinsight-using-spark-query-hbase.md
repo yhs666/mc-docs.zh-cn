@@ -1,5 +1,5 @@
 ---
-title: 使用 Spark 来读写 HBase 数据 - Azure HDInsight
+title: 使用 Spark 读取和写入 HBase 数据 - Azure HDInsight
 description: 使用 Spark HBase 连接器将 Spark 群集中的数据读写到 HBase 群集。
 services: hdinsight
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 01/11/2018
 ms.author: v-yiso
 ms.date: 06/25/2018
-ms.openlocfilehash: 872f3d5ef8af78d0cb82d19de1b63f2b46adb299
-ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
+ms.openlocfilehash: 0bce0ceb4c45df1bff2dba1e3b85ed0e67cb0519
+ms.sourcegitcommit: bae4e9e500e3e988ef8fa0371777ca9cc49b4e94
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36747420"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45584849"
 ---
 # <a name="use-spark-to-read-and-write-hbase-data"></a>使用 Spark 读取和写入 HBase 数据
 
@@ -114,7 +114,7 @@ ms.locfileid: "36747420"
 5. 在容器列表中，选择 Spark 集群使用的容器。
 6. 选择“上传”。
 
-    ![上传](./media/hdinsight-using-spark-query-hbase/upload.png)
+    ![上载](./media/hdinsight-using-spark-query-hbase/upload.png)
 
 7. 选择之前下载到本地计算机的 `hbase-site.xml` 文件。
 
@@ -131,7 +131,7 @@ ms.locfileid: "36747420"
 1. 使用 SSH 连接到 Spark 集群的头节点。
 2. 启动 spark shell，指定 Spark HBase 连接器包：
 
-        spark-shell --packages com.hortonworks:shc-core:1.1.0-2.1-s_2.11 --repositories http://repo.hortonworks.com/coroups/public/
+        spark-shell --packages com.hortonworks:shc-core:1.1.0-2.1-s_2.11 --repositories http://repo.hortonworks.com/content/groups/public/
 
 3. 保持此 Spark Shell 实例处于打开状态，并继续执行下一步操作。
 

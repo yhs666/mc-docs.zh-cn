@@ -13,14 +13,14 @@ ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
 origin.date: 07/31/2017
-ms.date: 03/01/2018
+ms.date: 09/07/2018
 ms.author: v-junlch
-ms.openlocfilehash: fc2d262a229c5685f756d6354d13bfb2bc50e707
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 41c72ee417c05eff4ebe302e5e9b845cb2561f75
+ms.sourcegitcommit: 40456700212200e707d6cb3147cf96ad161d3ff2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
-ms.locfileid: "29730861"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44269520"
 ---
 # <a name="import-and-export-data-in-azure-redis-cache"></a>在 Azure Redis 缓存中导入和导出数据
 导入/导出是一种 Azure Redis 缓存数据管理操作，可用于通过从高级缓存导入 Redis 缓存数据库 (RDB) 快照以及将 Redis 缓存数据库 (RDB) 快照导出到 Azure 存储帐户中的 blob 来相应地将数据导入到 Azure Redis 缓存以及从 Azure Redis 缓存导出数据。 
@@ -54,10 +54,10 @@ ms.locfileid: "29730861"
 3. 单击包含要导入的数据的容器。
 
     ![选择容器][cache-import-choose-container]
-4. 通过单击 blob 名称左侧的区域选择要导入的一个或多个 blob，并单击“选择” 。
+4. 通过单击 blob 名称左侧的区域选择要导入的一个或多个 blob，并单击“选择”。
 
     ![选择 blob][cache-import-choose-blobs]
-5. 单击“导入”以开始导入过程  。
+5. 单击“导入”以开始导入过程。
 
    > [!IMPORTANT]
    > 在导入过程中，缓存客户端无法访问该缓存，并且将删除该缓存中的任何现有数据。
@@ -71,12 +71,12 @@ ms.locfileid: "29730861"
     ![导入进度][cache-import-data-import-complete]
 
 ## <a name="export"></a>导出
-使用导出可以将 Azure Redis 缓存中存储的数据导出到与 Redis 兼容的 RDB 文件。 可以使用此功能将一个 Azure Redis 缓存实例中的数据移到另一个 Azure Redis 缓存实例或另一个 Redis 服务器。 在导出过程中，将在托管 Azure Redis 缓存服务器实例的 VM 上创建临时文件，并将该文件上传到指定的存储帐户。 导出操作完成后，无论状态为成功还是失败，都会删除临时文件。
+使用导出可以将 Azure Redis 缓存中存储的数据导出到与 Redis 兼容的 RDB 文件。 可以使用此功能将一个 Azure Redis 缓存实例中的数据移到另一个 Azure Redis 缓存实例或另一个 Redis 服务器。 在导出过程中，会在托管 Azure Redis 缓存服务器实例的 VM 上创建临时文件，并将该文件上传到指定的存储帐户。 导出操作完成后，无论状态为成功还是失败，都会删除临时文件。
 
-1. 若要将缓存的当前内容导出到存储，请在 Azure 门户中[浏览到缓存](cache-configure.md#configure-redis-cache-settings)，然后在“资源”菜单中单击“导出数据”。
+1. 要将缓存的当前内容导出到存储，请在 Azure 门户中[浏览到缓存](cache-configure.md#configure-redis-cache-settings)，然后在“资源菜单”中单击“导出数据”。
 
     ![选择存储容器][cache-export-data-choose-storage-container]
-2. 单击“选择存储容器”并选择所需的存储帐户  。 存储帐户必须与缓存在同一订阅和区域中。
+2. 单击“选择存储容器”并选择所需的存储帐户。 存储帐户必须与缓存在同一订阅和区域中。
 
    > [!IMPORTANT]
    > 导出适用于页 blob，经典存储帐户和 Resource Manager 存储帐户都支持页 blob，但目前 [Blob 存储帐户](../storage/common/storage-account-options.md#blob-storage-accounts)不支持页 blob。
@@ -84,10 +84,10 @@ ms.locfileid: "29730861"
    >
 
     ![存储帐户][cache-export-data-choose-account]
-3. 选择所需的 blob 容器，并单击“选择” 。 如果要使用新容器，请单击“添加容器”以先添加该容器，再从列表中选择该容器  。
+3. 选择所需的 blob 容器，并单击“选择”。 要使用新容器，请单击“添加容器”，先添加容器，再从列表中选择容器。
 
     ![选择存储容器][cache-export-data-container]
-4. 键入 **Blob 名称前缀**，单击“导出”开始导出过程。 blob 名称前缀用于作为此导出操作生成的文件名称的前缀。
+4. 键入 **Blob 名称前缀**，并单击“导出”以开始导出过程。 blob 名称前缀用于作为此导出操作生成的文件名称的前缀。
 
     ![导出][cache-export-data]
 
@@ -115,7 +115,7 @@ ms.locfileid: "29730861"
 导入/导出仅在高级定价层中可用。
 
 ### <a name="can-i-import-data-from-any-redis-server"></a>能否从任何 Redis 服务器导入数据？
-能，除了导入从 Azure Redis 缓存实例导出的数据外，还可以从任何云或环境中运行的任何 Redis 服务器导入 RDB 文件，如 Linux、Windows 或云提供程序（如 Amazon Web Services）。 为此，请从所需的 Redis 服务器将 RDB 文件上传到 Azure 存储帐户中的页 blob 或块 blob，然后将其导入到高级 Azure Redis 缓存实例中。 例如，用户可能想要从生产缓存导出数据，并将其导入到用作过渡环境的一部分的缓存，用于测试或迁移。
+能，除了导入从 Azure Redis 缓存实例导出的数据外，还可以从任何云或环境中运行的任何 Redis 服务器导入 RDB 文件，如 Linux、Windows 或云提供程序（如 Amazon Web Services）。 为此，请从所需的 Redis 服务器将 RDB 文件上传到 Azure 存储帐户中的页 blob 或块 blob，然后将其导入到高级 Azure Redis 缓存实例中。 例如，你可能想要从生产缓存导出数据，然后将其导入到用作过渡环境的一部分的缓存，用于测试或迁移。
 
 > [!IMPORTANT]
 > 使用页 blob 时，要成功导入从非 Azure Redis 缓存的 Redis 服务器导出的数据，页 blob 大小必须在 512 字节边界上对齐。 有关用于执行任何所需的字节填充的示例代码，请参阅[示例页 blob 上传](https://github.com/JimRoberts-MS/SamplePageBlobUpload)。
@@ -127,18 +127,17 @@ ms.locfileid: "29730861"
 对于 RDB 版本 7 以及更低版本，Azure Redis 缓存支持 RDB 导入。
 
 ### <a name="is-my-cache-available-during-an-importexport-operation"></a>导入/导出操作期间缓存是否可用？
-- 
-            **导出** - 缓存保持可用，可以在导出操作过程中继续使用缓存。
+- **导出** - 缓存保持可用，可以在导出操作过程中继续使用缓存。
 - **导入** - 在导入操作开始时，缓存即变为不可用，在导入操作完成后，缓存变为可供使用。
 
 ### <a name="can-i-use-importexport-with-redis-cluster"></a>能否对 Redis 群集使用导入/导出？
 能，并且可以在群集缓存和非群集缓存之间导入/导出。 由于 Redis 群集[仅支持数据库 0](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)，因此将不会导入 0 以外的数据库中的任何数据。 导入群集缓存数据时，密钥会在群集的分片之间重新分发。
 
-### <a name="how-does-importexport-work-with-a-custom-databases-setting"></a>导入/导出如何使用自定义数据库设置？
+### <a name="how-does-importexport-work-with-a-custom-databases-setting"></a>导入/导出如何可用于自定义数据库设置？
 某些定价层具有不同的[数据库限制](cache-configure.md#databases)，因此，如果在缓存创建过程中为 `databases` 设置配置了自定义值，则在导入时需注意一些注意事项。
 
 - 当导入到的定价层的 `databases` 限制低于导出层的相应限制时：
-  - 如果使用的是默认 `databases`数（对于所有定价层来说为 16），则不会丢失数据。
+  - 如果使用默认 `databases` 数（对于所有定价层来说均为 16），则不会丢失数据。
   - 如果使用的是在要导入到的层的限制内的自定义 `databases` 数，则不会丢失数据。
   - 如果导出的数据包含超出新层限制的数据库中的数据，则将不会导入这些更高版本数据库中的数据。
 
@@ -150,7 +149,7 @@ Azure Redis 缓存持久性能够将 Redis 中存储的数据长期保存在 Azu
 ### <a name="can-i-automate-importexport-using-powershell-cli-or-other-management-clients"></a>能否使用 PowerShell、CLI 或其他管理客户端自动执行导入/导出？
 能。如需 PowerShell 说明，请参阅[导入 Redis 缓存](cache-howto-manage-redis-cache-powershell.md#to-import-a-redis-cache)和[导出 Redis 缓存](cache-howto-manage-redis-cache-powershell.md#to-export-a-redis-cache)。
 
-### <a name="i-received-a-timeout-error-during-my-importexport-operation-what-does-it-mean"></a>在导入/导出操作期间收到超时错误。 它意味着什么？
+### <a name="i-received-a-timeout-error-during-my-importexport-operation-what-does-it-mean"></a>我在导入/导出操作期间收到超时错误。 它意味着什么？
 如果在发起操作前停留在“导入数据”或“导出数据”边栏选项卡的时间超过 15 分钟，则将收到错误，其错误消息类似于以下示例：
 
     The request to import data into cache 'contoso55' failed with status 'error' and error 'One of the SAS URIs provided could not be used for the following reason: The SAS token end time (se) must be at least 1 hour from now and the start time (st), if given, must be at least 15 minutes in the past.
@@ -161,7 +160,7 @@ Azure Redis 缓存持久性能够将 Redis 中存储的数据长期保存在 Azu
 导出仅适用于以页 blob 形式存储的 RDB 文件。 目前不支持其他 blob 类型，包括带有热层和冷层的 blob 存储帐户。 有关详细信息，请参阅 [Blob 存储帐户](../storage/common/storage-account-options.md#blob-storage-accounts)。
 
 ## <a name="next-steps"></a>后续步骤
-了解如何使用更多的高级缓存功能。
+了解如何使用更多的高级版缓存功能。
 
 - [Azure Redis 缓存高级层简介](cache-premium-tier-intro.md)    
 
@@ -179,4 +178,4 @@ Azure Redis 缓存持久性能够将 Redis 中存储的数据长期保存在 Azu
 [cache-import-blobs]: ./media/cache-how-to-import-export-data/cache-import-blobs.png
 [cache-import-data-import-complete]: ./media/cache-how-to-import-export-data/cache-import-data-import-complete.png
 
-<!--Update_Description: link update-->
+<!-- Update_Description: wording update -->
