@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
 origin.date: 06/26/2018
-ms.date: 08/06/2018
+ms.date: 09/17/2018
 ms.author: v-yeche
-ms.openlocfilehash: 8d9eab91c26ce72eb9506c0ec16f4fb041afb2ac
-ms.sourcegitcommit: c6205500afd23ac00f2829fe51858b51a622eaf1
+ms.openlocfilehash: 902b783e0e671edffc5ca4587f97106fd3070041
+ms.sourcegitcommit: 2700f127c3a8740a83fb70739c09bd266f0cc455
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39487903"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45586584"
 ---
 # <a name="quickstart-process-event-streams-using-powershell-and-net-standard"></a>快速入门：使用 PowerShell 和 .NET Standard 处理事件流
 
@@ -44,7 +44,7 @@ Azure 事件中心是高度可缩放的数据流平台和引入服务，每秒�
 
 以下示例在中国东部区域中创建一个资源组。 将 `myResourceGroup` 替换为要使用的资源组的名称：
 
-```Powershell
+```PowerShell
 New-AzureRmResourceGroup -Name myResourceGroup -Location chinaeast
 ```
 
@@ -52,7 +52,7 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location chinaeast
 
 创建资源组后，在该资源组中创建事件中心命名空间。 事件中心命名空间提供唯一的完全限定域名，可在其中创建事件中心。 将 `namespace_name` 替换为命名空间的唯一名称：
 
-```Powershell
+```PowerShell
 New-AzureRmEventHubNamespace -ResourceGroupName myResourceGroup -NamespaceName namespace_name -Location chinaeast
 ```
 
@@ -60,7 +60,7 @@ New-AzureRmEventHubNamespace -ResourceGroupName myResourceGroup -NamespaceName n
 
 创建事件中心命名空间后，在该命名空间中创建事件中心：
 
-```Powershell
+```PowerShell
 New-AzureRmEventHub -ResourceGroupName myResourceGroup -NamespaceName namespace_name -EventHubName eventhub_name
 ```
 
@@ -68,7 +68,7 @@ New-AzureRmEventHub -ResourceGroupName myResourceGroup -NamespaceName namespace_
 
 事件处理程序主机通过管理检查点和并行接收器来简化从事件中心接收事件的过程。 对于检查点，事件处理程序主机需要一个存储帐户。 若要创建存储帐户并获取其密钥，请运行以下命令：
 
-```Powershell
+```PowerShell
 # Create a standard general purpose storage account 
 New-AzureRmStorageAccount -ResourceGroupName myResourceGroup -Name storage_account_name -Location chinaeast -SkuName Standard_LRS 
 e
@@ -80,7 +80,7 @@ Get-AzureRmStorageAccountKey -ResourceGroupName myResourceGroup -Name storage_ac
 
 需要使用连接字符串连接到事件中心和处理事件。 若要获取连接字符串，请运行：
 
-```Powershell
+```PowerShell
 Get-AzureRmEventHubKey -ResourceGroupName myResourceGroup -NamespaceName namespace_name -Name RootManageSharedAccessKey
 ```
 
@@ -141,6 +141,7 @@ private const string StorageAccountKey = "Storage account key";
 ```C#
 private static readonly string StorageConnectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1};EndpointSuffix=core.chinacloudapi.cn", StorageAccountName, StorageAccountKey);
 ```
+<!--Notice: Append the EndPointSuffix configuration-->
 
 现在，请生成并运行示例。 可以看到，示例应用程序中正在接收事件：
 
@@ -173,5 +174,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 [4]: ./media/event-hubs-quickstart-powershell/receiver1.png
 [5]: ./media/event-hubs-quickstart-powershell/metrics.png
 
-<!-- Update_Description: new articles on event hubs quickstart powershell  -->
-<!--ms.date: 08/06/2018-->
+<!-- Update_Description: update meta properties, wording update  -->

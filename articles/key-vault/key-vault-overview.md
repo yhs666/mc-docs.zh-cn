@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
 origin.date: 05/08/2018
-ms.date: 06/11/2018
-ms.author: v-junlch
-ms.openlocfilehash: a91a6b146705a00fb4406199d392928d0319afec
-ms.sourcegitcommit: 306fba1a7125ef6f0555781524afa8f535bea2a0
+ms.date: 09/17/2018
+ms.author: v-biyu
+ms.openlocfilehash: 168c095f03ac74f3c59f66ba4fc3f17d5d646ac4
+ms.sourcegitcommit: d649060b55bac3ad9f4fc2bd2962748a4b5bf715
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35253388"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44066151"
 ---
 # <a name="what-is-azure-key-vault"></a>什么是 Azure 密钥保管库？
 
@@ -36,11 +36,11 @@ Key Vault 可以集中存储应用程序机密，降低安全信息意外丢失�
 
 ### <a name="centralize-application-secrets"></a>集中管理应用程序机密
 
-在 Azure Key Vault 中集中存储应用程序机密就可以控制其分发。 这样可以大大减少机密意外泄露的可能性。 有了 Key Vault，应用程序开发人员就再也不需要将安全信息存储在应用程序中。 这样就不需要将该信息存储在代码中。 例如，如果某个应用程序需要连接到数据库， 则可将连接字符串安全地存储在 Key Vault 中，而不是存储在应用代码中。
+在 Azure Key Vault 中集中存储应用程序机密就可以控制其分发。 Key Vault 可以大大减少机密意外泄露的可能性。 有了 Key Vault，应用程序开发人员就再也不需要将安全信息存储在应用程序中。 这样就不需要将该信息存储在代码中。 例如，如果某个应用程序需要连接到数据库， 则可将连接字符串安全地存储在 Key Vault 中，而不是存储在应用代码中。
 
 应用程序的密钥或机密存储在 Azure Key Vault 中以后，应用程序可以使用 URI 来检索特定版本的机密，从而安全地访问所需的信息。 这样就不需编写自定义代码来保护任何机密信息。
 
-### <a name="securely-store-secrets"></a>安全地存储机密
+### <a name="securely-store-secrets-and-keys"></a>安全地存储机密和密钥
 
 密钥由 Azure 通过行业标准算法和密钥长度进行保护。
 
@@ -48,7 +48,7 @@ Key Vault 可以集中存储应用程序机密，降低安全信息意外丢失�
 
 身份验证通过 Azure Active Directory 来完成。 授权可以通过基于角色的访问控制 (RBAC) 或 Key Vault 访问策略来完成。 进行保管库的管理时，使用 RBAC；尝试访问存储在保管库中的数据时，使用密钥保管库访问策略。
 
-最后需要指出的是，根据 Azure Key Vault 的设计，Microsoft 无法查看或提取密钥。
+最后需要指出的是，根据 Azure Key Vault 的设计，Microsoft 无法查看或提取数据。
 
 ### <a name="monitor-access-and-use"></a>监视访问和使用情况
 
@@ -65,7 +65,7 @@ Key Vault 可以集中存储应用程序机密，降低安全信息意外丢失�
 存储有价值的数据时，必须执行多项步骤。 安全信息必须受到保护，必须遵循某个生命周期，必须高度可用。 Azure Key Vault 通过以下措施对很多方面进行了简化：
 
 - 收到通知后很快就可以进行纵向扩展，满足组织的使用高峰需求。
-- 在某个区域内复制 Key Vault 的内容，并将其复制到次要区域。 这样可确保高可用性，不需管理员操作即可触发故障转移。
+- 在某个区域内复制 Key Vault 的内容，并将其复制到次要区域。 Key Vault 可确保高可用性，不需管理员操作即可触发故障转移。
 - 通过门户、Azure CLI 和 PowerShell 提供标准的 Azure 管理选项。
 - 针对从公共 CA 购买的证书自动完成某些任务，如注册和续订。
 

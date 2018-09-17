@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 origin.date: 04/24/2017
-ms.date: 06/29/2018
+ms.date: 09/07/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e7369ed63586028bb2b18f504c79e9fcdab77294
-ms.sourcegitcommit: c587cc1c53b1f92b45fae0d1ff8e1f7bd544bc55
+ms.openlocfilehash: e0f40e36386b4d67bcc49a89716359822a24298b
+ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103250"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44068052"
 ---
 # <a name="manage-batch-accounts-and-quotas-with-the-batch-management-client-library-for-net"></a>通过用于 .NET 的 Batch Management 客户端库管理 Batch 帐户和配额
 
@@ -179,8 +179,8 @@ Batch 管理 .NET 库是 Azure 资源提供程序客户端，与 [Azure Resource
 
 [aad_about]:../active-directory/fundamentals/active-directory-whatis.md
 [aad_adal]:../active-directory/develop/active-directory-authentication-libraries.md
-[aad_auth_scenarios]:../active-directory/develop/active-directory-authentication-scenarios.md
-[aad_integrate]: ../active-directory/develop/active-directory-integrating-applications.md
+[aad_auth_scenarios]:../active-directory/develop/authentication-scenarios.md
+[aad_integrate]:../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md
 [acct_mgmt_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/AccountManagement
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_mgmt_net]: https://msdn.microsoft.com/library/azure/mt463120.aspx

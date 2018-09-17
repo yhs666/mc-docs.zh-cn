@@ -1,5 +1,5 @@
 ---
-title: Azure 快速入门 - 使用 PowerShell 创建 Key Vault | Microsoft Docs
+title: Azure 快速入门 - 使用 PowerShell 在 Key Vault 中设置和检索机密
 description: ''
 services: key-vault
 author: barclayn
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
 origin.date: 05/10/2018
-ms.date: 06/11/2018
-ms.author: v-junlch
-ms.openlocfilehash: a260a189526fc9c2d911bad9308bc3510ae8a5c8
-ms.sourcegitcommit: 306fba1a7125ef6f0555781524afa8f535bea2a0
+ms.date: 09/17/2018
+ms.author: v-biyu
+ms.openlocfilehash: 203512dc8a1c7e0994744148a96d62cab12968de
+ms.sourcegitcommit: d649060b55bac3ad9f4fc2bd2962748a4b5bf715
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35253399"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44066152"
 ---
-# <a name="quickstart-create-an-azure-key-vault-using-powershell"></a>快速入门：使用 PowerShell 创建 Azure Key Vault
+# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-powershell"></a>快速入门：使用 PowerShell 在 Azure Key Vault 中设置和检索机密
 
 Azure Key Vault 是一项云服务，用作安全的机密存储。 可以安全地存储密钥、密码、证书和其他机密。 有关 Key Vault 的详细信息，可以参阅[概述](key-vault-overview.md)。 在本快速入门中，请使用 PowerShell 创建一个密钥保管库， 然后即可在新创建的保管库中存储机密。
 
@@ -104,5 +104,5 @@ Remove-AzureRmResourceGroup -Name ContosoResourceGroup
 在本快速入门中，你已创建 Key Vault 并在其中存储了一个软件密钥。 若要详细了解 Key Vault 以及如何将它与应用程序配合使用，请继续学习有关如何将 Web 应用程序与 Key Vault 配合使用的教程。
 
 > [!div class="nextstepaction"]
-> 若要了解如何使用 Web 应用程序通过托管服务标识从 Key Vault 读取机密，请继续学习以下教程：[配置 Azure Web 应用程序以从 Key Vault 读取机密](tutorial-web-application-keyvault.md)。
+> 若要了解如何使用 Web 应用程序通过托管服务标识从 Key Vault 读取机密，请继续学习以下教程：[配置 Azure Web 应用程序以从 Key Vault 读取机密](quick-create-net.md)。
 

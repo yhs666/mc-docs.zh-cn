@@ -31,10 +31,14 @@ items:
     href: stream-analytics-compatibility-level.md
   - name: 通用查询模式
     href: stream-analytics-stream-analytics-query-patterns.md
+  - name: 分析 JSON 和 AVRO 数据
+    href: stream-analytics-parsing-json.md
   - name: 事件排序注意事项
     href: stream-analytics-out-of-order-and-late-events.md
   - name: 检查点和重播
     href: stream-analytics-concepts-checkpoint-replay.md
+  - name: 错误策略
+    href: output-error-policy.md
 - name: 操作方法指南
   items:
   - name: 管理
@@ -47,12 +51,16 @@ items:
       href: stream-analytics-test-query.md
     - name: 清理作业
       href: stream-analytics-clean-up-your-job.md
+    - name: 进行作业配对以确保可靠性
+      href: stream-analytics-job-reliability.md
   - name: 构建解决方案
     items:
     - name: 实时欺诈检测
       href: stream-analytics-real-time-fraud-detection.md
     - name: 收费站传感器数据分析
       href: stream-analytics-build-an-iot-solution-using-stream-analytics.md
+    - name: 运行 JavaScript UDA
+      href: stream-analytics-javascript-user-defined-aggregates.md
     - name: 高频交易
       href: stream-analytics-high-frequency-trading.md
     - name: 处理 IoT 流数据
@@ -86,8 +94,8 @@ items:
     items:
     - name: 安装工具
       href: stream-analytics-tools-for-visual-studio-install.md
-    - name: 开发云作业
-      href: stream-analytics-tools-for-visual-studio.md
+    - name: 开发 Edge 作业
+      href: stream-analytics-tools-for-visual-studio-edge-jobs.md
     - name: 设置 CI/CD 管道
       href: stream-analytics-tools-for-visual-studio-cicd.md
   - name: 故障排除
@@ -128,9 +136,9 @@ items:
     href: https://www.azure.cn/video-center/
   - name: 白皮书 - 实时事件处理
     href: stream-analytics-real-time-event-processing-reference-architecture.md
-ms.openlocfilehash: 5f5c3c20c1ce63d0e2f2a1f8e75d302ef221ed40
-ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
+ms.openlocfilehash: ccda8e8533d18d1e5b20f54256b8d8a6a4c0f00f
+ms.sourcegitcommit: 2700f127c3a8740a83fb70739c09bd266f0cc455
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41704518"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45586583"

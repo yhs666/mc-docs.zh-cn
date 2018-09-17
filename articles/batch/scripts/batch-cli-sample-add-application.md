@@ -13,14 +13,14 @@ ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 01/29/2018
-ms.date: 03/05/2018
+ms.date: 09/07/2018
 ms.author: v-junlch
-ms.openlocfilehash: 08d57ebce15a69dd7c036e851dec0d6a4611c5ca
-ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
+ms.openlocfilehash: 6f7243a02f4c377413f4e5add10991da4ffea839
+ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/08/2018
-ms.locfileid: "29797718"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44068109"
 ---
 # <a name="cli-example-add-an-application-to-an-azure-batch-account"></a>CLI 示例：向 Azure Batch 帐户添加应用程序
 
@@ -98,16 +98,17 @@ az group delete --name myResourceGroup
 
 | 命令 | 注释 |
 |---|---|
-| [az group create](/cli/group#az_group_create) | 创建用于存储所有资源的资源组。 |
-| [az storage account create](/cli/storage/account#az_storage_account_create) | 创建存储帐户。 |
-| [az batch account create](/cli/batch/account#az_batch_account_create) | 创建批处理帐户。 |
-| [az batch account login](/cli/batch/account#az_batch_account_login) | 针对指定的批处理帐户进行身份验证，以便进一步进行 CLI 交互。  |
-| [az batch application create](/cli/batch/application#az_batch_application_create) | 创建应用程序。  |
-| [az batch application package create](/cli/batch/application/package#az_batch_application_package_create) | 将应用程序包添加到指定的应用程序。  |
-| [az batch application set](/cli/batch/application#az_batch_application_set) | 更新应用程序的属性。  |
-| [az group delete](/cli/group#az_group_delete) | 删除资源组，包括所有嵌套的资源。 |
+| [az group create](/cli/group#az-group-create) | 创建用于存储所有资源的资源组。 |
+| [az storage account create](/cli/storage/account#az-storage-account-create) | 创建存储帐户。 |
+| [az batch account create](/cli/batch/account#az-batch-account-create) | 创建批处理帐户。 |
+| [az batch account login](/cli/batch/account#az-batch-account-login) | 针对指定的批处理帐户进行身份验证，以便进一步进行 CLI 交互。  |
+| [az batch application create](/cli/batch/application#az-batch-application-create) | 创建应用程序。  |
+| [az batch application package create](/cli/batch/application/package#az-batch-application-package-create) | 将应用程序包添加到指定的应用程序。  |
+| [az batch application set](/cli/batch/application#az-batch-application-set) | 更新应用程序的属性。  |
+| [az group delete](/cli/group#az-group-delete) | 删除资源组，包括所有嵌套的资源。 |
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](/cli/overview)。
+有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](/cli)。
 
+<!-- Update_Description: link update -->

@@ -4,19 +4,19 @@ description: Azure Multi-Factor Authentication 可帮助保护对数据和应用
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-origin.date: 06/20/2017
-ms.date: 06/14/2018
+ms.topic: conceptual
+origin.date: 07/11/2018
+ms.date: 09/04/2018
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: richagi
-ms.openlocfilehash: e7567e0a76dbf0c298ff722ba16fe0566985af5d
-ms.sourcegitcommit: 7d01230972e7a7c4fd1aaf22220fb04a05726135
+ms.reviewer: michmcla
+ms.openlocfilehash: 8a778b54c30a81bc8daf7e1dee7e9718aa4aeb70
+ms.sourcegitcommit: c237baac64f847301ba7f67082ffffcd81c00142
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2018
-ms.locfileid: "35568641"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43850806"
 ---
 # <a name="how-azure-multi-factor-authentication-works"></a>Azure 多重身份验证的工作原理
 双重验证的安全性在于其分层方法。 破坏多因素身份验证系统对于攻击者来说是巨大的挑战。 即使攻击者设法得到用户的密码，如果没有同时占有可信设备也没有用处。 
@@ -46,4 +46,5 @@ Azure 多重身份验证为云和服务器提供了可选择的验证方法。 �
 
 - 阅读[常见问题解答](multi-factor-authentication-faq.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->
+

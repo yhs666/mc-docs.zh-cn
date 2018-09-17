@@ -7,28 +7,28 @@ manager: digimobile
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
-origin.date: 05/29/2017
-ms.date: 07/16/2018
+origin.date: 08/16/2018
+ms.date: 09/17/2018
 ms.author: v-yeche
-ms.openlocfilehash: 30765185f1c221bc91b48ab09118bce7ddab77a7
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.openlocfilehash: a42af19f10a7f5a7fd7ea2925604f301f7f86118
+ms.sourcegitcommit: 2700f127c3a8740a83fb70739c09bd266f0cc455
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39167990"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45586574"
 ---
 # <a name="create-an-event-hubs-namespace-and-an-event-hub-using-the-azure-portal"></a>使用 Azure 门户创建事件中心命名空间和事件中心
 
 ## <a name="create-an-event-hubs-namespace"></a>创建事件中心命名空间
 
 1. 登录到 [Azure 门户][Azure portal]，单击屏幕左上角的“创建资源”。
-2. 单击“物联网”，然后单击“事件中心”。
+2. 依次单击“物联网”、“事件中心”。
 
     ![](./media/event-hubs-create/create-event-hub9.png)
 
 3. 在“创建命名空间”中输入命名空间名称。 系统会立即检查该名称是否可用。  
 
-4. 在确保命名空间名称可用后，选择定价层（基本版或标准版）。 另外，请选择一个 Azure 订阅、资源组以及要创建该资源的位置。
+4. 在确保命名空间名称可用后，选择定价层（基础版或标准版）。 另外，请选择一个 Azure 订阅、资源组以及要创建该资源的位置。
 
 5. 单击“创建”以创建命名空间。 可能需要等待几分钟让系统完全预配资源。
 
@@ -36,7 +36,7 @@ ms.locfileid: "39167990"
 
 6. 在命名空间的门户列表中，单击新创建的命名空间。
 
-7. 单击“共享访问策略”，然后单击 **RootManageSharedAccessKey**。
+7. 依次“共享访问策略”、“RootManageSharedAccessKey”。
 
     ![](./media/event-hubs-create/create-event-hub7.png)
 
@@ -58,9 +58,9 @@ ms.locfileid: "39167990"
 
     ![](./media/event-hubs-create/create-event-hub4.png)
     
-4. 为事件中心键入名称，然后单击“创建”。 
+4. 为事件中心键入名称，并单击“创建”。 
 
-现在已创建事件中心，你已有收发事件所需的连接字符串。
+现在已创建事件中心，已具有收发事件所需的连接字符串。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -71,4 +71,4 @@ ms.locfileid: "39167990"
 
 [Azure portal]: https://portal.azure.cn/
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties -->

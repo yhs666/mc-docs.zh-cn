@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 32a66ca55bc3ccfabc3d7fee9b0c70d1f3154b46
-ms.sourcegitcommit: 5ccfb836b271e60d44ba8a871b8904a695fe8e27
+ms.openlocfilehash: 8a5810de2859296eed82ee3ba8efe2bde1b2c7a0
+ms.sourcegitcommit: 9a82a54c6b6f4d8074139e090011fe05b8018fcf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41705249"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44363141"
 documentType: LandingData
 title: 用于 MySQL 的 Azure 数据库文档
 metadata:
@@ -46,7 +46,6 @@ sections:
     style: ordered
     items:
     - html: '设计数据库& #58; <a href="/mysql/tutorial-design-database-using-portal">Azure 门户</a> | <a href="/mysql/tutorial-design-database-using-cli">Azure CLI</a>'
-    - html: 创建 Web 应用&#58; <a href="https://portal.azure.cn/#create/hub">Wordpress - 门户</a> | <a href="../app-service-web/app-service-web-tutorial-php-mysql.md?toc=%2fmysql%2ftoc.json">PHP - Azure CLI</a>
 - title: 参考
   items:
   - type: list

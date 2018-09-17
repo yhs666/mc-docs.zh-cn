@@ -15,12 +15,12 @@ ms.workload: big-data
 origin.date: 05/08/2018
 ms.date: 06/25/2018
 ms.author: v-yiso
-ms.openlocfilehash: b20915f3f1eff0842b627ec8ad1bd954d7ae8540
-ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
+ms.openlocfilehash: f249f11724b0503f8ff8d4677539dbb047783164
+ms.sourcegitcommit: bae4e9e500e3e988ef8fa0371777ca9cc49b4e94
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36747347"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45584864"
 ---
 # <a name="tutorial-use-spark-structured-streaming-with-kafka-on-hdinsight"></a>教程：将 Spark 结构化流与 Kafka on HDInsight 配合使用
 
@@ -37,7 +37,7 @@ Spark 结构化流式处理是建立在 Spark SQL 上的流处理引擎。 这�
 > * 使用 Notebook
 > * 清理资源
 
-完成本文档中的步骤后，请记得删除这些群集，避免产生额外费用。
+完成本文档中的步骤后，请记得删除这些群集，避免支付额外费用。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -48,7 +48,7 @@ Spark 结构化流式处理是建立在 Spark SQL 上的流处理引擎。 这�
 * 熟悉 Kafka 主题的创建。 有关详细信息，请参阅 [Kafka on HDInsight 快速入门](kafka/apache-kafka-get-started.md)文档。
 
 > [!IMPORTANT]
-> 本文档中的步骤需要一个包含 Spark on HDInsight 和 Kafka on HDInsight 群集的 Azure 资源组。 这些群集都位于一个 Azure 虚拟网络中，这样 Spark 群集便可与 Kafka 群集直接通信。
+> 本文档中的步骤需要一个包含 Spark on HDInsight 和 Kafka on HDInsight 群集的 Azure 资源组。 这些群集都位于 Azure 虚拟网络中，允许 Spark 群集直接与 Kafka 群集进行通信。
 > 
 > 为方便起见，本文档链接到了一个模板，该模板可创建所有所需 Azure 资源。 
 >
@@ -94,7 +94,7 @@ kafkaStreamDF.select(from_json(col("value").cast("string"), schema) as "trip")
 
 在这两个代码片段中，从 Kafka 读取数据并写入文件。 示例之间的区别如下：
 
-| 批处理 | 流式处理 |
+| Batch | 流式处理 |
 | --- | --- |
 | `read` | `readStream` |
 | `write` | `writeStream` |
@@ -122,7 +122,7 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 中转站�
 
 下图显示通信在 Spark 和 Kafka 之间的流动方式：
 
-![Azure 虚拟网络中的 Spark 和 Kafka 群集的关系图](./media/hdinsight-apache-spark-with-kafka/spark-kafka-vnet.png)
+![Azure 虚拟网络中的 Spark 和 Kafka 群集图表](./media/hdinsight-apache-spark-with-kafka/spark-kafka-vnet.png)
 
 > [!NOTE]
 > Kafka 服务仅限于虚拟网络内的通信。 通过 Internet 可访问群集上的其他服务，例如 SSH 和 Ambari。 有关可用于 HDInsight 的公共端口的详细信息，请参阅 [HDInsight 使用的端口和 URI](hdinsight-hadoop-port-settings-for-services.md)。
@@ -131,7 +131,7 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 中转站�
 
 1. 使用以下按钮登录到 Azure，并在 Azure 门户中打开模板。
     
-    <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.chinacloudapi.cn%2Farmtemplates%2Fcreate-linux-based-kafka-spark-cluster-in-vnet-v4.1.json" target="_blank"><img src="./media/hdinsight-apache-spark-with-kafka/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fhdinsight-spark-kafka-structured-streaming%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apache-spark-with-kafka/deploy-to-azure.png" alt="Deploy to Azure"></a>
     
     Azure 资源管理器模板位于 **https://raw.githubusercontent.com/Azure-Samples/hdinsight-spark-kafka-structured-streaming/master/azuredeploy.json**。
 
@@ -173,7 +173,7 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 中转站�
 
 1. 从 [https://github.com/Azure-Samples/hdinsight-spark-kafka-structured-streaming](https://github.com/Azure-Samples/hdinsight-spark-kafka-structured-streaming) 下载项目。
 
-1. 在 Web 浏览器中，连接到 Spark 群集上的 Jupyter Notebook。 在下列 URL 中，将 `CLUSTERNAME` 替换为你的 __Spark__ 群集名：
+1. 在 Web 浏览器中，连接到 Spark 群集上的 Jupyter 笔记本。 在下列 URL 中，将 `CLUSTERNAME` 替换为你的 __Spark__ 群集名：
 
         https://CLUSTERNAME.azurehdinsight.cn/jupyter
 
@@ -181,7 +181,7 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 中转站�
 
 2. 在页面右上角，使用“上传”按钮将 __spark-structured-streaming-kafka.ipynb__ 文件上传到群集。 选择“打开”开始上传。
 
-    ![使用“上传”按钮选择并上传 Notebook](./media/hdinsight-apache-kafka-spark-structured-streaming/upload-button.png)
+    ![使用“上传”按钮来选择并上传笔记本](./media/hdinsight-apache-kafka-spark-structured-streaming/upload-button.png)
 
     ![选择 KafkaStreaming.ipynb 文件](./media/hdinsight-apache-kafka-spark-structured-streaming/select-notebook.png)
 
@@ -205,7 +205,7 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 中转站�
 3. 选择“删除资源组”，然后进行确认。
 
 > [!WARNING]
-> HDInsight 群集计费在创建群集之后便会开始，删除群集后才会停止。 HDInsight 群集按分钟收费，因此不再需要使用群集时，应将其删除。
+> 创建群集后便开始 HDInsight 群集计费，删除群集后停止计费。 群集以每分钟按比例收费，因此无需再使用群集时，应始终将其删除。
 > 
 > 删除 Kafka on HDInsight 群集会删除存储在 Kafka 中的任何数据。
 

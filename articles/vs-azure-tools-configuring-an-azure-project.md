@@ -7,17 +7,18 @@ manager: douge
 assetId: 609d6965-05cc-47b1-82dc-c76a92d4f295
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.workload: azure
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.topic: conceptual
 origin.date: 03/06/2017
-ms.date: 07/12/2018
+ms.date: 09/10/2018
 ms.author: v-junlch
-ms.openlocfilehash: ec291a46327c132848f42d3294ae110818df8a66
-ms.sourcegitcommit: 5b6a2fc55e5b16ae480bd497c3ac2c3a2fd44703
+ms.openlocfilehash: 53e9cc2f23870c10d8e5950d4a79aed9f704b442
+ms.sourcegitcommit: 40456700212200e707d6cb3147cf96ad161d3ff2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38999153"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44269508"
 ---
 # <a name="configure-an-azure-cloud-service-project-with-visual-studio"></a>使用 Visual Studio 配置 Azure 云服务项目
 可根据你对 Azure 云服务项目的要求来对其进行配置。 可针对以下类别设置项目的属性：

@@ -9,12 +9,12 @@ custom: jenkins
 origin.date: 07/31/2018
 ms.date: 09/10/2018
 ms.component: common
-ms.openlocfilehash: 0c2b26052e74841d66f35efa6e4e7bb7985d2746
-ms.sourcegitcommit: e157751c560524d0bb828e987b87178130663547
+ms.openlocfilehash: 5ddcae4cfe7c95031526f26c71d27752f53bde9b
+ms.sourcegitcommit: 2700f127c3a8740a83fb70739c09bd266f0cc455
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43650839"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45586620"
 ---
 # <a name="using-azure-storage-with-a-jenkins-continuous-integration-solution"></a>将 Azure 存储用于 Jenkins 持续集成解决方案
 
@@ -23,9 +23,9 @@ ms.locfileid: "43650839"
 在本教程中，将使用 Microsoft 提供的适用于 Jenkins CI 的 Azure 存储插件。
 
 ## <a name="jenkins-overview"></a>Jenkins 概述
-Jenkins 通过允许开发人员轻松地集成其代码更改以及自动和频繁地生成版本，实现了软件项目的持续集成，因此提高了开发人员的工作效率。 生成内容受到版本控制，可将生成项目上传到多个存储库。 本文将演示如何将 Azure Blob 存储用作生成项目的存储库。 它还会演示如何从 Azure Blob 存储下载依赖项。
+Jenkins 通过允许开发人员轻松地集成其代码更改以及自动和频繁地生成版本，实现了软件项目的持续集成，因此提高了开发人员的工作效率。 生成是版本控制的，并且可将生成项目上传到不同存储库中。 本文将演示如何将 Azure Blob 存储用作生成项目的存储库。 它还将演示如何从 Azure Blob 存储下载依赖项。
 
-有关 Jenkins 的更多信息，请访问 [Meet Jenkins](https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins)（了解 Jenkins）。
+有关 Jenkins 的更多信息，请访问 [Jenkins 概览](https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins)。
 
 ## <a name="benefits-of-using-the-blob-service"></a>使用 Blob 服务的好处
 使用 Blob 服务承载敏捷开发生成项目的好处包括：
@@ -47,13 +47,13 @@ Jenkins 通过允许开发人员轻松地集成其代码更改以及自动和频
 
   3. 在浏览器中，打开 `http://localhost:8080/` 以打开 Jenkins 仪表板，可使用该仪表板安装并配置 Azure 存储插件。
      
-      虽然典型 Jenkins CI 解决方案会设置为作为一个服务运行，但在本教程中，通过命令行运行 Jenkins war 就足够了。
-* 一个 Azure 帐户。 可以在 <http://www.azure.cn> 中注册 Azure 帐户。
-* Azure 存储帐户。 如果还没有存储帐户，可使用[创建存储帐户](../common/storage-create-storage-account.md#create-a-storage-account)中的步骤创建一个。
-* 建议（但不要求）熟悉 Jenkins CI 解决方案，因为以下内容将使用基本示例，演示使用 Blob 服务作为 Jenkins CI 生成项目的存储库时所需的步骤。
+      虽然典型 Jenkins CI 解决方案将设置为作为一个服务运行，但在本教程中，通过命令行运行 Jenkins war 就足够了。
+* 一个 Azure 帐户。 可在 <http://www.azure.cn> 注册 Azure 帐户。
+* 一个 Azure 存储帐户。 如果还没有存储帐户，可使用[创建存储帐户](../common/storage-create-storage-account.md#create-a-storage-account)中的步骤创建一个。
+* 建议熟悉 Jenkins CI 解决方案（但不是必需的），因为以下内容将使用一个基本示例向你演示使用 Blob 服务作为 Jenkins CI 生成项目的存储库时所需的步骤。
 
 ## <a name="how-to-use-the-blob-service-with-jenkins-ci"></a>如何将 Blob 服务用于 Jenkins CI
-要将 Blob 服务用于 Jenkins，需安装 Azure 存储插件，并将该插件配置为使用你的存储帐户，然后创建生成后操作，将生成项目上传到你的存储帐户。 这些步骤会在下面各节中介绍。
+要将 Blob 服务用于 Jenkins，需要安装 Azure 存储插件，并对该插件进行配置以使用你的存储帐户，并创建一个将生成项目上载到存储帐户的生成后操作。 将在下面各节中介绍这些步骤。
 
 ## <a name="how-to-install-the-azure-storage-plugin"></a>如何安装 Azure 存储插件
 1. 在 Jenkins 仪表板中，选择“管理 Jenkins”。
@@ -67,14 +67,14 @@ Jenkins 通过允许开发人员轻松地集成其代码更改以及自动和频
 1. 在 Jenkins 仪表板中，选择“管理 Jenkins”。
 2. 在“管理 Jenkins”页中，选择“配置系统”。
 3. 在“Azure 存储帐户配置”部分中：
-   1. 输入存储帐户名称，可以从 [Azure 门户](https://portal.azure.cn)获取该帐户名称。
-   2. 输入存储帐户密钥，同样可以从 [Azure 门户](https://portal.azure.cn)获取该密钥。
+   1. 输入存储帐户名，该帐户名可从 [Azure 门户](https://portal.azure.cn)获取。
+   2. 输入存储帐户密钥，该密钥同样可从 [Azure 门户](https://portal.azure.cn)获取。
    3. 如果要使用全局 Azure 云，请对“BLOB 服务终结点 URL”使用默认值。 如果要使用其他 Azure 云，请使用在 [Azure 门户](https://portal.azure.cn)中为存储帐户指定的终结点。 
    4. 选择“验证存储凭据”以验证存储帐户。 
    5. [可选] 如果有其他存储帐户并且希望其可供 Jenkins CI 使用，请选择“添加更多存储帐户”。
    6. 选择“保存”以保存设置。
 
-## <a name="how-to-create-a-post-build-action-that-uploads-your-build-artifacts-to-your-storage-account"></a>如何创建生成后操作以将生成项目上传到存储帐户
+## <a name="how-to-create-a-post-build-action-that-uploads-your-build-artifacts-to-your-storage-account"></a>如何创建将生成项目上传到存储帐户的后期生成操作
 为了进行说明，首先需要创建一个将创建若干文件的作业，然后添加后期生成操作以将文件上传到存储帐户。
 
 1. 在 Jenkins 仪表板中，选择“新建项”。
@@ -92,7 +92,7 @@ Jenkins 通过允许开发人员轻松地集成其代码更改以及自动和频
 
 5. 在作业配置的“生成后操作”部分中，选择“添加生成后操作”并选择“将项目上传到 Azure Blob 存储”。
 6. 对于“存储帐户名称”，请选择要使用的存储帐户。
-7. 对于“容器名称”，请指定容器名称。 （如果上传生成项目时不存在该容器，则创建该容器。）可使用环境变量，因此在此示例中，请输入 `${JOB_NAME}` 作为容器名称。
+7. 对于“容器名称”，请指定容器名称。 （如果上传生成项目时不存在该容器，则将创建该容器。）可使用环境变量，因此在此示例中，请输入 `${JOB_NAME}` 作为容器名称。
    
     **提示**
    
@@ -102,15 +102,15 @@ Jenkins 通过允许开发人员轻松地集成其代码更改以及自动和频
 10. 对于“要上传的项目列表”，请输入 `text/*.txt`。
 11. 在本教程中，对于“已上传的项目的通用虚拟路径”，请输入 `${BUILD\_ID}/${BUILD\_NUMBER}`。
 12. 选择“保存”以保存设置。
-13. 在 Jenkins 仪表板中，选择“立即生成”以运行 MyJob。 检查控制台输出中的状态。 生成后操作开始上传生成项目时，控制台输出中会包括 Azure 存储的状态消息。
+13. 在 Jenkins 仪表板中，选择“立即生成”以运行 MyJob。 检查控制台输出中的状态。 当生成后操作开始上传生成项目时，Azure 存储的状态消息将包括在控制台输出中。
 14. 成功完成此作业后，可通过打开公共 Blob 检查生成项目。
-    1. 登录到 [Azure 门户](https://portal.azure.com)。
+    1. 登录到 [Azure 门户](https://portal.azure.cn)。
     2. 选择“存储”。
     3. 选择用于 Jenkins 的存储帐户名称。
     4. 选择“容器”。
     5. 选择名为 myjob 的容器，该名称是创建 Jenkins 作业时分配的作业名称的小写形式。 在 Azure 存储中，容器名称和 Blob 名称都是小写的（并且区分大小写）。 在名为 myjob 的容器的 Blob 列表中，应能看到 hello.txt 和 date.txt。 复制这两项中任一项的 URL 并在浏览器中打开。 可看到已作为生成项目上传的文本文件。
 
-只能为每个作业创建一个将项目上传到 Azure Blob 存储的生成后操作。 单个生成后操作用于将项目上传到 Azure Blob 存储，它可在“要上传的项目列表”中使用分号作为分隔符指定不同的文件（包括通配符）和文件路径。 例如，如果 Jenkins 内部版本在工作空间的 build 文件夹中生成了 JAR 文件和 TXT 文件，并且要将这两者都上传到 Azure Blob 存储，请对“要上传的项目列表”选项使用以下值：`build/\*.jar;build/\*.txt`。 还可以使用双冒号语法指定要在 Blob 名称内使用的路径。 例如，如果要在 Blob 路径中使用 binaries 上传 JAR 并在 Blob 路径中使用 notices 上传 TXT 文件，请对“要上传的项目列表”选项使用以下值：`build/\*.jar::binaries;build/\*.txt::notices`。
+每个作业只能创建一个用来将项目上传到 Azure Blob 存储的生成后操作。 单个生成后操作用于将项目上传到 Azure Blob 存储，它可在“要上传的项目列表”中使用分号作为分隔符指定不同的文件（包括通配符）和文件路径。 例如，如果 Jenkins 内部版本在工作空间的 build 文件夹中生成了 JAR 文件和 TXT 文件，并且要将这两者都上传到 Azure Blob 存储，请对“要上传的项目列表”选项使用以下值：`build/\*.jar;build/\*.txt`。 还可以使用双冒号语法指定要在 Blob 名称内使用的路径。 例如，如果要在 Blob 路径中使用 binaries 上传 JAR 并在 Blob 路径中使用 notices 上传 TXT 文件，请对“要上传的项目列表”选项使用以下值：`build/\*.jar::binaries;build/\*.txt::notices`。
 
 ## <a name="how-to-create-a-build-step-that-downloads-from-azure-blob-storage"></a>如何创建从 Azure Blob 存储进行下载的生成步骤
 以下步骤说明如何配置从 Azure Blob 存储下载项的生成步骤，这对在生成中添加项非常有用。 使用此模式的示例是 JAR，可能需要在 Azure blob 存储中保留 JAR。
@@ -119,11 +119,11 @@ Jenkins 通过允许开发人员轻松地集成其代码更改以及自动和频
 2. 对于“存储帐户名称”，请选择要使用的存储帐户。
 3. 对于“容器名称”，指定包含要下载的 Blob 容器的名称。 可以使用环境变量。
 4. 对于“Blob 名称”，请指定 Blob 名称。 可以使用环境变量。 另外，在指定 Blob 名称的初始字母后，可以使用星号作为通配符。 例如，**project\*** 将指定名称以 **project** 开头的所有 Blob。
-5. [可选] 对于“下载路径”，指定希望将文件从 Azure Blob 存储下载到的 Jenkins 计算机路径。 也可以使用环境变量。 （如果没有为“下载路径”提供值，则 Azure Blob 存储中的文件将被下载到作业的工作空间中。）
+5. [可选] 对于“下载路径”，指定希望将文件从 Azure Blob 存储下载到的 Jenkins 计算机路径。 也可以使用环境变量。 （如果没有为“下载路径”提供值，则 Azure Blob 存储中的文件会被下载到作业的工作空间中。）
 
 如果还希望从 Azure Blob 存储下载其他项，可以创建其他生成步骤。
 
-运行生成后，可以检查生成历史记录控制台输出或下载位置，查看是否成功下载了所需 Blob。  
+在运行生成后，可以检查生成历史记录控制台输出或下载位置，看是否成功下载了需要的 Blob。  
 
 ## <a name="components-used-by-the-blob-service"></a>Blob 服务使用的组件
 本部分概述了 Blob 服务组件。
@@ -137,7 +137,7 @@ Jenkins 通过允许开发人员轻松地集成其代码更改以及自动和频
   
     （以上格式适用于全局 Azure 云。 如果要使用其他 Azure 云，请使用 [Azure 门户](https://portal.azure.cn)中的终结点来确定 URL 终结点。）
   
-    在以上格式中，`storageaccount` 表示存储帐户的名称，`container_name` 表示容器的名称，而 `blob_name` 表示 Blob 的名称。 在容器名称中，可具有多个由正斜杠 **/**（了解 Jenkins）。 用于本教程的示例容器是 MyJob，${BUILD\_ID}/${BUILD\_NUMBER} 用于通用虚拟路径，因此 Blob 具有以下格式的 URL：
+    在以上格式中，`storageaccount` 表示存储帐户的名称，`container_name` 表示容器的名称，而 `blob_name` 表示 Blob 的名称。 在容器名称中，可具有多个由正斜杠 **/** 分隔的路径。 用于本教程的示例容器是 MyJob，${BUILD\_ID}/${BUILD\_NUMBER} 用于通用虚拟路径，因此 Blob 具有以下格式的 URL：
   
     `http://example.blob.core.chinacloudapi.cn/myjob/2014-04-14_23-57-00/1/hello.txt`
 
@@ -149,7 +149,7 @@ Jenkins 通过允许开发人员轻松地集成其代码更改以及自动和频
 * [Jenkins 概览](https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins)
 * [用于 Java 的 Azure 存储 SDK](https://github.com/azure/azure-storage-java)
 * [Azure 存储客户端 SDK 参考](http://azure.github.io/azure-storage-java/)
-* [Azure 存储服务 REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
+* [Azure 存储空间服务 REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 * [Azure 存储团队博客](http://blogs.msdn.com/b/windowsazurestorage/)
 
 有关详细信息，请访问[面向 Java 开发人员的 Azure](https://www.azure.cn/develop/java/)。

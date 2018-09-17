@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 12/06/2017
-ms.date: 05/28/2018
+ms.date: 09/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4c226d5ab1d20f6b01f4c7e842fa28251e32ac93
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: 874539b03b86c9ce12aa7f7efe4c15e5fcfeb856
+ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554470"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44515723"
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>独立 Windows 群集的配置设置
 本文介绍如何使用 ClusterConfig.json 文件配置独立的 Azure Service Fabric 群集。 需要使用该文件指定有关群集节点、安全配置以及有关容错域和升级域的网络拓扑信息。
@@ -85,7 +85,7 @@ ms.locfileid: "34554470"
 ClusterConfig.json 中的属性部分用于配置群集，如下所示：
 
 ### <a name="reliability"></a>可靠性
-reliabilityLevel 的概念定义可在群集的主节点上运行的 Service Fabric 系统服务副本或实例数。 它确定这些服务以及群集的可靠性。 在群集创建和升级过程中，由系统计算该值。
+reliabilityLevel 的概念定义可在群集的主节点上运行的 Service Fabric 系统服务副本或实例数。 它会确定这些服务以及群集的可靠性。 在群集创建和升级过程中，由系统计算该值。
 
 ### <a name="diagnostics"></a>诊断
 在 diagnosticsStore 节中可以配置参数，以便能够诊断和排查节点或群集故障，如以下代码片段中所示： 
@@ -108,7 +108,7 @@ metadata 用于描述群集诊断，可以根据具体的情况进行设置。 �
         "connectionstring": "xstore:DefaultEndpointsProtocol=https;AccountName=[AzureAccountName];AccountKey=[AzureAccountKey]"
     }
 
-### <a name="security"></a>安全性
+### <a name="security"></a>安全
 对于安全的 Service Fabric 独立群集，必须使用 security 节。 以下代码片段显示了该部分的一部分内容：
 
     "security": {

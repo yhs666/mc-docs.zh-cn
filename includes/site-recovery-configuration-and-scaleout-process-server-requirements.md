@@ -7,15 +7,15 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: include
 origin.date: 06/10/2018
-ms.date: 07/23/2018
+ms.date: 09/17/2018
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 47fef5320e6c709927f9f789aa635f0ecb0740d7
-ms.sourcegitcommit: f7ff09be9f3be5e3eb795e383c0c670f480f233d
+ms.openlocfilehash: 77edbdc932f6964242f75814e0117e70d2948a48
+ms.sourcegitcommit: 96d06c506983906a92ff90a5f67199f8f7e10996
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39169065"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45586885"
 ---
 配置/进程服务器要求
 
@@ -37,7 +37,7 @@ IIS | - 无预先存在的默认网站 <br> - 端口 443 上没有预先存在�
 | 
 网络设置 | 
 IP 地址类型 | 静态 
-Internet 访问权限 | 服务器需要访问这些 URL（直接或通过代理） <br> - \*.accesscontrol.chinacloudapi.cn<br> - \*.backup.windowsazure.cn <br>- \*.store.core.chinacloudapi.cn<br> - \*.blob.core.chinacloudapi.cn<br> - \*.hypervrecoverymanager.windowsazure.cn  <br> - https://management.chinacloudapi.cn <br> - *.services.visualstudio.com <br> - time.nist.gov <br> - time.windows.com <br> OVF 还需要访问以下 URL <br> - https://login.chinacloudapi.cn <br> - https://secure.aadcdn.microsoftonline-p.com <br> - https://login.live.com  <br> - https://auth.gfx.ms <br> - https://graph.chinacloudapi.cn <br> - https://login.chinacloudapi.cn <br> - https://www.live.com <br> - https://www.microsoft.com <br> - https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi 
+Internet 访问权限 | 服务器需要访问这些 URL（直接或通过代理） <br> - \*.accesscontrol.chinacloudapi.cn<br> - \*.backup.windowsazure.cn <br>- \*.store.core.chinacloudapi.cn<br> - \*.blob.core.chinacloudapi.cn<br> - \*.hypervrecoverymanager.windowsazure.cn  <br> - https://management.chinacloudapi.cn <br> - *.services.visualstudio.com <br> - time.nist.gov <br> - time.windows.com <br> OVF 还需要访问以下 URL <br> - https://login.partner.microsoftonline.cn <br> - https://secure.aadcdn.microsoftonline-p.com <br> - https://login.live.com  <br> - https://auth.gfx.ms <br> - https://graph.chinacloudapi.cn <br> - https://login.chinacloudapi.cn <br> - https://www.live.com <br> - https://www.microsoft.com <br> - https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi 
 端口 | 443（控制通道协调）<br>9443（数据传输） 
 NIC 类型 | VMXNET3（如果配置服务器是 VMware VM）
  | 

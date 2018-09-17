@@ -11,17 +11,17 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 07/11/2017
-ms.date: 07/27/2018
+ms.date: 09/06/2018
 ms.author: v-junlch
 ms.reviewer: asteen
-ms.openlocfilehash: 9b31bbf7ebc068d544076ae366228029c4ede0af
-ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
+ms.openlocfilehash: e039b8f431bf50cd99f3d6dc0e1280de983c0350
+ms.sourcegitcommit: fd49281c58f34de20cc310d6cefb4568992cd675
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39486907"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43858423"
 ---
 # <a name="unexpected-consent-prompt-when-signing-in-to-an-application"></a>登录到应用程序时出现的意外许可提示
 
@@ -47,4 +47,4 @@ ms.locfileid: "39486907"
 
 -   [Azure Active Directory（v1.0 终结点）中的应用、权限和许可](/active-directory/develop/active-directory-integrating-applications)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

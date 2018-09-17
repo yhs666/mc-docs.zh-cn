@@ -14,13 +14,13 @@ ms.devlang: python
 ms.topic: hero-article
 origin.date: 07/18/2017
 ms.author: v-yiso
-ms.date: 08/20/2018
-ms.openlocfilehash: c5a2cc72db7a6967dbdf6e7a462223b223290834
-ms.sourcegitcommit: 664584f55e0a01bb6558b8d3349d41d3f05ba4d7
+ms.date: 09/17/2018
+ms.openlocfilehash: d58c7c05f6265e0b627d39f7d8a29a61b82c31bc
+ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41704110"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44068139"
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>用于 Visual Studio 的 Python 工具中的 Python Web 角色和辅助角色
 
@@ -344,7 +344,7 @@ if not exist "%DiagnosticStore%\LogFiles" mkdir "%DiagnosticStore%\LogFiles"
 - [Blob 服务][]
 - [表服务][]
 - [队列服务][]
-- [Service Bus 队列][]
+- [服务总线队列][]
 - [服务总线主题][]
 
 <!--Link references-->
@@ -358,7 +358,7 @@ if not exist "%DiagnosticStore%\LogFiles" mkdir "%DiagnosticStore%\LogFiles"
 [Blob 服务]:../storage/blobs/storage-python-how-to-use-blob-storage.md
 [队列服务]: ../storage/queues/storage-python-how-to-use-queue-storage.md
 [表服务]:../cosmos-db/table-storage-how-to-use-python.md
-[Service Bus 队列]: ../service-bus-messaging/service-bus-python-how-to-use-queues.md
+[服务总线队列]: ../service-bus-messaging/service-bus-python-how-to-use-queues.md
 [服务总线主题]: ../service-bus-messaging/service-bus-python-how-to-use-topics-subscriptions.md
 
 <!--External Link references-->

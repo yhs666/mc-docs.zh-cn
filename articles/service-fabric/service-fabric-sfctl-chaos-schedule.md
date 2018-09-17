@@ -12,15 +12,15 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-origin.date: 05/23/2018
-ms.date: 07/09/2018
+origin.date: 07/31/2018
+ms.date: 09/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0d55c984c827c266deaf9bfe53f6789673c605c0
-ms.sourcegitcommit: 292f22020e00c607229c1693229f25fb2837d8af
+ms.openlocfilehash: 89066edb25ea6952e172a429bfb17674bc17c474
+ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37910612"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44515621"
 ---
 # <a name="sfctl-chaos-schedule"></a>sfctl chaos schedule
 获取和设置 Chaos Schedule。
@@ -36,6 +36,12 @@ ms.locfileid: "37910612"
 获取定义何时以及如何运行 Chaos 的 Chaos Schedule。
 
 获取正在使用的 Chaos Schedule 版本以及定义何时以及如何运行 Chaos 的 Chaos Schedule。
+
+### <a name="arguments"></a>参数
+
+|参数|说明|
+| --- | --- |
+| --timeout -t | 服务器超时，以秒为单位。  默认值\: 60。 |
 
 ### <a name="global-arguments"></a>全局参数
 
@@ -60,6 +66,7 @@ ms.locfileid: "37910612"
 | --expiry-date-utc | 停止使用 Schedule 来计划 Chaos 的日期和时间。  默认值\: 9999-12-31T23\:59\:59.999Z。 |
 | --jobs | ChaosScheduleJobs 的 JSON 编码列表，表示何时运行 Chaos 以及使用哪些参数运行 Chaos。 |
 | --start-date-utc | 开始使用 Schedule 来计划 Chaos 的日期和时间。  默认值\: 1601-01-01T00\:00\:00.000Z。 |
+| --timeout -t | 服务器超时，以秒为单位。  默认值\: 60。 |
 | --version | Schedule 的版本号。 |
 
 ### <a name="global-arguments"></a>全局参数
@@ -141,5 +148,4 @@ ms.locfileid: "37910612"
 ## <a name="next-steps"></a>后续步骤
 - [安装](service-fabric-cli.md) Service Fabric CLI。
 - 了解如何通过[示例脚本](/service-fabric/scripts/sfctl-upgrade-application)使用 Service Fabric CLI。
-<!-- Update_Description: new articles on service fabric sfctl chaos schedule -->
-<!--ms.date: 07/09/2018-->
+<!-- Update_Description: update meta properties, wording update -->

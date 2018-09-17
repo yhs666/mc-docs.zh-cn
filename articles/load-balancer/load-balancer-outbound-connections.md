@@ -1,5 +1,5 @@
 ---
-title: Azure 中的出站连接 | Azure
+title: Azure 中的出站连接 | Microsoft Docs
 description: 本文介绍 Azure 如何使 VM 与公共 Internet 服务通信。
 services: load-balancer
 documentationcenter: na
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 05/08/2018
-ms.date: 07/23/2018
+origin.date: 08/15/2018
+ms.date: 09/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: e04911ed63069f8df7e1d8e535b257e7d17db726
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.openlocfilehash: 33e032cc601e14698d573be92c02df98c6814e03
+ms.sourcegitcommit: fd49281c58f34de20cc310d6cefb4568992cd675
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39167991"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43858456"
 ---
 # <a name="outbound-connections-in-azure"></a>Azure 中的出站连接
 
@@ -85,7 +85,7 @@ Azure 结合端口伪装 ([PAT](#pat)) 使用 SNAT 来执行此功能。 此方�
 
 SNAT 端口是根据[了解 SNAT 和 PAT](#snat) 部分中所述预先分配的。  共享可用性集的 VM 数目决定了适用的预分配层。  没有可用性集的独立 VM 实际上是用于确定预分配（1024 SNAT 端口）的、包含 1 个 VM 的池。 SNAT 端口是可能会被耗尽的有限资源。 因此了解它们的[使用](#pat)方式很重要。 请查看[管理 SNAT 耗尽](#snatexhaust)，了解如何根据需要进行设计和缓解。
 
-### <a name="multiple-combined-scenarios"></a>多个组合方案
+### <a name="combinations"></a>多个组合方案
 
 可以结合前面部分中所述的方案来实现特定的效果。 存在多个方案时，优先顺序如下：[方案 1](#ilpip) 优先于[方案 2](#lb)和 [3](#defaultsnat)。 [方案 2](#lb) 优先于[方案 3](#defaultsnat)。
 
@@ -203,7 +203,7 @@ SNAT 端口分配特定于 IP 传输协议（TCP 和 UDP 是分别维护的）�
 
 例如，后端池中的 2 台虚拟机对于每个 IP 配置将有 1024 个 SNAT 端口可用，整个部署总共有 2048 个 SNAT 端口。  如果部署已增加到 50 台虚拟机，虽然每台虚拟机的预分配端口数保持不变，但整个部署可以使用 51,200 (50 x 1024) 个 SNAT 端口。  如果希望横向扩展部署，请检查每层的[预分配端口](#preallocatedports)的数量以确保将横向扩展规划为各自层的最大容量。  在上述示例中，如果选择了横向扩展到 51 个而非 50 个实例，则你将提升到下一个层，最终，每台 VM 的 SNAT 端口数以及端口总数会更少。
 
-相反，如果必须重新分配已分配的端口，横向扩展到后端池较大的下一层可能会影响出站连接。  如果不希望发生此行为，则需要将部署规划为层大小。  或者确保应用程序可以根据需要进行检测和重试。  TCP keepalive 可以帮助检测 SNAT 端口何时由于被重新分配而不再工作。
+如果横向扩展到后端池较大的下一层，并且需要重新分配已分配端口，则部分出站连接可能会超时。  如果仅使用部分 SNAT 端口，则在后端池较大的下一层中横向扩展无意义。  每次移动到后端池的下一层时，半数现有端口将重新分配。  如果不希望发生此行为，则需要将部署规划为层大小。  或者确保应用程序可以根据需要进行检测和重试。  TCP keepalive 可以帮助检测 SNAT 端口何时由于被重新分配而不再工作。
 
 ### <a name="idletimeout"></a>保持 keepalive 重置出站空闲超时
 

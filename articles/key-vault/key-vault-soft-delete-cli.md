@@ -2,20 +2,20 @@
 ms.assetid: ''
 title: Azure Key Vault - 如何将软删除与 CLI 配合使用
 description: 使用 CLI 代码剪辑进行软删除的用例示例
-author: alexchen2016
-manager: digimobile
+author: bryanla
+manager: mbaldwin
 ms.service: key-vault
 ms.topic: article
 ms.workload: identity
 origin.date: 08/04/2017
-ms.date: 09/07/2017
-ms.author: v-junlch
-ms.openlocfilehash: 8cc6c469763b212c93092d70efd2ae2c08c646cc
-ms.sourcegitcommit: 01b8f9a7e857463f49531e70dbb911c6f0286d76
+ms.date: 09/17/2018
+ms.author: v-biyu
+ms.openlocfilehash: b522dcd987b5183058f806656659448a6931044a
+ms.sourcegitcommit: d649060b55bac3ad9f4fc2bd2962748a4b5bf715
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2017
-ms.locfileid: "23993648"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44066162"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>如何将 Key Vault 软删除与 CLI 配合使用
 
@@ -62,7 +62,7 @@ az resource update --id $(az keyvault show --name ContosoVault -o tsv | awk '{pr
 通过向创建命令添加软删除启用标志，在创建时启用对新 Key Vault 的软删除。
 
 ```azurecli
-az keyvault create --name ContosoVault --resource-group ContosoRG --enable-soft-delete true --location ChinaNorth
+az keyvault create --name ContosoVault --resource-group ContosoRG --enable-soft-delete true --location chinanorth
 ```
 
 ### <a name="verify-soft-delete-enablement"></a>验证软删除支持
@@ -105,7 +105,7 @@ az keyvault list-deleted
 若要恢复 Key Vault，需要指定 Key Vault 名称、资源组和位置。 请注意已删除的 Key Vault 的位置和资源组，以便用于 Key Vault 恢复过程。
 
 ```azurecli
-az keyvault recover --location ChinaNorth --name ContosoVault
+az keyvault recover --location chinanorth --resource-group ContosoRG --name ContosoVault
 ```
 
 恢复 Key Vault 后，会得到具有 Key Vault 原始资源 ID 的新资源。 如果 Key Vault 所在的资源组已被删除，则必须先创建同名的新资源组，然后才能恢复 Key Vault。
@@ -203,7 +203,7 @@ az keyvault secret purge --name SQLPAssword --vault-name ContosoVault
 清除 Key Vault 时，会永久删除其所有内容（包括密钥、机密和证书）。 若要清除 Key Vault，请使用 `az keyvault purge` 命令。 可使用命令 `az keyvault list-deleted` 找到订阅中已删除的密钥保管库的位置。
 
 ```azurecli
-az keyvault purge --location ChinaNorth --name ContosoVault
+az keyvault purge --location chinanorth --name ContosoVault
 ```
 
 >[!NOTE]

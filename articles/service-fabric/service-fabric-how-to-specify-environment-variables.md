@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 12/06/2017
-ms.date: 05/28/2018
+ms.date: 09/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: c7ab32615a0c63b2d20784f925334b328aa0ebae
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: 914cefc3c01b30d877d77b7f41e0e979e8930c04
+ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554123"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44515693"
 ---
 # <a name="how-to-specify-environment-variables-for-services-in-service-fabric"></a>如何在 Service Fabric 中指定服务的环境变量
 
@@ -35,7 +35,7 @@ ms.locfileid: "34554123"
       <CodePackage Name="MyCode" Version="CodeVersion1">
       ...
         <EnvironmentVariables>
-          <EnvironmentVariable Name="MyEnvVariable" Value="DeafultValue"/>
+          <EnvironmentVariable Name="MyEnvVariable" Value="DefaultValue"/>
           <EnvironmentVariable Name="HttpGatewayPort" Value="19080"/>
         </EnvironmentVariables>
       </CodePackage>
@@ -58,4 +58,4 @@ ms.locfileid: "34554123"
 若要详细了解本文中讨论的一些核心概念，请参阅文章[管理多个环境的应用程序](service-fabric-manage-multiple-environment-app-configuration.md)。
 
 有关 Visual Studio 中其他可用应用管理功能的信息，请参阅[在 Visual Studio 中管理 Service Fabric 应用程序](service-fabric-manage-application-in-visual-studio.md)。
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update -->

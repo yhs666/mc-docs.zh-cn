@@ -1,26 +1,21 @@
 ---
-title: 更新 Azure 自动化中的 Azure 模块 | Azure
+title: 更新 Azure 自动化中的 Azure 模块
 description: 本文介绍现在如何才能更新在 Azure 自动化中默认提供的常用 Azure PowerShell 模块。
 services: automation
-documentationcenter: ''
-author: yunan2016
-manager: digimobile
-editor: tysonn
-ms.assetid: ''
 ms.service: automation
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+ms.component: process-automation
+author: georgewallace
+ms.author: gwallace
 origin.date: 03/16/2018
-ms.date: 05/14/2018
-ms.author: v-nany
-ms.openlocfilehash: e23bcc88e954737752a44557e5270accccf39dfa
-ms.sourcegitcommit: 53972dcdef77da92529996667545d2e83716f7e2
+ms.date: 09/10/2018
+ms.topic: conceptual
+manager: digimobile
+ms.openlocfilehash: f18233f96f4dec6225da88f446ae8dc93eaab8c4
+ms.sourcegitcommit: 1b60848d25bbd897498958738644a4eb9cf3a302
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39143457"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43731200"
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>如何在 Azure 自动化中更新 Azure PowerShell 模块
 
@@ -53,7 +48,7 @@ ms.locfileid: "39143457"
 > [!NOTE]
 > 当运行新的计划作业时，Azure 自动化将在自动化帐户中使用最新模块。    
 
-如果在 Runbook 中使用这些 Azure PowerShell 模块中的 cmdlet，需要大约每月运行一次此更新过程，以确保拥有最新的模块。
+如果在 Runbook 中使用这些 Azure PowerShell 模块中的 cmdlet，需要大约每月运行一次此更新过程，以确保拥有最新的模块。 更新模块时，Azure 自动化使用 AzureRunAsConnection 连接进行身份验证，如果服务主体已过期或不再以订阅级别存在，模块更新将失败。
 
 ## <a name="next-steps"></a>后续步骤
 

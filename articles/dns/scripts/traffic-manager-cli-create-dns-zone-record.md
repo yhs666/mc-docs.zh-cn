@@ -16,12 +16,12 @@ ms.workload: infrastructure
 origin.date: 04/30/2018
 ms.date: 05/28/2018
 ms.author: v-nany
-ms.openlocfilehash: 8084738445019194b4489eeca9254f63d2101f44
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 118f88b603c958478e9922305e596fb0c0d5bb4c
+ms.sourcegitcommit: 0a9f3c90a31498f7c696e45f8843ab7fc3d8d876
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939148"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "44757476"
 ---
 # <a name="azure-cli-script-example-create-a-dns-zone-and-record"></a>Azure CLI 脚本示例：创建 DNS 区域和记录
 
@@ -72,15 +72,15 @@ az group delete -n myResourceGroup
 
 此脚本使用以下命令创建资源组、虚拟机、可用性集、负载均衡器和所有相关资源。 表中的每条命令均链接到特定于命令的文档。
 
-| 命令 | 注释 |
+| 命令 | 说明 |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | 创建用于存储所有资源的资源组。 |
-| [az network dns zone create](/cli/azure/network/dns/zone#az-network-dns-zone-create) | 创建 Azure DNS 区域。 |
-| [az network dns record-set a add-record](/cli/azure/network/dns/record-set#az-network-dns-record-set-a-add-record) | 将 *A* 记录添加到 DNS 区域。 |
-| [az network dns record-set list](/cli/azure/network/dns/record-set#az-network-dns-record-set-a-list) | 列出 DNS 区域中的所有 *A* 记录集。 |
-| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | 删除资源组，包括所有嵌套的资源。 |
+| [az group create](/cli/group#az-group-create) | 创建用于存储所有资源的资源组。 |
+| [az network dns zone create](/cli/network/dns/zone#az-network-dns-zone-create) | 创建 Azure DNS 区域。 |
+| [az network dns record-set a add-record](/cli/network/dns/record-set#az-network-dns-record-set-a-add-record) | 将 *A* 记录添加到 DNS 区域。 |
+| [az network dns record-set list](/cli/network/dns/record-set#az-network-dns-record-set-a-list) | 列出 DNS 区域中的所有 *A* 记录集。 |
+| [az group delete](/cli/vm/extension#az-vm-extension-set) | 删除资源组，包括所有嵌套的资源。 |
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.microsoft.com/cli/azure)。
+有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](/cli/)。
 

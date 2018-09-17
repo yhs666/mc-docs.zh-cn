@@ -1,5 +1,5 @@
 ---
-title: 使用 Aure CLI 2.0 导入和导出 Azure DNS 的域区域文件 | Azure
+title: 使用 Azure CLI 2.0 导入和导出 Azure DNS 的域区域文件 | Microsoft 文档
 description: 了解如何通过使用 Azure CLI 2.0 导入和导出 Azure DNS 的 DNS 区域文件
 services: dns
 documentationcenter: na
@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 origin.date: 04/30/2018
 ms.date: 05/28/2018
 ms.author: v-nany
-ms.openlocfilehash: 9467e0d79f79291d165b20eeae6e53e4566e8ec4
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: a5b7d3971590bfc9562470cf942db0c6cc1eb837
+ms.sourcegitcommit: 1471663f5f5a1c4e1fbead7c4d351610cb0086bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554313"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44363583"
 ---
 # <a name="import-and-export-a-dns-zone-file-using-the-azure-cli-20"></a>使用 Azure CLI 2.0 导入和导出 DNS 区域文件 
 

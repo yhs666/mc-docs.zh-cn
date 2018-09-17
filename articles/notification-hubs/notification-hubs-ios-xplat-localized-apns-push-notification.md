@@ -13,14 +13,14 @@ ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
 origin.date: 04/14/2018
-ms.date: 07/09/2018
+ms.date: 09/10/2018
 ms.author: v-junlch
-ms.openlocfilehash: 006c6117c3e24784e069d5e4f6a67138a56ff3a4
-ms.sourcegitcommit: e950fe5260c519e05f8c5bbf193a8ef733a6a2d2
+ms.openlocfilehash: 612f5cbb1d2d3b21dcb2d71bdac7e28914e2fcf3
+ms.sourcegitcommit: 1471663f5f5a1c4e1fbead7c4d351610cb0086bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37936329"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44363575"
 ---
 # <a name="tutorial-push-localized-notifications-to-ios-devices-using-azure-notification-hubs"></a>教程：使用 Azure 通知中心向 iOS 设备推送本地化通知 
 > [!div class="op_single_selector"]
@@ -133,7 +133,7 @@ ms.locfileid: "37936329"
             [hub registerTemplateWithDeviceToken:self.deviceToken name:@"localizednewsTemplate" jsonBodyTemplate:template expiryTemplate:@"0" tags:categories completion:completion];
         }
     ```
-    请使用 *registerTemplateWithDeviceToken* 而非 *registerNativeWithDeviceToken* 方法。 注册一个模板时，必须提供 json 模板并指定其名称（因为应用可能需要注册不同的模板）。 确保将类别作为标记注册，因为需确保接收有关这些新闻的通知。
+    使用 *registerTemplateWithDeviceToken* 方法而非 *registerNativeWithDeviceToken*。 注册模板时，必须提供 json 模板，还要指定其名称（因为应用可能要注册不同的模板）。 确保将类别作为标记注册，因为要确保接收有关这些新闻的通知。
    
     添加一个方法以从用户默认设置中检索区域设置：
    
@@ -267,8 +267,7 @@ ms.locfileid: "37936329"
 
 <!-- URLs. -->
 [How To: Service Bus Notification Hubs (iOS Apps)]: http://msdn.microsoft.com/library/jj927168.aspx
-[使用通知中心发送突发新闻]: /notification-hubs/notification-hubs-ios-xplat-segmented-apns-push-notification
-[Notify users with Notification Hubs: ASP.NET]: /notification-hubs/notification-hubs-aspnet-backend-windows-dotnet-wns-notification
+[使用通知中心发送突发新闻]: notification-hubs-ios-xplat-segmented-apns-push-notification.md
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 
@@ -276,4 +275,4 @@ ms.locfileid: "37936329"
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
 [Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 11/28/2017
-ms.date: 08/06/2018
+origin.date: 08/16/2018
+ms.date: 09/17/2018
 ms.author: v-yeche
-ms.openlocfilehash: 915348225cce604cc06303f5564ce34266d3c87a
-ms.sourcegitcommit: c6205500afd23ac00f2829fe51858b51a622eaf1
+ms.openlocfilehash: d405670f4880a2945654b95d95f73d94f2be563e
+ms.sourcegitcommit: 2700f127c3a8740a83fb70739c09bd266f0cc455
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39487842"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45586596"
 ---
 # <a name="get-started-receiving-messages-with-the-event-processor-host-in-net-standard"></a>使用 .NET Standard 中的事件处理程序主机接收消息入门
 
@@ -193,9 +193,9 @@ ms.locfileid: "39487842"
                 Console.WriteLine("Registering EventProcessor...");
 
                 var eventProcessorHost = new EventProcessorHost(
-                    EhEntityPath,
+                    EventHubName,
                     PartitionReceiver.DefaultConsumerGroupName,
-                    EhConnectionString,
+                    EventHubConnectionString,
                     StorageConnectionString,
                     StorageContainerName);
 
@@ -211,7 +211,7 @@ ms.locfileid: "39487842"
         }
     }
     ```
-    <!-- Add ;EndpointSuffix=core.chinacloudapi.cn -->
+    <!-- Add ;EndpointSuffix=core.chinacloudapi.cn in connectionString -->
 
 4. 运行程序，并确保没有任何错误。
 

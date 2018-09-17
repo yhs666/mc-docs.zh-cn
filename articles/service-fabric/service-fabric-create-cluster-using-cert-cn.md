@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 04/24/2018
-ms.date: 05/28/2018
+ms.date: 09/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: 745f8efd3623f2ba72f5e98606c4b48a279d1e61
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: 9af7f6fcb8f205cb0e860ac2ffc7f9fc9b972390
+ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554683"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44515634"
 ---
 # <a name="deploy-a-service-fabric-cluster-that-uses-certificate-common-name-instead-of-thumbprint"></a>部署使用证书公用名称而非指纹的 Service Fabric 群集
 两个证书不能具有相同的指纹，具有相同的指纹会使群集证书滚动更新或管理变得困难。 但是，多个证书可以具有相同的公用名称或使用者。  使用证书公用名称会使群集的证书管理更加简单。 本文介绍了如何部署 Service Fabric 群集来使用证书公用名称而非证书指纹。
@@ -117,7 +117,15 @@ Write-Host "Common Name              :"  $CommName
     "sfrpApiVersion": "2018-02-01",
     ```
 
-3. 在 **Microsoft.Compute/virtualMachineScaleSets** 资源中，更新虚拟机扩展以在证书设置中使用公用名称而非指纹。  在 **virtualMachineProfile**->**extenstionProfile**->**extensions**->**properties**->**settings**->**certificate** 中，添加 `"commonNames": ["[parameters('certificateCommonName')]"],` 并删除 `"thumbprint": "[parameters('certificateThumbprint')]",`。
+3. 在 **Microsoft.Compute/virtualMachineScaleSets** 资源中，更新虚拟机扩展以在证书设置中使用公用名称而非指纹。  在“virtualMachineProfile”->“extenstionProfile”->“extensions”->“properties”->“settings”->“certificate”中，添加 
+    ```json
+       "commonNames": [
+        "[parameters('certificateCommonName')]"
+       ],
+    ```
+
+    并删除 `"thumbprint": "[parameters('certificateThumbprint')]",`。
+
     ```json
     "virtualMachineProfile": {
       "extensionProfile": {
@@ -140,7 +148,9 @@ Write-Host "Common Name              :"  $CommName
                 "enableParallelJobs": true,
                 "nicPrefixOverride": "[variables('subnet0Prefix')]",
                 "certificate": {
-                  "commonNames": ["[parameters('certificateCommonName')]"],
+                  "commonNames": [
+                     "[parameters('certificateCommonName')]"
+                  ],
                   "x509StoreName": "[parameters('certificateStoreValue')]"
                 }
               },
@@ -198,7 +208,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $groupname -TemplateParame
 * 了解[群集安全性](service-fabric-cluster-security.md)。
 * 了解如何[滚动更新群集证书](service-fabric-cluster-rollover-cert-cn.md)
 * [更新和管理群集证书](service-fabric-cluster-security-update-certs-azure.md)
+* 通过[将群集从证书指纹更改为通用名称](service-fabric-cluster-change-cert-thumbprint-to-cn.md)来简化证书管理
 
 [image1]: .\media\service-fabric-cluster-change-cert-thumbprint-to-cn\PortalViewTemplates.png
-<!-- Update_Description: new articles on service fabric create cluster using cert cn -->
-<!--ms.date: 05/28/2018-->
+<!-- Update_Description: wording update, update meta properties -->

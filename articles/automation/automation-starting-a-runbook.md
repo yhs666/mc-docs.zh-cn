@@ -1,22 +1,21 @@
 ---
-title: 在 Azure 自动化中启动 Runbook | Azure
-description: 汇总了可用于在 Azure 自动化中启动 Runbook 的不同方法，并提供有关如何使用 Azure 经典管理门户和 Windows PowerShell 的详细信息。
+title: 在 Azure 自动化中启动 Runbook
+description: 汇总了可用于在 Azure 自动化中启动 Runbook 的不同方法，并提供有关使用 Azure 门户和 Windows PowerShell 的详细信息。
 services: automation
-author: mgoedtel
-manager: jwhit
-editor: tysonn
 ms.service: automation
-ms.devlang: na
-ms.topic: article
+ms.component: process-automation
+author: WenJason
+ms.author: v-jay
 origin.date: 03/16/2018
-ms.date: 05/14/2018
-ms.author: v-haiqya
-ms.openlocfilehash: 7b29b5acfb5f3cfae6f3f45bb9c73699c0511708
-ms.sourcegitcommit: 2a147231bf3d0a693adf58fceee76ab0fbcd6dbb
+ms.date: 09/10/2018
+ms.topic: conceptual
+manager: digimobile
+ms.openlocfilehash: bce28021a49d1750b03486c587d6feeddf29ce9b
+ms.sourcegitcommit: 1b60848d25bbd897498958738644a4eb9cf3a302
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39335324"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43731198"
 ---
 # <a name="starting-a-runbook-in-azure-automation"></a>在 Azure 自动化中启动 Runbook
 下表将帮助你确定如何在 Azure 自动化中以最适合你方案的方法启动 Runbook。 本文包含有关使用 Azure 门户和 Windows PowerShell 启动 Runbook 的详细信息。 有关其他方法的详细信息会在其他文档中提供，可以通过以下链接来访问。
@@ -42,13 +41,13 @@ ms.locfileid: "39335324"
 5. 在“作业”页上，可以查看 runbook 作业的状态。
 
 ## <a name="starting-a-runbook-with-windows-powershell"></a>使用 Windows PowerShell 启动 Runbook
-可以在 Windows PowerShell 中使用 [Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/set-azurermautomationrunbook?view=azurermps-6.5.0) 启动 Runbook。 以下示例代码启动名为 Test-Runbook 的 Runbook。
+可以在 Windows PowerShell 中使用 [Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook) 启动 Runbook。 以下示例代码启动名为 Test-Runbook 的 Runbook。
 
 ```
 Start-AzureRmAutomationRunbook -AutomationAccountName "MyAutomationAccount" -Name "Test-Runbook" -ResourceGroupName "ResourceGroup01"
 ```
 
-Start-AzureRmAutomationRunbook 将返回一个作业对象，启动 Runbook 后，可以使用该对象来跟踪 Runbook 的状态。 然后可结合使用此作业对象和 [Get-AzureRmAutomationJob](https://msdn.microsoft.com/library/mt619440.aspx)，以确定作业的状态，也可以结合使用此作业对象和 [Get-AzureRmAutomationJobOutput](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjob?view=azurermps-6.5.0)，以获取作业的输出。 以下示例代码将启动名为 Test-Runbook 的 Runbook，等待它完成，并显示其输出。
+Start-AzureRmAutomationRunbook 将返回一个作业对象，启动 Runbook 后，可以使用该对象来跟踪 Runbook 的状态。 然后可结合使用此作业对象和 [Get-AzureRmAutomationJob](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjob)，以确定作业的状态，也可以结合使用此作业对象和 [Get-AzureRmAutomationJobOutput](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjoboutput)，以获取作业的输出。 以下示例代码将启动名为 Test-Runbook 的 Runbook，等待它完成，并显示其输出。
 
 ```
 $runbookName = "Test-Runbook"

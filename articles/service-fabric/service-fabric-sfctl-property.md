@@ -12,15 +12,15 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-origin.date: 05/23/2018
-ms.date: 07/09/2018
+origin.date: 07/31/2018
+ms.date: 09/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: ac5bc311c3fc6bfbb200a9c5c540b2988ff9be45
-ms.sourcegitcommit: 292f22020e00c607229c1693229f25fb2837d8af
+ms.openlocfilehash: a551ec5908e76c36211c36bc3c17522535b0f2ac
+ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37910609"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44515667"
 ---
 # <a name="sfctl-property"></a>sfctl property
 在 Service Fabric 名称下存储和查询属性。
@@ -29,7 +29,7 @@ ms.locfileid: "37910609"
 
 |命令|说明|
 | --- | --- |
-| 删除 | 删除指定的 Service Fabric 属性。 |
+| delete | 删除指定的 Service Fabric 属性。 |
 | get | 获取指定的 Service Fabric 属性。 |
 | list | 获取给定名称下的所有 Service Fabric 属性的信息。 |
 | put | 创建或更新 Service Fabric 属性。 |
@@ -90,7 +90,7 @@ ms.locfileid: "37910609"
 |参数|说明|
 | --- | --- |
 | --name-id [必需] | Service Fabric 名称，不带“fabric\:”URI 方案。 |
-| --continuation-token | 继续标记参数用于获取下一组结果。 如果单个响应无法容纳来自系统的结果，则 API 响应中包括含有非空值的继续标记。 当此值传递到下一个 API 调用时，API 返回下一组结果。 如果没有更多结果，则继续标记不包含值。 不应将此参数的值进行 URL 编码。 |
+| --continuation-token | 继续标记参数用于获取下一组结果。 如果单个响应无法容纳来自系统的结果，则 API 响应中包括含有非空值的继续标记。 当此值传递到下一个 API 调用时，API 返回下一组结果。 如果没有更多结果，则该继续标记不包含值。 不应将此参数的值进行 URL 编码。 |
 | --include-values | 允许指定是否包括返回的属性的值。 如果值应随元数据一起返回，则为 true；如果为 false，则仅返回属性元数据。 |
 | --timeout -t | 服务器超时，以秒为单位。  默认值\: 60。 |
 
@@ -116,7 +116,7 @@ ms.locfileid: "37910609"
 | --name-id       [必需] | Service Fabric 名称，不带“fabric\:”URI 方案。 |
 | --property-name [必需] | Service Fabric 属性的名称。 |
 | --value         [必需] | 介绍 Service Fabric 属性值。 这是一个 JSON 字符串。 <br><br> Json 字符串有两个字段：数据的“Kind”和数据的“Value”。 “Kind”的值必须是要出现在 JSON 字符串中的第一个项，并且可以是以下值：“Binary”、“Int64”、“Double”、“String”或“Guid”。 该值应当对给定的类型可序列化。 “Kind”和“Data”的值应以字符串形式提供。 |
-| --custom-id-type | 属性的自定义类型 ID。 使用此属性，用户就能够标记属性值的类型。 |
+| --custom-id-type | 属性的自定义类型 ID。使用此属性，用户就能够标记属性值的类型。 |
 | --timeout -t | 服务器超时，以秒为单位。  默认值\: 60。 |
 
 ### <a name="global-arguments"></a>全局参数
@@ -133,5 +133,4 @@ ms.locfileid: "37910609"
 - [安装](service-fabric-cli.md) Service Fabric CLI。
 - 了解如何通过[示例脚本](/service-fabric/scripts/sfctl-upgrade-application)使用 Service Fabric CLI。
 
-<!-- Update_Description: new articles on service fabric sfctl property-->
-<!--ms.date: 07/09/2018-->
+<!-- Update_Description: wording update -->

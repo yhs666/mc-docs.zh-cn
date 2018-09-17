@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/09/2018
-ms.date: 06/11/2018
-ms.author: v-junlch
-ms.openlocfilehash: 1b80347cfa41e35866c73e313f2fdfdf38c03efc
-ms.sourcegitcommit: 306fba1a7125ef6f0555781524afa8f535bea2a0
+ms.date: 09/17/2018
+ms.author: v-biyu
+ms.openlocfilehash: f3e5965c68306506586cb055f023a0372759aec2
+ms.sourcegitcommit: d649060b55bac3ad9f4fc2bd2962748a4b5bf715
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35253409"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44066167"
 ---
 # <a name="certificate-creation-methods"></a>证书创建方法
 
@@ -90,7 +90,7 @@ KV 证书创建是一个异步过程。 此操作会创建 KV 证书请求并返
 |DigiCert|Key Vault 提供 DigiCert 的 OV 或 EV SSL 证书|
 |GlobalCert|Key Vault 提供 GlobalSign 的 OV 或 EV SSL 证书|
 
- 有关详细信息（包括这些证书颁发者提供者的地理可用性），请参阅[证书颁发者](https://docs.microsoft.com/rest/api/keyvault/certificate-issuers)。
+ 证书颁发者是 Azure Key Vault (KV) 中表示为 CertificateIssuer 资源的实体。 它用于提供有关 KV 证书来源的信息，例如颁发者名称、提供者、凭据和其他管理详细信息。
 
 请注意，向证书颁发者提供者下单时，该提供者可能会接受 x509 证书扩展和证书有效期，也可能会将其替代，具体取决于证书类型。  
 

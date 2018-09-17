@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/14/2018
-ms.date: 06/25/2018
+ms.date: 09/24/2018
 ms.author: v-yiso
-ms.openlocfilehash: fb287c8287082e0e857886704a84a2f3d2e148aa
-ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
+ms.openlocfilehash: e83c06d56f87446fd6cc9cc38cebb6d383ee9c72
+ms.sourcegitcommit: bae4e9e500e3e988ef8fa0371777ca9cc49b4e94
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36747341"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45584848"
 ---
 # <a name="create-a-non-interactive-authentication-net-hdinsight-application"></a>创建非交互式身份验证 .NET HDInsight 应用程序
 可以在应用程序自身的标识（非交互式）或应用程序的已登录用户标识（交互式）下运行 Microsoft .NET Azure HDInsight 应用程序。 本文介绍了如何创建非交互式身份验证 .NET 应用程序以连接到 Azure 并管理 HDInsight。 有关交互式应用程序的示例，请参阅[连接到 Azure HDInsight](hdinsight-administer-use-dotnet-sdk.md#connect-to-azure-hdinsight)。 
 
-从非交互式 .NET 应用程序，需要：
+需要从非交互式 .NET 应用程序中获取：
 
 * Azure 订阅租户 ID（也称为目录 ID）。 请参阅[获取租户 ID](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id)。
 * Azure Active Directory (Azure AD) 应用程序客户端 ID。 请参阅[创建 Azure Active Directory 应用程序](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application)和[获取应用程序 ID](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key)。
@@ -37,9 +37,9 @@ ms.locfileid: "36747341"
 * HDInsight 群集。 请参阅[入门教程](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster)。
 
 ## <a name="assign-a-role-to-the-azure-ad-application"></a>将角色分配给 Azure AD 应用程序
-向 Azure AD 应用程序分配[角色](../active-directory/role-based-access-built-in-roles.md)，为其授予执行操作的权限。 可将作用域设置为订阅、资源组或资源级别。 较低级别的作用域将继承权限。 （例如，将某个应用程序添加到资源组的“读取者”角色意味着该应用程序可以读取该资源组及其中包含的所有资源。）在本教程中，将在资源组级别设置作用域。 有关详细信息，请参阅[使用角色分配管理对 Azure 订阅资源的访问权限](../active-directory/role-based-access-control-configure.md)。
+向 Azure AD 应用程序分配[角色](../role-based-access-control/built-in-roles.md)，为其授予执行操作的权限。 可将作用域设置为订阅、资源组或资源级别。 较低级别的作用域将继承权限。 （例如，将某个应用程序添加到资源组的“读取者”角色意味着该应用程序可以读取该资源组及其中包含的所有资源。）在本教程中，将在资源组级别设置作用域。 有关详细信息，请参阅[使用角色分配管理对 Azure 订阅资源的访问权限](../role-based-access-control/role-assignments-portal.md)。
 
-将“所有者”角色添加到 Azure AD 应用程序
+**将“所有者”角色添加到 Azure AD 应用程序**
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 2. 在左侧菜单中，选择“资源组”。
@@ -129,4 +129,4 @@ ms.locfileid: "36747341"
 ## <a name="next-steps"></a>后续步骤
 * [在 Azure 门户中创建 Azure Active Directory 应用程序和服务主体](../azure-resource-manager/resource-group-create-service-principal-portal.md)。
 * 了解如何[使用 Azure 资源管理器对服务主体进行身份验证](../azure-resource-manager/resource-group-authenticate-service-principal.md)。
-* 了解 [Azure 基于角色的访问控制 (RBAC)](../active-directory/role-based-access-control-configure.md)。
+* 了解 [Azure 基于角色的访问控制 (RBAC)](../role-based-access-control/role-assignments-portal.md)。

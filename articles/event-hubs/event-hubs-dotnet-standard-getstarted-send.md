@@ -1,6 +1,6 @@
 ---
 title: 使用 .NET Standard 将事件发送到 Azure 事件中心 | Azure
-description: 在 .NET Standard 中将事件发送到事件中心入门
+description: 使用 .NET Standard 将事件发送到事件中心入门
 services: event-hubs
 documentationcenter: na
 author: rockboyfor
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 02/01/2018
-ms.date: 08/06/2018
+origin.date: 08/16/2018
+ms.date: 09/17/2018
 ms.author: v-yeche
-ms.openlocfilehash: bb5511ff6fe8fd6750a79811eeab5a9c450a8cf4
-ms.sourcegitcommit: c6205500afd23ac00f2829fe51858b51a622eaf1
+ms.openlocfilehash: fce6cb008d0f2e65616f8da9c483fccfc222974e
+ms.sourcegitcommit: 2700f127c3a8740a83fb70739c09bd266f0cc455
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39487792"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45586576"
 ---
 # <a name="get-started-sending-messages-to-azure-event-hubs-in-net-standard"></a>使用 .NET Standard 将消息发送到 Azure 事件中心入门
 
@@ -209,4 +209,4 @@ ms.locfileid: "39487792"
 
 [1]: ./media/event-hubs-dotnet-standard-getstarted-send/netcoresnd.png
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties -->

@@ -9,12 +9,12 @@ origin.date: 08/09/2018
 ms.date: 08/27/2018
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 6430cb119ca6de3e928ef79ba5c595ad27c6f369
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.openlocfilehash: ff0c8768c5da080262b60ca399f869fdb4626717
+ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42872417"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44515987"
 ---
 Azure 虚拟机 (VM) 经历的不同状态可以归类为“预配”状态和“电源”状态。 本文旨在介绍这些状态并专门突出显示了何时会对客户收取实例使用费用。 
 
@@ -30,7 +30,7 @@ Azure 虚拟机 (VM) 经历的不同状态可以归类为“预配”状态和�
 <table>
 <tr>
 <th>
-状态
+省/直辖市/自治区
 </th>
 <th>
 说明
@@ -280,7 +280,7 @@ Azure 虚拟机 (VM) 经历的不同状态可以归类为“预配”状态和�
 
 实例视图 API 提供 VM 运行状态信息。 有关详细信息，请参阅 [Virtual Machines - Instance View](https://docs.microsoft.com/rest/api/compute/virtualmachines/instanceview)（虚拟机 - 实例视图）API 文档。
 
-Azure 资源浏览器提供一个简单的 UI，用于查看 VM 运行状态：[资源浏览器] (https://resources.azure.com/)。
+<!-- Not Available on [Resource Explorer] (https://resources.azure.com/)-->
 
 预配状态在 VM 属性和实例视图中可见。 电源状态在 VM 的实例视图中提供。
 <!-- Update_Description: new articles on virtual machine states lifecycle -->

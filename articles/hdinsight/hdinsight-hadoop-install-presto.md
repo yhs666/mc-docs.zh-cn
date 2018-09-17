@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/21/2018
-ms.date: 05/28/2018
+ms.date: 09/24/2018
 ms.author: v-yiso
-ms.openlocfilehash: a72a1e2b7b1ba665915d3ae17c3c7711ad99d07d
-ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
+ms.openlocfilehash: bbecadfeacbd22fac624daed89759fda7fff6a6a
+ms.sourcegitcommit: bae4e9e500e3e988ef8fa0371777ca9cc49b4e94
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34450123"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45584853"
 ---
 # <a name="install-and-use-presto-on-hdinsight-hadoop-clusters"></a>在 HDInsight Hadoop 群集上安装并使用 Presto
 
@@ -45,7 +45,7 @@ ms.locfileid: "34450123"
 
 1. 使用[预配基于 Linux 的 HDInsight 群集](hdinsight-hadoop-create-linux-clusters-portal.md)中的步骤开始预配群集。 请确保使用**自定义**群集创建流创建群集。 群集必须满足以下要求：
 
-    * 它必须是装有 HDInsight 3.5 的 Hadoop 群集。
+    * 它必须是装有 HDInsight 3.6 版的 Hadoop 群集。
 
     * 它必须使用 Azure 存储作为数据存储。 目前不支持在将 Azure Data Lake Store 用作存储选项的群集上使用 Presto。 
 
@@ -66,7 +66,7 @@ ms.locfileid: "34450123"
 4. 根据[预配基于 Linux 的 HDInsight 群集](hdinsight-hadoop-create-linux-clusters-portal.md)中所述继续预配群集。
 
     > [!NOTE]
-    > Azure PowerShell、Azure CLI、HDInsight .NET SDK 或 Azure Resource Manager 模板也可用于应用脚本操作。 也可以将脚本操作应用于已在运行的群集。 有关详细信息，请参阅[使用脚本操作自定义 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md)。
+    > Azure PowerShell、Azure CLI、HDInsight .NET SDK 或 Azure 资源管理器模板也可用于应用脚本操作。 也可以将脚本操作应用于已在运行的群集。 有关详细信息，请参阅[使用脚本操作自定义 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md)。
     > 
     > 
 
@@ -88,7 +88,7 @@ ms.locfileid: "34450123"
 
         select count (*) from hivesampletable;
 
-    默认情况下，已配置适用于 Presto 的 [Hive](https://prestodb.io/docs/current/connector/hive.html) 和 [TPCH](https://prestodb.io/docs/current/connector/tpch.html) 连接器。 Hive 连接器配置为使用默认安装的 Hive 安装，因此 Hive 中的所有表将自动在 Presto 中显示。
+    默认情况下，已配置适用于 Presto 的 [Hive](https://prestodb.io/docs/current/connector/hive.html) 和 [TPCH](https://prestodb.io/docs/current/connector/tpch.html) 连接器。 Hive 连接器配置为使用默认安装的 Hive 安装，因此 Hive 中的所有表会自动在 Presto 中显示。
 
     有关详细信息，请参阅 [Presto 文档](https://prestodb.io/docs/current/index.html)。
 
@@ -123,7 +123,7 @@ ms.locfileid: "34450123"
 
     ![HDInsight 在 Presto 群集上安装 Airpal](./media/hdinsight-hadoop-install-presto/hdinsight-install-airpal.png)
 
-5. 单击“购买” 。
+5. 单击“购买”。
 
 6. 将更改应用到群集配置后，可以使用以下步骤访问 Airpal Web 接口。
 

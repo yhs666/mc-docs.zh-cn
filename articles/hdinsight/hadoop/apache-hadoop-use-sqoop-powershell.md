@@ -13,14 +13,14 @@ ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 05/16/2018
-ms.date: 06/25/2018
+ms.date: 09/24/2018
 ms.author: v-yiso
-ms.openlocfilehash: 76d7f7943d01d4a6a8b00ff6faa3f11cea76213b
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.openlocfilehash: 2534c46e0c64af05e316d6a43b4a8cdda96649b1
+ms.sourcegitcommit: bae4e9e500e3e988ef8fa0371777ca9cc49b4e94
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873351"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45584846"
 ---
 # <a name="run-sqoop-jobs-by-using-azure-powershell-for-hadoop-in-hdinsight"></a>使用 HDInsight 中的用于 Hadoop 的 Azure PowerShell 运行 Sqoop 作业
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -35,7 +35,7 @@ ms.locfileid: "37873351"
 > 
 
 ### <a name="prerequisites"></a>先决条件
-要阅读本教程，必须具备以下项：
+开始学习本教程之前，必须做好以下准备：
 
 * 配备 Azure PowerShell 的工作站。
 * HDInsight 中的 Hadoop 群集。 有关详细信息，请参阅[创建群集和 SQL 数据库](hdinsight-use-sqoop.md#create-cluster-and-sql-database)。
@@ -60,7 +60,7 @@ ms.locfileid: "37873351"
     #region - Connect to Azure subscription
     Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
     try{Get-AzureRmContext}
-    catch{Login-AzureRmAccount -EnvironmentName AzureChinaCloud}
+    catch{Connect-AzureRmAccount -EnvironmentName AzureChinaCloud}
     #endregion
 
     #region - pre-process the source file
@@ -172,7 +172,7 @@ ms.locfileid: "37873351"
 * 批处理：如果在执行插入时使用 `-batch` 开关，Sqoop 将执行多次插入而不是批处理插入操作。 
 
 ## <a name="next-steps"></a>后续步骤
-现在你已了解如何使用 Sqoop。 若要了解更多信息，请参阅以下文章：
+现在已经学习了如何使用 Sqoop。 若要了解更多信息，请参阅以下文章：
 
 * [将 Oozie 与 HDInsight 配合使用](../hdinsight-use-oozie.md)：在 Oozie 工作流中使用 Sqoop 操作。
 * [使用 HDInsight 分析航班延误数据](../hdinsight-analyze-flight-delay-data.md)：使用 Hive 分析航班延误数据，然后使用 Sqoop 将数据导出到 Azure SQL 数据库。

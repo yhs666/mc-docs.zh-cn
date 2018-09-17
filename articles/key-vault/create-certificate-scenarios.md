@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/09/2018
-ms.date: 06/11/2018
-ms.author: v-junlch
-ms.openlocfilehash: db9697ec721f9bf2541d2eedcb7975fdf4900813
-ms.sourcegitcommit: 306fba1a7125ef6f0555781524afa8f535bea2a0
+ms.date: 09/17/2018
+ms.author: v-biyu
+ms.openlocfilehash: abf9080496ef3aa10dbf2fe4248336c45cbf67b0
+ms.sourcegitcommit: d649060b55bac3ad9f4fc2bd2962748a4b5bf715
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35253397"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44066169"
 ---
 # <a name="monitor-and-manage-certificate-creation"></a>监视和管理证书创建
 适用于：Azure  
@@ -47,7 +47,7 @@ ms.locfileid: "35253397"
 |------------|-----------------|  
 |POST|`https://mykeyvault.vault.azure.cn/certificates/mycert1/create?api-version={api-version}`|  
 
-以下示例要求在密钥保管库中已经有名称为“mydigicert”且颁发者提供者为 DigiCert 的对象。 有关如何使用颁发者的详细信息，请参阅[证书颁发者](https://docs.microsoft.com/rest/api/keyvault/certificate-issuers)。  
+以下示例要求在密钥保管库中已经有名称为“mydigicert”且颁发者提供者为 DigiCert 的对象。 证书颁发者是 Azure Key Vault (KV) 中表示为 CertificateIssuer 资源的实体。 它用于提供有关 KV 证书来源的信息，例如颁发者名称、提供者、凭据和其他管理详细信息。  
 
 ### <a name="request"></a>请求  
 

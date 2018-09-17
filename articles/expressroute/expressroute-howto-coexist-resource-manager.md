@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 06/05/2018
+origin.date: 08/17/2018
 ms.author: v-yiso
-ms.date: 07/23/2018
-ms.openlocfilehash: 9f5e7556e505f5bf4e5c83abd4ba0baac3f08deb
-ms.sourcegitcommit: 479954e938e4e3469d6998733aa797826e4f300b
+ms.date: 09/17/2018
+ms.openlocfilehash: d88fff99e9409cba2677cf000a040b8483778bfb
+ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39031734"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44068112"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections"></a>设置 ExpressRoute 和站点到站点并存连接
 > [!div class="op_single_selector"]
@@ -35,8 +35,7 @@ ms.locfileid: "39031734"
 * 可以将站点到站点 VPN 配置为 ExpressRoute 的安全故障转移路径。 
 * 另外，还可以使用站点到站点 VPN 连接到未通过 ExpressRoute 连接的站点。 
 
-
-本文中介绍了这两种方案的配置步骤。 本文适用于 Resource Manager 部署模型并使用 PowerShell。 此配置在 Azure 门户中不可用。
+本文中介绍了这两种方案的配置步骤。 本文适用于 Resource Manager 部署模型并使用 PowerShell。 
 
 >[!NOTE]
 >如果想要通过 ExpressRoute 线路创建站点到站点 VPN，请参阅[此文](site-to-site-vpn-over-microsoft-peering.md)。
@@ -75,13 +74,13 @@ ms.locfileid: "39031734"
 ## <a name="selecting-the-steps-to-use"></a>选择要使用的步骤
 有两组不同的过程可供选择。 选择的配置过程取决于是要连接到现有虚拟网络，还是要创建新的虚拟网络。
 
-- 我没有 VNet，需要创建一个。
-
+* 我没有 VNet，需要创建一个。
+  
     如果没有虚拟网络，此过程将指导你使用 Resource Manager 部署模型创建新的虚拟网络，然后创建新的 ExpressRoute 和站点到站点 VPN 连接。 若要配置虚拟网络，请遵循[创建新的虚拟网络和并存连接](#new)中的步骤。
-
-- 我已有一个 Resource Manager 部署模型 VNet。
-
-    可能已在具有现有站点到站点 VPN 连接或 ExpressRoute 连接的位置拥有虚拟网络。 在此场景下，如果网关子网掩码为 /28 或更大，则必须删除现有网关。 [为现有的 VNet 配置并存连接](#add)部分将指导你删除网关，然后创建新的 ExpressRoute 连接和站点到站点 VPN 连接。
+    
+* 我已有一个 Resource Manager 部署模型 VNet。
+  
+    可能已在具有现有站点到站点 VPN 连接或 ExpressRoute 连接的位置拥有虚拟网络。 在此场景下，如果网关子网掩码为 /28 或更小（/28、/29、等等），则必须删除现有网关。 [为现有的 VNet 配置并存连接](#add)部分将指导你删除网关，然后创建新的 ExpressRoute 连接和站点到站点 VPN 连接。
   
     如果删除并重新创建网关，则跨界连接将会中断一段时间。 但是，在配置网关时，如果进行了相应配置，VM 和服务仍可以通过负载均衡器与外界通信。
 
@@ -93,18 +92,19 @@ ms.locfileid: "39031734"
 2. 登录帐户并设置环境。
 
   ```powershell
-  login-AzureRmAccount -Environment $(Get-AzureRmEnvironment -Name AzureChinaCloud)
+  Connect-AzureRmAccount -Environment AzureChinaCloud
   Select-AzureRmSubscription -SubscriptionName 'yoursubscription'
   $location = "China North"
   $resgrp = New-AzureRmResourceGroup -Name "ErVpnCoex" -Location $location
-  $VNetASN = 65010
+  $VNetASN = 65515
   ```
 3. 创建包括网关子网的虚拟网络。 有关创建虚拟网络的详细信息，请参阅[创建虚拟网络](../virtual-network/manage-virtual-network.md#create-a-virtual-network)。 有关创建子网的详细信息，请参阅[创建子网](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet)。
-
-    >[!IMPORTANT]
-    > 网关子网必须是 /27 或更短的前缀（例如 /26 或 /25）。
-    > 
-    > 
+   
+   > [!IMPORTANT]
+   > 网关子网必须是 /27 或更短的前缀（例如 /26 或 /25）。
+   > 
+   > 
+   
     创建新的 VNet。
 
   ```powershell
@@ -188,14 +188,7 @@ ms.locfileid: "39031734"
   ```
 
 ## <a name="add"></a>为现有的 VNet 配置并存连接
-如果已经有了一个虚拟网络，请检查网关子网大小。 如果网关子网为 /28 或 /29，则必须先删除虚拟网络网关，然后增加网关子网大小。 本部分的步骤说明如何这样做。
-
-如果网关子网为 /27 或更大，且虚拟网络是通过 ExpressRoute 连接的，则可跳过下面的步骤，转到前一部分的[“步骤 4 - 创建站点到站点 VPN 网关”](#vpngw)。 
-
-> [!NOTE]
-> 如果你删除的是现有网关，则当你进行此配置时，本地系统将失去与虚拟网络建立的连接。 
-> 
-> 
+如果你的虚拟网络只有一个虚拟网络网关（例如，站点到站点 VPN 网关），并且你想要添加另一个不同类型的网关（例如，ExpressRoute 网关），请检查网关子网大小。 如果网关子网为 /27 或更大，则可以跳过以下步骤并按照上一部分中的步骤添加站点到站点 VPN 网关或 ExpressRoute 网关。 如果网关子网为 /28 或 /29，则必须先删除虚拟网络网关，然后增加网关子网大小。 本部分的步骤说明如何这样做。
 
 1. 需要安装 Azure PowerShell cmdlet 的最新版本。 有关安装 cmdlet 的详细信息，请参阅[如何安装和配置 Azure PowerShell](../powershell-install-configure.md)。 针对此配置使用的 cmdlet 可能与你熟悉的 cmdlet 稍有不同。 请务必使用说明内容中指定的 cmdlet。 
 
@@ -227,7 +220,7 @@ ms.locfileid: "39031734"
   ```powershell
   $vnet = Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
   ```
-5. 此时，你拥有不带网关的 VNet。 若要创建新网关并完成连接，可以转到[步骤 4 - 创建站点到站点 VPN 网关](#vpngw)（可在前一组步骤中找到）。
+5. 此时，已有不带网关的虚拟网络。 若要创建新网关并设置连接，请按照上一部分中的步骤操作。
 
 ## <a name="to-add-point-to-site-configuration-to-the-vpn-gateway"></a>将点到站点配置添加到 VPN 网关
 可以按照下面的步骤将点到站点配置添加到共存设置中的 VPN 网关。

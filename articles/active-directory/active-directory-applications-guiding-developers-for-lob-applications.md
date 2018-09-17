@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/14/2018
-ms.date: 07/04/2018
+ms.date: 09/06/2018
 ms.author: v-junlch
 ms.custom: seohack1
-ms.openlocfilehash: 0e127915735ae9c6c9c844e2fc64b905a3bb3115
-ms.sourcegitcommit: 37a1524d71895b17b6f1d125053ad0b251b88df1
+ms.openlocfilehash: e7dd941a893720071fee77f3d0d77aa60d611e55
+ms.sourcegitcommit: fd49281c58f34de20cc310d6cefb4568992cd675
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39096603"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43858439"
 ---
 # <a name="develop-line-of-business-apps-for-azure-active-directory"></a>为 Azure Active Directory 开发业务线应用
 本指南提供开发用于 Azure Active Directory (AD) 的业务线 (LoB) 应用程序的概述，目标受众为 Active Directory/Office 365 全局管理员。
@@ -70,6 +70,6 @@ ms.locfileid: "39096603"
 
 对于信任的应用程序，可以代表组织来同意应用程序，以简化用户体验。
 
-有关 Azure 中的用户同意和同意体验的详细信息，请参阅 [Integrating Applications with Azure Active Directory](./develop/active-directory-integrating-applications.md)（将应用程序与 Azure Active Directory 集成）。
+有关 Azure 中的用户同意和同意体验的详细信息，请参阅 [Integrating Applications with Azure Active Directory](develop/quickstart-v1-integrate-apps-with-azure-ad.md)（将应用程序与 Azure Active Directory 集成）。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

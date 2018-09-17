@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: article
 origin.date: 07/06/2018
-ms.date: 07/23/2018
+ms.date: 09/17/2018
 ms.author: v-yeche
-ms.openlocfilehash: 1162e714b2fc957a814a1313b01118be53fbb953
-ms.sourcegitcommit: 74f9f0acb00fb728ff6e9bd67ac86a0c1bcd8d13
+ms.openlocfilehash: 37af6f3d91eff5adf7f9aedb6d72940b77720bb9
+ms.sourcegitcommit: 96d06c506983906a92ff90a5f67199f8f7e10996
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39218911"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45586827"
 ---
 # <a name="set-up-additional-process-servers-for-scalability"></a>设置额外的进程服务器以实现可伸缩性
 
@@ -36,6 +36,8 @@ ms.locfileid: "39218911"
 |8 个 vCPU（2 个插槽 * 4 个核心 \@ 2.5 GHz），12 GB 内存 |600 GB |250 GB 到 1 TB |复制 85-150 台计算机。 |
 |12 个 vCPU（2 个插槽 * 6 个核心 \@ 2.5 GHz），24 GB 内存 |1 TB |1 TB 到 2 TB |复制 150-225 台计算机。 |
 
+其中，每台受保护的源计算机配置有 3 个磁盘，每个磁盘 100 GB。
+
 ### <a name="prerequisites"></a>先决条件
 
 下表中汇总了额外进程服务器的先决条件。
@@ -51,7 +53,7 @@ ms.locfileid: "39218911"
 3. 选择配置服务器以向下钻取到配置服务器详细信息。 然后单击“+ 进程服务器”。
 4. 在“添加进程服务器” >  “选择要部署进程服务器的位置”中，选择“在本地部署横向扩展进程服务器”。
 
-    ![“添加服务器”页](./media/vmware-azure-set-up-process-server-scale/add-process-server.png)
+    ![添加服务器页](./media/vmware-azure-set-up-process-server-scale/add-process-server.png)
 5. 单击“下载 Azure Site Recovery 统一安装程序”。 这会下载最新版本的安装文件。
 
     > [!WARNING]

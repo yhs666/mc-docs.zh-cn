@@ -14,14 +14,14 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
 origin.date: 04/14/2018
-ms.date: 07/09/2018
+ms.date: 09/10/2018
 ms.author: v-junlch
-ms.openlocfilehash: 10f5320f6aa93695f428194347a0d156acdf7728
-ms.sourcegitcommit: e950fe5260c519e05f8c5bbf193a8ef733a6a2d2
+ms.openlocfilehash: fae677c0041598249167090891f492c31b71434e
+ms.sourcegitcommit: 1471663f5f5a1c4e1fbead7c4d351610cb0086bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37936334"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44363584"
 ---
 # <a name="tutorial-push-localized-notifications-to-windows-apps-by-using-azure-notification-hubs"></a>教程：使用 Azure 通知中心向 Windows 应用推送本地化通知
 > [!div class="op_single_selector"]
@@ -274,8 +274,6 @@ private static async void SendTemplateNotificationAsync()
 <!-- Images. -->
 
 <!-- URLs. -->
-[Notify users with Notification Hubs: ASP.NET]: /notification-hubs/notification-hubs-aspnet-backend-windows-dotnet-wns-notification
-[Use Notification Hubs to send breaking news]: /notification-hubs/notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns
 
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
@@ -285,4 +283,4 @@ private static async void SendTemplateNotificationAsync()
 [Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
 [Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

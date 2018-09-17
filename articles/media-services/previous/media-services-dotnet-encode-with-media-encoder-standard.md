@@ -1,9 +1,9 @@
 ---
-title: 使用 .NET 通过 Media Encoder Standard 对资产进行编码 | Azure
+title: 使用 .NET 通过 Media Encoder Standard 对资产进行编码 | Microsoft Docs
 description: 本文介绍如何使用 .NET 通过 Media Encoder Standard 对资产进行编码。
 services: media-services
 documentationcenter: ''
-author: yunan2016
+author: WenJason
 manager: digimobile
 editor: ''
 ms.assetid: 03431b64-5518-478a-a1c2-1de345999274
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 12/09/2017
-ms.date: 12/25/2017
-ms.author: v-nany
-ms.openlocfilehash: 23c8ebea9ff51e5136042e77c4f4b88ae576a150
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+ms.date: 10/17/2018
+ms.author: v-jay
+ms.openlocfilehash: 6b2248604e82d0191c54d69157a3abafbf4b2090
+ms.sourcegitcommit: 9a82a54c6b6f4d8074139e090011fe05b8018fcf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219720"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44363156"
 ---
 # <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>使用 .NET 通过 Media Encoder Standard 对资产进行编码
 编码作业是媒体服务中最常见的处理操作之一。 可通过创建编码作业将媒体文件从一种编码转换为另一种编码。 进行编码时，可以使用媒体服务内置的 Media Encoder。 另外，也可以使用媒体服务合作伙伴提供的编码器；第三方编码器可通过 Azure 市场购得。 
@@ -32,7 +32,7 @@ ms.locfileid: "39219720"
 如果输出资产已经过存储加密，则必须配置资产传送策略。 有关详细信息，请参阅[配置资产传送策略](media-services-dotnet-configure-asset-delivery-policy.md)。
 
 > [!NOTE]
-> MES 会生成一个输出文件，其名称包含输入文件名的前 32 个字符。 该名称基于预设文件中指定的内容。 例如，"FileName": "{Basename}_{Index}{Extension}"。 {Basename} 替换为输入文件名的前 32 个字符。
+> MES 将生成一个输出文件，其名称包含输入文件名的前 32 个字符。 该名称基于预设文件中指定的内容。 例如，"FileName": "{Basename}_{Index}{Extension}"。 {Basename} 替换为输入文件名的前 32 个字符。
 > 
 > 
 
@@ -69,7 +69,7 @@ Media Encoder Standard 使用[此处](media-services-mes-presets-overview.md)所
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>创建和配置 Visual Studio 项目
 
-设置开发环境，并在 app.config 文件中填充连接信息，如[使用 .NET 进行媒体服务开发](media-services-dotnet-how-to-use.md)中所述。 
+设置开发环境，并根据[使用 .NET 进行媒体服务开发](media-services-dotnet-how-to-use.md)中所述，在 app.config 文件中填充连接信息。 
 
 #### <a name="example"></a>示例 
 
@@ -195,7 +195,14 @@ namespace MediaEncoderStandardSample
 }
 ```
 
+## <a name="advanced-encoding-features-to-explore"></a>要浏览的高级编码功能
+* [如何生成缩略图](media-services-dotnet-generate-thumbnail-with-mes.md)
+* [在编码期间生成缩略图](media-services-dotnet-generate-thumbnail-with-mes.md#example-of-generating-a-thumbnail-while-encoding)
+* [在编码期间剪辑视频](media-services-crop-video.md)
+* [自定义编码预设](media-services-custom-mes-presets-with-dotnet.md)
+* [使用图像叠加视频或给视频加水印](media-services-advanced-encoding-with-mes.md#overlay)
+
 ## <a name="next-steps"></a>后续步骤
 [如何使用 Media Encoder Standard 通过 .NET 来生成缩略图](media-services-dotnet-generate-thumbnail-with-mes.md)
 [媒体服务编码概述](media-services-encode-asset.md)
-<!--Update_Description: update token get code-->
+

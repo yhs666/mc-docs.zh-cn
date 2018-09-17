@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/22/2017
-ms.date: 11/27/2017
+ms.date: 09/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: 38592addb7d90bff678afd0bbe0308978d2fb6ba
-ms.sourcegitcommit: 077e96d025927d61b7eeaff2a0a9854633565108
+ms.openlocfilehash: d85138a6ea272cfd1d40eb55e3e78527889c8912
+ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/24/2017
-ms.locfileid: "25592203"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44515687"
 ---
 # <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>使用 Power BI 可视化网络安全组流日志
 
@@ -28,7 +28,7 @@ ms.locfileid: "25592203"
 
 手动搜索日志文件可能难以洞察流日志数据。 本文提供一种用来可视化最新流日志和了解网络流量的解决方案。
 
-## <a name="scenario"></a>方案
+## <a name="scenario"></a>场景
 
 在以下方案中，我们会将 Power BI Desktop 连接到已配置为 NSG 流日志数据接收器的存储帐户。 连接到存储帐户后，Power BI 将下载并分析日志，提供网络安全组记录的流量的可视化形式。
 
@@ -50,7 +50,7 @@ ms.locfileid: "25592203"
 
 ![Visio 图示][1]
 
-### <a name="steps"></a>步骤
+### <a name="steps"></a>Steps
 
 1. 在 Power BI Desktop 应用程序中下载并打开以下 Power BI 模板：[网络观察程序 PowerBI 流日志模板](https://aka.ms/networkwatcherpowerbiflowlogstemplate)
 1. 输入所需的查询参数
@@ -59,7 +59,7 @@ ms.locfileid: "25592203"
 
     ![Power BI 主界面][2]
 
-1. 输入存储帐户的访问密钥。 在 Azure 门户中导航到存储帐户，然后从“设置”菜单中选择“访问密钥”，即可找到有效的访问密钥。 单击“连接”，并应用更改。
+1. 输入存储帐户的访问密钥。 在 Azure 门户中导航到存储帐户，并从“设置”菜单中选择“访问密钥”，即可找到有效的访问密钥。 单击“连接”，并应用更改。
 
     ![访问密钥][3]
 
@@ -121,7 +121,7 @@ ms.locfileid: "25592203"
 
 ## <a name="next-steps"></a>后续步骤
 
-访问 [Visualize Azure Network Watcher NSG flow logs using open source tools](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)（使用开源工具直观显示 Azure 网络观察程序 NSG 流日志），了解如何使用 Elastick Stack 直观显示 NSG 流日志
+通过访问 [Visualize Azure Network Watcher NSG flow logs using open source tools](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)（使用开源工具直观显示 Azure 网络观察程序 NSG 流日志），了解如何使用 Elastick Stack 来直观显示 NSG 流日志
 
 [1]: ./media/network-watcher-visualize-nsg-flow-logs-power-bi/figure1.png
 [2]: ./media/network-watcher-visualize-nsg-flow-logs-power-bi/figure2.png
@@ -137,4 +137,4 @@ ms.locfileid: "25592203"
 [12]: ./media/network-watcher-visualize-nsg-flow-logs-power-bi/figure12.png
 [13]: ./media/network-watcher-visualize-nsg-flow-logs-power-bi/figure13.png
 
-<!--Update_Description: update link -->
+<!--Update_Description: update meta properties -->

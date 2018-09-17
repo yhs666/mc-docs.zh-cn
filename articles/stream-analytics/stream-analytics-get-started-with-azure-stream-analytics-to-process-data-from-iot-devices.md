@@ -7,15 +7,15 @@ ms.author: v-yeche
 manager: digimobile
 ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.topic: hero-article
+ms.topic: conceptual
 origin.date: 03/28/2017
-ms.date: 06/18/2018
-ms.openlocfilehash: 25ead9d9b17e1cea6f8e9a6b84ce44e4c3341f1c
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.date: 09/17/2018
+ms.openlocfilehash: 13b27993356745a5eca5a160c64628a37b4c6162
+ms.sourcegitcommit: 2700f127c3a8740a83fb70739c09bd266f0cc455
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "35416852"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45586604"
 ---
 # <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>开始使用 Azure 流分析处理来自 IoT 设备的数据
 在本教程中，会学习如何创建流处理逻辑，以从物联网 (IoT) 设备收集数据。 我们会使用真实的物联网 (IoT) 用例来演示如何经济实惠地快速生成解决方案。
@@ -24,8 +24,8 @@ ms.locfileid: "35416852"
 * [Azure 订阅](https://www.azure.cn/pricing/1rmb-trial/)
 * 可从 [GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/GettingStarted)
 
-## <a name="scenario"></a>方案
-Contoso 是一家工业自动化公司，该公司已将其制造流程完全自动化。 这家工厂中的设备配有可实时发送数据流的传感器。 在此方案中，产品车间经理希望通过传感器数据获得实时见解，从而找到规律并采取措施。 我们对传感器数据使用流分析查询语言 (SAQL)，查找传入数据流的有趣规律。
+## <a name="scenario"></a>场景
+Contoso 是一家工业自动化公司，该公司已将其制造流程完全自动化。 这家工厂中的设备配有可实时发送数据流的传感器。 在此方案中，产品车间经理希望通过传感器数据获得实时见解，从而找到规律并采取措施。 我们将对传感器数据使用流分析查询语言 (SAQL)，查找传入数据流的有趣规律。
 
 下图中，Texas Instruments SensorTag 设备正在生成数据。 数据的有效负载是 JSON 格式，如下所示：
 
@@ -43,13 +43,13 @@ Contoso 是一家工业自动化公司，该公司已将其制造流程完全自
 为了方便使用，本入门指南提供从实际 SensorTag 设备中捕获的示例数据文件。 可以对示例数据运行查询并查看结果。 在后续教程中，学习如何将作业连接到输入和输出并将其部署到 Azure 服务。
 
 ## <a name="create-a-stream-analytics-job"></a>创建流分析作业
-1. 在 [Azure 门户](https://portal.azure.cn)中，单击加号，再在右侧的文本窗口中键入 **流分析** 。 然后在结果列表中选择“流分析作业”。
+1. 在 [Azure 门户中](https://portal.azure.cn)单击“加号”，并在右侧的文本窗口中键入 “流分析”。 然后在结果列表中选择“流分析作业”。
 
     ![创建新的流分析作业](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-02.png)
-2. 输入唯一作业名并验证订阅是否与作业对应。 然后新建资源组或选择订阅中的现有资源组。
-3. 接着选择作业位置。 为了加快处理速度并降低数据传输成本，建议选择与资源组和预期存储帐户相同的位置。
+2. 输入唯一的作业名称并验证订阅是否为用于作业的正确订阅。 然后创建新的资源组，或选择订阅上的现有资源组。
+3. 接着选择作业位置。 为了获得更快的处理速度，并减少数据传输中的成本，建议选择与资源组和目标存储帐户相同的位置。
 
-    ![新建流分析作业详细信息](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03.png)
+    ![创建新的流分析作业详细信息](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03.png)
 
     > [!NOTE]
     > 只应为每个区域创建此存储帐户一次。 跨该区域中创建的所有流分析作业共享此存储。
@@ -63,7 +63,7 @@ Contoso 是一家工业自动化公司，该公司已将其制造流程完全自
     ![正在创建作业](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03b.png)
 
 ## <a name="create-an-azure-stream-analytics-query"></a>创建 Azure 流分析查询
-创建作业后，接着需要打开并生成查询。 可单击相应磁贴轻松访问作业。
+创建作业后，接着需要打开并生成查询。 可通过单击对应的磁贴，轻松访问作业。
 
 ![作业磁贴](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-04.png)
 
@@ -77,13 +77,13 @@ Contoso 是一家工业自动化公司，该公司已将其制造流程完全自
 1. 从 PassThrough.txt 文件粘贴查询。 
 
     ![测试输入流](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-06.png)
-2. 单击输入旁边的三个点，并选择“上传文件中的示例数据”  框。
+2. 单击输入旁边的三个点，并选择“从文件上载示例数据”框。
 
     ![测试输入流](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-06a.png)
 3. 会在右侧打开一个窗格，请在此处选择下载位置中的 HelloWorldASA InputStream.json 数据文件，并在窗格底部单击“确定”  。
 
     ![测试输入流](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-06b.png)
-4. 然后，在窗口左上区域单击“测试”齿轮，处理针对示例数据集的测试查询。 处理完成后，查询下方会打开一个结果窗口。
+4. 然后，在窗口左上区域单击“测试”齿轮，处理针对示例数据集的测试查询。 处理完成后，会在查询下方显示结果窗口。
 
     ![测试结果](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-07.png)
 
@@ -92,12 +92,12 @@ Contoso 是一家工业自动化公司，该公司已将其制造流程完全自
 
 ![筛选数据流](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-08.png)
 
-请注意，查询区分大小写，并且会比较字符串的值。 单击“测试”  齿轮执行查询。 查询应返回 1,860 个事件中的 389 行。
+请注意，查询区分大小写，并且会比较字符串的值。 再次单击“测试”齿轮以执行查询。 查询应返回 1,860 个事件中的 389 行。
 
 ![执行查询测试后的第二个输出结果](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-09.png)
 
 ### <a name="query-alert-to-trigger-a-business-workflow"></a>查询：触发业务工作流的警报
-让我们创建更详细的查询。 对于每个类型的传感器，我们想要每 30 秒监视一次平均温度，且仅在平均温度高于 100 度的情况下显示结果。 我们会写入以下查询，并单击“测试”  查看结果。 查询在 ThresholdAlerting.txt 文件中。
+让我们创建更详细的查询。 对于每个类型的传感器，我们想要每 30 秒监视一次平均温度，且仅在平均温度高于 100 度的情况下显示结果。 我们会编写以下查询，并单击“测试”查看结果。 查询在 ThresholdAlerting.txt 文件中。
 
 ![30 秒筛选查询](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-10.png)
 
@@ -108,9 +108,9 @@ Contoso 是一家工业自动化公司，该公司已将其制造流程完全自
 
 ![检测事件缺失](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-11.png)
 
-此时使用 **LEFT OUTER** 联接到相同的数据流（自联接）。 对于 **INNER** 联接，仅当找到匹配项时才返回结果。  对于 **LEFT OUTER** 联接，如果联接左侧的事件不匹配，则返回右侧所有列的带 NULL 的行。 这种方法对于查找事件缺失很有用。 有关详细信息，请参阅 MSDN 文档 [JOIN](https://msdn.microsoft.com/library/azure/dn835026.aspx)（联接）。
+此时使用 **LEFT OUTER** 联接到相同的数据流（自联接）。 对于 **INNER** 联接，仅当找到匹配项时才返回结果。  对于 **LEFT OUTER** 联接，如果联接左侧的事件不匹配，则返回右侧所有列中带 NULL 的行。 这种方法对于查找事件缺失很有用。 有关详细信息，请参阅 MSDN 文档 [JOIN](https://msdn.microsoft.com/library/azure/dn835026.aspx)（联接）。
 
-## <a name="conclusion"></a>结论
+## <a name="conclusion"></a>结束语
 本教程旨在演示如何编写不同的流分析查询语言查询，并在浏览器中查看结果。 但是，这仅仅是一个开始。 使用流分析还可以完成许多其他操作。 流分析支持多种输入和输出，甚至可以使用 Azure 机器学习中的函数，因而是用于分析数据流的可靠工具。 有关如何编写查询的详细信息，请阅读有关[常用查询模式](stream-analytics-stream-analytics-query-patterns.md)的文章。
 
 <!--Not Available on https://azure.microsoft.com/en-us/documentation/learning-paths/stream-analytics/ -->

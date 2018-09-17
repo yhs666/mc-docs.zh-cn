@@ -5,17 +5,17 @@ services: stream-analytics
 author: rockboyfor
 ms.author: v-yeche
 manager: digimobile
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 10/28/2017
-ms.date: 06/18/2018
-ms.openlocfilehash: abd037bc9585a54c08af26cc781dea2ff59a4f9e
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.date: 09/17/2018
+ms.openlocfilehash: 4455362bbbabef37ffda1a687543413e9678ffd2
+ms.sourcegitcommit: 2700f127c3a8740a83fb70739c09bd266f0cc455
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "35416870"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45586618"
 ---
 # <a name="azure-stream-analytics-javascript-user-defined-aggregates-preview"></a>Azure 流分析 JavaScript 用户定义的聚合（预览）
 
@@ -172,7 +172,7 @@ computeResult() 方法基于当前状态返回聚合结果。 在时间窗口（
 
 1. 单击“保存”按钮后，该 UDA 会显示在函数列表中。
 
-1. 单击新函数“TWA”即可检查函数定义。
+1. 单击新函数“TWA”，可以检查函数定义。
 
 ## <a name="calling-javascript-uda-in-asa-query"></a>在 ASA 查询中调用 JavaScript UDA
 
@@ -238,5 +238,4 @@ GROUP BY TumblingWindow(minute, 5)
 * [Azure 流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure 流分析管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!-- Update_Description: new articles on stream analytics javascript user defined aggregates -->
-<!--ms.date: 06/18/2018-->
+<!-- Update_Description: update meta properties, wording update-->

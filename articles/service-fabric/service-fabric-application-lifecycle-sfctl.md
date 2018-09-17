@@ -6,15 +6,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: service-fabric
 ms.topic: conceptual
-origin.date: 04/13/2018
-ms.date: 07/09/2018
+origin.date: 07/31/2018
+ms.date: 09/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: bb81c925d18011f078228e882c43eedde68df815
-ms.sourcegitcommit: 292f22020e00c607229c1693229f25fb2837d8af
+ms.openlocfilehash: 1f2d144caa5f39d71f4cd3123f9e43c80a82f413
+ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37910587"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44515691"
 ---
 # <a name="manage-an-azure-service-fabric-application-by-using-azure-service-fabric-cli-sfctl"></a>使用 Azure Service Fabric CLI (sfctl) 管理 Azure Service Fabric 应用程序
 

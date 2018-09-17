@@ -5,15 +5,15 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-origin.date: 06/20/2018
-ms.date: 08/20/2018
+origin.date: 07/25/2018
+ms.date: 09/17/2018
 ms.author: v-yiso
-ms.openlocfilehash: 5040cb5851cf19a0eb5276751262ab7e86c7bac3
-ms.sourcegitcommit: 664584f55e0a01bb6558b8d3349d41d3f05ba4d7
+ms.openlocfilehash: c588ec94859d51b44dabbba4ce8dd44c5b029437
+ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41704477"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44068030"
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>将 Azure 诊断日志流式传输到事件中心
 可将 **[Azure 诊断日志](monitoring-overview-of-diagnostic-logs.md)** 近实时地流式传输到任何应用程序，方法是使用门户中的内置“导出到事件中心”选项，或者通过 Azure PowerShell Cmdlet 或 Azure CLI 2.0 在诊断设置中启用事件中心授权规则 ID。
@@ -45,7 +45,8 @@ ms.locfileid: "41704477"
 
 > [!WARNING]
 > 从计算资源（例如，VM 或 Service Fabric）启用诊断日志并对其进行流式传输[需要另一组步骤](../event-hubs/event-hubs-streaming-azure-diags-data.md)。
-只要配置设置的用户同时拥有两个订阅的相应 RBAC 访问权限，事件中心命名空间就不必与资源发出日志位于同一订阅中。
+
+只要配置设置的用户同时拥有两个订阅的相应 RBAC 访问权限并且这两个订阅都是属于同一个 AAD 租户，事件中心命名空间就不必与资源发出日志位于同一订阅中。
 
 > [!NOTE]
 > 当前不支持通过诊断设置发送多维指标。 多维指标将按平展后的单维指标导出，并跨维值聚合。
@@ -189,6 +190,8 @@ az monitor diagnostic-settings create --name <diagnostic name> \
 还可以使用 Windows Azure 诊断代理对来自计算资源的诊断日志进行流式处理。 [请参阅本文](../event-hubs/event-hubs-streaming-azure-diags-data.md)了解如何进行设置。
 
 ## <a name="next-steps"></a>后续步骤
+
+* [使用 Azure Monitor 流式传输 Azure Active Directory 日志](../active-directory/reports-monitoring/quickstart-azure-monitor-stream-logs-to-event-hub.md)
 * [详细了解 Azure 诊断日志](monitoring-overview-of-diagnostic-logs.md)
 * [事件中心入门](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 

@@ -4,19 +4,19 @@ description: 与 Azure 多重身份验证相关的常见问题与解答。
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-origin.date: 06/16/2017
-ms.date: 08/03/2018
+ms.topic: conceptual
+origin.date: 07/11/2018
+ms.date: 09/04/2018
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: richagi
-ms.openlocfilehash: 097420760de0b918ea83b3d79e3821ba65d5c044
-ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
+ms.reviewer: michmcla
+ms.openlocfilehash: 827c2569dff757dce70f7b3131aba0dfd2f52624
+ms.sourcegitcommit: c237baac64f847301ba7f67082ffffcd81c00142
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39487020"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43850813"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>有关 Azure 多重身份验证的常见问题
 
@@ -42,7 +42,6 @@ ms.locfileid: "39487020"
 
 可以让用户转到[最终用户故障排除指南](../user-help/multi-factor-authentication-end-user-troubleshoot.md)。
 
-
 **问：如果某个用户无法进入其帐户，我该办什么？**
 
 可以要求用户再次完成注册过程来重置其帐户。 详细了解[管理云中 Azure 多重身份验证的用户和设备设置](howto-mfa-userdevicesettings.md)。
@@ -66,8 +65,8 @@ ms.locfileid: "39487020"
 - 组织已创建并启用一个 MFA 注册策略，该策略已应用到该用户。
 - 该用户以前已注册 MFA，但选择的验证方法后来被管理员禁用。 因此，该用户必须再次完成 MFA 注册，以选择新的默认验证方法。
 
-
 ## <a name="errors"></a>错误
+
 **问：如果用户使用移动应用通知时看到“身份验证请求不适用于已激活的帐户”错误消息，该怎么办？**
 
 告诉他们按照此过程从移动应用中删除其帐户，并重新添加：
@@ -91,4 +90,4 @@ ms.locfileid: "39487020"
 - 对于旧版 PhoneFactor 客户，如果有疑问或需要重置密码方面的帮助，请使用[密码重置](mailto:phonefactorsupport@microsoft.com)链接建立支持案例。
 - 通过 [Azure 多重身份验证服务器 (PhoneFactor) 支持](https://support.microsoft.com/oas/default.aspx?prid=14947)联系支持专业人员。 与我们联系时，尽可能包含有关问题的更多信息将很有帮助。 可以提供的信息包括出现错误的页面、特定错误代码、特定会话 ID 以及看到错误的用户的 ID。
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: update metedata properties -->

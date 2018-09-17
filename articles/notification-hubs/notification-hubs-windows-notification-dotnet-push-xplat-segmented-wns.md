@@ -14,14 +14,14 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
 origin.date: 04/14/2018
-ms.date: 07/09/2018
+ms.date: 09/10/2018
 ms.author: v-junlch
-ms.openlocfilehash: f45dd00e645d76d0396e0b75f806c8258201a322
-ms.sourcegitcommit: e950fe5260c519e05f8c5bbf193a8ef733a6a2d2
+ms.openlocfilehash: 79dbd52f265cb0d8051747c36528e79684273dce
+ms.sourcegitcommit: 1471663f5f5a1c4e1fbead7c4d351610cb0086bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37936344"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44363574"
 ---
 # <a name="tutorial-push-notifications-to-specific-windows-devices-running-universal-windows-platform-applications"></a>教程：向运行通用 Windows 平台应用程序的特定 Windows 设备推送通知
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
@@ -263,7 +263,7 @@ ms.locfileid: "37936344"
 [19]: ./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-windows-reg-2.png
 
 <!-- URLs.-->
-[get-started]: /notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification
+[get-started]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
 [Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
@@ -271,4 +271,4 @@ ms.locfileid: "37936344"
 
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

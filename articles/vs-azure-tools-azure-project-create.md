@@ -7,17 +7,18 @@ manager: douge
 assetId: ec580df7-3dcc-45a9-a1d9-8c110678dfb5
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.workload: azure
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.topic: conceptual
 origin.date: 03/21/2017
-ms.date: 07/12/2018
+ms.date: 09/10/2018
 ms.author: v-junlch
-ms.openlocfilehash: 267f5d14732349b3349838e23556eace6e914f10
-ms.sourcegitcommit: 5b6a2fc55e5b16ae480bd497c3ac2c3a2fd44703
+ms.openlocfilehash: 2180abe888856cccb59708f51f1e2c8cb36537ea
+ms.sourcegitcommit: 40456700212200e707d6cb3147cf96ad161d3ff2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38999135"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44269529"
 ---
 # <a name="creating-an-azure-cloud-service-project-with-visual-studio"></a>使用 Visual Studio 创建 Azure 云服务项目
 Azure Tools for Visual Studio 提供了可用于创建 Azure 云服务的项目模板。 创建项目后，可通过 Visual Studio 调试、配置云服务，并将其部署到 Azure。
@@ -37,7 +38,7 @@ Azure Tools for Visual Studio 提供了可用于创建 Azure 云服务的项目�
 
 1. 输入项目的名称和位置以及解决方案的名称。 
 
-1. 选择“确定” 。
+1. 选择“确定”。
 
 1. 在“新建 Azure 云服务”对话框中，选择要添加的角色，并选择右箭头按钮以将其添加到解决方案。
 

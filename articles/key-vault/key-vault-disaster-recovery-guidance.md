@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/07/2017
-ms.date: 12/22/2017
-ms.author: v-junlch
-ms.openlocfilehash: 59603ad511ab120e9e8cc20ee0c143b8f0ddcfe9
-ms.sourcegitcommit: 3974b66526c958dd38412661eba8bd6f25402624
+ms.date: 09/17/2018
+ms.author: v-biyu
+ms.openlocfilehash: a65fa5d4c8473551279074a9429ea48b7edf6fe4
+ms.sourcegitcommit: d649060b55bac3ad9f4fc2bd2962748a4b5bf715
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/22/2017
-ms.locfileid: "27162430"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44066148"
 ---
 # <a name="azure-key-vault-availability-and-redundancy"></a>Azure 密钥保管库可用性和冗余
 Azure 密钥保管库具有多层冗余功能，确保密钥和机密持续可供应用程序使用，即使服务的单个组件发生故障也是如此。
 
-密钥保管库的内容在区域中复制，并且会复制到至少 150 英里以外（但位于同一个地理位置）的次要区域。 这可以保持密钥和机密的高持久性。
+密钥保管库的内容在区域中复制，并且会复制到至少 150 英里以外（但位于同一个地理位置）的次要区域。 这可以保持密钥和机密的高持久性。 有关特定区域对的详细信息，请参阅 [Azure 配对区域](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)一文。
 
 如果密钥保管库服务中的单独组件发生故障，则区域内的替代组件将继续处理请求，确保不会导致功能损失。 不需要采取任何措施即可触发此功能。 这种机制会以透明的方式自动发生。
 

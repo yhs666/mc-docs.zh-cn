@@ -1,26 +1,19 @@
 ---
-title: Azure 中的自动缩放入门 | Microsoft Docs
-description: 了解如何在 Azure 中缩放资源。
+title: Azure 中的自动缩放入门
+description: 了解如何在 Azure 中缩放资源：Web 应用、云服务、虚拟机或虚拟机规模集。
 author: rajram
-manager: rboucher
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: d37d3fda-8ef1-477c-a360-a855b418de84
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 origin.date: 07/07/2017
-ms.date: 12/11/2017
+ms.date: 09/17/2018
 ms.author: v-yiso
-ms.openlocfilehash: 49ef07da038ffca16f2107e1f847f89034743ed4
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 9232a676075cbdc952a5ef2849b84f412c7dbad0
+ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
-ms.locfileid: "26045132"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44068062"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Azure 中的自动缩放入门
 本文介绍如何在 Microsoft Azure 门户中为资源指定自动缩放设置。
@@ -32,9 +25,12 @@ Azure Monitor 自动缩放功能仅适用于虚拟机规模集、云服务、Azu
 
 1. 打开 [Azure 门户。][1]
 2. 单击左窗格中的“Azure Monitor”图标。
+
   ![打开 Azure Monitor][2]
+  
 3. 单击“自动缩放”以查看自动缩放适用的所有资源及其当前的自动缩放状态。
-  ![了解 Azure Monitor 中的自动缩放功能][3]
+
+  ![了解 Azure Monitor 中的自动缩放][3]
 
 可使用顶部的筛选器窗格缩小列表的范围，以选择特定资源组中的资源、特定的资源类型或特定资源。
 
@@ -50,9 +46,13 @@ Azure Monitor 自动缩放功能仅适用于虚拟机规模集、云服务、Azu
 
 1. 在 Azure Monitor 中打开“自动缩放”边栏选项卡，然后选择要缩放的资源。 （以下步骤使用与某 Web 应用关联的应用服务计划。 [仅需 5 分钟，就可在 Azure 中创建首个 ASP.NET Web 应用。][4]）
 2. 请注意当前实例计数为 1。 单击“启用自动缩放”。
+
   ![新 Web 应用的缩放设置][5]
+  
 3. 提供缩放设置的名称，然后单击“添加规则”。 请注意右侧以上下文窗格形式打开的缩放规则选项。 默认情况下，这将选项设置为当资源的 CPU 百分比超过 70% 时，将实例计数缩放 1 个单位。 请将此选项保留默认值，并单击“添加”。
+
   ![为 Web 应用创建缩放设置][6]
+  
 4. 现已创建第一个缩放规则。 请注意，UX 建议了最佳做法，并指出“建议至少在规则中包含一个缩放设置”。 为此，请执行以下操作：
   
     a. 单击“添加规则”。 
@@ -61,10 +61,12 @@ Azure Monitor 自动缩放功能仅适用于虚拟机规模集、云服务、Azu
 
     c. 将“阈值”设置为 20。
 
-    d.单击“下一步”。 将“操作”设置为“按以下值递减计数”。
+    d. 将“操作”设置为“按以下值递减计数”。
 
    现在应已创建一个可以根据 CPU 使用率进行扩展/缩减的缩放设置。
+   
    ![基于 CPU 进行缩放][8]
+   
 5. 单击“保存” 。
 
 祝贺！ 现已成功创建第一个缩放设置，用于根据 CPU 使用率自动缩放 Web 应用。
@@ -110,6 +112,7 @@ Azure Monitor 自动缩放功能仅适用于虚拟机规模集、云服务、Azu
 有时，可能需要禁用当前的缩放设置并手动缩放资源。
 
 单击顶部的“禁用自动缩放”按钮。
+
 ![禁用自动缩放][13]
 
 > [!NOTE] 

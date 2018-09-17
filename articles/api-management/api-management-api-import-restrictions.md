@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: article
 origin.date: 09/29/2017
 ms.author: v-yiso
-ms.date: 07/16/2018
-ms.openlocfilehash: d5518e1efe4707dbe5d3462b3797c57a08e68c55
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.date: 09/17/2018
+ms.openlocfilehash: 4f2ff84c0d907733e3e61a6c910e22ff297d4f1a
+ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873364"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44068189"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>API 导入限制和已知问题
 ## <a name="about-this-list"></a>关于此列表
 导入 API 时，可能会遇到一些限制或识别问题，需要对其进行纠正才能成功导入。 本文记录了这些限制或问题，并按照 API 的导入格式对其进行了组织。
 
-## <a name="open-api"> </a>Open API/Swagger
-如果在导入 Open API 文档时遇到错误，请确保已通过使用 Azure 门户中的设计器（设计 - 前端 - Open API 规范编辑器）或使用第三方工具（例如 <a href="http://www.swagger.io">Swagger 编辑器</a>）对其进行了验证。
+## <a name="open-api"> </a>OpenAPI/Swagger
+如果在导入 OpenAPI 文档时遇到错误，请确保已通过使用 Azure 门户中的设计器（设计 - 前端 - OpenAPI 规范编辑器）或使用第三方工具（例如 <a href="http://editor.swagger.io">Swagger 编辑器</a>）对其进行了验证。
 
 * 仅支持 JSON 格式的 OpenAPI。
 * 路径和查询所需的参数必须具有唯一名称。 （在 OpenAPI 中，参数名称只需要在一个位置内是惟一的，例如路径、查询、标头。  但是，在 API 管理中，我们允许操作通过路径和查询参数进行区分（OpenAPI 不支持此方法）。 因此，我们要求参数名称在整个 URL 模板中是唯一的。）

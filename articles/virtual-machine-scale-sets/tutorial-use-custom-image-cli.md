@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 03/27/2018
-ms.date: 08/13/2018
+ms.date: 09/07/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: a3b0a88d1d085b5f0fced6d9270b28c28887b0ef
-ms.sourcegitcommit: 56ed1b03d83f222db6118fe1e2f2485a9488507f
+ms.openlocfilehash: c369f0dfeeae1a69a46b7ee319275707d64b35d2
+ms.sourcegitcommit: 40456700212200e707d6cb3147cf96ad161d3ff2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "41703886"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44269525"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-the-azure-cli-20"></a>教程：通过 Azure CLI 2.0 创建和使用虚拟机规模集的自定义映像
 创建规模集时，需指定部署 VM 实例时要使用的映像。 若要在部署 VM 实例之后减少任务数目，可以使用自定义 VM 映像。 在此自定义 VM 映像中可以完成全部所需的应用程序安装或配置步骤。 在规模集中创建的任何 VM 实例使用自定义 VM 映像，并随时可为应用程序流量提供服务。 本教程介绍如何执行下列操作：
@@ -86,7 +86,7 @@ exit
 ## <a name="create-a-custom-vm-image-from-the-source-vm"></a>从源 VM 创建自定义 VM 映像
 现已自定义源 VM，其上已安装 Nginx Web 服务器。 让我们创建与规模集配合使用的自定义 VM 映像。
 
-若要创建映像，需要解除分配 VM。 使用 [az vm deallocate](/cli/vm#az_vm_deallocate)解除分配 VM。 然后，使用 [az vm generalize](/cli/vm#az_vm_generalize) 将 VM 的状态设置为已通用化，以便 Azure 平台知道该 VM 可使用自定义映像。 只能从通用化 VM 创建映像：
+若要创建映像，需要解除分配 VM。 使用 [az vm deallocate](/cli/vm#az_vm_deallocate) 解除分配 VM。 然后，使用 [az vm generalize](/cli/vm#az_vm_generalize) 将 VM 的状态设置为已通用化，以便 Azure 平台知道该 VM 可使用自定义映像。 只能从通用化 VM 创建映像：
 
 ```azurecli
 az vm deallocate --resource-group myResourceGroup --name myVM
@@ -106,7 +106,7 @@ az image create `
 
 
 ## <a name="create-a-scale-set-from-the-custom-vm-image"></a>从自定义 VM 映像创建规模集
-使用 [az vmss create](/cli/vmss#az_vmss_create) 创建规模集。 不要使用 *UbuntuLTS* 或 *CentOS* 之类的平台映像，而应指定自定义 VM 映像的名称。 以下示例创建名为 *myScaleSet* 的规模集，该规模集使用上一步骤中创建的名为 *myImage* 的自定义映像：
+使用 [az vmss create](/cli/vmss#az-vmss-create) 创建规模集。 不要使用 *UbuntuLTS* 或 *CentOS* 之类的平台映像，而应指定自定义 VM 映像的名称。 以下示例创建名为 *myScaleSet* 的规模集，该规模集使用上一步骤中创建的名为 *myImage* 的自定义映像：
 
 ```azurecli
 az vmss create `
@@ -173,4 +173,4 @@ az group delete --name myResourceGroup --no-wait --yes
 > [!div class="nextstepaction"]
 > [将应用程序部署到规模集](tutorial-install-apps-cli.md)
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: link update -->

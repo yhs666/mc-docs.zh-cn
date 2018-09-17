@@ -8,14 +8,14 @@ ms.service: site-recovery
 ms.workload: storage-backup-recovery
 ms.topic: article
 origin.date: 07/06/2018
-ms.date: 07/23/2018
+ms.date: 09/17/2018
 ms.author: v-yeche
-ms.openlocfilehash: 383a327946edc3d0868b7254984891049333a678
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.openlocfilehash: 6eb72647e29a68ff88b80589b4b0f0c1802b6342
+ms.sourcegitcommit: 96d06c506983906a92ff90a5f67199f8f7e10996
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168311"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45586851"
 ---
 # <a name="site-recovery-deployment-planner-for-hyper-v-to-azure"></a>适用于 Hyper-V 到 Azure 部署的 Site Recovery 部署规划器
 
@@ -23,7 +23,7 @@ ms.locfileid: "39168311"
 
 在开始使用 Site Recovery 保护任何 Hyper-V 虚拟机 (VM) 之前，请根据每日数据更改率分配足够的带宽以满足所需的恢复点目标 (RPO)，并在本地 Hyper-V 存储的每个卷上分配足够的可用存储空间。
 
-此外还需要创建适当类型和数量的目标 Azure 存储帐户。 考虑到使用量会随着时间的推移而增加，从而导致源生产服务器数目的增加，请创建标准或高级存储帐户。 选择每个 VM 的存储类型时，需要考虑到工作负荷特征，例如每秒读/写 I/O 操作数 (IOPS) 或数据变动量，以及 Azure Site Recovery 限制。 
+此外还需创建适当类型和数量的目标 Azure 存储帐户。 考虑到使用量会随着时间的推移而增加，从而导致源生产服务器数目的增加，请创建标准或高级存储帐户。 选择每个 VM 的存储类型时，需要考虑到工作负荷特征，例如每秒读/写 I/O 操作数 (IOPS) 或数据变动量，以及 Azure Site Recovery 限制。 
 
 Azure Site Recovery 部署规划器是一个命令行工具，适用于 Hyper-V 到 Azure 和 VMware 到 Azure 灾难恢复方案。 可以使用此工具远程分析多个 Hyper-V 主机上存在的 Hyper-V VM（不会给生产造成任何影响），了解成功进行复制和测试性故障转移/故障转移所需满足的带宽和 Azure 存储要求。 不需在本地安装任何 Azure Site Recovery 组件即可运行此工具。 但是，为了获取准确的已实现吞吐量结果，建议在 Windows Server 上运行此规划器，该 Server 的硬件配置应与用来启用灾难恢复保护（通过恢复到 Azure 的方式进行保护）的某个 Hyper-V 服务器相同。 
 
@@ -73,9 +73,9 @@ Azure Site Recovery 部署规划器是一个命令行工具，适用于 Hyper-V 
 | | **VMware 到 Azure** |**Hyper-V 到 Azure**|**Azure 到 Azure**|**Hyper-V 到辅助站点**|**VMware 到辅助站点**
 --|--|--|--|--|--
 支持的方案 |是|是|否|是*|否
-支持的版本 | vCenter 6.5、6.0 或 5.5| Windows Server 2016、Windows Server 2012 R2 | 不可用 |Windows Server 2016、Windows Server 2012 R2|不可用
-支持的配置|vCenter、ESXi| Hyper-V 群集、Hyper-V 主机|不可用|Hyper-V 群集、Hyper-V 主机|不可用|
-可以按 Azure Site Recovery 部署规划器的运行实例进行分析的服务器数 |单个（一次只能分析属于一个 vCenter Server 或一个 ESXi 服务器的 VM）|多个（一次可以分析多个主机或主机群集的 VM）| 不可用 |多个（一次可以分析多个主机或主机群集的 VM）| 不可用
+支持的版本 | vCenter 6.5、6.0 或 5.5| Windows Server 2016、Windows Server 2012 R2 | NA |Windows Server 2016、Windows Server 2012 R2|NA
+支持的配置|vCenter、ESXi| Hyper-V 群集、Hyper-V 主机|NA|Hyper-V 群集、Hyper-V 主机|NA|
+可以按 Azure Site Recovery 部署规划器的运行实例进行分析的服务器数 |单个（一次只能分析属于一个 vCenter Server 或一个 ESXi 服务器的 VM）|多个（一次可以分析多个主机或主机群集的 VM）| NA |多个（一次可以分析多个主机或主机群集的 VM）| NA
 
 *此工具主要用于 Hyper-V 到 Azure 灾难恢复方案。 对于 Hyper-V 到辅助站点灾难恢复，只能将其用于了解源端建议，例如所需网络带宽、每个源 Hyper-V 服务器上需要的可用存储空间，以及初始复制批处理数和批次定义。  忽略报表中的 Azure 建议和成本。 另外，“获取吞吐量”操作不适用于 Hyper-V 到辅助站点灾难恢复方案。
 
@@ -91,13 +91,13 @@ Azure Site Recovery 部署规划器是一个命令行工具，适用于 Hyper-V 
 ## <a name="steps-to-add-servers-into-trustedhosts-list"></a>将服务器添加到 TrustedHosts 列表中的步骤
 1.  要从其部署此工具的 VM 应该让需要分析的所有主机都位于其 TrustedHosts 列表中。 若要将客户端添加到 Trustedhosts 列表中，请在 VM 上通过提升的 PowerShell 运行以下命令。 VM 可以是 Windows Server 2012 R2 或 Windows Server 2016。 
 
-        set-item wsman:\localhost\Client\TrustedHosts -value <ComputerName>[,<ComputerName>]
+        set-item wsman:\localhost\Client\TrustedHosts -value '<ComputerName>[,<ComputerName>]' -Concatenate
 
-2.  每个需要分析的 Hyper-V 主机都应：
+1.  每个需要分析的 Hyper-V 主机都应：
 
     a. 有一个 VM，以便其上的此工具能够在其 TrustedHosts 列表中运行。 从 Hyper-V 主机上权限提升的 PowerShell 运行以下命令。
 
-            set-item wsman:\localhost\Client\TrustedHosts -value <ComputerName>[,<ComputerName>]
+            set-item wsman:\localhost\Client\TrustedHosts -value '<ComputerName>[,<ComputerName>]' -Concatenate
 
     b. 已启用 PowerShell 远程功能。
 
@@ -108,10 +108,10 @@ Azure Site Recovery 部署规划器是一个命令行工具，适用于 Hyper-V 
 1.  下载最新版本的 [Azure Site Recovery Deployment Planner](https://aka.ms/asr-deployment-planner)。
 该工具已打包到 .zip 文件夹中。 同一工具支持 VMware 到 Azure 与 Hyper-V 到 Azure 灾难恢复方案。 也可将此工具用于 Hyper-V 到辅助站点灾难恢复方案，但请忽略报表中的 Azure 基础结构建议。
 
-2.  将 .zip 文件夹复制到要在其上运行该工具的 Windows Server。 可以在 Windows Server 2012 R2 或 Windows Server 2016 上运行此工具。 服务器必须具有相应的网络访问权限，能够连接到 Hyper-V 群集或 Hyper-V 主机，其中有需要分析的 VM。 建议将要运行此工具的 VM 的硬件配置设置为与需要保护的 Hyper-V 服务器的硬件配置相同。 此类配置可确保该工具所报告的已实现吞吐量与 Azure Site Recovery 在复制过程中能够达到的实际吞吐量相符。 吞吐量计算取决于服务器上的可用网络带宽和服务器的硬件配置（CPU、存储等）。 计算的是从运行此工具的服务器到 Azure 的吞吐量。 如果该服务器的硬件配置不同于 Hyper-V 服务器的硬件配置，该工具所报告的已实现吞吐量将不准确。
+1.  将 .zip 文件夹复制到要在其上运行该工具的 Windows Server。 可以在 Windows Server 2012 R2 或 Windows Server 2016 上运行此工具。 服务器必须具有相应的网络访问权限，能够连接到 Hyper-V 群集或 Hyper-V 主机，其中有需要分析的 VM。 建议将要运行此工具的 VM 的硬件配置设置为与需要保护的 Hyper-V 服务器的硬件配置相同。 此类配置可确保该工具所报告的已实现吞吐量与 Azure Site Recovery 在复制过程中能够达到的实际吞吐量相符。 吞吐量计算取决于服务器上的可用网络带宽和服务器的硬件配置（CPU、存储等）。 计算的是从运行此工具的服务器到 Azure 的吞吐量。 如果该服务器的硬件配置不同于 Hyper-V 服务器的硬件配置，该工具所报告的已实现吞吐量将不准确。
 VM 的推荐配置：8 vCPU，16 GB RAM，300 GB HDD。
 
-3.  解压缩 .zip 文件夹。
+1.  解压缩 .zip 文件夹。
 该文件夹包含多个文件和子文件夹。 可执行文件是父文件夹中的 ASRDeploymentPlanner.exe。
 
 示例：将 .zip 文件复制到 E:\ 驱动器并将它解压缩。 E:\ASR Deployment Planner_v2.2.zip

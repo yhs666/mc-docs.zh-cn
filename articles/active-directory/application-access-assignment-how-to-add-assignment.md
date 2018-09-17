@@ -11,16 +11,16 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 07/11/2017
-ms.date: 07/30/2018
+ms.date: 09/06/2018
 ms.author: v-junlch
-ms.openlocfilehash: 79b3b42c8e82e329a8d74ec630e885f1693e9eac
-ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
+ms.openlocfilehash: 8d897e4f5b6e08cd6e51ac3ecb7eed9b81805c2f
+ms.sourcegitcommit: fd49281c58f34de20cc310d6cefb4568992cd675
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39487056"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43858429"
 ---
 # <a name="how-to-assign-users-and-groups-to-an-application"></a>如何将用户和组分配到应用程序
 
@@ -77,4 +77,4 @@ ms.locfileid: "39487056"
 
 
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

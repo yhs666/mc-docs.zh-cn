@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 origin.date: 06/20/2018
 ms.date: 08/08/2018
 ms.author: v-junlch
-ms.openlocfilehash: e7b7e8605d1aecf46abf385b722d3ae1ecc20131
-ms.sourcegitcommit: a1c6a743b4be62477e7debfc9ea5f03afca2bc8f
+ms.openlocfilehash: e1d20ef9aeef7839c0928e7ab62b48afb9206853
+ms.sourcegitcommit: c237baac64f847301ba7f67082ffffcd81c00142
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39625133"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43850812"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>应用程序网关的后端运行状况、诊断日志和指标
 
@@ -129,6 +129,28 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
     
 > [!TIP] 
 >活动日志不需要单独的存储帐户。 使用存储来记录访问和性能需支付服务费用。
+
+### <a name="enable-logging-through-the-azure-portal"></a>通过 Azure 门户启用日志记录
+
+1. 在 Azure 门户中找到资源，然后单击“诊断日志”。
+
+   对于应用程序网关，可以使用三种日志：
+
+   * 访问日志
+   * 性能日志
+   * 防火墙日志
+
+2. 若要开始收集数据，请单击“启用诊断” 。
+
+   ![启用诊断][1]
+
+3. “诊断设置”边栏选项卡提供诊断日志的设置。 
+
+   ![启动配置过程][2]
+
+4. 确认设置，然后单击“保存”。
+
+   ![包含选择的“诊断设置”边栏选项卡][3]
 
 ### <a name="activity-log"></a>活动日志
 
@@ -283,6 +305,25 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 > 
 
 ## <a name="metrics"></a>指标
+
+指标是某些 Azure 资源的一项功能，可在此查看门户中的性能计数器。 应用程序网关支持以下指标：
+
+- **当前连接数**
+- **失败的请求数**
+- **正常的主机计数**
+
+   可以按每个后端池进行筛选来显示特定后端池中正常的/不正常的主机数。
+
+
+- **响应状态**
+
+   可以进一步对响应状态代码分布进行归类来显示 2xx、3xx、4xx 和 5xx 类别的响应。
+
+- **吞吐量**
+- **请求总数**
+- **不正常的主机计数**
+
+   可以按每个后端池进行筛选来显示特定后端池中正常的/不正常的主机数。
 
 若要查看当前的指标列表，请参阅 [Azure Monitor 支持的指标](../monitoring-and-diagnostics/monitoring-supported-metrics.md)。
 

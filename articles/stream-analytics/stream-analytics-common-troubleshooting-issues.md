@@ -9,13 +9,13 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 04/12/2018
-ms.date: 06/18/2018
-ms.openlocfilehash: 1703fd5843fd24ed0b39e26de28e55cbdd6c4274
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.date: 09/17/2018
+ms.openlocfilehash: 368cbff5c1b485bb53e748217115b6a08a096450
+ms.sourcegitcommit: 2700f127c3a8740a83fb70739c09bd266f0cc455
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "35416846"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45586602"
 ---
 # <a name="common-issues-in-stream-analytics-and-steps-to-troubleshoot"></a>流分析的常见问题以及故障排除的步骤
 
@@ -27,7 +27,7 @@ ms.locfileid: "35416846"
 
 ![“输入”磁贴](media/stream-analytics-malformed-events/inputs_tile.png)
 
-若要查看详细信息，请启用诊断日志来查看警告详细信息。 对于格式不当的输入事件，执行日志包含一个其消息类似于以下内容的条目：“消息: 无法将来自资源 <blob URI> 的输入事件反序列化为 json”。 
+若要查看详细信息，请启用诊断日志来查看警告详细信息。 对于格式不当的输入事件，执行日志包含一条类似以下内容的消息：“消息: 无法将来自资源 <blob URI> 的输入事件反序列化为 json”。 
 
 ### <a name="troubleshooting-steps"></a>疑难解答步骤
 
@@ -39,7 +39,9 @@ ms.locfileid: "35416846"
 
 3. 若要获取格式不正确的 JSON 数据，请运行 CheckMalformedEvents.cs 代码。 [GitHub 示例存储库](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/CheckMalformedEventsEH)中提供了此示例。 此代码读取分区 ID、偏移量并列显位于该偏移位置的数据。 
 
-4. 在阅读数据后，你可以分析并更正序列化格式。 
+4. 在阅读数据后，你可以分析并更正序列化格式。
+
+5. 还可以[使用服务总线资源管理器从 IoT 中心读取事件](https://code.msdn.microsoft.com/How-to-read-events-from-an-1641eb1b)。
 
 ## <a name="delayed-output"></a>延迟输出
 

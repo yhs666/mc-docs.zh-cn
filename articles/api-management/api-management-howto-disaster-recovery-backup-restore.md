@@ -11,15 +11,15 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/17/2018
+origin.date: 08/15/2018
 ms.author: v-yiso
-ms.date: 08/13/2018
-ms.openlocfilehash: 6751891716a489a7601320bd95ea9890f7aed67d
-ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
+ms.date: 09/17/2018
+ms.openlocfilehash: 2a156ddd47f7643ba37df9657a224068cc712f61
+ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39486926"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44068026"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>如何使用 Azure API 管理中的服务备份和还原实现灾难恢复
 通过 Azure API 管理选择发布和管理 API，即可充分利用了许多容错和基础结构功能，否则必须设计、实现和管理这些功能。 Azure 平台通过花费少量成本消除大量潜在故障。
@@ -78,6 +78,7 @@ ms.locfileid: "39486926"
 
 7. 单击新添加的应用程序旁边的“委派的权限”，选中“访问 Azure 服务管理(预览版)”复选框。
 8. 按“选择”。
+9. 单击“授予权限”。
 
 ### <a name="configuring-your-app"></a>配置应用
 
@@ -94,7 +95,7 @@ namespace GetTokenResourceManagerRequests
         static void Main(string[] args)
         {
             var authenticationContext = new AuthenticationContext("https://login.microsoftonline.com/{tenant id}");
-            var result = authenticationContext.AcquireToken("https://management.azure.com/", {application id}, new Uri({redirect uri});
+            var result = authenticationContext.AcquireTokenAsync("https://management.azure.com/", "{application id}", new Uri("{redirect uri}"), new PlatformParameters(PromptBehavior.Auto)).Result;
 
             if (result == null) {
                 throw new InvalidOperationException("Failed to obtain the JWT token");
@@ -118,12 +119,14 @@ namespace GetTokenResourceManagerRequests
 
     指定这些值后，代码示例应返回类似于以下示例的令牌：
 
-![令牌][api-management-arm-token]
+    ![令牌][api-management-arm-token]
 
     > [!NOTE]
-    > The token may expire after a certain period. Execute the code sample again to generate a new token.
+    > 该令牌可能在一段时间后过期。 再次执行示例代码以生成新令牌。
 
 ## <a name="calling-the-backup-and-restore-operations"></a>调用备份和还原操作
+
+REST API 为 [Api 管理服务 - 备份](https://docs.microsoft.com/rest/api/apimanagement/apimanagementservice/backup)和 [Api 管理服务 - 还原](https://docs.microsoft.com/rest/api/apimanagement/apimanagementservice/restore)。
 
 在调用以下部分中所述的“备份和还原”操作之前，为 REST 调用设置授权请求标头。
 
@@ -134,24 +137,27 @@ request.Headers.Add(HttpRequestHeader.Authorization, "Bearer " + token);
 ### <a name="step1"> </a>备份 API 管理服务
 若要备份 API 管理服务问题，请发送以下 HTTP 请求：
 
-`POST https://management.azure.cn/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/backup?api-version={api-version}`
+```
+POST https://management.azure.cn/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/backup?api-version={api-version}
+```
 
 其中：
 
 * `subscriptionId` - 包含尝试备份的 API 管理服务的订阅的 ID
 * `resourceGroupName` - Azure API 管理服务的资源组名称
 * `serviceName` - 正在创建其备份的 API 管理服务的名称，在创建时指定
-* `api-version` - 替换为 `2014-02-14`
+* `api-version` - 替换为 `2018-06-01-preview`
 
 在请求正文中，指定目标 Azure 存储帐户名称、访问密钥、blob 容器名称和备份名称：
 
-```
-'{  
-    storageAccount : {storage account name for the backup},  
-    accessKey : {access key for the account},  
-    containerName : {backup container name},  
-    backupName : {backup blob name}  
-}'
+
+```json
+{
+  "storageAccount": "{storage account name for the backup}",
+  "accessKey": "{access key for the account}",
+  "containerName": "{backup container name}",
+  "backupName": "{backup blob name}"
+}
 ```
 
 将 `Content-Type` 请求标头的值设置为 `application/json`。
@@ -170,24 +176,26 @@ request.Headers.Add(HttpRequestHeader.Authorization, "Bearer " + token);
 ### <a name="step2"> </a>还原 API 管理服务
 若要从之前创建的备份还原 API 管理服务，请发出以下 HTTP 请求：
 
-`POST https://management.azure.cn/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/restore?api-version={api-version}`
+```
+POST https://management.azure.cnsubscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/restore?api-version={api-version}
+```
 
 其中：
 
 * `subscriptionId` - 包含正在将备份还原到的 API 管理服务的订阅 ID
 * `resourceGroupName` - 采用“Api-Default-{service-region}”形式的字符串，其中 `service-region` 标识托管正在将备份还原到的 API 管理服务的 Azure 区域，例如 `North-Central-US`
 * `serviceName` - 正在还原到的 API 管理服务的名称，在创建时指定
-* `api-version` - 替换为 `2014-02-14`
+* `api-version` - 替换为 `2018-06-01-preview`
 
 在请求正文中，指定备份文件位置，即 Azure 存储帐户名称、访问密钥、blob 容器名称和备份名称：
 
-```
-'{  
-    storageAccount : {storage account name for the backup},  
-    accessKey : {access key for the account},  
-    containerName : {backup container name},  
-    backupName : {backup blob name}  
-}'
+```json
+{
+  "storageAccount": "{storage account name for the backup}",
+  "accessKey": "{access key for the account}",
+  "containerName": "{backup container name}",
+  "backupName": "{backup blob name}"
+}
 ```
 
 将 `Content-Type` 请求标头的值设置为 `application/json`。
@@ -203,7 +211,8 @@ request.Headers.Add(HttpRequestHeader.Authorization, "Bearer " + token);
 > 也可分别使用 Powershell *Backup-AzureRmApiManagement* 和 *Restore-AzureRmApiManagement* 命令执行备份和还原操作。
 
 ## <a name="next-steps"></a>后续步骤
-查看以下 Microsoft 博客了解备份/还原过程的两种不同的演练。
+
+有关备份/还原过程的不同演练，请查看以下资源。
 
 * [复制 Azure API 管理帐户](https://www.returngis.net/en/2015/06/replicate-azure-api-management-accounts/)
 * [Azure API 管理：备份和还原配置](http://blogs.msdn.com/b/stuartleeks/archive/2015/04/29/azure-api-management-backing-up-and-restoring-configuration.aspx)
