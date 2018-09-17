@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 06/26/2018
-ms.date: 08/20/2018
+origin.date: 07/13/2018
+ms.date: 09/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: f6d03f250c9bac5f7926490e41098b5d084330c7
-ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
+ms.openlocfilehash: d7c25d0c221743c8840b4a238660d56fbed2e473
+ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41704591"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44515637"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>在 Windows 上准备开发环境
 > [!div class="op_single_selector"]
@@ -56,20 +56,20 @@ Service Fabric 工具是 Visual Studio 2017 中 Azure 开发工作负荷的一�
 
 * [安装 Azure Service Fabric SDK][core-sdk]
 
-### <a name="to-use-visual-studio-2015-requires-visual-studio-2015-update-2-or-later"></a>使用 Visual Studio 2015（需要安装 Visual Studio 2015 Update 2 或更高版本）
+### <a name="to-use-visual-studio-2015-requires-visual-studio-2015-update-2-or-later"></a>使用 Visual Studio 2015（要求 Visual Studio 2015 Update 2 或更高版本）
 对于 Visual Studio 2015，Service Fabric 工具是使用 Web 平台安装程序与 SDK 和运行时 一起安装的：
 
 * [安装 Azure Service Fabric SDK and Tools][full-bundle-vs2015]
 
 ### <a name="sdk-installation-only"></a>仅安装 SDK
-如果只需要 SDK，则安装此包：
+如果只需 SDK，可以安装此包：
 * [安装 Azure Service Fabric SDK][core-sdk]
 
 当前版本包括：
-* Service Fabric SDK and Tools 3.1.301
-* Service Fabric 运行时 6.2.301
-* Service Fabric Tools for Visual Studio 2015 2.1.20180510.2
-* Visual Studio 2017 15.7 包括 Service Fabric Tools for Visual Studio 2.1.20180423.1 
+* Service Fabric SDK and Tools 3.2.162
+* Service Fabric 运行时 6.3.162
+* Service Fabric Tools for Visual Studio 2015 2.3.10710.3
+* Visual Studio 2017 15.7 包括 Service Fabric Tools for Visual Studio 2.3.10710.1 
 
 有关支持的版本列表，请参阅 [Service Fabric 支持](service-fabric-support.md)
 
@@ -83,8 +83,7 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 ## <a name="next-steps"></a>后续步骤
 完成设置开发环境之后，便可开始生成和运行应用。
 
-* 
-            [在 Visual Studio 中创建第一个 Service Fabric 应用程序](service-fabric-create-your-first-application-in-visual-studio.md)
+* [在 Visual Studio 中创建第一个 Service Fabric 应用程序](service-fabric-create-your-first-application-in-visual-studio.md)
 * [了解如何在本地群集上部署和管理应用程序](service-fabric-get-started-with-a-local-cluster.md)
 * [在 Windows 上准备 Linux 开发环境](service-fabric-local-linux-cluster-windows.md)
 * [了解编程模型：Reliable Services 和 Reliable Actors](service-fabric-choose-framework.md)

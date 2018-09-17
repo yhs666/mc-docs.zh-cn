@@ -9,12 +9,12 @@ origin.date: 03/30/2018
 ms.date: 08/27/2018
 ms.author: v-yeche
 ms.component: disks
-ms.openlocfilehash: b69e5fd778a43c8205b3d9394e33af96963034c7
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.openlocfilehash: 418d89505062dfe7d0d47681543204c1d7f7b986
+ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42872149"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44515635"
 ---
 [!INCLUDE [virtual-machines-common-premium-storage.md](../../../includes/virtual-machines-common-premium-storage.md)]
 
@@ -26,7 +26,7 @@ ms.locfileid: "42872149"
 * [迁移到 Azure 高级存储](../../storage/common/storage-migration-to-premium-storage.md)
 
 ### <a name="blog-posts"></a>博客文章
-* [Azure Premium Storage generally available](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/)（Azure 高级存储已正式推出）
-* [Announcing the GS-Series: Adding Premium Storage Support to the Largest VMs in the Public Cloud](https://azure.microsoft.com/blog/azure-has-the-most-powerful-vms-in-the-public-cloud/)（GS 系列公告：将高级存储支持添加到公有云中的最大 VM）
+* [Azure Premium Storage generally available](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/)
+<!-- Not Available on [Announcing the GS-series: Adding Premium Storage support to the largest VMs in the public cloud](https://azure.microsoft.com/blog/azure-has-the-most-powerful-vms-in-the-public-cloud/)-->（Azure 高级存储已正式推出）
 
 <!-- Update_Description: update meta properties, update link -->

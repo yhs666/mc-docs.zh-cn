@@ -13,21 +13,21 @@ ms.tgt_pltfrm: java
 ms.devlang: java
 ms.topic: article
 origin.date: 04/14/2018
-ms.date: 07/09/2018
+ms.date: 09/10/2018
 ms.author: v-junlch
-ms.openlocfilehash: 7e1f4bcd1ebd06c40a32dad7057288fecffbf15c
-ms.sourcegitcommit: e950fe5260c519e05f8c5bbf193a8ef733a6a2d2
+ms.openlocfilehash: c80915e1dc614376ec77a17a787311fa24364caa
+ms.sourcegitcommit: 1471663f5f5a1c4e1fbead7c4d351610cb0086bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37936353"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44363571"
 ---
 # <a name="how-to-use-notification-hubs-from-java"></a>如何通过 Java 使用通知中心
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
-本主题将向你介绍完全受支持的全新官方 Azure 通知中心 Java SDK 的主要功能。 此项目为开源项目，可在 [Java SDK] 查看完整的 SDK 代码。 
+本主题介绍完全受支持的全新官方 Azure 通知中心 Java SDK 的关键功能。 此项目为开源项目，可在 [Java SDK] 查看完整的 SDK 代码。 
 
-通常情况下，如 MSDN 主题 [通知中心 REST API](http://msdn.microsoft.com/library/dn223264.aspx)中所述，可以使用通知中心 REST 接口从 Java/PHP/Python/Ruby 后端访问所有通知中心功能。 此 Java SDK 在以 Java 形式表示的 REST 接口上提供瘦包装器。 
+通常情况下，如 MSDN 主题[通知中心 REST API](http://msdn.microsoft.com/library/dn223264.aspx) 中所述，可以使用通知中心 REST 接口从 Java/PHP/Python/Ruby 后端访问所有通知中心功能。 此 Java SDK 在以 Java 形式表示的 REST 接口上提供瘦包装器。 
 
 SDK 当前支持：
 
@@ -50,7 +50,7 @@ SDK 当前支持：
 
 ## <a name="code"></a>代码
 ### <a name="notification-hub-cruds"></a>通知中心 CRUD
-**创建命名空间管理器：**
+**NamespaceManager：**
 
     NamespaceManager namespaceManager = new NamespaceManager("connection string")
 
@@ -142,7 +142,7 @@ SDK 当前支持：
 所有集合查询都支持 $top 和继续标记。
 
 ### <a name="installation-api-usage"></a>安装 API 用法
-安装 API 是一种注册管理的替代机制。 其现在可以使用“单个”安装对象，而不必维护多个注册，后者不但工作量较大，而且容易出错且效率低下。 安装包含你所需的一切：推送通道（设备标记）、标记、模板、辅助磁贴（用于 WNS 和 APNS）。 不必再调用该服务以获取 ID - 只需生成 GUID 或任何其他标识符，将其保存在设备上并与推送通道（设备标记）一起发送到后端即可。 在后端，应当只做一个调用：CreateOrUpdateInstallation，其完全是幂等的，因此，如果需要，可随时重试。
+安装 API 是一种注册管理的替代机制。 其现在可以使用“单个”安装对象，而不必维护多个注册，后者不但工作量较大，而且容易出错且效率低下。 安装包含所需一切内容：推送通道（设备标记）、标记、模板、辅助磁贴（用于 WNS 和 APNS）。 不必再调用该服务以获取 ID - 只需生成 GUID 或任何其他标识符，将其保存在设备上并与推送通道（设备标记）一起发送到后端即可。 在后端，应当只做一个调用：CreateOrUpdateInstallation，其完全是幂等的，因此，如果需要，可随时重试。
 
 针对 Amazon Kindle Fire 的示例如下：
 
@@ -226,9 +226,9 @@ CreateOrUpdate、Patch 和 Delete 最终与 Get 一致。 请求的操作会在�
 **使用 SAS 签名的 URI：** 此 URL 是某些 Blob 文件或 Blob 容器的 URL，加上一组参数（例如权限和到期日期），再加上使用帐户的 SAS 密钥生成的所有这些内容的签名。 Azure 存储 Java SDK 具有丰富的功能，包括创建这种类型的 URI。 作为简单的替代，可以考虑使用 ImportExportE2E 测试类（来自 github 位置），其具有基本、精简的签名算法。
 
 ### <a name="send-notifications"></a>发送通知
-通知对象只有带有标头的正文，一些实用工具方法可帮助你构建本机和模板通知对象。
+通知对象只是一个带标头的正文，而一些实用工具方法有助于构建本机和模板通知对象。
 
-- Windows 应用商店和 Windows Phone 8.1（非 Silverlight）
+- **Windows 应用商店和 Windows Phone 8.1（非 Silverlight）**
   
         String toast = "<toast><visual><binding template=\"ToastText01\"><text id=\"1\">Hello from Java!</text></binding></visual></toast>";
         Notification n = Notification.createWindowsNotification(toast);
@@ -277,12 +277,23 @@ CreateOrUpdate、Patch 和 Delete 最终与 Get 一致。 请求的操作会在�
 
 运行 Java 代码，现在应该生成显示在目标设备上的通知。
 
+## <a name="next-steps"></a>后续步骤
+本主题介绍了如何为通知中心创建简单的 Java REST 客户端。 从这里可以：
+
+- 下载完整的 [Java SDK]，其中包含完整的 SDK 代码。 
+- 播放示例：
+  - [通知中心入门]
+  - [发送突发新闻]
+  - [发送本地化的突发新闻]
+  - [发送通知到经身份验证的用户]
+  - [发送跨平台通知到经身份验证的用户]
 
 [Java SDK]: https://github.com/Azure/azure-notificationhubs-java-backend
-[Get started tutorial]: ./notification-hubs-ios-apple-push-notification-apns-get-started.md
-[Get Started with Notification Hubs]: ./notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
-[Send breaking news]: ./notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
-[Send localized breaking news]: ./notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md
+[通知中心入门]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
+[发送突发新闻]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
+[发送本地化的突发新闻]: notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md
+[发送通知到经身份验证的用户]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
+[发送跨平台通知到经身份验证的用户]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 [Maven]: http://maven.apache.org/
 
 
