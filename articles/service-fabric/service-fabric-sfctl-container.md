@@ -12,15 +12,15 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-origin.date: 07/31/2018
-ms.date: 09/10/2018
+origin.date: 05/23/2018
+ms.date: 07/09/2018
 ms.author: v-yeche
-ms.openlocfilehash: 33e3288a33aaeee3d6628726f4202510f7b4ff3d
-ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
+ms.openlocfilehash: e47aa83bcac900617c1d108508b45d83a7a22bbe
+ms.sourcegitcommit: 292f22020e00c607229c1693229f25fb2837d8af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44515717"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37910606"
 ---
 # <a name="sfctl-container"></a>sfctl container
 在群集节点上运行与容器相关的命令。
@@ -88,4 +88,5 @@ ms.locfileid: "44515717"
 ## <a name="next-steps"></a>后续步骤
 - [安装](service-fabric-cli.md) Service Fabric CLI。
 - 了解如何通过[示例脚本](/service-fabric/scripts/sfctl-upgrade-application)使用 Service Fabric CLI。
-<!-- Update_Description: wording update -->
+<!-- Update_Description: new articles on service fabric sfctl container -->
+<!--ms.date: 07/09/2018-->

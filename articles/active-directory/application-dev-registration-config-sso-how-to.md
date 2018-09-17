@@ -11,16 +11,16 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: article
 origin.date: 07/11/2017
-ms.date: 09/06/2018
+ms.date: 07/30/2018
 ms.author: v-junlch
-ms.openlocfilehash: b3f391e6f2de2ac08c5c4d52166f1086b4a86c81
-ms.sourcegitcommit: fd49281c58f34de20cc310d6cefb4568992cd675
+ms.openlocfilehash: 79c9cdc642c7b706f743ae580a69b61c7fb9dc84
+ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43858435"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486913"
 ---
 # <a name="how-to-configure-a-new-multi-tenant-application"></a>如何配置新的多租户应用程序
 
@@ -44,4 +44,4 @@ ms.locfileid: "43858435"
 
 [AzureAD StackOverflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

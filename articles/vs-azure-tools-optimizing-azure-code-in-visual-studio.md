@@ -11,18 +11,16 @@ ms.service: multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.technology: vs-azure
-ms.custom: vs-azure
-ms.workload: azure-vs
+ms.workload: multiple
 origin.date: 11/11/2016
-ms.date: 09/10/2018
+ms.date: 08/14/2018
 ms.author: v-junlch
-ms.openlocfilehash: e908703c155fbed285e57d645b0cf47c7683d665
-ms.sourcegitcommit: 40456700212200e707d6cb3147cf96ad161d3ff2
+ms.openlocfilehash: 4a05f5412191a704843c2f3858cef89ba222f482
+ms.sourcegitcommit: 5ccfb836b271e60d44ba8a871b8904a695fe8e27
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44269540"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41704588"
 ---
 # <a name="optimizing-your-azure-code"></a>优化 Azure 代码
 对使用 Azure 的应用程序进行编程时，应遵循某些编码做法，以免在云环境中应用程序的伸缩性、行为和性能出现问题。 Microsoft 提供了 Azure 代码分析工具，该工具可识别并确定部分常见问题并帮助你解决这些问题。 可以通过 NuGet 在 Visual Studio 中下载该工具。
@@ -40,24 +38,24 @@ AP0000
 请通过 [Azure 代码分析反馈](http://go.microsoft.com/fwlink/?LinkId=403771)来分享看法和意见。
 
 ### <a name="reason"></a>原因
-默认情况下，在 web.config 文件中指定的会话状态模式为进程内。 此外，如果配置文件中没有指定任何条目，会话状态模式默认为进程内。 进程内模式会话状态存储在 Web 服务器的内存中。 当重新启动某个实例或使用新实例来支持负载均衡或故障转移时，存储在 Web 服务器内存中的会话状态并不保存。 这种情况会导致应用程序无法在云上缩放。
+默认情况下，在 web.config 文件中指定的会话状态模式为进程内。 此外，如果配置文件中没有指定任何条目，将会话状态模式默认为进程内。 进程内模式将会话状态存储在 Web 服务器的内存中。 当重新启动某个实例或使用新实例来支持负载均衡或故障转移时，存储在 Web 服务器内存中的会话状态并不保存。 这种情况会导致应用程序无法在云上缩放。
 
-ASP.NET 会话状态支持多种不同的会话状态数据存储选项：InProc、StateServer、SQLServer、Custom 和 Off。 建议使用 Custom 模式在外部会话状态存储（例如，[适用于 Redis 的 Azure 会话状态提供程序](http://go.microsoft.com/fwlink/?LinkId=401521)）中托管数据。
+ASP.NET 会话状态支持多种不同的会话状态数据存储选项：InProc、StateServer、SQLServer、Custom 和 Off。 建议使用 Custom 模式在外部会话状态存储（例如， [适用于 Redis 的 Azure 会话状态提供程序](http://go.microsoft.com/fwlink/?LinkId=401521)）中托管数据。
 
 ### <a name="solution"></a>解决方案
-建议的解决方案之一是在托管缓存服务中存储会话状态。 了解如何使用[适用于 Redis 的 Azure 会话状态提供程序](http://go.microsoft.com/fwlink/?LinkId=401521)来存储会话状态。 也可以在其他位置存储会话状态，以确保应用程序可在云上缩放。 若要详细了解替代解决方案，请阅读[会话状态模式](https://msdn.microsoft.com/library/ms178586)。
+建议的解决方案之一是在托管缓存服务中存储会话状态。 了解如何使用 [适用于 Redis 的 Azure 会话状态提供程序](http://go.microsoft.com/fwlink/?LinkId=401521) 来存储会话状态。 也可以在其他位置存储会话状态，以确保应用程序可在云上缩放。 若要详细了解替代解决方案，请阅读 [Session State Modes](https://msdn.microsoft.com/library/ms178586)（会话状态模式）。
 
 ## <a name="run-method-should-not-be-async"></a>运行方法不应是异步的
 ### <a name="id"></a>ID
 AP1000
 
 ### <a name="description"></a>说明
-在 [Run()](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) 方法外部创建异步方法（例如 [await](https://msdn.microsoft.com/library/hh156528.aspx)），并从 [Run()](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) 调用异步方法。 将 [[Run()](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx)](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) 方法声明为异步方法会导致辅助角色进入重启循环。
+在 [Run()](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) 方法外部创建异步方法（例如 [await](https://msdn.microsoft.com/library/hh156528.aspx)），然后从 [Run()](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) 调用异步方法。 将 [[Run()](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx)](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) 方法声明为异步方法会导致辅助角色进入重启循环。
 
 请通过 [Azure 代码分析反馈](http://go.microsoft.com/fwlink/?LinkId=403771)来分享看法和意见。
 
 ### <a name="reason"></a>原因
-在 [Run()](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) 方法内部调用异步方法会导致云服务运行时回收辅助角色。 当辅助角色启动时，所有程序执行将在 [Run()](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) 方法内发生。 退出 [Run()](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) 方法会导致辅助角色重新启动。 当辅助角色运行时调用异步方法时，会在异步方法之后调度所有操作，然后返回。 这会导致辅助角色从 [[[[Run()](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx)](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx)](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx)](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) 方法退出并重新启动。 在下一轮执行时，辅助角色再次调用异步方法并重新启动，导致辅助角色再次回收。
+在 [Run()](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) 方法内部调用异步方法会导致云服务运行时回收辅助角色。 当辅助角色启动时，所有程序执行将在 [Run()](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) 方法内发生。 退出 [Run()](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) 方法会导致辅助角色重启。 当辅助角色运行时调用异步方法时，将在异步方法之后调度所有操作，并返回。 这会导致辅助角色从 [[[[Run()](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx)](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx)](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx)](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) 方法退出并重启。 在下一轮执行时，辅助角色再次调用异步方法并重新启动，导致辅助角色再次回收。
 
 ### <a name="solution"></a>解决方案
 将所有异步操作放在 [Run()](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) 方法的外部。 然后从 [[Run()](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx)](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) 方法内部调用重新构造的异步方法，例如 RunAsync().wait。 Azure 代码分析工具可帮助解决此问题。
@@ -102,7 +100,7 @@ AP2000
 请通过 [Azure 代码分析反馈](http://go.microsoft.com/fwlink/?LinkId=403771)来分享看法和意见。
 
 ### <a name="reason"></a>原因
-为了增强安全性，Azure Active Directory 会将 ACS 身份验证替换为 SAS 身份验证。 有关过渡计划的信息，请参阅 [Azure Active Directory is the future of ACS](https://cloudblogs.microsoft.com/enterprisemobility/2013/06/22/azure-active-directory-is-the-future-of-acs/)（Azure Active Directory 是 ACS 的未来）。
+为了增强安全性，Azure Active Directory 会将 ACS 身份验证替换为 SAS 身份验证。 有关过渡计划的信息，请参阅 [Azure Active Directory is the future of ACS](https://cloudblogs.microsoft.com/enterprisemobility/2013/06/22/azure-active-directory-is-the-future-of-acs/) （Azure Active Directory 是 ACS 的未来）。
 
 ### <a name="solution"></a>解决方案
 在应用中使用 SAS 身份验证。 以下示例说明如何使用现有 SAS 令牌访问服务总线命名空间或实体。
@@ -115,8 +113,8 @@ BrokeredMessage receivedMessage = sc.Receive();
 
 有关更多信息，请参阅以下主题。
 
-- 有关概述，请参阅[服务总线的共享访问签名身份验证](/service-bus-messaging/service-bus-sas)
-- [如何使用服务总线的共享访问签名身份验证](/service-bus-messaging/service-bus-sas)
+- 有关概述，请参阅 [Shared Access Signature Authentication with Service Bus](/service-bus-messaging/service-bus-sas)
+- [How to use Shared Access Signature Authentication with Service Bus（如何使用服务总线的共享访问签名身份验证）](/service-bus-messaging/service-bus-sas)
 - 有关示例项目，请参阅[如何使用服务总线订阅的共享访问签名 (SAS) 身份验证](http://code.msdn.microsoft.com/windowsazure/Using-Shared-Access-e605b37c)
 
 ## <a name="consider-using-onmessage-method-to-avoid-receive-loop"></a>考虑使用 OnMessage 方法来避免“receive 循环”
@@ -129,7 +127,7 @@ AP2002
 请通过 [Azure 代码分析反馈](http://go.microsoft.com/fwlink/?LinkId=403771)来分享看法和意见。
 
 ### <a name="reason"></a>原因
-当调用 **OnMessage** 时，客户端将启动一个内部消息泵，该消息泵不断轮询队列或订阅。 此消息泵包含发出消息接收调用的无限循环。 如果调用超时，它将发出新的调用。 超时间隔由所用的 [MessagingFactory](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.messagingfactory.aspx) 的 [OperationTimeout](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout.aspx) 属性值确定。
+当调用 **OnMessage** 时，客户端将启动一个内部消息泵，该消息泵不断轮询队列或订阅。 此消息泵包含发出消息接收调用的无限循环。 如果调用超时，它会发出新的调用。 超时间隔由所用的 [MessagingFactory](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.messagingfactory.aspx) 的 [OperationTimeout](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout.aspx) 属性值确定。
 
 相比于 **Receive**，使用 **OnMessage** 的优点是用户不必手动轮询消息、处理异常、并行处理多个消息和完成消息。
 
@@ -232,14 +230,14 @@ AP2003
 请通过 [Azure 代码分析反馈](http://go.microsoft.com/fwlink/?LinkId=403771)来分享看法和意见。
 
 ### <a name="reason"></a>原因
-使用异步方法可实现应用程序并行性效果，因为在执行每个调用时不会阻塞主线程。 使用服务总线消息传送方法时，执行某项操作（发送、接收、删除等）需要花费一定的时间。 这一时间包括服务总线服务处理该操作的时间，外加延迟处理请求和答复的时间。 若要增加每次操作的数目，操作必须同时执行。 有关详细信息，请参阅 [Best Practices for Performance Improvements Using Service Bus Brokered Messaging](/service-bus-messaging/service-bus-performance-improvements)（使用服务总线中转消息传送改善性能的最佳实践）。
+使用异步方法可实现应用程序并行性效果，因为在执行每个调用时不会阻塞主线程。 使用服务总线消息传送方法时，执行某项操作（发送、接收、删除等）需要花费一定的时间。 这一时间包括服务总线服务处理该操作的时间，外加延迟处理请求和答复的时间。 若要增加每次操作的数目，操作必须同时执行。 有关详细信息，请参阅 [Best Practices for Performance Improvements Using Service Bus Brokered Messaging](/service-bus-messaging/service-bus-performance-improvements)（使用服务总线中转消息传送改善性能的最佳做法）。
 
 ### <a name="solution"></a>解决方案
 有关如何使用建议的异步方法的信息，请参阅 [QueueClient 类 (Microsoft.ServiceBus.Messaging)](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.queueclient.aspx)。
 
 若要提高 Azure 消息传送基础结构的性能，请参阅设计模式 [Asynchronous Messaging Primer](https://msdn.microsoft.com/library/dn589781.aspx)（异步消息传送入门）。
 
-## <a name="consider-partitioning-service-bus-queues-and-topics"></a>考虑将对服务总线队列和主题进行分区
+## <a name="consider-partitioning-service-bus-queues-and-topics"></a>考虑将服务总线队列和主题进行分区
 ### <a name="id"></a>ID
 AP2004
 
@@ -249,7 +247,7 @@ AP2004
 请通过 [Azure 代码分析反馈](http://go.microsoft.com/fwlink/?LinkId=403771)来分享看法和意见。
 
 ### <a name="reason"></a>原因
-对服务总线队列和主题进行分区可以提高性能吞吐量和服务可用性，因为分区后的队列或主题的总体吞吐量不再受限于单个消息代理或消息存储的性能。 此外，消息存储的临时中断不会导致分区的队列或主题不可用。 有关详细信息，请参阅[对消息实体进行分区](/service-bus-messaging/service-bus-partitioning)。
+对服务总线队列和主题进行分区可以提高性能吞吐量和服务可用性，因为分区后的队列或主题的总体吞吐量不再受限于单个消息代理或消息存储的性能。 此外，消息传送存储的临时中断不会导致分区的队列或主题不可用。 有关详细信息，请参阅 [分区消息实体](/service-bus-messaging/service-bus-partitioning)。
 
 ### <a name="solution"></a>解决方案
 以下代码段演示了如何将消息实体分区。
@@ -361,9 +359,9 @@ CloudConfigurationManager 读取适合应用程序环境使用的配置文件。
 [CloudConfigurationManager](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.cloudconfigurationmanager.aspx)
 
 ### <a name="solution"></a>解决方案
-重构代码以使用 [CloudConfigurationManager Class](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.cloudconfigurationmanager.aspx)。 Azure 代码分析工具针对此问题提供了代码修复。
+重构代码以使用 [CloudConfigurationManager 类](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.cloudconfigurationmanager.aspx)。 Azure 代码分析工具针对此问题提供了代码修复。
 
-以下代码段演示了此问题的代码修复过程。 将
+以下代码段演示了此问题的代码修复过程。 Replace
 
 `var settings = ConfigurationManager.AppSettings["mySettings"];`
 
@@ -402,19 +400,19 @@ AP4001
 - 对于 IIS 托管的 Web 应用程序，请使用 web.config 来存储连接字符串。
 - 对于 ASP.NET vNext 应用程序，请使用 configuration.json 来存储连接字符串。
 
-有关使用 web.config 或 app.config 等配置文件的相关信息，请参阅[ASP.NET Web 配置指南](https://msdn.microsoft.com/library/vstudio/ff400235\(v=vs.100\).aspx)。 有关 Azure 环境变量工作原理的信息，请参阅 [Azure Web Sites: How Application Strings and Connection Strings Work](https://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/)（Azure 网站：应用程序字符串和连接字符串的工作原理）。 有关在源代码管理中存储连接字符串的信息，请参阅[避免将敏感信息（如连接字符串）放置在源代码存储库中存储的文件内](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control)。
+有关使用 web.config 或 app.config 等配置文件的相关信息，请参阅 [ASP.NET Web 配置指南](https://msdn.microsoft.com/library/vstudio/ff400235\(v=vs.100\).aspx)。 有关 Azure 环境变量工作原理的信息，请参阅 [Azure Web Sites: How Application Strings and Connection Strings Work](https://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/)（Azure 网站：应用程序字符串和连接字符串的工作原理）。 有关在源代码管理中存储连接字符串的信息，请参阅[避免将敏感信息（如连接字符串）放置在源代码存储库中存储的文件内](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control)。
 
 ## <a name="use-diagnostics-configuration-file"></a>使用诊断配置文件
 ### <a name="id"></a>ID
 AP5000
 
 ### <a name="description"></a>说明
-不要在代码中配置诊断设置（例如使用 Microsoft.WindowsAzure.Diagnostics 编程 API），而应该在 diagnostics.wadcfg 文件中配置诊断设置。 （或者，如果使用 Azure SDK 2.5，请使用 diagnostics.wadcfgx）。 这样，就可以更改诊断设置而无需重新编译代码。
+不要在代码中配置诊断设置（例如使用 Microsoft.WindowsAzure.Diagnostics 编程 API），而应该在 diagnostics.wadcfg 文件中配置诊断设置。 （或者，如果你使用 Azure SDK 2.5，请使用 diagnostics.wadcfgx）。 这样，就可以更改诊断设置而无需重新编译代码。
 
 请通过 [Azure 代码分析反馈](http://go.microsoft.com/fwlink/?LinkId=403771)来分享看法和意见。
 
 ### <a name="reason"></a>原因
-在 Azure SDK 2.5（使用 Azure 诊断 1.3）之前，可使用几种不同的方法来配置 Azure 诊断 (WAD)：将它添加到存储中的配置 Blob，或者使用命令性代码、声明性配置或默认配置。 但是，配置诊断的首选方法是在应用程序项目中使用 XML 配置文件（SDK 2.5 和更高版本的 diagnostics.wadcfg 或 diagnositcs.wadcfgx）。 在此方法中，diagnostics.wadcfg 文件完整地定义配置并可随意进行更新和重新部署。 通过 [DiagnosticMonitor](https://msdn.microsoft.com/library/microsoft.windowsazure.diagnostics.diagnosticmonitor.aspx) 或 [RoleInstanceDiagnosticManager](https://msdn.microsoft.com/library/microsoft.windowsazure.diagnostics.management.roleinstancediagnosticmanager.aspx) 类混合使用 diagnostics.wadcfg 配置文件与设置配置所需的编程方法可能会让你感到混乱。 有关详细信息，请参阅[初始化或更改 Azure 诊断配置](https://msdn.microsoft.com/library/azure/hh411537.aspx)。
+在 Azure SDK 2.5（使用 Azure 诊断 1.3）之前，可使用几种不同的方法来配置 Azure 诊断 (WAD)：将它添加到存储中的配置 Blob，或者使用命令性代码、声明性配置或默认配置。 但是，配置诊断的首选方法是在应用程序项目中使用 XML 配置文件（SDK 2.5 和更高版本的 diagnostics.wadcfg 或 diagnositcs.wadcfgx）。 在此方法中，diagnostics.wadcfg 文件完整地定义配置并可随意进行更新和重新部署。 通过 [DiagnosticMonitor](https://msdn.microsoft.com/library/microsoft.windowsazure.diagnostics.diagnosticmonitor.aspx) 或 [RoleInstanceDiagnosticManager](https://msdn.microsoft.com/library/microsoft.windowsazure.diagnostics.management.roleinstancediagnosticmanager.aspx) 类混合使用 diagnostics.wadcfg 配置文件与设置配置所需的编程方法可能会让你感到混乱。 有关详细信息，请参阅 [初始化或更改 Azure 诊断配置](https://msdn.microsoft.com/library/azure/hh411537.aspx) 。
 
 从 WAD 1.3（Azure SDK 2.5 已随附）开始，不再能够使用代码来配置诊断。 因此，只能在应用或更新诊断扩展时提供配置。
 
@@ -442,7 +440,7 @@ AP6000
 DBContext 对象保存每个调用返回的查询结果。 只有在卸载应用程序域之后，才释放静态 DBContext 对象。 因此，静态 DBContext 对象可能会消耗大量的内存。
 
 ### <a name="solution"></a>解决方案
-将 DBContext 声明为局部变量或非静态实例字段，将它用于任务，然后让它在使用后释放。
+将 DBContext 声明为局部变量或非静态实例字段，将它用于任务，并让它在使用后释放。
 
 以下 MVC 控制器类示例演示了如何使用 DBContext 对象。
 
@@ -469,6 +467,6 @@ public class BlogsController : Controller
 ```
 
 ## <a name="next-steps"></a>后续步骤
-若要详细了解如何对 Azure 应用进行优化和故障排除，请参阅 [使用 Visual Studio 对 Azure 应用服务中的 Web 应用进行故障排除](app-service/web-sites-dotnet-troubleshoot-visual-studio.md)。
+若要详细了解如何对 Azure 应用进行优化和故障排除，请参阅[使用 Visual Studio 对 Azure 应用服务中的 Web 应用进行故障排除](app-service/web-sites-dotnet-troubleshoot-visual-studio.md)。
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

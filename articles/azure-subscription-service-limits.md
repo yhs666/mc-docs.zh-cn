@@ -8,36 +8,36 @@ tags: billing
 ms.assetid: 60d848f9-ff26-496e-a5ec-ccf92ad7d125
 ms.service: billing
 ms.topic: article
-origin.date: 08/16/2018
-ms.date: 09/10/2018
+origin.date: 07/13/2018
+ms.date: 08/14/2018
 ms.author: v-junlch
-ms.openlocfilehash: 76cc9c232400450ca028358aeca8c8ae2cb56f8f
-ms.sourcegitcommit: 40456700212200e707d6cb3147cf96ad161d3ff2
+ms.openlocfilehash: fab4ea757c28a937a754b9dac3498e2de093925a
+ms.sourcegitcommit: 5ccfb836b271e60d44ba8a871b8904a695fe8e27
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44269538"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41704018"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 订阅和服务限制、配额和约束
-本文列出了一些最常见的 Azure 限制，有时也称为配额。 本文当前并不涵盖所有 Azure 服务。 随着时间的推移，此列表将得以展开并更新，以便涵盖更多平台。
+本文列出了一些最常见的 Azure 限制，有时也称为配额。 本文当前并不涵盖所有 Azure 服务。 随着时间的推移，此列表将进行扩展和更新，以涵盖更多平台。
 
-若要了解有关 Azure 定价的详细信息，请访问 [Azure 定价概述](https://www.azure.cn/pricing/)。 在那里，可以使用[定价计算器](https://www.azure.cn/pricing/calculator/)或访问某服务（例如，[Windows VM](https://www.azure.cn/pricing/details/virtual-machines/#Windows)）的详情页面预估所需的成本。 有关帮助管理成本的提示，请参阅[通过 Azure 计费和成本管理来防止意外成本](billing/billing-getting-started.md)。
+若要了解有关 Azure 定价的详细信息，请访问 [Azure 定价概述](https://www.azure.cn/pricing/)。 在那里可以使用[定价计算器](https://www.azure.cn/pricing/calculator/)或访问某服务（例如，[Windows VM](https://www.azure.cn/pricing/details/virtual-machines/#Windows)）的定价详细信息页估计成本。 有关帮助管理成本的提示，请参阅[通过 Azure 计费和成本管理来防止意外成本](billing/billing-getting-started.md)。
 
 > [!NOTE]
-> 如果想要提高限制或配额，使其超出**默认限制**，可以[打开免费的联机客户支持请求](azure-resource-manager/resource-manager-quota-errors.md)。 无法将限制提高到超过下表中显示的**最大限制值**。 如果没有**最大限制**列，则资源没有可调整的限制。
+> 如果想要提高限制或配额，使其超出**默认限制**，可以[打开免费的联机客户支持请求](azure-resource-manager/resource-manager-quota-errors.md)。 无法将限制提高到超过下表中显示的**最大限制**值。 如果没有 **最大限制** 列，则资源没有可调整的限制。
 >
 > [1 元试用订阅](https://www.azure.cn/pricing/1rmb-trial)没有资格增大限制或配额。 如果有 [1 元试用订阅](https://www.azure.cn/pricing/1rmb-trial)，可将其升级到 PIA 订阅。 有关详细信息，请参阅 [1 元试用订阅常见问题解答](https://www.azure.cn/pricing/1rmb-trial/)。
 >
 
-## <a name="limits-and-the-azure-resource-manager"></a>限制和 Azure 资源管理器
-现在可以将多个 Azure 资源合并到单个 Azure 资源组中。 在使用资源组时，以前针对全局的限制会通过 Azure 资源管理器在区域级别进行管理。 有关 Azure 资源组的详细信息，请参阅 [Azure 资源管理器概述](azure-resource-manager/resource-group-overview.md)。
+## <a name="limits-and-the-azure-resource-manager"></a>限制和 Azure Resource Manager
+现在可以将多个 Azure 资源合并到单个 Azure 资源组中。 在使用资源组时，以前针对全局的限制会通过 Azure Resource Manager 在区域级别进行管理。 有关 Azure 资源组的详细信息，请参阅 [Azure Resource Manager 概述](azure-resource-manager/resource-group-overview.md)。
 
-在下面的限制中，添加了一个新表以反映在使用 Azure 资源管理器时限制中的任何差异。 例如，会存在一个**订阅限制**表和一个**订阅数限制 - Azure 资源管理器**表。 如果某个限制同时适用于这两种方案，它将仅显示在第一个表中。 除非另有说明，否则限制是跨所有区域的全局限制。
+在下面的限制中，添加了一个新表以反映在使用 Azure Resource Manager 时限制中的任何差异。 例如，会存在一个**订阅限制**表和一个**订阅数限制 - Azure Resource Manager** 表。 如果某个限制同时适用于这两种方案，它会仅显示在第一个表中。 除非另有说明，否则限制是跨所有区域的全局限制。
 
 > [!NOTE]
 > 请务必强调 Azure 资源组中的资源配额是用户的订阅可以访问的每个区域，而不像服务管理配额那样是可以访问的每个订阅。 让我们以 vCPU 配额为例。 如果要根据对 vCPU 的支持请求增加配额，则需要决定要在哪些区域中使用多少 vCPU，然后针对所需的 Azure 资源组 vCPU 配额的数量和区域发出特定请求。 因此，如果需要在中国北部使用 20 个 vCPU 以在那里运行应用程序，则应专门在中国北部请求 20 个 vCPU。 但这不会增加任何其他区域的 vCPU 配额。
 > <!-- -->
-> 因此，你可能会发现考虑决定你在任何一个区域中的工作负荷所需的 Azure 资源组配额数量，以及请求你考虑在其中进行部署的每个区域的数量很有用。 有关发现特定区域的当前配额的更多帮助，请参阅[排查部署问题](resource-manager-common-deployment-errors.md)。
+> 因此，可能会发现考虑决定你在任何一个区域中的工作负荷所需的 Azure 资源组配额数量，以及请求你考虑在其中进行部署的每个区域的数量很有用。 有关发现特定区域的当前配额的更多帮助，请参阅[排查部署问题](resource-manager-common-deployment-errors.md)。
 >
 >
 
@@ -48,7 +48,6 @@ ms.locfileid: "44269538"
 - [应用程序网关](#application-gateway-limits)
 - [自动化](#automation-limits)
 - [Azure Cosmos DB](#azure-cosmos-db-limits)
-* [Azure Policy](#azure-policy-limits)
 - [Azure Redis 缓存](#azure-redis-cache-limits)
 - [备份](#backup-limits)
 - [批处理](#batch-limits)
@@ -57,19 +56,19 @@ ms.locfileid: "44269538"
 - [事件中心](#event-hubs-limits)
 - [IoT 中心](#iot-hub-limits)
 - [IoT 中心设备预配服务](#iot-hub-device-provisioning-service-limits)
-- [Key Vault](#key-vault-limits)
+- [密钥保管库](#key-vault-limits)
 - [媒体服务](#media-services-limits)
 - [移动服务](#mobile-services-limits)
 - [监视](#monitor-limits)
 - [多重身份验证](#multi-factor-authentication)
-- [网络](#networking-limits)
+- [联网](#networking-limits)
 - [网络观察程序](#network-watcher-limits)
 - [通知中心服务](#notification-hub-service-limits)
 - [资源组](#resource-group-limits)
 - [基于角色的访问控制](#role-based-access-control-limits)
 - [计划程序](#scheduler-limits)
 - [服务总线](#service-bus-limits)
-- [Site Recovery](#site-recovery-limits)
+- [站点恢复](#site-recovery-limits)
 - [SQL 数据库](#sql-database-limits)
 - [SQL 数据仓库](#sql-data-warehouse-limits)
 - [存储](#storage-limits)
@@ -83,8 +82,8 @@ ms.locfileid: "44269538"
 #### <a name="subscription-limits"></a>订阅限制
 [!INCLUDE [azure-subscription-limits](../includes/azure-subscription-limits.md)]
 
-#### <a name="subscription-limits---azure-resource-manager"></a>订阅限制 - Azure 资源管理器
-使用 Azure 资源管理器和 Azure 资源组时，以下限制适用。 未使用 Azure 资源管理器更改的限制不会在下面列出。 请参阅上表了解这些限制。
+#### <a name="subscription-limits---azure-resource-manager"></a>订阅数限制 - Azure Resource Manager
+使用 Azure Resource Manager 和 Azure 资源组时，以下限制适用。 未使用 Azure Resource Manager 更改的限制不会在下面列出。 请参阅上表了解这些限制。
 
 有关处理资源管理器请求限制的信息，请参阅[限制资源管理器请求](resource-manager-request-limits.md)。
 
@@ -97,8 +96,8 @@ ms.locfileid: "44269538"
 #### <a name="virtual-machine-limits"></a>虚拟机限制
 [!INCLUDE [azure-virtual-machines-limits](../includes/azure-virtual-machines-limits.md)]
 
-#### <a name="virtual-machines-limits---azure-resource-manager"></a>虚拟机限制 - Azure 资源管理器
-使用 Azure 资源管理器和 Azure 资源组时，以下限制适用。 未使用 Azure 资源管理器更改的限制不会在下面列出。 请参阅上表了解这些限制。
+#### <a name="virtual-machines-limits---azure-resource-manager"></a>虚拟机限制 - Azure Resource Manager
+使用 Azure Resource Manager 和 Azure 资源组时，以下限制适用。 未使用 Azure Resource Manager 更改的限制不会在下面列出。 请参阅上表了解这些限制。
 
 [!INCLUDE [azure-virtual-machines-limits-azure-resource-manager](../includes/azure-virtual-machines-limits-azure-resource-manager.md)]
 
@@ -169,7 +168,7 @@ ms.locfileid: "44269538"
 ### <a name="scheduler-limits"></a>计划程序限制
 [!INCLUDE [scheduler-limits-table](../includes/scheduler-limits-table.md)]
 
-### <a name="batch-limits"></a>Batch 限制
+### <a name="batch-limits"></a>批处理限制
 [!INCLUDE [azure-batch-limits](../includes/azure-batch-limits.md)]
 
 ### <a name="azure-cosmos-db-limits"></a>Azure Cosmos DB 限制
@@ -206,9 +205,6 @@ Azure Cosmos DB 是全局缩放数据库，可对吞吐量和存储进行缩放�
 ### <a name="active-directory-limits"></a>Active Directory 限制
 [!INCLUDE [AAD-service-limits](../includes/active-directory-service-limits-include.md)]
 
-### <a name="azure-policy-limits"></a>Azure Policy 限制
-[!INCLUDE [policy-limits](../includes/azure-policy-limits.md)]
-
 ### <a name="backup-limits"></a>备份限制
 [!INCLUDE [azure-backup-limits](../includes/azure-backup-limits.md)]
 
@@ -240,10 +236,10 @@ Azure Cosmos DB 是全局缩放数据库，可对吞吐量和存储进行缩放�
 有关 SQL 数据仓库限制，请参阅 [SQL 数据仓库资源限制](sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md)。
 
 ## <a name="see-also"></a>另请参阅
-[Understanding Azure Limits and Increases](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)（了解 Azure 的限制和增加）
+[了解 Azure 限制和增加](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 
 [Azure 的虚拟机和云服务大小](virtual-machines/linux/sizes.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
 [云服务的大小](cloud-services/cloud-services-sizes-specs.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

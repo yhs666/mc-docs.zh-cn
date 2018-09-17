@@ -1,19 +1,26 @@
 ---
-title: Azure Monitor 中的指标概述
+title: Microsoft Azure 中的指标概述 | Azure
 description: 了解如何在 Azure 中自定义监视图表。
 author: rboucher
-services: azure-monitor
-ms.service: azure-monitor
-ms.topic: conceptual
+manager: carolz
+editor: ''
+services: monitoring-and-diagnostics
+documentationcenter: monitoring-and-diagnostics
+ms.assetid: c36031eb-4df5-4cd5-9479-311d493a40d2
+ms.service: monitoring-and-diagnostics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
 origin.date: 06/06/2017
 ms.author: v-yiso
-ms.date: 09/17/2018
-ms.openlocfilehash: 30445593e1cf65d0312d8193a4453082bbddfb2c
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.date: ''
+ms.openlocfilehash: aa12c54dc126ba23f93abb18507c443661cedd64
+ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068125"
+ms.lasthandoff: 08/25/2017
+ms.locfileid: "21134753"
 ---
 # <a name="overview-of-metrics-in-azure"></a>Azure 中的指标概述
 
@@ -27,13 +34,10 @@ ms.locfileid: "44068125"
 
 1. 在 [Azure 门户](https://portal.azure.cn/)中，单击“浏览”，然后单击要监视的资源。
 
-2. “监视”部分包含每个 Azure 资源的最重要指标。 例如，Web 应用具有“请求和错误”，而虚拟机具有“CPU 百分比”和“磁盘读写”：
-
-    ![监视可重用功能区](./media/insights-how-to-customize-monitoring/Insights_MonitoringChart.png)
+2. “监视”部分包含每个 Azure 资源的最重要指标。 例如，Web 应用具有“请求和错误”，而虚拟机具有“CPU 百分比”和“磁盘读写”：![监视可重用功能区](./media/insights-how-to-customize-monitoring/Insights_MonitoringChart.png)
 
 3. 单击任何图表都会显示“指标”边栏选项卡。 在该边栏选项卡中，除了该图之外还有一个表，其中显示指标（例如在所选时间范围内的平均值、最小值和最大值）的聚合。 下面是资源的警报规则。
-
-    ![“度量值”分页](./media/insights-how-to-customize-monitoring/Insights_MetricBlade.png)
+    ![“指标”边栏选项卡](./media/insights-how-to-customize-monitoring/Insights_MetricBlade.png)
 
 4. 若要自定义显示的折线图，请单击图表上的“编辑”按钮，或单击“指标”边栏选项卡上的“编辑图表”命令。
 
@@ -41,12 +45,8 @@ ms.locfileid: "44068125"
    
    * 更改时间范围
    * 在条形图与折线图之间切换外观
-   * 选择不同的指标
-   
-     ![编辑查询](./media/insights-how-to-customize-monitoring/Insights_EditQuery.png)
-     
+   * 选择不同的指标![编辑查询](./media/insights-how-to-customize-monitoring/Insights_EditQuery.png)
 6. 更改时间范围十分轻松，只需选择不同的范围（例如“前一个小时”），然后单击边栏选项卡底部的“保存”即可。 还可选择“自定义”，由此选择过去两周内的任何时间段。 例如，可查看整个两周，或仅查看昨天的 1 小时。 在文本框中键入一个不同的小时即可。
-
     ![自定义时间范围](./media/insights-how-to-customize-monitoring/Insights_CustomTime.png)
 
 7. 在时间范围下面，可选择要在图表上显示的任意数目的指标。
@@ -58,13 +58,8 @@ ms.locfileid: "44068125"
 借助门户中功能强大的自定义，可随意添加所需数量的图表。
 
 1. 在边栏选项卡顶部的“...”菜单中，单击“添加磁贴”：  
-
     ![添加菜单](./media/insights-how-to-customize-monitoring/Insights_AddMenu.png)
-    
-2. 然后，可从屏幕右侧的“库”中选择一个图表：
-
-    ![库](./media/insights-how-to-customize-monitoring/Insights_Gallery.png)
-    
+2. 然后可从屏幕右侧的“库”中选择图表：![库](./media/insights-how-to-customize-monitoring/Insights_Gallery.png)
 3. 如果看不到所需指标，则始终可以添加一个预设指标，然后“编辑”图表以显示所需指标。 
 
 ## <a name="monitoring-usage-quotas"></a>监视使用配额

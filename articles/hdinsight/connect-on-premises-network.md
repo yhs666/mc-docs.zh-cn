@@ -1,6 +1,6 @@
 ---
 title: 将 HDInsight 连接到本地网络 - Azure HDInsight | Azure
-description: 了解如何在 Azure 虚拟网络中创建 HDInsight 群集，然后将其连接到本地网络。 了解如何使用自定义 DNS 服务器配置 HDInsight 与本地网络之间的名称解析。
+description: 了解如何在 Azure 虚拟网络中创建 HDInsight 群集，然后将其连接到本地网络。 了解如何使用自定义 DNS 服务器在 HDInsight 和本地网络之间配置名称解析。
 documentationcenter: ''
 author: Blackmist
 manager: jhubbard
@@ -14,14 +14,14 @@ ms.workload: big-data
 origin.date: 02/23/2018
 ms.date: 06/25/2018
 ms.author: v-yiso
-ms.openlocfilehash: 4151c8439557fe227f0bcf79da59f4fb34562413
-ms.sourcegitcommit: bae4e9e500e3e988ef8fa0371777ca9cc49b4e94
+ms.openlocfilehash: faa2c98563d392190b3496d1b2d52d53a59034e7
+ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45584860"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36747485"
 ---
-# <a name="connect-hdinsight-to-your-on-premises-network"></a>将 HDInsight 连接到本地网络
+# <a name="connect-hdinsight-to-your-on-premise-network"></a>将 HDInsight 连接到本地网络
 
 了解如何使用 Azure 虚拟网络和 VPN 网关将 HDInsight 连接到本地网络。 本文档提供以下相关规划信息：
 
@@ -35,7 +35,7 @@ ms.locfileid: "45584860"
 
 ## <a name="create-the-virtual-network-configuration"></a>创建虚拟网络配置
 
-使用以下文档来了解如何创建连接到本地网络的 Azure 虚拟网络：
+请参阅以下文档，了解如何创建连接到本地网络的 Azure 虚拟网络：
 
 * [使用 Azure 门户](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 
@@ -45,19 +45,19 @@ ms.locfileid: "45584860"
 
 ## <a name="configure-name-resolution"></a>配置名称解析
 
-若要允许联接网络中的 HDInsight 和资源通过名称进行通信，必须执行以下操作：
+若要让 HDInsight 和已连接网络中的资源通过名称通信，必须执行以下操作：
 
 * 在 Azure 虚拟网络中创建自定义 DNS 服务器。
 
-* 配置虚拟网络以使用自定义 DNS 服务器，而不是默认 Azure 递归解析程序。
+* 将虚拟网络配置为使用自定义 DNS 服务器而非默认的 Azure 递归解析程序。
 
 * 配置自定义 DNS 服务器和本地 DNS 服务器之间的转发。
 
-此配置可实现以下行为：
+该配置启用以下行为：
 
-* 对虚拟网络具有 DNS 后缀的完全限定域名的请求已转发至自定义 DNS 服务器。 然后，自定义 DNS 服务器将这些请求转发至 Azure 递归解析程序，Azure 递归解析程序将返回 IP 地址。
+* 将完全限定的域名（其中包含虚拟网络的 DNS 后缀）的请求转发到自定义 DNS 服务器。 自定义 DNS 服务器然后会将这些请求转发到 Azure 递归解析程序，由后者返回 IP 地址。
 
-* 其他所有请求将转发至本地 DNS 服务器。 甚至对公共 Internet 资源（如 microsoft.com）的请求也将因名称解析转发至本地 DNS 服务器。
+* 将所有其他请求转发到本地 DNS 服务器。 甚至对公共 Internet 资源（如 microsoft.com）的请求也将因名称解析转发至本地 DNS 服务器。
 
 在下面的关系图中，绿线表示以虚拟网络的 DNS 后缀结尾的资源请求。 蓝线表示本地网络或公共 Internet 上的资源请求。
 
@@ -66,12 +66,12 @@ ms.locfileid: "45584860"
 ### <a name="create-a-custom-dns-server"></a>创建自定义 DNS 服务器
 
 > [!IMPORTANT]
-> 在将 HDInsight 安装到虚拟网络之前，必须先创建和配置 DNS 服务器。
+> 必须先创建并配置 DNS 服务器，此后再将 HDInsight 安装到虚拟网络中。
 
-若要创建使用 [Bind](https://www.isc.org/downloads/bind/) DNS 软件的 Linux VM，请使用以下步骤：
+若要创建使用 [Bind](https://www.isc.org/downloads/bind/) DNS 软件的 Linux VM，请执行以下步骤：
 
 > [!NOTE]
-> 以下步骤将通过 [Azure 门户](https://portal.azure.cn)创建 Azure 虚拟机。 有关创建虚拟机的其他方法，请参阅以下文档：
+> 以下步骤使用 [Azure 门户](https://portal.azure.cn)来创建 Azure 虚拟机。 有关创建虚拟机的其他方法，请参阅以下文档：
 >
 > * [创建 VM - Azure CLI](../virtual-machines/linux/quick-create-cli.md)
 > * [创建 VM - Azure PowerShell](../virtual-machines/linux/quick-create-portal.md)
@@ -82,33 +82,33 @@ ms.locfileid: "45584860"
 
 2. 在“基本信息”部分输入以下信息：
 
-    * 名称：用于标识该虚拟机的友好名称。 例如，DNSProxy。
+    * 名称：用于标识此虚拟机的友好名称。 例如，DNSProxy。
     * 用户名：SSH 帐户的名称。
-    * SSH 公钥或密码：SSH 帐户的身份验证方法。 建议使用公钥，因为公钥更安全。 有关详细信息，请参阅[创建并使用用于 Linux VM 的 SSH 密钥](../virtual-machines/linux/mac-create-ssh-keys.md)文档。
-    * 资源组：选择“使用现有”，然后选择包含前面所建虚拟网络的资源组。
-    * 位置：选择与虚拟网络相同的位置。
+    * SSH 公钥或密码：SSH 帐户的身份验证方法。 建议使用公钥，因为更安全。 有关详细信息，请参阅[为 Linux VM 创建和使用 SSH 密钥](../virtual-machines/linux/mac-create-ssh-keys.md)文档。
+    * 资源组：选择“使用现有资源组”，然后选择包含此前创建的虚拟网络的资源组。
+    * 位置：选择虚拟网络所在的位置。
 
-    ![虚拟机基础配置](./media/connect-on-premises-network/vm-basics.png)
+    ![虚拟机基本配置](./media/connect-on-premises-network/vm-basics.png)
 
-    将其他项保留为默认值，然后选择“确定”。
+    将其他项保留默认值，然后选择“确定”。
 
-3. 在“选择大小”部分，选择 VM 大小。 对于本教程，请选择最小和最低成本选项。 若要继续，请使用“选择”按钮。
+3. 在“选择大小”部分，选择 VM 大小。 就本教程来说，请选择规模最小且成本最低的选项。 若要继续，请使用“选择”按钮。
 
 4. 在“设置”部分输入以下信息：
 
-    * 虚拟网络：选择前面创建的虚拟网络。
+    * 虚拟网络：选择此前创建的虚拟网络。
 
-    * 子网：选择虚拟网络的默认子网。 请勿选择 VPN 网关所用的子网。
+    * 子网：选择虚拟网络的默认子网。 请勿选择 VPN 网关使用的子网。
 
-    * 诊断存储帐户：选择一个现有存储帐户，或创建一个新的存储帐户。
+    * 诊断存储帐户：选择现有的存储帐户，或新建一个。
 
     ![虚拟网络设置](./media/connect-on-premises-network/virtual-network-settings.png)
 
-    将其他项保留为默认值，然后选择“确定”以继续。
+    将其他项保留默认值，然后选择“确定”继续。
 
 5. 在“购买”部分，选择“购买”按钮可创建虚拟机。
 
-6. 创建虚拟机后，即会显示其“概述”部分。 在左侧的列表中，选择“属性”。 保存公共 IP 地址和专用 IP 地址值。 该值将在下节中使用。
+6. 创建虚拟机后，即会显示其“概述”部分。 从左侧列表中选择“属性”。 保存“公共 IP 地址”和“专用 IP 地址”值。 下一部分会用到它。
 
     ![公共和专用 IP 地址](./media/connect-on-premises-network/vm-ip-addresses.png)
 
@@ -129,14 +129,14 @@ ms.locfileid: "45584860"
     > * [Git (https://git-scm.com/)](https://git-scm.com/)
     > * [OpenSSH (https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)](https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)
 
-2. 若要安装 Bind，请从 SSH 会话中使用以下命令：
+2. 若要安装 Bind，请通过 SSH 会话使用以下命令：
 
     ```bash
     sudo apt-get update -y
     sudo apt-get install bind9 -y
     ```
 
-3. 若要配置 Bind 将名称解析请求转发至本地 DNS 服务器，请使用以下文本作为 `/etc/bind/named.conf.options` 文件的内容：
+3. 若要配置 Bind，以便将名称解析请求转发到本地 DNS 服务器，请使用以下文本作为 `/etc/bind/named.conf.options` 文件的内容：
 
         acl goodclients {
             10.0.0.0/16; # Replace with the IP address range of the virtual network
@@ -163,31 +163,31 @@ ms.locfileid: "45584860"
         };
 
     > [!IMPORTANT]
-    > 将 `goodclients` 部分中的值替换为虚拟网络和本地网络的 IP 地址范围。 本部分定义此 DNS 服务器从其中接受请求的地址。
+    > 将 `goodclients` 节中的值替换为虚拟网络和本地网络的 IP 地址范围。 此节定义此 DNS 服务器从其接受请求的地址。
     >
-    > 将 `forwarders` 部分中的 `192.168.0.1` 条目替换为本地 DNS 服务器的 IP 地址。 此项可将 DNS 请求路由到本地 DNS 服务器进行解析。
+    > 将 `forwarders` 节中的 `192.168.0.1` 项替换为本地 DNS 服务器的 IP 地址。 此项将 DNS 请求路由到本地 DNS 服务器进行解析。
 
-    若要编辑此文件，请使用以下命令：
+    若要编辑该文件，请使用以下命令：
 
     ```bash
     sudo nano /etc/bind/named.conf.options
     ```
 
-    若要保存文件，请使用 Ctrl+X、Ctrl+Y，然后按 Enter。
+    若要保存文件，请使用 Ctrl+X、Y，然后按 Enter。
 
-4. 在 SSH 会话中，请使用以下命令：
+4. 在 SSH 会话中使用以下命令：
 
     ```bash
     hostname -f
     ```
 
-    此命令会返回类似于以下文本的值：
+    此命令返回类似于以下文本的值：
 
         dnsproxy.icb0d0thtw0ebifqt0g1jycdxd.ex.internal.chinacloudapp.cn
 
-    `icb0d0thtw0ebifqt0g1jycdxd.ex.internal.chinacloudapp.cn` 文本是该虚拟网络的 DNS 后缀。 请保存该值，因为稍后将使用它。
+    `icb0d0thtw0ebifqt0g1jycdxd.ex.internal.chinacloudapp.cn` 文本是此虚拟网络的 DNS 后缀。 保存该值，因为以后会用到。
 
-5. 若要配置 Bind 以在虚拟网络中解析资源的 DNS 名称，请使用以下文本作为 `/etc/bind/named.conf.local` 文件的内容：
+5. 若要配置 Bind，以便为虚拟网络中的资源解析 DNS 名称，请使用以下文本作为 `/etc/bind/named.conf.local` 文件的内容：
 
         // Replace the following with the DNS suffix for your virtual network
         zone "icb0d0thtw0ebifqt0g1jycdxd.ex.internal.chinacloudapp.cn" {
@@ -196,15 +196,15 @@ ms.locfileid: "45584860"
         };
 
     > [!IMPORTANT]
-    > 必须将 `icb0d0thtw0ebifqt0g1jycdxd.ex.internal.chinacloudapp.cn` 替换为之前检索到的 DNS 后缀。
+    > 必须将 `icb0d0thtw0ebifqt0g1jycdxd.ex.internal.chinacloudapp.cn` 替换为此前检索的 DNS 后缀。
 
-    若要编辑此文件，请使用以下命令：
+    若要编辑该文件，请使用以下命令：
 
     ```bash
     sudo nano /etc/bind/named.conf.local
     ```
 
-    若要保存文件，请使用 Ctrl+X、Ctrl+Y，然后按 Enter。
+    若要保存文件，请使用 Ctrl+X、Y，然后按 Enter。
 
 6. 若要启动 Bind，请使用以下命令：
 
@@ -212,7 +212,7 @@ ms.locfileid: "45584860"
     sudo service bind9 restart
     ```
 
-7. 若要验证该绑定是否可以解析本地网络中的资源名称，请使用以下命令：
+7. 若要验证 Bind 能否解析本地网络中资源的名称，请使用以下命令：
 
     ```bash
     sudo apt install dnsutils
@@ -220,11 +220,11 @@ ms.locfileid: "45584860"
     ```
 
     > [!IMPORTANT]
-    > 将 `dns.mynetwork.net` 替换为本地网络中的资源的完全限定的域名 (FQDN)。
+    > 将 `dns.mynetwork.net` 替换为本地网络中资源的完全限定的域名 (FQDN)。
     >
     > 将 `10.0.0.4` 替换为虚拟网络中自定义 DNS 服务器的内部 IP 地址。
 
-    显示的响应如下文所示：
+    显示的响应类似于以下文本：
 
         Server:         10.0.0.4
         Address:        10.0.0.4#53
@@ -233,77 +233,77 @@ ms.locfileid: "45584860"
         Name:   dns.mynetwork.net
         Address: 192.168.0.4
 
-### <a name="configure-the-virtual-network-to-use-the-custom-dns-server"></a>配置虚拟网络以使用自定义 DNS 服务器
+### <a name="configure-the-virtual-network-to-use-the-custom-dns-server"></a>将虚拟网络配置为使用自定义 DNS 服务器
 
-若要配置虚拟网络以使用自定义 DNS 服务器，而不是 Azure 递归解析程序，请使用以下步骤：
+若要将虚拟网络配置为使用自定义 DNS 服务器而非 Azure 递归解析程序，请执行以下步骤：
 
-1. 在 [Azure 门户](https://portal.azure.cn)中，选择“虚拟网络”，然后选择“DNS 服务器”。
+1. 在 [Azure 门户](https://portal.azure.cn)中选择虚拟网络，然后选择“DNS 服务器”。
 
-2. 选择“自定义”，然后输入自定义 DNS 服务器的内部 IP 地址。 最后，选择“保存”。
+2. 选择“自定义”，并输入自定义 DNS 服务器的内部 IP 地址。 最后，选择“保存”。
 
-    ![为网络设置自定义 DNS 服务器](./media/connect-on-premises-network/configure-custom-dns.png)
+    ![设置网络的自定义 DNS 服务器](./media/connect-on-premises-network/configure-custom-dns.png)
 
 ### <a name="configure-the-on-premises-dns-server"></a>配置本地 DNS 服务器
 
-在上一节中，已配置自定义 DNS 服务器，以将请求转发到本地 DNS 服务器。 下一步，必须配置本地 DNS 服务器，以将请求转发到自定义 DNS 服务器。
+前一部分已将自定义 DNS 服务器配置为将请求转发到本地 DNS 服务器。 接下来，必须将本地 DNS 服务器配置为将请求转发到自定义 DNS 服务器。
 
-有关如何配置 DNS 服务器的具体步骤，请参考 DNS 服务器软件文档。 查找如何配置条件转发器的步骤。
+有关 DNS 服务器配置的具体步骤，请参阅 DNS 服务器软件的文档。 请查找配置条件转发器的步骤。
 
-条件转发仅转发针对特定 DNS 后缀的请求。 在这种情况下，必须针对虚拟网络的 DNS 后缀配置转发器。 此后缀的请求应该转发到自定义 DNS 服务器的 IP 地址。 
+条件转发仅转发对特定 DNS 后缀的请求。 在此示例中，必须为虚拟网络的 DNS 后缀配置转发器。 对此后缀的请求应转发到自定义 DNS 服务器的 IP 地址。 
 
-下面的文本是关于 Bind DNS 软件的条件转发器配置的示例：
+以下文本是 Bind DNS 软件的条件转发器配置的示例：
 
     zone "icb0d0thtw0ebifqt0g1jycdxd.ex.internal.chinacloudapp.cn" {
         type forward;
         forwarders {10.0.0.4;}; # The custom DNS server's internal IP address
     };
 
-有关对 Windows Server 2016 使用 DNS 的信息，请参阅 [Add-DnsServerConditionalForwarderZone](https://technet.microsoft.com/itpro/powershell/windows/dnsserver/add-dnsserverconditionalforwarderzone) 文档...
+若要了解如何在 Windows Server 2016 上使用 DNS，请参阅 [Add-DnsServerConditionalForwarderZone](https://technet.microsoft.com/itpro/powershell/windows/dnsserver/add-dnsserverconditionalforwarderzone) 文档。
 
-配置本地 DNS 服务器后，可以从本地网络使用 `nslookup` 来验证是否可以解析虚拟网络中的名称。 以下示例 
+配置本地 DNS 服务器以后，即可在本地网络中使用 `nslookup` 来验证能否解析虚拟网络中的名称。 下面为示例 
 
 ```bash
 nslookup dnsproxy.icb0d0thtw0ebifqt0g1jycdxd.ex.internal.chinacloudapp.cn 196.168.0.4
 ```
 
-此示例在 196.168.0.4 使用本地 DNS 服务器来解析自定义 DNS 服务器的名称。 将 IP 地址替换为本地 DNS 服务器的 IP 地址。 将 `dnsproxy` 地址替换为自定义 DNS 服务器完全限定的域名。
+该示例使用位于 196.168.0.4 的本地 DNS 服务器来解析自定义 DNS 服务器的名称。 将该 IP 地址替换为本地 DNS 服务器的 IP 地址。 将 `dnsproxy` 地址替换为自定义 DNS 服务器的完全限定的域名。
 
 ## <a name="optional-control-network-traffic"></a>可选：控制网络流量
 
-可以使用网络安全组 (NSG) 或用户定义路由 (UDR) 控制网络流量。 NSG 允许筛选入站和出站流量以及允许或拒绝流量。 通过 UDR 可控制流量在虚拟网络、Internet 和本地网络中的资源间的流动方式。
+可以使用网络安全组 (NSG) 或用户定义路由 (UDR) 来控制网络通信。 NSG 用于筛选入站和出站流量，以及允许或拒绝流量。 UDR 用于控制虚拟网络、Internet 和本地网络中各资源之间的流量。
 
 > [!WARNING]
-> HDInsight 需要来自 Azure 云中的特定 IP 地址的入站访问权限以及不受限制的出站访问权限。 如果使用 NSG 或 UDR 来控制流量，必须执行以下步骤：
+> HDInsight 要求从 Azure 云中的特定 IP 地址进行入站访问，以及进行不受限制的出站访问。 使用 NSG 或 UDR 控制流量时，必须执行以下步骤：
 
-1. 查找包含虚拟网络的位置的 IP 地址。 若要获取按位置划分的所需 IP 列表，请参阅[所需 IP 地址](./hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip)。
+1. 找到虚拟网络所在位置的 IP 地址。 如需按位置列出的必需 IP，请参阅[必需 IP 地址](./hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip)。
 
 2. 对于步骤 1 中确定的 IP 地址，允许该 IP 地址的入站流量。
 
    * 如果使用 NSG：在端口 443上允许该 IP地址的入站流量。
    * 如果使用 UDR：为该 IP 地址将路由的下一个跃点类型设置为“Internet”。
 
-有关使用 Azure PowerShell 或 Azure CLI 创建 NSG 的示例，请参阅[使用 Azure 虚拟网络扩展 HDInsight](./hdinsight-extend-hadoop-virtual-network.md#hdinsight-nsg) 文档。
+如需使用 Azure PowerShell 或 Azure CLI 来创建 NSG 的示例，请参阅[使用 Azure 虚拟网络扩展 HDInsight](./hdinsight-extend-hadoop-virtual-network.md#hdinsight-nsg) 文档。
 
 ## <a name="create-the-hdinsight-cluster"></a>创建 HDInsight 群集
 
 > [!WARNING]
-> 在将 HDInsight 安装到虚拟网络之前，必须先配置自定义 DNS 服务器。
+> 必须先配置自定义 DNS 服务器，然后才能将 HDInsight 安装到虚拟网络中。
 
-使用[通过 Azure 门户创建 HDInsight 群集](./hdinsight-hadoop-create-linux-clusters-portal.md)文档中的步骤来创建 HDInsight 群集。
+通过[使用 Azure 门户创建 HDInsight 群集](./hdinsight-hadoop-create-linux-clusters-portal.md)文档中的步骤创建 HDInsight 群集。
 
 > [!WARNING]
-> * 在群集创建过程中，必须选择包含虚拟网络的位置。
+> * 在群集创建过程中，必须选择虚拟网络所在的位置。
 >
-> * 在配置的高级设置部分，必须选择前面创建的虚拟网络和子网。
+> * 在配置的“高级设置”部分，必须选择此前创建的虚拟网络和子网。
 
 ## <a name="connecting-to-hdinsight"></a>连接到 HDInsight
 
-关于 HDInsight 的大多数文档都假定能够通过 Internet 访问群集。 例如，可以通过 https://CLUSTERNAME.azurehdinsight.cn 连接到该群集。 此地址使用公共网关，在已使用 NSG 或 UDR 限制从 Internet 访问时不可用。
+HDInsight 上的大多数文档假定你可以通过 Internet 访问群集。 例如，可以通过 https://CLUSTERNAME.azurehdinsight.cn 连接到该群集。 此地址使用公共网关，如果你使用了 NSG 或 UDR 限制来自 Internet 的访问，则该网关不可用。
 一些文档在通过 SSH 会话连接到群集时还引用了 `headnodehost`。 该地址仅可在群集中的节点上使用，在通过虚拟网络连接的客户端上不可用。
 
 若要通过虚拟网络直接连接到 HDInsight，请使用以下步骤：
 
-1. 若要发现 HDInsight 群集节点的内部完全限定域名，请使用以下一种方法：
+1. 若要发现 HDInsight 群集节点的内部完全限定的域名，请使用以下方法之一：
 
     ```powershell
     $resourceGroupName = "The resource group that contains the virtual network used with HDInsight"
@@ -328,17 +328,17 @@ nslookup dnsproxy.icb0d0thtw0ebifqt0g1jycdxd.ex.internal.chinacloudapp.cn 196.16
 2. 若要确定服务的可用端口，请参阅 [HDInsight 的 Hadoop 服务所用的端口](./hdinsight-hadoop-port-settings-for-services.md)文档。
 
     > [!IMPORTANT]
-    > 一些在头节点上托管的服务一次只能在一个节点上处于活动状态。 如果在一个头节点上尝试访问服务并失败，请切换到其他头节点。
+    > 托管在头节点上的某些服务一次只能在一个节点上处于活动状态。 如果在一个头节点上尝试访问服务并失败，请切换到其他头节点。
     >
     > 例如，Ambari 一次仅在一个头节点上处于活动状态。 如果在一个头节点上尝试访问 Ambari 并返回 404 错误，则它正在其他头节点上运行。
 
 ## <a name="next-steps"></a>后续步骤
 
-* 有关在 Azure 虚拟网络中使用 HDInsight 的详细信息，请参阅[使用 Azure 虚拟网络扩展 HDInsight](./hdinsight-extend-hadoop-virtual-network.md)。
+* 若要详细了解如何在虚拟网络中使用 HDInsight，请参阅[使用 Azure 虚拟网络扩展 HDInsight](./hdinsight-extend-hadoop-virtual-network.md)。
 
 * 有关 Azure 虚拟网络的详细信息，请参阅 [Azure 虚拟网络概述](../virtual-network/virtual-networks-overview.md)。
 
 * 有关网络安全组的详细信息，请参阅[网络安全组](../virtual-network/security-overview.md)。
 
-* 有关用户定义的路由的详细信息，请参阅[用户定义第路由和 IP 转发](../virtual-network/virtual-networks-udr-overview.md)。
+* 有关用户定义路由的详细信息，请参阅[用户定义路由和 IP 转发](../virtual-network/virtual-networks-udr-overview.md)。
 <!--Update_Description: wording update-->

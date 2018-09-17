@@ -14,15 +14,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 05/09/2018
-ms.date: 09/24/2018
+ms.date: 06/25/2018
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 6688044fd0893f2461866cf3d9738dbeb265baae
-ms.sourcegitcommit: bae4e9e500e3e988ef8fa0371777ca9cc49b4e94
+ms.openlocfilehash: b985310ef2b15145d4c5d07429c4f27031edc4ab
+ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45584850"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36747493"
 ---
 # <a name="use-azure-powershell-to-run-pig-jobs-with-hdinsight"></a>使用 Azure PowerShell 通过 HDInsight 运行 Pig 作业
 
@@ -44,15 +44,15 @@ ms.locfileid: "45584850"
 
 ## <a id="powershell"></a>运行 Pig 作业
 
-Azure PowerShell 提供 *cmdlet*，可在 HDInsight 上远程运行 Pig 作业。 PowerShell 在内部使用 REST 调用来调用在 HDInsight 上运行的 [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat)。
+Azure PowerShell 提供 *cmdlet*，可让你在 HDInsight 上远程运行 Pig 作业。 PowerShell 在内部使用 REST 调用 HDInsight 群集上运行的 [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) 。
 
-在远程 HDInsight 群集上运行 Pig 作业时，将使用以下 Cmdlet：
+在远程 HDInsight 群集上运行 Pig 作业时，使用以下 Cmdlet：
 
-* **Connect-AzureRmAccount**：在 Azure 订阅中进行 Azure PowerShell 身份验证。
+* **Login-AzureRmAccount**：在 Azure 订阅中进行 Azure PowerShell 身份验证。
 * **New-AzureRmHDInsightPigJobDefinition**：使用指定的 Pig Latin 语句创建“作业定义”。
 * **Start-AzureRmHDInsightJob**：将作业定义发送到 HDInsight 并启动作业。 将返回作业对象。
-* **Wait-AzureRmHDInsightJob**：使用作业对象来检查作业的状态。 它将等到作业完成或超出等待时间。
-* **Get-AzureRmHDInsightJobOutput**：用于检索作业的输出。
+* **Wait-AzureRmHDInsightJob**：使用作业对象来检查作业的状态。 它会等到作业完成或超出等待时间。
+* **Get-AzureRmHDInsightJobOutput**：用于检索作业输出。
 
 以下步骤演示了如何使用这些 Cmdlet 在 HDInsight 群集上运行作业。
 
@@ -127,7 +127,7 @@ Azure PowerShell 提供 *cmdlet*，可在 HDInsight 上远程运行 Pig 作业�
 
 ## <a id="troubleshooting"></a>故障排除
 
-如果作业完成时未返回任何信息，请查看错误日志。 要查看此作业的错误信息，请将以下命令添加到 **pigjob.ps1** 文件的末尾，保存，并重新运行该文件。
+如果作业完成时未返回任何信息，请查看错误日志。 如果要查看此作业的错误信息，请将以下命令添加到 **pigjob.ps1** 文件的末尾，保存后重新运行该文件。
 
     # Print the output of the Pig job.
     Write-Host "Display the standard error output ..." -ForegroundColor Green

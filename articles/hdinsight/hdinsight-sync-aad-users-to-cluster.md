@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/24/2018
+ms.date: 03/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: 9463fb0e85ca066c15cd82a6c63f08e21a3a3251
-ms.sourcegitcommit: bae4e9e500e3e988ef8fa0371777ca9cc49b4e94
+ms.openlocfilehash: 5a2cb8f793c1cd99308228f1830098b36bc705a9
+ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45584847"
+ms.lasthandoff: 03/22/2018
+ms.locfileid: "30077678"
 ---
 # <a name="synchronize-azure-active-directory-users-to-an-hdinsight-cluster"></a>将 Azure Active Directory 用户同步到 HDInsight 群集
 
@@ -45,7 +45,7 @@ ms.locfileid: "45584847"
 
     ![“新建用户”窗格](./media/hdinsight-sync-aad-users-to-cluster/aad-new-user.png)
 
-4. 选择**创建**。
+4. 选择“创建” 。
 
 ## <a name="use-the-ambari-rest-api-to-synchronize-users"></a>使用 Ambari REST API 来同步用户
 
@@ -67,7 +67,7 @@ ms.locfileid: "45584847"
     "https://<YOUR CLUSTER NAME>.azurehdinsight.cn/api/v1/ldap_sync_events"
     ```
     
-    响应应为如下所示：
+    响应应如下所示：
 
     ```json
     {
@@ -82,13 +82,13 @@ ms.locfileid: "45584847"
     }
     ```
 
-4. 若要查看同步状态，执行一个新的 `curl` 命令：
+4. 若要查看同步状态，请使用从前一命令返回的 `href` 值执行新的 `curl` 命令：
 
     ```bash
-    curl -u admin:<YOUR PASSWORD> https://<YOUR CLUSTER NAME>.azurehdinsight.cn/api/v1/ldap_sync_events/1
+    curl -u admin:<YOUR PASSWORD> http://hn0-hadoop.<YOUR DOMAIN>.com:8080/api/v1/ldap_sync_events/1
     ```
     
-    响应应为如下所示：
+    响应应如下所示：
     
     ```json
     {

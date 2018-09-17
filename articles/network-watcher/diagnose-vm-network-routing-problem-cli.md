@@ -15,15 +15,15 @@ ms.topic: article
 ms.tgt_pltfrm: network-watcher
 ms.workload: infrastructure
 origin.date: 04/20/2018
-ms.date: 09/10/2018
+ms.date: 07/02/2018
 ms.author: v-yeche
 ms.custom: ''
-ms.openlocfilehash: 13b24678b993c264d437562860c3e94d29fe662b
-ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
+ms.openlocfilehash: dc5af49114c2040db3d1e83441916973d6321e37
+ms.sourcegitcommit: 039d75a641edc2edd13a9371251051c20fea2bb7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44515645"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37103590"
 ---
 # <a name="diagnose-a-virtual-machine-network-routing-problem---azure-cli"></a>诊断虚拟机网络路由问题 - Azure CLI
 
@@ -166,4 +166,5 @@ az group delete --name myResourceGroup --yes
 
 对于出站 VM 连接，还可以使用网络观察程序的[连接故障排除](network-watcher-connectivity-cli.md)功能来确定延迟、VM 和终结点之间获得允许的和被拒绝的网络流量。 可以使用网络观察程序的连接监视器功能监视 VM 和终结点（例如 IP 地址或 URL）之间在某段时间的通信情况。 如需了解如何操作，请参阅[监视网络连接](connection-monitor.md)。
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: new articles on network watcher diagnose vm network routing problem cli -->
+<!--ms.date: 07/02/2018-->

@@ -13,14 +13,14 @@ ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 01/29/2018
-ms.date: 09/07/2018
+ms.date: 03/05/2018
 ms.author: v-junlch
-ms.openlocfilehash: 8ee667cafe777f392751e2bca483567238aa6459
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.openlocfilehash: c0000d070ca2d6df5374a439b9cc86b1c791e110
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068066"
+ms.lasthandoff: 03/08/2018
+ms.locfileid: "29797730"
 ---
 # <a name="cli-example-create-a-batch-account-in-batch-service-mode"></a>CLI 示例：在 Batch 服务模式下创建 Batch 帐户
 
@@ -86,17 +86,16 @@ az group delete --name myResourceGroup
 
 | 命令 | 注释 |
 |---|---|
-| [az group create](/cli/group#az-group-create) | 创建用于存储所有资源的资源组。 |
-| [az batch account create](/cli/batch/account#az-batch-account-create) | 创建批处理帐户。 |
-| [az storage account create](/cli/storage/account#az-storage-account-create) | 创建存储帐户。 |
-| [az batch account set](/cli/batch/account#az-batch-account-set) | 更新批处理帐户的属性。  |
-| [az batch account show](/cli/batch/account#az-batch-account-show) | 检索指定批处理帐户的详细信息。  |
-| [az batch account keys list](/cli/batch/account/keys#az-batch-account-keys-list) | 检索指定批处理帐户的访问密钥。  |
-| [az batch account login](/cli/batch/account#az-batch-account-login) | 针对指定的批处理帐户进行身份验证，以便进一步进行 CLI 交互。  |
-| [az group delete](/cli/group#az-group-delete) | 删除资源组，包括所有嵌套的资源。 |
+| [az group create](/cli/group#az_group_create) | 创建用于存储所有资源的资源组。 |
+| [az batch account create](/cli/batch/account#az_batch_account_create) | 创建批处理帐户。 |
+| [az storage account create](/cli/storage/account#az_storage_account_create) | 创建存储帐户。 |
+| [az batch account set](/cli/batch/account#az_batch_account_set) | 更新批处理帐户的属性。  |
+| [az batch account show](/cli/batch/account#az_batch_account_show) | 检索指定批处理帐户的详细信息。  |
+| [az batch account keys list](/cli/batch/account/keys#az_batch_account_keys_list) | 检索指定批处理帐户的访问密钥。  |
+| [az batch account login](/cli/batch/account#az_batch_account_login) | 针对指定的批处理帐户进行身份验证，以便进一步进行 CLI 交互。  |
+| [az group delete](/cli/group#az_group_delete) | 删除资源组，包括所有嵌套的资源。 |
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](/cli)。
+有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](/cli/overview)。
 
-<!-- Update_Description: link update -->

@@ -12,16 +12,16 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/24/2018
-ms.date: 09/07/2018
+origin.date: 06/20/2018
+ms.date: 08/08/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2ddae747f3fe6729f527b6276c2067d146349d2a
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.openlocfilehash: 70a92c42a332b41a3ccaa5f3f88ba72a17474bf2
+ms.sourcegitcommit: f8bb533368ab2ef8efdf47e186672993ad8334cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068063"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39722319"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Batch 服务配额和限制
 
@@ -47,7 +47,6 @@ ms.locfileid: "44068063"
 如果创建了 Batch 帐户，并将池分配模式设置为“用户订阅”，则会以不同的方式应用配额。 在此模式下，会在创建池后直接在订阅中创建 Batch VM 和其他资源。 Azure Batch 核心配额不会应用到在此模式下创建的帐户。 对于此类帐户，将应用订阅中的区域计算核心数和其他资源的配额。 在 [Azure 订阅和服务的限制、配额和约束](../azure-subscription-service-limits.md)中详细了解这些配额。
 
 ## <a name="other-limits"></a>其他限制
-
 | **资源** | **最大限制** |
 | --- | --- |
 | 每个计算节点的[并发任务](batch-parallel-node-tasks.md)数 |4 x 节点核心数 |
@@ -58,20 +57,19 @@ ms.locfileid: "44068063"
 
 <sup>1</sup> 最长任务生存期（从添加到作业时算起到任务完成时结束）为 7 天。 已完成的任务会无限期保存；最长生存期内未完成的任务的数据不可访问。
 
-## <a name="view-batch-quotas"></a>查看 Batch 配额
 
+## <a name="view-batch-quotas"></a>查看 Batch 配额
 可在 [Azure 门户][portal]中查看批处理帐户配额。
 
 1. 在门户中选择“Batch 帐户”，并选择所需的 Batch 帐户。
-1. 在 Batch 帐户的菜单上选择“配额”。
-1. 显示当前应用于 Batch 帐户的配额
+2. 在 Batch 帐户的菜单上选择“配额”。
+3. 显示当前应用于 Batch 帐户的配额
    
     ![Batch 帐户配额][account_quotas]
 
 
 
 ## <a name="increase-a-quota"></a>提高配额
-
 执行以下步骤，使用 [Azure 门户][portal]请求提高批处理帐户或订阅的配额。 可以提高哪种配额取决于批处理帐户的池分配模式。
 
 ### <a name="increase-a-batch-cores-quota"></a>提高批处理核心配额 
@@ -97,16 +95,6 @@ ms.locfileid: "44068063"
     单击“创建”提交支持请求。
 
 提交支持请求后，Azure 支持人员将与你取得联系。 请注意，完成该请求最多需要 2 个工作日。
-
-## <a name="related-quotas-for-vm-pools"></a>VM 池的相关配额
-
-部署在 Azure 虚拟网络中的虚拟机配置中的 Batch 池可自动分配其他 Azure 网络资源。 在虚拟网络中，每 50 个池节点需要以下资源：
-
-- 1 个[网络安全组](../virtual-network/security-overview.md#network-security-groups)
-- 1 个[公共 IP 地址](../virtual-network/virtual-network-ip-addresses-overview-arm.md)
-- 1 个[负载均衡器](../load-balancer/load-balancer-overview.md)
-
-在包含创建 Batch 池时提供的虚拟网络的订阅中分配这些资源。 这些资源受订阅的[资源配额](../azure-subscription-service-limits.md)限制。 如果计划在虚拟网络中部署大型池，请检查订阅的这些资源配额。 如果需要，请在 Azure 门户中选择“帮助和支持”，请求增大配额。
 
 
 ## <a name="related-topics"></a>相关主题

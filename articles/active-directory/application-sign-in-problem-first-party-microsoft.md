@@ -11,17 +11,17 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: article
 origin.date: 07/11/2017
-ms.date: 09/06/2018
+ms.date: 07/27/2018
 ms.author: v-junlch
 ms.reviewer: asteen
-ms.openlocfilehash: 2f1795a63b67ec14f71b4eae442416b6fd1e4486
-ms.sourcegitcommit: fd49281c58f34de20cc310d6cefb4568992cd675
+ms.openlocfilehash: 36e0be736164d79397b5fb57c0a3be3dae3b1744
+ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43858444"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39487515"
 ---
 ## <a name="problems-signing-in-to-a-microsoft-application"></a>登录 Microsoft 应用程序时出现的问题
 
@@ -93,13 +93,9 @@ Microsoft 应用程序（如 Office 365 Exchange、SharePoint、Yammer 等）的
 
 -   [重置用户的密码](#reset-a-users-password)
 
--   [启用自助服务密码重置](#enable-self-service-password-reset)
-
 -   [检查用户的多重身份验证状态](#check-a-users-multi-factor-authentication-status)
 
 -   [检查用户的身份验证联系信息](#check-a-users-authentication-contact-info)
-
--   [检查用户的组成员身份](#check-a-users-group-memberships)
 
 -   [检查用户的已分配许可证](#check-a-users-assigned-licenses)
 
@@ -111,9 +107,7 @@ Microsoft 应用程序（如 Office 365 Exchange、SharePoint、Yammer 等）的
 
 1.  打开 [**Azure 门户**](https://portal.azure.cn/)，并以“全局管理员”身份登录。
 
-2.  在左侧主导航菜单顶部单击“所有服务”，打开“Azure Active Directory”。
-
-3.  在筛选器搜索框中键入“Azure Active Directory”，选择“Azure Active Directory”项。
+2.  在左边栏选项卡中，选择“Azure Active Directory”。
 
 4.  在导航菜单中单击“用户”。
 
@@ -129,9 +123,7 @@ Microsoft 应用程序（如 Office 365 Exchange、SharePoint、Yammer 等）的
 
 1.  打开 [**Azure 门户**](https://portal.azure.cn/)，并以“全局管理员”身份登录。
 
-2.  在左侧主导航菜单顶部单击“所有服务”，打开“Azure Active Directory”。
-
-3.  在筛选器搜索框中键入“Azure Active Directory”，选择“Azure Active Directory”项。
+2.  在左边栏选项卡中，选择“Azure Active Directory”。
 
 4.  在导航菜单中单击“用户”。
 
@@ -149,9 +141,7 @@ Microsoft 应用程序（如 Office 365 Exchange、SharePoint、Yammer 等）的
 
 1.  打开 [**Azure 门户**](https://portal.azure.cn/)，并以“全局管理员”身份登录。
 
-2.  在左侧主导航菜单顶部单击“所有服务”，打开“Azure Active Directory”。
-
-3.  在筛选器搜索框中键入“Azure Active Directory”，选择“Azure Active Directory”项。
+2.  在左边栏选项卡中，选择“Azure Active Directory”。
 
 4.  在导航菜单中单击“用户”。
 
@@ -173,9 +163,7 @@ Microsoft 应用程序（如 Office 365 Exchange、SharePoint、Yammer 等）的
 
 1.  打开 [**Azure 门户**](https://portal.azure.cn/)，并以“全局管理员”身份登录。
 
-2.  在左侧主导航菜单顶部单击“所有服务”，打开“Azure Active Directory”。
-
-3.  在筛选器搜索框中键入“Azure Active Directory”，选择“Azure Active Directory”项。
+2.  在左边栏选项卡中，选择“Azure Active Directory”。
 
 4.  在导航菜单中单击“用户”。
 
@@ -197,9 +185,7 @@ Microsoft 应用程序（如 Office 365 Exchange、SharePoint、Yammer 等）的
 
 1.  打开 [**Azure 门户**](https://portal.azure.cn/)，并以“全局管理员”身份登录。
 
-2.  在左侧主导航菜单顶部单击“所有服务”，打开“Azure Active Directory”。
-
-3.  在筛选器搜索框中键入“Azure Active Directory”，选择“Azure Active Directory”项。
+2.  在左边栏选项卡中，选择“Azure Active Directory”。
 
 4.  在导航菜单中单击“用户”。
 
@@ -213,33 +199,13 @@ Microsoft 应用程序（如 Office 365 Exchange、SharePoint、Yammer 等）的
 
 9.  **查看**为用户注册的数据并根据需要进行更新。
 
-### <a name="check-a-users-group-memberships"></a>检查用户的组成员身份
-
-若要检查用户的组成员身份，请执行以下步骤：
-
-1.  打开 [**Azure 门户**](https://portal.azure.cn/)，并以“全局管理员”身份登录。
-
-2.  在左侧主导航菜单顶部单击“所有服务”，打开“Azure Active Directory”。
-
-3.  在筛选器搜索框中键入“Azure Active Directory”，选择“Azure Active Directory”项。
-
-4.  在导航菜单中单击“用户”。
-
-5.  单击“所有用户”。
-
-6.  **搜索**感兴趣的用户，并**单击对应的行**进行选择。
-
-7.  单击“组”查看用户所属的组。
-
 ### <a name="check-a-users-assigned-licenses"></a>检查用户的已分配许可证
 
 若要检查用户的已分配许可证，请执行以下步骤：
 
 1.  打开 [**Azure 门户**](https://portal.azure.cn/)，并以“全局管理员”身份登录。
 
-2.  在左侧主导航菜单顶部单击“所有服务”，打开“Azure Active Directory”。
-
-3.  在筛选器搜索框中键入“Azure Active Directory”，选择“Azure Active Directory”项。
+2.  在左边栏选项卡中，选择“Azure Active Directory”。
 
 4.  在导航菜单中单击“用户”。
 
@@ -255,9 +221,7 @@ Microsoft 应用程序（如 Office 365 Exchange、SharePoint、Yammer 等）的
 
 1.  打开 [**Azure 门户**](https://portal.azure.cn/)，并以“全局管理员”身份登录。
 
-2.  在左侧主导航菜单顶部单击“所有服务”，打开“Azure Active Directory”。
-
-3.  在筛选器搜索框中键入“Azure Active Directory”，选择“Azure Active Directory”项。
+2.  在左边栏选项卡中，选择“Azure Active Directory”。
 
 4.  在导航菜单中单击“用户”。
 
@@ -293,9 +257,7 @@ Microsoft 应用程序（如 Office 365 Exchange、SharePoint、Yammer 等）的
 
 1.  打开 [**Azure 门户**](https://portal.azure.cn/)，并以“全局管理员”身份登录。
 
-2.  在左侧主导航菜单顶部单击“所有服务”，打开“Azure Active Directory”。
-
-3.  在筛选器搜索框中键入“Azure Active Directory”，选择“Azure Active Directory”项。
+2.  在左边栏选项卡中，选择“Azure Active Directory”。
 
 4.  在导航菜单中单击“组”。
 
@@ -311,9 +273,7 @@ Microsoft 应用程序（如 Office 365 Exchange、SharePoint、Yammer 等）的
 
 1.  打开 [**Azure 门户**](https://portal.azure.cn/)，并以“全局管理员”身份登录。
 
-2.  在左侧主导航菜单顶部单击“所有服务”，打开“Azure Active Directory”。
-
-3.  在筛选器搜索框中键入“Azure Active Directory”，选择“Azure Active Directory”项。
+2.  在左边栏选项卡中，选择“Azure Active Directory”。
 
 4.  在导航菜单中单击“组”。
 
@@ -329,9 +289,7 @@ Microsoft 应用程序（如 Office 365 Exchange、SharePoint、Yammer 等）的
 
 1.  打开 [**Azure 门户**](https://portal.azure.cn/)，并以“全局管理员”身份登录。
 
-2.  在左侧主导航菜单顶部单击“所有服务”，打开“Azure Active Directory”。
-
-3.  在筛选器搜索框中键入“Azure Active Directory”，选择“Azure Active Directory”项。
+2.  在左边栏选项卡中，选择“Azure Active Directory”。
 
 4.  在导航菜单中单击“组”。
 
@@ -354,9 +312,7 @@ Microsoft 应用程序（如 Office 365 Exchange、SharePoint、Yammer 等）的
 
 1.  打开 [**Azure 门户**](https://portal.azure.cn/)，并以“全局管理员”身份登录。
 
-2.  在左侧主导航菜单顶部单击“所有服务”，打开“Azure Active Directory”。
-
-3.  在筛选器搜索框中键入“Azure Active Directory”，选择“Azure Active Directory”项。
+2.  在左边栏选项卡中，选择“Azure Active Directory”。
 
 4.  在导航菜单中单击“组”。
 
@@ -408,4 +364,3 @@ Microsoft 应用程序（如 Office 365 Exchange、SharePoint、Yammer 等）的
 -   对于请求权限的**多租户应用程序**（如第三方或 Microsoft 开发的应用程序），可以执行“管理级许可”操作。 以“全局管理员”身份登录，并在“企业应用程序”-&gt;“所有应用程序”-&gt; 选择应用 -&gt;“权限”窗格（即将可用）下单击“授予权限”按钮。
 
 
-<!-- Update_Description: wording update -->

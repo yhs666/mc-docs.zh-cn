@@ -7,14 +7,14 @@ manager: jeconnoc
 ms.service: batch
 ms.topic: get-started-article
 origin.date: 05/15/2018
-ms.date: 09/07/2018
+ms.date: 06/29/2018
 ms.author: v-junlch
-ms.openlocfilehash: 1ebe8deed1229afc5fb03b5281c3ff6193171cfc
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.openlocfilehash: 4904169432b65d7b03cd7410e492f5750dd1ae18
+ms.sourcegitcommit: b23f331a9507c52ddd564c77379e7013b14141e7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068035"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39138863"
 ---
 # <a name="overview-of-batch-apis-and-tools"></a>批处理 API 和工具概述
 
@@ -68,12 +68,12 @@ ms.locfileid: "44068035"
 下面是一些其他的工具，这些工具可能适合生成和调试批处理应用程序和服务：
 
 - [Azure 门户][portal]：可以在 Azure 门户中创建、监视和删除 Batch 池、作业和任务。 用户运行作业时，可以查看这些资源和其他资源的状态信息，甚至从池中的计算节点下载文件。 例如，在进行故障排除时下载失败任务的 `stderr.txt`。 用户还可以下载可用于登录到计算节点的远程桌面 (RDP) 文件。
-- [Azure Batch Explorer][batch_labs]：Batch Explorer（以前称为 BatchLabs）是一个功能丰富的免费独立客户端工具，可帮助创建、调试和监视 Azure Batch 应用程序。 下载适用于 Mac、Linux 或 Windows 的[安装包](https://azure.github.io/BatchExplorer/)。
+- [Azure BatchLabs][batch_labs]：BatchLabs 是一个功能丰富的免费独立客户端工具，可帮助创建、调试和监视 Azure Batch 应用程序。 下载适用于 Mac、Linux 或 Windows 的[安装包](https://azure.github.io/BatchLabs/)。
 - [Azure 存储资源管理器][storage_explorer]：严格地说，虽然存储资源管理器不算是 Azure Batch 工具，但却是开发和调试批处理解决方案时的另一个很有用的工具。
 
 ## <a name="additional-resources"></a>其他资源
 
-- 若要了解批处理应用程序中的日志记录事件，请参阅[记录事件以用来对批处理解决方案进行诊断评估和监视](batch-diagnostics.md)。 如需参考批处理服务引发的事件，请参阅[批处理分析](batch-analytics.md)。
+- 如需参考批处理服务引发的事件，请参阅[批处理分析](batch-analytics.md)。
 - 若要了解计算节点的环境变量，请参阅 [Azure Batch 计算节点环境变量](batch-compute-node-environment-variables.md)。
 
 ## <a name="next-steps"></a>后续步骤
@@ -83,8 +83,8 @@ ms.locfileid: "44068035"
 
 
 [azure_storage]: https://www.azure.cn/home/features/storage/
-[api_java]: https://docs.azure.cn/zh-cn/java/api/batch/clientlibrary?view=azure-java-stable
-[api_java_mgmt]: https://docs.azure.cn/zh-cn/java/api/batch/managementapi?view=azure-java-stable
+[api_java]: /java/api/batch/clientlibrary
+[api_java_mgmt]: /java/api/batch/managementapi
 [api_java_jar]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-batch%22
 [api_java_mgmt_jar]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-mgmt-batch%22
 [api_net]: /dotnet/api/overview/batch/
@@ -107,7 +107,7 @@ ms.locfileid: "44068035"
 [batch_rest]: https://docs.microsoft.com/rest/api/batchservice/
 [free_account]: https://www.azure.cn/pricing/1rmb-trial/
 [github_samples]: https://github.com/Azure/azure-batch-samples
-[batch_labs]: https://azure.github.io/BatchExplorer/
+[batch_labs]: https://azure.github.io/BatchLabs/
 [storage_explorer]: http://storageexplorer.com/
 [portal]: https://portal.azure.cn
 

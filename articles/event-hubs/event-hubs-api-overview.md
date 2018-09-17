@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 07/02/2018
-ms.date: 09/17/2018
+ms.date: 08/06/2018
 ms.author: v-yeche
-ms.openlocfilehash: fb3031b94a8113fa67c43cbfa89fc9349880250b
-ms.sourcegitcommit: 2700f127c3a8740a83fb70739c09bd266f0cc455
+ms.openlocfilehash: bac855cc8aec945f55b0fbbf3230d658b3de0f5c
+ms.sourcegitcommit: c6205500afd23ac00f2829fe51858b51a622eaf1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45586571"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39487784"
 ---
 # <a name="available-event-hubs-apis"></a>可用的事件中心 API
 
@@ -28,7 +28,7 @@ ms.locfileid: "45586571"
 
 ## <a name="runtime-apis"></a>运行时 API
 
-以下部分介绍所有当前可用的 Azure 事件中心运行时客户端。 虽然其中某些库也包含有限的管理功能，但也有专用于管理操作的[特定库](#management-apis)。 这些库的核心功能是通过事件中心发送和接收消息。
+以下部分介绍所有当前可用的 Azure 事件中心运行时客户端。 虽然其中某些库也包含受限的管理功能，但也有专用于管理操作的 [特定库](#management-apis) 。 这些库的核心功能是通过事件中心发送和接收消息。
 
 有关每个运行时库的当前状态的详细信息，请参阅[其他信息](#additional-information)。
 
@@ -43,16 +43,15 @@ ms.locfileid: "45586571"
 ### <a name="additional-information"></a> 其他信息
 
 #### <a name="net"></a>.NET
-
 .NET 生态系统具有多个运行时，因此事件中心有多个 .NET 库。 可以使用 .NET Core 或 .NET Framework 运行 .NET Standard 库，但 .NET Framework 库只能在 .NET Framework 环境中运行。 有关 .NET Frameworks 版本的详细信息，请参阅 [framework 版本](https://docs.microsoft.com/dotnet/articles/standard/frameworks#framework-versions)。
 
 #### <a name="node"></a>节点
 
-[Node.js 库](https://github.com/Azure/azure-event-hubs-node)目前为预览版，由 Azure 员工和外部参与者将其作为副项目进行维护。 包括源代码在内的所有贡献都欢迎并将对其进行审查。
+[Node.js 库](https://github.com/Azure/azure-event-hubs-node)目前为预览版，由 Azure 员工和外部参与者将其作为副项目进行维护。 包括源代码在内的所有贡献都欢迎并会对其进行审查。
 
 ## <a name="management-apis"></a>管理 API
 
-下表列出了所有当前可用的特定于管理的库。 这些库并非仅包含运行时操作，并且管理事件中心实体不是其唯一目的。
+下表列出了所有当前可用的特定于管理的库。 这些库不包含运行时操作，管理事件中心实体是其唯一的用途。
 
 | 语言/平台 | 管理包 | 存储库 |
 | --- | --- | --- | --- |

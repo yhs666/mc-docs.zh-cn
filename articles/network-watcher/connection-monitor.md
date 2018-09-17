@@ -14,15 +14,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 04/27/2018
-ms.date: 09/10/2018
+ms.date: 08/13/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: ec0d0ce2eae4a2ace2ecde4e9ef55505769c2d24
-ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
+ms.openlocfilehash: b2e1df326b66bafd837c3988d8c0e81c664686f1
+ms.sourcegitcommit: 543a18c71c0910a5b9878a2d2668f317468906f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44515594"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39625524"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>教程：使用 Azure 门户监视两个虚拟机之间的网络通信
 
@@ -94,7 +94,7 @@ ms.locfileid: "44515594"
     | 设置                  | 值               |
     | ---------                | ---------           |
     | Name                     | myVm1-myVm2(22)     |
-    | Source                   |                     |
+    | 源                   |                     |
     | 虚拟机          | myVM1               |
     | 目标              |                     |
     | 选择一个虚拟机 |                     |
@@ -115,7 +115,7 @@ ms.locfileid: "44515594"
 
     请注意以下信息：
 
-    | Item                     | 值                      | 详细信息                                                     |
+    | 项目                     | 值                      | 详细信息                                                     |
     | ---------                | ---------                  |--------                                                     |
     | 状态                   | 可访问                  | 指示终结点是否可以访问。|
     | 平均 往返时间          | 指示进行连接所需的往返时间，以毫秒为单位。 连接监视器每 60 秒探测一次连接，因此可以监视一段时间的延迟情况。                                         |
@@ -168,4 +168,4 @@ ms.locfileid: "44515594"
 > [!div class="nextstepaction"]
 > [诊断网络之间的通信问题](diagnose-communication-problem-between-networks.md)
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, add content of creating two VMs -->

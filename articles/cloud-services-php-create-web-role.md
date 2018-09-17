@@ -1,6 +1,6 @@
 ---
 title: 为 PHP 创建 Azure Web 角色和辅助角色
-description: 有关如何在 Azure 云服务中创建 PHP Web 和辅助角色以及配置 PHP 运行时的指南。
+description: 有关如何在 Azure 云服务中创建 PHP Web 角色和辅助角色以及配置 PHP 运行时的指南。
 services: ''
 documentationcenter: php
 author: msangapu
@@ -12,32 +12,32 @@ ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
 origin.date: 04/11/2018
-ms.date: 09/10/2018
+ms.date: 07/12/2018
 ms.author: v-junlch
-ms.openlocfilehash: 75a5d20d815467163c91943159383d86bae97e69
-ms.sourcegitcommit: 40456700212200e707d6cb3147cf96ad161d3ff2
+ms.openlocfilehash: 7f4e8b0086a0217de0a4a4b667afd09bb09581c5
+ms.sourcegitcommit: 5b6a2fc55e5b16ae480bd497c3ac2c3a2fd44703
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44269528"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38999187"
 ---
 # <a name="create-php-web-and-worker-roles"></a>创建 PHP Web 角色和辅助角色
 
 ## <a name="overview"></a>概述
 
-本指南将说明如何执行以下操作：在 Windows 开发环境中创建 PHP Web 角色或辅助角色，从提供的“内置”版本中选择特定版本的 PHP，更改 PHP 配置，启用扩展，最后部署到 Azure。 它还介绍了如何将 Web 角色或辅助角色配置为使用提供的 PHP 运行时（带自定义配置和扩展）。
+本指南说明如何执行以下操作：在 Windows 开发环境中创建 PHP Web 角色或辅助角色，从提供的“内置”版本中选择特定版本的 PHP，更改 PHP 配置，启用扩展，最后部署到 Azure。 它还介绍了如何将 Web 角色或辅助角色配置为使用你提供的 PHP 运行时（带自定义配置和扩展）。
 
-Azure 提供了三种计算模型以运行应用程序：Azure 应用服务、Azure 虚拟机和 Azure 云服务。 这三种模型都支持 PHP。 云服务（包括 Web 角色和辅助角色）提供了*平台即服务 (PaaS)*。 在云服务中，Web 角色提供专门用于托管前端 Web 应用程序的 Internet Information Services (IIS) Web 服务器。 辅助角色可运行独立于用户交互或输入的异步任务、运行时间较长的任务或永久性任务。
+Azure 提供了三种用于运行应用程序的计算模型：Azure 应用服务、Azure 虚拟机和 Azure 云服务。 这三种模型都支持 PHP。 云服务（包括 Web 角色和辅助角色）提供了*平台即服务 (PaaS)*。 在云服务中，Web 角色提供专门用于托管前端 Web 应用程序的 Internet Information Services (IIS) Web 服务器。 辅助角色可运行独立于用户交互或输入的异步任务、运行时间较长的任务或永久性任务。
 
 有关这些选项的详细信息，请参阅 [Azure 提供的计算托管选项](cloud-services/cloud-services-choose-me.md)。
 
 ## <a name="download-the-azure-sdk-for-php"></a>下载 Azure SDK for PHP
 
-[用于 PHP 的 Azure SDK](php-download-sdk.md) 由多个组件构成。 本文将使用其中两个：Azure PowerShell 和 Azure 模拟器。 可以通过 Microsoft Web 平台安装程序安装这两个组件。 有关详细信息，请参阅[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。
+[Azure SDK for PHP](php-download-sdk.md) 由多个组件构成。 本文使用其中两个组件：Azure PowerShell 和 Azure 模拟器。 可以通过 Microsoft Web 平台安装程序安装这两个组件。 有关详细信息，请参阅[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。
 
 ## <a name="create-a-cloud-services-project"></a>创建云服务项目
 
-创建 PHP Web 角色和辅助角色的第一步是创建 Azure 服务项目。 Azure 服务项目用作 Web 角色和辅助角色的逻辑容器，包含项目的[服务定义 (.csdef)] 和[服务配置 (.cscfg)] 文件。
+创建 PHP Web 角色或辅助角色的第一步是创建 Azure 服务项目。 Azure 服务项目用作 Web 角色和辅助角色的逻辑容器，包含项目的[服务定义 (.csdef)] 和[服务配置 (.cscfg)] 文件。
 
 若要创建新的 Azure 服务项目，请以管理员身份运行 Azure PowerShell 并执行以下命令：
 
@@ -56,7 +56,7 @@ Azure 提供了三种计算模型以运行应用程序：Azure 应用服务、Az
     PS C:\myProject> Add-AzurePHPWorkerRole roleName
 
 > [!NOTE]
-> `roleName` 参数是可选的。 如果省略该参数，则会自动生成角色名称。 创建的第一个 Web 角色将为 `WebRole1`，第二个 Web 角色为 `WebRole2`，依此类推。 创建的第一个辅助角色将为 `WorkerRole1`，第二个辅助角色为 `WorkerRole2`，依此类推。
+> `roleName` 参数是可选的。 如果省略该参数，则自动生成角色名称。 创建的第一个 Web 角色将为 `WebRole1`，第二个 Web 角色为 `WebRole2`，依此类推。 创建的第一个辅助角色将为 `WorkerRole1`，第二个辅助角色为 `WorkerRole2`，依此类推。
 >
 >
 
@@ -103,21 +103,21 @@ PHP 5.4.0           http://nodertncu.blob.core...   False
         extension=php_mongo.dll
 
 > [!NOTE]
-> 所提供的 `php.ini` 文件中未显式设置的所有设置都会自动设为其默认值。 但请记住，可以添加整个 `php.ini` 文件。
+> 所提供的 `php.ini` 文件中未显式设置的所有设置都将自动设为其默认值。 但请记住，可以添加整个 `php.ini` 文件。
 >
 >
 
 ## <a name="use-your-own-php-runtime"></a>使用自己的 PHP 运行时
 
-在某些情况下，可能需要提供自己的 PHP 运行时，而不是如上所述那样选择并配置内置 PHP 运行时。 例如，可以在 Web 角色或辅助角色中使用你在开发环境中使用的 PHP 运行时， 以便更轻松地确保应用程序不会更改生产环境中的行为。
+在某些情况下，可能需要提供你自己的 PHP 运行时，而不是如上所述那样选择并配置内置 PHP 运行时。 例如，可以在 Web 角色或辅助角色中使用你在开发环境中使用的 PHP 运行时， 以便更轻松地确保应用程序不会更改生产环境中的行为。
 
-### <a name="configure-a-web-role-to-use-your-own-php-runtime"></a>将 Web 角色配置为使用自己的 PHP 运行时
+### <a name="configure-a-web-role-to-use-your-own-php-runtime"></a>将 Web 角色配置为使用你自己的 PHP 运行时
 
 要将 Web 角色配置为使用提供的 PHP 运行时，请执行下列步骤：
 
 1. 创建一个 Azure 服务项目并添加 PHP Web 角色，如本主题前面所述。
 2. 在位于 Web 角色的根目录中的 `bin` 文件夹中创建一个 `php` 文件夹，然后将 PHP 运行时（所有二进制文件、配置文件、子文件夹等）添加到该 `php` 文件夹中。
-3. （可选）如果 PHP 运行时使用 [Microsoft Drivers for PHP for SQL Server][sqlsrv drivers]，则需要将 Web 角色配置为在设置它时安装 [SQL Server Native Client 2012][sql native client]。 为此，将 [sqlncli.msi x64 安装程序]添加到 Web 角色的根目录中的 `bin` 文件夹。 下一步中所述的启动脚本会在设置角色时以静默方式运行安装程序。 如果 PHP 运行时不使用 Microsoft Drivers for PHP for SQL Server，则可从下一步所示的脚本中删除以下行：
+3. （可选）如果 PHP 运行时使用 [Microsoft Drivers for PHP for SQL Server][sqlsrv drivers]，则需要将 Web 角色配置为在设置它时安装 [SQL Server Native Client 2012][sql native client]。 为此，将 [sqlncli.msi x64 安装程序]添加到 Web 角色的根目录中的 `bin` 文件夹。 下一步中所述的启动脚本在设置角色时以静默方式运行安装程序。 如果 PHP 运行时不使用 Microsoft Drivers for PHP for SQL Server，则可从下一步所示的脚本中删除以下行：
 
         msiexec /i sqlncli.msi /qn IACCEPTSQLNCLILICENSETERMS=YES
 4. 定义将 [Internet Information Services (IIS)][iis.net] 配置为使用 PHP 运行时来处理 `.php` 页的请求的启动任务。 为此，请在文本编辑器中打开 `setup_web.cmd` 文件（位于 Web 角色的根目录的 `bin` 文件夹中），并将其内容替换为以下脚本：
@@ -139,11 +139,11 @@ PHP 5.4.0           http://nodertncu.blob.core...   False
     %WINDIR%\system32\inetsrv\appcmd.exe set config -section:system.webServer/handlers /+"[name='PHP',path='*.php',verb='GET,HEAD,POST',modules='FastCgiModule',scriptProcessor='%PHP_FULL_PATH%',resourceType='Either',requireAccess='Script']" /commit:apphost
     %WINDIR%\system32\inetsrv\appcmd.exe set config -section:system.webServer/fastCgi /"[fullPath='%PHP_FULL_PATH%'].queueLength:50000"
     ```
-5. 将应用程序文件添加到 Web 角色的根目录。 这会是 Web 服务器的根目录。
+5. 将应用程序文件添加到 Web 角色的根目录。 这将是 Web 服务器的根目录。
 6. 按照以下[发布应用程序](#publish-your-application)部分中所述发布应用程序。
 
 > [!NOTE]
-> 在按照上述使用自己的 PHP 运行时的步骤进行操作后，可以删除 `download.ps1` 脚本（位于 Web 角色的根目录的 `bin` 文件夹中）。
+> 在按照上述使用你自己的 PHP 运行时的步骤进行操作后，可以删除 `download.ps1` 脚本（位于 Web 角色的根目录的 `bin` 文件夹中）。
 >
 >
 
@@ -153,7 +153,7 @@ PHP 5.4.0           http://nodertncu.blob.core...   False
 
 1. 创建一个 Azure 服务项目并添加 PHP 辅助角色，如本主题前面所述。
 2. 在辅助角色的根目录中创建一个 `php` 文件夹，然后将 PHP 运行时（所有二进制文件、配置文件、子文件夹等）添加到该 `php` 文件夹中。
-3. （可选）如果 PHP 运行时使用 [Microsoft Drivers for PHP for SQL Server][sqlsrv drivers]，则需要将辅助角色配置为在设置它时安装 [SQL Server Native Client 2012][sql native client]。 为此，请将 [sqlncli.msi x64 安装程序]添加到辅助角色的根目录。 下一步中所述的启动脚本会在设置角色时以静默方式运行安装程序。 如果 PHP 运行时不使用 Microsoft Drivers for PHP for SQL Server，则可从下一步所示的脚本中删除以下行：
+3. （可选）如果 PHP 运行时使用 [Microsoft Drivers for PHP for SQL Server][sqlsrv drivers]，则需要将辅助角色配置为在设置它时安装 [SQL Server Native Client 2012][sql native client]。 为此，将 [sqlncli.msi x64 安装程序]添加到辅助角色的根目录。 下一步中所述的启动脚本在设置角色时以静默方式运行安装程序。 如果 PHP 运行时不使用 Microsoft Drivers for PHP for SQL Server，则可从下一步所示的脚本中删除以下行：
 
         msiexec /i sqlncli.msi /qn IACCEPTSQLNCLILICENSETERMS=YES
 4. 定义在设置角色时将 `php.exe` 可执行文件添加到辅助角色的 PATH 环境变量中的启动任务。 为此，请在文本编辑器中打开 `setup_worker.cmd` 文件（位于辅助角色的根目录中），并将其内容替换为以下脚本：
@@ -197,7 +197,7 @@ Azure 模拟器提供了一个本地环境，可在将 Azure 应用程序部署�
 
     PS C:\MyProject> Start-AzureEmulator
 
-会看到类似于下面的输出：
+你会看到类似于下面的输出：
 
     Creating local package...
     Starting Emulator...
@@ -212,7 +212,7 @@ Azure 模拟器提供了一个本地环境，可在将 Azure 应用程序部署�
 
 ## <a name="publish-your-application"></a>发布应用程序
 
-若要发布应用程序，需要先使用 [Import-AzurePublishSettingsFile](https://docs.microsoft.com/powershell/module/servicemanagement/azure/import-azurepublishsettingsfile) cmdlet 导入发布设置。 然后使用 [Publish-AzureServiceProject](https://docs.microsoft.com/powershell/module/servicemanagement/azure/publish-azureserviceproject) cmdlet 发布应用程序。 有关登录的信息，请参阅[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。
+若要发布应用程序，需要先使用 [Import-AzurePublishSettingsFile](https://msdn.microsoft.com/library/azure/dn790370.aspx) cmdlet 导入发布设置。 然后使用 [Publish-AzureServiceProject](https://msdn.microsoft.com/library/azure/dn495166.aspx) cmdlet 发布应用程序。 有关登录的信息，请参阅[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -222,8 +222,7 @@ Azure 模拟器提供了一个本地环境，可在将 Azure 应用程序部署�
 [服务定义 (.csdef)]: http://msdn.microsoft.com/library/windowsazure/ee758711.aspx
 [服务配置 (.cscfg)]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
 [iis.net]: http://www.iis.net/
-[sql native client]: https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation
+[sql native client]: http://msdn.microsoft.com/sqlserver/aa937733.aspx
 [sqlsrv drivers]: http://php.net/sqlsrv
 [sqlncli.msi x64 安装程序]: http://go.microsoft.com/fwlink/?LinkID=239648
 
-<!-- Update_Description: link update -->

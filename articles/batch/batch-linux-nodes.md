@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: na
 origin.date: 06/01/2018
-ms.date: 09/07/2018
+ms.date: 08/08/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 14e8a7b51f4490ffc717068ae8fca3f171e0ac3f
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.openlocfilehash: a1fcc45da7e571fcb03b6999adbe3dae457895cb
+ms.sourcegitcommit: f8bb533368ab2ef8efdf47e186672993ad8334cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068122"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39722327"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>在 Batch 池中预配 Linux 计算节点
 
@@ -215,7 +215,8 @@ ImageReference imageReference = new ImageReference(
 >
 >
 
-| **发布者** | **产品** | **映像 SKU** | **版本** | **节点代理 SKU ID** |
+| **发布者** | 
+  **产品** | **映像 SKU** | **版本** | **节点代理 SKU ID** |
 | ------------- | --------- | ------------- | ----------- | --------------------- |
 | 或批处理 | rendering-centos73 | 呈现 | 最新 | batch.node.centos 7 |
 | 或批处理 | rendering-windows2016 | 呈现 | 最新 | batch.node.windows amd64 |
@@ -325,7 +326,10 @@ Azure Batch 构建在 Azure 云服务和 Azure 虚拟机技术基础之上。 Ba
 如果使用[应用程序包](batch-application-packages.md)将应用程序部署到 Batch 节点，系统还会对应用程序包使用的 Azure 存储资源收费。 通常，Azure 存储的成本是最低的。 
 
 ## <a name="next-steps"></a>后续步骤
+### <a name="batch-python-tutorial"></a>Batch Python 教程
+有关如何配合 Python 使用 Batch 的更深入教程，请参阅 [Get started with the Azure Batch Python client](batch-python-tutorial.md)（Azure Batch Python 客户端入门）。 该教程随附的代码示例包含一个帮助器函数 `get_vm_config_for_distro`，用于演示获取虚拟机配置的另一种方法。
 
+### <a name="batch-python-code-samples"></a>Batch Python 代码示例
 GitHub 上 [azure-batch-samples][github_samples] 存储库中的 [Python 代码示例][github_samples_py]包含演示如何执行常见 Batch 操作（例如创建池、作业和任务）的多个脚本。 Python 示例随附的 [README][github_py_readme] 文件包含有关如何安装所需包的详细信息。
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx

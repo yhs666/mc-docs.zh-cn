@@ -12,16 +12,16 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 08/15/2018
-ms.date: 09/10/2018
+origin.date: 06/06/2018
+ms.date: 07/23/2018
 ms.author: v-yeche
 ms.custom: ''
-ms.openlocfilehash: 5a085cb87cee09e58f137e07bfafaf0ef3233005
-ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
+ms.openlocfilehash: 75a2af734aec473758dac61241bcf80e88257e60
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44515696"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167994"
 ---
 # <a name="virtual-network-service-endpoints"></a>虚拟网络服务终结点
 

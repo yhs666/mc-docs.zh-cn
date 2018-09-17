@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 01/16/2018
 ms.author: v-yiso
 ms.date: 06/18/2018
-ms.openlocfilehash: d85b6a845bd47d5e2c0c60c4c2352b2f2576d281
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.openlocfilehash: e870948e35d5545edbd0b4113e446d76b44247ea
+ms.sourcegitcommit: 794b9caca1147f1891513410dd61435708ef85ec
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068058"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34855380"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>在 Azure API 管理中使用 Azure Active Directory 授权开发人员帐户
 
@@ -51,7 +51,6 @@ ms.locfileid: "44068058"
 9. 记下“重定向 URL”的内容。
     
    ![在 Azure 门户中添加标识提供者的步骤](./media/api-management-howto-aad/api-management-with-aad001.png)  
-   
 10. 在浏览器中，打开另一个标签页。 
 11. 转到 [Azure 门户](https://portal.azure.cn)。
 12. 选择 ![箭头](./media/api-management-howto-aad/arrow.png)上获取。
@@ -70,7 +69,6 @@ ms.locfileid: "44068058"
 21. 若要查找应用，请选择“应用注册”并按名称搜索。
 
     ![应用搜索框](./media/api-management-howto-aad/find-your-app.png)
-    
 22. 注册该应用程序后，请转到“答复 URL”并确保“重定向 URL”设置为从步骤 9 中获得的值。 
 23. 如果要配置应用程序（例如，更改“应用 ID URL”），请选择“属性”。
 
@@ -116,7 +114,7 @@ ms.locfileid: "44068058"
 
     可在“允许的租户”部分中指定多个域。 在任何用户可以从注册应用程序的原始域以外的其他域登录之前，不同域的全局管理员必须先授予权限以使应用程序访问目录数据。 若要授予权限，全局管理员应：
     
-    a. 转到 `https://<URL of your developer portal>/aadadminconsent`（例如， https://contoso.portal.azure-api.cn/aadadminconsent)。
+    a. 转到 `https://<URL of your developer portal>/aadadminconsent`（例如，https://contoso.portal.azure-api.cn/aadadminconsent)。
     
     b. 键入他们想要授权访问的 Azure AD 租户域名。
     
@@ -148,9 +146,7 @@ ms.locfileid: "44068058"
 
 1. 选择“组”选项卡。
 2. 选择“添加 AAD 组”按钮。
-
    ![“添加 AAD 组”按钮](./media/api-management-howto-aad/api-management-with-aad008.png)
-   
 3. 选择要添加的组。
 4. 按“选择”按钮。
 

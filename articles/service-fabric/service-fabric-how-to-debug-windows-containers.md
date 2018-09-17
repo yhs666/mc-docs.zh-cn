@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 05/14/2018
-ms.date: 09/10/2018
+ms.date: 08/20/2018
 ms.author: v-yeche
-ms.openlocfilehash: e0389264dc3edea6f1112359c1475ce65347277a
-ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
+ms.openlocfilehash: 7385aa6d5025b5ee33d4953e4bf2a61c49ae1f16
+ms.sourcegitcommit: 744a0de811483c47bc1e88dd73084874376eb01c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44515639"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "40184771"
 ---
 # <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2017"></a>如何：使用 Visual Studio 2017 在 Azure Service Fabric 中调试 Windows 容器
 
@@ -35,20 +35,20 @@ ms.locfileid: "44515639"
 
 1. 确保 Docker for Window 服务正在运行，然后再继续进行下一步。
 
-1. 为了支持容器之间的 DNS 解析，必须使用计算机名称来设置本地开发群集。 如果要通过反向代理寻址服务，则还需要执行这些步骤。
+1. 为了支持容器之间的 DNS 解析，必须使用计算机名称来设置本地开发群集。
     1. 以管理员身份打开 PowerShell
-    2. 导航到 SDK 群集安装文件夹，通常为 `C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup`。
-    3. 使用参数 `-UseMachineName` 运行脚本 `DevClusterSetup.ps1`
+    1. 导航到 SDK 群集安装文件夹，通常为 `C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup`
+    1. 使用参数 `-UseMachineName` 运行脚本 `DevClusterSetup.ps1`
 
-        ``` PowerShell
-         C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1 -UseMachineName
-        ```
+    ``` PowerShell
+      C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1 -UseMachineName
+    ```
 
     > [!NOTE]
     > 可以使用 `-CreateOneNodeCluster` 来设置单节点群集。 默认情况下将创建一个本地五节点群集。
     >
 
-    若要详细了解 Service Fabric 中的 DNS 服务，请参阅 [Azure Service Fabric 中的 DNS 服务](/service-fabric/service-fabric-dnsservice)。 如需深入了解从容器中运行的服务使用 Service Fabric 反向代理，请参阅[对容器中运行的服务的反向代理特殊处理](service-fabric-reverseproxy.md#special-handling-for-services-running-in-containers)。
+    若要详细了解 Service Fabric 中的 DNS 服务，请参阅 [Azure Service Fabric 中的 DNS 服务](/service-fabric/service-fabric-dnsservice)。
 
 ### <a name="known-limitations-when-debugging-containers-in-service-fabric"></a>在 Service Fabric 中调试容器时的已知限制
 
@@ -83,5 +83,3 @@ ms.locfileid: "44515639"
 
 ## <a name="next-steps"></a>后续步骤
 若要详细了解 Service Fabric 和容器的功能，请访问此链接：[Service Fabric 容器概述](service-fabric-containers-overview.md)。
-
-<!-- Update_Description: update meta properties, wording update  -->

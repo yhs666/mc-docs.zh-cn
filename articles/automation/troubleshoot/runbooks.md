@@ -5,16 +5,16 @@ services: automation
 author: WenJason
 ms.author: v-jay
 origin.date: 07/13/2018
-ms.date: 09/10/2018
+ms.date: 07/23/2018
 ms.topic: conceptual
 ms.service: automation
 manager: digimobile
-ms.openlocfilehash: d51257a6dac6093f08a4b36f1c63d7a410088b7d
-ms.sourcegitcommit: 1b60848d25bbd897498958738644a4eb9cf3a302
+ms.openlocfilehash: 9e7570feae38dd69d300def2a8e9686f90c66aaa
+ms.sourcegitcommit: 2a147231bf3d0a693adf58fceee76ab0fbcd6dbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43731212"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39335255"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Runbook 错误故障排除
 
@@ -44,38 +44,13 @@ Unknown_user_type: Unknown User Type
 
    ```powershell
    $Cred = Get-Credential  
-   #Using Azure Service Management
+   #Using Azure Service Management   
    Add-AzureAccount -Environment AzureChinaCloud –Credential $Cred  
    #Using Azure Resource Manager  
    Connect-AzureRmAccount -EnvironmentName AzureChinaCloud –Credential $Cred
    ```
 
 3. 如果无法在本地进行身份验证，则意味着你尚未设置好 Azure Active Directory 凭据。 请参阅 [使用 Azure Active Directory 向 Azure 进行身份验证](https://azure.microsoft.com/blog/azure-automation-authenticating-to-azure-using-azure-active-directory/) 博客文章，了解如何正确设置 Azure Active Directory 帐户。  
-
-4. 如果它看起来是暂时性错误，请尝试向身份验证例程添加重试逻辑，使身份验证更加可靠。
-
-   ```powershell
-   # Get the connection "AzureRunAsConnection"
-   $connectionName = "AzureRunAsConnection"
-   $servicePrincipalConnection = Get-AutomationConnection -Name $connectionName
-
-   $logonAttempt = 0
-   $logonResult = $False
-
-   while(!($connectionResult) -And ($logonAttempt -le 10))
-   {
-   $LogonAttempt++
-   # Logging in to Azure...
-   $connectionResult = Connect-AzureRmAccount `
-      -EnvironmentName AzureChinaCloud `
-      -ServicePrincipal `
-      -TenantId $servicePrincipalConnection.TenantId `
-      -ApplicationId $servicePrincipalConnection.ApplicationId `
-      -CertificateThumbprint $servicePrincipalConnection.CertificateThumbprint
-
-   Start-Sleep -Seconds 30
-   }
-   ```
 
 ### <a name="unable-to-find-subscription"></a>场景：无法找到 Azure 订阅
 
@@ -120,63 +95,6 @@ Add-AzureAccount: AADSTS50079: Strong authentication enrollment (proof-up) is re
 要将证书用于 Azure 经典部署模型 cmdlet，请参阅[创建并添加管理 Azure 服务所需的证书](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx)。 若要将服务主体用于 Azure Resource Manager cmdlet，请参阅[使用 Azure 门户创建服务主体](../../azure-resource-manager/resource-group-create-service-principal-portal.md)和[通过 Azure Resource Manager 对服务主体进行身份验证](../../azure-resource-manager/resource-group-authenticate-service-principal.md)。
 
 ## <a name="common-errors-when-working-with-runbooks"></a>使用 Runbook 时的常见错误
-
-### <a name="task-was-cancelled"></a>场景：Runbook 失败且出现错误：取消了一个任务
-
-#### <a name="issue"></a>问题
-
-Runbook 失败，出现类似于以下示例的错误：
-
-```
-Exception: A task was canceled.
-```
-
-#### <a name="cause"></a>原因
-
-使用过时的 Azure 模块会导致此错误。
-
-#### <a name="resolution"></a>解决方法
-
-可以通过将 Azure 模块更新到最新版本来解决此错误。
-
-在自动化帐户中，单击“模块”，然后单击“更新 Azure 模块”。 更新需要花费大约 15 分钟，完成后，重新运行失败的 runbook。 若要了解有关更新模块的详细信息，请参阅[在 Azure 自动化中更新 Azure 模块](../automation-update-azure-modules.md)。
-
-### <a name="child-runbook-auth-failure"></a>场景：处理多个订阅时，子 Runbook 失败
-
-#### <a name="issue"></a>问题
-
-使用 `Start-AzureRmRunbook` 执行子 Runbook 时，子 Runbook 无法管理 Azure 资源。
-
-#### <a name="cause"></a>原因
-
-子 Runbook 在运行时没有使用正确的上下文。
-
-#### <a name="resolution"></a>解决方法
-
-如果使用多个订阅，则在调用子 Runbook 时可能会丢失订阅上下文。 若要确保将订阅上下文传递给子 Runbook，请将 `DefaultProfile` 参数添加到 cmdlet 并将上下文传递给它。
-
-```powershell
-# Connect to Azure with RunAs account
-$ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
-
-Add-AzureRmAccount `
-    -EnvironmentName AzureChinaCloud `
-    -ServicePrincipal `
-    -TenantId $ServicePrincipalConnection.TenantId `
-    -ApplicationId $ServicePrincipalConnection.ApplicationId `
-    -CertificateThumbprint $ServicePrincipalConnection.CertificateThumbprint
-
-$AzureContext = Select-AzureRmSubscription -SubscriptionId $ServicePrincipalConnection.SubscriptionID
-
-$params = @{"VMName"="MyVM";"RepeatCount"=2;"Restart"=$true}
-
-Start-AzureRmAutomationRunbook `
-    –AutomationAccountName 'MyAutomationAccount' `
-    –Name 'Test-ChildRunbook' `
-    -ResourceGroupName 'LabRG' `
-    -DefaultProfile $AzureContext `
-    –Parameters $params –wait
-```
 
 ### <a name="not-recognized-as-cmdlet"></a>场景：由于缺少 cmdlet，Runbook 失败
 

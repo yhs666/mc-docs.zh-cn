@@ -5,17 +5,17 @@ description: 存储帐户密钥在 Azure Key Vault 与 Azure 存储帐户基于�
 ms.topic: article
 services: key-vault
 ms.service: key-vault
-author: bryanla
-ms.author: v-biyu
+author: lleonard-msft
+ms.author: v-junlch
 manager: mbaldwin
 origin.date: 10/12/2017
-ms.date: 09/17/2018
-ms.openlocfilehash: 17feae03ec97c00e32b99c110d3b21550121d73c
-ms.sourcegitcommit: d649060b55bac3ad9f4fc2bd2962748a4b5bf715
+ms.date: 07/10/2018
+ms.openlocfilehash: 8304654e8f486bf2ea81428c6c79eba81a31b618
+ms.sourcegitcommit: 56aa1615ef7402444111495f72afbdd6b2dfff78
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44066168"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "41704901"
 ---
 # <a name="azure-key-vault-storage-account-keys"></a>Azure Key Vault 存储帐户密钥
 
@@ -39,8 +39,8 @@ Azure 存储帐户 (ASA) 密钥功能负责管理密钥轮换。 此外，它还
     - Azure Key Vault 定期重新生成（轮换）密钥。
     - 响应调用方时永远不会返回密钥值。
     - Azure Key Vault 管理存储帐户和经典存储帐户的密钥。
-- Azure Key Vault 允许保管库/对象所有者创建 SAS（共享访问签名、帐户或服务 SAS）的定义。
-    - 通过 REST URI 路径以机密形式返回使用 SAS 定义创建的 SAS 值。 有关详细信息，请参阅 [Azure Key Vault REST API 参考](https://docs.microsoft.com/rest/api/keyvault)中的 SAS 定义操作。
+- Azure Key Vault 允许保管库/对象所有者创建 SAS（帐户或服务 SAS）的定义。
+    - 通过 REST URI 路径以机密形式返回使用 SAS 定义创建的 SAS 值。 有关详细信息，请参阅 [Azure Key Vault 存储帐户操作](https://docs.microsoft.com/rest/api/keyvault/storage-account-key-operations)。
 
 ## <a name="naming-guidance"></a>命名指南
 
@@ -119,7 +119,7 @@ New-AzureRmRoleAssignment -ObjectId $servicePrincipal.Id -RoleDefinitionName 'St
 
 ## <a name="working-example"></a>有效示例
 
-下面的示例演示了如何创建 Key Vault 托管 Azure 存储帐户和关联的 SAS 定义。
+下面的示例展示了如何创建 Key Vault 托管 Azure 存储帐户和关联的共享访问签名 (SAS) 定义。
 
 ### <a name="prerequisite"></a>先决条件
 
@@ -234,7 +234,6 @@ Set-AzureStorageBlobContent -Container cont1-file "./file.txt" -Context $context
 - Key Vault 会列出对存储帐户资源的 RBAC 权限。
 - Key Vault 会通过操作和非操作的正则表达式匹配来验证响应。
 
-可在 [Key Vault - 托管存储帐户密钥示例](https://github.com/Azure-Samples?utf8=%E2%9C%93&q=key+vault+storage&type=&language=)中找到一些支持示例。
 如果该标识没有“重新生成”权限，或者 Key Vault 第一方标识没有“列出”或“重新生成”权限，则登记请求会失败，并返回相应的错误代码和消息。
 
 仅当使用 PowerShell 或 CLI 的第一方本机客户端应用程序时，OBO 令牌才能正常工作。

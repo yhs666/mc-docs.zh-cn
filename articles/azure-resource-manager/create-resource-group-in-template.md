@@ -12,19 +12,19 @@ ms.workload: na
 origin.date: 08/07/2018
 ms.date: 09/03/2018
 ms.author: v-yeche
-ms.openlocfilehash: d6cb567ba26d412218b74b65c85e9c794b058b63
-ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
+ms.openlocfilehash: daff124e9ab8d2afec890f045b4fc015d2136566
+ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44515618"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43171548"
 ---
 <!--Verify sucessfully-->
 # <a name="create-resource-groups-in-azure-resource-manager-templates"></a>在 Azure 资源管理器模板中创建资源组
 
 若要在 Azure 资源管理器模板中创建资源组，请为该资源组定义包含名称和位置的 Microsoft.Resources/resourceGroups 资源。 将模板部署到 Azure 订阅。 此外，还可以将资源部署到同一模板中的资源组。
 
-本文使用 Azure CLI 来部署模板。 
+本文使用 Azure CLI 来部署模板。 目前，PowerShell 不支持将模板部署到订阅。
 
 ## <a name="create-empty-resource-group"></a>创建空的资源组
 
@@ -193,9 +193,9 @@ az deployment create \
 ```
 
 ## <a name="next-steps"></a>后续步骤
-* 若要了解如何在部署期间排查依赖项故障，请参阅[排查使用 Azure 资源管理器时的常见 Azure 部署错误](resource-manager-common-deployment-errors.md)。
-* 若要了解有关创建 Azure 资源管理器模板的信息，请参阅[创作模板](resource-group-authoring-templates.md)。 
-* 有关模板的可用函数列表，请参阅[模板函数](resource-group-template-functions.md)。
+* 若要了解如何在部署期间排查依赖项故障，请参阅[排查使用 Azure Resource Manager 时的常见 Azure 部署错误](resource-manager-common-deployment-errors.md)。
+* 若要了解有关创建 Azure Resource Manager模板的信息，请参阅[创作模板](resource-group-authoring-templates.md)。 
+* 有关模板中的可用函数列表，请参阅[模板函数](resource-group-template-functions.md)。
 
 <!-- Update_Description: new articles on create resource group in template  -->
 <!--ms.date: 09/03/2018-->

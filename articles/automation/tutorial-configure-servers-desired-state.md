@@ -1,6 +1,6 @@
 ---
 title: 使用 Azure 自动化将服务器配置为所需状态并管理偏移
-description: 教程 - 使用 Azure 自动化状态配置管理服务器配置
+description: 教程 - 使用 Azure Automation DSC 管理服务器配置
 services: automation
 ms.service: automation
 ms.component: dsc
@@ -10,32 +10,34 @@ manager: digimobile
 ms.topic: conceptual
 origin.date: 09/25/2017
 ms.date: 07/23/2018
-ms.openlocfilehash: 52da841707894bc05e5192d44cf75ccbb0bf6c36
-ms.sourcegitcommit: 1b60848d25bbd897498958738644a4eb9cf3a302
+ms.openlocfilehash: 31dd327ebec6c672801f5b345f2a4b7deb14d301
+ms.sourcegitcommit: 2a147231bf3d0a693adf58fceee76ab0fbcd6dbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43731213"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39335231"
 ---
 # <a name="configure-servers-to-a-desired-state-and-manage-drift"></a>将服务器配置到所需状态并管理偏移
 
-使用 Azure 自动化状态配置可以指定服务器配置，并确保这些服务器在一段时间后处于指定状态。
+使用 Azure Automation Desired State Configuration (DSC) 可以指定服务器配置，并确保这些服务器在一段时间后处于指定状态。
+
+
 
 > [!div class="checklist"]
-> - 登记要由 Azure Automation DSC 管理的 VM
-> - 将配置上传到 Azure 自动化
-> - 将配置编译为节点配置
-> - 将节点配置分配给托管节点
-> - 检查托管节点的符合性状态
+> * 登记要由 Azure Automation DSC 管理的 VM
+> * 将配置上传到 Azure 自动化
+> * 将配置编译为节点配置
+> * 将节点配置分配给托管节点
+> * 检查托管节点的符合性状态
 
 ## <a name="prerequisites"></a>先决条件
 
 要完成本教程，需要：
 
-- 一个 Azure 自动化帐户。 有关如何创建 Azure 自动化运行方式帐户的说明，请参阅 [Azure 运行方式帐户](automation-create-runas-account.md)。
-- 一个运行 Windows Server 2008 R2 或更高版本的 Azure 资源管理器 VM（非经典）。 如需创建 VM 的说明，请参阅[在 Azure 门户中创建第一个 Windows 虚拟机](../virtual-machines/windows/quick-create-portal.md)
-- Azure PowerShell 模块 3.6 版或更高版本。 运行 ` Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。
-- 熟悉所需状态配置 (DSC)。 有关 DSC 文档的信息，请参阅 [Windows PowerShell Desired State Configuration 概述](https://docs.microsoft.com/powershell/dsc/overview)
+* 一个 Azure 自动化帐户。 有关如何创建 Azure 自动化运行方式帐户的说明，请参阅 [Azure 运行方式帐户](automation-create-runas-account.md)。
+* 一个运行 Windows Server 2008 R2 或更高版本的 Azure 资源管理器 VM（非经典）。 如需创建 VM 的说明，请参阅[在 Azure 门户中创建第一个 Windows 虚拟机](../virtual-machines/windows/quick-create-portal.md)
+* Azure PowerShell 模块 3.6 版或更高版本。 运行 ` Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。
+* 熟悉 DSC。 有关 DSC 文档的信息，请参阅 [Windows PowerShell Desired State Configuration 概述](https://docs.microsoft.com/powershell/dsc/overview)
 
 ## <a name="log-in-to-azure"></a>登录 Azure
 
@@ -55,7 +57,9 @@ Connect-AzureRmAccount -EnvironmentName AzureChinaCloud
 
 ```powershell
 configuration TestConfig {
+
    Node WebServer {
+
       WindowsFeature IIS {
          Ensure               = 'Present'
          Name                 = 'Web-Server'
@@ -85,34 +89,36 @@ Start-AzureRmAutomationDscCompilationJob -ConfigurationName 'TestConfig' -Resour
 
 这将在自动化帐户中创建一个名为 `TestConfig.WebServer` 的节点配置。
 
-## <a name="register-a-vm-to-be-managed-by-state-configuration"></a>注册要由状态配置管理的 VM
+## <a name="register-a-vm-to-be-managed-by-dsc"></a>注册要由 DSC 管理的 VM
 
-可以使用 Azure 自动化状态配置来管理 Azure VM（包括经典 VM 和资源管理器 VM）、本地 VM、Linux 计算机、AWS VM，以及本地物理机。 在本主题中，我们介绍如何仅注册 Azure 资源管理器 VM。 有关注册其他类型的计算机的信息，请参阅[登记由 Azure 自动化状态配置管理的计算机](automation-dsc-onboarding.md)。
+可以使用 Azure Automation DSC 来管理 Azure VM、本地 VM、Linux 计算机、AWS VM，以及本地物理计算机。 在本主题中，我们介绍如何仅注册 Azure 资源管理器 VM。
+有关如何注册其他类型的计算机的信息，请参阅[登记由 Azure Automation DSC 管理的计算机](automation-dsc-onboarding.md)。
 
-调用 `Register-AzureRmAutomationDscNode` cmdlet 来将 VM 注册到 Azure 自动化状态配置中。
+调用 `Register-AzureRmAutomationDscNode` cmdlet，将 VM 注册到 Azure Automation DSC 中。
 
 ```powershell
-Register-AzureRmAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -AzureVMName 'DscVm'
+Register-AzureRmAutomationDscNode -ResourceGroupName "MyResourceGroup" -AutomationAccountName "myAutomationAccount" -AzureVMName "DscVm"
 ```
 
-这会将指定的 VM 注册为状态配置中的托管节点。
+这会在 Azure 自动化帐户中将指定的 VM 注册为 DSC 节点。
 
 ### <a name="specify-configuration-mode-settings"></a>指定配置模式设置
 
-将 VM 注册为托管节点时，还可以指定配置的属性。 例如，可以通过将 `ApplyOnly` 指定为 **ConfigurationMode** 属性的值来指定仅应用计算机的状态一次（DSC 不会尝试在初始检查后应用配置）：
+将 VM 注册为托管节点时，还可以指定配置的属性。
+例如，可以通过将 `ApplyOnly` 指定为 **ConfigurationMode** 属性的值来指定仅应用计算机的状态一次（DSC 不会尝试在初始检查后应用配置）：
 
 ```powershell
-Register-AzureRmAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -AzureVMName 'DscVm' -ConfigurationMode 'ApplyOnly'
+Register-AzureRmAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -AzureVMName "DscVm" -ConfigurationMode 'ApplyOnly'
 ```
 
 还可以使用 **ConfigurationModeFrequencyMins** 属性指定 DSC 检查配置状态的频率：
 
 ```powershell
 # Run a DSC check every 60 minutes
-Register-AzureRmAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -AzureVMName 'DscVm' -ConfigurationModeFrequencyMins 60
+Register-AzureRmAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -AzureVMName "DscVm" -ConfigurationModeFrequencyMins 60
 ```
 
-有关设置托管节点的配置属性的详细信息，请参阅 [Register-AzureRmAutomationDscNode](https://docs.microsoft.com/powershell/module/azurerm.automation/register-azurermautomationdscnode)。
+有关设置托管节点的配置属性的详细信息，请参阅 [Register-AzureRmAutomationDscNode](https://docs.microsoft.com/powershell/module/azurerm.automation/register-azurermautomationdscnode?view=azurermps-4.3.1&viewFallbackFrom=azurermps-4.2.0)。
 
 有关 DSC 配置设置的详细信息，请参阅[配置本地配置管理器](https://docs.microsoft.com/powershell/dsc/metaconfig)。
 
@@ -130,11 +136,11 @@ Set-AzureRmAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAcc
 
 这会将名为 `TestConfig.WebServer` 的节点配置分配到名为 `DscVm` 的已注册 DSC 节点。
 默认情况下，每隔 30 分钟会检查一次 DSC 节点是否符合节点配置。
-有关如何更改符合性检查间隔的信息，请参阅[配置本地配置管理器](https://docs.microsoft.com/PowerShell/DSC/metaConfig)。
+有关如何更改符合性检查间隔的信息，请参阅[配置本地配置管理器](https://docs.microsoft.com/PowerShell/DSC/metaConfig)
 
 ## <a name="check-the-compliance-status-of-a-managed-node"></a>检查托管节点的符合性状态
 
-可以通过调用 `Get-AzureRmAutomationDscNodeReport` cmdlet 来获取有关托管节点符合性状态的报告：
+可以通过调用 `Get-AzureRmAutomationDscNodeReport` cmdlet，获取有关 DSC 节点符合性状态的报告：
 
 ```powershell
 # Get the ID of the DSC node
@@ -149,9 +155,9 @@ $reports[0]
 
 ## <a name="next-steps"></a>后续步骤
 
-- 有关入门信息，请参阅 [Azure Automation State Configuration 入门](automation-dsc-getting-started.md)
-- 要了解如何登记节点，请参阅[登记由 Azure Automation State Configuration 管理的计算机](automation-dsc-onboarding.md)
-- 若要了解如何编译 DSC 配置，以便将它们分配给目标节点，请参阅[在 Azure Automation State Configuration 中编译配置](automation-dsc-compile.md)
-- 有关 PowerShell cmdlet 参考，请参阅 [Azure Automation State Configuration cmdlet](https://docs.microsoft.com/powershell/module/azurerm.automation/#automation)
-- 有关定价信息，请参阅 [Azure Automation State Configuration 定价](https://azure.cn/pricing/details/automation/)
-- 若要查看在持续部署管道中使用 Azure Automation State Configuration 的示例，请参阅[使用 Azure Automation State Configuration 和 Chocolatey 进行持续部署](automation-dsc-cd-chocolatey.md)
+* 要了解如何登记使用 Azure Automation DSC 管理的节点，请参阅[登记由 Azure 自动化 DSC 管理的计算机](automation-dsc-onboarding.md)
+* 若要了解如何通过 Azure 门户使用自动化 DSC，请参阅 [Azure Automation DSC 入门](automation-dsc-getting-started.md)
+* 要了解编译 DSC 配置，以便将它们分配给目标节点，请参阅[在 Azure 自动化 DSC 中编译配置](automation-dsc-compile.md)
+* 有关 Azure Automation DSC 的 PowerShell cmdlet 参考，请参阅 [Azure Automation DSC cmdlet](https://docs.microsoft.com/powershell/module/azurerm.automation/#automation)
+* 有关定价信息，请参阅 [Azure Automation DSC 定价](https://azure.cn/pricing/details/automation/)。
+* 若要查看在持续部署管道中使用 Azure Automation DSC 的示例，请参阅[使用 Azure Automation DSC 和 Chocolatey 持续部署到 IaaS VM](automation-dsc-cd-chocolatey.md)

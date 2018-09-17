@@ -3,7 +3,7 @@ title: 在 Azure 云服务角色上安装 .NET | Microsoft Docs
 description: 本文介绍如何在云服务 Web 角色和辅助角色上手动安装 .NET Framework
 services: cloud-services
 documentationcenter: .net
-author: jpconnock
+author: thraka
 manager: timlt
 editor: ''
 ms.assetid: 8d1243dc-879c-4d1f-9ed0-eecd1f6a6653
@@ -12,15 +12,15 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 06/22/2018
+origin.date: 06/12/2018
 ms.author: v-yiso
-ms.date: 09/17/2018
-ms.openlocfilehash: 59043c3b8a3e0b95929bcb63ebd81fd3c19ce7f8
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.date: 06/11/2018
+ms.openlocfilehash: 5d951a40764fcc555ad5f802bc55afbf451c292c
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068143"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873334"
 ---
 # <a name="install-net-on-azure-cloud-services-roles"></a>在 Azure 云服务角色上安装 .NET
 本文介绍如何安装不随 Azure 来宾 OS 一起提供的 .NET Framework 版本。 可使用来宾 OS 上的 .NET 配置云服务 web 角色和辅助角色。
@@ -48,7 +48,7 @@ ms.locfileid: "44068143"
 当以此方式将文件添加到角色内容文件夹时，会自动将其添加到云服务包。 然后会将文件部署到虚拟机上的一致位置。 对云服务中的每个 Web 和辅助角色重复此过程，以便所有角色都有安装程序的副本。
 
 > [!NOTE]
-> 即使应用程序面向 .NET 4.6，也应该在云服务角色上安装 .NET 4.6.2。 来宾 OS 包括知识库[更新 3098779](https://support.microsoft.com/kb/3098779)和[更新 3097997](https://support.microsoft.com/kb/3097997)。 如果在知识库更新上安装 .NET 4.6，运行 .NET 应用程序时可能会出现问题。 若要避免这些问题，请安装 .NET 4.6.2，而不是版本 4.6。 有关详细信息，请参阅[知识库文章 3118750](https://support.microsoft.com/kb/3118750) 和 [4340191](https://support.microsoft.com/kb/4340191)。
+> 即使应用程序面向 .NET 4.6，也应该在云服务角色上安装 .NET 4.6.2。 来宾 OS 包括知识库[更新 3098779](https://support.microsoft.com/kb/3098779)和[更新 3097997](https://support.microsoft.com/kb/3097997)。 如果在知识库更新上安装 .NET 4.6，运行 .NET 应用程序时可能会出现问题。 若要避免这些问题，请安装 .NET 4.6.2，而不是版本 4.6。 有关详细信息，请参阅[知识库文章 3118750](https://support.microsoft.com/kb/3118750)。
 > 
 > 
 
@@ -110,7 +110,7 @@ ms.locfileid: "44068143"
     set "log=install.cmd started %timestamp%."
 
     REM ***** Exit script if running in Emulator *****
-    if "%ComputeEmulatorRunning%"=="true" goto exit
+    if %ComputeEmulatorRunning%=="true" goto exit
 
     REM ***** Needed to correctly install .NET 4.6.1, otherwise you may see an out of disk space error *****
     set TMP=%PathToNETFXInstall%
@@ -123,7 +123,6 @@ ms.locfileid: "44068143"
     if %netfx%=="NDP462" goto NDP462
     if %netfx%=="NDP461" goto NDP461
     if %netfx%=="NDP46" goto NDP46
-   
         set "netfxinstallfile=NDP452-KB2901954-Web.exe"
         set netfxregkey="0x5cbf5"
         goto logtimestamp
@@ -154,7 +153,7 @@ ms.locfileid: "44068143"
     goto logtimestamp
     
     :NDP472
-    set "netfxinstallfile=NDP472-KB4054531-Web.exe"
+   set "netfxinstallfile=NDP472-KB4054531-Web.exe"
     set netfxregkey="0x70BF6"
     goto logtimestamp
     
@@ -209,7 +208,6 @@ ms.locfileid: "44068143"
 ## <a name="configure-diagnostics-to-transfer-startup-logs-to-blob-storage"></a>配置诊断以将启动日志传输到 Blob 存储
 为了方便排查安装问题，可以配置 Azure 诊断，将启动脚本或 .NET 安装程序生成的任何日志文件传输到 Azure Blob 存储。 使用这种方法，可从 blob 存储直接下载日志文件，而无需通过远程桌面访问角色，即可查看日志。
 
-
 若要配置诊断，请打开 diagnostics.wadcfgx 文件，并在“Directories”节点下添加以下内容： 
 
 ```xml 
@@ -230,9 +228,9 @@ ms.locfileid: "44068143"
 * [确定安装的 .NET Framework 版本][How to: Determine Which .NET Framework Versions Are Installed]
 * [.NET Framework 安装故障排除][Troubleshooting .NET Framework Installations]
 
-[How to: Determine Which .NET Framework Versions Are Installed]: /dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed
-[Installing the .NET Framework]: /dotnet/framework/install/guide-for-developers
-[Troubleshooting .NET Framework Installations]: /dotnet/framework/install/troubleshoot-blocked-installations-and-uninstallations
+[How to: Determine Which .NET Framework Versions Are Installed]: https://docs.microsoft.com/en-us/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed
+[Installing the .NET Framework]: https://docs.microsoft.com/en-us/dotnet/framework/install/guide-for-developers
+[Troubleshooting .NET Framework Installations]: https://docs.microsoft.com/en-us/dotnet/framework/install/troubleshoot-blocked-installations-and-uninstallations
 
 <!--Image references-->
 [1]: ./media/cloud-services-dotnet-install-dotnet/rolecontentwithinstallerfiles.png

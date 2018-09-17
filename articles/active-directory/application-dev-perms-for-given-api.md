@@ -11,16 +11,16 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: article
 origin.date: 07/11/2017
-ms.date: 09/06/2018
+ms.date: 07/30/2018
 ms.author: v-junlch
-ms.openlocfilehash: c0b558196b1a66d4100acefc49152f4639a1ee0f
-ms.sourcegitcommit: fd49281c58f34de20cc310d6cefb4568992cd675
+ms.openlocfilehash: 65e1c261887ab98f957b82e0510325b9ef3ddeaa
+ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43858432"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486909"
 ---
 # <a name="how-to-select-permissions-for-a-given-api"></a>如何为给定 API 选择权限 
 

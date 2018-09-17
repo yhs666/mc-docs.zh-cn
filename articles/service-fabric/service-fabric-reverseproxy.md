@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 origin.date: 11/03/2017
-ms.date: 09/10/2018
+ms.date: 08/20/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0e5f9b3268b9bd4275bb999a414a3f39c7710bb1
-ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
+ms.openlocfilehash: 695ce9d8c541db0d0c0e3dfaf78fd8f2b81605b1
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44515669"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41703929"
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Azure Service Fabric 中的反向代理
 借助 Azure Service Fabric 中内置的反向代理，Service Fabric 群集中运行的微服务可以发现包含 http 终结点的其他服务，并与之通信。
@@ -76,11 +76,11 @@ http(s)://<Cluster FQDN | internal IP>:Port/<ServiceInstanceName>/<Suffix path>?
 
 * **http(s)：** 可以将反向代理配置为接受 HTTP 或 HTTPS 流量。 对于 HTTPS 转发，在设置反向代理侦听 HTTPS 后，请参阅[使用反向代理连接到安全服务](service-fabric-reverseproxy-configure-secure-communication.md)。
 * **群集的完全限定域名 (FQDN) | 内部 IP：** 对于外部客户端，可以配置反向代理，以便可以通过群集域（例如 mycluster.chinaeast.cloudapp.chinacloudapi.cn）访问反向代理。 默认情况下，反向代理在每个节点上运行。 对于内部流量，可在本地主机或任意内部节点 IP（例如 10.0.0.1）上访问反向代理。
-* Port：为反向代理指定的端口，例如 19081。
+* **端口：** 这是已为反向代理指定的端口，例如 19081。
 * **ServiceInstanceName：** 在不使用“fabric:/”方案的情况下尝试访问的已部署服务实例的完全限定名称。 例如，若要访问 *fabric:/myapp/myservice/* 服务，可以使用 *myapp/myservice*。
 
     服务实例名称要区分大小写。 若 URL 中的服务实例名称大小写不同，则会导致请求失败，并显示 404（未找到）。
-* **后缀路径：** 要连接到的服务的实际 URL 路径，例如 *myapi/values/add/3*。
+* **Suffix path：** 要连接到的服务的实际 URL 路径，例如 *myapi/values/add/3*。
 * **PartitionKey：** 对于分区服务，这是针对要访问的分区计算出的分区键。 请注意，这*不*是分区 ID GUID。 对于使用单独分区方案的服务，此参数不是必需的。
 * **PartitionKind：** 服务分区方案。 该方案可以是“Int64Range”或“Named”。 对于使用单独分区方案的服务，此参数不是必需的。
 * **ListenerName** 服务中的终结点采用以下形式：{"Endpoints":{"Listener1":"Endpoint1","Listener2":"Endpoint2" ...}}。 当服务公开了多个终结点时，此参数标识应将客户端请求转发到的终结点。 如果服务只有一个侦听器，则可以省略此项。
@@ -114,7 +114,7 @@ http://10.0.0.5:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/
 要访问服务公开的资源，可直接在 URL 中将资源路径置于服务名称之后：
 
 * 外部访问方式：`http://mycluster.chinaeast.cloudapp.chinacloudapi.cn:19081/MyApp/MyService/index.html?PartitionKey=3&PartitionKind=Int64Range`
-* 内部访问方式：`http://localhost:19081/MyApp/MyService/api/users/6?PartitionKey=3&PartitionKind=Int64Range`
+* 内部访问方式： `http://localhost:19081/MyApp/MyService/api/users/6?PartitionKey=3&PartitionKind=Int64Range`
 
 然后，网关会将这些请求转发到服务的 URL：
 
@@ -146,25 +146,186 @@ http://10.0.0.5:10592/3f0d39ad-924b-4233-b4a7-02617c6308a6-130834621071472715/
 
 此 HTTP 响应标头指示的是正常的 HTTP 404 情形，即所请求的资源不存在，因此反向代理不会尝试重新解析服务地址。
 
-## <a name="special-handling-for-services-running-in-containers"></a>针对容器中运行的服务的特殊处理
+## <a name="setup-and-configuration"></a>安装和配置
 
-对于容器中运行的服务，可以使用环境变量 `Fabric_NodeIPOrFQDN` 构造[反向代理 URL](#uri-format-for-addressing-services-by-using-the-reverse-proxy)，如下面的代码中所示：
+### <a name="enable-reverse-proxy-via-azure-portal"></a>通过 Azure 门户启用反向代理
 
-```csharp
-    var fqdn = Environment.GetEnvironmentVariable("Fabric_NodeIPOrFQDN");
-    var serviceUrl = $"http://{fqdn}:19081/DockerSFApp/UserApiContainer";
-```
-对于本地群集，`Fabric_NodeIPOrFQDN` 默认设置为“localhost”。 使用 `-UseMachineName` 参数启动本地群集，确保容器可访问节点上运行的反向代理。 有关详细信息，请参阅[配置开发人员环境以调试容器](service-fabric-how-to-debug-windows-containers.md#configure-your-developer-environment-to-debug-containers)。
+在创建新的 Service Fabric 群集时，Azure 门户提供了一个启用反向代理的选项。
+在“创建 Service Fabric 群集”的“步骤 2: 群集配置，节点类型配置”下，选中“启用反向代理”复选框。
+若要配置安全反向代理，可在“步骤 3: 安全性，配置群集安全设置”中指定 SSL 证书，选中“包含反向代理的 SSL 证书”复选框并输入证书详细信息。
+
+### <a name="enable-reverse-proxy-via-azure-resource-manager-templates"></a>通过 Azure 资源管理器模板启用反向代理
+
+可以使用 [Azure Resource Manager 模板](service-fabric-cluster-creation-via-arm.md)在 Service Fabric 中为群集启用反向代理。
+
+请参阅[在安全群集中配置 HTTPS 反向代理](https://github.com/ChackDan/Service-Fabric/tree/master/ARM Templates/ReverseProxySecureSample#configure-https-reverse-proxy-in-a-secure-cluster)中的 Azure Resource Manager 模板示例，使用证书配置安全反向代理并处理证书滚动更新。
+
+首先，获取要部署的群集的模板。 可以使用示例模板，或者创建自定义 Resource Manager 模板。 然后，可以使用以下步骤启用反向代理：
+
+1. 在模板的[“参数”部分](../azure-resource-manager/resource-group-authoring-templates.md)定义反向代理的端口。
+
+    ```json
+    "SFReverseProxyPort": {
+        "type": "int",
+        "defaultValue": 19081,
+        "metadata": {
+            "description": "Endpoint for Service Fabric Reverse proxy"
+        }
+    },
+    ```
+2. 为 **Cluster** [资源类型节](../azure-resource-manager/resource-group-authoring-templates.md)中的每个 nodetype 对象指定端口。
+
+    端口由参数名称 reverseProxyEndpointPort 标识。
+
+    ```json
+    {
+        "apiVersion": "2016-09-01",
+        "type": "Microsoft.ServiceFabric/clusters",
+        "name": "[parameters('clusterName')]",
+        "location": "[parameters('clusterLocation')]",
+        ...
+       "nodeTypes": [
+          {
+           ...
+           "reverseProxyEndpointPort": "[parameters('SFReverseProxyPort')]",
+           ...
+          },
+        ...
+        ],
+        ...
+    }
+    ```
+3. 若要从 Azure 群集外部与反向代理通信，请为步骤 1 中指定的端口设置 Azure 负载均衡器规则。
+
+    ```json
+    {
+        "apiVersion": "[variables('lbApiVersion')]",
+        "type": "Microsoft.Network/loadBalancers",
+        ...
+        ...
+        "loadBalancingRules": [
+            ...
+            {
+                "name": "LBSFReverseProxyRule",
+                "properties": {
+                    "backendAddressPool": {
+                        "id": "[variables('lbPoolID0')]"
+                    },
+                    "backendPort": "[parameters('SFReverseProxyPort')]",
+                    "enableFloatingIP": "false",
+                    "frontendIPConfiguration": {
+                        "id": "[variables('lbIPConfig0')]"
+                    },
+                    "frontendPort": "[parameters('SFReverseProxyPort')]",
+                    "idleTimeoutInMinutes": "5",
+                    "probe": {
+                        "id": "[concat(variables('lbID0'),'/probes/SFReverseProxyProbe')]"
+                    },
+                    "protocol": "tcp"
+                }
+            }
+        ],
+        "probes": [
+            ...
+            {
+                "name": "SFReverseProxyProbe",
+                "properties": {
+                    "intervalInSeconds": 5,
+                    "numberOfProbes": 2,
+                    "port":     "[parameters('SFReverseProxyPort')]",
+                    "protocol": "tcp"
+                }
+            }  
+        ]
+    }
+    ```
+4. 若要在反向代理的端口上配置 SSL 证书，请将证书添加到 Cluster [资源类型节](../resource-group-authoring-templates.md)中的 reverseProxyCertificate 属性。
+
+    ```json
+    {
+        "apiVersion": "2016-09-01",
+        "type": "Microsoft.ServiceFabric/clusters",
+        "name": "[parameters('clusterName')]",
+        "location": "[parameters('clusterLocation')]",
+        "dependsOn": [
+            "[concat('Microsoft.Storage/storageAccounts/', parameters('supportLogStorageAccountName'))]"
+        ],
+        "properties": {
+            ...
+            "reverseProxyCertificate": {
+                "thumbprint": "[parameters('sfReverseProxyCertificateThumbprint')]",
+                "x509StoreName": "[parameters('sfReverseProxyCertificateStoreName')]"
+            },
+            ...
+            "clusterState": "Default",
+        }
+    }
+    ```
+
+### <a name="supporting-a-reverse-proxy-certificate-thats-different-from-the-cluster-certificate"></a>支持不同于群集证书的反向代理证书
+ 如果反向代理证书不同于用于保护群集的证书，应将前面指定的证书安装在虚拟机上，并将其添加到访问控制列表 (ACL)，使 Service Fabric 能够访问它。 可在 **virtualMachineScaleSets** [资源类型节](../resource-group-authoring-templates.md)中执行此操作。 要安装，请将该证书添加到 osProfile。 模板的扩展节可以更新 ACL 中的证书。
+
+  ```json
+  {
+    "apiVersion": "[variables('vmssApiVersion')]",
+    "type": "Microsoft.Compute/virtualMachineScaleSets",
+    ....
+      "osProfile": {
+          "adminPassword": "[parameters('adminPassword')]",
+          "adminUsername": "[parameters('adminUsername')]",
+          "computernamePrefix": "[parameters('vmNodeType0Name')]",
+          "secrets": [
+            {
+              "sourceVault": {
+                "id": "[parameters('sfReverseProxySourceVaultValue')]"
+              },
+              "vaultCertificates": [
+                {
+                  "certificateStore": "[parameters('sfReverseProxyCertificateStoreValue')]",
+                  "certificateUrl": "[parameters('sfReverseProxyCertificateUrlValue')]"
+                }
+              ]
+            }
+          ]
+        }
+   ....
+   "extensions": [
+          {
+              "name": "[concat(parameters('vmNodeType0Name'),'_ServiceFabricNode')]",
+              "properties": {
+                      "type": "ServiceFabricNode",
+                      "autoUpgradeMinorVersion": false,
+                      ...
+                      "publisher": "Microsoft.Azure.ServiceFabric",
+                      "settings": {
+                        "clusterEndpoint": "[reference(parameters('clusterName')).clusterEndpoint]",
+                        "nodeTypeRef": "[parameters('vmNodeType0Name')]",
+                        "dataPath": "D:\\\\SvcFab",
+                        "durabilityLevel": "Bronze",
+                        "testExtension": true,
+                        "reverseProxyCertificate": {
+                          "thumbprint": "[parameters('sfReverseProxyCertificateThumbprint')]",
+                          "x509StoreName": "[parameters('sfReverseProxyCertificateStoreValue')]"
+                        },
+                  },
+                  "typeHandlerVersion": "1.0"
+              }
+          },
+      ]
+    }
+  ```
+> [!NOTE]
+> 在现有群集上使用不同于群集证书的证书来启用反向代理时，请在启用反向代理之前在群集上安装反向代理证书并更新 ACL。 在执行步骤 1-4 开始部署以启用反向代理之前，请使用上述设置完成 [Azure Resource Manager 模板](service-fabric-cluster-creation-via-arm.md)部署。
 
 ## <a name="next-steps"></a>后续步骤
-* [在群集上设置和配置反向代理](service-fabric-reverseproxy-setup.md)。
-* [设置使用反向代理转发到安全的 HTTP 服务](service-fabric-reverseproxy-configure-secure-communication.md)
 * 参阅 [GitHub 上的示例项目](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)中服务之间的 HTTP 通信示例。
+* [使用反向代理转发到安全的 HTTP 服务](service-fabric-reverseproxy-configure-secure-communication.md)
 * [使用 Reliable Services 远程控制执行远程过程调用](service-fabric-reliable-services-communication-remoting.md)
 * [Reliable Services 中使用 OWIN 的 Web API](service-fabric-reliable-services-communication-webapi.md)
 * [使用 Reliable Services 的 WCF 通信](service-fabric-reliable-services-communication-wcf.md)
+* 有关反向代理配置选项的详细信息，请参阅[自定义 Service Fabric 群集设置](service-fabric-cluster-fabric-settings.md)中的 ApplicationGateway/Http 部分。
 
 [0]: ./media/service-fabric-reverseproxy/external-communication.png
 [1]: ./media/service-fabric-reverseproxy/internal-communication.png
 
-<!-- Update_Description: update meta properties, wording update, updte link  -->
+<!-- Update_Description: update meta properties, wording update  -->

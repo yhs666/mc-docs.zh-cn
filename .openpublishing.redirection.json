@@ -10900,6 +10900,11 @@
       "redirect_document_id": false
   },
   {
+      "source_path": "articles/sql-database/sql-database-service-tiers.md",
+      "redirect_url": "/sql-database/sql-database-service-tiers-vcore",
+      "redirect_document_id": false
+  },
+  {
      "source_path": "articles/azure-stack/azure-stack-manage-windows-azure-pack.md",
      "redirect_url": "/azure-stack/",
      "redirect_document_id": false
@@ -11203,12 +11208,7 @@
             "source_path": "articles/sql-database/sql-database-servers-databases-manage.md",
             "redirect_url": "/sql-database/sql-database-single-databases-manage",
             "redirect_document_id": false
-        },
-	{
-            "source_path": "articles/sql-data-warehouse/sql-data-warehouse-get-started-provision-powershell.md",
-            "redirect_url": "/sql-data-warehouse/create-data-warehouse-powershell",
-            "redirect_document_id": false
-        },
+        }
 
   ]
 }

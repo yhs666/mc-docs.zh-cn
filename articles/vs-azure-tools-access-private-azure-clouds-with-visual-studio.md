@@ -7,18 +7,17 @@ manager: douge
 assetId: 9d733c8d-703b-44e7-a210-bb75874c45c8
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.custom: vs-azure
-ms.workload: azure-vs
+ms.workload: azure
 ms.topic: conceptual
 origin.date: 11/13/2017
-ms.date: 09/10/2018
+ms.date: 07/12/2018
 ms.author: v-junlch
-ms.openlocfilehash: 3a5fd8fdd4111e93a873467e3836605def2322c5
-ms.sourcegitcommit: 40456700212200e707d6cb3147cf96ad161d3ff2
+ms.openlocfilehash: c9725abb7f212b8a720cf66e04cf19642aaa4394
+ms.sourcegitcommit: 5b6a2fc55e5b16ae480bd497c3ac2c3a2fd44703
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44269507"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38999137"
 ---
 # <a name="accessing-private-azure-clouds-with-visual-studio"></a>使用 Visual Studio 访问私有 Azure 云
 

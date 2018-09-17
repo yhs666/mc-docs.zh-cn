@@ -3,19 +3,19 @@ title: 使用 Azure Policy 来创建和管理策略以强制实施组织符合�
 description: 使用 Azure Policy 强制执行标准、满足法规遵从性、审核需求、控制成本、维护安全和性能的一致性，并实施企业范围的设计原则。
 services: azure-policy
 author: WenJason
-ms.author: v-jay
-origin.date: 07/13/2018
-ms.date: 09/10/2018
+ms.author: v-nany
+origin.date: 05/24/2018
+ms.date: 07/23/2018
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: f1755694a614c7813c7fe746bb31df4bb8a98fb6
-ms.sourcegitcommit: 1b60848d25bbd897498958738644a4eb9cf3a302
+ms.openlocfilehash: 118c9d52c80da4a49b14b2235c6127cf9cac8b35
+ms.sourcegitcommit: 2a147231bf3d0a693adf58fceee76ab0fbcd6dbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43731210"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39335315"
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>创建和管理策略以强制实施符合性
 
@@ -423,4 +423,5 @@ az policy definition list
 若要了解有关策略定义结构的详细信息，请查看以下文章：
 
 > [!div class="nextstepaction"]
-> [Azure Policy 定义结构](policy-definition.md)
+> 
+  [Azure Policy 定义结构](policy-definition.md)

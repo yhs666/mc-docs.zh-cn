@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/04/2017
-ms.date: 09/06/2018
+ms.date: 07/05/2018
 ms.author: v-junlch
-ms.openlocfilehash: d6163f5e216026c70d49fcb77303d1e3a630baaa
-ms.sourcegitcommit: fd49281c58f34de20cc310d6cefb4568992cd675
+ms.openlocfilehash: e49d819a9f57f98e30e4592e48ffd8598caccc78
+ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43858442"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486946"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory 概念证明操作手册：构建基块
 
@@ -40,7 +40,7 @@ ms.locfileid: "43858442"
 
 | 先决条件 | 资源 |
 | --- | --- |
-| 使用有效 Azure 订阅定义的 Azure AD 租户 | [如何获取 Azure Active Directory 租户](develop/quickstart-create-new-tenant.md)|
+| 使用有效 Azure 订阅定义的 Azure AD 租户 | [如何获取 Azure Active Directory 租户](./develop/active-directory-howto-tenant.md)|
 | Azure AD 全局管理员凭据 | [在 Azure Active Directory 中分配管理员角色](active-directory-assign-admin-roles-azure-portal.md) |
 | 此项是可选项，但强烈建议执行：将实验室环境并行为回退 | [Azure AD Connect 的先决条件](./connect/active-directory-aadconnect-prerequisites.md) |
 
@@ -127,7 +127,7 @@ ms.locfileid: "43858442"
 | --- | --- |
 | 在 Azure AD 门户中导航到“用户和组”边栏选项卡 | [Azure AD 门户：用户和组](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/Overview/menuId/) |
 | 选择“所有用户”边栏选项卡 |  |
-| 在顶部栏中选择“多重身份验证”按钮 | Azure MFA 门户的直接 URL： https://aka.ms/mfaportal |
+| 在顶部栏中选择“多重身份验证”按钮 | Azure MFA 门户的直接 URL：https://aka.ms/mfaportal |
 | 在“用户”设置中选择 PoC 用户，并为他们启用 MFA | [Azure 多重身份验证中的用户状态](authentication/howto-mfa-userstates.md) |
 | 以 PoC 用户身份登录，并完成验证过程  |  |
 
@@ -147,7 +147,7 @@ ms.locfileid: "43858442"
 | --- | --- |
 | 通过企业 PKI 预配的、包含用户证书的设备（Windows、iOS 或 Android） | [部署用户证书](https://msdn.microsoft.com/library/cc770857.aspx) |
 | 与 ADFS 联合的 Azure AD 域 | [Azure AD Connect 和联合身份验证](./connect/active-directory-aadconnectfed-whatis.md)<br/>[Active Directory 证书服务概述](https://technet.microsoft.com/library/hh831740.aspx)|
-| 已经为 iOS 设备安装了 Microsoft 验证器应用 | [Microsoft 验证器应用入门](user-help/microsoft-authenticator-app-how-to.md) |
+| 已经为 iOS 设备安装了 Microsoft 验证器应用 | [Microsoft 验证器应用入门](../multi-factor-authentication/end-user/microsoft-authenticator-app-how-to.md) |
 
 ### <a name="steps"></a>步骤
 
@@ -170,4 +170,4 @@ ms.locfileid: "43858442"
 
 [!INCLUDE [active-directory-playbook-toc](../../includes/active-directory-playbook-steps.md)]
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

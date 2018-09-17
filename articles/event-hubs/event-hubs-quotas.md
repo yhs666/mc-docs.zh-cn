@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 08/16/2018
-ms.date: 09/17/2018
+origin.date: 01/23/2018
+ms.date: 04/02/2018
 ms.author: v-yeche
-ms.openlocfilehash: d924e1033d142808861c47dba505a77073036643
-ms.sourcegitcommit: 2700f127c3a8740a83fb70739c09bd266f0cc455
+ms.openlocfilehash: 2eb696db828ad0fd6c21e1d8cd72b0e14f4bb787
+ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45586567"
+ms.lasthandoff: 03/28/2018
+ms.locfileid: "30222464"
 ---
 # <a name="event-hubs-quotas"></a>事件中心配额
 
-本部分列出了 Azure 事件中心的基本配额和限制。
+本部分列出 Azure 事件中心的基本配额和限制。
 
 [!INCLUDE [event-hubs-limits](../../includes/event-hubs-limits.md)]
 
@@ -34,6 +34,7 @@ ms.locfileid: "45586567"
 
 * [事件中心概述](event-hubs-what-is-event-hubs.md)
 * [事件中心自动膨胀](event-hubs-auto-inflate.md)
-* [事件中心常见问题解答](event-hubs-faq.md)
+* [事件中心常见问题](event-hubs-faq.md)
 
-<!--Update_Description: Update meta properties -->
+<!--The parent file of includes file of event-hubs-limits.md-->
+<!--ms.date:04/02/2018-->

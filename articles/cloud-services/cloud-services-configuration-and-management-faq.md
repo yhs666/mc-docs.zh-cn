@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/23/2018
+origin.date: 05/11/2018
 ms.author: v-yiso
-ms.date: 09/17/2018
-ms.openlocfilehash: 751889db3037bd9f48363e80cd310ec83c0e3330
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.date: 08/20/2018
+ms.openlocfilehash: 7380fa70f6692b9a59eafc5d9f1d41093a8a004d
+ms.sourcegitcommit: 664584f55e0a01bb6558b8d3349d41d3f05ba4d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068169"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41705340"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure 云服务的配置和管理问题：常见问题解答 (FAQ)
 
@@ -42,7 +42,6 @@ ms.locfileid: "44068169"
 
 - [Azure 门户中即将推出的可帮助管理和监视应用程序的云服务功能是什么？](#what-are-the-upcoming-cloud-service-capabilities-in-the-azure-portal-which-can-help-manage-and-monitor-applications)
 - [IIS 为何停止写入日志目录？](#why-does-iis-stop-writing-to-the-log-directory)
-- [如何为云服务启用 WAD 日志记录？](#how-do-i-enable-wad-logging-for-cloud-services)
 
 **网络配置**
 
@@ -140,15 +139,6 @@ Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $pass
 有关详细信息，请参阅以下文档：
 * [在 Azure 存储中存储和查看诊断数据](cloud-services-dotnet-diagnostics-storage.md)
 * [IIS 日志停止写入云服务](https://blogs.msdn.microsoft.com/cie/2013/12/21/iis-logs-stops-writing-in-cloud-service/)
-
-### <a name="how-do-i-enable-wad-logging-for-cloud-services"></a>如何为云服务启用 WAD 日志记录？
-可以通过以下选项启用 Windows Azure 诊断 (WAD) 日志记录：
-1. [从 Visual Studio 启用](/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
-2. [通过 .Net 代码启用](/cloud-services/cloud-services-dotnet-diagnostics)
-3. [通过 Powershell 启用](/cloud-services/cloud-services-diagnostics-powershell)
-
-若要获取云服务的当前 WAD 设置，可以使用 [Get-AzureServiceDiagnosticsExtensions](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell#get-current-diagnostics-extension-configuration) ps cmd，也可以通过门户从“云服务 - > 扩展”边栏选项卡查看它。
-
 
 ## <a name="network-configuration"></a>网络配置
 
@@ -279,7 +269,7 @@ Azure 不会将任何数据写入 %approot% 驱动器。 从 .cspkg 创建 VHD �
 可在启动任务中使用 PowerShell 脚本启用反恶意软件扩展。 请遵循以下文章中的步骤实现此目的： 
  
 - [创建 PowerShell 启动任务](cloud-services-startup-tasks-common.md#create-a-powershell-startup-task)
-- [Set-AzureServiceAntimalwareExtension](https://docs.microsoft.com/powershell/module/servicemanagement/azure/Set-AzureServiceAntimalwareExtension?view=azuresmps-4.0.0 )
+- [Set-AzureServiceAntimalwareExtension](https://docs.microsoft.com/powershell/module/Azure/Set-AzureServiceAntimalwareExtension?view=azuresmps-4.0.0 )
 
 有关反恶意软件部署方案以及如何在门户中启用此类方案的详细信息，请参阅[反恶意软件部署方案](../security/azure-security-antimalware.md#antimalware-deployment-scenarios)。
 

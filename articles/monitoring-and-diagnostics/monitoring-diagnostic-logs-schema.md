@@ -5,20 +5,20 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: reference
-origin.date: 07/18/2018
-ms.date: 09/17/2018
+origin.date: 07/06/2018
+ms.date: 08/20/2018
 ms.author: v-yiso
 ms.component: logs
-ms.openlocfilehash: fd28fd23bb739c09d655504c2858f2951b08a999
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.openlocfilehash: 8fec1724d4436a0f67a6db50a2a27deaa168759f
+ms.sourcegitcommit: 664584f55e0a01bb6558b8d3349d41d3f05ba4d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068198"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41704480"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Azure 诊断日志支持的服务、架构和类别
 
-[Azure Monitor 诊断日志](monitoring-overview-of-diagnostic-logs.md)是 Azure 服务发出的日志，用于描述这些服务或资源的操作。 通过 Azure Monitor 提供的所有诊断日志共享公共顶级架构，且每个服务都能灵活地为其事件发出唯一属性。
+[Azure 资源诊断日志](monitoring-overview-of-diagnostic-logs.md)是 Azure 资源发出的日志，用于描述该资源的操作。 通过 Azure Monitor 提供的所有诊断日志共享公共顶级架构，且每个服务都能灵活地为其事件发出唯一属性。
 
 资源类型（为 `resourceId` 属性时可用）和 `category` 的组合唯一标识架构。 本文介绍了诊断日志的顶级架构以及每个服务的架构链接。
 
@@ -27,20 +27,19 @@ ms.locfileid: "44068198"
 | Name | 必需/可选 | 说明 |
 |---|---|---|
 | time | 必须 | 事件时间戳 (UTC)。 |
-| ResourceId | 必须 | 发出事件的资源的资源 ID。 对于租户服务，其形式为 /tenants/tenant-id/providers/provider-name。 |
-| tenantId | 对于租户日志是必需的 | 此事件关联到的 Active Directory 租户的租户 ID。 此属性仅用于租户级日志，它不会出现在资源级日志中。 |
+| ResourceId | 必须 | 发出事件的资源的资源 ID。 |
 | operationName | 必须 | 此事件表示的操作的名称。 如果该事件表示 RBAC 操作，则这是 RBAC 操作名称 （例如 Microsoft.Storage/storageAccounts/blobServices/blobs/Read）。 通常以资源管理器操作的形式建模，即使它们不是实际记录的资源管理器操作 (`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`) |
 | operationVersion | 可选 | 如果使用 API 执行 operationName，则 api-version 与该操作关联（例如 http://myservice.windowsazure.net/object?api-version=2016-06-01)。 如果没有与此操作相对应的 API，则该版本表示该操作的版本，以防与操作相关联的属性在将来发生更改。 |
 | category | 必须 | 事件的日志类别。 类别是可以在特定资源上启用或禁用日志的粒度。 在事件的属性 blob 内显示的属性在特定日志类别和资源类型中相同。 典型的日志类别是“Audit”、“Operational”、“Execution”和“Request”。 |
 | resultType | 可选 | 事件的状态。 典型值包括“Started”、“In Progress”、“Succeeded”、“Failed”、“Active”和“Resolved”。 |
 | resultSignature | 可选 | 事件的子状态。 如果此操作对应于 REST API 调用，则这是相应 REST 调用的 HTTP 状态代码。 |
-| resultDescription | 可选 | 此操作的静态文本说明，例如 “获取存储文件”。 |
+| resultDescription | 可选 | 此操作的静态文本说明，例如 “获取存储文件。” |
 | durationMs | 可选 | 操作持续时间，以毫秒为单位。 |
 | callerIpAddress | 可选 | 调用方 IP 地址，如果该操作对应于来自具有公开 IP 地址的实体的 API 调用。 |
 | correlationId | 可选 | 用于将一组相关事件组合在一起的 GUID。 通常情况下，如果两个事件具有相同 operationName，但具有两个不同状态（例如 “Started”和“Succeeded”），则它们共享相同的关联 ID。 这也可以代表事件之间的其他关系。 |
 | identity | 可选 | 描述执行操作的用户或应用程序的标识的 JSON Blob。 通常，这将包括 Active Directory 中的授权和声明/JWT 令牌。 |
 | 级别 | 可选 | 事件的严重级别。 必须是信息性、警告、错误或严重。 |
-| location | 可选 | 发出事件的资源区域，例如 “中国东部”或“中国北部”。 |
+| location | 可选 | 发出事件的资源区域，例如 “美国东部”或“法国南部” |
 | properties | 可选 | 与此特定类别的事件相关的任何扩展属性。 所有自定义/唯一属性都必须放入此架构的“B 部分”。 |
 
 ## <a name="service-specific-schemas-for-resource-diagnostic-logs"></a>资源诊断日志的服务特定架构
@@ -48,14 +47,12 @@ ms.locfileid: "44068198"
 
 | 服务 | 架构和文档 |
 | --- | --- |
-| Azure Active Directory | [概述](../active-directory/reports-monitoring/overview-activity-logs-in-azure-monitor.md)、[审核日志架构](../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md)和[登录架构](../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
 | Analysis Services | https://azure.microsoft.com/blog/azure-analysis-services-integration-with-azure-diagnostic-logs/ |
 | API 管理 | [API 管理诊断日志](../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
 | 应用程序网关 |[应用程序网关的诊断日志记录](../application-gateway/application-gateway-diagnostics.md) |
 | Azure 自动化 |[Azure 自动化的 Log Analytics](../automation/automation-manage-send-joblogs-log-analytics.md) |
 | Azure Batch |[Azure Batch 诊断日志记录](../batch/batch-diagnostics.md) |
 | CosmosDB | [Azure Cosmos DB 日志记录](../cosmos-db/logging.md) |
-| 适用于 PostgreSQL 的 DB |  架构不可用。 |
 | 事件中心 |[Azure 事件中心诊断日志](../event-hubs/event-hubs-diagnostic-logs.md) |
 | Express Route | 架构不可用。 |
 | IoT 中心 | [IoT 中心操作](../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
@@ -107,8 +104,6 @@ ms.locfileid: "44068198"
 |Microsoft.EventHub/namespaces|OperationalLogs|运行日志|
 |Microsoft.EventHub/namespaces|AutoScaleLogs|自动缩放日志|
 |Microsoft.KeyVault/vaults|AuditEvent|审核日志|
-|Microsoft.Logic/workflows|WorkflowRuntime|工作流运行时诊断事件|
-|Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|集成帐户跟踪事件|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|网络安全组事件|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|网络安全组规则计数器|
 |Microsoft.Network/loadBalancers|LoadBalancerAlertEvent|负载均衡器警报事件|

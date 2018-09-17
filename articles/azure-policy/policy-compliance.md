@@ -4,18 +4,18 @@ description: Azure Policy 的评估和效果确定了符合性。 了解如何�
 services: azure-policy
 author: WenJason
 ms.author: v-jay
-origin.date: 07/29/2018
-ms.date: 09/10/2018
+origin.date: 05/24/2018
+ms.date: 07/09/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: digimobile
 ms.custom: mvc
-ms.openlocfilehash: b5b2f8ce845aa9380af3b19f5d30c6cc614193c4
-ms.sourcegitcommit: 1b60848d25bbd897498958738644a4eb9cf3a302
+ms.openlocfilehash: 31efa296489a0654ae35f8a4e8041d5f00891ba5
+ms.sourcegitcommit: 2a147231bf3d0a693adf58fceee76ab0fbcd6dbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43731205"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39335317"
 ---
 # <a name="getting-compliance-data"></a>获取符合性数据
 
@@ -28,9 +28,6 @@ Azure Policy 的最大优势之一在于它针对订阅中的资源提供的见�
 
 在探讨符合性报告方法之前，让我们了解符合性信息的更新时间和频率，以及触发评估周期的事件。
 
-> [!WARNING]
-> 如果符合性状态被报告为“N/A”，请确认是否已注册 Microsoft.PolicyInsights 资源提供程序，并确认用户是否具有相应的基于角色的访问控制 (RBAC) 权限，如[此处](azure-policy-introduction.md#rbac-permissions-in-azure-policy)所述。
-
 ## <a name="evaluation-triggers"></a>评估触发器
 
 已完成的评估周期的结果通过 `PolicyStates` 和 `PolicyEvents` 操作反映在 `Microsoft.PolicyInsights` 资源提供程序中。 有关策略见解 REST API 的选项和功能的详细信息，请参阅[策略见解](https://docs.microsoft.com/rest/api/policy-insights/)。
@@ -39,7 +36,7 @@ Azure Policy 的最大优势之一在于它针对订阅中的资源提供的见�
 
 - 最近已将策略或计划分配到某个范围。 发生这种情况时，需要大约花费 30 分钟将分配应用到定义的范围。 应用分配后，将会针对新分配的策略或计划，对该范围内的资源执行评估周期，同时，会根据策略或计划使用的效果，将资源标记为合规或不合规。 针对大范围的资源评估的大型策略或计划可能需要花费一段时间，因此，在评估周期何时完成方面，无法预先定义预期目标。 完成评估后，更新的符合性结果会在门户和 SDK 中提供。
 - 更新了已分配到某个范围的策略或计划。 此场景的评估周期和计时与新的范围分配相同。
-- 资源将通过资源管理器、REST、Azure CLI 或 Azure PowerShell 部署到包含分配的范围。 在此场景中，个体资源的效果事件（追加、审核、拒绝、部署）和符合性状态将在大约 15 分钟后出现在门户与 SDK 中。 此事件不会导致对其他资源进行评估。
+- 资源将通过资源管理器、REST、Azure CLI 或 Azure PowerShell 部署到包含分配的范围。 在此场景中，效果事件（追加、审核、拒绝、部署）和符合性状态将在大约 15 分钟后出现在门户与 SDK 中。
 - 标准符合性评估周期。 分配每隔 24 小时自动重新评估一次。 针对大范围的资源评估的大型策略或计划可能需要花费一段时间，因此，在评估周期何时完成方面，无法预先定义预期目标。 完成评估后，更新的符合性结果会在门户和 SDK 中提供。
 
 ## <a name="how-compliance-works"></a>符合性的工作原理
@@ -55,6 +52,8 @@ Azure Policy 的最大优势之一在于它针对订阅中的资源提供的见�
 
 \*Append、DeployIfNotExist 和 AuditIfNotExist 效果要求 IF 语句为 TRUE。
 这些效果还要求存在条件为 FALSE 才能将资源判定为不合规。 如果为 TRUE，则 IF 条件会触发相关资源存在条件的计算。
+
+为了更好地理解如何将资源标记为不合规，让我们使用前面创建的策略分配示例。
 
 例如，假设有一个资源组 ContsoRG，其中包含一些向公共网络公开的存储帐户（以红色突出显示）。
 
@@ -226,13 +225,14 @@ https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/providers/Mic
 
 有关查询策略事件的详细信息，请参阅[策略事件](https://docs.microsoft.com/rest/api/policy-insights/policyevents)参考文章。
 
-### <a name="azure-powershell"></a>Azure PowerShell
+### <a name="azure-powershell-preview"></a>Azure PowerShell（预览版）
 
-适用于策略的 Azure PowerShell 模块在 PowerShell 库中以 [AzureRM.PolicyInsights](https://www.powershellgallery.com/packages/AzureRM.PolicyInsights) 的形式提供。 使用 PowerShellGet，可以使用 `Install-Module -Name AzureRM.PolicyInsights` 安装模块（请确保已安装了最新版 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)）：
+适用于策略的 Azure PowerShell 模块尚未发布最终版，目前以[预览版](https://www.powershellgallery.com/packages/AzureRM.PolicyInsights)的形式在 PowerShell 库中提供。
+如果使用的 PowerShellGet 的最低版本为 1.6.0（需要安装该版本才能支持预发布项），可以使用 `Install-Module` 下载预览版（请确保已安装最新的 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)）：
 
 ```powershell
-# Install from PowerShell Gallery via PowerShellGet
-Install-Module -Name AzureRM.PolicyInsights
+# Download preview from PowerShell Gallery via PowerShellGet
+Install-Module -Name AzureRM.PolicyInsights -AllowPrerelease
 
 # Import the downloaded module
 Import-Module AzureRM.PolicyInsights
@@ -241,7 +241,7 @@ Import-Module AzureRM.PolicyInsights
 Connect-AzureRmAccount -EnvironmentName AzureChinaCloud
 ```
 
-该模块包含三个 cmdlet：
+预览版模块包含三个 cmdlet：
 
 - `Get-AzureRmPolicyStateSummary`
 - `Get-AzureRmPolicyState`

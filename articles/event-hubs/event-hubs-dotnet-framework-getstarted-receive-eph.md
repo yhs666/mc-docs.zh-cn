@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/02/2018
-ms.date: 09/17/2018
+ms.date: 08/06/2018
 ms.author: v-yeche
-ms.openlocfilehash: e9b7131f4b8648f5c83d4b604090366a54b7a8d0
-ms.sourcegitcommit: 2700f127c3a8740a83fb70739c09bd266f0cc455
+ms.openlocfilehash: 4c5e85412bd8a1017b5eb5e14f2c133a959c8a08
+ms.sourcegitcommit: c6205500afd23ac00f2829fe51858b51a622eaf1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45586599"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39487764"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-the-net-framework"></a>使用 .NET Framework 从 Azure 事件中心接收事件
 
@@ -34,7 +34,7 @@ Azure 事件中心是一个服务，可用于处理来自连接设备和应用�
 
 ## <a name="prerequisites"></a>先决条件
 
-若要完成本教程，需要具备以下先决条件：
+若要完成本教程，需要满足以下先决条件：
 
 * [Microsoft Visual Studio 2017 或更高版本](http://visualstudio.com)。
 * 有效的 Azure 帐户。 如果没有帐户，只需几分钟的时间就能创建一个试用帐户。 有关详细信息，请参阅 [Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。
@@ -49,11 +49,11 @@ Azure 事件中心是一个服务，可用于处理来自连接设备和应用�
 
 1. 登录到 [Azure 门户][Azure portal]，单击屏幕左上角的“创建资源”。
 
-2. 依次“存储”、“存储帐户”。
+2. 单击“存储”，并单击“存储帐户”。
 
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage1.png)
 
-3. 在“创建存储帐户”窗格中，键入存储帐户的名称。 选择 Azure 订阅、资源组和创建该资源的位置。 然后单击“创建”。
+3. 在“创建存储帐户”窗格中，键入存储帐户的名称。 选择 Azure 订阅、资源组和要在其中创建该资源的位置。 然后单击“创建”。
 
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage2.png)
 
@@ -158,24 +158,24 @@ Azure 事件中心是一个服务，可用于处理来自连接设备和应用�
        eventProcessorHost.UnregisterEventProcessorAsync().Wait();
     }
     ```
-    <!-- Add the ;EndpointSuffix=core.chinacloudapi.cn in storageConnectionString -->
+<!-- Add the ;EndpointSuffix=core.chinacloudapi.cn in storageConnectionString -->
 
 7. 运行程序，并确保没有任何错误。
 
 祝贺！ 现在已使用事件处理程序主机从事件中心接收消息。
 
 > [!NOTE]
-> 本教程使用单个 [EventProcessorHost][EventProcessorHost] 实例。 若要增加吞吐量，建议运行多个 [EventProcessorHost][EventProcessorHost] 实例，如[扩展的事件处理](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3)示例中所示。 在这些情况下，为了对接收的事件进行负载均衡，各个实例会自动相互协调。 如果希望多个接收方都各自处理 *全部* 事件，则必须使用 **ConsumerGroup** 概念。 在从不同计算机中接收事件时，根据部署 [EventProcessorHost][EventProcessorHost] 实例的计算机（或角色）来指定该实例的名称可能会很有用。 有关这些主题的详细信息，请参阅[事件中心概述][Event Hubs overview]和[事件中心编程指南][Event Hubs Programming Guide]主题。
+> 本教程使用单个 [EventProcessorHost][EventProcessorHost] 实例。 若要增加吞吐量，建议运行多个 [EventProcessorHost][EventProcessorHost] 实例，如[扩大事件处理][扩大事件处理]示例中所示。 在这些情况下，为了对接收的事件进行负载均衡，各个实例会自动相互协调。 如果希望多个接收方都各自处理 *全部* 事件，则必须使用 **ConsumerGroup** 概念。 在从不同计算机中接收事件时，根据部署 [EventProcessorHost][EventProcessorHost] 实例的计算机（或角色）来指定该实例的名称可能会很有用。 有关这些主题的详细信息，请参阅[事件中心概述][Event Hubs overview]和[事件中心编程指南][Event Hubs Programming Guide]主题。
 > 
 > 
 
 ## <a name="next-steps"></a>后续步骤
 
-现在已生成了一个可以创建事件中心以及发送和接收数据的有效应用程序，接下来请访问以下链接，继续学习：
+现在已生成了一个可以创建事件中心以及发送和接收数据的有效应用程序，接下来可访问以下链接，继续学习：
 
 * [事件处理程序主机概述][Event Processor Host]
 * [事件中心概述][Event Hubs overview]
-* [事件中心常见问题解答](event-hubs-faq.md)
+* [事件中心常见问题](event-hubs-faq.md)
 
 <!-- Images. -->
 [19]: ./media/event-hubs-csharp-ephcs-getstarted/create-eh-proj1.png

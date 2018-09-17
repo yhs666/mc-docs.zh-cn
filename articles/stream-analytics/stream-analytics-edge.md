@@ -9,13 +9,13 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 01/16/2017
-ms.date: 09/10/2018
-ms.openlocfilehash: e8c9a6cd2747220afa64f25485e50427e8909360
-ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
+ms.date: 07/02/2018
+ms.openlocfilehash: 527d741473baf0cd1b53a9c045ca8f5acaac82c2
+ms.sourcegitcommit: 2cf6961f692f318ce7034e7b4d994ee51d902199
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44515707"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36947658"
 ---
 # <a name="azure-stream-analytics-on-iot-edge-preview"></a>IoT Edge 上的 Azure 流分析（预览版）
 
@@ -47,7 +47,7 @@ ASA 使用 IoT 中心将 Edge 作业部署到设备。 [可在此处查看有关
 
 ### <a name="installation-instructions"></a>安装说明
 下表描述了高级步骤： 下面的部分将进行详细说明。
-|      |步骤   | 位置     | 说明   |
+|      |步骤   | 位置     | 注释   |
 | ---   | ---   | ---       |  ---      |
 | 1   | 创建存储容器   | Azure 门户       | 存储容器用于保存作业定义，IoT 设备可在其中进行访问它们。 <br>  你可以重用任何现有的存储容器。     |
 | 2   | 创建 ASA 边缘作业   | Azure 门户      |  创建新的作业，选择“Edge”作为“宿主环境”。 <br> 这些作业从云创建/管理，并在你自己的 IoT Edge 设备上运行。     |
@@ -206,4 +206,4 @@ ASA Edge 作业可以从在 IoT Edge 设备上运行的其他模块获取输入�
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
 <!-- Update_Description: update meta properties, update link -->
-<!--ms.date: 09/10/2017-->
+<!--ms.date: 06/18/2018-->

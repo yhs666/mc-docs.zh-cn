@@ -15,14 +15,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 04/23/2018
-ms.date: 09/24/2018
+ms.date: 06/25/2018
 ms.author: v-yiso
-ms.openlocfilehash: acb89d27d181d351b250e6e461b432d9bef850d3
-ms.sourcegitcommit: bae4e9e500e3e988ef8fa0371777ca9cc49b4e94
+ms.openlocfilehash: 6c106257f3166c2bc0a893df1c0437339c199035
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45584838"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873376"
 ---
 # <a name="run-hive-queries-using-powershell"></a>使用 PowerShell 运行 Hive 查询
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
@@ -49,11 +49,11 @@ ms.locfileid: "45584838"
 
 ## <a name="run-a-hive-query"></a>运行 Hive 查询
 
-Azure PowerShell 提供 *cmdlet*，可在 HDInsight 上远程运行 Hive 查询。 cmdlet 在内部对 HDInsight 群集上的 [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) 进行 REST 调用。
+Azure PowerShell 提供 *cmdlet*，可让你在 HDInsight 上远程运行 Hive 查询。 cmdlet 在内部对 HDInsight 群集上的 [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) 进行 REST 调用。
 
-在远程 HDInsight 群集上运行 Hive 查询时，将使用以下 Cmdlet：
+在远程 HDInsight 群集上运行 Hive 查询时，使用以下 Cmdlet：
 
-* `Connect-AzureRmAccount`：在 Azure 订阅中进行 Azure PowerShell 身份验证。
+* `Add-AzureRmAccount`：在 Azure 订阅中进行 Azure PowerShell 身份验证。
 * `New-AzureRmHDInsightHiveJobDefinition`：使用指定的 HiveQL 语句创建“作业定义”。
 * `Start-AzureRmHDInsightJob`：将作业定义发送到 HDInsight 并启动作业。 将返回作业对象。
 * `Wait-AzureRmHDInsightJob`：使用作业对象来检查作业的状态。 它等到作业完成或超出等待时间。
@@ -184,7 +184,7 @@ Get-AzureRmHDInsightJobOutput `
 
 * [将 Hive 与 Hadoop on HDInsight 配合使用](hdinsight-use-hive.md)
 
-有关 HDInsight 上的 Hadoop 的其他使用方法的信息：
+有关 HDInsight 上 Hadoop 的其他使用方法的信息：
 
 * [将 Pig 与 Hadoop on HDInsight 配合使用](hdinsight-use-pig.md)
 * [将 MapReduce 与 HDInsight 上的 Hadoop 配合使用](hdinsight-use-mapreduce.md)

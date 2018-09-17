@@ -14,12 +14,12 @@ ms.topic: reference
 origin.date: 05/15/2017
 ms.date: 08/20/2018
 ms.author: v-yiso
-ms.openlocfilehash: 5c5d2ef69c6dc3e2370cf6ab21d98f33c8d93a48
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.openlocfilehash: bac68fdb5790acb240c1fad5a553e33579e524af
+ms.sourcegitcommit: 664584f55e0a01bb6558b8d3349d41d3f05ba4d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068087"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41705175"
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Azure 诊断 1.3 及更高版本的配置架构
 > [!NOTE]
@@ -575,7 +575,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |**bufferQuotaInMB**|**unsignedInt**|可选。 指定可用于存储指定数据的文件系统存储最大容量。<br /><br /> 默认值为 0。|  
 |**scheduledTransferLogLevelFilterr**|**字符串**|可选。 指定传输的日志条目的最低严重级别。 默认值是“未定义”，这会传输所有日志。 其他可能的值是（按信息严重级别从高到低排序）“详细”、“信息”、“警告”、“错误”和“严重”。|  
 |**scheduledTransferPeriod**|**duration**|可选。 指定计划的数据传输之间的时间间隔，向上舍入为最接近的分钟数。<br /><br /> 默认是 PT0S。|  
-|**sinks** |**字符串**| 在 1.5 中添加。 可选。 指向同时要发送诊断数据的接收器位置。 例如，事件中心。|  
+|**sinks** 在 1.5 中添加|**字符串**|可选。 指向同时要发送诊断数据的接收器位置。 例如，Application Insights。|  
 
 ## <a name="dockersources"></a>DockerSources
  *树：根 - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - DockerSources*

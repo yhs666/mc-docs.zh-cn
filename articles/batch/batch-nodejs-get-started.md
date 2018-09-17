@@ -10,16 +10,23 @@ ms.devlang: nodejs
 ms.topic: hero-article
 ms.workload: big-compute
 origin.date: 05/22/2017
-ms.date: 09/07/2018
+ms.date: 05/14/2018
 ms.author: v-junlch
-ms.openlocfilehash: 0cfdd168b5d0e89cf518eaefd451440a3fcba30c
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.openlocfilehash: 38e0cea521b9fc3534b4f083fb1f4bab8dfbf099
+ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068137"
+ms.lasthandoff: 05/15/2018
+ms.locfileid: "34173370"
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>用于 Node.js 的 Batch SDK 入门
+
+> [!div class="op_single_selector"]
+> * [.NET](batch-dotnet-get-started.md)
+> * [Python](batch-python-tutorial.md)
+> * [Node.js](batch-nodejs-get-started.md)
+>
+>
 
 了解使用 [Azure Batch Node.js SDK](https://docs.microsoft.com/javascript/api/overview/azure/batch) 在 Node.js 中生成 Batch 客户端的基础知识。 我们采用分步方式来了解一个 Batch 应用程序的方案，然后通过 Node.js 客户端设置该方案。  
 

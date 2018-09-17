@@ -17,12 +17,12 @@ origin.date: 07/30/2018
 ms.date: 08/27/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a0e7d99a446f8dec9dd62be9666ceeda7c2ad177
-ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
+ms.openlocfilehash: c10500d3871c77237b6afac3f782499a01501bc5
+ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44515679"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42871544"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>在运行 Linux 的 N 系列 VM 上安装 NVIDIA GPU 驱动程序
 
@@ -97,8 +97,7 @@ sudo apt-get install cuda-drivers
 sudo reboot
 ```
 
-### <a name="centos"></a>CentOS
-<!-- Not Available on Red Hat Enterprise Linux 7.3 or 7.4-->
+### <a name="centos-or-red-hat-enterprise-linux-73-or-74"></a>CentOS 或 Red Hat Enterprise Linux 7.3 或 7.4
 
 1. 更新内核。
 
@@ -229,8 +228,7 @@ sudo reboot
   ```
 9. 重新启动 VM，并继续验证安装。
 
-### <a name="centos"></a>CentOS
-<!-- Not Available on Red Hat Enterprise Linux -->
+### <a name="centos-or-red-hat-enterprise-linux"></a>CentOS 或 Red Hat Enterprise Linux 
 
 1. 更新内核和 DKMS。
 

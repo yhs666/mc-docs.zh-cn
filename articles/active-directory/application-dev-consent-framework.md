@@ -11,16 +11,16 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: article
 origin.date: 07/11/2017
-ms.date: 09/06/2018
+ms.date: 07/30/2018
 ms.author: v-junlch
-ms.openlocfilehash: 0b3b92e88b2dfb3d4e20f9e8ba62c9e344ffb1fa
-ms.sourcegitcommit: fd49281c58f34de20cc310d6cefb4568992cd675
+ms.openlocfilehash: 411d6b78121a583311e745edfb0b7c1bc9670b05
+ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43858436"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39486894"
 ---
 # <a name="how-application-consent-works"></a>应用程序许可工作原理
 

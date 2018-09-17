@@ -13,14 +13,14 @@ ms.tgt_pltfrm: mobile-windows
 ms.devlang: multiple
 ms.topic: article
 origin.date: 04/14/2018
-ms.date: 09/10/2018
+ms.date: 07/09/2018
 ms.author: v-junlch
-ms.openlocfilehash: 386fb7a9741d7c7981724a52f09c3e7351e10c84
-ms.sourcegitcommit: 1471663f5f5a1c4e1fbead7c4d351610cb0086bb
+ms.openlocfilehash: 52c4f9163f94fefcc8bbcd15cb8666500bbb1f7a
+ms.sourcegitcommit: e950fe5260c519e05f8c5bbf193a8ef733a6a2d2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44363576"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37936323"
 ---
 # <a name="send-cross-platform-notifications-to-users-with-notification-hubs"></a>使用通知中心向用户发送跨平台通知
 在上一教程[使用通知中心通知用户]中，我们了解了如何向注册给经过身份验证的特定用户的所有设备推送通知。 在该教程中，需要使用多个请求将通知发送到每个支持的客户端平台。 Azure 通知中心支持模板，可以通过模板指定特定设备要如何接收通知。 此方法简化了发送跨平台通知的方式。 
@@ -70,7 +70,7 @@ ms.locfileid: "44363576"
    
     此代码调用平台特定的方法来创建模板注册而非本机注册。 由于模板注册派生自本机注册，因此无需修改现有注册。
 
-3. 在 **Notifications** 控制器中，将 **sendNotification** 方法替换为以下代码：
+3. 在 Notifications 控制器中，将 sendNotification 方法替换为以下代码：
    
         public async Task<HttpResponseMessage> Post()
         {
@@ -93,7 +93,7 @@ ms.locfileid: "44363576"
     通知会显示在每个设备上。
 
 ## <a name="next-steps"></a>后续步骤
-现在，已完成本教程，请从以下主题中查找有关通知中心和模板的更多信息：
+现在，已完成本教程，可以查看以下主题了解有关通知中心和模板的更多信息：
 
 - [Use Notification Hubs to send breaking news]: Demonstrates another scenario for using templates.
 - [Azure 通知中心概述][Templates]：包含有关模板的更详细信息。
@@ -106,6 +106,7 @@ ms.locfileid: "44363576"
 
 
 <!-- URLs. -->
+[Push to users ASP.NET]: /notification-hubs/notification-hubs-aspnet-backend-windows-dotnet-wns-notification
 [Visual Studio 2012 Express for Windows 8]: http://go.microsoft.com/fwlink/?LinkId=257546
 
 [Use Notification Hubs to send breaking news]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
@@ -114,4 +115,4 @@ ms.locfileid: "44363576"
 [Templates]: http://go.microsoft.com/fwlink/p/?LinkId=317339
 [Notification Hub How to for Windows Store]: http://msdn.microsoft.com/library/windowsazure/jj927172.aspx
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

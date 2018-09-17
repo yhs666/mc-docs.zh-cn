@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 04/23/2018
-ms.date: 09/24/2018
+ms.date: 06/25/2018
 ms.author: v-yiso
-ms.openlocfilehash: d8931b13ad2a28f904a24b88654c5c6cdd393523
-ms.sourcegitcommit: bae4e9e500e3e988ef8fa0371777ca9cc49b4e94
+ms.openlocfilehash: 1667dd8b70c4f33ececf63b791513f1c8aeeee25
+ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45584836"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36747445"
 ---
 # <a name="generate-movie-recommendations-by-using-apache-mahout-with-hadoop-in-hdinsight-powershell"></a>将 Apache Mahout 与 HDInsight (PowerShell) 中的 Hadoop 配合使用生成电影推荐
 
@@ -34,7 +34,7 @@ ms.locfileid: "45584836"
 
 [!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
 
-* 基于 Linux 的 HDInsight 群集。 有关创建该群集的信息，请参阅[开始在 HDInsight 中使用基于 Linux 的 Hadoop][getstarted]。
+* 基于 Linux 的 HDInsight 群集。 有关创建该群集的信息，请参阅 [开始在 HDInsight 中使用基于 Linux 的 Hadoop][getstarted]。
 
     > [!IMPORTANT]
     > Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
@@ -325,7 +325,7 @@ Mahout 作业不清理在处理期间创建的临时文件。 此外，作业不
 $sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
 if(-not($sub))
 {
-    Connect-AzureRmAccount -EnvironmentName AzureChinaCloud
+    Add-AzureRmAccount -EnvironmentName AzureChinaCloud
 }
 
 # Get cluster info
@@ -364,7 +364,7 @@ foreach($blob in $blobs)
 
 ### <a name="nopowershell"></a>不适用于 Azure PowerShell 的类
 
-在 Windows PowerShell 中使用时，使用以下类的 Mahout 作业将返回各种错误消息：
+在 Windows PowerShell 中使用时，使用以下类的 Mahout 作业返回各种错误消息：
 
 * org.apache.mahout.utils.clustering.ClusterDumper
 * org.apache.mahout.utils.SequenceFileDumper

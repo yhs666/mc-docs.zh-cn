@@ -2,18 +2,29 @@
 title: Azure 监视 REST API 演练
 description: 如何对请求进行身份验证，以及如何使用 Azure Monitor REST API 检索可用的指标定义和指标值。
 author: mcollier
-services: azure-monitor
-ms.service: azure-monitor
-ms.topic: conceptual
+manager: ''
+editor: ''
+services: monitoring-and-diagnostics
+documentationcenter: monitoring-and-diagnostics
+ms.assetid: 565e6a88-3131-4a48-8b82-3effc9a3d5c6
+ms.service: monitoring-and-diagnostics
+ms.workload: ''
+ms.tgt_pltfrm: ''
+ms.devlang: ''
+ms.search.region: ''
+ms.search.scope: ''
+ms.search.validFrom: ''
+ms.dyn365.ops.version: ''
+ms.topic: article
 origin.date: 03/19/2018
 ms.author: v-yiso
-ms.date: 09/17/2018
-ms.openlocfilehash: ca715077a0d6786350d3f0d4c4485a411a2903cd
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.date: 05/14/2018
+ms.openlocfilehash: 15303906e4ee7e241aaa3771c740558c132795ae
+ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068200"
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33815349"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Azure 监视 REST API 演练
 本文说明如何执行身份验证，使代码能够遵循 [Microsoft Azure Monitor REST API 参考](https://msdn.microsoft.com/library/azure/dn931943.aspx)。         
@@ -25,14 +36,14 @@ ms.locfileid: "44068200"
 ## <a name="authenticating-azure-monitor-requests"></a>对 Azure Monitor 请求进行身份验证
 第一步是对请求进行身份验证。
 
-针对 Azure 监视器 API 执行的所有任务都使用 Azure Resource Manager 身份验证模型。 因此，所有请求必须使用 Azure Active Directory (Azure AD) 进行身份验证。 对客户端应用程序进行身份验证的方法之一是创建 Azure AD 服务主体，并检索身份验证 (JWT) 令牌。 以下示例脚本演示如何通过 PowerShell 创建 Azure AD 服务主体。 有关更详细的演练，请参阅有关[使用 Azure PowerShell 创建用于访问资源的服务主体](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps)的文档。 还可以[通过 Azure 门户创建服务主体](../azure-resource-manager/resource-group-create-service-principal-portal.md)。
+针对 Azure 监视器 API 执行的所有任务都使用 Azure Resource Manager 身份验证模型。 因此，所有请求必须使用 Azure Active Directory (Azure AD) 进行身份验证。 对客户端应用程序进行身份验证的方法之一是创建 Azure AD 服务主体，并检索身份验证 (JWT) 令牌。 以下示例脚本演示如何通过 PowerShell 创建 Azure AD 服务主体。 有关更详细的演练，请参阅有关[使用 Azure PowerShell 创建用于访问资源的服务主体](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-password)的文档。 还可以[通过 Azure 门户创建服务主体](../azure-resource-manager/resource-group-create-service-principal-portal.md)。
 
 ```PowerShell
 $subscriptionId = "{azure-subscription-id}"
 $resourceGroupName = "{resource-group-name}"
 
 # Authenticate to a specific Azure subscription.
-Connect-AzureRmAccount -SubscriptionId $subscriptionId
+Login-AzureRmAccount -SubscriptionId $subscriptionId
 
 # Password for the service principal
 $pwd = "{service-principal-password}"
@@ -89,7 +100,7 @@ $authHeader = @{
 
 **方法**：GET
 
-请求 URI： https://management.azure.cn/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}/providers/microsoft.insights/metricDefinitions?api-version={apiVersion}
+请求 URI：https://management.azure.cn/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}/providers/microsoft.insights/metricDefinitions?api-version={apiVersion}
 
 例如，若要检索 Azure 存储帐户的指标定义，请求将如下所示：
 
@@ -231,7 +242,7 @@ Invoke-RestMethod -Uri $request `
 
 **方法**：GET
 
-请求 URI： https://management.azure.cn/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider-namespace}/{resource-type}/{resource-name}/providers/microsoft.insights/metrics?metricnames={metric}&timespan={starttime/endtime}&$filter={filter}&resultType=metadata&api-version={apiVersion}
+请求 URI：https://management.azure.cn/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider-namespace}/{resource-type}/{resource-name}/providers/microsoft.insights/metrics?metric={metric}&timespan={starttime/endtime}&$filter={filter}&resultType=metadata&api-version={apiVersion}
 
 例如，若要检索为“事务”指标的“API 名称维度”发出的维度值列表，其中在指定时间范围内 GeoType 维度为“Primary”，则请求将如下所示：
 
@@ -302,7 +313,7 @@ Invoke-RestMethod -Uri $request `
 
 **方法**：GET
 
-请求 URI： https://management.azure.cn/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider-namespace}/{resource-type}/{resource-name}/providers/microsoft.insights/metrics?metricnames={metric}&timespan={starttime/endtime}&$filter={filter}&interval={timeGrain}&aggregation={aggreation}&api-version={apiVersion}
+请求 URIhttps://management.azure.cn/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider-namespace}/{resource-type}/{resource-name}/providers/microsoft.insights/metrics?metric={metric}&timespan={starttime/endtime}&$filter={filter}&interval={timeGrain}&aggregation={aggreation}&api-version={apiVersion}
 
 例如，若要在 5 分钟时间范围内按“事务”数降序值检索前 3 个 API，其中 GeotType 为 “Primary”，则请求将如下所示：
 
@@ -379,7 +390,7 @@ Invoke-RestMethod -Uri $request `
 
 **方法**：GET
 
-请求 URI： https://management.azure.cn/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}/providers/microsoft.insights/metricDefinitions?api-version={apiVersion}
+请求 URI：https://management.azure.cn/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}/providers/microsoft.insights/metricDefinitions?api-version={apiVersion}
 
 例如，若要检索某个 Azure 逻辑应用的指标定义，请求将如下所示：
 
@@ -449,7 +460,7 @@ Invoke-RestMethod -Uri $request `
 
 **方法**：GET
 
-请求 URI： https://management.azure.cn/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider-namespace}/{resource-type}/{resource-name}/providers/microsoft.insights/metrics?$filter={filter}&api-version={apiVersion}
+请求 URI：https://management.azure.cn/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider-namespace}/{resource-type}/{resource-name}/providers/microsoft.insights/metrics?$filter={filter}&api-version={apiVersion}
 
 例如，要检索给定时间范围内时间粒度为 1 小时的 RunsSucceeded 指标数据点，请求将如下所示：
 

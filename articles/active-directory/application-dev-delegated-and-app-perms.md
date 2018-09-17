@@ -11,16 +11,16 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: article
 origin.date: 07/11/2017
-ms.date: 09/06/2018
+ms.date: 07/30/2018
 ms.author: v-junlch
-ms.openlocfilehash: d48c68e5d28022b4eb19551273857a544efba0de
-ms.sourcegitcommit: fd49281c58f34de20cc310d6cefb4568992cd675
+ms.openlocfilehash: a3357b38ef0b724c424e23f14f4412122842ec8e
+ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43858425"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39487037"
 ---
 # <a name="how-to-recognize-differences-between-delegated-and-application-permissions"></a>如何识别委派权限和应用程序权限
 

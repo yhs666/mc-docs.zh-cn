@@ -1,5 +1,5 @@
 ---
-title: 负载均衡器的 Azure 资源管理器支持 | Microsoft Docs
+title: 负载均衡器的 Azure Resource Manager 支持 | Azure
 description: 使用 Azure Resource Manager 将 powershell 用于负载均衡器。 对负载均衡器使用模板
 services: load-balancer
 documentationcenter: na
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/25/2017
-ms.date: 09/10/2018
+ms.date: 06/18/2018
 ms.author: v-yeche
-ms.openlocfilehash: 09578b3a55445d742f33cede518303b2c4ac262f
-ms.sourcegitcommit: fd49281c58f34de20cc310d6cefb4568992cd675
+ms.openlocfilehash: e9e888e107c7bb6dd00893dcf314ff48cf20e928
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43858448"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167925"
 ---
 # <a name="using-azure-resource-manager-support-with-azure-load-balancer"></a>将 Azure Resource Manager 支持与 Azure 负载均衡器配合使用
 
@@ -62,9 +62,10 @@ Azure Resource Manager 是 Azure 中的首选服务管理框架。 Azure 负载�
 
 Azure Resource Manager cmdlet、命令行工具和 REST API 入门
 
-* [Azure 网络 Cmdlet](https://docs.microsoft.com/powershell/module/azurerm.network#networking) 可用于创建负载均衡器。
+* [Azure 网络 Cmdlet](https://msdn.microsoft.com/library/azure/mt163510.aspx) 可用于创建负载均衡器。
 * [如何使用 Azure Resource Manager 创建负载均衡器](load-balancer-get-started-ilb-arm-ps.md)
-* [将 Azure CLI 与 Azure 资源管理结合使用](../azure-resource-manager/xplat-cli-azure-resource-manager.md)
+* [将 Azure CLI 与 Azure 资源管理配合使用](../azure-resource-manager/xplat-cli-azure-resource-manager.md)
+<!-- URL is CORRECT on (../azure-resource-manager/xplat-cli-azure-resource-manager.md) -->
 * [Load Balancer REST APIs（负载均衡器 REST API）](https://msdn.microsoft.com/library/azure/mt163651.aspx)
 
 ## <a name="next-steps"></a>后续步骤

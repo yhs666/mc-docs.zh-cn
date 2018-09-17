@@ -7,18 +7,17 @@ manager: douge
 assetId: d397ef87-64e5-401a-aad5-7f83f1022e16
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.custom: vs-azure
-ms.workload: azure-vs
+ms.workload: azure
 ms.topic: conceptual
 origin.date: 03/21/2017
-ms.date: 09/10/2018
+ms.date: 07/12/2018
 ms.author: v-junlch
-ms.openlocfilehash: 5e5b4623630e316a6379bc0983be46acc77da6da
-ms.sourcegitcommit: 40456700212200e707d6cb3147cf96ad161d3ff2
+ms.openlocfilehash: 1a66e400f867cd0f8378c64f9327facc6ccac88e
+ms.sourcegitcommit: 5b6a2fc55e5b16ae480bd497c3ac2c3a2fd44703
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44269533"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38999206"
 ---
 # <a name="configure-azure-cloud-service-roles-with-visual-studio"></a>使用 Visual Studio 配置 Azure 云服务角色
 一个 Azure 云服务可以有一个辅助角色或 Web 角色。 对于每个角色，需要定义该角色的设置方式，并配置该角色的运行方式。 若要详细了解云服务中的角色，请观看视频 [Introduction to Azure Cloud Services](https://channel9.msdn.com/Series/Windows-Azure-Cloud-Services-Tutorials/Introduction-to-Windows-Azure-Cloud-Services)（Azure 云服务简介）。 
@@ -74,7 +73,7 @@ ms.locfileid: "44269533"
    
     ![服务配置列表](./media/vs-azure-tools-configure-roles-for-cloud-service/role-configuration-properties-page-select-configuration.png)
 
-1. 在“实例计数”文本框中，键入想要启动此角色的实例数。 将云服务发布到 Azure 时，每个实例会在单独的虚拟机上运行。
+1. 在“实例计数”文本框中，键入想要启动此角色的实例数。 将云服务发布到 Azure 时，每个实例将在单独的虚拟机上运行。
 
     ![更新实例计数](./media/vs-azure-tools-configure-roles-for-cloud-service/role-configuration-properties-page-instance-count.png)
 
@@ -118,7 +117,7 @@ ms.locfileid: "44269533"
 
 1. 在“创建存储连接字符串”对话框中，为“连接方式”选择一个选项。 然后，遵照所选选项的说明操作：
 
-    - **Azure 存储模拟器** - 如果选择此选项，对话框中的剩余设置将被禁用，因为这些设置仅适用于 Azure。 选择“确定”。
+    - **Azure 存储模拟器** - 如果选择此选项，对话框中的剩余设置将被禁用，因为这些设置仅适用于 Azure。 选择“确定” 。
     - **订阅** - 如果选择此选项，请使用下拉列表选择并登录到 Microsoft 帐户，或添加 Microsoft 帐户。 选择 Azure 订阅和 Azure 存储帐户。 选择“确定”。
     - **手动输入的凭据** - 输入存储帐户名称，以及主密钥或辅助密钥。 为“连接”选择一个选项（对于大多数方案，建议使用 HTTPS。）选择“确定”。
 
@@ -146,7 +145,7 @@ ms.locfileid: "44269533"
     ```
 
 ## <a name="add-custom-settings-to-use-in-your-azure-cloud-service"></a>将要使用的自定义设置添加到 Azure 云服务中
-服务配置文件中的自定义设置可让你为特定服务配置的字符串添加名称和值。 可以选择使用此设置来配置云服务中的功能，具体方法是：读取设置的值，并使用该值来控制代码中的逻辑。 无需重新生成服务包就可更改这些服务配置值；运行云服务时也可以进行更改。 设置发生更改时，代码可以检查通知。 请参阅 [RoleEnvironment.Changing 事件](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.changing.aspx)。
+服务配置文件中的自定义设置可让你为特定服务配置的字符串添加名称和值。 用户可以选择使用此设置来配置云服务中的功能，具体方法是：读取设置的值，并使用该值来控制代码中的逻辑。 无需重新生成服务包就可更改这些服务配置值；运行云服务时也可以进行更改。 设置发生更改时，代码可以检查通知。 请参阅 [RoleEnvironment.Changing 事件](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.changing.aspx)。
 
 可添加、移除或修改服务配置的自定义设置。 对于不同的服务的配置，可能需要这些字符串的不同值。
 
@@ -276,7 +275,7 @@ ms.locfileid: "44269533"
 1. Windows 资源管理器窗口打开时，请在“搜索”文本框中输入“MyLocalStorageTest.txt”，并按 **Enter** 开始搜索。 
 
 ## <a name="next-steps"></a>后续步骤
-阅读[配置 Azure 项目](vs-azure-tools-configuring-an-azure-project.md)以详细了解 Visual Studio 中的 Azure 项目。 阅读[架构参考](https://msdn.microsoft.com/library/azure/dd179398)以详细了解云服务架构。
+阅读[配置 Azure 项目](vs-azure-tools-configuring-an-azure-project.md)以详细了解 Visual Studio 中的 Azure 项目。 阅读 [架构参考](https://msdn.microsoft.com/library/azure/dd179398)以详细了解云服务架构。
 
 
 <!-- Update_Description: update metedata properties -->

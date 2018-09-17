@@ -13,22 +13,22 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/18/2017
-ms.date: 09/10/2018
+ms.date: 08/20/2018
 ms.author: v-yeche
-ms.openlocfilehash: 9d75aa92ea0e5795ccfc5ab1bf48d9f41cf383b6
-ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
+ms.openlocfilehash: 44b0a7611e7e37582f160d600cfa6c5b065d350a
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44515746"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41705099"
 ---
-# <a name="commonly-asked-service-fabric-questions"></a>有关 Service Fabric 的常见问题
+# <a name="commonly-asked-service-fabric-questions"></a>Service Fabric 常见问题
 
-在 Service Fabric 的作用及其用法方面，我们收集了大量的常见问题。 本文档包含其中的许多常见问题及其解答。
+有许多关于 Service Fabric 可以做些什么以及应该如何使用的常见问题。 本文档介绍其中许多常见问题及其答案。
 
 ## <a name="cluster-setup-and-management"></a>群集设置和管理
 
-### <a name="how-do-i-roll-back-my-service-fabric-cluster-certificate"></a>如何回退 Service Fabric 群集证书？
+### <a name="how-do-i-rollback-my-service-fabric-cluster-certificate"></a>如何回退 Service Fabric 群集证书？
 
 回退应用程序的任何升级需要在提交更改的 Service Fabric 群集仲裁前，进行运行状况故障检测；已提交的更改只能前滚。 如果引入了不受监控的重大证书更改，则可能需要呈报工程师的通过客户支持服务才能恢复群集。  [Service Fabric 的应用程序升级](/service-fabric/service-fabric-application-upgrade.md)应用[应用程序升级参数](https://review.docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade-parameters?branch=master)，并提供零停机时间升级承诺。  按照建议的应用程序升级监视模式，更新域上的自动更新进度基于运行状况检查是否通过，如果更新默认服务失败，将自动回退。
 
@@ -47,13 +47,13 @@ ms.locfileid: "44515746"
 1. 如同构建群集的虚拟机规模集一样，Azure 中的 Service Fabric 群集资源如今也是区域性的。 这意味着如果出现区域性故障，将可能无法通过 Azure 资源管理器或 Azure 门户管理群集。 即使群集仍在运行，且你能够直接与其交互，也可能发生此情况。 此外，Azure 目前不提供创建跨区域可用的单个虚拟网络的功能。 这意味着 Azure 中的多区域群集需要[适用于 VM 规模集中的每个 VM 的公共 IP 地址](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine)或 [Azure VPN 网关](../vpn-gateway/vpn-gateway-about-vpngateways.md)。 这些网络选择对成本、性能以及某种程度上的应用程序设计都有不同的影响，因此需要在选择此类环境前仔细分析和规划。
 2. 维护、管理和监视这些计算机可能会变得很复杂，尤其是在跨多种类型环境时，比如不同云提供程序之间或本地资源和 Azure 之间。 必须格外小心，确保在此类环境中运行生产工作负荷前，已了解群集和应用程序的升级、监视、管理和诊断。 如果你已有在 Azure 或自己的数据中心解决这些问题的经验，则很可能这些相同的解决方案在生成或运行 Service Fabric 群集时均适用。 
 
-### <a name="do-service-fabric-nodes-automatically-receive-os-updates"></a>Service Fabric 节点是否自动接收 OS 更新？
+### <a name="do-service-fabric-nodes-automatically-receive-os-updates"></a>Service Fabric 节点是否会自动接收操作系统更新？
 
 目前不是，但这也是一个常见的请求，Azure 有意推出此功能。
 
 在此期间，我们已[提供一个应用程序](service-fabric-patch-orchestration-application.md)，Service Fabric 节点下的操作系统不断修补并保持最新状态。
 
-OS 更新的难题在于，它们通常需要重新启动计算机，而这会导致暂时失去可用性。 实现该请求本身不存在问题，因为 Service Fabric 会自动将这些服务的流量重定向到其他节点。 但是，如果不在群集之间协调 OS 更新，多个节点有可能会同时关闭。 这种同时重新启动可能会导致某个服务完全失去可用性，至少特定的分区会失去可用性（对于有状态服务）。
+操作系统更新的挑战在于，它们通常需要重启计算机，而这会导致暂时丢失可用性。 就其自身而言，这不是问题，因为 Service Fabric 会自动将这些服务的流量重定向到其他节点。 但是，如果不在群集间协调操作系统更新，可能会有多个节点同时停机。 此类同时重启可能导致某个服务完全失去可用性，或至少让特定分区（对于有状态服务）失去可用性。
 
 将来，我们计划支持在更新域之间完全自动化的、经过协调的 OS 更新策略，确保即使重新启动或发生其他意外故障，也仍能保持可用性。
 
@@ -65,11 +65,11 @@ OS 更新的难题在于，它们通常需要重新启动计算机，而这会�
 
 当前，大型虚拟机规模集还存在其他问题，例如缺少 level-4 负载均衡支持。 请参考[有关大型规模集的详细信息](../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md)
 
-### <a name="what-is-the-minimum-size-of-a-service-fabric-cluster-why-cant-it-be-smaller"></a>Service Fabric 群集的最小大小是多少？ 为何不能更小一点？
+### <a name="what-is-the-minimum-size-of-a-service-fabric-cluster-why-cant-it-be-smaller"></a>Service Fabric 群集的最小大小如何？ 为什么不能更小？
 
-运行生产工作负荷的 Service Fabric 群集支持的最小大小为五个节点。 对于开发/测试方案，我们支持三节点群集。
+运行生产工作负荷的 Service Fabric 群集支持的最小大小是五个节点。 对于开发/测试方案，我们支持三节点群集。
 
-之所以规定这些最小大小，是因为 Service Fabric 群集要运行一组有状态系统服务，包括命名服务和故障转移管理器。 这些服务跟踪哪些服务已部署到群集及其当前的托管位置，取决于非常一致性。 而这种非常一致性又取决于能否获取*仲裁*来更新这些服务的状态，其中，仲裁表示给定服务在严格意义上的大多数副本 (N/2 + 1)。
+存在这些最小值的原因在于，Service Fabric 群集运行一组有状态系统服务，其中包括命名服务和故障转移管理器。 这些服务跟踪哪些服务已部署到群集及其当前的托管位置，取决于非常一致性。 而这种非常一致性又取决于能否获取*仲裁*来更新这些服务的状态，其中，仲裁表示给定服务在严格意义上的大多数副本 (N/2 + 1)。
 
 在了解这种背景的前提下，让我们探讨一些可能的群集配置：
 
@@ -79,17 +79,17 @@ OS 更新的难题在于，它们通常需要重新启动计算机，而这会�
 
 **三节点**：包含三个节点 (N = 3)，创建仲裁仍然要求使用两个节点 (3/2 + 1 = 2)。 这意味着，可以丢失单个节点，在这种情况下，仍可保留仲裁。
 
-支持在开发/测试环境中使用三节点群集配置，因为可以安全执行升级，承受单个节点的故障，只要它们不同时发生故障。 对于生产工作负荷，必须能够弹性应对这种同时发生的故障，因此需要五个节点。
+开发/测试支持三节点群集配置，因为只要不同时发生，就可以安全地执行升级以及从单独的节点故障中恢复。 对于生产工作负荷，必须具有应对此类同时发生的故障的复原能力，因此需要五个节点。
 
 ### <a name="can-i-turn-off-my-cluster-at-nightweekends-to-save-costs"></a>是否可以在夜间/周末关闭群集以节约成本？
 
-一般来说是不可以的。 Service Fabric 在本地临时磁盘上存储状态，这意味着，如果将虚拟机转移到另一台主机，数据不会随着它一起移动。 在正常操作中，这是没有问题的，因为其他节点可使新节点保持最新状态。 但是，如果停止所有节点，又将它们重新启动，则很有可能大多数节点在新主机上启动，使得系统无法恢复。
+一般而言，不可以。 Service Fabric 在本地、临时磁盘上存储状态，这意味着如果虚拟机移到其他主机，数据不会随之移动。 在正常操作中，这是没有问题的，因为其他节点可使新节点保持最新状态。 但是，如果停止所有节点并重启，很可能发生的情况是，大部分节点在新主机上启动，导致系统无法恢复。
 
 如果在部署应用程序之前想要创建群集来测试应用程序，我们建议将这些群集动态创建为[持续集成/持续部署管道](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)的一部分。
 
 ### <a name="how-do-i-upgrade-my-operating-system-for-example-from-windows-server-2012-to-windows-server-2016"></a>如何升级操作系统（例如从 Windows Server 2012 升级到 Windows Server 2016）？
 
-我们致力于改善体验，但现在升级由你负责。 必须升级群集虚拟机上的操作系统映像，一次升级一个 VM。 
+我们致力于改善体验，但现在升级由你负责。 必须升级群集虚拟机上的 OS 映像，一次升级一个 VM。 
 
 ### <a name="can-i-encrypt-attached-data-disks-in-a-cluster-node-type-virtual-machine-scale-set"></a>是否可以对群集节点类型（虚拟机规模集）中的附加数据磁盘进行加密？
 是的。  有关详细信息，请参阅[创建具有附加数据磁盘的群集](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md#create-a-service-fabric-cluster-with-attached-data-disks)。
@@ -98,13 +98,13 @@ OS 更新的难题在于，它们通常需要重新启动计算机，而这会�
 
 ### <a name="what-are-the-directories-and-processes-that-i-need-to-exclude-when-running-an-anti-virus-program-in-my-cluster"></a>在群集中运行防病毒程序时需要排除哪些目录和进程？
 
-| **防病毒排除的目录** |
+| **防病毒排除目录** |
 | --- |
 | Program Files\Microsoft Service Fabric |
 | FabricDataRoot（从群集配置中） |
 | FabricLogRoot（从群集配置中） |
 
-| **防病毒排除的进程** |
+| **防病毒排除进程** |
 | --- |
 | Fabric.exe |
 | FabricHost.exe |
@@ -119,47 +119,42 @@ OS 更新的难题在于，它们通常需要重新启动计算机，而这会�
 | FabricRM.exe |
 | FileStoreService.exe |
 
-### <a name="how-can-my-application-authenticate-to-keyvault-to-get-secrets"></a>应用程序可如何对 KeyVault 进行身份验证以获取机密？
-下面为应用程序为实现对 KeyVault 的身份验证而获取凭据的方式：
-
-A. 在应用程序生成/打包作业期间，可以将证书拉进 SF 应用的数据包中，并使用此实现对 KeyVault 的身份验证。
-<!--Not Available on MSI -->
 ## <a name="application-design"></a>应用程序设计
 
-### <a name="whats-the-best-way-to-query-data-across-partitions-of-a-reliable-collection"></a>跨 Reliable Collection 分区查询数据的最佳方法是什么？
+### <a name="whats-the-best-way-to-query-data-across-partitions-of-a-reliable-collection"></a>跨可靠集合的分区查询数据的最佳方法是什么？
 
-Reliable Collections 通常已[分区](service-fabric-concepts-partitioning.md)以支持扩展并提高性能和吞吐量。 这意味着，给定服务的状态可以分散在数十甚至数百台计算机上。 要针对整个数据集执行操作，可采用以下几种做法：
+Reliable Collections 通常已[分区](service-fabric-concepts-partitioning.md)以支持扩展并提高性能和吞吐量。 这意味着，给定服务的状态可以分散在数十甚至数百台计算机上。 若要对这个完整的数据集执行操作，有以下几个选项：
 
-- 创建一个服务用于查询另一服务的所有分区，提取所需的数据。
-- 创建一个可从另一服务的所有分区接收数据的服务。
-- 定期将每个服务中的数据推送到外部存储。 仅当执行的查询不是核心业务逻辑的一部分时，此方法才适用。
+- 创建查询其他服务的所有分区的服务，拉入所需的数据。
+- 创建可从其他服务的所有分区接收数据的服务。
+- 定期将每个服务中的数据推送到外部存储。 此方法仅适用于要执行的查询不属于核心业务逻辑的情况。
 
 ### <a name="whats-the-best-way-to-query-data-across-my-actors"></a>跨执行组件查询数据的最佳方法是什么？
 
-执行组件在设计上是独立的状态和计算单元，因此不建议在运行时针对执行组件执行广泛查询。 如果需要跨整个执行组件状态集查询，应考虑：
+执行组件设计为独立的状态和计算单元，因此，不建议在运行时对执行组件状态执行广泛查询。 如果需要跨执行组件状态的完整集进行查询，应考虑以下方法之一：
 
 - 将执行组件服务替换为有状态 Reliable Services，使得从一定数目的执行组件中收集所有数据的网络请求数等于服务中的分区数。
-- 将执行组件设计为定期向外部存储推送其状态，以方便查询。 如前所述，仅当运行时行为不需要所执行的查询时，此方法才可行。
+- 将执行组件设计为定期将其状态推送到外部存储，以方便查询。 如上所述，此方法仅在运行时行为不需要所执行的查询时才可行。
 
-### <a name="how-much-data-can-i-store-in-a-reliable-collection"></a>在 Reliable Collection 中可以存储多少数据？
+### <a name="how-much-data-can-i-store-in-a-reliable-collection"></a>可以在可靠集合中存储多少数据？
 
-Reliable Services 通常已分区，因此，可存储的数据量受到群集中计算机数目以及这些计算机上的可用内存量的限制。
+Reliable Services 通常已分区，因此，存储量仅受限于群集中的计算机数量以及这些计算机的可用内存量。
 
-例如，某个服务中的 Reliable Collection 包含 100 个分区和 3 个副本，存储平均大小为 1 KB 的对象。 现在，假设创建了一个由 10 台计算机构成的群集，其中每台计算机有 16GB 内存。 我们做一个简单且保守的假设：操作系统和系统服务、Service Fabric 运行时以及服务消耗了 6GB 内存，也就是说，每个计算机还剩余 10GB 内存，整个群集还有 100GB 内存。
+例如，某个服务中的 Reliable Collection 包含 100 个分区和 3 个副本，存储平均大小为 1 KB 的对象。 现在假设群集中有 10 台计算机，每台计算机的内存为 16 GB。 我们做一个简单且保守的假设：操作系统和系统服务、Service Fabric 运行时以及服务消耗了 6GB 内存，也就是说，每个计算机还剩余 10GB 内存，整个群集还有 100GB 内存。
 
-请记住，每个对象必须存储三次（一个主体和两个副本），因此，在运转整个容量时，需要为集合中大约 3500 万个对象留出足够的内存。 但是，我们建议能够弹性应对故障域和升级域的同时丢失（它们会占用大约 1/3 的容量），并将对象数目减少到大约 2300 万个。
+请记住，每个对象必须存储三次（一个主要副本和两个次要副本），满负荷运行时，集合可提供足够的内存来存储约 3.5 亿个对象。 但是，我们建议能够弹性应对故障域和升级域的同时丢失（它们会占用大约 1/3 的容量），并将对象数目减少到大约 2300 万个。
 
-请注意，这种计算还基于以下假设：
+请注意，此计算还假设：
 
-- 跨分区的数据分布大致是均匀的，或者可向群集资源管理器报告负载指标。 默认情况下，Service Fabric 会根据副本计数执行负载均衡。 在前面的示例中，群集中的每个节点上会放置 10 个主副本和 20 个辅助副本。 对于均匀分布在分区之间的负载而言，这是没有问题的。 如果负载不均衡，必须报告负载，使 Resource Manager 能够将较小副本打包在一起，增加较大副本在单个节点上占用的内存。
+- 跨分区的数据分布大致是均匀的，或者可向群集资源管理器报告负载指标。 默认情况下，Service Fabric 会根据副本计数执行负载均衡。 在前面的示例中，群集中的每个节点上会放置 10 个主副本和 20 个辅助副本。 这也适用于跨分区均匀分布的负载。 如果负载不均衡，必须报告负载，使 Resource Manager 能够将较小副本打包在一起，增加较大副本在单个节点上占用的内存。
 
-- 只有在群集中存储状态的 Reliable Service 才受到影响。 由于可将多个服务部署到群集，因此你需要知道每个服务运行时以及管理其状态时所需的资源。
+- 讨论的可靠服务是群集中存储状态的唯一服务。 由于可将多个服务部署到群集，因此你需要知道每个服务运行时以及管理其状态时所需的资源。
 
-- 群集本身不会扩大或缩小。 如果添加更多计算机，Service Fabric 会重新均衡副本来利用更多容量，直到计算机数目超过了服务中的分区数，因为单个副本不能跨计算机。 相比之下，如果通过删除计算机来减小群集大小，副本将更加严密地打包，减少总体容量消耗。
+- 群集本身不会变大或缩小。 如果添加更多计算机，Service Fabric 会重新平衡副本以利用新增容量，直到计算机数量超过服务中的分区数量，因为单独的副本不能跨计算机。 相比之下，如果通过删除计算机来减小群集大小，副本将更加严密地打包，减少总体容量消耗。
 
-### <a name="how-much-data-can-i-store-in-an-actor"></a>在执行组件中可以存储多少数据？
+### <a name="how-much-data-can-i-store-in-an-actor"></a>可以在执行组件中存储多少数据？
 
-与 Reliable Services 一样，在执行组件服务中可以存储的数据量仅受群集中节点上的总磁盘空间和可用内存量的限制。 但是，如果使用单个执行组件来封装少量的状态和关联的业务逻辑，则它们可以发挥最大的效率。 一般规则是，单个执行组件中应该包含以 KB 计量的状态数据。
+和 Reliable Services 一样，可以在执行组件服务中存储的数据量仅受限于群集中各个节点的总磁盘空间和可用内存。 但是，单独的执行组件在用于封装少量状态和关联的业务逻辑时效率最高。 一般而言，单独的执行组件应具有以千字节为单位的状态。
 
 ## <a name="other-questions"></a>其他问题
 
@@ -175,7 +170,7 @@ Reliable Services 通常已分区，因此，可存储的数据量受到群集�
 
 有关已发布的更多详细信息，请参阅 [Service Fabric 博客](https://blogs.msdn.microsoft.com/azureservicefabric/)。
 
-<!-- Not Available on ## Next steps-->
+## <a name="next-steps"></a>后续步骤
 
 <!-- Not Available on  [Learn about core Service Fabric concepts and best practices](https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965) -->
 

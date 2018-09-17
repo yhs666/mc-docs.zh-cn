@@ -8,42 +8,42 @@ ms.service: event-hubs
 ms.workload: core
 ms.topic: article
 origin.date: 06/12/2018
-ms.date: 09/17/2018
+ms.date: 07/16/2018
 ms.author: v-yeche
-ms.openlocfilehash: 9e1a32596d247c16c2da1795792f9231104c3eb2
-ms.sourcegitcommit: 2700f127c3a8740a83fb70739c09bd266f0cc455
+ms.openlocfilehash: 65e507df0edffac3bef8eeea534df7999bcf799a
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45586569"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167824"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-java"></a>使用 Java 从 Azure 事件中心接收事件
 
-事件中心是一个具备高度伸缩性的引入系统，每秒可收入大量事件，从而使应用程序能够处理和分析连接的设备和应用程序所产生的海量数据。 将数据采集到事件中心后，可以使用任何实时分析提供程序或存储群集来转换和存储数据。
+事件中心是一个高度可缩放的引入系统，每秒可引入数百万事件，从而使应用程序能够处理和分析连接的设备和应用程序所产生的海量数据。 数据采集到事件中心后，可以使用任何实时分析提供程序或存储群集来转换和存储数据。
 
-有关详细信息，请参阅[事件中心概述][Event Hubs overview]。
+有关详细信息，请参阅 [事件中心概述][Event Hubs overview]。
 
-本教程演示如何使用用 Java 编写的控制台应用程序从事件中心接收事件。
+本教程演示如何使用以 Java 编写的控制台应用程序从事件中心接收事件。
 
 ## <a name="prerequisites"></a>先决条件
 
 若要完成本教程，需要具备以下先决条件：
 
-* Java 开发环境。 对于本教程，我们会采用 [Eclipse](https://www.eclipse.org/)。
+* Java 开发环境。 对于本教程，我们采用 [Eclipse](https://www.eclipse.org/)。
 * 有效的 Azure 帐户。 如果没有 Azure 订阅，请在开始前创建一个[试用帐户][]。
 
 本教程中的代码基于 [GitHub 上的 EventProcessorSample 代码](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/EventProcessorSample)，可检查该代码以查看完整的工作应用程序。
 
 ## <a name="receive-messages-with-eventprocessorhost-in-java"></a>使用 Java 中的 EventProcessorHost 接收消息
 
-EventProcessorHost 是一个 Java 类，通过在这些事件中心管理持久检查点和并行接收来简化从事件中心接收事件的过程。 使用 EventProcessorHost，可跨多个接收方拆分事件，即使在不同节点中托管也是如此。 此示例演示如何为单一接收方使用 EventProcessorHost。
+**EventProcessorHost** 是一个 Java 类，通过从事件中心管理持久检查点和并行接收来简化从事件中心接收事件的过程。 使用 EventProcessorHost，可跨多个接收方拆分事件，即使在不同节点中托管也是如此。 此示例演示如何为单一接收方使用 EventProcessorHost。
 
 ### <a name="create-a-storage-account"></a>创建存储帐户
 
 若要使用 EventProcessorHost，必须有一个 [Azure 存储帐户][Azure Storage account]：
 
 1. 登录到 [Azure 门户][Azure portal]，然后单击屏幕左侧的“+创建资源”。
-2. 依次“存储”、“存储帐户”。 在“创建存储帐户”窗口中，键入存储帐户的名称。 填写其余字段，选择所需区域，然后单击“创建”。
+2. 单击“存储”，并单击“存储帐户”。 在“创建存储帐户”窗口中，键入存储帐户的名称。 填写其余字段，选择所需区域，然后单击“创建”。
 
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage2.png)
 
@@ -72,7 +72,7 @@ EventProcessorHost 是一个 Java 类，通过在这些事件中心管理持久�
 
 对于不同类型的生成环境，可以从 [Maven 中央存储库][Maven Package]显式获取最新发布的 JAR 文件。  
 
-1. 对于以下示例，请首先在你最喜欢的 Java 开发环境中为控制台/shell 应用程序创建一个新的 Maven 项目。 此类名为 `ErrorNotificationHandler`。     
+1. 对于下面的示例，请首先在你最喜欢的 Java 开发环境中为控制台/shell 应用程序创建一个新的 Maven 项目。 此类名为 `ErrorNotificationHandler`。     
 
     ```java
     import java.util.function.Consumer;
@@ -242,7 +242,7 @@ EventProcessorHost 是一个 Java 类，通过在这些事件中心管理持久�
     }
     ```
 
-本教程使用了一个 EventProcessorHost 实例。 若要增加吞吐量，建议运行多个 EventProcessorHost 实例，最好是在单独的计算机上运行。  这也会提供冗余。 在那些情况下，为了对接收到的事件进行负载均衡，各个不同实例会自动相互协调。 如果希望多个接收方都各自处理 *全部* 事件，则必须使用 **ConsumerGroup** 概念。 在从不同计算机中接收事件时，根据部署 EventProcessorHost 实例的计算机（或角色）来指定该实例的名称可能会很有用。
+本教程使用了一个 EventProcessorHost 实例。 若要增加吞吐量，建议运行多个 EventProcessorHost 实例，最好是在单独的计算机上运行。  这也会提供冗余。 在那些情况下，为了对接收到的事件进行负载均衡，各个不同实例会自动相互协调。 如果希望多个接收方都各自处理 *全部* 事件，则必须使用 **ConsumerGroup** 概念。 从不同计算机中接收事件时，根据部署 EventProcessorHost 实例的计算机（或角色）来指定这些实例的名称可能会很有用。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -250,7 +250,7 @@ EventProcessorHost 是一个 Java 类，通过在这些事件中心管理持久�
 
 * [事件中心概述](event-hubs-what-is-event-hubs.md)
 * [创建事件中心](event-hubs-create.md)
-* [事件中心常见问题解答](event-hubs-faq.md)
+* [事件中心常见问题](event-hubs-faq.md)
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md

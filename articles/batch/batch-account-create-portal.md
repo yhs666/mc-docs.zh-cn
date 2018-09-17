@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 06/18/2018
-ms.date: 09/07/2018
+ms.date: 08/09/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e273d29c6d8b5f16eec390d74af03bb8f06740c3
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.openlocfilehash: da24dd437fabb8d037784a5f7bebb04f5c15f91d
+ms.sourcegitcommit: f8bb533368ab2ef8efdf47e186672993ad8334cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068120"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39722322"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>使用 Azure 门户创建 Batch 帐户
 
@@ -35,11 +35,11 @@ ms.locfileid: "44068120"
 
 1. 登录到 [Azure 门户][azure_portal]。
 
-1. 选择“创建资源” > “计算” > “Batch 服务”。
+2. 选择“创建资源” > “计算” > “Batch 服务”。
 
     ![市场中的批处理][marketplace_portal]
 
-1. 输入“新 Batch 帐户”设置。 查看以下详细信息。
+3. 输入“新 Batch 帐户”设置。 查看以下详细信息。
 
     ![创建批处理帐户][account_portal]
 
@@ -57,7 +57,7 @@ ms.locfileid: "44068120"
 
     f. **池分配模式**：对于大多数情况，请接受默认值“Batch 服务”。
 
-1. 选择“创建”可创建帐户。
+4. 选择“创建”可创建帐户。
 
 
 
@@ -86,22 +86,22 @@ ms.locfileid: "44068120"
 
 1. 登录到 [Azure 门户][azure_portal]。
 
-1. 选择“所有服务” > “订阅”，然后选择要用于 Batch 帐户的订阅。
+2. 选择“所有服务” > “订阅”，然后选择要用于 Batch 帐户的订阅。
 
-1. 在“订阅”页中选择“资源提供程序”，然后搜索“Microsoft.Batch”。 查看 **Microsoft.Batch** 资源提供程序是否已在订阅中注册。 如果未注册，请选择“注册”链接。
+3. 在“订阅”页中选择“资源提供程序”，然后搜索“Microsoft.Batch”。 查看 **Microsoft.Batch** 资源提供程序是否已在订阅中注册。 如果未注册，请选择“注册”链接。
 
     ![注册 Microsoft.Batch 提供程序][register_provider]
 
-1. 在“订阅”页中，选择“访问控制(IAM)” > “添加”。
+3. 在“订阅”页中，选择“访问控制(IAM)” > “添加”。
 
     ![订阅访问控制][subscription_access]
 
-1. 在“添加权限”页上，选择“参与者”角色，然后搜索 Batch API。 搜索每一条字符串，直到找到此 API：
+4. 在“添加权限”页上，选择“参与者”角色，然后搜索 Batch API。 搜索每一条字符串，直到找到此 API：
     1. MicrosoftAzureBatch。
-    1. **Azure Batch**。 较新的 Azure AD 租户可能使用此名称。
-    1. ddbf3205-c6bd-46ae-8127-60eb93363864 是此 Batch API 的 ID。 
+    2. **Azure Batch**。 较新的 Azure AD 租户可能使用此名称。
+    3. ddbf3205-c6bd-46ae-8127-60eb93363864 是此 Batch API 的 ID。 
 
-1. 找到此 Batch API 后，将其选中，然后选择“保存”。
+5. 找到此 Batch API 后，将其选中，然后选择“保存”。
 
     ![添加批处理权限][add_permission]
 
@@ -110,7 +110,7 @@ ms.locfileid: "44068120"
 
 1. 在 [Azure 门户][azure_portal]中，选择“新建” > “安全性” > “Key Vault”。
 
-1. 在“创建密钥保管库”页中，输入密钥保管库的名称，并在区域中创建需要用于 Batch 帐户的资源组。 让其余设置保留默认值，然后选择“创建”。
+2. 在“创建密钥保管库”页中，输入密钥保管库的名称，并在区域中创建需要用于 Batch 帐户的资源组。 让其余设置保留默认值，然后选择“创建”。
 
 以用户订阅模式创建 Batch 帐户时，请使用密钥保管库的资源组，指定“用户订阅”作为池分配模式，然后选择密钥保管库。
 
@@ -123,7 +123,7 @@ ms.locfileid: "44068120"
 
 ## <a name="next-steps"></a>后续步骤
 - 请参阅[批处理功能概述](batch-api-basics.md)，详细了解处理服务的概念和功能。 本文讨论主要 Batch 资源（例如池、计算节点、作业和任务），并提供适用于大规模计算工作负荷的服务功能概述。
-- 了解使用批处理 .NET 客户端库或 Python 开发支持批处理的应用程序的基本概念。 这些快速入门介绍了使用 Batch 服务在多个计算节点上执行工作负荷的示例应用程序，并说明了如何使用 Azure 存储进行工作负荷文件暂存和检索。
+- 了解使用[批处理 .NET 客户端库](batch-dotnet-get-started.md)或 [Python](batch-python-tutorial.md) 开发支持批处理的应用程序的基本概念。 这些简介文章介绍了使用批处理服务在多个计算节点上执行工作负荷的可行应用程序，并说明了如何使用 Azure 存储进行工作负荷文件暂存和检索。
 
 [azure_portal]: https://portal.azure.cn
 [batch_pricing]: https://www.azure.cn/pricing/details/batch/

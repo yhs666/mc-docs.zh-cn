@@ -12,21 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/16/2018
-ms.date: 09/17/2018
+origin.date: 10/05/2017
+ms.date: 03/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: e45fc2773e24ea88ae66e8bb6e7b01110dc3bf30
-ms.sourcegitcommit: 2700f127c3a8740a83fb70739c09bd266f0cc455
+ms.openlocfilehash: 4b6d87262846689e50134c5fbdd92d8f73b029cc
+ms.sourcegitcommit: 9b5cc262f13a0fc9e0fd9495e3fbb6f394ba1812
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45586615"
+ms.lasthandoff: 03/08/2018
+ms.locfileid: "29797811"
 ---
 # <a name="event-hubs-capture-walkthrough-python"></a>事件中心捕获演练：Python
 
-捕获是 Azure 事件中心的一项功能。 可使用该功能自动将事件中心内的流数据传送到所选的 Azure Blob 存储帐户。 此功能使对实时流数据执行批处理操作变得轻松容易。 本文介绍如何通过 Python 使用事件中心捕获功能。 有关事件中心捕获的详细信息，请参阅[概述文章](event-hubs-capture-overview.md)。
+捕获是 Azure 事件中心的一项功能。 可使用该功能自动将事件中心内的流数据传送到所选的 Azure Blob 存储帐户。 使用此功能，可以轻松地对实时流数据执行批处理操作。 本文介绍如何通过 Python 使用事件中心捕获功能。 有关事件中心捕获的详细信息，请参阅[概述文章](event-hubs-capture-overview.md)。
 
-此示例使用 [Azure Python SDK](/develop/python/) 来演示捕获功能。 Sender.py 程序以 JSON 格式将模拟的环境遥测数据发送到事件中心。 事件中心配置为使用捕获功能将此数据成批地写入到 Blob 存储。 capturereader.py 应用读取这些 blob，为每个设备创建一个附加文件。 然后该应用将数据写入到 .csv 文件中。
+此示例使用 [Azure Python SDK](/develop/python/) 演示捕获功能。 Sender.py 程序以 JSON 格式将模拟的环境遥测数据发送到事件中心。 事件中心配置为使用捕获功能将此数据成批地写入到 Blob 存储。 capturereader.py 应用读取这些 blob，为每个设备创建一个附加文件。 然后该应用将数据写入到 .csv 文件中。
 
 ## <a name="what-youll-accomplish"></a>你要完成的操作
 
@@ -146,7 +146,7 @@ ms.locfileid: "45586615"
     ```
     pip install cryptography
     ```
-2. 将目录更改为保存 sender.py 和 capturereader.py 的位置，然后运行以下命令：
+2. 将目录更改为用于保存 sender.py 和 capturereader.py 的任何位置，然后运行以下命令：
 
     ```
     start python sender.py
@@ -176,4 +176,4 @@ ms.locfileid: "45586615"
 [Visual Studio Code]: https://code.visualstudio.com/
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, wording update -->

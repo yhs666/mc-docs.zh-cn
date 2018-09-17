@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 08/16/2018
-ms.date: 09/17/2018
+origin.date: 04/30/2018
+ms.date: 06/18/2018
 ms.author: v-yeche
-ms.openlocfilehash: 049abfdb2cb43929a4fddf4d21adfcf91b2c34c4
-ms.sourcegitcommit: 2700f127c3a8740a83fb70739c09bd266f0cc455
+ms.openlocfilehash: 19a512c997682f56783dd8fbec5759164df329e0
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45586577"
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "35416784"
 ---
 # <a name="event-hubs-authentication-and-security-model-overview"></a>事件中心身份验证和安全模型概述
 
@@ -36,15 +36,15 @@ Azure 事件中心安全模型满足以下要求：
 
 通常，事件中心为每个客户端使用一个发布者。 发送到事件中心的任何发布者的所有消息都会在该事件中心内排队。 发布者允许进行精细的访问控制和限制。
 
-为每个事件中心客户端分配一个唯一令牌，该令牌将上传到客户端。 生成令牌后，每个唯一令牌将授予对不同唯一发布者的访问权限。 拥有令牌的客户端只能向一个发布者发送消息，但不能向其他发布者发送消息。 如果多个客户端共享同一令牌，则其中每个客户端都将共享一个发布者。
+为每个事件中心客户端分配一个唯一令牌，该令牌将上传到客户端。 生成令牌后，每个唯一令牌授予对不同唯一发布者的访问权限。 拥有令牌的客户端只能向一个发布者发送消息，但不能向其他发布者发送消息。 如果多个客户端共享同一令牌，则其中每个客户端都会共享一个发布者。
 
-可为设备配置令牌，用于授予对事件中心的直接访问权限，但不建议这样做。 持有此令牌的任何设备都可以直接将消息发送到该事件中心。 此类设备将不会受到限制。 此外，无法将设备列入方块列表，使其无法向该事件中心发送消息。
+可为设备配置令牌，用于授予对事件中心的直接访问权限，但不建议这样做。 持有此令牌的任何设备都可以直接将消息发送到该事件中心。 此类设备不会受到限制。 此外，无法将设备列入方块列表，使其无法向该事件中心发送消息。
 
 所有令牌都使用 SAS 密钥进行签名。 通常，所有令牌使用同一密钥进行签名。 客户端不知道密钥；这可以防止其他客户端生成令牌。
 
 ### <a name="create-the-sas-key"></a>创建 SAS 密钥
 
-创建事件中心命名空间时，此服务自动生成名为 RootManageSharedAccessKey 的 256 位 SAS 密钥。 此规则具有关联的主密钥对和辅助密钥对，可用于向命名空间授予发送、侦听和管理权限。 还可创建其他密钥。 建议生成一个密钥，用于授予对特定事件中心的发送权限。 对于本主题的其余部分，假设将此密钥命名为 **EventHubSendKey**。
+创建事件中心命名空间时，此服务自动生成名为 RootManageSharedAccessKey 的 256 位 SAS 密钥。 此规则具有关联的主密钥对和辅助密钥对，可用于向命名空间授予发送、侦听和管理权限。 还可以创建其他密钥。 建议生成一个向特定事件中心授予发送权限的密钥。 对于本主题的其余部分，假设将此密钥命名为 **EventHubSendKey**。
 
 在创建事件中心时，以下示例将创建一个仅限发送的密钥：
 
@@ -68,7 +68,7 @@ nm.CreateEventHub(ed);
 
 ### <a name="generate-tokens"></a>生成令牌
 
-可以使用 SAS 密钥生成令牌。 对于每个客户端只能生成一个令牌。 然后，可以使用以下方法生成令牌。 所有令牌都使用 **EventHubSendKey** 密钥生成。 将为每个令牌分配一个唯一 URI。
+可以使用 SAS 密钥生成令牌。 对于每个客户端只能生成一个令牌。 然后，可以使用以下方法生成令牌。 所有令牌都使用 **EventHubSendKey** 密钥生成。 为每个令牌分配一个唯一 URI。
 
 ```csharp
 public static string SharedAccessSignatureTokenProvider.GetSharedAccessSignature(string keyName, string sharedAccessKey, string resource, TimeSpan tokenTimeToLive)
@@ -76,7 +76,7 @@ public static string SharedAccessSignatureTokenProvider.GetSharedAccessSignature
 
 调用此方法时，应将 URI 指定为 `//<NAMESPACE>.servicebus.chinacloudapi.cn/<EVENT_HUB_NAME>/publishers/<PUBLISHER_NAME>`。 所有令牌的 URI 都是相同的，但每个令牌的 `PUBLISHER_NAME` 应该不同。 `PUBLISHER_NAME` 最好是表示接收该令牌的客户端 ID。
 
-此方法将生成具有以下结构的令牌：
+此方法会生成具有以下结构的令牌：
 
 ```csharp
 SharedAccessSignature sr={URI}&sig={HMAC_SHA256_SIGNATURE}&se={EXPIRATION_TIME}&skn={KEY_NAME}
@@ -92,9 +92,9 @@ SharedAccessSignature sr=contoso&sig=nPzdNN%2Gli0ifrfJwaK4mkK0RqAB%2byJUlt%2bGFm
 
 ### <a name="sending-data"></a>发送数据
 
-创建令牌后，将为每个客户端设置其自身唯一的令牌。
+创建令牌后，会为每个客户端设置其自身唯一的令牌。
 
-客户端向事件中心发送数据时，客户端会使用令牌标记其发送请求。 为了防止攻击者窃听和盗取令牌，客户端与事件中心之间的通信必须通过加密通道进行。
+当客户端向事件中心发送数据时，客户端会使用令牌标记其发送请求。 为了防止攻击者窃听和盗取令牌，客户端与事件中心之间的通信必须通过加密通道进行。
 
 ### <a name="blacklisting-clients"></a>将客户端列入方块列表
 

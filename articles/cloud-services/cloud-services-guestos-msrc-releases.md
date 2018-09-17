@@ -12,39 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-origin.date: 08/03/2018
+origin.date: 07/06/2018
 ms.author: v-yiso
-ms.date: 09/17/2018
-ms.openlocfilehash: bc503734ebf898e917f085547ce5aae6483d7463
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.date: 07/16/2018
+ms.openlocfilehash: c4661e6ae6ed6869d22000164c14e62d87bd6ff2
+ms.sourcegitcommit: 664584f55e0a01bb6558b8d3349d41d3f05ba4d7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068128"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41705298"
 ---
 # <a name="azure-guest-os"></a>Azure 来宾 OS
 下表显示了适用于 Azure 来宾 OS 的 Microsoft 安全响应中心 (MSRC) 更新。 要确定特定的更新是否适用于使用的来宾 OS，请搜索本文。 引入这些更新的特定[系列][family-explain]始终会包含这些更新。
-
-
-## <a name="july-guest-os"></a>7 月来宾 OS
-| 产品类别 | 上层知识库文章 | 漏洞描述 | 来宾 OS | 首次引入日期 |
-| --- | --- | --- | --- | --- |
-| Rel 18-07 | [4338814] |Windows 10 安全性 |5.21 |2018 年 7 月 10日 |
-| Rel 18-07 | [4338823] |仅 Windows 安全性 |2.76 |2018 年 7 月 10日 |
-| Rel 18-07 | [4338820] |仅 Windows 安全性 |3.63 |2018 年 7 月 10日 |
-| Rel 18-07 | [4338824] |仅 Windows 安全性 |4.56 |2018 年 7 月 10日 |
-| Rel 18-07 | [4345459] |安全更新汇总 |2.76 |2018 年 7 月 10日 |
-| Rel 18-07 | [4345425] |安全更新汇总 |3.63 |2018 年 7 月 10日 |
-| Rel 18-07 | [4345424] |安全更新汇总 |4.56 |2018 年 7 月 10日 |
-| Rel 18-07 | [4345418] |安全更新汇总 |5.21 |2018 年 7 月 10日 |
-| Rel 18-07 | [4338612][4338602] |.NET 3.5、4.x 安全性 |2.76 |2018 年 7 月 10日 |
-| Rel 18-07 | [4338601][4338604] |.NET 3.5、4.x、4.5x 安全性 |3.63 |2018 年 7 月 10日 |
-| Rel 18-07 | [4338613][4338600][4338605] |.NET 3.5、4.x、4.5x 安全性 |4.56|2018 年 7 月 10日 |
-| Rel 18-07 | [4338832] |闪烁 |3.63，4.76，5.21 |2018 年 7 月 10日 |
-| Rel 18-07 | [4339093] |Internet Explorer |2.76，3.63，4.76 |2018 年 7 月 10日 |
-| 不适用 | [4284826] |6 月非安全性汇总 |2.76 |2018 年 6 月 12 日 |
-| 不适用 | [4284855] |6 月非安全性汇总 |3.63 |2018 年 6 月 12 日 |
-| 不适用 | [4284815] |6 月非安全性汇总 |4.56 |2018 年 6 月 12 日 |
 
 ## <a name="june-guest-os"></a>6 月来宾 OS
 | 产品类别 | 上层知识库文章 | 漏洞描述 | 来宾 OS | 首次引入日期 |
@@ -58,14 +37,14 @@ ms.locfileid: "44068128"
 | 不适用 | [4103718] |5 月非安全性汇总 |2.75 |2018 年 5 月 8 日 |
 | 不适用 | [4103730] |5 月非安全性汇总 |3.62 |2018 年 5 月 8 日 |
 | 不适用 | [4103725] |5 月非安全性汇总 |4.55 |2018 年 5 月 8 日 |
-| 不适用 | [4040980], [4040977] |9 月 17 日 .NET 非安全性汇总 |2.75 |2017 年 11 月 14 日 |
+| 不适用 | [4040980], [4040977] |9 月17 日 .NET 非安全性汇总 |2.75 |2017 年 11 月 14 日 |
 | 不适用 | [4095874] |5 月 .NET 3.5 非安全性发布 |2.75 |2018 年 5 月 8 日 |
 | 不适用 | [4096495] |5 月 .NET 4.x 非安全性发布 |2.75 |2018 年 5 月 8 日 |
-| 不适用 | [4040975] |9 月 17 日 .NET 非安全性汇总 |3.62 |2017 年 11 月 14 日 |
+| 不适用 | [4040975] |9 月17 日 .NET 非安全性汇总 |3.62 |2017 年 11 月 14 日 |
 | 不适用 | [4095872] |5 月 .NET 3.5 非安全性发布 |3.62 |2018 年 5 月 8 日 |
 | 不适用 | [4096494] |5 月 .NET 4.x 非安全性发布 |3.62 |2018 年 5 月 8 日 |
 | 不适用 | [4096416] |5 月 .NET 4.5x 非安全性发布 |3.62 |2018 年 5 月 8 日 |
-| 不适用 | [4040974], [4040972] |9 月 17 日 .NET 非安全性汇总 |4.55 |2017 年 11 月 14 日 |
+| 不适用 | [4040974], [4040972] |9 月17 日 .NET 非安全性汇总 |4.55 |2017 年 11 月 14 日 |
 | 不适用 | [4043763] |10 月17 日 .NET 非安全性汇总 |4.55 |2017 年 9 月 12 日 |
 | 不适用 | [4095876] |5 月 .NET 4.x 非安全性发布 |4.55 |2018 年 5 月 8 日 |
 | 不适用 | [4096417] |5 月 .NET 4.5x 非安全性发布 |4.55 |2018 年 5 月 8 日 |
@@ -695,28 +674,6 @@ ms.locfileid: "44068128"
 | 不适用 |[2999802] |在 Windows 中打印时，虚线变成实线 |4.15、3.22、2.34 |2015 年 1 月 13 日 |
 | 不适用 |[2896881] |在 Windows 中登录期间使用 AddPrinterConnection VBScript 命令映射用户的打印机时，登录时间过长 |4.15、3.22、2.34 |2015 年 1 月 13 日 |
 
-
-
-[4338814]: http://support.microsoft.com/kb/4338814
-[4338823]: http://support.microsoft.com/kb/4338823
-[4338820]: http://support.microsoft.com/kb/4338820
-[4338824]: http://support.microsoft.com/kb/4338824
-[4345459]: http://support.microsoft.com/kb/4345459
-[4345425]: http://support.microsoft.com/kb/4345425
-[4345424]: http://support.microsoft.com/kb/4345424
-[4345418]: http://support.microsoft.com/kb/4345418
-[4338612]: http://support.microsoft.com/kb/4338612
-[4338602]: http://support.microsoft.com/kb/4338602
-[4338601]: http://support.microsoft.com/kb/4338601
-[4338604]: http://support.microsoft.com/kb/4338604
-[4338613]: http://support.microsoft.com/kb/4338613
-[4338600]: http://support.microsoft.com/kb/4338600
-[4338605]: http://support.microsoft.com/kb/4338605
-[4338832]: http://support.microsoft.com/kb/4338832
-[4284826]: http://support.microsoft.com/kb/4284826
-[4284855]: http://support.microsoft.com/kb/4284855
-[4284815]: http://support.microsoft.com/kb/4284815
-[4339093]: http://support.microsoft.com/kb/4339093
 
 [4284880]: http://support.microsoft.com/kb/4284880
 [4284867]: http://support.microsoft.com/kb/4284867

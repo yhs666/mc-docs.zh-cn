@@ -1,21 +1,25 @@
 ---
-title: '教程：使用 Apache Kafka Streams API - Azure HDInsight '
+title: 教程：使用 Apache Kafka Streams API - Azure HDInsight | Microsoft Docs
 description: 了解如何将 Apache Kafka Streams API 与 Kafka on HDInsight 配合使用。 此 API 允许在 Kafka 中的主题之间执行流处理。
 services: hdinsight
+documentationcenter: ''
+author: Blackmist
+manager: cgronlun
+editor: cgronlun
+tags: azure-portal
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: v-yiso
-editor: jasonwhowell
 ms.custom: hdinsightactive
+ms.devlang: na
 ms.topic: tutorial
 origin.date: 04/17/2018
-ms.date: 09/17/2018
-ms.openlocfilehash: f551d8be900bacb0a4f2d7071f5070ea2d7556c3
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.author: v-yiso
+ms.date: 07/23/2018
+ms.openlocfilehash: 4795212aa8c3037e5e73cb17cf9cbc89a7fd20e9
+ms.sourcegitcommit: 479954e938e4e3469d6998733aa797826e4f300b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068171"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39031759"
 ---
 # <a name="tutorial-apache-kafka-streams-api"></a>教程：Apache Kafka Streams API
 
@@ -223,7 +227,7 @@ public class Stream
 2. 若要将记录发送到 `test` 主题，请使用以下命令启动生成者应用程序：
 
     ```bash
-    java -jar kafka-producer-consumer.jar producer test $KAFKABROKERS
+    java -jar kafka-producer-consumer.jar producer $KAFKABROKERS
     ```
 
 3. 生成者完成后，使用以下命令查看 `wordcounts` 主题中存储的信息：

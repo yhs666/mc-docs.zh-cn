@@ -1,6 +1,6 @@
 ---
 title: 将 MapReduce 和 PowerShell 与 Hadoop 配合使用 - Azure HDInsight | Azure
-description: 了解如何使用 PowerShell 在 HDInsight 上的 Hadoop 上远程运行 MapReduce 作业。
+description: 了解如何使用 PowerShell 在 HDInsight 的 Hadoop 上远程运行 MapReduce 作业。
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
@@ -15,22 +15,22 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 05/09/2018
-ms.date: 09/24/2018
+ms.date: 06/25/2018
 ms.author: v-yiso
-ms.openlocfilehash: e3a2e09273c653ef470dd23da1daff349d8c2ec6
-ms.sourcegitcommit: bae4e9e500e3e988ef8fa0371777ca9cc49b4e94
+ms.openlocfilehash: 447ec9114ba5886cc6f4bbe0c2e29b3dbd1c8d3e
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45584856"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873577"
 ---
-# <a name="run-mapreduce-jobs-with-hadoop-on-hdinsight-using-powershell"></a>使用 PowerShell 在 HDInsight 上的 Hadoop 上运行 MapReduce 作业
+# <a name="run-mapreduce-jobs-with-hadoop-on-hdinsight-using-powershell"></a>通过 PowerShell 使用 HDInsight 上的 Hadoop 运行 MapReduce 作业
 
 [!INCLUDE [mapreduce-selector](../../../includes/hdinsight-selector-use-mapreduce.md)]
 
 
 
-本文档提供使用 Azure PowerShell 在 HDInsight 上的 Hadoop 群集中运行 MapReduce 作业的示例。
+本文档提供了一个示例，演示了使用 Azure PowerShell 在 HDInsight 的 Hadoop 群集中运行 MapReduce 作业。
 
 ## <a id="prereq"></a>先决条件
 
@@ -45,17 +45,17 @@ ms.locfileid: "45584856"
 
 Azure PowerShell 提供 *cmdlet*，可在 HDInsight 上远程运行 MapReduce 作业。 从内部来讲，PowerShell 将对 HDInsight 群集上运行的 [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat)（以前称为 Templeton）进行 REST 调用。
 
-在远程 HDInsight 群集上运行 MapReduce 作业时，将使用以下 Cmdlet。
+在远程 HDInsight 群集上运行 MapReduce 作业时，会使用以下 Cmdlet。
 
-* **Connect-AzureRmAccount**：在 Azure 订阅中进行 Azure PowerShell 身份验证。
+* **Login-AzureRmAccount**：对 Azure 订阅进行 Azure PowerShell 身份验证。
 
-* **New-AzureRmHDInsightMapReduceJobDefinition**：使用指定的 MapReduce 信息创建新的*作业定义*。
+* **New-AzureRmHDInsightMapReduceJobDefinition**：使用指定的 MapReduce 信息创建新 *作业定义* 。
 
 * **Start-AzureRmHDInsightJob**：将作业定义发送到 HDInsight 并启动作业。 将返回作业对象。
 
 * **Wait-AzureRmHDInsightJob**：使用作业对象来检查作业的状态。 它等到作业完成或超出等待时间。
 
-* **Get-AzureRmHDInsightJobOutput**：用于检索作业的输出。
+* **Get-AzureRmHDInsightJobOutput**：用于检索作业输出。
 
 以下步骤演示了如何使用这些 Cmdlet 在 HDInsight 群集上运行作业。
 
@@ -159,11 +159,11 @@ Azure PowerShell 提供 *cmdlet*，可在 HDInsight 上远程运行 MapReduce �
 若要查看作业生成的单词和计数，请在文本编辑器中打开 output.txt 文件。
 
 > [!NOTE]
-> MapReduce 作业的输出文件是固定不变的。 因此，如果重新运行此示例，将需要更改输出文件的名称。
+> MapReduce 作业的输出文件是固定不变的。 因此，如果重新运行此示例，需要更改输出文件的名称。
 
 ## <a id="troubleshooting"></a>故障排除
 
-如果作业完成时未返回任何信息，请查看该作业的错误。 要查看此作业的错误信息，请将以下命令添加到 **mapreducejob.ps1** 文件的末尾，保存，并重新运行该文件。
+如果作业完成时未返回任何信息，请查看该作业的错误。 如果要查看此作业的错误信息，请将以下命令添加到 **mapreducejob.ps1** 文件的末尾，保存，并重新运行该文件。
 
 ```powershell
 # Print the output of the WordCount job.
@@ -179,7 +179,7 @@ Get-AzureRmHDInsightJobOutput `
 
 ## <a id="summary"></a>摘要
 
-如你所见，Azure PowerShell 提供了简单的方法让你在 HDInsight 群集上运行 MapReduce 作业、监视作业状态，以及检索输出。
+Azure PowerShell 提供了一种简单方法，可让你在 HDInsight 群集上运行 MapReduce 作业、监视作业状态，以及检索输出。
 
 ## <a id="nextsteps"></a>后续步骤
 
@@ -187,7 +187,7 @@ Get-AzureRmHDInsightJobOutput `
 
 * [在 HDInsight Hadoop 上使用 MapReduce](hdinsight-use-mapreduce.md)
 
-有关 HDInsight 上的 Hadoop 的其他使用方法的信息：
+有关 HDInsight 上 Hadoop 的其他使用方法的信息：
 
 * [将 Hive 与 Hadoop on HDInsight 配合使用](hdinsight-use-hive.md)
 * [将 Pig 与 Hadoop on HDInsight 配合使用](hdinsight-use-pig.md)

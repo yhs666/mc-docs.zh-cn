@@ -12,22 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/16/2018
-ms.date: 09/17/2018
+origin.date: 04/30/2018
+ms.date: 06/18/2018
 ms.author: v-yeche
-ms.openlocfilehash: dead85a42cb842b2a2bee9cb28ae3e905c9de5fd
-ms.sourcegitcommit: 2700f127c3a8740a83fb70739c09bd266f0cc455
+ms.openlocfilehash: ee3f80cfd3dad0a234aea60a682fb868ef94a8bf
+ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45586586"
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "35416839"
 ---
 # <a name="azure-event-hubs-capture"></a>Azure 事件中心捕获
 
 使用 Azure 事件中心捕获，可以更灵活地按指定的时间间隔或大小间隔将事件中心中的流数据自动传送到所选 [Azure Blob 存储](https://www.azure.cn/home/features/storage/)。 设置捕获极其简单，无需管理费用即可运行它，并且可以使用事件中心[吞吐量单位](event-hubs-features.md#capacity)自动进行缩放。 事件中心捕获是在 Azure 中加载流式处理数据的最简单方法，并可让用户专注于数据处理，而不是数据捕获。
 <!-- Not Avaialble [Azure Data Lake Store](https://www.azure.cn/home/features/data-lake-store/)-->
 
-事件中心捕获可让用户在同一个流上处理实时和基于批处理的管道。 这意味着可以构建随着时间的推移随用户的需要增长的解决方案。 无论用户现在正在构建基于批处理的系统并着眼于将来进行实时处理，还是要将高效的冷路径添加到现有的实时解决方案，事件中心捕获都可以使流式处理数据处理更加简单。
+使用事件中心捕获可在同一个流上处理实时和基于批处理的管道。 这意味着可以构建随着时间的推移随用户的需要增长的解决方案。 无论用户现在正在构建基于批处理的系统并着眼于将来进行实时处理，还是要将高效的冷路径添加到现有的实时解决方案，事件中心捕获都可以使流式处理数据处理更加简单。
 
 ## <a name="how-event-hubs-capture-works"></a>Azure 事件中心捕获的工作原理
 
@@ -54,16 +54,16 @@ https://mystorageaccount.blob.core.chinacloudapi.cn/mycontainer/mynamespace/myev
 
 ### <a name="scaling-to-throughput-units"></a>缩放到吞吐量单位
 
-事件中心流量由[吞吐量单位](event-hubs-features.md#capacity)控制。 单个吞吐量单位允许 1 MB/秒或 1000 个事件/秒的入口量以及两倍的出口量。 标准事件中心可以配置 1 到 20 个吞吐量单位，可以使用增加配额[支持请求][support request]来购买更多吞吐量单位。 使用在超出购买的吞吐量单位时会受到限制。 事件中心捕获直接从内部事件中心存储复制数据，从而绕过吞吐量单位出口配额，为流分析或 Spark 等其他处理读取器节省了出口量。
+事件中心流量由[吞吐量单位](event-hubs-features.md#capacity)控制。 单个吞吐量单位允许 1 MB/秒或 1000 个事件/秒的入口量以及两倍的出口量。 标准事件中心可以配置 1 到 20 个吞吐量单位，可以使用增加配额[支持请求][support request]来购买更多吞吐量单位。 超出购买的吞吐量单位的使用将受到限制。 事件中心捕获直接从内部事件中心存储复制数据，从而绕过吞吐量单位出口配额，为流分析或 Spark 等其他处理读取器节省了出口量。
 
-配置后，用户发送第一个事件时，事件中心捕获会自动运行，并持续保持运行状态。 为了让下游处理更便于了解该进程正在运行，事件中心会在没有数据时写入空文件。 此进程提供了可预测的频率以及可以供给批处理处理器的标记。
+配置后，用户发送第一个事件时，事件中心捕获会自动运行，并持续保持运行状态。 为了让下游处理更便于了解该进程正在运行，事件中心会在没有数据时写入空文件。 此进程提供了可预测的频率以及可以供给批处理器的标记。
 
 ## <a name="setting-up-event-hubs-capture"></a>设置事件中心捕获
 
-可以使用 [Azure 门户](https://portal.azure.cn)或使用 Azure 资源管理器模板在创建事件中心时配置捕获。 有关详细信息，请参阅以下文章：
+可以使用 [Azure 门户](https://portal.azure.cn)或使用 Azure Resource Manager 模板在创建事件中心时配置捕获。 有关详细信息，请参阅以下文章：
 
 - [通过 Azure 门户启用事件中心捕获](event-hubs-capture-enable-through-portal.md)
-- [使用 Azure 资源管理器模板创建包含事件中心的事件中心命名空间并启用捕获](event-hubs-resource-manager-namespace-event-hub-enable-capture.md)
+<!-- Not Available [Create an Event Hubs namespace with an event hub and enable Capture using an Azure Resource Manager template](event-hubs-resource-manager-namespace-event-hub-enable-capture.md) -->
 
 ## <a name="exploring-the-captured-files-and-working-with-avro"></a>浏览已捕获的文件和使用 Avro
 
@@ -126,4 +126,4 @@ Apache Avro 针对 [Java][Java] 和 [Python][Python] 提供了完整的快速入
 [Python]: http://avro.apache.org/docs/current/gettingstartedpython.html
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md
 
-<!--Update_Description: update meta properties, wording update, update link-->
+<!--Update_Description: update meta properties, wording update-->

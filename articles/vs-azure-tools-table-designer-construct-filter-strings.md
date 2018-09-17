@@ -7,22 +7,22 @@ manager: douge
 assetId: a1a10ea1-687a-4ee1-a952-6b24c2fe1a22
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.custom: vs-azure
-ms.workload: azure-vs
+ms.workload: azure
 ms.topic: conceptual
 origin.date: 11/18/2016
-ms.date: 09/10/2018
+ms.date: 07/12/2018
 ms.author: v-junlch
-ms.openlocfilehash: 0fd84fd2084657fbd7358ca5b7d4fd134606be3a
-ms.sourcegitcommit: 40456700212200e707d6cb3147cf96ad161d3ff2
+ms.openlocfilehash: 5bf6cd72fdcc1de83eb4cfe3485b6c14c25fcc9b
+ms.sourcegitcommit: 5b6a2fc55e5b16ae480bd497c3ac2c3a2fd44703
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44269506"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38999179"
 ---
 # <a name="constructing-filter-strings-for-the-table-designer"></a>为表设计器构造筛选字符串
 ## <a name="overview"></a>概述
-要筛选 Visual Studio **表设计器**中显示在 Azure 表中的数据，可以构造一个筛选器字符串并将其输入到筛选器字段中。 筛选器字符串语法由 WCF 数据服务进行定义，与 SQL WHERE 子句类似，但通过 HTTP 请求发送给表服务。 **表设计器**会处理正确的编码，因此，要筛选所需的属性值，只需要在筛选器字段中输入属性名、比较运算符、条件值以及可选的布尔运算符。 不需要像构造 URL 以通过[存储服务 REST API 参考](http://go.microsoft.com/fwlink/p/?LinkId=400447)来查询表时那样包括 $filter 查询选项。
+要筛选 Visual Studio **表设计器**中显示在 Azure 表中的数据，可以构造一个筛选器字符串并将其输入到筛选器字段中。 筛选器字符串语法由 WCF 数据服务进行定义，与 SQL WHERE 子句类似，但通过 HTTP 请求发送给表服务。 
+            **表设计器** 会处理正确的编码以便筛选所需的属性值，只需要在筛选器字段中输入属性名、比较运算符、条件值以及可选的布尔运算符。 无需像构造通过 [存储空间服务 REST API 参考](http://go.microsoft.com/fwlink/p/?LinkId=400447)来查询表的 URL 那样包括 $filter 查询选项。
 
 WCF 数据服务基于[开放数据协议](http://go.microsoft.com/fwlink/p/?LinkId=214805) (OData)。 有关筛选器系统查询选项 (**$filter**) 的详细信息，请参阅 [OData URI Conventions specification](http://go.microsoft.com/fwlink/p/?LinkId=214806)（OData URI 约定规范）。
 
@@ -37,9 +37,9 @@ WCF 数据服务基于[开放数据协议](http://go.microsoft.com/fwlink/p/?Lin
 | lt |小于 |Price lt 20 |
 | le |小于或等于 |Price le 100 |
 | ne |不等于 |City ne 'London' |
-| and |且 |Price le 200 and Price gt 3.5 |
+| 和 |和 |Price le 200 and Price gt 3.5 |
 | or |或 |Price le 3.5 or Price gt 200 |
-| not |非 |not isAvailable |
+| not |not |not isAvailable |
 
 构造筛选器字符串时，以下规则非常重要：
 
@@ -48,7 +48,7 @@ WCF 数据服务基于[开放数据协议](http://go.microsoft.com/fwlink/p/?Lin
 - 常量值的数据类型必须与属性的类型相同，这样筛选器才能返回有效的结果。 有关支持的属性类型的详细信息，请参阅 [Understanding the Table Service Data Model](http://go.microsoft.com/fwlink/p/?LinkId=400448)（了解表服务数据模型）。
 
 ## <a name="filtering-on-string-properties"></a>针对字符串属性进行筛选
-当对字符串属性进行筛选时，用单引号将字符串常量括起来。
+对字符串属性进行筛选时，用单引号将字符串常量括起来。
 
 以下示例对 **PartitionKey** 和 **RowKey** 属性进行筛选；也可以将其他非键属性添加到筛选器字符串中：
 
@@ -65,7 +65,7 @@ WCF 数据服务基于[开放数据协议](http://go.microsoft.com/fwlink/p/?Lin
 ## <a name="filtering-on-numeric-properties"></a>针对数值属性进行筛选
 若要对整数或浮点数进行筛选，请指定不带引号的数字。
 
-此示例将返回 Age 属性值大于 30 的所有实体：
+此示例返回 Age 属性值大于 30 的所有实体：
 
     Age gt 30
 
@@ -74,7 +74,7 @@ WCF 数据服务基于[开放数据协议](http://go.microsoft.com/fwlink/p/?Lin
     AmountDue le 100.25
 
 ## <a name="filtering-on-boolean-properties"></a>针对布尔值属性进行筛选
-若要对布尔值进行筛选，请指定 **true** 或 **false**（不带引号）。
+若要对布尔值进行筛选，请指定 **true** 或 **false** （不带引号）。
 
 以下示例返回 IsActive 属性设置为 **true**的所有实体：
 
@@ -89,7 +89,7 @@ WCF 数据服务基于[开放数据协议](http://go.microsoft.com/fwlink/p/?Lin
     not IsActive
 
 ## <a name="filtering-on-datetime-properties"></a>针对日期时间属性进行筛选
-若要对日期时间值进行筛选，请指定 **datetime** 关键字，后接单引号括起来的日期/时间常量。 日期/时间常量必须采用组合的 UTC 格式，如 [Formatting DateTime Property Values](http://go.microsoft.com/fwlink/p/?LinkId=400449)（设置 DateTime 属性值格式）中所述。
+若要对日期时间值进行筛选，请指定 **datetime** 关键字，后接单引号括起来的日期/时间常量。 日期/时间常量必须采用组合的 UTC 格式，如 [Formatting the DateTime Property Values](http://go.microsoft.com/fwlink/p/?LinkId=400449)（设置 DateTime 属性值格式）中所述。
 
 以下示例返回 CustomerSince 属性等于 2008-07-10 的实体：
 

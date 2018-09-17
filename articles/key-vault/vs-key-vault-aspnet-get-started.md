@@ -9,14 +9,14 @@ ms.technology: vs-azure
 ms.workload: azure
 ms.topic: conceptual
 origin.date: 04/15/2018
-ms.date: 09/17/2018
-ms.author: v-biyu
-ms.openlocfilehash: 7c8ff2446ce25632b3f3d6ce6d3645937d4d0a08
-ms.sourcegitcommit: d649060b55bac3ad9f4fc2bd2962748a4b5bf715
+ms.date: 06/11/2018
+ms.author: v-junlch
+ms.openlocfilehash: 5df35eaff6ea055410443791810a98f2429c55fa
+ms.sourcegitcommit: 306fba1a7125ef6f0555781524afa8f535bea2a0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44066157"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35253408"
 ---
 # <a name="get-started-with-key-vault-connected-service-in-visual-studio-aspnet-projects"></a>Visual Studio 中的 Key Vault 连接服务入门（ASP.NET 项目）
 
@@ -60,17 +60,17 @@ ms.locfileid: "44066157"
 1. 在 HomeController 的 About 控制器方法中添加以下行，以检索机密并将其存储在 ViewBag 中。
  
    ```csharp
-            var secret = ConfigurationManager.AppSettings["MySecret"];
-            var secret2 = ConfigurationManager.AppSettings["Secrets--MySecret"];
-            ViewBag.Secret = $"Secret: {secret}";
-            ViewBag.Secret2 = $"Secret2: {secret2}";
+    var secret = ConfigurationManager.AppSettings["MySecret"];
+    var secret2 = ConfigurationManager.AppSettings["Secrets--MySecret"];
+    ViewBag.Secret = $"Secret: {secret}";
+    ViewBag.Secret2 = $"Secret2: {secret2}";
    ```
 
 1. 在 About.cshtml 视图中添加以下内容，以便显示机密的值（仅限测试）。
 
    ```csharp
-      <h3>@ViewBag.Secret</h3>
-      <h3>@ViewBag.Secret2</h3>
+    <h3>@ViewBag.Secret</h3>
+    <h3>@ViewBag.Secret2</h3>
    ```
 
 祝贺你，现已允许 Web 应用使用 Key Vault 安全地访问存储的机密。

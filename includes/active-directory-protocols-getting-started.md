@@ -11,29 +11,25 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 04/18/2018
-ms.date: 09/06/2018
-ms.author: v-junlch
-ms.openlocfilehash: 132b8f51e5450a1d4437f28751c6a3f1098bd4df
-ms.sourcegitcommit: fd49281c58f34de20cc310d6cefb4568992cd675
+origin.date: 01/21/2016
+ms.date: 01/03/2018
+ms.author: priyamo
+ms.openlocfilehash: 30bf739fdde9e45b5dee79a0900eaa63a418cf54
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43858501"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38944218"
 ---
 ## <a name="register-your-application-with-your-ad-tenant"></a>将应用程序注册到 AD 租户
 首先，需要将应用程序注册到 Azure Active Directory (Azure AD) 租户。 这会为应用程序分配一个应用程序 ID，并且使该应用程序可以接收令牌。
 
-- 登录到 [Azure 门户](https://portal.azure.cn)。
-- 通过以下方式选择 Azure AD 租户：在页面右上角单击你的帐户，单击“切换目录”导航，然后选择合适的租户。 
-  - 如果你的帐户下只有一个 Azure AD 租户，或者已选择了合适的 Azure AD 租户，请跳过此步骤。
-- 在左侧的导航窗格中，单击“Azure Active Directory”。
-- 单击“应用注册”并单击“新建应用程序注册”。
-- 根据提示创建新的应用程序。 本教程简要介绍了 Web 应用程序和本机应用程序的操作步骤，如果想要查看 Web 应用程序或本机应用程序的具体示例，请参阅[快速入门](../articles/active-directory/develop/azure-ad-developers-guide.md)。
-  - 对于 Web 应用程序，请在用户登录页面（如 `http://localhost:12345`）提供“登录 URL”，即应用的基 URL。
-<!--TODO: add once App ID URI is configurable: The **App ID URI** is a unique identifier for your application. The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `https://contoso.partner.onmschina.cn/my-first-aad-app`-->
-  - 对于本机应用程序，请提供“重定向 URI”，Azure AD 将用其返回令牌响应。 输入特定于应用程序的值，例如 `http://MyFirstAADApp`
-- 完成注册后，Azure AD 将为应用程序分配一个唯一的客户端标识符，即应用程序 ID。 在后面的部分中会用到此值，因此，请从应用程序页复制此值。
-- 若要在 Azure 门户中找到应用程序，请依次单击“应用注册”、“查看所有应用程序”。
-
-<!-- ms.date: 09/06/2018 -->
+* 登录到 [Azure 门户](https://portal.azure.cn)。
+* 通过在页面右上角单击帐户选择 Azure AD 租户。
+* 在左侧的导航窗格中，单击“Azure Active Directory”。
+* 单击“应用注册”并单击“新建应用程序注册”。
+* 根据提示创建新的应用程序。 本教程简要介绍了 Web 应用程序和本机应用程序的操作步骤，如果想要查看 Web 应用程序或本机应用程序的具体示例，请参阅[快速入门](../articles/active-directory/develop/active-directory-developers-guide.md)。
+  * 对于 Web 应用程序，请在用户登录页面（如 `http://localhost:12345`）提供“登录 URL”，即应用的基 URL。
+<!--TODO: add once App ID URI is configurable: The **App ID URI** is a unique identifier for your application. The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `https://contoso.onmicrosoft.com/my-first-aad-app`-->
+  * 对于本机应用程序，请提供“重定向 URI”，Azure AD 将用其返回令牌响应。 输入特定于应用程序的值，例如 `http://MyFirstAADApp`
+* 完成注册后，Azure AD 将为应用程序分配一个唯一的客户端标识符，即应用程序 ID。 在后面的部分中会用到此值，因此，请从应用程序页复制此值。

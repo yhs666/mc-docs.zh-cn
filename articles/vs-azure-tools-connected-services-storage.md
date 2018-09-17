@@ -7,18 +7,17 @@ manager: douge
 assetId: 521ec044-ad4b-4828-8864-01decde2e758
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.custom: vs-azure
-ms.workload: azure-vs
+ms.workload: azure
 ms.topic: conceptual
 origin.date: 03/26/2017
-ms.date: 09/10/2018
+ms.date: 07/12/2018
 ms.author: v-junlch
-ms.openlocfilehash: e20534971ae105a2cb9af22df55e0b2ebb9cd7c7
-ms.sourcegitcommit: 40456700212200e707d6cb3147cf96ad161d3ff2
+ms.openlocfilehash: e74bed499bee03466ef2d9528ab826e5ababaf8e
+ms.sourcegitcommit: 5b6a2fc55e5b16ae480bd497c3ac2c3a2fd44703
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44269503"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38999185"
 ---
 # <a name="adding-azure-storage-by-using-visual-studio-connected-services"></a>使用 Visual Studio 连接服务添加 Azure 存储
 在 Visual Studio 中，通过使用“添加连接服务”对话框可将以下任何服务连接到 Azure 存储：
@@ -46,7 +45,7 @@ ms.locfileid: "44269503"
 
 1. 在“Azure 存储”对话框中，选择一个现有的存储帐户，并选择“添加”。
    
-    若要要创建存储帐户，请转到下一步。 否则，请跳到步骤 6。
+    如果需要创建存储帐户，请转到下一步。 否则，请跳到步骤 6。
     
     ![将现有存储帐户添加到项目](./media/vs-azure-tools-connected-services-storage/select-azure-storage-account.png)
 
@@ -70,8 +69,8 @@ ms.locfileid: "44269503"
 - 云服务项目（Web 角色和辅助角色）- [完成的操作 - 云服务项目](http://go.microsoft.com/fwlink/p/?LinkId=516965)
 
 ## <a name="next-steps"></a>后续步骤
-- [MSDN 论坛：Azure 存储](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
+- [MSDN 论坛：Azure 存储](https://social.msdn.microsoft.com/Forums/zh-cn/home?forum=windowsazuredata)
 - [Azure 存储团队博客](http://blogs.msdn.com/b/windowsazurestorage/)
 - [Azure 存储文档](/storage/)
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: update metedata properties -->

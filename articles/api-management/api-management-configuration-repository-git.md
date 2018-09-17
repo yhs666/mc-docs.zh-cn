@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 02/02/2018
 ms.author: v-yiso
-ms.date: 09/17/2018
-ms.openlocfilehash: bbb01e22a14b1918f24d858408b9d10a3bd4aa87
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.date: 08/13/2018
+ms.openlocfilehash: 0e0a18ce9e409f9fa1424df40c89bc8f0fddf972
+ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068056"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39487061"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>如何使用 Git 保存和配置 API 管理服务
 
@@ -216,7 +216,7 @@ git push
 最后的设置 `$ref-policy` 映射到服务实例的全局策略声明文件。
 
 ### <a name="apis-folder"></a>apis 文件夹
-`apis` 文件夹针对服务实例中每个 API 都包括了一个文件夹，其中包含以下项。
+`apis` 文件夹包含一个适用于服务实例中每个 API 的文件夹，该实例包含以下项目。
 
 * `apis\<api name>\configuration.json` - 这是 API 的配置，包含关于后端服务 URL 和操作的信息。 这是使用 `export=true` 以 `application/json` 格式调用[获取特定 API](https://docs.microsoft.com/en-us/rest/api/apimanagement/api/get) 时会返回的相同信息。
 * `apis\<api name>\api.description.html` - 这是 API 的说明，对应于 [API 实体](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.table._entity_property)的 `description` 属性。
@@ -249,7 +249,7 @@ git push
 * `products\<product name>\product.description.html` - 这是产品的说明，对应于 REST API 中[产品实体](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-product-entity)的 `description` 属性。
 
 ### <a name="templates"></a>模板
-`templates` 文件夹包含服务实例的[电子邮件模板](api-management-howto-configure-notifications.md)配置。
+`templates` 文件夹包含服务实例的[电子邮件模板](./api-management-howto-configure-notifications.md)配置。
 
 * `<template name>\configuration.json` - 这是电子邮件模板的配置。
 * `<template name>\body.html` - 这是电子邮件模板的正文。
@@ -258,8 +258,8 @@ git push
 有关管理服务实例的其他方法的信息，请参阅：
 
 * 使用以下 PowerShell cmdlet 管理服务实例
-  * [服务部署 PowerShell cmdlet 参考](https://docs.microsoft.com/powershell/module/wds)
-  * [服务管理 PowerShell cmdlet 参考](https://docs.microsoft.com/powershell/azure/servicemanagement/overview)
+  * [服务部署 PowerShell cmdlet 参考](https://msdn.microsoft.com/library/azure/mt619282.aspx)
+  * [服务管理 PowerShell cmdlet 参考](https://msdn.microsoft.com/library/azure/mt613507.aspx)
 * 使用 REST API 管理服务实例
   * [API 管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn776326.aspx)
 

@@ -1,5 +1,5 @@
 ---
-title: Azure 密钥保管库入门
+title: Azure 密钥保管库入门 | Microsoft Docs
 description: 本教程会帮助你开始使用 Azure 密钥保管库在 Azure 中创建强化容器，以存储和管理 Azure 中的加密密钥和机密。
 services: key-vault
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 origin.date: 05/10/2018
-ms.date: 09/17/2018
-ms.author: v-biyu
-ms.openlocfilehash: c0e3e4d46bc9c896d375f9abe55fa35e2286b0ab
-ms.sourcegitcommit: d649060b55bac3ad9f4fc2bd2962748a4b5bf715
+ms.date: 06/11/2018
+ms.author: v-junlch
+ms.openlocfilehash: bcce0d965f0449494b68cc91ae2baa3f703ef92a
+ms.sourcegitcommit: 56aa1615ef7402444111495f72afbdd6b2dfff78
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44066163"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "41704547"
 ---
 # <a name="get-started-with-azure-key-vault"></a>Azure 密钥保管库入门
 本文有助于使用 PowerShell 完成 Azure Key Vault 入门，并详细介绍如何完成以下活动：
@@ -30,12 +30,15 @@ ms.locfileid: "44066163"
 
 大多数区域都提供了 Azure 密钥保管库。 有关详细信息，请参阅 [密钥保管库定价页](https://www.azure.cn/pricing/details/key-vault/)。
 
+> [!NOTE]
+> 本文不包括如何编写 Azure 应用程序的说明。 对于这些步骤，可以使用 [Azure Key Vault 示例应用程序](https://www.microsoft.com/download/details.aspx?id=45343)。
+
 有关跨平台命令行接口说明，请参阅[此对应教程](key-vault-manage-with-cli2.md)。
 
 ## <a name="requirements"></a>要求
 在继续阅读本文之前，请确认是否符合以下条件：
 
-- **一个 Azure 订阅**。 如果没有订阅，可以注册一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+- **一个 Azure 订阅**。 如果没有订阅，可以注册[试用版](https://www.azure.cn/pricing/1rmb-trial/)。
 - **Azure PowerShell**，**最低版本为 1.1.0**。 要安装 Azure PowerShell 并将其与 Azure 订阅相关联，请参阅[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。 如果已安装了 Azure PowerShell，但不知道版本，请在 Azure PowerShell 控制台中键入 `(Get-Module azure -ListAvailable).Version`。 如果已安装 Azure PowerShell 版本 0.9.1 到 0.9.8，仍可以使用本教程，但需要进行一些细微更改。 例如，必须使用 `Switch-AzureMode AzureResourceManager` 命令，并且某些 Azure 密钥保管库命令已更改。 有关版本 0.9.1 到 0.9.8 的 Key Vault cmdlet 的列表，请参阅 [Azure Key Vault Cmdlet](https://docs.microsoft.com/powershell/module/azurerm.keyvault/#key_vault)。
 - **一个可以配置为使用 Key Vault 的应用程序**。 可以从 [Microsoft 下载中心](http://www.microsoft.com/download/details.aspx?id=45343)获取示例应用程序。 有关说明，请参阅随附的**自述**文件。
 
@@ -285,7 +288,6 @@ Remove-AzureRmResourceGroup -ResourceGroupName 'ContosoResourceGroup'
 ## <a name="next-steps"></a>后续步骤
 
 - 有关 Azure 密钥保管库的概述信息，请参阅 [什么是 Azure 密钥保管库？](key-vault-whatis.md)
-- 有关在 web 应用程序中使用 Azure Key Vault 的后续教程，请参阅[从 Web 应用程序使用 Azure Key Vault](key-vault-use-from-web-application.md)。
 - 有关编程参考，请参阅 [Azure 密钥保管库开发人员指南](key-vault-developers-guide.md)。
 - 有关 Azure Key Vault 的最新 Azure PowerShell cmdlet 列表，请参阅 [Azure Key Vault Cmdlet](https://docs.microsoft.com/powershell/module/azurerm.keyvault/#key_vault)。
 

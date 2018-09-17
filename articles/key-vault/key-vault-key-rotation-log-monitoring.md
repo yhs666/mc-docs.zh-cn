@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/12/2018
-ms.date: 09/17/2018
-ms.author: v-biyu
-ms.openlocfilehash: a1804cc4de60cf062f451cbf0c89b04f9238d332
-ms.sourcegitcommit: d649060b55bac3ad9f4fc2bd2962748a4b5bf715
+ms.date: 07/10/2018
+ms.author: v-junlch
+ms.openlocfilehash: a4146856e7608bbb410704c3dd169bc35e911d9b
+ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44066173"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38939122"
 ---
 # <a name="set-up-azure-key-vault-with-key-rotation-and-auditing"></a>使用密钥轮换和审核设置 Azure Key Vault
 

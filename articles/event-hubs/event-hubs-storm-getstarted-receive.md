@@ -1,6 +1,6 @@
 ---
 title: 使用 Apache Storm 从 Azure 事件中心接收事件 | Azure
-description: 使用 Apache Storm 从事件中心接收事件入门
+description: 使用 Apache Storm 从事件中心进行接收入门
 services: event-hubs
 documentationcenter: ''
 author: rockboyfor
@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: java
 ms.devlang: multiple
 ms.topic: article
-origin.date: 08/16/2018
-ms.date: 09/17/2018
+origin.date: 04/12/2018
+ms.date: 04/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: b77538ec808407029515342f15bea32ad1b14ae7
-ms.sourcegitcommit: 2700f127c3a8740a83fb70739c09bd266f0cc455
+ms.openlocfilehash: 444f8ecd341127f539d021ea083d3ea4a10c8731
+ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45586606"
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32121261"
 ---
 # <a name="receive-events-from-event-hubs-using-apache-storm"></a>使用 Apache Storm 从事件中心接收事件
 
@@ -30,11 +30,11 @@ ms.locfileid: "45586606"
 
 ## <a name="create-project-and-add-code"></a>创建项目并添加代码
 
-本教程使用安装的 [HDInsight Storm][HDInsight Storm]，其中随附了现成可用的事件中心 Spout。
+本教程使用安装的 [HDInsight Storm][HDInsight Storm] ，其中随附了现成可用的事件中心 Spout。
 
 1. 请按照 [HDInsight Storm - 入门](../hdinsight/storm/apache-storm-overview.md)过程创建新 HDInsight 群集，并通过远程桌面连接该群集。
 2. 将 `%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar` 文件复制到本地开发环境。 其中包含 events-storm-spout。
-3. 使用以下命令将程序包安装到本地 Maven 存储中。 这样，在后面的步骤中，便可以在 Storm 项目中将它添加为引用。
+3. 使用以下命令将程序包安装到本地 Maven 存储中。 这样，在后面的步骤中，您便可以在 Storm 项目中将它添加为引用。
 
     ```shell
     mvn install:install-file -Dfile=target\eventhubs-storm-spout-0.9-jar-with-dependencies.jar -DgroupId=com.microsoft.eventhubs -DartifactId=eventhubs-storm-spout -Dversion=0.9 -Dpackaging=jar
@@ -92,7 +92,7 @@ ms.locfileid: "45586606"
     eventhubspout.checkpoint.interval = 10
     eventhub.receiver.credits = 10
     ```
-    **eventhub.receiver.credits** 的值决定在将事件发布到 Storm 管道之前先进行批处理的事件的数量。 为了简单起见，本示例将此值设置为 10。 在生产中，通常应将它设置为较高的值，例如 1024。
+    **eventhub.receiver.credits** 的值决定在被发布到 Storm 管道之前先进行批处理的事件的数量。 为了简单起见，本示例将此值设置为 10。 在生产中，通常应将它设置为较高的值，例如 1024。
 10. 使用以下代码创建名为 **LoggerBolt** 的新类：
 
     ```java
@@ -244,7 +244,7 @@ ms.locfileid: "45586606"
 
 * [事件中心概述][Event Hubs overview]
 * [创建事件中心](event-hubs-create.md)
-* [事件中心常见问题解答](event-hubs-faq.md)
+* [事件中心常见问题](event-hubs-faq.md)
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md

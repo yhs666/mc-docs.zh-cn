@@ -9,13 +9,13 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 08/08/2017
-ms.date: 09/17/2018
-ms.openlocfilehash: a3fe0ae5f715d813c097e1ac6b4f16d2fc5661f4
-ms.sourcegitcommit: 2700f127c3a8740a83fb70739c09bd266f0cc455
+ms.date: 08/20/2018
+ms.openlocfilehash: 06d9fc7fff49354cd92176a570a892b43961b47b
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45586625"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41705252"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>常用流分析使用模式的查询示例
 
@@ -26,10 +26,6 @@ Azure 流分析中的查询以类似 SQL 的查询语言表示。 这些语言�
 
 本文档概述了以真实情况为基础的多个常见查询模式的解决方案。 此项工作仍在进行，将继续使用新的模式不断进行更新。
 
-## <a name="work-with-complex-data-types-in-json-and-avro"></a>使用 JSON 和 AVRO 中的复杂数据类型 
-Azure 流分析支持处理采用 CSV、JSON 和 Avro 数据格式的事件。
-JSON 和 Avro 都可能包含嵌套对象（记录）或数组等复杂类型。 若要使用这些复杂数据类型，请参阅[解析 JSON 和 AVRO 数据](stream-analytics-parsing-json.md)一文。
-
 ## <a name="query-example-convert-data-types"></a>查询示例：转换数据类型
 **说明**：定义输入流中的属性类型。
 例如，在输入流中，车重是字符串，需要将它转换为 INT 类型才能执行 SUM 运算。
@@ -38,8 +34,8 @@ JSON 和 Avro 都可能包含嵌套对象（记录）或数组等复杂类型。
 
 | 制造商 | 时间 | 重量 |
 | --- | --- | --- |
-| Honda |2015-01-01T00:00:01.0000000Z |"1000" |
-| Honda |2015-01-01T00:00:02.0000000Z |"2000" |
+| Honda |2015-01-01T00:00:01.0000000Z |“1000” |
+| Honda |2015-01-01T00:00:02.0000000Z |“2000” |
 
 **输出**：
 
@@ -47,7 +43,7 @@ JSON 和 Avro 都可能包含嵌套对象（记录）或数组等复杂类型。
 | --- | --- |
 | Honda |3000 |
 
-**解决方案**；
+**解决方案**：
 
     SELECT
         Make,
@@ -61,12 +57,12 @@ JSON 和 Avro 都可能包含嵌套对象（记录）或数组等复杂类型。
 **说明**：在“重量”字段中使用 CAST 语句来指定它的数据类型。 请参阅[数据类型（Azure 流分析）](https://msdn.microsoft.com/library/azure/dn835065.aspx)中支持的数据类型列表。
 
 ## <a name="query-example-use-likenot-like-to-do-pattern-matching"></a>查询示例：使用 Like/Not like 进行模式匹配
-**说明**： 检查事件上的字段值是否与特定的模式相匹配。
+**说明**：检查事件上的字段值是否与特定的模式相匹配。
 例如，检查返回以 A 开头并以 9 结尾的车牌的结果。
 
 **输入**：
 
-| 制造商 | LicensePlate | 时间 |
+| 制造商 | 牌照 | 时间 |
 | --- | --- | --- |
 | Honda |ABC-123 |2015-01-01T00:00:01.0000000Z |
 | Toyota |AAA-999 |2015-01-01T00:00:02.0000000Z |
@@ -74,12 +70,12 @@ JSON 和 Avro 都可能包含嵌套对象（记录）或数组等复杂类型。
 
 **输出**：
 
-| 制造商 | LicensePlate | 时间 |
+| 制造商 | 牌照 | 时间 |
 | --- | --- | --- |
 | Toyota |AAA-999 |2015-01-01T00:00:02.0000000Z |
 | Nissan |ABC-369 |2015-01-01T00:00:03.0000000Z |
 
-**解决方案**；
+**解决方案**：
 
     SELECT
         *
@@ -104,12 +100,12 @@ JSON 和 Avro 都可能包含嵌套对象（记录）或数组等复杂类型。
 
 **输出**：
 
-| CarsPassed | 时间 |
+| 通过的车辆 | 时间 |
 | --- | ------ |
 | 1 辆 Honda |2015-01-01T00:00:10.0000000Z |
 | 2 辆 Toyota |2015-01-01T00:00:10.0000000Z |
 
-**解决方案**；
+**解决方案**：
 
     SELECT
         CASE
@@ -151,11 +147,11 @@ JSON 和 Avro 都可能包含嵌套对象（记录）或数组等复杂类型。
 
 **输出 2**：
 
-| 制造商 | 时间 | Count |
+| 制造商 | 时间 | 计数 |
 | --- | --- | --- |
 | Toyota |2015-01-01T00:00:10.0000000Z |3 |
 
-**解决方案**；
+**解决方案**：
 
     SELECT
         *
@@ -178,11 +174,11 @@ JSON 和 Avro 都可能包含嵌套对象（记录）或数组等复杂类型。
     HAVING
         [Count] >= 3
 
-**说明**：INTO 子句告知流分析哪一个输出可通过此语句写入数据。
+**说明**：**INTO** 子句告知流分析哪一个输出可通过此语句写入数据。
 第一个查询将接收到的数据传递到名为 ArchiveOutput 的输出。
 第二个查询进行了一些简单的聚合和筛选操作，并将结果发送到下游的警报系统。
 
-请注意，还可重复使用多个输出语句中的公用表表达式 (CTE) 结果（例如 WITH 语句）。 此选项可提供额外权益，即在输入源打开较少的读取器。
+请注意，还可重复使用多个输出语句中的公用表表达式 (CTE) 结果（例如 **WITH** 语句）。 此选项可提供额外权益，即在输入源打开较少的读取器。
 例如： 
 
     WITH AllRedCars AS (
@@ -248,7 +244,7 @@ COUNT(DISTINCT Make) 返回时间范围内的“制造商”列的非重复值�
 | --- | --- |
 | Toyota |2015-01-01T00:00:02.0000000Z |
 
-**解决方案**；
+**解决方案**：
 
     SELECT
         Make,
@@ -258,14 +254,14 @@ COUNT(DISTINCT Make) 返回时间范围内的“制造商”列的非重复值�
     WHERE
         LAG(Make, 1) OVER (LIMIT DURATION(minute, 1)) <> Make
 
-**说明**：使用 LAG 来查看后退一个事件之后的输入流，并获得“制造商”字段的值。 然后，将它与当前事件的“制造商”字段进行比较，如果二者不同，则输出该事件。
+**说明**：使用 **LAG** 来查看后退一个事件之后的输入流，并获得“制造商”字段的值。 然后，将它与当前事件的“制造商”字段进行比较，如果二者不同，则输出该事件。
 
 ## <a name="query-example-find-the-first-event-in-a-window"></a>查询示例：查找时间范围内的第一个事件
 **说明**：查找每 10 分钟时间间隔内的第一辆汽车。
 
 **输入**：
 
-| LicensePlate | 制造商 | 时间 |
+| 牌照 | 制造商 | 时间 |
 | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:00:05.0000000Z |
 | YZK 5704 |Ford |2015-07-27T00:02:17.0000000Z |
@@ -282,7 +278,7 @@ COUNT(DISTINCT Make) 返回时间范围内的“制造商”列的非重复值�
 | DXE 5291 |Honda |2015-07-27T00:00:05.0000000Z |
 | QYF 9358 |Honda |2015-07-27T00:12:02.0000000Z |
 
-**解决方案**；
+**解决方案**：
 
     SELECT 
         LicensePlate,
@@ -295,7 +291,7 @@ COUNT(DISTINCT Make) 返回时间范围内的“制造商”列的非重复值�
 
 现在，我们来变一下这个问题，查找每 10 分钟时间间隔内特定制造商的第一辆汽车。
 
-| LicensePlate | 制造商 | 时间 |
+| 牌照 | 制造商 | 时间 |
 | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:00:05.0000000Z |
 | YZK 5704 |Ford |2015-07-27T00:02:17.0000000Z |
@@ -303,7 +299,7 @@ COUNT(DISTINCT Make) 返回时间范围内的“制造商”列的非重复值�
 | QYF 9358 |Honda |2015-07-27T00:12:02.0000000Z |
 | MDR 6128 |BMW |2015-07-27T00:13:45.0000000Z |
 
-**解决方案**；
+**解决方案**：
 
     SELECT 
         LicensePlate,
@@ -319,7 +315,7 @@ COUNT(DISTINCT Make) 返回时间范围内的“制造商”列的非重复值�
 
 **输入**：
 
-| LicensePlate | 制造商 | 时间 |
+| 牌照 | 制造商 | 时间 |
 | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:00:05.0000000Z |
 | YZK 5704 |Ford |2015-07-27T00:02:17.0000000Z |
@@ -336,7 +332,7 @@ COUNT(DISTINCT Make) 返回时间范围内的“制造商”列的非重复值�
 | VFE 1616 |Toyota |2015-07-27T00:09:31.0000000Z |
 | MDR 6128 |BMW |2015-07-27T00:13:45.0000000Z |
 
-**解决方案**；
+**解决方案**：
 
     WITH LastInWindow AS
     (
@@ -365,7 +361,7 @@ COUNT(DISTINCT Make) 返回时间范围内的“制造商”列的非重复值�
 
 **输入**：
 
-| 制造商 | LicensePlate | 时间 |
+| 制造商 | 牌照 | 时间 |
 | --- | --- | --- |
 | Honda |ABC-123 |2015-01-01T00:00:01.0000000Z |
 | Honda |AAA-999 |2015-01-01T00:00:02.0000000Z |
@@ -378,7 +374,7 @@ COUNT(DISTINCT Make) 返回时间范围内的“制造商”列的非重复值�
 | --- | --- | --- | --- | --- |
 | Honda |2015-01-01T00:00:02.0000000Z |AAA-999 |ABC-123 |2015-01-01T00:00:01.0000000Z |
 
-**解决方案**；
+**解决方案**：
 
     SELECT
         Make,
@@ -391,25 +387,25 @@ COUNT(DISTINCT Make) 返回时间范围内的“制造商”列的非重复值�
     WHERE
         LAG(Make, 1) OVER (LIMIT DURATION(second, 90)) = Make
 
-**说明**：使用 LAG 来查看后退一个事件之后的输入流，并获得“制造商”字段的值。 将它与当前事件的“制造商”字段进行比较，如果二者相同，则输出该事件。 还可使用 LAG 获取前一辆汽车的数据。
+**说明**：使用 LAG 来查看后退一个事件之后的输入流，并获得“制造商”字段的值。 将它与当前事件的“制造商”字段进行比较，如果二者相同，则输出该事件。 还可使用 **LAG** 获取前一辆汽车的数据。
 
 ## <a name="query-example-detect-the-duration-between-events"></a>查询示例：检测事件之间的持续时间
 **说明**：查找给定事件的持续时间。 例如：给定一个 Web 点击流，确定某项功能花费的时间。
 
 **输入**：  
 
-| 用户 | 功能 | 事件 | 时间 |
+| User | 功能 | 事件 | 时间 |
 | --- | --- | --- | --- |
 | user@location.com |RightMenu |开始 |2015-01-01T00:00:01.0000000Z |
 | user@location.com |RightMenu |结束 |2015-01-01T00:00:08.0000000Z |
 
 **输出**：  
 
-| 用户 | 功能 | Duration |
+| User | 功能 | 持续时间 |
 | --- | --- | --- |
 | user@location.com |RightMenu |7 |
 
-**解决方案**；
+**解决方案**：
 
 ```
     SELECT
@@ -419,7 +415,7 @@ COUNT(DISTINCT Make) 返回时间范围内的“制造商”列的非重复值�
         Event = 'end'
 ```
 
-**说明**：使用 LAST 函数检索上次事件类型为“开始”时的时间值。 LAST 函数使用 PARTITION BY [user] 指示结果应按唯一用户计算。 该查询在“开始”和“停止”事件之间有 1 小时的最大时差阈值，但也可按需配置 (LIMIT DURATION(hour, 1)。
+**说明**：使用 LAST 函数检索上次事件类型为“开始”时的时间值。 **LAST** 函数使用 **PARTITION BY [user]** 指示结果应按唯一用户计算。 该查询在“开始”和“停止”事件之间有 1 小时的最大时差阈值，但也可按需配置 **(LIMIT DURATION(hour, 1)**。
 
 ## <a name="query-example-detect-the-duration-of-a-condition"></a>查询示例：检测某个条件的持续时间
 **说明**：查看某个条件的持续时间。
@@ -444,7 +440,7 @@ COUNT(DISTINCT Make) 返回时间范围内的“制造商”列的非重复值�
 | --- | --- |
 | 2015-01-01T00:00:02.000Z |2015-01-01T00:00:07.000Z |
 
-**解决方案**；
+**解决方案**：
 
 ```
     WITH SelectPreviousEvent AS
@@ -473,14 +469,14 @@ COUNT(DISTINCT Make) 返回时间范围内的“制造商”列的非重复值�
 
 **输入**：
 
-| t | 值 |
+| t | value |
 | --- | --- |
-| "2014-01-01T06:01:00" |1 |
-| "2014-01-01T06:01:05" |2 |
-| "2014-01-01T06:01:10" |3 |
-| "2014-01-01T06:01:15" |4 |
-| "2014-01-01T06:01:30" |5 |
-| "2014-01-01T06:01:35" |6 |
+| “2014-01-01T06:01:00” |1 |
+| “2014-01-01T06:01:05” |2 |
+| “2014-01-01T06:01:10” |3 |
+| “2014-01-01T06:01:15” |4 |
+| “2014-01-01T06:01:30” |5 |
+| “2014-01-01T06:01:35” |6 |
 
 **输出（前 10 行）**：
 
@@ -497,7 +493,7 @@ COUNT(DISTINCT Make) 返回时间范围内的“制造商”列的非重复值�
 | 2014-01-01T14:01:40.000Z |2014-01-01T14:01:35.000Z |6 |
 | 2014-01-01T14:01:45.000Z |2014-01-01T14:01:35.000Z |6 |
 
-**解决方案**；
+**解决方案**：
 
     SELECT
         System.Timestamp AS windowEnd,
@@ -514,7 +510,7 @@ COUNT(DISTINCT Make) 返回时间范围内的“制造商”列的非重复值�
 
 **输入**：
 
-| time | deviceId | sensorName | 值 |
+| time | deviceId | sensorName | value |
 | --- | --- | --- | --- |
 | "2018-01-01T16:01:00" | "Oven1" | "temp" |120 |
 | "2018-01-01T16:01:00" | "Oven1" | "power" |15 |
@@ -526,11 +522,11 @@ COUNT(DISTINCT Make) 返回时间范围内的“制造商”列的非重复值�
 | "2018-01-01T16:04:00" | "Oven1" | "power" |15 |
 | "2018-01-01T16:05:00" | "Oven1" | "temp" |30 |
 | "2018-01-01T16:05:00" | "Oven1" | "power" |8 |
-| "2018-01-01T16:06:00" | "Oven1" | "temp" |20 |
+| "2018-01-01T16:06:00" | "Oven1" | "temp" |20 个 |
 | "2018-01-01T16:06:00" | "Oven1" | "power" |8 |
-| "2018-01-01T16:07:00" | "Oven1" | "temp" |20 |
+| "2018-01-01T16:07:00" | "Oven1" | "temp" |20 个 |
 | "2018-01-01T16:07:00" | "Oven1" | "power" |8 |
-| "2018-01-01T16:08:00" | "Oven1" | "temp" |20 |
+| "2018-01-01T16:08:00" | "Oven1" | "temp" |20 个 |
 | "2018-01-01T16:08:00" | "Oven1" | "power" |8 |
 
 **输出**：
@@ -538,10 +534,10 @@ COUNT(DISTINCT Make) 返回时间范围内的“制造商”列的非重复值�
 | EventTime | deviceId | temp | alertMessage | maxPowerDuringLast3mins |
 | --- | --- | --- | --- | --- | 
 | "2018-01-01T16:05:00" | "Oven1" |30 | “加热元件短路” |15 |
-| "2018-01-01T16:06:00" | "Oven1" |20 | “加热元件短路” |15 |
-| "2018-01-01T16:07:00" | "Oven1" |20 | “加热元件短路” |15 |
+| "2018-01-01T16:06:00" | "Oven1" |20 个 | “加热元件短路” |15 |
+| "2018-01-01T16:07:00" | "Oven1" |20 个 | “加热元件短路” |15 |
 
-**解决方案**；
+**解决方案**：
 
 ````
 WITH max_power_during_last_3_mins AS (
@@ -585,7 +581,7 @@ WHERE
 说明由于事件生成器之间的时钟偏差、分区之间的时钟偏差或网络延迟，事件可能会迟到或不按顺序到达。 在下面的示例中，TollID 2 的设备时钟比 TollID 1 慢 10 秒，TollID 3 的设备时钟比 TollID 1 慢 5 秒。 
 
 **输入**：
-| LicensePlate | 制造商 | 时间 | TollID |
+| 牌照 | 制造商 | 时间 | TollID |
 | --- | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:00:01.0000000Z | 1 |
 | YHN 6970 |Toyota |2015-07-27T00:00:05.0000000Z | 1 |
@@ -597,7 +593,7 @@ WHERE
 | YZK 5704 |Ford |2015-07-27T00:00:07.0000000Z | 3 |
 
 **输出**：
-| TollID | Count |
+| TollID | 计数 |
 | --- | --- |
 | 1 | 2 |
 | 2 | 2 |
@@ -606,7 +602,7 @@ WHERE
 | 2 | 1 |
 | 3 | 1 |
 
-**解决方案**；
+**解决方案**：
 
 ````
 SELECT
@@ -630,4 +626,4 @@ GROUP BY TUMBLINGWINDOW(second, 5), TollId
 * [Azure 流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure 流分析管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties, wording update, add content of Process events independent of Device Clock Skew (substreams) -->

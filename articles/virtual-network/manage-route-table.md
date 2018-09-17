@@ -14,30 +14,29 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/09/2018
-ms.date: 09/10/2018
+ms.date: 07/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: b9a70bb763d24d3e111a60f63a0fcbd6f9dce245
-ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
+ms.openlocfilehash: 94c68959ce5c555d563917fa5eaeb9d8017206bd
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44515656"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167814"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>创建、更改或删除路由表
 
 Azure 自动在 Azure 子网、虚拟网络与本地网络之间路由流量。 若要更改 Azure 的任何默认路由，可以创建一个路由表。 如果不熟悉虚拟网络路由，可在[路由概述](virtual-networks-udr-overview.md)中或通过完成[教程](tutorial-create-route-table-portal.md)了解有关详细信息。
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="before-you-begin"></a>准备阶段
 
 在完成本文任何部分中的步骤之前，请完成以下任务：
 
 - 如果还没有 Azure 帐户，请注册[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 - 如果使用门户，请打开 https://portal.azure.cn，并使用 Azure 帐户登录。
-- 如果使用 PowerShell 命令来完成本文中的任务，请从计算机运行 PowerShell。  本教程需要 Azure PowerShell 模块 5.7.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 查找已安装的版本。 如果需要升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount` 以创建与 Azure 的连接。
-    <!--Not Available on [Azure Cloud Shell](https://shell.azure.com/powershell)-->
+- 如果使用 PowerShell 命令来完成本文中的任务，请从计算机运行 PowerShell。  本教程需要 Azure PowerShell 模块 5.7.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 查找已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/zh-cn/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount -Environment AzureChinaCloud` 以创建与 Azure 的连接。
+<!--Not Available on [Azure Cloud Shell](https://shell.azure.com/powershell)-->
 - 如果使用 Azure 命令行界面 (CLI) 命令来完成本文中的任务，请从计算机运行 CLI。 本教程需要 Azure CLI 2.0.31 或更高版本。 运行 `az --version` 查找已安装的版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 如果在本地运行 Azure CLI，则还需运行 `az login` 以创建与 Azure 的连接。
-    <!--Not Available on [Azure Cloud Shell](https://shell.azure.com/bash)-->
-登录或连接到 Azure 所用的帐户必须分配有[网络参与者](../role-based-access-control/built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor)角色或者分配有可执行[权限](#permissions)中列出的适当操作的[自定义角色](../role-based-access-control/custom-roles.md?toc=%2fvirtual-network%2ftoc.json)。
+<!--Not Available on [Azure Cloud Shell](https://shell.azure.com/bash)--> 登录或连接到 Azure 所用的帐户必须分配有[网络参与者](../role-based-access-control/built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor)角色或者分配有可执行[权限](#permissions)中列出的适当操作的[自定义角色](../role-based-access-control/custom-roles.md?toc=%2fvirtual-network%2ftoc.json)。
 
 ## <a name="create-a-route-table"></a>创建路由表
 
@@ -45,10 +44,9 @@ Azure 自动在 Azure 子网、虚拟网络与本地网络之间路由流量。 
 
 1. 在门户左上角选择“+ 创建资源”。
 2. 依次选择“网络”、“路由表”。
-3. 输入路由表的**名称**，选择自己的**订阅**，创建新的**资源组**或选择现有的资源组，选择一个**位置**，然后选择“创建”。
-    <!--Not Available on **Disable BGP route propagation**-->
+3. 输入路由表的**名称**，选择自己的**订阅**，创建新的**资源组**或选择现有的资源组，选择一个**位置**，然后选择“创建”。 “禁用 BGP 路由传播”选项会禁止本地路由通过 BGP 传播到路由表所关联到的任何子网中的网络接口。 如果虚拟网络未连接到 Azure 网络网关（VPN 或 ExpressRoute），请清除“已禁用”选项。
 
-**命令**
+命令
 
 - Azure CLI：[az network route-table create](https://docs.azure.cn/zh-cn/cli/network/route-table/route?view=azure-cli-latest#az-network-route-table-create)
 - PowerShell：[New-AzureRmRouteTable](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermroutetable)
@@ -57,7 +55,7 @@ Azure 自动在 Azure 子网、虚拟网络与本地网络之间路由流量。 
 
 在门户顶部的搜索框中，输入“路由表”。 当“路由表”出现在搜索结果中时，请选择它。 随后将列出订阅中存在的路由表。
 
-**命令**
+命令
 
 - Azure CLI：[az network route-table list](https://docs.azure.cn/zh-cn/cli/network/route-table/route?view=azure-cli-latest#az-network-route-table-list)
 - PowerShell：[Get-AzureRmRouteTable](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermroutetable)
@@ -73,7 +71,7 @@ Azure 自动在 Azure 子网、虚拟网络与本地网络之间路由流量。 
     *   [锁](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fvirtual-network%2ftoc.json)
     *   [自动化脚本](../azure-resource-manager/resource-manager-export-template.md?toc=%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group)
 
-**命令**
+命令
 
 - Azure CLI：[az network route-table show](https://docs.azure.cn/zh-cn/cli/network/route-table/route?view=azure-cli-latest#az-network-route-table-show)
 - PowerShell：[Get-AzureRmRouteTable](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermroutetable)
@@ -83,7 +81,7 @@ Azure 自动在 Azure 子网、虚拟网络与本地网络之间路由流量。 
 1. 在门户顶部的搜索框中，输入“路由表”。 当“路由表”出现在搜索结果中时，请选择它。
 2. 选择要更改的路由表。 最常见的更改包括[添加](#create-a-route)或[删除](#delete-a-route)路由，以及在子网中[关联](#associate-a-route-table-to-a-subnet)路由表或[取消关联](#dissociate-a-route-table-from-a-subnet)路由表。
 
-**命令**
+命令
 
 - Azure CLI：[az network route-table update](https://docs.azure.cn/zh-cn/cli/network/route-table/route?view=azure-cli-latest#az-network-route-table-update)
 - PowerShell：[Set-AzureRmRouteTable](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermroutetable)
@@ -100,7 +98,7 @@ Azure 自动在 Azure 子网、虚拟网络与本地网络之间路由流量。 
 
 如果虚拟网络已连接到 Azure VPN 网关，请不要将路由表与包含目标为 0.0.0.0/0 的路由的[网关子网](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fvirtual-network%2ftoc.json#gwsub)相关联。 这样做可能会阻止网关正常工作。 有关在路由中使用 0.0.0.0/0 的详细信息，请参阅[虚拟网络流量路由](virtual-networks-udr-overview.md#default-route)。
 
-**命令**
+命令
 
 - Azure CLI：[az network vnet subnet update](https://docs.azure.cn/zh-cn/cli/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update)
 - PowerShell：[Set-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig)
@@ -115,7 +113,7 @@ Azure 自动在 Azure 子网、虚拟网络与本地网络之间路由流量。 
 4. 选择要从中取消关联路由表的子网。
 5. 依次选择“路由表”、“无”、“保存”。
 
-**命令**
+命令
 
 - Azure CLI：[az network vnet subnet update](https://docs.azure.cn/zh-cn/cli/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update)
 - PowerShell：[Set-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig) 
@@ -128,7 +126,7 @@ Azure 自动在 Azure 子网、虚拟网络与本地网络之间路由流量。 
 2. 选择要删除的路由表右侧的“...”。
 3. 依次选择“删除”、“是”。
 
-**命令**
+命令
 
 - Azure CLI：[az network route-table delete](https://docs.azure.cn/zh-cn/cli/network/route-table/route?view=azure-cli-latest#az-network-route-table-delete)
 - PowerShell：[Delete-AzureRmRouteTable](https://docs.microsoft.com/powershell/module/azurerm.network/remove-azurermroutetable) 
@@ -146,9 +144,9 @@ Azure 自动在 Azure 子网、虚拟网络与本地网络之间路由流量。 
 6. 以 CIDR 表示法输入要将流量路由到的**地址前缀**。 该前缀不能在路由表的多个路由中重复，不过，可以包含在另一个前缀中。 例如，如果在一个路由中定义了 10.0.0.0/16 作为前缀，仍可使用 10.0.0.0/24 地址前缀定义另一个路由。 Azure 根据最长的前缀匹配项选择流量的路由。 若要详细了解 Azure 如何选择路由，请参阅[路由概述](virtual-networks-udr-overview.md#how-azure-selects-a-route)。
 7. 选择“下一跃点类型”。 有关所有下一跃点类型的详细说明，请参阅[路由概述](virtual-networks-udr-overview.md)。
 8. 输入“下一跃点地址”的 IP 地址。 如果为“下一跃点类型”选择了“虚拟设备”，则只能输入一个地址。
-9. 选择“确定”。
+9. 选择“确定” 。
 
-**命令**
+命令
 
 - Azure CLI：[az network route-table route create](https://docs.azure.cn/zh-cn/cli/network/route-table/route?view=azure-cli-latest#az-network-route-table-route-create)
 - PowerShell：[New-AzureRmRouteConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermrouteconfig)
@@ -161,7 +159,7 @@ Azure 自动在 Azure 子网、虚拟网络与本地网络之间路由流量。 
 2. 在列表中选择要查看其路由的路由表。
 3. 在“设置”下选择“路由”。
 
-**命令**
+命令
 
 - Azure CLI：[az network route-table route list](https://docs.azure.cn/zh-cn/cli/network/route-table/route?view=azure-cli-latest#az-network-route-table-route-list)
 - PowerShell：[Get-AzureRmRouteConfig](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermrouteconfig)
@@ -173,7 +171,7 @@ Azure 自动在 Azure 子网、虚拟网络与本地网络之间路由流量。 
 3. 选择“路由”。
 4. 选择要查看其详细信息的路由。
 
-**命令**
+命令
 
 - Azure CLI：[az network route-table route show](https://docs.azure.cn/zh-cn/cli/network/route-table/route?view=azure-cli-latest#az-network-route-table-route-show)
 - PowerShell：[Get-AzureRmRouteConfig](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermrouteconfig)
@@ -186,7 +184,7 @@ Azure 自动在 Azure 子网、虚拟网络与本地网络之间路由流量。 
 4. 选择要更改的路由。
 5. 将现有设置更改为新设置，然后选择“保存”。
 
-**命令**
+命令
 
 - Azure CLI：[az network route-table route update](https://docs.azure.cn/zh-cn/cli/network/route-table/route?view=azure-cli-latest#az-network-route-table-route-update)
 - PowerShell：[Set-AzureRmRouteConfig](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermrouteconfig)
@@ -199,7 +197,7 @@ Azure 自动在 Azure 子网、虚拟网络与本地网络之间路由流量。 
 4. 在路由列表中，选择要删除的路由右侧的“...”。
 5. 依次选择“删除”、“是”。
 
-**命令**
+命令
 
 - Azure CLI：[az network route-table route delete](https://docs.azure.cn/zh-cn/cli/network/route-table/route?view=azure-cli-latest#az-network-route-table-route-delete)
 - PowerShell：[Remove-AzureRmRouteConfig](https://docs.microsoft.com/powershell/module/azurerm.network/remove-azurermrouteconfig)
@@ -214,7 +212,7 @@ Azure 自动在 Azure 子网、虚拟网络与本地网络之间路由流量。 
 4. 在“支持 + 故障排除”下，选择“有效路由”。
 5. 查看有效路由的列表，以确定是否存在可用于路由流量的正确路由。 [路由概述](virtual-networks-udr-overview.md)中详细介绍了此列表中显示的下一跃点类型。
 
-**命令**
+命令
 
 - Azure CLI：[az network nic show-effective-route-table](https://docs.azure.cn/zh-cn/cli/network/nic?view=azure-cli-latest#az-network-nic-show-effective-route-table)
 - PowerShell: [Get-AzureRmEffectiveRouteTable](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermeffectiveroutetable) 
@@ -231,7 +229,7 @@ Azure 自动在 Azure 子网、虚拟网络与本地网络之间路由流量。 
 6. 选择“下一跃点”。
 7. 片刻之后，系统会返回信息，告知路由了流量的路由的下一跃点类型和 ID。 [路由概述](virtual-networks-udr-overview.md)中详细介绍了返回的下一跃点类型。
 
-**命令**
+命令
 
 - Azure CLI：[az network watcher show-next-hop](https://docs.azure.cn/zh-cn/cli/network/watcher?view=azure-cli-latest#az-network-watcher-show-next-hop)
 - PowerShell：[Get-AzureRmNetworkWatcherNextHop](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkwatchernexthop) 
@@ -255,4 +253,4 @@ Azure 自动在 Azure 子网、虚拟网络与本地网络之间路由流量。 
 ## <a name="next-steps"></a>后续步骤
 
 - 使用 [PowerShell](powershell-samples.md) 或 [Azure CLI](cli-samples.md) 示例脚本或使用 Azure [资源管理器模板](template-samples.md)创建路由表
-- 为虚拟网络创建并应用 [Azure Policy](policy-samples.md)<!-- Update_Description: wording update, update link -->
+- 为虚拟网络创建并应用 [Azure 策略](policy-samples.md) <!-- Update_Description: wording update, update link -->

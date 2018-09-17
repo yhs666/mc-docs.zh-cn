@@ -1,23 +1,28 @@
 ---
 title: 使用 .NET 创建 Hadoop 群集 - Azure HDInsight | Azure
-description: 了解如何使用 HDInsight .NET SDK 在 Linux 上的 HDInsight 中创建 Hadoop、HBase、Storm 或 Spark 群集。
+description: 了解如何使用 HDInsight .NET SDK 在 Linux 中为 HDInsight 创建 Hadoop、HBase、Storm 或 Spark 群集。
 services: hdinsight
-author: mamccrea
-editor: jasonwhowell
+documentationcenter: ''
+author: mumian
+manager: jhubbard
+editor: cgronlun
+tags: azure-portal
+ms.assetid: 9c74e3dc-837f-4c90-bbb1-489bc7124a3d
 ms.service: hdinsight
 ms.custom: hdinsightactive
+ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 08/16/2018
-ms.date: 09/24/2018
+origin.date: 07/09/2018
+ms.date: 08/27/2018
 ms.author: v-yiso
-ms.openlocfilehash: 6d24ea23dca6074fc4cf0d88d02f4fa2fe2ed2ec
-ms.sourcegitcommit: bae4e9e500e3e988ef8fa0371777ca9cc49b4e94
+ms.openlocfilehash: 5a3856c64a248dc7ba4af4e639a2255bf3a984e8
+ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45584841"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41704021"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>使用 .NET SDK 在 HDInsight 中创建基于 Linux 的群集
 
@@ -43,7 +48,7 @@ ms.locfileid: "45584841"
 
 1. 打开 Visual Studio 2017。
 2. 创建新的 Visual C# 控制台应用程序。
-3. 在“工具”菜单中，单击“NuGet 包管理器”，并单击“包管理器控制台”。
+3. 在“工具”菜单中，单击“Nuget 程序包管理器”，并单击“程序包管理器控制台”。
 4. 在控制台中运行下列命令以安装程序包：
 
     ```powershell
@@ -164,12 +169,12 @@ ms.locfileid: "45584841"
             static TokenCloudCredentials GetTokenCloudCredentials(string TenantId, string ClientId, string SubscriptionId)
             {
                 var authContext = new AuthenticationContext("https://login.chinacloudapi.cn/" + TenantId);
-                var tokenAuthResult = authContext.AcquireTokenAsync("https://management.core.chinacloudapi.cn/", 
+                var tokenAuthResult = authContext.AcquireToken("https://management.core.chinacloudapi.cn/", 
                     ClientId, 
                     new Uri("urn:ietf:wg:oauth:2.0:oob"), 
-                    new PlatformParameters(PromptBehavior.Always), 
+                    PromptBehavior.Always, 
                     UserIdentifier.AnyUser);
-                return new TokenCloudCredentials(SubscriptionId, tokenAuthResult.Result.AccessToken);
+                return new TokenCloudCredentials(SubscriptionId, tokenAuthResult.AccessToken);
             }
             /// <summary>
             /// Marks your subscription as one that can use HDInsight, if it has not already been marked as such.
@@ -190,11 +195,11 @@ ms.locfileid: "45584841"
     ```
 
 6. 替换类成员值。
-7. 按 **F5** 运行应用程序。 控制台窗口应打开并显示应用程序的状态。 系统会提示输入 Azure 帐户凭据。 创建 HDInsight 群集可能需要几分钟时间（通常是 15 分钟）。
+7. 按 **F5** 运行应用程序。 控制台窗口应打开并显示应用程序的状态。 系统会提示输入 Azure 帐户凭据。 创建一个 HDInsight 群集可能需要几分钟时间，通常为 15 分钟。
 
 ## <a name="use-bootstrap"></a>使用 bootstrap
 
-使用 bootstrap，可以在群集创建过程中配置添加设置。  有关详细信息，请参阅 [使用 Bootstrap 自定义 HDInsight 群集](hdinsight-hadoop-customize-cluster-bootstrap.md)。
+使用 bootstrap，可以在群集创建过程中配置添加设置。  有关详细信息，请参阅[使用 Bootstrap 自定义 HDInsight 群集](hdinsight-hadoop-customize-cluster-bootstrap.md)。
 
 修改[创建群集](#create-clusters)中的示例以配置 Hive 设置：
 
@@ -325,7 +330,7 @@ static void Main(string[] args)
 
 使用脚本操作，可以在群集创建过程中配置其他设置。  有关详细信息，请参阅[使用脚本操作自定义基于 Linux 的 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md)。
 
-修改[创建群集](#create-clusters)中的示例以调用脚本操作安装 R：
+修改 [创建群集](#create-clusters) 中的示例，以便调用脚本操作来安装 R：
 
 ```csharp
 static void Main(string[] args)

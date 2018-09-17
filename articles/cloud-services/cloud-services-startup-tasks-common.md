@@ -2,25 +2,23 @@
 title: 云服务的常见启动任务 | Azure
 description: 提供了一些可能需要在云服务 Web 角色或辅助角色中执行的常见启动任务示例。
 services: cloud-services
-documentationcenter: ''
-author: jpconnock
+documentationCenter: ''
+authors: Thraka
 manager: timlt
 editor: ''
-ms.assetid: a7095dad-1ee7-4141-bc6a-ef19a6e570f1
 ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/18/2017
-ms.date: 09/17/2018
+ms.date: 10/17/2016
 ms.author: v-yiso
-ms.openlocfilehash: d0708c0c5108dd48671225e378a723fe704da6bb
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.openlocfilehash: dd8ef2afcbd192cd6de272e7986d437f2f402e93
+ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068149"
+ms.lasthandoff: 06/21/2017
+ms.locfileid: "20181584"
 ---
 # <a name="common-cloud-service-startup-tasks"></a>常见的云服务启动任务
 
@@ -30,11 +28,10 @@ ms.locfileid: "44068149"
 
 >[!NOTE]
 > 启动任务不适用于虚拟机，只适用于云服务 Web 角色和辅助角色。
-> 
 
 ## <a name="define-environment-variables-before-a-role-starts"></a>在角色启动之前定义环境变量
 
-如果需要为特定任务定义环境变量，则可以在 [任务] 元素内使用 [环境] 元素。
+如果需要为特定任务定义环境变量，则可以在 [Task] 元素内使用 [Environment] 元素。
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -66,7 +63,7 @@ ms.locfileid: "44068149"
 但是，在使用 *AppCmd.exe* 作为启动任务时有几点需要注意：
 
 - 启动任务在重新启动之间可以运行多次。 例如，当角色回收时。
-- 如果多次执行 *AppCmd.exe* 操作，则可能会生成错误。 例如，尝试将某个节添加到 Web.config 中两次会生成错误。
+- 如果多次执行 *AppCmd.exe* 操作，则可能会生成错误。 例如，尝试将某个节添加到 *Web.config* 中两次会生成错误。
 - 如果启动任务返回非零退出代码或 **errorlevel**，则为失败。 例如，当 *AppCmd.exe* 生成了错误时。
 
 比较明智的做法是在调用 AppCmd.exe 之后检查 errorlevel，如果使用 .cmd 文件包装对 AppCmd.exe 的调用，则很容易做到这一点。 如果检测到已知的 **errorlevel** 响应，可以将其忽略，否则将其返回。
@@ -75,7 +72,7 @@ AppCmd.exe 返回的 errorlevel 在 winerror.h 文件中列出，并且还可以
 
 ### <a name="example-of-managing-the-error-level"></a>管理错误级别的示例
 
-此示例将 JSON 的压缩节和压缩条目添加到 Web.config 文件，其中包含错误处理和日志记录。
+此示例将 JSON 的压缩节和压缩条目添加到 *Web.config* 文件，其中包含错误处理和日志记录。
 
 此处显示了 [ServiceDefinition.csdef] 文件的相关部分，其中包括将 [executionContext](https://msdn.microsoft.com/zh-cn/library/azure/gg557552.aspx#Task) 属性设为 `elevated` 以为 AppCmd.exe 提供足够的权限来更改 Web.config 文件中的设置：
 
@@ -130,13 +127,13 @@ EXIT %ERRORLEVEL%
 
 ## <a name="add-firewall-rules"></a>添加防火墙规则
 
-实际上，Azure 中有两个防火墙。 第一个防火墙控制虚拟机与外界之间的连接。 此防火墙由 [ServiceDefinition.csdef] 文件中的 [EndPoints] 元素控制。
+实际上，Azure 中有两个防火墙。 第一个防火墙控制虚拟机与外界之间的连接。 此防火墙由 [ServiceDefinition.csdef] 文件中的 [EndPoint] 元素控制。
 
 第二个防火墙控制虚拟机与该虚拟机中的进程之间的连接。 可以通过 `netsh advfirewall firewall` 命令行工具控制此防火墙。
 
-Azure 将为角色中启动的进程创建防火墙规则。 例如，启动服务或程序时，Azure 会自动创建必要的防火墙规则以允许该服务与 Internet 进行通信。 但是，如果创建的服务由角色外部的进程（例如，COM+ 服务或 Windows 计划任务）启动，则将需要手动创建防火墙规则以允许访问该服务。 可以通过使用启动任务来创建这些防火墙规则。
+Azure 将为你角色中启动的进程创建防火墙规则。 例如，当你启动服务或程序时，Azure 将自动创建必要的防火墙规则以允许该服务与 Internet 进行通信。 但是，如果创建的服务由角色外部的进程（例如，COM+ 服务或 Windows 计划任务）启动，则将需要手动创建防火墙规则以允许访问该服务。 可以通过使用启动任务来创建这些防火墙规则。
 
-创建防火墙规则的启动任务的 [executionContext][任务] 必须为 **elevated**，则为失败。 将以下启动任务添加到 [ServiceDefinition.csdef] 文件。
+创建防火墙规则的启动任务的 [executionContext][Task] 必须为 **elevated**，则为失败。 将以下启动任务添加到 [ServiceDefinition.csdef] 文件。
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -228,7 +225,7 @@ powershell -ExecutionPolicy Unrestricted -command "Install-WindowsFeature Web-IP
 
 Windows PowerShell 脚本不能直接从 [ServiceDefinition.csdef] 文件调用，但它们可以从启动批处理文件中调用。
 
-默认情况下，PowerShell 不会运行未签名的脚本。 除非为脚本签名，否则需要将 PowerShell 配置为运行未签名的脚本。 若要运行未签名的脚本，ExecutionPolicy 必须设置为 Unrestricted。 使用的 **ExecutionPolicy** 设置基于 Windows PowerShell 的版本。
+默认情况下，PowerShell 不会运行未签名的脚本。 除非为脚本签名，否则需要将 PowerShell 配置为运行未签名的脚本。 若要运行未签名的脚本，ExecutionPolicy 必须设置为 Unrestricted。 你使用的 **ExecutionPolicy** 设置基于 Windows PowerShell 的版本。
 
 ```cmd
 REM   Run an unsigned PowerShell script and log the output
@@ -312,7 +309,7 @@ string fileContent = System.IO.File.ReadAllText(System.IO.Path.Combine(localStor
 
 ## <a name="run-in-the-emulator-or-cloud"></a>在模拟器或云中运行
 
-与在计算模拟器中运行时相比，可以让启动任务在云中运行时执行不同的步骤。 例如，仅当在模拟器中运行时，才可能需要使用 SQL 数据的新副本。 或者，可能需要为云做一些性能优化，而在模拟器中运行时不需要做这些优化。
+与在计算模拟器中运行时相比，你可以让启动任务在云中运行时执行不同的步骤。 例如，仅当在模拟器中运行时，才可能需要使用 SQL 数据的新副本。 或者，可能需要为云做一些性能优化，而在模拟器中运行时不需要做这些优化。
 
 可以通过在 [ServiceDefinition.csdef] 文件中创建一个环境变量来实现在计算模拟器中和云中执行不同操作的能力。 然后，在启动任务中针对某个值测试该环境变量。
 
@@ -354,13 +351,13 @@ IF "%ComputeEmulatorRunning%" == "true" (
 
 ## <a name="detect-that-your-task-has-already-run"></a>检测到任务已运行
 
-该角色可能会无需重新启动即可回收，从而不会导致启动任务重新运行。 没有标志来指示任务已在宿主 VM 上运行。 可能有一些任务它们运行多次无关紧要。 但是，也可能会遇到需要阻止任务运行多次的情况。
+该角色可能会无需重新启动即可回收，从而不会导致启动任务重新运行。 没有标志来指示任务已在宿主 VM 上运行。 你可能有一些任务它们运行多次无关紧要。 但是，也可能会遇到需要阻止任务运行多次的情况。
 
-检测任务是否已运行的最简单方式是在任务成功时在 **%TEMP%** 文件夹中创建一个文件，并在任务开始时查找该文件。 下面是可执行该操作的示例 cmd shell 脚本。
+检测任务是否已运行的最简单方式是在任务成功时在 **%TEMP%** 文件夹中创建一个文件，然后在任务开始时查找该文件。 下面是可执行该操作的示例 cmd shell 脚本。
 
 ```cmd
 REM   If Task1_Success.txt exists, then Application 1 is already installed.
-IF EXIST "%PathToApp1Install%\Task1_Success.txt" (
+IF EXIST "%RoleRoot%\Task1_Success.txt" (
   ECHO Application 1 is already installed. Exiting. >> "%TEMP%\StartupLog.txt" 2>&1
   GOTO Finish
 )
@@ -373,7 +370,7 @@ IF %ERRORLEVEL% EQU 0 (
   REM   The application installed without error. Create a file to indicate that the task
   REM   does not need to be run again.
 
-  ECHO This line will create a file to indicate that Application 1 installed correctly. > "%PathToApp1Install%\Task1_Success.txt"
+  ECHO This line will create a file to indicate that Application 1 installed correctly. > "%RoleRoot%\Task1_Success.txt"
 
 ) ELSE (
   REM   An error occurred. Log the error and exit with the error code.
@@ -402,9 +399,9 @@ Visual Studio 未提供用于单步调试批处理文件的调试器，因此最
 "%PathToApp1Install%\setup.exe" >> "%TEMP%\StartupLog.txt" 2>&1
 ```
 
-要简化 xml，可以创建一个包装器 *cmd* 文件，使该文件调用所有启动任务以及日志记录并确保每个子任务共享相同的环境变量。 你可能会发现在每个启动任务的末尾都使用 `>> "%TEMP%\StartupLog.txt" 2>&1` 很是恼人。 可以通过创建一个包装器来处理日志记录以强制执行任务日志记录。 此包装器调用要运行的实际批处理文件。 来自目标批处理文件的任何输出都会重定向到 *Startuplog.txt* 文件。
+若要简化 xml，可以创建一个包装器 *cmd* 文件，使该文件调用你的所有启动任务以及日志记录并确保每个子任务共享相同的环境变量。 你可能会发现在每个启动任务的末尾都使用 `>> "%TEMP%\StartupLog.txt" 2>&1` 很是恼人。 可以通过创建一个包装器来处理日志记录以强制执行任务日志记录。 此包装器调用要运行的实际批处理文件。 来自目标批处理文件的任何输出都将重定向到 *Startuplog.txt* 文件。
 
-以下示例展示了如何重定向来自某个启动批处理文件的所有输出。 在此示例中，ServerDefinition.csdef 文件创建一个调用 *logwrap.cmd* 的启动任务。 logwrap.cmd 调用 Startup2.cmd，并将所有输出都重定向到 %TEMP%**\\StartupLog.txt**。
+以下示例展示了如何重定向来自某个启动批处理文件的所有输出。 在此示例中，ServerDefinition.csdef 文件将创建一个调用 *logwrap.cmd*的启动任务。 logwrap.cmd 调用 Startup2.cmd，并将所有输出都重定向到 %TEMP%**\\StartupLog.txt**。
 
 ServiceDefinition.cmd：
 
@@ -484,13 +481,13 @@ EXIT %ERRORLEVEL%
 
 为启动任务适当地设置权限。 有时启动任务必须以提升的权限运行，即使角色以普通权限运行，也是如此。
 
-[executionContext][任务] 属性将设置启动任务的权限级别。 使用 `executionContext="limited"` 意味着启动任务具有与角色相同的权限级别。 使用 `executionContext="elevated"` 意味着启动任务具有管理员权限，这会允许启动任务执行管理员任务，而无需向角色授予管理员权限。
+[executionContext][Task] 属性将设置启动任务的权限级别。 使用 `executionContext="limited"` 意味着启动任务具有与角色相同的权限级别。 使用 `executionContext="elevated"` 意味着启动任务具有管理员权限，这将允许启动任务执行管理员任务，而无需向你的角色授予管理员权限。
 
 需要提升的权限的启动任务示例是使用 **AppCmd.exe** 配置 IIS 的启动任务。 AppCmd.exe 需要 `executionContext="elevated"`。
 
 ### <a name="use-the-appropriate-tasktype"></a>使用适当的 taskType
 
-[taskType][任务] 属性决定了执行启动任务的方式。 有三个值：simple、background 和 foreground。 background 和 foreground 任务以异步方式启动，simple 任务以同步方式执行（一次一个）。
+[taskType][Task] 属性决定了执行启动任务的方式。 有三个值：simple、background 和 foreground。 background 和 foreground 任务以异步方式启动，然后 simple 任务以同步方式执行（一次一个）。
 
 使用 **simple** 启动任务，可以设置顺序，让任务按照它们在 ServiceDefinition.csdef 文件中的列出顺序运行。 如果 **simple** 任务以非零退出代码结束，则启动过程将停止，并且角色不会启动。
 
@@ -503,7 +500,7 @@ background 启动任务和 foreground 启动任务之间的区别在于 foregrou
 在启动批处理文件的末尾缺少 `EXIT /B 0` 是角色未启动的常见原因。
 
 >[!NOTE]
-> 我发现当使用 `/B` 参数时，嵌套的批处理文件多次挂起。 如果另一个批处理文件调用当前批处理文件（例如当使用[日志包装器](#always-log-startup-activities)时），你可能希望确保此挂起问题不再发生。 在本例中，可以省略 `/B` 参数。
+> 我发现当使用 `/B` 参数时，嵌套的批处理文件多次挂起。 如果另一个批处理文件调用你的当前批处理文件（例如当使用 [日志包装器](#always-log-startup-activities)时），你可能希望确保此挂起问题不再发生。 在本例中，可以省略 `/B` 参数。
 
 ### <a name="expect-startup-tasks-to-run-more-than-once"></a>启动任务应多次运行
 
@@ -511,7 +508,7 @@ background 启动任务和 foreground 启动任务之间的区别在于 foregrou
 
 ### <a name="use-local-storage-to-store-files-that-must-be-accessed-in-the-role"></a>使用本地存储来存储必须在角色中访问的文件
 
-如果要在启动任务期间复制或创建随后可由角色访问的文件，则该文件必须放置在本地存储中。 请参阅 [前面部分](#create-files-in-local-storage-from-a-startup-task)。
+如果你要在启动任务期间复制或创建随后可由角色访问的文件，则该文件必须放置在本地存储中。 请参阅 [前面部分](#create-files-in-local-storage-from-a-startup-task)。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -522,14 +519,14 @@ background 启动任务和 foreground 启动任务之间的区别在于 foregrou
 [创建和部署](./cloud-services-how-to-create-deploy-portal.md)云服务包。
 
 [ServiceDefinition.csdef]: ./cloud-services-model-and-package.md#csdef
-[任务]: https://msdn.microsoft.com/zh-cn/library/azure/gg557552.aspx#Task
+[Task]: https://msdn.microsoft.com/zh-cn/library/azure/gg557552.aspx#Task
 [Startup]: https://msdn.microsoft.com/zh-cn/library/azure/gg557552.aspx#Startup
 [Runtime]: https://msdn.microsoft.com/zh-cn/library/azure/gg557552.aspx#Runtime
-[环境]: https://msdn.microsoft.com/zh-cn/library/azure/gg557552.aspx#Environment
+[Environment]: https://msdn.microsoft.com/zh-cn/library/azure/gg557552.aspx#Environment
 [变量]: https://msdn.microsoft.com/zh-cn/library/azure/gg557552.aspx#Variable
 [RoleInstanceValue]: https://msdn.microsoft.com/zh-cn/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/zh-cn/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx
-[EndPoints]: https://msdn.microsoft.com/zh-cn/library/azure/gg557552.aspx#Endpoints
+[Endpoints]: https://msdn.microsoft.com/zh-cn/library/azure/gg557552.aspx#Endpoints
 [LocalStorage]: https://msdn.microsoft.com/zh-cn/library/azure/gg557552.aspx#LocalStorage
 [LocalResources]: https://msdn.microsoft.com/zh-cn/library/azure/gg557552.aspx#LocalResources
 [RoleInstanceValue]: https://msdn.microsoft.com/zh-cn/library/azure/gg557552.aspx#RoleInstanceValue

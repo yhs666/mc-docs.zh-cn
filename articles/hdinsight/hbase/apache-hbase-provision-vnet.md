@@ -3,20 +3,26 @@ title: 在虚拟网络中创建 HBase 群集 - Azure | Azure
 description: 开始在 Azure HDInsight 中使用 HBase。 了解如何在 Azure 虚拟网络上创建 HDInsight HBase 群集。
 keywords: ''
 services: hdinsight,virtual-network
-author: jasonwhowell
-editor: jasonwhowell
+documentationcenter: ''
+author: mumian
+manager: jhubbard
+editor: cgronlun
+ms.assetid: 8de8e446-f818-4e61-8fad-e9d38421e80d
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.topic: conceptual
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: big-data
 origin.date: 02/22/2018
-ms.date: 09/17/2018
+ms.date: 03/26/2018
 ms.author: v-yiso
-ms.openlocfilehash: 724c44ae6a030cff1a9bae4abc2d2e1adaa7a929
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.openlocfilehash: 976e460813ba57448a7d0a1d483ea74681758ff4
+ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068199"
+ms.lasthandoff: 03/22/2018
+ms.locfileid: "30076054"
 ---
 # <a name="create-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>在 Azure 虚拟网络中的 HDInsight 上创建 HBase 群集
 了解如何在 [Azure 虚拟网络][1]中创建 Azure HDInsight HBase 群集。
@@ -52,7 +58,7 @@ ms.locfileid: "44068199"
 >
 >
 
-1. 单击下面的图像可在 Azure 门户中打开模板。 模板位于 [Azure 快速入门模板](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-linux-vnet/)中。
+1. 单击下面的图像可在 Azure 门户中打开模板。 模板位于 [Azure 快速入门模板](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-hbase-linux-vnet/)中。
 
     <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux-vnet%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-provision-vnet/deploy-to-azure.png" alt="Deploy to Azure"></a>
 

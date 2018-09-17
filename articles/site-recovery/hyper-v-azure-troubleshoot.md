@@ -8,14 +8,14 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: article
 origin.date: 07/06/2018
-ms.date: 09/17/2018
+ms.date: 07/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7a1cdcf63be1a925e2b868baf0f217ffcf72d032
-ms.sourcegitcommit: 96d06c506983906a92ff90a5f67199f8f7e10996
+ms.openlocfilehash: a6d1dcac84fb56c87ce66c03ab479da9d7e08353
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45586843"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168316"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>排查 Hyper-V 到 Azure 的复制和故障转移的问题
 

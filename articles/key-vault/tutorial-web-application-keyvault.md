@@ -10,15 +10,15 @@ ms.service: key-vault
 ms.workload: identity
 ms.topic: tutorial
 origin.date: 05/17/2018
-ms.date: 09/17/2018
-ms.author: v-biyu
+ms.date: 08/14/2018
+ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 7720fc64ceb9ae9d82bbd71221353e819487f141
-ms.sourcegitcommit: d649060b55bac3ad9f4fc2bd2962748a4b5bf715
+ms.openlocfilehash: b1b7ace348a3fec50715d9aea2ecc9a3f6fcf4a1
+ms.sourcegitcommit: 56aa1615ef7402444111495f72afbdd6b2dfff78
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44066158"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "41704017"
 ---
 # <a name="tutorial-configure-an-azure-web-application-to-read-a-secret-from-key-vault"></a>教程：将 Azure Web 应用程序配置为从 Key Vault 读取机密
 
@@ -46,7 +46,7 @@ az login
 
 使用 [az group create](/cli/group#az_group_create) 命令创建资源组。 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。
 
-以下示例在 *China North* 位置创建名为 *ContosoResourceGroup* 的资源组。
+以下示例在“chinanorth”位置创建名为“myResourceGroup”的资源组。
 
 ```azurecli
 # To list locations: az account list-locations --output table
@@ -144,8 +144,6 @@ az keyvault secret show --name "AppSecret" --vault-name "ContosoKeyVault"
     
     namespace WebKeyVault
     {
-       public class Program
-    {
         public static void Main(string[] args)
         {
             BuildWebHost(args).Run();
@@ -170,7 +168,6 @@ az keyvault secret show --name "AppSecret" --vault-name "ContosoKeyVault"
           .Build();
 
         private static string GetKeyVaultEndpoint() => "https://<YourKeyVaultName>.vault.azure.cn";
-         }
     }
     ```
 
@@ -205,8 +202,7 @@ az keyvault secret show --name "AppSecret" --vault-name "ContosoKeyVault"
 7. 在主菜单中，选择“调试” > “开始执行(不调试)”。 显示浏览器时，导航到“关于”页。 此时将显示 AppSecret 的值。
 
 >[!IMPORTANT]
-> 如果收到 HTTP 错误 502.5 - 进程失败消息
-> > 则验证在 `Program.cs` 中指定的密钥保管库的名称
+> 如果收到“HTTP 错误 502.5 - 进程失败”消息，请检查 `Program.cs` 中指定的 Key Vault 名称
 
 ## <a name="publish-the-web-application-to-azure"></a>将 Web 应用程序发布到 Azure
 
@@ -217,20 +213,6 @@ az keyvault secret show --name "AppSecret" --vault-name "ContosoKeyVault"
 
 >[!IMPORTANT]
 > 此时会打开一个浏览器窗口，其中显示了“502.5 - 进程失败”消息。 这是正常情况。 需要向应用程序标识授予从 Key Vault 读取机密的权限。
-
-## <a name="enable-managed-service-identity"></a>启用托管服务标识
-
-虽然 Azure Key Vault 可用于安全存储凭据以及其他密钥和机密，但代码需要通过 Key Vault 的身份验证才能检索它们。 托管服务标识 (MSI) 为 Azure 服务提供了 Azure Active Directory (Azure AD) 中的自动托管标识，更巧妙地解决了这个问题。 此标识可用于通过支持 Azure AD 身份验证的任何服务（包括 Key Vault）的身份验证，这样就无需在代码中插入任何凭据了。
-
-1. 返回 Azure CLI
-2. 运行 assign-identity 命令，为此应用程序创建标识：
-
-```azurecli
-az webapp identity assign --name "WebKeyVault" --resource-group "ContosoResourcegroup"
-```
-
->[!NOTE]
->此命令等同于转到门户并在 Web 应用程序属性中将“托管服务标识”切换为“打开”。
 
 ## <a name="grant-rights-to-the-application-identity"></a>向应用程序标识授予权限
 

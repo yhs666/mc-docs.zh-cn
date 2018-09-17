@@ -7,18 +7,17 @@ manager: douge
 assetId: a4fb79ed-384f-4183-9f74-5cac257206b9
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.custom: vs-azure
-ms.workload: azure-vs
+ms.workload: azure
 ms.topic: conceptual
 origin.date: 11/11/2017
-ms.date: 09/10/2018
+ms.date: 07/12/2018
 ms.author: v-junlch
-ms.openlocfilehash: 72f390fc056ed21d79662e7ab4e8ce7c4ce58be5
-ms.sourcegitcommit: 40456700212200e707d6cb3147cf96ad161d3ff2
+ms.openlocfilehash: 6809a62f005fb99d52948b0f1694d63e131628ad
+ms.sourcegitcommit: 5b6a2fc55e5b16ae480bd497c3ac2c3a2fd44703
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44269519"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38999214"
 ---
 # <a name="configuring-your-azure-project-in-visual-studio-to-use-multiple-service-configurations"></a>使用多种服务配置来配置 Visual Studio 中的 Azure 项目
 
@@ -42,7 +41,7 @@ Visual Studio 中的 Azure 云服务项目包括三个配置文件：`ServiceDef
 
 ### <a name="instances"></a>Instances
 
-将“实例计数”属性设置为服务应为此角色运行的实例的数目。
+将“实例计数”属性设置为服务应为此角色运行的实例数。
 
 将“VM 大小”属性设置为“特小”、“小”、“中”、“大”或“特大”。  有关详细信息，请参阅[云服务的大小](cloud-services/cloud-services-sizes-specs.md)。
 
@@ -90,12 +89,12 @@ Visual Studio 中的 Azure 云服务项目包括三个配置文件：`ServiceDef
 Web 角色通常在端口 80 上具有单个 HTTP 终结点。 另一方面，一个辅助角色可以有任意数量的 HTTP、HTTPS 或 TCP 终结点。 终结点可以是供外部客户端使用的输入终结点，也可以是供服务中其他运行角色使用的内部终结点。
 
 - 要使 HTTP 终结点可用于外部客户端和 Web 浏览器，请将终结点类型更改为输入，然后指定名称和公用端口号。
-- 要使 HTTPS 终结点可用于外部客户端和 Web 浏览器，请将终结点类型更改为“输入”，然后指定名称、公用端口号和管理证书名称。 请注意，必须先在“证书”属性页上定义一个证书，才能指定管理证书。 
-- 要使终结点可供云服务中的其他角色进行内部访问，请将终结点类型更改为内部，然后为其指定名称和可行的专用端口。
+- 如果要使 HTTPS 终结点可用于外部客户端和 Web 浏览器，请将终结点类型更改为 **输入**，并指定名称、公用端口号和管理证书名称。 请注意，必须先在“证书”属性页上定义一个证书，才能指定管理证书。 
+- 如果要使终结点可供云服务中的其他角色进行内部访问，请将终结点类型更改为内部，并为其指定名称和可行的专用端口。
 
 ## <a name="local-storage-page"></a>“本地存储”页
 
-可以使用“本地存储”属性页来保留某个角色的一个或多个本地存储资源。 本地存储资源是运行角色实例的 Azure 虚拟机的文件系统中的保留目录。
+可以使用“本地存储”属性页保留某个角色的一个或多个本地存储资源。 本地存储资源是运行角色实例的 Azure 虚拟机的文件系统中的保留目录。
 
 ## <a name="certificates-page"></a>“证书”页
 

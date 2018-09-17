@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/22/2017
-ms.date: 09/10/2018
+ms.date: 08/13/2018
 ms.author: v-yeche
-ms.openlocfilehash: eea524ffbf5a3fcaa303a26f5ff74970a7d4deb9
-ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
+ms.openlocfilehash: 0223e7d5ac595c3c97fea8068a3d4137d841b09d
+ms.sourcegitcommit: 543a18c71c0910a5b9878a2d2668f317468906f2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44515582"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39625495"
 ---
 # <a name="configuring-network-security-group-flow-logs-with-azure-cli"></a>使用 Azure CLI 配置网络安全组流日志
 
@@ -54,9 +54,7 @@ az provider register --namespace Microsoft.Insights
 az network watcher flow-log configure --resource-group resourceGroupName --enabled true --nsg nsgName --storage-account storageAccountName
 ```
 
-指定的存储帐户不能配置有仅限 Azure 服务或特定虚拟网络进行网络访问的网络规则。 存储帐户可以与启用流日志的 NSG 使用相同或不同的 Azure 订阅。 如果使用不同的订阅，它们必须都与同一 Azure Active Directory 租户相关联。 用于每个订阅的帐户必须有[必要的权限](required-rbac-permissions.md)。 
-
-如果存储帐户与网络安全组位于不同的资源组或订阅中，请指定存储帐户的完整 ID，而非其名称。 例如，如果存储帐户位于名为 RG-Storage 的资源组中，则请指定 /subscriptions/ {SubscriptionID}/resourceGroups/RG-Storage/providers/Microsoft.Storage/storageAccounts/storageAccountName，而不是在上一命令中指定 storageAccountName。
+指定的存储帐户不能配置有仅限 Azure 服务或特定虚拟网络进行网络访问的网络规则。 存储帐户可以与启用流日志的 NSG 使用相同或不同的 Azure 订阅。 如果使用不同的订阅，它们必须都与同一 Azure Active Directory 租户相关联。 用于每个订阅的帐户必须有[必要的权限](required-rbac-permissions.md)。
 
 ## <a name="disable-network-security-group-flow-logs"></a>禁用网络安全组流日志
 
@@ -68,7 +66,7 @@ az network watcher flow-log configure --resource-group resourceGroupName --enabl
 
 ## <a name="download-a-flow-log"></a>下载流日志
 
-流日志的存储位置是在创建时定义的。 用于访问这些保存到存储帐户的流日志的便利工具是 Azure 存储资源管理器，下载地址为： http://storageexplorer.com/
+流日志的存储位置是在创建时定义的。 用于访问这些保存到存储帐户的流日志的便利工具是 Azure 存储资源管理器，下载地址为：http://storageexplorer.com/
 
 如果指定了存储帐户，则数据包捕获文件将保存到以下位置的存储帐户：
 
@@ -84,4 +82,4 @@ https://{storageAccountName}.blob.core.chinacloudapi.cn/insights-logs-networksec
 
 了解如何[使用开源工具直观地显示 NSG 流日志](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
 
-<!--Update_Description: wording update -->
+<!--Update_Description: wording update, update link -->

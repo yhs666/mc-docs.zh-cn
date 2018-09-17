@@ -15,12 +15,12 @@ ms.topic: conceptual
 origin.date: 05/14/2018
 ms.date: 06/25/2018
 ms.author: v-yiso
-ms.openlocfilehash: ca9814580873a6d0b64366e57226d9c70b7dfba9
-ms.sourcegitcommit: bae4e9e500e3e988ef8fa0371777ca9cc49b4e94
+ms.openlocfilehash: b89dde5129cd2b55803c80e48d564711919ed996
+ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45584837"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36747363"
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>使用 Azure PowerShell 管理 HDInsight 中的 Hadoop 群集
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -31,7 +31,7 @@ Azure PowerShell 可用于在 Azure 中控制和自动执行工作负荷的部�
 
 **先决条件**
 
-在开始阅读本文前，必须具有以下项目：
+在开始阅读本文前，必须具有以下项：
 
 * **一个 Azure 订阅**。 请参阅[获取 Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。
 
@@ -72,7 +72,7 @@ Get-AzureRmHDInsightCluster -ClusterName <Cluster Name>
 Remove-AzureRmHDInsightCluster -ClusterName <Cluster Name>
 ```
 
-还可通过删除包含该群集的资源组删除群集。 删除资源群将删除组中的所有资源（包括默认存储帐户）。
+还可以通过删除包含群集的资源组来删除群集。 删除资源群将删除组中的所有资源（包括默认存储帐户）。
 
 ```powershell
 Remove-AzureRmResourceGroup -Name <Resource Group Name>
@@ -92,10 +92,10 @@ Remove-AzureRmResourceGroup -Name <Resource Group Name>
 
     可顺利增加正在运行的 Hadoop 群集中的辅助节点数，而不会影响任何挂起或运行中的作业。 也可在操作进行中提交新作业。 系统会正常处理失败的缩放操作，让群集始终保持正常运行状态。
 
-    减少数据节点数目以缩减 Hadoop 群集时，系统会重新启动群集中的某些服务。 重启服务将导致所有正在运行和挂起的作业在缩放操作完成时失败。 但是，可以在操作完成后重新提交这些作业。
+    减少数据节点数目以缩减 Hadoop 群集时，系统会重新启动群集中的某些服务。 重启服务将导致所有正在运行和挂起的作业在缩放操作完成时失败。 但是，可在操作完成后重新提交这些作业。
 * HBase
 
-    可在 HBase 群集运行时顺利添加或删除节点。 在完成缩放操作后的几分钟内，区域服务器就能自动平衡。 不过，也可手动均衡区域服务器，方法是登录到群集的头节点，然后在命令提示符窗口中运行以下命令：
+    可在 HBase 群集运行时顺利添加或删除节点。 完成缩放操作后的几分钟内，区域服务器自动平衡。 不过，也可手动均衡区域服务器，方法是登录到群集的头节点，然后在命令提示符窗口中运行以下命令：
 
     ```bash
     >pushd %HBASE_HOME%\bin
@@ -116,7 +116,7 @@ Remove-AzureRmResourceGroup -Name <Resource Group Name>
 
     HDInsight 群集上提供了 Storm Web UI：
 
-    ![hdinsight storm 缩放重新平衡](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.png)
+    ![HDInsight storm 缩放重新平衡](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.png)
 
     以下是有关如何使用 CLI 命令重新平衡 Storm 拓扑的示例：
 
@@ -143,7 +143,7 @@ HDInsight 群集提供以下 HTTP Web 服务（所有这些服务都有 REST 样
 * Oozie
 * Templeton
 
-默认情况下，将授权这些服务进行访问。 可以撤消/授予访问权限。 若要撤消：
+默认情况下，这些服务会获得访问授权。 可以撤消/授予访问权限。 若要撤消：
 
 ```powershell
 Revoke-AzureRmHDInsightHttpServicesAccess -ClusterName <Cluster Name>
@@ -174,13 +174,13 @@ Grant-AzureRmHDInsightHttpServicesAccess -ClusterName $clusterName -HttpCredenti
 也可通过门户执行授予和撤消访问权限。 请参阅[使用 Azure 门户管理 HDInsight][hdinsight-admin-portal]。
 
 ## <a name="update-http-user-credentials"></a>更新 HTTP 用户凭据
-这与[授予/撤消 HTTP 访问权限](#grant/revoke-access)是同一过程。如果已授予群集 HTTP 访问权限，则必须先撤消该访问权限。  然后再使用新的 HTTP 用户凭据授予访问权限。
+这与[授予/撤消 HTTP 访问权限](#grant/revoke-access)是同一过程。如果已向群集授予 HTTP 访问权限，则必须先撤消该访问权限。  然后再使用新的 HTTP 用户凭据授予访问权限。
 
 ## <a name="find-the-default-storage-account"></a>查找默认存储帐户
 以下 PowerShell 脚本演示了如何获取群集的默认存储帐户名称和相关信息：
 
 ```powershell
-#Connect-AzureRmAccount -Environment AzureChinaCloud
+#Login-AzureRmAccount -Environment $(Get-AzureRmEnvironment -Name AzureChinaCloud)
 $clusterName = "<HDInsight Cluster Name>"
 
 $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
@@ -239,9 +239,9 @@ $resourceGroupName = $cluster.ResourceGroup
 请参阅[将数据上传到 HDInsight][hdinsight-upload-data]。
 
 ## <a name="see-also"></a>另请参阅
-* [HDInsight cmdlet 参考文档](https://msdn.microsoft.com/library/azure/dn479228.aspx)
+* [HDInsight cmdlet 参考文档][hdinsight-powershell-reference]
 * [使用 Azure 门户管理 HDInsight][hdinsight-admin-portal]
-* [使用命令行接口管理 HDInsight][hdinsight-admin-cli]
+* [使用命令行借口管理 HDInsight][hdinsight-admin-cli]
 * [创建 HDInsight 群集][hdinsight-provision]
 * [将数据上传到 HDInsight][hdinsight-upload-data]
 * [以编程方式提交 Hadoop 作业][hdinsight-submit-jobs]

@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/06/2018
-ms.date: 09/17/2018
+ms.date: 07/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: d2ae1b86ec1aff6fcc73c3487446c5b44917b1ab
-ms.sourcegitcommit: 96d06c506983906a92ff90a5f67199f8f7e10996
+ms.openlocfilehash: 8429314c5b0e3db2a8286e27bca3b4e158d2b0bc
+ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45586858"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39168459"
 ---
 # <a name="replicate-a-multi-tier-citrix-xenapp-and-xendesktop-deployment-using-azure-site-recovery"></a>使用 Azure Site Recovery 复制多层 Citrix XenApp 和 XenDesktop 部署
 
@@ -112,15 +112,15 @@ Citrix XenApp 和 XenDesktop 场通常具有以下部署模式：
 
 注意以下事项：
 
-* 可以设置目标 IP 地址。 如果未提供地址，故障转移的计算机将使用 DHCP。 如果设置了无法用于故障转移的地址，故障转移不会正常工作。 如果地址可用于测试故障转移网络，则同一个目标 IP 地址可用于测试故障转移。
+* 可以设置目标 IP 地址。 如果未提供地址，故障转移的计算机使用 DHCP。 如果设置了无法用于故障转移的地址，故障转移不会正常工作。 如果地址可用于测试故障转移网络，则同一个目标 IP 地址可用于测试故障转移。
 
 * 对于 AD/DNS 服务器，如果保留本地地址，则可以为 Azure 虚拟网络指定与 DNS 服务器相同的地址。
 
-网络适配器数目根据你为目标虚拟机指定的大小来确定，如下所述：
+网络适配器数目根据为目标虚拟机指定的大小来确定，如下所述：
 
 *   如果源计算机上的网络适配器数小于或等于目标计算机大小允许的适配器数，则目标的适配器数将与源相同。
-*   如果源虚拟机的适配器数大于目标大小允许的数目，则使用目标大小允许的最大数目。
-* 例如，如果源计算机有两个网络适配器，而目标计算机大小支持四个，则目标计算机将有两个适配器。 如果源计算机有两个适配器，但支持的目标大小只支持一个，则目标计算机只有一个适配器。
+*   如果源虚拟机的适配器数目大于目标大小允许的数目，则使用目标大小允许的最大数目。
+* 例如，如果源计算机有两个网络适配器，而目标计算机大小支持四个，则目标计算机有两个适配器。 如果源计算机有两个适配器，但支持的目标大小只支持一个，则目标计算机只有一个适配器。
 *   如果虚拟机有多个网络适配器，它们将全部连接到同一个网络。
 *   如果虚拟机有多个网络适配器，列表中显示的第一个适配器将成为 Azure 虚拟机中的默认网络适配器。
 
@@ -177,7 +177,7 @@ Citrix XenApp 和 XenDesktop 场通常具有以下部署模式：
 ![XenApp 组件的恢复计划](./media/site-recovery-citrix-xenapp-and-xendesktop/citrix-recoveryplan.png)
 
    >[!NOTE]
-   >可以使用[此处](https://github.com/Azure/azure-quickstart-templates/tree/master/asr-automation-recovery/scripts)的脚本，根据需要使用已故障转移虚拟机的新 IP 更新 DNS 或在已故障转移虚拟机上附加负载均衡器。
+   >可以使用[此处](https://github.com/Azure/azure-quickstart-templates/blob/>master/asr-automation-recovery/scripts)的脚本，根据需要使用已故障转移虚拟机的新 IP 更新 DNS 或在已故障转移虚拟机上附加负载均衡器。
 
 ## <a name="doing-a-test-failover"></a>执行测试故障转移
 
@@ -192,4 +192,4 @@ Citrix XenApp 和 XenDesktop 场通常具有以下部署模式：
 ## <a name="next-steps"></a>后续步骤
 
 可以从本白皮书中[详细了解](https://aka.ms/citrix-xenapp-xendesktop-with-asr)如何复制 Citrix XenApp 和 XenDesktop 部署。 请查看相关指南，使用 Site Recovery [复制其他应用程序](site-recovery-workload.md)。
-<!-- Update_Description: update meta properties, update link -->
+<!-- Update_Description: update meta properties -->

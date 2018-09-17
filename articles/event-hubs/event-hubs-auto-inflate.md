@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 07/02/2018
-ms.date: 09/17/2018
+ms.date: 08/06/2018
 ms.author: v-yeche
-ms.openlocfilehash: 643888413926cc4199b25b1b49a2da50e20a3ea5
-ms.sourcegitcommit: 2700f127c3a8740a83fb70739c09bd266f0cc455
+ms.openlocfilehash: efa622cd4ddc5b5c26eafa39f94e594db88e59a8
+ms.sourcegitcommit: c6205500afd23ac00f2829fe51858b51a622eaf1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45586597"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39487858"
 ---
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>自动增加 Azure 事件中心吞吐量单位
 
@@ -108,4 +108,4 @@ Azure 事件中心是高度可缩放的数据流式处理平台。 因此，开�
 访问以下链接可以了解有关事件中心的详细信息：
 
 * [事件中心概述](event-hubs-what-is-event-hubs.md)
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, wording update -->

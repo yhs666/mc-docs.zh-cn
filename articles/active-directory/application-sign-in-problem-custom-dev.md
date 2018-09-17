@@ -11,17 +11,17 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: article
 origin.date: 07/11/2017
-ms.date: 09/06/2018
+ms.date: 07/27/2018
 ms.author: v-junlch
 ms.reviewer: asteen
-ms.openlocfilehash: fb12f52049478c6a878dab55a4814ad621932115
-ms.sourcegitcommit: fd49281c58f34de20cc310d6cefb4568992cd675
+ms.openlocfilehash: 5aa9bae24a95367f926f8721caf640dbff086d2b
+ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43858430"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39487029"
 ---
 # <a name="problems-signing-in-to-an-custom-developed-application"></a>登录自定义开发的应用程序时出现的问题
 
@@ -41,4 +41,4 @@ ms.locfileid: "43858430"
 
 [同意并将应用集成到 Azure AD](/active-directory/develop/active-directory-integrating-applications)<br>
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

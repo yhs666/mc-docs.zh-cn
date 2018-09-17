@@ -1,21 +1,20 @@
 ---
-title: Azure 自动化 Runbook 类型
+title: Azure 自动化 Runbook 类型 | Microsoft Docs
 description: '介绍可以在 Azure 自动化中使用的不同 Runbook 类型，以及在确定要使用的具体类型时需要考虑的注意事项。 '
 services: automation
 ms.service: automation
-ms.component: process-automation
-author: georgewallace
-ms.author: gwallace
-origin.date: 06/29/2018
-ms.date: 09/10/2018
-ms.topic: conceptual
+author: yunan2016
 manager: digimobile
-ms.openlocfilehash: a1d1507dfd46acbf3d143b6a710ca68381f5f2ad
-ms.sourcegitcommit: 1b60848d25bbd897498958738644a4eb9cf3a302
+ms.topic: article
+origin.date: 03/16/2018
+ms.date: 07/09/2018
+ms.author: v-nany
+ms.openlocfilehash: ea8a07996941244aebd18f523044f950445f9e06
+ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43731211"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37873329"
 ---
 # <a name="azure-automation-runbook-types"></a>Azure 自动化 Runbook 类型
 Azure 自动化支持多种类型的 Runbook，下表进行了简要描述。  以下各个部分提供了每种类型的详细信息，包括如何选择在何时使用每种类型。

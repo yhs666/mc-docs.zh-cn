@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 07/17/2017
-ms.date: 09/10/2018
+ms.date: 08/14/2018
 ms.author: v-junlch
-ms.openlocfilehash: 0dd498614289d384f1f2ab23a72c3cd3bf31a8dd
-ms.sourcegitcommit: 40456700212200e707d6cb3147cf96ad161d3ff2
+ms.openlocfilehash: 927c56e4eb89991d4f407f671054c8b2daf4f39d
+ms.sourcegitcommit: 5ccfb836b271e60d44ba8a871b8904a695fe8e27
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44269544"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41705392"
 ---
 # <a name="get-started-with-storage-explorer"></a>存储资源管理器入门
 
@@ -77,7 +77,7 @@ Azure 存储资源管理器[发行说明](https://go.microsoft.com/fwlink/?LinkI
 
 ## <a name="connect-to-a-storage-account-or-service"></a>连接到存储帐户或服务
 
-存储资源管理器提供了多种连接到存储帐户的方式。 例如，可以：
+存储资源管理器提供多种连接到存储帐户的方式。 例如，可以：
 
 - 连接到与 Azure 订阅关联的存储帐户。
 - 连接到从其他 Azure 订阅共享的存储帐户和服务。
@@ -119,14 +119,14 @@ Azure 存储资源管理器[发行说明](https://go.microsoft.com/fwlink/?LinkI
 
 ## <a name="work-with-local-development-storage"></a>使用本地开发存储
 
-使用存储资源管理器，可以通过模拟器使用本地存储。 使用此方法可以模拟 Azure 存储的使用，而无需在 Azure 上部署存储帐户。
+使用存储资源管理器，可以通过模拟器对本地存储进行操作。 使用此方法可以模拟 Azure 存储的使用，而无需在 Azure 上部署存储帐户。
 
 从 1.1.0 版开始，所有平台都支持本地存储模拟器。 存储资源管理器可以连接到侦听其默认本地存储终结点的任何模拟服务。
 
 > [!NOTE]
 > 对存储服务和功能的支持可能因你选择的模拟器而有很大不同。 请确保模拟器支持你打算使用的服务和功能。
 
-1. 配置所选模拟器的服务，以侦听未使用的端口。
+1. 配置所选的模拟器以侦听默认终结点。
 
    模拟服务 | 默认终结点
    -----------------|-------------------------
@@ -135,19 +135,16 @@ Azure 存储资源管理器[发行说明](https://go.microsoft.com/fwlink/?LinkI
    表           | `http://127.0.0.1:10002`
 
 2. 启动模拟器。
-   > [!IMPORTANT]
-   > 存储资源管理器不会自动启动模拟器。 必须自行启动。
 
-3. 在存储资源管理器中，单击“添加帐户”按钮。 选择“附加到本地模拟器”并单击“下一步”。
-
-4. 输入前面配置的服务的端口号（如果不想使用该服务则留空）。 单击“下一步”，然后单击“连接”，以创建连接。
-
-5. 展开“本地和附加” > “存储帐户”>“节点”，然后展开模拟器连接对应的节点下的服务节点。
+3. 在存储资源管理器的左窗格中，展开“(本地和附加)” > “存储帐户” > “(开发)”节点。
 
    可以使用此节点创建和使用本地 blob、队列和表。 若要了解如何使用每个存储帐户类型，请参阅以下指南：
 
    - [管理 Azure Blob 存储资源](vs-azure-tools-storage-explorer-blobs.md)
    - [管理 Azure 文件存储资源](vs-azure-tools-storage-explorer-files.md)
+
+> [!NOTE]
+> 存储资源管理器仅支持使用默认终结点连接到本地模拟器。 启动模拟器时，请确保仅配置了默认终结点。
 
 ## <a name="attach-or-detach-an-external-storage-account"></a>附加或分离外部存储帐户
 
@@ -196,7 +193,7 @@ Azure 存储资源管理器[发行说明](https://go.microsoft.com/fwlink/?LinkI
 
 4. 在“连接摘要”对话框中验证信息。 如果想要更改任何设置，请选择“返回”并重新输入所需的设置。
 
-5. 选择“连接”。
+5. 选择“连接” 。
 
 6. 成功附加存储帐户后，会显示该存储帐户，其名称后面追加了“(外部)”字样。
 
@@ -250,7 +247,7 @@ Azure 订阅的管理员可以通过共享访问签名 ([SAS](storage/common/sto
 
 4. 在“连接摘要”对话框中验证信息。 要进行更改，请选择“上一步”，并输入所需的设置。
 
-5. 选择“连接”。
+5. 选择“连接” 。
 
 6. 成功附加存储帐户后，会显示该存储帐户，其名称后面追加了“(SAS)”字样。
 
@@ -282,7 +279,7 @@ Azure 订阅的管理员可以通过共享访问签名 ([SAS](storage/common/sto
 
 4. 在“连接摘要”对话框中验证信息。 要进行更改，请选择“上一步”，并输入所需的设置。
 
-5. 选择“连接”。
+5. 选择“连接” 。
 
 6. 成功附加服务后，该服务会显示在“(SAS 附加的服务)”节点下。
 
@@ -298,7 +295,7 @@ Azure 订阅的管理员可以通过共享访问签名 ([SAS](storage/common/sto
 
 2. 选择 Azure Cosmos DB API，粘贴“连接字符串”，然后单击“确定”连接 Azure Cosmos DB 帐户。 有关检索连接字符串的信息，请参阅[获取连接字符串](/cosmos-db/manage-account#get-the--connection-string)。
 
-    ![connection-string][22]
+    ![连接字符串][22]
 
 ## <a name="search-for-storage-accounts"></a>搜索存储帐户
 
@@ -342,4 +339,4 @@ Azure 订阅的管理员可以通过共享访问签名 ([SAS](storage/common/sto
 [22]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/connection-string.png
 [23]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/Search.png
 
-<!-- Update_Description: wording update -->
+<!--Update_Description: wording update -->

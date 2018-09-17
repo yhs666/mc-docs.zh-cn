@@ -1,22 +1,22 @@
 ---
 title: Azure 自动化中基于角色的访问控制
 description: 基于角色的访问控制 (RBAC) 可用于对 Azure 资源进行访问管理。 本文介绍如何设置 Azure 自动化中的 RBAC。
-keywords: 自动化 rbac, 基于角色的访问控制, azure rbac
 services: automation
-ms.service: automation
-ms.component: shared-capabilities
-author: WenJason
-ms.author: v-jay
-origin.date: 05/17/2018
-ms.date: 09/10/2018
-ms.topic: conceptual
+author: yunan2016
 manager: digimobile
-ms.openlocfilehash: 62b58551d9a2c0d7aa07517e84fdc35fd740e963
-ms.sourcegitcommit: 2700f127c3a8740a83fb70739c09bd266f0cc455
+editor: tysonn
+keywords: 自动化 rbac, 基于角色的访问控制, azure rbac
+ms.service: automation
+ms.devlang: na
+origin.date: 05/17/2018
+ms.date: 07/23/2018
+ms.author: v-nany
+ms.openlocfilehash: d74ac8d7cc371c227c15b64e7efb8aed2de9dd49
+ms.sourcegitcommit: 53972dcdef77da92529996667545d2e83716f7e2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45586621"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39143427"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Azure 自动化中基于角色的访问控制
 
@@ -257,7 +257,7 @@ Remove-AzureRmRoleAssignment -SignInName <sign-in Id of a user you wish to remov
 
 通过 Azure 自动化，可以将 RBAC 分配给特定的 Runbook。 若要执行此操作，运行以下脚本将用户添加到特定 Runbook。 以下脚本可由自动化帐户管理员或租户管理员运行。
 
-```powershell
+```azurepowershell-interactive
 $rgName = "<Resource Group Name>" # Resource Group name for the Automation Account
 $automationAccountName ="<Automation Account Name>" # Name of the Automation Account
 $rbName = "<Name of Runbook>" # Name of the runbook

@@ -4,16 +4,19 @@ description: Azure Monitor 中的使用情况和预估成本页的使用过程�
 author: dalekoetke
 services: azure-monitor
 ms.service: azure-monitor
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
 ms.topic: article
-origin.date: 08/11/2018
+origin.date: 05/31/2018
 ms.author: v-yiso
-ms.date: 09/17/2018
-ms.openlocfilehash: 5add0c9688eca17e010e47b28e74939d389dcde6
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.date: 07/23/2018
+ms.openlocfilehash: f3d670bc56d6d48f2c8c660d163d28da188021db
+ms.sourcegitcommit: 479954e938e4e3469d6998733aa797826e4f300b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068071"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39031775"
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>监视使用情况和预估成本
 
@@ -105,7 +108,7 @@ ms.locfileid: "44068071"
 
 下面的脚本需要使用 Azure PowerShell 模块。 若要检查是否拥有最新版本，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.1.0)。
 
-在拥有最新版本的 Azure PowerShell 后，你需要运行 ``Connect-AzureRmAccount -EnvironmentName AzureChinaCloud``。
+在拥有最新版本的 Azure PowerShell 后，你需要运行 ``Login-AzureRmAccount -EnvironmentName AzureChinaCloud``。
 
 ``` PowerShell
 # To check if your subscription is eligible to adjust pricing models.

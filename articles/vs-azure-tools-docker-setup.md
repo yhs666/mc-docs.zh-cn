@@ -13,18 +13,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 origin.date: 06/08/2016
-ms.date: 09/10/2018
+ms.date: 05/11/2018
 ms.author: v-junlch
-ms.openlocfilehash: f3168cd3ca9a03fd89c9920bc374d519c617f32d
-ms.sourcegitcommit: 40456700212200e707d6cb3147cf96ad161d3ff2
+ms.openlocfilehash: 9830b1f0b231f1790f36a45151844298498b8988
+ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44269501"
+ms.lasthandoff: 05/15/2018
+ms.locfileid: "34060339"
 ---
 # <a name="configure-a-docker-host-with-virtualbox"></a>使用 VirtualBox 配置 Docker 主机
 ## <a name="overview"></a>概述
-本文将引导完成使用 Docker Machine 和 VirtualBox 配置默认 Docker 实例的过程。 如果使用的是[用于 Windows 的 Docker](https://www.docker.com/products/docker-desktop)，则无需进行此配置。
+本文将引导你完成使用 Docker Machine 和 VirtualBox 配置默认 Docker 实例的过程。 如果使用的是 [Docker for Windows beta 版](http://beta.docker.com/)，则无需进行此配置。
 
 ## <a name="prerequisites"></a>先决条件
 需要安装以下工具。
@@ -68,4 +68,4 @@ ms.locfileid: "44269501"
 [0]: ./media/vs-azure-tools-docker-setup/docker-machine-ls.png
 [1]: ./media/vs-azure-tools-docker-setup/docker-ps.png
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

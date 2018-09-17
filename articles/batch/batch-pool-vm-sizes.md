@@ -12,15 +12,15 @@ ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/09/2018
-ms.date: 09/07/2018
+origin.date: 06/27/2018
+ms.date: 08/08/2018
 ms.author: v-junlch
-ms.openlocfilehash: 194447f8cc0a16f7286a023b269c4564e8e22e31
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.openlocfilehash: e5c97ed63ae8b641d85df2eaa1afc8d9a44200ab
+ms.sourcegitcommit: f8bb533368ab2ef8efdf47e186672993ad8334cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068061"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "39722307"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>选择 Azure Batch 池中计算节点的 VM 大小
 
@@ -81,4 +81,4 @@ ms.locfileid: "44068061"
 - 有关 Batch 深入概述的信息，请参阅[使用 Batch 开发大规模并行计算解决方案](batch-api-basics.md)。
 
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

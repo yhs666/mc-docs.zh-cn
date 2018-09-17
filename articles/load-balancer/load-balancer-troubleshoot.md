@@ -1,6 +1,6 @@
 ---
-title: 排查 Azure 负载均衡器问题 | Microsoft Docs
-description: 排查 Azure 负载均衡器方面的已知问题
+title: 对 Azure 负载均衡器进行故障排除 | Azure
+description: 排查 Azure 负载均衡器的已知问题
 services: load-balancer
 documentationcenter: na
 author: rockboyfor
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 08/09/2018
-ms.date: 09/10/2018
+origin.date: 07/06/2018
+ms.date: 07/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4d327714bc613c7660cfd6d17ad250192275b57e
-ms.sourcegitcommit: fd49281c58f34de20cc310d6cefb4568992cd675
+ms.openlocfilehash: 46721d2a4aaf26383834f67e13716b261150086d
+ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43858454"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39167741"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>对 Azure 负载均衡器进行故障排除
 
@@ -88,7 +88,7 @@ ms.locfileid: "43858454"
 * 负载均衡器后端池 VM 未侦听数据端口 
 * 网络安全组阻止负载均衡器后端池 VM 上的端口  
 * 从相同的 VM 和 NIC 访问负载均衡器 
-* 从参与的负载均衡器后端池 VM 访问 Internet 负载均衡器前端 
+* 从参与的负载均衡器后端池 VM 访问 Internet 负载均衡器 VIP 
 
 ### <a name="cause-1-load-balancer-backend-pool-vm-is-not-listening-on-the-data-port"></a>原因 1：负载均衡器后端池 VM 未侦听数据端口 
 如果 VM 未响应数据流量，可能是因为参与的 VM 上的目标端口未打开，或者 VM 未侦听此端口。 
@@ -98,8 +98,8 @@ ms.locfileid: "43858454"
 1. 登录到后端 VM。 
 2. 打开命令提示符并运行下列命令，以验证是否有应用程序在侦听数据端口：  
             netstat -an 
-3. 如果端口状态未被列为“正在侦听”，请配置适当的侦听端口 
-4. 如果端口被标记为“正在侦听”，请检查该端口的目标应用程序是否存在问题。 
+3. 如果端口状态未被列为“正在侦听”，请配置适当的侦听程序端口 
+4. 如果端口被标记为“正在侦听”，请检查该端口上的目标应用程序是否存在问题。 
 
 ### <a name="cause-2-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vm"></a>原因 2：网络安全组阻止负载均衡器后端池 VM 上的端口  
 
@@ -120,11 +120,10 @@ ms.locfileid: "43858454"
 * 为每个应用程序配置单独的后端池 VM。 
 * 在双 NIC VM 中配置应用程序，以便每个应用程序均使用自己的网络接口和 IP 地址。 
 
-### <a name="cause-4-accessing-the-internal-load-balancer-frontend-from-the-participating-load-balancer-backend-pool-vm"></a>原因 4：从参与的负载均衡器后端池 VM 访问 Internet 负载均衡器前端
+### <a name="cause-4-accessing-the-internal-load-balancer-vip-from-the-participating-load-balancer-backend-pool-vm"></a>原因 4：从参与的负载均衡器后端池 VM 访问内部负载均衡器 VIP
 
-如果在 VNet 中配置了内部负载均衡器，并且某个参与的后端 VM 正在尝试访问内部负载均衡器前端，则当将流映射到原始 VM 时会发生故障。 此方案不受支持。 有关详细讨讨论，请参阅[限制](load-balancer-overview.md#limitations)。
-
-解决方案：有几种方法来取消阻止此方案，包括使用代理。 评估应用程序网关或其他第三方代理服务器（例如 nginx 或 haproxy）。 有关应用程序网关的详细信息，请参阅[应用程序网关概述](../application-gateway/application-gateway-introduction.md)
+如果 VNet 中配置了 ILB VIP，且某个参与的后端 VM 正尝试访问内部负载均衡器 VIP，该操作会失败。 此方案不受支持。
+解决方法 - 评估应用程序网关或其他代理（例如 nginx 或 haproxy），以支持该类方案。 有关应用程序网关的详细信息，请参阅[应用程序网关概述](../application-gateway/application-gateway-introduction.md)
 
 ## <a name="additional-network-captures"></a>附加网络捕获
 如果决定打开支持案例，请收集下列信息，以更快获得解决方案。 选择单个后端 VM 执行下列测试：
