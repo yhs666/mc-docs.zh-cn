@@ -14,12 +14,12 @@ origin.date: 07/20/2018
 ms.date: 09/03/2018
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: 40c0dbc5bae5926b54b56ba9287db2b5d3e6088b
-ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
+ms.openlocfilehash: fad8afb42b84678d51a95918064973a29cf88cd3
+ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43171484"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44515595"
 ---
 # <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>教程：使用依赖的资源创建 Azure 资源管理器模板
 
@@ -88,7 +88,7 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
 可通过多种方法来部署模板。  本教程从本地电脑使用 Azure PowerShell。
 <!--Not Available on Cloud Shell-->
 
-如果选择在本地安装并使用 PowerShell，则本教程需要 Azure PowerShell 模块 5.7.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount` 以创建与 Azure 的连接。
+如果选择在本地安装并使用 PowerShell，则本教程需要 Azure PowerShell 模块 5.7.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount` 以创建与 Azure 的连接。
 
 1. 在 Azure PowerShell 中运行以下命令，验证 JSON 文件的内容：
 
@@ -112,7 +112,7 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
     ```
     下面是示例部署的屏幕截图：
 
-    ![Azure 门户 - Cloud Shell - 部署模板](./media/resource-manager-tutorial-create-templates-with-dependent-resources/azure-portal-cloud-shell-deploy-template.png)
+    ![Azure CLI Shell 部署模板](./media/resource-manager-tutorial-create-templates-with-dependent-resources/azure-portal-cloud-shell-deploy-template.png)
 
     屏幕截图中使用了以下值：
 

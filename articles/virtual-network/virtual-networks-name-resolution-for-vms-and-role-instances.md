@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/14/2018
-ms.date: 06/11/2018
+ms.date: 09/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: c97ead108c2b6337971afd860d40bdf4c63257ef
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: cf3ce473f198b541f26aab9ee87e087c58bf27d4
+ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34869317"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44515726"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Azure 虚拟网络中资源的名称解析
 
@@ -31,7 +31,7 @@ ms.locfileid: "34869317"
 * [Azure 提供的名称解析](#azure-provided-name-resolution)
 * [使用自己的 DNS 服务器的名称解析](#name-resolution-that-uses-your-own-dns-server)（可能会将查询转发到 Azure 提供的 DNS 服务器） 
 
-使用的名称解析类型取决于资源需要以怎样的方式进行相互通信。 下表说明了方案和相应的名称解析解决方案：
+使用的名称解析类型取决于资源需要以怎样的方式进行相互通信。 下表说明了各种方案及相应的名称解析解决方案：
 
 > [!NOTE]
 > 根据具体的场景，可能需要使用目前以公共预览版提供的 Azure DNS 专用区域功能。 有关详细信息，请参阅[在专用域中使用 Azure DNS](../dns/private-dns-overview.md)。
@@ -39,7 +39,7 @@ ms.locfileid: "34869317"
 
 | **方案** | **解决方案** | **后缀** |
 | --- | --- | --- |
-|| 位于相同虚拟网络的 VM 或位于相同云服务的 Azure 云服务角色实例之间的名称解析。|[Azure 提供的名称解析](#azure-provided-name-resolution) |主机名或 FQDN |
+| 位于相同虚拟网络的 VM 或位于相同云服务的 Azure 云服务角色实例之间的名称解析。| [Azure 提供的名称解析](#azure-provided-name-resolution) |主机名或 FQDN |
 | 位于不同虚拟网络的 VM 或位于不同云服务的角色实例之间的名称解析。 | 客户托管的 DNS 服务器，该服务器在虚拟网络之间转发查询，并由 Azure 进行解析（DNS 代理）。 请参阅[使用自己的 DNS 服务器进行名称解析](#name-resolution-that-uses-your-own-dns-server)。 |仅 FQDN |
 | 通过 Azure 应用服务（Web 应用、函数或自动程序）实现的名称解析：对同一虚拟网络中的角色实例或 VM 使用虚拟网络集成。 |客户托管的 DNS 服务器，该服务器在虚拟网络之间转发查询，并由 Azure 进行解析（DNS 代理）。 请参阅[使用自己的 DNS 服务器进行名称解析](#name-resolution-that-uses-your-own-dns-server)。 |仅 FQDN |
 | 从应用服务 Web 应用到同一虚拟网络中 VM 之间的名称解析。 |客户托管的 DNS 服务器，该服务器在虚拟网络之间转发查询，并由 Azure 进行解析（DNS 代理）。 请参阅[使用自己的 DNS 服务器进行名称解析](#name-resolution-that-uses-your-own-dns-server)。 |仅 FQDN |
@@ -52,7 +52,7 @@ ms.locfileid: "34869317"
 
 
 <a name="azure-provided-name-resolution"></a>
-##Azure 提供的名称解析
+## <a name="azure-provided-name-resolution"></a>Azure 提供的名称解析
 
 除公共 DNS 名称解析之外，Azure 还为驻留在相同虚拟网络或云服务中的 VM 和角色实例提供内部名称解析。 云服务中的 VM 和实例共享相同的 DNS 后缀，因此仅使用主机名便可。 但在使用经典部署模型部署的虚拟网络中，不同云服务具有不同的 DNS 后缀。 在这种情况下，需要使用 FQDN 解析不同云服务的名称。 在使用 Azure 资源管理器部署模型部署的虚拟网络内，整个虚拟网络中的 DNS 后缀一致，因此无需 FQDN。 DNS 名称可分配给 VM 和网络接口。 虽然 Azure 提供的名称解析不需要任何配置，但并不适合所有部署方案，参见上表详细说明。
 
@@ -65,7 +65,7 @@ ms.locfileid: "34869317"
 
 Azure 提供的名称解析包括以下功能：
 * 易于使用。 不需要配置。
-* 高可用性。 无需创建和管理你自己的 DNS 服务器的群集。
+* 高可用性。 无需创建和管理自己 DNS 服务器的群集。
 * 可以结合自己的 DNS 服务器使用该服务，来解析本地主机名和 Azure 主机名。
 * 可以在同一云服务中的 VM 和角色实例之间使用名称解析，无需 FQDN。
 * 可以在使用 Azure 资源管理器部署模型的虚拟网络中的 VM 之间使用名称解析，无需 FQDN。 经典部署模型中的虚拟网络需要使用 FQDN 来解析不同云服务中的名称。 
@@ -141,6 +141,7 @@ resolv.conf 文件通常是自动生成的，不应进行编辑。 添加 *optio
 
 <a name="name-resolution-using-your-own-dns-server"></a>
 ## <a name="name-resolution-that-uses-your-own-dns-server"></a>使用自己的 DNS 服务器的名称解析
+
 本部分介绍 VM、角色实例以及 Web 应用。
 
 ### <a name="vms-and-role-instances"></a>VM 和角色实例
@@ -149,7 +150,7 @@ Azure 提供的功能可能无法满足名称解析的需求。 例如，可能�
 
 虚拟网络中的 DNS 服务器可将 DNS 查询转发到 Azure 的递归解析程序。 这样，便可以解析该虚拟网络中的主机名。 例如，在 Azure 中运行的域控制器 (DC) 可以响应自身域的 DNS 查询，而将所有其他查询转发到 Azure。 转发查询，VM 就可以（通过 DC）查看本地资源以及（通过转发器）查看 Azure 提供的主机名。 可以通过虚拟 IP 168.63.129.16 访问 Azure 中的递归解析程序。
 
-DNS 转发还可用于在虚拟网络之间进行 DNS 解析，可以通过本地计算机来解析 Azure 提供的主机名。 若要解析 VM 的主机名，DNS 服务器 VM 必须驻留在同一虚拟网络中，并且必须配置为将主机名查询转发到 Azure。 由于 DNS 后缀在每个虚拟网络中是不同的，因此可使用条件性转发规则将 DNS 查询发送到正确的虚拟网络进行解析。 下图显示了两个虚拟网络和一个本地网络使用本方法在虚拟网络之间进行 DNS 解析。 DNS 转发器示例可在 [Azure 快速入门模板库](https://github.com/Azure/azure-quickstart-templates/tree/master/301-dns-forwarder/)和 [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/301-dns-forwarder) 中获取。
+DNS 转发还可用于在虚拟网络之间进行 DNS 解析，可以通过本地计算机来解析 Azure 提供的主机名。 若要解析 VM 的主机名，DNS 服务器 VM 必须驻留在同一虚拟网络中，并且必须配置为将主机名查询转发到 Azure。 每个虚拟网络的 DNS 后缀不同，因此可以使用条件性转发规则将 DNS 查询发送到正确的虚拟网络进行解析。 下图显示了两个虚拟网络和一个本地网络使用本方法在虚拟网络之间进行 DNS 解析。 DNS 转发器示例可在 [Azure 快速入门模板库](https://github.com/Azure/azure-quickstart-templates/tree/master/301-dns-forwarder/)和 [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/301-dns-forwarder) 中获取。
 
 > [!NOTE]
 > 角色实例可对同一虚拟网络中的 VM 执行名称解析， 方法是使用由 VM 主机名和 **internal.chinacloudapp.cn** DNS 后缀组成的 FQDN。 但是，在这种情况下，仅当角色实例在[角色架构（.cscfg 文件）](https://msdn.microsoft.com/library/azure/jj156212.aspx)中定义了 VM 名称时，名称解析才会成功。 
@@ -165,7 +166,7 @@ DNS 转发还可用于在虚拟网络之间进行 DNS 解析，可以通过本�
 如果需要，可以使用 PowerShell 或 API 确定内部 DNS 后缀：
 
 * 对于 Azure 资源管理器部署模型中的虚拟网络，可以通过[网络接口卡 REST API](https://docs.microsoft.com/rest/api/virtualnetwork/networkinterfaces/get)、[Get-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkinterface) PowerShell cmdlet 和 [az network nic show](https://docs.azure.cn/zh-cn/cli/network/nic?view=azure-cli-latest#az-network-nic-show) Azure CLI 命令获取该后缀。
-* 在经典部署模型中，可以通过 [Get Deployment API](https://msdn.microsoft.com/library/azure/ee460804.aspx) 调用或 [Get-AzureVM -Debug](https://docs.microsoft.com/powershell/module/azure/get-azurevm) cmdlet 获取该后缀。
+* 在经典部署模型中，可以通过 [Get Deployment API](https://msdn.microsoft.com/library/azure/ee460804.aspx) 调用或 [Get-AzureVM -Debug](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azurevm) cmdlet 获取该后缀。
 
 如果不想将查询转发到 Azure，应提供自己的 DNS 解析。 DNS 解决方案需要：
 
@@ -222,4 +223,4 @@ Azure 资源管理器部署模型
 * [Azure 服务配置架构](https://msdn.microsoft.com/library/azure/ee758710)
 * [虚拟网络配置架构](https://msdn.microsoft.com/library/azure/jj157100)
 * [使用网络配置文件配置虚拟网络](virtual-networks-using-network-configuration-file.md)
-<!-- Update_Description: update meta properties, wording update, add web app content -->
+<!-- Update_Description: update meta properties, wording update -->

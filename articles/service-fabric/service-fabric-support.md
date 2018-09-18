@@ -12,15 +12,15 @@ ms.devlang: dotnet
 ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 05/14/2018
-ms.date: 05/28/2018
+origin.date: 07/13/2018
+ms.date: 09/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: ee3424cd0e84fc35aaf6fb82fc858b14b9fbffbd
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: f48cb391a53ba36f10064024998b7cab9236da0f
+ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554466"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44515702"
 ---
 # <a name="azure-service-fabric-support-options"></a>Azure Service Fabric 支持选项
 
@@ -29,13 +29,13 @@ ms.locfileid: "34554466"
 <a name="getlivesitesupportonazure"></a>
 ## <a name="report-production-issues-or-request-paid-support-for-azure"></a>报告生产问题，或者请求 Azure 付费支持
 
-若要报告部署在 Azure 上的 Service Fabric 群集的问题，请通过 [Azure 门户](https://www.azure.cn/support/support-ticket-form)开具支持票证。
-<!--Duplicated [Azure support portal](https://www.azure.cn/support/support-ticket-form).-->
+若要报告部署在 Azure 上的 Service Fabric 群集的问题，请通过 [Azure 门户](https://www.azure.cn/support/support-ticket-form)
+<!--Duplicated [Azure support portal](https://www.azure.cn/support/support-ticket-form).-->开具支持票证
 
 了解有关以下方面的详细信息：
 
-- [Microsoft 提供的 Azure 支持](https://www.azure.cn/support/plans/?b=16.44)。
-- [Microsoft 顶级支持](https://support.microsoft.com/premier)。
+- [世纪互联对 Azure 的支持](https://www.azure.cn/support/plans/)。
+<!--Not Available on - [Microsoft premier support](https://support.microsoft.com/premier).-->
 
 <a name="getlivesitesupportonprem"></a>
 
@@ -43,37 +43,35 @@ ms.locfileid: "34554466"
 
 若要报告部署在本地或其他云上的 Service Fabric 群集的问题，请通过 [Azure 支持门户](https://www.azure.cn/support/support-ticket-form)开具专业支持票证。
 
-了解有关以下方面的详细信息：
-
-- [Microsoft 提供的本地专业支持](https://support.microsoft.com/gp/offerprophone?wa=wsignin1.0)。
-- [Microsoft 顶级支持](https://support.microsoft.com/premier)。
+<!--Not Available on - [Professional Support from Microsoft for on-premises](https://support.microsoft.com/gp/offerprophone?wa=wsignin1.0)-->
+<!--Not Available on - [Microsoft premier support](https://support.microsoft.com/premier)-->
 
 <a name="getsupportonissues"></a>
 ## <a name="report-azure-service-fabric-issues"></a>报告 Azure Service Fabric 问题 
 我们已设置 GitHub 存储库，用于报告 Service Fabric 问题。  我们还积极监视以下论坛。
 
 ### <a name="github-repo"></a>GitHub 存储库 
-在 [Service-Fabric-issues git 存储库](https://github.com/Azure/service-fabric-issues)中报告 Azure Service Fabric 问题。 此存储库用于报告和跟踪 Azure Service Fabric 问题，以及进行小型功能请求。 **请勿使用此存储库报告实时站点问题**。
+在 [Service-Fabric-issues git 存储库](https://github.com/Azure/service-fabric-issues)中报告 Azure Service Fabric 问题。 此存储库用于报告和跟踪 Azure Service Fabric 问题，以及进行小型功能请求。 **请勿使用此功能报告实时站点问题**。
 
 ### <a name="stackoverflow-and-msdn-forums"></a>StackOverflow 和 MSDN 论坛
 [StackOverflow 上的 Service Fabric 标记][stackoverflow]和 [MSDN 上的 Service Fabric 论坛][msdn-forum]最适合提问有关平台工作方式以及如何通过该平台完成某些任务的问题。
 
 ### <a name="azure-feedback-forum"></a>Azure 反馈论坛
-[有关 Service Fabric 的 Azure 反馈论坛][uservoice-forum]最适合用户提交关于产品的大型功能创意，我们可以看到，大多数常见的请求都属于我们的中长期规划。 我们鼓励你在社区内争取大家对你的建议的支持。
+[有关 Service Fabric 的 Azure 反馈论坛][uservoice-forum]最适合提交用户关于产品的大型功能创意，我们可以看到，大多数常见的请求都属于我们的中长期规划。 我们鼓励你在社区内争取大家对建议的支持。
 
 <a name="releasesuport"></a>
 ## <a name="supported-service-fabric-versions"></a>支持的 Service Fabric 版本。
 
-确保群集始终运行支持的 Service Fabric 版本。 当我们宣布发行新版 Service Fabric 时，以前的版本标记为自发布日期起至少 60 天后结束支持。 新版本在 [Service Fabric 团队博客](https://blogs.msdn.microsoft.com/azureservicefabric/)中公布。
+确保群集始终运行支持的 Service Fabric 版本。 宣布发行新版 Service Fabric 标志着自该日期起至少 60 天以后结束对旧版本的支持。 新版本在 [Service Fabric 团队博客](https://blogs.msdn.microsoft.com/azureservicefabric/)中公布。
 
-有关如何使群集保持运行受支持的 Service Fabric 版本的详细信息，请参阅以下文档。
+请参阅以下文档，详细了解如何才能让群集始终运行支持的 Service Fabric 版本。
 
 - [在 Azure 群集上升级 Service Fabric 版本](service-fabric-cluster-upgrade.md)
 - [在单独的 Windows Server 群集上升级 Service Fabric 版本](service-fabric-cluster-upgrade-windows-server.md)
 
-下面是支持的 Service Fabric 版本列表和这些版本的支持结束日期。
+下面是支持的 Service Fabric 版本的列表以及支持结束日期。
 
-| **群集中的 Service Fabric 运行时** | **可以直接从群集版本升级** |**兼容的 SDK/NuGet 包版本** | **支持结束日期** |
+| **群集中的 Service Fabric 运行时** | **可以直接从群集版本升级** |兼容的 SDK/NuGet 包版本 | **支持结束日期** |
 | --- | --- |--- | --- |
 | 5.3.121 之前的所有群集版本 | 5.1.158* |低于或等于版本 2.3 |2017 年 1 月 20 日 |
 | 5.3.* | 5.1.158.* |低于或等于版本 2.3 |2017 年 2 月 24 日 |
@@ -83,7 +81,8 @@ ms.locfileid: "34554466"
 | 5.7.* | 5.4.164.* |低于或等于版本 2.7 |2017 年 12 月 15 日  |
 | 6.0.* | 5.6.205.* |版本 2.8 或更低版本 |2018 年 3 月 30 日     | 
 | 6.1.* | 5.7.221.* |版本 3.0 或更低版本 |2018 年 7 月 15 日      |
-| 6.2.* | 6.0.232.* |版本 3.1 或更低版本 |当前版本，因此无结束日期 |
+| 6.2.* | 6.0.232.* |版本 3.1 或更低版本 |2018 年 9 月 15 日 |
+| 6.3.* | 6.1.480.* |版本 3.2 或更低版本 |最新版本，因此尚无结束日期 |
 
 <a name="previewversion"></a>
 ## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Service Fabric 预览版本 - 不支持在生产环境中使用。
@@ -100,7 +99,6 @@ ms.locfileid: "34554466"
 [msdn-forum]: https://www.azure.cn/support/contact/
 [stackoverflow]: http://stackoverflow.com/questions/tagged/azure-service-fabric
 [uservoice-forum]: https://www.azure.cn/support/support-azure/
-<!-- Not Referenced on [acom-docs]: ../service-fabric/index.yml -->
-[sample-repos]: http://aka.ms/servicefabricsamples
+<!-- Not Referenced on [acom-docs]: ../service-fabric/index.yml --> [sample-repos]: http://aka.ms/servicefabricsampless
 
 <!--Update_Description: update meta properties, wording update-->

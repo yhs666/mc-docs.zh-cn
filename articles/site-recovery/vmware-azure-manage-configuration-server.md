@@ -5,14 +5,14 @@ author: rockboyfor
 ms.service: site-recovery
 ms.topic: article
 origin.date: 07/06/2018
-ms.date: 07/23/2018
+ms.date: 09/17/2018
 ms.author: v-yeche
-ms.openlocfilehash: b8606e39b005d05bd45cfbb280f7944bc43b95dc
-ms.sourcegitcommit: f7ff09be9f3be5e3eb795e383c0c670f480f233d
+ms.openlocfilehash: 1873115b7dd1325bf10ac0491046534472cbb285
+ms.sourcegitcommit: 96d06c506983906a92ff90a5f67199f8f7e10996
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39169018"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45586826"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vms"></a>为 VMware VM 管理配置服务器
 
@@ -74,9 +74,16 @@ ms.locfileid: "39169018"
       ```
       $pwd = ConvertTo-SecureString -String MyProxyUserPassword
       Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber - ProxyUserName domain\username -ProxyPassword $pwd
-      net stop obengine
-      net start obengine
       ```
+
+      >[!NOTE] 
+      >若要从配置服务器**拉取最新的证书**来横向扩展进程服务器，请执行命令 *"<Installation Drive\Azure Site Recovery\agent\cdpcli.exe>" --registermt*
+
+  8. 最后，通过执行以下命令重启 obengine。
+        ```
+          net stop obengine
+          net start obengine
+        ```  
 
 ## <a name="upgrade-the-configuration-server"></a>升级配置服务器
 
@@ -119,7 +126,7 @@ ms.locfileid: "39169018"
 还可以选择使用 PowerShell 删除配置服务器。
 
 1. [安装](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0) Azure PowerShell 模块。
-2. 使用以下命令登录到 Azure 帐户：
+2. 使用以下命令登录到你的 Azure 帐户：
 
     `Connect-AzureRmAccount -Environment AzureChinaCloud`
 3. 选择保管库订阅。
@@ -170,4 +177,4 @@ ms.locfileid: "39169018"
 
 查看有关设置 [VMware VM](vmware-azure-tutorial.md) 到 Azure 的灾难恢复的教程。
 
-<!--Update_Description: update meta properties, wording update, update cmdlet -->
+<!--Update_Description: update meta properties, wording update, update link -->

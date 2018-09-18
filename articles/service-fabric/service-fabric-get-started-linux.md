@@ -9,18 +9,18 @@ editor: ''
 ms.assetid: d552c8cd-67d1-45e8-91dc-871853f44fc6
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 02/23/2018
-ms.date: 05/28/2018
+ms.date: 09/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: 635328b61ac47725c8498c17ace8c6a540b8ba11
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: b63d04c074fde8ee5a60d4c48545f7d6d5c4ed17
+ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554338"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44515712"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>在 Linux 上准备开发环境
 > [!div class="op_single_selector"]
@@ -78,7 +78,8 @@ sudo curl -s https://raw.githubusercontent.com/Azure/service-fabric-scripts-and-
 3. 将 `dotnet` 存储库添加到源列表。
 
     ```bash
-    sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
+    wget -q https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb
+    sudo dpkg -i packages-microsoft-prod.deb
     ```
 
 4. 向 APT Keyring 添加新的 Gnu 隐私防护（GnuPG 或 GPG）密钥。
@@ -125,8 +126,7 @@ sudo apt-get install servicefabricsdkcommon
 >   echo "servicefabricsdkcommon servicefabricsdkcommon/accepted-eula-ga select true" | sudo debconf-set-selections
 >   ```
 
-<!-- Not Available on ### Red Hat Enterprise Linux 7.4 (Service Fabric preview support)-->
-SDK 安装随附的 Service Fabric 运行时包含下表中所述的包。 
+<!-- Not Available on ### Red Hat Enterprise Linux 7.4 (Service Fabric preview support)--> SDK 安装随附的 Service Fabric 运行时包含下表中所述的包。 
 
  | | DotNetCore | Java | Python | NodeJS | 
 --- | --- | --- | --- |---
@@ -218,7 +218,7 @@ Service Fabric 提供基架工具，可以借助此类工具，使用 Yeoman 模
 
 3. 在“使用”框中，输入 **http://dl.microsoft.com/eclipse**。
 
-4. 选择“设置” （应用程序对象和服务主体对象）。
+4. 选择 **添加** 。
 
     ![“可用软件”页][sf-eclipse-plugin]
 
@@ -278,4 +278,4 @@ sudo apt-get install servicefabric servicefabricsdkcommon
 [sf-eclipse-plugin]: ./media/service-fabric-get-started-linux/service-fabric-eclipse-plugin.png
 [sfx-linux]: ./media/service-fabric-get-started-linux/sfx-linux.png
 
-<!--Update_Description: update meta properties, wording udpate, update link  -->
+<!--Update_Description: update meta properties, wording udpate, update linksss  -->

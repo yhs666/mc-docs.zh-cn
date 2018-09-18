@@ -14,20 +14,20 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-origin.date: 03/13/2018
-ms.date: 05/07/2018
+origin.date: 08/16/2018
+ms.date: 09/10/2018
 ms.author: v-yeche
 ms.custom: ''
-ms.openlocfilehash: 7d695bca46a442e38ae9c99d84d9a6dbb6a0db36
-ms.sourcegitcommit: 54851a22f188f2401ed971931132b46febe7014e
+ms.openlocfilehash: a994400e0e345ba113944112326479a66db02af6
+ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39361346"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44515708"
 ---
 # <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>教程：通过 Azure 门户使用虚拟网络对等互连连接虚拟网络
 
-可以使用虚拟网络对等互连将虚拟网络互相连接。 将虚拟网络对等互连后，两个虚拟网络中的资源将能够以相同的延迟和带宽相互通信，就像这些资源位于同一个虚拟网络中一样。 本教程介绍如何执行下列操作：
+可以使用虚拟网络对等互连将虚拟网络互相连接。 这些虚拟网络应位于同一区域。 将虚拟网络对等互连后，两个虚拟网络中的资源将能够以相同的延迟和带宽相互通信，就像这些资源位于同一个虚拟网络中一样。 本教程介绍如何执行下列操作：<!-- Not Available on Global VNet peering -->
 
 > [!div class="checklist"]
 > * 创建两个虚拟网络
@@ -41,7 +41,7 @@ ms.locfileid: "39361346"
 
 ## <a name="log-in-to-azure"></a>登录 Azure 
 
-在 https://portal.azure.cn 登录 Azure 门户。
+通过 https://portal.azure.cn 登录到 Azure 门户。
 
 ## <a name="create-virtual-networks"></a>创建虚拟网络
 
@@ -83,8 +83,9 @@ ms.locfileid: "39361346"
     |---|---|
     |Name|myVirtualNetwork1-myVirtualNetwork2|
     |订阅| 选择订阅。|
-    |虚拟网络|myVirtualNetwork2 - 若要选择 *myVirtualNetwork2* 虚拟网络，请依次选择“虚拟网络”、“myVirtualNetwork2”。|
-
+    |虚拟网络|myVirtualNetwork2 - 若要选择 *myVirtualNetwork2* 虚拟网络，请依次选择“虚拟网络”、“myVirtualNetwork2”。 可以在相同区域中选择虚拟网络。|
+    <!-- Not Available on different region-->
+    
     ![对等互连设置](./media/tutorial-connect-virtual-networks-portal/peering-settings.png)
 
     “对等互连状态”为“已启动”，如下图所示：
@@ -182,11 +183,6 @@ ms.locfileid: "39361346"
 2. 选择“删除资源组”。
 3. 对于“键入资源组名称:”，输入“myResourceGroup”，然后选择“删除”。
 
-<!--Pending on feature of AllowGlobalVnetPeering -->
-<!-- Global site remove the register content -->
-<!--Pending on feature of AllowGlobalVnetPeering -->
-<!--Not Avaiable on  az feature register --name AllowGlobalVnetPeering --namespace Microsoft.Network -->
-
 ## <a name="next-steps"></a>后续步骤
 
 本教程介绍了如何使用虚拟网络对等互连来连接同一 Azure 区域中的两个网络。 还可以将[不同的 Azure 订阅](create-peering-different-subscriptions.md#portal)中的虚拟网络对等互连。 若要详细了解虚拟网络对等互连，请参阅[虚拟网络对等互连概述](virtual-network-peering-overview.md)和[管理虚拟网络对等互连](virtual-network-manage-peering.md)。
@@ -196,4 +192,3 @@ ms.locfileid: "39361346"
 若要通过 VPN 将自己的计算机连接到虚拟网络，并与虚拟网络或对等互连的虚拟网络中的资源进行交互，请参阅[将计算机连接到虚拟网络](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fvirtual-network%2ftoc.json)。
 
 <!-- Update_Description: wording update, update link  -->
-<!--ms.date: 04/02/2018-->

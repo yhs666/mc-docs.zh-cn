@@ -7,15 +7,15 @@ manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
-origin.date: 09/18/2017
-ms.date: 01/15/2018
+origin.date: 04/11/2018
+ms.date: 09/17/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7b6959b8af324604922cda78640d3594d0413dd7
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 5ecfe37b71770c0e93f0f6f3fa4891c894b18730
+ms.sourcegitcommit: 9a82a54c6b6f4d8074139e090011fe05b8018fcf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121770"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44363154"
 ---
 # <a name="best-practices-for-using-elastic-query-in-azure-sql-database-to-access-data-in-azure-sql-data-warehouse"></a>使用 Azure SQL 数据库中的弹性查询访问 Azure SQL 数据仓库中的数据的最佳做法
 了解使用弹性查询从 Azure SQL 数据库访问 Azure SQL 数据仓库中的数据的最佳做法。 
@@ -51,9 +51,9 @@ ms.locfileid: "32121770"
 > 
 > 必须拥有 ALTER ANY EXTERNAL DATA SOURCE 权限。 此权限包含在 ALTER DATABASE 权限中。 必须拥有 ALTER ANY EXTERNAL DATA SOURCE 权限，才能引用远程数据源。
 
-接下来，在 SQL 数据库实例中创建远程外部表定义，使之指向 SQL 数据仓库中的远程表。 如果查询使用外部表，引用外部表的查询部分会发送到 SQL 数据仓库实例进行处理。 查询完成后，结果集便会发送回调用方 SQL 数据库实例。 有关如何在 SQL 数据库和 SQL 数据仓库之间设置弹性查询的简易教程，请参阅[配置结合使用弹性查询和 SQL 数据仓库][Configure Elastic Query with SQL Data Warehouse]。
+接下来，在 SQL 数据库实例中创建远程外部表定义，使之指向 SQL 数据仓库中的远程表。 如果查询使用外部表，引用外部表的查询部分会发送到 SQL 数据仓库实例进行处理。 查询完成后，结果集便会发送回调用方 SQL 数据库实例。 有关如何在 SQL 数据库和 SQL 数据仓库之间设置弹性查询的简短教程，请参阅[使用 SQL 数据仓库配置弹性查询][使用 SQL 数据仓库配置弹性查询]。
 
-若要详细了解如何结合使用弹性查询和 SQL 数据库，请参阅 [Azure SQL 数据库弹性查询概述][Azure SQL Database elastic query overview]。
+若要详细了解如何使用 SQL 数据库进行弹性查询，请参阅 [Azure SQL 数据库弹性查询概述][Azure SQL 数据库弹性查询概述]。
 
 ## <a name="best-practices"></a>最佳实践
 请按照这些最佳做法来有效地使用弹性查询。
@@ -123,7 +123,7 @@ ms.locfileid: "32121770"
 - 需要远程执行特定查询
 - 有更大的缓存需求
 
-## <a name="faq"></a>常见问题
+## <a name="faq"></a>常见问题解答
 
 问：能否将弹性池内的数据库与弹性查询结合使用？
 
@@ -143,7 +143,7 @@ ms.locfileid: "32121770"
 
 问：能否从 SQL 数据库实例写入数据仓库实例？
 
-答：暂不支持此功能。 如果希望今后可以使用此功能，请访问我们的[反馈页][Feedback page]，创建/投票支持此功能。 
+答：暂不支持此功能。 如果希望今后可以使用此功能，请访问我们的[反馈页][反馈页]，创建/投票支持此功能。 
 
 问：能否使用几何/地理等空间类型？
 
@@ -153,10 +153,7 @@ ms.locfileid: "32121770"
 
 <!--Article references-->
 
-<!-- Not Available on [SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop/ -->
-[Configure Elastic Query with SQL Data Warehouse]: ./tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md
-[Feedback Page]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[Azure SQL Database elastic query overview]: ../sql-database/sql-database-elastic-query-overview.md
+<!-- Not Available on [SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop/ --> [使用 SQL 数据仓库配置弹性查询]：tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md [反馈页]： https://feedback.azure.com/forums/307516-sql-data-warehouse [Azure SQL 数据库弹性查询概述]：../sql-database/sql-database-elastic-query-overview.md
 
 <!--MSDN references-->
 

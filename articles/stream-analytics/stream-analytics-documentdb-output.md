@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 03/28/2017
-ms.date: 08/20/2018
-ms.openlocfilehash: 2b6f0d8c9c1fc840b1e6f073cccd1109fed43ef9
-ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
+ms.date: 09/17/2018
+ms.openlocfilehash: 20063080289b3af0609ac0208672e61cac89cd6b
+ms.sourcegitcommit: 2700f127c3a8740a83fb70739c09bd266f0cc455
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41704023"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45586582"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Azure Cosmos DB 的 Azure 流分析输出  
-流分析可以针对 [Azure Cosmos DB](https://www.azure.cn/home/features/documentdb/) 进行 JSON 输出，从而支持对非结构化 JSON 数据进行数据存档和低延迟查询。 本文档包括用于实现此配置的一些最佳做法。
+流分析可以针对 [Azure Cosmos DB](https://www.azure.cn/home/features/documentdb/) 进行 JSON 输出，从而支持对非结构化 JSON 数据进行数据存档和低延迟查询。 本文档介绍有关实现此配置的一些最佳做法。
 
 <!-- Not Available on [Azure Cosmos DB's learning path](https://www.azure.cn/documentation/learning-paths/documentdb/)-->
 
@@ -41,6 +41,8 @@ ms.locfileid: "41704023"
 
 ## <a name="data-partitioning-in-cosmos-db"></a>Cosmos DB 中的数据分区
 建议使用 Azure Cosmos DB [unlimited](../cosmos-db/partition-data.md) 将数据分区，因为 Azure Cosmos DB 可根据工作负荷自动缩放分区。 写入到无限制的容器时，流分析会使用先前查询步骤或输入分区方案中一样多的并行写入器。
+> [!Note]
+> 目前，Azure 流分析仅支持顶级分区键的无限集合。 例如，支持 `/region`。 不支持嵌套分区键（例如 `/region/name`）。 
 
 对于固定的 Azure Cosmos DB 集合，在这些集合已满后，流分析不允许通过任何方式进行纵向或横向扩展。 这些集合的大小上限为 10 GB，吞吐量上限为 10,000 RU/秒。  若要将数据从固定的容器迁移到无限制容器（例如，吞吐量至少为 1,000 RU/秒，且具有分区键），则需使用[数据迁移工具](../cosmos-db/import-data.md)或[更改源库](../cosmos-db/change-feed.md)。
 
@@ -59,5 +61,4 @@ ms.locfileid: "41704023"
 数据库        | Azure Cosmos DB 数据库名称
 集合名称 | 要使用的集合的集合名称。 `MyCollection` 是有效的输入示例 - 必须存在一个名为 `MyCollection` 的集合。  
 文档 ID     | 可选。 输出事件中用作唯一键的列名称，插入或更新操作必须基于该键。 如果留空，则插入所有事件，但不使用更新选项。
-<!--Update_Description: wording update -->
-<!--ms.date: 06/18/2018-->
+<!--Update_Description: wording update, update meta properties -->

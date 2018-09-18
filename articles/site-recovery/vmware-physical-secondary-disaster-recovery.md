@@ -8,22 +8,58 @@ ms.service: site-recovery
 ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.topic: article
-origin.date: 07/06/2018
-ms.date: 07/23/2018
+origin.date: 08/01/2018
+ms.date: 09/17/2018
 ms.author: v-yeche
-ms.openlocfilehash: 87d5c78ff763b2cbcf8c2412ac3c41b35d89a9e2
-ms.sourcegitcommit: 74f9f0acb00fb728ff6e9bd67ac86a0c1bcd8d13
+ms.openlocfilehash: 03182cdd27aaec5b2a341083b9560e87255bf5fd
+ms.sourcegitcommit: 96d06c506983906a92ff90a5f67199f8f7e10996
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39218927"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45586864"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>将本地 VMware 虚拟机或物理服务器的灾难恢复设置到辅助站点
 
-[Azure Site Recovery](site-recovery-overview.md) 中的 InMage Scout 在本地 VMware 站点之间提供实时复制。 InMage Scout 随附在 Azure Site Recovery 服务订阅中。 
+[Azure Site Recovery](site-recovery-overview.md) 中的 InMage Scout 在本地 VMware 站点之间提供实时复制。 InMage Scout 随附在 Azure Site Recovery 服务订阅中。
+
+## <a name="end-of-support-announcement"></a>结束支持公告
+
+Azure Site Recovery 方案（在本地 VMware 或物理数据中心之间进行复制）即将结束支持。
+
+-   从 2018 年 8 月起，无法在恢复服务保管库中配置该方案，且无法从保管库下载 InMage Scout 软件。 现有部署仍受支持。 
+-   从 2020 年 12 月 31 日起，该方案将不受支持。
+- 现有合作伙伴可以将新客户加入到该方案中，直到支持结束。
+
+在 2018 年和 2019 年期间，将发布两个更新： 
+
+-   更新 7：修复了网络配置和符合性问题，并提供 TLS 1.2 支持。
+-   更新 8：添加了对 Linux 操作系统 RHEL/CentOS 7.3/7.4/7.5 和 SUSE 12 的支持
+
+更新 8 之后，不会再发布进一步更新。 针对更新 8 中添加的操作系统，修补程序支持有限，会尽最大努力修复错误。
+
+Azure Site Recovery 为 VMware 和 Hyper-V 客户提供一流的无缝 DRaaS 解决方案，将 Azure 作为灾难恢复站点，不断创新。 Azure 建议现有 InMage/ASR Scout 客户考虑使用 Azure Site Recovery 的 VMware to Azure 方案来满足其业务连续性需求。 Azure Site Recovery 的 VMware to Azure 方案是适用于 VMware 应用程序的企业级 DR 解决方案，可提供几分钟的 RPO 和 RTO、支持多 VM 应用程序复制和恢复、可无缝入门、全面监控，且拥有显著的 TCO 优势。
+
+### <a name="scenario-migration"></a>方案迁移
+作为替代方法，我们建议将本地 VMware VM 和物理计算机复制到 Azure 来为其设置灾难恢复。 请按如下所述执行此操作：
+
+1.  查看以下快速比较。 在复制本地计算机之前，需要检查它们是否满足复制到 Azure 的[要求](./vmware-physical-azure-support-matrix.md#replicated-machines)。 如果要复制 VMware VM，建议查看[容量规划指南](./site-recovery-plan-capacity-vmware.md)，并运行[部署规划器工具](./site-recovery-deployment-planner.md)来识别容量要求，然后验证符合性。
+2.  运行部署规划器后，可以设置复制：对于 VMware VM，请按照以下教程[准备 Azure](./tutorial-prepare-azure.md)[准备本地 VMware 环境](./vmware-azure-tutorial-prepare-on-premises.md)，然后[设置灾难恢复](./vmware-azure-tutorial-prepare-on-premises.md)。
+对于物理计算机，请遵循此[教程](./physical-azure-disaster-recovery.md)。
+3.  在计算机复制到 Azure 后，可以运行[灾难恢复演练](./site-recovery-test-failover-to-azure.md)以确保一切正常运行。
+
+### <a name="quick-comparison"></a>快速比较
+
+**功能** | **复制到 Azure** |**在 VMware 数据中心之间进行复制**
+--|--|--
+**所需的组件** |复制的计算机上的移动服务。 本地配置服务器、进程服务器、主目标服务器。Azure 中用于故障回复的临时进程服务器。|移动服务、进程服务器、配置服务器和主目标
+**配置和业务流程** |Azure 门户中的恢复服务保管库 | 使用 vContinuum 
+**复制**|磁盘（Windows 和 Linux） |Volume-Windows<br> Disk-Linux
+**共享磁盘群集**|不支持|支持
+**数据变动量限制（平均）** |10 MB/秒数据/磁盘<br> 25 MB/秒数据/VM<br> [了解详细信息](./site-recovery-vmware-deployment-planner-analyze-report.md#azure-site-recovery-limits) | > 10 MB/秒数据/磁盘  <br> > 25 MB/秒数据/VM
+**监视** |通过 Azure 门户|通过 CX（配置服务器）
+**支持矩阵**| [单击此处了解详细信息](./vmware-physical-azure-support-matrix.md)|[下载 ASR Scout 兼容矩阵](https://aka.ms/asr-scout-cm)
 
 ## <a name="prerequisites"></a>先决条件
-
 完成本教程：
 
 - [查看](vmware-physical-secondary-support-matrix.md)所有组件的支持要求。
@@ -38,7 +74,7 @@ ms.locfileid: "39218927"
 选择要复制的内容以及要将内容复制到的位置。
 
 1. 单击“Site Recovery” > “准备基础结构” > “保护目标”。
-2. 选择“到恢复站点” > “是，使用 VMware vSphere 虚拟机监控程序”。 。
+2. 选择“到恢复站点” > “是，使用 VMware vSphere 虚拟机监控程序”。 然后单击“确定”。
 3. 在“Scout 安装程序”中，下载 InMage Scout 8.0.1 GA 软件和注册密钥。 所有组件的安装程序文件都包含在下载的 .zip 文件中。
 
 ## <a name="download-and-install-component-updates"></a>下载并安装组件更新
@@ -57,7 +93,7 @@ ms.locfileid: "39218927"
 > [!NOTE]
 >所有 Scout 组件的文件更新版本可能与更新 .zip 文件中的版本不同。 较旧的版本表示此更新自上一次更新以来组件中没有任何更改。
 
-下载[更新](https://aka.ms/asr-scout-update6) .zip 文件。 文件包含以下组件： 
+下载[更新](https://aka.ms/asr-scout-update6)后的 .zip 文件。 文件包含以下组件： 
   - RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz
   - CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe
   - UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe
@@ -74,8 +110,9 @@ ms.locfileid: "39218927"
 6. Linux 主目标服务器：要更新统一代理，请将 UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz 复制到主目标服务器并将其解压缩。 在解压缩的文件夹中运行 **/Install**。
 7. Windows 源服务器：要更新统一代理，请将 UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe 复制到该源服务器。 双击以运行该文件。 
     如果源服务器已更新到 Update 4 或源代理已安装有最新的基本安装程序 InMage_UA_8.0.1.0_Windows_GA_28Sep2017_release.exe，则不需要在源服务器上安装 Update 5 代理。
-8. Linux 源服务器：要更新统一代理，请将相应版本的统一代理文件复制到 Linux 服务器并将其解压缩。 在解压缩的文件夹中运行 **/Install**。  示例：对于 RHEL 6.7 64 位服务器，将 UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz 复制到该服务器并将其解压缩。 在解压缩的文件夹中运行 **/Install**。
-
+8. Linux 源服务器：要更新统一代理，请将相应版本的统一代理文件复制到 Linux 服务器并将其解压缩。 在解压缩的文件夹中运行 **/Install**。  
+    <!-- Not Available on Example: For RHEL 6.7 64 bit server, copy **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** to the server, and extract it. In the extracted folder, run **/Install**.-->
+    
 ## <a name="enable-replication"></a>启用复制
 
 1. 设置源与目标 VMware 站点之间的复制。
@@ -145,7 +182,7 @@ Scout Update 4 是累积更新。 其中包含从 Update 1 到 Update 3 的所�
 
 #### <a name="new-platform-support"></a>新的平台支持
 
-* 添加了对 vCenter/vSphere 6.0、6.1 和 6.2 的支持
+* 已添加对 vCenter/vSphere 6.0、6.1 和 6.2 的支持
 * 已添加对以下 Linux 操作系统的支持：
   * Red Hat Enterprise Linux (RHEL) 7.0、7.1 和 7.2
   * CentOS 7.0、7.1 和 7.2
@@ -218,7 +255,7 @@ Update 3 修复了以下问题：
 
 Update 2 中的修复包括：
 
-* 配置服务器：在 Site Recovery 中注册配置服务器时阻止 31 天免费计量功能正常使用的问题。
+* 配置服务器：在将配置服务器注册到 Azure Site Recovery 保管库时阻止 31 天免费计量功能正常使用的问题。
 * 统一代理：修复了 Update 1 中导致从版本 8.0 升级到 8.0.1 期间，更新无法安装在主目标服务器上的问题。
 
 ### <a name="azure-site-recovery-scout-801-update-1"></a>Azure Site Recovery Scout 8.0.1 Update 1

@@ -1,21 +1,21 @@
 ---
 title: 从 Azure 复制到 Azure 的 Azure Site Recovery 支持矩阵 | Azure
-description: 总结出于灾难恢复 (DR) 需求将 Azure 虚拟机 (VM) 从一个区域复制到另一个区域时 Azure Site Recovery 支持的操作系统和配置。
+description: 总结了 Azure Site Recovery 在不同区域之间复制 Azure 虚拟机 (VM) 以满足灾难恢复 (DR) 需求时支持的操作系统和配置。
 services: site-recovery
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-origin.date: 07/13/2018
-ms.date: 07/23/2018
+origin.date: 07/19/2018
+ms.date: 09/17/2018
 ms.author: v-yeche
-ms.openlocfilehash: f5c242ed8a6a659c40a442202fa3f270623502ac
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.openlocfilehash: 41160917782ae3e4230610ae258149e531dbb422
+ms.sourcegitcommit: 96d06c506983906a92ff90a5f67199f8f7e10996
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42872342"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45586867"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>用于在 Azure 区域之间进行复制的支持矩阵
 
@@ -23,45 +23,33 @@ ms.locfileid: "42872342"
 
 ## <a name="user-interface-options"></a>用户界面选项
 
-用户界面 |  支持/不支持
+**用户界面** |  **支持/不支持**
 --- | ---
 **Azure 门户** | 支持
-**经典管理门户** | 不支持
 **PowerShell** | [使用 PowerShell 进行 Azure 到 Azure 的复制](azure-to-azure-powershell.md)
 **REST API** | 目前不支持
 **CLI** | 目前不支持
 
-## <a name="resource-move-support"></a>资源移动支持
+## <a name="resource-support"></a>资源支持
 
-资源移动类型 | **支持/不支持** | **备注**  
+**资源移动类型** | **详细信息** 
 --- | --- | ---
-跨资源组移动保管库 | 不支持 |无法跨资源组移动恢复服务保管库。
-**跨资源组移动计算、存储和网络** | 不支持 |如果在启用复制后移动虚拟机（或其关联的组件，如存储和网络），需要禁用复制，然后重新启用虚拟机的复制。
+**跨资源组移动保管库** | 不支持<br/><br/> 不能跨资源组移动恢复服务保管库。
+**跨资源组移动计算/存储/网络资源** | 不支持。<br/><br/> 如果在复制后移动 VM 或相关组件（如存储/网络），则需要为 VM 禁用并重新启用复制。
+**将 Azure VM 从一个订阅复制到另一个订阅以进行灾难恢复** | 不支持。
+**跨订阅迁移 VM** | 不支持。
+**在同一区域内迁移 VM** | 不支持。
 
-## <a name="support-for-deployment-models"></a>部署模型支持
+## <a name="support-for-replicated-machine-os-versions"></a>已复制的计算机操作系统版本支持
 
-部署模型 | 支持/不支持 | **备注**  
---- | --- | ---
-**经典** | 支持 | 只可复制经典虚拟机并将其恢复为经典虚拟机。 无法将其恢复为 Resource Manager 虚拟机。 如果直接向 Azure 区域中部署一个没有虚拟网络的经典 VM，该 VM 不受支持。
-**Resource Manager** | 支持 |
-
->[!NOTE]
->
-> 1. 不支持将 Azure 虚拟机从一个订阅复制到另一个订阅的灾难恢复方案。
-> 2. 不支持在多个订阅之间迁移 Azure 虚拟机。
-> 3. 不支持在同一区域内迁移 Azure 虚拟机。
-> 4. 不支持将 Azure 虚拟机从经典部署模型迁移到资源管理器部署模型。
-
-## <a name="support-for-replicated-machine-os-versions"></a>复制计算机 OS 版本支持
-
-以下支持适用于在相应 OS 上运行的任何工作负荷。
+以下支持适用于在所提及的 OS 上运行的所有工作负荷。
 
 #### <a name="windows"></a>Windows
 
 - Windows Server 2016（服务器核心、带桌面体验的服务器）*
 - Windows Server 2012 R2
 - Windows Server 2012
-- Windows Server 2008 R2（至少具有 SP1）
+- 带 SP1（或更高版本）的 Windows Server 2008 R2
 
 >[!NOTE]
 >
@@ -124,44 +112,44 @@ SUSE Linux Enterprise Server 12（SP1、SP2、SP3） | 9.17 | SP1 3.12.49-11-def
 
 ## <a name="region-support"></a>区域支持
 
-可在同一地理群集中的任意两个区域之间复制和恢复 VM。
+可以在同一地理群集中的任意两个区域之间复制和恢复 VM。
 
-地理群集 | **Azure 区域**
+**地理群集** | **Azure 区域**
 -- | --
 中国 | 中国东部、中国北部
-<!-- Not Available on China East 2 and China North 2 region till 07/20/2018 -->
+<!-- Not Available on China East 2 and China North 2 region till 09/14/2018 -->
 
 ## <a name="support-for-compute-configuration"></a>计算配置支持
 
-**配置** | 支持/不支持 | **备注**
+**配置** | **支持/不支持** | **备注**
 --- | --- | ---
 大小 | 具有至少 2 个 CPU 内核和 1 GB RAM 的任意 Azure VM 大小 | 请参阅 [Azure 虚拟机大小](../virtual-machines/windows/sizes.md)
-可用性集 | 支持 | 在门户中执行“启用复制”步骤时，如果使用默认选项，则会基于源区域配置自动创建可用性集。 随时都可在“复制项”>“设置”>“计算和网络”>“可用性集”中更改目标可用性集。
-混合使用权益（HUB）VM | 支持 | 如果源 VM 启用了 HUB 许可证，则测试故障转移或故障转移 VM 也可使用 HUB 许可证。
+可用性集 | 支持 | 如果在门户中执行“启用复制”步骤时使用默认选项，系统会基于源区域配置自动创建可用性集。 可以随时在“复制的项”>“设置”>“计算和网络”>“可用性集”中更改目标可用性集。
+混合使用权益 (HUB) VM | 支持 | 如果源 VM 启用了 HUB 许可证，则测试故障转移或故障转移 VM 也使用 HUB 许可证。
 虚拟机规模集 | 不支持 |
-Azure 库映像 - Microsoft 发布 | 支持 | 只要 VM 在 Site Recovery 支持的操作系统上运行就可受到支持
-Azure 库映像 - 第三方发布 | 支持 | 只要 VM 在 Site Recovery 支持的操作系统上运行就可受到支持。
-自定义映像 - 第三方发布 | 支持 | 只要 VM 在 Site Recovery 支持的操作系统上运行就可受到支持。
-使用 Site Recovery 迁移 VM | 支持 | 如果使用 Site Recovery 将 VMware/物理计算机迁移到 Azure，需要先卸载较旧版本的移动服务并重启计算机，然后才可将其复制到另一个 Azure 区域。
+Azure 库映像 — 由 Azure 发布 | 支持 | 只要 VM 在 Site Recovery 支持的操作系统上运行，便支持该配置
+Azure 库映像 — 由第三方发布 | 支持 | 只要 VM 在 Site Recovery 支持的操作系统上运行，便支持该配置。
+自定义映像 — 由第三方发布 | 支持 | 只要 VM 在 Site Recovery 支持的操作系统上运行，便支持该配置。
+使用 Site Recovery 迁移的 VM | 支持 | 如果是使用 Site Recovery 迁移到 Azure 中的 VMware/物理计算机，则需要卸载较旧版本的移动服务并重新启动计算机，然后再将该计算机复制到另一个 Azure 区域。
 
 ## <a name="support-for-storage-configuration"></a>存储配置支持
 
-**配置** | 支持/不支持 | **备注**
+**配置** | **支持/不支持** | **备注**
 --- | --- | ---
-最大 OS 磁盘大小 | 2048 GB | 请参阅 [VM 使用的磁盘。](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)
-最大数据磁盘大小 | 4095 GB | 请参阅 [VM 使用的磁盘。](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)
+最大 OS 磁盘大小 | 2048 GB | 请参阅 [VM 使用的磁盘](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)。
+最大数据磁盘大小 | 4095 GB | 请参阅 [VM 使用的磁盘](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)。
 数据磁盘数 | 特定 Azure VM 大小最多支持 64 个 | 请参阅 [Azure 虚拟机大小](../virtual-machines/windows/sizes.md)
-临时磁盘 | 始终从复制中排除 | 复制时始终排除临时磁盘。 根据 Azure 指南，不应将任何永久性数据存储在临时磁盘中。 有关详细信息，请参阅 [Azure VM 上的临时磁盘](../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk)。
-磁盘上的数据更改速率 | 高级存储的每个磁盘上的数据更改率为 10 MBps，而标准存储的每个磁盘上的数据更改率为 2 MBps | 如果磁盘上的平均数据更改率连续超过 10 MBps（针对高级存储）和 2 MBps（针对标准存储），复制将不同步。 但是，如果只是偶尔出现数据迸发，数据更改率间或高于 10 MBps（针对高级存储）和 2 MBps（针对标准存储），但随后又降下来，则复制可同步。 在这种情况下，恢复点可能会稍有延迟。
-标准存储帐户中的磁盘 | 支持 |
-高级存储帐户中的磁盘 | 支持 | 如果 VM 的磁盘分散在高级和标准存储帐户中，可以为每个磁盘选择不同的目标存储帐户，确保在目标区域中具有相同的存储配置
+临时磁盘 | 始终从复制中排除 | 临时磁盘始终从复制中排除。 按照 Azure 指南，不能将任何永久数据放在临时磁盘上。 有关更多详细信息，请参阅 [Azure VM 上的临时磁盘](../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk)。
+磁盘上的数据更改率 | 高级存储的每个磁盘上的数据更改率为 10 MBps，而标准存储的每个磁盘上的数据更改率为 2 MBps | 如果磁盘上的平均数据更改率连续超过 10 MBps（针对高级存储）和 2 MBps（针对标准存储），复制将不同步。 但是，如果只是偶尔出现数据迸发，数据更改率间或高于 10 MBps（针对高级存储）和 2 MBps（针对标准存储），但随后又降下来，则复制可同步。 在此情况下，可能会看到恢复点稍有延迟。
+标准存储帐户上的磁盘 | 支持 |
+高级存储帐户上的磁盘 | 支持 | 如果 VM 将磁盘分散在高级和标准存储帐户上，则可以为每个磁盘选择不同的目标存储帐户，以确保在目标区域中具有相同的存储配置
 标准托管磁盘 | 在支持 Azure Site Recovery 的 Azure 区域中受支持。 |  
 高级托管磁盘 | 在支持 Azure Site Recovery 的 Azure 区域中受支持。 |
 存储空间 | 支持 |         
 静态加密 (SSE) | 支持 | SSE 是存储帐户的默认设置。   
 Azure 磁盘加密 (ADE) | 不支持 |
-热添加/移除磁盘 | 不支持 | 如果在 VM 上添加或删除数据磁盘，需要先禁用复制然后重新为 VM 启用复制。
-排除磁盘 | 不支持|   默认情况下，排除临时磁盘。
+热添加/移除磁盘 | 不支持 | 如果在 VM 上添加或删除数据磁盘，则需为 VM 禁用复制后重新启用复制。
+排除磁盘 | 不支持|   默认排除临时磁盘。
 存储空间直通  | 不支持|
 横向扩展文件服务器  | 不支持|
 LRS | 支持 |
@@ -170,30 +158,30 @@ RA-GRS | 支持 |
 ZRS | 不支持 |  
 冷存储和热存储 | 不支持 | 冷存储和热存储不支持虚拟机磁盘
 虚拟网络的 Azure 存储防火墙  | 否 | 不支持访问用于存储复制数据的缓存存储帐户上特定的 Azure 虚拟网络。
-常规用途 V2 存储帐户（包括热存储层和冷存储层） | 否 | 与常规用途 V1 存储帐户相比，事务成本大幅增加
+常规用途 V2 存储帐户（冷热存储层） | 否 | 与常规用途 V1 存储帐户相比，事务成本显著增加
 
 >[!IMPORTANT]
 > 确保观察 [Linux](../virtual-machines/linux/disk-scalability-targets.md) 或 [Windows](../virtual-machines/windows/disk-scalability-targets.md) 虚拟机的 VM 磁盘可伸缩性和性能目标，以避免任何性能问题。 如果遵从默认设置，Site Recovery 将基于源配置创建所需的磁盘和存储帐户。 如果自定义和选择自己的设置，请确保遵循源 VM 的磁盘可伸缩性和性能目标。
 
 ## <a name="support-for-network-configuration"></a>网络配置支持
-**配置** | 支持/不支持 | **备注**
+**配置** | **支持/不支持** | **备注**
 --- | --- | ---
-网络接口 (NIC) | 特定 Azure VM 大小支持最大数量的 NIC | 在测试故障转移或故障转移操作过程中创建 VM 时，会创建 NIC。 故障转移 VM 上的 NIC 数取决于启用复制时源 VM 拥有的 NIC 数。 如果在启用复制后添加/删除 NIC，不会影响故障转移 VM 上的 NIC 数。
-Internet 负载均衡器 | 支持 | 需要使用恢复计划中的 Azure 自动化脚本关联预配置的负载均衡器。
-内部负载均衡器 | 支持 | 需要使用恢复计划中的 Azure 自动化脚本关联预配置的负载均衡器。
-公共 IP| 支持 | 需要使用恢复计划中的 Azure 自动化脚本，将现有公共 IP 关联到 NIC，或创建一个公共 IP，并将其关联到 NIC。
-NIC 上的 NSG（Resource Manager）| 支持 | 需要使用恢复计划中的 Azure 自动化脚本将 NSG 关联到 NIC。  
+网络接口 (NIC) | 特定 Azure VM 大小支持最大数量的 NIC | 在测试故障转移或故障转移操作期间创建 VM 时，会创建 NIC。 故障转移 VM 上的 NIC 数目取决于启用复制时源 VM 上的 NIC 数目。 如果在启用复制后添加/删除 NIC，不会影响故障转移 VM 上的 NIC 计数。
+Internet 负载均衡器 | 支持 | 需要使用恢复计划中的 azure 自动化脚本关联预配置的负载均衡器。
+内部负载均衡器 | 支持 | 需要使用恢复计划中的 azure 自动化脚本关联预配置的负载均衡器。
+公共 IP| 支持 | 需要将已有的公共 IP 关联到 NIC，或者使用恢复计划中的 azure 自动化脚本创建一个公共 IP 并将其关联到 NIC。
+NIC 上的 NSG (Resource Manager)| 支持 | 需要使用恢复计划中的 azure 自动化脚本将 NSG 关联到 NIC。  
 子网上的 NSG（Resource Manager 和经典）| 支持 | 需要使用恢复计划中的 azure 自动化脚本将 NSG 关联到子网。
-VM 上的 NSG（经典）| 支持 | 需要使用恢复计划中的 Azure 自动化脚本将 NSG 关联到 NIC。
-保留 IP（静态 IP）/保留源 IP | 支持 | 如果源 VM 上的 NIC 具有静态 IP 配置并且目标子网中包含同一 IP，则会将该 IP 分配给故障转移 VM。 如果目标子网中没有相同的 IP，则会为此 VM 保留子网中的一个 IP。 可在“复制项”>“设置”>“计算和网络”>“网络接口”中指定所选的固定 IP 。 可以选择 NIC，并指定所选的子网和 IP。
-动态 IP| 支持 | 如果源 VM 上的 NIC 具有动态 IP 配置，则在默认情况下，故障转移 VM 上的 NIC 也是动态的。 可在“复制项”>“设置”>“计算和网络”>“网络接口”中指定所选的固定 IP 。 可以选择 NIC，并指定所选的子网和 IP。
-流量管理器集成 | 支持 | 可以对流量管理器进行预配置，使流量定期路由到源区域中的终结点，并在故障转移时路由到目标区域中的终结点。
-Azure 托管 DNS | 支持 |
+VM 上的 NSG（经典）| 支持 | 需要使用恢复计划中的 azure 自动化脚本将 NSG 关联到 NIC。
+保留 IP（静态 IP）/保留源 IP | 支持 | 如果源 VM 上的 NIC 具有静态 IP 配置，并且目标子网具有相同的可用 IP，则会将它分配给故障转移 VM。 如果目标子网没有相同的可用 IP，则为此 VM 保留子网中的某个可用 IP。 可以在“复制的项”>“设置”>“计算和网络”>“网络接口”中指定所选择的固定 IP。 可以选择 NIC，并指定所选的子网和 IP。
+动态 IP| 支持 | 如果源 VM 上的 NIC 具有动态 IP 配置，故障转移 VM 上的 NIC 也默认为动态。 可以在“复制的项”>“设置”>“计算和网络”>“网络接口”中指定所选择的固定 IP。 可以选择 NIC，并指定所选的子网和 IP。
+流量管理器集成 | 支持 | 可按以下方式预配置流量管理器：正常情况下，流量路由到源区域中的终结点；发生故障转移时，流量路由到目标区域中的终结点。
+Azure 托管的 DNS | 支持 |
 自定义 DNS  | 支持 |    
 未经身份验证的代理 | 支持 | 请参阅[网络指南文档。](site-recovery-azure-to-azure-networking-guidance.md)    
-经过身份验证的代理 | 不支持 | 如果 VM 正在使用经过身份验证的代理进行出站连接，则不可使用 Azure Site Recovery 进行复制。    
-本地站点到站点 VPN（使用或不使用 ExpressRoute）| 支持 | 确保将 UDR 和 NSG 配置为站点恢复流量不会路由到本地。 请参阅[网络指南文档。](site-recovery-azure-to-azure-networking-guidance.md)  
-VNET 到 VNET 连接 | 支持 | 请参阅[网络指南文档。](site-recovery-azure-to-azure-networking-guidance.md)  
+经过身份验证的代理 | 不支持 | 如果 VM 对出站连接使用经过身份验证的代理，则不能使用 Azure Site Recovery 复制该 VM。    
+具有本地网络的站点到站点 VPN（带或不带 ExpressRoute）| 支持 | 确保按以下方式配置 UDR 和 NSG：Site Recovery 流量不路由到本地网络。 请参阅[网络指南文档](site-recovery-azure-to-azure-networking-guidance.md)。  
+VNET 到 VNET 连接 | 支持 | 请参阅[网络指南文档](site-recovery-azure-to-azure-networking-guidance.md)。  
 虚拟网络服务终结点 | 支持 | 不支持虚拟网络的 Azure 存储防火墙。 不支持访问用于存储复制数据的缓存存储帐户上特定的 Azure 虚拟网络。
 
 <!-- Not Available on Accelerated Networking | Not supported | A VM with Accelerated Networking enabled can be replicated, but the failover VM will not have Accelerated Networking enabled. Accelerated Networking will also be disabled for source VM on failback.-->

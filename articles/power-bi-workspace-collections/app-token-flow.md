@@ -14,22 +14,22 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-origin.date: 09/20/2017
-ms.date: 10/24/2017
+origin.date: 10/24/2017
+ms.date: 09/10/2018
 ms.author: v-junlch
-ms.openlocfilehash: 038e9afa5b174c15cae29a48aebc00ea62cf5630
-ms.sourcegitcommit: 140d09254b5ded4b408980b43c0fc5d3643320a1
+ms.openlocfilehash: 61cc1a65cfe616b0485e44de4417c5cdf4b9f3fb
+ms.sourcegitcommit: 22ae27d993016bf80b2924a880abf885386a61eb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2017
-ms.locfileid: "23580295"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44269557"
 ---
 # <a name="authenticating-and-authorizing-with-power-bi-workspace-collections"></a>通过 Power BI 工作区集合进行身份验证和授权
 
 Power BI 工作区集合使用**密钥**和**应用令牌**进行身份验证和授权，而不是使用显式的最终用户身份验证。 在此模型中，由应用程序管理对最终用户的身份验证和授权。 如有必要，应用将创建并发送应用令牌，以指示服务来呈现所请求的报表。 此设计不要求应用使用 Azure Active Directory 进行用户身份验证和授权，但仍然可以这样做。
 
 > [!IMPORTANT]
-> Power BI 工作区集合已弃用，到 2018 年 6 月或合同指示时可用。 建议你规划到 Power BI Embedded 的迁移以避免应用程序中断。 有关如何将数据迁移到 Power BI Embedded 的信息，请参阅[如何将 Power BI 工作区集合内容迁移到 Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/)。
+> Power BI 工作区集合已弃用，到 2018 年 6 月 或合同指示时可用。 建议你规划到 Power BI Embedded 的迁移以避免应用程序中断。 有关如何将数据迁移到 Power BI Embedded 的信息，请参阅[如何将 Power BI 工作区集合内容迁移到 Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/)。
 
 ## <a name="two-ways-to-authenticate"></a>进行身份验证的两种方式
 
@@ -39,7 +39,7 @@ Power BI 工作区集合使用**密钥**和**应用令牌**进行身份验证和
 
     Authorization: AppKey {your key}
 
-**应用令牌** - 应用令牌用于所有嵌入请求。 它们被设计为运行客户端，令牌限用于单个报表，并且最好设置一个过期时间。
+**应用令牌** - 应用令牌可用于所有嵌入请求。 它们被设计为运行客户端，令牌限用于单个报表，并且最好设置一个过期时间。
 
 应用令牌是由某个密钥签名的 JWT（JSON Web 令牌）。
 
@@ -48,9 +48,9 @@ Power BI 工作区集合使用**密钥**和**应用令牌**进行身份验证和
 | 声明 | 说明 |
 | --- | --- |
 | **ver** |应用令牌的版本。 当前版本为 0.2.0。 |
-| **aud** |令牌的目标接收方。 对于 Power BI 工作区集合，请使用：“https://analysis.chinacloudapi.cn/powerbi/api”。 |
+| **aud** |令牌的目标接收方。 对于 Power BI 工作区集合，请使用：*https:\//analysis.chinacloudapi.cn/powerbi/api* |
 | **iss** |一个字符串，指示颁发了令牌的应用程序。 |
-| **类型** |要创建的应用令牌的类型。 当前唯一支持的类型是 **embed**。 |
+| type |要创建的应用令牌的类型。 当前唯一支持的类型是 **embed**。 |
 | **wcn** |要为其颁发令牌的工作区集合名称。 |
 | **wid** |要为其颁发令牌的工作区 ID。 |
 | **rid** |要为其颁发令牌的报表 ID。 |
@@ -149,7 +149,7 @@ Body
 
 ### <a name="operations-and-scopes"></a>操作和作用域
 
-|操作|目标资源|令牌权限|
+|Operation|目标资源|令牌权限|
 |---|---|---|
 |基于数据集创建（在内存中）新报表。|数据集|Dataset.Read|
 |基于数据集创建（在内存中）新报表并保存该报表。|数据集|* Dataset.Read<br>* Workspace.Report.Create|
@@ -189,5 +189,5 @@ Body
 [Power BI 工作区集合入门](get-started.md)  
 [PowerBI-CSharp Git 存储库](https://github.com/Microsoft/PowerBI-CSharp)
 
-有更多问题？ [试用 Power BI 社区](http://community.powerbi.com/)
+有更多问题？ [尝试 Power BI 社区](http://community.powerbi.com/)
 
