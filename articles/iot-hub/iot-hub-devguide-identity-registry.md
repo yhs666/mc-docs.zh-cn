@@ -9,13 +9,13 @@ ms.topic: conceptual
 origin.date: 01/29/2018
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
-ms.date: 09/10/2018
-ms.openlocfilehash: 2804143ea9439f3cccafba0e027fa3c2ccc6abed
-ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
+ms.date: 10/08/2018
+ms.openlocfilehash: 61234d20f97a97d4025bdb2a5bb7ea1136608f02
+ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43329162"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523888"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>了解 IoT 中心的标识注册表
 
@@ -93,11 +93,10 @@ IoT 解决方案通常具有不同的解决方案特定存储，其中包含应�
 
 IoT 中心标识注册表包含名为 **connectionState**的字段。 开发和调试期间仅使用 **connectionState** 字段。 IoT 解决方案不应在运行时查询字段。 例如，不要在发送云到设备的消息或 SMS 之前查询 **connectionState** 字段以检查设备是否已连接。
 
-如果 IoT 解决方案需要知道设备是否已连接，则应实现*检测信号模式*。
-
+如果 IoT 解决方案需要知道设备是否已连接，则可实现*检测信号模式*。
 在检测信号模式下，设备每隔固定时间至少发送一次设备到云的消息（例如，每小时至少一次）。 因此，即使设备没有任何要发送的数据，仍会发送空的设备到云的消息（通常具有可供识别为检测信号的属性）。 在服务端，该解决方案维护着与每个设备收到的最后一个检测信号的映射。 如果解决方案未在预计时间内从设备收到检测信号消息，则它假定设备存在问题。
 
-更复杂的实现可包含来自 [操作监视][lnk-devguide-opmon] 的信息，以便识别尝试连接或通信但失败的设备。 实施检测信号模式时，请务必查看 [IoT 中心配额与限制][lnk-quotas]。
+更复杂的实现可包含来自 [Azure Monitor][lnk-AM] 和 [Azure 资源运行状况][lnk-ARH]的信息，以便识别尝试连接或通信但失败的设备，请查阅[使用诊断进行监视][lnk-devguide-mon]指南。 实施检测信号模式时，请务必查看 [IoT 中心配额与限制][lnk-quotas]。
 
 > [!NOTE]
 > 如果 IoT 解决方案只使用连接状态来决定是否发送云到设备的消息，并且没有把消息广播到大量设备，则考虑使用更简单的较短到期时间模式。 此模式达到的效果与使用检测信号模式维护设备连接状态注册表达到的效果一样，而且更加有效。 如果请求消息确认，则 IoT 中心可以通知你哪些设备可以接收消息以及哪些设备不能接收。
@@ -256,7 +255,7 @@ IoT 中心开发人员指南中的其他参考主题包括：
 [lnk-rfc7232]: https://tools.ietf.org/html/rfc7232
 [lnk-bulk-identity]: ./iot-hub-bulk-identity-mgmt.md
 [lnk-export]: ./iot-hub-devguide-identity-registry.md#import-and-export-device-identities
-[lnk-devguide-opmon]: ./iot-hub-operations-monitoring.md
+[lnk-devguide-mon]: iot-hub-monitor-resource-health.md
 
 [lnk-devguide-security]: ./iot-hub-devguide-security.md
 [lnk-devguide-device-twins]: ./iot-hub-devguide-device-twins.md
@@ -264,3 +263,6 @@ IoT 中心开发人员指南中的其他参考主题包括：
 [lnk-devguide-jobs]: ./iot-hub-devguide-jobs.md
 
 [lnk-getstarted-tutorial]: quickstart-send-telemetry-dotnet.md
+[lnk-AM]: ../monitoring-and-diagnostics/index.yml
+[lnk-ARH]: ../service-health/resource-health-overview.md
+[lnk-howto-evgrid-connstate]: iot-hub-how-to-order-connection-state-events.md

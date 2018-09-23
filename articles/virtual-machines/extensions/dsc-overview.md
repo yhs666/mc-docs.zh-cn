@@ -15,14 +15,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
 origin.date: 05/02/2018
-ms.date: 06/04/2018
+ms.date: 09/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4febb33c6d97328d80a0cdb9af48e1cb090a98dd
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: d36bd472a496e24a193a6342eb98e91f1271adac
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702960"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527104"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Azure Desired State Configuration 扩展处理程序简介
 
@@ -160,5 +160,4 @@ Set-AzureRmVMDscExtension -Version '2.76' -ResourceGroupName $resourceGroup -VMN
 - 查看[适用于 DSC 扩展的资源管理器模板](dsc-template.md)。
 - 若要了解可以使用 PowerShell DSC 管理的其他功能并获取更多 DSC 资源，请浏览 [PowerShell 库](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0)。
 - 有关将敏感参数传入配置的详细信息，请参阅[使用 DSC 扩展处理程序安全管理凭据](dsc-credentials.md)。
-<!-- Update_Description: new articles on dsc overview  -->
-<!--ms.date: 06/04/2018-->
+<!-- Update_Description: update meta properties  -->

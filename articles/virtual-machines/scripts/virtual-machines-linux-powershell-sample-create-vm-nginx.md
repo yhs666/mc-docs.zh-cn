@@ -14,15 +14,15 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 03/01/2017
-ms.date: 07/30/2018
+ms.date: 09/24/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 9fd0f3590de63045e3b8e0cafd3f32751d5e4ec2
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.openlocfilehash: 7ecbb968b33e0b2afc660ca68b0cfae7d62b0eb5
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295690"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527203"
 ---
 # <a name="create-an-nginx-vm-with-powershell"></a>使用 PowerShell 创建 NGINX VM
 

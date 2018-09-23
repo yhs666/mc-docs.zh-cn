@@ -9,25 +9,25 @@ ms.topic: include
 ms.date: 04/26/2018
 ms.author: menchi
 ms.custom: include file
-ms.openlocfilehash: 14f1350c524e8d0d4f1ba48be052393e7d84fe56
-ms.sourcegitcommit: 039d75a641edc2edd13a9371251051c20fea2bb7
+ms.openlocfilehash: 2085b7b4f99e68f71735bc7624c83a25984025fb
+ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103441"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523929"
 ---
 ## <a name="create-a-module-identity"></a>创建模块标识
 
-本部分将创建一个 .NET 控制台应用，用于在 IoT 中心的标识注册表中创建设备标识和模块标识。 设备或模块无法连接到 IoT 中心，除非它在标识注册表中具有条目。 有关详细信息，请参阅 [IoT 中心开发人员指南][lnk-devguide-identity]中的“标识注册表”部分。 运行此控制台应用时，它会为设备和模块生成唯一的 ID 和密钥。 设备和模块在向 IoT 中心发送设备到云的消息时，使用这些值来标识自身。 ID 区分大小写。
+本部分将创建一个 .NET 控制台应用，用于在 IoT 中心的标识注册表中创建设备标识和模块标识。 设备或模块无法连接到 IoT 中心，除非它在标识注册表中具有条目。 有关详细信息，请参阅 [IoT 中心开发人员指南的“标识注册表”部分](../articles/iot-hub/iot-hub-devguide-identity-registry.md)。 运行此控制台应用时，它会为设备和模块生成唯一的 ID 和密钥。 设备和模块在向 IoT 中心发送设备到云的消息时，使用这些值来标识自身。 ID 区分大小写。
 
 
 1. **创建 Visual Studio 项目** - 在 Visual Studio 中，使用“控制台应用 (.NET Framework)”项目模板将 Visual C# Windows 经典桌面项目添加到新的解决方案。 确保 .NET Framework 版本为 4.6.1 或更高。 将项目命名为 CreateIdentities，将解决方案命名为 IoTHubGetStarted。
 
-    ![创建 Visual Studio 解决方案][11]
+    ![创建 Visual Studio 解决方案](./media/iot-hub-get-started-create-module-identity-csharp/create-identities-csharp1.JPG)
 
 2. **安装 Azure IoT 中心 .NET 服务 SDK V1.16.0-preview-001** - 模块标识和模块孪生为公开预览版。 仅在 IoT 中心预发行服务 SDK 中提供它。 在 Visual Studio 中，打开“工具”>“NuGet 包管理器”>“管理解决方案的 NuGet 包”。 搜索 Microsoft.Azure.Devices。 确保已选中“包括预发行版”复选框。 选择版本 1.16.0-preview-001 并进行安装。 现在可以访问所有模块功能。 
 
-    ![安装 Azure IoT 中心 .NET 服务 SDK V1.16.0-preview-001][10]
+    ![安装 Azure IoT 中心 .NET 服务 SDK V1.16.0-preview-001](./media/iot-hub-get-started-create-module-identity-csharp/install-sdk.png)
 
 3. 在 Program.cs 文件顶部添加以下 `using` 语句：
 

@@ -3,18 +3,19 @@ title: 使用 Azure IoT Edge 部署 Azure 函数 | Microsoft Docs
 description: 在本教程中，请将 Azure 函数作为一个模块部署到边缘设备。
 author: kgremban
 manager: timlt
-ms.author: kgremban
-ms.date: 08/10/2018
+ms.author: v-yiso
+origin.date: 08/22/2018
+ms.date: 10/08/2018
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 426d9fd81a0cd856378be3bb4f430f310bee53eb
-ms.sourcegitcommit: bae4e9e500e3e988ef8fa0371777ca9cc49b4e94
+ms.openlocfilehash: b97286ce744c254e7e753d840d1d7b9bb21c2784
+ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45584909"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523897"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules-preview"></a>教程：将 Azure 函数作为 IoT Edge 模块进行部署（预览版）
 
@@ -76,7 +77,7 @@ Azure IoT Edge 设备：
    | 管理员用户 | 设置为“启用”。 |
    | SKU | 选择“基本”。 | 
 
-5. 选择**创建**。
+5. 选择“创建” 。
 
 6. 创建容器注册表后，请浏览到其中，然后选择“访问密钥”。 
 
@@ -170,7 +171,7 @@ Azure IoT Edge 设备：
 
 在此部分，你为容器注册表提供凭据两次。 第一次是从开发计算机进行本地登录，这样 Visual Studio Code 就能将映像推送到注册表。 第二次是在 IoT Edge 解决方案的 **.env** 文件中，目的是为 IoT Edge 设备提供从注册表拉取映像的权限。 
 
-1. 打开 VS Code 集成终端，方法是选择“视图” > “集成终端”。 
+1. 打开 VS Code 集成终端，方法是选择“视图” > “终端”。 
 
 1. 在集成终端输入以下命令，登录到容器注册表。 然后可将模块映像推送到 Azure 容器注册表： 
      
@@ -219,7 +220,7 @@ Azure IoT Edge 设备：
 
 5. 在 VS Code 资源管理器中，展开“Azure IoT 中心设备”部分。 
 
-6. 右键单击 IoT Edge 设备的名称，然后选择“为 IoT Edge 设备创建部署”。 
+6. 右键单击 IoT Edge 设备的名称，然后选择“为单个设备创建部署”。 
 
 7. 浏览到包含 **CSharpFunction** 的解决方案文件夹。 打开 config 文件夹，选择 deployment.json 文件，然后选择“选择 Edge 部署清单”。
 

@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 12/13/2017
-ms.date: 08/27/2018
+ms.date: 09/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7589522df5da54c47b21fa8ea497ed25513f254e
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.openlocfilehash: fabaa7dec53da1ba631fa94290e42ba75558471c
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42871784"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527139"
 ---
 [!INCLUDE [virtual-machines-common-infrastructure-automation](../../../includes/virtual-machines-common-infrastructure-automation.md)]
 

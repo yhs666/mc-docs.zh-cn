@@ -10,14 +10,14 @@ ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: tutorial
 origin.date: 04/01/2018
-ms.date: 08/13/2018
+ms.date: 09/24/2018
 ms.custom: mvc
-ms.openlocfilehash: 73710f1b952d7aae1cbd154183c3b8390d3ebc1c
-ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
+ms.openlocfilehash: 49e2bdf41860758beb2c000c5fb4e6ff8d737de2
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39722967"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527138"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-using-azure-cli"></a>教程：使用 Azure CLI 设计 Azure Database for MySQL
 
@@ -43,7 +43,7 @@ az account set --subscription 00000000-0000-0000-0000-000000000000
 ```
 
 ## <a name="create-a-resource-group"></a>创建资源组
-使用 [az group create](/cli/group#az_group_create) 命令创建 [Azure 资源组](../azure-resource-manager/resource-group-overview.md)。 资源组是在其中以组的形式部署和管理 Azure 资源的逻辑容器。
+使用 [az group create](/cli/group#az-group-create) 命令创建 [Azure 资源组](/azure-resource-manager/resource-group-overview)。 资源组是在其中以组的形式部署和管理 Azure 资源的逻辑容器。
 
 以下示例在 `chinaeast2` 位置创建名为 `myresourcegroup` 的资源组。
 
@@ -60,7 +60,7 @@ az group create --name myresourcegroup --location chinaeast2
 az mysql server create --resource-group myresourcegroup --name mydemoserver --location chinaeast2 --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 --version 5.7
 ```
 sku-name 参数值遵循 {定价层}\_{计算层代}\_{vCore 数} 约定，如以下示例中所示：
-+ `--sku-name B_Gen5_5` 映射到基本、第 5 代和 4 个 vCore。
++ `--sku-name B_Gen5_4` 映射到基本、第 5 代和 4 个 vCore。
 + `--sku-name GP_Gen5_32` 映射到常规用途、第 5 层和 32 个 vCore。
 + `--sku-name MO_Gen5_2` 映射到内存优化、第 5 层和 2 个 vCore。
 

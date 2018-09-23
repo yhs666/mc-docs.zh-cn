@@ -4,24 +4,20 @@ description: 了解如何在 Azure Functions 中使用 Azure 表存储绑定。
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: Azure Functions，函数，事件处理，动态计算，无服务体系结构
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.tgt_pltfrm: multiple
-ms.workload: na
-origin.date: 11/08/2017
-ms.date: 08/31/2018
+origin.date: 09/03/2018
+ms.date: 09/21/2018
 ms.author: v-junlch
-ms.openlocfilehash: 019946c9265167152b377b8d0068a046617480b5
-ms.sourcegitcommit: b2c9bc0ed28e73e8c43aa2041c6d875361833681
+ms.openlocfilehash: ebc2c12feff823b5d0725d7bcddab9a12230aa20
+ms.sourcegitcommit: 54d9384656cee927000d77de5791c1d585d94a68
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43330711"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46524054"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure Functions 的 Azure 表存储绑定
 
@@ -35,13 +31,13 @@ ms.locfileid: "43330711"
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
+[!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
+
 ## <a name="packages---functions-2x"></a>包 - Functions 2.x
 
-[Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet 包 3.x 版中提供了表存储绑定。 azure-webjobs-sdk GitHub 存储库中提供了此包的源代码。
+[Microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage) NuGet 包 3.x 版中提供了表存储绑定。 [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Tables) GitHub 存储库中提供了此包的源代码。
 
-[!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
-
-[!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
+[!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
 ## <a name="input"></a>输入
 

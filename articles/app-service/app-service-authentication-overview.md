@@ -3,7 +3,7 @@ title: Azure 应用服务中的身份验证和授权 | Azure
 description: 概念性参考和概述：Azure 应用服务的身份验证/授权功能
 services: app-service
 documentationcenter: ''
-author: mattchenderson
+author: cephalin
 manager: erikre
 editor: ''
 ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
@@ -12,15 +12,15 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-origin.date: 08/29/2016
-ms.date: 09/03/2018
+origin.date: 08/24/2016
+ms.date: 10/08/2018
 ms.author: v-yiso
-ms.openlocfilehash: ab38df391da7bbff64bf78ce98b437c0249942c9
-ms.sourcegitcommit: 1b682acdc2a5e0974fbff809967d7cefcbbbe8ac
+ms.openlocfilehash: 1e0b43f9e6ec239544f77978eeae3538a9c9651f
+ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42871007"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523848"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Azure 应用服务中的身份验证和授权
 
@@ -80,7 +80,7 @@ Azure 应用服务提供内置的身份验证和授权支持。只需在 Web 应
 
 | 提供程序 | 登录终结点 |
 | - | - |
-| [Azure Active Directory](../active-directory/active-directory-whatis.md) | `/.auth/login/aad` |
+| [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) | `/.auth/login/aad` |
 | [Microsoft 帐户](../active-directory/develop/active-directory-appmodel-v2-overview.md) | `/.auth/login/microsoftaccount` |
 
 对其中一个提供程序启用身份验证和授权时，其登录终结点可用于用户身份验证，以及验证来自提供程序的身份验证令牌。 可以轻松为用户提供其中任意数量的登录选项。 还可以集成其他标识提供者或[自己的自定义标识解决方案][custom-auth]。
@@ -132,7 +132,7 @@ Azure 应用服务提供内置的身份验证和授权支持。只需在 Web 应
 
 选项为“允许匿名请求”。 此选项将在应用服务中启用身份验证和授权，但会推迟对应用程序代码所做的授权决策。 对于经过身份验证的请求，应用服务还会在 HTTP 标头中一起传递身份验证信息。 
 
-使用此选项可以更灵活地处理匿名请求。 例如，可以向用户[提供多个登录选项](app-service-authentication-how-to.md#configure-multiple-sign-in-options)。 但是，必须编写代码。 
+使用此选项可以更灵活地处理匿名请求。 例如，可以向用户[提供多个登录提供程序](app-service-authentication-how-to.md#use-multiple-sign-in-providers)。 但是，必须编写代码。 
 
 ## <a name="more-resources"></a>更多资源
 

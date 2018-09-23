@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/24/2018
-ms.date: 07/02/2018
+origin.date: 08/24/2018
+ms.date: 10/08/2018
 ms.author: v-yiso
-ms.openlocfilehash: d065d56b1b25dda8b91cba6bddcaa0fef2baf146
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.openlocfilehash: 570afaf3b9d155faa8f588a0246750c4609f7fd8
+ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315693"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523907"
 ---
 # <a name="security-in-azure-app-service-and-azure-functions"></a>Azure 应用服务和 Azure Functions 中的安全性
 

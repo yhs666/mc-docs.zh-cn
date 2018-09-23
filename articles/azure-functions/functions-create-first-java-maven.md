@@ -6,21 +6,19 @@ documentationcenter: na
 author: rloutlaw
 manager: justhe
 keywords: azure functions, functions, 事件处理, 计算, 无服务器体系结构
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: java
 ms.topic: quickstart
-ms.tgt_pltfrm: multiple
-ms.workload: na
 origin.date: 08/10/2018
-ms.date: 08/31/2018
+ms.date: 09/21/2018
 ms.author: v-junlch
 ms.custom: mvc, devcenter
-ms.openlocfilehash: cdec81ad6fc38821cb88689fb99bd6d41526d7d0
-ms.sourcegitcommit: b2c9bc0ed28e73e8c43aa2041c6d875361833681
+ms.openlocfilehash: 2a20d5742f2f3062ba4e57168b0d0a52de65534a
+ms.sourcegitcommit: 54d9384656cee927000d77de5791c1d585d94a68
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43330755"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46524004"
 ---
 # <a name="create-your-first-function-with-java-and-maven-preview"></a>通过 Java 和 Maven 创建你的第一个函数（预览版）
 
@@ -176,13 +174,39 @@ curl -w '\n' -d AzureFunctionsTest https://fabrikam-functions-20170920120101928.
 Hello, AzureFunctionsTest
 ```
 
+## <a name="make-changes-and-redeploy"></a>进行更改并重新部署
+
+编辑生成的项目中的 `src/main.../Function.java` 源文件来更改你的函数应用返回的文本。 更改以下行：
+
+```java
+return request.createResponse(200, "Hello, " + name);
+```
+
+更改为以下内容：
+
+```java
+return request.createResponse(200, "Hi, " + name);
+```
+
+保存更改，如以前一样通过从终端运行 `azure-functions:deploy` 进行重新部署。 函数应用将更新，并且以下请求：
+
+```bash
+curl -w '\n' -d AzureFunctionsTest https://fabrikam-functions-20170920120101928.chinacloudsites.cn/api/HttpTrigger-Java
+```
+
+将具有更新的输出：
+
+```Output
+Hi, AzureFunctionsTest
+```
+
 ## <a name="next-steps"></a>后续步骤
 
 你已使用简单的 HTTP 触发器创建 Java 函数应用，并将其部署到 Azure Functions。
 
 - 有关开发 Java 函数的详细信息，请查看 [Java 函数开发人员指南](functions-reference-java.md)。
 - 使用 `azure-functions:add` Maven 目标将具有不同触发器的其他函数添加到你的项目。
-- 使用 Visual Studio Code 在本地调试函数。 安装 [Java 扩展包](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)且在 Visual Studio Code 中打开 Functions 项目后，[将调试器附加](https://code.visualstudio.com/Docs/editor/debugging#_launch-configurations)到端口 5005。 然后，在编辑器中设置断点，并在本地运行函数时触发函数：![在 Visual Studio Code 中调试函数](./media/functions-create-java-maven/vscode-debug.png)
-- 使用 Visual Studio Code 远程调试函数。 查看[编写无服务器 Java 应用程序](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud)文档中的说明。
+- 使用 [Visual Studio Code](https://code.visualstudio.com/docs/java/java-azurefunctions)、[IntelliJ](functions-create-maven-intellij.md) 和 [Eclipse](functions-create-maven-eclipse.md) 在本地编写并调试函数。 
+- 使用 Visual Studio Code 调试在 Azure 中部署的函数。 有关说明，请参阅 Visual Studio Code [无服务器 Java 应用程序](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud)文档。
 
 <!-- Update_Description: wording update -->

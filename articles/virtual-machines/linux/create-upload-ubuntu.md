@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 03/12/2018
-ms.date: 04/16/2018
+ms.date: 09/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: 3bc1e899227c17a4f5aea5b2b708f063f766420a
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.openlocfilehash: b6f05d6cb6748fe0649f3180407bb4a897203045
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31323189"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527165"
 ---
 # <a name="prepare-an-ubuntu-virtual-machine-for-azure"></a>为 Azure 准备 Ubuntu 虚拟机
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -129,14 +129,12 @@ Ubuntu 现已发布正式 Azure VHD，可从 [http://cloud-images.ubuntu.com/](h
         # export HISTSIZE=0
         # logout
 
-9. 在 Hyper-V 管理器中单击“操作”->“关闭”。 Linux VHD 现已准备好上传到 Azure。
+9. 在 Hyper-V 管理器中单击“操作”->“关闭”。 现在，准备将 Linux VHD 上传到 Azure。
+
+## <a name="references"></a>参考
+[Ubuntu 硬件支持 (HWE) 内核](https://wiki.ubuntu.com/Kernel/LTSEnablementStack)
 
 ## <a name="next-steps"></a>后续步骤
 现在，可使用 Ubuntu Linux 虚拟硬盘在 Azure 中创建新的 Azure 虚拟机。 如果是首次将 .vhd 文件上传到 Azure，请参阅[从自定义磁盘创建 Linux VM](upload-vhd.md#option-1-upload-a-vhd)。
 
-## <a name="references"></a>参考
-Ubuntu 硬件支持 (HWE) 内核：
-
-* [http://blog.utlemming.org/2015/01/ubuntu-1404-azure-images-now-tracking.html](http://blog.utlemming.org/2015/01/ubuntu-1404-azure-images-now-tracking.html)
-* [http://blog.utlemming.org/2015/02/1204-azure-cloud-images-now-using-hwe.html](http://blog.utlemming.org/2015/02/1204-azure-cloud-images-now-using-hwe.html)
-<!--Update_Description: wording update, update link, update meta properties -->
+<!--Update_Description: update meta properties -->

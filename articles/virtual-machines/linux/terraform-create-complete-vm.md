@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 09/14/2017
-ms.date: 06/25/2018
+ms.date: 09/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: faed58d63c666b970a77684a5470b2050d7eb046
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.openlocfilehash: 5aecb73a31fbb5506b10292f4635cf185c9e82a6
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315460"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527017"
 ---
 # <a name="create-a-complete-linux-virtual-machine-infrastructure-in-azure-with-terraform"></a>在 Azure 中使用 Terraform 创建完整的 Linux 虚拟机基础结构
 
@@ -76,7 +76,7 @@ resource "azurerm_virtual_network" "myterraformnetwork" {
 }
 ```
 
-以下部分在 myVnet 虚拟网络中创建名为 mySubnet 的子网
+以下部分在 myVnet 虚拟网络中创建名为 mySubnet 的子网：
 
 ```tf
 resource "azurerm_subnet" "myterraformsubnet" {

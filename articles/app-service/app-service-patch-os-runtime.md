@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/02/2018
-ms.date: 06/04/2018
+ms.date: 10/08/2018
 ms.author: v-yiso
-ms.openlocfilehash: 9afa6bba3b23f0e0d5bfebc22231ef43310b93cb
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: 25b402c2fb6b9ff4e9f43363b1b0a8771d77b6e8
+ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554166"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523829"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>Azure 应用服务中的 OS 和运行时修补
 
@@ -94,8 +94,8 @@ az webapp config set --java-version 1.8 --java-container Tomcat --java-container
 | 默认的 Node.js 版本 | 在 [Cloud Shell](../cloud-shell/overview.md) 中运行以下命令： <br> `az webapp config appsettings list --resource-group <groupname> --name <appname> --query "[?name=='WEBSITE_NODE_DEFAULT_VERSION']"` |
 | Python 版本 | 在 `https://<appname>.scm.azurewebsites.net/DebugConsole` 中的命令提示符下运行以下命令： <br> `python --version` |
 
-> [!NOTE]
-> 访问注册表位置 `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\Packages`，其中存储了有关[“KB”修补]((https://docs.microsoft.com/security-updates/SecurityBulletins/securitybulletins))的信息。该位置已被锁定。
+> [!NOTE]  
+> 访问注册表位置 `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\Packages`，其中存储了有关[“KB”修补](https://docs.microsoft.com/security-updates/SecurityBulletins/securitybulletins)的信息。该位置已被锁定。
 >
 >
 

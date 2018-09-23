@@ -4,25 +4,21 @@ description: Azure CLI 脚本示例 - 创建用于连接到 Azure Cosmos DB 的 
 services: functions
 documentationcenter: functions
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: functions
+manager: jeconnoc
 ms.assetid: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: ''
 origin.date: 07/03/2018
-ms.date: 07/23/2018
+ms.date: 09/20/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: a7b3ee48485505e81830c22f557db4afc15eee54
-ms.sourcegitcommit: ba07d76f8394b5dad782fd983718a8ba49a9deb2
+ms.openlocfilehash: 75fa44bc80578ea497f303cb3a17a6758595c214
+ms.sourcegitcommit: 54d9384656cee927000d77de5791c1d585d94a68
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39220196"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46524008"
 ---
 # <a name="create-an-azure-function-that-connects-to-an-azure-cosmos-db"></a>创建用于连接到 Azure Cosmos DB 的 Azure Function
 
@@ -100,7 +96,7 @@ az functionapp config appsettings set `
 
 可以在 [Azure Functions 文档](../functions-cli-samples.md)中找到其他 Azure Functions CLI 脚本示例。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->
 
 
 

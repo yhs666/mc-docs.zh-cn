@@ -1,5 +1,5 @@
 ---
-title: Azure 策略 json 示例 - 每个 NIC 上的 NSG x | Azure
+title: Azure Policy json 示例 - 每个 NIC 上的 NSG x | Microsoft Docs
 description: 此 json 示例策略要求每个虚拟网络接口使用特定的网络安全组。
 services: azure-policy
 documentationcenter: ''
@@ -16,12 +16,12 @@ origin.date: 10/30/2017
 ms.date: 07/09/2018
 ms.author: v-nany
 ms.custom: mvc
-ms.openlocfilehash: 08bba196d30c04f7cb0ee1e7d4a0d388a0c13bfa
-ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
+ms.openlocfilehash: fa01cabaa3ac3a8b0453416307ea19e81f1da3fc
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37405264"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527157"
 ---
 # <a name="nsg-x-on-every-nic"></a>每个 NIC 上的 NSG x
 
@@ -111,4 +111,4 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>后续步骤
 
-- 有关更多示例，请参阅 [Azure 策略示例](../json-samples.md)。
+- 在 [Azure Policy 示例](../json-samples.md)中查看更多示例。

@@ -1,5 +1,5 @@
 ---
-title: Azure 策略 json 示例 - 审核 SQL Server 审核设置 | Azure
+title: Azure Policy json 示例 - 审核 SQL Server 审核设置 | Microsoft Docs
 description: 此 json 示例策略会审核 SQL Server 审核设置。
 services: azure-policy
 documentationcenter: ''
@@ -16,12 +16,12 @@ origin.date: 04/27/2018
 ms.date: 07/09/2018
 ms.author: v-nany
 ms.custom: mvc
-ms.openlocfilehash: c5dbf3bb93dde8ba33fafec5fb4a935d89f2600f
-ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
+ms.openlocfilehash: fbbb30dc21312f4976e5a25525d5a348c2e21837
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37405351"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527090"
 ---
 # <a name="audit-sql-server-audit-settings"></a>审核 SQL Server 审核设置
 
@@ -105,4 +105,4 @@ az policy assignment delete --name "SQL Audit audit" --resource-group myResource
 
 ## <a name="next-steps"></a>后续步骤
 
-- 有关更多示例，请参阅 [Azure 策略示例](../json-samples.md)。
+- 在 [Azure Policy 示例](../json-samples.md)中查看更多示例。

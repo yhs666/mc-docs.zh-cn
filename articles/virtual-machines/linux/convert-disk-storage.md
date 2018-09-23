@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 07/12/2018
-ms.date: 07/30/2018
+ms.date: 09/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: 98515ae86a497a9314c8858ca740b4968cfc7f12
-ms.sourcegitcommit: 35889b4f3ae51464392478a72b172d8910dd2c37
+ms.openlocfilehash: 17d00a08774232672cbff2140f2d5ebaa258a6ab
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39261872"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527078"
 ---
 # <a name="convert-azure-managed-disks-storage-from-standard-to-premium-and-vice-versa"></a>Azure 标准与高级托管磁盘存储的相互转换
 
@@ -113,4 +113,4 @@ az vm start --ids $vmId
 
 使用[快照](snapshot-copy-managed-disk.md)获取 VM 的只读副本。
 
-<!-- Update_Description: update meta properties, update link -->
+<!-- Update_Description: update meta properties -->

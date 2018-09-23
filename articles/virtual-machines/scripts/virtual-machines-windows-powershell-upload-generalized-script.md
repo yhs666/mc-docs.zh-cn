@@ -14,15 +14,15 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 01/02/2018
-ms.date: 08/27/2018
+ms.date: 09/24/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 3f035faaa941b0ec31468f94984ec612c326f344
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.openlocfilehash: a4791bf058d1ba2ac9e3e37aa982a09ff780110d
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42871973"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46526972"
 ---
 # <a name="sample-script-to-upload-a-vhd-to-azure-and-create-a-new-vm"></a>将 VHD 上传到 Azure 并创建新的 VM 的示例脚本
 
@@ -148,11 +148,9 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 | [Set-AzureRmVMSourceImage](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmsourceimage)                           | 指定虚拟机的映像。                                                                                                                                            |
 | [Set-AzureRmVMOSDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmosdisk)                                     | 设置虚拟机的操作系统磁盘属性。                                                                                                                      |
 | [Set-AzureRmVMOperatingSystem](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmoperatingsystem)                   | 设置虚拟机的操作系统磁盘属性。                                                                                                                      |
-| [Add-AzureRmVMNetworkInterface](https://docs.microsoft.com/powershell/module/AzureRM.Compute/add-azurermvmnetworkinterface)                 | 将网络接口添加到虚拟机。                                                                                                                                       |
+| [Add-AzureRmVMNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvmnetworkinterface?view=azurermps-6.8.1)                 | 将网络接口添加到虚拟机。                                                                                                                                       |
 | [New-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm)                                                 | 创建虚拟机。                                                                                                                                                            |
 | [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup)                     | 删除资源组及其中包含的所有资源。                                                                                                                         |
-
-<!-- URL on 147 should be AzureRM.Compute/add-azurermvmnetworkinterface -->
 
 ## <a name="next-steps"></a>后续步骤
 

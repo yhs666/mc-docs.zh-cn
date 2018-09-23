@@ -1,5 +1,5 @@
 ---
-title: Azure 策略 json 示例 - 强制实施匹配模式 | Azure
+title: Azure Policy json 示例 - 强制实施 match 模式 | Microsoft Docs
 description: 此 json 示例策略需要资源符合用于命名约定的 match 模式。
 services: azure-policy
 documentationcenter: ''
@@ -16,12 +16,12 @@ origin.date: 11/13/2017
 ms.date: 07/09/2018
 ms.author: v-nany
 ms.custom: mvc
-ms.openlocfilehash: 641166ca8364ed5248cb581017a4ad08a88b52d2
-ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
+ms.openlocfilehash: 0059ca4e3c2a5bcfbbe5d3b6f38a5f61420c691e
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37405395"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527005"
 ---
 # <a name="enforce-match-pattern-for-naming-conventions"></a>强制实施用于命名约定的 match 模式
 
@@ -103,4 +103,4 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>后续步骤
 
-- 有关更多示例，请参阅 [Azure 策略示例](../json-samples.md)。
+- 在 [Azure Policy 示例](../json-samples.md)中查看更多示例。

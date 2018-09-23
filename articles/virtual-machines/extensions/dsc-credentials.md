@@ -1,5 +1,5 @@
 ---
-title: 使用所需状态配置将凭据传递给 Azure
+title: 使用 Desired State Configuration 将凭据传递给 Azure | Azure
 description: 了解如何使用 PowerShell 所需状态配置 (DSC) 安全地将凭据传递给 Azure 虚拟机。
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
 origin.date: 05/02/2018
-ms.date: 06/04/2018
+ms.date: 09/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: d7ea518bc760373337404c170c8bcab5ef237c98
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 22c932c2dad1b2d7927c6c84b739b607e3872767
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702953"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527009"
 ---
 # <a name="pass-credentials-to-the-azure-dscextension-handler"></a>将凭据传递给 Azure DSC 扩展处理程序
 
@@ -93,5 +93,4 @@ $vm | Update-AzureRmVM
 - 检查[适用于 DSC 扩展的 Azure Resource Manager 模板](dsc-template.md)。
 - 有关 PowerShell DSC 的详细信息，请转到 [PowerShell 文档中心](https://docs.microsoft.com/powershell/dsc/overview)。
 - 若要了解可以使用 PowerShell DSC 管理的其他功能并获取更多 DSC 资源，请浏览 [PowerShell 库](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0)。
-<!-- Update_Description: new articles on dsc credential  -->
-<!--ms.date: 06/04/2018-->
+<!-- Update_Description: update meta properties  -->

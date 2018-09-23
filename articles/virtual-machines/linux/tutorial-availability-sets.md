@@ -13,16 +13,16 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: tutorial
-origin.date: 10/05/2017
-ms.date: 08/27/2018
+origin.date: 08/24/2018
+ms.date: 09/24/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: ba0834cefe071b27f9d489c8c10ebecfd4a8c8c5
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.openlocfilehash: c3ed30fcffc03307f48c2bb0fc1f03b8468e547e
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42871798"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527186"
 ---
 # <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-the-azure-cli-20"></a>教程：使用 Azure CLI 2.0 创建和部署高度可用的虚拟机
 
@@ -78,10 +78,11 @@ for i in `seq 1 2`; do
      --name myVM$i \
      --availability-set myAvailabilitySet \
      --size Standard_DS1_v2  \
+     --vnet-name myVnet \
+     --subnet mySubnet \
      --image UbuntuLTS \
      --admin-username azureuser \
-     --generate-ssh-keys \
-     --no-wait
+     --generate-ssh-keys
 done
 ```
 
@@ -93,7 +94,7 @@ done
 
 ## <a name="check-for-available-vm-sizes"></a>检查可用的 VM 大小
 
-以后可以向可用性集添加更多 VM（VM 大小可在硬件上获得）。 使用 [az vm availability-set list-sizes](https://docs.azure.cn/zh-cn/cli/vm/availability-set?view=azure-cli-latest#az-vm-availability-set-list-sizes) 列出可用性集的硬件群集上所有可用大小：<!-- URL SHOULD BE https://docs.azure.cn/zh-cn/cli/vm/availability-set?view=azure-cli-latest#az-vm-availability-set-list-sizes -->
+以后可以向可用性集添加更多 VM（VM 大小可在硬件上获得）。 使用 [az vm availability-set list-sizes](https://docs.azure.cn/zh-cn/cli/vm/availability-set?view=azure-cli-latest#az-vm-availability-set-list-sizes) 列出可用性集的硬件群集上所有可用的大小：
 
 ```azurecli
 az vm availability-set list-sizes \

@@ -14,15 +14,15 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 03/23/2018
-ms.date: 07/30/2018
+ms.date: 09/24/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: d4ab9d416a48b427e612350c8620582c55aee2a6
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.openlocfilehash: 6f4fad8a5e357d5decb350e68505b2533f4b0732
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295730"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527127"
 ---
 # <a name="create-a-fully-configured-virtual-machine-with-powershell"></a>使用 PowerShell 创建完全配置的虚拟机
 
@@ -40,7 +40,7 @@ $resourceGroup = "myResourceGroup"
 $location = "chinanorth"
 $vmName = "myVM"
 
-# Definer user name and blank password
+# Define user name and blank password
 $securePassword = ConvertTo-SecureString ' ' -AsPlainText -Force
 $cred = New-Object System.Management.Automation.PSCredential ("azureuser", $securePassword)
 
@@ -72,9 +72,9 @@ $nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName $resourceGroup
   -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
 
 # Create a virtual machine configuration
-$vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize Standard_D1 | `
-Set-AzureRmVMOperatingSystem -Linux -ComputerName $vmName -Credential $cred -DisablePasswordAuthentication | `
-Set-AzureRmVMSourceImage -PublisherName Canonical -Offer UbuntuServer -Skus 14.04.2-LTS -Version latest | `
+$vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize Standard_D1 |
+Set-AzureRmVMOperatingSystem -Linux -ComputerName $vmName -Credential $cred -DisablePasswordAuthentication |
+Set-AzureRmVMSourceImage -PublisherName Canonical -Offer UbuntuServer -Skus 14.04.2-LTS -Version latest |
 Add-AzureRmVMNetworkInterface -Id $nic.Id
 
 # Configure SSH Keys
@@ -83,6 +83,7 @@ Add-AzureRmVMSshPublicKey -VM $vmconfig -KeyData $sshPublicKey -Path "/home/azur
 
 # Create a virtual machine
 New-AzureRmVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
+
 ```
 
 ## <a name="clean-up-deployment"></a>清理部署

@@ -1,26 +1,20 @@
 ---
-title: 将大量数据移进/移出 Azure 中的云存储 | Azure
+title: 在 Azure 中将大量数据移入/移出云存储 | Microsoft Docs
 description: 概述将数据移进和移出 Azure 存储的各种方法。
 services: storage
-documentationcenter: ''
-author: forester123
-manager: digimobile
-editor: tysonn
-ms.assetid: 5e3947a9-d99b-4108-9d57-3eb67c03e7ba
+author: WenJason
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-origin.date: 01/30/2017
-ms.date: 10/16/2017
-ms.author: v-johch
-ms.openlocfilehash: 8e9b0fa3e60a6a77d5f82e4e3fc3ce0ac804ad79
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+origin.date: 08/26/2018
+ms.date: 09/24/2018
+ms.author: v-jay
+ms.component: common
+ms.openlocfilehash: 25f91a769d6a2f041b03990ca0fe0c554d1dc931
+ms.sourcegitcommit: 0081fb238c35581bb527bdd704008c07079c8fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295795"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523675"
 ---
 # <a name="moving-data-to-and-from-azure-storage"></a>将数据移入和移出 Azure 存储
 如果想将本地数据移动到 Azure 存储（或执行相反的操作），有许多种方式可以执行此操作。 最适合的方法因具体情况而异。 本文会提供不同方案以及针对每个方案的适当产品/服务的快速概述。
@@ -28,7 +22,7 @@ ms.locfileid: "39295795"
 ## <a name="building-applications"></a>构建应用程序
 要构建应用程序，可针对 REST API 或我们众多客户端库之一进行开发，将数据移入和移出 Azure 存储。
 
-Azure 存储为 .NET、iOS、Java、Android、通用 Windows 平台 (UWP)、Xamarin、C++、Node.JS、PHP、Ruby 和 Python 提供了丰富的客户端库。 客户端库提供高级功能，如重试逻辑、日志记录和并行上传。 也可以直接针对 REST API（可发出 HTTP/HTTPS 请求的任何语言都可调用它）进行开发。
+Azure 存储器为许多常用语言（包括 .NET、Java、Android、Go、Xamarin、C++、Node.JS、PHP、Ruby、Python 和 iOS）提供丰富的客户端库。 客户端库提供高级功能，如重试逻辑、日志记录和并行上传。 也可以直接针对 REST API（可发出 HTTP/HTTPS 请求的任何语言都可调用它）进行开发。
 
 请参阅 [Azure Blob 存储入门](../blobs/storage-dotnet-how-to-use-blobs.md)了解详细信息。
 
@@ -76,4 +70,4 @@ Azure CLI 提供了一组开源的跨平台命令，可以用于 Azure 服务。
 请参阅 [Azure Site Recovery](../../site-recovery/site-recovery-overview.md) 了解详细信息。
 ### <a name="moving-data-faq"></a>移动数据常见问题：
 ## <a name="can-i-migrate-vhds-from-one-region-to-another-without-copying"></a>能否在不复制的情况下，将 VHD 从一个区域迁移到另一个区域？
-若要在区域之间复制 VHD，唯一方式是在每个区域的存储帐户之间复制数据。 为此，可以使用 AZCopy。 请参阅“使用 AzCopy 命令行实用程序传输数据”，了解详细信息。 如果是特别大量的数据，也可以使用 Azure 导入/导出。 请参阅 [Azure 导入/导出](storage-import-export-service.md)了解详细信息。
+若要在区域之间复制 VHD，唯一方式是在每个区域的存储帐户之间复制数据。 为此，可以使用 AZCopy。 请参阅“使用 AzCopy 命令行实用程序传输数据”，了解详细信息。 如果是特别大量的数据，也可以使用 Azure 导入/导出。 请参阅 [Azure 导入/导出](/storage/storage-import-export-service)了解详细信息。

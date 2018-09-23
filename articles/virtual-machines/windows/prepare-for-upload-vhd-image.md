@@ -13,15 +13,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
-origin.date: 08/01/2018
-ms.date: 08/27/2018
+origin.date: 08/23/2018
+ms.date: 09/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: a8ee9db552bdeaf65ff7e54a1c4e32d7de114841
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.openlocfilehash: 776bdbea851fe0962486a05f045e4228f1e0f7f6
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42871603"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527076"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>准备好要上传到 Azure 的 Windows VHD 或 VHDX
 在将 Windows 虚拟机 (VM) 从本地上传到 Azure 之前，必须准备好虚拟硬盘（VHD 或 VHDX）。 Azure 仅支持采用 VHD 文件格式且具有固定大小磁盘的**第 1 代 VM**。 VHD 允许的最大大小为 1,023 GB。 可以将第 1 代 VM 从 VHDX 文件系统转换成 VHD 文件系统，以及从动态扩展磁盘转换成固定大小磁盘， 但无法更改 VM 的代次。 有关详细信息，请参阅 [Should I create a generation 1 or 2 VM in Hyper-V?](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)（应该在 Hyper-V 中创建第 1 代还是第 2 代 VM？）。
@@ -68,8 +68,7 @@ Convert-VHD -Path c:\test\MY-VM.vhdx -DestinationPath c:\test\MY-NEW-VM.vhd -VHD
 1. 删除路由表中的所有静态持久性路由：
 
    * 若要查看路由表，请在命令提示符处运行 `route print`。
-   * 请查看 **持久性路由** 部分。 如果有持久性路由，请使用 route delete 将它删除。
-   <!-- Not Available on [route delete](https://technet.microsoft.com/library/cc739598.apx) -->
+   * 请查看 **持久性路由** 部分。 如果有持久性路由，请使用 **route delete** 命令将其删除。
 2. 删除 WinHTTP 代理：
 
     ```PowerShell

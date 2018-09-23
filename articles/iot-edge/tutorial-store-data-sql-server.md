@@ -5,16 +5,17 @@ services: iot-edge
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/26/2018
+origin.date: 08/30/2018
+ms.date: 10/08/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 1bd6f048682b93e3dfa1e19f6b3c50bff2ed232e
-ms.sourcegitcommit: bae4e9e500e3e988ef8fa0371777ca9cc49b4e94
+ms.openlocfilehash: 88ddeb39deaba1d658bcbb836e2b42a9b73854ff
+ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45584919"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523879"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>教程：使用 SQL Server 数据库在边缘存储数据
 
@@ -62,7 +63,7 @@ Azure IoT Edge 设备：
 2. 为注册表命名，然后选择一个订阅。
 3. 至于资源组，建议使用包含 IoT 中心的资源组名称。 将所有资源置于同一组中可以对其集中管理。 例如，删除用于测试的资源组会删除包含在组中的所有测试资源。 
 4. 将 SKU 设置为“基本”，并将“管理员用户”切换到“启用”。 
-5. 单击“创建”。
+5. 单击**创建**。
 6. 创建容器注册表以后，导航到其中，然后选择“访问键”。 
 7. 复制“登录服务器”、“用户名”和“密码”的值。 本教程后面会用到这些值。 
 
@@ -73,7 +74,7 @@ Azure IoT Edge 设备：
 以下步骤将介绍如何使用 Visual Studio Code 和 Azure IoT Edge 扩展来创建 IoT Edge 函数。
 
 1. 打开 Visual Studio Code。
-2. 打开 VS Code 集成终端，方法是选择“视图” > “集成终端”。
+2. 打开 VS Code 集成终端，方法是选择“视图” > “终端”。
 3. 打开 VS Code 命令面板，方法是选择“视图” > “命令面板”。
 4. 在命令面板中，键入并运行“Azure: 登录”命令，然后按说明登录 Azure 帐户。 如果已登录，则可跳过此步骤。
 3. 在命令面板中，键入并运行“Azure IoT Edge: 新建 IoT Edge 解决方案”命令。 在命令面板中提供以下信息，以便创建解决方案： 
@@ -176,7 +177,11 @@ Azure IoT Edge 设备：
 
 1. 在 Visual Studio Code 资源管理器中打开 **deployment.template.json** 文件。 
 2. 找到 **moduleContent.$edgeAgent.properties.desired.modules** 节。 应该会列出两个模块：**tempSensor** 模块，用于生成模拟数据，以及 **sqlFunction** 模块。
-3. 添加以下代码来声明第三个模块：
+3. 如果使用了 Windows 容器，请修改 **sqlFunction.settings.image** 部分。
+    ```json
+    "image": "${MODULES.sqlFunction.windows-amd64}"
+    ```
+4. 添加以下代码来声明第三个模块。 在 sqlFunction 部分后添加一个逗号并插入以下内容：
 
    ```json
    "sql": {
@@ -191,16 +196,18 @@ Azure IoT Edge 设备：
    }
    ```
 
-4. 根据 IoT Edge 设备的操作系统，使用以下代码更新 **sql.settings** 参数：
+   如果在添加 JSON 元素时有任何困惑，下面提供了一个示例。 ![添加 SQL Server 容器](./media/tutorial-store-data-sql-server/view_json_sql.png)
 
-   * Windows:
+5. 根据 IoT Edge 设备的 Docker 容器的类型，使用以下代码更新 **sql.settings** 参数：
+
+   * Windows 容器：
 
       ```json
       "image": "microsoft/mssql-server-windows-developer",
-      "createOptions": "{\"Env\": [\"ACCEPT_EULA=Y\",\"MSSQL_SA_PASSWORD=Strong!Passw0rd\"],\"HostConfig\": {\"Mounts\": [{\"Target\": \"C:\\\\mssql\",\"Source\": \"sqlVolume\",\"Type\": \"volume\"}],\"PortBindings\": {\"1433/tcp\": [{\"HostPort\": \"1401\"}]}}}"
+      "createOptions": "{\"Env\": [\"ACCEPT_EULA=Y\",\"SA_PASSWORD=Strong!Passw0rd\"],\"HostConfig\": {\"Mounts\": [{\"Target\": \"C:\\\\mssql\",\"Source\": \"sqlVolume\",\"Type\": \"volume\"}],\"PortBindings\": {\"1433/tcp\": [{\"HostPort\": \"1401\"}]}}}"
       ```
 
-   * Linux：
+   * Linux 容器：
 
       ```json
       "image": "microsoft/mssql-server-linux:2017-latest",
@@ -210,28 +217,20 @@ Azure IoT Edge 设备：
    >[!Tip]
    >每当在生产环境中创建 SQL Server 容器时，都应该[更改默认的系统管理员密码](https://docs.microsoft.com/sql/linux/quickstart-install-connect-docker#change-the-sa-password)。
 
-5. 保存 **deployment.template.json** 文件。 
+6. 保存 **deployment.template.json** 文件。
 
 ## <a name="build-your-iot-edge-solution"></a>生成 IoT Edge 解决方案
 
 在前面部分，你创建了一个包含一个模块的解决方案，然后向部署清单模板添加了另一个。 现在需生成该解决方案，创建用于模块的容器映像，然后将映像推送到容器注册表。 
 
-1. 在 deployment.template.json 文件中，为 IoT Edge 运行时提供注册表凭据，使之能够访问模块映像。 找到 **moduleContent.$edgeAgent.properties.desired.runtime.settings** 节。 
-2. 在 **loggingOptions** 后插入以下 JSON 代码：
+1. 在 .env 文件中，为 IoT Edge 运行时提供注册表凭据，使之能够访问模块映像。 找到 **CONTAINER_REGISTRY_USERNAME** 和 **CONTAINER_REGISTRY_PASSWORD** 部分并在等号后插入你的凭据： 
 
-   ```JSON
-   "registryCredentials": {
-       "myRegistry": {
-           "username": "",
-           "password": "",
-           "address": ""
-       }
-   }
+   ```env
+   CONTAINER_REGISTRY_USERNAME_yourContainerReg=<username>
+   CONTAINER_REGISTRY_PASSWORD_yourContainerReg=<password>
    ```
-
-3. 将注册表凭据插入 **username**、**password** 和 **address** 字段中。 使用在教程开头创建 Azure 容器注册表时复制的值。
-4. 保存 **deployment.template.json** 文件。
-5. 登录 Visual Studio Code 中的容器注册表，以便将映像推送到注册表。 使用刚添加到部署清单的凭据。 在集成终端中输入以下命令： 
+2. 保存 .env 文件。
+3. 在 Visual Studio Code 中登录到你的容器注册表，以便将映像推送到你的注册表。 使用你添加到 .env 文件中的凭据。 在集成终端中输入以下命令：
 
     ```csh/sh
     docker login -u <ACR username> <ACR login server>
@@ -243,7 +242,7 @@ Azure IoT Edge 设备：
     Login Succeeded
     ```
 
-6. 在 VS Code 资源管理器中右键单击 **deployment.template.json** 文件，然后选择“生成 IoT Edge 解决方案”。 
+4. 在 VS Code 资源管理器中右键单击“deployment.template.json”文件，然后选择“生成并推送 IoT Edge 解决方案”。 
 
 ## <a name="deploy-the-solution-to-a-device"></a>将解决方案部署到设备
 
@@ -253,15 +252,15 @@ Azure IoT Edge 设备：
 2. 根据提示登录到 Azure 帐户。 
 3. 在命令面板中选择 Azure 订阅，然后选择 IoT 中心。 
 4. 在 VS Code 资源管理器中，展开“Azure IoT 中心设备”部分。 
-5. 右键单击要将其作为部署目标的设备，然后选择“为 IoT Edge 设备创建部署”。 
+5. 右键单击要将其作为部署目标的设备，然后选择“为单个设备创建部署”。 
 6. 在文件资源管理器中导航到解决方案中的 **config** 文件夹，然后选择 **deployment.json**。 单击“选择 Edge 部署清单”。 
 
 如果部署成功，则会在 VS Code 输出中列显确认消息。 也可查看设备上的所有模块是否都已启动并运行。 
 
 在 IoT Edge 设备上运行以下命令，以便查看模块的状态。 可能需要几分钟时间。
 
-   ```bash
-   sudo iotedge list
+   ```PowerShell
+   iotedge list
    ```
 
 ## <a name="create-the-sql-database"></a>创建 SQL 数据库
@@ -287,7 +286,7 @@ Azure IoT Edge 设备：
    * Windows 容器：
 
       ```cmd
-      sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
+      sqlcmd -S localhost -U SA -P "Strong!Passw0rd"
       ```
 
    * Linux 容器： 

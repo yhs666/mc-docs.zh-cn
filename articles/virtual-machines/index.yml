@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: e444cdd696b7b596bd22d96a7dd3acc81fdddc6f
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.openlocfilehash: 7af63abac54bea5a87dc266610491c29d30ae3ea
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42872420"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527012"
 documentType: LandingData
 title: 虚拟机文档
 metadata:
@@ -19,7 +19,7 @@ metadata:
   ms.devlang: na
   ms.topic: landing-page
   origin.date: 01/23/2017
-  ms.date: 08/27/2018
+  ms.date: 09/24/2018
   ms.author: v-yeche
 abstract:
   description: 了解如何创建 Azure 虚拟机。 教程、API 参考和其他文档介绍了如何创建及部署 Windows 与 Linux 虚拟机和 VM 模板。

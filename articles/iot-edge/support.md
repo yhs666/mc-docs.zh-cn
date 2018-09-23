@@ -3,17 +3,18 @@ title: Azure IoT Edge 平台支持 | Microsoft Docs
 description: Azure IoT Edge 支持的平台
 author: kgremban
 manager: timlt
-ms.author: kgremban
-ms.date: 6/21/2018
+ms.author: v-yiso
+origin.date: 6/21/2018
+ms.date: 10/08/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 91821d66ac0be265e6b66fd9eb2378169e337430
-ms.sourcegitcommit: bae4e9e500e3e988ef8fa0371777ca9cc49b4e94
+ms.openlocfilehash: 2158f1a65f095471b94e3cc07b6550118881af48
+ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45584899"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523838"
 ---
 # <a name="azure-iot-edge-support"></a>Azure IoT Edge 支持
 有多种方法可用来寻求对 Azure IoT Edge 产品的支持。
@@ -35,16 +36,16 @@ Azure IoT Edge 在可以运行容器的大多数操作系统上运行，但是�
 正式发布
 | 操作系统 | AMD64 | ARM32 |
 | ---------------- | ----- | ----- |
-| Ubuntu Server 18.04 | 是 | 否 |
-| Ubuntu Server 16.04 | 是 | 否 |
 | Raspbian-stretch | 否 | 是|
+| Ubuntu Server 16.04 | 是 | 否 |
+| Ubuntu Server 18.04 | 是 | 否 |
 
 公共预览版
 | 操作系统 | AMD64 | ARM32 |
 | ---------------- | ----- | ----- |
-| Windows 10 Server 1803 | 是 | 否 |
-| Windows 10 IoT 企业版（2018 年 4 月更新） | 是 | 否 |
 | Windows 10 IoT 核心版（2018 年 4 月更新） | 是 | 否 |
+| Windows 10 IoT 企业版（2018 年 4 月更新） | 是 | 否 |
+| Windows 10 Server 1803 | 是 | 否 |
 
 ### <a name="tier-2"></a>第 2 层
 第 2 层系统可视为与 Azure IoT Edge 兼容并且可以相对容易地使用。 这意味着：
@@ -53,12 +54,14 @@ Azure IoT Edge 在可以运行容器的大多数操作系统上运行，但是�
 
 | 操作系统 | AMD64 | ARM32 |
 | ---------------- | ----- | ----- |
-| Ubuntu 18.04 | 是 | 否 |
-| Ubuntu 16.04 | 是 | 否 |
+| CentOS 7.5 | 是 | 是 |
+| Debian 8 | 是 | 是 |
+| Debian 9 | 是 | 是 |
+| RHEL 7.5 | 是 | 是 |
+| Ubuntu 18.04 | 是 | 是 |
+| Ubuntu 16.04 | 是 | 是 |
 | Wind River 8 | 是 | 否 |
 | Yocto | 是 | 否 |
-| Debian | 是 | 否 |
-| Mac | 是 | 否 |
 
 ## <a name="container-engines"></a>容器引擎
 Azure IoT Edge 需要一个容器引擎来启动模块，无论它运行于哪个操作系统上。 Microsoft 提供了容器引擎 moby-engine 来满足此要求。 它基于 Moby 开放源代码项目。 Docker CE 和 Docker EE 是其他常用的容器引擎。 它们也基于 Moby 开放源代码项目并且与 Azure IoT Edge 兼容。 Microsoft 对使用那些容器引擎的系统提供尽力而为的支持；但是，Microsoft 没有能力为其中的问题提供修复。 因此，Microsoft 建议在生产系统上使用 moby-engine。

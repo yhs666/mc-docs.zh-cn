@@ -6,15 +6,15 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 08/10/2018
-ms.date: 09/10/2018
+ms.date: 09/24/2018
 ms.author: v-jay
 ms.component: common
-ms.openlocfilehash: f3bff932a0745905c92d47005b57a6fc70dcf133
-ms.sourcegitcommit: e157751c560524d0bb828e987b87178130663547
+ms.openlocfilehash: 168a26d95998effbaea20f152ec2e42e6bed767b
+ms.sourcegitcommit: 0081fb238c35581bb527bdd704008c07079c8fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43651411"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523723"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>使用 Azure 存储模拟器进行开发和测试
 
@@ -27,9 +27,8 @@ Azure 存储模拟器提供了一个针对开发目的模拟 Azure Blob、队列
 
 > [!NOTE]
 > 在一个版本的存储模拟器中创建的数据不保证在使用不同版本时可以访问。 如果需要长期保存数据，建议将该数据存储在 Azure 存储帐户中，而不是存储在存储模拟器中。
-> <p/>
+> 
 > 存储模拟器依赖于特定版本的 OData 库。 不支持将存储模拟器使用的 OData DLL 替换为其他版本，这样做可能会导致意外行为。 不过，可以使用存储服务支持的任何版本的 OData 向模拟器发送请求。
->
 
 ## <a name="how-the-storage-emulator-works"></a>存储模拟器的工作原理
 存储模拟器使用本地 Microsoft SQL Server 实例和本地文件系统来模拟 Azure 存储服务。 默认情况下，存储模拟器使用 Microsoft SQL Server 2012 Express LocalDB 中的数据库。 可以选择将存储模拟器配置为访问 SQL Server 的本地实例而不是 LocalDB 实例。 有关详细信息，请参阅本文后面的[启动并初始化存储模拟器](#start-and-initialize-the-storage-emulator)部分。
@@ -70,7 +69,7 @@ Azure 存储模拟器提供了一个针对开发目的模拟 Azure Blob、队列
 
   也可以使用以下命令，该命令指示模拟器使用默认 SQL Server 实例：
 
-  `AzureStorageEmulator.exe init /server .\\`
+  `AzureStorageEmulator.exe init /server .`
 
   或者，可以使用以下命令将数据库重新初始化为默认的 LocalDB 实例：
 
@@ -188,6 +187,7 @@ https://storageaccount.blob.core.chinacloudapi.cn/sascontainer?sv=2012-02-12&se=
 以下差异适用于模拟器中的 Blob 存储：
 
 * 存储模拟器仅支持最大为 2 GB 的 Blob。
+* 存储模拟器中 blob 名称的最大长度为 256 个字符，而 Azure 存储中 blob 名称的最大长度为 1024 个字符。
 * 增量复制允许复制被覆盖的 blob 中的快照，这会在服务上返回失败消息。
 * “获取页面范围差异”在使用增量复制 Blob 复制的快照之间不起作用。
 * 对存在于存储模拟器中并具有活动租约的 Blob 执行的放置 Blob 操作可能会成功，即使在请求中未指定租约 ID。

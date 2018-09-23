@@ -1,5 +1,5 @@
 ---
-title: Azure 策略 json 示例 - 如果扩展不存在，则进行审核 | Azure
+title: Azure Policy json 示例 - 如果扩展不存在则进行审核 |Microsoft 文档
 description: 如果虚拟机未部署扩展，此 json 示例策略会进行审核。
 services: azure-policy
 documentationcenter: ''
@@ -16,12 +16,12 @@ origin.date: 10/30/2017
 ms.date: 07/09/2018
 ms.author: v-nany
 ms.custom: mvc
-ms.openlocfilehash: 8151eaec6e8cae31b63d41b51c9c4d83c4b0a7ff
-ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
+ms.openlocfilehash: b16e1cac866cb576dacd44ea2bcf9e51bef4a980
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37405206"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527209"
 ---
 # <a name="audit-if-extension-does-not-exist"></a>如果扩展不存在，则进行审核
 
@@ -126,7 +126,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 ```cli
-az policy definition create --name 'audit-vm-extension' --display-name 'Audit if extension does not exist' --description 'This policy audits if a required extension does not exist.' --rules 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/audit-vm-extension/azurepolicy.rules.json' --params 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/audit-vm-extension/azurepolicy.parameters.json' --mode All
+az policy definition create --name 'audit-vm-extension' --display-name 'Audit if extension does not exist' --description 'This policy audits if a required extension doesn't exist.' --rules 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/audit-vm-extension/azurepolicy.rules.json' --params 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/audit-vm-extension/azurepolicy.parameters.json' --mode All
 
 az policy assignment create --name <assignmentname> --scope <scope> --policy "audit-vm-extension"
 ```
@@ -141,4 +141,4 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>后续步骤
 
-- 有关更多示例，请参阅 [Azure 策略示例](../json-samples.md)。
+- 在 [Azure Policy 示例](../json-samples.md)中查看更多示例。

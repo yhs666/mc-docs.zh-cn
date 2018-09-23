@@ -1,21 +1,20 @@
 ---
-title: Azure 快速入门 - 使用 Java 存储 SDK V7 在对象存储中创建 Blob | Azure
+title: Azure 快速入门 - 使用 Java 存储 SDK V7 在对象存储中创建 Blob | Microsoft Docs
 description: 本快速入门将在对象 (Blob) 存储中创建存储帐户和容器。 然后，使用适用于 Java 的存储客户端库将一个 Blob 上传到 Azure 存储，下载一个 Blob，然后列出容器中的 Blob。
 services: storage
-author: forester123
-manager: josefree
+author: WenJason
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 origin.date: 04/09/2018
-ms.date: 07/30/2018
-ms.author: v-nany
-ms.openlocfilehash: 987576fbb742e8b3cac0d7c93bac41c4a1abdfe8
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.date: 09/24/2018
+ms.author: v-jay
+ms.openlocfilehash: 2338c3ea2d88a869a5c37b8ad8ceb6c1c0a683c0
+ms.sourcegitcommit: 0081fb238c35581bb527bdd704008c07079c8fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295824"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523716"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-java-sdk-v7"></a>快速入门：使用 Java SDK V7 上传、下载和列出 Blob
 
@@ -67,9 +66,7 @@ public static final String storageConnectionString =
 
 此示例在默认目录（对于 windows 用户，为“我的文档”）中创建一个测试文件，将其上传到 Blob 存储，列出容器中的 blob，然后下载具有新名称的文件，以便比较旧文件和新文件。 
 
-通过在 Eclipse 中按“Ctrl+F11”来运行示例。
-
-如果要在命令行使用 Maven 运行示例，请打开 shell 并导航到克隆目录中的 blobAzureApp。 然后输入 `mvn compile exec:java`。
+使用 Maven 在命令行运行示例。 打开 shell 并导航到已克隆目录中的 blobAzureApp。 然后输入 `mvn compile exec:java`。 
 
 如果打算在 Windows 上运行应用程序，以下是一个输出示例。
 

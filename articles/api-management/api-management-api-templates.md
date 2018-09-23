@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 01/09/2017
 ms.author: v-yiso
-ms.date: 06/18/2018
-ms.openlocfilehash: 5729e283d8c715d54736615b0d55e86021db4192
-ms.sourcegitcommit: 794b9caca1147f1891513410dd61435708ef85ec
+ms.date: 10/08/2018
+ms.openlocfilehash: fd342d22d863bd3a17c0b8c73db84d331c27772f
+ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34855411"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523892"
 ---
 # <a name="api-templates-in-azure-api-management"></a>Azure API 管理中的 API 模板
 通过 Azure API 管理，用户能够使用一组用于配置内容的模板自定义开发人员门户页的内容。 使用 [DotLiquid](http://dotliquidmarkup.org/) 语法和所选编辑器（例如 [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers)），以及提供的一组本地化[字符串资源](./api-management-template-resources.md#strings)、[字形资源](./api-management-template-resources.md#glyphs)和[页面控件](./api-management-page-controls.md)，即可根据这些模板的使用需要非常灵活地配置页面内容。  
@@ -1197,7 +1197,7 @@ int main(int argc, const char * argv[])
   
 ```xml  
 <?php  
-// This sample uses the Apache HTTP client from HTTP Components (http://hc.apache.org/httpcomponents-client-ga/)  
+// This sample uses the HTTP_Request2 PHP library (https://github.com/pear/HTTP_Request2)  
 require_once 'HTTP/Request2.php';  
   
 $request = new Http_Request2('{{scheme}}://{{host}}{{path}}');  

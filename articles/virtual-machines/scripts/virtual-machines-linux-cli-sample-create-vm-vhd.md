@@ -14,15 +14,15 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 03/09/2017
-ms.date: 04/16/2018
+ms.date: 09/24/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: b2baca4102b8abfb818eb06e1abe40effa358d62
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 1e27720c05c35b28138e0f72c333e94ead968cf6
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939182"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46526939"
 ---
 # <a name="create-a-vm-with-a-virtual-hard-disk"></a>使用虚拟硬盘创建 VM
 
@@ -30,8 +30,7 @@ ms.locfileid: "38939182"
 本示例创建资源组、存储帐户、容器，并通过将 VHD 上传到容器来创建 VM。
 本示例将 ssh 公钥替换为用户的公钥，因此用户可以访问 VM。
 
-用户需要可引导 VHD。
-可以从 https://azclisamples.blob.core.chinacloudapi.cn/vhds/sample.vhd 下载本文使用的 VHD，或使用自己的 VHD。 脚本会查找 `~/sample.vhd`。
+用户需要可引导 VHD。 脚本会查找 `~/sample.vhd`。
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -85,23 +84,22 @@ az group delete -n az-cli-vhd
 
 | 命令 | 注释 |
 |---|---|
-| [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create) | 创建用于存储所有资源的资源组。 |
-| [az storage account list](https://docs.azure.cn/zh-cn/cli/storage/account?view=azure-cli-latest#az_storage_account_list) | 列出存储帐户 |
-| [az storage account check-name](https://docs.azure.cn/zh-cn/cli/storage/account?view=azure-cli-latest#az_storage_account_check_name) | 检查存储帐户名称是否有效且目前还不存在 |
-| [az storage account keys list](https://docs.azure.cn/zh-cn/cli/storage/account/keys?view=azure-cli-latest#az_storage_account_keys_list) | 列出存储帐户的密钥 |
-| [az storage blob exists](https://docs.azure.cn/zh-cn/cli/storage/blob?view=azure-cli-latest#az_storage_blob_exists) | 检查 Blob 是否存在 |
-| [az storage container create](https://docs.azure.cn/zh-cn/cli/storage/container?view=azure-cli-latest#az_storage_container_create) | 在存储帐户中创建一个容器。 |
-| [az storage blob upload](https://docs.azure.cn/zh-cn/cli/storage/blob?view=azure-cli-latest#az_storage_blob_upload) | 通过上传 VHD，在容器中创建一个 Blob。 |
-| [az vm list](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_list) | 与 `--query` 一起使用，用于检查 VM 名称是否已使用。 | 
-| [az vm create](https://docs.azure.cn/zh-cn/cli/vm/availability-set?view=azure-cli-latest#az_vm_availability_set_create) | 创建虚拟机。 |
-| [az vm user reset-ssh](https://docs.microsoft.com/zh-cn/cli/azure/vm/user?view=azure-cli-latest#az-vm-user-reset-ssh) | 重置 SSH 密钥，以便当前用户能够访问 VM。 |
+| [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create) | 创建用于存储所有资源的资源组。 |
+| [az storage account list](https://docs.azure.cn/zh-cn/cli/storage/account?view=azure-cli-latest#az-storage-account-list) | 列出存储帐户 |
+| [az storage account check-name](https://docs.azure.cn/zh-cn/cli/storage/account?view=azure-cli-latest#az-storage-account-check-name) | 检查存储帐户名称是否有效且目前还不存在 |
+| [az storage account keys list](https://docs.azure.cn/zh-cn/cli/storage/account/keys?view=azure-cli-latest#az-storage-account-keys-list) | 列出存储帐户的密钥 |
+| [az storage blob exists](https://docs.azure.cn/zh-cn/cli/storage/blob?view=azure-cli-latest#az-storage-blob-exists) | 检查 Blob 是否存在 |
+| [az storage container create](https://docs.azure.cn/zh-cn/cli/storage/container?view=azure-cli-latest#az-storage-container-create) | 在存储帐户中创建一个容器。 |
+| [az storage blob upload](https://docs.azure.cn/zh-cn/cli/storage/blob?view=azure-cli-latest#az-storage-blob-upload) | 通过上传 VHD，在容器中创建一个 Blob。 |
+| [az vm list](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-list) | 与 `--query` 一起使用，用于检查 VM 名称是否已使用。 | 
+| [az vm create](https://docs.azure.cn/zh-cn/cli/vm/availability-set?view=azure-cli-latest#az-vm-availability-set-create) | 创建虚拟机。 |
 | [az vm list-ip-addresses](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_list-ip-addresses) | 获取已创建虚拟机的 IP 地址。 |
 <!-- URL is Correct on [az vm user reset-ssh](https://docs.microsoft.com/zh-cn/cli/azure/vm/user?view=azure-cli-latest#az-vm-user-reset-ssh) -->
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.azure.cn/zh-cn/cli/overview?view=azure-cli-latest)。
+有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.azure.cn/zh-cn/cli/index?view=azure-cli-latest)。
 
 可以在 [Azure Linux VM 文档](../linux/cli-samples.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)中找到其他虚拟机 CLI 脚本示例。
 
-<!--Update_Description: update link-->
+<!--Update_Description: update link, wording update -->

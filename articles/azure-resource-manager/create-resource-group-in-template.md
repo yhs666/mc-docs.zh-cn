@@ -9,22 +9,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 08/07/2018
-ms.date: 09/03/2018
+origin.date: 08/22/2018
+ms.date: 09/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: d6cb567ba26d412218b74b65c85e9c794b058b63
-ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
+ms.openlocfilehash: 93e48b3d4820844d53e787ce86f4c34cd98e9bff
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44515618"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46526970"
 ---
 <!--Verify sucessfully-->
 # <a name="create-resource-groups-in-azure-resource-manager-templates"></a>在 Azure 资源管理器模板中创建资源组
 
-若要在 Azure 资源管理器模板中创建资源组，请为该资源组定义包含名称和位置的 Microsoft.Resources/resourceGroups 资源。 将模板部署到 Azure 订阅。 此外，还可以将资源部署到同一模板中的资源组。
+若要在 Azure 资源管理器模板中创建资源组，请为该资源组定义包含名称和位置的 Microsoft.Resources/resourceGroups 资源。 将模板部署到 Azure 订阅。 有关订阅级别部署的详细信息，请参阅[将资源部署到 Azure 订阅](deploy-to-subscription.md)。
 
-本文使用 Azure CLI 来部署模板。 
+此外，还可以将资源部署到同一模板中的资源组。
+
+本文使用 Azure CLI 和 PowerShell 来部署模板。
 
 ## <a name="create-empty-resource-group"></a>创建空的资源组
 
@@ -64,6 +66,17 @@ az deployment create \
   -l chinaeast \
   --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyRG.json \
   --parameters rgName=demoRG rgLocation=chinaeast
+```
+
+若要使用 PowerShell 部署此模板，请使用：
+
+```PowerShell
+New-AzureRmDeployment `
+  -Name demoEmptyRG `
+  -Location chinaeast `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyRG.json `
+  -rgName demogroup `
+  -rgLocation chinaeast
 ```
 
 ## <a name="create-several-resource-groups"></a>创建多个资源组
@@ -111,6 +124,18 @@ az deployment create \
   -l chinaeast \
   --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/copyRG.json \
   --parameters rgNamePrefix=demoRG rgLocation=chinaeast instanceCount=3
+```
+
+若要使用 PowerShell 部署此模板，请使用：
+
+```PowerShell
+New-AzureRmDeployment `
+  -Name demoCopyRG `
+  -Location chinaeast `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/copyRG.json `
+  -rgName demogroup `
+  -rgLocation chinaeast `
+  -instanceCount 3
 ```
 
 ## <a name="create-resource-group-and-deploy-resource"></a>创建资源组并部署资源
@@ -192,10 +217,22 @@ az deployment create \
   --parameters rgName=rgStorage rgLocation=chinaeast storagePrefix=storage
 ```
 
-## <a name="next-steps"></a>后续步骤
-* 若要了解如何在部署期间排查依赖项故障，请参阅[排查使用 Azure 资源管理器时的常见 Azure 部署错误](resource-manager-common-deployment-errors.md)。
-* 若要了解有关创建 Azure 资源管理器模板的信息，请参阅[创作模板](resource-group-authoring-templates.md)。 
-* 有关模板的可用函数列表，请参阅[模板函数](resource-group-template-functions.md)。
+若要使用 PowerShell 部署此模板，请使用：
 
-<!-- Update_Description: new articles on create resource group in template  -->
-<!--ms.date: 09/03/2018-->
+```PowerShell
+New-AzureRmDeployment `
+  -Name demoRGStorage `
+  -Location chinaeast `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/newRGWithStorage.json `
+  -rgName rgStorage `
+  -rgLocation chinaeast `
+  -storagePrefix storage
+```
+
+## <a name="next-steps"></a>后续步骤
+* 若要了解订阅级别部署，请参阅[将资源部署到 Azure 订阅](deploy-to-subscription.md)。
+* 若要了解如何在部署期间排查依赖项故障，请参阅[排查使用 Azure Resource Manager 时的常见 Azure 部署错误](resource-manager-common-deployment-errors.md)。
+* 若要了解有关创建 Azure Resource Manager模板的信息，请参阅[创作模板](resource-group-authoring-templates.md)。 
+* 有关模板中的可用函数列表，请参阅[模板函数](resource-group-template-functions.md)。
+
+<!-- Update_Description: add powershell cmdlet content -->

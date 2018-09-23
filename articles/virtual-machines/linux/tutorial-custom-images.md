@@ -14,19 +14,19 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 12/13/2017
-ms.date: 06/04/2018
+ms.date: 09/24/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 672071b11f18d71d57b7c2842d8f9af2c000967b
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: c1d3f3c00f1a87acf9ece6cdef491dfdf0cc8617
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702776"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527187"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-the-azure-cli-20"></a>教程：使用 Azure CLI 2.0 创建 Azure VM 的自定义映像
 
-自定义映像类似于应用商店映像，不同的是自定义映像的创建者是你自己。 自定义映像可用于启动配置，例如预加载应用程序、应用程序配置和其他 OS 配置。 在本教程中，你将创建自己的 Azure 虚拟机自定义映像。 你将学习如何执行以下操作：
+自定义映像类似于市场映像，不同的是自定义映像的创建者是自己。 自定义映像可用于启动配置，例如预加载应用程序、应用程序配置和其他 OS 配置。 在本教程中，你将创建自己的 Azure 虚拟机自定义映像。 你将学习如何执行以下操作：
 
 > [!div class="checklist"]
 > * 取消预配和通用化 VM
@@ -41,7 +41,7 @@ ms.locfileid: "34702776"
 
 ## <a name="before-you-begin"></a>准备阶段
 
-下列步骤详细说明了如何将现有 VM 转换为可重用自定义映像，用于创建新的 VM 实例。
+下列步骤详细说明如何将现有 VM 转换为可重用自定义映像，以便将其用于创建新 VM 实例。
 
 若要完成本教程中的示例，必须现有一个虚拟机。 如果需要，此[脚本示例](../scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md)可为你创建一个虚拟机。 按照教程进行操作时，请根据需要替换资源组和 VM 名称。
 
@@ -146,4 +146,4 @@ az image delete \
 > [!div class="nextstepaction"]
 > [创建高度可用的 VM](tutorial-availability-sets.md)。
 
-<!--Update_Description: update link, wording update-->
+<!--Update_Description: update link, wording update -->

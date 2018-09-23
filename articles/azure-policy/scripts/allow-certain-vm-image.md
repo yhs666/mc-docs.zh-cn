@@ -1,5 +1,5 @@
 ---
-title: Azure 策略 json 示例 - 只允许某个特定的 VM 平台映像 | Azure
+title: Azure Policy json 示例 - 只允许某个特定的 VM 平台映像 | Microsoft Docs
 description: 此 json 示例策略要求虚拟机使用特定版本的 UbuntuServer。
 services: azure-policy
 documentationcenter: ''
@@ -16,12 +16,12 @@ origin.date: 10/30/2017
 ms.date: 07/09/2018
 ms.author: v-nany
 ms.custom: mvc
-ms.openlocfilehash: a08800e05ff33e292886ef25623a752e90e895c6
-ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
+ms.openlocfilehash: c03b0b107f91c253e81e46fdba2b486aafe6e2c8
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37405204"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46526860"
 ---
 # <a name="only-allow-a-certain-vm-platform-image"></a>只允许某个特定的 VM 平台映像
 
@@ -133,4 +133,4 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>后续步骤
 
-- 有关更多示例，请参阅 [Azure 策略示例](../json-samples.md)。
+- 在 [Azure Policy 示例](../json-samples.md)中查看更多示例。

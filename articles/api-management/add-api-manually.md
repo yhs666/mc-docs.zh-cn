@@ -3,7 +3,7 @@ title: 使用 Azure 门户手动添加 API
 description: 本教程介绍如何使用 API 管理 (APIM) 手动添加 API。
 services: api-management
 documentationcenter: ''
-author: juliako
+author: mikebudzynski
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -11,15 +11,15 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-origin.date: 11/22/2017
-ms.date: 02/26/2018
+origin.date: 08/27/2018
+ms.date: 10/08/2018
 ms.author: v-yiso
-ms.openlocfilehash: f0dd95585ca1ca282edb904acf2c7f3decdd2f95
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: c00e6ac7fad2432597e7a0731424466312473665
+ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939338"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523847"
 ---
 # <a name="add-an-api-manually"></a>手动添加 API 
 
@@ -67,15 +67,15 @@ ms.locfileid: "38939338"
 
 本部分介绍如何添加“/get”操作，以将其映射到后端“http://httpbin.org/get”操作。
 
-### <a name="add-the-operation"></a>添加操作
+### <a name="add-an-operation"></a>添加操作
 
-1. 选择在上一步骤中创建的 API。
+1. 选择上一步中创建的 API。
 2. 单击“+ 添加操作”。
 3. 在“URL”中，选择“GET”，并在资源中输入“/get”。
 4. 输入“FetchData”作为“显示名称”。
 5. 选择“其他安全性验证” 。
 
-### <a name="test-the-operation"></a>测试操作
+### <a name="test-an-operation"></a>测试操作
 
 在 Azure 门户中测试操作。 或者，可以在**开发人员门户**中测试操作。
 

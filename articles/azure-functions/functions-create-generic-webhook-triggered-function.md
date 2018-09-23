@@ -4,25 +4,21 @@ description: 使用 Azure Functions 创建由 Azure 中的 webHook 调用的无�
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 ms.assetid: fafc10c0-84da-4404-b4fa-eea03c7bf2b1
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
-ms.tgt_pltfrm: multiple
-ms.workload: na
 origin.date: 03/28/2018
-ms.date: 04/11/2018
+ms.date: 09/21/2018
 ms.author: v-junlch
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 29725b81ef151f1f21af38e3ca79d4be7e24c528
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 31e63c7b717994e485203a2a6504a1b64bd0bab1
+ms.sourcegitcommit: 54d9384656cee927000d77de5791c1d585d94a68
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939834"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46524033"
 ---
 # <a name="create-a-function-triggered-by-a-generic-webhook"></a>创建由通用 webhook 触发的函数
 
@@ -126,7 +122,8 @@ Azure Functions 用于在无服务器环境中执行代码，无需先创建 VM 
     
         // Return an error if the resource in the activity log isn't a resource group. 
         if (activityLog == null || !string.Equals((string)activityLog["resourceType"], 
-            "Microsoft.Resources/subscriptions/resourcegroups"))
+            "Microsoft.Resources/subscriptions/resourceGroups", 
+            System.StringComparison.OrdinalIgnoreCase))
         {
             log.Error("An error occurred");
             return req.CreateResponse(HttpStatusCode.BadRequest, new
@@ -172,3 +169,4 @@ Azure Functions 用于在无服务器环境中执行代码，无需先创建 VM 
 有关 Webhook 触发器的详细信息，请参阅 [Azure Functions HTTP 和 Webhook 绑定](functions-bindings-http-webhook.md)。 若要了解有关以 C# 开发函数的详细信息，请参阅 [Azure Functions C# 脚本开发人员参考](functions-reference-csharp.md)。
 
 
+<!-- Update_Description: code update -->

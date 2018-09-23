@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 02/14/2017
-ms.date: 08/27/2018
+ms.date: 09/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: d9113b029dd102d602b561da7e3bb4bbc23e1e33
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.openlocfilehash: e20978b9fab93056fd1386f2ba2332524e13d312
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42872577"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527098"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>适用于 Linux 的网络观察程序代理虚拟机扩展
 
@@ -39,7 +39,7 @@ ms.locfileid: "42872577"
 
 | 分发 | 版本 |
 |---|---|
-| Ubuntu | 16.04 LTS、14.04 LTS 和 12.04 LTS |
+| Ubuntu | 12+ |
 | Debian | 7 和 8 |
 | SUSE Linux Enterprise Server | 11 和 12 |
 | OpenSUSE Leap | 42.3+ |
@@ -48,8 +48,6 @@ ms.locfileid: "42872577"
 
 <!-- Not Available on | Oracle Linux | 6.8+ and 7 |-->
 <!-- Not Available on | RedHat | 6 and 7 |-->
-
-CoreOS 不受支持。
 
 ### <a name="internet-connectivity"></a>Internet 连接
 
@@ -134,4 +132,4 @@ az vm extension show --name NetworkWatcherAgentLinux --resource-group myResource
 ### <a name="support"></a>支持
 
 如果对本文中的任何内容不了解，可以参阅[网络观察程序文档](/network-watcher/)或联系 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/) 上的 Azure 专家。 或者，也可以提出 Azure 支持事件。 请转到 [Azure 支持站点](https://www.azure.cn/support/contact/)并选择“获取支持”。 有关使用 Azure 支持的信息，请参阅 [Azure 支持常见问题](https://www.azure.cn/support/faq/)。
-<!-- Update_Description: update meta properties  -->
+<!-- Update_Description: update meta properties, wording update  -->

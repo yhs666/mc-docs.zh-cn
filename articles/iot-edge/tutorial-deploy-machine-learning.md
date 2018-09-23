@@ -3,18 +3,19 @@ title: 使用 Azure IoT Edge 部署 Azure 机器学习 | Microsoft 文档
 description: 在本教程中，请将 Azure 机器学习作为一个模块部署到边缘设备
 author: kgremban
 manager: timlt
-ms.author: kgremban
-ms.date: 06/25/2018
+ms.author: v-yiso
+origin.date: 08/22/2018
+ms.date: 10/08/2018
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: c13cd495f7802f14937321134a975b7a00c791ab
-ms.sourcegitcommit: bae4e9e500e3e988ef8fa0371777ca9cc49b4e94
+ms.openlocfilehash: 50e768d08546cdf02657e51a848110902d866a47
+ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45584902"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523852"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>教程：将 Azure 机器学习作为 IoT Edge 模块（预览版）进行部署
 
@@ -61,7 +62,7 @@ Azure IoT Edge 设备：
 
 若要在 IoT Edge 设备上禁用进程标识，需在 IoT Edge 守护程序配置的 **connect** 部分中为 **workload_uri** 和 **management_uri** 提供 IP 地址和端口。
 
-先获取 IP 地址。 在命令行中输入 `ifconfig`，复制 **docker0** 接口的 IP 地址。
+先获取 IP 地址。 在命令行中输入 `ipconfig`，复制 **docker0** 接口的 IP 地址。
 
 编辑 IoT Edge 守护程序配置文件：
 

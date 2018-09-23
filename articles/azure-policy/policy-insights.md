@@ -3,18 +3,18 @@ title: 使用 Azure Policy 以编程方式创建策略和查看符合性数据
 description: 本文逐步讲解如何以编程方式创建和管理适用于 Azure Policy 的策略。
 services: azure-policy
 author: WenJason
-ms.author: v-nany
+ms.author: v-jay
 origin.date: 05/24/2018
-ms.date: 07/09/2018
+ms.date: 09/24/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: digimobile
-ms.openlocfilehash: ae912d5fcd5802f5ab19b3802f72bb2cafd571a0
-ms.sourcegitcommit: 2a147231bf3d0a693adf58fceee76ab0fbcd6dbb
+ms.openlocfilehash: 03c086701c75dd8341cce72044eba70ed8da6a2e
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39335287"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527198"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>以编程方式创建策略和查看符合性数据
 

@@ -4,24 +4,20 @@ description: 了解如何在 Azure Functions 中使用 Azure Cosmos DB 触发器
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: Azure Functions，函数，事件处理，动态计算，无服务体系结构
-ms.service: functions; cosmos-db
+ms.service: azure-functions; cosmos-db
 ms.devlang: multiple
 ms.topic: reference
-ms.tgt_pltfrm: multiple
-ms.workload: na
 origin.date: 11/21/2017
-ms.date: 08/31/2018
+ms.date: 09/21/2018
 ms.author: v-junlch
-ms.openlocfilehash: 9fd329b5204303d19d13c3efb27303f116ba60f0
-ms.sourcegitcommit: b2c9bc0ed28e73e8c43aa2041c6d875361833681
+ms.openlocfilehash: 52b80761d804901621c571aa8eaa6f670af79d0d
+ms.sourcegitcommit: 54d9384656cee927000d77de5791c1d585d94a68
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43330733"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46524053"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x-preview"></a>适用于 Azure Functions 2.x（预览版）的 Azure Cosmos DB 绑定
 
@@ -37,6 +33,10 @@ ms.locfileid: "43330733"
 > 此绑定最初名为 DocumentDB。 在 Functions 2.x 版中，触发器、绑定和包均称为 Cosmos DB。
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+## <a name="supported-apis"></a>受支持的 API
+
+[!INCLUDE [SQL API support only](../../includes/functions-cosmosdb-sqlapi-note.md)]
 
 ## <a name="packages---functions-2x"></a>包 - Functions 2.x
 
@@ -255,10 +255,7 @@ JavaScript 代码如下所示：
 
 ## <a name="input"></a>输入
 
-Azure Cosmos DB 输入绑定会检索一个或多个 Azure Cosmos DB 文档，并将其传递给函数的输入参数。 可根据调用函数的触发器确定文档 ID 或查询参数。 
-
->[!NOTE]
-> 如果要对 Cosmos DB 帐户使用 MongoDB API，请不要使用 Azure Cosmos DB 输入或输出绑定。 可能会数据损坏。
+Azure Cosmos DB 输入绑定会使用 SQL API 检索一个或多个 Azure Cosmos DB 文档，并将其传递给函数的输入参数。 可根据调用函数的触发器确定文档 ID 或查询参数。 
 
 ## <a name="input---examples"></a>输入 - 示例
 
@@ -1078,7 +1075,7 @@ function.json 文件如下所示：
       "direction": "out"
     },
     {
-      "type": "documentDB",
+      "type": "cosmosDB",
       "name": "toDoItem",
       "databaseName": "ToDoItems",
       "collectionName": "Items",
@@ -1093,7 +1090,7 @@ function.json 文件如下所示：
 
 JavaScript 代码如下所示：
 
-```cs
+```javascript
 module.exports = function (context, req, toDoItem) {
     context.log('JavaScript queue trigger function processed work item');
     if (!toDoItem)
@@ -1254,10 +1251,7 @@ public String cosmosDbQueryById(
 
 ## <a name="output"></a>输出
 
-Azure Cosmos DB 输出绑定允许将新文档写入 Azure Cosmos DB 数据库。 
-
->[!NOTE]
-> 如果要对 Cosmos DB 帐户使用 MongoDB API，请不要使用 Azure Cosmos DB 输入或输出绑定。 可能会数据损坏。
+Azure Cosmos DB 输出绑定允许使用 SQL API 将新文档写入 Azure Cosmos DB 数据库。 
 
 ## <a name="output---examples"></a>输出 - 示例
 

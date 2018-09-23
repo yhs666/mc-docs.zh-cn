@@ -14,36 +14,22 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 origin.date: 05/11/2018
-ms.date: 07/02/2018
+ms.date: 10/08/2018
 ms.author: v-yiso
-ms.openlocfilehash: bd529dd8450c329b94d09e2e84f43a034e80fe00
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.openlocfilehash: b22213c4b832ea2f5514430203388791a4f6534d
+ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315450"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523919"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>针对 Azure 中 Web 应用的开源技术常见问题的解答
 
-本文包含有关针对 [Azure 应用服务的 Web 应用功能](https://www.azure.cn/home/features/app-service/web-apps/)的开放源代码技术问题的常见问题 (FAQ) 解答。
+本文对 [Azure App Service Web 应用功能](https://www.azure.cn/home/features/app-service/web-apps/)开源技术常见问题 (FAQ) 进行了解答。
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="my-cleardb-database-is-down-how-do-i-resolve-this"></a>我的 ClearDB 数据库关闭。 如何解决此问题？
-
-有关数据库相关问题，请联系 [ClearDB 支持人员](https://www.cleardb.com/developers/help/support)。 
-
-有关 ClearDB 常见问题解答，请参阅 [ClearDB 常见问题解答](https://docs.microsoft.com/azure/store-cleardb-faq/)。
-
-## <a name="why-wasnt-my-cleardb-database-migrated-during-my-subscription-migration"></a>为何我的 ClearDB 数据库未在订阅迁移过程中进行迁移？
-
-在订阅间迁移资源时，存在某些限制。 ClearDB MySQL 数据库是第三方服务，因而在 Azure 订阅迁移过程中不会进行迁移。
-
-如果在迁移 Azure 资源之前未管理 MySQL 数据库的迁移，则 ClearDB MySQL 数据库可能不可用。 若要避免此问题，请先手动迁移 ClearDB 数据库，然后迁移 Web 应用的 Azure 订阅。
-
-有关详细信息，请参阅 [ClearDB MySQL 数据库与 Azure 应用服务搭配使用时的常见问题解答](https://docs.microsoft.com/azure/store-cleardb-faq/)。
-
-## <a name="how-do-i-turn-on-php-logging-to-troubleshoot-php-issues"></a>如何打开 PHP 日志记录以对 PHP 问题进行故障排除？
+## <a name="how-do-i-turn-on-php-logging-to-troubleshoot-php-issues"></a>如何启用 PHP 日志记录以便对 PHP 问题进行故障排除？
 
 打开 PHP 日志记录：
 

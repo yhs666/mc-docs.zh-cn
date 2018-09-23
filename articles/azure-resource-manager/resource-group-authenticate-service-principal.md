@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 05/10/2018
-ms.date: 09/03/2018
+ms.date: 09/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: 6b6b616622fe820bbe3293aa66740b4ee058b21e
-ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
+ms.openlocfilehash: 475971125119bdd42ff02d2ad07d916ecd4f43a5
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43164920"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527020"
 ---
 # <a name="use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>通过 Azure PowerShell 使用证书创建服务主体
 
@@ -212,8 +212,7 @@ Get-AzureRmADApplication -DisplayName exampleapp | New-AzureRmADAppCredential `
 ## <a name="next-steps"></a>后续步骤
 * 若要使用密码设置服务主体，请参阅[使用 Azure PowerShell 创建 Azure 服务主体](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps)。
 * 有关将应用程序集成到 Azure 以管理资源的详细步骤，请参阅 [Developer's guide to authorization with the Azure Resource Manager API](resource-manager-api-authentication.md)（使用 Azure 资源管理器 API 进行授权的开发人员指南）。
-* 有关应用程序和服务主体的详细说明，请参阅 [Application Objects and Service Principal Objects](../active-directory/develop/active-directory-application-objects.md)（应用程序对象和服务主体对象）。 
-* 有关 Azure Active Directory 身份验证的详细信息，请参阅 [Authentication Scenarios for Azure AD](../active-directory/develop/active-directory-authentication-scenarios.md)（Azure AD 的身份验证方案）。
-<!-- Notice: active-directory/develop/ is correct-->
+* 有关应用程序和服务主体的详细说明，请参阅 [Application Objects and Service Principal Objects](../active-directory/develop/app-objects-and-service-principals.md)（应用程序对象和服务主体对象）。 
+* 有关 Azure Active Directory 身份验证的详细信息，请参阅 [Authentication Scenarios for Azure AD](../active-directory/develop/authentication-scenarios.md)（Azure AD 的身份验证方案）。
 
 <!--Update_Description: wording update， update meta properties, update link -->

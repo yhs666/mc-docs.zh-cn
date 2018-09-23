@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 10/12/2016
 ms.date: 01/29/2018
 ms.author: v-yiso
-ms.openlocfilehash: 0aaf1aefa82600fe094f847034ce67a82ab7c496
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: e76aa3085a79b074d051fe74355cb4b614fdaa58
+ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939491"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523915"
 ---
 # <a name="add-push-notifications-to-your-windows-app"></a>向 Windows 应用添加推送通知
 
@@ -69,7 +69,7 @@ ms.locfileid: "38939491"
 
 2. 展开“控制器”，打开 TodoItemController.cs，并添加以下 using 语句：
 
-    ```
+    ```csharp
     using System.Collections.Generic;
     using Microsoft.Azure.NotificationHubs;
     using Microsoft.Azure.Mobile.Server.Config;
@@ -77,7 +77,7 @@ ms.locfileid: "38939491"
 
 3. 在 PostTodoItem 方法中，在调用 InsertAsync 后添加如下代码：
 
-    ```
+    ```csharp
     // Get the settings for the server project.
     HttpConfiguration config = this.Configuration;
     MobileAppSettingsDictionary settings =
@@ -121,7 +121,7 @@ ms.locfileid: "38939491"
 
 2. 将 todoitem.js 文件中的现有代码替换为以下内容：
 
-    ```
+    ```javascript
     var azureMobileApps = require('azure-mobile-apps'),
     promises = require('azure-mobile-apps/src/utilities/promises'),
     logger = require('azure-mobile-apps/src/logger');
@@ -172,14 +172,14 @@ ms.locfileid: "38939491"
 
 1. 打开 **App.xaml.cs** 项目文件并添加以下 `using` 语句：
 
-    ```
+    ```csharp
     using System.Threading.Tasks;
     using Windows.Networking.PushNotifications;
     ```
 
 2. 在同一文件中，将以下 **InitNotificationsAsync** 方法定义添加到 **App** 类中：
 
-    ```
+    ```csharp
     private async Task InitNotificationsAsync()
     {
         // Get a channel URI from WNS.
@@ -195,7 +195,7 @@ ms.locfileid: "38939491"
 
 3. 在 **App.xaml.cs** 中 **OnLaunched** 事件处理程序的顶部，为方法定义添加 **async** 修饰符，并添加对新 **InitNotificationsAsync** 方法的以下调用，如以下示例所示：
 
-    ```
+    ```csharp
     protected async override void OnLaunched(LaunchActivatedEventArgs e)
     {
         await InitNotificationsAsync();

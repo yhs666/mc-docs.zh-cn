@@ -4,26 +4,22 @@ description: 使用 Postman、cURL 和 Node.js 测试 Azure functions。
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: Azure Functions，函数，事件处理，webhook，动态计算，无服务体系结构，测试
 ms.assetid: c00f3082-30d2-46b3-96ea-34faf2f15f77
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 origin.date: 02/02/2017
-ms.date: 08/31/2018
+ms.date: 09/21/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ae63e704b0f0ab128c99177ae7affe96229dc9a0
-ms.sourcegitcommit: b2c9bc0ed28e73e8c43aa2041c6d875361833681
+ms.openlocfilehash: 74c8935b6a6a005869f5eaf030fc37d3df870450
+ms.sourcegitcommit: 54d9384656cee927000d77de5791c1d585d94a68
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43330817"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46524039"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>在 Azure Functions 中测试代码的策略
 
@@ -35,9 +31,9 @@ ms.locfileid: "43330817"
 + 计时器触发的函数
 + 测试应用程序或框架
 
-上述所有测试方法都使用一个 HTTP 触发器函数，该函数可通过查询字符串参数或请求正文接受输入。 将在第一部分中创建此函数。
+上述所有测试方法都使用一个 HTTP 触发器函数，该函数可通过查询字符串参数或请求正文接受输入。 第一部分将使用 Azure 门户创建此函数。
 
-## <a name="create-a-function-for-testing"></a>创建用于测试的函数
+## <a name="create-a-simple-function-for-testing-using-the-azure-portal"></a>使用 Azure 门户创建一个简单的测试用函数
 此教程的大部分内容都使用 HttpTrigger JavaScript 函数模板的略加修改的版本，创建函数时可使用该模板。 如果在创建函数时需要帮助，请查看此[教程](functions-create-first-azure-function.md)。 在 [Azure 门户]中创建测试函数时请选择 **HttpTrigger- JavaScript** 模板。
 
 默认函数模板基本上是一个“hello world”函数，它从请求正文或查询字符串 `name=<your name>` 回显名称。  我们将更新代码，以允许提供名称和地址作为请求正文中的 JSON 内容。 然后，该函数会在提供了这些内容时将其回显到客户端。   
@@ -446,4 +442,4 @@ static void Main(string[] args)
 
 [Azure 门户]: https://portal.azure.cn
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

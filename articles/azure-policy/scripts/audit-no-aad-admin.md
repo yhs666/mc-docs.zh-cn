@@ -1,5 +1,5 @@
 ---
-title: Azure 策略 json 示例 - 无 Azure AD 管理员时审核 | Azure
+title: Azure Policy json 示例 - 无 Azure AD 管理员时审核 | Microsoft Docs
 description: SQL 服务器未分配有任何 Azure Active Directory 管理员时，json 示例策略进行审核。
 services: azure-policy
 documentationcenter: ''
@@ -16,12 +16,12 @@ origin.date: 11/13/2017
 ms.date: 07/09/2018
 ms.author: v-nany
 ms.custom: mvc
-ms.openlocfilehash: f61b5778ddfc3feb188ac9fae5c080f1fe395661
-ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
+ms.openlocfilehash: e6670ab14095e3d3c0f18fb0d59ea5b28701d83f
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37405215"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527016"
 ---
 # <a name="audit-no-azure-active-directory-administrator"></a>无 Azure Active Directory 管理员时审核
 
@@ -98,4 +98,4 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>后续步骤
 
-- 有关更多示例，请参阅 [Azure 策略示例](../json-samples.md)。
+- 在 [Azure Policy 示例](../json-samples.md)中查看更多示例。

@@ -14,15 +14,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 02/09/2018
-ms.date: 07/30/2018
+ms.date: 09/24/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: bfe460d709980c3992dbfb037fb11ff704c82c51
-ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
+ms.openlocfilehash: 7edee1227b656c1b5c2742368861bfa09dfa0b88
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39306964"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46526969"
 ---
 # <a name="tutorial-secure-a-web-server-on-a-windows-virtual-machine-in-azure-with-ssl-certificates-stored-in-key-vault"></a>教程：在 Azure 中使用 Key Vault 中存储的 SSL 证书保护 Windows 虚拟机上的 Web 服务器
 
@@ -36,7 +36,7 @@ ms.locfileid: "39306964"
 
 <!-- Not Avaiablable [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)] -->
 
-如果选择在本地安装并使用 PowerShell，则本教程需要 Azure PowerShell 模块 5.7.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount -Environment AzureChinaCloud` 以创建与 Azure 的连接。
+如果选择在本地安装并使用 PowerShell，则本教程需要 Azure PowerShell 模块 5.7.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount` 以创建与 Azure 的连接。
 
 ## <a name="overview"></a>概述
 Azure Key Vault 保护加密密钥和机密、此类证书或密码。 Key Vault 有助于简化证书管理过程，让我们持续掌控用于访问这些证书的密钥。 可以在 Key Vault 中创建自签名证书，或者上传已拥有的现有受信任证书。
@@ -46,7 +46,7 @@ Azure Key Vault 保护加密密钥和机密、此类证书或密码。 Key Vault
 ## <a name="create-an-azure-key-vault"></a>创建 Azure Key Vault
 创建 Key Vault 和证书之前，需使用 [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) 创建资源组。 以下示例在“中国东部”位置创建名为 *myResourceGroupSecureWeb* 的资源组：
 
-```powershell
+```PowerShell
 $resourceGroup = "myResourceGroupSecureWeb"
 $location = "China East"
 New-AzureRmResourceGroup -ResourceGroupName $resourceGroup -Location $location
@@ -54,7 +54,7 @@ New-AzureRmResourceGroup -ResourceGroupName $resourceGroup -Location $location
 
 接下来，使用 [New-AzureRmKeyVault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/new-azurermkeyvault) 创建 Key Vault。 每个 Key Vault 均需具备唯一名称且全部小写。 将下例中的 `mykeyvault` 替换为自己唯一的 Key Vault 名称：
 
-```powershell
+```PowerShell
 $keyvaultName="mykeyvault"
 New-AzureRmKeyVault -VaultName $keyvaultName `
     -ResourceGroup $resourceGroup `
@@ -65,7 +65,7 @@ New-AzureRmKeyVault -VaultName $keyvaultName `
 ## <a name="generate-a-certificate-and-store-in-key-vault"></a>生成证书并存储在 Key Vault 中
 针对生产用途，应使用 [Import-AzureKeyVaultCertificate](https://docs.microsoft.com/powershell/module/azurerm.keyvault/import-azurekeyvaultcertificate) 导入由受信任提供程序签名的有效证书。 在本教程中，以下示例演示了如何使用 [Add-AzureKeyVaultCertificate](https://docs.microsoft.com/powershell/module/azurerm.keyvault/add-azurekeyvaultcertificate) 生成一个自签名证书，该证书使用 [New-AzureKeyVaultCertificatePolicy](https://docs.microsoft.com/powershell/module/azurerm.keyvault/new-azurekeyvaultcertificatepolicy) 指定的默认证书策略： 
 
-```powershell
+```PowerShell
 $policy = New-AzureKeyVaultCertificatePolicy `
     -SubjectName "CN=www.contoso.com" `
     -SecretContentType "application/x-pkcs12" `
@@ -81,13 +81,13 @@ Add-AzureKeyVaultCertificate `
 ## <a name="create-a-virtual-machine"></a>创建虚拟机
 使用 [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential) 设置 VM 的管理员用户名和密码：
 
-```powershell
+```PowerShell
 $cred = Get-Credential
 ```
 
 现在，可使用 [New-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm) 创建 VM。 以下示例在“ChinaEast”位置创建一个名为 myVM 的 VM。 如果支持的网络资源不存在，则会创建这些资源。 此 cmdlet 还打开端口 *443*，目的是允许安全的 Web 流量。
 
-```powershell
+```PowerShell
 # Create a VM
 New-AzureRmVm `
     -ResourceGroupName $resourceGroup `
@@ -116,7 +116,7 @@ Set-AzureRmVMExtension -ResourceGroupName $resourceGroup `
 ## <a name="add-a-certificate-to-vm-from-key-vault"></a>将 Key Vault 中的证书添加到 VM
 若要将 Key Vault 中的证书添加到 VM，请使用 [Get-AzureKeyVaultSecret](https://docs.microsoft.com/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret) 获取证书的 ID。 使用 [Add-AzureRmVMSecret](https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvmsecret) 将证书添加到 VM：
 
-```powershell
+```PowerShell
 $certURL=(Get-AzureKeyVaultSecret -VaultName $keyvaultName -Name "mycert").id
 
 $vm=Get-AzureRmVM -ResourceGroupName $resourceGroup -Name "myVM"
@@ -129,7 +129,7 @@ Update-AzureRmVM -ResourceGroupName $resourceGroup -VM $vm
 ## <a name="configure-iis-to-use-the-certificate"></a>将 IIS 配置为使用该证书
 再次通过 [Set-AzureRmVMExtension](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmextension) 使用自定义脚本扩展来更新 IIS 配置。 此项更新会应用从 Key Vault 注入 IIS 的证书，并配置 Web 绑定：
 
-```powershell
+```PowerShell
 $PublicSettings = '{
     "fileUris":["https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/secure-iis.ps1"],
     "commandToExecute":"powershell -ExecutionPolicy Unrestricted -File secure-iis.ps1"
@@ -146,9 +146,9 @@ Set-AzureRmVMExtension -ResourceGroupName $resourceGroup `
 ```
 
 ### <a name="test-the-secure-web-app"></a>测试 Web 应用是否安全
-使用 [Get-AzureRmPublicIPAddress](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermpublicipaddress) 获取 VM 的公共 IP 地址。 以下示例获取前面创建的 `myPublicIP` 的 IP 地址：<!-- URL is CORRECT on https://docs.microsoft.com/zh-cn/powershell/module/azurerm.network/get-azurermpublicipaddress -->
+使用 [Get-AzureRmPublicIPAddress](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermpublicipaddress) 获取 VM 的公共 IP 地址。 以下示例获取前面创建的 `myPublicIP` 的 IP 地址：
 
-```powershell
+```PowerShell
 Get-AzureRmPublicIPAddress -ResourceGroupName $resourceGroup -Name "myPublicIPAddress" | select "IpAddress"
 ```
 

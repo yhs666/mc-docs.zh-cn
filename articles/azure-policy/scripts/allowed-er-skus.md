@@ -1,5 +1,5 @@
 ---
-title: Azure 策略 json 示例 - 允许的 Express Route SKU | Azure
+title: Azure Policy json 示例 - 允许的 Express Route SKU | Microsoft Docs
 description: 此 json 示例策略需要 Express Route 使用已批准的 SKU。
 services: azure-policy
 documentationcenter: ''
@@ -16,12 +16,12 @@ origin.date: 10/30/2017
 ms.date: 07/09/2018
 ms.author: v-nany
 ms.custom: mvc
-ms.openlocfilehash: bc57da785b5fcfa940e96d77d438a21ae92b27ea
-ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
+ms.openlocfilehash: bb799b23b7dffc18ce351136de2a1fd2bb290abb
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37405356"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46526871"
 ---
 # <a name="allowed-express-route-skus"></a>允许的 Express Route SKU
 
@@ -111,4 +111,4 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>后续步骤
 
-- 有关更多示例，请参阅 [Azure 策略示例](../json-samples.md)。
+- 在 [Azure Policy 示例](../json-samples.md)中查看更多示例。

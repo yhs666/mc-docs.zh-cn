@@ -10,12 +10,12 @@ origin.date: 04/19/2018
 ms.date: 09/07/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 41e6f3157a770aa4ff7bbdeffad8d8c096665f6c
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.openlocfilehash: 44675f0c3111eb106a04981a26517f579bb0e35c
+ms.sourcegitcommit: 6489934a16ae7ec3defdbee593c0ba5763b37335
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068303"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46485860"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>教程：使用 Azure Batch 渲染场景 
 
@@ -30,7 +30,7 @@ Azure Batch 提供云规模的渲染功能，按使用付费。 Batch 渲染服�
 
 本教程使用 Batch，通过 [Arnold](https://www.autodesk.com/products/arnold/overview) 光线跟踪渲染器来渲染 3ds Max 场景。 
 
-[!INCLUDE [quickstarts-1rmb-trial-note.md](../../includes/quickstarts-1rmb-trial-note.md)]
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
 ## <a name="prerequisites"></a>先决条件
 

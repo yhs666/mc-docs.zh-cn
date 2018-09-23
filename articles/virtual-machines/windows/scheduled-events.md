@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/22/2018
-ms.date: 05/21/2018
+ms.date: 09/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: ee5e9914ac9f36f92663ac70e86a9b9309f139a5
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.openlocfilehash: 136ff4860fc75dc1367b34788e826cf7fdd33030
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34305833"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527167"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Azure 元数据服务：适用于 Windows VM 的计划事件
 
@@ -156,7 +156,7 @@ curl http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01 -H @
 
 #### <a name="powershell"></a>Powershell
 ```
-curl -H @{"Metadata"="true"} -Method POST -Body '{"DocumentIncarnation":"5", "StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' -Uri http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01
+curl -H @{"Metadata"="true"} -Method POST -Body '{"StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' -Uri http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01
 ```
 
 > [!NOTE] 
@@ -177,11 +177,11 @@ function Get-ScheduledEvents($uri)
 }
 
 # How to approve a scheduled event
-function Approve-ScheduledEvent($eventId, $docIncarnation, $uri)
+function Approve-ScheduledEvent($eventId, $uri)
 {    
     # Create the Scheduled Events Approval Document
     $startRequests = [array]@{"EventId" = $eventId}
-    $scheduledEventsApproval = @{"StartRequests" = $startRequests; "DocumentIncarnation" = $docIncarnation} 
+    $scheduledEventsApproval = @{"StartRequests" = $startRequests} 
 
     # Convert to JSON string
     $approvalString = ConvertTo-Json $scheduledEventsApproval
@@ -216,7 +216,7 @@ foreach($event in $scheduledEvents.Events)
     $entry = Read-Host "`nApprove event? Y/N"
     if($entry -eq "Y" -or $entry -eq "y")
     {
-        Approve-ScheduledEvent $event.EventId $scheduledEvents.DocumentIncarnation $scheduledEventURI 
+        Approve-ScheduledEvent $event.EventId $scheduledEventURI 
     }
 }
 ``` 
@@ -227,4 +227,4 @@ foreach($event in $scheduledEvents.Events)
 - 在 [Azure 实例元数据计划事件 Github 存储库](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm)中查看预定事件代码示例
 - 有关 API 的更多信息，请参阅[实例元数据服务](instance-metadata-service.md)。
 - 了解 [Azure 中 Windows 虚拟机的计划内维护](planned-maintenance.md)。
-<!-- Update_Description: update meta properties  -->
+<!-- Update_Description: update meta properties, wording update  -->

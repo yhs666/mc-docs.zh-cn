@@ -4,25 +4,20 @@ description: Azure CLI 示例 - Azure Functions
 services: functions
 documentationcenter: functions
 author: syntaxc4
-manager: cfowler
-editor: ggailey777
-tags: azure-service-management
+manager: jeconnoc
 ms.assetid: 577d2f13-de4d-40d2-9dfc-86ecc79f3ab0
-ms.service: functions
-ms.devlang: na
+ms.service: azure-functions
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: functions
 origin.date: 01/09/2018
-ms.date: 04/16/2018
+ms.date: 09/21/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 9d90663de77e1f6917d056eeb7ca54366c309d9f
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: bec26a4cea880872e57dbd86f25b993ba7f43632
+ms.sourcegitcommit: 54d9384656cee927000d77de5791c1d585d94a68
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31781902"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46524025"
 ---
 # <a name="azure-cli-samples"></a>Azure CLI 示例
 
@@ -45,3 +40,4 @@ ms.locfileid: "31781902"
 |**Connect app to resources**||
 -->
 
+<!-- Update_Description: update metedata properties -->

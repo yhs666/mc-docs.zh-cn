@@ -4,29 +4,25 @@ description: 使用 Azure Functions 创建当数据添加到 Azure Cosmos DB 调
 services: azure-functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 ms.assetid: bc497d71-75e7-47b1-babd-a060a664adca
-ms.service: functions; cosmos-db
+ms.service: azure-functions; cosmos-db
 ms.devlang: multiple
 ms.topic: quickstart
-ms.tgt_pltfrm: multiple
-ms.workload: na
 origin.date: 03/27/2018
-ms.date: 04/10/2018
+ms.date: 09/21/2018
 ms.author: v-junlch
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 4c9c4c6d8977293e55e12f0ffa688bd1010af244
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: a2d3f9bfd415f4982821670de6a275ad6cffe996
+ms.sourcegitcommit: 54d9384656cee927000d77de5791c1d585d94a68
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939595"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46524032"
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>创建由 Azure Cosmos DB 触发的函数
 
-了解如何创建在数据添加到 Azure Cosmos DB 或在其中更改数据时触发的函数。 若要了解有关 Azure Cosmos DB 的详细信息，请参阅 [Azure Cosmos DB：使用 Azure Functions 的无服务器数据库计算](../cosmos-db/serverless-computing-database.md)。
+了解如何创建在数据添加到 Azure Cosmos DB 或在其中更改数据时触发的函数。 
 
 ![在日志中查看消息。](./media/functions-create-cosmos-db-triggered-function/quickstart-completed.png)
 
@@ -35,6 +31,9 @@ ms.locfileid: "38939595"
 完成本教程：
 
 + 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+
+> [!NOTE]
+> [!INCLUDE [SQL API support only](../../includes/functions-cosmosdb-sqlapi-note.md)]
 
 ## <a name="create-an-azure-function-app"></a>创建 Azure Function App
 
@@ -77,7 +76,7 @@ ms.locfileid: "38939595"
     | **API** | SQL | 本主题使用 SQL API。  |
     | **订阅** | Azure 订阅 | 要在其下创建此新 Cosmos DB 帐户的订阅。  |
     | **资源组** | MyResourceGroup |  使用包含函数应用的现有资源组。 |
-    | **位置**  | ChinaNorth | 选择一个靠近函数应用的位置，或者一个靠近的其他应用使用已存储文档的位置。  |
+    | **位置**  | chinanorth | 选择一个靠近函数应用的位置，或者一个靠近的其他应用使用已存储文档的位置。  |
 
 6. 单击“确定”创建该数据库。 创建数据库可能需要几分钟的时间。 创建数据库后，数据库连接字符串存储为函数应用设置。 此应用设置的名称插入 Azure Cosmos DB 帐户连接中。 
 
@@ -113,7 +112,7 @@ ms.locfileid: "38939595"
     | **集合 ID** | Items | 新集合的名称。 它必须匹配函数绑定中定义的名称。  |
     | **存储容量** | 固定 (10 GB)|使用默认值。 此值是数据库的存储容量。 |
     | **吞吐量** |400 RU| 使用默认值。 如果想要减少延迟，以后可以增加吞吐量。 |
-    | **[分区键](../cosmos-db/partition-data.md#design-for-partitioning)** | /category|一个分区键，用于将数据均匀分配到每个分区。 选择正确的分区键对于创建高性能集合而言很重要。 | 
+    | **[分区键](../cosmos-db/partition-data.md#best-practices-when-choosing-a-partition-key)** | /category|一个分区键，用于将数据均匀分配到每个分区。 选择正确的分区键对于创建高性能集合而言很重要。 | 
 
 1. 单击“确定”创建“任务”集合。 创建该集合可能需要一点时间。
 
@@ -151,3 +150,4 @@ ms.locfileid: "38939595"
 
 有关 Azure Cosmos DB 触发器的详细信息，请参阅[适用于 Azure Functions 的 Azure Cosmos DB 绑定](functions-bindings-cosmosdb.md)。
 
+<!-- Update_Description: wording update -->

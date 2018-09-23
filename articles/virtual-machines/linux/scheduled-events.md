@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/22/2018
-ms.date: 05/14/2018
+ms.date: 09/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: b0bc11ddf729263ce803ab760f0eb1d203a8238e
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.openlocfilehash: 0c68f005c9041944dba12617c98886e72e479469
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "34062078"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527001"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Azure 元数据服务：适用于 Linux VM 的计划事件
 
@@ -158,7 +158,7 @@ curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-versio
 
 #### <a name="bash-sample"></a>Bash 示例
 ```
-curl -H Metadata:true -X POST -d '{"DocumentIncarnation":"5", "StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01
+curl -H Metadata:true -X POST -d '{"StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01
 ```
 
 > [!NOTE] 

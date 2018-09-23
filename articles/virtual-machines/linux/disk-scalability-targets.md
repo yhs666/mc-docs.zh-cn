@@ -5,17 +5,17 @@ services: virtual-machines-linux,storage
 author: rockboyfor
 ms.author: v-yeche
 origin.date: 11/15/2017
-ms.date: 08/27/2018
+ms.date: 09/24/2018
 ms.topic: article
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
 ms.component: disks
-ms.openlocfilehash: 33a9490f14fd157975f289da081c0d7ebb39d09b
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.openlocfilehash: bf7629931fd54289b6d2ecca1b26ed93da5e0dde
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42871550"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527141"
 ---
 # <a name="scalability-and-performance-targets-for-vm-disks-on-linux"></a>Linux 上的 VM 磁盘的可伸缩性和性能目标
 
@@ -36,4 +36,4 @@ ms.locfileid: "42871550"
 
 [Azure 订阅和服务限制、配额和约束](/azure-subscription-service-limits)
 
-<!-- Update_Description: update link -->
+<!-- Update_Description: update meta properties -->

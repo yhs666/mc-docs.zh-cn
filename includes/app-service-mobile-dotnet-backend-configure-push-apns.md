@@ -1,16 +1,16 @@
 + **.NET 后端 (C#)**：    
-    1. 在 Visual Studio 中，右键单击服务器项目并单击“管理 NuGet 包”，搜索 `Microsoft.Azure.NotificationHubs`，然后单击“安装”。 这将安装通知中心库，以便从后端发送通知。
+    1. 在 Visual Studio 中，右键单击服务器项目并单击“管理 NuGet 包”，搜索 `Microsoft.Azure.NotificationHubs`，然后单击“安装”。 这会安装通知中心库，以便从后端发送通知。
 
     2. 在后端的 Visual Studio 项目中，依次打开“控制器” > “TodoItemController.cs”。 在文件的顶部，添加以下 `using` 语句：
 
-        ```
+    ```csharp
         using Microsoft.Azure.Mobile.Server.Config;
         using Microsoft.Azure.NotificationHubs;
         ```
 
-    3. 将 `PostTodoItem` 方法替换为以下代码：  
+    3. Replace the `PostTodoItem` method with the following code:  
 
-        ```
+    ```csharp
         public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
         {
             TodoItem current = await InsertAsync(item);
@@ -50,15 +50,15 @@
         }
         ```
 
-    4. 重新发布服务器项目。
+    4. Republish the server project.
 
-+ **Node.js 后端** ： 
++ **Node.js backend** : 
 
-    1. 如果尚未执行此操作，请[下载快速入门项目](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart)或使用 [Azure 门户中的在线编辑器](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor)。   
+    1. If you haven't already done so, [download the quickstart project](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) or else use the [online editor in the Azure portal](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).   
 
-    2. 用以下代码替换 todoitem.js 表脚本：
+    2. Replace the todoitem.js table script with the following code:
 
-        ```
+    ```javascript
         var azureMobileApps = require('azure-mobile-apps'),
             promises = require('azure-mobile-apps/src/utilities/promises'),
             logger = require('azure-mobile-apps/src/logger');
@@ -97,4 +97,4 @@
         module.exports = table;
         ```
 
-    2. 编辑本地计算机上的文件时，请重新发布服务器项目。
+    2. When editing the file on your local computer, republish the server project.

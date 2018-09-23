@@ -4,17 +4,17 @@ description: 介绍 Azure Policy 如何使用资源策略定义，通过描述�
 services: azure-policy
 author: WenJason
 ms.author: v-jay
-origin.date: 08/03/2018
-ms.date: 09/10/2018
+origin.date: 08/16/2018
+ms.date: 09/24/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: digimobile
-ms.openlocfilehash: 5e8c90d423b9e3131f0b7de7c2fe2655c7d3a980
-ms.sourcegitcommit: 1b60848d25bbd897498958738644a4eb9cf3a302
+ms.openlocfilehash: 16025b21488a80958437ca2d6e57a89fd271efee
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43731199"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527031"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 定义结构
 
@@ -108,7 +108,7 @@ Azure Policy 使用的资源策略定义，可使你通过描述何时强制实�
 - `"existingResourceGroups"`
 - `"omsWorkspace"`
 
-在策略规则中，使用下列语法引用参数：
+在策略规则中，使用以下 `parameters` 部署值函数语法引用参数：
 
 ```json
 {
@@ -243,6 +243,53 @@ Azure Policy 使用的资源策略定义，可使你通过描述何时强制实�
 有关未部署虚拟机扩展时的审核示例，请参阅[如果扩展不存在，则进行审核](scripts/audit-ext-not-exist.md)。
 
 有关每种效果、评估顺序、属性和示例的完整详细信息，请参阅[了解策略效果](policy-effects.md)。
+
+### <a name="policy-functions"></a>策略函数
+
+[资源管理器模板函数](../azure-resource-manager/resource-group-template-functions.md)的子集可在策略规则中使用。 目前支持的函数如下：
+
+- [参数](../azure-resource-manager/resource-group-template-functions-deployment.md#parameters)
+- [concat](../azure-resource-manager/resource-group-template-functions-array.md#concat)
+- [resourceGroup](../azure-resource-manager/resource-group-template-functions-resource.md#resourcegroup)
+- [subscription](../azure-resource-manager/resource-group-template-functions-resource.md#subscription)
+
+此外，`field` 函数可用于策略规则。 此函数主要用于 **AuditIfNotExists** 和 **DeployIfNotExists**，以引用所评估资源上的字段。 可以在 [DeployIfNotExists 示例](policy-effects.md#deployifnotexists-example)中看到此函数的示例。
+
+#### <a name="policy-function-examples"></a>策略函数示例
+
+此策略规则示例使用 `resourceGroup` 资源函数获取 **name** 属性，并将该属性与 `concat` 数组和对象函数结合使用以构建 `like` 条件，该条件强制资源名称以资源组名称开头。
+
+```json
+{
+    "if": {
+        "not": {
+            "field": "name",
+            "like": "[concat(resourceGroup().name,'*')]"
+        }
+    },
+    "then": {
+        "effect": "deny"
+    }
+}
+```
+
+此策略规则示例使用 `resourceGroup` 资源函数获取资源组上 **CostCenter** 标记的 **tags** 属性数组值，并将其附加到新资源上的  **CostCenter** 标记。
+
+```json
+{
+    "if": {
+        "field": "tags.CostCenter",
+        "exists": "false"
+    },
+    "then": {
+        "effect": "append",
+        "details": [{
+            "field": "tags.CostCenter",
+            "value": "[resourceGroup().tags.CostCenter]"
+        }]
+    }
+}
+```
 
 ## <a name="aliases"></a>别名
 

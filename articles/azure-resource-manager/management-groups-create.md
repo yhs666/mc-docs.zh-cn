@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/21/2018
-ms.date: 09/10/2018
+ms.date: 09/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: e0c7a3a351ced8c393483e7cb8596f3daa2b50dc
-ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
+ms.openlocfilehash: 484193fc51fa028d4c88f52782966aa43adcf09a
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44515798"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527159"
 ---
 <!--Verify successfully-->
 # <a name="create-management-groups-for-resource-organization-and-management"></a>创建用来组织和管理资源的管理组
@@ -81,5 +81,4 @@ C:\ az account management-group create --group-name <YourGroupName>
 - [查看 REST API 规范](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview)
 - [安装 Azure CLI 扩展](https://docs.azure.cn/zh-cn/cli/extension?view=azure-cli-latest#az-extension-list-available)
 
-<!-- Update_Description: new articles on management groups create  -->
-<!--ms.date: 09/10/2018-->
+<!-- Update_Description: update meta properties -->

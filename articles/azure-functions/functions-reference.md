@@ -17,12 +17,12 @@ ms.workload: na
 origin.date: 10/12/2017
 ms.date: 08/31/2018
 ms.author: v-junlch
-ms.openlocfilehash: 2c5b48c8bbaab89eba728e7c375d59d0e63ba6b1
-ms.sourcegitcommit: b2c9bc0ed28e73e8c43aa2041c6d875361833681
+ms.openlocfilehash: 24277820b611b4dc2b47f0b9a5d4f4e7d10bdf8c
+ms.sourcegitcommit: 54d9384656cee927000d77de5791c1d585d94a68
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43330786"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46524034"
 ---
 # <a name="azure-functions-developers-guide"></a>Azure Functions 开发人员指南
 在 Azure Functions 中，特定函数共享一些核心技术概念和组件，不受所用语言或绑定限制。 跳转学习某个特定语言或绑定的详细信息之前，请务必通读此通用概述。
@@ -94,9 +94,6 @@ Function App 都建立在应用服务之上，因此所有[可用于标准 Web �
 3. 导航到 `D:\home\site\wwwroot\` 更新 host.json 或导航到 `D:\home\site\wwwroot\<function_name>` 更新函数文件。
 4. 将想要上传的文件拖放到文件网格中相应的文件夹。 文件网格中有两个区域可放置文件。 对于 .zip 文件，会出现一个带标签的框，其中显示“将文件拖到此处进行上传并解压缩”。 对于其他文件类型，将文件拖放到“解压缩”框以外的文件网格中。
 
-
-#### <a name="to-use-continuous-deployment"></a>使用连续部署
-按照本主题中的说明 [Azure Functions 连续部署](functions-continuous-deployment.md) 进行操作。
 
 ## <a name="parallel-execution"></a>并行执行
 多个触发事件发生的速度超过了单线程函数运行的处理速度时，运行时可并行多次调用函数。 无论应用是在消耗量托管计划还是常规[应用服务托管计划](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)上运行，每个 Function App 实例都可能使用多个线程并行处理并发函数调用。  每个 Function App 实例中并发函数的最大调用数根据所用触发器类型以及 Function App 中其他函数所用资源而有所不同。

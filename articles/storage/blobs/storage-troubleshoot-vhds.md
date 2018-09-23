@@ -1,6 +1,6 @@
 ---
-title: 附加到 Azure VM 的磁盘的故障排除 | Azure
-description: Azure Blob 存储用于存储巨量的非结构化对象数据，例如文本或二进制数据。 应用程序可以通过 PowerShell、Azure CLI、代码、Azure 存储客户端库或 REST 来访问 Blob 存储中的对象。
+title: 附加到 Azure VM 的磁盘的故障排除 |Microsoft 文档
+description: 提供指向 Azure 虚拟机虚拟硬盘 (VHD) 的故障排除资源的链接。
 services: storage
 author: WenJason
 manager: digimobile
@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 05/01/2018
 ms.date: 07/30/2018
 ms.author: v-jay
-ms.openlocfilehash: d1c5b294231ab2215373964f93bf853e9c8a7bdc
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.openlocfilehash: 1f2a980c71ff624bc5819d9e241638a7a58dc718
+ms.sourcegitcommit: 0081fb238c35581bb527bdd704008c07079c8fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295862"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523674"
 ---
 # <a name="troubleshoot-disks-attached-to-azure-vms"></a>附加到 Azure VM 的磁盘的故障排除 
 

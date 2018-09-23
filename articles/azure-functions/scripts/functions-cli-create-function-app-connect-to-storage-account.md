@@ -4,25 +4,21 @@ description: Azure CLI 脚本示例 - 创建用于连接到 Azure 存储的 Azur
 services: functions
 documentationcenter: functions
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: functions
+manager: jeconnoc
 ms.assetid: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: ''
 origin.date: 04/20/2017
-ms.date: 08/30/2018
+ms.date: 09/20/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 499d8133596ce4e9224db65ca9a03e8aff488bdf
-ms.sourcegitcommit: b2c9bc0ed28e73e8c43aa2041c6d875361833681
+ms.openlocfilehash: bcbc0cf5139893daac2f730ce2c6e93e61eb7997
+ms.sourcegitcommit: 54d9384656cee927000d77de5791c1d585d94a68
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43330821"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46524012"
 ---
 # <a name="create-a-function-app-that-connects-to-an-azure-storage-account"></a>创建一个可连接到 Azure 存储帐户的函数应用
 
@@ -99,4 +95,4 @@ az functionapp config appsettings set `
 
 可以在 [Azure Functions 文档](../functions-cli-samples.md)中找到其他 Azure Functions CLI 脚本示例。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

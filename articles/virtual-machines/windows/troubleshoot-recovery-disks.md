@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 08/09/2018
-ms.date: 08/27/2018
+ms.date: 09/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7f6290c008c06d0c7288836f6d1f828ec4bdae36
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.openlocfilehash: 67aab8cf0bab344883f7b6830fe8ff7d35a19e8a
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42872364"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527164"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-azure-powershell"></a>通过使用 Azure PowerShell 将 OS 磁盘附加到恢复 VM 来对 Windows VM 进行故障排除
 如果 Windows 虚拟机 (VM) 在 Azure 中遇到启动或磁盘错误，可能需要对磁盘本身执行故障排除步骤。 一个常见示例是应用程序更新失败，使 VM 无法成功启动。 本文详细介绍如何使用 Azure PowerShell 将磁盘连接到另一个 Windows VM 来修复所有错误，然后修复原始 VM。 
@@ -39,6 +39,8 @@ ms.locfileid: "42872364"
 5. 连接到恢复 VM。 编辑文件或运行任何工具，以修复复制的 OS 磁盘上的问题。
 6. 从恢复 VM 卸载并分离磁盘。
 7. 更改受影响 VM 的 OS 磁盘。
+
+可以使用 VM 恢复脚本自动执行步骤 1、2、3、4、6 和 7。 有关更多文档和说明，请参阅[资源管理器 VM 的 VM 恢复脚本](https://github.com/Azure/azure-support-scripts/tree/master/VMRecovery/ResourceManager)。
 
 确保已安装[最新 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) 并登录到订阅：
 
@@ -71,6 +73,7 @@ Stop-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"
 ## <a name="create-a-snapshot-from-the-os-disk-of-the-vm"></a>从 VM 的 OS 磁盘创建快照
 
 以下示例从 VM“myVM”的 OS 磁盘创建名为 `mySnapshot` 的快照。 
+
 ```powershell
 $resourceGroupName = 'myResourceGroup' 
 $location = 'chinaeast' 
@@ -159,7 +162,6 @@ $vm = Add-AzureRmVMDataDisk -CreateOption Attach -Lun 0 -VM $vm -ManagedDiskId $
 Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
 ```
 
-> [!NOTE]
 ## <a name="connect-to-the-recovery-vm-and-fix-issues-on-the-attached-disk"></a>连接到恢复 VM，并修复所附加的磁盘上的问题
 
 1. 使用相应的凭据通过 RDP 连接到恢复 VM。 以下示例为名为 `myResourceGroup` 的资源组中名为 `RecoveryVM` 的 VM 下载 RDP 连接文件，并将其下载到 `C:\Users\ops\Documents`。

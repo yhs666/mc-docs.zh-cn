@@ -15,12 +15,12 @@ ms.topic: get-started-article
 origin.date: 02/27/2018
 ms.date: 02/27/2018
 ms.author: v-johch
-ms.openlocfilehash: 72c9f2cd5b7ea859362179457ee7bae8f26aa8ba
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.openlocfilehash: 87a3eb099607d96fba6c5f426777a99e09e49ba6
+ms.sourcegitcommit: 0081fb238c35581bb527bdd704008c07079c8fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295760"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523689"
 ---
 # <a name="manage-azure-file-shares-with-azure-storage-explorer"></a>使用 Azure 存储资源管理器管理 Azure 文件共享 
 [Azure 文件](storage-files-introduction.md)是 Microsoft 推出的易于使用的云文件系统。 本文介绍通过 [Azure 存储资源管理器](https://azure.microsoft.com/features/storage-explorer/)来使用 Azure 文件共享的基本知识。 存储资源管理器是一个常用的客户端工具，可用于 Windows、macOS 和 Linux。 可以使用存储资源管理器来管理 Azure 文件共享和其他存储资源。
@@ -98,7 +98,7 @@ ms.locfileid: "39295760"
 
 ## <a name="create-and-modify-share-snapshots"></a>创建和修改共享快照
 快照保存 Azure 文件共享在某个时间点的副本。 文件共享快照类似于你可能已经熟悉的其他技术：
-- 适用于 Windows 文件系统（例如 NTFS 和 ReFS）的[卷影复制服务 (VSS)](https://docs.microsoft.com/en-us/windows/desktop/VSS/volume-shadow-copy-service-portal)
+- 适用于 Windows 文件系统（例如 NTFS 和 ReFS）的[卷影复制服务 (VSS)](https://docs.microsoft.com/windows/desktop/VSS/volume-shadow-copy-service-portal)
 - 适用于 Linux 系统的[逻辑卷管理器 (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) 快照。
 - 适用于 macOS 的 [Apple 文件系统 (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) 快照
 

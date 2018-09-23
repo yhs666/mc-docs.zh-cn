@@ -4,24 +4,20 @@ description: 了解如何在 Azure Functions 中使用 Azure Cosmos DB 触发器
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: Azure Functions，函数，事件处理，动态计算，无服务体系结构
-ms.service: functions; cosmos-db
+ms.service: azure-functions; cosmos-db
 ms.devlang: multiple
 ms.topic: reference
-ms.tgt_pltfrm: multiple
-ms.workload: na
 origin.date: 11/21/2017
-ms.date: 08/31/2018
+ms.date: 09/21/2018
 ms.author: v-junlch
-ms.openlocfilehash: 654170ea320ea8dcc5770a03ad8c1467dc02272a
-ms.sourcegitcommit: b2c9bc0ed28e73e8c43aa2041c6d875361833681
+ms.openlocfilehash: 1a3cbdde1ecd15634dab17aa471bc4eaa9da4410
+ms.sourcegitcommit: 54d9384656cee927000d77de5791c1d585d94a68
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43330745"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46524049"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>适用于 Azure Functions 1.x 的 Azure Cosmos DB 绑定
 
@@ -37,6 +33,10 @@ ms.locfileid: "43330745"
 >此绑定最初名为 DocumentDB。 在 Functions 版本 1.x 中，仅触发器已重命名为 Cosmos DB；输入绑定、输出绑定和 NuGet 包保留 DocumentDB 名称。
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+## <a name="supported-apis"></a>受支持的 API
+
+[!INCLUDE [SQL API support only](../../includes/functions-cosmosdb-sqlapi-note.md)]
 
 ## <a name="packages---functions-1x"></a>包 - Functions 1.x
 
@@ -217,10 +217,7 @@ JavaScript 代码如下所示：
 
 ## <a name="input"></a>输入
 
-Azure Cosmos DB 输入绑定会检索一个或多个 Azure Cosmos DB 文档，并将其传递给函数的输入参数。 可根据调用函数的触发器确定文档 ID 或查询参数。 
-
->[!NOTE]
-> 如果要对 Cosmos DB 帐户使用 MongoDB API，请不要使用 Azure Cosmos DB 输入或输出绑定。 可能会数据损坏。
+Azure Cosmos DB 输入绑定会使用 SQL API 检索一个或多个 Azure Cosmos DB 文档，并将其传递给函数的输入参数。 可根据调用函数的触发器确定文档 ID 或查询参数。
 
 ## <a name="input---examples"></a>输入 - 示例
 
@@ -1186,10 +1183,7 @@ F# 代码如下所示：
 
 ## <a name="output"></a>输出
 
-Azure Cosmos DB 输出绑定允许将新文档写入 Azure Cosmos DB 数据库。 
-
->[!NOTE]
-> 如果要对 Cosmos DB 帐户使用 MongoDB API，请不要使用 Azure Cosmos DB 输入或输出绑定。 可能会数据损坏。
+Azure Cosmos DB 输出绑定允许使用 SQL API 将新文档写入 Azure Cosmos DB 数据库。 
 
 ## <a name="output---examples"></a>输出 - 示例
 
@@ -1621,4 +1615,4 @@ F# 代码如下所示：
 > [!div class="nextstepaction"]
 > [详细了解 Azure Functions 触发器和绑定](functions-triggers-bindings.md)
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

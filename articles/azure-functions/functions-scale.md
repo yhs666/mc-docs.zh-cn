@@ -5,25 +5,21 @@ services: functions
 documentationcenter: na
 author: ggailey777
 manager: jeconnoc
-editor: ''
-tags: ''
 keywords: azure functions, functions, 应用服务计划, 事件处理, webhook, 动态计算, 无服务器体系结构
 ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.tgt_pltfrm: multiple
-ms.workload: na
 origin.date: 08/09/2018
-ms.date: 08/31/2018
+ms.date: 09/21/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ba6210e1f4b99ed2f9d6f90d5471b609cfd57901
-ms.sourcegitcommit: b2c9bc0ed28e73e8c43aa2041c6d875361833681
+ms.openlocfilehash: ecd69a98e6cfab94314142f93ba5f94ec92a4da6
+ms.sourcegitcommit: 54d9384656cee927000d77de5791c1d585d94a68
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43330602"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46524047"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions 的缩放和托管
 
@@ -86,4 +82,4 @@ az appservice plan list --query "[?id=='$appServicePlanId'].sku.tier" --output t
 <!-- JH: Does using a Premium Storage account improve perf? -->
 
 若要了解有关存储帐户类型的详细信息，请参阅 [Azure 存储服务简介](../storage/common/storage-introduction.md#azure-storage-services)。
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

@@ -9,12 +9,12 @@ origin.date: 04/09/2018
 ms.date: 06/25/2018
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 71aebd8fee4a322ad5079d002199aef45b1a04f0
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.openlocfilehash: 0d2194cec56eb032b3744e71560996676c6842fd
+ms.sourcegitcommit: 0081fb238c35581bb527bdd704008c07079c8fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315675"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46566735"
 ---
 ## <a name="about-vhds"></a>关于 VHD
 Azure 中使用的 VHD 是在 Azure 的标准或高级存储帐户中作为页 Blob 存储的 .vhd 文件。 有关页 blob 的详细信息，请参阅 [了解块 blob 和页 blob](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs/)。 有关高级存储的详细信息，请参阅[高性能高级存储和 Azure VM](../articles/virtual-machines/windows/premium-storage.md)。
@@ -66,6 +66,4 @@ Azure 磁盘具备 99.999% 的可用性。 Azure 磁盘持续提供企业级持�
 | 方案  | 生产和性能敏感型工作负荷 |Web 服务器、不常使用的企业应用程序和开发/测试| 备份、非关键、不常访问 
 | 磁盘大小 | P4：32 GiB（仅托管磁盘）<br>P6：64 GiB（仅托管磁盘）<br>P10：128 GiB<br>P15：256 GiB（仅托管磁盘）<br>P20：512 GiB<br>P30：1024 GiB<br>P40：2048 GiB<br>P50：4095 GiB |仅托管磁盘：<br>E10：128 GiB<br>E15：256 GiB<br>E20：512 GiB<br>E30：1024 GiB<br>E40：2048 GiB<br>E50：4095 GiB | 非托管磁盘：1 GiB - 4 TiB (4095 GiB) <br><br>托管磁盘：<br> S4：32 GiB <br>S6：64 GiB <br>S10：128 GiB <br>S15：256 GiB <br>S20：512 GiB <br>S30：1024 GiB <br>S40：2048 GiB<br>S50：4095 GiB
 | 每个磁盘的最大吞吐量 | 250 MiB/秒 | 高达 60 MiB/秒 | 高达 60 MiB/秒 
-| 每个磁盘的最大 IOPS | 7500 IOPS | 高达 500 IOPS | 高达 500 IOPS
-
-<!-- Update_Description: update meta properties, wording update -->
+| 每个磁盘的最大 IOPS | 7500 IOPS | 高达 500 IOPS | 高达 500 IOPS 

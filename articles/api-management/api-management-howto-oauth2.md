@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 08/10/2018
 ms.author: v-yiso
-ms.date: 09/17/2018
-ms.openlocfilehash: 2f120dad5dfd60c91fea61b3fa7e06979934824b
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.date: 10/08/2018
+ms.openlocfilehash: d0fbed13712eda8708da19179c0bb9605357cadb
+ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068042"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523871"
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>如何在 Azure API 管理中使用 OAuth 2.0 为开发人员帐户授权
 许多 API 支持使用 [OAuth 2.0](http://oauth.net/2/) 维护 API 的安全，并确保仅有效用户具有访问权限且只能访问有权访问的资源。 要将 Azure API 管理的交互式开发人员门户与此类 API 配合使用，需通过该服务对服务实例进行配置，使之适用于支持 OAuth 2.0 的 API。
@@ -68,7 +68,7 @@ ms.locfileid: "44068042"
 
     ![OAuth 2.0 新服务器](./media/api-management-howto-oauth2/oauth-03.png)
 
-    对于 Azure Active Directory OAuth 2.0 服务器，“令牌终结点 URL”将具有如下格式，其中 `<APPID>` 的格式为 `yourapp.onmicrosoft.com`。
+    对于 Azure Active Directory OAuth 2.0 服务器，“令牌终结点 URL”将具有如下格式，其中 `<TenantID>` 的格式为 `yourapp.onmicrosoft.com`。
 
     `https://login.chinacloudapi.cn/<APPID>/oauth2/token`
 

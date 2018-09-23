@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
 origin.date: 05/04/2017
-ms.date: 04/30/2018
+ms.date: 10/08/2018
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: 30a30856370f3c1e9c8d47520b5e109abdbe94b4
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 5c92c5f5d2bd922d91fba854e7c223f1ec4df6e3
+ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939914"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523887"
 ---
 # <a name="tutorial-build-a-nodejs-and-mongodb-web-app-in-azure"></a>教程：在 Azure 中生成 Node.js 和 MongoDB Web 应用
 
@@ -114,6 +114,9 @@ MEAN.js 示例应用程序将用户数据存储在数据库中。 如果成功�
 选择“管理员”>“管理文章”以添加一些文章。
 
 若要随时停止 Node.js，请在终端中按 `Ctrl+C`。 
+
+> [!NOTE]
+> [Node.js 快速入门](app-service-web-get-started-nodejs.md)提到需将 web.config 置于根应用目录中。 但在本教程中，此 web.config 文件会在你使用[本地 Git 部署](app-service-deploy-local-git.md)而非 ZIP 文件部署来部署文件时自动由应用服务生成。 
 
 ## <a name="create-production-mongodb"></a>创建生产 MongoDB
 

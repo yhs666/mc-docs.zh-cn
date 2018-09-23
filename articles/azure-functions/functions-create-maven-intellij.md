@@ -6,21 +6,19 @@ documentationcenter: na
 author: jeffhollan
 manager: jpconnock
 keywords: azure functions, functions, 事件处理, 计算, 无服务器体系结构, java
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: java
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 origin.date: 07/01/2018
-ms.date: 08/31/2018
+ms.date: 09/21/2018
 ms.author: v-junlch
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 88131f18e9155a0396d10adfaaba5e974f797c1d
-ms.sourcegitcommit: b2c9bc0ed28e73e8c43aa2041c6d875361833681
+ms.openlocfilehash: 60a50aef379a6adb850d84595952ba7cf83c0ba2
+ms.sourcegitcommit: 54d9384656cee927000d77de5791c1d585d94a68
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43330808"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46524009"
 ---
 # <a name="create-your-first-function-with-java-and-intellij-preview"></a>使用 Java 和 IntelliJ 创建你的第一个函数（预览版）
 
@@ -116,3 +114,4 @@ mvn azure-functions:deploy
 - 有关开发 Java 函数的详细信息，请查看 [Java 函数开发人员指南](functions-reference-java.md)。
 - 使用 `azure-functions:add` Maven 目标将具有不同触发器的其他函数添加到你的项目。
 
+<!-- Update_Description: wording update -->

@@ -1,5 +1,5 @@
 ---
-title: Azure 策略 json 示例 - 审核 SQL Server 级别的审核设置 | Azure
+title: Azure Policy json 示例 - 审核 SQL Server 级别的审核设置 | Microsoft Docs
 description: 如果 SQL Server 审核设置与指定设置不匹配，则此 json 示例策略会审核这些设置。
 services: azure-policy
 documentationcenter: ''
@@ -16,12 +16,12 @@ origin.date: 10/30/2017
 ms.date: 07/09/2018
 ms.author: v-nany
 ms.custom: mvc
-ms.openlocfilehash: 654f311c5f721cdb1e2dea27c6b80e9a539655f8
-ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
+ms.openlocfilehash: 3649aabf07be6d79f291f33b8192d1be079be5b4
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37405286"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46526873"
 ---
 # <a name="audit-sql-server-level-audit-setting"></a>审核 SQL Server 级别的审核设置
 
@@ -101,4 +101,4 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>后续步骤
 
-- 有关更多示例，请参阅 [Azure 策略示例](../json-samples.md)。
+- 在 [Azure Policy 示例](../json-samples.md)中查看更多示例。

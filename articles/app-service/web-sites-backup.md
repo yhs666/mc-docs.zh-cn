@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/06/2016
-ms.date: 07/30/2018
+ms.date: 10/08/2018
 ms.author: v-yiso
-ms.openlocfilehash: 0a04148e2dd2346ca722912317100edee8e07be7
-ms.sourcegitcommit: 1b682acdc2a5e0974fbff809967d7cefcbbbe8ac
+ms.openlocfilehash: 2a2c152dd1371896a30c6ccc3bf4a7165034b37d
+ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42871019"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523895"
 ---
 # <a name="back-up-your-app-in-azure"></a>在 Azure 中备份应用
 利用 [Azure 应用服务](app-service-web-overview.md)中的备份和还原功能，可以轻松地手动或按计划创建应用备份。 通过覆盖现有应用或还原为另一应用可将应用还原为先前状态的快照。 
@@ -40,6 +40,7 @@ ms.locfileid: "42871019"
    - [SQL 数据库](https://www.azure.cn/home/features/sql-database/)
    - [Azure Database for MySQL](https://www.azure.cn/home/features/mysql)
    - [Azure Database for PostgreSQL](https://www.azure.cn/home/features/postgresql)
+   - [MySQL 应用内产品](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app)
 
 > [!NOTE]
 >  每个备份都是应用的完整脱机副本，而不是增量更新。
@@ -54,6 +55,7 @@ ms.locfileid: "42871019"
 * 最多可备份 10 GB 的应用和数据库内容。 如果备份大小超过此限制，会出错。
 * 不支持备份启用了 SSL 的 Azure Database for MySQL。 如果配置备份，备份将失败。
 * 不支持备份启用了 SSL 的 Azure Database for PostgreSQL。 如果配置备份，备份将失败。
+* 应用内 MySQL 数据库无需任何配置即可自动备份。 如果对应用内 MySQL 数据库进行手动设置，例如添加连接字符串，则备份可能无法正常工作。
 * 不支持将启用了防火墙的存储帐户用作备份目标。 如果配置备份，备份将失败。
 
 <a name="manualbackup"></a>
@@ -83,9 +85,12 @@ ms.locfileid: "42871019"
     ![选择存储帐户](./media/web-sites-backup/03ConfigureDatabase1.png)
    
    > [!NOTE]
-   > 若要使数据库显示在此列表中，其连接字符串必须位于应用中“应用程序设置”页的“连接字符串”部分中。
+   > 若要使数据库显示在此列表中，其连接字符串必须位于应用中“应用程序设置”页的“连接字符串”部分中。 
+   >
+   > 应用内 MySQL 数据库无需任何配置即可自动备份。 如果对应用内 MySQL 数据库进行手动设置，例如添加连接字符串，则备份可能无法正常工作。
    > 
    > 
+   
 6. 在“备份配置”页中，单击“保存”。    
 7. 在“备份”页中，单击“备份”。
    

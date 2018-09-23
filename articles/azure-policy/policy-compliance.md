@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: digimobile
 ms.custom: mvc
-ms.openlocfilehash: b5b2f8ce845aa9380af3b19f5d30c6cc614193c4
-ms.sourcegitcommit: 1b60848d25bbd897498958738644a4eb9cf3a302
+ms.openlocfilehash: 40f66ea82be140dbeb8bd708f06a7f0d97d02ad9
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43731205"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527059"
 ---
 # <a name="getting-compliance-data"></a>获取符合性数据
 
@@ -24,7 +24,7 @@ Azure Policy 的最大优势之一在于它针对订阅中的资源提供的见�
 可通过多种方式访问策略和计划分配生成的符合性信息：
 
 - 使用 [Azure 门户](#portal)
-- 通过[命令行](#command_line)脚本
+- 通过[命令行](#command-line)脚本
 
 在探讨符合性报告方法之前，让我们了解符合性信息的更新时间和频率，以及触发评估周期的事件。
 

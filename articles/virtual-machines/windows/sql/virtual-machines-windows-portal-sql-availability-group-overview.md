@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 01/13/2017
-ms.date: 03/19/2018
+ms.date: 09/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: 72d02f5e77255b6bd2c354e006aef0bcf8576f07
-ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
+ms.openlocfilehash: f4f8f708341fd2326fcf8cebfd0f12a236792386
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37405312"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46526996"
 ---
 # <a name="introducing-sql-server-always-on-availability-groups-on-azure-virtual-machines"></a>Azure 虚拟机上的 SQL Server AlwaysOn 可用性组简介 #
 

@@ -14,15 +14,15 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 03/01/2017
-ms.date: 07/30/2018
+ms.date: 09/24/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: f7a0995a6afbb17ac43e7d0068ac0b7975c8e7f9
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.openlocfilehash: 4cdb721b9524d8f8b4521dc38cdea0eba0e94dd7
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295780"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527115"
 ---
 # <a name="create-a-wordpress-vm-with-powershell"></a>使用 PowerShell 创建 WordPress VM
 

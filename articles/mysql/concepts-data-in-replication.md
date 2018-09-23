@@ -8,14 +8,14 @@ manager: digimobile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-origin.date: 06/20/2018
+origin.date: 08/31/2018
 ms.date: 08/13/2018
-ms.openlocfilehash: 5954db0b8e927832db28864dc7ab983878fc13e7
-ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
+ms.openlocfilehash: 2375e0c0c6af4908773cdf0c7e23a84ced466c84
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39723117"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527006"
 ---
 # <a name="replicate-data-into-azure-database-for-mysql"></a>将数据复制到 Azure Database for MySQL
 
@@ -33,16 +33,17 @@ ms.locfileid: "39723117"
 ## <a name="limitations-and-considerations"></a>限制和注意事项
 
 ### <a name="data-not-replicated"></a>不会复制的数据
-不会复制主服务器上的 [Mysql 系统数据库](https://dev.mysql.com/doc/refman/5.7/en/system-database.html)。 不会复制对主服务器上的帐户和权限所做的更改。 如果在主服务器上创建帐户，并且此帐户需要访问副本服务器，则在副本服务器端手动创建相同帐户。 若要了解哪些表包含在系统数据库中，请参阅 [MySQL 手册](https://dev.mysql.com/doc/refman/5.7/en/system-database.html)。
+不会复制主服务器上的 [mysql 系统数据库](https://dev.mysql.com/doc/refman/5.7/en/system-database.html)。 不会复制对主服务器上的帐户和权限所做的更改。 如果在主服务器上创建帐户，并且此帐户需要访问副本服务器，则在副本服务器上手动创建相同的帐户。 若要了解哪些表包含在系统数据库中，请参阅 [MySQL 手册](https://dev.mysql.com/doc/refman/5.7/en/system-database.html)。
 
 ### <a name="requirements"></a>要求
-- 主服务器版本必须至少是 MySQL 5.6 版。 
+- 主服务器版本必须至少是 MySQL 5.6 版本。 
 - 主服务器版本和副本服务器版本必须相同。 例如，两者必须同时是 MySQL 5.6 版或 MySQL 5.7 版。
 - 每个表都必须有主键。
 - 主服务器应使用 MySQL InnoDB 引擎。
-- 用户必须有权配置二进制日志记录并在主服务器上创建新用户。
+- 用户必须具有权限才能在主服务器上配置二进制日志记录和创建新用户。
 
 ### <a name="other"></a>其他
+- “数据传入复制”仅在常规用途和优化内存定价层中受支持。
 - 不支持全局事务标识符 (GTID)。
 
 ## <a name="next-steps"></a>后续步骤

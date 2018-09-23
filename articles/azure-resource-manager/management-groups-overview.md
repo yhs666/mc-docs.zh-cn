@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/31/2018
-ms.date: 09/10/2018
+ms.date: 09/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: 6d4e060f26cd7ec1983dc74290c0373f7fab4428
-ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
+ms.openlocfilehash: c81e2f39652362653852c90c7d48dcd438ba3d9c
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44515799"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527170"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>使用 Azure 管理组来组织资源
 
@@ -81,7 +81,7 @@ Azure 管理组支持使用 [Azure 基于角色的访问控制 (RBAC)](../role-b
 
 下图列出了管理组的角色和支持的操作。
 
-| RBAC 角色名称             | 创建 | 重命名 | 移动 | 删除 | 分配访问权限 | 分配策略 | 读取  |
+| RBAC 角色名称             | 创建 | 重命名 | 移动 | Delete | 分配访问权限 | 分配策略 | 读取  |
 |:-------------------------- |:------:|:------:|:----:|:------:|:-------------:| :------------:|:-----:|
 |所有者                       | X      | X      | X    | X      | X             | X             | X     |
 |参与者                 | X      | X      | X    | X      |               |               | X     |
@@ -107,5 +107,4 @@ Azure 管理组支持使用 [Azure 基于角色的访问控制 (RBAC)](../role-b
 - [查看 REST API 规范](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview)
 - [安装 Azure CLI 扩展](https://docs.azure.cn/zh-cn/cli/extension?view=azure-cli-latest#az-extension-list-available)
 
-<!-- Update_Description: new articles on management groups overview  -->
-<!--ms.date: 09/10/2018-->
+<!-- Update_Description: update meta properties  -->

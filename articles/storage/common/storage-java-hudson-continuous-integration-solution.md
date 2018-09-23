@@ -1,26 +1,20 @@
 ---
-title: 如何将 Hudson 与 Blob 存储一起使用 | Azure
+title: 如何将 Hudson 与 Blob 存储一起使用 | Microsoft Docs
 description: 介绍如何将 Hudson 与 Microsoft Azure Blob 存储一起使用作为生成项目的存储库。
 services: storage
-documentationcenter: java
-author: hayley244
-manager: digimobile
-editor: tysonn
-ms.assetid: 119becdd-72c4-4ade-a439-070233c1e1ac
+author: WenJason
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
 origin.date: 02/28/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
-ms.openlocfilehash: d556f8751174da94efcdcbb35a04b8d0fc87d05d
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.date: 09/24/2018
+ms.author: v-jay
+ms.openlocfilehash: b42454a01ccf25c4813171d70fdcbc92283a048c
+ms.sourcegitcommit: 0081fb238c35581bb527bdd704008c07079c8fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295810"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523728"
 ---
 # <a name="using-azure-storage-with-a-hudson-continuous-integration-solution"></a>将 Azure 存储用于 Hudson 持续集成解决方案
 ## <a name="overview"></a>概述
@@ -59,7 +53,7 @@ Hudson 通过允许开发人员轻松地集成其代码更改以及自动和频�
      
       虽然典型 Hudson CI 解决方案会设置为作为一个服务运行，但在本教程中，通过命令行运行 Hudson war 就足够了。
 * 一个 Azure 帐户。 可以在 <http://www.azure.cn> 中注册 Azure 帐户。
-* Azure 存储帐户。 如果还没有存储帐户，可使用[创建存储帐户](../common/storage-create-storage-account.md#create-a-storage-account)中的步骤创建一个。
+* Azure 存储帐户。 如果还没有存储帐户，可使用[创建存储帐户](../common/storage-quickstart-create-account.md)中的步骤创建一个。
 * 建议熟悉 Hudson CI 解决方案（但不是必需的），因为以下内容将使用一个基本示例向你演示使用 Blob 服务作为 Hudson CI 生成项目的存储库时所需的步骤。
 
 ## <a name="how-to-use-the-blob-service-with-hudson-ci"></a>如何将 Blob 服务用于 Hudson CI
@@ -171,4 +165,3 @@ Hudson 通过允许开发人员轻松地集成其代码更改以及自动和频�
 * [Azure 存储团队博客](http://blogs.msdn.com/b/windowsazurestorage/)
 
 有关详细信息，请访问[面向 Java 开发人员的 Azure](https://docs.azure.cn/java/)。
-<!--Update_Description: wording update-->

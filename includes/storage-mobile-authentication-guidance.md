@@ -1,22 +1,22 @@
-<!--ms.date: 08/28/2017-->
+<!--ms.date: 09/24/2018-->
 ## <a name="configure-your-application-to-access-azure-storage"></a>创建用于访问 Azure 存储的应用程序
 有两种方法可以对要访问存储服务的应用程序进行身份验证：
 
-- 共享密钥：使用共享密钥仅用于测试目的
-- 共享访问签名 (SAS)：对生产应用程序使用 SAS
+* 共享密钥：使用共享密钥仅用于测试目的
+* 共享访问签名 (SAS)：对生产应用程序使用 SAS
 
 ### <a name="shared-key"></a>共享密钥
 共享密钥身份验证意味着应用程序将使用帐户名和帐户密钥访问存储服务。 为了快速说明如何使用此库，我们将在此入门指南中使用共享密钥身份验证。
 
-> [!WARNING]
->**请仅将共享密钥身份验证用于测试目的！** 为关联的存储帐户提供完全读/写访问权限的帐户名和帐户密钥将分发给下载你的应用的每个人。 这 **不** 是好的做法，你会面临向不受信任的客户端泄露密钥的风险。
+> [!WARNING] 
+> **请仅将共享密钥身份验证用于测试目的！** 为关联的存储帐户提供完全读/写访问权限的帐户名和帐户密钥将分发给下载你的应用的每个人。 这 **不** 是好的做法，你会面临向不受信任的客户端泄露密钥的风险。
 
 使用共享密钥身份验证时，会创建一个[连接字符串](../articles/storage/common/storage-configure-connection-string.md)。 连接字符串由以下部分组成：  
 
-- **DefaultEndpointsProtocol** - 可以选择 HTTP 或 HTTPS。 但是，强烈建议使用 HTTPS。
-- **帐户名** - 存储帐户的名称
-- 帐户密钥 - 在 [Azure 门户](https://portal.azure.cn)上，导航到存储帐户，并单击“密钥”图标以查看此信息。
-- （可选）EndpointSuffix - 用于区域中具有不同终结点后缀的存储服务，例如 Azure 中国或 Azure 调控。
+* **DefaultEndpointsProtocol** - 可以选择 HTTP 或 HTTPS。 但是，强烈建议使用 HTTPS。
+* **帐户名** - 存储帐户的名称
+* 帐户密钥 - 在 [Azure 门户](https://portal.azure.cn)上，导航到存储帐户，并单击“密钥”图标以查看此信息。
+* （可选）EndpointSuffix - 用于区域中具有不同终结点后缀的存储服务，例如 Azure 中国或 Azure 调控。
 
 以下是使用共享密钥身份验证的连接字符串示例：
 
@@ -29,13 +29,11 @@
 以下示例演示如何使用 Microsoft Azure 存储资源管理器来生成 SAS。
 
 1. [安装 Microsoft Azure 存储资源管理器](http://storageexplorer.com)
-
 2. 连接到订阅
-
 3. 单击用户的存储帐户，并单击左下方的“操作”选项卡。 单击“获取共享访问签名”，生成 SAS 的连接字符串。
-
 4. 下面是 SAS 连接字符串的示例，该字符串为存储帐户的 Blob 服务授予对服务、容器和对象级别的读取与写入权限。
-
+   
   `"SharedAccessSignature=sv=2015-04-05&ss=b&srt=sco&sp=rw&se=2016-07-21T18%3A00%3A00Z&sig=3ABdLOJZosCp0o491T%2BqZGKIhafF1nlM3MzESDDD3Gg%3D;BlobEndpoint=https://youraccount.blob.core.chinacloudapi.cn"`
 
 可以看到，使用 SAS 时，不会在应用程序中公开帐户密钥。 可以查阅 [Shared Access Signature s: Understanding the SAS model](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md)（共享访问签名：了解 SAS 模型）了解有关 SAS 和使用 SAS 的最佳实践的详细信息。
+

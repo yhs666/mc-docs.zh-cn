@@ -12,20 +12,20 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-origin.date: 12/13/2017
-ms.date: 09/03/2018
+origin.date: 08/24/2018
+ms.date: 10/08/2018
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: 7d9cc3961556d01789adf42892dff850574e9ce9
-ms.sourcegitcommit: 1b682acdc2a5e0974fbff809967d7cefcbbbe8ac
+ms.openlocfilehash: 320ccb6ef8c454a90c9cc3a731f3882a5f53d173
+ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42871030"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523914"
 ---
 # <a name="create-a-php-web-app-in-azure"></a>在 Azure 中创建 PHP Web 应用
 
-[Azure Web 应用](app-service-web-overview.md)提供高度可缩放、自修补的 Web 托管服务。  本快速入门教程演示如何将 PHP 应用部署到 Azure Web 应用。 在 Cloud Shell 中使用 [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) 创建 Web 应用，并使用 Git 将 PHP 代码示例部署到 Web 应用。
+[Azure Web 应用](app-service-web-overview.md)提供高度可缩放、自修补的 Web 托管服务。  本快速入门教程演示如何将 PHP 应用部署到 Azure Web 应用。 在 Cloud Shell 中使用 [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) 创建 Web 应用，并使用 Git 将示例 PHP 代码部署到 Web 应用。
 
 ![在 Azure 中运行的示例应用](media/app-service-web-get-started-php/hello-world-in-browser.png)
 
@@ -51,7 +51,7 @@ cd php-docs-hello-world
 
 ## <a name="run-the-app-locally"></a>在本地运行应用
 
-打开终端窗口并使用 `php` 命令启动内置 PHP Web 服务器，在本地运行应用程序。
+在本地运行应用程序，这样就能了解将它部署到 Azure 时它的外观应该是什么样的。 打开一个终端窗口并使用 `php` 命令启动内置的 PHP Web 服务器。
 
 ```bash
 php -S localhost:8080

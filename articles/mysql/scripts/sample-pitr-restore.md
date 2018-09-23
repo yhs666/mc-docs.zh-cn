@@ -6,17 +6,17 @@ author: v-chenyh
 ms.author: v-chenyh
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 06/16/2018
-ms.openlocfilehash: 357670514df5183710147f91f78924b84055f84c
-ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
+ms.openlocfilehash: 7d6ffca943d1879c231c09528bdfc6756182d856
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39723014"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527144"
 ---
 # <a name="restore-an-azure-database-for-mysql-server-using-azure-cli"></a>使用 Azure CLI 还原 Azure Database for MySQL 服务器
 

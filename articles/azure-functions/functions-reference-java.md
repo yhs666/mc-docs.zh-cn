@@ -6,20 +6,18 @@ documentationcenter: na
 author: rloutlaw
 manager: justhe
 keywords: Azure Functions, Functions, 事件处理, webhook, 动态计算, 无服务器体系结构, java
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: java
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 origin.date: 08/10/2018
-ms.date: 08/31/2018
+ms.date: 09/21/2018
 ms.author: v-junlch
-ms.openlocfilehash: bff8ec01de3d86c8f3fe938527825ece049f2fa5
-ms.sourcegitcommit: b2c9bc0ed28e73e8c43aa2041c6d875361833681
+ms.openlocfilehash: bed86ae70304f9d90f6cc90ab63a677310010021
+ms.sourcegitcommit: 54d9384656cee927000d77de5791c1d585d94a68
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43330811"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46524031"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java 开发人员指南
 
@@ -94,7 +92,7 @@ public class MyClass {
 
 Azure Functions 支持使用第三方库。 默认情况下，项目 `pom.xml` 文件中指定的所有依赖项将在 `mvn package` 目标期间自动进行绑定。 对于未在 `pom.xml` 文件中指定为依赖项的库，请将它们放在函数根目录的 `lib` 目录中。 放置在 `lib` 目录中的依赖项将在运行时添加到系统类加载器中。
 
-## <a name="data-types"></a>数据类型
+## <a name="data-type-support"></a>数据类型支持
 
 可对输入和输出数据使用 Java 中的任何数据类型，包括本机类型、自定义的 Java 类型以及 `azure-functions-java-library` 包中定义的专用 Azure 类型。 Azure Functions 运行时会尝试将接收的输入转换为代码请求的类型。
 
@@ -244,7 +242,7 @@ public class MyClass {
 
 通过 `azure-functions-java-library` 包中定义的 `ExecutionContext` 对象与 Azure Functions 执行环境进行交互。 使用 `ExecutionContext` 对象以使用代码中的调用信息和函数运行时信息。
 
-### <a name="logging"></a>日志记录
+### <a name="custom-logging"></a>自定义日志记录
 
 可通过 `ExecutionContext` 对象访问函数运行时记录器。 此记录器绑定到 Azure Monitor，并允许标记在函数执行期间遇到的警告和错误。
 
@@ -264,6 +262,29 @@ public class Function {
     }
 }
 ```
+
+## <a name="view-logs-and-trace"></a>查看日志和跟踪
+
+可以使用 Azure CLI 来流式传输出 Java 标准、错误日志记录以及其他应用程序日志记录。 首先，将函数应用程序配置为使用 Azure CLI 编写应用程序日志记录：
+
+```azurecli
+az webapp log config --name functionname --resource-group myResourceGroup --application-logging true
+```
+
+若要使用 Azure CLI 流式传输函数应用的日志记录输出，请打开新的命令行提示符、Bash 或终端会话，并输入以下命令：
+
+```azurecli
+az webapp log tail --name webappname --resource-group myResourceGroup
+```
+[az webapp log tail](/cli/webapp/log) 命令可使用 `--provider` 选项筛选输出。 
+
+若要使用 Azure CLI 下载单个 ZIP 文件形式的日志文件，请打开新的命令提示符、Bash 或终端会话，并输入以下命令：
+
+```azurecli
+az webapp log download --resource-group resourcegroupname --name functionappname
+```
+
+运行此命令之前，必须已在 Azure 门户或 Azure CLI 中启用了文件系统日志记录。
 
 ## <a name="environment-variables"></a>环境变量
 
@@ -289,11 +310,13 @@ public class Function {
 现在，你的代码依赖于这些环境变量，你可登录 Azure 门户以在函数应用设置中设置相同的键/值对，从而让代码在本地测试时和在部署到 Azure 时等效运行。
 
 ## <a name="next-steps"></a>后续步骤
-有关详细信息，请参阅以下资源：
+
+有关 Azure 函数 Java 开发的详细信息，请参阅以下资源：
 
 - [Azure Functions 最佳实践](functions-best-practices.md)
 - [Azure Functions 开发人员参考](functions-reference.md)
 - [Azure Functions 触发器和绑定](functions-triggers-bindings.md)
+- 使用 [Visual Studio Code](https://code.visualstudio.com/docs/java/java-azurefunctions)、[IntelliJ](functions-create-maven-intellij.md) 和 [Eclipse](functions-create-maven-eclipse.md) 的本地开发和调试。 
 - [使用 Visual Studio Code 远程调试 Java Azure Functions](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud)
-
+- [适用于 Azure Functions 的 Maven 插件](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-functions-maven-plugin/README.md) - 通过 `azure-functions:add` 目标简化函数创建并准备临时目录以用于 [ZIP 文件部署](deployment-zip-push.md)。
 <!-- Update_Description: wording update -->

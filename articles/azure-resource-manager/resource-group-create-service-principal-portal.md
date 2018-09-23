@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 03/21/2018
-ms.date: 09/03/2018
+ms.date: 09/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: 913c1c2ea1902a838037a0f9fe58ca1c4b305c9c
-ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
+ms.openlocfilehash: 3045b09bf288b5e1dcef6aa8ba914af07385be40
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43164854"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46526936"
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>使用门户创建可访问资源的 Azure Active Directory 应用程序和服务主体
 

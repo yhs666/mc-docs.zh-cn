@@ -1,5 +1,5 @@
 ---
-title: Azure 策略 json 示例 - 审核 SQL 数据库的透明数据加密 | Azure
+title: Azure Policy json 示例 - 审核 SQL 数据库的透明数据加密 | Microsoft Docs
 description: 如果 SQL 数据库未启用透明数据加密，则此 json 示例策略会进行审核。
 services: azure-policy
 documentationcenter: ''
@@ -16,12 +16,12 @@ origin.date: 04/27/2018
 ms.date: 07/09/2018
 ms.author: v-nany
 ms.custom: mvc
-ms.openlocfilehash: acb8cd47b6f09d6c5aaa9e82ddd38c65c4515c76
-ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
+ms.openlocfilehash: 4e1bf45619ac632c6b330bb50cb4efbe9fa271c5
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37405381"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527044"
 ---
 # <a name="audit-sql-database-encryption"></a>审核 SQL 数据库加密
 
@@ -105,4 +105,4 @@ az policy assignment delete --name "SQL TDE Audit" --resource-group myResourceGr
 
 ## <a name="next-steps"></a>后续步骤
 
-- 有关更多示例，请参阅 [Azure 策略示例](../json-samples.md)。
+- 在 [Azure Policy 示例](../json-samples.md)中查看更多示例。

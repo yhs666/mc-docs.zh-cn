@@ -13,14 +13,14 @@ ms.tgt_pltfrm: powershell
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 07/20/2018
-ms.date: 09/03/2018
+ms.date: 09/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: a050dc4145e55d2a243bdb345aa7f6948f62c056
-ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
+ms.openlocfilehash: 0e90af7a41811ee7130d0814c2abd6f23e4a90c0
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43164804"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527055"
 ---
 # <a name="manage-resources-with-azure-powershell"></a>使用 Azure PowerShell 管理资源
 
@@ -28,7 +28,7 @@ ms.locfileid: "43164804"
 
 <!-- Not Avaiable on [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)] -->
 
-如果选择在本地安装并使用 PowerShell，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount -Environment AzureChinaCloud` 以创建与 Azure 的连接。
+如果选择在本地安装并使用 PowerShell，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount` 以创建与 Azure 的连接。
 
 ## <a name="understand-scope"></a>了解范围
 

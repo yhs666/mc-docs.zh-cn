@@ -1,24 +1,19 @@
 ---
-title: Azure 存储迁移常见问题解答 | Azure
+title: Azure 存储迁移常见问题解答 | Microsoft 文档
 description: 有关迁移 Azure 存储的常见问题解答
 services: storage
-documentationcenter: na
-author: yunan2016
-manager: digimobile
+author: WenJason
 ms.service: storage
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage
 origin.date: 05/11/2018
-ms.date: 06/11/2018
-ms.author: v-nany
-ms.openlocfilehash: 298f571723aabbd36459198bd3dc7cde19ff0243
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.date: 09/24/2018
+ms.author: v-jay
+ms.openlocfilehash: 2c523c580115b8ca57fb285a5067a66932b3818c
+ms.sourcegitcommit: 0081fb238c35581bb527bdd704008c07079c8fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295608"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523715"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>有关 Azure 存储迁移的常见问题
 
@@ -261,7 +256,7 @@ Azure 文件共享上不允许使用高级存储。
 
 -   使用共享访问签名 (SAS) 令牌提供资源的访问权限。 
 
--   向用户提供存储帐户的主密钥或辅助密钥。 有关详细信息，请参阅[管理存储帐户](storage-create-storage-account.md#manage-your-storage-account)。
+-   向用户提供存储帐户的主密钥或辅助密钥。 有关详细信息，请参阅[管理存储帐户](storage-account-manage.md#access-keys)。
 
 -   更改访问策略以允许匿名访问。 有关详细信息，请参阅[授予对容器和 Blob 的匿名用户权限](../blobs/storage-manage-access-to-resources.md#grant-anonymous-users-permissions-to-containers-and-blobs)。
 
@@ -285,7 +280,7 @@ AzCopy 安装在什么位置？
 
     - **SAS 令牌**：使用 SAS 令牌访问终结点中的数据。 有关详细信息，请参阅[使用共享访问签名](storage-dotnet-shared-access-signature-part-1.md)。
 
-**如何结合使用我的存储帐户和 HTTPS 自定义域？例如，如何使“https://mystorageaccountname.blob.core.chinacloudapi.cn/images/image.gif”显示为“https://www.contoso.com/images/image.gif”？**
+**如何结合使用我的存储帐户和 HTTPS 自定义域？例如，如何使 “https://mystorageaccountname.blob.core.chinacloudapi.cn/images/image.gif” 显示为 “https://www.contoso.com/images/image.gif”？**
 
 使用自定义域的存储帐户当前不支持 SSL。
 但你可以使用非 HTTPS 自定义域。 有关详细信息，请参阅[为 Blob 存储终结点配置自定义域名](../blobs/storage-custom-domain-name.md)。

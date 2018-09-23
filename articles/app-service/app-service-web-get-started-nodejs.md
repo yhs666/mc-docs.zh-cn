@@ -12,16 +12,16 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-origin.date: 12/13/2017
-ms.date: 09/03/2018
+origin.date: 08/24/2018
+ms.date: 10/08/2018
 ms.author: v-yiso
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 7293285e6f37413de4e22b527509a29edc5926d4
-ms.sourcegitcommit: 1b682acdc2a5e0974fbff809967d7cefcbbbe8ac
+ms.openlocfilehash: ce84b8d3a49e97bfbb6573170ef22973f428acbb
+ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42871020"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523826"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>在 Azure 中创建 Node.js Web 应用
 
@@ -46,7 +46,7 @@ ms.locfileid: "42871020"
 
 ## <a name="run-the-app-locally"></a>在本地运行应用
 
-打开一个终端窗口并使用 `npm start` 脚本启动内置的 Node.js HTTP 服务器，以在本地运行应用程序。
+在本地运行应用程序，这样就能了解将它部署到 Azure 时它的外观应该是什么样的。 打开一个终端窗口并使用 `npm start` 脚本启动内置的 Node.js HTTP 服务器。
 
 ```bash
 npm start
@@ -59,6 +59,9 @@ npm start
 ![在本地运行的示例应用](media/app-service-web-get-started-nodejs-poc/localhost-hello-world-in-browser.png)
 
 在终端窗口中，按 **Ctrl+C** 退出 Web 服务器。
+
+> [!NOTE]
+> 在 Azure 应用服务中，此应用在 IIS 中使用 [iisnode](https://github.com/tjanczuk/iisnode) 运行。 为了让应用能够使用 iisnode 运行，根应用目录包含一个 web.config 文件。 此文件可以由 IIS 读取，与 iisnode 相关的设置记录在 [iisnode GitHub 存储库](https://github.com/tjanczuk/iisnode/blob/master/src/samples/configuration/web.config)中。
 
 [!INCLUDE [Create ZIP file](../../includes/app-service-web-create-zip.md)]
 

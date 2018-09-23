@@ -16,12 +16,12 @@ ms.topic: sample
 origin.date: 11/07/2017
 ms.date: 06/11/2018
 ms.author: v-johch
-ms.openlocfilehash: 408cad376f7dcb92e4016f65765db009c8f89a2f
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.openlocfilehash: 0b0bc20d85dc660d77a9b352b3710f3dc7c02a15
+ms.sourcegitcommit: 0081fb238c35581bb527bdd704008c07079c8fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295609"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523704"
 ---
 # <a name="calculate-the-size-of-a-blob-storage-container"></a>计算 Blob 存储容器的大小
 
@@ -36,33 +36,43 @@ ms.locfileid: "39295609"
 
 ## <a name="sample-script"></a>示例脚本
 
-# <a name="this-script-will-show-how-to-get-the-total-size-of-the-blobs-in-a-container"></a>此脚本将演示如何获取容器中 Blob 的总大小
-# <a name="before-running-this-you-need-to-create-a-storage-account-create-a-container"></a>在运行此脚本之前，需创建存储帐户，创建容器，
-#    <a name="and-upload-some-blobs-into-the-container"></a>并将某些 Blob 上传到容器中 
-# <a name="note-this-retrieves-all-of-the-blobs-in-the-container-in-one-command"></a>注意：这样会通过一个命令检索容器中的所有 Blob 
-#       <a name="if-you-are-going-to-run-this-against-a-container-with-a-lot-of-blobs"></a>针对容器运行此脚本时，如果容器中包含许多 Blob
-#       <a name="more-than-a-couple-hundred-use-continuation-tokens-to-retrieve"></a>（超出数百个），请使用继续标记来检索
-#       <a name="the-list-of-blobs-we-will-be-adding-a-sample-showing-that-scenario-in-the-future"></a>Blob 的列表。 我们会在以后添加一个演示该方案的示例。
+```Powershell
+# this script will show how to get the total size of the blobs in a container
+# before running this, you need to create a storage account, create a container,
+#    and upload some blobs into the container 
+# note: this retrieves all of the blobs in the container in one command 
+#       if you are going to run this against a container with a lot of blobs
+#       (more than a couple hundred), use continuation tokens to retrieve
+#       the list of blobs. We will be adding a sample showing that scenario in the future.
 
-# <a name="these-are-for-the-storage-account-to-be-used"></a>这些是针对要使用的存储帐户的
-$resourceGroup = "bloblisttestrg" $storageAccountName = "contosobloblisttest" $containerName = "listtestblobs"
+# these are for the storage account to be used
+$resourceGroup = "bloblisttestrg"
+$storageAccountName = "contosobloblisttest"
+$containerName = "listtestblobs"
 
-# <a name="get-a-reference-to-the-storage-account-and-the-context"></a>获取对存储帐户和上下文的引用
+# get a reference to the storage account and the context
 $storageAccount = Get-AzureRmStorageAccount `
-  -ResourceGroupName $resourceGroup ` -Name $storageAccountName $ctx = $storageAccount.Context 
+  -ResourceGroupName $resourceGroup `
+  -Name $storageAccountName
+$ctx = $storageAccount.Context 
 
-# <a name="get-a-list-of-all-of-the-blobs-in-the-container"></a>获取容器中所有 Blob 的列表 
+# get a list of all of the blobs in the container 
 $listOfBLobs = Get-AzureStorageBlob -Container $ContainerName -Context $ctx 
 
-# <a name="zero-out-our-total"></a>将总计归零
+# zero out our total
 $length = 0
 
-# <a name="this-loops-through-the-list-of-blobs-and-retrieves-the-length-for-each-blob"></a>此命令循环访问 Blob 的列表，检索每个 Blob 的长度，
-#   <a name="and-adds-it-to-the-total"></a>然后将其添加到总计
+# this loops through the list of blobs and retrieves the length for each blob
+#   and adds it to the total
 $listOfBlobs | ForEach-Object {$length = $length + $_.Length}
 
-# <a name="output-the-blobs-and-their-sizes-and-the-total"></a>输出 Blob 及其大小和总计 
-Write-Host "Blob 及其大小(长度)的列表" Write-Host " " $listOfBlobs | select Name, Length Write-Host " " Write-Host "总长度 = " $length
+# output the blobs and their sizes and the total 
+Write-Host "List of Blobs and their size (length)"
+Write-Host " " 
+$listOfBlobs | select Name, Length
+Write-Host " "
+Write-Host "Total Length = " $length
+```
 
 ## <a name="clean-up-deployment"></a>清理部署 
 

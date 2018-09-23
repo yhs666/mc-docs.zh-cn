@@ -1,5 +1,5 @@
 ---
-title: Azure 策略 json 示例 - 无用户定义的路由表 | Azure
+title: Azure Policy json 示例 - 无用户定义的路由表 | Microsoft Docs
 description: 此 json 示例策略禁止通过用户定义的路由表部署虚拟网络。
 services: azure-policy
 documentationcenter: ''
@@ -16,12 +16,12 @@ origin.date: 10/30/2017
 ms.date: 07/09/2018
 ms.author: v-nany
 ms.custom: mvc
-ms.openlocfilehash: 985aed05b5183fef7b4f2086f5202df5daa0b4a2
-ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
+ms.openlocfilehash: 414afe70cb1e72422f46de3ab04462dadff80fa8
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37405304"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46526864"
 ---
 # <a name="no-user-defined-route-table"></a>无用户定义的路由表
 
@@ -122,4 +122,4 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>后续步骤
 
-- 有关更多示例，请参阅 [Azure 策略示例](../json-samples.md)。
+- 在 [Azure Policy 示例](../json-samples.md)中查看更多示例。

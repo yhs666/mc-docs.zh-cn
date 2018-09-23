@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 02/16/2017
-ms.date: 05/14/2018
+ms.date: 09/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: 00ff1a3e5c683dba4daf445c5415dba73c019cea
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: ad3d3be7db0b82606fe85596f5323a3d77edf522
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939292"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527047"
 ---
 # <a name="configure-a-load-balancer-for-an-always-on-availability-group-in-azure"></a>在 Azure 中为 Always On 可用性组配置负载均衡器
 本文说明如何在使用 Azure Resource Manager 运行的 Azure 虚拟机中为 SQL Server Always On 可用性组创建负载均衡器。 当 SQL Server 实例位于 Azure 虚拟机时，可用性组需要负载均衡器。 负载均衡器存储可用性组侦听器的 IP 地址。 如果可用性组跨多个区域，则每个区域都需要一个负载均衡器。
@@ -301,11 +301,11 @@ SQLCMD 连接会自动连接到托管主副本的 SQL Server 实例。
 
 在参与到分布式可用性组的其他可用性组上，针对负载均衡器重复这些步骤。
 
+如果要限制 Azure 网络安全组的访问权限，请确保“允许”规则包含后端 SQL Server VM IP 地址、可用性组侦听器的负载均衡器浮动 IP 地址、群集核心 IP 地址（如适用）。
+
 ## <a name="next-steps"></a>后续步骤
 
 - [在不同区域中的 Azure 虚拟机上创建 SQL Server AlwaysOn 可用性组](virtual-machines-windows-portal-sql-availability-group-dr.md)
 
-<!--The parent file of includes file of virtual-machines-ag-listener-configure.md-->
-<!--ms.date:05/14/2018-->
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties， wording update -->
 

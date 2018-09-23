@@ -1,5 +1,5 @@
 ---
-title: Azure 策略 JSON 示例 - 计费标记策略计划 | Azure
+title: Azure Policy json 示例 - 计费标记策略计划 | Microsoft Docs
 description: 此 json 示例策略集需要成本中心和产品名称的指定标记值。
 services: azure-policy
 documentationcenter: ''
@@ -16,12 +16,12 @@ origin.date: 10/30/2017
 ms.date: 07/23/2018
 ms.author: v-nany
 ms.custom: mvc
-ms.openlocfilehash: 3ad76a8f24ced23b6d2162695e4dc0d02d859386
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.openlocfilehash: 56cdeeb00060f3df18a9523a066fb09c1c4ef4dd
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39167682"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527013"
 ---
 # <a name="billing-tags-policy-initiative"></a>计费标记策略计划
 
@@ -147,4 +147,4 @@ foreach ($r in $resources) {
 
 ## <a name="next-steps"></a>后续步骤
 
-- 有关更多示例，请参阅 [Azure 策略示例](../json-samples.md)。
+- 在 [Azure Policy 示例](../json-samples.md)中查看更多示例。

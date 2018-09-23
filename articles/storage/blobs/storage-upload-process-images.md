@@ -4,20 +4,19 @@ description: 将 Azure blob 存储与 Web 应用结合使用来存储应用数�
 services: storage
 documentationcenter: ''
 author: WenJason
-manager: digimobile
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: tutorial
 origin.date: 02/20/2018
-ms.date: 09/10/2018
+ms.date: 09/24/2018
 ms.author: v-jay
 ms.custom: mvc
-ms.openlocfilehash: 94b1cd16ec6736ff2445d87010b1ae4ece2917c0
-ms.sourcegitcommit: 0a9f3c90a31498f7c696e45f8843ab7fc3d8d876
+ms.openlocfilehash: f8144beb27a2467d6c75066246a714e65288c589
+ms.sourcegitcommit: 0081fb238c35581bb527bdd704008c07079c8fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "44757477"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523711"
 ---
 # <a name="upload-image-data-in-the-cloud-with-azure-storage"></a>使用 Azure 存储在云中上传图像数据
 
@@ -25,7 +24,7 @@ ms.locfileid: "44757477"
 
 ![图像容器视图](media/storage-upload-process-images/figure2.png)
 
-在该系列的第一部分中，你会学习如何：
+在该系列的第一部分中，你将学习如何：
 
 > [!div class="checklist"]
 > * 创建存储帐户
@@ -99,7 +98,7 @@ az appservice plan create --name myAppServicePlan --resource-group myResourceGro
 
 ## <a name="create-a-web-app"></a>创建 Web 应用 
 
-Web 应用为从 GitHub 示例存储库部署的示例应用代码提供承载空间。 使用 [az webapp create](/cli/webapp#az_webapp_create) 命令在 `myAppServicePlan` 应用服务计划中创建 [Web 应用](../../app-service/app-service-web-overview.md)。  
+Web 应用为从 GitHub 示例存储库部署的示例应用代码提供承载空间。 使用 [az webapp create](/cli/webapp#az_webapp_create) 命令在 `myAppServicePlan` 应用服务计划中创建一个 [Web 应用](../../app-service/app-service-web-overview.md)。  
  
 在以下命令中，将 `<web_app>` 替换为唯一名称（有效字符是 `a-z`、`0-9` 和 `-`）。 如果 `<web_app>` 不是唯一名称，将收到错误消息：“具有给定名称 `<web_app>` 的网站已存在”。 Web 应用的默认 URL 为 `https://<web_app>.chinacloudsites.cn`。  
 
@@ -150,7 +149,7 @@ public static async Task<bool> UploadFileToStorage(Stream fileStream, string fil
     StorageCredentials storageCredentials = new StorageCredentials(_storageConfig.AccountName, _storageConfig.AccountKey);
 
     // Create cloudstorage account by passing the storagecredentials
-    CloudStorageAccount storageAccount = new CloudStorageAccount(storageCredentials, true);
+    CloudStorageAccount storageAccount = new CloudStorageAccount(storageCredentials, "core.chinacloudapi.cn", true);
 
     // Create the blob client.
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();

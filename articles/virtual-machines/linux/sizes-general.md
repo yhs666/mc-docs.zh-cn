@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 07/06/2018
-ms.date: 08/27/2018
+ms.date: 09/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: 924eceaa508bedc5ffbc578ce774ddfc4efa8b33
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.openlocfilehash: ac64ce437c74ee5eb8f857aa1abf22779634d4cb
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42871620"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527033"
 ---
 # <a name="general-purpose-virtual-machine-sizes"></a>常规用途虚拟机大小
 

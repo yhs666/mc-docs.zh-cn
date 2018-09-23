@@ -3,7 +3,7 @@ title: 使用 Azure API 管理中的备份和还原实现灾难恢复
 description: 了解如何在 Azure API 管理中使用备份和还原执行灾难恢复。
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: mikebudzynski
 manager: erikre
 editor: ''
 ms.service: api-management
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 08/15/2018
 ms.author: v-yiso
-ms.date: 09/17/2018
-ms.openlocfilehash: 2a156ddd47f7643ba37df9657a224068cc712f61
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.date: 10/08/2018
+ms.openlocfilehash: 694c499ff8af591430cf643f426f92bebe159b6f
+ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068026"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523900"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>如何使用 Azure API 管理中的服务备份和还原实现灾难恢复
 通过 Azure API 管理选择发布和管理 API，即可充分利用了许多容错和基础结构功能，否则必须设计、实现和管理这些功能。 Azure 平台通过花费少量成本消除大量潜在故障。
@@ -183,7 +183,7 @@ POST https://management.azure.cnsubscriptions/{subscriptionId}/resourceGroups/{r
 其中：
 
 * `subscriptionId` - 包含正在将备份还原到的 API 管理服务的订阅 ID
-* `resourceGroupName` - 采用“Api-Default-{service-region}”形式的字符串，其中 `service-region` 标识托管正在将备份还原到的 API 管理服务的 Azure 区域，例如 `North-Central-US`
+* `resourceGroupName` - 包含要将备份还原到的 Azure API 管理服务的资源组的名称
 * `serviceName` - 正在还原到的 API 管理服务的名称，在创建时指定
 * `api-version` - 替换为 `2018-06-01-preview`
 

@@ -3,21 +3,19 @@ title: Azure Functions 的 Microsoft Graph 绑定
 description: 了解如何在 Azure Functions 中使用 Microsoft Graph 触发器和绑定。
 services: functions
 author: mattchenderson
-manager: cfowler
-editor: ''
-ms.service: functions
-ms.tgt_pltfrm: na
+manager: jeconnoc
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 origin.date: 12/20/2017
-ms.date: 07/24/2018
+ms.date: 09/21/2018
 ms.author: v-junlch
-ms.openlocfilehash: dbc21a983eb8fb733a5fd81b057bb2f9bb597e74
-ms.sourcegitcommit: ba07d76f8394b5dad782fd983718a8ba49a9deb2
+ms.openlocfilehash: 55e7a6cec013f9c244864b0ee069f388a4db6985
+ms.sourcegitcommit: 54d9384656cee927000d77de5791c1d585d94a68
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39220261"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46524055"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Azure Functions 的 Microsoft Graph 绑定
 
@@ -738,6 +736,7 @@ public static async Task Run(HttpRequest req, TraceWriter log, Stream myOneDrive
         .FirstOrDefault(q => string.Compare(q.Key, "text", true) == 0)
         .Value;
     await myOneDriveFile.WriteAsync(Encoding.UTF8.GetBytes(data), 0, data.Length);
+    myOneDriveFile.Close();
     return;
 }
 ```
@@ -975,7 +974,7 @@ module.exports = function (context, req) {
 - [Microsoft Graph webhook 订阅输入绑定](#webhook-input)，使你可以列出现有的订阅并选择性地更新这些订阅。
 - [Microsoft Graph webhook 订阅输出绑定](#webhook-output)，使你可以创建或删除 webhook 订阅。
 
-这些绑定本身不需要任何 Azure AD 权限，但是你需要请求你想要响应的资源类型的相关权限。 
+这些绑定本身不需要任何 Azure AD 权限，但是你需要请求你想要响应的资源类型的相关权限。 有关每种资源类型所需的权限列表，请参阅[订阅权限](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/subscription_post_subscriptions)。
 
 有关 webhook 的详细信息，请参阅[使用 Microsoft Graph 中的 webhook]。
 
@@ -1505,8 +1504,8 @@ module.exports = function (context) {
     const existing = context.bindings.existingSubscriptions;
     var toRefresh = [];
     for (var i = 0; i < existing.length; i++) {
-        context.log(`Deleting subscription ${existing[i]}`);
-        todelete.push(existing[i]);
+        context.log(`Refreshing subscription ${existing[i]}`);
+        toRefresh.push(existing[i]);
     }
     context.bindings.subscriptionsToRefresh = toRefresh;
     context.done();

@@ -8,15 +8,15 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 origin.date: 04/26/2018
-ms.date: 09/10/2018
+ms.date: 10/08/2018
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: daa7287fe5154663f1db2a2e537853d1ed021d2b
-ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
+ms.openlocfilehash: 90b6d46551ef1aa896074acd4773b185a6e9bfef
+ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43328981"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523901"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-net-back-end-and-net-device"></a>使用 .NET 后端和 .NET 设备创建 IoT 中心模块标识和模块孪生入门
 
@@ -29,11 +29,12 @@ ms.locfileid: "43328981"
 * **UpdateModuleTwinReportedProperties**，用于将更新的模块孪生报告属性发送到 IoT 中心。
 
 > [!NOTE]
-> 有关可用于生成在设备和解决方案后端上运行的应用程序的 Azure IoT SDK 的信息，请参阅 [Azure IoT SDK][lnk-hub-sdks]。
+> 有关 Azure IoT SDK 的信息（可以使用这些 SDK 构建可在设备和解决方案后端上运行的应用程序），请参阅 [Azure IoT SDK](iot-hub-devguide-sdks.md)。
 
 要完成本教程，需要以下各项：
 
-* Visual Studio 2015 或 Visual Studio 2017。
+* Visual Studio 2017。
+
 * 有效的 Azure 帐户。 如果没有帐户，可以创建一个[试用帐户][lnk-free-trial]，只需几分钟即可完成。
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
@@ -49,15 +50,15 @@ ms.locfileid: "43328981"
 
 1. **创建 Visual Studio 项目** - 在 Visual Studio 中，使用“控制台应用 (.NET Framework)”项目模板将 Visual C# Windows 经典桌面项目添加到现有解决方案。 确保 .NET Framework 为 4.6.1 或更高版本。 将项目命名为“UpdateModuleTwinReportedProperties”。
 
-    ![创建 Visual Studio 项目][13]
+    ![创建 Visual Studio 项目](./media/iot-hub-csharp-csharp-module-twin-getstarted/update-twins-csharp1.JPG)
 
-2. **安装最新的 Azure IoT 中心 .NET 设备 SDK** - 模块标识和模块孪生为公开预览版。 仅在 IoT 中心预发行设备 SDK 中提供它。 在 Visual Studio 中，打开“工具”>“NuGet 包管理器”>“管理解决方案的 NuGet 包”。 搜索 Microsoft.Azure.Devices.Client。 确保已选中“包括预发行版”复选框。 选择最新版本并安装。 现在可以访问所有模块功能。 
+2. **安装最新的 Azure IoT 中心 .NET 设备 SDK：** 模块标识和模块孪生以公共预览版提供。 仅在 IoT 中心预发行设备 SDK 中提供它。 在 Visual Studio 中，打开“工具”>“NuGet 包管理器”>“管理解决方案的 NuGet 包”。 搜索 Microsoft.Azure.Devices.Client。 确保已选中“包括预发行版”复选框。 选择最新版本并安装。 现在可以访问所有模块功能。 
 
-    ![安装 Azure IoT 中心 .NET 服务 SDK V1.16.0-preview-005][14]
+    ![安装 Azure IoT 中心 .NET 服务 SDK V1.16.0-preview-005](./media/iot-hub-csharp-csharp-module-twin-getstarted/install-sdk.png)
 
-3. **获取模块连接字符串** -- 现在，如果登录到 [Azure 门户][lnk-portal]。 导航到 IoT 中心并单击 IoT 设备。 查找并打开 myFirstDevice，可以看到 myFirstModule 已成功创建。 复制模块连接字符串。 下一步将需要它。
+3. **获取模块连接字符串** -- 现在，如果登录到 [Azure 门户](https://portal.azure.com/)。 导航到 IoT 中心并单击 IoT 设备。 查找并打开 myFirstDevice，可以看到 myFirstModule 已成功创建。 复制模块连接字符串。 下一步将需要它。
 
-    ![Azure 门户模块详细信息][15]
+    ![Azure 门户模块详细信息](./media/iot-hub-csharp-csharp-module-twin-getstarted/module-detail.JPG)
 
 4. **创建 UpdateModuleTwinReportedProperties 控制台应用** 在“Program.cs”文件顶部添加以下 `using` 语句：
 
@@ -71,18 +72,22 @@ ms.locfileid: "43328981"
     将以下字段添加到 **Program** 类。 将占位符值替换为模块连接字符串。
 
     ```csharp
-    private const string ModuleConnectionString = "<Your module connection string>";
+    private const string ModuleConnectionString = 
+      "<Your module connection string>";
     private static ModuleClient Client = null;
-    static void ConnectionStatusChangeHandler(ConnectionStatus status, ConnectionStatusChangeReason reason)
+    static void ConnectionStatusChangeHandler(ConnectionStatus status, 
+      ConnectionStatusChangeReason reason)
     {
-        Console.WriteLine("Connection Status Changed to {0}; the reason is {1}", status, reason);
+        Console.WriteLine("Connection Status Changed to {0}; the reason is {1}", 
+          status, reason);
     }
     ```
 
     将以下方法“OnDesiredPropertyChanged”添加到“Program”类：
 
     ```csharp
-    private static async Task OnDesiredPropertyChanged(TwinCollection desiredProperties, object userContext)
+    private static async Task OnDesiredPropertyChanged(TwinCollection desiredProperties, 
+      object userContext)
         {
             Console.WriteLine("desired property change:");
             Console.WriteLine(JsonConvert.SerializeObject(desiredProperties));
@@ -101,11 +106,13 @@ ms.locfileid: "43328981"
     ```csharp
     static void Main(string[] args)
     {
-        Microsoft.Azure.Devices.Client.TransportType transport = Microsoft.Azure.Devices.Client.TransportType.Amqp;
+        Microsoft.Azure.Devices.Client.TransportType transport = 
+          Microsoft.Azure.Devices.Client.TransportType.Amqp;
 
         try
         {
-            Client = ModuleClient.CreateFromConnectionString(ModuleConnectionString, transport);
+            Client = 
+              ModuleClient.CreateFromConnectionString(ModuleConnectionString, transport);
             Client.SetConnectionStatusChangesHandler(ConnectionStatusChangeHandler);
             Client.SetDesiredPropertyUpdateCallbackAsync(OnDesiredPropertyChanged, null).Wait();
 

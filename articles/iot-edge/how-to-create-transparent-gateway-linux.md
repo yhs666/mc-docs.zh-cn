@@ -8,12 +8,12 @@ ms.date: 6/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f54001c26938ea508111542b930b189342303633
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.openlocfilehash: d1ae5bfcc137e385f18811622d66f2ba0b5c0012
+ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068258"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523860"
 ---
 # <a name="create-a-linux-iot-edge-device-that-acts-as-a-transparent-gateway"></a>创建充当透明网关的 Linux IoT Edge 设备
 
@@ -101,8 +101,14 @@ ms.locfileid: "44068258"
    * 设备 CA 证书 - `$WRKDIR/certs/new-edge-device-full-chain.cert.pem`
    * 设备 CA 私钥 - `$WRKDIR/private/new-edge-device.key.pem`
    * 所有者 CA - `$WRKDIR/certs/azure-iot-test-only.root.ca.cert.pem`
+   
+2. 打开 IoT Edge 配置文件。 它是一个受保护的文件，因此可能需要使用提升的权限才能访问它。
+   
+   ```bash
+   sudo nano /etc/iotedge/config.yaml
+   ```
 
-2.  将安全守护程序配置 yaml 文件中的 `certificate` 属性设置为放置证书和密钥文件的路径。
+3.  将 IoT Edge 守护程序配置 yaml 文件中的 `certificate` 属性设置为放置证书和密钥文件的路径。
 
 ```yaml
 certificates:

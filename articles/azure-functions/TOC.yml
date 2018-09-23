@@ -142,10 +142,10 @@ items:
       href: functions-bindings-error-pages.md
   - name: 部署
     items:
-    - name: 连续部署
-      href: functions-continuous-deployment.md
-    - name: Zip 推送部署
+    - name: Zip 部署
       href: deployment-zip-push.md
+    - name: 从程序包运行
+      href: run-functions-from-deployment-package.md
     - name: 自动执行资源部署
       href: functions-infrastructure-as-code.md
     - name: 本地函数
@@ -232,9 +232,9 @@ items:
     href: https://github.com/Azure/Azure-Functions/
   - name: 服务更新
     href: https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=
-ms.openlocfilehash: c9bbff6efbc81737ca090beb2fbe94ac3125d8d6
-ms.sourcegitcommit: b2c9bc0ed28e73e8c43aa2041c6d875361833681
+ms.openlocfilehash: b6894170071d55290db1cb47f0b6659573fe4a7b
+ms.sourcegitcommit: 54d9384656cee927000d77de5791c1d585d94a68
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43330829"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46524019"

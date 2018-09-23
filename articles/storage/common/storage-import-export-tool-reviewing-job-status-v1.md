@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 01/26/2017
 ms.date: 08/28/2017
 ms.author: v-haiqya
-ms.openlocfilehash: c433d605a58920746d7fdb419e110c837262f49c
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.openlocfilehash: 380462068c67c2afef08070acada325590659b8b
+ms.sourcegitcommit: 0081fb238c35581bb527bdd704008c07079c8fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295637"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523679"
 ---
 # <a name="reviewing-azure-importexport-job-status-with-copy-log-files"></a>使用复制日志文件查看 Azure 导入/导出作业状态
 Azure 导入/导出服务在处理与某个导入或导出作业关联的驱动器时，会将日志文件写入到要在其中导入或导出 Blob 的存储帐户。 该日志文件包含与已导入或导出的每个文件相关的详细状态。 查询某个已完成作业的状态时，将返回每个复制日志文件的 URL。  

@@ -1,5 +1,5 @@
 ---
-title: Azure 策略 json 示例 - 拒绝对存储帐户使用冷访问层 | Azure
+title: Azure Policy json 示例 - 拒绝对存储帐户使用冷访问层 | Microsoft Docs
 description: 此 json 示例策略禁止对 blob 存储帐户使用冷访问层。
 services: azure-policy
 documentationcenter: ''
@@ -16,12 +16,12 @@ origin.date: 10/30/2017
 ms.date: 07/09/2018
 ms.author: v-nany
 ms.custom: mvc
-ms.openlocfilehash: 120f0c10c848dab9c5b6d3f6e2cbecf04eae0b04
-ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
+ms.openlocfilehash: 5152cf7a81c18d6362a9c5759420a44f3cf2071e
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37405272"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527052"
 ---
 # <a name="deny-cool-access-tiering-for-storage-accounts"></a>拒绝对存储帐户使用冷访问层
 
@@ -106,4 +106,4 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>后续步骤
 
-- 有关更多示例，请参阅 [Azure 策略示例](../json-samples.md)。
+- 在 [Azure Policy 示例](../json-samples.md)中查看更多示例。

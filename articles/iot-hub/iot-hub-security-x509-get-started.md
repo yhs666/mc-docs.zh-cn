@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 10/10/2017
-ms.date: 08/06/2018
+ms.date: 10/08/2018
 ms.author: yiso
-ms.openlocfilehash: 1e1f32c04b9c98ff8b3f21fdfdcd2fa0ab8ee56a
-ms.sourcegitcommit: d4092cf6aba0d949bf612093c76f964c2bdfd0ba
+ms.openlocfilehash: 4db0e2f99e46c16a563ea53708cffd310dae8d30
+ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39306568"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523854"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>在 Azure IoT 中心设置 X.509 安全性
 
@@ -146,7 +146,7 @@ IoT 中心基于 X.509 证书的安全性需从 [X.509 证书链](https://en.wik
     ```CSharp
     try
     {
-        var cert = new X509Certificate2(@"<absolute-path-to-your-device-pfx-file>", "123");
+        var cert = new X509Certificate2(@"<absolute-path-to-your-device-pfx-file>", "1234");
         var auth = new DeviceAuthenticationWithX509Certificate("<device-id>", cert);
         var deviceClient = DeviceClient.Create("<your-iot-hub-name>.azure-devices.net", auth, TransportType.Amqp_Tcp_Only);
 
@@ -179,8 +179,7 @@ IoT 中心基于 X.509 证书的安全性需从 [X.509 证书链](https://en.wik
 
 * [IoT 安全最佳实践][lnk-security-best-practices]
 * [IoT 安全体系结构][lnk-security-architecture]
-* 
-            [保护 IoT 部署][lnk-security-deployment]
+* [保护 IoT 部署][lnk-security-deployment]
 
 若要进一步探索 IoT 中心的功能，请参阅：
 

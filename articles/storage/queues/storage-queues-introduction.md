@@ -1,5 +1,5 @@
 ---
-title: Azure 队列存储简介 | Azure
+title: Azure 队列存储简介 | Microsoft Docs
 description: Azure 队列存储简介
 services: storage
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 08/07/2017
 ms.date: 10/30/2017
 ms.author: v-johch
-ms.openlocfilehash: f945d8ea1221abc79b2ebe0c5bb751cc094d5d37
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.openlocfilehash: 788c3c2b58373debc7654d154bcafbbbe74c092d
+ms.sourcegitcommit: 0081fb238c35581bb527bdd704008c07079c8fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295631"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523701"
 ---
 # <a name="introduction-to-queues"></a>队列简介
 

@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 04/30/2018
 ms.date: 06/11/2018
 ms.author: v-nany
-ms.openlocfilehash: c51dbbf6763a8713e4902d28be7254e768952509
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.openlocfilehash: ee4830f69e4b94171cda63edcc9ad858c3b3ff17
+ms.sourcegitcommit: 0081fb238c35581bb527bdd704008c07079c8fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295635"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523729"
 ---
 # <a name="unique-features-of-azure-page-blobs"></a>Azure 页 Blob 的独特功能
 
@@ -117,7 +117,6 @@ foreach (PageRange range in pageRanges)
 
 #### <a name="leasing-a-page-blob"></a>租赁页 Blob
 “租赁 Blob”操作在 Blob 上针对写入与删除操作建立和管理一把锁。 如果要从多个客户端访问页 Blob，则此操作非常有用，因为它可以确保每次只有一个客户端能够写入 Blob。 例如，Azure 磁盘利用此租赁机制来确保磁盘只能由一个 VM 管理。 锁的持续时间可以是 15 到 60 秒，也可以是无限期。 有关更多详细信息，请参阅[此文档](https://docs.microsoft.com/rest/api/storageservices/lease-blob)。
-
 
 除了丰富的 REST API 以外，页 Blob 还提供共享访问、持久性和增强的安全性。 后续的篇幅将更详细地介绍这些优势。 
 

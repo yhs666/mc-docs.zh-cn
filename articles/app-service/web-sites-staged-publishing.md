@@ -16,12 +16,12 @@ ms.topic: article
 origin.date: 12/16/2016
 ms.date: 06/04/2018
 ms.author: v-yiso
-ms.openlocfilehash: c5cc6ef456da8a72f8ed8696c4ef926c3b3db6a5
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: bd24aa6bf9bc1fe00caa333e4ee1e72fb6a7b82a
+ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554524"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523883"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>设置 Azure 应用服务中的过渡环境
 <a name="Overview"></a>
@@ -168,10 +168,12 @@ ms.locfileid: "34554524"
 ## <a name="custom-warm-up-before-swap"></a>交换前的自定义准备工作
 某些应用可能需要自定义的准备操作。 web.config 中的 `applicationInitialization` 配置元素允许指定收到请求之前要执行的自定义初始化操作。 交换操作会等待此自定义准备操作完成。 以下是 web.config 片段的示例。
 
-    <applicationInitialization>
-        <add initializationPage="/" hostName="[app hostname]" />
-        <add initializationPage="/Home/About" hostname="[app hostname]" />
-    </applicationInitialization>
+    <system.webServer>
+        <applicationInitialization>
+            <add initializationPage="/" hostName="[app hostname]" />
+            <add initializationPage="/Home/About" hostname="[app hostname]" />
+        </applicationInitialization>
+    </system.webServer>
 
 ## <a name="monitor-swap-progress"></a>监视交换进度
 

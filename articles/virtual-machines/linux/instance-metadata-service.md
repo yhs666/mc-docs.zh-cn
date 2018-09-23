@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 10/10/2017
-ms.date: 06/04/2018
+ms.date: 09/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: 44b074bbccba964c82060befbf4d7b79433a7970
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: de191b3edfb6ee101a8d471eb13389ce0569feb7
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702739"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527067"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure 实例元数据服务
 
@@ -37,10 +37,10 @@ Azure 的实例元数据服务是一个 REST 终结点，可供通过 [Azure 资
 
 区域                                        | 可用性？                                 | 支持的版本
 -----------------------------------------------|-----------------------------------------------|-----------------
-[全球所有公开上市的 Azure 区域](https://azure.microsoft.com/regions/)     | 正式版   | 2017-04-02, 2017-08-01, 2017-12-01
-[Azure 美国政府版](https://azure.microsoft.com/overview/clouds/government/)              | 正式版 | 2017-04-02,2017-08-01
-[Azure 中国](https://www.azure.cn/)                                                           | 正式版 | 2017-04-02,2017-08-01
-[Azure 德国](https://azure.microsoft.com/overview/clouds/germany/)                    | 正式版 | 2017-04-02,2017-08-01
+[全球所有公开上市的 Azure 区域](https://azure.microsoft.com/regions/)     | 正式版   | 2017-04-02、2017-08-01、2017-12-01、2018-02-01、2018-04-02
+[Azure 美国政府版](https://azure.microsoft.com/overview/clouds/government/)              | 正式版 | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01
+[Azure 中国](https://www.azure.cn/)                                                           | 正式版 | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01
+[Azure 德国](https://azure.microsoft.com/overview/clouds/germany/)                    | 正式版 | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01
 <!-- Notice: Correct [All Generally Available Global Azure Regions](https://azure.microsoft.com/regions/) -->
 <!-- Notice : [Azure Government] to [Azure US Government] -->
 
@@ -51,7 +51,7 @@ Azure 的实例元数据服务是一个 REST 终结点，可供通过 [Azure 资
 ## <a name="usage"></a>使用情况
 
 ### <a name="versioning"></a>版本控制
-已对实例元数据服务进行了版本控制。 版本是必需的，全局 Azure 上的当前版本为 `2017-12-01`。 当前支持的版本为（2017-04-02、2017-08-01、2017-12-01）
+已对实例元数据服务进行了版本控制。 版本是必需的，全局 Azure 上的当前版本为 `2018-04-02`。 当前支持的版本为（2017-04-02、2017-08-01、2017-12-01、2018-02-01、2018-04-02）
 
 > [!NOTE] 
 > 支持的计划事件的前一预览版 {latest} 发布为 api-version。 此格式不再受支持，并且将在未来弃用。
@@ -234,7 +234,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 **响应**
 
 > [!NOTE] 
-> 此响应是 JSON 字符串。 以下响应示例以美观的形式输出以提高可读性。
+> 此响应是 JSON 字符串。 以下示例响应显示清晰，可供阅读。
 
 ```json
 {
@@ -300,8 +300,19 @@ subscriptionId | 虚拟机的 Azure 订阅 | 2017-08-01
 标记 | 虚拟机的[标记](../../azure-resource-manager/resource-group-using-tags.md)  | 2017-08-01
 resourceGroupName | 虚拟机的[资源组](../../azure-resource-manager/resource-group-overview.md) | 2017-08-01
 placementGroupId | 虚拟机规模集的[放置组](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) | 2017-08-01
+计划 | [计划] VM 的 (https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan)，Azure 市场映像，包含名称、产品和发行商 | 2017-04-02
+publicKeys | 公钥的集合 [https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey]，已分配给 VM 和路径 | 2017-04-02
 vmScaleSetName | 虚拟机规模集的 [Virtual Machine ScaleSet Name] (../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) | 2017-12-01
-<!-- Not Available on Availability Zone --> ipv4/privateIpAddress | VM 的本地 IPv4 地址 | 2017-04-02 ipv4/publicIpAddress | VM 的本地 IPv4 地址 | 2017-04-02 subnet/address | VM 的子网地址 | 2017-04-02 subnet/prefix | 子网前缀，例如 24 | 2017-04-02 macAddress | VM MAC 地址 | 2017-04-02 scheduledevents | 请参阅[计划的事件](scheduled-events.md) | 2017-08-01 <!--ipv6 not available on Mooncake -->
+ipv4/privateIpAddress | VM 的本地 IPv4 地址 | 2017-04-02
+ipv4/publicIpAddress | VM 的公共 IPv4 地址 | 2017-04-02
+subnet/address | VM 的子网地址 | 2017-04-02 
+subnet/prefix | 子网前缀，例如 24 | 2017-04-02 
+macAddress | VM mac 地址 | 2017-04-02 
+scheduledevents | 请参阅[计划事件](scheduled-events.md) | 2017-08-01
+
+<!-- Not Available on Availability Zone -->
+<!-- Not available on ipv6 Mooncake -->
+<!-- Not Available on MSI -->
 
 ## <a name="example-scenarios-for-usage"></a>用法的示例方案  
 
@@ -324,7 +335,8 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/vmId?api
 ### <a name="placement-of-containers-data-partitions-based-faultupdate-domain"></a>基于容错/更新域放置容器、数据分区 
 
 对于某些方案，不同数据副本的放置至关重要。 例如，对于 [HDFS 副本放置](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html#Replica_Placement:_The_First_Baby_Steps)或者对于通过 [orchestrator](https://kubernetes.io/docs/user-guide/node-selection/) 放置容器，可能需要知道正在运行 VM 的 `platformFaultDomain` 和 `platformUpdateDomain`。
-<!-- Not Available on  [Availability Zones](../../availability-zones/az-overview.md) --> 可以直接通过实例元数据服务查询此数据。
+<!-- Not Available on  [Availability Zones](../../availability-zones/az-overview.md) -->
+可以直接通过实例元数据服务查询此数据。
 
 **请求**
 
@@ -371,6 +383,36 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 }
 ```
 
+### <a name="getting-azure-environment-where-the-vm-is-running"></a>获取 VM 所在的 Azure 环境 
+
+Azure 具有各种主权云，如 [Azure 政府](https://azure.microsoft.com/overview/clouds/government/)，有时需要 Azure 环境来制定运行时决策。 下面的示例演示如何实现此目的
+
+**请求**
+
+> [!NOTE] 
+> 需要安装 jq。 
+
+```bash
+  metadata=$(curl "http://169.254.169.254/metadata/instance/compute?api-version=2018-02-01" -H "Metadata:true")
+  endpoints=$(curl "https://management.chinacloudapi.cn/metadata/endpoints?api-version=2017-12-01")
+
+  location=$(echo $metadata | jq .location -r)
+
+  is_ww=$(echo $endpoints | jq '.cloudEndpoint.public.locations[]' -r | grep -w $location)
+  is_us=$(echo $endpoints | jq '.cloudEndpoint.usGovCloud.locations[]' -r | grep -w $location)
+  is_cn=$(echo $endpoints | jq '.cloudEndpoint.chinaCloud.locations[]' -r | grep -w $location)
+  is_de=$(echo $endpoints | jq '.cloudEndpoint.germanCloud.locations[]' -r | grep -w $location)
+
+  environment="Unknown"
+  if [ ! -z $is_ww ]; then environment="AzureCloud"; fi
+  if [ ! -z $is_us ]; then environment="AzureUSGovernment"; fi
+  if [ ! -z $is_cn ]; then environment="AzureChinaCloud"; fi
+  if [ ! -z $is_de ]; then environment="AzureGermanCloud"; fi
+
+  echo $environment
+```
+<!-- Line 406 should be "AzureCloud"-->
+
 ### <a name="examples-of-calling-metadata-service-using-different-languages-inside-the-vm"></a>使用 VM 中的不同语言调用元数据服务的示例 
 
 语言 | 示例 
@@ -395,16 +437,20 @@ Puppet | https://github.com/keirans/azuremetadata
    * 当前实例元数据服务仅支持 Azure Resource Manager 创建的实例。 将来可能会添加对云服务 VM 的支持。
 3. 我刚才通过 Azure Resource Manager 创建了我的虚拟机。 为什么我无法看到计算元数据信息？
    * 对于 2016 年 9 月之后创建的所有 VM，请添加[标记](../../azure-resource-manager/resource-group-using-tags.md)以开始查看计算元数据。 对于早期 VM（在 2016 年 9 月之前创建），请在 VM 中添加/删除扩展或数据磁盘以刷新元数据。
-4. 我看不到为新版本 2017-08-01 填充的任何数据
+4. 我看不到为新版本填充的任何数据
    * 对于 2016 年 9 月之后创建的所有 VM，请添加[标记](../../azure-resource-manager/resource-group-using-tags.md)以开始查看计算元数据。 对于早期 VM（在 2016 年 9 月之前创建），请在 VM 中添加/删除扩展或数据磁盘以刷新元数据。
 5. 我为什么会收到错误 `500 Internal Server Error`？
    * 请根据指数后退系统重试请求。 如果问题持续出现，请联系 Azure 支持部门。
 6. 在何处共享其他问题/评论？
-   * 在 http://feedback.azure.com 上发送评论。
+   * 在 https://www.azure.cn/support/contact/ 上发送评论。
 7. 这是否适用于虚拟机规模集实例？
    * 是的，元数据服务可用于规模集实例。 
 8. 如何获取服务支持？
    * 若要获取服务支持，请针对无法在长时间重试后获得元数据响应的 VM，在 Azure 门户中创建支持问题。 
+9. 调用服务时请求超时？
+   * 必须从分配给 VM 的网卡的主 IP 地址进行元数据调用，此外，在已更改路由的情况下，网卡外必须存在地址 169.254.0.0/16 的路由。
+10. 我更新了虚拟机规模集中的标记，但它们未显示在与 VM 不同的实例中，这是怎么回事？
+   * 目前，对于规模集，仅在重启/重置映像/或对实例的磁盘更改时，向 VM 显示标记。 
 
    ![实例元数据支持](./media/instance-metadata-service/InstanceMetadata-support.png)
 

@@ -7,13 +7,13 @@ services: iot-hub
 ms.topic: conceptual
 origin.date: 08/08/2017
 ms.author: v-yiso
-ms.date: 09/10/2018
-ms.openlocfilehash: a0e1e8ec99ac0afef3376d9c7f46106fe8480cf6
-ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
+ms.date: 10/08/2018
+ms.openlocfilehash: dc814e34e905dd3dabcebcba850294995a0ede6f
+ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43328953"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523906"
 ---
 # <a name="configure-iot-hub-file-uploads-using-powershell"></a>使用 PowerShell 配置 IoT 中心文件上传
 
@@ -95,15 +95,15 @@ Get-AzureRmStorageAccountKey `
 
 配置需要以下值：
 
-**存储容器**：当前 Azure 订阅中要与 IoT 中心关联的 Azure 存储帐户中的 Blob 容器。 检索在上一部分中必要的存储帐户信息。 IoT 中心会自动生成对此 Blob 容器具有写入权限的 SAS URI，以供设备上传文件时使用。
+* **存储容器**：当前 Azure 订阅中要与 IoT 中心关联的 Azure 存储帐户中的 Blob 容器。 检索在上一部分中必要的存储帐户信息。 IoT 中心会自动生成对此 Blob 容器具有写入权限的 SAS URI，以供设备上传文件时使用。
 
-**接收已上传文件的通知**：启用或禁用文件上传通知。
+* **接收已上传文件的通知**：启用或禁用文件上传通知。
 
-**SAS TTL**：此设置是 IoT 中心返回给设备的 SAS URI 生存时间。 默认设置为一小时。
+* **SAS TTL**：此设置是 IoT 中心返回给设备的 SAS URI 生存时间。 默认设置为一小时。
 
-**文件通知设置默认 TTL**：文件上传通知到期前的生存时间。 默认设置为一天。
+* **文件通知设置默认 TTL**：文件上传通知到期前的生存时间。 默认设置为一天。
 
-**文件通知最大传送数**：IoT 中心将尝试传送文件上传通知的次数。 默认设置为 10。
+* **文件通知最大传送数**：IoT 中心将尝试传送文件上传通知的次数。 默认设置为 10。
 
 使用以下 PowerShell cmdlet 在 IoT 中心内配置上传文件设置：
 

@@ -1,25 +1,26 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 8a5810de2859296eed82ee3ba8efe2bde1b2c7a0
-ms.sourcegitcommit: 9a82a54c6b6f4d8074139e090011fe05b8018fcf
+ms.openlocfilehash: 3f58a4dd574203b063dcf9ddce6a98e2cdd3fbd3
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44363141"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527095"
 documentType: LandingData
 title: 用于 MySQL 的 Azure 数据库文档
 metadata:
   document_id: 8d915ae6-9101-ad37-0736-3eaa59c2dd34
-  title: Azure MySQL 文档 - 教程和 API 参考 | Azure
+  title: Azure MySQL 文档 - 教程和 API 参考 | Microsoft Docs
   description: 用于 MySQL 的 Azure 数据库是 Microsoft 云中基于开源 MySQL 数据库引擎的、为开发人员构建的关系型数据库服务。
   services: mysql
-  author: v-chenyh
-  manager: carolz
+  author: WenJason
+  manager: digimobile
   ms.service: mysql
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 06/15/2018
-  ms.author: v-chenyh
+  origin.date: 04/13/2017
+  ms.date: 09/24/2018
+  ms.author: v-jay
 abstract:
   description: 用于 MySQL 的 Azure 数据库是基于开源 MySQL Server 引擎的关系型数据库服务。  它是一个完全托管的数据库即服务产品，能够处理任务关键型工作负荷，并提供可预测的性能和动态可伸缩性。 利用所选的开源工具和平台开发包含用于 MySQL 的 Azure 数据库的应用程序。 参考我们的快速入门、教程和示例了解如何使用用于 MySQL 的 Azure 数据库。
 sections:
@@ -46,6 +47,7 @@ sections:
     style: ordered
     items:
     - html: '设计数据库& #58; <a href="/mysql/tutorial-design-database-using-portal">Azure 门户</a> | <a href="/mysql/tutorial-design-database-using-cli">Azure CLI</a>'
+    - html: 创建 Web 应用&#58; <a href="https://portal.azure.com/#create/hub">Wordpress - 门户</a> | <a href="../app-service-web/app-service-web-tutorial-php-mysql.md?toc=%2fmysql%2ftoc.json">PHP - Azure CLI</a>
 - title: 参考
   items:
   - type: list

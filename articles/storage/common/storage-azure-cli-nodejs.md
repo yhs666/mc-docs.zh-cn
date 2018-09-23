@@ -1,26 +1,19 @@
 ---
-title: 将 Azure CLI 1.0 用于 Azure 存储 | Azure
+title: 将 Azure CLI 1.0 用于 Azure 存储 | Microsoft Docs
 description: 了解如何将 Azure 命令行界面 (Azure CLI) 1.0 用于 Azure 存储，以便创建和管理存储帐户并处理 Azure blob 和文件。 Azure CLI 是一个跨平台工具
 services: storage
-documentationcenter: na
-author: seguler
-manager: jahogg
-editor: tysonn
-ms.assetid: b502232a-e8f6-4d6c-befd-3476592e0e35
+author: WenJason
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 01/30/2017
-ms.date: 07/30/2018
-ms.author: v-haiqya
-ms.openlocfilehash: 9c431970db6d10fd19f79b9f6f6e9ae95c9c7001
-ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
+ms.date: 09/24/2018
+ms.author: v-jay
+ms.openlocfilehash: e5d964af8a2484113bf89752e55401cf9fc23aa6
+ms.sourcegitcommit: 0081fb238c35581bb527bdd704008c07079c8fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39723069"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523709"
 ---
 # <a name="using-the-azure-cli-10-with-azure-storage"></a>将 Azure CLI 1.0 用于 Azure 存储
 
@@ -242,4 +235,3 @@ azure storage file copy start --source-container srcctn --source-blob hello2.txt
 * [Azure 服务管理模式下的 Azure CLI 命令](../../cli-install-nodejs.md)
 
 可能还想尝试将 [Azure CLI 2.0](../storage-azure-cli.md)（使用 Python 编写的下一代 CLI）与资源管理器部署模型配合使用。
-<!--Update_Description: update link-->

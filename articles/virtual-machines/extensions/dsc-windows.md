@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: windows
 ms.workload: ''
 origin.date: 03/26/2018
-ms.date: 06/04/2018
+ms.date: 09/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: b6503db0cd3afd7d57498418dfa82e9e7db0af40
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: bf59d0c3b51283b3e799f2fcb856983c8ac00453
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702911"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527184"
 ---
 # <a name="powershell-dsc-extension"></a>PowerShell DSC 扩展
 
@@ -99,7 +99,7 @@ Windows Server 2016、Windows Server 2012R2、Windows Server 2012、Windows Serv
 
 ### <a name="property-values"></a>属性值
 
-| Name | 值/示例 | 数据类型 |
+| 名称 | 值/示例 | 数据类型 |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | 日期 |
 | 发布者 | Microsoft.Powershell.DSC | 字符串 |
@@ -189,5 +189,4 @@ C:\WindowsAzure\Logs\Plugins\{Extension_Name}\{Extension_Version}
 ### <a name="support"></a>支持
 
 如果对本文中的任何观点存在疑问，可以联系 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/) 上的 Azure 专家。 或者，也可以提交 Azure 支持事件。 请转到 [Azure 支持站点](https://www.azure.cn/support/contact/)并选择“获取支持”。 有关使用 Azure 支持的信息，请阅读 [Azure 支持常见问题](https://www.azure.cn/support/faq/)。
-<!-- Update_Description: new articles on dsc windows extension -->
-<!--ms.date: 06/04/2018-->
+<!-- Update_Description: update meta properties, wording update -->

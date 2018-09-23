@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure CLI 创建和管理 Azure Database for MySQL VNet 服务终结点和规则 | Azure
+title: 使用 Azure CLI 创建和管理 Azure Database for MySQL VNet 服务终结点和规则 | Microsoft Docs
 description: 本文介绍如何使用 Azure CLI 命令行创建和管理 Azure Database for MySQL VNet 服务终结点和规则。
 services: mysql
 author: WenJason
@@ -11,12 +11,12 @@ ms.devlang: azure-cli
 ms.topic: article
 origin.date: 08/15/2018
 ms.date: 08/27/2018
-ms.openlocfilehash: 5d3aa54948ed7b89b666737267a224e907e962dc
-ms.sourcegitcommit: 6dd65fba579a2ce25c63ac69ff3b71d814a9d256
+ms.openlocfilehash: 6e37c2fb200c2f0f17e4b858c81b8c78b8e2a775
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42703841"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46526869"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-vnet-service-endpoints-using-azure-cli"></a>使用 Azure CLI 创建和管理 Azure Database for MySQL VNet 服务终结点
 虚拟网络 (VNet) 服务终结点和规则可将虚拟网络的专用地址空间扩展到 Azure Database for MySQL 服务器。 使用便捷的 Azure 命令行接口 (CLI) 命令，可创建、更新、删除、列出和显示 VNet 服务终结点和规则，用于管理服务器。 若要概览 Azure Database for MySQL VNet 服务终结点（包括限制），请参阅 [Azure Database for MySQL 服务器 VNet 服务终结点](concepts-data-access-and-security-vnet.md)。 在 Azure Database for MySQL 的所有支持区域中均提供 VNet 服务终结点。
