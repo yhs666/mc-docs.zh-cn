@@ -2,19 +2,20 @@
 title: 配置 SSL 连接性以安全连接到 Azure Database for MySQL
 description: 介绍了如何正确配置 Azure Database for MySQL 和关联的应用程序，以正确使用 SSL 连接
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
+author: WenJason
+ms.author: v-jay
 editor: jasonwhowell
 manager: kfile
 ms.service: mysql-database
 ms.topic: article
-ms.date: 06/16/2018
-ms.openlocfilehash: 04181414b76c7cc176132fe72aa9c97cbfd696e7
-ms.sourcegitcommit: 5ccfb836b271e60d44ba8a871b8904a695fe8e27
+origin.date: 02/28/2018
+ms.date: 09/24/2018
+ms.openlocfilehash: d34c1a4a5a2ed14246f9b555d720c9d17e20a634
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41703888"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527134"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mysql"></a>配置应用程序的 SSL 连接性以安全连接到 Azure Database for MySQL
 
@@ -104,7 +105,7 @@ pem, _ := ioutil.ReadFile("/var/www/html/BaltimoreCyberTrustRoot.crt.pem")
 if ok := rootCertPool.AppendCertsFromPEM(pem); !ok {
     log.Fatal("Failed to append PEM.")
 }
-mysql.RegisterTLSConfig("custom", &tls.Config{RootCAs: rootCertPool, InsecureSkipVerify: true})
+mysql.RegisterTLSConfig("custom", &tls.Config{RootCAs: rootCertPool})
 var connectionString string
 connectionString = fmt.Sprintf("%s:%s@tcp(%s:3306)/%s?allowNativePasswords=true&tls=custom",'myadmin@mydemoserver' , 'yourpassword', 'mydemoserver.mysql.database.chinacloudapi.cn', 'quickstartdb')    
 db, _ := sql.Open("mysql", connectionString)

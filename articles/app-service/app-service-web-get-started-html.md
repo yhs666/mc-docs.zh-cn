@@ -12,16 +12,16 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-origin.date: 06/15/2018
-ms.date: 07/30/2018
+origin.date: 08/24/2018
+ms.date: 10/08/2018
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: 51bab2673cfc4fe27011d3e14f7d84cbb2331fa4
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.openlocfilehash: 750e2244d0afcb999b62323a79c03bd1168f864f
+ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39167959"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523913"
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>在 Azure 中创建静态 HTML Web 应用
 
@@ -37,7 +37,7 @@ ms.locfileid: "39167959"
 若要安装该 Web 应用扩展，请运行以下命令：
 
 ```bash
-az extension add -n webapp
+az extension add --name webapp
 ```
 
 安装该扩展后，Cloud Shell 会显示类似于以下示例的信息：
@@ -70,7 +70,7 @@ git clone https://github.com/Azure-Samples/html-docs-hello-world.git
 ```bash
 cd html-docs-hello-world
 
-az webapp up -n <app_name>
+az webapp up --location chinaeast --name <app_name>
 ```
 
 `az webapp up` 命令执行以下操作：
@@ -91,10 +91,10 @@ az webapp up -n <app_name>
   "location": "China East",
   "name": "<app_name>",
   "os": "Windows",
-  "resourcegroup": "appsvc_rg_Windows_CentralUS ",
-  "serverfarm": "appsvc_asp_Windows_CentralUS",
+  "resourcegroup": "appsvc_rg_Windows_chinaeast",
+  "serverfarm": "appsvc_asp_Windows_chinaeast",
   "sku": "FREE",
-  "src_path": "/home/username/quickstart/html-docs-hello-world ",
+  "src_path": "/home/<username>/quickstart/html-docs-hello-world ",
   < JSON data removed for brevity. >
 }
 ```
@@ -113,7 +113,7 @@ az webapp up -n <app_name>
 
 ## <a name="update-and-redeploy-the-app"></a>更新并重新部署应用
 
-在 nano 文本编辑器中打开 *index.html* 文件。在 H1 标题中，将“Azure 应用服务 - 示例静态 HTML 站点”更改为“Azure 应用服务”，如下所示。
+在终端窗口中，键入 `nano index.html` 以打开 nano 文本编辑器。 在 `<h1>` 标题标记中，将“Azure 应用服务 - 示例静态 HTML 站点”更改为“Azure 应用服务”，如下所示。
 
 ![Nano index.html](media/app-service-web-get-started-html/nano-index-html.png)
 
@@ -121,7 +121,7 @@ az webapp up -n <app_name>
 
 现在，需使用同一 `az webapp up` 命令重新部署应用。
 ```bash
-az webapp up -n <app_name>
+az webapp up --location chinaeast --name <app_name>
 ```
 
 完成部署后，切换回**浏览到应用**步骤中打开的浏览器窗口，然后刷新页面。
@@ -147,7 +147,7 @@ az webapp up -n <app_name>
 在前面的步骤中，在资源组中创建了 Azure 资源。 如果认为将来不需要这些资源，请通过运行以下命令删除资源组。 请记住，资源组名称已在[创建 Web 应用](#create-a-web-app)步骤中自动为你生成。
 
 ```bash
-az group delete --name appsvc_rg_Windows_CentralUS
+az group delete --name appsvc_rg_Windows_chinaeast
 ```
 
 此命令可能需要花费一分钟时间运行。

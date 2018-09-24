@@ -6,15 +6,15 @@ manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: reference
 origin.date: 06/25/2018
-ms.date: 08/06/2018
+ms.date: 09/24/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3ed266e70fd88744d18658e14ff821a3db6c8df1
-ms.sourcegitcommit: c6205500afd23ac00f2829fe51858b51a622eaf1
+ms.openlocfilehash: 17e2be66e7b75026e77f4b7c6cffb67eeffb89bb
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39487855"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527174"
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>使用 PowerShell 管理 Azure Analysis Services
 
@@ -49,7 +49,7 @@ ms.locfileid: "39487855"
 |Cmdlet|说明| 
 |------------|-----------------| 
 |[Add-AzureAnalysisServicesAccount](https://docs.microsoft.com/powershell/module/azure.analysisservices/add-azureanalysisservicesaccount)|添加要用于 Azure Analysis Services 服务器 cmdlet 请求的经过身份验证帐户。| 
-|[Export-AzureAnalysisServicesInstance]()|在 Add-AzureAnalysisServicesAccount 命令指定的当前登录环境中，从 Analysis Services 服务器实例中导出日志|  
+|[Export-AzureAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/export-azureanalysisservicesinstancelog)|在 Add-AzureAnalysisServicesAccount 命令指定的当前登录环境中，从 Analysis Services 服务器实例中导出日志|  
 |[Restart-AzureAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/restart-azureanalysisservicesinstance)|在当前登录的环境中重新启动 Analysis Services 服务器的实例；在 Add-AzureAnalysisServicesAccount 命令中指定。|  
 |[Sync-AzureAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/restart-azureanalysisservicesinstance)|在 Add-AzureAnalysisServicesAccount 命令指定的当前登录环境中，将指定的 Analysis Services 服务器实例上的指定数据库同步到所有查询横向扩展实例|  
 

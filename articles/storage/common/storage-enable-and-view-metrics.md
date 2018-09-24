@@ -1,26 +1,20 @@
 ---
-title: 在 Azure 门户中启用存储度量值 | Azure
+title: 在 Azure 门户中启用存储度量值 | Microsoft Docs
 description: 如何为 Blob、队列、表和文件服务启用存储度量值
 services: storage
-documentationcenter: ''
-author: forester123
-manager: digimobile
-editor: tysonn
-ms.assetid: 0407adfc-2a41-4126-922d-b76e90b74563
+author: WenJason
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 02/14/2017
-ms.date: 10/30/2017
-ms.author: v-johch
-ms.openlocfilehash: 383dc3568fdab424d58f6557238b0ce3eeb69d6d
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.date: 09/24/2017
+ms.author: v-jay
+ms.openlocfilehash: 6a2316777a85715bc46866ecc6525637081b42fb
+ms.sourcegitcommit: 0081fb238c35581bb527bdd704008c07079c8fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295801"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523717"
 ---
 # <a name="enabling-azure-storage-metrics-and-viewing-metrics-data"></a>启用 Azure 存储指标并查看指标数据
 [!INCLUDE [storage-selector-portal-enable-and-view-metrics](../../../includes/storage-selector-portal-enable-and-view-metrics.md)]
@@ -150,6 +144,8 @@ blobClient.SetServiceProperties(properties);
 * 请求类型是 all（在这种情况下是摘要行）或可识别的特定 API，如 QueryEntity 或 UpdateEntity。
 
 上面的示例数据显示一分钟的所有记录（从上午 11:00 开始），因此 QueryEntities 请求数加 QueryEntity 请求数再加 UpdateEntity 请求数的和为 7，这是显示在 user:All 行上的总数。 同样，通过计算 ((143.8 * 5) + 3 + 9)/7，可以在 user:All 行得到平均端到端延迟为 104.4286。
+
+请注意，Blob 每小时指标设置同时应用于 Blob 容量指标 ($MetricsCapacityBlob) 和每小时 Blob 事务指标 ($MetricsHourPrimaryTransactionsBlob)。 这两种指标同时启用或禁用，并使用相同的保留策略。
 
 ## <a name="metrics-alerts"></a>度量警报
 应考虑在 [Azure 门户](https://portal.azure.cn)中设置警报，以便存储指标可以自动通知存储服务行为的重要更改。 如果使用存储资源管理器工具下载这种采用分隔格式的指标数据，则可以使用 Microsoft Excel 分析数据。 有关可用存储资资源管理器工具的列表，请参阅 [Azure 存储客户端工具](storage-explorers.md)。 可以在“警报规则”窗格中（可在存储帐户菜单窗格中的“监视”下进行访问）配置警报。

@@ -9,15 +9,15 @@ editor: jasonwhowell
 ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: quickstart
-ms.date: 04/01/2018
-origin.date: 08/27/2018
+ms.date: 09/24/2018
+origin.date: 09/14/2018
 ms.custom: mvc
-ms.openlocfilehash: 3d5b5c466a410beff2d9f6996f1480adadce8df8
-ms.sourcegitcommit: 6dd65fba579a2ce25c63ac69ff3b71d814a9d256
+ms.openlocfilehash: 9f936ce8aee3da0eb04e1154f2ac3c6dea681d30
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42703824"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527094"
 ---
 # <a name="create-an-azure-database-for-mysql-server-using-azure-cli"></a>使用 Azure CLI 为 MySQL 服务器创建 Azure 数据库
 
@@ -47,16 +47,32 @@ az group create --name myresourcegroup --location chinaeast2
 ## <a name="create-an-azure-database-for-mysql-server"></a>创建 Azure Database for MySQL 服务器
 使用 **[az mysql server create](/cli/mysql/server#az-mysql-server-create)** 命令创建 Azure Database for MySQL 服务器。 一个服务器可以管理多个数据库。 通常，每个项目或每个用户使用一个单独的数据库。
 
-下面的示例使用服务器管理员登录名 `myadmin` 在资源组 `myresourcegroup` 中创建位于“中国东部 2”区域的名为 `mydemoserver` 的服务器。 这是**第 5 代****常规用途**服务器，带有 2 个 **vCore**。 服务器的名称映射到 DNS 名称，因此需要在 Azure 中全局唯一。 用自己的值替换 `<server_admin_password>`。
-```cli
-az mysql server create --resource-group myresourcegroup --name mydemoserver  --location chinaeast2 --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 --version 5.7
-```
+**设置** | **示例值** | **说明**
+---|---|---
+name | mydemoserver | 选择用于标识 Azure Database for MySQL 服务器的唯一名称。 服务器名称只能包含小写字母、数字和连字符 (-) 字符。 必须包含 3 到 63 个字符。
+resource-group | myresourcegroup | 提供 Azure 资源组的名称。
+sku-name | GP_Gen5_2 | SKU 的名称。 遵循约定“{定价层}_{计算代系}_{vCores}”的简写形式。 参阅下表详细了解 sku-name 参数。
+backup-retention | 7 | 备份保留时间。 单位为天。 范围为 7-35。 
+geo-redundant-backup | 已禁用 | 是否应为此服务器启用异地冗余备份。 允许的值：Enabled、Disabled。
+location | chinaeast2 | 服务器的 Azure 位置。
+ssl-enforcement | Enabled | 是否应为此服务器启用 SSL。 允许的值：Enabled、Disabled。
+storage-size | 51200 | 服务器的存储容量（以 MB 为单位）。 有效的 storage-size 最小为 5120MB，以 1024MB 为增量递增。 有关存储大小限制的详细信息，请参阅[定价层](./concepts-pricing-tiers.md)文档。 
+版本 | 5.7 | MySQL 主版本。
+admin-user | myadmin | 管理员的登录用户名。 不能是 **azure_superuser**、**admin**、**administrator**、**root**、**guest** 或 **public**。
+admin-password | Password123 | 管理员用户的密码。 该密码必须包含 8 到 128 个字符。 密码必须含以下字符类别中的三类：英文大写字母、英文小写字母、数字和非字母数字字符。
+
+
 sku-name 参数值遵循 {定价层}\_{计算层代}\_{vCore 数} 约定，如以下示例中所示：
 + `--sku-name B_Gen5_4` 映射到基本、第 5 代和 4 个 vCore。
 + `--sku-name GP_Gen5_32` 映射到常规用途、第 5 层和 32 个 vCore。
 + `--sku-name MO_Gen5_2` 映射到内存优化、第 5 层和 2 个 vCore。
 
 请参阅[定价层](./concepts-pricing-tiers.md)文档来了解适用于每个区域和每个层的有效值。
+
+以下示例使用服务器管理员登录名 `myadmin` 在资源组 `myresourcegroup` 中创建位于“中国东部 2”区域的名为 `mydemoserver` 的 MySQL 5.7 服务器。 这是**第 5 代****常规用途**服务器，带有 **2 个 vCore**。 用自己的值替换 `<server_admin_password>`。
+```azurecli
+az mysql server create --resource-group myresourcegroup --name mydemoserver  --location chinaeast2 --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 --version 5.7
+```
 
 ## <a name="configure-firewall-rule"></a>配置防火墙规则
 使用 **[az mysql server firewall-rule create](/cli/mysql/server/firewall-rule#az-mysql-server-firewall-rule-create)** 命令创建 Azure Database for MySQL 服务器级防火墙规则。 服务器级防火墙规则允许外部应用程序（如 **mysql.exe** 命令行工具或 MySQL Workbench）通过 Azure MySQL 服务防火墙连接到服务器。 

@@ -3,24 +3,20 @@ title: 安装 Durable Functions 扩展和示例 - Azure
 description: 了解如何针对门户开发或 Visual Studio 开发安装 Azure Functions 的 Durable Functions 扩展。
 services: functions
 author: cgillum
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
-origin.date: 03/19/2018
-ms.date: 08/31/2018
+ms.topic: conceptual
+origin.date: 08/31/2018
+ms.date: 09/21/2018
 ms.author: v-junlch
-ms.openlocfilehash: 26dfa9edb43a884cba079292f37972956e5fdf37
-ms.sourcegitcommit: b2c9bc0ed28e73e8c43aa2041c6d875361833681
+ms.openlocfilehash: 8ddd1bac4161df99d99cbe6ee9e8ee00322904ca
+ms.sourcegitcommit: 54d9384656cee927000d77de5791c1d585d94a68
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43330736"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46524007"
 ---
 # <a name="install-the-durable-functions-extension-and-samples-azure-functions"></a>安装 Durable Functions 扩展和示例 (Azure Functions)
 
@@ -36,12 +32,12 @@ Azure Functions 的 [Durable Functions](durable-functions-overview.md) 扩展是
 
 ### <a name="prerequisites"></a>先决条件
 
-- 安装[最新版本的 Visual Studio](https://www.visualstudio.com/downloads/)（15.3 版或更高版本）。 在安装选项中包括 **Azure 开发**工作负荷。
+- 安装[最新版本的 Visual Studio](https://www.visualstudio.com/downloads/)（15.6 版或更高版本）。 在安装选项中包括 **Azure 开发**工作负荷。
 
 ### <a name="start-with-sample-functions"></a>从示例函数开始 
 
 1. 下载 [Visual Studio 的示例应用 .zip 文件](https://azure.github.io/azure-functions-durable-extension/files/VSDFSampleApp.zip)。 不需要添加 NuGet 引用，因为示例项目中已包含它。
-2. 安装并运行 [Azure 存储模拟器](/storage/storage-use-emulator) 5.2 版或更高版本。 另外，也可以使用实际的 Azure 存储连接字符串更新 *local.appsettings.json* 文件。
+2. 安装并运行 [Azure 存储模拟器](/storage/storage-use-emulator) 5.6 版或更高版本。 另外，也可以使用实际的 Azure 存储连接字符串更新 *local.appsettings.json* 文件。
 3. 在 Visual Studio 2017 中打开项目。 
 4. 若要获得有关如何运行示例的说明，请首先查看[函数链接 - Hello 序列示例](durable-functions-sequence.md)。 示例可以在本地运行，也可以发布到 Azure。
 
@@ -50,7 +46,7 @@ Azure Functions 的 [Durable Functions](durable-functions-overview.md) 扩展是
 按照与从示例开始相同的说明执行操作，但请执行以下步骤而非下载 *.zip* 文件：
 
 1. 创建一个 Function App 项目。
-2. 使用“管理 NuGet 包”搜索以下 NuGet 包引用并将其添加到项目：Microsoft.Azure.WebJobs.Extensions.DurableTask v1.5.0
+2. 使用“管理 NuGet 包”搜索以下 NuGet 包引用并将其添加到项目：Microsoft.Azure.WebJobs.Extensions.DurableTask v1.6.0
    
 ## <a name="visual-studio-code"></a>Visual Studio Code
 
@@ -68,7 +64,7 @@ Visual Studio Code 提供一种涵盖所有主要平台（Windows、macOS 和 Li
     >[!IMPORTANT]
     >JavaScript 中的 Durable Functions 需要 Azure Functions Core Tools 2.x 版。
 
--  如果使用 Windows 计算机，请安装并运行 [Azure 存储模拟器](/storage/storage-use-emulator) 5.2 版或更高版本。 另外，也可以使用实际的 Azure 存储连接更新 *local.appsettings.json* 文件。 
+-  如果使用 Windows 计算机，请安装并运行 [Azure 存储模拟器](/storage/storage-use-emulator) 5.6 版或更高版本。 另外，也可以使用实际的 Azure 存储连接更新 *local.appsettings.json* 文件。 
 
 
 ### <a name="start-with-sample-functions"></a>从示例函数开始
@@ -80,12 +76,12 @@ Visual Studio Code 提供一种涵盖所有主要平台（Windows、macOS 和 Li
 3. 在命令提示/终端窗口中运行以下命令，安装 Azure Functions Durable Extension：
 
     ```bash
-    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.5.0
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.6.0
     ```
 4. 在命令提示/终端窗口中运行以下命令，安装 Azure Functions Twilio Extension：
 
     ```bash
-    func extensions install -p Microsoft.Azure.WebJobs.Extensions.Twilio -v 3.0.0-beta5
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.Twilio -v 3.0.0-beta8
     ```
 5. 运行 Azure 存储仿真器，或使用实际的 Azure 存储连接字符串更新 *local.appsettings.json* 文件。
 6. 在 Visual Studio Code 中打开项目。 
@@ -102,7 +98,7 @@ Visual Studio Code 提供一种涵盖所有主要平台（Windows、macOS 和 Li
 3. 在命令提示/终端窗口中运行以下命令，安装 Azure Functions Durable Extension：
 
     ```bash
-    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.5.0
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.6.0
     ```
 4. 在命令提示/终端窗口中运行以下命令，还原 npm 包：
     
@@ -123,7 +119,7 @@ Visual Studio Code 提供一种涵盖所有主要平台（Windows、macOS 和 Li
 2. 在命令提示/终端窗口中运行以下命令，安装 Azure Functions Durable Extension：
 
     ```bash
-    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.5.0
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.6.0
     ```
 3. 运行以下命令创建函数应用项目：
 

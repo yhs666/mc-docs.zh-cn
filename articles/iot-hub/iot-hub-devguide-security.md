@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 07/18/2018
 ms.author: v-yiso
 ms.date: 09/10/2018
-ms.openlocfilehash: b3849c5550cf3fe8243f1a042897dc8456eadb1b
-ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
+ms.openlocfilehash: d3230356d7ba816270032399fbde1204a0787014
+ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43328884"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523911"
 ---
 # <a name="control-access-to-iot-hub"></a>控制对 IoT 中心的访问
 
@@ -89,7 +89,9 @@ HTTPS 通过在 Authorization 请求标头中包含有效的令牌来实施身�
 #### <a name="example"></a>示例
 用户名（DeviceId 区分大小写）：`iothubname.azure-devices.net/DeviceId`
 
-密码（使用[设备资源管理器][lnk-device-explorer]工具生成 SAS 令牌）：`SharedAccessSignature sr=iothubname.azure-devices.net%2fdevices%2fDeviceId&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501`
+密码（可使用[设备资源管理器][lnk-device-explorer]工具、CLI 扩展命令 [az iot hub generate-sas-token](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-generate-sas-token) 或[用于 Visual Studio Code 的 Azure IoT 工具包扩展](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)来生成 SAS 令牌）：
+
+`SharedAccessSignature sr=iothubname.azure-devices.net%2fdevices%2fDeviceId&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501`
 
 > [!NOTE]
 > [Azure IoT SDK][lnk-sdks] 在连接到服务时自动生成令牌。 某些情况下，Azure IoT SDK 不支持部分协议或身份验证方法。
@@ -272,7 +274,7 @@ SharedAccessSignature sr=myhub.azure-devices.net%2fdevices%2fdevice1&sig=13y8ejU
 ```
 
 > [!NOTE]
-> 可使用[设备资源管理器][lnk-device-explorer]工具或基于 Python 的跨平台 [Azure CLI 2.0 IoT 扩展][lnk-IoT-extension-CLI-2.0] 命令行实用程序生成 SAS 令牌。
+> 可使用[设备资源管理器][lnk-device-explorer]工具、CLI 扩展命令 [az iot hub generate-sas-token](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-generate-sas-token) 或[用于 Visual Studio Code 的 Azure IoT 工具包扩展](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)来生成 SAS 令牌。
 > 
 > 
 
@@ -333,7 +335,7 @@ SharedAccessSignature sr=myhub.azure-devices.cn%2fdevices%2fdevice1&sig=13y8ejUk
 
 ```nodejs
     var endpoint ="myhub.azure-devices.cn/devices";
-    var policyName = 'device';
+    var policyName = 'registryRead';
     var policyKey = '...';
 
     var token = generateSasToken(endpoint, policyKey, policyName, 60);
@@ -361,6 +363,8 @@ SharedAccessSignature sr=myhub.azure-devices.cn%2fdevices&sig=JdyscqTpXdEJs49elI
 
 ### <a name="register-an-x509-certificate-for-a-device"></a>为设备注册 X.509 证书
 [用于 C# 的 Azure IoT 服务 SDK][lnk-service-sdk]（版本 1.0.8+）支持注册使用 X.509 证书进行身份验证的设备。 其他 API（例如设备的导入/导出）也支持 X.509 证书。
+
+此外，还可使用 CLI 扩展命令 [az iot hub device-identity](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest) 配置设备的 X.509 证书。
 
 ### <a name="c-support"></a>C\# 支持
 
@@ -493,8 +497,6 @@ IoT 中心开发人员指南中的其他参考主题包括：
 [lnk-service-sdk]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/service
 [lnk-client-sdk]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/device
 [lnk-device-explorer]: https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer
-[lnk-IoT-extension-CLI-2.0]: https://github.com/Azure/azure-iot-cli-extension
-
 [lnk-getstarted-tutorial]: quickstart-send-telemetry-node.md
 [lnk-c2d-tutorial]: ./iot-hub-csharp-csharp-c2d.md
 [lnk-d2c-tutorial]: tutorial-routing.md

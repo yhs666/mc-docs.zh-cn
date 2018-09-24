@@ -12,15 +12,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-origin.date: 01/26/2018
-ms.date: 05/21/2018
+origin.date: 05/18/2018
+ms.date: 09/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: 01a37dc5d98476429cd2cdef08f5565926b0abe0
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.openlocfilehash: c727ccad7745dbdd4714704ae1eb33731adbb2aa
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34257268"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46526961"
 ---
 # <a name="install-the-azure-virtual-machine-agent-in-offline-mode"></a>在脱机模式下安装 Azure 虚拟机代理 
 
@@ -61,10 +61,7 @@ Azure 虚拟机代理（VM 代理）可提供多种有用的功能，例如本�
 
 6.  浏览到已附加 OS 磁盘上的 \windows\system32\config\SOFTWARE 文件夹。 输入“BROKENSOFTWARE”作为配置单元软件。
 
-7.  如果 VM 代理不能正常工作，请备份当前配置。
-
-    >[!NOTE]
-    >如果 VM 未安装代理，请继续执行第 8 步。 
+7. 如果附加的 OS 磁盘中已安装 VM 代理，请执行当前配置的备份。 如果该磁盘中未安装 VM 代理，请转到下一步骤。
 
     1. 将 \windowsazure 文件夹重命名为 \windowsazure.old。
 
@@ -82,7 +79,7 @@ Azure 虚拟机代理（VM 代理）可提供多种有用的功能，例如本�
 
         ![导出注册表子项](./media/install-vm-agent-offline/backup-reg.png)
 
-    2. 编辑注册表文件。 在每个文件中，将项值 SYSTEM改为 BROKENSYSTEM（如下图所示）并保存该文件。
+    2. 编辑注册表文件。 在每个文件中，将项值 SYSTEM改为 BROKENSYSTEM（如下图所示）并保存该文件。 请记住当前 VM 代理的 **ImagePath**。 需将相应的文件夹复制到附加的 OS 磁盘。 
 
         ![更改注册表子项值](./media/install-vm-agent-offline/change-reg.png)
 
@@ -93,26 +90,27 @@ Azure 虚拟机代理（VM 代理）可提供多种有用的功能，例如本�
         - WindowsAzureTelemetryService
         - RdAgent
 
-9.  将 C:\windowsazure\packages 中的 VM 代理文件夹复制到&lt;已附加 OS 磁盘&gt;:\windowsazure\packages。
+    5. 将当前 VM 代理的安装文件夹复制到附加的 OS 磁盘： 
 
-    ![将 VM 代理文件复制到 OS 磁盘](./media/install-vm-agent-offline/copy-package.png)
+        1.  在附加的 OS 磁盘上的根路径中创建名为 WindowsAzure 的文件夹。
 
-    >[!NOTE]
-    >请勿复制 logs 文件夹。 在服务启动后，将生成新的日志。
+        2.  转到故障排除 VM 上的 C:\WindowsAzure，找到名为 C:\WindowsAzure\GuestAgent_X.X.XXXX.XXX 的任何文件夹。 将 C:\WindowsAzure 中包含最新版本号的 GuestAgent 文件夹，复制到附加的 OS 磁盘中的 WindowsAzure 文件夹。 如果不确定要复制哪个文件夹，请复制所有 GuestAgent 文件夹。 下图显示了已复制到附加的 OS 磁盘的 GuestAgent 文件夹示例。
 
-10.  选择“BROKENSYSTEM”。 在菜单上，选择“文件” > “卸载配置单元”
+             ![复制 GuestAgent 文件夹](./media/install-vm-agent-offline/copy-files.png)
 
-11.  选择“BROKENSOFTWARE”。 在菜单上，选择“文件” > “卸载配置单元”
+9.  选择“BROKENSYSTEM”。 在菜单上，选择“文件” > “卸载配置单元”
 
-12.  分离 OS 磁盘，然后使用该 OS 磁盘重新创建 VM。
+10.  选择“BROKENSOFTWARE”。 在菜单上，选择“文件” > “卸载配置单元”
 
-13.  访问 VM。 请注意，RdAgent 正在运行，并且正在生成日志。
+11.  分离 OS 磁盘，然后使用该 OS 磁盘重新创建 VM。
 
-如果使用经典部署模型创建了 VM，则无需再进行额外操作。
+12.  访问 VM。 请注意，RdAgent 正在运行，并且正在生成日志。
 
-### <a name="use-the-provisionguestagent-property-for-vms-created-with-azure-resource-manager"></a>对使用 Azure 资源管理器创建的 VM 使用 ProvisionGuestAgent 属性
+如果使用资源管理器部署模型创建了 VM，则操作现已完成。
 
-如果使用资源管理器部署模型创建了 VM，请使用 Azure PowerShell 模块更新 ProvisionGuestAgent 属性。 该属性会通知 Azure 该 VM 已安装 VM 代理。
+### <a name="use-the-provisionguestagent-property-for-classic-vms"></a>对于经典 VM，使用 ProvisionGuestAgent 属性
+
+如果使用经典模型创建了 VM，请使用 Azure PowerShell 模块更新 ProvisionGuestAgent 属性。 该属性会通知 Azure 该 VM 已安装 VM 代理。
 
 若要设置 ProvisionGuestAgent 属性，请在 Azure PowerShell 中运行以下命令：
 
@@ -131,6 +129,6 @@ Azure 虚拟机代理（VM 代理）可提供多种有用的功能，例如本�
 
 ## <a name="next-steps"></a>后续步骤
 
-- [Azure 虚拟机代理概述](agent-user-guide.md)
+- [Azure 虚拟机代理概述](../extensions/agent-windows.md)
 - [适用于 Windows 的虚拟机扩展和功能](extensions-features.md)
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update -->

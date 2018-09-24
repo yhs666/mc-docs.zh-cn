@@ -4,24 +4,20 @@ description: 了解如何配置 Azure Function App 设置。
 services: ''
 documentationcenter: .net
 author: ggailey777
-manager: cfowler
-editor: ''
+manager: jeconnoc
 ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
-ms.service: functions
-ms.workload: na
-ms.tgt_pltfrm: dotnet
-ms.devlang: na
-ms.topic: article
+ms.service: azure-functions
+ms.topic: conceptual
 origin.date: 03/28/2018
-ms.date: 04/17/2018
+ms.date: 09/21/2018
 ms.author: v-junlch
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: b6be3847ff5cabed332c5dc7544e6e1d6d2b43d4
-ms.sourcegitcommit: f97c9253d16fac8be0266c9473c730ebd528e542
+ms.openlocfilehash: 88bd60a77e6ac1de95f5784160f084f749447a40
+ms.sourcegitcommit: 54d9384656cee927000d77de5791c1d585d94a68
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31585494"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46524037"
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>如何在 Azure 门户中管理 Function App 
 
@@ -116,7 +112,7 @@ Function App 运行于 Azure 应用服务平台，并由该平台维护。 在�
 
 | | |
 |-|-|
-| ![Azure 门户中的 Function App 部署选项](./media/functions-how-to-use-azure-function-app-settings/function-app-deployment-source.png) | Functions 允许在本地计算机上开发函数代码。 然后，可将本地 Function App 项目上传到 Azure。 除了传统的 FTP 上传外，Functions 还允许使用 GitHub、VSTS、Dropbox、Bitbucket 等常用的持续集成解决方案部署 Function App。 有关详细信息，请参阅 [Azure Functions 的连续部署](functions-continuous-deployment.md)。 若要使用 FTP 或本地 Git 进行手动上传，还需[配置部署凭据](functions-continuous-deployment.md#credentials)。 |
+| ![Azure 门户中的 Function App 部署选项](./media/functions-how-to-use-azure-function-app-settings/function-app-deployment-source.png) | Functions 允许在本地计算机上开发函数代码。 然后，可将本地 Function App 项目上传到 Azure。 除了传统的 FTP 上传外，Functions 还允许使用 GitHub、Dropbox、Bitbucket 等常用的持续集成解决方案部署函数应用。 |
 
 
 ### <a name="cors"></a>CORS
@@ -149,8 +145,8 @@ Function App 运行于 Azure 应用服务平台，并由该平台维护。 在�
 ## <a name="next-steps"></a>后续步骤
 
 + [配置 Azure 应用服务设置](../app-service/web-sites-configure.md)
-+ [Azure Functions 的连续部署](functions-continuous-deployment.md)
 
 
 
 
+<!-- Update_Description: wording update -->

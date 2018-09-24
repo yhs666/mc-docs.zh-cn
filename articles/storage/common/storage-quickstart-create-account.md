@@ -1,28 +1,25 @@
 ---
-title: Azure 快速入门 - 创建存储帐户 | Microsoft Docs
-description: 快速了解如何使用 Azure 门户、Azure PowerShell 或 Azure CLI 创建新的存储帐户。
+title: 快速入门：创建存储帐户 - Azure | Azure 存储
+description: 本快速入门介绍如何使用 Azure 门户、Azure PowerShell 或 Azure CLI 创建存储帐户。 Azure 存储帐户在 Azure 中提供唯一的命名空间，用于存储和访问在 Azure 存储中创建的数据对象。
 services: storage
 author: WenJason
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-origin.date: 07/03/2018
-ms.date: 09/10/2018
+origin.date: 09/11/2018
+ms.date: 09/24/2018
 ms.author: v-jay
 ms.component: common
-ms.openlocfilehash: 4950c21ed4c644ac269f6b7e0afcd24c6e665276
-ms.sourcegitcommit: e157751c560524d0bb828e987b87178130663547
+ms.openlocfilehash: a73fc782bc418528b486302d4dd3cd8a360eca57
+ms.sourcegitcommit: 0081fb238c35581bb527bdd704008c07079c8fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43651889"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523713"
 ---
 # <a name="create-a-storage-account"></a>创建存储帐户
 
-Azure 存储帐户提供云中的唯一命名空间，用于在 Azure 存储中存储和访问数据对象。 存储帐户包含在该帐户下创建的任何 Blob、文件、队列、表和磁盘。 
-
-若要开始使用 Azure 存储，首先需创建新的存储帐户。 可使用 [Azure 门户](https://portal.azure.cn/)、[Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) 或 [Azure CLI](/cli/?view=azure-cli-latest) 创建 Azure 存储帐户。 本快速入门介绍如何使用这其中的每个选项创建新的存储帐户。 
-
+本快速入门介绍如何使用 [Azure 门户](https://portal.azure.cn/)、[Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) 或 [Azure CLI](/cli/?view=azure-cli-latest) 创建存储帐户。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -128,24 +125,17 @@ az account list-locations \
 
 ---
 
-## <a name="create-a-general-purpose-storage-account"></a>创建常规用途存储帐户
+## <a name="create-a-storage-account"></a>创建存储帐户
 
-可以使用常规用途存储帐户访问所有 Azure 存储服务：Blob、文件、队列、表。 可以在标准层或高级层中创建常规用途存储帐户。 本文中的示例演示了如何在标准层（默认）中创建常规用途存储帐户。
+Azure 存储提供以下类型的存储帐户：
 
-Azure 存储提供两种类型的常规用途存储帐户：
+- **常规用途帐户：** 使用常规用途存储帐户可以访问所有 Azure 存储服务：Blob、文件、队列和表。 可以在标准层或高级层中创建常规用途存储帐户。 本文中的示例演示如何在标准层（默认的存储帐户类型）中创建常规用途存储帐户。 
+    
+    常规用途 v2 帐户是常规用途存储帐户的最新版本。 我们建议将新存储帐户创建为**常规用途 v2 帐户**，以利用这些帐户提供的较新功能。  
 
-- 常规用途 v2 帐户 
-- 常规用途 v1 帐户。 
+- **Blob 存储帐户：** Blob 存储帐户是用于存储非结构化对象数据的专用存储帐户。 Blob 存储帐户提供的持久性、可用性、可伸缩性和性能特性与常规用途 v2 存储帐户提供的相同。 Blob 存储帐户支持存储块 Blob和追加 Blob，但不支持存储页 Blob。
 
-> [!NOTE]
-> 我们建议将新存储帐户创建为**常规用途 v2 帐户**，以利用这些帐户提供的较新功能。  
-
-有关存储帐户类型的详细信息，请参阅 [Azure 存储帐户选项](storage-account-options.md)。
-
-为存储帐户命名时，请记住以下规则：
-
-- 存储帐户名称必须为 3 到 24 个字符，并且只能包含数字和小写字母。
-- 存储帐户名称在 Azure 中必须是唯一的。 没有两个存储帐户可以有相同的名称。
+有关存储帐户类型的详细信息，请参阅 [Azure 存储帐户概述](storage-account-overview.md)。
 
 # <a name="portaltabportal"></a>[Portal](#tab/portal)
 
@@ -245,16 +235,16 @@ az group delete --name myResourceGroup
 # <a name="portaltabportal"></a>[Portal](#tab/portal)
 
 > [!div class="nextstepaction"]
-> [使用 Azure 门户将对象转移到 Azure Blob 存储或从 Azure Blob 存储转移对象](../blobs/storage-quickstart-blobs-portal.md)
+> [通过 Azure 门户使用 Blob](../blobs/storage-quickstart-blobs-portal.md)
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 
 > [!div class="nextstepaction"]
-> [使用 PowerShell 将对象转移到 Azure Blob 存储或从 Azure Blob 存储转移对象](../blobs/storage-quickstart-blobs-powershell.md)
+> [通过 PowerShell 使用 Blob](../blobs/storage-quickstart-blobs-powershell.md)
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 > [!div class="nextstepaction"]
-> [使用 Azure CLI 将对象传输到 Azure Blob 存储和从 Azure Blob 存储传输对象](../blobs/storage-quickstart-blobs-cli.md)
+> [通过 Azure CLI 使用 Blob 存储](../blobs/storage-quickstart-blobs-cli.md)
 
 ---

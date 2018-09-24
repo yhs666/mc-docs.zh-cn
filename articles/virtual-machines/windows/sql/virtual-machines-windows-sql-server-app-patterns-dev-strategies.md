@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 05/31/2017
-ms.date: 07/30/2018
+ms.date: 09/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: 3c1a106be7645439850e29083ee25527ad37bcc3
-ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
+ms.openlocfilehash: b016882fc6fd5868470802b8c3ad2d722dc486f0
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39306996"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527111"
 ---
 # <a name="application-patterns-and-development-strategies-for-sql-server-in-azure-virtual-machines"></a>Azure 虚拟机中的 SQL Server 的应用程序模式和开发策略
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
@@ -59,7 +59,7 @@ ms.locfileid: "39306996"
 * 需要与本地 SQL Server 完全兼容，并希望将现有应用程序按现状迁移至 Azure。
 * 希望充分利用 Azure 环境的功能，但 Azure SQL 数据库不支持应用程序需要的全部功能。 这可能包括以下方面：
 
-  * **数据库大小**：在更新这篇文章时，SQL 数据库支持最多包含 1 TB 数据的数据库。 如果应用程序需要 1 TB 以上的数据，但用户不希望实现自定义分片解决方案，则建议在 Azure 虚拟机中使用 SQL Server。 有关最新信息，请参阅[扩展 Azure SQL 数据库](/sql-database/sql-database-elastic-scale-introduction)、[基于 DTU 的购买模型](../../../sql-database/sql-database-service-tiers-dtu.md)和[基于 vCore 的购买模型](../../../sql-database/sql-database-service-tiers-vcore.md)（预览版）。
+  * **数据库大小**：在更新这篇文章时，SQL 数据库支持最多包含 1 TB 数据的数据库。 如果应用程序需要 1 TB 以上的数据，但用户不希望实现自定义分片解决方案，则建议在 Azure 虚拟机中使用 SQL Server。 有关最新信息，请参阅[横向扩展 Azure SQL 数据库](/sql-database/sql-database-elastic-scale-introduction)、[基于 DTU 的购买模型](../../../sql-database/sql-database-service-tiers-dtu.md)和[基于 vCore 的购买模型](../../../sql-database/sql-database-service-tiers-vcore.md)（预览版）。
   * HIPAA 符合性：医疗保健客户和独立软件供应商 (ISV) 可能选择 [Azure 虚拟机中的 SQL Server](virtual-machines-windows-sql-server-iaas-overview.md) 而不选择 [Azure SQL 数据库](../../../sql-database/sql-database-technical-overview.md)，原因是 Azure 虚拟机中的 SQL Server 已纳入 HIPAA 商业伙伴协议 (BAA)。 有关符合性的信息，请参阅 [Azure 信任中心：合规性](https://www.trustcenter.cn/compliance/)。
   * 实例级功能：目前，SQL 数据库不支持数据库外部的功能（如链接服务器、代理作业，FileStream、Service Broker 等）。 有关详细信息，请参阅 [Azure SQL 数据库指南和限制](/sql-database/sql-database-general-limitations)。
 
@@ -277,4 +277,4 @@ ms.locfileid: "39306996"
 
 ## <a name="next-steps"></a>后续步骤
 若要深入了解如何在 Azure 虚拟机中运行 SQL Server，请参阅 [Azure 虚拟机中的 SQL Server 概述](virtual-machines-windows-sql-server-iaas-overview.md)。
-<!--Update_Description: update meta properties, update link, wording update -->
+<!--Update_Description: update meta properties, wording update -->

@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 04/25/2018
-ms.date: 08/27/2018
+ms.date: 09/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: 3d9603a1d3230dc707dd21fc9c23b394162de1e8
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.openlocfilehash: c785bed337b7deb013e51ec45ee07c54368d2a91
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42872155"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527161"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>在 Linux 虚拟机上使用 Azure 自定义脚本扩展版本 2
 自定义脚本扩展版本 2 在 Azure 虚拟机上下载和运行脚本。 此扩展适用于部署后配置、软件安装或其他任何配置/管理任务。 可以从 Azure 存储或其他可访问的 Internet 位置下载脚本，或者将脚本提供给扩展运行时。 
@@ -89,7 +89,7 @@ ms.locfileid: "42872155"
     "autoUpgradeMinorVersion": true,
     "settings": {
       "skipDos2Unix":false,
-      "timestamp":"123456789",          
+      "timestamp":123456789,          
     },
     "protectedSettings": {
        "commandToExecute": "<command-to-execute>",
@@ -408,4 +408,4 @@ info:    vm extension get command OK
 
 ## <a name="next-steps"></a>后续步骤
 若要查看代码、当前问题和版本，请参阅 [custom-script-extension-linux 存储库](https://github.com/Azure/custom-script-extension-linux)。
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update meta properties, wording update -->

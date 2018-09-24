@@ -1,20 +1,19 @@
 ---
-title: Azure 存储简介 - Azure 中的云存储 | Azure
+title: Azure 存储简介 - Azure 中的云存储 | Microsoft Docs
 description: Azure 存储是 Microsoft 提供的云存储解决方案。 Azure 存储为数据对象提供具有高可用性、安全、持久、可大规模缩放且具有冗余的存储。
 services: storage
-author: forester123
-manager: josefree
+author: WenJason
 ms.service: storage
 ms.topic: get-started-article
 origin.date: 07/11/2018
-ms.date: 07/30/2018
-ms.author: v-nany
-ms.openlocfilehash: e4946f35c03bc4fef0e20342e3ea315bcfff201d
-ms.sourcegitcommit: e157751c560524d0bb828e987b87178130663547
+ms.date: 09/24/2018
+ms.author: v-jay
+ms.openlocfilehash: 3eee7dfde0420c214788ec4f0c18599955336bfb
+ms.sourcegitcommit: 0081fb238c35581bb527bdd704008c07079c8fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43651074"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523712"
 ---
 # <a name="introduction-to-azure-storage"></a>Azure 存储简介
 
@@ -94,7 +93,7 @@ Azure 存储还包括虚拟机使用的托管和非托管磁盘功能。 有关�
 
 |存储帐户的类型|通用标准|通用高级|Blob 存储（热访问层和冷访问层）|
 |-----|-----|-----|-----|
-|支持的服务| Blob 服务、文件服务、队列服务 | Blob 服务 | Blob 服务|
+|支持的服务| Blob 服务、文件服务、队列服务和表服务 | Blob 服务 | Blob 服务|
 |支持的 Blob 类型|块 Blob、页 Blob 和追加 Blob | 页 Blob | 块 Blob 和追加 Blob|
 
 ### <a name="general-purpose-storage-accounts"></a>通用存储帐户

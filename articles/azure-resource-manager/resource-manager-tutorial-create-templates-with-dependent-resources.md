@@ -10,29 +10,30 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-origin.date: 07/20/2018
-ms.date: 09/03/2018
+origin.date: 09/07/2018
+ms.date: 09/24/2018
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: fad8afb42b84678d51a95918064973a29cf88cd3
-ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
+ms.openlocfilehash: 2392aac2a84bb6a3fef7713321d60de289ca91a7
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44515595"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527190"
 ---
 # <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>教程：使用依赖的资源创建 Azure 资源管理器模板
 
-了解如何创建 Azure 资源管理器模板，以便部署多个资源。  创建模板以后，请通过本地电脑使用 CLI 部署该模板。
+了解如何创建 Azure 资源管理器模板，以便部署多个资源。  创建模板以后，请通过本地电脑使用 PowerShell 部署该模板。
 <!--Not Available on Cloud Shell-->
 
 某些资源的部署依赖于另一资源的存在。 例如，创建虚拟机的前提是其存储帐户和网络接口存在。 可通过将一个资源标记为依赖于其他资源来定义此关系。 Resource Manager 将评估资源之间的依赖关系，并根据其依赖顺序进行部署。 如果资源互不依赖，资源管理器将以并行方式部署资源。 有关详细信息，请参阅[定义 Azure 资源管理器模板中部署资源的顺序](./resource-group-define-dependencies.md)。
+
+本教程涵盖以下任务：
 
 > [!div class="checklist"]
 > * 打开快速入门模板
 > * 浏览模板
 > * 部署模板
-> * 清理资源
 
 本教程介绍如何创建虚拟机、虚拟网络以及一些其他的依赖资源。 
 
@@ -58,12 +59,27 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
 
 ## <a name="explore-the-template"></a>浏览模板
 
+浏览此部分的模板时，请尝试回答以下问题：
+
+- 在此模板中定义了多少 Azure 资源？
+- 其中一个资源是 Azure 存储帐户。  该定义是否与上一教程中使用的定义类似？
+- 对于此模板中定义的资源，能否找到模板参考？
+- 能否找到资源的依赖项？
+
 1. 在 Visual Studio Code 中折叠元素，直到只能在 **resources** 中看到第一级元素和第二级元素：
 
     ![Visual Studio Code Azure 资源管理器模板](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code.png)
 
     有五个通过此模板定义的资源。
-2. 展开第四个元素：
+2. 展开第一个资源。 它是一个存储帐户。 此定义应该与上一教程开头使用的定义相同。
+
+    ![Visual Studio Code Azure 资源管理器模板存储帐户定义](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-storage-account-definition.png)
+
+3. 展开第二个资源。 资源类型为 **Microsoft.Network/publicIPAddresses**。 若要查找模板参考，请浏览到[模板参考](https://docs.microsoft.com/zh-cn/azure/templates/)，在“按标题筛选”字段中输入“单个公共 IP 地址”或“多个公共 IP 地址”。 将资源定义和模板参考进行比较。
+
+    ![Visual Studio Code Azure 资源管理器模板公共 IP 地址定义](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-public-ip-address-definition.png)
+4. 重复上一步，找到在此模板中定义的其他资源的模板参考。  将资源定义和参考进行比较。
+5. 展开第四个资源：
 
     ![Visual Studio Code Azure 资源管理器模板 dependsOn](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code-dependson.png)
 
@@ -72,7 +88,7 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
     * publicIPAddress
     * virtualNetwork
 
-3. 展开第五个元素。 此资源为虚拟机。 它依赖于两个其他的资源：
+6. 展开第五个资源。 此资源为虚拟机。 它依赖于两个其他的资源：
 
     * storageAccount
     * networkInterface
@@ -88,7 +104,7 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
 可通过多种方法来部署模板。  本教程从本地电脑使用 Azure PowerShell。
 <!--Not Available on Cloud Shell-->
 
-如果选择在本地安装并使用 PowerShell，则本教程需要 Azure PowerShell 模块 5.7.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount` 以创建与 Azure 的连接。
+如果选择在本地安装并使用 PowerShell，则本教程需要 Azure PowerShell 模块 5.7.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount` 以创建与 Azure 的连接。
 
 1. 在 Azure PowerShell 中运行以下命令，验证 JSON 文件的内容：
 
@@ -112,7 +128,7 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
     ```
     下面是示例部署的屏幕截图：
 
-    ![Azure CLI Shell 部署模板](./media/resource-manager-tutorial-create-templates-with-dependent-resources/azure-portal-cloud-shell-deploy-template.png)
+    ![Azure PowerShell 部署模板](./media/resource-manager-tutorial-create-templates-with-dependent-resources/azure-portal-cloud-shell-deploy-template.png)
 
     屏幕截图中使用了以下值：
 
@@ -147,5 +163,4 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
 
 本教程介绍如何通过开发和部署模板来创建虚拟机、虚拟网络和依赖资源。 若要详细了解模板，请参阅[了解 Azure 资源管理器模板的结构和语法](./resource-group-authoring-templates.md)。
 
-<!-- Update_Description: new articles on resource manager tutorial create templates with dependent resources -->
-<!--ms.date: 09/03/2018-->
+<!-- Update_Description: update link, wording update -->

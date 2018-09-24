@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 07/31/2018
-ms.date: 09/10/2018
+ms.date: 09/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: bd2bbf2091ceb177c13dbeff0527ca50dd23ab07
-ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
+ms.openlocfilehash: 632df4dfd97f3b5126c5601a7d9a36be68aaf3cb
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44515802"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527038"
 ---
 <!--Verify successfully-->
 # <a name="manage-your-resources-with-management-groups"></a>使用管理组管理资源
@@ -44,7 +44,7 @@ ms.locfileid: "44515802"
 5. 菜单打开后，请输入要显示的新名称。
 
     ![重命名组](media/management-groups/rename_context.png)
-6. 选择“保存”。
+6. 选择“其他安全性验证” 。
 
 ### <a name="change-the-name-in-powershell"></a>在 PowerShell 中更改名称
 
@@ -78,7 +78,7 @@ az account management-group update --name Contoso --display-name "Contoso Group"
 1. 登录到 [Azure 门户](https://portal.azure.cn)
 2. 选择“所有服务” > “管理组”  
 3. 选择要删除的管理组。
-4. 选择“删除”。
+4. 选择“删除” 。
     - 如果该图标已禁用，将鼠标指针悬停在该图标上可显示原因。
 
     ![删除组](media/management-groups/delete.png)
@@ -168,7 +168,7 @@ az account management-group show --name Contoso
     ![子级](media/management-groups/add_context_sub.png)
 1. 选择“保存”
 
-**从管理组中删除订阅**
+**将订阅移到另一个管理组**
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)
 2. 选择“所有服务” > “管理组” 
@@ -257,5 +257,4 @@ az account management-group update --name Contoso --parent "Contoso Tenant"
 - [查看 REST API 规范](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview)
 - [安装 Azure CLI 扩展](https://docs.azure.cn/zh-cn/cli/extension?view=azure-cli-latest#az-extension-list-available)
 
-<!-- Update_Description: new articles on management groups manage  -->
-<!--ms.date: 09/10/2018-->
+<!-- Update_Description: update meta properties  -->

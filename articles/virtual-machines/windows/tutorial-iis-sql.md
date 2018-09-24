@@ -13,15 +13,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 02/27/2018
-ms.date: 06/04/2018
+ms.date: 09/24/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 6176c365b26d5ee169643e412d39be3a25f35645
-ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
+ms.openlocfilehash: 9feec7d14827fe68bc1b530dfdedc70d7e3cf0ac
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37405201"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527036"
 ---
 # <a name="tutorial-install-the-sql47iis47net-stack-in-a-windows-vm-with-azure-powershell"></a>教程：使用 Azure PowerShell 在 Windows VM 中安装 SQL&#47;IIS&#47;.NET 堆栈
 
@@ -39,14 +39,14 @@ ms.locfileid: "37405201"
 
 在此示例中，我们使用 [New-AzureRMVM](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm) cmdlet 在 PowerShell Cloud Shell 中快速创建 Windows Server 2016 VM，然后安装 IIS 和 .NET Framework。 IIS 和 SQL VM 共享资源组和虚拟网络，因此我们创建这些名称的变量。
 
-```powershell
+```PowerShell
 $vmName = "IISVM"
 $vNetName = "myIISSQLvNet"
 $resourceGroup = "myIISSQLGroup"
 New-AzureRmVm `
     -ResourceGroupName $resourceGroup `
     -Name $vmName `
-    -Location "chinaeast" `
+    -Location "chinanorth" `
     -VirtualNetworkName $vNetName `
     -SubnetName "myIISSubnet" `
     -SecurityGroupName "myNetworkSecurityGroup" `
@@ -57,7 +57,7 @@ New-AzureRmVm `
 
 使用自定义脚本扩展安装 IIS 和 .NET framework。
 
-```powershell
+```PowerShell
 Set-AzureRmVMExtension `
     -ResourceGroupName $resourceGroup `
     -ExtensionName IIS `
@@ -66,14 +66,14 @@ Set-AzureRmVMExtension `
     -ExtensionType CustomScriptExtension `
     -TypeHandlerVersion 1.4 `
     -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server,Web-Asp-Net45,NET-Framework-Features"}' `
-    -Location "chinaeast"
+    -Location "chinanorth"
 ```
 
 ## <a name="create-another-subnet"></a>创建另一子网
 
 为 SQL VM 创建第二个子网。 使用 [Get-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetwork) 获取 vNet。
 
-```powershell
+```PowerShell
 $vNet = Get-AzureRmVirtualNetwork `
    -Name $vNetName `
    -ResourceGroupName $resourceGroup
@@ -81,7 +81,7 @@ $vNet = Get-AzureRmVirtualNetwork `
 
 使用 [Add-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig) 为子网创建配置。
 
-```powershell
+```PowerShell
 Add-AzureRmVirtualNetworkSubnetConfig `
    -AddressPrefix 192.168.0.0/24 `
    -Name mySQLSubnet `
@@ -91,7 +91,7 @@ Add-AzureRmVirtualNetworkSubnetConfig `
 
 通过 [Set-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermvirtualnetwork) 使用新的子网信息更新 vNet
 
-```powershell   
+```PowerShell   
 $vNet | Set-AzureRmVirtualNetwork
 ```
 
@@ -99,7 +99,7 @@ $vNet | Set-AzureRmVirtualNetwork
 
 使用 SQL Server 的预配置 Azure 市场映像创建 SQL VM。 首先创建 VM，然后在 VM 上安装 SQL Server 扩展。 
 
-```powershell
+```PowerShell
 New-AzureRmVm `
     -ResourceGroupName $resourceGroup `
     -Name "mySQLVM" `
@@ -112,15 +112,14 @@ New-AzureRmVm `
     -OpenPorts 3389,1401 
 ```
 
-使用 [Set-AzureRmVMSqlServerExtension](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmsqlserverextension) 将 [SQL Server 扩展](sql/virtual-machines-windows-sql-server-agent-extension.md)添加到 SQL VM。
-<!-- URL is correct on [SQL Server extension](sql/virtual-machines-windows-sql-server-agent-extension.md)-->
+使用 [Set-AzureRmVMSqlServerExtension](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmsqlserverextension) 将 [SQL Server 扩展](/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)添加到 SQL VM。
 
-```powershell
+```PowerShell
 Set-AzureRmVMSqlServerExtension `
    -ResourceGroupName $resourceGroup  `
    -VMName mySQLVM `
    -Name "SQLExtension" `
-   -Location "chinaeast"
+   -Location "chinanorth"
 ```
 
 ## <a name="next-steps"></a>后续步骤

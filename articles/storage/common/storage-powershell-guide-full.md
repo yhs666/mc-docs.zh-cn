@@ -1,25 +1,20 @@
 ---
-title: 对 Azure 存储使用 Azure PowerShell | Azure
+title: 对 Azure 存储使用 Azure PowerShell | Microsoft Docs
 description: 了解如何对 Azure 存储使用 Azure PowerShell cmdlet。
 services: storage
-documentationcenter: na
-author: yunan2016
-manager: digimobile
-ms.assetid: f4704f58-abc6-4f89-8b6d-1b1659746f5a
+author: WenJason
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 06/13/2018
-ms.date: 07/02/2018
-ms.author: v-nany
-ms.openlocfilehash: d52fabda87d578f3254e439db323687420a52f89
-ms.sourcegitcommit: 3691ddcfde4382a8a034e8d2278d5e10d38a4d5e
+ms.date: 09/24/2018
+ms.author: v-jay
+ms.component: common
+ms.openlocfilehash: c1bcc7541d707da3d4f664d153d9c0691e4343f4
+ms.sourcegitcommit: 0081fb238c35581bb527bdd704008c07079c8fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41705297"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523708"
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>对 Azure 存储 使用 Azure PowerShell
 
@@ -165,7 +160,7 @@ New-AzureRmStorageAccountKey -ResourceGroupName $resourceGroup `
 再生成其中一个密钥，然后再次对其进行检索以查看新值。
 
 > [!NOTE] 
-> 为生产存储帐户再生成密钥之前，应进行仔细的规划。 再生成一个或两个密钥将无法再访问使用已再生成密钥的任何应用程序。 有关详细信息，请参阅[重新生成存储访问密钥](storage-create-storage-account.md#regenerate-storage-access-keys)。
+> 为生产存储帐户再生成密钥之前，应进行仔细的规划。 再生成一个或两个密钥将无法再访问使用已再生成密钥的任何应用程序。 有关详细信息，请参阅[访问密钥](storage-account-manage.md#access-keys)。
 
 
 ### <a name="delete-a-storage-account"></a>删除存储帐户 
@@ -187,7 +182,7 @@ Remove-AzureRmStorageAccount -ResourceGroup $resourceGroup -AccountName $storage
 本文将演示如何使用以下 PowerShell cmdlet 管理这些设置：
 * [Add-AzureRmStorageAccountNetworkRule](https://docs.microsoft.com/powershell/module/AzureRM.Storage/Add-AzureRmStorageAccountNetworkRule)
 * [Update-AzureRmStorageAccountNetworkRuleSet](https://docs.microsoft.com/powershell/module/azurerm.storage/update-azurermstorageaccountnetworkruleset)
-* [Remove-AzureRmStorageAccountNetworkRule](https://docs.microsoft.com/powershell/module/azurerm.storage/remove-azurermstorageaccountnetworkrule)
+* [Remove-AzureRmStorageAccountNetworkRule](https://docs.microsoft.com/powershell/module/azurerm.storage/remove-azurermstorageaccountnetworkrule?view=azurermps-6.8.1)
 
 ## <a name="use-storage-analytics"></a>使用存储分析  
 

@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 03/15/2017
 ms.date: 3/5/2018
 ms.author: v-haiqya
-ms.openlocfilehash: b15187be75d60f6f048b17582116f4567a76bb77
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.openlocfilehash: 7352552ae263455282a0ae4afbc0d026bdb5647a
+ms.sourcegitcommit: 0081fb238c35581bb527bdd704008c07079c8fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295591"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523731"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>使用 Azure 存储指标和日志记录、AzCopy 及 Message Analyzer 进行端到端故障排除
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -101,7 +101,7 @@ Azure 存储操作可能返回 HTTP 状态代码大于 299 作为其正常功能
 
 若要开始使用 Azure 适用的 PowerShell，请参阅[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。
 
-1. 使用 [Add-AzureAccount -Environment AzureChinaCloud](https://docs.microsoft.com/powershell/module/azure/add-azureaccount?view=azuresmps-3.7.0) cmdlet 将 Azure 用户帐户添加到 PowerShell 窗口中：
+1. 使用 [Add-AzureAccount -Environment AzureChinaCloud](https://docs.microsoft.com/powershell/module/servicemanagement/azure/add-azureaccount?view=azuresmps-3.7.0) cmdlet 将 Azure 用户帐户添加到 PowerShell 窗口中：
    
     ```powershell
         Add-AzureAccount -Environment AzureChinaCloud

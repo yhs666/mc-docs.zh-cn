@@ -1,4 +1,21 @@
-<!--ms.date: 08/28/2017-->
+---
+title: include 文件
+description: include 文件
+services: storage
+author: WenJason
+ms.service: storage
+ms.topic: include
+origin.date: 09/15/2018
+ms.date: 09/24/2018
+ms.author: v-jay
+ms.custom: include file
+ms.openlocfilehash: d92bbf9958d68fe15640969d2c17bfa0414f3590
+ms.sourcegitcommit: 0081fb238c35581bb527bdd704008c07079c8fbb
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523737"
+---
 ## <a name="set-up-your-development-environment"></a>设置开发环境
 接下来在 Visual Studio 中设置开发环境，即可试用本指南中的代码示例。
 
@@ -42,7 +59,7 @@
 * 可针对云中的 Azure 存储帐户运行代码。 
 * 可针对 Azure 存储模拟器运行代码。 存储模拟器是模拟云中 Azure 存储帐户的本地环境。 应用程序处于开发阶段时，可以选择使用模拟器免费测试和调试代码。 模拟器使用已知帐户和密钥。 有关详细信息，请参阅[使用 Azure 存储模拟器进行开发和测试](../articles/storage/common/storage-use-emulator.md)。
 
-如果以云中的存储帐户为目标，请从 Azure 门户复制存储帐户的主访问密钥。 有关详细信息，请参阅 [查看和复制存储访问密钥](../articles/storage/common/storage-create-storage-account.md#view-and-copy-storage-access-keys)。
+如果以云中的存储帐户为目标，请从 Azure 门户复制存储帐户的主访问密钥。 有关详细信息，请参阅[访问密钥](../articles/storage/common/storage-account-manage.md#access-keys)。
 
 > [!NOTE]
 > 可以指向存储模拟器以避免引发与 Azure 存储有关的任何费用。 但是，如果您确实选择指向云中的 Azure 存储帐户，则执行此教程的费用会忽略不计。
@@ -83,3 +100,4 @@
 ```xml
 <add key="StorageConnectionString" value="UseDevelopmentStorage=true;" />
 ```
+

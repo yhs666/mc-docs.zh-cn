@@ -4,24 +4,20 @@ description: 了解如何在 Azure Functions 中使用 Azure 移动应用绑定�
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: Azure Functions，函数，事件处理，动态计算，无服务体系结构
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.tgt_pltfrm: multiple
-ms.workload: na
 origin.date: 11/21/2017
-ms.date: 07/24/2018
+ms.date: 09/21/2018
 ms.author: v-junlch
-ms.openlocfilehash: 5a44e69d9aff9978d0d14872de4c18443979467e
-ms.sourcegitcommit: ba07d76f8394b5dad782fd983718a8ba49a9deb2
+ms.openlocfilehash: e302534223f9ece62bb8efc979abff3f12d39916
+ms.sourcegitcommit: 54d9384656cee927000d77de5791c1d585d94a68
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39220198"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46524043"
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Azure Functions 的移动应用绑定 
 
@@ -79,8 +75,7 @@ ms.locfileid: "39220198"
         "apiKey": "My_MobileApp_Key",
         "direction": "in"
     }
-],
-"disabled": false
+]
 }
 ```
 [配置](#input---configuration)部分解释了这些属性。
@@ -125,8 +120,7 @@ public static void Run(string myQueueItem, JObject record)
         "apiKey": "My_MobileApp_Key",
         "direction": "in"
     }
-],
-"disabled": false
+]
 }
 ```
 [配置](#input---configuration)部分解释了这些属性。
@@ -224,8 +218,7 @@ public static object Run(
     "apiKey": "My_MobileApp_Key",
     "direction": "out"
     }
-],
-"disabled": false
+]
 }
 ```
 
@@ -338,4 +331,4 @@ public static object Run(
 > [!div class="nextstepaction"]
 > [详细了解 Azure Functions 触发器和绑定](functions-triggers-bindings.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->

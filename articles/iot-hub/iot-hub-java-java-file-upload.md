@@ -9,13 +9,13 @@ ms.devlang: java
 ms.topic: conceptual
 origin.date: 06/28/2017
 ms.author: dobett
-ms.date: 09/10/2018
-ms.openlocfilehash: 2ad6b585ad63c4a46a04e8c23d8c8c3060574ba8
-ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
+ms.date: 10/08/2018
+ms.openlocfilehash: 2dd56a3913444d1cabfce91b7bd8ace9f6fbc3ff
+ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43329083"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523922"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>使用 IoT 中心将文件从设备上传到云
 
@@ -283,7 +283,7 @@ mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
 [Azure IoT 开发人员中心]: http://www.azure.cn/develop/iot
 
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-[Azure Storage]:../storage/common/storage-create-storage-account.md#create-a-storage-account
+[Azure Storage]:../storage/common/storage-quickstart-create-account.md
 [lnk-configure-upload]: ./iot-hub-configure-file-upload.md
 [Azure IoT service SDK NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
 [lnk-free-trial]: http://www.azure.cn/pricing/1rmb-trial/

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 01/16/2018
 ms.author: v-yiso
-ms.date: 06/18/2018
-ms.openlocfilehash: d85b6a845bd47d5e2c0c60c4c2352b2f2576d281
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.date: 10/08/2018
+ms.openlocfilehash: df5bb4210ada19c698346a1b97582d81ffa62a15
+ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068058"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523867"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>在 Azure API 管理中使用 Azure Active Directory 授权开发人员帐户
 
@@ -81,6 +81,8 @@ ms.locfileid: "44068058"
 25. 选择应用程序，并选中“读取目录数据”和“登录并读取用户个人资料”复选框。
 
     ![权限复选框](./media/api-management-howto-aad/api-management-with-aad005.png)
+
+1. 选择“授予权限”以同意应用程序权限。
 
     有关应用程序权限和委托权限的详细信息，请参阅[访问图形 API][Accessing the Graph API]。
 26. 在左侧窗格中，复制“应用程序 ID”值。

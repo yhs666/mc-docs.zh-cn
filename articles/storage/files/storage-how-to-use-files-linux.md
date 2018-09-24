@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 03/29/2018
 ms.date: 09/10/2018
 ms.author: v-jay
-ms.openlocfilehash: e92e0d9d6228ef6d69d9a8178424b5d95baac639
-ms.sourcegitcommit: e157751c560524d0bb828e987b87178130663547
+ms.openlocfilehash: c9413ec95d6d0e9cb493886dd732f1389ab7352c
+ms.sourcegitcommit: 0081fb238c35581bb527bdd704008c07079c8fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43650815"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523672"
 ---
 # <a name="use-azure-files-with-linux"></a>通过 Linux 使用 Azure 文件
 [Azure 文件](storage-files-introduction.md)是易于使用的云文件系统。 可以使用 [SMB 内核客户端](https://wiki.samba.org/index.php/LinuxCIFS)在 Linux 分发版中装载 Azure 文件共享。 本文介绍装载 Azure 文件共享的两种方法：使用 `mount` 命令按需装载，以及通过在 `/etc/fstab` 中创建一个条目在启动时装载。
@@ -107,7 +107,7 @@ ms.locfileid: "43650815"
 3. **创建凭据文件以存储文件共享的用户名（存储帐户名称）和密码（存储帐户密钥）。** 请记得将 `<storage-account-name>` 和 `<storage-account-key>` 替换为适合你的环境的信息。 
 
     ```bash
-    if [ -d "/etc/smbcredentials" ]; then
+    if [ ! -d "/etc/smbcredentials" ]; then
         sudo mkdir /etc/smbcredentials
     fi
 

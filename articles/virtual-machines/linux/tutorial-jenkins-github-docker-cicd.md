@@ -14,15 +14,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 03/27/2017
-ms.date: 08/27/2018
+ms.date: 09/24/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 67d1c8ca68c9b20520c8f3b11869d77460cf5764
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.openlocfilehash: 0f075f5c24ea8817ac44e0f882b0c73a5cb609ca
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42871582"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527172"
 ---
 # <a name="tutorial-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>教程：使用 Jenkins、GitHub 和 Docker 在 Azure 中的 Linux VM 上创建开发基础结构
 
@@ -237,9 +237,9 @@ az vm show --resource-group myResourceGroupJenkins --name myVM -d --query [publi
 > * 创建应用的 Docker 映像
 > * 验证 GitHub 提交是否生成新的 Docker 映像并更新正在运行的应用
 
-转到下一教程，详细了解如何将 Jenkins 与 Visual Studio Team Services 集成。
+转到下一教程，详细了解如何将 Jenkins 与 Azure DevOps Services 集成。
 
 > [!div class="nextstepaction"]
-> [使用 Jenkins 和 Team Services 部署应用](tutorial-build-deploy-jenkins.md)
+> [使用 Jenkins 和 Azure DevOps Services 部署应用](tutorial-build-deploy-jenkins.md)
 
 <!--Update_Description: update meta properties, update link, wording update-->

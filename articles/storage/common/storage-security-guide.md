@@ -1,20 +1,20 @@
 ---
-title: Azure 存储安全指南 | Azure
+title: Azure 存储安全指南 | Microsoft Docs
 description: 详细介绍保护 Azure 存储的多种方法，包括但不限于 RBAC、存储服务加密、客户端加密、SMB 3.0 和 Azure 磁盘加密。
 services: storage
-author: forester123
-manager: josefree
+author: craigshoemaker
 ms.service: storage
 ms.topic: article
 origin.date: 05/31/2018
-ms.date: 07/02/2018
-ms.author: v-johch
-ms.openlocfilehash: 7a815771ba000dec3605a031e3c7fc7905bc085c
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.date: 09/24/2018
+ms.author: v-jay
+ms.component: common
+ms.openlocfilehash: 67bf76d2a14359eb8658d35cea78a9286d300ac5
+ms.sourcegitcommit: 0081fb238c35581bb527bdd704008c07079c8fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295672"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523725"
 ---
 # <a name="azure-storage-security-guide"></a>Azure 存储安全指南
 
@@ -142,20 +142,13 @@ Azure 存储提供一整套安全性功能，这些功能相辅相成，帮助�
 
 使用 Azure 密钥保管库的另一个优点是，还可使用 Azure Active Directory 来控制对密钥的访问。 这意味着，可以将访问权限授予少数必须从 Azure Key Vault 检索密钥的应用程序，并了解其他应用程序在未特别授予它们权限的情况下无法访问密钥。
 
-注意：建议同一时间在所有应用程序中只使用一个密钥。 如果在某些地方使用密钥 1 并在其他地方使用密钥 2，则无法在没有部分应用程序失去访问的情况下轮转密钥。
+> [!NOTE]
+> 我们建议你同时仅在所有应用程序中使用其中一个密钥。 如果在某些地方使用密钥 1 并在其他地方使用密钥 2，则无法在没有部分应用程序失去访问的情况下轮转密钥。
 
 #### <a name="resources"></a>资源
-* [关于 Azure 存储帐户](storage-create-storage-account.md#regenerate-storage-access-keys)
 
-  此文提供存储帐户的概述，并介绍如何查看、复制和重新生成存储访问密钥。
+* [在 Azure 门户中管理存储帐户设置](storage-account-manage.md)
 * [Azure 存储资源提供程序 REST API 参考](https://msdn.microsoft.com/library/mt163683.aspx)
-
-  本文提供了特定文章的链接，可据此了解如何检索存储帐户密钥和如何使用 REST API 为 Azure 帐户重新生成存储帐户密钥。 注意：这适用于 Resource Manager 存储帐户。
-* [针对存储帐户的操作](https://msdn.microsoft.com/library/ee460790.aspx)
-
-  这篇存储服务管理器 REST API 参考文章包含有关使用 REST API 来检索和重新生成存储帐户密钥的具体文章链接。 注意：此文适用于经典存储帐户。
-
-  本文介绍如何使用 Active Directory 来控制 Azure 密钥保管库中 Azure 存储密钥的访问。 此外，说明如何使用 Azure 自动化作业每小时重新生成密钥。
 
 ## <a name="data-plane-security"></a>数据平面安全
 数据平面安全是指用于保护存储在 Azure 存储的数据对象（Blob、队列、表和文件）的方法。 我们已了解在传输数据期间加密数据和安全的方法，但该从何处着手来控制访问对象？
@@ -284,7 +277,7 @@ http://mystorage.blob.core.chinacloudapi.cn/mycontainer/myblob.txt (URL to the b
 
 针对所有存储帐户启用 SSE，并且不能禁用。 将数据写入 Azure 存储时，SSE 自动加密数据。 从 Azure 存储读取数据时，Azure 存储会在返回数据之前将其解密。 SSE 帮助保护数据，而无需修改代码或将代码添加到任何应用程序。
 
-可以使用 Azure 托管的密钥或自己的自定义密钥。 Azure 生成托管密钥，并根据 Azure 内部策略的定义管理其安全存储和定期轮换。 
+可以使用 Azure 托管的密钥或自己的自定义密钥。 Azure 生成托管密钥，并根据内部 Azure Policy 的定义管理其安全存储和定期轮换。 
 
 SSE 自动加密所有性能层（标准和高级）、所有部署模型（Azure 资源管理器和经典）、所有 Azure 存储服务（Blob、队列、表和文件）中的数据。 
 
@@ -513,4 +506,3 @@ Azure 存储允许启用 CORS – 跨域资源共享。 对于每个存储帐户
 * [“系统加密：使用 FIPS 兼容的算法来加密、哈希和签名”在 Windows XP 和更高版本的 Windows 中的安全设置影响](https://support.microsoft.com/kb/811833)
 
   此文介绍如何在较旧的 Windows 计算机中使用 FIPS 模式。
-<!--Update_Description: wording update-->

@@ -5,22 +5,19 @@ services: functions
 documentationcenter: na
 author: ggailey777
 manager: jeconnoc
-editor: ''
 ms.assetid: 242736be-ec66-4114-924b-31795fd18884
-ms.service: functions
-ms.workload: na
-ms.tgt_pltfrm: multiple
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 origin.date: 08/14/2018
-ms.date: 08/31/2018
+ms.date: 09/21/2018
 ms.author: v-junlch
-ms.openlocfilehash: 74631ad4c5a8d470469f332974815140b0fe1e1e
-ms.sourcegitcommit: b2c9bc0ed28e73e8c43aa2041c6d875361833681
+ms.openlocfilehash: 8d848e0df8ae041e61eb4b60fb285df736a3d20e
+ms.sourcegitcommit: 54d9384656cee927000d77de5791c1d585d94a68
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43330783"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46524051"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>使用 Azure Functions Core Tools
 
@@ -30,11 +27,11 @@ ms.locfileid: "43330783"
 
 ## <a name="core-tools-versions"></a>Core Tools 版本
 
-Azure Functions Core Tools 有两个版本。 使用的版本取决于本地开发环境、所选的语言以及所需的支持级别：
+Azure Functions Core Tools 有两个版本。 使用的版本取决于本地开发环境、[所选的语言](supported-languages.md)以及所需的支持级别：
 
-+ [版本 1.x](#v1)：支持 1.x 版的运行时，即正式版 (GA)。 此 Tools 版本仅在 Windows 计算机上受支持，需从 [npm 包](https://docs.npmjs.com/getting-started/what-is-npm)安装。 借助此版本，可以使用不受官方支持的试验性语言创建函数。 有关详细信息，请参阅 [Azure Functions 中支持的语言](supported-languages.md)。
++ [版本 1.x](#v1)：支持 1.x 版的运行时，即正式版 (GA)。 此 Tools 版本仅在 Windows 计算机上受支持，需从 [npm 包](https://docs.npmjs.com/getting-started/what-is-npm)安装。
 
-+ [2.x 版](#v2)：支持 [2.x 版运行时](functions-versions.md)。 此版本支持 [Windows](#windows-npm)、[macOS](#brew) 和 [Linux](#linux)。 使用特定于平台的包管理器或 npm 进行安装。 与 2.x 运行时一样，此 Core Tools 版本目前以预览版提供。 
++ [2.x 版](#v2)：支持 [2.x 版运行时](functions-versions.md)。 此版本支持 [Windows](#windows-npm)、[macOS](#brew) 和 [Linux](#linux)。 使用特定于平台的包管理器或 npm 进行安装。 与 2.x 运行时一样，此 Core Tools 版本目前以预览版提供。 在 2.x 版中，函数应用中的所有函数都必须使用相同的语言运行时。
 
 除非另有说明，否则本文中的示例适用于版本 2.x。 若要接收 2.x 版的重要更新，包括中断性变更公告，请留意 [Azure 应用服务公告](https://github.com/Azure/app-service-announcements/issues)存储库。
 
@@ -139,7 +136,6 @@ func init MyFunctionProj
 Select a worker runtime:
 dotnet
 node
-java
 ```
 
 使用向上/向下箭头键选择语言，然后按 Enter。 JavaScript 项目的输出如以下示例所示：
@@ -448,3 +444,4 @@ Azure Functions Core Tools 是[开源工具且托管在 GitHub 上](https://gith
 [Azure 门户]: https://portal.azure.cn 
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
 
+<!-- Update_Description: wording update -->

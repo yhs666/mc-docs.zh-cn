@@ -1,26 +1,20 @@
 ---
-title: Azure 文件的共享快照概述 | Azure
+title: Azure 文件的共享快照概述 | Microsoft Docs
 description: 作为备份共享的一种方式，共享快照是某个时间点拍摄的 Azure 文件共享的只读版本。
 services: storage
-documentationcenter: .net
 author: WenJason
-manager: digimobile
-editor: tysonn
-ms.assetid: edabe3ee-688b-41e0-b34f-613ac9c3fdfd
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 01/17/2018
-ms.date: 06/11/2018
-ms.author: renash
-ms.openlocfilehash: fd0f4154dabf06a03ae03d52a56e82605051639e
-ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
+ms.date: 09/24/2018
+ms.author: v-jay
+ms.component: files
+ms.openlocfilehash: 2d0a7b016a50b84240961d8575bfcfb1275f0c12
+ms.sourcegitcommit: 0081fb238c35581bb527bdd704008c07079c8fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103100"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523714"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Azure 文件的共享快照概述 
 Azure 文件提供了获取文件共享的共享快照的功能。 共享快照可以捕获在某个时间点的共享状态。 本文介绍共享快照提供的功能，以及如何在自定义用例中加以利用。
@@ -39,7 +33,7 @@ Azure 文件提供了获取文件共享的共享快照的功能。 共享快照�
 ## <a name="capabilities"></a>功能
 共享快照是数据在一个时间点只读副本。 可以使用 REST API 创建、删除和管理快照。 此外，客户端库、Azure CLI 和 Azure 门户中也提供了相同的功能。 
 
-可以使用 REST API 和 SMB 查看共享快照。 可以检索目录或文件的版本列表，可以直接作为驱动程序装载特定版本。 
+可以使用 REST API 和 SMB 查看共享快照。 可以检索目录或文件的版本列表，并且可以直接将特定版本作为驱动器装载（仅适用于 Windows - 请参阅[限制](#limits)）。 
 
 在创建共享快照后，可以读取、复制或删除该快照，但无法对其进行修改。 无法将整个共享快照复制到另一个存储帐户。 必须使用 AzCopy 或其他复制机制逐个复制文件。
 
@@ -70,6 +64,8 @@ Azure 文件目前允许的共享快照的上限是 200 个。 在 200 个共享
 
 对创建共享快照的同时调用没有限制。 特定文件共享所能占用的共享快照空间没有限制。 
 
+目前，不能在 Linux 上装载共享快照。 这是因为 Linux SMB 客户端不支持像 Windows 那样装载快照。
+
 ## <a name="copying-data-back-to-a-share-from-share-snapshot"></a>数据从共享快照复制回共享
 涉及文件和共享快照的复制操作遵循以下规则：
 
@@ -93,4 +89,5 @@ Azure 文件目前允许的共享快照的上限是 200 个。 在 200 个共享
     - [Portal](storage-how-to-use-files-portal.md#create-and-modify-share-snapshots)
     - [PowerShell](storage-how-to-use-files-powershell.md#create-and-modify-share-snapshots)
     - [CLI](storage-how-to-use-files-cli.md#create-and-modify-share-snapshots)
+    - [Windows](storage-how-to-use-files-windows.md#accessing-share-snapshots-from-windows)
 - [共享快照常见问题解答](storage-files-faq.md#share-snapshots)

@@ -4,23 +4,21 @@ description: 使用 Azure Resource Manager 将资源移到新的资源组或订�
 services: azure-resource-manager
 documentationcenter: ''
 author: rockboyfor
-manager: digimobile
-editor: tysonn
 ms.assetid: ab7d42bd-8434-4026-a892-df4a97b60a9b
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 07/02/2018
-ms.date: 09/03/2018
+origin.date: 09/07/2018
+ms.date: 09/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: 564a71c83478ef0e97cd9ab309cef4936ad2d77e
-ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
+ms.openlocfilehash: 65044f1e798d4e334fde72e9b3d62c21812ffaa9
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43164702"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527049"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>将资源移到新资源组或订阅中
 
@@ -61,8 +59,7 @@ ms.locfileid: "43164702"
     <!-- Not Available on * [Transfer ownership of an Azure subscription to another account](../billing/billing-subscription-transfer.md) --> <!-- Not Available on * [How to associate or add an Azure subscription to Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)-->
     
     
-2. 服务必须支持移动资源的功能。 本文列出了支持对资源进行移动的服务和不支持对资源进行移动的服务。
-3. 必须针对要移动的资源的资源提供程序注册目标订阅。 否则，会收到错误，指明 **未针对资源类型注册订阅**。 将资源移到新的订阅时，可能会遇到此问题，但该订阅从未配合该资源类型使用。
+1. 必须针对要移动的资源的资源提供程序注册目标订阅。 否则，会收到错误，指明 **未针对资源类型注册订阅**。 将资源移到新的订阅时，可能会遇到此问题，但该订阅从未配合该资源类型使用。
 
     对于 PowerShell，请使用以下命令来获取注册状态：
 
@@ -90,13 +87,16 @@ ms.locfileid: "43164702"
     az provider register --namespace Microsoft.Batch
     ```
 
-4. 移动资源的帐户至少需要具备下列权限：
+1. 移动资源的帐户至少需要具备下列权限：
 
     * 源资源组上的 Microsoft.Resources/subscriptions/resourceGroups/moveResources/action 权限。
     * 目标资源组上的 Microsoft.Resources/subscriptions/resourceGroups/write 权限。
-5. 在移动资源之前，请检查要将资源移动到的订阅的订阅配额。 如果移动资源意味着订阅将超出其限制，则需要检查是否可以请求增加配额。 有关限制的列表及如何请求增加配额的信息，请参阅 [Azure 订阅和服务限制、配额与约束](../azure-subscription-service-limits.md)。
 
-5. 在可能的情况下，将大型移动分为单独的移动操作。 在一次操作中尝试移动超过 800 项资源，资源管理器将立即失败。 但是，移动 800 项以下的资源也可能因超时而失败。
+1. 在移动资源之前，请检查要将资源移动到的订阅的订阅配额。 如果移动资源意味着订阅将超出其限制，则需要检查是否可以请求增加配额。 有关限制的列表及如何请求增加配额的信息，请参阅 [Azure 订阅和服务限制、配额与约束](../azure-subscription-service-limits.md)。
+
+1. 在可能的情况下，将大型移动分为单独的移动操作。 在一次操作中尝试移动超过 800 项资源，资源管理器将立即失败。 但是，移动 800 项以下的资源也可能因超时而失败。
+
+1. 服务必须支持移动资源的功能。 若要确定移动是否会成功，[验证你的移动请求](#validate-move)。 请参阅本文中的以下部分，了解[支持对资源进行移动的服务](#services-that-can-be-moved)和[不支持对资源进行移动的服务](#services-that-cannot-be-moved)。
 
 ## <a name="when-to-call-support"></a>致电支持人员的时机
 
@@ -110,24 +110,79 @@ ms.locfileid: "43164702"
 * 将资源移到新的 Azure 帐户（和 Azure Active Directory 租户），并且对于上一部分中的说明需要帮助。
 * 移动经典资源，但遇到限制问题。
 
+## <a name="validate-move"></a>验证移动
+
+[验证移动操作](https://docs.microsoft.com/rest/api/resources/resources/validatemoveresources)可以测试你的移动方案而无需实际移动资源。 使用此操作来确定移动是否会成功。 若要运行此操作，需要：
+
+* 源资源组的名称
+* 目标资源组的资源 ID
+* 要移动的每个资源的资源 ID
+* 你的帐户的[访问令牌](https://docs.microsoft.com/rest/api/azure/#acquire-an-access-token)
+
+发送以下请求：
+
+```
+POST https://management.chinacloudapi.cn/subscriptions/<subscription-id>/resourceGroups/<source-group>/validateMoveResources?api-version=2018-02-01
+Authorization: Bearer <access-token>
+Content-type: application/json
+```
+
+包含请求正文：
+
+```json
+{
+ "resources": ['<resource-id-1>', '<resource-id-2>'],
+ "targetResourceGroup": "/subscriptions/<subscription-id>/resourceGroups/<target-group>"
+}
+```
+
+如果请求格式正确，则操作将返回：
+
+```
+Response Code: 202
+cache-control: no-cache
+pragma: no-cache
+expires: -1
+location: https://management.chinacloudapi.cn/subscriptions/<subscription-id>/operationresults/<operation-id>?api-version=2018-02-01
+retry-after: 15
+...
+```
+
+202 状态代码指示已接受验证请求，但尚未确定移动操作是否会成功。 `location` 值包含用于检查长时间运行操作的状态的 URL。  
+
+若要检查状态，请发送以下请求：
+
+```
+GET <location-url>
+Authorization: Bearer <access-token>
+```
+
+操作仍在运行时，会继续收到 202 状态代码。 请等待 `retry-after` 值中所示的秒数，然后重试。 如果移动操作验证成功，则会收到 204 状态代码。 如果移动验证失败，则会收到错误消息，例如：
+
+```json
+{"error":{"code":"ResourceMoveProviderValidationFailed","message":"<message>"...}}
+```
+
 ## <a name="services-that-can-be-moved"></a>可以移动的服务
 
-支持同时移动到新资源组和订阅的服务包括：
+以下列表提供了可移动到新资源组和订阅的 Azure 服务的一般摘要。 有关更多详细信息，请参阅[资源的移动操作支持](move-support-resources.md)。
 
+* Analysis Services
 * API 管理
 * 应用服务应用（Web 应用）- 请参阅[应用服务限制](#app-service-limitations)
 * 应用服务证书 <!-- Not Available * Application Insights-->
-* Analysis Services
 * 自动化 <!-- Not Available * Azure Active Directory B2C-->
 * Azure Cosmos DB <!-- Not Available * Azure Maps -->
 <!-- Not Available * Azure Relay -->
-* Azure Stack - 注册 <!-- Not Available * Azure Migrate-->
+* Azure Stack - 注册
 * Batch <!-- Not Available * BizTalk Services-->
 <!-- Not Available * Bot Service-->
 * CDN
 * 云服务 - 请参阅 [经典部署限制](#classic-deployment-limitations)
 * 认知服务
 * 容器注册表 <!-- Not Available * Content Moderator-->
+<!-- Not Available * Cost Management-->
+<!-- Not Available * Customer Insights-->
 <!-- Not Available * Data Catalog-->
 <!-- Not Available * Data Factory -->
 <!-- Not Available * Data Lake Analytics-->
@@ -136,22 +191,25 @@ ms.locfileid: "43164702"
 <!-- Not Available * Event Grid-->
 * 事件中心
 * HDInsight 群集 - 请参阅 [HDInsight 限制](#hdinsight-limitations)
+<!-- Not Available * Iot Central-->
 * IoT 中心
 * 密钥保管库
 * 负载均衡器 - 请参阅[负载均衡器限制](#lb-limitations)
 <!-- Not Available * Log Analytics-->
 * 逻辑应用 <!-- Not Available * Machine Learning - Machine Learning Studio web services can be moved to a resource group in the same subscription, but not a different subscription. Other Machine Learning resources can be moved across subscriptions.-->
+<!-- Not Available * Managed Identity - user-assigned-->
 * 媒体服务 <!-- Not Available * Mobile Engagement-->
 * 通知中心 <!-- Not Available * Operational Insights-->
 <!-- Not Available * Operations Management-->
 * 门户仪表板
 * Power BI - Power BI Embedded 和 Power BI 工作区集合
 * 公共 IP - 请参阅[公共 IP 限制](#pip-limitations)
-* Redis 缓存
+* Redis缓存 - 如果 Redis 缓存实例配置了虚拟网络，则无法将该实例移动到其他订阅。 请参阅[虚拟网络限制](#virtual-networks-limitations)。
 * 计划程序 <!-- Not Available * Search-->
 * 服务总线
-* Service Fabric <!-- Not Available * SignalR Service-->
-* 存储
+* Service Fabric <!-- Not Available * Service Fabric Mesh-->
+<!-- Not Available * SignalR Service-->
+* 存储 - 不同区域的存储帐户无法通过同一操作进行移动。 请改为对每个区域使用单独的操作。
 * 存储（经典）- 请参阅[经典部署限制](#classic-deployment-limitations)
 * 流分析 - 当流分析作业处于运行状态时，则无法进行移动。
 * SQL 数据库服务器 - 数据库和服务器必须位于同一个资源组中。 移动 SQL 服务器时，也会移动其所有数据库。 此行为适用于 Azure SQL 数据库和 Azure SQL 数据仓库数据库。
@@ -165,7 +223,7 @@ ms.locfileid: "43164702"
 
 ## <a name="services-that-cannot-be-moved"></a>无法移动的服务
 
-目前不可移动资源的服务包括：
+以下列表提供了不能移动到新资源组和订阅的 Azure 服务的一般摘要。 有关更多详细信息，请参阅[资源的移动操作支持](move-support-resources.md)。
 
 <!-- Not Available * AD Domain Services-->
 * AD 混合运行状况服务
@@ -173,8 +231,13 @@ ms.locfileid: "43164702"
 * Azure Database for MySQL
 * Azure Database for PostgreSQL <!-- Not Available * Azure Database Migration-->
 <!-- Not Available * Azure Databricks-->
+<!-- Not Available * Azure Migrate-->
+<!-- Not Available * Batch AI-->
 * 证书 - 应用服务证书可以移动，但上传的证书存在[限制](#app-service-limitations)。
+<!-- Not Available * Container Instances-->
 <!-- Not Available * Container Service-->
+<!-- Not Available * Data Box-->
+<!-- Not Available * Dev Spaces-->
 <!-- Not Available * Dynamics LCS-->
 * Express Route <!-- Not Available * Kubernetes Service-->
 <!-- Not Available * Lab Services-->
@@ -182,6 +245,7 @@ ms.locfileid: "43164702"
 <!-- Not Available * Managed Applications-->
 * 托管磁盘 - 请参阅[虚拟机限制](#virtual-machines-limitations)
 <!-- Not Available * Azure Genomics-->
+<!-- Not Available * NetApp-->
 * 公共 IP - 请参阅[公共 IP 限制](#pip-limitations)
 * 恢复服务保管库 - 此外，也不可以移动与恢复服务保管库关联的计算、网络和存储资源，请参阅[恢复服务限制](#recovery-services-limitations)。
 <!-- Not Available * SAP HANA on Azure-->
@@ -210,13 +274,11 @@ ms.locfileid: "43164702"
 
 ## <a name="virtual-networks-limitations"></a>虚拟网络限制
 
-移动虚拟网络时，还必须移动其从属资源。 例如，必须随虚拟网络一起移动网关。
+移动虚拟网络时，还必须移动其从属资源。 对于 VPN 网关，必须移动 IP 地址、虚拟网络网关和所有关联的连接资源。 本地网络网关可以位于不同的资源组中。
 
 若要移动对等的虚拟网络，必须首先禁用虚拟网络对等互连。 在禁用后，可以移动虚拟网络。 在移动后，重新启用虚拟网络对等互连。
 
 如果虚拟网络的任何子网包含资源导航链接，则无法将虚拟网络移动到其他订阅。 例如，如果 Redis 缓存资源部署到某个子网，则该子网具有资源导航链接。
-
-如果虚拟网络包含自定义 DNS 服务器，则无法将虚拟网络移动到其他订阅。 若要移动虚拟网络，请将它设置为默认的（Azure 提供的）DNS 服务器。 移动以后，请重新配置自定义 DNS 服务器。
 
 ## <a name="app-service-limitations"></a>应用服务限制
 

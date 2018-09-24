@@ -6,24 +6,24 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-origin.date: 03/12/2018
+origin.date: 09/14/2018
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
-ms.date: 09/10/2018
-ms.openlocfilehash: 9166cf7a652d69c03940df77ec052fb31711fdd2
-ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
+ms.date: 10/08/2018
+ms.openlocfilehash: 5f9efefb0ec7eaf03ce17b476bbb48fe34aa81d5
+ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43328901"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523889"
 ---
 # <a name="understand-and-use-azure-iot-hub-sdks"></a>了解和使用 Azure IoT 中心 SDK
 
-有两种类别的软件开发工具包 (SDK) 适用于 IoT 中心：
+有三种软件开发工具包 (SDK) 可以用于 IoT 中心：
 
-* **设备 SDK** 用于构建可在 IoT 设备上运行的应用。 这些应用将遥测发送到 IoT 中心，并可以选择从 IoT 中心接收消息、作业、方法或孪生更新。
+* **设备 SDK** 用于使用设备客户端或模块客户端生成在 IoT 设备上运行的应用。 这些应用将遥测发送到 IoT 中心，并可以选择从 IoT 中心接收消息、作业、方法或孪生更新。
+* **服务 SDK** 用于管理 IoT 中心，并且还可以选择用来发送消息、计划作业、调用直接方法，或者向 IoT 设备或模块发送所需的属性更新。
 
-* **服务 SDK** 用于管理 IoT 中心，并且还可以选择用来发送消息、计划作业、调用直接方法，或者向 IoT 设备发送所需的属性更新。
 
 可以从[此处][lnk-benefits-blog]了解使用 Azure IoT SDK 进行开发的好处。
 
@@ -37,29 +37,35 @@ Microsoft Azure IoT 设备 SDK 包含的代码可帮助构建连接到 Azure IoT
 * 通过 [Nuget][lnk-nuget-csharp-device] 安装
 * [源代码][lnk-dotnet-sdk]
 * [API 参考][lnk-dotnet-ref]
+* [模块参考](/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet)
 
 适用于 C 的 Azure IoT 中心设备 SDK：采用 ANSI C (C99) 编写，具有可移植性和广泛的平台兼容性
 * 通过 [apt-get、MBED、Arduino IDE 或 Nuget][lnk-c-package] 安装
 * [源代码][lnk-c-sdk]
 * [API 参考][lnk-c-ref]
+* [模块参考](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/inc/iothub_module_client.h)
 
 适用于 Java 的 Azure IoT 中心设备 SDK： 
 * 添加到 [Maven][lnk-maven-device] 项目
 * [源代码][lnk-java-sdk]
 * [API 参考][lnk-java-ref]
+* [模块参考](/java/api/com.microsoft.azure.sdk.iot.device._module_client?view=azure-java-stable)
 
 适用于 Node.js 的 Azure IoT 中心设备 SDK： 
 * 通过 [npm][lnk-npm-device] 安装
 * [源代码][lnk-node-sdk]
 * [API 参考][lnk-node-ref]
+* [模块参考](https://docs.microsoft.com/javascript/api/azure-iot-device/moduleclient?view=azure-node-latest)
 
 适用于 Python 的 Azure IoT 中心设备 SDK： 
 * 通过 [pip][lnk-pip-device] 安装
 * [源代码][lnk-python-sdk]
+* API 参考：请参阅 [C API 参考][lnk-c-ref]
 
 适用于 iOS 的 Azure IoT 中心设备 SDK： 
 * 从 [CocoaPod][lnk-cocoa-device] 安装
 * [示例][lnk-ios-sample]
+* API 参考：请参阅 [C API 参考][lnk-c-ref]
 
 > [!NOTE]
 > 有关使用语言和平台特定的程序包管理器在开发计算机上安装二进制文件和依赖项的信息，请参阅 GitHub 存储库中的自述文件。
@@ -105,6 +111,29 @@ Azure IoT 服务 SDK 包含的代码可帮助生成直接与 IoT 中心进行交
 > [!NOTE]
 > 有关使用语言和平台特定的程序包管理器在开发计算机上安装二进制文件和依赖项的信息，请参阅 GitHub 存储库中的自述文件。
 
+## <a name="device-provisioning-sdks"></a>设备预配 SDK
+
+**Microsoft Azure 预配 SDK** 使你可以使用[设备预配服务](../iot-dps/about-iot-dps.md)将设备预配到 IoT 中心。
+
+适用于 C# 的 Azure 预配设备和服务 SDK：
+* [预配设备客户端 SDK](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/provisioning/device)
+* [预配服务客户端 SDK](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/provisioning/service)
+
+适用于 Java 的 Azure 预配设备和服务 SDK：
+* [预配设备客户端 SDK](https://github.com/Azure/azure-iot-sdk-java/blob/master/provisioning-device-client)
+* [预配服务客户端 SDK](https://github.com/Azure/azure-iot-sdk-java/blob/master/provisioning/provisioning-service-client)
+
+适用于 Node.js 的 Azure 预配设备和服务 SDK：
+* [预配设备客户端 SDK](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/device)
+* [预配服务客户端 SDK](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/service)
+
+适用于 Python 的 Azure 预配设备和服务 SDK：
+* [预配设备客户端 SDK](https://github.com/Azure/azure-iot-sdk-python/blob/master/provisioning_device_client)
+* [预配服务客户端 SDK](https://github.com/Azure/azure-iot-sdk-python/tree/master/provisioning_service_client)
+
+适用于 C 的 Azure 预配设备和服务 SDK：
+* [预配设备客户端 SDK](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client)
+* [预配服务客户端 SDK](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning/service)
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -145,7 +174,7 @@ Azure IoT SDK 还提供了一组工具来帮助开发：
 [lnk-npm-service]: https://www.npmjs.com/package/azure-iothub
 [lnk-nuget-csharp-device]: https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/
 [lnk-nuget-csharp-service]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
-[lnk-c-package]: https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/readme.md
+[lnk-c-package]: https://github.com/Azure/azure-iot-sdk-c/blob/master/readme.md
 [lnk-pip-device]: https://pypi.python.org/pypi/azure-iothub-device-client/
 [lnk-pip-service]: https://pypi.python.org/pypi/azure-iothub-service-client/
 

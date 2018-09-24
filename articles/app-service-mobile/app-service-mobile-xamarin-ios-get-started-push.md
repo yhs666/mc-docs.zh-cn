@@ -13,14 +13,14 @@ ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 10/12/2016
-ms.date: 01/29/2018
+ms.date: 10/08/2018
 ms.author: v-yiso
-ms.openlocfilehash: 1bc945b63981f0b7795c3a71576e03ffa4a05f83
-ms.sourcegitcommit: a20b3fbe305d3bb4b6ddfdae98b3e0ab8a79bbfa
+ms.openlocfilehash: bd79de1ad879b23ada8fa9d43d5b6edd4129e6ea
+ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/22/2018
-ms.locfileid: "27984751"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523837"
 ---
 # <a name="add-push-notifications-to-your-xamarinios-app"></a>向 Xamarin.iOS 应用添加推送通知
 
@@ -54,8 +54,8 @@ ms.locfileid: "27984751"
 
 1. 在 **QSTodoService** 中，添加以下属性使 **AppDelegate** 可以获取移动客户端：
 
-    ```
-        public MobileServiceClient GetClient {
+    ```csharp
+    public MobileServiceClient GetClient {
         get
         {
             return client;
@@ -69,14 +69,14 @@ ms.locfileid: "27984751"
 
 1. 在 **AppDelegate.cs** 文件顶部添加以下 `using` 语句。
 
-    ```
+    ```csharp
     using Microsoft.WindowsAzure.MobileServices;
     using Newtonsoft.Json.Linq;
     ```
 
 2. 在 **AppDelegate** 中，重写 **FinishedLaunching** 事件：
 
-    ```
+   ```csharp
     public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
     {
         // registers for push for iOS8
@@ -97,7 +97,7 @@ ms.locfileid: "27984751"
 
     有关使用通知中心的模板的详细信息，请参阅[模板](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md)。
 
-    ```
+    ```csharp
     public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
     {
         MobileServiceClient client = QSTodoService.DefaultService.GetClient;
@@ -118,7 +118,7 @@ ms.locfileid: "27984751"
 
 4. 然后，重写 **DidReceivedRemoteNotification** 事件：
 
-    ```
+   ```csharp
     public override void DidReceiveRemoteNotification (UIApplication application, NSDictionary userInfo, Action<UIBackgroundFetchResult> completionHandler)
     {
         NSDictionary aps = userInfo.ObjectForKey(new NSString("aps")) as NSDictionary;

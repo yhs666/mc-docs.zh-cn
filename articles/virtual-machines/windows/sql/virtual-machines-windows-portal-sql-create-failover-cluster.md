@@ -15,14 +15,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 06/11/2018
-ms.date: 08/27/2018
+ms.date: 09/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: 24b7f54c84113bc1daa09c98deb2f7fb735fd207
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.openlocfilehash: 3843fdac6f6b8745a7a5e2d6c3d032fe77692b08
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42871611"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527194"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>在 Azure 虚拟机上配置 SQL Server 故障转移群集实例
 
@@ -370,13 +370,10 @@ S2D 的磁盘需是空的，不包含分区或其他数据。 若要清除磁盘
    - **虚拟网络**：虚拟机所在的同一网络。
    - **子网**：虚拟机所在的同一子网。
    - **专用 IP 地址**：分配给 SQL Server FCI 群集网络资源的同一 IP 地址。
-   - 
-            **订阅**：Azure 订阅。
-   - 
-            **资源组**：使用虚拟机所在的同一资源组。
-   - 
-               **位置**：使用虚拟机所在的同一 Azure 位置。
-参阅下图：
+   - **订阅**：Azure 订阅。
+   - **资源组**：使用虚拟机所在的同一资源组。
+   - **位置**：使用虚拟机所在的同一 Azure 位置。
+   参阅下图：
 
    ![CreateLoadBalancer](./media/virtual-machines-windows-portal-sql-create-failover-cluster/30-load-balancer-create.png)
 
@@ -486,7 +483,13 @@ S2D 的磁盘需是空的，不包含分区或其他数据。 若要清除磁盘
 >如果需要，可以[下载 SQL Server Management Studio](http://msdn.microsoft.com/library/mt238290.aspx)。
 
 ## <a name="limitations"></a>限制
-Azure 虚拟机上的 FCI 不支持 Microsoft 分布式事务处理协调器 (DTC)，因为负载均衡器不支持 RPC 端口。
+
+Azure 虚拟机支持 Windows Server 2019 上的 Azure 分布式事务处理协调器 (MSDTC)，其中存储位于群集共享卷 (CSV) 和[标准负载均衡器](../../../load-balancer/load-balancer-standard-overview.md)上。
+
+在 Azure 虚拟机上，Windows Server 2016 及更早版本不支持 MSDTC，因为：
+
+- 无法将群集 MSDTC 资源配置为使用共享存储。 对于 Windows Server 2016，如果创建 MSDTC 资源，即使存储存在，也不会显示任何可用的共享存储。 Windows Server 2019 中已修复此问题。
+- 基本负载均衡器不处理 RPC 端口。
 
 ## <a name="see-also"></a>另请参阅
 

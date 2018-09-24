@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 04/11/2018
 ms.author: v-yiso
-ms.date: 07/09/2018
-ms.openlocfilehash: cd47a80d78dd870fd04740bcbc64ea82f522f552
-ms.sourcegitcommit: 039d75a641edc2edd13a9371251051c20fea2bb7
+ms.date: 10/08/2018
+ms.openlocfilehash: a00ac33956f469a982edb2e532edb5cf7e290eb1
+ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103394"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523809"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-by-using-the-web-apps-feature-of-azure-app-service"></a>使用 Azure 应用服务的 Web 应用功能可视化 Azure IoT 中心的实时传感器数据
 
@@ -67,7 +67,7 @@ ms.locfileid: "37103394"
 
    | 键                                   | 值                                                        |
    |---------------------------------------|--------------------------------------------------------------|
-   | Azure.IoT.IoTHub.ConnectionString     | 从 iothub-explorer 获取                                |
+   | Azure.IoT.IoTHub.ConnectionString     | 从 Azure CLI 获取                                      |
    | Azure.IoT.IoTHub.ConsumerGroup        | 添加到 IoT 中心的使用者组的名称  |
 
    ![将包含键/值对的设置添加到 Web 应用](./media/iot-hub-live-data-visualization-in-web-apps/4_web-app-settings-key-value-azure.png)

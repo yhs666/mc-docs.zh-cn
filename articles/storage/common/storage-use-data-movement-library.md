@@ -1,26 +1,20 @@
 ---
-title: 使用 Azure 存储数据移动库传输数据 | Azure
+title: 使用 Azure 存储数据移动库传输数据 | Microsoft Docs
 description: 使用数据移动库将数据移动或复制到 Blob 和文件内容，或者从中移动或复制数据。 从本地文件将数据复制到 Azure 存储，或者在存储帐户中或存储帐户之间复制数据。 轻松地将数据迁移到 Azure 存储。
 services: storage
-documentationcenter: ''
-author: forester123
-manager: digimobile
-editor: tysonn
-ms.assetid: ''
+author: WenJason
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 09/27/2017
-ms.date: 10/30/2017
-ms.author: v-johch
-ms.openlocfilehash: d56c9b793b741d5d904ef765b731b5d3638eb90e
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.date: 09/24/2017
+ms.author: v-jay
+ms.openlocfilehash: 594cee8ede758dc5b0851a8ca0078de53a1218f8
+ms.sourcegitcommit: 0081fb238c35581bb527bdd704008c07079c8fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
-ms.locfileid: "29285862"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523703"
 ---
 # <a name="transfer-data-with-the-azure-storage-data-movement-library"></a>使用 Azure 存储数据移动库传输数据
 
@@ -41,10 +35,10 @@ Azure 存储数据移动库是一个高性能的跨平台开源库，用于上�
 **准备工作：**
 
 * [Visual Studio Code](https://code.visualstudio.com/)
-* 一个 [Azure 存储帐户](storage-create-storage-account.md#create-a-storage-account)
+* 一个 [Azure 存储帐户](storage-quickstart-create-account.md)
 
 > [!NOTE]
-> 本指南假定已熟悉 [Azure 存储](https://www.azure.cn/home/features/storage/)。 如果不熟悉，最好是阅读 [Azure 存储简介](storage-introduction.md)。 最重要的是，需要[创建一个存储帐户](storage-create-storage-account.md#create-a-storage-account)才能开始使用数据移动库。
+> 本指南假定已熟悉 [Azure 存储](https://www.azure.cn/home/features/storage/)。 如果不熟悉，最好是阅读 [Azure 存储简介](storage-introduction.md)。 最重要的是，需要[创建一个存储帐户](storage-quickstart-create-account.md)才能开始使用数据移动库。
 > 
 > 
 
@@ -53,7 +47,7 @@ Azure 存储数据移动库是一个高性能的跨平台开源库，用于上�
 1. 访问 [.NET Core 安装指南](https://www.microsoft.com/net/core) 安装 .NET Core。 选择环境时，请选择命令行选项。 
 2. 通过命令行创建项目的目录。 导航到此目录，然后键入 `dotnet new console -o <sample-project-name>` 创建 C# 控制台项目。
 3. 在 Visual Studio Code 中打开此目录。 通过在 Windows 中命令行上键入 `code .` 可快速完成此步骤。  
-4. 从 Visual Studio Code 应用商店安装 [C# 扩展](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)。 重新启动 Visual Studio Code。 
+4. 从 Visual Studio Code Marketplace 安装 [C# 扩展](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)。 重新启动 Visual Studio Code。 
 5. 此时，应会出现两条提示。 其中一条提示指出要“添加所需的资产用于生成和调试。 ” 请单击“是”。 另一条提示指出要还原未解析的依赖项。 请单击“还原”。
 6. 修改 `.vscode` 下的 `launch.json`，将外部终端用作控制台。 此设置应为 ` "console": "externalTerminal"`
 7. 可以使用 Visual Studio Code 调试 .NET Core 应用程序。 点击 `F5` 运行应用程序，并验证设置是否正常运行。 应会看到“Hello World!” 列显在控制台上。 
@@ -202,7 +196,7 @@ public static async Task TransferLocalFileToAzureBlob(CloudStorageAccount accoun
 点击 `F5` 运行应用程序。 可通过使用 [Azure 存储资源管理器](http://storageexplorer.com/)查看存储帐户，来验证是否已发生上传。
 
 ## <a name="set-number-of-parallel-operations"></a>设置并行操作数目
-数据移动库提供的一个极佳功能就是设置并行操作数目，以提高数据传输吞吐量。 默认情况下，数据移动库将并行操作数目设置为计算机上核心数的 8 倍。 
+数据移动库提供的一个极佳功能就是设置并行操作数目，以提高数据传输吞吐量。 默认情况下，数据移动库将并行操作数目设置为 8 * 计算机上核心数。 
 
 请注意，在低带宽环境中，大量的并发操作可能会使网络连接变得紊乱，实质性地阻碍操作的全面完成。 需要试运行一下此设置，根据可用网络带宽确定哪种设置最合适。 
 

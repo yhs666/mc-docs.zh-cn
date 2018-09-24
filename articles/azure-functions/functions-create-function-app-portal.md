@@ -17,12 +17,12 @@ origin.date: 04/11/2017
 ms.date: 04/11/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: ef54e4f044b8794292a786f5617aaa76763b3bf6
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 48e4e3ee007867630bac82db77c0381ab1d430a1
+ms.sourcegitcommit: 54d9384656cee927000d77de5791c1d585d94a68
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939468"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523985"
 ---
 # <a name="create-a-function-app-from-the-azure-portal"></a>通过 Azure 门户创建 Function App
 
@@ -36,7 +36,7 @@ Azure Function App 使用 Azure 应用服务基础结构。 本主题演示如�
 
 存储帐户名称必须为 3 到 24 个字符，并且只能包含数字和小写字母。 存储帐户名称在 Azure 中必须是唯一的。 
 
-创建 Function App 后，可以使用一种或多种不同的语言创建各个函数。 [通过使用门户](functions-create-first-azure-function.md#create-function)、[连续部署](functions-continuous-deployment.md)，或通过[使用 FTP 上传](https://github.com/projectkudu/kudu/wiki/Accessing-files-via-ftp)来创建函数。
+创建 Function App 后，可以使用一种或多种不同的语言创建各个函数。 [通过使用门户](functions-create-first-azure-function.md#create-function)或通过[使用 FTP 上传](https://github.com/projectkudu/kudu/wiki/Accessing-files-via-ftp)来创建函数。
 
 ## <a name="service-plans"></a>服务计划
 

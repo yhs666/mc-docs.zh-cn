@@ -8,14 +8,14 @@ services: iot-hub
 ms.topic: conceptual
 origin.date: 07/17/2018
 ms.custom: H1Hack27Feb2017
-ms.date: 09/10/2018
+ms.date: 10/08/2018
 ms.author: v-yiso
-ms.openlocfilehash: 6e0e4698bc1b71bbe046a1a0fdc1002f4c1a211e
-ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
+ms.openlocfilehash: b0dce4c0221daf2e6ada65797c3cb00189a5275a
+ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43328592"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523912"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>了解和调用 IoT 中心的直接方法
 借助 IoT 中心，用户可以从云中对设备调用直接方法。 直接方法表示与设备进行的请求-答复式交互，类似于会立即成功或失败（在用户指定的超时时间后）的 HTTP 调用。 此方法用于即时操作过程不同的情况，即时操作的不同取决于设备能否响应。
@@ -107,14 +107,14 @@ curl -X POST \
    `status` 和 `body` 均由设备提供，用于响应，其中包含设备自身的状态代码和/或描述。
 
 ### <a name="method-invocation-for-iot-edge-modules"></a>IoT Edge 模块的方法调用
-C# 预览版 SDK（可在[此处](https://www.nuget.org/packages/Microsoft.Azure.Devices/1.16.0-preview-004)获得）支持使用模块 ID 调用直接方法。
+C# SDK（可在[此处](https://www.nuget.org/packages/Microsoft.Azure.Devices/)获得）支持使用模块 ID 调用直接方法。
 
 为此，请使用 `ServiceClient.InvokeDeviceMethodAsync()` 方法并传入 `deviceId` 和 `moduleId` 作为参数。
 
 ## <a name="handle-a-direct-method-on-a-device"></a>处理针对设备的直接方法
 ### <a name="mqtt"></a>MQTT
 #### <a name="method-invocation"></a>方法调用
-设备通过 MQTT 主题接收直接方法请求： `$iothub/methods/POST/{method name}/?$rid={request id}`
+设备通过 MQTT 主题接收直接方法请求：`$iothub/methods/POST/{method name}/?$rid={request id}`。 每个设备的订阅数限制为 5。 因此，建议不要单独订阅每种直接方法。 而是考虑订阅 `$iothub/methods/POST/#`，然后根据所需的方法名称筛选传递的消息。
 
 设备接收的正文采用以下格式：
 

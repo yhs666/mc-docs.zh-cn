@@ -4,28 +4,24 @@ description: 了解如何在 Azure Functions 中使用 HTTP 和 webhook 触发�
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: Azure Functions, Functions, 事件处理, webhook, 动态计算, 无服务体系结构, HTTP, API, REST
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.tgt_pltfrm: multiple
-ms.workload: na
 origin.date: 11/21/2017
-ms.date: 08/31/2018
+ms.date: 09/21/2018
 ms.author: v-junlch
-ms.openlocfilehash: d1b226f8ba858a221a0314da398cd67ba799555f
-ms.sourcegitcommit: b2c9bc0ed28e73e8c43aa2041c6d875361833681
+ms.openlocfilehash: 777347230558130a64b5345a355023d5eb07a101
+ms.sourcegitcommit: 54d9384656cee927000d77de5791c1d585d94a68
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43330788"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46524042"
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Azure Functions HTTP 和 webhook 绑定
 
-本文介绍如何在 Azure Functions 中使用 HTTP 绑定。 Azure Functions 支持 HTTP 触发器和输出绑定。
+本文介绍如何在 Azure Functions 中使用 HTTP 触发器和输出绑定。 Azure Functions 支持 HTTP 触发器和输出绑定。
 
 HTTP 触发器可进行自定义以响应 [Webhook](https://en.wikipedia.org/wiki/Webhook)。 Webhook 触发器仅接受 JSON 有效负载，并验证 JSON。 使用特殊版本的 Webhook 触发器可以更轻松地处理某些提供程序（例如 GitHub 和 Slack）的 Webhook。
 
@@ -509,7 +505,7 @@ public static HttpResponseMessage Run(
 
 ## <a name="trigger---usage"></a>触发器 - 用法
 
-对于 C# 和 F # 函数，可以将触发器输入的类型声明为 `HttpRequestMessage` 或自定义类型。 如果选择 `HttpRequestMessage`，会获得对请求对象的完全访问权限。 对于自定义类型，函数会尝试分析 JSON 请求正文，以设置对象属性。 
+对于 C# 和 F # 函数，可以将触发器输入的类型声明为 `HttpRequestMessage` 或自定义类型。 如果选择 `HttpRequestMessage`，会获得对请求对象的完全访问权限。 对于自定义类型，运行时会尝试分析 JSON 请求正文，以设置对象属性。
 
 对于 JavaScript 函数，Functions 运行时提供请求正文而不是请求对象。 有关详细信息，请参阅 [JavaScript 触发器示例](#trigger---javascript-example)。
 
@@ -608,12 +604,10 @@ module.exports = function (context, req) {
 
 ### <a name="authorization-keys"></a>授权密钥
 
-HTTP 触发器允许使用密钥提高安全性。 标准 HTTP 触发器可以将这些密钥用作 API 密钥，这需要在请求中提供此密钥。 Webhook 可以使用密钥以多种方式对请求授权，具体取决于提供程序支持何种方式。
+Functions 允许使用密钥来增大开发期间访问 HTTP 函数终结点的难度。  标准 HTTP 触发器可能要求在请求中提供此类 API 密钥。 Webhook 可以使用密钥以多种方式对请求授权，具体取决于提供程序支持何种方式。
 
-> [!NOTE]
-> 在本地运行函数时，无论 `function.json` 中的 `authLevel` 设置为什么，都将禁用授权。 一旦发布到 Azure Functions，`authLevel` 就会立即生效。
-
-密钥作为 Function App 的一部分存储在 Azure 中，并进行了静态加密。 若要查看密钥，请创建新的密钥或将密钥滚动到新值，导航到门户中的某个函数并选择“管理”。 
+> [!IMPORTANT]
+> 尽管密钥可能有助于在开发期间模糊处理 HTTP 终结点，但它们并不适合用于在生产环境中保护 HTTP 触发器。 有关详细信息，请参阅[在生产环境中保护 HTTP 终结点](#secure-an-http-endpoint-in-production)。
 
 有两种类型的密钥：
 
@@ -622,31 +616,54 @@ HTTP 触发器允许使用密钥提高安全性。 标准 HTTP 触发器可以�
 
 命名每个密钥方便引用，并且在函数和主机级别存在名为“default”的默认密钥。 函数密钥优先于主机密钥。 如果为两个密钥定义的名称相同，则使用函数密钥。
 
-主密钥是为每个函数应用定义的默认主机密钥，名为“_master”。 无法撤消此密钥。 它提供对运行时 API 的管理访问权限。 在绑定 JSON 中使用 `"authLevel": "admin"` 需要在请求中提供此密钥；任何其他密钥均会导致授权失败。
+每个函数应用还有一个特殊的**主密钥**。 此密钥是名为 `_master` 的宿主密钥，提供对运行时 API 的管理访问。 无法撤消此密钥。 设置 `admin` 的授权级别时，请求必须使用主密钥；使用其他任何密钥会导致授权失败。
 
-> [!IMPORTANT]  
-> 由于提升的权限由主密钥所授予，因此不应与第三方共享此密钥或在本机客户端应用程序中分发此密钥。 选择管理员授权级别时，请务必审慎行事。
+> [!CAUTION]  
+> 由于主密钥在函数应用中授予提升的权限，不应与第三方共享此密钥或在本机客户端应用程序中分发此密钥。 选择管理员授权级别时，请务必审慎行事。
+
+### <a name="obtaining-keys"></a>获取密钥
+
+密钥作为 Function App 的一部分存储在 Azure 中，并进行了静态加密。 若要查看密钥，请创建新的密钥或将密钥滚动到新值，在 [Azure 门户](https://portal.azure.cn)中导航到某个 HTTP 触发的函数，然后选择“管理”。
+
+![在门户中管理函数密钥。](./media/functions-bindings-http-webhook/manage-function-keys.png)
+
+没有任何受支持的 API 能够以编程方式获取函数密钥。
 
 ### <a name="api-key-authorization"></a>API 密钥的授权
 
-默认情况下，HTTP 触发器要求 HTTP 请求中含有 API 密钥。 因此 HTTP 请求通常如下所示：
+大多数 HTTP 触发器模板要求在请求中提供 API 密钥。 因此，HTTP 请求通常类似于以下 URL：
 
     https://<yourapp>.chinacloudsites.cn/api/<function>?code=<ApiKey>
 
-该密钥可以包含在名为 `code` 的查询字符串变量中（如上所示），也可以包含在 `x-functions-key` HTTP头中。 密钥的值可以为任意为函数定义的函数密钥，也可以为任意主机密钥。
+可将该密钥包含在名为 `code` 的查询字符串变量中，如上所示。 也可以将它包含在 `x-functions-key` HTTP 标头中。 密钥的值可以为任意为函数定义的函数密钥，也可以为任意主机密钥。
 
 可以允许匿名请求，它不需要密钥。 可能还需要使用主密钥。 可使用绑定 JSON 中的 `authLevel` 属性更改默认授权级别。 有关详细信息，请参阅[触发器 - 配置](#trigger---configuration)。
 
+> [!NOTE]
+> 在本地运行函数时，不管指定的身份验证级别设置为何，都会禁用授权。 发布到 Azure 之后，会强制实施触发器中的 `authLevel` 设置。
+
 ### <a name="keys-and-webhooks"></a>密钥和 webhook
 
-Webhook 授权由属于 HTTP 触发器的 webhook 接收器组件处理，其机制因 webhook 类型而异。 但是每种机制都依赖于一个密钥。 默认情况下，使用名为“default”的函数密钥。 要使用其他密钥，请将 webhook 提供程序配置为使用以下方式之一的请求发送密钥名称：
+Webhook 授权由属于 HTTP 触发器的 webhook 接收器组件处理，其机制因 webhook 类型而异。 每种机制都依赖于一个密钥。 默认情况下，使用名为“default”的函数密钥。 要使用其他密钥，请将 webhook 提供程序配置为使用以下方式之一的请求发送密钥名称：
 
 - **查询字符串**：提供程序通过 `clientid` 查询字符串参数（例如，`https://<yourapp>.chinacloudsites.cn/api/<funcname>?clientid=<keyname>`）传递密钥名称。
 - **请求头**：提供程序通过 `x-functions-clientid` 头传递密钥名称。
 
+有关使用密钥保护 Webhook 的示例，请参阅[创建 GitHub Webhook 触发的函数](functions-create-github-webhook-triggered-function.md)。
+
+### <a name="secure-an-http-endpoint-in-production"></a>在生产环境中保护 HTTP 终结点
+
+若要在生产环境中完全保护函数终结点，应考虑实施以下函数应用级安全选项之一：
+
+- 为函数应用启用应用服务身份验证/授权。 应用服务平台允许使用 Azure Active Directory (AAD)、服务主体身份验证和受信任的第三方标识提供者对用户进行身份验证。 启用此功能后，只有经身份验证的用户可以访问函数应用。 有关详细信息，请参阅[将应用服务应用配置为使用 Azure Active Directory 登录](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md)。
+
+- 使用 Azure API 管理 (APIM) 对请求进行身份验证。 APIM 针对传入的请求提供各种 API 安全选项。 有关详细信息，请参阅 [API 管理身份验证策略](../api-management/api-management-authentication-policies.md)。 实施 APIM 后，可将函数应用配置为仅接受来自你的 APIM 实例的 PI 地址的请求。 有关详细信息，请参阅 [IP 地址限制](ip-addresses.md#ip-address-restrictions)。
+
+使用其中的某个函数应用级安全方法时，应将 HTTP 触发的函数身份验证级别设置为 `anonymous`。
+
 ## <a name="trigger---limits"></a>触发器 - 限制
 
-HTTP 请求长度限制为 100MB（104,857,600 字节），并且 URL 长度限制为 4KB（4,096 字节）。 这些限制由运行时的 [Web.config 文件](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config)的 `httpRuntime` 元素指定。
+HTTP 请求长度限制为 100 MB（104,857,600 字节），并且 URL 长度限制为 4 KB（4,096 字节）。 这些限制由运行时的 [Web.config 文件](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config)的 `httpRuntime` 元素指定。
 
 如果使用 HTTP 触发器的函数未在大约 2.5 分钟内完成，网关将超时并返回 HTTP 502 错误。 该函数将继续运行，但将无法返回 HTTP 响应。 对于长时间运行的函数，我们建议你遵循异步模式，并返回可以 ping 通请求状态的位置。
 
@@ -662,7 +679,7 @@ HTTP 请求长度限制为 100MB（104,857,600 字节），并且 URL 长度限�
 
 ## <a name="output---configuration"></a>输出 - 配置
 
-下表解释了在 function.json 文件中设置的绑定配置属性。 在 C# 类库中，没有与这些 function.json 属性对应的属性。 
+下表解释了在 function.json 文件中设置的绑定配置属性。 在 C# 类库中，没有与这些 *function.json* 属性对应的特性。 
 
 |属性  |说明  |
 |---------|---------|

@@ -9,18 +9,18 @@ ms.service: load-balancer
 ms.custom: REST
 ms.topic: article
 origin.date: 06/13/2018
-ms.date: 06/25/2018
+ms.date: 09/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7ce84ff8c4c2931e27f7c3da00d4bfb0b6e9b05c
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.openlocfilehash: 0989ac14bbcb54e2003b08f83a1c8b1ac1a44399
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315698"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46526994"
 ---
 # <a name="get-virtual-machine-usage-metrics-using-the-rest-api"></a>使用 REST API 获取虚拟机使用情况指标
 
-本示例演示如何使用 [Azure REST API](https://docs.microsoft.com/rest/api/azure/) 检索 [Linux 虚拟机](/linux/virtual-machine)的 CPU 使用情况。
+本示例演示如何使用 [Azure REST API](https://docs.microsoft.com/rest/api/azure/) 检索 [Linux 虚拟机](/virtual-machines/linux/monitor)的 CPU 使用情况。
 
 有关 REST API 的完整参考文档和其他示例，请查看 [Azure Monitor REST reference](https://docs.microsoft.com/rest/api/monitor)（Azure Monitor REST 参考）。 
 
@@ -105,5 +105,5 @@ GET https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/resourceG
         } ]
 }
 ```
-<!-- Update_Description: new articles on virtual machine metrics vm usage rest -->
-<!--ms.date: 06/25/2018-->
+<!-- Update_Description: update link -->
+

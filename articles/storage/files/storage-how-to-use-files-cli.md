@@ -14,12 +14,12 @@ ms.topic: get-started-article
 origin.date: 03/26/2018
 ms.date: 06/11/2018
 ms.author: v-nany
-ms.openlocfilehash: 74f9f1bfe0e3f1363f7fd412eb181133a5772346
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.openlocfilehash: 5eb90e0dc36e8e3686dee50f9cb57ad58b928431
+ms.sourcegitcommit: 0081fb238c35581bb527bdd704008c07079c8fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295835"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523653"
 ---
 # <a name="manage-azure-file-shares-using-azure-cli"></a>使用 Azure CLI 管理 Azure 文件共享
 [Azure 文件](storage-files-introduction.md)是 Microsoft 推出的易于使用的云文件系统。 可以在 Windows、Linux 和 macOS 中装载 Azure 文件共享。 本文介绍通过 Azure CLI 来使用 Azure 文件共享的基本知识。 了解如何： 
@@ -132,7 +132,7 @@ az storage file list \
 ```
 
 ### <a name="download-a-file"></a>下载文件
-可以使用 [`az storage file download`](https://docs.azure.cn/cli/storage/file#az_storage_file_download) 命令下载已上传到 Cloud Shell 暂存驱动器的文件的副本：
+可以使用 [`az storage file download`](https://docs.azure.cn/cli/storage/file#az_storage_file_download) 命令下载已上传到 PowerShell 暂存驱动器的文件的副本：
 
 ```azurecli
 # Delete an existing file by the same name as SampleDownload.txt, if it exists, because you've run this example before

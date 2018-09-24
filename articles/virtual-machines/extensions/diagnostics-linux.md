@@ -8,14 +8,14 @@ ms.service: virtual-machines-linux
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 origin.date: 05/09/2017
-ms.date: 06/25/2018
+ms.date: 09/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4b3b0cb18a0473390028fae9569d9d66535c6a2d
-ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
+ms.openlocfilehash: a8da893fe2144de7db3334f3fc25b967f9dc2249
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37405311"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527091"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>使用 Linux 诊断扩展监视指标和日志
 
@@ -58,6 +58,7 @@ Azure 门户不可用于启用或配置 LAD 3.0， 但可用于安装并配置 2
 * **Azure CLI**。 在计算机上[设置 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest) 环境。
 * wget 命令（如尚无，请运行 `sudo apt-get install wget`）。
 * 现有 Azure 订阅以及其中用于存储数据的现有存储帐户。
+* 支持的 Linux 发行版列表位于 https://github.com/Azure/azure-linux-extensions/tree/master/Diagnostic#supported-linux-distributions
 
 ### <a name="sample-installation"></a>示例安装
 
@@ -710,4 +711,4 @@ az vm extension set *resource_group_name* *vm_name* LinuxDiagnostic Microsoft.Az
 * 在 [Azure Monitor](../../monitoring-and-diagnostics/insights-alerts-portal.md) 中为收集的指标创建指标警报。
 * 为指标创建[监控图表](../../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)。
 * 了解如何使用指标[创建虚拟机规模集](../linux/tutorial-create-vmss.md)以控制自动缩放。
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

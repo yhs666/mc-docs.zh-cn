@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 07/05/2018
-ms.date: 07/30/2018
+ms.date: 09/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0c7b2baeac9fba9bf90c6aa20a72b0393849c8a3
-ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
+ms.openlocfilehash: be8e0f40cf18f72dd1947d0ae8ea941947448414
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39307065"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527175"
 ---
 # <a name="how-to-expand-the-os-drive-of-a-virtual-machine"></a>如何扩展虚拟机的 OS 驱动器
 
@@ -42,19 +42,19 @@ ms.locfileid: "39307065"
 
 1. 在资源管理模式下登录 Azure 帐户，然后选择订阅，如下所示：
 
-   ```Powershell
+   ```powershell
    Connect-AzureRmAccount -Environment AzureChinaCloud
    Select-AzureRmSubscription -SubscriptionName 'my-subscription-name'
    ```
 2. 设置资源组名称和 VM 名称，如下所示：
 
-   ```Powershell
+   ```powershell
    $rgName = 'my-resource-group-name'
    $vmName = 'my-vm-name'
    ```
 3. 获取对 VM 的引用，如下所示：
 
-   ```Powershell
+   ```powershell
    $vm = Get-AzureRmVM -ResourceGroupName $rgName -Name $vmName
    ```
 4. 在调整磁盘大小之前停止 VM，如下所示：
@@ -137,7 +137,7 @@ Select-AzureRmSubscription -SubscriptionName 'my-subscription-name'
 $rgName = 'my-resource-group-name'
 $vmName = 'my-vm-name'
 $vm = Get-AzureRmVM -ResourceGroupName $rgName -Name $vmName
-Stop-AzureRMVM -ResourceGroupName $rgName -Name $vmName
+Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 $disk= Get-AzureRmDisk -ResourceGroupName $rgName -DiskName $vm.StorageProfile.OsDisk.Name
 $disk.DiskSizeGB = 1023
 Update-AzureRmDisk -ResourceGroupName $rgName -Disk $disk -DiskName $disk.Name
@@ -164,14 +164,14 @@ Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 
 **托管磁盘**
 
-```Powershell
+```powershell
 $disk= Get-AzureRmDisk -ResourceGroupName $rgName -DiskName $vm.StorageProfile.DataDisks[0].Name
 $disk.DiskSizeGB = 1023
 ```
 
 **非托管磁盘**
 
-```Powershell
+```powershell
 $vm.StorageProfile.DataDisks[0].DiskSizeGB = 1023
 ```
 
@@ -179,7 +179,7 @@ $vm.StorageProfile.DataDisks[0].DiskSizeGB = 1023
 
 **托管磁盘**
 
-```Powershell
+```powershell
 (Get-AzureRmDisk -ResourceGroupName $rgName -DiskName ($vm.StorageProfile.DataDisks | Where ({$_.Name -eq 'my-second-data-disk'})).Name).DiskSizeGB = 1023
 ```
 

@@ -13,21 +13,21 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
-origin.date: 12/14/2017
-ms.date: 05/14/2018
+origin.date: 09/12/2018
+ms.date: 09/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: 245209421a80fd49e225ac0a431d54883d7a36d5
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.openlocfilehash: d0b29796a46d78040504924befdba352b8cf630a
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "34061951"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527079"
 ---
 # <a name="move-a-linux-vm-to-another-subscription-or-resource-group"></a>将 Linux VM 移到其他订阅或资源组
-本文逐步说明如何在资源组或订阅之间移动 Linux VM。 如果在个人订阅中创建了 VM，现在想要将其移到公司的订阅，则在订阅之间移动 VM 会很方便。
+本文逐步说明如何在资源组或订阅之间移动 Linux 虚拟机 (VM)。 如果在个人订阅中创建了 VM，现在想要将其移到公司的订阅，则在订阅之间移动 VM 会很方便。
 
 > [!IMPORTANT]
->不可在此时移动托管磁盘。 
+>目前无法移动 Azure 托管磁盘。 
 >
 >在移动过程中会创建新的资源 ID。 移动 VM 后，需要更新工具和脚本以使用新的资源 ID。 
 > 
@@ -35,7 +35,7 @@ ms.locfileid: "34061951"
 
 ## <a name="use-the-azure-cli-to-move-a-vm"></a>使用 Azure CLI 移动 VM
 
-在使用 CLI 移动 VM 之前，需确保源订阅和目标订阅存在于同一租户中。 若要检查这两个订阅是否具有相同的租户 ID，请使用 [az account show](https://docs.azure.cn/zh-cn/cli/account?view=azure-cli-latest#az-account-show) 命令。
+在使用 Azure CLI 移动 VM 之前，需确保源订阅和目标订阅存在于同一租户中。 若要检查这两个订阅是否具有相同的租户 ID，请使用 [az account show](https://docs.azure.cn/zh-cn/cli/account?view=azure-cli-latest#az-account-show) 命令。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -69,7 +69,7 @@ az resource move \
 
 如果要将 VM 及其资源移到其他订阅，请添加 **--destination-subscriptionId** 参数来指定目标订阅。
 
-如果系统要求确认是否要移动指定的资源， 请键入 **Y** 确认要删除资源。
+当系统要求你确认是否要移动指定的资源时，请输入 **Y** 进行确认。
 
 [!INCLUDE [virtual-machines-common-move-vm](../../../includes/virtual-machines-common-move-vm.md)]
 

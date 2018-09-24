@@ -4,24 +4,19 @@ description: 了解如何使用用于 Visual Studio 2017 的 Azure Functions 工
 services: functions
 documentationcenter: .net
 author: ggailey777
-manager: cfowler
-editor: ''
-ms.service: functions
-ms.technology: vs-azure
+manager: jeconnoc
+ms.service: azure-functions
 ms.custom: vs-azure
-ms.workload: azure-vs
-ms.tgt_pltfrm: dotnet
-ms.devlang: na
-ms.topic: article
-origin.date: 05/23/2018
-ms.date: 08/31/2018
+ms.topic: conceptual
+origin.date: 09/12/2018
+ms.date: 09/21/2018
 ms.author: v-junlch
-ms.openlocfilehash: 8f9c4169113d96211800c0872245be9cce0fdb9c
-ms.sourcegitcommit: b2c9bc0ed28e73e8c43aa2041c6d875361833681
+ms.openlocfilehash: 15dad987a75531a257718f5ba31a4b28da91c079
+ms.sourcegitcommit: 54d9384656cee927000d77de5791c1d585d94a68
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43330667"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46524011"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>使用 Visual Studio 开发 Azure Functions  
 
@@ -102,7 +97,7 @@ Functions 运行时在内部使用 Azure 存储帐户。 对于除 HTTP 和 Webh
 
 3. 重复上述步骤，将唯一键添加到函数所需的其他任何连接的 **Values** 数组。
 
-## <a name="create-a-function"></a>创建函数
+## <a name="add-a-function-to-your-project"></a>将函数添加到项目
 
 在预先编译的函数中，可以通过在代码中应用属性来定义函数使用的绑定。 使用 Azure Functions 工具通过提供的模板创建函数时，系统会自动应用这些属性。 
 

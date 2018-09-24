@@ -10,15 +10,15 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: ns
-origin.date: 04/30/2018
-ms.date: 09/10/2018
+origin.date: 09/07/2018
+ms.date: 10/08/2018
 ms.author: v-yiso
-ms.openlocfilehash: bc74b99cc527d8bc21da83676bf7f61179011334
-ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
+ms.openlocfilehash: 50f7b0ab64f2abede70205ba053c71db83ca0017
+ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43329175"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523801"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-python"></a>快速入门：将遥测数据从设备发送到 IoT 中心并使用后端应用程序从中心读取遥测数据 (Python)
 
@@ -49,20 +49,6 @@ python3 --version
 
 从 https://github.com/Azure-Samples/azure-iot-samples-python/archive/master.zip 下载示例 Python 项目并提取 ZIP 存档。
 
-若要安装可从 IoT 中心读取遥测数据的 CLI 实用工具，首先需要在开发计算机上安装 Node.js v4.x.x 或更高版本。 可从 [nodejs.org](https://nodejs.org) 为下载适用于多个平台的 Node.js。
-
-可以使用以下命令验证开发计算机上 Node.js 当前的版本：
-
-```cmd/sh
-node --version
-```
-
-若要安装 `iothub-explorer` CLI 实用工具，请运行以下命令：
-
-```cmd/sh
-npm install -g iothub-explorer
-```
-
 ## <a name="create-an-iot-hub"></a>创建 IoT 中心
 
 [!INCLUDE [iot-hub-quickstarts-create-hub](../../includes/iot-hub-quickstarts-create-hub.md)]
@@ -87,14 +73,6 @@ npm install -g iothub-explorer
     ```
 
     记下看起来类似于 `Hostname=...=` 的设备连接字符串。 稍后会在快速入门中用到此值。
-
-1. 还需一个服务连接字符串，以便 `iothub-explorer` CLI 实用工具能够连接到 IoT 中心并检索消息。 以下命令检索 IoT 中心的服务连接字符串：
-
-    ```azurecli
-    az iot hub show-connection-string --hub-name {YourIoTHubName} --output table
-    ```
-
-    记下看起来类似于 `Hostname=...=` 的服务连接字符串。 稍后会在快速入门中用到此值。 服务连接字符串与设备连接字符串不同。
 
 ## <a name="send-simulated-telemetry"></a>发送模拟遥测数据
 
@@ -124,15 +102,15 @@ npm install -g iothub-explorer
 
 ## <a name="read-the-telemetry-from-your-hub"></a>从中心读取遥测数据
 
-`iothub-explorer` CLI 实用程序连接到 IoT 中心的服务端“事件”终结点。 实用工具会接收从模拟设备发送的设备到云的消息。 IoT 中心后端应用程序通常在云中运行，接收和处理设备到云的消息。
+IoT 中心 CLI 扩展可以连接到 IoT 中心上的服务端**事件**终结点。 扩展会接收模拟设备发送的设备到云的消息。 IoT 中心后端应用程序通常在云中运行，接收和处理设备到云的消息。
 
-在另一个终端窗口中，运行以下命令，将 `{your hub service connection string}` 替换为之前记下的设备连接字符串：
+运行以下 Azure CLI 命令，将 `{YourIoTHubName}` 替换为 IoT 中心的名称：
 
-```cmd/sh
-iothub-explorer monitor-events MyPythonDevice --login {your hub service connection string}
+```azurecli
+az iot hub monitor-events --device-id MyPythonDevice --hub-name {YourIoTHubName}
 ```
 
-以下屏幕截图显示了在实用工具接收模拟设备发送到 IoT 中心的遥测数据后的输出：
+以下屏幕截图显示了扩展接收到模拟设备发送到中心的遥测数据时的输出：
 
 ![运行后端应用程序](media/quickstart-send-telemetry-python/ReadDeviceToCloud.png)
 

@@ -1,29 +1,30 @@
 ---
-title: Azure 快速入门 - 使用 Azure 存储资源管理器在对象存储中创建 Blob | Azure
-description: 本快速入门将在对象 (Blob) 存储中使用 Azure 存储资源管理器。 然后，使用该存储资源管理器将一个 Blob 上传到 Azure 存储，下载一个 Blob，然后列出容器中的 Blob。
+title: 快速入门：使用 Azure 存储资源管理器在对象存储中创建 blob
+description: 本快速入门介绍如何使用 Azure 存储资源管理器创建容器和 blob。 接下来，介绍如何将 blob 下载到本地计算机，以及如何查看容器中的所有 blob。 还介绍如何创建 blob 的快照、管理容器访问策略以及创建共享访问签名。
 services: storage
-author: forester123
-manager: josefree
+author: WenJason
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-origin.date: 04/09/2018
-ms.date: 06/11/2018
-ms.author: v-nany
-ms.openlocfilehash: adad9e27fcd46cf80081f9aea88747983da59f5a
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+origin.date: 08/27/2018
+ms.date: 09/24/2018
+ms.author: v-jay
+ms.openlocfilehash: eb9b578549edcf4c4a1fa065637c03cf2aac0348
+ms.sourcegitcommit: 0081fb238c35581bb527bdd704008c07079c8fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295704"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523670"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-using-azure-storage-explorer"></a>快速入门：使用 Azure 存储资源管理器上传、下载和列出 Blob
+# <a name="quickstart-use-azure-storage-explorer-to-create-a-blob-in-object-storage"></a>快速入门：使用 Azure 存储资源管理器在对象存储中创建 blob
 
-[Azure 存储资源管理器](https://azure.microsoft.com/features/storage-explorer/)是多平台用户界面，可用于管理存储帐户的内容。 本指南详细介绍如何使用 Azure 存储资源管理器在本地磁盘与 Azure Blob 存储之间传输文件。
+本快速入门介绍如何使用 [Azure 存储资源管理器](https://azure.microsoft.com/features/storage-explorer/)创建容器和 blob。 接下来，介绍如何将 blob 下载到本地计算机，以及如何查看容器中的所有 blob。 还介绍如何创建 blob 的快照、管理容器访问策略以及创建共享访问签名。
+
+## <a name="prerequisites"></a>先决条件
 
 如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
 
-本快速入门教程要求安装 Azure 存储资源管理器。 如果需要安装，请访问 [Azure 存储资源管理器](https://azure.microsoft.com/features/storage-explorer/)，以下载适用于 Windows、Macintosh 或 Linux 的版本。
+本快速入门要求安装 Azure 存储资源管理器。 若要安装适用于 Windows、Macintosh 或 Linux 的 Azure 存储资源管理器，请参阅 [Azure 存储资源管理器](https://azure.microsoft.com/features/storage-explorer/)。
 
 [!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
 
@@ -101,4 +102,3 @@ Azure 存储资源管理器提供创建和管理 Blob [快照](storage-blob-snap
 
 > [!div class="nextstepaction"]
 > [Blob 存储操作说明](storage-quickstart-blobs-powershell.md)
-<!--Update_Description: add azure stack related info-->

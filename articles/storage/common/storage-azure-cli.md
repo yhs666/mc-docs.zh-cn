@@ -1,26 +1,20 @@
 ---
-title: 将 Azure CLI 2.0 用于 Azure 存储 | Azure
+title: 将 Azure CLI 2.0 用于 Azure 存储 | Microsoft Docs
 description: 了解如何将 Azure 命令行接口 (Azure CLI) 2.0 用于 Azure 存储，以便创建和管理存储帐户并处理 Azure blob 和文件。 Azure CLI 2.0 是使用 Python 编写的跨平台工具。
 services: storage
-documentationcenter: na
-author: forester123
-manager: digimobile
-editor: tysonn
-ms.assetid: ''
+author: WenJason
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
 origin.date: 06/02/2017
-ms.date: 07/30/2018
-ms.author: v-johch
-ms.openlocfilehash: 6adfddd961f48e2884ed562ca86a754d3b993646
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.date: 09/24/2018
+ms.author: v-jay
+ms.openlocfilehash: 32f3ee792ced5a49de432ad735534a895180f25a
+ms.sourcegitcommit: 0081fb238c35581bb527bdd704008c07079c8fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295697"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523699"
 ---
 # <a name="using-the-azure-cli-20-with-azure-storage"></a>将 Azure CLI 2.0 用于 Azure 存储
 
@@ -37,7 +31,7 @@ ms.locfileid: "39295697"
 
 ### <a name="accounts"></a>帐户
 * **Azure 帐户**：如果没有 Azure 订阅，可以[创建一个试用 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/)。
-* **存储帐户**：请参阅[关于 Azure 存储帐户](storage-create-storage-account.md)中的[创建存储帐户](storage-create-storage-account.md#create-a-storage-account)。
+* **存储帐户**：请参阅[关于 Azure 存储帐户](storage-create-storage-account.md)中的[创建存储帐户](storage-quickstart-create-account.md)。
 
 ### <a name="install-the-azure-cli-20"></a>安装 Azure CLI 2.0
 
@@ -111,7 +105,7 @@ Subgroups:
 # A simple Azure Storage example script
 
 export AZURE_STORAGE_ACCOUNT=<storage_account_name>
-export AZURE_STORAGE_ACCESS_KEY=<storage_account_key>
+export AZURE_STORAGE_KEY=<storage_account_key>
 
 export container_name=<container_name>
 export blob_name=<blob_name>
@@ -216,7 +210,7 @@ az storage account keys list \
 
 ```azurecli
 export AZURE_STORAGE_ACCOUNT=<account_name>
-export AZURE_STORAGE_ACCESS_KEY=<key>
+export AZURE_STORAGE_KEY=<key>
 ```
 
 设置默认存储帐户的另一种方法是使用连接字符串。 首先，使用 `show-connection-string` 命令获取连接字符串：
@@ -234,7 +228,7 @@ export AZURE_STORAGE_CONNECTION_STRING="<connection_string>"
 ```
 
 > [!NOTE]
-> 本文以下部分中的所有示例均假设已设置 `AZURE_STORAGE_ACCOUNT` 和 `AZURE_STORAGE_ACCESS_KEY` 环境变量。
+> 本文以下部分中的所有示例均假设已设置 `AZURE_STORAGE_ACCOUNT` 和 `AZURE_STORAGE_KEY` 环境变量。
 
 ## <a name="create-and-manage-blobs"></a>创建并管理 blob
 Azure Blob 存储是用于存储大量非结构化数据（例如文本或二进制数据）的服务，这些数据可通过 HTTP 或 HTTPS 从世界各地进行访问。 本部分假设读者熟悉 Azure Blob 存储的概念。 有关详细信息，请参阅[通过 .NET 开始使用 Azure Blob 存储](../blobs/storage-dotnet-how-to-use-blobs.md)和 [Blob 服务概念](https://docs.microsoft.com/rest/api/storageservices/blob-service-concepts)。
@@ -264,7 +258,9 @@ az storage blob upload \
     --name <blob_name>
 ```
 
- 默认情况下， `blob upload` 命令将 *.vhd 文件上传到页 Blob 或块 Blob。 若要在上传 Blob 时指定另一种类型，可以使用 `--type` 参数，允许的值为 `append`、`block` 和 `page`。
+如果想要直接上传到存储帐户中容器内的文件夹，请将 `--name <blob_name>` 替换为 `--name <folder/blob_name>`。
+
+ 默认情况下，`blob upload` 命令将 *.vhd 文件上传到页 Blob 或块 Blob。 若要在上传 Blob 时指定另一种类型，可以使用 `--type` 参数，允许的值为 `append`、`block` 和 `page`。
 
  有关不同 Blob 类型的详细信息，请参阅 [了解块 Blob、追加 Blob 和页 Blob](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs)。
 
@@ -528,4 +524,3 @@ az storage share delete -n <share name> --snapshot '2017-10-04T23:28:35.0000000Z
 * [Azure CLI 2.0 入门](https://docs.azure.cn/cli/get-started-with-azure-cli)
 * [Azure CLI 2.0 命令参考](https://docs.azure.cn/cli)
 * [GitHub 上的 Azure CLI 2.0](https://github.com/Azure/azure-cli)
-<!--Update_Description: wording update-->

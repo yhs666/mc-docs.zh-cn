@@ -1,26 +1,20 @@
 ---
-title: 如何创建 Azure 文件共享 | Azure
+title: 如何创建 Azure 文件共享 | Microsoft Docs
 description: 如何使用 Azure 门户、PowerShell 和 Azure CLI 在 Azure 文件中创建 Azure 文件共享。
 services: storage
-documentationcenter: ''
-author: forester123
-manager: digimobile
-editor: tysonn
-ms.assetid: ''
+author: RenaShahMSFT
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: get-started-article
 origin.date: 09/19/2017
-ms.date: 10/30/2017
-ms.author: v-johch
-ms.openlocfilehash: ddcdf65ca453fb32c8c3f60deb8802d0aa64a2e5
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.date: 09/24/2018
+ms.author: v-jay
+ms.component: files
+ms.openlocfilehash: 2cf43ffe08fbef9a996f1343abeb2b38d0dd7d23
+ms.sourcegitcommit: 0081fb238c35581bb527bdd704008c07079c8fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295578"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523692"
 ---
 # <a name="create-a-file-share-in-azure-files"></a>在 Azure 文件中创建文件共享
 可以使用 [Azure 门户](https://portal.azure.cn/)、Azure 存储 PowerShell cmdlet、Azure 存储客户端库或 Azure 存储 REST API 来创建 Azure 文件共享。本教程介绍：
@@ -54,7 +48,7 @@ ms.locfileid: "39295578"
 > [!Note]  
 > 建议下载并安装最新的 Azure PowerShell 模块或升级到最新模块。
 
-1. **为存储帐户和密钥创建上下文**：上下文封装存储帐户名称和帐户密钥。 有关从 [Azure 门户](https://portal.azure.cn/)复制帐户密钥的说明，请参阅[查看和复制存储访问密钥](../common/storage-create-storage-account.md?toc=%2fstorage%2ffiles%2ftoc.json#view-and-copy-storage-access-keys)。
+1. **为存储帐户和密钥创建上下文**：上下文封装存储帐户名称和帐户密钥。 有关从 [Azure 门户](https://portal.azure.cn/)复制帐户密钥的说明，请参阅[存储帐户访问密钥](../common/storage-account-manage.md#access-keys)。
 
     ```powershell
     $storageContext = New-AzureStorageContext <storage-account-name> <storage-account-key>

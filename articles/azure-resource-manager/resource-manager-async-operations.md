@@ -4,26 +4,24 @@ description: 介绍如何在 Azure 中跟踪异步操作。
 services: azure-resource-manager
 documentationcenter: na
 author: rockboyfor
-manager: timlt
-editor: tysonn
 ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 01/11/2017
-ms.date: 03/26/2018
+origin.date: 08/21/2018
+ms.date: 09/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7812904f6d85f061c7968e1051d917b88e6ef9dd
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+ms.openlocfilehash: e44d2e4b70d0e103bce9194442b3141be8d7d50b
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30222533"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527010"
 ---
 # <a name="track-asynchronous-azure-operations"></a>跟踪异步 Azure 操作
-某些 Azure REST 操作以异步方式运行，因为操作无法快速完成。 本主题介绍如何通过响应中返回的值跟踪异步操作的状态。  
+某些 Azure REST 操作以异步方式运行，因为操作无法快速完成。 本文介绍如何通过响应中返回的值跟踪异步操作的状态。  
 
 ## <a name="status-codes-for-asynchronous-operations"></a>异步操作的状态代码
 最初，异步操作返回下面的一个 HTTP 状态代码：
@@ -36,7 +34,7 @@ ms.locfileid: "30222533"
 * 200 (正常)
 * 204 (无内容) 
 
-请参阅 [REST API 文档](https://docs.microsoft.com/rest/api/) ，了解要执行的操作的响应。 
+请参阅 [REST API 文档](https://docs.microsoft.com/rest/api/)，了解要执行的操作的响应。
 
 ## <a name="monitor-status-of-operation"></a>监视操作状态
 异步 REST 操作返回标头值，用于确定操作的状态。 可能有三个需要检查的标头值：
@@ -198,4 +196,4 @@ https://management.chinacloudapi.cn/subscriptions/{subscription-id}/providers/Mi
 * 有关每个 REST 操作的文档，请参阅 [REST API 文档](https://docs.microsoft.com/rest/api/)。
 * 有关通过 Resource Manager REST API 部署模板的信息，请参阅[使用 Resource Manager 模板和 Resource Manager REST API 部署资源](resource-group-template-deploy-rest.md)。
 
-<!-- Update_Description: update meta properties, wording update, update link -->
+<!-- Update_Description: update meta properties, wording update -->

@@ -12,14 +12,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 07/02/2018
-ms.date: 08/13/2018
+ms.date: 09/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4d6870d6ee423530a0c6d1238eb84ab03f70154d
-ms.sourcegitcommit: 543a18c71c0910a5b9878a2d2668f317468906f2
+ms.openlocfilehash: 423161feb42d13b7a5b8263c30b5b6d7f7f19521
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39625535"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527208"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>通过 Visual Studio 创建和部署 Azure 资源组
 使用 Visual Studio 可以创建一个项目，用于将基础结构和代码部署到 Azure。 例如，可以为应用定义 Web 主机、网站和数据库，并将该基础结构与代码一起部署。 Visual Studio 许多不同的入门模板用于部署常见方案。 本文部署 Web 应用和 SQL 数据库。  
@@ -303,9 +303,13 @@ Visual Studio 还提供 intellisense，帮助你了解在编辑模板时哪些�
 
     ![自定义仪表板](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/Ops-DemoSiteGroup-dashboard.png)
 
-    可以使用 RBAC 组管理对仪表板的访问。 部署后，还可以自定义仪表板的外观。 但是，如果重新部署资源组，则模板中的仪表板将重置为其默认状态。
+    可以使用 RBAC 组管理对仪表板的访问权限。 部署后，还可以自定义仪表板的外观。 但是，如果重新部署资源组，则模板中的仪表板将重置为其默认状态。
     <!--Not Available on [Programmatically create Azure Dashboards](../azure-portal/azure-portal-dashboards-create-programmatically.md)-->
 ## <a name="next-steps"></a>后续步骤
-* 若要详细了解模板，请参阅[创作 Azure 资源管理器模板](resource-group-authoring-templates.md)。
 
-<!--Update_Description: update meta properties, wording update-->
+在本快速入门中，你学习了如何使用 Visual Studio 创建和部署模板。 下一教程介绍如何从模板参考中查找信息，以便创建加密的 Azure 存储帐户。
+
+> [!div class="nextstepaction"]
+> [创建加密的存储帐户](./resource-manager-tutorial-create-encrypted-storage-accounts.md)
+
+<!--Update_Description: update meta properties, wording update， update link -->

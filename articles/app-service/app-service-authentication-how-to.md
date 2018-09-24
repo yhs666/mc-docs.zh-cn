@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 origin.date: 03/14/2018
-ms.date: 09/03/2018
+ms.date: 10/08/2018
 ms.author: v-yiso
-ms.openlocfilehash: c9b7ca6432ef3031c2340c7a0891e3819328835c
-ms.sourcegitcommit: 1b682acdc2a5e0974fbff809967d7cefcbbbe8ac
+ms.openlocfilehash: 39d807652e2d085dde66f4b6ce143900608afb70
+ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42871013"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523908"
 ---
 # <a name="customize-authentication-and-authorization-in-azure-app-service"></a>在 Azure 应用服务中自定义身份验证和授权
 
@@ -31,9 +31,9 @@ ms.locfileid: "42871013"
 * [How to configure your app to use Azure Active Directory login](app-service-mobile-how-to-configure-active-directory-authentication.md)
 * [How to configure your app to use Microsoft Account login](app-service-mobile-how-to-configure-microsoft-authentication.md)
 
-## <a name="configure-multiple-sign-in-options"></a>配置多个登录选项
+## <a name="use-multiple-sign-in-providers"></a>使用多个登录提供程序
 
-门户配置不会向用户全面提供多个登录选项。 但是，将此功能添加到 Web 应用并不困难。 步骤概括如下：
+门户配置不会提供向用户显示多个登录提供程序的统包方式。 但是，将此功能添加到 Web 应用并不困难。 步骤概括如下：
 
 首先，在 Azure 门户中的“身份验证/授权”页上，配置想要启用的每个标识提供者。
 
@@ -52,6 +52,50 @@ ms.locfileid: "42871013"
 
 ```HTML
 <a href="/.auth/login/<provider>?post_login_redirect_url=/Home/Index">Log in</a>
+```
+
+## <a name="sign-out-of-a-session"></a>注销会话
+
+用户可通过向应用的 `/.auth/logout` 终结点发送 `GET` 请求来启动注销。 `GET` 请求可执行以下操作：
+
+- 清除当前会话中的身份验证 Cookie。
+- 从令牌存储中删除当前用户的令牌。
+- 对于 Azure Active Directory 和 Google，请对标识提供程序执行服务器端的注销。
+
+以下是网页中一个简单的注销链接：
+
+```HTML
+<a href="/.auth/logout">Sign out</a>
+```
+
+默认情况下，成功注销后，客户端会重定向到 URL `/.auth/logout/done`。 通过添加 `post_logout_redirect_uri` 查询参数可更改注销后的重定向页面。 例如：
+
+```
+GET /.auth/logout?post_logout_redirect_uri=/index.html
+```
+
+建议对 `post_logout_redirect_uri` 的值进行[编码](https://wikipedia.org/wiki/Percent-encoding)。
+
+使用完全限定的 URL 时，URL 必须托管在同一域中，或配置为允许应用访问的外部重定向 URL。 在以下示例中，若要重定向到未托管在同一域中的 `https://myexternalurl.com`：
+
+```
+GET /.auth/logout?post_logout_redirect_uri=https%3A%2F%2Fmyexternalurl.com
+```
+
+必须在 [Azure Cloud Shell](../cloud-shell/quickstart.md) 中运行以下命令：
+
+```azurecli-interactive
+az webapp auth update --name <app_name> --resource-group <group_name> --allowed-external-redirect-urls "https://myexternalurl.com"
+```
+
+## <a name="preserve-url-fragments"></a>保留 URL 片段
+
+用户登录应用后，通常希望会重定向到同一页面的同一部分，例如 `/wiki/Main_Page#SectionZ`。 然而，由于从未向服务器发送 [URL 片段](https://wikipedia.org/wiki/Fragment_identifier)（例如，`#SectionZ`），因此默认情况下，OAuth 登录完成并重定向回应用后，会保留这些片段。 然后，当用户需再次导航到所需定位点时，他们无法获得最佳体验。 此限制存在于所有服务器端身份验证解决方案中。
+
+在应用服务身份验证中，可跨 OAuth 登录保留 URL 片段。 为此，请将名为 `WEBSITE_AUTH_PRESERVE_URL_FRAGMENT` 的应用设置设为 `true`。 可在 [Azure 门户](https://portal.azure.com) 中执行此操作，或只需在 [Azure Cloud Shell](../cloud-shell/quickstart.md) 中运行以下命令：
+
+```azurecli-interactive
+az webapp config appsettings set --name <app_name> --resource-group <group_name> --settings WEBSITE_AUTH_PRESERVE_URL_FRAGMENT="true"
 ```
 
 ## <a name="access-user-claims"></a>访问用户声明

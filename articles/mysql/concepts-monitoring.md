@@ -8,14 +8,14 @@ manager: digimobile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-origin.date: 03/15/2018
-ms.date: 08/27/2018
-ms.openlocfilehash: 9d1881f789c0cbfd2da18506efbc15c0c0584fa2
-ms.sourcegitcommit: 6dd65fba579a2ce25c63ac69ff3b71d814a9d256
+origin.date: 09/17/2018
+ms.date: 09/24/2018
+ms.openlocfilehash: 4a827c347882dfafbe2dd0571b9748a1b9c3e389
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42703843"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527166"
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>在 Azure Database for MySQL 中进行监视
 监视服务器的相关数据有助于排查工作负荷故障及优化工作负荷。 Azure Database for MySQL 提供了各种指标来帮助用户深入了解为 MySQL 服务器提供支持的资源的行为。 
@@ -32,11 +32,16 @@ ms.locfileid: "42703843"
 |memory_percent|内存百分比|百分比|使用的内存百分比。|
 |io_consumption_percent|IO 百分比|百分比|使用的 IO 百分比。|
 |storage_percent|存储百分比|百分比|所用存储占服务器最大存储的百分比。|
-|storage_used|已用的存储量|字节|使用的存储量。 服务使用的存储包括数据库文件、事务日志和服务器日志。|
+|storage_used|已用的存储量|字节|使用的存储量。 服务使用的存储可能包括数据库文件、事务日志和服务器日志。|
+|serverlog_storage_percent|服务器日志存储空间百分比|百分比|所用服务器日志存储占服务器最大服务器日志存储的百分比。|
+|serverlog_storage_usage|服务器日志已用的存储量|字节|使用的服务器日志存储量。|
+|serverlog_storage_limit|服务器存储空间上限|字节|此服务器的最大服务器日志存储。|
 |storage_limit|存储限制|字节|此服务器的最大存储。|
-|active_connections|活动连接总数|计数|服务器的活动连接数。|
-|connections_failed|失败连接总数|计数|服务器的失败连接数。|
-
+|active_connections|活动连接数|计数|服务器的活动连接数。|
+|connections_failed|失败的连接数|计数|服务器的失败连接数。|
+|seconds_behind_master|复制延迟（秒）|计数|副本服务器滞后于主服务器的秒数。|
+|network_bytes_egress|网络传出|字节|跨活动连接的网络传出。|
+|network_bytes_ingress|网络传入|字节|跨活动连接的网络传入。|
 
 ## <a name="next-steps"></a>后续步骤
 - 若要深入了解如何使用 Azure 门户、REST API 或 CLI 访问和导出指标，请参阅 [Azure 指标概述](../monitoring-and-diagnostics/monitoring-overview-metrics.md)。

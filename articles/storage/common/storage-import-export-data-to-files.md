@@ -5,16 +5,16 @@ author: WenJason
 services: storage
 ms.service: storage
 ms.topic: article
-origin.date: 07/17/2018
-ms.date: 09/10/2018
+origin.date: 09/10/2018
+ms.date: 09/24/2018
 ms.author: v-jay
 ms.component: common
-ms.openlocfilehash: c944740fa681d4edfc66f565d9c14643dc963b2e
-ms.sourcegitcommit: e157751c560524d0bb828e987b87178130663547
+ms.openlocfilehash: 766d11cd772cc507f886a7ba828e701a48717255
+ms.sourcegitcommit: 0081fb238c35581bb527bdd704008c07079c8fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43651212"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523697"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>使用 Azure 导入/导出服务将数据导入到 Azure 文件
 
@@ -27,7 +27,7 @@ ms.locfileid: "43651212"
 在创建导入作业来将数据传输到 Azure 文件之前，请仔细查看并完成以下先决条件列表。 必须具备以下条件：
 
 - 拥有可以用于导入/导出服务的活动 Azure 订阅。
-- 拥有至少一个 Azure 存储帐户。 请参阅[导入/导出服务支持的存储帐户和存储类型](storage-import-export-requirements.md)的列表。 有关创建新存储帐户的信息，请参阅[如何创建存储帐户](storage-create-storage-account.md#create-a-storage-account)。
+- 拥有至少一个 Azure 存储帐户。 请参阅[导入/导出服务支持的存储帐户和存储类型](storage-import-export-requirements.md)的列表。 有关创建新存储帐户的信息，请参阅[如何创建存储帐户](storage-quickstart-create-account.md)。
 - 拥有足够数量的[受支持类型](storage-import-export-requirements.md#supported-disks)的磁盘。 
 - 拥有运行[受支持 OS 版本](storage-import-export-requirements.md#supported-operating-systems)的 Windows 系统。
 - 在 Windows 系统上[下载 WAImportExport 版本 2](https://www.microsoft.com/download/details.aspx?id=55280)。 解压缩到默认文件夹 `waimportexport`。 例如，`C:\WaImportExport`。
@@ -61,8 +61,7 @@ ms.locfileid: "43651212"
         ```
             "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
             "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None 
-            "F:\MyFolder3\MyFile3.txt","MyAzureFileshare2/",file,rename,"None",None 
-            
+                        
         ```
     详细了解如何[准备数据集 CSV 文件](storage-import-export-tool-preparing-hard-drives-import.md#prepare-the-dataset-csv-file)。
     

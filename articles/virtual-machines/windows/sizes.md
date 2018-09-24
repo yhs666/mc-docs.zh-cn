@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-origin.date: 07/06/2018
-ms.date: 07/30/2018
+origin.date: 09/05/2018
+ms.date: 09/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: 3c537d420e6bbb4d36d9a2d87c2fcabbdde53d92
-ms.sourcegitcommit: 62a0389a743cd18665bd127e9bf14800867008eb
+ms.openlocfilehash: b49f2053af2f3258a12eb2c95886d329f2ae6499
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39624934"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527180"
 ---
 # <a name="sizes-for-windows-virtual-machines-in-azure"></a>Azure 中 Windows 虚拟机的大小
 
@@ -52,7 +52,7 @@ ms.locfileid: "39624934"
 有关使用 REST API 来查询 VM 大小的信息，请参阅以下文章：
 
 - [List available virtual machine sizes for resizing](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes)（列出可用的虚拟机大小以便调整大小）
-- [List available virtual machine sizes for a subscription](https://docs.microsoft.com/rest/api/compute/virtualmachines/listall)（列出订阅的可用虚拟机大小）
+- [List available virtual machine sizes for a subscription](https://docs.microsoft.com/rest/api/compute/virtualmachinesizes/list)（列出订阅的可用虚拟机大小）
 - [List available virtual machine sizes in an availability set](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes)（列出可用性集中的可用虚拟机大小）
 
 ## <a name="acu"></a>ACU
@@ -70,9 +70,8 @@ ms.locfileid: "39624934"
 - [计算优化](sizes-compute.md)
 - [内存优化](../virtual-machines-windows-sizes-memory.md)
 - [GPU 优化](sizes-gpu.md)
-- 查看[上一代](sizes-previous-gen.md)页，了解 A Standard、Dv1（D1-4 和 D11-14 v1）
-
 <!-- Not Available on - [Storage optimized](../virtual-machines-windows-sizes-storage.md) -->
 <!-- Not Available on - [High performance compute](sizes-hpc.md)-->
+- 查看[上一代](sizes-previous-gen.md)页，了解 A Standard、Dv1（D1-4 和 D11-14 v1）<!-- Not Available on A8-A11 series-->
 
 <!--Update_Description: update meta properties, update link, wording update -->

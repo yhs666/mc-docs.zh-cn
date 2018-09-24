@@ -6,22 +6,22 @@ keywords: ''
 author: shizn
 manager: timlt
 ms.author: xshi
-ms.date: 07/20/2018
+ms.date: 09/13/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 9fc067c46828079f7369683b5edec682747cd5c7
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.openlocfilehash: c24b66816b91cfe767d76c1d061d842ed256c7bc
+ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068252"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523890"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-c-modules-for-azure-iot-edge"></a>使用 Visual Studio Code 开发和调试 Azure IoT Edge 的 C 模块
 
 可以将业务逻辑转变为用于 Azure IoT Edge 的模块。 本文展示了如何使用 Visual Studio Code (VS Code) 作为主要工具来开发和调试 C 模块。
 
 ## <a name="prerequisites"></a>先决条件
-本文假设使用运行 Windows 或 Linux 的计算机或虚拟机作为开发计算机。 在开发计算机上模拟 IoT Edge 设备。
+本文假设使用运行 Windows 或 Linux 的计算机或虚拟机作为开发计算机。 在开发计算机上使用 IoT Edge 安全守护程序模拟 IoT Edge 设备。
 
 > [!NOTE]
 > 本调试文章演示了如何在模块容器中附加进程并使用 VS Code 对它进行调试。 只能调试 Linux amd64 容器中的 C 模块。 如果你不熟悉 Visual Studio Code 的调试功能，请阅读有关[调试](https://code.visualstudio.com/Docs/editor/debugging)的信息。 
@@ -35,11 +35,9 @@ ms.locfileid: "44068252"
 要创建模块，需使用 Docker 生成模块映像，并使用容器注册表来保存模块映像：
 * 开发计算机上的 [Docker 社区版](https://docs.docker.com/install/) 
 * [Azure 容器注册表](https://docs.microsoft.com/azure/container-registry/)或 [Docker 中心](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
+   * 对于原型和测试用途，可以使用本地 Docker 注册表，而不使用云注册表。 
 
-   > [!TIP]
-   > 对于原型和测试用途，可以使用本地 Docker 注册表，而不使用云注册表。 
-
-若要在设备上测试模块，你至少需要一个 IoT Edge 设备和一个活动的 IoT 中心。 若要将计算机用作 IoT Edge 设备，请按照 [Windows](quickstart.md) 或 [Linux](quickstart-linux.md) 快速入门中的步骤操作。 
+若要在设备上测试模块，你至少需要一个 IoT Edge 设备和一个活动的 IoT 中心。 若要将计算机用作 IoT Edge 设备，请按照 [Linux](quickstart-linux.md) 快速入门中的步骤操作。 
 
 ## <a name="create-a-new-solution-template"></a>创建新的解决方案模板
 
@@ -56,6 +54,7 @@ ms.locfileid: "44068252"
 7. 选择“C 模块”作为解决方案中第一个模块的模板。
 8. 输入模块的名称。 选择一个在容器注册表中唯一的名称。 
 9. 提供模块的映像存储库的名称。 VS Code 使用 **localhost:5000** 自动填充模块名称。 将其替换为你自己的注册表信息。 如果使用本地 Docker 注册表进行测试，则可以使用 **localhost**。 如果使用 Azure 容器注册表，那么请从注册表的设置中使用登录服务器。 登录服务器如下所示：\<registry name\>.azurecr.io。
+   ![提供 Docker 映像存储库](./media/how-to-develop-c-module/repository.png)
 
 VS Code 采用你提供的信息，创建一个 IoT Edge 解决方案，然后在新窗口中加载它。
 
@@ -73,7 +72,7 @@ VS Code 采用你提供的信息，创建一个 IoT Edge 解决方案，然后�
 
 ## <a name="develop-your-module"></a>开发模块
 
-解决方案附带的默认 C 模块代码位于模块 > \<你的模块名称\> > main.c。 设置模块和 deployment.template.json 文件，以便可以生成解决方案，将其推送到容器注册表，然后将其部署到设备以开始测试而无需触及任何代码。 该模块构建为只需从源（在此示例中，为模拟数据的 tempSensor 模块）获取输入并通过管道将其传送到 IoT Hub。 
+解决方案附带的默认 C 模块代码位于“模块”> [你的模块名称] >“main.c”。 设置模块和 deployment.template.json 文件，以便可以生成解决方案，将其推送到容器注册表，然后将其部署到设备以开始测试而无需触及任何代码。 该模块构建为只需从源（在此示例中，为模拟数据的 tempSensor 模块）获取输入并通过管道将其传送到 IoT Hub。 
 
 准备好使用自己的代码自定义 C 模板时，请使用 [Azure IoT 中心 SDK](../iot-hub/iot-hub-devguide-sdks.md) 生成模块，以满足 IoT 解决方案的关键需求（例如安全性、设备管理和可靠性）。 
 
@@ -85,15 +84,15 @@ VS Code 采用你提供的信息，创建一个 IoT Edge 解决方案，然后�
 
     ![将 **.debug** 添加到映像名称](./media/how-to-develop-c-module/image-debug.png)
 
-2. 将 **deployment.template.json** 中的 Node.js 模块 createOptions 替换为以下内容并保存此文件： 
+2. 将 deployment.template.json 中的 C 模块 createOptions 替换为以下内容并保存此文件： 
     
     ```json
     "createOptions": "{\"HostConfig\": {\"Privileged\": true}}"
     ```
 
-2. 在 VS Code 命令面板中，输入并运行命令“Edge: 生成 IoT Edge 解决方案”。
+2. 在 VS Code 命令面板中，输入并运行“Azure IoT Edge: 生成并推送 IoT Edge 解决方案”命令。
 3. 从命令面板中，选择你的解决方案的 `deployment.template.json` 文件。 
-4. 在 Azure IoT 中心 Device Explorer 中，右键单击某个 IoT Edge 设备 ID。 然后选择“创建 IoT Edge 设备的部署”。 
+4. 在 Azure IoT 中心 Device Explorer 中，右键单击某个 IoT Edge 设备 ID。 然后，选择“为单个设备创建部署”。 
 5. 打开你的解决方案的 **config** 文件夹。 然后选择 `deployment.json` 文件。 选择“选择 Edge 部署清单”。 
 
 将在 VS Code 集成终端中看到部署已成功创建且具有一个部署 ID。
@@ -113,7 +112,7 @@ VS Code 将调试配置信息保存在 `launch.json` 文件中，该文件位于
 
 4. 在 VS Code 调试视图中，将在左侧面板中看到变量。 
 
-上面的示例展示了如何调试容器上的 C IoT Edge 模块。 它在模块容器 createOptions 中添加了公开的端口。 完成 Node.js 模块的调试后，建议你为就绪可用于生产的 IoT Edge 模块删除那些公开的端口。
+上面的示例展示了如何调试容器上的 C IoT Edge 模块。 它在模块容器 createOptions 中添加了公开的端口。 完成 C 模块的调试后，建议你为就绪可用于生产的 IoT Edge 模块删除那些公开的端口。
 
 ## <a name="next-steps"></a>后续步骤
 

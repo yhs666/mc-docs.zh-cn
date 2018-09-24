@@ -1,20 +1,19 @@
 ---
-title: Azure 导入/导出服务的常见问题解答 | Azure
+title: Azure 导入/导出服务常见问题解答 | Microsoft Docs
 description: 阅读有关 Azure 导入导出服务的常见问题解答。
 author: WenJason
-manager: digimobile
 services: storage
 ms.service: storage
 ms.topic: article
 origin.date: 05/22/2018
-ms.date: 07/30/2018
+ms.date: 09/24/2018
 ms.author: v-jay
-ms.openlocfilehash: d0ce1dfd59aa86c3de001037c3523961c8aa7221
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.openlocfilehash: 442fc735bb228006728f81f97c3653b15b6a7694
+ms.sourcegitcommit: 0081fb238c35581bb527bdd704008c07079c8fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295614"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523690"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>Azure 导入/导出服务：常见问题解答 
 下面是你在使用 Azure 导入/导出服务将数据传输到 Azure 存储时可能会提出的问题及其解答。 问题和解答分为以下几个类别：
@@ -112,7 +111,7 @@ Azure 数据中心会将不符合支持要求的驱动器返还给你。 如果�
 视情况而定。 准备驱动器时，可以使用数据集 CSV 文件中名为 /Disposition:<rename|no-overwrite|overwrite> 的字段指定是否应覆盖或忽略目标文件。 默认情况下，该服务会将新文件重命名，而不是覆盖现有 Blob 或文件。
 
 ### <a name="is-the-waimportexport-tool-compatible-with-32-bit-operating-systems"></a>WAImportExport 工具是否与 32 位操作系统兼容？
-否。 WAImportExport 工具仅与 64 位 Windows 操作系统兼容。  
+否。 WAImportExport 工具仅与 64 位 Windows 操作系统兼容。 有关受支持的 OS 的完整列表，请转到[受支持的操作系统](https://docs.microsoft.com/azure/storage/common/storage-import-export-requirements)。 
 
 
 ### <a name="what-is-the-maximum-block-blob-and-page-blob-size-supported-by-azure-importexport"></a>Azure 导入/导出支持的最大块 Blob 和页 Blob 大小是多少？

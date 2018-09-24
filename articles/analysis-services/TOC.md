@@ -82,6 +82,7 @@
 ## [Power Query M](https://msdn.microsoft.com/library/mt211003.aspx)
 ## [表格模型脚本语言 (TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)
 ## [表格对象模型 (TOM)](https://docs.microsoft.com/sql/analysis-services/tabular-model-programming-compatibility-level-1200/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo)
+## [资源和对象限制](analysis-services-capacity-limits.md)
 
 # 资源
 
@@ -95,4 +96,4 @@
 ## [定价计算器](https://www.azure.cn/pricing/calculator/)
 <!-- Not Availabel ## [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-analysis-services)-->
 ## [视频](https://www.azure.cn/zh-cn/video-center/)
-<!--ms.date: 08/27/2018 -->
+<!--ms.date: 09/24/2018 -->

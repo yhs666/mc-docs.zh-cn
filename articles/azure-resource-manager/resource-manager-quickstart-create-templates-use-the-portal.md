@@ -10,16 +10,16 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-origin.date: 07/17/2018
-ms.date: 09/03/2018
+origin.date: 09/07/2018
+ms.date: 09/24/2018
 ms.topic: quickstart
 ms.author: v-yeche
-ms.openlocfilehash: e32bad7f1668e73710200e501a1c15fa6618a34f
-ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
+ms.openlocfilehash: f1fba4b3dba76c216057b152e7237bc2e0b554ab
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43171535"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46526976"
 ---
 <!-- Verify successfully-->
 # <a name="quickstart-create-and-deploy-azure-resource-manager-templates-by-using-the-azure-portal"></a>快速入门：使用 Azure 门户创建和部署 Azure 资源管理器模板
@@ -92,10 +92,9 @@ Resource Manager 模板为 JSON 文件，用于定义针对解决方案进行部
 
 ## <a name="next-steps"></a>后续步骤
 
-本教程已介绍如何通过 Azure 门户生成模板，以及如何使用门户部署模板。 本快速入门中使用的模板是包含一个 Azure 资源的简单模板。 如果模板较为复杂，使用 Visual Studio Code 或 Visual Studio 开发模板会更方便。
+本教程已介绍如何通过 Azure 门户生成模板，以及如何使用门户部署模板。 本快速入门中使用的模板是包含一个 Azure 资源的简单模板。 如果模板较为复杂，使用 Visual Studio Code 或 Visual Studio 开发模板会更方便。 下一快速入门还介绍如何使用 Azure PowerShell 和 Azure 命令行界面 (CLI) 来部署模板。
 
 > [!div class="nextstepaction"]
-> [使用 Visual Studio Code 创建模板](./resoure-manager-quickstart-create-templates-use-visual-studio-code.md)
+> [使用 Visual Studio Code 创建模板](./resource-manager-quickstart-create-templates-use-visual-studio-code.md)
 
-<!-- Update_Description: new articles on resource manager quickstart create templates use the portal -->
-<!--ms.date: 09/03/2018-->
+<!-- Update_Description: update meta properties, wording update -->

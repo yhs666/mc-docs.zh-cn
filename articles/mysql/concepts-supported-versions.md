@@ -9,13 +9,13 @@ editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
 origin.date: 05/23/2018
-ms.date: 08/13/2018
-ms.openlocfilehash: db3fa0b8458c69842a867de7bf617f54d0527a24
-ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
+ms.date: 09/24/2018
+ms.openlocfilehash: 32e6988bc05a7536e9fd3c0d5b61ad6637f43a5a
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39723113"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527060"
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>支持的 Azure Database for MySQL 服务器版本
 
@@ -31,10 +31,10 @@ ms.locfileid: "39723113"
 若要了解 MySQL 5.7.21 中的改进和修复，请参阅 MySQL [文档](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-21.html)。
 
 > [!NOTE]
-> 在服务中，网关用于将连接重定向到服务器实例。 建立连接后，MySQL 客户端显示网关中设置的 MySQL 版本，而不是 MySQL 服务器实例上运行的实际版本。 若要确定 MySQL 服务器实例的版本，可在 MySQL 提示符处使用 `SELECT VERSION();` 命令。 
+> 在服务中，网关用于将连接重定向到服务器实例。 建立连接后，MySQL 客户端显示网关中设置的 MySQL 版本，而不是 MySQL 服务器实例上运行的实际版本。 若要确定 MySQL 服务器实例的版本，可在 MySQL 提示符处使用 `SELECT VERSION();` 命令。
 
 ## <a name="managing-updates-and-upgrades"></a>管理更新和升级
-该服务会自动管理针对次要版本更新的修补。 不支持主要版本升级（例如， 从 MySQL 5.6 升级到 MySQL 5.7）。
+该服务会自动管理针对次要版本更新的修补。 目前不支持主版本升级。 例如，不支持从 MySQL 5.6 升级到 MySQL 5.7。 如果要升级到下一个主版本，请进行[转储并将其还原](./concepts-migrate-dump-restore.md)到使用新引擎版本创建的服务器。
 
 ## <a name="next-steps"></a>后续步骤
 

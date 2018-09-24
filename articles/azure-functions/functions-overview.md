@@ -4,26 +4,22 @@ description: 了解如何使用 Azure Functions 以分钟为单位优化异步�
 services: functions
 documentationcenter: na
 author: mattchenderson
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: Azure Functions, Functions, 事件处理, webhook, 动态计算, 无服务体系结构
 ms.assetid: 01d6ca9f-ca3f-44fa-b0b9-7ffee115acd4
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: overview
-ms.tgt_pltfrm: multiple
-ms.workload: na
 origin.date: 10/03/2017
-ms.date: 04/10/2018
+ms.date: 09/21/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 8a09e47af818ca8c8041efee8fe8c21cb44fb999
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.openlocfilehash: 8e167d2082d0767898d380c3991f92650c35883e
+ms.sourcegitcommit: 54d9384656cee927000d77de5791c1d585d94a68
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31359530"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46524013"
 ---
 # <a name="an-introduction-to-azure-functions"></a>Azure Functions 简介  
 Azure Functions 是用于在云中轻松运行小段代码或“函数”的一个解决方案。 用户可以只编写解决现有问题所需的代码，而无需担心要运行该代码的整个应用程序或基础结构。 Functions 可使开发更有效率，并可以使用自己所选的开发语言，例如 C#、F#、Node.js、Java 或 PHP。 只需为代码运行的时间付费，并可信任 Azure 会根据需要进行调整。 使用 Azure Functions 可以在 Azure 上开发[无服务器](https://azure.microsoft.com/overview/serverless-computing/)应用程序。
@@ -38,7 +34,7 @@ Azure Functions 是用于在云中轻松运行小段代码或“函数”的一�
 - **引入自己的依赖项** - Functions 支持 NuGet 和 NPM，因此用户可以使用自己的常用库。  
 - **集成安全性** - 使用 OAuth 提供程序（如 Azure Active Directory 和 Microsoft 帐户）保护 HTTP 触发的函数。  
 - **简化集成** - 轻松利用 Azure 服务和软件即服务 (SaaS) 产品/服务。 有关一些示例，请参阅[集成部分](#integrations)。  
-- **灵活开发** - 直接在门户中编写函数代码，或者通过 [GitHub](../app-service/scripts/app-service-cli-continuous-deployment-github.md)、[Visual Studio Team Services](../app-service/scripts/app-service-cli-continuous-deployment-vsts.md) 和其他[受支持的开发工具](../app-service/app-service-deploy-local-git.md)设置持续集成和部署代码。  
+- **灵活开发** - 直接在门户中编写函数代码，或者通过 [GitHub](../app-service/scripts/app-service-cli-continuous-deployment-github.md) 和其他[受支持的开发工具](../app-service/app-service-deploy-local-git.md)设置持续集成和部署代码。  
 - **开放源代码** - Functions 运行时是一个开放源代码， [可在 GitHub 上找到](https://github.com/azure/azure-webjobs-sdk-script)。  
 
 ## <a name="what-can-i-do-with-functions"></a>使用 Functions 可以做什么？
@@ -64,22 +60,17 @@ Azure Functions 可与各种 Azure 和第三方服务集成。 这些服务可�
 
 - Azure Cosmos DB
 - Azure 事件中心 
-- Azure 事件网格
 - Azure 移动应用（表）
 - Azure 通知中心
 - Azure 服务总线（队列和主题）
 - Azure 存储（blob、队列和表） 
 - GitHub (webhook)
 - 本地（使用服务总线）
-- Twilio（短信）
 
 ## <a name="pricing"></a>Functions 的费用是多少？
-Azure Functions 有两种定价计划。 请选择最适合自己的那种： 
+**应用服务计划** - 运行函数的方式就像运行 web 应用、移动应用和 API 应用一样。 如果已对其他应用程序使用应用服务，可以按相同的计划运行自己的函数，而不用另外付费。 
 
-- **使用计划** - 用户的函数运行时，Azure 提供所有所需的计算资源。 用户不必担心资源管理，只需为自己的代码运行的时间付费。 
-- **应用服务计划** - 运行函数的方式就像运行 web 应用、移动应用和 API 应用一样。 如果已对其他应用程序使用应用服务，可以按相同的计划运行自己的函数，而不用另外付费。 
-
-有关托管计划的详细信息，请参阅 [Azure Functions 托管计划比较](functions-scale.md)。 完整的定价详细信息可在 [Functions 定价页](https://www.azure.cn/pricing/details/functions/)中找到。
+有关托管计划的详细信息，请参阅 [Azure Functions 托管计划比较](functions-scale.md)。 完整的定价详细信息可在 [Functions 定价页](https://www.azure.cn/pricing/details/azure-functions/)中找到。
 
 ## <a name="next-steps"></a>后续步骤
 - [创建第一个 Azure 函数](functions-create-first-azure-function.md)  
@@ -94,3 +85,4 @@ Azure Functions 有两种定价计划。 请选择最适合自己的那种：
   Azure Functions 利用 Azure 应用服务执行核心功能，例如部署、环境变量和诊断。 
 
 
+<!-- Update_Description: wording update -->

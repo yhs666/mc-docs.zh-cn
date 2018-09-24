@@ -7,14 +7,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 origin.date: 01/29/2018
-ms.date: 09/10/2018
+ms.date: 10/08/2018
 ms.author: v-yiso
-ms.openlocfilehash: 49f4797488578d064a183919f3bf8350ee1db163
-ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
+ms.openlocfilehash: 02263841eda041d88ab75e25a62dfa9a5cc3ecfd
+ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43328945"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523896"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>了解并在 IoT 中心内使用设备孪生
 
@@ -91,7 +91,7 @@ ms.locfileid: "43328945"
             "telemetryConfig": {
                 "sendFrequency": "5m",
                 "status": "success"
-            }
+            },
             "batteryLevel": 55,
             "$metadata" : {...},
             "$version": 4
@@ -253,7 +253,7 @@ ms.locfileid: "43328945"
     }
     ```
 
-* 所有字符串的值的长度最多为 4 KB。
+* 所有字符串的值的长度最多为 512 个字节。
 
 ## <a name="device-twin-size"></a>设备孪生的大小
 IoT 中心对 `tags`、`properties/desired` 和 `properties/reported`（不包括只读元素）的各个总值强制实施 8KB 大小限制。
@@ -353,6 +353,7 @@ IoT 中心开发人员指南中的其他参考主题包括：
 
 * [如何使用设备孪生][lnk-twin-tutorial]
 * [如何使用设备孪生属性][lnk-twin-properties]
+* [使用用于 VS Code 的 Azure IoT 工具包进行设备管理][lnk-twin-vscode]
 
 <!-- links and images -->
 
@@ -376,6 +377,7 @@ IoT 中心开发人员指南中的其他参考主题包括：
 [lnk-devguide-jobs]: ./iot-hub-devguide-jobs.md
 [lnk-twin-tutorial]: ./iot-hub-node-node-twin-getstarted.md
 [lnk-twin-properties]: tutorial-device-twins.md
+[lnk-twin-vscode]: iot-hub-device-management-iot-toolkit.md
 [lnk-twin-metadata]: ./iot-hub-devguide-device-twins.md#device-twin-metadata
 [lnk-concurrency]: ./iot-hub-devguide-device-twins.md#optimistic-concurrency
 [lnk-reconnection]: ./iot-hub-devguide-device-twins.md#device-reconnection-flow

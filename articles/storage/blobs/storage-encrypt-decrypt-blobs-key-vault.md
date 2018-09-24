@@ -1,20 +1,20 @@
 ---
-title: 教程：在 Azure 存储中使用 Azure 密钥保管库加密和解密 Blob | Azure
+title: 教程：在 Azure 存储中使用 Azure Key Vault 加密和解密 blob | Microsoft Docs
 description: 如何将 Microsoft Azure 存储的客户端加密与 Azure Key Vault 配合使用，以便加密和解密 Blob。
 services: storage
-author: yunan2016
-manager: digimobile
+author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 01/23/2017
-ms.date: 08/28/2017
-ms.author: v-nany
-ms.openlocfilehash: daa0b038abd118711ad01f0c563a68180c080893
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.date: 09/24/2018
+ms.author: v-jay
+ms.component: blobs
+ms.openlocfilehash: 82aa1c74e6b9eeb2a35ac08a2726e2a147b479af
+ms.sourcegitcommit: 0081fb238c35581bb527bdd704008c07079c8fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29870358"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523684"
 ---
 # <a name="tutorial-encrypt-and-decrypt-blobs-in-azure-storage-using-azure-key-vault"></a>教程：在 Azure 存储中使用 Azure Key Vault 加密和解密 blob
 ## <a name="introduction"></a>简介
@@ -62,9 +62,7 @@ ms.locfileid: "29870358"
 
 ```
 Install-Package WindowsAzure.Storage
-
-// This is the latest stable release for ADAL.
-Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.16.204221202
+Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 
 Install-Package Microsoft.Azure.KeyVault
 Install-Package Microsoft.Azure.KeyVault.Extensions

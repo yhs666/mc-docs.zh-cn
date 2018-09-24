@@ -1,4 +1,3 @@
-<!--ms.date: 08/28/2017-->
 ## <a name="versions-of-the-azure-cli"></a>Azure CLI 的版本
 
 Azure 命令行接口 (CLI) 目前提供两个版本：

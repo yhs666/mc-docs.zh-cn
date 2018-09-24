@@ -3,24 +3,20 @@ title: 在 Durable Functions 中管理实例 - Azure
 description: 了解如何在 Azure Functions 的 Durable Functions 扩展中管理实例。
 services: functions
 author: cgillum
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
-origin.date: 03/19/2018
-ms.date: 07/24/2018
+ms.topic: conceptual
+origin.date: 08/31/2018
+ms.date: 09/21/2018
 ms.author: v-junlch
-ms.openlocfilehash: 553343f54567c9a854490e0f7aa01ff49ee0ec0d
-ms.sourcegitcommit: ba07d76f8394b5dad782fd983718a8ba49a9deb2
+ms.openlocfilehash: b4f92740d025f7c772a7e9e45559837c5232160c
+ms.sourcegitcommit: 54d9384656cee927000d77de5791c1d585d94a68
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39220221"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46524035"
 ---
 # <a name="manage-instances-in-durable-functions-azure-functions"></a>在 Durable Functions 中管理实例 (Azure Functions)
 
@@ -150,8 +146,6 @@ public static Task Run(
 - **EventData**：要发送到实例的 JSON 可序列化有效负载。
 
 ```csharp
-#r "Microsoft.Azure.WebJobs.Extensions.DurableTask"
-
 [FunctionName("RaiseEvent")]
 public static Task Run(
     [OrchestrationClient] DurableOrchestrationClient client,
@@ -265,7 +259,8 @@ namespace VSSample
             "id": "d3b72dddefce4e758d92f4d411567177",
             "sendEventPostUri": "http://localhost:7071/admin/extensions/DurableTaskExtension/instances/d3b72dddefce4e758d92f4d411567177/raiseEvent/{eventName}?taskHub={taskHub}&connection={connection}&code={systemKey}",
             "statusQueryGetUri": "http://localhost:7071/admin/extensions/DurableTaskExtension/instances/d3b72dddefce4e758d92f4d411567177?taskHub={taskHub}&connection={connection}&code={systemKey}",
-            "terminatePostUri": "http://localhost:7071/admin/extensions/DurableTaskExtension/instances/d3b72dddefce4e758d92f4d411567177/terminate?reason={text}&taskHub={taskHub}&connection={connection}&code={systemKey}"
+            "terminatePostUri": "http://localhost:7071/admin/extensions/DurableTaskExtension/instances/d3b72dddefce4e758d92f4d411567177/terminate?reason={text}&taskHub={taskHub}&connection={connection}&code={systemKey}",
+            "rewindPostUri": "https://localhost:7071/admin/extensions/DurableTaskExtension/instances/d3b72dddefce4e758d92f4d411567177/rewind?reason={text}&taskHub={taskHub}&connection={connection}&code={systemKey}"
         }
     ```
 
@@ -286,12 +281,12 @@ namespace VSSample
 - **StatusQueryGetUri**：业务流程实例的状态 URL。
 - **SendEventPostUri**：业务流程实例的“引发事件”URL。
 - **TerminatePostUri**：业务流程实例的“终止”URL。
+- **RewindPostUri**：业务流程实例的“回退”URL。
 
 活动函数可以将 [HttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.Extensions.DurableTask.HttpManagementPayload.html#Microsoft_Azure_WebJobs_Extensions_DurableTask_HttpManagementPayload_) 的实例发送到外部系统，以监视或引发到业务流程的事件：
 
 ```csharp
-#r "Microsoft.Azure.WebJobs.Extensions.DurableTask"
-
+[FunctionName("SendInstanceInfo")]
 public static void SendInstanceInfo(
     [ActivityTrigger] DurableActivityContext ctx,
     [OrchestrationClient] DurableOrchestrationClient client,
@@ -304,6 +299,29 @@ public static void SendInstanceInfo(
 
     // send the payload to Cosmos DB
     document = new { Payload = payload, id = ctx.InstanceId };
+}
+```
+
+## <a name="rewinding-instances-preview"></a>回退实例（预览）
+
+可以使用 [RewindAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RewindAsync_System_String_System_String_) API 将失败的业务流程实例回退到以前正常的状态。 其工作原理是将业务流程返回到“正在运行”状态，并重新运行导致业务流程失败的活动和/或子业务流程执行。
+
+> [!NOTE]
+> 此 API 并不旨在取代适当的错误处理和重试策略。 只能在业务流程实例出于意外的原因而失败时才使用此 API。 有关错误处理和重试策略的详细信息，请参阅[错误处理](durable-functions-error-handling.md)主题。
+
+涉及到一系列[人工审批](durable-functions-overview.md#pattern-5-human-interaction)的工作流就是“回退”的一个用例。 假设有一系列活动函数会通知某人做出审批并等待其实时响应。 在所有审批活动已收到响应或超时后，另一个活动由于应用程序配置不当（例如数据库连接字符串无效）而失败。 结果是业务流程在工作流的深入阶段发生失败。 应用程序管理员可以使用 `RewindAsync` API 修复配置错误，并将失败的业务流程立即回退到失败之前的状态。 无需重新审批任何人工交互步骤，业务流程现在可以成功完成。
+
+> [!NOTE]
+> “回退”功能不支持回退使用持久计时器的业务流程实例。
+
+```csharp
+[FunctionName("RewindInstance")]
+public static Task Run(
+    [OrchestrationClient] DurableOrchestrationClient client,
+    [ManualTrigger] string instanceId)
+{
+    string reason = "Orchestrator failed and needs to be revived.";
+    return client.RewindAsync(instanceId, reason);
 }
 ```
 

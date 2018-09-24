@@ -3,8 +3,7 @@ title: 如何使用适用于 Azure 移动应用的 iOS SDK
 description: 如何使用适用于 Azure 移动应用的 iOS SDK
 services: app-service\mobile
 documentationcenter: ios
-author: ysxu
-manager: yochayk
+author: conceptdev
 editor: ''
 ms.assetid: 4e8e45df-c36a-4a60-9ad4-393ec10b7eb9
 ms.service: app-service-mobile
@@ -14,13 +13,13 @@ ms.devlang: objective-c
 ms.topic: article
 origin.date: 10/01/2016
 ms.author: v-yiso
-ms.date: 11/06/2017
-ms.openlocfilehash: 7c1696b3858ec30af0677d0ff92a1ebf4cf33695
-ms.sourcegitcommit: 1b682acdc2a5e0974fbff809967d7cefcbbbe8ac
+ms.date: 10/08/2018
+ms.openlocfilehash: 13631eb9b190c6a28b0b6efbc5ceb32d06048309
+ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42870985"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523894"
 ---
 # <a name="how-to-use-ios-client-library-for-azure-mobile-apps"></a>如何使用适用于 Azure 移动应用的 iOS 客户端库
 
@@ -49,13 +48,13 @@ iOS SDK 支持适用于 iOS 8.0 版及更高版本的 Objective-C 项目、Swift
 
 **Objective-C**：
 
-```
+```objc
 MSClient *client = [MSClient clientWithApplicationURLString:@"AppUrl"];
 ```
 
 **Swift**：
 
-```
+```swift
 let client = MSClient(applicationURLString: "AppUrl")
 ```
 
@@ -65,13 +64,13 @@ let client = MSClient(applicationURLString: "AppUrl")
 
 **Objective-C**：
 
-```
+```objc
 MSTable *table = [client tableWithName:@"TodoItem"];
 ```
 
 **Swift**：
 
-```
+```swift
 let table = client.tableWithName("TodoItem")
 ```
 
@@ -81,7 +80,7 @@ let table = client.tableWithName("TodoItem")
 
 **Objective-C**：
 
-```
+```objc
 [table readWithCompletion:^(MSQueryResult *result, NSError *error) {
         if(error) { // error is nil if no error occured
                 NSLog(@"ERROR %@", error);
@@ -95,7 +94,7 @@ let table = client.tableWithName("TodoItem")
 
 **Swift**：
 
-```
+```swift
 table.readWithCompletion { (result, error) in
     if let err = error {
         print("ERROR ", err)
@@ -115,7 +114,7 @@ table.readWithCompletion { (result, error) in
 
 **Objective-C**：
 
-```
+```objc
 // Create a predicate that finds items where complete is false
 NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 // Query the TodoItem table
@@ -132,7 +131,7 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 
 **Swift**：
 
-```
+```swift
 // Create a predicate that finds items where complete is false
 let predicate =  NSPredicate(format: "complete == NO")
 // Query the TodoItem table
@@ -153,14 +152,14 @@ table.readWithPredicate(predicate) { (result, error) in
 
 **Objective-C**：
 
-```
+```objc
 MSQuery *query = [table query];
 MSQuery *query = [table queryWithPredicate: [NSPredicate predicateWithFormat:@"complete == NO"]];
 ```
 
 **Swift**：
 
-```
+```swift
 let query = table.query()
 let query = table.queryWithPredicate(NSPredicate(format: "complete == NO"))
 ```
@@ -182,7 +181,7 @@ let query = table.queryWithPredicate(NSPredicate(format: "complete == NO"))
 
 **Objective-C**：
 
-```
+```objc
 [query orderByAscending:@"text"];
 [query orderByDescending:@"complete"];
 [query readWithCompletion:^(MSQueryResult *result, NSError *error) {
@@ -198,7 +197,7 @@ let query = table.queryWithPredicate(NSPredicate(format: "complete == NO"))
 
 **Swift**：
 
-```
+```swift
 query.orderByAscending("text")
 query.orderByDescending("complete")
 query.readWithCompletion { (result, error) in
@@ -218,13 +217,13 @@ query.readWithCompletion { (result, error) in
 
 **Objective-C**：
 
-```
+```objc
 query.selectFields = @[@"text", @"complete"];
 ```
 
 **Swift**：
 
-```
+```swift
 query.selectFields = ["text", "complete"]
 ```
 
@@ -232,7 +231,7 @@ query.selectFields = ["text", "complete"]
 
 **Objective-C**：
 
-```
+```objc
 query.parameters = @{
     @"myKey1" : @"value1",
     @"myKey2" : @"value2",
@@ -241,7 +240,7 @@ query.parameters = @{
 
 **Swift**：
 
-```
+```swift
 query.parameters = ["myKey1": "value1", "myKey2": "value2"]
 ```
 
@@ -261,7 +260,7 @@ query.parameters = ["myKey1": "value1", "myKey2": "value2"]
 
 **Objective-C**：
 
-```
+```objc
   MSPullSettings *pullSettings = [[MSPullSettings alloc] initWithPageSize:3];
   [table  pullWithQuery:query queryId:@nil settings:pullSettings
                         completion:^(NSError * _Nullable error) {
@@ -273,7 +272,7 @@ query.parameters = ["myKey1": "value1", "myKey2": "value2"]
 
 **Swift**：
 
-```
+```swift
 let pullSettings = MSPullSettings(pageSize: 3)
 table.pullWithQuery(query, queryId:nil, settings: pullSettings) { (error) in
     if let err = error {
@@ -292,7 +291,7 @@ table.pullWithQuery(query, queryId:nil, settings: pullSettings) { (error) in
 
 **Objective-C**：
 
-```
+```objc
 NSDictionary *newItem = @{@"id": @"custom-id", @"text": @"my new item", @"complete" : @NO};
 [table insert:newItem completion:^(NSDictionary *result, NSError *error) {
     if(error) {
@@ -305,7 +304,7 @@ NSDictionary *newItem = @{@"id": @"custom-id", @"text": @"my new item", @"comple
 
 **Swift**：
 
-```
+```swift
 let newItem = ["id": "custom-id", "text": "my new item", "complete": false]
 table.insert(newItem) { (result, error) in
     if let err = error {
@@ -322,7 +321,7 @@ table.insert(newItem) { (result, error) in
 
 **Objective-C**：
 
-```
+```objc
 NSMutableDictionary *newItem = [oldItem mutableCopy]; // oldItem is NSDictionary
 [newItem setValue:@"Updated text" forKey:@"text"];
 [table update:newItem completion:^(NSDictionary *result, NSError *error) {
@@ -336,7 +335,7 @@ NSMutableDictionary *newItem = [oldItem mutableCopy]; // oldItem is NSDictionary
 
 **Swift**：
 
-```
+```swift
 if let newItem = oldItem.mutableCopy() as? NSMutableDictionary {
     newItem["text"] = "Updated text"
     table2.update(newItem as [NSObject: AnyObject], completion: { (result, error) -> Void in
@@ -353,7 +352,7 @@ if let newItem = oldItem.mutableCopy() as? NSMutableDictionary {
 
 **Objective-C**：
 
-```
+```objc
 [table update:@{@"id":@"custom-id", @"text":"my EDITED item"} completion:^(NSDictionary *result, NSError *error) {
     if(error) {
         NSLog(@"ERROR %@", error);
@@ -365,7 +364,7 @@ if let newItem = oldItem.mutableCopy() as? NSMutableDictionary {
 
 **Swift**：
 
-```
+```swift
 table.update(["id": "custom-id", "text": "my EDITED item"]) { (result, error) in
     if let err = error {
         print("ERROR ", err)
@@ -383,7 +382,7 @@ table.update(["id": "custom-id", "text": "my EDITED item"]) { (result, error) in
 
 **Objective-C**：
 
-```
+```objc
 [table delete:item completion:^(id itemId, NSError *error) {
     if(error) {
         NSLog(@"ERROR %@", error);
@@ -395,7 +394,7 @@ table.update(["id": "custom-id", "text": "my EDITED item"]) { (result, error) in
 
 **Swift**：
 
-```
+```swift
 table.delete(newItem as [NSObject: AnyObject]) { (itemId, error) in
     if let err = error {
         print("ERROR ", err)
@@ -409,7 +408,7 @@ table.delete(newItem as [NSObject: AnyObject]) { (itemId, error) in
 
 **Objective-C**：
 
-```
+```objc
 [table deleteWithId:@"37BBF396-11F0-4B39-85C8-B319C729AF6D" completion:^(id itemId, NSError *error) {
     if(error) {
         NSLog(@"ERROR %@", error);
@@ -421,7 +420,7 @@ table.delete(newItem as [NSObject: AnyObject]) { (itemId, error) in
 
 **Swift**：
 
-```
+```swift
 table.deleteWithId("37BBF396-11F0-4B39-85C8-B319C729AF6D") { (itemId, error) in
     if let err = error {
         print("ERROR ", err)
@@ -440,7 +439,8 @@ table.deleteWithId("37BBF396-11F0-4B39-85C8-B319C729AF6D") { (itemId, error) in
 若要调用自定义 API，请调用 `MSClient.invokeAPI`。 请求和响应内容被视为 JSON。 若要使用其他媒体类型，[请使用 `invokeAPI` 的其他重载][5]。  若要发出 `GET` 请求而不是 `POST` 请求，请将参数 `HTTPMethod` 设置为 `"GET"`，将参数 `body` 设置为 `nil`（因为 GET 请求没有消息正文）。如果自定义 API 支持其他 HTTP 谓词，请相应地更改 `HTTPMethod`。
 
 **Objective-C**：
-```
+
+```objc
 [self.client invokeAPI:@"sendEmail"
                   body:@{ @"contents": @"Hello world!" }
             HTTPMethod:@"POST"
@@ -457,7 +457,7 @@ table.deleteWithId("37BBF396-11F0-4B39-85C8-B319C729AF6D") { (itemId, error) in
 
 **Swift**：
 
-```
+```swift
 client.invokeAPI("sendEmail",
             body: [ "contents": "Hello World" ],
             HTTPMethod: "POST",
@@ -479,7 +479,7 @@ client.invokeAPI("sendEmail",
 
 **Objective-C**：
 
-```
+```objc
 [client.push registerDeviceToken:deviceToken template:iOSTemplate completion:^(NSError *error) {
     if(error) {
         NSLog(@"ERROR %@", error);
@@ -489,25 +489,25 @@ client.invokeAPI("sendEmail",
 
 **Swift**：
 
-```
-    client.push?.registerDeviceToken(NSData(), template: iOSTemplate, completion: { (error) in
-        if let err = error {
-            print("ERROR ", err)
-        }
-    })
+```swift
+client.push?.registerDeviceToken(NSData(), template: iOSTemplate, completion: { (error) in
+    if let err = error {
+        print("ERROR ", err)
+    }
+})
 ```
 
 模板类型是 NSDictionary，可以包含采用以下格式的多个模板：
 
 **Objective-C**：
 
-```
+```objc
 NSDictionary *iOSTemplate = @{ @"templateName": @{ @"body": @{ @"aps": @{ @"alert": @"$(message)" } } } };
 ```
 
 **Swift**：
 
-```
+```swift
 let iOSTemplate = ["templateName": ["body": ["aps": ["alert": "$(message)"]]]]
 ```
 
@@ -521,13 +521,13 @@ let iOSTemplate = ["templateName": ["body": ["aps": ["alert": "$(message)"]]]]
 
 **Objective-C**：
 
-```
+```objc
 NSDictionary *serverItem = [error.userInfo objectForKey:MSErrorServerItemKey];
 ```
 
 **Swift**：
 
-```
+```swift
 let serverItem = error.userInfo[MSErrorServerItemKey]
 ```
 
@@ -535,13 +535,13 @@ let serverItem = error.userInfo[MSErrorServerItemKey]
 
 **Objective-C**：
 
-```
+```objc
 if (error.code == MSErrorPreconditionFailed) {
 ```
 
 **Swift**：
 
-```
+```swift
 if (error.code == MSErrorPreconditionFailed) {
 ```
 
@@ -566,14 +566,14 @@ Pod：
 
 4. 根据使用的语言，将以下代码添加到应用程序。 在每个应用程序中，进行以下替换：
 
-    * 将 **INSERT-AUTHORITY-HERE** 替换为在其中预配应用程序的租户的名称。 格式应为 https://login.chinacloudapi.cn/contoso.onmicrosoft.com。 可以从 [Azure 经典管理门户]中的 Azure Active Directory 的“域”选项卡复制此值。
+    * 将 **INSERT-AUTHORITY-HERE** 替换为在其中预配应用程序的租户的名称。 格式应为 https://login.chinacloudapi.cn/contoso.onmicrosoft.com。 可以在 [Azure 门户]中从 Azure Active Directory 的“域”选项卡复制此值。
     * 将 **INSERT-RESOURCE-ID-HERE** 替换移动应用后端的客户端 ID。 可以在门户中“Azure Active Directory 设置”下面的“高级”选项卡获取此客户端 ID。
     * 将 **INSERT-CLIENT-ID-HERE** 替换为从本机客户端应用程序复制的客户端 ID。
     * 使用 HTTPS 方案将 **INSERT-REDIRECT-URI-HERE** 替换为站点的 _/.auth/login/done_ 终结点。 此值应类似于 _https://contoso.chinacloudsites.cn/.auth/login/done_。
 
 **Objective-C**：
 
-```
+```objc
 #import <ADALiOS/ADAuthenticationContext.h>
 #import <ADALiOS/ADAuthenticationSettings.h>
 // ...
@@ -609,7 +609,7 @@ Pod：
 
 **Swift**：
 
-```
+```swift
 // add the following imports to your bridging header:
 //      #import <ADALiOS/ADAuthenticationContext.h>
 //      #import <ADALiOS/ADAuthenticationSettings.h>
@@ -634,7 +634,6 @@ func authenticate(parent: UIViewController, completion: (MSUser?, NSError?) -> V
         }
 }
 ```
-
 <!-- Anchors. -->
 
 [What is Mobile Services]: #what-is
@@ -680,7 +679,7 @@ func authenticate(parent: UIViewController, completion: (MSUser?, NSError?) -> V
 [NSDictionary object]: http://go.microsoft.com/fwlink/p/?LinkId=301965
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [CLI to manage Mobile Services tables]: https://docs.azure.cn/zh-cn/cli/get-started-with-az-cli2?view=azure-cli-lastest
-[Azure 经典管理门户]: http://manage.windowsazure.cn
+[Azure classic management portal]: http://manage.windowsazure.cn
 [Fabric Dashboard]: https://www.fabric.io/home
 [Fabric for iOS - Getting Started]: https://docs.fabric.io/ios/fabric/getting-started.html
 [1]: https://github.com/Azure/azure-mobile-apps-ios-client/blob/master/README.md#ios-client-sdk

@@ -1,12 +1,10 @@
 items:
-- name: Azure 资源管理器文档
+- name: Azure Resource Manager 文档
   href: index.md
 - name: 概述
   items:
   - name: 什么是资源管理器？
     href: resource-group-overview.md
-  - name: 资源管理器部署和经典部署
-    href: resource-manager-deployment-model.md
 - name: 快速入门
   items:
   - name: 创建模板 - 门户
@@ -20,8 +18,12 @@ items:
   items:
   - name: 创建加密的存储帐户
     href: resource-manager-tutorial-create-encrypted-storage-accounts.md
-  - name: 创建多个资源
+  - name: 创建多个存储帐户实例
+    href: resource-manager-tutorial-create-multiple-instances.md
+  - name: 设置资源部署顺序
     href: resource-manager-tutorial-create-templates-with-dependent-resources.md
+  - name: 创建链接模板
+    href: resource-manager-tutorial-create-linked-templates.md
 - name: 概念
   items:
   - name: 资源提供程序和类型
@@ -32,6 +34,8 @@ items:
     href: templates-cloud-consistency.md
   - name: 部署模式
     href: deployment-modes.md
+  - name: 资源管理器部署和经典部署
+    href: resource-manager-deployment-model.md
 - name: 如何
   items:
   - name: 创建模板
@@ -87,7 +91,7 @@ items:
       href: resource-group-template-deploy-rest.md
     - name: 多个资源组或订阅
       href: resource-manager-cross-resource-group-deployment.md
-    - name: 与 Visual Studio Team Services 的持续集成
+    - name: Azure DevOps Services 中的持续集成
       href: ../vs-azure-tools-resource-groups-ci-in-vsts.md
       maintainContext: true
     - name: 在部署期间传递安全值
@@ -104,6 +108,9 @@ items:
       href: resource-group-using-tags.md
     - name: 将资源移到新组或订阅
       href: resource-group-move-resources.md
+      items:
+      - name: 根据资源类型移动支持
+        href: move-support-resources.md
     - name: 创建管理组
       href: management-groups-create.md
     - name: 管理你的管理组
@@ -176,7 +183,7 @@ items:
       href: resource-group-template-functions-logical.md
     - name: 数值函数
       href: resource-group-template-functions-numeric.md
-    - name: 资源函数
+    - name: Resource functions
       href: resource-group-template-functions-resource.md
     - name: 字符串函数
       href: resource-group-template-functions-string.md
@@ -198,9 +205,11 @@ items:
     href: https://www.azure.cn/what-is-new/
   - name: 管理个人数据
     href: resource-manager-personal-data.md
-ms.openlocfilehash: f30665209e129bab1acf37eab7c53832c1124b21
-ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
+  - name: 视频
+    href: https://www.azure.cn/video-center/
+ms.openlocfilehash: 60f80942ad82d770ada1f4aad7674562b7d1c19f
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44515725"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527205"

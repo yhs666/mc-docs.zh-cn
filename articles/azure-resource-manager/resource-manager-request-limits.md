@@ -9,29 +9,29 @@ editor: tysonn
 ms.assetid: e1047233-b8e4-4232-8919-3268d93a3824
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 04/10/2018
-ms.date: 04/30/2018
+origin.date: 09/17/2018
+ms.date: 09/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: cabfcc66a39ae4c455c6e42b773d6e86c0d77b89
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 3cb6d32ac632e98d35d1fba770a9ae677df75bd5
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121245"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527153"
 ---
 # <a name="throttling-resource-manager-requests"></a>限制 Resource Manager 请求数
-对于每个订阅和租户，Resource Manager 将读取请求数限制为 15,000/小时，将写入请求数限制为 1,200/小时。 这些限制适用于每个 Azure 资源管理器实例。 每个 Azure 区域中有多个实例，Azure 资源管理器将部署到所有 Azure 区域。  因此，在实践中，限制实际上比上述限制要高得多，因为用户请求通常是由多个不同的实例提供服务。
+对于每个 Azure 订阅和租户，资源管理器最多允许每小时 12,000 个读取请求和每小时 1,200 个写入请求。 这些限制作用于发出请求的主体 ID，以及订阅 ID 或租户 ID。 如果请求来自多个主体 ID，则在整个订阅或租户中实施的限制大于每小时 12,000 个和 1,200 个。
+
+请求将应用到订阅或租户。 订阅请求是需要传递订阅 ID 的请求，例如在订阅中检索资源组。 租户请求不包括订阅 ID，例如，检索有效的 Azure 位置。
+
+这些限制适用于每个 Azure 资源管理器实例。 每个 Azure 区域中有多个实例，Azure 资源管理器将部署到所有 Azure 区域。  因此，在实践中，限制实际上比上述限制要高得多，因为用户请求通常是由多个不同的实例提供服务。
 
 如果应用程序或脚本达到了这些限制，则需对请求数进行限制。 本文说明如何在达到限制之前确定剩余的请求数，以及达到限制时如何做出响应。
 
 达到限制时，会收到 HTTP 状态代码“429 请求过多”。
-
-请求数仅限于订阅或租户。 如果订阅中有多个并发应用程序在进行请求，则会将这些应用程序发出的请求加在一起来确定剩余请求数。
-
-划归到订阅的请求涉及到传递订阅 ID，例如，检索订阅中的资源组。 划归到租户的请求不包括订阅 ID，例如，检索有效的 Azure 位置。
 
 ## <a name="remaining-requests"></a>剩余请求数
 可以通过检查响应标头确定剩余请求数。 每个请求都包含剩余读取和写入请求数的值。 下表说明了各种响应标头，用户可以检查其中是否存在这些值：
@@ -63,7 +63,9 @@ $r = Invoke-WebRequest -Uri https://management.chinacloudapi.cn/subscriptions/{g
 $r.Headers["x-ms-ratelimit-remaining-subscription-reads"]
 ```
 
-或者，如果想要查看剩余请求数以进行调试，可以在 **PowerShell** cmdlet 中提供 **-Debug** 参数。
+有关完整的 PowerShell 示例，请参阅[查看订阅的资源管理器限制](https://github.com/Microsoft/csa-misc-utils/tree/master/psh-GetArmLimitsViaAPI)。
+
+若要查看剩余请求数以进行调试，可在 **PowerShell** cmdlet 中提供 **-Debug** 参数。
 
 ```powershell
 Get-AzureRmResourceGroup -Debug
@@ -145,6 +147,7 @@ msrest.http_logger :     'x-ms-ratelimit-remaining-subscription-writes': '1199'
 
 ## <a name="next-steps"></a>后续步骤
 
+* 有关完整的 PowerShell 示例，请参阅[查看订阅的资源管理器限制](https://github.com/Microsoft/csa-misc-utils/tree/master/psh-GetArmLimitsViaAPI)。
 * 有关限制和配额的详细信息，请参阅 [Azure 订阅和服务限制、配额和约束](../azure-subscription-service-limits.md)。
 * 若要了解如何处理异步 REST 请求，请参阅[跟踪异步 Azure 操作](resource-manager-async-operations.md)。
 

@@ -3,24 +3,20 @@ title: Durable Functions 中的函数链 - Azure
 description: 了解如何运行执行一系列函数的 Durable Functions 示例。
 services: functions
 author: cgillum
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
-origin.date: 03/19/2018
-ms.date: 05/30/2018
+ms.topic: conceptual
+origin.date: 09/06/2018
+ms.date: 09/21/2018
 ms.author: v-junlch
-ms.openlocfilehash: 56f57ec56f85c2a469811a0b1e78305831faa731
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 36ecfa2ac78a89d57ae9df45dcd73bb2e0de6cf3
+ms.sourcegitcommit: 54d9384656cee927000d77de5791c1d585d94a68
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34567315"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46524041"
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Durable Functions 中的函数链 - Hello 序列示例
 
@@ -109,7 +105,7 @@ module.exports = df(function*(context){
 
 所有 JavaScript 业务流程函数都必须包括 `durable-functions` 模块。 这是一个 JavaScript 库，它将业务流程函数的操作转换为进程外语言的 Durable Functions 执行协议。 业务流程函数与其他 JavaScript 函数之间有三个明显差异：
 
-1. 此函数是一个[生成器函数](https://docs.microsoft.com/en-us/scripting/javascript/advanced/iterators-and-generators-javascript)。
+1. 此函数是一个[生成器函数](https://docs.microsoft.com/scripting/javascript/advanced/iterators-and-generators-javascript)。
 2. 此函数包装在对 `durable-functions` 模块的调用（此处为 `df`）中。
 3. 此函数通过调用 `return` 而非 `context.done` 结束。
 
@@ -166,6 +162,9 @@ module.exports = function(context) {
 ```
 POST http://{host}/orchestrators/E1_HelloSequence
 ```
+
+> [!NOTE]
+> 前面的 HTTP 代码片段假定 `host.json` 文件中有一个条目，该条目从所有 HTTP 触发器函数 URL 中删除默认的 `api/` 前缀。 可以在示例的 `host.json` 文件中找到此配置的标记。
 
 例如，如果在名为“myfunctionapp”的函数应用中运行示例，请将“{host}”替换为“myfunctionapp.chinacloudsites.cn”。
 

@@ -13,15 +13,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-origin.date: 04/17/2018
-ms.date: 06/04/2018
+origin.date: 08/20/2018
+ms.date: 09/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: 523555f6437461dccb44a927b902f0fe85c6ba19
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: dae98661b6e15892dd12a09acd4348825e698be2
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702726"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527168"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>如何在 Azure 上将 SSH 密钥与 Windows 配合使用
 
@@ -34,9 +34,9 @@ ms.locfileid: "34702726"
 ## <a name="windows-packages-and-ssh-clients"></a>Windows 程序包和 SSH 客户端
 可使用 *SSH 客户端*连接到 Azure 中的 Linux VM，并对其进行管理。 运行 Linux 或 macOS 的计算机通常具有一套 SSH 命令来生成和管理 SSH 密钥并建立 SSH 连接。 
 
-Windows 计算机并不总是装有类似的 SSH 命令。 通过包含[适用于 Linux 的 Windows 子系统](https://docs.microsoft.com/zh-cn/windows/wsl/about)的 Windows 10 版本，可在 Bash shell 中以本机方式运行并访问 SSH 客户端等实用工具。 
+Windows 计算机并不总是装有类似的 SSH 命令。 最新版本的 Windows 10 提供 [OpenSSH 客户端命令](https://blogs.msdn.microsoft.com/commandline/2018/03/07/windows10v1803/)来创建和管理 SSH 密钥，并通过命令提示符建立 SSH 连接。 最近的 Windows 10 版本还包括[适用于 Linux 的 Windows 子系统](https://docs.microsoft.com/zh-cn/windows/wsl/about)，以便在 Bash shell 中以本机方式运行并访问 SSH 客户端等实用工具。 
 
-如果不希望使用 Bash for Windows，以下包中包含可本地安装的常见 Windows SSH 客户端：
+如果希望对 Windows 使用其他 SSH 工具，以下包中包含可本地安装的常见 Windows SSH 客户端：
 
 * [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/)
 * [Git For Windows](https://git-for-windows.github.io/)
@@ -50,7 +50,7 @@ Windows 计算机并不总是装有类似的 SSH 命令。 通过包含[适用�
 
 ### <a name="create-ssh-keys-with-ssh-keygen"></a>使用 ssh-keygen 创建 SSH 密钥
 
-如果可运行 Bash for Windows 或 GitBash 等命令 shell，请使用 `ssh-keygen` 命令创建一个 SSH 密钥对。 键入以下命令，并回答提示。 如果当前位置存在 SSH 密钥对，这些文件将被覆盖。 
+如果在 Windows 上运行支持 SSH 客户端工具的命令外壳，请使用 `ssh-keygen` 命令创建 SSH 密钥对。 键入以下命令，并回答提示。 如果当前位置存在 SSH 密钥对，这些文件将被覆盖。 
 <!-- Not Available on (or Bash in Azure Cloud Shell) -->
 
 ```bash
@@ -94,9 +94,10 @@ ssh-keygen -t rsa -b 2048
 ## <a name="connect-to-your-vm"></a>连接到 VM
 
 在 Windows 中建立 SSH 以连接 Linux VM 的方法之一是使用 SSH 客户端。 如果 Windows 系统上安装了 SSH 客户端，这是首选方法。 如果更喜欢基于 GUI 的工具，可使用 PuTTY 进行连接。  
+<!-- Not Available on or you use SSH tools in Bash in Azure Cloud Shell-->
 
 ### <a name="use-an-ssh-client"></a>使用 SSH 客户端
-凭借部署在 Azure VM 上的公钥和本地系统上的私钥，使用 VM 的 IP 地址或 DNS 名称通过 SSH 连接到 VM。 将以下命令中的 *azureuser* 和 *myvm.chinanorth.cloudapp.chinacloudapi.cn* 替换为管理员用户名和完全限定的域名（或 IP 地址）：<!-- Not Available on or you use SSH tools in Bash in Azure Cloud Shell-->
+凭借部署在 Azure VM 上的公钥和本地系统上的私钥，使用 VM 的 IP 地址或 DNS 名称通过 SSH 连接到 VM。 将以下命令中的 *azureuser* 和 *myvm.chinanorth.cloudapp.chinacloudapi.cn* 替换为管理员用户名和完全限定的域名（或 IP 地址）：
 
 ```bash
 ssh azureuser@myvm.chinanorth.cloudapp.chinacloudapi.cn

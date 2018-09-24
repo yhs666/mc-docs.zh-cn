@@ -9,12 +9,12 @@ ms.topic: how-to
 origin.date: 05/22/2018
 ms.date: 07/02/2018
 ms.author: v-nany
-ms.openlocfilehash: 7b08b23263ba22d36b47832b27ee5d53aa4d9a93
-ms.sourcegitcommit: 2700f127c3a8740a83fb70739c09bd266f0cc455
+ms.openlocfilehash: b449dd7bc720eada175b54fc356233a3c738b74f
+ms.sourcegitcommit: 0081fb238c35581bb527bdd704008c07079c8fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45586613"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523730"
 ---
 # <a name="using-the-azure-storage-rest-api"></a>使用 Azure 存储 REST API
 
@@ -49,7 +49,7 @@ git clone https://github.com/Azure-Samples/storage-dotnet-rest-api-with-auth.git
 
 REST 是指表述性状态转移。 有关具体定义，请参阅 [Wikipedia](http://en.wikipedia.org/wiki/Representational_state_transfer)。
 
-基本上，REST 是在调用 API 或使 API 可调用时使用的体系结构。 无论一方发生什么，以及在发送或接收 REST 调用时使用什么其他软件，它都不会受影响。 你可以编写一个在 Mac、Windows、Linux、Android 手机或平板电脑、iPhone、iPod 或网站上运行的应用程序，并为所有这些平台使用相同的 REST API。 调用 REST API 时，可以传入和/或传出数据。 REST API 不关心从中进行调用的平台 - 重要的是在请求中传递的信息以及在响应中提供的数据。
+基本上，REST 是在调用 API 或使 API 可调用时使用的体系结构。 无论一方发生什么，以及在发送或接收 REST 调用时使用什么其他软件，它都不会受影响。 你可以编写一个在 Mac、Windows、Linux、Android 手机或平板电脑、iPhone、iPod 或网站上运行的应用程序，并为所有这些平台使用相同的 REST API。 调用 REST API 时，可以传入和/或传出数据。 REST API 不关心从中进行调用的平台 – 重要的是在请求中传递的信息以及在响应中提供的数据。
 
 了解如何使用 REST 是一项非常有用的技能。 Azure 产品团队会频繁发布新功能。 很多时候，新功能可通过 REST 接口访问，但尚未通过所有存储客户端库或 UI 显示（如 Azure 门户）。 如果要始终使用最新且最好的功能，则需要学习 REST。 此外，如果想要编写你自己的库以便与 Azure 存储进行交互，或者想要使用没有 SDK 或存储客户端库的编程语言访问 Azure 存储，则可以使用 REST API。
 
@@ -141,7 +141,7 @@ using (var httpRequestMessage = new HttpRequestMessage(HttpMethod.Get, uri)
     //   the authorization header. 
 ```
 
-调用创建授权标头的方法，并将其添加到请求标头。 本文的后面部分将介绍如何创建授权标头。 方法名称为 GetAuthorizationHeader，你可以在此代码段中看到：
+调用创建授权标头的方法，并将其添加到请求标头。 你将在本文的后面部分了解如何创建授权标头。 方法名称为 GetAuthorizationHeader，你可以在此代码段中看到：
 
 ```csharp
     // Get the authorization header and add it.
@@ -153,7 +153,7 @@ using (var httpRequestMessage = new HttpRequestMessage(HttpMethod.Get, uri)
 
 ## <a name="call-the-rest-api-with-the-request"></a>使用请求调用 REST API
 
-至此，你已经有了请求，接下来即可调用 SendAsync 来发送 REST 请求。 SendAsync 调用 API，并获取响应。 检查响应状态代码（可以是 200），然后分析响应。 在这种情况下，你将获取到一个容器的 XML 列表。 让我们看一下用于调用 GetRESTRequest 方法的代码，以创建请求、执行请求，然后检查对容器列表的响应。
+至此，你已经有了请求，接下来即可调用 SendAsync 来发送 REST 请求。 SendAsync 调用 API，并获取响应。 检查响应状态代码（可以是 200），然后分析响应。 在这种情况下，你将获取到一个容器的 XML 列表。 让我们看一下调用 GetRESTRequest 方法以创建请求、执行请求的代码，然后检查对容器列表的响应。
 
 ```csharp 
     // Send the request.
@@ -262,11 +262,11 @@ Content-Length: 1511
 </EnumerationResults>
 ```
 
-现在已了解如何创建请求、调用服务和分析结果，接下来我们来看下如何创建授权标头。 创建标头比较复杂，但好消息是，代码一旦运行成功，它将适用于所有存储服务 REST API。
+现在，你已了解如何创建请求、调用服务和分析结果，接下来我们来看下如何创建授权标头。 创建标头比较复杂，但好消息是，代码一旦运行成功，它将适用于所有存储服务 REST API。
 
 ## <a name="creating-the-authorization-header"></a>创建授权标头
 
-有一篇文章从概念上（无代码）介绍了如何执行 [Azure 存储服务的身份验证](https://docs.microsoft.com/rest/api/storageservices/fileservices/Authentication-for-the-Azure-Storage-Services)。
+有一篇文章从概念上（无代码）介绍了如何执行 [Azure 存储服务的身份验证](https://docs.microsoft.com/rest/api/storageservices/Authorization-for-the-Azure-Storage-Services)。
 让我们就基于此篇文章准确提取所需的内容并显示代码。
 
 首先，使用“共享密钥”身份验证。 授权标头格式如下所示：
@@ -275,7 +275,7 @@ Content-Length: 1511
 Authorization="SharedKey <storage account name>:<signature>"  
 ```
 
-签名字段是基于哈希的消息身份验证代码 (HMAC)，该代码通过请求创建并使用 SHA256 算法计算而得，然后使用 Base64 编码进行编码。 是否明白了？ （不要急，你还没有听说过标准化一词。）
+签名字段是基于哈希的消息身份验证代码 (HMAC)，该代码通过请求创建并使用 SHA256 算法计算而得，然后使用 Base64 编码进行编码。 是否明白了？ （不要急，你还没有听说过“规范化”一词。）
 
 此代码段演示了共享密钥签名字符串的格式：
 
@@ -353,7 +353,7 @@ private static string GetCanonicalizedHeaders(HttpRequestMessage httpRequestMess
 /contosorest/\ncomp:list
 ```
 
-如果你有查询参数，还将包括这些参数。 以下是代码，该代码还处理其他查询参数和具有多个值的查询参数。 请记住，需要生成此代码，使其适用于所有 REST API，因此，建议包括所有可能性，即使 ListContainers 方法不需要所有这些参数。
+如果你有查询参数，还将包括这些参数。 以下是代码，该代码还处理其他查询参数和具有多个值的查询参数。 请记住，你正在生成此代码以使其适用于所有 REST API，因此，你想要包括所有可能性，即使 ListContainers 方法不需要所有这些参数。
 
 ```csharp 
 private static string GetCanonicalizedResource(Uri address, string storageAccountName)
@@ -375,7 +375,7 @@ private static string GetCanonicalizedResource(Uri address, string storageAccoun
 }
 ```
 
-现在，已设置规范化字符串，我们接着来看如何创建授权标头本身。 首先，创建一个如前文所述的 StringToSign 格式的消息签名字符串。 在代码中使用注释会更容易解释这一概念，因此，下面提供了返回授权标头的最后一种方法：
+现在，已设置规范化字符串，我们接着来看下如何创建授权标头本身。 首先，创建一个如前文所述的 StringToSign 格式的消息签名字符串。 在代码中使用注释会更容易解释这一概念，因此，下面提供了返回授权标头的最后一种方法：
 
 ```csharp
 internal static AuthenticationHeaderValue GetAuthorizationHeader(

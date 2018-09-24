@@ -17,11 +17,12 @@ ms.workload: na
 origin.date: 09/09/2016
 ms.date: 04/16/2018
 ms.author: v-junlch
-ms.openlocfilehash: 9ffa26d7ec5a698cd6de757adbe0299dd33e23da
-ms.sourcegitcommit: f97c9253d16fac8be0266c9473c730ebd528e542
+ms.openlocfilehash: ad77526bf266fc1d407210660ec1d77a02761d2e
+ms.sourcegitcommit: 54d9384656cee927000d77de5791c1d585d94a68
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46524063"
 ---
 # <a name="azure-functions-f-developer-reference"></a>Azure Functions F# 开发人员参考
 [!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
@@ -207,7 +208,7 @@ Azure 函数执行代码时，它可以处理带有 `COMPILED` 定义的源，�
 
 ### <a name="how-to-add-a-projectjson-file-to-your-azure-function"></a>如何添加 `project.json` 文件到 Azure 函数
 1. 首先，确保函数应用程序正在运行，可以通过在 Azure 门户中打开函数来执行此操作。 通过此操作，还可以访问显示程序包安装输出位置的流式日志日志。
-2. 若要上传 `project.json` 文件，请使用如何更新函数应用程序文件 中描述的其中一[种方法](functions-reference.md#fileupdate)。 如果使用 [ Azure 函数的连续部署](functions-continuous-deployment.md) ，可以添加 `project.json` 文件到临时分支，以便添加到部署的分支文件对其进行测试。
+2. 若要上传  `project.json`文件，请使用如何更新函数应用程序文件 中描述的其中一[种方法](functions-reference.md#fileupdate)。
 3. 添加 `project.json` 文件后，将看到类似于函数流式日志中的实例的输出：
 
 ```

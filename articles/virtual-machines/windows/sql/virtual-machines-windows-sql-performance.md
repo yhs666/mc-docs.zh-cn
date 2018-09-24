@@ -1,6 +1,6 @@
 ---
-title: Azure 中的 SQL Server 的性能最佳做法 | Azure
-description: 提供有关优化 Azure VM 中的 SQL Server 性能的最佳实践。
+title: Azure 中 SQL Server 的性能准则 | Azure
+description: 提供有关优化 Azure VM 中的 SQL Server 性能的准则。
 services: virtual-machines-windows
 documentationcenter: na
 author: rockboyfor
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-origin.date: 04/19/2018
-ms.date: 07/30/2018
+origin.date: 08/24/2018
+ms.date: 09/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0a54a6a025df6f9ac0a56c6a5f67e35e130178b5
-ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
+ms.openlocfilehash: d3d90240fac8c1b0feddc62a75a1d98faf6dcbc1
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39307001"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527196"
 ---
-# <a name="performance-best-practices-for-sql-server-in-azure-virtual-machines"></a>Azure 虚拟机中 SQL Server 的性能最佳实践
+# <a name="performance-guidelines-for-sql-server-in-azure-virtual-machines"></a>Azure 虚拟机中的 SQL Server 的性能准则
 
 ## <a name="overview"></a>概述
 
@@ -76,8 +76,7 @@ Azure VM 上有三种主要磁盘类型：
 
 * **OS 磁盘**：创建 Azure 虚拟机时，该平台至少将一个磁盘（标记为 **C** 驱动器）附加到 VM 作为操作系统磁盘。 此磁盘是一个 VHD，在存储空间中存储为一个页 blob。
 * **临时磁盘**：Azure 虚拟机包含另一个称为临时磁盘的磁盘（标记为 **D**: 驱动器）。 这是可用于暂存空间的节点上的一个磁盘。
-* 
-            **数据磁盘**：还可以将其他磁盘作为数据磁盘附加到虚拟机，这些磁盘在存储空间中存储为页 blob。
+* **数据磁盘**：还可以将其他磁盘作为数据磁盘附加到虚拟机，这些磁盘在存储空间中存储为页 blob。
 
 以下部分说明了有关使用这些不同磁盘的建议。
 

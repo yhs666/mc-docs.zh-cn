@@ -1,11 +1,11 @@
-使用 [az appservice plan create](https://docs.azure.cn/zh-cn/cli/webapp?view=azure-cli-latest#az_webapp_create) 命令在资源组中创建应用服务计划。
+使用 [az appservice plan create](/cli/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) 命令在资源组中创建应用服务计划。
 
 <!-- [!INCLUDE [app-service-plan](app-service-plan-linux.md)] -->
 
-以下示例在**标准**定价层 (`--sku S1`) 和 Linux 容器 (`--is-linux`) 中创建名为 `myAppServicePlan` 的应用服务计划。
+以下示例在**基本**定价层 (`--sku B1`) 和 Linux 容器 (`--is-linux`) 中创建名为 `myAppServicePlan` 的应用服务计划。
 
 ```azurecli
-az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku S1 --is-linux
+az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku B1 --is-linux
 ```
 
 创建应用服务计划后，Azure CLI 将显示类似于以下示例的信息：

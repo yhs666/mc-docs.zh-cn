@@ -3,24 +3,20 @@ title: Durable Functions 的绑定 - Azure
 description: 如何使用 Azure Functions 的 Durable Functions 扩展的触发器和绑定。
 services: functions
 author: cgillum
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 origin.date: 09/29/2017
-ms.date: 05/29/2018
+ms.date: 09/21/2018
 ms.author: v-junlch
-ms.openlocfilehash: 2b36d0d8832b28bb1d475b61cf5c62a35ef49f24
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 8d0c6550aebc922426ec25ad3e93c2f119bbd369
+ms.sourcegitcommit: 54d9384656cee927000d77de5791c1d585d94a68
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34567311"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46524023"
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Durable Functions (Azure Functions) 的绑定
 
@@ -126,7 +122,7 @@ module.exports = df(function*(context) {
 
 通过活动触发器，可以创作业务流程协调程序函数调用的函数。
 
-如果使用 Visual Studio，则使用 [ActvityTriggerAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.ActivityTriggerAttribute.html) .NET 属性配置活动触发器。 
+如果使用 Visual Studio，则使用 [ActivityTriggerAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.ActivityTriggerAttribute.html) .NET 属性配置活动触发器。 
 
 如果使用 Azure 门户进行开发，则由 function.json 文件中 `bindings` 数组的以下 JSON 对象定义活动触发器：
 

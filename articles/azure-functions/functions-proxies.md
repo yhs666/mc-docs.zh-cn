@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 01/22/2018
 ms.date: 04/16/2018
 ms.author: v-junlch
-ms.openlocfilehash: 6127ed7a4015a310779d222bc400df4fbb607b23
-ms.sourcegitcommit: f97c9253d16fac8be0266c9473c730ebd528e542
+ms.openlocfilehash: 12968cd540bc93c07035c8573a071f64889c1fec
+ms.sourcegitcommit: 54d9384656cee927000d77de5791c1d585d94a68
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31585447"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46524065"
 ---
 # <a name="work-with-azure-functions-proxies"></a>使用 Azure Functions 代理
 
@@ -40,7 +40,7 @@ ms.locfileid: "31585447"
 3. 为代理提供一个名称。
 4. 通过指定**路由模板**和 **HTTP 方法**配置在此 Function App 上公开的终结点。 这些参数的行为取决于 [HTTP 触发器]的规则。
 5. 将“后端 URL”设置为另一个终结点。 此终结点可以是其他 Function App 中的函数，也可以是任何其他 API。 该值不需要是静态值，并且可以引用[应用程序设置]和[原始客户端请求中的参数]。
-6. 单击“创建”。
+6. 单击**创建**。
 
 代理现在已作为新终结点存在于 Function App 上。 从客户端角度来看，它等同于 Azure Functions 中的 HttpTrigger。 可以通过复制代理 URL 并使用最喜欢的 HTTP 客户端对其进行测试来试验新代理。
 
@@ -120,7 +120,7 @@ ms.locfileid: "31585447"
 
 ## <a name="advanced-configuration"></a>高级配置
 
-配置的代理存储在一个 proxies.json 文件中，此文件位于函数应用目录的根目录中。 使用 Functions 支持的任意[部署方法](/azure-functions/functions-continuous-deployment)时，可以手动编辑此文件并将其部署为应用的一部分。 
+配置的代理存储在一个 proxies.json 文件中，此文件位于函数应用目录的根目录中。 使用 Functions 支持的任何部署方法时，可以手动编辑此文件并将其部署为应用的一部分。 
 
 > [!TIP] 
 > 如果尚未设置一种部署方法，也可以在门户中使用 proxies.json 文件。 转到到 Function App，选择“平台功能”，并选择“应用服务编辑器”。 这样，便可以看到 Function App 的整个文件结构并进行更改。

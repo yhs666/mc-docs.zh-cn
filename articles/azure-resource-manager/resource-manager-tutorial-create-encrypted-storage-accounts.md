@@ -10,16 +10,16 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-origin.date: 07/20/2018
-ms.date: 09/03/2018
+origin.date: 09/07/2018
+ms.date: 09/24/2018
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: 31048378408cbcd9e6a59b880d42889a2c0da093
-ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
+ms.openlocfilehash: cc3d240c888588e2ab4b7b7cb50ac92722ad7930
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43171491"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46526983"
 ---
 # <a name="tutorial-create-an-azure-resource-manager-template-for-deploying-an-encrypted-storage-account"></a>教程：创建用于部署已加密存储帐户的 Azure 资源管理器模板
 
@@ -31,9 +31,7 @@ ms.locfileid: "43171491"
 
 > [!div class="checklist"]
 > * 打开快速入门模板
-> * 了解模板格式
-> * 使用模板中的参数
-> * 使用模板中的变量
+> * 了解模板
 > * 编辑模板
 > * 部署模板
 
@@ -112,12 +110,9 @@ resourceGroup() 函数返回表示当前资源组的对象。 有关模板函数
 
 ## <a name="edit-the-template"></a>编辑模板
 
-若要查找与存储帐户加密相关的配置，可以使用 Azure 存储帐户的模板参考。
-
-1. 浏览到 [Azure 模板](https://docs.microsoft.com/zh-cn/azure/templates/)。
-2. 在左侧的 TOC 中，选择“参考”->“存储”->“存储帐户”。 此页包含的信息用于定义存储帐户信息。
-3. 了解与加密相关的信息。  
-4. 在存储帐户资源定义的 properties 元素中，添加以下 json：
+本教程的目标是定义一个模板，以便创建加密的存储帐户。  示例模板仅创建基本的非加密型存储帐户。 若要查找与加密相关的配置，可以使用 Azure 存储帐户的模板参考。
+<!--Not Available on [Azure Templates](https://docs.microsoft.com/zh-cn/azure/templates/)-->
+1. 在存储帐户资源定义的 properties 元素中，添加以下 json：
 
     ```json
     "encryption": {
@@ -131,36 +126,17 @@ resourceGroup() 函数返回表示当前资源组的对象。 有关模板函数
     ```
     此部分启用 Blob 存储服务的加密功能。
 
-最终的 resources 元素类似于：
+在 Visual Studio Code 中修改模板，使最终的资源元素如下所示：
 
 ![资源管理器模板加密的存储帐户资源](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-resources.png)
 
 ## <a name="deploy-the-template"></a>部署模板
 
-可通过多种方法来部署模板。  本教程从本地电脑使用 Azure CLI。
+有关部署过程，请参阅 Visual Studio Code 快速入门中的[部署模板](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#deploy-the-template)部分。
 
-<!--Not Available on Cloud Shell-->
+以下屏幕快照显示的 CLI 命令用于列出新创建的存储帐户，该命令指示已为 Blob 存储启用加密。
 
-1. 在 Azure CLI 中运行以下命令：
-
-    ```cli
-    az group create --name <ResourceGroupName> --location <AzureLocation>
-
-    az group deployment create --name <DeploymentName> --resource-group <ResourceGroupName> --template-file <TemplateFileWithPath>
-    ```
-  
-
-    在屏幕截图的输出中，存储帐户名称与 *fhqbfslikdqdsstandardsa* 类似。 
-
-9. 运行以下 PowerShell 命令列出新建的存储帐户：
-
-    ```cli
-    az storage account show --resource-group <ResourceGroupName> --name <StorageAccountName>
-    ```
-
-    此时会看到一个类似于以下屏幕截图的输出，指示已为 Blob 存储启用加密。
-
-    ![Azure 资源管理器加密的存储帐户](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-account.png)
+![Azure 资源管理器加密的存储帐户](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-account.png)
 
 ## <a name="clean-up-resources"></a>清理资源
 
@@ -173,10 +149,9 @@ resourceGroup() 函数返回表示当前资源组的对象。 有关模板函数
 
 ## <a name="next-steps"></a>后续步骤
 
-本教程介绍了如何使用模板参考来自定义现有的模板。 本教程中使用的模板仅包含一个 Azure 资源。  在下一篇教程中，我们将开发包含多个资源的模板。  某些资源具有依赖的资源。
+本教程介绍了如何使用模板参考来自定义现有的模板。 在下一个教程中，你将学习如何使用资源迭代来创建多个存储帐户。
 
 > [!div class="nextstepaction"]
-> [创建多个资源](./resource-manager-tutorial-create-templates-with-dependent-resources.md)
+> [创建多个实例](./resource-manager-tutorial-create-multiple-instances.md)
 
-<!-- Update_Description: new articles on resource manager tutorial create encrypted storage accounts  -->
-<!--ms.date: 09/03/2018-->
+<!-- Update_Description: wording update, update link -->

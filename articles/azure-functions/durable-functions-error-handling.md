@@ -3,24 +3,20 @@ title: 处理 Durable Functions 中的错误 - Azure
 description: 了解如何在 Azure Functions 的 Durable Functions 扩展中处理错误。
 services: functions
 author: cgillum
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
-origin.date: 04/30/2018
-ms.date: 05/29/2018
+ms.topic: conceptual
+origin.date: 09/05/2018
+ms.date: 09/21/2018
 ms.author: v-junlch
-ms.openlocfilehash: ae1eeded21f12c7013dcfa8fe04acd1426ac91d4
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 4bdea0ede1f130de71c4d4cb14f5e1f5d1254004
+ms.sourcegitcommit: 54d9384656cee927000d77de5791c1d585d94a68
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34567320"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46524028"
 ---
 # <a name="handling-errors-in-durable-functions-azure-functions"></a>处理 Durable Functions 中的错误 (Azure Functions)
 
@@ -73,7 +69,7 @@ public static async Task Run(DurableOrchestrationContext context)
 
 ## <a name="automatic-retry-on-failure"></a>失败时自动重试
 
-调用活动函数或子业务流程函数时，可指定自动重试策略。 以下示例试图调用某函数多达 3 次，且每次重试之间等待时间 5 秒：
+调用活动函数或子业务流程函数时，可指定自动重试策略。 以下示例尝试调用某函数多达三次，每次重试之间等待 5 秒：
 
 ```csharp
 public static async Task Run(DurableOrchestrationContext context)
@@ -97,7 +93,7 @@ public static async Task Run(DurableOrchestrationContext context)
 - **回退系数**：用来确定回退增加速率的系数。 默认值为 1。
 - **最大重试间隔**：每次重试之间需要等待的最大时间。
 - **重试超时**：执行重试的最大时间。 默认行为是可无限期重试。
-- **自定义**：可指定用户定义的回退，确定是否应该重试函数调用。
+- **处理**：可指定用户定义的回退，确定是否应该重试函数调用。
 
 ## <a name="function-timeouts"></a>函数超时
 

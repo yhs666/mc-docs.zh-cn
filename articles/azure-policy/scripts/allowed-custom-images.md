@@ -2,26 +2,20 @@
 title: Azure Policy 示例 - 已批准的 VM 映像
 description: 此策略要求在环境中仅部署已批准的自定义映像。
 services: azure-policy
-documentationcenter: ''
 author: WenJason
 manager: digimobile
-editor: ''
-ms.assetid: ''
 ms.service: azure-policy
-ms.devlang: ''
 ms.topic: sample
-ms.tgt_pltfrm: ''
-ms.workload: ''
-origin.date: 06/03/2018
-ms.date: 07/23/2018
-ms.author: v-nany
+origin.date: 09/13/2018
+ms.date: 09/24/2018
+ms.author: v-jay
 ms.custom: mvc
-ms.openlocfilehash: 8cd9f7c076c58945081f78c2745b4112fcfd9958
-ms.sourcegitcommit: 2a147231bf3d0a693adf58fceee76ab0fbcd6dbb
+ms.openlocfilehash: 0159927a0d95cf40f52cd7ede2b48b658ef6d01c
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39335322"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527201"
 ---
 # <a name="approved-vm-images"></a>已批准的 VM 映像
 
@@ -35,6 +29,9 @@ ms.locfileid: "39335322"
 - [REST API](#rest-api)
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+> [!IMPORTANT]
+> 大多数 JSON 示例和 SDK 命令使用 `<subscriptionId>` 和 `YourResourceGroup` 作为占位符。 根据环境更换每个占位符以避免错误。
 
 ## <a name="sample-policy"></a>示例策略
 
@@ -206,7 +203,7 @@ Remove-AzureRmPolicyDefinition -Id $definition.ResourceId
 # Create the Policy Definition (Subscription scope)
 definition=$(az policy definition create --name 'allowed-custom-images' --display-name 'Approved VM images' --description 'This policy governs the approved VM images' --rules 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/allowed-custom-images/azurepolicy.rules.json' --params 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Compute/allowed-custom-images/azurepolicy.parameters.json' --mode All)
 
-# Set the scope to a resource group; may also be a subscription
+# Set the scope to a resource group; may also be a subscription or management group
 scope=$(az group show --name 'YourResourceGroup')
 
 # Set the Policy Parameter (JSON format)

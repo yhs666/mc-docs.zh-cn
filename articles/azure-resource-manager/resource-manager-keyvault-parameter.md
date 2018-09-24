@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 07/09/2018
-ms.date: 08/13/2018
+origin.date: 09/12/2018
+ms.date: 09/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: a3edfa7a57d0b1827e66315aa106c89b0eeca311
-ms.sourcegitcommit: 543a18c71c0910a5b9878a2d2668f317468906f2
+ms.openlocfilehash: 00e5dc5e7ea363ec81f67fc413c624a88ae17da0
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39625519"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527107"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>在部署过程中使用 Azure Key Vault 传递安全参数值
 
@@ -144,9 +144,6 @@ Set-AzureKeyVaultSecret -VaultName $vaultname -Name "examplesecret" -SecretValue
 
 现在，部署模板并传入参数文件。 可以使用 GitHub 中的示例模板，但必须使用本地参数文件并将值设置为自己的环境。
 
->[!NOTE]
-> 必须修改从 GitHub 存储库 [sqlserver.json](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/keyvaultparameter/sqlserver.json) 下载的模板，以适应 Azure 中国云环境。 例如，替换某些终结点（将“blob.core.windows.net”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“chinacloudapp.cn”）；更改某些不受支持的 VM 映像；更改某些不受支持的 VM 大小、SKU 以及资源提供程序的 API 版本。
-
 对于 Azure CLI，请使用：
 
 ```azurecli
@@ -154,7 +151,7 @@ az group create --name datagroup --location "China North"
 az group deployment create \
     --name exampledeployment \
     --resource-group datagroup \
-    --template-file /path/to/sqlserver.json \
+    --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/keyvaultparameter/sqlserver.json \
     --parameters @sqlserver.parameters.json
 ```
 
@@ -165,76 +162,114 @@ New-AzureRmResourceGroup -Name datagroup -Location "China North"
 New-AzureRmResourceGroupDeployment `
   -Name exampledeployment `
   -ResourceGroupName datagroup `
-  -TemplateFile /path/to/sqlserver.json `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/keyvaultparameter/sqlserver.json `
   -TemplateParameterFile sqlserver.parameters.json
 ```
 
 ## <a name="reference-a-secret-with-dynamic-id"></a>通过动态 ID 引用机密
 
-上一部分介绍了如何传递密钥保管库机密的静态资源 ID。 但是，在某些情况下，需要引用随当前部署而变的密钥保管库机密。 在这种情况下，不能在参数文件中对资源 ID 进行硬编码。 遗憾的是，不能在参数文件中动态生成资源 ID，因为参数文件中不允许使用模板表达式。
+上一部分介绍了如何通过参数传递密钥保管库机密的静态资源 ID。 但是，在某些情况下，需要引用随当前部署而变的密钥保管库机密。 或者，你可能只想将参数值传递给模板，而不是在参数文件中创建引用参数。 在任何一种情况下，均可使用链接模板为密钥保管库机密动态生成资源 ID。
 
-要动态生成 Key Vault 机密的资源 ID，必须将需要机密的资源迁移到链接模板。 在父模板中添加链接模板，然后传入包含动态生成的资源 ID 的参数。 下图显示链接模板中的参数如何引用机密。
+不能在参数文件中动态生成资源 ID，因为参数文件中不允许使用模板表达式。 
+
+在父模板中添加链接模板，然后传入包含动态生成的资源 ID 的参数。 下图显示链接模板中的参数如何引用机密。
 
 ![动态 ID](./media/resource-manager-keyvault-parameter/dynamickeyvault.png)
 
-链接模板必须通过外部 URI 提供。 通常，会将模板添加到存储帐户，并通过类似于 `https://<storage-name>.blob.core.chinacloudapi.cn/templatecontainer/sqlserver.json` 的 URI 访问它。
-
-[以下模板](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/keyvaultparameter/sqlserver-dynamic-id.json)动态创建 Key Vault ID 并将其作为参数传递。 它链接到 GitHub 中的[示例模板](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/keyvaultparameter/sqlserver.json)。
+[以下模板](https://github.com/Azure/azure-quickstart-templates/tree/master/201-key-vault-use-dynamic-id)动态创建 Key Vault ID 并将其作为参数传递。
 
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-      "vaultName": {
-        "type": "string"
-      },
-      "vaultResourceGroup": {
-        "type": "string"
-      },
-      "secretName": {
-        "type": "string"
-      },
-      "adminLogin": {
-        "type": "string"
-      },
-      "sqlServerName": {
-        "type": "string"
-      }
+        "location": {
+            "type": "string",
+            "defaultValue": "[resourceGroup().location]",
+            "metadata": {
+                "description": "The location where the resources will be deployed."
+            }
+        },
+        "vaultName": {
+            "type": "string",
+            "metadata": {
+                "description": "The name of the keyvault that contains the secret."
+            }
+        },
+        "secretName": {
+            "type": "string",
+            "metadata": {
+                "description": "The name of the secret."
+            }
+        },
+        "vaultResourceGroupName": {
+            "type": "string",
+            "metadata": {
+                "description": "The name of the resource group that contains the keyvault."
+            }
+        },
+        "vaultSubscription": {
+            "type": "string",
+            "defaultValue": "[subscription().subscriptionId]",
+            "metadata": {
+                "description": "The name of the subscription that contains the keyvault."
+            }
+        },
+        "_artifactsLocation": {
+            "type": "string",
+            "metadata": {
+                "description": "The base URI where artifacts required by this template are located. When the template is deployed using the accompanying scripts, a private location in the subscription will be used and this value will be automatically generated."
+            },
+            "defaultValue": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-key-vault-use-dynamic-id/"
+        },
+        "_artifactsLocationSasToken": {
+            "type": "securestring",
+            "metadata": {
+                "description": "The sasToken required to access _artifactsLocation.  When the template is deployed using the accompanying scripts, a sasToken will be automatically generated."
+            },
+            "defaultValue": ""
+        }
     },
     "resources": [
-    {
-      "apiVersion": "2015-01-01",
-      "name": "nestedTemplate",
-      "type": "Microsoft.Resources/deployments",
-      "properties": {
-        "mode": "incremental",
-        "templateLink": {
-          "uri": "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/keyvaultparameter/sqlserver.json",
-          "contentVersion": "1.0.0.0"
-        },
-        "parameters": {
-          "adminPassword": {
-            "reference": {
-              "keyVault": {
-                "id": "[resourceId(subscription().subscriptionId,  parameters('vaultResourceGroup'), 'Microsoft.KeyVault/vaults', parameters('vaultName'))]"
-              },
-              "secretName": "[parameters('secretName')]"
+        {
+            "apiVersion": "2018-05-01",
+            "name": "dynamicSecret",
+            "type": "Microsoft.Resources/deployments",
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "contentVersion": "1.0.0.0",
+                    "uri": "[uri(parameters('_artifactsLocation'), concat('./nested/sqlserver.json', parameters('_artifactsLocationSasToken')))]"
+                },
+                "parameters": {
+                    "location": {
+                        "value": "[parameters('location')]"
+                    },
+                    "adminLogin": {
+                        "value": "ghuser"
+                    },
+                    "adminPassword": {
+                        "reference": {
+                            "keyVault": {
+                                "id": "[resourceId(parameters('vaultSubscription'), parameters('vaultResourceGroupName'), 'Microsoft.KeyVault/vaults', parameters('vaultName'))]"
+                            },
+                            "secretName": "[parameters('secretName')]"
+                        }
+                    }
+                }
             }
-          },
-          "adminLogin": { "value": "[parameters('adminLogin')]" },
-          "sqlServerName": {"value": "[parameters('sqlServerName')]"}
         }
-      }
-    }],
-    "outputs": {}
+    ],
+    "outputs": {
+        "sqlFQDN": {
+            "type": "string",
+            "value": "[reference('dynamicSecret').outputs.sqlFQDN.value]"
+        }
+    }
 }
 ```
 
 部署前面的模板，并为参数提供值。 可以使用 GitHub 中的示例模板，但必须提供环境的参数值。
-
->[!NOTE]
-> 必须修改从 GitHub 存储库 [sqlserver-dynamic-id.json](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/keyvaultparameter/sqlserver-dynamic-id.json) 下载的模板，以适应 Azure 中国云环境。 例如，替换某些终结点（将“blob.core.windows.net”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“chinacloudapp.cn”）；更改某些不受支持的 VM 映像；更改某些不受支持的 VM 大小。
 
 对于 Azure CLI，请使用：
 
@@ -243,8 +278,8 @@ az group create --name datagroup --location "China North"
 az group deployment create \
     --name exampledeployment \
     --resource-group datagroup \
-    --template-file /path/to/sqlserver-dynamic-id.json \
-    --parameters vaultName=<your-vault> vaultResourceGroup=examplegroup secretName=examplesecret adminLogin=exampleadmin sqlServerName=<server-name>
+    --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-key-vault-use-dynamic-id/azuredeploy.json \
+    --parameters vaultName=<your-vault> vaultResourceGroupName=examplegroup secretName=examplesecret
 ```
 
 对于 PowerShell，请使用：
@@ -254,8 +289,8 @@ New-AzureRmResourceGroup -Name datagroup -Location "China North"
 New-AzureRmResourceGroupDeployment `
   -Name exampledeployment `
   -ResourceGroupName datagroup `
-  -TemplateFile /path/to/sqlserver-dynamic-id.json `
-  -vaultName <your-vault> -vaultResourceGroup examplegroup -secretName examplesecret -adminLogin exampleadmin -sqlServerName <server-name>
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-key-vault-use-dynamic-id/azuredeploy.json `
+  -vaultName <your-vault> -vaultResourceGroupName examplegroup -secretName examplesecret
 ```
 
 ## <a name="next-steps"></a>后续步骤

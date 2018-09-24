@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 01/09/2018
-ms.date: 06/04/2018
+ms.date: 09/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: 8927c25f13660a8476698ccc0886d062c1fcc44d
-ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
+ms.openlocfilehash: 7232536e098a78ae3cde1a52c21910121a0dea1b
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37405374"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527199"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-using-powershell"></a>使用 PowerShell 从专用磁盘创建 Windows VM
 
@@ -48,8 +48,7 @@ Install-Module AzureRM -RequiredVersion 6.0.0
 
 ## <a name="option-1-use-an-existing-disk"></a>选项 1：使用现有磁盘
 
-如果你的 VM 已删除，并想要重用 OS 磁盘创建新 VM，请使用 [Get-AzureRmDisk](https://docs.microsoft.com/powershell/module/AzureRM.Compute/Get-AzureRmDisk)。
-<!-- URL is correct on [Get-AzureRmDisk](https://docs.microsoft.com/powershell/module/AzureRM.Compute/Get-AzureRmDisk)-->
+如果你的 VM 已删除，并想要重用 OS 磁盘创建新 VM，请使用 [Get-AzureRmDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermdisk?view=azurermps-6.8.1)。
 
 ```powershell
 $resourceGroupName = 'myResourceGroup'

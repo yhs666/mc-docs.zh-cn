@@ -1,5 +1,5 @@
 ---
-title: Azure 策略 json 示例 - 不允许的 VM 扩展 | Azure
+title: Azure Policy json 示例 - 不允许的 VM 扩展 | Microsoft Docs
 description: 此 json 示例策略禁止使用指定的扩展。
 services: azure-policy
 documentationcenter: ''
@@ -16,12 +16,12 @@ origin.date: 10/30/2017
 ms.date: 07/09/2018
 ms.author: v-nany
 ms.custom: mvc
-ms.openlocfilehash: fa6abf420a5ad1f1ed1854c621bb5ad97fa823cf
-ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
+ms.openlocfilehash: 5e13376a50381617e6458c758bccb47a84b07d14
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37405239"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527178"
 ---
 # <a name="not-allowed-vm-extensions"></a>不允许的 VM 扩展
 
@@ -113,4 +113,4 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>后续步骤
 
-- 有关更多示例，请参阅 [Azure 策略示例](../json-samples.md)。
+- 在 [Azure Policy 示例](../json-samples.md)中查看更多示例。

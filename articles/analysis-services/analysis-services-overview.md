@@ -5,16 +5,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: overview
-origin.date: 06/21/2018
-ms.date: 08/06/2018
+origin.date: 08/27/2018
+ms.date: 09/24/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: be815e29bf29bf9f569b1ce8bdcd677eaaa80903
-ms.sourcegitcommit: 5cbdd6fa48ae92d77b1d4a002971af761b72d989
+ms.openlocfilehash: ed7ade5034ece7e118cd7a2889e283c1a56a6d44
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "41705245"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527210"
 ---
 # <a name="what-is-azure-analysis-services"></a>什么是 Azure Analysis Services？
 
@@ -61,6 +61,7 @@ Azure Analysis Services 是一个完全托管的平台即服务 (PaaS)，它在�
 
 ## <a name="availability-by-region"></a>按区域列出的可用性
 “中国北部”区域目前支持 Azure Analysis Services。 支持的计划和查询副本可用性取决于所选的区域。 计划和查询副本可用性可能会根据每个区域的需求和可用资源而变化。 
+
 ### <a name="china"></a>中国
 
 |区域  | 支持的计划 |
@@ -141,7 +142,7 @@ Azure Analysis Services 受 [Microsoft 联机服务条款](http://www.microsoftv
 
 ### <a name="sql-server-data-tools-ssdt-for-visual-studio"></a>适用于 Visual Studio 的 SQL Server Data Tools (SSDT)
 
-使用免费的[适用于 Visual Studio 的 SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx) 开发和部署模型。 SSDT 包括适用于快速入门的 Analysis Services 项目模板。 SSDT 现在包括适用于表格 1400 模型的新式“获取数据”数据源查询和混合功能。 如果熟悉 Power BI Desktop 和 Excel 2016 中的“获取数据”功能，则已知道创建高度自定义的数据源查询很容易。 还可以将 Analysis Services 项目以 VSIX 可安装包的形式在 Visual Studio 中使用。 [从市场下载](https://marketplace.visualstudio.com/items?itemName=ProBITools.MicrosoftAnalysisServicesModelingProjects)。
+使用免费的[适用于 Visual Studio 的 SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx) 开发和部署模型。 SSDT 包括适用于快速入门的 Analysis Services 项目模板。 SSDT 现在包括适用于表格 1400 模型的新式“获取数据”数据源查询和混合功能。 如果熟悉 Power BI Desktop 和 Excel 2016 中的“获取数据”功能，则已知道创建高度自定义的数据源查询很容易。 还可以将 Azure Analysis Services 项目以 VSIX 可安装包的形式在 Visual Studio 中使用。 [从市场下载](https://marketplace.visualstudio.com/items?itemName=ProBITools.MicrosoftAnalysisServicesModelingProjects)。
 
 ### <a name="sql-server-management-studio"></a>SQL Server Management Studio
 
@@ -164,7 +165,8 @@ Azure Analysis Services 受 [Microsoft 联机服务条款](http://www.microsoftv
 ## <a name="monitoring-and-diagnostics"></a>监视和诊断
 
 Azure Analysis Services 与 Azure 指标集成，提供多种多样的资源特定指标来帮助监视服务器的性能与运行状况。 有关详细信息，请参阅[监视服务器指标](analysis-services-monitor.md)。 使用 [Azure 资源诊断日志](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)记录指标。 监视日志并将其发送到 [Azure 存储](https://www.azure.cn/home/features/storage/)，将日志流式传输到 [Azure 事件中心](https://www.azure.cn/home/features/event-hubs/)。若要了解详细信息，请参阅[设置诊断日志记录](analysis-services-logging.md)。
-<!--Not Available on [Log Analytics](https://www.azure.cn/home/features/log-analytics/)--> 若要了解详细信息，请参阅[设置诊断日志记录](analysis-services-logging.md)。
+<!--Not Available on [Log Analytics](https://www.azure.cn/home/features/log-analytics/)-->
+有关详细信息，请参阅[设置诊断日志记录](analysis-services-logging.md)。
 
 Azure Analysis Services 还支持使用[动态管理视图 (DMV)](https://docs.microsoft.com/sql/analysis-services/instances/use-dynamic-management-views-dmvs-to-monitor-analysis-services)。 DMV 基于 SQL 语法，能够与返回元数据和监视有关服务器实例的信息的架构行集相对接。
 

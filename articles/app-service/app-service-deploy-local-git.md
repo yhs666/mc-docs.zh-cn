@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/05/2018
-ms.date: 07/02/2018
+ms.date: 10/08/2018
 ms.author: v-yiso
-ms.openlocfilehash: 2b3e284a176602bd670f94d0fd1abdce3ecba3c3
-ms.sourcegitcommit: 1b682acdc2a5e0974fbff809967d7cefcbbbe8ac
+ms.openlocfilehash: fd5e4f3977ca55defe5e4abbb99b1673ea0fe590
+ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42870991"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523877"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>从本地 Git 部署到 Azure 应用服务
 
@@ -43,6 +43,10 @@ git clone https://github.com/Azure-Samples/nodejs-docs-hello-world.git
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+## <a name="deploy-from-local-git-with-kudu-builds"></a>通过 Kudu 生成从本地 Git 部署
+
+使用 Kudu 生成服务器为应用启用本地 Git 部署的最简单方法是使用命令外壳。
 
 ### <a name="create-a-deployment-user"></a>创建部署用户
 
@@ -98,10 +102,10 @@ git push azure master
 
 浏览到应用以验证内容已部署。
 
-## <a name="deploy-from-local-git-with-vsts-builds"></a>通过 VSTS 生成从本地 Git 部署
+## <a name="deploy-from-local-git-with-azure-devops-services-builds"></a>使用 Azure DevOps Services 内部版本从本地 Git 进行部署
 
 > [!NOTE]
-> 要让应用服务在 VSTS 帐户中创建必要的生成和发布定义，Azure 帐户必须在 Azure 订阅中具有“所有者”角色。
+> 要让应用服务在 Azure DevOps Services 组织中创建必要的 Azure 管道，Azure 帐户必须在 Azure 订阅中具有“所有者”角色。
 >
 
 若要使用 Kudu 生成服务器为应用启用本地 Git 部署，请在 [Azure 门户](https://portal.azure.cn)中导航至应用。
@@ -110,14 +114,14 @@ git push azure master
 
 ![](media/app-service-deploy-local-git/portal-enable.png)
 
-单击“VSTS 持续交付” > “继续”。
+单击“Azure DevOps Services 持续交付” > “继续”。
 
 ![](media/app-service-deploy-local-git/vsts-build-server.png)
 
-在“配置”页上，配置新的 VSTS 帐户，或指定现有帐户。 完成后，单击“继续”。
+在“配置”页中，配置新的 Azure DevOps Services 组织，或指定现有组织。 完成后，单击“继续”。
 
 > [!NOTE]
-> 如果想要使用未列出的现有 VSTS 帐户，则需要[将 VSTS 帐户链接到 Azure 订阅](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App)。
+> 如果要使用未列出的现有 Azure DevOps Services 组织，则需要[将 Azure DevOps Services 组织链接到 Azure 订阅](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App)。
 
 在“测试”页面中，选择是否要启用负载测试，然后单击“继续”。
 
@@ -125,7 +129,7 @@ git push azure master
 
 在“摘要”页中，确认选项，然后单击“完成”。
 
-准备 VSTS 帐户需要几分钟的时间。 准备就绪后，在部署中心复制 Git 存储库 URL。
+Azure DevOps Services 组织需要几分钟才能准备就绪。 准备就绪后，在部署中心复制 Git 存储库 URL。
 
 ![](media/app-service-deploy-local-git/vsts-repo-ready.png)
 
@@ -135,7 +139,7 @@ git push azure master
 git remote add vsts <url>
 ```
 
-使用以下命令推送到 Azure 远程功能以部署应用。 当 Git 凭据管理器提示时，请使用 visualstudio.com 用户登录。 有关其他身份验证方法，请参阅 [VSTS 身份验证概述](/vsts/git/auth-overview?view=vsts)。
+使用以下命令推送到 Azure 远程功能以部署应用。 当 Git 凭据管理器提示时，请使用 visualstudio.com 用户登录。 有关其他身份验证方法，请参阅 [Azure DevOps Services 身份验证概述](/vsts/git/auth-overview?view=vsts)。
 
 ```bash
 git push vsts master

@@ -6,7 +6,7 @@
 1. 在 Visual Studio 中，右键单击服务器项目。 然后选择“管理 NuGet 包”。 搜索 `Microsoft.Azure.NotificationHubs`，并选择“安装”。 此过程将安装通知中心库，以便从后端发送通知。
 2. 在服务器项目中，打开“控制器” > “TodoItemController.cs”。 然后，添加以下 using 语句：
 
-    ```
+    ```csharp
     using System.Collections.Generic;
     using Microsoft.Azure.NotificationHubs;
     using Microsoft.Azure.Mobile.Server.Config;
@@ -14,7 +14,7 @@
 
 2. 在 PostTodoItem 方法中，在调用 InsertAsync 后添加如下代码：  
 
-    ```
+    ```csharp
     // Get the settings for the server project.
     HttpConfiguration config = this.Configuration;
     MobileAppSettingsDictionary settings = 
@@ -57,7 +57,7 @@
 1. 如果尚未执行此操作，请[下载快速入门后端项目](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart)，或使用 [Azure 门户中的在线编辑器](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor)。
 2. 将 todoitem.js 文件中的现有代码替换为以下代码：
 
-    ```
+    ```javascript
     var azureMobileApps = require('azure-mobile-apps'),
     promises = require('azure-mobile-apps/src/utilities/promises'),
     logger = require('azure-mobile-apps/src/logger');

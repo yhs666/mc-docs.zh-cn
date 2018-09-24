@@ -10,12 +10,12 @@ ms.service: mysql-database
 ms.topic: article
 origin.date: 02/28/2018
 ms.date: 08/13/2018
-ms.openlocfilehash: 401f845cc8b93ffb394cf435e8baa7b3fc6fc46c
-ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
+ms.openlocfilehash: 4d7a862087d28c3d4d52634c7b7af2034c801952
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39723073"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527156"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>在 Azure Database for MySQL 中进行备份和还原
 
@@ -57,7 +57,7 @@ Azure Database for MySQL 最高可以提供 100% 的已预配服务器存储作�
 估计的恢复时间取决于若干因素，包括数据库大小、事务日志大小、网络带宽，以及在同一区域同时进行恢复的数据库总数。 恢复时间通常少于 12 小时。
 
 > [!IMPORTANT]
-> 如果删除服务器，则属于该服务器的所有数据库也会被删除且不可恢复。 无法还原已删除的服务器。
+> 已删除的服务器**无法**还原。 如果删除服务器，则属于该服务器的所有数据库也会被删除且不可恢复。 
 
 ### <a name="point-in-time-restore"></a>时间点还原
 

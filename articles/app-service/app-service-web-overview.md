@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 origin.date: 01/04/2017
-ms.date: 04/30/2018
+ms.date: 10/08/2018
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: bce0404b1f118246d6e52c7b10c4ba6d04e671aa
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: bc85653bda546d0c5d7194686da8b8b86b027292
+ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554119"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523818"
 ---
 # <a name="web-apps-overview"></a>Web 应用概述
 
 *Azure 应用服务 Web 应用*（简称 Web 应用）是用于托管 Web 应用程序、REST API 和移动后端的服务。 可以使用 .NET、NET Core、Java、Ruby、Node.js、PHP 或 Python 等偏好的语言进行开发。 
 
-Web 应用不仅可将 Microsoft Azure 的强大功能（例如安全性、负载均衡、自动缩放和自动管理）添加到应用程序， 我们还能利用其 DevOps 功能，例如来自 VSTS、GitHub、Docker 中心和其他源的持续部署，以及包管理、过渡环境、自定义域和 SSL 证书。 
+Web 应用不仅可将 Microsoft Azure 的强大功能（例如安全性、负载均衡、自动缩放和自动管理）添加到应用程序， 还可以利用其 DevOps 功能，例如从 Azure DevOps、GitHub、Docker 中心和其他源持续部署，以及包管理、过渡环境、自定义域和 SSL 证书。 
 
 使用应用服务时，需要支付 Azure 计算资源的使用费。 使用的计算资源量由运行 Web 应用的应用服务计划确定。 有关详细信息，请参阅 [Azure Web 应用中的应用服务计划](azure-web-sites-web-hosting-plans-in-depth-overview.md)。
 
@@ -36,7 +36,7 @@ Web 应用不仅可将 Microsoft Azure 的强大功能（例如安全性、负�
 下面是应用服务 Web 应用的一些重要功能：
 
 * **多个语言和框架** - Web 应用针对 ASP.NET、ASP.NET Core、Java、Ruby、Node.js、PHP 或 Python 提供一流支持。 我们还能以后台服务的形式运行 [PowerShell 和其他脚本或可执行文件](web-sites-create-web-jobs.md)。
-* **DevOps 优化** — 使用 Visual Studio Team Services、GitHub 或 BitBucket 设置 [持续集成和部署](app-service-continuous-deployment.md) 。 通过 [测试和过渡环境](web-sites-staged-publishing.md)提升更新。 在 Web 应用中使用 [Azure PowerShell](/powershell/azureps-cmdlets-docs) 或[跨平台命令行接口 (CLI)](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-lastest) 管理应用。
+* **DevOps 优化** - 使用 Azure DevOps、GitHub 设置[持续集成和部署](app-service-continuous-deployment.md)。 通过 [测试和过渡环境](web-sites-staged-publishing.md)提升更新。 在 Web 应用中使用 [Azure PowerShell](/powershell/azureps-cmdlets-docs) 或[跨平台命令行接口 (CLI)](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-lastest) 管理应用。
 * **具有高可用性的全局缩放** - 以手动或自动方式进行[增大](web-sites-scale.md)或[扩大](../monitoring-and-diagnostics/insights-how-to-scale.md)。 在 Azure.cn 的全国数据中心基础结构中的任意位置托管应用，并且应用服务 [SLA](https://www.azure.cn/support/sla/app-service/) 承诺高可用性。
 * **安全性和合规性** - 应用服务符合 [ISO、SOC 和 PCI](https://www.microsoft.com/en-us/trustcenter)的要求。 使用 [Azure Active Directory](app-service-mobile-how-to-configure-active-directory-authentication.md) 和 [Microsoft](app-service-mobile-how-to-configure-microsoft-authentication.md)) 对用户进行身份验证。 创建 [IP 地址限制](app-service-ip-restrictions.md)。
 * **Visual Studio 集成** — Visual Studio 中的专用工具可简化创建、部署和调试工作。

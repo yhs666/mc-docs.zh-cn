@@ -9,13 +9,13 @@ editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
 origin.date: 06/30/2018
-ms.date: 08/13/2018
-ms.openlocfilehash: 72e2ce2ace7a58b09f0f2de0bfcb93998ef8a840
-ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
+ms.date: 09/24/2018
+ms.openlocfilehash: d3c8022519c1a426efe50eddb2af5b249849f7e9
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39723026"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527057"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Azure Database for MySQL 中的限制
 
@@ -77,7 +77,7 @@ ms.locfileid: "39723026"
 - 不支持减小服务器存储大小。
 
 ### <a name="server-version-upgrades"></a>服务器版本升级
-- 目前不支持在主要数据库引擎版本之间进行自动迁移。
+- 目前不支持在主要数据库引擎版本之间进行自动迁移。 如果要升级到下一个主版本，请进行[转储并将其还原](./concepts-migrate-dump-restore.md)到使用新引擎版本创建的服务器。
 
 ### <a name="point-in-time-restore"></a>时间点还原
 - 使用 PITR 功能时，将使用与新服务器所基于的服务器相同的配置创建新服务器。
@@ -85,9 +85,6 @@ ms.locfileid: "39723026"
 
 ### <a name="vnet-service-endpoints"></a>VNet 服务终结点
 - 只有常规用途和内存优化服务器才支持 VNet 服务终结点。
-
-### <a name="subscription-management"></a>订阅管理
-- 目前不支持跨订阅和资源组动态移动预先创建的服务器。
 
 ## <a name="current-known-issues"></a>当前已知的问题
 - 建立连接后，MySQL 服务器实例显示错误的服务器版本。 若要获取正确的服务器实例引擎版本，请使用 `select version();` 命令。

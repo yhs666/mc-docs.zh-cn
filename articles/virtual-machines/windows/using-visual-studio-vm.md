@@ -8,23 +8,22 @@ manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
 ms.service: virtual-machines-windows
-ms.technology: vs-azure
 ms.custom: vs-azure
 ms.workload: azure-vs
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.prod: vs-devops-alm
-origin.date: 03/02/2018
-ms.date: 08/27/2018
+origin.date: 09/12/2018
+ms.date: 09/24/2018
 ms.author: v-yeche
 keywords: visualstudio
-ms.openlocfilehash: eb9565d8cac866c111780df3b98917f3462c9866
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.openlocfilehash: 4caf244df167783ab52df5a5ffcca8b0b78b17dc
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42872575"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527163"
 ---
 <a name="top"></a>
 # <a name="visual-studio-images-on-azure"></a>Azure 上的 Visual Studio 映像
@@ -38,14 +37,14 @@ ms.locfileid: "42872575"
 
 | 发行版本                                              | 版本                     |     产品版本     |
 |:------------------------------------------------------------:|:----------------------------:|:-----------------------:|
-| Visual Studio 2017：最新（版本 15.8）                    |    Enterprise、Community     |      版本 15.8.0     |
-| Visual Studio 2017：最新预览版（版本 15.8，预览版 5） |    Enterprise、Community     |      版本 15.8.5     |
-|         Visual Studio 2017：RTW                              |    Enterprise、Community     |      版本 15.0.17    |
+| Visual Studio 2017：最新（版本 15.8）                    |    Enterprise、Community     |      版本 15.8.4     |
+| Visual Studio 2017：最新预览版（版本 15.9，预览版 2） |    Enterprise、Community     |      版本 15.9.0     |
+|         Visual Studio 2017：RTW                              |    Enterprise、Community     |      版本 15.0.18    |
 |   Visual Studio 2015：最新 (Update 3)                      |    Enterprise、Community     |  版本 14.0.25431.01  |
 |         Visual Studio 2015：RTW                              |             无             | （已过期，无法进行维护） |
 
 > [!NOTE]
-> 根据 Microsoft 服务策略，Visual Studio 2015 最初发布的 (RTW) 版本已过期，无法提供服务。 Visual Studio 2015 Update 3 是为 Visual Studio 2015 产品线提供的唯一剩余版本。
+> 根据 Azure 服务策略，Visual Studio 2015 最初发布的 (RTW) 版本已过期，无法提供服务。 Visual Studio 2015 Update 3 是为 Visual Studio 2015 产品线提供的唯一剩余版本。
 
 有关详细信息，请参阅 [Visual Studio 维护策略](https://www.visualstudio.com/productinfo/vs-servicing-vs)。
 

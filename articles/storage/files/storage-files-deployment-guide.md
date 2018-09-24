@@ -15,16 +15,15 @@ ms.topic: article
 origin.date: 05/22/2018
 ms.date: 07/02/2018
 ms.author: v-johch
-ms.openlocfilehash: 2c0fb3cf7309a7c2a7b3ef00fa73e302754e0f59
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.openlocfilehash: db82b8e9d33dbb6a85654adbbedd2e0ab2b7d361
+ms.sourcegitcommit: 0081fb238c35581bb527bdd704008c07079c8fbb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295654"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523682"
 ---
 # <a name="how-to-deploy-azure-files"></a>如何部署 Azure 文件
-
-  [Azure 文件](storage-files-introduction.md)在云中提供完全托管的文件共享，这些共享项可通过行业标准 SMB 协议进行访问。 本文介绍如何在组织内实际部署 Azure 文件。
+[Azure 文件](storage-files-introduction.md)在云中提供完全托管的文件共享，这些共享项可通过行业标准 SMB 协议进行访问。 本文介绍如何在组织内实际部署 Azure 文件。
 
 强烈建议在按照本文中的步骤操作之前，阅读[规划 Azure 文件部署](storage-files-planning.md)。
 
@@ -143,7 +142,7 @@ $computer | ForEach-Object { Invoke-Command -ComputerName $_ -ScriptBlock { net 
 ### <a name="linux"></a>Linux
 与 SSH 结合使用的简单 bash 脚本可以在以下示例中产生相同的结果。 同样，`$computer` 变量也需要用户手动填充：
 
-```PowerShell
+```
 computer = ("MyComputer1" "MyComputer2" "MyComputer3" "MyComputer4")
 for item in "${computer[@]}"
 do

@@ -13,24 +13,24 @@ ms.topic: overview
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 11/29/2017
-ms.date: 06/25/2018
+ms.date: 09/24/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 68c7e8fb1e195f5348b2ddb57ddd3f0ed7990ab5
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.openlocfilehash: 9d719265373937fa56d8fe00332ad2b05568a2c1
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315412"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527011"
 ---
 # <a name="azure-and-linux"></a>Azure 和 Linux
-Azure 正在不断集结各种集成的公有云服务，包括分析、虚拟机、数据库、移动、网络、存储和 Web，因此很适合用于托管解决方案。  Azure 提供可缩放的计算平台，允许即用即付，而无需投资购买本地硬件。  Azure 允许根据客户端所需的任何规模，随时扩展和缩减解决方案。
+Azure 是一个不断增长的集成公有云服务集合，包括分析、虚拟机、数据库、移动、网络、存储和 Web&mdash;是托管解决方案的理想选择。  Azure 提供可缩放的计算平台，允许即用即付，而无需投资购买本地硬件。  Azure 允许根据客户端所需的任何规模，随时扩展和缩减解决方案。
 
-如果熟悉 Amazon AWS 各项功能的话，可以查看 Azure 与 AWS 的[定义映射文档](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/)。
+<!-- Not Available on  Azure vs AWS [definition mapping document](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/)-->
 <!-- redirect https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/ to https://docs.microsoft.com/zh-cn/azure/architecture/aws-professional/services-->
 
 ## <a name="regions"></a>区域
-Azure 资源分布在世界各地的多个地理区域。  一个“区域”代表位于单个地理区域的多个数据中心。  Azure 目前（截至 2017 年 11 月）在中国正式推出了 2 个区域。 可在以下页面上找到现有区域和新宣布推出区域的更新列表：
+Azure 资源分布在中国各地的多个地理区域。  一个“区域”代表位于单个地理区域的多个数据中心。  Azure 目前（截至 2018 年 8 月）在中国正式推出了 4 个区域。 可在以下页面上找到现有区域和新宣布推出区域的更新列表：
 
 * [Azure 中国区域](https://www.azure.cn/support/service-dashboard/)
 
@@ -44,7 +44,7 @@ Azure 宣布了行业领先的单实例虚拟机服务级别协议：可用性�
 用户还可以按 Azure 区域在一个存储帐户中管理自定义映像，并使用这些映像在同一订阅中创建数百台 VM。 有关托管磁盘的详细信息，请参阅[托管磁盘概述](../linux/managed-disks-overview.md)。
 
 ## <a name="azure-virtual-machines--instances"></a>Azure 虚拟机和实例
-Azure 支持运行由多家合作伙伴提供和维护的众多热门 Linux 分发版。  可以在 Azure 市场中找到 CentOS、SUSE Linux Enterprise、Debian、Ubuntu、CoreOS 和 FreeBSD 等分发版。 我们积极与各大 Linux 社区合作以便为 [Azure 认可的 Linux 分发版](endorsed-distros.md)列表添加更多成员。
+Azure 支持运行由多家合作伙伴提供和维护的众多热门 Linux 分发版。  可以在 Azure 市场中找到 CentOS、SUSE Linux Enterprise、Debian、Ubuntu、CoreOS 和 FreeBSD 等分发版。 Azure 积极与各大 Linux 社区合作以便为 [Azure 认可的 Linux 发行版](endorsed-distros.md)列表添加更多成员。
 <!-- Not Available on Red Hat Enterprise and RancherOS -->
 
 如果首选的 Linux 分发版目前不在库中，可以通过[在 Azure 中创建和上传 Linux VHD](create-upload-generic.md) 来“自带 Linux”VM。
@@ -63,6 +63,7 @@ Azure 根据 VM 的大小和操作系统[按小时进行收费](https://www.azur
 * [Azure VMAccess](using-vmaccess-extension.md)
 
 Azure 正在支持它的大多数 Linux 发行版中推出 [cloud-init](http://cloud-init.io/) 支持。  目前，默认情况下 Canonical Ubuntu VM 在启用 cloud-init 的情况下进行部署。  CentOS 和 Fedora 支持 cloud-init。
+<!-- Not Available on Red Hat Familiy-->
 
 * [在 Azure Linux VM 上使用 cloud-init](using-cloud-init.md)
 
@@ -72,7 +73,7 @@ Azure 正在支持它的大多数 Linux 发行版中推出 [cloud-init](http://c
 * [Azure 订阅服务限制](../../azure-subscription-service-limits.md)
 
 ## <a name="partners"></a>合作伙伴
-我们与合作伙伴紧密合作，以确保可用映像进行更新并针对 Azure 运行时进行优化。  有关 Azure 合作伙伴的详细信息，请参阅以下链接：
+Azure 与合作伙伴紧密合作，以确保及时更新可用映像并针对 Azure 运行时进行优化。  有关 Azure 合作伙伴的详细信息，请参阅以下链接：
 
 * Azure 上的 Linux - [认可的分发](endorsed-distros.md)
 * SUSE - [Azure 市场 - SUSE Linux Enterprise Server](https://market.azure.cn/zh-cn/marketplace/apps?search=%27SUSE%27)

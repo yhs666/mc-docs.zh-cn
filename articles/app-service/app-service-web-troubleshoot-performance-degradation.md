@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/03/2017
-ms.date: 09/03/2018
+ms.date: 10/08/2018
 ms.author: v-yiso
-ms.openlocfilehash: 6bf23308e573807c35d81372acda880a7cda34f4
-ms.sourcegitcommit: 1b682acdc2a5e0974fbff809967d7cefcbbbe8ac
+ms.openlocfilehash: f9768447bbee344d5446b546e5a5d23e26d09ef3
+ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42870827"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523891"
 ---
 # <a name="troubleshoot-slow-web-app-performance-issues-in-azure-app-service"></a>排查 Azure 应用服务中 Web 应用性能缓慢的问题
 本文帮助排查 [Azure 应用服务](./app-service-changes-existing-services.md)中 Web 应用性能缓慢的问题。
@@ -47,7 +47,7 @@ ms.locfileid: "42870827"
 2. [收集数据](#collect)
 3. [缓解问题](#mitigate)
 
-[应用服务 Web 应用](https://www.azure.cn/home/features/app-service/web-apps/)为每个步骤提供了多种选项。
+[应用服务 Web 应用](app-service-web-overview.md)为每个步骤提供了多种选项。
 
 <a name="observe" />
 
@@ -88,7 +88,7 @@ ms.locfileid: "42870827"
 
 每个应用服务 Web 应用都提供了一个可扩展的管理终结点，通过此终结点可使用一组作为站点扩展部署的功能强大的工具。 扩展包括： 
 
-- 源代码编辑器，如 [Visual Studio Team Services](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx)。 
+- 源代码编辑器，如 [Azure DevOps](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx)。 
 - 连接的资源（如连接到 Web 应用的 MySQL 数据库）的管理工具。
 
 
@@ -140,9 +140,9 @@ Kudu 提供的一些信息和功能包括：
 * 诊断转储
 * 调试控制台，可以在其中运行 Powershell cmdlet 和基本 DOS 命令。
 
-Kudu 的另一项有用功能是，如果应用程序引发第一次异常，可以使用 Kudu 和 SysInternals 工具 Procdump 创建内存转储。 这些内存转储是进程的快照，通常可帮助排查较复杂的 Web 应用问题。
+Kudu 的另一项有用功能是，如果应用程序引发第一次异常，可以使用 Kudu 和 SysInternals 工具 Procdump 创建内存转储。 这些内存转储是进程的快照，通常可以帮助你排查较复杂的 Web 应用问题。
 
-有关 Kudu 提供的功能的详细信息，请参阅 [Azure Websites Team Services tools you should know about](https://azure.microsoft.com/blog/windows-azure-websites-online-tools-you-should-know-about/)（应该了解的 Azure Websites Team Services 工具）。
+有关 Kudu 提供的功能的详细信息，请参阅[你应该了解的 Azure DevOps 工具](https://azure.microsoft.com/blog/windows-azure-websites-online-tools-you-should-know-about/)。
 
 <a name="mitigate" />
 

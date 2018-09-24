@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 11/02/2017
-ms.date: 07/16/2018
+ms.date: 10/08/2018
 ms.author: v-yiso
-ms.openlocfilehash: 22c02806834f186de38df72b59db86abbf481477
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.openlocfilehash: 97aecb0b54ce1cb9f5bb065ba0cfbdf357b79b53
+ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873373"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523856"
 ---
 # <a name="permissions-on-the-azureiotsuitecn-site"></a>azureiotsuite.cn 站点权限
 
@@ -74,7 +74,7 @@ AAD 角色可控制设置预配置解决方案以及在预配置解决方案中�
 
 Azure 管理员角色可控制将 Azure 订阅映射到 AD 租户的能力。
 
-可以在[如何添加或更改 Azure 协同管理员、服务管理员和帐户管理员][lnk-admin-roles]一文中找到有关 Azure 管理员角色的详细信息。
+有关 Azure 管理员角色的更多信息，请参阅文章[添加或更改 Azure 订阅管理员][lnk-admin-roles]。
 
 ## <a name="application-roles"></a>应用程序角色
 
@@ -107,7 +107,7 @@ Azure 管理员角色可控制将 Azure 订阅映射到 AD 租户的能力。
 
 ### <a name="im-a-service-administrator-and-id-like-to-change-the-directory-mapping-between-my-subscription-and-a-specific-aad-tenant-how-do-i-complete-this-task"></a>我是服务管理员，要更改我的订阅与特定 AAD 租户之间的目录映射。 如何完成此任务？
 
-请参阅[如何将现有订阅添加到 Azure AD 目录](../active-directory/active-directory-how-subscriptions-associated-directory.md#to-associate-an-existing-subscription-to-your-azure-ad-directory)
+请参阅[如何将现有订阅添加到 Azure AD 目录](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md#to-associate-an-existing-subscription-to-your-azure-ad-directory)
 
 ### <a name="im-a-domain-usermember-on-the-aad-tenant-and-ive-created-a-preconfigured-solution-how-do-i-get-assigned-a-role-for-my-application"></a>我是 AAD 租户上的域用户/成员，我创建了一个预配置解决方案。 如何针对我的应用程序向我分配角色？
 
@@ -118,7 +118,7 @@ Azure 管理员角色可控制将 Azure 订阅映射到 AD 租户的能力。
 可以从 <https://github.com/Azure/azure-iot-remote-monitoring> 中运行云部署，并使用新创建的 AAD 租户重新部署。 默认情况下，你在创建 AAD 租户时会成为全局管理员，因此拥有添加用户以及向这些用户分配角色的权限。
 
 1. 在 [Azure 门户][lnk-portal]中创建 AAD 目录。
-2. 转到 <https://github.com/Azure/azure-iot-remote-monitoring>。
+2. 转到  <https://github.com/Azure/azure-iot-remote-monitoring> 。
 3. 运行 `build.cmd cloud [debug | release] {name of previously deployed remote monitoring solution}`（例如 `build.cmd cloud debug myRMSolution`）
 4. 出现提示时，将 **tenantid** 设置为新创建的租户，而不是以前的租户。
 

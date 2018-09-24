@@ -1,5 +1,5 @@
 ---
-title: Azure 策略 json 示例 - 没有与 ER 网络的网络对等互连 | Azure
+title: Azure Policy json 示例 - 没有与 ER 网络的网络对等互连 | Microsoft Docs
 description: 此 json 示例策略禁止将网络对等互联关联到指定资源组中的网络。
 services: azure-policy
 documentationcenter: ''
@@ -16,12 +16,12 @@ origin.date: 10/30/2017
 ms.date: 07/09/2018
 ms.author: v-nany
 ms.custom: mvc
-ms.openlocfilehash: 2ff60d9c5556fbc1919d57435f8a88f2ee520659
-ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
+ms.openlocfilehash: 59af6008e45d9b942788e4f56b56c62b957ad926
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37405222"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527116"
 ---
 # <a name="no-network-peering-to-er-network"></a>没有与 ER 网络的网络对等互连
 
@@ -111,4 +111,4 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>后续步骤
 
-- 有关更多示例，请参阅 [Azure 策略示例](../json-samples.md)。
+- 在 [Azure Policy 示例](../json-samples.md)中查看更多示例。

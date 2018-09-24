@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 03/29/2018
-ms.date: 07/30/2018
+ms.date: 09/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: a09cce9ef1819169388af2a09ef9b4a86ed45d8e
-ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
+ms.openlocfilehash: df9acb95ca89607bee797141c31e66049275e82d
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39306979"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527202"
 ---
 # <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>如何使用 Packer 在 Azure 中创建 Windows 虚拟机映像
 Azure 中的每个虚拟机 (VM) 都是基于定义 Windows 分发和操作系统版本的映像创建的。 映像可以包括预安装的应用程序和配置。 Azure 市场为最常见的操作系统和应用程序环境提供许多第一和第三方映像，或者也可创建满足自身需求的自定义映像。 本文详细介绍了如何使用开源工具 [Packer](https://www.packer.io/) 在 Azure 中定义和生成自定义映像。
@@ -240,7 +240,7 @@ Get-AzureRmPublicIPAddress `
 ![IIS 默认站点](./media/build-image-with-packer/iis.png) 
 
 ## <a name="next-steps"></a>后续步骤
-在此示例中，使用 Packer 创建已安装 IIS 的 VM 映像。 可以将此 VM 映像与现有部署工作流配合使用，执行例如将应用部署到在使用 Team Services、Ansible、Chef 或 Puppet 通过映像创建的 VM 中的操作。
+此示例中，在已安装 IIS 的情况下使用 Packer 创建 VM 映像。 可以将此 VM 映像与现有部署工作流配合使用，例如将应用部署到基于映像使用 Azure DevOps Services、Ansible、Chef 或 Puppet 创建的 VM。
 
-有关适用于其他 Windows 发行版本的额外 Packer 模板示例，请参阅此 [GitHub 存储库](https://github.com/hashicorp/packer/tree/master/examples/azure)。
+有关其他 Windows 发行版的其他示例 Packer 模板，请参阅[此 GitHub 存储库](https://github.com/hashicorp/packer/tree/master/examples/azure)。
 <!--Update_Description: update meta properties, wording update -->

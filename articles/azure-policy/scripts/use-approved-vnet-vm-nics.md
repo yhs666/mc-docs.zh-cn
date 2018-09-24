@@ -1,5 +1,5 @@
 ---
-title: Azure 策略 json 示例 - 对 VM 网络接口使用已批准的 vNet | Azure
+title: Azure Policy json 示例 - 对 VM 网络接口使用已批准的 vNet | Microsoft Docs
 description: 此 json 示例策略需要网络接口使用已批准的虚拟网络。
 services: azure-policy
 documentationcenter: ''
@@ -16,12 +16,12 @@ origin.date: 10/30/2017
 ms.date: 07/09/2018
 ms.author: v-nany
 ms.custom: mvc
-ms.openlocfilehash: e7462fcb92a27ae09eaa1f18e7d217d407b91002
-ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
+ms.openlocfilehash: 9d3e6a0c7c3c3f498b53fc5650c33eaa762703eb
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37405212"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527071"
 ---
 # <a name="use-approved-vnet-for-vm-network-interfaces"></a>对 VM 网络接口使用已批准的 vNet
 
@@ -111,4 +111,4 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>后续步骤
 
-- 有关更多示例，请参阅 [Azure 策略示例](../json-samples.md)。
+- 在 [Azure Policy 示例](../json-samples.md)中查看更多示例。

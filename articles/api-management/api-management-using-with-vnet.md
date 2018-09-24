@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 12/05/2017
 ms.author: v-yiso
 ms.date: 09/17/2018
-ms.openlocfilehash: 6277a5cb726ae46447e29f83808b205dd4b5e3dd
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.openlocfilehash: 5e7d8d18f7b2aa60ef6c55ba77fe99b03b0066d8
+ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068184"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523921"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>如何将 Azure API 管理与虚拟网络配合使用
 使用 Azure 虚拟网络 (VNET) 可将你的任何 Azure 资源置于可以控制其访问权限但无法通过 Internet 路由的网络中。 然后，可以使用各种 VPN 技术将这些网络连接到本地网络。 若要了解有关 Azure 虚拟网络的详细信息，请先了解以下信息：[Azure 虚拟网络概述](../virtual-network/virtual-networks-overview.md)。
@@ -112,7 +112,7 @@ ms.locfileid: "44068184"
 | 源 / 目标端口 | 方向 | 传输协议 | 源/目标 | 用途 ( * ) | 虚拟网络类型 |
 | --- | --- | --- | --- | --- | --- |
 | * / 80, 443 |入站 |TCP |INTERNET/VIRTUAL_NETWORK|客户端与 API 管理的通信|外部 |
-| * / 3443 |入站 |TCP |INTERNET/VIRTUAL_NETWORK|Azure 门户和 Powershell 的管理终结点 |内部 |
+| * / 3443 |入站 |TCP |INTERNET/VIRTUAL_NETWORK|Azure 门户和 Powershell 的管理终结点 |外部和内部 |
 | * / 80, 443 |出站 |TCP |VIRTUAL_NETWORK/INTERNET|Azure 存储上的依赖项、Azure 服务总线和 Azure Active Directory（如果适用）。|外部和内部 |
 | * / 1433 |出站 |TCP |VIRTUAL_NETWORK / SQL|**访问 Azure SQL 终结点** |外部和内部 |
 | * / 5672 |出站 |TCP |VIRTUAL_NETWORK/INTERNET|事件中心策略日志和监视代理的依赖项 |外部和内部 |

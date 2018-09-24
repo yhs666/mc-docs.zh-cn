@@ -12,12 +12,12 @@ origin.date: 05/04/2017
 ms.date: 04/11/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 89c5b3bcbd72df8dc9fa4a4c3f4ba92cd142c8ff
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.openlocfilehash: 9bd63c5298caee9d785022aa5ff64fbff3528a19
+ms.sourcegitcommit: 54d9384656cee927000d77de5791c1d585d94a68
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31359528"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46524029"
 ---
 # <a name="create-a-serverless-api-using-azure-functions"></a>使用 Azure Functions 创建无服务器 API
 
@@ -110,7 +110,7 @@ ms.locfileid: "31359528"
     
 1. 请注意，代理不提供 `/api` 基路径前缀，必须在路由模板中包含此前缀。
 1. `%HELLO_HOST%` 语法将引用前面创建的应用设置。 解析的 URL 将指向原始函数。
-1. 单击“创建”。
+1. 单击**创建**。
 1. 可以通过复制代理 URL 或使用偏好的 HTTP 客户端在浏览器中对其进行测试来试验新代理。
     1. 对于匿名函数，请使用：
         1. `https://YOURPROXYAPP.chinacloudsites.cn/api/hello?name="Proxies"`
@@ -123,7 +123,7 @@ ms.locfileid: "31359528"
 
 为了创建此模拟 API，我们将创建一个新代理，但这一次我们使用的是[应用服务编辑器](https://github.com/projectkudu/kudu/wiki/App-Service-Editor)。 要开始，请在门户中导航到 Function App。 选择“平台功能”并在“开发工具”下找到“应用服务编辑器”。 单击该按钮会在新选项卡中打开应用服务编辑器。
 
-在左侧导航栏中选择 `proxies.json`。 这是用于存储所有代理的配置的文件。 如果使用某种 [Functions 部署方法](/azure-functions/functions-continuous-deployment)，则此文件是在源代码管理中维护的文件。 若要详细了解此文件，请参阅[代理高级配置](/azure-functions/functions-proxies#advanced-configuration)。
+在左侧导航栏中选择 `proxies.json`。 这是用于存储所有代理的配置的文件。 若要详细了解此文件，请参阅[代理高级配置](/azure-functions/functions-proxies#advanced-configuration)。
 
 到目前为止，proxies.json 应如下所示：
 

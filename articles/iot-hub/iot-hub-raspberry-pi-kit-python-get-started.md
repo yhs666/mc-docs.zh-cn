@@ -1,26 +1,25 @@
 ---
 title: 连接到云的 Raspberry Pi (Python) - 将 Raspberry Pi 连接到 Azure IoT 中心 | Microsoft Docs
 description: 在本教程中了解如何设置 Raspberry Pi 并将其连接到 Azure IoT 中心，使其能够将数据发送到 Azure 云平台。
-services: iot-hub
-documentationcenter: ''
 author: rangv
 manager: timlt
 tags: ''
 keywords: Azure IoT Raspberry Pi, Raspberry Pi IoT 中心, Raspberry Pi 将数据发送到云, 连接到云的 Raspberry Pi
 ms.service: iot-hub
+services: iot-hub
 ms.devlang: python
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 04/11/2018
 ms.author: v-yiso
-ms.date: 09/10/2018
-ms.openlocfilehash: 669a66194da60f2acb5e846979dc9922ba2f0704
-ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
+ms.date: 10/08/2018
+ms.openlocfilehash: 17c091f1d2e3b8d99240f485d20a1184b75a5ac6
+ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43328601"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523863"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-python"></a>将 Raspberry Pi 连接到 Azure IoT 中心 (Python)
 
@@ -203,12 +202,11 @@ BME280 传感器可以收集温度和湿度数据。 如果设备和云之间有
 
    应看到以下输出，其中显示传感器数据以及发送至 IoT 中心的消息。
 
-   ![输出 - 从 Raspberry Pi 发送到 IoT 中心的传感器数据](./media/iot-hub-raspberry-pi-kit-c-get-started/success.png
-)
+   ![输出 - 从 Raspberry Pi 发送到 IoT 中心的传感器数据](media/iot-hub-raspberry-pi-kit-c-get-started/success.png)
 
 ## <a name="next-steps"></a>后续步骤
 
-此时已运行示例应用程序，以收集传感器数据并将其发送到 IoT 中心。 若要查看 Raspberry Pi 已发送到 IoT 中心的消息，或若要在命令行接口中将消息发送到 Raspberry Pi，请参阅[使用 iothub-explorer 管理云设备消息传送教程](https://docs.microsoft.com/en-gb/azure/iot-hub/iot-hub-explorer-cloud-device-messaging)。
+此时已运行示例应用程序，收集传感器数据并将其发送到 IoT 中心。 若要查看 Raspberry Pi 已发送到 IoT 中心的消息或要向 Raspberry Pi 发送消息，请参阅[使用用于 Visual Studio Code 的 Azure IoT 工具包扩展在设备和 IoT 中心之间发送和接收消息](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md)。
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
 

@@ -3,24 +3,20 @@ title: Durable Functions 概述 - Azure
 description: Azure Functions 的 Durable Functions 扩展简介。
 services: functions
 author: cgillum
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
-origin.date: 04/30/2018
-ms.date: 08/31/2018
+ms.topic: conceptual
+origin.date: 09/06/2018
+ms.date: 09/21/2018
 ms.author: v-junlch
-ms.openlocfilehash: 10f3c2ee4e421c83cc50266ab53ae4982d4e09b1
-ms.sourcegitcommit: b2c9bc0ed28e73e8c43aa2041c6d875361833681
+ms.openlocfilehash: 1c2228f6970e81aecfe20f655a5ee28dbaa93da4
+ms.sourcegitcommit: 54d9384656cee927000d77de5791c1d585d94a68
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43330784"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46524018"
 ---
 # <a name="durable-functions-overview"></a>Durable Functions 概述
 
@@ -339,7 +335,7 @@ public static async Task Run(string instanceId, DurableOrchestrationClient clien
 
 ### <a name="event-sourcing-checkpointing-and-replay"></a>事件溯源、检查点和重播
 
-业务流程协调程序函数使用云设计模式（称为事件溯源）可靠地维护其执行状态。 持久扩展使用仅限追加的存储来记录函数业务流程执行的一系列完整操作，而非直接存储业务流程的当前状态。 与“转储”完整的运行时状态相比，这具有诸多优点，包括提升性能、可伸缩性和响应能力。 其他优点包括确保事务数据的最终一致性，保持完整的审核线索和历史记录。 审核线索本身可实现可靠的补偿操作。
+业务流程协调程序函数使用设计模式（称为事件溯源）可靠地维护其执行状态。 持久扩展使用仅限追加的存储来记录函数业务流程执行的一系列完整操作，而非直接存储业务流程的当前状态。 与“转储”完整的运行时状态相比，这具有诸多优点，包括提升性能、可伸缩性和响应能力。 其他优点包括确保事务数据的最终一致性，保持完整的审核线索和历史记录。 审核线索本身可实现可靠的补偿操作。
 
 此扩展使用“事件溯源”的过程是透明的。 事实上，业务流程协调程序函数中的 `await` 运算符将对业务流程协调程序线程的控制权让回给 Durable Task Framework 调度程序。 然后，该调度程序向存储提交业务流程协调程序函数计划的任何新操作（如调用一个或多个子函数或计划持久计时器）。 这个透明的提交操作会追加到业务流程实例的执行历史记录中。 历史记录存储在存储表中。 然后，提交操作向队列添加消息，以计划实际工作。 此时，可从内存中卸载业务流程协调程序函数。 如果需要完成其他工作，可重启该函数并重新构造其状态。
 
@@ -360,6 +356,8 @@ Durable Functions 扩展使用 Azure 存储队列、表和 Blob 来持久保存�
 业务流程协调程序函数通过内部队列消息计划活动函数和接收这些函数的响应。 如果扩大到多个 VM，则业务流程协调程序函数可能在一个 VM 上运行，而它调用的活动函数则在多个不同的 VM 上运行。 可在[性能和缩放](durable-functions-perf-and-scale.md)中找到关于 Durable Functions 的缩放行为的更多详细信息。
 
 表存储用于存储业务流程协调程序帐户的执行历史记录。 每当有实例在特定 VM 上解除冻结时，该实例都可从表存储中获取其执行历史记录，以便可重新生成本地状态。 在表存储中提供历史记录的一项便利是可使用 [Azure 存储资源管理器](/vs-azure-tools-storage-manage-with-storage-explorer)等工具查看业务流程的历史记录。
+
+存储 blob 主要用作一种租用机制，用于协调跨多个 VM 的业务流程实例的横向扩展。 它们还用于保存大型消息的数据，这些消息无法直接存储在表或队列中。
 
 ![Azure 存储资源管理器屏幕截图](./media/durable-functions-overview/storage-explorer.png)
 

@@ -11,18 +11,18 @@ origin.date: 07/03/2018
 ms.date: 09/07/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 1b4e448116a0d9ad5782fbcc9db2f05b4febe3e3
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.openlocfilehash: e7091fcb2b5df52aa20d8c153fcb1b42bdb7808e
+ms.sourcegitcommit: 6489934a16ae7ec3defdbee593c0ba5763b37335
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068289"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46485859"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>快速入门：使用 Azure CLI 运行第一个 Batch 作业
 
 Azure CLI 用于从命令行或脚本创建和管理 Azure 资源。 本快速入门介绍如何使用 Azure CLI 创建 Batch 帐户、包含计算节点（虚拟机）的*池*以及在池中运行*任务*的*作业*。 每个示例任务在一个池节点上运行一个基本命令。 完成本快速入门以后，你会了解 Batch 服务的重要概念，并可使用更逼真的工作负荷进行更大规模的 Batch 试用。
 
-[!INCLUDE [quickstarts-1rmb-trial-note.md](../../includes/quickstarts-1rmb-trial-note.md)]
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
 如果选择在本地安装并使用 CLI，本快速入门要求运行 Azure CLI 2.0.20 版或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](/cli/install-azure-cli)。 
 
