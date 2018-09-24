@@ -8,20 +8,20 @@ ms.date: 06/27/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 62d8d770f6b4c3a62a2395eb8c1505dbc3835c28
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.openlocfilehash: 5099ca70503ba2ed4ae8f4969a9199816c4986fb
+ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068307"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523872"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>向 Azure IoT Edge 进行持续集成和持续部署
 
-本文演示如何使用 Visual Studio Team Services (VSTS) 和 Microsoft Team Foundation Server (TFS) 的持续集成和持续部署功能，快速高效地向 Azure IoT Edge 生成、测试并部署应用程序。 
+本文演示如何使用 Azure DevOps Services 和 Microsoft Team Foundation Server (TFS) 的持续集成和持续部署功能，快速高效地向 Azure IoT Edge 生成、测试并部署应用程序。 
 
 本文介绍如何执行以下操作：
 * 创建并签入包含单元测试的示例 IoT Edge 解决方案。
-* 安装适用于 VSTS 的 Azure IoT Edge 扩展。
+* 安装适用于 Azure DevOps 的 Azure IoT Edge 扩展。
 * 配置持续集成 (CI) 以生成解决方案并运行单元测试。
 * 配置持续部署 (CD) 以部署解决方案并查看响应。
 
@@ -277,31 +277,31 @@ ms.locfileid: "44068307"
 
     ![单元测试](./media/how-to-ci-cd/unit-test.png)
 
-7. 保存这些项目，然后将其签入至 VSTS 或 TFS 存储库。
+7. 保存这些项目，然后将其签入至 Azure DevOps 或 TFS 存储库。
     
 
 > [!NOTE]
-> 有关使用 VSTS 代码存储库的详细信息，请参阅 [Share your code with Visual Studio and VSTS Git](https://docs.microsoft.com/vsts/git/share-your-code-in-git-vs?view=vsts)（与 Visual Studio 和 VSTS Git 共享代码）。
+> 有关使用 Azure Repos 的详细信息，请参阅[与 Visual Studio 和 Azure Repos 共享代码](https://docs.microsoft.com/azure/devops/repos/git/share-your-code-in-git-vs?view=vsts)。
 
 
 ## <a name="configure-continuous-integration"></a>配置持续集成
-在本部分中创建一个生成定义，此定义配置为在将任何更改签入示例 IoT Edge 解决方案时自动运行，且它会自动执行所包含的单元测试。
+在本部分中创建一个生成管道，此管道配置为在将任何更改签入示例 IoT Edge 解决方案时自动运行，且它会自动执行所包含的单元测试。
 
-1. 登录 VSTS 帐户 (https://_your-account_.visualstudio.com) 并打开签入了示例应用的项目。
+1. 登录到自己的 Azure DevOps 组织 (**https://**_your-account_**.visualstudio.com**) 并打开签入了示例应用的项目。
 
     ![签入代码](./media/how-to-ci-cd/init-project.png)
 
-1. 访问 VSTS Marketplace 上的 [Azure IoT Edge For VSTS](https://marketplace.visualstudio.com/items?itemName=vsc-iot.iot-edge-build-deploy)（适用于 VSTS 的 Azure IoT Edge）。 单击“免费获取”并按照向导操作，将此扩展安装至 VSTS 帐户或下载到 TFS。
+1. 访问 Azure DevOps 市场中的[适用于 Azure DevOps 的 Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsc-iot.iot-edge-build-deploy)。 单击“免费获取”并按照向导操作，将此扩展安装到 Azure DevOps 组织或下载到 TFS。
 
     ![安装扩展](./media/how-to-ci-cd/install-extension.png)
 
-1. 在 VSTS 中打开“生成和发布”中心，并在“生成”选项卡中选择“+ 新建定义”**&amp;**。 或者，如果已有生成定义，则选择“+ 新建”按钮。 
+1. 在 Azure DevOps 中打开“生成和发布”中心，并在“生成”选项卡中选择“+ 新建管道”。 如果已有生成管道，请选择“+ 新建”按钮。 
 
     ![新建生成](./media/how-to-ci-cd/add-new-build.png)
 
-1. 若出现提示，选择“VSTS Git”资源类型，然后选择代码所在的项目、存储库和分支。 选择“继续”。
+1. 若出现提示，选择“Azure DevOps Git”资源类型，然后选择代码所在的项目、存储库和分支。 选择“继续”。
 
-    ![选择 VSTS git](./media/how-to-ci-cd/select-vsts-git.png)
+    ![选择 Azure DevOps git](./media/how-to-ci-cd/select-vsts-git.png)
 
 1. 在“选择模板”窗口中选择“从空进程开始”。
 
@@ -343,9 +343,9 @@ ms.locfileid: "44068307"
 
     ![触发器](./media/how-to-ci-cd/configure-trigger.png)
 
-1. 保存新的生成定义并将新的生成排队。 单击“保存和排队”按钮。
+1. 保存新的生成管道并将新的生成排队。 单击“保存和排队”按钮。
 
-1. 在显示的消息栏中选择指向该生成的链接。 或者转至生成定义，查看进入队列的最新生成作业。
+1. 在显示的消息栏中选择指向该生成的链接。 或者转到生成管道，以查看最新排队的生成作业。
 
     ![构建](./media/how-to-ci-cd/build-def.png)
 
