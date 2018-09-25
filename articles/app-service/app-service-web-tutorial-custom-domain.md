@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
 origin.date: 06/18/2018
-ms.date: 07/02/2018
+ms.date: 10/08/2018
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: 87f26f236cc05b688ba90fbff05911a347c77c2a
-ms.sourcegitcommit: 37a1524d71895b17b6f1d125053ad0b251b88df1
+ms.openlocfilehash: 573c3481a598dae1c9fa16ed1382eb9d30c8edc7
+ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39096970"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523899"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-web-apps"></a>教程：将现有的自定义 DNS 名称映射到 Azure Web 应用
 
@@ -37,8 +37,6 @@ ms.locfileid: "39096970"
 > * 使用 CNAME 记录映射通配符域（例如 `*.contoso.com`）
 > * 将默认 URL 定向到自定义目录
 > * 使用脚本自动执行域映射
-
-若要将实时站点及其 DNS 域名迁移到应用服务，请参阅[将活动 DNS 名称迁移到 Azure 应用服务](app-service-custom-domain-name-migrate.md)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -293,7 +291,7 @@ ms.locfileid: "39096970"
 
 ![在门户中导航到 Azure 应用](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
 
-## <a name="resolve-404-not-found"></a>解决“404 (未找到)”
+## <a name="resolve-404-not-found"></a>解决“404 未找到”问题
 
 如果在浏览到自定义域的 URL 时收到 HTTP 404（未找到）错误，请验证域是否使用 <a href="https://www.whatsmydns.net/" target="_blank">WhatsmyDNS.net</a> 对应用的 IP 地址进行解析。 如果没有，则可能是以下原因之一造成的：
 
@@ -312,7 +310,7 @@ ms.locfileid: "39096970"
 
 ![自定义虚拟目录](./media/app-service-web-tutorial-custom-domain/customize-virtual-directory.png)
 
-操作完成后，应用会返回根路径的正确页面（例如，http://contoso.com)。
+操作完成后，应用会返回根路径的正确页面（例如， http://contoso.com)。
 
 ## <a name="automate-with-scripts"></a>使用脚本自动执行
 

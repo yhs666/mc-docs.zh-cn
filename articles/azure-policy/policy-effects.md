@@ -5,17 +5,17 @@ services: azure-policy
 author: WenJason
 ms.author: v-jay
 origin.date: 05/24/2018
-ms.date: 09/10/2018
+ms.date: 09/24/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: digimobile
 ms.custom: mvc
-ms.openlocfilehash: f7f9fc0ff87450d6b889c3cdd8ea0d34860f1655
-ms.sourcegitcommit: 1b60848d25bbd897498958738644a4eb9cf3a302
+ms.openlocfilehash: 6ee57b78b427cbdd3328cfee64ee3ed5494d14f0
+ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43731223"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46527206"
 ---
 # <a name="understanding-policy-effects"></a>了解策略效果
 
