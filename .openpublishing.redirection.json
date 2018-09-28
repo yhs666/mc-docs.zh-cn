@@ -11218,6 +11218,36 @@
             "source_path": "articles/storage/common/storage-create-storage-account.md",
             "redirect_url": "/storage/common/storage-quickstart-create-account",
             "redirect_document_id": true
+        },
+	{ 
+            "source_path": "articles/automation/automation-create-aduser-account.md",
+            "redirect_url": "/automation/automation-credentials",
+            "redirect_document_id": false
+	},
+        {
+            "source_path": "articles/automation/automation-create-runas-account.md",
+            "redirect_url": "/automation/manage-runas-account",
+            "redirect_document_id": false
+	},
+        {
+            "source_path": "articles/automation/automation-manage-account.md",
+            "redirect_url": "/automation/manage-runas-account",
+            "redirect_document_id": false
+	},
+        {
+            "source_path": "articles/automation/automation-migrate-account-subscription.md",
+            "redirect_url": "/azure-resource-manager/resource-group-move-resources",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/automation/automation-runbook-settings.md",
+            "redirect_url": "/automation/automation-runbook-execution",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/automation/automation-verify-runas-authentication.md",
+            "redirect_url": "/automation/manage-runas-account",
+            "redirect_document_id": false
         }
   ]
 }
