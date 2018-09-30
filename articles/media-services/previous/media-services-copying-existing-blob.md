@@ -1,6 +1,6 @@
 ---
-title: 将 Blob 从存储帐户复制到 Azure 媒体服务资产 | Azure
-description: 本主题说明如何将现有 blob 复制到媒体服务资产。 示例使用 Azure 媒体服务 .NET SDK 扩展。
+title: 将 Blob 从存储帐户复制到 Azure 媒体服务资产中 | Microsoft Docs
+description: 本主题说明如何将现有 blob 复制到媒体服务资产中。 示例使用 Azure 媒体服务 .NET SDK 扩展。
 services: media-services
 documentationcenter: ''
 author: yunan2016
@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 12/09/2017
 ms.date: 12/25/2017
 ms.author: v-nany
-ms.openlocfilehash: b9e86396dc6895f7e392aa781f03a1b16f261877
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+ms.openlocfilehash: 7b797d2b123d6b959c13f3d36584231ad7253477
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219529"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426394"
 ---
 # <a name="copying-existing-blobs-into-a-media-services-asset"></a>将现有 Blob 复制到媒体服务资产
 本文说明了如何使用 [Azure 媒体服务 .NET SDK 扩展](https://github.com/Azure/azure-sdk-for-media-services-extensions/)将 Blob 从存储帐户复制到新的 Azure 媒体服务 (AMS) 资产中。

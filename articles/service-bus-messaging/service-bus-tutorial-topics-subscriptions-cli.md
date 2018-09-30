@@ -2,20 +2,20 @@
 title: 教程 - 通过 Azure CLI 使用发布/订阅频道和主题筛选器更新零售库存分类 | Microsoft Docs
 description: 在本教程中，你将了解如何从主题和订阅发送和接收消息，以及如何使用 Azure CLI 添加和使用筛选器规则
 services: service-bus-messaging
-author: sethmanheim
+author: spelluru
 manager: timlt
 ms.author: v-yiso
 origin.date: 05/22/2018
-ms.date: 07/16/2018
+ms.date: 10/15/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 38ae645447be8ae4e0fe6afd8ea38135abe9be9d
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.openlocfilehash: fdcf6ef7bcbee381b6530ba831bb9eba8fc56ac3
+ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873748"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47455213"
 ---
 # <a name="tutorial-update-inventory-using-cli-and-topicssubscriptions"></a>教程：使用 CLI 和主题/订阅更新库存
 
@@ -50,7 +50,7 @@ Microsoft Azure 服务总线是一种多租户云消息传送服务，可以在�
 
 每个[对主题的订阅](service-bus-messaging-overview.md#topics)都可以接收每条消息的副本。 主题在协议和语义方面与服务总线队列完全兼容。 服务总线主题支持一系列选择规则，这些规则具有筛选条件和用来设置或修改消息属性的可选操作。 规则每次匹配时，都会生成一条消息。 若要深入了解规则、筛选器和操作，请单击此[链接](topic-filters.md)。
 
-## <a name="log-in-to-azure"></a>登录 Azure
+## <a name="sign-in-to-azure"></a>登录 Azure
 
 安装 CLI 后，打开一个命令提示符并发出以下命令来登录到 Azure。 如果使用的是 Cloud Shell，则这些步骤不是必需的：
 

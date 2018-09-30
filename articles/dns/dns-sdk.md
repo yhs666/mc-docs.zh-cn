@@ -1,5 +1,5 @@
 ---
-title: 使用 .NET SDK 在 Azure DNS 中创建 DNS 区域和记录集 | Azure
+title: 使用.NET SDK 在 Azure DNS 中创建 DNS 区域和记录集 | Microsoft Docs
 description: 如何使用 .NET SDK 在 Azure DNS 中创建 DNS 区域和记录集。
 services: dns
 documentationcenter: na
@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 origin.date: 09/19/2016
 ms.date: 07/23/2018
 ms.author: v-nany
-ms.openlocfilehash: c36f36e7fdbe42addb54d4d6d60e2f36826f8832
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.openlocfilehash: f1a50e73e856b4ecff1ea8b5cdda9057e0760668
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39167989"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426395"
 ---
 # <a name="create-dns-zones-and-record-sets-using-the-net-sdk"></a>使用 .NET SDK 创建 DNS 区域和记录集
 

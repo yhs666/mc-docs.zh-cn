@@ -8,13 +8,14 @@ editor: jasonwhowell
 manager: digimobile
 ms.service: postgresql-database
 ms.topic: article
-ms.date: 06/22/2018
-ms.openlocfilehash: e16818d7aec240c08f0eaf1160c10ff7c213ec95
-ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
+origin.date: 02/28/2018
+ms.date: 10/01/2018
+ms.openlocfilehash: cbaf69534990828f0c2fb0ede510c8eefe81a37a
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39722985"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426133"
 ---
 # <a name="create-users-in-azure-database-for-postgresql-server"></a>在 Azure Database for PostgreSQL 服务器中创建用户 
 本文介绍了如何在 Azure Database for PostgreSQL 服务器中创建用户。
@@ -63,7 +64,7 @@ PostgreSQL 引擎使用权限来控制对数据库对象的访问权限，如 [P
    
    CREATE ROLE <db_user> WITH LOGIN NOSUPERUSER INHERIT CREATEDB NOCREATEROLE NOREPLICATION PASSWORD '<StrongPassword!>';
    
-   GRANT CONNECT ON DATABASE testdb TO <db_user>;
+   GRANT CONNECT ON DATABASE <newdb> TO <db_user>;
    ```
 
 4. 使用管理员帐户，你可能需要授予其他权限来保护数据库中的对象。 有关数据库角色和权限的进一步详细信息，请参阅 [PostgreSQL 文档](https://www.postgresql.org/docs/current/static/ddl-priv.html)。 例如： 

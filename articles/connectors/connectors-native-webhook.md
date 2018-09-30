@@ -1,6 +1,6 @@
 ---
-title: Azure 逻辑应用的 Webhook 连接器
-description: 如何使用 webhook 操作和触发器执行操作，如逻辑应用的筛选数组操作
+title: 创建基于事件的工作流或操作 - Azure 逻辑应用 | Microsoft Docs
+description: 使用 Webhook 和 Azure 逻辑应用自动执行基于事件的工作流或操作
 services: logic-apps
 author: jeffhollan
 manager: anneta
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 07/21/2016
 ms.author: v-yiso
-ms.date: 03/26/2018
-ms.openlocfilehash: c024a3edbe2cc5b5111f70fd5b306a7bcd77a8b5
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.date: 10/15/2018
+ms.openlocfilehash: d90b36ac80435bff3dca6c4f9364ec76e2454a00
+ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30073760"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47455106"
 ---
-# <a name="get-started-with-the-webhook-connector"></a>Webhook 连接器入门
+# <a name="create-event-based-workflows-or-actions-by-using-webhooks-and-azure-logic-apps"></a>使用 Webhook 和 Azure 逻辑应用创建基于事件的工作流或操作
 
 借助 Webhook 操作和触发器，可启动、暂停和恢复流以执行以下任务：
 

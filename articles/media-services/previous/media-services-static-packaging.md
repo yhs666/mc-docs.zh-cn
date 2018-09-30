@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 媒体包装器完成静态打包任务 | Azure
+title: 使用 Azure 媒体包装器完成静态打包任务 | Microsoft Docs
 description: 本主题说明了通过 Azure 媒体包装器完成的各种任务。
 services: media-services
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 07/17/2017
 ms.date: 06/25/2018
 ms.author: v-haiqya
-ms.openlocfilehash: 6d9565e0b98212895deb63cfb31b3d11bef54238
-ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
+ms.openlocfilehash: b4f14a830fa4c070341b5357eec3e1afcde9fee5
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39723123"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426280"
 ---
 # <a name="using-azure-media-packager-to-accomplish-static-packaging-tasks"></a>使用 Azure 媒体包装器完成静态打包任务
 > [!NOTE]

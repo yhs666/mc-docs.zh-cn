@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 门户中发布内容 | Azure
+title: 在 Azure 门户中发布内容 | Microsoft Docs
 description: 本教程逐步演示如何在 Azure 门户中发布内容。
 services: media-services
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 08/07/2017
 ms.date: 09/25/2017
 ms.author: v-johch
-ms.openlocfilehash: f4c362198e82e0f6e285f36363a98bbd0e9ce92a
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+ms.openlocfilehash: ef19edad135e93c27ec55821a7ba6e164a0e7bf8
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219644"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426467"
 ---
 # <a name="publish-content-in-the-azure-portal"></a>在 Azure 门户中发布内容
 > [!div class="op_single_selector"]

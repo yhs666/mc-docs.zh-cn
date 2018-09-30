@@ -1,6 +1,6 @@
 ---
-title: 验证 XML - Azure 逻辑应用
-description: 通过 Enterprise Integration Pack 使用 Azure 逻辑应用和 B2B 方案的架构验证 XML
+title: 验证用于 B2B 企业集成的 XML - Azure 逻辑应用 | Microsoft Docs
+description: 在带有 Enterprise Integration Pack 的 Azure 逻辑应用中针对 B2B 解决方案使用架构验证 XML
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 origin.date: 07/08/2016
 ms.author: v-yiso
-ms.date: 03/19/2018
-ms.openlocfilehash: 8d1ef36ae11b4b8af66b1740c6fa69857edadf28
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.date: 10/15/2018
+ms.openlocfilehash: b7ecb894e15144fc7c9a9f00e30b4d3a354f5e8a
+ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29870534"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47455116"
 ---
-# <a name="validate-xml-for-enterprise-integration"></a>验证企业集成的 XML
+# <a name="validate-xml-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>在带有 Enterprise Integration Pack 的 Azure 逻辑应用中验证用于 B2B 企业集成的 XML
 
 通常在 B2B 方案中，协议中的合作伙伴必须确保他们交换的消息有效，才能开始处理数据。 可以使用 Enterprise Integration Pack 中的 XML 验证连接器针对预定义的架构验证文档。
 

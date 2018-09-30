@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 origin.date: 10/10/2017
 ms.date: 09/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: 553bbc5779fe208c5641a9e7425b49ee9633da97
-ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
+ms.openlocfilehash: 943ada1037c6d611279355aa32688856519f4363
+ms.sourcegitcommit: 399060a8d46534abd370693f6282e7343b371634
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46527179"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47455596"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure 实例元数据服务
 
@@ -298,7 +298,6 @@ vmSize | [VM 大小](sizes.md) | 2017-04-02
 subscriptionId | 虚拟机的 Azure 订阅 | 2017-08-01
 标记 | 虚拟机的[标记](../../azure-resource-manager/resource-group-using-tags.md)  | 2017-08-01
 resourceGroupName | 虚拟机的[资源组](../../azure-resource-manager/resource-group-overview.md) | 2017-08-01
-placementGroupId | 虚拟机规模集的[放置组](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) | 2017-08-01
 计划 | [计划] VM 的 (https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan)，Azure 市场映像，包含名称、产品和发行商 | 2017-04-02
 publicKeys | 公钥的集合 [https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey]，已分配给 VM 和路径 | 2017-04-02
 vmScaleSetName | 虚拟机规模集的[虚拟机规模集名称](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) | 2017-12-01

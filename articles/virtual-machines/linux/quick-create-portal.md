@@ -17,12 +17,12 @@ origin.date: 09/14/2018
 ms.date: 09/24/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 107ba499d70df921714fd51a2fd3c3f004c7e70f
-ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
+ms.openlocfilehash: 5a438dc2a71f383c486e029193abc4ef9fbcc390
+ms.sourcegitcommit: 1b1f7254343b2a3ada7b253841f86f2ff88f0a0b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46527008"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47420906"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>快速入门：在 Azure 门户中创建 Linux 虚拟机
 
@@ -34,7 +34,9 @@ ms.locfileid: "46527008"
 
 需要一个 SSH 密钥对才能完成本快速入门。 如果有现成的 SSH 密钥对，则可跳过此步骤。
 
-若要创建 SSH 密钥对并登录到 Linux VM，请从 Bash Shell 运行以下命令并根据屏幕上的说明进行操作。 例如，可以使用[适用于 Linux 的 Windows 子系统](https://docs.microsoft.com/zh-cn/windows/wsl/install-win10)。 命令输出包括公钥文件的文件名。 将公钥文件 (`cat ~/.ssh/id_rsa.pub`) 的内容复制到剪贴板：<!-- Not Available on [Azure Cloud Shell](../../cloud-shell/overview.md)-->
+若要创建 SSH 密钥对并登录到 Linux VM，请从 Bash Shell 运行以下命令并根据屏幕上的说明进行操作。 例如，可以使用[适用于 Linux 的 Windows 子系统](https://docs.microsoft.com/zh-cn/windows/wsl/install-win10)。 命令输出包括公钥文件的文件名。 将公钥文件 (`cat ~/.ssh/id_rsa.pub`) 的内容复制到剪贴板：
+
+<!-- Not Available on [Azure Cloud Shell](../../cloud-shell/overview.md)-->
 
 ```bash
 ssh-keygen -t rsa -b 2048

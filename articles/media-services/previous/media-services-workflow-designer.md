@@ -1,5 +1,5 @@
 ---
-title: 使用工作流设计器创建高级编码工作流 | Azure
+title: 使用工作流设计器创建高级编码工作流 | Microsoft Docs
 description: 了解如何使用工作流设计器创建高级编码工作流。
 services: media-services
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 07/19/2017
 ms.date: 05/28/2018
 ms.author: v-nany
-ms.openlocfilehash: 57b3c8ec540f834cd2621a2a7f33912a84d759e7
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+ms.openlocfilehash: 8eae8b9e792c6d04373cce22f703d2bb92622d44
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219685"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426433"
 ---
 # <a name="create-advanced-encoding-workflows-with-workflow-designer"></a>使用工作流设计器创建高级编码工作流
 ## <a name="overview"></a>概述
@@ -76,5 +76,4 @@ ms.locfileid: "39219685"
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Premium-Encoder-Workflow-Designer-Training-Videos-Day-3/player]
 > 
 > 
-
 

@@ -10,14 +10,14 @@ ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: conceptual
 origin.date: 03/01/2018
-ms.date: 07/02/2018
+ms.date: 09/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 3fec1ca2b3a752ecc31f56ac16e7e5da12826913
-ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
+ms.openlocfilehash: c3bc0b84d1b615b90dbf62a388707805396b5c25
+ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37070299"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47201316"
 ---
 # <a name="indexing-in-the-azure-cosmos-db-mongodb-api"></a>Azure Cosmos DB: MongoDB API 中的索引编制
 

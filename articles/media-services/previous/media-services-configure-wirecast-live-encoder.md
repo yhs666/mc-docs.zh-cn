@@ -1,9 +1,9 @@
 ---
-title: 将 Telestream Wirecast 编码器配置为发送单比特率实时流 | Azure
+title: 配置 Telestream Wirecast 编码器以发送单比特率实时流 | Microsoft Docs
 description: '本主题说明了如何配置 Wirecast 实时编码器，以便将单比特率流发送到 AMS 频道进行实时编码。 '
 services: media-services
 documentationcenter: ''
-author: forester123
+author: WenJason
 manager: digimobile
 editor: ''
 ms.assetid: 0d2f1e81-51a6-4ca9-894a-6dfa51ce4c70
@@ -13,19 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
 origin.date: 01/05/2017
-ms.date: 09/25/2017
-ms.author: v-johch
-ms.openlocfilehash: 8e8689efcbe1d09f572f10eb04a6bc7f955e0da7
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+ms.date: 09/24/2018
+ms.author: v-jay
+ms.openlocfilehash: 338a4127fcc7347c03812c7c726021b97d81b494
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219467"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426227"
 ---
 # <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>使用 Wirecast 编码器发送单比特率实时流
 > [!div class="op_single_selector"]
 > * [Wirecast](media-services-configure-wirecast-live-encoder.md)
-> * [Elemental Live](media-services-configure-elemental-live-encoder.md)
 > * [Tricaster](media-services-configure-tricaster-live-encoder.md)
 > * [FMLE](media-services-configure-fmle-live-encoder.md)
 >

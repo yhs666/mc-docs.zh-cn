@@ -1,5 +1,5 @@
 ---
-title: 如何使用 Azure 媒体服务执行实时传送视频流以通过 Azure 门户创建多比特率流 | Azure
+title: 如何使用 Azure 媒体服务实时传送视频流，通过 Azure 门户创建多比特率流 | Microsoft Docs
 description: 本教程介绍了创建通道的步骤，该通道接收单比特率实时流并利用 Azure 门户将其编码为多比特率流。
 services: media-services
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: get-started-article
 origin.date: 08/09/2017
 ms.date: 07/30/2018
 ms.author: v-haiqya
-ms.openlocfilehash: c9684a467ac6ccd1ac577fd980afeb9da6d49639
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+ms.openlocfilehash: ee149610d4fb6b8a840bb82d4fade81b51e04a5f
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219501"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426357"
 ---
 # <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-the-azure-portal"></a>如何使用 Azure 媒体服务执行实时传送视频流以通过 Azure 门户创建多比特率流
 > [!div class="op_single_selector"]

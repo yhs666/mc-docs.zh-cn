@@ -9,13 +9,13 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 03/28/2017
-ms.date: 06/18/2018
-ms.openlocfilehash: 8ab625fc3cead4beb4ccc1548be1c8948356c893
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.date: 09/30/2018
+ms.openlocfilehash: a5d5933aa02b8cefc5de4b25976409c6db2e91b8
+ms.sourcegitcommit: 432984d85afe6f3da8f211bae0fa98a556785ee8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "35416857"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47455397"
 ---
 # <a name="monitor-and-manage-stream-analytics-jobs-with-azure-powershell-cmdlets"></a>使用 Azure PowerShell cmdlet 监视和管理流分析作业
 了解如何使用可执行基本流分析任务的 Azure PowerShell cmdlet 和 PowerShell 脚本来监视和管理流分析资源。
@@ -25,31 +25,31 @@ ms.locfileid: "35416857"
 
 Azure PowerShell 0.9.8：  
 
-    # Log in to your Azure account
-    Add-AzureAccount -Environment AzureChinaCloud
+        # Log in to your Azure account
+        Add-AzureAccount -Environment AzureChinaCloud
 
-    # Select the Azure subscription you want to use to create the resource group if you have more than one subscription on your account.
-    Select-AzureSubscription -SubscriptionName <subscription name>
+        # Select the Azure subscription you want to use to create the resource group if you have more than one subscription on your account.
+        Select-AzureSubscription -SubscriptionName <subscription name>
 
-    # If Stream Analytics has not been registered to the subscription, remove remark symbol below (#) to run the Register-AzureProvider cmdlet to register the provider namespace.
-    #Register-AzureProvider -Force -ProviderNamespace 'Microsoft.StreamAnalytics'
+        # If Stream Analytics has not been registered to the subscription, remove remark symbol below (#) to run the Register-AzureProvider cmdlet to register the provider namespace.
+        #Register-AzureProvider -Force -ProviderNamespace 'Microsoft.StreamAnalytics'
 
-    # Create an Azure resource group
-    New-AzureResourceGroup -Name <YOUR RESOURCE GROUP NAME> -Location <LOCATION>
+        # Create an Azure resource group
+        New-AzureResourceGroup -Name <YOUR RESOURCE GROUP NAME> -Location <LOCATION>
 
 Azure PowerShell 1.0：  
 
-    # Log in to your Azure account
-    Connect-AzureRmAccount -Environment AzureChinaCloud
+        # Log in to your Azure account
+        Connect-AzureRmAccount -Environment AzureChinaCloud
 
-    # Select the Azure subscription you want to use to create the resource group.
-    Get-AzureRmSubscription -SubscriptionName "your sub" | Select-AzureRmSubscription
+        # Select the Azure subscription you want to use to create the resource group.
+        Get-AzureRmSubscription -SubscriptionName "your sub" | Select-AzureRmSubscription
 
-    # If Stream Analytics has not been registered to the subscription, remove remark symbol below (#) to run the Register-AzureProvider cmdlet to register the provider namespace.
-    #Register-AzureRmResourceProvider -Force -ProviderNamespace 'Microsoft.StreamAnalytics'
+        # If Stream Analytics has not been registered to the subscription, remove remark symbol below (#) to run the Register-AzureProvider cmdlet to register the provider namespace.
+        #Register-AzureRmResourceProvider -Force -ProviderNamespace 'Microsoft.StreamAnalytics'
 
-    # Create an Azure resource group
-    New-AzureRMResourceGroup -Name <YOUR RESOURCE GROUP NAME> -Location <LOCATION>
+        # Create an Azure resource group
+        New-AzureRMResourceGroup -Name <YOUR RESOURCE GROUP NAME> -Location <LOCATION>
 
 > [!NOTE]
 > 以编程方式创建的流分析作业默认情况下并不启用监视功能。  可以在 Azure 门户中手动启用监视功能，只需导航到作业的“监视”页，然后单击“启用”按钮即可；也可以通过编程方式来执行此操作，只需遵循 [Azure 流分析 - 以编程方式监视流分析作业](stream-analytics-monitor-jobs.md)中的步骤即可。
@@ -337,7 +337,7 @@ Azure PowerShell 1.0：
 
 ### <a name="remove-azurestreamanalyticsinput--remove-azurermstreamanalyticsinput"></a>Remove-AzureStreamAnalyticsInput | Remove-AzureRMStreamAnalyticsInput
 以异步方式从 Azure 的流分析作业中删除特定的输入。  
-如果指定了 -Force 参数，则会在不进行确认的情况下删除输入。
+如果指定了 -Force 参数，则会在不确认的情况下删除输入。
 
 **示例 1**
 
@@ -365,7 +365,6 @@ Azure PowerShell 1.0：
 
     Remove-AzureRMStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-East-CN -Name StreamingJob 
 
-
 此 PowerShell 命令删除作业 StreamingJob。  
 
 ### <a name="remove-azurestreamanalyticsoutput--remove-azurermstreamanalyticsoutput"></a>Remove-AzureStreamAnalyticsOutput | Remove-AzureRMStreamAnalyticsOutput
@@ -381,7 +380,6 @@ Azure PowerShell 0.9.8：
 Azure PowerShell 1.0：  
 
     Remove-AzureRMStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-East-CN -JobName StreamingJob -Name Output
-
 
 此 PowerShell 命令删除作业 StreamingJob 中的输出 Output。  
 
@@ -464,6 +462,12 @@ Azure PowerShell 1.0：
 
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
-<!--Not Available on [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md--> [stream.analytics.scale.jobs]：stream-analytics-scale-jobs.md [stream.analytics.query.language.reference]：http://go.microsoft.com/fwlink/?LinkID=513299[stream.analytics.rest.api.reference]：http://go.microsoft.com/fwlink/?LinkId=5173011
+
+<!--Not Available on [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md-->
+
+[stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
+[stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
+[stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
 <!--Update_Description: update meta properties, update link, wording update -->
+

@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 门户中使用 Media Encoder Standard 对资产进行编码 | Azure
+title: 在 Azure 门户中使用 Media Encoder Standard 对资产进行编码 | Microsoft Docs
 description: 本教程逐步演示如何在 Azure 门户中使用 Media Encoder Standard 对资产进行编码。
 services: media-services
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 08/07/2017
 ms.date: 09/04/2017
 ms.author: v-johch
-ms.openlocfilehash: bcac369b7e4ba4357641d50ab66ccbe5ce815546
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+ms.openlocfilehash: c62601d4eee731363370e92706e237a1f0b0ae8f
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219694"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426456"
 ---
 # <a name="encode-an-asset-by-using-media-encoder-standard-in-the-azure-portal"></a>在 Azure 门户中使用 Media Encoder Standard 对资产进行编码
 

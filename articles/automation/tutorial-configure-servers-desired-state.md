@@ -8,14 +8,14 @@ author: WenJason
 ms.author: v-jay
 manager: digimobile
 ms.topic: conceptual
-origin.date: 09/25/2017
-ms.date: 07/23/2018
-ms.openlocfilehash: 52da841707894bc05e5192d44cf75ccbb0bf6c36
-ms.sourcegitcommit: 1b60848d25bbd897498958738644a4eb9cf3a302
+origin.date: 08/08/2018
+ms.date: 10/01/2018
+ms.openlocfilehash: 58b033594617342e471172304e905614f1935f55
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43731213"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426423"
 ---
 # <a name="configure-servers-to-a-desired-state-and-manage-drift"></a>将服务器配置到所需状态并管理偏移
 

@@ -1,6 +1,6 @@
 ---
-title: Azure 媒体服务编码错误代码 | Azure
-description: 本主题列出了在执行编码任务期间发生错误时可能返回的错误代码。
+title: Azure 媒体服务编码错误代码 | Microsoft 文档
+description: 此主题列出了在执行编码任务期间发生错误的情况下可能返回的错误代码。
 services: media-services
 documentationcenter: ''
 author: hayley244
@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 08/09/2017
 ms.date: 09/04/2017
 ms.author: v-haiqya
-ms.openlocfilehash: e4c1ffda6edea6089d3ebad2249ceb83ffb356c7
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 3ee7af0b362422f5e73568b0a02e632317f86512
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475158"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426126"
 ---
 # <a name="encoding-error-codes"></a>编码错误代码
 

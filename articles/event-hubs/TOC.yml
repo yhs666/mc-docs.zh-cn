@@ -9,11 +9,11 @@ items:
     href: event-hubs-capture-overview.md
 - name: 快速入门
   items:
-  - name: 处理事件流 - 门户
+  - name: 创建事件中心 - 门户
     href: event-hubs-quickstart-portal.md
-  - name: 处理事件流 - Azure CLI
+  - name: 创建事件中心 - Azure CLI
     href: event-hubs-quickstart-cli.md
-  - name: 处理事件流 - Azure PowerShell
+  - name: 创建事件中心 - Azure PowerShell
     href: event-hubs-quickstart-powershell.md
   expanded: true
 - name: 示例
@@ -47,6 +47,10 @@ items:
     href: event-hubs-dotnet-framework-getstarted-send.md
   - name: 使用 .NET Framework 接收事件
     href: event-hubs-dotnet-framework-getstarted-receive-eph.md
+  - name: 使用 Python 发送事件
+    href: event-hubs-python-get-started-send.md
+  - name: 使用 Python 接收事件
+    href: event-hubs-python-get-started-receive.md
   - name: 可用 API
     href: event-hubs-api-overview.md
     items:
@@ -110,13 +114,13 @@ items:
       href: https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.management.eventhub
   - name: REST
     href: http://docs.microsoft.com/rest/api/eventhub
-  - name: 例外
+  - name: 异常
     href: event-hubs-messaging-exceptions.md
   - name: 配额
     href: event-hubs-quotas.md
 - name: 资源
   items:
-  - name: 常见问题解答
+  - name: 常见问题
     href: event-hubs-faq.md
   - name: 定价
     href: https://www.azure.cn/pricing/details/event-hubs/
@@ -126,9 +130,9 @@ items:
     href: https://www.azure.cn/what-is-new/
   - name: 视频
     href: https://www.azure.cn/video-center/
-ms.openlocfilehash: a9d10ef1dc461b2241725fd0728a9ccf8a740466
-ms.sourcegitcommit: 2700f127c3a8740a83fb70739c09bd266f0cc455
+ms.openlocfilehash: 640001557fc199e67b5b19f0c9c53c81d51c931a
+ms.sourcegitcommit: 399060a8d46534abd370693f6282e7343b371634
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45586573"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47455579"

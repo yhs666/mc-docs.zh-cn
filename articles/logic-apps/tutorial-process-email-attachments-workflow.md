@@ -10,13 +10,13 @@ ms.topic: tutorial
 ms.custom: mvc
 origin.date: 07/20/2018
 ms.author: v-yiso
-ms.date: 09/03/2018
-ms.openlocfilehash: 7b384dc6b7a78501026d6a7914b0deec35f92072
-ms.sourcegitcommit: 1b682acdc2a5e0974fbff809967d7cefcbbbe8ac
+ms.date: 10/15/2018
+ms.openlocfilehash: 3a90e66fb36264189a4a274464bb74f83925ab55
+ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42871003"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47455252"
 ---
 # <a name="process-emails-and-attachments-with-azure-logic-apps"></a>使用 Azure 逻辑应用处理电子邮件和附件
 
@@ -57,7 +57,7 @@ Azure 逻辑应用有助于跨 Azure 服务、Microsoft 服务、其他软件即
 
 可以在 [Azure 存储容器](../storage/common/storage-introduction.md)中以 Blob 形式保存传入电子邮件和附件。 
 
-1. 请先使用以下设置[创建存储帐户](../storage/common/storage-create-storage-account.md#create-a-storage-account)，然后才能创建存储容器：
+1. 请先使用以下设置[创建存储帐户](../storage/common/storage-quickstart-create-account.md)，然后才能创建存储容器：
 
    | 设置 | 值 | 说明 | 
    |---------|-------|-------------| 
@@ -122,9 +122,7 @@ Azure 逻辑应用有助于跨 Azure 服务、Microsoft 服务、其他软件即
    > [!TIP]
    > 如果未显示提示，请在存储资源管理器工具栏上选择“添加帐户”。
 
-3. 在“帐户名称”下，提供存储帐户名称。 
-
-   在“帐户密钥”下，提供前面保存的访问密钥。 选择“下一步”。
+3. 在“帐户名称”下，提供存储帐户名称。 在“帐户密钥”下，提供前面保存的访问密钥。 选择“下一步”。
 
 4. 确认连接信息，然后选择“连接”。 
 

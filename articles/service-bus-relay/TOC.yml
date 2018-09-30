@@ -1,0 +1,79 @@
+items:
+- name: 服务总线中继文档
+  href: index.yml
+- name: 概述
+  items:
+  - name: 什么是中继？
+    href: relay-what-is-it.md
+  - name: 常见问题
+    href: relay-faq.md
+- name: 快速入门
+  items:
+  - name: 创建本地/云混合应用程序
+    href: service-bus-dotnet-hybrid-app-using-service-bus-relay.md
+  - name: 混合连接
+    items:
+    - name: .NET Websocket
+      href: relay-hybrid-connections-dotnet-get-started.md
+    - name: .NET HTTP
+      href: relay-hybrid-connections-http-requests-dotnet-get-started.md
+    - name: Node Websocket
+      href: relay-hybrid-connections-node-get-started.md
+    - name: Node HTTP
+      href: relay-hybrid-connections-http-requests-node-get-started.md
+  - name: WCF 中继教程
+    href: service-bus-relay-tutorial.md
+  - name: WCF 中继 REST 教程
+    href: service-bus-relay-rest-tutorial.md
+- name: 如何
+  items:
+  - name: 规划和设计
+    items:
+    - name: 身份验证和安全性
+      href: relay-authentication-and-authorization.md
+      items:
+      - name: 从 ACS 迁移到 SAS
+        href: relay-migrate-acs-sas.md
+    - name: 混合连接协议
+      href: relay-hybrid-connections-protocol.md
+  - name: 开发
+    items:
+    - name: 创建命名空间
+      href: relay-create-namespace-portal.md
+    - name: 使用 WCF 中继向外部客户端公开 WCF 服务
+      href: relay-wcf-dotnet-get-started.md
+    - name: 可用 API
+      href: relay-api-overview.md
+      items:
+      - name: .NET
+        href: relay-hybrid-connections-dotnet-api-overview.md
+      - name: 节点
+        href: relay-hybrid-connections-node-ws-api-overview.md
+  - name: 管理
+    items:
+    - name: 使用 Azure 监视来监视 Azure 中继
+      href: relay-metrics-azure-monitor.md
+- name: 参考
+  items:
+  - name: .NET
+    items:
+    - name: Microsoft.Azure.Relay
+      href: /dotnet/api/microsoft.azure.relay
+    - name: Microsoft.ServiceBus
+      href: /dotnet/api/Microsoft.ServiceBus
+  - name: 异常
+    href: relay-exceptions.md
+  - name: 端口设置
+    href: relay-port-settings.md
+- name: 资源
+  items:
+  - name: 定价
+    href: https://www.azure.cn/pricing/details/service-bus/
+  - name: 定价计算器
+    href: https://www.azure.cn/pricing/calculator/
+ms.openlocfilehash: ee061b8c0baf69fadd07c9711e0d3518f8d43fe6
+ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47455340"

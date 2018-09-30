@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: troubleshooting
 origin.date: 07/19/2018
-ms.date: 09/17/2018
+ms.date: 09/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: e1ee259e7a368a0dfd19da57184e967a2d01a5df
-ms.sourcegitcommit: 96d06c506983906a92ff90a5f67199f8f7e10996
+ms.openlocfilehash: dca8df3175188dc1045f76be42a2ba8e6a833f1d
+ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45586855"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47201412"
 ---
 # <a name="monitor-and-troubleshoot-site-recovery"></a>监视和排查 Site Recovery 问题
 
@@ -28,7 +28,7 @@ ms.locfileid: "45586855"
 
 2.  该仪表板在单个位置合并了保管库的所有监视信息。 在该仪表板中，可以向下钻取到不同的区域。 
 
-    ![Site Recovery 仪表板](./media/site-recovery-monitor-and-troubleshoot/site-recovery-overview-page.png).
+    ![Site Recovery 仪表板](./media/site-recovery-monitor-and-troubleshoot/site-recovery-overview-page.png)上获取。
 
 3. 在“复制的项”中，单击“全部查看”可查看保管库中的所有服务器。
 4. 通过单击每个部分中的状态详细信息向下钻取。 在“基础结构”视图中，可按复制的计算机类型将监视信息排序。
@@ -41,7 +41,7 @@ ms.locfileid: "45586855"
 --- | ---
 Healthy | 复制正常进行。 未检测到任何错误或警告症状。
 警告 | 检测到一个或多个可能影响复制的警告症状。
-严重 | 检测到一个或多个严重复制错误症状。<br/><br/> 这些错误症状通常指示复制处于停滞状态，或者复制进度跟不上数据更改速率。
+关键 | 检测到一个或多个严重复制错误症状。<br/><br/> 这些错误症状通常指示复制处于停滞状态，或者复制进度跟不上数据更改速率。
 不适用 | 目前预期服务器无法复制。 这可能包括已故障转移的计算机。
 
 ## <a name="monitor-test-failovers"></a>监视测试故障转移
@@ -160,7 +160,7 @@ Healthy | 复制正常进行。 未检测到任何错误或警告症状。
     - **事件**：影响计算机的最近事件列表，按时间顺序列出。 错误详细信息显示当前可观测到的错误症状，而事件是影响了计算机的问题的历史记录。
     - **基础结构视图**：显示将计算机复制到 Azure 时方案的基础结构状态。
 
-    ![Azure Site Recovery 中复制的项详细信息/概述](media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-details.png)
+    ![Azure Site Recovery 中复制的项详细信息/概述](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-details.png)
 
 ### <a name="common-questions"></a>常见问题
 

@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure CLI 2.0 管理 Azure DNS 中的 DNS 记录 | Azure
+title: 使用 Azure CLI 2.0 管理 Azure DNS 中的 DNS 记录 | Microsoft 文档
 description: 在 Azure DNS 上托管域时管理 Azure DNS 上的 DNS 记录集和记录。 记录集和记录上的操作的所有 CLI 2.0 命令。
 services: dns
 documentationcenter: na
@@ -15,17 +15,17 @@ ms.workload: infrastructure-services
 origin.date: 05/15/2018
 ms.date: 05/28/2018
 ms.author: v-nany
-ms.openlocfilehash: a1538676fed72c1df8e558e92a3cfcea1f251843
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: 88441933d96d82fd54ae01d52dc46fbaffbf828d
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554319"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426234"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-the-azure-cli-20"></a>使用 Azure CLI 2.0 管理 Azure DNS 中的 DNS 记录和记录集
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](dns-operations-recordsets-portal.md)
+> * [Azure 门户](dns-operations-recordsets-portal.md)
 > * [Azure CLI 2.0](dns-operations-recordsets-cli.md)
 > * [PowerShell](dns-operations-recordsets.md)
 
@@ -57,7 +57,7 @@ ms.locfileid: "34554319"
 az network dns record-set a add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name www --ipv4-address 1.2.3.4
 ```
 
-若要在区域（在本例中为“contoso.com”）顶点中创建记录集，请使用记录名称“@”（包括引号）：
+若要在区域（在本例中为“contoso.com”）顶点中创建记录集，请使用记录名称 \“\@\”（包括引号）：
 
 ```azurecli
 az network dns record-set a add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --ipv4-address 1.2.3.4
@@ -142,7 +142,7 @@ az network dns record-set ptr add-record --resource-group myresourcegroup --zone
 
 ### <a name="create-an-srv-record"></a>创建 SRV 记录
 
-创建 [SRV 记录集](dns-zones-records.md#srv-records)时，请在记录集名称中指定 *\_service* 和 *\_protocol*。 在区域顶点创建 SRV 记录集时，无需在记录集名称中包括“@”。
+创建 [SRV 记录集](dns-zones-records.md#srv-records)时，请在记录集名称中指定 *\_service* 和 *\_protocol*。 在区域顶点创建 SRV 记录集时，无需在记录集名称中包括\“\@\”。
 
 ```azurecli
 az network dns record-set srv add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name _sip._tls --priority 10 --weight 5 --port 8080 --target sip.contoso.com

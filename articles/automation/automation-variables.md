@@ -1,5 +1,5 @@
 ---
-title: Azure 自动化中的变量资产 | Azure
+title: Azure 自动化中的变量资产
 description: 变量资产是可供 Azure 自动化中的所有 Runbook 和 DSC 配置使用的值。  本文介绍了变量的详细信息，以及如何在文本和图形创作中使用变量。
 services: automation
 author: yunan2016
@@ -11,12 +11,12 @@ ms.topic: article
 origin.date: 03/16/2018
 ms.date: 05/14/2018
 ms.author: v-nany
-ms.openlocfilehash: 57f074b2806ae3788d0bc808ea775213c3c2bae9
-ms.sourcegitcommit: 53972dcdef77da92529996667545d2e83716f7e2
+ms.openlocfilehash: bb5320d3face3ba43862b09a5a62d2c5c42e132b
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39143388"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426196"
 ---
 # <a name="variable-assets-in-azure-automation"></a>Azure 自动化中的变量资产
 

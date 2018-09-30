@@ -11,14 +11,14 @@ ms.component: cosmosdb-sql
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 08/10/2018
-ms.date: 09/03/2018
+ms.date: 09/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: fccde87eaac9244f5070bf6c68fd77cba7913a9e
-ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
+ms.openlocfilehash: 004b7227393f506dbc99ad4a7b2f23f2e71f6a05
+ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43164735"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47201450"
 ---
 # <a name="query-azure-cosmos-db-data-with-sql-queries"></a>使用 SQL 查询来查询 Azure Cosmos DB 数据
 
@@ -29,9 +29,6 @@ Azure Cosmos DB 通过将 SQL（结构化查询语言）用作 SQL API 帐户中
 * Azure Cosmos DB 使用 JavaScript 的编程模型作为查询语言的基础。 SQL API 植根于 JavaScript 的类型系统、表达式计算和函数调用中。 而这反过来为关系投影、跨 JSON 文档的分层导航、自联接、空间查询以及调用完全采用 JavaScript 编写的用户定义的函数 (UDF) 和其他功能提供了自然编程模型。 
 
 本文使用简单的 JSON 文档来逐步讲解一些示例 SQL 查询。 若要了解 Azure Cosmos DB SQL 语言语法，请参阅 [SQL 语法参考](sql-api-sql-query-reference.md)一文。 
-<!-- Not Available on VIDEO prefix words -->
-<!-- Not Available on [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/DataExposedQueryingDocumentDB/player] -->
-
 
 <a name="GettingStarted"></a>
 ## <a name="get-started-with-sql-commands"></a>SQL 命令入门

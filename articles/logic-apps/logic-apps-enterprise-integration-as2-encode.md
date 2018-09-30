@@ -1,6 +1,6 @@
 ---
-title: 为 AS2 消息编码 - Azure 逻辑应用
-description: 如何为 Azure 逻辑应用使用 Enterprise Integration Pack 中的 AS2 编码器
+title: 为 AS2 消息编码 - Azure 逻辑应用 | Microsoft 文档
+description: 使用 Azure 逻辑应用和 Enterprise Integration Pack 编码 AS 消息
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
@@ -12,17 +12,17 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/27/2017
-ms.date: 03/19/2018
+origin.date: 08/08/2018
+ms.date: 10/15/2018
 ms.author: v-yiso
-ms.openlocfilehash: 9aaa3c5a9b76e60ebadfc41fb4edaaca342a69d1
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: 34750e4a0b6af6bc940411799f0e7cf08ef112ea
+ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29870538"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47455256"
 ---
-# <a name="encode-as2-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>使用 Enterprise Integration Pack 为 Azure 逻辑应用编码 AS2 消息
+# <a name="encode-as2-messages-with-azure-logic-apps-and-enterprise-integration-pack"></a>使用 Azure 逻辑应用和 Enterprise Integration Pack 编码 AS2 消息
 
 若要在传输消息时建立安全性和可靠性，请使用编码 AS2 消息连接器。 此连接器通过邮件处置通知 (MDN) 提供数字签名、解密和确认等功能，这还会实现对不可否认性的支持。
 
@@ -72,6 +72,14 @@ ms.locfileid: "29870538"
 * 对传出消息进行签名（如果已配置）
 * 对传出消息进行加密（如果已配置）
 * 压缩消息（如果已配置）
+* 在 MIME 标头中传输文件名（如果已配置）
+
+
+  > [!NOTE]
+  > 如果使用 Azure Key Vault 进行证书管理，请确保配置密钥以允许加密操作。
+  > 否则，AS2 编码将失败。
+  >
+  > ![KeyVault 解密](media/logic-apps-enterprise-integration-as2-encode/keyvault1.png)
 
 ## <a name="try-this-sample"></a>尝试此示例
 

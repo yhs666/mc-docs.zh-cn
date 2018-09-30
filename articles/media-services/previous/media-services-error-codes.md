@@ -1,5 +1,5 @@
 ---
-title: Azure 媒体服务错误代码 | Azure
+title: Azure 媒体服务错误代码 | Microsoft Docs
 description: 本主题概述 Azure 媒体服务错误代码。
 author: hayley244
 manager: digimobile
@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 07/31/2017
 ms.date: 09/04/2017
 ms.author: v-haiqya
-ms.openlocfilehash: e01a293e9098303d40f59ac98df963573e0ab789
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+ms.openlocfilehash: b9141caa9d66235f9e349a03e1a9b1b6b0a83951
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219672"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426207"
 ---
 # <a name="azure-media-services-error-codes"></a>Azure 媒体服务错误代码
 使用 Azure 媒体服务时，可能会从服务收到因问题而异的 HTTP 错误代码，例如身份验证令牌到期或媒体服务不支持操作。 以下是媒体服务可能返回的 **HTTP 错误代码** 及其可能原因的列表。  

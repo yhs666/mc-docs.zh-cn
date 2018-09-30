@@ -10,24 +10,25 @@ ms.component: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: tutorial
 origin.date: 03/23/2018
-ms.date: 09/03/2018
+ms.date: 09/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 159c9bc0b53970575936ee96c16b1d16ffe5b220
-ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
+ms.openlocfilehash: fe93cec56a9697529ef6a6fa0afa94565885a769
+ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43164732"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47201306"
 ---
 <a name="_Toc395783175"></a>
 # <a name="build-a-nodejs-web-application-using-azure-cosmos-db"></a>使用 Azure Cosmos DB 生成 Node.js Web 应用程序
+
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
-> * [Node.js](sql-api-nodejs-application.md)
-> * [Node.js - v2.0 预览版](sql-api-nodejs-application-preview.md)
 > * [Java](sql-api-java-application.md)
+> * [Node.js](sql-api-nodejs-application.md)
+> * [Node.js- v2](sql-api-nodejs-application-preview.md)
 > * [Python](sql-api-python-application.md)
-> 
+> * [Xamarin](mobile-apps-with-xamarin.md)
 > 
 
 本 Node.js 教程展示了如何使用 Azure Cosmos DB 和 SQL API，通过在 Azure 网站上托管的 Node.js Express 应用程序存储和访问数据。 用户会生成一个简单的基于 Web 的任务管理应用程序（ToDo 应用），用于创建、检索和完成任务。 任务存储为 Azure Cosmos DB 中的 JSON 文档。 本教程演示如何创建和部署应用，并说明每个代码片段的功能。
@@ -428,6 +429,7 @@ ms.locfileid: "43164732"
 现在让我们把注意力转向生成用户界面，以便用户可以与我们的应用程序进行实际交互。 我们创建的 Express 应用程序使用 **Jade** 作为视图引擎。 有关详细信息，请参阅 [http://jade-lang.com/](http://jade-lang.com/)。
 
 1. **views** 目录中的 **layout.jade** 文件用作其他 **.jade** 文件的全局模板。 在此步骤中，将对其进行修改以使用 [Twitter Bootstrap](https://github.com/twbs/bootstrap)（一个可以轻松设计美观网站的工具包）。 
+    <!-- Notice: should be global template-->
 2. 打开 **views** 文件夹中的 **layout.jade** 文件，将内容替换为以下代码：
 
     ```

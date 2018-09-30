@@ -10,24 +10,25 @@ ms.component: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: tutorial
 origin.date: 07/31/2018
-ms.date: 09/03/2018
+ms.date: 09/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 61bf98f3aafe49f2259c5cdd44f38efc85438b86
-ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
+ms.openlocfilehash: 8e3c7fabfea4e77fd844058584a2852883f6ff38
+ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43171488"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47201440"
 ---
 <a name="_Toc395783175"></a>
 # <a name="build-a-nodejs-web-application-using-azure-cosmos-db-and-nodejs-sdk-preview"></a>使用 Azure Cosmos DB 和 Node.js SDK（预览版）生成 Node.js Web 应用程序
+
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
-> * [Node.js](sql-api-nodejs-application.md)
-> * [Node.js - v2.0 预览版](sql-api-nodejs-application-preview.md)
 > * [Java](sql-api-java-application.md)
+> * [Node.js](sql-api-nodejs-application.md)
+> * [Node.js- v2](sql-api-nodejs-application-preview.md)
 > * [Python](sql-api-python-application.md)
-> 
+> * [Xamarin](mobile-apps-with-xamarin.md)
 > 
 
 本 Node.js 教程介绍了如何使用 Azure Cosmos DB SQL API 帐户，通过在 Azure 网站上托管的 Node.js Express 应用程序存储和访问数据。 在本教程中，需生成一个简单的基于 Web 的应用程序（待办事项应用），用于创建、检索和完成任务。 任务存储为 Azure Cosmos DB 中的 JSON 文档。 下图显示待办事项应用程序的屏幕快照：
@@ -421,13 +422,13 @@ ms.locfileid: "43171488"
                     input(type="checkbox", name="#{task.id}", value="#{!task.completed}", checked=task.completed)
           button.btn.btn-primary(type="submit") Update tasks
         hr
-       form.well(action="/addtask", method="post")
-        label Item Name:
-        input(name="name", type="textbox")
-        label Item Category:
-        input(name="category", type="textbox")
-        br
-        button.btn(type="submit") Add item
+        form.well(action="/addtask", method="post")
+          label Item Name:
+          input(name="name", type="textbox")
+          label Item Category:
+          input(name="category", type="textbox")
+          br
+          button.btn(type="submit") Add item
    ```
 
 这将扩展布局，并为先前在 **layout.jade** 文件中看到的 **content** 占位符提供内容。
@@ -484,5 +485,4 @@ ms.locfileid: "43171488"
 [Git]: http://git-scm.com/
 [GitHub]: https://github.com/Azure-Samples/azure-cosmos-db-sql-api-nodejs-todo-app
 
-<!-- Update_Description: new articles on sql api nodejs application preview -->
-<!--ms.date: 09/03/2018-->
+<!-- Update_Description: wording update -->

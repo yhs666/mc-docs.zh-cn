@@ -3,7 +3,7 @@ title: Azure 服务总线基于角色的访问控制 (RBAC) 预览版
 description: Azure 服务总线基于角色的访问控制
 services: service-bus
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 12/19/2017
-ms.date: 03/12/2018
+ms.date: 10/15/2018
 ms.author: v-yiso
-ms.openlocfilehash: 8ddfd75541991edfe2d46475acc8b7ea55901ddd
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 36cb46bd321d54dc5ac8fd24e44a8d80997e9b2c
+ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
-ms.locfileid: "29731164"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47455103"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Active Directory 基于角色的访问控制（预览版）
 
@@ -62,7 +62,7 @@ Microsoft Azure 基于 Azure Active Directory (Azure AD) 针对资源和应用�
 
 因为示例应用程序是一个控制台应用程序，因此你必须注册一个本机应用程序并将 **Microsoft.ServiceBus** 的 API 权限添加到“必需的权限”集。 本机应用程序在 Azure AD 中还需要有一个充当标识符的 **redirect-URI**，该 URI 不需要是网络目的地。 对于此示例请使用 `http://servicebus.microsoft.com`，因为示例代码已使用了该 URI。
 
-[此教程](../active-directory/develop/active-directory-integrating-applications.md)中介绍了详细的注册步骤。 请按照那些步骤注册一个**本机**应用，然后按照更新说明将 **Microsoft.ServiceBus** API 添加到必需的权限。 执行那些步骤时，请记下 **TenantId** 和 **ApplicationId**，因为到时要使用这些值来运行应用程序。
+[此教程](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md)中介绍了详细的注册步骤。 请按照那些步骤注册一个**本机**应用，然后按照更新说明将 **Microsoft.ServiceBus** API 添加到必需的权限。 执行那些步骤时，请记下 **TenantId** 和 **ApplicationId**，因为到时要使用这些值来运行应用程序。
 
 ### <a name="run-the-app"></a>运行应用程序
 

@@ -1,6 +1,6 @@
 ---
-title: 通过 Azure AD 身份验证使用 .NET 访问 Azure 媒体服务 API | Azure
-description: 本主题介绍如何使用 Azure Active Directory (Azure AD) 身份验证通过 .NET 访问 Azure 媒体服务 (AMS) API。
+title: 使用 Azure AD 身份验证通过 .NET 访问Azure 媒体服务 API | Microsoft Docs
+description: 本主题介绍了如何使用 Azure Active Directory (Azure AD) 身份验证访问 Azure 媒体服务 API。
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 03/27/2018
 ms.date: 05/07/2018
 ms.author: v-haiqya
-ms.openlocfilehash: 0cd317663fb04756f533a5a1afc04e4990a13a5a
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.openlocfilehash: 740f06e8f602470f1d8c07c470baf311fd970935
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295589"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426275"
 ---
 # <a name="use-azure-ad-authentication-to-access-azure-media-services-api-with-net"></a>使用 Azure AD 身份验证通过 .NET 访问 Azure 媒体服务 API
 

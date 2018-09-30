@@ -1,5 +1,5 @@
 ---
-title: 264 多比特率 4K 音频 5.1 | Azure
+title: 264 多比特率 4K Audio 5.1 | Microsoft 文档
 description: 本主题概述了“264 多比特率 4K Audio 5.1”任务预设。
 author: hayley244
 manager: digimobile
@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 07/20/2017
 ms.date: 09/04/2017
 ms.author: v-haiqya
-ms.openlocfilehash: af5d742714f5d0a0b89fbdde1fe427b7abd1d6fc
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+ms.openlocfilehash: ac38b6b9ad066e86439b7e3f1aaa1d6e4220a688
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219717"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426434"
 ---
 # <a name="h264-multiple-bitrate-4k-audio-51"></a>H264 多比特率 4K 音频 5.1
 `Media Encoder Standard` 定义一组可在创建编码作业时使用的编码预设。 可以使用 `preset name` 指定编码媒体文件采用的格式。 也可以创建自己的 JSON 或基于 XML 的预设（使用 UTF-8 或 UTF-16 编码）。 然后，将自定义预设传递到编码器。 有关此 `Media Encoder Standard` 编码器支持的所有预设名称的列表，请参阅 [Media Encoder Standard 的任务预设](media-services-mes-presets-overview.md)。  

@@ -1,5 +1,5 @@
 ---
-title: Azure 媒体服务流式处理终结点概述 | Azure
+title: Azure 媒体服务流式处理终结点概述 | Microsoft 文档
 description: 本主题提供 Azure 媒体服务流式处理终结点的概述。
 services: media-services
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.topic: article
 origin.date: 06/29/2017
 ms.date: 09/25/2017
 ms.author: v-johch
-ms.openlocfilehash: 569e513dc4bd260bd44cb4dfd1665777386dbd61
-ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
+ms.openlocfilehash: 137edc51e1407310705dc5599f115bad6fd89398
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36748433"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426175"
 ---
 # <a name="streaming-endpoints-overview"></a>流式处理终结点概述 
 

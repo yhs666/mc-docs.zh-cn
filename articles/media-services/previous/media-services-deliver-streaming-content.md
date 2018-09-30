@@ -1,5 +1,5 @@
 ---
-title: 使用 .NET 发布 Azure 媒体服务内容
+title: 使用 .NET 发布 Azure 媒体服务内容 | Microsoft Docs
 description: 了解如何创建用于生成流式处理 URL 的定位符。 代码示例用 C# 编写且使用适用于 .NET 的媒体服务 SDK。
 author: hayley244
 manager: digimobile
@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 08/09/2017
 ms.date: 09/04/2017
 ms.author: v-haiqya
-ms.openlocfilehash: fe103c0c3263e42b8ddfb40b59dec21eb3d54486
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+ms.openlocfilehash: 86475a05172d4f17e6c02c5999d028e5bf28b038
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219671"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426252"
 ---
 # <a name="publish-azure-media-services-content-using-net"></a>使用 .NET 发布 Azure 媒体服务内容
 > [!div class="op_single_selector"]
@@ -172,7 +172,6 @@ ms.locfileid: "39219671"
     Console.WriteLine(hlsUri);
     Console.WriteLine(mpegDashUri);
 ```
-
 
 ## <a name="next-steps"></a>后续步骤
 * [下载资产](media-services-deliver-asset-download.md)

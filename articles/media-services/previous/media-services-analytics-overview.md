@@ -1,5 +1,5 @@
 ---
-title: 媒体服务平台上的媒体分析 | Azure
+title: 媒体服务平台上的媒体分析 | Microsoft Docs
 description: 媒体分析公共预览版概述，其中集合了企业级的语音和计算机视觉服务、合规性、安全性和全球市场宣传功能
 services: media-services
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 06/29/2017
 ms.date: 09/25/2017
 ms.author: v-johch
-ms.openlocfilehash: 9c44e0e4d8a063fb5cd29936dc9743ee83d6f654
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+ms.openlocfilehash: 4e2f06a35164488a49eabd9a411eeb92ae1a8074
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219577"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426417"
 ---
 # <a name="media-analytics-on-the-media-services-platform"></a>媒体服务平台上的媒体分析
 ## <a name="overview"></a>概述

@@ -1,5 +1,5 @@
 ---
-title: 使用媒体服务 .NET SDK 配置内容密钥授权策略 | Azure
+title: 使用媒体服务 .NET SDK 配置内容密钥授权策略 | Microsoft Docs
 description: 了解如何使用媒体服务 .NET SDK 配置内容密钥的授权策略。
 services: media-services
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 08/09/2017
 ms.date: 1/22/2017
 ms.author: v-nany
-ms.openlocfilehash: 704bc1b27da7a67f617855b8577cb3a6da924096
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+ms.openlocfilehash: bba6a85c71b66b79e2f3e75ddbe794e08960e601
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219609"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426365"
 ---
 # <a name="dynamic-encryption-configure-a-content-key-authorization-policy"></a>动态加密：配置内容密钥授权策略
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]

@@ -9,13 +9,13 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 04/25/2018
-ms.date: 09/17/2018
-ms.openlocfilehash: a52ebeb919e77451c4d2dbf2a64a3e62bc5488cd
-ms.sourcegitcommit: 2700f127c3a8740a83fb70739c09bd266f0cc455
+ms.date: 09/30/2018
+ms.openlocfilehash: 058bc39ff589465839007972196345aea6fdcc97
+ms.sourcegitcommit: 432984d85afe6f3da8f211bae0fa98a556785ee8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45586588"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47455380"
 ---
 # <a name="understand-inputs-for-azure-stream-analytics"></a>理解 Azure 流分析的输入
 
@@ -49,4 +49,5 @@ Azure 流分析作业连接到一个或多个数据输入。 每个输入定义�
 > [!div class="nextstepaction"]
 > [快速入门：使用 Azure 门户创建流分析作业](stream-analytics-quick-create-portal.md)
 
-<!--Update_Description: update meta properties, wording update, update link -->
+<!--Update_Description: update meta properties -->
+

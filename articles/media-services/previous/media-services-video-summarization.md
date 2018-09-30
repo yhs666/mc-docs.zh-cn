@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 媒体视频缩略图创建视频摘要 | Azure
+title: 使用 Azure Media Video Thumbnails 创建视频摘要 | Microsoft Docs
 description: 视频摘要可通过自动选择来自源视频的有趣片段帮助你创建长视频的摘要。 要提供有关长视频内容的快速概述时，这很有用。
 services: media-services
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 12/09/2017
 ms.date: 12/25/2017
 ms.author: v-nany
-ms.openlocfilehash: 95cc7cf677617a4763f46f3ebb461ad00027a7f5
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+ms.openlocfilehash: 59103a281de5b18c2da0e17723b0c19cf928b26f
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219661"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426410"
 ---
 # <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>使用 Azure 媒体视频缩略图创建视频摘要
 ## <a name="overview"></a>概述

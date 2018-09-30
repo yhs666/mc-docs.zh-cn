@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 媒体分析 OCR 将文本数字化 | Azure
+title: 使用 Azure 媒体分析 OCR 将文本数字化 | Microsoft 文档
 description: Azure 媒体分析 OCR（光学字符识别）可让你将视频文件中的文本内容转换成可编辑、可搜索的数字文本。  这可让你从媒体的视频信号中自动提取有意义的元数据。
 services: media-services
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 12/09/2017
 ms.date: 12/25/2017
 ms.author: v-nany
-ms.openlocfilehash: 89e196075427f6679c69c0095c1b77448a1413c2
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+ms.openlocfilehash: 56a47330ec3da31324a9d717dd0957a3dd9f9c13
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219629"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426238"
 ---
 # <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a>使用 Azure 媒体分析将视频文件中的文本内容转换为数字文本
 ## <a name="overview"></a>概述

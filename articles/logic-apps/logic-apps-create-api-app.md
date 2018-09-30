@@ -1,6 +1,6 @@
 ---
 title: 为 Azure 逻辑应用创建 Web API 和 REST API
-description: 为实现系统集成，在逻辑应用工作流中创建 Web API 和 REST API 以调用 API、服务或系统
+description: 创建用于调用 API、服务或系统的 Web API 和 REST API，以便在 Azure 逻辑应用中进行系统集成
 keywords: Web API, REST API, 工作流, 系统集成
 services: logic-apps
 author: jeffhollan
@@ -16,14 +16,14 @@ ms.topic: article
 origin.date: 05/26/2017
 ms.date: 03/19/2018
 ms.author: v-yiso
-ms.openlocfilehash: 410e84cfa5e5f01fb16a6dfc33e3a463c27d16b2
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: 4fa0a144bafcf4f93b9d87df5eb7ee3d11695456
+ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29870804"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47455154"
 ---
-# <a name="create-custom-apis-that-you-can-call-from-logic-app-workflows"></a>创建可从逻辑应用工作流调用的自定义 API
+# <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>创建可从 Azure 逻辑应用调用的自定义 API
 
 虽然 Azure 逻辑应用提供可用于逻辑应用工作流的 [100 多个内置连接器](../connectors/apis-list.md)，但建议调用不作为连接器提供的 API、系统和服务。 可以创建自己的 API，提供在逻辑应用中使用的操作和触发器。 下面是一些其他理由，解释为何建议创建可从逻辑应用工作流调用的自定义 API：
 
@@ -44,7 +44,8 @@ ms.locfileid: "29870804"
 > * [Java](../app-service/app-service-web-get-started-java.md)
 > * [Node.js](../app-service/app-service-web-get-started-nodejs.md)
 > * [PHP](../app-service/app-service-web-get-started-php.md)
-> * [Python](../app-service/app-service-web-get-started-python.md)
+> * [Python](../app-service/containers/quickstart-python.md)
+> * [Ruby](../app-service/containers/quickstart-ruby.md)
 >
 > 有关为逻辑应用生成的 API 应用示例，请访问 [Azure 逻辑应用 GitHub 存储库](http://github.com/logicappsio)或[博客](http://aka.ms/logicappsblog)。
 

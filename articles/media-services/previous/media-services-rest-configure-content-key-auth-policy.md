@@ -1,5 +1,5 @@
 ---
-title: 使用 REST 配置内容密钥授权策略 - Azure | Azure
+title: 使用 REST 配置内容密钥授权策略 - Azure | Microsoft Docs
 description: 了解如何使用媒体服务 REST API 配置内容密钥的授权策略。
 services: media-services
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 12/07/2017
 ms.date: 1/22/2018
 ms.author: v-nany
-ms.openlocfilehash: 4788bfdb9509d4a4ee61da5784ae5027538c91d5
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+ms.openlocfilehash: ad852e4841e8c6c11a4a6a6eaed121d1d2f77ffd
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219610"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426305"
 ---
 # <a name="dynamic-encryption-configure-a-content-key-authorization-policy"></a>动态加密：配置内容密钥授权策略
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]

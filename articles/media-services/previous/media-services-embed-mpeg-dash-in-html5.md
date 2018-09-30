@@ -1,11 +1,12 @@
 ---
-title: 使用 DASH.js 在 HTML5 应用程序中嵌入 MPEG-DASH 自适应流式处理视频 | Azure
+title: 使用 DASH.js 在 HTML5 应用程序中嵌入 MPEG-DASH 自适应流式处理视频 | Microsoft Docs
 description: 本主题演示如何使用 DASH.js 在 HTML5 应用程序中嵌入 MPEG-DASH 自适应流式处理视频。
-authors: Juliako
-manager: erikre
+author: WenJason
+manager: digimobile
 editor: ''
 services: media-services
 documentationcenter: ''
+ms.assetid: 5aa0e7b6-f5c3-4cc1-aa33-ed16ea4780c2
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -13,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 09/26/2016
 ms.date: 1/22/2018
-ms.author: v-johch
-ms.openlocfilehash: 24ac72c876d2c20f0e000eb102254f288b0d45f6
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+ms.author: v-jay
+ms.openlocfilehash: c4dd5880b1a564d20a514658e3b8c38624dafae2
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219520"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426447"
 ---
 # <a name="embedding-an-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs"></a>使用 DASH.js 在 HTML5 应用程序中嵌入 MPEG-DASH 自适应流式处理视频
 ## <a name="overview"></a>概述

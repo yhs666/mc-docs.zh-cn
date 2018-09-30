@@ -1,12 +1,11 @@
 ---
-title: 创建生成 fMP4 区块的 Azure 媒体服务编码任务 | Azure
+title: 创建生成 fMP4 区块的 Azure 媒体服务编码任务 | Microsoft 文档
 description: 本主题介绍如何创建生成 fMP4 区块的编码任务。 将此任务用于 Media Encoder Standard 或 Media Encoder Premium Workflow 编码器时，输出资产会包含 fMP4 区块而非 ISO MP4 文件。
 services: media-services
 documentationcenter: ''
 author: yunan2016
 manager: digimobile
 editor: ''
-ms.assetid: b7029ac5-eadd-4a2f-8111-1fc460828981
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -15,12 +14,12 @@ ms.topic: article
 origin.date: 12/09/2017
 ms.date: 12/25/2017
 ms.author: v-nany
-ms.openlocfilehash: adbd2af54419333b732090d0c546e805a4c65132
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+ms.openlocfilehash: b2123085c28f6d5aa5911a8346be6d3a97e5252c
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219718"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426427"
 ---
 #  <a name="create-an-encoding-task-that-generates-fmp4-chunks"></a>创建生成 fMP4 区块的编码任务
 
@@ -171,7 +170,6 @@ namespace AdaptiveStreaming
     }
 }
 ```
-
 
 ## <a name="see-also"></a>另请参阅
 [媒体服务编码概述](media-services-encode-asset.md)

@@ -10,23 +10,24 @@ ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: tutorial
 origin.date: 05/22/2017
-ms.date: 08/13/2018
+ms.date: 09/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: e9624d0ee1120bb103ad04075942f1e0da47dbc7
-ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
+ms.openlocfilehash: 5995773b1a8b0d09ba34c7ebb22259af42bad434
+ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41706222"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47201355"
 ---
 # <a name="nosql-tutorial-build-a-sql-api-java-console-application"></a>NoSQL 教程：构建 SQL API Java 控制台应用程序
+
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
-> * [用于 MongoDB 的 Node.js](mongodb-samples.md)
-> * [Node.js](sql-api-nodejs-get-started.md)
 > * [Java](sql-api-java-get-started.md)
->  
+> * [异步 Java](sql-api-async-java-get-started.md)
+> * [Node.js](sql-api-nodejs-get-started.md)
+> * [Node.js- v2](sql-api-nodejs-get-started-preview.md) 
 > 
 
 欢迎使用适用于 Azure Cosmos DB Java SDK 的 SQL API 的 NoSQL 教程！ 学习本教程后，将拥有一个可创建并查询 Azure Cosmos DB 资源的控制台应用程序。
@@ -103,8 +104,7 @@ ms.locfileid: "41706222"
 <a name="CreateColl"></a>
 ## <a name="step-5-create-a-collection"></a>步骤 5：创建集合
 > [!WARNING]
-> 
-            **createCollection** 创建一个具有保留吞吐量的新集合，它牵涉定价。 有关详细信息，请访问[定价页](https://www.azure.cn/pricing/details/cosmos-db/)。
+> **createCollection** 创建一个具有保留吞吐量的新集合，它牵涉定价。 有关详细信息，请访问[定价页](https://www.azure.cn/pricing/details/cosmos-db/)。
 > 
 > 
 

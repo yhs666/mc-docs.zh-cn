@@ -1,6 +1,6 @@
 ---
-title: B2B 企业集成 - Azure 逻辑应用
-description: 使用 Enterprise Integration Pack 构建 B2B 工作流，并支持将企业集成方案用于逻辑应用
+title: B2B 企业集成概述 - Azure 逻辑应用 | Microsoft Docs
+description: 使用 Azure 逻辑应用和 Enterprise Integration Pack 为企业集成解决方案构建自动化 B2B 工作流
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/08/2016
-ms.date: 03/19/2018
+ms.date: 10/15/2018
 ms.author: v-yiso
-ms.openlocfilehash: eb30dcf7b32fb97bd2033a232ad1346ac125c8c3
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: e1a93d7d919380998690722ae4fabd3c54a2786b
+ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29870554"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47455145"
 ---
-# <a name="overview-b2b-scenarios-and-communication-with-the-enterprise-integration-pack"></a>概述：使用 Enterprise Integration Pack 实现 B2B 方案和通信
+# <a name="overview-b2b-enterprise-integration-scenarios-in-azure-logic-apps-with-enterprise-integration-pack"></a>概述：带有 Enterprise Integration Pack 的 Azure 逻辑应用中的 B2B 企业集成方案
 
 为了实现企业到企业 (B2B) 工作流和与 Azure 逻辑应用的无缝通信，可以使用 Microsoft 的基于云的解决方案（Enterprise Integration Pack）启用企业集成方案。 组织可以电子方式交换消息，即使它们使用不同的协议和格式，也是如此。 该包将不同的格式转换为组织的系统可以解释和处理的格式。 组织可以通过行业标准协议（包括 [AS2](../logic-apps/logic-apps-enterprise-integration-as2.md)、[X12](logic-apps-enterprise-integration-x12.md) 和 [EDIFACT](../logic-apps/logic-apps-enterprise-integration-edifact.md)）交换消息。 还可以使用加密和数字签名保护消息。
 
@@ -38,7 +38,7 @@ ms.locfileid: "29870554"
 
 ## <a name="how-to-get-started-with-enterprise-integration"></a>如何开始使用企业集成？
 
-可以通过 **Azure 门户**中的逻辑应用设计器来使用 Enterprise Integration Pack 构建和管理 B2B 应用。 还可以使用 [PowerShell](https://msdn.microsoft.com/library/azure/mt652195.aspx "逻辑应用 PowerShell 主题")来管理逻辑应用。
+可以通过 **Azure 门户**中的逻辑应用设计器来使用 Enterprise Integration Pack 构建和管理 B2B 应用。 还可以使用 [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.logicapp "逻辑应用 PowerShell") 来管理逻辑应用。
 
 以下是在 Azure 门户中创建应用前必须先执行的高级步骤：
 

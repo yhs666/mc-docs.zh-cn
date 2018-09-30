@@ -7,15 +7,15 @@ manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 origin.date: 07/26/2018
-ms.date: 08/23/2018
+ms.date: 09/25/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ae47fdaed1eb7f168e61e341875e40fffd4854c7
-ms.sourcegitcommit: 85cdb61361dc61147bac991d4907f454f0684ea0
+ms.openlocfilehash: ee195050dd0986790d017eb5db1983e62d1d5690
+ms.sourcegitcommit: a4d8c8641a6341113532d8770603d4b66cc13ced
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42709717"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47114528"
 ---
 # <a name="configure-azure-backup-reports"></a>配置 Azure 备份报表
 本文逐步介绍了如何使用恢复服务保管库配置 Azure 备份报表，以及如何使用 Power BI 访问这些报表。 执行这些步骤后，可直接转到 Power BI，以便查看所有报表、自定义和创建报表。 
@@ -27,7 +27,7 @@ ms.locfileid: "42709717"
 4. 在 Power BI 中，报表按计划每 24 小时刷新一次。 还可以在 Power BI 中临时刷新报表，这样客户存储帐户中的最新数据可用于呈现报表。 
 
 ## <a name="prerequisites"></a>先决条件
-1. 创建 [Azure 存储帐户](../storage/common/storage-create-storage-account.md#create-a-storage-account)，以便为报表配置此帐户。 此存储帐户用于存储报表的相关数据。
+1. 创建 [Azure 存储帐户](../storage/common/storage-quickstart-create-account.md)，以便为报表配置此帐户。 此存储帐户用于存储报表的相关数据。
 2. [创建 Power BI 帐户](https://powerbi.microsoft.com/landing/signin/)，以便可以使用 Power BI 门户查看、自定义并创建自己的报表。
 3. 向存储帐户订阅和恢复服务保管库订阅注册资源提供程序 Microsoft.insights（如果尚未注册的话），以便报表数据可以流向存储帐户。 同样，必须依次转到 Azure 门户 >“订阅”>“资源提供程序”，并找到此提供程序进行注册。 
 
@@ -156,4 +156,3 @@ ms.locfileid: "42709717"
 - [在 Power BI 中创建报表](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/)
 
 
-<!-- Update_Description: wording update -->

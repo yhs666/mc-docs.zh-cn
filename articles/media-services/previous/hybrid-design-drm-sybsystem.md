@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 媒体服务进行 DRM 子系统的混合设计 | Azure
+title: 使用 Azure 媒体服务进行 DRM 子系统的混合设计 | Microsoft Docs
 description: 本主题介绍如何使用 Azure 媒体服务进行 DRM 子系统的混合设计。
 services: media-services
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 07/17/2017
 ms.date: 05/28/2018
 ms.author: v-johch
-ms.openlocfilehash: cf31e5d39fbd96c23443b8a644c8a901803b5f6b
-ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
+ms.openlocfilehash: bc087a0208c202c1fd3808f03abb2c4af7e0641a
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39722991"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426452"
 ---
 # <a name="hybrid-design-of-drm-subsystems"></a>DRM 子系统的混合设计
 
@@ -106,24 +106,24 @@ DRM 支持包括 DRM 加密（动态加密）和许可证传送，其中的 Azur
 
 ### <a name="sample-1"></a>示例 1
 
-* 源（基）URL：https://willzhanmswest.streaming.mediaservices.chinacloudapi.cn/1efbd6bb-1e66-4e53-88c3-f7e5657a9bbd/RussianWaltz.ism/manifest 
-* PlayReady LA_URL（DASH 和平滑流式处理）：https://willzhanmswest.keydelivery.mediaservices.chinacloudapi.cn/PlayReady/ 
-* FairPlay LA_URL (HLS)：https://willzhanmswest.keydelivery.mediaservices.chinacloudapi.cn/FairPlay/?kid=ba7e8fb0-ee22-4291-9654-6222ac611bd8 
+* 源（基）URL： https://willzhanmswest.streaming.mediaservices.chinacloudapi.cn/1efbd6bb-1e66-4e53-88c3-f7e5657a9bbd/RussianWaltz.ism/manifest 
+* PlayReady LA_URL（DASH 和平滑流式处理）： https://willzhanmswest.keydelivery.mediaservices.chinacloudapi.cn/PlayReady/ 
+* FairPlay LA_URL (HLS)： https://willzhanmswest.keydelivery.mediaservices.chinacloudapi.cn/FairPlay/?kid=ba7e8fb0-ee22-4291-9654-6222ac611bd8 
 
 ### <a name="sample-2"></a>示例 2
 
-* 源（基）URL：http://willzhanmswest.streaming.mediaservices.chinacloudapi.cn/1a670626-4515-49ee-9e7f-cd50853e41d8/Microsoft_HoloLens_TransformYourWorld_816p23.ism/Manifest 
-* PlayReady LA_URL（DASH 和平滑流式处理）：http://willzhan12.chinacloudapp.cn/PlayReady/RightsManager.asmx 
+* 源（基）URL： http://willzhanmswest.streaming.mediaservices.chinacloudapi.cn/1a670626-4515-49ee-9e7f-cd50853e41d8/Microsoft_HoloLens_TransformYourWorld_816p23.ism/Manifest 
+* PlayReady LA_URL（DASH 和平滑流式处理）： http://willzhan12.chinacloudapp.cn/PlayReady/RightsManager.asmx 
 
 ### <a name="sample-3"></a>示例 3
 
-* 源 URL：https://willzhanmswest.streaming.mediaservices.chinacloudapi.cn/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500.ism/manifest 
-* PlayReady LA_URL（DASH 和平滑流式处理）：https://willzhanmswest.keydelivery.mediaservices.chinacloudapi.cn/PlayReady/ 
+* 源 URL： https://willzhanmswest.streaming.mediaservices.chinacloudapi.cn/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500.ism/manifest 
+* PlayReady LA_URL（DASH 和平滑流式处理）： https://willzhanmswest.keydelivery.mediaservices.chinacloudapi.cn/PlayReady/ 
 
 ### <a name="sample-4"></a>示例 4
 
-* 源 URL：https://willzhanmswest.streaming.mediaservices.chinacloudapi.cn/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500.ism/manifest 
-* PlayReady LA_URL（DASH 和平滑流式处理）：https://willzhan12.chinacloudapp.cn/playready/rightsmanager.asmx 
+* 源 URL： https://willzhanmswest.streaming.mediaservices.chinacloudapi.cn/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500.ism/manifest 
+* PlayReady LA_URL（DASH 和平滑流式处理）： https://willzhan12.chinacloudapp.cn/playready/rightsmanager.asmx 
 
 ## <a name="summary"></a>摘要
 

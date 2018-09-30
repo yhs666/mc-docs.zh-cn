@@ -1,31 +1,31 @@
 ---
 title: Azure 事件中心管理库 | Azure
-description: 管理 .NET 中的事件中心命名空间和实体
+description: 通过 .NET 管理事件中心命名空间和实体
 services: event-hubs
 author: rockboyfor
 manager: digimobile
 ms.service: event-hubs
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 06/13/2018
-ms.date: 09/17/2018
+origin.date: 08/13/2018
+ms.date: 09/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 5991a5337065e3e5cdffc675e1cdb381b1c7b5db
-ms.sourcegitcommit: 2700f127c3a8740a83fb70739c09bd266f0cc455
+ms.openlocfilehash: a12f46fb9cc48c2acd5d0bb9c3e7fa71a2ad5cc4
+ms.sourcegitcommit: 399060a8d46534abd370693f6282e7343b371634
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45586595"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47455595"
 ---
 # <a name="event-hubs-management-libraries"></a>事件中心管理库
 
-可以使用 Azure 事件中心管理库动态设置事件中心命名空间和实体。 这种动态性可以实现复杂的部署和消息传送方案，以便能够以编程方式确定要预配的实体。 这些库目前可用于 .NET。
+可以使用 Azure 事件中心管理库动态预配事件中心命名空间和实体。 这种动态性可以实现复杂的部署和消息传送方案，以便能够以编程方式确定要预配的实体。 这些库目前可用于 .NET。
 
-## <a name="supported-functionality"></a>支持的功能
+## <a name="supported-functionality"></a>受支持的功能
 
 * 创建、更新、删除命名空间
 * 事件中心创建、更新、删除
-* 使用者组创建、更新、删除
+* 资源组创建、更新、删除
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -35,11 +35,11 @@ ms.locfileid: "45586595"
 * [使用 Azure PowerShell 创建服务主体来访问资源](../azure-resource-manager/resource-group-authenticate-service-principal.md)
 * [使用 Azure CLI 创建服务主体来访问资源](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md)
 
-这些教程提供 `AppId`（客户端 ID）、`TenantId` 和 `ClientSecret`（身份验证密钥），这些都用于管理库进行的身份验证。 若要对资源组运行命令，必须拥有“所有者”权限。
+这些教程提供 `AppId`（客户端 ID）、`TenantId` 和 `ClientSecret`（身份验证密钥），这些都将用于管理库进行的身份验证。 若要对资源组运行命令，必须拥有“所有者”权限。
 
 ## <a name="programming-pattern"></a>编程模式
 
-操作任何事件中心资源的模式都遵循通用协议：
+所有事件中心资源的操纵模式都遵循常用协议：
 
 1. 使用 `Microsoft.IdentityModel.Clients.ActiveDirectory` 库从 AAD 获取令牌。
     ```csharp

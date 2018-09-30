@@ -17,16 +17,16 @@ origin.date: 05/14/2018
 ms.date: 06/13/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: a1ff9c6bb8119c51e32de6208738c1167219c4f6
-ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
+ms.openlocfilehash: 51d2f8230e85fa48781aa1dcc94230419ef200f2
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2018
-ms.locfileid: "35568488"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426312"
 ---
 # <a name="create-and-manage-vpn-gateway-with-the-azure-powershell-module"></a>使用 Azure PowerShell 模块创建和管理 VPN 网关
 
-Azure VPN 网关在客户本地与 Azure 之间提供跨界连接。 本教程介绍了基本的 Azure VPN 网关部署项目，例如创建和管理 VPN 网关。 你将学习如何执行以下操作：
+Azure VPN 网关在客户本地与 Azure 之间提供跨界连接。 本教程介绍了基本的 Azure VPN 网关部署项目，例如创建和管理 VPN 网关。 学习如何：
 
 > [!div class="checklist"]
 > * 创建 VPN 网关
@@ -86,9 +86,9 @@ $vnet   = New-AzureRmVirtualNetwork `
             -Subnet $fesub1,$besub1,$gwsub1
 ```
 
-## <a name="request-a-public-ip-address-for-the-vpn-gateway"></a>为 VPN 网关请求一个公共 IP 地址
+## <a name="request-a-public-ip-address-for-the-vpn-gateway"></a>为 VPN 网关请求一个公用 IP 地址
 
-Azure VPN 网关通过 Internet 与本地 VPN 设备进行通信来执行 IKE（Internet 密钥交换）协商并建立 IPsec 隧道。 使用 [New-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermpublicipaddress) 和 [New-AzureRmVirtualNetworkGatewayIpConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetworkgatewayipconfig) 创建一个公用 IP 地址并将其分配给 VPN 网关，如以下示例中所示：
+Azure VPN 网关通过 Internet 与本地 VPN 设备进行通信，执行 IKE（Internet 密钥交换）协商并建立 IPsec 隧道。 使用 [New-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermpublicipaddress) 和 [New-AzureRmVirtualNetworkGatewayIpConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetworkgatewayipconfig) 创建一个公用 IP 地址并将其分配给 VPN 网关，如以下示例中所示：
 
 > [!IMPORTANT]
 > 目前，只能为网关使用“动态”公用 IP 地址。 Azure VPN 网关不支持静态 IP 地址。
@@ -143,7 +143,7 @@ Reset-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gateway
 
 ## <a name="get-the-gateway-public-ip-address"></a>获取网关公用 IP 地址
 
-如果知道公用 IP 地址的名称，可使用 `Get-AzureRmPublicIpAddress` 来显示分配给网关的公用 IP 地址。
+如果知道公用 IP 地址的名称，可使用 [Get-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermpublicipaddress?view=azurermps-6.8.1) 来显示分配给网关的公用 IP 地址。
 
 ```azurepowershell
 $myGwIp = Get-AzureRmPublicIpAddress -Name $GwIP1 -ResourceGroup $RG1
@@ -152,7 +152,7 @@ $myGwIp.IpAddress
 
 ## <a name="delete-vpn-gateway"></a>删除 VPN 网关
 
-除了 VPN 网关之外，跨界和 VNet 到 VNet 连接的完整配置还需要多个资源类型。 在删除 VPN 网关本身之前，请删除与其关联的连接。 在删除网关后，可以删除网关的公用 IP 地址。 有关详细步骤，请参阅[删除 VPN 网关](vpn-gateway-delete-vnet-gateway-powershell.md)。
+除了 VPN 网关之外，跨界和 VNet 到 VNet 连接的完整配置还需要多种类型的资源。 在删除 VPN 网关本身之前，请删除与其关联的连接。 在删除网关后，可以删除网关的公用 IP 地址。 有关详细步骤，请参阅[删除 VPN 网关](vpn-gateway-delete-vnet-gateway-powershell.md)。
 
 如果网关是某个原型或概念验证部署的一部分，可以使用 [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup) 命令来删除资源组、VPN 网关和所有相关资源。
 
@@ -169,7 +169,7 @@ Remove-AzureRmResourceGroup -Name $RG1
 > * 调整 VPN 网关大小
 > * 重置 VPN 网关
 
-若要了解 S2S 连接、VNet 到 VNet 连接和 P2S 连接，请转到以下教程。
+转到以下教程来了解 S2S、VNet 到 VNet 和 P2S 连接。
 
 > [!div class="nextstepaction"]
 > * [创建 S2S 连接](vpn-gateway-tutorial-vpnconnection-powershell.md)

@@ -9,13 +9,13 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 03/13/2018
-ms.date: 08/20/2018
-ms.openlocfilehash: dbe20ccd24c7f2c9e0e99b62a53935d80e4872ae
-ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
+ms.date: 09/30/2018
+ms.openlocfilehash: f8eb812dbb2b5053ec15581382f46bfb825cab46
+ms.sourcegitcommit: 432984d85afe6f3da8f211bae0fa98a556785ee8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41705091"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47455381"
 ---
 # <a name="develop-stream-analytics-edge-jobs-using-visual-studio-tools"></a>使用 Visual Studio 工具开发流分析 Edge 作业
 
@@ -100,7 +100,7 @@ FROM EdgeInput
 
 1. 在将作业提交到 Azure 之前，必须连接到 Azure 订阅。 打开“服务器资源管理器”，右键单击“Azure”并选择“连接到 Azure 订阅”，然后登录到 Azure 订阅。 >   
 
-2. 若要将作业提交到 Azure，请导航到查询编辑器并选择“提交到 Azure”。  
+2. 若要将作业提交到 Azure，请导航到查询编辑器并选择 **提交到 Azure**。  
 
 3. 此时会打开一个弹出窗口，可在其中选择更新现有的或创建新的 Edge 作业。 更新现有作业时，会替换所有作业配置，在这种情况下，需要发布新作业。 选择“创建新的 Azure 流分析作业”，为作业输入类似于 **MyASAEdgeJob** 的名称，选择所需的**订阅**、**资源组**和**位置**，然后选择“提交”。
 
@@ -121,7 +121,9 @@ FROM EdgeInput
 <!-- Not Available on ## Next steps-->
 
 <!-- Not Aailable on * [More information on Azure Iot Edge](../iot-edge/about-iot-edge.md)-->
+
 <!-- Not Aailable on * [ASA on IoT Edge tutorial](../iot-edge/tutorial-deploy-stream-analytics.md)-->
+
 <!-- Not Aailable on * [Send feedback to the team using this survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u)-->
 
 <!-- Update_Description: wording update -->

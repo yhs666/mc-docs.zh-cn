@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 媒体分析检测动作 | Azure
+title: 使用 Azure 媒体分析检测动作 | Microsoft Docs
 description: Azure 媒体动作检测器媒体处理器 (MP) 可让你在冗长且平淡的视频中有效识别出你感兴趣的部分。
 services: media-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 12/09/2017
 ms.date: 12/25/2017
 ms.author: v-nany
-ms.openlocfilehash: b323aa80806c5beb0c85460520a9a5fb40aebb25
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+ms.openlocfilehash: 7598ec84d53b69bfbda160628332ee844126f985
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219552"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426441"
 ---
 # <a name="detect-motions-with-azure-media-analytics"></a>使用 Azure 媒体分析检测动作
 ## <a name="overview"></a>概述

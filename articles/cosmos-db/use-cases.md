@@ -8,14 +8,14 @@ ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 05/07/2017
-ms.date: 08/13/2018
+ms.date: 09/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: be91b1c32daab7178cb0d8efd08e80188357f2eb
-ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
+ms.openlocfilehash: de0d7ff9c57f0eaf1c519feb2253e1c8adf209f3
+ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41704509"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47201321"
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Azure Cosmos DB 常见用例
 本文概述了 Azure Cosmos DB 的几个常见用例。  本文中的建议可以作为使用 Cosmos DB 开发应用程序的一个起点。   
@@ -58,7 +58,7 @@ IoT 用例在引入、处理和存储数据方法方面通常具有相同的模�
 
 有关使用 Azure Cosmos DB、EventHubs 和 Storm 的 IoT 解决方案示例，请参阅 [GitHub 上的 hdinsight-storm-examples 存储库](https://github.com/hdinsight/hdinsight-storm-examples/)。
 
-<!-- URL is NOT correct on  [Create the Internet of Your Things](http://www.microsoft.com/zh-cn/server-cloud/internet-of-things.aspx) -->
+<!-- URL is NOT right on [Create the Internet of Your Things](https://www.microsoft.com/internet-of-things) -->
 
 ## <a name="retail-and-marketing"></a>零售和营销
 Azure Cosmos DB 广泛用于世纪互联旗下运行 Windows 应用商店和 XBox Live 的电子商务平台。 它还在零售业中用于存储目录数据，以及在订单处理管道中用于事件寻源。

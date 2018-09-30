@@ -10,12 +10,12 @@ origin.date: 05/08/2018
 ms.date: 09/10/2018
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 1e0c18ee438ca7283267a732522a64894794afa7
-ms.sourcegitcommit: 1b60848d25bbd897498958738644a4eb9cf3a302
+ms.openlocfilehash: 61a45231ea1c5ae29856964a38282efa4b18ed5e
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43731224"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426173"
 ---
 # <a name="credential-assets-in-azure-automation"></a>Azure 自动化中的凭据资产
 
@@ -81,7 +81,7 @@ ms.locfileid: "43731224"
 
 以下示例命令演示了如何创建新的自动化凭据。 首先创建了一个具有名称和密码的 PSCredential 对象，然后使用该对象创建凭据资产。 或者，可以使用 **Get-Credential** cmdlet，会提示键入名称和密码。
 
-```azurepowershell
+```powershell
 $user = "MyDomain\MyUser"
 $pw = ConvertTo-SecureString "PassWord!" -AsPlainText -Force
 $cred = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $user, $pw

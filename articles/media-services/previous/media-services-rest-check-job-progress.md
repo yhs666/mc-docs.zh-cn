@@ -1,5 +1,5 @@
 ---
-title: 如何使用 REST API 检查作业进度 | Azure
+title: 如何使用 REST API 检查作业进度 | Microsoft Docs
 description: 了解如何跟踪作业进度。
 services: media-services
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 12/07/2017
 ms.date: 05/07/2018
 ms.author: v-haiqya
-ms.openlocfilehash: 1ac0b15ba7d2ef5cdb55d68eeeb5dc466b4840f4
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+ms.openlocfilehash: df95363ff596580d6175d9d1b4896a8243793309
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219492"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426128"
 ---
 # <a name="how-to-check-job-progress"></a>如何：检查作业进度
 > [!div class="op_single_selector"]

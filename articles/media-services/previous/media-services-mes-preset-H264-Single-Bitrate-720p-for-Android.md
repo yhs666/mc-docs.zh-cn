@@ -1,5 +1,5 @@
 ---
-title: 适用于 Android 的 H264 单比特率 720p | Azure
+title: H264 单比特率 720p (Android) | Microsoft Docs
 description: 本主题概述“H264 单比特率 720p (Android)”任务预设。
 author: hayley244
 manager: digimobile
@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 07/20/2017
 ms.date: 09/04/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 12c02e58a22950adca209e1baa82bbbec1ae4ec2
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+ms.openlocfilehash: c3379185850518e729636a098854b2f39cc3ea4e
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219473"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426411"
 ---
 # <a name="h264-single-bitrate-720p-for-android"></a>适用于 Android 的 H264 单比特率 720p
 `Media Encoder Standard` 定义一组可在创建编码作业时使用的编码预设。 可以使用 `preset name` 指定编码媒体文件采用的格式。 也可以创建自己的 JSON 或基于 XML 的预设（使用 UTF-8 或 UTF-16 编码）。 然后，将自定义预设传递到编码器。 有关此 `Media Encoder Standard` 编码器支持的所有预设名称的列表，请参阅 [Media Encoder Standard 的任务预设](media-services-mes-presets-overview.md)。  

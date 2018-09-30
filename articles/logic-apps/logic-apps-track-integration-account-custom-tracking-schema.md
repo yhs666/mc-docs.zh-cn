@@ -1,9 +1,6 @@
 ---
-title: 用于 B2B 监视的自定义跟踪架构 - Azure 逻辑应用
-description: 创建自定义跟踪架构，用于通过 Azure 集成帐户中的事务监视 B2B 消息。
-author: padmavc
-manager: anneta
-editor: ''
+title: 用于 B2B 消息的自定义跟踪架构 - Azure 逻辑应用 | Microsoft Docs
+description: 为带有 Enterprise Integration Pack 的 Azure 逻辑应用创建用于监视集成帐户中的 B2B 消息的自定义跟踪架构
 services: logic-apps
 documentationcenter: ''
 ms.assetid: 433ae852-a833-44d3-a3c3-14cca33403a2
@@ -14,54 +11,53 @@ ms.devlang: na
 ms.topic: article
 origin.date: 01/27/2017
 ms.author: v-yiso
-ms.date: 04/30/2018
+ms.date: 10/15/2018
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4eef7296cffffacfc13592ed9b7ee41d0f9c0627
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: e3788cf69f300c8c87d28585d69ddc8131f61aa9
+ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782139"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47455200"
 ---
-# <a name="enable-tracking-to-monitor-your-complete-workflow-end-to-end"></a>启用跟踪，以便监视完整的端到端工作流
+# <a name="create-custom-tracking-schemas-that-monitor-end-to-end-workflows-in-azure-logic-apps"></a>创建用于监视 Azure 逻辑应用中的端到端工作流的自定义跟踪架构
+
 可以为企业到企业工作流的不同部分启用内置跟踪，例如跟踪 AS2 或 X12 消息。 当创建的工作流包含逻辑应用、BizTalk Server、SQL Server 或任何其他层时，用户可以启用自定义跟踪，以便从头至尾记录工作流的事件。 
 
-本主题提供的自定义代码可以用于逻辑应用外部的层。 
+本文提供的自定义代码可以用于逻辑应用外部的层。 
 
 ## <a name="custom-tracking-schema"></a>自定义跟踪架构
-````java
 
-        {
-            "sourceType": "",
-            "source": {
-
-            "workflow": {
-                "systemId": ""
-            },
-            "runInstance": {
-                "runId": ""
-            },
-            "operation": {
-                "operationName": "",
-                "repeatItemScopeName": "",
-                "repeatItemIndex": "",
-                "trackingId": "",
-                "correlationId": "",
-                "clientRequestId": ""
-                }
-            },
-            "events": [
-            {
-                "eventLevel": "",
-                "eventTime": "",
-                "recordType": "",
-                "record": {                
-                }
-            }
-         ]
+```json
+{
+   "sourceType": "",
+   "source": {
+      "workflow": {
+         "systemId": ""
+      },
+      "runInstance": {
+         "runId": ""
+      },
+      "operation": {
+         "operationName": "",
+         "repeatItemScopeName": "",
+         "repeatItemIndex": "",
+         "trackingId": "",
+         "correlationId": "",
+         "clientRequestId": ""
       }
-
-````
+   },
+   "events": [
+      {
+         "eventLevel": "",
+         "eventTime": "",
+         "recordType": "",
+         "record": {                
+         }
+      }
+   ]
+}
+```
 
 | 属性 | 类型 | 说明 |
 | --- | --- | --- |
@@ -79,6 +75,7 @@ ms.locfileid: "31782139"
 | EventTime |   | 事件的时间（UTC 格式 YYYY-MM-DDTHH:MM:SS.00000Z）。 （必需） |
 | recordType |   | 跟踪记录的类型。 允许的值为“自定义”。 （必需） |
 | record |   | 自定义记录类型。 允许的格式为 JToken。 （必需） |
+||||
 
 ## <a name="b2b-protocol-tracking-schemas"></a>B2B 协议跟踪架构
 有关 B2B 协议跟踪架构的信息，请参阅：

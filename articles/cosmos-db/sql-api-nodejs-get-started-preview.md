@@ -11,24 +11,25 @@ ms.component: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: tutorial
 origin.date: 07/30/2018
-ms.date: 09/03/2018
+ms.date: 09/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 2d9acac63660df7b681c783e4498666fa13a93aa
-ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
+ms.openlocfilehash: 87f8188e67c516a71bd4e5a27318d78970821be7
+ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43171477"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47201358"
 ---
 # <a name="nodejs-tutorial-create-a-nodejs-console-application-with-azure-cosmos-db-sql-api-and-javascript-sdk-20-preview"></a>Node.js 教程：使用 Azure Cosmos DB SQL API 和 JavaScript SDK 2.0（预览版）创建 Node.js 控制台应用程序
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
-> * [Node.js](sql-api-nodejs-get-started.md)
-> * [Node.js - v2.0 预览版](sql-api-nodejs-get-started-preview.md)
-> * [用于 MongoDB 的 Node.js](mongodb-samples.md)
 > * [Java](sql-api-java-get-started.md)
+> * [异步 Java](sql-api-async-java-get-started.md)
+> * [Node.js](sql-api-nodejs-get-started.md)
+> * [Node.js- v2](sql-api-nodejs-get-started-preview.md) 
+> 
 
 欢迎使用 Azure Cosmos DB JavaScript SDK 的 Node.js 教程！ 学习本教程后，将拥有一个可创建并查询 Azure Cosmos DB 资源的控制台应用程序。
 
@@ -916,5 +917,4 @@ node app.js
 [create-account]: create-sql-api-dotnet.md#create-account
 [keys]: media/sql-api-nodejs-get-started/node-js-tutorial-keys.png
 
-<!-- Update_Description: new articles on sql qpi nodejs get started preview -->
-<!--ms.date: 09/03/2018-->
+<!-- Update_Description: update link -->

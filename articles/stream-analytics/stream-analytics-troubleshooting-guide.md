@@ -9,13 +9,13 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 04/20/2017
-ms.date: 07/02/2018
-ms.openlocfilehash: b80f4262fd72d5f93b9c166187d6a114e8e95086
-ms.sourcegitcommit: 2cf6961f692f318ce7034e7b4d994ee51d902199
+ms.date: 09/30/2018
+ms.openlocfilehash: ce28461fcad1d0274aa79f14bbd867c0375501e4
+ms.sourcegitcommit: 432984d85afe6f3da8f211bae0fa98a556785ee8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36947654"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47455392"
 ---
 # <a name="troubleshooting-guide-for-azure-stream-analytics"></a>Azure 流分析故障排除指南
 
@@ -71,6 +71,7 @@ Azure 流分析故障排除可能看上去是一项复杂的工作。 与大量�
 
 8. 使用审核和诊断日志进行调试：
     - 使用[审核日志](../azure-resource-manager/resource-group-audit.md)，通过筛选来识别和调试错误。
+    
     <!-- Not Available [job diagnostic logs](stream-analytics-job-diagnostic-logs.md)-->
 
 9. 检查输出：
@@ -95,4 +96,4 @@ Azure 流分析故障排除可能看上去是一项复杂的工作。 与大量�
 * [Azure 流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure 流分析管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties -->

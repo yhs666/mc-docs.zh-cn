@@ -1,5 +1,5 @@
 ---
-title: 使用 REST 管理媒体服务实体 | Azure
+title: 使用 REST 管理媒体服务实体 | Microsoft Docs
 description: 了解如何使用 REST API 管理媒体服务实体。
 author: yunan2016
 manager: digimobile
@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 08/10/2017
 ms.date: 07/30/2018
 ms.author: v-nany
-ms.openlocfilehash: 4b771434a38f2b957dcbee2da49d0d060cf1c5e5
-ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
+ms.openlocfilehash: 276f1440a1abf132a4d3e10039ca4c3393d09073
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39722989"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426172"
 ---
 # <a name="managing-media-services-entities-with-rest"></a>使用 REST 管理媒体服务实体 
 > [!div class="op_single_selector"]

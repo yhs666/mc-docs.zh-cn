@@ -7,25 +7,25 @@ manager: digimobile
 ms.service: event-hubs
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 06/13/2018
-ms.date: 09/17/2018
+origin.date: 08/16/2018
+ms.date: 09/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: eb856487c554c4add473eab0bac3706ef5bd1620
-ms.sourcegitcommit: 2700f127c3a8740a83fb70739c09bd266f0cc455
+ms.openlocfilehash: 7966eccf53d6b3bd40561094181c5180f29322c4
+ms.sourcegitcommit: 399060a8d46534abd370693f6282e7343b371634
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45586580"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47455582"
 ---
 # <a name="event-hubs-net-framework-api-overview"></a>事件中心 .NET Framework API 概述
 
-本文汇总了一些重要的 Azure 事件中心 [.NET Framework 客户端 API](https://www.nuget.org/packages/WindowsAzure.ServiceBus/)。 有两个类别：管理 API 和运行时 API。 运行时 API 包括发送和接收消息所需的全部操作。 使用管理操作，可以通过创建、更新和删除实体来管理事件中心实体状态。
+本文汇总了一些重要的 Azure 事件中心 [.NET Framework 客户端 API](https://www.nuget.org/packages/WindowsAzure.ServiceBus/)。 有两个类别：管理 API 和运行时 API。 运行时 API 包括发送和接收消息所需的全部操作。 借助管理操作，可以通过创建、更新和删除实体来管理事件中心实体状态。
 
 [监视方案](event-hubs-metrics-azure-monitor.md)跨越管理和运行时。 有关 .NET API 的详细参考文档，请参阅 [.NET Framework](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicebus.messaging.eventhubclient?view=azure-dotnet)、[.NET Standard](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.eventhubs?view=azure-dotnet) 和 [EventProcessorHost API](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.eventhubs.processor?view=azure-dotnet) 参考。
 
 ## <a name="management-apis"></a>管理 API
 
-若要执行以下管理操作，必须对事件中心命名空间具有**管理**权限：
+若要执行以下管理操作，必须对事件中心命名空间具有 **管理** 权限：
 
 ### <a name="create"></a>创建
 
@@ -49,7 +49,7 @@ ehd.Authorization.Add(new SharedAccessAuthorizationRule(ruleName, ruleKey, new A
 await namespaceManager.UpdateEventHubAsync(ehd);
 ```
 
-### <a name="delete"></a>删除
+### <a name="delete"></a>Delete
 
 ```csharp
 await namespaceManager.DeleteEventHubAsync("event hub name");
@@ -187,4 +187,4 @@ public class SimpleEventProcessor : IEventProcessor
 * [Microsoft.ServiceBus.Messaging](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicebus.messaging?view=azure-dotnet)
 * [Microsoft.Azure.EventHubs.EventProcessorHost](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost?view=azure-dotnet)
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties -->

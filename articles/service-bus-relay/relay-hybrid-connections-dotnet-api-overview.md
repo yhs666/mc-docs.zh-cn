@@ -3,7 +3,7 @@ title: Azure 中继 .NET Standard API 概述
 description: Azure 中继 .NET Standard API 概述
 services: service-bus-relay
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: b1da9ac1-811b-4df7-a22c-ccd013405c40
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 01/23/2018
 ms.author: v-yiso
-ms.date: 03/12/2018
-ms.openlocfilehash: 4d4cd5a0dccb8542e74df1d6807f0d9946c396db
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.date: 10/15/2018
+ms.openlocfilehash: 9bb7bffb0f688decd5de5b6c75d5d15b1ab1d978
+ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
-ms.locfileid: "29731397"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47455146"
 ---
 # <a name="azure-relay-hybrid-connections-net-standard-api-overview"></a>Azure 中继混合连接 .NET 标准 API 概述
 
@@ -141,11 +141,7 @@ await textWriter.WriteLineAsync("hello");
 * [什么是 Azure 中继？](./relay-what-is-it.md)
 * [可用的中继 API](./relay-api-overview.md)
 
-[RelayConnectionStringBuilder]: https://docs.microsoft.com/dotnet/api/microsoft.azure.relay.relayconnectionstringbuilder
-[HCStream]: https://docs.microsoft.com/dotnet/api/microsoft.azure.relay.hybridconnectionstream
-[HCClient]: https://docs.microsoft.com/dotnet/api/microsoft.azure.relay.hybridconnectionclient
-[HCListener]: https://docs.microsoft.com/dotnet/api/microsoft.azure.relay.hybridconnectionlistener
-
-
-
-<!--Update_Description:update meta properties and wording-->
+[RelayConnectionStringBuilder]: /dotnet/api/microsoft.azure.relay.relayconnectionstringbuilder
+[HCStream]: /dotnet/api/microsoft.azure.relay.hybridconnectionstream
+[HCClient]: /dotnet/api/microsoft.azure.relay.hybridconnectionclient
+[HCListener]: /dotnet/api/microsoft.azure.relay.hybridconnectionlistener

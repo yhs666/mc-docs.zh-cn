@@ -1,5 +1,5 @@
 ---
-title: 媒体编码器高级工作流格式和编解码器 | Azure
+title: 媒体编码器高级工作流格式和编解码器 | Microsoft Docs
 description: 本主题概述媒体编码器高级工作流格式和编解码器
 services: media-services
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 08/09/2017
 ms.date: 06/25/2018
 ms.author: v-nany
-ms.openlocfilehash: ffcc4341c8e356edeaeb3d8ebd1e5de8e7674e52
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+ms.openlocfilehash: 84a04e5b43f38cf70b1906cbc48c2c74285b33ee
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219647"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426136"
 ---
 # <a name="media-encoder-premium-workflow-formats-and-codecs"></a>媒体编码器高级工作流格式和编解码器
 
@@ -122,5 +122,4 @@ ms.locfileid: "39219647"
 
 ## <a name="known-issues"></a>已知问题
 如果输入视频不包含隐藏式字幕，输出资产仍包含一个空的 TTML 文件。 
-
 

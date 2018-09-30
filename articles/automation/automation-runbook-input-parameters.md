@@ -2,21 +2,20 @@
 title: Runbook 输入参数
 description: Runbook 输入参数可让你将数据传递到启动的 Runbook，以增加 Runbook 的弹性。 本文介绍在 Runbook 中使用输入参数的不同方案。
 services: automation
-author: MGoedtel
-manager: jwhit
-editor: tysonn
 ms.service: automation
-ms.devlang: na
-ms.topic: article
+ms.component: process-automation
+author: WenJason
+ms.author: v-jay
 origin.date: 03/16/2018
-ms.date: 07/23/2018
-ms.author: v-dazen
-ms.openlocfilehash: eb332d1d313a66248deefa597538319d48c45365
-ms.sourcegitcommit: 2a147231bf3d0a693adf58fceee76ab0fbcd6dbb
+ms.date: 10/01/2018
+ms.topic: conceptual
+manager: digimobile
+ms.openlocfilehash: 516f8a0c93f068c01aa71bafeec0858b1e3bdcf2
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39335320"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426391"
 ---
 # <a name="runbook-input-parameters"></a>Runbook 输入参数
 
@@ -82,7 +81,7 @@ Param
 
 [使用 Azure 运行方式帐户进行 Runbook 身份验证](automation-create-runas-account.md)，以便与 Azure 进行身份验证。
 
-通过 [**Get-AzureRmVm**](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvm?view=azurermps-6.5.0) 获取虚拟机属性。
+通过 [**Get-AzureRmVm**](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvm) 获取虚拟机属性。
 
 可使用 [**Write-Output**](https://technet.microsoft.com/library/hh849921.aspx) 活动输出虚拟机的名称。 **Get-AzureRmVm** 活动接受两个参数：**虚拟机名称**和**资源组名称**。 由于这些参数在每次启动 Runbook 时可能需要不同的值，因此可以将输入参数添加到 Runbook。 以下是添加输入参数的步骤：
 
@@ -149,20 +148,20 @@ Runbook 有多种启动方式：通过 Azure 门户、Webhook、PowerShell cmdle
 
 #### <a name="start-a-published-runbook-by-using-powershell-cmdlets-and-assign-parameters"></a>使用 PowerShell cmdlet 启动已发布的 Runbook 并分配参数
 
-* **Azure 资源管理器 cmdlet**：可使用 [Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook?view=azurermps-6.5.0) 启动在资源组中创建的自动化 Runbook。
+* **Azure 资源管理器 cmdlet**：可使用 [Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook) 启动在资源组中创建的自动化 Runbook。
   
   **示例：**
   
-  ```
+  ```powershell
   $params = @{"VMName"="WSVMClassic";"resourceGroupeName"="WSVMClassicSG"}
   
   Start-AzureRmAutomationRunbook -AutomationAccountName "TestAutomation" -Name "Get-AzureVMGraphical" -ResourceGroupName $resourceGroupName -Parameters $params
   ```
-* **Azure 经典部署模型 cmdlet**：可以使用 [Start-AzureAutomationRunbook]() 启动在默认资源组中创建的自动化 Runbook。
+* **Azure 经典部署模型 cmdlet**：可以使用 [Start-AzureAutomationRunbook](https://docs.microsoft.com/powershell/module/servicemanagement/azure/start-azureautomationrunbook) 启动在默认资源组中创建的自动化 Runbook。
   
   **示例：**
   
-  ```
+  ```powershell
   $params = @{"VMName"="WSVMClassic"; "ServiceName"="WSVMClassicSG"}
   
   Start-AzureAutomationRunbook -AutomationAccountName "TestAutomation" -Name "Get-AzureVMGraphical" -Parameters $params
@@ -177,7 +176,7 @@ Runbook 有多种启动方式：通过 Azure 门户、Webhook、PowerShell cmdle
 
 * **Azure 资源管理器方法：** 可使用编程语言的 SDK 来启动 Runbook。 以下 C# 代码片段用于在自动化帐户中启动 Runbook。 可以在 [GitHub 存储库](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ResourceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs)中查看完整代码。  
   
-  ```
+  ```csharp
    public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
       {
         var response = AutomationClient.Jobs.Create(resourceGroupName, automationAccount, new JobCreateParameters
@@ -196,7 +195,7 @@ Runbook 有多种启动方式：通过 Azure 门户、Webhook、PowerShell cmdle
   ```
 * **Azure 经典部署模型方法：** 可使用编程语言的 SDK 启动 Runbook。 以下 C# 代码片段用于在自动化帐户中启动 Runbook。 可以在 [GitHub 存储库](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ServiceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs)中查看完整代码。
   
-  ```      
+  ```csharp
   public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
     {
       var response = AutomationClient.Jobs.Create(automationAccount, new JobCreateParameters
@@ -216,7 +215,7 @@ Runbook 有多种启动方式：通过 Azure 门户、Webhook、PowerShell cmdle
   
   若要启动此方法，请创建一个字典来存储 Runbook 参数（VMName 和 resourceGroupName）及其值。 然后启动 Runbook。 以下 C# 代码片段用于调用上面定义的方法。
   
-  ```
+  ```csharp
   IDictionary<string, string> RunbookParameters = new Dictionary<string, string>();
   
   // Add parameters to the dictionary.
@@ -246,7 +245,7 @@ Runbook 有多种启动方式：通过 Azure 门户、Webhook、PowerShell cmdle
 
 若要启动之前以 VMName 和 resourceGroupName 作为参数创建的 Get-AzureVMTextual Runbook，请使用以下 JSON 格式的请求正文。
 
-   ```
+   ```json
     {
       "properties":{
         "runbook":{

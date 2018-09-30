@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: site-recovery
 ms.topic: conceptual
 origin.date: 07/22/2018
-ms.date: 09/17/2018
+ms.date: 09/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: 37aef899f4ee3479f1342e2421009b1d50f39082
-ms.sourcegitcommit: 96d06c506983906a92ff90a5f67199f8f7e10996
+ms.openlocfilehash: f2db8487dc4a35d86dadf9168a2221b243249cd1
+ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45586856"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47201314"
 ---
 # <a name="protect-sql-server-using-sql-server-disaster-recovery-and-azure-site-recovery"></a>使用 SQL Server 灾难恢复和 Azure Site Recovery 来保护 SQL Server
 
@@ -23,7 +23,7 @@ ms.locfileid: "45586856"
 
 ## <a name="sql-server-deployments"></a>SQL Server 部署
 
-许多工作负载使用 SQL Server 作为基础。可将 SQL Server 与 SharePoint、Dynamics 和 SAP 等应用集成来实现数据服务。  可通过多种方式部署 SQL Server：
+许多工作负荷使用 SQL Server 作为基础。可将 SQL Server 与 SharePoint、Dynamics 和 SAP 等应用集成来实现数据服务。  可通过多种方式部署 SQL Server：
 
 * **独立 SQL Server**：SQL Server 和所有数据库都托管在一台计算机（物理或虚拟）上。 虚拟化时，主机群集用于本地高可用性。 不会实现来宾级别的高可用性。
 * **SQL Server 故障转移群集实例 (Always On FCI)**：在一个 Windows 故障转移群集中配置两个或更多个运行带共享磁盘的 SQL Server 实例的节点。 如果某个节点关闭，群集可将 SQL Server 故障转移到其他实例。 此设置通常用于在主站点上实现高可用性。 此部署不能防止共享存储层中出现故障或中断。 共享磁盘可以使用 iSCSI、光纤通道或共享 vhdx 来实现。
@@ -44,7 +44,7 @@ Site Recovery 可以保护下表中汇总的 SQL Server。
 **Hyper-V** | 是 | 是
 **VMware** | 是 | 是
 **物理服务器** | 是 | 是
-**Azure**|NA| 是
+**Azure**|不可用| 是
 
 ### <a name="supported-sql-server-versions"></a>支持的 SQL Server 版本
 支持的方案支持以下 SQL Server 版本：
@@ -60,9 +60,9 @@ Site Recovery 可与表中汇总的本机 SQL Server BCDR 技术集成，以提�
 
 **功能** | **详细信息** | **SQL Server** |
 --- | --- | ---
-**Always On 可用性组** | SQL Server 的多个独立实例，每个实例在包含多个节点的故障转移群集中运行。<br/><br/>数据库可以分组到可在 SQL Server 实例上复制（镜像）的故障转移组，因此不需要任何共享存储。<br/><br/>在主站点与一个或多个辅助站点之间提供灾难恢复。 使用同步复制与自动故障转移在可用性组中配置 SQL Server 数据库时，可以在不共享任何内容的群集中设置两个节点。 | SQL Server 2016、SQL Server 2014 和 SQL Server 2012 Enterprise Edition
-**故障转移群集 (Always On FCI)** | SQL Server 利用 Windows 故障转移群集实现本地 SQL Server 工作负载的高可用性。<br/><br/>使用共享磁盘运行 SQL Server 实例的节点是在故障转移群集中配置的。 如果实例关闭，群集将故障转移到另一个节点。<br/><br/>群集无法防止共享存储的故障或中断。 共享磁盘可以使用 iSCSI、光纤通道或共享 VHDX 来实现。 | SQL Server Enterprise 版本<br/><br/>SQL Server Standard 版本（仅限两个节点）
-**数据库镜像（高安全性模式）** | 在单个辅助副本中保护单个数据库。 提供高安全性（同步）和高性能（异步）复制模式。 不需要故障转移群集。 | SQL Server 2008 R2<br/><br/>SQL Server Enterprise 的所有版本
+**Always On 可用性组** | SQL Server 的多个独立实例，每个实例在包含多个节点的故障转移群集中运行。<br/><br/>数据库可以分组到可在 SQL Server 实例上复制（镜像）的故障转移组，因此不需要任何共享存储。<br/><br/>在主站点与一个或多个辅助站点之间提供灾难恢复。 使用同步复制与自动故障转移在可用性组中配置了 SQL Server 数据库时，可以在不共享任何内容的群集中设置两个节点。 | SQL Server 2016、SQL Server 2014 和 SQL Server 2012 Enterprise Edition
+**故障转移群集 (Always On FCI)** | SQL Server 利用 Windows 故障转移群集实现本地 SQL Server 工作负载的高可用性。<br/><br/>在故障转移群集中配置了使用共享磁盘运行 SQL Server 实例的节点。 如果实例关闭，群集将故障转移到另一个节点。<br/><br/>群集无法防止共享存储的故障或中断。 共享磁盘可以使用 iSCSI、光纤通道或共享 VHDX 来实现。 | SQL Server Enterprise 版本<br/><br/>SQL Server Standard 版本（仅限两个节点）
+**数据库镜像（高安全性模式）** | 在单个辅助副本中保护单个数据库。 提供高安全性（同步）和高性能（异步）两种复制模式。 不需要故障转移群集。 | SQL Server 2008 R2<br/><br/>SQL Server Enterprise 的所有版本
 **独立 SQL Server** | SQL Server 和数据库托管在单个服务器（物理或虚拟）上。 如果是虚拟服务器，则主机群集用于高可用性。 没有来宾级别的高可用性。 | Enterprise 或 Standard 版本
 
 ## <a name="deployment-recommendations"></a>部署建议
@@ -74,33 +74,32 @@ Site Recovery 可与表中汇总的本机 SQL Server BCDR 技术集成，以提�
 | SQL Server 2016、2014 或 2012 |Enterprise |故障转移群集实例 |Always On 可用性组 |Always On 可用性组 |
 || Enterprise |用于实现高可用性的 Always On 可用性组 |Always On 可用性组 |Always On 可用性组 | |
 || 标准 |故障转移群集实例 (FCI) |使用本地镜像进行 Site Recovery 复制 |使用本地镜像进行 Site Recovery 复制 | |
-|| Enterprise 或 Standard |独立 |站点恢复复制 |站点恢复复制 | |
+|| Enterprise 或 Standard |独立 |Site Recovery 复制 |Site Recovery 复制 | |
 | SQL Server 2008 R2 或 2008 |Enterprise 或 Standard |故障转移群集实例 (FCI) |使用本地镜像进行 Site Recovery 复制 |使用本地镜像进行 Site Recovery 复制 |
-|| Enterprise 或 Standard |独立 |站点恢复复制 |站点恢复复制 | |
-| SQL Server（任何版本） |Enterprise 或 Standard |故障转移群集实例 - DTC 应用程序 |站点恢复复制 |不支持 |
+|| Enterprise 或 Standard |独立 |Site Recovery 复制 |Site Recovery 复制 | |
+| SQL Server（任何版本） |Enterprise 或 Standard |故障转移群集实例：DTC 应用程序 |Site Recovery 复制 |不支持 |
 
 ## <a name="deployment-prerequisites"></a>部署先决条件
 
 * 运行受支持 SQL Server 版本的本地 SQL Server 部署。 通常还需要为 SQL Server 安装 Active Directory。
 * 要部署的方案所要满足的要求。 详细了解有关[复制到 Azure](site-recovery-support-matrix-to-azure.md) 和[本地](site-recovery-support-matrix.md)的支持要求以及[部署先决条件](site-recovery-prereq.md)。
-* 若要在 Azure 中设置恢复，请在 SQL Server 虚拟机上运行 [Azure 虚拟机准备情况评估](http://www.microsoft.com/download/details.aspx?id=40898)工具，确保虚拟机与 Azure 和 Site Recovery 兼容。
 
 ## <a name="set-up-active-directory"></a>设置 Active Directory
 
 在辅助恢复站点上安装 Active Directory，使 SQL Server 能够正常运行。
 
 * **小型企业** - 如果使用少量的应用程序和适用于本地站点的单个域控制器，并且想要故障转移整个站点，我们建议使用 Site Recovery 复制将域控制器复制到辅助数据中心或 Azure。
-* **中大型企业** - 如果使用大量的应用程序和 Active Directory 林，并且想要按应用程序或工作负荷进行故障转移，我们建议在辅助数据中心或 Azure 中设置附加的域控制器。 如果使用 Always On 可用性组恢复到远程站点，我们建议在辅助站点或 Azure 上配置另一个域控制器，供已恢复 SQL Server 实例使用。
+* **中大型企业**：如果使用大量的应用程序和 Active Directory 林，并且需要按应用程序或工作负荷进行故障转移，则建议在辅助数据中心或 Azure 中设置附加的域控制器。 如果使用 Always On 可用性组恢复到远程站点，我们建议在辅助站点或 Azure 中配置另一个域控制器，供已恢复的 SQL Server 实例使用。
 
-本文中的说明假设辅助位置提供了域控制器。 [详细了解](site-recovery-active-directory.md)如何使用 Site Recovery 保护 Active Directory。
+本文中的说明假设辅助位置中提供了域控制器。 [详细了解](site-recovery-active-directory.md)如何使用 Site Recovery 保护 Active Directory。
 
 ## <a name="integrate-with-sql-server-always-on-for-replication-to-azure"></a>与 SQL Server Always On 集成以便复制到 Azure
 
-下面是需要执行的操作：
+需执行的操作如下：
 
 1. 将脚本导入到 Azure 自动化帐户中。 这包括用于在 [Resource Manager 虚拟机](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/asr-automation-recovery/scripts/ASR-SQL-FailoverAG.ps1)和[经典虚拟机](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/asr-automation-recovery/scripts/ASR-SQL-FailoverAGClassic.ps1)中对 SQL 可用性组进行故障转移的脚本。
 
-    [![部署到 Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
+    [![“部署到 Azure”](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
 1. 将 ASR-SQL-FailoverAG 添加为恢复计划的第一个组的准备操作。
 
@@ -110,9 +109,9 @@ Site Recovery 可与表中汇总的本机 SQL Server BCDR 技术集成，以提�
 
 SQL Always On 无法原生支持测试性故障转移。 因此，我们建议：
 
-1. 在虚拟机上设置 [Azure 备份](../backup/backup-azure-arm-vms.md)，该虚拟机在 Azure 中托管可用性组副本。
+1. 在 Azure 中托管着可用性组副本的虚拟机上设置 [Azure 备份](../backup/backup-azure-arm-vms.md)。
 
-1. 触发对恢复计划进行测试性故障转移之前，请从上一步骤中进行的备份恢复虚拟机。
+1. 触发对恢复计划进行测试故障转移之前，请从上一步骤中进行的备份恢复虚拟机。
 
     ![从 Azure 备份进行还原 ](./media/site-recovery-sql/restore-from-backup.png)
 
@@ -120,21 +119,21 @@ SQL Always On 无法原生支持测试性故障转移。 因此，我们建议�
 
 1. 将侦听程序的 IP 更新为测试故障转移网络中可用的某个 IP。
 
-    ![更新侦听器 IP](./media/site-recovery-sql/update-listener-ip.png)
+    ![更新侦听程序 IP](./media/site-recovery-sql/update-listener-ip.png)
 
-1. 使侦听器联机。
+1. 使侦听程序联机。
 
-    ![使侦听器联机](./media/site-recovery-sql/bring-listener-online.png)
+    ![使侦听程序联机](./media/site-recovery-sql/bring-listener-online.png)
 
-1. 使用在前端 IP 池下创建的与每个可用性组侦听器对应的一个 IP 与在后端池中添加的 SQL 虚拟机创建一个负载均衡器。
+1. 使用在前端 IP 池下创建的与每个可用性组侦听程序对应的一个 IP 与在后端池中添加的 SQL 虚拟机创建一个负载均衡器。
 
      ![创建负载均衡器 - 前端 IP 池 ](./media/site-recovery-sql/create-load-balancer1.png)
 
     ![创建负载均衡器 - 后端池 ](./media/site-recovery-sql/create-load-balancer2.png)
 
-1. 对恢复计划进行测试性故障转移。
+1. 对恢复计划进行测试故障转移。
 
-### <a name="steps-to-do-a-failover"></a>用于执行故障转移的步骤
+### <a name="steps-to-do-a-failover"></a>执行故障转移的步骤
 
 在恢复计划中添加脚本并通过执行测试故障转移对恢复计划进行验证后，可以执行恢复计划的故障转移。
 
@@ -165,11 +164,11 @@ SQL Always On 无法原生支持测试性故障转移。 因此，我们建议�
 
 ## <a name="protect-a-standalone-sql-server"></a>保护独立 SQL Server
 
-在此方案中，建议使用 Site Recovery 复制保护 SQL Server 计算机。 确切步骤取决于 SQL Server 是 VM 还是物理服务器，以及是要复制到 Azure 还是辅助本地站点。 了解 [Site Recovery 方案](site-recovery-overview.md)。
+在此方案中，建议使用 Site Recovery 复制来保护 SQL Server 计算机。 确切步骤取决于 SQL Server 是 VM 还是物理服务器，以及是要复制到 Azure 还是辅助本地站点。 了解 [Site Recovery 方案](site-recovery-overview.md)。
 
 ## <a name="protect-a-sql-server-cluster-standard-editionwindows-server-2008-r2"></a>保护 SQL Server 群集 (Standard Edition/Windows Server 2008 R2)
 
-对于运行 SQL Server Standard 版本或 SQL Server 2008 R2 的群集，建议使用 Site Recovery 复制来保护 SQL Server。
+对于运行 SQL Server Standard Edition 或 SQL Server 2008 R2 的群集，建议使用 Site Recovery 复制来保护 SQL Server。
 
 ### <a name="on-premises-to-on-premises"></a>本地到本地
 
@@ -178,10 +177,10 @@ SQL Always On 无法原生支持测试性故障转移。 因此，我们建议�
 
 ### <a name="on-premises-to-azure"></a>本地到 Azure
 
-复制到 Azure 时，Site Recovery 未提供来宾群集。 SQL Server 也不会为 Standard 版本提供低成本灾难恢复解决方案。 在此方案中，建议在独立 SQL Server 中保护本地 SQL Server，并在 Azure 中恢复它。
+复制到 Azure 时，Site Recovery 不支持来宾群集。 SQL Server 也不会为 Standard 版本提供低成本灾难恢复解决方案。 在此方案中，建议在独立 SQL Server 中保护本地 SQL Server 群集，并在 Azure 中恢复它。
 
 1. 在本地站点中配置其他独立 SQL Server 实例。
-1. 将此实例配置为想要保护的数据库的镜像。 在高安全模式下配置镜像。
+1. 将此实例配置为需要保护的数据库的镜像。 在高安全模式下配置镜像。
 1. 在本地站点上为 [Hyper-V](site-recovery-hyper-v-site-to-azure.md) 或 [VMware VM/物理服务器](site-recovery-vmware-to-azure-classic.md)配置 Site Recovery。
 1. 使用 Site Recovery 复制将新的 SQL Server 实例复制到 Azure。 由于该实例是高安全性镜像副本，因此会将它与主群集同步，但会使用 Site Recovery 复制将它复制到 Azure。
 
@@ -189,7 +188,7 @@ SQL Always On 无法原生支持测试性故障转移。 因此，我们建议�
 
 ### <a name="failback-considerations"></a>故障回复注意事项
 
-对于 SQL Server Standard 群集，计划外故障转移后的故障回复需要从镜像实例 SQL Server 备份并还原到原始群集，并重新建立镜像。
+对于 SQL Server Standard 群集，未计划的故障转移后的故障回复需要从镜像实例 SQL Server 备份并还原到原始群集，并重新建立镜像。
 
 ## <a name="next-steps"></a>后续步骤
 [详细了解](site-recovery-components.md) Site Recovery 体系结构。

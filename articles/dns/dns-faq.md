@@ -1,9 +1,9 @@
 ---
-title: Azure DNS 常见问题解答 | Azure
+title: Azure DNS 常见问题解答 | Microsoft 文档
 description: 有关 Azure DNS 的常见问题
 services: dns
 documentationcenter: na
-author: yunan2016
+author: WenJason
 manager: digimobile
 editor: ''
 ms.service: dns
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 11/06/2017
-ms.date: 05/21/2018
-ms.author: v-nany
-ms.openlocfilehash: 469be2c94971cf360cc3cdfdfcfed5a6dac7b401
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.date: 10/01/2018
+ms.author: v-jay
+ms.openlocfilehash: 393c60ce6a92754ba33e479ba01744b2021d8008
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39167957"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426459"
 ---
 # <a name="azure-dns-faq"></a>Azure DNS 常见问题解答
 

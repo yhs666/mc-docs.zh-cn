@@ -1,6 +1,6 @@
 ---
-title: 通过添加编码单元缩放媒体处理 - Azure | Azure
-description: 了解如何使用 .NET 添加编码单位
+title: 通过添加编码单元缩放媒体处理 - Azure |  Microsoft Docs
+description: 了解如何使用 .NET 添加编码单元
 services: media-services
 documentationcenter: ''
 author: yunan2016
@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 12/16/2017
 ms.date: 12/25/2017
 ms.author: v-nany
-ms.openlocfilehash: 724bf4401099d7f643c43c89b21c9c548d170347
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+ms.openlocfilehash: 66f59c5937eca3876b9b09025928469c2ce28ebc
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219722"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426316"
 ---
 # <a name="how-to-scale-encoding-with-net-sdk"></a>如何使用 .NET SDK 缩放编码
 > [!div class="op_single_selector"]

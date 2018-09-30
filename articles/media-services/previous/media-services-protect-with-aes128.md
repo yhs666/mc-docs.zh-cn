@@ -1,5 +1,5 @@
 ---
-title: 使用 AES-128 动态加密和密钥传递服务 | Azure
+title: 使用 AES-128 动态加密和密钥传送服务 | Microsoft Docs
 description: 借助 Azure 媒体服务，可以传送使用 AES 128 位加密密钥加密的内容。 媒体服务还提供密钥传送服务，将加密密钥传送给已授权的用户。 本主题说明如何使用 AES-128 动态加密以及如何使用密钥传送服务。
 services: media-services
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 08/25/2017
 ms.date: 12/22/2017
 ms.author: v-nany
-ms.openlocfilehash: aff62bcb44cc3cb7718a44c9ed115f5e953f7d7c
-ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
+ms.openlocfilehash: d3f727f70330fe320896f5eeae4e1df254cf38b8
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39723060"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426464"
 ---
 # <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>使用 AES-128 动态加密和密钥传递服务
 > [!div class="op_single_selector"]
@@ -174,7 +174,7 @@ ms.locfileid: "39723060"
     QualityLevels(842459)/Manifest(video,format=m3u8-aapl)
     …
 
-如果在文本编辑器中打开某个段文件（例如，http://test001.origin.mediaservices.chinacloudapi.cn/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/QualityLevels(514369)/Manifest(video，格式 =m3u8-aapl），它包含 #EXT-X-KEY，指示该文件已加密。
+如果在文本编辑器中打开某个段文件（例如， http://test001.origin.mediaservices.chinacloudapi.cn/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/QualityLevels(514369)/Manifest(video，格式 =m3u8-aapl），它包含 #EXT-X-KEY，指示该文件已加密。
 
     #EXTM3U
     #EXT-X-VERSION:4

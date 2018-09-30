@@ -1,6 +1,6 @@
 ---
-title: 创建 B2B 解决方案 - Azure 逻辑应用
-description: 使用 Enterprise Integration Pack 中的 B2B 功能在逻辑应用中接收数据
+title: 创建 B2B 企业集成 - Azure 逻辑应用 | Microsoft Docs
+description: 在带有 Enterprise Integration Pack 的 Azure 逻辑应用中接收 B2B 数据
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/08/2016
-ms.date: 03/19/2018
+ms.date: 10/15/2018
 ms.author: v-yiso
-ms.openlocfilehash: 7105845e6ab819abbd1de0cf8a5d85495a077480
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: b7f8149e2291a40c253444619e7cc67f445aa96a
+ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29870550"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47455127"
 ---
-# <a name="receive-data-in-logic-apps-with-the-b2b-features-in-the-enterprise-integration-pack"></a>使用 Enterprise Integration Pack 中的 B2B 功能在逻辑应用中接收数据
+# <a name="receive-b2b-data-with-azure-logic-apps-and-enterprise-integration-pack"></a>使用 Azure 逻辑应用和 Enterprise Integration Pack 接收 B2B 数据
 
 创建具有合作伙伴和协议的集成帐户后，便可以使用 [Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md) 为逻辑应用创建企业到企业 (B2B) 工作流。
 

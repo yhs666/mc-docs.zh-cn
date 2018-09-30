@@ -13,15 +13,15 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 08/15/2018
-ms.date: 09/10/2018
+ms.date: 09/24/2018
 ms.author: v-yeche
 ms.custom: ''
-ms.openlocfilehash: 5a085cb87cee09e58f137e07bfafaf0ef3233005
-ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
+ms.openlocfilehash: c9a515d368b64cdf51abc7f6b2706861bd2f50c9
+ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44515696"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47201443"
 ---
 # <a name="virtual-network-service-endpoints"></a>虚拟网络服务终结点
 

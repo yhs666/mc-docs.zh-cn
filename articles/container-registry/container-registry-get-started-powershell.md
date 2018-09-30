@@ -7,19 +7,19 @@ manager: digimobile
 ms.service: container-registry
 ms.topic: quickstart
 origin.date: 05/08/2018
-ms.date: 07/02/2018
+ms.date: 09/30/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 42f0395ea3a4fbbac8c90a69356029a45960d954
-ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
+ms.openlocfilehash: e8f8a01755f088093254fd2577db4ce982daf773
+ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41705174"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47201291"
 ---
 # <a name="quickstart-create-an-azure-container-registry-using-powershell"></a>教程：使用 PowerShell 创建 Azure 容器注册表
 
-Azure 容器注册表是托管的专用 Docker 容器注册表服务，用于生成、存储和提供 Docker 容器映像。 本快速入门介绍如何使用 PowerShell 创建 Azure 容器注册表。 创建注册表以后，向其推送容器映像。 
+Azure 容器注册表是托管的专用 Docker 容器注册表服务，用于生成、存储和提供 Docker 容器映像。 本快速入门介绍如何使用 PowerShell 创建 Azure 容器注册表。 创建注册表以后，向其推送容器映像。
 <!-- Not Available on  then deploy the container from your registry into Azure Container Instances (ACI)-->
 
 ## <a name="prerequisites"></a>先决条件
@@ -169,13 +169,10 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 [Get-AzureRmContainerRegistryCredential]: https://docs.microsoft.com/powershell/module/azurerm.containerregistry/get-azurermcontainerregistrycredential
 [Get-Module]: https://docs.microsoft.com/powershell/module/microsoft.powershell.core/get-module
 [New-AzureRmContainerGroup]: https://docs.microsoft.com/powershell/module/azurerm.containerinstance/new-azurermcontainergroup
-[New-AzureRMContainerRegistry]: https://docs.microsoft.com/en-us/powershell/module/azurerm.containerregistry/new-azurermcontainerregistry
-<!--URL is correct on module/azurerm.containerregistry-->
+[New-AzureRMContainerRegistry]: https://docs.microsoft.com/powershell/module/azurerm.containerregistry/New-AzureRMContainerRegistry
 [New-AzureRmResourceGroup]: https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup
 [Remove-AzureRmResourceGroup]: https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup
-<
 
 <!-- IMAGES> -->
 [qs-psh-01-running-app]: ./media/container-registry-get-started-powershell/qs-psh-01-running-app.png
-<!-- Update_Description: new article on container registry get started powershell -->
-<!--ms.date: 07/02/2018-->
+<!-- Update_Description: wording update -->

@@ -1,5 +1,5 @@
 ---
-title: Hyperlapse 媒体文件与 Azure Media Hyperlapse | Azure
+title: Hyperlapse 媒体文件与 Azure Media Hyperlapse | Microsoft Docs
 description: Azure Media Hyperlapse 可以使用第一人称视角或运动相机内容创建流畅缩时视频。 本主题说明如何使用媒体索引器。
 services: media-services
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 03/28/2018
 ms.date: 05/07/2018
 ms.author: v-johch
-ms.openlocfilehash: b7b6c4d7758806e379bcb7959f0f7b25fcebf8b2
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+ms.openlocfilehash: 666b829698c91af52001fa4f5fd8910b3beb9b7b
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219472"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426424"
 ---
 # <a name="hyperlapse-media-files-with-azure-media-hyperlapse"></a>Hyperlapse 媒体文件与 Azure Media Hyperlapse
 Azure Media Hyperlapse 是可以使用第一人称视角或运动相机内容创建流畅缩时视频的媒体处理器 (MP)。  Azure 媒体服务的基于云的 Microsoft Hyperlapse 与 [Microsoft Research 的桌面 Hyperlapse Pro 和手机版 Hyperlapse Mobile](http://aka.ms/hyperlapse) 相似，它运用大规模的 Azure 媒体服务媒体处理平台来实现水平缩放，以及并行化批量 Hyperlapse 处理。

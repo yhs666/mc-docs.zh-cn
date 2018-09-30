@@ -1,12 +1,11 @@
 ---
-title: 使用 Microsoft PlayReady 或 Apple FairPlay 保护 HLS 内容 - Azure | Azure
-description: 本主题概括介绍并演示了如何使用 Azure 媒体服务通过 Apple FairPlay 动态加密 HTTP Live Streaming (HLS) 内容。 它还演示了如何使用媒体服务许可证传送服务将 FairPlay 许可证传送到客户端。
+title: 使用 Microsoft PlayReady 或 Apple FairPlay 保护 HLS 内容 | Microsoft 文档
+description: 本主题概括介绍并演示了如何使用 Azure 媒体服务通过 Apple FairPlay 动态加密 HTTP 实时传送视频流 (HLS) 内容。 它还演示了如何使用媒体服务许可证传送服务将 FairPlay 许可证传送到客户端。
 services: media-services
 documentationcenter: ''
 author: yunan2016
 manager: digimobile
 editor: ''
-ms.assetid: 7c3b35d9-1269-4c83-8c91-490ae65b0817
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -15,12 +14,12 @@ ms.topic: article
 origin.date: 12/09/2017
 ms.date: 12/11/2017
 ms.author: v-nany
-ms.openlocfilehash: 56364049c35b86aa2724d91a7703349e100bcf58
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+ms.openlocfilehash: 3065ecf6be45fff6ae5226660b80eac0b01b81e8
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219510"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426372"
 ---
 # <a name="protect-your-hls-content-with-apple-fairplay-or-microsoft-playready"></a>使用 Apple FairPlay 或 Microsoft PlayReady 保护 HLS 内容
 使用 Azure 媒体服务，可使用以下格式动态加密 HTTP Live Streaming (HLS) 内容：  

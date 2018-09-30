@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 门户管理流式处理终结点 | Azure
+title: 使用 Azure 门户管理流式处理终结点 | Microsoft Docs
 description: 本主题说明如何使用 Azure 门户管理流式处理终结点。
 services: media-services
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.topic: article
 origin.date: 09/10/2017
 ms.date: 1/22/2018
 ms.author: v-johch
-ms.openlocfilehash: 8d271987ed1401adac9dba22dd6125d43686b352
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+ms.openlocfilehash: 21d637da724a166cf826a9a0b83af9ba04c4fb31
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219537"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426478"
 ---
 # <a name="manage-streaming-endpoints-with-the-azure-portal"></a>使用 Azure 门户管理流式处理终结点
 

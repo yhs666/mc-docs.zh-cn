@@ -9,13 +9,13 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 06/22/2017
-ms.date: 07/02/2018
-ms.openlocfilehash: f7c10d0ad2d642a1654142da153b17fb196b45dd
-ms.sourcegitcommit: 2cf6961f692f318ce7034e7b4d994ee51d902199
+ms.date: 09/30/2018
+ms.openlocfilehash: cbdcc16c9b5d2a835988dc327a1208b58e5016d0
+ms.sourcegitcommit: 432984d85afe6f3da8f211bae0fa98a556785ee8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36947655"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47455382"
 ---
 # <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>扩展 Azure 流分析作业以增加吞吐量
 本文介绍如何优化流分析查询，增加流分析作业的吞吐量。 可以使用以下指南来扩展作业，以便处理较高负载并充分利用更多的系统资源（如更多带宽、更多 CPU 资源、更多内存）。
@@ -28,7 +28,9 @@ ms.locfileid: "36947655"
 如果在各个输入分区中，查询本质上是完全可并行的，则可以按照以下步骤操作：
 1.  通过使用 PARTITION BY 关键字来创作查询使之易并行。 请参阅[此页](stream-analytics-parallelization.md)易并行作业部分中的更多详细信息。
 2.  根据查询中使用的输出类型，某些输出可能是不可并行的，或者需要进一步配置来实现易并行。 例如，SQL 和 SQL DW 输出是不可并行的。 请始终先合并输出，然后再将其发送到输出接收器。 Blob、表、ADLS、服务总线和 Azure Function 会自动并行化。 CosmosDB 和事件中心都需要设置 PartitionKey 配置来匹配 PARTITION BY 字段（通常是 PartitionId）。 对于事件中心，还要格外注意匹配所有输入和所有输出的分区数量，以避免分区之间的交叉。 
-<!-- Not Available on PowerBI-->
+    
+    <!-- Not Available on PowerBI-->
+    
 3.  使用 6 SU（即单个计算节点的全部容量）来运行查询，以度量最大可实现的吞吐量，如果你使用的是 GROUP BY，则度量作业能处理的组数（基数）。 达到系统资源限制的作业，一般症状将如下所示。
     - SU 利用率指标超过 80%。 该指示内存使用率较高。 [此处](stream-analytics-streaming-unit-consumption.md)描述了导致此指标增加的因素。 
     -   输出时间戳滞后于时钟时间。 根据查询逻辑，输出时间戳可能与时钟时间之间存在一个逻辑偏差。 但是，它们应该以大致相同的速度增进。 如果输出时间戳进一步滞后，则指示系统工作时间过长。 它可能是由于下游输出接收器限制，或高 CPU 利用率所致。 我们目前没有提供 CPU 利用率指标，因此很难区分两者。
@@ -72,7 +74,7 @@ ms.locfileid: "36947655"
 2.  如果使用事件中心，则将输入分区计数减少到可能的最低值 2。
 3.  使用 6 SU 运行查询。 通过每个子查询的预期负载，尽可能多地添加此类子查询，直到作业达到系统资源上限。 有关发生这种情况时的症状，请参阅[案例 1](#case-1--your-query-is-inherently-fully-parallelizable-across-input-partitions)。
 4.  一旦达到以上度量的子查询上限，可开始向新作业添加子查询。 作为独立查询数量的函数运行的作业数应是标准线性的，前提是没有任何负载偏移。 然后，可以预测你需要多少个 6 SU 作业，作为你想要提供的租户数的函数运行。
-5.  将引用数据联接与此类查询结合使用时，应在使用相同引用数据进行联接之前将输入合并在一起，然后再根据需要拆分事件。 否则，每个引用数据联接会在内存中保留一份引用数据，可能导致不必要的内存使用。
+5.  将引用数据联接与此类查询结合使用时，应在使用相同引用数据进行联接之前将输入合并在一起。 然后再根据需要拆分事件。 否则，每个引用数据联接会在内存中保留一份引用数据，可能导致不必要的内存使用。
 
 > [!Note] 
 > 每个作业中要放置多少租户？
@@ -106,3 +108,4 @@ ms.locfileid: "36947655"
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
 <!--Update_Description: update meta properties, wording update-->
+

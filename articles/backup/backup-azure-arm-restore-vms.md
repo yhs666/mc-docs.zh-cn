@@ -2,20 +2,20 @@
 title: Azure 备份：使用 Azure 门户还原虚拟机
 description: 使用 Azure 门户从恢复点还原 Azure 虚拟机
 services: backup
-author: markgalioto
-manager: carmonm
+author: geethalakshmig
+manager: vijayts
 keywords: 还原备份; 如何还原; 恢复点;
 ms.service: backup
 ms.topic: conceptual
 origin.date: 09/04/2017
-ms.date: 08/23/2018
+ms.date: 09/25/2018
 ms.author: v-junlch
-ms.openlocfilehash: f8214455b0f896b424e2b11b69ed9c942625e56b
-ms.sourcegitcommit: 85cdb61361dc61147bac991d4907f454f0684ea0
+ms.openlocfilehash: 58b960d73420deb06bb2dec9b0c82fad3ac529b6
+ms.sourcegitcommit: a4d8c8641a6341113532d8770603d4b66cc13ced
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42709704"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47114534"
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>使用 Azure 门户还原虚拟机
 可以通过按定义的间隔创建数据快照来保护数据。 这些快照称为恢复点，存储在恢复服务保管库中。 当需要修复或重新生成虚拟机 (VM) 时，可以从保存的任何恢复点还原 VM。 还原恢复点时，可以：
@@ -250,4 +250,4 @@ ms.locfileid: "42709704"
 - [排查错误](backup-azure-vms-troubleshoot.md#restore)
 - [管理虚拟机](backup-azure-manage-vms.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

@@ -11,14 +11,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 origin.date: 06/16/2017
-ms.date: 09/07/2018
+ms.date: 09/26/2018
 ms.author: v-junlch
-ms.openlocfilehash: ae4f8a64516aa74d241fc2cc8fe285a9085146d2
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.openlocfilehash: d28dac2acb6e08894ed15d9e50d32958460b52b1
+ms.sourcegitcommit: 5616622f754f3b83c7120a3d1344d0344e03ca61
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068188"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47188777"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>使用 Batch 服务 API 将任务数据持久保存到 Azure 存储
 
@@ -35,7 +35,7 @@ Azure Batch 提供多种持久保存任务输出的方式。 使用 Batch 服务
 - 需要在不修改任务正在运行的应用程序的情况下，通过编写代码从客户端应用程序持久保存任务输出。
 - 需要将 Batch 任务和作业管理器任务的输出持久保存在使用虚拟机配置创建的池中。
 - 需要将输出持久保存到使用任意名称的 Azure 存储容器。
-- 需要将输出持久保存到根据 [Batch 文件约定标准](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions)命名的 Azure 存储容器。 
+- 需要将输出持久保存到根据 [Batch 文件约定标准](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions)命名的 Azure 存储容器。 
 
 如果你的情况与上面不同，可能需要考虑不同的方法。 例如，Batch 服务 API 目前不支持在任务正运行时将输出流式传输到 Azure 存储。 若要流式传输输出，请考虑使用适用于 .NET 的 Batch 文件约定库。 对于其他语言，需实现你自己的解决方案。 有关保存任务输出的其他选项的详细信息，请参阅[将作业和任务输出保存到 Azure 存储](batch-task-output.md)。 
 
@@ -165,7 +165,7 @@ Message: One of the specified Azure container(s) was not found while attempting 
 
 ## <a name="use-the-batch-service-api-with-the-batch-file-conventions-standard"></a>将 Batch 服务 API 与 Batch 文件约定标准配合使用
 
-使用 Batch 服务 API 来持久保存任务输出时，可以随意命名目标容器和 Blob。 也可选择按 [Batch 文件约定标准](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions)来命名。 如果给定的输出文件取决于作业和任务的名称，则文件约定标准决定了 Azure 存储中目标容器和 Blob 的名称。 如果使用文件约定标准来命名输出文件，则可在 [Azure 门户](https://portal.azure.cn)中查看输出文件。
+使用 Batch 服务 API 来持久保存任务输出时，可以随意命名目标容器和 Blob。 也可选择按 [Batch 文件约定标准](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions)来命名。 如果给定的输出文件取决于作业和任务的名称，则文件约定标准决定了 Azure 存储中目标容器和 Blob 的名称。 如果使用文件约定标准来命名输出文件，则可在 [Azure 门户](https://portal.azure.cn)中查看输出文件。
 
 如果是在 C# 中进行开发，则可使用[适用于 .NET 的 Batch 文件约定库](https://www.nuget.org/packages/Microsoft.Azure.Batch.Conventions.Files)中内置的方法。 该库为你创建了正确命名的容器和 Blob 路径。 例如，可以通过调用 API 来获取容器的正确名称（基于作业名称）：
 
@@ -197,4 +197,4 @@ string containerName = job.OutputStorageContainerName();
 [github_persistoutputs]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/PersistOutputs
 [github_samples]: https://github.com/Azure/azure-batch-samples
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

@@ -1,5 +1,5 @@
 ---
-title: Azure Database for PostgreSQL 服务器 VNet 服务终结点概述 | Azure
+title: Azure Database for PostgreSQL 服务器 vnet 服务终结点概述 | Microsoft Docs
 description: 介绍 vnet 服务终结点如何为 Azure Database for PostgreSQL 服务器工作。
 services: postgresql
 author: WenJason
@@ -10,12 +10,12 @@ ms.service: postgresql
 ms.topic: conceptual
 origin.date: 08/20/2018
 ms.date: 08/27/2018
-ms.openlocfilehash: 32b58d017bdbd376ef865697cb29cf1a95bf3969
-ms.sourcegitcommit: 6dd65fba579a2ce25c63ac69ff3b71d814a9d256
+ms.openlocfilehash: 2d7d90e7de5f9141658d68601d5f5267e28f8865
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42703862"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426174"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql"></a>使用适用于Azure Database for PostgreSQL 的虚拟网络服务终结点和规则
 

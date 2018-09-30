@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 08/02/2018
+origin.date: 09/07/2018
 ms.author: v-yiso
-ms.date: 09/17/2018
-ms.openlocfilehash: df1dfb094d02a95257768a012bde881bc6e612f7
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.date: 10/15/2018
+ms.openlocfilehash: 58e88201c5a6201bbef64750402a7dc7a1c4bbbf
+ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068166"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47455267"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 合作伙伴和对等位置
 

@@ -1,6 +1,6 @@
 ---
 title: 安全访问 Azure 逻辑应用
-description: 添加安全机制来保护对 Azure 逻辑应用中工作流使用的触发器、输入和输出、操作参数以及服务的访问。
+description: 保护对 Azure 逻辑应用工作流中的触发器、输入和输出、操作参数和服务的访问
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
@@ -14,23 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 origin.date: 11/22/2016
 ms.author: v-yiso
-ms.date: 04/30/2018
-ms.openlocfilehash: 2d2136adb437801b451db2258b290348eeec6abf
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.date: 10/15/2018
+ms.openlocfilehash: 5916657ef9f7f68f814ed6a7f7ef6989f444a17a
+ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315614"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47455232"
 ---
-# <a name="secure-access-to-your-logic-apps"></a>安全访问逻辑应用
+# <a name="secure-access-in-azure-logic-apps"></a>保护 Azure 逻辑应用中的访问
 
-可以借助许多工具来保护逻辑应用。
+可以通过以下方式保护对逻辑应用中不同组件的访问：
 
-* 保护触发逻辑应用（HTTP 请求触发器）的访问
-* 保护管理、编辑或读取逻辑应用的访问
-* 保护对运行应用时的输入和输出内容的访问
-* 保护工作流中的操作的参数或输入
-* 保护对从工作流接收请求的服务的访问
+* 保护使用 HTTP 请求触发器触发逻辑应用工作流的访问。
+* 保护管理、编辑或读取逻辑应用的访问。
+* 保护对逻辑应用运行的输入和输出以外内容的访问。
+* 保护逻辑应用工作流中的操作的参数或输入。
+* 保护对从逻辑应用工作流接收请求的服务的访问。
 
 ## <a name="secure-access-to-trigger"></a>保护对触发器的访问
 
@@ -82,7 +82,7 @@ POST
 1. 单击“设置”下的“工作流设置”菜单项
 1. 指定触发器接受的 IP 地址范围列表
 
-有效的 IP 范围采用 `192.168.1.1/255` 格式。 如果希望逻辑应用只作为嵌套逻辑应用触发，请选择“仅限其他逻辑应用”选项。 此选项将一个空数组写入资源，意味着只有来自服务本身（父逻辑应用）的调用才能成功触发。
+有效的 IP 范围采用 `192.168.1.1/32` 格式。 如果希望逻辑应用只作为嵌套逻辑应用触发，请选择“仅限其他逻辑应用”选项。 此选项将一个空数组写入资源，意味着只有来自服务本身（父逻辑应用）的调用才能成功触发。
 
 > [!NOTE]
 > 不管 IP 是什么，仍可通过 REST API/管理 `/triggers/{triggerName}/run` 运行包含请求触发器的逻辑应用。 在此情况下需要针对 Azure REST API 执行身份验证，所有事件会显示在 Azure 审核日志中。 请相应地设置访问控制策略。
@@ -121,7 +121,7 @@ POST
 
 ## <a name="secure-access-to-manage-or-edit-logic-apps"></a>保护对逻辑应用管理或编辑功能的访问
 
-可以限制对逻辑应用中管理操作的访问，以便只有特定的用户或组才能对资源执行操作。 逻辑应用使用 Azure [基于角色的访问控制 (RBAC)](../active-directory/role-based-access-control-configure.md) 功能，用户可以使用相同的工具对它进行自定义。  还可以将订阅的成员分配到几个内置角色：
+可以限制对逻辑应用中管理操作的访问，以便只有特定的用户或组才能对资源执行操作。 逻辑应用使用 Azure [基于角色的访问控制 (RBAC)](../role-based-access-control/role-assignments-portal.md) 功能，用户可以使用相同的工具对它进行自定义。  还可以将订阅的成员分配到几个内置角色：
 
 * **逻辑应用参与者** - 提供查看、编辑和更新逻辑应用的访问权限。  无法删除资源或执行管理操作。
 * **逻辑应用操作员** - 可以查看逻辑应用和运行历史记录，以及启用/禁用相关功能。  无法编辑或更新定义。

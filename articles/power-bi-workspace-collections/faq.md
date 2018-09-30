@@ -2,27 +2,21 @@
 title: Power BI 工作区集合常见问题解答
 description: 与 Power BI 工作区集合相关的常见问题。
 services: power-bi-embedded
-documentationcenter: ''
-author: alexchen2016
-manager: digimobile
-editor: ''
-tags: ''
+author: markingmyname
 ROBOTS: NOINDEX
 ms.assetid: 1475ed4f-fc84-4865-b243-e8a47d8bda59
 ms.service: power-bi-embedded
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: powerbi
 origin.date: 09/25/2017
-ms.date: 10/24/2017
+ms.date: 09/26/2018
 ms.author: v-junlch
-ms.openlocfilehash: 9d25840a413d3cd398cd2a5e7dac614650a7791d
-ms.sourcegitcommit: e157751c560524d0bb828e987b87178130663547
+ms.openlocfilehash: e18c90bb637c542346b0972a8ff553fe1883ae7f
+ms.sourcegitcommit: 7c6ff130adaa67bc90094846f81295ef0719d072
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "23580310"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47191364"
 ---
 # <a name="power-bi-workspace-collections-faq"></a>Power BI 工作区集合常见问题解答
 
@@ -99,3 +93,4 @@ Power BI 工作区集合服务使用“应用令牌”进行身份验证和授�
 有更多问题？ [试用 Power BI 社区](http://community.powerbi.com/)
 
 
+<!-- Update_Description: update metedata properties -->

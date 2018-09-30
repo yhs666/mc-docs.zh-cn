@@ -1,5 +1,5 @@
 ---
-title: CLI 示例 - 为域名创建 DNS 区域和记录 - Azure | Azure
+title: CLI 示例 - 为域名创建 DNS 区域和记录 - Azure | Microsoft Docs
 description: 此 Azure CLI 脚本示例演示如何为域名创建 DNS 区域和记录
 services: load-balancer
 documentationcenter: traffic-manager
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 origin.date: 04/30/2018
 ms.date: 05/28/2018
 ms.author: v-nany
-ms.openlocfilehash: 118f88b603c958478e9922305e596fb0c0d5bb4c
-ms.sourcegitcommit: 0a9f3c90a31498f7c696e45f8843ab7fc3d8d876
+ms.openlocfilehash: 3e2341b95f612155b8e5ea9b88d588cb0f316f32
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "44757476"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426155"
 ---
 # <a name="azure-cli-script-example-create-a-dns-zone-and-record"></a>Azure CLI 脚本示例：创建 DNS 区域和记录
 
@@ -72,7 +72,7 @@ az group delete -n myResourceGroup
 
 此脚本使用以下命令创建资源组、虚拟机、可用性集、负载均衡器和所有相关资源。 表中的每条命令均链接到特定于命令的文档。
 
-| 命令 | 说明 |
+| 命令 | 注释 |
 |---|---|
 | [az group create](/cli/group#az-group-create) | 创建用于存储所有资源的资源组。 |
 | [az network dns zone create](/cli/network/dns/zone#az-network-dns-zone-create) | 创建 Azure DNS 区域。 |

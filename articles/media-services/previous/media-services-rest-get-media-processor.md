@@ -1,5 +1,5 @@
 ---
-title: 如何使用 REST 获取媒体处理器实例 | Azure
+title: 如何使用 REST 获取媒体处理器实例 | Microsoft 文档
 description: 了解如何创建一个媒体处理器组件来为 Azure 媒体服务编码、转换格式、加密或解密媒体内容。
 services: media-services
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 12/07/2017
 ms.date: 12/25/2017
 ms.author: v-nany
-ms.openlocfilehash: 40686ce71b7560c0bae724bfb3426239a386ecc1
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+ms.openlocfilehash: f9ebff5187a0153a8592f5a8f5f68db1533c028c
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219660"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426396"
 ---
 # <a name="how-to-get-a-media-processor-instance"></a>如何获取媒体处理器实例
 > [!div class="op_single_selector"]

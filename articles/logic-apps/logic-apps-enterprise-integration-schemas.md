@@ -1,6 +1,6 @@
 ---
-title: XML 验证的架构 - Azure 逻辑应用
-description: 使用 Azure 逻辑应用和 Enterprise Integration Pack 的架构验证 XML 文档
+title: 添加用于 XML 验证的架构 - Azure 逻辑应用 | Microsoft Docs
+description: 在带有 Enterprise Integration Pack 的 Azure 逻辑应用中创建用于验证 XML 文档的架构
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/29/2016
-ms.date: 03/19/2018
+ms.date: 10/15/2018
 ms.author: v-yiso
-ms.openlocfilehash: cca7d8afe082cb9a25d3b268eff1379acfcbd1ff
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: be243c8700345a1cad44224da373f84767e89936
+ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29870600"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47455266"
 ---
-# <a name="validate-xml-with-schemas-for-azure-logic-apps-and-the-enterprise-integration-pack"></a>使用 Azure 逻辑应用和 Enterprise Integration Pack 的架构验证 XML
+# <a name="validate-xml-with-schemas-in-azure-logic-apps-with-enterprise-integration-pack"></a>在带有 Enterprise Integration Pack 的 Azure 逻辑应用中使用架构验证 XML
 
 架构可确认收到的 XML 文档有效且包含采用预定义格式的预期数据。 架构还可帮助验证在 B2B 方案中交换的消息。
 

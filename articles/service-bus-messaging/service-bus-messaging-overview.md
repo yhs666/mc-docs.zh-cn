@@ -3,7 +3,7 @@ title: Azure 服务总线消息传送概述 | Microsoft Docs
 description: 介绍服务总线消息传送
 services: service-bus
 documentationcenter: ''
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.service: service-bus
@@ -12,12 +12,12 @@ origin.date: 05/22/2018
 ms.date: 07/16/2018
 ms.custom: mvc
 ms.author: v-yiso
-ms.openlocfilehash: 7c622fc8b0b725935181ecd317774d790c565ceb
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.openlocfilehash: 5efda1c3428ddf50eae49a098f6d7884b8a17613
+ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873486"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47455195"
 ---
 # <a name="what-is-azure-service-bus"></a>什么是 Azure 服务总线？
 
@@ -116,8 +116,7 @@ Microsoft Azure 服务总线是一种完全托管的企业集成消息中转站�
 
 服务总线与以下 Azure 服务完全集成：
 
-- [逻辑应用](/logic-apps/) 
-- [函数](https://azure.microsoft.com/services/functions/) 
+- [函数](/azure-functions/) 
 - [流分析](/stream-analytics/)
  
 ## <a name="next-steps"></a>后续步骤

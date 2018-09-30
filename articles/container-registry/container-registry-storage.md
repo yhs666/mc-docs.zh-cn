@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: container-registry
 ms.topic: article
 origin.date: 03/21/2018
-ms.date: 07/02/2018
+ms.date: 09/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 49ec85ed6c512f062c6fb15ac19e6ea86c639feb
-ms.sourcegitcommit: 543a18c71c0910a5b9878a2d2668f317468906f2
+ms.openlocfilehash: 4c86722fb0d9de1ef42ccf07c1f4259f158c5113
+ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39625486"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47201253"
 ---
 # <a name="container-image-storage-in-azure-container-registry"></a>Azure 容器注册表中的容器映像存储
 
@@ -41,7 +41,7 @@ Azure 使用异地冗余存储方案来防止容器映像丢失。 Azure 容器�
 | 标记 | 无限制|
 | 存储 | 5 TB |
 
-大量的存储库和标记可能会影响注册表的性能。 应将定期使用 [Azure CLI](https://docs.azure.cn/zh-cn/cli/acr?view=azure-cli-latest)、ACR [REST API](https://docs.microsoft.com/rest/api/containerregistry/) 或 [Azure 门户][portal] 删除未使用的存储库、标记和映像作为注册表维护程序的一部分。 已删除的注册表资源（如存储库、映像和标记）在删除后*无法*恢复。
+大量的存储库和标记可能会影响注册表的性能。 作为注册表维护例程的一部分，定期删除未使用的存储库、标记和图像。 已删除的注册表资源（如存储库、映像和标记）在删除后*无法*恢复。 有关删除注册表资源的详细信息，请参阅[删除 Azure 容器注册表中的容器映像](container-registry-delete.md)。
 
 ## <a name="storage-cost"></a>存储成本
 
@@ -58,5 +58,4 @@ Azure 使用异地冗余存储方案来防止容器映像丢失。 Azure 容器�
 [pricing]: http://aka.ms/acr/pricing
 
 <!-- LINKS - Internal -->
-<!-- Update_Description: new article on container registry storage -->
-<!--ms.date: 07/02/2018-->
+<!-- Update_Description: update meta properties, wording update -->

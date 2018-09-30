@@ -1,10 +1,10 @@
 ---
-title: Azure 媒体服务分片 MP4 实时引入规范 | Azure
+title: Azure 媒体服务分片 MP4 实时引入规范 | Microsoft Docs
 description: 本规范适用于 Azure 媒体服务，描述基于分片 MP4 的实时传送视频流引入的协议和格式。 通过将 Azure 用作云平台，可以使用 Azure 媒体服务来实时流式传输实时事件和广播内容。 此外，本文档还介绍了有关构建高度冗余和稳健的实时引入机制的最佳做法。
 services: media-services
 documentationcenter: ''
-author: cenkdin
-manager: erikre
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: 43fac263-a5ea-44af-8dd5-cc88e423b4de
 ms.service: media-services
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 06/29/2017
 ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 1ceb2487e88e283a57a34b7097f20eaeee8d62fc
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+ms.author: v-jay
+ms.openlocfilehash: 901667c8b152ebafe72c87cdb3b06e2d14abbcad
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219600"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426331"
 ---
 # <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Azure 媒体服务分片 MP4 实时引入规范
 本规范适用于 Azure 媒体服务，描述基于分片 MP4 的实时传送视频流引入的协议和格式。 媒体服务提供实时传送视频流服务，让客户使用 Azure 作为云平台来实时流式传输实时事件和广播内容。 此外，本文档还介绍了有关构建高度冗余和稳健的实时引入机制的最佳做法。

@@ -8,21 +8,21 @@ manager: digimobile
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
-origin.date: 06/26/2018
-ms.date: 09/17/2018
+origin.date: 08/26/2018
+ms.date: 09/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: c49903f820515a84ac2de99412c4234ea805961d
-ms.sourcegitcommit: 2700f127c3a8740a83fb70739c09bd266f0cc455
+ms.openlocfilehash: b45e7b3fa28e0dfde64e011bb42529ca100b0a14
+ms.sourcegitcommit: 399060a8d46534abd370693f6282e7343b371634
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45586581"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47455577"
 ---
 # <a name="use-ip-filters"></a>使用 IP 筛选器
 
 对于只能通过某些已知站点访问 Azure 事件中心的方案，可使用 IP 筛选器功能配置相关规则，以拒绝或接受源自特定 IPv4 地址的流量。 例如，这些地址可能是企业 NAT 网关地址。
 
-## <a name="when-to-use"></a>使用时机
+## <a name="when-to-use"></a>何时使用
 
 下面是两个重要用例，在要针对特定 IP 地址阻止事件中心终结点接收流量时，这两个用例非常有用：
 

@@ -9,14 +9,14 @@ ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
 origin.date: 03/26/2018
-ms.date: 08/13/2018
+ms.date: 09/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 969f0cbcd4e175a470b8759a93a72a61de1b4e6f
-ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
+ms.openlocfilehash: b59fff22f1f7a6db4c6bef7b74ad96ee77649422
+ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43329131"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47201396"
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>使用 Azure Cosmos DB 中的更改源支持
 
@@ -67,11 +67,11 @@ Azure Cosmos DB 中的更改源支持的工作原理是：侦听 Azure Cosmos DB
 例如，可以使用更改源有效地执行以下任务：
 
 * 使用 Azure Cosmos DB 中存储的数据更新缓存、搜索索引或数据仓库。
-* 实现应用程序级别的数据分层和存档，即，将“热数据”存储在 Azure Cosmos DB 中，将“冷数据”搁置在 [Azure Blob 存储](../storage/common/storage-introduction.md)中。 <!-- Not Available on [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) -->
+* 实现应用程序级别的数据分层和存档，即，将“热数据”存储在 Azure Cosmos DB 中，将“冷数据”搁置在 [Azure Blob 存储](../storage/common/storage-introduction.md)中。
+    <!-- Not Available on [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) -->
 * 在不造成任何停机的情况下迁移到使用不同分区方案的另一个 Azure Cosmos DB 帐户。
 * 使用 Azure Cosmos DB [在 Azure 上实现 lambda 管道](https://blogs.technet.microsoft.com/msuspartner/2016/01/27/azure-partner-community-big-data-advanced-analytics-and-lambda-architecture/)。 Azure Cosmos DB 提供了一种可缩放的数据库解决方案，该解决方案可处理引入和查询，实现 TCO 较低的 lambda 体系结构。 
-* 接收和存储设备、传感器、基础结构和应用程序发出的事件数据，并使用 [Apache Storm](../hdinsight/storm/apache-storm-overview.md) 或 [Apache Spark](../hdinsight/spark/apache-spark-overview.md) 实时处理这些事件。 
-<!-- Not Available on [Azure Stream Analytics](../stream-analytics/stream-analytics-documentdb-output.md) -->
+* 接收和存储设备、传感器、基础结构和应用程序发出的事件数据，并使用 [Azure 流分析](../stream-analytics/stream-analytics-documentdb-output.md)、[Apache Storm](../hdinsight/storm/apache-storm-overview.md) 或 [Apache Spark](../hdinsight/spark/apache-spark-overview.md) 实时处理这些事件。 
 
 下图显示了 lambda 管道如何使用更改源支持，这些管道使用 Azure Cosmos DB 进行引入和查询： 
 
@@ -233,9 +233,25 @@ Azure Cosmos DB 中的更改源支持的工作原理是：侦听 Azure Cosmos DB
     using Microsoft.Azure.Documents.ChangeFeedProcessor.FeedProcessing;
     using Microsoft.Azure.Documents.Client;
 
-2. Implement a **DocumentFeedObserverFactory**, which implements a **IChangeFeedObserverFactory**.
+    /// <summary>
+    /// This class implements the IChangeFeedObserver interface and is used to observe 
+    /// changes on change feed. ChangeFeedEventHost will create as many instances of 
+    /// this class as needed. 
+    /// </summary>
+    public class DocumentFeedObserver : IChangeFeedObserver
+    {
+    private static int totalDocs = 0;
 
-3. In the **CreateObserver** method of **DocumentFeedObserverFacory**, instantiate the **ChangeFeedObserver** that you created in step 1 and return it.
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DocumentFeedObserver" /> class.
+        /// Saves input DocumentClient and DocumentCollectionInfo parameters to class fields
+        /// </summary>
+        /// <param name="client"> Client connected to destination collection </param>
+        /// <param name="destCollInfo"> Destination collection information </param>
+        public DocumentFeedObserver()
+        {
+
+        }
 
         /// <summary>
         /// Called when change feed observer is opened; 
@@ -316,7 +332,7 @@ Azure Cosmos DB 中的更改源支持的工作原理是：侦听 Azure Cosmos DB
     private readonly ChangeFeedProcessorBuilder builder = new ChangeFeedProcessorBuilder();
     ```
 
-6. 向主机注册 DocumentFeedObserverFactory。
+5. 在定义相关对象后生成 ChangeFeedProcessorBuilder 
 
     ```csharp
             string hostName = Guid.NewGuid().ToString();

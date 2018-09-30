@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 06/15/2018
 ms.date: 07/10/2018
 ms.author: v-junlch
-ms.openlocfilehash: 7428739c174e1937f7a789afa008233a3907d56e
-ms.sourcegitcommit: a22129c95c9f877a04c6b5b428edf7f4e953fd97
+ms.openlocfilehash: d6527b0761ab6a3000271da1320ecafbd5f093d6
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37937356"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426469"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>如何验证到达虚拟网络的 VPN 吞吐量
 
@@ -89,7 +89,7 @@ VPN 网关连接涉及以下组件：
     ```CMD
     netsh advfirewall firewall delete rule name="Open Port 5001" protocol=TCP localport=5001
     ```
-
+     
     **Azure Linux：** Azure Linux 映像具有限制性较低的防火墙。 如果有应用程序在侦听某个端口，则流量会被允许通过。 受保护的自定义映像可能需要显式打开端口。 常见的 Linux OS 层防火墙包括 `iptables`、`ufw` 或 `firewalld`。
 
 3. 在服务器节点上，更改为从中提取 iperf3.exe 的目录。 然后，在服务器模式下运行 iPerf 并将其设置为侦听端口 5001，如以下命令所示：

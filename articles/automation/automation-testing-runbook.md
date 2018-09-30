@@ -2,25 +2,20 @@
 title: 在 Azure 自动化中测试 Runbook
 description: 在 Azure 自动化中发布某个 Runbook 之前，可以对它进行测试，以确保它按预期工作。  本文介绍如何测试 Runbook 并查看其输出。
 services: automation
-documentationcenter: ''
-author: mgoedtel
-manager: jwhit
-editor: tysonn
-ms.assetid: 7f7db785-52c0-4613-aa12-b02fd32a5182
 ms.service: automation
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+ms.component: process-automation
+author: WenJason
+ms.author: v-jay
 origin.date: 03/16/2018
-ms.date: 05/14/2018
-ms.author: v-dazen
-ms.openlocfilehash: a15d36ed16c6668a37fc92d668ce925ce6892eb7
-ms.sourcegitcommit: 53972dcdef77da92529996667545d2e83716f7e2
+ms.date: 10/01/2018
+ms.topic: conceptual
+manager: digimobile
+ms.openlocfilehash: 0b2200a9f324e0b489afc61f48bceefcf91473c0
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39143387"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426129"
 ---
 # <a name="testing-a-runbook-in-azure-automation"></a>在 Azure 自动化中测试 Runbook
 测试 Runbook 时，将执行[草稿版](automation-creating-importing-runbook.md#publishing-a-runbook)，并会完成其执行的任何操作。 不会创建作业历史记录，但会在“测试输出”窗格中显示[“输出”](automation-runbook-output-and-messages.md#output-stream)与[“警告和错误”](automation-runbook-output-and-messages.md#message-streams)流。 仅当 [$VerbosePreference 变量](automation-runbook-output-and-messages.md#preference-variables)设置为 Continue 时，才会在“输出”窗格中显示发送到[详细流](automation-runbook-output-and-messages.md#message-streams)的消息。
@@ -35,7 +30,6 @@ ms.locfileid: "39143387"
 1. 在[文本编辑器](automation-edit-textual-runbook.md)或[图形编辑器](automation-graphical-authoring-intro.md)中打开 Runbook 的草稿版本。
 2. 单击“测试”按钮，打开“测试”边栏选项卡。
 3. 如果 Runbook 有参数，参数会在左窗格中列出，可以在其中提供用于测试的值。
-4. 如果要在混合 Runbook 辅助角色上运行测试，则将“运行设置”更改为“混合辅助角色”并选择目标组的名称。  **Azure** ，以在云中运行测试。
 5. 单击“开始”按钮以开始测试。
 6. 如果 Runbook 是 [PowerShell 工作流](automation-runbook-types.md#powershell-workflow-runbooks) Runbook 或[图形](automation-runbook-types.md#graphical-runbooks) Runbook，则在使用“输出”窗格下方的按钮对它进行测试时，可以停止或暂停它。 暂停 Runbook 时，该 Runbook 会完成它在被暂停之前正在进行的活动。 暂停 Runbook 后，可以将它停止或重启。
 7. 在输出窗格中检查 Runbook 的输出。

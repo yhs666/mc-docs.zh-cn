@@ -2,27 +2,21 @@
 title: 什么是 Power BI 工作区集合？
 description: 借助 Power BI Embedded，可将 Power BI 报表集成到 Web 或移动应用程序中，因此无需生成自定义解决方案。
 services: power-bi-embedded
-documentationcenter: ''
-author: alexchen2016
-manager: digimobile
-editor: ''
-tags: ''
+author: markingmyname
 ROBOTS: NOINDEX
 ms.assetid: 03649b72-b7d7-40ca-b077-12356d72d4f3
 ms.service: power-bi-embedded
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: powerbi
 origin.date: 09/20/2017
-ms.date: 10/24/2017
+ms.date: 09/26/2018
 ms.author: v-junlch
-ms.openlocfilehash: fb66a2be32596c4f0a0c6daafeffd569d4d50721
-ms.sourcegitcommit: 140d09254b5ded4b408980b43c0fc5d3643320a1
+ms.openlocfilehash: 2e530bb1576b232085b7ea2e8b8205c59bb2197c
+ms.sourcegitcommit: 7c6ff130adaa67bc90094846f81295ef0719d072
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2017
-ms.locfileid: "23580297"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47191365"
 ---
 # <a name="what-are-power-bi-workspace-collections"></a>什么是 Power BI 工作区集合？
 
@@ -31,7 +25,7 @@ ms.locfileid: "23580297"
 ![应用程序关系图](./media/what-are-power-bi-workspace-collections/what-is.png)
 
 > [!IMPORTANT]
-> Power BI 工作区集合已遭弃用，在 2018 年 6 月或合同上指明的时间前可用。 建议你规划到 Power BI Embedded 的迁移以避免应用程序中断。 有关如何将数据迁移到 Power BI Embedded 的信息，请参阅[如何将 Power BI 工作区集合内容迁移到 Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/)。
+> Power BI 工作区集合已弃用，到 2018 年 6 月 或合同指示时可用。 建议你规划到 Power BI Embedded 的迁移以避免应用程序中断。 有关如何将数据迁移到 Power BI Embedded 的信息，请参阅[如何将 Power BI 工作区集合内容迁移到 Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/)。
 
 Power BI 工作区集合是一项 **Azure 服务**，使 ISV 和应用程序开发人员能够在其自己的应用程序中融入 Power BI 数据体验。 开发人员已经构建了应用程序，并且这些应用程序具有其自己的用户和不同的功能集。 这些应用也可能碰巧具有一些内置数据元素（如图表和报表），这些元素现在可以由 Power BI 工作区集合提供支持。 不需要 Power BI 帐户便可使用这些应用。 可继续像以前那样登录这些应用程序，查看并与 Power BI 报表体验进行交互，而无需任何额外的授权。
 
@@ -96,3 +90,4 @@ Power BI 工作区集合是一项 **Azure 服务**，使 ISV 和应用程序开�
 
 有更多问题？ [试用 Power BI 社区](http://community.powerbi.com/)
 
+<!-- Update_Description: update metedata properties -->

@@ -1,5 +1,5 @@
 ---
-title: 通过 Azure Active Directory 身份验证访问 Azure 媒体服务 API | Azure
+title: 通过 Azure Active Directory 身份验证访问 Azure 媒体服务 API | Microsoft Docs
 description: 了解使用 Azure Active Directory (Azure AD) 验证对 Azure 媒体服务 API 的访问的相关概念和步骤。
 services: media-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 06/17/2017
 ms.date: 06/25/2018
 ms.author: v-haiqya
-ms.openlocfilehash: 1229693a158a3f122d26e8ec983f29f16faaa545
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+ms.openlocfilehash: 933f999301548bba8be1b4b1d578e203b26a0552
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219613"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426444"
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>通过 Azure AD 身份验证访问 Azure 媒体服务 API
  
@@ -77,13 +77,13 @@ Azure 媒体服务 API 是 RESTful API。 可用于通过 REST API 或可用的�
         可以在 Azure 门户中检索租户信息。 将光标悬停在右上角的登录用户名之上。
     * 媒体服务资源 URI。 
 
-        对于同一 Azure 环境中的媒体服务帐户，此 URI 相同（例如，https://rest.media.chinacloudapi.cn)。
+        对于同一 Azure 环境中的媒体服务帐户，此 URI 相同（例如， https://rest.media.chinacloudapi.cn)。
 
     * 媒体服务（本机）应用程序客户端 ID。
     * 媒体服务（本机）应用程序重定向 URI。
     * REST 媒体服务的资源 URI。
         
-        该 URI 表示 REST API 终结点（例如，https://test03.restv2.chinanorth.media.chinacloudapi.cn/api/)。
+        该 URI 表示 REST API 终结点（例如， https://test03.restv2.chinanorth.media.chinacloudapi.cn/api/)。
 
     若要获取这些参数的值，请参阅[使用 Azure 门户访问 Azure AD 身份验证设置](media-services-portal-get-started-with-aad.md)（使用用户身份验证选项）。
 
@@ -119,11 +119,11 @@ Azure 媒体服务 API 是 RESTful API。 可用于通过 REST API 或可用的�
         可以在 Azure 门户中检索租户信息。 将光标悬停在右上角的登录用户名之上。
     * 媒体服务资源 URI。 
 
-        对于位于同一 Azure 环境中的媒体服务帐户，此 URI 相同（例如，https://rest.media.chinacloudapi.cn)。
+        对于位于同一 Azure 环境中的媒体服务帐户，此 URI 相同（例如， https://rest.media.chinacloudapi.cn)。
 
     * REST 媒体服务的资源 URI。
 
-        该 URI 表示 REST API 终结点（例如，https://test03.restv2.chinanorth.media.chinacloudapi.cn/api/)。
+        该 URI 表示 REST API 终结点（例如， https://test03.restv2.chinanorth.media.chinacloudapi.cn/api/)。
 
     * Azure AD 应用程序值：客户端 ID和客户端机密。
     

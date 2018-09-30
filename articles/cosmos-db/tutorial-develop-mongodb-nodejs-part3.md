@@ -10,15 +10,15 @@ ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
 origin.date: 09/05/2017
-ms.date: 09/03/2018
+ms.date: 09/30/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 9bad9d21750988a3bb4c8af2da29eff174fd6520
-ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
+ms.openlocfilehash: 093816b8a164431ee626779d581ed071b150e8b1
+ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43164971"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47201263"
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-3-build-the-ui-with-angular"></a>通过 Angular 和 Azure Cosmos DB 创建 MongoDB 应用 - 第 3 部分：通过 Angular 生成 UI
 
@@ -505,4 +505,4 @@ ms.locfileid: "43164971"
 
 > [!div class="nextstepaction"]
 > [使用 Azure CLI 创建 Azure Cosmos DB 帐户](tutorial-develop-mongodb-nodejs-part4.md)
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties -->

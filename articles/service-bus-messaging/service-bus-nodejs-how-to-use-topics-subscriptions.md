@@ -3,7 +3,7 @@ title: 如何通过 Node.js 使用 Azure 服务总线主题和订阅 | Azure
 description: 了解如何通过 Node.js 应用在 Azure 中使用服务总线主题和订阅。
 services: service-bus
 documentationCenter: nodejs
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: b9f5db85-7b6c-4cc7-bd2c-bd3087c99875
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 07/16/2018
+ms.date: 10/15/2018
 ms.author: v-yiso
-ms.openlocfilehash: 8a9099e2e3ac98ad1cc567348eb728eb17d01674
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.openlocfilehash: c550d3b82dfa0c52998bf843d0fa5062a2ff415d
+ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873467"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47455281"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs"></a>如何通过 Node.js 使用服务总线主题和订阅
 
@@ -99,7 +99,7 @@ serviceBusService.createTopicIfNotExists('MyTopic',function(error){
 });
 ```
 
-`createServiceBusService` 方法还支持其他选项，通过这些选项可以重写默认主题设置，例如消息生存时间或最大主题大小。 
+`createTopicIfNotExists` 方法还支持其他选项，通过这些选项可以重写默认主题设置，例如消息生存时间或最大主题大小。 
 
 以下示例将最大主题大小设置为 5GB，将生存时间设置为 1 分钟：
 
@@ -275,7 +275,7 @@ for (i = 0;i < 5;i++) {
 ## <a name="receive-messages-from-a-subscription"></a>从订阅接收消息
 对 ServiceBusService 对象使用 `receiveSubscriptionMessage` 方法可从订阅接收消息。 默认情况下，会在读取消息后将其从订阅删除。 但是，可以将可选参数 `isPeekLock` 设置为“true”以读取（速览）并锁定消息，而不将其从订阅中删除。
 
-在接收过程中读取并删除消息的默认行为是最简单的模式，并且最适合在发生故障时应用程序可以容忍不处理消息的情况。 为了理解此行为，可以考虑这样一种情形：使用方发出接收请求，但在处理该请求前发生了崩溃。 由于服务总线会将消息标记为“已使用”，因此当应用程序重启并重新开始使用消息时，它会遗漏在发生崩溃前使用的消息。
+在接收过程中读取并删除消息的默认行为是最简单的模式，并且最适合在发生故障时应用程序可以容忍不处理消息的情况。 为了理解此行为，可以考虑这样一种情形：使用方发出接收请求，但在处理该请求前发生了崩溃。 由于服务总线已将消息标记为“已使用”，因此当应用程序重新启动并重新开始使用消息时，它会漏掉在发生崩溃前使用的消息。
 
 如果将 `isPeekLock` 参数设置为“true”，则接收会变成一个两阶段操作，从而可支持无法容忍遗漏消息的应用程序。 服务总线收到请求时，它会找到要使用的下一个消息，将其锁定以防其他使用者接收它，并将该消息返回给应用程序。
 应用程序处理该消息（或将它可靠地存储起来留待将来处理）后，通过调用 deleteMessage 方法来完成接收过程的第二阶段，并将要删除的消息作为参数传递。 deleteMessage 方法会将消息标记为已使用，并将其从订阅中删除。
@@ -345,9 +345,9 @@ serviceBusService.deleteSubscription('MyTopic', 'HighMessages', function (error)
 
 [Azure portal]: https://portal.azure.cn
 [SqlFilter.SqlExpression]: ./service-bus-messaging-sql-filter.md
-  [Queues, topics, and subscriptions]: ./service-bus-queues-topics-subscriptions.md
-[SqlFilter]: https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.sqlfilter
-  [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
+[Queues, topics, and subscriptions]: ./service-bus-queues-topics-subscriptions.md
+[SqlFilter]: /dotnet/api/microsoft.servicebus.messaging.sqlfilter
+[Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [创建 Node.js 应用程序并将其部署到 Azure 网站]: ../app-service/app-service-web-get-started-nodejs.md
-  [Node.js Cloud Service with Storage]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
+[Node.js Cloud Service with Storage]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Node.js Web Application with Storage]:../cosmos-db/table-storage-cloud-service-nodejs.md

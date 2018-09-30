@@ -1,5 +1,5 @@
 ---
-title: Azure 媒体服务概述 | Azure
+title: Azure 媒体服务概述 | Microsoft Docs
 description: 本部分提供 Azure 媒体服务的概述
 services: media-services
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: hero-article
 origin.date: 10/24/2017
 ms.date: 12/11/2017
 ms.author: v-nany
-ms.openlocfilehash: 87c18d84083bcbabe2b2f0345e35d3e1f0ce3c1e
-ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
+ms.openlocfilehash: 71f29dd0f7e9c10c17f35ea35703fcb5ca866e5f
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39723134"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426194"
 ---
 # <a name="azure-media-services-overview"></a>Azure 媒体服务概述 
 

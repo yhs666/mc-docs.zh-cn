@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 02/14/2018
 ms.date: 03/12/2018
 ms.author: v-junlch
-ms.openlocfilehash: a76f57ab4551aac0c6d16ceacc5d36f7a6332003
-ms.sourcegitcommit: af6d48d608d1e6cb01c67a7d267e89c92224f28f
+ms.openlocfilehash: a998d1bd95310508eed8ccb483490fd3332349b1
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29925188"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426183"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection-classic"></a>将站点到站点连接添加到包含现有 VPN 网关连接的 VNet（经典）
 
@@ -76,7 +76,7 @@ ms.locfileid: "29925188"
 2. 配置新网关并创建 VPN 隧道。 有关说明，请参阅[指定 SKU 和 VPN 类型](vpn-gateway-howto-site-to-site-classic-portal.md#sku)。 请确保将“路由类型”指定为“动态”。
 
 ### <a name="if-you-dont-have-a-site-to-site-virtual-network"></a>如果没有站点到站点虚拟网络：
-1. 按照以下说明创建站点到站点虚拟网络：创建使用站点到站点 VPN 连接的虚拟网络。  
+1. 按照以下说明创建站点到站点虚拟网络：[创建使用站点到站点 VPN 连接的虚拟网络](vpn-gateway-howto-site-to-site-classic-portal.md)。  
 2. 按照以下说明配置动态路由网关：[配置 VPN 网关](vpn-gateway-configure-vpn-gateway-mp.md)。 请务必为网关类型选择“动态路由”。
 
 ## <a name="export"></a>2.导出网络配置文件

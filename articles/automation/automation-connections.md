@@ -7,15 +7,15 @@ ms.component: shared-capabilities
 author: WenJason
 ms.author: v-jay
 origin.date: 03/15/2018
-ms.date: 09/10/2018
+ms.date: 10/01/2018
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: f4487921b6a1d632876c99eef117c7684770de4b
-ms.sourcegitcommit: 1b60848d25bbd897498958738644a4eb9cf3a302
+ms.openlocfilehash: c93c527322091ff3f7b4cc6e352745066aa66963
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43731225"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426215"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Azure 自动化中的连接资产
 
@@ -43,7 +43,7 @@ ms.locfileid: "43731225"
 
 |活动|说明|
 |---|---|
-|[Get-AutomationConnection](https://docs.microsoft.com/powershell/module/azure/get-azureautomationconnection?view=azuresmps-3.7.0)|获取要使用的连接。 返回包括该连接属性的哈希表。|
+|[Get-AutomationConnection](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationconnection?view=azuresmps-3.7.0)|获取要使用的连接。 返回包括该连接属性的哈希表。|
 
 >[!NOTE] 
 >应避免在 **Get- AutomationConnection** 的 -Name 参数中使用变量，因为这可能会使设计时发现 Runbook 或 DSC 配置与连接资产之间的依赖关系变得复杂化。

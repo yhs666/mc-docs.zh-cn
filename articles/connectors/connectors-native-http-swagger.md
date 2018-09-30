@@ -1,6 +1,6 @@
 ---
-title: 使用 HTTP + Swagger 连接器为 Azure 逻辑应用调用 REST 终结点
-description: 使用 HTTP + Swagger 连接器通过 Swagger 从逻辑应用连接到 REST 终结点
+title: 从 Azure 逻辑应用调用 REST 终结点 | Microsoft Docs
+description: 在 Azure 逻辑应用中使用 HTTP + Swagger 连接器，自动执行与 REST 终结点通信的任务和工作流
 services: logic-apps
 author: jeffhollan
 manager: anneta
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 07/18/2016
 ms.author: v-yiso
-ms.date: 03/26/2018
-ms.openlocfilehash: 78f42deec1ec2b9d47ce8c3aad2be7cf5647f09c
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.date: 10/15/2018
+ms.openlocfilehash: 79cdb09ed748bc70d801d21a421b7d67ec771f7c
+ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30077675"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47455126"
 ---
-# <a name="get-started-with-the-http--swagger-action"></a>HTTP + Swagger 操作入门
+# <a name="call-rest-endpoints-with-http--swagger-connector-in-azure-logic-apps"></a>在 Azure 逻辑应用中使用 HTTP + Swagger 连接器调用 REST 终结点
 
 在逻辑应用工作流中使用 HTTP + Swagger 操作时，可以通过 [Swagger 文档](https://swagger.io)向任意 REST 终结点创建一流连接器。 还可以扩展逻辑应用以调用任何带有一流逻辑应用设计器体验的 REST 终结点。
 

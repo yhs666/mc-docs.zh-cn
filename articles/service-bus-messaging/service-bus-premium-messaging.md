@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 origin.date: 04/30/2018
 ms.author: v-yiso
-ms.date: 06/11/2018
-ms.openlocfilehash: 37ec71cf318bcb230b39b961c9110d7756ef6b47
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.date: 10/15/2018
+ms.openlocfilehash: c2e3949c2d1d3695eb7e12d32f5c2f8e429520a0
+ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695263"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47455143"
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>服务总线高级和标准消息传送层
 
@@ -58,7 +58,7 @@ ms.locfileid: "34695263"
 
 ## <a name="get-started-with-premium-messaging"></a>高级消息传送入门
 
-高级消息传送很容易入门，其操作过程类似于标准消息传送。 一开始时，请在 [Azure 门户](https://portal.azure.cn)中[创建命名空间](service-bus-create-namespace-portal.md)。 确保在“选择定价层”下选择“高级”。
+高级消息传送很容易入门，其操作过程类似于标准消息传送。 一开始时，请在 [Azure 门户](https://portal.azure.cn)中[创建命名空间](service-bus-create-namespace-portal.md)。 确保在“定价层”下选择“高级”。 单击“查看完整的定价详细信息”以查看有关每个层级的详细信息。
 
 ![create-premium-namespace][create-premium-namespace]
 
@@ -66,7 +66,7 @@ ms.locfileid: "34695263"
 
 ## <a name="next-steps"></a>后续步骤
 
-若要了解有关服务总线消息传送的详细信息，请参阅以下主题。
+若要了解有关服务总线消息传送的详细信息，请参阅以下链接：
 
 * [Azure 服务总线高级消息传送简介（博客文章）](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
 * [Azure 服务总线高级消息传送简介 (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)

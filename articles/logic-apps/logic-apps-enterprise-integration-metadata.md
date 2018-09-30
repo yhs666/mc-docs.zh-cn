@@ -1,9 +1,6 @@
 ---
-title: 管理集成帐户项目元数据 - Azure 逻辑应用
-description: 在集成帐户中为 Azure 逻辑应用添加或检索项目元数据
-author: padmavc
-manager: anneta
-editor: ''
+title: 管理集成帐户项目元数据 - Azure 逻辑应用 |Microsoft Docs
+description: 在带有 Enterprise Integration Pack 的 Azure 逻辑应用中通过集成帐户添加或检索项目元数据
 services: logic-apps
 documentationcenter: ''
 ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
@@ -14,16 +11,16 @@ ms.devlang: na
 ms.topic: article
 ms.custom: H1Hack27Feb2017
 origin.date: 02/23/2018
-ms.date: 03/19/2018
+ms.date: 10/15/2018
 ms.author: v-yiso
-ms.openlocfilehash: de7c2ce02f8e11ba8abc3b0dc616521c88ff5c34
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: a59262fedb23f4487a2b1805a6538b72e4afd3e3
+ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29870545"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47455163"
 ---
-# <a name="manage-artifact-metadata-in-integration-accounts-for-logic-apps"></a>在集成帐户中为逻辑应用管理项目元数据
+# <a name="manage-artifact-metadata-from-integration-accounts-in-azure-logic-apps-with-enterprise-integration-pack"></a>在带有 Enterprise Integration Pack 的 Azure 逻辑应用中通过集成帐户管理项目元数据
 
 可以在集成帐户中定义项目的自定义元数据，并且在运行时期间为逻辑应用检索该元数据。 例如，可以指定项目的元数据（如合作伙伴、协议、架构和映射）- 所有使用键/值对的存储元数据。 
 
@@ -41,7 +38,7 @@ ms.locfileid: "29870545"
 
 1. 在 Azure 门户中，创建一个[逻辑应用](quickstart-create-first-logic-app-workflow.md)。
 
-2. 创建[从逻辑应用到集成帐户的链接](logic-apps-enterprise-integration-create-integration-account.md#link-an-integration-account-to-a-logic-app)。 
+2. 创建[从逻辑应用到集成帐户的链接](logic-apps-enterprise-integration-create-integration-account.md#link-account)。 
 
 3. 在逻辑应用设计器中，将触发器（如请求或 HTTP）添加到逻辑应用。
 

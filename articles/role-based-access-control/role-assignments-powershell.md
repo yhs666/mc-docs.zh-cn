@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 06/20/2018
-ms.date: 07/25/2018
+origin.date: 09/06/2018
+ms.date: 09/25/2018
 ms.author: v-junlch
 ms.reviewer: bagovind
-ms.openlocfilehash: 55d916c2b01e399c85581189faf5270d2a28564c
-ms.sourcegitcommit: cce18df2de12353f0d8f01c649307a5789d59cd4
+ms.openlocfilehash: ddb5eaac7a0b497b4f148e0e13f816c9978848c5
+ms.sourcegitcommit: 830a60c06303a8447d128a3bca8b36aa2b3b655b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39246129"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47075852"
 ---
 # <a name="manage-access-using-rbac-and-azure-powershell"></a>使用 RBAC 和 Azure PowerShell 管理访问权限
 
@@ -231,7 +231,7 @@ Get-AzureRmADServicePrincipal -SearchString <service name in quotes>
 若要向订阅范围内的应用程序授予访问权限，请使用 [New-AzureRmRoleAssignment](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermroleassignment)。
 
 ```azurepowershell
-New-AzureRmRoleAssignment -ObjectId <application id> -RoleDefinitionName <role name> -Scope <subscription id>
+New-AzureRmRoleAssignment -ObjectId <application id> -RoleDefinitionName <role name> -Scope /subscriptions/<subscription id>
 ```
 
 ```Example

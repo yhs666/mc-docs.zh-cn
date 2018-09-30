@@ -2,27 +2,21 @@
 title: 通过 Power BI 工作区集合进行身份验证和授权 | Microsoft Docs
 description: 通过 Power BI 工作区集合进行身份验证和授权。
 services: power-bi-embedded
-documentationcenter: ''
-author: alexchen2016
-manager: digimobile
-editor: ''
-tags: ''
+author: markingmyname
 ROBOTS: NOINDEX
 ms.assetid: 1c1369ea-7dfd-4b6e-978b-8f78908fd6f6
 ms.service: power-bi-embedded
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: powerbi
-origin.date: 10/24/2017
-ms.date: 09/10/2018
+origin.date: 09/20/2017
+ms.date: 09/26/2018
 ms.author: v-junlch
-ms.openlocfilehash: 61cc1a65cfe616b0485e44de4417c5cdf4b9f3fb
-ms.sourcegitcommit: 22ae27d993016bf80b2924a880abf885386a61eb
+ms.openlocfilehash: 8021014896a3a2a97edb48102024ea8b23feeebc
+ms.sourcegitcommit: 7c6ff130adaa67bc90094846f81295ef0719d072
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44269557"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47191369"
 ---
 # <a name="authenticating-and-authorizing-with-power-bi-workspace-collections"></a>通过 Power BI 工作区集合进行身份验证和授权
 
@@ -39,7 +33,7 @@ Power BI 工作区集合使用**密钥**和**应用令牌**进行身份验证和
 
     Authorization: AppKey {your key}
 
-**应用令牌** - 应用令牌可用于所有嵌入请求。 它们被设计为运行客户端，令牌限用于单个报表，并且最好设置一个过期时间。
+**应用令牌** - 应用令牌用于所有嵌入请求。 它们被设计为运行客户端，令牌限用于单个报表，并且最好设置一个过期时间。
 
 应用令牌是由某个密钥签名的 JWT（JSON Web 令牌）。
 
@@ -50,7 +44,7 @@ Power BI 工作区集合使用**密钥**和**应用令牌**进行身份验证和
 | **ver** |应用令牌的版本。 当前版本为 0.2.0。 |
 | **aud** |令牌的目标接收方。 对于 Power BI 工作区集合，请使用：*https:\//analysis.chinacloudapi.cn/powerbi/api* |
 | **iss** |一个字符串，指示颁发了令牌的应用程序。 |
-| type |要创建的应用令牌的类型。 当前唯一支持的类型是 **embed**。 |
+| **类型** |要创建的应用令牌的类型。 当前唯一支持的类型是 **embed**。 |
 | **wcn** |要为其颁发令牌的工作区集合名称。 |
 | **wid** |要为其颁发令牌的工作区 ID。 |
 | **rid** |要为其颁发令牌的报表 ID。 |
@@ -101,7 +95,7 @@ SDK 中提供了可以更轻松地创建应用令牌的方法。 例如，对于
 
 下面是针对 Power BI 工作区集合的可用作用域。
 
-|范围|说明|
+|作用域|说明|
 |---|---|
 |Dataset.Read|提供对指定数据集进行读取的权限。|
 |Dataset.Write|提供向指定数据集进行写入的权限。|
@@ -149,7 +143,7 @@ Body
 
 ### <a name="operations-and-scopes"></a>操作和作用域
 
-|Operation|目标资源|令牌权限|
+|操作|目标资源|令牌权限|
 |---|---|---|
 |基于数据集创建（在内存中）新报表。|数据集|Dataset.Read|
 |基于数据集创建（在内存中）新报表并保存该报表。|数据集|* Dataset.Read<br>* Workspace.Report.Create|
@@ -189,5 +183,6 @@ Body
 [Power BI 工作区集合入门](get-started.md)  
 [PowerBI-CSharp Git 存储库](https://github.com/Microsoft/PowerBI-CSharp)
 
-有更多问题？ [尝试 Power BI 社区](http://community.powerbi.com/)
+有更多问题？ [试用 Power BI 社区](http://community.powerbi.com/)
 
+<!-- Update_Description: update metedata properties -->

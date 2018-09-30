@@ -1,5 +1,5 @@
 ---
-title: 如何使用 Azure 媒体服务实时传送视频流以通过 .NET 创建多比特率流 | Azure
+title: 如何使用 Azure 媒体服务执行实时传送视频流以通过 .NET 创建多比特率流 | Microsoft Docs
 description: 本教程指导使用 .NET SDK 完成创建通道的步骤，该通道接收单比特率实时流，并将其编码为多比特率流。
 services: media-services
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: get-started-article
 origin.date: 12/09/2017
 ms.date: 07/30/2018
 ms.author: v-nany
-ms.openlocfilehash: f53c756196a8606f7c7611c0ef62242887679277
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+ms.openlocfilehash: 8aa8d907841d86d4d0ac5c41382ffb3321602847
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219522"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426366"
 ---
 # <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-net"></a>如何使用 Azure 媒体服务执行实时流式处理以通过 .NET 创建多比特率流
 > [!div class="op_single_selector"]

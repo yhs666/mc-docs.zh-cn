@@ -1,6 +1,6 @@
 ---
-title: 计划任务和定期运行的工作流 - Azure 逻辑应用
-description: 使用逻辑应用创建和计划定期运行的任务、操作、工作流、过程和工作负荷
+title: 使用 Azure 逻辑应用创建定期运行的任务和工作流 | Microsoft Docs
+description: 在 Azure 逻辑应用中使用“定期”连接器自动执行按计划运行的任务和工作流
 services: logic-apps
 documentationcenter: ''
 author: ecfan
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 09/25/2017
 ms.author: v-yiso
-ms.date: 04/23/2018
-ms.openlocfilehash: af642eec9238104a675845c7b374a74dfb961910
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.date: 10/15/2018
+ms.openlocfilehash: fa12e96f78752f6667bb0d7e4d3593b25878fe1c
+ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31326020"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47455208"
 ---
-# <a name="create-and-schedule-regularly-running-tasks-with-azure-logic-apps"></a>使用 Azure 逻辑应用创建和计划定期运行的任务
+# <a name="create-and-run-recurring-tasks-and-workflows-with-azure-logic-apps"></a>使用 Azure 逻辑应用创建和运行重复任务和工作流
 
 若要计划定期运行的任务、操作、工作负荷或过程，可以创建一个能够通过“计划 - 定期”[触发器](../logic-apps/logic-apps-overview.md#logic-app-concepts)启动的逻辑应用工作流。 使用此触发器，可以设置定期计划的开始日期和时间，以及一个用于执行任务的定期计划，部分示例如下：
 

@@ -2,34 +2,28 @@
 title: 在 Power BI 工作区集合中基于数据集创建新报表 | Microsoft Docs
 description: 现在，可以基于自有应用程序中的数据集创建 Power BI 工作区集合报表。
 services: power-bi-embedded
-documentationcenter: ''
-author: alexchen2016
-manager: digimobile
-editor: ''
-tags: ''
+author: markingmyname
 ROBOTS: NOINDEX
 ms.assetid: ''
 ms.service: power-bi-embedded
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: powerbi
 origin.date: 09/20/2017
-ms.date: 10/24/2017
+ms.date: 09/26/2018
 ms.author: v-junlch
-ms.openlocfilehash: 11dedc9b00a10376cc0c14805e520ecf0a7b60b7
-ms.sourcegitcommit: 140d09254b5ded4b408980b43c0fc5d3643320a1
+ms.openlocfilehash: 596822ab3a6ef9826175e70cbcbbf38be340cc6b
+ms.sourcegitcommit: 7c6ff130adaa67bc90094846f81295ef0719d072
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2017
-ms.locfileid: "23580313"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47191372"
 ---
 # <a name="create-a-new-report-from-a-dataset-in-power-bi-workspace-collections"></a>在 Power BI 工作区集合中基于数据集创建新报表
 
 现在，可以基于自有应用程序中的数据集创建 Power BI 工作区集合报表。
 
 > [!IMPORTANT]
-> Power BI 工作区集合已遭弃用，在 2018 年 6 月或合同上指明的时间前可用。 建议你规划到 Power BI Embedded 的迁移以避免应用程序中断。 有关如何将数据迁移到 Power BI Embedded 的信息，请参阅[如何将 Power BI 工作区集合内容迁移到 Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/)。
+> Power BI 工作区集合已弃用，到 2018 年 6 月 或合同指示时可用。 建议你规划到 Power BI Embedded 的迁移以避免应用程序中断。 有关如何将数据迁移到 Power BI Embedded 的信息，请参阅[如何将 Power BI 工作区集合内容迁移到 Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/)。
 
 身份验证方法类似于嵌入报表时的身份验证方法。 该方法基于特定于数据集的访问令牌。 用于 PowerBI.com 的令牌是由 Azure Active Directory (AAD) 颁发的。 Power BI 工作区集合令牌是由你自己的应用程序颁发的。
 
@@ -65,7 +59,7 @@ var token = embedToken.Generate("{access key}");
 
 ## <a name="create-a-new-blank-report"></a>创建新的空白报表
 
-若要创建新报表，应提供 create 配置。 此配置应包含访问令牌、embedURL，以及用于创建报表的 datasetID。 这就需要安装 [Power BI JavaScript NuGet 包](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/)。 embedUrl 就是 https://embedded.powerbi.cn/appTokenReportEmbed。
+若要创建新报表，应提供 create 配置。 此配置应包含访问令牌、embedURL，以及用于创建报表的 datasetID。 这就需要安装 [Power BI JavaScript NuGet 包](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/)。 embedUrl 将只是 https://embedded.powerbi.cn/appTokenReportEmbed。
 
 > [!NOTE]
 > 可以使用 [JavaScript 报表嵌入示例](https://microsoft.github.io/PowerBI-JavaScript/demo/)测试功能。 我们还提供了适用于不同操作的代码示例。
@@ -214,3 +208,4 @@ var embedCreateConfiguration = {
 
 有更多问题？ [试用 Power BI 社区](http://community.powerbi.com/)
 
+<!-- Update_Description: update metedata properties -->

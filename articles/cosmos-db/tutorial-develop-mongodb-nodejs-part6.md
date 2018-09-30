@@ -10,15 +10,15 @@ ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
 origin.date: 06/17/2018
-ms.date: 09/03/2018
+ms.date: 09/30/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: c34067aa6ab8d3a419ee668a98665250e809372e
-ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
+ms.openlocfilehash: cf7c46ed44aa0556dc1472358948ddf225d5ded6
+ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43164688"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47201442"
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-6-add-post-put-and-delete-functions-to-the-app"></a>通过 Angular 和 Azure Cosmos DB 创建 MongoDB 应用 - 第 6 部分：向应用添加 Post、Put 和 Delete 函数
 
@@ -189,7 +189,7 @@ ms.locfileid: "43164688"
     ![Heroes 应用和“网络”选项卡，显示完成函数操作的时间](./media/tutorial-develop-mongodb-nodejs-part6/times.png) 
 
     如果刷新页面，“网络”选项卡会显示获取 hero 的时间。 虽然这里显示的时间很短，但很多情况下，具体时间取决于数据在多个区域中所处的位置，以及能否在靠近用户的区域进行异地复制。 可以在即将推出的下一教程中详细了解异地复制。
-<!-- Notice: 全球 to 多个区域 -->
+    <!-- Notice: 全球 to 多个区域 -->
 
 ## <a name="next-steps"></a>后续步骤
 

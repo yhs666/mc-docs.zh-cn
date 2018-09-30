@@ -8,13 +8,13 @@ manager: digimobile
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 01/03/2018
-ms.date: 06/18/2018
-ms.openlocfilehash: 9080056cdfd7754641b9f219d506c1560ad4f5be
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.date: 09/30/2018
+ms.openlocfilehash: afade94e72eebf229681e0604f6caba07d0fe908
+ms.sourcegitcommit: 432984d85afe6f3da8f211bae0fa98a556785ee8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "35416863"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47455374"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Azure 流分析作业的兼容性级别
 
@@ -70,5 +70,8 @@ ms.locfileid: "35416863"
 ## <a name="next-steps"></a>后续步骤
 * [Azure 流分析故障排除指南](stream-analytics-troubleshooting-guide.md)
 * [流分析“资源运行状况”边栏选项卡](stream-analytics-resource-health.md)
-<!-- Update_Description: new articles on stream analytics compatibility level -->
+
+<!-- Update_Description: update meta properties -->
+
 <!--ms.date: 06/18/2018-->
+

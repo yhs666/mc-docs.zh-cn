@@ -1,9 +1,6 @@
 ---
-title: 监视 B2B 事务并设置日志记录 - Azure 逻辑应用
-description: 监视 AS2、X12 和 EDIFACT 消息，启动集成帐户的诊断日志记录
-author: padmavc
-manager: anneta
-editor: ''
+title: 监视 B2B 消息并设置日志记录 - Azure 逻辑应用 | Microsoft Docs
+description: 监视 AS2、X12 和 EDIFACT 消息。 在 Azure 逻辑应用中为集成帐户设置诊断日志记录。
 services: logic-apps
 documentationcenter: ''
 ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
@@ -15,17 +12,17 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 origin.date: 07/21/2017
 ms.author: v-yiso
-ms.date: 03/19/2018
-ms.openlocfilehash: 2d1423a76fccd84799f1ae30ce08b16f18599279
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.date: 10/15/2018
+ms.openlocfilehash: 66396fdf4296f9ae939252edd7e2b878a010c7cf
+ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782231"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47455132"
 ---
-# <a name="monitor-and-set-up-diagnostics-logging-for-b2b-communication-in-integration-accounts"></a>监视和设置用于在集成帐户中进行 B2B 通信的诊断日志记录
+# <a name="monitor-b2b-messages-and-set-up-logging-for-integration-accounts-in-azure-logic-apps"></a>在 Azure 逻辑应用中监视 B2B 消息并为集成帐户设置日志记录
 
-在你通过集成帐户在两个运行的业务流程或应用程序之间设置 B2B 通信之后，这些实体可以彼此交换消息。 要确认此通信是否按预期方式工作，可通过 [Azure Log Analytics](../log-analytics/log-analytics-overview.md) 服务设置对 AS2、X12 和 EDIFACT 消息的监视以及对集成帐户的诊断日志记录。 此服务可监视云和本地环境，有助于保持其可用性和性能，还可以收集运行时详细信息和事件以进行更丰富的调试。 此外，还可以[将诊断数据用于其他服务](#extend-diagnostic-data)，如 Azure 存储和 Azure 事件中心。
+通过集成帐户设置两个运行的业务流程或应用程序的 B2B 通信后，这些实体可以彼此交换消息。 要确认此通信是否按预期方式工作，可通过 [Azure Log Analytics](../log-analytics/log-analytics-overview.md) 服务设置对 AS2、X12 和 EDIFACT 消息的监视以及对集成帐户的诊断日志记录。 此服务可监视云和本地环境，有助于保持其可用性和性能，还可以收集运行时详细信息和事件以进行更丰富的调试。 此外，还可以[将诊断数据用于其他服务](#extend-diagnostic-data)，如 Azure 存储和 Azure 事件中心。
 
 ## <a name="requirements"></a>要求
 

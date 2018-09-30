@@ -1,9 +1,6 @@
 ---
-title: 将身份验证添加到自定义 API - Azure 逻辑应用
-description: 通过逻辑应用为对自定义 API 的调用设置身份验证
-author: ecfan
-manager: anneta
-editor: ''
+title: 将身份验证添加到自定义 API - Azure 逻辑应用 | Microsoft Docs
+description: 通过 Azure 逻辑应用为调用自定义 API 设置身份验证
 services: logic-apps
 documentationcenter: ''
 ms.assetid: ''
@@ -13,16 +10,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/22/2017
-ms.date: 03/19/2018
+ms.date: 10/15/2018
 ms.author: v-yiso
-ms.openlocfilehash: 85d214f0f59bcdb3e3cd2e3040e73d515b732439
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: 715b8138460a12f179ddbd7ae1185474b8b91530
+ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29870619"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47455169"
 ---
-# <a name="secure-calls-to-your-custom-apis-from-logic-apps"></a>通过逻辑应用保护对自定义 API 的调用
+# <a name="secure-calls-to-custom-apis-from-azure-logic-apps"></a>通过 Azure 逻辑应用保护对自定义 API 的调用
 
 要保护对 API 的调用，可通过 Azure 门户设置 Azure Active Directory (Azure AD) 身份验证，这样便无需更新代码。 或者，还可利用 API 代码要求并强制执行身份验证。
 
@@ -30,7 +27,7 @@ ms.locfileid: "29870619"
 
 通过以下方式可以保护对自定义 API 的调用：
 
-* [无需更改代码](#no-code)：通过 Azure 门户使用 [Azure Active Directory (Azure AD)](../active-directory/active-directory-whatis.md) 保护 API，以便无需更新代码或重新部署 API。
+* [无需更改代码](#no-code)：通过 Azure 门户使用 [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) 保护 API，以便无需更新代码或重新部署 API。
 
   > [!NOTE]
   > 默认情况下，在 Azure 门户中开启的 Azure AD 身份验证不提供细化的授权。 例如，此身份验证将 API 锁定到特定租户，而不是特定用户或应用。 
@@ -55,7 +52,7 @@ ms.locfileid: "29870619"
 
 **在 Azure 门户中为逻辑应用创建应用程序标识**
 
-1. 在 [Azure 门户](https://portal.azure.cn "https://portal.azure.cn") 中，选择“Azure Active Directory”。 
+1. 在 [Azure 门户](https://portal.azure.cn "https://portal.azure.cn")中，选择“Azure Active Directory”。 
 
 2. 确认所在目录与 Web 应用或 API 应用相同。
 
@@ -118,7 +115,7 @@ ms.locfileid: "29870619"
 
 **在 Azure 门户中为已部署的应用创建应用程序标识并开启身份验证**
 
-1. 在 [Azure 门户](https://portal.azure.cn "https://portal.azure.cn") 中，找到并选择 Web 应用或 API 应用。 
+1. 在 [Azure 门户](https://portal.azure.cn "https://portal.azure.cn")中，找到并选择 Web 应用或 API 应用。 
 
 2. 在“设置”下，选择“身份验证/授权”。 在“应用服务身份验证”下，“开启”身份验证。 在“身份验证提供程序”下，选择“Azure Active Directory”。
 

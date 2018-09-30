@@ -1,9 +1,9 @@
 ---
-title: 使用 Azure 媒体服务执行实时流式处理以创建多比特率流 | Azure
+title: 使用 Azure 媒体服务执行实时传送视频流以创建多比特率流 | Microsoft Docs
 description: 本主题介绍如何设置通道，以从本地编码器接收单比特率实时流，并使用媒体服务执行实时编码以将其转换为自适应比特率流。 然后，该流可使用以下自适应流式传输协议之一，通过一个或多个流式传输终结点传送给客户端播放应用程序：HLS、平滑流、MPEG DASH。
 services: media-services
 documentationcenter: ''
-author: hayley244
+author: WenJason
 manager: digimobile
 editor: ''
 ms.assetid: 30ce6556-b0ff-46d8-a15d-5f10e4c360e2
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/02/2018
-ms.date: 07/30/2018
-ms.author: v-haiqya
-ms.openlocfilehash: ce77f3ac3a7c1478be3e5d0cefb96bcf9b8bac19
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+origin.date: 08/20/2018
+ms.date: 10/01/2018
+ms.author: v-jay
+ms.openlocfilehash: 3ae1389a1b4332aa400d0c3cb9f19b276522a928
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219571"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426272"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>使用 Azure 媒体服务执行实时流式处理以创建多比特率流
 
@@ -89,7 +89,7 @@ ms.locfileid: "39219571"
 以下是在创建常见的实时流应用程序时涉及的常规步骤。
 
 > [!NOTE]
-> 目前，实时事件的最大建议持续时间为 8 小时。 请注意，实时编码会影响计费，应记住，将实时编码通道保持为“正在运行”状态会产生按小时计算的费用。  建议在实时流式处理事件完成之后立即停止正在运行的通道，以避免产生额外的小时费用。
+> 目前，实时事件的最大建议持续时间为 8 小时。 实时编码会影响计费，应该记住，将实时编码通道保持为“正在运行”状态会产生按小时计算的费用。  建议在实时流式处理事件完成之后立即停止正在运行的通道，以避免产生额外的小时费用。
 > 
 > 
 
@@ -228,7 +228,8 @@ ms.locfileid: "39219571"
 | 200 |340 |192 |30 |基线 |Video_340x192_200kbps |
 
 #### <a name="output-audio-stream"></a>输出音频流
-音频以 64 kbps 的速率编码为立体声 AAC-LC，采样率为 44.1 kHz。
+
+音频以 128 kbps 的速率编码为立体声 AAC-LC，采样率为 48 kHz。
 
 ## <a name="signaling-advertisements"></a>指示广告
 通道启用实时编码后，管道中会有一个正在处理视频的组件，可对其进行操作。 可以向通道发出信号，以将静态图像和/或广告插入到传出自适应比特率流中。 盖板是在某些情况下（例如，在商业广告期间）可用于覆盖输入实时源的静止图像。 广告信号是嵌入到传出流中的时间同步信号，用于指示视频播放机执行特殊操作（例如，在适当时间切换到广告）。 有关用于此目的的 SCTE-35 信号机制的概述，请参阅此 [博客](https://codesequoia.wordpress.com/2014/02/24/understanding-scte-35/) 。 下面是可以在实时事件中实现的典型方案。
@@ -281,7 +282,7 @@ ms.locfileid: "39219571"
 ## <a name="channels-programs"></a>通道的节目
 通道与节目相关联，使用节目，可以控制实时流中片段的发布和存储。 通道管理节目。 通道和节目的关系非常类似于传统媒体，通道具有恒定的内容流，而节目的范围限定为该通道上的一些定时事件。
 
-可以通过设置 **存档窗口** 长度，指定希望保留节目录制内容的小时数。 此值的设置范围是最短 5 分钟，最长 25 小时。 存储时段长度还决定了客户端能够从当前实时位置按时间向后搜索的最长时间。 超出指定时间长度后，节目也能够运行，但落在时段长度后面的内容会全部被丢弃。 此属性的值还决定了客户端清单能够增加多长时间。
+可以通过设置 **存档窗口** 长度，指定希望保留节目录制内容的小时数。 此值的设置范围是最短 5 分钟，最长 25 小时。 存档时段长度还决定了客户端能够从当前实时位置向后搜索的最长时间。 超出指定时间长度后，节目也能够运行，但落在时段长度后面的内容会全部被丢弃。 此属性的值还决定了客户端清单能够增加多长时间。
 
 每个节目都与存储流式处理内容的资源相关联。 资产映射到 Azure 存储帐户中的 blob 容器，资产中的文件作为 blob 存储在该容器中。 若要发布节目，以便客户查看该流，必须为关联的资源创建按需定位符。 创建此定位符后，可以生成提供给客户端的流式处理 URL。
 
@@ -338,7 +339,7 @@ ms.locfileid: "39219571"
 
 ## <a name="known-issues"></a>已知问题
 * 通道启动时间已改善为平均 2 分钟，但有时因为需求提高，可能仍然需要长达 20 分钟以上的时间。
-* 盖板图像应符合[此处](media-services-manage-live-encoder-enabled-channels.md#default_slate)所述的限制。 如果想要尝试创建默认静态图像大于 1920x1080 的通道，最终请求会出错。
+* 盖板图像应符合[此处](media-services-manage-live-encoder-enabled-channels.md#default_slate)所述的限制。 如果尝试创建默认盖板大于 1920x1080 的频道，请求最终会出错。
 * 再次强调，完成流式处理后请不要忘记关闭通道。 否则会继续计费。
 
 ## <a name="related-topics"></a>相关主题
@@ -355,4 +356,4 @@ ms.locfileid: "39219571"
 [Azure 媒体服务零碎的 MP4 实时引入规范](media-services-fmp4-live-ingest-overview.md)
 
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
-<!--Update_Description: remove several recommended encoder-->
+

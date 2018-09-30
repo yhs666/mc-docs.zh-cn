@@ -1,6 +1,6 @@
 ---
-title: 使用 REST 配置 Azure 媒体服务遥测 |Azure
-description: 本文介绍如何通过 REST API 使用 Azure 媒体服务遥测...
+title: 使用 .REST 配置 Azure 媒体服务遥测 | Microsoft Docs
+description: 本文介绍如何通过 REST API 使用 Azure 媒体服务遥测。
 services: media-services
 documentationcenter: ''
 author: hayley244
@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 08/09/2017
 ms.date: 07/30/2018
 ms.author: v-haiqya
-ms.openlocfilehash: 1c37207431e2ebc02b744ed349eb900320b5e0d0
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+ms.openlocfilehash: 9383a8d974eb7b6dc246e2d875c726259e66d6f0
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219698"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426341"
 ---
 # <a name="configuring-azure-media-services-telemetry-with-rest"></a>使用 REST 配置 Azure 媒体服务遥测
 
@@ -220,11 +220,10 @@ ms.locfileid: "39219698"
     Date: Wed, 02 Dec 2015 05:10:43 GMT
     
     {"d":{"__metadata":{"id":"https://wamsbnp1clus001rest-hs.chinacloudapp.cn/api/MonitoringConfigurations('nb%3Amcid%3AUUID%3A1a8931ae-799f-45fd-8aeb-9641740295c2')","uri":"https://wamsbnp1clus001rest-hs.chinacloudapp.cn/api/MonitoringConfigurations('nb%3Amcid%3AUUID%3A1a8931ae-799f-45fd-8aeb-9641740295c2')","type":"Microsoft.Cloud.Media.Vod.Rest.Data.Models.MonitoringConfiguration"},"Id":"nb:mcid:UUID:1a8931ae-799f-45fd-8aeb-9641740295c2","NotificationEndPointId":"nb:nepid:UUID:76bb4faf-ea29-4815-840a-9a8e20102fc4","Created":"2015-12-02T05:10:43.7680396Z","LastModified":"2015-12-02T05:10:43.7680396Z","Settings":{"__metadata":{"type":"Collection(Microsoft.Cloud.Media.Vod.Rest.Data.Models.ComponentMonitoringSettings)"},"results":[{"Component":"Channel","Level":"Normal"},{"Component":"StreamingEndpoint","Level":"Disabled"}]}}}
-```
 
-## Stop telemetry
+## <a name="stop-telemetry"></a>停止遥测
 
-### Request
+### <a name="request"></a>请求
 
     DELETE https://wamsbnp1clus001rest-hs.chinacloudapp.cn/api/MonitoringConfigurations('nb%3Amcid%3AUUID%3A1a8931ae-799f-45fd-8aeb-9641740295c2')
     x-ms-version: 2.13
@@ -235,7 +234,7 @@ ms.locfileid: "39219698"
     Content-Type: application/json; charset=utf-8
     Host: wamsbnp1clus001rest-hs.chinacloudapp.cn
 
-## Consuming telemetry information
+## <a name="consuming-telemetry-information"></a>使用遥测信息
 
-For information about consuming telemetry information, see [this](media-services-telemetry-overview.md) topic.
+有关使用遥测信息的信息，请参阅 [此主题](media-services-telemetry-overview.md)。
 

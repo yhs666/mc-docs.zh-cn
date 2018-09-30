@@ -1,6 +1,6 @@
 ---
-title: Azure 媒体服务概念 | Azure
-description: 本部分概述 Azure 媒体服务的概念。
+title: Azure 媒体服务概念 | Microsoft Docs
+description: 本主题提供 Azure 媒体服务概念的概述
 services: media-services
 documentationcenter: ''
 author: forester123
@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 07/07/2017
 ms.date: 09/25/2017
 ms.author: v-johch
-ms.openlocfilehash: 53380f22bf6e2b9d50d714580b50489ec8d26f6b
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+ms.openlocfilehash: 46a46e948e40535856d3f85af3ca8d27bc996b3e
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219606"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426251"
 ---
 # <a name="azure-media-services-concepts"></a>Azure 媒体服务概念
 本部分概述最重要的媒体服务概念。
@@ -51,8 +51,7 @@ ms.locfileid: "39219606"
 
 如果计划使用渐进式下载交付 MP4，则使用此选项上传内容。
 
-
-            **StorageEncrypted** - 使用此选项可以通过 AES 256 位加密在本地加密明文内容，并将其上传到 Azure 存储中以加密形式静态存储相关内容。 受存储加密保护的资产会在编码前自动解密并放入经过加密的文件系统中，并可选择在重新上传为新的输出资产前重新加密。 存储加密的主要用例是在磁盘上通过静态增强加密来保护高品质的输入媒体文件。 
+**StorageEncrypted** - 使用此选项可以通过 AES 256 位加密在本地加密明文内容，并将其上传到 Azure 存储中以加密形式静态存储相关内容。 受存储加密保护的资产会在编码前自动解密并放入经过加密的文件系统中，并可选择在重新上传为新的输出资产前重新加密。 存储加密的主要用例是在磁盘上通过静态增强加密来保护高品质的输入媒体文件。 
 
 要传送存储加密资产，必须配置资产的传送策略，以使媒体服务了解要如何传送内容。 在流式传输资产之前，流式处理服务器会删除存储加密，再使用指定的传传送策略（例如 AES、PlayReady 或无加密）流式传输用户的内容。 
 

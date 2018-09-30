@@ -2,20 +2,20 @@
 title: 教程 - 通过 Azure PowerShell 使用发布/订阅频道和主题筛选器更新零售库存分类 | Microsoft Docs
 description: 在本教程中，你将了解如何从主题和订阅发送和接收消息，以及如何使用 Azure PowerShell 添加和使用筛选器规则
 services: service-bus-messaging
-author: sethmanheim
+author: spelluru
 manager: timlt
 ms.author: v-yiso
 origin.date: 05/22/2018
-ms.date: 07/16/2018
+ms.date: 10/15/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 34d717e27c602a42dcd19885d7ee27fd7ec873fa
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.openlocfilehash: 3f8a033537d360ec8e5fdb276c0d394e281bdb21
+ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873770"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47455094"
 ---
 # <a name="tutorial-update-inventory-using-powershell-and-topicssubscriptions"></a>教程：使用 PowerShell 和主题/订阅更新库存
 
@@ -33,7 +33,7 @@ Microsoft Azure 服务总线是一种多租户云消息传送服务，可以在�
 
 此方案的一个示例是为多个零售店更新库存分类。 在此方案中，每个商店或商店组都获取适用于它们的消息来更新其分类。 本教程展示了如何使用订阅和筛选器实现此方案。 首先，创建一个包含 3 个订阅的主题，添加一些规则和筛选器，然后从主题和订阅发送和接收消息。
 
-![队列](./media/service-bus-quickstart-powershell/quick-start-queue.png)
+![主题](./media/service-bus-tutorial-topics-subscriptions-powershell/about-service-bus-topic.png)
 
 如果没有 Azure 订阅，请在开始前创建[试用帐户][]。
 
@@ -47,7 +47,7 @@ Microsoft Azure 服务总线是一种多租户云消息传送服务，可以在�
 本教程要求运行最新版本的 Azure PowerShell。 如需进行安装或升级，请参阅[安装和配置 Azure PowerShell][]。
 
 
-## <a name="log-in-to-azure"></a>登录 Azure
+## <a name="sign-in-to-azure"></a>登录 Azure
 
 发出以下命令来登录到 Azure。 如果是在 Cloud Shell 中运行 PowerShell 命令，则这些步骤不是必需的： 
 

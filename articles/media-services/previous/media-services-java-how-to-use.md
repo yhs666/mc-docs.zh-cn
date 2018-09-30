@@ -1,5 +1,5 @@
 ---
-title: 用于 Azure 媒体服务的 Java SDK 使用入门 | Azure
+title: 用于 Azure 媒体服务的 Java SDK 使用入门 | Microsoft Docs
 description: 本教程引导用户完成相关步骤，利用 Java 和 Azure 媒体服务 (AMS) 应用程序实现基本的点播视频 (VoD) 内容传送服务。
 services: media-services
 documentationcenter: java
@@ -15,12 +15,12 @@ ms.topic: get-started-article
 origin.date: 10/26/2017
 ms.date: 12/11/2017
 ms.author: v-nany
-ms.openlocfilehash: 6d8bc502ef5ddea96ec6121d0c0700e9bbbc905b
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+ms.openlocfilehash: cfbffc5784f05315cd5e4bb3b61de67be7d996c6
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219441"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426119"
 ---
 # <a name="get-started-with-the-java-client-sdk-for-azure-media-services"></a>用于 Azure 媒体服务的 Java 客户端 SDK 入门
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
@@ -302,7 +302,6 @@ ms.locfileid: "39219441"
         }
     }
 ```
-
 
 
 ## <a name="additional-resources"></a>其他资源

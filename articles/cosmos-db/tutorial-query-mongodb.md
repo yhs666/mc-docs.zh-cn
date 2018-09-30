@@ -9,15 +9,15 @@ ms.component: cosmosdb-mongo
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 03/29/2018
-ms.date: 09/03/2018
+ms.date: 09/30/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: d2b1f7adbcd3d599177b6d20b057c71a9b35c446
-ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
+ms.openlocfilehash: 50687be77a47fb386f249d21625558126614ef0b
+ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43164642"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47201427"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-mongodb-api"></a>教程：使用 MongoDB API 查询 Azure Cosmos DB
 

@@ -1,5 +1,5 @@
 ---
-title: 使用 REST 创建内容密钥 | Azure
+title: 使用 REST 创建内容密钥 | Microsoft 文档
 description: 了解如何创建提供对资产进行安全访问的内容密钥。
 services: media-services
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 12/07/2017
 ms.date: 07/30/2018
 ms.author: v-nany
-ms.openlocfilehash: 60d3a2ae70783c7dcc05f07d7418e5be929db109
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+ms.openlocfilehash: d1a40a4b85e7b057ccdbcfc556d0902a58c14210
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219656"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426375"
 ---
 # <a name="create-content-keys-with-rest"></a>使用 REST 创建内容密钥
 > [!div class="op_single_selector"]

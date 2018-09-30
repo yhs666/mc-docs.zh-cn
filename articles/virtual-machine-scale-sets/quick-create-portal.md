@@ -18,12 +18,12 @@ ms.custom: H1Hack27Feb2017
 origin.date: 03/27/18
 ms.date: 08/13/2018
 ms.author: v-junlch
-ms.openlocfilehash: e43702cca9147ca91dfef5aa91c52b85d1021ade
-ms.sourcegitcommit: 56ed1b03d83f222db6118fe1e2f2485a9488507f
+ms.openlocfilehash: 073768b33d2cd018d5930d665295799acf450eed
+ms.sourcegitcommit: 399060a8d46534abd370693f6282e7343b371634
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "41704015"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47455593"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>快速入门：在 Azure 门户中创建虚拟机规模集
 利用虚拟机规模集，可以部署和管理一组相同的、自动缩放的虚拟机。 可以手动缩放规模集中的 VM 数，也可以定义规则，以便根据资源使用情况（如 CPU 使用率、内存需求或网络流量）进行自动缩放。 然后，Azure 负载均衡器会将流量分配到规模集中的 VM 实例。 本快速入门介绍如何在 Azure 门户中创建虚拟机规模集。
@@ -47,8 +47,6 @@ ms.locfileid: "41704015"
     - 密码长度必须至少为 12 个字符，并且必须满足以下 4 个复杂性要求的其中 3 个：1 个小写字符、1 个大写字符、1 个数字和 1 个特殊字符。 有关详细信息，请参阅[用户名和密码要求](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm)。
     - 如果选择 Linux OS 磁盘映像，可选择 SSH 公钥。 仅提供公钥，如 *~/.ssh/id_rsa.pub*。 
 
-7. 输入公共 IP 地址名称，如 myPublicIP。
-8. 输入唯一的域名标签，如 myuniquedns。 此 DNS 标签构成规模集前端负载均衡器的 FQDN 的基础。
 9. 若要确认规模集选项，请选择“创建”。
 
     ![在 Azure 门户中创建虚拟机规模集](./media/virtual-machine-scale-sets-create-portal/create-scale-set.png)

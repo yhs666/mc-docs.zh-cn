@@ -1,6 +1,6 @@
 ---
-title: 为 AS2 消息解码 - Azure 逻辑应用
-description: 如何对 Azure 逻辑应用使用 Enterprise Integration Pack 中的 AS2 解码器
+title: 为 AS2 消息解码 - Azure 逻辑应用 | Microsoft 文档
+description: 使用 Azure 逻辑应用和 Enterprise Integration Pack 解码 AS 消息
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
@@ -12,17 +12,17 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/27/2016
-ms.date: 03/19/2018
+origin.date: 08/08/2018
+ms.date: 10/15/2018
 ms.author: v-yiso
-ms.openlocfilehash: d8b46ec02bc44772a9c3a647cd1f57e2a878feb7
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: f0731b05004f933e26007513cabe952084da83ad
+ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29870530"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47455096"
 ---
-# <a name="decode-as2-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>使用 Enterprise Integration Pack 为 Azure 逻辑应用的 AS2 消息解码 
+# <a name="decode-as2-messages-with-azure-logic-apps-and-enterprise-integration-pack"></a>使用 Azure 逻辑应用和 Enterprise Integration Pack 解码 AS2 消息 
 
 若要在传输消息时建立安全性和可靠性，请使用解码 AS2 消息连接器。 此连接器通过消息处置通知 (MDN) 提供数字签名、解密和确认等功能。
 
@@ -76,6 +76,7 @@ ms.locfileid: "29870530"
 * 验证签名（如果已配置）
 * 对消息进行解密（如果已配置）
 * 解压缩消息（如果已配置）
+* 检查并禁止消息 ID 重复（如果已配置）
 * 协调收到的 MDN 和原始的出站消息
 * 更新并关联不可否认数据库中的记录
 * 写入 AS2 状态报告的记录
@@ -83,6 +84,13 @@ ms.locfileid: "29870530"
 * 根据 AS2 协议中的配置确定是否需要 MDN，以及 MDN 应该同步还是异步
 * 生成同步或异步 MDN（基于协议的配置）
 * 在 MDN 上设置关联令牌和属性
+
+
+  > [!NOTE]
+  > 如果使用 Azure Key Vault 进行证书管理，请确保配置密钥以允许**解密**操作。
+  > 否则，AS2 解码将失败。
+  >
+  > ![KeyVault 解密](media/logic-apps-enterprise-integration-as2-decode/keyvault1.png)
 
 ## <a name="try-this-sample"></a>尝试此示例
 

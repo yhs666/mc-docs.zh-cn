@@ -10,17 +10,27 @@ ms.custom: quick start connect, mvc, devcenter
 ms.devlang: dotnet
 ms.topic: quickstart
 origin.date: 04/10/2018
-ms.date: 07/02/2018
+ms.date: 09/30/2018
 ms.author: v-yeche
 clicktale: true
-ms.openlocfilehash: f2a5ced878debd7b02faefc214344a8ad904ea99
-ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
+ms.openlocfilehash: 80f67cfe2303f7490c45d5ea6ddc8f201e589b02
+ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41705321"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47201278"
 ---
 # <a name="quickstart-build-a-net-web-app-with-azure-cosmos-db-using-the-sql-api-and-the-azure-portal"></a>快速入门：使用 SQL API 和 Azure 门户生成包含 Azure Cosmos DB 的 .NET Web 应用
+
+> [!div class="op_single_selector"]
+> * [.NET](create-sql-api-dotnet.md)
+> * [Java](create-sql-api-java.md)
+> * [Node.js](create-sql-api-nodejs.md)
+> * [Node.js- v2](create-sql-api-nodejs-preview.md)
+> * [Python](create-sql-api-python.md)
+> * [Xamarin](create-sql-api-xamarin-dotnet.md)
+>  
+> 
 
 Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务。 可快速创建和查询文档数据库，这些数据库受益于 Azure Cosmos DB 核心的多区域分布和水平缩放功能。 
 <!-- NOTICE: 全球分布 TO 多区域分布 -->
@@ -125,9 +135,13 @@ Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务
 
     `<add key="endpoint" value="FILLME" />`
 
-4. 然后从门户复制 PRIMARY KEY 值，并在 web.config 中将其设为 authKey 的值。现已使用与 Azure Cosmos DB 进行通信所需的所有信息更新应用。 
+4. 然后从门户复制“主密钥”的值，并在 web.config 中将其设为 authKey 的值。 
 
     `<add key="authKey" value="FILLME" />`
+
+5. 然后更新数据库值以匹配先前创建的数据库的名称。 现已使用与 Azure Cosmos DB 进行通信所需的所有信息更新应用。 
+
+    `<add key="database" value="Tasks" />`    
 
 ## <a name="run-the-web-app"></a>运行 Web 应用
 1. 在 Visual Studio 中，右键单击解决方案资源管理器中的项目，并单击“管理 NuGet 包”。 

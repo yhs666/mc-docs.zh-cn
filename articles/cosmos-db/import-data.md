@@ -10,21 +10,22 @@ ms.service: cosmos-db
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 03/30/2018
-ms.date: 09/03/2018
+ms.date: 09/30/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 40841e9e80db34f2ab17fbb5c4ac42b76a30d537
-ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
+ms.openlocfilehash: cc2fb17ede1ad00c040e7e910a9c15664e3d79ca
+ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43164975"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47201383"
 ---
-# <a name="azure-cosmos-db-data-migration-tool"></a>Azure Cosmos DB：数据迁移工具
+# <a name="use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>使用数据迁移工具将数据迁移到 Azure Cosmos DB 
 
 本教程说明如何使用可将数据从各种源导入 Azure Cosmos DB 集合和表的 Azure Cosmos DB 数据迁移工具。 可以从 JSON 文件、CSV 文件、SQL、MongoDB、Azure 表存储、Amazon DynamoDB 甚至 Azure Cosmos DB SQL API 集合导入数据，并可以将数据迁移到集合和表以便在 Azure Cosmos DB 中使用。 还可在从单个分区集合迁移到 SQL API 的多分区集合时使用数据迁移工具。
 
 要对 Azure Cosmos DB 使用哪个 API？ 
+
 * **[SQL API](documentdb-introduction.md)** - 可以使用数据迁移工具中提供的任何源选项导入数据。
 * **[MongoDB API](mongodb-introduction.md)** - 数据迁移工具目前不支持将 Azure Cosmos DB MongoDB API 用作源或目标。 若要在 Azure Cosmos DB 中将数据迁入或迁出 MongoDB API 集合，请参阅 [Azure Cosmos DB：如何为 MongoDB API 迁移数据](mongodb-migrate.md)以获取说明。 仍可使用数据迁移工具将数据从 MongoDB 导出到 Azure Cosmos DB SQL API 集合，以便与 SQL API 配合使用。 
 <!--Not Available [Table API](table-introduction.md) -->
@@ -77,13 +78,14 @@ ms.locfileid: "43164975"
 * [MongoDB 导出文件](#MongoDBExport)
 * [SQL Server](#SQL)
 * [CSV 文件](#CSV)
-<!-- Not Available on * [Azure Table storage](#AzureTableSource) -->
 * [Amazon DynamoDB](#DynamoDBSource)
 * [Blob](#BlobImport)
 * [Azure Cosmos DB 集合](#SQLSource)
 * [HBase](#HBaseSource)
-* [Azure Cosmos DB 批量导入](#SQLBulkImport)
-* [Azure Cosmos DB 顺序记录导入](#DocumentDSeqTarget)
+* [Azure Cosmos DB 批量导入](#SQLBulkTarget)
+* [Azure Cosmos DB 顺序记录导入](#SQLSeqTarget)
+
+<!-- Not Available on * [Azure Table storage](#AzureTableSource) -->
 
 <a name="JSON"></a>
 ## <a name="import-json-files"></a>导入 JSON 文件
@@ -247,7 +249,7 @@ Amazon DynamoDB 连接字符串的格式为：
 
 下面是一个用于从 Azure Blob 存储导入 JSON 文件的命令行示例：
 
-    dt.exe /s:JsonFile /s.Files:"blobs://<account key>@account.blob.core.chinacloudapi.cn:443/importcontainer/.*" /t:CosmosDBBulk /t.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;EndpointSuffix=core.chinacloudapi.cn" /t.Collection:doctest
+    dt.exe /s:JsonFile /s.Files:"blobs://<account key>@account.blob.core.chinacloudapi.cn:443/importcontainer/.*" /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;EndpointSuffix=core.chinacloudapi.cn" /t.Collection:doctest
     <!-- Add EndpointSuffix=core.chinacloudapi.cn for storage account-->
     
 <a name="SQLSource"></a>

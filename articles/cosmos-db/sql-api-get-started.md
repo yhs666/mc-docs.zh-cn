@@ -10,22 +10,24 @@ ms.component: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
 origin.date: 08/16/2017
-ms.date: 08/13/2018
+ms.date: 09/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 602b29df24514df38cc141fd6dbd2893c2852cd1
-ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
+ms.openlocfilehash: 76407b566dfd084c5eccd17c00e39b12534dbd82
+ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41705386"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47201324"
 ---
 # <a name="azure-cosmos-db-sql-api-getting-started-tutorial"></a>Azure Cosmos DB：SQL API 入门教程
+
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
-> * [用于 MongoDB 的 Node.js](mongodb-samples.md)
+> * [Java](sql-api-java-get-started.md)
+> * [异步 Java](sql-api-async-java-get-started.md)
 > * [Node.js](sql-api-nodejs-get-started.md)
-> * [Java](sql-api-java-get-started.md) 
+> * [Node.js- v2](sql-api-nodejs-get-started-preview.md) 
 > 
 
 欢迎使用 Azure Cosmos DB SQL API 入门教程！ 学习本教程后，将拥有一个可创建并查询 Azure Cosmos DB 资源的控制台应用程序。
@@ -52,7 +54,7 @@ ms.locfileid: "41705386"
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-* [!INCLUDE [cosmos-db-emulator-vs](../../includes/cosmos-db-emulator-vs.md)]。
+* [!INCLUDE [cosmos-db-emulator-vs](../../includes/cosmos-db-emulator-vs.md)]
 
 ## <a name="step-1-create-an-azure-cosmos-db-account"></a>步骤 1：创建 Azure Cosmos DB 帐户
 创建 Azure Cosmos DB 帐户。 如果已经有一个想要使用的帐户，可以跳到 [设置 Visual Studio 解决方案](#SetupVS)。 如果使用 Azure Cosmos DB 模拟器，请遵循 [Azure Cosmos DB 模拟器](local-emulator.md)中的步骤设置该模拟器，并直接跳到[设置 Visual Studio 解决方案](#SetupVS)。
@@ -127,8 +129,7 @@ ms.locfileid: "41705386"
         this.client = new DocumentClient(new Uri(EndpointUrl), PrimaryKey);
     }
 
-添加以下代码，从 **Main** 方法中运行异步任务。 
-            **Main** 方法会捕获异常并将它们写到控制台上。
+添加以下代码，从 **Main** 方法中运行异步任务。 **Main** 方法会捕获异常并将它们写到控制台上。
 
     static void Main(string[] args)
     {
@@ -554,4 +555,4 @@ Azure Cosmos DB 支持删除 JSON 文档。
 
 [keys]: media/sql-api-get-started/nosql-tutorial-keys.png
 [cosmos-db-create-account]: create-sql-api-dotnet.md#create-account
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update -->

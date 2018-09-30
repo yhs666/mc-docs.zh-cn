@@ -7,15 +7,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: event-hubs
 ms.topic: article
-origin.date: 06/07/2018
-ms.date: 09/17/2018
+origin.date: 08/07/2018
+ms.date: 09/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 1c7665363c0f2d296bcea20905d5491a35fce8b5
-ms.sourcegitcommit: 2700f127c3a8740a83fb70739c09bd266f0cc455
+ms.openlocfilehash: 9fc01b8ef3b412aac30e63715dab017f4e615cc3
+ms.sourcegitcommit: 399060a8d46534abd370693f6282e7343b371634
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45586624"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47455586"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>事件中心常见问题
 
@@ -27,7 +27,7 @@ Azure 事件中心标准层提供的功能超出了基本层中提供的功能�
 
 * 更长的事件保留期
 * 其他中转连接，对于超出包含的数量的部分收取超额费用
-* 多个[使用者组](event-hubs-features.md#consumer-groups)
+* 多于单个[使用者组](event-hubs-features.md#consumer-groups)
 * [捕获](event-hubs-capture-overview.md)
 
 有关定价层的详细信息（包括专用事件中心），请参阅[事件中心定价详细信息](https://www.azure.cn/pricing/details/event-hubs/)。
@@ -37,10 +37,10 @@ Azure 事件中心标准层提供的功能超出了基本层中提供的功能�
 通过 Azure 门户或事件中心 Resource Manager 模板明确选择事件中心吞吐量单位。 吞吐量单位适用于事件中心命名空间中的所有事件中心，每个吞吐量单位为命名空间赋予以下功能：
 
 * 入口事件（发送到事件中心的事件）最多达每秒 1 MB，但每秒不超过 1000 个入口事件、管理操作或控制 API 调用。
-* 出口事件（从事件中心耗用的事件）最多达每秒 2 MB，但不超过 4096 个出口事件。
-* 事件存储空间最多达 84 GB（对于默认为 24 小时的保留期来说是很充足的）。
+* 出口事件（从事件中心使用的事件）最多达每秒 2 MB，但不超过 4096 个。
+* 高达 84 GB 的事件存储空间（对于默认为 24 小时的保留期来说是很充足的）。
 
-事件中心吞吐量单元根据在指定的某个小时内选择的最大单元数量按小时计费。 可以[使用自动膨胀功能](event-hubs-auto-inflate.md)随着使用量增加自动增大吞吐量单元数。
+事件中心吞吐量单元根据在指定的某个小时内选择的最大单元数量按小时计费。 随着使用量增加，可以[使用自动膨胀功能自动增加吞吐量单位数](event-hubs-auto-inflate.md)。
 
 ### <a name="how-are-event-hubs-throughput-unit-limits-enforced"></a>怎样强制实施事件中心吞吐量单元？
 
@@ -50,7 +50,7 @@ Azure 事件中心标准层提供的功能超出了基本层中提供的功能�
 
 ### <a name="is-there-a-limit-on-the-number-of-throughput-units-that-can-be-selected"></a>可选择的吞吐量单元的数量有限制吗？
 
-默认配额为每个命名空间 20 个吞吐量单元。 可以通过填写支持票证来要求更大的吞吐量单元配额。 超出 20 个吞吐量单元这一限制时，捆绑包以 20 个和 100 个吞吐量单元的形式提供。 请注意，使用 20 个以上的吞吐量单元会失去在不填写支持票证的情况下更改吞吐量单元数的能力。
+默认配额为每个命名空间 20 个吞吐量单元。 可以通过填写支持票证来要求更大的吞吐量单元配额。 超出 20 个吞吐量单元这一限制时，以 20 个和 100 个吞吐量单元的形式提供捆绑包。 请注意，使用 20 个以上的吞吐量单元会失去在不填写支持票证的情况下更改吞吐量单元数的能力。
 
 使用[自动膨胀](event-hubs-auto-inflate.md)功能，可以随着使用量增加自动增加吞吐量单位数。
 
@@ -60,13 +60,13 @@ Azure 事件中心标准层提供的功能超出了基本层中提供的功能�
 
 ### <a name="what-is-the-maximum-retention-period-for-events"></a>事件的最长保留期有多久？
 
-事件中心标准目前支持的最长保留期为 7 天。 请注意，事件中心并不是永久性的数据存储区。 大于 24 小时的保留期适用于将事件流重播到相同系统中的情形；例如，为了基于现有数据来培训或验证新计算机学习模型。 如果需要将消息保留 7 天以上，那么启用事件中心的[事件中心捕获](event-hubs-capture-overview.md)功能，可将数据从事件中心拉取到选定的存储帐户。 启用捕获功能需要支付费用，具体因购买的吞吐量单位而异。
+事件中心标准目前支持的最长保留期为 7 天。 请注意，事件中心并不是永久性的数据存储区。 大于 24 小时的保留期适用于将事件流重播到相同系统中的情形；例如，为了基于现有数据来培训或验证新机器学习模型。 如果需要将消息保留 7 天以上，那么启用事件中心的[事件中心捕获](event-hubs-capture-overview.md)功能，可将数据从事件中心拉取到选定的存储帐户。 启用捕获功能需要支付费用，具体因购买的吞吐量单位而异。
+
 <!-- Not Available on Azure Data Lake Service account -->
 
 ### <a name="where-is-azure-event-hubs-available"></a>Azure 事件中心在哪些区域可用？
 
 在所有支持的 Azure 区域中都可使用 Azure 事件中心。 有关列表，请访问 [Azure 区域](https://www.azure.cn/support/service-dashboard/)页。  
-<!-- Not Available [Azure regions](https://azure.microsoft.com/regions/) -->
 
 ## <a name="best-practices"></a>最佳实践
 
@@ -108,7 +108,7 @@ Azure 事件中心标准层提供的功能超出了基本层中提供的功能�
 
 ### <a name="will-i-be-billed-for-the-storage-account-i-select-for-event-hubs-capture"></a>是否要为事件中心捕获所选择的存储帐户付费？
 
-捕获使用在事件中心启用捕获时提供的存储帐户。 因为这是你的存储帐户，任何针对此配置的费用更改都将计入你的 Azure 订阅。
+捕获使用在事件中心启用捕获时提供的存储帐户。 由于这是你的存储帐户，对此配置进行任何更改都会在你的 Azure 订阅中计收费用。
 
 ## <a name="quotas"></a>配额
 
@@ -125,7 +125,7 @@ Azure 事件中心标准层提供的功能超出了基本层中提供的功能�
 <!-- Not Full Available  ### Diagnostic logs -->
 ### <a name="support-and-sla"></a>支持和 SLA
 
-事件中心的技术支持可通过[社区论坛](https://www.azure.cn/support/contact/)获得。 计费和订阅管理支持免费提供。
+事件中心的技术支持可通过 [社区论坛](https://www.azure.cn/support/contact/)获得。 计费和订阅管理支持免费提供。
 
 若要详细了解我们的 SLA，请参阅[服务级别协议](https://www.azure.cn/support/legal/sla/)页面。
 

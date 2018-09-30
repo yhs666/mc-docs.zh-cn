@@ -2,26 +2,20 @@
 title: 将行级别安全性用于 Power BI 工作区集合
 description: 有关将行级别安全性用于 Power BI 工作区集合的详细信息
 services: power-bi-embedded
-documentationcenter: ''
 author: markingmyname
-manager: kfile
-editor: ''
-tags: ''
 ROBOTS: NOINDEX
 ms.service: power-bi-embedded
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: powerbi
 origin.date: 09/20/2017
-ms.date: 08/14/2018
+ms.date: 09/26/2018
 ms.author: v-junlch
-ms.openlocfilehash: 810ef1487736f809082bfa8b71e209c00229f7ce
-ms.sourcegitcommit: 6824b75ea1576e6227c3b4c74d486b35aea9c557
+ms.openlocfilehash: da843851df4b37e5a7ecc0485c66d5d72ce75c07
+ms.sourcegitcommit: 7c6ff130adaa67bc90094846f81295ef0719d072
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "41704103"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47191375"
 ---
 # <a name="row-level-security-with-power-bi-workspace-collections"></a>将行级别安全性用于 Power BI 工作区集合
 
@@ -128,3 +122,4 @@ to
 
 有更多问题？ [试用 Power BI 社区](http://community.powerbi.com/)
 
+<!-- Update_Description: update metedata properties -->

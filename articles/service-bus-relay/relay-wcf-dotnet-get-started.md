@@ -3,7 +3,7 @@ title: .NET 中的 Azure Relay WCF 中继入门
 description: 了解如何使用 Azure Relay WCF 中继连接两个托管于不同位置的应用程序。
 services: service-bus-relay
 documentationcenter: .net
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: 5493281a-c2e5-49f2-87ee-9d3ffb782c75
@@ -14,13 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 origin.date: 12/20/2017
 ms.author: v-yiso
-ms.date: 02/05/2018
-ms.openlocfilehash: 90e96f58bc390347f8eef67f0a7917fdfce6dd19
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.date: 10/15/2018
+ms.openlocfilehash: 26dd6ccfeae0f3759fd641ecd08454985e343a86
+ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38940178"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47455269"
 ---
 # <a name="how-to-use-azure-relay-wcf-relays-with-net"></a>如何将 Azure Relay WCF 中继与 .NET 配合使用
 本文介绍如何使用 Azure 中继服务。 相关示例用 C# 编写并使用服务总线程序集中包含的 Windows Communication Foundation (WCF) API 及扩展。 有关 Azure 中继的详细信息，请参阅 [Azure 中继概述](relay-what-is-it.md)。
@@ -43,8 +43,7 @@ Azure 中继可用于在现有企业环境中托管 WCF 服务。 然后，可�
 [服务总线 NuGet 包](https://www.nuget.org/packages/WindowsAzure.ServiceBus) 是获取服务总线 API 并为应用程序配置所有服务总线依赖项的最简单的方法。 若要在项目中安装 NuGet 包，请执行以下操作：
 
 1. 在“解决方案资源管理器”中，右键单击“引用”，并单击“管理 NuGet 包”。
-2. 搜索“服务总线”并选择“Microsoft Azure 服务总线”项。 
-               **安装** ”以完成安装，并关闭以下对话框：
+2. 搜索“服务总线”并选择“Microsoft Azure 服务总线”项。 **安装** ”以完成安装，并关闭以下对话框：
    
    ![](./media/service-bus-dotnet-how-to-use-relay/getting-started-multi-tier-13.png)
 
@@ -163,7 +162,7 @@ sh.Close();
 
 ### <a name="create-the-client"></a>创建客户端
 #### <a name="configure-a-client-programmatically"></a>以编程方式配置客户端
-要使用该服务，可以使用 [ChannelFactory](https://msdn.microsoft.com/library/system.servicemodel.channelfactory.aspx) 对象构造 WCF 客户端。 服务总线使用通过 ACS 实现的基于令牌的安全模型。 [TokenProvider](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.tokenprovider) 类代表具有内置工厂方法的安全令牌提供程序，这些方法可返回一些众所周知的令牌提供程序。 以下示例使用 [CreateSharedAccessSignatureTokenProvider](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.tokenprovider#Microsoft_ServiceBus_TokenProvider_CreateSharedAccessSignatureTokenProvider_System_String_) 方法处理相应 SAS 令牌的获取。 名称和密钥是根据上一部分所述从门户获取的凭据。
+要使用该服务，可以使用 [ChannelFactory](https://msdn.microsoft.com/library/system.servicemodel.channelfactory.aspx) 对象构造 WCF 客户端。 服务总线使用通过 ACS 实现的基于令牌的安全模型。 [TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider) 类代表具有内置工厂方法的安全令牌提供程序，这些方法可返回一些众所周知的令牌提供程序。 以下示例使用 [CreateSharedAccessSignatureTokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider#Microsoft_ServiceBus_TokenProvider_CreateSharedAccessSignatureTokenProvider_System_String_) 方法处理相应 SAS 令牌的获取。 名称和密钥是根据上一部分所述从门户获取的凭据。
 
 首先，在客户端项目中引用服务中的 `IProblemSolver` 约定代码或将其复制到客户端项目中。
 

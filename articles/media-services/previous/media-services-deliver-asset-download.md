@@ -1,5 +1,5 @@
 ---
-title: 将媒体服务资产下载到计算机 - Azure | Azure
+title: 将媒体服务资产下载到计算机 - Azure | Microsoft 文档
 description: 了解如何将资产下载到计算机。 代码示例用 C# 编写且使用适用于 .NET 的媒体服务 SDK。
 services: media-services
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 08/09/2017
 ms.date: 09/04/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 77995b14d5016546b39b06c20bc5c1fd2f3621a4
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 7641e1fc086262ff9824d5b332b9386c451856fe
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475151"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426109"
 ---
 # <a name="how-to-deliver-an-asset-by-download"></a>如何：通过下载交付资产
 本文介绍已上传到媒体服务的媒体资产的交付选项。 可以采用众多的应用程序方案来交付媒体服务内容。 编码后，下载生成的媒体资产，或使用流式处理定位符访问这些资产。 为了提高性能和伸缩性，用户还可以使用内容分发网络 (CDN) 来传送内容。

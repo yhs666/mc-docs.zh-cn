@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 11/14/2017
 ms.author: v-yiso
-ms.date: 12/11/2017
-ms.openlocfilehash: 1a2db52a35d3ed2fe0d97d1b20f0428bcfbaf991
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.date: 10/15/2018
+ms.openlocfilehash: 336355153b0fda62c676eee911fbd5eb16f1cff9
+ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
-ms.locfileid: "26044780"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47455095"
 ---
 # <a name="service-bus-authentication-and-authorization"></a>服务总线身份验证和授权
 
@@ -29,7 +29,7 @@ ms.locfileid: "26044780"
 SAS 令牌既可由服务总线客户端直接生成，也可由某些颁发与客户端进行交互的终结点的中间令牌生成。 例如，系统可能要求客户端调用受 Active Directory 授权保护的 Web 服务终结点，以证明其标识和系统访问权限，Web 服务随之返回相应的服务总线令牌。 可使用 Azure SDK 中的服务总线令牌提供程序轻松生成此 SAS 令牌。 
 
 > [!IMPORTANT]
-> 如果结合使用 Azure Active Directory 访问控制（又称为访问控制服务或 ACS）与服务总线，请注意当前提供给此方法的支持有限，应将应用程序迁移至使用 SAS。 有关详细信息，请参阅 [此博客文章](https://blogs.msdn.microsoft.com/servicebus/2017/06/01/upcoming-changes-to-acs-enabled-namespaces/)。
+> 如果结合使用 Azure Active Directory 访问控制（又称为访问控制服务或 ACS）与服务总线，请注意当前提供给此方法的支持有限，应将应用程序迁移至使用 SAS。 有关详细信息，请参阅[此博客文章](https://blogs.msdn.microsoft.com/servicebus/2017/06/01/upcoming-changes-to-acs-enabled-namespaces/)和[此文章](service-bus-migrate-acs-sas.md)。
 
 ## <a name="shared-access-signature-authentication"></a>共享访问签名身份验证
 通过 [SAS 身份验证](service-bus-sas.md)可向具有特定权限的用户授予对服务总线资源的访问权限。 服务总线中的 SAS 身份验证涉及配置具有服务总线资源相关权限的加密密钥。 客户端随后即可通过提供 SAS 令牌获取该资源的访问权限，该令牌由要访问的资源 URI 和签有已配置密钥的过期时间组成。
@@ -51,5 +51,6 @@ Azure .NET SDK 2.0 版和更高版本支持服务总线的 SAS 身份验证。 S
 
 ## <a name="next-steps"></a>后续步骤
 - 有关 SAS 的详细信息，请继续阅读[使用共享访问签名进行服务总线身份验证](./service-bus-sas.md)。
+- 如何[从 Azure Active Directory 访问控制 (ACS) 迁移到共享访问签名授权](service-bus-migrate-acs-sas.md)。
 - [更改为启用 ACS 的命名空间。](https://blogs.msdn.microsoft.com/servicebus/2017/06/01/upcoming-changes-to-acs-enabled-namespaces/)
 - 有关 Azure 中继身份验证和授权的相关信息，请参阅 [Azure 中继身份验证和授权](../service-bus-relay/relay-authentication-and-authorization.md)。 

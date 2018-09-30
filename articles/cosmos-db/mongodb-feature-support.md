@@ -9,14 +9,14 @@ ms.component: cosmosdb-mongo
 ms.devlang: na
 ms.topic: overview
 origin.date: 11/15/2017
-ms.date: 08/13/2018
+ms.date: 09/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 05651eb426a8b5c9d36e357bd322330e0816e2a2
-ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
+ms.openlocfilehash: 7d81539090b106350c2e336589af90c963a39906
+ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41705081"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47201432"
 ---
 # <a name="mongodb-api-support-for-mongodb-features-and-syntax"></a>MongoDB API 对 MongoDB 功能和语法的支持
 
@@ -342,4 +342,4 @@ Azure Cosmos DB 支持服务器端自动分片。 Azure Cosmos DB 不支持手�
 - 了解如何配合 MongoDB 数据库 API 来[使用 Robo 3T](mongodb-robomongo.md)。
 - 浏览具有 MongoDB 协议支持的 Azure Cosmos DB [示例](mongodb-samples.md)。
 
-<!-- Update_Description: update meta properties, wording update, add the content of Write Concerns -->
+<!-- Update_Description: update meta properties -->

@@ -1,6 +1,6 @@
 ---
-title: 逻辑应用 B2B edifact 解码解析 UNH2.5 - Azure 逻辑应用
-description: Azure 逻辑应用 B2B edifact 解码解析 UNH2.5
+title: 处理具有 UNH 2.5 段的 EDIFACT 消息 - Azure 逻辑应用 | Microsoft Docs
+description: 在带有 Enterprise Integration Pack 的 Azure 逻辑应用中解析具有 UNH2.5 段的 EDIFACT 文档
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
@@ -13,16 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 04/27/2017
-ms.date: 03/19/2018
+ms.date: 10/15/2018
 ms.author: v-yiso
-ms.openlocfilehash: 2c26efb4e9acce121b9509b607f10254115874af
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: 5777c74061ed106669ebba9ef90cb1d718dacf49
+ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29870528"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47455276"
 ---
-# <a name="how-to-handle-edifact-documents-having-unh25-segment"></a>如何处理具有 UNH2.5 段的 EDIFACT 文档
+# <a name="handle-edifact-documents-with-unh25-segments-in-azure-logic-apps"></a>在 Azure 逻辑应用中处理具有 UNH2.5 段的 EDIFACT 文档
+
 EDIFACT 文档中存在 UNH2.5 时，它用于架构查找。 
 
 示例：UNH 字段是 EDIFACT 消息中的 **EAN008**  

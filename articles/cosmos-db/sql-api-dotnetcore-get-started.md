@@ -10,23 +10,25 @@ ms.component: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
 origin.date: 03/12/2018
-ms.date: 08/13/2018
+ms.date: 09/30/2018
 ms.author: v-yeche
 ms.custom: devcenter
-ms.openlocfilehash: 97742bc9e61a70aaa98632515b3ca9254e6e8967
-ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
+ms.openlocfilehash: 557327992b1bbf54ec4e4854fc34f95eea5faade
+ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41703857"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47201373"
 ---
 # <a name="azure-cosmos-db-getting-started-with-the-sql-api-and-net-core"></a>Azure Cosmos DB：SQL API 和 .NET Core 入门
+
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
-> * [用于 MongoDB 的 Node.js](mongodb-samples.md)
+> * [Java](sql-api-java-get-started.md)
+> * [异步 Java](sql-api-async-java-get-started.md)
 > * [Node.js](sql-api-nodejs-get-started.md)
-> * [Java](sql-api-java-get-started.md)  
+> * [Node.js- v2](sql-api-nodejs-get-started-preview.md) 
 > 
 
 欢迎使用 Azure Cosmos DB 的 SQL API 入门 .NET Core 教程！ 学习本教程后，将拥有一个可创建并查询 Azure Cosmos DB 资源的控制台应用程序。
@@ -588,4 +590,4 @@ End of demo, press any key to exit.
 
 [create-sql-api-dotnet.md#create-account]: create-sql-api-dotnet.md#create-account
 [keys]: media/sql-api-dotnetcore-get-started/nosql-tutorial-keys.png
-<!-- Update_Description: update meta properties  -->
+<!-- Update_Description: update meta properties, update link -->

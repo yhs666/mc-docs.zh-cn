@@ -12,15 +12,15 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 origin.date: 06/16/2017
-ms.date: 09/07/2018
+ms.date: 09/26/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d09fe8dd7cdae7401dc7e6c49c431932fe0b3924
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.openlocfilehash: e457f120ab5dc0cc7c0eabbd05deb3932541acac
+ms.sourcegitcommit: 5616622f754f3b83c7120a3d1344d0344e03ca61
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068082"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47188780"
 ---
 # <a name="persist-job-and-task-output"></a>持久保存作业和任务输出
 
@@ -35,7 +35,7 @@ ms.locfileid: "44068082"
 
 ## <a name="about-the-batch-file-conventions-standard"></a>关于 Batch 文件约定标准
 
-Batch 定义了一组可选的约定，用于命名 Azure 存储中的任务输出文件。 [Batch 文件约定标准](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions)介绍了这些约定。 如果给定的输出文件取决于作业和任务的名称，则文件约定标准决定了 Azure 存储中目标容器和 Blob 路径的名称。
+Batch 定义了一组可选的约定，用于命名 Azure 存储中的任务输出文件。 [Batch 文件约定标准](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions)介绍了这些约定。 如果给定的输出文件取决于作业和任务的名称，则文件约定标准决定了 Azure 存储中目标容器和 Blob 路径的名称。
 
 你可以自行决定是否使用文件约定标准来命名输出数据文件。 你还可以任意命名目标容器和 Blob。 如果使用文件约定标准来命名输出文件，则可在 [Azure 门户][portal]中查看输出文件。
 
@@ -72,13 +72,13 @@ Batch 定义了一组可选的约定，用于命名 Azure 存储中的任务输�
 
 Batch 服务在 2017-05-01 版中增加了支持功能，允许你在[向作业添加单个任务](https://docs.microsoft.com/rest/api/batchservice/add-a-task-to-a-job)或者[向作业添加一组任务](https://docs.microsoft.com/rest/api/batchservice/add-a-collection-of-tasks-to-a-job)时，在 Azure 存储中指定任务数据的输出文件。
 
-Batch 服务 API 允许从使用虚拟机配置创建的池将任务数据持久保存到 Azure 存储帐户。 可以使用 Batch 服务 API 来持久保存任务数据，不需修改任务运行的应用程序。 可以选择按 [Batch 文件约定标准](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions)来命名持久保存到 Azure 存储的文件。 
+Batch 服务 API 允许从使用虚拟机配置创建的池将任务数据持久保存到 Azure 存储帐户。 可以使用 Batch 服务 API 来持久保存任务数据，不需修改任务运行的应用程序。 可以选择按 [Batch 文件约定标准](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions)来命名持久保存到 Azure 存储的文件。 
 
 以下情况可以使用 Batch 服务 API 来持久保存任务输出：
 
 - 需要将 Batch 任务和作业管理器任务的数据持久保存在使用虚拟机配置创建的池中。
 - 需要将数据持久保存到使用任意名称的 Azure 存储容器。
-- 需要将数据持久保存到根据 [Batch 文件约定标准](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions)命名的 Azure 存储容器。 
+- 需要将数据持久保存到根据 [Batch 文件约定标准](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions)命名的 Azure 存储容器。 
 
 > [!NOTE]
 > Batch 服务 API 不允许持久保存在池（使用云服务配置创建）中运行的任务的数据。 若要了解如何在运行云服务配置的池中持久保存任务输出，请参阅[使用适用于 .NET 的 Batch 文件约定库将作业和任务数据持久保存到 Azure 存储](batch-task-output-file-conventions.md)。
@@ -89,7 +89,7 @@ Batch 服务 API 允许从使用虚拟机配置创建的池将任务数据持久
 
 ### <a name="use-the-batch-file-conventions-library-for-net"></a>使用适用于 .NET 的 Batch 文件约定库
 
-通过 C# 和 .NET 生成 Batch 解决方案的开发人员可以使用[适用于 .NET 的文件约定库][nuget_package]，按 [Batch 文件约定标准](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions)将任务数据持久保存到 Azure 存储帐户。 文件约定库负责将输出文件移至 Azure 存储，并以已知方式对目标容器和 Blob 命名。
+通过 C# 和 .NET 生成 Batch 解决方案的开发人员可以使用[适用于 .NET 的文件约定库][nuget_package]，按 [Batch 文件约定标准](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions)将任务数据持久保存到 Azure 存储帐户。 文件约定库负责将输出文件移至 Azure 存储，并以已知方式对目标容器和 Blob 命名。
 
 文件约定库支持按 ID 或用途查询输出文件，因此，即使没有完整的文件 URI 也可以轻松地找到这些文件。 
 
@@ -107,7 +107,7 @@ GitHub 上的 [PersistOutputs][github_persistoutputs] 示例项目演示了如�
 
 ### <a name="implement-the-batch-file-conventions-standard"></a>实现 Batch 文件约定标准
 
-如果使用 .NET 之外的语言，则可在自己的应用程序中实现 [Batch 文件约定标准](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions)。 
+如果使用 .NET 之外的语言，则可在自己的应用程序中实现 [Batch 文件约定标准](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions)。 
 
 如果需要经验证的命名方案，或者需要在 Azure 门户中查看任务输出，则可能需要自行实现文件约定命名标准。
 
@@ -130,4 +130,4 @@ GitHub 上的 [PersistOutputs][github_persistoutputs] 示例项目演示了如�
 [storage_explorer]: http://storageexplorer.com/
 [github_persistoutputs]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/PersistOutputs 
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

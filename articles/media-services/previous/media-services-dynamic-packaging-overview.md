@@ -1,5 +1,5 @@
 ---
-title: Azure 媒体服务动态打包概述 | Azure
+title: Azure 媒体服务动态打包概述 | Microsoft 文档
 description: 本主题概述动态打包。
 author: Juliako
 manager: erikre
@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 06/29/2017
 ms.date: 08/07/2017
 ms.author: v-haiqya
-ms.openlocfilehash: c82f38a7fea0500483417f3bd66a25b4271de445
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+ms.openlocfilehash: 59b9360fa8f8655f2ab0f37ec27ab7042702a0b4
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219621"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426158"
 ---
 # <a name="dynamic-packaging"></a>动态打包
 ## <a name="overview"></a>概述

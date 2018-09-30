@@ -1,6 +1,6 @@
 ---
-title: 通过 Azure 资源管理器模板创建逻辑应用
-description: 使用 Azure 资源管理器模板创建和部署逻辑应用工作流
+title: 使用 Azure 资源管理器模板创建逻辑应用 - Azure 逻辑应用 | Microsoft Docs
+description: 在 Azure 逻辑应用中使用 Azure 资源管理器模板创建和部署逻辑应用工作流
 services: logic-apps
 documentationcenter: ''
 author: MandiOhlinger
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 10/15/2017
-ms.date: 03/19/2018
+ms.date: 10/15/2018
 ms.author: v-yiso
-ms.openlocfilehash: b6d255eb91bde5009b755d5435f8a2d177da5cd6
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: f6c8719970b3b0ae38bc8f6a9c0fe3ba8d0dc541
+ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29870543"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47455197"
 ---
 # <a name="create-and-deploy-logic-apps-with-azure-resource-manager-templates"></a>使用 Azure 资源管理器模板创建和部署逻辑应用
 
@@ -42,7 +42,7 @@ ms.locfileid: "29870543"
     },
     "properties": {
         "definition": {
-            "$schema": "http://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+            "$schema": "https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json",
             "contentVersion": "1.0.0.0",
             "parameters": {
                 "testURI": {

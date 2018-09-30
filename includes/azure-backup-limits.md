@@ -5,16 +5,16 @@ services: backup
 author: markgalioto
 ms.service: backup
 ms.topic: include
-origin.date: 02/07/2018
-ms.date: 05/08/2018
+origin.date: 09/10/2018
+ms.date: 09/26/2018
 ms.author: v-junlch
 ms.custom: include file
-ms.openlocfilehash: 3d0e8e78d90b2856509bd69226e882503b6637dc
-ms.sourcegitcommit: 7d01230972e7a7c4fd1aaf22220fb04a05726135
+ms.openlocfilehash: 37844d21d5f67a91d81f4a4276b8268eb8812982
+ms.sourcegitcommit: 641f375fc67e8c9d6ec1296560602c0b64ab8a52
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2018
-ms.locfileid: "35568633"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47398144"
 ---
 以下限制适用于 Azure 备份。
 
@@ -25,8 +25,9 @@ ms.locfileid: "35568633"
 | 可在每个 Azure 订阅中创建的备份保管库的数目 |每个区域 500 个恢复服务保管库 |
 | 每天计划备份的次数 |对于 Windows Server/客户端为每天 3 个 <br/> 对于 SCDPM 为每天 2 个 <br/> 对于 IaaS Vm 为每天 1 个 |
 | 将数据磁盘附加到 Azure 虚拟机进行备份 |16 |
-| 附加到 Azure 虚拟机以进行备份的单个数据磁盘的大小| 4095 GB <sup>2</sup>|
+| 附加到 Azure 虚拟机以进行备份的单个数据磁盘的大小| 4095 GB|
 
 * <sup>1</sup>54400 GB 限制不适用于 IaaS VM 备份。
  
 
+<!-- ms.date: 09/26/2018 -->

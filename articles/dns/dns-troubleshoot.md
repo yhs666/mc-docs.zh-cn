@@ -1,5 +1,5 @@
 ---
-title: Azure DNS 故障排除指南 | Azure
+title: Azure DNS 疑难解答指南 | Microsoft Docs
 description: 如何排查 Azure DNS 的常见问题
 services: dns
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 origin.date: 01/20/2017
 ms.date: 12/18/2017
 ms.author: v-nany
-ms.openlocfilehash: 8009609428b2eb287a73027b876b37adb68e0ac5
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.openlocfilehash: 756e0cdf19721c3472307ed511e7b2c034c2c5e4
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39167802"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426399"
 ---
 # <a name="azure-dns-troubleshooting-guide"></a>Azure DNS 疑难解答指南
 

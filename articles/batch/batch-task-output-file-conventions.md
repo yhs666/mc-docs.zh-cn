@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 origin.date: 06/16/2017
-ms.date: 09/07/2018
+ms.date: 09/26/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5f28e701fa846567ef328ccbf64388f752f5baa3
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.openlocfilehash: 0910e159ebfb910bdb71a0657ae46308621951fc
+ms.sourcegitcommit: 5616622f754f3b83c7120a3d1344d0344e03ca61
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068186"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47188784"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>使用适用于 .NET 的 Batch 文件约定库将作业和任务数据保存到 Azure 存储 
 
@@ -50,7 +50,7 @@ Azure Batch 提供多种持久保存任务输出的方式。 文件约定库最�
 
 ## <a name="what-is-the-batch-file-conventions-standard"></a>Batch 文件约定标准是什么？
 
-[Batch 文件约定标准](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions)为需将输出文件写入到其中的目标容器和 Blob 路径提供命名方案。 根据文件约定标准持久保存到 Azure 存储的文件可以自动在 Azure 门户中查看。 门户能感知命名约定，因此可以显示遵循该约定 的文件。
+[Batch 文件约定标准](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions)为需将输出文件写入到其中的目标容器和 Blob 路径提供命名方案。 根据文件约定标准持久保存到 Azure 存储的文件可以自动在 Azure 门户中查看。 门户能感知命名约定，因此可以显示遵循该约定 的文件。
 
 适用于 .NET 的文件约定库会自动根据文件约定标准，为存储容器和任务输出文件命名。 文件约定库还提供方法，用于在 Azure 存储中按作业 ID、任务 ID 或用途查询输出文件。   
 
@@ -202,7 +202,7 @@ foreach (CloudTask task in myJob.ListTasks())
 
 ## <a name="view-output-files-in-the-azure-portal"></a>在 Azure 门户中查看输出文件
 
-Azure 门户显示使用 [Batch 文件约定标准](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions)持久保存到关联的 Azure 存储帐户中的任务输出文件和日志。 可以使用所选语言自行实现这些约定，也可以在 .NET 应用程序中使用文件约定库。
+Azure 门户显示使用 [Batch 文件约定标准](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions)持久保存到关联的 Azure 存储帐户中的任务输出文件和日志。 可以使用所选语言自行实现这些约定，也可以在 .NET 应用程序中使用文件约定库。
 
 若要在门户中显示输出文件，必须满足以下要求：
 
@@ -264,4 +264,4 @@ GitHub 的用于 .NET 的 Azure SDK 存储库提供文件约定库的 [源代码
 [1]: ./media/batch-task-output/task-output-01.png "门户中“保存的输出文件”和“保存的日志”选择器"
 [2]: ./media/batch-task-output/task-output-02.png "Azure 门户中的“任务输出”边栏选项卡"
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

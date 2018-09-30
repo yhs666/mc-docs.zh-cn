@@ -1,5 +1,5 @@
 ---
-title: Azure 媒体服务遥测 | Azure
+title: Azure 媒体服务遥测 | Microsoft Docs
 description: 本文概述了 Azure 媒体服务遥测。
 services: media-services
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 06/29/2017
 ms.date: 09/25/2017
 ms.author: v-johch
-ms.openlocfilehash: 4a68da6706bb4f89195c9bd7dfb4a2f7e8aaf000
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+ms.openlocfilehash: 6d419db64256b0ea642fc4b3aeb373eae936c8c3
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219592"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426369"
 ---
 # <a name="azure-media-services-telemetry"></a>Azure 媒体服务遥测
 

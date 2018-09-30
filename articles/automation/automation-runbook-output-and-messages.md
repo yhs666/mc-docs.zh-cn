@@ -2,21 +2,19 @@
 title: Azure 自动化中的 Runbook 输出和消息
 description: 介绍如何创建和检索 Azure 自动化中 Runbook 的输出和错误消息。
 services: automation
-author: yunan2016
-manager: digimobile
-editor: tysonn
 ms.service: automation
-ms.devlang: na
-ms.topic: article
+ms.component: process-automation
+author: WenJason
+ms.author: v-jay
 origin.date: 03/16/2018
-ms.date: 07/23/2018
-ms.author: v-nany
-ms.openlocfilehash: 6c9ff39b229154c0f74e3f2644d9e57f83c95a16
-ms.sourcegitcommit: 2a147231bf3d0a693adf58fceee76ab0fbcd6dbb
+ms.date: 10/01/2018
+manager: digimobile
+ms.openlocfilehash: 202b6df0fd56fda88c4f25c6ee44ff0e69f77de9
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39335316"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426477"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Azure 自动化中的 Runbook 输出和消息
 大多数 Azure 自动化 Runbook 向用户或旨在由其他工作流使用的复杂对象提供某种形式的输出，例如错误消息。 Windows PowerShell 提供 [多个流](http://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) ，以便从脚本或工作流发送输出。 Azure 自动化以不同方式处理其中的每个流，在创建 Runbook 时，应该遵循有关如何使用每个流的最佳实践。
@@ -177,7 +175,7 @@ Windows PowerShell 使用 [Preference 变量](http://technet.microsoft.com/libra
 可以从 Azure 门户中 Runbook 的“作业”选项卡查看 Runbook 作业的详细信息。 作业的“摘要”会显示输入参数和[输出流](#output-stream) ，此外，还显示有关作业的一般信息以及发生的任何异常。 “历史记录”包含来自[输出流](#output-stream)以及[警告和错误流](#warning-and-error-streams)的消息，此外，如果 Runbook 已配置为记录详细记录和进度记录，则该选项卡还包含[详细流](#verbose-stream)和[进度记录](#progress-records)。
 
 ### <a name="windows-powershell"></a>Windows PowerShell
-在 Windows PowerShell 中，可以使用 [Get-AzureRmAutomationJobOutput](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjoboutput?view=azurermps-6.5.0) cmdlet 检索 Runbook 的输出和消息。 此 cmdlet 需要作业的 ID，如果指定了要返回的流，则它还要使用一个名为 Stream 的参数。 可以指定 **Any** 来返回作业的所有流。
+在 Windows PowerShell 中，可以使用 [Get-AzureAutomationJobOutput](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationjoboutput) cmdlet 检索 Runbook 的输出和消息。 此 cmdlet 需要作业的 ID，如果指定了要返回的流，则它还要使用一个名为 Stream 的参数。 可以指定 **Any** 来返回作业的所有流。
 
 以下示例将启动一个示例 Runbook，并等待该 Runbook 完成。 完成后，从作业收集该 Runbook 的输出流。
 

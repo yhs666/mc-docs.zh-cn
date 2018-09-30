@@ -3,7 +3,7 @@ title: 概述：什么是 Azure 中继？为何使用 Azure 中继？
 description: Azure 中继概述
 services: service-bus-relay
 documentationcenter: .net
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: 1e3e971d-2a24-4f96-a88a-ce3ea2b1a1cd
@@ -14,13 +14,13 @@ ms.devlang: multiple
 ms.topic: get-started-article
 origin.date: 05/02/2018
 ms.author: v-yiso
-ms.date: 06/04/2018
-ms.openlocfilehash: ec07400385d6170dbd567248293eb9ea26942101
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.date: 10/15/2018
+ms.openlocfilehash: 7c8cdc70e703aa49b94c9a38aabdad242b83e91d
+ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554510"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47455198"
 ---
 # <a name="what-is-azure-relay"></a>什么是 Azure 中继？
 Azure 中继服务简化了混合应用程序，通过允许安全地向公有云公开位于企业网络内的服务，无需打开防火墙连接，也无需对企业网络基础结构进行彻底更改。 中继支持各种不同的传输协议和 Web 服务标准。
@@ -45,7 +45,7 @@ Azure 中继具有两项功能：
 | **多个 RPC 编程模型** | |x |
 
 ##<a name="hybrid-connections"></a> 混合连接
-[Azure 中继混合连接](./relay-hybrid-connections-protocol.md)功能是在现有中继功能的基础上演进的安全开放协议，可在任何平台中以任何语言实现。 混合连接可以中继 WebSocket 以及 HTTP(S) 请求和响应。 这些功能在常见的 Web 浏览器中与 WebSocket API 兼容。 混合连接基于 HTTP 和 WebSocket。
+“Azure 中继混合连接”功能是在现有中继功能的基础上演进的安全开放协议，可在任何平台中以任何语言实现。 混合连接可以中继 WebSocket 以及 HTTP(S) 请求和响应。 这些功能在常见的 Web 浏览器中与 WebSocket API 兼容。 混合连接基于 HTTP 和 WebSocket。
 
 该协议在[混合连接协议指南](relay-hybrid-connections-protocol.md)中完全记录，从而允许将混合连接中继与几乎任何运行时和语言的任何 Websocket 库一起使用。
 

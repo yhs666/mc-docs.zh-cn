@@ -10,17 +10,17 @@ ms.component: cosmosdb-mongo
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 05/07/2018
-ms.date: 09/03/2018
+ms.date: 09/30/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 0916c10bc6de797626173262a0b973875b93c88a
-ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
+ms.openlocfilehash: 408d7939c8f20c39aeb640f5cc444deaae4b3a61
+ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43164769"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47201436"
 ---
-# <a name="azure-cosmos-db-import-mongodb-data"></a>Azure Cosmos DB：导入 MongoDB 数据 
+# <a name="migrate-your-data-to-azure-cosmos-db-mongodb-api-account"></a>将数据迁移到 Azure Cosmos DB MongoDB API 帐户
 
 若要将数据从 MongoDB 迁移到 Azure Cosmos DB 帐户，以与 MongoDB API 配合使用，必须执行以下操作：
 
@@ -43,7 +43,7 @@ ms.locfileid: "43164769"
 
 * 启用 SSL：Azure Cosmos DB 具有严格的安全要求和标准。 请确保在与帐户进行交互时启用 SSL。 本文的其余部分介绍了如何为 mongoimport 和 mongorestore 启用 SSL。
 
-## <a name="find-your-connection-string-information-host-port-username-and-password"></a>查找连接字符串信息（主机、端口、用户名和密码）
+## <a name="get-your-connection-string"></a>获取连接字符串 
 
 1. 在 [Azure 门户](https://portal.azure.cn)的左侧窗格中，单击“Azure Cosmos DB”条目。
 1. 在“订阅”窗格中，选择帐户名称。
@@ -53,43 +53,51 @@ ms.locfileid: "43164769"
 
     ![“连接字符串”边栏选项卡](./media/mongodb-migrate/ConnectionStringBlade.png)
 
-## <a name="import-data-to-the-api-for-mongodb-by-using-mongoimport"></a>使用 mongoimport 将数据导入 MongoDB API
+## <a name="migrate-data-by-using-mongoimport"></a>使用 mongoimport 迁移数据
 
 若要将数据导入 Azure Cosmos DB 帐户，请使用以下模板。 使用特定于帐户的值填写“主机”、“用户名”和“密码”。  
 
 模板：
 
-    mongoimport.exe --host <your_hostname>:10255 -u <your_username> -p <your_password> --db <your_database> --collection <your_collection> --ssl --sslAllowInvalidCertificates --type json --file C:\sample.json
+```bash
+    mongoimport.exe --host <your_hostname>:10255 -u <your_username> -p <your_password> --db <your_database> --collection <your_collection> --ssl --sslAllowInvalidCertificates --type json --file "C:\sample.json"
+```
 
 示例：  
 
-    mongoimport.exe --host comsosdb-mongodb-account.documents.azure.cn:10255 -u comsosdb-mongodb-account -p tkvaVkp4Nnaoirnouenrgisuner2435qwefBH0z256Na24frio34LNQasfaefarfernoimczciqisAXw== --ssl --sslAllowInvalidCertificates --db sampleDB --collection sampleColl --type json --file C:\Users\admin\Desktop\*.json
+```bash
+    mongoimport.exe --host cosmosdb-mongodb-account.documents.azure.cn:10255 -u cosmosdb-mongodb-account -p tkvaVkp4Nnaoirnouenrgisuner2435qwefBH0z256Na24frio34LNQasfaefarfernoimczciqisAXw== --ssl --sslAllowInvalidCertificates --db sampleDB --collection sampleColl --type json --file "C:\Users\admin\Desktop\*.json"
+```
 
-## <a name="import-data-to-the-api-for-mongodb-by-using-mongorestore"></a>使用 mongorestore 将数据导入 MongoDB API
+## <a name="migrate-data-by-using-mongorestore"></a>使用 mongorestore 迁移数据
 
 要将数据还原到 API for MongoDB 帐户，请使用以下模板执行导入。 使用特定于帐户的值填写“主机”、“用户名”和“密码”。
 
 模板：
 
+```bash
     mongorestore.exe --host <your_hostname>:10255 -u <your_username> -p <your_password> --db <your_database> --collection <your_collection> --ssl --sslAllowInvalidCertificates <path_to_backup>
+```
 
 示例：
 
-    mongorestore.exe --host comsosdb-mongodb-account.documents.azure.cn:10255 -u comsosdb-mongodb-account -p tkvaVkp4Nnaoirnouenrgisuner2435qwefBH0z256Na24frio34LNQasfaefarfernoimczciqisAXw== --ssl --sslAllowInvalidCertificates ./dumps/dump-2016-12-07
+```bash
+    mongorestore.exe --host cosmosdb-mongodb-account.documents.azure.cn:10255 -u cosmosdb-mongodb-account -p tkvaVkp4Nnaoirnouenrgisuner2435qwefBH0z256Na24frio34LNQasfaefarfernoimczciqisAXw== --ssl --sslAllowInvalidCertificates ./dumps/dump-2016-12-07
+```
 
-## <a name="guide-for-a-successful-migration"></a>成功迁移指南
+## <a name="steps-for-a-successful-migration"></a>成功迁移的步骤
 
 1. 预创建和缩放集合：
 
-    * 默认情况下，Azure Cosmos DB 预配有一个吞吐量为每秒 1,000 个请求单位（RU/秒）的新 MongoDB 集合。 使用 mongoimport、mongorestore 或 mongomirror 开始迁移之前，通过 [Azure 门户](https://portal.azure.cn)或 MongoDB 驱动程序和工具预创建所有集合。 如果集合大小超过 10GB，请务必创建包含相应分片键的[分片/分区集合](partition-data.md)。
+    * 默认情况下，Azure Cosmos DB 预配有一个吞吐量为每秒 1,000 个请求单位（RU/秒）的新 MongoDB 集合。 使用 mongoimport 或 mongorestore 开始迁移之前，请通过 [Azure 门户](https://portal.azure.cn)或 MongoDB 驱动程序和工具预创建所有集合。 如果数据大小超过 10GB，请务必创建包含相应分片键的[分片/分区集合](partition-data.md)。
 
-    * 在 [Azure 门户](https://portal.azure.cn)中，仅出于迁移目的，提高集合吞吐量，单分区集合的起始吞吐量为 1,000 个 RU/秒，分片集合的起始吞吐量为 2,500 个 RU/秒。 提高吞吐量后，可避免受到速率限制，并缩短迁移时间。 由于 Azure Cosmos DB 采用按小时计费，因此可以在迁移后立即降低吞吐量，以节省成本。
+    * 在 [Azure 门户](https://portal.azure.cn)中，仅出于迁移目的，提高集合吞吐量，单分区集合的起始吞吐量为 1000 个 RU/秒，分片集合的起始吞吐量为 2,500 个 RU/秒。 提高吞吐量后，可避免受到速率限制，并缩短迁移时间。 可以在迁移后立即降低吞吐量，以节省成本。
 
     * 除了在集合级别预配 RU/秒之外，还可以在父数据库级别为一组集合预配 RU/秒。 这需要预先创建数据库和集合，以及为每个集合定义分片键。
 
     * 可以通过常用的工具、驱动程序或 SDK 创建分片集合。 此示例使用 Mongo Shell 创建分片集合：
 
-        ```
+        ```bash
         db.runCommand( { shardCollection: "admin.people", key: { region: "hashed" } } )
         ```
 
@@ -105,15 +113,17 @@ ms.locfileid: "43164769"
 
 1. 计算单文档写入的近似 RU 费用：
 
-    a. 从 MongoDB Shell 连接到 Azure Cosmos DB MongoDB 数据库。 有关说明，可以参阅[将 MongoDB 应用程序连接到 Azure Cosmos DB](connect-mongodb-account.md)。
+    a. 通过 MongoDB Shell 连接到 Azure Cosmos DB MongoDB API 帐户。 有关说明，可以参阅[将 MongoDB 应用程序连接到 Azure Cosmos DB](connect-mongodb-account.md)。
 
     b. 通过 MongoDB Shell 使用示例文档之一运行示例插入命令：
 
-        ```db.coll.insert({ "playerId": "a067ff", "hashedid": "bb0091", "countryCode": "hk" })```
+      ```bash
+      db.coll.insert({ "playerId": "a067ff", "hashedid": "bb0091", "countryCode": "hk" })
+      ```
 
     c. 运行 ```db.runCommand({getLastRequestStatistics: 1})```，响应将如下所示：
 
-        ```
+      ```bash
         globaldb:PRIMARY> db.runCommand({getLastRequestStatistics: 1})
         {
             "_t": "GetRequestStatisticsResponse",
@@ -122,7 +132,7 @@ ms.locfileid: "43164769"
             "RequestCharge": 10,
             "RequestDurationInMilliSeconds": NumberLong(50)
         }
-        ```
+      ```
 
     d. 记下请求费用。
 
@@ -160,13 +170,13 @@ ms.locfileid: "43164769"
 
 1. 运行最终迁移命令：
 
-   ```
-   mongoimport.exe --host comsosdb-mongodb-account.documents.azure.cn:10255 -u comsosdb-mongodb-account -p wzRJCyjtLPNuhm53yTwaefawuiefhbauwebhfuabweifbiauweb2YVdl2ZFNZNv8IU89LqFVm5U0bw== --ssl --sslAllowInvalidCertificates --jsonArray --db dabasename --collection collectionName --file "C:\sample.json" --numInsertionWorkers 4 --batchSize 24
+   ```bash
+   mongoimport.exe --host cosmosdb-mongodb-account.documents.azure.cn:10255 -u cosmosdb-mongodb-account -p wzRJCyjtLPNuhm53yTwaefawuiefhbauwebhfuabweifbiauweb2YVdl2ZFNZNv8IU89LqFVm5U0bw== --ssl --sslAllowInvalidCertificates --jsonArray --db dabasename --collection collectionName --file "C:\sample.json" --numInsertionWorkers 4 --batchSize 24
    ```
    或者使用 mongorestore（确保所有集合的吞吐量都设置为以前计算中使用的 RU 数量或更多）：
 
-   ```
-   mongorestore.exe --host comsosdb-mongodb-account.documents.azure.cn:10255 -u comsosdb-mongodb-account -p wzRJCyjtLPNuhm53yTwaefawuiefhbauwebhfuabweifbiauweb2YVdl2ZFNZNv8IU89LqFVm5U0bw== --ssl --sslAllowInvalidCertificates ./dumps/dump-2016-12-07 --numInsertionWorkersPerCollection 4 --batchSize 24
+   ```bash
+   mongorestore.exe --host cosmosdb-mongodb-account.documents.azure.cn:10255 -u cosmosdb-mongodb-account -p wzRJCyjtLPNuhm53yTwaefawuiefhbauwebhfuabweifbiauweb2YVdl2ZFNZNv8IU89LqFVm5U0bw== --ssl --sslAllowInvalidCertificates ./dumps/dump-2016-12-07 --numInsertionWorkersPerCollection 4 --batchSize 24
    ```
 
 ## <a name="next-steps"></a>后续步骤
@@ -176,4 +186,4 @@ ms.locfileid: "43164769"
 > [!div class="nextstepaction"]
 >[如何查询 MongoDB 数据？](../cosmos-db/tutorial-query-mongodb.md)
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, wording update -->

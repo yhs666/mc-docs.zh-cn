@@ -1,5 +1,5 @@
 ---
-title: 如何在 Azure Database for PostgreSQL 中备份和还原服务器 | Azure
+title: 如何在 Azure Database for PostgreSQL 中备份和还原服务器 | Microsoft Docs
 description: 了解如何使用 Azure CLI 在 Azure Database for PostgreSQL 中备份和还原服务器。
 services: postgresql
 author: WenJason
@@ -11,12 +11,12 @@ ms.devlang: azure-cli
 ms.topic: article
 origin.date: 04/01/2018
 ms.date: 08/27/2018
-ms.openlocfilehash: ba38896d180a2091ad092dc8258bcad347a3c36a
-ms.sourcegitcommit: 6dd65fba579a2ce25c63ac69ff3b71d814a9d256
+ms.openlocfilehash: dc136e82c3c68004f6d980e8f0a27ba309616584
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42703853"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426170"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-cli"></a>如何使用 Azure CLI 在 Azure Database for PostgreSQL 中备份和还原服务器
 

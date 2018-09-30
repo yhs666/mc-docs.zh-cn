@@ -8,15 +8,15 @@ ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-origin.date: 08/16/2018
-ms.date: 09/03/2018
+origin.date: 09/05/2018
+ms.date: 09/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 66b437fb454481c01a96e20c76e1fd052617e64a
-ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
+ms.openlocfilehash: dd56cf9a4f64fe17b0458a157d38ba6fad06c580
+ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43164670"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47201264"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>用于 SQL API 的 Azure Cosmos DB Async Java SDK：发行说明和资源
 > [!div class="op_single_selector"]

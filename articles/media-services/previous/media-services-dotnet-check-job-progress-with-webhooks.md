@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Webhook 通过 .NET 监视媒体服务作业通知 | Azure
+title: 使用 Azure Webhook 通过 .NET 监视媒体服务作业通知 | Microsoft Docs
 description: 了解如何使用 Azure Webhook 监视媒体服务作业通知。 代码示例用 C# 编写，并使用用于 .NET 的媒体服务 SDK。
 services: media-services
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 12/09/2017
 ms.date: 07/30/2018
 ms.author: v-jay
-ms.openlocfilehash: f8332d0198bc44f9ffb47079fe4c9bcaf94babd0
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+ms.openlocfilehash: 2b6c59abab4deeb385496529771d665c1d6747f7
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219723"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426216"
 ---
 # <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>使用 Azure Webhook 通过 .NET 监视媒体服务作业通知
 运行作业时，通常需要采用某种方式跟踪作业进度。 可以使用 Azure Webhook 或 [Azure 队列存储](media-services-dotnet-check-job-progress-with-queues.md)监视媒体服务作业通知。 本文介绍如何使用 Webhook。

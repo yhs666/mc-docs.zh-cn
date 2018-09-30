@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 门户中将文件上传到媒体服务帐户 | Azure
+title: 在 Azure 门户中将文件上传到媒体服务帐户 | Microsoft Docs
 description: 本教程详细介绍了在 Azure 门户中将文件上传到媒体服务帐户的步骤。
 services: media-services
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: get-started-article
 oringin.date: 08/07/2017
 ms.date: 09/25/2017
 ms.author: v-johch
-ms.openlocfilehash: 5473c620407743590fea5a622928be0367871346
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+ms.openlocfilehash: 7bdbc2bba3e2ce1c074e19be6a876bbd930d5c4c
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219655"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426457"
 ---
 # <a name="upload-files-to-a-media-services-account-in-the-azure-portal"></a>在 Azure 门户中将文件上传到媒体服务帐户
 > [!div class="op_single_selector"]

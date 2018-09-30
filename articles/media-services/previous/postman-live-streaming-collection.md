@@ -3,7 +3,7 @@ title: 导入 Postman 集合以实现 Azure 实时传送视频流 REST 调用
 description: 本文提供了用于 Azure 媒体服务 REST 调用的 Postman 集合的定义。
 services: media-services
 documentationcenter: ''
-author: yunan2016
+author: WenJason
 manager: digimobile
 editor: ''
 ms.service: media-services
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/15/2018
-ms.date: 02/27/2018
-ms.author: v-nany
-ms.openlocfilehash: 898f405ccad25140697a67c1a94e32332eb9f134
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+ms.date: 10/01/2018
+ms.author: v-jay
+ms.openlocfilehash: 2b255b64c3ff2904e5628c25ec70f5dcfb3eb26f
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219611"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426461"
 ---
 # <a name="import-a-postman-collection-with-live-streaming-operations"></a>使用实时传送视频流操作导入一个 Postman 集合
 
@@ -139,7 +139,7 @@ ms.locfileid: "39219611"
                                     "",
                                     "var jsonData = pm.response.json();",
                                     "tests[\"Has State\"] = jsonData.State !== null;",
-                                    "tests[\"Has Encoding\"] = jsonData.EncodingType == \"Basic\";",
+                                    "tests[\"Has Encoding\"] = jsonData.EncodingType == \"Standard\";",
                                     "",
                                     ""
                                 ]
@@ -186,7 +186,7 @@ ms.locfileid: "39219611"
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\r\n    \"Name\": \"MyPostmanChannel\",\r\n    \"Description\": \"My Live Encoding channel from Postman\",\r\n    \"EncodingType\": \"Basic\",\r\n    \"Encoding\": null,\r\n    \"Slate\": null,\r\n    \"Input\": {\r\n        \"KeyFrameInterval\": null,\r\n        \"StreamingProtocol\": \"RTMP\",\r\n        \"AccessControl\": {\r\n            \"IP\": {\r\n                \"Allow\": [\r\n                    {\r\n                        \"Name\": \"Allow All\",\r\n                        \"Address\": \"0.0.0.0\",\r\n                        \"SubnetPrefixLength\": 0\r\n                    }\r\n                ]\r\n            }\r\n        },\r\n        \"Endpoints\": []\r\n    },\r\n    \"Preview\": {\r\n        \"AccessControl\": {\r\n            \"IP\": {\r\n                \"Allow\": [\r\n                    {\r\n                        \"Name\": \"Allow All\",\r\n                        \"Address\": \"0.0.0.0\",\r\n                        \"SubnetPrefixLength\": 0\r\n                    }\r\n                ]\r\n            }\r\n        },\r\n        \"Endpoints\": []\r\n    },\r\n    \"Output\": {\r\n        \"Hls\": {\r\n            \"FragmentsPerSegment\": \"1\"\r\n        }\r\n    },\r\n    \"CrossSiteAccessPolicies\": {\r\n        \"ClientAccessPolicy\": null,\r\n        \"CrossDomainPolicy\": null\r\n    }\r\n}\r\n"
+                            "raw": "{\r\n    \"Name\": \"MyPostmanChannel\",\r\n    \"Description\": \"My Live Encoding channel from Postman\",\r\n    \"EncodingType\": \"Standard\",\r\n    \"Encoding\": null,\r\n    \"Slate\": null,\r\n    \"Input\": {\r\n        \"KeyFrameInterval\": null,\r\n        \"StreamingProtocol\": \"RTMP\",\r\n        \"AccessControl\": {\r\n            \"IP\": {\r\n                \"Allow\": [\r\n                    {\r\n                        \"Name\": \"Allow All\",\r\n                        \"Address\": \"0.0.0.0\",\r\n                        \"SubnetPrefixLength\": 0\r\n                    }\r\n                ]\r\n            }\r\n        },\r\n        \"Endpoints\": []\r\n    },\r\n    \"Preview\": {\r\n        \"AccessControl\": {\r\n            \"IP\": {\r\n                \"Allow\": [\r\n                    {\r\n                        \"Name\": \"Allow All\",\r\n                        \"Address\": \"0.0.0.0\",\r\n                        \"SubnetPrefixLength\": 0\r\n                    }\r\n                ]\r\n            }\r\n        },\r\n        \"Endpoints\": []\r\n    },\r\n    \"Output\": {\r\n        \"Hls\": {\r\n            \"FragmentsPerSegment\": \"1\"\r\n        }\r\n    },\r\n    \"CrossSiteAccessPolicies\": {\r\n        \"ClientAccessPolicy\": null,\r\n        \"CrossDomainPolicy\": null\r\n    }\r\n}\r\n"
                         },
                         "url": {
                             "raw": "{{ApiEndpoint}}/Channels",
@@ -197,7 +197,7 @@ ms.locfileid: "39219611"
                                 "Channels"
                             ]
                         },
-                        "description": "Create Channel with Encoding\n\nChannels can be created using a POST HTTP request and specifying property values.\n\nIf successful, a 202 Accepted status code is returned along with a representation of the created entity in the response body. \n\nThe 202 Accepted status code indicates an asynchronous operation, in which case the operation-id header value is also provided for use in polling and tracking the status of long-running operations, such as starting or stopping a Channel. Pass the operation-id header value into the Operation Entity to retrieve the status. For more information, see Manually Polling Long-Running Operations.\n\nChannel Entity REST API - https://msdn.microsoft.com/en-us/library/azure/dn783458.aspx\n\nFull REST API documentation\nhttps://msdn.microsoft.com/library/azure/hh973617.aspx"
+                        "description": "Create Channel with Encoding\n\nChannels can be created using a POST HTTP request and specifying property values.\n\nIf successful, a 202 Accepted status code is returned along with a representation of the created entity in the response body. \n\nThe 202 Accepted status code indicates an asynchronous operation, in which case the operation-id header value is also provided for use in polling and tracking the status of long-running operations, such as starting or stopping a Channel. Pass the operation-id header value into the Operation Entity to retrieve the status. For more information, see Manually Polling Long-Running Operations.\n\nChannel Entity REST API - https://msdn.microsoft.com/library/azure/dn783458.aspx\n\nFull REST API documentation\nhttps://msdn.microsoft.com/library/azure/hh973617.aspx"
                     },
                     "response": []
                 },
@@ -274,7 +274,7 @@ ms.locfileid: "39219611"
                                 "Channels('{{ChannelId}}')"
                             ]
                         },
-                        "description": "List Channels\n\nThe Channel entity represents a pipeline for processing live streaming content.\n\nChannel Entity REST API - https://msdn.microsoft.com/en-us/library/azure/dn783458.aspx\n\nFull REST API documentation\nhttps://msdn.microsoft.com/library/azure/hh973617.aspx"
+                        "description": "List Channels\n\nThe Channel entity represents a pipeline for processing live streaming content.\n\nChannel Entity REST API - https://msdn.microsoft.com/library/azure/dn783458.aspx\n\nFull REST API documentation\nhttps://msdn.microsoft.com/library/azure/hh973617.aspx"
                     },
                     "response": []
                 },
@@ -342,7 +342,7 @@ ms.locfileid: "39219611"
                                 "Start"
                             ]
                         },
-                        "description": "Start a Channel\n\nThe Channel entity represents a pipeline for processing live streaming content.\n\nChannel Entity REST API - https://msdn.microsoft.com/en-us/library/azure/dn783458.aspx\n\nFull REST API documentation\nhttps://msdn.microsoft.com/library/azure/hh973617.aspx"
+                        "description": "Start a Channel\n\nThe Channel entity represents a pipeline for processing live streaming content.\n\nChannel Entity REST API - https://msdn.microsoft.com/library/azure/dn783458.aspx\n\nFull REST API documentation\nhttps://msdn.microsoft.com/library/azure/hh973617.aspx"
                     },
                     "response": []
                 },
@@ -415,7 +415,7 @@ ms.locfileid: "39219611"
                                 "State"
                             ]
                         },
-                        "description": "List Channels\n\nThe Channel entity represents a pipeline for processing live streaming content.\n\nChannel Entity REST API - https://msdn.microsoft.com/en-us/library/azure/dn783458.aspx\n\nFull REST API documentation\nhttps://msdn.microsoft.com/library/azure/hh973617.aspx"
+                        "description": "List Channels\n\nThe Channel entity represents a pipeline for processing live streaming content.\n\nChannel Entity REST API - https://msdn.microsoft.com/library/azure/dn783458.aspx\n\nFull REST API documentation\nhttps://msdn.microsoft.com/library/azure/hh973617.aspx"
                     },
                     "response": []
                 }
@@ -524,7 +524,7 @@ ms.locfileid: "39219611"
                                 "Assets"
                             ]
                         },
-                        "description": "Create Assets\nThe Asset entity contains digital files (including video, audio, images, thumbnail collections, text tracks and closed caption files) and the metadata about these files. After the digital files are uploaded into an asset, they could be used in the Media Services encoding and streaming workflows.\n\n[Asset Entity REST API](https://msdn.microsoft.com/en-us/library/azure/hh974277.aspx)\n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
+                        "description": "Create Assets\nThe Asset entity contains digital files (including video, audio, images, thumbnail collections, text tracks and closed caption files) and the metadata about these files. After the digital files are uploaded into an asset, they could be used in the Media Services encoding and streaming workflows.\n\n[Asset Entity REST API](https://msdn.microsoft.com/library/azure/hh974277.aspx)\n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
                     },
                     "response": []
                 },
@@ -611,7 +611,7 @@ ms.locfileid: "39219611"
                                 "Programs"
                             ]
                         },
-                        "description": "Create Program\n\n[Create Programs documentation](https://docs.microsoft.com/en-us/rest/api/media/operations/program#create_programs)\n\n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
+                        "description": "Create Program\n\n[Create Programs documentation](https://docs.microsoft.com/rest/api/media/operations/program#create_programs)\n\n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
                     },
                     "response": []
                 },
@@ -687,7 +687,7 @@ ms.locfileid: "39219611"
                                 "AccessPolicies"
                             ]
                         },
-                        "description": "https://docs.microsoft.com/en-us/rest/api/media/operations/accesspolicy#create_an_accesspolicy\n\n\n## Permissions: \nspecifies the access rights the client has when interacting with the Asset. Valid values are:\n\n- None = 0 (default)\n- Read = 1\n- Write = 2\n- Delete = 4\n- List = 8"
+                        "description": "https://docs.microsoft.com/rest/api/media/operations/accesspolicy#create_an_accesspolicy\n\n\n## Permissions: \nspecifies the access rights the client has when interacting with the Asset. Valid values are:\n\n- None = 0 (default)\n- Read = 1\n- Write = 2\n- Delete = 4\n- List = 8"
                     },
                     "response": []
                 },
@@ -755,7 +755,7 @@ ms.locfileid: "39219611"
                                 "Start"
                             ]
                         },
-                        "description": "Start Programs\n\n[Start a Program documentation](https://docs.microsoft.com/en-us/rest/api/media/operations/program#start_programs)\n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
+                        "description": "Start Programs\n\n[Start a Program documentation](https://docs.microsoft.com/rest/api/media/operations/program#start_programs)\n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
                     },
                     "response": []
                 },
@@ -812,7 +812,7 @@ ms.locfileid: "39219611"
                                 "Locators"
                             ]
                         },
-                        "description": "https://docs.microsoft.com/en-us/rest/api/media/operations/locator#list_locators"
+                        "description": "https://docs.microsoft.com/rest/api/media/operations/locator#list_locators"
                     },
                     "response": []
                 },
@@ -881,7 +881,7 @@ ms.locfileid: "39219611"
                                 "Stop"
                             ]
                         },
-                        "description": "Strop Programs\n\n[Stop a Program documentation](https://docs.microsoft.com/en-us/rest/api/media/operations/program#stop_programs)\n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
+                        "description": "Strop Programs\n\n[Stop a Program documentation](https://docs.microsoft.com/rest/api/media/operations/program#stop_programs)\n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
                     },
                     "response": []
                 }
@@ -954,7 +954,7 @@ ms.locfileid: "39219611"
                                 "Reset"
                             ]
                         },
-                        "description": "Reset a Channel\n\nThe Channel entity represents a pipeline for processing live streaming content.\n\nChannel Entity REST API - https://msdn.microsoft.com/en-us/library/azure/dn783458.aspx\n\nFull REST API documentation\nhttps://msdn.microsoft.com/library/azure/hh973617.aspx"
+                        "description": "Reset a Channel\n\nThe Channel entity represents a pipeline for processing live streaming content.\n\nChannel Entity REST API - https://msdn.microsoft.com/library/azure/dn783458.aspx\n\nFull REST API documentation\nhttps://msdn.microsoft.com/library/azure/hh973617.aspx"
                     },
                     "response": []
                 },
@@ -1024,7 +1024,7 @@ ms.locfileid: "39219611"
                                 "StartAdvertisement"
                             ]
                         },
-                        "description": "Start a Channel Ad Break\n\nThe live encoder can be signaled to start an advertisement or commercial break using a POST HTTP request and specifying property values of the in the StartAdvertisement Entity entity in the body of the request.\n\n\nChannel Entity REST API - https://msdn.microsoft.com/en-us/library/azure/dn783458.aspx\n\nFull REST API documentation\nhttps://msdn.microsoft.com/library/azure/hh973617.aspx"
+                        "description": "Start a Channel Ad Break\n\nThe live encoder can be signaled to start an advertisement or commercial break using a POST HTTP request and specifying property values of the in the StartAdvertisement Entity entity in the body of the request.\n\n\nChannel Entity REST API - https://msdn.microsoft.com/library/azure/dn783458.aspx\n\nFull REST API documentation\nhttps://msdn.microsoft.com/library/azure/hh973617.aspx"
                     },
                     "response": []
                 },
@@ -1094,7 +1094,7 @@ ms.locfileid: "39219611"
                                 "EndAdvertisement"
                             ]
                         },
-                        "description": "End a Channel Ad Break\n\nThe live encoder can be signaled to start an advertisement or commercial break using a POST HTTP request and specifying property values of the in the StartAdvertisement Entity entity in the body of the request.\n\n\nChannel Entity REST API - https://msdn.microsoft.com/en-us/library/azure/dn783458.aspx\n\nFull REST API documentation\nhttps://msdn.microsoft.com/library/azure/hh973617.aspx"
+                        "description": "End a Channel Ad Break\n\nThe live encoder can be signaled to start an advertisement or commercial break using a POST HTTP request and specifying property values of the in the StartAdvertisement Entity entity in the body of the request.\n\n\nChannel Entity REST API - https://msdn.microsoft.com/library/azure/dn783458.aspx\n\nFull REST API documentation\nhttps://msdn.microsoft.com/library/azure/hh973617.aspx"
                     },
                     "response": []
                 },
@@ -1164,7 +1164,7 @@ ms.locfileid: "39219611"
                                 "ShowSlate"
                             ]
                         },
-                        "description": "Show Slate\n\nIndicates to the live encoder within the Channel that it needs to switch to the default slate image during the commercial break (and mask the incoming video feed). Default is false. The image used will be the one specified via the default slate asset Id property at the time of the channel creation. \n\nChannel Entity REST API - https://msdn.microsoft.com/en-us/library/azure/dn783458.aspx\n\nFull REST API documentation\nhttps://msdn.microsoft.com/library/azure/hh973617.aspx"
+                        "description": "Show Slate\n\nIndicates to the live encoder within the Channel that it needs to switch to the default slate image during the commercial break (and mask the incoming video feed). Default is false. The image used will be the one specified via the default slate asset Id property at the time of the channel creation. \n\nChannel Entity REST API - https://msdn.microsoft.com/library/azure/dn783458.aspx\n\nFull REST API documentation\nhttps://msdn.microsoft.com/library/azure/hh973617.aspx"
                     },
                     "response": []
                 },
@@ -1234,7 +1234,7 @@ ms.locfileid: "39219611"
                                 "ShowSlate"
                             ]
                         },
-                        "description": "Show Slate\n\nIndicates to the live encoder within the Channel that it needs to switch to the default slate image during the commercial break (and mask the incoming video feed). Default is false. The image used will be the one specified via the default slate asset Id property at the time of the channel creation. \n\nChannel Entity REST API - https://msdn.microsoft.com/en-us/library/azure/dn783458.aspx\n\nFull REST API documentation\nhttps://msdn.microsoft.com/library/azure/hh973617.aspx"
+                        "description": "Show Slate\n\nIndicates to the live encoder within the Channel that it needs to switch to the default slate image during the commercial break (and mask the incoming video feed). Default is false. The image used will be the one specified via the default slate asset Id property at the time of the channel creation. \n\nChannel Entity REST API - https://msdn.microsoft.com/library/azure/dn783458.aspx\n\nFull REST API documentation\nhttps://msdn.microsoft.com/library/azure/hh973617.aspx"
                     },
                     "response": []
                 },
@@ -1304,7 +1304,7 @@ ms.locfileid: "39219611"
                                 "HideSlate"
                             ]
                         },
-                        "description": "Hide Slate\n\nThe live encoder can be signaled to end an on-going slate using a POST HTTP request.\n\n\nChannel Entity REST API - https://msdn.microsoft.com/en-us/library/azure/dn783458.aspx\n\nFull REST API documentation\nhttps://msdn.microsoft.com/library/azure/hh973617.aspx"
+                        "description": "Hide Slate\n\nThe live encoder can be signaled to end an on-going slate using a POST HTTP request.\n\n\nChannel Entity REST API - https://msdn.microsoft.com/library/azure/dn783458.aspx\n\nFull REST API documentation\nhttps://msdn.microsoft.com/library/azure/hh973617.aspx"
                     },
                     "response": []
                 },
@@ -1371,7 +1371,7 @@ ms.locfileid: "39219611"
                                 "Stop"
                             ]
                         },
-                        "description": "Stop a Channel\n\nThe Channel entity represents a pipeline for processing live streaming content.\n\nChannel Entity REST API - https://msdn.microsoft.com/en-us/library/azure/dn783458.aspx\n\nFull REST API documentation\nhttps://msdn.microsoft.com/library/azure/hh973617.aspx"
+                        "description": "Stop a Channel\n\nThe Channel entity represents a pipeline for processing live streaming content.\n\nChannel Entity REST API - https://msdn.microsoft.com/library/azure/dn783458.aspx\n\nFull REST API documentation\nhttps://msdn.microsoft.com/library/azure/hh973617.aspx"
                     },
                     "response": []
                 },
@@ -1439,7 +1439,7 @@ ms.locfileid: "39219611"
                                 "Channels('{{ChannelId}}')"
                             ]
                         },
-                        "description": "Delete Channels\n\nDelete the Channel entity\n\nChannel Entity REST API - https://msdn.microsoft.com/en-us/library/azure/dn783458.aspx\n\nFull REST API documentation\nhttps://msdn.microsoft.com/library/azure/hh973617.aspx"
+                        "description": "Delete Channels\n\nDelete the Channel entity\n\nChannel Entity REST API - https://msdn.microsoft.com/library/azure/dn783458.aspx\n\nFull REST API documentation\nhttps://msdn.microsoft.com/library/azure/hh973617.aspx"
                     },
                     "response": []
                 }

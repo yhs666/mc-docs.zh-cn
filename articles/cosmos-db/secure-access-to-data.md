@@ -7,15 +7,15 @@ manager: digimobile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 05/24/2017
-ms.date: 09/03/2018
+origin.date: 08/19/2018
+ms.date: 09/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7eb302ab1869ac8b6411798af57f6519f88b1b8d
-ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
+ms.openlocfilehash: 36c2d7d49b59de7ca9908f7cac79f67f0196c0fb
+ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43164645"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47201327"
 ---
 # <a name="securing-access-to-azure-cosmos-db-data"></a>保护对 Azure Cosmos DB 数据的访问
 本文概述了如何保护对存储在 [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) 中的数据的访问。
@@ -176,6 +176,20 @@ foreach (Permission perm in permFeed)
 DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 ```
 
+## <a name="add-users-and-assign-roles"></a>添加用户和分配角色
+
+若要将 Azure Cosmos DB 帐户读者访问权限添加到用户帐户，请让订阅所有者在 Azure 门户执行以下步骤。
+
+1. 打开 Azure 门户，并选择 Azure Cosmos DB 帐户。
+2. 单击“访问控制(IAM)”选项卡，然后单击“+ 添加”。
+3. 在“添加权限”窗格中的“角色”框中，选择“Cosmos DB 帐户读者角色”。
+4. 在“分配其访问权限”框中，选择“Azure AD 用户、组或应用程序”。
+5. 在你想要授予访问权限的目录中选择用户、组或应用程序。  可以通过显示名称、电子邮件地址或对象标识符搜索目录。
+    所选用户、组或应用程序会显示在所选成员列表中。
+6. 单击“保存” 。
+
+实体现在便可以读取 Azure Cosmos DB 资源。
+
 ## <a name="delete-or-export-user-data"></a>删除或导出用户数据
 用户可使用 Azure Cosmos DB 搜索、选择、修改和删除数据库或集合中的任何个人数据。 Azure Cosmos DB 提供用于查找和删除个人数据的 API，但用户应负责使用该 API 并定义擦除个人数据必需的逻辑。 每个多模型 API（SQL API、MongoDB API）都提供不同的语言 SDK，其中包含用于搜索和删除个人数据的方法。 还可启用[生存时间 (TTL)](time-to-live.md)功能在指定时间段后自动删除数据，不会产生任何额外费用。
 <!--Not Available on Gremlin API, Cassandra API, Table API-->
@@ -186,4 +200,4 @@ DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 * 若要详细了解 Cosmos DB 数据库安全性，请参阅 [Cosmos DB：数据库安全性](database-security.md)。
 * 若要了解如何管理主密钥和只读密钥，请参阅[如何管理 Azure Cosmos DB 帐户](manage-account.md#keys)。
 * 若要了解如何构造 Azure Cosmos DB 授权令牌，请参阅 [Azure Cosmos DB 资源的访问控制](https://docs.microsoft.com/rest/api/cosmos-db/access-control-on-cosmosdb-resources)。
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update -->

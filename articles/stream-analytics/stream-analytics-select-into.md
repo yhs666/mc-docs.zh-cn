@@ -9,13 +9,13 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 04/20/2017
-ms.date: 05/07/2018
-ms.openlocfilehash: b2f3ec386cb6042dab37a431e24c3955509b2551
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.date: 09/30/2018
+ms.openlocfilehash: 36a637269f99d8471d08120a45a3121b60857936
+ms.sourcegitcommit: 432984d85afe6f3da8f211bae0fa98a556785ee8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33815343"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47455395"
 ---
 # <a name="debug-queries-by-using-select-into-statements"></a>使用 SELECT INTO 语句调试查询
 

@@ -12,14 +12,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: ''
 ms.workload: identity
 origin.date: 06/11/2018
-ms.date: 07/24/2018
+ms.date: 09/25/2018
 ms.author: v-junlch
-ms.openlocfilehash: 79147c4a4f4e41fe0765d4406937617c6899f2ee
-ms.sourcegitcommit: cce18df2de12353f0d8f01c649307a5789d59cd4
+ms.openlocfilehash: 1cf2740dedd1b2cb8084c810f5ea96f676948853
+ms.sourcegitcommit: 830a60c06303a8447d128a3bca8b36aa2b3b655b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39246131"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47075847"
 ---
 # <a name="tutorial-grant-access-for-a-user-using-rbac-and-azure-powershell"></a>教程：使用 RBAC 和 Azure PowerShell 授予用户的访问权限
 
@@ -111,7 +111,7 @@ ms.locfileid: "39246131"
 
 若要为用户授予访问权限，请使用 [New-AzureRmRoleAssignment](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermroleassignment) 命令分配一个角色。 必须指定安全主体、角色定义和范围。
 
-1. 使用 `Get-AzureRmSubscription` 命令获取你的订阅 ID。
+1. 使用 [Get-AzureRmSubscription](https://docs.microsoft.com/powershell/module/azurerm.profile/get-azurermsubscription) 命令获取订阅的 ID。
 
     ```azurepowershell
     Get-AzureRmSubscription

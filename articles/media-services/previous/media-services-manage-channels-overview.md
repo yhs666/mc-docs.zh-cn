@@ -1,10 +1,10 @@
 ---
-title: 使用 Azure 媒体服务实时传送视频流概述 | Azure
+title: 使用 Azure 媒体服务实时传送视频流概述 | Microsoft Docs
 description: 本主题概述了如何使用 Azure 媒体服务实时传送视频流。
 services: media-services
 documentationcenter: ''
-author: Juliako
-manager: erikre
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: fb63502e-914d-4c1f-853c-4a7831bb08e8
 ms.service: media-services
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-origin.date: 03/19/2018
-ms.date: 07/30/2018
-ms.author: v-haiqya
-ms.openlocfilehash: 46b11286a338e3c6a7506e9a765e2c5dc481c25d
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+origin.date: 08/20/2018
+ms.date: 10/01/2018
+ms.author: v-jay
+ms.openlocfilehash: 78fe35f6b576d7710bf639c1e2c2718e3fa8c4cf
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219567"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426446"
 ---
 # <a name="overview-of-live-streaming-using-azure-media-services"></a>使用 Azure 媒体服务实时传送视频流概述
 
@@ -61,8 +61,7 @@ Microsoft Azure 媒体服务 (AMS) 提供了引入、编码、预览、存储和
 从媒体服务2.10 发行版开始，创建通道时，可以指定希望通道接收输入流的方式，以及是否希望通道对流执行实时编码。 可以使用两个选项：
 
 * 无（直通） - 如果打算使用输出多比特率流（直通流）的本地实时编码器，请指定此值。 在这种情况下，传入流将传递到输出，而不会进行任何编码。 这是 2.10 发行版以前的通道行为。  
-* 
-            **标准** - 如果打算使用媒体服务将单比特率实时流编码为多比特率流，请选择此值。 若要针对不频繁发生的事件快速地向上缩放，此方法可以节省资金。 请注意，实时编码会影响计费，应记住，将实时编码频道保持为“正在运行”状态会产生费用。  建议在实时流式处理事件完成之后立即停止正在运行的通道，以避免产生额外的小时费用。
+* **标准** - 如果打算使用媒体服务将单比特率实时流编码为多比特率流，请选择此值。 若要针对不频繁发生的事件快速地向上缩放，此方法可以节省资金。 请注意，实时编码会影响计费，应记住，将实时编码频道保持为“正在运行”状态会产生费用。  建议在实时流式处理事件完成之后立即停止正在运行的通道，以避免产生额外的小时费用。
 
 ## <a name="comparison-of-channel-types"></a>通道类型的比较
 可通过下表来了解媒体服务中支持的两种通道类型的比较情况
@@ -77,7 +76,6 @@ Microsoft Azure 媒体服务 (AMS) 提供了引入、编码、预览、存储和
 | 支持插入静态图像 |否 |是 |
 | 支持发出广告指示 |否 |是 |
 | 直通 CEA 608/708 字幕 |是 |是 |
-| 能够从贡献源出现的短时停顿中恢复 |是 |否（如果超过 6 秒而没有输入数据，通道就会开始插入静态图像） |
 | 支持非一致性输入 GOP |是 |否 - 输入必须是固定的 2 秒 GOP |
 | 支持可变帧率输入 |是 |否 - 输入必须是固定的帧速率。<br/>轻微的帧率变化是容许的，例如在高速运动情况下出现的轻微帧率变化。 但是，编码器不能掉到 10 帧/秒的帧率。 |
 | 输入源丢失时，自动关闭通道 |否 |12 小时后，如果没有运行的程序 |
@@ -155,4 +153,3 @@ ArchiveWindowLength 还决定了客户端能够从当前实时位置按时间向
 [配额和限制](media-services-quotas-and-limitations.md)。  
 
 [媒体服务概念](media-services-concepts.md)
-<!--Update_Description: update meta data-->

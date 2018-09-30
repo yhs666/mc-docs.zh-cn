@@ -9,16 +9,16 @@ ms.component: cosmosdb-table
 ms.devlang: cpp
 ms.topic: sample
 origin.date: 04/05/2018
-ms.date: 07/02/2018
+ms.date: 09/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 3d33e89330b778056b5f228a89da19281c6ff0fc
-ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
+ms.openlocfilehash: 315dca40d4dde9eef67af791ba00eedb646ddc22
+ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37070238"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47201367"
 ---
-# <a name="how-to-use-azure-table-storage-with-c"></a>如何配合使用 C++ 和 Azure 表存储
+# <a name="how-to-use-azure-table-storage-and-azure-cosmos-db-table-api-with-c"></a>如何通过 C++ 使用 Azure 表存储或 Azure Cosmos DB 表 API
 <!-- Not Available on Azure Cosmos DB Table API -->
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
@@ -46,7 +46,6 @@ ms.locfileid: "37070238"
 若要安装适用于 C++ 的 Azure 存储客户端库，可使用以下方法：
 
 * **Linux：** 按照适用于 C++ 的 [Azure 存储客户端库自述文件](https://github.com/Azure/azure-storage-cpp/blob/master/README.md)页中提供的说明进行操作。  
-<!--URL is correct with https://github.com/ .md-->
 * **Windows：** 在 Visual Studio 中，单击“工具”>“NuGet 包管理器”>“程序包管理器控制台”。 在 [NuGet 包管理器控制台](http://docs.nuget.org/docs/start-here/using-the-package-manager-console)中，键入以下命令，并按 Enter。  
 
      Install-Package wastorage

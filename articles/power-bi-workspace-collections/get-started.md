@@ -2,27 +2,21 @@
 title: Power BI 工作区集合入门
 description: Power BI 工作区集合是一项 Azure 服务，应用程序开发人员可通过它将交互式 Power BI 报表添加到自己的应用程序中。
 services: power-bi-embedded
-documentationcenter: ''
-author: alexchen2016
-manager: digimobile
-editor: ''
-tags: ''
+author: markingmyname
 ROBOTS: NOINDEX
 ms.assetid: 4787cf44-5d1c-4bc3-b3fd-bf396e5c1176
 ms.service: power-bi-embedded
-ms.devlang: NA
-ms.topic: hero-article
-ms.tgt_pltfrm: NA
+ms.topic: conceptual
 ms.workload: powerbi
 origin.date: 09/25/2017
-ms.date: 10/24/2017
+ms.date: 09/26/2018
 ms.author: v-junlch
-ms.openlocfilehash: 3ca4e24ddea8720f53c8953448f272d544e44860
-ms.sourcegitcommit: 140d09254b5ded4b408980b43c0fc5d3643320a1
+ms.openlocfilehash: c7dde62b6e26457f243109dedc81eaf632df062c
+ms.sourcegitcommit: 7c6ff130adaa67bc90094846f81295ef0719d072
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2017
-ms.locfileid: "23580305"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47191361"
 ---
 # <a name="get-started-with-power-bi-workspace-collections"></a>Power BI 工作区集合入门
 
@@ -44,7 +38,7 @@ ms.locfileid: "23580305"
 
 以下让我们逐步完成使用 Azure 门户构建工作区集合的步骤。
 
-1. 打开并登录 **Azure 门户**：[http://portal.azure.cn](http://portal.azure.cn)。
+1. 打开 **Azure 门户** ([http://portal.azure.cn](http://portal.azure.cn)) 并登录到其中。
 2. 在顶部面板上选择“+ 新建”。
    
    ![Azure 门户中的“+ 新建”](./media/get-started/create-workspace-1.png)
@@ -129,3 +123,4 @@ ms.locfileid: "23580305"
 有更多问题？ [试用 Power BI 社区](http://community.powerbi.com/)
 
 
+<!-- Update_Description: update metedata properties -->

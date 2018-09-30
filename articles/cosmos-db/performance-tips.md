@@ -9,23 +9,22 @@ ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 01/24/2018
-ms.date: 09/03/2018
+ms.date: 09/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: fe4c4cc9619e964bd43b69e81a0739c35ac19f15
-ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
+ms.openlocfilehash: 1a6dae018edd11d33e40146098d935131b4dbf3e
+ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43164733"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47201334"
 ---
+# <a name="performance-tips-for-azure-cosmos-db-and-net"></a>适用于 Azure Cosmos DB 和 .NET 的性能提示
+
 > [!div class="op_single_selector"]
 > * [异步 Java](performance-tips-async-java.md)
 > * [Java](performance-tips-java.md)
 > * [.NET](performance-tips.md)
 > 
-> 
-
-# <a name="performance-tips-for-azure-cosmos-db-and-net"></a>适用于 Azure Cosmos DB 和 .NET 的性能提示
 
 Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供延迟与吞吐量保证的情况下无缝缩放。 凭借 Azure Cosmos DB，无需对体系结构进行重大更改或编写复杂的代码即可缩放数据库。 扩展和缩减操作就像执行单个 API 调用或 [SDK 方法调用](set-throughput.md#set-throughput-sdk)一样简单。 但是，由于 Azure Cosmos DB 是通过网络调用访问的，因此，使用 [SQL .NET SDK](documentdb-sdk-dotnet.md) 时可以通过进行客户端优化来获得最高性能。
 
@@ -41,23 +40,23 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
     * 网关模式（默认）
 
-        网关模式受所有 SDK 平台的支持并已配置为默认设置。 如果应用程序在有严格防火墙限制的企业网络中运行，则网关模式是最佳选择，因为它使用标准 HTTPS 端口与单个终结点。 但是，对于性能的影响是每次读取或写入 Azure Cosmos DB 数据时，网关模式都涉及到额外的网络跃点。 因此，直接模式因为网络跃点较少，可以提供更好的性能。
+        网关模式受所有 SDK 平台的支持并已配置为默认设置。 如果应用程序在有严格防火墙限制的企业网络中运行，则网关模式是最佳选择，因为它使用标准 HTTPS 端口与单个终结点。 但是，对于性能的影响是每次读取或写入 Azure Cosmos DB 数据时，网关模式都涉及到额外的网络跃点。 因此，直接模式因为网络跃点较少，可以提供更好的性能。 在套接字连接数量有限的环境（例如在使用 Azure Functions 或正在使用消耗计划时）中运行应用程序时，也建议使用网关连接模式。 
 
     * 直接模式
 
         直接模式支持通过 TCP 和 HTTPS 协议的连接。 目前，只有用于 Windows 平台的 .NET Standard 2.0 支持直接模式。 使用直接模式时，有两个可用的协议选项：
 
-    * TCP
-    * HTTPS
+        * TCP
+        * HTTPS
 
-    使用网关模式时，Azure Cosmos DB 使用端口 443，MongoDB API 使用 10250、10255 和 10256 端口。 10250 端口映射到没有异地复制功能的默认 Mongodb 实例，10255/10256 端口映射到具有异地复制功能的 Mongodb 实例。 在直接模式下使用时 TCP 时，除了网关端口外，还需确保端口 10000 到 20000 范围之间的端口处于打开状态，因为 Azure Cosmos DB 使用动态 TCP 端口。 如果这些端口未处于打开状态，则会在尝试使用 TCP 时收到“503 服务不可用”错误。 下表显示可用于不同 API 的连接模式以及每个 API 的服务端口用户：
+        使用网关模式时，Azure Cosmos DB 使用端口 443，MongoDB API 使用 10250、10255 和 10256 端口。 10250 端口映射到没有异地复制功能的默认 Mongodb 实例，10255/10256 端口映射到具有异地复制功能的 Mongodb 实例。 在直接模式下使用时 TCP 时，除了网关端口外，还需确保端口 10000 到 20000 范围之间的端口处于打开状态，因为 Azure Cosmos DB 使用动态 TCP 端口。 如果这些端口未处于打开状态，则会在尝试使用 TCP 时收到“503 服务不可用”错误。 下表显示可用于不同 API 的连接模式以及每个 API 的服务端口用户：
 
-    |连接模式  |支持的协议  |支持的 SDK  |API/服务端口  |
-    |---------|---------|---------|---------|
-    |网关  |   HTTPS    |  所有 SDK    |   SQL(443)、Mongo(10250, 10255, 10256)    |
-    |直接    |    HTTPS     |  .Net 和 Java SDK    |    SQL(443)   |
-    |直接    |     TCP    |  .NET SDK    | 10,000-20,000 范围内的端口 |
-    <!--Not Available on Table(443), Cassandra(443), Graph(443)-->
+        |连接模式  |支持的协议  |支持的 SDK  |API/服务端口  |
+        |---------|---------|---------|---------|
+        |网关  |   HTTPS    |  所有 SDK    |   SQL(443)、Mongo(10250, 10255, 10256)    |
+        |直接    |    HTTPS     |  .Net 和 Java SDK    |    SQL(443)   |
+        |直接    |     TCP    |  .NET SDK    | 10,000-20,000 范围内的端口 |
+        <!--Not Available on Table(443), Cassandra(443), Graph(443)-->
     
     Azure Cosmos DB 提供基于 HTTPS 的简单开放 RESTful 编程模型。 此外，它提供高效的 TCP 协议，该协议在其通信模型中也是 RESTful，可通过 .NET 客户端 SDK 获得。 直接 TCP 和 HTTPS 都使用 SSL 进行初始身份验证和加密流量。 为了获得最佳性能，请尽可能使用 TCP 协议。
 
@@ -86,7 +85,7 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
    <a name="same-region"></a>
 3. **将客户端并置在同一 Azure 区域中以提高性能**
 
-    如果可能，请将任何调用 Azure Cosmos DB 的应用程序放在与 Azure Cosmos DB 数据库所在的相同区域中。 在同一区域对 Azure Cosmos DB 进行的调用在 1-2 毫秒内完成（近似比较）。 根据请求采用的路由，各项请求从客户端传递到 Azure 数据中心边界时的此类延迟可能有所不同。 通过确保在与预配 Azure Cosmos DB 终结点所在的同一 Azure 区域中调用应用程序，可能会实现最低的延迟。 有关可用区域的列表，请参阅 [Azure Regions](https://www.azure.cn/support/service-dashboard/#services)（Azure 区域）。
+    如果可能，请将任何调用 Azure Cosmos DB 的应用程序放在与 Azure Cosmos DB 数据库所在的相同区域中。  根据请求采用的路由，各项请求从客户端传递到 Azure 数据中心边界时的此类延迟可能有所不同。 通过确保在与预配 Azure Cosmos DB 终结点所在的同一 Azure 区域中调用应用程序，可能会实现最低的延迟。 有关可用区域的列表，请参阅 [Azure Regions](https://www.azure.cn/support/service-dashboard/#services)（Azure 区域）。
     <!--Not Available on time span between East to West coast-->
     
     ![Azure Cosmos DB 连接策略演示](./media/performance-tips/same-region.png) <a name="increase-threads"></a>

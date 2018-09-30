@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.devlang: java
 ms.topic: sample
 origin.date: 06/18/2018
-ms.date: 08/13/2018
+ms.date: 09/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: b8e9f2c7d5d9987757a128083710f96e3f4ee424
-ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
+ms.openlocfilehash: ff4deb82651efdd7333902a36abf5c017cb0b60f
+ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41704462"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47201444"
 ---
 # <a name="azure-cosmos-db-async-java-examples-for-the-sql-api"></a>Azure Cosmos DB：SQL API 的异步 Java 示例
 
@@ -31,7 +31,7 @@ ms.locfileid: "41704462"
 > 
 > 
 
-[azure-comsosdb-java](https://github.com/Azure/azure-cosmosdb-java) GitHub 存储库中包含可对 Azure Cosmos DB 资源执行 CRUD 操作和其他常见操作的最新示例应用程序。 本文提供：
+[azure-cosmosdb-java](https://github.com/Azure/azure-cosmosdb-java) GitHub 存储库中包含可对 Azure Cosmos DB 资源执行 CRUD 操作和其他常见操作的最新示例应用程序。 本文提供：
 
 * 每个示例异步 Java 项目文件中各项任务的链接。 
 * 指向相关的 API 参考内容的链接。
@@ -174,3 +174,5 @@ $ cd azure-cosmosdb-java
 | 任务 | API 参考 |
 | --- | --- |
 | [创建具有唯一键的集合](https://github.com/Azure/azure-cosmosdb-java/blob/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples/UniqueIndexAsyncAPITest.java#L65-L97) | [UniqueKey](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._document_collection.setuniquekeypolicy) |
+
+<!-- Update_Description: update meta properties, wording updatesss -->

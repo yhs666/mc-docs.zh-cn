@@ -2,40 +2,34 @@
 title: 连接到 Power BI 工作区集合中的数据源 | Microsoft Docs
 description: 了解如何连接到 Power BI 工作区集合内的数据源。
 services: power-bi-embedded
-documentationcenter: ''
-author: alexchen2016
-manager: digimobile
-editor: ''
-tags: ''
+author: markingmyname
 ROBOTS: NOINDEX
 ms.assetid: 2a4caeb3-255d-4215-9554-0ca8e3568c13
 ms.service: power-bi-embedded
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: powerbi
 origin.date: 09/20/2017
-ms.date: 10/24/2017
+ms.date: 09/26/2018
 ms.author: v-junlch
-ms.openlocfilehash: dbd8bf3738f6c4d7ca6ec1dc32af3f128f7ca1ba
-ms.sourcegitcommit: 140d09254b5ded4b408980b43c0fc5d3643320a1
+ms.openlocfilehash: a164d7fb8c15853b0eefa2f73ab0f163b23478e2
+ms.sourcegitcommit: 7c6ff130adaa67bc90094846f81295ef0719d072
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2017
-ms.locfileid: "23580294"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47191380"
 ---
 # <a name="connect-to-a-data-source"></a>连接到数据源
 
 使用 Power BI 工作区集合，可以在自己的应用中嵌入报表。 在应用中嵌入 Power BI 报表时，可以通过导入数据的副本或通过使用 DirectQuery 直接连接到数据源将该报表连接到基础数据。
 
 > [!IMPORTANT]
-> Power BI 工作区集合已弃用，到 2018 年 6 月或合同指示时可用。 建议你规划到 Power BI Embedded 的迁移以避免应用程序中断。 有关如何将数据迁移到 Power BI Embedded 的信息，请参阅[如何将 Power BI 工作区集合内容迁移到 Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/)。
+> Power BI 工作区集合已弃用，到 2018 年 6 月 或合同指示时可用。 建议你规划到 Power BI Embedded 的迁移以避免应用程序中断。 有关如何将数据迁移到 Power BI Embedded 的信息，请参阅[如何将 Power BI 工作区集合内容迁移到 Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/)。
 
 以下是使用**导入**和 **DirectQuery** 之间的区别。
 
 | 导入 | 直接连接 |
 | --- | --- |
-| 将表、列  *和数据*  导入或复制到报表的数据集。 若要查看对基础数据所做的更改，必须刷新，或重新导入完整的当前数据集。 |仅会将*表和列*导入或复制到报表的数据集中。 始终可以查看最新的数据。 |
+| 将表、列 *和数据* 导入或复制到报表的数据集。 若要查看对基础数据所做的更改，必须刷新，或重新导入完整的当前数据集。 |仅会将*表和列*导入或复制到报表的数据集中。 始终可以查看最新的数据。 |
 
 通过 Power BI 工作区集合，可以将 DirectQuery 与云数据源结合使用，但暂不能与本地数据源结合使用。
 
@@ -82,3 +76,4 @@ ms.locfileid: "23580294"
 有更多问题？ [试用 Power BI 社区](http://community.powerbi.com/)
 
 
+<!-- Update_Description: update metedata properties -->

@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 媒体服务管理编码的速度和并发 | Azure
+title: 使用 Azure 媒体服务管理编码的速度和并发 | Microsoft 文档
 description: 本文简要概述了如何使用 Azure 媒体服务管理编码作业/任务的速度和并发。
 services: media-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/10/2017
 ms.author: v-johch
-ms.openlocfilehash: 85ca22f7bc35a389a245eeda7f4cc04d8f6a92d6
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+ms.openlocfilehash: 16419b04465c5e2d8c1a8013cf5131715365ebc1
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219443"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426454"
 ---
 #  <a name="manage-speed-and-concurrency-of-your-encoding"></a>管理编码的速度和并发
 
@@ -36,6 +36,4 @@ ms.locfileid: "39219443"
 ## <a name="next-step"></a>后续步骤
 
 [缩放编码单位](media-services-scale-media-processing-overview.md)
-
-
 

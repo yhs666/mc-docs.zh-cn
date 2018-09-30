@@ -9,14 +9,14 @@ ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 11/15/2017
-ms.date: 09/03/2018
+ms.date: 09/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 83e551bef5cfb653f622ab6b7f105de200f4231e
-ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
+ms.openlocfilehash: ba912e7b10e68d577893accf854a0a051660e5a0
+ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43164779"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47201428"
 ---
 # <a name="automatic-online-backup-and-restore-with-azure-cosmos-db"></a>使用 Azure Cosmos DB 进行自动联机备份和还原
 Azure Cosmos DB 可以定期自动备份所有数据。 自动备份不会影响数据库操作的性能或可用性。 所有备份单独存储在另一个存储服务中并在多区域复制，以便针对区域性灾难进行复原。 如果意外删除了 Cosmos DB 容器并且之后需要数据恢复或灾难恢复解决方案，那么自动备份将是合适的方案。  
@@ -27,6 +27,7 @@ Azure Cosmos DB 可以定期自动备份所有数据。 自动备份不会影响
 Cosmos DB 旨在实现数据[多区域分发](distribute-data-globally.md) - 它允许缩放多个 Azure 区域中的吞吐量，并提供策略驱动的故障转移和透明的多宿主 API。 Azure Cosmos DB 为所有单区域帐户和具有松散一致性的所有多区域帐户提供 [99.99% 的可用性 SLA](https://www.azure.cn/support/sla/cosmos-db)，为所有多区域数据库帐户提供 99.999% 的读取可用性。 Azure Cosmos DB 中的所有写入在确认到客户端之前，都会通过本地数据中心内的副本仲裁持久提交到本地磁盘。 Cosmos DB 的高可用性依赖本地存储，而不依赖任何外部存储技术。 此外，如果数据库帐户与多个 Azure 区域关联，则还会将写入内容复制到其他区域。 若要调整吞吐量规模并以低延迟访问数据，可以拥有任意数量的与数据库帐户关联的读取区域。 在每个读取区域中，（复制的）数据持久保存在副本集中。  
 
 如下图所示，单个 Cosmos DB 容器是[水平分区](partition-data.md)的。 下图中的一个圆圈表示一个“分区”，每个分区通过副本集实现高可用性。 这是单个 Azure 区域中的本地分布（以 X 轴表示）。 此外，每个分区（含有其相应的副本集）都将在与数据库帐户关联的多个区域中进行多区域分发（例如，此图中的三个区域 - 中国东部、中国北部和中国东部 2）。 “分区集”是多区域分发的实体，由数据在每个区域中的多个副本组成（以 Y 轴表示）。 可将优先级分配到与数据库帐户关联的区域，Cosmos DB 将透明故障转移到下一区域，以防灾难发生。 还可以手动模拟故障转移，以测试应用程序的端到端可用性。  
+<!--Notice: Change Central India to China East 2-->
 
 下图演示了 Cosmos DB 的高度冗余。
 <!-- Not Available on the first images of the Demo -->
@@ -51,7 +52,7 @@ Cosmos DB 旨在实现数据[多区域分发](distribute-data-globally.md) - 它
 对于 SQL API，若要保留自己的快照，可以使用 Azure Cosmos DB [数据迁移工具](import-data.md#export-to-json-file)中的“导出到 JSON”选项，计划其他备份。
 
 > [!NOTE]
-> 如果“在数据库级别为一组容器预配吞吐量”，请记得在整个数据库帐户级别进行还原操作。 如果在使用此新功能时无意中删除了容器（集合），还需要确保在 8 小时内联系支持团队。 
+> 如果“在数据库级别为一组容器预配吞吐量”，请记得在整个数据库帐户级别进行还原操作。 如果无意中删除了容器，还需要确保在 8 小时内联系支持团队。 如果未在 8 小时内联系支持团队，则无法还原数据。
 <!-- Not Available on table/graph -->
 
 ## <a name="restoring-a-database-from-an-online-backup"></a>从联机备份还原数据库

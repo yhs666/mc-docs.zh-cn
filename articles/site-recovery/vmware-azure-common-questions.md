@@ -6,19 +6,19 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 origin.date: 07/19/2018
-ms.date: 09/17/2018
+ms.date: 09/24/2018
 ms.topic: conceptual
 ms.author: v-yeche
-ms.openlocfilehash: ba6a408fc79dde7fada5a42e8a6bd2a8111eb50b
-ms.sourcegitcommit: 96d06c506983906a92ff90a5f67199f8f7e10996
+ms.openlocfilehash: 9ddf29ceddc8bd3902116852f55c36f691a09719
+ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45586853"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47201406"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>常见问题 - VMware 到 Azure 的复制
 
-本文提供将本地 VMware VM 复制到 Azure 时可能遇到的常见问题的解答。 如果在阅读本文后有任何问题，请在 [Azure 恢复服务论坛](https://www.azure.cn/support/contact/)上发布问题。
+本文提供将本地 VMware VM 复制到 Azure 时可能遇到的常见问题的解答。 如果在阅读本文后有任何问题，请在 [Azure 恢复服务论坛](https://www.azure.cn/support/contact/)上发布这些问题。
 
 ## <a name="general"></a>常规
 ### <a name="how-is-site-recovery-priced"></a>Site Recovery 如何计费？
@@ -41,7 +41,7 @@ ms.locfileid: "45586853"
 ### <a name="does-my-azure-account-need-permissions-to-create-vms"></a>我的 Azure 帐户是否需要拥有创建 VM 的权限？
 如果你是订阅管理员，则已经获得了所需的复制权限。 否则，需要有权在配置 Site Recovery 时指定的资源组和虚拟网络中创建 Azure VM，并有权写入选定的存储帐户。 [了解详细信息](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines)。
 
-## <a name="on-premises"></a>本地 
+## <a name="on-premises"></a>本地
 
 ### <a name="what-do-i-need-on-premises"></a>需要在本地做好哪些准备？
 在本地，需要在单个 VMware VM 上安装 Site Recovery 组件。 还需要至少包含一台 ESXi 主机的 VMware 基础结构。我们建议使用 vCenter 服务器。 此外，需要提供一个或多个可供复制的 VMware VM。 [详细了解](vmware-azure-architecture.md) VMware 到 Azure 复制体系结构。
@@ -69,7 +69,7 @@ Site Recovery 通过公共终结点或使用 ExpressRoute 公共对等互连将�
 
 ### <a name="why-cant-i-replicate-over-vpn"></a>为何不能通过 VPN 复制？
 
-复制到 Azure 时，复制流量会到达 Azure 存储帐户的公共终结点，因此，只能使用 ExpressRoute（公共对等互连）通过公共 Internet 进行复制，而不能使用 VPN。 
+复制到 Azure 时，复制流量会到达 Azure 存储帐户的公共终结点，因此，只能使用 ExpressRoute（公共对等互连）通过公共 Internet 进行复制，而不能使用 VPN。
 
 ## <a name="what-are-the-replicated-vm-requirements"></a>复制的 VM 要满足哪些要求？
 
@@ -79,17 +79,16 @@ Site Recovery 通过公共终结点或使用 ExpressRoute 公共对等互连将�
 将 VMware VM 复制到 Azure 时，复制是持续性的。
 
 ## <a name="can-i-extend-replication"></a>是否可以扩展复制？
-不支持扩展扩展或链式复制。 请在[反馈论坛](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959-support-for-exisiting-extended-replication)中请求此功能。
-<!-- URL is correct on http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959-support-for-exisiting-extended-replication-->
+不支持扩展扩展或链式复制。 请在[反馈论坛](https://www.azure.cn/support/contact/)中请求此功能。
 
 ## <a name="can-i-do-an-offline-initial-replication"></a>是否可以执行脱机初始复制？
-不支持此操作。 请在[反馈论坛](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from)中请求此功能。
+不支持此操作。 请在[反馈论坛](https://www.azure.cn/support/contact/)中请求此功能。
 
 ### <a name="can-i-exclude-disks"></a>是否可以排除磁盘？
-可以从复制中排除磁盘。 
+可以从复制中排除磁盘。
 
 ### <a name="can-i-replicate-vms-with-dynamic-disks"></a>是否可以复制包含动态磁盘的 VM？
-可以复制动态磁盘。 操作系统磁盘必须为基本磁盘。
+可以复制动态磁盘。 操作系统磁盘必须是基本磁盘。
 
 ### <a name="if-i-use-replication-groups-for-multi-vm-consistency-can-i-add-a-new-vm-to-an-existing-replication-group"></a>如果我使用复制组实现多 VM 一致性，是否可以将新 VM 添加到现有复制组？
 是的，可以在为新 VM 启用复制时将这些 VM 添加到现有复制组。 启动复制后，无法将 VM 添加到现有复制组，也无法为现有 VM 创建复制组。
@@ -101,7 +100,7 @@ Site Recovery 通过公共终结点或使用 ExpressRoute 公共对等互连将�
 ## <a name="configuration-server"></a>配置服务器
 
 ### <a name="what-does-the-configuration-server-do"></a>配置服务器的作用是什么？
-配置服务器运行本地 Site Recovery 组件，包括： 
+配置服务器运行本地 Site Recovery 组件，包括：
 - 在本地与 Azure 之间协调通信和管理数据复制的配置服务器。
 - 充当复制网关的进程服务器。 该服务器接收复制数据；使用缓存、压缩和加密来优化数据；将数据发送到 Azure 存储。进程服务器还在要复制的 VM 上安装移动服务，并执行本地 VMware VM 的自动发现。
 - 处理从 Azure 进行故障回复期间生成的复制数据的主目标服务器。
@@ -114,19 +113,22 @@ Site Recovery 通过公共终结点或使用 ExpressRoute 公共对等互连将�
 请查看[先决条件](vmware-azure-deploy-configuration-server.md#prerequisites)。
 
 ### <a name="can-i-manually-set-up-the-configuration-server-instead-of-using-a-template"></a>是否可以手动设置配置服务器，而不使用模板进行设置？
-我们建议使用最新版本的 OVF 模板来[创建配置服务器 VM](vmware-azure-deploy-configuration-server.md)。 如果出于某种原因无法使用该模板（例如，无法访问 VMware 服务器），可以从门户[下载统一安装程序文件](physical-azure-set-up-source.md)，并在 VM 上运行此程序。 
+我们建议使用最新版本的 OVF 模板来[创建配置服务器 VM](vmware-azure-deploy-configuration-server.md)。 如果出于某种原因无法使用该模板（例如，无法访问 VMware 服务器），可以从门户[下载统一安装程序文件](physical-azure-set-up-source.md)，并在 VM 上运行此程序。
 
 ### <a name="can-a-configuration-server-replicate-to-more-than-one-region"></a>是否可将配置服务器复制到多个区域？
-不是。 若要执行此操作，需在每个区域中设置一个配置服务器。
+否。 若要执行此操作，需在每个区域中设置一个配置服务器。
 
 ### <a name="can-i-host-a-configuration-server-in-azure"></a>是否可以在 Azure 中托管配置服务器？
-虽然可以这样做，但运行配置服务器的 Azure VM 需要与本地的 VMware 基础结构和 VM 通信。 产生的开销可能导致这种做法不切实际。
+虽然可以这样做，但运行配置服务器的 Azure VM 需要与本地的 VMware 基础结构和 VM 通信。 这可能会增加延迟并影响正在进行的复制。
 
 ### <a name="where-can-i-get-the-latest-version-of-the-configuration-server-template"></a>在哪里可以获取最新版本的配置服务器模板？
 可以从[下载中心](https://aka.ms/asrconfigurationserver_bjb)下载最新版本。
 
 ### <a name="how-do-i-update-the-configuration-server"></a>如何更新配置服务器？
 请安装更新汇总。 可以在 [wiki 更新页](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx)中找到最新的更新信息。
+
+### <a name="should-i-backup-the-deployed-configuration-server"></a>是否应该备份部署的配置服务器？
+建议定期备份配置服务器。 若想成功进行故障回复，进行故障回复的虚拟机必须存在于配置服务器数据库中，并且配置服务器必须正在运行且处于已连接状态。 可以在[此处](vmware-azure-manage-configuration-server.md)了解有关常见配置服务器管理任务的详细信息。
 
 ## <a name="mobility-service"></a>移动服务
 
@@ -136,7 +138,7 @@ Site Recovery 通过公共终结点或使用 ExpressRoute 公共对等互连将�
 ## <a name="how-do-i-install-the-mobility-service"></a>如何安装移动服务？
 可以使用[推送安装](vmware-azure-install-mobility-service.md#install-mobility-service-by-push-installation-from-azure-site-recovery)、在 [UI](vmware-azure-install-mobility-service.md#install-mobility-service-manually-by-using-the-gui) 中使用手动安装或者[使用 PowerShell](vmware-azure-install-mobility-service.md#install-mobility-service-manually-at-a-command-prompt)，在要复制的每个 VM 上安装移动服务。 或者，可以使用 [System Center Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md) 或 [Azure 自动化和 DSC](vmware-azure-mobility-deploy-automation-dsc.md) 等部署工具进行部署。
 
-## <a name="security"></a>安全
+## <a name="security"></a>安全性
 
 ### <a name="what-access-does-site-recovery-need-to-vmware-servers"></a>Site Recovery 需要对 VMware 服务器拥有哪些访问权限？
 Site Recovery 需要访问 VMware 服务器，才能够：
@@ -153,14 +155,14 @@ Site Recovery 需要访问 VMware 服务器，才能够：
     - 如果启用了多 VM 一致性，则 VM 通过端口 20004 相互通信。
 
 ### <a name="is-replication-data-sent-to-site-recovery"></a>复制数据是否会发送到 Site Recovery？
-不会。Site Recovery 不会拦截复制的数据，也不包含 VM 上运行的组件的任何相关信息。 复制数据在 VMware 虚拟机监控程序与 Azure 存储之间交换。 站点恢复并不具有拦截该数据的能力。 只有协调复制与故障转移所需的元数据将发送到站点恢复服务。  
+不会。Site Recovery 不会拦截复制的数据，也不包含 VM 上运行的组件的任何相关信息。 复制数据在 VMware 虚拟机监控程序与 Azure 存储之间交换。 站点恢复并不具有拦截该数据的能力。 只有协调复制与故障转移所需的元数据会发送到站点恢复服务。  
 
-站点恢复已通过 ISO 27001:2013、27018、HIPAA、DPA 认证，目前正在接受 SOC2 和 FedRAMP JAB 评估。
+Site Recovery 已通过 ISO 27001:2013、27018、HIPAA、DPA 认证，目前正在接受 SOC2 和 FedRAMP JAB 评估。
 
 ### <a name="can-we-keep-on-premises-metadata-within-a-geographic-regions"></a>是否可将本地元数据保留在某个地理区域中？
 是的。 当你在某个区域中创建保管库时，我们会确保 Site Recovery 使用的所有元数据保留在该区域的地理边界内。
 
-### <a name="does-site-recovery-encrypt-replication"></a>站点恢复是否将复制数据加密？
+### <a name="does-site-recovery-encrypt-replication"></a>Site Recovery 是否将复制数据加密？
 是的，传输中加密和 [Azure 中加密](/storage/storage-service-encryption)均受支持。
 
 ## <a name="failover-and-failback"></a>故障转移和故障回复
@@ -181,7 +183,7 @@ Azure 具有复原能力。 Site Recovery 能够根据 Azure SLA 故障转移到
 
 ### <a name="why-do-i-need-a-vpn-or-expressroute-to-fail-back"></a>为何需要使用 VPN 或 ExpressRoute 进行故障回复？
 
-从 Azure 故障回复时，Azure 中的数据将复制回到本地 VM，这需要提供私人访问权限。 
+从 Azure 故障回复时，Azure 中的数据将复制回到本地 VM，这需要提供私人访问权限。
 
 ## <a name="automation-and-scripting"></a>自动化和脚本
 

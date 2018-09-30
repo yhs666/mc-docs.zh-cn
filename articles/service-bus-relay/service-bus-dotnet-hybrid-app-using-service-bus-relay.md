@@ -3,7 +3,7 @@ title: Azure WCF 中继本地/云混合应用程序 (.NET) | Azure
 description: 了解如何使用 Azure WCF 中继创建 .NET 本地/云混合应用程序。
 services: service-bus-relay
 documentationcenter: .net
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: 9ed02f7c-ebfb-4f39-9c97-b7dc15bcb4c1
@@ -14,13 +14,13 @@ ms.devlang: dotnet
 ms.topic: hero-article
 origin.date: 11/02/2017
 ms.author: v-yiso
-ms.date: 12/04/2017
-ms.openlocfilehash: e3def4fcb26089df71276c6c9feecf93e4a44785
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.date: 10/15/2018
+ms.openlocfilehash: bdc36526df2a9599529d1d79c795b34487377a8f
+ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
-ms.locfileid: "29731435"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47455245"
 ---
 # <a name="net-on-premisescloud-hybrid-application-using-azure-wcf-relay"></a>使用 Azure WCF 中继创建 .NET 本地/云混合应用程序
 
@@ -231,7 +231,7 @@ ms.locfileid: "29731435"
     ![][18]
 
 7. 回到“新建 ASP.NET Web 应用程序”对话框，单击“确定”创建 MVC 应用。
-8. 现在必须配置新 Web 应用的 Azure 资源。 按照[本文的“发布到 Azure”部分](../app-service/app-service-web-get-started-dotnet-framework.md#publish-to-azure)中的步骤操作。 然后，返回到本教程并继续执行下一步。
+8. 现在必须配置新 Web 应用的 Azure 资源。 按照[本文的“发布到 Azure”部分](../app-service/app-service-web-get-started-dotnet-framework.md#launch-the-publish-wizard)中的步骤操作。 然后，返回到本教程并继续执行下一步。
 10. 在解决方案资源管理器中，右键单击“模型”，然后依次单击“添加”和“类”。 在“名称”框中，键入名称 **Product.cs**。 。
 
     ![][17]

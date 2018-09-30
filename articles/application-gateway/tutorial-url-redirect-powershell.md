@@ -8,15 +8,15 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.workload: infrastructure-services
 origin.date: 07/13/2018
-ms.date: 08/07/2018
+ms.date: 09/25/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 340597e0cd076a859f8c1a3bae3c98e69260a236
-ms.sourcegitcommit: a1c6a743b4be62477e7debfc9ea5f03afca2bc8f
+ms.openlocfilehash: 5a69d6ec1b5e99b13c2c1ad535641bb8dc7a7181
+ms.sourcegitcommit: 830a60c06303a8447d128a3bca8b36aa2b3b655b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39625135"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47075846"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-redirection-using-azure-powershell"></a>使用 Azure PowerShell 创建支持基于 URL 路径的重定向的应用程序网关
 
@@ -439,11 +439,11 @@ for ($i=1; $i -le 3; $i++)
     -UpgradePolicyMode Automatic
 
   Set-AzureRmVmssStorageProfile $vmssConfig `
-    -OsDiskCreateOption "FromImage" `
     -ImageReferencePublisher MicrosoftWindowsServer `
     -ImageReferenceOffer WindowsServer `
     -ImageReferenceSku 2016-Datacenter `
-    -ImageReferenceVersion latest
+    -ImageReferenceVersion latest `
+    -OsDiskCreateOption FromImage
 
   Set-AzureRmVmssOsProfile $vmssConfig `
     -AdminUsername azureuser `

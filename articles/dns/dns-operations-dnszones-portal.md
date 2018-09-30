@@ -1,5 +1,5 @@
 ---
-title: 在 Azure DNS 中管理 DNS 区域 - Azure 门户 | Azure
+title: 在 Azure DNS 中管理 DNS 区域 - Azure 门户 | Microsoft Docs
 description: 可以使用 Azure 门户管理 DNS 区域。 本文介绍如何在 Azure DNS 上更新、删除和创建 DNS 区域
 services: dns
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 origin.date: 05/18/2017
 ms.date: 12/18/2017
 ms.author: v-nany
-ms.openlocfilehash: 980a1a5bcd09de1393cd6c8f7778bbddd9606a02
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: 081f3ca6f93f3a342821cee658fae72e41a6d5b6
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29870276"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426332"
 ---
 # <a name="how-to-manage-dns-zones-in-the-azure-portal"></a>如何在 Azure 门户中管理 DNS 区域
 

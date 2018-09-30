@@ -1,4 +1,10 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: 547b11fad80ba726693ee7b9941b080397655f16
+ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47201359"
 documentType: LandingData
 title: Site Recovery 文档
 metadata:
@@ -12,14 +18,8 @@ metadata:
   ms.devlang: na
   ms.topic: landing-page
   origin.date: 09/23/2017
-  ms.date: 01/22/2018
+  ms.date: 09/24/2018
   ms.author: v-yeche
-  ms.openlocfilehash: 31a34923328537dd259bad8dbd94726164acf8c9
-  ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
-  ms.translationtype: HT
-  ms.contentlocale: zh-CN
-  ms.lasthandoff: 07/06/2018
-  ms.locfileid: "37873343"
 abstract:
   description: Azure Site Recovery 可以协调和管理 Azure VM、本地 VM 与物理服务器的灾难恢复。 使用快速入门和教程了解如何复制、故障转移与故障回复。
 sections:

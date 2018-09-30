@@ -10,15 +10,15 @@ ms.component: cosmosdb-sql
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 05/07/2018
-ms.date: 07/02/2018
+ms.date: 09/30/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2082874badfb7976b5486c47d4f42435bc51048f
-ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
+ms.openlocfilehash: 2b5f8b22955b5b6b0003c5a6bd5e758ce7090976
+ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37070260"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47201425"
 ---
 # <a name="azure-cosmos-db-hierarchical-resource-model-and-core-concepts"></a>Azure Cosmos DB 分层资源模型和核心概念
 
@@ -31,7 +31,6 @@ Azure Cosmos DB 管理的数据库实体被称为**资源**。 每个资源都�
 * 如何对资源进行寻址？
 * 如何使用集合？
 * 如何使用存储过程、触发器和用户定义的函数 (UDF)？
-<!-- Not Available on [!VIDEO https://www.youtube.com/embed/luWFgTP0IL4] -->
 
 ## <a name="hierarchical-resource-model"></a>分层资源模型
 如下面的关系图所示，Azure Cosmos DB 分层资源模型由一个数据库帐户下的多组资源构成，每个资源可通过一个稳定的逻辑 URI 进行寻址。 本文将一组资源称为一个**源**。 
@@ -192,7 +191,7 @@ Azure Cosmos DB 是真正无架构的数据库系统。 无需为 JSON 文档假
 可以通过对集合执行 PUT 更改索引策略。 这可以通过[客户端 SDK](sql-api-sdk-dotnet.md)、[Azure 门户](https://portal.azure.cn)或 [REST API](https://docs.microsoft.com/rest/api/cosmos-db/) 来实现。
 
 ### <a name="querying-a-collection"></a>查询集合
-集合中的文档可以具有任意的数据库架构，而无需提前提供任何架构或辅助索引，就可以查询集合中的文档。 可以使用 [Azure Cosmos DB SQL 语法参考](../cosmos-db/documentdb-sql-query-reference.md)查询集合，该语法通过基于 JavaScript 的 UDF 提供丰富的分层运算符、关系运算符和空间运算符以及扩展性。 JSON 语法允许将 JSON 文档建模为树，其中标签作为树节点。 SQL API 的自动索引编制技术和 Azure Cosmos DB 的 SQL 方言都利用了此语法。 SQL 查询语言包含三个主要方面：   
+集合中的文档可以具有任意的数据库架构，而无需提前提供任何架构或辅助索引，就可以查询集合中的文档。 可以使用 [Azure Cosmos DB SQL 语法参考](../cosmos-db/sql-api-sql-query-reference.md)查询集合，该语法通过基于 JavaScript 的 UDF 提供丰富的分层运算符、关系运算符和空间运算符以及扩展性。 JSON 语法允许将 JSON 文档建模为树，其中标签作为树节点。 SQL API 的自动索引编制技术和 Azure Cosmos DB 的 SQL 方言都利用了此语法。 SQL 查询语言包含三个主要方面：   
 
 1. 一小组查询操作，它自然映射到包括分层查询和投影的树结构。 
 2. 一小部分关系操作，包括组合、筛选、投影、聚合和自联接。 

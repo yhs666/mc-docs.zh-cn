@@ -12,21 +12,21 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/12/2017
-ms.date: 10/17/2018
+origin.date: 08/21/2018
+ms.date: 10/01/2018
 ms.author: v-jay
-ms.openlocfilehash: b9a854afaaa2c4a7b44d2eb354862c0a97691737
-ms.sourcegitcommit: 9a82a54c6b6f4d8074139e090011fe05b8018fcf
+ms.openlocfilehash: 75c7d7c61d6c2de93dd91d2608825c2e668f0801
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44363152"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426340"
 ---
 # <a name="upload-files-into-a-media-services-account-using-net"></a>使用 .NET 将文件上传到媒体服务帐户
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-upload-files.md)
 > * [REST](media-services-rest-upload-files.md)
-> * [门户](media-services-portal-upload-files.md)
+> * [Portal](media-services-portal-upload-files.md)
 > 
 > 
 
@@ -39,8 +39,8 @@ ms.locfileid: "44363152"
 > 
 > * 构建流内容的 URL 时，媒体服务会使用 IAssetFile.Name 属性的值（如 http://{AMSAccount}.origin.mediaservices.chinacloudapi.cn/{GUID}/{IAssetFile.Name}/streamingParameters。）出于这个原因，不允许使用百分号编码。 **Name** 属性的值不能含有任何以下[百分号编码保留字符](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)：!*'();:@&=+$,/?%#[]"。 此外，文件扩展名中只能含有一个“.”。
 > * 名称长度不应超过 260 个字符。
-> * 支持在媒体服务中处理的最大文件大小存在限制。 有关文件大小限制的详细信息，请参阅[此文](media-services-quotas-and-limitations.md)。
-> * 不同 AMS 策略的策略限制为 1,000,000 个（例如，对于定位器策略或 ContentKeyAuthorizationPolicy）。 如果始终使用相同的日期/访问权限，则应使用相同的策略 ID，例如，用于要长期就地保留的定位符的策略（非上传策略）。 有关详细信息，请参阅[此](media-services-dotnet-manage-entities.md#limit-access-policies)文章。
+> * 在媒体服务中进行处理时，系统支持的最大文件大小存在限制。 有关文件大小限制的详细信息，请参阅[此文](media-services-quotas-and-limitations.md)。
+> * 不同 AMS 策略的策略限制为 1,000,000 个（例如，对于定位器策略或 ContentKeyAuthorizationPolicy）。 如果始终使用相同的日期/访问权限，则应使用相同的策略 ID，例如，用于要长期就地保留的定位符的策略（非上传策略）。 有关详细信息，请参阅[本文](media-services-dotnet-manage-entities.md#limit-access-policies)。
 > 
 
 创建资产时，可以指定以下加密选项：
@@ -171,7 +171,7 @@ ms.locfileid: "44363152"
 * 将 ParallelTransferThreadCount 保留为默认值 10。
 
 ## <a id="ingest_in_bulk"></a>使用媒体服务 .NET SDK 批量引入资产
-上传大型资产文件可能在资产创建过程中形成瓶颈。 批量引入资产（简称“批量引入”）涉及到将资产创建过程与上传过程分离。 若要使用批量引入方法，请创建一个描述资产及其关联文件的清单 (IngestManifest)。 然后，用户可以使用所选上传方法将关联的文件上传到该清单的 Blob 容器。 Azure 媒体服务会监视与清单关联的 Blob 容器。 文件上传到 Blob 容器后，Azure 媒体服务基于清单 (IngestManifestAsset) 中资产的配置完成资产创建过程。
+上传大型资产文件可能在资产创建过程中形成瓶颈。 批量引入资产（简称“批量引入”）涉及将资产创建过程与上传过程分离。 若要使用批量引入方法，请创建一个描述资产及其关联文件的清单 (IngestManifest)。 然后，用户可以使用所选上传方法将关联的文件上传到该清单的 Blob 容器。 Azure 媒体服务会监视与清单关联的 Blob 容器。 文件上传到 Blob 容器后，Azure 媒体服务基于清单 (IngestManifestAsset) 中资产的配置完成资产创建过程。
 
 若要创建新的 IngestManifest，请调用通过 CloudMediaContext 中的 IngestManifests 集合公开的 Create 方法。 此方法将使用所提供的清单名称创建一个新的 IngestManifest。
 
@@ -189,7 +189,7 @@ ms.locfileid: "44363152"
 
 一个 IngestManifestAsset 将一个资产与一个用于批量引入的批量 IngestManifest 相关联。 它还关联构成每个资产的 AssetFiles。 若要创建 IngestManifestAsset，请使用服务器上下文中的 Create 方法。
 
-以下示例演示如何添加两个新的 IngestManifestAssets，这两项以前创建的两个资产关联到批量引入清单。 每个 IngestManifestAsset 还关联在批量引入期间为每个资产上传的一组文件。  
+以下示例演示如何添加两个新的 IngestManifestAssets，这两项将以前创建的两个资产关联到批量引入清单。 每个 IngestManifestAsset 还关联在批量引入期间为每个资产上传的一组文件。  
 
 ```csharp
     string filename1 = _singleInputMp4Path;
@@ -200,16 +200,18 @@ ms.locfileid: "44363152"
     IIngestManifestAsset bulkAsset2 =  manifest.IngestManifestAssets.Create(destAsset2, new[] { filename2, filename3 });
 ```
 
-可以使用任何能够将资产文件上传到 blob 存储容器 URI（由 IngestManifest 的 **IIngestManifest.BlobStorageUriForUpload** 属性提供）的高速客户端应用程序。 以下代码显示如何使用 .NET SDK 上传资产文件。
+可以使用任何能够将资产文件上传到 blob 存储容器 URI（由 IngestManifest 的 **IIngestManifest.BlobStorageUriForUpload** 属性提供）的高速客户端应用程序。 
+
+以下代码显示如何使用 .NET SDK 上传资产文件。
 
 ```csharp
-    static void UploadBlobFile(string destBlobURI, string filename)
+    static void UploadBlobFile(string containerName, string filename)
     {
         Task copytask = new Task(() =>
         {
             var storageaccount = new CloudStorageAccount(new StorageCredentials(_storageAccountName, _storageAccountKey), true);
             CloudBlobClient blobClient = storageaccount.CreateCloudBlobClient();
-            CloudBlobContainer blobContainer = blobClient.GetContainerReference(destBlobURI);
+            CloudBlobContainer blobContainer = blobClient.GetContainerReference(containerName);
 
             string[] splitfilename = filename.Split('\\');
             var blob = blobContainer.GetBlockBlobReference(splitfilename[splitfilename.Length - 1]);
@@ -237,7 +239,7 @@ ms.locfileid: "44363152"
 
 可以通过轮询 **IngestManifest** 的 Statistics 属性来确定与 **IngestManifest** 关联的所有资产的批量引入进度。 若要更新进度信息，每次轮询 Statistics 属性时，都必须使用新的 **CloudMediaContext**。
 
-以下示例演示如何按 **ID** 轮询 IngestManifest。
+以下示例演示如何按 **ID**轮询 IngestManifest。
 
 ```csharp
     static void MonitorBulkManifest(string manifestID)
@@ -275,7 +277,7 @@ ms.locfileid: "44363152"
 
 
 ## <a name="upload-files-using-net-sdk-extensions"></a>使用 .NET SDK 扩展上传文件
-以下示例演示如何使用 .NET SDK 扩展上传单个文件。 在此情况下，将使用 **CreateFromFile** 方法，但也可以使用异步版本 (**CreateFromFileAsync**)。 CreateFromFile 方法支持指定文件名、加密选项和回叫，以便报告文件的上传进度。
+以下示例演示如何使用 .NET SDK 扩展上传单个文件。 在此情况下，使用 **CreateFromFile** 方法，但也可以使用异步版本 (**CreateFromFileAsync**)。 通过 **CreateFromFile** 方法可以指定文件名、加密选项和回叫，以报告文件的上传进度。
 
 ```csharp
     static public IAsset UploadFile(string fileName, AssetCreationOptions options)
@@ -302,9 +304,9 @@ ms.locfileid: "44363152"
 
 ## <a name="next-steps"></a>后续步骤
 
-现在可以对上传的资产进行编码。 有关详细信息，请参阅 [对资产进行编码](media-services-portal-encode.md)。
+现即可编码已上传的资产。 有关详细信息，请参阅[对资产进行编码](media-services-portal-encode.md)。
 
-还可以使用 Azure Functions，基于传入到所配置容器中的文件触发编码作业。 有关详细信息，请参阅[此示例](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/ )。
+也可使用 Azure Functions 根据到达已配置容器的文件触发编码作业。 有关详细信息，请参阅[此示例](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/ )。
 
 ## <a name="next-step"></a>后续步骤
 将资产上传到媒体服务后，请转到[如何获取媒体处理器][How to Get a Media Processor]一文。

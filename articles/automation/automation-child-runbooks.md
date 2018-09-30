@@ -7,15 +7,15 @@ ms.component: process-automation
 author: WenJason
 ms.author: v-jay
 origin.date: 08/14/2018
-ms.date: 09/10/2018
+ms.date: 10/01/2018
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 7f373df897e2e94b6a2ea12f22e635cb6f356822
-ms.sourcegitcommit: 1b60848d25bbd897498958738644a4eb9cf3a302
+ms.openlocfilehash: 5d17d99d64e69b751d94631b345540b6055d4b8f
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43731190"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426117"
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Azure 自动化中的子 Runbook
 
@@ -73,7 +73,9 @@ $output = .\PS-ChildRunbook.ps1 –VM $vm –RepeatCount 2 –Restart $true
 
 使用 cmdlet 启动的子 Runbook 的参数以哈希表形式提供，如 [Runbook 参数](automation-starting-a-runbook.md#runbook-parameters)中所述。 只能使用简单数据类型。 如果 Runbook 的参数使用复杂数据类型，则必须内联调用该 Runbook。
 
-如果使用多个订阅，则在调用子 Runbook 时可能会丢失订阅上下文。 若要确保将订阅上下文传递给子 Runbook，请将 `DefaultProfile` 参数添加到 cmdlet 并将上下文传递给它。
+将子 runbook 作为单独作业调用时，可能会丢失订阅上下文。 为了使子 runbook 针对所需的 Azure 订阅调用 Azure RM cmdlet，子 runbook 必须独立于父 runbook 对此订阅进行身份验证。
+
+如果同一自动化帐户中的作业使用多个订阅，则选择一个作业中的订阅可能也会更改当前所选的其他作业的订阅上下文，这通常是不希望看到的。 为了避免此问题，请保存 `Select-AzureRmSubscription` cmdlet 调用的结果，并将此对象传递给所有后续 Azure RM cmdlet 调用的 `DefaultProfile` 参数。 必须始终将此模式应用于在此自动化帐户中运行的所有 runbook。
 
 ### <a name="example"></a>示例
 

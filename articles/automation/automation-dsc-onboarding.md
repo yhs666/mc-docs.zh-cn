@@ -8,14 +8,14 @@ author: WenJason
 ms.author: v-jay
 ms.topic: conceptual
 origin.date: 08/08/2018
-ms.date: 09/10/2018
+ms.date: 10/01/2018
 manager: digimobile
-ms.openlocfilehash: 3526b40dc3babdf67a4cfdb696ba10e858881d88
-ms.sourcegitcommit: 1b60848d25bbd897498958738644a4eb9cf3a302
+ms.openlocfilehash: a7fbe909447b1b30ceceef111a8ed411946cf747
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43731204"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426212"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>加入 Azure Automation State Configuration 管理的计算机
 

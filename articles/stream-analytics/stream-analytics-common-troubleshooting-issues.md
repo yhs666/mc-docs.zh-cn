@@ -9,13 +9,13 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 04/12/2018
-ms.date: 09/17/2018
-ms.openlocfilehash: 368cbff5c1b485bb53e748217115b6a08a096450
-ms.sourcegitcommit: 2700f127c3a8740a83fb70739c09bd266f0cc455
+ms.date: 09/30/2018
+ms.openlocfilehash: 81e85ffd9d3e8c258605940cab5933719feaa891
+ms.sourcegitcommit: 432984d85afe6f3da8f211bae0fa98a556785ee8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45586602"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47455390"
 ---
 # <a name="common-issues-in-stream-analytics-and-steps-to-troubleshoot"></a>流分析的常见问题以及故障排除的步骤
 
@@ -27,7 +27,7 @@ ms.locfileid: "45586602"
 
 ![“输入”磁贴](media/stream-analytics-malformed-events/inputs_tile.png)
 
-若要查看详细信息，请启用诊断日志来查看警告详细信息。 对于格式不当的输入事件，执行日志包含一条类似以下内容的消息：“消息: 无法将来自资源 <blob URI> 的输入事件反序列化为 json”。 
+若要查看详细信息，请启用诊断日志来查看警告详细信息。 对于格式不当的输入事件，执行日志包含一个其消息类似于以下内容的条目：“消息: 无法将来自资源 <blob URI> 的输入事件反序列化为 json”。 
 
 ### <a name="troubleshooting-steps"></a>疑难解答步骤
 
@@ -93,4 +93,6 @@ ms.locfileid: "45586602"
 ## <a name="next-steps"></a>后续步骤
 * [Azure 流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure 流分析管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+
 <!-- Update_Description: update meta properties, wording update  -->
+

@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/26/2018
-ms.date: 03/12/2018
+ms.date: 10/15/2018
 ms.author: v-yiso
-ms.openlocfilehash: 02399ecbed37089dce9d1a2f50b812c3b4158981
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: 41d6aab943d5e22c0a3bbf5cca9590177a879b96
+ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
-ms.locfileid: "29730885"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47455174"
 ---
 # <a name="messages-payloads-and-serialization"></a>消息、有效负载和序列化
 
@@ -37,7 +37,7 @@ Microsoft Azure 服务总线负责处理消息。 消息传递键值对属性形
 |---------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |  [ContentType](/dotnet/api/microsoft.azure.servicebus.message.contenttype) (content-type)           | 视需要描述消息的有效负载，采用符合 RFC2045 第 5 部分格式的描述符；例如，`application/json`。                                                                                                                                                                                                                                                                                             |
 |  [CorrelationId](/dotnet/api/microsoft.azure.servicebus.message.correlationid#Microsoft_Azure_ServiceBus_Message_CorrelationId) (correlation-id)       | 使应用程序可出于关联目的指定消息的上下文。例如，反映正在答复的消息的 MessageId。                                                                                                                                                                                                                                                                  |
-| [DeadLetterSource](/dotnet/api/microsoft.azure.servicebus.message.deadlettersource)                      | 仅在已成为死信并随后从死信队列自动转发至其他实体的消息中设置。 指明已成为死信的消息所在的实体。 此属性为只读。                                                                                                                                                                                                                                  |
+| [DeadLetterSource](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.deadlettersource)                      | 仅在已成为死信并随后从死信队列自动转发至其他实体的消息中设置。 指明已成为死信的消息所在的实体。 此属性为只读。                                                                                                                                                                                                                                  |
 | [DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.deliverycount)                         | 已尝试传递此消息的次数。 当消息锁期满，或接收程序明确放弃消息时，此计数递增。 此属性为只读。                                                                                                                                                                                                                                                  |
 | [EnqueuedSequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedsequencenumber)                | 对于已自动转发的消息，此属性反映的是在原始提交点首次分配给消息的序列号。 此属性为只读。                                                                                                                                                                                                                                                                |
 | [EnqueuedTimeUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc)                       | 实体接受并存储消息的即时 UTC。 如果接收程序不想信任发送程序的时钟，可以将此值用作权威的中性到达时间指示器。 此属性为只读。                                                                                                                                                                                                   |
@@ -74,11 +74,11 @@ Microsoft Azure 服务总线负责处理消息。 消息传递键值对属性形
 
 ## <a name="payload-serialization"></a>有效负载序列化
 
-在服务总线内传输或存储时，有效负载始终为不透明的二进制块。 使用 [ContentType](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.servicebus.message.contenttype) 属性，应用程序可以描述有效负载，对属性值采用符合 IETF RFC2045 MIME 内容类型描述的建议格式；例如，`application/json;charset=utf-8`。
+在服务总线内传输或存储时，有效负载始终为不透明的二进制块。 使用 [ContentType](/dotnet/api/microsoft.azure.servicebus.message.contenttype) 属性，应用程序可以描述有效负载，对属性值采用符合 IETF RFC2045 MIME 内容类型描述的建议格式；例如，`application/json;charset=utf-8`。
 
 与 Java 或 .NET Standard 变体不同，服务总线 API 的 .NET Framework 版本支持将任意 .NET 对象传递到构造函数，创建 BrokeredMessage 实例。 
 
-如果使用的是旧版 SBMP 协议，这些对象使用默认二进制序列化程序，或使用外部提供的序列化程序进行序列化。 如果使用的是 AMQP 协议，对象会被序列化为 AMQP 对象。 接收程序可以使用 [GetBody<T>()](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1) 方法检索这些对象，同时提供预期类型；使用 AMQP，对象会被序列化为 ArrayList 和 IDictionary<string,object> 对象的 AMQP 图，并可供任何 AMQP 客户端解码。 
+如果使用的是旧版 SBMP 协议，这些对象使用默认二进制序列化程序，或使用外部提供的序列化程序进行序列化。 如果使用的是 AMQP 协议，对象会被序列化为 AMQP 对象。 接受器可使用 [GetBody<T>()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1) 方法检索这些对象，并提供预期类型。 使用 AMQP，对象都被序列化为 ArrayList 和 IDictionary<string,object> 对象的 AMQP 图，任何 AMQP 客户端都可以将其解码。 
 
 尽管这种隐藏序列化的神奇操作十分方便，但应用程序应明确控制对象序列化，并先将对象图转为流，再将它们添加到消息中（在接收程序端，操作执行顺序相反）。 这样生产的是交互结果。 还应指出，尽管 AMQP 有功能强大的二进制编码模型，但它与 AMQP 消息生态系统关联，导致 HTTP 客户端无法解码此类有效负载。 
 

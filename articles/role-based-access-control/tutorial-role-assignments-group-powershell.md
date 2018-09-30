@@ -12,14 +12,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: ''
 ms.workload: identity
 origin.date: 06/11/2018
-ms.date: 07/24/2018
+ms.date: 09/25/2018
 ms.author: v-junlch
-ms.openlocfilehash: 2fa02248e48e5042e6e612ea4d051f87a97c0f43
-ms.sourcegitcommit: cce18df2de12353f0d8f01c649307a5789d59cd4
+ms.openlocfilehash: 3bb3771dfcc3708c9a4e8d62b46f8a399eef6997
+ms.sourcegitcommit: 830a60c06303a8447d128a3bca8b36aa2b3b655b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39246122"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47075851"
 ---
 # <a name="tutorial-grant-access-for-a-group-using-rbac-and-azure-powershell"></a>教程：使用 RBAC 和 Azure PowerShell 授予组的访问权限
 
@@ -124,7 +124,7 @@ ms.locfileid: "39246122"
     $groupId = "11111111-1111-1111-1111-111111111111"
     ```
 
-1. 使用 `Get-AzureRmSubscription` 命令获取你的订阅 ID。
+1. 使用 [Get-AzureRmSubscription](https://docs.microsoft.com/powershell/module/azurerm.profile/get-azurermsubscription) 命令获取订阅的 ID。
 
     ```azurepowershell
     Get-AzureRmSubscription

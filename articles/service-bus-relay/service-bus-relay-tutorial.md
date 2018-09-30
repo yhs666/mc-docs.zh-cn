@@ -3,7 +3,7 @@ title: Azure 服务总线 WCF 中继教程
 description: 使用 WCF 中继构建客户端和服务应用程序。
 services: service-bus-relay
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: 53dfd236-97f1-4778-b376-be91aa14b842
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 11/02/2017
 ms.author: v-yiso
-ms.date: 07/16/2018
-ms.openlocfilehash: 79d614f4fd3479d160992a5ed593f2f836a96552
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.date: 10/15/2018
+ms.openlocfilehash: 1322e58745f173c870657f38ce64f7edb8716246
+ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873431"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47455282"
 ---
 # <a name="azure-wcf-relay-tutorial"></a>Azure WCF 中继教程
 
@@ -54,7 +54,7 @@ ms.locfileid: "37873431"
     ![][2]
 3. 安装服务总线 NuGet 包。 该包自动添加对服务总线库和 WCF **System.ServiceModel**的引用。 [System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) 是用于以编程方式访问 WCF 基本功能的命名空间。 服务总线使用 WCF 的许多对象和属性来定义服务约定。
 
-    在解决方案资源管理器中右键单击该项目，然后单击“管理 NuGet 包...”。单击“浏览”选项卡，并搜索 `Microsoft Azure Service Bus`。 确保在“版本”  框中选定项目名称。 单击“安装” 并接受使用条款。
+    在解决方案资源管理器中右键单击该项目，然后单击“管理 NuGet 包...”。单击“浏览”选项卡，然后搜索“WindowsAzure.ServiceBus”。 确保在“版本”  框中选定项目名称。 单击“安装” 并接受使用条款。
 
     ![][3]
 4. 在解决方案资源管理器中，双击 Program.cs 文件以在编辑器中将其打开（如果尚未打开）。

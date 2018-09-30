@@ -7,14 +7,14 @@ manager: jeconnoc
 ms.service: batch
 ms.topic: get-started-article
 origin.date: 05/15/2018
-ms.date: 09/07/2018
+ms.date: 09/26/2018
 ms.author: v-junlch
-ms.openlocfilehash: 1ebe8deed1229afc5fb03b5281c3ff6193171cfc
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.openlocfilehash: b63e7b10fe0c12cd9fc2e5148a694b28bee42aff
+ms.sourcegitcommit: 5616622f754f3b83c7120a3d1344d0344e03ca61
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068035"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47188776"
 ---
 # <a name="overview-of-batch-apis-and-tools"></a>批处理 API 和工具概述
 
@@ -83,7 +83,7 @@ ms.locfileid: "44068035"
 
 
 [azure_storage]: https://www.azure.cn/home/features/storage/
-[api_java]: https://docs.azure.cn/zh-cn/java/api/batch/clientlibrary?view=azure-java-stable
+[api_java]: /java/api/overview/batch
 [api_java_mgmt]: https://docs.azure.cn/zh-cn/java/api/batch/managementapi?view=azure-java-stable
 [api_java_jar]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-batch%22
 [api_java_mgmt_jar]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-mgmt-batch%22
@@ -111,4 +111,4 @@ ms.locfileid: "44068035"
 [storage_explorer]: http://storageexplorer.com/
 [portal]: https://portal.azure.cn
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

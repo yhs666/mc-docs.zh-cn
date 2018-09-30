@@ -1,5 +1,5 @@
 ---
-title: Media Encoder Standard (MES) 的任务预设 | Azure
+title: Media Encoder Standard (MES) 的任务预设 | Microsoft Docs
 description: 本主题概述了 Media Encoder Standard (MES) 的服务定义示例预设。
 author: forester123
 manager: digimobile
@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 10/01/2017
 ms.date: 11/06/2017
 ms.author: v-johch
-ms.openlocfilehash: 32d0a79f0e5507e00d58c038156e3dd621f0615b
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+ms.openlocfilehash: 157a6ae32f087408fef592d532acafbea186c28f
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219649"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426180"
 ---
 # <a name="sample-presets-for-media-encoder-standard-mes"></a>Media Encoder Standard (MES) 的示例预设
 

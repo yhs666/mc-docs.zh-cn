@@ -1,11 +1,12 @@
 ---
 title: 媒体服务 PlayReady 许可证模板概述
 description: 本主题概述了用于配置 PlayReady 许可证的 PlayReady 许可证模板。
-authors: juliako
-manager: erikre
+author: juliako
+manager: cfowler
 editor: ''
 services: media-services
 documentationcenter: ''
+ms.assetid: fddce5d0-1278-478f-ae05-9b985c748731
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,12 +15,12 @@ ms.topic: article
 origin.date: 06/29/2017
 ms.date: 07/30/2018
 ms.author: v-haiqya
-ms.openlocfilehash: c9e365fcb14dac269b9f049dc08ef4b7566bf863
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+ms.openlocfilehash: 382e351207cf2becc382f494939b73daffffc7ef
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219650"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426261"
 ---
 # <a name="media-services-playready-license-template-overview"></a>媒体服务 PlayReady 许可证模板概述
 Azure 媒体服务现在提供了用于交付 PlayReady 许可证的服务。 当播放器（例如 Silverlight）尝试播放受 PlayReady 保护的内容时，将向许可证交付服务发送请求以获取许可证。 如果许可证服务批准了该请求，则会颁发该许可证，该许可证将发送到客户端，并用来解密和播放指定的内容。
@@ -303,8 +304,5 @@ XML 遵循“PlayReady 许可证模板 XML 架构”部分中定义的 PlayReady
       </xs:complexType>
       <xs:element name="ScmsRestriction" nillable="true" type="tns:ScmsRestriction" />
     </xs:schema>
-
-
-
 
 

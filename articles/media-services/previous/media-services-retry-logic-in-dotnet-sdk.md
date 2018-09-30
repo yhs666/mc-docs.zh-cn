@@ -1,6 +1,6 @@
 ---
-title: 用于 .NET 的媒体服务 SDK 中的重试逻辑 | Azure
-description: 本主题概述了用于 .NET 的媒体服务 SDK 中的重试逻辑。
+title: 适用于 .NET 的媒体服务 SDK 中的重试逻辑 | Microsoft Docs
+description: 本主题概述了适用于 .NET 的媒体服务 SDK 中的重试逻辑。
 author: hayley244
 manager: digimobile
 editor: ''
@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 07/21/2017
 ms.date: 09/04/2016
 ms.author: v-haiqya
-ms.openlocfilehash: f36c7e1fafa4d5a46635a371d7488fe38d40c4d0
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+ms.openlocfilehash: 815e671a5168d75d71782e02203c2fb10ab6e704
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219550"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426463"
 ---
 # <a name="retry-logic-in-the-media-services-sdk-for-net"></a>用于 .NET 的媒体服务 SDK 中的重试逻辑
 使用 Azure 服务时，可能会发生暂时性故障。 如果发生暂时性故障，在大多数情况下，重试几次后操作即可成功。 用于 .NET 的媒体服务 SDK 可实现重试逻辑，用于处理与异常和错误相关的暂时性故障，引起这些异常和错误的原因包括 Web 请求、执行查询、保存更改和存储操作。  默认情况下，适用于 .NET 的媒体服务 SDK 向应用程序重新引发异常前会执行四次重试。 应用程序中的代码稍后必须正确处理此异常。  

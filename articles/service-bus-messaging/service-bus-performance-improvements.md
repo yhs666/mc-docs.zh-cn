@@ -3,10 +3,8 @@ title: 使用 Azure 服务总线提高性能的最佳做法
 description: 介绍如何使用服务总线在交换中转消息时优化性能。
 services: service-bus
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
-editor: ''
-ms.assetid: e756c15d-31fc-45c0-8df4-0bca0da10bb2
 ms.service: service-bus
 ms.devlang: na
 ms.topic: article
@@ -14,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 06/14/2018
 ms.author: v-yiso
-ms.date: 08/06/2018
-ms.openlocfilehash: af876a307d22928fa248de2d06c97ace0e4681a0
-ms.sourcegitcommit: d4092cf6aba0d949bf612093c76f964c2bdfd0ba
+ms.date: 10/15/2018
+ms.openlocfilehash: c8a951e8f61111c2b7d32485df31d19aee9d4922
+ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39306582"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47455231"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>使用服务总线消息传递改进性能的最佳实践
 
@@ -71,7 +69,7 @@ AMQP 和 SBMP 都很高效，因为只要存在消息工厂，就可以保持与
   var receiver = new MessageReceiver(connectionString, queueName, ReceiveMode.PeekLock);
   var doneReceiving = new TaskCompletionSource<bool>();
 
-  receiver.RegisterMessageHandler(
+  receiver.RegisterMessageHandler(...);
   ```
 
 ## <a name="receive-mode"></a>接收模式

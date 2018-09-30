@@ -9,12 +9,12 @@ origin.date: 03/20/2018
 ms.date: 09/24/2018
 ms.author: v-jay
 ms.component: common
-ms.openlocfilehash: e9f8551892b0d55732d3f71b30c7ca8ec8f14406
-ms.sourcegitcommit: 0081fb238c35581bb527bdd704008c07079c8fbb
+ms.openlocfilehash: 3e74c5c19037046d0046835068040a486024e2e3
+ms.sourcegitcommit: 5616622f754f3b83c7120a3d1344d0344e03ca61
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523659"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47188779"
 ---
 # <a name="geo-redundant-storage-grs-cross-regional-replication-for-azure-storage"></a>异地冗余存储 (GRS)：Azure 存储的跨区域复制
 [!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-grs.md)]
@@ -22,7 +22,7 @@ ms.locfileid: "46523659"
 ## <a name="read-access-geo-redundant-storage"></a>读取访问异地冗余存储
 读取访问异地冗余存储 (RA-GRS) 可最大程度提高存储帐户的可用性。 除了跨两个区域的异地复制之外，RA-GRS 提供对次要位置中的数据的只读访问。
 
-当启用对次要区域中的数据的只读访问权限时，可以在存储帐户的辅助终结点以及主终结点上获取数据。 辅助终结点与主终结点类似，但会在帐户名称后面追加后缀 `�secondary` 。 例如，如果 Blob 服务的主终结点是 `myaccount.blob.core.windows.net`，则辅助终结点是 `myaccount-secondary.blob.core.windows.net`。 存储帐户的访问密钥对于主终结点和辅助终结点是相同的。
+当启用对次要区域中的数据的只读访问权限时，可以在存储帐户的辅助终结点以及主终结点上获取数据。 辅助终结点与主终结点类似，但会在帐户名称后面追加后缀 `-secondary` 。 例如，如果 Blob 服务的主终结点是 `myaccount.blob.core.chinacloudapi.cn`，则辅助终结点是 `myaccount-secondary.blob.core.chinacloudapi.cn`。 存储帐户的访问密钥对于主终结点和辅助终结点是相同的。
 
 使用 RA-GRS 时需要注意一些注意事项：
 

@@ -1,6 +1,6 @@
 ---
-title: Media Encoder Standard 架构 | Azure
-description: 本主题概述 Media Encoder Standard 架构。
+title: Media Encoder Standard 架构 | Microsoft Docs
+description: 本文概述 Media Encoder Standard 架构。
 author: Juliako
 manager: Hayley244
 editor: digimobile
@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 07/19/2017
 ms.date: 1/22/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 3f020876331be67f8a8bd68da5d2435b1a06a57f
-ms.sourcegitcommit: 48c75bdefe7c4e8c35d8ecad7cb8b8b039fe7647
+ms.openlocfilehash: 68f7f23fffb9ab966c760388991c2070b9c1941b
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39416842"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426283"
 ---
 # <a name="media-encoder-standard-schema"></a>Media Encoder Standard 架构
 本文介绍 [Media Encoder Standard 预设](media-services-mes-presets-overview.md)基于的 XML 架构的一些元素和类型。 本文将解释元素及其有效值。  
@@ -269,3 +269,4 @@ ms.locfileid: "39416842"
 
 ## <a name="examples"></a>示例
 查看根据此架构生成的 XML 预设示例，请参阅 [MES (Media Encoder Standard) 的任务预设](media-services-mes-presets-overview.md)。
+

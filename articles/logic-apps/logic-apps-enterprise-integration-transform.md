@@ -1,6 +1,6 @@
 ---
-title: 使用转换转换 XML 数据 - Azure 逻辑应用
-description: 使用 Enterprise Integration SDK 创建转换或映射将 XML 数据在逻辑应用的格式之间转换
+title: 在格式之间转换 XML - Azure 逻辑应用 | Microsoft Docs
+description: 在带有 Enterprise Integration Pack 的 Azure 逻辑应用中创建用于在格式之间转换 XML 的转换或映射
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/08/2016
-ms.date: 04/30/2018
+ms.date: 10/15/2018
 ms.author: v-yiso
-ms.openlocfilehash: c98954097103145ae7b42f5291d10275f108d237
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.openlocfilehash: bc78a82355e352132f6fe03e7b675701030e713c
+ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782149"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47455141"
 ---
-# <a name="enterprise-integration-with-xml-transforms"></a>企业集成与 XML 转换
-## <a name="overview"></a>概述
+# <a name="create-maps-that-transform-xml-between-formats-in-azure-logic-apps-with-enterprise-integration-pack"></a>在带有 Enterprise Integration Pack 的 Azure 逻辑应用中创建用于在格式之间转换 XML 的映射
+
 企业集成转换连接器可将数据从一种格式转换为另一种格式。 例如，传入消息可能包含 YearMonthDay 格式的当前日期。 可以使用转换将日期格式重新设置为 MonthDayYear 格式。
 
 ## <a name="what-does-a-transform-do"></a>转换的作用是什么？

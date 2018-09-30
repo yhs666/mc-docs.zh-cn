@@ -1,6 +1,6 @@
 ---
 title: 为 EDIFACT 消息编码 - Azure 逻辑应用
-description: 使用 Enterprise Integration Pack 中的 EDIFACT 消息编码器为 Azure 逻辑应用验证 EDI 并生成 XML
+description: 使用 EDIFACT 消息编码器为带有 Enterprise Integration Pack 的 Azure 逻辑应用验证 EDI 并生成 XML
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/27/2017
-ms.date: 03/19/2018
+ms.date: 10/15/2018
 ms.author: v-yiso
-ms.openlocfilehash: 4fafffd06114e44af6ac11c8bd3bcc9495397096
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: 7aef735980a747f94b2597abfb6b66d44a3f60d6
+ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29870560"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47455265"
 ---
-# <a name="encode-edifact-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>使用 Enterprise Integration Pack 为 Azure 逻辑应用编码 EDIFACT 消息
+# <a name="encode-edifact-messages-for-azure-logic-apps-with-enterprise-integration-pack"></a>为带有 Enterprise Integration Pack 的 Azure 逻辑应用编码 EDIFACT 消息
 
 使用编码 EDIFACT 消息连接器，可以验证 EDI 和特定于合作伙伴的属性，为每个事务集生成 XML 文档，并请求技术确认和/或功能确认。
 要使用此连接器，必须将此连接器添加到逻辑应用中的现有触发器。

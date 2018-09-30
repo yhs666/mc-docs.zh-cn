@@ -3,7 +3,7 @@ title: Azure 服务总线中事务处理概述
 description: Azure 服务总线原子事务和发送方式概述
 services: service-bus
 documentationCenter: .net
-authors: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: 64449247-1026-44ba-b15a-9610f9385ed8
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 02/22/2018
-ms.date: 03/12/2018
+ms.date: 10/15/2018
 ms.author: v-yiso
-ms.openlocfilehash: 2a02e1f36d061065197d430a3ea5e1a05822b70d
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.openlocfilehash: c2af9c1a09099eabb5c98e5f576b1fb1d46e00b3
+ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
-ms.locfileid: "29730812"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47455222"
 ---
 # <a name="overview-of-service-bus-transaction-processing"></a>服务总线事务处理概述
 
@@ -37,10 +37,10 @@ ms.locfileid: "29730812"
 
 可以在事务范围内执行的操作如下所示：
 
-* **[QueueClient](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.servicebus.queueclient), [MessageSender](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.servicebus.core.messagesender), [TopicClient](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.servicebus.topicclient)**：Send, SendAsync, SendBatch, SendBatchAsync 
-* **[BrokeredMessage](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)**：Complete, CompleteAsync, Abandon, AbandonAsync, Deadletter, DeadletterAsync, Defer, DeferAsync, RenewLock, RenewLockAsync 
+* **[QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient), [MessageSender](/dotnet/api/microsoft.azure.servicebus.core.messagesender), [TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient)**：Send, SendAsync, SendBatch, SendBatchAsync 
+* **[BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)**：Complete, CompleteAsync, Abandon, AbandonAsync, Deadletter, DeadletterAsync, Defer, DeferAsync, RenewLock, RenewLockAsync 
 
-不包括接收操作，因为假定应用程序在某个接收循环内使用 [ReceiveMode.PeekLock](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.servicebus.receivemode) 模式或通过 [OnMessage](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage) 回调获取消息，而且只有那时才打开用于处理消息的事务范围。
+不包括接收操作，因为假定应用程序在某个接收循环内使用 [ReceiveMode.PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode) 模式或通过 [OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage) 回调获取消息，而且只有那时才打开用于处理消息的事务范围。
 
 然后，消息的处置（完成、放弃、死信、延迟）将在事务范围内进行，并依赖于在事务处理的整体结果。
 

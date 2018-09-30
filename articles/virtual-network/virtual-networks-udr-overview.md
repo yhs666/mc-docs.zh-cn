@@ -13,15 +13,15 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 10/26/2017
-ms.date: 09/10/2018
+ms.date: 09/24/2018
 ms.author: v-yeche
 ms.custom: ''
-ms.openlocfilehash: 09346ca1f729128f7eecef1a2736c1074e6d444a
-ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
+ms.openlocfilehash: 97f6bd21ce709e2f0c50b031a56a4e25b7f6803c
+ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44515713"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47201423"
 ---
 # <a name="virtual-network-traffic-routing"></a>虚拟网络流量路由
 
@@ -35,7 +35,7 @@ Azure 自动创建系统路由，并将路由分配到虚拟网络中的每个�
 
 每个路由包含地址前缀和下一跃点类型。 将离开子网的流量发送到某个路由的地址前缀中的 IP 地址时，包含前缀的该路由是 Azure 使用的路由。 详细了解当多个路由包含相同的前缀或重叠前缀时，[Azure 如何选择路由](#how-azure-selects-a-route)。 只要创建了虚拟网络，Azure 就会自动为虚拟网络中的每个子网创建下述默认的系统路由：
 
-|Source |地址前缀                                        |下一跃点类型  |
+|源 |地址前缀                                        |下一跃点类型  |
 |-------|---------                                               |---------      |
 |默认|对虚拟网络唯一                           |虚拟网络|
 |默认|0.0.0.0/0                                               |Internet       |
@@ -60,7 +60,7 @@ Azure 自动创建系统路由，并将路由分配到虚拟网络中的每个�
 
 Azure 会针对不同的 Azure 功能添加其他默认的系统路由，但前提是你启用这些功能。 Azure 会根据功能将可选的默认路由添加到虚拟网络中的特定子网，或者添加到虚拟网络中的所有子网。 启用不同的功能时，Azure 可能添加的其他系统路由和下一跃点类型为：
 
-|Source                 |地址前缀                       |下一跃点类型|向其添加路由的虚拟网络中的子网|
+|源                 |地址前缀                       |下一跃点类型|向其添加路由的虚拟网络中的子网|
 |-----                  |----                                   |---------                    |--------|
 |默认                |对虚拟网络唯一，例如：10.1.0.0/16|VNet 对等互连                 |全部|
 |虚拟网络网关|从本地通过 BGP 播发的前缀，或者在本地网关中配置的前缀     |虚拟网络网关      |全部|
@@ -142,10 +142,10 @@ Azure 会针对不同的 Azure 功能添加其他默认的系统路由，但前�
 
 例如，路由表包含以下路由：
 
-|Source   |地址前缀  |下一跃点类型           |
+|源   |地址前缀  |下一跃点类型           |
 |---------|---------         |-------                 |
 |默认  | 0.0.0.0/0        |Internet                |
-|用户     | 0.0.0.0/0        |虚拟网络网关 |
+|User     | 0.0.0.0/0        |虚拟网络网关 |
 
 当流量的目标 IP 地址位于路由表中任何其他路由的地址前缀之外时，Azure 选择源为“用户”的路由，因为用户定义路由的优先级高于系统默认路由。
 
@@ -168,7 +168,7 @@ Azure 会针对不同的 Azure 功能添加其他默认的系统路由，但前�
         - 能够进行网络地址转换和转发，或者能够对流向子网中目标资源的流量进行代理，以及能够让流量返回 Internet。 
     - **虚拟网关**：如果网关为 ExpressRoute 虚拟网关，则连接了 Internet 的本地设备可以进行网络地址转换和转发，或者通过 ExpressRoute 的[专用对等互连](../expressroute/expressroute-circuit-peerings.md?toc=%2fvirtual-network%2ftoc.json#private-peering)对流向子网中目标资源的流量进行代理。 
         <!-- Archor SHOULD BE private-peering -->
-如果虚拟网络已连接到 Azure VPN 网关，请不要将路由表与包含目标为 0.0.0.0/0 的路由的[网关子网](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fvirtual-network%2ftoc.json#gwsub)相关联。 这样做可能会阻止网关正常工作。
+如果虚拟网络已连接到 Azure VPN 网关，请不要将路由表与包含目标为 0.0.0.0/0 的路由的[网关子网](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fvirtual-network%2ftoc.json#gwsub)相关联。 这样做可能会阻止网关正常工作。 有关详细信息，请参阅 [VPN 网关常见问题解答](../vpn-gateway/vpn-gateway-vpn-faq.md?toc=%2fvirtual-network%2ftoc.json#why-are-certain-ports-opened-on-my-vpn-gateway)中的“我的 VPN 网关上的某些端口为何处于打开状态？”问题。
 
 <!-- Not Available on [DMZ between Azure and your on-premises datacenter](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2fvirtual-network%2ftoc.json)-->
 <!-- Not Available on [DMZ between Azure and the Internet](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2fvirtual-network%2ftoc.json)-->
@@ -210,20 +210,20 @@ Azure 会针对不同的 Azure 功能添加其他默认的系统路由，但前�
 
 图中 Subnet1 的路由表包含以下路由：
 
-|ID  |Source |省/直辖市/自治区  |地址前缀    |下一跃点类型          |下一跃点 IP 地址|用户定义路由的名称| 
+|ID  |源 |状态  |地址前缀    |下一跃点类型          |下一跃点 IP 地址|用户定义路由的名称| 
 |----|-------|-------|------              |-------                |--------           |--------      |
 |1   |默认|无效|10.0.0.0/16         |虚拟网络        |                   |              |
-|2   |用户   |活动 |10.0.0.0/16         |虚拟设备      |10.0.100.4         |Within-VNet1  |
-|3   |用户   |活动 |10.0.0.0/24         |虚拟网络        |                   |Within-Subnet1|
+|2   |User   |活动 |10.0.0.0/16         |虚拟设备      |10.0.100.4         |Within-VNet1  |
+|3   |User   |活动 |10.0.0.0/24         |虚拟网络        |                   |Within-Subnet1|
 |4   |默认|无效|10.1.0.0/16         |VNet 对等互连           |                   |              |
 |5   |默认|无效|10.2.0.0/16         |VNet 对等互连           |                   |              |
-|6   |用户   |活动 |10.1.0.0/16         |无                   |                   |ToVNet2-1-Drop|
-|7   |用户   |活动 |10.2.0.0/16         |无                   |                   |ToVNet2-2-Drop|
+|6   |User   |活动 |10.1.0.0/16         |无                   |                   |ToVNet2-1-Drop|
+|7   |User   |活动 |10.2.0.0/16         |无                   |                   |ToVNet2-2-Drop|
 |8   |默认|无效|10.10.0.0/16        |虚拟网络网关|[X.X.X.X]          |              |
-|9   |用户   |活动 |10.10.0.0/16        |虚拟设备      |10.0.100.4         |To-On-Prem    |
-|10  |默认|活动 |[X.X.X.X]           |VirtualNetworkServiceEndpoint    |         |              |
+|9   |User   |活动 |10.10.0.0/16        |虚拟设备      |10.0.100.4         |To-On-Prem    |
+|10 个  |默认|活动 |[X.X.X.X]           |VirtualNetworkServiceEndpoint    |         |              |
 |11  |默认|无效|0.0.0.0/0           |Internet|              |                   |              |
-|12  |用户   |活动 |0.0.0.0/0           |虚拟设备      |10.0.100.4         |Default-NVA   |
+|12  |User   |活动 |0.0.0.0/0           |虚拟设备      |10.0.100.4         |Default-NVA   |
 
 每个路由 ID 的说明如下所示：
 
@@ -244,7 +244,7 @@ Azure 会针对不同的 Azure 功能添加其他默认的系统路由，但前�
 
 图中 Subnet2 的路由表包含以下路由：
 
-|Source  |省/直辖市/自治区  |地址前缀    |下一跃点类型             |下一跃点 IP 地址|
+|源  |状态  |地址前缀    |下一跃点类型             |下一跃点 IP 地址|
 |------- |-------|------              |-------                   |--------           
 |默认 |活动 |10.0.0.0/16         |虚拟网络           |                   |
 |默认 |活动 |10.1.0.0/16         |VNet 对等互连              |                   |

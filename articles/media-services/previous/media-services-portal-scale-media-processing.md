@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure 门户调整媒体处理的规模 | Azure
-description: 本教程逐步演示如何使用 Azure 门户调整媒体处理的规模。
+title: 使用 Azure 门户缩放媒体处理 | Microsoft Docs
+description: 本教程逐步介绍了如何使用 Azure 门户缩放媒体处理。
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 07/04/2017
 ms.date: 08/07/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 648b8a1af425aa7ae09a6e6e119413fdb5b8f24f
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+ms.openlocfilehash: 6806bd662a16f542bcb689c26194c52025516d83
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219682"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426475"
 ---
 # <a name="change-the-reserved-unit-type"></a>更改预留单位类型
 > [!div class="op_single_selector"]

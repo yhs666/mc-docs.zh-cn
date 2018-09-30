@@ -9,13 +9,13 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 10/28/2017
-ms.date: 09/17/2018
-ms.openlocfilehash: 4455362bbbabef37ffda1a687543413e9678ffd2
-ms.sourcegitcommit: 2700f127c3a8740a83fb70739c09bd266f0cc455
+ms.date: 09/30/2018
+ms.openlocfilehash: cccfdef9185e319f316de455c41daeb8dcf0ec4d
+ms.sourcegitcommit: 432984d85afe6f3da8f211bae0fa98a556785ee8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45586618"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47455385"
 ---
 # <a name="azure-stream-analytics-javascript-user-defined-aggregates-preview"></a>Azure 流分析 JavaScript 用户定义的聚合（预览）
 
@@ -172,7 +172,7 @@ computeResult() 方法基于当前状态返回聚合结果。 在时间窗口（
 
 1. 单击“保存”按钮后，该 UDA 会显示在函数列表中。
 
-1. 单击新函数“TWA”，可以检查函数定义。
+1. 单击新函数“TWA”即可检查函数定义。
 
 ## <a name="calling-javascript-uda-in-asa-query"></a>在 ASA 查询中调用 JavaScript UDA
 
@@ -239,3 +239,4 @@ GROUP BY TumblingWindow(minute, 5)
 * [Azure 流分析管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 <!-- Update_Description: update meta properties, wording update-->
+

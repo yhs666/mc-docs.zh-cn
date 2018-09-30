@@ -2,27 +2,21 @@
 title: Power BI 工作区集合中的新增功能
 description: 获取有关 Power BI 工作区集合中的新增功能的最新信息
 services: power-bi-embedded
-documentationcenter: ''
-author: alexchen2016
-manager: digimobile
-editor: ''
-tags: ''
+author: markingmyname
 ROBOTS: NOINDEX
 ms.assetid: 2794ae98-b9a7-45df-b6e1-962a395b91fa
 ms.service: power-bi-embedded
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: powerbi
 origin.date: 09/20/2017
-ms.date: 10/24/2017
+ms.date: 09/26/2018
 ms.author: v-junlch
-ms.openlocfilehash: 020e10d6c30708ed1e0112912c6e94789d590749
-ms.sourcegitcommit: 140d09254b5ded4b408980b43c0fc5d3643320a1
+ms.openlocfilehash: 3f28df31680f34d25719a7cfbaae02d60d5b5d24
+ms.sourcegitcommit: 7c6ff130adaa67bc90094846f81295ef0719d072
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2017
-ms.locfileid: "23580308"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47191366"
 ---
 # <a name="whats-new-in-power-bi-workspace-collections"></a>Power BI 工作区集合中的新增功能
 
@@ -82,3 +76,4 @@ ms.locfileid: "23580308"
 - 现在，所有支持 Azure 的语言/区域都支持 Power BI 工作区集合。 若要了解详细信息，请参阅 [Azure - 语言](http://social.technet.microsoft.com/wiki/contents/articles/4234.windows-azure-extent-of-localization.aspx)。
 
 
+<!-- Update_Description: update metedata properties -->

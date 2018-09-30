@@ -1,5 +1,5 @@
 ---
-title: 轮询长时间运行的操作
+title: 轮询长时运行的操作 | Microsoft Docs
 description: 本主题展示了如何轮询长时间运行的操作。
 services: media-services
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 12/09/2017
 ms.date: 12/25/2017
 ms.author: v-nany
-ms.openlocfilehash: 9e29ef092570589fd7aaa44793c0b80ed9c14fbd
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+ms.openlocfilehash: 14302e3bc3a9b341fd39e978b12577fbaaa97f28
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219515"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426214"
 ---
 # <a name="delivering-live-streaming-with-azure-media-services"></a>使用 Azure 媒体服务传送实时流
 

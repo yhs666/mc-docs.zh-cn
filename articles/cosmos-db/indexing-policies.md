@@ -9,14 +9,14 @@ ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 03/26/2018
-ms.date: 09/03/2018
+ms.date: 09/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 59c5f886a8ec4c61f31e752cb544d0940ed3955e
-ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
+ms.openlocfilehash: 0b59c92d833c053244ba170cdcdf19ad0edcc496
+ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43164775"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47201424"
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Azure Cosmos DB 如何为数据编制索引？
 
@@ -34,7 +34,24 @@ ms.locfileid: "43164775"
 * 如何对集合的索引策略进行更改？
 * 如何比较不同索引策略的存储和性能？
 
-<a name="CustomizingIndexingPolicy"></a> 
+<a name="Indexing"></a>
+##  <a name="cosmos-db-indexing"></a>Cosmos DB 索引
+
+数据库索引的目的是在提供良好的吞吐量和低延迟的同时，以最小的资源消耗（如 CPU 和输入/输出）提供各种形式的查询。 通常，为查询数据库选择正确的索引需要大量的计划和试验。 此方法对数据不符合严格的架构并且快速发展的无架构数据库来说是一个挑战。 
+
+因此，设计 Cosmos DB 索引子系统时，我们设定了以下目标：
+
+* 在无需架构的情况下索引文档：索引子系统不需要任何架构信息或对文档的架构做出任何假设。  
+
+* 支持高效、层次丰富的关系查询：索引高效地支持 Cosmos DB 查询语言，包括支持分层和关系投影。  
+
+* 持续大量写入时支持一致的查询：对于使用一致的查询的高写入吞吐量工作负荷，在持续大量写入时可逐步、高效地联机更新索引。 一致的索引更新对在用户配置文档服务的一致性级别进行查询来说是至关重要的。  
+
+* 支持多租户：在为跨租户的资源调控给定基于保留的模型的情况下，可以在为每个副本分配的系统资源（CPU、内存和每秒的输入/输出操作）的预算内执行索引更新。  
+
+* 存储效率：就成本效益而言，在磁盘上存储索引的开销是有限的，并且是可预测的。 这一点非常重要，因为 Cosmos DB 允许开发人员在索引开销与查询性能之间做出基于成本的权衡。  
+
+<a name="CustomizingIndexingPolicy"></a>  
 ## <a name="customize-the-indexing-policy-of-a-collection"></a>自定义集合的索引策略
 通过重写 Azure Cosmos DB 集合的默认索引策略，可以在存储、写入/查询性能和查询一致性之间进行权衡。 可配置以下几个方面：
 
@@ -485,4 +502,4 @@ JSON 规范中实现了以下更改：
 * [SQL API .NET 索引管理代码示例](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/IndexManagement/Program.cs)
 * [SQL API REST 集合操作](https://msdn.microsoft.com/library/azure/dn782195.aspx)
 * [使用 SQL 进行查询](sql-api-sql-query.md)
-<!--Update_Description: wording update, update link -->
+<!--Update_Description: wording update, update link, wording update -->

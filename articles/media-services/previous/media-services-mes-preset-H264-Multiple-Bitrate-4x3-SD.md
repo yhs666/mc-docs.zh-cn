@@ -1,5 +1,5 @@
 ---
-title: H264 多比特率 4x3 SD | Azure
+title: H264 多比特率 4x3 SD | Microsoft 文档
 description: 本主题概述了 H264 多比特率 4x3 SD 任务预设。
 author: hayley244
 manager: digimobile
@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 07/20/2017
 ms.date: 09/04/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 00d2a3179cbbed87ed9bb62028923a12555254d4
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+ms.openlocfilehash: 1f179b50ab932e6de5016dd5b4c6caea30687328
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219712"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426465"
 ---
 # <a name="h264-multiple-bitrate-4x3-sd"></a>H264 多比特率 4x3 SD
 `Media Encoder Standard` 定义一组可在创建编码作业时使用的编码预设。 可以使用 `preset name` 指定编码媒体文件采用的格式。 也可以创建自己的 JSON 或基于 XML 的预设（使用 UTF-8 或 UTF-16 编码）。 然后，将自定义预设传递到编码器。 有关此 `Media Encoder Standard` 编码器支持的所有预设名称的列表，请参阅 [Media Encoder Standard 的任务预设](media-services-mes-presets-overview.md)。  

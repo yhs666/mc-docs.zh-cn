@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/29/2018
-ms.date: 08/13/2018
+ms.date: 09/27/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 936b22bf3f9232e510cae14d6781543383fe2172
-ms.sourcegitcommit: 56ed1b03d83f222db6118fe1e2f2485a9488507f
+ms.openlocfilehash: fa9a249066d81dc424210a61cb20eacfb7f17c81
+ms.sourcegitcommit: 5af51a8cb9a7db8b1efb6ce6772890ac9884666a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "41705247"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47400102"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Azure 虚拟机规模集自动缩放概述
 Azure 虚拟机规模集可以自动增加或减少运行应用程序的 VM 实例数。 这种自动且弹性的行为可以减少监视和优化应用程序性能所需的管理开销。 创建规则，用于定义提供正面客户体验而可接受的性能。 如果满足定义的这些阈值，自动缩放规则会采取措施来调整规模集的容量。 还可以计划事件，以便在固定的时间自动增加或减少规模集的容量。 本文概述所提供的性能指标，以及自动缩放可以执行的操作。
@@ -106,7 +106,7 @@ Azure 虚拟机规模集可以自动增加或减少运行应用程序的 VM 实�
 | 增加计数   | 要创建的 VM 实例的固定数目。 在 VM 数量较少的规模集中很有用。                                           |
 | 增加百分比 | VM 实例的增加数量百分比。 非常适用于较大的规模集，在其中按固定数量增加 VM 无法明显提高性能。 |
 | 增加计数至   | 创建任意数量的 VM 实例来达到所需的最大数量。                                                            |
-| 减少计数至   | 要删除的 VM 实例的固定数目。 在 VM 数量较少的规模集中很有用。                                           |
+| 减少计数   | 要删除的 VM 实例的固定数目。 在 VM 数量较少的规模集中很有用。                                           |
 | 减少百分比 | VM 实例的减少数量百分比。 非常适用于较大的规模集，在其中按固定数量增加 VM 无法明显降低资源消耗和成本。 |
 | 减少计数至   | 删除任意数量的 VM 实例来达到所需的最小数量。                                                            |
 
@@ -139,4 +139,4 @@ Azure 诊断扩展是在 VM 实例中运行的代理。 该代理可监视性能
 
 有关如何管理 VM 实例的信息，请参阅[使用 Azure PowerShell 管理虚拟机规模集](virtual-machine-scale-sets-windows-manage.md)。
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

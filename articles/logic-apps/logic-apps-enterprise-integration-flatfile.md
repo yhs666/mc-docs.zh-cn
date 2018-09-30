@@ -1,28 +1,23 @@
 ---
-title: 在 Azure 逻辑应用中对平面文件进行编码或解码
-description: 如何在逻辑应用中使用 Enterprise Integration Pack 内的文件编解码器
+title: 对平面文件进行编码或解码 - Azure 逻辑应用 | Microsoft Docs
+description: 使用 Azure 逻辑应用和 Enterprise Integration Pack 对企业集成的平面文件进行编码或解码
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: MandiOhlinger
-manager: anneta
-editor: ''
-ms.assetid: 82152dab-c7ad-43df-b721-596559703be8
 ms.service: logic-apps
 ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/08/2016
-ms.date: 03/19/2018
+ms.date: 10/15/2018
 ms.author: v-yiso
-ms.openlocfilehash: fa7da53a53508c4f4f38eb426f3b763dfff98e40
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: e100f606c8fe3833299ffd7a28054267d539b38a
+ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29870578"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47455262"
 ---
-# <a name="overview-of-enterprise-integration-with-flat-files"></a>企业集成与平面文件概述
+# <a name="encode-or-decode-flat-files-with-azure-logic-apps-and-enterprise-integration-pack"></a>使用 Azure 逻辑应用和 Enterprise Integration Pack 对平面文件进行编码或解码
 
 在企业到企业 (B2B) 方案中将 XML 内容发送给业务合作伙伴之前，可能要对该内容进行编码。 在逻辑应用中，可以使用平面文件编码连接器进行此操作。 创建的逻辑应用可以从各种源获取其 XML 内容，包括从 HTTP 请求触发器、从其他应用程序、甚至是从许多[连接器](../connectors/apis-list.md)中的一个。 有关逻辑应用的详细信息，请参阅[逻辑应用文档](logic-apps-overview.md "了解有关逻辑应用的详细信息")。  
 
@@ -40,7 +35,7 @@ ms.locfileid: "29870578"
    
     c. 在搜索框中输入“平面”一词，以便在所有操作中筛选出要使用的操作。
    
-    d.单击“验证存储凭据”以验证存储帐户。 从列表中选择“平面文件编码”选项。   
+    d. 从列表中选择“平面文件编码”选项。   
    ![“平面文件编码”选项的屏幕截图](media/logic-apps-enterprise-integration-flatfile/flatfile-2.png)   
 4. 在“平面文件编码”对话框中，选择“内容”文本框。  
    ![“内容”文本框的屏幕截图](media/logic-apps-enterprise-integration-flatfile/flatfile-3.png)  
@@ -70,7 +65,7 @@ ms.locfileid: "29870578"
    
     c. 在搜索框中输入“平面”一词，以便在所有操作中筛选出要使用的操作。
    
-    d.单击“验证存储凭据”以验证存储帐户。 从列表中选择“平面文件解码”选项。   
+    d. 从列表中选择“平面文件解码”选项。   
    ![“平面文件解码”选项的屏幕截图](media/logic-apps-enterprise-integration-flatfile/flatfile-2.png)   
 3. 选择“内容”控件。 这会生成来自前面步骤的内容的列表，这些内容可以用作要解码的内容。 请注意，传入 HTTP 请求的正文可供用作要解码的内容。 还可以直接在“内容”控件中输入要解码的内容。     
 4. 选择正文标记。 请注意，正文标记现在处于“内容”控件中。

@@ -1,9 +1,6 @@
 ---
-title: 创建、编辑或扩展逻辑应用定义的 JSON
-description: 使用 JSON 编写和自定义逻辑应用定义
-author: ecfan
-manager: jeconnoc
-editor: ''
+title: 创建、编辑或扩展逻辑应用定义的 JSON - Azure 逻辑应用 | Microsoft Docs
+description: 为 Azure 逻辑应用中的逻辑应用定义编写和扩展 JSON
 services: logic-apps
 documentationcenter: ''
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
@@ -14,16 +11,16 @@ ms.devlang: na
 ms.topic: article
 ms.custom: H1Hack27Feb2017
 origin.date: 01/01/2018
-ms.date: 07/02/2018
+ms.date: 10/15/2018
 ms.author: v-yiso
-ms.openlocfilehash: a88657b87e020ec42f118f6725f1ea229e9f4bd4
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.openlocfilehash: 7153008e21e958d3db69bfe60772d0fcab27a6e0
+ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315397"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47455250"
 ---
-# <a name="create-edit-or-customize-json-for-logic-app-definitions"></a>创建、编辑或自定义逻辑应用定义的 JSON
+# <a name="create-edit-or-extend-json-for-logic-app-definitions-in-azure-logic-apps"></a>为 Azure 逻辑应用中的逻辑应用定义创建、编辑或扩展 JSON
 
 在 [Azure 逻辑应用](../logic-apps/logic-apps-overview.md)中使用自动化工作流创建企业集成解决方案时，基础逻辑应用定义会将简单的声明性 JavaScript 对象表示法 (JSON) 以及[工作流定义语言 (WDL) 架构](../logic-apps/logic-apps-workflow-definition-language.md)用于说明和验证。 这些格式使得逻辑应用定义更易于阅读和理解，无需让用户详细了解代码。 若要自动创建和部署逻辑应用，可在 [Azure 资源管理器模板](../azure-resource-manager/resource-group-overview.md#template-deployment)中将逻辑应用定义包含为 [Azure 资源](../azure-resource-manager/resource-group-overview.md)。 若要创建、管理和部署逻辑应用，可以使用 [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.logicapp)、[Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md) 或 [Azure 逻辑应用 REST API](https://docs.microsoft.com/rest/api/logic/)。
 

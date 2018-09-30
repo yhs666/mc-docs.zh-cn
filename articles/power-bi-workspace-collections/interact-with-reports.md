@@ -2,34 +2,28 @@
 title: 使用 JavaScript API 与报表交互 | Microsoft Docs
 description: Power BI JavaScript API 可以轻松将 Power BI 报表嵌入到应用程序中。
 services: power-bi-embedded
-documentationcenter: ''
-author: alexchen2016
-manager: digimobile
-editor: ''
-tags: ''
+author: markingmyname
 ROBOTS: NOINDEX
 ms.assetid: bdd885d3-1b00-4dcf-bdff-531eb1f97bfb
 ms.service: power-bi-embedded
-ms.devlang: NA
-ms.topic: hero-article
-ms.tgt_pltfrm: NA
+ms.topic: conceptual
 ms.workload: powerbi
 origin.date: 09/20/2017
-ms.date: 10/24/2017
+ms.date: 09/26/2018
 ms.author: v-junlch
-ms.openlocfilehash: 7435b39c3a791bb79d7a18c365f0602b30b67e79
-ms.sourcegitcommit: 140d09254b5ded4b408980b43c0fc5d3643320a1
+ms.openlocfilehash: 69fdb3623a1d8df08732ecbf70f1542ecbd09bd1
+ms.sourcegitcommit: 7c6ff130adaa67bc90094846f81295ef0719d072
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2017
-ms.locfileid: "23580301"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47191363"
 ---
 # <a name="interact-with-power-bi-reports-using-the-javascript-api"></a>使用 JavaScript API 与 Power BI 报表进行交互
 
 Power BI JavaScript API 可以轻松将 Power BI 报表嵌入到应用程序中。 使用此 API，应用程序能够以编程方式与各种报表元素（例如页面和筛选器）进行交互。 这种交互这种交互性使 Power BI 报表与应用程序的集成更紧密。
 
 > [!IMPORTANT]
-> Power BI 工作区集合已弃用，到 2018 年 6 月或合同指示时可用。 建议你规划到 Power BI Embedded 的迁移以避免应用程序中断。 有关如何将数据迁移到 Power BI Embedded 的信息，请参阅[如何将 Power BI 工作区集合内容迁移到 Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/)。
+> Power BI 工作区集合已弃用，到 2018 年 6 月 或合同指示时可用。 建议你规划到 Power BI Embedded 的迁移以避免应用程序中断。 有关如何将数据迁移到 Power BI Embedded 的信息，请参阅[如何将 Power BI 工作区集合内容迁移到 Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/)。
 
 通过使用作为应用程序一部分托管的 IFrame，可将 Power BI 报表嵌入到应用程序中。 IFrame 充当应用程序和报表之间的边界，如下图所示：
 
@@ -143,3 +137,4 @@ const advancedFilter: pbi.models.IAdvancedFilter = {
 - [对象模型参考](https://microsoft.github.io/powerbi-models/modules/_models_.html)
 - [直播演示](https://microsoft.github.io/PowerBI-JavaScript/demo/)
 
+<!-- Update_Description: update metedata properties -->

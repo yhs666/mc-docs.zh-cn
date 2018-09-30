@@ -9,13 +9,13 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 oeigin.date: 06/30/2018
-ms.date: 08/27/2018
-ms.openlocfilehash: caf2aeb4a83efc9a22ded84b580e56cc4d10bdf2
-ms.sourcegitcommit: 6dd65fba579a2ce25c63ac69ff3b71d814a9d256
+ms.date: 10/01/2018
+ms.openlocfilehash: caba254c12e048d00447441cef826d9735753d19
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42703844"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426419"
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>Azure Database for PostgreSQL 中的限制
 下列各部分介绍数据库服务中的容量和功能限制。
@@ -48,10 +48,7 @@ Azure 系统需要使用五个连接来监视 Azure Database for PostgreSQL 服�
 - 目前不支持减小服务器存储大小。
 
 ### <a name="server-version-upgrades"></a>服务器版本升级
-- 目前不支持在主要数据库引擎版本之间进行自动迁移。
-
-### <a name="subscription-management"></a>订阅管理
-- 目前不支持跨订阅和资源组动态移动服务器。
+- 目前不支持在主要数据库引擎版本之间进行自动迁移。 如果要升级到下一个主版本，请进行[转储并将其还原](./howto-migrate-using-dump-and-restore.md)到使用新引擎版本创建的服务器。
 
 ### <a name="vnet-service-endpoints"></a>VNet 服务终结点
 - 只有常规用途和内存优化服务器才支持 VNet 服务终结点。

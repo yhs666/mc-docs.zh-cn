@@ -3,7 +3,7 @@ title: Azure Monitor 中的 Azure 服务总线指标（预览版）
 description: 使用 Azure 监视来监视服务总线实体
 services: service-bus
 documentationcenter: .NET
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 05/31/2018
-ms.date: 09/10/2018
+ms.date: 10/15/2018
 ms.author: v-yiso
-ms.openlocfilehash: 43beffc16ddff5891c22d5615aea231f827a3f91
-ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
+ms.openlocfilehash: 08075fcf72316b619c2028e8487ce3a6fd9ebd6e
+ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43328248"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47455275"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Azure Monitor 中的 Azure 服务总线指标（预览版）
 

@@ -1,6 +1,6 @@
 ---
-title: 使用 PowerShell 创建 Azure AD 应用以访问 Azure 媒体服务 API | Azure
-description: 了解如何使用 PowerShell 创建 Azure Active Directory (Azure AD) 应用，并安装该应用以访问 Azure 媒体服务 API。
+title: 使用 PowerShell 创建 Azure AD 应用程序以访问 Azure 媒体服务 API | Microsoft Docs
+description: 了解如何使用 PowerShell 创建 Azure Active Directory (Azure AD) 应用程序，并安装该应用程序以访问 Azure 媒体服务 API。
 services: media-services
 documentationcenter: ''
 author: forester123
@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 06/17/2017
 ms.date: 06/25/2018
 ms.author: v-johch
-ms.openlocfilehash: 28415ccc13b1157af7669580759bd1821bb43d19
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.openlocfilehash: a054ecc641c7e7f8279760aee4de725285a66363
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295694"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426470"
 ---
 # <a name="use-powershell-to-create-an-azure-ad-app-to-use-with-the-azure-media-services-api"></a>使用 PowerShell 创建要与 Azure 媒体服务 API 配合使用的 Azure AD 应用
 

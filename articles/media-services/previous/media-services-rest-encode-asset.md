@@ -1,5 +1,5 @@
 ---
-title: 如何使用 Media Encoder Standard 对 Azure 资产进行编码 | Azure
+title: 如何使用 Media Encoder Standard 对 Azure 资产进行编码 | Microsoft Docs
 description: 了解如何使用 Media Encoder Standard 为 Azure 媒体服务上的媒体内容编码。 代码示例使用 REST API。
 services: media-services
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 12/07/2017
 ms.date: 12/25/2017
 ms.author: v-nany
-ms.openlocfilehash: 3e232858ac385e04d6aa3837e764edc47f7aaea8
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.openlocfilehash: d0ccf38f4be513284d7f9667c94493b2d974f598
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295727"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426371"
 ---
 # <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>如何使用 Media Encoder Standard 对资产进行编码
 > [!div class="op_single_selector"]
@@ -74,8 +74,8 @@ ms.locfileid: "39295727"
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
     x-ms-version: 2.17
-    Authorization: Bearer <ENCODED JWT TOKEN> 
-    x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
+        Authorization: Bearer <ENCODED JWT TOKEN> 
+        x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
     Host: media.chinacloudapi.cn
 
     {"Name" : "NewTestJob", "InputMediaAssets" : [{"__metadata" : {"uri" : "https://media.chinacloudapi.cn/api/Assets('nb%3Acid%3AUUID%3Aaab7f15b-3136-4ddf-9962-e9ecb28fb9d2')"}}],  "Tasks" : [{"Configuration" : "Adaptive Streaming", "MediaProcessorId" : "nb:mpid:UUID:ff4df607-d419-42f0-bc17-a481b1331e56",  "TaskBody" : "<?xml version=\"1.0\" encoding=\"utf-8\"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset>JobOutputAsset(0)</outputAsset></taskBody>"}]}
@@ -268,7 +268,6 @@ ms.locfileid: "39295727"
 * [在编码期间剪辑视频](media-services-crop-video.md)
 * [自定义编码预设](media-services-custom-mes-presets-with-dotnet.md)
 * [使用图像叠加视频或给视频加水印](media-services-advanced-encoding-with-mes.md#overlay)
-
 
 ## <a name="next-steps"></a>后续步骤
 了解如何创建对资产进行编码的作业后，请参阅[如何使用媒体服务检查作业进度](media-services-rest-check-job-progress.md)。

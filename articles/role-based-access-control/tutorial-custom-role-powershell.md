@@ -12,14 +12,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: ''
 ms.workload: identity
 origin.date: 06/12/2018
-ms.date: 07/24/2018
+ms.date: 09/25/2018
 ms.author: v-junlch
-ms.openlocfilehash: 34bbeb4c92116503ad786b6a8e7778c1b8c4b823
-ms.sourcegitcommit: cce18df2de12353f0d8f01c649307a5789d59cd4
+ms.openlocfilehash: fcbb6c99d72d85808f89e55c618e14202f7bebbe
+ms.sourcegitcommit: 830a60c06303a8447d128a3bca8b36aa2b3b655b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39246119"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47075849"
 ---
 # <a name="tutorial-create-a-custom-role-using-azure-powershell"></a>教程：使用 Azure PowerShell 创建自定义角色
 
@@ -100,7 +100,7 @@ ms.locfileid: "39246119"
     
 1. 编辑 JSON 文件来向 `Actions` 属性添加 `"Microsoft.Support/*"` 操作。 请确保在读取操作后包括一个逗号。 此操作将允许用户创建支持票证。
 
-1. 使用 `Get-AzureRmSubscription` 命令获取你的订阅 ID。
+1. 使用 [Get-AzureRmSubscription](https://docs.microsoft.com/powershell/module/azurerm.profile/get-azurermsubscription) 命令获取订阅的 ID。
 
     ```azurepowershell
     Get-AzureRmSubscription

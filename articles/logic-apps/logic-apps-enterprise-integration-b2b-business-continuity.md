@@ -1,6 +1,6 @@
 ---
-title: B2B 集成帐户的灾难恢复 - Azure 逻辑应用
-description: 逻辑应用 B2B 灾难恢复
+title: B2B 集成帐户的灾难恢复 - Azure 逻辑应用 | Microsoft Docs
+description: 准备好在 Azure 逻辑应用中进行跨区域灾难恢复
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 04/10/2017
-ms.date: 07/30/2018
+ms.date: 10/15/2018
 ms.author: v-yiso
-ms.openlocfilehash: ebdae29c0569ed32704f22f1df7db8269a6859ea
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.openlocfilehash: 4cb0161a33f20449032b74533bb3e09ebf4fa2d8
+ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39167819"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47455286"
 ---
-# <a name="logic-apps-b2b-cross-region-disaster-recovery"></a>逻辑应用 B2B 跨区域灾难恢复
+# <a name="cross-region-disaster-recovery-for-b2b-integration-accounts-in-azure-logic-apps"></a>Azure 逻辑应用中 B2B 集成帐户的跨区域灾难恢复
 
 B2B 工作负荷涉及订单和发票等现金交易。 对于企业而言，在灾难事件中快速恢复以满足与合作伙伴达成一致意见的企业级 SLA，这非常重要。 本文演示为 B2B 工作负荷生成业务连续性计划。 
 

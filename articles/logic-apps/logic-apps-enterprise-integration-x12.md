@@ -1,6 +1,6 @@
 ---
-title: 用于 B2B 企业集成的 X12 消息 - Azure 逻辑应用
-description: 使用 Azure 逻辑应用交换 EDI 格式的 X12 消息以实现 B2B 企业集成
+title: 用于 B2B 企业集成的 X12 消息 - Azure 逻辑应用 | Microsoft 文档
+description: 在带有 Enterprise Integration Pack 的 Azure 逻辑应用中交换 EDI 格式的 X12 消息以实现 B2B 企业集成
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 origin.date: 01/31/2017
 ms.author: v-yiso
-ms.date: 03/19/2018
-ms.openlocfilehash: 1e87e0ad9266b4a8dfcc4393443b17af22b094f3
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.date: 10/15/2018
+ms.openlocfilehash: a873c0fec6f1936a885df613b46dc1e045c2dc5a
+ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29870618"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47455230"
 ---
-# <a name="exchange-x12-messages-for-enterprise-integration-with-logic-apps"></a>使用逻辑应用交换 X12 消息以实现企业集成
+# <a name="exchange-x12-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>在带有 Enterprise Integration Pack 的 Azure 逻辑应用中交换 X12 消息以实现 B2B 企业集成
 
 在交换 Azure 逻辑应用的 X12 消息之前，必须先创建 X12 协议并将它存储在集成帐户中。 下面是创建 X12 协议的步骤。
 

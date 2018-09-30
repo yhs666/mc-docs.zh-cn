@@ -1,5 +1,5 @@
 ---
-title: Azure 中的反向 DNS 概述 | Azure
+title: Azure 中的反向 DNS 概述 | Microsoft Docs
 description: 了解反向 DNS 如何工作以及如何在 Azure 中使用
 services: dns
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 origin.date: 05/29/2017
 ms.date: 12/18/2017
 ms.author: v-nany
-ms.openlocfilehash: d5d36335e24efc005aa89778f24cc87003f457c9
-ms.sourcegitcommit: ecd57a05a4a01e12203f5a80269981b76b4b9e18
+ms.openlocfilehash: 1e0a7178436a1994eb8b1605ef499d89f98b6a7b
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/19/2018
-ms.locfileid: "27956997"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426259"
 ---
 # <a name="overview-of-reverse-dns-and-support-in-azure"></a>反向 DNS 和 Azure 支持概述
 

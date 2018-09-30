@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 06/23/2017
-ms.date: 06/11/2018
+ms.date: 09/24/2018
 ms.author: v-yeche
 ms.custom: ''
-ms.openlocfilehash: a6420e1e63da06abeebd3f1418feec5de9700b5a
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+ms.openlocfilehash: c382b2e662e47a8159530bd98f35bfc141a44959
+ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34869349"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47201357"
 ---
 # <a name="configure-a-virtual-network-classic-using-a-network-configuration-file"></a>使用网络配置文件配置虚拟网络（经典）
 > [!IMPORTANT]
@@ -39,8 +39,7 @@ ms.locfileid: "34869349"
 
 ### <a name="powershell"></a>PowerShell
 
-1. [安装 Azure PowerShell 并登录到 Azure](https://docs.microsoft.com/zh-cn/powershell/azure/install-azurerm-ps?toc=%2fvirtual-network%2ftoc.json)。
-<!-- URL is Correct on https://docs.microsoft.com/zh-cn/powershell/azure/install-azurerm-ps?toc=%2fazure%2fvirtual-network%2ftoc.json-->
+1. [安装 Azure PowerShell 并登录到 Azure](/azure-stack/azure-stack-powershell-install)。
 2. 在以下命令中根据需要更改目录（并确保它存在）和文件名，然后运行该命令导出网络配置文件：
 
     ```powershell
@@ -129,8 +128,7 @@ ms.locfileid: "34869349"
 
 ### <a name="powershell"></a>PowerShell
 
-1. [安装 Azure PowerShell 并登录到 Azure](https://docs.microsoft.com/zh-cn/powershell/azure/install-azurerm-ps?toc=%2fazure%2fvirtual-network%2ftoc.json)。
-<!-- URL is Correct on https://docs.microsoft.com/zh-cn/powershell/azure/install-azurerm-ps?toc=%2fazure%2fvirtual-network%2ftoc.json-->
+1. [安装 Azure PowerShell 并登录到 Azure](/azure-stack/azure-stack-powershell-install)。
 2. 在以下命令中根据需要更改目录和文件名，然后运行该命令导入网络配置文件：
 
     ```powershell

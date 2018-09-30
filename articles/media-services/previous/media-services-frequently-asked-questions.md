@@ -1,5 +1,5 @@
 ---
-title: Azure 媒体服务常见问题 | Azure
+title: Azure 媒体服务常见问题 | Microsoft 文档
 description: 常见问题 (FAQ)
 services: media-services
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 09/29/2017
 ms.date: 11/06/2017
 ms.author: v-johch
-ms.openlocfilehash: b4664e7f57a781479ff6b1b937cca70e07252dfa
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+ms.openlocfilehash: 71f48bf1d2450997ccf3983d89c98cbfac927e7f
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219680"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426426"
 ---
 # <a name="frequently-asked-questions"></a>常见问题
 
@@ -34,8 +34,7 @@ ms.locfileid: "39219680"
 
 问：如何缩放索引？
 
-答：编码任务和索引任务的预留单位相同。 请遵循[如何缩放编码预留单位](media-services-scale-media-processing-overview.md)中的说明。 
-  **请注意**，预留单位类型不影响索引器性能。
+答：编码任务和索引任务的预留单位相同。 请遵循[如何缩放编码预留单位](media-services-scale-media-processing-overview.md)中的说明。 **请注意**，预留单位类型不影响索引器性能。
 
 问：我已经上传、编码并发布了视频。 为什么在尝试对视频进行流式处理时，它不播放？
 

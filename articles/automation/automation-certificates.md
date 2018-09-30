@@ -1,21 +1,21 @@
 ---
-title: Azure 自动化中的证书资产 | Azure
-description: 可以安全地将证书存储在 Azure 自动化中，以便可以通过 Runbook 访问这些证书，对 Azure 和第三方资源进行身份验证。 本文介绍了有关证书的详细信息，以及如何在文本和图形创作中使用证书。
+title: Azure 自动化中的证书资产
+description: 可以安全地将证书存储在 Azure 自动化中，以便可以通过 Runbook 或 DSC 配置访问这些证书，对 Azure 和第三方资源进行身份验证。  本文介绍了有关证书的详细信息，以及如何在文本和图形创作中使用证书。
 services: automation
-author: yunan2016
-manager: digimobile
 ms.service: automation
-ms.devlang: na
-ms.topic: article
+ms.component: shared-capabilities
+author: WenJason
+ms.author: v-jay
 origin.date: 03/15/2018
-ms.date: 07/23/2018
-ms.author: v-nany
-ms.openlocfilehash: cf3ac565a0ed15c80486d4ef04134287e8e26659
-ms.sourcegitcommit: 2a147231bf3d0a693adf58fceee76ab0fbcd6dbb
+ms.date: 10/01/2018
+ms.topic: conceptual
+manager: digimobile
+ms.openlocfilehash: d719b5761ce4e5ee05c4bdaa9ac21e038e1e3f4d
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39335265"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426453"
 ---
 # <a name="certificate-assets-in-azure-automation"></a>Azure 自动化中的证书资产
 
@@ -58,7 +58,7 @@ ms.locfileid: "39335265"
 
 ## <a name="creating-a-new-certificate"></a>创建新证书
 
-创建新证书时，需要将 .cer 或 .pfx 文件上传到 Azure 自动化。 将证书标记为可导出后，可以将其转出 Azure 自动化证书存储区。 如果证书不可导出，则它只可用于在 Runbook 或 DSC 配置中签名。
+创建新证书时，需要将 .cer 或 .pfx 文件上传到 Azure 自动化。 将证书标记为可导出后，可以将其转出 Azure 自动化证书存储区。 如果证书不可导出，则它只可用于在 Runbook 或 DSC 配置中签名。 Azure 自动化要求证书具有以下提供程序：Microsoft Enhanced RSA 和 AES 加密提供程序。
 
 ### <a name="to-create-a-new-certificate-with-the-azure-portal"></a>使用 Azure 门户创建新证书
 

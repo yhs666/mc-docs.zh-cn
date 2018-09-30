@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/06/2018
-ms.date: 07/23/2018
+ms.date: 09/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: 2e7921e3fd8ba13a9706954d289755cd9c709129
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.openlocfilehash: dbf1987b6b9e842afb28a761d5a188caeaebd5e0
+ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168297"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47201368"
 ---
 # <a name="replicate-a-multitier-dynamics-ax-application-by-using-azure-site-recovery"></a>使用 Azure Site Recovery 复制多层 Dynamics AX 应用程序
 
@@ -97,7 +97,7 @@ ms.locfileid: "39168297"
 
 * 如果使用静态 IP，请在“目标 IP”文本框中指定希望 VM 采用的 IP。
 
-    ![网络设置 ](./media/site-recovery-dynamics-ax/vmpropertiesaos1.png)上获取。
+    ![网络设置 ](./media/site-recovery-dynamics-ax/vmpropertiesaos1.png)
 
 ### <a name="5-create-a-recovery-plan"></a>5.创建恢复计划
 

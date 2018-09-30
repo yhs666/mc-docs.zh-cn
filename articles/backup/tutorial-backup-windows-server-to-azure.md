@@ -7,16 +7,16 @@ manager: shivamg
 keywords: windows server 备份; 备份 windows server; 备份和灾难恢复
 ms.service: backup
 ms.topic: tutorial
-origin.date: 02/14/2018
-ms.date: 07/06/2018
+origin.date: 08/22/2018
+ms.date: 09/25/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: cf5572e0de9dbddeecfbe0cbec57726d3070d64b
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.openlocfilehash: 177e4af6caa18b65fc094f62d952c5b9adb90cbb
+ms.sourcegitcommit: a4d8c8641a6341113532d8770603d4b66cc13ced
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873519"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47114531"
 ---
 # <a name="back-up-windows-server-to-azure"></a>将 Windows Server 备份到 Azure
 
@@ -30,9 +30,9 @@ ms.locfileid: "37873519"
 > * 执行即席备份
 
 
-## <a name="log-in-to-azure"></a>登录 Azure
+## <a name="sign-in-to-azure"></a>登录 Azure
 
-在 http://portal.azure.cn 登录 Azure 门户。
+通过 http://portal.azure.cn 登录到 Azure 门户。
 
 ## <a name="create-a-recovery-services-vault"></a>创建恢复服务保管库
 
@@ -74,13 +74,14 @@ Azure 恢复服务 (MARS) 代理在 Windows Server 和恢复服务保管库之�
     ![提供保管库信息](./media/tutorial-backup-windows-server-to-azure/backup-goal.png)
     
 4. 单击“准备基础结构”以打开“准备基础结构”菜单。
+
 5. 在“准备基础结构”菜单上，单击“下载 Windows Server 或 Windows 客户端的代理”，下载 MARSAgentInstaller.exe。 
 
     ![准备基础结构](./media/tutorial-backup-windows-server-to-azure/prepare-infrastructure.png)
 
     安装程序单独打开浏览器并下载 MARSAgentInstaller.exe。
  
-6. 运行此下载文件前，请单击“准备基础结构”边栏选项卡上的“下载”按钮，下载并保存“保管库凭据”文件。 连接 MARS 代理和恢复服务保管库时需使用此文件。
+6. 运行此下载文件前，请在“准备基础结构”菜单上单击“下载”，并保存“保管库凭据”文件。 需要保管库凭据才能将 MARS 代理与恢复服务保管库连接。
 
     ![准备基础结构](./media/tutorial-backup-windows-server-to-azure/download-vault-credentials.png)
  
@@ -116,13 +117,17 @@ Azure 恢复服务 (MARS) 代理在 Windows Server 和恢复服务保管库之�
 
 5. 单击“下一步”。
 
-6. 在“指定备份计划(系统状态)”页上，指定需为系统状态触发文件和文件夹备份的具体时间（哪天或哪周），然后单击“下一步”。 
+6. 在“指定备份计划(系统状态)”页上，指定需触发系统状态备份的时间（哪天或哪周），然后单击“下一步”。
 
-7. 在“选择保留策略”页上，为系统状态的文件和文件夹备份副本选择“保留策略”，然后单击“下一步”。
+7. 在“选择保留策略(系统状态)”页上，为系统状态的备份副本选择“保留策略”，然后单击“下一步”。
+
 8. 同样，为选择的文件和文件夹选择备份计划和保留策略。 
-8. 在“选择初始备份类型”页面上，使“自动通过网络”选项保持选中状态，然后单击“下一步”。
-9. 在“确认”页上检查信息，并单击“完成”。
-10. 在向导完成创建备份计划后，请单击“**关闭**”。
+
+9. 在“选择初始备份类型”页上，选择“自动通过网络”，然后单击“下一步”。
+
+10. 在“确认”页上检查信息，并单击“完成”。
+
+11. 在向导完成创建备份计划后，请单击“**关闭**”。
 
 ## <a name="perform-an-ad-hoc-back-up"></a>执行即席备份
 

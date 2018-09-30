@@ -1,6 +1,6 @@
 ---
-title: Azure 媒体服务输出元数据架构 | Azure
-description: 本主题概述 Azure 媒体服务输出元数据架构。
+title: Azure 媒体服务输出元数据架构 | Microsoft Docs
+description: 本主题概述了 Azure 媒体服务输出元数据架构。
 author: hayley244
 manager: digimobile
 editor: ''
@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 07/19/2017
 ms.date: 05/07/2018
 ms.author: v-haiqya
-ms.openlocfilehash: 6c0c86eaf4dd9a22d67acf3ead31aa34a4332abf
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+ms.openlocfilehash: ded2f57ca3d3aadb1a987a6f9ff83c55d6b1e05c
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219565"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426267"
 ---
 # <a name="output-metadata"></a>输出元数据
 ## <a name="overview"></a>概述

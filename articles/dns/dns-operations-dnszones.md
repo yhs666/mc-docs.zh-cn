@@ -1,5 +1,5 @@
 ---
-title: 在 Azure DNS 中管理 DNS 区域 - PowerShell | Azure
+title: 在 Azure DNS 中管理 DNS 区域 - PowerShell | Microsoft Docs
 description: 可以使用 Azure PowerShell 管理 DNS 区域。 本文介绍如何在 Azure DNS 上更新、删除和创建 DNS 区域
 services: dns
 documentationcenter: na
@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 origin.date: 03/19/2018
 ms.date: 05/21/2018
 ms.author: v-nany
-ms.openlocfilehash: b6dc03df1332adfa7a50bffb374ed5f41d747ae5
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.openlocfilehash: 669127c6969c674f2c9ae2d8160fa9f02a10e960
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39167769"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426358"
 ---
 # <a name="how-to-manage-dns-zones-using-powershell"></a>如何使用 PowerShell 管理 DNS 区域
 

@@ -1,5 +1,5 @@
 ---
-title: 媒体服务操作 REST API 概述 | Azure
+title: 媒体服务操作 REST API 概述 | Microsoft 文档
 description: 媒体服务 REST API 概述
 services: media-services
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 12/05/2017
 ms.date: 07/30/2018
 ms.author: v-nany
-ms.openlocfilehash: a9ee85fbf9b0bb50dc3f77867dae1409e96fd534
-ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
+ms.openlocfilehash: 116f8f3d2020d4fa8c4367882366509310562e19
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39723063"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426222"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>媒体服务操作 REST API 概述
 [!INCLUDE [media-services-selector-setup](../../../includes/media-services-selector-setup.md)]

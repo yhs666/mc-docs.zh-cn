@@ -1,5 +1,5 @@
 ---
-title: 将 FMLE 编码器配置为发送单比特率实时流 | Azure
+title: 配置 FMLE 编码器以发送单比特率实时流 | Microsoft Docs
 description: 本主题说明了如何配置 Flash Media Live Encoder (FMLE) 编码器，以便将单比特率流发送到 AMS 频道进行实时编码。
 services: media-services
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 01/05/2017
 ms.date: 09/25/2017
 ms.author: v-johch
-ms.openlocfilehash: e52aeeef426716676c42af6fed1444d72875d33b
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+ms.openlocfilehash: 66147aa427286bd937bc9f5634364db9418605db
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219603"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426250"
 ---
 # <a name="use-the-fmle-encoder-to-send-a-single-bitrate-live-stream"></a>使用 FMLE 编码器发送单比特率实时流
 > [!div class="op_single_selector"]

@@ -3,7 +3,7 @@ title: Media Encoder Standard 格式和编解码器
 description: 本主题概述 Media Encoder Standard 格式和编解码器。
 services: media-services
 documentationcenter: ''
-author: hayley244
+author: WenJason
 manager: digimobile
 editor: ''
 ms.assetid: f334b1ce-2f56-4968-a019-f0a2b0016d9f
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/20/2017
-ms.date: 1/22/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 85eeb1ca87859273b6f4c9fef1e653deec102d19
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+ms.date: 09/24/2018
+ms.author: v-jay
+ms.openlocfilehash: e911e1e3f8c7b56d4f6911993668f09b04407a21
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219719"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426353"
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>Media Encoder Standard 格式和编解码器
 本文档包含最常见的导入和导出文件格式的列表，可以将这些格式用于 Media Encoder Standard。
@@ -77,6 +77,7 @@ Media Encoder Standard 支持在输入容器中带有以下音频格式：
 | Apple ProRes Proxy |是 |
 | Apple ProRes 4444 |是 |
 | Apple ProRes 4444 XQ |是 |
+| HEVC/H.265| Main Profile|
 
 ## <a name="input-audio-codecs"></a>输入音频编解码器
 | 输入音频编解码器 | 支持 |

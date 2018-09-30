@@ -1,6 +1,6 @@
 ---
-title: 排查和诊断故障 - Azure 逻辑应用
-description: 了解逻辑应用发生故障的原因
+title: 排查和诊断故障 - Azure 逻辑应用 | Microsoft Docs
+description: 了解如何在 Azure 逻辑应用中排查和诊断工作流故障
 services: logic-apps
 documentationcenter: ''
 author: jeffhollan
@@ -13,16 +13,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: logic-apps
 origin.date: 10/15/2017
-ms.date: 07/30/2018
+ms.date: 10/15/2018
 ms.author: v-yiso
-ms.openlocfilehash: 992e4a0a931879a5a12bebf54bb743eb0148aa74
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.openlocfilehash: a150f4d75b85822d68d8ea0ceb57a7827be4aa58
+ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39167764"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47455272"
 ---
-# <a name="troubleshoot-and-diagnose-logic-app-failures"></a>排查和诊断逻辑应用故障
+# <a name="troubleshoot-and-diagnose-workflow-failures-in-azure-logic-apps"></a>在 Azure 逻辑应用中排查和诊断工作流故障
 
 逻辑应用生成的信息有助于诊断和调试应用中的问题。 可以在 Azure 门户中通过查看工作流中的每个步骤来诊断逻辑应用。 或者，可以在工作流中增加一些步骤，进行运行时调试。
 

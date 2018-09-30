@@ -11,12 +11,12 @@ ms.topic: article
 origin.date: 05/08/2018
 ms.date: 05/28/2018
 ms.author: v-nany
-ms.openlocfilehash: 3884d9655884d68dce4dc459a36fee8a4ced7e01
-ms.sourcegitcommit: 2a147231bf3d0a693adf58fceee76ab0fbcd6dbb
+ms.openlocfilehash: 3225e7c521b4f08812a2f8c4fab311e90ca7e315
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39335313"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426256"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>在 Azure 自动化中执行 Runbook
 
@@ -58,7 +58,7 @@ ms.locfileid: "39335313"
 
 在所选的“自动化帐户”右侧，可在“作业统计信息”磁贴下看到所选自动化帐户的所有 Runbook 作业的摘要。
 
-![作业统计信息磁贴](./media/automation-runbook-execution/automation-account-job-status-summary.png)上获取。
+![作业统计信息磁贴](./media/automation-runbook-execution/automation-account-job-status-summary.png)
 
 此磁贴显示执行的所有作业的作业状态计数和图形表示形式。
 

@@ -5,16 +5,16 @@ services: site-recovery
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
-origin.date: 08/15/2018
-ms.date: 09/17/2018
+origin.date: 09/12/2018
+ms.date: 09/24/2018
 ms.topic: conceptual
 ms.author: v-yeche
-ms.openlocfilehash: ad40eeb4483c2eb6b22bb7f9ee899de820186801
-ms.sourcegitcommit: 96d06c506983906a92ff90a5f67199f8f7e10996
+ms.openlocfilehash: 5b1ff968fbfb99ed403f52eee82b5b9633a0d4f8
+ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45587800"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47201390"
 ---
 # <a name="common-questions---hyper-v-to-azure-replication"></a>常见问题 - Hyper-V 到 Azure 的复制
 
@@ -40,14 +40,14 @@ ms.locfileid: "45587800"
 如果你是订阅管理员，则已经获得了所需的复制权限。 否则，需要有权在配置 Site Recovery 时指定的资源组和虚拟网络中创建 Azure VM，并有权写入选定的存储帐户。 [了解详细信息](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines)。
 
 ### <a name="is-replication-data-sent-to-site-recovery"></a>复制数据是否会发送到 Site Recovery？
-不会。Site Recovery 不会拦截复制的数据，也不包含 VM 上运行的组件的任何相关信息。 复制数据在 Hyper-V 主机与 Azure 存储之间交换。 站点恢复并不具有拦截该数据的能力。 只有协调复制与故障转移所需的元数据将发送到站点恢复服务。  
+不会。Site Recovery 不会拦截复制的数据，也不包含 VM 上运行的组件的任何相关信息。 复制数据在 Hyper-V 主机与 Azure 存储之间交换。 站点恢复并不具有拦截该数据的能力。 只有协调复制与故障转移所需的元数据会发送到站点恢复服务。  
 
-站点恢复已通过 ISO 27001:2013、27018、HIPAA、DPA 认证，目前正在接受 SOC2 和 FedRAMP JAB 评估。
+Site Recovery 已通过 ISO 27001:2013、27018、HIPAA、DPA 认证，目前正在接受 SOC2 和 FedRAMP JAB 评估。
 
 ### <a name="can-we-keep-on-premises-metadata-within-a-geographic-regions"></a>是否可将本地元数据保留在某个地理区域中？
 是的。 当你在某个区域中创建保管库时，我们会确保 Site Recovery 使用的所有元数据保留在该区域的地理边界内。
 
-### <a name="does-site-recovery-encrypt-replication"></a>站点恢复是否将复制数据加密？
+### <a name="does-site-recovery-encrypt-replication"></a>Site Recovery 是否将复制数据加密？
 是的，传输中加密和 [Azure 中加密](/storage/storage-service-encryption)均受支持。
 
 ## <a name="deployment"></a>部署
@@ -62,7 +62,7 @@ ms.locfileid: "45587800"
 
 ### <a name="what-do-i-need-on-premises"></a>需要在本地做好哪些准备？
 
-需要一个或多个在一个或多个独立或群集 Hyper-V 主机上运行的 VM。 还可以复制 System Center Virtual Machine Manager (VMM) 托管的主机上运行的 VM。 还可以复制 System Center Virtual Machine Manager (VMM) 托管的主机上运行的 VM。
+需要一个或多个在一个或多个独立或群集 Hyper-V 主机上运行的 VM。 还可以复制 System Center Virtual Machine Manager (VMM) 托管的主机上运行的 VM。
     - 如果不运行 VMM，则在 Site Recovery 部署期间，将 Hyper-V 主机和群集收集到 Hyper-V 站点中。 在每个 Hyper-V 主机上安装 Site Recovery 代理（Azure Site Recovery 提供程序和 Recovery Services 代理）。
     - 如果 Hyper-V 主机位于 VMM 云中，则在 VMM 中协调复制。 在 VMM 服务器上安装 Site Recovery 提供程序，在每个 Hyper-V 主机上安装恢复服务代理。 在 VMM 逻辑/VM 网络和 Azure VNet 之间进行映射。
     - 
@@ -80,13 +80,13 @@ ms.locfileid: "45587800"
 - 如果 Site Recovery 保管库中的 Hyper-V 主机上的某个 VM 迁移到同一群集中的其他 Hyper-V 主机或迁移到独立主机，则该 VM 的复制不受影响。 Hyper-V 主机必须满足[先决条件](hyper-v-azure-support-matrix.md#on-premises-servers)，且必须在 Site Recovery 保管库中进行配置。 
 
 ### <a name="can-i-protect-vms-when-hyper-v-is-running-on-a-client-operating-system"></a>当 Hyper-V 在客户端操作系统上运行时，我可以保护 VM 吗？
-不可以。VM 必须位于在受支持的 Windows 服务器计算机上运行的 Hyper-V 主机服务器上。 如果需要保护客户端计算机，可以[将其作为物理计算机复制](physical-azure-disaster-recovery.md)到 Azure。
+不可以。VM 必须位于在支持的 Windows 服务器计算机上运行的 Hyper-V 主机服务器上。 如果需要保护客户端计算机，可以[将其作为物理计算机复制](physical-azure-disaster-recovery.md)到 Azure。
 
-### <a name="can-i-replicate-hyper-v-generation-2-virtual-machines-to-azure"></a>我可以将 Hyper-V 第 2 代虚拟机复制到 Azure 吗？
-是的。 站点恢复在故障转移过程中将从第 2 代转换成第 1 代。 在故障回复时，计算机将转换回到第 2 代。
+### <a name="can-i-replicate-hyper-v-generation-2-virtual-machines-to-azure"></a>可以将 Hyper-V 第 2 代虚拟机复制到 Azure 吗？
+是的。 Site Recovery 在故障转移过程中将从第 2 代转换成第 1 代。 在故障回复时，计算机将转换回到第 2 代。
 
-### <a name="can-i-automate-site-recovery-scenarios-with-an-sdk"></a>是否可以使用 SDK 自动化 Site Recovery 方案？
-是的。 可以使用 Rest API、PowerShell 或 Azure SDK 将站点恢复工作流自动化。 以下为通过 PowerShell 将 Hyper-V 复制到 Azure 的当前支持方案：
+### <a name="can-i-automate-site-recovery-scenarios-with-an-sdk"></a>是否可以使用 SDK 自动执行 Site Recovery 方案？
+是的。 可以使用 Rest API、PowerShell 或 Azure SDK 将 Site Recovery 工作流自动化。 以下为通过 PowerShell 将 Hyper-V 复制到 Azure 的当前支持方案：
 
 - [使用 PowerShell 在无 VMM 的情况下复制 Hyper-V](hyper-v-azure-powershell-resource-manager.md)
 - [使用 PowerShell 在有 VMM 的情况下复制 Hyper-V](hyper-v-vmm-powershell-resource-manager.md)
@@ -103,8 +103,8 @@ ms.locfileid: "45587800"
 
 1. 当触发初始复制时，系统会拍摄一个 Hyper-V VM 快照。
 2. VM 上的虚拟硬盘是逐一复制的，直至全部复制到 Azure 为止。 该过程可能需要一些时间，具体取决于 VM 大小和网络带宽。 了解如何增加网络带宽。
-3. 如果在初始复制期间发生磁盘更改，Hyper-V 副本复制跟踪器将跟踪这些更改，并将其记录在 Hyper-V 复制日志 (.hrl) 中。 这些日志文件位于与磁盘相同的文件夹中。 每个磁盘都有一个关联的 .hrl 文件，该文件将发送到辅助存储器。 当初始复制正在进行时，快照和日志将占用磁盘资源。
-4. 当初始复制完成时，将删除 VM 快照。
+3. 如果在初始复制期间发生磁盘更改，Hyper-V 副本复制跟踪器将跟踪这些更改，并将其记录在 Hyper-V 复制日志 (.hrl) 中。 这些日志文件位于与磁盘相同的文件夹中。 每个磁盘都有一个关联的 .hrl 文件，该文件将发送到辅助存储器。 当初始复制正在进行时，快照和日志文件将占用磁盘资源。
+4. 当初始复制完成时，会删除 VM 快照。
 5. 日志中的任何磁盘更改会进行同步，并合并到父磁盘中。
 6. 初始复制完成后，“在虚拟机上完成保护”作业将运行。 该作业会配置网络和其他复制后设置以便保护 VM。
 7. 在此阶段，可以检查 VM 设置以确保它已为故障转移做好准备。 可针对 VM 运行灾难恢复钻取（测试故障转移）来检查它是否按预期进行故障转移。
@@ -145,9 +145,9 @@ Site Recovery 通过公共终结点或使用 ExpressRoute 公共对等互连将�
 可以从复制中排除磁盘。 
 
 ### <a name="can-i-replicate-vms-with-dynamic-disks"></a>是否可以复制包含动态磁盘的 VM？
-可以复制动态磁盘。 操作系统磁盘必须为基本磁盘。
+可以复制动态磁盘。 操作系统磁盘必须是基本磁盘。
 
-## <a name="security"></a>安全
+## <a name="security"></a>安全性
 
 ### <a name="what-access-does-site-recovery-need-to-hyper-v-hosts"></a>Site Recovery 需要对 Hyper-V 主机拥有哪些访问权限？
 
@@ -159,17 +159,13 @@ Site Recovery 需要对 Hyper-V 主机具备访问权限才能复制所选的 VM
 ### <a name="what-does-site-recovery-install-on-hyper-v-vms"></a>Site Recovery 在 Hyper-V VM 上安装什么内容？
 
 Site Recovery 不会在启用复制的 Hyper-V VM 上显式安装任何内容。
-- 在复制期间，VM 将与 Site Recovery 通信，如下所述：
-    - VM 通过 HTTPS 443 端口与配置服务器通信，以进行复制管理。
-    - VM 通过 HTTPS 9443 端口（可修改）将复制数据发送到进程服务器。
-    - 如果启用了多 VM 一致性，则 VM 通过端口 20004 相互通信。
 
 ## <a name="failover-and-failback"></a>故障转移和故障回复
 
 ### <a name="how-do-i-fail-over-to-azure"></a>如何故障转移到 Azure？
 
 可以运行从本地 Hyper-V VM 到 Azure 的计划内或计划外故障转移。
-    - 如果运行计划的故障转移，源 VM 将关闭以确保不会丢失数据。
+    - 如果运行计划内故障转移，则源 VM 关闭以确保不会丢失数据。
     - 如果无法访问主站点，可以运行计划外故障转移。
     - 可以故障转移单个虚拟机，或者创建恢复计划来协调多个虚拟机的故障转移。
     - 运行故障转移。 故障转移的第一阶段完成后，应该会在 Azure 中看到创建的副本 VM。 如果需要，可向 VM 分配公共 IP 地址。 然后，提交故障转移以开始从副本 Azure VM 访问工作负载。
@@ -198,7 +194,6 @@ Azure 具有复原能力。 Site Recovery 能够根据 Azure SLA 故障转移到
 5. 在工作负载进行故障回复后，启用反向复制，以便本地 VM 重新复制到 Azure。
 
 ### <a name="can-i-fail-back-to-a-different-location"></a>是否可以故障回复到不同位置？
-可以。故障转移到 Azure 后，如果原始位置不可用，可以故障回复到不同的位置。 [了解详细信息](concepts-types-of-failback.md#alternate-location-recovery-alr)。
+可以。故障转移到 Azure 后，如果原始位置不可用，可以故障回复到不同的位置。 [了解详细信息](hyper-v-azure-failback.md#failback-to-an-alternate-location-in-hyper-v-environment)。
 
-<!-- Update_Description: new articles on hyper v azure common questions -->
-<!--ms.date: 09/17/2018-->
+<!-- Update_Description: update meta properties, wording update -->

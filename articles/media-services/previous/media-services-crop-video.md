@@ -1,5 +1,5 @@
 ---
-title: 如何使用 Media Encoder Standard 裁剪视频 - Azure | Azure
+title: 如何使用 Media Encoder Standard 裁剪视频 - Azure | Microsoft Docs
 description: 本文说明如何使用 Media Encoder Standard 裁剪视频。
 services: media-services
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 08/09/2017
 ms.date: 09/04/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 4b2ab8e1e39f6e6b3d4e241ad57961b63b2633dd
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+ms.openlocfilehash: f2309eb15de895643a268e7793feac3a12463c3c
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219468"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426157"
 ---
 # <a name="crop-videos-with-media-encoder-standard"></a>使用 Media Encoder Standard 裁剪视频
 可以使用 Media Encoder Standard (MES) 裁剪输入视频。 裁剪是指在视频帧内选择一个矩形窗口并且只编码该窗口内的像素的过程。 下图可帮助说明该过程。

@@ -180,8 +180,6 @@ items:
       href: virtual-machine-scale-sets-deploy-app.md
     - name: 将数据磁盘与规模集配合使用
       href: virtual-machine-scale-sets-attached-disks.md
-    - name: 使用大型规模集
-      href: virtual-machine-scale-sets-placement-groups.md
     - name: 将规模集模板转换为使用托管磁盘
       href: virtual-machine-scale-sets-convert-template-to-md.md
     - name: 使用低优先级
@@ -232,9 +230,9 @@ items:
     href: https://www.azure.cn/pricing/calculator/
   - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-vm-scale-set
-ms.openlocfilehash: dc74ec3e24f015152cab13ad03e3a6441a97ef35
-ms.sourcegitcommit: 56ed1b03d83f222db6118fe1e2f2485a9488507f
+ms.openlocfilehash: 694c1f2d22e73e41953623103d864c9ba581cf9a
+ms.sourcegitcommit: 399060a8d46534abd370693f6282e7343b371634
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "41704898"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47455592"

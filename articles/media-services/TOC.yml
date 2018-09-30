@@ -1,8 +1,15 @@
+items:
 - name: Azure 媒体服务 v3（预览）
   href: latest/media-services-overview.md
 - name: Azure 媒体服务 v2 (GA)
   href: previous/media-services-overview.md
 - name: 资源
   items:
-    - name: 定价计算器
-      href: 'https://azure.cn/pricing/calculator/'
+  - name: 定价计算器
+    href: https://azure.cn/pricing/calculator/
+ms.openlocfilehash: a02f5bd8b8d4500caf287753fd541484afebc6a1
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426479"

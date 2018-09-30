@@ -1,5 +1,5 @@
 ---
-title: 使用脱机 Apple FairPlay 保护 HLS 内容 - Azure | Azure
+title: 使用脱机 Apple FairPlay 保护 HLS 内容 - Azure | Microsoft Docs
 description: 本主题概括介绍并演示了如何使用 Azure 媒体服务以脱机模式通过 Apple FairPlay 动态加密 HTTP Live Streaming (HLS) 内容。
 services: media-services
 keywords: HLS, DRM, FairPlay Streaming (FPS), 脱机, iOS 10
@@ -16,12 +16,12 @@ ms.topic: article
 origin.date: 12/01/2017
 ms.date: 1/22/2018
 ms.author: v-nany
-ms.openlocfilehash: 2e65ff788829c3aa845f77da5eb33d2e6ee055b4
-ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
+ms.openlocfilehash: 598fa7d6c65da02a9391b1f25b9d239ba44e71e7
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39723004"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426233"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>适用于 iOS 的脱机 FairPlay Streaming 
 Microsoft Azure 媒体服务提供一套设计良好的[内容保护服务](https://docs.azure.cn/media-services/media-services-content-protection-overview)，包括：

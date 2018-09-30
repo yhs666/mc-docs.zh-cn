@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 门户传送点播视频入门 | Azure
+title: 使用 Azure 门户传送点播视频入门 | Microsoft Docs
 description: 本教程介绍了在 Azure 门户中使用 Azure 媒体服务应用程序实施基本的视频点播内容传送服务的步骤。
 services: media-services
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: get-started-article
 origin.date: 08/07/2017
 ms.date: 09/04/2017
 ms.author: v-johch
-ms.openlocfilehash: 0955fc02cff8b14f2b5f1c3041ff7c2c24314ccd
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+ms.openlocfilehash: e08c026c119982fddaaa0e0d516215bd094e74ca
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219595"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426210"
 ---
 # <a name="get-started-with-delivering-content-on-demand-by-using-the-azure-portal"></a>使用 Azure 门户按需传送内容入门
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]

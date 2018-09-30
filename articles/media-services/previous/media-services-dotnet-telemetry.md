@@ -1,6 +1,6 @@
 ---
-title: 使用 .NET 配置 Azure 媒体服务遥测 | Azure
-description: 本文说明如何通过 .NET SDK 使用 Azure 媒体服务遥测。
+title: 使用 .NET 配置 Azure 媒体服务遥测 | Microsoft 文档
+description: 本文说明了如何通过 .NET SDK 使用 Azure 媒体服务遥测。
 services: media-services
 documentationcenter: ''
 author: yunan2016
@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 12/09/2017
 ms.date: 12/25/2017
 ms.author: v-nany
-ms.openlocfilehash: 19fa2b31e92f793f3e353bd8dc9907ed0d70e1fb
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+ms.openlocfilehash: 303f2f47d6deebe231f1f6938b234ff36f6cd095
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219580"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426169"
 ---
 # <a name="configuring-azure-media-services-telemetry-with-net"></a>使用 .NET 配置 Azure 媒体服务遥测
 

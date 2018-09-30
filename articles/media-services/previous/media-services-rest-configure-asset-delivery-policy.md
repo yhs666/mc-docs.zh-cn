@@ -1,5 +1,5 @@
 ---
-title: 使用媒体服务 REST API 配置资产传送策略 | Azure
+title: 使用媒体服务 REST API 配置资产传送策略 | Microsoft Docs
 description: 本主题介绍如何使用媒体服务 REST API 配置不同的资产传送策略。
 services: media-services
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 12/07/2017
 ms.date: 07/30/2018
 ms.author: v-nany
-ms.openlocfilehash: c94e7aeb01033d363564114b8c71c7199035fbe0
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+ms.openlocfilehash: 3de271929644d3cd29d852f4f654055f310b6652
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219546"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426193"
 ---
 # <a name="configuring-asset-delivery-policies"></a>配置资产传送策略
 [!INCLUDE [media-services-selector-asset-delivery-policy](../../../includes/media-services-selector-asset-delivery-policy.md)]

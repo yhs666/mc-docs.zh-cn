@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 origin.date: 05/22/2017
 ms.date: 09/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: d77eddcc63393d4ec4984363604d48cc8ec61a35
-ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
+ms.openlocfilehash: ab13928af6a462c45022fc70aa7bcbb882293f99
+ms.sourcegitcommit: 1b1f7254343b2a3ada7b253841f86f2ff88f0a0b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46526974"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47420910"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>配置一个或多个 Always On 可用性组侦听器 - Resource Manager
 本主题说明如何：
@@ -52,7 +52,9 @@ ms.locfileid: "46526974"
 > 如果使用 Azure 模板创建了可用性组，则已创建内部负载均衡器。 
 > 
 > 
-<!-- Not Available on [Microsoft 模板](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)--> 以下 PowerShell 脚本创建内部负载均衡器、配置负载均衡规则，并设置负载均衡器的 IP 地址。 要运行该脚本，请打开 Windows PowerShell ISE，然后将脚本粘贴到“脚本”窗格中。 使用 `Connect-AzureRmAccount` 登录到 PowerShell。 如果有多个 Azure 订阅，请使用 `Select-AzureRmSubscription ` 设置订阅。 
+<!-- Not Available on [Microsoft 模板](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)-->
+
+以下 PowerShell 脚本创建内部负载均衡器、配置负载均衡规则，并设置负载均衡器的 IP 地址。 要运行该脚本，请打开 Windows PowerShell ISE，然后将脚本粘贴到“脚本”窗格中。 使用 `Connect-AzureRmAccount` 登录到 PowerShell。 如果有多个 Azure 订阅，请使用 `Select-AzureRmSubscription ` 设置订阅。 
 
 ```powershell
 # Connect-AzureRmAccount -Environment AzureChinaCloud

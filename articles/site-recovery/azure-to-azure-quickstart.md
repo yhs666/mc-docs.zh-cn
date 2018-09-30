@@ -7,21 +7,21 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: quickstart
 origin.date: 07/06/2018
-ms.date: 07/23/2018
+ms.date: 09/24/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 781881fcb3aa91a65d3c55d08c0253890e83201a
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.openlocfilehash: 05ea2ad78ccee71aa07f0501b17360cf2923b7ae
+ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168364"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47201256"
 ---
 # <a name="replicate-an-azure-vm-to-another-azure-region"></a>将 Azure VM 复制到另一个 Azure 区域
 
 [Azure Site Recovery](site-recovery-overview.md) 服务通过在计划内和计划外中断期间使商业应用程序保持启动和运行状态，有助于实施业务连续性和灾难恢复 (BCDR) 策略。 Site Recovery 管理并安排本地计算机和 Azure 虚拟机 (VM) 的灾难恢复，包括复制、故障转移和恢复。
 
-本快速入门介绍如何将 Azure VM 复制到不同的 Azure 区域。 
+本快速入门介绍如何将 Azure VM 复制到不同的 Azure 区域。
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
@@ -59,8 +59,7 @@ ms.locfileid: "39168364"
 请按如下所述停止复制：
 
 1. 选择 VM。
-2. 在“灾难恢复”中，单击“更多”。
-3. 单击“禁用复制”。
+2. 在“灾难恢复”中，单击“禁用复制”。
 
    ![禁用复制](media/azure-to-azure-quickstart/disable2-replication.png)
 

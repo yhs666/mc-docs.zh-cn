@@ -1,5 +1,5 @@
 ---
-title: Azure DNS 委托概述 | Azure
+title: Azure DNS 委托概述 | Microsoft Docs
 description: 了解如何更改域委托并使用 Azure DNS 名称服务器提供域托管。
 services: dns
 documentationcenter: na
@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 origin.date: 12/18/2017
 ms.date: 05/21/2018
 ms.author: v-nany
-ms.openlocfilehash: d3754c68acdf5f6dd83477019a3811868dbf8805
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.openlocfilehash: d277461782f6fc60fcffddd36bb73e9178159dd0
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "34173071"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426201"
 ---
 # <a name="delegation-of-dns-zones-with-azure-dns"></a>使用 Azure DNS 委托 DNS 区域
 

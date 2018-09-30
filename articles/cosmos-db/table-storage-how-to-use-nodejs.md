@@ -9,14 +9,14 @@ ms.component: cosmosdb-table
 ms.devlang: nodejs
 ms.topic: sample
 origin.date: 04/05/2018
-ms.date: 07/02/2018
+ms.date: 09/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 3866b5dc3b961b80d58362ab0a12f43e25c7bf77
-ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
+ms.openlocfilehash: 084c6b66ca41860aca0f84cd3a7e68cd5c67dd5f
+ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37070206"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47201374"
 ---
 # <a name="how-to-use-azure-table-storage-from-nodejs"></a>如何通过 Node.js 使用 Azure 表存储
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -37,6 +37,7 @@ ms.locfileid: "37070206"
 
 ## <a name="configure-your-application-to-access-azure-storage"></a>创建用于访问 Azure 存储的应用程序
 若要使用 Azure 存储，需要 Azure Storage SDK for Node.js ，其中包括一组便于与存储 REST 服务进行通信的库。
+<!-- Notice: Should be Azure Storage SDK-->
 
 ### <a name="use-node-package-manager-npm-to-install-the-package"></a>使用节点包管理器 (NPM) 安装包
 1. 使用 PowerShell (Windows)、Terminal (Mac) 或 Bash (Unix) 等命令行接口导航到在其中创建了应用程序的文件夹。
