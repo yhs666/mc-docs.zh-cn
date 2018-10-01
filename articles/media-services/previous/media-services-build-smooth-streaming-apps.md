@@ -1,5 +1,5 @@
 ---
-title: 平滑流式处理 Windows 应用商店应用教程 | Azure
+title: 平滑流式处理 Windows 应用商店应用教程 | Microsoft Docs
 description: 了解如何使用 Azure 媒体服务来创建一个 C# Windows 应用商店应用程序，该应用程序包含一个用于播放平滑流内容的 XML MediaElement 控件。
 services: media-services
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 05/11/2017
 ms.date: 11/06/2017
 ms.author: v-johch
-ms.openlocfilehash: b6df7f692ee0cf4ea56edd1574e1bae5e32f461f
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+ms.openlocfilehash: 792aa42306b847edf26b69a0c8c0dd5d8679d33d
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219560"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426416"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>如何生成平滑流式处理 Windows 应用商店应用程序
 
@@ -39,7 +39,7 @@ ms.locfileid: "39219560"
 
 * Windows 8 32 位或 64 位。
 * Visual Studio 版本 2012 到 2015。
-* [适用于 Windows 8 的 Microsoft 平滑流式处理客户端 SDK](http://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Homehttp://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home)。
+* [适用于 Windows 8 的 Microsoft 平滑流式处理客户端 SDK](http://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home http://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home)。
 
 可从 MSDN 开发人员代码示例（代码库）下载每一课后生成的解决方案： 
 

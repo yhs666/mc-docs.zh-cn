@@ -16,12 +16,12 @@ origin.date: 11/29/2017
 ms.date: 09/24/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 9d719265373937fa56d8fe00332ad2b05568a2c1
-ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
+ms.openlocfilehash: 458c947fd423d265efa2a5aeb10064fe4e40e3af
+ms.sourcegitcommit: 1b1f7254343b2a3ada7b253841f86f2ff88f0a0b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46527011"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47420904"
 ---
 # <a name="azure-and-linux"></a>Azure 和 Linux
 Azure 是一个不断增长的集成公有云服务集合，包括分析、虚拟机、数据库、移动、网络、存储和 Web&mdash;是托管解决方案的理想选择。  Azure 提供可缩放的计算平台，允许即用即付，而无需投资购买本地硬件。  Azure 允许根据客户端所需的任何规模，随时扩展和缩减解决方案。
@@ -81,12 +81,16 @@ Azure 与合作伙伴紧密合作，以确保及时更新可用映像并针对 A
 * Canonical - [Azure 市场 - Ubuntu Server 16.04 LTS](https://market.azure.cn/zh-cn/marketplace/partners/canonical/ubuntuserver1604lts/)
 * Debian - [Azure 市场 - Debian 8 "Jessie"](https://market.azure.cn/zh-cn/marketplace/partners/credativ/debian8/)
 * FreeBSD - [Azure 市场 - FreeBSD 10.3](https://portal.azure.cn/#create/Microsoft.FreeBSD103-ARM)
-* CoreOS - [Azure 市场 - CoreOS（稳定版）](https://market.azure.cn/zh-cn/marketplace/partners/coreos/coreosstable/)
+* CoreOS - [Azure 市场 - CoreOS (Stable)](https://market.azure.cn/zh-cn/marketplace/partners/coreos/coreosstable/)
+
 <!-- Not Avaialbe * RancherOS - [Azure Marketplace - RancherOS](https://market.azure.cn/zh-cn/marketplace/partners/rancher/rancheros/)-->
-* Bitnami - [用于 Azure 的 Bitnami 库](https://azure.bitnami.com/)
+* Bitnami - [Bitnami Library for Azure](https://azure.bitnami.com/)
+
 <!-- Not Avaialbe * Mesosphere - [Azure Marketplace - Mesosphere DC/OS on Azure](https://market.azure.cn/zh-cn/marketplace/partners/mesosphere/dcosdcos/)-->
 <!-- Not Avaialbe * Docker - [Azure Marketplace - Azure Container Service with Docker Swarm](https://market.azure.cn/zh-cn/marketplace/partners/microsoft/acsswarms/)-->
+
 * Jenkins - [Azure 市场 - Jenkins Platform](https://market.azure.cn/zh-cn/marketplace/apps?search=jenkins)
+
 <!-- Notice: URL is correct on [Azure Marketplace - Jenkins Platform](https://market.azure.cn/zh-cn/marketplace/apps?search=jenkins)-->
 
 ## <a name="getting-started-with-linux-on-azure"></a>开始在 Azure 中使用 Linux

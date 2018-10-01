@@ -2,27 +2,21 @@
 title: 嵌入 Azure Power BI 工作区集合中的报表 | Microsoft Docs
 description: 了解如何将 Azure Power BI 工作区集合中的报表嵌入到应用程序中。
 services: power-bi-embedded
-documentationcenter: ''
-author: alexchen2016
-manager: digimobile
-editor: ''
-tags: ''
+author: markingmyname
 ROBOTS: NOINDEX
 ms.assetid: ''
 ms.service: power-bi-embedded
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: powerbi
 origin.date: 09/20/2017
-ms.date: 10/24/2017
+ms.date: 09/26/2018
 ms.author: v-junlch
-ms.openlocfilehash: 712782f9b08a5c370c68cae0da0f7734204a91fa
-ms.sourcegitcommit: 140d09254b5ded4b408980b43c0fc5d3643320a1
+ms.openlocfilehash: b15fe8adaf53f6aa7204caa9514d58d5c59db261
+ms.sourcegitcommit: 7c6ff130adaa67bc90094846f81295ef0719d072
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2017
-ms.locfileid: "23580288"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47191367"
 ---
 # <a name="embed-a-report-in-power-bi-workspace-collections"></a>嵌入 Power BI 工作区集合中的报表
 
@@ -41,7 +35,7 @@ ms.locfileid: "23580288"
 
 ## <a name="get-a-report-id"></a>获取报表 ID
 
-每个访问令牌基于某个报表。 需要获取想要嵌入的报表的给定报表 ID。 可以通过调用“获取报表”REST API 来实现此目的。[](https://msdn.microsoft.com/library/azure/mt711510.aspx) 此操作返回报表 ID 和嵌入 URL。 可以使用 Power BI .NET SDK 或通过直接调用 REST API 来实现此目的。
+每个访问令牌基于某个报表。 需要获取想要嵌入的报表的给定报表 ID。 可以通过调用 [获取报表](https://msdn.microsoft.com/library/azure/mt711510.aspx) REST API 来实现此目的。 此操作返回报表 ID 和嵌入 URL。 可以使用 Power BI .NET SDK 或通过直接调用 REST API 来实现此目的。
 
 ### <a name="using-the-power-bi-net-sdk"></a>使用 Power BI .NET SDK
 
@@ -118,7 +112,7 @@ var token = embedToken.Generate("{access key}");
 
 ## <a name="embed-using-javascript"></a>使用 JavaScript 嵌入
 
-获取访问令牌和报表 ID 后，可以使用 JavaScript 来嵌入报表。 这就需要安装 NuGet [Power BI JavaScript 包](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/)。 embedUrl 就是 https://embedded.powerbi.cn/appTokenReportEmbed。
+获取访问令牌和报表 ID 后，可以使用 JavaScript 来嵌入报表。 这就需要安装 NuGet [Power BI JavaScript 包](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/)。 embedUrl 将只是 https://embedded.powerbi.cn/appTokenReportEmbed。
 
 > [!NOTE]
 > 可以使用 [JavaScript 报表嵌入示例](https://microsoft.github.io/PowerBI-JavaScript/demo/)测试功能。 我们还提供了适用于不同操作的代码示例。
@@ -164,3 +158,4 @@ var report = powerbi.embed($reportContainer.get(0), embedConfiguration);
 
 有更多问题？ [试用 Power BI 社区](http://community.powerbi.com/)
 
+<!-- Update_Description: update metedata properties -->

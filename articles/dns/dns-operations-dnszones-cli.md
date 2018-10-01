@@ -1,5 +1,5 @@
 ---
-title: 在 Azure DNS 中管理 DNS 区域 - Azure CLI 2.0 | Azure
+title: 在 Azure DNS 中管理 DNS 区域 - Azure CLI 2.0 | Microsoft 文档
 description: 可以使用 Azure CLI 2.0 管理 DNS 区域。 本文介绍如何在 Azure DNS 上更新、删除和创建 DNS 区域。
 services: dns
 documentationcenter: na
@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 origin.date: 02/27/2017
 ms.date: 05/21/2018
 ms.author: v-nany
-ms.openlocfilehash: 0d971e8a4aec50e19daa64a6d278f7f077d16276
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 0baf51211057f1541cd50b0849bf120cd25e44e1
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475014"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426306"
 ---
 # <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli-20"></a>如何使用 Azure CLI 2.0 管理 Azure DNS 中的 DNS 区域
 

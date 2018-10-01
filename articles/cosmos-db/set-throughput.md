@@ -8,14 +8,14 @@ ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 07/03/2018
-ms.date: 09/03/2018
+ms.date: 09/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: fb31b5349067d171b5255490a37d53221a8a570b
-ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
+ms.openlocfilehash: 4bb8cd69facd447efbdedca014afaf85fb1591c3
+ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43164847"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47201389"
 ---
 <!-- Notice: Meta Not Available on graphs, and tables -->
 # <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>为 Azure Cosmos DB 容器和数据库设置和获取吞吐量
@@ -64,7 +64,7 @@ Azure Cosmos DB 会根据预配的吞吐量分配物理分区，以便托管容�
 2. 在左侧导航中选择“所有资源”，找到自己的 Azure Cosmos DB 帐户。  
 3. 可以在创建数据库或更新现有数据库的吞吐量时配置吞吐量。  
 4. 若要在创建数据库时分配吞吐量，请打开“数据资源管理器”边栏选项卡，然后选择“新建数据库”  
-5. 填充“数据库 ID”值，勾选“预配吞吐量”选项，然后配置吞吐量值。 可以使用最小吞吐量值“50,000 RU/秒”来预配数据库。  
+5. 填充“数据库 ID”值，勾选“预配吞吐量”选项，然后配置吞吐量值。  
 
    ![使用新数据库选项设置吞吐量](./media/set-throughput/set-throughput-with-new-database-option.png)
 
@@ -77,7 +77,7 @@ Azure Cosmos DB 会根据预配的吞吐量分配物理分区，以便托管容�
 1. 登录到 [Azure 门户](https://portal.azure.cn)。  
 2. 在左侧导航中选择“所有资源”，找到自己的 Azure Cosmos DB 帐户。  
 3. 创建数据库并向其分配吞吐量。 打开“数据资源管理器”边栏选项卡，然后选择“新建数据库”  
-4. 填充“数据库 ID”值，勾选“预配吞吐量”选项，然后配置吞吐量值。 可以使用最小吞吐量值“50,000 RU/秒”来预配数据库。  
+4. 填充“数据库 ID”值，勾选“预配吞吐量”选项，然后配置吞吐量值。  
 
    ![使用新数据库选项设置吞吐量](./media/set-throughput/set-throughput-with-new-database-option.png)
 
@@ -110,33 +110,6 @@ Azure Cosmos DB 会根据预配的吞吐量分配物理分区，以便托管容�
 * Azure Cosmos DB 容器数目较少。  
 
 * 需要在 SLA 所支持的某个给定容器上获取保证的吞吐量。
-
-## <a name="throughput-ranges"></a>吞吐量范围
-
-下表列出了适用于容器的吞吐量：
-
-<table border="0" cellspacing="0" cellpadding="0">
-    <tbody>
-        <tr>
-            <td valign="top"><p></p></td>
-            <td valign="top"><p><strong>单分区容器</strong></p></td>
-            <td valign="top"><p><strong>分区的容器</strong></p></td>
-            <td valign="top"><p><strong>一组容器</strong></p></td>
-        </tr>
-        <tr>
-            <td valign="top"><p>最小吞吐量</p></td>
-            <td valign="top"><p>400 个请求单位/秒</p></td>
-            <td valign="top"><p>1,000 个请求单位/秒</p></td>
-            <td valign="top"><p>50,000 个请求单位/秒</p></td>
-        </tr>
-        <tr>
-            <td valign="top"><p>最大吞吐量</p></td>
-            <td valign="top"><p>10,000 个请求单位/秒</p></td>
-            <td valign="top"><p>无限制</p></td>
-            <td valign="top"><p>无限制</p></td>
-        </tr>
-    </tbody>
-</table>
 
 <a name="set-throughput-sdk"></a>
 
@@ -193,9 +166,9 @@ Azure Cosmos DB 运行一个预留模型来预配吞吐量。 也就是说，用
 // Fetch the resource to be updated
 // For a updating throughput for a set of containers, replace the collection's self link with the database's self link
 Offer offer = client.CreateOfferQuery()
-    .Where(r => r.ResourceLink == collection.SelfLink)    
-    .AsEnumerable()
-    .SingleOrDefault();
+                .Where(r => r.ResourceLink == collection.SelfLink)    
+                .AsEnumerable()
+                .SingleOrDefault();
 
 // Set the throughput to 5000 request units per second
 offer = new OfferV2(offer, 5000);

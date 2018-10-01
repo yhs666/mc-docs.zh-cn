@@ -2,24 +2,19 @@
 title: 教程 - 在 Azure DNS 中托管域和子域
 description: 本教程说明如何配置用于托管 DNS 区域的 Azure DNS。
 services: dns
-documentationcenter: na
-author: yunan2016
+author: WenJason
 manager: digimobile
-ms.assetid: 257da6ec-d6e2-4b6f-ad76-ee2dde4efbcc
 ms.service: dns
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+ms.topic: tutorial
 origin.date: 06/13/2018
-ms.date: 06/25/2018
-ms.author: v-nany
-ms.openlocfilehash: fb5fe6ff3a48c1c5082e3a43a534645acfa46713
-ms.sourcegitcommit: 9f78ba87a377011f078025c56032b7f898d9742c
+ms.date: 10/01/2018
+ms.author: v-jay
+ms.openlocfilehash: 4bdb0cacf94ae34fe4a7a1d7896af40deaf34145
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36299271"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426425"
 ---
 # <a name="tutorial-host-your-domain-in-azure-dns"></a>教程：在 Azure DNS 中托管域
 
@@ -109,7 +104,7 @@ default TTL = 300 (5 mins)
 
 ## <a name="clean-up-resources"></a>清理资源
 
-不再需要时，请删除 **contosoRG** 资源组，以便删除在本教程中创建的资源。 为此，请单击 **contosoRG** 资源组，然后单击“删除资源组”。 
+如果打算继续执行下一教程，可以保留 **contosoRG** 资源组。 否则，请删除 **contosoRG** 资源组以删除在本教程中创建的资源。 为此，请单击 **contosoRG** 资源组，然后单击“删除资源组”。 
 
 ## <a name="next-steps"></a>后续步骤
 

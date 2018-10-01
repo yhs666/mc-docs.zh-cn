@@ -10,16 +10,25 @@ ms.custom: quick start connect, mvc, devcenter
 ms.devlang: python
 ms.topic: quickstart
 origin.date: 04/13/2018
-ms.date: 07/02/2018
+ms.date: 09/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 991b95bdb1709c32b4cd1a41ce92322c2b35a18c
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: b83feded816a19402e7f805d15356fd4e87a815c
+ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939828"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47201317"
 ---
 # <a name="azure-cosmos-db-build-a-sql-api-app-with-python-and-the-azure-portal"></a>Azure Cosmos DB：使用 Python 和 Azure 门户生成 SQL API 应用
+
+> [!div class="op_single_selector"]
+> * [.NET](create-sql-api-dotnet.md)
+> * [Java](create-sql-api-java.md)
+> * [Node.js](create-sql-api-nodejs.md)
+> * [Node.js- v2](create-sql-api-nodejs-preview.md)
+> * [Python](create-sql-api-python.md)
+> * [Xamarin](create-sql-api-xamarin-dotnet.md)
+>  
 
 Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务。 可以快速创建和查询文档数据库，这些数据库受益于 Azure Cosmos DB 核心的多区域分布和水平缩放功能。 
 <!-- NOTICE: 全球分布 TO 多区域分布 -->
@@ -143,7 +152,7 @@ Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务
 
 现在返回到 Azure 门户，获取连接字符串信息，并将其复制到应用。
 
-1. 在 Azure 门户上的 Azure Cosmos DB 帐户中，单击左侧导航栏中的“密钥”。[](http://portal.azure.cn/) 使用屏幕右侧的复制按钮将“URI”和“主密钥”复制到下一步的 DocumentDBGetStarted.py 文件中。
+1. 在 [Azure 门户](http://portal.azure.cn/) 上的 Azure Cosmos DB 帐户中，单击左侧导航栏中的“密钥”。 使用屏幕右侧的复制按钮将“URI”和“主密钥”复制到下一步的 DocumentDBGetStarted.py 文件中。
 
     ![在 Azure 门户的“密钥”边栏选项卡中查看并复制访问密钥](./media/create-sql-api-dotnet/keys.png)
 
@@ -207,4 +216,4 @@ Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务
 
 > [!div class="nextstepaction"]
 > [将 SQL API 的数据导入 Azure Cosmos DB](import-data.md)
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, update link -->

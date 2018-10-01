@@ -13,12 +13,12 @@ ms.topic: conceptual
 origin.date: 09/07/2018
 ms.date: 09/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: 65044f1e798d4e334fde72e9b3d62c21812ffaa9
-ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
+ms.openlocfilehash: f05bb0e3d409e443723356175d06531a84c7129b
+ms.sourcegitcommit: 5616622f754f3b83c7120a3d1344d0344e03ca61
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46527049"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47188783"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>将资源移到新资源组或订阅中
 
@@ -170,17 +170,31 @@ Authorization: Bearer <access-token>
 * Analysis Services
 * API 管理
 * 应用服务应用（Web 应用）- 请参阅[应用服务限制](#app-service-limitations)
-* 应用服务证书 <!-- Not Available * Application Insights-->
-* 自动化 <!-- Not Available * Azure Active Directory B2C-->
-* Azure Cosmos DB <!-- Not Available * Azure Maps -->
+* 应用服务证书
+
+<!-- Not Available * Application Insights-->
+
+* 自动化
+
+<!-- Not Available * Azure Active Directory B2C-->
+
+* Azure Cosmos DB
+
+<!-- Not Available * Azure Maps -->
 <!-- Not Available * Azure Relay -->
+
 * Azure Stack - 注册
-* Batch <!-- Not Available * BizTalk Services-->
+* 批处理
+
+<!-- Not Available * BizTalk Services-->
 <!-- Not Available * Bot Service-->
+
 * CDN
 * 云服务 - 请参阅 [经典部署限制](#classic-deployment-limitations)
 * 认知服务
-* 容器注册表 <!-- Not Available * Content Moderator-->
+* 容器注册表
+
+<!-- Not Available * Content Moderator-->
 <!-- Not Available * Cost Management-->
 <!-- Not Available * Customer Insights-->
 <!-- Not Available * Data Catalog-->
@@ -189,31 +203,53 @@ Authorization: Bearer <access-token>
 <!-- Not Available * Data Lake Store-->
 <!-- Not Available * DNS-->
 <!-- Not Available * Event Grid-->
+
 * 事件中心
 * HDInsight 群集 - 请参阅 [HDInsight 限制](#hdinsight-limitations)
+
 <!-- Not Available * Iot Central-->
+
 * IoT 中心
 * 密钥保管库
 * 负载均衡器 - 请参阅[负载均衡器限制](#lb-limitations)
+
 <!-- Not Available * Log Analytics-->
-* 逻辑应用 <!-- Not Available * Machine Learning - Machine Learning Studio web services can be moved to a resource group in the same subscription, but not a different subscription. Other Machine Learning resources can be moved across subscriptions.-->
+
+* Logic Apps
+
+<!-- Not Available * Machine Learning - Machine Learning Studio web services can be moved to a resource group in the same subscription, but not a different subscription. Other Machine Learning resources can be moved across subscriptions.-->
 <!-- Not Available * Managed Identity - user-assigned-->
-* 媒体服务 <!-- Not Available * Mobile Engagement-->
-* 通知中心 <!-- Not Available * Operational Insights-->
+
+* 媒体服务
+
+<!-- Not Available * Mobile Engagement-->
+
+* 通知中心
+
+<!-- Not Available * Operational Insights-->
 <!-- Not Available * Operations Management-->
+
 * 门户仪表板
 * Power BI - Power BI Embedded 和 Power BI 工作区集合
 * 公共 IP - 请参阅[公共 IP 限制](#pip-limitations)
 * Redis缓存 - 如果 Redis 缓存实例配置了虚拟网络，则无法将该实例移动到其他订阅。 请参阅[虚拟网络限制](#virtual-networks-limitations)。
-* 计划程序 <!-- Not Available * Search-->
+* 计划程序
+
+<!-- Not Available * Search-->
+
 * 服务总线
-* Service Fabric <!-- Not Available * Service Fabric Mesh-->
+* Service Fabric
+
+<!-- Not Available * Service Fabric Mesh-->
 <!-- Not Available * SignalR Service-->
+
 * 存储 - 不同区域的存储帐户无法通过同一操作进行移动。 请改为对每个区域使用单独的操作。
 * 存储（经典）- 请参阅[经典部署限制](#classic-deployment-limitations)
 * 流分析 - 当流分析作业处于运行状态时，则无法进行移动。
 * SQL 数据库服务器 - 数据库和服务器必须位于同一个资源组中。 移动 SQL 服务器时，也会移动其所有数据库。 此行为适用于 Azure SQL 数据库和 Azure SQL 数据仓库数据库。
+
 <!-- Not Available * Time Series Insights-->
+
 * 流量管理器
 * 虚拟机 - 包含托管磁盘的 VM 无法移动。 请参阅[虚拟机限制](#virtual-machines-limitations)
 * 虚拟机（经典）- 请参阅[经典部署限制](#classic-deployment-limitations)
@@ -226,31 +262,49 @@ Authorization: Bearer <access-token>
 以下列表提供了不能移动到新资源组和订阅的 Azure 服务的一般摘要。 有关更多详细信息，请参阅[资源的移动操作支持](move-support-resources.md)。
 
 <!-- Not Available * AD Domain Services-->
+
 * AD 混合运行状况服务
 * 应用程序网关
 * Azure Database for MySQL
-* Azure Database for PostgreSQL <!-- Not Available * Azure Database Migration-->
+* Azure Database for PostgreSQL
+
+<!-- Not Available * Azure Database Migration-->
 <!-- Not Available * Azure Databricks-->
 <!-- Not Available * Azure Migrate-->
 <!-- Not Available * Batch AI-->
+
 * 证书 - 应用服务证书可以移动，但上传的证书存在[限制](#app-service-limitations)。
+
 <!-- Not Available * Container Instances-->
 <!-- Not Available * Container Service-->
 <!-- Not Available * Data Box-->
 <!-- Not Available * Dev Spaces-->
 <!-- Not Available * Dynamics LCS-->
-* Express Route <!-- Not Available * Kubernetes Service-->
+
+* Express Route
+
+<!-- Not Available * Kubernetes Service-->
 <!-- Not Available * Lab Services-->
+
 * 负载均衡器 - 请参阅[负载均衡器限制](#lb-limitations)
+
 <!-- Not Available * Managed Applications-->
+
 * 托管磁盘 - 请参阅[虚拟机限制](#virtual-machines-limitations)
+
 <!-- Not Available * Azure Genomics-->
 <!-- Not Available * NetApp-->
+
 * 公共 IP - 请参阅[公共 IP 限制](#pip-limitations)
 * 恢复服务保管库 - 此外，也不可以移动与恢复服务保管库关联的计算、网络和存储资源，请参阅[恢复服务限制](#recovery-services-limitations)。
+
 <!-- Not Available * SAP HANA on Azure-->
+
 * 安全性
-* Site Recovery <!-- Not Available * StorSimple Device Manager-->
+* 站点恢复
+
+<!-- Not Available * StorSimple Device Manager-->
+
 * 虚拟网络（经典）- 请参阅[经典部署限制](#classic-deployment-limitations)
 
 ## <a name="virtual-machines-limitations"></a>虚拟机限制

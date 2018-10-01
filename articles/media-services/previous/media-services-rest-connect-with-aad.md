@@ -1,5 +1,5 @@
 ---
-title: 通过 Azure AD 身份验证使用 REST 访问 Azure 媒体服务 API | Azure
+title: 通过 Azure AD 身份验证使用 REST 访问 Azure 媒体服务 API | Microsoft Docs
 description: 了解如何通过 Azure Active Directory 身份验证使用 REST 访问 Azure 媒体服务 API。
 services: media-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 12/26/2017
 ms.date: 05/07/2018
 ms.author: v-nany
-ms.openlocfilehash: a14dabba5ecc093721e68ae27f6a24ab2007652d
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+ms.openlocfilehash: 3a5f6514b5c3bcac0dc67f2937f8d256d7feb44f
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219482"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426235"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-azure-media-services-api-with-rest"></a>通过 Azure AD 身份验证使用 REST 访问 Azure 媒体服务 API
 
@@ -61,7 +61,7 @@ ms.locfileid: "39219482"
 
 |设置|示例|说明|
 |---|-------|-----|
-|Azure Active Directory 租户域|microsoft.partner.onmschina.cn|作为安全令牌服务 (STS) 终结点的 Azure AD 是使用以下格式创建的：https://login.partner.microsoftonline.cn/{your-aad-tenant-name.partner.onmschina.cn}/oauth2/token。 Azure AD 颁发用于访问资源的 JWT（一种访问令牌）。|
+|Azure Active Directory 租户域|microsoft.partner.onmschina.cn|作为安全令牌服务 (STS) 终结点的 Azure AD 是使用以下格式创建的： https://login.partner.microsoftonline.cn/{your-aad-tenant-name.partner.onmschina.cn}/oauth2/token。 Azure AD 颁发用于访问资源的 JWT（一种访问令牌）。|
 |REST API 终结点|https://amshelloworld.restv2.chinanorth.media.chinacloudapi.cn/api/|这是应用程序中发出的所有媒体服务 REST API 调用所针对的终结点。|
 |客户端 ID（应用程序 ID）|f7fbbb29-a02d-4d91-bbc6-59a2579259d2|Azure AD 应用程序（客户端）ID。 需要提供客户端 ID 才能获取访问令牌。 |
 |客户端机密|+mUERiNzVMoJGggD6aV1etzFGa1n6KeSlLjIq+Dbim0=|Azure AD 应用程序密钥（客户端机密）。 需要提供客户端机密才能获取访问令牌。|
@@ -163,7 +163,7 @@ ms.locfileid: "39219482"
 
 1. 打开 **Postman**。
 2. 选择“GET” 。
-3. 粘贴 REST API 终结点（例如，https://amshelloworld.restv2.chinanorth.media.chinacloudapi.cn/api/Assets)
+3. 粘贴 REST API 终结点（例如， https://amshelloworld.restv2.chinanorth.media.chinacloudapi.cn/api/Assets)
 4. 选择“授权”选项卡。 
 5. 选择“持有者令牌”。
 6. 粘贴在上一节创建的令牌。
