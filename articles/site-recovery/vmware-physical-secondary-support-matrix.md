@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: article
 origin.date: 07/06/2018
-ms.date: 07/23/2018
+ms.date: 09/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: 6de4475e2f0d08367c986f1bbdbb5ba9c0cb4c3b
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.openlocfilehash: 268a604cb7e36ca689c0754a40a84d06ecd1fd87
+ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42872029"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47201284"
 ---
 # <a name="support-matrix-for-replication-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>将 VMware VM 或物理服务器复制到辅助站点时的支持矩阵
 
@@ -113,7 +113,9 @@ RDM | 是
 **更新** | **详细信息** 
 --- | --- 
 Scout 更新 | [了解和下载](vmware-physical-secondary-disaster-recovery.md#updates)最新的 Scout 更新 | Scout 更新是累积更新。
-<!-- Notice: Archor should be (vmware-physical-secondary-disaster-recovery.md#updates)--> 组件更新 | Scout 更新包括所有组件的更新，包括 RX 服务器、配置服务器、进程和主目标服务器，vContinuum 服务器和要保护的源服务器。<br/><br/> [了解详细信息](vmware-physical-secondary-disaster-recovery.md#download-and-install-component-updates)。
+组件更新 | Scout 更新包括所有组件的更新，包括 RX 服务器、配置服务器、进程和主目标服务器，vContinuum 服务器和要保护的源服务器。<br/><br/> [了解详细信息](vmware-physical-secondary-disaster-recovery.md#download-and-install-component-updates)。
+
+<!-- Notice: Archor should be (vmware-physical-secondary-disaster-recovery.md#updates)-->
 
 ## <a name="next-steps"></a>后续步骤
 

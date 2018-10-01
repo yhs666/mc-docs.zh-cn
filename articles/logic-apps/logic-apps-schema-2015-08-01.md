@@ -1,6 +1,6 @@
 ---
 title: 架构更新（2015 年 8 月 1 日预览版）- Azure 逻辑应用
-description: 为架构版本为 2015-08-01-preview 的 Azure 逻辑应用创建 JSON 定义
+description: 针对 Azure 逻辑应用中的逻辑应用定义更新了架构版本 2015 年 8 月 1 日预览版
 author: stepsic-microsoft-com
 manager: jeconnoc
 editor: ''
@@ -14,14 +14,14 @@ ms.devlang: ''
 ms.topic: article
 ms.custom: H1Hack27Feb2017
 origin.date: 05/31/2016
-ms.date: 07/02/2018
+ms.date: 10/15/2018
 ms.author: v-yiso
-ms.openlocfilehash: 915310a8e499a445fbfbe4d693cc3a59b71577e6
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.openlocfilehash: 924f70ec726a5ead5682fad451da90d4ad880f85
+ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315449"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47455210"
 ---
 # <a name="schema-updates-for-azure-logic-apps---august-1-2015-preview"></a>Azure 逻辑应用的架构更新 - 2015 年 8 月 1 日预览版
 
@@ -47,7 +47,7 @@ ms.locfileid: "36315449"
 
 Microsoft 代表你管理某些 API，例如 Office 365、Salesforce、Twitter 和 FTP。 某些托管 API 可以按原样使用（例如必应翻译），但另一些 API 需要进行配置，也称为连接。
 
-例如，在使用 Office 365 时，必须创建包括 Office 365 登录令牌的连接。 令牌以安全方式存储和刷新，以便逻辑应用可以随时调用 Office 365 API。 如果要连接到 SQL 或 FTP 服务器，则必须创建具有连接字符串的连接。 具有连接字符串。 
+例如，在使用 Office 365 时，必须创建包括 Office 365 登录令牌的连接。 令牌以安全方式存储和刷新，以便逻辑应用可以随时调用 Office 365 API。 如果要连接到 SQL 或 FTP 服务器，则必须创建具有连接字符串的连接。 
 
 在此定义中，这些操作名为 `APIConnection`。 下面是调用 Office 365 以发送电子邮件的连接的示例：
 
