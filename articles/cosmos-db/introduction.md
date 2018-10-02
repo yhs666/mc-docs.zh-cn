@@ -8,15 +8,15 @@ ms.service: cosmos-db
 ms.devlang: na
 ms.topic: overview
 origin.date: 04/08/2018
-ms.date: 09/03/2018
+ms.date: 09/30/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 2909132487cb2e85475f124a9cca16285d0f0215
-ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
+ms.openlocfilehash: de1ab047839f8236c462676ba5e50ae4b2478862
+ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43164973"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47201282"
 ---
 <!-- Notice in meta : 全球 to 多个区域 -->
 # <a name="welcome-to-azure-cosmos-db"></a>欢迎使用 Azure Cosmos DB
@@ -48,7 +48,7 @@ Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库。 �
         <!--Not Available * [Cassandra API](cassandra-introduction.md)-->
         <!--Not Available * [Graph (Gremlin) API](graph-introduction.md)-->
 
-* **在中国范围内按需求灵活且独立地缩放吞吐量和存储**
+* **在多个区域按需求灵活且独立地缩放吞吐量和存储**
     * 以[秒](request-units.md)为时间粒度轻松缩放数据库吞吐量，并随时对其进行更改。 
     * [透明且自动地](partition-data.md)缩放存储大小，以满足现在和将来对大小的要求。
     <!-- NOTICE: 全球分布 TO 多区域分布 -->
@@ -89,6 +89,7 @@ Azure Cosmos DB 提供传统关系数据库和非关系数据库的最佳功能�
 | 高可用性 | 否 | 是 | 是的，Azure Cosmos DB 始终可用，实施定义完善的 PACELC 权衡，并提供自动和手动故障转移选项|
 | 数据模型 + API | 关系 + SQL | 多模型 + OSS API | 多模型 + SQL + OSS API（即将推出更多） |
 | SLA | 是 | 否 | 是的，综合性 SLA 的内容涵盖延迟、吞吐量、一致性和可用性 |
+
 <!-- NOTICE: 全球分布 TO 多区域分布 -->
 
 ## <a name="solutions-that-benefit-from-azure-cosmos-db"></a>受益于 Azure Cosmos DB 的解决方案
@@ -103,4 +104,4 @@ Azure Cosmos DB 提供传统关系数据库和非关系数据库的最佳功能�
 <!--Not Available on * [Get started with Azure Cosmos DB Cassandra API](create-cassandra-dotnet.md) -->
 <!--Not Available on * [Get started with Azure Cosmos DB Gremlin API](create-graph-dotnet.md) -->
 <!--Not Available on * [Get started with Azure Cosmos DB Table API](create-table-dotnet.md) -->
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties, wording update, update link -->

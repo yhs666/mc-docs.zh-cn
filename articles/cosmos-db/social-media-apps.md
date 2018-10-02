@@ -9,14 +9,14 @@ ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 06/27/2018
-ms.date: 08/13/2018
+ms.date: 09/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: e3f330e144fc793cbcf0669f09b8ad11cfc68923
-ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
+ms.openlocfilehash: 64de270567b376cbf9dbe6baf270b52741362a49
+ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41704054"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47201315"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>使用 Azure Cosmos DB 进行社交
 生活在大规模互连的社会中，这意味着有时候你也成了社交网络中的一部分。 使用社交网络与朋友、同事和家人保持联系，有时还会与有共同兴趣的人分享我们的激情。
@@ -40,7 +40,7 @@ ms.locfileid: "41704054"
 当然，也可以使用一个功能足够强大的超大 SQL 实例来解决数以千计的查询，其中可以使用许多这些连接来为你提供内容，但当已经有一个更简单的解决方案存在时，为什么还要选择这种呢？
 
 ## <a name="the-nosql-road"></a>NoSQL 加载
-本文介绍如何以经济高效的方式使用 Azure 的 NoSQL 数据库 [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) 对社交平台的数据进行建模。 使用 [NoSQL](https://en.wikipedia.org/wiki/NoSQL) 方法以 JSON 格式存储数据并应用[非规范化](https://en.wikipedia.org/wiki/Denormalization)，就可以将我们以前的复杂帖子转换为单个[文档](https://en.wikipedia.org/wiki/Document-oriented_database)：<!-- Not Available [Gremlin Graph API](../cosmos-db/graph-introduction.md) -->
+本文介绍如何以经济高效的方式使用 Azure 的 NoSQL 数据库 [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) 对社交平台的数据进行建模。 使用 [NoSQL](https://en.wikipedia.org/wiki/NoSQL) 方法以 JSON 格式存储数据并应用[非规范化](https://en.wikipedia.org/wiki/Denormalization)，就可以将以前的复杂帖子转换为单个[文档](https://en.wikipedia.org/wiki/Document-oriented_database)：<!-- Not Available [Gremlin Graph API](../cosmos-db/graph-introduction.md) -->
 
     {
         "id":"ew12-res2-234e-544f",
@@ -218,7 +218,7 @@ Cosmos DB 根据给定的**分区键**（定义为文档中的一个属性）自
 
 值得一提的有趣的一点是，Cosmos DB 以透明方式在所有分区中运行查询（包括[聚合](https://azure.microsoft.com/blog/planet-scale-aggregates-with-azure-documentdb/)），无需在数据增长过程中添加任何逻辑。
 
-一段时间后，最终流量会增加，资源消耗（通过 [RU](request-units.md) 即“请求单位”进行度量）也会增加。 随着用户群的增长，读取和写入操作会更加频繁，用户将开始创建和读取更多内容；**缩放吞吐量**的能力至关重要。 增加 RU 非常容易，可以通过在 Azure 门户中单击几次或[通过 API 发出命令](https://docs.microsoft.com/rest/api/cosmos-db/replace-an-offer)来实现。
+一段时间后，最终流量会增加，资源消耗（通过 [RU](request-units.md) 即“请求单位”进行度量）也会增加。 随着用户群的增长，读取和写入操作会更加频繁，用户将开始创建和读取更多内容；“缩放吞吐量”的能力至关重要。 增加 RU 非常容易，可以通过在 Azure 门户中单击几次或[通过 API 发出命令](https://docs.microsoft.com/rest/api/cosmos-db/replace-an-offer)来实现。
 
 ![扩展和定义分区键](./media/social-media-apps/social-media-apps-scaling.png)
 
@@ -240,7 +240,7 @@ Cosmos DB 根据给定的**分区键**（定义为文档中的一个属性）自
 
 ![社交网络中各 Azure 服务之间的交互关系图](./media/social-media-apps/social-media-apps-azure-solution.png)
 
-事实上，对于此类方案并没有万能方法，而需结合各种卓越的服务共同创建，才能提供绝佳的体验：Azure Cosmos DB 的速度和自由性，可用于提供绝佳的社交应用程序；一流搜索解决方案后的智能操作，如 Azure 搜索；Azure 应用服务的灵活性，不仅可以托管与语言无关的应用程序，甚至还可以托管功能强大的后台进程；Azure 存储和 Azure SQL 数据库的可扩展性，可用于存储大量数据；Azure 机器学习的分析功能，可创建能够为我们的进程提供反馈，并且有助于我们向合适的用户提供合适的内容的知识和智能。
+事实上，对于此类方案并没有万能方法，而需结合各种卓越的服务共同创建，才能提供绝佳的体验：Azure Cosmos DB 的速度和自由性，可用于提供绝佳的社交应用程序；一流搜索解决方案后的智能操作，如 Azure 搜索；Azure 应用服务的灵活性，不仅可以托管与语言无关的应用程序，甚至还可以托管功能强大的后台进程；Azure 存储和 Azure SQL 数据库的可扩展性，可用于存储大量数据；Azure 机器学习的分析功能，可创建能够为你的进程提供反馈，并且有助于我们向合适的用户提供合适的内容的知识和智能。
 
 ## <a name="next-steps"></a>后续步骤
 若要详细了解 Cosmos DB 用例，请参阅[常见 Cosmos DB 用例](use-cases.md)。

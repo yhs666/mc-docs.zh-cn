@@ -3,26 +3,29 @@ title: 升级经典 Azure 容器注册表
 description: 通过升级非托管的经典容器注册表，利用基本、标准和高级托管容器注册表的扩展功能集。
 services: container-registry
 author: rockboyfor
-manager: digimobile
 ms.service: container-registry
 ms.topic: article
-origin.date: 03/15/2018
-ms.date: 08/27/2018
+origin.date: 08/28/2018
+ms.date: 09/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 95f193be8f93e7ced29899d55638c2708057f354
-ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
+ms.openlocfilehash: 4dbbdb5f7af948aec96df55a0d57e54ca3718681
+ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43328614"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47201452"
 ---
 # <a name="upgrade-a-classic-container-registry"></a>升级经典容器注册表
 
-Azure 容器注册表 (ACR) 分为多个服务层（[称为“SKU”](container-registry-skus.md)）。 ACR 的初始版本提供的单一 SKU（即经典 SKU）缺乏基本 SKU、标准 SKU 和高级 SKU（统称托管注册表）固有的多项功能。 本文详述了如何将非托管的经典注册表迁移到某个托管的 SKU，以便利用其增强的功能集。
+Azure 容器注册表 (ACR) 分为多个服务层（[称为“SKU”](container-registry-skus.md)）。 ACR 的初始版本提供的单一 SKU（即经典 SKU）缺乏基本 SKU、标准 SKU 和高级 SKU（统称托管注册表）固有的多项功能。
+
+经典 SKU 已弃用，2019 年 3 月后将无法使用。 本文详述了如何将非托管的经典注册表迁移到某个托管的 SKU，以便利用其增强的功能集。
 
 ## <a name="why-upgrade"></a>为什么升级？
 
-由于经典的非托管注册表的功能有限，因此建议将所有经典注册表升级为基本、标准或高级托管注册表。 这些更高级 SKU 将注册表更深入地集成到 Azure 功能中。
+经典注册表 SKU 已**弃用**，从 **2019 年 3 月**起将无法使用。 所有现有的经典注册表应在 2019 年 3 月之前升级。
+
+由于经典非托管注册表的计划弃用和有限功能，所有经典注册表都将升级到基本、标准或高级托管注册表。 这些更高级 SKU 将注册表更深入地集成到 Azure 功能中。
 
 托管的注册表提供：
 
@@ -30,7 +33,7 @@ Azure 容器注册表 (ACR) 分为多个服务层（[称为“SKU”](container-
 * 映像和标记删除支持 <!--Not Available on * [Geo-replication](container-registry-geo-replication.md)-->
 * [Webhook](container-registry-webhook.md)
 
-最重要的是，经典注册表依赖 Azure 在用户创建注册表时在 Azure 订阅中自动预配的存储帐户。 相比之下，基本、标准和高级 SKU 通过以透明方式处理映像的存储来利用 Azure 的[高级存储功能](container-registry-storage.md)。 不在自己的订阅中创建单独的存储帐户。
+经典注册表依赖 Azure 在你创建注册表时在 Azure 订阅中自动预配的存储帐户。 相比之下，基本、标准和高级 SKU 通过以透明方式处理映像的存储来利用 Azure 的[高级存储功能](container-registry-storage.md)。 不在自己的订阅中创建单独的存储帐户。
 
 托管注册表存储有以下优点：
 
@@ -129,4 +132,4 @@ az acr update --name myclassicregistry --sku Premium
 [az-acr-update]: https://docs.azure.cn/zh-cn/cli/acr?view=azure-cli-latest#az-acr-update
 [azure-cli]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
 [azure-portal]: https://portal.azure.cn
-<!-- Update_Description: wording update -->
+<!-- Update_Description: wording update, update meta properties -->

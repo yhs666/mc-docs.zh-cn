@@ -9,14 +9,14 @@ ms.component: cosmosdb-table
 ms.devlang: python
 ms.topic: sample
 origin.date: 04/05/2018
-ms.date: 07/02/2018
+ms.date: 09/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 1647cca53263a585b2d30d21898a836103f5f404
-ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
+ms.openlocfilehash: 64b3cc4d2ea1cc39405689ce6e3f2f30923ba8bd
+ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37070141"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47201447"
 ---
 # <a name="get-started-with-azure-table-storage-using-python"></a>通过 Python 开始使用 Azure 表存储
 
@@ -41,8 +41,8 @@ Azure 表存储是一项用于在云中存储结构化 NoSQL 数据的服务，�
 
 - [Python](https://www.python.org/downloads/) 2.7、3.3、3.4、3.5 或 3.6
 - [用于 Python 的 Azure Cosmos DB 表 SDK](https://pypi.python.org/pypi/azure-cosmosdb-table/)。 此 SDK 连接到 Azure 表存储。
+- [Azure 存储帐户](../storage/common/storage-quickstart-create-account.md)
 <!-- Not Available on Azure Cosmos DB Table API -->
-- [Azure 存储帐户](/storage/common/storage-create-storage-account#create-a-storage-account)
 <!-- Not Avaiable on  [Azure Cosmos DB account](https://www.azure.cn/try/cosmosdb/) -->
 
 ## <a name="create-an-azure-service-account"></a>创建 Azure 服务帐户

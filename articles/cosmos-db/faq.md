@@ -8,27 +8,19 @@ manager: digimobile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 07/03/2018
-ms.date: 09/03/2018
+origin.date: 09/05/2018
+ms.date: 09/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 5b311f4c71cfa00225a9415387a98fc836fcf208
-ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
+ms.openlocfilehash: 9eae746a0107b6d32b1c758237c4c746fe2494e2
+ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43164663"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47201405"
 ---
 <!-- meta.description: GLOBALLY to multiple-region -->
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB 常见问题解答
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure Cosmos DB 基础知识
-### <a name="what-is-azure-cosmos-db"></a>什么是 Azure Cosmos DB？
-
-Azure Cosmos DB 是多区域复制的多模型数据库服务，可针对无架构数据提供丰富的查询，帮助提供可靠的可配置性能，并支持快速开发。 这一切都通过一个托管平台来实现，而该平台有 Azure 强大的功能与影响力作为后盾。 
-<!-- Notice: GLOBALLY to multiple-region -->
-
-如果 Web、移动、游戏和 IoT 应用程序的关键要求是可预测的吞吐量、高可用性、低延迟和无架构数据模型，那么，Azure Cosmos DB 无疑是最合适的解决方案。 它提供了架构灵活性和丰富的索引，并且对集成的 JavaScript 提供了多文档事务性支持。 
-
-有关部署和使用此服务的更多数据库问题、解答及说明，请参阅 [Azure Cosmos DB 文档页](/cosmos-db/)。
 
 ### <a name="what-happened-to-the-documentdb-api"></a>DocumentDB API 有哪些变化？
 
@@ -73,7 +65,7 @@ Azure Cosmos DB 有一个不受架构影响的索引编制引擎，能够自动�
 <!-- Not Avaialbe  Table API tables and Graph API graph -->
 
 ### <a name="is-a-trial-account-available"></a>有试用帐户吗？
-<!-- Not Available [Try Azure Cosmos DB for free](https://www.azure.cn/try/cosmosdb/) --> 如果不熟悉 Azure，可以注册 [Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)，这样可以得到 30 天试用期和信用额度，以便试用所有 Azure 服务。 如果你有 Visual Studio 订阅，则还有资格[免费获取 Azure 信用额度](https://www.azure.cn/support/legal/offer-rate-plans/)，可用于任何 Azure 服务。 
+<!-- Not Available [Try Azure Cosmos DB for free](https://www.azure.cn/try/cosmosdb/) --> 如果不熟悉 Azure，可以注册 [Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)，这样可以得到 30 天试用期和信用额度，以便试用所有 Azure 服务。 如果你有 Visual Studio 订阅，则还有资格[免费获取 Azure 信用额度](https://www.azure.cn/support/legal/offer-rate-plans/)， 可用于任何 Azure 服务。 
 
 也可以使用 [Azure Cosmos DB 模拟器](local-emulator.md)在本地免费开发和测试应用程序，无需创建 Azure 订阅。 如果对应用程序在 Azure Cosmos DB 模拟器中的工作情况感到满意，则可以切换到在云中使用 Azure Cosmos DB 帐户。
 
@@ -85,8 +77,7 @@ Azure Cosmos DB 有一个不受架构影响的索引编制引擎，能够自动�
 
 若要请求新功能，请在 [Uservoice](https://www.azure.cn/support/support-azure/) 上提交新的请求。
 
-若要修复帐户问题，请在 Azure 门户中提交[支持请求](https://www.azure.cn/support/support-azure/)。
-<!-- Not Avaiable on newsupportrequest in (https://www.azure.cn/support/support-azure/newsupportrequest) -->
+若要修复帐户问题，请在 Azure 门户中提交[支持请求](https://www.azure.cn/support/support-azure)。
 
 其他问题可以通过 [Azure 支持](https://www.azure.cn/support/contact/)提交给支持团队；不过，该论坛不是技术支持论坛。 
 <!-- Not Avaialble ## Try Azure Cosmos DB subscriptions-->
@@ -101,7 +92,7 @@ Azure Cosmos DB 有一个不受架构影响的索引编制引擎，能够自动�
 ### <a name="what-are-the-regions-that-preferredlocations-can-be-set-to"></a>可以将 PreferredLocations 设置为哪些区域？ 
 可以将 PreferredLocations 值设置为提供 Cosmos DB 的任何 Azure 区域。 有关可用区域的列表，请参阅 [Azure 区域](https://www.azure.cn/support/service-dashboard/)。
 
-### <a name="is-there-anything-i-should-be-aware-of-when-distributing-data-across-china-via-the-azure-datacenters"></a>通过 Azure 数据中心在中国分配数据时需要注意什么？ 
+### <a name="is-there-anything-i-should-be-aware-of-when-distributing-data-across-multiple-region-via-the-azure-datacenters"></a>通过 Azure 数据中心在多个区域分配数据时应注意什么？ 
 Azure Cosmos DB 存在于所有 Azure 区域，详见 [Azure 区域](https://www.azure.cn/support/service-dashboard/)页。 由于 Azure Cosmos DB 是核心服务，每个新数据中心都部署了它。 
 
 设置区域时，请记住，Azure Cosmos DB 遵从主权和政府云的要求。 也就是说，如果你在某个主权区域创建了一个帐户，则不能将数据从该主权区域复制到外部区域。 同样，你不能将数据从外部帐户复制到其他主权位置。 
@@ -116,7 +107,10 @@ Azure Cosmos DB 存在于所有 Azure 区域，详见 [Azure 区域](https://www
 
 目前，可以使用 .Net SDK 的 [CreatePartitionedCollection](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/CollectionManagement/Program.cs#L118) 方法或使用 [Azure CLI](https://docs.azure.cn/zh-cn/cli/cosmosdb/collection?view=azure-cli-latest#az-cosmosdb-collection-create) 创建带有分区键吞吐量的集合。 目前不支持使用 Azure 门户创建固定集合。  
 
-## <a name="develop-against-the-sql-api"></a>针对 SQL API 进行开发
+### <a name="does-azure-cosmosdb-support-time-series-analysis"></a>Azure CosmosDB 是否支持时序分析？ 
+是的，Azure CosmosDB 支持时序分析，下面是[时序模式](https://github.com/Azure/azure-cosmosdb-dotnet/tree/master/samples/Patterns)的示例。 此示例显示如何使用更改源来构建时序数据的聚合视图。 可以使用 Spark 流式处理或其他流数据处理器来扩展此方法。
+
+## <a name="sql-api"></a>SQL API
 
 ### <a name="how-do-i-start-developing-against-the-sql-api"></a>如何开始针对 SQL API 进行开发？
 首先必须注册 Azure 订阅。 注册 Azure 订阅后，即可将 SQL API 容器添加到 Azure 订阅。 有关添加 Azure Cosmos DB 帐户的说明，请参阅[创建 Azure Cosmos DB 数据库帐户](create-sql-api-dotnet.md#create-account)。 
@@ -185,7 +179,7 @@ SQL API 通过 JavaScript 存储过程和触发器支持语言集成式事务。
 
 可以在容器级别以及其下的级别（例如文档级别、附件级别）使用 ResourceTokens 来创建权限。 这意味着，目前不允许在数据库或帐户级别创建权限。
 
-## <a name="develop-against-the-api-for-mongodb"></a>针对 API for MongoDB 进行开发
+## <a name="mongodb-api"></a>MongoDB API
 ### <a name="what-is-the-azure-cosmos-db-api-for-mongodb"></a>Azure Cosmos DB API for MongoDB 是什么？
 Azure Cosmos DB API for MongoDB 是一个兼容层，允许应用程序使用现有的、社区支持的 Apache MongoDB API 和驱动程序轻松、透明地与本机 Azure Cosmos DB 数据库引擎通信。 开发人员现在可以使用现有的 MongoDB 工具链和技术，生成能够充分利用 Azure Cosmos DB 的应用程序。 开发人员可以使用 Azure Cosmos DB 的独特功能，其中包括自动索引、备份维护、获得财务支持的服务级别协议 (SLA) 等。
 
@@ -204,13 +198,14 @@ Azure Cosmos DB 实施严格的安全要求和标准。 Azure Cosmos DB 帐户�
 | TooManyRequests     | 16500 | 使用的请求单位总数超过了集合的预配请求单位比率，已达到限制。 | 考虑从 Azure 门户中对分配给一个容器或一组容器的吞吐量进行缩放，或者重试。 |
 | ExceededMemoryLimit | 16501 | 作为一种多租户服务，操作已超出客户端的内存配额。 | 通过限制性更强的查询条件缩小操作的作用域，或者通过 [Azure 门户](https://www.azure.cn/support/support-azure/)联系技术支持。 <br><br>示例：*&nbsp;&nbsp;&nbsp;&nbsp;db.getCollection('users').aggregate([<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$match: {name: "Andy"}}, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$sort: {age: -1}}<br>&nbsp;&nbsp;&nbsp;&nbsp;])*) |
 
-<!-- Not Available ## Develop with the Table API -->
+### <a name="is-the-simba-driver-for-mongodb-supported-for-use-with-azure-cosmosdb-mongodb-api"></a>是否支持将 MongoDB 的 Simba 驱动程序与 Azure CosmosDB MongoDB API 一起使用？
+是的，可以将 Simba 的 Mongo ODBC 驱动程序与 Azure CosmosDB MongoDB API 一起使用 <!-- Not Available ## Table API -->
 
-<!-- Not Available ## Develop against the Graph API (Preview) -->
+<!-- Not Available ## Gremlin API -->
 
 
 
-<!-- Not Available on ## Develop with the Apache Cassandra API (preview) -->
+<!-- Not Available on ## Cassandra API -->
 
 [azure-portal]: https://portal.azure.cn
 [query]: sql-api-sql-query.md

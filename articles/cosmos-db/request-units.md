@@ -8,18 +8,18 @@ ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 06/26/2018
-ms.date: 08/13/2018
+ms.date: 09/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: d3aa18b6e1d5750117c752185d45e8835c179ac5
-ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
+ms.openlocfilehash: 92ef60a693f563447137dda1cfa360d5fd9da895
+ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43328469"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47201348"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Azure Cosmos DB 中的请求单位数
 
-[Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) 是 Azure 多区域分布式多模型数据库。 使用 Azure Cosmos DB，无需租用虚拟机、部署软件或监视数据库。 Azure Cosmos DB 由我们的顶级工程师负责运营和持续监视，可以提供一流的可用性、性能和数据保护。 可以使用自己选择的 API 访问数据，例如 [SQL](documentdb-introduction.md)、[MongoDB](mongodb-introduction.md)。 这两种 API 原生均受支持。
+[Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) 是世纪互联的多区域分布式多模型数据库。 使用 Azure Cosmos DB，无需租用虚拟机、部署软件或监视数据库。 Azure Cosmos DB 由我们的顶级工程师负责运营和持续监视，可以提供一流的可用性、性能和数据保护。 可以使用自己选择的 API 访问数据，例如 [SQL](documentdb-introduction.md)、[MongoDB](mongodb-introduction.md)。 这两种 API 原生均受支持。
 <!-- Not Available on Graph -->
 <!-- Notice: 全球 to 多个区域 -->
 <!-- Not Available on [Table API](table-introduction.md) -->
