@@ -6,16 +6,16 @@ ms.service: automation
 ms.component: dsc
 author: WenJason
 ms.author: v-jay
-origin.date: 08/08/2018
-ms.date: 09/10/2018
+origin.date: 09/10/2018
+ms.date: 10/01/2018
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 87673e41deddaea227d3286e7f897e87e6dda77a
-ms.sourcegitcommit: 1b60848d25bbd897498958738644a4eb9cf3a302
+ms.openlocfilehash: 509a0ddfb1e563904a6f04f21b4a53d9204cac75
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43731194"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426182"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>在 Automation State Configuration 中编译 DSC 配置
 
@@ -157,7 +157,7 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -A
 ```powershell
 Node ($AllNodes.Where{$_.Role -eq 'WebServer'}).NodeName
 {
-    JoinDomain DomainJoin
+    DomainConfig myCompositeConfig
     {
         DomainName = $DomainName
         Admincreds = $Admincreds
@@ -165,7 +165,7 @@ Node ($AllNodes.Where{$_.Role -eq 'WebServer'}).NodeName
 
     PSWAWebServer InstallPSWAWebServer
     {
-        DependsOn = '[JoinDomain]DomainJoin'
+        DependsOn = '[DomainConfig]myCompositeConfig'
     }
 }
 ```
@@ -236,8 +236,7 @@ Azure Automation State Configuration 和 Runbook 中的资产引用是相同的�
 
 ### <a name="credential-assets"></a>凭据资产
 
-Azure 自动化中的 DSC 配置可以使用 `Get-AzureRmAutomationCredential` 引用自动化凭据资产。 如果配置的参数具有 **PSCredential** 类型，则可以通过将 Azure 自动化凭据资产的字符串名称传递给 cmdlet 来使用 `Get-AutomationRmAutomationCredential` cmdlet 检索凭据。 然后，可以使用该对象作为需要 **PSCredential** 对象的参数。 在后台将检索具有该名称的 Azure 自动化凭据资产并将其传递给配置。
-以下示例演示了运行中的此操作。
+Azure 自动化中的 DSC 配置可以使用 `Get-AutomationPSCredential` cmdlet 引用自动化凭据资产。 如果配置的参数具有 **PSCredential** 类型，则可以通过将 Azure 自动化凭据资产的字符串名称传递给 cmdlet 来使用 `Get-AutomationPSCredential` cmdlet 检索凭据。 然后，可以使用该对象作为需要 **PSCredential** 对象的参数。 在后台将检索具有该名称的 Azure 自动化凭据资产并将其传递给配置。 以下示例演示了运行中的此操作。
 
 要在节点配置（MOF 配置文档）中保持凭据的安全，需要在节点配置 MOF 文件中为凭据加密。 不过，目前必须告知 PowerShell DSC 在节点配置 MOF 生成期间以纯文本形式输出凭据是可行的，因为 PowerShell DSC 并不知道在通过编译作业生成 MOF 文件之后 Azure 自动化将加密整个文件。
 
@@ -249,7 +248,7 @@ Azure 自动化中的 DSC 配置可以使用 `Get-AzureRmAutomationCredential` �
 Configuration CredentialSample
 {
     Import-DscResource -ModuleName PSDesiredStateConfiguration
-    $Cred = Get-AutomationRmAutomationCredential -ResourceGroupName 'ResourceGroup01' -AutomationAccountName 'ContosoAutomationAccount' -Name 'SomeCredentialAsset'
+    $Cred = Get-AutomationPSCredential 'SomeCredentialAsset'
 
     Node $AllNodes.NodeName
     {

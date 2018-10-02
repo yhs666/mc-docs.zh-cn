@@ -5,16 +5,16 @@ services: site-recovery
 author: rockboyfor
 ms.service: site-recovery
 ms.topic: article
-origin.date: 07/06/2018
-ms.date: 07/23/2018
+origin.date: 09/12/2018
+ms.date: 09/24/2018
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: 3d6973fc5c99e0764972458024c6fa837fee5f21
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.openlocfilehash: 57a56d92f8227fd0589253268481648b253e6a70
+ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168293"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47201400"
 ---
 # <a name="prepare-on-premises-hyper-v-servers-for-disaster-recovery-to-azure"></a>准备本地 Hyper-V 服务器用于灾难恢复到 Azure
 
@@ -58,13 +58,14 @@ ms.locfileid: "39168293"
 ## <a name="verify-internet-access"></a>验证 Internet 访问
 
 1. 对于本教程，最简单的配置是让 Hyper-V 主机和 VMM 服务器能够直接访问 Internet 而无需使用代理。 
-2. 请确保该 Hyper-V 主机和 VMM 服务器（如果相关）可以访问以下 URL： 
-
-    [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
-
+2. 请确保 Hyper-V 主机和 VMM 服务器（如果相关）可以访问以下所需 URL。   
 3. 如果要通过 IP 地址来控制访问，请确保：
     - 基于 IP 地址的防火墙规则可以连接到 [Azure 数据中心 IP 范围](https://www.microsoft.com/download/details.aspx?id=42064)和 HTTPS (443) 端口。
     - 允许订阅的 Azure 区域的 IP 地址范围。
+
+### <a name="required-urls"></a>所需 URL
+
+[!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>准备在故障转移后连接到 Azure VM
 
@@ -85,5 +86,3 @@ ms.locfileid: "39168293"
 > [为 Hyper-V VM 设置到 Azure 的灾难恢复](tutorial-hyper-v-to-azure.md)
 > [为 VMM 云中的 Hyper-V VM 设置到 Azure 的灾难恢复](tutorial-hyper-v-vmm-to-azure.md)
 <!--Update_Description: update meta properties, wording update -->
-<!--The parent file of includes file of site-recovery-URLS.md-->
-<!--ms.date:07/23/2018-->

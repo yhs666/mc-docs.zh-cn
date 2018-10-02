@@ -17,12 +17,12 @@ origin.date: 02/09/2018
 ms.date: 07/30/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 7c3998d735641857c8bdab878b8a5a0f1ed4a58f
-ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
+ms.openlocfilehash: d835c84c686136bc01a24ea6ad5071a7f688f952
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39306969"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426229"
 ---
 # <a name="tutorial---manage-azure-disks-with-azure-powershell"></a>教程 - 使用 Azure PowerShell 管理 Azure 磁盘
 
@@ -35,7 +35,9 @@ Azure 虚拟机使用磁盘来存储 VM 操作系统、应用程序和数据。 
 > * 磁盘性能
 > * 附加和准备数据磁盘
 
-<!--Not Available [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]--> 如果选择在本地安装并使用 PowerShell，则本教程需要 Azure PowerShell 模块 5.7.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount -Environment AzureChinaCloud` 以创建与 Azure 的连接。
+<!--Not Available [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]-->
+
+如果选择在本地安装并使用 PowerShell，则本教程需要 Azure PowerShell 模块 5.7.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount -Environment AzureChinaCloud` 以创建与 Azure 的连接。
 
 ## <a name="default-azure-disks"></a>默认 Azure 磁盘
 
@@ -51,8 +53,10 @@ Azure 虚拟机使用磁盘来存储 VM 操作系统、应用程序和数据。 
 |----|----|----|
 | [常规用途](sizes-general.md) | A、B、D 系列 | 1600 |
 | [计算优化](sizes-compute.md) | F 系列 | 576 |
-| [内存优化](sizes-memory.md) | D 和 E 系列 | 6144 |
-<!--Not Available on E,G, and M series-->
+| [内存优化](sizes-memory.md) | D、E 和 M 系列 | 6144 |
+
+<!--Not Available on G series-->
+
 <!--Not Available on L,N, A and H series-->
 
 ## <a name="azure-data-disks"></a>Azure 数据磁盘
@@ -65,8 +69,10 @@ Azure 虚拟机使用磁盘来存储 VM 操作系统、应用程序和数据。 
 |----|----|----|
 | [常规用途](sizes-general.md) | A、B、D 系列 | 64 |
 | [计算优化](sizes-compute.md) | F 系列 | 64 |
-| [内存优化](sizes-memory.md) | D 和 E 系列 | 64 |
-<!--Not Available on E,G, and M series-->
+| [内存优化](sizes-memory.md) | D、E 和 M 系列 | 64 |
+
+<!--Not Available on G series-->
+
 <!--Not Available on L,N, A and H series-->
 
 ## <a name="vm-disk-types"></a>VM 磁盘类型
@@ -80,7 +86,9 @@ Azure 提供两种类型的磁盘。
 ### <a name="premium-disk"></a>高级磁盘
 
 高级磁盘由基于 SSD 的高性能、低延迟磁盘提供支持。 完美适用于运行生产工作负荷的 VM。 高级存储支持 DS 系列、DSv2 系列和 FS 系列 VM。 高级磁盘分为五种类型（P10、P20、P30、P40、P50），磁盘大小决定了磁盘类型。 选择时，磁盘大小值舍入为下一类型。 例如，如果大小不到 128 GB，则磁盘类型为 P10；如果大小在 129 GB 到 512 GB 之间，则磁盘类型为 P20。
+
 <!-- Not Available on GS Series -->
+
 ### <a name="premium-disk-performance"></a>高级磁盘性能
 
 |高级存储磁盘类型 | P4 | P6 | P10 | P20 | P30 | P40 | P50 |
@@ -188,5 +196,7 @@ Format-Volume -FileSystem NTFS -NewFileSystemLabel "myDataDisk" -Confirm:$false
 转到下一教程，了解如何自动配置 VM。
 
 > [!div class="nextstepaction"]
-> [自动执行 VM 配置](./tutorial-automate-vm-deployment.md)
+> [自动配置 VM](./tutorial-automate-vm-deployment.md)
+
 <!--Update_Description: update meta properties, wording update, update link -->
+

@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-origin.date: 03/14/2018
-ms.date: 07/23/2018
+origin.date: 08/23/2018
+ms.date: 09/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: 6bd3ee691620fee57c6dfbd98775caf83acee863
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.openlocfilehash: 9a3431e4c7806ee629236008065536ba296594f5
+ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39167985"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47201363"
 ---
 # <a name="tutorial-restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-portal"></a>教程：使用 Azure 门户通过虚拟网络服务终结点限制对 PaaS 资源的网络访问
 
@@ -40,9 +40,9 @@ ms.locfileid: "39167985"
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
-## <a name="log-in-to-azure"></a>登录 Azure 
+## <a name="log-in-to-azure"></a>登录 Azure
 
-在 http://portal.azure.cn 登录 Azure 门户。
+在 https://portal.azure.cn 登录 Azure 门户。
 
 ## <a name="create-a-virtual-network"></a>创建虚拟网络
 
@@ -101,7 +101,7 @@ ms.locfileid: "39167985"
 4. 创建网络安全组后，在门户顶部的“搜索资源、服务和文档”框中输入 *myNsgPrivate*。 当“myNsgPrivate”出现在搜索结果中时，将其选中。
 5. 在“设置”下，选择“出站安全规则”。
 6. 选择“+ 添加”。
-7. 创建一条允许出站通信到 Azure 存储服务的规则。 输入或选择以下信息，然后选择“确定”：
+7. 创建一条允许出站通信到 Azure 存储服务的规则。 输入或选择以下信息，然后选择“添加”：
 
     |设置|值|
     |----|----|
@@ -115,7 +115,7 @@ ms.locfileid: "39167985"
     |Priority|100|
     |Name|Allow-Storage-All|
 
-8. 创建一个拒绝到 Internet 的出站通信的规则。 此规则将覆盖所有网络安全组中允许出站 Internet 通信的默认规则。 使用以下值再次完成步骤 6 和 7：
+8. 创建另一条出站安全规则，拒绝到 Internet 的通信。 此规则将覆盖所有网络安全组中允许出站 Internet 通信的默认规则。 使用以下值再次完成步骤 5-7：
 
     |设置|值|
     |----|----|
@@ -131,14 +131,13 @@ ms.locfileid: "39167985"
 
 9. 在“设置”下，选择“入站安全规则”。
 10. 选择“+ 添加”。
-11. 创建一个允许从任何位置向该子网发送远程桌面协议 (RDP) 入站流量的规则。 该规则将替代拒绝来自 Internet 的所有入站流量的默认安全规则。 允许与子网建立远程桌面连接，以便可以在后续步骤中测试连接。 使用以下值再次完成步骤 6 和 7：
+11. 创建一个允许从任何位置向该子网发送远程桌面协议 (RDP) 流量的入站安全规则。 该规则将替代拒绝来自 Internet 的所有入站流量的默认安全规则。 允许与子网建立远程桌面连接，以便可以在后续步骤中测试连接。 在“设置”下选择“入站安全规则”，然后选择“+ 添加”，输入以下值，然后选择“添加”：
 
     |设置|值|
     |----|----|
     |源| 任意 |
     |源端口范围| * |
-    |目标 | 选择“服务标记”|
-    |目标服务标记| 选择“VirtualNetwork”|
+    |目标 | 选择“VirtualNetwork”|
     |目标端口范围| 3389 |
     |协议|任意|
     |操作|允许|
@@ -164,10 +163,10 @@ ms.locfileid: "39167985"
     |----|----|
     |Name| 输入在所有 Azure 位置中唯一的、长度为 3-24 个字符且仅使用数字和小写字母的名称。|
     |帐户类型|StorageV2（常规用途 v2）|
+    |位置| 选择“中国东部” |
     |复制| 本地冗余存储 (LRS)|
     |订阅| 选择订阅|
     |资源组 | 选择“使用现有资源组”，再选择“myResourceGroup”。|
-    |位置| 选择“中国东部” |
 
 ### <a name="create-a-file-share-in-the-storage-account"></a>在存储帐户中创建文件共享
 
@@ -175,7 +174,7 @@ ms.locfileid: "39167985"
 2. 选择“文件”，如下图所示：
 
     ![存储帐户](./media/tutorial-restrict-network-access-to-resources/storage-account.png) 
-3. 选择“文件服务”下的“+ 文件共享”。
+3. 选择“+ 文件共享”。
 4. 在“名称”下输入 *my-file-share*，然后选择“确定”。
 5. 关闭“文件服务”框。
 
@@ -184,8 +183,8 @@ ms.locfileid: "39167985"
 默认情况下，存储帐户接受来自任何网络（包括 Internet）中的客户端的网络连接。 除 *myVirtualNetwork* 虚拟网络中的“专用”子网之外，拒绝来自 Internet 以及所有虚拟网络中的所有其他子网的网络访问。
 
 1. 在存储帐户的“设置”下，选择“防火墙和虚拟网络”。
-2. 在“虚拟网络”下，选择“选择网络”。
-3. 选择“添加现有虚拟网络”。
+2. 选择“所选网络”。
+3. 选择“+添加现有虚拟网络”。
 4. 在“添加网络”下选择以下值，然后选择“添加”：
 
     |设置|值|
@@ -228,11 +227,12 @@ ms.locfileid: "39167985"
 5. 在“设置”下选择“网络”，然后选择“myVirtualNetwork”。 然后依次选择“子网”、“公共”，如下图中所示：
 
     ![选择虚拟网络](./media/tutorial-restrict-network-access-to-resources/virtual-machine-settings.png)
-6. 在“摘要”页上，选择“创建”以启动虚拟机部署。 部署 VM 需要几分钟时间，但在创建 VM 期间，可以继续执行下一步骤。
+6. 在“网络安全组”下，选择“高级”。 门户会自动为你创建一个网络安全组，该组允许端口 3389。此端口需保持打开状态，然后才能在后面的步骤中连接到虚拟机。 在“设置”页中，选择“确定”。
+7. 在“摘要”页上，选择“创建”以启动虚拟机部署。 部署 VM 需要几分钟时间，但在创建 VM 期间，可以继续执行下一步骤。
 
 ### <a name="create-the-second-virtual-machine"></a>创建第二个虚拟机
 
-再次完成步骤 1-6，但在步骤 3 中，请将虚拟机命名为 *myVmPrivate*，在步骤 5 中选择“专用”子网。
+再次完成步骤 1-7，但在步骤 3 中，请将虚拟机命名为 *myVmPrivate*，在步骤 5 中选择“专用”子网。
 
 部署 VM 需要几分钟时间。 只有在创建完 VM 并且其设置已在门户中打开后，才继续下一步。
 
@@ -280,7 +280,7 @@ ms.locfileid: "39167985"
 2. 当“myVmPublic”出现在搜索结果中时，将其选中。
 3. 针对 *myVmPublic* VM 完成[确认对存储帐户的访问](#confirm-access-to-storage-account)中的步骤 1-6。
 
-    访问被拒绝，并且会收到 `New-PSDrive : Access is denied` 错误。 访问被拒绝，因为 *myVmPublic* VM 部署在“公共”子网中。 “公共”子网没有为 Azure 存储启用服务终结点。 存储帐户仅允许从“专用”子网访问网络，而不允许从“公共”子网访问。
+    稍等片刻，你会收到 `New-PSDrive : Access is denied` 错误。 访问被拒绝，因为 *myVmPublic* VM 部署在“公共”子网中。 “公共”子网没有为 Azure 存储启用服务终结点。 存储帐户仅允许从“专用”子网访问网络，而不允许从“公共”子网访问。
 
 4. 关闭与 *myVmPublic* VM 建立的远程桌面会话。
 
@@ -309,5 +309,4 @@ ms.locfileid: "39167985"
 
 > [!div class="nextstepaction"]
 > [连接虚拟网络](./tutorial-connect-virtual-networks-portal.md)
-<!-- Update_Description: new articles on restrict network access to resources  -->
-<!--ms.date: 05/07/2018-->
+<!-- Update_Description: wording update  -->

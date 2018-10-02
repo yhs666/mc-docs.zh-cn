@@ -1,6 +1,6 @@
 ---
-title: Azure 快速入门 - 使用 PowerShell 处理事件流 | Azure
-description: 本快速入门介绍如何使用 PowerShell 与示例 .NET 应用程序来发送和接收 Azure 事件中心事件。
+title: Azure 快速入门 - 使用 PowerShell 创建事件中心 | Azure
+description: 本快速入门介绍如何使用 Azure PowerShell 创建事件中心，然后使用 .NET Standard SDK 发送和接收事件。
 services: event-hubs
 author: rockboyfor
 manager: digimobile
@@ -9,17 +9,17 @@ ms.service: event-hubs
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
-origin.date: 06/26/2018
-ms.date: 09/17/2018
+origin.date: 08/16/2018
+ms.date: 09/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 902b783e0e671edffc5ca4587f97106fd3070041
-ms.sourcegitcommit: 2700f127c3a8740a83fb70739c09bd266f0cc455
+ms.openlocfilehash: 53a5cc442febce2bd5d94abd4cb37237f900b07f
+ms.sourcegitcommit: 399060a8d46534abd370693f6282e7343b371634
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45586584"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47455584"
 ---
-# <a name="quickstart-process-event-streams-using-powershell-and-net-standard"></a>快速入门：使用 PowerShell 和 .NET Standard 处理事件流
+# <a name="quickstart-create-an-event-hub-using-azure-powershell"></a>快速入门：使用 Azure PowerShell 创建事件中心
 
 Azure 事件中心是高度可缩放的数据流平台和引入服务，每秒能够接收和处理数百万个事件。 本快速入门介绍如何使用 Azure PowerShell 创建事件中心，然后使用 .NET Standard SDK 向事件中心发送事件和从中接收事件。
 
@@ -141,6 +141,7 @@ private const string StorageAccountKey = "Storage account key";
 ```C#
 private static readonly string StorageConnectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1};EndpointSuffix=core.chinacloudapi.cn", StorageAccountName, StorageAccountKey);
 ```
+
 <!--Notice: Append the EndPointSuffix configuration-->
 
 现在，请生成并运行示例。 可以看到，示例应用程序中正在接收事件：
@@ -155,7 +156,7 @@ private static readonly string StorageConnectionString = string.Format("DefaultE
 
 完成本快速入门后，可以删除资源组及其包含的命名空间、存储帐户和事件中心。 将 `myResourceGroup` 替换为创建的资源组的名称。 
 
-```Powershell
+```PowerShell
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 

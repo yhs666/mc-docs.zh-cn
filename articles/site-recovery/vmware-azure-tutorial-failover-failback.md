@@ -6,16 +6,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: tutorial
-origin.date: 07/06/2018
-ms.date: 07/23/2018
+origin.date: 09/11/2018
+ms.date: 09/24/2018
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: f84d2027177023cfb4fd62a352c9cf923f585a2e
-ms.sourcegitcommit: 74f9f0acb00fb728ff6e9bd67ac86a0c1bcd8d13
+ms.openlocfilehash: b2e73dce0bba663c6ff123be234e920de9c5bac2
+ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39218924"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47201340"
 ---
 # <a name="fail-over-and-fail-back-vmware-vms-and-physical-servers-replicated-to-azure"></a>对复制到 Azure 的 VMware VM 和物理服务器进行故障转移和故障回复
 
@@ -69,7 +69,7 @@ ms.locfileid: "39218924"
 1. 在“设置” > “复制的项”中，单击“VM”>“故障转移”。
 
 2. 在“故障转移”中，选择要故障转移到的“恢复点”。 可以使用以下选项之一：
-   - **最新**（默认选项）：此选项会首先处理发送到 Site Recovery 的所有数据。 它提供最低的 RPO（恢复点对象），因为故障转移后创建的 Azure VM 具有触发故障转移时复制到 Site Recovery 的所有数据。
+   - **最新**：此选项会首先处理发送到 Site Recovery 的所有数据。 它提供最低的 RPO（恢复点对象），因为故障转移后创建的 Azure VM 具有触发故障转移时复制到 Site Recovery 的所有数据。
    - **最新处理**：此选项将 VM 故障转移到由 Site Recovery 处理的最新恢复点。 此选项提供低 RTO（恢复时间目标），因为无需费时处理未经处理的数据。
    - **最新的应用一致**：此选项将 VM 故障转移到由 Site Recovery 处理的最新应用一致恢复点。
    - 自定义：指定恢复点。
@@ -84,11 +84,14 @@ ms.locfileid: "39218924"
 
 ## <a name="connect-to-failed-over-virtual-machine-in-azure"></a>连接到 Azure 中已故障转移的虚拟机
 
-1. 故障转移后，请转到虚拟机，并通过[连接](../virtual-machines/windows/connect-logon.md)到它来进行验证。
-2. 验证后，请单击“提交”，以完成故障转移后虚拟机的恢复点。 提交后，系统会删除所有其他的可用恢复点。 这样就完成了故障转移活动。
+1. 如果想要在故障转移后使用 RDP/SSH 连接到 Azure VM，请遵照[此处](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)表格中汇总的要求。
+2. 故障转移后，请转到虚拟机，并通过[连接](../virtual-machines/windows/connect-logon.md)到它来进行验证。
+3. 验证后，请单击“提交”，以完成故障转移后虚拟机的恢复点。 提交后，系统会删除所有其他的可用恢复点。 这样就完成了故障转移活动。
 
 >[!TIP]
 > 使用“更改恢复点”，可以在不满意已进行故障转移的虚拟机的情况下，在故障转移后选择另一恢复点。 **提交**后，此选项将不再可用。
+
+请按照[此处](site-recovery-failover-to-azure-troubleshoot.md)所述的步骤对故障转移后的任何连接问题进行故障排除。
 
 ## <a name="preparing-for-reprotection-of-azure-vm"></a>准备对 Azure VM 进行重新保护
 
@@ -169,4 +172,3 @@ ms.locfileid: "39218924"
 重新保护完成后，该 VM 将复制回 Azure，此时可按需运行故障转移。
 
 <!-- Update_Description: update meta propreties, wording update -->
-<!--ms.date: 04/02/2018-->

@@ -1,9 +1,9 @@
 ---
 title: Azure 负载均衡器概述 | Microsoft 文档
-description: Azure 负载均衡器功能、体系结构和实现概述。 了解负载均衡器工作原理，在云中对其进行利用。
+description: Azure 负载均衡器功能、体系结构和实现概述。 了解负载均衡器工作原理，并在云中对其进行利用。
 services: load-balancer
 documentationcenter: na
-author: rockboyfor
+author: WenJason
 manager: digimobile
 editor: ''
 ms.assetid: ''
@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 08/20/2018
-ms.date: 09/10/2018
-ms.author: v-yeche
+ms.date: 10/01/2018
+ms.author: v-jay
 ms.custom: mvc
-ms.openlocfilehash: da275c465308648fbfe2b6f64e998bd2074d2b9b
-ms.sourcegitcommit: fd49281c58f34de20cc310d6cefb4568992cd675
+ms.openlocfilehash: 7f8ea1bc60f179fb058e719e733d0fd4b61e00d5
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43858451"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426326"
 ---
 # <a name="what-is-azure-load-balancer"></a>什么是 Azure 负载均衡器？
 
@@ -39,7 +39,7 @@ ms.locfileid: "43858451"
 使用 Azure 负载均衡器可以：
 
 * 对传入到 VM 的 Internet 流量进行负载均衡。 此配置称为[公共负载均衡器](#publicloadbalancer)。
-* 对虚拟网络中 VM 之间的流量进行负载均衡。 还可以在混合场景中从本地网络访问负载均衡器前端。 这两种方案都使用称作[内部负载均衡器](#internalloadbalancer)的配置。
+* 对虚拟网络中 VM 之间的流量进行负载均衡。 还可以在混合方案中从本地网络访问负载均衡器前端。 这两种方案都使用称作[内部负载均衡器](#internalloadbalancer)的配置。
 * 使用入站网络地址转换 (NAT) 规则通过端口转发将流量转发到特定 VM 上的特定端口。
 * 使用公共负载均衡器为虚拟网络中的 VM 提供[出站连接](load-balancer-outbound-connections.md)。
 
@@ -111,7 +111,7 @@ ms.locfileid: "43858451"
 
 ### <a name = "publicloadbalancer"></a>公共负载均衡器
 
-公共负载均衡器将传入流量的公用 IP 地址和端口号映射到 VM 的专用 IP 地址和端口号，对于来自 VM 的响应流量，则进行反向的映射。 应用负载均衡规则，可在多个 VM 或服务之间分配特定类型的流量。 例如，可将 Web 请求流量负载分配到多个 Web 服务器。
+公共负载均衡器将传入流量的公共 IP 地址和端口号映射到 VM 的专用 IP 地址和端口号，对于来自 VM 的响应流量，则进行反向的映射。 应用负载均衡规则，可在多个 VM 或服务之间分配特定类型的流量。 例如，可将 Web 请求流量负载分配到多个 Web 服务器。
 
 下图显示了公用 TCP 端口 80 的 Web 流量的负载均衡终结点，由三个 VM 共享。 三个 VM 位于负载均衡集中。
 
@@ -123,7 +123,7 @@ ms.locfileid: "43858451"
 
 默认情况下，Azure 负载均衡器在多个 VM 实例之间平均分发网络流量。 还可以配置会话关联。 有关详细信息，请参阅[负载均衡器分配模式](load-balancer-distribution-mode.md)。
 
-### <a name = "internalloadbalancer"></a>内部负载均衡器
+### <a name = "internalloadbalancer"></a>内部负载均衡器。
 
 内部负载均衡器仅将流量定向到虚拟网络中的资源，或定向到使用 VPN 访问 Azure 基础结构的资源。 在此方面，内部负载均衡器不同于公共负载均衡器。 Azure 基础结构会限制对虚拟网络的负载均衡前端 IP 地址的访问。 前端 IP 地址和虚拟网络不会直接在 Internet 终结点上公开。 内部业务线应用程序可在 Azure 中运行，并可从 Azure 内或从本地资源访问这些应用程序。
 
@@ -152,4 +152,3 @@ ms.locfileid: "43858451"
 ## <a name="next-steps"></a>后续步骤
 
 现在，我们已大致了解了 Azure 负载均衡器。 若要开始使用负载均衡器，请创建一个负载均衡器，在安装自定义 IIS 扩展的情况下创建 VM，然后对 VM 之间的 Web 应用进行负载均衡。 若要了解操作方法，请参阅[创建基本负载均衡器](quickstart-create-basic-load-balancer-portal.md)快速入门。
-<!--Update_Description: update meta properties, update link, wording update -->

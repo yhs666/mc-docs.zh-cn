@@ -6,16 +6,16 @@ ms.service: automation
 ms.component: process-automation
 author: WenJason
 ms.author: v-jay
-origin.date: 06/26/2018
-ms.date: 09/10/2018
+origin.date: 09/11/2018
+ms.date: 10/01/2018
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 5d42acf6ab983b40d31cf4dd4db957f53eba8e7e
-ms.sourcegitcommit: 1b60848d25bbd897498958738644a4eb9cf3a302
+ms.openlocfilehash: 734b127d65730aa1c88c40d3a4f9d006bb9da916
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43731222"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426445"
 ---
 # <a name="my-first-python-runbook"></a>我的第一个 Python Runbook
 
@@ -93,15 +93,15 @@ print("Hello World!")
 ## <a name="add-authentication-to-manage-azure-resources"></a>添加身份验证来管理 Azure 资源
 
 已经测试并发布 Runbook，但到目前为止它不执行任何有用的操作。 需要让其管理 Azure 资源。
-要管理 Azure 资源，脚本必须使用[自动化帐户](/automation/)中的凭据进行身份验证。
+要管理 Azure 资源，脚本必须使用自动化帐户中的凭据进行身份验证。 若要帮助你，你可以使用 [Azure 自动化实用程序包](https://github.com/azureautomation/azure_automation_utility)，以便更轻松地进行身份验证和与 Azure 资源进行交互。
 
 > [!NOTE]
-> 创建的自动化帐户必须包含服务主体功能，以存在一个 RunAs 证书。
+> 创建的自动化帐户必须包含服务主体功能，以存在一个运行方式证书。
 > 如果创建的自动化帐户没有服务主体，则可以使用[使用用于 Python 的 Azure 管理库进行身份验证](https://docs.microsoft.com/python/azure/python-sdk-azure-authenticate)中所述的方法进行身份验证。
 
 1. 通过单击 MyFirstRunbook-Python 窗格上的“编辑”打开文本编辑器。
 
-1. 添加以下代码以对 Azure 进行身份验证：
+2. 添加以下代码以对 Azure 进行身份验证：
 
    ```python
    import os
@@ -161,7 +161,7 @@ async_vm_start = compute_client.virtual_machines.start("MyResourceGroup", "TestV
 async_vm_start.wait()
 ```
 
-其中 MyResourceGroup 是包含 VM 的资源组的名称，TestVM 是要启动的 VM 的名称。 
+其中 MyResourceGroup 是包含 VM 的资源组的名称，TestVM 是要启动的 VM 的名称。
 
 再次测试并运行 Runbook，以便看到它启动 VM。
 

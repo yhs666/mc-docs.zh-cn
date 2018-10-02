@@ -17,12 +17,12 @@ ms.topic: article
 origin.date: 08/03/2017
 ms.date: 10/08/2018
 ms.author: v-yiso
-ms.openlocfilehash: f9768447bbee344d5446b546e5a5d23e26d09ef3
-ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
+ms.openlocfilehash: 8bf1c7ea5eb2824a4778aed97fda6981a81c2133
+ms.sourcegitcommit: 5616622f754f3b83c7120a3d1344d0344e03ca61
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523891"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47188781"
 ---
 # <a name="troubleshoot-slow-web-app-performance-issues-in-azure-app-service"></a>排查 Azure 应用服务中 Web 应用性能缓慢的问题
 本文帮助排查 [Azure 应用服务](./app-service-changes-existing-services.md)中 Web 应用性能缓慢的问题。
@@ -162,7 +162,7 @@ AutoHeal 会根据所选设置（例如配置更改、请求、基于内存的�
 有关详细信息，请参阅 [自动修复 Azure 网站](https://azure.microsoft.com/blog/auto-healing-windows-azure-web-sites/)。
 
 #### <a name="restart-the-web-app"></a>重新启动 Web 应用
-重启通常是在发生一次性问题后进行恢复的最简单方式。 [Azure 门户](https://portal.azure.cn/)上的 Web 应用边栏选项卡中提供了用于停止或重启应用的选项。
+重启通常是在发生一次性问题后进行恢复的最简单方式。 在 [Azure 门户](https://portal.azure.cn/)上的 Web 应用边栏选项卡中，可以选择停止或重启应用。
 
  ![重新启动 Web 应用以解决性能问题](./media/app-service-web-troubleshoot-performance-degradation/2-restart.png)
 

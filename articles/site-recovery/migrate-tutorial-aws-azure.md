@@ -6,16 +6,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: tutorial
-origin.date: 07/06/2018
-ms.date: 07/23/2018
+origin.date: 08/24/2018
+ms.date: 09/24/2018
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: 66003b39365d09d1866432ab8aae5bd70dd3cf4b
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.openlocfilehash: c48f3cf58e4282cbf3e43b938dc6b8d33897772a
+ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168452"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47201338"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>将 Amazon Web Services (AWS) VM 迁移到 Azure
 
@@ -34,7 +34,10 @@ ms.locfileid: "39168452"
 
 ## <a name="prerequisites"></a>先决条件
 - 确保要迁移的 VM 运行的是支持的 OS 版本。 支持的版本包括： 
-    - Windows Server 2016 <!-- Not Available on - Red Hat Enterprise Linux 6.7 (HVM virtualized instances only) and  must have only Citrix PV or AWS PV drivers. Instances running RedHat PV drivers **aren't** supported.-->
+  - Windows Server 2016 
+  - Windows Server 2012 R2
+  - Windows Server 2012 
+  - 64 位版本的 Windows Server 2008 R2 SP1 或更高版本 <!-- Not Available on - Red Hat Enterprise Linux 6.7 (HVM virtualized instances only) and  must have only Citrix PV or AWS PV drivers. Instances running RedHat PV drivers **aren't** supported.-->
 
 - 必须在要复制的每个 VM 上安装移动服务。 
 
@@ -84,8 +87,8 @@ ms.locfileid: "39168452"
 
 在迁移（故障转移）后创建的 Azure VM 会加入此 Azure 网络。
 
-1. 在 [Azure 门户](https://portal.azure.cn)中，选择“创建资源”****>“网络”****>
-   ****“虚拟网络”。
+1. 在 [Azure 门户](https://portal.azure.cn)中，选择 **“创建资源”**>**“网络”**>
+    **“虚拟网络”**。
 3. 对于“名称”，请输入 **myMigrationNetwork**。
 4. 保留“地址空间”的默认值。
 5. 对于“订阅”，请选择要使用的订阅。

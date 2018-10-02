@@ -10,14 +10,14 @@ ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: quickstart
 origin.date: 04/01/2018
-ms.date: 08/13/2018
+ms.date: 10/01/2018
 ms.custom: mvc
-ms.openlocfilehash: 81678b5f981f635b5f109ead34c65a4a72ea8ebd
-ms.sourcegitcommit: 664584f55e0a01bb6558b8d3349d41d3f05ba4d7
+ms.openlocfilehash: 47b076fb3c473ed6bc013c440ec58ab583dca6ba
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41705104"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426309"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-using-the-azure-cli"></a>快速入门：使用 Azure CLI 创建 Azure Database for PostgreSQL
 用于 PostgreSQL 的 Azure 数据库是一种托管服务，可用于在云中运行、管理和缩放具有高可用性的 PostgreSQL 数据库。 Azure CLI 用于从命令行或脚本创建和管理 Azure 资源。 本快速入门指南介绍了如何使用 Azure CLI 在 [Azure 资源组](https://docs.azure.cn/azure-resource-manager/resource-group-overview)中创建 Azure Database for PostgreSQL 服务器。
@@ -40,28 +40,44 @@ az account set --subscription <subscription id>
 
 使用 [az group create](/cli/group#az_group_create) 命令创建 [Azure 资源组](../azure-resource-manager/resource-group-overview.md)。 资源组是在其中以组的形式部署和管理 Azure 资源的逻辑容器。 应提供唯一名称。 以下示例在 `chinaeast2` 位置创建名为 `myresourcegroup` 的资源组。
 ```cli
-az group create --name myresourcegroup --location chinaeast2
+az group create --name myresourcegroup --location chinaeast
 ```
 
 ## <a name="create-an-azure-database-for-postgresql-server"></a>创建 Azure Database for PostgreSQL 服务器
 
-使用 [az postgres server create](/cli/postgres/server#az_postgres_server_create) 命令创建 [Azure Database for PostgreSQL 服务器](overview.md)。 服务器包含作为组进行管理的一组数据库。 
+使用 [az postgres server create](/cli/postgres/server#az_postgres_server_create) 命令创建 [Azure Database for PostgreSQL 服务器](overview.md)。 一个服务器可以包含多个数据库。 
 
-下面的示例使用服务器管理员登录名 `myadmin` 在资源组 `myresourcegroup` 中创建位于“中国东部 2”区域的名为 `mydemoserver` 的服务器。 这是**第 5 代****常规用途**服务器，带有 2 个 **vCore**。 服务器的名称映射到 DNS 名称，因此需要在 Azure 中全局唯一。 用自己的值替换 `<server_admin_password>`。
-```cli
-az postgres server create --resource-group myresourcegroup --name mydemoserver  --location chinaeast2 --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 --version 9.6
-```
+
+**设置** | **示例值** | **说明**
+---|---|---
+name | mydemoserver | 选择用于标识 Azure Database for PostgreSQL 服务器的唯一名称。 服务器名称只能包含小写字母、数字和连字符 (-) 字符。 必须包含 3 到 63 个字符。
+resource-group | myresourcegroup | 提供 Azure 资源组的名称。
+sku-name | GP_Gen4_2 | SKU 的名称。 遵循约定“{定价层}_{计算代系}_{vCores}”的简写形式。 参阅下表详细了解 sku-name 参数。
+backup-retention | 7 | 备份保留时间。 单位为天。 范围为 7-35。 
+geo-redundant-backup | 已禁用 | 是否应为此服务器启用异地冗余备份。 允许的值：Enabled、Disabled。
+location | chinaeast | 服务器的 Azure 位置。
+ssl-enforcement | Enabled | 是否应为此服务器启用 SSL。 允许的值：Enabled、Disabled。
+storage-size | 51200 | 服务器的存储容量（以 MB 为单位）。 有效的 storage-size 最小为 5120MB，以 1024MB 为增量递增。 有关存储大小限制的详细信息，请参阅[定价层](./concepts-pricing-tiers.md)文档。 
+版本 | 9.6 | PostgreSQL 主版本。
+admin-user | myadmin | 管理员的登录用户名。 不能是 **azure_superuser**、**admin**、**administrator**、**root**、**guest** 或 **public**。
+admin-password | Password123 | 管理员用户的密码。 该密码必须包含 8 到 128 个字符。 密码必须含以下字符类别中的三类：英文大写字母、英文小写字母、数字和非字母数字字符。
+
+
 sku-name 参数值遵循 {定价层}\_{计算层代}\_{vCore 数} 约定，如以下示例中所示：
-+ `--sku-name B_Gen5_4` 映射到基本、第 5 代和 4 个 vCore。
++ `--sku-name B_Gen4_4` 映射到基本、第 4 代和 4 个 vCore。
 + `--sku-name GP_Gen5_32` 映射到常规用途、第 5 层和 32 个 vCore。
 + `--sku-name MO_Gen5_2` 映射到内存优化、第 5 层和 2 个 vCore。
 
 请参阅[定价层](./concepts-pricing-tiers.md)文档来了解适用于每个区域和每个层的有效值。
 
-> [!IMPORTANT]
-> 此处指定的服务器管理员登录名和密码是以后在本快速入门中登录到服务器及其数据库所必需的。 请牢记或记录此信息，以后会使用到它。
+下面的示例使用服务器管理员登录名 `myadmin` 在资源组 `myresourcegroup` 中创建位于“美国西部”区域的名为 `mydemoserver` 的 PostgreSQL 9.6 服务器。 这是**第 5 代****常规用途**服务器，带有 **2 个 vCore**。 用自己的值替换 `<server_admin_password>`。
+```cli
+az postgres server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 9.6
+```
 
-默认情况下，在服务器下创建 postgres 数据库。 [postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) 是供用户、实用工具和第三方应用程序使用的默认数据库。 
+
+> [!IMPORTANT]
+> 此处指定的服务器管理员登录名和密码是以后在本快速入门中登录到服务器所必需的。 请牢记或记录此信息，以后会使用到它。
 
 
 ## <a name="configure-a-server-level-firewall-rule"></a>配置服务器级防火墙规则
@@ -90,13 +106,13 @@ az postgres server show --resource-group myresourcegroup --name mydemoserver
   "earliestRestoreDate": null,
   "fullyQualifiedDomainName": "mydemoserver.postgres.database.chinacloudapi.cn",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforPostgreSQL/servers/mydemoserver",
-  "location": "chinaeast2",
+  "location": "chinaeast",
   "name": "mydemoserver",
   "resourceGroup": "myresourcegroup",
   "sku": {
     "capacity": 2,
-    "family": "Gen5",
-    "name": "GP_Gen5_2",
+    "family": "Gen4",
+    "name": "GP_Gen4_2",
     "size": null,
     "tier": "GeneralPurpose"
   },

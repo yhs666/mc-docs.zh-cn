@@ -8,16 +8,16 @@ keyword: backups; vm backup
 ms.service: backup
 ms.topic: conceptual
 origin.date: 08/01/2018
-ms.date: 08/23/2018
+ms.date: 09/25/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
 keywords: 备份; VM 备份
-ms.openlocfilehash: 8f6c9c66382b541baf4e0dc6780ab9a3d794a005
-ms.sourcegitcommit: 85cdb61361dc61147bac991d4907f454f0684ea0
+ms.openlocfilehash: 9ae2bd1514b4a02c46e09b1ef36ddb0a99b56110
+ms.sourcegitcommit: a4d8c8641a6341113532d8770603d4b66cc13ced
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42709699"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47114530"
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vault"></a>将 Azure 虚拟机备份到恢复服务保管库
 
@@ -338,4 +338,4 @@ Azure VM 备份的成本取决于受保护实例的数目。 如需受保护实�
 ## <a name="questions"></a>存在疑问？
 如果有疑问，或者希望包含某种功能，请 [给我们反馈](http://aka.ms/azurebackup_feedback)。
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

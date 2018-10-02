@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: article
 origin.date: 07/06/2018
-ms.date: 07/23/2018
+ms.date: 09/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: 06b121691a61719a3de3c2a42d02116f24f9bd3a
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.openlocfilehash: f6acf1a1f5039523d85d75ae31de5b6109952ebe
+ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168313"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47201426"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>针对本地物理服务器设置到 Azure 的灾难恢复
 
@@ -73,7 +73,7 @@ ms.locfileid: "39168313"
 
 ## <a name="set-up-an-azure-storage-account"></a>设置 Azure 存储帐户
 
-设置 [Azure 存储帐户](../storage/common/storage-create-storage-account.md#create-a-storage-account)。
+设置 [Azure 存储帐户](../storage/common/storage-quickstart-create-account.md)。
 
 - Site Recovery 将本地计算机复制到 Azure 存储。 发生故障转移后，通过存储创建 Azure VM。
 - 存储帐户必须位于与恢复服务保管库相同的区域。
@@ -128,6 +128,8 @@ ms.locfileid: "39168313"
 基于 IP 地址的防火墙规则应允许通过 HTTPS (443) 端口与上面列出的所有 Azure URL 进行通信。 为了简化和限制 IP 范围，建议进行 URL 筛选。
 
 - **商用 IP**：允许 [Azure 数据中心 IP 范围](https://www.microsoft.com/download/details.aspx?id=42064)和 HTTPS (443) 端口。 允许订阅的 Azure 区域的 IP 地址范围以支持 AAD、备份、复制和存储 URL。  
+- **政府 IP** - 允许 [Azure IP 范围和服务标记 - 中国云](https://www.microsoft.com/download/details.aspx?id=57062)以及所有中国区域的 HTTPS (443) 端口支持 AAD、备份、复制和存储 URL。  
+<!-- Update Government IP for [Azure IP Ranges and Service Tags – China Cloud ](https://www.microsoft.com/download/details.aspx?id=57062)-->
 
 #### <a name="run-setup"></a>运行安装程序
 以本地管理员身份运行统一安装程序，安装配置服务器。 进程服务器和主目标服务器也默认安装在配置服务器上。
@@ -183,4 +185,4 @@ ms.locfileid: "39168313"
 ## <a name="next-steps"></a>后续步骤
 
 [运行灾难恢复演练](tutorial-dr-drill-azure.md)。
-<!-- Update_Description: update link, wording update -->
+<!-- Update_Description: update link, wording update, update meta properties -->

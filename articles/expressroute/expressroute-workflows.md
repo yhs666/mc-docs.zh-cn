@@ -1,26 +1,22 @@
 ---
-title: ExpressRoute 线路配置工作流 | Azure
+title: 用于配置 Azure ExpressRoute 线路的工作流
 description: 本页指导完成配置 ExpressRoute 线路和对等互连的工作流
-documentationCenter: na
 services: expressroute
 author: cherylmc
-manager: carmonm
-editor: ''
-ms.assetid: 55e0418c-e0bf-44a7-9aa1-720076df9297
 ms.service: expressroute
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 05/12/2017
+origin.date: 08/29/2018
 ms.author: v-yiso
-ms.date: 03/26/2018
-ms.openlocfilehash: 41e1bc3e27b63c1fd1b09cdddc2d75538e93083c
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.date: 10/15/2018
+ms.openlocfilehash: adcf7cfce5000c74a1f393082634a56411c8d6aa
+ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30073161"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47455226"
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>ExpressRoute 线路预配工作流和线路状态
 本页从较高层面引导完成服务预配和路由配置工作流。 
@@ -37,9 +33,7 @@ ms.locfileid: "30073161"
 
 4. 配置路由域。 如果连接服务提供商管理第 3 层，他们将为你的线路配置路由。 如果连接服务提供商只提供第 2 层服务，必须根据[路由要求](./expressroute-routing.md)和[路由配置](./expressroute-howto-routing-classic.md)页中所述的每条指导原则来配置路由。
 
-    -  启用 Azure 专用对等互连 - 只有启用此对等互连才能连接到部署在虚拟网络中的 VM/云服务。
-    -  启用 Azure 公共对等互连 - 如果想要连接到托管在公共 IP 地址上的 Azure 服务，则必须启用 Azure 公共对等互连。 如果已选择为 Azure 专用对等互连启用默认路由并想要访问 Azure 资源，则必须执行上述操作。
-    -  启用 Microsoft 对等互连 - 必须启用此对等互连才能访问 Office 365 和 Dynamics 365。 
+   * 启用 Azure 专用对等互连 - 启用此对等互连以连接到部署在虚拟网络中的 VM/云服务。
     >[!IMPORTANT]
     > 必须确保使用独立的代理/边缘，而不是用于 Internet 的 代理/边缘来连接 Microsoft。 对 ExpressRoute 和 Internet 使用相同的边缘会导致路由不对称，并造成网络连接中断。
     > 

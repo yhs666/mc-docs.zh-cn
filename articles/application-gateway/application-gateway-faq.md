@@ -7,15 +7,15 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-origin.date: 08/10/2018
-ms.date: 08/22/2018
+origin.date: 09/06/2018
+ms.date: 09/25/2018
 ms.author: v-junlch
-ms.openlocfilehash: 1f0b2b1bd77ee0bf827a91a6314f948bfb7e716b
-ms.sourcegitcommit: da9f7b0825e493636d6596eb6ae95d03e0626583
+ms.openlocfilehash: e566909ca62289a8cbfb84d3f7ea1419a1b6f862
+ms.sourcegitcommit: 830a60c06303a8447d128a3bca8b36aa2b3b655b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "41734337"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47075848"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>应用程序网关常见问题
 
@@ -212,8 +212,8 @@ Host 字段指定要将探测发送到的名称。 仅在应用程序网关上�
 
 | 平均后端页面响应大小 | 小型 | 中型 | 大型 |
 | --- | --- | --- | --- |
-| 6KB |7.5 Mbps |13 Mbps |50 Mbps |
-| 100KB |35 Mbps |100 Mbps |200 Mbps |
+| 6 KB |7.5 Mbps |13 Mbps |50 Mbps |
+| 100 KB |35 Mbps |100 Mbps |200 Mbps |
 
 > [!NOTE]
 > 这些值是应用程序网关吞吐量的大约值。 实际吞吐量取决于平均页面大小、后端实例的位置、提供页面所需的处理时间等各种环境详细信息。 如需确切的性能数字，则应运行自己的测试。 提供的这些值仅适用于容量规划指南。
@@ -334,7 +334,7 @@ WAF 目前支持 CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp22
 
 **问：WAF 是否也支持 DDoS 防护？**
 
-否，WAF 不提供 DDoS 防护。
+是的。 可以在部署了应用程序网关的 VNet 上启用 DDos 保护。 这可确保也使用 Azure DDoS 防护服务保护应用程序网关 VIP。
 
 ## <a name="diagnostics-and-logging"></a>诊断和日志记录
 

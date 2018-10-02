@@ -9,14 +9,14 @@ ms.component: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
 origin.date: 08/17/2018
-ms.date: 09/03/2018
+ms.date: 09/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7dfaa741179ad3466675c3ee39dc54ad117749c8
-ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
+ms.openlocfilehash: 592acde55ea0e8c1da9ae412ac965412c9513786
+ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43164687"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47201451"
 ---
 # <a name="get-started-with-azure-table-storage-using-net"></a>通过 .NET 开始使用 Azure 表存储
 <!--Not Available on Azure Cosmos DB Table API -->
@@ -43,7 +43,7 @@ ms.locfileid: "43164687"
 * [适用于 .NET 的 Azure 存储通用库（预览版）](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)。 - 受生产环境支持的必需预览包。 
 * [适用于 .NET 的 Azure CosmosDB 表库](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) - 此库目前仅适用于 .NET Standard，尚不可用于 .NET Core。
 * [适用于 .NET 的 Azure Configuration Manager](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
-* [Azure 存储帐户](../storage/common/storage-create-storage-account.md#create-a-storage-account)
+* [Azure 存储帐户](../storage/common/storage-quickstart-create-account.md)
 
 [!INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
@@ -109,7 +109,7 @@ ms.locfileid: "43164687"
 <!-- Not Available on * You can run your code against an Azure Cosmos DB account in the cloud. -->
 * 可针对 Azure 存储模拟器运行代码。 存储模拟器是模拟云中 Azure 存储帐户的本地环境。 应用程序处于开发阶段时，可以选择使用模拟器免费测试和调试代码。 模拟器使用已知帐户和密钥。 有关详细信息，请参阅[使用 Azure 存储模拟器进行开发和测试](../storage/common/storage-use-emulator.md)。
 
-如果以云中的存储帐户为目标，请从 Azure 门户复制存储帐户的主访问密钥。 有关详细信息，请参阅 [查看和复制存储访问密钥](../storage/common/storage-create-storage-account.md#view-and-copy-storage-access-keys)。
+如果以云中的存储帐户为目标，请从 Azure 门户复制存储帐户的主访问密钥。 有关详细信息，请参阅[存储帐户访问密钥](../storage/common/storage-account-manage.md#access-keys)。
 
 > [!NOTE]
 > 可以指向存储模拟器以避免引发与 Azure 存储有关的任何费用。 但是，如果确实选择针对云中的 Azure 存储帐户，则执行此示例的费用会忽略不计。
@@ -570,7 +570,7 @@ do
 ## <a name="next-steps"></a>后续步骤
 现在，已了解有关表存储的基础知识，请按照下面的链接了解更复杂的存储任务：
 
-* [Azure 存储资源管理器](../vs-azure-tools-storage-manage-with-storage-explorer.md)是 Microsoft 免费提供的独立应用，适用于在 Windows、macOS 和 Linux 上以可视方式处理 Azure 存储数据。
+* [Azure 存储资源管理器](../vs-azure-tools-storage-manage-with-storage-explorer.md)是免费的独立应用，适用于在 Windows、macOS 和 Linux 上以可视方式处理 Azure 存储数据。
 * 有关表存储的更多示例，请参阅[在 .NET 中使用 Azure 表存储入门](https://github.com/Azure-Samples/storage-table-dotnet-getting-started/)
 * 查看表服务参考文档，了解有关可用 API 的完整详情：
 * [.NET 存储客户端库参考](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)

@@ -10,14 +10,14 @@ ms.service: cosmos-db
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 04/20/2018
-ms.date: 08/13/2018
+ms.date: 09/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: d6a7cdb3d366ac1cf25ae6798640f906dd1419fb
-ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
+ms.openlocfilehash: 9c21f645d2de64e6a6492166baf8df7d116d1aa3
+ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41705166"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47201435"
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>将 Azure Cosmos DB 模拟器用于本地开发和测试
 
@@ -57,6 +57,7 @@ ms.locfileid: "41705166"
 <!-- Not Available on VIDEO -->
 
 ## <a name="how-the-emulator-works"></a>模拟器的工作原理
+
 Azure Cosmos DB 模拟器提供对 Azure Cosmos DB 服务的高保真模拟。 它支持和 Azure Cosmos DB 相同的功能，包括支持创建和查询 JSON 文档、预配集合和调整集合的规模，以及执行存储过程和触发器。 可以使用 Azure Cosmos DB 模拟器开发和测试应用程序，并通过对 Azure Cosmos DB 的连接终结点进行单一配置更改将其部署到多区域范围的 Azure。
 <!-- Notice: 全球 to 多个区域 -->
 
@@ -455,6 +456,8 @@ cd $env:LOCALAPPDATA\CosmosDBEmulatorCert
 
 - 如果出现“服务不可用”消息，则可能表示模拟器无法初始化网络堆栈。 检查是否安装了 Pulse 安全客户端或 Juniper 网络客户端，因为这些客户端的网络筛选器驱动程序可能会导致问题。 卸载第三方网络筛选器驱动程序通常可修复此问题。
 
+- 在模拟器运行时，如果计算机进入睡眠模式或运行任何 OS 更新，你可能会看到“服务当前不可用”消息。 通过右键单击 Windows 通知托盘上显示的图标，并选择“重置数据”，来重置模拟器。
+
 <a name="trace-files"></a>
 ### <a name="collect-trace-files"></a>收集跟踪文件
 
@@ -531,7 +534,7 @@ cd $env:LOCALAPPDATA\CosmosDBEmulatorCert
 
 > [!div class="checklist"]
 > * 安装本地模拟器
-> * 在用于 Windows 的 Docker 上运行模拟器
+> * 在 Docker for Windows 上运行模拟器
 > * 经过身份验证的请求
 > * 在模拟器中使用数据资源管理器
 > * 导出 SSL 证书
@@ -543,4 +546,4 @@ cd $env:LOCALAPPDATA\CosmosDBEmulatorCert
 > [!div class="nextstepaction"]
 > [导出 Azure Cosmos DB 模拟器证书](local-emulator-export-ssl-certificates.md)
 
-<!--Update_Description: update meta properties, wording update  -->
+<!--Update_Description: update meta properties, wording update -->

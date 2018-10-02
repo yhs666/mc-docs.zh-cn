@@ -9,23 +9,23 @@ ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
 origin.date: 03/27/2018
-ms.date: 08/13/2018
+ms.date: 09/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: e6a9a77a45120481dbe700b5bf78303eebd7db68
-ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
+ms.openlocfilehash: 5b5aab8ddb27165bf15771dfb2ff89482ceb6bdf
+ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43329129"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47201289"
 ---
+# <a name="performance-tips-for-azure-cosmos-db-and-async-java"></a>适用于 Azure Cosmos DB 和 Async Java 的性能提示
+
 > [!div class="op_single_selector"]
 > * [异步 Java](performance-tips-async-java.md)
 > * [Java](performance-tips-java.md)
 > * [.NET](performance-tips.md)
 > 
-> 
 
-# <a name="performance-tips-for-azure-cosmos-db-and-async-java"></a>适用于 Azure Cosmos DB 和 Async Java 的性能提示
 Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供延迟与吞吐量保证的情况下无缝缩放。 凭借 Azure Cosmos DB，无需对体系结构进行重大更改或编写复杂的代码即可缩放数据库。 扩展和缩减操作就像执行单个 API 调用或 SDK 方法调用一样简单。 但是，由于 Azure Cosmos DB 是通过网络调用访问的，因此，使用 [SQL Async Java SDK](sql-api-sdk-async-java.md) 时，可以通过客户端优化来获得最高性能。
 
 如果有“如何改善数据库性能？”的疑问， 请考虑以下选项：
@@ -171,7 +171,7 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
     </dependency>
     ```
 
-对于其他平台（CentOS、Windows、Mac 等），请参考 https://netty.io/wiki/forked-tomcat-native.html 中的说明 <!-- Notice: Replace the Red Hat with CentOS-->
+对于其他平台（CentOS、Windows、Mac 等），请参阅这些说明 https://netty.io/wiki/forked-tomcat-native.html <!-- Notice: Replace the Red Hat with CentOS-->
 
 ## <a name="indexing-policy"></a>索引策略
 

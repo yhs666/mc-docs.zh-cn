@@ -1,6 +1,6 @@
 ---
-title: Azure 快速入门 - 使用 Azure 门户处理事件流 | Azure
-description: 本快速入门介绍如何使用 Azure 门户处理事件流。
+title: Azure 快速入门 - 使用 Azure 门户创建事件中心 | Azure
+description: 本快速入门介绍如何使用 Azure 门户创建 Azure 事件中心，然后使用 .NET Standard SDK 发送和接收事件。
 services: event-hubs
 documentationcenter: ''
 author: rockboyfor
@@ -8,17 +8,17 @@ manager: digimobile
 ms.service: event-hubs
 ms.topic: quickstart
 ms.custom: mvc
-origin.date: 06/26/2018
-ms.date: 09/17/2018
+origin.date: 08/16/2018
+ms.date: 09/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: d9e0eb88a0855e05802534c23a3778764e0cc0d4
-ms.sourcegitcommit: 2700f127c3a8740a83fb70739c09bd266f0cc455
+ms.openlocfilehash: d0259546956c8d92b3c02597a5412f4c4aa7c2cb
+ms.sourcegitcommit: 399060a8d46534abd370693f6282e7343b371634
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45586600"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47455587"
 ---
-# <a name="quickstart-process-event-streams-using-the-azure-portal-and-net"></a>快速入门：使用 Azure 门户和 .NET 处理事件流
+# <a name="quickstart-create-an-event-hub-using-azure-portal"></a>快速入门：使用 Azure 门户创建事件中心
 
 Azure 事件中心是高度可缩放的数据流平台和引入服务，每秒能够接收和处理数百万个事件。 本快速入门介绍如何使用 [Azure 门户](https://portal.azure.cn)创建事件中心，然后使用 .NET Standard SDK 向事件中心发送事件和从中接收事件。
 
@@ -61,13 +61,13 @@ Azure 事件中心是高度可缩放的数据流平台和引入服务，每秒�
 
    ![](./media/event-hubs-create/create-event-hub1.png)
 
-4. 在确保命名空间名称可用后，选择定价层（基础版或标准版）。 另外，请选择一个 Azure 订阅、资源组以及要创建该资源的位置。
+4. 在确保命名空间名称可用后，选择定价层（基本版或标准版）。 另外，请选择一个 Azure 订阅、资源组以及要创建该资源的位置。
 
 5. 单击“创建”以创建命名空间。 可能需要等待几分钟让系统完全预配资源。
 
 6. 在命名空间的门户列表中，单击新创建的命名空间。
 
-7. 依次“共享访问策略”、“RootManageSharedAccessKey”。
+7. 单击“共享访问策略”，然后单击 **RootManageSharedAccessKey**。
 
 8. 单击复制按钮，将 **RootManageSharedAccessKey** 连接字符串复制到剪贴板。 将此连接字符串保存在临时位置（如记事本），供稍后使用。
 

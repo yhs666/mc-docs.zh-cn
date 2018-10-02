@@ -18,17 +18,17 @@ origin.date: 09/15/2017
 ms.date: 12/06/2017
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: df91dee85b13968282296188d915cb6ffd0eb421
-ms.sourcegitcommit: 9498b3eb101709c74f34c512aace59d540bdd969
+ms.openlocfilehash: 90258d95bfb152caebfeff93e7892a906392d569
+ms.sourcegitcommit: 399060a8d46534abd370693f6282e7343b371634
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2017
-ms.locfileid: "26352321"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47455585"
 ---
 # <a name="how-to-create-a-virtual-machine-scale-set-with-the-azure-portal"></a>如何使用 Azure 门户创建虚拟机规模集
 本教程介绍如何通过 Azure 门户在数分钟内轻松创建虚拟机规模集。 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
-## <a name="choose-the-vm-image-from-the-marketplace"></a>从应用商店中选择 VM 映像
+## <a name="choose-the-vm-image-from-the-marketplace"></a>从市场中选择 VM 映像
 在门户中，你可以使用 CentOS、CoreOS、Debian、Ubuntu 服务器、其他 Linux 映像以及 Windows Server 映像轻松部署规模集。
 
 首先，在 Web 浏览器中导航到 [Azure 门户](https://portal.azure.cn)。 单击“新建”，搜索“规模集”，然后选择“虚拟机规模集”条目：
@@ -41,27 +41,22 @@ ms.locfileid: "26352321"
 - 输入规模集的名称。  
 此名称会成为规模集前端负载均衡器的 FQDN 的基础，因此请确保在整个 Azure 中，此名称是唯一的。
 
-- 选择所需的 OS 类型。
+- 选择所需的操作系统磁盘映像
 
-- 输入所需的用户名，并选择首选的身份验证类型。  
-如果选择使用密码，密码的长度必须至少为 12 个字符，并且必须符合以下四个复杂性要求中的其中三个：1 个小写字符、1 个大写字符、1 个数字和 1 个特殊字符。 了解有关[用户名和密码要求](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm)的详细信息。 如果选择“SSH 公钥”，请确保仅在公钥中粘贴，而不是在私钥中：
+- 选择自己的订阅
 
-- 选择“是”或“否”来“启用超出 100 个实例的缩放”。  
-如果选择“是”，则规模集可以跨多个放置组。 有关详细信息，请参阅[此文档](./virtual-machine-scale-sets-placement-groups.md)。
+- 输入所需的资源组名称和位置。 
 
-- 请确保选择适当的实例大小。  
+- 输入所需的用户名和密码。 密码长度必须至少为 12 个字符，并且必须满足以下 4 个复杂性要求中的 3 个：1 个小写字符、1 个大写字符、1 个数字和 1 个特殊字符。 
+
+- 选择所需的操作实例计数和计算机大小。
+请确保选择适当的实例大小。  
 有关虚拟机大小的详细信息，请参阅 [Windows VM 大小](..\virtual-machines\windows\sizes.md)或 [Linux VM 大小](..\virtual-machines\linux\sizes.md)。
-
-- 输入所需的资源组名称和位置。  
-如果你的区域和实例大小支持可用性区域，则“可用性区域”字段处于启用状态。
-
-- 输入所需的域名标签（规模集前端负载均衡器的 FQDN 的基础）。  
-在整个 Azure 中，此标签必须是唯一的。
-
-- 选择所需的操作系统磁盘映像、实例计数和计算机大小。
 
 - 选择所需磁盘类型：托管或非托管。  
 有关详细信息，请参阅[此文档](./virtual-machine-scale-sets-managed-disks.md)。 如果选择让规模集跨越多个放置组，则此选项不可用，因为需要托管磁盘才能使规模集跨越放置组。
+
+- 选择“是”或“否”来“启用超出 100 个实例的缩放”。  
 
 - 启用或禁用自动缩放，如果启用，请进行配置。
 

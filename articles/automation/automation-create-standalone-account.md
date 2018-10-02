@@ -2,24 +2,24 @@
 title: 创建独立的 Azure 自动化帐户
 description: 本文逐步讲解如何在 Azure 自动化中创建、测试和使用示例安全主体身份验证。
 services: automation
-author: yunan2016
-manager: digimobile
 ms.service: automation
-ms.workload: tbd
-ms.topic: article
+ms.component: process-automation
+author: WenJason
+ms.author: v-jay
 origin.date: 03/15/2018
-ms.date: 07/23/2018
-ms.author: v-nany
-ms.openlocfilehash: 1c85c105d0ef1e33c26b675a4bc2d07cecf0b25c
-ms.sourcegitcommit: 53972dcdef77da92529996667545d2e83716f7e2
+ms.date: 10/01/2018
+ms.topic: conceptual
+manager: digimobile
+ms.openlocfilehash: 077dbabf187396ff84ca94c35a69128aa9093829
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39143450"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426389"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>创建独立的 Azure 自动化帐户
 
-本文介绍如何在 Azure 门户中创建 Azure 自动化帐户。 可以使用门户自动化帐户来评估和了解自动化，而无需使用其他管理解决方案。 以后随时可以添加这些管理解决方案或者与 Log Analytics 集成，以获得高级的 Runbook 作业监视。 
+本文介绍如何在 Azure 门户中创建 Azure 自动化帐户。 可以使用门户自动化帐户来评估和了解自动化，而无需使用其他管理解决方案。 可以在将来的任何时候添加这些管理解决方案，以便对 Runbook 作业进行高级监视。 
 
 使用自动化帐户，可以对在 Azure 资源管理器部署或经典部署中管理资源的 Runbook 进行身份验证。
 
@@ -42,7 +42,7 @@ ms.locfileid: "39143450"
 
 如果在被添加到订阅的全局管理员/共同管理员角色之前不是订阅的 Active Directory 实例的成员，则将作为来宾添加到 Active Directory。 在这种情况下，“添加自动化帐户”页中会显示此消息：“你无权创建”。
 
-如果用户已被添加到全局管理员/共同管理员角色，可以先将其从订阅的 Active Directory 实例中删除，然后重新添加到 Active Directory 中的完整用户角色。
+如果已将某用户添加到全局管理员/共同管理员角色，则可先将其从订阅的 Active Directory 实例中删除，然后将其重新添加到 Active Directory 中的完整用户角色。
 
 若要验证用户角色，请执行以下操作：
 
@@ -69,7 +69,7 @@ ms.locfileid: "39143450"
   >
   > ![添加自动化帐户警报](media/automation-create-standalone-account/create-account-without-perms.png)
   >
-1. 在“添加自动化帐户”窗格的“名称”框中，输入新自动化帐户的名称。
+1. 在“添加自动化帐户”窗格的“名称”框中，输入新自动化帐户的名称。 此名称选定后即不可更改。
 1. 如果有多个订阅，请在“订阅”框中为新帐户指定一个订阅。
 1. 对于“资源组”，请输入或选择新的或现有的资源组。
 1. 对于“位置”，请选择一个 Azure 数据中心位置。

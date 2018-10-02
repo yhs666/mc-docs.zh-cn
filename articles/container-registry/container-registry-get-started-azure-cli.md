@@ -7,15 +7,15 @@ manager: digimobile
 ms.service: container-registry
 ms.topic: quickstart
 origin.date: 03/03/2018
-ms.date: 08/27/2018
+ms.date: 09/30/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 62d6ead54e0fd7a33807f6633dde67c5e665dc1e
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.openlocfilehash: 35a6bb0e92bded63f535240e77ece620f04ab7d4
+ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42871704"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47201438"
 ---
 # <a name="quickstart-create-a-container-registry-using-the-azure-cli"></a>快速入门：使用 Azure CLI 创建容器注册表
 
@@ -23,7 +23,7 @@ Azure 容器注册表是托管的 Docker 容器注册表服务，用于存储专
 
 本快速入门需要运行 Azure CLI 2.0.27 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI][azure-cli]。
 
-还必须在本地安装 Docker。 Docker 提供的包可在任何 [Mac][docker-mac]、[Windows][docker-windows] 或 [Linux][docker-linux] 系统上轻松配置 Docker。
+还必须在本地安装 Docker。 Docker 提供的包可在任何 [macOS][docker-mac]、[Windows][docker-windows] 或 [Linux][docker-linux] 系统上轻松配置 Docker。
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
@@ -151,9 +151,8 @@ v1
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>后续步骤
+<!-- Not Available on ## Next steps-->
 
-本快速入门介绍了如何使用 Azure CLI 创建 Azure 容器注册表，如何将容器映像推送到注册表，以及如何通过 Azure 容器实例启动该注册表的一个实例。
 <!-- Not Available on  Continue to the Azure Container Instances tutorial for a deeper look at ACI.-->
 <!-- Not Available on  > [Azure Container Instances tutorial][container-instances-tutorial-prepare-app]-->
 

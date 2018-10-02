@@ -1,5 +1,5 @@
 ---
-title: 跨多个存储帐户管理媒体服务资产 | Azure
+title: 跨多个存储帐户管理媒体服务资产 | Microsoft Docs
 description: 本文提供如何跨多个存储帐户管理媒体服务资产的指导。
 services: media-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 12/10/2017
 ms.date: 12/25/2017
 ms.author: v-nany
-ms.openlocfilehash: db5dcb25ebd40671af9d553408f30c7c1dbe0719
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.openlocfilehash: 8d81ae516e44e5f99e92190b5df1dee96a95f233
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295597"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426450"
 ---
 # <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>跨多个存储帐户管理媒体服务资产
 从 Microsoft Azure 媒体服务 2.2 开始，可以将多个存储帐户附加到一个媒体服务帐户。 将多个存储帐户附加到一个媒体服务帐户这一功能具有以下优势：

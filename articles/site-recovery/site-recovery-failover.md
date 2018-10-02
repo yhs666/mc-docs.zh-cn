@@ -6,15 +6,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 07/06/2018
-ms.date: 07/23/2018
+origin.date: 09/11/2018
+ms.date: 09/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: 904013134aed8eec2a7443830d9a98d95690807b
-ms.sourcegitcommit: f7ff09be9f3be5e3eb795e383c0c670f480f233d
+ms.openlocfilehash: 84ed750b90d0b52933f4a8940b8da2f4b2c87a40
+ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39169027"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47201454"
 ---
 # <a name="failover-in-site-recovery"></a>Site Recovery 中的故障转移
 本文介绍了如何对由 Site Recovery 保护的虚拟机和物理服务器进行故障回复。
@@ -33,13 +33,13 @@ ms.locfileid: "39169027"
 <a name="run-a-test-failover"></a>
 <a name="run-an-unplanned-failover"></a>
 ## <a name="run-a-failover"></a> 运行故障转移
-本过程介绍了如何对[恢复计划](site-recovery-create-recovery-plans.md)运行故障转移。 另外，还可以从 **复制的项** 页面针对单台虚拟机或物理服务器运行故障转移。
+本过程介绍了如何对[恢复计划](site-recovery-create-recovery-plans.md)运行故障转移。 另外，还可以从“复制的项”页运行单个虚拟机或物理服务器的故障转移，如[此处](vmware-azure-tutorial-failover-failback.md#run-a-failover-to-azure)所述。
 
 ![故障转移](./media/site-recovery-failover/Failover.png)
 
 1. 选择“**恢复计划**” > “*recoveryplan_name*”。 Click <bpt id="p1">**</bpt>Failover<ept id="p1">**</ept>
 2. 在“故障转移”屏幕上，选择要故障转移到的“恢复点”。 可以使用以下选项之一：
-    1.  最新（默认值）：此选项通过首先处理已发送到 Site Recovery 服务的所有数据来启动作业。 处理数据可为每个虚拟机创建一个恢复点。 虚拟机在故障转移期间使用此恢复点。 此选项提供最低 RPO（恢复点目标），因为故障转移后创建的虚拟机包含触发故障转移时已复制到 Site Recovery 服务的所有数据。
+    1.  最新：此选项通过首先处理已发送到 Site Recovery 服务的所有数据来启动作业。 处理数据可为每个虚拟机创建一个恢复点。 虚拟机在故障转移期间使用此恢复点。 此选项提供最低 RPO（恢复点目标），因为故障转移后创建的虚拟机包含触发故障转移时已复制到 Site Recovery 服务的所有数据。
     1.  **最新处理的**：此选项将恢复计划的所有虚拟机故障转移到已由 Site Recovery 服务处理的最新恢复点。 针对虚拟机执行测试故障转移时，也会显示最新处理的恢复点的时间戳。 如果要针对恢复计划执行故障转移，可以转到单个虚拟机，并查看“最新恢复点”磁贴来获取此信息。 由于不会花费时间来处理未经处理的数据，此选项是 RTO（恢复时间目标）较低的故障转移选项。
     1.  最新应用一致：此选项将恢复计划的所有虚拟机故障转移到已由 Site Recovery 服务处理的最新应用程序一致恢复点。 对虚拟机执行测试故障转移时，还会显示最新应用一致性恢复点的时间戳。 如果要针对恢复计划执行故障转移，可以转到单个虚拟机，并查看“最新恢复点”磁贴来获取此信息。
     1.  **最新多 VM 已处理**：此选项仅可用于至少有一个虚拟机已启用多 VM 一致性的恢复计划。 属于复制组的虚拟机将故障转移到最新通用多 VM 一致恢复点。 其他虚拟机将故障转移到其最近处理的恢复点。  
@@ -113,6 +113,12 @@ ms.locfileid: "39169027"
 ### <a name="retaining-drive-letter-after-failover"></a>在故障转移后保留驱动器号
 若要在故障转移后保留虚拟机上的驱动器号，可将虚拟机的“SAN 策略”设置为 **OnlineAll**。 [了解详细信息](https://support.microsoft.com/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure)。
 
+## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>准备在故障转移后连接到 Azure VM
+
+如果想要在故障转移后使用 RDP/SSH 连接到 Azure VM，请遵照[此处](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)表格中汇总的要求。
+
+请按照[此处](site-recovery-failover-to-azure-troubleshoot.md)所述的步骤对故障转移后的任何连接问题进行故障排除。
+
 ## <a name="next-steps"></a>后续步骤
 
 > [!WARNING]
@@ -122,4 +128,4 @@ ms.locfileid: "39169027"
 
 如果已将 Hyper-V 虚拟机故障转移到 VMM 服务器管理的另一个本地数据中心并且主数据中心可用，请使用“反向复制”选项开始复制回到主数据中心。
 
-<!-- Update_Description: update meta propeties  -->
+<!-- Update_Description: update meta propeties, wording update  -->

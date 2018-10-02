@@ -2,34 +2,28 @@
 title: 示例入门
 description: 本文介绍 Power BI 工作区集合入门示例。
 services: power-bi-embedded
-documentationcenter: ''
-author: alexchen2016
-manager: digimobile
-editor: ''
-tags: ''
+author: markingmyname
 ROBOTS: NOINDEX
 ms.assetid: d8a9ef78-ad4e-4bc7-9711-89172dc5c548
 ms.service: power-bi-embedded
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: powerbi
 origin.date: 09/25/2017
-ms.date: 10/24/2017
+ms.date: 09/26/2018
 ms.author: v-junlch
-ms.openlocfilehash: 0c492374cda9a86baeddf77afe24c33ffd6b58ad
-ms.sourcegitcommit: 140d09254b5ded4b408980b43c0fc5d3643320a1
+ms.openlocfilehash: de0f1ba703fdc7f37b722fdf871571db39e7feec
+ms.sourcegitcommit: 7c6ff130adaa67bc90094846f81295ef0719d072
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2017
-ms.locfileid: "23580302"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47191379"
 ---
 # <a name="get-started-with-power-bi-workspace-collections-sample"></a>Power BI 工作区集合入门示例
 
 通过 **Power BI 工作区集合**，可以将 Power BI 报表集成到 Web 或移动应用程序。 本文介绍 **Power BI 工作区集合**入门示例。
 
 > [!IMPORTANT]
-> Power BI 工作区集合已弃用，到 2018 年 6 月或合同指示时可用。 建议你规划到 Power BI Embedded 的迁移以避免应用程序中断。 有关如何将数据迁移到 Power BI Embedded 的信息，请参阅[如何将 Power BI 工作区集合内容迁移到 Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/)。
+> Power BI 工作区集合已弃用，到 2018 年 6 月 或合同指示时可用。 建议你规划到 Power BI Embedded 的迁移以避免应用程序中断。 有关如何将数据迁移到 Power BI Embedded 的信息，请参阅[如何将 Power BI 工作区集合内容迁移到 Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/)。
 
 往下继续之前，要保存以下资源：在将 Power BI 报表集成到示例应用以及自己的应用时，它们会有所帮助。
 
@@ -49,7 +43,7 @@ ms.locfileid: "23580302"
 
     >[!IMPORTANT]
     > 本示例中的某些 URL 只能在全球环境中使用。 若要在 Azure 中国区环境中使用它，必须执行一些替换。
-    > 例如：在文件 \ProvisionSample\App.config 中将 https://api.powerbi.com 替换为 https://api.powerbi.cn，将 https://management.azure.com 替换为 https://management.chinacloudapi.cn，在文件 \ProvisionSample\Program.cs 中将 https://management.core.windows.net 替换为 https://management.core.chinacloudapi.cn，在文件 \ProvisionSample\ProgramExtensions.cs 中将 https://login.windows.net 替换为 https://login.chinacloudapi.cn。 有关全球环境与中国区环境中 URL 的差别的详细信息，请参阅 [此文](/articles/developerdifferences)。
+    > 例如：将 https://api.powerbi.com 替换为 https://api.powerbi.cn，将 https://management.azure.com 替换为文件 \ProvisionSample\App.config 中的 https://management.chinacloudapi.cn，将 https://management.core.windows.net 替换为文件 \ProvisionSample\Program.cs 中的 https://management.core.chinacloudapi.cn，将 https://login.windows.net 替换为文件\ProvisionSample\ProgramExtensions.cs 中的 https://login.chinacloudapi.cn。 有关全球环境与中国区环境中 URL 的差别的详细信息，请参阅 [此文](/articles/developerdifferences)。
 
 2. 在 Visual Studio 中打开“PowerBI embedded.sln”  。 可能需要在 NuGet 程序包管理器控制台中执行 **Update-Package** 命令来更新此解决方案中使用的程序包。
 3. 生成解决方案。
@@ -95,7 +89,7 @@ Web 应用示例是一个示例应用程序，用于呈现**工作区**中导入
     ```
 3. 运行 **EmbedSample** Web 应用程序。
 
-运行 **EmbedSample** Web 应用程序后，左侧的导航面板应包含“报表”菜单。 要查看导入的报表，请展开“报表”，并单击任一报表。 如果已导入了[零售分析示例 PBIX](http://go.microsoft.com/fwlink/?LinkID=780547)，则示例 Web 应用将如下所示：
+运行 **EmbedSample** Web 应用程序后，左侧的导航面板应包含“报表”菜单。 如果要查看导入的报表，请展开“报表” ，并单击任一报表。 如果已导入了[零售分析示例 PBIX](http://go.microsoft.com/fwlink/?LinkID=780547)，则示例 Web 应用将如下所示：
 
 ![示例应用程序中的示例左导航栏](./media/get-started-sample/sample-left-nav.png)
 
@@ -112,7 +106,7 @@ Web 应用示例是一个示例应用程序，用于呈现**工作区**中导入
 > [!NOTE]
 > 本节总结了演示如何编写代码的示例代码。 若要查看完整的示例，请加载 Visual Studio 中的 PowerBI embedded.sln 解决方案。
 
-### <a name="model"></a>模型
+### <a name="model"></a>型号
 
 该示例包含 **ReportsViewModel** 和 **ReportViewModel**。
 
@@ -281,3 +275,4 @@ $filter={tableName/fieldName}%20eq%20'{fieldValue}'
 
 有更多问题？ [试用 Power BI 社区](http://community.powerbi.com/)
 
+<!-- Update_Description: update metedata properties -->

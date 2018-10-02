@@ -15,12 +15,12 @@ ms.workload: na
 origin.date: 08/30/2018
 ms.date: 09/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7b0586d1d470baffe1f2db33c9d73d73e660d8d9
-ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
+ms.openlocfilehash: 10695bacc7175922c619b1fffa52bdaedb6be22f
+ms.sourcegitcommit: 1b1f7254343b2a3ada7b253841f86f2ff88f0a0b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46527151"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47420908"
 ---
 # <a name="azure-resource-manager-overview"></a>Azure Resource Manager 概述
 应用程序的基础结构通常由许多组件构成 - 可能包括虚拟机、存储帐户和虚拟网络，也可能包括 Web 应用、数据库、数据库服务器和第三方服务。 这些组件不作为独立的实体出现，而是作为单个实体的相关部件和依赖部件出现。 如果希望以组的方式部署、管理和监视这些这些组件， 那么，可以使用 Azure 资源管理器以组的方式处理解决方案中的资源。 可以通过一个协调的操作为解决方案部署、更新或删除所有资源。 可以使用一个模板来完成部署，该模板适用于不同的环境，例如测试、过渡和生产。 Resource Manager 提供安全、审核和标记功能，以帮助你在部署后管理资源。 
@@ -66,7 +66,9 @@ Resource Manager 提供了一种新方法来部署和管理解决方案。 如�
 
 <!-- Not Available on [Azure enterprise scaffold - prescriptive subscription governance](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/subscription-governance)-->
 
-<!--Pending on [Develop Azure Resource Manager templates for cloud consistency](templates-cloud-consistency.md)--> 有关如何创建可以跨多个区域的 Azure、Azure 主权云和 Azure Stack 使用的资源管理器模板的建议，请参阅[开发用于实现云一致性的 Azure 资源管理器模板](templates-cloud-consistency.md)。
+<!--Pending on [Develop Azure Resource Manager templates for cloud consistency](templates-cloud-consistency.md)-->
+
+有关如何创建可以跨多个区域的 Azure、Azure 主权云和 Azure Stack 使用的资源管理器模板的建议，请参阅[开发用于实现云一致性的 Azure 资源管理器模板](templates-cloud-consistency.md)。
 
 ## <a name="resource-groups"></a>资源组
 定义资源组时，需要考虑以下几个重要因素：

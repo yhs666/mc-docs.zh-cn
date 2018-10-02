@@ -12,15 +12,15 @@ ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/09/2018
-ms.date: 09/07/2018
+origin.date: 09/12/2018
+ms.date: 09/26/2018
 ms.author: v-junlch
-ms.openlocfilehash: 194447f8cc0a16f7286a023b269c4564e8e22e31
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.openlocfilehash: f6bda1d3a4564c0c776fb9f9930f5b5d564c0c2f
+ms.sourcegitcommit: 5616622f754f3b83c7120a3d1344d0344e03ca61
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068061"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47188773"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>选择 Azure Batch 池中计算节点的 VM 大小
 
@@ -64,7 +64,7 @@ ms.locfileid: "44068061"
 
 ## <a name="size-considerations"></a>大小注意事项
 
-- **应用程序要求** - 请考虑要在节点上运行的应用程序的特征和要求。 考虑应用程序是否是多线程的以及其消耗的内存量等因素有助于确定最合适且经济高效的节点大小。
+- **应用程序要求** - 请考虑要在节点上运行的应用程序的特征和要求。 考虑应用程序是否是多线程的以及其消耗的内存量等因素有助于确定最合适且经济高效的节点大小。 对于多实例 [MPI 工作负荷](batch-mpi.md)或 CUDA 应用程序，请考虑使用专用[启用了 GPU](../virtual-machines/linux/sizes-gpu.md) 的 VM 大小。 
 
 - **每个节点的任务数** - 通常，选择节点大小时会假设一个任务要在节点上运行一次。 但是，在作业执行期间，让多个任务（因此有多个应用程序实例）在计算节点上[并行运行](batch-parallel-node-tasks.md)可能是很有利的。 在此情况下，往往会选择多核节点大小，以满足更高的并行任务执行需求。
 
@@ -81,4 +81,4 @@ ms.locfileid: "44068061"
 - 有关 Batch 深入概述的信息，请参阅[使用 Batch 开发大规模并行计算解决方案](batch-api-basics.md)。
 
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

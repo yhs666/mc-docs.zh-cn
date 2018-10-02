@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 05/02/2018
 ms.author: v-yiso
-ms.date: 06/04/2018
-ms.openlocfilehash: 449677554b92f99a79d71e9549f7eabec342f8ab
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.date: 10/15/2018
+ms.openlocfilehash: 9effb72befa6e7e4b860e3882ffbd090128cf4c5
+ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554615"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47455273"
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Azure 中继混合连接协议
 Azure 中继是 Azure 服务总线平台最重要的功能支柱之一。 中继的新“混合连接”功能是基于 HTTP 和 WebSocket 的安全、开放协议演化版。 它取代了之前基于专用协议构建的名为“BizTalk 服务”的功能。 将混合连接集成到 Azure 应用服务并不影响原有的运行方式。
@@ -413,8 +413,8 @@ FEFEFEFEFEFEFEFEFEFEF...
 
 如果令牌验证失败，访问被拒绝，则云服务会关闭控制通道 WebSocket 并显示错误。 否则，不会有任何回复。
 
-| WS 状态 | 说明 |
-| --- | --- |
+| WS 状态 | 说明                                                                     |
+| --------- | ------------------------------------------------------------------------------- |
 | 1008 |安全令牌已到期，因此违背了授权策略。 |
 
 ### <a name="web-socket-connect-protocol"></a>Web 套接字连接协议

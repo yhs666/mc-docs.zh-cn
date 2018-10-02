@@ -1,3 +1,22 @@
+---
+title: include 文件
+description: include 文件
+services: site-recovery
+author: rockboyfor
+manager: digimobile
+ms.service: site-recovery
+ms.topic: include
+origin.date: 09/06/2018
+ms.date: 9/30/2018
+ms.author: v-yeche
+ms.custom: include file
+ms.openlocfilehash: 76e51b3aa2be7b8c49e33db93b644aa58ed03432
+ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47201482"
+---
 1. 运行统一安装程序安装文件。
 2. 在“开始之前”中，选择“安装配置服务器和进程服务器”。
 
@@ -26,10 +45,7 @@
 
     ![MySQL](./media/site-recovery-add-configuration-server/combined-wiz6.png)
 
-8. 在“环境详细信息”中，选择是否要复制 VMware VM。 如果要复制，则安装程序会检查 PowerCLI 6.0 是否已安装。
-
-    ![MySQL](./media/site-recovery-add-configuration-server/combined-wiz7.png)
-
+8. 在“环境详细信息”中，如果要复制 Azure Stack VM 或物理服务器，请选择“否”。 
 9. 在“安装位置”中，选择要安装二进制文件和存储缓存的位置。 所选驱动器必须至少有 5 GB 的可用磁盘空间，但建议选择至少有 600 GB 可用空间的缓存驱动器。
 
     ![安装位置](./media/site-recovery-add-configuration-server/combined-wiz8.png)
@@ -44,4 +60,4 @@
 
 注册完成后，服务器将显示在保管库的“设置” > “服务器”边栏选项卡中。
 <!--Update_Description: wording update-->
-<!--ms.date: 11/20/2017 -->
+<!--ms.date: 09/30/2018 -->

@@ -8,14 +8,14 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: article
 origin.date: 07/19/2018
-ms.date: 09/17/2018
+ms.date: 09/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: 3ee6ea8924a6b4b527d79587e3664b5f58aaa6a1
-ms.sourcegitcommit: 96d06c506983906a92ff90a5f67199f8f7e10996
+ms.openlocfilehash: c63fc49a8b667adb4c48109cd49206e81e61c35e
+ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45586836"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47201397"
 ---
 # <a name="use-azure-site-recovery-to-protect-active-directory-and-dns"></a>使用 Azure Site Recovery 保护 Active Directory 和 DNS
 
@@ -54,7 +54,7 @@ ms.locfileid: "45586836"
 ## <a name="protect-active-directory"></a>保护 Active Directory
 
 ### <a name="site-to-site-protection"></a>站点到站点保护
-在辅助站点上创建域控制器。 将服务器提升为域控制器角色时，请指定在主站点中使用的同一域名。 可以使用 **Active Directory 站点和服务**管理单元来配置站点要添加到的站点链接对象的设置。 通过在站点链接上配置设置，可以控制何时在两个或更多站点之间进行复制，以及复制的频率。 有关详细信息，请参阅[计划站点之间的复制](https://technet.microsoft.com/library/cc731862.aspx)。
+在辅助站点上创建域控制器。 将服务器提升为域控制器角色时，请指定在主站点中使用的同一域名。 可以使用 **Active Directory 站点和服务** 管理单元来配置站点要添加到的站点链接对象的设置。 通过在站点链接上配置设置，可以控制何时在两个或更多站点之间进行复制，以及复制的频率。 有关详细信息，请参阅[计划站点之间的复制](https://technet.microsoft.com/library/cc731862.aspx)。
 
 <a name="protect-active-directory-with-active-directory-replication"></a>
 ### <a name="site-to-azure-protection"></a>站点到 Azure 的保护
@@ -64,7 +64,7 @@ ms.locfileid: "45586836"
 
 ![Azure 网络](./media/site-recovery-active-directory/azure-network.png)
 
-### <a name="azure-to-azure-protection"></a>Azure 到 Azure 的保护
+### <a name="azure-to-azure-protection"></a>Azure 到 Azure 保护
 首先，在 Azure 虚拟网络中创建域控制器。 将服务器提升为域控制器角色时，请指定主站点中使用的同一域名。
 
 然后，为虚拟网络重新配置 DNS 服务器以在 Azure 中使用 DNS 服务器。
@@ -92,7 +92,7 @@ ms.locfileid: "45586836"
 1. 如果要复制到其他本地站点并使用 DHCP，请[针对测试故障转移设置 DNS 和 DHCP](hyper-v-vmm-test-failover.md#prepare-dhcp)。
 2. 对隔离网络中运行的域控制器虚拟机执行测试故障转移。 使用域控制器虚拟机最新可用的应用程序一致恢复点来执行测试故障转移。
 3. 针对包含虚拟机（应用程序在其中运行）的恢复计划运行测试故障转移。
-4. 测试完成后，请在域控制器虚拟机上清理测试故障转移。 此步骤删除为测试性故障转移创建的域控制器。
+4. 测试完成后，请在域控制器虚拟机上清理测试故障转移。 此步骤会删除为测试性故障转移创建的域控制器。
 
 ### <a name="remove-references-to-other-domain-controllers"></a>删除对其他域控制器的引用
 进行测试故障转移时，不需要将所有域控制器都引入测试网络中。 若要删除生产环境中存在的对其他域控制器的引用，可能需要为缺失的域控制器[获取 FSMO Active Directory 角色](http://aka.ms/ad_seize_fsmo)并执行[元数据清理](https://technet.microsoft.com/library/cc816907.aspx)。
@@ -114,17 +114,17 @@ ms.locfileid: "45586836"
 
 `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\gencounter\Start`
 
-#### <a name="symptoms-of-virtualization-safeguards"></a>虚拟化安全措施的症状
+#### <a name="symptoms-of-virtualization-safeguards"></a>虚拟化防护措施的症状
 
 如果在测试故障转移后触发了虚拟化安全措施，则可能会看到下述一项或多项症状：  
 
 * GenerationID 值发生变化。
 
-    ![生成 ID 更改](./media/site-recovery-active-directory/Event2170.png)
+    ![生成 ID 发生更改](./media/site-recovery-active-directory/Event2170.png)
 
 * InvocationID 值发生变化。
 
-    ![调用 ID 更改](./media/site-recovery-active-directory/Event1109.png)
+    ![调用 ID 发生更改](./media/site-recovery-active-directory/Event1109.png)
 
 * SYSVOL 和 NETLOGON 共享不可用。
 
@@ -153,9 +153,9 @@ ms.locfileid: "45586836"
 
 3. 在输出日志中，查找以下文本。 下列文本可用于确认域控制器正常运作。
 
-    * “通过测试连接”
-    * “通过测试播发”
-    * “通过测试 MachineAccount”
+    * "passed test Connectivity"
+    * "passed test Advertising"
+    * "passed test MachineAccount"
 
 如果满足上述条件，则域控制器很可能运行良好。 否则，请完成以下步骤：
 
@@ -187,7 +187,7 @@ ms.locfileid: "45586836"
 
 1. 确保在恢复计划中的任何其他虚拟机启动之前，以下设置已准备就绪：
    * 区域必须以林根名称命名。
-   * 区域必须备份文件。
+   * 必须在区域中备份文件。
    * 必须启用区域以进行安全和非安全更新。
    * 托管域控制器的虚拟机的解析程序应指向 DNS 虚拟机的 IP 地址。
 

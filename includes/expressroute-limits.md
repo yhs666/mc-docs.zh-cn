@@ -2,16 +2,14 @@
 
 下列限制适用于每个订阅的 ExpressRoute 资源。
 
-| 资源 | 默认限制 |
-|---|---|
-| 每个订阅的 ExpressRoute 线路数 | 10 个 |
-| ARM 的每个订阅每个区域的 ExpressRoute 线路数 | 10 个 |
-| 具有 ExpressRoute Standard 的 Azure 私用对等互连的最大路由数 | 4,000 |
-| 具有 ExpressRoute Premium 附加设备的 Azure 私用对等互连的最大路由数 | 10,000 |
-| 具有 ExpressRoute Standard 的 Azure 公共对等互连的最大路由数 | 200 |
-| 具有 ExpressRoute Premium 附加设备的 Azure 公共对等互连的最大路由数 | 200 |
-| 具有 ExpressRoute Standard 的 Azure Microsoft 对等互连的最大路由数 | 200 |
-| 具有 ExpressRoute Premium 附加设备的 Azure Microsoft 对等互连的最大路由数 | 200 |
+| 资源 | 默认/最大限制 |
+| --- | --- |
+| 每个订阅的 ExpressRoute 线路数 |10 个 |
+| 每个订阅每个区域的 ExpressRoute 线路数（Azure 资源管理器） |10 个 |
+| 具有 ExpressRoute Standard 的 Azure 私用对等互连的最大路由数 |4,000 |
+| 具有 ExpressRoute Premium 附加设备的 Azure 私用对等互连的最大路由数 |10,000 |
+| 具有 ExpressRoute Standard 的 Azure Microsoft 对等互连的最大路由数 |200 |
+| 具有 ExpressRoute Premium 附加设备的 Azure Microsoft 对等互连的最大路由数 |200 |
 | 链接到不同对等互连位置中相同虚拟网络的最大 ExpressRoute 线路数 |4 |
 | 每个 ExpressRoute 线路允许的虚拟网络链接数 | 请参阅下表 |
 

@@ -1,7 +1,6 @@
 ---
-title: 无服务器方案 - 使用 Azure 创建客户见解仪表板
-description: 了解如何使用 Azure 逻辑应用和 Azure Functions 构建客户仪表板，以便管理客户反馈、社交数据等
-keywords: ''
+title: 无服务器方案 - 使用 Azure 服务创建客户见解仪表板 | Microsoft Docs
+description: 使用 Azure 逻辑应用和 Azure Functions 构建客户仪表板，以便管理客户反馈、社交媒体数据等
 services: logic-apps
 author: jeffhollan
 manager: SyntaxC4
@@ -14,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/15/2018
-ms.date: 04/23/2018
+ms.date: 10/15/2018
 ms.author: v-yiso
-ms.openlocfilehash: 733a71111d52a772cc67c59a2c3c20a92333859d
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.openlocfilehash: 87256aad79871adc6d86e13b5388eabfd190e11f
+ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31322719"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47455170"
 ---
-# <a name="create-a-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>使用 Azure 逻辑应用和 Azure Functions 创建流式处理客户见解仪表板
+# <a name="create-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>使用 Azure 逻辑应用和 Azure Functions 创建流式处理客户见解仪表板
 
 Azure 提供无服务器工具，可帮助在云中快速构建和托管应用程序，而无需考虑基础结构问题。 在本教程中，我们将创建一个仪表板，以便针对客户反馈触发相关操作、通过机器学习分析反馈，以及通过 Power BI 或 Azure Data Lake 之类的源发布见解。
 
@@ -109,7 +108,7 @@ Azure 逻辑应用在云中提供无服务器工作流引擎，以便能够跨�
 
 ## <a name="create-automated-deployment-templates"></a>创建自动部署模板
 
-创建逻辑应用解决方案后，可以捕获该应用，并将其作为 [Azure 资源管理器模板](../azure-resource-manager/resource-group-overview.md#template-deployment)部署到世界上的任意 Azure 区域。 可以使用此功能来修改参数，以便创建不同的应用版本，以及将解决方案集成到生成和发布管道中。 还可以在部署模板中包含 Azure Functions，以便将整个解决方案和所有依赖项作为单个模板进行管理。 了解[如何创建逻辑应用部署模板](../logic-apps/logic-apps-create-deploy-template.md)。
+创建逻辑应用解决方案后，可以捕获该应用，并将其作为 [Azure 资源管理器模板](../azure-resource-manager/resource-group-overview.md#template-deployment)部署到世界上的任意 Azure 区域。 可以使用此功能来修改参数，以便创建不同的应用版本，以及将解决方案集成到 Azure Pipelines 中。 还可以在部署模板中包含 Azure Functions，以便将整个解决方案和所有依赖项作为单个模板进行管理。 了解[如何创建逻辑应用部署模板](../logic-apps/logic-apps-create-deploy-template.md)。
 
 [Azure 快速入门模板存储库](https://github.com/Azure/azure-quickstart-templates/tree/master/101-function-app-create-dynamic)中提供了包含 Azure 函数的部署模板示例。
 

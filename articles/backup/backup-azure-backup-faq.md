@@ -8,14 +8,14 @@ keywords: 备份和灾难恢复;备份服务
 ms.service: backup
 ms.topic: conceptual
 origin.date: 08/02/2018
-ms.date: 08/23/2018
+ms.date: 09/25/2018
 ms.author: v-junlch
-ms.openlocfilehash: 74c38bcc3d62e66377a62fbce4062b763f495203
-ms.sourcegitcommit: 85cdb61361dc61147bac991d4907f454f0684ea0
+ms.openlocfilehash: e78d8548b64221a9a9806adf96d6f75b71cae124
+ms.sourcegitcommit: a4d8c8641a6341113532d8770603d4b66cc13ced
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42709731"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47114535"
 ---
 # <a name="questions-about-the-azure-backup-service"></a>有关 Azure 备份服务的问题
 本文解答有关 Azure 备份组件的常见问题。 某些答案提供内含全面信息的文章的链接。 单击“评论”（右侧）即可提问有关 Azure 备份的问题。 评论显示在本文末尾。 需要使用 Livefyre 帐户发表评论。 还可以在 [论坛](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)中发布有关 Azure 备份服务的问题。
@@ -42,6 +42,9 @@ ms.locfileid: "42709731"
 
 ### <a name="can-i-migrate-backup-data-to-another-vault-br"></a>是否可以将备份数据迁移到另一个保管库？ <br/>
 否。 保管库中存储的备份数据无法移动到不同的保管库。
+
+### <a name="can-i-change-from-grs-to-lrs-after-a-backup-br"></a>备份后是否可以从 GRS 更改为 LRS？ <br/>
+否。 恢复服务保管库只能在存储任何备份之前更改存储选项。 
 
 ### <a name="recovery-services-vaults-are-resource-manager-based-are-backup-vaults-still-supported-br"></a>恢复服务保管库基于 Resource Manager。 是否仍然支持备份保管库？ <br/>
 备份保管库已转换为恢复服务保管库。 如果尚未将备份保管库转换为恢复服务保管库，系统会自动将备份保管库转换为恢复服务保管库。 

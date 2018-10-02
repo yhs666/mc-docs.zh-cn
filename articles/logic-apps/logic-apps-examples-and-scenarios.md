@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: logic-apps
 origin.date: 01/31/2018
 ms.author: v-yiso
-ms.date: 04/23/2018
-ms.openlocfilehash: 892fdf948a6bee137277709438534111e9cabcb0
-ms.sourcegitcommit: 6e80951b96588cab32eaff723fe9f240ba25206e
+ms.date: 10/15/2018
+ms.openlocfilehash: 49535e30322c5e95379b77df64f85fe97934797d
+ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31324386"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47455153"
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Azure 逻辑应用的常见方案、示例、教程和演练
 
@@ -80,7 +80,7 @@ ms.locfileid: "31324386"
 
 ## <a name="deploy-and-manage-logic-apps"></a>部署和管理逻辑应用
 
-可以使用 Visual Studio、Visual Studio Team Services，或任何其他源代码管理和自动生成工具充分开发和部署逻辑应用。 为了支持资源模板中工作流和从属连接的部署，逻辑应用使用 Azure 资源部署模板。 Visual Studio 工具会自动生成这些模板，可以在源代码管理中签入这些模板以进行版本控制。
+可以使用 Visual Studio、Azure DevOps，或任何其他源代码管理和自动生成工具充分开发和部署逻辑应用。 为了支持资源模板中工作流和从属连接的部署，逻辑应用使用 Azure 资源部署模板。 Visual Studio 工具会自动生成这些模板，可以在源代码管理中签入这些模板以进行版本控制。
 
 * [使用 Visual Studio 创建和部署逻辑应用](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
 * [在现有的逻辑应用上启用监视、日志记录和警报](../logic-apps/logic-apps-monitor-your-logic-apps.md)

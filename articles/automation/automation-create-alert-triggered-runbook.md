@@ -7,15 +7,15 @@ ms.component: process-automation
 author: WenJason
 ms.author: v-jay
 origin.date: 03/15/2018
-ms.date: 07/23/2018
+ms.date: 10/01/2018
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 788c63f8866775980868e1ccaaa1d6f3f1d298f2
-ms.sourcegitcommit: 2a147231bf3d0a693adf58fceee76ab0fbcd6dbb
+ms.openlocfilehash: fe167d7cd8dca8968ef0f8afff26bf740c01f4fe
+ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39335228"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47426448"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>使用警报触发 Azure 自动化 Runbook
 
@@ -23,16 +23,14 @@ ms.locfileid: "39335228"
 
 ## <a name="alert-types"></a>警报类型
 
-可对三种警报类型使用自动化 Runbook：
+可对一种警报类型使用自动化 Runbook：
 * 活动日志警报
-* 准实时指标警报
 
-当警报调用 Runbook 时，实际调用是对 Webhook 的 HTTP POST 请求。 该 POST 请求的正文包含一个 JSON 格式的对象，该对象包含与警报相关的有用属性。 下表列出了每种警报类型的有效负载架构的相应链接：
+当警报调用 Runbook 时，实际调用是对 Webhook 的 HTTP POST 请求。 该 POST 请求的正文包含一个 JSON 格式的对象，该对象包含与警报相关的有用属性。 下表列出了指向该警报类型的有效负载架构的链接：
 
 |警报  |说明|负载架构  |
 |---------|---------|---------|
 |[活动日志警报](/monitoring-and-diagnostics/monitoring-activity-log-alerts?toc=%2fautomation%2ftoc.json)    |当 Azure 活动日志中的任何新事件符合特定条件时，就会发送通知。 例如，当 **myProductionResourceGroup** 中出现 `Delete VM` 操作或出现状态为 **Active** 的新 Azure 服务运行状况事件时。| [活动日志警报有效负载架构](/monitoring-and-diagnostics/insights-auditlog-to-webhook-email?toc=%2fautomation%2ftoc.json#payload-schema)        |
-|[准实时指标警报](/monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts?toc=%2fautomation%2ftoc.json)    |当一个或多个平台级指标满足指定条件时，就会以快于指标警报的速度发送通知。 例如，当 VM 的“CPU 百分比”大于 **90** 并且过去 5 分钟“网络传入”大于 **500 MB** 时。| [准实时指标警报有效负载架构](/monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts?toc=%2fautomation%2ftoc.json#payload-schema)          |
 
 由于每种警报提供的数据不同，因此需要以不同的方式处理每种警报。 下一部分将介绍如何创建 Runbook 来处理不同类型的警报。
 

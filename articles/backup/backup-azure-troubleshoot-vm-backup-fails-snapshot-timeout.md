@@ -8,14 +8,14 @@ keywords: Azure 备份; VM 代理; 网络连接;
 ms.service: backup
 ms.topic: troubleshooting
 origin.date: 06/25/2018
-ms.date: 08/08/2018
+ms.date: 09/25/2018
 ms.author: v-junlch
-ms.openlocfilehash: f449ef3b40b9b6c2520985aab7d7abe2fc27a033
-ms.sourcegitcommit: 543a18c71c0910a5b9878a2d2668f317468906f2
+ms.openlocfilehash: 01248d4113cfb7f4e0373a5778bbe7079bd2074b
+ms.sourcegitcommit: a4d8c8641a6341113532d8770603d4b66cc13ced
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39625518"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47114529"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure 备份故障排除：代理或扩展的问题
 
@@ -110,6 +110,8 @@ VM 无法根据部署要求访问 Internet。 或者现有的限制阻止访问 
 > 存储服务标记以预览版提供。 它们只在特定的区域中可用。 有关区域列表，请参阅[存储的服务标记](../virtual-network/security-overview.md#service-tags)。
 
 如果使用 Azure 托管磁盘，可能需要在防火墙上打开另一个端口 (8443)。
+
+此外，如果子网没有用于 Internet 出站流量的路由，则需要将具有服务标记“Microsoft.Storage”的服务终结点添加到子网。 
 
 ### <a name="the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>代理安装在 VM 中，但无响应（针对 Windows VM）
 

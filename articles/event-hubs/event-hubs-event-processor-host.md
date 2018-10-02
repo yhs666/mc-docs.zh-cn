@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 06/26/2018
-ms.date: 08/06/2018
+origin.date: 08/16/2018
+ms.date: 09/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: d31f08c4c473c2a169ef3edca3c030527bdf5812
-ms.sourcegitcommit: c6205500afd23ac00f2829fe51858b51a622eaf1
+ms.openlocfilehash: 503d12c6a195ac017585eed91b63f298139e5c1d
+ms.sourcegitcommit: 399060a8d46534abd370693f6282e7343b371634
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39487899"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47455589"
 ---
 # <a name="azure-event-hubs-event-processor-host-overview"></a>Azure 事件中心事件处理程序主机概述
 
@@ -165,5 +165,5 @@ public class SimpleEventProcessor : IEventProcessor
 * [事件中心中的可用性和一致性](event-hubs-availability-and-consistency.md)
 * [事件中心常见问题](event-hubs-faq.md)
 * [GitHub 上的事件中心示例](https://github.com/Azure/azure-event-hubs/tree/master/samples)
-<!-- Update_Description: new articles on event hubs event processor host  -->
-<!--ms.date: 08/06/2018-->
+<!-- Update_Description: update meta properties  -->
+

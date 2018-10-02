@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 origin.date: 05/30/2017
 ms.author: v-yiso
-ms.date: 04/30/2018
-ms.openlocfilehash: 5e5dc418179ce7c669dfaa4ceb7888089a4ea048
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+ms.date: 11/15/2018
+ms.openlocfilehash: 9069333084161fce92e99b2c2fc71d6a3fd013dc
+ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782135"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47455119"
 ---
-# <a name="move-from-biztalk-services-to-azure-logic-apps"></a>从 BizTalk 服务移动到 Azure 逻辑应用
+# <a name="migrate-from-biztalk-services-to-azure-logic-apps"></a>从 BizTalk 服务迁移到 Azure 逻辑应用
 
 Microsoft Azure BizTalk 服务 (MABS) 即将停用。 若要将 MABS 集成解决方案移动到 [Azure 逻辑应用](../logic-apps/logic-apps-overview.md)，请使用本文中的指南。 
 
@@ -92,7 +92,7 @@ BizTalk 服务连接器帮助网桥发送和接收数据，包括启用了基于
 
 ### <a name="transform-messages"></a>转换消息
 
-在 BizTalk 服务中，转换阶段将一种基于 XML 的消息格式转换为另一种格式。 此工作是通过使用基于 TRFM 的映射程序来应用映射完成的。 在逻辑应用中，过程与此类似。 转换操作会从集成帐户执行映射。 主要区别是，逻辑应用中的映射是 XSLT 格式。 XSLT 能够重复使用现有 XSLT，包括为 BizTalk 服务器创建的包含 functoid 的映射。 
+在 BizTalk 服务中，转换阶段将一种基于 XML 的消息格式转换为另一种格式。 此工作是通过使用基于 TRFM 的映射程序来应用映射完成的。 在逻辑应用中，过程与此类似。 转换操作会从集成帐户执行映射。 主要区别是，逻辑应用中的映射是 XSLT 格式。 XSLT 能够重复使用现有 XSLT，包括为 BizTalk Server 创建的包含 functoid 的映射。 
 
 ### <a name="routing-rules"></a>路由规则
 
@@ -112,8 +112,7 @@ BizTalk 服务会做出路由决策，决定由哪个终结点或连接器来发
 
 BizTalk 服务允许你运行在你自己的程序集中上传的[自定义代码](https://msdn.microsoft.com/library/azure/dn232389.aspx)。 此功能是通过 [IMessageInspector](https://msdn.microsoft.com/library/microsoft.biztalk.services.imessageinspector) 接口实现的。 网桥中的每个阶段都包括两个属性（On Enter Inspector 和 On Exit Inspector），它们提供你创建的实现了此接口的 .NET 类型。 通过自定义代码，可以对数据执行更复杂的处理，还可以重复使用程序集中执行常见业务逻辑的现有代码。 
 
-<!-- attention here -->
-逻辑应用提供两种主要方式来执行自定义代码：Azure Functions 和 API 应用。 可以创建 Azure Functions，也可以从逻辑应用中调用。 请参阅[通过 Azure Functions 为逻辑应用添加和运行自定义代码](../logic-apps/logic-apps-azure-functions.md)。 使用 API 应用（Azure 应用服务的一部分）创建自己的触发器和操作。 了解有关[创建用于逻辑应用的自定义 API](../logic-apps/logic-apps-create-api-app.md) 的详细信息。 
+<!-- attention here --> 逻辑应用提供两种主要方式来执行自定义代码：Azure Functions 和 API 应用。 可以创建 Azure Functions，也可以从逻辑应用中调用。 请参阅[通过 Azure Functions 为逻辑应用添加和运行自定义代码](../logic-apps/logic-apps-azure-functions.md)。 使用 API 应用（Azure 应用服务的一部分）创建自己的触发器和操作。 了解有关[创建用于逻辑应用的自定义 API](../logic-apps/logic-apps-create-api-app.md) 的详细信息。 
 
 如果程序集中有从 BizTalk 服务中调用的自定义代码，可以将此代码移到 Azure Functions，也可以使用 API 应用创建自定义 API；具体取决于要实现什么。 例如，如果代码包装了逻辑应用没有其连接器的另一个服务，则请创建 API 应用，并在逻辑应用中使用你的 API 应用提供的操作。 如果有帮助程序函数或库，则 Azure Functions 很有可能是最合适的。
 

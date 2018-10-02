@@ -7,15 +7,15 @@ manager: carmonm
 keywords: 备份; 备份;
 ms.service: backup
 ms.topic: conceptual
-origin.date: 06/21/2018
-ms.date: 08/23/2018
+origin.date: 09/10/2018
+ms.date: 09/25/2018
 ms.author: v-junlch
-ms.openlocfilehash: a4965839e617c146b7c30b6ccf8b90ee1a845f0e
-ms.sourcegitcommit: 85cdb61361dc61147bac991d4907f454f0684ea0
+ms.openlocfilehash: 65b389b985f8895e3a8cf5271745b491b615d59b
+ms.sourcegitcommit: a4d8c8641a6341113532d8770603d4b66cc13ced
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42709738"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47114536"
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>准备环境以备份 Resource Manager 部署的虚拟机
 
@@ -47,6 +47,7 @@ ms.locfileid: "42709738"
 ## <a name="limitations-when-backing-up-and-restoring-a-vm"></a>备份和还原 VM 时的限制
 准备环境之前，请务必了解限制：
 
+- 目前不支持使用标准 SSD 备份 VM。
 - 不支持备份拥有 16 个以上数据磁盘的虚拟机。
 - 不支持备份使用保留 IP 地址且未定义终结点的虚拟机。
 - 不支持备份通过 Linux 统一密钥设置 (LUKS) 加密法加密的 Linux VM。
@@ -211,8 +212,8 @@ ms.locfileid: "42709738"
 
 ![具有区域存储标记的 NSG](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
 
-> [!WARNING]
-> 存储服务标记仅在特定区域中可用，并且处于预览状态。 有关区域列表，请参阅[存储的服务标记](../virtual-network/security-overview.md#service-tags)。
+> [!NOTE]
+> 有关存储服务标记和区域的列表，请参阅[存储服务标记](../virtual-network/security-overview.md#service-tags)。
 
 ### <a name="use-an-http-proxy-for-vm-backups"></a>使用 HTTP 代理进行 VM 备份
 备份 VM 时，VM 上的备份扩展会使用 HTTPS API 将快照管理命令发送到 Azure 存储。 将通过 HTTP 代理路由备份扩展流量，因为它是为了访问公共 Internet 而配置的唯一组件。

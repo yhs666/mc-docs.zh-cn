@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/19/2017
-ms.date: 09/10/2018
+ms.date: 09/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: c8584541d13b2dcecd42b2fae676186661188a7c
-ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
+ms.openlocfilehash: fc686109cd06ccb835559bb6b1f26814d38f0289
+ms.sourcegitcommit: 432984d85afe6f3da8f211bae0fa98a556785ee8
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44515592"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47455396"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>在 Azure 中使用网络观察程序与 Graylog 来管理和分析网络安全组流日志
 
@@ -29,11 +29,11 @@ ms.locfileid: "44515592"
 
 可以在启用了流日志记录的网络中使用许多的网络安全组。 使用多个已启用流日志记录的网络安全组，可能会导致从日志中分析和获取见解变得非常麻烦。 本文提供一种解决方法，即使用 Graylog（开源日志管理和分析工具）和 Logstash（开源服务器端数据处理管道）来集中管理这些网络安全组流日志。
 
-## <a name="scenario"></a>场景
+## <a name="scenario"></a>方案
 
 已使用网络观察程序启用网络安全组流日志。 流日志流入 Azure Blob 存储。 Logstash 插件用于连接和处理 Blob 存储中的流日志并将其发送到 Graylog。 将流日志存储到 Graylog 中之后，可对其进行分析，并在自定义的仪表板中将其可视化。
 
-![Graylog 工作流]](./media/network-watcher-analyze-nsg-flow-logs-graylog/workflow.png)
+![Graylog 工作流](./media/network-watcher-analyze-nsg-flow-logs-graylog/workflow.png)
 
 ## <a name="installation-steps"></a>安装步骤
 
@@ -52,28 +52,28 @@ ms.locfileid: "44515592"
 
 可根据平台和偏好，以多种方式安装 Graylog。 有关可能的安装方法的完整列表，请参阅 Graylog 的官方[文档](http://docs.graylog.org/en/2.2/pages/installation.html)。 Graylog 服务器应用程序在 Linux 分发版上运行，附带以下先决条件：
 
--   Oracle Java SE 8 或更高版本 - [Oracle 安装文档](http://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html)
--   Elastic Search 2.x（2.1.0 或更高版本）– [Elasticsearch 安装文档](https://www.elastic.co/guide/en/elasticsearch/reference/2.4/_installation.html)
--   MongoDB 2.4 或更高版本 - [MongoDB 安装文档](https://docs.mongodb.com/manual/administration/install-on-linux/)
+-  Oracle Java SE 8 或更高版本 - [Oracle 安装文档](http://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html)
+-  Elastic Search 2.x（2.1.0 或更高版本）– [Elasticsearch 安装文档](https://www.elastic.co/guide/en/elasticsearch/reference/2.4/_installation.html)
+-  MongoDB 2.4 或更高版本 - [MongoDB 安装文档](https://docs.mongodb.com/manual/administration/install-on-linux/)
 
 ### <a name="install-logstash"></a>安装 Logstash
 
 Logstash 用于将 JSON 格式的流日志平展到流元组级别。 平展流日志可使 Graylog 中的日志组织和搜索变得更轻松。
 
-1.  若要安装 Logstash，请运行以下命令：
+1. 若要安装 Logstash，请运行以下命令：
 
     ```bash
     curl -L -O https://artifacts.elastic.co/downloads/logstash/logstash-5.2.0.deb
     sudo dpkg -i logstash-5.2.0.deb
     ```
 
-2.  配置 Logstash，以分析流日志并将其发送到 Graylog。 创建 Logstash.conf 文件：
+2. 配置 Logstash，以分析流日志并将其发送到 Graylog。 创建 Logstash.conf 文件：
 
     ```bash
     sudo touch /etc/logstash/conf.d/logstash.conf
     ```
 
-3.  将以下内容添加到该文件。 更改突出显示的值，以反映存储帐户详细信息：
+3. 将以下内容添加到该文件。 更改突出显示的值，以反映存储帐户详细信息：
 
     ```
     input {
@@ -148,11 +148,11 @@ Logstash 用于将 JSON 格式的流日志平展到流元组级别。 平展流�
         }
     }
     ```
-提供的 Logstash 配置文件由三个部分组成：input、filter 和 output。 input 节指定由 Logstash 处理的日志的输入源 - 在本例中，我们会使用 Azure 博客输入插件（在后续步骤中安装），以便访问 Blob 存储中存储的网络安全组流日志 JSON 文件。
+提供的 Logstash 配置文件由三个部分组成：input、filter 和 output。 输入部分指定 Logstash 要处理的日志的输入源 - 在本例中，你将使用 Azure 博客输入插件（将在后续步骤中安装），允许我们访问 Blob 存储中存储的网络安全组流日志 JSON 文件。
 
 然后，filter 部分将平展每个流日志文件，以便使每个单独的流元组及其关联属性成为单独的 Logstash 事件。
 
-最后，output 节将每个 Logstash 事件转发到 Graylog 服务器。 若要满足特定需要，可根据需要修改 Logstash 配置文件。
+最后，output 部分将每个 Logstash 事件转发到 Graylog 服务器。 若要满足特定需要，可以根据需要修改 Logstash 配置文件。
 
     > [!NOTE]
     > The previous config file assumes that the Graylog server has been configured on the local host loopback IP address 127.0.0.1. If not, be sure to change the host parameter in the output section to the correct IP address.
@@ -172,16 +172,16 @@ sudo ./logstash-plugin install logstash-input-azureblob
 
 ### <a name="set-up-connection-from-logstash-to-graylog"></a>设置从 Logstash 到 Graylog 的连接
 
-使用 Logstash 建立与流日志的连接并设置 Graylog 服务器之后，需要将 Graylog 配置为接受传入的日志文件。
+在使用 Logstash 建立了与流日志的连接并设置了 Graylog 服务器之后，现在需要将 Graylog 配置为接受传入的日志文件。
 
-1.  使用针对 Graylog 服务器 Web 界面配置的 URL 导航到该界面。 可以通过将浏览器定向到 `http://<graylog-server-ip>:9000/` 来访问该界面
+1. 使用针对 Graylog 服务器 Web 界面配置的 URL 导航到该界面。 可以通过将浏览器定向到 `http://<graylog-server-ip>:9000/` 来访问该界面
 
-2.  若要导航到配置页，请在顶部导航栏的右侧选择“系统”下拉菜单，并单击“输入”。
+2. 若要导航到配置页，请在顶部导航栏的右侧选择“系统”下拉菜单，并单击“输入”。
     或者导航到 `http://<graylog-server-ip>:9000/system/inputs`
 
     ![入门](./media/network-watcher-analyze-nsg-flow-logs-graylog/getting-started.png)
 
-3.  若要启动新输入，请在“选择输入”下拉列表中选择“GELF UDP”，并填写表单。 GELF 是“Graylog 扩展日志格式”(Graylog Extended Log Format) 的缩写。 GELF 格式由 Graylog 开发。 若要详细了解此格式的优点，请参阅 Graylog [文档](http://docs.graylog.org/en/2.2/pages/gelf.html)。
+3. 若要启动新输入，请在“选择输入”下拉列表中选择“GELF UDP”，并填写表单。 GELF 是“Graylog 扩展日志格式”(Graylog Extended Log Format) 的缩写。 GELF 格式由 Graylog 开发。 若要详细了解此格式的优点，请参阅 Graylog [文档](http://docs.graylog.org/en/2.2/pages/gelf.html)。
 
     确保将输入绑定到配置 Graylog 服务器的 IP。 IP 地址应与 Logstash 配置文件 UDP 输出中的 **host** 字段匹配。 默认端口应是 *12201*。 确保端口与 Logstash 配置文件中指定的 UDP 输出中的 **port** 字段匹配。
 
@@ -193,9 +193,7 @@ sudo ./logstash-plugin install logstash-input-azureblob
 
     若要详细了解 Graylog 消息输入，请参阅[文档](http://docs.graylog.org/en/2.2/pages/sending_data.html#what-are-graylog-message-inputs)。
 
-4.  完成这些配置后，可使用以下命令启动 Logstash，开始读入流日志：
-
-    `sudo systemctl start logstash.service`
+4. 完成这些配置后，可使用以下命令启动 Logstash 来开始读入流日志：`sudo systemctl start logstash.service`。
 
 ### <a name="search-through-graylog-messages"></a>搜索整个 Graylog 消息
 
@@ -211,13 +209,13 @@ sudo ./logstash-plugin install logstash-input-azureblob
 
 ## <a name="analyze-network-security-group-flow-logs-using-graylog"></a>使用 Graylog 分析网络安全组流日志
 
-设置并运行 Graylog 之后，可以使用它的某些功能来更好地了解流日志数据。 操作方法之一是使用仪表板创建数据的特定视图。
+在设置并运行 Graylog 之后，现在可以使用它的某些功能来更好地了解流日志数据。 操作方法之一是使用仪表板创建数据的特定视图。
 
 ### <a name="create-a-dashboard"></a>创建仪表板
 
-1.  在顶部导航栏中，选择“仪表板”或导航到 `http://<graylog-server-ip>:9000/dashboards/`
+1. 在顶部导航栏中，选择“仪表板”或导航到 `http://<graylog-server-ip>:9000/dashboards/`
 
-2.  在此处，请单击绿色的“创建仪表板”按钮，并在简短表单中填写仪表板的标题和说明。 单击“保存”按钮创建新仪表板。 随后会出现如下图所示的仪表板：
+2. 在此处，请单击绿色的“创建仪表板”按钮，并在简短表单中填写仪表板的标题和说明。 单击“保存”按钮创建新仪表板。 随后会出现如下图所示的仪表板：
 
     ![仪表板](./media/network-watcher-analyze-nsg-flow-logs-graylog/dashboards.png)
 
@@ -225,17 +223,17 @@ sudo ./logstash-plugin install logstash-input-azureblob
 
 可以单击仪表板的标题来查看该仪表板，但目前它是空的，因为尚未添加任何小组件。 可添加到仪表板中的简易且有用的小组件类型是“快速值”图表，其中显示所选字段的值列表及其分布。
 
-1.  在顶部导航栏中选择“搜索”，导航回到接收流日志的 UDP 输入的搜索结果。
+1. 在顶部导航栏中选择“搜索”，导航回到接收流日志的 UDP 输入的搜索结果。
 
-2.  在屏幕左侧的“搜索结果”面板下，找到“字段”选项卡，其中列出了每个传入流元组消息的各个字段。
+2. 在屏幕左侧的“搜索结果”窗格下，找到“字段”选项卡，其中列出了每个传入流元组消息的各个字段。
 
-3.  选择要可视化的任何所需参数（本示例选择了源 IP）。 若要显示可能的小组件列表，请单击字段左侧的蓝色下拉箭头，并选择“快速值”生成小组件。 应会看到下图所示的内容：
+3. 选择要从中进行可视化的任何所需参数（本示例选择了 IP 源）。 若要显示可能的小组件列表，请单击字段左侧的蓝色下拉箭头，并选择“快速值”生成小组件。 应会看到下图所示的内容：
 
     ![Source IP](./media/network-watcher-analyze-nsg-flow-logs-graylog/srcip.png)
 
-4.  在此处，可以选择小组件右上角的“添加到仪表板”按钮，并选择要添加的相应仪表板。
+4. 在此处，可以选择小组件右上角的“添加到仪表板”按钮，并选择要添加的相应仪表板。
 
-5.  导航回到仪表板可以看到刚刚添加的小组件。
+5. 导航回到仪表板可以看到刚刚添加的小组件。
 
     可将其他各种小组件（例如直方图和计数）添加到仪表板，以跟踪重要指标，如下图中所示的示例仪表板：
 
@@ -250,3 +248,4 @@ sudo ./logstash-plugin install logstash-input-azureblob
 访问[使用 Power BI 可视化网络安全组流日志](network-watcher-visualize-nsg-flow-logs-power-bi.md)，了解如何使用 Power BI 可视化网络安全组流日志。
 
 <!--Update_Description: update meta properties -->
+

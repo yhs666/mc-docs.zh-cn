@@ -6,15 +6,15 @@ author: saurabhsensharma
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
-origin.date: 08/06/2018
-ms.date: 08/23/2018
+origin.date: 09/07/2018
+ms.date: 09/25/2018
 ms.author: v-junlch
-ms.openlocfilehash: 965111c5af55a7250aa695794aa2722257d655f7
-ms.sourcegitcommit: 85cdb61361dc61147bac991d4907f454f0684ea0
+ms.openlocfilehash: 8a5534b69835890ef9dcaa3c35d96780a7547815
+ms.sourcegitcommit: a4d8c8641a6341113532d8770603d4b66cc13ced
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42709740"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47114523"
 ---
 # <a name="restore-files-to-a-windows-server-or-windows-client-machine-using-resource-manager-deployment-model"></a>使用 Resource Manager 部署模型将文件还原到 Windows Server 或 Windows 客户端计算机
 
@@ -52,9 +52,11 @@ ms.locfileid: "42709740"
 4. 在“选择恢复模式”窗格中选择“单个文件和文件夹”，然后单击“下一步”。
 
     ![浏览文件](./media/backup-azure-restore-windows-server/samemachine_selectrecoverymode_instantrestore.png)
-
     > [!IMPORTANT]
     > 还原“单个文件和文件夹”选项需要 .NET Framework 4.5.2 或更高版本。 如果未看到“单个文件和文件夹”选项，则必须将 .NET Framework 升级到 4.5.2 或更高版本，然后重试。
+    
+    > [!TIP]
+    > “单个文件和文件夹”选项允许快速访问恢复点数据。 它适用于恢复单个文件（总大小不超过 80 GB），并且在恢复期间提供高达 6 MBps 的传输/复制速度。 “卷”选项可恢复给定卷中的所有备份数据。 此选项提供更快的传输速度（最高 60 MBps），非常适合恢复大型数据或整个卷。
 
 5. 在“选择卷和日期”  窗格中，选择包含想要还原的文件和/或文件夹的卷。
 
@@ -74,6 +76,7 @@ ms.locfileid: "42709740"
 8. 在 Windows 资源管理器中，复制想要还原的文件和/或文件夹，将其粘贴到服务器或计算机本地的任何位置。 可从恢复卷直接打开或流式传输文件，并验证是否恢复的是正确的版本。
 
     ![将文件和文件夹从装载的卷复制并粘贴到本地位置](./media/backup-azure-restore-windows-server/samemachine_copy_instantrestore.png)
+
 
 9. 完成还原文件和/或文件夹后，请在“浏览和恢复文件”窗格中单击“卸载”。 然后单击“是”，确认要卸载该卷。
 

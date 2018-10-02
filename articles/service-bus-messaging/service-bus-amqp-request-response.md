@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 02/22/2018
 ms.author: v-yiso
-ms.date: 06/04/2018
-ms.openlocfilehash: 0b03b7b8173b3ab6ed32ae8720c9ccd1c202b361
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.date: 10/15/2018
+ms.openlocfilehash: 70ff7da0d0ba7005f5342fa2bf7a55938b5af6a7
+ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554620"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47455264"
 ---
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>Microsoft Azure 服务总线中的 AMQP 1.0：基于请求/响应的操作
 
 本文定义 Microsoft Azure 服务总线基于请求/响应的操作的列表。 此信息基于 AMQP 管理版本 1.0 工作草案。  
-
-有关详细的线级 AMQP 1.0 协议指南（其中介绍了如何基于 OASIS AMQP 技术规范实现和建立服务总线），请参阅 [Azure 服务总线和事件中心的 AMQP 1.0 协议指南](./service-bus-amqp-protocol-guide.md)。  
-
+  
+有关详细的线级 AMQP 1.0 协议指南（其中介绍了如何基于 OASIS AMQP 技术规范实现和建立服务总线），请参阅 [Azure 服务总线和事件中心的 AMQP 1.0 协议指南][amqp 1.0 协议指南]。  
+  
 ## <a name="concepts"></a>概念  
 
 ### <a name="entity-description"></a>实体描述  
@@ -144,6 +144,10 @@ properties: {
 |---------|----------------|--------------|--------------------|  
 |`lock-tokens`|uuid 的数组|是|要续订的消息锁令牌。|  
 
+> [!NOTE]
+> 锁定标记是收到消息的 `DeliveryTag` 属性。 请参阅以下使用 [.NET SDK](https://github.com/Azure/azure-service-bus-dotnet/blob/6f144e91310dcc7bd37aba4e8aebd535d13fa31a/src/Microsoft.Azure.ServiceBus/Amqp/AmqpMessageConverter.cs#L336) 检索这些标记的示例。 该标记也可能以“x-opt-lock-token”的形式出现在“DeliveryAnnotations”中，但这不能得到保证，`DeliveryTag` 应该是首选。 
+> 
+  
 #### <a name="response"></a>响应  
 
 响应消息必须包含以下应用程序属性：  

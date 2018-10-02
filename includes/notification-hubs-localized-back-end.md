@@ -1,19 +1,19 @@
 ---
- title: include 文件 description: include 文件 services: notification-hubs author: spelluru ms.service: notification-hubs ms.topic: include origin.date: 04/02/2018 ms.date: 07/09/2018 ms.author: v-junlch ms.custom: include file
+ title: include 文件 description: include 文件 services: notification-hubs author: spelluru ms.service: notification-hubs ms.topic: include origin.date: 04/02/2018 ms.date: 09/26/2018 ms.author: v-junlch ms.custom: include 文件
 ---
-
 
 发送模板通知时，只需提供一组属性。 在此方案中，这组属性包含当前新闻的本地化版本。
 
-    {
-        "News_English": "World News in English!",
-        "News_French": "World News in French!",
-        "News_Mandarin": "World News in Mandarin!"
-    }
-
-
+```json
+{
+    "News_English": "World News in English!",
+    "News_French": "World News in French!",
+    "News_Mandarin": "World News in Mandarin!"
+}
+```
 
 ### <a name="send-notifications-using-a-c-console-app"></a>使用 C# 控制台应用发送通知
+
 本部分演示如何使用控制台应用发送通知。 代码向 Windows 应用商店和 iOS 设备广播通知。 使用以下代码修改前面创建的控制台应用中的 `SendTemplateNotificationAsync` 方法：
 
 ```csharp
@@ -54,6 +54,7 @@ private static async void SendTemplateNotificationAsync()
 无论使用何种平台，SendTemplateNotificationAsync 方法都会将本地化新闻传送到所有设备。 通知中心生成正确的本机有效负载并将其传送到已订阅特定标记的所有设备。
 
 ### <a name="sending-notification-with-mobile-services"></a>使用移动服务发送通知
+
 在移动服务计划程序中，使用以下脚本：
 
 ```csharp
@@ -71,4 +72,4 @@ notificationHubService.send('World', notification, function(error) {
 });
 ```
 
-<!-- ms.date: 07/10/2018 -->
+<!-- ms.date: 09/26/2018 -->

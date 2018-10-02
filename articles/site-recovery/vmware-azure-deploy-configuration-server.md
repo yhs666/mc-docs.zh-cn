@@ -7,21 +7,21 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: article
 origin.date: 07/06/2018
-ms.date: 07/23/2018
+ms.date: 09/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7806d67090bd3577fee8f5fa6e722c682f26377f
-ms.sourcegitcommit: f216d57a5a2732e2e2c4e20ac9747e206ac914e4
+ms.openlocfilehash: fd0034f9043c19fb53dcfbaa02fd81e6f3adffc3
+ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39416936"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47201351"
 ---
 # <a name="deploy-a-configuration-server"></a>部署配置服务器
 
 使用 [Azure Site Recovery](site-recovery-overview.md) 进行 VMware VM 和物理服务器到 Azure 的灾难恢复时，需要部署本地配置服务器。 配置服务器协调本地 VMware 与 Azure 之间的通信。 它还管理数据复制。 将 VMware VM 复制到 Azure 时，本文可引导你完成部署配置服务器所需的步骤。 如果需要为物理服务器复制设置配置服务器，[请按此文中的说明进行操作](physical-azure-set-up-source.md)。
 
 >[!TIP]
-可以在[此处](vmware-azure-architecture.md)了解配置服务器角色作为 Azure Site Recovery 体系结构的一部分。
+可以在[此处](vmware-azure-architecture.md)了解配置服务器角色，它是 Azure Site Recovery 体系结构的一部分。
 
 ## <a name="deployment-of-configuration-server-through-ova-template"></a>通过 OVA 模板进行的配置服务器部署
 
@@ -37,13 +37,13 @@ ms.locfileid: "39416936"
 
 配置服务器的大小要求取决于潜在的数据更改率。 使用此表作为指南。
 
-| **CPU** | **内存** | **缓存磁盘大小** | **数据更改率** | **受保护的计算机** |
+| CPU | **内存** | **缓存磁盘大小** | **数据更改率** | **受保护的计算机** |
 | --- | --- | --- | --- | --- |
 | 8 个 vCPU（2 个插槽 * 4 个核心 \@ 2.5 GHz） |16 GB |300 GB |500 GB 或更少 |复制少于 100 台计算机。 |
 | 12 个 vCPU（2 个插槽 * 6 个核心 \@ 2.5 GHz） |18 GB |600 GB |500 GB 到 1 TB |复制 100-150 台计算机。 |
 | 16 个 vCPU（2 个插槽 * 8 个核心 \@ 2.5 GHz） |32 GB |1 TB |1 TB 到 2 TB |复制 150-200 台计算机。 |
 
-如果要复制多个 VMware VM，请阅读[容量规划注意事项](/site-recovery-plan-capacity-vmware.md)。 为 VMWare 复制运行[部署规划器工具](site-recovery-deployment-planner.md)。
+如果要复制多个 VMware VM，请阅读[容量规划注意事项](site-recovery-plan-capacity-vmware.md)。 为 VMWare 复制运行 [Deployment Planner 工具](site-recovery-deployment-planner.md)。
 
 ## <a name="download-the-template"></a>下载模板
 
@@ -82,7 +82,7 @@ ms.locfileid: "39416936"
 
 1. 在 vSphere 客户端库存中，右键单击 VM 并选择“编辑设置”。
 2. 在“硬件”中，选择“添加” > “以太网适配器”。 然后，选择“下一步”。
-3. 选择适配器类型和网络。 
+3. 选择适配器类型和网络。
 4. 若要在打开 VM 时连接虚拟 NIC，请选择“上电时连接”。 然后，选择“下一步” > “完成” > “确定”。
 
 <a name="register-the-configuration-server"></a>
@@ -107,7 +107,7 @@ ms.locfileid: "39416936"
 
 3. 在“安装第三方软件”中，
 
-    |方案   |执行的步骤  |
+    |场景   |执行的步骤  |
     |---------|---------|
     |我可以下载和手动安装 MySQL 吗？     |  是的。 下载 MySQL 应用程序，将其置于 C:\Temp\ASRSetup 文件夹中，然后手动安装。 现在，接受条款并单击“下载并安装”，门户上显示“已安装”。 可以继续下一步。       |
     |可以避免联机下载 MySQL 吗？     |   是的。 将 MySQL 安装程序应用程序置于 C:\Temp\ASRSetup 文件夹中。 接受条款并单击“下载并安装”，门户将使用你添加的安装程序并安装应用程序。 安装后可以继续执行下一步。    |
@@ -123,7 +123,7 @@ ms.locfileid: "39416936"
 
 1. 可以使用安装有配置服务器的 VM 实现其他用途吗？
 
-    不可以，我们建议仅将 VM 用于配置服务器。 请确保遵循[上一部分](vmware-azure-deploy-configuration-server.md#Prerequisites)中所述的所有规范，以便有效管理灾难恢复。
+    不可以，我们建议仅将 VM 用于配置服务器。 请确保遵循[先决条件](#prerequisites)中提到的所有规范，以便有效管理灾难恢复。
 2. 可以将已在配置服务器中注册的保管库切换为新创建的保管库吗？
 
     不可以，将保管库注册到配置服务器后，就无法更改。
@@ -132,10 +132,10 @@ ms.locfileid: "39416936"
     可以，同一配置服务器可以用于复制物理计算机和虚拟机。 但是，物理计算机仅可故障回复到 VMware VM。
 4. 配置服务器有何用途，可用于何处？
 
-    请在[此处](vmware-azure-architecture.md)参阅我们的 Azure Site Recovery 体系结构，详细了解配置服务器及其功能。
+    请参阅 [VMware 到 Azure 复制体系结构](vmware-azure-architecture.md)，了解有关配置服务器及其功能的更多信息。
 5. 在哪里可以找到最新版本的配置服务器？
 
-    请参阅[门户中](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)有关升级配置服务器的步骤的文章。 还可以从[下载中心](https://aka.ms/asrconfigurationserver_bjb)直接下载。
+    有关通过门户升级配置服务器的步骤，请参阅[升级配置服务器](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)。 还可以从[下载中心](https://aka.ms/asrconfigurationserver_bjb)直接下载。
 6. 在哪里可以下载配置服务器的密码？
 
     请参阅[本文](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase)下载密码。
@@ -145,7 +145,11 @@ ms.locfileid: "39416936"
 
 ## <a name="upgrade-the-configuration-server"></a>升级配置服务器
 
-要将配置服务器升级到最新版本，请阅读[此处](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)提供的步骤
+若要将配置服务器升级到最新版本，请按照这些[步骤](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)进行操作。
+
+## <a name="manage-the-configuration-server"></a>管理配置服务器
+
+为避免正在进行的复制中断，请确保在配置服务器注册到保管库后配置服务器的 IP 地址不会更改。 可以在[此处](vmware-azure-manage-configuration-server.md)了解有关常见配置服务器管理任务的详细信息。
 
 ## <a name="troubleshoot-deployment-issues"></a>排查部署问题
 
