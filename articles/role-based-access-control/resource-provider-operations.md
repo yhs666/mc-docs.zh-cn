@@ -10,16 +10,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 08/19/2018
-ms.date: 08/23/2018
+origin.date: 09/15/2018
+ms.date: 09/25/2018
 ms.author: v-junlch
 ms.reviewer: bagovind
-ms.openlocfilehash: 4c47941b15716b3a51507c252a893c04774c4e72
-ms.sourcegitcommit: 64af85591634684abc62e7f79d8270705c95c109
+ms.openlocfilehash: 5452d35bc593149af7dc3eaf084e7d20c01943d7
+ms.sourcegitcommit: 830a60c06303a8447d128a3bca8b36aa2b3b655b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42866367"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47075857"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure 资源管理器资源提供程序操作
 
@@ -35,6 +35,9 @@ ms.locfileid: "42866367"
 > | 操作类型 | 操作 | 说明 |
 > | --- | --- | --- |
 > | 操作 | Microsoft.AAD/domainServices/delete | 删除域服务 |
+> | 操作 | Microsoft.AAD/domainServices/oucontainer/delete | 删除 OU 容器 |
+> | 操作 | Microsoft.AAD/domainServices/oucontainer/read | 读取 OU 容器 |
+> | 操作 | Microsoft.AAD/domainServices/oucontainer/write | 写入 OU 容器 |
 > | 操作 | Microsoft.AAD/domainServices/read | 读取域服务 |
 > | 操作 | Microsoft.AAD/domainServices/write | 写入域服务 |
 > | 操作 | Microsoft.AAD/locations/operationresults/read |  |
@@ -473,10 +476,10 @@ ms.locfileid: "42866367"
 > | 操作 | Microsoft.Automation/automationAccounts/listKeys/action | 读取自动化帐户的键 |
 > | 操作 | Microsoft.Automation/automationAccounts/logDefinitions/read | 获取自动化帐户的可用日志 |
 > | 操作 | Microsoft.Automation/automationAccounts/modules/activities/read | 获取 Azure 自动化活动 |
-> | 操作 | Microsoft.Automation/automationAccounts/modules/delete | 删除 Azure 自动化模块 |
-> | 操作 | Microsoft.Automation/automationAccounts/modules/getCount/action | 获取自动化帐户中的模块的计数 |
-> | 操作 | Microsoft.Automation/automationAccounts/modules/read | 获取 Azure 自动化模块 |
-> | 操作 | Microsoft.Automation/automationAccounts/modules/write | 创建或更新 Azure 自动化模块 |
+> | 操作 | Microsoft.Automation/automationAccounts/modules/delete | 删除 Azure 自动化 Powershell 模块 |
+> | 操作 | Microsoft.Automation/automationAccounts/modules/getCount/action | 获取自动化帐户中的 Powershell 模块的计数 |
+> | 操作 | Microsoft.Automation/automationAccounts/modules/read | 获取 Azure 自动化 Powershell 模块 |
+> | 操作 | Microsoft.Automation/automationAccounts/modules/write | 创建或更新 Azure 自动化 Powershell 模块 |
 > | 操作 | Microsoft.Automation/automationAccounts/nodeConfigurations/delete | 删除 Azure Automation DSC 的节点配置 |
 > | 操作 | Microsoft.Automation/automationAccounts/nodeConfigurations/rawContent/action | 读取 Azure Automation DSC 的节点配置内容 |
 > | 操作 | Microsoft.Automation/automationAccounts/nodeConfigurations/read | 读取 Azure Automation DSC 的节点配置 |
@@ -700,7 +703,9 @@ ms.locfileid: "42866367"
 > | 操作 | Microsoft.Cache/redis/patchSchedules/read | 获取 Redis 缓存的修补计划 |
 > | 操作 | Microsoft.Cache/redis/patchSchedules/write | 修改 Redis 缓存的修补计划 |
 > | 操作 | Microsoft.Cache/redis/read | 在管理门户中查看 Redis 缓存的设置和配置 |
+> | 操作 | Microsoft.Cache/redis/recommendations/read | 读取 Azure Redis 缓存建议 |
 > | 操作 | Microsoft.Cache/redis/regenerateKey/action | 在管理门户中更改 Redis 缓存访问密钥的值 |
+> | 操作 | Microsoft.Cache/redis/start/action | 启动缓存实例。 |
 > | 操作 | Microsoft.Cache/redis/start/action | 启动缓存实例。 |
 > | 操作 | Microsoft.Cache/redis/stop/action | 停止缓存实例。 |
 > | 操作 | Microsoft.Cache/redis/write | 在管理门户中修改 Redis 缓存的设置和配置 |
@@ -826,8 +831,12 @@ ms.locfileid: "42866367"
 > | 操作 | Microsoft.ClassicCompute/domainNames/capabilities/read | 显示域名功能 |
 > | 操作 | Microsoft.ClassicCompute/domainNames/delete | 删除资源的域名。 |
 > | 操作 | Microsoft.ClassicCompute/domainNames/deploymentslots/read | 显示部署槽。 |
+> | 操作 | Microsoft.ClassicCompute/domainNames/deploymentslots/roles/read | 获取域名的部署槽位上的角色 |
+> | 操作 | Microsoft.ClassicCompute/domainNames/deploymentslots/roles/roleinstances/read | 获取域名的部署槽位上的角色的角色实例 |
 > | 操作 | Microsoft.ClassicCompute/domainNames/deploymentslots/state/read | 获取部署槽位状态。 |
 > | 操作 | Microsoft.ClassicCompute/domainNames/deploymentslots/state/write | 添加部署槽位状态。 |
+> | 操作 | Microsoft.ClassicCompute/domainNames/deploymentslots/upgradedomain/read | 获取域名上的部署槽位的升级域 |
+> | 操作 | Microsoft.ClassicCompute/domainNames/deploymentslots/upgradedomain/write | 更新域名上的部署槽位的升级域 |
 > | 操作 | Microsoft.ClassicCompute/domainNames/deploymentslots/write | 创建或更新部署。 |
 > | 操作 | Microsoft.ClassicCompute/domainNames/extensions/delete | 删除域名扩展。 |
 > | 操作 | Microsoft.ClassicCompute/domainNames/extensions/operationStatuses/read | 读取域名扩展的操作状态。 |
@@ -1174,6 +1183,9 @@ ms.locfileid: "42866367"
 > | 操作 | Microsoft.Compute/virtualMachineScaleSets/osUpgradeHistory/read | 获取虚拟机规模集的 OS 升级历史记录 |
 > | 操作 | Microsoft.Compute/virtualMachineScaleSets/performMaintenance/action | 在虚拟机规模集的实例上执行计划内维护 |
 > | 操作 | Microsoft.Compute/virtualMachineScaleSets/powerOff/action | 关闭虚拟机规模集的实例 |
+> | 操作 | Microsoft.Compute/virtualMachineScaleSets/providers/Microsoft.Insights/diagnosticSettings/read | 获取虚拟机规模集的诊断设置。 |
+> | 操作 | Microsoft.Compute/virtualMachineScaleSets/providers/Microsoft.Insights/diagnosticSettings/write | 创建或更新虚拟机规模集的诊断设置。 |
+> | 操作 | Microsoft.Compute/virtualMachineScaleSets/providers/Microsoft.Insights/logDefinitions/read | 获取虚拟机规模集的可用日志。 |
 > | 操作 | Microsoft.Compute/virtualMachineScaleSets/providers/Microsoft.Insights/metricDefinitions/read | 读取虚拟机规模集指标定义 |
 > | 操作 | Microsoft.Compute/virtualMachineScaleSets/publicIPAddresses/read | 获取虚拟机规模集的所有公用 IP 地址的属性 |
 > | 操作 | Microsoft.Compute/virtualMachineScaleSets/read | 获取虚拟机规模集的属性 |
@@ -1471,6 +1483,8 @@ ms.locfileid: "42866367"
 > | 操作 | Microsoft.DBforMySQL/servers/providers/Microsoft.Insights/metricDefinitions/read | 返回可用于数据库的指标类型 |
 > | 操作 | Microsoft.DBforMySQL/servers/read | 返回服务器列表，或获取指定服务器的属性。 |
 > | 操作 | Microsoft.DBforMySQL/servers/recoverableServers/read | 返回可恢复的 MySQL 服务器信息 |
+> | 操作 | Microsoft.DBforMySQL/servers/securityAlertPolicies/read | 检索在给定的服务器上配置的服务器威胁检测策略的详细信息 |
+> | 操作 | Microsoft.DBforMySQL/servers/securityAlertPolicies/write | 更改给定服务器的服务器威胁检测策略 |
 > | 操作 | Microsoft.DBforMySQL/servers/updateConfigurations/action | 更新指定服务器的配置 |
 > | 操作 | Microsoft.DBforMySQL/servers/virtualNetworkRules/delete | 删除现有虚拟网络规则 |
 > | 操作 | Microsoft.DBforMySQL/servers/virtualNetworkRules/read | 返回虚拟网络规则列表，或获取指定虚拟网络规则的属性。 |
@@ -1504,6 +1518,7 @@ ms.locfileid: "42866367"
 > | 操作 | Microsoft.DBforPostgreSQL/servers/virtualNetworkRules/delete | 删除现有虚拟网络规则 |
 > | 操作 | Microsoft.DBforPostgreSQL/servers/virtualNetworkRules/read | 返回虚拟网络规则列表，或获取指定虚拟网络规则的属性。 |
 > | 操作 | Microsoft.DBforPostgreSQL/servers/virtualNetworkRules/write | 使用指定参数创建虚拟网络规则，或更新指定虚拟网络规则的属性或标记。 |
+> | 操作 | Microsoft.DBforPostgreSQL/servers/waitStatistics/read | 返回实例的等待统计信息 |
 > | 操作 | Microsoft.DBforPostgreSQL/servers/write | 使用指定参数创建服务器，或更新指定服务器的属性或标记。 |
 
 ## <a name="microsoftdevices"></a>Microsoft.Devices
@@ -1867,6 +1882,9 @@ ms.locfileid: "42866367"
 > [!div class="mx-tdCol2BreakAll"]
 > | 操作类型 | 操作 | 说明 |
 > | --- | --- | --- |
+> | 操作 | Microsoft.HDInsight/clusters/applications/delete | 删除 HDInsight 群集的应用程序 |
+> | 操作 | Microsoft.HDInsight/clusters/applications/read | 获取 HDInsight 群集的应用程序 |
+> | 操作 | Microsoft.HDInsight/clusters/applications/write | 创建或更新 HDInsight 群集的应用程序 |
 > | 操作 | Microsoft.HDInsight/clusters/changerdpsetting/action | 更改 HDInsight 群集的 RDP 设置 |
 > | 操作 | Microsoft.HDInsight/clusters/configurations/action | 更新 HDInsight 群集配置 |
 > | 操作 | Microsoft.HDInsight/clusters/configurations/read | 获取 HDInsight 群集配置 |
@@ -1912,6 +1930,9 @@ ms.locfileid: "42866367"
 > | 操作 | Microsoft.Insights/AlertRules/Throttled/Action | 经典指标预警规则已中止 |
 > | 操作 | Microsoft.Insights/AlertRules/Write | 创建或更新经典指标警报 |
 > | 操作 | Microsoft.Insights/AutoscaleSettings/Delete | 删除自动缩放设置 |
+> | 操作 | Microsoft.Insights/AutoscaleSettings/providers/Microsoft.Insights/diagnosticSettings/Read | 读取资源诊断设置 |
+> | 操作 | Microsoft.Insights/AutoscaleSettings/providers/Microsoft.Insights/diagnosticSettings/Write | 创建或更新资源诊断设置 |
+> | 操作 | Microsoft.Insights/AutoscaleSettings/providers/Microsoft.Insights/logDefinitions/Read | 读取日志定义 |
 > | 操作 | Microsoft.Insights/AutoscaleSettings/providers/Microsoft.Insights/MetricDefinitions/Read | 读取指标定义 |
 > | 操作 | Microsoft.Insights/AutoscaleSettings/Read | 读取自动缩放设置 |
 > | 操作 | Microsoft.Insights/AutoscaleSettings/Scaledown/Action | 自动缩放缩减已启动 |
@@ -1988,6 +2009,152 @@ ms.locfileid: "42866367"
 > | 操作 | Microsoft.Insights/LogProfiles/Delete | 删除活动日志的日志配置文件 |
 > | 操作 | Microsoft.Insights/LogProfiles/Read | 读取活动日志的日志配置文件 |
 > | 操作 | Microsoft.Insights/LogProfiles/Write | 创建或更新活动日志的日志配置文件 |
+> | 操作 | Microsoft.Insights/Logs/ADAssessmentRecommendation/Read | 从 ADAssessmentRecommendation 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/ADReplicationResult/Read | 从 ADReplicationResult 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/ADSecurityAssessmentRecommendation/Read | 从 ADSecurityAssessmentRecommendation 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/Alert/Read | 从 Alert 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/AlertHistory/Read | 从 AlertHistory 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/ApplicationInsights/Read | 从 ApplicationInsights 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/AzureActivity/Read | 从 AzureActivity 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/AzureMetrics/Read | 从 AzureMetrics 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/BoundPort/Read | 从 BoundPort 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/CommonSecurityLog/Read | 从 CommonSecurityLog 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/ComputerGroup/Read | 从 ComputerGroup 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/ConfigurationChange/Read | 从 ConfigurationChange 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/ConfigurationData/Read | 从 ConfigurationData 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/ContainerImageInventory/Read | 从 ContainerImageInventory 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/ContainerInventory/Read | 从 ContainerInventory 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/ContainerLog/Read | 从 ContainerLog 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/ContainerServiceLog/Read | 从 ContainerServiceLog 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/DeviceAppCrash/Read | 从 DeviceAppCrash 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/DeviceAppLaunch/Read | 从 DeviceAppLaunch 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/DeviceCalendar/Read | 从 DeviceCalendar 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/DeviceCleanup/Read | 从 DeviceCleanup 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/DeviceConnectSession/Read | 从 DeviceConnectSession 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/DeviceEtw/Read | 从 DeviceEtw 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/DeviceHardwareHealth/Read | 从 DeviceHardwareHealth 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/DeviceHealth/Read | 从 DeviceHealth 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/DeviceHeartbeat/Read | 从 DeviceHeartbeat 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/DeviceSkypeHeartbeat/Read | 从 DeviceSkypeHeartbeat 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/DeviceSkypeSignIn/Read | 从 DeviceSkypeSignIn 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/DeviceSleepState/Read | 从 DeviceSleepState 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/DHAppFailure/Read | 从 DHAppFailure 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/DHAppReliability/Read | 从 DHAppReliability 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/DHDriverReliability/Read | 从 DHDriverReliability 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/DHLogonFailures/Read | 从 DHLogonFailures 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/DHLogonMetrics/Read | 从 DHLogonMetrics 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/DHOSCrashData/Read | 从 DHOSCrashData 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/DHOSReliability/Read | 从 DHOSReliability 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/DHWipAppLearning/Read | 从 DHWipAppLearning 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/DnsEvents/Read | 从 DnsEvents 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/DnsInventory/Read | 从 DnsInventory 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/ETWEvent/Read | 从 ETWEvent 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/Event/Read | 从 Event 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/ExchangeAssessmentRecommendation/Read | 从 ExchangeAssessmentRecommendation 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/ExchangeOnlineAssessmentRecommendation/Read | 从 ExchangeOnlineAssessmentRecommendation 表中读取数据 |
+> | 操作 | Microsoft.Insights/Logs/Heartbeat/Read | 从 Heartbeat 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/IISAssessmentRecommendation/Read | 从 IISAssessmentRecommendation 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/InboundConnection/Read | 从 InboundConnection 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/KubeNodeInventory/Read | 从 KubeNodeInventory 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/KubePodInventory/Read | 从 KubePodInventory 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/LinuxAuditLog/Read | 从 LinuxAuditLog 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/MAApplication/Read | 从 MAApplication 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/MAApplicationHealth/Read | 从 MAApplicationHealth 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/MAApplicationHealthAlternativeVersions/Read | 从 MAApplicationHealthAlternativeVersions 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/MAApplicationHealthIssues/Read | 从 MAApplicationHealthIssues 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/MAApplicationInstance/Read | 从 MAApplicationInstance 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/MAApplicationInstanceReadiness/Read | 从 MAApplicationInstanceReadiness 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/MAApplicationReadiness/Read | 从 MAApplicationReadiness 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/MADeploymentPlan/Read | 从 MADeploymentPlan 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/MADevice/Read | 从 MADevice 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/MADevicePnPHealth/Read | 从 MADevicePnPHealth 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/MADevicePnPHealthAlternativeVersions/Read | 从 MADevicePnPHealthAlternativeVersions 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/MADevicePnPHealthIssues/Read | 从 MADevicePnPHealthIssues 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/MADeviceReadiness/Read | 从 MADeviceReadiness 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/MADriverInstanceReadiness/Read | 从 MADriverInstanceReadiness 表中读取数据 |
+> | 操作 | Microsoft.Insights/Logs/MADriverReadiness/Read | 从 MADriverReadiness 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/MAOfficeAddin/Read | 从 MAOfficeAddin 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/MAOfficeAddinHealth/Read | 从 MAOfficeAddinHealth 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/MAOfficeAddinHealthIssues/Read | 从 MAOfficeAddinHealthIssues 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/MAOfficeAddinInstance/Read | 从 MAOfficeAddinInstance 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/MAOfficeAddinInstanceReadiness/Read | 从 MAOfficeAddinInstanceReadiness 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/MAOfficeAddinReadiness/Read | 从 MAOfficeAddinReadiness 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/MAOfficeApp/Read | 从 MAOfficeApp 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/MAOfficeAppHealth/Read | 从 MAOfficeAppHealth 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/MAOfficeAppInstance/Read | 从 MAOfficeAppInstance 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/MAOfficeAppReadiness/Read | 从 MAOfficeAppReadiness 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/MAOfficeBuildInfo/Read | 从 MAOfficeBuildInfo 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/MAOfficeCurrencyAssessment/Read | 从 MAOfficeCurrencyAssessment 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/MAOfficeCurrencyAssessmentDailyCounts/Read | 从 MAOfficeCurrencyAssessmentDailyCounts 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/MAOfficeDeploymentStatus/Read | 从 MAOfficeDeploymentStatus 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/MAOfficeMacroHealth/Read | 从 MAOfficeMacroHealth 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/MAOfficeMacroHealthIssues/Read | 从 MAOfficeMacroHealthIssues 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/MAOfficeMacroIssueInstanceReadiness/Read | 从 MAOfficeMacroIssueInstanceReadiness 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/MAOfficeMacroIssueReadiness/Read | 从 MAOfficeMacroIssueReadiness 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/MAOfficeMacroSummary/Read | 从 MAOfficeMacroSummary 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/MAOfficeSuite/Read | 从 MAOfficeSuite 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/MAOfficeSuiteInstance/Read | 从 MAOfficeSuiteInstance 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/MAProposedPilotDevices/Read | 从 MAProposedPilotDevices 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/MAWindowsBuildInfo/Read | 从 MAWindowsBuildInfo 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/MAWindowsCurrencyAssessment/Read | 从 MAWindowsCurrencyAssessment 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/MAWindowsCurrencyAssessmentDailyCounts/Read | 从 MAWindowsCurrencyAssessmentDailyCounts 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/MAWindowsDeploymentStatus/Read | 从 MAWindowsDeploymentStatus 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/MAWindowsSysReqInstanceReadiness/Read | 从 MAWindowsSysReqInstanceReadiness 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/NetworkMonitoring/Read | 从 NetworkMonitoring 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/OfficeActivity/Read | 从 OfficeActivity 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/Operation/Read | 从 Operation 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/OutboundConnection/Read | 从 OutboundConnection 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/Perf/Read | 从 Perf 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/ProtectionStatus/Read | 从 ProtectionStatus 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/Read | 从所有日志中读取数据 |
+> | 操作 | Microsoft.Insights/Logs/ReservedAzureCommonFields/Read | 从 ReservedAzureCommonFields 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/ReservedCommonFields/Read | 从 ReservedCommonFields 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/SCCMAssessmentRecommendation/Read | 从 SCCMAssessmentRecommendation 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/SCOMAssessmentRecommendation/Read | 从 SCOMAssessmentRecommendation 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/SecurityAlert/Read | 从 SecurityAlert 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/SecurityBaseline/Read | 从 SecurityBaseline 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/SecurityBaselineSummary/Read | 从 SecurityBaselineSummary 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/SecurityDetection/Read | 从 SecurityDetection 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/SecurityEvent/Read | 从 SecurityEvent 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/ServiceFabricOperationalEvent/Read | 从 ServiceFabricOperationalEvent 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/ServiceFabricReliableActorEvent/Read | 从 ServiceFabricReliableActorEvent 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/ServiceFabricReliableServiceEvent/Read | 从 ServiceFabricReliableServiceEvent 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/SfBAssessmentRecommendation/Read | 从 SfBAssessmentRecommendation 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/SfBOnlineAssessmentRecommendation/Read | 从 SfBOnlineAssessmentRecommendation 表中读取数据 |
+> | 操作 | Microsoft.Insights/Logs/SharePointOnlineAssessmentRecommendation/Read | 从 SharePointOnlineAssessmentRecommendation 表中读取数据 |
+> | 操作 | Microsoft.Insights/Logs/SPAssessmentRecommendation/Read | 从 SPAssessmentRecommendation 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/SQLAssessmentRecommendation/Read | 从 SQLAssessmentRecommendation 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/SQLQueryPerformance/Read | 从 SQLQueryPerformance 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/Syslog/Read | 从 Syslog 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/SysmonEvent/Read | 从 SysmonEvent 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/UAApp/Read | 从 UAApp 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/UAComputer/Read | 从 UAComputer 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/UAComputerRank/Read | 从 UAComputerRank 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/UADriver/Read | 从 UADriver 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/UADriverProblemCodes/Read | 从 UADriverProblemCodes 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/UAFeedback/Read | 从 UAFeedback 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/UAHardwareSecurity/Read | 从 UAHardwareSecurity 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/UAIESiteDiscovery/Read | 从 UAIESiteDiscovery 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/UAOfficeAddIn/Read | 从 UAOfficeAddIn 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/UAProposedActionPlan/Read | 从 UAProposedActionPlan 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/UASysReqIssue/Read | 从 UASysReqIssue 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/UAUpgradedComputer/Read | 从 UAUpgradedComputer 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/Update/Read | 从 Update 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/UpdateRunProgress/Read | 从 UpdateRunProgress 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/UpdateSummary/Read | 从 UpdateSummary 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/Usage/Read | 从 Usage 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/W3CIISLog/Read | 从 W3CIISLog 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/WaaSDeploymentStatus/Read | 从 WaaSDeploymentStatus 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/WaaSInsiderStatus/Read | 从 WaaSInsiderStatus 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/WaaSUpdateStatus/Read | 从 WaaSUpdateStatus 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/WDAVStatus/Read | 从 WDAVStatus 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/WDAVThreat/Read | 从 WDAVThreat 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/WindowsClientAssessmentRecommendation/Read | 从 WindowsClientAssessmentRecommendation 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/WindowsFirewall/Read | 从 WindowsFirewall 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/WindowsServerAssessmentRecommendation/Read | 从 WindowsServerAssessmentRecommendation 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/WireData/Read | 从 WireData 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/WUDOAggregatedStatus/Read | 从 WUDOAggregatedStatus 表读取数据 |
+> | 操作 | Microsoft.Insights/Logs/WUDOStatus/Read | 从 WUDOStatus 表读取数据 |
 > | 操作 | Microsoft.Insights/MetricAlerts/Delete | 删除指标警报 |
 > | 操作 | Microsoft.Insights/MetricAlerts/Read | 读取指标警报 |
 > | 操作 | Microsoft.Insights/MetricAlerts/Status/Read | 读取指标警报状态 |
@@ -2097,9 +2264,6 @@ ms.locfileid: "42866367"
 > | 操作 | Microsoft.LabServices/labAccounts/labs/users/write | 添加或修改用户。 |
 > | 操作 | Microsoft.LabServices/labAccounts/labs/write | 添加或修改实验室。 |
 > | 操作 | Microsoft.LabServices/labAccounts/read | 读取实验室帐户。 |
-> | 操作 | Microsoft.LabServices/labAccounts/sizes/GetRegionalAvailability/action | 获取实验室帐户下配置的每个大小类别的区域可用性信息 |
-> | 操作 | Microsoft.LabServices/labAccounts/sizes/read | 读取大小。 |
-> | 操作 | Microsoft.LabServices/labAccounts/sizes/ResetOverrides/action | 将此实验室帐户的大小配置重置回默认值 |
 > | 操作 | Microsoft.LabServices/labAccounts/write | 添加或修改实验室帐户。 |
 > | 操作 | Microsoft.LabServices/locations/operations/read | 读取操作。 |
 > | 操作 | Microsoft.LabServices/register/action | 注册订阅 |
@@ -2142,161 +2306,6 @@ ms.locfileid: "42866367"
 > | 操作 | Microsoft.LocationServices/accounts/write | （已弃用：请使用 /providers/Microsoft.Maps）创建或更新位置服务帐户。 |
 > | 操作 | Microsoft.LocationServices/register/action | （已弃用：请使用 /providers/Microsoft.Maps）注册提供程序 |
 
-## <a name="microsoftloganalytics"></a>Microsoft.LogAnalytics
-
-> [!div class="mx-tdCol2BreakAll"]
-> | 操作类型 | 操作 | 说明 |
-> | --- | --- | --- |
-> | DataAction | Microsoft.LogAnalytics/logs/ADAssessmentRecommendation/read | 从 ADAssessmentRecommendation 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/ADReplicationResult/read | 从 ADReplicationResult 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/ADSecurityAssessmentRecommendation/read | 从 ADSecurityAssessmentRecommendation 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/Alert/read | 从 Alert 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/AlertHistory/read | 从 AlertHistory 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/ApplicationInsights/read | 从 ApplicationInsights 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/AzureActivity/read | 从 AzureActivity 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/AzureMetrics/read | 从 AzureMetrics 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/BoundPort/read | 从 BoundPort 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/CommonSecurityLog/read | 从 CommonSecurityLog 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/ComputerGroup/read | 从 ComputerGroup 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/ConfigurationChange/read | 从 ConfigurationChange 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/ConfigurationData/read | 从 ConfigurationData 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/ContainerImageInventory/read | 从 ContainerImageInventory 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/ContainerInventory/read | 从 ContainerInventory 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/ContainerLog/read | 从 ContainerLog 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/ContainerServiceLog/read | 从 ContainerServiceLog 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/CustomLogs/read | 从任何自定义日志读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/DeviceAppCrash/read | 从 DeviceAppCrash 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/DeviceAppLaunch/read | 从 DeviceAppLaunch 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/DeviceCalendar/read | 从 DeviceCalendar 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/DeviceCleanup/read | 从 DeviceCleanup 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/DeviceConnectSession/read | 从 DeviceConnectSession 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/DeviceEtw/read | 从 DeviceEtw 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/DeviceHardwareHealth/read | 从 DeviceHardwareHealth 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/DeviceHealth/read | 从 DeviceHealth 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/DeviceHeartbeat/read | 从 DeviceHeartbeat 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/DeviceSkypeHeartbeat/read | 从 DeviceSkypeHeartbeat 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/DeviceSkypeSignIn/read | 从 DeviceSkypeSignIn 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/DeviceSleepState/read | 从 DeviceSleepState 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/DHAppFailure/read | 从 DHAppFailure 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/DHAppReliability/read | 从 DHAppReliability 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/DHDriverReliability/read | 从 DHDriverReliability 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/DHLogonFailures/read | 从 DHLogonFailures 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/DHLogonMetrics/read | 从 DHLogonMetrics 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/DHOSCrashData/read | 从 DHOSCrashData 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/DHOSReliability/read | 从 DHOSReliability 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/DHWipAppLearning/read | 从 DHWipAppLearning 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/DnsEvents/read | 从 DnsEvents 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/DnsInventory/read | 从 DnsInventory 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/ETWEvent/read | 从 ETWEvent 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/Event/read | 从 Event 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/ExchangeAssessmentRecommendation/read | 从 ExchangeAssessmentRecommendation 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/ExchangeOnlineAssessmentRecommendation/read | 从 ExchangeOnlineAssessmentRecommendation 表中读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/Heartbeat/read | 从 Heartbeat 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/IISAssessmentRecommendation/read | 从 IISAssessmentRecommendation 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/InboundConnection/read | 从 InboundConnection 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/KubeNodeInventory/read | 从 KubeNodeInventory 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/KubePodInventory/read | 从 KubePodInventory 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/LinuxAuditLog/read | 从 LinuxAuditLog 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/MAApplication/read | 从 MAApplication 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/MAApplicationHealth/read | 从 MAApplicationHealth 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/MAApplicationHealthAlternativeVersions/read | 从 MAApplicationHealthAlternativeVersions 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/MAApplicationHealthIssues/read | 从 MAApplicationHealthIssues 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/MAApplicationInstance/read | 从 MAApplicationInstance 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/MAApplicationInstanceReadiness/read | 从 MAApplicationInstanceReadiness 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/MAApplicationReadiness/read | 从 MAApplicationReadiness 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/MADeploymentPlan/read | 从 MADeploymentPlan 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/MADevice/read | 从 MADevice 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/MADevicePnPHealth/read | 从 MADevicePnPHealth 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/MADevicePnPHealthAlternativeVersions/read | 从 MADevicePnPHealthAlternativeVersions 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/MADevicePnPHealthIssues/read | 从 MADevicePnPHealthIssues 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/MADeviceReadiness/read | 从 MADeviceReadiness 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/MADriverInstanceReadiness/read | 从 MADriverInstanceReadiness 表中读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/MADriverReadiness/read | 从 MADriverReadiness 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeAddin/read | 从 MAOfficeAddin 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeAddinHealth/read | 从 MAOfficeAddinHealth 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeAddinHealthIssues/read | 从 MAOfficeAddinHealthIssues 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeAddinInstance/read | 从 MAOfficeAddinInstance 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeAddinInstanceReadiness/read | 从 MAOfficeAddinInstanceReadiness 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeAddinReadiness/read | 从 MAOfficeAddinReadiness 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeApp/read | 从 MAOfficeApp 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeAppHealth/read | 从 MAOfficeAppHealth 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeAppInstance/read | 从 MAOfficeAppInstance 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeAppReadiness/read | 从 MAOfficeAppReadiness 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeBuildInfo/read | 从 MAOfficeBuildInfo 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeCurrencyAssessment/read | 从 MAOfficeCurrencyAssessment 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeCurrencyAssessmentDailyCounts/read | 从 MAOfficeCurrencyAssessmentDailyCounts 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeDeploymentStatus/read | 从 MAOfficeDeploymentStatus 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeMacroHealth/read | 从 MAOfficeMacroHealth 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeMacroHealthIssues/read | 从 MAOfficeMacroHealthIssues 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeMacroIssueInstanceReadiness/read | 从 MAOfficeMacroIssueInstanceReadiness 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeMacroIssueReadiness/read | 从 MAOfficeMacroIssueReadiness 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeMacroSummary/read | 从 MAOfficeMacroSummary 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeSuite/read | 从 MAOfficeSuite 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/MAOfficeSuiteInstance/read | 从 MAOfficeSuiteInstance 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/MAProposedPilotDevices/read | 从 MAProposedPilotDevices 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/MAWindowsBuildInfo/read | 从 MAWindowsBuildInfo 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/MAWindowsCurrencyAssessment/read | 从 MAWindowsCurrencyAssessment 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/MAWindowsCurrencyAssessmentDailyCounts/read | 从 MAWindowsCurrencyAssessmentDailyCounts 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/MAWindowsDeploymentStatus/read | 从 MAWindowsDeploymentStatus 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/MAWindowsSysReqInstanceReadiness/read | 从 MAWindowsSysReqInstanceReadiness 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/NetworkMonitoring/read | 从 NetworkMonitoring 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/OfficeActivity/read | 从 OfficeActivity 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/Operation/read | 从 Operation 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/OutboundConnection/read | 从 OutboundConnection 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/Perf/read | 从 Perf 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/ProtectionStatus/read | 从 ProtectionStatus 表读取数据 |
-> | 操作 | Microsoft.LogAnalytics/logs/read | 从所有日志中读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/ReservedAzureCommonFields/read | 从 ReservedAzureCommonFields 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/ReservedCommonFields/read | 从 ReservedCommonFields 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/SCCMAssessmentRecommendation/read | 从 SCCMAssessmentRecommendation 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/SCOMAssessmentRecommendation/read | 从 SCOMAssessmentRecommendation 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/SecurityAlert/read | 从 SecurityAlert 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/SecurityBaseline/read | 从 SecurityBaseline 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/SecurityBaselineSummary/read | 从 SecurityBaselineSummary 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/SecurityDetection/read | 从 SecurityDetection 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/SecurityEvent/read | 从 SecurityEvent 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/ServiceFabricOperationalEvent/read | 从 ServiceFabricOperationalEvent 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/ServiceFabricReliableActorEvent/read | 从 ServiceFabricReliableActorEvent 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/ServiceFabricReliableServiceEvent/read | 从 ServiceFabricReliableServiceEvent 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/SfBAssessmentRecommendation/read | 从 SfBAssessmentRecommendation 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/SfBOnlineAssessmentRecommendation/read | 从 SfBOnlineAssessmentRecommendation 表中读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/SharePointOnlineAssessmentRecommendation/read | 从 SharePointOnlineAssessmentRecommendation 表中读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/SPAssessmentRecommendation/read | 从 SPAssessmentRecommendation 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/SQLAssessmentRecommendation/read | 从 SQLAssessmentRecommendation 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/SQLQueryPerformance/read | 从 SQLQueryPerformance 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/Syslog/read | 从 Syslog 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/SysmonEvent/read | 从 SysmonEvent 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/UAApp/read | 从 UAApp 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/UAComputer/read | 从 UAComputer 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/UAComputerRank/read | 从 UAComputerRank 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/UADriver/read | 从 UADriver 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/UADriverProblemCodes/read | 从 UADriverProblemCodes 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/UAFeedback/read | 从 UAFeedback 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/UAHardwareSecurity/read | 从 UAHardwareSecurity 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/UAIESiteDiscovery/read | 从 UAIESiteDiscovery 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/UAOfficeAddIn/read | 从 UAOfficeAddIn 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/UAProposedActionPlan/read | 从 UAProposedActionPlan 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/UASysReqIssue/read | 从 UASysReqIssue 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/UAUpgradedComputer/read | 从 UAUpgradedComputer 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/Update/read | 从 Update 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/UpdateRunProgress/read | 从 UpdateRunProgress 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/UpdateSummary/read | 从 UpdateSummary 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/Usage/read | 从 Usage 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/VMBoundPort/read | 从 VMBoundPort 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/VMConnection/read | 从 VMConnection 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/W3CIISLog/read | 从 W3CIISLog 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/WaaSDeploymentStatus/read | 从 WaaSDeploymentStatus 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/WaaSInsiderStatus/read | 从 WaaSInsiderStatus 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/WaaSUpdateStatus/read | 从 WaaSUpdateStatus 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/WDAVStatus/read | 从 WDAVStatus 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/WDAVThreat/read | 从 WDAVThreat 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/WindowsClientAssessmentRecommendation/read | 从 WindowsClientAssessmentRecommendation 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/WindowsFirewall/read | 从 WindowsFirewall 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/WindowsServerAssessmentRecommendation/read | 从 WindowsServerAssessmentRecommendation 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/WireData/read | 从 WireData 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/WorkloadMonitoringPerf/read | 从 WorkloadMonitoringPerf 表中读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/WUDOAggregatedStatus/read | 从 WUDOAggregatedStatus 表读取数据 |
-> | DataAction | Microsoft.LogAnalytics/logs/WUDOStatus/read | 从 WUDOStatus 表读取数据 |
 
 ## <a name="microsoftlogic"></a>Microsoft.Logic
 
@@ -2343,6 +2352,8 @@ ms.locfileid: "42866367"
 > | 操作 | Microsoft.Logic/integrationAccounts/write | 创建或更新集成帐户。 |
 > | 操作 | Microsoft.Logic/integrationServiceEnvironments/delete | 删除集成服务环境。 |
 > | 操作 | Microsoft.Logic/integrationServiceEnvironments/join/action | 加入集成服务环境。 |
+> | 操作 | Microsoft.Logic/integrationServiceEnvironments/managedApis/apiOperations/read | 读取集成服务环境托管 API 操作。 |
+> | 操作 | Microsoft.Logic/integrationServiceEnvironments/managedApis/read | 读取集成服务环境托管 API。 |
 > | 操作 | Microsoft.Logic/integrationServiceEnvironments/read | 读取集成服务环境。 |
 > | 操作 | Microsoft.Logic/integrationServiceEnvironments/write | 创建或更新集成服务环境。 |
 > | 操作 | Microsoft.Logic/locations/workflows/validate/action | 验证工作流。 |
@@ -2691,6 +2702,7 @@ ms.locfileid: "42866367"
 > | 操作 | Microsoft.Network/applicationSecurityGroups/joinNetworkSecurityRule/action | 将安全规则加入到应用程序安全组中。 |
 > | 操作 | Microsoft.Network/applicationSecurityGroups/read | 获取应用程序安全组 ID。 |
 > | 操作 | Microsoft.Network/applicationSecurityGroups/write | 创建应用程序安全组，或更新现有应用程序安全组。 |
+> | 操作 | Microsoft.Network/azureFirewallFqdnTags/read | 获取 Azure 防火墙 FQDN 标记 |
 > | 操作 | Microsoft.Network/azurefirewalls/delete | 删除 Azure 防火墙 |
 > | 操作 | Microsoft.Network/azurefirewalls/providers/Microsoft.Insights/logDefinitions/read | 获取 Azure 防火墙的事件 |
 > | 操作 | Microsoft.Network/azurefirewalls/providers/Microsoft.Insights/metricDefinitions/read | 获取 Azure 防火墙的可用指标 |
@@ -2799,16 +2811,25 @@ ms.locfileid: "42866367"
 > | 操作 | Microsoft.Network/expressRoutePorts/delete | 删除 ExpressRoutePorts |
 > | 操作 | Microsoft.Network/expressRoutePorts/join/action | 联接 ExpressRoutePorts |
 > | 操作 | Microsoft.Network/expressRoutePorts/links/read | 获取 ExpressRouteLink |
+> | 操作 | Microsoft.Network/expressRoutePorts/providers/Microsoft.Insights/metricDefinitions/read | 获取 ExpressRoute 端口的指标定义 |
 > | 操作 | Microsoft.Network/expressRoutePorts/read | 获取 ExpressRoutePorts |
 > | 操作 | Microsoft.Network/expressRoutePorts/write | 创建或更新 ExpressRoutePorts |
 > | 操作 | Microsoft.Network/expressRoutePortsLocations/read | 获取快速路由端口位置 |
 > | 操作 | Microsoft.Network/expressRouteServiceProviders/read | 获取 Express Route 服务提供商 |
+> | 操作 | Microsoft.Network/frontdoors/providers/Microsoft.Insights/diagnosticSettings/read | 获取 Frontdoor 资源的诊断设置 |
+> | 操作 | Microsoft.Network/frontdoors/providers/Microsoft.Insights/diagnosticSettings/write | 创建或更新 Frontdoor 资源的诊断设置 |
+> | 操作 | Microsoft.Network/frontdoors/providers/Microsoft.Insights/logDefinitions/read | 获取 Frontdoor 资源的可用日志 |
+> | 操作 | Microsoft.Network/frontdoors/providers/Microsoft.Insights/metricDefinitions/read | 获取 Frontdoor 资源的可用指标 |
 > | 操作 | Microsoft.Network/frontdoors/read | 获取 Frontdoor |
 > | 操作 | Microsoft.Network/getDnsResourceReference/action | DNS 别名资源依赖项请求 |
+> | 操作 | Microsoft.Network/interfaceEndpoints/delete | 删除接口终结点资源。 |
+> | 操作 | Microsoft.Network/interfaceEndpoints/read | 获取接口终结点资源。 |
+> | 操作 | Microsoft.Network/interfaceEndpoints/write | 创建新的接口终结点，或更新现有的接口终结点。 |
 > | 操作 | Microsoft.Network/internalNotify/action | DNS 别名资源通知 |
 > | 操作 | Microsoft.Network/loadBalancers/backendAddressPools/join/action | 加入负载均衡器后端地址池 |
 > | 操作 | Microsoft.Network/loadBalancers/backendAddressPools/read | 获取负载均衡器的后端地址池定义 |
 > | 操作 | Microsoft.Network/loadBalancers/delete | 删除负载均衡器 |
+> | 操作 | Microsoft.Network/loadBalancers/frontendIPConfigurations/join/action | 加入负载均衡器前端 IP 配置。 |
 > | 操作 | Microsoft.Network/loadBalancers/frontendIPConfigurations/read | 获取负载均衡器的前端 IP 配置定义 |
 > | 操作 | Microsoft.Network/loadBalancers/inboundNatPools/join/action | 加入负载均衡器入站 NAT 池 |
 > | 操作 | Microsoft.Network/loadBalancers/inboundNatPools/read | 获取负载均衡器的入站 NAT 池定义 |
@@ -2850,6 +2871,7 @@ ms.locfileid: "42866367"
 > | 操作 | Microsoft.Network/networkInterfaces/diagnosticIdentity/read | 获取资源的诊断标识 |
 > | 操作 | Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action | 获取 VM 的网络接口上配置的网络安全组 |
 > | 操作 | Microsoft.Network/networkInterfaces/effectiveRouteTable/action | 获取 VM 的网络接口上配置的路由表 |
+> | 操作 | Microsoft.Network/networkInterfaces/ipconfigurations/join/action | 加入网络接口 IP 配置。 |
 > | 操作 | Microsoft.Network/networkInterfaces/ipconfigurations/read | 获取网络接口 IP 配置定义。  |
 > | 操作 | Microsoft.Network/networkInterfaces/join/action | 将虚拟机加入到网络接口 |
 > | 操作 | Microsoft.Network/networkInterfaces/joinViaPrivateIp/action | 通过服务关联将资源加入到网络接口 |
@@ -2860,6 +2882,9 @@ ms.locfileid: "42866367"
 > | 操作 | Microsoft.Network/networkInterfaces/serviceAssociations/read | 获取服务关联定义 |
 > | 操作 | Microsoft.Network/networkInterfaces/serviceAssociations/validate/action | 验证服务关联 |
 > | 操作 | Microsoft.Network/networkInterfaces/serviceAssociations/write | 创建新的服务关联或修改现有的服务关联 |
+> | 操作 | Microsoft.Network/networkInterfaces/tapConfigurations/delete | 删除网络接口分流配置。 |
+> | 操作 | Microsoft.Network/networkInterfaces/tapConfigurations/read | 获取网络接口分流配置。 |
+> | 操作 | Microsoft.Network/networkInterfaces/tapConfigurations/write | 创建网络接口分流配置，或更新现有的网络接口分流配置。 |
 > | 操作 | Microsoft.Network/networkInterfaces/write | 创建网络接口，或更新现有的网络接口。  |
 > | 操作 | Microsoft.Network/networkProfiles/delete | 删除网络配置文件 |
 > | 操作 | Microsoft.Network/networkProfiles/read | 获取网络配置文件 |
@@ -2911,6 +2936,7 @@ ms.locfileid: "42866367"
 > | 操作 | Microsoft.Network/networkWatchers/pingMeshes/start/action | 启动指定 VM 之间的 PingMesh |
 > | 操作 | Microsoft.Network/networkWatchers/pingMeshes/stop/action | 停止指定 VM 之间的 PingMesh |
 > | 操作 | Microsoft.Network/networkWatchers/pingMeshes/write | 创建 PingMesh |
+> | 操作 | Microsoft.Network/networkWatchers/queryConnectionMonitors/action | 批量查询指定终结点之间的监视连接 |
 > | 操作 | Microsoft.Network/networkWatchers/queryFlowLogStatus/action | 获取资源上流日志记录的状态。 |
 > | 操作 | Microsoft.Network/networkWatchers/queryTroubleshootResult/action | 获取上次运行的或当前正在运行的故障排除操作的故障排除结果。 |
 > | 操作 | Microsoft.Network/networkWatchers/read | 获取网络观察程序定义 |
@@ -2919,6 +2945,16 @@ ms.locfileid: "42866367"
 > | 操作 | Microsoft.Network/networkWatchers/troubleshoot/action | 开始针对 Azure 中的网络资源进行故障排除。 |
 > | 操作 | Microsoft.Network/networkWatchers/write | 创建网络观察程序，或更新现有的网络观察程序 |
 > | 操作 | Microsoft.Network/operations/read | 获取可用操作 |
+> | 操作 | Microsoft.Network/p2sVpnGateways/delete | 删除 P2SVpnGateway。 |
+> | 操作 | Microsoft.Network/p2sVpnGateways/generatevpnprofile/action | 生成 P2SVpnGateway 的 Vpn 配置文件 |
+> | 操作 | Microsoft.Network/p2sVpnGateways/read | 获取 P2SVpnGateway。 |
+> | 操作 | Microsoft.Network/p2sVpnGateways/write | 放置 P2SVpnGateway。 |
+> | 操作 | Microsoft.Network/privateLinkServices/delete | 删除专用链接服务资源。 |
+> | 操作 | Microsoft.Network/privateLinkServices/interfaceEndpointConnections/delete | 删除接口终结点连接。 |
+> | 操作 | Microsoft.Network/privateLinkServices/interfaceEndpointConnections/read | 获取接口终结点连接定义。 |
+> | 操作 | Microsoft.Network/privateLinkServices/interfaceEndpointConnections/write | 创建新的接口终结点连接，或更新现有的接口终结点连接。 |
+> | 操作 | Microsoft.Network/privateLinkServices/read | 获取专用链接服务资源。 |
+> | 操作 | Microsoft.Network/privateLinkServices/write | 创建新的专用链接服务，或更新现有的专用链接服务。 |
 > | 操作 | Microsoft.Network/publicIPAddresses/delete | 删除公共 IP 地址。 |
 > | 操作 | Microsoft.Network/publicIPAddresses/dnsAliases/delete | 删除公共 IP 地址 DNS 别名资源 |
 > | 操作 | Microsoft.Network/publicIPAddresses/dnsAliases/read | 获取公共 IP 地址 DNS 别名资源 |
@@ -3015,6 +3051,7 @@ ms.locfileid: "42866367"
 > | 操作 | Microsoft.Network/virtualNetworkGateways/providers/Microsoft.Insights/metricDefinitions/read | 获取虚拟网络网关的可用指标 |
 > | 操作 | Microsoft.Network/virtualNetworkGateways/read | 获取 VirtualNetworkGateway |
 > | 操作 | microsoft.network/virtualnetworkgateways/reset/action | 重置 virtualNetworkGateway |
+> | 操作 | microsoft.network/virtualnetworkgateways/resetvpnclientsharedkey/action | 重置 VirtualNetworkGateway P2S 客户端的 Vpnclient 共享密钥。 |
 > | 操作 | microsoft.network/virtualnetworkgateways/setvpnclientipsecparameters/action | 设置 VirtualNetworkGateway P2S 客户端的 Vpnclient Ipsec 参数。 |
 > | 操作 | Microsoft.Network/virtualnetworkgateways/supportedvpndevices/action | 列出支持的 VPN 设备 |
 > | 操作 | Microsoft.Network/virtualNetworkGateways/write | 创建或更新 VirtualNetworkGateway |
@@ -3057,10 +3094,20 @@ ms.locfileid: "42866367"
 > | 操作 | Microsoft.Network/virtualNetworks/write | 创建虚拟网络，或更新现有的虚拟网络 |
 > | 操作 | Microsoft.Network/virtualNetworkTaps/delete | 删除虚拟网络点击 |
 > | 操作 | Microsoft.Network/virtualNetworkTaps/join/action | 加入虚拟网络点击 |
+> | 操作 | Microsoft.Network/virtualNetworkTaps/networkInterfaceTapConfigurationProxies/delete | 删除网络接口分流配置代理。 |
+> | 操作 | Microsoft.Network/virtualNetworkTaps/networkInterfaceTapConfigurationProxies/read | 获取网络接口分流配置代理。 |
+> | 操作 | Microsoft.Network/virtualNetworkTaps/networkInterfaceTapConfigurationProxies/write | 创建网络接口分流配置代理，或更新现有的网络接口分流配置代理。 |
 > | 操作 | Microsoft.Network/virtualNetworkTaps/read | 获取虚拟网络点击 |
 > | 操作 | Microsoft.Network/virtualNetworkTaps/write | 创建或更新虚拟网络点击 |
 > | 操作 | Microsoft.Network/virtualWans/delete | 删除虚拟 WAN |
+> | 操作 | Microsoft.Network/virtualWans/p2sVpnGatewayProxies/delete | 删除 P2SVpnGateway 代理 |
+> | 操作 | Microsoft.Network/virtualWans/p2sVpnGatewayProxies/read | 获取 P2SVpnGateway 代理定义 |
+> | 操作 | Microsoft.Network/virtualWans/p2sVpnGatewayProxies/write | 创建 P2SVpnGateway 代理或更新 P2SVpnGateway 代理 |
+> | 操作 | Microsoft.Network/virtualWans/p2sVpnServerConfigurations/delete | 删除虚拟 Wan P2SVpnServerConfiguration |
+> | 操作 | Microsoft.Network/virtualWans/p2sVpnServerConfigurations/read | 获取虚拟 Wan P2SVpnServerConfiguration 定义 |
+> | 操作 | Microsoft.Network/virtualWans/p2sVpnServerConfigurations/write | 创建虚拟 Wan P2SVpnServerConfiguration，或更新现有的虚拟 Wan P2SVpnServerConfiguration |
 > | 操作 | Microsoft.Network/virtualWans/read | 获取虚拟 WAN |
+> | 操作 | Microsoft.Network/virtualwans/supportedSecurityProviders/read | 获取受支持的 VirtualWan 安全提供程序。 |
 > | 操作 | Microsoft.Network/virtualWans/virtualHubProxies/delete | 删除虚拟中心代理 |
 > | 操作 | Microsoft.Network/virtualWans/virtualHubProxies/read | 获取虚拟中心代理定义 |
 > | 操作 | Microsoft.Network/virtualWans/virtualHubProxies/write | 创建虚拟中心代理，或更新虚拟中心代理 |
@@ -3072,7 +3119,10 @@ ms.locfileid: "42866367"
 > | 操作 | Microsoft.Network/virtualWans/vpnSites/read | 获取引用了某个虚拟 WAN 的所有 VPN 站点。 |
 > | 操作 | Microsoft.Network/virtualWans/write | 创建或更新虚拟 WAN |
 > | 操作 | Microsoft.Network/vpnGateways/delete | 删除 VpnGateway。 |
+> | 操作 | microsoft.network/vpngateways/listvpnconnectionshealth/action | 获取某个 VpnGateway 上的所有或一部分连接的连接运行状况 |
 > | 操作 | Microsoft.Network/vpnGateways/read | 获取 VpnGateway。 |
+> | 操作 | microsoft.network/vpngateways/reset/action | 重置 VpnGateway |
+> | 操作 | microsoft.network/vpnGateways/vpnConnections/delete | 删除 VpnConnection。 |
 > | 操作 | microsoft.network/vpnGateways/vpnConnections/read | 获取 VpnConnection。 |
 > | 操作 | microsoft.network/vpnGateways/vpnConnections/write | 放置 VpnConnection。 |
 > | 操作 | Microsoft.Network/vpnGateways/write | 放置 VpnGateway。 |
@@ -3205,6 +3255,156 @@ ms.locfileid: "42866367"
 > | 操作 | Microsoft.OperationalInsights/workspaces/notificationSettings/read | 获取工作区的用户通知设置。 |
 > | 操作 | Microsoft.OperationalInsights/workspaces/notificationSettings/write | 设置工作区的用户通知设置。 |
 > | 操作 | Microsoft.OperationalInsights/workspaces/purge/action | 从工作区中删除指定数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/ADAssessmentRecommendation/read | 从 ADAssessmentRecommendation 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/ADReplicationResult/read | 从 ADReplicationResult 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/ADSecurityAssessmentRecommendation/read | 从 ADSecurityAssessmentRecommendation 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/Alert/read | 从 Alert 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/AlertHistory/read | 从 AlertHistory 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/ApplicationInsights/read | 从 ApplicationInsights 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/AzureActivity/read | 从 AzureActivity 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/AzureMetrics/read | 从 AzureMetrics 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/BoundPort/read | 从 BoundPort 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/CommonSecurityLog/read | 从 CommonSecurityLog 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/ComputerGroup/read | 从 ComputerGroup 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/ConfigurationChange/read | 从 ConfigurationChange 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/ConfigurationData/read | 从 ConfigurationData 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/ContainerImageInventory/read | 从 ContainerImageInventory 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/ContainerInventory/read | 从 ContainerInventory 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/ContainerLog/read | 从 ContainerLog 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/ContainerServiceLog/read | 从 ContainerServiceLog 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/DeviceAppCrash/read | 从 DeviceAppCrash 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/DeviceAppLaunch/read | 从 DeviceAppLaunch 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/DeviceCalendar/read | 从 DeviceCalendar 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/DeviceCleanup/read | 从 DeviceCleanup 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/DeviceConnectSession/read | 从 DeviceConnectSession 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/DeviceEtw/read | 从 DeviceEtw 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/DeviceHardwareHealth/read | 从 DeviceHardwareHealth 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/DeviceHealth/read | 从 DeviceHealth 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/DeviceHeartbeat/read | 从 DeviceHeartbeat 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/DeviceSkypeHeartbeat/read | 从 DeviceSkypeHeartbeat 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/DeviceSkypeSignIn/read | 从 DeviceSkypeSignIn 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/DeviceSleepState/read | 从 DeviceSleepState 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/DHAppFailure/read | 从 DHAppFailure 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/DHAppReliability/read | 从 DHAppReliability 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/DHDriverReliability/read | 从 DHDriverReliability 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/DHLogonFailures/read | 从 DHLogonFailures 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/DHLogonMetrics/read | 从 DHLogonMetrics 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/DHOSCrashData/read | 从 DHOSCrashData 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/DHOSReliability/read | 从 DHOSReliability 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/DHWipAppLearning/read | 从 DHWipAppLearning 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/DnsEvents/read | 从 DnsEvents 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/DnsInventory/read | 从 DnsInventory 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/ETWEvent/read | 从 ETWEvent 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/Event/read | 从 Event 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/ExchangeAssessmentRecommendation/read | 从 ExchangeAssessmentRecommendation 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/ExchangeOnlineAssessmentRecommendation/read | 从 ExchangeOnlineAssessmentRecommendation 表中读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/Heartbeat/read | 从 Heartbeat 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/IISAssessmentRecommendation/read | 从 IISAssessmentRecommendation 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/InboundConnection/read | 从 InboundConnection 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/KubeNodeInventory/read | 从 KubeNodeInventory 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/KubePodInventory/read | 从 KubePodInventory 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/LinuxAuditLog/read | 从 LinuxAuditLog 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/MAApplication/read | 从 MAApplication 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/MAApplicationHealth/read | 从 MAApplicationHealth 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/MAApplicationHealthAlternativeVersions/read | 从 MAApplicationHealthAlternativeVersions 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/MAApplicationHealthIssues/read | 从 MAApplicationHealthIssues 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/MAApplicationInstance/read | 从 MAApplicationInstance 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/MAApplicationInstanceReadiness/read | 从 MAApplicationInstanceReadiness 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/MAApplicationReadiness/read | 从 MAApplicationReadiness 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/MADeploymentPlan/read | 从 MADeploymentPlan 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/MADevice/read | 从 MADevice 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/MADevicePnPHealth/read | 从 MADevicePnPHealth 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/MADevicePnPHealthAlternativeVersions/read | 从 MADevicePnPHealthAlternativeVersions 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/MADevicePnPHealthIssues/read | 从 MADevicePnPHealthIssues 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/MADeviceReadiness/read | 从 MADeviceReadiness 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/MADriverInstanceReadiness/read | 从 MADriverInstanceReadiness 表中读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/MADriverReadiness/read | 从 MADriverReadiness 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/MAOfficeAddin/read | 从 MAOfficeAddin 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/MAOfficeAddinHealth/read | 从 MAOfficeAddinHealth 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/MAOfficeAddinHealthIssues/read | 从 MAOfficeAddinHealthIssues 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/MAOfficeAddinInstance/read | 从 MAOfficeAddinInstance 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/MAOfficeAddinInstanceReadiness/read | 从 MAOfficeAddinInstanceReadiness 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/MAOfficeAddinReadiness/read | 从 MAOfficeAddinReadiness 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/MAOfficeApp/read | 从 MAOfficeApp 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/MAOfficeAppHealth/read | 从 MAOfficeAppHealth 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/MAOfficeAppInstance/read | 从 MAOfficeAppInstance 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/MAOfficeAppReadiness/read | 从 MAOfficeAppReadiness 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/MAOfficeBuildInfo/read | 从 MAOfficeBuildInfo 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/MAOfficeCurrencyAssessment/read | 从 MAOfficeCurrencyAssessment 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/MAOfficeCurrencyAssessmentDailyCounts/read | 从 MAOfficeCurrencyAssessmentDailyCounts 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/MAOfficeDeploymentStatus/read | 从 MAOfficeDeploymentStatus 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/MAOfficeMacroHealth/read | 从 MAOfficeMacroHealth 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/MAOfficeMacroHealthIssues/read | 从 MAOfficeMacroHealthIssues 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/MAOfficeMacroIssueInstanceReadiness/read | 从 MAOfficeMacroIssueInstanceReadiness 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/MAOfficeMacroIssueReadiness/read | 从 MAOfficeMacroIssueReadiness 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/MAOfficeMacroSummary/read | 从 MAOfficeMacroSummary 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/MAOfficeSuite/read | 从 MAOfficeSuite 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/MAOfficeSuiteInstance/read | 从 MAOfficeSuiteInstance 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/MAProposedPilotDevices/read | 从 MAProposedPilotDevices 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/MAWindowsBuildInfo/read | 从 MAWindowsBuildInfo 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/MAWindowsCurrencyAssessment/read | 从 MAWindowsCurrencyAssessment 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/MAWindowsCurrencyAssessmentDailyCounts/read | 从 MAWindowsCurrencyAssessmentDailyCounts 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/MAWindowsDeploymentStatus/read | 从 MAWindowsDeploymentStatus 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/MAWindowsSysReqInstanceReadiness/read | 从 MAWindowsSysReqInstanceReadiness 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/NetworkMonitoring/read | 从 NetworkMonitoring 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/OfficeActivity/read | 从 OfficeActivity 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/Operation/read | 从 Operation 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/OutboundConnection/read | 从 OutboundConnection 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/Perf/read | 从 Perf 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/ProtectionStatus/read | 从 ProtectionStatus 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/read | 对工作区中的数据运行查询 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/ReservedAzureCommonFields/read | 从 ReservedAzureCommonFields 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/ReservedCommonFields/read | 从 ReservedCommonFields 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/SCCMAssessmentRecommendation/read | 从 SCCMAssessmentRecommendation 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/SCOMAssessmentRecommendation/read | 从 SCOMAssessmentRecommendation 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/SecurityAlert/read | 从 SecurityAlert 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/SecurityBaseline/read | 从 SecurityBaseline 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/SecurityBaselineSummary/read | 从 SecurityBaselineSummary 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/SecurityDetection/read | 从 SecurityDetection 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/SecurityEvent/read | 从 SecurityEvent 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/ServiceFabricOperationalEvent/read | 从 ServiceFabricOperationalEvent 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/ServiceFabricReliableActorEvent/read | 从 ServiceFabricReliableActorEvent 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/ServiceFabricReliableServiceEvent/read | 从 ServiceFabricReliableServiceEvent 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/SfBAssessmentRecommendation/read | 从 SfBAssessmentRecommendation 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/SfBOnlineAssessmentRecommendation/read | 从 SfBOnlineAssessmentRecommendation 表中读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/SharePointOnlineAssessmentRecommendation/read | 从 SharePointOnlineAssessmentRecommendation 表中读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/SPAssessmentRecommendation/read | 从 SPAssessmentRecommendation 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/SQLAssessmentRecommendation/read | 从 SQLAssessmentRecommendation 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/SQLQueryPerformance/read | 从 SQLQueryPerformance 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/Syslog/read | 从 Syslog 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/SysmonEvent/read | 从 SysmonEvent 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/Tables.Custom/read | 从任何自定义日志读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/UAApp/read | 从 UAApp 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/UAComputer/read | 从 UAComputer 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/UAComputerRank/read | 从 UAComputerRank 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/UADriver/read | 从 UADriver 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/UADriverProblemCodes/read | 从 UADriverProblemCodes 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/UAFeedback/read | 从 UAFeedback 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/UAHardwareSecurity/read | 从 UAHardwareSecurity 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/UAIESiteDiscovery/read | 从 UAIESiteDiscovery 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/UAOfficeAddIn/read | 从 UAOfficeAddIn 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/UAProposedActionPlan/read | 从 UAProposedActionPlan 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/UASysReqIssue/read | 从 UASysReqIssue 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/UAUpgradedComputer/read | 从 UAUpgradedComputer 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/Update/read | 从 Update 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/UpdateRunProgress/read | 从 UpdateRunProgress 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/UpdateSummary/read | 从 UpdateSummary 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/Usage/read | 从 Usage 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/VMBoundPort/read | 从 VMBoundPort 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/VMConnection/read | 从 VMConnection 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/W3CIISLog/read | 从 W3CIISLog 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/WaaSDeploymentStatus/read | 从 WaaSDeploymentStatus 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/WaaSInsiderStatus/read | 从 WaaSInsiderStatus 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/WaaSUpdateStatus/read | 从 WaaSUpdateStatus 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/WDAVStatus/read | 从 WDAVStatus 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/WDAVThreat/read | 从 WDAVThreat 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/WindowsClientAssessmentRecommendation/read | 从 WindowsClientAssessmentRecommendation 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/WindowsFirewall/read | 从 WindowsFirewall 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/WindowsServerAssessmentRecommendation/read | 从 WindowsServerAssessmentRecommendation 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/WireData/read | 从 WireData 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/WorkloadMonitoringPerf/read | 从 WorkloadMonitoringPerf 表中读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/WUDOAggregatedStatus/read | 从 WUDOAggregatedStatus 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/WUDOStatus/read | 从 WUDOStatus 表读取数据 |
 > | 操作 | Microsoft.OperationalInsights/workspaces/read | 获取现有工作区 |
 > | 操作 | Microsoft.OperationalInsights/workspaces/savedSearches/delete | 删除保存的搜索查询 |
 > | 操作 | Microsoft.OperationalInsights/workspaces/savedSearches/read | 获取保存的搜索查询 |
@@ -3248,7 +3448,13 @@ ms.locfileid: "42866367"
 > | 操作 | Microsoft.PolicyInsights/policyStates/summarize/action | 查询有关策略最新状态的摘要信息。 |
 > | 操作 | Microsoft.PolicyInsights/policyStates/summarize/read | 查询有关策略最新状态的摘要信息。 |
 > | 操作 | Microsoft.PolicyInsights/policyStates/triggerEvaluation/action | 为所选范围触发新的符合性评估。 |
+> | 操作 | Microsoft.PolicyInsights/policyTrackedResources/queryResults/read | 查询有关 DeployIfNotExists 策略所需的资源的信息。 |
 > | 操作 | Microsoft.PolicyInsights/register/action | 注册策略见解资源提供程序，并启用对其执行的操作。 |
+> | 操作 | Microsoft.PolicyInsights/remediations/cancel/action | 取消正在进行的策略修正。 |
+> | 操作 | Microsoft.PolicyInsights/remediations/delete | 删除策略修正。 |
+> | 操作 | Microsoft.PolicyInsights/remediations/listDeployments/read | 列出策略修正所需的部署。 |
+> | 操作 | Microsoft.PolicyInsights/remediations/read | 获取策略修正。 |
+> | 操作 | Microsoft.PolicyInsights/remediations/write | 创建或更新策略修正。 |
 
 ## <a name="microsoftportal"></a>Microsoft.Portal
 
@@ -3685,11 +3891,6 @@ ms.locfileid: "42866367"
 > | 操作 | Microsoft.ServiceBus/namespaces/messagingPlan/read | 获取命名空间的消息传递计划。<br>已弃用此 API。<br>在以后的 API 版本中，通过 MessagingPlan 资源公开的属性将移动到（父）命名空间资源。<br>不支持对 API 版本 2017-04-01 执行此操作。 |
 > | 操作 | Microsoft.ServiceBus/namespaces/messagingPlan/write | 更新命名空间的消息传递计划。<br>已弃用此 API。<br>在以后的 API 版本中，通过 MessagingPlan 资源公开的属性将移动到（父）命名空间资源。<br>不支持对 API 版本 2017-04-01 执行此操作。 |
 > | 操作 | Microsoft.ServiceBus/namespaces/migrate/action | 迁移命名空间操作 |
-> | 操作 | Microsoft.ServiceBus/namespaces/migrationConfigurations/delete | 删除迁移配置。 |
-> | 操作 | Microsoft.ServiceBus/namespaces/migrationConfigurations/read | 获取迁移配置以指示迁移状态并挂起复制操作 |
-> | 操作 | Microsoft.ServiceBus/namespaces/migrationConfigurations/revert/action | 还原标准命名空间到高级命名空间的迁移 |
-> | 操作 | Microsoft.ServiceBus/namespaces/migrationConfigurations/upgrade/action | 向高级命名空间分配与标准命名空间相关的 DNS，以完成迁移并停止从标准命名空间到高级命名空间的资源同步 |
-> | 操作 | Microsoft.ServiceBus/namespaces/migrationConfigurations/write | 创建或更新迁移配置。 这会开始将资源从标准命名空间同步到高级命名空间 |
 > | 操作 | Microsoft.ServiceBus/namespaces/operationresults/read | 获取命名空间操作的状态 |
 > | 操作 | Microsoft.ServiceBus/namespaces/providers/Microsoft.Insights/diagnosticSettings/read | 获取命名空间诊断设置资源说明列表 |
 > | 操作 | Microsoft.ServiceBus/namespaces/providers/Microsoft.Insights/diagnosticSettings/write | 获取命名空间诊断设置资源说明列表 |
@@ -3786,6 +3987,9 @@ ms.locfileid: "42866367"
 > | 操作 | Microsoft.Solutions/applications/delete | 删除应用程序。 |
 > | 操作 | Microsoft.Solutions/applications/read | 检索应用程序列表。 |
 > | 操作 | Microsoft.Solutions/applications/write | 创建应用程序。 |
+> | 操作 | Microsoft.Solutions/jitRequests/delete | 删除 JitRequest |
+> | 操作 | Microsoft.Solutions/jitRequests/read | 检索 JitRequest 列表 |
+> | 操作 | Microsoft.Solutions/jitRequests/write | 创建 JitRequest |
 > | 操作 | Microsoft.Solutions/locations/operationStatuses/read | 读取资源的操作状态。 |
 > | 操作 | Microsoft.Solutions/register/action | 注册到解决方案。 |
 
@@ -3814,6 +4018,8 @@ ms.locfileid: "42866367"
 > | 操作 | Microsoft.Sql/locations/instanceFailoverGroups/forceFailoverAllowDataLoss/action | 在现有的实例故障转移组中执行强制故障转移。 |
 > | 操作 | Microsoft.Sql/locations/instanceFailoverGroups/read | 返回实例故障转移组的列表，或获取指定实例故障转移组的属性。 |
 > | 操作 | Microsoft.Sql/locations/instanceFailoverGroups/write | 使用指定参数创建实例故障转移组，或更新指定实例故障转移组的属性或标记。 |
+> | 操作 | Microsoft.Sql/locations/interfaceEndpointProfileAzureAsyncOperation/read | 返回特定接口终结点 Azure 异步操作的详细信息 |
+> | 操作 | Microsoft.Sql/locations/interfaceEndpointProfileOperationResults/read | 返回指定接口终结点配置文件操作的详细信息 |
 > | 操作 | Microsoft.Sql/locations/longTermRetentionBackups/read | 列出某个位置的每台服务器上的每个数据库的长期保留备份 |
 > | 操作 | Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionBackups/read | 列出服务器上每个数据库的长期保留备份 |
 > | 操作 | Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/delete | 删除长期保留备份 |
@@ -3821,8 +4027,6 @@ ms.locfileid: "42866367"
 > | 操作 | Microsoft.Sql/locations/managedDatabaseRestoreAzureAsyncOperation/completeRestore/action | 完成托管数据库还原操作 |
 > | 操作 | Microsoft.Sql/locations/managedTransparentDataEncryptionAzureAsyncOperation/read | 获取正在对托管数据库透明数据加密进行的操作 |
 > | 操作 | Microsoft.Sql/locations/managedTransparentDataEncryptionOperationResults/read | 获取正在对托管数据库透明数据加密进行的操作 |
-> | 操作 | Microsoft.Sql/locations/networkInterfaceAzureAsyncOperation/read | 返回特定网络接口 Azure 异步操作的详细信息 |
-> | 操作 | Microsoft.Sql/locations/networkInterfaceOperationResults/read | 返回指定网络接口操作的详细信息 |
 > | 操作 | Microsoft.Sql/locations/read | 获取给定订阅的可用位置 |
 > | 操作 | Microsoft.Sql/locations/syncAgentOperationResults/read | 检索同步代理资源操作的结果 |
 > | 操作 | Microsoft.Sql/locations/syncDatabaseIds/read | 检索特定区域和订阅的同步数据库 ID |
@@ -3835,6 +4039,9 @@ ms.locfileid: "42866367"
 > | 操作 | Microsoft.Sql/managedInstances/administrators/read | 获取托管实例管理员的列表。 |
 > | 操作 | Microsoft.Sql/managedInstances/administrators/write | 使用指定参数创建或更新托管实例管理员。 |
 > | 操作 | Microsoft.Sql/managedInstances/databases/delete | 删除现有托管数据库 |
+> | 操作 | Microsoft.Sql/managedInstances/databases/providers/Microsoft.Insights/diagnosticSettings/read | 获取资源的诊断设置 |
+> | 操作 | Microsoft.Sql/managedInstances/databases/providers/Microsoft.Insights/diagnosticSettings/write | 创建或更新资源的诊断设置 |
+> | 操作 | Microsoft.Sql/managedInstances/databases/providers/Microsoft.Insights/logDefinitions/read | 获取托管实例数据库的可用日志 |
 > | 操作 | Microsoft.Sql/managedInstances/databases/read | 获取现有托管数据库 |
 > | 操作 | Microsoft.Sql/managedInstances/databases/securityAlertPolicies/read | 检索在给定托管数据库上配置的数据库威胁检测策略的详细信息 |
 > | 操作 | Microsoft.Sql/managedInstances/databases/securityAlertPolicies/write | 更改给定托管数据库的数据库威胁检测策略 |
@@ -3859,10 +4066,18 @@ ms.locfileid: "42866367"
 > | 操作 | Microsoft.Sql/managedInstances/keys/write | 使用指定参数创建密钥，或更新指定托管实例密钥的属性或标记。 |
 > | 操作 | Microsoft.Sql/managedInstances/metricDefinitions/read | 获取托管实例指标定义 |
 > | 操作 | Microsoft.Sql/managedInstances/metrics/read | 获取托管实例指标 |
+> | 操作 | Microsoft.Sql/managedInstances/providers/Microsoft.Insights/diagnosticSettings/read | 获取资源的诊断设置 |
+> | 操作 | Microsoft.Sql/managedInstances/providers/Microsoft.Insights/diagnosticSettings/write | 创建或更新资源的诊断设置 |
+> | 操作 | Microsoft.Sql/managedInstances/providers/Microsoft.Insights/logDefinitions/read | 获取托管实例的可用日志 |
+> | 操作 | Microsoft.Sql/managedInstances/providers/Microsoft.Insights/metricDefinitions/read | 返回可用于托管实例的指标类型 |
 > | 操作 | Microsoft.Sql/managedInstances/read | 返回托管实例的列表，或获取指定托管实例的属性。 |
+> | 操作 | Microsoft.Sql/managedInstances/restorableDroppedDatabases/read | 返回可还原的已删除托管数据库的列表。 |
 > | 操作 | Microsoft.Sql/managedInstances/securityAlertPolicies/read | 检索在给定托管服务器上配置的托管服务器威胁检测策略的详细信息 |
 > | 操作 | Microsoft.Sql/managedInstances/securityAlertPolicies/write | 更改给定托管服务器的托管服务器威胁检测策略 |
 > | 操作 | Microsoft.Sql/managedInstances/tdeCertificates/action | 创建/更新 TDE 证书 |
+> | 操作 | Microsoft.Sql/managedInstances/vulnerabilityAssessments/delete | 删除给定托管实例的漏洞评估 |
+> | 操作 | Microsoft.Sql/managedInstances/vulnerabilityAssessments/read | 检索在给定托管实例上配置的漏洞评估的详细信息 |
+> | 操作 | Microsoft.Sql/managedInstances/vulnerabilityAssessments/write | 更改给定托管实例的漏洞评估 |
 > | 操作 | Microsoft.Sql/managedInstances/write | 使用指定参数创建托管实例，或更新指定托管实例的属性或标记。 |
 > | 操作 | Microsoft.Sql/operations/read | 获取可用的 REST 操作 |
 > | 操作 | Microsoft.Sql/register/action | 注册 Microsoft SQL 数据库资源提供程序的订阅，并启用 Microsoft SQL 数据库的创建。 |
@@ -4041,11 +4256,12 @@ ms.locfileid: "42866367"
 > | 操作 | Microsoft.Sql/servers/firewallRules/write | 使用指定参数创建服务器防火墙规则、更新指定规则的属性、或使用新的服务器防火墙规则覆盖所有现有规则。 |
 > | 操作 | Microsoft.Sql/servers/import/action | 在服务器上创建新数据库，并部署 DacPac 包中的架构和数据 |
 > | 操作 | Microsoft.Sql/servers/importExportOperationResults/read | 获取正在进行的导入/导出操作 |
+> | 操作 | Microsoft.Sql/servers/interfaceEndpointProfiles/delete | 删除指定的接口终结点配置文件 |
+> | 操作 | Microsoft.Sql/servers/interfaceEndpointProfiles/read | 返回指定接口终结点配置文件的属性 |
+> | 操作 | Microsoft.Sql/servers/interfaceEndpointProfiles/write | 使用指定参数创建接口终结点配置文件，或更新指定接口终结点的属性或标记 |
 > | 操作 | Microsoft.Sql/servers/keys/delete | 删除现有服务器密钥。 |
 > | 操作 | Microsoft.Sql/servers/keys/read | 返回服务器密钥的列表，或获取指定服务器密钥的属性。 |
 > | 操作 | Microsoft.Sql/servers/keys/write | 使用指定参数创建密钥，或更新指定服务器密钥的属性或标记。 |
-> | 操作 | Microsoft.Sql/servers/networkInterfaces/read | 返回指定网络接口的属性 |
-> | 操作 | Microsoft.Sql/servers/networkInterfaces/write | 使用指定参数创建网络接口，或更新指定网络接口的属性或标记。 |
 > | 操作 | Microsoft.Sql/servers/operationResults/read | 获取正在进行的服务器操作 |
 > | 操作 | Microsoft.Sql/servers/providers/Microsoft.Insights/metricDefinitions/read | 返回服务器可用的指标类型 |
 > | 操作 | Microsoft.Sql/servers/read | 返回服务器列表，或获取指定服务器的属性。 |
@@ -4068,6 +4284,9 @@ ms.locfileid: "42866367"
 > | 操作 | Microsoft.Sql/servers/virtualNetworkRules/delete | 删除现有虚拟网络规则 |
 > | 操作 | Microsoft.Sql/servers/virtualNetworkRules/read | 返回虚拟网络规则列表，或获取指定虚拟网络规则的属性。 |
 > | 操作 | Microsoft.Sql/servers/virtualNetworkRules/write | 使用指定参数创建虚拟网络规则，或更新指定虚拟网络规则的属性或标记。 |
+> | 操作 | Microsoft.Sql/servers/vulnerabilityAssessments/delete | 删除给定服务器的漏洞评估 |
+> | 操作 | Microsoft.Sql/servers/vulnerabilityAssessments/read | 检索在给定服务器上配置的漏洞评估的详细信息 |
+> | 操作 | Microsoft.Sql/servers/vulnerabilityAssessments/write | 更改给定服务器的漏洞评估 |
 > | 操作 | Microsoft.Sql/servers/write | 使用指定参数创建服务器，或更新指定服务器的属性或标记。 |
 > | 操作 | Microsoft.Sql/unregister/action | 取消注册 Microsoft SQL 数据库资源提供程序的订阅，并启用 Microsoft SQL 数据库的创建。 |
 > | 操作 | Microsoft.Sql/virtualClusters/read | 返回虚拟群集的列表，或获取指定虚拟群集的属性。 |
@@ -4086,8 +4305,8 @@ ms.locfileid: "42866367"
 > | 操作 | Microsoft.Storage/skus/read | 列出 Microsoft.Storage 支持的 SKU。 |
 > | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action | 返回添加 blob 内容的结果 |
 > | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | 返回删除 blob 的结果 |
+> | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/deleteAutomaticSnapshot/action | 返回删除自动快照的结果 |
 > | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | 返回 blob 或 blob 列表 |
-> | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action | 返回 blob 命令的结果 |
 > | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | 返回写入 blob 的结果 |
 > | 操作 | Microsoft.Storage/storageAccounts/blobServices/containers/clearLegalHold/action | 清除 blob 容器法定保留 |
 > | 操作 | Microsoft.Storage/storageAccounts/blobServices/containers/delete | 返回删除容器的结果 |
@@ -4099,7 +4318,7 @@ ms.locfileid: "42866367"
 > | 操作 | Microsoft.Storage/storageAccounts/blobServices/containers/read | 返回容器或容器列表 |
 > | 操作 | Microsoft.Storage/storageAccounts/blobServices/containers/setLegalHold/action | 设置 blob 容器法定保留 |
 > | 操作 | Microsoft.Storage/storageAccounts/blobServices/containers/write | 返回放置或租用 blob 容器的结果 |
-> | DataAction | Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action | 返回 blob 服务的用户委托密钥 |
+> | 操作 | Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action | 返回 blob 服务的用户委托密钥 |
 > | 操作 | Microsoft.Storage/storageAccounts/blobServices/providers/Microsoft.Insights/diagnosticSettings/read | 获取资源的诊断设置。 |
 > | 操作 | Microsoft.Storage/storageAccounts/blobServices/providers/Microsoft.Insights/diagnosticSettings/write | 创建或更新资源的诊断设置。 |
 > | 操作 | Microsoft.Storage/storageAccounts/blobServices/providers/Microsoft.Insights/logDefinitions/read | 获取 Blob 的日志定义 |
@@ -4107,13 +4326,11 @@ ms.locfileid: "42866367"
 > | 操作 | Microsoft.Storage/storageAccounts/blobServices/read | 返回 blob 服务属性或统计信息 |
 > | 操作 | Microsoft.Storage/storageAccounts/blobServices/write | 返回放置 blob 服务属性的结果 |
 > | 操作 | Microsoft.Storage/storageAccounts/delete | 删除现有的存储帐户。 |
-> | 操作 | Microsoft.Storage/storageAccounts/fileServices/fileShare/delete | 允许用户删除文件共享 |
-> | 操作 | Microsoft.Storage/storageAccounts/fileServices/fileShare/read | 允许用户读取文件共享 |
-> | 操作 | Microsoft.Storage/storageAccounts/fileServices/fileShare/write | 允许用户向文件共享写入内容 |
 > | 操作 | Microsoft.Storage/storageAccounts/fileServices/providers/Microsoft.Insights/diagnosticSettings/read | 获取资源的诊断设置。 |
 > | 操作 | Microsoft.Storage/storageAccounts/fileServices/providers/Microsoft.Insights/diagnosticSettings/write | 创建或更新资源的诊断设置。 |
 > | 操作 | Microsoft.Storage/storageAccounts/fileServices/providers/Microsoft.Insights/logDefinitions/read | 获取文件的日志定义 |
 > | 操作 | Microsoft.Storage/storageAccounts/fileServices/providers/Microsoft.Insights/metricDefinitions/read | 获取 Microsoft 存储指标定义列表。 |
+> | 操作 | Microsoft.Storage/storageAccounts/lastsynctime/read | 返回存储帐户的上次同步时间 |
 > | 操作 | Microsoft.Storage/storageAccounts/listAccountSas/action | 返回指定存储帐户的帐户 SAS 令牌。 |
 > | 操作 | Microsoft.Storage/storageAccounts/listkeys/action | 返回指定存储帐户的访问密钥。 |
 > | 操作 | Microsoft.Storage/storageAccounts/listServiceSas/action | 返回指定存储帐户的服务 SAS 令牌。 |
@@ -4136,6 +4353,7 @@ ms.locfileid: "42866367"
 > | 操作 | Microsoft.Storage/storageAccounts/queueServices/write | 返回设置队列服务属性的结果 |
 > | 操作 | Microsoft.Storage/storageAccounts/read | 返回存储帐户的列表，或获取指定存储帐户的属性。 |
 > | 操作 | Microsoft.Storage/storageAccounts/regeneratekey/action | 再生成指定存储帐户的访问密钥。 |
+> | 操作 | Microsoft.Storage/storageAccounts/revokeUserDelegationKeys/action | 撤销指定的存储帐户的所有用户委托密钥。 |
 > | 操作 | Microsoft.Storage/storageAccounts/services/diagnosticSettings/write | 创建/更新存储帐户诊断设置。 |
 > | 操作 | Microsoft.Storage/storageAccounts/tableServices/providers/Microsoft.Insights/diagnosticSettings/read | 获取资源的诊断设置。 |
 > | 操作 | Microsoft.Storage/storageAccounts/tableServices/providers/Microsoft.Insights/diagnosticSettings/write | 创建或更新资源的诊断设置。 |
