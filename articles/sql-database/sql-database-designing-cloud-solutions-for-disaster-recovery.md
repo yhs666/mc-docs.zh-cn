@@ -7,16 +7,17 @@ author: WenJason
 manager: digimobile
 ms.service: sql-database
 ms.custom: business continuity
-ms.topic: article
+ms.topic: conceptual
 origin.date: 07/26/2018
-ms.date: 09/02/2018
+ms.date: 10/15/2018
 ms.author: v-jay
-ms.openlocfilehash: 20d79bb429314d25299a0398e749668b81e8168f
-ms.sourcegitcommit: 2601e68563bffe148e70cce2bf1dcbe837a40f80
+ms.reviewer: carlrab
+ms.openlocfilehash: 73358a6bdd12d49edf7c237341e06884cc87bfc8
+ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43249863"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913810"
 ---
 # <a name="designing-globally-available-services-using-azure-sql-database"></a>使用 Azure SQL 数据库设计全球可用的服务
 

@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 07/18/2018
-ms.date: 09/04/2018
+ms.date: 10/11/2018
 ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 2104e1f4f95b23660d7d4103cb4771d97eaf91d3
-ms.sourcegitcommit: e157751c560524d0bb828e987b87178130663547
+ms.openlocfilehash: ee79bcc980ae71e53574a9c8b9b28e0d5b186794
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43651474"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49089137"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Azure AD Connect 的自定义安装
 如果希望有更多的安装选项，可以使用 Azure AD Connect“自定义设置”。 如果拥有多个林或希望配置未覆盖在快速安装中的可选功能，可以使用它。 它适用于[**快速安装**](active-directory-aadconnect-get-started-express.md)不能满足部署或拓扑的所有情况。
@@ -361,8 +361,6 @@ Intranet 连接检查
 若要验证端到端身份验证是否成功，应当手动执行下列一个或多个测试：
 
 - 在同步完成后，使用 Azure AD Connect 中的”验证联合登录”附加任务来验证你选择的本地用户帐户的身份验证。
-- 在 Intranet 上，通过已加入域的计算机上的浏览器验证是否能够登录：连接到 https://login.partner.microsoftonline.cn，并使用登录帐户验证登录。 内置的 AD DS 管理员帐户未同步，因此无法用于验证。
-- 验证是否能够从 Extranet 中的设备登录。 在家庭计算机或移动设备上连接到 https://login.partner.microsoftonline.cn，并提供凭据。
 - 验证富客户端登录。 连接到 https://testconnectivity.microsoft.com，选择“Office 365”选项卡，并选择“Office 365 单一登录测试”。
 
 ## <a name="troubleshooting"></a>故障排除

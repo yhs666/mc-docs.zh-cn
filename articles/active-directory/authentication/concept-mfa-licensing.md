@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-origin.date: 07/11/2018
-ms.date: 09/04/2018
+origin.date: 09/01/2018
+ms.date: 10/11/2018
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 2c39906fd7a5711b9d0e66e1a043cc644d791cf3
-ms.sourcegitcommit: c237baac64f847301ba7f67082ffffcd81c00142
+ms.openlocfilehash: 379dac1c197fae95ca6d71102e7b23199fcfdd24
+ms.sourcegitcommit: 8a5722b85c6eabbd28473d792716ad44aac3ff23
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43850805"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49121518"
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>如何获取 Azure 多重身份验证
 
@@ -33,7 +33,6 @@ ms.locfileid: "43850805"
 | --- | --- |
 | 适用于 Office 365 的多重身份验证 |此版本专门与 Office 365 应用程序配合使用，可以从 Office 365 门户进行管理。 管理员可以[使用双重验证来保护 Office 365 资源](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6)。 此版本是 Office 365 订阅的一部分。 |
 | 面向 Azure AD 管理员的多重身份验证 | Azure AD 租户中被分配了 Azure AD 全局管理员角色的用户可以免费启用双重验证。|
-| Azure 多重身份验证 | Azure 多重身份验证（通常称为“完整”版本）提供了最丰富的功能集。 它通过 [Azure 门户](https://portal.azure.cn)提供更多配置选项 |
 
 ## <a name="feature-comparison-of-versions"></a>版本功能比较
 下表提供了 Azure 多重身份验证的各个版本中可用的功能列表。

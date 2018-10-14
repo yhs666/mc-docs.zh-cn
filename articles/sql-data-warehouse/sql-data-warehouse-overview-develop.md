@@ -1,26 +1,22 @@
 ---
-title: 用于在 Azure 中开发数据仓库的资源 | Azure
+title: 用于开发 Azure 中的数据仓库的资源 | Microsoft Docs
 description: SQL 数据仓库的开发概念、设计决策、建议和编程技术。
 services: sql-data-warehouse
-documentationcenter: NA
-author: rockboyfor
-manager: barbkess
-editor: ''
+author: WenJason
+manager: digimobile
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: develop
-origin.date: 03/22/2018
-ms.date: 04/25/2018
-ms.author: v-yeche
-ms.openlocfilehash: 6ba4e72e2ff54e6a9126f7614fbf9dc830dbfab2
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.topic: conceptual
+ms.component: implement
+origin.date: 08/29/2018
+ms.date: 10/15/2018
+ms.author: v-jay
+ms.reviewer: igorstan
+ms.openlocfilehash: 44dda2394edc7f6457dd7f3eabfca7dbbd9f64e4
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121302"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49089218"
 ---
 # <a name="design-decisions-and-coding-techniques-for-sql-data-warehouse"></a>SQL 数据仓库的设计决策和编程技术
 请阅读以下开发文章，以更好地了解 SQL 数据仓库的关键设计决策、建议和编程技术。

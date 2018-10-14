@@ -11,12 +11,12 @@ ms.topic: article
 origin.date: 03/07/2018
 ms.date: 08/06/2018
 ms.author: v-haiqya
-ms.openlocfilehash: bc9c4dc0eb114392d0309325382e529adc36c755
-ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
+ms.openlocfilehash: 7f305b0c4d9dd503e8d28cc32d3c08d25f25cdf1
+ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39486966"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913991"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql-database-managed-instance-or-sql-data-warehouse"></a>使用 SQL 数据库、托管实例或 SQL 数据仓库配置和管理 Azure Active Directory 身份验证
 

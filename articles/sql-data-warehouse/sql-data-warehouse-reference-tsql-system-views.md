@@ -1,21 +1,22 @@
 ---
-title: SQL 数据仓库系统视图 | Azure
-description: SQL 数据仓库的系统视图内容链接。
+title: 系统视图 - Azure SQL 数据仓库 | Microsoft Docs
+description: 有关 Azure SQL 数据仓库支持的系统视图的文档的链接。
 services: sql-data-warehouse
-author: rockboyfor
+author: WenJason
 manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
-origin.date: 04/14/2018
-ms.date: 04/25/2018
-ms.author: v-yeche
-ms.openlocfilehash: c925e9eff69eaf2ea1377df02e8ab1e054f2d10f
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.component: manage
+origin.date: 06/13/2018
+ms.date: 10/15/2018
+ms.author: v-jay
+ms.reviewer: igorstan
+ms.openlocfilehash: d29623a451154a3e78179e480554903ab2deedd8
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121808"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49089124"
 ---
 # <a name="system-views-supported-in-azure-sql-data-warehouse"></a>Azure SQL 数据仓库支持的系统视图
 有关 Azure SQL 数据仓库中支持的 T-SQL 语句文档的链接。

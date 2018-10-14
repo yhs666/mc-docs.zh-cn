@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/25/2018
-ms.date: 09/03/2018
+origin.date: 08/27/2018
+ms.date: 10/08/2018
 ms.author: v-junlch
 ms.reviewer: jesakowi, justhu
 ms.custom: aaddev
-ms.openlocfilehash: a26f13cd142e255010a95574900e8f8d13fefc2a
-ms.sourcegitcommit: 562cde32fc2271238f3d1ef5d2cc5ed037bdec2d
+ms.openlocfilehash: 857f9c78950232ec70d737e9a3551ca120f5cded
+ms.sourcegitcommit: 71f203d04b212d2bfbf4f227693c2b8fe209db22
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43531630"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48850505"
 ---
 # <a name="permissions-in-azure-active-directory"></a>Azure Active Directory 中的权限
 
@@ -39,10 +39,10 @@ Azure AD 定义两种权限：
 
 - 对于委托的权限，应用的有效权限是（通过许可）授予应用的委托权限与当前登录用户的特权的最低特权交集。 应用的特权永远不会超过登录用户的特权。 在组织内部，可以通过策略或者一个或多个管理员角色的成员身份来确定登录用户的特权。 有关管理员角色的详细信息，请参阅[在 Azure AD 中分配管理员角色](../users-groups-roles/directory-assign-admin-roles.md)。
     例如，假设为应用授予了 Microsoft Graph 中的 `User.ReadWrite.All` 委托权限。 此权限在名义上会授予应用读取和更新组织中每个用户的个人资料的权限。 如果登录用户是全局管理员，则应用可以更新组织中每个用户的个人资料。 但是，如果登录用户不是充当管理员角色，则应用只能更新登录用户的个人资料。 它无法更新组织中其他用户的个人资料，因为该应用有权代表的用户没有这些特权。
-- 对于应用程序权限，应用的有效权限是权限默示的完整特权级别。 例如，拥有 `User.ReadWrite.All` 应用程序权限的应用可以更新组织中每个用户的个人资料。 
+- 对于应用程序权限，应用的有效权限是权限默示的完整特权级别。 例如，拥有 `User.ReadWrite.All` 应用程序权限的应用可以更新组织中每个用户的个人资料。
 
 ## <a name="permission-attributes"></a>权限特性
-Azure AD 中的权限提供多个属性用于帮助用户、管理员或应用开发人员在权限授予哪些对象的访问权限方面做出明智的决策。 
+Azure AD 中的权限提供多个属性用于帮助用户、管理员或应用开发人员在权限授予哪些对象的访问权限方面做出明智的决策。
 
 > [!NOTE]
 > 可以使用 Azure 门户或 PowerShell 查看 Azure AD 应用程序或服务主体公开的权限。 请尝试运行以下脚本来查看 Microsoft Graph 公开的权限。
@@ -56,18 +56,19 @@ Azure AD 中的权限提供多个属性用于帮助用户、管理员或应用�
 > (Get-AzureADServicePrincipal -filter "DisplayName eq 'Microsoft Graph'").AppRoles
 > ```
 
-| 属性名称 | 说明 | 示例 | 
+| 属性名称 | 说明 | 示例 |
 | --- | --- | --- |
-| `ID` | 这是唯一标识此权限的 GUID 值。 | 570282fd-fa5c-430d-a7fd-fc8dc98a9dca | 
-| `IsEnabled` | 指示此权限是否可供使用。 | 是 | 
-| `Type` | 指示此权限是否需要用户许可或管理员许可。 | User | 
-| `AdminConsentDescription` | 这是在管理员许可体验期间向管理员显示的说明 | 允许应用读取用户邮箱中的电子邮件。 | 
-| `AdminConsentDisplayName` | 这是在管理员许可体验期间向管理员显示的友好名称。 | 读取用户邮件 | 
-| `UserConsentDescription` | 这是在用户许可体验期间向用户显示的说明。 |  允许应用读取你邮箱中的电子邮件。 | 
-| `UserConsentDisplayName` | 这是在用户许可体验期间向用户显示的友好名称。 | 读取你的邮件 | 
-| `Value` | 这是在 OAuth 2.0 授权流期间用于标识权限的字符串。 还可以将 `Value` 与应用 ID URI 字符串进行组合，以构成完全限定的权限名称。 | `Mail.Read` | 
+| `ID` | 这是唯一标识此权限的 GUID 值。 | 570282fd-fa5c-430d-a7fd-fc8dc98a9dca |
+| `IsEnabled` | 指示此权限是否可供使用。 | 是 |
+| `Type` | 指示此权限是否需要用户许可或管理员许可。 | User |
+| `AdminConsentDescription` | 这是在管理员许可体验期间向管理员显示的说明 | 允许应用读取用户邮箱中的电子邮件。 |
+| `AdminConsentDisplayName` | 这是在管理员许可体验期间向管理员显示的友好名称。 | 读取用户邮件 |
+| `UserConsentDescription` | 这是在用户许可体验期间向用户显示的说明。 |  允许应用读取你邮箱中的电子邮件。 |
+| `UserConsentDisplayName` | 这是在用户许可体验期间向用户显示的友好名称。 | 读取你的邮件 |
+| `Value` | 这是在 OAuth 2.0 授权流期间用于标识权限的字符串。 还可以将 `Value` 与应用 ID URI 字符串进行组合，以构成完全限定的权限名称。 | `Mail.Read` |
 
 ## <a name="types-of-consent"></a>许可的类型
+
 Azure AD 中的应用程序必须获得许可才能访问所需的资源或 API。 应用可能需要了解多种类型的许可才能成功访问。 在定义权限时，还需要了解用户如何获取应用或 API 的访问权限。
 
 - **静态用户许可** - 在执行 [OAuth 2.0 授权流](v1-protocols-oauth-code.md#request-an-authorization-code)期间指定应用想要交互的资源时自动发生。 在静态用户许可方案中，应用必须已指定它在 Azure 门户的应用配置中所需的所有权限。 如果用户（或管理员）未授予此应用的许可，则 Azure AD 现在会提示用户提供许可。 
@@ -81,7 +82,7 @@ Azure AD 中的应用程序必须获得许可才能访问所需的资源或 API�
 ### <a name="client-best-practices"></a>客户端最佳实践
 
 - 仅请求你的应用需要的权限。 拥有过多权限的应用一旦泄密，则存在透露用户数据的风险。
-- 根据你的应用支持的方案在委派的权限与应用程序权限之间进行选择。 
+- 根据你的应用支持的方案在委派的权限与应用程序权限之间进行选择。
     - 如果调用是以用户身份执行的，请始终使用委派的权限。
     - 如果应用是非交互的并且不以任何特定用户的身份执行调用，请仅使用应用程序权限。 应用程序权限有很高的特权，只有绝对必要时才应使用。
 
@@ -91,17 +92,13 @@ Azure AD 中的应用程序必须获得许可才能访问所需的资源或 API�
 - 资源应该单独显式定义 `Read` 和 `ReadWrite` 权限。
 - 资源应将允许访问跨用户边界的数据的所有权限标记为 `Admin` 权限。
 - 资源应当遵循命名模式 `Subject.Permission[.Modifier]`，其中：
-    - `Subject` 对应于可用的数据类型，
-    - `Permission` 对应于用户可以对该数据执行的操作，并且 
-    - 还可以使用 `Modifier` 来描述另一权限的专用化。 
+    - `Subject` 对应于可用的数据类型
+    - `Permission` 对应于用户可以对该数据执行的操作
+    - 可以选择使用 `Modifier` 来描述另一个权限的专用化
     
-    例如： 
+    例如：
     - Mail.Read - 允许用户读取邮件。
     - Mail.ReadWrite - 允许用户读取或写入邮件。
     - Mail.ReadWrite.All - 允许管理员或用户访问组织中的所有邮件。
 
-
-
-
-
-
+<!-- Update_Description: wording update -->

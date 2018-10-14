@@ -1,21 +1,22 @@
 ---
-title: SQL 数据仓库中用户定义的架构 | Azure
-description: 有关在开发解决方案时使用 Azure SQL 数据仓库中的 Transact-SQL 架构的技巧。
+title: 在 SQL 数据仓库中使用用户定义架构 | Microsoft Docs
+description: 有关在 Azure SQL 数据仓库中使用 T-SQL 用户定义架构开发解决方案的技巧。
 services: sql-data-warehouse
-author: rockboyfor
-manager: jhubbard
+author: WenJason
+manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
-origin.date: 10/31/2016
-ms.date: 01/17/2017
-ms.author: v-yeche
-ms.openlocfilehash: 5286b82c95936682245f3d940a88cdc3565f9dd5
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+origin.date: 04/17/2018
+ms.date: 10/15/2018
+ms.author: v-jay
+ms.reviewer: igorstan
+ms.openlocfilehash: 5a630c6e6b1b15671ba7c104eb30555dce37a5f9
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121217"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49089013"
 ---
 # <a name="using-user-defined-schemas-in-sql-data-warehouse"></a>在 SQL 数据仓库中使用用户定义架构
 有关在 Azure SQL 数据仓库中使用 T-SQL 用户定义架构开发解决方案的技巧。
@@ -98,12 +99,12 @@ GO
 CREATE SCHEMA [dim]; -- edw defines the legacy schema name boundary
 GO
 CREATE TABLE [stg].[customer] -- create the base staging tables in the staging boundary
-(       CustKey BIGINT NOT NULL
+(       CustKey    BIGINT NOT NULL
 ,       ...
 )
 GO
 CREATE TABLE [edw].[customer] -- create the base data warehouse tables in the data warehouse boundary
-(       CustKey BIGINT NOT NULL
+(       CustKey    BIGINT NOT NULL
 ,       ...
 )
 GO
@@ -121,5 +122,5 @@ FROM    [edw].customer
 > 
 
 ## <a name="next-steps"></a>后续步骤
-有关更多开发技巧，请参阅[开发概述](sql-data-warehouse-overview-develop.md)。
+有关更多开发技巧，请参阅 [开发概述](sql-data-warehouse-overview-develop.md)。
 

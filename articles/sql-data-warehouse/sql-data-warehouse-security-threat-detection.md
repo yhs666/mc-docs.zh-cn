@@ -1,21 +1,22 @@
 ---
-title: SQL 数据仓库威胁检测入门
-description: 如何开始使用威胁检测
+title: 威胁检测 - Azure SQL 数据仓库 | Microsoft Docs
+description: 在 Azure SQL 数据仓库中配置威胁检测并浏览可疑事件。
 services: sql-data-warehouse
-author: rockboyfor
+author: WenJason
 manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
-origin.date: 04/14/2018
-ms.date: 04/25/2018
-ms.author: v-yeche
-ms.openlocfilehash: d977d7dbcd9efd14be19d82c2f9cb036fc5de250
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+origin.date: 04/17/2018
+ms.date: 10/15/2018
+ms.author: v-jay
+ms.reviewer: igorstan
+ms.openlocfilehash: a3e0acf3f2c67c18ef136b6380d9e4aca873efe2
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121218"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49089217"
 ---
 # <a name="threat-detection-in-azure-sql-data-warehouse"></a>Azure SQL 数据仓库中的威胁检测
 在 Azure SQL 数据仓库中配置威胁检测并浏览可疑事件。

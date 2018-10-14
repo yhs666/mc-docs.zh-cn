@@ -1,22 +1,22 @@
 ---
-title: 弹性数据库工具词汇表 | Azure
+title: 弹性数据库工具词汇表 | Microsoft Docs
 description: 弹性数据库工具所用术语的解释
 services: sql-database
 documentationcenter: ''
 manager: digimobile
-author: Hayley244
+author: WenJason
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
-origin.date: 04/01/2018
-ms.date: 04/17/2018
-ms.author: v-johch
-ms.openlocfilehash: 56804631491ad29c6f7f6af7fd629f7b476e4dc8
-ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
+ms.topic: conceptual
+origin.date: 09/14/2018
+ms.date: 10/15/2018
+ms.author: v-jay
+ms.openlocfilehash: ba81847d1b7859696bd0f68d08c6f6325e8c63c7
+ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39486714"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913914"
 ---
 # <a name="elastic-database-tools-glossary"></a>弹性数据库工具词汇表
 Azure SQL 数据库中的[弹性数据库工具](sql-database-elastic-scale-introduction.md)功能的术语定义如下。 这些工具用于管理[分片映射](sql-database-elastic-scale-shard-map-management.md)，包括[客户端库](sql-database-elastic-database-client-library.md)、[拆分/合并工具](sql-database-elastic-scale-overview-split-and-merge.md)、[弹性池](sql-database-elastic-pool.md)和[查询](sql-database-elastic-query-overview.md)。 
@@ -80,7 +80,7 @@ Azure SQL 数据库中的[弹性数据库工具](sql-database-elastic-scale-intr
 
 拆分：将几个 shardlet 从一个分片移动到另一个（通常是新的）分片的行为。 由用户提供的作为拆分点的分片键。
 
-纵向缩放：增加（或减少）单个分片的性能级别的行为。 例如，将分片从标准版更改为高级版（这会导致需要更多的计算资源）。 
+**纵向缩放**：向上（或向下）缩放单个分片的计算大小的行为。 例如，将分片从标准版更改为高级版（这会导致需要更多的计算资源）。 
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

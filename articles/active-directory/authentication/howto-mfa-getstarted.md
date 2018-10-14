@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-origin.date: 07/11/2018
-ms.date: 09/04/2018
+origin.date: 09/01/2018
+ms.date: 10/11/2018
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 3c8bbce682335f235af3e20b228f26ab1a1ef516
-ms.sourcegitcommit: c237baac64f847301ba7f67082ffffcd81c00142
+ms.openlocfilehash: e5c2bd360ef1f824bf54597403f93f215a0f24c5
+ms.sourcegitcommit: 8a5722b85c6eabbd28473d792716ad44aac3ff23
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43850804"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49121515"
 ---
 # <a name="deploy-cloud-based-azure-multi-factor-authentication"></a>部署基于云的 Azure 多重身份验证
 
@@ -29,7 +29,7 @@ Azure 多重身份验证 (Azure MFA) 入门是一个直截了当的过程。
 
 ## <a name="choose-how-to-enable"></a>选择启用方法
 
-通过更改用户状态启用 - 这是需要进行双重验证的传统方法。 它适用于云中的 Azure MFA 以及 Azure MFA 服务器。 使用此方法要求用户**每次**登录时都执行双重验证并重写条件访问策略。 可在[如何要求对用户进行双重验证](howto-mfa-userstates.md)中找到有关此方法的详细信息
+通过更改用户状态启用 - 这是需要进行双重验证的传统方法。 它适用于云中的 Azure MFA 以及 Azure MFA 服务器。 使用此方法要求用户**每次**登录时都执行双重验证并重写条件访问策略。 可在[如何要求对用户进行双重验证](howto-mfa-userstates.md)中找到有关此方法的详细信息。
 
 > [!Note]
 > 有关许可和定价的详细信息，请参见 [Azure AD](https://www.azure.cn/pricing/details/active-directory/
@@ -77,3 +77,4 @@ Azure 多重身份验证 (Azure MFA) 入门是一个直截了当的过程。
 
 有关管理 Azure 多重身份验证的用户设置的信息，请参阅[管理云中 Azure 多重身份验证的用户设置](howto-mfa-userdevicesettings.md)一文
 
+<!-- Update_Description: wording update -->

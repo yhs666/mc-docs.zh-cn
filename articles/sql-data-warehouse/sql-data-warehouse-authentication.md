@@ -1,21 +1,22 @@
 ---
-title: 对 Azure SQL 数据仓库进行身份验证 | Azure
-description: 对 Azure SQL 数据仓库进行的 Azure Active Directory (AAD) 和 SQL Server 身份验证。
+title: 向 Azure SQL 数据仓库进行身份验证 | Microsoft Docs
+description: 了解如何使用 Azure Active Directory (AAD) 或 SQL Server 身份验证向 Azure SQL 数据仓库进行身份验证。
 services: sql-data-warehouse
-author: rockboyfor
+author: WenJason
 manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
-origin.date: 03/21/2017
-ms.date: 07/24/2017
-ms.author: v-yeche
-ms.openlocfilehash: 3c365b4958067f283baa5b2be6f6c0decb2b3a90
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+origin.date: 04/12/2017
+ms.date: 10/15/2017
+ms.author: v-jay
+ms.reviewer: igorstan
+ms.openlocfilehash: f72d78d320b9ffd4b645ed0a7de3a48a88487833
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121574"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49089082"
 ---
 # <a name="authenticate-to-azure-sql-data-warehouse"></a>向 Azure SQL 数据仓库进行身份验证
 了解如何使用 Azure Active Directory (AAD) 或 SQL Server 身份验证向 Azure SQL 数据仓库进行身份验证。
@@ -44,11 +45,9 @@ ms.locfileid: "32121574"
 > 
 
 ## <a name="azure-active-directory-aad-authentication"></a>Azure Active Directory (AAD) 身份验证
-
 [Azure Active Directory][What is Azure Active Directory] 身份验证是使用 Azure Active Directory (Azure AD) 中的标识连接到 Azure SQL 数据仓库的一种机制。 通过 Azure Active Directory 身份验证，可以在一个中心位置中集中管理数据库用户和其他 Microsoft 服务的标识。 集中 ID 管理提供单一位置用于管理 SQL 数据仓库用户，并简化权限管理。 
 
 ### <a name="benefits"></a>优点
-
 Azure Active Directory 的优点包括：
 
 * 提供一个 SQL Server 身份验证的替代方法。
@@ -66,7 +65,6 @@ Azure Active Directory 的优点包括：
 > 
 
 ### <a name="configuration-steps"></a>配置步骤
-
 按照这些步骤配置 Azure Active Directory 身份验证。
 
 1. 创建并填充 Azure Active Directory
@@ -83,13 +81,12 @@ Azure Active Directory 的优点包括：
 * 创建自定义数据库角色，并向角色添加用户。 然后授予角色具体权限。 有关详细信息，请参阅 [数据库引擎权限入门](https://msdn.microsoft.com/library/mt667986.aspx)。
 
 ## <a name="next-steps"></a>后续步骤
-
 若要开始使用 Visual Studio 和其他应用程序查询数据仓库，请参阅 [使用 Visual Studio 进行查询][Query with Visual Studio]。
 
 <!-- Article references -->
 [Secure a database in SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
 [Query with Visual Studio]: ./sql-data-warehouse-query-visual-studio.md
-[What is Azure Active Directory]: ../active-directory/active-directory-whatis.md
+[What is Azure Active Directory]:../active-directory/fundamentals/active-directory-whatis.md
 [Azure AD features and limitations]: ../sql-database/sql-database-aad-authentication.md#azure-ad-features-and-limitations
 
 <!--Update_Description: wording update-->

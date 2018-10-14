@@ -3,7 +3,7 @@ title: 常见参数和标头
 description: 这些参数和标头常见于与 Key Vault 资源相关的所有操作。
 services: key-vault
 documentationcenter: ''
-author: lleonard-msft
+author: bryanla
 manager: mbaldwin
 tags: azure-resource-manager
 ms.assetid: a715d13ca9-d6e8-4e54-ac5e-0ed9400fb15b15d13ca9-d6e8-4e54-ac5e-0ed9400fb15b
@@ -11,16 +11,16 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 05/09/2018
-ms.date: 06/11/2018
-ms.author: v-junlch
-ms.openlocfilehash: 47db3a067d7fb90dd0836990e587d749f7caf3d8
-ms.sourcegitcommit: 306fba1a7125ef6f0555781524afa8f535bea2a0
+ms.date: 10/22/2018
+ms.author: v-biyu
+ms.openlocfilehash: bf01aeeea71d329a4673f6803f907475c074496d
+ms.sourcegitcommit: 2fdf25eb4b978855ff2832bcdcca093c141be261
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35253410"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49120599"
 ---
 # <a name="common-parameters-and-headers"></a>常见参数和标头
 

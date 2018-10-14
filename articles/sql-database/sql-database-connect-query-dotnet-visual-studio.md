@@ -1,22 +1,23 @@
 ---
-title: 使用 Visual Studio 和 .NET 查询 Azure SQL 数据库 | Azure
-description: 本主题介绍如何使用 Visual Studio 创建可连接到 Azure SQL 数据库的程序并使用 Transact-SQL 语句对其进行查询。
+title: 使用 Visual Studio 和 .NET 查询 Azure SQL 数据库 | Microsoft Docs
+description: 本主题介绍如何使用 Visual Studio 创建连接到 Azure SQL 数据库的程序并使用 Transact-SQL 语句对其进行查询。
 services: sql-database
-author: yunan2016
+ms.workload: azure-vs
+author: WenJason
 manager: digimobile
 ms.service: sql-database
-ms.custom: mvc,develop apps
+ms.custom: devcenter, vs-azure
 ms.devlang: dotnet
 ms.topic: quickstart
 origin.date: 04/01/2018
-ms.date: 04/17/2018
-ms.author: v-nany
-ms.openlocfilehash: 7c79f891459f93be4deaef787c36e21352fb0e0d
-ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
+ms.date: 10/15/2018
+ms.author: v-jay
+ms.openlocfilehash: 585f2fbd7cc4893a8deea1fd7c1ff6a66af53c90
+ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39487032"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913944"
 ---
 # <a name="use-net-c-with-visual-studio-to-connect-and-query-an-azure-sql-database"></a>使用 .NET (C#) 和 Visual Studio 连接和查询 Azure SQL 数据库
 
@@ -28,7 +29,7 @@ ms.locfileid: "39487032"
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-- 针对用于本快速入门的计算机的公共 IP 地址制定[服务器级防火墙规则](sql-database-get-started-portal.md#create-a-server-level-firewall-rule)。
+- 针对用于本快速入门的计算机的公共 IP 地址制定[服务器级防火墙规则](sql-database-get-started-portal-firewall.md)。
 
 - 已安装 [Visual Studio Community 2017、Visual Studio Professional 2017 或 Visual Studio Enterprise 2017](https://www.visualstudio.com/downloads/)。
 
@@ -45,7 +46,7 @@ ms.locfileid: "39487032"
     ![ADO.NET 连接字符串](./media/sql-database-connect-query-dotnet/adonet-connection-string.png)
 
 > [!IMPORTANT]
-> 对于在其上执行本教程操作的计算机，必须为其公共 IP 地址制定防火墙规则。 如果使用其他计算机或其他公共 IP 地址，则[使用 Azure 门户创建服务器级防火墙规则](sql-database-get-started-portal.md#create-a-server-level-firewall-rule)。 
+> 对于在其上执行本教程操作的计算机，必须为其公共 IP 地址制定防火墙规则。 如果使用其他计算机或其他公共 IP 地址，则[使用 Azure 门户创建服务器级防火墙规则](sql-database-get-started-portal-firewall.md)。 
 >
   
 ## <a name="create-a-new-visual-studio-project"></a>新建 Visual Studio 项目
@@ -55,7 +56,7 @@ ms.locfileid: "39487032"
 3. 选择“控制台应用”，然后输入“sqltest”作为项目名称。
 4. 单击“确定”，在 Visual Studio 中创建并打开新项目
 4. 在“解决方案资源管理器”中，右键单击“sqltest”，然后单击“管理 NuGet 包”。 
-5. 转到“浏览”，搜索 ```System.Data.SqlClient```，找到后将其选中。
+5. 转到“浏览”选项卡，搜索 ```System.Data.SqlClient```，找到后将其选中。
 6. 在“System.Data.SqlClient”页中单击“安装”。
 7. 安装完成后，查看所做的更改，然后单击“确定”以关闭“预览”窗口。 
 8. 如果显示“接受许可证”窗口，则单击“我接受”。

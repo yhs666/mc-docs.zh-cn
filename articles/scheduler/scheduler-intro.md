@@ -1,10 +1,10 @@
 ---
-title: 什么是 Azure 计划程序？ | Microsoft Azure
-description: Azure 计划程序允许你以声明方式描述要在云中运行的操作。 然后，它自动计划并运行这些操作。
+title: 什么是 Azure 计划程序？ | Microsoft Docs
+description: Azure 计划程序允许以声明方式描述要在云中运行的操作。 然后，它自动计划并运行这些操作。
 services: scheduler
 documentationcenter: .NET
-author: derek1ee
-manager: kevinlam1
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: 52aa6ae1-4c3d-43fb-81b0-6792c84bcfae
 ms.service: scheduler
@@ -12,17 +12,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 08/18/2016
-ms.author: v-johch
-ms.openlocfilehash: df087cbb29753ad7d4559ad7ada6f87ac39e11b2
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+origin.date: 08/18/2016
+ms.date: 10/15/2018
+ms.author: v-jay
+ms.openlocfilehash: 853e9b5e4623e3de52ddaa5c939c4215eb20c746
+ms.sourcegitcommit: 3b9e31daa1ae213311d7d530225be03e4c3e6332
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
-ms.locfileid: "20182198"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48850724"
 ---
 # <a name="what-is-azure-scheduler"></a>什么是 Azure 计划程序？
-Azure 计划程序允许你以声明方式描述要在云中运行的操作。 然后，它自动计划并运行这些操作。  计划程序使用 [Azure 门户](scheduler-get-started-portal.md)、代码、[REST API](https://msdn.microsoft.com/library/mt629143.aspx) 或 Azure PowerShell 执行此操作。
+Azure 计划程序允许以声明方式描述要在云中运行的操作。 然后，它自动计划并运行这些操作。  计划程序使用 [Azure 门户](scheduler-get-started-portal.md)、代码、[REST API](https://msdn.microsoft.com/library/mt629143.aspx) 或 Azure PowerShell 执行此操作。
 
 计划程序创建、维护并调用计划的工作。  计划程序不托管任何工作负荷或运行任何代码。 它仅调用别处（在 Azure 中、本地）托管的代码或与其他提供程序一起托管的代码。 它通过 HTTP、HTTPS、存储队列、服务总线队列或服务总线主题进行调用。
 
@@ -33,7 +34,7 @@ Azure 计划程序允许你以声明方式描述要在云中运行的操作。 �
 * 重复执行应用程序操作：定期从 Twitter 收集数据并将数据收集到源。
 * 日常维护：每天删改日志、执行备份和其他维护任务。 例如，管理员可以选择在随后的 9 个月中，每天凌晨 1 点 备份数据库。
 
-计划程序允许你在门户中使用脚本以编程方式创建、更新、删除、查看和管理作业和 [作业集合](scheduler-concepts-terms.md) 。
+计划程序允许在门户中使用脚本以编程方式创建、更新、删除、查看和管理作业和 [作业集合](scheduler-concepts-terms.md)。
 
 ## <a name="see-also"></a>另请参阅
  [Azure 计划程序的概念、术语和实体层次结构](scheduler-concepts-terms.md)

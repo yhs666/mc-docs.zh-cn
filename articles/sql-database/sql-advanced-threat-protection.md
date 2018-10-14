@@ -1,5 +1,5 @@
 ---
-title: 高级威胁防护 - Azure SQL 数据库 | Azure
+title: 高级威胁防护 - Azure SQL 数据库 | Microsoft Docs
 description: 了解有关发现敏感数据并分类、管理数据库漏洞以及检测可能对 Azure SQL 数据库造成威胁的异常活动的功能。
 services: sql-database
 author: WenJason
@@ -7,19 +7,19 @@ manager: digimobile
 ms.service: sql-database
 ms.topic: conceptual
 origin.date: 05/17/2018
-ms.date: 08/06/2018
+ms.date: 10/15/2018
 ms.author: v-jay
 ms.reviewer: carlrab
-ms.openlocfilehash: b343890ecf3547af783623db87afda8d3513b8de
-ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
+ms.openlocfilehash: 48768b67185d7e3d03465e714a3c40f586515317
+ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39486840"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913929"
 ---
 # <a name="advanced-threat-protection-for-azure-sql-database"></a>Azure SQL 数据库的高级威胁防护
 
-SQL 高级威胁防护是高级 SQL 安全功能的统一程序包。 它包括发现敏感数据并分类、管理数据库漏洞以及检测可能对数据库造成威胁的异常活动的功能。 它提供用于启用和管理这些功能的一个转到位置。 
+SQL 高级威胁防护是高级 SQL 安全功能的统一程序包。 它包括用于发现和分类敏感数据、呈现和减少潜在数据库漏洞，以及检测可能表明数据库有威胁的异常活动的功能。 它提供用于启用和管理这些功能的一个转到位置。 
 
 ## <a name="overview"></a>概述
 

@@ -1,22 +1,22 @@
 ---
-title: 设置 Azure SQL 数据同步 | Azure
-description: 本教程介绍如何设置 Azure SQL 数据同步
+title: 设置 Azure SQL 数据同步 | Microsoft Docs
+description: 本教程介绍了如何设置 Azure SQL 数据同步
 services: sql-database
-author: yunan2016
+author: WenJason
 manager: digimobile
 ms.service: sql-database
 ms.custom: load & move data
-ms.topic: article
+ms.topic: conceptual
 origin.date: 04/10/2018
-ms.date: 04/17/2018
-ms.author: v-nany
+ms.date: 10/15/2018
+ms.author: v-jay
 ms.reviewer: douglasl
-ms.openlocfilehash: 5cf0a2ba2f86a2aaa613a373533816e010bb29c0
-ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
+ms.openlocfilehash: caeabfde91f2d4b7b150040ae88aa71b9b8d72b7
+ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39486712"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913865"
 ---
 # <a name="set-up-sql-data-sync"></a>设置 SQL 数据同步
 本教程将介绍如何创建包含 Azure SQL 数据库和 SQL Server 实例的混合同步组，从而设置 Azure SQL 数据同步。 新的同步组进行了全面配置，可根据所设定的计划进行同步。
@@ -240,7 +240,7 @@ ms.locfileid: "39486712"
 
 ### <a name="how-can-i-export-and-import-a-database-with-data-sync"></a>如何使用数据同步导出和导入数据库？
 将数据库导出为 `.bacpac` 文件，并导入文件来新建数据库后，必须执行以下两步操作，才能在新数据库中使用数据同步：
-1.  使用[此脚本](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/clean_up_data_sync_objects.sql)清理新数据库上的数据同步对象和端表。 此脚本将从数据库中删除所有相应数据同步对象。
+1.  使用[此脚本](https://github.com/vitomaz-msft/DataSyncMetadataCleanup/blob/master/Data%20Sync%20complete%20cleanup.sql)清理新数据库上的数据同步对象和端表。 此脚本将从数据库中删除所有相应数据同步对象。
 2.  重新创建包含新数据库的同步组。 如果不再需要旧同步组，请删除它。
 
 ## <a name="faq-about-the-client-agent"></a>有关客户端代理的常见问题解答

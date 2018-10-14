@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 10/15/2017
-ms.date: 05/28/2018
+ms.date: 10/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: 22629d9f9155dc91404c92b4dd90e6885b00358f
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: 4d2eb4d68ed14b4d4fc3ebddda5d95e242a9cf37
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554625"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49089201"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>使用 X.509 证书在 Windows 上保护独立群集
 本文介绍如何保护独立 Windows 群集的不同节点之间的通信。 此外，还介绍如何使用 X.509 证书针对连接到此群集的客户端进行身份验证。 身份验证可确保只有经过授权的用户才能访问该群集和部署的应用程序，以及执行管理任务。 创建群集时，应在该群集上启用证书安全性。  
@@ -89,7 +89,7 @@ ms.locfileid: "34554625"
         "ClientCertificateCommonNames": [
             {
                 "CertificateCommonName": "[CertificateCommonName]",
-                "CertificateIssuerThumbprint": "[Thumbprint]",
+                "CertificateIssuerThumbprint": "[Thumbprint1,Thumbprint2,Thumbprint3,...]",
                 "IsAdmin": true
             }
         ],
@@ -355,7 +355,6 @@ Connect-ServiceFabricCluster $ConnectArgs
 ```
 
 然后可以运行其他 PowerShell 命令来使用此群集。 例如，可以运行 [Get-ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) 显示此安全群集上的节点列表。
-<!-- URL should be get-servicefabricnode NOT CONTAIN .md postfix -->
 
 若要删除群集，请连接到已下载 Service Fabric 包的群集上的节点、打开命令行，并转到包文件夹。 现在运行以下命令：
 
@@ -367,4 +366,5 @@ Connect-ServiceFabricCluster $ConnectArgs
 > 证书配置不正确会导致在部署时看不到群集。 若要对安全性问题进行自我诊断，请查看事件查看器组（**应用程序和服务日志** > **Microsoft-Service Fabric**）。
 > 
 > 
-<!--Update_Description: update meta properties, wording update -->
+
+<!--Update_Description: update meta properties, wording update, update link -->

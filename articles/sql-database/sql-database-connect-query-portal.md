@@ -1,5 +1,5 @@
 ---
-title: Azure 门户：使用查询编辑器查询 Azure SQL 数据库 | Azure
+title: Azure 门户：使用查询编辑器查询 Azure SQL 数据库 | Microsoft Docs
 description: 了解如何在 Azure 门户中使用 SQL 查询编辑器连接到 SQL 数据库。 然后，通过运行 Transact-SQL (T-SQL) 语句来查询和编辑数据。
 keywords: 连接到 sql 数据库,azure 门户, 门户, 查询编辑器
 services: sql-database
@@ -11,12 +11,12 @@ ms.topic: quickstart
 origin.date: 01/10/2018
 ms.date: 4/17/2018
 ms.author: v-nany
-ms.openlocfilehash: 6d7cd4464bfecad17c6a259fcd6d8257ec3b45ef
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.openlocfilehash: 08f5d02820db5d922fd49ce6124eaf1a002fb27d
+ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873632"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913899"
 ---
 # <a name="azure-portal-use-the-sql-query-editor-to-connect-and-query-data"></a>Azure 门户：使用 SQL 查询编辑器进行连接并查询数据
 

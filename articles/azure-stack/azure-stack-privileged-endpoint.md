@@ -3,25 +3,24 @@ title: 使用 Azure Stack 中的特权终结点 | Microsoft Docs
 description: 介绍如何使用 Azure Stack 中的特权终结点 (PEP)（面向 Azure Stack 操作员）。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
-ms.assetid: e94775d5-d473-4c03-9f4e-ae2eada67c6c
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/27/2018
-ms.date: 05/24/2018
-ms.author: v-junlch
+origin.date: 09/10/2018
+ms.date: 10/15/2018
+ms.author: v-jay
 ms.reviewer: fiseraci
-ms.openlocfilehash: d1955c1ceb13d07421bf025400583019459a9242
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: dc7d809b1b95382e8d712f8fe6baf5dcb35104ae
+ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475050"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48848919"
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>使用 Azure Stack 中的特权终结点
 
@@ -171,7 +170,7 @@ PEP 记录你在 PowerShell 会话中执行的每项操作（及其相应的输�
 2. 运行 `Close-PrivilegedEndpoint` cmdlet。 
 3. 系统会提示输入脚本日志文件的存储路径。 使用 &#92;&#92;*servername*&#92;*sharename* 指定前面创建的文件共享。 如果未指定路径，该 cmdlet 将会失败，且会话将保持打开状态。 
 
-    ![Close-PrivilegedEndpoint cmdlet 输出，其中显示了脚本目标的指定路径](./media/azure-stack-privileged-endpoint/closeendpoint.png)
+    ![Close-PrivilegedEndpoint cmdlet 输出，其中显示了脚本目标的指定路径](media/azure-stack-privileged-endpoint/closeendpoint.png)
 
 将脚本日志文件成功传送到文件共享后，它们会自动从 PEP 中删除。 
 

@@ -1,21 +1,22 @@
 ---
-title: 连接到 Azure SQL 数据仓库 | Azure
-description: 如何查找连接到 Azure SQL 数据仓库所需的服务器名称和连接字符串
+title: 连接到 Azure SQL 数据仓库 |Microsoft Docs
+description: 连接到 Azure SQL 数据仓库。
 services: sql-data-warehouse
-author: rockboyfor
+author: WenJason
 manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
-origin.date: 12/14/2017
-ms.date: 03/12/2018
-ms.author: v-yeche
-ms.openlocfilehash: 92bf710f35fdbd18b09ebb3db386e8e540e2b624
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.component: consume
+origin.date: 04/17/2018
+ms.date: 10/15/2018
+ms.author: v-jay
+ms.reviewer: igorstan
+ms.openlocfilehash: 4c6c80fba2f214a6a3cbbda126972bec269a850a
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121277"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49088969"
 ---
 # <a name="connect-to-azure-sql-data-warehouse"></a>连接到 Azure SQL 数据仓库
 连接到 Azure SQL 数据仓库。
@@ -27,11 +28,11 @@ ms.locfileid: "32121277"
 2. 单击“SQL 数据仓库”。
 3. 单击要连接到的数据仓库。
 4. 找到完整的服务器名称。
-
+   
     ![完整服务器名称][1]
 
 ## <a name="supported-drivers-and-connection-strings"></a>支持的驱动程序和连接字符串
-Azure SQL 数据仓库支持 [ADO.NET][ADO.NET]、[ODBC][ODBC]、[PHP][PHP] 和 [JDBC][JDBC]。 单击前述的某个驱动程序，查找最新版本和文档。 若要自动生成通过 Azure 门户使用的驱动程序的连接字符串，可单击前述示例中的“显示数据库连接字符串”。  下面也是一些示例，说明了每个驱动程序的连接字符串的样式。
+Azure SQL 数据仓库支持 [ADO.NET][ADO.NET]、[ODBC][ODBC]、[PHP][PHP] 和 [JDBC][JDBC]。 单击前述的某个驱动程序，查找最新版本和文档。 若要自动生成通过 Azure 门户使用的驱动程序的连接字符串，请单击前述示例中的“显示数据库连接字符串”。 下面也是一些示例，说明了每个驱动程序的连接字符串的样式。
 
 > [!NOTE]
 > 请考虑将连接超时值设置为 300 秒，以便连接可以经受住短时间内不可用。

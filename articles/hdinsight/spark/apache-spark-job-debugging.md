@@ -3,7 +3,7 @@ title: 调试 Azure HDInsight 中运行的 Apache Spark 作业
 description: 使用 YARN UI、Spark UI 和 Spark History Server 来跟踪和调试 Azure HDInsight 中的 Spark 群集上运行的作业
 services: hdinsight
 documentationcenter: ''
-author: mumian
+author: jasonwhowell
 manager: cgronlun
 editor: cgronlun
 tags: azure-portal
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 12/20/2017
-ms.date: 03/26/2018
+ms.date: 10/22/2018
 ms.author: v-yiso
-ms.openlocfilehash: a5ed8a03ca609208730ee06d6aaff9ed8487a69f
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.openlocfilehash: 44094bf327333ff2a222474b649cbca2ca6a99a5
+ms.sourcegitcommit: 8a5722b85c6eabbd28473d792716ad44aac3ff23
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30075094"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49121543"
 ---
 # <a name="debug-apache-spark-jobs-running-on-azure-hdinsight"></a>调试 Azure HDInsight 中运行的 Apache Spark 作业
 
@@ -110,6 +110,7 @@ ms.locfileid: "30075094"
 
 ## <a name="see-also"></a>另请参阅
 *  [管理 Azure HDInsight 中 Apache Spark 群集的资源](apache-spark-resource-manager.md)
+*  [使用扩展的 Spark History Server调试 Spark 作业](apache-azure-spark-history-server.md)
 
 ### <a name="for-data-analysts"></a>适用于数据分析师
 
@@ -128,4 +129,5 @@ ms.locfileid: "30075094"
 * [在 HDInsight 的 Spark 群集中可用于 Jupyter 笔记本的内核](apache-spark-jupyter-notebook-kernels.md)
 * [Use external packages with Jupyter notebooks（将外部包与 Jupyter 笔记本配合使用）](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Install Jupyter on your computer and connect to an HDInsight Spark cluster（在计算机上安装 Jupyter 并连接到 HDInsight Spark 群集）](apache-spark-jupyter-notebook-install-locally.md)
+
 <!--Update_Description: update link ref-->

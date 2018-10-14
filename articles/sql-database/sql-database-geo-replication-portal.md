@@ -1,27 +1,28 @@
 ---
-title: Azure 门户：SQL 数据库异地复制 | Azure
+title: Azure 门户：SQL 数据库异地复制 | Microsoft 文档
 description: 在 Azure 门户中为 Azure SQL 数据库配置异地复制，并启动故障转移
 services: sql-database
-author: Hayley244
+author: WenJason
 manager: digimobile
 ms.service: sql-database
 ms.custom: business continuity
-ms.topic: article
-origin.date: 07/16/2018
-ms.date: 08/06/2018
-ms.author: v-haiqya
-ms.openlocfilehash: 9fff09d5241562051261e0abd81aaea41374cdcc
-ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
+ms.topic: conceptual
+origin.date: 09/14/2018
+ms.date: 10/15/2018
+ms.author: v-jay
+ms.reviewer: carlrab
+ms.openlocfilehash: 59afee6c3c91768d3665d135edc532209060f02a
+ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39486510"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913896"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>在 Azure 门户中为 Azure SQL 数据库配置活动异地复制，并启动故障转移
 
 本文说明如何在 [Azure 门户](http://portal.azure.cn)中为 SQL 数据库配置活动异地复制，以及如何启动故障转移。
 
-若要使用 Azure 门户启动故障转移，请参阅[使用 Azure 门户为 Azure SQL 数据库启动计划内或计划外故障转移](sql-database-geo-replication-portal.md)。
+若要使用 Azure 门户启动故障转移，请参阅 [使用 Azure 门户为 Azure SQL 数据库启动计划内或计划外故障转移](sql-database-geo-replication-portal.md)。
 
 若要使用 Azure 门户配置活动异地复制，需要以下资源：
 
@@ -35,7 +36,7 @@ ms.locfileid: "39486510"
 
 只有订阅所有者或共有者才能添加辅助数据库。
 
-辅助数据库具有与主数据库相同的名称，并默认使用相同的服务级别。 辅助数据库可以是单一数据库，也可以是弹性池中的数据库。 有关详细信息，请参阅[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)和[基于 vCore 的购买模型](sql-database-service-tiers-vcore.md)。
+辅助数据库具有与主数据库相同的名称，并默认使用相同的服务层和计算大小。 辅助数据库可以是单一数据库，也可以是弹性池中的数据库。 有关详细信息，请参阅[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)和[基于 vCore 的购买模型](sql-database-service-tiers-vcore.md)。
 创建辅助数据库并设定种子后，会开始将数据从主数据库复制到新的辅助数据库。
 
 > [!NOTE]

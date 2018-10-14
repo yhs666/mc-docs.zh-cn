@@ -4,23 +4,23 @@ description: Azure SQL 数据库数据发现和分类
 services: sql-database
 author: WenJason
 manager: digimobile
-ms.reviewer: carlrab
+ms.reviewer: vanto
 ms.service: sql-database
 ms.custom: security
-ms.topic: article
-origin.date: 07/10/2018
-ms.date: 09/02/2018
+ms.topic: conceptual
+origin.date: 09/10/2018
+ms.date: 10/15/2018
 ms.author: v-jay
-ms.openlocfilehash: 42e3aea59e887c2c3e3647340b790be5cbfc98b8
-ms.sourcegitcommit: 2601e68563bffe148e70cce2bf1dcbe837a40f80
+ms.openlocfilehash: eb79b57f4bb7c47b953094e03aff449b4eb7a645
+ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43249682"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913806"
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Azure SQL 数据库数据发现和分类
 数据发现和分类（当前为预览版）提供了内置于 Azure SQL 数据库的高级功能，可用于发现、分类、标记和保护数据库中的敏感数据。 & 
-发现最敏感的数据（业务、财务、医疗保健、 PII 等）并进行分类可在组织的信息保护方面发挥关键作用。 它可以作为基础结构，用于：
+发现最敏感的数据（业务、财务、医疗保健、个人身份数据 (PII)，等等）并进行分类可在组织的信息保护方面发挥关键作用。 它可以作为基础结构，用于：
 * 帮助满足数据隐私标准和法规符合性要求。
 * 各种安全方案，如监视（审核）并在敏感数据存在异常访问时发出警报。
 * 控制对包含高度敏感数据的数据库的访问并强化其安全性。

@@ -10,12 +10,12 @@ ms.component: implement
 origin.date: 04/14/2018
 ms.date: 04/25/2018
 ms.author: v-yeche
-ms.openlocfilehash: a21a6e1975d0617a4dfae16dea19755969935e81
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: 05a22351dee6d21b23230e85771d6b307ce0b441
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121782"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49089107"
 ---
 # <a name="indexing-tables-in-sql-data-warehouse"></a>为 SQL 数据仓库中的表编制索引
 在 Azure SQL 数据仓库中为表编制索引的建议和示例。
@@ -179,7 +179,7 @@ WHERE    COMPRESSED_rowgroup_rows_AVG < 100000
 3. 小型或渗透负载操作
 4. 过多的分区
 
-这些因素可能导致列存储索引在每个行组中的行远远少于最佳数量（100 万）。  它们还会造成行转到增量行组而不是压缩的行组。 
+这些因素可能导致列存储索引在每个行组中的行远远少于最佳数量（100 万）。 它们还会造成行转到增量行组而不是压缩的行组。 
 
 ### <a name="memory-pressure-when-index-was-built"></a>生成索引时内存有压力
 每个压缩行组的行数，与行宽度以及可用于处理行组的内存量直接相关。  当行在内存不足的状态下写入列存储表时，列存储分段质量可能降低。  因此，最佳做法是尽可能让写入到列存储索引表的会话访问最多的内存。  因为内存与并发性之间有所取舍，正确的内存分配指导原则取决于表的每个行中的数据、已分配给系统的数据仓库，以及可以提供给将数据写入表的会话的并发访问槽位数。  作为一种最佳做法，如果使用 DW300 或更少，我们建议从 xlargerc 开始；如果使用 DW400 到 DW600，则从 largerc 开始；如果使用 DW1000 和更高，则从 mediumrc 开始。

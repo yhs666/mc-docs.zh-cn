@@ -7,15 +7,15 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-origin.date: 08/01/2018
-ms.date: 09/02/2018
+origin.date: 09/14/2018
+ms.date: 10/15/2018
 ms.author: carlrab
-ms.openlocfilehash: 8fa50fb8157741b448482b24a124d8dc2649d565
-ms.sourcegitcommit: 2601e68563bffe148e70cce2bf1dcbe837a40f80
+ms.openlocfilehash: d22843b2df1829af97c1106c5172714660297486
+ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43249890"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913913"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>在 Azure SQL 数据库中缩放弹性池资源
 
@@ -34,7 +34,7 @@ ms.locfileid: "43249890"
 
 ## <a name="vcore-based-purchasing-model-change-elastic-pool-compute-resources-vcores"></a>基于 vCore 的购买模型：更改弹性池计算资源 (vCore)
 
-可按资源需求，通过 [Azure 门户](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases)、[PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqlelasticpool)、[Azure CLI](/cli/sql/elastic-pool#az_sql_elastic_pool_update) 或 [REST API](https://docs.microsoft.com/rest/api/sql/elasticpools/update) 提高或降低弹性池的性能级别。
+可根据资源需求，通过 [Azure 门户](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases)、[PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqlelasticpool)、[Azure CLI](/cli/sql/elastic-pool#az_sql_elastic_pool_update) 或 [REST API](https://docs.microsoft.com/rest/api/sql/elasticpools/update) 提高或降低弹性池的计算大小。
 
 - 重新缩放池 vCore 时，将暂时停止数据库连接。 此行为与重新缩放单一数据库（而非在池中）的 DTU 时的行为相同。 有关在重新缩放操作执行期间，停止数据库连接的持续时间和影响的详细信息，请参阅[重新缩放单一数据库的 DTU](#single-database-change-storage-size)。 
 - 重新缩放池 vCore 的持续时间取决于池中所有数据库使用的总存储空间量。 一般而言，每 100 GB 重新缩放的平均延迟时间不超过 90 分钟。 例如，如果池中所有数据库使用的总空间为 200 GB，则重新缩放池的预计延迟时间将不超过 3 小时。 对标准层或基本层中的某些事例而言，重新缩放延迟时间可能不超过五分钟，不考虑所用空间量的影响。
@@ -43,7 +43,7 @@ ms.locfileid: "43249890"
 
 ## <a name="dtu-based-purchasing-model-change-elastic-pool-storage-size"></a>基于 DTU 的购买模型：更改弹性池存储大小
 
-- 弹性池的 eDTU 价格附送了一定容量的存储，无需额外费用。 超出附送的量后，可花费额外的费用预配额外的存储，但不能超过存储上限，不超过 1 TB 时，以 250 GB 为增量进行预配，超出 1 TB 时，以 256 GB 为增量进行预配。 有关附送存储量和大小上限，请参阅[弹性池：存储大小和性能级别](#elastic-pool-storage-sizes-and-performance-levels)。
+- 弹性池的 eDTU 价格附送了一定容量的存储，无需额外费用。 超出附送的量后，可花费额外的费用预配额外的存储，但不能超过存储上限，不超过 1 TB 时，以 250 GB 为增量进行预配，超出 1 TB 时，以 256 GB 为增量进行预配。 有关附送存储量和大小上限，请参阅[弹性池：存储大小和计算大小](#elastic-pool-storage-sizes-and-performance-levels)。
 - 可通过 [Azure 门户](sql-database-elastic-pool-scale.md#azure-portal-manage-elastic-pools-and-pooled-databases)、[PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqlelasticpool)、[Azure CLI](/cli/sql/elastic-pool#az_sql_elastic_pool_update) 或 [REST API](https://docs.microsoft.com/rest/api/sql/elasticpools/update) 为弹性池增加大小上限，以预配额外存储。
 - 弹性池的额外存储价格等于额外存储量乘以服务层的额外存储单价。 有关额外存储价格的详细信息，请参阅 [SQL 数据库定价](https://azure.cn/pricing/details/sql-database/)。
 

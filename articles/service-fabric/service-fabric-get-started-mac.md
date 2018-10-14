@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 11/17/2017
-ms.date: 08/20/2018
+ms.date: 10/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: 655e9bed0bcbe05c339c199d58bbb337ee389d0f
-ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
+ms.openlocfilehash: 49619c2b4d0c524470710d19c7394a75bb720f30
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41704520"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49088968"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>在 Mac OS X 上设置开发环境
 > [!div class="op_single_selector"]
@@ -100,7 +100,7 @@ Azure Service Fabric 不在 Mac OS X 本机上运行。为了运行本地 Servic
 4. 现在，每当有需要时，都可以运行以下命令，快速启动 Service Fabric 的本地副本：
 
     ```bash 
-    docker run --name sftestcluster -d -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mysfcluster
+    docker run --name sftestcluster -d -v /var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mysfcluster
     ```
 
     >[!TIP]
@@ -117,7 +117,7 @@ Azure Service Fabric 不在 Mac OS X 本机上运行。为了运行本地 Servic
     docker logs sftestcluster
     ```
 
-6. 完成后，可以使用以下命令来停止并清理容器：
+6. 完成后，可使用以下命令来停止并清理容器：
 
     ```bash 
     docker rm -f sftestcluster
@@ -128,8 +128,6 @@ Azure Service Fabric 不在 Mac OS X 本机上运行。为了运行本地 Servic
  以下是在 Mac 的容器中运行的本地群集的已知限制： 
 
  * DNS 服务无法运行且不受支持 [问题 #132](https://github.com/Microsoft/service-fabric/issues/132)
-
- * 目前无法将容器应用程序部署到此本地群集
 
 ## <a name="set-up-the-service-fabric-cli-sfctl-on-your-mac"></a>在 Mac 上设置 Service Fabric CLI (sfctl)
 
@@ -158,14 +156,16 @@ Service Fabric 提供基架工具，可以借助此类工具，使用 Yeoman 模
     ```bash
     npm install -g yo
     ```
-3. 请按入门[文档](service-fabric-get-started-linux.md)中的步骤，安装首选的 Yeoman 生成器。 若要使用 Yeoman 来创建 Service Fabric 应用程序，请执行以下步骤：
+3. 请按入门[文档](service-fabric-get-started-linux.md#set-up-yeoman-generators-for-containers-and-guest-executables)中的步骤，安装首选的 Yeoman 生成器。 若要使用 Yeoman 来创建 Service Fabric 应用程序，请执行以下步骤：
 
     ```bash
     npm install -g generator-azuresfjava       # for Service Fabric Java Applications
     npm install -g generator-azuresfguest      # for Service Fabric Guest executables
     npm install -g generator-azuresfcontainer  # for Service Fabric Container Applications
     ```
-4. 若要在 Mac 上生成 Service Fabric Java 应用程序，必须在主机上安装 JDK 1.8 和 Gradle。 此软件可以使用 [HomeBrew](https://brew.sh/) 进行安装，如下所示： 
+4. 安装生成器后，可通过运行 `yo azuresfguest` 或 `yo azuresfcontainer` 分别创建来宾可执行文件或容器服务。
+
+5. 若要在 Mac 上生成 Service Fabric Java 应用程序，必须在主机上安装 JDK 1.8 和 Gradle。 此软件可以使用 [HomeBrew](https://brew.sh/) 进行安装，如下所示： 
 
     ```bash
     brew update
@@ -231,4 +231,4 @@ docker run -itd -p 19080:19080 -v /Users/sayantan/work/workspaces/mySFWorkspace:
 [sf-eclipse-plugin-install]: ./media/service-fabric-get-started-mac/sf-eclipse-plugin-install.png
 [buildship-update]: https://projects.eclipse.org/projects/tools.buildship
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties, wording update, update link -->

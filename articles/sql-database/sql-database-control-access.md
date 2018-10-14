@@ -1,5 +1,5 @@
 ---
-title: 授予对 Azure SQL 数据库和 SQL 数据仓库的访问权限 | Azure
+title: 授予对 Azure SQL 数据库和 SQL 数据仓库的访问权限 | Microsoft Docs
 description: 了解如何授予对 Microsoft Azure SQL 数据库和 SQL 数据仓库的访问权限。
 services: sql-database
 author: Hayley244
@@ -11,12 +11,12 @@ ms.topic: article
 origin.date: 06/13/2018
 ms.date: 07/02/2018
 ms.author: v-haiqya
-ms.openlocfilehash: dca1cb3cfeeb06fed843a0d538ab8ff4edf2ac35
-ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
+ms.openlocfilehash: 8cb8bd55848cba3dac6c326a15bc3b85e4485e6e
+ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39486592"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913836"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-access-control"></a>Azure SQL 数据库和 SQL 数据仓库访问控制
 为了确保安全性，Azure [SQL 数据库](sql-database-technical-overview.md)和 [SQL 数据仓库](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)会进行访问控制，即：使用防火墙规则来限制通过 IP 地址进行的连接，使用身份验证机制来要求用户证明其身份，并使用授权机制来限制用户执行特定操作和访问特定数据。 

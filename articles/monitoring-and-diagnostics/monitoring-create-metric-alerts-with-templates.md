@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 中使用资源管理器模板创建指标警报 | Microsoft Docs
+title: 使用 Resource Manager 模板创建指标警报
 description: 了解如何使用资源管理器模板创建指标警报。
 author: snehithm
 manager: kmadnani1
@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/26/2018
-ms.author: snmuvva
-ms.openlocfilehash: 4b8b5c8d1991cc65c1efe11c930ddb8956c895ae
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+origin.date: 04/26/2018
+ms.date: 10/22/2018
+ms.author: v-yiso
+ms.openlocfilehash: e2f50a903e1e26d157b71dc3ae5ab293857ce12a
+ms.sourcegitcommit: 8a5722b85c6eabbd28473d792716ad44aac3ff23
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/09/2018
-ms.locfileid: "35250848"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49121527"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>使用 Resource Manager 模板创建指标警报
 本文介绍如何在 Azure Monitor 中使用 [Azure 资源管理器模板](../azure-resource-manager/resource-group-authoring-templates.md)配置[较新的指标警报](monitoring-near-real-time-metric-alerts.md)。 使用资源管理器模板可以通过编程方式在多个环境中设置一致且可重现的警报。 较新的指标警报当前适用于[这套资源类型](monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported)。
@@ -411,12 +412,12 @@ az group deployment create \
                     "dimensions": [
                         {
                             "name":"ResponseType",
-                            "operator": "Includes",
+                            "operator": "Include",
                             "values": ["Success"]
                         },
                         {
                             "name":"ApiName",
-                            "operator": "Includes",
+                            "operator": "Include",
                             "values": ["GetBlob"]
                         }
                     ],
@@ -432,7 +433,7 @@ az group deployment create \
                 "dimensions": [
                     {
                         "name":"ApiName",
-                        "operator": "Includes",
+                        "operator": "Include",
                         "values": ["GetBlob"]
                     }
                 ],

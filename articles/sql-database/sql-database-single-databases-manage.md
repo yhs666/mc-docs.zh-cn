@@ -8,15 +8,15 @@ ms.service: sql-database
 ms.subservice: single-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-origin.date: 08/01/2018
-ms.date: 09/02/2018
+origin.date: 09/07/2018
+ms.date: 10/15/2018
 ms.author: v-jay
-ms.openlocfilehash: 70ae23c4b213e91b2938485eb9193e5b2770aebd
-ms.sourcegitcommit: 2601e68563bffe148e70cce2bf1dcbe837a40f80
+ms.openlocfilehash: a3a9679891a6652155c61eae4e34d5f50e8457f4
+ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43249931"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913876"
 ---
 # <a name="create-and-manage-logical-servers-and-single-databases-in-azure-sql-database"></a>在 Azure SQL 数据库中创建和管理逻辑服务器和单一数据库 
 
@@ -84,7 +84,7 @@ ms.locfileid: "43249931"
 若要使用 [Azure CLI](/cli/) 创建并管理 Azure SQL 服务器、数据库和防火墙，请使用以下 [Azure CLI SQL 数据库](/cli/sql/db)命令。 在 macOS、 Linux 或 Windows 上[安装](/cli/install-azure-cli) CLI。 若要创建并管理弹性池，请参阅[弹性池](sql-database-elastic-pool.md)。
 
 > [!TIP]
-> 有关 Azure CLI 快速入门，请参阅[使用 Azure CLI 创建单一 Azure SQL 数据库](sql-database-get-started-cli.md)。 有关 Azure CLI 示例脚本，请参阅[使用 CLI 创建单个 Azure SQL 数据库并配置防火墙规则](scripts/sql-database-create-and-configure-database-cli.md)及[使用 CLI 监视和缩放单个 SQL 数据库](scripts/sql-database-monitor-and-scale-database-cli.md)。
+> 有关 Azure CLI 快速入门，请参阅[使用 Azure CLI 创建单一 Azure SQL 数据库](sql-database-cli-samples.md)。 有关 Azure CLI 示例脚本，请参阅[使用 CLI 创建单个 Azure SQL 数据库并配置防火墙规则](scripts/sql-database-create-and-configure-database-cli.md)及[使用 CLI 监视和缩放单个 SQL 数据库](scripts/sql-database-monitor-and-scale-database-cli.md)。
 >
 
 | Cmdlet | 说明 |
@@ -155,10 +155,7 @@ ms.locfileid: "43249931"
 |[Servers - Update](https://docs.microsoft.com/rest/api/sql/servers/update)|更新现有服务器。|
 |[数据库 - 创建或更新](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)|创建新数据库或更新现有数据库。|
 |[数据库 - 获取](https://docs.microsoft.com/rest/api/sql/databases/get)|获取数据库。|
-|[数据库 - 按弹性池获取](https://docs.microsoft.com/rest/api/sql/databases/getbyelasticpool)|获取弹性池内的数据库。|
-|[数据库 - 按推荐的弹性池获取](https://docs.microsoft.com/rest/api/sql/databases/getbyrecommendedelasticpool)|获取推荐弹性池内的数据库。|
 |[数据库 - 按弹性池列出](https://docs.microsoft.com/rest/api/sql/databases/listbyelasticpool)|返回弹性池中数据库的列表。|
-|[数据库 - 按推荐的弹性池列出](https://docs.microsoft.com/rest/api/sql/databases/listbyrecommendedelasticpool)|返回推荐的弹性池内的数据库列表。|
 |[数据库 - 按服务器列出](https://docs.microsoft.com/rest/api/sql/databases/listbyserver)|返回服务器中的数据库列表。|
 |[数据库 - 更新](https://docs.microsoft.com/rest/api/sql/databases/update)|更新现有的数据库。|
 |[Firewall Rules - Create Or Update](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)|创建或更新防火墙规则。|

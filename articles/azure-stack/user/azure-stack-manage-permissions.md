@@ -1,10 +1,10 @@
 ---
-title: 管理 Azure Stack 中每个用户对资源的权限 | Azure
+title: 管理 Azure Stack 中每个用户对资源的权限 | Microsoft Docs
 description: 作为服务管理员或租户，了解如何管理 RBAC 权限。
 services: azure-stack
 documentationcenter: ''
-author: brenduns
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: cccac19a-e1bf-4e36-8ac8-2228e8487646
 ms.service: azure-stack
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/15/2018
-ms.date: 08/27/2018
-ms.author: v-junlch
+ms.date: 10/15/2018
+ms.author: v-jay
 ms.reviewer: ''
-ms.openlocfilehash: c94ef640b92c9dc5e83723fbdae9d5db92645658
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.openlocfilehash: 5283225088c8ac29042c69c52d9dfd2a886baafc
+ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869414"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48848850"
 ---
 # <a name="manage-access-to-resources-with-azure-stack-role-based-access-control"></a>使用 Azure Stack 基于角色的访问控制管理对资源的访问权限
 

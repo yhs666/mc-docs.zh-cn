@@ -1,9 +1,9 @@
 ---
-title: PowerShell 示例 - 更新 SQL 数据同步的同步架构 | Azure
+title: PowerShell 示例-更新 SQL 数据同步的同步架构 | Microsoft Docs
 description: 用于更新 SQL 数据同步的同步架构的 Azure PowerShell 示例脚本
 services: sql-database
 documentationcenter: sql-database
-author: yunan2016
+author: WenJason
 manager: digimobile
 editor: ''
 tags: ''
@@ -15,30 +15,28 @@ ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
 origin.date: 01/10/2018
-ms.date: 01/22/2018
-ms.author: v-nany
+ms.date: 10/15/2018
+ms.author: v-jay
 ms.reviewer: douglasl
-ms.openlocfilehash: ab4a33f4ada94f053ab53f190a7f4752bce07828
-ms.sourcegitcommit: 2a147231bf3d0a693adf58fceee76ab0fbcd6dbb
+ms.openlocfilehash: 6e8df9b543112ebc9e1ba96402b67046273c643e
+ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39335302"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913822"
 ---
 # <a name="use-powershell-to-update-the-sync-schema-in-an-existing-sync-group"></a>使用 PowerShell 更新现有同步组中的同步架构
 
-此 PowerShell 示例更新现有“SQL 数据同步”同步组中的同步架构。 同步多个表时，此脚本可帮助你有效地更新同步架构。
+此 PowerShell 示例更新现有“SQL 数据同步”同步组中的同步架构。 同步多个表时，此脚本可帮助你有效地更新同步架构。 此示例演示如何使用 **UpdateSyncSchema** 脚本，该脚本在 GitHub 上以 [UpdateSyncSchema.ps1](https://github.com/Microsoft/sql-server-samples/tree/master/samples/features/sql-data-sync/UpdateSyncSchema.ps1) 的形式提供。
 
-此示例演示如何使用 **UpdateSyncSchema** 脚本，该脚本在 GitHub 上以 [UpdateSyncSchema.ps1](https://github.com/Microsoft/sql-server-samples/tree/master/samples/features/sql-data-sync/UpdateSyncSchema.ps1) 的形式提供。
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+本教程需要 Azure PowerShell 模块 5.7.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 此外，还需要运行 `Connect-AzureRmAccount -EnvironmentName AzureChinaCloud` 以创建与 Azure 的连接。
+
 
 有关 SQL 数据同步的概述，请参阅[使用 Azure SQL 数据同步跨多个云和本地数据库同步数据](../sql-database-sync-data.md)。
-## <a name="prerequisites"></a>先决条件
 
-本示例需要 Azure PowerShell 模块 4.2 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 查找已安装的版本。 如果需要进行安装或升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。
- 
-运行 `Connect-AzureRmAccount -EnvironmentName AzureChinaCloud`，创建与 Azure 的连接。
-
-## <a name="examples"></a>示例
+## <a name="sample-script"></a>示例脚本
 
 ### <a name="example-1---add-all-tables-to-the-sync-schema"></a>示例 1 - 将所有表添加到同步架构
 
@@ -104,8 +102,6 @@ UpdateSyncSchema.ps1 -SubscriptionId <subscription_id> -ResourceGroupName <resou
 -   演示如何配置 SQL 数据同步的完整 PowerShell 示例：
     -   [使用 PowerShell 在多个 Azure SQL 数据库之间进行同步](sql-database-sync-data-between-sql-databases.md)
     -   [使用 PowerShell 在 Azure SQL 数据库和 SQL Server 本地数据库之间进行同步](sql-database-sync-data-between-azure-onprem.md)
-
--   [下载 SQL 数据同步 REST API 文档](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
 
 有关 SQL 数据库的详细信息，请参阅：
 

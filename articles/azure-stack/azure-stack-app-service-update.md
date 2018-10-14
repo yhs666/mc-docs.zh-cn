@@ -1,42 +1,40 @@
 ---
-title: 更新 Azure Stack 上的 Azure 应用服务 | Azure
+title: 更新 Azure Stack 上的 Azure 应用服务 | Microsoft Docs
 description: 有关更新 Azure Stack 上的 Azure 应用服务的详细指导
 services: azure-stack
 documentationcenter: ''
-author: apwestgarth
-manager: stefsch
+author: WenJason
+manager: digimobile
 editor: ''
-ms.assetid: ''
 ms.service: azure-stack
 ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/15/2018
-ms.date: 08/27/2018
-ms.author: v-junlch
-ms.openlocfilehash: b6a3f440542d88ec485be12d74381f3886dca25d
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+origin.date: 09/10/2018
+ms.date: 10/15/2018
+ms.author: v-jay
+ms.openlocfilehash: d241ae10750d72cbdba7ffb4056938515efb673b
+ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869459"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48848783"
 ---
 # <a name="update-azure-app-service-on-azure-stack"></a>更新 Azure Stack 上的 Azure 应用服务
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 请将 1807 更新应用于 Azure Stack 集成系统，或部署最新的 Azure Stack 开发工具包，然后部署 Azure 应用服务 1.3。
 >
 >
 
 遵循本文中的说明可以升级部署在已连接到 Internet 的 Azure Stack 环境中的[应用服务资源提供程序](azure-stack-app-service-overview.md)。
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 在运行升级之前，请确保已完成[部署 Azure Stack 上的 Azure 应用服务资源提供程序](azure-stack-app-service-deploy.md)
->
->
+
 
 ## <a name="run-the-app-service-resource-provider-installer"></a>运行应用服务资源提供程序安装程序
 

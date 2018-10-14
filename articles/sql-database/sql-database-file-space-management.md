@@ -7,15 +7,15 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: how-to
 ms.topic: conceptual
-origin.date: 08/15/2018
-ms.date: 09/02/2018
+origin.date: 09/14/2018
+ms.date: 10/15/2018
 ms.author: v-jay
-ms.openlocfilehash: 4c14cffd601d3e025c48c74eb81a7f0316be7536
-ms.sourcegitcommit: 2601e68563bffe148e70cce2bf1dcbe837a40f80
+ms.openlocfilehash: b41c60eeb50c6dde5103ce3f6c608fc8297a8651
+ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43249925"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913999"
 ---
 # <a name="manage-file-space-in-azure-sql-database"></a>管理 Azure SQL 数据库中的文件空间
 本文介绍 Azure SQL 数据库中不同类型的存储空间，以及当需要显式管理分配给数据库和弹性池的文件空间时可以执行的步骤。
@@ -28,7 +28,7 @@ ms.locfileid: "43249925"
 - T-SQL：[sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
 - T-SQL：[sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)
 
-存在工作负载模式，其中数据库基础数据文件的分配可能会大于已使用数据页的数量。  如果使用的空间不断增大，并且后续删除了数据，则可能会出现这种情况。  这是因为分配的文件空间不会自动回收。  在这种情况下，数据库或池的已分配空间可能会超出支持的限制并阻止数据增长或性能层更改，并且需要收缩数据文件以进行缓解。
+存在工作负载模式，其中数据库基础数据文件的分配可能会大于已使用数据页的数量。  如果使用的空间不断增大，并且后续删除了数据，则可能会出现这种情况。  这是因为分配的文件空间不会自动回收。  在这种情况下，数据库或池的已分配空间可能会超出支持的限制并阻止数据增长或阻止服务层和计算大小更改，并且需要收缩数据文件以进行缓解。
 
 SQL DB 服务不会自动收缩数据文件来回收未使用的分配空间，因为这可能会影响数据库的性能。  但是，客户可遵循[回收未使用的分配空间](#reclaim-unused-allocated-space)中所述的步骤，在其选定的时间通过自助式操作收缩数据文件。 
 

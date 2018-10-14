@@ -1,27 +1,22 @@
 ---
-title: 管理 Azure SQL 数据仓库中的计算资源 | Azure
+title: 管理 Azure SQL 数据仓库中的计算资源 | Microsoft Docs
 description: 了解 Azure SQL 数据仓库中的性能横向扩展功能。 调整 DWU 可以实现横向扩展，暂停数据仓库可以降低成本。
 services: sql-data-warehouse
-documentationcenter: NA
-author: rockboyfor
+author: WenJason
 manager: digimobile
-editor: ''
-ms.assetid: e13a82b0-abfe-429f-ac3c-f2b6789a70c6
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: manage
-origin.date: 02/20/2018
-ms.date: 03/12/2018
-ms.author: v-yeche
-ms.openlocfilehash: 781913b386543ea73680775f07152526428a8036
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.topic: conceptual
+ms.component: manage
+origin.date: 04/17/2018
+ms.date: 10/15/2018
+ms.author: v-jay
+ms.reviewer: igorstan
+ms.openlocfilehash: 41ca15a37b8ddaee4fd5e100f419eef189fd89e5
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121715"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49088972"
 ---
 # <a name="manage-compute-in-azure-sql-data-warehouse"></a>管理 Azure SQL 数据仓库中的计算资源
 了解如何管理 Azure SQL 数据仓库中的计算资源。 可以通过暂停数据仓库来降低成本，或者根据性能需求缩放数据仓库。 
@@ -29,7 +24,6 @@ ms.locfileid: "32121715"
 ## <a name="what-is-compute-management"></a>计算管理是什么？
 SQL 数据仓库的体系结构对存储和计算功能进行了分隔，允许每项功能单独进行缩放。 因此，可以独立于数据存储，根据性能需求缩放计算资源。 还可以暂停和恢复计算资源。 此体系结构的自然结果是，计算和存储的[计费](https://www.azure.cn/pricing/details/sql-data-warehouse/)是独立的。 如果有一段时间不需要使用数据仓库，可以通过暂停计算来节省计算成本。 
 
-<a name="scale-compute"><a/>
 ## <a name="scaling-compute"></a>缩放计算资源
 调整数据仓库的[数据仓库单位](what-is-a-data-warehouse-unit-dwu-cdwu.md)设置，可以横向扩展或还原计算资源。 添加更多的数据仓库单位后，加载和查询性能可线性提高。 
 
@@ -53,6 +47,7 @@ SQL 数据仓库的体系结构对存储和计算功能进行了分隔，允许�
 | 2000 | 20 个                 | 3                            |
 | 3000 | 30                 | 2                            |
 | 6000 | 60                 | 1                            |
+
 
 ## <a name="finding-the-right-size-of-data-warehouse-units"></a>找到数据仓库单位的适当大小
 
@@ -81,8 +76,6 @@ SQL 数据仓库的体系结构对存储和计算功能进行了分隔，允许�
 
 添加数据仓库单位可提高并行度。 如果工作在计算节点之间均匀拆分，则更高的并行度可以提高查询性能。 有几种原因会导致横向扩展不能改变性能。 数据可能在分布区中扭曲，或者查询可能引入了大量的数据移动操作。 若要调查查询性能问题，请参阅[排查性能问题](sql-data-warehouse-troubleshoot.md#performance)。 
 
-<a name="pause-compute-bk"><a/>
-<a name="resume-compute-bk"><a/>
 ## <a name="pausing-and-resuming-compute"></a>暂停和恢复计算资源
 暂停计算资源会导致存储层从计算节点分离。 将从帐户中释放计算资源。 暂停计算资源时，不会产生计算费用。 恢复计算资源会将存储重新附加到计算节点，并且恢复计算费用。 暂停数据仓库时：
 
@@ -107,12 +100,12 @@ SQL 数据仓库的体系结构对存储和计算功能进行了分隔，允许�
 
 在暂停或缩放 SQL 数据仓库时，用户一发起暂停或缩放请求，系统就会在后台取消查询。  取消简单的 SELECT 查询是很快的操作，对于暂停或缩放实例所花费的时间几乎没有什么影响。  但是，事务性查询（会修改数据或结构）可能无法快速地停止。  **按定义，事务性查询必须完全完成或回退更改。**  回滚事务性查询已完成的任务可能需要很长时间，甚至比查询应用原始更改更久。  例如，如果取消的删除行查询已经运行一小时，系统可能需要一个小时重新插入已删除的行。  如果在事务运行中运行暂停或缩放，暂停或缩放操作可能需要一些时间，因为暂停和缩放必须等回滚完成才能继续。
 
-另请参阅[了解事务](sql-data-warehouse-develop-transactions.md)和 [优化事务][优化事务](sql-data-warehouse-develop-best-practices-transactions.md)。
+另请参阅[了解事务](sql-data-warehouse-develop-transactions.md)和[优化事务](sql-data-warehouse-develop-best-practices-transactions.md)。
 
 
 ## <a name="permissions"></a>权限
 
-缩放数据仓库需要 [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-data-warehouse) 中所述的权限。  暂停和恢复需要 [SQL DB 参与者](../active-directory/role-based-access-built-in-roles.md#sql-db-contributor)权限，具体而言是 Microsoft.Sql/servers/databases/action 权限。
+缩放数据仓库需要 [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-data-warehouse) 中所述的权限。  暂停和恢复需要 [SQL DB 参与者](../role-based-access-control/built-in-roles.md#sql-db-contributor)权限，具体而言是 Microsoft.Sql/servers/databases/action 权限。
 <!-- URL is remove the .md on (https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-data-warehouse) -->
 
 ## <a name="next-steps"></a>后续步骤

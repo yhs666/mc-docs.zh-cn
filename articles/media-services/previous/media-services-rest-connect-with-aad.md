@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 12/26/2017
 ms.date: 05/07/2018
 ms.author: v-nany
-ms.openlocfilehash: 3a5f6514b5c3bcac0dc67f2937f8d256d7feb44f
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.openlocfilehash: 0a2ea8c2fea47c307c0c77b2410f998e6eaae7a9
+ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426235"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48848868"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-azure-media-services-api-with-rest"></a>通过 Azure AD 身份验证使用 REST 访问 Azure 媒体服务 API
 
@@ -121,7 +121,7 @@ ms.locfileid: "47426235"
 
 ## <a name="get-the-access-token-using-postman"></a>使用 Postman 获取访问令牌
 
-此部分介绍如何使用 **Postman** 执行可返回 JWT 持有者令牌（访问令牌）的 REST API。 若要调用媒体服务 REST API，需向调用添加“Authorization”标头，并向每个调用添加值“Bearer *your_access_token*”（如本教程的下一部分所示）。
+本部分演示如何使用 Postman 执行返回 JWT 持有者令牌（访问令牌）的 REST API。 若要调用任何媒体服务 REST API，需要将“授权”标头添加到这些调用，并将“持有者 your_access_token”的值添加到每个调用（如本教程的下一部分中所示）。
 
 1. 打开 **Postman**。
 2. 选择“POST” 。

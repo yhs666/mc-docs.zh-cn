@@ -14,16 +14,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 04/27/2017
-ms.date: 09/03/2018
+ms.date: 10/08/2018
 ms.author: v-junlch
 ms.reviewer: arielgo
 ms.custom: aaddev, signin_art
-ms.openlocfilehash: c1c2eb27482f19b79add761c1ed1923909b40352
-ms.sourcegitcommit: 562cde32fc2271238f3d1ef5d2cc5ed037bdec2d
+ms.openlocfilehash: d0cbbe482e9fd00959a2e5f3c0132fb03fc8d7b1
+ms.sourcegitcommit: 71f203d04b212d2bfbf4f227693c2b8fe209db22
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43531631"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48850504"
 ---
 # <a name="branding-guidelines-for-applications"></a>适用于应用程序的品牌准则
 
@@ -59,7 +59,7 @@ Microsoft 不会向最终用户显示 Azure 或 Active Directory 品牌名称，
 
 ## <a name="visual-guidance-for-app-acquisition"></a>有关获取应用程序的可视指南
 
-“获取应用程序”链接必须将用户重定向到 Azure AD 的访问权限授予（授权）页，以方便组织的管理员对应用程序进行授权，使其有权访问 Microsoft 托管的组织数据。 有关如何请求访问权限的详细信息，请参阅[将应用程序与 Azure Active Directory 集成](quickstart-v1-integrate-apps-with-azure-ad.md)一文。
+“获取应用程序”链接必须将用户重定向到 Azure AD 的访问权限授予（授权）页，以方便组织的管理员对应用程序进行授权，使其有权访问 Microsoft 托管的组织数据。 有关如何请求访问权限的详细信息，请参阅[将应用程序与 Azure Active Directory 集成](quickstart-v1-integrate-apps-with-azure-ad.md) 一文。
 
 管理员许可应用后，可以选择将应用添加到其用户的 Office 365 应用启动器体验（可从 waffle 访问）。 如果想要广告此功能，可以使用类似于“将此应用程序添加到组织”词语，并显示类似于以下示例的按钮：
 
@@ -73,7 +73,7 @@ Microsoft 不会向最终用户显示 Azure 或 Active Directory 品牌名称，
 
 | 资产                                | PNG 格式 | SVG 格式 |
 | ------------------------------------ | ---------- | ---------- |
-| Microsoft 徽标  | ![Microsoft 徽标 PNG](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_MSSymbol_19.png) | ![Microsoft 徽标 SVG](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_MSSymbol_19.svg) |
+| Microsoft 徽标  | ![Microsoft 徽标 PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_mssymbol_19.png) | ![Microsoft 徽标 SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_mssymbol_19.svg) |
 
 ## <a name="visual-guidance-for-sign-in"></a>有关登录的可视指南
 
@@ -85,16 +85,16 @@ Microsoft 徽标和“通过 Microsoft 登录”词语的关联可唯一地将 A
 
 下图显示在使用应用资产时，Microsoft 建议的红线。 红线适用于“Microsoft 登录”或更短的“登录”版本。
 
-![Microsoft 登录红线](./media/howto-add-branding-in-azure-ad-apps/Sign-in-with-Microsoft-redlines.png)
+![Microsoft 登录红线](./media/howto-add-branding-in-azure-ad-apps/sign-in-with-microsoft-redlines.png)
 
 若要下载官方图像以在应用中使用，请右键单击要使用的图像，然后将其保存到计算机。
 
 | 资产                                | PNG 格式 | SVG 格式 |
 | ------------------------------------ | ---------- | ---------- |
-| Microsoft 登录（深色主题）  | ![登录按钮深色主题 PNG](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_SignIn_dark.png) | ![Microsoft 登录按钮深色主题 SVG](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_SignIn_dark.svg) |
-| Microsoft 登录（浅色主题） | ![登录按钮浅色主题 PNG](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_SignIn_light.png) | ![Microsoft 登录按钮浅色主题 SVG](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_SignIn_light.svg) |
-| 登录（深色主题）                 | ![登录短按钮深色主题 PNG](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_SignIn_dark_short.png) | ![登录短按钮深色主题 SVG](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_SignIn_dark_short.svg) |
-| 登录（浅色主题）                | ![登录短按钮浅色主题 PNG](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_SignIn_light_short.png) | ![登录短按钮浅色主题 SVG](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_SignIn_light_short.svg) |
+| Microsoft 登录（深色主题）  | ![登录按钮深色主题 PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark.png) | ![Microsoft 登录按钮深色主题 SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark.svg) |
+| Microsoft 登录（浅色主题） | ![登录按钮浅色主题 PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light.png) | ![Microsoft 登录按钮浅色主题 SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light.svg) |
+| 登录（深色主题）                 | ![登录短按钮深色主题 PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark_short.png) | ![登录短按钮深色主题 SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark_short.svg) |
+| 登录（浅色主题）                | ![登录短按钮浅色主题 PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light_short.png) | ![登录短按钮浅色主题 SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light_short.svg) |
 
 
 ## <a name="branding-dos-and-donts"></a>品牌注意事项
@@ -111,3 +111,4 @@ Microsoft 徽标和“通过 Microsoft 登录”词语的关联可唯一地将 A
 
 **要** 提供让用户注销以及切换到其他用户帐户的方法。 
 
+<!-- Update_Description: wording update -->

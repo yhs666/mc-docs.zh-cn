@@ -2,20 +2,19 @@
 title: Azure Stack 培训和认证
 description: 了解 Azure Stack 培训认证的机会
 services: azure-stack
-author: mattbriggs
-manager: femila
+author: WenJason
+manager: digimobile
 ms.service: azure-stack
 ms.topic: article
-origin.date: 02/28/2018
-ms.date: 05/24/2018
-ms.author: v-junlch
-keywords: ''
-ms.openlocfilehash: a90af20a93d33f26ba4e031decbaee38a3c0dd7d
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+origin.date: 09/10/2018
+ms.date: 10/15/2018
+ms.author: v-jay
+ms.openlocfilehash: 800f39b8f709631649c453d23dbcff72a8e7202a
+ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34474916"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48848735"
 ---
 # <a name="azure-stack-training-and-certification"></a>Azure Stack 培训和认证
 
@@ -30,6 +29,7 @@ ms.locfileid: "34474916"
 - [作业角色和学习路径](https://azure.microsoft.com/training/learning-paths/)
 
 ## <a name="certification"></a>认证
+
 Azure Stack 认证目前正在开发中。 请不时回来查看最新的信息。
 
 ## <a name="next-steps"></a>后续步骤

@@ -2,21 +2,21 @@
 title: 快速入门：创建和查询 Azure SQL 数据仓库 - Azure 门户 | Microsoft Docs
 description: 在 Azure 门户中使用 Azure SQL 数据仓库创建和查询数据仓库。
 services: sql-data-warehouse
-author: rockboyfor
+author: WenJason
 manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-origin.date: 04/17/2018
-ms.date: 06/25/2018
-ms.author: v-yeche
+origin.date: 08/01/2018
+ms.date: 10/15/2018
+ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: adb92d11628ed46d12d29a90ab6b0f982dc70a3c
-ms.sourcegitcommit: 9a82a54c6b6f4d8074139e090011fe05b8018fcf
+ms.openlocfilehash: db8636695442bd72cb83199fe4aab232441b2d5e
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44363158"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49089117"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>快速入门：在 Azure 门户中创建和查询 Azure SQL 数据仓库
 
@@ -25,11 +25,11 @@ ms.locfileid: "44363158"
 如果没有 Azure 订阅，请在开始之前创建一个[免费](https://www.azure.cn/pricing/1rmb-trial/)帐户。
 
 > [!NOTE]
-> 创建 SQL 数据仓库可能会导致新的计费服务。  有关详细信息，请参阅 [Azure SQL 数据仓库定价](https://www.azure.cn/pricing/details/sql-data-warehouse/)。
+> 创建 SQL 数据仓库可能会导致新的计费服务。  有关详细信息，请参阅 [SQL 数据仓库定价](https://www.azure.cn/pricing/details/sql-data-warehouse/)。
 >
 >
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="before-you-begin"></a>准备阶段
 
 下载并安装最新版本的 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS)。
 
@@ -55,7 +55,7 @@ ms.locfileid: "44363158"
     | ------- | --------------- | ----------- | 
     | **数据库名称** | mySampleDataWarehouse | 如需有效的数据库名称，请参阅 [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)（数据库标识符）。 请注意，数据仓库是一种数据库。| 
     | **订阅** | 你的订阅  | 有关订阅的详细信息，请参阅[订阅](https://account.windowsazure.cn/Subscriptions)。 |
-    | **资源组** | MyResourceGroup | 如需有效的资源组名称，请参阅 [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)（命名规则和限制）。 |
+    | **资源组** | MyResourceGroup | 有关有效的资源组名称，请参阅 [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)（命名规则和限制）。 |
     | **选择源** | 空白数据库 | 创建空数据库。 请注意，数据仓库是一种数据库。 |
 
     <!-- Not Avaiable on 6th Mar 2018    | **Select sample** | AdventureWorksDW | Specifies to load the AdventureWorksDW sample database.  | -->
@@ -83,14 +83,14 @@ ms.locfileid: "44363158"
 
     ![配置性能](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
-8. 单击“应用”。
+8. 单击“应用” 。
 
 9. 填写 SQL 数据仓库表单后，即可单击“创建”进行数据库预配。 预配需要数分钟。 
 
     ![单击“创建”](media/load-data-from-azure-blob-storage-using-polybase/click-create.png)
 
 10. 在工具栏上，单击“通知”可监视部署过程。
-
+    
      ![通知](media/load-data-from-azure-blob-storage-using-polybase/notification.png)
 
 ## <a name="create-a-server-level-firewall-rule"></a>创建服务器级防火墙规则
@@ -120,7 +120,7 @@ SQL 数据仓库服务在服务器级别创建一个防火墙，阻止外部应�
 
 5. 单击“保存”。 此时会针对当前的 IP 地址创建服务器级防火墙规则，在逻辑服务器上打开 端口 1433。
 
-6. 单击“确定”，然后关闭“防火墙设置”页。
+6. 单击“确定”，并关闭“防火墙设置”页。
 
 现在，可使用此 IP 地址连接到 SQL Server 及其数据仓库。 可从 SQL Server Management Studio 或另一种所选工具进行连接。 连接时，请使用之前创建的 ServerAdmin 帐户。  
 
@@ -155,7 +155,7 @@ SQL 数据仓库服务在服务器级别创建一个防火墙，阻止外部应�
 
     ![连接到服务器](media/load-data-from-azure-blob-storage-using-polybase/connect-to-server.png)
 
-4. 单击“连接”。 此时会在 SSMS 中打开“对象资源管理器”窗口。 
+4. 单击“连接” 。 此时会在 SSMS 中打开“对象资源管理器”窗口。 
 
 5. 在对象资源管理器中，展开“数据库”。 然后展开“mySampleDatabase”，查看新数据库中的对象。
 
@@ -165,7 +165,7 @@ SQL 数据仓库服务在服务器级别创建一个防火墙，阻止外部应�
 
 SQL 数据仓库使用 T-SQL 作为查询语言。 打开一个查询窗口并运行一些 T-SQL 查询，请使用以下步骤：
 
-1. 右键单击“mySampleDataWarehouse”，然后选择“新建查询”。  此时会打开一个新的查询窗口。
+1. 右键单击“mySampleDataWarehouse”，然后选择“新建查询”。  此时将打开一个新的查询窗口。
 2. 在查询窗口中，输入以下命令以查看数据库列表。
 
     ```sql

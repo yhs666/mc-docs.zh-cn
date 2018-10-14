@@ -10,15 +10,15 @@ ms.workload: identity
 ms.component: user-help
 ms.topic: conceptual
 origin.date: 07/30/2018
-ms.date: 08/27/2018
+ms.date: 10/11/2018
 ms.author: v-junlch
 ms.reviewer: librown
-ms.openlocfilehash: b4e41a0caccfc5516f4a144517c3e95714fb0c5b
-ms.sourcegitcommit: 75c2b5cdaf25ede92e080f6c48ca17d2f4ded4fb
+ms.openlocfilehash: 908d929b23b5b0c37b05c35607bb14be75c088f9
+ms.sourcegitcommit: 4c7b45c574675b157e6520295f86b7e19450f5e3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43115530"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49088925"
 ---
 # <a name="microsoft-authenticator-app-faq"></a>Microsoft 验证器应用常见问题
 
@@ -29,7 +29,7 @@ Microsoft Authenticator 应用替代了 Azure Authenticator 应用，建议使�
 ## <a name="frequently-asked-questions"></a>常见问题
 |问题|解决方案|
 |--------|--------|
-|哪些数据是 Authenticator 以我的名义存储的，我如何删除它？| Microsoft Authenticator 应用存储添加帐户时创建的帐户信息。 使用该应用时，将会创建诊断日志用于调试，其中只存储有助于 Microsoft 诊断不可预见问题的数据。 可以打开该应用，并依次选择“帮助”、“发送日志”、“查看日志”按钮来查看日志数据。<br><br>在“帐户”屏幕上删除帐户磁贴可以删除所有数据，包括日志文件。 有关 Microsoft 如何使用数据的详细信息，请参阅[服务信任门户](https://servicetrust.microsoft.com/ViewPage/HomePage.)|
+|哪些数据是 Authenticator 以我的名义存储的，我如何删除它？|Microsoft Authenticator 应用收集三种类型的信息：<ul><li>你在添加帐户时提供的帐户信息。 可以通过删除帐户删除此数据。</li><li>诊断日志数据，该数据仅驻留在应用中，直到你通过应用的“帮助”菜单选择“发送日志”来将日志发送到 Microsoft。 这些日志文件包含诸如你的电子邮件地址（例如 alain@contoso.com）、服务器/IP 地址和设备数据（例如设备名称和操作系统版本）之类的个人数据，以及仅限用于帮助解决应用问题的个人数据。 任何时候都可以在应用中查看这些日志文件来查看所收集的信息。 如果你发送日志文件，则身份验证应用工程师可以使用它来解决客户报告的问题。</li><li>非个人识别使用情况数据，例如“已启动添加帐户流/已成功添加了帐户”或者“通知已批准”。 此数据是我们的工程决策不可或缺的一部分，并帮助我们确定哪些功能对你很重要，以及什么地方需要以应用更新的形式进行改进。 应用用户在首次启动应用时会看到有关此数据收集的通知，并且系统会告知用户可以在应用的“设置”页面上关闭此数据收集。 可以在任何时候启用或禁用此设置。</li></ul>|
 |此应用中的代码有哪些用途？|打开 Microsoft Authenticator 应用时，会看到已添加的帐户，它们以带有六位数或八位数编号的磁贴形式显示。<br><br>你将使用这些代码来验证自己声明的身份。 使用用户名和密码登录后，需要键入帐户磁贴中显示相同的验证码。 例如，如果以 Alain 的身份登录到 Contoso 帐户，应使用验证码 427303。<br><br>![应用中的“帐户”屏幕](./media/microsoft-authenticator-app-faq/auth-app-accounts.png)|
 |为何代码旁边的数字不断地倒计数？|活动验证码的旁边可能会出现 30 秒倒计时。 此计时器可防止使用同一代码登录两次。 与密码不同，你不需要记住此数字。 此机制确保只有有权访问你手机的人才知道验证码。|
 |帐户磁贴为何灰显？|某些组织要求 Microsoft Authenticator 应用使用单一登录并保护组织资源。 在此情况下，该帐户不会用于双重验证，并且灰显或处于非活动状态。 此类帐户往往称为“代理”帐户。|
@@ -50,7 +50,8 @@ Microsoft Authenticator 应用替代了 Azure Authenticator 应用，建议使�
 
 ## <a name="next-steps"></a>后续步骤
 
--   如需有关双重验证的详细信息，请参阅[为帐户设置双重验证](multi-factor-authentication-end-user-first-time.md)
+- 如需有关双重验证的详细信息，请参阅[为帐户设置双重验证](multi-factor-authentication-end-user-first-time.md)
 
 - 如果在此处找不到问题的答案，请告诉我们。 转到 [Microsoft 验证器应用论坛](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) 发布问题并从社区获取帮助或者在此页面上留言，我们会尽快解答相关问题。
 
+<!-- Update_Description: wording update -->

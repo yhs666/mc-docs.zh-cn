@@ -11,16 +11,16 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 origin.date: 05/10/2018
-ms.date: 09/17/2018
+ms.date: 10/22/2018
 ms.author: v-biyu
-ms.openlocfilehash: c0e3e4d46bc9c896d375f9abe55fa35e2286b0ab
-ms.sourcegitcommit: d649060b55bac3ad9f4fc2bd2962748a4b5bf715
+ms.openlocfilehash: ebd2807f96afeea60658aa583c92a5e8b152452e
+ms.sourcegitcommit: 2fdf25eb4b978855ff2832bcdcca093c141be261
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44066163"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49120618"
 ---
 # <a name="get-started-with-azure-key-vault"></a>Azure 密钥保管库入门
 本文有助于使用 PowerShell 完成 Azure Key Vault 入门，并详细介绍如何完成以下活动：
@@ -144,7 +144,7 @@ $key.id
 可键入：
 
 ```powershell
-$securepfxpwd = ConvertTo-SecureString -String '123' -AsPlainText -Force  // This stores the password 123 in the variable $securepfxpwd
+$securepfxpwd = ConvertTo-SecureString –String '123' –AsPlainText –Force  // This stores the password 123 in the variable $securepfxpwd
 ```
 
 然后键入以下内容以从 .PFX 文件导入密钥，这样，便会使用密钥保管库服务中的软件来保护密钥：
@@ -161,7 +161,7 @@ $Key.id
 若要查看密钥，请键入： 
 
 ```powershell
-Get-AzureKeyVaultKey -VaultName 'ContosoKeyVault'
+Get-AzureKeyVaultKey –VaultName 'ContosoKeyVault'
 ```
 若要在门户中查看 PFX 文件的属性，则会看到类似于下图所示的内容。
 
@@ -188,7 +188,7 @@ $secret = Set-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'SQLPasswor
 ```powershell
 $secret.Id
 ```
-若要查看机密，请键入 `Get-AzureKeyVaultSecret -VaultName 'ContosoKeyVault'`。也可在门户中查看该机密。
+若要查看机密，请键入 `Get-AzureKeyVaultSecret –VaultName 'ContosoKeyVault'`。也可在门户中查看该机密。
 
 ![secret](./media/key-vault-get-started/secret-value.png)
 

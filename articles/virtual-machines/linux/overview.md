@@ -16,12 +16,12 @@ origin.date: 11/29/2017
 ms.date: 09/24/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 458c947fd423d265efa2a5aeb10064fe4e40e3af
-ms.sourcegitcommit: 1b1f7254343b2a3ada7b253841f86f2ff88f0a0b
+ms.openlocfilehash: b8e3e6e3a3d7f2a030f8d98978ef39394d90d0cd
+ms.sourcegitcommit: b8f424fbff10034c55851618f6564d52257a5e92
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47420904"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48876423"
 ---
 # <a name="azure-and-linux"></a>Azure 和 Linux
 Azure 是一个不断增长的集成公有云服务集合，包括分析、虚拟机、数据库、移动、网络、存储和 Web&mdash;是托管解决方案的理想选择。  Azure 提供可缩放的计算平台，允许即用即付，而无需投资购买本地硬件。  Azure 允许根据客户端所需的任何规模，随时扩展和缩减解决方案。
@@ -77,19 +77,20 @@ Azure 与合作伙伴紧密合作，以确保及时更新可用映像并针对 A
 
 * Azure 上的 Linux - [认可的分发](endorsed-distros.md)
 * SUSE - [Azure 市场 - SUSE Linux Enterprise Server](https://market.azure.cn/zh-cn/marketplace/apps?search=%27SUSE%27)
-<!-- Not Available * Redhat - [Azure Marketplace - RedHat Enterprise Linux 7.2](https://market.azure.cn/zh-cn/marketplace/partners/redhat/redhatenterpriselinux72/)-->
 * Canonical - [Azure 市场 - Ubuntu Server 16.04 LTS](https://market.azure.cn/zh-cn/marketplace/partners/canonical/ubuntuserver1604lts/)
 * Debian - [Azure 市场 - Debian 8 "Jessie"](https://market.azure.cn/zh-cn/marketplace/partners/credativ/debian8/)
 * FreeBSD - [Azure 市场 - FreeBSD 10.3](https://portal.azure.cn/#create/Microsoft.FreeBSD103-ARM)
 * CoreOS - [Azure 市场 - CoreOS (Stable)](https://market.azure.cn/zh-cn/marketplace/partners/coreos/coreosstable/)
-
-<!-- Not Avaialbe * RancherOS - [Azure Marketplace - RancherOS](https://market.azure.cn/zh-cn/marketplace/partners/rancher/rancheros/)-->
 * Bitnami - [Bitnami Library for Azure](https://azure.bitnami.com/)
-
-<!-- Not Avaialbe * Mesosphere - [Azure Marketplace - Mesosphere DC/OS on Azure](https://market.azure.cn/zh-cn/marketplace/partners/mesosphere/dcosdcos/)-->
-<!-- Not Avaialbe * Docker - [Azure Marketplace - Azure Container Service with Docker Swarm](https://market.azure.cn/zh-cn/marketplace/partners/microsoft/acsswarms/)-->
-
 * Jenkins - [Azure 市场 - Jenkins Platform](https://market.azure.cn/zh-cn/marketplace/apps?search=jenkins)
+
+<!-- Not Available on 75-76 * Redhat - [Azure Marketplace - RedHat Enterprise Linux 7.2](https://market.azure.cn/zh-cn/marketplace/partners/redhat/redhatenterpriselinux72/)-->
+
+<!-- Not Availalbe on 79-80 * RancherOS - [Azure Marketplace - RancherOS](https://market.azure.cn/zh-cn/marketplace/partners/rancher/rancheros/)-->
+
+<!-- Not Availalbe on 80-81 * Mesosphere - [Azure Marketplace - Mesosphere DC/OS on Azure](https://market.azure.cn/zh-cn/marketplace/partners/mesosphere/dcosdcos/)-->
+
+<!-- Not Availalbe on 80-81 * Docker - [Azure Marketplace - Azure Container Service with Docker Swarm](https://market.azure.cn/zh-cn/marketplace/partners/microsoft/acsswarms/)-->
 
 <!-- Notice: URL is correct on [Azure Marketplace - Jenkins Platform](https://market.azure.cn/zh-cn/marketplace/apps?search=jenkins)-->
 

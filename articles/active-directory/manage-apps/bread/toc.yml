@@ -1,0 +1,18 @@
+items:
+- name: Azure
+  tocHref: /
+  topicHref: /index
+  items:
+  - name: Active Directory
+    tocHref: /active-directory/fundamentals/
+    topicHref: /active-directory/index
+    items:
+    - name: 管理应用程序
+      tocHref: /active-directory/fundamentals/
+      topicHref: /active-directory/manage-apps/index
+ms.openlocfilehash: bca9e2b1622d0eef679c716bc8b1e57ac8831dca
+ms.sourcegitcommit: b8f424fbff10034c55851618f6564d52257a5e92
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48876429"

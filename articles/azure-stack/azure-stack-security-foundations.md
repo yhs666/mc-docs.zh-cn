@@ -3,24 +3,23 @@ title: 了解 Azure Stack 的安全控制措施 | Microsoft Docs
 description: 向服务管理员介绍应用于 Azure Stack 的安全控制措施
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
-ms.assetid: cccac19a-e1bf-4e36-8ac8-2228e8487646
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/12/2018
-ms.date: 07/20/2018
-ms.author: v-junlch
-ms.openlocfilehash: 36de3468aa06b38daa3c363dc0e9bc1574bc51f8
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+origin.date: 09/12/2018
+ms.date: 10/15/2018
+ms.author: v-jay
+ms.openlocfilehash: f2ba14ba3e0a2dcf6f7561094cc2639acea43a35
+ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168441"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48848914"
 ---
 # <a name="azure-stack-infrastructure-security-posture"></a>Azure Stack 基础结构安全局势
 

@@ -1,22 +1,22 @@
 ---
-title: SQL 错误代码 - 数据库连接错误 | Azure
+title: SQL 错误代码 - 数据库连接错误 | Microsoft 文档
 description: '了解有关 SQL 数据库客户端应用程序的 SQL 错误代码，例如常见的数据库连接错误、数据库复制问题和常规错误。 '
 keywords: SQL 错误代码, 访问 SQL, 数据库连接错误, SQL 错误代码
 services: sql-database
-author: forester123
+author: WenJason
 manager: digimobile
 ms.service: sql-database
 ms.custom: develop apps
-ms.topic: article
-origin.date: 07/16/2018
-ms.date: 08/06/2018
-ms.author: v-johch
-ms.openlocfilehash: 5cc87206a5767d56651140265f4070c09a94d26a
-ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
+ms.topic: conceptual
+origin.date: 09/14/2018
+ms.date: 10/15/2018
+ms.author: v-jay
+ms.openlocfilehash: 283d17526874bdd498cce11f3663941f24b702ba
+ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39486764"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48914013"
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>SQL 数据库客户端应用程序的 SQL 错误代码：数据库连接错误和其他问题
 
@@ -112,7 +112,7 @@ Azure 基础结构能够在 SQL 数据库服务中出现大量工作负荷时动
 | 40857 |EX_USER |找不到服务器“%ls”的弹性池，弹性池名称:“%ls”。 |服务器名称；弹性池名称 |指定的弹性池在指定的服务器中不存在。 |提供有效的弹性池名称。 |
 | 40858 |EX_USER |弹性池“%ls”已存在于服务器“%ls”中 |弹性池名称, 服务器名称 |指定的弹性池已存在于指定的逻辑服务器中。 |提供新弹性池名称。 |
 | 40859 |EX_USER |弹性池不支持服务层“%ls”。 |弹性池服务层 |进行弹性池预配时，不支持指定服务层。 |提供正确的版本，或者将服务层留空以使用默认服务层。 |
-| 40860 |EX_USER |弹性池“%ls”和服务目标“%ls”的组合无效。 |弹性池名称；服务级别目标名称 |仅当服务目标指定为 ‘ElasticPool’ 的情况下，才能一起指定弹性池和服务目标。 |指定正确的弹性池和服务目标组合。 |
+| 40860 |EX_USER |弹性池“%ls”和服务目标“%ls”的组合无效。 |弹性池名称；服务层 |仅当资源类型指定为“ElasticPool”时，才能一起指定弹性池和服务层。 |指定正确的弹性池和服务层组合。 |
 | 40861 |EX_USER |数据库版本“%.*ls”必须与弹性池服务层“%.* ls”相同。 |数据库版本、弹性池服务层 |数据库版本不同于弹性池服务层。 |请勿指定不同于弹性池服务层的数据库版本。  请注意，数据库版本不需要指定。 |
 | 40862 |EX_USER |如果指定了弹性池服务目标，则必须指定弹性池名称。 |无 |弹性池服务目标没有唯一地标识弹性池。 |如果使用弹性池服务目标，则指定弹性池名称。 |
 | 40864 |EX_USER |对于服务层“%.*ls”来说，弹性池的 DTU 数必须至少为 (%d) 个 DTU。 |弹性池的 DTU 数；弹性池服务层。 |尝试将弹性池的 DTU 数设置为最小限制以下。 |重新尝试将弹性池的 DTU 数至少设置为最小限制。 |

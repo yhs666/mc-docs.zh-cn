@@ -2,21 +2,21 @@
 title: 为 Azure SQL 数据仓库设计 ELT 而非 ETL | Microsoft Docs
 description: 设计用于将数据加载到 Azure SQL 数据仓库的提取、加载和转换 (ELT) 过程而非 ETL 过程。
 services: sql-data-warehouse
-author: rockboyfor
+author: WenJason
 manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: design
 origin.date: 04/17/2018
-ms.date: 09/17/2018
-ms.author: v-yeche
+ms.date: 10/15/2018
+ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: fdf65362a21c82b9c28a8e3004f5c491a6bfeebe
-ms.sourcegitcommit: 9a82a54c6b6f4d8074139e090011fe05b8018fcf
+ms.openlocfilehash: 10f2c6c7641f38890477f99b0b7459e71180a3cb
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44363155"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49089221"
 ---
 # <a name="designing-extract-load-and-transform-elt-for-azure-sql-data-warehouse"></a>为 Azure SQL 数据仓库设计提取、加载和转换 (ELT)
 
@@ -76,8 +76,6 @@ PolyBase 从 UTF-8 和 UTF-16 编码的带分隔符文本文件加载数据。 �
 - [AZCopy 实用工具](../storage/common/storage-moving-data.md)可以通过公共 Internet 将数据移到 Azure 存储。 如果数据小于 10 TB，则很适合使用此工具。 若要使用 AZCopy 定期执行加载操作，请测试网络速度是否在可接受的范围内。 
 <!-- Not Available on [Azure Data Factory (ADF)](../data-factory/introduction.md)-->
 
-有关详细信息，请参阅[将数据移入和移出 Azure 存储](../storage/common/storage-moving-data.md)。
-
 ## <a name="prepare-data"></a>准备数据
 
 在将存储帐户中的数据载入 SQL 数据仓库之前，可能需要对其进行准备和清理。 可以在数据仍保留在源中、将数据导出到文本文件时或者在数据进入 Azure 存储之后执行数据准备。  最好是在加载过程的早期阶段处理数据。  
@@ -86,9 +84,9 @@ PolyBase 从 UTF-8 和 UTF-16 编码的带分隔符文本文件加载数据。 �
 在加载数据之前，需要在数据仓库中定义外部表。 PolyBase 使用外部表来定义和访问 Azure 存储中的数据。 外部表类似于常规表。 主要区别在于，外部表指向数据仓库外部存储的数据。 
 
 定义外部表涉及到指定数据源、文本文件的格式和表定义。 下面是需要的 T-SQL 语法主题：
-- [CREATE EXTERNAL DATA SOURCE](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql)（创建外部数据源）
+- [CREATE EXTERNAL DATA SOURCE](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql)
 - [CREATE EXTERNAL FILE FORMAT](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql)
-- [创建外部表](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql)
+- [CREATE EXTERNAL TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql)
 
 有关创建外部对象的示例，请参阅加载教程中的[创建外部表](load-data-from-azure-blob-storage-using-polybase.md#create-external-tables-for-the-sample-data)步骤。
 
@@ -106,7 +104,6 @@ PolyBase 从 UTF-8 和 UTF-16 编码的带分隔符文本文件加载数据。 �
 若要将数据提取到数据仓库，最好是先将数据载入临时表。 使用临时表可以处理错误且不干扰生产表，同时可避免针对生产表运行回滚操作。 将数据插入生产表之前，还可以通过临时表使用 SQL 数据仓库来运行转换。
 
 若要使用 T-SQL 执行加载，请运行 [CREATE TABLE AS SELECT (CTAS)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) T-SQL 语句。 此命令将 select 语句的结果插入新表。 如果该语句从外部表选择了项，则会导入外部数据。 
-<!-- URL is Correct NO .md postfix on (https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) -->
 
 在以下示例中，ext.Date 是一个外部表。 所有行将导入名为 dbo.Date 的新表。
 

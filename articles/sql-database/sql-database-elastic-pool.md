@@ -6,17 +6,18 @@ services: sql-database
 author: WenJason
 manager: digimobile
 ms.service: sql-database
+ms.subservice: elastic-pool
 ms.custom: DBs & servers
-origin.date: 07/27/2018
-ms.date: 09/02/2018
+origin.date: 09/14/2018
+ms.date: 10/15/2018
 ms.author: v-jay
 ms.topic: conceptual
-ms.openlocfilehash: ec7ef973f2f5e5fd1e0ac69a680e2af02f845f25
-ms.sourcegitcommit: 2601e68563bffe148e70cce2bf1dcbe837a40f80
+ms.openlocfilehash: 0bfa59b286fad7a351a98eaa0028881afc4ae754
+ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43249768"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913900"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>弹性池有助于管理和缩放多个 Azure SQL 数据库
 
@@ -52,7 +53,7 @@ SaaS 开发人员构建在由多个数据库组成的大规模数据层上的应
 
    ![适用于池的单一数据库](./media/sql-database-elastic-pool/one-database.png)
 
-在所示的五分钟时间段内，DB1 高峰最高达到 90 个 DTU，但其整体平均使用量低于五个 DTU。 在单一数据库中，运行此工作负荷需要 S3 性能级别，但在低活动期间，大多数资源都处在未使用的状态。
+在所示的五分钟时间段内，DB1 高峰最高达到 90 个 DTU，但其整体平均使用量低于五个 DTU。 在单一数据库中运行此工作负荷需要 S3 计算大小，但在低活动期间，这可使大多数资源处于未使用状态。
 
 池可让这些未使用的 DTU 跨多个数据库共享，因此减少了所需的 DTU 数和总体成本。
 
@@ -62,7 +63,7 @@ SaaS 开发人员构建在由多个数据库组成的大规模数据层上的应
 
    ![使用模式适用于池的 20 个数据库](./media/sql-database-elastic-pool/twenty-databases.png)
 
-在上图中，黑线表示跨所有 20 个数据库的聚合 DTU 使用量。 其中表明聚合 DTU 使用量永远不会超过 100 个 DTU，并指出 20 个数据库可以在此时间段内共享 100 个 eDTU。 相比于将每个数据库放在单一数据库的 S3 性能级别，这会导致 DTU 减少 20 倍和价格降低 13 倍。
+在上图中，黑线表示跨所有 20 个数据库的聚合 DTU 使用量。 其中表明聚合 DTU 使用量永远不会超过 100 个 DTU，并指出 20 个数据库可以在此时间段内共享 100 个 eDTU。 相比于将每个数据库放入单一数据库的 S3 计算大小，这会导致 DTU 减少 20 倍和价格降低 13 倍。
 
 由于以下原因，此示例很理想：
 
@@ -72,21 +73,21 @@ SaaS 开发人员构建在由多个数据库组成的大规模数据层上的应
 
 池的价格取决于池的 eDTU。 尽管池的 eDTU 单位价格比单一数据库的 DTU 单位价格多 1.5 倍，但 **池 eDTU 可由多个数据库共享，因而所需的 eDTU 总数更少**。 定价方面和 eDTU 共享的这些差异是池可以提供成本节省可能性的基础。
 
-以下数据库计数和数据库使用率相关规则的经验法则可帮助确保池提供相比于使用单一数据库的性能级别降低的成本。
+以下与数据库计数和数据库使用率相关的经验法则可帮助确保池提供相比于使用单一数据库计算大小降低的成本。
 
 ### <a name="minimum-number-of-databases"></a>数据库的最小数目
 
 如果单一数据库的资源聚合量比池所需的资源多 1.5 倍，那么弹性池更具成本效益。
 
 ***基于 DTU 的购买模型示例***<br>
-至少需要 2 个 S3 数据库或 15 个 S0 数据库，才能使 100 个 eDTU 池比使用单一数据库性能级别更具成本效益。
+至少需要 2 个 S3 数据库或 15 个 S0 数据库，才能使 100 个 eDTU 池比使用单一数据库计算大小更具成本效益。
 
 ### <a name="maximum-number-of-concurrently-peaking-databases"></a>并发高峰数据库的最大数目
 
 通过共享资源，并非池中的所有数据库都能同时达到使用单一数据库可用资源的最大限制。 并发高峰的数据库越少，可以设置的池资源就越低，也就能实现池更大的成本效益。 一般而言，池中不能有 2/3（或 67%）以上的数据库的高峰同时达到其资源限制。
 
 ***基于 DTU 的购买模型示例***<br>
-。 否则，如果四个 S3 数据库中超过两个同时高峰，则必须将池缩放为超过 200 个 eDTU。 如果将池的大小调整为超过 200 个 eDTU，则需要将更多的 S3 数据库加入到池中，才能使成本保持低于单一数据库的性能级别。
+。 否则，如果四个 S3 数据库中超过两个同时高峰，则必须将池缩放为超过 200 个 eDTU。 如果将池重设大小为超过 200 个 eDTU，则需要加入更多的 S3 数据库到池，才能使成本低于单一数据库的计算大小。
 
 请注意，此示例未考虑池中其他数据库的使用率。 如果在任何给定时间点，所有数据库都有一些使用量，则可以同时处于高峰的数据库应少于 2/3（或 67%）。
 
@@ -112,15 +113,15 @@ SQL数据库自动评估现有 SQL 数据库服务器中数据库的历史资源
 1. 通过如下方式来估算池所需的 eDTU 或 vCore：
 
    对于基于 DTU 的购买模型：MAX(<数据库的总数目 X 每一数据库的平均 DTU 使用率>、<br>
-   <并发高峰数据库的数目** X 每一数据库的高峰 DTU 使用率**)
+   <并发高峰数据库的数目 X 每一数据库的高峰 DTU 使用率）
 
    对于基于 vCore 的购买模型：MAX(<数据库的总数目 X 每一数据库的平均 vCore 使用率>、<br>
-   <并发高峰数据库的数目** X 每一数据库的高峰 vCore 使用率**)
+   <并发高峰数据库的数目 X 每一数据库的高峰 vCore 使用率)
 
 2. 通过将池内所有的数据库所需的字节数相加来估算池所需要的存储空间。 然后，确定提供此存储量的 eDTU 池的大小。
 3. 对于基于 DTU 的购买模型，请取步骤 1 和步骤 2 中 eDTU 估算值中较大的那个。 对于基于 vCore 的购买模型，请取步骤 1 中的 vCore 估算值。
 4. 请参阅 [SQL 数据库定价页](https://www.azure.cn/pricing/details/sql-database/)，找到大于步骤 3 中估算值的最小池大小。
-5. 将步骤 5 的池价格与单一数据库适当性能级别的价格相比较。
+5. 将步骤 5 的池价格与使用单一数据库适当计算大小的价格相比较。
 
 ## <a name="using-other-sql-database-features-with-elastic-pools"></a>将其他 SQL 数据库功能与弹性池一起使用
 
@@ -128,7 +129,7 @@ SQL数据库自动评估现有 SQL 数据库服务器中数据库的历史资源
 
 借助池，可以通过在**弹性作业**中运行脚本来简化管理任务。 弹性作业可消除与大量数据库有关的大部分问题。
 
-有关用于操作多个数据库的其他数据库工具的详细信息，请参阅[使用 Azure SQL 数据库进行扩展](sql-database-elastic-scale-introduction.md)。
+有关用于操作多个数据库的其他数据库工具的详细信息，请参阅 [使用 Azure SQL 数据库进行扩展](sql-database-elastic-scale-introduction.md)。
 
 ### <a name="business-continuity-options-for-databases-in-an-elastic-pool"></a>弹性池中的数据库的业务连续性选项
 入池数据库通常支持可用于单一数据库的相同的[业务连续性功能](sql-database-business-continuity.md)。
@@ -148,7 +149,7 @@ SQL数据库自动评估现有 SQL 数据库服务器中数据库的历史资源
 > [!NOTE]
 > 可以在服务器上创建多个池，但不能将数据库从不同的服务器添加到同一个池中。
 
-该池的服务层决定了池中弹性数据库的可用功能，以及每个数据库可用的最大资源量。 有关详细信息，请参阅 [DTU 模型](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-performance-levels)中弹性池的资源限制。 有关弹性池的基于 vCore 的资源限制，请参阅[基于 vCore 的资源限制 - 弹性池](sql-database-vcore-resource-limits-elastic-pools.md)。
+该池的服务层决定了池中弹性数据库的可用功能，以及每个数据库可用的最大资源量。 有关详细信息，请参阅 [DTU 模型](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes)中弹性池的资源限制。 有关弹性池的基于 vCore 的资源限制，请参阅[基于 vCore 的资源限制 - 弹性池](sql-database-vcore-resource-limits-elastic-pools.md)。
 
 若要配置池的资源和定价，请单击“配置池”。 然后选择服务层，将数据库添加到池，并配置池及其数据库的资源限制。
 

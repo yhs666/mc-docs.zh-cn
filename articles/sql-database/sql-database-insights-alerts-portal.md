@@ -6,16 +6,16 @@ manager: digimobile
 services: sql-database
 ms.service: sql-database
 ms.custom: monitor and tune
-ms.topic: article
-origin.date: 04/01/2018
-ms.date: 09/02/2018
+ms.topic: conceptual
+origin.date: 09/14/2018
+ms.date: 10/15/2018
 ms.author: v-jay
-ms.openlocfilehash: 8c5f62c09ff97b6ba4caefd258d75c1f6adcc411
-ms.sourcegitcommit: 2601e68563bffe148e70cce2bf1dcbe837a40f80
+ms.openlocfilehash: cae14bc52b69ee2439805eaecdf529d0335579b1
+ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43249836"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48914011"
 ---
 # <a name="use-azure-portal-to-create-alerts-for-azure-sql-database-and-data-warehouse"></a>使用 Azure 门户为 Azure SQL 数据库和数据仓库创建警报
 
@@ -109,7 +109,7 @@ ms.locfileid: "43249836"
 | SQL 数据仓库 | connection_successful | 成功的连接数 | 总计 | 10 分钟 |
 | SQL 数据仓库 | connection_failed | 失败的连接数 | 总计 | 10 分钟 |
 | SQL 数据仓库 | blocked_by_firewall | 被防火墙阻止 | 总计 | 10 分钟 |
-| SQL 数据仓库 | service_level_objective | 数据库的服务级别目标 | 总计 | 10 分钟 |
+| SQL 数据仓库 | service_level_objective | 数据库服务层 | 总计 | 10 分钟 |
 | SQL 数据仓库 | dwu_limit | dwu 限制 | 最大值 | 10 分钟 |
 | SQL 数据仓库 | dwu_consumption_percent | DWU 百分比 | 平均值 | 10 分钟 |
 | SQL 数据仓库 | dwu_used | 已用的 DWU | 平均值 | 10 分钟 |
@@ -119,5 +119,5 @@ ms.locfileid: "43249836"
 ## <a name="next-steps"></a>后续步骤
 * [获取 Azure 监视概述](../monitoring-and-diagnostics/monitoring-overview.md)，包括可收集和监视的信息的类型。
 * 了解[在警报中配置 Webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md)的详细信息。
-* 获取[诊断日志概述](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)收集有关服务的详细高频率指标。
+* [大致了解诊断日志](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)并收集服务的详细高频指标。
 * [大致了解指标收集](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)以确保服务可用且响应迅速。

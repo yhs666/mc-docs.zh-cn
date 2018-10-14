@@ -1,6 +1,6 @@
 ---
-title: 使用 C 和 C++ 连接到 SQL 数据库 | Azure
-description: 使用本快速入门教程中的示例代码，生成一个包含 C++ 代码的新式应用程序，该应用程序由云中强大的关系数据库 Azure SQL 数据库提供支持。
+title: 使用 C 和 C++ 连接到 SQL 数据库 | Microsoft 文档
+description: 使用本快速入门教程中的示例代码可以生成一个包含 C++ 代码并由云中强大的 Azure SQL 数据库关系数据库支持的现代应用程序。
 services: sql-database
 author: Hayley244
 manager: digimobile
@@ -11,12 +11,12 @@ ms.topic: article
 origin.date: 04/01/2018
 ms.date: 04/17/2018
 ms.author: v-johch
-ms.openlocfilehash: a94d983e4b0382871be11f21af21485c0b59638b
-ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
+ms.openlocfilehash: 66a6a7376dee8d998b57d456bc676e3db209c17b
+ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39486748"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913855"
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>使用 C 和 C++ 连接到 SQL 数据库
 本文面向尝试连接到 Azure SQL DB 的 C 和 C++ 开发人员， 它分为多个部分，方便大家选择最感兴趣的部分进行查看。 
@@ -104,7 +104,7 @@ Azure 目前有两个用于托管 SQL Server 工作负荷的选项：Azure SQL �
                     "yourpassword>;database=<yourdatabase>",
         SQL_NTS, outstr, sizeof(outstr), &outstrlen, SQL_DRIVER_NOPROMPT);
 
-编译之前的最后一步是将 **odbc** 添加为库依赖项： 
+编译前需要完成的最后一步是将 **odbc** 作为库依赖项添加： 
 
 ![将 ODBC 作为输入库添加](./media/sql-database-develop-cplusplus-simple/lib.png)
 

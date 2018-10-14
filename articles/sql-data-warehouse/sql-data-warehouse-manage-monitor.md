@@ -1,27 +1,22 @@
 ---
-title: 使用 DMV 监视工作负荷 | Azure
+title: 使用 DMV 监视工作负荷 | Microsoft 文档
 description: 了解如何使用 DMV 监视工作负荷。
 services: sql-data-warehouse
-documentationcenter: NA
-author: rockboyfor
+author: WenJason
 manager: digimobile
-editor: ''
-ms.assetid: 69ecd479-0941-48df-b3d0-cf54c79e6549
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: performance
-origin.date: 03/15/2018
-ms.date: 04/25/2018
-ms.author: v-yeche
-ms.openlocfilehash: 5f125b15eb9c912dce0be6525637b5dc8627722a
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.topic: conceptual
+ms.component: manage
+origin.date: 04/17/2018
+ms.date: 10/15/2018
+ms.author: v-jay
+ms.reviewer: igorstan
+ms.openlocfilehash: 3a1f3a291e281cbfc52da3c53827bfcaa4e13b95
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121369"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49089045"
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>使用 DMV 监视工作负荷
 本文介绍如何使用动态管理视图 (DMV) 监视工作负荷。 这包括调查 Azure SQL 数据仓库中的查询执行情况。
@@ -260,7 +255,7 @@ pc1.counter_name = 'Total Server Memory (KB)'
 AND pc2.counter_name = 'Target Server Memory (KB)'
 ```
 ## <a name="monitor-transaction-log-size"></a>监视事务日志大小
-以下查询返回每个分布区的事务日志大小。 如果某个日志文件即将达到 160GB，你应考虑扩展实例或限制事务大小。 
+以下查询返回每个分布区的事务日志大小。 如果其中一个日志文件将达到 160 GB，则应考虑纵向扩展实例或限制事务大小。 
 ```sql
 -- Transaction log size
 SELECT

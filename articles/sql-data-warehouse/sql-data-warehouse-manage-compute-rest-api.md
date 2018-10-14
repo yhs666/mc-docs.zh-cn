@@ -1,26 +1,22 @@
 ---
-title: 在 Azure SQL 数据仓库中使用 REST 进行暂停、恢复和缩放 | Azure
+title: 在 Azure SQL 数据仓库中借助 REST 进行暂停、恢复、缩放 | Microsoft Docs
 description: 通过 REST API 管理 SQL 数据仓库中的计算能力。
 services: sql-data-warehouse
-documentationcenter: NA
-author: rockboyfor
+author: WenJason
 manager: digimobile
-editor: ''
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: manage
-origin.date: 03/22/2018
-ms.date: 04/25/2018
-ms.author: v-yeche
-ms.openlocfilehash: e2a71a9b574bcc2ce7f7ee2f0ecb8e9c79971c5b
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.topic: conceptual
+ms.component: implement
+origin.date: 04/17/2018
+ms.date: 10/15/2018
+ms.author: v-jay
+ms.reviewer: igorstan
+ms.openlocfilehash: f49c4b0f0b97d468136ef149f4e22140962d783f
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121208"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49089019"
 ---
 # <a name="rest-apis-for-azure-sql-data-warehouse"></a>Azure SQL 数据仓库的 REST API
 用于管理 Azure SQL 数据仓库中的计算的 REST API。
@@ -39,8 +35,6 @@ Content-Type: application/json; charset=UTF-8
 }
 ```
 
-<a name="pause-compute-bk"></a>
-
 ## <a name="pause-compute"></a>暂停计算
 
 若要暂停数据库，请使用[暂停数据库](https://docs.microsoft.com/rest/api/sql/databases/pause) REST API。 以下示例暂停 Server01 服务器上托管的 Database02 数据库。 该服务器位于名为 ResourceGroup1 的 Azure 资源组中。
@@ -48,8 +42,6 @@ Content-Type: application/json; charset=UTF-8
 ```
 POST https://management.chinacloudapi.cn/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}/pause?api-version=2014-04-01-preview HTTP/1.1
 ```
-
-<a name="resume-compute-bk"></a>
 
 ## <a name="resume-compute"></a>恢复计算
 
@@ -65,7 +57,7 @@ POST https://management.chinacloudapi.cn/subscriptions/{subscription-id}/resourc
 GET https://management.chinacloudapi.cn/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}?api-version=2014-04-01 HTTP/1.1
 ```
 
-<a name="next-steps-bk"></a>
+
 ## <a name="next-steps"></a>后续步骤
 有关详细信息，请参阅[管理计算](sql-data-warehouse-manage-compute-overview.md)。
 

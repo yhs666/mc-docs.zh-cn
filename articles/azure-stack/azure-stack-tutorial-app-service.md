@@ -17,12 +17,12 @@ ms.date: 06/27/2018
 ms.author: v-junlch
 ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: 3f060323b4c743277d406d0d104058a130e12a05
-ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
+ms.openlocfilehash: 2133a2599df4cba2f558cefd7bd79ec0c01ad0ef
+ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37027155"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48848795"
 ---
 # <a name="tutorial-make-web-and-api-apps-available-to-your-azure-stack-users"></a>教程：将 Web 和 API 应用提供给 Azure Stack 用户使用
 
@@ -53,8 +53,7 @@ Azure Stack 云管理员可以创建套餐，使用户（租户）能够创建 A
     > [!NOTE]
     > 若要让用户创建其他应用，可能需要在计划中包含其他服务。 例如，Azure Functions 要求计划中必须包含 **Microsoft.Storage** 服务，而 Wordpress 则要求包含 **Microsoft.MySQL**。
 
-3.  
-  [创建套餐](azure-stack-create-offer.md)，将其命名为 **TestAppServiceOffer**，然后选择“TestAppServicePlan”计划。****
+3.  [创建套餐](azure-stack-create-offer.md)，将其命名为 **TestAppServiceOffer**，然后选择“TestAppServicePlan”计划。
 
 ## <a name="test-the-offer"></a>测试产品/服务
 
@@ -89,19 +88,5 @@ Azure Stack 云管理员可以创建套餐，使用户（租户）能够创建 A
 4. 选择“定价层” > “F1 免费” > “选择” > “确定”。
 5. 选择“数据库”并输入前面创建的 SQL 数据库的凭据。
 6. 选择“创建” 。
-
-## <a name="next-steps"></a>后续步骤
-
-在本教程中，你已学习了如何执行以下操作：
-
-> [!div class="checklist"]
-> * 部署应用服务资源提供程序
-> * 创建产品
-> * 测试产品/服务
-
-转到下一教程，了解如何执行以下操作：
-
-> [!div class="nextstepaction"]
-> [将应用部署到 Azure 和 Azure Stack](user/azure-stack-solution-pipeline.md)
 
 <!-- Update_Description: wording update -->

@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/29/2016
-ms.date: 09/17/2018
+ms.date: 10/22/2018
 ms.author: v-biyu
-ms.openlocfilehash: e869db1aabb7edc8df127836ff5dee62a0a35fdd
-ms.sourcegitcommit: d649060b55bac3ad9f4fc2bd2962748a4b5bf715
+ms.openlocfilehash: 03846f500c27fb4b319c9d6aa9832e964f14a0f6
+ms.sourcegitcommit: 2fdf25eb4b978855ff2832bcdcca093c141be261
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44066172"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49120612"
 ---
 # <a name="managing-azure-key-vault-using-azure-automation"></a>使用 Azure 自动化管理 Azure 密钥保管库
 本指南介绍 Azure 自动化服务，以及如何使用它来简化 Azure 密钥保管库的管理。
@@ -37,22 +37,22 @@ Azure 自动化提供了具有高可靠性和高可用性的工作流执行引�
 
 使用 Azure 密钥保管库 cmdlet 可以执行其他任务，如这些任务： 
 
-- 创建和配置密钥保管库
-- 创建或导入密钥
-- 创建或更新机密
-- 更新密钥的属性
-- 获取密钥或机密
-- 删除密钥或机密
+* 创建和配置密钥保管库
+* 创建或导入密钥
+* 创建或更新机密
+* 更新密钥的属性
+* 获取密钥或机密
+* 删除密钥或机密
 
 下面是使用 PowerShell 管理密钥保管库的一些示例：  
 
-- [Azure 密钥保管库 - 分步指南](https://blogs.technet.microsoft.com/kv/2015/06/02/azure-key-vault-step-by-step)
-- [设置和配置 Azure 密钥保管库](https://www.simple-talk.com/cloud/platform-as-a-service/setting-up-and-configuring-an-azure-key-vault)
+* [Azure 密钥保管库 - 分步指南](https://blogs.technet.microsoft.com/kv/2015/06/02/azure-key-vault-step-by-step)
+* [设置和配置 Azure 密钥保管库](https://www.simple-talk.com/cloud/platform-as-a-service/setting-up-and-configuring-an-azure-key-vault)
 
 ## <a name="next-steps"></a>后续步骤
 在了解 Azure 自动化 以及如何使用它来管理 Azure 密钥保管库的基础知识后，请使用以下链接了解有关 Azure 自动化的更多信息。
 
-- 请参阅 Azure 自动化[入门教程](../automation/automation-first-runbook-graphical.md)。
-- 请参阅 [Azure 密钥保管库 PowerShell 脚本](https://gallery.technet.microsoft.com/scriptcenter/site/search?query=azure%20key%20vault&f%5B0%5D.Value=azure%20key%20vault&f%5B0%5D.Type=SearchText&ac=5)。
+* 请参阅 Azure 自动化[入门教程](../automation/automation-first-runbook-graphical.md)。
+* 请参阅 [Azure 密钥保管库 PowerShell 脚本](https://gallery.technet.microsoft.com/scriptcenter/site/search?query=azure%20key%20vault&f%5B0%5D.Value=azure%20key%20vault&f%5B0%5D.Type=SearchText&ac=5)。
 
 <!-- Update_Description: link update -->

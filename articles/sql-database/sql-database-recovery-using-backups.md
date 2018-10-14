@@ -1,22 +1,22 @@
 ---
-title: 从备份还原 Azure SQL 数据库 | Azure
+title: 从备份还原 Azure SQL 数据库 | Microsoft Docs
 description: 了解有关时间点还原的信息，它让你能够将 Azure SQL 数据库回滚到之前的时间点（最多 35 天）。
 services: sql-database
-author: forester123
+author: WenJason
 manager: digimobile
-editor: monicar
 ms.service: sql-database
 ms.custom: business continuity
-ms.topic: article
-origin.date: 06/20/2018
-ms.date: 08/06/2018
-ms.author: v-johch
-ms.openlocfilehash: f708f2ac9d69968d53a1c69efa6713d1da7d2432
-ms.sourcegitcommit: 2601e68563bffe148e70cce2bf1dcbe837a40f80
+ms.topic: conceptual
+origin.date: 09/14/2018
+ms.date: 10/15/2018
+ms.author: v-jay
+ms.reviewer: carlrab
+ms.openlocfilehash: 8e828ee33cef6ded6fe1b22552948b831140dfa5
+ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43249862"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913858"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>使用自动数据库备份恢复 Azure SQL 数据库
 SQL 数据库使用[自动数据库备份](sql-database-automated-backups.md)和[长期保留的备份](sql-database-long-term-retention.md)为数据库恢复提供这些选项。 可从数据库备份还原到：
@@ -33,7 +33,7 @@ SQL 数据库使用[自动数据库备份](sql-database-automated-backups.md)和
 - 如果数据库最大大小超过 500 GB，请将 P11-P15 还原为 S4-S12 或 P1-P6。
 - 如果数据库最大大小超过 250 GB，请将 P1-P6 还原为 S4-S12。
 
-由于已还原数据库的最大大小超出了该性能级别附送的存储量，因此将产生额外费用，针对超出附送量的额外预配存储收取。  有关额外存储定价的详细信息，请参阅 [SQL 数据库定价页面](https://azure.cn/pricing/details/sql-database/)。  如果实际使用的空间量小于附送的存储量，只要将数据库最大大小减少到附送的量，就能避免此项额外费用。  
+由于已还原数据库的最大大小超出了该计算大小附送的存储量，因此将产生额外费用，针对超出附送量的任何额外预配存储收取。  有关额外存储定价的详细信息，请参阅 [SQL 数据库定价页面](https://azure.cn/pricing/details/sql-database/)。  如果实际使用的空间量小于附送的存储量，只要将数据库最大大小减少到附送的量，就能避免此项额外费用。  
 
 > [!NOTE]
 > 在创建[数据库副本](sql-database-copy.md)时，将用到[自动数据库备份](sql-database-automated-backups.md)。 
@@ -44,7 +44,7 @@ SQL 数据库使用[自动数据库备份](sql-database-automated-backups.md)和
 使用自动数据库备份还原数据库的恢复时间受几个因素的影响： 
 
 * 数据库的大小
-* 数据库的性能级别
+* 数据库的计算大小
 * 所涉及的事务日志数
 * 需要重新播放以恢复到还原点的活动数量
 * 还原到不同区域时的网络带宽 
@@ -70,14 +70,14 @@ SQL 数据库使用[自动数据库备份](sql-database-automated-backups.md)和
 通过使用 Azure 门户、[PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase) 或 [REST API](https://msdn.microsoft.com/library/azure/mt163685.aspx)，可将现有数据库还原到早期的时间点，作为同一逻辑服务器上的新数据库。 
 
 > [!TIP]
-> 有关展示了如何执行数据库的时间点还原的示例 PowerShell 脚本，请参阅[使用 PowerShell 还原 SQL 数据库](scripts/sql-database-restore-database-powershell.md)。
+> 有关展示如何执行数据库的时间点还原的示例 PowerShell 脚本，请参阅[使用 PowerShell 还原 SQL 数据库](scripts/sql-database-restore-database-powershell.md)。
 >
 
-可将数据库还原到任何服务层或性能级别或还原到弹性池内，并用作单一数据库。 确保要将数据库还原到其中的逻辑服务器上或弹性池内有足够的资源。 还原完成后，还原的数据库应是一个完全可联机访问的正常数据库。 还原的数据库将基于其服务层和性能级别按正常费率计费。 在数据库还原完成之前，不会产生费用。
+可将数据库还原到任何服务层或计算大小或还原到弹性池内，并用作单一数据库。 确保要将数据库还原到其中的逻辑服务器上或弹性池内有足够的资源。 还原完成后，还原的数据库应是一个完全可联机访问的正常数据库。 还原的数据库将基于其服务层和计算大小按标准费率计费。 在数据库还原完成之前，不会产生费用。
 
 为了恢复目的，通常会将数据库还原到一个较早的点。 这样做时，可以将还原的数据库作为原始数据库的替代数据库，或使用它来检索数据，并更新原始数据库。 
 
-* ***数据库替换***：如果还原的数据库旨在替换原始数据库，那么应验证性能级别和/或服务层是否合适，如有必要，还应调整该数据库的规模。 可以使用 T-SQL 中的 [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-database) 命令来重命名原始数据库，然后为还原的数据库指定原有的名称。 
+* ***数据库替换***：如果还原的数据库旨在替换原始数据库，那么应验证计算大小和/或服务层是否合适，如有必要，还应调整该数据库的规模。 可以使用 T-SQL 中的 [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-database) 命令来重命名原始数据库，然后为还原的数据库指定原有的名称。 
 * ***数据恢复：*** 如果打算从还原的数据库检索数据以从用户或应用程序错误中恢复，则需要编写和执行要从还原的数据库将数据提取到原始数据库时所必需的数据恢复脚本。 尽管还原操作可能需要很长时间才能完成，但整个还原过程中，都可在数据库列表中看到还原数据库。 如果在还原期间删除数据库，将取消还原操作，则不会针对未完成还原的数据库向你收费。 
 
 ### <a name="azure-portal"></a>Azure 门户
@@ -147,7 +147,7 @@ SQL 数据库使用[自动数据库备份](sql-database-automated-backups.md)和
 |  | |
 
 ## <a name="summary"></a>摘要
-自动备份可保护数据库，使其免受用户和应用程序错误、意外的数据库删除和长时间中断的影响。 此内置的功能适用于所有服务层和性能级别。 
+自动备份可保护数据库，使其免受用户和应用程序错误、意外的数据库删除和长时间中断的影响。 此内置的功能适用于所有服务层和计算大小。 
 
 ## <a name="next-steps"></a>后续步骤
 * 有关业务连续性概述和应用场景，请参阅[业务连续性概述](sql-database-business-continuity.md)。

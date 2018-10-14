@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-origin.date: 04/13/2018
-ms.date: 07/05/2018
+origin.date: 08/16/2018
+ms.date: 10/12/2018
 ms.author: v-junlch
-ms.openlocfilehash: 1360ba8bf33469f5f5d77517ae9dde045bc0b625
-ms.sourcegitcommit: 37a1524d71895b17b6f1d125053ad0b251b88df1
+ms.openlocfilehash: 37427e60ae86fc7898f356ab90a9111d2ef74196
+ms.sourcegitcommit: 21b81b5cd326b6900fa7274b3b073aecd01111aa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39097029"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49121664"
 ---
 # <a name="azure-active-directory-documentation"></a>Azure Active Directory 文档
 
@@ -32,8 +32,8 @@ Azure Active Directory (Azure AD) 是多租户、基于云的目录和标识管�
                     <div class="cardText">
                         <h3>基本</h3>
                         <p>
-                        <a href="/active-directory/active-directory-whatis">什么是 Azure AD？</a><br/>
-                        <a href="/active-directory/understand-azure-identity-solutions">标识解决方案</a><br/>
+                        <a href="/active-directory/fundamentals/active-directory-whatis">什么是 Azure AD？</a><br/>
+                        <a href="/active-directory/fundamentals/understand-azure-identity-solutions">标识解决方案</a><br/>
                         </p>
                     </div>
                 </div>
@@ -45,7 +45,7 @@ Azure Active Directory (Azure AD) 是多租户、基于云的目录和标识管�
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>企业用户</h3>
+                        <h3><a href="/active-directory/users-groups-roles/index">企业用户</a></h3>
                         <p>
                         <a href="/active-directory/add-users-azure-active-directory">用户</a><br/>
                         <a href="/active-directory/active-directory-manage-groups">组</a><br/>
@@ -64,7 +64,9 @@ Azure Active Directory (Azure AD) 是多租户、基于云的目录和标识管�
                     <div class="cardText">
                         <h3>身份验证</h3>
                         <p>
-                        <a href="/active-directory/active-directory-certificate-based-authentication-get-started">基于证书的身份验证</a>
+                        <a href="/active-directory/authentication/concept-sspr-howitworks">密码</a><br/>
+                        <a href="/active-directory/authentication/concept-mfa-howitworks">多重身份验证</a><br/>
+                        <a href="/active-directory/authentication/active-directory-certificate-based-authentication-get-started">基于证书的身份验证</a>
                         </p>
                     </div>
                 </div>
@@ -111,6 +113,7 @@ Azure Active Directory (Azure AD) 是多租户、基于云的目录和标识管�
                         <a href="https://docs.microsoft.com/powershell/module/azurerm.resources#active_directory">Azure RM PowerShell</a><br/>
                         <a href="https://docs.microsoft.com/en-us/powershell/azure/active-directory/overview?view=azureadps-2.0">Azure AD PowerShell</a><br/>
                         <a href="/cli/ad">Azure CLI</a><br/>
+                        <a href="https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/azure_ad_overview">Microsoft Graph</a><br/>
                         <a href="/dotnet/api/overview//activedirectory">.NET</a><br/>
                         <a href="/java/api/overview/activedirectory">Java</a>
                         </p>

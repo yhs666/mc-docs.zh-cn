@@ -1,6 +1,6 @@
 ---
-title: 设计第一个 Azure SQL 数据库 - C# | Azure
-description: 学习设计第一个 Azure SQL 数据库，并使用 ADO.NET 通过 C# 程序连接到它。
+title: 设计你的第一个 Azure SQL 数据库 - C# | Microsoft Docs
+description: 学习设计你的第一个 Azure SQL 数据库，并使用 ADO.NET 通过 C# 程序连接到它。
 services: sql-database
 author: forester123
 manager: digimobile
@@ -10,12 +10,12 @@ ms.topic: tutorial
 origin.date: 06/07/2018
 ms.date: 07/02/2018
 ms.author: v-johch
-ms.openlocfilehash: 97c6f79a66d321a2fea74e56e2b50da5be9440eb
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 18fbee6fd10bbe7441a8a2a33991923605128cb1
+ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38940127"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913974"
 ---
 # <a name="design-an-azure-sql-database-and-connect-with-cx23-and-adonet"></a>设计 Azure SQL 数据库，并使用 C# 和 ADO.NET 进行连接
 

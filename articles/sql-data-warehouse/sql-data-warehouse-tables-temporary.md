@@ -1,21 +1,22 @@
 ---
-title: SQL 数据仓库中的临时表 | Azure
-description: 开始使用 Azure SQL 数据仓库中的临时表。
+title: SQL 数据仓库中的临时表 | Microsoft 文档
+description: 提供了有关使用临时表的基本指导，并重点介绍了会话级临时表的原则。
 services: sql-data-warehouse
-author: rockboyfor
+author: WenJason
 manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
-origin.date: 04/14/2018
-ms.date: 04/25/2018
-ms.author: v-yeche
-ms.openlocfilehash: eb27974198e2d55786bb3da1882b6c228b711b19
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+origin.date: 04/17/2018
+ms.date: 10/15/2018
+ms.author: v-jay
+ms.reviewer: igorstan
+ms.openlocfilehash: c9e685ac84cfdcea62ab5862476da887f41d4ea3
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121354"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49089006"
 ---
 # <a name="temporary-tables-in-sql-data-warehouse"></a>SQL 数据仓库中的临时表
 本文包含使用临时表的基本指导，并重点介绍会话级别临时表的原则。 使用本文中的信息可以帮助将代码模块化，从而同时提高代码的可重用性和易维护性。

@@ -11,17 +11,17 @@ ms.date: 06/15/2018
 origin.date: 08/20/2018
 ms.author: v-jay
 ms.reviewer: igorstan, carlrab
-ms.openlocfilehash: 6a8ff1ea540bf655f0a809a322d75c9383e0d2db
-ms.sourcegitcommit: 02c4716e07b3d83104fa419b379a15589ae8017e
+ms.openlocfilehash: 544a726bd39a8c8cd1c03b4d26567aecefc77ba5
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "40133069"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49089234"
 ---
 # <a name="column-level-security"></a>列级别安全性 
 借助列级别安全性 (CLS)，客户可以根据用户的执行上下文或其组成员身份，控制对数据库表列的访问。  
 
-CLS 简化了应用程序中的安全性设计和编程。 借助 CLS，可以实现列访问限制，从而保护敏感数据。 例如，确保具体用户只能访问表中与其部门相关的特定列。 访问限制逻辑位于数据库层，而不会脱离另一应用程序层中的数据。 每当有任何一层的数据访问请求，数据库就会应用访问限制。 这样就会减少整个安全系统的外围应用，从而提高安全系统的可靠性。 此外，还无需出于限制用户访问考虑，引入用于筛选掉列的视图。 
+CLS 简化了应用程序中的安全性设计和编程。 借助 CLS，可以实现列访问限制，从而保护敏感数据。 例如，确保具体用户只能访问表中与其部门相关的特定列。 访问限制逻辑位于数据库层，而不会脱离另一应用程序层中的数据。 每当有任何一层的数据访问请求，数据库就会应用访问限制。 此限制会减少整个安全系统的外围应用，从而提高安全系统的可靠性。 此外，使用 CLS 还无需引入用于筛选掉列的视图以限制用户访问。 
 
 可以使用 [GRANT](https://docs.microsoft.com/sql/t-sql/statements/grant-transact-sql) T-SQL 语句实现 CLS。 借助此机制，SQL 和 Azure Active Directory (AAD) 身份验证同时受支持。
 

@@ -1,10 +1,10 @@
 ---
-title: Azure Stack Key Vault 简介 | Azure
+title: Azure Stack Key Vault 简介 | Microsoft Docs
 description: 了解 Azure Stack Key Vault 如何管理密钥和机密
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: 70f1684a-3fbb-4cd1-bf29-9f9882e98fe9
 ms.service: azure-stack
@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 03/04/2017
-ms.date: 03/08/2018
-ms.author: v-junlch
-ms.openlocfilehash: f7473ffa18a97c73be004e3640ce7d8cf05a8e12
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+origin.date: 08/15/2018
+ms.date: 10/15/2018
+ms.author: v-jay
+ms.openlocfilehash: 45574d0cd2160bdf4fe58287bcb6cabf8928ffb9
+ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869467"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48848741"
 ---
 # <a name="introduction-to-key-vault-in-azure-stack"></a>Azure Stack 中的 Key Vault 简介
 
@@ -72,5 +72,4 @@ Azure Stack 中的 Key Vault 可帮助保护云应用程序和服务使用的加
 
 * [使用门户管理 Azure Stack 中的 Key Vault](azure-stack-kv-manage-portal.md)  
 * [使用 PowerShell 管理 Azure Stack 中的 Key Vault](azure-stack-kv-manage-powershell.md)
-
 

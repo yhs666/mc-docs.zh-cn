@@ -2,21 +2,21 @@
 title: 在 Azure SQL 数据仓库中分配变量 | Microsoft Docs
 description: 有关开发解决方案时在 Azure SQL 数据仓库中分配 T-SQL 变量的技巧。
 services: sql-data-warehouse
-author: rockboyfor
-manager: jhubbard
+author: WenJason
+manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
-origin.date: 10/31/2016
-ms.date: 01/17/2017
-ms.author: v-yeche
-ms.openlocfilehash: b29b4426e0bca5cc5af4a9ce9e53bae888030f09
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+origin.date: 04/17/2017
+ms.date: 10/15/2018
+ms.author: v-jay
+ms.reviewer: igorstan
+ms.openlocfilehash: 120c7a6d83f9068b84e1d72683d63398ff17b9f4
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121305"
----
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49089007"
 ---
 # <a name="assigning-variables-in-azure-sql-data-warehouse"></a>在 Azure SQL 数据仓库中分配变量
 有关开发解决方案时在 Azure SQL 数据仓库中分配 T-SQL 变量的技巧。
@@ -63,5 +63,5 @@ SET     @v +=1;
 不能使用 SELECT 或 UPDATE 来分配变量。
 
 ## <a name="next-steps"></a>后续步骤
-有关更多开发技巧，请参阅[开发概述](sql-data-warehouse-overview-develop.md)。
+有关更多开发技巧，请参阅 [开发概述](sql-data-warehouse-overview-develop.md)。
 

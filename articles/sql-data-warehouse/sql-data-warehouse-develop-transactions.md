@@ -1,21 +1,22 @@
 ---
-title: SQL 数据仓库中的事务 | Azure
+title: 使用 Azure SQL 数据仓库中的事务 | Microsoft Docs
 description: 有关在开发解决方案时实现 Azure SQL 数据仓库中的事务的技巧。
 services: sql-data-warehouse
-author: rockboyfor
-manager: jhubbard
+author: WenJason
+manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
-origin.date: 10/31/2016
-ms.date: 04/24/2017
-ms.author: v-yeche
-ms.openlocfilehash: 605fa8b3b24d858e932c66408cf245535ca60647
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+origin.date: 04/17/2018
+ms.date: 10/15/2018
+ms.author: v-jay
+ms.reviewer: igorstan
+ms.openlocfilehash: 3ad964cb756f5947db0fe27992eb03bbb3089acb
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121554"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49089078"
 ---
 # <a name="using-transactions-in-sql-data-warehouse"></a>使用 SQL 数据仓库中的事务
 有关在开发解决方案时实现 Azure SQL 数据仓库中的事务的技巧。

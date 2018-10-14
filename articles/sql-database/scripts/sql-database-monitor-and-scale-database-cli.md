@@ -1,32 +1,32 @@
 ---
-title: CLI 示例 - 监视缩放 - 单一 Azure SQL 数据库 | Azure
+title: CLI 示例 - 监视缩放 - 单一 Azure SQL 数据库 | Microsoft Docs
 description: 监视和缩放单一 Azure SQL 数据库的 Azure CLI 示例脚本
 services: sql-database
 documentationcenter: sql-database
-author: forester123
+author: WenJason
 manager: digimobile
 editor: carlrab
 tags: azure-service-management
 ms.assetid: ''
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.custom: monitor & tune, mvc
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-origin.date: 04/01/2018
-ms.date: 04/17/2018
-ms.author: v-johch
-ms.openlocfilehash: 157f93648d9f42cd65e61a373fd90aef18b8b1f2
-ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
+origin.date: 09/14/2018
+ms.date: 10/15/2018
+ms.author: v-jay
+ms.openlocfilehash: 649bf4593eb9155bebed92b3286f2c7aca525210
+ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39487030"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913951"
 ---
 # <a name="use-cli-to-monitor-and-scale-a-single-sql-database"></a>使用 CLI 监视和缩放单一 SQL 数据库
 
-此 Azure CLI 脚本示例在查询数据库的大小信息后，将单一 Azure SQL 数据库缩放为不同的性能级别。 
+此 Azure CLI 脚本示例在查询数据库的大小信息后，将单个 Azure SQL 数据库缩放为不同的计算大小。 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -38,10 +38,10 @@ ms.locfileid: "39487030"
 #!/bin/bash
 
 # Set an admin login and password for your database
-adminlogin=ServerAdmin
-password=ChangeYourAdminPassword1
+export adminlogin=ServerAdmin
+export password=ChangeYourAdminPassword1
 # the logical server name has to be unique in the system
-servername=server-$RANDOM
+export servername=server-$RANDOM
 
 # Create a resource group
 az group create \
@@ -67,7 +67,7 @@ az sql db create \
 az sql db list-usages \
     --name mySampleDatabase \
     --resource-group myResourceGroup \
-    --name $servername
+    --server $servername
 
 # Scale up database to S1 performance level (create command executes update if DB already exists)
 az sql db create \
@@ -94,7 +94,7 @@ az group delete --name myResourceGroup
 | [az group create](https://docs.azure.cn/cli/group#az_group_create) | 创建用于存储所有资源的资源组。 |
 | [az sql server create](https://docs.azure.cn/cli/sql/server#az_sql_server_create) | 创建用于托管数据库的逻辑服务器。 |
 | [az sql db show-usage](https://docs.azure.cn/cli/sql/db#az_sql_db_show_usage) | 显示数据库的大小使用情况信息。 |
-| [az sql db update](https://docs.azure.cn/cli/sql/db#az_sql_db_update) | 更新数据库属性（如服务层或性能级别），或者将数据库移入、移出弹性池或在弹性池之间移动。 |
+| [az sql db update](https://docs.azure.cn/cli/sql/db#az_sql_db_update) | 更新数据库属性（如服务层或计算大小），或者将数据库移入、移出弹性池或在弹性池之间移动。 |
 | [az group delete](https://docs.azure.cn/cli/vm/extension#az_vm_extension_set) | 删除资源组，包括所有嵌套的资源。 |
 |||
 

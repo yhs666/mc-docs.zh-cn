@@ -10,12 +10,12 @@ ms.topic: conceptual
 origin.date: 07/03/2018
 ms.date: 09/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4bb8cd69facd447efbdedca014afaf85fb1591c3
-ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
+ms.openlocfilehash: 25b6c5789a085c013bb0da011ff795f7c0c2d1f6
+ms.sourcegitcommit: b8f424fbff10034c55851618f6564d52257a5e92
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47201389"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48876422"
 ---
 <!-- Notice: Meta Not Available on graphs, and tables -->
 # <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>为 Azure Cosmos DB 容器和数据库设置和获取吞吐量
@@ -26,7 +26,9 @@ ms.locfileid: "47201389"
 <!--Not Available on /table/graph-->
 **为一组容器或一个数据库预配吞吐量：** 为一个数据库预配吞吐量可在属于该数据库的所有容器间共享吞吐量。 在 Azure Cosmos DB 数据库中，可以让一组容器共享吞吐量，也可以让容器使用专用的吞吐量。 在一组容器中分配 RU/秒时，会将属于该组的容器视为“无限制”容器，必须指定一个分区键。
 
-Azure Cosmos DB 会根据预配的吞吐量分配物理分区，以便托管容器并拆分/重新均衡分区中不断增长的数据。 容器级和数据库级吞吐量预配是不同的产品，在这两者之间切换需要将数据从源迁移到目标。 这意味着你需要创建新数据库或新集合，然后使用[批量执行程序库](bulk-executor-overview.md)迁移数据。 下图说明了不同级别的预配吞吐量：<!-- Not Available on [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md)-->
+Azure Cosmos DB 会根据预配的吞吐量分配物理分区，以便托管容器并拆分/重新均衡分区中不断增长的数据。 容器级和数据库级吞吐量预配是不同的产品，在这两者之间切换需要将数据从源迁移到目标。 这意味着你需要创建新数据库或新集合，然后使用[批量执行程序库](bulk-executor-overview.md)迁移数据。 下图说明了不同级别的预配吞吐量：
+
+<!-- Not Available on [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md)-->
 
 ![预配一个容器和一组容器的请求单位数](./media/request-units/provisioning_set_containers.png)
 
@@ -243,7 +245,7 @@ MongoDB API 支持使用自定义命令 *getLastRequestStatistics* 来检索给�
 
 ## <a name="throughput-faq"></a>吞吐量常见问题
 
-**是否可以将吞吐量设置为小于 400 RU/s？**
+**可否将吞吐量设置为 400 RU/s 以下？**
 
 400 RU/秒是 Cosmos DB 单区容器提供的最小吞吐量（分区容器的最小值为 1000 RU/秒）。 请求单位按 100 RU/秒间隔进行设置，但吞吐量不能设置为 100 RU/秒或小于 400 RU/秒的任何值。 如果正在寻找一种经济高效的方法来开发和测试 Cosmos DB，则可以使用免费的 [Azure Cosmos DB 模拟器](local-emulator.md)来免费进行本地部署。 
 
@@ -258,5 +260,7 @@ MongoDB API 支持使用自定义命令 *getLastRequestStatistics* 来检索给�
 * 若要详细了解如何使用 Cosmos DB 进行预配和多区域缩放，请参阅[使用 Cosmos DB 进行分区和缩放](partition-data.md)。
 
 [1]: ./media/set-throughput/api-for-mongodb-metrics.png
+
 <!-- Notice: 全球 to 多个区域 -->
+
 <!-- Update_Description: udpate meta properties, wording update -->

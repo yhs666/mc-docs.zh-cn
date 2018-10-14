@@ -1,5 +1,5 @@
 ---
-title: Azure SQL 数据库的表审核、TDS 重定向和 IP 终结点 | Azure
+title: Azure SQL 数据库的表审核、TDS 重定向和 IP 终结点 | Microsoft Docs
 description: 了解在 Azure SQL 数据库中实现表审核时，审核、TDS 重定向和 IP 终结点的变化。
 services: sql-database
 author: Hayley244
@@ -10,12 +10,12 @@ ms.topic: article
 origin.date: 04/01/2018
 ms.date: 04/17/2018
 ms.author: v-johch
-ms.openlocfilehash: fe9e8a5d9ee778ba0698cd727759eedf9c039c08
-ms.sourcegitcommit: 2a147231bf3d0a693adf58fceee76ab0fbcd6dbb
+ms.openlocfilehash: 240bdbf72a9d1d0cbd5947a58cea7d8e9053af4c
+ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39335251"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913995"
 ---
 # <a name="sql-database----downlevel-clients-support-and-ip-endpoint-changes-for-table-auditing"></a>SQL 数据库 - 针对表审核的下层客户端支持和 IP 终结点更改
 

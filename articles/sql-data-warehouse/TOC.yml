@@ -5,8 +5,18 @@ items:
   items:
   - name: 关于 SQL 数据仓库
     href: sql-data-warehouse-overview-what-is.md
+  - name: SQL 数据仓库体系结构
+    href: massively-parallel-processing-mpp-architecture.md
+  - name: 数据仓库单位数
+    href: what-is-a-data-warehouse-unit-dwu-cdwu.md
   - name: 备忘单
     href: cheat-sheet.md
+  - name: 最佳实践
+    href: sql-data-warehouse-best-practices.md
+  - name: 容量限制
+    href: sql-data-warehouse-service-capacity-limits.md
+  - name: 常见问题
+    href: sql-data-warehouse-overview-faq.md
 - name: 发行说明
   items:
   - name: 2018 年 6 月
@@ -23,13 +33,13 @@ items:
       href: create-data-warehouse-portal.md
     - name: PowerShell
       href: create-data-warehouse-powershell.md
-  - name: 暂停和恢复计算
+  - name: 暂停和恢复
     items:
     - name: 门户
       href: pause-and-resume-compute-portal.md
     - name: PowerShell
       href: pause-and-resume-compute-powershell.md
-  - name: 缩放计算
+  - name: 缩放
     items:
     - name: 门户
       href: quickstart-scale-compute-portal.md
@@ -40,7 +50,7 @@ items:
   expanded: true
 - name: 概念
   items:
-  - name: 安全
+  - name: 安全性
     items:
     - name: 概述
       href: sql-data-warehouse-overview-manage-security.md
@@ -74,18 +84,8 @@ items:
     items:
     - name: 概述
       href: sql-data-warehouse-overview-develop.md
-    - name: 数据仓库组件
-      href: sql-data-warehouse-overview-workload.md
     - name: 最佳实践
-      href: sql-data-warehouse-best-practices.md
-    - name: MPP 体系结构
-      href: massively-parallel-processing-mpp-architecture.md
-    - name: 数据仓库单位数
-      href: what-is-a-data-warehouse-unit-dwu-cdwu.md
-    - name: 容量限制
-      href: sql-data-warehouse-service-capacity-limits.md
-    - name: 常见问题解答
-      href: sql-data-warehouse-overview-faq.md
+      href: sql-data-warehouse-best-practices-development.md
     - name: 表
       items:
       - name: 概述
@@ -108,14 +108,6 @@ items:
         href: sql-data-warehouse-tables-statistics.md
       - name: 临时
         href: sql-data-warehouse-tables-temporary.md
-    - name: 查询
-      items:
-      - name: 动态 SQL
-        href: sql-data-warehouse-develop-dynamic-sql.md
-      - name: Group By 选项
-        href: sql-data-warehouse-develop-group-by-options.md
-      - name: 标签
-        href: sql-data-warehouse-develop-label.md
     - name: T-SQL 语言元素
       items:
       - name: 循环
@@ -132,6 +124,14 @@ items:
         href: sql-data-warehouse-develop-variable-assignment.md
       - name: 视图
         href: sql-data-warehouse-develop-views.md
+  - name: 查询
+    items:
+    - name: 动态 SQL
+      href: sql-data-warehouse-develop-dynamic-sql.md
+    - name: Group By 选项
+      href: sql-data-warehouse-develop-group-by-options.md
+    - name: 标签
+      href: sql-data-warehouse-develop-label.md
   - name: 工作负荷管理
     items:
     - name: 资源类和工作负荷管理
@@ -140,12 +140,14 @@ items:
       href: memory-and-concurrency-limits.md
   - name: 可管理性和监视
     items:
-    - name: 查询活动和资源利用率
-      href: sql-data-warehouse-manage-monitor.md
+    - name: 概述
+      href: sql-data-warehouse-overview-manageability-monitoring.md
+    - name: 缩放, 暂停, 恢复
+      href: sql-data-warehouse-manage-compute-overview.md
+    - name: 资源利用率和查询活动
+      href: sql-data-warehouse-concept-resource-utilization-query-activity.md
     - name: 数据保护
       href: backup-and-restore.md
-    - name: 横向扩展、暂停、恢复
-      href: sql-data-warehouse-manage-compute-overview.md
     - name: 故障排除
       href: sql-data-warehouse-troubleshoot.md
   - name: 集成
@@ -192,20 +194,18 @@ items:
       href: sql-data-warehouse-query-visual-studio.md
     - name: 安装 Visual Studio
       href: sql-data-warehouse-install-visual-studio.md
-  - name: 优化工作负荷
+  - name: 管理工作负荷
     items:
     - name: 分析工作负荷
       href: analyze-your-workload.md
-  - name: 管理和监视
+  - name: 监视和优化
     items:
-    - name: 还原 - 门户
-      href: sql-data-warehouse-restore-database-portal.md
-    - name: 还原 - PowerShell
-      href: sql-data-warehouse-restore-database-powershell.md
-    - name: 还原 - REST API
-      href: sql-data-warehouse-restore-database-rest-api.md
+    - name: 监视工作负荷
+      href: sql-data-warehouse-manage-monitor.md
     - name: 升级到第 2 代
       href: upgrade-to-latest-generation.md
+    - name: 还原数据仓库
+      href: sql-data-warehouse-restore.md
   - name: 集成
     items:
     - name: 配置 SQL 数据库弹性查询
@@ -242,11 +242,13 @@ items:
     href: https://www.azure.cn/support/forums/
   - name: 服务更新
     href: https://www.azure.cn/what-is-new/
-  - name: 堆栈溢出
+  - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-sqldw/
-ms.openlocfilehash: 81d15e8babdfdd042d590c1e5b6993d052c9faa9
-ms.sourcegitcommit: 9a82a54c6b6f4d8074139e090011fe05b8018fcf
+  - name: 支持
+    href: https://support.windowsazure.cn/support/support-azure
+ms.openlocfilehash: ce7046c6b53d0289458d13825d9d42ad99078028
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44363165"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49089031"

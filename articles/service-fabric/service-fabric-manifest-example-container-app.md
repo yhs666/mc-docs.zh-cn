@@ -15,12 +15,12 @@ ms.workload: multiple
 origin.date: 06/08/2018
 ms.date: 07/09/2018
 ms.author: v-yeche
-ms.openlocfilehash: ca4aff956cb13d97770a4e282d8e8e8dd34fa07f
-ms.sourcegitcommit: 292f22020e00c607229c1693229f25fb2837d8af
+ms.openlocfilehash: 896908ef0cc88dfdfd5197d99d4bd1e10d88647d
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37910610"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49089147"
 ---
 # <a name="multi-container-application-and-service-manifest-examples"></a>多容器应用程序和服务清单示例
 下面以示例方式说明了多容器 Service Fabric 应用程序的应用程序和服务清单。 这些示例的目的是说明什么设置可用以及如何使用它们。 这些应用程序和服务清单基于 [Windows Server 2016 容器示例](https://github.com/Azure-Samples/service-fabric-containers/tree/master/Windows)清单。
@@ -94,10 +94,10 @@ ms.locfileid: "37910610"
         them with the build versions of the OS. Get the build version of the OS by running "winver" at a Windows command prompt. -->
         <ImageOverrides>
           <!-- If the underlying OS is build version 16299 (Windows Server version 1709), Service Fabric picks the container image tagged with Os="16299". -->
-          <Image Name="sfsamples.azurecr.io/sfsamples/servicefabricbackendservice_1709" Os="16299" />
+          <Image Name="sfsamples.azurecr.cn/sfsamples/servicefabricbackendservice_1709" Os="16299" />
 
           <!-- An untagged container image is assumed to work across all versions of the OS and overrides the image specified in the service manifest. -->
-          <Image Name="sfsamples.azurecr.io/sfsamples/servicefabricbackendservice_default" />          
+          <Image Name="sfsamples.azurecr.cn/sfsamples/servicefabricbackendservice_default" />          
         </ImageOverrides>
       </ContainerHostPolicies>
     </Policies>
@@ -185,7 +185,7 @@ ms.locfileid: "37910610"
     <EntryPoint>
       <ContainerHost>
         <!--The repo and image on https://hub.docker.com or Azure Container Registry. -->
-        <ImageName>sfsamples.azurecr.io/sfsamples/servicefabricfrontendservice:v1</ImageName>
+        <ImageName>sfsamples.azurecr.cn/sfsamples/servicefabricfrontendservice:v1</ImageName>
       </ContainerHost>
     </EntryPoint>
     <!-- Pass environment variables to your container or exe.  These variables are overridden in the application manifest. -->
@@ -235,7 +235,7 @@ ms.locfileid: "37910610"
     <EntryPoint>
       <ContainerHost>
         <!--The repo and image on https://hub.docker.com or Azure Container Registry. -->
-        <ImageName>sfsamples.azurecr.io/sfsamples/servicefabricbackendservice:v1</ImageName>
+        <ImageName>sfsamples.azurecr.cn/sfsamples/servicefabricbackendservice:v1</ImageName>
 
         <!-- Pass comma delimited commands to your container. -->
         <Commands> dotnet, myproc.dll, 5 </Commands>

@@ -1,8 +1,8 @@
 ---
-title: 使用 Node.js 查询 Azure SQL 数据库 | Azure
-description: 本主题介绍如何使用 Node.js 创建可连接到 Azure SQL 数据库的程序并使用 Transact-SQL 语句对其进行查询。
+title: 使用 Node.js 查询 Azure SQL 数据库 | Microsoft Docs
+description: 本主题介绍如何使用 Node.js 创建连接到 Azure SQL 数据库的程序并使用 Transact-SQL 语句对其进行查询。
 services: sql-database
-author: yunan2016
+author: WenJason
 manager: digimobile
 ms.service: sql-database
 ms.custom: mvc,develop apps
@@ -10,13 +10,13 @@ ms.devlang: nodejs
 ms.topic: quickstart
 origin.date: 04/01/2018
 ms.date: 04/17/2018
-ms.author: v-nany
-ms.openlocfilehash: 382aa8d8ef44e73e6947679c420d1a33d27a8bda
-ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
+ms.author: v-jay
+ms.openlocfilehash: 386836fe995b27026a24d4d4ab2268f009f4904d
+ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39486900"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913839"
 ---
 # <a name="use-nodejs-to-query-an-azure-sql-database"></a>使用 Node.js 查询 Azure SQL 数据库
 
@@ -28,7 +28,7 @@ ms.locfileid: "39486900"
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-- 针对用于本快速入门的计算机的公共 IP 地址制定[服务器级防火墙规则](sql-database-get-started-portal.md#create-a-server-level-firewall-rule)。
+- 针对用于本快速入门的计算机的公共 IP 地址制定[服务器级防火墙规则](sql-database-get-started-portal-firewall.md)。
 
 - 已为操作系统安装 Node.js 和相关软件：
     - **MacOS**：安装 Homebrew 和 Node.js，然后安装 ODBC 驱动程序和 SQLCMD。 请参阅[步骤 1.2 和 1.3](https://www.microsoft.com/sql-server/developer-get-started/node/mac/)。
@@ -40,7 +40,7 @@ ms.locfileid: "39486900"
 [!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
 
 > [!IMPORTANT]
-> 对于在其上执行本教程操作的计算机，必须为其公共 IP 地址制定防火墙规则。 如果使用其他计算机或其他公共 IP 地址，则[使用 Azure 门户创建服务器级防火墙规则](sql-database-get-started-portal.md#create-a-server-level-firewall-rule)。 
+> 对于在其上执行本教程操作的计算机，必须为其公共 IP 地址制定防火墙规则。 如果使用其他计算机或其他公共 IP 地址，则[使用 Azure 门户创建服务器级防火墙规则](sql-database-get-started-portal-firewall.md)。 
 
 ## <a name="create-a-nodejs-project"></a>创建 Node.js 项目
 

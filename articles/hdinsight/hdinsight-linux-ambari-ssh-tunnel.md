@@ -14,14 +14,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 04/30/2018
-ms.date: 06/25/2018
+ms.date: 10/22/2018
 ms.author: v-yiso
-ms.openlocfilehash: c03f5dde553a1b83dc978773fe74463aef3a0b20
-ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
+ms.openlocfilehash: 3f7c1dc7cb1ba9d62dcf38ef9486f72d469f82bc
+ms.sourcegitcommit: 8a5722b85c6eabbd28473d792716ad44aac3ff23
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36747396"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49121547"
 ---
 # <a name="use-ssh-tunneling-to-access-ambari-web-ui-jobhistory-namenode-oozie-and-other-web-uis"></a>使用 SSH 隧道访问 Ambari Web UI、JobHistory、NameNode、Oozie 和其他 Web UI
 
@@ -50,7 +50,7 @@ Ambari 中的多个菜单只能通过 SSH 隧道工作。 这些菜单依赖于�
 
 ## <a name="prerequisites"></a>先决条件
 
-* SSH 客户端。 大多数操作系统通过 `ssh` 命令提供 SSH 客户端。 有关详细信息，请参阅 [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。
+* SSH 客户端。 大多数操作系统通过 `ssh` 命令提供 SSH 客户端。 有关详细信息，请参阅 [将 SSH 与 HDInsight 配合使用](hdinsight-hadoop-linux-use-ssh-unix.md)。
 
 * 可配置为使用 SOCKS5 代理的 Web 浏览器。
 
@@ -67,7 +67,7 @@ Ambari 中的多个菜单只能通过 SSH 隧道工作。 这些菜单依赖于�
 使用以下 `ssh` 命令创建 SSH 隧道。 将 **sshuser** 替换为 HDInsight 群集的 SSH 用户，并将 **clustername** 替换为 HDInsight 群集的名称：
 
 ```bash
-ssh -C2qTnNf -D 9876 USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn
+ssh -C2qTnNf -D 9876 sshuser@clustername-ssh.azurehdinsight.net
 ```
 
 此命令创建一个通过 SSH 将流量路由到群集本地端口 9876 的连接。 选项包括：

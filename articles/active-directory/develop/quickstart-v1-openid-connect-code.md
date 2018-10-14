@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 origin.date: 04/20/2018
-ms.date: 09/03/2018
+ms.date: 10/08/2018
 ms.author: v-junlch
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: bd0c012065abf6c8e41e1abb91720e9ad84508ab
-ms.sourcegitcommit: 562cde32fc2271238f3d1ef5d2cc5ed037bdec2d
+ms.openlocfilehash: 24fb4f6291e0ca8c17b7fffd60ab6cf54df7f1dd
+ms.sourcegitcommit: 71f203d04b212d2bfbf4f227693c2b8fe209db22
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43531664"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48850503"
 ---
 # <a name="azure-ad-nodejs-web-app-getting-started"></a>Azure AD Node.js Web 应用入门
 此处，我们使用 Passport 进行以下操作：
@@ -409,7 +409,7 @@ Passport 是 Node.js 的身份验证中间件。 Passport 很灵活并且采用�
 
 使用个人 Microsoft 帐户或者工作或学校帐户登录，随后你会看到该用户的标识在 /account 列表中的显示方式。 Web 应用现在使用行业标准的协议进行保护，可使用个人和工作/学校帐户来验证用户。
 
-[以 .zip 文件提供](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS/archive/complete.zip)完整示例（不包括配置值）以供参考。 或者可从 GitHub 克隆它：
+[以 .zip 文件提供](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS/archive/master.zip)完整示例（不包括配置值）以供参考。 或者可从 GitHub 克隆它：
 
 ```git clone --branch master https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS.git```
 

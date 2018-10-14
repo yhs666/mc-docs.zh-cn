@@ -3,7 +3,7 @@ title: 证书创建方法
 description: 在 Key Vault 中创建证书的方法。
 services: key-vault
 documentationcenter: ''
-author: lleonard-msft
+author: bryanla
 manager: mbaldwin
 tags: azure-resource-manager
 ms.assetid: e17b4c9b-4ff3-472f-8c9d-d130eb443968
@@ -11,16 +11,16 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 05/09/2018
-ms.date: 09/17/2018
+ms.date: 10/22/2018
 ms.author: v-biyu
-ms.openlocfilehash: f3e5965c68306506586cb055f023a0372759aec2
-ms.sourcegitcommit: d649060b55bac3ad9f4fc2bd2962748a4b5bf715
+ms.openlocfilehash: 3dd3ec575d2f5734d0c8e573432ed740829d85b1
+ms.sourcegitcommit: 2fdf25eb4b978855ff2832bcdcca093c141be261
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44066167"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49120597"
 ---
 # <a name="certificate-creation-methods"></a>证书创建方法
 

@@ -103,8 +103,6 @@ items:
     items:
     - name: AAD Graph 入门
       href: active-directory-graph-api-quickstart.md
-  - name: AppSource 认证
-    href: howto-get-appsource-certified.md
   - name: Office 365 卖家仪表板
     href: https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard
   - name: 使用 Visual Studio
@@ -172,9 +170,9 @@ items:
     href: https://azure.microsoft.com/roadmap/?category=security-identity
   - name: 定价计算器
     href: https://www.azure.cn/pricing/calculator/
-ms.openlocfilehash: 6fa2a52bf753af6b0eae55ec9563169144521f73
-ms.sourcegitcommit: 562cde32fc2271238f3d1ef5d2cc5ed037bdec2d
+ms.openlocfilehash: 68b076db15645d3dd53d63dc2f0ecd63d0651fe0
+ms.sourcegitcommit: 71f203d04b212d2bfbf4f227693c2b8fe209db22
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43531551"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48850502"

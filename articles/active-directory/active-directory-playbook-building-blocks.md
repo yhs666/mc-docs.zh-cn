@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/04/2017
-ms.date: 09/06/2018
+ms.date: 10/12/2018
 ms.author: v-junlch
-ms.openlocfilehash: d6163f5e216026c70d49fcb77303d1e3a630baaa
-ms.sourcegitcommit: fd49281c58f34de20cc310d6cefb4568992cd675
+ms.openlocfilehash: 00fb36f36c2529749a69bc8ec75fdb8dbb0fe05a
+ms.sourcegitcommit: 21b81b5cd326b6900fa7274b3b073aecd01111aa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43858442"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49121670"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory 概念证明操作手册：构建基块
 
@@ -154,7 +154,7 @@ ms.locfileid: "43858442"
 | 步骤 | 资源 |
 | --- | --- |
 | 在 ADFS 中启用“证书身份验证” | [配置身份验证策略：在 Windows Server 2012 R2 中全局配置主要身份验证](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configure-authentication-policies#to-configure-primary-authentication-globally-in-windows-server-2012-r2) |
-| 可选：在适用于 Exchange Active Sync 客户端的 Azure AD 中启用证书身份验证 | [Azure Active Directory 中基于证书的身份验证入门](active-directory-certificate-based-authentication-get-started.md) |
+| 可选：在适用于 Exchange Active Sync 客户端的 Azure AD 中启用证书身份验证 | [Azure Active Directory 中基于证书的身份验证入门](./authentication/active-directory-certificate-based-authentication-get-started.md) |
 | 导航到访问面板并使用用户证书进行身份验证 | https://login.partner.microsoftonline.cn |
 
 ### <a name="considerations"></a>注意事项

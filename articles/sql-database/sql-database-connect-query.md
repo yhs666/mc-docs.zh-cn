@@ -1,5 +1,5 @@
 ---
-title: Azure SQL 数据库连接和查询快速入门 | Azure
+title: Azure SQL 数据库连接和查询快速入门 | Microsoft Docs
 description: 演示如何连接和查询 Azure SQL 数据库的 Azure SQL 数据库快速入门。
 services: sql-database
 author: yunan2016
@@ -11,12 +11,12 @@ ms.topic: quickstart
 origin.date: 04/24/2018
 ms.date: 06/18/2018
 ms.author: v-nany
-ms.openlocfilehash: e618a386481b428d0ec11bab015199447f285b5d
-ms.sourcegitcommit: d6ff9675cc2288f5d7971ef003422d62ff02a102
+ms.openlocfilehash: 1fa0b1f0896a8ca69705c515b4e5947115a0fe8f
+ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36748344"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913902"
 ---
 # <a name="azure-sql-database-connect-and-query-quickstarts"></a>Azure SQL 数据库连接和查询快速入门
 

@@ -7,15 +7,15 @@ ms.service: azure-monitor
 ms.topic: conceptual
 origin.date: 04/03/2017
 ms.author: v-yiso
-ms.date: 08/20/2018
-ms.openlocfilehash: df0af98669e997bea47ce87e0ab020593c0452ce
-ms.sourcegitcommit: 664584f55e0a01bb6558b8d3349d41d3f05ba4d7
+ms.date: 10/22/2018
+ms.openlocfilehash: 51794441d820c5812a2a112e12c29fa442cab7ed
+ms.sourcegitcommit: 8a5722b85c6eabbd28473d792716ad44aac3ff23
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41704478"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49121542"
 ---
-# <a name="configure-a-webhook-on-an-azure-metric-alert"></a>针对 Azure 度量值警报配置 webhook
+# <a name="have-a-classic-metric-alert-notify-a-non-azure-system-using-a-webhook"></a>使用 Webhook 让经典指标警报通知非 Azure 系统
 可以使用 Webhook 将 Azure 警报通知路由到其他系统，以便进行后续处理或自定义操作。 可以针对警报使用 Webhook，以将警报路由到可以发送短信的服务，以记录 Bug、通过聊天/消息服务通知团队，或进行各种其他操作。 
 
 本文介绍如何针对 Azure 指标警报设置 Webhook。 此外，还说明向 Webhook 发出的 HTTP POST 的有效负载的大致形式。 有关 Azure 活动日志警报（事件警报）的设置和架构的信息，[针对 Azure 活动日志警报调用 Webhook](insights-auditlog-to-webhook-email.md)。

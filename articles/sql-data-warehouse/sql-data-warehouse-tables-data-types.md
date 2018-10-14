@@ -1,21 +1,22 @@
 ---
-title: 数据类型指南 - Azure SQL 数据仓库 | Azure
-description: 定义与 SQL 数据仓库兼容的数据类型的建议。
+title: 定义数据类型 - Azure SQL 数据仓库 | Microsoft Docs
+description: 有关在 Azure SQL 数据仓库中定义表数据类型的建议。
 services: sql-data-warehouse
-author: rockboyfor
+author: WenJason
 manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
-origin.date: 12/06/2017
-ms.date: 01/15/2018
-ms.author: v-yeche
-ms.openlocfilehash: 4fd9029c5bbc1c46c22f4835aecbc40bea07c319
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+origin.date: 04/17/2018
+ms.date: 10/15/2018
+ms.author: v-jay
+ms.reviewer: igorstan
+ms.openlocfilehash: 65e055c60e823ad4e6f56fe7a59fe08bb608cf9f
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121706"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49088966"
 ---
 # <a name="table-data-types-in-azure-sql-data-warehouse"></a>Azure SQL 数据仓库中的表数据类型
 有关在 Azure SQL 数据仓库中定义表数据类型的建议。 
@@ -55,7 +56,7 @@ WHERE y.[name] IN ('geography','geometry','hierarchyid','image','text','ntext','
 | [geometry](https://docs.microsoft.com/sql/t-sql/spatial-geometry/spatial-types-geometry-transact-sql) |[varbinary](https://docs.microsoft.com/sql/t-sql/data-types/binary-and-varbinary-transact-sql) |
 | [geography](https://docs.microsoft.com/sql/t-sql/spatial-geography/spatial-types-geography) |[varbinary](https://docs.microsoft.com/sql/t-sql/data-types/binary-and-varbinary-transact-sql) |
 | [hierarchyid](https://docs.microsoft.com/sql/t-sql/data-types/hierarchyid-data-type-method-reference) |[nvarchar](https://docs.microsoft.com/sql/t-sql/data-types/nchar-and-nvarchar-transact-sql)(4000) |
-| [图片](https://docs.microsoft.com/sql/t-sql/data-types/ntext-text-and-image-transact-sql) |[varbinary](https://docs.microsoft.com/sql/t-sql/data-types/binary-and-varbinary-transact-sql) |
+| [图像](https://docs.microsoft.com/sql/t-sql/data-types/ntext-text-and-image-transact-sql) |[varbinary](https://docs.microsoft.com/sql/t-sql/data-types/binary-and-varbinary-transact-sql) |
 | [text](https://docs.microsoft.com/sql/t-sql/data-types/ntext-text-and-image-transact-sql) |[varchar](https://docs.microsoft.com/sql/t-sql/data-types/char-and-varchar-transact-sql) |
 | [ntext](https://docs.microsoft.com/sql/t-sql/data-types/ntext-text-and-image-transact-sql) |[nvarchar](https://docs.microsoft.com/sql/t-sql/data-types/nchar-and-nvarchar-transact-sql) |
 | [sql_variant](https://docs.microsoft.com/sql/t-sql/data-types/sql-variant-transact-sql) |将列拆分成多个强类型化列。 |

@@ -1,22 +1,22 @@
 ---
-title: 使用 PHP 查询 Azure SQL 数据库 | Azure
-description: 本主题介绍如何使用 PHP 创建可连接到 Azure SQL 数据库的程序并使用 Transact-SQL 语句对其进行查询。
+title: 使用 PHP 查询 Azure SQL 数据库 | Microsoft Docs
+description: 本主题介绍如何使用 PHP 创建连接到 Azure SQL 数据库的程序并使用 Transact-SQL 语句对其进行查询。
 services: sql-database
-author: yunan2016
+author: WenJason
 manager: digimobile
 ms.service: sql-database
 ms.custom: mvc,develop apps
 ms.devlang: php
 ms.topic: quickstart
 origin.date: 04/01/2018
-ms.date: 04/17/2018
-ms.author: v-nany
-ms.openlocfilehash: 252e625a03aafe6c9a0e5b3e97e5b3de1737d398
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.date: 10/15/2018
+ms.author: v-jay
+ms.openlocfilehash: 1eccfa60f94f804b26e494d87537bcfbf739f7f1
+ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38940091"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913998"
 ---
 # <a name="use-php-to-query-an-azure-sql-database"></a>使用 PHP 查询 Azure SQL 数据库
 
@@ -28,7 +28,7 @@ ms.locfileid: "38940091"
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-- 针对用于本快速入门的计算机的公共 IP 地址制定[服务器级防火墙规则](sql-database-get-started-portal.md#create-a-server-level-firewall-rule)。
+- 针对用于本快速入门的计算机的公共 IP 地址制定[服务器级防火墙规则](sql-database-get-started-portal-firewall.md)。
 
 - 已为操作系统安装 PHP 和相关软件：
 

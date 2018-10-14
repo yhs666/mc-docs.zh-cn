@@ -1,27 +1,26 @@
 ---
-title: 在 Azure Stack 中使用 Azure CLI 创建 Linux 虚拟机 | Azure
+title: 在 Azure Stack 中使用 Azure CLI 创建 Linux 虚拟机 | Microsoft Docs
 description: 在 Azure Stack 中使用 CLI 创建 Linux 虚拟机。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: 21F7D599-1FEC-4827-A5C3-06495C5F53A4
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-origin.date: 04/24/2018
-ms.date: 08/27/2018
-ms.author: v-junlch
+origin.date: 09/10/2018
+ms.date: 10/15/2018
+ms.author: v-jay
 ms.custom: mvc
-ms.openlocfilehash: 22334035506883a9696562703f0d8e485297ad59
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.openlocfilehash: f658e3398450f870dd79559527dc6c0a738fd069
+ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869462"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48848851"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-by-using-azure-cli-in-azure-stack"></a>快速入门：在 Azure Stack 中使用 Azure CLI 创建 Linux 服务器虚拟机
 
@@ -35,8 +34,7 @@ ms.locfileid: "42869462"
 
 ## <a name="prerequisites"></a>先决条件
 
-* 
-  **Azure Stack 市场中的 Linux 映像**
+* **Azure Stack 市场中的 Linux 映像**
 
    默认情况下，Azure Stack 市场不包含 Linux 映像。 让 Azure Stack 操作员提供你需要的 **Ubuntu Server 16.04 LTS** 映像。 操作员可以使用[将市场项从 Azure 下载到 Azure Stack](../azure-stack-download-azure-marketplace-item.md) 一文中介绍的步骤。
 

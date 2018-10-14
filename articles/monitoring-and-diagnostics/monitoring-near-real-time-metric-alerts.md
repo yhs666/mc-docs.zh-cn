@@ -7,16 +7,16 @@ ms.service: azure-monitor
 ms.topic: conceptual
 origin.date: 06/29/2018
 ms.author: v-yiso
-ms.date: 08/20/2018
-ms.openlocfilehash: edb75f114af447a7601e6dec91ddd4cd44f17c20
-ms.sourcegitcommit: 664584f55e0a01bb6558b8d3349d41d3f05ba4d7
+ms.date: 10/22/2018
+ms.openlocfilehash: e428fb732b715bc15caa5b61ec734e1f6e6bcd41
+ms.sourcegitcommit: 8a5722b85c6eabbd28473d792716ad44aac3ff23
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41703869"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49121536"
 ---
-# <a name="supported-metrics-and-creation-methods-for-new-metric-alerts"></a>新型指标警报支持的指标和创建方法
-Azure Monitor 现在支持[新型指标警报类型](monitoring-overview-unified-alerts.md)，它比旧式[经典指标警报](insights-alerts-portal.md)具有显著的优势。 旧式警报支持[大型指标列表](monitoring-supported-metrics.md)。 新型警报支持更大列表的一个（不断增长的）子集。 本文列出了该子集。 
+# <a name="supported-resources-for-newer-azure-monitor-metric-alerts"></a>新型 Azure Monitor 指标警报支持的资源
+Azure Monitor 现在支持[新型指标警报类型](monitoring-overview-unified-alerts.md)，它比旧式[经典指标警报](insights-alerts-portal.md)具有显著的优势。 指标可用于 [Azure 服务的大型列表](monitoring-supported-metrics.md)。 新型警报支持资源类型的一个（不断增长的）子集。 本文列出了该子集。 
 
 ## <a name="portal-powershell-cli-rest-support"></a>门户、PowerShell、CLI、REST 支持
 目前，仅可在 Azure 门户、[REST API](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate) 或[资源管理器模板](monitoring-create-metric-alerts-with-templates.md)中创建新型指标警报。 即将推出使用 PowerShell 和 Azure 命令行接口 (Azure CLI 2.0) 配置新型警报的支持功能。

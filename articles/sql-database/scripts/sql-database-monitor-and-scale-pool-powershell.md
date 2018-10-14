@@ -1,9 +1,9 @@
 ---
-title: PowerShell 示例 - 监视 - 缩放 - SQL 弹性池 - Azure SQL 数据库 | Azure
+title: PowerShell 示例 - 监视 - 缩放 - SQL 弹性池 - Azure SQL 数据库 | Microsoft Docs
 description: 用于在 Azure SQL 数据库中监视和缩放 SQL 弹性池的 Azure PowerShell 脚本示例
 services: sql-database
 documentationcenter: sql-database
-author: forester123
+author: WenJason
 manager: digimobile
 editor: carlrab
 tags: azure-service-management
@@ -14,21 +14,23 @@ ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-origin.date: 04/01/2018
-ms.date: 04/17/2018
-ms.author: v-johch
-ms.openlocfilehash: 5ed06f7c507604f751b2b87c5a5d31c18d3109b6
-ms.sourcegitcommit: 2a147231bf3d0a693adf58fceee76ab0fbcd6dbb
+origin.date: 09/14/2018
+ms.date: 10/15/2018
+ms.author: v-jay
+ms.openlocfilehash: 89136a601fc9aae9f2198263cdeb2478e7ca73f1
+ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39335290"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913867"
 ---
 # <a name="use-powershell-to-monitor-and-scale-a-sql-elastic-pool-in-azure-sql-database"></a>使用 PowerShell 在 Azure SQL 数据库中监视和缩放 SQL 弹性池
 
-此 PowerShell 脚本示例监视弹性池的性能指标，将其缩放为更高的性能级别，并基于性能指标之一创建预警规则。 
+此 PowerShell 脚本示例监视弹性池的性能指标，将其扩展到更高的计算大小，并基于性能指标之一创建警报规则。 
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+本教程需要 Azure PowerShell 模块 5.7.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 此外，还需要运行 `Connect-AzureRmAccount -EnvironmentName AzureChinaCloud` 以创建与 Azure 的连接。
 
 ## <a name="sample-script"></a>示例脚本
 
@@ -37,7 +39,7 @@ ms.locfileid: "39335290"
 # Set the resource group name and location for your server
 $resourcegroupname = "myResourceGroup-$(Get-Random)"
 $location = "China East"
-# Set elastic poool names
+# Set elastic pool names
 $poolname = "MySamplePool"
 # Set an admin login and password for your database
 $adminlogin = "ServerAdmin"
@@ -61,7 +63,7 @@ $server = New-AzureRmSqlServer -ResourceGroupName $resourcegroupname `
     -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $adminlogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
 
 # Create elastic database pool
-$elasticpool = -AzureRmSqlElasticPool -ResourceGroupName $resourcegroupname `
+$elasticpool = New-AzureRmSqlElasticPool -ResourceGroupName $resourcegroupname `
     -ServerName $servername `
     -ElasticPoolName $poolname `
     -Edition "Standard" `
@@ -86,7 +88,7 @@ $seconddatabase = New-AzureRmSqlDatabase  -ResourceGroupName $resourcegroupname 
 
 # Monitor the pool
 $monitorparameters = @{
-  ResourceId = "/subscriptions/$($(Get-AzureRMContext).Subscription.Id)/resourceGroups/$resourcegroupname/providers/Microsoft.Sql/servers/$servername/elasticPools/$poolname"
+  ResourceId = "/subscriptions/$($(Get-AzureRmContext).Subscription.Id)/resourceGroups/$resourcegroupname/providers/Microsoft.Sql/servers/$servername/elasticPools/$poolname"
   TimeGrain = [TimeSpan]::Parse("00:05:00")
   MetricNames = "dtu_consumption_percent"
 }
@@ -102,10 +104,10 @@ $elasticpool = Set-AzureRmSqlElasticPool -ResourceGroupName $resourcegroupname `
     -DatabaseDtuMax 100
 
 # Add an alert that fires when the pool utilization reaches 90%
-Add-AzureRMMetricAlertRule -ResourceGroup $resourcegroupname `
+Add-AzureRmMetricAlertRule -ResourceGroup $resourcegroupname `
     -Name "mySampleAlertRule" `
     -Location $location `
-    -TargetResourceId "/subscriptions/$($(Get-AzureRMContext).Subscription.Id)/resourceGroups/$resourcegroupname/providers/Microsoft.Sql/servers/$servername/elasticPools/$poolname" `
+    -TargetResourceId "/subscriptions/$($(Get-AzureRmContext).Subscription.Id)/resourceGroups/$resourcegroupname/providers/Microsoft.Sql/servers/$servername/elasticPools/$poolname" `
     -MetricName "dtu_consumption_percent" `
     -Operator "GreaterThan" `
     -Threshold 90 `

@@ -1,26 +1,26 @@
 ---
-title: 创建适用于 Azure Stack 的服务主体 | Azure
+title: 创建 Azure Stack 的服务主体 | Microsoft Docs
 description: 介绍了如何创建服务主体，并在 Azure 资源管理器中将此服务主体与基于角色的访问控制配合使用以管理对资源的访问权限。
 services: azure-resource-manager
 documentationcenter: na
-author: mattbriggs
-manager: femila
+author: WenJason
+manager: digimobile
 ms.assetid: 7068617b-ac5e-47b3-a1de-a18c918297b6
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 08/15/2018
-ms.date: 08/27/2018
-ms.author: v-junlch
+origin.date: 08/22/2018
+ms.date: 10/15/2018
+ms.author: v-jay
 ms.reviewer: thoroet
-ms.openlocfilehash: f2179b54725005ded04ae6caef50707bfcffef9a
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.openlocfilehash: 960f2abf24cce8c627d1a9e0f1ddae0f1cc38b46
+ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869413"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48848769"
 ---
 # <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>通过创建服务主体向应用程序授予对 Azure Stack 资源的访问权限
 

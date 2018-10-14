@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 11/02/2017
-ms.date: 05/28/2018
+ms.date: 10/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: 97b913b618e15917e18d0ec85871befaf7e8ba04
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: f202f3d29de973c994df5f87886554517bd6d2fd
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554467"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49089158"
 ---
 # <a name="service-fabric-programming-model-overview"></a>Service Fabric 编程模型概述
 Service Fabric 提供了多种方法来编写和管理服务。 服务可以选择使用 Service Fabric API 来充分利用平台的功能和应用程序框架。 服务还可以是采用任何语言编写的任意已编译可执行程序，也可以是在 Service Fabric 群集上托管的容器中运行的代码。
@@ -28,7 +28,7 @@ Service Fabric 提供了多种方法来编写和管理服务。 服务可以选�
 ## <a name="guest-executables"></a>来宾可执行文件
 [来宾可执行文件](service-fabric-guest-executables-introduction.md)是（采用任何语言编写的）任意现有可执行文件，可在应用程序中作为服务运行。 来宾可执行文件不直接调用 Service Fabric SDK API。 但是，它们仍受益于平台提供的功能，如服务可发现性、自定义运行状况和负载报告（通过调用 Service Fabric 公开的 REST API）。 它们还具有完整的应用程序生命周期支持。
 
-从部署第一个[来宾可执行文件应用程序](service-fabric-deploy-existing-app.md)开始使用来宾可执行文件。
+通过部署第一个[来宾可执行文件应用程序](service-fabric-deploy-existing-app.md)开始使用来宾可执行文件。
 
 ## <a name="containers"></a>容器
 默认情况下，Service Fabric 以进程形式部署和激活这些服务。 Service Fabric 还可以在[容器](service-fabric-containers-overview.md)中部署服务。 Service Fabric 支持在 Windows Server 2016 上部署 Linux 容器 和 Windows 容器。 可以从任何容器存储库中拉取容器映像，并将其部署到计算机上。 可以在容器中将现有应用程序部署为来宾可执行文件、Service Fabric 无状态/有状态可靠服务或 Reliable Actors，并可以将进程中的服务和容器中的服务混用于同一应用程序。
@@ -47,7 +47,7 @@ Reliable Services 也可以是有状态的，专门用于 Service Fabric，其�
 ## <a name="aspnet-core"></a>ASP.NET Core
 ASP.NET Core 是新的开源跨平台框架，用于构建现代基于云的连接 Internet 的应用程序，如 Web 应用、IoT 应用和移动后端。 Service Fabric 与 ASP.NET Core 集成，因此你可以编写无状态和有状态的 ASP.NET Core 应用程序，充分利用 Reliable Collections 和 Service Fabric 的高级编排功能。
 
-[了解有关 Service Fabric 中 ASP.NET Core 的详细信息](service-fabric-reliable-services-communication-aspnetcore.md)，或通过[编写第一个 ASP.NET Core Service Fabric 应用程序](service-fabric-reliable-services-communication-aspnetcore.md)开始使用。
+[了解有关 Service Fabric 中 ASP.NET Core 的详细信息](service-fabric-reliable-services-communication-aspnetcore.md)，或通过[编写第一个 ASP.NET Core Service Fabric 应用程序](service-fabric-tutorial-create-dotnet-app.md)开始使用。
 
 ## <a name="reliable-actors"></a>Reliable Actors
 Reliable Actor 框架在 Reliable Services 的基础上生成，是根据执行组件设计模式实现虚拟执行组件模式的应用程序框架。 Reliable Actor 框架使用称为执行组件的单线程执行的独立的计算单元和状态。 Reliable Actor 框架为执行组件提供内置通信，以及提供预设的状态暂留和扩展配置。
@@ -67,4 +67,4 @@ Reliable Actor 框架在 Reliable Services 的基础上生成，是根据执行�
 
 [Service Fabric 和 ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
 
-<!--Update_Description: update meta properties  -->
+<!--Update_Description: update meta properties, update link  -->

@@ -1,22 +1,22 @@
 ---
-title: 使用 Python 查询 Azure SQL 数据库 | Azure
-description: 本主题介绍如何使用 Python 创建可连接到 Azure SQL 数据库的程序并使用 Transact-SQL 语句对其进行查询。
+title: 使用 Python 查询 Azure SQL 数据库 | Microsoft Docs
+description: 本主题介绍如何使用 Python 创建连接到 Azure SQL 数据库的程序并使用 Transact-SQL 语句对其进行查询。
 services: sql-database
-author: yunan2016
+author: WenJason
 manager: digimobile
 ms.service: sql-database
 ms.custom: mvc,develop apps
 ms.devlang: python
 ms.topic: quickstart
 origin.date: 07/02/2018
-ms.date: 08/06/2018
-ms.author: v-nany
-ms.openlocfilehash: d20aecd13969dc32e75085221fca69bd1b7780f7
-ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
+ms.date: 10/15/2018
+ms.author: v-jay
+ms.openlocfilehash: 9f7e15ed8515af1f4f5fc87b049e1d4249a332e7
+ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39486713"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913841"
 ---
 # <a name="use-python-to-query-an-azure-sql-database"></a>使用 Python 查询 Azure SQL 数据库
 
@@ -28,7 +28,7 @@ ms.locfileid: "39486713"
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-- 针对用于本快速入门的计算机的公共 IP 地址制定[服务器级防火墙规则](sql-database-get-started-portal.md#create-a-server-level-firewall-rule)。
+- 针对用于本快速入门的计算机的公共 IP 地址制定[服务器级防火墙规则](sql-database-get-started-portal-firewall.md)。
 
 - 已为操作系统安装 Python 和相关软件：
 

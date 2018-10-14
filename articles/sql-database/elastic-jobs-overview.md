@@ -9,12 +9,12 @@ ms.topic: overview
 origin.date: 07/26/2018
 ms.date: 09/02/2018
 ms.author: v-jay
-ms.openlocfilehash: 5fdda2e95835c2cea48c6ca7fe841d9789f59c9d
-ms.sourcegitcommit: 2601e68563bffe148e70cce2bf1dcbe837a40f80
+ms.openlocfilehash: 45f155f342b6b55d2bf582560ab405cd137c9ca4
+ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43249665"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913973"
 ---
 # <a name="manage-groups-of-databases-with-elastic-database-jobs"></a>通过弹性数据库作业管理数据库组
 
@@ -207,7 +207,7 @@ ms.locfileid: "43249665"
 
 |  |弹性作业  |SQL Server 代理 |
 |---------|---------|---------|
-|范围     |  作业代理所在 Azure 云中任意数目的 Azure SQL 数据库和/或数据仓库。 目标可以位于不同的逻辑服务器、订阅和/或区域中。 <br><br>目标组可以包含单个数据库或数据仓库，也可以包含某个服务器、池或分片映射中的所有数据库（在作业运行时动态枚举）。 | SQL 代理所在 SQL Server 实例中的任一数据库。 |
+|作用域     |  作业代理所在 Azure 云中任意数目的 Azure SQL 数据库和/或数据仓库。 目标可以位于不同的逻辑服务器、订阅和/或区域中。 <br><br>目标组可以包含单个数据库或数据仓库，也可以包含某个服务器、池或分片映射中的所有数据库（在作业运行时动态枚举）。 | SQL 代理所在 SQL Server 实例中的任一数据库。 |
 |支持的 API 和工具     |  门户、PowerShell、T-SQL、Azure 资源管理器      |   T-SQL、SQL Server Management Studio (SSMS)     |
 
 

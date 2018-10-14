@@ -2,20 +2,20 @@
 ms.assetid: ''
 title: Azure Key Vault 存储帐户密钥
 description: 存储帐户密钥在 Azure Key Vault 与 Azure 存储帐户基于密钥的访问方式之间提供无缝集成。
-ms.topic: article
+ms.topic: conceptual
 services: key-vault
 ms.service: key-vault
 author: bryanla
 ms.author: v-biyu
 manager: mbaldwin
 origin.date: 10/12/2017
-ms.date: 09/17/2018
-ms.openlocfilehash: 17feae03ec97c00e32b99c110d3b21550121d73c
-ms.sourcegitcommit: d649060b55bac3ad9f4fc2bd2962748a4b5bf715
+ms.date: 10/22/2018
+ms.openlocfilehash: 6ccc3ccf015ef6a8cc97836f84076c89531884ae
+ms.sourcegitcommit: 2fdf25eb4b978855ff2832bcdcca093c141be261
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44066168"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49120619"
 ---
 # <a name="azure-key-vault-storage-account-keys"></a>Azure Key Vault 存储帐户密钥
 
@@ -98,7 +98,9 @@ accountSasCredential.UpdateSASToken(sasToken);
 
 ## <a name="getting-started"></a>入门
 
-### <a name="setup-for-role-based-access-control-rbac-permissions"></a>基于角色的访问控制 (RBAC) 权限的设置
+### <a name="give-key-vault-access-to-your-storage-account"></a>向 Key Vault 授予对你的存储帐户的访问权限 
+
+像许多应用程序一样，Key Vault 必须向 Azure AD 进行注册才能使用 OAuth 来访问其他服务。 在注册期间，会创建[服务主体](/active-directory/develop/app-objects-and-service-principals)对象，该对象在运行时用来提供应用程序的标识。 服务主体还用来通过基于角色的访问控制 (RBAC) 授权应用程序的标识访问其他资源。
 
 Azure Key Vault 应用程序标识需要有权列出和重新生成存储帐户的密钥。 可使用以下步骤设置这些权限：
 
@@ -107,7 +109,7 @@ Azure Key Vault 应用程序标识需要有权列出和重新生成存储帐户�
 # Below, we are fetching a storage account using Azure Resource Manager
 $storage = Get-AzureRmStorageAccount -ResourceGroupName "mystorageResourceGroup" -StorageAccountName "mystorage"
 
-# Get ObjectId of Azure Key Vault Identity
+# Get Application ID of Azure Key Vault's service principal
 $servicePrincipal = Get-AzureRmADServicePrincipal -ServicePrincipalName cfa8b339-82a2-471a-a3c9-0fc0be7a4093
 
 # Assign Storage Key Operator role to Azure Key Vault Identity
@@ -235,6 +237,7 @@ Set-AzureStorageBlobContent -Container cont1-file "./file.txt" -Context $context
 - Key Vault 会通过操作和非操作的正则表达式匹配来验证响应。
 
 可在 [Key Vault - 托管存储帐户密钥示例](https://github.com/Azure-Samples?utf8=%E2%9C%93&q=key+vault+storage&type=&language=)中找到一些支持示例。
+
 如果该标识没有“重新生成”权限，或者 Key Vault 第一方标识没有“列出”或“重新生成”权限，则登记请求会失败，并返回相应的错误代码和消息。
 
 仅当使用 PowerShell 或 CLI 的第一方本机客户端应用程序时，OBO 令牌才能正常工作。
@@ -247,5 +250,3 @@ Set-AzureStorageBlobContent -Container cont1-file "./file.txt" -Context $context
 
 - [关于键、密钥和证书](https://docs.microsoft.com/rest/api/keyvault/)
 - [Key Vault 团队博客](https://blogs.technet.microsoft.com/kv/)
-
-<!-- Update_Description: wording update -->

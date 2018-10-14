@@ -1,21 +1,21 @@
 ---
-title: 部署拆分/合并服务 | Azure
+title: 部署拆分 / 合并服务 | Microsoft 文档
 description: 可使用拆分/合并工具在分片数据库之间移动数据。
 services: sql-database
-author: forester123
+author: WenJason
 manager: digimobile
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 origin.date: 04/01/2018
-ms.date: 04/17/2018
-ms.author: v-johch
-ms.openlocfilehash: afdf72118e98c8ec3f4fcae9c1ed41d20f87ab82
-ms.sourcegitcommit: 2601e68563bffe148e70cce2bf1dcbe837a40f80
+ms.date: 10/15/2018
+ms.author: v-jay
+ms.openlocfilehash: 7b3826480822098405a02b519114cfe95d52727c
+ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43249812"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48914010"
 ---
 # <a name="deploy-a-split-merge-service"></a>部署拆分/合并服务
 可使用拆分/合并工具在分片数据库之间移动数据。 请参阅[在扩展云数据库之间移动数据](sql-database-elastic-scale-overview-split-and-merge.md)
@@ -33,10 +33,8 @@ ms.locfileid: "43249812"
 ## <a name="prerequisites"></a>先决条件
 1. 创建要用作拆分/合并状态数据库的 Azure SQL DB 数据库。 转到 [Azure 门户](https://portal.azure.cn)。 新建 **SQL 数据库**。 为数据库指定一个名称，并新建管理员和密码。 确保记录该名称和密码以供日后使用。
 2. 确保 Azure SQL DB 服务器允许 Azure 服务与其连接。 在门户上的“防火墙设置”中，确保“允许访问 Azure 服务”设置设为“打开”。 单击“保存”图标。
-   
-   ![允许的服务][1]
-3. 创建用于诊断输出的 Azure 存储帐户。 转到 Azure 门户。 在左侧栏中，依次单击“创建资源”、“数据 + 存储”、“存储”。
-4. 创建包含拆分/合并服务的 Azure 云服务。  转到 Azure 门户。 在左侧栏中，依次单击“创建资源”、“计算”、“云服务”和“创建”。 
+3. 创建用于诊断输出的 Azure 存储帐户。
+4. 创建用于拆分/合并服务的 Azure 云服务。
 
 ## <a name="configure-your-split-merge-service"></a>配置拆分/合并服务
 ### <a name="split-merge-service-configuration"></a>拆分/合并服务配置
@@ -73,7 +71,7 @@ ms.locfileid: "43249812"
     -sv MyCert.pvk MyCert.cer
    ```
 
-会要求你提供密码以保护私钥。 输入强密码并进行确认。 之后，系统会提示再次输入该密码。 在完成后单击“是”，以将证书导入到“受信任的根证书颁发机构”存储中。
+会要求你提供密码以保护私钥。 输入强密码并进行确认。 之后，系统会提示再次输入该密码。 在完成后单击“是”  ，以将证书导入到“受信任的根证书颁发机构”存储中。
 
 ### <a name="create-a-pfx-file"></a>创建 PFX 文件
 从执行 makecert 的相同窗口中执行以下命令；使用用于创建证书的相同密码：
@@ -119,17 +117,14 @@ ms.locfileid: "43249812"
 请注意，对于生产部署，应针对用于加密的 CA 使用单独的证书（服务器证书和客户端证书）。 有关此内容的详细说明，请参阅[安全配置](sql-database-elastic-scale-split-merge-security-configuration.md)。
 
 ## <a name="deploy-your-service"></a>部署服务
-1. 转到 [Azure 门户](https://portal.azure.cn)。
-2. 单击左侧的“云服务”  选项卡，并选择用户之前创建的云服务。
-3. 单击“仪表板” 。
-4. 选择过渡环境，并单击“上传新的过渡部署” 。
-   
-   ![过渡][3]
+1. 转到 [Azure 门户](https://portal.azure.cn)
+2. 选择先前创建的云服务。
+3. 单击“概览”。
+4. 选择过渡环境，并单击“上传”。
 5. 在对话框中，输入一个部署标签。 对于“程序包”和“配置”，单击“从本地”，并选择 **SplitMergeService.cspkg** 文件和之前配置的 cscfg 文件。
 6. 确保选中标记为“即使一个或多个角色包含单个实例也部署”  的复选框。
 7. 点击右下角的勾选按钮以开始部署。 它预计需要几分钟的时间才能完成。
 
-   ![上载][4]
 
 ## <a name="troubleshoot-the-deployment"></a>排查部署问题
 如果 Web 角色无法联机，可能是安全配置出现了问题。 检查 SSL 是否如上所述进行配置。
@@ -145,11 +140,11 @@ ms.locfileid: "43249812"
    ```
 
 * 确保服务器名称不以 **https://** 开头。
-* 确保 Azure SQL DB 服务器允许 Azure 服务与其连接。 为此，请打开 https://portal.azure.cn，单击左侧的“SQL 数据库”和顶部的“服务器”，然后选择你的服务器。 在顶部单击“配置”并确保将“Azure 服务”设置为“是”。 （请参阅此文章顶部的“先决条件”部分）。
+* 确保 Azure SQL DB 服务器允许 Azure 服务与其连接。 为此，请在门户中打开数据库，并确保“允许访问 Azure 服务”设置设为“启用”。
 
 ## <a name="test-the-service-deployment"></a>测试服务部署
 ### <a name="connect-with-a-web-browser"></a>使用 Web 浏览器建立连接
-确定拆分/合并服务的 Web 终结点。 可以在 Azure 门户中找到此终结点，方法是转到云服务的“仪表板”并在右侧的“站点 URL”下查找。 由于默认的安全设置将禁用 HTTP 终结点，因此请将 **http://** 替换为 **https://**。 将此 URL 的页面加载到浏览器中。
+确定拆分/合并服务的 Web 终结点。 可以在门户中找到此终结点，方法是转到云服务的“概述”并在右侧的“站点 URL”下查找。 由于默认的安全设置将禁用 HTTP 终结点，因此请将 **http://** 替换为 **https://**。 将此 URL 的页面加载到浏览器中。
 
 ### <a name="test-with-powershell-scripts"></a>使用 PowerShell 脚本进行测试
 可以通过运行包含的示例 PowerShell 脚本测试部署和环境。

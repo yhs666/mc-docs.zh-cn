@@ -1,21 +1,22 @@
 ---
-title: 还原 Azure SQL 数据仓库 (REST API) | Azure
-description: 用于还原 SQL 数据仓库的 REST API 任务。
+title: 还原 Azure SQL 数据仓库 - REST API | Microsoft Docs
+description: 使用 REST API 还原 Azure SQL 数据仓库。
 services: sql-data-warehouse
-author: rockboyfor
+author: WenJason
 manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
-origin.date: 04/14/2018
-ms.date: 04/25/2018
-ms.author: v-yeche
-ms.openlocfilehash: 5add370e258eb090189f339bfabd6ec06dcfc51e
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.component: manage
+origin.date: 04/17/2018
+ms.date: 10/15/2018
+ms.author: v-jay
+ms.reviewer: igorstan
+ms.openlocfilehash: ef78147290db3f2bf123e01be33b7f91ea615486
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121762"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49089003"
 ---
 # <a name="restore-an-azure-sql-data-warehouse-with-rest-apis"></a>使用 REST API 还原 Azure SQL 数据仓库
 使用 REST API 还原 Azure SQL 数据仓库。
@@ -27,8 +28,8 @@ ms.locfileid: "32121762"
 若要还原数据仓库，请执行以下操作：
 
 1. 使用“获取数据库还原点”操作获取数据库还原点列表。
-2. 使用[创建数据库还原请求](https://msdn.microsoft.com/library/azure/dn509571.aspx)操作开始还原。
-3. 使用[数据库操作状态](https://msdn.microsoft.com/library/azure/dn720371.aspx)操作跟踪还原状态。
+2. 使用 [创建数据库还原请求](https://msdn.microsoft.com/library/azure/dn509571.aspx) 操作开始还原。
+3. 使用 [数据库操作状态](https://msdn.microsoft.com/library/azure/dn720371.aspx) 操作跟踪还原状态。
 
 > [!NOTE]
 > 完成还原后，可以按[在恢复后配置数据库](../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery)中的说明配置恢复后的数据仓库。
@@ -40,8 +41,8 @@ ms.locfileid: "32121762"
 
 1. 使用[列出可还原的已删除数据库](https://msdn.microsoft.com/library/azure/dn509562.aspx)操作列出所有可还原的已删除数据仓库。
 2. 使用[获取可还原的已删除数据库][获取可还原的已删除数据库] 操作获取要还原的已删除数据仓库的详细信息。
-3. 使用[创建数据库还原请求](https://msdn.microsoft.com/library/azure/dn509571.aspx)操作开始还原。
-4. 使用[数据库操作状态](https://msdn.microsoft.com/library/azure/dn720371.aspx)操作跟踪还原状态。
+3. 使用 [创建数据库还原请求](https://msdn.microsoft.com/library/azure/dn509571.aspx) 操作开始还原。
+4. 使用 [数据库操作状态](https://msdn.microsoft.com/library/azure/dn720371.aspx) 操作跟踪还原状态。
 
 > [!NOTE]
 > 若要在完成还原后配置数据仓库，请参阅[在恢复后配置数据库](../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery)。

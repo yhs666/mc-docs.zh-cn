@@ -1,27 +1,22 @@
 ---
-title: 连接到 Azure SQL 数据仓库 - SSMS | Azure
+title: 连接到 Azure SQL 数据仓库 - SSMS | Microsoft 文档
 description: 使用 SQL Server Management Studio (SSMS) 可连接并查询 Azure SQL 数据仓库。
 services: sql-data-warehouse
-documentationcenter: ''
-author: rockboyfor
+author: WenJason
 manager: digimobile
-editor: ''
-ms.assetid: 299e50b3-e68a-471c-8aee-b0b9874781bd
 ms.service: sql-data-warehouse
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.custom: connect
-origin.date: 10/31/2016
-ms.date: 07/17/2017
-ms.author: v-yeche
-ms.openlocfilehash: 76ae1c63aaf0abb97445286892fc7b81888c1221
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.topic: conceptual
+ms.component: consume
+origin.date: 04/17/2018
+ms.date: 10/15/2018
+ms.author: v-jay
+ms.reviewer: igorstan
+ms.openlocfilehash: 1a3aaa98a4107261aed7702c3517e4f6f4ff205a
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30155457"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49089039"
 ---
 # <a name="connect-to-sql-data-warehouse-with-sql-server-management-studio-ssms"></a>使用 SQL Server Management Studio (SSMS) 连接到 SQL 数据仓库
 > [!div class="op_single_selector"]
@@ -46,18 +41,18 @@ ms.locfileid: "30155457"
 ## <a name="1-connect-to-your-sql-data-warehouse"></a>1.连接到 SQL 数据仓库
 1. 打开 SSMS。
 2. 打开对象资源管理器。 若要执行此操作，请选择“文件” > “连接对象资源管理器”。
-
+   
     ![SQL Server 对象资源管理器][1]
 3. 填写“连接到服务器”窗口中的字段。
-
+   
     ![连接到服务器][2]
-
+   
    * **服务器名称**。 输入前面标识的 **服务器名称** 。
    * **身份验证**。 选择“SQL Server 身份验证”或“Active Directory 集成身份验证”。
    * “用户名”和“密码”。 如果上面选择了 SQL Server 身份验证，请输入用户名和密码。
    * 单击“连接” 。
 4. 要浏览，请展开 Azure SQL 服务器。 可以查看与服务器关联的数据库。 展开 AdventureWorksDW 以查看示例数据库中的表。
-
+   
     ![浏览 AdventureWorksDW][3]
 
 ## <a name="2-run-a-sample-query"></a>2.运行示例查询
@@ -65,18 +60,18 @@ ms.locfileid: "30155457"
 
 1. 在 SQL Server 对象资源管理器中右键单击数据库。
 2. 选择“新建查询”。 此时将打开一个新的查询窗口。
-
+   
     ![新建查询][4]
 3. 将以下 TSQL 查询复制到查询窗口中：
-
+   
     ```sql
     SELECT COUNT(*) FROM dbo.FactInternetSales;
     ```
 4. 运行该查询。 为此，请单击 `Execute` 或使用以下快捷键：`F5`。
-
+   
     ![运行查询][5]
 5. 查看查询结果。 在此示例中，FactInternetSales 表包含 60398 行。
-
+   
     ![查询结果][6]
 
 ## <a name="next-steps"></a>后续步骤

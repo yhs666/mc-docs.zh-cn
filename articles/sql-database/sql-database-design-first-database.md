@@ -1,21 +1,21 @@
 ---
-title: 教程：使用 SSMS 设计第一个 Azure SQL 数据库 | Azure
+title: 教程：使用 SSMS 设计第一个 Azure SQL 数据库 | Microsoft Docs
 description: 了解如何使用 SQL Server Management Studio 设计第一个 Azure SQL 数据库。
 services: sql-database
-author: forester123
+author: WenJason
 manager: digimobile
 ms.service: sql-database
 ms.custom: mvc,develop databases
 ms.topic: tutorial
 origin.date: 07/16/2018
-ms.date: 08/06/2018
-ms.author: v-johch
-ms.openlocfilehash: 386dea0d52bf1b87c04e67fba177576da2a0c8b7
-ms.sourcegitcommit: e157751c560524d0bb828e987b87178130663547
+ms.date: 10/15/2018
+ms.author: v-jay
+ms.openlocfilehash: 50cc229027d6dffb58f0c0f1242caf6947549eed
+ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43651032"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913814"
 ---
 # <a name="tutorial-design-your-first-azure-sql-database-using-ssms"></a>教程：使用 SSMS 设计第一个 Azure SQL 数据库
 
@@ -70,7 +70,7 @@ Azure SQL 数据库与 Microsoft 云 (Azure) 中的数据库即服务 (DBaaS) �
    | 设置       | 建议的值 | 说明 | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | **服务器名称** | 任何全局唯一名称 | 如需有效的服务器名称，请参阅 [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)（命名规则和限制）。 | 
-   | 服务器管理员登录名 | 任何有效的名称 | 有关有效的登录名，请参阅 [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)（数据库标识符）。|
+   | 服务器管理员登录名 | 任何有效的名称 | 如需有效的登录名，请参阅 [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)（数据库标识符）。|
    | **密码** | 任何有效的密码 | 密码必须至少有八个字符，且必须包含以下类别中的三个类别的字符：大写字符、小写字符、数字以及非字母数字字符。 |
    | **位置** | 任何有效的位置 | 中国东部、中国东部 2、中国北部、中国北部 2 |
 
@@ -116,7 +116,7 @@ SQL 数据库服务在服务器级别创建一个防火墙。除非创建了防�
 
 5. 单击“保存”。 此时会针对当前的 IP 地址创建服务器级防火墙规则，在逻辑服务器上打开 端口 1433。
 
-6. 单击“确定”，然后关闭“防火墙设置”页。
+6. 单击“确定”，并关闭“防火墙设置”页。
 
 现在可以使用之前创建的服务器管理员帐户通过 SQL Server Management Studio 或其他所选工具从此 IP 地址连接到 SQL 数据库服务器及其数据库。
 

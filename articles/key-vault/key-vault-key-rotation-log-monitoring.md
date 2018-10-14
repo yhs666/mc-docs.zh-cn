@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/12/2018
-ms.date: 09/17/2018
+ms.date: 10/22/2018
 ms.author: v-biyu
-ms.openlocfilehash: a1804cc4de60cf062f451cbf0c89b04f9238d332
-ms.sourcegitcommit: d649060b55bac3ad9f4fc2bd2962748a4b5bf715
+ms.openlocfilehash: dd907a2146c06a24cfe788092e6be53052f5a605
+ms.sourcegitcommit: 2fdf25eb4b978855ff2832bcdcca093c141be261
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44066173"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49120604"
 ---
 # <a name="set-up-azure-key-vault-with-key-rotation-and-auditing"></a>使用密钥轮换和审核设置 Azure Key Vault
 
@@ -81,7 +81,7 @@ Set-AzureKeyVaultSecret -VaultName <vaultName> -Name <secretName> -SecretValue $
 接下来，获取你创建的机密的 URI。 在后续步骤中调用 Key Vault 检索机密时，会用到该 URI。 运行以下 PowerShell 命令，并记下 ID 值（即机密 URI）：
 
 ```powershell
-Get-AzureKeyVaultSecret -VaultName <vaultName>
+Get-AzureKeyVaultSecret –VaultName <vaultName>
 ```
 
 ## <a name="set-up-the-application"></a>设置应用程序

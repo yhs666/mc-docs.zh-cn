@@ -6,12 +6,12 @@ description: 了解如何使用 Azure 云服务构建和管理功能强大的应
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: b00c50b673236b1647bbcce4cdb60f13c99bfd5a
-ms.sourcegitcommit: b63dc9c6ad116671a5e4dec9f3c5dddf0bb1a1e4
+ms.openlocfilehash: 5c7e775c56cce67768c086a98ddd7ed77f24e9dd
+ms.sourcegitcommit: 7cc8a654b7df8b85b868c0c4e3c5a73bc160d7ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42709170"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48850487"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -690,6 +690,12 @@ Azure PowerShell </a>
                                             <a href="/iot-hub/">
                                                 <img src="media/index/IoTHub.svg" alt="" />
                                                 <p>IoT 中心</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/iot-edge/">
+                                                <img src="media/index/iot-edge-alt.svg" alt="" />
+                                                <p>IoT Edge</p>
                                             </a>
                                         </li>
                                         <li>
@@ -2128,6 +2134,25 @@ Azure PowerShell </a>
                                 </a>
                             </li>
                             <li>
+                                <a href="/iot-edge/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/iot-edge-alt.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>IoT Edge</h3>
+                                                    <p>将云端智能扩展到边缘设备</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/iot-suite/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -2178,6 +2203,25 @@ Azure PowerShell </a>
                                                 <div class="cardText">
                                                     <h3>流分析</h3>
                                                     <p>实时处理来自数百万台 IoT 设备的数据流</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/logic-apps/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/LogicApp.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Logic Apps</h3>
+                                                    <p>无需编写代码，自动化访问和使用跨云数据</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2278,6 +2322,25 @@ Azure PowerShell </a>
                                                 <div class="cardText">
                                                     <h3>服务总线</h3>
                                                     <p>在私有云环境和公有云环境中连接</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href=" /logic-apps/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/LogicApp.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Logic Apps</h3>
+                                                    <p>无需编写代码，自动化访问和使用跨云数据</p>
                                                 </div>
                                             </div>
                                         </div>

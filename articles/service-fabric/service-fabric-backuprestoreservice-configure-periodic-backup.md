@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 05/01/2018
-ms.date: 08/20/2018
+ms.date: 10/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: c3c1e3d2c55a1789b8c5f6a4dfcda0d494faa649
-ms.sourcegitcommit: 744a0de811483c47bc1e88dd73084874376eb01c
+ms.openlocfilehash: ebad76961ab41047a5578d86295e4c6006580647
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40184774"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49089042"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>了解 Azure Service Fabric 中的定期备份配置
 
@@ -230,5 +230,4 @@ ms.locfileid: "40184774"
 
 [0]: ./media/service-fabric-backuprestoreservice/BackupPolicyAssociationExample.png
 
-<!-- Update_Description: new articles on service fabric backup restore sevice configure -->
-<!--ms.date: 08/20/2018-->
+<!-- Update_Description: update meta properties, wording update -->

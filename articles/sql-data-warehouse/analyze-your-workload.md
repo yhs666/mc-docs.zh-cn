@@ -1,20 +1,22 @@
 ---
-title: 分析工作负荷 - Azure SQL 数据仓库 | Azure
+title: 分析工作负荷 - Azure SQL 数据仓库 | Microsoft Docs
 description: 分析针对 Azure SQL 数据仓库中工作负荷的查询优化的技巧。
 services: sql-data-warehouse
-author: rockboyfor
+author: WenJason
 manager: digimobile
+ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-origin.date: 10/23/2017
-ms.date: 12/11/2017
-ms.author: v-yeche
-ms.openlocfilehash: 7f138e1e5f982f921466061a36fde813207b18f7
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+origin.date: 04/17/2018
+ms.date: 10/15/2018
+ms.author: v-jay
+ms.reviewer: igorstan
+ms.openlocfilehash: b3309415b6a46a1b37c528324503106faa579070
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121475"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49089059"
 ---
 # <a name="analyze-your-workload-in-azure-sql-data-warehouse"></a>分析 Azure SQL 数据仓库中的工作负荷
 分析针对 Azure SQL 数据仓库中工作负荷的查询优化的技巧。
@@ -38,8 +40,7 @@ SQL 数据仓库通过使用工作负荷组来实现资源类。 总共有八个
 | SloDWGroupC07   | 128                      | 12,800                         | 32,000                      | 高               |
 | SloDWGroupC08   | 256                      | 25,600                         | 64,000                      | 高               |
 
-<!-- where are the allocation and consumption of concurrency slots charts? -->
-**并发槽的分配和使用**图表表明，对于 smallrc、mediumrc、largerc 和 xlargerc，DW500 分别使用 1、4、8 和 16 个并发槽。 若要查明每个资源类的重要性，可以在上面的图表中查找这些值。
+<!-- where are the allocation and consumption of concurrency slots charts? -->**并发槽的分配和使用**图表表明，对于 smallrc、mediumrc、largerc 和 xlargerc，DW500 分别使用 1、4、8 和 16 个并发槽。 若要查明每个资源类的重要性，可以在上面的图表中查找这些值。
 
 ### <a name="dw500-mapping-of-resource-classes-to-importance"></a>DW500 的资源类到重要性的映射
 | 资源类 | 工作负荷组 | 使用的并发槽数 | MB/分布区 | 重要性 |
@@ -230,17 +231,6 @@ FROM    sys.dm_pdw_wait_stats w
 ```
 
 ## <a name="next-steps"></a>后续步骤
-有关如何管理数据库用户和安全性的详细信息，请参阅[保护 SQL 数据仓库中的数据库][Secure a database in SQL Data Warehouse]。 有关如何通过更大型资源类来改进聚集列存储索引质量的详细信息，请参阅[重建索引以提升段质量]。
+有关如何管理数据库用户和安全性的详细信息，请参阅[保护 SQL 数据仓库中的数据库](sql-data-warehouse-overview-manage-security.md)。 有关如何通过更大型资源类来改进聚集列存储索引质量的详细信息，请参阅[重建索引以提升段质量](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality)。
 
-<!--Image references-->
 
-<!--Article references-->
-[Secure a database in SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
-[重建索引以提升段质量]: ./sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
-[Secure a database in SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
-
-<!--MSDN references-->
-[Managing Databases and Logins in Azure SQL Database]:../sql-database/sql-database-manage-logins.md
-
-<!--Other Web references-->
-<!-- Update_Description: new articles on analyze SQL statements workload -->

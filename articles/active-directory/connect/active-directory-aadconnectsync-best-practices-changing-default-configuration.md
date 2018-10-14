@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/12/2017
-ms.date: 06/25/2018
+origin.date: 08/29/2017
+ms.date: 10/11/2018
 ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: b609174e5d93ed8424286b2159b22cbf9f9f48d5
-ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
+ms.openlocfilehash: a4ec382c1f99f581bc4e5eafbb80686b532ca430
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36947913"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49089220"
 ---
 # <a name="azure-ad-connect-sync-best-practices-for-changing-the-default-configuration"></a>Azure AD Connect 同步：有关更改默认配置的最佳实践
 本主题旨在说明支持和不支持的 Azure AD Connect 同步更改。
@@ -38,6 +38,9 @@ Azure AD Connect 同步在安装向导创建的服务帐户下运行。 此服�
 
 ## 同步规则的更改<a name="changes-to-synchronization-rules"></a>
 安装向导提供的配置应该适用于最常见的方案。 如果需要对配置进行更改，必须遵循这些规则，以便仍保留支持的配置。
+
+> [!WARNING]
+> 如果更改默认同步规则，则下次更新 Azure AD Connect 时将覆盖这些更改，从而导致意外且可能无用的同步结果。
 
 - 如果默认的直接属性流不适用于组织，可以[更改属性流](active-directory-aadconnectsync-change-the-configuration.md#other-common-attribute-flow-changes)。
 - 如果希望[属性不流动](active-directory-aadconnectsync-change-the-configuration.md#do-not-flow-an-attribute)并要删除 Azure AD 中的任何现有属性值，需要为此方案创建规则。
@@ -74,4 +77,4 @@ Azure AD Connect 同步在安装向导创建的服务帐户下运行。 此服�
 - [Azure AD Connect 同步：理解和自定义同步](active-directory-aadconnectsync-whatis.md)
 - [将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

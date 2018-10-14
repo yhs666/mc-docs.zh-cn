@@ -83,16 +83,19 @@ items:
   - name: 术语
     href: service-fabric-technical-overview.md
   - name: 构建应用程序
-    href: service-fabric-choose-framework.md
     items:
+    - name: 构建应用程序概述
+      href: service-fabric-choose-framework.md
     - name: 容器
-      href: service-fabric-containers-overview.md
       items:
+      - name: 容器概述
+        href: service-fabric-containers-overview.md
       - name: 资源调控
         href: service-fabric-resource-governance.md
     - name: Reliable Services
-      href: service-fabric-reliable-services-introduction.md
       items:
+      - name: Reliable Services 概述
+        href: service-fabric-reliable-services-introduction.md
       - name: 服务分区
         href: service-fabric-concepts-partitioning.md
       - name: Reliable Services 生命周期 - C#
@@ -190,8 +193,12 @@ items:
           href: service-fabric-application-upgrade-advanced.md
       - name: 管理多个环境的应用程序
         href: service-fabric-manage-multiple-environment-app-configuration.md
-      - name: 使用故障分析来测试应用
-        href: service-fabric-testability-overview.md
+      - name: 测试应用程序
+        items:
+        - name: 单元测试有状态服务
+          href: service-fabric-concepts-unit-testing.md
+        - name: 使用故障分析来测试应用
+          href: service-fabric-testability-overview.md
       - name: ImageStoreConnectionString 设置
         href: service-fabric-image-store-connection-string.md
     - name: 服务资源
@@ -216,7 +223,7 @@ items:
         href: service-fabric-cluster-nodetypes.md
       - name: 群集网络模式
         href: service-fabric-patterns-networking.md
-    - name: 群集 Resource Manager
+    - name: 群集资源管理器
       items:
       - name: 群集资源管理器概述
         href: service-fabric-cluster-resource-manager-introduction.md
@@ -244,6 +251,8 @@ items:
         href: service-fabric-cluster-resource-manager-advanced-throttling.md
       - name: 服务移动
         href: service-fabric-cluster-resource-manager-movement-cost.md
+      - name: 自动缩放服务
+        href: service-fabric-cluster-resource-manager-autoscaling.md
   - name: 监视和诊断
     items:
     - name: 监视概述
@@ -313,8 +322,6 @@ items:
       href: service-fabric-create-your-first-linux-application-with-java.md
     - name: 基于 Windows 的来宾可执行应用程序
       href: quickstart-guest-app.md
-    - name: 独立群集
-      href: service-fabric-get-started-standalone-cluster.md
   - name: 构建应用程序
     items:
     - name: 生成来宾可执行服务
@@ -469,7 +476,7 @@ items:
       items:
       - name: 在本地群集上部署应用程序
         href: service-fabric-get-started-with-a-local-cluster.md
-      - name: Azure 资源管理器
+      - name: Azure Resource Manager
         href: service-fabric-application-arm-resource.md
       - name: Azure PowerShell
         href: service-fabric-deploy-remove-applications.md
@@ -503,7 +510,7 @@ items:
           href: service-fabric-node-transition-apis.md
     - name: 设置持续集成
       items:
-      - name: 使用 VSTS 设置持续集成
+      - name: 使用 Azure Pipelines 设置持续集成
         href: service-fabric-set-up-continuous-integration.md
       - name: 使用 Jenkins 部署 Linux 应用程序
         href: service-fabric-cicd-your-linux-applications-with-jenkins.md
@@ -529,6 +536,8 @@ items:
           href: service-fabric-cluster-scale-up-down.md
         - name: 以编程方式横向扩展
           href: service-fabric-cluster-programmatic-scaling.md
+        - name: 虚拟机规模集节点类型横向扩展
+          href: virtual-machine-scale-set-scale-node-type-scale-out.md
       - name: 升级
         href: service-fabric-cluster-upgrade.md
       - name: 设置访问控制
@@ -541,7 +550,7 @@ items:
         href: service-fabric-cluster-rollover-cert-cn.md
       - name: 管理群集证书
         href: service-fabric-cluster-security-update-certs-azure.md
-      - name: 删除
+      - name: Delete
         href: service-fabric-cluster-delete.md
       - name: 远程连接到群集节点 VM
         href: service-fabric-cluster-remote-connect-to-azure-cluster-node.md
@@ -644,7 +653,7 @@ items:
     - name: sfctl store
       href: service-fabric-sfctl-store.md
   - name: Java API
-    href: https://docs.azure.cn/zh-cn/java/api/overview/servicefabric
+    href: https://docs.azure.cn/zh-cn/java/api/servicefabric
   - name: .NET
     href: https://docs.azure.cn/zh-cn/dotnet/api/overview/service-fabric?view=azure-dotnet
   - name: REST
@@ -680,13 +689,15 @@ items:
     href: http://aka.ms/servicefabricsamples
   - name: 支持选项
     href: service-fabric-support.md
+  - name: Service Fabric 版本
+    href: service-fabric-versions.md
   - name: 服务更新
     href: https://www.azure.cn/what-is-new/
   - name: 视频
     href: https://www.azure.cn/video-center/
-ms.openlocfilehash: ccb572c909a8dcdc97b86e37c840bb9350f2f6b0
-ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
+ms.openlocfilehash: dc884ad9ac4be2a6b739e06c040bcdbdbda64719
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44515706"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49089104"

@@ -11,12 +11,12 @@ origin.date: 08/09/2018
 ms.date: 09/02/2018
 ms.author: v-jay
 ms.reviewer: douglasl
-ms.openlocfilehash: 56e3f096112899d3ebbe3e31906930a2e5b5e28e
-ms.sourcegitcommit: 2601e68563bffe148e70cce2bf1dcbe837a40f80
+ms.openlocfilehash: 9728faa76d9c4929a99e3f15a39ba66eaac03cc2
+ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43249723"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913907"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>使用 SQL 数据同步跨多个云和本地数据库同步数据
 
@@ -48,9 +48,9 @@ SQL 数据同步使用中心辐射型拓扑来同步数据。 将同步组中的
 
 ## <a name="when-to-use-data-sync"></a>何时使用 SQL 数据同步
 
-如果需要跨多个 Azure SQL 数据库或 SQL Server 数据库更新数据，SQL 数据同步就非常有用。 下面是 SQL 数据同步的主要用例：
+如果需要跨多个 Azure SQL 数据库或 SQL Server 数据库使数据保持最新，则数据同步非常有用。 下面是 SQL 数据同步的主要用例：
 
--   **混合数据同步：** 借助 SQL 数据同步，可以在本地数据库和 Azure SQL 数据库之间同步数据，以便启用混合应用程序。 此功能可能会吸引在考虑迁移到云中，并希望启用 Azure 应用程序的客户。
+-   **混合数据同步：** 借助数据同步，可以在本地数据库和 Azure SQL 数据库之间保持数据同步，以便启用混合应用程序。 此功能可能会吸引在考虑迁移到云中，并希望启用 Azure 应用程序的客户。
 
 -   **分布式应用程序：** 在许多情况下，跨各个数据库分散不同的工作负载会大有裨益。 例如，如果有大型生产数据库，但还需要对此数据运行报表或分析工作负载，那么使用第二个数据库来处理此额外工作负载将会有所帮助。 这种方法可最大限度地减轻对生产工作负载造成的性能影响。 可以使用 SQL 数据同步来同步这两个数据库。
 

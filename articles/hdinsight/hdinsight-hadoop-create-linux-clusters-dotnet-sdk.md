@@ -1,6 +1,6 @@
 ---
 title: 使用 .NET 创建 Hadoop 群集 - Azure HDInsight | Azure
-description: 了解如何使用 HDInsight .NET SDK 在 Linux 上的 HDInsight 中创建 Hadoop、HBase、Storm 或 Spark 群集。
+description: 了解如何使用 HDInsight .NET SDK 在 Linux 中为 HDInsight 创建 Hadoop、HBase、Storm 或 Spark 群集。
 services: hdinsight
 author: mamccrea
 editor: jasonwhowell
@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 08/16/2018
-ms.date: 09/24/2018
+ms.date: 10/22/2018
 ms.author: v-yiso
-ms.openlocfilehash: 6d24ea23dca6074fc4cf0d88d02f4fa2fe2ed2ec
-ms.sourcegitcommit: bae4e9e500e3e988ef8fa0371777ca9cc49b4e94
+ms.openlocfilehash: f74e94815f47303a1decf06e9df159a06e0cffe1
+ms.sourcegitcommit: 8a5722b85c6eabbd28473d792716ad44aac3ff23
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45584841"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49121516"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>使用 .NET SDK 在 HDInsight 中创建基于 Linux 的群集
 
@@ -36,7 +36,7 @@ ms.locfileid: "45584841"
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 * **一个 Azure 订阅**。 请参阅[获取 Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。
-* **一个 Azure 存储帐户**。 请参阅[创建存储帐户](../storage/common/storage-create-storage-account.md#create-a-storage-account)。
+* **一个 Azure 存储帐户**。 请参阅[创建存储帐户](../storage/common/storage-quickstart-create-account.md)。
 * **Visual Studio 2013、Visual Studio 2015 或 Visual Studio 2017**。
 
 ## <a name="create-clusters"></a>创建群集
@@ -53,7 +53,7 @@ ms.locfileid: "45584841"
     ```
 
     这些命令将 .NET 库以及对这些库的引用添加到当前 Visual Studio 项目中。
-5. 在解决方案资源管理器中双击“Program.cs”将它打开，粘贴以下代码，并提供变量的值：
+5. 在解决方案资源管理器中，双击 **Program.cs** 将其打开、粘贴以下代码，并提供变量的值：
 
     ```csharp
     using System;
@@ -190,11 +190,11 @@ ms.locfileid: "45584841"
     ```
 
 6. 替换类成员值。
-7. 按 **F5** 运行应用程序。 控制台窗口应打开并显示应用程序的状态。 系统会提示输入 Azure 帐户凭据。 创建 HDInsight 群集可能需要几分钟时间（通常是 15 分钟）。
+7. 按 **F5** 运行应用程序。 控制台窗口应打开并显示应用程序的状态。 系统会提示输入 Azure 帐户凭据。 创建一个 HDInsight 群集可能需要几分钟时间，通常为 15 分钟。
 
 ## <a name="use-bootstrap"></a>使用 bootstrap
 
-使用 bootstrap，可以在群集创建过程中配置添加设置。  有关详细信息，请参阅 [使用 Bootstrap 自定义 HDInsight 群集](hdinsight-hadoop-customize-cluster-bootstrap.md)。
+使用 bootstrap，可以在群集创建过程中配置添加设置。  有关详细信息，请参阅 [Customize HDInsight clusters using Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md)（使用 Bootstrap 自定义 HDInsight 群集）。
 
 修改[创建群集](#create-clusters)中的示例以配置 Hive 设置：
 
@@ -325,7 +325,7 @@ static void Main(string[] args)
 
 使用脚本操作，可以在群集创建过程中配置其他设置。  有关详细信息，请参阅[使用脚本操作自定义基于 Linux 的 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md)。
 
-修改[创建群集](#create-clusters)中的示例以调用脚本操作安装 R：
+修改 [创建群集](#create-clusters) 中的示例，以便调用脚本操作来安装 R：
 
 ```csharp
 static void Main(string[] args)

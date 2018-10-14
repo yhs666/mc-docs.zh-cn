@@ -12,16 +12,16 @@ ms.devlang: java
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 02/26/2018
-ms.date: 09/10/2018
+origin.date: 08/27/2018
+ms.date: 10/15/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 5edc88491dfdb0e8c8c3354ab18ce8eb4d829fd6
-ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
+ms.openlocfilehash: 4513d186d7a80e1595c512e6c42b5bec68ea3d8e
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44515738"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49089140"
 ---
 # <a name="tutorial-configure-a-jenkins-environment-to-enable-cicd-for-a-java-application-on-service-fabric"></a>教程：配置 Jenkins 环境以便为 Service Fabric 上的 Java 应用程序启用 CI/CD
 
@@ -33,13 +33,14 @@ ms.locfileid: "44515738"
 > * 设置要部署到 Service Fabric 的 Jenkins 环境
 > * 升级应用程序
 
-在此系列教程中，你会学习如何：
+在此系列教程中，你将学习如何：
 > [!div class="checklist"]
 > * [生成 Java Service Fabric Reliable Services 应用程序](service-fabric-tutorial-create-java-app.md)
 > * [在本地群集上部署和调试应用程序](service-fabric-tutorial-debug-log-local-cluster.md)
 > * [将应用程序部署到 Azure 群集](service-fabric-tutorial-java-deploy-azure.md)
-<!-- NOt Avaiable on > * [Set up monitoring and diagnostics for the application](service-fabric-tutorial-java-elk.md)-->
 > * 设置 CI/CD
+
+<!-- NOt Avaiable on [Set up monitoring and diagnostics for the application](service-fabric-tutorial-java-elk.md)-->
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -54,10 +55,10 @@ ms.locfileid: "44515738"
 
 1. 拉取 Service Fabric Jenkins 容器映像：``docker pull rapatchi/jenkins:v10``。 此映像附带了预安装的 Service Fabric Jenkins 插件。
 
-1. 结合证书在本地计算机上的装载位置参数运行容器映像
+1. 结合 Azure 证书存储在已装载本地计算机上的位置运行容器映像。
 
     ```bash
-    docker run -itd -p 8080:8080 -v /Users/suhuruli/Documents/Work/Samples/service-fabric-java-quickstart/AzureCluster:/tmp/myCerts rapatchi/jenkins:v10
+    docker run -itd -p 8080:8080 -v /service-fabric-java-quickstart/AzureCluster rapatchi/jenkins:v10
     ```
 
 1. 获取容器映像实例的 ID。 可以使用命令 ``docker ps -a`` 列出所有 Docker 容器
@@ -87,21 +88,21 @@ ms.locfileid: "44515738"
 
 1. 首先，如果没有可用于在 Github 上托管投票项目的存储库，请创建一个存储库。 在本教程的余下内容中，此存储库名为 **dev_test**。
 
-1. 在 Jenkins 仪表板上创建一个**新项**。
+1. 在 ``http://<HOST-IP>:8080`` 的 Jenkins 仪表板上创建一个**新项**。
 
-1. 输入项名称（例如 **MyJob**）。 选择“自由格式的项目”，并单击“确定”。
+1. 输入项名称（例如 MyJob）。 选择“自由格式的项目”，并单击“确定”。
 
 1. 转到作业页，单击“配置”。
 
    a. 在常规部分中，选择“GitHub 项目”所对应的复选框，指定 GitHub 项目 URL。 此 URL 托管要与 Jenkins 持续集成和持续部署 (CI/CD) 流（例如 ``https://github.com/testaccount/dev_test``）集成的 Service Fabric Java 应用程序。
 
-   b. 在“源代码管理”部分，选择 **Git**。 指定用于托管要与 Jenkins CI/CD 流（例如 *https://github.com/testaccount/dev_test.git*）集成的 Service Fabric Java 应用程序的存储库 URL。 也可在此处指定要生成的分支（例如 **/master**）。
+   b. 在“源代码管理”部分，选择 **Git**。 指定用于托管要与 Jenkins CI/CD 流（例如 *https://github.com/testaccount/dev_test.git*）集成的 Service Fabric Java 应用程序的存储库 URL。 也可在此处指定要生成的分支（例如 /master）。
 
-1. 配置 *GitHub*（存储库的托管位置），使它能够与 Jenkins 通信。 请执行以下步骤：
+1. 配置 GitHub（存储库的托管位置），使它能够与 Jenkins 通信。 使用以下步骤：
 
    a. 转到 GitHub 存储库页。 转到“设置” > “集成和服务”。
 
-   b. 选择“添加服务”，键入 **Jenkins**，并选择“Jenkins-GitHub 插件”。
+   b. 选择“添加服务”，键入 Jenkins，并选择“Jenkins-GitHub 插件”。
 
    c. 输入 Jenkins Webhook URL（默认为 ``http://<PublicIPorFQDN>:8081/github-webhook/``）。 单击“添加/更新服务”。
 
@@ -124,6 +125,8 @@ ms.locfileid: "44515738"
     > [!NOTE]
     > 如果使用 Service Fabric 部署 Jenkins 容器映像，此处的群集可与托管 Jenkins 容器应用程序的群集相同。
     >
+
+1. 单击“保存” 。
 
 ## <a name="update-your-existing-application"></a>更新现有应用程序
 
@@ -192,7 +195,7 @@ ms.locfileid: "44515738"
 
 ## <a name="next-steps"></a>后续步骤
 
-本教程介绍了如何：
+在本教程中，你已学习了如何执行以下操作：
 
 > [!div class="checklist"]
 > * 在计算机上部署 Service Fabric Jenkins 容器

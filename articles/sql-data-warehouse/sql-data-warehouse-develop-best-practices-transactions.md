@@ -2,20 +2,20 @@
 title: 优化 Azure SQL 数据仓库的事务 | Microsoft Docs
 description: 了解如何在尽量降低长时间回退风险的情况下优化 Azure SQL 数据仓库中的事务性代码的性能。
 services: sql-data-warehouse
-author: rockboyfor
-manager: jhubbard
+author: WenJason
+manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
-origin.date: 10/31/2016
-ms.date: 01/17/2017
-ms.author: v-yeche
-ms.openlocfilehash: 863bc21144e781206964a06b54ac5ddef8e72260
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+origin.date: 04/19/2018
+ms.date: 10/15/2018
+ms.author: v-jay
+ms.openlocfilehash: 5f22b718b16c5232c31a3b36b4aec249b9e73017
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121798"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49089222"
 ---
 # <a name="optimizing-transactions-in-azure-sql-data-warehouse"></a>优化 Azure SQL 数据仓库中的事务
 了解如何在尽量降低长时间回退风险的情况下优化 Azure SQL 数据仓库中的事务性代码的性能。

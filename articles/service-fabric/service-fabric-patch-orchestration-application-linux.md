@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 05/22/2018
-ms.date: 08/20/2018
+ms.date: 10/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: c3d7a55dccd8825ca40eb5e8b99c8ea8f4199ccb
-ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
+ms.openlocfilehash: f3dcda32cd2e4cb247d0b66747f537cd13c77ad6
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41706232"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49089196"
 ---
 # <a name="patch-the-linux-operating-system-in-your-service-fabric-cluster"></a>在 Service Fabric 群集中修补 Linux 操作系统
 
@@ -122,7 +122,7 @@ Linux 版修补业务流程应用使用特定的运行时功能，这些功能�
 
 可以从[存档链接](https://go.microsoft.com/fwlink/?linkid=867984)下载应用程序和安装脚本。
 
-可以从 [sfpkg 链接](https://go.microsoft.com/fwlink/?linkid=867984&pc=sfpkg)下载 sfpkg 格式的应用程序。 这对[基于 Azure 资源管理器的应用程序部署](service-fabric-application-arm-resource.md)非常有用。
+可以从 [sfpkg 链接](https://aka.ms/POA/POA_v2.0.2.sfpkg)下载 sfpkg 格式的应用程序。 这对[基于 Azure 资源管理器的应用程序部署](service-fabric-application-arm-resource.md)非常有用。
 
 ## <a name="configure-the-app"></a>配置应用
 
@@ -232,7 +232,7 @@ RejectedList | 默认值为 "" | 此更新拒绝的修补程序列表
 
 如果尚未计划更新，则生成的 JSON 为空。
 
-登录到群集以查询更新结果。 然后找出协调器服务的主副本地址，并在浏览器中点击此 URL：http://&lt;REPLICA-IP&gt;:&lt;ApplicationPort&gt;/PatchOrchestrationApplication/v1/GetResults。
+登录到群集以查询更新结果。 然后找出协调器服务的主副本地址，并在浏览器中点击此 URL： http://&lt;REPLICA-IP&gt;:&lt;ApplicationPort&gt;/PatchOrchestrationApplication/v1/GetResults。
 
 协调器服务的 REST 终结点有一个动态端口。 若要查看确切的 URL，请参考 Service Fabric Explorer。 例如，可在 `http://10.0.0.7:20000/PatchOrchestrationApplication/v1/GetResults` 处获取结果。
 
@@ -244,8 +244,9 @@ RejectedList | 默认值为 "" | 此更新拒绝的修补程序列表
 
 修补业务流程应用日志是作为 Service Fabric 运行日志的一部分进行收集的。
 
-在想要通过所选的诊断工具/管道捕获日志的情况下使用。 修补业务流程应用程序使用以下固定的提供程序 ID 通过 [eventsource](https://docs.microsoft.com/zh-cn/dotnet/api/system.diagnostics.tracing.eventsource?view=netstandard-2.0)
-<!-- URL is correct on [eventsource](https://docs.microsoft.com/zh-cn/dotnet/api/system.diagnostics.tracing.eventsource?view=netstandard-2.0)--> 记录事件
+在想要通过所选的诊断工具/管道捕获日志的情况下使用。 修补业务流程应用程序使用以下固定的提供程序 ID 通过 [eventsource](https://docs.microsoft.com/zh-cn/dotnet/api/system.diagnostics.tracing.eventsource?view=netstandard-2.0) 记录事件
+
+<!-- URL is correct on [eventsource](https://docs.microsoft.com/zh-cn/dotnet/api/system.diagnostics.tracing.eventsource?view=netstandard-2.0)-->
 
 - e39b723c-590c-4090-abb0-11e3e6616346
 - fc0028ff-bfdc-499f-80dc-ed922c52c5e9
@@ -363,4 +364,4 @@ A. 否，修补业务流程应用不能用来修补单节点群集。 此限制�
 
 <!-- Not Available on ## Release Notes-->
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

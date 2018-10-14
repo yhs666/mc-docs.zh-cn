@@ -1,10 +1,10 @@
 ---
-title: 计划程序的概念、术语和实体 | Azure
+title: 计划程序的概念、术语和实体 | Microsoft Docs
 description: Azure 计划程序的概念、术语和实体层次结构，包括作业和作业集合。  显示了一个计划作业的综合示例。
 services: scheduler
 documentationcenter: .NET
-author: derek1ee
-manager: kevinlam1
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
 ms.service: scheduler
@@ -12,14 +12,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 08/18/2016
-ms.author: v-johch
-ms.openlocfilehash: 08db71d79bf454f6a314132eb937e12a55cc8be0
-ms.sourcegitcommit: 6728c686935e3cdfaa93a7a364b959ab2ebad361
+origin.date: 08/18/2016
+ms.date: 10/15/2018
+ms.author: v-jay
+ms.openlocfilehash: 6802c5156975e866bf036ad396d9bba4f8c8733c
+ms.sourcegitcommit: 3b9e31daa1ae213311d7d530225be03e4c3e6332
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
-ms.locfileid: "20182207"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48850718"
 ---
 # <a name="scheduler-concepts-terminology--entity-hierarchy"></a>计划程序的概念、术语和实体层次结构
 ## <a name="scheduler-entity-hierarchy"></a>计划程序实体层次结构
@@ -34,11 +35,11 @@ ms.locfileid: "20182207"
 ## <a name="scheduler-entity-management"></a>计划程序实体管理
 大体而言，计划程序和服务管理 API 公开资源上的以下操作：
 
-|功能|说明和 URI 地址|
-|---|---|
-|**作业集合管理**|针对创建和修改作业集合和其中包含的作业的 GET、PUT 和 DELETE 支持。 作业集合是作业的容器，与配额和共享设置一一对应。 配额（在后面介绍）的例子包括最大作业数和最小重复间隔 <p>PUT 和 DELETE：`https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}`</p><p>GET：`https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}`</p>|
-|**作业管理**|针对创建和修改作业的 GET、PUT、POST、PATCH 和 DELETE 支持。 所有作业都必须属于某一已存在的作业集合，因此没有显式创建 <p>`https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}`</p>|
-|**作业历史记录管理**|针对用于获取 60 天的作业执行历史记录（例如作业占用时间和作业执行结果）的 GET 支持。 添加基于状态进行筛选的查询字符串参数支持 <P>`https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}/history`</p>|
+| 功能 | 说明和 URI 地址 |
+| --- | --- |
+| **作业集合管理** |针对创建和修改作业集合和其中包含的作业的 GET、PUT 和 DELETE 支持。 作业集合是作业的容器，与配额和共享设置一一对应。 配额（在后面介绍）的例子包括最大作业数和最小重复间隔 <p>PUT 和 DELETE：`https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}`</p><p>GET：`https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}`</p>|
+| **作业管理** |针对创建和修改作业的 GET、PUT、POST、PATCH 和 DELETE 支持。 所有作业都必须属于某一已存在的作业集合，因此没有显式创建 <p>`https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}`</p>|
+| **作业历史记录管理** |针对用于获取 60 天的作业执行历史记录（例如作业占用时间和作业执行结果）的 GET 支持。 添加基于状态进行筛选的查询字符串参数支持 <P>`https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}/history`</p>|
 
 ## <a name="job-types"></a>作业类型
 存在多种作业类型：HTTP 作业（包括支持 SSL 的 HTTPS 作业）、存储队列作业、服务总线队列作业和服务总线主题作业。 HTTP 作业适用于现有工作负荷或服务具有终结点的情况。 可以使用存储队列作业将消息发布到存储队列，因此这些作业适合使用存储队列的工作负荷。 同样，服务总线作业适用于使用服务总线队列和主题的工作负荷。
@@ -188,20 +189,20 @@ ms.locfileid: "20182207"
 * 间隔：针对重复周期的按给定频率的间隔  
 * 规定的计划：指定重复周期的分钟、小时、星期几、月和月中第几天  
 * 计数：重复周期的计数  
-* 结束时间：在指定的结束时间后将不执行任何作业  
+* 结束时间：在指定的结束时间后不执行任何作业  
 
-如果某一作业具有在其 JSON 定义中指定的重复执行的对象，将重复执行该作业。 如果计数和结束时间均指定，则遵循首先发生的完成规则。
+如果某一作业具有在其 JSON 定义中指定的重复执行的对象，则会重复执行该作业。 如果计数和结束时间均指定，则遵循首先发生的完成规则。
 
 ## <a name="state"></a>state
-作业的状态是以下四个值之一：enabled、disabled、completed 或 faulted。 你可以 PUT 或 PATCH 作业以便将它们更新到已启用或已禁用状况。 如果某一作业已完成或已出错，则这就是无法更新的最终状况（尽管仍可以删除该作业）。 如下所示是 state 属性的示例：
+作业的状态是以下四个值之一：enabled、disabled、completed 或 faulted。 可以 PUT 或 PATCH 作业以便将它们更新到已启用或已禁用状况。 如果某一作业已完成或已出错，则这就是无法更新的最终状况（尽管仍可以删除该作业）。 如下所示是 state 属性的示例：
 
 ```
     "state": "disabled", // enabled, disabled, completed, or faulted
 ```
 60 天后删除完成的作业和出错的作业。
 
-## <a name="status"></a>status
-一旦启动了某一计划程序作业后，将返回与该作业的当前状态有关的信息。 用户无法设置该对象 – 该对象是由系统设置的。 但是，该对象包含在作业对象中（而不是单独的链接资源中），因此，可以轻松地获取某一作业的状态。
+## <a name="status"></a>状态
+一旦启动了某一计划程序作业后，即会返回与该作业的当前状态有关的信息。 用户无法设置该对象 – 该对象是由系统设置的。 但是，该对象包含在作业对象中（而不是单独的链接资源中），因此，可以轻松地获取某一作业的状态。
 
 作业状态包含前一次执行的时间（如果有）、下一次计划执行的时间（对于正在进行中的作业）以及作业的执行计数。
 
@@ -210,7 +211,7 @@ ms.locfileid: "20182207"
 
 若要设置重试策略，可指定两个附加设置：重试间隔 (**retryInterval**) 和重试次数 (**retryCount**)。
 
-重试间隔使用 **retryInterval** 对象指定，表示两次重试之间的时间间隔。 其默认值为 30 秒，最小可配置值为 15 秒，最大值为 18 个月。 空闲作业集合中的作业的最小可配置值为 1 小时。  它使用 ISO 8601 格式定义。 同样，重试次数的值使用 **retryCount** 对象指定；它是尝试重试的次数。 其默认值为 4，其最大值为 20。 **retryInterval** 和 **retryCount** 都是可选的。 如果 **retryType** 设为 **fixed** 并且未为它们显式指定任何值，则为它们赋予默认值。
+重试间隔使用 **retryInterval** 对象指定，表示两次重试之间的时间间隔。 其默认值为 30 秒，最小可配置值为 15 秒，最大值为 18 个月。 它使用 ISO 8601 格式定义。 同样，重试次数的值使用 **retryCount** 对象指定；它是尝试重试的次数。 其默认值为 4，其最大值为 20。 **retryInterval** 和 **retryCount** 都是可选的。 如果 **retryType** 设为 **fixed** 并且未为它们显式指定任何值，则为它们赋予默认值。
 
 ## <a name="see-also"></a>另请参阅
  [计划程序是什么？](scheduler-intro.md)

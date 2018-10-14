@@ -10,12 +10,12 @@ ms.topic: article
 origin.date: 04/01/2018
 ms.date: 04/17/2018
 ms.author: v-johch
-ms.openlocfilehash: 605be684673af6dd230be126d5d67204f39a0eda
-ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
+ms.openlocfilehash: 2e13ccb5e4e149a4f24ca76d59f437eaeaef7c10
+ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39486756"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913918"
 ---
 # <a name="configure-and-manage-azure-sql-database-security-for-geo-restore-or-failover"></a>针对异地还原或故障转移配置和管理 Azure SQL 数据库的安全性 
 
@@ -98,4 +98,3 @@ ms.locfileid: "39486756"
 * 若要了解如何使用和配置活动异地复制，请参阅[活动异地复制](sql-database-geo-replication-overview.md)
 * 若要了解如何使用异地还原，请参阅[异地还原](sql-database-recovery-using-backups.md#geo-restore)
 
-<!--Update_Description: wording update-->

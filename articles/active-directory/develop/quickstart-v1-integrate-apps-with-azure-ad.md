@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 04/18/2018
-ms.date: 09/03/2018
+origin.date: 08/28/2018
+ms.date: 10/08/2018
 ms.author: v-junlch
 ms.custom: aaddev
-ms.reviewer: luleon
-ms.openlocfilehash: ef76265e84f1aecee2afbce3060bf1d1501e3a65
-ms.sourcegitcommit: 562cde32fc2271238f3d1ef5d2cc5ed037bdec2d
+ms.reviewer: celested
+ms.openlocfilehash: 4546619f1a1195355252ba934db66be0b5ca0bb5
+ms.sourcegitcommit: 71f203d04b212d2bfbf4f227693c2b8fe209db22
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43531691"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48850506"
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>将应用程序与 Azure Active Directory 集成
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -54,7 +54,7 @@ ms.locfileid: "43531691"
 
       ![注册新应用程序 - 创建](./media/quickstart-v1-integrate-apps-with-azure-ad/add-app-registration-create.png)
 
-      如需 Web 应用程序或本机应用程序的特定示例，请查看[快速入门](azure-ad-developers-guide.md#get-started)。
+      如果需要 Web 应用程序或本机应用程序的特定示例，请查看 [快速入门](azure-ad-developers-guide.md#get-started)。
 
 5. 完成后，单击“创建”。 Azure AD 会将唯一的应用程序 ID 分配给应用程序，同时你会转到应用程序的注册主页。 根据应用程序是 Web 应用程序还是本机应用程序，会提供不同的选项用于将更多功能添加到应用程序。 请参阅下一部分了解许可概述，以及有关在应用程序注册中启用更多配置功能（凭据、权限、使用户能够从其他租户登录）的详细信息。
 
@@ -113,7 +113,7 @@ ms.locfileid: "43531691"
 - 委托的权限：客户端应用程序需要以登录用户的身份访问 Web API，但访问权限受所选权限的限制。 除非权限需要管理员许可，否则用户可以授予此类型的权限。 
 
   > [!NOTE]
-  > 将委托权限添加到应用程序不会自动向租户中的用户授予许可。 在运行时，用户仍必须手动许可添加的委托权限，除非管理员在 Azure 门户的应用程序页的“所需权限”部分中单击“授予权限”按钮。 
+  > 将委托权限添加到应用程序不会自动向租户中的用户授予许可。 除非管理员代表所有用户授予许可，否则用户仍必须在运行时手动同意添加的委派权限。
 
 #### <a name="to-add-application-credentials-or-permissions-to-access-web-apis"></a>添加用于访问 Web API 的应用程序凭据或权限
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
@@ -122,13 +122,15 @@ ms.locfileid: "43531691"
 
    ![更新应用程序的注册](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration.png)
 
-4. 随后会转到应用程序的注册主页，并打开应用程序的“设置”页。 若要添加 Web 应用程序凭据的机密密钥，请执行以下操作：
-    - 在“设置”页上单击“密钥”部分。 
+4. 随后会转到应用程序的注册主页，并打开应用程序的“设置”页。 若要为 Web 应用程序添加凭据，请执行以下操作：
+  - 在“设置”页上单击“密钥”部分。 
+  - 若要添加证书，请执行以下操作：
+    - 选择“上传公钥”。
+    - 选择要上传的文件。 它必须是以下文件类型之一：.cer、.pem、.crt。
+  - 若要添加密码，请执行以下操作：
     - 添加密钥的说明。
-    - 选择一年或两年持续时间。
+    - 选择持续时间。
     - 单击“保存” 。 保存配置更改后，最右边的列将包含密钥值。 **请务必复制密钥**以便在客户端应用程序代码中使用，因为退出此页后无可访问此密钥。
-
-    ![更新应用程序的注册 - 密钥](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-keys.png)
 
 5. 添加从客户端访问资源 API 的权限
     - 在“设置”页上单击“所需权限”部分。 
@@ -142,11 +144,6 @@ ms.locfileid: "43531691"
     ![更新应用程序的注册 - 权限 perms](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-perms.png)
 
 6. 完成后，在“启用访问权限”页上单击“选择”按钮，并在“添加 API 访问权限”页上单击“完成”按钮。 随后会返回到“所需权限”页，其中的新资源已添加到 API 列表。
-
-    > [!NOTE]
-    > 单击“完成”按钮还会基于配置的“对其他应用程序的权限”自动为目录中的应用程序设置权限。 可以在应用程序“设置”页上查看这些应用程序权限。
-    > 
-    > 
 
 ### <a name="configuring-a-resource-application-to-expose-web-apis"></a>将资源应用程序配置为公开 Web API
 

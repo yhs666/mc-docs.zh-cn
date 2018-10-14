@@ -2,20 +2,21 @@
 title: 使用 Azure SQ 数据仓库中的 Group By 选项 | Microsoft Docs
 description: 有关在开发解决方案时实现 Azure SQL 数据仓库中的 Group By 选项的技巧。
 services: sql-data-warehouse
-author: rockboyfor
-manager: jhubbard
+author: WenJason
+manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
-origin.date: 10/31/2016
-ms.date: 01/04/2017
-ms.author: v-yeche
-ms.openlocfilehash: 1b1211edf5560ae0f24e8daf2fccbd278f3c468a
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+origin.date: 04/17/2016
+ms.date: 10/15/2017
+ms.author: v-jay
+ms.reviewer: igorstan
+ms.openlocfilehash: 5099cec9fb097a473d82d39dd8fd34f2dae6ecd3
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121155"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49089086"
 ---
 # <a name="group-by-options-in-sql-data-warehouse"></a>SQL 数据仓库中的 Group By 选项
 有关在开发解决方案时实现 Azure SQL 数据仓库中的 Group By 选项的技巧。
@@ -181,5 +182,5 @@ ORDER BY 1,2,3
 通过将代码拆分成不同的部分并生成循环构造，代码将更好管理和维护。
 
 ## <a name="next-steps"></a>后续步骤
-有关更多开发技巧，请参阅[开发概述](sql-data-warehouse-overview-develop.md)。
+有关更多开发技巧，请参阅 [开发概述](sql-data-warehouse-overview-develop.md)。
 

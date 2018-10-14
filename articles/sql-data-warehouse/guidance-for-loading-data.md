@@ -1,21 +1,22 @@
 ---
-title: 数据加载最佳做法 - Azure SQL 数据仓库 | Azure
-description: 关于如何使用 Azure SQL 数据仓库加载数据和执行 ELT 的建议。
+title: 数据加载最佳做法 - Azure SQL 数据仓库 | Microsoft Docs
+description: 关于如何将数据加载到 Azure SQL 数据仓库中的建议以及与之相关的性能优化。
 services: sql-data-warehouse
-author: rockboyfor
+author: WenJason
 manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
-origin.date: 12/13/2017
-ms.date: 03/12/2018
-ms.author: v-yeche
-ms.openlocfilehash: 882ad481fa348370c622f904b2d418d97d60fc51
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+origin.date: 04/17/2018
+ms.date: 10/15/2018
+ms.author: v-jay
+ms.reviewer: igorstan
+ms.openlocfilehash: 39d6ebbc7c24195f9259600483087ad49ab2035b
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121700"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49089211"
 ---
 # <a name="best-practices-for-loading-data-into-azure-sql-data-warehouse"></a>将数据加载到 Azure SQL 数据仓库中的最佳做法
 关于如何将数据加载到 Azure SQL 数据仓库中的建议以及与之相关的性能优化。 
@@ -69,7 +70,7 @@ PolyBase 无法加载数据大小超过 1,000,000 字节的行。 将数据置�
 ```sql
    DENY CONTROL ON SCHEMA :: schema_A TO user_B;
    DENY CONTROL ON SCHEMA :: schema_B TO user_A;
-```   
+```
 
 现在 user_A 和 user_B 被锁在其他部门的架构之外。
 
@@ -122,15 +123,15 @@ create statistics [YearMeasured] on [Customer_Speed] ([YearMeasured]);
 
 已创建原始密钥
 
-    ```sql
-    CREATE DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key1'
-    ``` 
+```sql
+CREATE DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key1'
+``` 
 
 将密钥从密钥 1 轮换为密钥 2
 
-    ```sq;
-    ALTER DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key2' 
-    ```
+```sql
+ALTER DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key2' 
+```
 
 无需对基础外部数据源进行更改。
 

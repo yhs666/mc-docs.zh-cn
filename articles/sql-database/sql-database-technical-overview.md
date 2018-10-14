@@ -7,15 +7,15 @@ author: WenJason
 manager: digimobile
 ms.service: sql-database
 ms.topic: overview
-origin.date: 08/01/2018
-ms.date: 09/02/2018
+origin.date: 09/14/2018
+ms.date: 10/15/2018
 ms.author: v-jay
-ms.openlocfilehash: dc75c2370fc98d8c1c3c10a76023856ee7f3fae0
-ms.sourcegitcommit: 2601e68563bffe148e70cce2bf1dcbe837a40f80
+ms.openlocfilehash: 2e6a14544dc669d4f25c8cf70e8ad9b96db5a1fc
+ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43249739"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913997"
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>什么是 Azure SQL 数据库服务？ 
 
@@ -29,7 +29,7 @@ SQL 数据库与 [Microsoft SQL Server 数据库引擎](https://docs.microsoft.c
 > [!IMPORTANT]
 > 若要了解 SQL 数据库和 SQL Server 的功能差异，请参阅 [SQL 功能](sql-database-features.md)。 
 
-SQL 数据库在多个服务级别提供可预测的、动态可缩放的性能，主要表现在：无停机时间、内置智能优化、全局可伸缩性和可用性，以及高级安全选项 - 一切几乎不用人工管理。 凭借这些功能，客户可将注意力集中在如何快速进行应用开发、加快推向市场，而无需将宝贵的时间和资源投入在管理虚拟机和基础结构上。 SQL 数据库服务目前在世界各地有 38 个数据中心，且有更多数据中心定期上线，因此你可以在附近的数据中心运行数据库。
+SQL 数据库通过多个资源类型、服务层和计算大小提供可预测的、动态可缩放的性能，主要表现在：无停机时间、内置智能优化、全局可伸缩性和可用性，以及高级安全选项 - 一切几乎不用人工管理。 凭借这些功能，客户可将注意力集中在如何快速进行应用开发、加快推向市场，而无需将宝贵的时间和资源投入在管理虚拟机和基础结构上。 SQL 数据库服务目前在世界各地有 38 个数据中心，且有更多数据中心定期上线，因此你可以在附近的数据中心运行数据库。
 
 > [!NOTE]
 > SQL 数据库托管实例目前为预览版，仅在单一服务级别提供。 有关详细信息，请参阅 [SQL 数据库托管实例](sql-database-managed-instance.md)。
@@ -37,14 +37,14 @@ SQL 数据库在多个服务级别提供可预测的、动态可缩放的性能�
 
 ## <a name="scalable-performance-and-pools"></a>可缩放的性能和池
 
-使用 SQL 数据库，每个数据库都彼此独立且可移植，各自在[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)或[基于 vCore 的购买模型](sql-database-service-tiers-vcore.md)中有其自己的服务层，并具备有保证的性能级别。 SQL 数据库针对不同需求提供不同性能级别，并使数据库可存入池中，以最大化利用资源和节省资金。
+使用 SQL 数据库，每个数据库都彼此独立且可移植，各自在[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)或[基于 vCore 的购买模型](sql-database-service-tiers-vcore.md)中有其自己的服务层，并具备有保证的计算大小。 SQL 数据库针对不同需求提供不同的计算大小，并使数据库可存入池中，以最大化利用资源和节省资金。
 
 使用 SQL 数据库托管实例时，每个实例都独立于其他实例，资源得到保障。 有关详细信息，请参阅 [SQL 数据库托管实例](sql-database-managed-instance.md) 
 
 ### <a name="adjust-performance-and-scale-without-downtime"></a>无需停机即可调整性能和规模
 
 SQL 数据库提供[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)或[基于 vCore 的购买模型](sql-database-service-tiers-vcore.md)。 
-- 基于 DTU 的购买模型在三个服务层中提供包括计算、内存和 IO 资源在内的各种内容，支持轻型到重型数据库工作负荷：基本、标准、高级。 每个层中的不同性能级别提供这些资源的不同组合，你可以向其添加更多的存储资源。
+- 基于 DTU 的购买模型在三个服务层中提供包括计算、内存和 IO 资源在内的各种内容，支持轻型到重型数据库工作负荷：基本、标准、高级。 每个层中的不同计算大小提供这些资源的不同组合，你可以向其添加更多的存储资源。
 - 基于 vCore 的购买模型允许选择 vCore 数、内存容量，以及存储的容量和速度。
 
 可以在小型单一数据库中构建第一个应用，每个月只需花费少量资金。然后可以根据解决方案的需要，随时手动或以编程方式更改服务层。 可在不给应用或客户造成停机的情况下调整性能。 动态可伸缩性可让数据库以透明方式响应快速变化的资源要求，使用户只需为用到的资源付费。
@@ -152,8 +152,8 @@ SQL 数据库支持在 MacOS、Linux 和 Windows 上使用 Python、Java、Node.
 - 请参阅这些快速入门，以便尽快入门：
 
   - [在 Azure 门户中创建 SQL 数据库](sql-database-get-started-portal.md)  
-  - [使用 Azure CLI 创建 SQL 数据库](sql-database-get-started-cli.md)
-  - [使用 PowerShell 创建 SQL 数据库](sql-database-get-started-powershell.md)
+  - [使用 Azure CLI 创建 SQL 数据库](sql-database-cli-samples.md)
+  - [使用 PowerShell 创建 SQL 数据库](sql-database-powershell-samples.md)
 
 - 如需一组 Azure CLI 和 PowerShell 的示例，请参阅：
   - [适用于 SQL 数据库的 Azure CLI 示例](sql-database-cli-samples.md)

@@ -1,27 +1,22 @@
 ---
-title: 还原 Azure SQL 数据仓库（Azure 门户）| Azure
+title: 还原 Azure SQL 数据仓库（Azure 门户）| Microsoft Docs
 description: 用于还原 Azure SQL 数据仓库的 Azure 门户任务。
 services: sql-data-warehouse
-documentationcenter: NA
-author: rockboyfor
+author: WenJason
 manager: digimobile
-editor: ''
-ms.assetid: b0aef539-7657-4b0e-9899-74098f5c21bc
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: backup-restore
-origin.date: 12/06/2017
-ms.date: 01/15/2018
-ms.author: v-yeche
-ms.openlocfilehash: 354d4448fc57b9772e4d9d2e19ad0022bc3cb8df
-ms.sourcegitcommit: 14ff2d13efd62d5add6e44d613eb5a249da7ccb1
+ms.topic: conceptual
+ms.component: manage
+origin.date: 04/17/2018
+ms.date: 10/15/2018
+ms.author: v-jay
+ms.reviewer: igorstan
+ms.openlocfilehash: 6be11f518a1cb5ec803f712c52a520c1e4f54632
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2018
-ms.locfileid: "27770666"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49088964"
 ---
 # <a name="restore-azure-sql-data-warehouse-portal"></a>还原 Azure SQL 数据仓库（门户）
 > [!div class="op_single_selector"]
@@ -56,7 +51,7 @@ ms.locfileid: "27770666"
 6. 指定新的“数据库名称” 。
 7. 选择最新“还原点” 。
 
-    请确保选择最新还原点。 因为还原点按照协调世界时 (UTC) 显示，所以默认选项可能不是最新还原点。
+   请确保选择最新还原点。 因为还原点按照协调世界时 (UTC) 显示，所以默认选项可能不是最新还原点。
 
       ![选择还原点](./media/sql-data-warehouse-restore-database-portal/01-restore-blade-from-active.png)
 8. 选择“确定” 。

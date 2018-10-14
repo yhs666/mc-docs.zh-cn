@@ -3,25 +3,24 @@ title: 租户资源用量 API | Microsoft Docs
 description: 用于检索 Azure Stack 用量信息的资源用量 API 的参考。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
-ms.assetid: b9d7c7ee-e906-4978-92a3-a2c52df16c36
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/26/2018
-ms.date: 07/20/2018
-ms.author: v-junlch
+origin.date: 09/10/2018
+ms.date: 10/15/2018
+ms.author: v-jay
 ms.reviewer: alfredop
-ms.openlocfilehash: e3bd8f5b7f06ff3f5c873064beb0c12878ab75d7
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.openlocfilehash: 5c3fd20b9789bc90d371d1e20b86f99d9479f2d8
+ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168243"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48848909"
 ---
 # <a name="tenant-resource-usage-api"></a>租户资源用量 API
 

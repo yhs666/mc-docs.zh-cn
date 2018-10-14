@@ -5,16 +5,16 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: reference
-origin.date: 07/18/2018
-ms.date: 09/17/2018
+origin.date: 08/21/2018
+ms.date: 10/22/2018
 ms.author: v-yiso
 ms.component: logs
-ms.openlocfilehash: fd28fd23bb739c09d655504c2858f2951b08a999
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.openlocfilehash: 2561c3295fd8f4f0d8da9ade640c24b243c4b097
+ms.sourcegitcommit: 8a5722b85c6eabbd28473d792716ad44aac3ff23
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068198"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49121551"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Azure 诊断日志支持的服务、架构和类别
 
@@ -52,8 +52,9 @@ ms.locfileid: "44068198"
 | Analysis Services | https://azure.microsoft.com/blog/azure-analysis-services-integration-with-azure-diagnostic-logs/ |
 | API 管理 | [API 管理诊断日志](../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
 | 应用程序网关 |[应用程序网关的诊断日志记录](../application-gateway/application-gateway-diagnostics.md) |
-| Azure 自动化 |[Azure 自动化的 Log Analytics](../automation/automation-manage-send-joblogs-log-analytics.md) |
+| Azure 自动化 |[适用于 Azure 自动化的 Log Analytics](../automation/automation-manage-send-joblogs-log-analytics.md) |
 | Azure Batch |[Azure Batch 诊断日志记录](../batch/batch-diagnostics.md) |
+| 认知服务 | 架构不可用。 |
 | CosmosDB | [Azure Cosmos DB 日志记录](../cosmos-db/logging.md) |
 | 适用于 PostgreSQL 的 DB |  架构不可用。 |
 | 事件中心 |[Azure 事件中心诊断日志](../event-hubs/event-hubs-diagnostic-logs.md) |
@@ -83,9 +84,10 @@ ms.locfileid: "44068198"
 |Microsoft.Automation/automationAccounts|JobStreams|作业流|
 |Microsoft.Automation/automationAccounts|DscNodeStatus|Dsc 节点状态|
 |Microsoft.Batch/batchAccounts|ServiceLog|服务日志|
+|Microsoft.ClassicNetwork/networksecuritygroups|网络安全组规则流事件|网络安全组规则流事件|
+|Microsoft.CognitiveServices/accounts|审核|审核|
 |Microsoft.CustomerInsights/hubs|AuditEvents|AuditEvents|
 |Microsoft.DBforPostgreSQL/servers|PostgreSQLLogs|PostgreSQL 服务器日志|
-|Microsoft.DBforPostgreSQL/servers|PostgreSQLBackupEvents|PostgreSQL 备份事件|
 |Microsoft.Devices/IotHubs|连接|连接|
 |Microsoft.Devices/IotHubs|DeviceTelemetry|设备遥测|
 |Microsoft.Devices/IotHubs|C2DCommands|C2D 命令|
@@ -98,6 +100,7 @@ ms.locfileid: "44068198"
 |Microsoft.Devices/IotHubs|JobsOperations|作业操作|
 |Microsoft.Devices/IotHubs|DirectMethods|直接方法|
 |Microsoft.Devices/IotHubs|E2EDiagnostics|E2E 诊断（预览版）|
+|Microsoft.Devices/IotHubs|配置|配置|
 |Microsoft.Devices/provisioningServices|DeviceOperations|设备操作|
 |Microsoft.Devices/provisioningServices|ServiceOperations|服务操作|
 |Microsoft.DocumentDB/databaseAccounts|DataPlaneRequests|DataPlaneRequests|
@@ -118,13 +121,17 @@ ms.locfileid: "44068198"
 |Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|应用程序网关访问日志|
 |Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|应用程序网关性能日志|
 |Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|应用程序网关防火墙日志|
+|Microsoft.Network/securegateways|AzureFirewallApplicationRule|Azure 防火墙应用程序规则|
+|Microsoft.Network/securegateways|AzureFirewallNetworkRule|Azure 防火墙网络规则|
+|Microsoft.Network/azurefirewalls|AzureFirewallApplicationRule|Azure 防火墙应用程序规则|
+|Microsoft.Network/azurefirewalls|AzureFirewallNetworkRule|Azure 防火墙网络规则|
 |Microsoft.Network/virtualNetworkGateways|GatewayDiagnosticLog|网关诊断日志|
 |Microsoft.Network/virtualNetworkGateways|TunnelDiagnosticLog|隧道诊断日志|
 |Microsoft.Network/virtualNetworkGateways|RouteDiagnosticLog|路由诊断日志|
 |Microsoft.Network/virtualNetworkGateways|IKEDiagnosticLog|IKE 诊断日志|
 |Microsoft.Network/virtualNetworkGateways|P2SDiagnosticLog|P2S 诊断日志|
 |Microsoft.Network/trafficManagerProfiles|ProbeHealthStatusEvents|流量管理器探测运行状况结果事件|
-|Microsoft.Network/expressRouteCircuits|GWMCountersTable|GWM 计数器的表|
+|Microsoft.Network/expressRouteCircuits|PeeringRouteLog|对等互连路由表日志|
 |Microsoft.PowerBIDedicated/capacities|引擎|引擎|
 |Microsoft.RecoveryServices/Vaults|AzureBackupReport|Azure 备份报告数据|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryJobs|Azure Site Recovery 作业|
@@ -136,15 +143,19 @@ ms.locfileid: "44068198"
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryProtectedDiskDataChurn|Azure Site Recovery 受保护的磁盘数据改动|
 |Microsoft.Search/searchServices|OperationLogs|操作日志|
 |Microsoft.ServiceBus/namespaces|OperationalLogs|操作日志|
+|Microsoft.Sql/servers/databases|SQLInsights|SQL Insights|
+|Microsoft.Sql/servers/databases|AutomaticTuning|自动优化|
 |Microsoft.Sql/servers/databases|QueryStoreRuntimeStatistics|查询存储运行时统计信息|
 |Microsoft.Sql/servers/databases|QueryStoreWaitStatistics|查询存储等待统计信息|
 |Microsoft.Sql/servers/databases|错误|错误|
 |Microsoft.Sql/servers/databases|DatabaseWaitStatistics|数据库等待统计信息|
 |Microsoft.Sql/servers/databases|超时|超时|
 |Microsoft.Sql/servers/databases|块|块|
-|Microsoft.Sql/servers/databases|SQLInsights|SQL Insights|
+|Microsoft.Sql/servers/databases|死锁数|死锁数|
 |Microsoft.Sql/servers/databases|审核|审核日志|
 |Microsoft.Sql/servers/databases|SQLSecurityAuditEvents|SQL 安全审核事件|
+|Microsoft.Sql/servers/databases|SqlDw_Requests|SQL DW 请求|
+|Microsoft.Sql/servers/databases|SqlDw_RequestSteps|SQL DW 请求步骤|
 |Microsoft.StreamAnalytics/streamingjobs|执行|执行|
 |Microsoft.StreamAnalytics/streamingjobs|创作|创作|
 

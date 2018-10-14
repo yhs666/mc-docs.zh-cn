@@ -1,25 +1,25 @@
 ---
-title: 导入 BACPAC 文件以创建 Azure SQL 数据库 | Azure
+title: 导入 BACPAC 文件以创建 Azure SQL 数据库 | Microsoft 文档
 description: 通过导入 BACPAC 文件创建一个新的 Azure SQL 数据库。
 services: sql-database
-author: yunan2016
+author: WenJason
 manager: digimobile
 ms.service: sql-database
 ms.custom: load & move data
-origin.date: 04/10/2018
-ms.date: 09/02/2018
-ms.author: v-nany
-ms.topic: article
-ms.openlocfilehash: d4220493666525ea710470db064b191d21f5a4f5
-ms.sourcegitcommit: 2601e68563bffe148e70cce2bf1dcbe837a40f80
+origin.date: 09/14/2018
+ms.date: 10/15/2018
+ms.author: v-jay
+ms.topic: conceptual
+ms.openlocfilehash: 052c1ee2e2bb1f2415c06d13126a25478470a6d8
+ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43249668"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913842"
 ---
 # <a name="import-a-bacpac-file-to-a-new-azure-sql-database"></a>将 BACPAC 文件导入到新的 Azure SQL 数据库
 
-当需要从存档中导入数据库或从另一个平台进行迁移时，可以从 [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) 文件导入数据库架构和数据。 BACPAC 文件是一个扩展名为 BACPAC 的 ZIP 文件，它包含来自 SQL Server 数据库的元数据和数据。 可以从 Azure Blob 存储（仅限标准存储）或本地位置中的本地存储导入 BACPAC 文件。 如果要最大程度提高导入速度，建议指定较高的服务层和性能级别（例如 P6），并在成功导入后根据需要向下缩放。 此外，导入后的数据库兼容性级别基于源数据库的兼容性级别。 
+当需要从存档中导入数据库或从另一个平台进行迁移时，可以从 [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) 文件导入数据库架构和数据。 BACPAC 文件是一个扩展名为 BACPAC 的 ZIP 文件，它包含来自 SQL Server 数据库的元数据和数据。 可以从 Azure Blob 存储（仅限标准存储）或本地位置中的本地存储导入 BACPAC 文件。 要最大程度提高导入速度，建议指定较高的服务层和计算大小（例如 P6），并在成功导入后根据需要向下缩放。 此外，导入后的数据库兼容性级别基于源数据库的兼容性级别。 
 
 > [!IMPORTANT] 
 > 将数据库迁移到 Azure SQL 数据库后，可以选择在数据库当前的兼容性级别（对于 AdventureWorks2008R2 数据库为级别 100）或更高的级别运行数据库。 有关在特定兼容级别操作数据库的影响和选项的详细信息，请参阅 [ALTER DATABASE Compatibility Level](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level)（更改数据库兼容级别）。 有关与兼容级别相关的其他数据库级别设置的信息，另请参阅 [ALTER DATABASE SCOPED CONFIGURATION](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql)（更改数据库范围的配置）。   >
@@ -28,7 +28,7 @@ ms.locfileid: "43249668"
 
 本文介绍如何使用 [Azure 门户](https://portal.azure.cn)根据存于 Azure blob 存储中的 BACPAC 文件创建 Azure SQL 数据库。 使用 Azure 门户进行的导入操作仅支持从 Azure blob 存储导入 BACPAC 文件。
 
-若要使用 Azure 门户导入数据库，请打开数据库要关联到的服务器的页面，然后在工具栏上单击“导入”。 指定存储帐户和容器，并选择要导入的 BACPAC 文件。 选择新数据库的大小（通常与源数据库相同）并提供目标 SQL Server 凭据。  
+若要使用 Azure 门户导入数据库，请打开数据库要关联到的服务器的页面（不是数据库的页面），然后在工具栏上单击“导入”。 指定存储帐户和容器，并选择要导入的 BACPAC 文件。 选择新数据库的大小（通常与源数据库相同）并提供目标 SQL Server 凭据。  
 
    ![数据库导入](./media/sql-database-import/import.png)
 
@@ -105,7 +105,7 @@ $importStatus
 有关另一个脚本示例，请参阅[从 BACPAC 文件导入数据库](scripts/sql-database-import-from-bacpac-powershell.md)。
 
 ## <a name="limitations"></a>限制
-- 不支持导入到弹性池中的数据库。 可以将数据导入到单一实例数据库，然后将数据库移到池。
+- 不支持导入到弹性池中的数据库。 可以将数据导入到单一数据库，然后将数据库移到池。
 
 ## <a name="import-using-other-methods"></a>使用其他方法导入
 
@@ -117,5 +117,5 @@ $importStatus
 ## <a name="next-steps"></a>后续步骤
 * 若要了解如何连接到导入的 SQL 数据库并对其进行查询，请参阅[使用 SQL Server Management Studio 连接到 SQL 数据库并执行示例 T-SQL 查询](sql-database-connect-query-ssms.md)。
 * 如需 SQL Server 客户顾问团队编写的有关使用 BACPAC 文件进行迁移的博客，请参阅 [Migrating from SQL Server to Azure SQL Database using BACPAC Files](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/)（使用 BACPAC 文件从 SQL Server 迁移到 Azure SQL 数据库）。
-* 有关对于整个 SQL Server 数据库迁移进程（包括性能建议）的讨论，请参阅[将 SQL Server 数据库迁移到 Azure SQL 数据库](sql-database-cloud-migrate.md)。
+* 如需 SQL Server 数据库完整迁移过程的介绍（包括性能建议），请参阅[将 SQL Server 数据库迁移到 Azure SQL 数据库](sql-database-cloud-migrate.md)。
 * 若要了解如何安全地管理和共享存储密钥和共享访问签名，请参阅 [Azure 存储安全指南](/storage/common/storage-security-guide)。 

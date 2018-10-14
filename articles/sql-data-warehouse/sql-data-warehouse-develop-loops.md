@@ -2,26 +2,21 @@
 title: 在 Azure SQL 数据仓库中使用 T-SQL 循环 | Microsoft Docs
 description: 有关在开发解决方案时在 Azure SQL 数据仓库中使用 T-SQL 循环和替换游标的技巧。
 services: sql-data-warehouse
-documentationcenter: NA
-author: rockboyfor
-manager: jhubbard
-editor: ''
-ms.assetid: f3384b81-b943-431b-bc73-90e47e4c195f
+author: WenJason
+manager: digimobile
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: t-sql
-origin.date: 10/31/2016
-ms.date: 03/20/2017
-ms.author: v-yeche
-ms.openlocfilehash: bea19d0455703e0692df379d9d880237fdae6790
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.topic: conceptual
+ms.component: implement
+origin.date: 04/17/2018
+ms.date: 10/15/2018
+ms.author: v-jay
+ms.reviewer: igorstan
+ms.openlocfilehash: df0c840f3388fd92120e66516b5eedc8d9360d39
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121717"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49089212"
 ---
 # <a name="using-t-sql-loops-in-sql-data-warehouse"></a>在 SQL 数据仓库中使用 T-SQL 循环
 有关在开发解决方案时在 Azure SQL 数据仓库中使用 T-SQL 循环和替换游标的技巧。
@@ -76,5 +71,5 @@ DROP TABLE #tbl;
 ```
 
 ## <a name="next-steps"></a>后续步骤
-有关更多开发技巧，请参阅[开发概述](sql-data-warehouse-overview-develop.md)。
+有关更多开发技巧，请参阅 [开发概述](sql-data-warehouse-overview-develop.md)。
 

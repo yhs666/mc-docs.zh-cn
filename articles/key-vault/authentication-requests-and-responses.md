@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/09/2018
-ms.date: 09/17/2018
+ms.date: 10/22/2018
 ms.author: v-biyu
-ms.openlocfilehash: 532a6097cca64856f51c479c4b9fc00633c1b839
-ms.sourcegitcommit: d649060b55bac3ad9f4fc2bd2962748a4b5bf715
+ms.openlocfilehash: c0b7597c090419601219474d06b795631d848414
+ms.sourcegitcommit: 2fdf25eb4b978855ff2832bcdcca093c141be261
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44066153"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49120602"
 ---
 # <a name="authentication-requests-and-responses"></a>身份验证、请求和响应
 

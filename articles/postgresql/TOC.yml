@@ -123,7 +123,7 @@ items:
 - name: 参考
   items:
   - name: Azure CLI
-    href: /cli/azure/postgres
+    href: /cli/postgres
   - name: REST API
     href: /rest/api/postgresql
 - name: 资源
@@ -152,9 +152,9 @@ items:
         href: https://aka.ms/postg-powerbi-vid
   - name: 支持选项
     href: https://www.azure.cn/zh-cn/support/contact/
-ms.openlocfilehash: 49e685676ab2381bd540e0bd147546295c36f38b
-ms.sourcegitcommit: 6dd65fba579a2ce25c63ac69ff3b71d814a9d256
+ms.openlocfilehash: a3c5c6904c3ff61239c782a575289d53b08df36f
+ms.sourcegitcommit: 3b9e31daa1ae213311d7d530225be03e4c3e6332
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42703877"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48850722"

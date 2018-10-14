@@ -84,8 +84,6 @@ items:
     href: https://docs.microsoft.com/rest/api/keyvault
   - name: 开发
     items:
-    - name: 开发人员快速入门视频
-      href: http://channel9.msdn.com/Blogs/Windows-Azure/Azure-Key-Vault-Developer-Quick-Start
     - name: 密钥保管库开发人员指南
       href: key-vault-developers-guide.md
     - name: 服务限制
@@ -121,14 +119,14 @@ items:
   - name: 博客
     href: http://blogs.technet.com/b/kv/
   - name: 定价
-    href: https://azure.azure.com/pricing/details/key-vault/
-  - name: 产品反馈
-    href: https://feedback.azure.com/forums/906355-azure-key-vault
+    href: https://www.azure.cn/zh-cn/pricing/details/key-vault/
 - name: 发行说明
   href: key-vault-versions.md
-ms.openlocfilehash: a7611a1ef9727a1a5f47a35167604f8f929e8d8e
-ms.sourcegitcommit: d649060b55bac3ad9f4fc2bd2962748a4b5bf715
+- name: 产品反馈
+  href: https://feedback.azure.com/forums/906355-azure-key-vault
+ms.openlocfilehash: 101e43e84937f7576f23b7867e37a731b855279d
+ms.sourcegitcommit: 2fdf25eb4b978855ff2832bcdcca093c141be261
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44066176"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49120607"

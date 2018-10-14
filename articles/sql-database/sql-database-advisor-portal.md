@@ -1,21 +1,21 @@
 ---
-title: 应用性能建议 - Azure SQL 数据库 | Azure
+title: 应用性能建议 - Azure SQL 数据库 | Microsoft Docs
 description: 可以使用 Azure 门户查找可优化 Azure SQL 数据库性能的性能建议。
 services: sql-database
-author: forester123
+author: WenJason
 manager: digimobile
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.topic: article
+ms.topic: conceptual
 origin.date: 04/01/2018
-ms.date: 06/18/2018
-ms.author: v-johch
-ms.openlocfilehash: 786b0fec7a8b743a97a92eaf21a357ecb3333a46
-ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
+ms.date: 10/15/2018
+ms.author: v-jay
+ms.openlocfilehash: 94825a57a14c6ffbb889b7c10cb4326bf6c72986
+ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39486642"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48914015"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>查找并应用性能建议
 
@@ -81,7 +81,7 @@ Azure SQL 数据库允许通过以下三个选项之一完全控制建议的启�
 1. 选择“建议”列表中的建议打开详细信息。
 2. 单击“详细信息”页上的“放弃”。
 
-可以根据需要将已放弃的项重新添加到“建议”列表中：
+可以根据需要将已放弃的项重新添加到“建议”列表中： 
 
 1. 在“建议”页上单击“查看已放弃项”。
 2. 从列表中选择一个放弃的项，查看其详细信息。
@@ -126,7 +126,7 @@ Azure SQL 数据库允许通过以下三个选项之一完全控制建议的启�
 |:--- |:--- |
 | 挂起 |已经接收应用建议命令并计划执行。 |
 | 执行 |正在应用建议。 |
-| 验证 |已成功应用建议，服务正在权衡优势。 |
+| 正在验证 |已成功应用建议，服务正在权衡优势。 |
 | Success |已成功应用建议，并且已权衡优势。 |
 | 错误 |在应用建议的过程期间发生了错误。 这可能是暂时性问题，或可能是表的架构更改所致，并且脚本不再有效。 |
 | 还原 |已应用建议，但该建议被认为是非性能的且正在被自动还原。 |

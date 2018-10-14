@@ -1,5 +1,5 @@
 ---
-title: 用于管理 Azure SQL DNS 别名的 PowerShell | Azure
+title: 用于管理 Azure SQL DNS 别名的 PowerShell | Microsoft Docs
 description: PowerShell cmdlet，例如新建 AzureRMSqlServerDNSAlias，可以将新客户端连接重定向到不同的 Azure SQL 数据库服务器，而无需触摸任何客户端配置。
 keywords: dns sql database
 services: sql-database
@@ -12,12 +12,12 @@ origin.date: 02/05/2018
 ms.date: 02/28/2018
 ms.reviewer: genemi;amagarwa;maboja
 ms.author: v-nany
-ms.openlocfilehash: 0e90adc33ba2990c66593dd39292e30e08e9cd14
-ms.sourcegitcommit: 2a147231bf3d0a693adf58fceee76ab0fbcd6dbb
+ms.openlocfilehash: 33c2ec45dae81b6c56be71ae2a70af013d3e49f4
+ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39335278"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913888"
 ---
 # <a name="powershell-for-dns-alias-to-azure-sql-database"></a>用于管理 Azure SQL 数据库 DNS 别名的 PowerShell
 

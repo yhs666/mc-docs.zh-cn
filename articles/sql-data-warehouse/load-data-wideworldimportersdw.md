@@ -2,21 +2,21 @@
 title: 教程：将数据加载到 Azure SQL 数据仓库 | Microsoft Docs
 description: 教程使用 Azure 门户和 SQL Server Management Studio 将 WideWorldImportersDW 数据仓库从公共 Azure Blob 加载到 Azure SQL 数据仓库。
 services: sql-data-warehouse
-author: yunan2016
+author: WenJason
 manager: digimobile
 ms.service: sql-data-warehouse
-ms.topic: tutorial
+ms.topic: conceptual
 ms.component: implement
-origin.date: 03/06/2018
-ms.date: 03/21/2018
-ms.author: v-nany
-ms.reviewer: barbkess
-ms.openlocfilehash: 88b3aac8db64d0915b78ef8c2b1740213dfde5b1
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+origin.date: 04/17/2018
+ms.date: 10/15/2018
+ms.author: v-jay
+ms.reviewer: igorstan
+ms.openlocfilehash: b8b0091916d8925dfb69de10d2e685ac02d1ddfe
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939228"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49089238"
 ---
 # <a name="tutorial-load-data-to-azure-sql-data-warehouse"></a>教程：将数据加载到 Azure SQL 数据仓库
 
@@ -54,7 +54,7 @@ ms.locfileid: "38939228"
 
 2. 从“新建”页中选择“数据库”，然后从“新建”页的“特色”下选择“SQL 数据仓库”。
 
-    ![创建数据仓库](./media/load-data-wideworldimportersdw/create-empty-data-warehouse.png)
+    ![创建数据仓库](media/load-data-wideworldimportersdw/create-empty-data-warehouse.png)
 
 3. 使用以下信息填写“SQL 数据仓库”表单：   
 
@@ -65,18 +65,18 @@ ms.locfileid: "38939228"
    | **资源组** | SampleRG | 有关有效的资源组名称，请参阅 [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)（命名规则和限制）。 |
    | **选择源** | 空白数据库 | 指定创建空白数据库。 请注意，数据仓库是一种数据库。|
 
-    ![创建数据仓库](./media/load-data-wideworldimportersdw/create-data-warehouse.png)
+    ![创建数据仓库](media/load-data-wideworldimportersdw/create-data-warehouse.png)
 
 4. 单击“服务器”，为新数据库创建并配置新服务器。 使用以下信息填写“新建服务器”窗体： 
 
     | 设置 | 建议的值 | 说明 | 
     | ------- | --------------- | ----------- |
     | **服务器名称** | 任何全局唯一名称 | 如需有效的服务器名称，请参阅 [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)（命名规则和限制）。 | 
-    | 服务器管理员登录名 | 任何有效的名称 | 有关有效的登录名，请参阅 [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)（数据库标识符）。|
+    | 服务器管理员登录名 | 任何有效的名称 | 如需有效的登录名，请参阅 [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)（数据库标识符）。|
     | **密码** | 任何有效的密码 | 密码必须至少有八个字符，且必须包含以下类别中的三个类别的字符：大写字符、小写字符、数字以及非字母数字字符。 |
     | **位置** | 任何有效的位置 | 有关区域的信息，请参阅 [Azure 区域](https://azure.microsoft.com/regions/)。 |
 
-    ![创建数据库服务器](./media/load-data-wideworldimportersdw/create-database-server.png)
+    ![创建数据库服务器](media/load-data-wideworldimportersdw/create-database-server.png)
 
 5. 单击“选择”。
 
@@ -84,18 +84,18 @@ ms.locfileid: "38939228"
 
 7. 对于本教程，选择“针对弹性进行优化”服务层。 默认情况下，滑块设置为“DW400”。  请尝试上下移动滑块，以查看其工作原理。 
 
-    ![配置性能](./media/load-data-wideworldimportersdw/configure-performance.png)
+    ![配置性能](media/load-data-wideworldimportersdw/configure-performance.png)
 
 8. 单击“应用” 。
 9. 在“SQL 数据仓库”页中，为空白数据库选择“排序规则”。 对于本教程，请使用默认值。 有关排序规则的详细信息，请参阅 [Collations](https://docs.microsoft.com/sql/t-sql/statements/collations)（排序规则）
 
 11. 完成 SQL 数据库表单后，即可单击“创建”对数据库进行预配。 预配需要数分钟。 
 
-    ![单击“创建”](./media/load-data-wideworldimportersdw/click-create.png)
+    ![单击“创建”](media/load-data-wideworldimportersdw/click-create.png)
 
 12. 在工具栏上，单击“通知”可监视部署过程。
     
-     ![通知](./media/load-data-wideworldimportersdw/notification.png)
+     ![通知](media/load-data-wideworldimportersdw/notification.png)
 
 ## <a name="create-a-server-level-firewall-rule"></a>创建服务器级防火墙规则
 
@@ -109,21 +109,21 @@ SQL 数据仓库服务在服务器级别创建一个防火墙，阻止外部应�
 
 2. 在后续的快速入门中，请复制此完全限定的服务器名称，将其用于连接到服务器及其数据库。 若要打开服务器设置，请单击服务器名称。
 
-    ![查找服务器名称](./media/load-data-wideworldimportersdw/find-server-name.png) 
+    ![查找服务器名称](media/load-data-wideworldimportersdw/find-server-name.png) 
 
 3. 若要打开服务器设置，请单击服务器名称。
 
-    ![服务器设置](./media/load-data-wideworldimportersdw/server-settings.png) 
+    ![服务器设置](media/load-data-wideworldimportersdw/server-settings.png) 
 
 5. 单击“显示防火墙设置”。 此时会打开 SQL 数据库服务器的“防火墙设置”页。 
 
-    ![服务器防火墙规则](./media/load-data-wideworldimportersdw/server-firewall-rule.png) 
+    ![服务器防火墙规则](media/load-data-wideworldimportersdw/server-firewall-rule.png) 
 
 4.  在工具栏上单击“添加客户端 IP”，将当前的 IP 地址添加到新的防火墙规则。 防火墙规则可以针对单个 IP 地址或一系列 IP 地址打开端口 1433。
 
 5. 单击“保存”。 此时会针对当前的 IP 地址创建服务器级防火墙规则，在逻辑服务器上打开 端口 1433。
 
-6. 单击“确定”，然后关闭“防火墙设置”页。
+6. 单击“确定”，并关闭“防火墙设置”页。
 
 现在，可使用此 IP 地址连接到 SQL Server 及其数据仓库。 可从 SQL Server Management Studio 或另一种所选工具进行连接。 连接时，使用之前创建的 serveradmin 帐户。  
 
@@ -138,7 +138,7 @@ SQL 数据仓库服务在服务器级别创建一个防火墙，阻止外部应�
 2. 从左侧菜单中选择“SQL 数据库”，并单击“SQL 数据库”页上的数据库。 
 3. 在数据库的“Azure 门户”页的“概要”窗格中，找到并复制“服务器名称”。 在此示例中，完全限定的名称为 mynewserver-20171113.database.chinacloudapi.cn。 
 
-    ![连接信息](./media/load-data-wideworldimportersdw/find-server-name.png)  
+    ![连接信息](media/load-data-wideworldimportersdw/find-server-name.png)  
 
 ## <a name="connect-to-the-server-as-server-admin"></a>以服务器管理员的身份连接到服务器
 
@@ -156,17 +156,17 @@ SQL 数据仓库服务在服务器级别创建一个防火墙，阻止外部应�
     | 登录 | 服务器管理员帐户 | 这是在创建服务器时指定的帐户。 |
     | 密码 | 服务器管理员帐户的密码 | 这是在创建服务器时指定的密码。 |
 
-    ![连接到服务器](./media/load-data-wideworldimportersdw/connect-to-server.png)
+    ![连接到服务器](media/load-data-wideworldimportersdw/connect-to-server.png)
 
 4. 单击“连接” 。 此时会在 SSMS 中打开“对象资源管理器”窗口。 
 
 5. 在对象资源管理器中，展开“数据库”。 然后展开“系统数据库”和“master”，查看 master 数据库中的对象。  展开“mySampleDatabase”，查看新数据库中的对象。
 
-    ![数据库对象](./media/load-data-wideworldimportersdw/connected.png) 
+    ![数据库对象](media/load-data-wideworldimportersdw/connected.png) 
 
 ## <a name="create-a-user-for-loading-data"></a>创建用于加载数据的用户
 
-服务器管理员帐户用于执行管理操作，不适合对用户数据运行查询。 加载数据是一种内存密集型操作。 内存最大值根据[性能层](memory-and-concurrency-limits.md#performance-tiers)、[数据仓库单位](what-is-a-data-warehouse-unit-dwu-cdwu.md)和[资源类](resource-classes-for-workload-management.md)定义。 
+服务器管理员帐户用于执行管理操作，不适合对用户数据运行查询。 加载数据是一种内存密集型操作。 内存最大值是根据所用 SQL 数据仓库的代系、[数据仓库单位](what-is-a-data-warehouse-unit-dwu-cdwu.md)和[资源类](resource-classes-for-workload-management.md)定义的。 
 
 最好创建专用于加载数据的登录名和用户。 然后，将加载用户添加到启用相应最大内存分配的[资源类](resource-classes-for-workload-management.md)。
 
@@ -174,7 +174,7 @@ SQL 数据仓库服务在服务器级别创建一个防火墙，阻止外部应�
 
 1.  在 SSMS 中，右键单击“master”，然后在显示的下拉菜单中选择“新建查询”。 此时将打开一个新的查询窗口。
 
-    ![在 Master 中新建查询](./media/load-data-wideworldimportersdw/create-loader-login.png)
+    ![在 Master 中新建查询](media/load-data-wideworldimportersdw/create-loader-login.png)
 
 2. 在查询窗口中，输入以下 T-SQL 命令，创建名为 LoaderRC60 的登录名和用户，并将“a123STRONGpassword!”替换为自己的密码。 
 
@@ -187,7 +187,7 @@ SQL 数据仓库服务在服务器级别创建一个防火墙，阻止外部应�
 
 4. 右键单击“SampleDW”，并选择“新建查询”。 此时会打开一个新的查询窗口。  
 
-    ![针对示例数据仓库的新查询](./media/load-data-wideworldimportersdw/create-loading-user.png)
+    ![针对示例数据仓库的新查询](media/load-data-wideworldimportersdw/create-loading-user.png)
  
 5. 输入以下 T-SQL 命令，为 LoaderRC60 登录名创建名为 LoaderRC60 的数据库用户。 第二行为新用户授予对新数据仓库的 CONTROL 权限。  这些权限类似于使用户成为数据库所有者。 第三行将新用户添加为 staticrc60 [资源类](resource-classes-for-workload-management.md)的成员。
 
@@ -205,7 +205,7 @@ SQL 数据仓库服务在服务器级别创建一个防火墙，阻止外部应�
 
 1. 在对象资源管理器中，单击“连接”下拉菜单，然后选择“数据库引擎”。 此时会显示“连接到服务器”对话框。
 
-    ![使用新登录名连接](./media/load-data-wideworldimportersdw/connect-as-loading-user.png)
+    ![使用新登录名连接](media/load-data-wideworldimportersdw/connect-as-loading-user.png)
 
 2. 输入完全限定的服务器名称，并输入 **LoaderRC60** 作为登录名。  输入 LoaderRC60 的密码。
 
@@ -213,7 +213,7 @@ SQL 数据仓库服务在服务器级别创建一个防火墙，阻止外部应�
 
 4. 当连接准备就绪时，对象资源管理器中出现两个服务器连接。 一个是作为 ServerAdmin 连接，另一个是作为 LoaderRC60 连接。
 
-    ![连接成功](./media/load-data-wideworldimportersdw/connected-as-new-login.png)
+    ![连接成功](media/load-data-wideworldimportersdw/connected-as-new-login.png)
 
 ## <a name="create-external-tables-and-objects"></a>创建外部表和对象
 
@@ -223,7 +223,7 @@ SQL 数据仓库服务在服务器级别创建一个防火墙，阻止外部应�
 
 1. 在前一部分，我们以 LoaderRC60 的身份登录到了数据仓库。 在 SSMS 中，右键单击 LoaderRC60 连接下面的“SampleDW”，并选择“新建查询”。  此时会显示一个新的查询窗口。 
 
-    ![新的加载查询窗口](./media/load-data-wideworldimportersdw/new-loading-query.png)
+    ![新的加载查询窗口](media/load-data-wideworldimportersdw/new-loading-query.png)
 
 2. 比较查询窗口和之间的图像。  验证新查询窗口是否以 LoaderRC60 的身份运行，并对 SampleDW 数据库执行查询。 使用此查询窗口执行所有加载步骤。
 
@@ -544,7 +544,7 @@ SQL 数据仓库服务在服务器级别创建一个防火墙，阻止外部应�
 
 8. 在对象资源管理器中展开“SampleDW”，查看刚刚创建的外部表列表。
 
-    ![查看外部表](./media/load-data-wideworldimportersdw/view-external-tables.png)
+    ![查看外部表](media/load-data-wideworldimportersdw/view-external-tables.png)
 
 ## <a name="load-the-data-into-your-data-warehouse"></a>将数据加载到数据仓库
 
@@ -748,7 +748,7 @@ SQL 数据仓库服务在服务器级别创建一个防火墙，阻止外部应�
 
 4. 结果让人欣慰，数据已顺利载入数据仓库。
 
-    ![查看已加载的表](./media/load-data-wideworldimportersdw/view-loaded-tables.png)
+    ![查看已加载的表](media/load-data-wideworldimportersdw/view-loaded-tables.png)
 
 ## <a name="create-tables-and-procedures-to-generate-the-date-and-sales-tables"></a>创建表以及用于生成日期和销售表的过程
 
@@ -1098,7 +1098,7 @@ SQL 数据仓库通过将数据缓存到每个计算节点来复制表。 针对
 
 1. 登录 [Azure 门户](https://portal.azure.cn)，单击数据仓库。
 
-    ![清理资源](./media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
+    ![清理资源](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
 2. 如果想要将数据保留在存储中，可以在不使用数据仓库时暂停计算。 暂停计算后，仅需为数据存储付费，并且随时都可在准备处理数据时恢复计算。 要暂停计算，请单击“暂停”按钮。 暂停数据仓库后，可看到“启动”按钮。  要恢复计算，请单击“启动”。
 
@@ -1126,4 +1126,3 @@ SQL 数据仓库通过将数据缓存到每个计算节点来复制表。 针对
 
 > [!div class="nextstepaction"]
 >[了解如何将现有数据库迁移到 SQL 数据仓库](sql-data-warehouse-overview-migrate.md)
-

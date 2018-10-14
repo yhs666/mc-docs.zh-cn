@@ -12,15 +12,15 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 06/28/2018
-ms.date: 08/20/2018
+origin.date: 08/24/2018
+ms.date: 10/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7bd3bd73abe94dff211cdacca72fba674db77c09
-ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
+ms.openlocfilehash: 8ad44ab43b9c7f71e76b694d52dd239a0a868a8e
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41705255"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49089199"
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>有状态 Reliable Services 的诊断功能
 Azure Service Fabri 有状态 Reliable Services StatefulServiceBase 类会发出 [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) 事件，这些事件可用于调试服务、提供对运行时运行方式的深入了解，以及帮助进行故障排除。
@@ -56,7 +56,7 @@ Reliable Services 运行时定义以下性能计数器类别：
 | Service Fabric 事务性复制器 |特定于 Azure Service Fabric 事务性复制器的计数器 |
 | Service Fabric TStore |特定于 Azure Service Fabric TStore 的计数器 |
 
-Service Fabric 事务性复制器供[可靠状态管理器](service-fabric-reliable-services-reliable-collections-internals.md)用来在给定的[副本](service-fabric-concepts-replica-lifecycle.md)集内复制事务。 
+Service Fabric 事务性复制器供[可靠状态管理器](service-fabric-reliable-services-reliable-collections-internals.md)用来在给定的[副本](service-fabric-concepts-replica-lifecycle.md)集内复制事务。
 
 Service Fabric TStore 是[可靠集合](service-fabric-reliable-services-reliable-collections-internals.md)中使用的组件，用于存储和检索键值对。
 
@@ -118,9 +118,12 @@ Reliable Services 运行时发出的以下事件属于 `Service Fabric TStore`�
 
  计数器名称 | 说明 |
 | --- | --- |
-| 项计数 | 存储中的密钥数。|
+| 项计数 | 存储中的项数。|
+| 磁盘大小 | 存储检查点文件的磁盘总大小（以字节为单位）。|
+| 检查点文件写入字节数/秒 | 最近检查点文件每秒写入的字节数。|
+| 副本磁盘传输字节数/秒 | 在存储副本期间每秒（在主要副本上）读取或（在次要副本上）写入的磁盘字节数。|
 
 ## <a name="next-steps"></a>后续步骤
 [PerfView 中的 EventSource 提供程序](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)
 
-<!--Update_Description: update meta properties, add content of Performance counters-->
+<!--Update_Description: update meta properties, wording update -->

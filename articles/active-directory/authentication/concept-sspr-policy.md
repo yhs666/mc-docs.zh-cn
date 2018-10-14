@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
 origin.date: 07/11/2018
-ms.date: 09/04/2018
+ms.date: 10/11/2018
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 6c68cb291de94cd03c778fe181298df00f182a53
-ms.sourcegitcommit: c237baac64f847301ba7f67082ffffcd81c00142
+ms.openlocfilehash: 8a6bbb9eec90210769e1a096bed54e8361f8258a
+ms.sourcegitcommit: 8a5722b85c6eabbd28473d792716ad44aac3ff23
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43850809"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49121535"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Azure Active Directory 中的密码策略和限制
 
@@ -24,7 +24,7 @@ ms.locfileid: "43850809"
 
 ## <a name="administrator-reset-policy-differences"></a>管理员重置策略差异
 
-**Microsoft 对任何 Azure 管理员角色强制实施强大的默认双门密码重置策略**此策略可能与你为用户定义的策略不同，并且无法更改。 你应始终以未被分配任何 Azure 管理员角色的用户身份测试密码重置功能。
+***Microsoft 对任何 Azure 管理员角色强制实施强大的默认双门密码重置策略***，此策略可能与你为用户定义的策略不同，并且无法更改。 你应始终以未被分配任何 Azure 管理员角色的用户身份测试密码重置功能。
 
 使用双门策略，**管理员将无法使用安全问题**。
 
@@ -73,11 +73,11 @@ ms.locfileid: "43850809"
 
 ## <a name="userprincipalname-policies-that-apply-to-all-user-accounts"></a>适用于所有用户帐户的 UserPrincipalName 策略
 
-需登录到 Azure AD 的每个用户帐户都必须有唯一的与其帐户关联的用户主体名称 (UPN) 属性值。 下表概括了既适用于同步到云的本地 Active Directory 用户帐户又适用于仅限云的用户帐户的策略：
+需登录到 Azure AD 的每个用户帐户都必须有唯一的与其帐户关联的用户主体名称 (UPN) 属性值。 下表概括了既适用于同步到云的本地 Active Directory 用户帐户，又适用于仅限云的用户帐户的策略：
 
 | 属性 | UserPrincipalName 要求 |
 | --- | --- |
-| 允许的字符 |<ul> <li>A - Z</li> <li>a - z</li><li>0 - 9</li> <li> 上获取。 - \_ ! \# ^ \~</li></ul> |
+| 允许的字符 |<ul> <li>A - Z</li> <li>a - z</li><li>0 - 9</li> <li> \. - \_ ! \# ^ \~</li></ul> |
 | 不允许的字符 |<ul> <li>任何不分隔用户名和域的“\@\"”字符。</li> <li>不能包含紧靠在“\@\"”符号前面的点字符“.”</li></ul> |
 | 长度约束 |<ul> <li>总长度不能超过 113 个字符</li><li>在“\@\"”符号前最多能有 64 个字符</li><li>在“\@\"”符号后最多能有 48 个字符</li></ul> |
 

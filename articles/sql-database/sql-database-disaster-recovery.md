@@ -1,5 +1,5 @@
 ---
-title: SQL 数据库灾难恢复 | Azure
+title: SQL 数据库灾难恢复 | Microsoft 文档
 description: 了解在发生区域性的数据中心服务中断或故障后，如何使用 Azure SQL 数据库活动异地复制和异地还原功能来恢复数据库。
 services: sql-database
 author: yunan2016
@@ -10,12 +10,12 @@ ms.topic: article
 origin.date: 07/16/2018
 ms.date: 08/06/2018
 ms.author: v-nany
-ms.openlocfilehash: aa853627ec271ca3c5baf5ffd6b4188186139832
-ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
+ms.openlocfilehash: 3bf0ef7dcd49bfa9b3537419d61d021bdaa268c9
+ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39486755"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913776"
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>还原 Azure SQL 数据库或故障转移到辅助数据库
 Azure SQL 数据库提供以下功能，以便在服务中断后进行恢复：
@@ -96,7 +96,7 @@ Azure 团队会努力尽快还原服务可用性，但视根本原因而定，�
 如果需要通过审核来访问数据库，则需要在恢复数据库后启用审核。 有关详细信息，请参阅[数据库审核](sql-database-auditing.md)。
 
 ## <a name="next-steps"></a>后续步骤
-* 若要了解 Azure SQL 数据库的自动备份，请参阅 [SQL 数据库自动备份](sql-database-automated-backups.md)
+* 若要了解 Azure SQL 数据库自动备份的信息，请参阅 [SQL 数据库自动备份](sql-database-automated-backups.md)
 * 若要了解业务连续性设计和恢复方案，请参阅[连续性方案](sql-database-business-continuity.md)
 * 若要了解如何使用自动备份进行恢复，请参阅[从服务启动的备份中还原数据库](sql-database-recovery-using-backups.md)
 

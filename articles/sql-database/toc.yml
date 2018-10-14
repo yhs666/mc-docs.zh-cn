@@ -9,13 +9,19 @@ items:
     href: sql-database-paas-vs-sql-server-iaas.md
 - name: 快速入门
   items:
-  - name: 创建 DB - 门户
-    href: sql-database-get-started-portal.md
-  - name: 创建 DB - Azure CLI
-    href: sql-database-get-started-cli.md
-  - name: 创建 DB - Azure PowerShell
-    href: sql-database-get-started-powershell.md
-  - name: 连接和查询
+  - name: 创建
+    items:
+    - name: 单一数据库
+      href: sql-database-get-started-portal.md
+  - name: 配置
+    items:
+    - name: 逻辑服务器防火墙规则
+      href: sql-database-get-started-portal-firewall.md
+  - name: 加载数据
+    items:
+    - name: 将 BACPAC 导入到单个数据库
+      href: sql-database-import.md
+  - name: 查询
     href: sql-database-connect-query.md
     items:
     - name: SSMS
@@ -55,13 +61,9 @@ items:
     href: sql-database-security-tutorial.md
   - name: 5 - 实现地理分散的数据库
     href: sql-database-implement-geo-distributed-database.md
-  - name: 6 - 创建托管实例
-    href: sql-database-managed-instance-create-tutorial-portal.md
-  - name: 7 - 将备份还原到托管实例
-    href: sql-database-managed-instance-restore-from-backup-tutorial.md
-  - name: 8 - 使用 DMS 迁移到托管实例
+  - name: 6 - 使用 DMS 迁移到托管实例
     href: ../dms/tutorial-sql-server-to-managed-instance.md
-  - name: 9 - 设置 Azure SQL 数据同步
+  - name: 7 - 设置 Azure SQL 数据同步
     href: sql-database-get-started-sql-data-sync.md
 - name: 示例
   items:
@@ -263,26 +265,34 @@ items:
         href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
   - name: SQL 功能比较
     href: sql-database-features.md
-  - name: 监视和优化
+  - name: 性能和优化
     items:
-    - name: 监视和优化
-      href: sql-database-troubleshoot-performance.md
-    - name: 性能监视
-      href: sql-database-single-database-monitor.md
-    - name: 性能建议
-      href: sql-database-advisor.md
-    - name: 自动优化
+    - name: 智能性能
       items:
-      - name: 自动优化
-        href: sql-database-automatic-tuning.md
-      - name: 启用自动优化
-        href: sql-database-automatic-tuning-enable.md
-    - name: 性能建议
-      href: sql-database-performance.md
-    - name: 使用 Query Performance Insight
-      href: sql-database-query-performance.md
-    - name: 应用性能建议
-      href: sql-database-advisor-portal.md
+      - name: 查询
+        items:
+        - name: 智能查询处理
+          href: https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json
+        - name: 自适应查询处理
+          href: https://docs.microsoft.com/sql/relational-databases/performance/adaptive-query-processing?toc=/azure/sql-database/toc.json
+      - name: 监视和优化
+        items:
+        - name: 监视和优化概述
+          href: sql-database-monitor-tune-overview.md
+        - name: 数据库顾问性能建议
+          href: sql-database-advisor.md
+        - name: 优化操作和建议
+          href: sql-database-performance.md
+        - name: 应用性能建议
+          href: sql-database-advisor-portal.md
+      - name: Query Performance Insight
+        href: sql-database-query-performance.md
+      - name: 自动性能优化
+        items:
+        - name: 自动优化概述
+          href: sql-database-automatic-tuning.md
+        - name: 启用自动优化
+          href: sql-database-automatic-tuning-enable.md
     - name: 手动优化
       items:
       - name: 手动优化
@@ -291,16 +301,16 @@ items:
         href: sql-database-monitoring-with-dmvs.md
       - name: 操作 Query Store
         href: sql-database-operate-query-store.md
-    - name: 监视内存中存储
-      href: sql-database-in-memory-oltp-monitoring.md
-    - name: 扩展的事件
-      items:
+      - name: 内存中
+        href: sql-database-in-memory-oltp-monitoring.md
       - name: 扩展的事件
-        href: sql-database-xevent-db-diff-from-svr.md
-      - name: 扩展的事件 - 事件文件
-        href: sql-database-xevent-code-event-file.md
-      - name: 扩展的事件 - 环形缓冲区
-        href: sql-database-xevent-code-ring-buffer.md
+        items:
+        - name: 扩展的事件
+          href: sql-database-xevent-db-diff-from-svr.md
+        - name: 扩展的事件 - 事件文件
+          href: sql-database-xevent-code-event-file.md
+        - name: 扩展的事件 - 环形缓冲区
+          href: sql-database-xevent-code-ring-buffer.md
     - name: 创建警报
       href: sql-database-insights-alerts-portal.md
     - name: 排查连接问题
@@ -450,9 +460,9 @@ items:
     href: sql-database-public-data-sets.md
   - name: 定价
     href: https://www.azure.cn/pricing/details/sql-database/
-ms.openlocfilehash: de3ec51c2994487c487a63bf87e84a45617f788a
-ms.sourcegitcommit: 2601e68563bffe148e70cce2bf1dcbe837a40f80
+ms.openlocfilehash: a0aa3a09a5008c04b16b1e6a52285f1ec1986186
+ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43249634"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913837"

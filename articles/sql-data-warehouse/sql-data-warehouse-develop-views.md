@@ -1,24 +1,25 @@
 ---
-title: 在 Azure SQL 数据仓库中使用 T-SQL 视图 | Azure
-description: 有关在开发解决方案时使用 Azure SQL 数据仓库中的 Transact-SQL 视图的技巧。
-author: rockboyfor
-manager: jhubbard
+title: 在 Azure SQL 数据仓库中使用 T-SQL 视图 | Microsoft Docs
+description: 有关在开发解决方案时使用 Azure SQL 数据仓库中的 T-SQL 视图的技巧。
+services: sql-data-warehouse
+author: WenJason
+manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
-origin.date: 10/31/2016
-ms.date: 03/20/2017
-ms.author: v-yeche
-ms.openlocfilehash: bbef21a2bf3f5c4edec1b5a869632cbae867f24b
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+origin.date: 04/17/2018
+ms.date: 10/15/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: 039c8ec8735eb5a3832b973857d4dd5a7bf9a6ea
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121265"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49089167"
 ---
 # <a name="views-in-azure-sql-data-warehouse"></a>Azure SQL 数据仓库中的视图
 有关在开发解决方案时使用 Azure SQL 数据仓库中的 T-SQL 视图的技巧。 
-
 
 ## <a name="why-use-views"></a>为何使用视图？
 可以通过多种不同的方式使用视图来提升解决方案的质量。  本文重点介绍几个示例，说明如何使用视图来丰富解决方案，以及需要注意的限制。

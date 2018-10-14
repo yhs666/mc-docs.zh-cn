@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 origin.date: 06/07/2018
 ms.author: v-yiso
-ms.date: 08/20/2018
-ms.openlocfilehash: 60d5bb9e87f96454b8e886c70aa94b3a76401608
-ms.sourcegitcommit: 664584f55e0a01bb6558b8d3349d41d3f05ba4d7
+ms.date: 10/22/2018
+ms.openlocfilehash: be4d3d21c19d2e22eb2f5dd92f9cfc8c42ba0114
+ms.sourcegitcommit: 8a5722b85c6eabbd28473d792716ad44aac3ff23
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41704719"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49121544"
 ---
 # <a name="archive-the-azure-activity-log"></a>存档 Azure 活动日志
 本文介绍如何使用 Azure 门户、PowerShell Cmdlet 或跨平台 CLI 将 [Azure 活动日志](./monitoring-overview-activity-logs.md)存档到存储帐户中。 此选项适用于对保留时长超过 90 天的活动日志进行审核、静态分析或备份（对保留策略具备完全控制权限）。 如果只需将事件保留 90 天或更短的时间，则不需设置到存储帐户的存档，因为在不启用存档的情况下，活动日志事件保留在 Azure 平台中的时间是 90 天。
@@ -24,7 +24,7 @@ ms.locfileid: "41704719"
 > 
 
 ## <a name="prerequisites"></a>先决条件
-在开始之前，需要[创建存储帐户](../storage/common/storage-create-storage-account.md#create-a-storage-account)，将活动日志存档到其中。 强烈建议用户不要使用其中存储了其他非监视数据的现有存储帐户，以便更好地控制监视数据所需的访问权限。 但是，如果还要将诊断日志和指标存档到存储帐户，则也可将该存储帐户用于活动日志，使得所有监视数据都位于一个中心位置。 只要配置设置的用户同时拥有两个订阅的相应 RBAC 访问权限，存储帐户就不必与订阅发出日志位于同一订阅中。
+在开始之前，需要[创建存储帐户](../storage/common/storage-quickstart-create-account.md)，将活动日志存档到其中。 强烈建议用户不要使用其中存储了其他非监视数据的现有存储帐户，以便更好地控制监视数据所需的访问权限。 但是，如果还要将诊断日志和指标存档到存储帐户，则也可将该存储帐户用于活动日志，使得所有监视数据都位于一个中心位置。 只要配置设置的用户同时拥有两个订阅的相应 RBAC 访问权限，存储帐户就不必与订阅发出日志位于同一订阅中。
 
 > [!NOTE]
 >  当前无法将数据存档到安全虚拟网络中的存储帐户。
@@ -67,7 +67,7 @@ ms.locfileid: "41704719"
 | StorageAccountId |是 |应该将活动日志保存到其中的存储帐户的资源 ID。 |
 | 位置 |是 |要为其收集活动日志事件的逗号分隔区域的列表。 可以使用 `(Get-AzureRmLocation).Location` 查看订阅的所有区域列表。 |
 | RetentionInDays |否 |事件的保留天数，介于 1 到 2147483647 之间。 值为零时，将无限期（永久）存储日志。 |
-| Categories |否 |应收集的事件类别的逗号分隔列表。 可能值包括：Write、Delete 和 Action。  如果未提供，则假定所有可能的值 |
+| 类别 |否 |应收集的事件类别的逗号分隔列表。 可能值包括：Write、Delete 和 Action。  如果未提供，则假定所有可能的值 |
 
 ## <a name="archive-the-activity-log-via-cli"></a>通过 CLI 存档活动日志
 

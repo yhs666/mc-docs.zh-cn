@@ -1,22 +1,22 @@
 ---
-title: Always Encrypted：SQL 数据库 - Azure Key Vault | Azure
+title: 始终加密：SQL 数据库 - Azure Key Vault | Microsoft 文档
 description: 本文演示如何使用 SQL Server Management Studio 中的始终加密向导，通过数据加密来保护 SQL 数据库中的敏感数据。
 keywords: 数据加密, 加密密钥, 云加密
 services: sql-database
-author: forester123
+author: WenJason
 manager: digimobile
 ms.service: sql-database
 ms.custom: security
-ms.topic: article
+ms.topic: conceptual
 origin.date: 04/01/2018
-ms.date: 04/17/2018
-ms.author: v-johch
-ms.openlocfilehash: 57a3bd6860f969d366b14d2f69c39f37c3599bcb
-ms.sourcegitcommit: 2a147231bf3d0a693adf58fceee76ab0fbcd6dbb
+ms.date: 10/15/2018
+ms.author: v-jay
+ms.openlocfilehash: fcf01c00a84c281199a7f19e6295af5222761bb5
+ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39335319"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913848"
 ---
 # <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-azure-key-vault"></a>始终加密：保护 SQL 数据库中的敏感数据并将加密密钥存储在 Azure 密钥保管库中
 
@@ -103,7 +103,7 @@ ms.locfileid: "39335319"
 
 1. 展开“数据库”。
 2. 右键单击“Clinic”数据库，并单击“新建查询”。
-3. 将以下 Transact-SQL (T-SQL) 粘贴到新查询窗口中，然后“执行”它。
+3. 将以下 Transact-SQL (T-SQL) 粘贴到新查询窗口中，并“执行”它。
 
         CREATE TABLE [dbo].[Patients](
          [PatientId] [int] IDENTITY(1,1),
@@ -176,7 +176,7 @@ SSMS 提供了一个向导，通过设置列主密钥、列加密密钥和已加
 > 
 
 1. 打开 Visual Studio 并创建新的 C# **控制台应用程序**（Visual Studio 2015 和更低版本）或**控制台应用 (.NET Framework)**（Visual Studio 2017 和更高版本）。 确保将项目设置为 **.NET Framework 4.6** 或更高版本。
-2. 将项目命名为 **AlwaysEncryptedConsoleAKVApp**，然后单击“确定”。
+2. 将项目命名为 **AlwaysEncryptedConsoleAKVApp**，并单击“确定”。
 3. 通过转到“工具” > “NuGet 包管理器” > “包管理器控制台”来安装以下 NuGet 包。
 
 在包管理器控制台中运行以下 2 行代码。
@@ -189,7 +189,7 @@ SSMS 提供了一个向导，通过设置列主密钥、列加密密钥和已加
 ## <a name="modify-your-connection-string-to-enable-always-encrypted"></a>修改连接字符串以启用始终加密
 本节介绍如何在数据库连接字符串中启用始终加密。
 
-要启用“始终加密”，需要将“列加密设置”关键字添加到连接字符串中，并将其设置为“启用”。
+要启用“始终加密”，你需要将“列加密设置”关键字添加到连接字符串中，并将其设置为“启用”。
 
 可以在连接字符串中直接进行该设置，也可以使用 [SqlConnectionStringBuilder](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectionstringbuilder.aspx) 进行设置。 下一节中的示例应用程序演示如何使用 **SqlConnectionStringBuilder**。
 
@@ -596,7 +596,9 @@ SSMS 提供了一个向导，通过设置列主密钥、列加密密钥和已加
 
    ![新建控制台应用程序](./media/sql-database-always-encrypted-azure-key-vault/ssms-encrypted.png)
 
-要使用 SSMS 来访问明文数据，可将 *Column Encryption Setting=enabled* 参数添加到连接中。
+若要使用 SSMS 访问纯文本数据，首先需要确保用户具有 Azure Key Vault 的适当权限：get、unwrapKey 和 verify。 有关详细信息，请参阅[创建和存储列主密钥 (Always Encrypted)](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted?view=sql-server-2017)。
+
+然后在连接期间添加 *Column Encryption Setting=enabled* 参数。
 
 1. 在 SSMS 中，右键单击“对象资源管理器”中的服务器，并选择“断开连接”。
 2. 单击“连接” > “数据库引擎”打开“连接到服务器”窗口，并单击“选项”。

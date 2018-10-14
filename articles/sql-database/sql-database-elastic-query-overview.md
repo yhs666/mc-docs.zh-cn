@@ -1,21 +1,21 @@
 ---
-title: Azure SQL 数据库弹性查询概述 | Azure
+title: Azure SQL 数据库弹性查询概述 | Microsoft Docs
 description: 使用弹性查询可运行跨多个数据库的 Transact-SQL 查询。
 services: sql-database
 manager: digimobile
-author: forester123
+author: WenJason
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
-origin.date: 07/03/2018
-ms.date: 08/06/2018
-ms.author: v-johch
-ms.openlocfilehash: 93b936b62b97d9eac486744ee022ae86ada7dea8
-ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
+ms.topic: conceptual
+origin.date: 09/14/2018
+ms.date: 10/15/2018
+ms.author: v-jay
+ms.openlocfilehash: ff9811b75bb27078efdf94b0395b7018f483ddda
+ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39486711"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913871"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Azure SQL 数据库弹性查询概述（预览版）
 
@@ -29,7 +29,7 @@ ms.locfileid: "39486711"
 
 ### <a name="available-on-standard-tier"></a>在标准层上可用
 
-标准和高级性能层均支持弹性查询。 有关较低性能层的性能限制，请参阅下面有关预览版限制的部分。
+“标准”和“高级”服务层均支持弹性查询。 有关较低服务层的性能限制，请参阅下面有关预览版限制的部分。
 
 ### <a name="push-parameters-to-remote-databases"></a>将参数推送到远程数据库
 
@@ -102,7 +102,7 @@ ms.locfileid: "39486711"
 
 > [!NOTE]
 > 弹性查询数据库（头节点）可以是单独的数据库，也可以是承载分片映射的相同数据库。
-> 无论选择何种配置，请确保该数据库的服务和性能层足够高，以便处理预期的登录/查询请求数。
+> 无论选择何种配置，请确保该数据库的服务层和计算大小足够高，以便处理预期的登录/查询请求数。
 
 通过以下步骤，为水平分区方案（需要访问通常位于多个远程 SQL 数据库上的一组表）配置弹性数据库查询：
 
@@ -134,7 +134,7 @@ ms.locfileid: "39486711"
 
 ## <a name="preview-limitations"></a>预览版限制
 
-* 在标准性能层上运行第一个弹性查询可能需要长达几分钟时间。 此时间是加载弹性查询功能所必需的；使用更高级性能层可提高加载性能。
+* 在“标准”服务层上运行第一个弹性查询可能需要长达几分钟时间。 此时间是加载弹性查询功能所必需的；使用更高的服务层和计算大小可提高加载性能。
 * 尚不支持从 SSMS 或 SSDT 对外部数据源或外部表进行脚本编写。
 * SQL 数据库的导入/导出尚不支持外部数据源和外部表。 如果需要使用导入/导出，请在导出之前删除这些对象，并在导入后重新创建它们。
 * 弹性查询当前仅支持对外部表进行只读访问。 但是，可以对在其中定义了外部表的数据库使用完整的 T-SQL 功能。 这可能对以下操作很有用：例如，使用（例如）SELECT <column_list> INTO <local_table>持久保存临时结果，或在引用外部表的弹性查询数据库中定义存储过程。

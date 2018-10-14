@@ -6,14 +6,14 @@ services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 origin.date: 07/25/2018
-ms.date: 09/17/2018
+ms.date: 10/22/2018
 ms.author: v-yiso
-ms.openlocfilehash: c588ec94859d51b44dabbba4ce8dd44c5b029437
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.openlocfilehash: 4ace3999897b5ce77c02ae07e58ea0ba37a9c6e4
+ms.sourcegitcommit: 8a5722b85c6eabbd28473d792716ad44aac3ff23
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068030"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49121529"
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>将 Azure 诊断日志流式传输到事件中心
 可将 **[Azure 诊断日志](monitoring-overview-of-diagnostic-logs.md)** 近实时地流式传输到任何应用程序，方法是使用门户中的内置“导出到事件中心”选项，或者通过 Azure PowerShell Cmdlet 或 Azure CLI 2.0 在诊断设置中启用事件中心授权规则 ID。
@@ -187,7 +187,7 @@ az monitor diagnostic-settings create --name <diagnostic name> \
 可以在[此处](monitoring-overview-of-diagnostic-logs.md)查看支持流式传输到事件中心的所有资源提供程序的列表。
 
 ## <a name="stream-data-from-compute-resources"></a>对来自计算资源的数据进行流式处理
-还可以使用 Windows Azure 诊断代理对来自计算资源的诊断日志进行流式处理。 [请参阅本文](../event-hubs/event-hubs-streaming-azure-diags-data.md)了解如何进行设置。
+还可以使用 Windows Azure 诊断代理对来自计算资源的诊断日志进行流式处理。 [请参阅本文](../event-hubs/event-hubs-streaming-azure-diags-data.md) 了解如何进行设置。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/18/2017
-ms.date: 05/28/2018
+ms.date: 10/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: 591a7d42425f8299f7bd285a3036840314589cf0
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: 2fe5a96cde9cc61ec93f909b5570ab6791231250
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554370"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49089057"
 ---
 # <a name="introduction-to-application-groups"></a>应用程序组简介
 Service Fabric 的群集 Resource Manager 通常通过将负载（通过[指标](service-fabric-cluster-resource-manager-metrics.md)表示）平均分散到整个群集来管理群集资源。 Service Fabric 管理群集中节点的容量，并通过[容量](service-fabric-cluster-resource-manager-cluster-description.md)管理整个群集。 指标和容量非常适用于许多种工作负荷，但大量使用不同 Service Fabric 应用程序实例的模式有时还有其他要求。 例如，如果想要：
@@ -48,7 +48,7 @@ Powershell
 
 ``` posh
 New-ServiceFabricApplication -ApplicationName fabric:/AppName -ApplicationTypeName AppType1 -ApplicationTypeVersion 1.0.0.0 -MaximumNodes 3
-Update-ServiceFabricApplication -Name fabric:/AppName -MaximumNodes 5
+Update-ServiceFabricApplication -ApplicationName fabric:/AppName -MaximumNodes 5
 ```
 
 C#
@@ -107,14 +107,14 @@ await fc.ApplicationManager.CreateApplicationAsync(ad);
 - 应用程序实例中的服务数每次都会发生更改 
 - 服务存在，但不会消耗资源 
 
-为应用程序实例保留资源需要指定两个附加参数：*MinimumNodes* 和 *NodeReservationCapacity*
+为应用程序实例保留资源需要指定两个附加参数：MinimumNodes 和 NodeReservationCapacity
 
 - **MinimumNodes** - 定义应用程序实例应在其上运行的最小节点数。  
 - **NodeReservationCapacity** - 此设置是应用程序的各项指标。 应用程序中的服务在节点上运行，该值是为该节点上的该应用程序保留的该指标的量。
 
-结合使用 **MinimumNodes** 和 **NodeReservationCapacity** 可以保证为群集中的应用程序保留最小负载。 如果群集中存在的剩余容量比所需要的总保留容量小，则无法创建应用程序。 
+结合使用 MinimumNodes 和 NodeReservationCapacity 可以保证为群集中的应用程序保留最小负载。 如果群集中存在的剩余容量比所需要的总保留容量小，则无法创建应用程序。 
 
-让我们看看容量保留的示例：
+下面是容量保留的一个示例：
 
 <center>
 ![定义保留容量的应用程序实例][Image2]
@@ -152,7 +152,7 @@ ad.Metrics.Add(appMetric);
 await fc.ApplicationManager.CreateApplicationAsync(ad);
 ```
 
-Service Fabric 为 Application1 保留两个节点上的容量，并不允许 Application2 的服务使用该容量，即使此时 Application1 中的服务唯有消耗负载。 我们认为这些保留的应用程序容量是根据该节点上和群集中的剩余容量消耗和计算的。  可以立即从剩余的群集容量中扣除保留容量，但是仅当特定节点上至少放置一个服务对象时，才从该节点的容量扣除保留的消耗量。 后种保留允许更好地灵活利用资源，因为必要时仅在节点上保留资源。
+Service Fabric 为 Application1 保留两个节点上的容量，并不允许 Application2 的服务使用该容量，即使此时 Application1 中的服务唯有消耗负载。 我们认为这些保留的应用程序容量是根据该节点上和群集中的剩余容量消耗和计算的。  可以立即从剩余的群集容量中扣除保留容量，但是仅当特定节点上至少放置一个服务对象时，才从该节点的容量扣除保留的消耗量。 使用后面这种保留方式可以获得弹性并改善资源利用率，因为只会根据需要在节点上保留资源。
 
 ## <a name="obtaining-the-application-load-information"></a>获取应用程序负载信息
 对于每个应用程序，如果具有为一个或多个指标定义的应用程序容量，可以获取其服务的副本报告的聚合负载的相关信息。
@@ -160,7 +160,7 @@ Service Fabric 为 Application1 保留两个节点上的容量，并不允许 Ap
 Powershell：
 
 ``` posh
-Get-ServiceFabricApplicationLoad -ApplicationName fabric:/MyApplication1
+Get-ServiceFabricApplicationLoadInformation -ApplicationName fabric:/MyApplication1
 ```
 
 C#
@@ -211,11 +211,11 @@ Update-ServiceFabricApplication -Name fabric:/MyApplication1 -RemoveApplicationC
 ## <a name="next-steps"></a>后续步骤
 - 有关配置服务的详细信息，请参阅[了解如何配置服务](service-fabric-cluster-resource-manager-configure-services.md)
 - 若要了解群集 Resource Manager 如何管理和均衡群集中的负载，请查看有关[均衡负载](service-fabric-cluster-resource-manager-balancing.md)的文章
-- 从头开始并[获取 Service Fabric 群集 Resource Manager 简介](service-fabric-cluster-resource-manager-introduction.md)
+- 参阅 [Service Fabric 群集 Resource Manager 简介](service-fabric-cluster-resource-manager-introduction.md)
 - 有关在一般情况下指标的工作原理的详细信息，请参阅 [Service Fabric 负载指标](service-fabric-cluster-resource-manager-metrics.md)
 - 群集 Resource Manager 提供许多用于描述群集的选项。 若要详细了解这些选项，请查看这篇[描述 Service Fabric 群集](service-fabric-cluster-resource-manager-cluster-description.md)的文章
 
 [Image1]:./media/service-fabric-cluster-resource-manager-application-groups/application-groups-max-nodes.png
 [Image2]:./media/service-fabric-cluster-resource-manager-application-groups/application-groups-reserved-capacity.png
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, wording update -->

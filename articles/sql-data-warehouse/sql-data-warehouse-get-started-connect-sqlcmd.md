@@ -1,27 +1,22 @@
 ---
-title: 连接到 Azure SQL 数据仓库 sqlcmd | Azure
+title: 连接到 Azure SQL 数据仓库 sqlcmd |Microsoft 文档
 description: 使用 [sqlcmd][sqlcmd] 命令行实用工具连接和查询 Azure SQL 数据仓库。
 services: sql-data-warehouse
-documentationcenter: NA
-author: rockboyfor
+author: WenJason
 manager: digimobile
-editor: ''
-ms.assetid: 6e2b69e5-4806-4e91-9ea1-e2b63bf28c46
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: connect
-origin.date: 10/31/2016
-ms.date: 07/17/2017
-ms.author: v-yeche
-ms.openlocfilehash: d0d4f4dc3ff818259d3cebe0945eaebf78f0db5a
-ms.sourcegitcommit: 3727b139aef04c55efcccfa6a724978491b225a4
+ms.topic: conceptual
+ms.component: consume
+origin.date: 04/17/2018
+ms.date: 10/15/2018
+ms.author: v-jay
+ms.reviewer: igorstan
+ms.openlocfilehash: 1c17adb5d5d8fe2f51f1894c02d0f3b6782860cf
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2017
-ms.locfileid: "20259164"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49088971"
 ---
 # <a name="connect-to-sql-data-warehouse-with-sqlcmd"></a>使用 sqlcmd 连接到 SQL 数据仓库
 > [!div class="op_single_selector"]
@@ -45,7 +40,7 @@ ms.locfileid: "20259164"
 * 用户 (-U)：采用 `<`用户`>` 格式的服务器用户
 * 密码 (-P)：与用户关联的密码。
 
-例如，你的连接字符串可能如下所示：
+例如，连接字符串可能如下所示：
 
 ```sql
 C:\>sqlcmd -S MySqlDw.database.chinacloudapi.cn -d Adventure_Works -U myuser -P myP@ssword -I
@@ -55,7 +50,7 @@ C:\>sqlcmd -S MySqlDw.database.chinacloudapi.cn -d Adventure_Works -U myuser -P 
 
 * Azure Active Directory 身份验证 (-G)：使用 Azure Active Directory 进行身份验证
 
-例如，你的连接字符串可能如下所示：
+例如，连接字符串可能如下所示：
 
 ```sql
 C:\>sqlcmd -S MySqlDw.database.chinacloudapi.cn -d Adventure_Works -G -I

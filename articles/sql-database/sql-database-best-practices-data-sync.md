@@ -1,20 +1,20 @@
 ---
-title: Azure SQL 数据同步最佳做法 | Azure
+title: Azure SQL 数据同步最佳做法 | Microsoft Docs
 description: 了解有关配置和运行 Azure SQL 数据同步的最佳做法。
 services: sql-database
-ms.topic: article
+origin.date: 08/20/2018
+ms.date: 10/15/2018
+ms.topic: conceptual
 ms.service: sql-database
-author: yunan2016
-origin.date: 07/03/2018
-ms.date: 08/06/2018
-ms.author: v-nany
-manager: digimobile
-ms.openlocfilehash: 45fdc4396e0b3dcb65abee4091626347798af6ee
-ms.sourcegitcommit: 2a147231bf3d0a693adf58fceee76ab0fbcd6dbb
+author: WenJason
+ms.author: v-jay
+manager: craigg
+ms.openlocfilehash: da3b8630c3a579162db12d2cf16fd36eab644fe1
+ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39335321"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48914004"
 ---
 # <a name="best-practices-for-sql-data-sync"></a>SQL 数据同步最佳做法 
 
@@ -78,15 +78,14 @@ SQL 数据同步提供了基本的数据库自动预配。
 
 SQL 数据同步自动预配的限制如下：
 
--   在目标表中仅选择已创建的列。  
-    在目标表中，不会对不属于同步组一部分的任何列进行预配。
--   仅为所选列创建索引。  
-    如果源表索引包含不是同步组一部分的列，则不会在目标表中预配这些索引。  
+-   在目标表中仅选择已创建的列。 在目标表中，不会对不属于同步组一部分的任何列进行预配。
+-   仅为所选列创建索引。 如果源表索引包含不是同步组一部分的列，则不会在目标表中预配这些索引。  
 -   不会预配 XML 类型列上的索引。  
 -   不会预配 CHECK 约束。  
 -   不会预配源表上的现有触发器。  
 -   不会在目标数据库上创建视图和存储的过程。
 -   对外键约束的 ON UPDATE CASCADE 和 ON DELETE CASCADE 操作不会在目标表中重新创建。
+-   如果具有精度大于 28 的十进制或数值列，则 SQL 数据同步在同步期间可能出现转换溢出问题。建议将十进制或数值列的精度限制为 28 或更小。
 
 #### <a name="recommendations"></a>建议
 
@@ -219,7 +218,6 @@ SQL 数据同步自动预配的限制如下：
 -   演示如何配置 SQL 数据同步的完整 PowerShell 示例：  
     -   [使用 PowerShell 在多个 Azure SQL 数据库之间进行同步](scripts/sql-database-sync-data-between-sql-databases.md)  
     -   [使用 PowerShell 在 Azure SQL 数据库和 SQL Server 本地数据库之间进行同步](scripts/sql-database-sync-data-between-azure-onprem.md)  
--   [下载 SQL 数据同步 REST API 文档](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)  
 
 有关 SQL 数据库的详细信息，请参阅：
 

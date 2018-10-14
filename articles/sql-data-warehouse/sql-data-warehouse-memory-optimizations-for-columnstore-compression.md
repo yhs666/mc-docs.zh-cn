@@ -1,27 +1,22 @@
 ---
-title: 提高列存储索引的性能 - Azure SQL 数据仓库 | Azure
+title: 提高列存储索引的性能 - Azure SQL 数据仓库 | Microsoft Docs
 description: 减少内存需求或增加可用内存，使列存储索引压缩到每个行组中的行数最大化。
 services: sql-data-warehouse
-documentationcenter: NA
-author: rockboyfor
+author: WenJason
 manager: digimobile
-editor: ''
-ms.assetid: ef170f39-ae24-4b04-af76-53bb4c4d16d3
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: performance
-origin.date: 03/15/2018
-ms.date: 04/25/2018
-ms.author: v-yeche
-ms.openlocfilehash: 2423560d28355f79102d1b2ece39024b43d38350
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.topic: conceptual
+ms.component: implement
+origin.date: 04/17/2018
+ms.date: 10/15/2018
+ms.author: v-jay
+ms.reviewer: igorstan
+ms.openlocfilehash: 02871391d1ad454a711118a1b24e297be70d907b
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121506"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49089040"
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>最大化列存储的行组质量
 
@@ -103,6 +98,7 @@ To view an estimate of the memory requirements to compress a rowgroup of maximum
 ### <a name="use-fewer-columns"></a>减少所用列数
 设计表时尽可能减少所用列数。 如果行组已压缩到列存储中，列存储索引会单独压缩每个列段。 因此，用于压缩行组的内存需求随列数的增加而增加。
 
+
 ### <a name="use-fewer-string-columns"></a>减少字符串列数
 字符串数据类型的列比数字和日期数据类型需要更多内存。 要减少内存需求，请考虑从事实表中删除字符串列，并将其置于维度较小的表中。
 
@@ -150,16 +146,8 @@ DWU 大小和用户资源类共同确定用户查询可用的内存量。 若要
 - 使用 DWU 1000 和 mediumrc，则内存授予为 800 MB
 - 使用 DWU 600 和 largerc，则内存授予为 800 MB。
 
+
 ## <a name="next-steps"></a>后续步骤
 
 若要了解提升 SQL 数据仓库中性能的更多方法，请参阅[性能概述](sql-data-warehouse-overview-manage-user-queries.md)。
 
-<!--Image references-->
-
-<!--Article references-->
-
-<!--MSDN references-->
-
-<!--Other Web references-->
-
-<!--Update_Description: update meta properties, wording update-->

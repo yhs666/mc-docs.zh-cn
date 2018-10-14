@@ -1,5 +1,5 @@
 ---
-title: 获取应用身份验证的值 - Azure SQL 数据库 | Azure
+title: 获取应用身份验证的值 - Azure SQL 数据库 | Microsoft Docs
 description: 创建服务主体以便从代码访问 SQL 数据库。
 services: sql-database
 author: Hayley244
@@ -10,12 +10,12 @@ ms.topic: article
 origin.date: 04/01/2018
 ms.date: 04/17/2018
 ms.author: v-haiqya
-ms.openlocfilehash: ec289b4d6c6dcd9d45c3f230d539d804a8d0545b
-ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
+ms.openlocfilehash: ccb795766f317e31f6fd5c78b0dab952e23291de
+ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39487071"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913928"
 ---
 # <a name="get-the-required-values-for-authenticating-an-application-to-access-sql-database-from-code"></a>获取对应用程序进行身份验证所需的值以便从代码访问 SQL 数据库
 若要在代码中创建并管理 SQL 数据库，必须在创建 Azure 资源的订阅中的 Azure Active Directory (AAD) 域内注册你的应用。

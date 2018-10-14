@@ -13,15 +13,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 02/26/2018
-ms.date: 08/20/2018
+ms.date: 10/15/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: f4fa92d5c150af6212af881455773f525a706afe
-ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
+ms.openlocfilehash: df034c28c6c5ed9c4e47a91636cc0499c2a287c7
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41706233"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49089169"
 ---
 # <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>教程：将 Java 应用程序部署到 Azure 中的 Service Fabric 群集
 
@@ -38,8 +38,10 @@ ms.locfileid: "41706233"
 > [!div class="checklist"]
 > * [生成 Java Service Fabric Reliable Services 应用程序](service-fabric-tutorial-create-java-app.md)
 > * [在本地群集上部署和调试应用程序](service-fabric-tutorial-debug-log-local-cluster.md)
-> * 将应用程序部署到 Azure 群集 <!-- Not Avaiable on > * [Set up monitoring and diagnostics for the application](service-fabric-tutorial-java-elk.md)-->
+> * 将应用程序部署到 Azure 群集
 > * [设置 CI/CD](service-fabric-tutorial-java-jenkins.md)
+
+<!-- Not Avaiable on [Set up monitoring and diagnostics for the application](service-fabric-tutorial-java-elk.md)-->
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -171,9 +173,9 @@ ms.locfileid: "41706233"
     https%3A%2F%testeventhub.servicebus.chinacloudapi.cn%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender
     ```
 
-    EventHubs 的 SAS URL 遵循以下结构：https://<namespacename>.servicebus.chinacloudapi.cn/<eventhubsname>?sr=<sastoken>。 例如： https://testeventhubnamespace.servicebus.chinacloudapi.cn/testeventhub?sr=https%3A%2F%testeventhub.servicebus.chinacloudapi.cn%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender
+    EventHubs 的 SAS URL 遵循以下结构： https://<namespacename>.servicebus.chinacloudapi.cn/<eventhubsname>?sr=<sastoken>。 例如： https://testeventhubnamespace.servicebus.chinacloudapi.cn/testeventhub?sr=https%3A%2F%testeventhub.servicebus.chinacloudapi.cn%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender
 
-12. 打开 *sfdeploy.parameters.json* 文件，替换前述步骤中的以下内容
+12. 打开 *sfdeploy.parameters.json* 文件，替换前述步骤中的以下内容。 [SAS-URL-STORAGE-ACCOUNT] 已在步骤 8 中记录。 [SAS-URL-EVENT-HUBS] 已在步骤 11 中记录。
 
     ```json
     "applicationDiagnosticsStorageAccountName": {
@@ -187,7 +189,12 @@ ms.locfileid: "41706233"
     }
     ```
 
-13. 运行以下命令，创建 Service Fabric 群集
+13. 打开 **sfdeploy.parameters.json**。 更改以下参数，然后保存文件。
+    - **clusterName**。 只使用小写字母和数字。
+    - **adminUserName**（更改为非空值）
+    - **adminPassword**（更改为非空值）
+
+14. 运行以下命令，创建 Service Fabric 群集
 
     ```bash
     az sf cluster create --location 'chinanorth' --resource-group 'testlinux' --template-file sfdeploy.json --parameter-file sfdeploy.parameters.json --secret-identifier <certificate_url_from_step4>
@@ -206,13 +213,13 @@ ms.locfileid: "41706233"
 2. 若要将应用程序部署到此群集，必须使用 SFCTL 来建立到群集的连接。 SFCTL 需要一个带有公钥和私钥的 PEM 文件才能连接到群集。 运行以下命令以生成带有公钥和私钥的 PEM 文件。 
 
     ```bash
-    openssl pkcs12 -in testservicefabric.chinanorth.cloudapp.chinacloudapi.cn.pfx -out sfctlconnection.pem -nodes -passin pass:<password>
+    openssl pkcs12 -in <clustername>.<region>.cloudapp.chinacloudapi.cn.pfx -out sfctlconnection.pem -nodes -passin pass:<password>
     ```
 
 3. 运行以下命令以连接到群集。
 
     ```bash
-    sfctl cluster select --endpoint https://testlinuxcluster.chinanorth.cloudapp.chinacloudapi.cn:19080 --pem sfctlconnection.pem --no-verify
+    sfctl cluster select --endpoint https://<clustername>.<region>.cloudapp.chinacloudapi.cn:19080 --pem sfctlconnection.pem --no-verify
     ```
 
 4. 若要部署应用程序，请导航到 *Voting/Scripts* 文件夹，然后运行 **install.sh** 脚本。
@@ -245,4 +252,5 @@ ms.locfileid: "41706233"
 > * 可选：如何使用合作群集来试用 Service Fabric
 
 <!-- Not Available on [Set up Monitoring & Diagnostics](service-fabric-tutorial-java-elk.md)-->
+
 <!-- Update_Description: wording update, update link  -->

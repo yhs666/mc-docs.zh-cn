@@ -1,5 +1,5 @@
 ---
-title: 构建可缩放的云数据库 | Azure
+title: 构建可缩放的云数据库 | Microsoft 文档
 description: 使用弹性数据库客户端库构建可缩放的 .NET 数据库应用
 services: sql-database
 manager: digimobile
@@ -10,12 +10,12 @@ ms.topic: article
 origin.date: 04/01/2018
 ms.date: 04/17/2018
 ms.author: v-nany
-ms.openlocfilehash: aa864ae79dd14c31447a8d85b5e512ef563b45ca
-ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
+ms.openlocfilehash: 1a04e2d8c25d51d45a5f5e6efdcf5d15c79060b7
+ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39486541"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913800"
 ---
 # <a name="building-scalable-cloud-databases"></a>构建可缩放的云数据库
 使用 Azure SQL 数据库的可缩放工具和功能，可以轻松扩大数据库。 特别是，可以使用 **弹性数据库客户端库** 来创建和管理扩大的数据库。 此功能可让你使用成百上千个 Azure SQL 数据库，轻松地开发分片应用程序。
@@ -46,7 +46,7 @@ ms.locfileid: "39486541"
 
 - **分片映射管理**：创建一个称为“分片映射管理器”的特殊数据库。 分片映射管理是一种使应用程序能够管理其分片相关元数据的功能。 开发人员可使用此功能将数据库注册为分片（描述各个分片键或键范围到这些数据库的映射），并随着数据库的数量和组成发展来维护此元数据，以反映容量更改。 如果不使用弹性数据库客户端库，实现分片时你必须花费大量时间来编写管理代码。 有关详细信息，请参阅[分片映射管理](sql-database-elastic-scale-shard-map-management.md)。
 
-- **数据依赖型路由**：假设将一个请求传入应用程序。 基于请求的分片键值，应用程序必须根据该键值判断正确的数据库。 接着，它会与数据库建立连接来处理请求。 借助依赖于数据的路由，能够通过对应用程序的分片映射的单个简单调用打开连接。 依赖于数据的路由是基础结构代码的另一个区域，现在它由弹性数据库客户端库中的功能所取代。 有关详细信息，请参阅[数据依赖型路由](sql-database-elastic-scale-data-dependent-routing.md)。
+- **依赖于数据的路由**：假设将一个请求传入应用程序。 基于请求的分片键值，应用程序必须根据该键值判断正确的数据库。 接着，它会与数据库建立连接来处理请求。 借助依赖于数据的路由，能够通过对应用程序的分片映射的单个简单调用打开连接。 依赖于数据的路由是基础结构代码的另一个区域，现在它由弹性数据库客户端库中的功能所取代。 有关详细信息，请参阅[数据依赖型路由](sql-database-elastic-scale-data-dependent-routing.md)。
 - **多分片查询 (MSQ)**：当一个请求涉及多个（或所有）分片时，多分片查询将生效。 多分片查询在所有分片或一组分片上执行相同的 T-SQL 代码。 使用 UNION ALL 语义，将参与分片中的结果合并到一个总结果集中。 通过客户端库公开的功能处理多个任务，其中包括：连接管理、线程管理、故障处理和中间结果处理。 MSQ 最多可以查询数百个分片。 有关详细信息，请参阅[多分片查询](sql-database-elastic-scale-multishard-querying.md)。
 
 一般而言，当使用弹性数据库工具的客户提交具有其自己的语义的局部分片操作（与跨分片操作相对）时，预期可获取完整的 T-SQL 功能。

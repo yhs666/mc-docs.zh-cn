@@ -13,12 +13,12 @@ ms.topic: conceptual
 origin.date: 09/07/2018
 ms.date: 09/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: f05bb0e3d409e443723356175d06531a84c7129b
-ms.sourcegitcommit: 5616622f754f3b83c7120a3d1344d0344e03ca61
+ms.openlocfilehash: 17462a8a4446af57eb9ec02d49c96289b24e3e42
+ms.sourcegitcommit: f7445ba393a044179d44d2a679b03e5145c7079c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47188783"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48876250"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>将资源移到新资源组或订阅中
 
@@ -56,7 +56,9 @@ ms.locfileid: "47188783"
 
     如果源订阅和目标订阅的租户 ID 不相同，可使用以下方法协调租户 ID：
 
-    <!-- Not Available on * [Transfer ownership of an Azure subscription to another account](../billing/billing-subscription-transfer.md) --> <!-- Not Available on * [How to associate or add an Azure subscription to Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)-->
+    <!-- Not Available on * [Transfer ownership of an Azure subscription to another account](../billing/billing-subscription-transfer.md) -->
+
+    <!-- Not Available on * [How to associate or add an Azure subscription to Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)-->
     
     
 1. 必须针对要移动的资源的资源提供程序注册目标订阅。 否则，会收到错误，指明 **未针对资源类型注册订阅**。 将资源移到新的订阅时，可能会遇到此问题，但该订阅从未配合该资源类型使用。
@@ -533,7 +535,7 @@ POST https://management.chinacloudapi.cn/subscriptions/{source-subscription-id}/
 
 ## <a name="next-steps"></a>后续步骤
 
-* 若要了解管理订阅所需的 PowerShell cmdlet，请参阅[将 Azure PowerShell 与资源管理器配合使用](powershell-azure-resource-manager.md)。
+* 要了解管理订阅所需的 PowerShell cmdlet，请参阅[将 Azure PowerShell 与 Resource Manager 配合使用](powershell-azure-resource-manager.md)。
 * 若要了解管理订阅所需的 Azure CLI 命令，请参阅[将 Azure CLI 与资源管理器配合使用](xplat-cli-azure-resource-manager.md)。
 * 若要了解管理订阅所需的门户功能，请参阅[使用 Azure 门户管理资源](resource-group-portal.md)。
 * 若要了解如何向资源应用逻辑组织，请参阅[使用标记组织资源](resource-group-using-tags.md)。

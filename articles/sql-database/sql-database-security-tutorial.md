@@ -1,21 +1,22 @@
 ---
-title: 保护 Azure SQL 数据库 | Azure
+title: 保护 Azure SQL 数据库 | Microsoft Docs
 description: 介绍保护 Azure SQL 数据库的技术和功能。
 services: sql-database
-author: forester123
+author: WenJason
 manager: digimobile
 ms.service: sql-database
 ms.custom: mvc,security
 ms.topic: tutorial
-origin.date: 04/24/2018
-ms.date: 06/18/2018
-ms.author: v-johch
-ms.openlocfilehash: a6ed51a799016cf5ea122915eac890ee1cd09f0c
-ms.sourcegitcommit: d4176361d9c6da60729c06cc93a496cb4702d4c2
+origin.date: 09/27/2018
+ms.date: 10/15/2018
+ms.author: v-jay
+ms.reviewer: vanto
+ms.openlocfilehash: 9ef20527fd5ca3061a37758ccae07ad3fa24bc53
+ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2018
-ms.locfileid: "35324256"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913825"
 ---
 # <a name="secure-your-azure-sql-database"></a>保护 Azure SQL 数据库
 
@@ -47,13 +48,13 @@ SQL 数据库还有复杂的监视、审核和威胁检测功能。
 
 - 已安装最新版 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS)。 
 - 已安装 Microsoft Excel
-- 已创建 Azure SQL 服务器和数据库。请参阅[在 Azure 门户中创建 Azure SQL 数据库](sql-database-get-started-portal.md)、[使用 Azure CLI 创建单一 Azure SQL 数据库](sql-database-get-started-cli.md)和[使用 PowerShell 创建单一 Azure SQL 数据库](sql-database-get-started-powershell.md)。 
+- 已创建 Azure SQL 服务器和数据库。请参阅[在 Azure 门户中创建 Azure SQL 数据库](sql-database-get-started-portal.md)、[使用 Azure CLI 创建单一 Azure SQL 数据库](sql-database-cli-samples.md)和[使用 PowerShell 创建单一 Azure SQL 数据库](sql-database-powershell-samples.md)。 
 
 ## <a name="log-in-to-the-azure-portal"></a>登录到 Azure 门户
 
 登录到 [Azure 门户](https://portal.azure.cn/)。
 
-## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>在 Azure 门户中创建服务器级防火墙规则
+## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>在 Azure 门户中创建服务器级别的防火墙规则
 
 SQL 数据库受 Azure 中的防火墙保护。 默认情况下，将拒绝与服务器和服务器内数据库的所有连接，连接自其他 Azure 服务的连接除外。 有关详细信息，请参阅 [Azure SQL 数据库服务器级和数据库级防火墙规则](sql-database-firewall-configure.md)。
 
@@ -180,7 +181,7 @@ Azure SQL 数据库审核跟踪数据库事件，并将事件写入 Azure 存储
 
     ![启用审核](./media/sql-database-security-tutorial/auditing-get-started-turn-on.png)
 
-4. 选择“存储详细信息”打开“审核日志存储”边栏选项卡。 选择日志要保存到的 Azure 存储帐户以及保留期（超过此期限的旧日志会被删除），然后单击底部的“确定”。 
+4. 选择“存储详细信息”打开“审核日志存储”边栏选项卡。 选择日志要保存到的 Azure 存储帐户以及保留期（超过此期限的旧日志将被删除），并单击底部的“确定”。 
 
    > [!TIP]
    > 请对所有已审核的数据库使用同一存储帐户，以充分利用审核报告模板。

@@ -6,11 +6,11 @@
 ## [常见问题](fundamentals/active-directory-faq.md)
 
 
-
 # 入门
 ## [添加自定义域名](fundamentals/add-custom-domain.md)
 ## [将用户添加到 Azure AD](fundamentals/add-users-azure-active-directory.md)
 ## [在 Azure AD 中添加组织的隐私信息](active-directory-properties-area.md)
+## [访问 Azure Active Directory 以创建新租户](fundamentals/active-directory-access-create-new-tenant.md)
 
 
 # 如何
@@ -20,82 +20,84 @@
 ## 管理用户
 ### [将新用户添加到 Azure AD](fundamentals/add-users-azure-active-directory.md)
 ### [管理用户个人资料](fundamentals/active-directory-users-profile-azure-portal.md)
+### [重置用户密码](fundamentals/active-directory-users-reset-password-azure-portal.md)
 ### [将用户分配到管理员角色](fundamentals/active-directory-users-assign-role-azure-portal.md)
 ## [管理组和成员](fundamentals/active-directory-manage-groups.md)
-### 管理组
-#### [Azure 门户](fundamentals/active-directory-groups-create-azure-portal.md)
-#### [用于 Graph 的 Azure AD PowerShell (v2)](users-groups-roles/groups-settings-v2-cmdlets.md)
-### [管理组成员](fundamentals/active-directory-groups-members-azure-portal.md)
-### [管理组所有者](fundamentals/active-directory-accessmanagement-managing-group-owners.md)
-### [管理组成员身份](fundamentals/active-directory-groups-membership-azure-portal.md)
-### [查看所有组](fundamentals/active-directory-groups-view-azure-portal.md)
-### [管理组设置](fundamentals/active-directory-groups-settings-azure-portal.md) 
+### [管理组](fundamentals/active-directory-groups-create-azure-portal.md)
+### [删除组及其成员](fundamentals/active-directory-groups-delete-group.md)
+### [管理组设置](fundamentals/active-directory-groups-settings-azure-portal.md)
+## [管理报表](reports-monitoring/overview-reports.md)
+### [审核活动](reports-monitoring/concept-audit-logs.md)
+### 任务
+#### [下载审核报表](reports-monitoring/quickstart-download-audit-report.md)
 
-## [管理报表](active-directory-reporting-azure-portal.md)
-### [审核活动](active-directory-reporting-activity-audit-logs.md)
 ### 参考
-#### [延迟](active-directory-reporting-latencies-azure-portal.md)
-#### [审核活动参考](active-directory-reporting-activity-audit-reference.md)
+#### [延迟](reports-monitoring/reference-reports-latencies.md)
+#### [审核活动参考](reports-monitoring/reference-audit-activities.md)
+#### [解释 Azure Monitor 中的审核日志架构](reports-monitoring/reference-azure-monitor-audit-log-schema.md)
+
 ### 故障排除
-#### [缺少审核数据](active-directory-reporting-troubleshoot-missing-audit-data.md)
+#### [在 Azure AD 活动日志中缺少数据](reports-monitoring/troubleshoot-missing-audit-data.md)
+#### [先决条件](reports-monitoring/howto-configure-prerequisites-for-reporting-api.md)
+#### [使用证书](reports-monitoring/tutorial-access-api-with-certificates.md)
 
-## 管理密码
-### 用户文档
-#### [重置或更改密码](user-help/active-directory-passwords-update-your-own-password.md)
-#### [密码最佳做法](active-directory-secure-passwords.md)
-#### [注册自助密码重置](user-help/active-directory-passwords-reset-register.md)
-
-### IT 管理员：重置密码
-#### [Azure 门户](fundamentals/active-directory-users-reset-password-azure-portal.md)
+## [管理密码](authentication/concept-sspr-howitworks.md)
 
 ## 管理应用
 ### 管理企业应用
+#### [查看租户应用](manage-apps/view-applications-portal.md)
 #### [分配用户](manage-apps/assign-user-or-group-access-portal.md)
 #### [自定义品牌](manage-apps/change-name-or-logo-portal.md)
 #### [禁用用户登录](manage-apps/disable-user-sign-in-portal.md)
 #### [删除用户](manage-apps/remove-user-or-group-access-portal.md)
-#### [查看我的所有应用](manage-apps/view-applications-portal.md)
 #### [从用户体验中隐藏应用程序](manage-apps/hide-application-from-user-portal.md)
 
+### [了解 Azure AD 应用程序许可体验](application-consent-experience.md)
 
 #### 应用程序注册
-##### [为应用程序对象填写字段](application-dev-registration-config-specific-application-property-how-to.md)
+##### [为应用程序对象填写字段](develop/registration-config-specific-application-property-how-to.md)
 
 #### 身份验证
-##### [配置终结点](application-dev-registration-config-how-to.md)
+##### [配置终结点](develop/registration-config-how-to.md)
+
+#### 查找 API
+##### [查找 API](develop/api-find-an-api-how-to.md)
 
 #### 管理访问权限
-##### [为应用分配用户和组](application-access-assignment-how-to-add-assignment.md)
+##### [为应用分配用户和组](manage-apps/methods-for-assigning-users-and-groups.md)
+##### [分配了意外的用户](manage-apps/ways-users-get-assigned-to-applications.md)
+##### [应用程序列表中的意外应用](manage-apps/application-types.md)
+
+#### 多租户应用
+##### [配置新应用](develop/setup-multi-tenant-app.md)
 
 #### 权限
-##### [为应用授予权限](application-dev-registration-config-grant-permissions-how-to.md)
-##### [应用程序许可](application-dev-consent-framework.md)
+##### [选择 API 的权限](develop/perms-for-given-api.md)
+##### [为应用授予权限](develop/registration-config-grant-permissions-how-to.md)
+##### [委派权限与应用程序权限](develop/delegated-and-app-perms.md)
+##### [应用程序许可](develop/consent-framework.md)
+
+#### 用户登录问题
+##### [意外的许可提示](manage-apps/application-sign-in-unexpected-user-consent-prompt.md)
+##### [用户许可错误](manage-apps/application-sign-in-unexpected-user-consent-error.md)
+##### [登录到 Microsoft 应用时出现问题](manage-apps/application-sign-in-problem-first-party-microsoft.md)
+##### [登录自定义开发的应用时出现的问题](manage-apps/application-sign-in-problem-custom-dev.md)
 
 ### [开发应用](active-directory-applications-guiding-developers-for-lob-applications.md)
+
 
 ## 管理目录
 ### [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ### 自定义域名
 #### [快速入门](fundamentals/add-custom-domain.md)
-#### [添加自定义域名](users-groups-roles/domains-manage.md)
 ### [管理目录](fundamentals/active-directory-administer.md)
-### [删除目录](users-groups-roles/directory-delete-howto.md)
-### [自助注册](users-groups-roles/directory-self-service-signup.md)
+
+
 
 ### [使用 Azure AD Connect 集成本地标识](./connect/active-directory-aadconnect.md)
 
-## 委托对资源的访问权限
-### [管理员角色](users-groups-roles/directory-assign-admin-roles.md)
-#### [向用户分配管理员角色](fundamentals/active-directory-users-assign-role-azure-portal.md)
-#### [比较成员和来宾的用户权限](fundamentals/users-default-permissions.md)
 
-## 保护标识
-### 基于证书的身份验证
-#### [Android](active-directory-certificate-based-authentication-android.md)
-#### [iOS](active-directory-certificate-based-authentication-ios.md)
-#### [入门](active-directory-certificate-based-authentication-get-started.md)
-
-## [在 Azure 中部署 AD FS](connect/active-directory-aadconnect-azure-adfs.md)
+## [在 Azure 中部署 AD FS](active-directory-aadconnect-azure-adfs.md)
 ### [高可用性](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
 ### [更改签名哈希算法](active-directory-federation-sha256-guidance.md)
 
@@ -106,13 +108,11 @@
 ### [PoC 演练手册：实现](active-directory-playbook-implementation.md)
 ### [PoC 演练手册：构建基块](active-directory-playbook-building-blocks.md)
 
-
 # 参考
 ## [代码示例](https://azure.microsoft.com/resources/samples/?service=active-directory)
 ## [Azure PowerShell cmdlet](https://docs.microsoft.com/powershell/azure/overview)
-## [Java API 参考](/java/api)
+## [Java API 参考](https://docs.azure.cn/zh-cn/java/?view=azure-java-stable)
 ## [.NET API](http://docs.microsoft.com/active-directory/adal/microsoft.identitymodel.clients.activedirectory)
-## [服务限制和局限性](users-groups-roles/directory-service-limits-restrictions.md)
 
 # 相关内容
 ## [多重身份验证](/multi-factor-authentication/)
@@ -123,8 +123,8 @@
 ## [Azure 反馈论坛](https://feedback.azure.com/forums/169401-azure-active-directory)
 ## [Azure 路线图](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [MSDN 论坛](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
-## [价格](https://www.azure.cn/pricing/details/identity/)
+## [价格](https://www.azure.cn/pricing/details/active-directory/)
 ## [定价计算器](https://www.azure.cn/pricing/calculator/)
-## [堆栈溢出](http://stackoverflow.com/questions/tagged/azure-active-directory)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
 ## [视频](https://azure.microsoft.com/documentation/videos/index/?services=active-directory)
 

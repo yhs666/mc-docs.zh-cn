@@ -13,12 +13,12 @@ ms.workload: na
 origin.date: 08/31/2018
 ms.date: 09/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: c81e2f39652362653852c90c7d48dcd438ba3d9c
-ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
+ms.openlocfilehash: 9b2c96265275fa7178a96c2dc68c7866798da561
+ms.sourcegitcommit: 21b81b5cd326b6900fa7274b3b073aecd01111aa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46527170"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49121666"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>使用 Azure 管理组来组织资源
 
@@ -48,7 +48,7 @@ ms.locfileid: "46527170"
 
 ## <a name="root-management-group-for-each-directory"></a>每个目录的根管理组
 
-为每个目录指定了一个称为“根”管理组的顶级管理组。 此根管理组内置在层次结构中，包含其所有下级管理组和订阅。 此根管理组允许在目录级别应用多区域策略和 RBAC 分配。 [目录管理员最初需要提升自身的权限](../role-based-access-control/elevate-access-global-admin.md)才能成为此根组的所有者。 当管理员成为组的所有者后，可将任何 RBAC 角色分配给其他目录用户或组来管理层次结构。  
+为每个目录指定了一个称为“根”管理组的顶级管理组。 此根管理组内置在层次结构中，包含其所有下级管理组和订阅。 此根管理组允许在目录级别应用全局策略和 RBAC 分配。 [目录管理员最初需要提升自身的权限](../role-based-access-control/elevate-access-global-admin.md)才能成为此根组的所有者。 当管理员成为组的所有者后，可将任何 RBAC 角色分配给其他目录用户或组来管理层次结构。  
 
 ### <a name="important-facts-about-the-root-management-group"></a>关于根管理组的重要事实
 
@@ -57,7 +57,7 @@ ms.locfileid: "46527170"
   - ID 将为 Azure Active Directory ID。
 - 无法像操作其他管理组一样移动或删除根管理组。  
 - 所有订阅和管理组归并到目录中的一个根管理组下。
-  - 目录中的所有资源归并到根管理组进行多区域管理。
+  - 目录中的所有资源归并到根管理组进行全局管理。
   - 新订阅在创建时自动默认为根管理组。
 - 所有 Azure 客户都可查看根管理组，但并非所有客户都具有管理该根管理组的权限。
   - 有权访问订阅的每个人都可看到订阅位于层次结构中的位置的上下文。  
@@ -70,7 +70,7 @@ ms.locfileid: "46527170"
 
 ## <a name="initial-setup-of-management-groups"></a>管理组的初始设置
 
-任何用户都需在开始使用管理组时进行初始设置。 第一步是在目录中创建根管理组。 创建此组后，目录中存在的所有现有订阅都成为根管理组的子级。  执行此过程是为了确保一个目录中只有一个管理组层次结构。  目录中的单个层次结构可让管理客户应用目录内其他客户无法绕开的多区域访问权限和策略。 通过在目录中包含一个层次结构，在根上分配的任何内容都适用于该目录中的所有管理组、订阅、资源组和资源。  
+任何用户都需在开始使用管理组时进行初始设置。 第一步是在目录中创建根管理组。 创建此组后，目录中存在的所有现有订阅都成为根管理组的子级。  执行此过程是为了确保一个目录中只有一个管理组层次结构。  目录中的单个层次结构可让管理客户应用目录内其他客户无法绕开的全局访问权限和策略。 通过在目录中包含一个层次结构，在根上分配的任何内容都适用于该目录中的所有管理组、订阅、资源组和资源。  
 
 > [!IMPORTANT]
 > 对根管理组进行的任何用户访问权限分配或策略分配都适用于在目录中的所有资源。 因此，所有客户都应评估在此作用域中定义项目的需求。  用户访问权限和策略分配应仅在此作用域内“必须拥有”。  

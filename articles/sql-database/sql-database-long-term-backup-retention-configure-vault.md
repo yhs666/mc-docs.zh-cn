@@ -1,22 +1,22 @@
 ---
-title: 配置长期备份保留 - Azure SQL 数据库 | Azure
+title: 配置长期备份保留 - Azure SQL 数据库 | Microsoft Docs
 description: 了解如何会自动备份存储在 Azure 恢复服务保管库中以及从 Azure 恢复服务保管库中还原
 services: sql-database
-author: yunan2016
+author: WenJason
 manager: digimobile
 ms.service: sql-database
 ms.custom: business continuity
-ms.topic: article
+ms.topic: conceptual
 origin.date: 05/08/2018
-ms.date: 06/18/2018
-ms.author: v-nany
+ms.date: 10/15/2018
+ms.author: v-jay
 ms.reviewer: carlrab
-ms.openlocfilehash: fe9777c7a7cd8c600df12b81e0bf5439b8138db9
-ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
+ms.openlocfilehash: f05e80fcf33721a3927bd2b8bdce823557ebc9ee
+ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39487067"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913946"
 ---
 # <a name="configure-and-restore-from-azure-sql-database-long-term-backup-retention-using-azure-recovery-services-vault"></a>使用 Azure 恢复服务保管库配置 Azure SQL 数据库长期备份保留和从其中进行还原
 
@@ -133,7 +133,7 @@ ms.locfileid: "39487067"
 
    ![新数据库名称](./media/sql-database-get-started-backup-recovery/new-database-name.png)
 
-3. 单击“确定”将数据库从保管库中的备份还原到新数据库。
+3. 单击“确定”  将数据库从保管库中的备份还原到新数据库。
 
 4. 在工具栏上，单击通知图标可查看还原作业的状态。
 
@@ -144,7 +144,7 @@ ms.locfileid: "39487067"
    ![从保管库还原的数据库](./media/sql-database-get-started-backup-recovery/restored-database-from-vault.png)
 
 > [!NOTE]
-> 从此处，可使用 SQL Server Management Studio 连接到已还原的数据库，以执行所需任务，例如[从恢复的数据库中提取一部分数据，复制到现有数据库或删除现有数据库，并将已还原数据库的名称重命名为现有数据库名称](sql-database-recovery-using-backups.md#point-in-time-restore)。
+> 可以在此处使用 SQL Server Management Studio 连接到还原的数据库以执行所需的任务，例如 [从还原的数据库提取一些数据，以便将其复制到现有的数据库中；或者删除现有的数据库，并将还原的数据库重命名为现有的数据库名称](sql-database-recovery-using-backups.md#point-in-time-restore)。
 >
 
 ## <a name="powershell"></a>PowerShell
@@ -182,7 +182,7 @@ Set-AzureRmSqlServerBackupLongTermRetentionVault -ResourceGroupName $resourceGro
 
 ### <a name="create-a-retention-policy"></a>创建保留策略
 
-保留策略用于设置数据库备份的保留时间。 使用 [Get-AzureRmRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupretentionpolicyobject?view=azurermps-6.6.0) cmdlet 获取默认保留策略，以用作策略创建的模板。 此模板中，保留期设置为 2 年。 接下来，运行 [New-AzureRmRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/new-azurermrecoveryservicesbackupprotectionpolicy) 来最终创建策略。 
+保留策略用于设置数据库备份的保留时间。 使用 [Get-AzureRmRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupretentionpolicyobject) cmdlet 获取默认保留策略，以用作策略创建的模板。 此模板中，保留期设置为 2 年。 接下来，运行 [New-AzureRmRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/new-azurermrecoveryservicesbackupprotectionpolicy) 来最终创建策略。 
 
 > [!NOTE]
 > 某些 cmdlet 要求在运行 ([Set-AzureRmRecoveryServicesVaultContext](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/set-azurermrecoveryservicesvaultcontext)) 之前设置保管库上下文，因此会在多个相关的代码片段中看到此 cmdlet。 设置上下文是因为策略是保管库的一部分。 可以为每个保管库创建多个保留策略，并将所需策略应用到特定数据库。 
@@ -267,8 +267,57 @@ $restoredDb
 > [!NOTE]
 > 从此处，可使用 SQL Server Management Studio 连接到已还原的数据库，执行所需任务，例如从恢复的数据库中提取一部分数据，复制到现有数据库或删除现有数据库，并将已还原的数据库重命名为现有数据库名。 请参阅[时间点还原](sql-database-recovery-using-backups.md#point-in-time-restore)。
 
+## <a name="how-to-cleanup-backups-in-recovery-services-vault"></a>如何清理恢复服务保管库中的备份
+
+自 2018 年 7 月 1 日起，LTR V1 API 已弃用，恢复服务保管库中的所有现有备份均已迁移到 SQL 数据库托管的 LTR 存储容器中。 为确保你不再为原始备份付费，迁移后这些备份已从保管库中删除。 但是，如果你在保管库上设置了锁定，则这些备份将保留在那里。 为避免不必要的费用，你可以使用以下脚本手动从恢复服务保管库中删除旧备份。 
+
+```PowerShell
+<#
+.EXAMPLE
+    .\Drop-LtrV1Backup.ps1 -SubscriptionId “{vault_sub_id}” -ResourceGroup “{vault_resource_group}” -VaultName “{vault_name}” 
+#>
+[CmdletBinding()]
+Param (
+    [Parameter(Mandatory = $true, HelpMessage="The vault subscription ID")]
+    $SubscriptionId,
+
+    [Parameter(Mandatory = $true, HelpMessage="The vault resource group name")]
+    $ResourceGroup,
+
+    [Parameter(Mandatory = $true, HelpMessage="The vault name")]
+    $VaultName
+)
+
+Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+
+Select-AzureRmSubscription -SubscriptionId $SubscriptionId
+
+$vaults = Get-AzureRmRecoveryServicesVault
+$vault = $vaults | where { $_.Name -eq $VaultName }
+
+Set-AzureRmRecoveryServicesVaultContext -Vault $vault
+
+$containers = Get-AzureRmRecoveryServicesBackupContainer -ContainerType AzureSQL
+
+ForEach ($container in $containers)
+{
+   $canDeleteContainer = $true  
+   $ItemCount = 0
+   Write-Host "Working on container" $container.Name
+   $items = Get-AzureRmRecoveryServicesBackupItem -container $container -WorkloadType AzureSQLDatabase
+   ForEach ($item in $items)
+   {
+          write-host "Deleting item" $item.name
+          Disable-AzureRmRecoveryServicesBackupProtection -RemoveRecoveryPoints -item $item -Force
+   }
+
+   Write-Host "Deleting container" $container.Name
+   Unregister-AzureRmRecoveryServicesBackupContainer -Container $container
+}
+```
+
 ## <a name="next-steps"></a>后续步骤
 
-- 若要了解服务生成的自动备份，请参阅[自动备份](sql-database-automated-backups.md)
-- 若要了解长期备份保留，请参阅[长期备份保留](sql-database-long-term-retention.md)
-- 若要了解如何从备份中还原，请参阅[从备份中还原](sql-database-recovery-using-backups.md)
+- 若要了解服务生成的自动备份，请参阅 [自动备份](sql-database-automated-backups.md)
+- 若要了解长期备份保留，请参阅 [长期备份保留](sql-database-long-term-retention.md)
+- 若要了解如何从备份还原，请参阅 [从备份还原](sql-database-recovery-using-backups.md)

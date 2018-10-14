@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/14/2018
-ms.date: 09/06/2018
+origin.date: 09/11/2018
+ms.date: 10/12/2018
 ms.author: v-junlch
 ms.custom: seohack1
-ms.openlocfilehash: e7dd941a893720071fee77f3d0d77aa60d611e55
-ms.sourcegitcommit: fd49281c58f34de20cc310d6cefb4568992cd675
+ms.openlocfilehash: 8e7786636fe9c8b5247dd86aa0822c973458c341
+ms.sourcegitcommit: 21b81b5cd326b6900fa7274b3b073aecd01111aa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43858439"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49121665"
 ---
 # <a name="develop-line-of-business-apps-for-azure-active-directory"></a>为 Azure Active Directory 开发业务线应用
 本指南提供开发用于 Azure Active Directory (AD) 的业务线 (LoB) 应用程序的概述，目标受众为 Active Directory/Office 365 全局管理员。
@@ -72,4 +72,4 @@ ms.locfileid: "43858439"
 
 有关 Azure 中的用户同意和同意体验的详细信息，请参阅 [Integrating Applications with Azure Active Directory](develop/quickstart-v1-integrate-apps-with-azure-ad.md)（将应用程序与 Azure Active Directory 集成）。
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: update metedata properties -->

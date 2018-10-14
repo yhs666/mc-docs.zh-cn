@@ -1,21 +1,22 @@
 ---
-title: Azure SQL 数据仓库中的审核 | Azure
+title: Azure SQL 数据仓库中的审核 | Microsoft 文档
 description: 了解审核，以及如何设置 Azure SQL 数据仓库中的审核。
 services: sql-data-warehouse
-author: rockboyfor
+author: WenJason
 manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 origin.date: 04/11/2018
-ms.date: 08/20/2018
-ms.author: v-yeche
-ms.openlocfilehash: 29621127d694c3c8ac2f41265ec570b29c233503
-ms.sourcegitcommit: 02c4716e07b3d83104fa419b379a15589ae8017e
+ms.date: 10/15/2018
+ms.author: v-jay
+ms.reviewer: igorstan
+ms.openlocfilehash: 6c23e3f19cb47f930a0e7ed1b1251b4186d4aafa
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41704550"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49089084"
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Azure SQL 数据仓库中的审核
 
@@ -63,10 +64,10 @@ SQL 数据仓库数据库审核可让你：
 以下部分介绍如何使用 Azure 门户配置审核。
 
 1. 转到 [Azure 门户](https://portal.azure.cn)。
-2. 转到要审核的 **SQL Server**（请务必确保正在查看的是 SQL Server，而不是特定数据库/DW）。 在“安全性”菜单中，选择“审核”。
+2. 转到要审核的 **SQL Server**（请务必确保正在查看的是 SQL Server，而不是特定数据库/DW）。 在“安全性”菜单中，选择“审核和威胁检测”。
 
     ![导航窗格][6]
-3. 在“审核”边栏选项卡中，针对“审核”选择“开”。 此审核策略将应用于该服务器上的所有现有数据库和新建数据库。
+3. 在“审核和威胁检测”边栏选项卡中，针对“审核”选择“开”。 此审核策略将应用于该服务器上的所有现有数据库和新建数据库。
 
     ![导航窗格][7]
 4. 若要打开“审核日志存储”边栏选项卡，请选择“存储详细信息”。 选择或创建要保存日志的 Azure 存储帐户，然后选择保留期（旧日志会被删除）。 。

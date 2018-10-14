@@ -1,21 +1,22 @@
 ---
-title: SQL 数据仓库中的存储过程 | Azure
+title: 使用 Azure SQL 数据仓库中的存储过程 | Microsoft Docs
 description: 有关在开发解决方案时实现 Azure SQL 数据仓库中的存储过程的技巧。
 services: sql-data-warehouse
-author: rockboyfor
-manager: jhubbard
+author: WenJason
+manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
-origin.date: 10/31/2016
-ms.date: 01/04/2017
-ms.author: v-yeche
-ms.openlocfilehash: fd7d9023da175a17e5371990ef7defbd1ba06490
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+origin.date: 04/17/2018
+ms.date: 10/15/2018
+ms.author: v-jay
+ms.reviewer: igorstan
+ms.openlocfilehash: 2e5f585df2c8767d24c9a4db36db273e716b2a65
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121244"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49089008"
 ---
 # <a name="using-stored-procedures-in-sql-data-warehouse"></a>使用 SQL 数据仓库中的存储过程
 有关在开发解决方案时实现 Azure SQL 数据仓库中的存储过程的技巧。
@@ -77,7 +78,6 @@ SQL 数据仓库中未实现 Transact-SQL 存储过程的某些方面。
 * 编号的存储过程
 * 扩展的存储过程
 * CLR 存储过程
-* 
 * 加密选项
 * 复制选项
 * 表值参数
@@ -87,5 +87,5 @@ SQL 数据仓库中未实现 Transact-SQL 存储过程的某些方面。
 * return 语句
 
 ## <a name="next-steps"></a>后续步骤
-有关更多开发技巧，请参阅[开发概述](sql-data-warehouse-overview-develop.md)。
+有关更多开发技巧，请参阅 [开发概述](sql-data-warehouse-overview-develop.md)。
 

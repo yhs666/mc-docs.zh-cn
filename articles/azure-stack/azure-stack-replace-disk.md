@@ -3,8 +3,8 @@ title: 更换 Azure Stack 中的物理磁盘 | Microsoft Docs
 description: 概述如何更换 Azure Stack 中的物理磁盘的过程。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: 449ae53e-b951-401a-b2c9-17fee2f491f1
 ms.service: azure-stack
@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/30/2018
-ms.date: 04/20/2018
-ms.author: v-junlch
-ms.openlocfilehash: c04b8fe27706aefa1da17c821365826b48fce606
-ms.sourcegitcommit: 85828a2cbfdb58d3ce05c6ef0bc4a24faf4d247b
+origin.date: 09/10/2018
+ms.date: 10/15/2018
+ms.author: v-jay
+ms.openlocfilehash: 39e51c84cc8c8d2e756f7260e3e176931a54916b
+ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31805427"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48848772"
 ---
 # <a name="replace-a-physical-disk-in-azure-stack"></a>更换 Azure Stack 中的物理磁盘
 
@@ -35,16 +35,16 @@ ms.locfileid: "31805427"
 ## <a name="review-disk-alert-information"></a>查看磁盘警报信息
 当磁盘发生故障时，你会收到通知你物理磁盘已丢失的警报。 
 
- ![显示物理磁盘连接丢失的警报](./media/azure-stack-replace-disk/DiskAlert.png)
+ ![显示物理磁盘连接丢失的警报](media/azure-stack-replace-disk/DiskAlert.png)
 
-如果打开该警报，警报说明包含必须更换之磁盘的缩放单位节点和确切物理插槽位置。 Azure Stack 会使用 LED 指示器功能来进一步帮助你确定发生故障的磁盘。
+如果打开该警报，警报说明包含必须更换之磁盘的缩放单元节点和确切物理插槽位置。 Azure Stack 会使用 LED 指示器功能来进一步帮助你确定发生故障的磁盘。
 
  ## <a name="replace-the-disk"></a>更换磁盘
 
 请按照 OEM 硬件供应商的 FRU 说明来实际更换磁盘。
 
 > [!note]
-> 每次更换一个缩放单位节点的磁盘。 等待虚拟磁盘修复作业完成，然后移到下一个缩放单位节点
+> 每次更换一个缩放单元节点的磁盘。 等待虚拟磁盘修复作业完成，然后移到下一个缩放单元节点
 
 为了防止在集成系统中使用不支持的磁盘，系统会阻止供应商不支持的磁盘。 如果尝试使用不支持的磁盘，则会有新警报通知你因为不支持该磁盘的型号或固件，所以已将该磁盘隔离。
 
@@ -56,28 +56,28 @@ ms.locfileid: "31805427"
 
 1. 打开 Windows PowerShell 会话并连接到特权终结点。
     ````PowerShell
-    $cred = Get-Credential
-    Enter-PSSession -ComputerName <IP_address_of_ERCS>`
-      -ConfigurationName PrivilegedEndpoint -Credential $cred
+        $cred = Get-Credential
+        Enter-PSSession -ComputerName <IP_address_of_ERCS>`
+          -ConfigurationName PrivilegedEndpoint -Credential $cred
     ```` 
   
 2. 运行以下命令以查看虚拟磁盘运行状况：
     ````PowerShell
-    Get-VirtualDisk -CimSession s-cluster
+        Get-VirtualDisk -CimSession s-cluster
     ````
-   ![Get-VirtualDisk 命令的 Powershell 输出](./media/azure-stack-replace-disk/GetVirtualDiskOutput.png)
+   ![Get-VirtualDisk 命令的 Powershell 输出](media/azure-stack-replace-disk/GetVirtualDiskOutput.png)
 
 3. 运行以下命令以查看当前的存储作业状态：
     ```PowerShell
-    Get-VirtualDisk -CimSession s-cluster | Get-StorageJob
+        Get-VirtualDisk -CimSession s-cluster | Get-StorageJob
     ````
-      ![Get-StorageJob 命令的 Powershell 输出](./media/azure-stack-replace-disk/GetStorageJobOutput.png)
+      ![Get-StorageJob 命令的 Powershell 输出](media/azure-stack-replace-disk/GetStorageJobOutput.png)
 
 ## <a name="troubleshoot-virtual-disk-repair"></a>针对虚拟磁盘修复问题进行故障排除
 
 如果虚拟磁盘修复作业出现停滞，请运行以下命令来重新启动作业：
   ````PowerShell
-  Get-VirtualDisk -CimSession s-cluster | Repair-VirtualDisk
+        Get-VirtualDisk -CimSession s-cluster | Repair-VirtualDisk
   ```` 
 
 <!-- Update_Description: wording update -->

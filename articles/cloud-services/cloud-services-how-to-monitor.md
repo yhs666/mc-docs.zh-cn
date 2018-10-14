@@ -3,7 +3,7 @@ title: 监视 Azure 云服务
 description: 介绍监视 Azure 云服务需要涉及到哪些操作，以及可以选择哪些选项。
 services: cloud-services
 documentationcenter: ''
-author: thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/29/2018
-ms.date: 03/19/2018
+ms.date: 10/22/2018
 ms.author: v-yiso
-ms.openlocfilehash: da4bc19c20955ba58d9012773bde0e5a3d71381b
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.openlocfilehash: 198fce45ed80b0ca277dadbecba57e22150d7dbc
+ms.sourcegitcommit: 8a5722b85c6eabbd28473d792716ad44aac3ff23
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29870342"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49121531"
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>云服务监视简介
 
@@ -59,7 +59,7 @@ ms.locfileid: "29870342"
 
 ## <a name="setup-diagnostics-extension"></a>设置诊断扩展
 
-首先，如果你没有**经典**存储帐户，请[创建一个](../storage/common/storage-create-storage-account.md#create-a-storage-account)。 确保为创建的存储帐户指定**经典部署模型**。
+首先，如果你没有**经典**存储帐户，请[创建一个](../storage/common/storage-quickstart-create-account.md)。 确保为创建的存储帐户指定**经典部署模型**。
 
 接下来，导航到“存储帐户(经典)”资源。 选择“设置” > “访问密钥”，并复制“主连接字符串”值。 云服务需要此值。 
 

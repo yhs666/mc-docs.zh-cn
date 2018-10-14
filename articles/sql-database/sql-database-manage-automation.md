@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 自动化管理 Azure SQL 数据库 | Microsoft 文档
+title: 使用 Azure 自动化管理 Azure SQL 数据库 | Microsoft Docs
 description: 了解如何使用 Azure 自动化服务来管理大规模的 Azure SQL 数据库。
 services: sql-database, automation
 author: WenJason
@@ -10,12 +10,12 @@ ms.topic: conceptual
 origin.date: 04/01/2018
 ms.date: 09/02/2018
 ms.author: v-jay
-ms.openlocfilehash: c02676217e4cd125ca5d98123aa507d5f57abfe0
-ms.sourcegitcommit: 2601e68563bffe148e70cce2bf1dcbe837a40f80
+ms.openlocfilehash: 699e004e9eb96cef3013aede1775e854b4b640e7
+ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43249881"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913744"
 ---
 # <a name="managing-azure-sql-databases-using-azure-automation"></a>使用 Azure 自动化管理 Azure SQL 数据库
 本指南介绍 Azure 自动化服务，以及如何使用它来简化 Azure SQL 数据库的管理。
@@ -32,7 +32,7 @@ Azure 自动化提供高度可靠且高度可用的工作流执行引擎，它�
 
 Azure 自动化还可以通过使用 PowerShell 发出 SQL 命令，与 SQL 服务器直接通信。
 
-[Azure 自动化 Runbook 库](https://azure.microsoft.com/blog/2014/10/07/introducing-the-azure-automation-runbook-gallery/)包含产品团队和社区提供的各种 Runbook，有助于开始自动管理 Azure SQL 数据库、其他 Azure 服务和第三方系统。 库中 Runbook 的功能包括：
+[Azure 自动化 Runbook 库](https://azure.microsoft.com/blog/2014/10/07/introducing-the-azure-automation-runbook-gallery/)包含产品团队和社区提供的各种 Runbook，有助于开始自动管理 Azure SQL 数据库、其他 Azure 服务和第三方系统。 库 Runbook 包括：
 
 * [对 SQL Server 数据库运行 SQL 查询](https://gallery.technet.microsoft.com/scriptcenter/How-to-use-a-SQL-Command-be77f9d2)
 * [按计划纵向缩放（向上或向下）Azure SQL 数据库](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-Database-e957354f)
@@ -45,5 +45,5 @@ Azure 自动化还可以通过使用 PowerShell 发出 SQL 命令，与 SQL 服�
 * [Azure 自动化概述](../automation/automation-intro.md)
 * [第一个 Runbook](../automation/automation-first-runbook-graphical.md)
 * [Azure 自动化学习路线图](https://azure.microsoft.com/documentation/learning-paths/automation/)
-* [Azure 自动化：云中的 SQL 代理](https://azure.microsoft.com/blog/2014/06/26/azure-automation-your-sql-agent-in-the-cloud/) 
+* [Azure 自动化：你在云中的 SQL 代理](https://azure.microsoft.com/blog/2014/06/26/azure-automation-your-sql-agent-in-the-cloud/) 
 

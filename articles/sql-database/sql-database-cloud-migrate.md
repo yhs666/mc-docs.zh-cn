@@ -1,22 +1,22 @@
 ---
-title: 将 SQL Server 数据库迁移到 Azure SQL 数据库 | Azure
+title: 将 SQL Server 数据库迁移到 Azure SQL 数据库 | Microsoft 文档
 description: 了解如何将 SQL Server 数据库迁移到云中的 Azure SQL 数据库。
 keywords: 数据库迁移, SQL Server 数据库迁移, 数据库迁移工具, 迁移数据库, 迁移 SQL 数据库
 services: sql-database
-author: yunan2016
+author: WenJason
 manager: digimobile
 ms.service: sql-database
 ms.custom: migrate
-ms.topic: article
-origin.date: 03/16/2018
-ms.date: 06/18/2018
-ms.author: v-nany
-ms.openlocfilehash: c10776c4f164fe94966cc5176d3df9a89915cedf
-ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
+ms.topic: conceptual
+origin.date: 09/14/2018
+ms.date: 10/15/2018
+ms.author: v-jay
+ms.openlocfilehash: 3d32a4d0a72c4cae39a4052340144826670d21ab
+ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39486941"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48914017"
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>将 SQL Server 数据库迁移到 Azure SQL 数据库
 
@@ -50,9 +50,9 @@ ms.locfileid: "39486941"
 
 ### <a name="optimizing-data-transfer-performance-during-migration"></a>优化迁移过程中的数据传输性能 
 
-以下列表包含的建议可帮助用户在导入过程中获得最佳性能。
+以下列表包含的建议可帮助你在导入过程中获得最佳性能。
 
-* 若要获得最高的传输性能，请在预算允许范围内选择最高的服务级别和性能层。 为了节省资金，可以在迁移完成后缩减规模。 
+* 若要获得最高的传输性能，请在预算允许范围内选择最高的服务层和计算大小。 为了节省资金，可以在迁移完成后缩减规模。 
 * 尽量缩短 BACPAC 文件和目标数据中心的距离。
 * 在迁移过程中禁用自动统计
 * 分区表和索引

@@ -9,12 +9,12 @@ ms.topic: tutorial
 origin.date: 06/13/2018
 ms.date: 10/01/2018
 ms.author: v-jay
-ms.openlocfilehash: 4bdb0cacf94ae34fe4a7a1d7896af40deaf34145
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.openlocfilehash: 4b5199c676c9cfeadfe0b1ac31726bcd066be472
+ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426425"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48848766"
 ---
 # <a name="tutorial-host-your-domain-in-azure-dns"></a>教程：在 Azure DNS 中托管域
 
@@ -32,7 +32,7 @@ ms.locfileid: "47426425"
 > * 验证委托是否正常工作
 
 
-如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
 
 ## <a name="create-a-dns-zone"></a>创建 DNS 区域
 

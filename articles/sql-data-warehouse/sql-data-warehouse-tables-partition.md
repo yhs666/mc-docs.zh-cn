@@ -1,21 +1,22 @@
 ---
-title: 对 SQL 数据仓库中的表进行分区 | Azure
-description: Azure SQL 数据仓库中的表分区入门。
+title: 对 Azure SQL 数据仓库中的表进行分区 | Microsoft Docs
+description: 在 Azure SQL 数据仓库中使用表分区的建议和示例。
 services: sql-data-warehouse
-author: rockboyfor
+author: WenJason
 manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
-origin.date: 04/14/2018
-ms.date: 04/25/2018
-ms.author: v-yeche
-ms.openlocfilehash: 3d25e6e441d1301a991896d2b1da040f27d84d07
-ms.sourcegitcommit: 49c8c21115f8c36cb175321f909a40772469c47f
+origin.date: 04/17/2018
+ms.date: 10/15/2018
+ms.author: v-jay
+ms.reviewer: igorstan
+ms.openlocfilehash: f5c4afe0815dabc757d57bf5b8a4aca46f617bf2
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34867436"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49089076"
 ---
 # <a name="partitioning-tables-in-sql-data-warehouse"></a>对 SQL 数据仓库中的表进行分区
 在 Azure SQL 数据仓库中使用表分区的建议和示例。
@@ -199,7 +200,7 @@ WHERE t.[name] = 'FactInternetSales'
 ALTER TABLE FactInternetSales SPLIT RANGE (20010101);
 ```
 
-消息 35346，级别 15，状态 1，行 44: ALTER PARTITION 语句的 SPLIT 子句失败，因为分区不为空。  仅当表上存在列存储索引时，才可以拆分空分区。 请考虑在发出 ALTER PARTITION 语句前禁用列存储索引，并在 ALTER PARTITION 完成后重建列存储索引。
+消息 35346，级别 15，状态 1，行 44: ALTER PARTITION 语句的 SPLIT 子句失败，因为分区不为空。 仅当表上存在列存储索引时，才可以拆分空分区。 请考虑在发出 ALTER PARTITION 语句前禁用列存储索引，并在 ALTER PARTITION 完成后重建列存储索引。
 
 但是，可以使用 `CTAS` 创建新表以保存数据。
 
