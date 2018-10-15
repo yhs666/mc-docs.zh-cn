@@ -1,15 +1,11 @@
 ---
 title: 将交互式查询与 Azure HDInsight 配合使用
 description: 了解如何通过 HDInsight 使用交互式查询 (Hive LLAP)。
-keywords: ''
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 0957643c-4936-48a3-84a3-5dc83db4ab1a
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: v-yiso
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.workload: big-data
 ms.tgt_pltfrm: na
@@ -17,16 +13,15 @@ ms.devlang: na
 ms.topic: article
 origin.date: 02/22/2018
 ms.date: 05/21/2018
-ms.author: v-yiso
-ms.openlocfilehash: c9298fa5074a87184e4e6128fc44d55895e21404
-ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
+ms.openlocfilehash: 3d1c5e2fd6f49ca4fca2bebf224138122273e7eb
+ms.sourcegitcommit: 8a5722b85c6eabbd28473d792716ad44aac3ff23
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34449923"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49121519"
 ---
 # <a name="use-interactive-query-with-hdinsight"></a>将交互式查询与 HDInsight 配合使用
-交互式查询（也称为 Hive LLAP 或 [Live Long and Process](https://cwiki.apache.org/confluence/display/Hive/LLAP)）是一种 Azure HDInsight [群集类型](../hdinsight-hadoop-provision-linux-clusters.md#cluster-types)。 交互式查询支持内存中缓存，可提高 Hive 查询速度和交互性。
+交互式查询（也称为 Hive LLAP 或[低延迟分析处理](https://cwiki.apache.org/confluence/display/Hive/LLAP)）是一种 Azure HDInsight [群集类型](../hdinsight-hadoop-provision-linux-clusters.md#cluster-types)。 交互式查询支持内存中缓存，可提高 Hive 查询速度和交互性。
 
 [!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)] 
 
@@ -72,7 +67,7 @@ ms.locfileid: "34449923"
 
 若要查找 Java Database Connectivity (JDBC) 连接字符串：
 
-1. 使用以下 URL 登录到 Ambari：https://\<群集名称\>.AzureHDInsight.cn。
+1. 使用以下 URL 登录到 Ambari： https://\<群集名称\>.AzureHDInsight.cn。
 2. 在左侧菜单中，选择“Hive”。
 3. 若要复制 URL，请选择剪贴板图标：
    

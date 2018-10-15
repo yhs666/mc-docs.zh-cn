@@ -1,27 +1,22 @@
 ---
-title: 将 SQL 代码迁移到 SQL 数据仓库 | Azure
+title: 将 SQL 代码迁移到 SQL 数据仓库 | Microsoft 文档
 description: 有关在开发解决方案时将 SQL 代码迁移到 Azure SQL 数据仓库的技巧。
 services: sql-data-warehouse
-documentationcenter: NA
-author: rockboyfor
+author: WenJason
 manager: digimobile
-editor: ''
-ms.assetid: 19c252a3-0e41-4eec-9d3e-09a68c7e7add
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: migrate
-origin.date: 06/23/2017
-ms.date: 07/24/2017
-ms.author: v-yeche
-ms.openlocfilehash: b37b538760839a41dbb4af3f050024cd492f1938
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.topic: conceptual
+ms.component: implement
+origin.date: 04/17/2018
+ms.date: 10/15/2018
+ms.author: v-jay
+ms.reviewer: igorstan
+ms.openlocfilehash: ea682c3d977c71b63fbdc867d102c29ce419beb3
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
-ms.locfileid: "29285507"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49089191"
 ---
 # <a name="migrate-your-sql-code-to-sql-data-warehouse"></a>将 SQL 代码迁移到 SQL 数据仓库
 本文介绍了将代码从其他数据库迁移到 SQL 数据仓库时可能需要做出的代码更改。 某些 SQL 数据仓库功能设计为以分布方式运行，因此可以大幅改善性能。 但是，为了保持性能和缩放性，某些功能还无法使用。
@@ -56,7 +51,6 @@ ms.locfileid: "29285507"
 
 幸好可以解决其中的大多数限制。 上面提到的相关开发文章已提供了说明。
 
-<a name="Common-table-expressions"></a>
 ## <a name="supported-cte-features"></a>支持的 CTE 功能
 SQL 数据仓库支持部分通用表表达式 (CTE)。  目前支持以下 CTE 功能：
 
