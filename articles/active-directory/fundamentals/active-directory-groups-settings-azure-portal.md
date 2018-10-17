@@ -1,50 +1,71 @@
 ---
-title: 在 Azure AD 中管理组属性 | Microsoft Docs
-description: 如何在 Azure Active Directory 中编辑组的属性和其他配置设置
+title: 如何使用 Azure Active Directory 编辑组信息 | Microsoft Docs
+description: 了解如何使用 Azure Active Directory 编辑组的信息。
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
-editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
-ms.topic: quickstart
-origin.date: 08/01/2017
-ms.date: 06/22/2018
+ms.topic: conceptual
+origin.date: 08/27/2018
+ms.date: 10/09/2018
 ms.author: v-junlch
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 543ead952b2a3175a5569b157824091002cc754f
-ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
+ms.openlocfilehash: d3feb33636b277b907eebc55e9131008fb15f29d
+ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36948667"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913747"
 ---
-# <a name="manage-the-settings-for-a-group-in-azure-active-directory"></a>在 Azure Active Directory 中管理组的设置
-本文介绍如何在 Azure Active Directory (Azure AD) 中更改组的设置。
+# <a name="how-to-edit-your-group-information-using-azure-active-directory"></a>如何：使用 Azure Active Directory 编辑组信息
 
-## <a name="how-do-i-find-and-change-the-settings"></a>如何查找和更改设置？
-1. 使用目录全局管理员的帐户登录到 [Azure 门户](https://portal.azure.cn)。
-2. 选择“所有服务”，在文本框中输入“组”，然后按 **Enter**。
+使用 Azure Active Directory，可以编辑组的设置，包括编辑其名称、说明或成员身份类型。
 
-3. 在“组”边栏选项卡中，选择“所有组”。
+## <a name="to-edit-your-group-settings"></a>编辑组设置
+1. 使用目录的全局管理员帐户登录到 [Azure 门户](https://portal.azure.cn)。
 
-   ![打开“所有组”边栏选项卡](./media/active-directory-groups-settings-azure-portal/view-groups-blade.png)
-4. 在“组 - 所有组”边栏选项卡中，选择一个组。
-5. 在**组 - *组名*** 边栏选项卡中，选择“属性”。
+2. 依次选择“Azure Active Directory”、“组”。
 
-   ![打开“属性”边栏选项卡](./media/active-directory-groups-settings-azure-portal/select-group-properties.png)
-6. 完成组的属性更改后，请选择“保存”。    
+    此时会出现“组 - 所有组”页，其中显示了所有处于活动状态的组。
 
-   ![保存属性更改](./media/active-directory-groups-settings-azure-portal/save-group-properties.png)
+3. 从“组 - 所有组”页面上，在“搜索”框中尽量完整地键入组名称。 对于本文而言，我们将搜索“MDM 策略 - 西部”组。
+
+    搜索结果将显示在“搜索”框中，随着你键入更多的字符而进行更新。
+
+    ![“所有组”页面，其中的“搜索”框中具有搜索文本](./media/active-directory-groups-settings-azure-portal/search-for-specific-group.png)
+
+4. 选择“MDM 策略 - 西部”组，然后从“管理”区域中选择“属性”。
+
+    ![“组概述”页面，其中突出显示了数字和成员以及成员选项](./media/active-directory-groups-settings-azure-portal/group-overview-blade.png)
+
+5. 根据需要更新“常规设置”信息，包括：
+
+    ![组的属性设置](./media/active-directory-groups-settings-azure-portal/group-properties-settings.png)
+
+    - **组名称。** 编辑现有的组名称。
+    
+    - **组说明。** 编辑现有的组说明。
+
+    - **组类型。** 创建组后无法更改组类型。 若要更改**组类型**，必须删除组并新建一个。
+    
+    - **成员身份类型。** 更改成员身份类型。 有关各种可用成员身份类型的详细信息，请参阅[如何：使用 Azure Active Directory 门户创建基本组并添加成员](active-directory-groups-create-azure-portal.md)
+    
+    - **对象 ID。** 无法更改对象 ID，但可以复制它以在用于组的 PowerShell 命令中使用。 有关使用 PowerShell cmdlet 的详细信息，请参阅[用于配置组设置的 Azure Active Directory cmdlet](../users-groups-roles/groups-settings-v2-cmdlets.md)。
 
 ## <a name="next-steps"></a>后续步骤
 这些文章提供了有关 Azure Active Directory 的更多信息。
 
-- [查看现有组](active-directory-groups-view-azure-portal.md)
-- [创建新组并添加成员](active-directory-groups-create-azure-portal.md)
-- [管理组的成员](active-directory-groups-members-azure-portal.md)
+- [查看组和成员](active-directory-groups-view-azure-portal.md)
+
+- [创建基本组并添加成员](active-directory-groups-create-azure-portal.md)
+
+- [如何在组中添加或删除成员](active-directory-groups-members-azure-portal.md)
+
 - [管理组的成员身份](active-directory-groups-membership-azure-portal.md)
 
+- [使用组管理对资源的访问权限](active-directory-manage-groups.md)
+
+<!-- Update_Description: wording update -->

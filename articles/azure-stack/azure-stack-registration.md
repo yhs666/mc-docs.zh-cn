@@ -1,5 +1,5 @@
 ---
-title: Azure Stack 集成系统的 Azure 注册 | Azure
+title: Azure Stack 集成系统的 Azure 注册 | Microsoft Docs
 description: 介绍多节点 Azure Stack Azure 连接部署的 Azure 注册过程。
 services: azure-stack
 documentationcenter: ''
@@ -16,16 +16,18 @@ origin.date: 08/13/2018
 ms.date: 08/27/2018
 ms.author: v-junlch
 ms.reviewer: brbartle
-ms.openlocfilehash: c14df4501f33116318f648574b23a1d5d344d01d
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.openlocfilehash: 2cb7437abeac522a5b81c9a8c7c924a2b8f89f1e
+ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869434"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48848913"
 ---
 # <a name="register-azure-stack-with-azure"></a>将 Azure Stack 注册到 Azure
 
 将 Azure Stack 注册到 Azure 即可从 Azure 下载市场项，并设置向 Microsoft 报告商业数据的功能。 注册 Azure Stack 之后，使用情况会报告给 Azure 商业组件，然后你就可以在用于注册的订阅下查看它。
+
+本文中的信息介绍了向 Azure 注册 Azure Stack 集成系统。 有关向 Azure 注册 ASDK 的信息，请参阅 ASDK 文档中的 [Azure Stack 注册](.\asdk\asdk-register.md)。
 
 > [!IMPORTANT]  
 > 需要注册才能支持完整的 Azure Stack 功能，包括在市场中提供商品。 此外，如果你在使用即用即付计费模式时未注册，则将违反 Azure Stack 许可条款。 若要了解有关 Azure Stack 授权模型的详细信息，请参阅[“如何购买”页](https://azure.microsoft.com/overview/azure-stack/how-to-buy/)。
@@ -44,13 +46,15 @@ ms.locfileid: "42869434"
 
 将 Azure Stack 注册到 Azure 之前，必须准备好：
 
-- Azure 订阅的订阅 ID。 若要获取该 ID，请登录到 Azure，单击“更多服务” > “订阅”，单击要使用的订阅，然后，在“概要”下可以找到订阅 ID。
+- Azure 订阅的订阅 ID。 若要获取该 ID，请登录到 Azure，单击“所有服务”。 然后，在“常规”类别下，选择“订阅”，单击要使用的订阅，然后可以在“概要”下找到订阅 ID。
 
 - 订阅所有者的帐户用户名和密码（支持 MSA/2FA 帐户）。
 
-- 用户帐户需要是 Azure Stack 注册到的 Azure AD 租户中的管理员，例如 `yourazurestacktenant.partner.onmschina.cn`。
+- 用户帐户必须有权访问 Azure 订阅并且有权在与该订阅关联的目录中创建标识应用程序和服务主体。
 
 - 已注册 Azure Stack 资源提供程序（请参阅下面的“注册 Azure Stack 资源提供程序”部分以了解详细信息）。
+
+注册后，不需要 Azure Active Directory 全局管理员权限。 但是，某些操作可能需要全局管理员凭据。 例如，资源提供程序安装程序脚本或需要授予权限的新功能。 可以临时复原帐户的全局管理员权限，也可以使用单独的全局管理员帐户，该帐户是*默认提供程序订阅*的所有者。
 
 如果没有符合这些要求的 Azure 订阅，可[在此处创建一个 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/?b=17.06)。 注册 Azure Stack 不会对 Azure 订阅收取任何费用。
 
@@ -100,7 +104,7 @@ Azure Stack 部署可能处于“已连接”或“已断开连接”状态。
 
 1. 若要向 Azure 注册 Azure Stack 资源提供程序，请以管理员身份启动 PowerShell ISE，然后使用以下 PowerShell cmdlet，并将 **EnvironmentName** 参数设置为相应的 Azure 订阅类型（请参阅下面的“参数”）。
 
-2. 添加用于注册 Azure Stack 的 Azure 帐户。 若要添加该帐户，请运行 **Add-AzureRmAccount** cmdlet。 系统会提示输入 Azure 全局管理员帐户凭据。可能必须使用双重身份验证，具体取决于帐户的配置。
+2. 添加用于注册 Azure Stack 的 Azure 帐户。 若要添加该帐户，请运行 **Add-AzureRmAccount** cmdlet。 系统会提示输入 Azure 帐户凭据。可能必须使用双重身份验证，具体取决于帐户的配置。
 
    ```PowerShell  
       Add-AzureRmAccount -EnvironmentName "<Either AzureCloud or AzureChinaCloud>"
@@ -160,7 +164,7 @@ Azure Stack 部署可能处于“已连接”或“已断开连接”状态。
 
 1. 若要向 Azure 注册 Azure Stack 资源提供程序，请以管理员身份启动 PowerShell ISE，然后使用以下 PowerShell cmdlet，并将 **EnvironmentName** 参数设置为相应的 Azure 订阅类型（请参阅下面的“参数”）。
 
-2. 添加用于注册 Azure Stack 的 Azure 帐户。 若要添加该帐户，请运行 **Add-AzureRmAccount** cmdlet。 系统会提示输入 Azure 全局管理员帐户凭据。可能必须使用双重身份验证，具体取决于帐户的配置。
+2. 添加用于注册 Azure Stack 的 Azure 帐户。 若要添加该帐户，请运行 **Add-AzureRmAccount** cmdlet。 系统会提示输入 Azure 帐户凭据。可能必须使用双重身份验证，具体取决于帐户的配置。
 
    ```PowerShell  
       Add-AzureRmAccount -EnvironmentName "<AzureCloud, or AzureChinaCloud>"
@@ -215,7 +219,7 @@ Azure Stack 部署可能处于“已连接”或“已断开连接”状态。
 
    ```Powershell
    $FilePathForRegistrationToken = $env:SystemDrive\RegistrationToken.txt
-   $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential -EnableUsageReporting False $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel Capacity -AgreementNumber '<EA agreement number>' -TokenOutputFilePath $FilePathForRegistrationToken
+   $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential -UsageReportingEnabled:$False $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel Capacity -AgreementNumber '<EA agreement number>' -TokenOutputFilePath $FilePathForRegistrationToken
    ```
    有关 Get-AzsRegistrationToken cmdlet 的详细信息，请参阅[注册参考](#registration-reference)。
 
@@ -280,7 +284,7 @@ Azure Stack 部署可能处于“已连接”或“已断开连接”状态。
 使用以下步骤来验证 Azure Stack 是否已成功注册到 Azure。
 
 1. 登录到 Azure Stack [管理员门户](/azure-stack/azure-stack-manage-portals#access-the-administrator-portal)：https&#58;//adminportal.*&lt;区域>.&lt;fqdn>*。
-2. 选择“更多服务” > “市场管理” > “从 Azure 添加”。
+2. 选择“所有服务”，然后在“管理”类别下，选择“市场管理” > “从 Azure 添加”。
 
 如果看到 Azure 提供的项列表（例如 WordPress），则表示激活成功。 但是，在离线环境中，Azure Stack 市场不会显示 Azure 市场项。
 
@@ -355,7 +359,7 @@ Azure Stack 部署可能处于“已连接”或“已断开连接”状态。
 
 ### <a name="disable-or-enable-usage-reporting"></a>禁用或启用使用情况报告
 
-对于使用容量计费模型的 Azure Stack 环境，请将 **EnableUsageReporting** 参数与 **Set-AzsRegistration** 或 **Get-AzsRegistrationToken** cmdlet 配合使用，以便关闭使用情况报告功能。 默认情况下，Azure Stack 报告使用情况指标。 使用容量或支持断开连接的环境的操作员需关闭使用情况报告功能。
+对于使用容量计费模型的 Azure Stack 环境，请将 **UsageReportingEnabled** 参数与 **Set-AzsRegistration** 或 **Get-AzsRegistrationToken** cmdlet 配合使用，以便关闭使用情况报告功能。 默认情况下，Azure Stack 报告使用情况指标。 使用容量或支持断开连接的环境的操作员需关闭使用情况报告功能。
 
 #### <a name="with-a-connected-azure-stack"></a>使用连接的 Azure Stack
 
@@ -375,7 +379,7 @@ Azure Stack 部署可能处于“已连接”或“已断开连接”状态。
 
    ```Powershell
    $FilePathForRegistrationToken = $env:SystemDrive\RegistrationToken.txt
-   $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential -EnableUsageReporting False
+   $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential -UsageReportingEnabled:$False
    $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel Capacity -AgreementNumber '<EA agreement number>' -TokenOutputFilePath $FilePathForRegistrationToken
    ```
 
@@ -384,6 +388,8 @@ Azure Stack 部署可能处于“已连接”或“已断开连接”状态。
 
 2. 保存此注册令牌，以便在连接 Azure 的计算机上使用。 可以从 $FilePathForRegistrationToken 复制文件或文本。
 
+## <a name="move-a-registration-resource"></a>移动注册资源
+对于所有环境，都支持在同一订阅下的资源组之间移动注册资源。 但是，只有当两个订阅都解析到同一个合作伙伴 ID 时，才支持在订阅之间移动注册资源。 有关将资源移到新的资源组的详细信息，请参阅[将资源移到新的资源组或订阅](https://docs.azure.cn/azure-resource-manager/resource-group-move-resources)。
 
 ## <a name="registration-reference"></a>注册参考
 
@@ -439,5 +445,4 @@ Get-AzsRegistrationToken 会根据输入参数生成注册令牌。
 
 ## <a name="next-steps"></a>后续步骤
 
-
-  [从 Azure 下载市场项](azure-stack-download-azure-marketplace-item.md)
+[从 Azure 下载市场项](azure-stack-download-azure-marketplace-item.md)

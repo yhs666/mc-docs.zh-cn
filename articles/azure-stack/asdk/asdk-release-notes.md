@@ -1,31 +1,180 @@
 ---
-title: Azure Stack 开发工具包发行说明 | Azure
+title: Azure Stack 开发工具包发行说明 | Microsoft Docs
 description: Azure Stack 开发工具包的改进、修复和已知问题。
 services: azure-stack
 documentationcenter: ''
-author: brenduns
-manager: femila
+author: WenJason
+manager: digimobile
 ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/20/2018
-ms.date: 08/27/2018
-ms.author: v-junlch
+origin.date: 09/17/2018
+ms.date: 10/15/2018
+ms.author: v-jay
 ms.reviewer: misainat
-ms.openlocfilehash: c14c22a9d45d5e98f787b59d0d56a71b943eecfe
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.openlocfilehash: 3e0dbc4f9a0cb1dea2caa8a662c5e2f5d6e92572
+ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869502"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48848866"
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Azure Stack 开发工具包发行说明  
-这些发行说明提供 Azure Stack 开发工具包的改进、修复和已知问题的相关信息。 如果不确定所运行的版本，可以[使用门户检查版本](../azure-stack-updates.md#determine-the-current-version)。
+本文提供了 Azure Stack 开发工具包的改进、修复和已知问题的相关信息。 如果不确定所运行的版本，可以[使用门户检查版本](../azure-stack-updates.md#determine-the-current-version)。
 
 > 请订阅 [![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [源](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#)，随时了解 ASDK 的新增功能。
+
+## <a name="build-11808097"></a>内部版本 1.1808.0.97
+
+### <a name="new-features"></a>新增功能
+此内部版本包含以下适用于 Azure Stack 的改进和修复。  
+
+- <!-- 2682594   | ASDK  -->   **所有 Azure Stack 环境现在都使用协调世界时 (UTC) 时区格式。**  所有日志数据和相关的信息现在都以 UTC 格式显示。 
+
+- <!-- 2437250  | IS  ASDK --> **支持托管磁盘。** 现在可以在 Azure Stack 虚拟机和虚拟机规模集中使用托管磁盘。 有关详细信息，请参阅 [Azure Stack 托管磁盘：差异和注意事项](/azure-stack/user/azure-stack-managed-disk-considerations)。
+ 
+- <!-- 2563799  | IS  ASDK -->  **Azure Monitor**。 与 Azure 上的 Azure Monitor 一样，Azure Stack 上的 Azure Monitor 针对大多数服务提供基本级别的基础结构指标和日志。 有关详细信息，请参阅 [Azure Stack 上的 Azure Monitor](/azure-stack/user/azure-stack-metrics-azure-data)。
+
+- <!-- ASDK --> **虚拟机规模集的库项现在已内置**。  虚拟机规模集库项现在可以在用户和管理员门户中使用，无需下载。 
+
+- <!-- IS, ASDK --> **虚拟机规模集缩放**。  可以通过门户[缩放虚拟机规模集](/azure-stack/azure-stack-compute-add-scalesets.md#scale-a-virtual-machine-scale-set) (VMSS)。   
+
+- <!-- 2489570 | IS ASDK--> **支持自定义 IPSec/IKE 策略配置**，这适用于 [Azure Stack 中的 VPN 网关](/azure-stack/azure-stack-vpn-gateway-about-vpn-gateways)。
+
+- <!-- | IS ASDK--> **Kubernetes 市场项**。 现在可以使用 [Kubernetes 市场项](/azure-stack/azure-stack-solution-template-kubernetes-cluster-add)来部署 Kubernetes 群集。 用户可以选择 Kubernetes 项并填充一些参数，以便将 Kubernetes 群集部署到 Azure Stack。 模板的用途是方便用户在几个步骤中设置开发/测试型 Kubernetes 部署。
+
+- <!-- | IS ASDK--> **Blockchain 模板**。 现在可以在 Azure Stack 上执行[以太坊联盟部署](/azure-stack/azure-stack-ethereum)。 可以在 [Azure Stack 快速入门模板](https://github.com/Azure/AzureStack-QuickStart-Templates)中找到三个新的模板。 有了这些模板，用户不需多少 Azure 和以太坊知识即可部署和配置多成员联盟以太坊网络。 模板的用途是方便用户在几个步骤中设置开发/测试型 Blockchain 部署。
+
+- <!-- | IS ASDK--> **API 版本配置文件 2017-03-09-profile 已更新到 2018-03-01-hybrid**。 API 配置文件指定 Azure 资源提供程序和 Azure REST 终结点的 API 版本。 有关配置文件的详细信息，请参阅[在 Azure Stack 中管理 API 版本配置文件](/azure-stack/user/azure-stack-version-profiles)。
+
+
+### <a name="fixed-issues"></a>修复的问题
+- <!-- IS ASDK--> 我们修复了在门户中创建可用性集的问题，该问题导致集只能有 1 个容错域和 1 个更新域。
+
+- <!-- IS ASDK --> 现在可以在门户中使用虚拟机规模集的缩放设置。  
+
+- <!-- 2494144- IS, ASDK --> 选择某个 VM 大小进行部署时妨碍某些 F 系列虚拟机大小显示的问题现在已解决。 
+
+- <!-- IS, ASDK --> 改进了创建虚拟机时的性能以及对基础存储的优化使用。
+
+- 针对性能、稳定性、安全性以及 Azure Stack 所用操作系统的**各种修复**
+
+
+### <a name="changes"></a>更改
+- <!-- 1697698  | IS, ASDK --> 用户门户仪表板中的快速入门教程现在链接到 Azure Stack 在线文档中的相关文章。
+
+- <!-- 2515955   | IS ,ASDK--> 在 Azure Stack 管理员门户和用户门户中，“所有服务”替换了“更多服务”。 现在可以在 Azure Stack 门户中使用“所有服务”作为替代来导航，就像在 Azure 门户中导航一样。
+
+- <!-- TBD | IS, ASDK --> 在 Azure Stack 管理员门户和用户门户中，“+ 创建资源”替换了“+ 新建”。  现在可以在 Azure Stack 门户中使用“+ 创建资源”作为替代方式来导航，就像在 Azure 门户中导航一样。 
+
+- <!--  TBD – IS, ASDK --> 通过门户[创建虚拟机规模集](../azure-stack-compute-add-scalesets.md) (VMSS) 时，不再使用“基本 A”虚拟机大小。 若要按照此大小来创建 VMSS，请使用 PowerShell 或模板。 
+
+### <a name="known-issues"></a>已知问题
+
+#### <a name="portal"></a>门户  
+- <!-- 2967387 – IS, ASDK --> 登录 Azure Stack 管理员门户或用户门户时使用的帐户显示为“未标识的用户”。 如果帐户未指定“名”或“姓”，则会发生这种情况。 若要解决此问题，请编辑用户帐户，提供名或姓。 然后必须注销，再重新登录门户。 
+
+-  <!--  2873083 - IS ASDK --> 通过门户创建虚拟机规模集 (VMSS) 时，如果使用 Internet Explorer，则“实例大小”下拉列表无法正确加载。 若要解决此问题，请在通过门户创建 VMSS 时使用其他浏览器。  
+
+- <!-- TBD  ASDK --> 所有 Azure Stack 部署的默认时区现在都设置为协调世界时 (UTC)。 在安装 Azure Stack 时，你可以选择时区，但是，在安装期间，它将自动恢复为默认设置 UTC。
+
+- <!-- 2931230 – IS  ASDK --> 即使从用户订阅中删除计划，也无法删除作为附加计划添加到用户订阅的计划。 该计划将一直保留，直到引用附加计划的订阅也被删除。 
+
+- <!--2760466 – IS  ASDK --> 安装运行此版本的新 Azure Stack 环境时，指示“需要激活”的警报可能不显示。 必须先[激活](../azure-stack-registration.md)，然后才能使用市场联合。 
+
+- <!-- TBD - IS ASDK --> [版本 1804 中引入](../azure-stack-update-1804.md#new-features)的两种管理订阅类型不应使用。 这两种订阅类型为“计量订阅”和“消耗订阅”。 这两种订阅类型为“计量订阅”和“消耗订阅”。 从版本 1804 开始，这些订阅类型会在新的 Azure Stack 环境中显示，但尚不可用。 请继续使用“默认提供程序”订阅类型。
+
+- <!-- TBD -  IS ASDK --> 删除用户订阅会形成孤立的资源。 解决方法是先删除用户资源或整个资源组，然后再删除用户订阅。
+
+- <!-- TBD -  IS ASDK --> 无法使用 Azure Stack 门户查看订阅的权限。 解决方法是使用 PowerShell 验证权限。
+
+
+
+#### <a name="health-and-monitoring"></a>运行状况和监视
+- <!-- 1264761 - IS ASDK --> 可能会看到具有以下详细信息的*运行状况控制器*组件的警报：  
+
+   警报 #1：
+   - 名称：基础结构角色不正常
+   - 严重性：警告
+   - 组件：运行状况控制器
+   - 说明：运行状况控制器检测信号扫描仪不可用。 这可能会影响运行状况报告和指标。  
+
+  警报 #2：
+   - 名称：基础结构角色不正常
+   - 严重性：警告
+   - 组件：运行状况控制器
+   - 说明：运行状况控制器故障扫描仪不可用。 这可能会影响运行状况报告和指标。
+
+  可以放心忽略这两条警报，它们在一段时间后会自动关闭。  
+
+- <!-- 2368581 - IS. ASDK --> 如果 Azure Stack 操作员收到内存不足的警报，并且租户虚拟机无法部署并出现“Fabric VM 创建错误”，则可能表示 Azure Stack 模组的可用内存不足。 请使用 [Azure Stack 容量规划工具](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822)来充分了解可供工作负荷使用的容量。
+
+
+#### <a name="compute"></a>计算  
+- <!-- 2869209 – IS, ASDK --> 使用 [**Add-AzsPlatformImage** cmdlet](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0) 时，必须使用 **-OsUri** 参数作为存储帐户 URI（在其中上传磁盘）。 如果使用磁盘的本地路径，则此 cmdlet 会失败并显示以下错误：长时间运行的操作失败，状态为“失败”。 
+
+- <!--  2966665 – IS, ASDK --> 将 SSD 数据磁盘附加到“高级”大小托管磁盘虚拟机（DS、DSv2、Fs、Fs_V2）失败，出现以下错误 *：无法更新虚拟机 ‘vmname’ 的磁盘。错误: 请求的操作无法执行，因为 VM 大小 ‘Standard_DS/Ds_V2/FS/Fs_v2’ 不支持存储帐户类型 ‘Premium_LRS’*
+
+   若要解决此问题，请使用 *Standard_LRS* 数据磁盘而不是 *Premium_LRS* 磁盘。 使用 *Standard_LRS* 数据磁盘不会造成 IOPS 或账单费用变化。  
+
+- <!--  2795678 – IS, ASDK --> 通过门户创建“高级”VM 大小（DS、Ds_v2、FS、FSv2）的虚拟机 (VM) 时，该 VM 在标准存储帐户中创建。 在标准存储帐户中创建不影响功能、IOPS 或计费。 
+
+   可以放心地忽略以下内容的警告：*在 VM 大小需要高级磁盘的情况下，你选择了使用标准磁盘。这可能影响操作系统性能，建议不要这样做。考虑改用高级存储(SSD)。*
+
+- <!-- 2967447 - IS, ASDK --> 虚拟机规模集 (VMSS) 创建体验提供基于 CentOS 的 7.2 作为部署选项。 由于该映像在 Azure Stack 上不可用，因此请为部署选择另一 OS，或者使用一个 ARM 模板，指定另一个已在部署之前由操作员从市场下载的 CentOS 映像。
+
+- <!-- TBD -  IS ASDK --> 无法在门户中使用虚拟机规模集的缩放设置。 解决方法是使用 [Azure PowerShell](https://docs.azure.cn/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set)。 由于 PowerShell 版本差异，必须使用 `-Name` 参数，而不是 `-VMScaleSetName`。
+
+- <!-- TBD -  IS ASDK --> 在 Azure Stack 用户门户中创建虚拟机时，该门户显示的可以附加到 D 系列 VM 的数据磁盘数不正确。 所有受支持的 D 系列 VM 可以容纳的数据磁盘数取决于 Azure 配置。
+
+- <!-- TBD -  IS ASDK --> 无法创建 VM 映像时，可能会向 VM 映像计算边栏选项卡添加一个无法删除的故障项。
+
+  解决方法是通过虚拟 VHD 创建新的 VM 映像，而该 VHD 则可以通过 Hyper-V (New-VHD -Path C:\dummy.vhd -Fixed -SizeBytes 1 GB) 来创建。 此过程应该解决妨碍删除故障项的问题。 然后，在创建虚拟映像 15 后，就可以成功删除该故障项。
+
+  然后，可以重试下载以前无法下载的 VM 映像。
+
+- <!-- TBD -  IS ASDK --> 如果在 VM 部署上预配某个扩展时耗时过长，用户应让预配超时，而不应尝试通过停止该进程来解除 VM 的分配或将 VM 删除。  
+
+- <!-- 1662991 - IS ASDK --> Azure Stack 不支持 Linux VM 诊断。 在部署启用 VM 诊断的 Linux VM 时，部署会失败。 如果通过诊断设置启用 Linux VM 的基本指标，部署也会失败。
+
+- <!-- 2724961- IS ASDK --> 在订阅设置中注册 **Microsoft.Insight** 资源提供程序并创建支持来宾 OS 诊断的 Windows VM 时，VM 概览页中的“CPU 百分比”图表将无法显示指标数据。
+ 
+  若要查找 VM 的“CPU 百分比”图表，请转到“指标”边栏选项卡并查看所有受支持的 Windows VM 来宾指标。
+
+ 
+
+#### <a name="networking"></a>网络
+- <!-- 1766332 - IS, ASDK --> 如果在“网络”下单击“创建 VPN 网关”来设置 VPN 连接，则会将“基于策略”列为 VPN 类型。 请不要选择此选项。 Azure Stack 仅支持“基于路由”选项。
+
+- <!-- 1902460 -  IS ASDK --> Azure Stack 支持对一个 IP 地址使用一个本地网关。 这适用于所有租户订阅。 在创建第一个本地网关连接以后，系统会阻止使用同一 IP 地址创建本地网关资源的后续尝试。
+
+- <!-- 16309153 -  IS ASDK --> 在使用 DNS 服务器设置“自动”创建的虚拟网络上，无法更改为自定义 DNS 服务器。 更新的设置不推送到该 Vnet 中的 VM。
+
+- <!-- 2702741 -  IS ASDK --> 在发出“停止-解除分配”命令后，无法保证系统会保留使用动态分配方法部署的公共 IP。
+
+- <!-- 2529607 - IS ASDK --> 在 Azure Stack 机密轮换期间，有一个时段（两到五分钟）会无法访问公共 IP 地址。
+
+- <!-- 2664148 - IS ASDK --> 租户通过 S2S VPN 隧道访问其虚拟机时，可能会遇到这样的情况：如果在创建网关后向本地网关添加本地子网，连接尝试会失败。 
+
+
+<!--  #### SQL and MySQL  -->
+
+
+#### <a name="app-service"></a>应用服务
+- <!-- 2352906 - IS ASDK --> 在订阅中创建第一个 Azure 函数之前，用户必须先注册存储资源提供程序。
+
+- <!-- TBD - IS ASDK --> 若要横向扩展基础结构（辅助角色、管理角色、前端角色），必须按照计算发行说明中的说明来使用 PowerShell。  
+
+
+#### <a name="usage"></a>使用情况  
+- <!-- TBD -  IS ASDK --> 公共 IP 地址使用计量数据针对每条记录显示相同的 *EventDateTime* 值，而不是创建记录时显示的 *TimeDate* 时间戳。 目前，无法使用此数据来执行公共 IP 地址用量的准确计帐。
+
+<!-- #### Identity -->
+
+
 
 
 ## <a name="build-11807076"></a>内部版本 1.1807.0.76
@@ -107,6 +256,8 @@ ms.locfileid: "42869502"
 ### <a name="known-issues"></a>已知问题
 
 #### <a name="portal"></a>门户  
+- <!-- 2931230 – IS  ASDK --> 即使从用户订阅中删除计划，也无法删除作为附加计划添加到用户订阅的计划。 该计划将一直保留，直到引用附加计划的订阅也被删除。 
+
 - <!--2760466 – IS  ASDK --> 安装运行此版本的新 Azure Stack 环境时，指示“需要激活”的警报可能不显示。 必须先[激活](../azure-stack-registration.md)，然后才能使用市场联合。 
 
 - <!-- TBD - IS ASDK --> [版本 1804 中引入](../azure-stack-update-1804.md#new-features)的两种管理订阅类型不应使用。 这两种订阅类型为“计量订阅”和“消耗订阅”。 这两种订阅类型为“计量订阅”和“消耗订阅”。 从版本 1804 开始，这些订阅类型会在新的 Azure Stack 环境中显示，但尚不可用。 请继续使用“默认提供程序”订阅类型。
@@ -139,7 +290,7 @@ ms.locfileid: "42869502"
 
 - <!-- 2368581 - IS. ASDK --> 如果 Azure Stack 操作员收到内存不足的警报，并且租户虚拟机无法部署并出现“Fabric VM 创建错误”，则可能表示 Azure Stack 模组的可用内存不足。 请使用 [Azure Stack 容量规划工具](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822)来充分了解可供工作负荷使用的容量。
 
-- <!-- TBD - IS. ASDK --> 在特权终结点 (PEP) 上运行 Test-AzureStack cmdlet 时，将为 ERCS VM 生成一条警告消息。 可以继续使用 ASDK。 
+- <!-- TBD - IS. ASDK --> 在特权终结点 (PEP) 上运行 Test-AzureStack cmdlet 时，测试将为 ERCS VM 生成一条警告/失败消息。 可以继续使用 ASDK。
 
 #### <a name="compute"></a>计算
 - <!-- 2494144 - IS, ASDK --> 选择虚拟机大小进行虚拟机部署时，某些 F 系列 VM 大小在创建 VM 时所需的大小选择器中不可见。 以下 VM 大小不显示在选择器中：*F8s_v2*、*F16s_v2*、*F32s_v2* 和 *F64s_v2*。  
@@ -172,7 +323,9 @@ ms.locfileid: "42869502"
 
 - <!-- 1662991 - IS ASDK --> Azure Stack 不支持 Linux VM 诊断。 在部署启用 VM 诊断的 Linux VM 时，部署会失败。 如果通过诊断设置启用 Linux VM 的基本指标，部署也会失败。
 
-- <!-- 2724961- IS ASDK --> 在订阅设置中注册 **Microsoft.Insight** 资源提供程序并创建支持来宾 OS 诊断的 Windows VM 时，VM 概览页中的“CPU 百分比”图表将无法显示指标数据。 若要查找 VM 的“CPU 百分比”图表，请转到“指标”边栏选项卡并查看所有受支持的 Windows VM 来宾指标。
+- <!-- 2724961- IS ASDK --> 在订阅设置中注册 **Microsoft.Insight** 资源提供程序并创建支持来宾 OS 诊断的 Windows VM 时，VM 概览页不显示指标数据。 
+
+   若要查找指标数据（如 VM 的 CPU 百分比图表），请转到“指标”边栏选项卡并查看所有受支持的 Windows VM 来宾指标。
 
 #### <a name="networking"></a>网络
 - <!-- 1766332 - IS, ASDK --> 如果在“网络”下单击“创建 VPN 网关”来设置 VPN 连接，则会将“基于策略”列为 VPN 类型。 请不要选择此选项。 Azure Stack 仅支持“基于路由”选项。
@@ -223,7 +376,7 @@ ms.locfileid: "42869502"
 
 - <!-- 2297790 - IS, ASDK --> **Azure Stack 现已将 *Syslog* 客户端**包含为预览功能。 此客户端允许将与 Azure Stack 基础结构相关的审核和安全日志转发到 Azure Stack 外部的 Syslog 服务器或安全信息与事件管理 (SIEM) 软件。 目前，Syslog 客户端仅支持通过默认端口 514 建立的未经身份验证的 UDP 连接。 每条 Syslog 消息的有效负载采用通用事件格式 (CEF)。
 
-  若要配置 Syslog 客户端，请使用特权终结点中公开的 **Set-SyslogServer** cmdlet。
+  若要配置 Syslog 客户端，请在特权终结点上使用 **Set-SyslogServer** cmdlet。
 
   此预览版中可能会出现以下三种警报。 当 Azure Stack 显示这些警报时，警报中会包含说明和补救指导。
   - 标题：代码完整性关闭  
@@ -250,6 +403,8 @@ ms.locfileid: "42869502"
 ### <a name="known-issues"></a>已知问题
 
 #### <a name="portal"></a>门户
+- <!-- 2931230 – IS  ASDK --> 即使从用户订阅中删除计划，也无法删除作为附加计划添加到用户订阅的计划。 该计划将一直保留，直到引用附加计划的订阅也被删除。 
+
 - <!-- 2551834 - IS, ASDK --> 在管理员门户或用户门户中选择存储帐户的“概述”时，“概要”窗格中的信息不会显示。  “概要”窗格显示有关帐户的信息，例如其资源组、位置和订阅 ID。  可以访问“概述”中的其他选项，例如“服务”和“监视”，以及“在资源管理器中打开”或“删除存储帐户”。  
 
   若要查看未显示的信息，请使用 [Get-azureRMstorageaccount](https://docs.microsoft.com/powershell/module/azurerm.storage/get-azurermstorageaccount?view=azurermps-6.2.0) PowerShell cmdlet。
@@ -379,144 +534,4 @@ ms.locfileid: "42869502"
 - <!-- TBD -  IS ASDK --> 公共 IP 地址使用计量数据针对每条记录显示相同的 *EventDateTime* 值，而不是创建记录时显示的 *TimeDate* 时间戳。 目前，无法使用此数据来执行公共 IP 地址用量的准确计帐。
 
 <!-- #### Identity -->
-
-
-## <a name="build-201805131"></a>内部版本 20180513.1
-
-### <a name="new-features"></a>新增功能
-此内部版本包含以下适用于 Azure Stack 的改进和修复。  
-
-- <!-- 1759172 - IS, ASDK --> **新的管理订阅**。 应用更新 1804 后，门户中会显示两个新的订阅类型。 这些新订阅类型是对“默认提供程序”订阅的补充，从版本 1804 开始，会显示在新的 Azure Stack 安装中。 请不要在此 Azure Stack 版本中使用这些新订阅类型。 <!-- We will announce the availability to use these subscription types in with a future update. -->
-
-  这些新订阅类型会显示，但它们是某项重大更改的一部分，旨在保护“默认提供程序”订阅，以及方便部署 SQL 宿主服务器等共享资源。
-
-  目前提供的三个订阅类型是：  
-  - “默认提供程序”订阅：请继续使用此订阅类型。
-  - “计量”订阅：请不要继续使用此订阅类型。
-  - “消耗量”订阅：请不要继续使用此订阅类型。
-
-### <a name="fixed-issues"></a>修复的问题
-- <!-- IS, ASDK -->  在管理员门户中，不再需要刷新“更新”磁贴才能显示信息。
-
-- <!-- 2050709 - IS, ASDK -->  现在可以使用管理员门户来编辑 Blob 服务、表服务和队列服务的存储指标。
-
-- <!-- IS, ASDK --> 在“网络”下单击“连接”以设置 VPN 连接时，“站点到站点(IPsec)”现在是唯一可用的选项。
-
-- 针对性能、稳定性、安全性以及 Azure Stack 所用操作系统的**各种修复**
-
-<!-- ### Changes  -->
-### <a name="additional-releases-timed-with-this-update"></a>随此更新一起推出的其他发行版  
-以下版本现在可用，但不需要 Azure Stack 更新 1804。
-- **针对 Azure Stack System Center Operations Manager 监视包的更新**。 适用于 Azure Stack 的 Microsoft System Center Operations Manager 监视包的新版本 (1.0.3.0) 已可供[下载](https://www.microsoft.com/download/details.aspx?id=55184)。 使用此版本，可以在添加连接的 Azure Stack 部署时使用服务主体。 此版本还提供更新管理体验，可让你直接从 Operations Manager 中执行修正操作。 还有新的仪表板，用于显示资源提供程序、缩放单元和缩放单元节点。
-
-- **新的 Azure Stack 管理 PowerShell 版本 1.3.0**。  Azure Stack PowerShell 1.3.0 现已可供安装。 此版本针对所有管理资源提供程序提供了用来管理 Azure Stack 的命令。  在此版本中，某些内容将从 Azure Stack 工具 GitHub [存储库](https://github.com/Azure/AzureStack-Tools)中弃用。
-
-   有关安装的详细信息，请遵循 Azure Stack 模块 1.3.0 的[说明](../azure-stack-powershell-install.md)或[帮助](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.3.0)内容。 
-
-- **Azure Stack API Rest 参考的初始版本**。 [所有 Azure Stack 管理资源提供程序的 API 参考](https://docs.microsoft.com/rest/api/azure-stack/)现已发布。
-
-### <a name="known-issues"></a>已知问题
-
-#### <a name="portal"></a>门户
-- <!-- TBD - IS ASDK --> 在管理员门户中[从下拉列表提交新的支持请求](../azure-stack-manage-portals.md#quick-access-to-help-and-support)的功能不可用。 请改用以下链接：     
-    - 对于 Azure Stack 开发工具包，请使用 https://aka.ms/azurestackforum。    
-
-- <!-- 2403291 - IS ASDK --> 可能无法使用管理员和用户门户底部的水平滚动条。 如果无法访问水平滚动条，请使用痕迹导航到门户中的上一边栏选项卡，只需从门户左上角的痕迹列表中选择要查看的边栏选项卡的名称即可。
-  ![痕迹](media/asdk-release-notes/breadcrumb.png)
-
-- <!-- TBD -  IS ASDK --> 删除用户订阅会形成孤立的资源。 解决方法是先删除用户资源或整个资源组，然后再删除用户订阅。
-
-- <!-- TBD -  IS ASDK --> 无法使用 Azure Stack 门户查看订阅的权限。 解决方法是使用 PowerShell 验证权限。
-
--   <!-- TBD -  IS ASDK --> 在管理员门户中，可能会看到针对 Microsoft.Update.Admin 组件的严重警报。 警报名称、说明和修正均显示为：  
-    - 错误 - FaultType 为 ResourceProviderTimeout 的模板缺失。
-
-    可以放心地忽略此警报。
-
-#### <a name="health-and-monitoring"></a>运行状况和监视
-- <!-- 1264761 - IS ASDK --> 可能会看到具有以下详细信息的*运行状况控制器*组件的警报：  
-
-   警报 #1：
-   - 名称：基础结构角色不正常
-   - 严重性：警告
-   - 组件：运行状况控制器
-   - 说明：运行状况控制器检测信号扫描仪不可用。 这可能会影响运行状况报告和指标。  
-
-  警报 #2：
-   - 名称：基础结构角色不正常
-   - 严重性：警告
-   - 组件：运行状况控制器
-   - 说明：运行状况控制器故障扫描仪不可用。 这可能会影响运行状况报告和指标。
-
-  可以放心地忽略这两个警报。 它们将随着时间的推移自动关闭。  
-
-#### <a name="marketplace"></a>市场
-- 用户无需订阅就能浏览整个市场，并且将会看到计划和套餐等管理项。 对用户而言，这些项是非功能性的。
-
-#### <a name="compute"></a>计算
-- <!-- TBD -  IS ASDK --> 无法在门户中使用虚拟机规模集的缩放设置。 解决方法是使用 [Azure PowerShell](/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set)。 由于 PowerShell 版本差异，必须使用 `-Name` 参数，而不是 `-VMScaleSetName`。
-
-- <!-- TBD -  IS ASDK --> 在 Azure Stack 用户门户中创建虚拟机时，该门户显示的可以附加到 DS 系列 VM 的数据磁盘数不正确。 DS 系列 VM 可以容纳的数据磁盘数取决于 Azure 配置。
-
-- <!-- TBD -  IS ASDK --> 无法创建 VM 映像时，可能会向 VM 映像计算边栏选项卡添加一个无法删除的故障项。
-
-  解决方法是通过虚拟 VHD 创建新的 VM 映像，而该 VHD 则可以通过 Hyper-V (New-VHD -Path C:\dummy.vhd -Fixed -SizeBytes 1 GB) 来创建。 此过程应该解决妨碍删除故障项的问题。 然后，在创建虚拟映像 15 后，就可以成功删除该故障项。
-
-  然后，可以重试下载以前无法下载的 VM 映像。
-
-- <!-- TBD -  IS ASDK --> 如果在 VM 部署上预配某个扩展时耗时过长，用户应让预配超时，而不应尝试通过停止该进程来解除 VM 的分配或将 VM 删除。  
-
-- <!-- 1662991 - IS ASDK --> Azure Stack 不支持 Linux VM 诊断。 在部署启用 VM 诊断的 Linux VM 时，部署会失败。 如果通过诊断设置启用 Linux VM 的基本指标，部署也会失败。
-
-#### <a name="networking"></a>网络
-- <!-- 1766332 - IS, ASDK --> 如果在“网络”下单击“创建 VPN 网关”来设置 VPN 连接，则会将“基于策略”列为 VPN 类型。 请不要选择此选项。 Azure Stack 仅支持“基于路由”选项。
-
-- <!-- 2388980 -  IS ASDK --> 创建 VM 并将其与公共 IP 地址关联以后，就无法取消该 VM 与该 IP 地址的关联。 取消关联看似可以正常使用，但以前分配的公共 IP 地址仍与原始 VM 相关联。
-
-  目前只能将新建的公共 IP 地址用于新建的 VM。
-
-  即使将 IP 地址重新分配给新的 VM（通常名为“VIP 交换”），也还会发生这种行为。 以后尝试通过此 IP 地址建立连接都会导致连接到原始 VM，而不是新的 VM。
-
-- <!-- 2292271 - IS ASDK --> 如果提高属于某个套餐和计划的网络资源的配额限制，而该套餐和计划与租户订阅相关联，则新的限制不会应用到该订阅。 但是，新限制会应用到在配额提高后创建的新订阅。
-
-  当计划已与某个订阅相关联时，若要解决此问题，请使用加载项计划来增大网络配额。 有关详细信息，请参阅如何[提供加载项计划](../azure-stack-subscribe-plan-provision-vm.md#to-make-an-add-on-plan-available)。
-
-- <!-- 2304134 IS ASDK --> 不能删除与 DNS 区域资源或路由表资源相关联的订阅。 若要成功地删除该订阅，必须先从租户订阅中删除 DNS 区域资源和路由表资源。
-
-
-- <!-- 1902460 -  IS ASDK --> Azure Stack 支持对一个 IP 地址使用一个本地网关。 这适用于所有租户订阅。 在创建第一个本地网关连接以后，系统会阻止使用同一 IP 地址创建本地网关资源的后续尝试。
-
-- <!-- 16309153 -  IS ASDK --> 在使用 DNS 服务器设置“自动”创建的虚拟网络上，无法更改为自定义 DNS 服务器。 更新的设置不推送到该 Vnet 中的 VM。
-
-- <!-- TBD -  IS ASDK --> Azure Stack 不支持在部署某个 VM 实例后向该 VM 添加其他的网络接口。 如果该 VM 需要多个网络接口，这些接口必须在部署时定义。
-
-
-#### <a name="sql-and-mysql"></a>SQL 和 MySQL
-- <!-- TBD - ASDK --> 托管服务器的数据库必须专用于资源提供程序和用户工作负荷。 不能使用其他任何使用者（包括 应用服务）正在使用的实例。
-
-- <!-- IS, ASDK --> 为 SQL 和 MySQL 资源提供程序创建 SKU 时，**系列**名称中不支持使用特殊字符（包括空格和句点）。
-
-#### <a name="app-service"></a>应用服务
-- <!-- TBD -  IS ASDK --> 在订阅中创建第一个 Azure 函数之前，用户必须先注册存储资源提供程序。
-
-- <!-- TBD -  IS ASDK --> 若要横向扩展基础结构（辅助角色、管理角色、前端角色），必须按照计算发行说明中的说明来使用 PowerShell。
-
-#### <a name="usage"></a>使用情况  
-- <!-- TBD -  IS ASDK --> 公共 IP 地址使用计量数据针对每条记录显示相同的 *EventDateTime* 值，而不是创建记录时显示的 *TimeDate* 时间戳。 目前，无法使用此数据来执行公共 IP 地址用量的准确计帐。
-
-<!--
-#### Identity
--->
-
-
-
-#### <a name="downloading-azure-stack-tools-from-github"></a>从 GitHub 下载 Azure Stack 工具
-- 使用 *invoke-webrequest* PowerShell cmdlet 从 Github 下载 Azure Stack 工具时，收到一个错误：     
-    -  invoke-webrequest: 请求已终止: 未能创建 SSL/TLS 安全通道。     
-
-  之所以发生此错误，是因为最近的 GitHub 支持弃用了 Tlsv1 和 Tlsv1.1 加密标准（PowerShell 的默认设置）。 有关详细信息，请参阅 [Weak cryptographic standards removal notice](https://githubengineering.com/crypto-removal-notice/)（弱加密标准删除通知）。
-
-<!-- #### Identity -->
-
-
 
