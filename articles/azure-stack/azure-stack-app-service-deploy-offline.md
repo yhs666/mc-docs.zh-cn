@@ -1,10 +1,10 @@
 ---
-title: 在 Azure Stack 离线环境中部署应用服务 | Azure
+title: 在 Azure Stack 离线环境中部署应用服务 | Microsoft Docs
 description: 有关如何在受 AD FS 保护且已断开连接的 Azure Stack 环境中部署应用服务的详细指南。
 services: azure-stack
 documentationcenter: ''
-author: apwestgarth
-manager: stefsch
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
@@ -12,15 +12,15 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/15/2018
-ms.date: 08/27/2018
-ms.author: v-junlch
-ms.openlocfilehash: df938855ef363f6a35f0d2086aa4057f9382afe4
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+origin.date: 09/12/2018
+ms.date: 10/15/2018
+ms.author: v-jay
+ms.openlocfilehash: 18c940ad98b86df37c54394155fd39c4cd9dfdf5
+ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869523"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48848910"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>将应用服务资源提供程序添加到受 AD FS 保护且已断开连接的 Azure Stack 环境
 
@@ -227,7 +227,7 @@ ms.locfileid: "42869523"
 >
 至于第三个技术预览版，若要创建 Web 应用、API 应用和 Azure Functions 应用，必须使用租户门户并有租户订阅。
 
-1. 在 Azure Stack 租户门户中，单击“新建” > “Web + 移动” > “Web 应用”。
+1. 在 Azure Stack 租户门户中，单击“+ 创建资源” > “Web + 移动” > “Web 应用”。
 
 2. 在“Web 应用”边栏选项卡上的“Web 应用”框中键入名称。
 

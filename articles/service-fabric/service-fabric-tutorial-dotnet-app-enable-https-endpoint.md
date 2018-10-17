@@ -13,15 +13,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 04/12/2018
-ms.date: 09/10/2018
+ms.date: 10/15/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: fc58aa15ba95b01304be042becd863a5f5742eea
-ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
+ms.openlocfilehash: e4ffd866dfd7fe02aee87ae312d6e64a584669b8
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44515668"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49089226"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>教程：使用 Kestrel 向 ASP.NET Core Web API 前端服务添加 HTTPS 终结点
 
@@ -37,13 +37,13 @@ ms.locfileid: "44515668"
 > * 在 Azure 负载均衡器中打开端口 443
 > * 将应用程序部署到远程群集
 
-在此系列教程中，你会学习如何：
+在此系列教程中，你将学习如何：
 > [!div class="checklist"]
 > * [构建 .NET Service Fabric 应用程序](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 > * [将应用程序部署到远程群集](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 > * 向 ASP.NET Core 前端服务添加 HTTPS 终结点
-> * [使用 Visual Studio Team Services 配置 CI/CD](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
-> * [设置监视和诊断应用程序](service-fabric-tutorial-monitoring-aspnet.md)
+> * [使用 Azure Pipelines 配置 CI/CD](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+<!-- Not Available on [Set up monitoring and diagnostics for the application](service-fabric-tutorial-monitoring-aspnet.md)-->
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -264,7 +264,7 @@ if ($cert -eq $null)
     $hasPermissionsAlready = ($acl.Access | where {$_.IdentityReference.Value.Contains($userGroup.ToUpperInvariant()) -and $_.FileSystemRights -eq [System.Security.AccessControl.FileSystemRights]::FullControl}).Count -eq 1
 
     if ($hasPermissionsAlready){
-        Write-Host "Account $userGroupCertificate already has permissions to certificate '$subject'." -ForegroundColor Green
+        Write-Host "Account $userGroup already has permissions to certificate '$subject'." -ForegroundColor Green
         return $false;
     } else {
         Write-Host "Need add permissions to '$subject' certificate..." -ForegroundColor DarkYellow
@@ -280,7 +280,7 @@ if ($cert -eq $null)
     }
 }
 
-Modify the *SetCertAccess.ps1* file properties to set **Copy to Output Directory** to "Copy if newer".
+#Modify the *SetCertAccess.ps1* file properties to set **Copy to Output Directory** to "Copy if newer".
 ```
 
 ### <a name="run-the-setup-script-as-a-local-administrator"></a>以管理员身份运行设置脚本
@@ -441,10 +441,11 @@ $slb | Set-AzureRmLoadBalancer
 
 转到下一教程：
 > [!div class="nextstepaction"]
-> [使用 Visual Studio Team Services 配置 CI/CD](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+> [使用 Azure Pipelines 配置 CI/CD](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 
 [image1]: ./media/service-fabric-tutorial-dotnet-app-enable-https-endpoint/SetupBatProperties.png
 [image2]: ./media/service-fabric-tutorial-dotnet-app-enable-https-endpoint/VotingAppLocal.png
 [image3]: ./media/service-fabric-tutorial-dotnet-app-enable-https-endpoint/VotingAppAzure.png
 [image4]: ./media/service-fabric-tutorial-dotnet-app-enable-https-endpoint/ExportCert.png
+
 <!-- Update_Description: wording update, update meta properties -->

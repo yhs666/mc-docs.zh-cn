@@ -2,27 +2,31 @@
 title: Azure Stack 快速入门 - 创建 Windows 虚拟机
 description: Azure Stack 快速入门 - 使用门户创建 Windows VM
 services: azure-stack
-author: brenduns
-manager: femila
+author: WenJason
+manager: digimobile
 ms.service: azure-stack
 ms.topic: quickstart
-origin.date: 08/15/2018
-ms.date: 08/27/2018
-ms.author: v-junlch
+origin.date: 09/12/2018
+ms.date: 10/15/2018
+ms.author: v-jay
 ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: c76e9eeed663300d3b22a6f732f6294ed21e9414
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.openlocfilehash: 705065841bdf88ccf2a7da4b66e4c3a16a61b79d
+ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869432"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913897"
 ---
 # <a name="quickstart-create-a-windows-server-virtual-machine-with-the-azure-stack-portal"></a>快速入门：使用 Azure Stack 门户创建 Windows Server 虚拟机
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 可以使用 Azure Stack 门户创建 Windows Server 2016 虚拟机。 请按照本文中的步骤创建和使用虚拟机。
+
+> [!NOTE]  
+> 本文中的屏幕图像已更新，以匹配 Azure Stack 版本 1808 中引入的用户界面。 除了非托管磁盘外，1808 版还添加了对使用*托管磁盘*的支持。 如果使用早期版本，则某些图像（如磁盘选择）将与本文中显示的不同。  
+
 
 ## <a name="sign-in-to-the-azure-stack-portal"></a>登录到 Azure Stack 门户
 
@@ -33,18 +37,23 @@ ms.locfileid: "42869432"
 
 ## <a name="create-a-virtual-machine"></a>创建虚拟机
 
-1. 单击“新建” > “计算” > “Windows Server 2016 Datacenter Eval” > “创建”。 如果未看到“Windows Server 2016 Datacenter Eval”项，请联系 Azure Stack 运营商。 根据[将 Windows Server 2016 VM 映像添加到 Azure Stack 市场](../azure-stack-add-default-image.md)一文中所述，请求运营商将此映像添加到市场。
+1. 单击“+ 创建资源” > “计算” > “Windows Server 2016 Datacenter - 即用即付” > “创建”。 如果未看到“Windows Server 2016 Datacenter - 即用即付”项，请联系 Azure Stack 运营商。 根据[将 Windows Server 2016 VM 映像添加到 Azure Stack 市场](../azure-stack-add-default-image.md)一文中所述，请求运营商将此映像添加到市场。
 
     ![在门户中创建 Windows 虚拟机的步骤](media/azure-stack-quick-windows-portal/image01.png)
 2. 在“基本信息”下，键入**名称**、**用户名**和**密码**。 选择“订阅”。 创建一个**资源组**或选择现有资源组，选择一个**位置**，然后单击“确定”。
 
     ![配置基本设置](media/azure-stack-quick-windows-portal/image02.png)
-3. 在“选择大小”下，单击“D1 标准” > “选择”。
+3. 在“大小”下选择“D1 标准”，然后单击“选择”。  
     ![选择虚拟机大小](media/azure-stack-quick-windows-portal/image03.png)
-4. 在“设置”下，接受默认值，然后单击“确定”。
-    ![配置虚拟机设置](media/azure-stack-quick-windows-portal/image04.png)
+
+4. 在“设置”页上，对默认设置进行任何所需的更改。
+   - 从 Azure Stack 版本1808 开始，可以配置**存储**，可以在其中选择使用“托管磁盘”。 在版本 1808 之前，只能使用非托管磁盘。  
+   ![配置虚拟机设置](media/azure-stack-quick-windows-portal/image04.png)  
+   配置准备就绪后，选择“确定”以继续。
+
 5. 在“摘要”下，单击“确定”创建虚拟机。
     ![查看摘要和创建虚拟机](media/azure-stack-quick-windows-portal/image05.png)
+
 6. 若要查看新虚拟机，请单击“所有资源”，搜索该虚拟机名称，然后在搜索结果中单击其名称。
     ![查看虚拟机](media/azure-stack-quick-windows-portal/image06.png)
 

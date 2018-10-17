@@ -2,21 +2,21 @@
 title: Azure SQL 数据仓库 - MPP 体系结构 | Microsoft Docs
 description: 了解 Azure SQL 数据仓库如何将大规模并行处理 (MPP) 与 Azure 存储结合，实现高性能和可伸缩性。
 services: sql-data-warehouse
-documentationcenter: NA
-author: rockboyfor
+author: WenJason
 manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: design
-origin.date: 11/15/2017
-ms.date: 12/11/2017
-ms.author: v-yeche
-ms.openlocfilehash: e3d18b9d38c00337c3e4a8adbfcb65cebcab1780
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+origin.date: 04/17/2018
+ms.date: 10/15/2018
+ms.author: v-jay
+ms.reviewer: igorstan
+ms.openlocfilehash: 91e7a015a5cf8ab633e8805660e9d2ce0e4a2411
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121515"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49089073"
 ---
 # <a name="azure-sql-data-warehouse---massively-parallel-processing-mpp-architecture"></a>Azure SQL 数据仓库 - 大规模并行处理 (MPP) 体系结构
 了解 Azure SQL 数据仓库如何将大规模并行处理 (MPP) 与 Azure 存储结合，实现高性能和可伸缩性。 
@@ -66,8 +66,8 @@ SQL 数据仓库使用 Azure 存储保护用户数据。  由于数据通过 Azu
 
 下图说明了如何将完整的非分布式表存储为哈希分布表。 
 
-![分布式表](media/sql-data-warehouse-distributed-data/hash-distributed-table.png)
- 
+![分布式表](media/sql-data-warehouse-distributed-data/hash-distributed-table.png "分布式表")  
+
 * 一个行属于一个分布区。  
 * 通过确定性哈希算法将一个行分配到一个分布区。  
 * 不同大小的表显示，每个分布区的表行的数目各不相同。
@@ -86,10 +86,10 @@ SQL 数据仓库使用 Azure 存储保护用户数据。  由于数据通过 Azu
 
 下图显示了一个复制表。 在 SQL 数据仓库中，会在每个计算节点的第一个分布区上缓存复制表。  
 
-![复制表](media/sql-data-warehouse-distributed-data/replicated-table.png) 
+![Replicated table](media/sql-data-warehouse-distributed-data/replicated-table.png "Replicated table") 
 
 ## <a name="next-steps"></a>后续步骤
-对 SQL 数据仓库有了初步的认识后，请学习如何快速创建 SQL 数据仓库和[加载示例数据][load sample data]。 如果用户不熟悉 Azure，可在遇到新术语时查看 [Azure 术语表][Azure glossary] 。 或者，查看一下以下一些其他 SQL 数据仓库资源。  
+对 SQL 数据仓库有了初步的认识后，请学习如何快速创建 SQL 数据仓库和[加载示例数据][加载示例数据]。 如果不熟悉 Azure，遇到新术语时，[Azure 词汇表][Azure 词汇表]可以提供帮助。 或者，查看一下以下一些其他 SQL 数据仓库资源。  
 
 <!-- Not Available * [Customer success stories] -->
 <!-- Not Available * [Blogs]-->
@@ -105,15 +105,10 @@ SQL 数据仓库使用 Azure 存储保护用户数据。  由于数据通过 Azu
 [1]: ./media/sql-data-warehouse-overview-what-is/dwarchitecture.png
 
 <!--Article references-->
-<!-- Not Available [Create support ticket]: ./sql-data-warehouse-get-started-create-support-ticket.md-->
-[load sample data]: ./sql-data-warehouse-load-sample-databases.md
-<!-- Not Avaialble on [create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md -->
+<!-- Not Available [Create support ticket]: ./sql-data-warehouse-get-started-create-support-ticket.md--> [加载示例数据]：./sql-data-warehouse-load-sample-databases.md <!-- Not Avaialble on [create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md -->
 <!-- Not contains Sample choice in selectbox so that we can not following the process -->
-[Migration documentation]: ./sql-data-warehouse-overview-migrate.md
-<!-- Not Avaialble on [SQL Data Warehouse solution partners]: ./sql-data-warehouse-partner-business-intelligence.md -->
-[Integrated tools overview]: ./sql-data-warehouse-overview-integrate.md
-[Backup and restore overview]: ./sql-data-warehouse-restore-database-overview.md
-[Azure glossary]: ../azure-glossary-cloud-terminology.md
+[迁移文档]：./sql-data-warehouse-overview-migrate.md <!-- Not Avaialble on [SQL Data Warehouse solution partners]: ./sql-data-warehouse-partner-business-intelligence.md -->
+[集成工具概述]：./sql-data-warehouse-overview-integrate.md [备份和还原概述]：./sql-data-warehouse-restore-database-overview.md [Azure 词汇表]：../azure-glossary-cloud-terminology.md
 
 <!--MSDN references-->
 

@@ -8,15 +8,15 @@ manager: digimobile
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-origin.date: 08/01/2018
-ms.date: 09/02/2018
+origin.date: 09/14/2018
+ms.date: 10/15/2018
 ms.author: v-jay
-ms.openlocfilehash: a508a3c208f4409e93890b88b879680e1de1390c
-ms.sourcegitcommit: 2601e68563bffe148e70cce2bf1dcbe837a40f80
+ms.openlocfilehash: 7f39067f9fae9e07b4c013d10d156396cd6f2251
+ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43249892"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913840"
 ---
 # <a name="choose-a-cloud-sql-server-option-azure-sql-paas-database-or-sql-server-on-azure-vms-iaas"></a>选择云 SQL Server 选项：Azure SQL (PaaS) 数据库或 Azure VM 上的 SQL Server (IaaS)
 
@@ -59,7 +59,7 @@ ms.locfileid: "43249892"
 通常，这两个 SQL 选项已针对不同的用途进行了优化：
 
 * **Azure SQL 数据库**经过优化，可将预配和管理许多数据库的整体管理成本降到最低。 由于无需管理任何虚拟机、操作系统或数据库软件，因此可以持续降低管理成本。 用户不必管理升级、高可用性或[备份](sql-database-automated-backups.md)。 一般而言，Azure SQL 数据库可以大幅增加由单个 IT 或开发资源管理的数据库数目。 [弹性池](sql-database-elastic-pool.md)也支持 SaaS 多租户应用程序体系结构，提供租户隔离等功能，并可以跨数据库共享资源，通过缩放来降低成本。
-* **Azure VM 上运行的 SQL Server** 已针对将现有应用程序迁移到 Azure 或将现有本地应用程序扩展到混合部署中的云进行了优化。 此外，可以使用虚拟机中的 SQL Server 开发和测试传统 SQL Server 应用程序。 有了 Azure VM 上的 SQL server，即拥有了专用 SQL Server 实例和基于云的 VM 的完全管理权限。 当组织拥有可用来维护虚拟机的 IT 资源时，此选项是最佳选择。 使用这些功能可以构建高度定制的系统，解决应用程序的具体性能与可用性要求。
+* **Azure VM 上运行的 SQL Server** 经过优化，可用于将现有应用程序迁移到 Azure 或者在混合部署中将现有本地应用程序扩展到云。 此外，可以使用虚拟机中的 SQL Server 开发和测试传统 SQL Server 应用程序。 有了 Azure VM 上的 SQL server，即拥有了专用 SQL Server 实例和基于云的 VM 的完全管理权限。 当组织拥有可用来维护虚拟机的 IT 资源时，此选项是最佳选择。 使用这些功能可以构建高度定制的系统，解决应用程序的具体性能与可用性要求。
 
 下表汇总了 SQL 数据库和 Azure VM 中 SQL Server 的主要特征：
 
@@ -83,7 +83,7 @@ ms.locfileid: "43249892"
 
 #### <a name="billing-and-licensing-basics"></a>计费和许可基础概念
 
-目前，**SQL 数据库**以服务的形式出售，在多个服务层中可用，根据资源采用不同的价格，并根据所选的服务层和性能级别，以固定费率向你收取每小时费用。 另外，你需要对数据传输速率固定的 Internet 传出流量付费。 可以对服务层和性能级别进行动态调整，使之满足应用程序的不同吞吐量需求。 有关当前支持的服务层的最新信息，请参阅[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)和[基于 vCore 的购买模型](sql-database-service-tiers-vcore.md)。 还可以创建[弹性池](sql-database-elastic-pool.md)，在数据库实例之间共享资源，以降低成本和应对使用高峰期。
+目前，**SQL 数据库**以服务的形式出售，在多个服务层中可用，根据资源采用不同的价格，所有资源根据所选的服务层和计算大小，以固定费率向你收取每小时费用。 另外，你需要对数据传输速率固定的 Internet 传出流量付费。 可以动态调整服务层和计算大小，以满足应用程序的不同吞吐量需求。 有关当前支持的服务层的最新信息，请参阅[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)和[基于 vCore 的购买模型](sql-database-service-tiers-vcore.md)。 还可以创建[弹性池](sql-database-elastic-pool.md)，在数据库实例之间共享资源，以降低成本和应对使用高峰期。
 
 使用 **Azure SQL 数据库**，Microsoft 自动配置、修补和升级数据库软件，从而降低管理成本。 此外，它的[内置备份](sql-database-automated-backups.md)功能可帮助你大幅降低成本，尤其是当你拥有大量的数据库时。 
 

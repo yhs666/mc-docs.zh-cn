@@ -1,5 +1,5 @@
 ---
-title: 迁移要扩大的现有数据库 | Azure
+title: 迁移要扩展的现有数据库 | Microsoft Docs
 description: 通过创建分片映射管理器来转换分片数据库，以使用弹性数据库工具
 services: sql-database
 author: Hayley244
@@ -10,12 +10,12 @@ ms.topic: article
 origin.date: 04/01/2018
 ms.date: 04/17/2018
 ms.author: v-johch
-ms.openlocfilehash: 27382591ac203edbb863603d20f3bfff13d4d8fb
-ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
+ms.openlocfilehash: ba5fa1afd44631b18644d597fb070dc35d700618
+ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39486536"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913931"
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>迁移要扩展的现有数据库
 使用 Azure SQL 数据库数据库工具（例如[弹性数据库客户端库](sql-database-elastic-database-client-library.md)）轻松管理现有的扩展共享数据库。 先转换现有数据库集，再使用[分片映射管理器](sql-database-elastic-scale-shard-map-management.md)。 
@@ -75,7 +75,7 @@ ms.locfileid: "39486536"
 
 ![单一 DB 上的多个租户][3] 
 
-**根据选择，选择以下选项之一：**
+**根据你具体的选择，选择以下选项之一：**
 
 ### <a name="option-1-create-a-shard-map-for-a-list-mapping"></a>选项 1：为列表映射创建分片映射
 使用 ShardMapManager 对象创建分片映射。 
@@ -158,5 +158,6 @@ GitHub 上也提供了这些工具： [Azure/elastic-db-tools](https://github.co
 
 ## <a name="questions-and-feature-requests"></a>问题和功能请求
 如有问题，请使用 [SQL 数据库论坛](https://social.msdn.microsoft.com/Forums/zh-cn/home?forum=ssdsgetstarted)。
-<!--Image references--> [1]: ./media/sql-database-elastic-convert-to-use-elastic-tools/listmapping.png [2]: ./media/sql-database-elastic-convert-to-use-elastic-tools/rangemapping.png [3]: ./media/sql-database-elastic-convert-to-use-elastic-tools/multipleonsingledb.png
+<!--Image references-->
+[1]: ./media/sql-database-elastic-convert-to-use-elastic-tools/listmapping.png [2]: ./media/sql-database-elastic-convert-to-use-elastic-tools/rangemapping.png [3]: ./media/sql-database-elastic-convert-to-use-elastic-tools/multipleonsingledb.png
 

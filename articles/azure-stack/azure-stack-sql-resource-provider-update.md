@@ -3,24 +3,24 @@ title: 更新 Azure Stack SQL 资源提供程序 | Microsoft Docs
 description: 了解如何更新 Azure Stack SQL 资源提供程序。
 services: azure-stack
 documentationCenter: ''
-author: jeffgilb
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/11/2018
-ms.date: 07/20/2018
-ms.author: v-junlch
+origin.date: 09/13/2018
+ms.date: 10/15/2018
+ms.author: v-jay
 ms.reviewer: jeffgo
-ms.openlocfilehash: e05e9ee12f8f65c8e952ecb8586440e159d39751
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.openlocfilehash: f3b55e3d92dfbd459da52380c1cacd2508a30afc
+ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168289"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48848801"
 ---
 # <a name="update-the-sql-resource-provider"></a>更新 SQL 资源提供程序
 
@@ -39,18 +39,20 @@ ms.locfileid: "39168289"
 
 *UpdateSQLProvider.ps1* 脚本可使用最新的资源提供程序代码创建新的虚拟机 (VM)。
 
->[!NOTE]
->建议从市场管理下载最新的 Windows Server 2016 Core 映像。 如需安装更新，可以将**单个** MSU 包放置在本地依赖项路径中。 如果此位置中有多个 MSU 文件，则脚本将失败。
+> [!NOTE]
+> 建议从市场管理下载最新的 Windows Server 2016 Core 映像。 如需安装更新，可以将**单个** MSU 包放置在本地依赖项路径中。 如果此位置中有多个 MSU 文件，则脚本将失败。
 
 *UpdateSQLProvider.ps1* 脚本在创建新的 VM 后，会从旧的提供程序 VM 中迁移以下设置：
 
-- 数据库信息
-- 宿主服务器信息
-- 必要的 DNS 记录
+* 数据库信息
+* 宿主服务器信息
+* 必要的 DNS 记录
 
 ### <a name="update-script-powershell-example"></a>更新脚本 PowerShell 示例
 
-可以在权限提升的 PowerShell ISE 中编辑并运行以下脚本。 记住按环境需要更改帐户信息和密码。
+可以在权限提升的 PowerShell ISE 中编辑并运行以下脚本。 
+
+记住按环境需要更改帐户信息和密码。
 
 > [!NOTE]
 > 此更新过程仅适用于 Azure Stack 集成系统。
@@ -65,6 +67,9 @@ $domain = "AzureStack"
 
 # For integrated systems, use the IP address of one of the ERCS virtual machines.
 $privilegedEndpoint = "AzS-ERCS01"
+
+# Provide the Azure environment used for deploying Azure Stack. Required only for Azure AD deployments. Supported environment names are AzureCloud, or AzureChinaCloud. 
+$AzureEnvironment = "<EnvironmentName>"
 
 # Point to the directory where the resource provider installation files were extracted.
 $tempDir = 'C:\TEMP\SQLRP'
@@ -91,6 +96,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
   -VMLocalCredential $vmLocalAdminCreds `
   -CloudAdminCredential $cloudAdminCreds `
   -PrivilegedEndpoint $privilegedEndpoint `
+  -AzureEnvironment $AzureEnvironment `
   -DefaultSSLCertificatePassword $PfxPass `
   -DependencyFilesLocalPath $tempDir\cert `
 
@@ -106,6 +112,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 | **AzCredential** | Azure Stack 服务管理员帐户的凭据。 使用部署 Azure Stack 时所用的相同凭据。 | _必需_ |
 | **VMLocalCredential** | SQL 资源提供程序 VM 的本地管理员帐户的凭据。 | _必需_ |
 | **PrivilegedEndpoint** | 特权终结点的 IP 地址或 DNS 名称。 |  _必需_ |
+| **AzureEnvironment** | 用于部署 Azure Stack 的服务管理员帐户的 Azure 环境。 仅对于 Azure AD 部署是必需的。 支持的环境名称为 **AzureCloud**；如果使用中国 Azure AD，则环境名称为 **AzureChinaCloud**。 | AzureChinaCloud |
 | **DependencyFilesLocalPath** | 同样必须将证书 .pfx 文件放在此目录中。 | 对单节点为可选，但对多节点为必选 |
 | **DefaultSSLCertificatePassword** | .pfx 证书的密码。 | _必需_ |
 | **MaxRetryCount** | 操作失败时，想要重试每个操作的次数。| 2 |
