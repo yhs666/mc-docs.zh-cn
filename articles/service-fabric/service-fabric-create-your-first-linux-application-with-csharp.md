@@ -1,6 +1,6 @@
 ---
-title: 在 Linux 上使用 C# 创建第一个 Azure 微服务应用 | Azure
-description: 使用 C# 创建和部署 Service Fabric 应用程序
+title: 使用 C# 在 Linux 上创建第一个 Azure Service Fabric 应用 | Azure
+description: 了解如何使用 C# 和 .NET Core 2.0 创建和部署 Service Fabric 应用程序。
 services: service-fabric
 documentationcenter: csharp
 author: rockboyfor
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 04/11/2018
-ms.date: 08/20/2018
+ms.date: 10/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: 815381d9635faec0f245d221bc7270baff89c71e
-ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
+ms.openlocfilehash: 6146ca474a4d2c75079cccd00255816cdb3609c1
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41706226"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49089012"
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>创建第一个 Azure Service Fabric 应用程序
 > [!div class="op_single_selector"]
@@ -42,21 +42,21 @@ Service Fabric 提供基架工具，可以借助此类工具，使用 Yeoman 模
 
 1. 在计算机上安装 nodejs 和 NPM
 
-   Ubuntu
    ```bash
-   curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
-   sudo apt-get install -y nodejs 
+   curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash 
+   nvm install node 
    ```
-<!-- Not Avaiable on Red Hat Enterprise Linux 7.4 (Service Fabric preview support) -->
+   
+    <!-- Not Avaiable on Red Hat Enterprise Linux 7.4 (Service Fabric preview support) -->
 2. 通过 NPM 在计算机上安装 [Yeoman](http://yeoman.io/) 模板生成器
 
     ```bash
-    sudo npm install -g yo
+    npm install -g yo
     ```
 3. 通过 NPM 安装 Service Fabric Yeoman C# 应用程序生成器
 
     ```bash
-    sudo npm install -g generator-azuresfcsharp
+    npm install -g generator-azuresfcsharp
     ```
 
 ## <a name="create-the-application"></a>创建应用程序
@@ -76,10 +76,10 @@ Service Fabric 应用程序可以包含一个或多个服务，每个服务都�
 ## <a name="build-the-application"></a>构建应用程序
 Service Fabric Yeoman 模板包含构建脚本，可用于从终端构建应用程序（在导航到应用程序文件夹后）。
 
-```sh
-cd myapp
-./build.sh
-```
+  ```sh
+ cd myapp
+ ./build.sh
+  ```
 
 ## <a name="deploy-the-application"></a>部署应用程序
 

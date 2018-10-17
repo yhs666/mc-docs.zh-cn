@@ -1,5 +1,5 @@
 ---
-title: 将 Azure 云服务应用转换为微服务 | Azure
+title: 将 Azure 云服务应用转换为 Service Fabric | Azure
 description: 本指南将云服务 Web 角色和辅助角色与 Service Fabric 无状态服务进行比较，以帮助你从云服务迁移到 Service Fabric。
 services: service-fabric
 documentationcenter: .net
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 11/02/2017
-ms.date: 05/28/2018
+ms.date: 10/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: 08eb6d83df354b73f53b5a962781a93374838760
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: de00f6b00e2fef7cc1abadeafcf59a55f118f529
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554641"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49089044"
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>将 Web 角色和辅助角色转换为 Service Fabric 无状态服务的指南
 本文说明如何将云服务的 Web 角色和辅助角色迁移到 Service Fabric 无状态服务。 对于整体体系结构大致保持相同的应用程序来说，这是从云服务迁移到 Service Fabric 的最简单路径。

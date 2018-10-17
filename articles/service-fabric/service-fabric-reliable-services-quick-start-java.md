@@ -1,5 +1,5 @@
 ---
-title: 在 Java 中创建第一个可靠的 Azure 微服务 | Azure
+title: 在 Java 中创建第一个 Azure Service Fabric 可靠服务 | Azure
 description: 介绍如何创建包含无状态服务和有状态服务的 Azure Service Fabric 应用程序。
 services: service-fabric
 documentationcenter: java
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 11/02/2017
-ms.date: 08/20/2018
+ms.date: 10/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: 90783689b3cb5c70363bd117b9cd1419edf74d1f
-ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
+ms.openlocfilehash: d7e2304d4a32ec1c7ab3d3d0dad61b979e0fafa8
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41703969"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49089159"
 ---
 # <a name="get-started-with-reliable-services"></a>Reliable Services 入门
 > [!div class="op_single_selector"]
@@ -30,6 +30,7 @@ ms.locfileid: "41703969"
 >
 
 本文介绍 Azure Service Fabric Reliable Services 的基础知识，并演示如何创建和部署以 Java 编写的简单 Reliable Service 应用程序。
+
 <!-- Not Available  This Microsoft Virtual Academy -->
 
 ## <a name="installation-and-setup"></a>安装和设置

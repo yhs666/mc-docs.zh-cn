@@ -1,21 +1,21 @@
 ---
-title: Azure SQL 数据库案例研究 - Daxko/CSI | Azure
+title: Azure SQL 数据库 Azure 案例研究-Daxko/CSI | Microsoft 文档
 description: 了解 Daxko/CSI 如何使用 SQL 数据库加速其开发周期和增强其客户服务与性能
 services: sql-database
-author: yunan2016
+author: WenJason
 manager: digimobile
 ms.service: sql-database
 ms.custom: reference
-ms.topic: article
-origin.date: 04/01/2018
-ms.date: 04/17/2018
-ms.author: v-nany
-ms.openlocfilehash: 7ed219c9c37ab5ab40f4cdf08ccac96fe3393016
-ms.sourcegitcommit: 2601e68563bffe148e70cce2bf1dcbe837a40f80
+ms.topic: conceptual
+origin.date: 09/14/2018
+ms.date: 10/15/2018
+ms.author: v-jay
+ms.openlocfilehash: a49b067ca8434d1d817de537161e941318e6aadc
+ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43249897"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913992"
 ---
 # <a name="daxkocsi-used-azure-to-accelerate-its-development-cycle-and-to-enhance-its-customer-services-and-performance"></a>Daxko/CSI 使用 Azure 来加速其开发周期和增强其客户服务与性能
 ![Daxko/CSI 徽标](./media/sql-database-implementation-daxko/csidaxkologo25.png)
@@ -60,7 +60,7 @@ Molina 补充道，“我们的客户立即感受到改变。 在使用弹性池
 ## <a name="azure-elastic-pools-free-up-it-resources"></a>Azure 弹性池释放 IT 资源
 Azure 的多个功能已帮助 CSI Software 从基础结构和运营为焦点，转化为以功能和开发为焦点。 最大的收益或许来自弹性池。
 
-CSI Software 目前为客户提供大约 550 个数据库。 在使用弹性池之前，很难在一个分层结构内管理这么多数据库。 运营经理必须根据客户的高峰需求分配性能层，造成了严重的 IT 资源开销。 通过弹性池，经理可以根据情况为租户分配高级或标准池，并根据大小和需求移动客户。 客户几乎立即可以感受到弹性池的作用；在使用弹性池之前，客户在高峰使用期间遇到了超时和其他问题，但使用弹性池之后，客户可以根据需要体验活动喷发情况，并继续使用 SpectrumNG 而不会出现任何问题。
+CSI Software 目前为客户提供大约 550 个数据库。 在使用弹性池之前，很难在一个分层结构内管理这么多数据库。 运营经理必须根据客户的突发需求分配服务层和计算大小，这需要大量的 IT 资源开销。 通过弹性池，经理可以根据情况为租户分配高级或标准池，并根据大小和需求移动客户。 客户几乎立即可以感受到弹性池的作用；在使用弹性池之前，客户在高峰使用期间遇到了超时和其他问题，但使用弹性池之后，客户可以根据需要体验活动喷发情况，并继续使用 SpectrumNG 而不会出现任何问题。
 
 ## <a name="azure-active-geo-replication-accelerates-reporting"></a>Azure 活动异地复制加速报告
 有多个 CSI Software 客户还利用了 Azure 活动异地复制。 使用活动异地复制时，可在相同或不同的数据中心区域中最多配置 4 个可读的辅助数据库。 CSI Software 以两种方式使用活动异地复制：首先，在数据中心中断服务或在无法连接到主数据库时可以使用辅助数据库；其次，辅助数据库是可读取的，并且可用于卸载只读工作负荷，例如报告作业。 某些 CSI Software 客户使用这种优点来加速报告工作流。

@@ -5,15 +5,15 @@ author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-origin.date: 06/01/2018
-ms.date: 07/23/2018
+origin.date: 09/12/2018
+ms.date: 10/22/2018
 ms.author: v-yiso
-ms.openlocfilehash: ce338fb2ac6cedcd41603caf748936aa68228e33
-ms.sourcegitcommit: 479954e938e4e3469d6998733aa797826e4f300b
+ms.openlocfilehash: 888f49c9fbf95de02222db31172ece8a12e17308
+ms.sourcegitcommit: 8a5722b85c6eabbd28473d792716ad44aac3ff23
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39031780"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49121534"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>在 Azure 门户中创建和管理器操作组
 ## <a name="overview"></a>概述
@@ -34,11 +34,10 @@ ms.locfileid: "39031780"
 
     ![“监视”服务](./media/monitoring-action-groups/home-monitor.png)
     
-2. 在“设置”部分中，选择“操作组”。
+1. 依次选择“警报”、“管理操作组”。
 
-    ![“操作组”选项卡](./media/monitoring-action-groups/action-groups-blade.png)
-    
-3. 选择“添加操作组”，并填写字段。
+    ![“管理操作组”按钮](./media/monitoring-action-groups/manage-action-groups.png)
+1. 选择“添加操作组”，并填写字段。
 
     ![“添加操作组”命令](./media/monitoring-action-groups/add-action-group.png)
     
@@ -68,16 +67,18 @@ ms.locfileid: "39031780"
 
 <dt>电子邮件</dt>
 <dd>将从以下电子邮件地址发送电子邮件。 确保电子邮件筛选正确配置
-
-    - azure-noreply@microsoft.com
-    - azureemail-noreply@microsoft.com
-    - alerts-noreply@mail.windowsazure.com
-    
+<ul>
+    <li>azure-noreply@microsoft.com</li>
+    <li>azureemail-noreply@microsoft.com</li>
+    <li>alerts-noreply@mail.windowsazure.com</li>
+</ul>
 </dd>
 <dd>一个操作组中最多可以有 1000 个电子邮件操作</dd>
 <dd>请参阅[速率限制信息](./monitoring-alerts-rate-limiting.md)一文</dd>
 <dt>Runbook</dt>
 <dd>一个操作组中最多可以有 10 个 Runbook 操作</dd>
+<dd>有关 Runbook 有效负载的限制，请参考 [Azure 订阅服务限制](../azure-subscription-service-limits.md)</dd>
+
 <dt>短信</dt>
 <dd>一个操作组中最多可以有 10 个短信操作</dd>
 <dd>请参阅[速率限制信息](./monitoring-alerts-rate-limiting.md)一文</dd>
@@ -85,9 +86,19 @@ ms.locfileid: "39031780"
 <dt>Webhook</dt>
 <dd>一个操作组中最多可以有 10 个 Webhook 操作
 <dd>重试逻辑 - 响应的超时期限为 10 秒。 返回的 HTTP 状态代码为 408、429、503、504 时，或者 HTTP 终结点没有响应时，最多可以重试 2 次 Webhook 调用。 首次重试在 10 秒后发生。 第二次（也是最后一次）重试在 100 秒后发生。</dd>
+<dd>源 IP 地址范围
+<ul>
+    <li>13.106.57.181</li>
+    <li>13.106.54.3</li>
+    <li>13.106.54.19</li>
+    <li>13.106.38.142</li>
+    <li>13.106.38.148</li>
+    <li>13.106.57.196</li>
+</ul>
+若要接收有关这些 IP 地址更改的更新，我们建议你配置[服务运行状况警报](./monitoring-service-notifications.md)，以监视有关操作组服务的信息通知。
+</dd>
 </dl>
-## Manage your action groups
-After you create an action group, it's visible in the **Action groups** section of the **Monitor** blade. Select the action group you want to manage to:
+## 管理操作组 创建操作组后，它会在“监视器”**** 边栏选项卡的“操作组”**** 部分显示。 选择要管理的操作组：
 
 * 添加、编辑或删除操作。
 * 删除操作组。

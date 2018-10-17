@@ -3,7 +3,7 @@ title: 如何创建和部署云服务 | Azure
 description: 了解如何使用 Azure 门户创建和部署云服务。
 services: cloud-services
 documentationcenter: ''
-author: Thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: 56ea2f14-34a2-4ed9-857c-82be4c9d0579
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 05/18/2017
 ms.author: v-yiso
-ms.date: 03/19/2018
-ms.openlocfilehash: 0964651498c5030d4e8b023ddfd550918c5db0a9
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.date: 10/22/2018
+ms.openlocfilehash: 2ffde0faed27e99c6ceba64c9a734fded7eb6d02
+ms.sourcegitcommit: 8a5722b85c6eabbd28473d792716ad44aac3ff23
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29870411"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49121541"
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>如何创建和部署云服务
 Azure 门户提供了两种创建和部署云服务的方法：*快速创建*和*自定义创建*。
@@ -28,7 +28,7 @@ Azure 门户提供了两种创建和部署云服务的方法：*快速创建*和
 本文介绍如何使用“快速创建”方法创建新的云服务，并使用“**上载**”在 Azure 中上载和部署云服务包。 使用此方法时，Azure 门户会在进行操作时提供方便的链接供你完成所有要求。 如果创建云服务时还准备部署该云服务，则可以使用“自定义创建”同时执行这两项操作。
 
 > [!NOTE]
-> 如果计划从 Visual Studio Team Services (VSTS) 发布云服务，请使用“快速创建”，然后从“Azure 快速启动”或仪表板设置 VSTS 发布。 有关详细信息，请参阅[使用 Visual Studio Team Services 向 Azure 持续交付][TFSTutorialForCloudService]，或查看“快速入门”页的帮助。
+> 如果计划从 Azure DevOps 发布云服务，请使用“快速创建”，然后从“Azure 快速入门”或仪表板设置 Azure DevOps 发布。 有关详细信息，请参阅[使用 Azure DevOps 向 Azure 持续交付][TFSTutorialForCloudService]，或查看“快速入门”页的帮助。
 >
 >
 
@@ -57,7 +57,7 @@ Azure 门户提供了两种创建和部署云服务的方法：*快速创建*和
 
 - 如果要为云服务配置详细监视，请为云服务启用 Azure 诊断。 最少监视（默认监视级别）使用从角色实例（虚拟机）的主机操作系统中收集到的性能计数器。  根据角色实例中的性能数据收集其他度量信息，以便对处理应用程序期间出现的问题进行进一步分析。 若要了解如何启用 Azure 诊断，请参阅[在 Azure 中启用诊断](./cloud-services-dotnet-diagnostics.md)。
 
-要使用 Web 角色或辅助角色创建云服务，必须[创建服务包](./cloud-services-model-and-package.md#servicepackagecspkg)。
+要使用 Web 角色或辅助角色创建云服务，必须 [创建服务包](./cloud-services-model-and-package.md#servicepackagecspkg)。
 
 ## <a name="before-you-begin"></a>准备阶段
 
@@ -83,7 +83,7 @@ Azure 门户提供了两种创建和部署云服务的方法：*快速创建*和
 
 ## <a name="upload-a-certificate"></a>上传证书
 
-如果部署包已[配置为使用证书](./cloud-services-configure-ssl-certificate-portal.md#modify)，现在就可以上传证书。
+如果部署包已 [配置为使用证书](./cloud-services-configure-ssl-certificate-portal.md#modify)，现在就可以上传证书。
 
 1. 选择“证书”，并在“添加证书”窗格中，选择 SSL 证书 .pfx 文件，并提供证书的**密码**，
 2. 单击“附加证书”，然后在“添加证书”窗格上单击“确定”。

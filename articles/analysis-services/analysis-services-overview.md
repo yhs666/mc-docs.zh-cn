@@ -9,12 +9,12 @@ origin.date: 08/27/2018
 ms.date: 09/24/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8568a74bfb1ddb437f306e5717a692b7923ae9e2
-ms.sourcegitcommit: 5616622f754f3b83c7120a3d1344d0344e03ca61
+ms.openlocfilehash: e1c15c50629329fea44d5842e62ca32487f3469e
+ms.sourcegitcommit: 21b81b5cd326b6900fa7274b3b073aecd01111aa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47188782"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49121673"
 ---
 # <a name="what-is-azure-analysis-services"></a>什么是 Azure Analysis Services？
 
@@ -96,7 +96,9 @@ DirectQuery 模式* 利用后端关系数据库进行存储和查询执行。 �
 
 ## <a name="supported-datasources"></a>支持的数据源
 
-Azure Analysis Services 中的表格模型支持各种数据源：从简单的文本文件，到 Azure Data Lake Store 中的大数据。 若要了解详细信息，请参阅 [Azure Analysis Services 中支持的数据源](analysis-services-datasource.md)。
+Azure Analysis Services 中的表格模型支持各种数据源：从简单的文本文件到大数据。 若要了解详细信息，请参阅 [Azure Analysis Services 中支持的数据源](analysis-services-datasource.md)。
+
+<!-- Not Available on Azure Data Lake Store-->
 
 ## <a name="your-data-is-secure"></a>数据是安全的
 

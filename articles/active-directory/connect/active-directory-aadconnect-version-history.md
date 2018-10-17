@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 08/10/2018
-ms.date: 09/04/2018
+origin.date: 09/06/2018
+ms.date: 10/11/2018
 ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 53911bf6adf2ae1c107e2619dec25cf54f137d1b
-ms.sourcegitcommit: e157751c560524d0bb828e987b87178130663547
+ms.openlocfilehash: a609c5d51622e6ab7c7caa5a11f2bbd38c1edde6
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43652454"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49089177"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect：版本发布历史记录
 Azure Active Directory (Azure AD) 团队会定期更新 Azure AD Sync 的新特性和功能。 并非所有的新增内容都适用于所有受众。
@@ -38,11 +38,21 @@ Azure Active Directory (Azure AD) 团队会定期更新 Azure AD Sync 的新特�
 
 下载 | [下载 Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)。
 
+
+ 
+## <a name="118820"></a>1.1.882.0  
+
+2018/9/7：已发布供下载，而不是自动升级版本 
+
+### <a name="fixed-issues"></a>修复的问题  
+
+如果为 ADSync DB 配置了SQL Always On 可用性，则 Azure AD Connect 升级将失败。 此修补程序解决了此问题，并允许升级成功。 
+
 ## <a name="118800"></a>1.1.880.0
 
 ### <a name="release-status"></a>版本状态
 
-7/20/2018：已发布，用于下载和自动升级。 自动升级过程仍在进行中。
+2018/8/21：已发布，用于下载和自动升级。 
 
 ### <a name="new-features-and-improvements"></a>新增功能和改进
 
@@ -880,7 +890,7 @@ AD FS 管理
 **新功能：**
 
 - 添加了对[目录扩展](active-directory-aadconnectsync-feature-directory-extensions.md)的多值属性支持。
-- 添加了对将[自动升级](active-directory-aadconnect-feature-automatic-upgrade.md)的更多配置变体视为符合升级要求的支持。
+- 添加了将 [自动升级](active-directory-aadconnect-feature-automatic-upgrade.md) 的更多配置变体视为符合升级要求的支持。
 - 为[自定义计划程序](active-directory-aadconnectsync-feature-scheduler.md#custom-scheduler)添加了一些 cmdlet。
 
 ## <a name="111190"></a>1.1.119.0
@@ -909,8 +919,8 @@ AD FS 管理
 
 - 适用于快速设置客户的[自动升级](active-directory-aadconnect-feature-automatic-upgrade.md)功能。
 - 使用安装向导中的 Azure 多重身份验证和 Privileged Identity Management 来提供全局管理员支持。
-  - 如果使用多重身份验证，则代理也需要允许发往 https://secure.aadcdn.microsoftonline-p.com 的流量。
-  - 需要将 https://secure.aadcdn.microsoftonline-p.com 添加到受信任的站点列表，这样多重身份验证才能正常工作。
+  - 如果使用多重身份验证，则代理也需要允许发往 https://secure.aadcdn.parter.microsoftonline-p.cn 的流量。
+  - 需要将 https://secure.aadcdn.parter.microsoftonline-p.cn 添加到受信任的站点列表，这样多重身份验证才能正常工作。
 - 允许在初始安装之后更改用户的登录方法。
 - 允许在安装向导中使用[域和 OU 筛选](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering)。 这也允许连接到并非所有域都可供使用的林。
 - [计划程序](active-directory-aadconnectsync-feature-scheduler.md)是同步引擎的内置功能。
@@ -951,7 +961,7 @@ AD FS 管理
 
 **新的预览功能：**
 
-- 支持 [Azure AD 域服务](../user-help/active-directory-passwords-update-your-own-password.md)密码同步。
+- 支持 [Azure AD 域服务](../user-help/active-directory-passwords-update-your-own-password.md) 密码同步。
 
 **新的受支持方案：**
 

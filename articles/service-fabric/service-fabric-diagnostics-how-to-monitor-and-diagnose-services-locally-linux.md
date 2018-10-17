@@ -1,6 +1,6 @@
 ---
-title: 调试 Linux 中的 Azure 微服务 | Azure
-description: 了解如何监视和诊断本地开发计算机上使用 Azure Service Fabric 编写的服务。
+title: 在 Linux 中调试 Azure Service Fabric 应用 | Azure
+description: 了解如何在本地 Linux 开发计算机上监视和诊断 Service Fabric 服务。
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 02/23/2018
-ms.date: 05/28/2018
+ms.date: 10/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: 422d70679f631bb01dbccfa98917d1baa148e490
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: 06de8c61149a530dfe5015e7ecd97663856c4d1e
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554248"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49088965"
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>在本地计算机开发安装过程中监视和诊断服务
 
@@ -67,6 +67,7 @@ java -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=<path 
 ## <a name="debugging-service-fabric-c-applications"></a>调试 Service Fabric C# 应用程序
 
 可以使用多个框架在 Linux 上跟踪 CoreCLR 应用程序。 有关详细信息，请参阅 [GitHub：日志记录](https://github.com/aspnet/logging)。  由于 C# 开发者熟悉 EventSource，因此本文使用 EventSource 在 Linux 上跟踪 CoreCLR 示例。
+
 <!-- URL is correct on https:// [GitHub: logging](https://github.com/aspnet/logging) -->
 
 第一步是添加 System.Diagnostics.Tracing，以便可以将日志写入内存、输出流或控制台文件。  要使用 EventSource 进行日志记录，请将以下项目添加到 project.json：
@@ -137,4 +138,4 @@ public static TextWriter Out = Console.Out;
 添加到应用程序中的跟踪代码也可用于诊断 Azure 群集中的应用程序。 请查看以下文章，其中介绍了不同的工具选项，以及如何设置这些选项。
 * [如何使用 Azure 诊断收集日志](service-fabric-diagnostics-how-to-setup-lad.md)
 
-<!--Update_Description: update meta properties, update link -->
+<!--Update_Description: update meta properties -->

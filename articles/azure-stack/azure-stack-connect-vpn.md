@@ -3,8 +3,8 @@ title: 使用 VPN 将 Azure Stack 连接到 Azure
 description: 如何使用 VPN 将 Azure Stack 中的虚拟网络连接到 Azure 中的虚拟网络。
 services: azure-stack
 documentationcenter: ''
-author: brenduns
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 06/12/2018
-ms.date: 06/26/2018
-ms.author: v-junlch
+origin.date: 09/12/2018
+ms.date: 10/15/2018
+ms.author: v-jay
 ms.reviewer: scottnap
-ms.openlocfilehash: 3b2e5a062fb41d26d1c56bef476b24689093a1b6
-ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
+ms.openlocfilehash: 98f869091a5e81d0b3bc54b09d909a408420f248
+ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37027192"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48848863"
 ---
 # <a name="connect-azure-stack-to-azure-using-vpn"></a>使用 VPN 将 Azure Stack 连接到 Azure
 
@@ -33,14 +33,14 @@ ms.locfileid: "37027192"
 
 若要完成连接配置，请确保在开始之前准备好以下各项：
 
-- 直接连接到 Internet 的 Azure Stack 集成系统（多节点）部署。 必须能够从公共 Internet 直接连接到外部公共 IP 地址范围。
-- 有效的 Azure 订阅。 如果没有 Azure 订阅，可[在此处创建一个 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/?b=17.06)。
+* 直接连接到 Internet 的 Azure Stack 集成系统（多节点）部署。 必须能够从公共 Internet 直接连接到外部公共 IP 地址范围。
+* 有效的 Azure 订阅。 如果没有 Azure 订阅，可[在此处创建一个 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/?b=17.06)。
 
 ### <a name="vpn-connection-diagram"></a>VPN 连接关系图
 
 下图显示了完成后的连接配置示意图：
 
-![站点到站点 VPN 连接配置](./media/azure-stack-connect-vpn/image2.png)
+![站点到站点 VPN 连接配置](media/azure-stack-connect-vpn/image2.png)
 
 ### <a name="network-configuration-example-values"></a>网络配置示例值
 
@@ -63,7 +63,7 @@ ms.locfileid: "37027192"
 ### <a name="create-the-virtual-network-and-virtual-machine-vm-subnet"></a>创建虚拟网络和虚拟机 (VM) 子网
 
 1. 使用 Azure 帐户登录到 [Azure 门户](http://portal.azure.cn/)。
-2. 在用户门户中，选择“新建”。
+2. 在用户门户中，选择“+ 创建资源”。
 3. 转到**市场**，然后选择“网络”。
 4. 选择“虚拟网络”。
 5. 使用网络配置表中的信息来识别 Azure 的“名称”、“地址空间”、“子网名称”和“子网地址范围”的值。
@@ -87,7 +87,7 @@ ms.locfileid: "37027192"
 
 ### <a name="create-the-virtual-network-gateway"></a>创建虚拟网络网关
 
-1. 在 Azure 门户中，选择“新建”。  
+1. 在 Azure 门户中，选择“+ 创建资源”。  
 2. 转到**市场**，然后选择“网络”。
 3. 从网络资源列表中选择“虚拟网络网关”。
 4. 在“名称”中，键入 **Azure-GW**。
@@ -99,7 +99,7 @@ ms.locfileid: "37027192"
 
 ### <a name="create-the-local-network-gateway-resource"></a>创建本地网关资源
 
-1. 在 Azure 门户中，选择“新建”。
+1. 在 Azure 门户中，选择“+ 创建资源”。
 2. 转到**市场**，然后选择“网络”。
 3. 从资源列表中选择“本地网络网关”。
 4. 在“名称”中，键入 **Azs-GW**。
@@ -109,7 +109,7 @@ ms.locfileid: "37027192"
 
 ## <a name="create-the-connection"></a>创建连接
 
-1. 在用户门户中，选择“新建”。
+1. 在用户门户中，选择“+ 创建资源”。
 2. 转到**市场**，然后选择“网络”。
 3. 从资源列表中选择“连接”。
 4. 在“基本”设置部分，选择“站点到站点(IPSec)”作为“连接类型”。
@@ -128,7 +128,7 @@ ms.locfileid: "37027192"
 
 现在请在 Azure 中创建虚拟机，并将其放在虚拟网络中的 VM 子网上。
 
-1. 在 Azure 门户中，选择“新建”。
+1. 在 Azure 门户中，选择“+ 创建资源”。
 2. 转到“市场”，选择“计算”。
 3. 在虚拟机映像列表中，选择“Windows Server 2016 Datacenter Eval”映像。
 4. 在“基本”部分的“名称”中，键入 **AzureVM**。
@@ -137,8 +137,8 @@ ms.locfileid: "37027192"
 7. 在“大小”部分，为此实例选择一种虚拟机大小，然后选择“选择”。
 8. 在“设置”部分，可以使用默认设置。 在选择“确定”之前，请确认：
 
-   - **AzureVnet** 虚拟网络已选中。
-   - 子网已设置为 **10.100.0.0/24**。
+   * **AzureVnet** 虚拟网络已选中。
+   * 子网已设置为 **10.100.0.0/24**。
 
    选择“确定” 。
 
@@ -155,9 +155,9 @@ ms.locfileid: "37027192"
 ### <a name="create-the-virtual-network-and-a-vm-subnet"></a>创建虚拟网络和 VM 子网
 
 1. 使用用户帐户登录到用户门户。
-2. 在用户门户中，选择“新建”。
+2. 在用户门户中，选择“+ 创建资源”。
 
-    ![创建新虚拟网络](./media/azure-stack-create-vpn-connection-one-node-tp2/image3.png)
+    ![创建新虚拟网络](media/azure-stack-create-vpn-connection-one-node-tp2/image3.png)
 
 3. 转到**市场**，然后选择“网络”。
 4. 选择“虚拟网络”。
@@ -174,7 +174,7 @@ ms.locfileid: "37027192"
 2. 在“设置”部分中选择“子网”。
 3. 若要将网关子网添加到虚拟网络，请选择“网关子网”。
 
-    ![添加网关子网](./media/azure-stack-create-vpn-connection-one-node-tp2/image4.png)
+    ![添加网关子网](media/azure-stack-create-vpn-connection-one-node-tp2/image4.png)
 
 4. 子网名称默认设置为 **GatewaySubnet**。 网关子网相当特殊。 若要正常运行，它们必须使用 *GatewaySubnet* 名称。
 5. 在“地址范围”中，确认地址是 **10.1.1.0/24**。
@@ -182,7 +182,7 @@ ms.locfileid: "37027192"
 
 ### <a name="create-the-virtual-network-gateway"></a>创建虚拟网络网关
 
-1. 在 Azure Stack 门户中，选择“新建”。
+1. 在 Azure Stack 门户中，选择“+ 创建资源”。
 2. 转到**市场**，然后选择“网络”。
 3. 从网络资源列表中选择“虚拟网络网关”。
 4. 在“名称”中，键入 **Azs-GW**。
@@ -203,7 +203,7 @@ ms.locfileid: "37027192"
 ### <a name="create-the-local-network-gateway-resource"></a>创建本地网关资源
 
 1. 登录到 Azure Stack 门户。
-2. 在用户门户中，选择“新建”。
+2. 在用户门户中，选择“+ 创建资源”。
 3. 转到**市场**，然后选择“网络”。
 4. 从资源列表中选择“本地网络网关”。
 5. 在“名称”中，键入 **Azure-GW**。
@@ -213,7 +213,7 @@ ms.locfileid: "37027192"
 
 ### <a name="create-the-connection"></a>创建连接
 
-1. 在用户门户中，选择“新建”。
+1. 在用户门户中，选择“+ 创建资源”。
 2. 转到**市场**，然后选择“网络”。
 3. 从资源列表中选择“连接”。
 4. 在“基本”设置部分，针对“连接类型”选择“站点到站点(IPSec)”。
@@ -228,7 +228,7 @@ ms.locfileid: "37027192"
 
 若要检查 VPN 连接，需创建两个 VM，一个在 Azure 中，一个在 Azure Stack 中。 创建这些 VM 以后，即可使用它们通过 VPN 隧道发送和接收数据。
 
-1. 在 Azure 门户中，选择“新建”。
+1. 在 Azure 门户中，选择“+ 创建资源”。
 2. 转到“市场”，选择“计算”。
 3. 在虚拟机映像列表中，选择“Windows Server 2016 Datacenter Eval”映像。
 4. 在“基本”部分的“名称”中，键入 **Azs-VM**。
@@ -242,8 +242,8 @@ ms.locfileid: "37027192"
 
 建立站点到站点连接以后，应验证数据是否可以往两个方向流动。 若要测试连接，最容易的方式是进行 ping 测试：
 
-- 登录到在 Azure Stack 中创建的虚拟机，然后 ping Azure 中的虚拟机。
-- 登录到在 Azure 中创建的虚拟机，然后 ping Azure Stack 中的虚拟机。
+* 登录到在 Azure Stack 中创建的虚拟机，然后 ping Azure 中的虚拟机。
+* 登录到在 Azure 中创建的虚拟机，然后 ping Azure Stack 中的虚拟机。
 
 >[!NOTE]
 >为了确保发送的流量通过站点到站点连接，必须 ping 远程子网上虚拟机的直接 IP (DIP) 地址，而不是 VIP。
@@ -255,7 +255,7 @@ ms.locfileid: "37027192"
 3. 在 VM 列表中，找到前面创建的 **Azs-VM**，并选择它。
 4. 在虚拟机部分选择“连接”，然后打开 Azs-VM.rdp 文件。
 
-     ![“连接”按钮](./media/azure-stack-create-vpn-connection-one-node-tp2/image17.png)
+     ![“连接”按钮](media/azure-stack-create-vpn-connection-one-node-tp2/image17.png)
 
 5. 使用创建虚拟机时所配置的帐户登录。
 6. 打开权限提升的 **Windows PowerShell** 窗口。
@@ -289,7 +289,7 @@ ms.locfileid: "37027192"
 
 10. 在 Azure 上的虚拟机中，通过隧道 ping Azure Stack 中的虚拟机。 为此，请 ping 从 Azs-VM 中记录的 DIP。 在示例环境中，该地址为 **10.1.0.4**，但请确保 ping 实验室中记下的地址。 会看到以下屏幕捕获所示的结果：
 
-    ![ping 成功](./media/azure-stack-create-vpn-connection-one-node-tp2/image19b.png)
+    ![ping 成功](media/azure-stack-create-vpn-connection-one-node-tp2/image19b.png)
 
 11. 获得远程虚拟机的答复表示测试成功！ 可以关闭虚拟机窗口。
 
@@ -303,10 +303,6 @@ ms.locfileid: "37027192"
 2. 转到“所有资源”，选择“Azs-Azure”连接。 此时会显示“连接”。
 3. “连接”部分显示了“传入数据”和“传出数据”的统计信息。 在以下屏幕捕获中，较大的数字是附加的文件传输造成的。 应会看到其中有一些非零值。
 
-    ![传入和传出数据](./media/azure-stack-connect-vpn/Connection.png)
-
-## <a name="next-steps"></a>后续步骤
-
-[将应用部署到 Azure 和 Azure Stack](azure-stack-solution-pipeline.md)
+    ![传入和传出数据](media/azure-stack-connect-vpn/Connection.png)
 
 <!-- Update_Description: wording update -->

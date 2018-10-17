@@ -3,24 +3,24 @@ title: 在 Azure Stack 上删除 MySQL 资源提供程序 | Microsoft Docs
 description: 了解如何从 Azure Stack 部署中删除 MySQL 资源提供程序。
 services: azure-stack
 documentationCenter: ''
-author: jeffgilb
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/27/2018
-ms.date: 07/20/2018
-ms.author: v-junlch
+origin.date: 09/13/2018
+ms.date: 10/15/2018
+ms.author: v-jay
 ms.reviewer: jeffgo
-ms.openlocfilehash: a2c5f6e541aaedd079c3623b85490b757fdc6e52
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.openlocfilehash: a540976b95957ddb5e789f2812760fa175afba3c
+ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168455"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48848892"
 ---
 # <a name="remove-the-mysql-resource-provider"></a>删除 MySQL 资源提供程序
 
@@ -32,14 +32,14 @@ ms.locfileid: "39168455"
 
 租户负责执行以下清理任务：
 
-- 从资源提供程序中删除其所有数据库。 （删除租户数据库不会删除数据。）
-- 从提供程序命名空间中取消注册。
+* 从资源提供程序中删除其所有数据库。 （删除租户数据库不会删除数据。）
+* 从提供程序命名空间中取消注册。
 
 管理员负责执行以下清理任务：
 
-- 从 MySQL 适配器中删除宿主服务器。
-- 删除引用 MySQL 适配器的所有计划。
-- 删除与 MySQL 适配器关联的所有配额。
+* 从 MySQL 适配器中删除宿主服务器。
+* 删除引用 MySQL 适配器的所有计划。
+* 删除与 MySQL 适配器关联的所有配额。
 
 ## <a name="to-remove-the-mysql-resource-provider"></a>删除 MySQL 资源提供程序
 
@@ -54,6 +54,7 @@ ms.locfileid: "39168455"
 5. 使用以下参数运行 DeployMySqlProvider.ps1 脚本：
     - **Uninstall**。 删除资源提供程序和所有关联的资源。
     - **PrivilegedEndpoint**。 特权终结点的 IP 地址或 DNS 名称。
+    - **AzureEnvironment**。 用于部署 Azure Stack 的 Azure 环境。 仅对于 Azure AD 部署是必需的。
     - **CloudAdminCredential**。 访问特权终结点时所需的云管理员凭据。
     - **DirectoryTenantID**
     - **AzCredential**。 Azure Stack 服务管理员帐户的凭据。 使用部署 Azure Stack 时所用的相同凭据。

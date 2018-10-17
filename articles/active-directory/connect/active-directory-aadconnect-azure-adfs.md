@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 07/17/2017
-ms.date: 08/06/2018
+ms.date: 10/11/2018
 ms.component: hybrid
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a32da7a8fde27ff1e834b7c1f6991af1c1f36c83
-ms.sourcegitcommit: 7cdf4633aea04e524cb48cb1990b750ae8be841c
+ms.openlocfilehash: 5a2f4bb88eeafd37aeea39cd6079b8f5e882b021
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39584294"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49089244"
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>在 Azure 中部署 Active Directory 联合身份验证服务
 AD FS 提供简化、安全的标识联合与 Web 单一登录 (SSO) 功能。 与 Azure AD 或 O365 联合可让用户使用本地凭据进行身份验证，并访问云中的所有资源。 这样，就务必建立高度可用的 AD FS 基础结构来确保能够访问本地和云中的资源。 在 Azure 中部署 AD FS 有助于以最少量的工作实现所需的高可用性。
@@ -188,12 +188,14 @@ AD FS 提供简化、安全的标识联合与 Web 单一登录 (SSO) 功能。 �
 
 **6.3.配置探测**
 
-在 ILB 设置面板中选择“探测”。
+在“ILB 设置”面板中，选择“运行状况探测”。
 
 1. 单击“添加”
-2. 提供探测详细信息 a. 名称：探测名称 b. 协议：TCP c. 端口：443 (HTTPS) d. 间隔：5（默认值）– 这是 ILB 探测后端池中的计算机的间隔 e. **不正常阈值限制**：2（默认值）- 这是连续探测失败次数阈值，达到此阈值后，ILB 会将后端池中的计算机声明为无响应，并停止向它发送流量。
+2. 提供探测详细信息 a. 名称：探测名称 b. **协议**：HTTP c. **端口**：80 (HTTP) d. **路径**：/adfs/probe e. **间隔**：5（默认值）- 这是 ILB 在后端池中探测计算机的间隔 f. **不正常阈值限制**：2（默认值）- 这是连续探测失败次数阈值，达到此阈值后，ILB 会将后端池中的计算机声明为无响应，并停止向它发送流量。
 
 ![配置 ILB 探测](./media/active-directory-aadconnect-azure-adfs/ilbdeployment4.png)
+
+我们使用为在 AD FS 环境中进行运行状况检查而显式创建的 /adfs/probe 终结点，在该环境中无法进行完整的 HTTPS 路径检查。  这比基本的端口 443 检查好很多，端口 443 检查不能准确反映现代 AD FS 部署的状态。  可以在 https://blogs.technet.microsoft.com/applicationproxyblog/2014/10/17/hardware-load-balancer-health-checks-and-web-application-proxy-ad-fs-2012-r2/ 找到这方面的更多信息。
 
 **6.4.创建负载均衡规则**
 
@@ -354,4 +356,4 @@ AD FS 提供简化、安全的标识联合与 Web 单一登录 (SSO) 功能。 �
 - [使用 Azure AD Connect 配置和管理 AD FS](active-directory-aadconnectfed-whatis.md)
 - [使用 Azure 流量管理器在 Azure 中部署高可用性跨地域 AD FS](../active-directory-adfs-in-azure-with-azure-traffic-manager.md)
 
-<!--Update_Description: link update -->
+<!-- Update_Description: wording update -->

@@ -1,5 +1,5 @@
 ---
-title: 调试 Windows 中的 Azure 微服务 | Azure
+title: 在 Windows 中调试 Azure Service Fabric 应用 | Azure
 description: 了解如何监视和诊断本地开发计算机上使用 Azure Service Fabric 编写的服务。
 services: service-fabric
 documentationcenter: .net
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 10/15/2017
-ms.date: 05/28/2018
+ms.date: 10/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0866dc7973396fbc08ed8467ca5f7438d91188a5
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: 8223adead14e01d933829ae3d26bb7187dd28ea5
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554239"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49089194"
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>在本地计算机开发安装过程中监视和诊断服务
 > [!div class="op_single_selector"]
@@ -43,7 +43,6 @@ ms.locfileid: "34554239"
 Service Fabric 发出 ETW 事件以帮助应用程序开发人员了解平台中发生的情况。 如果还没有这么做，请继续遵循[在 Visual Studio 中创建第一个应用程序](service-fabric-create-your-first-application-in-visual-studio.md)中的步骤。 此信息将帮助你使应用程序启动并运行，通过诊断事件查看器显示跟踪消息。
 
 1. 如果诊断事件窗口未自动显示，请在 Visual Studio 中转到“视图”选项卡上，选择“其他窗口”，然后选择“诊断事件查看器”。
-
 2. 每个事件都有标准元数据信息，它将显示事件来自的节点、应用程序和服务。 也可以使用事件窗口顶端的“筛选事件”框来筛选事件列表。 例如，可根据“节点名称”或“服务名称”进行筛选。 查看事件详细信息时，也可以使用事件窗口顶端的“暂停”按钮来暂停，稍后再继续，而不会丢失任何事件。
 
     ![Visual Studio 诊断事件查看器](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/DiagEventsExamples2.png)

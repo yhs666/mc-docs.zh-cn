@@ -1,25 +1,25 @@
 ---
-title: Azure Stack 中的配置文件支持的资源提供程序 API 版本 | Azure
+title: Azure Stack 中的配置文件支持的资源提供程序 API 版本 | Microsoft Docs
 description: 了解 Azure Stack 中的配置文件支持的 Azure 资源管理器版本。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
-manager: femila
+author: WenJason
+manager: digimobile
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/17/2018
-ms.date: 08/27/2018
-ms.author: v-junlch
+origin.date: 08/24/2018
+ms.date: 10/15/2018
+ms.author: v-jay
 ms.reviewer: sijuman
-ms.openlocfilehash: 4c39d9d99ddb10619c956d824a3820e28e89a082
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.openlocfilehash: 41ec1dcd6cff9deeb9ad67c5935fc9f9f37fafe4
+ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869569"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48848896"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Azure Stack 中的配置文件支持的资源提供程序 API 版本
 
@@ -55,9 +55,9 @@ API 配置文件使用三个命名约定：
 | Resources_Locks | 2016-10-01 |
 | 订阅 | 2016-10-01 |
 
-有关 api 配置文件中提供程序的每种资源类型的更多版本列表，请参阅 [2018-03-01-hybrid 配置文件的详细信息](#details-for-the-2018-03-01-hybrid)。
+有关 API 配置文件中提供程序的每种资源类型的更多版本列表，请参阅 [2018-03-01-hybrid 配置文件的详细信息](#details-for-the-2018-03-01-hybrid)。
 
-## <a name="overview-of-2017-03-09-profile"></a>2017-03-09-profile 的概述
+## <a name="overview-of-2018-03-01-hybrid"></a>2018-03-01-hybrid 概述
 
 | 资源提供程序 | Api-version |
 |------------------------------------------------|------------------------------|
@@ -77,7 +77,7 @@ API 配置文件使用三个命名约定：
 | Resources_Locks | 2016-09-01 |
 | 订阅 | 2016-06-1 |
 
-有关 api 配置文件中提供程序的每种资源类型的更多版本列表，请参阅 [2017-03-09-profile 的详细信息](#details-for-the-2017-03-09-profile)
+有关 api 配置文件中提供程序的每种资源类型的更多版本列表，请参阅 [2018-03-01-hybrid 的详细信息](#details-for-the-2018-03-01-hybrid)
 
 ## <a name="details-for-the-2018-03-01-hybrid"></a>2018-03-01-hybrid 的详细信息
 
@@ -198,26 +198,26 @@ API 配置文件使用三个命名约定：
 | 委托的提供程序 | 2015-01-01 |
 | 委托的提供程序/产品（服务） | 2015-01-01 |
 | 委托的提供程序/产品（服务）/估算价格 | 2015-01-01 |
-| 部署 | 2016-0209-01 |
-| 部署/操作 | 2016-0209-01 |
+| 部署 | 2016-09-01 |
+| 部署/操作 | 2016-09-01 |
 | 扩展元数据 | 2015-01-01 |
 | 链接 | 2016-09-01 |
 | 位置 | 2015-01-01 |
 | 产品 | 2015-01-01 |
 | 操作 | 2015-01-01 |
-| 提供程序 | 2015-012017-08-01 |
+| 提供程序 | 2017-08-01 |
 | 资源组 | 2016-09-01 |
 | 资源 | 2016-09-01 |
 | 订阅 | 2016-09-01 |
 | 订阅/位置 | 2016-09-01 |
 | 订阅/操作结果 | 2016-09-01 |
-| 订阅/提供程序 | 2015-012017-08-01 |
+| 订阅/提供程序 | 2017-08-01 |
 | 订阅/资源组 | 2016-09-01 |
 | 订阅/资源组/资源 | 2016-09-01 |
 | 订阅/资源 | 2016-09-01 |
-| 订阅/标记名称 | 2016-0609-01 |
-| 订阅/标记名称/标记值 | 2016-0609-01 |
-| 租户 | 2015-012017-08-01 |
+| 订阅/标记名称 | 2016-09-01 |
+| 订阅/标记名称/标记值 | 2016-09-01 |
+| 租户 | 2017-08-01 |
 
 ### <a name="microsoftstorage"></a>Microsoft.Storage 
 
@@ -232,7 +232,7 @@ API 配置文件使用三个命名约定：
 | 存储帐户 | 2016-01-01 |
 | 用途 | 2016-01-01 |
 
-## <a name="details-for-the-2017-03-09-profile"></a>2017-03-09-profile 的详细信息
+## <a name="details-for-the-2018-03-01-hybrid"></a>2018-03-01-hybrid 的详细信息
 
 ### <a name="microsoft-authorization"></a>Microsoft 授权
 

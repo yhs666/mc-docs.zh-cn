@@ -11,15 +11,15 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 09/12/2017
-ms.date: 05/28/2018
+origin.date: 09/11/2018
+ms.date: 10/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: 84745194a498fbf2542c6abffd0dbc5c60edc588
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: e8e9ede91c882f7527ab5b021292c6c7a2271930
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554628"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49089179"
 ---
 <a name="preparemachines"></a>
 
@@ -67,7 +67,7 @@ ms.locfileid: "34554628"
 * 至少 40 GB 可用磁盘空间
 * 一个 4 核心或更多核心的 CPU
 * 与所有计算机的安全网络建立连接
-* Windows Server 2012 R2 或 Windows Server 2016
+* 已安装 Windows Server 操作系统（有效版本：2012 R2、2016、1709 或 1803）
 * [.NET Framework 4.5.1 或更高版本](https://www.microsoft.com/download/details.aspx?id=40773)的完整安装版
 * [Windows PowerShell 3.0](https://msdn.microsoft.com/powershell/scripting/setup/installing-windows-powershell)
 * 应在所有计算机上运行 [RemoteRegistry 服务](https://technet.microsoft.com/library/cc754820)
@@ -75,13 +75,13 @@ ms.locfileid: "34554628"
 部署和配置群集的群集管理员必须拥有每台计算机的 [管理员权限](https://social.technet.microsoft.com/wiki/contents/articles/13436.windows-server-2012-how-to-add-an-account-to-a-local-administrator-group.aspx) 。 不能在域控制器上安装 Service Fabric。
 
 ## <a name="download-the-service-fabric-standalone-package-for-windows-server"></a>下载适用于 Windows Server 的 Service Fabric 独立包
-[下载链接 - Service Fabric 独立包 - Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690)，并将包解压缩到群集外的一台部署计算机中或解压缩到群集内的其中一台计算机中。
+[下载链接 - Service Fabric 独立包 - Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690) ，将包解压缩到群集外的一台部署计算机中或解压缩到群集内的其中一台计算机中。
 
 ## <a name="modify-cluster-configuration"></a>修改群集配置
 若要创建独立群集，必须创建独立群集配置 ClusterConfig.json 文件，其中描述群集的规范。 可以基于在以下链接中找到的模板创建配置文件。 <br>
 [独立群集配置](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples)
 
-有关此文件中相关部分的详细信息，请参阅 [Windows 独立群集的配置设置](service-fabric-cluster-manifest.md)。
+有关此文件中各个节的详细信息，请参阅 [Windows 独立群集的配置设置](service-fabric-cluster-manifest.md)。
 
 从已下载的包中打开某个 ClusterConfig.json 文件，并修改以下设置：
 | **配置设置** | **说明** |
@@ -169,4 +169,4 @@ Passed                     : True
 ## <a name="next-steps"></a>后续步骤
 * [创建在 Windows Server 上运行的独立群集](service-fabric-cluster-creation-for-windows-server.md)
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, wording update -->

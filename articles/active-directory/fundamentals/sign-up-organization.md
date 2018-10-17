@@ -1,40 +1,38 @@
 ---
-title: 以组织身份注册 Azure AD | Microsoft Docs
-description: 了解如何通过工作或学校帐户来利用现有的用户帐户、策略、设置或已有的本地服务器部署，以及提高组织的本地标识基础结构与 Azure AD 之间的效率。
+title: 如何以组织身份注册 Azure Active Directory | Microsoft Docs
+description: 了解如何注册组织以使用 Azure 和 Azure Active Directory。
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
 ms.topic: conceptual
-origin.date: 08/28/2017
-ms.date: 06/25/2018
+origin.date: 09/14/2018
+ms.date: 10/09/2018
 ms.author: v-junlch
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: b32fd6b5a6356422e7c884d07f91fa116aedb172
-ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
+ms.openlocfilehash: 096b01c3b62d047879f865db9970de4c599f9b4a
+ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36948691"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913956"
 ---
-# <a name="how-to-sign-up-for-azure-ad-as-an-organization"></a>如何以组织身份注册 Azure AD
-直到最近，只能使用 Microsoft 帐户 (Windows Live ID) 注册一个新的 Azure 订阅。 Azure 现在支持使用下列两种帐户方法之一进行注册：
+# <a name="how-to-sign-up-for-azure-active-directory-as-an-organization"></a>如何：以组织身份注册 Azure Active Directory
+使用以下任一项注册 Azure Active Directory (Azure AD) 新的 Azure 订阅：
 
-- **Microsoft 帐户**（由你创建以供个人使用）- 提供对所有面向使用者的 Microsoft 产品和云服务（如 Outlook (Hotmail)、Messenger、OneDrive、MSN、Xbox LIVE 或 Office 365）的访问权限。 注册 Outlook.com 邮箱自动创建 Microsoft 帐户。 创建 Microsoft 帐户后，可将其用于访问与使用者相关的 Azure 云服务或 Azure。 
-- **工作或学校帐户**（由管理员针对商业/学术用途颁发）- 提供对所有小型、中型和企业业务级 Azure 云服务（例如 Azure、Microsoft Intune 或 Office 365）的访问权限。 以组织身份注册其中某个服务时，系统会在 Azure Active Directory 中自动预配一个基于云的目录，来代表该组织。 [了解详细信息](active-directory-administer.md)
-  
-    此目录创建后，管理员即可创建用户，并根据其需要访问的云服务订阅（例如 Azure），向其分配许可证。
+- **Microsoft 帐户**。 使用个人 Microsoft 帐户可以访问 Azure 以及所有面向使用者的 Microsoft 产品和云服务，例如 Outlook (Hotmail)、Messenger、OneDrive、MSN、Xbox LIVE 或 Office 365。 注册 Outlook.com 邮箱自动创建 Microsoft 帐户。
 
-是否要作为组织注册 Azure？ [**立即注册**](https://www.azure.cn/pricing/)
+- **工作或学校帐户**。 使用与工作或学校相关的帐户可以访问 Microsoft 提供的所有小型、中型和企业级云服务，例如 Azure、Microsoft Intune 或 Office 365。 以组织身份注册其中一项服务后，Azure AD 会自动预配一个基于云的目录来代表该组织。 有关详细信息，请参阅[管理 Azure AD 目录](active-directory-administer.md)。
 
-**其他资源**
+## <a name="next-steps"></a>后续步骤
 
-- [Azure 博客](https://azure.microsoft.com/blog/)
-- [什么是 Azure AD？](active-directory-whatis.md)
+- [了解有关 Azure AD 的详细信息](active-directory-whatis.md)
+
 - [在云中使用本地标识基础结构](../connect/active-directory-aadconnect.md)
 
+- [访问 Azure 博客](https://azure.microsoft.com/blog/)
 
+<!-- Update_Description: wording update -->

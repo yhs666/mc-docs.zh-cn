@@ -1,5 +1,5 @@
 ---
-title: Azure SQL 数据库案例研究 - Snelstart | Azure
+title: Azure SQL 数据库 Azure 案例研究 - Snelstart | Microsoft 文档
 description: 了解 SnelStart 如何使用 SQL 数据库以每月 1,000 个新 Azure SQL 数据库的速度快速扩展其业务服务
 services: sql-database
 author: Hayley244
@@ -10,12 +10,12 @@ ms.topic: article
 origin.date: 04/01/2018
 ms.date: 04/17/2018
 ms.author: v-johch
-ms.openlocfilehash: 1a7cd4a924ebc0987368cebea447f0eb8f17dfa4
-ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
+ms.openlocfilehash: 8468d75f0c89633e0aba2535848cf9e9d4faf5cc
+ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39486598"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913817"
 ---
 # <a name="with-azure-snelstart-has-rapidly-expanded-its-business-services-at-a-rate-of-1000-new-azure-sql-databases-per-month"></a>借助 Azure，SnelStart 以每月 1,000 个新 Azure SQL 数据库的速度快速扩展其业务服务
 ![SnelStartLogo](./media/sql-database-implementation-snelstart/snelstartlogo.png)
@@ -49,7 +49,7 @@ SnelStart 是一家现代化的敏捷型高科技企业，其渊源可追溯到 
 ## <a name="optimizing-performance-and-cost-with-elastic-pools"></a>通过弹性池优化性能和成本
 SnelStart 是弹性池的早期大规模采用者。 弹性池可帮助该公司控制成本，更有效地管理性能要求。 Been 表示，“使用弹性池，我们可以根据客户的需求优化性能，而不会发生过度预配的情况。 如果我们必须根据高峰负载预配，费用将相当高昂。 在多个低使用量数据库之间共享资源的做法，使我们能够创建既能顺畅运行又能符合成本效益的解决方案。”
 
-## <a name="azure-sql-databases-help-containerize-data-for-isolation-and-security"></a>Azure SQL 数据库帮助容器化数据，实现隔离和安全性
+## <a name="azure-sql-databases-help-containerize-data-for-isolation-and-security"></a>Azure SQL 数据库可帮助容器化数据，实现隔离和安全性
 Azure SQL 数据库使得 SnelStart 能够以轻松透明的方式将客户的本地业务管理数据转移到 Azure。 Azure SQL 数据库是一个便利的容器，提供隔离、身份验证和授权边界，以及轻松备份与还原功能。 数据库为业务管理提供了一个适当的概念模型。 IT 架构师 Carlo Kuip 表示，“此容器边界内的项目包含对企业至关重要的敏感数据，将这些项目存储在隔离的数据库中可为它们提供严密的防护。 我们可以在数据库级别管理授权，甚至将管理自动化以及横向扩展这些数据库，而无需雇用数据库管理员 (DBA)。”
 
 Azure SQL 数据仓库在 SnelStart 安全与管理方案中帮助公司收集遥测数据（例如入侵检测、用户活动记录和连接），因此也扮演着相当重要的角色。

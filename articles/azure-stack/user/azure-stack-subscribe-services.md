@@ -3,8 +3,8 @@ title: 如何订阅 Azure Stack 套餐 | Microsoft Docs
 description: 本教程介绍如何创建 Azure Stack 服务的新订阅，并通过创建测试虚拟机来测试套餐。
 services: azure-stack
 documentationcenter: ''
-author: brenduns
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
@@ -13,16 +13,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-origin.date: 06/08/2018
-ms.date: 06/27/2018
-ms.author: v-junlch
+origin.date: 09/05/2018
+ms.date: 10/15/2018
+ms.author: v-jay
 ms.reviewer: ''
-ms.openlocfilehash: 852da918b55e03cf541507845078904dbbb0b6a9
-ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
+ms.openlocfilehash: c26f695daac50f6ae2b9421b321b97c5f948eb8c
+ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37027275"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48848784"
 ---
 # <a name="tutorial-create-and-test-a-subscription"></a>教程：创建和测试订阅
 本教程介绍如何创建包含套餐的订阅，然后对其进行测试。 测试时，需要以云管理员身份登录到 Azure Stack 用户门户，订阅套餐，然后创建虚拟机。
@@ -43,18 +43,18 @@ ms.locfileid: "37027275"
 
 1. 登录到用户门户，并单击“获取订阅”。
 
-   ![获取订阅](./media/azure-stack-subscribe-services/get-subscription.png)
+   ![获取订阅](media/azure-stack-subscribe-services/get-subscription.png)
 
 2. 在“显示名称”字段中，键入订阅的名称。 然后，单击“产品/服务”，在“选择产品/服务”部分中选择某个可用产品/服务，然后单击“创建”。
 
-   ![创建产品](./media/azure-stack-subscribe-services/create-subscription.png)
+   ![创建产品](media/azure-stack-subscribe-services/create-subscription.png)
 
    > [!TIP]
    > 现在，必须刷新用户门户以开始使用该订阅。
 
-3. 若要查看刚刚创建的订阅，请依次单击“更多服务”、“订阅”和新的订阅。 订阅套餐之后，请刷新门户，以查看新服务是否已包含为新订阅的一部分。 在本示例中，我们已添加**虚拟机**。
+3. 若要查看已创建的订阅，请单击“所有服务”。  然后，在“常规”类别下选择“订阅”，然后选择新订阅。 订阅套餐之后，请刷新门户，以查看新服务是否已包含为新订阅的一部分。 在本示例中，我们已添加**虚拟机**。
 
-   ![查看订阅](./media/azure-stack-subscribe-services/view-subscription.png)
+   ![查看订阅](media/azure-stack-subscribe-services/view-subscription.png)
 
 
 ## <a name="test-the-offer"></a>测试产品/服务
@@ -77,7 +77,7 @@ ms.locfileid: "37027275"
 
 7. 若要查看新虚拟机，请单击“虚拟机”，然后搜索新虚拟机并单击其名称。
 
-    ![所有资源](./media/azure-stack-subscribe-services/view-vm.png)
+    ![所有资源](media/azure-stack-subscribe-services/view-vm.png)
 
 > [!NOTE]
 > 虚拟机部署需要几分钟时间才能完成。
@@ -94,4 +94,3 @@ ms.locfileid: "37027275"
 
 > [!div class="nextstepaction"]
 > [从社区模板创建 VM](azure-stack-create-vm-template.md)
-

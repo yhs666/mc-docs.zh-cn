@@ -3,24 +3,24 @@ title: 在 Azure Stack 上删除 SQL 资源提供程序 | Microsoft Docs
 description: 了解如何从 Azure Stack 部署中删除 SQL 资源提供程序。
 services: azure-stack
 documentationCenter: ''
-author: jeffgilb
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/27/2018
-ms.date: 07/20/2018
-ms.author: v-junlch
+origin.date: 09/13/2018
+ms.date: 10/15/2018
+ms.author: v-jay
 ms.reviewer: jeffgo
-ms.openlocfilehash: db5a2507f6cfbf9359b88ab18454d8211894e3f6
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.openlocfilehash: fefd3bc8ebf02dc47a8f0fdec35da128f2a4cbbd
+ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168480"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48848792"
 ---
 # <a name="remove-the-sql-resource-provider"></a>删除 SQL 资源提供程序
 
@@ -29,14 +29,14 @@ ms.locfileid: "39168480"
 在运行 _DeploySqlProvider.ps1_ 脚本来删除资源提供程序之前，需要执行几个清理任务：
 租户负责执行以下清理任务：
 
-- 从资源提供程序中删除其所有数据库。 （删除租户数据库不会删除数据。）
-- 从资源提供程序命名空间中取消注册。
+* 从资源提供程序中删除其所有数据库。 （删除租户数据库不会删除数据。）
+* 从资源提供程序命名空间中取消注册。
 
 管理员负责执行以下清理任务：
 
-- 从 SQL 资源提供程序中删除宿主服务器。
-- 删除引用了 SQL 资源提供程序的所有计划。
-- 删除与 SQL 资源提供程序关联的所有配额。
+* 从 SQL 资源提供程序中删除宿主服务器。
+* 删除引用了 SQL 资源提供程序的所有计划。
+* 删除与 SQL 资源提供程序关联的所有配额。
 
 ## <a name="to-remove-the-sql-resource-provider"></a>删除 SQL 资源提供程序
 
@@ -51,10 +51,11 @@ ms.locfileid: "39168480"
 
 4. 使用以下参数运行 DeploySqlProvider.ps1 脚本：
 
-    - **Uninstall**。 删除资源提供程序和所有关联的资源。
-    - **PrivilegedEndpoint**。 特权终结点的 IP 地址或 DNS 名称。
-    - **CloudAdminCredential**。 访问特权终结点时所需的云管理员凭据。
-    - **AzCredential**。 Azure Stack 服务管理员帐户的凭据。 使用部署 Azure Stack 时所用的相同凭据。
+    * **Uninstall**。 删除资源提供程序和所有关联的资源。
+    * **PrivilegedEndpoint**。 特权终结点的 IP 地址或 DNS 名称。
+    * **AzureEnvironment**。 用于部署 Azure Stack 的 Azure 环境。 仅对于 Azure AD 部署是必需的。
+    * **CloudAdminCredential**。 访问特权终结点时所需的云管理员凭据。
+    * **AzCredential**。 Azure Stack 服务管理员帐户的凭据。 使用部署 Azure Stack 时所用的相同凭据。
 
 ## <a name="next-steps"></a>后续步骤
 

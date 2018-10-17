@@ -1,25 +1,24 @@
 ---
-title: 迁移后管理 - Azure SQL 数据库 | Azure
+title: 迁移后管理 - Azure SQL 数据库 | Microsoft Docs
 description: 了解如何在迁移到 Azure SQL 数据库后管理数据库。
 services: sql-database
-documentationcenter: ''
-author: yunan2016
+author: WenJason
 manager: digimobile
 ms.service: sql-database
 ms.custom: migrate
-ms.topic: article
-origin.date: 06/20/2018
-ms.date: 08/06/2018
-ms.author: v-nany
+ms.topic: conceptual
+origin.date: 09/14/2018
+ms.date: 10/15/2018
+ms.author: v-jay
 ms.suite: sql
 ms.prod_service: sql-database
-ms.component: migration
-ms.openlocfilehash: ea006bad087170517c10331b3463aa3bce380a56
-ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
+ms.component: data-movement
+ms.openlocfilehash: 7df719b3ac4140218633df00679426ed6c59f3df
+ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39486967"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913932"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>云中的新 DBA  – 管理 Azure SQL 数据库中的数据库
 
@@ -38,9 +37,9 @@ ms.locfileid: "39486967"
 发生灾难时，可以借助业务连续性和灾难恢复功能使业务像平时一样继续。 灾难可能是数据库级别的事件（例如，某人错误地删除了某个重要表）或数据中心级别的事件（区域性灾难，例如海啸）。 
 
 ### <a name="how-do-i-create-and-manage-backups-on-sql-database"></a>如何在 SQL 数据库中创建和管理备份？
-不要在 Azure SQL 数据库中创建备份，因为没有这个必要。 SQL 数据库会自动备份数据库，因此我们不再需要考虑如何计划、执行和管理备份。 该平台每周创建完整备份，每隔几小时创建差异备份，每隔 5 分钟创建日志备份，以确保灾难恢复的有效性，并尽量减少数据丢失。 创建数据库后，首次完整备份会立即发生。 这些备份会保留特定的期限（称为“保留期”），具体因所选性能层而异。  在 SQL 数据库中，可以使用[时间点恢复 (PITR)](sql-database-recovery-using-backups.md#point-in-time-restore) 还原到此保留期内的任意时间点。
+不要在 Azure SQL 数据库中创建备份，因为没有这个必要。 SQL 数据库会自动备份数据库，因此我们不再需要考虑如何计划、执行和管理备份。 该平台每周创建完整备份，每隔几小时创建差异备份，每隔 5 分钟创建日志备份，以确保灾难恢复的有效性，并尽量减少数据丢失。 创建数据库后，首次完整备份会立即发生。 在称为“保留期”的某段时间内，这些备份均可用，可用情况因所选服务层而有所不同。  在 SQL 数据库中，可以使用[时间点恢复 (PITR)](sql-database-recovery-using-backups.md#point-in-time-restore) 还原到此保留期内的任意时间点。
 
-|性能层|保留期（天）|
+|服务层|保留期（天）|
 |---|:---:|
 |基本|7|
 |标准|35|
@@ -202,7 +201,7 @@ Azure 安全中心不时地传送安全建议，只需点击一下鼠标就能�
 
    ![监视图表 2](./media/sql-database-manage-after-migration/chart.png)
 
-在此图表中，还可以按资源配置警报。 通过这些警报，可以使用电子邮件响应资源状态，写入 HTTPS/HTTP 终结点或执行操作。 有关详细说明，请参阅[监视 SQL 数据库中的数据库性能](sql-database-single-database-monitor.md)。
+在此图表中，还可以按资源配置警报。 通过这些警报，可以使用电子邮件响应资源状态，写入 HTTPS/HTTP 终结点或执行操作。 有关详细信息，请参阅[创建警报](sql-database-insights-alerts-portal.md)。
 
 - **动态管理视图**：可以查询 [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) 动态管理视图，以返回最近一个小时的资源使用统计信息历史记录，也可以查询 [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 系统目录视图，返回过去 14 天的历史记录。
 - 查询性能见解：可以使用[查询性能见解](sql-database-query-performance.md)查看特定数据库那些排名靠前的资源消耗查询和长时间运行查询的历史记录。 可以根据资源利用率、持续时间和执行频率快速识别排名靠前的查询。 可以跟踪查询和检测回归。 此功能需要为数据库启用和激活[查询存储](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)。
@@ -217,23 +216,23 @@ Azure 安全中心不时地传送安全建议，只需点击一下鼠标就能�
 
 进行性能故障排除时，请务必确定是应用程序，还是支持它的数据库影响了应用程序的性能。 通常，性能问题出现在应用程序层。 问题原因可能在于体系结构或数据访问模式。 例如，假设某个频繁通信的应用程序对网络延迟很敏感。 在这种情况下，由于有许多简短请求在应用程序与服务器之间来回传送（“琐碎 I/O”），因此应用程序的性能会受到影响；在拥塞的网络上，往返次数会快速增加。 若要在此情况下提高性能，可以使用[批处理查询](sql-database-performance-guidance.md#batch-queries)。 使用批处理可以带来很大的帮助，因为现在请求会在批中处理；因此，可帮助减少往返延迟并提高应用程序的性能。 
 
-此外，如果注意到数据库总体性能下降，则可以监视 [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) 和 [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 动态管理视图，了解 CPU、IO 和内存消耗情况。 由于数据库的资源严重不足，因此性能可能受到影响。 可能需要根据工作负荷的缩放需求来更改性能级别和/或服务层。 
+此外，如果注意到数据库总体性能下降，则可以监视 [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) 和 [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 动态管理视图，了解 CPU、IO 和内存消耗情况。 由于数据库的资源严重不足，因此性能可能受到影响。 你可能会需要根据工作负荷需求的增加和减少来更改计算大小和/或服务层。 
 
 有关优化性能问题的全套建议，请参阅：[优化数据库](sql-database-performance-guidance.md#tune-your-database)。
 
-### <a name="how-do-i-ensure-i-am-using-the-appropriate-service-tier-and-performance-level"></a>如何确保我使用的是适当的服务层和性能级别？
-SQL 数据库提供了各种服务层：基本、标准和高级。 在每个服务层，均可获得与服务级别相关的有保障且可预测的性能。 某些工作负荷中的活动可能会剧增，在此情况下，资源利用率可能达到当前所处性能级别的上限。 对于这种情况，最好是先评估任何优化措施（例如，添加或更改索引等）是否有所帮助。 如果仍遇到限制问题，请考虑转移到更高的性能级别或服务级别。 
+### <a name="how-do-i-ensure-i-am-using-the-appropriate-service-tier-and-compute-size"></a>如何确保我使用的是适当的服务层和计算大小？
+SQL 数据库提供了各种服务层：基本、标准和高级。 在每个服务层，将获得与该服务层对应的有保障且可预测的性能。 根据工作负荷情况，活动可能会激增，资源利用率可能会达到当前所处计算大小的上限。 对于这种情况，最好是先评估任何优化措施（例如，添加或更改索引等）是否有所帮助。 如果仍然存在限制问题，请考虑转移到更高的服务层或计算大小。 
 
-|**服务级别**|**常见用例方案**|
+|**服务层**|**常见用例方案**|
 |---|---|
 |**基本**|用户较少，数据库不具有高并发性、扩展性和性能要求的应用程序。 |
 |**标准**|并发性、规模和性能要求较高且结合了中低 IO 需求的应用程序。 |
 |**高级**|具有大量并发用户、高 CPU/内存和高 IO 需求的应用程序。 高并发性、高吞吐量和对延迟敏感的应用可利用高级等级。 |
 |||
 
-为确保处于正确的性能级别，可通过此前“如何监视 SQL 数据库中的性能和资源利用率”中所述的某种方式来监视查询和数据库资源消耗。 如果发现查询/数据库持续消耗大量的 CPU/内存等资源，可以考虑纵向扩展到更高的性能级别。 同样，如果注意到，即使在繁忙时间，似乎也没有使用多少资源，则可考虑下调当前性能等级。 
+为确保处于正确的计算大小，可通过“如何监视 SQL 数据库中的性能和资源利用率”中所述的某种方式来监视查询和数据库资源消耗。 如果发现查询/数据库一直在过度消耗 CPU/内存等，则可考虑纵向扩展到更高的计算大小。 同样，如果你发现，即使在繁忙时间，似乎也没有使用多少资源，则可考虑下调当前计算大小。 
 
-如果实施 SaaS 应用模式或数据库整合方案，请考虑使用弹性池来优化成本。 弹性池是实现数据库整合和成本优化的极佳方式。 若要详细了解如何使用弹性池管理多个数据库，请参阅：[管理池和数据库](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases)。 
+如果有 SaaS 应用模式或数据库整合方案，则考虑使用弹性池进行成本优化。 弹性池是实现数据库整合和成本优化的极佳方式。 若要详细了解如何使用弹性池管理多个数据库，请参阅：[管理池和数据库](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases)。 
 
 ### <a name="how-often-do-i-need-to-run-database-integrity-checks-for-my-database"></a>需要以何种频率对数据库运行数据库完整性检查？
 SQL 数据库使用某些智能技术来自动处理特定类型的数据损坏，且不丢失任何数据。 这些技术已内置在服务中，由服务根据需要利用。 SQL 数据库会定期通过还原整个服务中的数据库备份并对其运行 DBCC CHECKDB，以对其进行测试。 如果存在问题，SQL 数据库会主动解决问题。 它利用[自动页面修复](https://docs.microsoft.com/sql/sql-server/failover-clusters/automatic-page-repair-availability-groups-database-mirroring)来修复已损坏或出现数据完整性问题的页面。 始终使用可验证页面完整性的默认 CHECKSUM 设置来验证数据库页面。 SQL 数据库主动监视并审查数据库的数据完整性，如果出现问题，则以最高优先级解决问题。 除此之外，可以根据需要选择运行自己的完整性检查。  有关详细信息，请参阅 [SQL 数据库中的数据完整性](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/)
@@ -253,7 +252,7 @@ SQL 数据库使用某些智能技术来自动处理特定类型的数据损坏�
 ### <a name="how-do-i-synchronize-data-between-sql-database-and-sql-server"></a>如何在 SQL 数据库与 SQL Server 之间同步数据？
 可通过多种方法实现此目的： 
 - **[数据同步](sql-database-sync-data.md)** - 此功能可帮助你在多个本地 SQL Server 数据库和 SQL 数据库之间双向同步数据。 若要与本地 SQL Server 数据库同步，需要在本地计算机上安装并配置同步代理，并打开出站 TCP 端口 1433。
-- **[事务复制](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)** - 使用事务复制功能，可将数据从本地同步到 Azure SQL DB，本地服务器作为发布服务器，而 Azure SQL DB 作为订阅服务器。 目前仅支持此设置。 有关如何以最短的停机时间将数据从本地迁移到 Azure SQL 的详细信息，请参阅：[使用事务复制](sql-database-cloud-migrate.md#method-2-use-transactional-replication)
+- **[事务复制](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)** - 使用事务复制功能，可将数据从本地同步到 Azure SQL DB，本地服务器作为发布服务器，而 Azure SQL DB 作为订阅服务器。 目前仅支持此设置。 有关如何以最少停机时间将数据从本地迁移到 Azure SQL 的详细信息，请参阅：[使用事务复制](sql-database-cloud-migrate.md#method-2-use-transactional-replication)
 
 ## <a name="next-steps"></a>后续步骤
 了解 [SQL 数据库](sql-database-technical-overview.md)。

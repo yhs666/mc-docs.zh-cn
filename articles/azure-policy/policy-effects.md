@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: digimobile
 ms.custom: mvc
-ms.openlocfilehash: 6ee57b78b427cbdd3328cfee64ee3ed5494d14f0
-ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
+ms.openlocfilehash: 9f2930369b332d70338fbe0fd599c8b5bfffbf6c
+ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46527206"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48848886"
 ---
 # <a name="understanding-policy-effects"></a>了解策略效果
 
@@ -308,7 +308,9 @@ DeployIfNotExists 效果的“details”属性具有可定义要匹配的相关�
 
 ## <a name="layering-policies"></a>分层策略
 
-资源可能会受到多个分配的影响。 这些分配可能处于相同范围（特定资源、资源组、订阅）内或处于不同范围内。 这些分配中的每一个也可能具有不同的定义效果。 无论如何，每项策略的条件和效果（直接分配或作为初始分配的一部分）均为独立评估。 例如，如果策略 1 和策略 2 均已分配，其中策略 1 具有使用拒绝效果限制仅在“chinaeast”中创建订阅 A 的资源位置的条件，策略 2 具有可使用审核效果限制仅在“chinanorth”中创建的资源组 B（位于订阅 A 中）的资源位置的条件，则所得到结果将是：
+资源可能会受到多个分配的影响。 这些分配可能处于相同范围（特定资源、资源组、订阅）内或处于不同范围内。 这些分配中的每一个也可能具有不同的定义效果。 无论如何，每项策略的条件和效果（直接分配或作为初始分配的一部分）均为独立评估。 例如，如果策略 1 的条件为将订阅 A 的资源位置限制为
+
+仅在“chinaeast”中创建且具有拒绝效果，策略 2 的条件为将资源组 B（在订阅 A 中）的资源位置限制为仅在“chinanorth”中创建且具有审核效果，并且这两个策略都已分配，则显示的结果将是：
 
 - “chinanorth”中资源组 B 中的任何资源都符合策略 2，但被标记为不符合策略 1。
 - 任何在资源组 B 中不在“chinanorth”中的资源将被标记为不符合策略 2，并且如果不在“chinaeast”中，还将被标记为不符合策略 1。

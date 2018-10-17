@@ -1,26 +1,26 @@
 ---
-title: 管理充当云服务提供商的 Azure Stack 的使用情况和计费 | Azure
+title: 管理充当云服务提供商的 Azure Stack 的使用情况和计费 | Microsoft Docs
 description: 详细介绍如何将 Azure Stack 注册为云提供商 (CSP) 并添加客户以便计费。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/12/2018
-ms.date: 08/27/2018
-ms.author: v-junlch
+origin.date: 08/30/2018
+ms.date: 10/15/2018
+ms.author: v-jay
 ms.reviewer: alfredo
-ms.openlocfilehash: 4a15730016b6618fb2d48523adef78e8d773f5e1
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.openlocfilehash: e3eb2d92d484068a689a29979efbde149a2c1aac
+ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869577"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48848768"
 ---
 # <a name="manage-usage-and-billing-for-azure-stack-as-a-cloud-service-provider"></a>管理充当云服务提供商的 Azure Stack 的使用情况和计费 
 
@@ -59,7 +59,7 @@ CSPSS 订阅与共享服务租户相关联。 注册 Azure Stack 时，需提供
 
 ## <a name="register-azure-stack"></a>注册 Azure Stack
 
-若要注册 Azure Stack，请参阅[将 Azure Stack 注册到 Azure 订阅](azure-stack-registration.md)。
+使用按照前一部分中的信息创建的 CSPSS 订阅向 Azure 注册 Azure Stack。 有关详细信息，请参阅[将 Azure Stack 注册到 Azure 订阅](azure-stack-registration.md)。
 
 ## <a name="add-end-customer"></a>添加最终客户
 

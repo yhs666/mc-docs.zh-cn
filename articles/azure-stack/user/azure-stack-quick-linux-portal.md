@@ -3,21 +3,21 @@ title: Azure Stack 快速入门 - 创建 VM 门户
 description: Azure Stack 快速入门 - 使用门户创建 Linux VM
 services: azure-stack
 cloud: azure-stack
-author: brenduns
-manager: femila
+author: WenJason
+manager: digimobile
 ms.service: azure-stack
 ms.topic: quickstart
-origin.date: 08/15/2018
-ms.date: 08/27/2018
-ms.author: v-junlch
+origin.date: 09/05/2018
+ms.date: 10/15/2018
+ms.author: v-jay
 ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: 9258ba0144dd8038299848c2fa44f7348c2c4474
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.openlocfilehash: d0dcd6cb1aa654335e9d403f678a56ae6a0aec4f
+ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869416"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48848846"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-with-the-azure-stack-portal"></a>快速入门：使用 Azure Stack 门户创建 Linux 服务器虚拟机
 
@@ -29,10 +29,13 @@ ms.locfileid: "42869416"
 * 安装 NGINX Web 服务器。
 * 清理资源。
 
+> [!NOTE]  
+> 本文中的屏幕图像已更新，以匹配 Azure Stack 版本 1808 中引入的更改。 除了非托管磁盘外，1808 版还添加了对使用*托管磁盘*的支持。 如果使用早期版本，则磁盘选择等任务的某些图像将与本文中显示的不同。  
+
+
 ## <a name="prerequisites"></a>先决条件
 
-* 
-  **Azure Stack 市场中的 Linux 映像**
+* **Azure Stack 市场中的 Linux 映像**
 
    默认情况下，Azure Stack 市场不包含 Linux 映像。 在可以创建 Linux 服务器虚拟机之前，请确保 Azure Stack 操作员提供了你需要的 **Ubuntu Server 16.04 LTS** 映像。 操作员可以使用[将市场项从 Azure 下载到 Azure Stack](../azure-stack-download-azure-marketplace-item.md) 一文中介绍的步骤。
 
@@ -68,6 +71,8 @@ ms.locfileid: "42869416"
 1. 在 Azure Stack 门户的左上角单击“创建资源”。
 
 2. 依次选择“计算”、“Ubuntu Server 16.04 LTS”。
+   
+   ![选择 Linux 服务器](media/azure-stack-quick-linux-portal/select.png)
 3. 单击**创建**。
 
 4. 键入虚拟机信息。 对于“身份验证类型”，请选择“SSH 公钥”。 粘贴保存的 SSH 公钥，然后单击“确定”。
@@ -77,24 +82,28 @@ ms.locfileid: "42869416"
 
    ![基本信息面板 - 配置虚拟机](media/azure-stack-quick-linux-portal/linux-01.PNG)
 
-5. 为虚拟机选择“D1_V2”。
+5. 为虚拟机选择“D1”。
 
    ![大小面板 - 选择虚拟机大小](media/azure-stack-quick-linux-portal/linux-02.PNG)
 
-6. 在“设置”页上保留默认值，然后单击“确定”。
+6. 在“设置”页上，对默认设置进行任何所需的更改。
+   
+    - 从 Azure Stack 版本1808 开始，可以配置**存储**，可以在其中选择使用“托管磁盘”。 在版本 1808 之前，只能使用非托管磁盘。    
+      ![为托管磁盘配置存储](media/azure-stack-quick-linux-portal/linux-03.PNG)
+    
+    配置准备就绪后，选择“确定”以继续。
 
-7. 在“摘要”页上，单击“确定”开始部署虚拟机。
+7. 在“摘要”页上，单击“确定”开始部署虚拟机。  
+   ![部署](media/azure-stack-quick-linux-portal/deploy.png)
 
 ## <a name="connect-to-the-virtual-machine"></a>连接到虚拟机
 
-1. 在虚拟机页上，单击“连接”。 此时会显示连接到虚拟机时所需的 SSH 连接字符串。
-
-   ![连接虚拟机](media/azure-stack-quick-linux-portal/linux-03.PNG)
+1. 在虚拟机页上，单击“连接”。 此时会显示连接到虚拟机时所需的 SSH 连接字符串。 
 
 2. 打开 PuTTY。
-3. 在“PuTTY 配置”屏幕上，你将使用“类别”窗口上下滚动。 向下滚动到“SSH”，展开“SSH”，然后单击“身份验证”。单击“浏览”，选择已保存的私钥文件。
 
-   ![选择 PuTTY 私钥](media/azure-stack-quick-linux-portal/Putty03.PNG)
+3. 在“PuTTY 配置”屏幕上，你将使用“类别”窗口上下滚动。 向下滚动到“SSH”，展开“SSH”，然后单击“身份验证”。单击“浏览”，选择已保存的私钥文件。
+   ![连接虚拟机](media/azure-stack-quick-linux-portal/putty03.PNG)
 
 4. 在“类别”窗口中向上滚动，然后单击“会话”。
 5. 在“主机名(或 IP 地址)”框中，粘贴 Azure Stack 门户中显示的连接字符串。 在本示例中，该字符串为 ```asadmin@192.168.102.34```。
@@ -138,7 +147,7 @@ sudo apt-get -y install nginx
 
 打开 Web 浏览器，并浏览到 ```http://<public IP address>```。
 
-![NGINX Web 服务器欢迎页](media/azure-stack-quick-linux-portal/linux-04.PNG)
+![NGINX Web 服务器欢迎页](media/azure-stack-quick-linux-portal/linux-05.PNG)
 
 ## <a name="clean-up-resources"></a>清理资源
 

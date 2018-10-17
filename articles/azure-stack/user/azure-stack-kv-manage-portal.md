@@ -1,10 +1,10 @@
 ---
-title: 使用门户管理 Azure Stack 中的 Key Vault | Azure
+title: 使用门户管理 Azure Stack 中的 Key Vault | Microsoft Docs
 description: 了解如何使用门户管理 Azure Stack 中的 Key Vault
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: D4300668-461F-45F6-BF3B-33B502C39D17
 ms.service: azure-stack
@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/07/2018
-ms.date: 08/27/2018
-ms.author: v-junlch
-ms.openlocfilehash: e4427f62efec159194bc3e5fdfbfee2e7ef52559
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+origin.date: 09/12/2018
+ms.date: 10/15/2018
+ms.author: v-jay
+ms.openlocfilehash: 680c6ee05aaab59ec779b2d58d58ee78e040be5b
+ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869387"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48848908"
 ---
 # <a name="manage-key-vault-in-azure-stack-by-using-the-portal"></a>使用门户管理 Azure Stack 中的 Key Vault
 
@@ -34,7 +34,7 @@ ms.locfileid: "42869387"
 
 1. 登录到[用户门户](https://portal.local.azurestack.external)。
 
-2. 从仪表板中选择“新建” > “安全 + 标识” > “密钥保管库”。
+2. 从仪表板中选择“+ 创建资源” > “安全 + 标识” > “密钥保管库”。
 
     ![“密钥保管库”屏幕](media/azure-stack-kv-manage-portal/image1.png)
 

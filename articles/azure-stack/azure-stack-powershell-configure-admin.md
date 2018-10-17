@@ -1,28 +1,28 @@
 ---
-title: 配置 Azure Stack PowerShell 环境 | Microsoft Docs
-description: 了解如何配置 Azure Stack PowerShell 环境。
+title: 以操作员身份使用 PowerShell 连接到 Azure Stack | Microsoft Docs
+description: 了解如何以操作员身份使用 PowerShell 连接到 Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-origin.date: 06/22/2018
-ms.date: 07/20/2018
-ms.author: v-junlch
+origin.date: 09/17/2018
+ms.date: 10/15/2018
+ms.author: v-jay
 ms.reviewer: thoroet
-ms.openlocfilehash: b6b592f3af296ba97bca0030f23cebd5b6afd104
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.openlocfilehash: 98558270aa2c31df101d8593664cd10035de9129
+ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168262"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48848788"
 ---
-# <a name="configure-the-azure-stack-powershell-environment"></a>配置 Azure Stack PowerShell 环境
+# <a name="connect-to-azure-stack-with-powershell-as-an-operator"></a>以操作员身份使用 PowerShell 连接到 Azure Stack
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
@@ -45,8 +45,7 @@ ms.locfileid: "39168262"
     $ArmEndpoint = "<Admin Resource Manager endpoint for your environment>"
 
     # Register an AzureRM environment that targets your Azure Stack instance
-    Add-AzureRMEnvironment `
-        -Name "AzureStackAdmin" -ArmEndpoint $ArmEndpoint
+    Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint $ArmEndpoint
 
     # After signing in to your environment, Azure Stack cmdlets
     # can be easily targeted at your Azure Stack instance.

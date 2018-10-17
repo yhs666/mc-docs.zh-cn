@@ -1,26 +1,26 @@
 ---
-title: Azure Stack 存储差异和注意事项 | Azure
+title: Azure Stack 存储的差异和注意事项 | Microsoft Docs
 description: 了解 Azure Stack 存储与 Azure 存储之间的差异，以及 Azure Stack 部署注意事项。
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
-manager: femila
+author: WenJason
+manager: digimobile
 ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 08/15/2018
-ms.date: 08/27/2018
-ms.author: v-junlch
+origin.date: 09/05/2018
+ms.date: 10/15/2018
+ms.author: v-jay
 ms.reviwer: xiaofmao
-ms.openlocfilehash: 1db1bfd88e72eef24b807dcb04d6d57290b0cece
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.openlocfilehash: c71e6a24d2f2c25fdc2af192eca1c9d1c8493788
+ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869571"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48848791"
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Azure Stack 存储：差异和注意事项
 
@@ -28,7 +28,7 @@ ms.locfileid: "42869571"
 
 Azure Stack 存储是 Azure Stack 中的一组存储云服务。 Azure Stack 存储使用与 Azure 一致的语义来提供 Blob、表、队列和帐户管理功能。
 
-本文汇总了 Azure Stack 存储与 Azure 存储服务之间的已知差异。 它还列出了部署 Azure Stack 时要考虑的事项。 有关 Azure 公有云与 Azure Stack 之间大致差异的详细信息，请参阅[重要注意事项](azure-stack-considerations.md)主题。
+本文汇总了 Azure Stack 存储与 Azure 存储服务之间的已知差异。 它还列出了部署 Azure Stack 时要考虑的事项。 若要了解全球 Azure 与 Azure Stack 之间的大致差异，请参阅[重要注意事项](azure-stack-considerations.md)一文。
 
 ## <a name="cheat-sheet-storage-differences"></a>速查表：存储差异
 
@@ -39,7 +39,7 @@ Azure Stack 存储是 Azure Stack 中的一组存储云服务。 Azure Stack 存
 |存储帐户类型|常规用途和 Azure Blob 存储帐户|仅限常规用途。
 |复制选项|本地冗余存储、异地冗余存储、读取访问异地冗余存储和区域冗余存储|本地冗余存储。
 |高级存储|完全支持|可预配，但无性能限制或保证。
-|托管磁盘|支持高级和标准版|尚不支持。
+|托管磁盘|支持高级和标准版|使用版本 1808 或更高版本时支持。
 |Blob 名称|1,024 个字符（2,048 字节）|880 个字符（1,760 字节）
 |块 Blob 大小上限|4.75 TB（100 MB X 50,000 块）|4.75 TB（100 MB x 50,000 块），适用于 1802 更新或更高版本。 50,000 X 4 MB（约 195 GB），适用于以前的版本。
 |页 Blob 快照复制|支持备份已附加到运行中 VM 的 Azure 非托管 VM 磁盘|尚不支持。
@@ -92,12 +92,9 @@ Azure Stack 存储支持以下客户端库：
 | C++            | 从 2.4.0 到 3.1.0           | Nuget 包：<br>https://www.nuget.org/packages/wastorage.v140/<br> <br>GitHub 版本：<br>https://github.com/Azure/azure-storage-cpp/releases                                                                                                                                                                                          | 连接字符串设置      |
 | PHP            | 从 0.15.0 到 1.0.0          | GitHub 版本：<br>https://github.com/Azure/azure-storage-php/releases<br> <br>通过编辑器安装（请参阅下面的详细信息）                                                                                                                                                                                                                  | 连接字符串设置      |
 | Python         | 从 0.30.0 到 1.0.0          | GitHub 版本：<br>https://github.com/Azure/azure-storage-python/releases                                                                                                                                                                                                                                                                | 服务实例声明 |
-| Ruby           | 从 0.12.1 到 1.0.1          | RubyGems 包：<br>常见：<br>https://rubygems.org/gems/azure-storage-common/<br>Blob：https://rubygems.org/gems/azure-storage-blob/<br>队列：https://rubygems.org/gems/azure-storage-queue/<br>表：https://rubygems.org/gems/azure-storage-table/<br> <br>GitHub 版本：<br>https://github.com/Azure/azure-storage-ruby/releases | 连接字符串设置      |
+| Ruby           | 从 0.12.1 到 1.0.1          | RubyGems 包：<br>常见：<br>https://rubygems.org/gems/azure-storage-common/<br>Blob： https://rubygems.org/gems/azure-storage-blob/<br>队列： https://rubygems.org/gems/azure-storage-queue/<br>表： https://rubygems.org/gems/azure-storage-table/<br> <br>GitHub 版本：<br>https://github.com/Azure/azure-storage-ruby/releases | 连接字符串设置      |
 
 ## <a name="next-steps"></a>后续步骤
 
 * [Azure Stack 存储开发工具入门](azure-stack-storage-dev.md)
 * [Azure Stack 存储简介](azure-stack-storage-overview.md)
-
-
-<!-- Update_Description: wording update -->

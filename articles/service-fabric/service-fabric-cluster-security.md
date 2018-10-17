@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/14/2018
-ms.date: 09/10/2018
+ms.date: 10/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: 8c59011186be30785af159f41a25ff9892f8da88
-ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
+ms.openlocfilehash: cf83317e916a9223c5af69c9ab3da71e71ceb591
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44515675"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49089089"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Service Fabric 群集安全方案
-Azure Service Fabric 群集是你拥有的资源。 你应保护群集，防止未经授权的用户与其连接。 当在群集上运行生产工作负荷时，安全的群集环境尤为重要。 尽管可以创建不安全的群集，但当该群集向公共 Internet 公开管理终结点时，匿名用户可与它建立连接。 生产工作负荷不支持不安全群集。 
+Azure Service Fabric 群集是你拥有的资源。 保护群集以阻止未经授权的用户连接到它们是你的职责。 当在群集上运行生产工作负荷时，安全的群集环境尤为重要。 尽管可以创建不安全的群集，但当该群集向公共 Internet 公开管理终结点时，匿名用户可与它建立连接。 不支持将不安全群集用于生产工作负荷。 
 
 本文概述了适用于 Azure 群集和独立群集的安全性方案，以及用于实现它们的各种技术：
 
@@ -60,7 +60,7 @@ Azure Service Fabric 群集是你拥有的资源。 你应保护群集，防止�
 ### <a name="client-to-node-certificate-security"></a>客户端到节点的证书安全性
 客户端到节点证书安全性是在通过 Azure 门户、资源管理器模板或独立的 JSON 模板创建群集时设置的。 要创建证书，请指定管理员客户端证书或用户客户端证书。 作为最佳做法，指定的管理员客户端证书和用户客户端证书应该不同于为[节点到节点安全性](#node-to-node-security)指定的主证书和辅助证书。 默认情况下，用于实现节点到节点安全性的群集证书会添加到允许的客户端管理员证书列表中。
 
-客户端如果使用管理员证书连接到群集，则拥有管理功能的完全访问权限。 客户端如果使用只读的用户客户端证书连接到群集，则只拥有管理功能的只读访问权限。 这些证书用于本文稍后介绍的 RBAC。
+客户端如果使用管理员证书连接到群集，则拥有管理功能的完全访问权限。 客户端如果使用只读的用户客户端证书连接到群集，则只拥有管理功能的只读访问权限。 这些证书用于本文中后面介绍的 RBAC。
 
 若要了解如何在群集中为 Azure 设置证书安全性，请参阅[使用 Azure 资源管理器模板设置群集](service-fabric-cluster-creation-via-arm.md)。
 
@@ -93,6 +93,7 @@ X.509 数字证书通常用于验证客户端与服务器。 它们还用于对�
 * 要为运行生产工作负荷的群集创建证书，请使用正确配置的 Windows Server 证书服务，或从已批准的[证书颁发机构 (CA)](https://en.wikipedia.org/wiki/Certificate_authority) 获取。
 * 请勿在生产环境中使用任何由 MakeCert.exe 等工具创建的临时或测试证书。
 * 可使用自签名证书，但仅限在测试群集中使用。 请勿在生产中使用自签名证书。
+* 生成证书指纹时，请确保生成 SHA1 指纹。 SHA1 是配置客户端和群集证书指纹时使用的。
 
 ### <a name="cluster-and-server-certificate-required"></a>群集和服务器证书（必需）
 必须使用这些证书（一个主要证书，以及一个可选的辅助证书）来保护群集，并防止未经授权的访问。 这些证书提供了群集和服务器身份验证。

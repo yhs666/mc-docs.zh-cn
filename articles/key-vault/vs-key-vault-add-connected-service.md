@@ -1,22 +1,23 @@
 ---
-title: 使用 Visual Studio 将 Key Vault 支持添加到 ASP.NET 项目 | Microsoft Docs
+title: 使用 Visual Studio 将 Key Vault 支持添加到 ASP.NET 项目
 description: 本教程介绍如何将 Key Vault 支持添加到 ASP.NET 或 ASP.NET Core Web 应用程序。
 services: key-vault
 author: ghogen
 manager: douge
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.workload: azure
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.topic: conceptual
 origin.date: 04/15/2018
-ms.date: 09/17/2018
+ms.date: 10/22/2018
 ms.author: v-biyu
-ms.openlocfilehash: e3d5ee6120dbfd99c11c785a37d149a481f3ec31
-ms.sourcegitcommit: d649060b55bac3ad9f4fc2bd2962748a4b5bf715
+ms.openlocfilehash: 1b6a0a1a53be4c07e8e2db87a23282d0e037471c
+ms.sourcegitcommit: 2fdf25eb4b978855ff2832bcdcca093c141be261
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44066154"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49120617"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>使用 Visual Studio 连接服务将 Key Vault 添加到 Web 应用程序
 
@@ -73,6 +74,7 @@ ms.locfileid: "44066154"
 现在，可以在代码中访问机密。 后续步骤根据使用的是 ASP.NET 4.7.1 还是 ASP.NET Core 而有所不同。
 
 ## <a name="access-your-secrets-in-code-aspnet-core-projects"></a>在代码中访问机密（ASP.NET Core 项目）
+若要访问机密：
 
 1. 在 Visual Studio 中的 ASP.NET Core 项目内，现在可以通过在代码中使用以下表达式来引用这些机密：
  
@@ -99,6 +101,10 @@ ms.locfileid: "44066154"
 1. 生成并运行 Web 应用程序，导航到 About 页面，并查看“secret”值。
 
 ## <a name="access-your-secrets-in-code-aspnet-471-projects"></a>在代码中访问机密（ASP.NET 4.7.1 项目）
+
+当运行“添加连接的服务”进程时，与密钥保管库的连接由 ConfigurationBuilder 类使用添加到 web.config 文件的信息设置。
+
+若要访问机密：
 
 1. 按如下所示修改 web.config。 这些键是占位符，AzureKeyVault ConfigurationBuilder 会将其替换为 Key Vault 中的机密值。
 
@@ -142,5 +148,3 @@ ms.locfileid: "44066154"
 ## <a name="next-steps"></a>后续步骤
 
 在 [Key Vault 开发人员指南](key-vault-developers-guide.md)中了解如何使用 Key Vault 进行开发
-
-<!-- Update_Description: link update -->

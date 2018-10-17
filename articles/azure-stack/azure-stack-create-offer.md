@@ -1,32 +1,32 @@
 ---
-title: 在 Azure Stack 中创建套餐 | Azure
+title: 在 Azure Stack 中创建套餐 | Microsoft Docs
 description: 作为云管理员，了解如何在 Azure Stack 中为用户创建套餐。
 services: azure-stack
 documentationcenter: ''
-author: brenduns
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
-ms.assetid: 96b080a4-a9a5-407c-ba54-111de2413d59
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 08/20/2018
-ms.date: 08/27/2018
-ms.author: v-junlch
-ms.openlocfilehash: ffad60c591ced1fee44af4e6e5ab3204b7c4a8aa
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+origin.date: 09/12/2018
+ms.date: 10/15/2018
+ms.author: v-jay
+ms.reviewer: efemmano
+ms.openlocfilehash: 1e3540c828c1d29e3026ba3460db492843bba4eb
+ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869557"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48848894"
 ---
 # <a name="create-an-offer-in-azure-stack"></a>在 Azure Stack 中创建套餐
 
 [套餐](azure-stack-key-features.md)是提供者提供给用户购买或订阅的一个或多个计划的组合。 本文档介绍如何创建包含[创建的计划](azure-stack-create-plan.md)的套餐。 订阅方可以使用此套餐设置虚拟机。
 
-1. 登录到 Azure Stack 管理员门户 (https://adminportal.local.azurestack.external)，选择“新建” > “租户套餐 + 计划” > “套餐”。
+1. 登录到 Azure Stack 管理员门户 (https://adminportal.local.azurestack.external)，选择“+ 创建资源” > “租户套餐 + 计划” > “套餐”。
 
    ![创建产品](media/azure-stack-create-offer/image01.png)
   

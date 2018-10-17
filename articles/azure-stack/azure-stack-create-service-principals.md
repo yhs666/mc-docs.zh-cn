@@ -3,52 +3,52 @@ title: 创建 Azure Stack 的服务主体 | Microsoft Docs
 description: 介绍如何创建新的服务主体，并在 Azure 资源管理器中将此服务主体与基于角色的访问控制配合使用以管理对资源的访问权限。
 services: azure-resource-manager
 documentationcenter: na
-author: mattbriggs
-manager: femila
+author: WenJason
+manager: digimobile
 ms.assetid: 7068617b-ac5e-47b3-a1de-a18c918297b6
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 06/21/2018
-ms.date: 07/20/2018
-ms.author: v-junlch
-ms.openlocfilehash: fe124eb0c77216b82844b216c7f639433c1c6b9f
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+origin.date: 09/06/2018
+ms.date: 10/15/2018
+ms.author: v-jay
+ms.openlocfilehash: 91c7b12a7e92d3d89a4198c40a85fe703707d85d
+ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168305"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48848927"
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>提供对 Azure Stack 的应用程序访问权限
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-当应用程序需要在 Azure Stack 通过Azure 资源管理器部署或配置资源的访问权限时，请创建服务主体（它是应用程序的凭据）。  然后可以仅将必需的权限委派给该服务主体。  
+当应用程序需要在 Azure Stack 通过Azure 资源管理器部署或配置资源的访问权限时，请创建服务主体（它是应用程序的凭据）。 然后可以仅将必需的权限委派给该服务主体。  
 
-例如，你可能有一个使用 Azure 资源管理器来清点 Azure 资源的配置管理工具。  在此方案中，可以创建服务主体，向该服务主体授予读者角色，并将配置管理工具限制为只能进行只读访问。 
+例如，你可能有一个使用 Azure 资源管理器来清点 Azure 资源的配置管理工具。 在此方案中，可以创建服务主体，向该服务主体授予读者角色，并将配置管理工具限制为只能进行只读访问。 
 
 与使用自己的凭据运行应用相比，服务主体更优，原因在于：
 
-- 可以向服务主体分配不同于自己的帐户权限的权限。 通常情况下，这些权限仅限于应用需执行的操作。
-- 职责变化时，无需更改应用的凭据。
-- 执行无人参与的脚本时，可以使用证书自动执行身份验证。  
+* 可以向服务主体分配不同于自己的帐户权限的权限。 通常情况下，这些权限仅限于应用需执行的操作。
+* 职责变化时，无需更改应用的凭据。
+* 执行无人参与的脚本时，可以使用证书自动执行身份验证。  
 
 ## <a name="getting-started"></a>入门
 
-根据部署 Azure Stack 的方式，可以首先创建服务主体。  本文档介绍如何为 [Azure Active Directory (Azure AD)](azure-stack-create-service-principals.md#create-service-principal-for-azure-ad) 和 [Active Directory 联合身份验证服务 (AD FS)](azure-stack-create-service-principals.md#create-service-principal-for-ad-fs) 创建服务主体。  创建服务主体后，将使用普遍适用于 AD FS 和 Azure Active Directory 的一组步骤向角色[委派权限](azure-stack-create-service-principals.md#assign-role-to-service-principal)。     
+根据部署 Azure Stack 的方式，可以首先创建服务主体。 本文档介绍如何为 [Azure Active Directory (Azure AD)](#create-service-principal-for-azure-ad) 和 [Active Directory 联合身份验证服务 (AD FS)](#create-service-principal-for-ad-fs) 创建服务主体。 创建服务主体后，将使用普遍适用于 AD FS 和 Azure Active Directory 的一组步骤向角色[委派权限](#assign-role-to-service-principal)。     
 
 ## <a name="create-service-principal-for-azure-ad"></a>为 Azure AD 创建服务主体
 
-如果已使用 Azure AD 部署 Azure Stack 作为标识存储，则可以创建服务主体，就像对 Azure 所做的那样。  本部分演示如何通过门户执行这些步骤。  在开始之前，请检查是否具有[所需的 Azure AD 权限](../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions)。
+如果已使用 Azure AD 部署 Azure Stack 作为标识存储，则可以创建服务主体，就像对 Azure 所做的那样。 本部分演示如何通过门户执行这些步骤。 在开始之前，请检查是否具有[所需的 Azure AD 权限](../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions)。
 
 ### <a name="create-service-principal"></a>创建服务主体
 在本部分中，将在 Azure AD 中创建表示你的应用程序的应用程序（服务主体）。
 
 1. 通过 [Azure 门户](https://portal.azure.cn)登录到 Azure 帐户。
-2. 选择“Azure Active Directory” > “应用注册” > “添加”   
-3. 为应用提供名称和 URL。 选择“Web 应用/API”或“本机”作为要创建的应用程序的类型。 。
+2. 选择“Azure Active Directory” > “应用注册” > “新建应用程序注册”   
+3. 为应用提供名称和 URL。 选择“Web 应用/API”或“本机”作为要创建的应用程序的类型。 设置这些值后，选择“创建”。
 
 已为应用程序创建服务主体。
 
@@ -64,23 +64,21 @@ ms.locfileid: "39168305"
 
 4. 提供密钥说明和密钥持续时间。 完成后，选择“保存” 。
 
-保存密钥后，密钥的值显示。 复制此值，因为稍后不能检索密钥。 提供密钥值及应用程序 ID 登录为该应用程序。 将密钥值存储在应用程序可检索的位置。
+保存密钥后，密钥的值显示。 将此值复制到记事本或其他某个临时位置，因为以后无法检索该密钥。 提供密钥值及应用程序 ID 登录为该应用程序。 将密钥值存储在应用程序可检索的位置。
 
 ![保存的密钥](./media/azure-stack-create-service-principal/image15.png)
 
-
-完成后，继续执行[为应用程序分配角色](azure-stack-create-service-principals.md#assign-role-to-service-principal)。
+完成后，继续执行[为应用程序分配角色](#assign-role-to-service-principal)。
 
 ## <a name="create-service-principal-for-ad-fs"></a>为 AD FS 创建服务主体
 如果已使用 AD FS 部署 Azure Stack，则可以使用 PowerShell 创建服务主体、为角色分配访问权限以及使用该标识从 PowerShell 登录。
 
 从 ERCS 虚拟机上的特权终结点运行脚本。
 
-
 要求：
 - 需要证书。
 
-**Parameters**
+#### <a name="parameters"></a>parameters
 
 以下信息是作为自动化参数的输入所必需的：
 
@@ -91,34 +89,34 @@ ms.locfileid: "39168305"
 |ClientCertificates|证书对象的数组|X509 证书|
 |ClientRedirectUris<br>(可选)|应用程序重定向 URI|         |
 
-**示例**
+#### <a name="example"></a>示例
 
 1. 打开权限提升的 Windows PowerShell 会话，并运行以下命令：
 
    > [!NOTE]
-   > 此示例创建一个自签名证书。 在生产部署中运行这些命令时，使用 Get-Certificate 检索要使用的证书的证书对象。
+   > 此示例创建一个自签名证书。 在生产部署中运行这些命令时，使用 [Get-Certificate](https://docs.microsoft.com/powershell/module/pkiclient/get-certificate) 检索要使用的证书的证书对象。
 
    ```PowerShell  
-    # Credential for accessing the ERCS PrivilegedEndpoint typically domain\cloudadmin
+    # Credential for accessing the ERCS PrivilegedEndpoint, typically domain\cloudadmin
     $creds = Get-Credential
 
     # Creating a PSSession to the ERCS PrivilegedEndpoint
     $session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $creds
 
-    # This produces a self signed cert for testing purposes.  It is prefered to use a managed certificate for this.
+    # This produces a self signed cert for testing purposes. It is prefered to use a managed certificate for this.
     $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<yourappname>" -KeySpec KeyExchange
 
     $ServicePrincipal = Invoke-Command -Session $session -ScriptBlock { New-GraphApplication -Name '<yourappname>' -ClientCertificates $using:cert}
     $AzureStackInfo = Invoke-Command -Session $session -ScriptBlock { get-azurestackstampinformation }
     $session|remove-pssession
 
-    # For Azure Stack development kit, this value is set to https://management.local.azurestack.external. We will read this from the AzureStackStampInformation output of the ERCS VM.
+    # For Azure Stack development kit, this value is set to https://management.local.azurestack.external. This is read from the AzureStackStampInformation output of the ERCS VM.
     $ArmEndpoint = $AzureStackInfo.TenantExternalEndpoints.TenantResourceManager
 
-    # For Azure Stack development kit, this value is set to https://graph.local.azurestack.external/. We will read this from the AzureStackStampInformation output of the ERCS VM.
+    # For Azure Stack development kit, this value is set to https://graph.local.azurestack.external/. This is read from the AzureStackStampInformation output of the ERCS VM.
     $GraphAudience = "https://graph." + $AzureStackInfo.ExternalDomainFQDN + "/"
 
-    # TenantID for the stamp. We will read this from the AzureStackStampInformation output of the ERCS VM.
+    # TenantID for the stamp. This is read from the AzureStackStampInformation output of the ERCS VM.
     $TenantID = $AzureStackInfo.AADTenantID
 
     # Register an AzureRM environment that targets your Azure Stack instance
@@ -137,13 +135,17 @@ ms.locfileid: "39168305"
     -CertificateThumbprint $ServicePrincipal.Thumbprint `
     -ApplicationId $ServicePrincipal.ClientId `
     -TenantId $TenantID
+
+    # Output the SPN details
+    $ServicePrincipal
+
    ```
 
 2. 自动化完成后，它将显示使用该 SPN 所需的详细信息。 
 
    例如：
 
-   ```
+   ```shell
    ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356
    ClientId              : 3c87e710-9f91-420b-b009-31fa9e430145
    Thumbprint            : 30202C11BE6864437B64CE36C8D988442082A0F1
@@ -153,7 +155,7 @@ ms.locfileid: "39168305"
    ```
 
 ### <a name="assign-a-role"></a>分配角色
-创建服务主体后，必须[将它分配到角色](azure-stack-create-service-principals.md#assign-role-to-service-principal)
+创建服务主体后，必须[将它分配到角色](#assign-role-to-service-principal)。
 
 ### <a name="sign-in-through-powershell"></a>通过 PowerShell 登录
 分配角色后，可以在以下命令中使用服务主体登录到 Azure Stack：

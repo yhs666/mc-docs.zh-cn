@@ -13,12 +13,12 @@ ms.workload: na
 origin.date: 09/12/2018
 ms.date: 09/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: 00e5dc5e7ea363ec81f67fc413c624a88ae17da0
-ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
+ms.openlocfilehash: b06bcfae6f50c465711d63dab96324383fd599c4
+ms.sourcegitcommit: 21b81b5cd326b6900fa7274b3b073aecd01111aa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46527107"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49121668"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>在部署过程中使用 Azure Key Vault 传递安全参数值
 
@@ -144,6 +144,9 @@ Set-AzureKeyVaultSecret -VaultName $vaultname -Name "examplesecret" -SecretValue
 
 现在，部署模板并传入参数文件。 可以使用 GitHub 中的示例模板，但必须使用本地参数文件并将值设置为自己的环境。
 
+> [!NOTE]
+> 必须修改从 GitHub 存储库 [sqlserver.json](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/keyvaultparameter/sqlserver.json) 下载的模板，以适应 Azure 中国云环境。 例如，替换某些终结点（将“blob.core.windows.net”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“cloudapp.chinacloudapi.cn”）；更改某些不受支持的 VM 映像、VM 大小、SKU 和资源提供程序的 API 版本。
+
 对于 Azure CLI，请使用：
 
 ```azurecli
@@ -151,7 +154,7 @@ az group create --name datagroup --location "China North"
 az group deployment create \
     --name exampledeployment \
     --resource-group datagroup \
-    --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/keyvaultparameter/sqlserver.json \
+    --template-file /path/to/sqlserver.json \
     --parameters @sqlserver.parameters.json
 ```
 
@@ -162,7 +165,7 @@ New-AzureRmResourceGroup -Name datagroup -Location "China North"
 New-AzureRmResourceGroupDeployment `
   -Name exampledeployment `
   -ResourceGroupName datagroup `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/keyvaultparameter/sqlserver.json `
+  -TemplateFile /path/to/sqlserver.json `
   -TemplateParameterFile sqlserver.parameters.json
 ```
 
@@ -271,6 +274,9 @@ New-AzureRmResourceGroupDeployment `
 
 部署前面的模板，并为参数提供值。 可以使用 GitHub 中的示例模板，但必须提供环境的参数值。
 
+> [!NOTE]
+> 必须修改从 GitHub 存储库 [azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-key-vault-use-dynamic-id/azuredeploy.json) 下载的模板，以适应 Azure 中国云环境。 例如，替换某些终结点（将“blob.core.windows.net”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“cloudapp.chinacloudapi.cn”）；更改某些不受支持的 VM 映像、VM 大小、SKU 和资源提供程序的 API 版本。
+
 对于 Azure CLI，请使用：
 
 ```azurecli
@@ -278,7 +284,7 @@ az group create --name datagroup --location "China North"
 az group deployment create \
     --name exampledeployment \
     --resource-group datagroup \
-    --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-key-vault-use-dynamic-id/azuredeploy.json \
+    --template-file /path/to/azuredeploy.json \
     --parameters vaultName=<your-vault> vaultResourceGroupName=examplegroup secretName=examplesecret
 ```
 
@@ -289,7 +295,7 @@ New-AzureRmResourceGroup -Name datagroup -Location "China North"
 New-AzureRmResourceGroupDeployment `
   -Name exampledeployment `
   -ResourceGroupName datagroup `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-key-vault-use-dynamic-id/azuredeploy.json `
+  -TemplateFile /path/to/azuredeploy.json `
   -vaultName <your-vault> -vaultResourceGroupName examplegroup -secretName examplesecret
 ```
 

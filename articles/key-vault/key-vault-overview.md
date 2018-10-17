@@ -1,5 +1,5 @@
 ---
-title: Azure Key Vault 概述 | Microsoft Docs
+title: Azure Key Vault 概述
 description: Azure Key Vault 是一项云服务，用作安全的机密存储。
 services: key-vault
 author: barclayn
@@ -13,24 +13,22 @@ ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
 origin.date: 05/08/2018
-ms.date: 09/17/2018
+ms.date: 10/22/2018
 ms.author: v-biyu
-ms.openlocfilehash: 168c095f03ac74f3c59f66ba4fc3f17d5d646ac4
-ms.sourcegitcommit: d649060b55bac3ad9f4fc2bd2962748a4b5bf715
+ms.openlocfilehash: 0a5cfba73f905b8892f678929b22c43b003ad13a
+ms.sourcegitcommit: 2fdf25eb4b978855ff2832bcdcca093c141be261
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44066151"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49120616"
 ---
 # <a name="what-is-azure-key-vault"></a>什么是 Azure 密钥保管库？
 
-Azure Key Vault 是一项云服务，用作安全的机密存储。
+Azure Key Vault 有助于解决以下问题
+- Azure Key Vault 可以用来安全地存储令牌、密码、证书、API 密钥和其他机密，并对其访问进行严格控制。
+- Azure Key Vault 也可用作密钥管理解决方案。 可以通过 Azure Key Vault 轻松创建和控制用于加密数据的加密密钥。 
+- Azure Key Vault 也是一项服务，可以用来轻松地预配、管理和部署公用和专用安全套接字层/传输层安全性 (SSL/TLS) 证书，这些证书可以与 Azure 以及你的内部连接资源配合使用。 
 
-密码、连接字符串和其他信息是保持应用程序正常运行所必需的。 在确保这些信息可用的同时，还需确保其安全。 因此，需要使用 Azure Key Vault。 Azure Key Vault 可以用来安全地存储和管理应用程序机密。
-
-Key Vault 可以集中存储应用程序机密，降低安全信息意外丢失的可能性。 Key Vault 还控制并记录外界对其所存储内容的访问。 Azure Key Vault 负责处理传输层安全性 (TLS) 证书的请求和续订事宜，其提供的功能是可靠的证书生命周期管理解决方案所必需的。
-
- Azure Key Vault 旨在支持应用程序密钥和机密。 Key Vault 不适合用作用户密码的存储。
 
 ## <a name="why-use-azure-key-vault"></a>为何使用 Azure Key Vault？
 
@@ -42,11 +40,12 @@ Key Vault 可以集中存储应用程序机密，降低安全信息意外丢失�
 
 ### <a name="securely-store-secrets-and-keys"></a>安全地存储机密和密钥
 
-密钥由 Azure 通过行业标准算法和密钥长度进行保护。
+机密和密钥由 Azure 使用行业标准算法和密钥长度进行保护。
 
 访问密钥保管库需要适当的身份验证和授权，否则调用方（用户或应用程序）无法进行访问。 身份验证用于确定调用方的身份，而授权则决定了调用方能够执行的操作。
 
 身份验证通过 Azure Active Directory 来完成。 授权可以通过基于角色的访问控制 (RBAC) 或 Key Vault 访问策略来完成。 进行保管库的管理时，使用 RBAC；尝试访问存储在保管库中的数据时，使用密钥保管库访问策略。
+
 
 最后需要指出的是，根据 Azure Key Vault 的设计，Microsoft 无法查看或提取数据。
 
@@ -79,4 +78,3 @@ Key Vault 是 Azure 中的安全存储，一直用于简化多种方案，例如
 
 - [快速入门：使用 CLI 创建 Azure Key Vault](quick-create-cli.md)
 - [配置 Azure Web 应用程序以从 Key Vault 读取机密](tutorial-web-application-keyvault.md)
-

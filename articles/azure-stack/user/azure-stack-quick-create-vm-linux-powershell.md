@@ -3,25 +3,24 @@ title: 在 Azure Stack 中使用 PowerShell 创建 Linux 虚拟机 | Microsoft D
 description: 在 Azure Stack 中使用 PowerShell 创建 Linux 虚拟机。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
-ms.assetid: 03EE5929-4F05-47D7-B246-EA93D6FC47CD
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-origin.date: 04/24/2018
-ms.date: 07/20/2018
-ms.author: v-junlch
+origin.date: 09/07/2018
+ms.date: 10/15/2018
+ms.author: v-jay
 ms.custom: mvc
-ms.openlocfilehash: f812dce0d52f5ef5a81eb5d24ab318974f870c13
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.openlocfilehash: feed19ba1a52855cff10f9c2a69a949a93a454ce
+ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168290"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48848747"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-by-using-powershell-in-azure-stack"></a>快速入门：在 Azure Stack 中使用 PowerShell 创建 Linux 服务器虚拟机
 
@@ -29,20 +28,21 @@ ms.locfileid: "39168290"
 
 可以使用 Azure Stack PowerShell 创建 Ubuntu Server 16.04 LTS 虚拟机。 请按照本文中的步骤创建和使用虚拟机。  本文还提供了执行以下操作的步骤：
 
-- 通过远程客户端连接到虚拟机。
-- 安装 NGINX Web 服务器并查看默认主页。
-- 清理未使用的资源。
+* 通过远程客户端连接到虚拟机。
+* 安装 NGINX Web 服务器并查看默认主页。
+* 清理未使用的资源。
 
 ## <a name="prerequisites"></a>先决条件
 
-- 
-  **Azure Stack 市场中的 Linux 映像**
+* **Azure Stack 市场中的 Linux 映像**
 
    默认情况下，Azure Stack 市场不包含 Linux 映像。 让 Azure Stack 操作员提供你需要的 **Ubuntu Server 16.04 LTS** 映像。 操作员可以使用[将市场项从 Azure 下载到 Azure Stack](../azure-stack-download-azure-marketplace-item.md) 一文中介绍的步骤。
 
-- Azure Stack 需要使用特定版本的 Azure PowerShell 来创建和管理资源。 如果尚未针对 Azure Stack 配置 PowerShell，请登录到[开发工具包](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop)，或登录到基于 Windows 的外部客户端（如果[通过 VPN 建立了连接](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn)），遵循相应的步骤[安装](azure-stack-powershell-install.md)并[配置](azure-stack-powershell-configure-user.md) PowerShell。
+* Azure Stack 需要使用特定版本的 Azure PowerShell 来创建和管理资源。 如果未针对 Azure Stack 配置 PowerShell，请遵循[安装](azure-stack-powershell-install.md) PowerShell 的步骤。
 
-- Windows 用户配置文件的 .ssh 目录中保存的名为 id_rsa.pub 的 SSH 公钥。 有关创建 SSH 密钥的详细信息，请参阅[在 Windows 上创建 SSH 密钥](../../virtual-machines/linux/ssh-from-windows.md)。
+* 设置 Azure Stack PowerShell 后，将需要连接到 Azure Stack 环境。 有关说明，请参阅[以用户身份使用 PowerShell 连接到 Azure Stack](azure-stack-powershell-configure-user.md)。
+
+* Windows 用户配置文件的 .ssh 目录中保存的名为 id_rsa.pub 的 SSH 公钥。 有关创建 SSH 密钥的详细信息，请参阅[在 Windows 上创建 SSH 密钥](../../virtual-machines/linux/ssh-from-windows.md)。
 
 ## <a name="create-a-resource-group"></a>创建资源组
 

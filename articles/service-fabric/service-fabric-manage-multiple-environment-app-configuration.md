@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 02/23/2018
-ms.date: 05/28/2018
+ms.date: 10/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: b49d5a508b3a4d946737303ff2b1cf9f3c755e7a
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: f4b0814ca564f4c8711b911f7ab3375f33d3150b
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554263"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49088963"
 ---
 # <a name="manage-applications-for-multiple-environments"></a>管理多个环境的应用程序
 
@@ -43,7 +43,7 @@ ms.locfileid: "34554263"
 
 > [!NOTE]
 > 并非应用程序和服务清单文件中的所有属性都支持参数。
-> 在这些情况下，用户必须依赖于将字符串替换为部署工作流的一部分。 在 Visual Studio Team Services 中，可以使用类似于替换令牌：https://marketplace.visualstudio.com/items?itemName=qetza.replacetokens 的扩展，或者在 Jenkins 中通过运行脚本任务来替换值。
+> 在这些情况下，用户必须依赖于将字符串替换为部署工作流的一部分。 在 Azure DevOps 中，可以使用类似于替换令牌： https://marketplace.visualstudio.com/items?itemName=qetza.replacetokens 的扩展，或者在 Jenkins 中通过运行脚本任务来替换值。
 >
 
 ## <a name="specifying-parameters-during-application-creation"></a>在应用程序创建期间指定参数
@@ -52,7 +52,7 @@ ms.locfileid: "34554263"
 
   - 在 PowerShell 中，[`New-ServiceFabricApplication`](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) cmdlet 将应用程序参数作为哈希表。
   - 借助 sfctl，[`sfctl application create`](/service-fabric/service-fabric-sfctl-application#sfctl-application-create) 命令将参数作为 JSON 字符串。 Install.sh 脚本使用 sfctl。
-  - Visual Studio 在应用程序项目的参数文件夹中提供一组参数文件。 从 Visual Studio 发布、使用 Visual Studio Team Service 或 Team Foundation Server 时会用到这些参数文件。 在 Visual Studio 中，参数文件会传递给 Deploy-FabricApplication.ps1 脚本。
+  - Visual Studio 在应用程序项目的参数文件夹中提供一组参数文件。 使用 Azure DevOps Services 或 Team Foundation Server 从 Visual Studio 发布时会用到这些参数文件。 在 Visual Studio 中，参数文件会传递给 Deploy-FabricApplication.ps1 脚本。
 
 ## <a name="next-steps"></a>后续步骤
 以下文章演示如何使用此处所述的某些概念：
@@ -62,4 +62,5 @@ ms.locfileid: "34554263"
 - [如何参数化配置文件](service-fabric-how-to-parameterize-configuration-files.md)
 
 - [环境变量引用](service-fabric-environment-variables-reference.md)
-<!--Update_Description: update meta properties  -->
+
+<!--Update_Description: update meta properties, wording update  -->

@@ -1,6 +1,6 @@
 ---
-title: 指定 Azure 微服务中的指标和放置设置 | Azure
-description: 通过指定指标、放置约束和其他放置策略描述 Service Fabric 服务。
+title: 指定 Azure Service Fabric 中的指标和放置设置 | Azure
+description: 了解如何通过指定指标、放置约束和其他放置策略描述 Service Fabric 服务。
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/18/2017
-ms.date: 05/28/2018
+ms.date: 10/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: 1ae516e8578fd6eb6d06850f7a0899030ae8c64c
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: f3ef9cac76436f896c03061a422f96163c4405f6
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554245"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49089195"
 ---
 # <a name="configuring-cluster-resource-manager-settings-for-service-fabric-services"></a>配置 Service Fabric 服务的群集资源管理器设置
 Service Fabric 群集资源管理器允许精细地控制用于管控每个独立命名服务的规则。 每个命名服务均可为它在群集中的分配方式指定规则。 每个命名的服务还可以定义需要报告的一组指标，包括其对该服务的重要性。 配置服务的过程划分为三个不同的任务：
@@ -50,4 +50,4 @@ Service Fabric 群集资源管理器允许精细地控制用于管控每个独�
 - 若要了解群集 Resource Manager 如何管理和均衡群集中的负载，请查看有关[均衡负载](service-fabric-cluster-resource-manager-balancing.md)的文章
 - 群集 Resource Manager 提供许多用于描述群集的选项。 若要详细了解这些选项，请查看这篇[描述 Service Fabric 群集](service-fabric-cluster-resource-manager-cluster-description.md)的文章
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, wording update -->

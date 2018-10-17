@@ -1,5 +1,5 @@
 ---
-title: 为 Azure 微服务创建混沌和故障转移测试 | Azure
+title: 为 Azure Service Fabric 创建混沌测试和故障转移测试 | Azure
 description: 使用 Service Fabric 混沌测试和故障转移测试方案来引入故障，并验证服务的可靠性。
 services: service-fabric
 documentationcenter: .net
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 06/07/2017
-ms.date: 05/28/2018
+ms.date: 10/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: 3429799b5934dc346002c9146d850aef7500f452
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: e059967b290667ab81c67991bd7cfb82c7533f44
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554299"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49089065"
 ---
 # <a name="testability-scenarios"></a>可测试性方案
 大型分布式系统，例如云基础结构，在本质上都是不可靠的。 Azure Service Fabric 使开发人员能够编写出可以在不可靠基础结构上运行的服务。 若要编写高质量的服务，开发人员需要能够引入这种不可靠的基础结构来测试其服务的稳定性。
@@ -56,7 +56,6 @@ ms.locfileid: "34554299"
 * **EnableMoveReplicaFaults**：启用或禁用导致主副本或辅助副本移动的故障。 默认情况下，这些故障处于禁用状态。
 * **WaitTimeBetweenIterations**：循环之间（即在一轮故障和对应的验证之后）等待的时间量。
 
-<!-- Update_Description: update meta properties -->
 ### <a name="how-to-run-the-chaos-test"></a>如何运行混沌测试
 C# 示例
 
@@ -148,27 +147,25 @@ Invoke-ServiceFabricChaosTestScenario -TimeToRunMinute $timeToRun -MaxClusterSta
 ```
 
 ## <a name="failover-test"></a>故障转移测试
-
 故障转移测试方案是混沌测试方案针对特定服务分区的一个版本。 它在特定服务分区上测试故障转移的效果，同时不影响其他服务。 一旦配置好目标分区信息和其他参数，它就可以作为一个客户端工具运行，使用 C# API 或 PowerShell 生成针对一个服务分区的故障。 该方案遍历一系列的模块故障和服务验证，同时业务逻辑在一边继续运行以提供工作负荷。 服务验证失败指出存在需要进一步调查的问题。
 
 ### <a name="faults-simulated-in-the-failover-test"></a>在故障转移测试中模拟的故障
-- 重新启动分区所在的已部署代码包
-- 删除主/辅助副本或无状态实例
-- 重启主要/次要副本（如果是持久化服务）
-- 移动主副本
-- 移动辅助副本
-- 重新启动分区
+* 重新启动分区所在的已部署代码包
+* 删除主/辅助副本或无状态实例
+* 重启主要/次要副本（如果是持久化服务）
+* 移动主副本
+* 移动辅助副本
+* 重新启动分区
 
 故障转移测试工作引入所选的故障，并在服务上运行验证以确保其稳定性。 与混沌测试中可能出现多个故障相比，故障转移测试一次仅引入一个故障。 如果每次故障之后，服务分区在配置的等待时间内没有达到稳定，则测试失败。 测试只引入安全的故障。 这意味着在没有外部故障的情况下，不会出现仲裁丢失或数据丢失。
 
 ### <a name="important-configuration-options"></a>重要的配置选项
- - **PartitionSelector**：选择器对象，指定需要作为目标的分区。
- - **TimeToRun**：测试在完成之前将要运行的总时间。
- - **MaxServiceStabilizationTimeout**：在测试失败之前，等待群集变得正常的最长时间。 执行的检查包括服务运行状况是否正常、对于所有分区而言目标副本集是否达到设定的大小以及是否不存在 InBuild 副本。
- - **WaitTimeBetweenFaults**：每次故障和验证循环之间等待的时间量。
+* **PartitionSelector**：选择器对象，指定需要作为目标的分区。
+* **TimeToRun**：测试在完成之前将要运行的总时间。
+* **MaxServiceStabilizationTimeout**：在测试失败之前，等待群集变得正常的最长时间。 执行的检查包括服务运行状况是否正常、对于所有分区而言目标副本集是否达到设定的大小以及是否不存在 InBuild 副本。
+* **WaitTimeBetweenFaults**：每次故障和验证循环之间等待的时间量。
 
 ### <a name="how-to-run-the-failover-test"></a>如何运行故障转移测试
-
 **C#**
 
 ```csharp
@@ -256,3 +253,5 @@ Connect-ServiceFabricCluster $connection
 
 Invoke-ServiceFabricFailoverTestScenario -TimeToRunMinute $timeToRun -MaxServiceStabilizationTimeoutSec $maxStabilizationTimeSecs -WaitTimeBetweenFaultsSec $waitTimeBetweenFaultsSec -ServiceName $serviceName -PartitionKindSingleton
 ```
+
+<!--Update_Description: update meta properties, wording update-->

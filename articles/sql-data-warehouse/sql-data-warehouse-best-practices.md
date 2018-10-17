@@ -1,21 +1,22 @@
 ---
-title: Azure SQL 数据仓库最佳实践 | Azure
-description: 开发 Azure SQL 数据仓库解决方案时应了解的建议和最佳实践。 这些内容可帮助你取得成功。
+title: Azure SQL 数据仓库最佳实践 | Microsoft Docs
+description: 开发 Azure SQL 数据仓库解决方案时应了解的建议和最佳实践。
 services: sql-data-warehouse
-author: rockboyfor
+author: WenJason
 manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
-origin.date: 02/20/2018
-ms.date: 03/12/2018
-ms.author: v-yeche
-ms.openlocfilehash: 917ce484820224125805be1c78e81d4969dfc17e
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+origin.date: 04/18/2018
+ms.date: 10/15/2018
+ms.author: v-jay
+ms.reviewer: igorstan
+ms.openlocfilehash: d0d2d83fd1846ff167e67eefd09ce614d738014f
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121726"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49089052"
 ---
 # <a name="best-practices-for-azure-sql-data-warehouse"></a>Azure SQL 数据仓库最佳实践
 本文包含一系列最佳实践，可帮助你从 Azure SQL 数据仓库获得最佳性能。  本文的有些概念很基本且很容易解释，而有些概念则相对高级，本文只对其进行大致介绍。  本文的目的是提供一些基本指导，让用户在生成数据仓库时更加关注那些重要的方面。  每部分都介绍一个概念，并提供哪里可以阅读深度介绍的详细文章。
@@ -39,10 +40,8 @@ ms.locfileid: "32121726"
 另请参阅 [INSERT][INSERT]
 
 ## <a name="use-polybase-to-load-and-export-data-quickly"></a>使用 PolyBase 快速加载和导出数据
-SQL 数据仓库支持通过多种工具（包括 PolyBase 和 BCP）来加载和导出数据。  对于少量的数据，性能不是那么重要，任何工具都可以满足需求。  但是，当要加载或导出大量数据，或者需要快速的性能时，PolyBase 是最佳选择。  PolyBase 使用 SQL 数据仓库的 MPP（大规模并行处理）体系结构，因此加载和导出巨量数据的速度比其他任何工具更快。  可使用 CTAS 或 INSERT INTO 来运行 PolyBase 加载。  **使用 CTAS 可以减少事务日志记录，是加载数据最快的方法。**  PolyBase 支持各种不同的文件格式，包括 Gzip 文件。  
-            **要在使用 gzip 文本文件时获得最大的吞吐量，请将文件分成 60 个以上的文件让加载有最大化的并行度。**  若要更快的总吞吐量，请考虑并行加载数据。
+SQL 数据仓库支持通过多种工具（包括 PolyBase 和 BCP）来加载和导出数据。  对于少量的数据，性能不是那么重要，任何工具都可以满足需求。  但是，当要加载或导出大量数据，或者需要快速的性能时，PolyBase 是最佳选择。  PolyBase 使用 SQL 数据仓库的 MPP（大规模并行处理）体系结构，因此加载和导出巨量数据的速度比其他任何工具更快。  可使用 CTAS 或 INSERT INTO 来运行 PolyBase 加载。  **使用 CTAS 可以减少事务日志记录，是加载数据最快的方法。**  PolyBase 支持各种不同的文件格式，包括 Gzip 文件。  **要在使用 gzip 文本文件时获得最大的吞吐量，请将文件分成 60 个以上的文件让加载有最大化的并行度。**  若要更快的总吞吐量，请考虑并行加载数据。
 <!-- Not available Azure Data Factory-->
-
 另请参阅[加载数据][Load data]、[PolyBase 使用指南][Guide for using PolyBase]、[CREATE EXTERNAL FILE FORMAT][CREATE EXTERNAL FILE FORMAT]、[Create table as select (CTAS)][Create table as select (CTAS)]
 <!-- Not available [Move data with Azure Data Factory] [Load Data with Azure Data Factory]-->
 <!-- Not Available [Azure SQL Data Warehouse loading patterns and strategies]-->
@@ -66,7 +65,7 @@ SQL 数据仓库支持通过多种工具（包括 PolyBase 和 BCP）来加载�
 ## <a name="minimize-transaction-sizes"></a>最小化事务大小
 在事务中运行的 INSERT、UPDATE、DELETE 语句，失败时必须回滚。  为了将长时间回滚的可能性降到最低，请尽可能将事务大小最小化。  这可以通过将 INSERT、UPDATE、DELETE 语句分成小部分来达成。  例如，如果预期 INSERT 需要 1 小时，可能的话，将 INSERT 分成 4 个部分，每个运行 15 分钟。  使用特殊的最低限度日志记录方案，像是 CTAS、TRUNCATE、DROP TABLE 或 INSERT 空表，来降低回滚的风险。  另一个消除回滚的作法是使用“仅元数据”操作（像是分区切换）进行数据管理。  例如，不要运行 DELETE 语句来删除表中所有 order_date 为 2001 年 10 月的行，而是将数据每月分区后，再从另一个表将有空分区之数据的分区调动出来（请参阅 ALTER TABLE 示例）。  针对未分区的表，请考虑使用 CTAS 将想要保留的数据写入表中，而不是使用 DELETE。  如果 CTAS 需要的时间一样长，则较安全的操作，是在它具有极小事务记录的条件下运行它，且必要时可以快速地取消。
 
-另请参阅[了解事务][Understanding transactions]、[优化事务][Optimizing transactions]、[表分区][Table partitioning]、[TRUNCATE TABLE][TRUNCATE TABLE]、[ALTER TABLE][ALTER TABLE]、[Create table as select (CTAS)][Create table as select (CTAS)]
+另请参阅[了解事务][了解事务]、[优化事务][优化事务]、[表分区][Table partitioning]、[TRUNCATE TABLE][TRUNCATE TABLE]、[ALTER TABLE][ALTER TABLE]、[Create table as select (CTAS)][Create table as select (CTAS)]
 
 ## <a name="use-the-smallest-possible-column-size"></a>使用最小可能的列大小
 在定义 DDL 时，使用可支持数据的最小数据类型，能够改善查询性能。  这对 CHAR 和 VARCHAR 列尤其重要。  如果列中最长的值是 25 个字符，请将列定义为 VARCHAR(25)。  避免将所有字符列定义为较大的默认长度。  此外，将列定义为 VARCHAR（当它只需要这样的大小时）而非 NVARCHAR。
@@ -100,10 +99,10 @@ SQL 数据仓库使用资源组作为将内存分配给查询的一种方式。 
 ## <a name="use-dmvs-to-monitor-and-optimize-your-queries"></a>使用 DMV 来监视和优化查询
 SQL 数据仓库有多个 DMV 可用于监视查询执行。  以下监视相关文章逐步说明了如何查看正在执行的查询的详细信息。  若要在这些 DMV 中快速找到查询，可在查询中使用 LABEL 选项。
 
-另请参阅[使用 DMV 监视工作负荷][Monitor your workload using DMVs]、[LABEL][LABEL]、[OPTION][OPTION]、[sys.dm_exec_sessions][sys.dm_exec_sessions]、[sys.dm_pdw_exec_requests][sys.dm_pdw_exec_requests]、[sys.dm_pdw_request_steps][sys.dm_pdw_request_steps]、[sys.dm_pdw_sql_requests][sys.dm_pdw_sql_requests]、[sys.dm_pdw_dms_workers]、[DBCC PDW_SHOWEXECUTIONPLAN][DBCC PDW_SHOWEXECUTIONPLAN]、[sys.dm_pdw_waits][sys.dm_pdw_waits]
+另请参阅[使用 DMV 监视工作负荷][使用 DMV 监视工作负荷]、[LABEL][LABEL]、[OPTION][OPTION]、[sys.dm_exec_sessions][sys.dm_exec_sessions]、[sys.dm_pdw_exec_requests][sys.dm_pdw_exec_requests]、[sys.dm_pdw_request_steps][sys.dm_pdw_request_steps]、[sys.dm_pdw_sql_requests][sys.dm_pdw_sql_requests]、[sys.dm_pdw_dms_workers]、[DBCC PDW_SHOWEXECUTIONPLAN][DBCC PDW_SHOWEXECUTIONPLAN]、[sys.dm_pdw_waits][sys.dm_pdw_waits]
 
 ## <a name="other-resources"></a>其他资源
-另请参阅 [故障诊断][Troubleshooting] 一文，了解常见的问题和解决方案。
+另请参阅[故障排除][故障排除]一文，了解常见问题和解决方案。
 
 如果在本文中没有找到所需内容，可尝试使用本页面左侧的“搜索文档”来搜索所有 Azure SQL 数据仓库文档。 
 <!-- Not Available on [Azure SQL Data Warehouse MSDN Forum][Azure SQL Data Warehouse MSDN Forum], [Azure SQL Data Warehouse Stack Overflow Forum][Azure SQL Data Warehouse Stack Overflow Forum].-->
@@ -126,17 +125,7 @@ SQL 数据仓库有多个 DMV 可用于监视查询执行。  以下监视相关
 [Guide for using PolyBase]: ./guidance-for-loading-data.md
 [Load data]: ./design-elt-data-loading.md
 <!-- Not Available on [Move data with Azure Data Factory]: ../data-factory/transform-data-using-machine-learning.md -->
-<!-- Not Available on [Load data with Azure Data Factory]: ./sql-data-warehouse-get-started-load-with-azure-data-factory.md -->
-[Load data with bcp]: ./sql-data-warehouse-load-with-bcp.md
-[Load data with PolyBase]: ./sql-data-warehouse-get-started-load-with-polybase.md
-[Monitor your workload using DMVs]: ./sql-data-warehouse-manage-monitor.md
-[Pause compute resources]: ./sql-data-warehouse-manage-compute-overview.md#pause-compute-bk
-[Resume compute resources]: ./sql-data-warehouse-manage-compute-overview.md#resume-compute-bk
-[Scale compute resources]: ./sql-data-warehouse-manage-compute-overview.md#scale-compute
-[Understanding transactions]: ./sql-data-warehouse-develop-transactions.md
-[Optimizing transactions]: ./sql-data-warehouse-develop-best-practices-transactions.md
-[Troubleshooting]: ./sql-data-warehouse-troubleshoot.md
-[LABEL]: ./sql-data-warehouse-develop-label.md
+<!-- Not Available on [Load data with Azure Data Factory]: ./sql-data-warehouse-get-started-load-with-azure-data-factory.md --> [使用 bcp 加载数据]：https://docs.microsoft.com/sql/tools/bcp-utility [使用 PolyBase 加载数据]：./load-data-wideworldimportersdw.md [使用 DMV 监视工作负荷]：./sql-data-warehouse-manage-monitor.md [暂停计算资源]：./sql-data-warehouse-manage-compute-overview.md#pause-compute-bk [恢复计算资源]：./sql-data-warehouse-manage-compute-overview.md#resume-compute-bk [缩放计算资源]：./sql-data-warehouse-manage-compute-overview.md#scale-compute [了解事务]：./sql-data-warehouse-develop-transactions.md [优化事务]：./sql-data-warehouse-develop-best-practices-transactions.md [故障排除]：./sql-data-warehouse-troubleshoot.md [标签]：./sql-data-warehouse-develop-label.mdd
 
 <!--MSDN references-->
 [ALTER TABLE]: https://msdn.microsoft.com/library/ms190273.aspx

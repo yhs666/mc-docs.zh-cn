@@ -1,10 +1,10 @@
 ---
-title: 配置 Azure Stack 用户的 PowerShell 环境 | Azure
-description: 配置 Azure Stack 用户的 PowerShell 环境
+title: 以用户身份使用 PowerShell 连接到 Azure Stack | Microsoft Docs
+description: 连接到用户的 Azure Stack 实例的步骤。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: F4ED2238-AAF2-4930-AA7F-7C140311E10F
 ms.service: azure-stack
@@ -12,18 +12,18 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/17/2018
-ms.date: 08/27/2018
-ms.author: v-junlch
+origin.date: 09/07/2018
+ms.date: 10/15/2018
+ms.author: v-jay
 ms.reviewer: Balsu.G
-ms.openlocfilehash: 11bde558fa9c5f4f9bbf9e5e0d473376920c4c79
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.openlocfilehash: 42e89761a926813a06317f2b7e506772a60389fd
+ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869551"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48848785"
 ---
-# <a name="configure-the-azure-stack-users-powershell-environment"></a>配置 Azure Stack 用户的 PowerShell 环境
+# <a name="connect-to-azure-stack-with-powershell-as-a-user"></a>以用户身份使用 PowerShell 连接到 Azure Stack
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 

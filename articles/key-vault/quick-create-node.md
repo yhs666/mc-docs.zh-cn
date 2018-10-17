@@ -1,5 +1,5 @@
 ---
-title: 快速入门 - 使用 Node Web 应用在 Azure Key Vault 中设置和检索机密 | Microsoft Docs
+title: 快速入门 - 使用 Node Web 应用在 Azure Key Vault 中设置和检索机密
 description: 快速入门 - 使用 Node Web 应用在 Azure Key Vault 中设置和检索机密
 services: key-vault
 documentationcenter: ''
@@ -9,32 +9,32 @@ ms.service: key-vault
 ms.workload: identity
 ms.topic: quickstart
 origin.date: 08/08/2018
-ms.date: 09/17/2018
+ms.date: 10/22/2018
 ms.author: v-biyu
 ms.custom: mvc
-ms.openlocfilehash: cddccf9a9ce84fab7f782fe6fdce6e76513f09b9
-ms.sourcegitcommit: d649060b55bac3ad9f4fc2bd2962748a4b5bf715
+ms.openlocfilehash: 74f5340a3276c64b0cd8a52cbe0116a11c5886b2
+ms.sourcegitcommit: 2fdf25eb4b978855ff2832bcdcca093c141be261
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44066177"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49120601"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-a-node-web-app"></a>快速入门：使用 Node Web 应用在 Azure Key Vault 中设置和检索机密 
 
-本快速入门介绍如何在 Key Vault 中存储机密，以及如何使用 Web 应用来检索它。 若要查看机密值，必须在 Azure 上运行此应用。 本快速入门使用 Node.js 和托管服务标识 (MSI)
+本快速入门介绍如何在 Key Vault 中存储机密，以及如何使用 Web 应用来检索它。 若要查看机密值，必须在 Azure 上运行此应用。 本快速入门使用 Node.js 和 Azure 资源的托管标识。
 
 > [!div class="checklist"]
 > * 创建 Key Vault。
 > * 在 Key Vault 中存储机密。
 > * 从 Key Vault 检索机密。
 > * 创建 Azure Web 应用程序。
-> * [启用托管服务标识](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)。
+
 > * 授予所需的权限，让 Web 应用程序从 Key Vault 读取数据。
 
 在继续操作之前，请确保熟悉[基本概念](key-vault-whatis.md#basic-concepts)。
 
 >[!NOTE]
-若要理解为什么以下教程是最佳做法，我们需要了解一些概念。 Key Vault 是一个以编程方式存储机密的中央存储库。 但要这样做，应用程序/用户需要首先向 Key Vault 进行身份验证，即提供机密。 为了遵循安全最佳做法，第一个机密也需要定期轮换。 但是，在 Azure 中运行的[托管服务标识](https://docs.microsoft.com/zh-cn/azure/active-directory/managed-service-identity/overview)应用程序将获得由 Azure 自动管理的标识。 这有助于解决**机密采用问题**，其中用户/应用程序可以遵循最佳做法，而不必担心轮换第一个机密
+若要理解为什么以下教程是最佳做法，我们需要了解一些概念。 Key Vault 是一个以编程方式存储机密的中央存储库。 但要这样做，应用程序/用户需要首先向 Key Vault 进行身份验证，即提供机密。 为了遵循安全最佳做法，第一个机密也需要定期轮换。 
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -158,7 +158,7 @@ git clone https://github.com/Azure-Samples/key-vault-node-quickstart.git
     git remote add azure <url>
     ```
 
-## <a name="enable-managed-service-identity"></a>启用托管服务标识
+## <a name="enable-a-managed-identity-for-the-web-app"></a>为 Web 应用启用托管标识
 
 虽然 Azure Key Vault 可用于安全存储凭据以及其他密钥和机密，但代码需要通过 Key Vault 的身份验证才能检索它们。 托管服务标识 (MSI) 为 Azure 服务提供了 Azure Active Directory (Azure AD) 中的自动托管标识，更巧妙地解决了这个问题。 此标识可用于通过支持 Azure AD 身份验证的任何服务（包括 Key Vault）的身份验证，这样就无需在代码中插入任何凭据了。
 
@@ -168,7 +168,7 @@ git clone https://github.com/Azure-Samples/key-vault-node-quickstart.git
 az webapp identity assign --name <app_name> --resource-group "<YourResourceGroupName>"
 ```
 
-此命令等同于转到门户并在 Web 应用程序属性中将“托管服务标识”切换为“打开”。
+此命令等同于转到门户并在 Web 应用程序属性中将“标识/系统分配”设置切换为“打开”。
 
 ### <a name="assign-permissions-to-your-application-to-read-secrets-from-key-vault"></a>为应用程序分配从 Key Vault 读取机密的权限
 
@@ -198,6 +198,7 @@ git push azure master
 确保已将名称 <YourKeyVaultName> 替换为保管库名称
 
 ## <a name="next-steps"></a>后续步骤
+
 * [Azure Key Vault 文档](https://docs.azure.cn/key-vault/)
 * [用于 Node 的 Azure SDK](https://docs.microsoft.com/javascript/api/overview/azure/key-vault)
 * [Azure REST API 参考](https://docs.microsoft.com/rest/api/keyvault/)

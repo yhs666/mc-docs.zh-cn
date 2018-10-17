@@ -1,10 +1,10 @@
 ---
-title: 在 Azure Stack 中使用门户部署模板 | Azure
+title: 使用 Azure Stack 门户部署模板 | Microsoft Docs
 description: 了解如何使用 Azure Stack 门户部署模板。
 services: azure-stack
 documentationcenter: ''
-author: brenduns
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: eafa60f2-16c9-4ef1-b724-47709e9ea29e
 ms.service: azure-stack
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/15/2018
-ms.date: 08/27/2018
-ms.author: v-junlch
+origin.date: 09/12/2018
+ms.date: 10/15/2018
+ms.author: v-jay
 ms.reviewer: ''
-ms.openlocfilehash: c51449bb26e434024781a3224589d76f87e639b0
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.openlocfilehash: 115703ecccc03ce78671e904792cae9e9945c32c
+ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869403"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48848793"
 ---
 # <a name="deploy-templates-using-the-azure-stack-portal"></a>使用 Azure Stack 门户部署模板
 
@@ -31,7 +31,7 @@ ms.locfileid: "42869403"
 
 ## <a name="to-deploy-a-template"></a>部署模板
 
-1. 登录到门户中，依次选择“新建”、“自定义”。
+1. 登录到门户中，依次选择“+ 创建资源”、“自定义”。
 2. 选择“模板部署”。
 3. 选择“编辑模板”，然后将 JSON 模板代码粘贴到代码窗口中。 选择“其他安全性验证” 。
 4. 选择“编辑参数”，为显示的参数提供值，然后选择“确定”。

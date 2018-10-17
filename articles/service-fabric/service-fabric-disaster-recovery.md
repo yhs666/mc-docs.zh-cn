@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/18/2017
-ms.date: 05/28/2018
+ms.date: 10/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: 061445fba9bc14e59539a231e358825b3e393feb
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: 5ed0add2771f1f57f9a8c9f72244d27518f7a532
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554544"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49089109"
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Azure Service Fabric 中的灾难恢复
 提供高可用性的关键一环是确保服务能够经受各种不同类型的故障。 对于计划外和不受控制的故障，这一点尤其重要。 本文介绍一些常见的故障模式，如果未正确建模和管理，这些故障可能成为灾难。 本文还介绍发生灾难时应采取的缓解措施和行动。 目标是在发生计划内或其他故障时，限制或消除停机或数据丢失风险。
@@ -104,7 +104,7 @@ Service Fabric 的目标几乎始终是自动管理故障。 但是，若要处�
     >
 
 3. 确定有无实际数据丢失，并从备份还原
-    - 如果 Service Fabric 调用 `OnDataLossAsync` 方法，这始终是因为疑似数据丢失。 Service Fabric 可确保将此调用传送到最合适的剩余副本。 也就是进度最大的副本。 我们总是将其称为疑似数据丢失，这是因为剩余副本在发生故障时实际上可能与主要副本具有完全相同的状态。 但是，如果没有该状态作为对比，Service Fabric 或操作者就没有很好的方法来明确这一点。 此时，Service Fabric 还知道其他副本不会恢复。 这是当我们停止等待仲裁丢失自行解决时所做的决策。 服务采取的最佳做法通常是冻结并等待特定的管理员介入。 那么 `OnDataLossAsync` 方法所执行的典型实现是什么？
+    - 如果 Service Fabric 调用 `OnDataLossAsync` 方法，这始终是因为_疑似_数据丢失。 Service Fabric 可确保将此调用传送到最合适的剩余副本。 也就是进度最大的副本。 我们总是将其称为疑似数据丢失，这是因为剩余副本在发生故障时实际上可能与主要副本具有完全相同的状态。 但是，如果没有该状态作为对比，Service Fabric 或操作者就没有很好的方法来明确这一点。 此时，Service Fabric 还知道其他副本不会恢复。 这是当我们停止等待仲裁丢失自行解决时所做的决策。 服务采取的最佳做法通常是冻结并等待特定的管理员介入。 那么 `OnDataLossAsync` 方法所执行的典型实现是什么？
     - 首先，记录 `OnDataLossAsync` 已被触发，并发出任何必要的管理警报。
         - 此时，通常需要暂停并等待进一步决策和要采取的手动操作。 这是因为即使备份可用，也可能需要时间准备。 例如，如果两个不同的服务协调信息，则可能需要修改这些备份，以确保发生还原后，这两个服务所关注的信息一致。 
     - 通常还有一些其他遥测或服务消耗。 此元数据可能包含在其他服务或日志中。 此信息可用于确定主要副本是否收到并处理了任何调用，这些调用未存在于备份中或未复制到此特定副本中。 可能需要重播或向备份添加这些调用才能进行恢复。  
@@ -137,7 +137,7 @@ Service Fabric 具有种子节点的概念。 种子节点可以维护基础群�
 
 ## <a name="next-steps"></a>后续步骤
 - 了解如何使用[可测试性框架](service-fabric-testability-overview.md)模拟各种故障
-- 阅读有关灾难恢复和高可用性的其他资源。 Microsoft 已发布大量有关这些主题的指导。 尽管其中有些文档提到其他产品中使用的特定技术，但也包含了许多可在 Service Fabric 上下文中应用的一般性最佳实践：
+- 阅读有关灾难恢复和高可用性的其他资源。 Azure 已发布大量有关这些主题的指导。 尽管其中有些文档提到其他产品中使用的特定技术，但也包含了许多可在 Service Fabric 上下文中应用的一般性最佳实践：
   - [可用性清单](../best-practices-availability-checklist.md)
   - [执行灾难恢复演练](../sql-database/sql-database-disaster-recovery-drills.md)
   - [Azure 应用程序的灾难恢复和高可用性][dr-ha-guide]
@@ -154,4 +154,4 @@ Service Fabric 具有种子节点的概念。 种子节点可以维护基础群�
 
 [sfx-cluster-map]: ./media/service-fabric-disaster-recovery/sfx-clustermap.png
 
-<!--Update_Description: update meta properties, update link -->
+<!--Update_Description: update meta properties, wording update -->

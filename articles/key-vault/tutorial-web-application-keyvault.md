@@ -1,5 +1,5 @@
 ---
-title: “将 Azure Web 应用程序配置为从 Key Vault 读取机密”教程 | Microsoft Docs
+title: 教程：将 Azure Web 应用程序配置为从 Key Vault 读取机密
 description: 教程：将 ASP.Net Core 应用程序配置为从 Key Vault 读取机密
 services: key-vault
 documentationcenter: ''
@@ -10,28 +10,29 @@ ms.service: key-vault
 ms.workload: identity
 ms.topic: tutorial
 origin.date: 05/17/2018
-ms.date: 09/17/2018
+ms.date: 10/22/2018
 ms.author: v-biyu
 ms.custom: mvc
-ms.openlocfilehash: 7720fc64ceb9ae9d82bbd71221353e819487f141
-ms.sourcegitcommit: d649060b55bac3ad9f4fc2bd2962748a4b5bf715
+ms.openlocfilehash: ee098005d22f1452418964f0c3a5b6b2be5eb147
+ms.sourcegitcommit: 2fdf25eb4b978855ff2832bcdcca093c141be261
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44066158"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49120614"
 ---
 # <a name="tutorial-configure-an-azure-web-application-to-read-a-secret-from-key-vault"></a>教程：将 Azure Web 应用程序配置为从 Key Vault 读取机密
 
-本教程演练将 Azure Web 应用程序配置为使用托管服务标识从 Key Vault 读取信息所要执行的步骤。 你将学习如何执行以下操作：
+本教程演练将 Azure Web 应用程序配置为使用 Azure 资源托管标识从 Key Vault 读取信息所要执行的步骤。 你将学习如何执行以下操作：
 
 > [!div class="checklist"]
 > * 创建 Key Vault。
 > * 在 Key Vault 中存储机密。
 > * 创建 Azure Web 应用程序。
-> * 启用托管服务标识
+> * 为 Web 应用程序启用托管标识。
 > * 授予所需的权限，让应用程序从 Key Vault 读取数据。
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
+
 
 如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.4 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](/cli/install-azure-cli)。
 
@@ -69,7 +70,7 @@ az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGro
 
 此命令的输出显示新建的 Key Vault 的属性。 请记下下面列出的两个属性：
 
-- 保管库名称：在本示例中为 ContosoKeyVault。 将在所有 Key Vault 命令中使用该 Key Vault 名称。
+* 保管库名称：在本示例中为 ContosoKeyVault。 将在所有 Key Vault 命令中使用该 Key Vault 名称。
 - **保管库 URI**：在本示例中为 https://<YourKeyVaultName>.vault.azure.cn/。 通过其 REST API 使用保管库的应用程序必须使用此 URI。
 
 >[!IMPORTANT]
@@ -111,7 +112,7 @@ az keyvault secret show --name "AppSecret" --vault-name "ContosoKeyVault"
 
 4. 可将任何类型的 ASP.NET Core Web 应用部署到 Azure。 在本教程中，请选择“Web 应用程序”模板，并确保将身份验证设置为“无身份验证”。
 
-    ![ASPNET 无身份验证对话框](./media/tutorial-web-application-keyvault/aspnet-noauth.png)
+    ![ASPNET 无身份验证对话框](media/tutorial-web-application-keyvault/aspnet-noauth.png)
 
 5. 选择“确定” 。
 
@@ -128,8 +129,8 @@ az keyvault secret show --name "AppSecret" --vault-name "ContosoKeyVault"
 3. 选中搜索框旁边的复选框。 **包括预发行版**
 4. 搜索下面列出的两个 NuGet 包，并确认将其添加到解决方案：
 
-    - [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) - 方便提取服务到 Azure 服务身份验证方案的访问令牌。 
-    - [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) - 包含用来与 Key Vault 交互的方法。
+    * [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) - 方便提取服务到 Azure 服务身份验证方案的访问令牌。 
+    * [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) - 包含用来与 Key Vault 交互的方法。
 
 5. 使用解决方案资源管理器打开 `Program.cs`，将 Program.cs 文件的内容替换为以下代码。 将 ```<YourKeyVaultName>``` 替换为 Key Vault 的名称：
 
@@ -145,29 +146,29 @@ az keyvault secret show --name "AppSecret" --vault-name "ContosoKeyVault"
     namespace WebKeyVault
     {
        public class Program
-    {
-        public static void Main(string[] args)
-        {
-            BuildWebHost(args).Run();
-        }
+       {
+           public static void Main(string[] args)
+           {
+               BuildWebHost(args).Run();
+           }
 
-        public static IWebHost BuildWebHost(string[] args) =>
-        WebHost.CreateDefaultBuilder(args)
-            .ConfigureAppConfiguration((ctx, builder) =>
-            {
-                var keyVaultEndpoint = GetKeyVaultEndpoint();
-                if (!string.IsNullOrEmpty(keyVaultEndpoint))
-                {
-                    var azureServiceTokenProvider = new AzureServiceTokenProvider();
-                    var keyVaultClient = new KeyVaultClient(
-                        new KeyVaultClient.AuthenticationCallback(
-                            azureServiceTokenProvider.KeyVaultTokenCallback));
-                    builder.AddAzureKeyVault(
-                        keyVaultEndpoint, keyVaultClient, new DefaultKeyVaultSecretManager());
-                }
-            }
-         ).UseStartup<Startup>()
-          .Build();
+           public static IWebHost BuildWebHost(string[] args) =>
+           WebHost.CreateDefaultBuilder(args)
+               .ConfigureAppConfiguration((ctx, builder) =>
+               {
+                   var keyVaultEndpoint = GetKeyVaultEndpoint();
+                   if (!string.IsNullOrEmpty(keyVaultEndpoint))
+                   {
+                       var azureServiceTokenProvider = new AzureServiceTokenProvider();
+                       var keyVaultClient = new KeyVaultClient(
+                           new KeyVaultClient.AuthenticationCallback(
+                               azureServiceTokenProvider.KeyVaultTokenCallback));
+                       builder.AddAzureKeyVault(
+                           keyVaultEndpoint, keyVaultClient, new DefaultKeyVaultSecretManager());
+                   }
+               }
+            ).UseStartup<Startup>()
+             .Build();
 
         private static string GetKeyVaultEndpoint() => "https://<YourKeyVaultName>.vault.azure.cn";
          }
@@ -218,7 +219,7 @@ az keyvault secret show --name "AppSecret" --vault-name "ContosoKeyVault"
 >[!IMPORTANT]
 > 此时会打开一个浏览器窗口，其中显示了“502.5 - 进程失败”消息。 这是正常情况。 需要向应用程序标识授予从 Key Vault 读取机密的权限。
 
-## <a name="enable-managed-service-identity"></a>启用托管服务标识
+## <a name="enable-a-managed-identity-for-the-web-app"></a>为 Web 应用启用托管标识
 
 虽然 Azure Key Vault 可用于安全存储凭据以及其他密钥和机密，但代码需要通过 Key Vault 的身份验证才能检索它们。 托管服务标识 (MSI) 为 Azure 服务提供了 Azure Active Directory (Azure AD) 中的自动托管标识，更巧妙地解决了这个问题。 此标识可用于通过支持 Azure AD 身份验证的任何服务（包括 Key Vault）的身份验证，这样就无需在代码中插入任何凭据了。
 
@@ -230,7 +231,7 @@ az webapp identity assign --name "WebKeyVault" --resource-group "ContosoResource
 ```
 
 >[!NOTE]
->此命令等同于转到门户并在 Web 应用程序属性中将“托管服务标识”切换为“打开”。
+>此命令等同于转到门户并在 Web 应用程序属性中将“标识/系统分配”设置切换为“打开”。
 
 ## <a name="grant-rights-to-the-application-identity"></a>向应用程序标识授予权限
 
@@ -256,5 +257,3 @@ az webapp identity assign --name "WebKeyVault" --resource-group "ContosoResource
 
 > [!div class="nextstepaction"]
 > [Azure Key Vault 开发人员指南](key-vault-developers-guide.md)
-
-<!-- Update_Description: wording and code update -->

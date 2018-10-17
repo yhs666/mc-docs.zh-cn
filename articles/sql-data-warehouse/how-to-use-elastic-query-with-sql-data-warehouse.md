@@ -10,12 +10,12 @@ ms.component: implement
 origin.date: 04/11/2018
 ms.date: 09/17/2018
 ms.author: v-yeche
-ms.openlocfilehash: 5ecfe37b71770c0e93f0f6f3fa4891c894b18730
-ms.sourcegitcommit: 9a82a54c6b6f4d8074139e090011fe05b8018fcf
+ms.openlocfilehash: 6def47b0b31ee59fd5ae7515a0144c25789d3e0b
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44363154"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49089043"
 ---
 # <a name="best-practices-for-using-elastic-query-in-azure-sql-database-to-access-data-in-azure-sql-data-warehouse"></a>使用 Azure SQL 数据库中的弹性查询访问 Azure SQL 数据仓库中的数据的最佳做法
 了解使用弹性查询从 Azure SQL 数据库访问 Azure SQL 数据仓库中的数据的最佳做法。 
@@ -123,7 +123,7 @@ ms.locfileid: "44363154"
 - 需要远程执行特定查询
 - 有更大的缓存需求
 
-## <a name="faq"></a>常见问题解答
+## <a name="faq"></a>常见问题
 
 问：能否将弹性池内的数据库与弹性查询结合使用？
 

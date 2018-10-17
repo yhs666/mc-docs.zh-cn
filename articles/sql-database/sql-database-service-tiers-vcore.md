@@ -6,34 +6,44 @@ author: WenJason
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-origin.date: 08/15/2018
-ms.date: 09/02/2018
+origin.date: 09/14/2018
+ms.date: 10/15/2018
 manager: digimobile
 ms.author: v-jay
-ms.openlocfilehash: 85fc9e4f6b591255960e81417b84c88e0996013c
-ms.sourcegitcommit: 2601e68563bffe148e70cce2bf1dcbe837a40f80
+ms.openlocfilehash: eda85ba7b709819ef0af4129912692bb1ff208b0
+ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43249683"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913927"
 ---
 # <a name="choosing-a-vcore-service-tier-compute-memory-storage-and-io-resources"></a>选择 vCore 服务层、计算、内存、存储和 IO 资源
 
-服务层根据一系列性能级别、高可用性设计、故障隔离、存储类型和 IO 范围进行区分。 客户必须单独配置所需的存储和备份保留期。 使用 vCore 模型时，借助[面向 SQL Server 的 Azure 混合使用权益](../virtual-machines/windows/hybrid-use-benefit-licensing.md)，将单一数据库和弹性池的成本最大节省 30%。
+使用基于 vCore 的购买模型，可以单独缩放计算和存储资源，匹配本地性能，以及优化价格。 它还允许你选择硬件世代：
+- 第 4 代 - 最多 24 个基于 Intel E5-2673 v3 (Haswell) 2.4 GHz 处理器的逻辑 CPU，vCore = 1 PP（物理核心），每核心 7 GB，附加了 SSD
+- 第 5 代 - 最多 80 个基于 Intel E5-2673 v4 (Broadwell) 2.3 GHz 处理器的逻辑 CPU，vCore=1 LP（超线程），每个核心 5.1。 每核心 5.5 GB，快速 eNVM SSD
+
+vCore 模式还允许使用[面向 SQL Server 的 Azure 混合使用权益](../virtual-machines/windows/hybrid-use-benefit-licensing.md)来节省成本。
+
+## <a name="service-tier-characteristics"></a>服务层特征
+
+vCore 模型提供了两个服务层：常规用途和业务关键。 服务层根据一系列计算大小、高可用性设计、故障隔离、存储类型和 IO 范围进行区分。 客户必须单独配置所需的存储和备份保留期。
 
 下表可帮助你了解这两个层之间的差别：
 
 ||**常规用途**|**业务关键**|
 |---|---|---|
 |最适用于|大多数业务工作负荷。 提供预算导向的、均衡且可缩放的计算和存储选项。|IO 要求高的业务应用程序。 使用多个独立副本，提供最高级别的故障恢复能力。|
-|计算|1 到 80 vCore，Gen4 和 Gen5 |1 到 80 vCore，Gen4 和 Gen5|
-|内存|Gen4：每个核心 7 GB<br>Gen5：每个核心 5.5 GB | Gen4：每个核心 7 GB<br>Gen5：每个核心 5.5 GB |
-|存储|[高级远程存储](../virtual-machines/windows/premium-storage.md)，<br/>单一实例数据库：5 GB – 4 TB |本地 SSD 存储，<br/>单一数据库：5 GB – 4 TB |
+|计算|第 4 代：1 到 24 个 vCore<br/>第 5 代：1 到 80 个 vCore|第 4 代：1 到 24 个 vCore<br/>第 5 代：1 到 80 个 vCore|
+|内存|Gen4：每个核心 7 GB<br>第 5 代：每个核心 5.1 GB | Gen4：每个核心 7 GB<br>第 5 代：每个核心 5.1 GB |
+|存储|[高级远程存储](../virtual-machines/windows/premium-storage.md)，<br/>单一数据库：5 GB – 4 TB |本地 SSD 存储，<br/>单一数据库：5 GB – 4 TB |
 |IO 吞吐量（近似）|每个 vCore 提供 500 IOPS，最大 7000 IOPS|每个 vCore 提供 5000 IOPS，最大 200000 IOPS|
-|可用性|1 个副本，无读取缩放组|3 个副本，1 个[读取缩放](sql-database-read-scale-out.md)组，区域冗余高可用性|
+|可用性|1 个副本，无读取缩放组|3 个副本，1 个[读取缩放副本](sql-database-read-scale-out.md)，<br/>区域冗余 HA|
 |备份|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md)，7-35 天（默认为 7 天）|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md)，7-35 天（默认为 7 天）|
 |内存中|不适用|支持|
 |||
+
+有关详细信息，请参阅[单一实例数据库中的 vCore 资源限制](sql-database-vcore-resource-limits-single-databases.md)。 
 
 > [!IMPORTANT]
 > 如果所需的计算容量 vCore 数不超过一个，请使用基于 DTU 的购买模型。
@@ -44,9 +54,9 @@ ms.locfileid: "43249683"
 
 请注意以下几点：
 - 分配的存储由数据文件 (MDF) 和日志文件 (LDF) 使用。
-- 每个单一实例数据库性能级别支持一个最大数据库大小，默认最大大小为 32 GB。
-- 配置所需的单一实例数据库大小（MDF 大小）时，系统会自动额外添加 30% 的存储来支持 LDF
-- 可以选择介于 10 GB 与受支持最大值之间的任何单一实例数据库大小
+- 每个单一数据库计算大小支持一个最大数据库大小，默认最大大小为 32 GB。
+- 配置所需的单一数据库大小（MDF 大小）时，系统会自动额外添加 30% 的存储来支持 LDF
+- 可以选择介于 10 GB 与受支持最大值之间的任何单一数据库大小
  - 对于标准存储，可以按 10 GB 的增量增大或减小大小
  - 对于高级存储，可以按 250 GB 的增量增大或减小大小
 - 在“常规用途”服务层中，`tempdb` 使用附加的 SSD，此存储成本包含在 vCore 价格中。
@@ -73,7 +83,9 @@ ms.locfileid: "43249683"
 
 ![定价](./media/sql-database-service-tiers/pricing.png)
 
-## <a name="migration-of-single-databases-with-geo-replication-links"></a>使用异地复制链接迁移单一数据库
+## <a name="migration-from-dtu-model-to-vcore-model"></a>从 DTU 模型迁移到 vCore 模型
+
+### <a name="migration-of-single-databases-with-geo-replication-links"></a>使用异地复制链接迁移单一数据库
 
 从基于 DTU 的模型迁移到基于 vCore 的模型类似于在标准和高级数据库之间升级或降级异地复制关系。 这不需要终止异地复制，但用户必须遵守顺序规则。 升级时，必须先升级辅助数据库，再升级主数据库。 降级时，必须反转顺序：先降级主数据库，再降级辅助数据库。 
 
@@ -95,19 +107,19 @@ ms.locfileid: "43249683"
 
 \* 标准层中的每 100 个 DTU 至少需要 1 个 vCore，高级层中的每 125 个 DTU 至少需要 1 个 vCore
 
-## <a name="migration-of-failover-groups"></a>迁移故障转移组 
+### <a name="migration-of-failover-groups"></a>迁移故障转移组 
 
 迁移包含多个数据库的故障转移组需要单独迁移主数据库和辅助数据库。 在此过程中，请遵循相同的注意事项和顺序规则。 将数据库转换到基于 vCore 的模型后，故障转移组将保持有效并使用相同的策略设置。 
 
-## <a name="creation-of-a-geo-replication-secondary"></a>创建异地复制辅助数据库
+### <a name="creation-of-a-geo-replication-secondary"></a>创建异地复制辅助数据库
 
-只能使用与主数据库相同的服务层来创建异地辅助数据库。 对于日志生成速率较高的数据库，建议使用与主数据库相同的性能级别来创建辅助数据库。 如果在弹性池中为单个主数据库创建异地辅助数据库，建议对该池使用与主数据库性能级别匹配的 `maxVCore` 设置。 如果在弹性池中为另一个弹性池的主数据库创建异地辅助数据库，建议对该池使用相同的 `maxVCore` 设置
+只能使用与主数据库相同的服务层来创建异地辅助数据库。 对于日志生成速率较高的数据库，建议使用与主数据库相同的计算大小来创建辅助数据库。 如果在弹性池中为单个主数据库创建异地辅助数据库，建议对该池使用与主数据库计算大小匹配的 `maxVCore` 设置。 如果在弹性池中为另一个弹性池的主数据库创建异地辅助数据库，建议对该池使用相同的 `maxVCore` 设置
 
-## <a name="using-database-copy-to-convert-a-dtu-based-database-to-a-vcore-based-database"></a>使用数据库复制将基于 DTU 的数据库转换到基于 vCore 的数据库。
+### <a name="using-database-copy-to-convert-a-dtu-based-database-to-a-vcore-based-database"></a>使用数据库复制将基于 DTU 的数据库转换到基于 vCore 的数据库。
 
-可将采用基于 DTU 的性能级别的任何数据库复制到采用基于 vCore 的性能级别的数据库，且无需遵守上述限制或特殊的顺序，前提是目标性能级别支持源数据库的最大数据库大小。 这是因为，数据库复制操作在启动时会创建数据快照，而不会在源与目标之间执行数据同步。 
+可将采用基于 DTU 的计算大小的任何数据库复制到采用基于 vCore 的计算大小的数据库，且无需遵守上述限制或特殊的顺序，前提是目标计算大小支持源数据库的最大数据库大小。 这是因为，数据库复制操作在启动时会创建数据快照，而不会在源与目标之间执行数据同步。 
 
 ## <a name="next-steps"></a>后续步骤
 
-- 有关适用于单一数据库的特定性能级别和存储大小选项的详细信息，请参阅[适用于单一数据库的 SQL 数据库基于 vCore 的资源限制](sql-database-vcore-resource-limits-single-databases.md#single-database-storage-sizes-and-performance-levels)
-- 有关适用于弹性池的特定性能级别和存储大小选项的详细信息，请参阅[适用于弹性池的 SQL 数据库基于 vCore 的资源限制](sql-database-vcore-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-performance-levels)。
+- 有关适用于单一数据库的特定计算大小和存储大小选项的详细信息，请参阅[适用于单一数据库的 SQL 数据库基于 vCore 的资源限制](sql-database-vcore-resource-limits-single-databases.md#single-database-storage-sizes-and-compute-sizes)。
+- 有关适用于弹性池的特定计算大小和存储大小选项的详细信息，请参阅[适用于弹性池的 SQL 数据库基于 vCore 的资源限制](sql-database-vcore-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes)。

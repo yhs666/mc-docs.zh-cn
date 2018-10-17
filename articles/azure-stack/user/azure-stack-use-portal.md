@@ -3,23 +3,23 @@ title: 使用 Azure Stack 门户 | Microsoft Docs
 description: 了解如何访问和使用 Azure Stack 中的用户门户。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
-manager: femila
+author: WenJason
+manager: digimobile
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/01/2018
-ms.date: 06/27/2018
-ms.author: v-junlch
+origin.date: 09/12/2018
+ms.date: 10/15/2018
+ms.author: v-jay
 ms.reviewer: efemmano
-ms.openlocfilehash: 161dd9ecdf5f955dfb24dd4c0e5c8180f2d310ff
-ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
+ms.openlocfilehash: 56177abaf0d0a5a7d8ac3f493299c505377e3208
+ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37027181"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48848773"
 ---
 # <a name="use-the-azure-stack-portal"></a>使用 Azure Stack 门户
 
@@ -34,11 +34,11 @@ Azure Stack 操作员（服务提供商或组织中的管理员）将会告知�
 - 对于集成系统，URL 根据操作员所在的区域和外部域名的不同而异，格式为 https://portal.&lt;*region*&gt;.&lt;*FQDN*&gt;。
 - 如果使用的是 Azure Stack 开发工具包，则门户地址为 https://portal.local.azurestack.external。
 
-![Azure Stack 用户门户的屏幕截图](./media/azure-stack-use-portal/UserPortal.png)
+![Azure Stack 用户门户的屏幕截图](media/azure-stack-use-portal/UserPortal.png)
 
 ## <a name="customize-the-dashboard"></a>自定义仪表板
 
-仪表板包含一组默认磁贴。 可以选择“编辑仪表板”来修改默认仪表板，或者选择“新建仪表板”来创建自定义仪表板。 通过添加或删除磁贴来轻松自定义仪表板。 例如，若要添加“计算”磁贴，请选择“新建”。 右键单击“计算”，然后选择“固定到仪表板”。
+仪表板包含一组默认磁贴。 可以选择“编辑仪表板”来修改默认仪表板，或者选择“新建仪表板”来创建自定义仪表板。 通过添加或删除磁贴来轻松自定义仪表板。 例如，若要添加“计算”磁贴，请选择“+ 创建资源”。 右键单击“计算”，然后选择“固定到仪表板”。
 
 ## <a name="create-subscription-and-browse-available-resources"></a>创建订阅和浏览可用资源
 
@@ -46,7 +46,7 @@ Azure Stack 操作员（服务提供商或组织中的管理员）将会告知�
 
 - 选择仪表板上的“市场”磁贴。
 - 在“所有资源”磁贴上，选择“创建资源”。
-- 在左侧导航窗格中，选择“新建”。
+- 在左侧导航窗格中，选择“+ 创建资源”。
 
 ## <a name="learn-how-to-use-available-services"></a>了解如何使用可用服务
 
@@ -56,7 +56,7 @@ Azure Stack 操作员（服务提供商或组织中的管理员）将会告知�
 - 第三方应用提供自身的文档。
 - 为保持服务的 Azure 一致性，我们强烈建议先查看 Azure Stack 文档。 若要访问 Azure Stack 用户文档，请选择“帮助”图标，然后选择“帮助 + 支持”。
 
-    ![UI 中“帮助 + 支持”选项](./media/azure-stack-use-portal/HelpAndSupport.png)
+    ![UI 中“帮助 + 支持”选项](media/azure-stack-use-portal/HelpAndSupport.png)
 
     具体而言，我们建议查看以下入门文章：
 

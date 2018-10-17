@@ -3,24 +3,24 @@ title: Azure Stack 上的 MySQL 宿主服务器 | Microsoft Docs
 description: 如何添加 MySQL 实例以通过 MySQL 适配器资源提供程序进行预配
 services: azure-stack
 documentationCenter: ''
-author: jeffgilb
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/02/2018
-ms.date: 07/20/2018
-ms.author: v-junlch
+origin.date: 09/05/2018
+ms.date: 10/15/2018
+ms.author: v-jay
 ms.reviewer: jeffgo
-ms.openlocfilehash: 7e23bb0b769b1a63cea195576119e580efd2cf00
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.openlocfilehash: 3007d589e04d076b452618f614c04b71cc6c5867
+ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168237"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48848786"
 ---
 # <a name="add-hosting-servers-for-the-mysql-resource-provider"></a>为 MySQL 资源提供程序添加托管服务器
 
@@ -33,17 +33,17 @@ ms.locfileid: "39168237"
 确保已准备好拥有管理特权的帐户的凭据。 若要添加宿主服务器，请执行以下步骤：
 
 1. 以服务管理员的身份登录到 Azure Stack 操作员门户。
-2. 选择“更多服务”。
-3. 选择“管理资源” > “MySQL 宿主服务器” > “+添加”。 此时会打开“添加 MySQL 宿主服务器”对话框，如以下屏幕捕获所示。
+2. 选择“所有服务”。
+3. 在“管理资源”类别中，选择“MySQL 宿主服务器” > “+添加”。 此时会打开“添加 MySQL 宿主服务器”对话框，如以下屏幕捕获所示。
 
    ![配置宿主服务器](./media/azure-stack-mysql-rp-deploy/mysql-add-hosting-server-2.png)
 
 4. 提供 MySQL 服务器实例的连接详细信息。
 
-   - 对于“MySQL 宿主服务器名称”，请提供完全限定域名 (FQDN) 或有效的 IPv4 地址。 请勿使用短 VM 名称。
-   - 未提供默认的 MySQL 实例，因此需指定“宿主服务器的大小(GB)”。 输入接近数据库服务器容量的大小。
-   - 保留“订阅”的默认设置。
-   - 对于“资源组”，请创建新组或使用现有组。
+   * 对于“MySQL 宿主服务器名称”，请提供完全限定域名 (FQDN) 或有效的 IPv4 地址。 请勿使用短 VM 名称。
+   * 未提供默认的 MySQL 实例，因此需指定“宿主服务器的大小(GB)”。 输入接近数据库服务器容量的大小。
+   * 保留“订阅”的默认设置。
+   * 对于“资源组”，请创建新组或使用现有组。
 
    > [!NOTE]
    > 如果租户和管理 Azure 资源管理器可以访问 MySQL 实例，则可让资源提供程序控制此实例。 但是，**必须**专门将 SQL 实例分配给资源提供程序。
@@ -55,8 +55,8 @@ ms.locfileid: "39168237"
    SKU **名称**应反映 SKU 的属性，这样用户就能将其数据库部署到适当的 SKU。
 
 6. 选择“确定”以创建 SKU。
-    > [!NOTE]
-    > SKU 最长可能需要在一小时后才显示在门户中。 在部署并运行 SKU 之前，无法创建数据库。
+> [!NOTE]
+> SKU 最长可能需要在一小时后才显示在门户中。 在部署并运行 SKU 之前，无法创建数据库。
 
 7. 在“添加 MySQL 宿主服务器”下，选择“创建”。
 
@@ -66,9 +66,9 @@ ms.locfileid: "39168237"
 
 以下信息适用于 RP 和 MySQL 宿主服务器：
 
-- 确保将所有宿主服务器配置为使用 TLS 1.2 进行通信。 请参阅 [Configuring MySQL to Use Encrypted Connections](https://dev.mysql.com/doc/refman/5.7/en/using-encrypted-connections.html)（将 MySQL 配置为使用加密连接）。
-- 部署[透明数据加密](https://dev.mysql.com/doc/mysql-secure-deployment-guide/5.7/en/secure-deployment-data-encryption.html)。
-- MySQL RP 不支持 caching_sha2_password 身份验证。
+* 确保将所有宿主服务器配置为使用 TLS 1.2 进行通信。 请参阅 [Configuring MySQL to Use Encrypted Connections](https://dev.mysql.com/doc/refman/5.7/en/using-encrypted-connections.html)（将 MySQL 配置为使用加密连接）。
+* 部署[透明数据加密](https://dev.mysql.com/doc/mysql-secure-deployment-guide/5.7/en/secure-deployment-data-encryption.html)。
+* MySQL RP 不支持 caching_sha2_password 身份验证。
 
 ## <a name="increase-backend-database-capacity"></a>提高后端数据库容量
 

@@ -1,25 +1,25 @@
 ---
-title: Azure Stack 中的多租户 | Azure
+title: Azure Stack 中的多租户
 description: 了解如何在 Azure Stack 中支持多个 Azure Active Directory 目录
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/23/2018
-ms.date: 08/27/2018
-ms.author: v-junlch
-ms.openlocfilehash: 29864ac9485e18e20531ea59765d2dc0beedf1c6
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+origin.date: 09/11/2018
+ms.date: 10/15/2018
+ms.author: v-jay
+ms.openlocfilehash: f23e39df2036a977f6230efad4e2f77ea3d8f1ee
+ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869541"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48848902"
 ---
 # <a name="multi-tenancy-in-azure-stack"></a>Azure Stack 中的多租户
 
@@ -73,7 +73,7 @@ $location = "local"
 Register-AzSGuestDirectoryTenant -AdminResourceManagerEndpoint $adminARMEndpoint `
  -DirectoryTenantName $azureStackDirectoryTenant `
  -GuestDirectoryTenantName $guestDirectoryTenantToBeOnboarded `
- -Location "local" `
+ -Location $location `
  -ResourceGroupName $ResourceGroupName
 ````
 
@@ -102,6 +102,16 @@ Register-AzSWithMyDirectoryTenant `
 > 如果你的 Azure Stack 管理员将来安装新服务或更新，则你可能需要再次运行此脚本。
 >
 > 随时可以再次运行此脚本来检查目录中的 Azure Stack 应用程序的状态。
+
+
+### <a name="activate-the-administrator-and-tenant-portals"></a>激活管理员门户和租户门户
+在完成使用 Azure AD 的部署以后，必须激活 Azure Stack 管理员门户和租户门户。 对于目录的所有用户来说，此激活是指同意为 Azure Stack 门户和 Azure 资源管理器提供正确的权限（已在同意页上列出）。
+
+- 如果在管理员门户中操作，请导航到 https://adminportal.local.azurestack.external/guest/signup，阅读信息，然后单击“接受”。 接受后即可添加服务管理员，但这些管理员不能也是目录租户管理员。
+- 如果在租户门户中操作，请导航到 https://portal.local.azurestack.external/guest/signup，阅读信息，然后单击“接受”。 接受后，目录中的用户即可登录到租户门户。 
+ 
+> [!NOTE] 
+> 如果门户未激活，则只有目录管理员可以登录并使用门户。 其他用户在登录时会看到错误，指出管理员尚未授予其他用户权限。 如果管理员原本不属于 Azure Stack 注册到的目录，则必须将 Azure Stack 目录追加到激活 URL。 例如，如果 Azure Stack 已注册到 fabrikam.onmicrosoft.com 且管理员用户为 admin@contoso.com，请导航到 https://portal.local.azurestack.external/guest/signup/fabrikam.onmicrosoft.com 来激活门户。
 
 ### <a name="direct-users-to-sign-in"></a>指导用户登录
 

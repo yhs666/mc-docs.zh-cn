@@ -3,24 +3,23 @@ title: 查看 Azure Stack 中的公共 IP 地址使用情况 | Microsoft Docs
 description: 管理员可以查看区域中公共 IP 地址的使用情况
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
-ms.assetid: 0f77be49-eafe-4886-8c58-a17061e8120f
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 02/28/2018
-ms.date: 03/27/2018
-ms.author: v-junlch
-ms.openlocfilehash: 147a950a08fd7727fb3082dd8248a701c7bad79c
-ms.sourcegitcommit: 6d7f98c83372c978ac4030d3935c9829d6415bf4
+origin.date: 09/10/2018
+ms.date: 10/15/2018
+ms.author: v-jay
+ms.openlocfilehash: 757c138e6fcba7dd0238eca17c9aaef32f5777f3
+ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30222546"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48848878"
 ---
 # <a name="view-public-ip-address-consumption-in-azure-stack"></a>查看 Azure Stack 中的公共 IP 地址使用情况
 
@@ -40,18 +39,17 @@ ms.locfileid: "30222546"
 ## <a name="view-the-public-ip-address-usage-information"></a>查看公共 IP 地址用量信息
 查看区域中已使用的公共 IP 地址总数：
 
-1. 在 Azure Stack 管理员门户中选择“更多服务”，然后在“管理资源”下面选择“资源提供程序”。
-2. 从“资源提供程序”列表中选择“网络”。
-3. “网络”窗格会在“概览”部分显示“公共 IP 池用量”磁贴。
+1. 在 Azure Stack 管理员门户中，选择“所有服务”。 然后，在“管理”类别下，选择“网络”。
+1. “网络”窗格会在“概览”部分显示“公共 IP 池用量”磁贴。
 
-![“网络资源提供程序”窗格](./media/azure-stack-viewing-public-ip-address-consumption/image01.png)
+![“网络资源提供程序”窗格](media/azure-stack-viewing-public-ip-address-consumption/image01.png)
 
 “已用”数字代表公共 IP 地址池中已分配的公共 IP 地址数目。 “可用”数字代表公共 IP 地址池中尚未分配的仍可使用的公共 IP 地址数目。 “已用百分比”数字代表已使用或已分配地址占该位置公共 IP 地址池中公共 IP 地址总数的百分比。
 
 ## <a name="view-the-public-ip-addresses-that-were-created-by-tenant-subscriptions"></a>查看租户订阅创建的公共 IP 地址
 在“租户资源”下选择“公共 IP 地址”。 查看特定区域中通过租户订阅显式创建的公共 IP 地址列表。
 
-![租户公共 IP 地址](./media/azure-stack-viewing-public-ip-address-consumption/image02.png)
+![租户公共 IP 地址](media/azure-stack-viewing-public-ip-address-consumption/image02.png)
 
 可能会看到，某些动态分配的公共 IP 地址显示在列表中， 但这些地址没有关联的地址。 此地址资源已在网络资源提供程序中创建，但尚未在网络控制器中创建。
 

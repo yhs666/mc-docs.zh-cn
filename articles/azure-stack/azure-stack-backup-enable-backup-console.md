@@ -1,10 +1,10 @@
 ---
-title: 从管理门户为 Azure Stack 启用备份 | Azure
+title: 从管理门户为 Azure Stack 启用备份 | Microsoft Docs
 description: 通过管理门户启用基础结构备份服务，以便出现故障时可以还原 Azure Stack。
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: 56C948E7-4523-43B9-A236-1EF906A0304F
 ms.service: azure-stack
@@ -12,15 +12,15 @@ ms.workload: naS
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/16/2018
-ms.date: 08/27/2018
-ms.author: v-junlch
-ms.openlocfilehash: 098166e46bb326d39635ed7beb749aed0e088230
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+origin.date: 09/05/2018
+ms.date: 10/15/2018
+ms.author: v-jay
+ms.openlocfilehash: 176ddaf4ea429127f74b92fb81033357ee00eb4b
+ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869483"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48848924"
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>从管理门户为 Azure Stack 启用备份
 通过管理门户启用基础结构备份服务，以便 Azure Stack 可以生成备份。 出现[灾难性故障](.\azure-stack-backup-recover-data.md)时，可以通过云恢复使用这些备份还原环境。 云恢复的目的是为了确保操作员和用户在恢复完成后可以重新登录回门户。 用户将恢复其订阅，包括基于角色的访问权限和角色、原始计划、套餐以及先前定义的计算、存储和网络配额。
@@ -37,7 +37,7 @@ ms.locfileid: "42869483"
 ## <a name="enable-or-reconfigure-backup"></a>启用或重新配置备份
 
 1. 打开 [Azure Stack 管理门户](azure-stack-manage-portals.md)。
-2. 选择“更多服务” > “基础结构备份”。 在“基础结构备份”边栏选项卡中选择“配置”。
+2. 选择“所有服务”，然后在“管理”类别下选择“基础结构备份”。 在“基础结构备份”边栏选项卡中选择“配置”。
 3. 键入**备份存储位置**的路径。 使用通用命名约定 (UNC) 字符串表示单独的设备上托管的文件共享的路径。 UNC 字符串指定资源（如共享文件或设备）的位置。 对于服务，可以使用 IP 地址。 若要确保备份数据在发生灾难后的可用性，设备应放置在单独的位置。
 
     > [!Note]  
@@ -63,7 +63,7 @@ ms.locfileid: "42869483"
 ## <a name="start-backup"></a>启动备份
 若要启动备份，请单击“立即备份”以启动按需备份。 按需备份不会修改已计划的下次备份的时间。 任务完成后，可以在“概要”中确认设置：
 
-![Azure Stack - 按需备份](media\azure-stack-backup\scheduled-backup.png)。
+![Azure Stack - 按需备份](media\azure-stack-backup\scheduled-backup.png)
 
 还可以在 Azure Stack 管理计算机上运行 PowerShell cmdlet **Start-AzsBackup**。 有关详细信息，请参阅[备份 Azure Stack](azure-stack-backup-back-up-azure-stack.md)。
 

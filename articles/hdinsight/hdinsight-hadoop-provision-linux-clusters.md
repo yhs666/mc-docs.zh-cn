@@ -4,7 +4,7 @@ description: 通过浏览器、Azure CLI、Azure PowerShell、REST 或 SDK 为 H
 keywords: hadoop 群集设置, kafka 群集设置, spark 群集设置, 什么是 hadoop 群集
 services: hdinsight
 documentationcenter: ''
-author: mumian
+author: jasonwhowell
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -13,15 +13,15 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 05/14/2018
-ms.date: 08/27/2018
+origin.date: 08/27/2018
+ms.date: 10/22/2018
 ms.author: v-yiso
-ms.openlocfilehash: 0e5fa6a9ae923e2a8edd60daf1b099119a90016c
-ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
+ms.openlocfilehash: bc2d48d81154b255f0408422dea4f78931a4607a
+ms.sourcegitcommit: 8a5722b85c6eabbd28473d792716ad44aac3ff23
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41705399"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49121549"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>使用 Hadoop、Spark、Kafka 等等在 HDInsight 中设置群集
 
@@ -70,7 +70,7 @@ Hadoop 群集由用于对任务进行分布式处理的多个虚拟机（节点�
 Azure HDInsight 目前提供以下群集类型，每种类型都具有一组用于提供特定功能的组件。
 
 > [!IMPORTANT]
-> HDInsight 群集以多种类型提供，每种类型适用于单个工作负荷或技术。 不支持在一个群集上创建合并了多个类型（如 Storm 和 HBase）的群集。 如果解决方案需要分布在多种 HDInsight 群集类型上的技术，可以使用 [Azure 虚拟网络](/virtual-network)连接所需的群集类型。 
+> HDInsight 群集以多种类型提供，每种类型适用于单个工作负荷或技术。 不支持在一个群集上创建合并了多个类型（如 Storm 和 HBase）的群集。 如果解决方案需要分布在多种 HDInsight 群集类型上的技术，可以使用 [Azure 虚拟网络 ](/virtual-network)连接所需的群集类型。 
 >
 >
 
@@ -100,7 +100,7 @@ Azure HDInsight 目前提供以下群集类型，每种类型都具有一组用�
 使用 HDInsight 群集时，可以在群集创建期间配置两个用户帐户：
 
 * HTTP 用户：默认用户名为 *admin*。它使用 Azure 门户上的基本配置。 有时称为“群集用户”。
-* SSH 用户（Linux 群集）：用于通过 SSH 连接到群集。 有关详细信息，请参阅 [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。
+* SSH 用户（Linux 群集）：用于通过 SSH 连接到群集。 有关详细信息，请参阅 [将 SSH 与 HDInsight 配合使用](hdinsight-hadoop-linux-use-ssh-unix.md)。
 
 使用企业安全包可将 HDInsight 与 Active Directory 和 Apache Ranger 集成。 可以使用企业安全包创建多个用户。
 
@@ -141,6 +141,20 @@ Hadoop 的本地安装对群集上的存储使用 Hadoop 分布式文件系统 (
 
 > [!IMPORTANT]
 > 无法重用自定义 Oozie 元存储。 若要使用自定义 Oozie 元存储，必须在创建 HDInsight 群集时提供一个空的 Azure SQL 数据库。
+
+
+## <a name="custom-cluster-setup"></a>自定义群集设置
+“自定义群集设置”是在“快速创建”设置的基础之上实现的，其中添加了以下选项：
+- [HDInsight 应用程序](#install-hdinsight-applications-on-clusters)
+- [群集大小](#configure-cluster-size)
+- [脚本操作](#advanced-settings-script-actions)
+- [虚拟网络](#advanced-settings-extend-clusters-with-a-virtual-network)
+
+## <a name="install-hdinsight-applications-on-clusters"></a>在群集上安装 HDInsight 应用程序
+
+HDInsight 应用程序是用户可以在基于 Linux 的 HDInsight 群集上安装的应用程序。 可以使用 Microsoft、第三方提供的应用程序。
+
+大多数 HDInsight 应用程序安装在空边缘节点上。  空边缘节点是安装并配置了与头节点中相同的客户端工具的 Linux 虚拟机。 可以使用该边缘节点来访问群集、测试客户端应用程序和托管客户端应用程序。 有关详细信息，请参阅[在 HDInsight 中使用空边缘节点](hdinsight-apps-use-edge-node.md)。
 
 ## <a name="configure-cluster-size"></a>配置群集大小
 
@@ -192,20 +206,6 @@ HDInsight 群集的成本取决于节点数和节点的虚拟机大小。
 
 有关详细信息，请参阅[虚拟机的大小](../virtual-machines/windows/sizes.md)。 有关不同大小的定价信息，请参阅 [HDInsight 定价](https://www.azure.cn/pricing/details/hdinsight/)。   
 
-## <a name="custom-cluster-setup"></a>自定义群集设置
-“自定义群集设置”是在“快速创建”设置的基础之上实现的，其中添加了以下选项：
-- [HDInsight 应用程序](#hdinsight-applications)
-- [群集大小](#cluster-size)
-- 高级设置
-  - [脚本操作](#customize-clusters-using-script-action)
-  - [虚拟网络](#use-virtual-network)
-
-## <a name="install-hdinsight-applications-on-clusters"></a>在群集上安装 HDInsight 应用程序
-
-HDInsight 应用程序是用户可以在基于 Linux 的 HDInsight 群集上安装的应用程序。 可以使用 Microsoft、第三方提供的或你自己开发的应用程序。 有关详细信息，请参阅[在 Azure HDInsight 上安装第三方 Hadoop 应用程序](hdinsight-apps-install-applications.md)。
-
-大多数 HDInsight 应用程序安装在空边缘节点上。  空边缘节点是安装并配置了与头节点中相同的客户端工具的 Linux 虚拟机。 可以使用该边缘节点来访问群集、测试客户端应用程序和托管客户端应用程序。 有关详细信息，请参阅[在 HDInsight 中使用空边缘节点](hdinsight-apps-use-edge-node.md)。
-
 ## <a name="advanced-settings-script-actions"></a>高级设置：脚本操作
 
 可以在创建期间通过使用脚本安装其他组件或自定义群集配置。 此类脚本可通过 **脚本操作**调用，脚本操作是一种配置选项，可通过 Azure 门户、HDInsight Windows PowerShell cmdlet 或 HDInsight .NET SDK 使用。 有关详细信息，请参阅[使用脚本操作自定义 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md)。
@@ -237,14 +237,14 @@ HDInsight 应用程序是用户可以在基于 Linux 的 HDInsight 群集上安�
 * webhcat-site.xml
 * yarn-site.xml
 
-有关详细信息，请参阅[使用 Bootstrap 自定义 HDInsight 群集](hdinsight-hadoop-customize-cluster-bootstrap.md)。
+有关详细信息，请参阅 [使用 Bootstrap 自定义 HDInsight 群集 ](hdinsight-hadoop-customize-cluster-bootstrap.md)。
 
 ## <a name="advanced-settings-extend-clusters-with-a-virtual-network"></a>高级设置：使用虚拟网络扩展群集
 如果解决方案需要分布在多种 HDInsight 群集类型上的技术，可以使用 [Azure 虚拟网络](/virtual-network)连接所需的群集类型。 此配置允许群集以及部署到群集的任何代码直接相互通信。
 
-有关将 Azure 虚拟网络与 HDInsight 配合使用的详细信息，请参阅 [使用 Azure 虚拟网络扩展 HDInsight](hdinsight-extend-hadoop-virtual-network.md)。
+有关将 Azure 虚拟网络与 HDInsight 配合使用的详细信息，请参阅[使用 Azure 虚拟网络扩展 HDInsight](hdinsight-extend-hadoop-virtual-network.md)。
 
-有关在一个 Azure 虚拟网络中使用两种群集类型的示例，请参阅 [结合使用 Spark Structured Streaming 和 Kafka](hdinsight-apache-kafka-spark-structured-streaming.md)。 有关将 HDInsight 与虚拟网络配合使用的详细信息（包括虚拟网络的特定配置要求），请参阅[使用 Azure 虚拟网络扩展 HDInsight 功能](hdinsight-extend-hadoop-virtual-network.md)。
+有关在一个 Azure 虚拟网络中使用两种群集类型的示例，请参阅 [结合使用 Spark Structured Streaming 和 Kafka](hdinsight-apache-kafka-spark-structured-streaming.md)。 有关将 HDInsight 与虚拟网络配合使用的详细信息（包括虚拟网络的特定配置要求），请参阅 [Extend HDInsight capabilities by using Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md)（使用 Azure 虚拟网络扩展 HDInsight 功能）。
 
 ## <a name="troubleshoot-access-control-issues"></a>排查访问控制问题
 

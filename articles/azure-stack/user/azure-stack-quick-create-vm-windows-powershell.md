@@ -3,25 +3,24 @@ title: 在 Azure Stack 中使用 PowerShell 创建 Windows 虚拟机 | Microsoft
 description: 在 Azure Stack 中使用 PowerShell 创建 Windows 虚拟机。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
-ms.assetid: 7CA6C0AC-23B7-4007-BA32-7A950FD1F3B8
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-origin.date: 04/20/2018
-ms.date: 05/23/2018
-ms.author: v-junlch
+origin.date: 09/10/2018
+ms.date: 10/15/2018
+ms.author: v-jay
 ms.custom: mvc
-ms.openlocfilehash: ad68c7c2d68eaf1c55633e292e70a24b6a9934e1
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 1aec0e4a8fe101a4b7e4dbfdba186687330a315d
+ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475015"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48848887"
 ---
 # <a name="quickstart-create-a-windows-server-virtual-machine-by-using-powershell-in-azure-stack"></a>快速入门：在 Azure Stack 中使用 PowerShell 创建 Windows Server 虚拟机
 
@@ -29,18 +28,20 @@ ms.locfileid: "34475015"
 
 可以使用 Azure Stack PowerShell 创建 Windows Server 2016 虚拟机。 请按照本文中的步骤创建和使用虚拟机。 本文还提供了执行以下操作的步骤：
 
-- 通过远程客户端连接到虚拟机。
-- 安装 IIS Web 服务器并查看默认主页。
-- 清理资源。
+* 通过远程客户端连接到虚拟机。
+* 安装 IIS Web 服务器并查看默认主页。
+* 清理资源。
 
 >[!NOTE]
  可以通过 Azure Stack 开发工具包或基于 Windows 的外部客户端（如果已通过 VPN 建立连接）运行本文中所述的步骤。
 
 ## <a name="prerequisites"></a>先决条件
 
-- 确保 Azure Stack 运营商已将“Windows Server 2016”映像添加到 Azure Stack Marketplace。
+* 确保 Azure Stack 操作员已将“Windows Server 2016”映像添加到 Azure Stack 市场。
 
-- Azure Stack 需要使用特定版本的 Azure PowerShell 来创建和管理资源。 如果未针对 Azure Stack 配置 PowerShell，请遵循[安装](azure-stack-powershell-install.md)和[配置](azure-stack-powershell-configure-user.md) PowerShell 的步骤。
+* Azure Stack 需要使用特定版本的 Azure PowerShell 来创建和管理资源。 如果未针对 Azure Stack 配置 PowerShell，请遵循[安装](azure-stack-powershell-install.md) PowerShell 的步骤。
+
+* 设置 Azure Stack PowerShell 后，将需要连接到 Azure Stack 环境。 有关说明，请参阅[以用户身份使用 PowerShell 连接到 Azure Stack](azure-stack-powershell-configure-user.md)。
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
@@ -254,4 +255,3 @@ Remove-AzureRmResourceGroup `
 ## <a name="next-steps"></a>后续步骤
 
 在本快速入门中，我们部署了一个简单的 Windows 虚拟机。 有关 Azure Stack 虚拟机的详细信息，请转到 [Azure Stack 中虚拟机的注意事项](azure-stack-vm-considerations.md)。
-

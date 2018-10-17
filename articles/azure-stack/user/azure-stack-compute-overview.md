@@ -2,20 +2,20 @@
 title: Azure Stack 虚拟机简介
 description: 了解 Azure Stack 虚拟机
 services: azure-stack
-author: mattbriggs
-manager: femila
+author: WenJason
+manager: digimobile
 ms.service: azure-stack
 ms.topic: get-started-article
-origin.date: 08/15/2018
-ms.date: 08/27/2018
-ms.author: v-junlch
+origin.date: 09/05/2018
+ms.date: 10/15/2018
+ms.author: v-jay
 ms.reviewer: kivenkat
-ms.openlocfilehash: a96e59890cff750cc1511aea4513c2b8e6d0dbc5
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.openlocfilehash: 418313c98ee599a133cc07fbabfeb52c9a84dd7c
+ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869399"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48848885"
 ---
 # <a name="introduction-to-azure-stack-virtual-machines"></a>Azure Stack 虚拟机简介
 
@@ -74,8 +74,7 @@ Azure Stack 提供一个市场，适用于各种版本和类型的操作系统�
 |---------|---------|
 |Azure Stack 门户|选择要使用的映像时，系统会自动指定值。|
 |Azure Stack PowerShell|`Get-AzureRMVMImagePublisher -Location "location"`<br>`Get-AzureRMVMImageOffer -Location "location" -Publisher "publisherName"`<br>`Get-AzureRMVMImageSku -Location "location" -Publisher "publisherName" -Offer "offerName"`|
-|REST API     |[列出映像发布者](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<br>
-  [列出映像产品](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<br>[列出映像 SKU](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus)|
+|REST API     |[列出映像发布者](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<br>[列出映像产品](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<br>[列出映像 SKU](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus)|
 
 可以选择上传并使用自己的映像。 如果这样做，则不会使用发布者名称、产品/服务和 SKU。
 
@@ -101,7 +100,7 @@ VM 扩展通过部署后配置和自动化任务来增加 VM 的功能。
 |资源|必须|说明|
 |---------|---------|---------|
 |资源组|是|VM 必须包含在资源组中。|
-|存储帐户|是|VM 需要使用存储帐户来存储其虚拟硬盘。|
+|存储帐户|否|如果使用托管磁盘，则 VM 不需要存储帐户来存储其虚拟硬盘。 <br>如果使用非托管磁盘，则 VM 确实需要存储帐户来存储其虚拟硬盘。|
 |虚拟网络|是|VM 必须是虚拟网络的成员。|
 |公共 IP 地址|否|可以向 VM 分配一个公共 IP 地址，以便远程访问它。|
 |Linux|是|VM 需要使用网络接口在网络中通信。|

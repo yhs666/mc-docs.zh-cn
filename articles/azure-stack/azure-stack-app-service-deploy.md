@@ -1,10 +1,10 @@
 ---
-title: 部署应用程序服务：Azure Stack | Azure
+title: 部署应用服务：Azure Stack | Microsoft Docs
 description: 在 Azure Stack 中部署应用服务的详细指南
 services: azure-stack
 documentationcenter: ''
-author: apwestgarth
-manager: stefsch
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
@@ -12,15 +12,15 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/15/2018
-ms.date: 08/27/2018
-ms.author: v-junlch
-ms.openlocfilehash: 1f302720c93f709360b2c7b54ef3d6a5ab72cc6f
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+origin.date: 09/12/2018
+ms.date: 10/15/2018
+ms.author: v-jay
+ms.openlocfilehash: 3984164b615df4f112a247bf57475db16ae7a500
+ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869573"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48848920"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>将应用服务资源提供程序添加到 Azure Stack
 
@@ -229,7 +229,7 @@ ms.locfileid: "42869573"
 
 若要创建测试性 Web 应用，请执行以下步骤：
 
-1. 在 Azure Stack 租户门户中，选择“新建” > “Web + 移动” > “Web 应用”。
+1. 在 Azure Stack 用户门户中，选择“+ 创建资源” > “Web + 移动” > “Web 应用”。
 
 2. 在“Web 应用”下的“Web 应用”中输入一个名称。
 

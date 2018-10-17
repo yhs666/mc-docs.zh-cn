@@ -15,12 +15,12 @@ origin.date: 07/10/2018
 ms.date: 07/20/2018
 ms.author: v-junlch
 ms.reviewer: jeffgo
-ms.openlocfilehash: 9ad945f652fc840d71a74fb19d3d665e7568e49f
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.openlocfilehash: 8218f812e5b3401c0a97ae0bd096d2fe456f6acd
+ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168434"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48848918"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>为 SQL 资源提供程序添加托管服务器
 
@@ -32,20 +32,23 @@ ms.locfileid: "39168434"
 
 ### <a name="mandatory-requirements"></a>强制要求
 
-- 在 SQL Server 实例上启用 SQL 身份验证。 由于 SQL 资源提供程序 VM 未加入域，它只能使用 SQL 身份验证连接到宿主服务器。
-- 将 Azure Stack 上安装的 SQL 实例的 IP 地址配置为“公共”。 资源提供程序和用户（例如 Web 应用）通过用户网络通信，因此需要连接到此网络上的 SQL 实例。
+* 在 SQL Server 实例上启用 SQL 身份验证。 由于 SQL 资源提供程序 VM 未加入域，它只能使用 SQL 身份验证连接到宿主服务器。
+* 将 Azure Stack 上安装的 SQL 实例的 IP 地址配置为“公共”。 资源提供程序和用户（例如 Web 应用）通过用户网络通信，因此需要连接到此网络上的 SQL 实例。
 
 ### <a name="general-requirements"></a>一般要求
 
-- 专门指定资源提供程序和用户工作负荷使用的 SQL 实例。 不能使用其他任何使用者正在使用的 SQL 实例。 此限制同样适用于应用服务。
-- 为资源提供程序配置具有相应特权级别的帐户（如下所述）。
-- 你要负责管理 SQL 实例及其主机。  例如，资源提供程序不会应用更新、处理备份或处理凭据轮换。
+* 专门指定资源提供程序和用户工作负荷使用的 SQL 实例。 不能使用其他任何使用者正在使用的 SQL 实例。 此限制同样适用于应用服务。
+* 为资源提供程序配置具有相应特权级别的帐户（如下所述）。
+* 你要负责管理 SQL 实例及其主机。  例如，资源提供程序不会应用更新、处理备份或处理凭据轮换。
 
 ### <a name="sql-server-virtual-machine-images"></a>SQL Server 虚拟机映像
 
 可通过市场管理功能获取 SQL IaaS 虚拟机映像。 这些映像与 Azure 中提供的 SQL VM 相同。
 
 在使用市场项部署 SQL VM 之前，请确保始终下载最新版本的 **SQL IaaS 扩展**。 IaaS 扩展和相应的门户增强功能可提供自动修补和备份等附加功能。 有关此扩展的详细信息，请参阅[使用 SQL Server 代理扩展在 Azure 虚拟机上自动完成管理任务](/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)。
+
+> [!NOTE]
+> 对于市场上 Windows 映像中的所有 SQL，SQL IaaS 扩展都是_必需_的；如果没有下载该扩展，则 VM 将无法部署。 该扩展不用于基于 Linux 的 SQL 虚拟机映像。
 
 可以使用其他选项部署 SQL VM，包括 [Azure Stack 快速入门库](https://github.com/Azure/AzureStack-QuickStart-Templates)中的模板。
 
@@ -56,20 +59,20 @@ ms.locfileid: "39168434"
 
 可以创建一个特权比 SQL sysadmin 更低的管理用户。 该用户只需以下操作的权限：
 
-- 数据库：创建、更改、使用包含（仅限 Always On）、删除、备份
-- 可用性组：更改、联接、添加/删除数据库
-- 登录：创建、选择、更改、删除、吊销
-- 选择操作：\[master\].\[sys\].\[availability_group_listeners\] (AlwaysOn)、sys.availability_replicas (AlwaysOn)、sys.databases、\[master\].\[sys\].\[dm_os_sys_memory\]、SERVERPROPERTY、\[master\].\[sys\].\[availability_groups\] (AlwaysOn)、sys.master_files
+* 数据库：创建、更改、使用包含（仅限 Always On）、删除、备份
+* 可用性组：更改、联接、添加/删除数据库
+* 登录：创建、选择、更改、删除、吊销
+* 选择操作：\[master\].\[sys\].\[availability_group_listeners\] (AlwaysOn)、sys.availability_replicas (AlwaysOn)、sys.databases、\[master\].\[sys\].\[dm_os_sys_memory\]、SERVERPROPERTY、\[master\].\[sys\].\[availability_groups\] (AlwaysOn)、sys.master_files
 
 ### <a name="additional-security-information"></a>其他安全信息
 
 以下信息提供了其他安全指导：
 
-- 使用 BitLocker 加密所有 Azure Stack 存储，因此 Azure Stack 上的任何 SQL 实例都将使用加密的 Blob 存储。
-- SQL 资源提供程序完全支持 TLS 1.2。 确保通过 SQL RP 管理的任何 SQL Server 仅针对 TLS 1.2 进行配置，并且 RP 默认使用该配置。 支持的所有 SQL Server 版本都支持 TLS 1.2，具体请参阅 [Microsoft SQL Server 的 TLS 1.2 支持](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server)。
-- 使用 SQL Server 配置管理器设置 **ForceEncryption** 选项，确保与 SQL Server 之间的所有通信始终经过加密。 请参阅[将服务器配置为强制加密连接](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine?view=sql-server-2017#ConfigureServerConnections)。
-- 确保任何客户端应用程序也通过加密的连接进行通信。
-- RP 配置为信任 SQL Server 实例使用的证书。
+* 使用 BitLocker 加密所有 Azure Stack 存储，因此 Azure Stack 上的任何 SQL 实例都将使用加密的 Blob 存储。
+* SQL 资源提供程序完全支持 TLS 1.2。 确保通过 SQL RP 管理的任何 SQL Server 仅针对 TLS 1.2 进行配置，并且 RP 默认使用该配置。 支持的所有 SQL Server 版本都支持 TLS 1.2，具体请参阅 [Microsoft SQL Server 的 TLS 1.2 支持](https://support.microsoft.com/en-us/help/3135244/tls-1-2-support-for-microsoft-sql-server)。
+* 使用 SQL Server 配置管理器设置 **ForceEncryption** 选项，确保与 SQL Server 之间的所有通信始终经过加密。 请参阅[将服务器配置为强制加密连接](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine?view=sql-server-2017#ConfigureServerConnections)。
+* 确保任何客户端应用程序也通过加密的连接进行通信。
+* RP 配置为信任 SQL Server 实例使用的证书。
 
 ## <a name="provide-capacity-by-connecting-to-a-standalone-hosting-sql-server"></a>通过连接到独立宿主 SQL 服务器来提供容量。
 
@@ -79,15 +82,15 @@ ms.locfileid: "39168434"
 
 1. 以服务管理员的身份登录到 Azure Stack 操作员门户。
 
-2. 选择“浏览”&gt;“管理资源”&gt;“SQL 宿主服务器”。
+2. 选择“所有服务”&gt;“管理资源”&gt;“SQL 宿主服务器”。
 
    ![SQL 宿主服务器](./media/azure-stack-sql-rp-deploy/sqlhostingservers.png)
 
-   在“SQL 宿主服务器”下，可将 SQL 资源提供程序连接到充当资源提供程序后端的 SQL Server 实例。
+   在“SQL 宿主服务器”下，可将 SQL 资源提供程序连接到将充当资源提供程序后端的 SQL Server 实例。
 
-   ![SQL 适配器仪表板](./media/azure-stack-sql-rp-deploy/sqladapterdashboard.png)
+   ![SQL 适配器仪表板](./media/azure-stack-sql-rp-deploy/sqlrp-hostingserver.png)
 
-3. 在“添加 SQL 宿主服务器”上，提供 SQL Server 实例的连接详细信息。
+3. 单击“添加”，然后在“添加 SQL 宿主服务器”边栏选项卡上提供 SQL Server 实例的连接详细信息。
 
    ![添加 SQL 宿主服务器](./media/azure-stack-sql-rp-deploy/sqlrp-newhostingserver.png)
 
@@ -98,8 +101,8 @@ ms.locfileid: "39168434"
 
 4. 添加服务器时，必须将其分配到现有的 SKU，或创建新的 SKU。 在“添加宿主服务器”下，选择“SKU”。
 
-   - 若要使用现有 SKU，请选择可用的 SKU，然后选择“创建”。
-   - 若要创建 SKU，请选择“+ 创建新 SKU”。 在“创建 SKU”中输入所需的信息，然后选择“确定”。
+   * 若要使用现有 SKU，请选择可用的 SKU，然后选择“创建”。
+   * 若要创建 SKU，请选择“+ 创建新 SKU”。 在“创建 SKU”中输入所需的信息，然后选择“确定”。
 
      ![创建 SKU](./media/azure-stack-sql-rp-deploy/sqlrp-newsku.png)
 
@@ -107,8 +110,8 @@ ms.locfileid: "39168434"
 
 配置 SQL Always On 实例需要执行附加的步骤，并需要三个 VM（或物理机）。本文假设你已深入了解 Always On 可用性组。 有关详细信息，请参阅以下文章：
 
-- [Azure 虚拟机上的 SQL Server Always On 可用性组简介](/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview)
-- [Always On 可用性组 (SQL Server)](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-2017)
+* [Azure 虚拟机上的 SQL Server Always On 可用性组简介](/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview)
+* [Always On 可用性组 (SQL Server)](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-2017)
 
 > [!NOTE]
 > SQL 适配器资源提供程序仅支持适用于 Always On 可用性组的 SQL 2016 SP1 企业版或更高版本的实例。 此适配器配置需要新的 SQL 功能，例如自动种子设定。
@@ -126,7 +129,7 @@ ms.locfileid: "39168434"
   GO
   ```
 
-请注意，可用性组必须括在方括号中。
+可用性组必须括在方括号中。
 
 在辅助节点上运行以下 SQL 命令：
 
@@ -171,9 +174,9 @@ ms.locfileid: "39168434"
 
 可以使用 SKU 来区分服务套餐。 例如，可以使用具有以下特征的 SQL Enterprise 实例：
   
-- 高容量
-- 高性能
-- 高可用性
+* 高容量
+* 高性能
+* 高可用性
 
 在此版本中，无法将 SKU 分配到特定的用户或组。
 

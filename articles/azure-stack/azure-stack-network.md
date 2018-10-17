@@ -1,10 +1,10 @@
 ---
-title: Azure Stack 集成系统的网络集成注意事项 | Azure
+title: Azure Stack 集成系统的网络集成注意事项 | Microsoft Docs
 description: 了解可以执行哪些操作来规划数据中心网络与多节点 Azure Stack 的集成。
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/01/2018
-ms.date: 08/27/2018
-ms.author: v-junlch
+origin.date: 08/30/2018
+ms.date: 10/15/2018
+ms.author: v-jay
 ms.reviewer: wamota
-ms.openlocfilehash: f9cb445d7041a0da95bcff8e0397d636c144ff5e
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.openlocfilehash: 501b2a198ef0b6a47b42356ad4b629cec71585ff
+ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869516"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48848921"
 ---
 # <a name="network-connectivity"></a>网络连接
 本文提供 Azure Stack 网络基础架构信息，可帮助你确定如何以最佳方式将 Azure Stack 集成到现有的网络环境。 
@@ -42,11 +42,11 @@ Azure Stack 解决方案需有弹性且高度可用的物理基础结构才能�
 
 | 逻辑网络 | 说明 | 大小 | 
 | -------- | ------------- | ------------ | 
-| 公共 VIP | Azure Stack 总共使用此网络中的 32 个地址。 8 个公共 IP 地址由少量的 Azure Stack 服务使用，剩余的地址由租户虚拟机使用。 如果打算使用应用服务和 SQL 资源提供程序，则还要额外使用 7 个地址。 | /26（62 台主机）- /22（1022 台主机）<br><br>建议使用 /24（254 台主机） | 
+| 公共 VIP | Azure Stack 总共使用此网络中的 31 个地址。 8 个公共 IP 地址由少量的 Azure Stack 服务使用，剩余的地址由租户虚拟机使用。 如果打算使用应用服务和 SQL 资源提供程序，则还要额外使用 7 个地址。 其余 15 个 IP 保留用于将来的 Azure 服务。 | /26（62 台主机）- /22（1022 台主机）<br><br>建议使用 /24（254 台主机） | 
 | 交换机基础结构 | 用于路由的专用交换机管理接口的点到点 IP 地址，以及分配给交换机的环回地址。 | /26 | 
 | 基础结构 | 用于通信的 Azure Stack 内部组件。 | /24 |
 | 专用 | 用于存储网络和专用 VIP。 | /24 | 
-| BMC | 用于与物理主机上的 BMC 通信。 | /27 | 
+| BMC | 用于与物理主机上的 BMC 通信。 | /26 | 
 | | | |
 
 ## <a name="network-infrastructure"></a>网络基础结构

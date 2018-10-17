@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 09/05/2018
 ms.date: 09/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: b49f2053af2f3258a12eb2c95886d329f2ae6499
-ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
+ms.openlocfilehash: c244139a4c7343678a0de98c22b75adb1b6a0d45
+ms.sourcegitcommit: f7445ba393a044179d44d2a679b03e5145c7079c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46527180"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48876247"
 ---
 # <a name="sizes-for-windows-virtual-machines-in-azure"></a>Azure 中 Windows 虚拟机的大小
 
@@ -33,6 +33,7 @@ ms.locfileid: "46527180"
 | [计算优化](sizes-compute.md)        | Fsv2、Fs、F             | 高 CPU 与内存之比。 适用于中等流量的 Web 服务器、网络设备、批处理和应用程序服务器。        |
 | [内存优化](../virtual-machines-windows-sizes-memory.md)         | Esv3、Ev3、DSv2、Dv2  | 高内存与 CPU 之比。 适用于关系数据库服务器、中到大型规模的缓存和内存中分析。                 |
 <!--PENDING FOR NC series GA ANOUNCEMENT -->
+
 | [GPU](sizes-gpu.md)            | NV、NC、NCv2、NCv3、ND            | 针对大量图形绘制和视频编辑的专用虚拟机，以及带有深度学习功能的模型定型和推断 (ND)。 可选择单个或多个 GPU。       |
 <!--PENDING FOR NC series GA ANOUNCEMENT -->
 <!-- Not Available M, Gs, G series -->
@@ -70,8 +71,11 @@ ms.locfileid: "46527180"
 - [计算优化](sizes-compute.md)
 - [内存优化](../virtual-machines-windows-sizes-memory.md)
 - [GPU 优化](sizes-gpu.md)
+
 <!-- Not Available on - [Storage optimized](../virtual-machines-windows-sizes-storage.md) -->
 <!-- Not Available on - [High performance compute](sizes-hpc.md)-->
-- 查看[上一代](sizes-previous-gen.md)页，了解 A Standard、Dv1（D1-4 和 D11-14 v1）<!-- Not Available on A8-A11 series-->
+- 查看[上一代](sizes-previous-gen.md)页，了解 A Standard、Dv1（D1-4 和 D11-14 v1）
+
+<!-- Not Available on A8-A11 series-->
 
 <!--Update_Description: update meta properties, update link, wording update -->

@@ -13,22 +13,22 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 02/27/2018
-ms.date: 05/28/2018
+ms.date: 10/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: 2b29e8290afecc45ab36ca8426feedbad72b4841
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: c7d9d9924ba2fc34a4ba27c427b02d7ab0f72f35
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554501"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49089197"
 ---
 # <a name="understand-the-imagestoreconnectionstring-setting"></a>了解 ImageStoreConnectionString 设置
 
-在某些文档中，我们简单提及存在“ImageStoreConnectionString”参数，但没有介绍它实际意味着什么。 阅读 [使用 PowerShell 部署和删除应用程序][10]一类的文章后，会发现似乎用户只需复制/粘贴在目标群集的群集清单中显示的值即可。 因此，每个群集的设置都必须是可配置的，但用户通过 [Azure 门户][11]创建群集时，没有用于配置此设置的选项，它始终是“fabric:ImageStore”。 那么，此设置的存在有何作用？
+在某些文档中，我们简单提及存在“ImageStoreConnectionString”参数，但没有介绍它实际意味着什么。 阅读 [使用 PowerShell 部署和删除应用程序][10]之类的文章后，会发现似乎用户只需复制/粘贴在目标群集的群集清单中显示的值即可。 因此，每个群集的设置都必须是可配置的，但用户通过 [Azure 门户][11]创建群集时，没有用于配置此设置的选项，它始终是“fabric:ImageStore”。 那么，此设置的存在有何作用？
 
 ![群集清单][img_cm]
 
-Service Fabric 一开始被许多不同的团队用作 Microsoft 内部消耗平台，因此，其某些方面是高度可自定义的，“映像存储区 (Image Store)”就是这样的存在。 映像存储区实质上是用于存储应用程序包的可插入存储库。 应用程序部署到群集中的节点时，该节点会从映像存储区下载应用程序包的内容。 ImageStoreConnectionString 是一项设置，它包含客户端和节点用于查找给定群集的正确映像存储区的所有必要信息。
+Service Fabric 一开始被许多不同的团队用作 Azure 内部消耗平台，因此，其某些方面是高度可自定义的，“映像存储 (Image Store)”就是这样的存在。 映像存储区实质上是用于存储应用程序包的可插入存储库。 应用程序部署到群集中的节点时，该节点会从映像存储区下载应用程序包的内容。 ImageStoreConnectionString 是一项设置，它包含客户端和节点用于查找给定群集的正确映像存储区的所有必要信息。
 
 目前，有三种可能的映像存储区提供程序类型，这些类型及其对应的连接字符串如下所示：
 
@@ -36,8 +36,7 @@ Service Fabric 一开始被许多不同的团队用作 Microsoft 内部消耗平
 
 2. 文件系统：“file:[file system path]”
 
-3. Azure 存储：“xstore:DefaultEndpointsProtocol=https;AccountName=[...];AccountKey=[...];Container=[...];EndpointSuffix=core.chinacloudapi.cn”
-<!-- Add the EndpointSuffix in configuration of EndpointSuffix=core.chinacloudapi.cn -->
+3. Azure 存储：“xstore:DefaultEndpointsProtocol=https;AccountName=[...];AccountKey=[...];Container=[...];EndpointSuffix=core.chinacloudapi.cn”<!-- Add the EndpointSuffix in configuration of EndpointSuffix=core.chinacloudapi.cn -->
 <!-- Notice: core.windows.net to core.chinacloudapi.cn -->
 
 在生产中使用的提供程序类型为映像存储区服务，它是可通过 Service Fabric Explorer 查看的有状态持久化系统服务。 
@@ -50,7 +49,7 @@ Service Fabric 一开始被许多不同的团队用作 Microsoft 内部消耗平
 
 此外，文件系统提供程序和 Azure 存储提供程序都不应用作在多个群集之间共享映像存储的方法 - 这会导致群集配置数据损坏，因为每个群集都可以将冲突数据写入到映像存储。 若要在多个群集之间共享预配的应用程序包，请改用 [sfpkg][12] 文件，可以使用下载 URI 将这些文件上传到任何外部存储。
 
-因此，虽然 ImageStoreConnectionString 是可配置的，但用户通常只使用默认设置。 通过 Visual Studio 发布到 Azure 时，该参数会相应地自动设置。 对于在 Azure 中托管的群集的编程部署，连接字符串始终是“fabric:ImageStore”。 即使有疑问时，也始终可通过 [PowerShell](https://docs.microsoft.com/powershell/servicefabric/vlatest/get-servicefabricclustermanifest)、[.NET](https://msdn.microsoft.com/library/azure/mt161375.aspx) 或 [REST](https://docs.microsoft.com/rest/api/servicefabric/get-a-cluster-manifest) 检索群集清单来验证其值。 同样，本地测试和生产群集应始终配置为使用映像存储区服务提供程序。
+因此，虽然 ImageStoreConnectionString 是可配置的，但只使用默认设置。 通过 Visual Studio 发布到 Azure 时，该参数会相应地自动设置。 对于在 Azure 中托管的群集的编程部署，连接字符串始终是“fabric:ImageStore”。 即使有疑问时，也始终可通过 [PowerShell](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclustermanifest)、[.NET](https://msdn.microsoft.com/library/azure/mt161375.aspx) 或 [REST](https://docs.microsoft.com/rest/api/servicefabric/get-a-cluster-manifest) 检索群集清单来验证其值。 同样，本地测试和生产群集应始终配置为使用映像存储区服务提供程序。
 
 ### <a name="next-steps"></a>后续步骤
 [使用 PowerShell 部署和删除应用程序][10]
@@ -63,4 +62,4 @@ Service Fabric 一开始被许多不同的团队用作 Microsoft 内部消耗平
 [11]: service-fabric-cluster-creation-via-portal.md
 [12]: service-fabric-package-apps.md#create-an-sfpkg
 
-<!--Update_Description: update meta properties  -->
+<!--Update_Description: update meta properties, wording update  -->

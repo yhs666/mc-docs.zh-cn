@@ -1,5 +1,5 @@
 ---
-title: 基于执行组件的 Azure 微服务生命周期概述 | Azure
+title: 概述 Azure Service Fabric 执行组件生命周期 | Azure
 description: 介绍 Service Fabric Reliable Actor 生命周期、垃圾回收和如何手动删除执行组件及其状态
 services: service-fabric
 documentationcenter: .net
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 10/06/2017
-ms.date: 05/28/2018
+ms.date: 10/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: fea5e3c9d7009b95d49917bb40df4796db165ade
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: 3f997cfe9ce2cc7739147ed9c322679162451720
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554223"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49089015"
 ---
 # <a name="actor-lifecycle-automatic-garbage-collection-and-manual-delete"></a>执行组件生命周期、自动垃圾回收和手动删除
 首次调用执行组件的任何方法时即可激活该执行组件。 如果在可配置的一段时间内未使用执行组件，则此执行组件将停用（执行组件运行时对其进行垃圾回收）。 还可以在任何时候手动删除执行组件及其状态。
@@ -53,7 +53,7 @@ ms.locfileid: "34554223"
 * 正在调用的 `IRemindable.ReceiveReminderAsync` 方法（仅当执行组件使用提醒时该方法才可用）
 
 > [!NOTE]
-> 如果执行组件使用计时器，且计时器回调得到调用，则不计为“正在使用”。
+> 如果该执行组件使用计时器并且调用了其计时器回调，则**不**将其视为“正在使用”。
 >
 >
 
@@ -129,4 +129,4 @@ public class Program
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-lifecycle/garbage-collection.png
 
-<!--Update_Description: update meta properties, wording update  -->
+<!--Update_Description: update meta properties -->

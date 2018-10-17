@@ -1,27 +1,26 @@
 ---
-title: 比较 Azure AD 中的默认用户权限 | Microsoft Docs
-description: 比较成员、来宾、应用所有者和组所有者的权限
+title: Azure Active Directory 中的默认用户权限是什么？ | Microsoft Docs
+description: 了解 Azure Active Directory 中提供的不同用户权限。
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
-editor: ''
 ms.service: active-directory
-ms.workload: identity
 ms.component: fundamentals
-ms.topic: overview
+ms.workload: identity
+ms.topic: conceptual
 origin.date: 01/29/2018
-ms.date: 08/07/2018
+ms.date: 10/09/2018
 ms.author: v-junlch
 ms.reviewer: vincesm
-ms.openlocfilehash: c5959d767b7d327ea2f6094c011b0fbb0fb8b476
-ms.sourcegitcommit: 7cdf4633aea04e524cb48cb1990b750ae8be841c
+custom: it-pro
+ms.openlocfilehash: 48b451453e187586702a6cac01baff2eea4d72a9
+ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39584286"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913863"
 ---
-# <a name="default-user-permissions-in-azure-active-directory"></a>Azure Active Directory 中的默认用户权限
+# <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Azure Active Directory 中的默认用户权限是什么？
 
 在 Azure Active Directory (Azure AD) 中，所有用户都被授予一组默认权限。 用户的访问权限由用户的类型、其[角色成员身份](/active-directory/active-directory-users-assign-role-azure-portal)及其对单个对象的所有权构成。 本文将会介绍这些默认权限，并将成员和来宾用户的默认权限进行比较。
 
@@ -49,7 +48,7 @@ Directory | 读取所有公司信息<br>读取所有域<br>读取所有合作伙
 ---------- | ------------
 能够创建安全组 | 将此选项设置为“否”可阻止用户创建安全组。 全局管理员和用户帐户管理员仍可创建安全组。 
 能够创建 Office 365 组 | 将此选项设置为“否”可阻止用户创建 Office 365 组。 将此选项设置为“某些”可让选定的一组用户创建 Office 365 组。 全局管理员和用户帐户管理员仍可创建 Office 365 组。 
-限制访问 Azure AD 管理门户 | 将此选项设置为“否”可阻止用户访问 Azure Active Directory 门户。
+限制访问 Azure AD 管理门户 | 将此选项设置为“否”可阻止用户访问 Azure Active Directory。
 能够读取其他用户 | 此设置仅可在 PowerShell 中使用。 将此设置为 $false 可阻止所有非管理员用户从目录读取用户信息。 这不会阻止读取其他 Microsoft 服务（如 Exchange Online）中的用户信息。 此设置适用于特殊情况，因此不建议将此设置为 $false。
 
 ## <a name="object-ownership"></a>对象所有权
@@ -67,7 +66,8 @@ When a user adds a new enterprise application, they are automatically added as a
 
 ## <a name="next-steps"></a>后续步骤
 
-- 若要了解有关如何在 Azure 中控制资源访问的详细信息，请参阅[了解 Azure 中的资源访问权限](../../role-based-access-control/rbac-and-directory-admin-roles.md)
+- 若要详细了解如何分配 Azure AD 管理员角色，请参阅[在 Azure Active Directory 中向用户分配管理员角色](active-directory-users-assign-role-azure-portal.md)
+- 若要详细了解如何在 Azure 中控制资源访问权限，请参阅[了解 Azure 中的资源访问权限](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 - [管理用户](add-users-azure-active-directory.md)
 
 <!-- Update_Description: wording update -->

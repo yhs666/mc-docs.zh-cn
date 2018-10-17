@@ -1,26 +1,26 @@
 ---
-title: 在 Azure Stack 中部署受保护的 Service Fabric 群集 | Azure
+title: 在 Azure Stack 中部署受保护的 Service Fabric 群集 | Microsoft Docs
 description: 了解如何在 Azure Stack 中部署受保护的 Service Fabric 群集
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
-manager: femila
+author: WenJason
+manager: digimbile
 editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-origin.date: 05/08/2018
-ms.date: 08/27/2018
-ms.author: v-junlch
+origin.date: 09/12/2018
+ms.date: 10/15/2018
+ms.author: v-jay
 ms.reviewer: shnatara
-ms.openlocfilehash: fba0e6e8560251a1537c509fe130b8d00e2945be
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.openlocfilehash: ddbddaa8b97d29031f5592fb98bea40a6eb22848
+ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869519"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48848853"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>在 Azure Stack 中部署 Service Fabric 群集
 
@@ -42,8 +42,7 @@ ms.locfileid: "42869519"
 
 2.  **管理客户端证书**这是客户端用于在 Service Fabric 群集中进行身份验证的证书，可以是自签名的证书。 请参阅创建此客户端证书所要满足的[要求](/service-fabric/service-fabric-cluster-security)。
 
-3.  
-  **必须在 Azure Stack 市场中提供以下各项：**
+3.  **必须在 Azure Stack 市场中提供以下各项：**
      - **Windows Server 2016** - 模板使用 Windows Server 2016 映像来创建群集。  
      - **客户脚本扩展** - Microsoft 提供的虚拟机扩展。  
      - **PowerShell Desired Stage Configuration** - Microsoft 提供的虚拟机扩展。
@@ -122,7 +121,7 @@ ms.locfileid: "42869519"
 
 ## <a name="deploy-the-marketplace-item"></a>部署市场项
 
-1. 在用户门户中，转到“新建” > “计算” > “Service Fabric 群集”。 
+1. 在用户门户中，转到“+ 创建资源” > “计算” > “Service Fabric 群集”。 
 
    ![选择“Service Fabric 群集”](./media/azure-stack-solution-template-service-fabric-cluster/image2.png)
 

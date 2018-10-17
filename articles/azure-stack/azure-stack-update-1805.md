@@ -1,10 +1,10 @@
 ---
-title: Azure Stack 1805 更新 | Azure
+title: Azure Stack 1805 更新 | Microsoft Docs
 description: 了解 Azure Stack 集成系统 1805 更新的新增功能，包括已知问题和更新下载位置。
 services: azure-stack
 documentationcenter: ''
-author: brenduns
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/01/2018
-ms.date: 08/27/2018
-ms.author: v-junlch
+origin.date: 08/27/2018
+ms.date: 10/15/2018
+ms.author: v-jay
 ms.reviewer: justini
-ms.openlocfilehash: 4a8b270afe597933583c45fece9d59c483cdbbba
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.openlocfilehash: 7b34bcb972bb4a6a436008416055ab954dc371b7
+ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869498"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48848865"
 ---
 # <a name="azure-stack-1805-update"></a>Azure Stack 1805 更新
 
@@ -92,6 +92,8 @@ Azure Stack 1805 更新内部版本号为 **1.1805.1.47**。
 下面是此内部版本的安装后已知问题。
 
 ### <a name="portal"></a>门户  
+- <!-- 2931230 – IS  ASDK --> 即使从用户订阅中删除计划，也无法删除作为附加计划添加到用户订阅的计划。 该计划将一直保留，直到引用附加计划的订阅也被删除。 
+
 - <!-- TBD - IS ASDK --> 不能通过将 OEM 扩展包用于此版本的 Azure Stack 来应用驱动程序更新。  对于此问题，目前没有解决方法。
 
 - <!-- 2551834 - IS, ASDK --> 在管理员门户或用户门户中选择存储帐户的“概述”时，“概要”窗格中的信息不会显示。  “概要”窗格显示有关帐户的信息，例如其资源组、位置和订阅 ID。  可以访问“概述”中的其他选项，例如“服务”和“监视”，以及“在资源管理器中打开”或“删除存储帐户”。 

@@ -1,28 +1,26 @@
 ---
-title: 了解 Azure 标识 | Microsoft Docs
-description: 大致了解 Azure 标识解决方案的术语、概念和建议，以便为组织做出最明智的标识监管决策。
-keywords: ''
+title: 什么是 Azure 标识？ | Microsoft Docs
+description: 了解 Azure 标识解决方案的术语、概念和建议，以便为组织做出最明智的标识监管决策。
+services: active-directory
 author: eross-msft
 manager: mtillman
-ms.reviewer: jsnow
-ms.author: v-junlch
-origin.date: 07/17/2017
-ms.date: 08/29/2018
-ms.topic: overview
-ms.prod: ''
-ms.service: azure-directory
+ms.service: active-directory
 ms.component: fundamentals
-ms.technology: ''
-ms.assetid: ''
-ms.custom: it-pro
-ms.openlocfilehash: 05c66a75a926b736c04c4eeedf8c7c2deed05df1
-ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
+ms.workload: identity
+ms.topic: conceptual
+origin.date: 07/17/2017
+ms.date: 10/09/2018
+ms.author: v-junlch
+ms.reviewer: jsnow
+custom: it-pro
+ms.openlocfilehash: 685a6fde9598d61d115aa2a5b282f3ce3f641ee3
+ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43164896"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913787"
 ---
-# <a name="understand-azure-identity-solutions"></a>了解 Azure 标识解决方案
+# <a name="what-is-azure-identity"></a>什么是 Azure 标识？
 Azure Active Directory (Azure AD) 是一个标识和访问管理云解决方案，它提供目录服务、标识监管和应用程序访问管理功能。 
 
 在创建 Azure 订阅时，单个 Azure AD 目录自动与其进行关联。 然后，作为 Azure 中的标识服务，Azure AD 为基于云的资源提供所有标识管理和访问控制功能。 这些资源可能包括个体租户（组织）的用户、应用和组，如下图中所示：

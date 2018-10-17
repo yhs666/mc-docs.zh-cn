@@ -1,25 +1,25 @@
 ---
-title: 管理 Azure Stack 中的 API 版本配置文件 | Azure
+title: 管理 Azure Stack 中的 API 版本配置文件 | Microsoft Docs
 description: 了解 Azure Stack 中的 API 版本配置文件。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
-manager: femila
+author: WenJason
+manager: digimobile
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/15/2018
-ms.date: 08/27/2018
-ms.author: v-junlch
+origin.date: 09/17/2018
+ms.date: 10/15/2018
+ms.author: v-jay
 ms.reviewer: sijuman
-ms.openlocfilehash: 31ae688168507a82a6425be2fe1646a8468fe7c3
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.openlocfilehash: 8325b87919349912eebabc3b171f706b9cfb21e5
+ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869468"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48848841"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack"></a>管理 Azure Stack 中的 API 版本配置文件
 
@@ -47,7 +47,7 @@ API 配置文件指定 Azure 资源提供程序和 Azure REST 终结点的 API �
     每两年发布一次，此版本注重于跨多个云的一致性和稳定性。 此配置文件以实现最佳 Azure Stack 兼容性为目标。
     - **yyyy-mm-dd-profile** 介于最佳稳定性与最新功能之间。
 
-### <a name="azure-api-profiles-and-azure-stack-compatibility"></a>Azure API 配置文件和 Azure Stack 兼容性
+## <a name="azure-api-profiles-and-azure-stack-compatibility"></a>Azure API 配置文件和 Azure Stack 兼容性
 
 最新 Azure API 配置文件与 Azure Stack 不兼容。 可以使用以下命名约定来标识要将哪些配置文件用于 Azure Stack 解决方案。
 
@@ -68,7 +68,7 @@ Azure Stack 不使用全球 Azure 中提供的最新版 API。 在创建解决�
 
 API 配置文件可与使用 Azure 资源管理器的工具（例如 PowerShell、Azure CLI、SDK 中提供的代码，以及 Microsoft Visual Studio）配合运行。 工具和 SDK 可以使用配置文件来读取生成应用程序时要包含的模块和库的版本。
 
-例如，如果使用 PowerShell 以支持 api-version 2016-03-30 的 **Microsoft.Storage** 资源提供程序创建存储帐户，并使用 api-version 为 2015-12-01 的 Microsoft.Compute 资源提供程序创建 VM，则需要查看哪个 PowerShell 模块支持将 2016-03-30 用于存储，以及哪个模块支持将 2015-02-01 用于计算，然后安装这两个模块。 可以改用配置文件。 使用 cmdlet **Install-Profile *profilename***，然后 PowerShell 会加载正确的模块版本。
+例如，如果通过 PowerShell 使用支持 api-version 2016-03-30 的 **Microsoft.Storage** 资源提供程序创建存储帐户，并使用 api-version 为 2015-12-01 的 Microsoft.Compute 资源提供程序创建 VM，则需要查看哪个 PowerShell 模块支持将 2016-03-30 用于存储，以及哪个模块支持将 2015-02-01 用于计算，然后安装这两个模块。 可以改用配置文件。 使用 cmdlet **Install-Profile *profilename***，然后 PowerShell 会加载正确的模块版本。
 
 同样，在使用 Python SDK 生成基于 Python 的应用程序时，可以指定配置文件。 SDK 将为脚本中指定的资源提供程序加载正确的模块。
 

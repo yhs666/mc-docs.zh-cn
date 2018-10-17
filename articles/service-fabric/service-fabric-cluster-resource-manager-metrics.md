@@ -1,5 +1,5 @@
 ---
-title: 使用指标管理 Azure 微服务负载 | Azure
+title: 使用指标管理 Azure Service Fabric 应用负载 | Azure
 description: 了解如何在 Service Fabric 中配置和使用指标管理服务资源消耗。
 services: service-fabric
 documentationcenter: .net
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/18/2017
-ms.date: 08/20/2018
+ms.date: 10/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: a6a6f34b403d0d5c4a96527d34cc5a0b046291d2
-ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
+ms.openlocfilehash: bd44f2fd0f2b85d79d4b05d84deda072304d1cbd
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41705170"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49089236"
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>在 Service Fabric 中使用指标管理资源消耗和负载
 指标是服务关切的、由群集中的节点提供的资源。 指标是要进行管理以提升或监视服务性能的任何信息。 例如，可能需要监视内存消耗量以了解服务是否过载。 另一个用途是确定服务是否可以移动到内存较少受限的其他位置，以便获得更佳性能。
@@ -266,7 +266,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 ## <a name="next-steps"></a>后续步骤
 - 有关服务配置的详细信息，请参阅[了解如何配置服务](service-fabric-cluster-resource-manager-configure-services.md)(service-fabric-cluster-resource-manager-configure-services.md)
 - 定义碎片整理指标是合并（而不是分散）节点上负载的一种方式。若要了解如何配置碎片整理，请参阅[此文](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
-- 若要了解群集 Resource Manager 如何管理和均衡群集中的负载，请查看有关[均衡负载](service-fabric-cluster-resource-manager-balancing.md)的文章
+- 若要了解群集 Resource Manager 如何管理和均衡群集中的负载，请查看有关 [均衡负载](service-fabric-cluster-resource-manager-balancing.md)
 - 从头开始并[获取 Service Fabric 群集 Resource Manager 简介](service-fabric-cluster-resource-manager-introduction.md)
 - 移动成本是向群集 Resource Manager 发出信号，表示移动某些服务比移动其他服务会产生更高成本的方式之一。 若要了解有关移动成本的详细信息，请参阅[此文](service-fabric-cluster-resource-manager-movement-cost.md)
 
@@ -274,5 +274,6 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 [Image2]:./media/service-fabric-cluster-resource-manager-metrics/Service-Fabric-Resource-Manager-Dynamic-Load-Reports.png
 [Image3]:./media/service-fabric-cluster-resource-manager-metrics/cluster-resource-manager-metric-weights-impact.png
 [Image4]:./media/service-fabric-cluster-resource-manager-metrics/cluster-resource-manager-global-vs-local-balancing.png
-<!-- Update_Description: update meta properties -->
+
+<!-- Update_Description: update meta properties, wording update -->
 

@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 02/23/2018
-ms.date: 09/10/2018
+ms.date: 10/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: b63d04c074fde8ee5a60d4c48545f7d6d5c4ed17
-ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
+ms.openlocfilehash: 0f21a841a9b4a502d5dcc2a84894a592e0616dd8
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44515712"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49089064"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>在 Linux 上准备开发环境
 > [!div class="op_single_selector"]
@@ -47,6 +47,8 @@ ms.locfileid: "44515712"
     ```bash
     sudo apt-get install apt-transport-https
     ```
+    
+<!-- Not Available on * Red Hat Enterprise Linux 7.4 (Service Fabric preview support)-->
 
 ## <a name="installation-methods"></a>安装方法
 
@@ -131,6 +133,7 @@ sudo apt-get install servicefabricsdkcommon
  | | DotNetCore | Java | Python | NodeJS | 
 --- | --- | --- | --- |---
 Ubuntu | 2.0.0 | OpenJDK 1.8 | Implicit from npm | 最新 |
+
 <!-- Not Available on RHEL -->
 
 ## <a name="set-up-a-local-cluster"></a>设置本地群集
@@ -163,21 +166,20 @@ Service Fabric 提供基架工具，可以借助此类工具，使用 Yeoman 模
 
 1. 在计算机上安装 Node.js 和 npm。
 
-    * Ubuntu
-        ```bash
-        curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
-        sudo apt-get install -y nodejs 
-        ```
+    ```bash
+    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
+    nvm install node
+    ```
 2. 通过 npm 在计算机上安装 [Yeoman](http://yeoman.io/) 模板生成器。
 
     ```bash
-    sudo npm install -g yo
+    npm install -g yo
     ```
 3. 通过 npm 安装 Service Fabric Yeo 容器生成器和来宾可执行文件生成器。
 
     ```bash
-    sudo npm install -g generator-azuresfcontainer  # for Service Fabric container application
-    sudo npm install -g generator-azuresfguest      # for Service Fabric guest executable application
+    npm install -g generator-azuresfcontainer  # for Service Fabric container application
+    npm install -g generator-azuresfguest      # for Service Fabric guest executable application
     ```
 
 安装生成器后，可通过运行 `yo azuresfguest` 或 `yo azuresfcontainer` 分别创建来宾可执行文件或容器服务。
@@ -197,10 +199,10 @@ Service Fabric 提供基架工具，可以借助此类工具，使用 Yeoman 模
     sudo apt-get install gradle
     ```
 
-还需要为 Java 可执行文件安装 Service Fabric Yeo 生成器。 确保已安装 [Yeoman](#set-up-yeoman-generators-for-containers-and-guest-executables)，然后运行以下命令：
+<!-- Not Available on * Red Hat Enterprise Linux 7.4 (Service Fabric preview support)--> 还需要为 Java 可执行文件安装 Service Fabric Yeo 生成器。 确保已安装 [Yeoman](#set-up-yeoman-generators-for-containers-and-guest-executables)，然后运行以下命令：
 
   ```bash
-  sudo npm install -g generator-azuresfjava
+  npm install -g generator-azuresfjava
   ```
 
 ## <a name="install-the-eclipse-plug-in-optional"></a>安装 Eclipse 插件（可选）
@@ -218,7 +220,7 @@ Service Fabric 提供基架工具，可以借助此类工具，使用 Yeoman 模
 
 3. 在“使用”框中，输入 **http://dl.microsoft.com/eclipse**。
 
-4. 选择 **添加** 。
+4. 选择“设置” （应用程序对象和服务主体对象）。
 
     ![“可用软件”页][sf-eclipse-plugin]
 
@@ -250,10 +252,11 @@ sudo apt-get install servicefabric servicefabricsdkcommon
 
     ```bash
     sudo apt-get remove servicefabric servicefabicsdkcommon
-    sudo npm uninstall generator-azuresfcontainer
-    sudo npm uninstall generator-azuresfguest
+    npm uninstall -g generator-azuresfcontainer
+    npm uninstall -g generator-azuresfguest
     sudo apt-get install -f
     ```
+<!-- Not Available on * Red Hat Enterprise Linux 7.4 (Service Fabric preview support)-->
 
 ## <a name="next-steps"></a>后续步骤
 

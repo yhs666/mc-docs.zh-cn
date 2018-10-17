@@ -1,5 +1,5 @@
 ---
-title: 启动和停止群集节点以测试 Azure 微服务 | Azure
+title: 启动和停止群集节点以测试 Azure Service Fabric 应用 | Azure
 description: 通过启动和停止集群节点，了解如何使用错误注入来测试 Service Fabric 应用程序。
 services: service-fabric
 documentationcenter: .net
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 06/12/2017
-ms.date: 05/28/2018
+ms.date: 10/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0643277c3d19411365388d707f6345d2c232a03d
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: fe3c69c74b7c16f45e9313b00d525a7f16c8e147
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554433"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49089080"
 ---
 # <a name="replacing-the-start-node-and-stop-node-apis-with-the-node-transition-api"></a>将启动节点 API 和停止节点 API 替换为节点转换 API
 
@@ -44,7 +44,7 @@ ms.locfileid: "34554433"
 
 如果调用节点转换 API 后未引发异常，则表示系统已接受异步操作，将执行该操作。  成功的调用并不意味着操作已完成。  若要获取有关当前操作状态的信息，请结合针对此操作调用节点转换 API 时使用的 guid 调用节点转换进度 API（在托管环境中为 [GetNodeTransitionProgressAsync()][gntp]）。  节点转换进度 API 返回 NodeTransitionProgress 对象。  此对象的 State 属性指定当前操作状态。  如果状态为“Running”，则表示该操作正在执行。  如果状态为“Completed”，则表示该操作已完成且未出错。  如果状态为“Faulted”，则表示执行该操作时出现问题。  Result 属性的 Exception 属性会指示具体的问题。  有关 State 属性的详细信息，请参阅 https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.testcommandprogressstate；有关代码示例，请参阅下面的“示例用法”部分。
 
-**区分停止的节点和关闭的节点**如果使用节点转换 API *停止*某个节点，节点查询（在托管环境中为 [GetNodeListAsync()][nodequery]，在 PowerShell 中为 [Get-ServiceFabricNode][nodequeryps]）的输出将显示此节点的 *IsStopped* 属性值为 true。  请注意，这与 *NodeStatus* 属性的值不同，后者显示 *Down*。  如果 *NodeStatus* 属性的值为 *Down*，但 *IsStopped* 为 false，则表示未使用节点转换 API 停止该节点，而是出于其他原因而使该节点处于*关闭*状态。  如果 *IsStopped* 属性为 true，*NodeStatus* 属性为 *Down*，则表示已使用节点转换 API 停止该节点。
+**区分停止的节点和关闭的节点**如果使用节点转换 API *停止*某个节点，节点查询（在托管环境中为 [GetNodeListAsync()][nodequery]，在 PowerShell 中为 [Get-ServiceFabricNode][nodequeryps]）的输出将显示此节点的 *IsStopped* 属性值为 true。  请注意，这与 *NodeStatus* 属性的值不同，后者显示 *Down*。  如果 *NodeStatus* 属性的值为 *Down*，但 *IsStopped* 为 false，则表示未使用节点转换 API 停止该节点，而是由于其他某个原因而使该节点处于*关闭*状态。  如果 *IsStopped* 属性为 true，*NodeStatus* 属性为 *Down*，则表示已使用节点转换 API 停止该节点。
 
 使用节点转换 API 启动 *停止的* 节点可让它重新成为群集的正常成员。  节点查询 API 的输出将显示 *IsStopped* 为 false，*NodeStatus* 为除 Down 以外的某个值（例如 Up）。
 
@@ -281,7 +281,8 @@ ms.locfileid: "34554433"
 [startnode]: https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.faultmanagementclient?redirectedfrom=MSDN#System_Fabric_FabricClient_FaultManagementClient_StartNodeAsync_System_String_System_Numerics_BigInteger_System_String_System_Int32_System_Fabric_CompletionMode_System_Threading_CancellationToken_
 [startnodeps]: https://msdn.microsoft.com/library/mt163520.aspx
 [nodequery]: https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.fabricclient.queryclient?view=azure-dotnet#System_Fabric_FabricClient_QueryClient_GetNodeListAsync_System_String_
-[nodequeryps]: https://docs.microsoft.com/powershell/servicefabric/vlatest/Get-ServiceFabricNode?redirectedfrom=msdn
+[nodequeryps]: https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnode
 [snt]: https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.fabricclient.testmanagementclient?view=azure-dotnet#System_Fabric_FabricClient_TestManagementClient_StartNodeTransitionAsync_System_Fabric_Description_NodeTransitionDescription_System_TimeSpan_System_Threading_CancellationToken_
 [gntp]: https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.testmanagementclient#System_Fabric_FabricClient_TestManagementClient_GetNodeTransitionProgressAsync_System_Guid_System_TimeSpan_System_Threading_CancellationToken_
+
 <!-- Update_Description: update meta properties, wording update -->

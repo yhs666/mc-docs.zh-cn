@@ -1,5 +1,5 @@
 ---
-title: 基于 Azure Stack 的应用服务 Update 3 发行说明 | Azure
+title: 基于 Azure Stack 的应用服务 Update 3 发行说明 | Microsoft Docs
 description: 了解基于 Azure Stack 的应用服务 Update 3 的功能、已知问题和更新下载位置。
 services: azure-stack
 documentationcenter: ''
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/20/2018
-ms.date: 08/27/2018
+ms.date: 10/15/2018
 ms.author: v-jay
 ms.reviewer: brenduns
-ms.openlocfilehash: 13daae4d40685fdf10523eca7f598b82ab744710
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.openlocfilehash: c738ae8f542efe1f100cfd264fdcc21f51d24bd9
+ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869678"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48848843"
 ---
 # <a name="app-service-on-azure-stack-update-3-release-notes"></a>基于 Azure Stack 的应用服务 Update 3 发行说明
 
@@ -85,7 +85,7 @@ ms.locfileid: "42869678"
 >
 >
 
-1. [将数据库添加到可用性组](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database)
+1. [将 AppService 数据库（appservice_hosting 和 appservice_metering）添加到可用性组](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database)
 
 1. 启用包含的数据库
     ```sql
@@ -179,6 +179,21 @@ ms.locfileid: "42869678"
     ```sql
         SELECT containment FROM sys.databases WHERE NAME LIKE (SELECT DB_NAME())
     ```
+
+### <a name="known-issues-post-installation"></a>已知问题（安装后）
+
+- 当应用服务部署在现有虚拟网络中并且文件服务器仅在专用网络上可用时，工作人员将无法访问文件服务器。  在 Azure Stack 部署文档的 Azure 应用服务中也提到了这一点。
+
+如果选择部署到现有虚拟网络和内部 IP 地址以连接到文件服务器，则必须添加出站安全规则，以便在工作子网和文件服务器之间启用 SMB 流量。 为此，请转到管理门户中的 WorkersNsg 并添加具有以下属性的出站安全规则：
+ * 源：任何
+ * 源端口范围：*
+ * 目标：IP 地址
+ * 目标 IP 地址范围：文件服务器的 IP 范围
+ * 目标端口范围：445
+ * 协议：TCP
+ * 操作：允许
+ * 优先级：700
+ * 名称：Outbound_Allow_SMB445
 
 ### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>云管理员在操作基于 Azure Stack 的 Azure 应用服务时的已知问题
 

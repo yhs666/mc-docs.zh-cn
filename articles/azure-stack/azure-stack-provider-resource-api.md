@@ -3,29 +3,29 @@ title: 提供者资源使用情况 API | Microsoft Docs
 description: 资源使用情况 API 的参考，该 API 用于检索 Azure Stack 使用情况信息
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/22/2018
-ms.date: 07/20/2018
-ms.author: v-junlch
+origin.date: 08/24/2018
+ms.date: 10/15/2018
+ms.author: v-jay
 ms.reviewer: alfredop
-ms.openlocfilehash: 442fec3fae59454e18b25ee6b332d1cc730323a8
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.openlocfilehash: 50d07c6f68dbc39516dc5eff889d18a7ee5021c5
+ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168263"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48848807"
 ---
 # <a name="provider-resource-usage-api"></a>提供商资源使用情况 API
 “提供者”一词适用于服务管理员和任何委派的提供者。 Azure Stack 操作员和委派的提供者可使用提供者使用情况 API，查看其直接租户的使用情况。 例如，如图中所示，P0 可以调用提供者 API，以获取 P1 和 P2 直接使用的使用情况信息；而 P1 可以调用以获取 P3 和 P4 的使用情况信息。
 
-![提供者层次结构的概念模型](./media/azure-stack-provider-resource-api/image1.png)
+![提供者层次结构的概念模型](media/azure-stack-provider-resource-api/image1.png)
 
 ## <a name="api-call-reference"></a>API 调用参考
 ### <a name="request"></a>请求
@@ -94,15 +94,32 @@ meterID1",
 
 ## <a name="retrieve-usage-information"></a>检索使用情况信息
 
+### <a name="powershell"></a>PowerShell
+
 若要生成使用情况数据，你应当有正在运行且在主动使用系统的资源，例如，活动虚拟机或包含某些数据的存储帐户，等等。如果不确定你是否有任何资源在 Azure Stack 市场中运行，请部署一个虚拟机 (VM)，并验证 VM 监视边栏选项卡以确保它正在运行。 使用以下 PowerShell cmdlet 来查看使用情况数据：
 
 1. [安装适用于 Azure Stack 的 PowerShell。](azure-stack-powershell-install.md)
 2. [配置 Azure Stack 用户的](user/azure-stack-powershell-configure-user.md)或 [Azure Stack 操作员的](azure-stack-powershell-configure-admin.md) PowerShell 环境 
 3. 若要检索使用情况数据，请使用 [Get-UsageAggregates](https://docs.microsoft.com/powershell/module/azurerm.usageaggregates/get-usageaggregates) PowerShell cmdlet：
-    
-    ```powershell
-    Get-UsageAggregates -ReportedStartTime "<Start time for usage reporting>" -ReportedEndTime "<end time for usage reporting>" -AggregationGranularity <Hourly or Daily>
-    ```
+```powershell
+Get-UsageAggregates -ReportedStartTime "<Start time for usage reporting>" -ReportedEndTime "<end time for usage reporting>" -AggregationGranularity <Hourly or Daily>
+```
+### <a name="rest-api"></a>REST API
+
+可以通过调用 Microsoft.Commerce.Admin 服务来收集已删除订阅的使用信息。 
+
+**若要为活动用户返回已删除的所有租户使用情况：**
+
+| **方法** | **请求 URI** |
+| --- | --- |
+| GET | https://{armendpoint}/subscriptions/{subId}/providersMicrosoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={start-time}&reportedEndTime={end-endtime}&aggregationGranularity=Hourly&api-version=2015-06-01-preview |
+
+**若要返回已删除或活动租户的使用情况：**
+
+| **方法** | **请求 URI** |
+| --- | --- |
+| GET |https://{armendpoint}/subscriptions/{subId}/providersMicrosoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={start-time}&reportedEndTime={end-endtime}&aggregationGranularity=Hourly&subscriberId={subscriber-id}&api-version=2015-06-01-preview |
+
 
 ## <a name="next-steps"></a>后续步骤
 [租户资源使用情况 API 参考](azure-stack-tenant-resource-usage-api.md)

@@ -1,26 +1,27 @@
 ---
-title: Azure SQL 数据库托管实例概述 | Azure
+title: Azure SQL 数据库托管实例概述 | Microsoft Docs
 description: 本主题介绍 Azure SQL 数据库托管实例，解释其工作原理，并说明它与 Azure SQL 数据库中的单一数据库的差别。
 services: sql-database
-author: yunan2016
+author: WenJason
 ms.reviewer: carlrab
 manager: digimobile
 ms.service: sql-database
+ms.subservice: managed-instance
 ms.custom: DBs & servers
-ms.topic: article
-origin.date: 07/16/2018
-ms.date: 08/06/2018
-ms.author: v-nany
-ms.openlocfilehash: 02c9189d5df5fe8c3187a9f1f8b430889d4039fe
-ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
+ms.topic: conceptual
+origin.date: 09/14/2018
+ms.date: 10/15/2018
+ms.author: v-jay
+ms.openlocfilehash: ee40dafff2dbe3b60ba91312341a5af732e11841
+ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39486954"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913816"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>什么是托管实例（预览版）？
 
-Azure SQL 数据库托管实例（预览版）是 Azure SQL 数据库的一项新功能，几乎与本地 SQL Server（Enterprise Edition）100% 兼容。它提供一个本机[虚拟网络 (VNet)](../virtual-network/virtual-networks-overview.md) 实现来解决常见的安全问题，并提供本地 SQL Server 客户惯用的[业务模型](https://www.azure.cn/pricing/details/sql-database/)。 托管实例允许现有 SQL Server 客户将其本地应用程序即时转移到云中，而只需对应用程序和数据库做出极少量的更改。 同时，托管实例保留了所有 PaaS 功能（自动修补和版本更新、备份、高可用性），可大幅降低管理开销和总拥有成本。
+Azure SQL 数据库托管实例（预览版）是 Azure SQL 数据库的一个新部署模型，几乎与最新的 SQL Server 本地 (Enterprise Edition) 数据库引擎完全兼容。它提供一个本机[虚拟网络 (VNet)](../virtual-network/virtual-networks-overview.md) 实现来解决常见的安全问题，并提供本地 SQL Server 客户惯用的[业务模型](https://azure.cn/pricing/details/sql-database/)。 托管实例允许现有 SQL Server 客户将其本地应用程序即时转移到云中，而只需对应用程序和数据库做出极少量的更改。 同时，托管实例保留了所有 PaaS 功能（自动修补和版本更新、[自动备份](sql-database-automated-backups.md)、[高可用性](sql-database-high-availability.md)），可大幅降低管理开销和总拥有成本。
 
 > [!IMPORTANT]
 > 有关目前支持托管实例的区域列表，请参阅[使用 Azure SQL 数据库托管实例将数据库迁移到完全托管的服务](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/)。
@@ -29,49 +30,13 @@ Azure SQL 数据库托管实例（预览版）是 Azure SQL 数据库的一项�
 
 ![主要功能](./media/sql-database-managed-instance/key-features.png)
 
-可将托管实例视为以下方案的首选平台： 
-
-- 本地 SQL Server/IaaS 客户希望在做出极少量的设计更改的情况下，将其应用程序迁移到完全托管的服务。
-- 依赖于 SQL 数据库的 ISV 希望能够让客户迁移到云中，从而实现明显的竞争优势或者让产品覆盖全球。 
-
 在正式版推出之前，托管实例旨在通过分阶段的发布计划，实现外围应用与最新本地 SQL Server 版本的近乎 100% 的兼容性。 
 
-下表概述了 SQL IaaS、Azure SQL 数据库和 SQL 数据库托管实例之间的主要差别和预期使用方案：
-
-| | 使用方案 | 
-| --- | --- | 
-|SQL 数据库托管实例 |对于想要从本地或 IaaS 迁移大量自我构建的或 ISV 提供的应用，并且希望尽量减少迁移工作量的客户，可能推荐托管实例。   借助软件保障，可以使用 [SQL Server 的 Azure 混合使用权益](../virtual-machines/windows/hybrid-use-benefit-licensing.md)交换现有许可证，以获得 SQL 数据库托管实例的折扣价格。  SQL 数据库托管实例是 SQL Server 实例在云中的最佳迁移目标，需要很高的安全性和丰富的编程接口。 |
-|Azure SQL 数据库（单个或池） |**弹性池**：对于开发新 SaaS 多租户应用程序或有意将现有本地应用转换为 SaaS 多租户应用的客户，建议弹性池。 此模型的优点包括： <br><ul><li>将业务模式从销售许可证转换为销售服务订阅（适用于 ISV）</li></ul><ul><li>简单且高度安全的租户隔离</li></ul><ul><li>以数据库为中心的简化编程模型</li></ul><ul><li>在不超出硬性限制的情况下横向扩展的可能性</li></ul>**单一数据库**：对于想要开发除 SaaS 多租户应用以外的应用，并且其工作负荷较为稳定且可预测的客户，建议单一数据库。 此模型的优点包括：<ul><li>以数据库为中心的简化编程模型</li></ul>  <ul><li>每个数据库的性能可预测</li></ul>|
-|SQL IaaS 虚拟机|对于需要自定义操作系统或数据库服务器，或者在配合 SQL Server 运行第三方应用（在同一 VM 上）方面有特定要求的客户，可以推荐 SQL VM/IaaS 作为最佳解决方案|
-|||
-
-## <a name="how-to-programmatically-identify-a-managed-instance"></a>如何以编程方式标识托管实例
-
-下表显示了可通过 Transact SQL 访问的几个属性。使用这些属性可以检测应用程序是否正在使用托管实例和检索重要属性。
-
-|属性|值|注释|
-|---|---|---|
-|`@@VERSION`|Microsoft SQL Azure (RTM) - 12.0.2000.8 2018-03-07 Copyright (C) 2018 Microsoft Corporation.|此值与 SQL 数据库中的值相同。|
-|`SERVERPROPERTY ('Edition')`|SQL Azure|此值与 SQL 数据库中的值相同。|
-|`SERVERPROPERTY('EngineEdition')`|8|此值唯一标识托管实例。|
-|`@@SERVERNAME`, `SERVERPROPERTY ('ServerName')`|采用以下格式的完整实例 DNS 名称：<instanceName>.<dnsPrefix>.database.chinacloudapi.cn，其中，<instanceName> 是客户提供的名称，<dnsPrefix> 是自动生成的名称部分，保证 DNS 名称的全局唯一性（例如“wcus17662feb9ce98”）|示例：my-managed-instance.wcus17662feb9ce98.database.chinacloudapi.cn|
-
-## <a name="key-features-and-capabilities-of-a-managed-instance"></a>托管实例的主要特性和功能 
-
-> [!IMPORTANT]
-> 托管实例使用最新版 SQL Server 的所有功能（包括联机操作、自动计划更正和其他企业性能增强功能）运行。 
-
-| **PaaS 优势** | **业务连续性** |
-| --- | --- |
-|无需采购和管理硬件 <br>不产生底层基础结构的管理开销 <br>快速预配和服务缩放 <br>自动修补和版本升级 <br>与其他 PaaS 数据服务集成 |99.99% 的运行时间 SLA  <br>内置高可用性 <br>使用自动备份保护数据 <br>客户可配置的备份保留期（公共预览版中固定为 7 天） <br>用户启动的备份 <br>数据库时间点还原功能 |
-|**安全性和符合性** | **管理**|
-|隔离的环境（VNet 集成、单租户服务、专用的计算和存储资源） <br>透明数据加密<br>Azure AD 身份验证、单一登录支持 <br>符合 Azure SQL 数据库遵循的相同法规标准 <br>SQL 审核 <br>威胁检测 |用于自动预配和缩放服务的 Azure 资源管理器 API <br>用于手动预配和缩放服务的 Azure 门户功能 <br>数据迁移服务 
-
-![单一登录](./media/sql-database-managed-instance/sso.png) 
+若要在 Azure SQL 数据库单一数据库和虚拟机中托管的 SQL Server IaaS 之间作出抉择，请参阅[如何在 Azure 云中选择合适的 SQL Server 版本](sql-database-paas-vs-sql-server-iaas.md)。
 
 ## <a name="vcore-based-purchasing-model"></a>基于 vCore 的购买模型
 
-基于 vCore 的购买模型提供了灵活性、控制力和透明性，并且还提供了一种简单明了的方法来将本地工作负荷要求转换到云。 此模型允许根据工作负荷需求来缩放计算、内存和存储资源。 此外，借助[面向 SQL Server 的 Azure 混合使用权益](../virtual-machines/windows/hybrid-use-benefit-licensing.md)，vCore 模型能够节省高达 30% 的费用。
+[基于 vCore 的购买模型](sql-database-service-tiers-vcore.md)提供了灵活性、控制力和透明性，并且还提供了一种简单明了的方法来将本地工作负荷要求转换到云。 此模型允许根据工作负荷需求来缩放计算、内存和存储资源。 此外，借助[面向 SQL Server 的 Azure 混合使用权益](../virtual-machines/windows/hybrid-use-benefit-licensing.md)，vCore 模型能够节省高达 30% 的费用。
 
 虚拟核心表示逻辑 CPU，提供不同代的硬件供客户选择。
 - 第 4 代逻辑 CPU 基于 Intel E5-2673 v3 (Haswell) 2.4 GHz 处理器。
@@ -82,16 +47,18 @@ Azure SQL 数据库托管实例（预览版）是 Azure SQL 数据库的一项�
 ||第 4 代|第 5 代|
 |----|------|-----|
 |硬件|Intel E5-2673 v3 (Haswell) 2.4 GHz 处理器、附加的 SSD vCore = 1 PP（物理核心）|Intel E5-2673 v4 (Broadwell) 2.3 GHz 处理器、快速 eNVM SSD、vCore=1 LP（超线程）|
-|性能级别|8、16、24 个 vCore|8、16、24、32、40、64、80 个 vCore|
+|计算大小|8、16、24 个 vCore|8、16、24、32、40、64、80 个 vCore|
 |内存|每个 vCore 7 GB|每个 vCore 5.5 GB|
 ||||
 
 ## <a name="managed-instance-service-tiers"></a>托管实例服务层
 
 托管实例可在两个服务层中提供：
-- **常规用途**：为具有典型可用性和一般 IO 延迟要求的应用程序设计。
-- **业务关键**：为具有高可用性和低的 IO 延迟要求的应用程序设计。
- 
+- **常规用途**：适用于具有典型性能和 IO 延迟要求的应用程序。
+- **业务关键**：适用于具有低 IO 延迟要求，对工作负荷中基础维护操作影响最低的应用程序。
+
+这两个服务层保证 99.99% 的可用性，可让你独立选择存储大小和计算容量。 有关 Azure SQL 数据库高可用性体系结构的详细信息，请参阅[高可用性和 Azure SQL 数据库](sql-database-high-availability.md)。
+
 > [!IMPORTANT]
 > 在公共预览版中，不支持在常规用途和业务关键服务层之间切换。 如果想要将数据库迁移到不同服务层中的实例，可以创建新实例，从原始实例对数据库进行时间点还原，然后删除不再需要的原始实例。 
 
@@ -99,22 +66,16 @@ Azure SQL 数据库托管实例（预览版）是 Azure SQL 数据库的一项�
 
 以下列表描述了常规用途服务层的主要特征： 
 
-- 针对具有典型性能和高可用性要求的大多数业务应用程序而设计 
+- 适用于具有典型性能要求的大多数业务应用程序 
 - 高性能 Azure 高级存储 (8 TB) 
-- 每个实例支持 100 个数据库 
-
-在此层中，可以单独选择存储和计算容量。 
-
-下图演示了此服务层中的活动计算节点和冗余节点。
- 
-![常规用途服务层](./media/sql-database-managed-instance/general-purpose-service-tier.png) 
+- 每个实例 100 个数据库 
 
 以下列表概述了常规用途服务层的主要特征：
 
 |功能 | 说明|
 |---|---|
 | vCore 数目* | 8、16、24（第 4 代）<br>8、16、24、32、40、64、80（第 5 代）|
-| SQL Server 版本/内部版本 | SQL Server（最新可用版本） |
+| SQL Server 版本/内部版本 | SQL Server 数据库引擎（最新稳定版） |
 | 最小存储大小 | 32 GB |
 | 最大存储大小 | 8 TB |
 | 每个数据库的最大存储 | 由每个实例的最大存储大小决定 |
@@ -122,7 +83,7 @@ Azure SQL 数据库托管实例（预览版）是 Azure SQL 数据库的一项�
 | 每个数据库的数据文件 (ROWS) 数目 | 多个 | 
 | 每个数据库的日志文件 (LOG) 数目 | 1 | 
 | 受管理的自动备份 | 是 |
-| 高可用性 | 基于远程存储和 [Azure Service Fabric](../service-fabric/service-fabric-overview.md) |
+| 高可用性 | 存储在 Azure 存储和 [Azure Service Fabric ](../service-fabric/service-fabric-overview.md) 中的数据 |
 | 内置的实例和数据库监视与指标 | 是 |
 | 自动软件修补 | 是 |
 | VNet - Azure 资源管理器部署 | 是 |
@@ -130,31 +91,33 @@ Azure SQL 数据库托管实例（预览版）是 Azure SQL 数据库的一项�
 | 门户支持 | 是|
 |||
 
+\* 虚拟核心表示逻辑 CPU，提供不同代的硬件供客户选择。 第 4 代逻辑 CPU 基于 Intel E5-2673 v3 (Haswell) 2.4 GHz 处理器，第 5 代逻辑 CPU 基于 Intel E5-2673 v4 (Broadwell) 2.3 GHz 处理器。 
 
-  \* 虚拟核心表示逻辑 CPU，提供不同代的硬件供客户选择。 第 4 代逻辑 CPU 基于 Intel E5-2673 v3 (Haswell) 2.4 GHz 处理器，第 5 代逻辑 CPU 基于 Intel E5-2673 v4 (Broadwell) 2.3 GHz 处理器。 
+有关详细信息，请参阅 [Azure SQL 数据库中的标准/常规用途可用性和体系结构](sql-database-high-availability.md#standardgeneral-purpose-availability)。
 
 ### <a name="business-critical-service-tier"></a>“业务关键”服务层
 
-业务关键服务层适用于具有高 IO 要求的应用程序。 它使用多个 Always On 独立副本，提供最高级别的故障恢复能力。 下图演示了此服务层的基础体系结构：
-
-![“业务关键”服务层](./media/sql-database-managed-instance/business-critical-service-tier.png)  
+业务关键服务层适用于具有高 IO 要求的应用程序。 它使用多个 Always On 独立副本，提供最高级别的故障恢复能力。 
 
 以下列表概述了业务关键服务层的主要特征： 
 -   为具有最严苛性能和 HA 要求的商业应用程序设计 
--   附带超高速 SSD 存储（第 4 代最多 1 TB），每个实例支持最多 100 个数据库 
+-   附带超高速 SSD 存储（第 4 代最多 1 TB，第 5 代最多 4 TB）
+-   每个实例最多支持 100 个数据库 
+- 内置附加的只读实例，可用于报告和其他只读工作负荷
+- [内存中 OLTP](sql-database-in-memory.md)，可用于具有高性能要求的工作负荷  
 
 |功能 | 说明|
 |---|---|
-| vCore 数目* | 8、16、24（第 4 代）|
+| vCore 数目* | 8、16、24、32（第 4 代）<br>8、16、24、32、40、64、80（第 5 代）|
 | SQL Server 版本/内部版本 | SQL Server（最新可用版本） |
 | 其他功能 | [In-Memory OLTP](sql-database-in-memory.md)<br> 1 个额外的只读副本（[读取扩展](sql-database-read-scale-out.md)）
 | 最小存储大小 | 32 GB |
-| 最大存储大小 | 第 4 代：1 TB（所有 vCore 大小）|
+| 最大存储大小 | 第 4 代：1 TB（所有 vCore 大小）<br> 第 5 代：<ul><li>8、16 个 Vcore 1 TB</li><li>24 个 Vcore 2 TB</li><li>32、40、64、80 个 Vcore 4 TB</ul>|
 | 每个数据库的最大存储 | 由每个实例的最大存储大小决定 |
 | 每个数据库的数据文件 (ROWS) 数目 | 多个 | 
 | 每个数据库的日志文件 (LOG) 数目 | 1 | 
 | 受管理的自动备份 | 是 |
-| 高可用性 | 基于 [Always On 可用性组](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server)和 [Azure Service Fabric](../service-fabric/service-fabric-overview.md) |
+| 高可用性 | 数据存储在本地 SSD 中并使用 [Always On 可用性组](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server)和 [Azure Service Fabric](../service-fabric/service-fabric-overview.md) |
 | 内置的实例和数据库监视与指标 | 是 |
 | 自动软件修补 | 是 |
 | VNet - Azure 资源管理器部署 | 是 |
@@ -162,9 +125,11 @@ Azure SQL 数据库托管实例（预览版）是 Azure SQL 数据库的一项�
 | 门户支持 | 是|
 |||
 
+有关详细信息，请参阅 [Azure SQL 数据库中的高级/业务关键可用性和体系结构](sql-database-high-availability.md#premiumbusiness-critical-availability)。
+
 ## <a name="advanced-security-and-compliance"></a>高级安全性和符合性 
 
-### <a name="managed-instance-security-isolation"></a>托管实例安全隔离 
+### <a name="managed-instance-security-isolation-in-azure-china-cloud"></a>Azure 中国云中的托管实例安全隔离 
 
 使用托管实例可以进一步实现与 Azure 云中其他租户的安全隔离。 安全隔离包括： 
 
@@ -175,28 +140,6 @@ Azure SQL 数据库托管实例（预览版）是 Azure SQL 数据库的一项�
 下图概述了应用程序的各种连接选项： 
 
 ![高可用性](./media/sql-database-managed-instance/application-deployment-topologies.png)  
-
-### <a name="auditing-for-compliance-and-security"></a>符合性和安全性审核 
-
-[托管实例审核](sql-database-managed-instance-auditing.md)功能可跟踪数据库事件，并将事件写入 Azure 存储帐户中的审核日志。 借助审核可以保持合规、了解数据库活动，以及深入了解可能指示业务考量因素或疑似安全违规的偏差和异常。 
-
-### <a name="data-encryption-in-motion"></a>动态数据加密 
-
-托管实例提供动态数据加密，使用传输层安全性保护数据。
-
-除传输层安全性以外，SQL 数据库托管实例使用 [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) 在动态、静态和查询处理期间提供敏感数据的保护。 Always Encrypted 是业界首创功能，可针对涉及关键数据被盗的漏洞提供无与伦比的数据安全性。 例如，借助 Always Encrypted，信用卡号即使在查询处理期间也始终加密存储在数据库中，允许经授权员工或需要处理该数据的应用程序在使用时进行解密。 
-
-### <a name="dynamic-data-masking"></a>动态数据屏蔽 
-
-SQL 数据库的[动态数据掩码](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking)功能通过对非特权用户模糊化敏感数据来限制此类数据的泄漏。 动态数据掩码允许指定在对应用层产生最小影响的前提下可以透露的敏感数据量，从而帮助防止未经授权的用户访问敏感数据。 它是一种基于策略的安全功能，会在针对指定的数据库字段运行查询后返回的结果集中隐藏敏感数据，同时保持数据库中的数据不变。 
-
-### <a name="row-level-security"></a>行级别安全性 
-
-使用[行级别安全性](https://docs.microsoft.com/sql/relational-databases/security/row-level-security)可以根据执行查询的用户特征（例如，按组成员身份或执行上下文），控制对数据库表中的行的访问。 行级别安全性 (RLS) 简化了应用程序中的安全性设计和编程。 使用 RLS 可针对数据行访问实施限制。 例如，确保工作人员只能访问与其部门相关的数据行，或者将可访问的数据限制为相关的数据。 
-
-### <a name="threat-detection"></a>威胁检测 
-
-[托管实例威胁检测](sql-database-managed-instance-threat-detection.md)是[托管实例审核](sql-database-managed-instance-auditing.md)的补充，它在服务中提供一个内置的附加安全智能层，用于检测企图访问或使用数据库的异常的潜在有害尝试。 出现可疑活动、潜在漏洞、 SQL 注入攻击和异常数据库访问模式时，它会发出警报。 可在 [Azure 安全中心](https://azure.microsoft.com/services/security-center/)查看威胁检测警报，此警报提供可疑活动的详细信息以及如何调查和缓解威胁的建议操作。  
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Azure Active Directory 集成和多重身份验证 
 
@@ -216,10 +159,6 @@ SQL 数据库身份验证是指用户连接到数据库时如何证明其身份�
 
 托管实例面向需要从本地或 IaaS 数据库实施项目迁移大量数据库的用户方案。 托管实例支持多个数据库迁移选项： 
 
-### <a name="data-migration-service"></a>数据迁移服务
-
-Azure 数据库迁移服务是一项完全托管的服务，旨在实现从多个数据库源到 Azure 数据平台的无缝迁移，并且最小化停机时间。 此服务简化了将现有第三方和 SQL Server 数据库移到 Azure 所要执行的任务。 公共预览版中的部署选项包括 Azure SQL 数据库、托管实例和 Azure VM 中的 SQL Server。 
-
 ### <a name="backup-and-restore"></a>备份和还原  
 
 迁移方法利用从 SQL 到 Azure Blob 存储的备份。 可将 Azure 存储 Blob 中存储的备份直接还原到托管实例。 若要将现有 SQL 数据库还原到托管实例，可以：
@@ -227,10 +166,14 @@ Azure 数据库迁移服务是一项完全托管的服务，旨在实现从多�
 - 使用 [T-SQL RESTORE 命令](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql)。 
   - 有关介绍如何还原 Wide World Importers - 标准数据库备份文件的教程，请参阅[将备份文件还原到托管实例](sql-database-managed-instance-restore-from-backup-tutorial.md)。 本教程介绍如何将备份文件上传到 Azure 博客存储并使用共享访问签名 (SAS) 密钥进行保护。
   - 有关从 URL 还原的信息，请参阅[从 URL 本机还原](sql-database-managed-instance-migrate.md#native-restore-from-url)。
+  
+### <a name="data-migration-service"></a>数据迁移服务
+
+Azure 数据库迁移服务是一项完全托管的服务，旨在实现从多个数据库源到 Azure 数据平台的无缝迁移，并且最小化停机时间。 此服务简化了将现有第三方和 SQL Server 数据库移到 Azure 所要执行的任务。 公共预览版中的部署选项包括 Azure SQL 数据库、托管实例和 Azure VM 中的 SQL Server。
 
 ## <a name="sql-features-supported"></a>支持的 SQL 功能 
 
-在服务正式版推出之前，托管实例旨在通过分阶段的计划，实现外围应用与本地 SQL Server 的近乎 100% 的兼容性。 有关功能和比较列表，请参阅 [SQL 常用功能](sql-database-features.md)。
+在服务正式版推出之前，托管实例旨在通过分阶段的计划，实现外围应用与本地 SQL Server 的近乎 100% 的兼容性。 有关功能和比较列表，请参阅 [SQL 数据库功能比较](sql-database-features.md)。
  
 托管实例支持与 SQL 2008 数据库的向后兼容。 支持从 SQL 2005 数据库服务器直接迁移，迁移后的 SQL 2005 数据库的兼容级别将更新为 SQL 2008。 
  
@@ -254,10 +197,8 @@ Azure 数据库迁移服务是一项完全托管的服务，旨在实现从多�
 
 > [!IMPORTANT]
 > 有关支持、部分支持和不支持的功能列表，请参阅 [SQL 数据库功能](sql-database-features.md)。 有关托管实例与 SQL Server 的 T-SQL 差异列表，请参阅[托管实例与 SQL Server 的 T-SQL 差异](sql-database-managed-instance-transact-sql-information.md)
- 
+
 ## <a name="next-steps"></a>后续步骤
 
 - 有关功能和比较列表，请参阅 [SQL 常用功能](sql-database-features.md)。
 - 有关 VNet 配置的详细信息，请参阅[托管实例 VNet 配置](sql-database-managed-instance-vnet-configuration.md)。
-- 有关创建托管实例以及从备份文件还原数据库的教程，请参阅[创建托管实例](sql-database-managed-instance-create-tutorial-portal.md)。
-

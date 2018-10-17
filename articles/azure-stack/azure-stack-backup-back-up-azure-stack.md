@@ -1,10 +1,10 @@
 ---
-title: 备份 Azure Stack | Azure
+title: 备份 Azure Stack | Microsoft Docs
 description: 在 Azure Stack 上使用备份就地执行按需备份。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: 9565DDFB-2CDB-40CD-8964-697DA2FFF70A
 ms.service: azure-stack
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/01/2017
-ms.date: 08/27/2018
-ms.author: v-junlch
+origin.date: 09/05/2018
+ms.date: 10/15/2018
+ms.author: v-jay
 ms.reviewer: hectorl
-ms.openlocfilehash: cc6b841c4c99fbace9e3dbc0e2ed833320ec959c
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.openlocfilehash: 3bd3ebf8549eef58f9bdcf4b2c5b3ddf877d26ca
+ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869575"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48848889"
 ---
 # <a name="back-up-azure-stack"></a>备份 Azure Stack
 
@@ -82,7 +82,7 @@ ms.locfileid: "42869575"
 使用 Azure Stack 管理门户按照以下步骤验证备份是否已成功完成：
 
 1. 打开 [Azure Stack 管理门户](azure-stack-manage-portals.md)。
-2. 选择“更多服务” > “基础结构备份”。 在“基础结构备份”边栏选项卡中选择“配置”。
+2. 选择“所有服务”，然后在“管理”类别下选择“基础结构备份”。 在“基础结构备份”边栏选项卡中选择“配置”。
 3. 在“可用备份”列表中查找备份的**名称**和**完成日期**。
 4. 验证**状态**是否为“成功”。
 

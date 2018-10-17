@@ -13,24 +13,25 @@ ms.topic: overview
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 09/20/2017
-ms.date: 05/28/2018
+ms.date: 10/15/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: e2b1d1696d887746d38863934635f4beb1734d10
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: 54b68d86a75628875368a38b4de88ef4eff23d8f
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554459"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49089224"
 ---
 # <a name="overview-of-azure-service-fabric"></a>Azure Service Fabric 概述
 Azure Service Fabric 是一款分布式系统平台，可方便用户轻松打包、部署和管理可缩放的可靠微服务和容器。 Service Fabric 还解决了开发和管理云本机应用程序面临的重大难题。 开发人员和管理员不仅可以避免复杂的基础结构问题，而且可以专注于实现可缩放、可靠且可管理的要求苛刻的任务关键型工作负荷。 Service Fabric 代表了下一代平台，用于生成和管理在容器中运行的企业级单层云规模应用程序。
+
 <!-- Not Available Channel9 video href="https://aka.ms/servicefabricvideo" -->
 
 ## <a name="applications-composed-of-microservices"></a>由微服务组成的应用程序 
 利用 Service Fabric，可以生成和管理可缩放的可靠应用程序，其中包括在计算机的共享池（称为“群集”）中高密度运行的微服务。 它提供了复杂的轻型运行时，用于生成在容器中运行且可缩放的无状态和有状态分布式微服务。 它还提供了全面的应用程序管理功能，用于预配、部署、监视、升级/修补和删除已部署的应用程序（包括容器化服务）。
 
-Service Fabric 为当今很多 Microsoft 服务提供技术支持，包括 Azure SQL 数据库、Azure Cosmos DB、Cortana、Microsoft Power BI、Microsoft Intune、Azure 事件中心、Azure IoT 中心、Dynamics 365、Skype for Business 以及其他许多核心 Azure 服务。
+Service Fabric 为当今很多 Azure 服务提供技术支持，包括 Azure SQL 数据库、Azure Cosmos DB、Cortana、Microsoft Power BI、Microsoft Intune、Azure 事件中心、Azure IoT 中心、Dynamics 365、Skype for Business 以及其他许多核心 Azure 服务。
 
 Service Fabric 专为创建云端本机服务而定制，这些服务可以根据需要从小规模开始，并成长为包含数百或数千台计算机的大规模服务。
 
@@ -64,7 +65,7 @@ Service Fabric 支持包含容器的云应用程序具有完整的应用程序�
 
 大多数应用程序都包含无状态和有状态微服务、容器以及同时部署的其他可执行文件。 通过在应用程序上采用强类型，可以使用 Service Fabric 部署多个应用程序实例。 每个实例将单独进行管理和升级。 重点是，Service Fabric 能够部署容器或任何可执行文件，并确保它们的可靠性。 例如，Service Fabric 可部署 .NET、ASP.NET Core、node.js、Windows 容器、Linux 容器、Java 虚拟机、脚本、Angular 或应用程序的其他任何组成部分。
 
-Service Fabric 与 [Visual Studio Team Services](https://www.visualstudio.com/team-services/)、[Jenkins](https://jenkins.io/index.html) 和 [Octopus Deploy](https://octopus.com/) 等 CI/CD 工具集成，并可与其他任何常用 CI/CD 工具配合使用。
+Service Fabric 与 [Azure Pipelines](https://www.visualstudio.com/team-services/)、[Jenkins](https://jenkins.io/index.html) 和 [Octopus Deploy](https://octopus.com/) 等 CI/CD 工具集成，并可与其他任何常用 CI/CD 工具配合使用。
 
 有关应用程序生命周期管理的详细信息，请阅读[应用程序生命周期](service-fabric-application-lifecycle.md)。 若要详细了解如何部署任意代码，请参阅[部署来宾可执行文件](service-fabric-deploy-existing-app.md)。
 
@@ -94,4 +95,4 @@ Service Fabric 与 [Visual Studio Team Services](https://www.visualstudio.com/te
 
 [Image1]: media/service-fabric-overview/Service-Fabric-Overview.png
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, wording update -->

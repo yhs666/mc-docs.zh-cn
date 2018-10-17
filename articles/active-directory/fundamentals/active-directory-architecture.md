@@ -1,28 +1,26 @@
 ---
-title: 了解 Azure AD 体系结构 | Microsoft Docs
-description: 介绍什么是 Azure AD 租户，以及如何通过 Azure AD 管理 Azure。
+title: 什么是 Azure Active Directory 体系结构？ | Microsoft Docs
+description: 了解 Azure Active Directory 租户是什么以及如何通过 Azure Active Directory 管理 Azure。
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
-ms.assetid: ''
 ms.service: active-directory
 ms.component: fundamentals
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: overview
-origin.date: 11/08/2017
-ms.date: 06/22/2018
+ms.topic: conceptual
+origin.date: 08/23/2018
+ms.date: 10/09/2018
 ms.author: v-junlch
-ms.openlocfilehash: c83cf9c39ba90812dde33cdc2b9501862081432f
-ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
+ms.reviewer: jeffsta
+custom: it-pro
+ms.openlocfilehash: 17cdb946c7f9e4dad87ada50ae1b3a5837d78009
+ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36948696"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913847"
 ---
-# <a name="understand-azure-active-directory-architecture"></a>了解 Azure Active Directory 体系结构
+# <a name="what-is-the-azure-active-directory-architecture"></a>什么是 Azure Active Directory 体系结构？
 使用 Azure Active Directory (Azure AD) 可以安全地管理用户对 Azure 服务和资源的访问。 Azure AD 随附了整套标识管理功能。 有关 Azure AD 功能的信息，请参阅[什么是 Azure Active Directory？](/active-directory/active-directory-whatis)
 
 在 Azure AD 中可以创建及管理用户和组，并使用权限来允许和拒绝对企业资源的访问。 
@@ -123,3 +121,4 @@ Azure AD 实施所有数据的每日备份，因此，在发生任何逻辑删�
 [Azure Active Directory 开发人员指南](/active-directory/develop/active-directory-developers-guide)
 
 
+<!-- Update_Description: wording update -->

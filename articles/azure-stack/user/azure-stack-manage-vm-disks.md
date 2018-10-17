@@ -1,10 +1,10 @@
 ---
-title: 在 Azure Stack 中管理 VM 磁盘 | Azure
+title: 在 Azure Stack 中管理 VM 磁盘 | Microsoft Docs
 description: 在 Azure Stack 中为虚拟机预配磁盘。
 services: azure-stack
 documentationcenter: ''
-author: brenduns
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: 4e5833cf-4790-4146-82d6-737975fb06ba
 ms.service: azure-stack
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 08/15/2018
-ms.date: 08/27/2018
-ms.author: v-junlch
+origin.date: 09/05/2018
+ms.date: 10/15/2018
+ms.author: v-jay
 ms.reviewer: jiahan
-ms.openlocfilehash: 4abb25a281f5618f08c8d5215720b4867d1e39c8
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.openlocfilehash: 6f1498c401443b7c5ba0ee6bb3fc43b2d57516df
+ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869481"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48848917"
 ---
 # <a name="provision-virtual-machine-disk-storage-in-azure-stack"></a>在 Azure Stack 中预配虚拟机磁盘存储
 
@@ -31,9 +31,13 @@ ms.locfileid: "42869481"
 
 ## <a name="overview"></a>概述
 
-Azure Stack 支持在虚拟机中使用[非托管磁盘](/virtual-machines/windows/about-disks-and-vhds#unmanaged-disks)作为操作系统 (OS) 磁盘和数据磁盘。
+从版本 1808 开始，Azure Stack 支持在虚拟机上使用托管磁盘和非托管磁盘，作为操作系统 (OS) 磁盘和数据磁盘。 在版本 1808 之前，仅支持非托管磁盘。 
 
-若要使用非托管磁盘，可以创建一个[存储帐户](/storage/common/storage-create-storage-account)来存储磁盘。 你创建的磁盘称为 VM 磁盘并且存储在存储帐户中的容器中。
+**[托管磁盘](https://docs.azure.cn/virtual-machines/windows/about-disks-and-vhds#managed-disks)** 通过管理与 VM 磁盘关联的存储帐户简化了 Azure IaaS VM 的磁盘管理。 只需指定所需的磁盘大小，Azure Stack 即可为你创建和管理磁盘。
+
+**[非托管磁盘](https://docs.azure.cn/virtual-machines/windows/about-disks-and-vhds#unmanaged-disks)**，要求你创建[存储帐户](https://docs.azure.cn/storage/common/storage-create-storage-account)以存储磁盘。 你创建的磁盘称为 VM 磁盘并且存储在存储帐户中的容器中。
+
+ 
 
 ### <a name="best-practice-guidelines"></a>最佳做法准则
 

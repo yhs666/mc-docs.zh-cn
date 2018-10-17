@@ -1,21 +1,22 @@
 ---
-title: 从 Azure blob 加载到 Azure 数据仓库 | Azure
-description: 了解如何使用 PolyBase 将数据从 Azure Blob 存储载入 SQL 数据仓库。 将公共数据中的一些表载入 Contoso 零售数据仓库架构。
+title: 将 Contoso 零售数据加载到 Azure SQL 数据仓库 | Microsoft Docs
+description: 使用 PolyBase 和 T-SQL 命令可将两张表从 Contoso 零售数据加载到 Azure SQL 数据仓库。
 services: sql-data-warehouse
-author: rockboyfor
+author: WenJason
 manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
-origin.date: 10/31/2016
-ms.date: 12/11/2017
-ms.author: v-yeche
-ms.openlocfilehash: 43be4e7d04d8daeaa6953b8af5270922cca21ba3
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+origin.date: 04/17/2018
+ms.date: 10/15/2018
+ms.author: v-jay
+ms.reviewer: igorstan
+ms.openlocfilehash: 927260b47503cf63254d8c9a480e23f2ee24d510
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121582"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49089016"
 ---
 # <a name="load-contoso-retail-data-to-azure-sql-data-warehouse"></a>将 Contoso 零售数据加载到 Azure SQL 数据仓库
 
@@ -45,15 +46,18 @@ PolyBase 使用 T-SQL 外部对象来定义外部数据的位置和属性。 外
 
 CREATE MASTER KEY;
 
+
 -- B: Create a database scoped credential
 -- IDENTITY: Provide any string, it is not used for authentication to Azure storage.
 -- SECRET: Provide your Azure storage account key.
+
 
 CREATE DATABASE SCOPED CREDENTIAL AzureStorageCredential
 WITH
     IDENTITY = 'user',
     SECRET = '<azure_storage_account_key>'
 ;
+
 
 -- C: Create an external data source
 -- TYPE: HADOOP - PolyBase uses Hadoop APIs to access data in Azure blob storage.
@@ -100,7 +104,7 @@ WITH
                     ,    USE_TYPE_DEFAULT = FALSE 
                     )
 );
-```
+``` 
 
 ## <a name="3-create-the-external-tables"></a>3.创建外部表
 指定数据源和文件格式后，可以开始创建外部表。 
@@ -214,7 +218,7 @@ GO
 
 ### <a name="42-load-the-data-into-new-tables"></a>4.2. 将数据加载到新表
 若要从 Azure Blob 存储加载数据并将其保存到数据库中的某个表内，请使用 [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] 语句。 使用 CTAS 进行加载可以利用刚刚创建的强类型化外部表。若要将数据加载到新表，请对每个表使用一个 [CTAS][CTAS] 语句。 
-
+ 
 CTAS 会创建新表，并在该表中填充 select 语句的结果。 CTAS 将新表定义为包含与 select 语句结果相同的列和数据类型。 如果选择了外部表中的所有列，新表将是外部表中的列和数据类型的副本。
 
 在此示例中，我们以哈希分布表的形式创建维度表和事实表。 
@@ -264,7 +268,7 @@ ORDER BY
 ```
 
 ## <a name="5-optimize-columnstore-compression"></a>5.优化列存储压缩
-默认情况下，SQL 数据仓库将表存储为聚集列存储索引。 加载完成后，某些数据行可能未压缩到列存储中。  发生这种情况的原因多种多样。 若要了解详细信息，请参阅 [管理列存储索引][manage columnstore indexes]。
+默认情况下，SQL 数据仓库将表存储为聚集列存储索引。 加载完成后，某些数据行可能未压缩到列存储中。  发生这种情况的原因多种多样。 若要了解详细信息，请参阅[管理列存储索引][管理列存储索引]。
 
 若要在加载后优化查询性能和列存储压缩，请重新生成表，以强制列存储索引压缩所有行。 
 
@@ -276,12 +280,12 @@ ALTER INDEX ALL ON [cso].[DimProduct]               REBUILD;
 ALTER INDEX ALL ON [cso].[FactOnlineSales]          REBUILD;
 ```
 
-有关维护列存储索引的详细信息，请参阅 [管理列存储索引][manage columnstore indexes] 一文。
+有关维护列存储索引的详细信息，请参阅[管理列存储索引][管理列存储索引]一文。
 
 ## <a name="6-optimize-statistics"></a>6.优化统计信息
 最好是在加载之后马上创建单列统计信息。 对于统计信息，可以使用多个选项。 例如，如果针对每个列创建单列统计信息，则重新生成所有统计信息可能需要花费很长时间。 如果知道某些列不会在查询谓词中使用，可以不创建有关这些列的统计信息。
 
-如果决定针对每个表的每个列创建单列统计信息，可以使用[统计信息][statistics]一文中的存储过程代码示例 `prc_sqldw_create_stats`。
+如果决定针对每个表的每个列创建单列统计信息，可以使用[统计信息][统计信息]一文中的存储过程代码示例 `prc_sqldw_create_stats`。
 
 以下示例是创建统计信息的不错起点。 它会针对维度表中的每个列以及事实表中的每个联接列创建单列统计信息。 以后，随时可以将单列或多列统计信息添加到其他事实表列。
 
@@ -341,19 +345,13 @@ GROUP BY p.[BrandName]
 ```
 
 ## <a name="next-steps"></a>后续步骤
-若要加载完整的 Contoso 零售数据仓库数据，请使用脚本。有关更多开发技巧，请参阅 [SQL 数据仓库开发概述][SQL Data Warehouse development overview]。
+若要加载整个 Contoso 零售数据仓库数据，可以使用脚本。有关更多开发技巧，请参阅 [SQL 数据仓库开发概述][SQL 数据仓库开发概述]。
 
 <!--Image references-->
 
 <!--Article references-->
 <!-- Not Avaiable on [Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md -->
-<!-- Need to append when sample SQL Server has been implement in Mooncake-->
-[Load data into SQL Data Warehouse]: sql-data-warehouse-overview-load.md
-[SQL Data Warehouse development overview]: sql-data-warehouse-overview-develop.md
-[manage columnstore indexes]: sql-data-warehouse-tables-index.md
-[Statistics]: sql-data-warehouse-tables-statistics.md
-[CTAS]: sql-data-warehouse-develop-ctas.md
-[label]: sql-data-warehouse-develop-label.md
+<!-- Need to append when sample SQL Server has been implement in Mooncake--> [将数据加载到 SQL 数据仓库]：sql-data-warehouse-overview-load.md [SQL 数据仓库开发概述]：sql-data-warehouse-overview-develop.md [管理列存储索引]：sql-data-warehouse-tables-index.md [统计信息]：sql-data-warehouse-tables-statistics.md [CTAS]：sql-data-warehouse-develop-ctas.md [标签]：sql-data-warehouse-develop-label.md
 
 <!--MSDN references-->
 [CREATE EXTERNAL DATA SOURCE]: https://msdn.microsoft.com/library/dn935022.aspx

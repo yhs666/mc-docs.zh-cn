@@ -3,25 +3,24 @@ title: 用量 API 相关的常见问题解答 | Microsoft Docs
 description: Azure Stack 计量器列表、与 Azure 用量 API 的比较、使用时间和报告时间、错误代码。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
-ms.assetid: 847f18b2-49a9-4931-9c09-9374e932a071
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/22/2018
-ms.date: 07/18/2018
-ms.author: v-junlch
+origin.date: 09/10/2018
+ms.date: 10/15/2018
+ms.author: v-jay
 ms.reviewer: alfredop
-ms.openlocfilehash: 0462f84bb20c73ac959c1886903b8df7090911fa
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.openlocfilehash: 49658303b9a400abc369e84e9d05de17775e1496
+ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168402"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48848915"
 ---
 # <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Azure Stack 用量 API 的常见问题解答
 
@@ -30,7 +29,7 @@ ms.locfileid: "39168402"
 ## <a name="what-meter-ids-can-i-see"></a>可以查看哪些计量 ID？
 系统针对以下资源提供程序报告用量：
 
-**网络**  
+### <a name="network"></a>网络
   
 **计量 ID**：F271A8A388C44D93956A063E1D2FA80B  
 **计量名称**：静态 IP 地址使用情况  
@@ -42,7 +41,7 @@ ms.locfileid: "39168402"
 **单元**：IP 地址  
 **说明**：已用 IP 地址计数。 如果以每日粒度调用用量 API，计量器会返回 IP 地址乘以小时数。  
   
-**存储**  
+### <a name="storage"></a>存储
   
 **计量 ID**：B4438D5D-453B-4EE1-B42A-DC72E377F1E4  
 **计量名称**：TableCapacity  
@@ -108,22 +107,8 @@ ms.locfileid: "39168402"
 **计量名称**：QueueDataTransOut  
 **单元**：传出数据 (GB)  
 **说明**：队列服务传出数据 (GB)  
-  
-**Sql RP**  
-  
-**计量 ID**：CBCFEF9A-B91F-4597-A4D3-01FE334BED82  
-**计量名称**：DatabaseSizeHourSqlMeter  
-**单元**：MB\*小时数  
-**说明**：创建时的总 DB 容量。 如果以每日粒度调用用量 API，计量器会返回 MB 乘以小时数。  
-  
-**MySql RP**  
-  
-**计量 ID**：E6D8CFCD-7734-495E-B1CC-5AB0B9C24BD3  
-**计量名称**：DatabaseSizeHourMySqlMeter  
-**单元**：MB\*小时数  
-**说明**：创建时的总 DB 容量。 如果以每日粒度调用用量 API，计量器会返回 MB 乘以小时数。  
-  
-**计算**  
+
+### <a name="compute"></a>计算 
   
 **计量 ID**：FAB6EB84-500B-4A09-A8CA-7358F8BBAEA5  
 **计量名称**：基本 VM 大小小时数  
@@ -140,7 +125,122 @@ ms.locfileid: "39168402"
 **单元**：VM 小时数  
 **说明**：捕获基本 VM 和 Windows VM。 不针对核心进行调整。  
   
-**密钥保管库**  
+### <a name="managed-disks"></a>托管磁盘
+
+**计量 ID**：5d76e09f-4567-452a-94cc-7d1f097761f0   
+**计量名称**：S4   
+**单位**：磁盘计数   
+**说明**：标准托管磁盘 - 32 GB 
+
+**计量 ID**：dc9fc6a9-0782-432a-b8dc-978130457494   
+**计量名称**：S6   
+**单位**：磁盘计数   
+**说明**：标准托管磁盘 - 64 GB 
+
+**计量 ID**：e5572fce-9f58-49d7-840c-b168c0f01fff   
+**计量名称**：S10   
+**单位**：磁盘计数   
+**说明**：标准托管磁盘 - 128 GB 
+
+**计量 ID**：9a8caedd-1195-4cd5-80b4-a4c22f9302b8   
+**计量名称**：S15   
+**单位**：磁盘计数   
+**说明**：标准托管磁盘 - 256 GB 
+
+**计量 ID**：5938f8da-0ecd-4c48-8d5a-c7c6c23546be   
+**计量名称**：S20   
+**单位**：磁盘计数      
+**说明**：标准托管磁盘 - 512 GB 
+
+**计量 ID**：7705a158-bd8b-4b2b-b4c2-0782343b81e6   
+**计量名称**：S30   
+**单位**：磁盘计数   
+**说明**：标准托管磁盘 - 1024 GB 
+
+**计量 ID**：d9aac1eb-a5d1-42f2-b617-9e3ea94fed88   
+**计量名称**：S40   
+**单位**：磁盘计数   
+**说明**：标准托管磁盘 - 2048 GB 
+
+**计量 ID**：a54899dd-458e-4a40-9abd-f57cafd936a7   
+**计量名称**：S50   
+**单位**：磁盘计数   
+**说明**：标准托管磁盘 - 4096 GB 
+
+**计量 ID**：5c105f5f-cbdf-435c-b49b-3c7174856dcc   
+**计量名称**：P4   
+**单位**：磁盘计数   
+**说明**：高级托管磁盘 - 32 GB 
+
+**计量 ID**：518b412b-1927-4f25-985f-4aea24e55c4f   
+**计量名称**：P6   
+**单位**：磁盘计数   
+**说明**：高级托管磁盘 - 64 GB 
+
+**计量 ID**：5cfb1fed-0902-49e3-8217-9add946fd624   
+**计量名称**：P10   
+**单位**：磁盘计数   
+**说明**：高级托管磁盘 - 128 GB  
+
+**计量 ID**：8de91c94-f740-4d9a-b665-bd5974fa08d4   
+**计量名称**：P15  
+**单位**：磁盘计数   
+**说明**：高级托管磁盘 - 256 GB 
+
+**计量 ID**：c7e7839c-293b-4761-ae4c-848eda91130b   
+**计量名称**：P20   
+**单位**：磁盘计数   
+**说明**：高级托管磁盘 - 512 GB 
+
+**计量 ID**：9f502103-adf4-4488-b494-456c95d23a9f   
+**计量名称**：P30   
+**单位**：磁盘计数   
+**说明**：高级托管磁盘 - 1024 GB 
+
+**计量 ID**：043757fc-049f-4e8b-8379-45bb203c36b1   
+**计量名称**：P40   
+**单位**：磁盘计数    
+**说明**：高级托管磁盘 - 2048 GB 
+
+**计量 ID**：c0342c6f-810b-4942-85d3-6eaa561b6570   
+**计量名称**：P50   
+**单位**：磁盘计数   
+**说明**：高级托管磁盘 - 4096 GB 
+
+**计量 ID**：8a409390-1913-40ae-917b-08d0f16f3c38   
+**计量名称**：ActualStandardDiskSize   
+**单位**：字节      
+**说明**：标准托管磁盘的磁盘实际大小  
+
+**计量 ID**：1273b16f-8458-4c34-8ce2-a515de551ef6  
+**计量名称**：ActualPremiumDiskSize   
+**单位**：字节      
+**说明**：高级托管磁盘的磁盘实际大小 
+
+**计量 ID**：89009682-df7f-44fe-aeb1-63fba3ddbf4c  
+**计量名称**：ActualStandardSnapshotSize   
+**单位**：字节   
+**说明**：托管标准快照的磁盘实际大小。  
+
+**计量 ID**：95b0c03f-8a82-4524-8961-ccfbf575f536   
+**计量名称**：ActualPremiumSnapshotSize   
+**单位**：字节   
+**说明**：高级托管磁盘的实际大小。   
+
+### <a name="sql-rp"></a>Sql RP
+  
+**计量 ID**：CBCFEF9A-B91F-4597-A4D3-01FE334BED82  
+**计量名称**：DatabaseSizeHourSqlMeter  
+**单元**：MB\*小时数  
+**说明**：创建时的总 DB 容量。 如果以每日粒度调用用量 API，计量器会返回 MB 乘以小时数。  
+  
+### <a name="mysql-rp"></a>MySql RP   
+  
+**计量 ID**：E6D8CFCD-7734-495E-B1CC-5AB0B9C24BD3  
+**计量名称**：DatabaseSizeHourMySqlMeter  
+**单元**：MB\*小时数  
+**说明**：创建时的总 DB 容量。 如果以每日粒度调用用量 API，计量器会返回 MB 乘以小时数。    
+### <a name="key-vault"></a>密钥保管库   
   
 **计量 ID**：EBF13B9F-B3EA-46FE-BF54-396E93D48AB4  
 **计量名称**：Key Vault 事务  
@@ -152,7 +252,7 @@ ms.locfileid: "39168402"
 **单元**：10K 事务  
 **说明**：RSA 3K/4K，ECC 密钥事务。 （预览版）。  
   
-*应用服务**  
+### <a name="app-service"></a>应用服务   
   
 **计量 ID**：190C935E-9ADA-48FF-9AB8-56EA1CF9ADAA  
 **计量名称**：应用服务  
@@ -194,7 +294,7 @@ ms.locfileid: "39168402"
 **单元**：1 小时  
 **说明**：根据大小与实例数进行计算。  
   
-自定义辅助角色层  
+### <a name="custom-worker-tiers"></a>自定义辅助角色层   
   
 **计量 ID**：自定义辅助角色层  
 **计量名称**：自定义辅助角色层  
@@ -223,15 +323,15 @@ ms.locfileid: "39168402"
   
 
 ## <a name="how-do-the-azure-stack-usage-apis-compare-to-the-azure-usage-apihttpsmsdnmicrosoftcomlibraryazure1ea5b323-54bb-423d-916f-190de96c6a3c-currently-in-public-preview"></a>Azure Stack 用量 API 与 [Azure 用量 API](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c)（目前为公共预览版）有何差别？
-- 租户用量 API 与 Azure API 相同，但有一点除外：Azure Stack 目前不支持 *showDetails* 标志。
-- 提供程序用量 API 只适用于 Azure Stack。
-- 目前，Azure Stack 不提供 Azure 中所提供的[费率卡 API](https://msdn.microsoft.com/library/azure/mt219004.aspx)。
+* 租户用量 API 与 Azure API 相同，但有一点除外：Azure Stack 目前不支持 *showDetails* 标志。
+* 提供程序用量 API 只适用于 Azure Stack。
+* 目前，Azure Stack 不提供 Azure 中所提供的[费率卡 API](https://msdn.microsoft.com/library/azure/mt219004.aspx)。
 
 ## <a name="what-is-the-difference-between-usage-time-and-reported-time"></a>使用时间与报告时间有何差别？
 用量数据报告包含两个主要时间值：
 
-- **报告时间**。 用量事件进入用量系统的时间
-- **使用时间**。 使用 Azure Stack 资源的时间
+* **报告时间**。 用量事件进入用量系统的时间
+* **使用时间**。 使用 Azure Stack 资源的时间
 
 你可能会发现，特定用量事件的“使用时间”与“报告时间”值有差异。 在任何环境中，延迟可能长达数小时。
 

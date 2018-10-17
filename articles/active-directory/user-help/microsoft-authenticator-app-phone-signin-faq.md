@@ -1,0 +1,83 @@
+---
+title: Microsoft Authenticator 手机登录 - Azure 和 Microsoft 帐户 | Microsoft Docs
+description: 使用手机登录 Microsoft 帐户，而不是键入密码。 本文提供有关此功能的常见问题解答。
+services: active-directory
+author: eross-msft
+manager: mtillman
+ms.service: active-directoary
+ms.workload: identity
+ms.component: user-help
+ms.topic: conceptual
+origin.date: 08/12/2017
+ms.date: 10/11/2018
+ms.author: v-junlch
+ms.reviewer: librown
+ms.openlocfilehash: fcf0e70a487498f0f947b857e6f34609218bf82a
+ms.sourcegitcommit: 4c7b45c574675b157e6520295f86b7e19450f5e3
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49088927"
+---
+# <a name="sign-in-with-your-phone-not-your-password"></a>使用手机而不是密码登录
+Microsoft 验证器应用可在输入密码后执行双重验证，帮助确保帐户的安全性。 但你是否知道，它能完全取代 Microsoft 个人帐户密码？
+
+iOS 和 Android 设备提供此功能，此功能适用于 Microsoft 个人帐户。
+ 
+## <a name="how-it-works"></a>工作原理
+在登录 Microsoft 帐户时，许多人会将 Microsoft 验证器应用用于双重验证。 键入密码，并转到应用以批准通知或获取验证码。 使用手机登录时，会跳过密码，并在手机上完成所有身份验证。 由于电话登录是一种双重验证，因此仍需要提供知道的信息和拥有的设备来验证身份。 拥有的设备仍是手机，手机的 PIN 或生物识别密钥是所知道的信息。
+
+## <a name="how-to-get-started"></a>如何入门
+若要使用手机登录到 Microsoft 个人帐户，请执行以下步骤：
+
+1. 为帐户启用手机登录。
+
+    - 如果还没有 Microsoft Authenticator 应用，请按照 [Microsoft Authenticator 页](microsoft-authenticator-app-how-to.md)中步骤安装和添加 Microsoft 个人帐户。 新添加的帐户自动启用，因此请放心执行后续操作。
+
+    - 如果已将 Microsoft Authenticator 用于双重验证，请从应用主页选择帐户，并从下拉菜单中选择“启用手机登录”。
+
+    >[!NOTE]
+    >为了保护帐户，我们要求在设备上设置 PIN 或生物识别锁。 如果手机保持未锁定状态，应用将弹出请求，要求在启用手机登录前设置锁定。
+
+2. 大多数通常用于输入 Microsoft 帐户密码的页面都有一个链接，显示“改用应用”。 选择此链接可使用手机登录。
+ 
+3. Microsoft 向手机发送通知。 确认该通知可登录到帐户。   
+ 
+## <a name="faq"></a>常见问题
+
+### <a name="how-is-signing-in-with-my-phone-more-secure-than-typing-a-password"></a>为何使用手机登录比键入密码更安全？  
+当今，大部分人都是使用用户名和密码登录到网站或应用。  遗憾的是，密码常常会丢失、被盗或被黑客猜出。 当你设置用于登录的 Microsoft 验证器应用时，我们会在你的手机上生成一个可以解锁帐户的密钥。 我们通过已在手机上使用的 PIN 或生物识别来保护此密钥。  使用手机登录时，此密钥通过以下两个因素安全地证明身份：手机本身和解锁手机的能力。
+ 
+所用的密钥与在 Windows Hello 和 FIDO Alliance UAF 规范中使用的密钥类似。 生物数据仅用于在本地保护密钥，绝不会发送或存储到云中。 
+ 
+### <a name="where-can-i-use-my-phone-to-replace-my-password-and-where-would-i-still-need-the-password"></a>哪些地方可以用手机取代密码，哪些地方仍需要使用密码？  
+目前手机登录功能仅适用于由 Microsoft 个人帐户提供支持的 Web 应用和服务、使用 Microsoft 个人帐户的 iOS 或 Android 应用以及使用 Microsoft 个人帐户的 Windows 10 应用。 登录其中一个网站或应用时，通常输入密码的页面上会有显示为“改用应用”的链接。 
+
+目前，无法使用手机登录解锁 Windows 电脑、XBOX 或任何 Microsoft 应用的桌面版（如 Office 应用）。
+ 
+### <a name="does-this-replace-two-step-verification-should-i-turn-it-off"></a>手机登录是否可以取代双重验证？ 是否应将其关闭？   
+有时需要关闭。 我们正努力扩大手机登录的适用范围，但目前在 Microsoft 生态系统中仍有不支持它的场合。 在这些场合中，仍需要使用双重验证进行安全登录。 因此，不应关闭帐户的双重验证。
+ 
+### <a name="okay-if-i-keep-two-step-verification-turned-on-for-my-account-do-i-have-to-approve-two-notifications"></a>如果启用帐户的双重验证，是否必须确认两条通知？
+不需要。 使用手机登录到 Microsoft 帐户被视为双重验证。 可通过解锁手机再确认通知来证明身份，无需键入密码再确认通知。 我们不会发送第二条要求确认的通知。
+
+### <a name="what-if-i-lose-my-phone-or-dont-have-it-with-me-how-can-i-access-my-account"></a>如果手机遗失或未随身携带，应如何访问我的帐户？  
+可以单击登录页中的“改用密码”，切换回使用密码登录。 请记住，如果使用双重验证，则仍需要第二种方法来验证登录。 因此，强烈建议确保帐户具有最新的额外安全信息。 可以在 https://account.live.com/proofs/manage 管理安全信息。
+ 
+### <a name="how-do-i-stop-using-this-feature-and-go-back-to-entering-my-password"></a>如何停用此功能，并切换回通过输入密码登录？
+在登录时单击“改用密码”。 我们将记住你最近的选择，在下次登录时默认提供此选项。 若要切换回使用手机登录，单击“改用应用”。 
+ 
+### <a name="can-i-use-the-app-to-sign-in-to-all-my-accounts-with-microsoft"></a>是否可用此应用登录我所有的 Microsoft 帐户？   
+此功能目前仅适用于 Microsoft 个人帐户。 
+ 
+### <a name="can-i-sign-into-my-pc-with-my-phone"></a>是否可以使用手机登录到我的电脑？  
+对于电脑，建议使用 Windows 10 中的 Windows Hello，通过面部、指纹或 PIN 进行登录。   
+ 
+### <a name="can-i-sign-in-with-my-windows-phone"></a>是否可以使用 Windows Phone 登录？  
+目前，没有为 Windows Phone 上的 Microsoft 验证器开发此功能。 
+
+## <a name="next-steps"></a>后续步骤
+如果尚未下载 Microsoft Authenticator 应用，请查看。此应用适用于 [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071)，[Android](http://go.microsoft.com/fwlink/?Linkid=825072) 和 [iOS](http://go.microsoft.com/fwlink/?Linkid=825073) 版 Microsoft Authenticator 应用提供手机登录功能。
+
+如果有关于此应用的常见问题，请参阅 [Microsoft Authenticator 常见问题解答](microsoft-authenticator-app-faq.md)
+

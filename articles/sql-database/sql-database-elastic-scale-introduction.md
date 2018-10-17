@@ -3,33 +3,33 @@ title: 扩大 Azure SQL 数据库 | Microsoft 文档
 description: 软件即服务 (SaaS) 开发人员可以使用这些工具轻松地在云中创建可缩放的弹性数据库
 services: sql-database
 manager: digimobile
-author: Hayley244
+author: WenJason
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-origin.date: 04/01/2018
-ms.date: 09/02/2018
-ms.author: v-johch
-ms.openlocfilehash: 66462f5b4a1351bd5b78cf18800fb7211dd0dd96
-ms.sourcegitcommit: 2601e68563bffe148e70cce2bf1dcbe837a40f80
+origin.date: 09/14/2018
+ms.date: 10/15/2018
+ms.author: v-jay
+ms.openlocfilehash: e0564b4f6880e7416619646a819fab74e09dc86d
+ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43249901"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913777"
 ---
 # <a name="scaling-out-with-azure-sql-database"></a>Scaling out with Azure SQL Database（使用 Azure SQL 数据库进行扩展）
 可以使用 **弹性数据库** 工具轻松地扩展 Azure SQL 数据库。 借助这些工具和功能，可以使用 Azure SQL 数据库中的数据库资源来为事务工作负荷，尤其是服务型软件 (SaaS) 应用程序创建解决方案。 弹性数据库包括：
 
 * [弹性数据库客户端库](sql-database-elastic-database-client-library.md)：客户端库是一项功能，可用于创建和维护分片数据库。  请参阅[弹性数据库工具入门](sql-database-elastic-scale-get-started.md)。
-* [弹性数据库拆分/合并工具](sql-database-elastic-scale-overview-split-and-merge.md)：在分片数据库之间移动数据。 这对于将数据从多租户数据库移动到单租户数据库很有用（反之亦然）。 请参阅[弹性数据库拆分/合并工具教程](sql-database-elastic-scale-configure-deploy-split-and-merge.md)。
-* [弹性数据库查询](sql-database-elastic-query-overview.md)（预览版）：可跨多个数据库运行 Transact-SQL 查询。 这样，便可以连接到 Excel、PowerBI、Tableau 等报表工具。
-* [弹性事务](sql-database-elastic-transactions-overview.md)：使用此功能可在 Azure SQL 数据库中跨多个数据库运行事务。 弹性数据库事务适用于使用 ADO .NET 的 .NET 应用程序，并且与熟悉的使用 [System.Transaction 类](https://msdn.microsoft.com/library/system.transactions.aspx)的编程体验相集成。
+* [弹性数据库拆分/合并工具](sql-database-elastic-scale-overview-split-and-merge.md)：在分片数据库之间移动数据。 此工具对于将数据从多租户数据库移动到单租户数据库很有用（反之亦然）。 请参阅[弹性数据库拆分/合并工具教程](sql-database-elastic-scale-configure-deploy-split-and-merge.md)。
+* [弹性数据库查询](sql-database-elastic-query-overview.md)（预览版）：可跨多个数据库运行 Transact-SQL 查询。 这样，便可以连接到 Excel、Power BI、Tableau 等报表工具。
+* [弹性事务](sql-database-elastic-transactions-overview.md)：使用此功能可在 Azure SQL 数据库中跨多个数据库运行事务。 弹性数据库事务适用于使用 ADO .NET 的 .NET 应用程序，并且与你熟悉的使用 [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx)类的编程体验相集成。
 
 下图显示了一种体系结构，它包含与数据库集合有关的弹性数据库功能。
 
 在此图中，数据库颜色表示架构。 颜色相同的数据库具有相同的架构。
 
-1. 一组使用分片体系结构的 **Azure SQL 数据库** 托管在 Azure 上。
+1. 一组使用分片体系结构的 **Azure SQL 数据库**托管在 Azure 上。
 2. **弹性数据库客户端库** 用于管理分片集。
 3. 一个数据库子集已放入**弹性池**。 （请参阅[什么是池？](sql-database-elastic-pool.md)）。
 4. 弹性数据库针对所有数据库运行计划的或即席的 T-SQL 脚本。
@@ -50,11 +50,11 @@ VM 和 blob 存储可以轻松实现云应用程序的弹性和缩放需求 - �
 ## <a name="horizontal-and-vertical-scaling"></a>横向缩放与纵向缩放
 下图显示了缩放的横向和纵向维度，即弹性数据库的基本缩放方法。
 
-![横向缩放与纵向缩放][2]
+![水平缩放与垂直缩放][2]
 
-横向缩放是指添加或删除数据库，以调整容量或整体性能。 这也称为“向外扩展”。 分片是常用的横向缩放实现方法，它会将数据分区到结构相同的一组数据库上。  
+水平缩放是指添加或删除数据库，以调整容量或整体性能，也称为“横向扩展”。 分片是常用的横向缩放实现方法，它会将数据分区到结构相同的一组数据库上。  
 
-纵向缩放是指增加或减少单个数据库的性能级别 - 这也称为“纵向扩展”。
+垂直缩放是指增加或减少单个数据库的计算大小，也称为“纵向扩展”。
 
 大多数云规模的数据库应用程序都使用这两种策略的组合。 例如，软件即服务应用程序可能使用横向缩放来预配新的最终客户，使用纵向缩放来允许每个最终客户的数据库根据工作负荷的需要增加或缩减资源。
 
@@ -74,11 +74,11 @@ VM 和 blob 存储可以轻松实现云应用程序的弹性和缩放需求 - �
 当应用程序中的每个事务均受限于分片键的单个值时，分片效果最佳。 这确保了所有事务对特定数据库而言都是本地的。
 
 ## <a name="multi-tenant-and-single-tenant"></a>多租户和单租户
-某些应用程序使用最简单的方法为每个租户创建一个单独的数据库。 这就是单租户分片模式，它提供了隔离、备份/还原功能，还可根据租户粒度进行资源缩放。 借助单租户分片，每个数据库都将与特定租户 ID 值（或客户键值）关联，而该键无需始终出现在数据本身中。 应用程序负责将每个请求路由到相应的数据库 - 客户端库可以简化这种操作。
+某些应用程序使用最简单的方法为每个租户创建一个单独的数据库。 此方法是单租户分片模式，它提供了隔离、备份/还原功能，还可根据租户粒度进行资源缩放。 借助单租户分片，每个数据库都将与特定租户 ID 值（或客户键值）关联，而该键无需始终出现在数据本身中。 应用程序负责将每个请求路由到相应的数据库 - 客户端库可以简化这种操作。
 
 ![单租户与多租户][4]
 
-其他方案是将多个租户一同打包到数据库中，而非将其隔离到单独的数据库中。 这就是典型的多租户分片模式，该模式可能取决于应用程序可管理大量极小型租户这一情况。 在多租户分片中，数据库表中的行全都被设计为带有可标识租户 ID 的键或分片键。 同样，应用程序层负责将租户的请求路由到相应的数据库，而弹性数据库客户端库可以支持这种操作。 另外，可以使用低级别安全性来筛选每个租户可以访问的行。 多租户分片模式可能需要在数据库之间重新分配数据，而弹性数据库拆分/合并工具正好可以帮助实现此目的。 
+其他方案是将多个租户一同打包到数据库中，而非将其隔离到单独的数据库中。 此模式是典型的多租户分片模式，该模式可能取决于应用程序可管理大量极小型租户这一情况。 在多租户分片中，数据库表中的行全都被设计为带有可标识租户 ID 的键或分片键。 同样，应用程序层负责将租户的请求路由到相应的数据库，而弹性数据库客户端库可以支持这种操作。 另外，可以使用低级别安全性来筛选每个租户可以访问的行。 多租户分片模式可能需要在数据库之间重新分配数据，而弹性数据库拆分/合并工具正好可以帮助实现此目的。 
 
 ### <a name="move-data-from-multiple-to-single-tenancy-databases"></a>将数据从多租户数据库移到单租户数据库
 在创建 SaaS 应用程序时，通常会给潜在客户提供试用版本。 在此情况下，使用多租户数据库来处理数据较符合成本效益。 不过，当潜在客户成为真正客户后，单租户数据库就更好，因为它提供更好的性能。 如果客户在试用期间创建了数据，可以使用[拆分/合并工具](sql-database-elastic-scale-overview-split-and-merge.md)将数据从多租户数据库移到新的单租户数据库。

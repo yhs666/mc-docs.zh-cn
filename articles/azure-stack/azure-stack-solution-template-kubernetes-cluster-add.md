@@ -1,5 +1,5 @@
 ---
-title: 将 Kubernetes 群集添加到 Azure Stack 市场 | Azure
+title: 将 Kubernetes 群集添加到 Azure Stack 市场 | Microsoft Docs
 description: 了解如何将 Kubernetes 群集添加到 Azure Stack 市场。
 services: azure-stack
 documentationcenter: ''
@@ -15,19 +15,19 @@ origin.date: 08/09/2018
 ms.date: 08/27/2018
 ms.author: v-junlch
 ms.reviewer: waltero
-ms.openlocfilehash: 25c146e12973bb9d5942535f6a53a28ebd83e055
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.openlocfilehash: f3531cb60aabc1eeadaaad43ce296937e6a35d3a
+ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869486"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48848877"
 ---
 # <a name="add-a-kubernetes-cluster-to-the-azure-stack-marketplace"></a>将 Kubernetes 群集添加到 Azure Stack 市场
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 > [!note]  
-> Azure Stack 上的 Azure Kubernetes 服务 (AKS) Kubernetes 目前以个人预览版提供。 若要请求访问根据本文中的说明进行操作所需的 Kubernetes 市场项，请[提交请求来获取访问权限](https://aka.ms/azsk8)。
+> Azure Stack 上的 AKS（Azure Kubernetes 服务）引擎目前以个人预览版提供。 若要请求访问根据本文中的说明进行操作所需的 Kubernetes 市场项，请[提交请求来获取访问权限](https://aka.ms/azsk8)。
 
 可以将 Kubernetes 群集作为市场项提供给用户。 用户可以通过单个协调的操作部署 Kubernetes。
 
@@ -49,7 +49,7 @@ ms.locfileid: "42869486"
 
 6. 选择“更改状态”。 选择“公共”。
 
-7. 选择“+ 新建” > “套餐和计划” > “订阅”来创建新订阅。
+7. 选择“+ 创建资源” > “套餐和计划” > “订阅”来创建新订阅。
 
     a. 输入**显示名称**。
 
@@ -67,7 +67,7 @@ ms.locfileid: "42869486"
 
 1. 登录到[管理门户](https://adminportal.local.azurestack.external)。
 
-2. 选择“更多服务” > “Marketplace 管理”。
+2. 选择“所有服务”，然后在“管理”类别下，选择“市场管理”。
 
 3. 选择“+ 从 Azure 添加”。
 
@@ -90,7 +90,7 @@ ms.locfileid: "42869486"
 
 1. 打开[管理门户](https://adminportal.local.azurestack.external)。
 
-2. 选择“更多服务” > “Marketplace 管理”。
+2. 选择“所有服务”，然后在“管理”类别下，选择“市场管理”。
 
 3. 选择“+ 从 Azure 添加”。
 
@@ -111,7 +111,7 @@ ms.locfileid: "42869486"
 
 1. 打开[管理门户](https://adminportal.local.azurestack.external)。
 
-2. 选择“更多服务” > “Marketplace 管理”。
+2. 选择“添加服务”，然后在“管理”类别下，选择“市场管理”。
 
 3. 选择“+ 从 Azure 添加”。
 

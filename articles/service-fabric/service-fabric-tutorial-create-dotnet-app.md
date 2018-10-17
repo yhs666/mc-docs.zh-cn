@@ -13,17 +13,18 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 06/28/2018
-ms.date: 08/20/2018
+ms.date: 10/15/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 4512b130802ad2be57cc08f5277d0e5ba084864c
-ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
+ms.openlocfilehash: c2ac53bd33e1369a396ba63b08848ec214cd54e8
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41704107"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49089121"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>教程：使用 ASP.NET Core Web API 前端服务和有状态后端服务创建并部署应用程序
+
 本教程是一个系列中的第一部分。  其中介绍了如何使用 ASP.NET Core Web API 前端和有状态后端服务创建 Azure Service Fabric 应用程序以存储数据。 完成后，将生成一个投票应用程序，其中包含 ASP.NET Core Web 前端，用于将投票结果保存到群集的有状态后端服务中。 如果不想手动创建投票应用程序，可以[下载已完成应用程序的源代码](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/)，跳到[大致了解投票示例应用程序](#walkthrough_anchor)。
 <!-- Not Available on [video walk-through](https://channel9.msdn.com/Events/Connect/2017/E100)-->
 
@@ -41,8 +42,9 @@ ms.locfileid: "41704107"
 > * 构建 .NET Service Fabric 应用程序
 > * [将应用程序部署到远程群集](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 > * [向 ASP.NET Core 前端服务添加 HTTPS 终结点](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md)
-> * [使用 Visual Studio Team Services 配置 CI/CD](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
-<!-- Not Available on > * [Set up monitoring and diagnostics for the application](service-fabric-tutorial-monitoring-aspnet.md) -->
+> * [使用 Azure Pipelines 配置 CI/CD](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+
+<!-- Not Available on [Set up monitoring and diagnostics for the application](service-fabric-tutorial-monitoring-aspnet.md)-->
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -312,6 +314,7 @@ namespace VotingWeb.Controllers
 创建 VotingWeb 前端服务后，Visual Studio 会随机选择服务侦听的端口。  VotingWeb 服务充当此应用程序的前端并接受外部流量，因此让我们将此服务绑定到已知的固定端口。  [服务清单](service-fabric-application-and-service-manifests.md)声明服务终结点。
 
 在解决方案资源管理器中，打开“VotingWeb/PackageRoot/ServiceManifest.xml”。  在“资源”部分中查找“终结点”元素，并将“端口”值更改为 **80**。 若要在本地部署和运行应用程序，应用程序侦听端口必须为打开状态且在你的计算机上可用。
+
 ```xml
 <Resources>
     <Endpoints>
@@ -473,8 +476,8 @@ namespace VotingData.Controllers
 2. 单击“清单”。
 3. 记下 HttpApplicationGatewayEndpoint 元素端口。 默认情况下，此端口应是 19081。 如果不是 19081，则需要更改以下 VotesController.cs 代码的 GetProxyAddress 方法中的端口。
 
-
 <a name="updatevotecontroller"></a>
+
 <a name="updatevotecontroller_anchor"></a>
 
 ### <a name="update-the-votescontrollercs-file"></a>更新 VotesController.cs 文件
@@ -590,8 +593,11 @@ public class VotesController : Controller
     }
 }
 ```
+
 <a name="walkthrough"></a>
+
 <a name="walkthrough_anchor"></a>
+
 ## <a name="walk-through-the-voting-sample-application"></a>大致了解投票示例应用程序
 
 投票应用程序由以下两个服务组成：

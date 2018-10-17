@@ -3,8 +3,8 @@ title: 将 SQL 数据库提供给 Azure Stack 用户使用 | Microsoft Docs
 description: 有关安装 SQL Server 资源提供程序并创建套餐，使 Azure Stack 用户能够创建 SQL 数据库的教程。
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-origin.date: 06/05/2018
-ms.date: 06/27/2018
-ms.author: v-junlch
+origin.date: 09/05/2018
+ms.date: 10/15/2018
+ms.author: v-jay
 ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: bce099d8bde302b83c20cf97a4f32c6c484b736d
-ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
+ms.openlocfilehash: 3421b91b4febc278066698c206a92eab3743d4e9
+ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37027182"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48848806"
 ---
 # <a name="tutorial-make-sql-databases-available-to-your-azure-stack-users"></a>教程：将 SQL 数据库提供给 Azure Stack 用户使用
 
@@ -49,8 +49,7 @@ Azure Stack 云管理员可以创建套餐，使用户（租户）能够创建 S
     > [!NOTE]
     > 若要让用户创建其他应用，可能需要在计划中包含其他服务。 例如，Azure Functions 要求计划中必须包含 **Microsoft.Storage** 服务，而 Wordpress 则要求包含 **Microsoft.MySQLAdapter**。
 
-3.  
-  [创建套餐](azure-stack-create-offer.md)，将其命名为 **TestSQLServerOffer**，然后选择“TestSQLServerPlan”计划。****
+3.  [创建套餐](azure-stack-create-offer.md)，将其命名为 **TestSQLServerOffer**，然后选择“TestSQLServerPlan”计划。
 
 ## <a name="test-the-offer"></a>测试产品/服务
 
@@ -61,7 +60,7 @@ Azure Stack 云管理员可以创建套餐，使用户（租户）能够创建 S
 1. 以租户身份登录到 Azure Stack 门户 (https://portal.local.azurestack.external)。
 2. 选择“获取订阅”，然后在“显示名称”下输入 **TestSQLServerSubscription**。
 3. 选择“选择套餐” > “TestSQLServerOffer” > “创建”。
-4. 选择“更多服务” > “订阅” > “TestSQLServerSubscription” > “资源提供程序”。
+4. 选择“所有服务” > “订阅” > “TestSQLServerSubscription” > “资源提供程序”。
 5. 选择“Microsoft.SQLAdapter”提供程序旁边的“注册”。
 
 ### <a name="create-a-sql-database"></a>创建 SQL 数据库

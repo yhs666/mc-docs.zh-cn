@@ -1,18 +1,18 @@
 ---
 ms.assetid: ''
-title: Azure Key Vault 安全体系 | Microsoft Docs
+title: Azure Key Vault 安全体系
 ms.service: key-vault
-author: alexchen2016
-ms.author: v-junlch
-manager: digimobile
+author: bryanla
+ms.author: v-biyu
+manager: mbaldwin
 origin.date: 07/03/2017
-ms.date: 08/02/2017
-ms.openlocfilehash: b9ddb517831f65c07f8eda288bcdafb7b1ef29c6
-ms.sourcegitcommit: 20d1c4603e06c8e8253855ba402b6885b468a08a
+ms.date: 10/22/2017
+ms.openlocfilehash: e7ed7f5154c16e518bdb81862a64a1b5020474f8
+ms.sourcegitcommit: 2fdf25eb4b978855ff2832bcdcca093c141be261
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/18/2017
-ms.locfileid: "20888083"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49120608"
 ---
 # <a name="azure-key-vault-security-worlds-and-geographic-boundaries"></a>Azure Key Vault 安全体系和地理边界
 
@@ -28,16 +28,16 @@ ms.locfileid: "20888083"
 ## <a name="regions-and-products"></a>区域和产品
 
 - [Azure 区域](https://azure.microsoft.com/regions/)
-- [按区域列出的 Microsoft 产品](https://azure.microsoft.com/regions/services/)
+- [Microsoft 产品（按区域）](https://azure.microsoft.com/regions/services/)
 
 区域映射到安全体系，如表中的主要标题所示：
 
-例如，在“按区域列出的产品”一文中，“美国”选项卡包含“美国东部”、“美国中部”、“美国西部”，所有这些都映射到“美国”区域。 
+例如，在产品（按区域）文章中，“美国”标签包含美国东部、美国中部、美国西部，这些都会映射到美国区域。 
 
 >[!NOTE]
 >例外情况是“美国 DOD 东部”和“美国 DOD 中部”有其自己的安全体系。 
 
-同样，在“欧洲”选项卡上，“欧洲北部”和“欧洲西部”都映射到“欧洲”区域。 “亚太区”标签也是如此。
+同样，在“欧洲”标签上，欧洲北部和欧洲西部都映射到欧洲区域。 “亚太区”标签也是如此。
 
 
 

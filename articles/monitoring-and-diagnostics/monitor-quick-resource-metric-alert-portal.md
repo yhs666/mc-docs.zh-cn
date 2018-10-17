@@ -7,14 +7,14 @@ ms.service: azure-monitor
 ms.topic: quickstart
 origin.date: 02/08/2018
 ms.author: v-yiso
-ms.date: 07/23/2018
+ms.date: 10/22/2018
 ms.custom: mvc
-ms.openlocfilehash: 424c28f119a00e861ac7b9ec31aca07e64faf99d
-ms.sourcegitcommit: 479954e938e4e3469d6998733aa797826e4f300b
+ms.openlocfilehash: fcbb566d08eef60b958d8d886e77674a58dd0b69
+ms.sourcegitcommit: 8a5722b85c6eabbd28473d792716ad44aac3ff23
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39031744"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49121530"
 ---
 # <a name="receive-a-notification-when-a-metric-value-meets-a-condition"></a>当指标值满足条件时接收通知
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Stack 添加缩放节点 | Azure
+title: Azure Stack 添加缩放节点 | Microsoft Docs
 description: 在 Azure Stack 中将节点添加到缩放单元。
 services: azure-stack
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/20/2018
-ms.date: 08/27/2018
+origin.date: 09/17/2018
+ms.date: 10/15/2018
 ms.author: v-jay
 ms.reviewer: thoroet
-ms.openlocfilehash: 325b8da0c157d97ba02b6dd88bb61ac42f17bf07
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.openlocfilehash: 62efbdea48c6e277fc7c3803af50681889f02444
+ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869699"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48848833"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack"></a>在 Azure Stack 中添加更多的缩放单元节点
 
@@ -65,7 +65,7 @@ Azure Stack 操作员可以通过添加更多的物理计算机来提高现有�
 ### <a name="use-the-admin-portal"></a>使用管理员门户
 
 1. 以 Azure Stack 操作员身份登录到 Azure Stack 管理员门户。
-2. 导航到“新建” > “容量” > “缩放单元节点”。
+2. 导航到“+ 创建资源” > “容量” > “缩放单元节点”。
    ![缩放单元节点](media/azure-stack-add-scale-node/select-node1.png)
 3. 在“添加节点”窗格中选择“区域”，然后选择要向其添加节点的“缩放单元”。 另请指定要添加的缩放单元节点的“BMC IP 地址”。 一次只能添加一个节点。
    ![添加节点详细信息](media/azure-stack-add-scale-node/select-node2.png)

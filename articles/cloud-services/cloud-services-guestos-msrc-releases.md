@@ -4,7 +4,6 @@ description: 适用于来宾 OS 版本的更新列表
 services: cloud-services
 documentationcenter: na
 author: raiye
-manager: timlt
 editor: ''
 ms.assetid: d0a272a9-ed01-4f4c-a0b3-bd5e841bdd77
 ms.service: cloud-services
@@ -12,18 +11,41 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-origin.date: 08/03/2018
+origin.date: 09/13/2018
 ms.author: v-yiso
-ms.date: 09/17/2018
-ms.openlocfilehash: bc503734ebf898e917f085547ce5aae6483d7463
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.date: 10/22/2018
+ms.openlocfilehash: b59f2dc5093dd61870a0f7bafed1b19187815d79
+ms.sourcegitcommit: 8a5722b85c6eabbd28473d792716ad44aac3ff23
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068128"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49121556"
 ---
 # <a name="azure-guest-os"></a>Azure 来宾 OS
 下表显示了适用于 Azure 来宾 OS 的 Microsoft 安全响应中心 (MSRC) 更新。 要确定特定的更新是否适用于使用的来宾 OS，请搜索本文。 引入这些更新的特定[系列][family-explain]始终会包含这些更新。
+
+## <a name="august-guest-os"></a>8 月来宾 OS
+| 产品类别 | 上层知识库文章 | 漏洞描述 | 来宾 OS | 首次引入日期 |
+| --- | --- | --- | --- | --- |
+| Rel 18-08 | [4343887] | Windows 10 安全性 | 5.22 | 2018 年 8 月 14 日 |
+| Rel 18-08 | [4343899] | 仅 Windows 安全性 | 2.77 | 2018 年 8 月 14 日 |
+| Rel 18-08 | [4343896] | 仅 Windows 安全性 | 3.64 | 2018 年 8 月 14 日 |
+| Rel 18-08 | [4343888] | 仅 Windows 安全性 | 4.57 | 2018 年 8 月 14 日 |
+| Rel 18-08 | [4344177], [4344173] | .NET 3.5、4.5 安全性 | 2.77 | 2018 年 8 月 14 日 |
+| Rel 18-08 | [4344175], [4344172] | .NET 3.5、4.x 安全性 | 3.64 | 2018 年 8 月 14 日 |
+| Rel 18-08 | [4344178], [4344171] | .NET 3.5、4.x 安全性 | 4.57 | 2018 年 8 月 14 日 |
+| Rel 18-08 | [4346742], [4346739] | .NET 3.5、4.x OOB 发行版 | 3.64 | 2018 年 7 月 30 日 |
+| Rel 18-08 | [4346745], [4346408] | .NET 3.5、4.x OOB 发行版 | 4.57 | 2018 年 7 月 30 日 |
+| Rel 18-08 | [4343902] | 闪烁 | 3.64, 4.57, 5.22 | 2018 年 8 月 14 日 |
+| Rel 18-08 | [4343205] | Internet Explorer | 2.77, 3.64, 4.57 | 2018 年 8 月 14 日 |
+| 不适用 | [4338818] |7 月非安全性汇总 |2.77 | 2018 年 7 月 10日 |
+| 不适用 | [4019990] |适用于 .NET 的 D3D 编译器更新 |2.77 | 2018 年 7 月 10日 |
+| 不适用 | [4338830] |7 月非安全性汇总 |3.64 | 2018 年 7 月 10日 |
+| 不适用 | [4338421] |7 月非安全性 .NET 3.5 汇总 |3.64 | 2018 年 7 月 10日 |
+| 不适用 | [4338416] |7 月非安全性 .NET 4x 汇总 |3.64 | 2018 年 7 月 10日 |
+| 不适用 | [4338815] |7 月非安全性汇总 |4.57 | 2018 年 7 月 10日 |
+| 不适用 | [4338424] |7 月非安全性 .NET 3.5 汇总 |3.64 | 2018 年 7 月 10日 |
+| 不适用 | [4338415] |7 月非安全性 .NET 4x 汇总 |3.64 | 2018 年 7 月 10日 |
 
 
 ## <a name="july-guest-os"></a>7 月来宾 OS
@@ -695,6 +717,31 @@ ms.locfileid: "44068128"
 | 不适用 |[2999802] |在 Windows 中打印时，虚线变成实线 |4.15、3.22、2.34 |2015 年 1 月 13 日 |
 | 不适用 |[2896881] |在 Windows 中登录期间使用 AddPrinterConnection VBScript 命令映射用户的打印机时，登录时间过长 |4.15、3.22、2.34 |2015 年 1 月 13 日 |
 
+
+[4343887]: http://support.microsoft.com/kb/4343887
+[4343899]: http://support.microsoft.com/kb/4343899
+[4343896]: http://support.microsoft.com/kb/4343896
+[4343888]: http://support.microsoft.com/kb/4343888
+[4344177]: http://support.microsoft.com/kb/4344177
+[4344173]: http://support.microsoft.com/kb/4344173
+[4344175]: http://support.microsoft.com/kb/4344175
+[4344172]: http://support.microsoft.com/kb/4344172
+[4344178]: http://support.microsoft.com/kb/4344178
+[4344171]: http://support.microsoft.com/kb/4344171
+[4346742]: http://support.microsoft.com/kb/4346742
+[4346739]: http://support.microsoft.com/kb/4346739
+[4346745]: http://support.microsoft.com/kb/4346745
+[4346408]: http://support.microsoft.com/kb/4346408
+[4343902]: http://support.microsoft.com/kb/4343902
+[4343205]: http://support.microsoft.com/kb/4343205
+[4338818]: http://support.microsoft.com/kb/4338818
+[4019990]: http://support.microsoft.com/kb/4019990
+[4338830]: http://support.microsoft.com/kb/4338830
+[4338421]: http://support.microsoft.com/kb/4338421
+[4338416]: http://support.microsoft.com/kb/4338416
+[4338815]: http://support.microsoft.com/kb/4338815
+[4338424]: http://support.microsoft.com/kb/4338424
+[4338415]: http://support.microsoft.com/kb/4338415
 
 
 [4338814]: http://support.microsoft.com/kb/4338814

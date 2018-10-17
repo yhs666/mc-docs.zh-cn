@@ -8,16 +8,16 @@ author: WenJason
 manager: digimobile
 ms.custom: VNet Service endpoints
 ms.topic: conceptual
-origin.date: 07/18/2018
-ms.date: 09/02/2018
-ms.reviewer: carlrab
+origin.date: 08/28/2018
+ms.date: 10/15/2018
+ms.reviewer: vanto
 ms.author: v-jay
-ms.openlocfilehash: a8dc71f35203fce2473b6ede3be4c9d9a52eb611
-ms.sourcegitcommit: 2601e68563bffe148e70cce2bf1dcbe837a40f80
+ms.openlocfilehash: 7b63fc2bd949ee099870e5f89a280c3625034cd4
+ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43249883"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48914016"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database-and-sql-data-warehouse"></a>使用适用于 Azure SQL 数据库和 SQL 数据仓库的虚拟网络服务终结点和规则
 
@@ -182,11 +182,10 @@ Azure 存储已实现相同的功能，允许限制到存储帐户的连接。
 如果选择将此功能与某个存储帐户配合使用，而该帐户正由 Azure SQL Server 使用，则可能会出现问题。 接下来会列出受此影响的 Azure SQLDB 功能并对其进行讨论。
 
 #### <a name="azure-sqldw-polybase"></a>Azure SQLDW PolyBase
-PolyBase 通常用于将数据从存储帐户加载到 Azure SQLDW 中。 如果正从存储帐户加载数据，而该帐户只允许一组 VNet-子网的访问，则会断开从 PolyBase 到该帐户的连接。 我们提供了此方面的缓解措施，请联系 *dmalik@microsoft.com* 以了解详细信息。
+PolyBase 通常用于将数据从存储帐户加载到 Azure SQLDW 中。 如果正从存储帐户加载数据，而该帐户只允许一组 VNet-子网的访问，则会断开从 PolyBase 到该帐户的连接。 我们提供了此方面的缓解措施，请联系 Azure 客户支持了解详细信息。
 
 #### <a name="azure-sqldb-blob-auditing"></a>Azure SQLDB Blob 审核
-Blob 审核将审核日志推送到你自己的存储帐户。 如果此存储帐户使用 VENT 服务终结点功能，则会断开从 Azure SQLDB 到存储帐户的连接。
-
+Blob 审核将审核日志推送到你自己的存储帐户。 如果此存储帐户使用 VNet 服务终结点功能，则会断开从 Azure SQLDB 到存储帐户的连接。
 
 ## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>在未打开 VNET 服务终结点的情况下，将 VNET 防火墙规则添加到服务器
 

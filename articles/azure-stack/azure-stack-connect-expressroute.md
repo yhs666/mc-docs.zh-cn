@@ -3,8 +3,8 @@ title: 使用 ExpressRoute 将 Azure Stack 连接到 Azure
 description: 了解如何使用 ExpressRoute 将 Azure Stack 中的虚拟网络连接到 Azure 中的虚拟网络。
 services: azure-stack
 documentationcenter: ''
-author: brenduns
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 08/14/2018
-ms.date: 08/27/2018
-ms.author: v-junlch
+origin.date: 09/12/2018
+ms.date: 10/15/2018
+ms.author: v-jay
 ms.reviewer: ''
-ms.openlocfilehash: ebdd7144a6ce42d896e720c0bd5884dff5680a09
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.openlocfilehash: 1ebec19d36b7a013e8a2e1424292f4588cfb0caf
+ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869547"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48848882"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>使用 Azure ExpressRoute 将 Azure Stack 连接到 Azure
 
@@ -99,7 +99,7 @@ ms.locfileid: "42869547"
 #### <a name="create-the-virtual-network-and-vm-subnet"></a>创建虚拟网络和 VM 子网
 
 1. 使用用户（租户）帐户登录到用户门户。
-2. 在门户中，选择“新建”。
+2. 在门户中，选择“+ 创建资源”。
 
 3. 在“Azure 市场”下，选择“网络”。
 
@@ -132,7 +132,7 @@ ms.locfileid: "42869547"
 
 #### <a name="create-the-virtual-network-gateway"></a>创建虚拟网络网关
 
-1. 在 Azure Stack 用户门户中，选择“新建”。
+1. 在 Azure Stack 用户门户中，选择“+ 创建资源”。
 2. 在“Azure 市场”下，选择“网络”。
 3. 从网络资源列表中选择“虚拟网关”。
 4. 在“名称”字段中，输入 **GW1**。
@@ -147,7 +147,7 @@ ms.locfileid: "42869547"
 
 本地网络网关资源识别位于 VPN 连接另一端的远程网关。 在本示例中，连接的远程端是 ExpressRoute 路由器的 LAN 子接口。 对于*图 2* 中所示的租户 1，远程地址为 10.60.3.255。
 
-1. 使用用户帐户登录到 Azure Stack 用户门户，然后选择“新建”。
+1. 使用用户帐户登录到 Azure Stack 用户门户，然后选择“+ 创建资源”。
 2. 在“Azure 市场”下，选择“网络”。
 3. 从资源列表中选择“本地网关”。
 4. 在“名称”字段中，输入 **ER-Router-GW**。
@@ -164,7 +164,7 @@ ms.locfileid: "42869547"
 
 #### <a name="create-the-connection"></a>创建连接
 
-1. 在 Azure Stack 用户门户中，选择“新建”。
+1. 在 Azure Stack 用户门户中，选择“+ 创建资源”。
 2. 在“Azure 市场”下，选择“网络”。
 3. 从资源列表中选择“连接”。
 4. 在“基本设置”下，选择“站点到站点(IPSec)”作为“连接类型”。
@@ -188,7 +188,7 @@ ms.locfileid: "42869547"
 
 若要通过 VPN 连接测试数据流量，需要使用虚拟机在 Azure Stack VNet 中发送和接收数据。 请创建一个虚拟机，并将其部署到虚拟网络的 VM 子网。
 
-1. 在 Azure Stack 用户门户中，选择“新建”。
+1. 在 Azure Stack 用户门户中，选择“+ 创建资源”。
 2. 在“Azure 市场”下，选择“计算”。
 3. 在虚拟机映像列表中，选择“Windows Server 2016 Datacenter Eval”映像。
 
@@ -639,6 +639,3 @@ New-NetFirewallRule `
 
    ![“传入数据”和“传出数据”](media/azure-stack-connect-expressroute/DataInDataOut.png)
 
-## <a name="next-steps"></a>后续步骤
-
-[将应用部署到 Azure 和 Azure Stack](azure-stack-solution-pipeline.md)

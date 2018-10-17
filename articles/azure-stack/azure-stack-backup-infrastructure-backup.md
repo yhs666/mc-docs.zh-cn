@@ -3,8 +3,8 @@ title: 使用基础结构备份服务对 Azure Stack 进行备份和数据恢复
 description: 可以使用基础结构备份服务备份和还原配置和服务数据。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: 9B51A3FB-EEFC-4CD8-84A8-38C52CFAD2E4
 ms.service: azure-stack
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/20/2017
-ms.date: 06/26/2018
-ms.author: v-junlch
+origin.date: 09/10/2018
+ms.date: 10/15/2018
+ms.author: v-jay
 ms.reviewer: hectorl
-ms.openlocfilehash: e66df6dcb616b1cb3a93c0db37a60774bdee7878
-ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
+ms.openlocfilehash: ae1331630e42cac4fd5b98134b49eab515a722fb
+ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37027183"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48848767"
 ---
 # <a name="backup-and-data-recovery-for-azure-stack-with-the-infrastructure-backup-service"></a>使用基础结构备份服务对 Azure Stack 进行备份和数据恢复
 
@@ -38,7 +38,7 @@ ms.locfileid: "37027183"
 
 ## <a name="the-infrastructure-backup-service"></a>基础结构备份服务
 
-该服务包含以下功能。
+这些服务包含以下功能。
 
 | 功能                                            | 说明                                                                                                                                                |
 |----------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|

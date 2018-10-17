@@ -3,8 +3,8 @@ title: 修复 Azure Stack 的证书问题 | Microsoft Docs
 description: 使用 Azure Stack 就绪性检查器查看和修复证书问题。
 services: azure-stack
 documentationcenter: ''
-author: brenduns
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
@@ -13,18 +13,22 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 05/08/2018
-ms.date: 05/24/2018
-ms.author: v-junlch
+ms.date: 10/15/2018
+ms.author: v-jay
 ms.reviewer: ''
-ms.openlocfilehash: 2dcc0839c7c78c3f3e1b7224887ad6128416f045
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 6f7afbd5cba702e5113e2a5f323a3fcb6b350a0a
+ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475130"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48848805"
 ---
 # <a name="remediate-common-issues-for-azure-stack-pki-certificates"></a>修复 Azure Stack PKI 证书的常见问题
 可以通过本文中的信息来了解并解决 Azure Stack PKI 证书的常见问题。 可以使用 Azure Stack 就绪性检查器工具来[验证 Azure Stack PKI 证书](azure-stack-validate-pki-certs.md)，以便发现问题。 此工具检查的目的是确保证书满足有关 Azure Stack 部署和 Azure Stack 机密轮换的 PKI 要求，结果记录在 [report.json 文件](azure-stack-validation-report.md)中。  
+
+## <a name="pfx-encryption"></a>PFX 加密
+**失败** - PFX 加密不是 TripleDES-SHA1。   
+**补救** - 使用 **TripleDES-SHA1** 加密导出 PFX 文件。 从证书管理单元导出或使用 Export-PFXCertificate 时，这是所有 Windows 10 客户端的默认设置。 
 
 ## <a name="read-pfx"></a>读取 PFX
 **警告** - 密码仅保护证书中的私密信息。  
@@ -67,6 +71,7 @@ ms.locfileid: "34475130"
 
 ## <a name="fix-common-packaging-issues"></a>修复常见的打包问题
 AzsReadinessChecker 可以通过导入和导出 PFX 文件来修复常见的打包问题，其中包括： 
+ - *PFX 加密*不是 TripleDES-SHA1
  - 私钥缺少本地计算机属性。
  - 证书链不完整或错误。 （如果 PFX 包不包含证书链，则本地计算机必须包含。） 
  - *其他证书*。
@@ -98,4 +103,3 @@ AzsReadinessChecker 可以通过导入和导出 PFX 文件来修复常见的打�
 
 ## <a name="next-steps"></a>后续步骤
 [详细了解 Azure Stack 安全性](azure-stack-rotate-secrets.md)
-

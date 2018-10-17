@@ -1,33 +1,33 @@
 ---
-title: 将 Kubernetes 群集部署到 Azure Stack | Azure
+title: 将 Kubernetes 群集部署到 Azure Stack | Microsoft Docs
 description: 了解如何将 Kubernetes 群集部署到 Azure Stack。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/09/2018
-ms.date: 08/27/2018
-ms.author: v-junlch
+origin.date: 09/12/2018
+ms.date: 10/15/2018
+ms.author: v-jay
 ms.reviewer: waltero
-ms.openlocfilehash: bfe47d5ace1d4ee80844f39a6e6e222d3b4c50e5
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.openlocfilehash: 2c4fa4044e2c7e0bc9279e3ab2e7bea3d416d3aa
+ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869369"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48848822"
 ---
 # <a name="deploy-a-kubernetes-cluster-to-azure-stack"></a>将 Kubernetes 群集部署到 Azure Stack
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 > [!Note]  
-> Azure Stack 上的 Azure Kubernetes 服务 (AKS) Kubernetes 目前以个人预览版提供。 Azure Stack 操作员需请求 Kubernetes 市场项的访问权限，该项是根据本文中的说明进行操作所必需的。
+> Azure Stack 上的 AKS（Azure Kubernetes 服务）引擎目前以个人预览版提供。 Azure Stack 操作员需请求 Kubernetes 市场项的访问权限，该项是根据本文中的说明进行操作所必需的。
 
 下面的文章着眼于使用 Azure 资源管理器解决方案模板通过单个协调的操作为 Kubernetes 部署和预配资源。 需收集有关 Azure Stack 安装的必需信息，生成模板，然后再部署到云。
 
@@ -89,9 +89,9 @@ ms.locfileid: "42869369"
 
 为服务主体提供对订阅的访问权限，使该主体能够创建资源。
 
-1.  登录到[管理门户](https://adminportal.local.azurestack.external)。
+1.  登录到 [Azure Stack 门户](https://portal.local.azurestack.external/)。
 
-2. 选择“更多服务” > “用户订阅” > “+ 添加”。
+2. 选择“更多服务” > “订阅”。
 
 3. 选择已创建的订阅。
 
@@ -107,7 +107,7 @@ ms.locfileid: "42869369"
 
 1. 打开 [Azure Stack 门户](https://portal.local.azurestack.external)。
 
-2. 选择“+新建” > “计算” > “Kubernetes 群集”。 单击**创建**。
+2. 选择“+ 创建资源” > “计算” > “Kubernetes 群集”。 单击**创建**。
 
     ![部署解决方案模板](media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
 
@@ -156,7 +156,6 @@ ms.locfileid: "42869369"
 
 ## <a name="next-steps"></a>后续步骤
 
-
-  [向市场添加 Kubernetes 群集（适用于 Azure Stack 操作员）](../azure-stack-solution-template-kubernetes-cluster-add.md)
+[向市场添加 Kubernetes 群集（适用于 Azure Stack 操作员）](../azure-stack-solution-template-kubernetes-cluster-add.md)
 
 <!-- Update_Description: wording update -->

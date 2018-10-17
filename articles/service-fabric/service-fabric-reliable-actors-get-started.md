@@ -1,6 +1,6 @@
 ---
-title: 用 C# 创建第一个基于执行组件的 Azure 微服务 | Azure
-description: 本教程介绍了使用 Service Fabric Reliable Actors 创建、调试和部署简单的基于执行组件的服务的步骤。
+title: 在 Azure Service Fabric 上创建基于执行组件的服务 | Azure
+description: 了解如何使用 Service Fabric Reliable Actors 在 C# 中创建、调试和部署第一个基于执行组件的服务。
 services: service-fabric
 documentationcenter: .net
 author: rockboyfor
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 03/16/2018
-ms.date: 05/28/2018
+ms.date: 10/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: 48f0d504f10a33c8f788abeb514e134266ecdb0b
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.openlocfilehash: 7ba63872fa88e4f07297dce098a4832f0813eb93
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554448"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49089154"
 ---
 # <a name="getting-started-with-reliable-actors"></a>Reliable Actors 入门
 > [!div class="op_single_selector"]
@@ -170,4 +170,5 @@ internal class HelloWorld : Actor, IHelloWorld
 [7]: ./media/service-fabric-reliable-actors-get-started/add-reference.png
 [8]: ./media/service-fabric-reliable-actors-get-started/build-props.png
 [9]: ./media/service-fabric-reliable-actors-get-started/app-output.png
+
 <!--Update_Description: update meta properties, wording update -->

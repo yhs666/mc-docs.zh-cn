@@ -1,10 +1,10 @@
 ---
-title: Azure Stack 的 VPN 网关设置 | Azure
+title: Azure Stack 的 VPN 网关设置 | Microsoft Docs
 description: 了解在 Azure Stack 中使用的 VPN 网关的设置。
 services: azure-stack
 documentationcenter: ''
-author: brenduns
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: fa8d3adc-8f5a-4b4f-8227-4381cf952c56
 ms.service: azure-stack
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 08/14/2018
-ms.date: 08/27/2018
-ms.author: v-junlch
-ms.openlocfilehash: 1f149d0a99109adfffa79ad60170e883b6b3b892
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.date: 10/15/2018
+ms.author: v-jay
+ms.openlocfilehash: 32b74cf5ded684f83a2e32f95a22c831b8d48ad0
+ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869533"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48848803"
 ---
 # <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>Azure Stack 的 VPN 网关配置设置
 
@@ -28,7 +28,7 @@ ms.locfileid: "42869533"
 
 VPN 网关是一种虚拟网络网关，可在 Azure Stack 中的虚拟网络与远程 VPN 网关之间发送加密流量。 远程 VPN 网关可位于 Azure 中、数据中心的设备中或另一个站点的设备中。  如果两个终结点之间有网络连接，可以在这两个网络之间建立安全的站点到站点 (S2S) VPN 连接。
 
-VPN 网关连接依赖于多个资源的配置，每个资源都包含可配置的设置。 本文的各个部分介绍与 Resource Manager 部署模型中创建的虚拟网络的 VPN 网关相关的资源和设置。 可在[关于 Azure Stack 的 VPN 网关](azure-stack-vpn-gateway-about-vpn-gateways.md)中找到每个连接解决方案的说明和拓扑图。
+VPN 网关连接依赖于多个资源的配置，每个资源都包含可配置的设置。 本文介绍与资源管理器部署模型中创建的虚拟网络的 VPN 网关相关的资源和设置。 可在[关于 Azure Stack 的 VPN 网关](azure-stack-vpn-gateway-about-vpn-gateways.md)中找到每个连接解决方案的说明和拓扑图。
 
 ## <a name="vpn-gateway-settings"></a>VPN 网关设置
 
@@ -101,7 +101,7 @@ New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName t
 >
 > 此外，由于自定义 IPSec/IKE 策略配置尚不受支持，因此 Azure Stack 目前不支持对基于路由的网关使用基于策略的流量选择器。
 
-* **PolicyBased**：基于策略的 VPN 会根据使用本地网络和 Azure Stack VNet 之间的地址前缀的各种组合配置的 IPsec 策略，加密数据包并引导其通过 IPsec 隧道。 通常会在 VPN 设备配置中将策略或流量选择器定义为访问列表。
+* **PolicyBased**：基于策略的 VPN 会根据使用本地网络和 Azure Stack VNet 之间的地址前缀的各种组合配置的 IPsec 策略，加密数据包并引导其通过 IPsec 隧道。 策略或流量选择器通常是 VPN 设备配置中的访问列表。
 
   >[!NOTE]
   >PolicyBased 在 Azure 中受支持，但在 Azure Stack 中不受支持。
@@ -185,14 +185,12 @@ Azure Stack 仅支持一个产品/服务，这与 Azure 不同，后者支持将
 |SDK 版本 |IKEv2 |
 |加密和哈希算法（加密）     | GCMAES256|
 |加密和哈希算法（身份验证） | GCMAES256|
-|SA 生存期（时间）  | 27,000 秒<sup>请参阅注释 1</sup> |
-|SA 生存期（字节数） | 33,553,408<sup>请参阅注释 2</sup>     |
-|完全向前保密 (PFS) |无<sup>请参阅注释 3</sup> |
+|SA 生存期（时间）  | 27,000 秒  |
+|SA 生存期（字节数） | 33,553,408     |
+|完全向前保密 (PFS) |无<sup>请参阅注释 1</sup> |
 |死对等体检测 | 支持|  
 
-* *注释 1：* 在版本 1803 以前，Azure Stack 使用值 14,400 作为 SA 生存期（时间）。
-* *注释 2：* 在版本 1803 以前，Azure Stack 使用值 819,200 作为 SA 生存期（字节）。
-* *注释 3：* 在版本 1807 以前，Azure Stack 使用值 PFS2048 作为“完全向前保密(PFS)”值。
+* *注释 1：* 在版本 1807 以前，Azure Stack 使用值 PFS2048 作为“完全向前保密(PFS)”值。
 
 ## <a name="next-steps"></a>后续步骤
 

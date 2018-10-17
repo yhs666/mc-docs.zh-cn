@@ -1,8 +1,7 @@
 ---
 title: 什么是 Azure Active Directory (Azure AD)？ | Microsoft Docs
-description: 使用 Azure Active Directory 将现有的本地标识扩展到云中，或开发 Azure AD 集成的应用程序。
+description: 了解如何使用 Azure Active Directory 将现有的本地标识扩展到云中，或开发 Azure AD 集成应用。
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
 ms.author: v-junlch
@@ -10,53 +9,44 @@ ms.assetid: 498820c4-9ebe-42be-bda2-ecf38cc514ca
 ms.service: active-directory
 ms.component: fundamentals
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
-origin.date: 04/09/2018
-ms.date: 08/29/2018
+origin.date: 09/13/2018
+ms.date: 10/09/2018
 ms.custom: it-pro
-ms.openlocfilehash: d4c0d9f79a8e8031b93ca336bee253f93f056c7c
-ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
+ms.openlocfilehash: df269c1696419d54531707bc829b0e35d9329259
+ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43164807"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913756"
 ---
 # <a name="what-is-azure-active-directory"></a>什么是 Azure Active Directory？
-Azure Active Directory (Azure AD) 是 Microsoft 推出的基于云的多租户目录，也是标识管理服务，可以将核心目录服务、应用程序访问管理和标识保护组合到单个解决方案中。 Azure AD 还提供功能丰富、基于标准的平台，该平台支持开发人员根据集中的策略和规则为应用程序提供访问控制。
+Azure Active Directory (Azure AD) 是 Microsoft 提供的多租户、基于云的目录和标识管理服务。 Azure AD 将核心目录服务、应用程序访问管理和标识保护组合到一个解决方案中，提供基于标准的平台，帮助开发人员根据集中策略和规则为其应用程序提供访问控制。
 
 ![Azure AD Connect 堆栈](./media/active-directory-whatis/Azure_Active_Directory.png)
 
-- **面向应用开发人员。** Azure AD 可让你集成全球数百万个组织所用的标识管理解决方案，从而专注于构建应用。
+## <a name="benefits-of-azure-ad"></a>Azure AD 的优势
+Azure AD 可帮助你：
 
-- **面向 Office 365 客户和 Azure 客户。** 你已在使用 Azure AD。 每个 Office 365 租户和 Azure 租户实际上都是 Azure AD 租户，因此你可以立即开始管理员工对集成云应用的访问。
+-   为整个企业中的每个用户创建和管理单一标识，使用户和组与 [Azure AD Connect](../connect/active-directory-aadconnect.md) 保持同步。
+
+-   通过对本地应用和云应用强制执行基于规则的[多重身份验证](../authentication/concept-mfa-howitworks.md)，启用应用程序访问安全性。
+
+## <a name="who-uses-azure-ad"></a>谁使用 Azure AD
+Azure AD 适用于应用开发人员以及 Office 365、Azure 用户。
+
+- **面向应用开发人员。** Azure AD 通过提供与全球数百万组织所用的标识管理解决方案的集成，帮助你专注于构建应用。
+
+- **面向 Office 365 客户和 Azure 客户。** 你已在使用 Azure AD。 每个 Office 365 和 Azure 租户实际上是 Azure AD 租户，因此你可以立即开始管理用户对集成云应用的访问。
 
 ## <a name="how-reliable-is-azure-ad"></a>Azure AD 的可靠性如何？
-Azure AD 的多租户、地理分布、高可用性设计意味着可以依赖它来解决最关键的业务需求。 在全球运转有 28 个可自动故障转移的数据中心，这让人能够体会到 Azure AD 的高度可靠，即使数据中心发生服务中断，目录数据也至少会在两个以上的地域分散的数据中心内保留副本，并且提供立即访问权限。
+Azure AD 的多租户、地理分布、高可用性设计意味着可以依赖它来解决最关键的业务需求。 Azure AD 通过自动故障转移在全球 28 个数据中心中运行。 这意味着即使数据中心出现故障，目录数据的副本也会存在于至少另外两个区域分散的数据中心中，并且可供即时访问。
 
 有关服务级别协议的详细信息，请参阅[服务级别协议](https://www.azure.cn/support/legal/sla/)。
 
 ## <a name="choose-an-edition"></a>选择版本
-所有 Microsoft Online 业务服务都依赖于 Azure Active Directory (Azure AD) 进行登录及满足其他标识需求。 如果订阅了任何 Microsoft Online 业务服务（例如，Office 365 或 Azure），则已获得 Azure AD，能够访问所有免费功能。 使用 Azure Active Directory 免费版，可以管理用户和组、与本地目录同步，以及在 Azure、Office 365 和数千种主流 SaaS 应用程序（如 Salesforce、Workday、Concur、DocuSign、Box、ServiceNow、Dropbox 等）上单一登录。 
-
-若要增强 Azure Active Directory，可以使用 Azure Active Directory 基本版、Premium P1 版和 Premium P2 版添加付费功能。 Azure Active Directory 付费版建立在现有免费目录基础之上，提供企业级功能，包括自助服务、增强型监视、安全报告、多重身份验证 (MFA) 和移动工作者安全访问。
-
-> [!NOTE]
-> 有关这些版本的定价选项，请参阅 [Azure Active Directory 定价](https://www.azure.cn/pricing/details/identity/)。 中国地区目前不支持 Azure Active Directory Premium P1 版、Premium P2 版和 Azure Active Directory 基本版。 有关 Azure AD 定价的详细信息，可与 Azure Active Directory 论坛联系。
->
-
-## <a name="how-can-i-get-started"></a>如何开始？
-
-**如果是 IT 管理员：**
-
-- [立即试用！](/active-directory/) - 现在就可以使用此链接注册试用版，并在不到五分钟内部署第一个云解决方案
+有关这些版本的定价选项，请参阅 [Azure Active Directory 定价](https://www.azure.cn/pricing/details/active-directory/)
 
 
-**如果是开发人员：**
- 
-- 查看 Azure Active Directory 的[开发人员指南](../develop/azure-ad-developers-guide.md)
+<!-- Update_Description: wording update -->
 
-- [开始试用](https://www.azure.cn/pricing/1rmb-trial/) - 立即注册试用版，开始将应用集成到 Azure AD
-
-<!-- Update_Description: link update -->

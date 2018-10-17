@@ -1,5 +1,5 @@
 ---
-title: 连接到 Azure Key Vault 时对 ASP.NET 项目所做的更改 | Microsoft Docs
+title: 连接到 Azure Key Vault 时对 ASP.NET 项目所做的更改
 description: 说明使用 Visual Studio 连接服务连接到 Key Vault 时，ASP.NET 项目会发生什么情况。
 services: key-vault
 author: ghogen
@@ -9,14 +9,14 @@ ms.prod: visual-studio-dev15
 ms.technology: vs-azure
 ms.topic: conceptual
 origin.date: 04/15/2018
-ms.date: 06/11/2018
-ms.author: v-junlch
-ms.openlocfilehash: 216f3095a0f1a5770fd89771d43cb8a27ff47237
-ms.sourcegitcommit: 306fba1a7125ef6f0555781524afa8f535bea2a0
+ms.date: 10/22/2018
+ms.author: v-biyu
+ms.openlocfilehash: dd35e82e727839ba1fa365e8d5f855e716ba40a2
+ms.sourcegitcommit: 2fdf25eb4b978855ff2832bcdcca093c141be261
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35253395"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49120596"
 ---
 # <a name="what-happened-to-my-aspnet-project-visual-studio-key-vault-connected-service"></a>我的 ASP.NET 项目（Visual Studio Key Vault 连接服务）发生了什么情况？
 
@@ -53,15 +53,26 @@ ms.locfileid: "35253395"
 - 添加了以下配置条目：
 
     ```xml
-    <appSettings>
-       <add key="vaultName" value="<your Key Vault name>" />
-       <add key="vaultUri" value="<the URI to your Key Vault in Azure>" />
-    </appSettings>
+    <configSections>
+      <section
+           name="configBuilders"
+           type="System.Configuration.ConfigurationBuildersSection, System.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" 
+           restartOnExternalChanges="false"
+           requirePermission="false" />
+    </configSections>
+    <configBuilders>
+      <builders>
+        <add 
+             name="AzureKeyVault"
+             vaultName="vaultname"
+             type="Microsoft.Configuration.ConfigurationBuilders.AzureKeyVaultConfigBuilder, Microsoft.Configuration.ConfigurationBuilders.Azure, Version=1.0.0.0, Culture=neutral" 
+             vaultUri="https://vaultname.vault.azure.cn" />
+      </builders>
+    </configBuilders>
     ```
 
 ## <a name="changes-on-azure"></a>对 Azure 的更改
 
 - 创建了资源组（或使用了现有资源组）。
 - 在指定的资源组中创建了密钥保管库。
-
 

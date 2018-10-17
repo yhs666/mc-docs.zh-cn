@@ -2,7 +2,6 @@
 title: 为 Azure 云服务中的角色设置远程桌面连接
 description: 如何配置 Azure 云服务应用程序以允许远程桌面连接
 services: cloud-services
-documentationcenter: na
 author: ghogen
 manager: douge
 editor: ''
@@ -13,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 03/06/2018
-ms.date: 05/07/2018
+ms.date: 10/22/2018
 ms.author: v-yiso
-ms.openlocfilehash: 4baa2b1a59cfe1c1133458c71a2a413b853b0dd4
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.openlocfilehash: fd92e17ba76b3b2b8966cc3bfda054b0e4744cf5
+ms.sourcegitcommit: 8a5722b85c6eabbd28473d792716ad44aac3ff23
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121412"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49121522"
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-visual-studio"></a>使用 Visual Studio 为 Azure 云服务中的角色启用远程桌面连接
 
@@ -33,7 +32,7 @@ ms.locfileid: "32121412"
 
 Visual Studio 为云服务提供的发布向导中包括一个选项，用于在发布过程中使用提供的凭据启用远程桌面。 使用 Visual Studio 2017 版本 15.4 和更低版本时，比较适合使用此选项。
 
-但是，使用 Visual Studio 2017 版本 15.5 和更高版本时，我们建议避免通过发布向导启用远程桌面，除非你是以独立的开发人员身份工作。 如果其他开发人员会打开你的项目，则应该通过 Azure 门户、PowerShell 或持续部署工作流中的发布定义启用远程桌面。 推出此建议的原因是 Visual Studio 与云服务 VM 中远程桌面的通信方式发生了变化，本文会对此做出解释。
+但是，使用 Visual Studio 2017 版本 15.5 和更高版本时，我们建议避免通过发布向导启用远程桌面，除非你是以独立的开发人员身份工作。 如果其他开发人员会打开你的项目，则应该通过 Azure 门户、PowerShell 或持续部署工作流中的发布管道启用远程桌面。 推出此建议的原因是 Visual Studio 与云服务 VM 中远程桌面的通信方式发生了变化，本文会对此做出解释。
 
 ## <a name="configure-remote-desktop-through-visual-studio-2017-version-154-and-earlier"></a>通过 Visual Studio 2017 版本 15.4 和更低版本配置远程桌面
 
@@ -87,9 +86,9 @@ Certificate with thumbprint [thumbprint] doesn't exist.
 
 ### <a name="deploying-from-a-build-server-with-visual-studio-2017-version-155-and-later"></a>使用 Visual Studio 2017 版本 15.5 和更高版本从生成服务器部署
 
-可以在生成代理中，从装有 Visual Studio 2017 版本 15.5 或更高版本的生成服务器（例如，使用 Visual Studio Team Services）部署云服务项目。 使用此方法时，部署将在可提供加密证书的同一台计算机上进行。
+可以在生成代理中，从装有 Visual Studio 2017 版本 15.5 或更高版本的生成服务器（例如，使用 Azure DevOps Services）部署云服务项目。 使用此方法时，部署将在可提供加密证书的同一台计算机上进行。
 
-若要使用 Visual Studio Team Services 中的 RDP 扩展，请在生成定义中包含以下详细信息：
+若要使用 Azure DevOps Services 中的 RDP 扩展，请在生成管道中包含以下详细信息：
 
 1. 在 MSBuild 参数中包含 `/p:ForceRDPExtensionOverPlugin=true`，确保部署使用 RDP 扩展而不是 RDP 插件。 例如：
 

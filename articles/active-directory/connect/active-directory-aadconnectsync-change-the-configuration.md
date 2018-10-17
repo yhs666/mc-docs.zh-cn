@@ -12,19 +12,24 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/16/2018
-ms.date: 06/25/2018
+origin.date: 08/30/2018
+ms.date: 10/11/2018
 ms.component: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 9c994ea4f0b1c214cb20c3dba0ae0777f24e4bd1
-ms.sourcegitcommit: 8b36b1e2464628fb8631b619a29a15288b710383
+ms.openlocfilehash: 555cee9a4af19264dad71e21b4bc1d79315ac574
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36947984"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49089133"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Azure AD Connect 同步：如何更改默认配置
 本文旨在介绍如何对 Azure Active Directory (Azure AD) Connect 同步中的默认配置进行更改。其中提供了一些常见方案的步骤。 了解这些知识后，用户应该能够根据自己的业务规则对自己的配置进行简单的更改。
+
+> [!WARNING]
+> 如果更改默认同步规则，则下次更新 Azure AD Connect 时将覆盖这些更改，从而导致意外且可能无用的同步结果。
+>
+> 现成的同步规则具有指纹。 如果更改这些规则，指纹不再匹配。 将来尝试应用 Azure AD Connect 的新版本时可能会遇到问题。 只能根据本文所述的方式进行更改。
 
 ## <a name="synchronization-rules-editor"></a>同步规则编辑器
 同步规则编辑器用于查看和更改默认配置。 可以在“Azure AD Connect”组下的“开始”菜单中找到它。  
@@ -55,13 +60,13 @@ ms.locfileid: "36947984"
 1. 单击“添加新规则” 。
 2. 在“说明”页上输入以下内容：  
    ![入站规则筛选](./media/active-directory-aadconnectsync-change-the-configuration/description2.png)  
-   * **名称**：为规则提供说明性名称。
-   * **说明**：提供一些说明以便他人可以理解规则的用途。
-   * **连接的系统**：可从中找到对象的系统。 在本例中，请选择“Active Directory 连接器”。
-   * **连接的系统/Metaverse 对象类型**：分别选择“用户”和“人员”。
-   * **链接类型**：将该值更改为“联接”。
-   * **优先级**：提供系统中唯一的值。 较低的数值表示较高的优先级。
-   * **标记**：将此项留空。 只有 Microsoft 中现成可用的规则应该会要求在此框中填入值。
+   - **名称**：为规则提供说明性名称。
+   - **说明**：提供一些说明以便他人可以理解规则的用途。
+   - **连接的系统**：可从中找到对象的系统。 在本例中，请选择“Active Directory 连接器”。
+   - **连接的系统/Metaverse 对象类型**：分别选择“用户”和“人员”。
+   - **链接类型**：将该值更改为“联接”。
+   - **优先级**：提供系统中唯一的值。 较低的数值表示较高的优先级。
+   - **标记**：将此项留空。 只有 Microsoft 中现成可用的规则应该会要求在此框中填入值。
 3. 在“范围筛选器”页上，输入“givenName ISNOTNULL”。  
    ![入站规则范围筛选器](./media/active-directory-aadconnectsync-change-the-configuration/scopingfilter.png)  
    此部分用于定义规则应该应用到哪些对象。 如果留空，该规则会应用到所有用户对象。 但也可包括会议室、服务帐户和其他非个人用户对象。
@@ -263,13 +268,13 @@ Azure AD Connect 支持 1.1.524.0 及更高版本中 **User** 对象的 **UserTy
 
     | 属性 | 值 | 详细信息 |
     | --- | --- | --- |
-    | Name | *提供名称* | 例如 *In from AD � User UserType* |
+    | Name | *提供名称* | 例如 *In from AD - User UserType* |
     | 说明 | *提供说明* |  |
     | 连接的系统 | 选择本地 AD 连接器 |  |
     | 连接的系统对象类型 | **User** |  |
     | Metaverse 对象类型 | **Person** |  |
     | 链接类型 | **Join** |  |
-    | 优先级 | 选择介于 1 和 99 之间的数字 | 1�99 是为自定义同步规则保留的值。 请不要选择已被其他同步规则使用的值。 |
+    | 优先级 | 选择介于 1 和 99 之间的数字 | 1-99 是为自定义同步规则保留的值。 请不要选择已被其他同步规则使用的值。 |
 
 5. 转到“范围筛选器”选项卡，并添加包含以下子句的**单个范围筛选器组**：
 
@@ -277,7 +282,7 @@ Azure AD Connect 支持 1.1.524.0 及更高版本中 **User** 对象的 **UserTy
     | --- | --- | --- |
     | adminDescription | NOTSTARTWITH | 用户\_ |
 
-    范围筛选器确定要将此入站同步规则应用到哪些本地 AD 对象。 在本示例中，我们将使用 *In from AD � User Common* 现成同步规则中所用的相同范围筛选器，防止将同步规则应用到通过 Azure AD 用户写回功能创建的 User 对象。 可能需要根据 Azure AD Connect 部署调整范围筛选器。
+    范围筛选器确定要将此入站同步规则应用到哪些本地 AD 对象。 在本示例中，我们将使用 *In from AD - User Common* 现成同步规则中所用的相同范围筛选器，防止将同步规则应用到通过 Azure AD 用户写回功能创建的 User 对象。 可能需要根据 Azure AD Connect 部署调整范围筛选器。
 
 6. 转到“转换”选项卡并实现所需转换规则。 例如，如果指定了未使用的本地 AD 属性（例如 extensionAttribute1）作为 UserType 的源属性，则可以实现直接属性流：
 
@@ -305,13 +310,13 @@ Azure AD Connect 支持 1.1.524.0 及更高版本中 **User** 对象的 **UserTy
 
     | 属性 | 值 | 详细信息 |
     | ----- | ------ | --- |
-    | Name | *提供名称* | 例如 *Out to AAD � User UserType* |
+    | Name | *提供名称* | 例如“Out to AAD - User UserType” |
     | 说明 | *提供说明* ||
     | 连接的系统 | 选择 AAD 连接器 ||
     | 连接的系统对象类型 | **User** ||
     | Metaverse 对象类型 | **Person** ||
     | 链接类型 | **Join** ||
-    | 优先级 | 选择介于 1 和 99 之间的数字 | 1�99 是为自定义同步规则保留的值。 请不要选择已被其他同步规则使用的值。 |
+    | 优先级 | 选择介于 1 和 99 之间的数字 | 1-99 是为自定义同步规则保留的值。 请不要选择已被其他同步规则使用的值。 |
 
 5. 转到“范围筛选器”选项卡，并添加包含两个子句的**单个范围筛选器组**：
 
@@ -320,7 +325,7 @@ Azure AD Connect 支持 1.1.524.0 及更高版本中 **User** 对象的 **UserTy
     | sourceObjectType | EQUAL | User |
     | cloudMastered | NOTEQUAL | True |
 
-    范围筛选器确定要将此出站同步规则应用到哪些 Azure AD 对象。 在本示例中，我们将使用 *Out to AD � User Identity* 现成同步规则中的相同范围筛选器。 它可以防止将同步规则应用到未从本地 Active Directory 同步的 User 对象。 可能需要根据 Azure AD Connect 部署调整范围筛选器。
+    范围筛选器确定要将此出站同步规则应用到哪些 Azure AD 对象。 在本示例中，我们将使用 *Out to AD - User Identity* 现成同步规则中的相同范围筛选器。 它可以防止将同步规则应用到未从本地 Active Directory 同步的 User 对象。 可能需要根据 Azure AD Connect 部署调整范围筛选器。
 
 6. 转到“转换”选项卡并实现以下转换规则：
 
@@ -392,12 +397,11 @@ Azure AD Connect 支持 1.1.524.0 及更高版本中 **User** 对象的 **UserTy
 
 
 ## <a name="next-steps"></a>后续步骤
-* 在 [Understanding Declarative Provisioning](active-directory-aadconnectsync-understanding-declarative-provisioning.md)（了解声明性预配）中了解有关配置模型的详细信息。
-* 在[了解声明性预配表达式](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md)中阅读有关表达式语言的详细信息。
+- 在 [Understanding Declarative Provisioning](active-directory-aadconnectsync-understanding-declarative-provisioning.md)（了解声明性预配）中了解有关配置模型的详细信息。
+- 在[了解声明性预配表达式](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md)中阅读有关表达式语言的详细信息。
 
 **概述主题**
 
-* [Azure AD Connect 同步：理解和自定义同步](active-directory-aadconnectsync-whatis.md)
-* [将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)
+- [Azure AD Connect 同步：理解和自定义同步](active-directory-aadconnectsync-whatis.md)
+- [将本地标识与 Azure Active Directory 集成](active-directory-aadconnect.md)
 
-<!-- Update_Description: update metedata properties -->

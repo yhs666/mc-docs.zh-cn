@@ -1,25 +1,25 @@
 ---
-title: 使用 CLI 连接到 Azure Stack | Azure
+title: 使用 CLI 连接到 Azure Stack | Microsoft Docs
 description: 了解如何使用跨平台命令行接口 (CLI) 管理和部署 Azure Stack 上的资源
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
-manager: femila
+author: WenJason
+manager: digimobile
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/15/2018
-ms.date: 08/27/2018
-ms.author: v-junlch
+origin.date: 09/08/2018
+ms.date: 10/15/2018
+ms.author: v-jay
 ms.reviewer: sijuman
-ms.openlocfilehash: 4a76739afc7027725eccb7e4f70d6937b60d8a21
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.openlocfilehash: 823c45994fdd2ae76aa9579aefe7904c0ef4e5f6
+ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869335"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48848826"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-20-in-azure-stack"></a>在 Azure Stack 中将 API 版本配置文件与 Azure CLI 2.0 配合使用
 
@@ -95,7 +95,7 @@ $subjectEntry = [string]::Format("# Subject: {0}", $root.Subject)
 $labelEntry   = [string]::Format("# Label: {0}", $root.Subject.Split('=')[-1])
 $serialEntry  = [string]::Format("# Serial: {0}", $root.GetSerialNumberString().ToLower())
 $md5Entry     = [string]::Format("# MD5 Fingerprint: {0}", $md5Hash)
-$sha1Entry    = [string]::Format("# SHA1 Finterprint: {0}", $sha1Hash)
+$sha1Entry    = [string]::Format("# SHA1 Fingerprint: {0}", $sha1Hash)
 $sha256Entry  = [string]::Format("# SHA256 Fingerprint: {0}", $sha256Hash)
 $certText = (Get-Content -Path $pemFile -Raw).ToString().Replace("`r`n","`n")
 
@@ -161,8 +161,11 @@ Write-Host "Python Cert store was updated for allowing the azure stack CA root c
 
    ```azurecli
    az cloud update \
-     --profile 2017-03-09-profile
+     --profile 2018-03-01-hybrid
    ```
+
+    >[!NOTE]  
+    >如果正在运行的 Azure Stack 版本低于 1808 版，则需要使用 API 版本配置文件 **2017-03-09-profile**，而不是 API 版本配置文件 **2018-03-01-hybrid**。
 
 4. 使用 `az login` 命令登录到 Azure Stack 环境。 可以用户身份或以[服务主体](/active-directory/develop/active-directory-application-objects)的形式登录到 Azure Stack 环境。 
 

@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.service: automation
 ms.component: process-automation
 ms.custom: mvc
-ms.openlocfilehash: 47bb9951ff003b80d82a73a3e6e1264016b7d9c3
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.openlocfilehash: 0fda456a271c2229df64b857bab602c3ae0c220a
+ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426145"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48848922"
 ---
 # <a name="create-an-azure-automation-account"></a>创建 Azure 自动化帐户
 
@@ -65,7 +65,7 @@ Azure 自动化帐户可以通过 Azure 创建。 此方法提供一个基于浏
 
 ## <a name="next-steps"></a>后续步骤
 
-在本快速入门中，你已部署了自动化帐户、启动了一个 Runbook 作业并查看了作业结果。 若要详细了解 Azure 自动化，请继续阅读快速入门中有关如何创建第一个 Runbook 的内容。
+在本快速入门中，你已部署了自动化帐户、启动了 Runbook 作业并查看了作业状态。 若要详细了解 Azure 自动化，请继续阅读快速入门中有关如何创建第一个 Runbook 的内容。
 
 > [!div class="nextstepaction"]
 > [自动化快速入门 - 创建 Runbook](./automation-quickstart-create-runbook.md)

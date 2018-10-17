@@ -1,5 +1,5 @@
 ---
-title: 为多个应用程序授予 Azure 密钥保管库的访问权限 | Microsoft Docs
+title: 为多个应用程序授予 Azure 密钥保管库的访问权限
 description: 了解如何为多个应用程序授予密钥保管库的访问权限
 services: key-vault
 documentationcenter: ''
@@ -11,27 +11,27 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 12/01/2016
-ms.date: 05/16/2018
-ms.author: v-junlch
-ms.openlocfilehash: a5e81d61e2cbb93ecde4b882a7e11ea50f35ed76
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.date: 10/22/2018
+ms.author: v-biyu
+ms.openlocfilehash: 8f9b1ab4300ea57123e1d5a37152174ce7c84eb2
+ms.sourcegitcommit: 2fdf25eb4b978855ff2832bcdcca093c141be261
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34256344"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49120626"
 ---
 # <a name="grant-permission-to-many-applications-to-access-a-key-vault"></a>为多个应用程序授予密钥保管库的访问权限
 
-## <a name="q-i-have-several-over-16-applications-that-need-to-access-a-key-vault-since-key-vault-only-allows-16-access-control-entries-how-can-i-achieve-that"></a>问：我有多个（超过 16 个）应用程序需要访问密钥保管库。 由于密钥保管库只允许 16 个访问控制条目，我应如何实现此操作？
+## <a name="q-i-have-several-applications-that-need-to-access-a-key-vault-how-can-i-give-these-applications-up-to-1024-access-to-key-vault"></a>问：我有多个需要访问密钥保管库的应用程序，怎样才能向这些应用程序（多达 1024 个）授予 Key Vault 的访问权限？
 
-密钥保管库的访问控制策略仅支持 16 个条目。 但是，可以创建一个 Azure Active Directory 安全组。 将所有关联的服务主体添加到此安全组，并为此安全组授予密钥保管库的访问权限。
+Key Vault 访问控制策略支持多达 1024 个条目。 但是，可以创建一个 Azure Active Directory 安全组。 将所有关联的服务主体添加到此安全组，并为此安全组授予密钥保管库的访问权限。
 
 以下是先决条件：
-- [安装 Azure Active Directory V2 PowerShell 模块](https://www.powershellgallery.com/packages/AzureAD)。
+* [安装 Azure Active Directory V2 PowerShell 模块](https://www.powershellgallery.com/packages/AzureAD)。
 - [安装 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。
-- 若要运行以下命令，需要具有在 Azure Active Directory 租户中创建/编辑组的权限。 如果没有权限，则可能需要与 Azure Active Directory 管理员联系。
+* 若要运行以下命令，需要具有在 Azure Active Directory 租户中创建/编辑组的权限。 如果没有权限，则可能需要与 Azure Active Directory 管理员联系。
 
 接下来，在 PowerShell 中运行以下命令。
 
@@ -43,13 +43,13 @@ Connect-AzureAD -AzureEnvironment AzureChinaCloud
 $aadGroup = New-AzureADGroup -Description "Contoso App Group" -DisplayName "ContosoAppGroup" -MailEnabled 0 -MailNickName none -SecurityEnabled 1 
  
 # Find and add your applications (ServicePrincipal ObjectID) as members to this group 
-$spn = Get-AzureADServicePrincipal -SearchString "ContosoApp1" 
-Add-AzureADGroupMember -ObjectId $aadGroup.ObjectId -RefObjectId $spn.ObjectId 
+$spn = Get-AzureADServicePrincipal –SearchString "ContosoApp1" 
+Add-AzureADGroupMember –ObjectId $aadGroup.ObjectId -RefObjectId $spn.ObjectId 
  
 # You can add several members to this group, in this fashion. 
  
 # Set the Key Vault ACLs 
-Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoVault -ObjectId $aadGroup.ObjectId -PermissionsToKeys all -PermissionsToSecrets all -PermissionsToCertificates all 
+Set-AzureRmKeyVaultAccessPolicy –VaultName ContosoVault –ObjectId $aadGroup.ObjectId -PermissionsToKeys all –PermissionsToSecrets all –PermissionsToCertificates all 
  
 # Of course you can adjust the permissions as required 
 ```

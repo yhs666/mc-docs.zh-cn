@@ -12,28 +12,28 @@ ms.workload: na
 origin.date: 07/05/2018
 ms.date: 08/13/2018
 ms.author: v-yeche
-ms.openlocfilehash: 69c2ba668071a31dbdbb8b87a7b0c0d3c6f4e8aa
-ms.sourcegitcommit: 57f5fd57fc1077252885b656263e79aaeca4763a
+ms.openlocfilehash: abbe2c86d0b8b9c1368e359dd96dffa26318eac5
+ms.sourcegitcommit: 21b81b5cd326b6900fa7274b3b073aecd01111aa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "41704911"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49121672"
 ---
 # <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>开发用于实现云一致性的 Azure 资源管理器模板
 
-Azure 的主要优势是一致性。 一个位置的开发投入可在另一个位置重复使用。 模板可确保部署在多区域 Azure、Azure 主权云和 Azure Stack 等环境中保持一致性和可重复性。 若要在各种云中重复使用模板，需要参照本指南的说明，考虑特定于云的依赖关系。
+Azure 的主要优势是一致性。 一个位置的开发投入可在另一个位置重复使用。 利用模板可以确保部署在全球 Azure、Azure 主权云和 Azure Stack 等各种环境中保持一致和重复。 若要在各种云中重复使用模板，需要参照本指南的说明，考虑特定于云的依赖关系。
 
 Azure 在很多位置提供了面向企业的智能云服务，其中包括：
 
-* 多区域 Azure 平台，该平台由中国各区域 Microsoft 托管数据中心的不断扩大的网络提供支持。
-* 独立主权云，例如 Azure 德国、Azure 政府和 Azure 中国（Azure 由世纪互联运营）。 主权云提供一致性平台，其中包含的大部分相同的强大功能可供多区域 Azure 客户访问。
+* 全球 Azure 平台，该平台由全球各区域不断扩大的 Microsoft 托管数据中心的网络提供支持。
+* 独立主权云，例如 Azure 德国、Azure 美国政府和 Azure 中国（由世纪互联运营的 Azure）。 主权云提供具有大部分相同的强大功能的一致平台，全球 Azure 客户均有权访问。
 * Azure Stack，一种混合云平台，可从组织数据中心提供 Azure 服务。 企业可以在自己的数据中心中设置 Azure Stack，或者使用服务提供商提供的 Azure 服务，在他们的设施（有时称为托管区域）中运行 Azure Stack。
 
 在所有这些云的核心，Azure 资源管理器提供一个 API，用于实现各种用户界面与 Azure 平台的通信。 此 API 提供了强大的基础结构即代码功能。 使用 Azure 资源管理器可以部署和配置 Azure 云平台上提供的任何类型的资源。 只用一个模板即可将完整的应用程序部署和配置为操作结束状态。
 
 ![Azure 环境](./media/templates-cloud-consistency/environments.png)
 
-多区域 Azure、主权云、托管云以及你数据中心的云具有一致性，便于利用 Azure 资源管理器。 在设置了基于模板的资源部署和配置后，就可以在这些云中重复使用部署投入。
+全球 Azure、主权云、托管云以及你的数据中心的云具有一致性，可帮助你从 Azure 资源管理器中受益。 在设置了基于模板的资源部署和配置后，就可以在这些云中重复使用部署投入。
 
 然而，即使全球云、主权云、托管云和混合云提供一致的服务，也不是所有云都相同。 因此，可以创建对仅特定云可以提供的功能具有依赖关系的模板。
 
@@ -53,7 +53,7 @@ Azure 在很多位置提供了面向企业的智能云服务，其中包括：
 
 Azure 资源管理器中引入的新模板函数在主权云或 Azure Stack 中不会立即可用。 要成功部署模板，模板中引用的所有函数都必须在目标云中可用。 
 
-Azure 资源管理器的功能始终会首先引入到多区域 Azure。 使用以下 PowerShell 脚本可以验证新引入的模板函数在 Azure Stack 中是否可用： 
+Azure 资源管理器的功能始终会首先引入到全球 Azure。 使用以下 PowerShell 脚本可以验证新引入的模板函数在 Azure Stack 中是否可用： 
 
 1. 克隆 GitHub 存储库：[https://github.com/marcvaneijk/arm-template-functions](https://github.com/marcvaneijk/arm-template-functions)
 
@@ -218,7 +218,7 @@ Azure 资源管理器在运行时评估主要模板并检索和评估每个嵌�
 
 明白了 Azure 区域和云在其可用的服务方面可能有所差异，你就可以做出一些模板相关的积极决策。 建议首先开始检查云的可用资源提供程序。 通过资源提供程序可以了解到可用于 Azure 服务的一系列资源和操作。
 
-模板部署和配置资源。 资源类型由资源提供程序提供。 例如，计算资源提供程序 (Microsoft.Compute) 提供多个资源类型，例如 virtualMachines 和 availabilitySets。 每个资源提供程序均可向常见协定定义的 Azure 资源管理器提供一个 API，从而可以跨所有资源提供程序实现一致、统一的创作体验。 但是，多区域 Azure 中可用的资源提供程序在主权云或 Azure Stack 区域中可能不可用。
+模板部署和配置资源。 资源类型由资源提供程序提供。 例如，计算资源提供程序 (Microsoft.Compute) 提供多个资源类型，例如 virtualMachines 和 availabilitySets。 每个资源提供程序均可向常见协定定义的 Azure 资源管理器提供一个 API，从而可以跨所有资源提供程序实现一致、统一的创作体验。 但全球 Azure 中可用的资源提供程序在主权云或 Azure Stack 区域中可能不可用。
 
 ![资源提供程序](./media/templates-cloud-consistency/resource-providers.png) 
 
@@ -238,7 +238,7 @@ Get-AzureRmResourceProvider -ListAvailable | Select-Object ProviderNamespace, Re
 
 虽然所有资源类型都有一组共用的属性，但每个资源也有自己特定的属性。 有时会通过新的 API 版本向现有资源类型添加新功能和相关属性。 模板中的资源有自己的 API 版本属性 - `apiVersion`。 利用此版本控制可确保模板中的现有资源配置不受平台更改的影响。
 
-引入到多区域 Azure 中的现有资源类型的新 API 版本可能不会在所有区域、主权云或 Azure Stack 中立即可用。 要查看可用资源提供程序、资源类型和云的 API 版本的列表，可以在 Azure 门户中使用资源浏览器。 在“所有服务”菜单中搜索资源浏览器。 在资源浏览器中展开提供程序节点，返回该云中所有可用的资源提供程序、资源类型和 API 版本。
+引入到全球 Azure 中现有资源类型的新 API 版本在所有区域、主权云或者 Azure Stack 中可能不会立即可用。 要查看可用资源提供程序、资源类型和云的 API 版本的列表，可以在 Azure 门户中使用资源浏览器。 在“所有服务”菜单中搜索资源浏览器。 在资源浏览器中展开提供程序节点，返回该云中所有可用的资源提供程序、资源类型和 API 版本。
 
 要在 Azure CLI 中列出给定云中所有资源类型的可用 API 版本，请运行以下脚本：
 
@@ -485,7 +485,7 @@ Azure Stack 环境中的特定资源具有独特属性，必须在模板中考�
 
 ### <a name="ensure-vm-images-are-available"></a>确保 VM 映像可用
 
-Azure 提供丰富的精选 VM 映像。 这些映像已创建并准备好，可以供 Azure 和合作伙伴部署。 这些映像构成平台上 VM 的基础。 但是，云一致模板应该仅引用可用的参数 - 具体说来，就是可用于多区域 Azure、Azure 主权云或 Azure Stack 解决方案的 VM 映像的发布服务器、套餐和 SKU。
+Azure 提供丰富的精选 VM 映像。 这些映像已创建并准备好，可以供 Azure 和合作伙伴部署。 这些映像构成平台上 VM 的基础。 但云一致模板应该仅引用可用的参数 - 尤其是可用于全球 Azure、Azure 主权云或 Azure Stack 的 VM 映像的发布服务器、产品和 SKU。
 
 要检索位置中的可用 VM 映像列表，请运行以下 Azure CLI 命令：
 

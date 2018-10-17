@@ -13,15 +13,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 07/12/2018
-ms.date: 09/10/2018
+ms.date: 10/15/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: e0e8fbcaddb4f6b64004dfd2a3a759c08ef0c7be
-ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
+ms.openlocfilehash: 5b7ddd29ce70d3419610e62fdf12884abf855356
+ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44515657"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49089075"
 ---
 # <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>教程：将 Service Fabric 应用程序部署到 Azure 中的群集
 
@@ -29,7 +29,7 @@ ms.locfileid: "44515657"
 
 本教程介绍如何执行下列操作：
 > [!div class="checklist"]
-> * 通过 Visual Studio 创建群集
+> * 创建群集。
 > * 使用 Visual Studio 将应用程序部署到远程群集。
 
 此教程系列介绍了如何：
@@ -37,7 +37,7 @@ ms.locfileid: "44515657"
 > * [构建 .NET Service Fabric 应用程序](service-fabric-tutorial-create-dotnet-app.md)。
 > * 将应用程序部署到远程群集。
 > * [向 ASP.NET Core 前端服务添加 HTTPS 终结点](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md)。
-> * [使用 Visual Studio Team Services 配置 CI/CD](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)。
+> * [使用 Azure Pipelines 配置 CI/CD](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)。
 > * [设置应用程序的监视和诊断](service-fabric-tutorial-monitoring-aspnet.md)。
 
 ## <a name="prerequisites"></a>先决条件
@@ -58,13 +58,13 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 ## <a name="publish-to-a-service-fabric-cluster"></a>发布到 Service Fabric 群集
 
-至此，应用程序已准备就绪，可以直接通过 Visual Studio 将它部署到群集了。 [Service Fabric 群集](/service-fabric/service-fabric-deploy-anywhere.md)是一组通过网络连接在一起的虚拟机或物理计算机，微服务会在其中部署和管理。
+至此，应用程序已准备就绪，可以直接通过 Visual Studio 将它部署到群集了。 [Service Fabric 群集](/service-fabric/service-fabric-deploy-anywhere)是一组通过网络连接在一起的虚拟机或物理计算机，你的微服务会在其中部署和管理。
 
-对于本教程，使用 Visual Studio 将投票应用程序部署到 Service Fabric 群集时有两个选项可用：
+对于本教程，使用 Visual Studio 将投票应用程序部署到 Service Fabric 群集时有一个选项可用：
 * 发布到订阅中的现有群集。 可以通过 [Azure 门户](https://portal.azure.cn)、[PowerShel](./scripts/service-fabric-powershell-create-secure-cluster-cert.md)、[Azure CLI](./scripts/cli-create-cluster.md) 脚本或 [Azure 资源管理器模板](service-fabric-tutorial-create-vnet-and-windows-cluster.md)创建 Service Fabric 群集。
 
 > [!NOTE]
-> 许多服务使用反向代理来互相通信。 通过 Visual Studio 创建的群集默认启用反向代理。  如果使用现有的群集，则必须[在群集中启用反向代理](service-fabric-reverseproxy-setup.md#)。
+> 许多服务使用反向代理来互相通信。 通过 Visual Studio 创建的群集默认启用反向代理。  如果使用现有的群集，则必须[在群集中启用反向代理](service-fabric-reverseproxy-setup.md)。
 
 ### <a name="find-the-voting-web-service-endpoint-for-your-azure-subscription"></a>查找你的 Azure 订阅的投票 Web 服务终结点
 
@@ -85,7 +85,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 1. 在解决方案资源管理器中，右键单击“投票”。 选择“发布”。 此时会显示“发布”对话框。
 
-2. 将 Azure 订阅中的“连接终结点”复制到“连接终结点”字段中。 例如 `zwin7fh14scd.chinanorth.cloudapp.chinacloudapi.cn:19000`。 选择“高级连接参数”。  确保 **FindValue** 和 **ServerCertThumbprint** 值与前面步骤中为与 Azure 订阅匹配的证书安装的证书指纹匹配。
+2. 将 Azure 订阅中的“连接终结点”复制到“连接终结点”字段。 例如 `zwin7fh14scd.chinanorth.cloudapp.chinacloudapi.cn:19000`。 选择“高级连接参数”。  确保 **FindValue** 和 **ServerCertThumbprint** 值与前面步骤中为与 Azure 订阅匹配的证书安装的证书指纹匹配。
 
     ![发布 Service Fabric 应用程序](./media/service-fabric-quickstart-dotnet/publish-app.png)
 

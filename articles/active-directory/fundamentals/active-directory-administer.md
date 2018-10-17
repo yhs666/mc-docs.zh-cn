@@ -1,25 +1,24 @@
 ---
-title: Azure AD 租户目录使用方法概述 | Microsoft Docs
-description: 介绍什么是 Azure AD 租户，以及如何使用 Azure Active Directory 管理 Azure
+title: 管理 Azure Active Directory 租户 | Microsoft Docs
+description: 了解什么是 Azure AD 租户，以及如何使用 Azure Active Directory 管理 Azure。
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
 ms.service: active-directory
-ms.workload: identity
 ms.component: fundamentals
-ms.topic: overview
-origin.date: 08/23/2017
-ms.date: 08/07/2018
+ms.workload: identity
+ms.topic: conceptual
+origin.date: 08/23/2018
+ms.date: 10/09/2018
 ms.author: v-junlch
 ms.reviewer: jeffsta
-ms.custom: it-pro;oldportal
-ms.openlocfilehash: 26049c0e9fca592a6f1183f9e45c39044bcd2fb1
-ms.sourcegitcommit: 7cdf4633aea04e524cb48cb1990b750ae8be841c
+custom: it-pro
+ms.openlocfilehash: 31fb5c6f669a6748b0dcecc003475d3803ef9d33
+ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39584310"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48914009"
 ---
 # 管理 Azure AD 目录 <a name="manage-your-azure-ad-directory"></a>
 
@@ -112,4 +111,5 @@ Azure AD 要求删除目录之前必须符合特定的条件。 这可以降低�
 - [Azure Active Directory PowerShell](https://docs.microsoft.com/powershell/azure/active-directory)
 - [在 Azure AD 中分配管理员角色](../users-groups-roles/directory-assign-admin-roles.md)
 
-<!-- Update_Description: link update -->
+
+<!-- Update_Description: update metedata properties -->

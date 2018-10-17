@@ -1,10 +1,10 @@
 ---
-title: Azure Stack 集成系统的边界连接网络集成注意事项 | Azure
+title: Azure Stack 集成系统的边界连接网络集成注意事项 | Microsoft Docs
 description: 了解可以执行哪些操作来为多节点 Azure Stack 规划数据中心边界网络连接。
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/26/2018
-ms.date: 08/27/2018
-ms.author: v-junlch
+origin.date: 08/30/2018
+ms.date: 10/15/2018
+ms.author: v-jay
 ms.reviewer: wamota
-ms.openlocfilehash: 019dfa4ee37249e8f674a331e3f73f2c5f69fb67
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.openlocfilehash: 3bdaada05c70e6983483e02394d2c656ea00c762
+ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869444"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48848739"
 ---
 # <a name="border-connectivity"></a>边界连接 
 网络集成规划是成功进行 Azure Stack 集成系统部署、操作和管理的重要先决条件。 边界连接规划首先是要选择是否将动态路由与边界网关协议 (BGP) 配合使用。 这需要分配 16 位的 BGP 自治系统编号（公共或专用），或者使用静态路由（在这种情况下会将静态默认路由分配给边界设备）。
@@ -32,7 +32,7 @@ ms.locfileid: "42869444"
 ## <a name="bgp-routing"></a>BGP 路由
 使用 BGP 等动态路由协议可以保证系统始终会注意到网络更改和便于管理。 
 
-如下图所示，将使用前缀列表限制播发 TOR 交换机上的专用 IP 空间。 前缀列表将拒绝专用 IP 子网并将其作为路由映射应用于 TOR 与边界之间的连接。
+如下图所示，将使用前缀列表限制播发 TOR 交换机上的专用 IP 空间。 前缀列表将定义专用 IP 子网并将其作为路由映射应用于 TOR 与边界之间的连接。
 
 Azure Stack 解决方案内运行的软件负载均衡器 (SLB) 将对等互连到 TOR 设备，以便它可以动态播发 VIP 地址。
 
@@ -45,13 +45,19 @@ Azure Stack 解决方案内运行的软件负载均衡器 (SLB) 将对等互连�
 
 若要将 Azure Stack 集成到使用静态路由的网络环境，必须连接边界与 TOR 设备之间的所有四个物理链路，并且，静态路由的工作方式导致无法保证高可用性。
 
-对于以外部网络、公用 VIP 和基础结构网络为目的地的流量，必须为边界设备配置指向 TOR 设备 P2P 的静态路由。 它需要使用到 BMC 网络的静态路由进行部署。 客户可以选择在边界中保留静态路由以访问位于 BMC 网络上的某些资源。  添加指向*交换机基础结构*和*交换机管理*网络的静态路由是可选的。
+对于以外部网络、公共 VIP 和基础结构网络为目的地的流量，必须为边界设备配置指向 TOR 设备 P2P 的静态路由。 它将需要到 BMC 和外部网络的静态路由以进行部署。 操作员可以选择在边界中保留静态路由以访问位于 BMC 网络上驻留的管理资源。 添加指向*交换机基础结构*和*交换机管理*网络的静态路由是可选的。
 
 TOR 设备配置有将所有流量发送到边界设备的静态默认路由。 默认规则的一个流量例外是，对于专用空间，将使用应用于 TOR 到边界连接的访问控制列表阻止该流量。
 
 静态路由仅适用于 TOR 与边界交换机之间的上行链路。 机架内使用的是 BGP 动态路由，因为它对于 SLB 和其他组件来说是基本工具，无法禁用或删除。
 
 ![静态路由](media/azure-stack-border-connectivity/static-routing.png)
+
+<sup>\*</sup> 在部署后，BMC 网络是可选的。
+
+<sup>\*\*</sup> 交换机基础结构网络是可选的，因为整个网络可以包含在交换机管理网络中。
+
+<sup>\*\*\*</sup> 交换机管理网络是必需的，可以与交换机基础结构网络分开添加。
 
 ## <a name="transparent-proxy"></a>透明代理
 如果数据中心要求所有流量都使用代理，则必须配置“透明代理”以便根据策略处理来自机架的所有流量，并分离网络上不同区域之间的流量。

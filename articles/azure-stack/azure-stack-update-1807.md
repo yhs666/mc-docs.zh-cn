@@ -1,5 +1,5 @@
 ---
-title: Azure Stack 1807 更新 | Azure
+title: Azure Stack 1807 更新 | Microsoft Docs
 description: 了解 Azure Stack 集成系统 1807 更新的新增功能，包括已知问题和更新下载位置。
 services: azure-stack
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/20/2018
-ms.date: 08/27/2018
+origin.date: 09/17/2018
+ms.date: 10/15/2018
 ms.author: v-jay
 ms.reviewer: justini
-ms.openlocfilehash: b12aeb59d60e772c4f3d1eec3e9c54dfdfcfb7f9
-ms.sourcegitcommit: bc7679a5ad24ea9120c44fc771e88a08b5d8b207
+ms.openlocfilehash: aed253a28adde80a3581380e847b5365d1e8c95d
+ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "42998375"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48848916"
 ---
 # <a name="azure-stack-1807-update"></a>Azure Stack 1807 更新
 
@@ -144,7 +144,11 @@ Azure Stack 使用 Windows Server 2016 的 Server Core 安装来托管重要基�
   > - Atom： https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom …
 
 
-- 开始安装更新 1807 之前，请先运行 [Test-AzureStack](azure-stack-diagnostic-test.md) 来验证 Azure Stack 的状态，并解决出现的所有操作问题。 另外，请查看活动警报，并解决所有需要采取措施的警报。
+- 在开始安装此更新之前，请使用以下参数运行 [Test-AzureStack](azure-stack-diagnostic-test.md)，以验证 Azure Stack 的状态并解决发现的所有操作问题，包括所有警告和故障。 另外，请查看活动警报，并解决所有需要采取措施的警报。  
+
+  ```PowerShell
+  Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary
+  ``` 
 
 ### <a name="known-issues-with-the-update-process"></a>更新过程的已知问题
 
@@ -156,7 +160,9 @@ Azure Stack 使用 Windows Server 2016 的 Server Core 安装来托管重要基�
 
 ### <a name="post-update-steps"></a>更新后步骤
 
-对于 1807 更新，更新后不需要执行任何步骤。
+- <!-- 2933866 – IS --> **改进了失败更新安装的状态。** 此版本引入了两个新的状态类别，为操作员提供有关失败更新安装的更多详细信息。 这两个类别为 *PreparationFailed* 和 *InstallationFailed*。 安装此版本后，你可能会看到修订了以前更新安装失败的信息以反映这些新类别。 
+
+<!-- *There are no post-update steps for update 1807.* -->
 
 <!-- After the installation of this update, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md).  
  - Link to KB  
@@ -167,6 +173,11 @@ Azure Stack 使用 Windows Server 2016 的 Server Core 安装来托管重要基�
 下面是此内部版本的安装后已知问题。
 
 ### <a name="portal"></a>门户
+
+- 在管理员门户中[从下拉列表提交新的支持请求](azure-stack-manage-portals.md#quick-access-to-help-and-support)的功能不可用。 对于 Azure Stack 集成系统，请改用以下链接：[https://aka.ms/newsupportrequest](https://aka.ms/newsupportrequest)。
+
+- <!-- 2931230 – IS  ASDK --> 即使从用户订阅中删除计划，也无法删除作为附加计划添加到用户订阅的计划。 该计划将一直保留，直到引用附加计划的订阅也被删除。 
+
 - <!--2760466 – IS  ASDK --> 安装运行此版本的新 Azure Stack 环境时，指示“需要激活”的警报可能不显示。 必须先[激活](azure-stack-registration.md)，然后才能使用市场联合。  
 
 - <!-- TBD - IS ASDK --> [版本 1804 中引入](azure-stack-update-1804.md#new-features)的两种管理订阅类型不应使用。 这两种订阅类型为“计量订阅”和“消耗订阅”。 从版本 1804 开始，这些订阅类型会在新的 Azure Stack 环境中显示，但尚不可用。 请继续使用“默认提供程序”订阅类型。
@@ -244,7 +255,9 @@ Azure Stack 使用 Windows Server 2016 的 Server Core 安装来托管重要基�
 
 - <!-- 1662991 IS ASDK --> Azure Stack 不支持 Linux VM 诊断。 在部署启用 VM 诊断的 Linux VM 时，部署会失败。 如果通过诊断设置启用 Linux VM 的基本指标，部署也会失败。  
 
-- <!-- 2724961- IS ASDK --> 在订阅设置中注册 **Microsoft.Insight** 资源提供程序并创建支持来宾 OS 诊断的 Windows VM 时，VM 概览页中的“CPU 百分比”图表将无法显示指标数据。 若要查找 VM 的“CPU 百分比”图表，请转到“指标”边栏选项卡并查看所有受支持的 Windows VM 来宾指标。
+- <!-- 2724961- IS ASDK --> 在订阅设置中注册 **Microsoft.Insight** 资源提供程序并创建支持来宾 OS 诊断的 Windows VM 时，VM 概览页不显示指标数据。 
+
+   若要查找指标数据（如 VM 的 CPU 百分比图表），请转到“指标”边栏选项卡并查看所有受支持的 Windows VM 来宾指标。
 
 ### <a name="networking"></a>网络  
 

@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
 origin.date: 12/15/2017
-ms.date: 08/28/2018
+ms.date: 10/09/2018
 ms.author: v-junlch
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 8d66c25130a267672a3d481ac34ef80625f5e69a
-ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
+ms.openlocfilehash: 8d66ceb7226c8db347f9c655326e587e98b5acb7
+ms.sourcegitcommit: b91bbb0f49b12b1a7ac9eaf4742daa0c4a513f11
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43171540"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48876451"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Azure Active Directory 报告延迟
 
@@ -37,7 +37,7 @@ ms.locfileid: "43171540"
 
 下表列出了活动报表的延迟信息。
 
-| 报表 | 延迟 (P95) |延迟 (P99)|
+| 报表 | 延迟 (95%) |延迟 (99%)|
 | :-- | --- | --- | 
 | 审核日志 | 2 分钟  | 5 分钟  |
  
@@ -46,3 +46,5 @@ ms.locfileid: "43171540"
 如果想要深入了解 Azure 门户中的活动报表，请参阅：
 
 - [Azure Active Directory 门户中的“审核活动”报表](concept-audit-logs.md)
+
+<!-- Update_Description: wording update -->

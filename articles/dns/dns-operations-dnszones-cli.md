@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 origin.date: 02/27/2017
 ms.date: 05/21/2018
 ms.author: v-nany
-ms.openlocfilehash: 0baf51211057f1541cd50b0849bf120cd25e44e1
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.openlocfilehash: c9e8687542398599e645224c8034419db523ee0b
+ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426306"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48848819"
 ---
 # <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli-20"></a>如何使用 Azure CLI 2.0 管理 Azure DNS 中的 DNS 区域
 
@@ -70,7 +70,7 @@ az account set --subscription "subscription name"
 ```
 
 ### <a name="optional-to-installuse-azure-dns-private-zones-feature-public-preview"></a>可选：安装/使用 Azure DNS 专用区域功能（公共预览版）
-通过 Azure CLI 的扩展发布 Azure DNS 专用区域功能的公共预览版。 安装“dns”Azure CLI 扩展 
+通过 Azure CLI 的扩展发布 Azure DNS 专用区域功能的公共预览版。 安装 dns Azure CLI 扩展 
 ```
 az extension add --name dns
 ``` 
