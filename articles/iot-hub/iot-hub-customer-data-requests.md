@@ -3,21 +3,21 @@ title: 客户数据请求功能
 author: dominicbetts
 ms.author: v-yiso
 origin.date: 05/16/2018
-ms.date: 08/06/2018
+ms.date: 10/29/2018
 ms.topic: conceptual
 ms.service: iot-hub
-ms.openlocfilehash: 5c2b8cdcbd5db50aa150b2530ef460b63d881a35
-ms.sourcegitcommit: d4092cf6aba0d949bf612093c76f964c2bdfd0ba
+ms.openlocfilehash: ed006d834d75b87c15fa510379d64e44dfe9ce34
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39306599"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453694"
 ---
 # <a name="summary-of-customer-data-request-features"></a>客户数据请求功能摘要
 
 Azure IoT 中心是一项基于 REST API 的云服务，其目标是企业客户，可以在数百万台设备和分区的 Azure 服务之间进行安全的双向通信。
 
-[!INCLUDE [gdpr-intro-sentence](../../includes/gdpr-intro-sentence.md)]
+[!INCLUDE [gdpr-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 单台设备由租户管理员分配一个设备标识符（设备 ID）。 设备数据基于分配的设备 ID。 Microsoft 不保留任何信息，也无法访问将设备 ID 与用户相关联的数据。
 

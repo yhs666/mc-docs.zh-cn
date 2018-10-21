@@ -10,13 +10,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 10/10/2017
 ms.author: v-yiso
-ms.date: 10/08/2018
-ms.openlocfilehash: a91d4a9c235ac395c131c388405387508c8b7d8c
-ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
+ms.date: 10/29/2018
+ms.openlocfilehash: b127ac5a240f69bf58ab48880e07a6f50875392c
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523870"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453626"
 ---
 # <a name="iot-hub-operations-monitoring"></a>IoT 中心操作监视
 IoT 中心操作监视可让你实时监视其 IoT 中心上的操作状态。 IoT 中心可跨多个类别的操作跟踪事件。 可选择将一个或多个类别的事件发送到 IoT 中心终结点进行处理。 可以监视数据中是否有错误，或根据数据模式设置更复杂的处理行为。
@@ -284,8 +284,7 @@ class Program
 [lnk-dr]: ./iot-hub-ha-dr.md
 
 [lnk-devguide]: ./iot-hub-devguide.md
-[lnk-iotedge]: ./iot-hub-linux-iot-edge-simulated-device.md
-[lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
+[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
 [lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
 
 <!--Update_Description:update meta properties only-->

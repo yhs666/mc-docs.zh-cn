@@ -12,14 +12,14 @@ ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: hero-article
 origin.date: 05/25/2018
-ms.author: v-yiso
-ms.date: 07/23/2018
-ms.openlocfilehash: b7e348905234380a9dbb564a3bb189571004fc6f
-ms.sourcegitcommit: 479954e938e4e3469d6998733aa797826e4f300b
+ms.author: v-biyu
+ms.date: 10/29/2018
+ms.openlocfilehash: e19112c5bcb38ad0dc4741a44a8182329084c336
+ms.sourcegitcommit: 4b5ada023c9466d497c7474abf7ad71e50c3b17d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39031767"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49451605"
 ---
 # <a name="create-a-xamarinforms-app-with-azure"></a>使用 Azure 创建 Xamarin.Forms 应用
 
@@ -189,7 +189,7 @@ ms.locfileid: "39031767"
 * [向应用添加身份验证](./app-service-mobile-xamarin-forms-get-started-users.md)  
 了解如何使用标识提供者对应用的用户进行身份验证。
 
-
+* [向应用添加推送通知](app-service-mobile-xamarin-forms-get-started-push.md) 了解如何为应用添加推送通知支持，以及如何将移动应用后端配置为使用 Azure 通知中心发送推送通知。
 
 * [为应用启用脱机同步](./app-service-mobile-xamarin-forms-get-started-offline-data.md)  
   了解如何使用移动应用后端向应用添加脱机支持。 使用脱机同步时，即使没有网络连接，也可以查看、添加或修改移动应用的数据。
@@ -199,8 +199,8 @@ ms.locfileid: "39031767"
 
 <!-- Anchors. -->
 [Get started with Mobile Apps back ends]:#getting-started
-[Create a new mobile app backend]:#create-new-service
-[Next Steps]:#next-steps
+[Create a new Mobile Apps back end]:#create-new-service
+[Next steps]:#next-steps
 
 <!-- Images. -->
 [6]: ./media/app-service-mobile-xamarin-forms-get-started/xamarin-forms-quickstart.png

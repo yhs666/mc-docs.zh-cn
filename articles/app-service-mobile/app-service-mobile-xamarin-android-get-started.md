@@ -13,14 +13,14 @@ ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: hero-article
 origin.date: 10/01/2016
-ms.date: 01/29/2018
-ms.author: v-yiso
-ms.openlocfilehash: c6fa3c89a1f6f22c49246e8cd17d605e361ce9b7
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.date: 10/29/2018
+ms.author: v-biyu
+ms.openlocfilehash: adcf2386af9b36ebc7893754e2a04e4b77cd714b
+ms.sourcegitcommit: 4b5ada023c9466d497c7474abf7ad71e50c3b17d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939058"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49451586"
 ---
 #<a name="create-a-xamarinandroid-app"></a>创建 Xamarin.Android 应用
 
@@ -74,6 +74,9 @@ ms.locfileid: "38939058"
    >
    >
 
+## <a name="troubleshooting"></a>故障排除
+如果在生成解决方案时遇到问题，请运行 NuGet 包管理器并更新 `Xamarin.Android` 支持包。 快速入门项目并非始终包含最新版本。
+请注意，在项目中引用的所有支持包必须都具有相同的版本。 对于 Android 平台，[Azure 移动应用 NuGet 包](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/)具有 `Xamarin.Android.Support.CustomTabs` 依赖项，因此，如果你的项目使用较新的支持包，则你需要直接安装具有所需版本的此包以避免冲突。
 ##<a name="next-steps"></a>后续步骤
 * [向应用添加脱机同步](./app-service-mobile-xamarin-android-get-started-offline-data.md)
 * [向应用添加身份验证](./app-service-mobile-xamarin-android-get-started-users.md)

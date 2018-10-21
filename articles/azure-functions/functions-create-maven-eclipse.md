@@ -6,28 +6,26 @@ documentationcenter: na
 author: jeffhollan
 manager: jpconnock
 keywords: azure functions, functions, 事件处理, 计算, 无服务器体系结构, java
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: java
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 origin.date: 07/01/2018
-ms.date: 08/31/2018
+ms.date: 10/18/2018
 ms.author: v-junlch
 ms.custom: mvc, devcenter
-ms.openlocfilehash: c4a35f9824428e5212abd5d128e4326d96b84d0f
-ms.sourcegitcommit: b2c9bc0ed28e73e8c43aa2041c6d875361833681
+ms.openlocfilehash: 5a997e6bb68a9b7be9fcc0a37f7ead43798792cb
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43330805"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453525"
 ---
 # <a name="create-your-first-function-with-java-and-eclipse-preview"></a>使用 Java 和 Eclipse 创建第一个函数（预览版）
 
 > [!NOTE] 
 > 用于 Azure Functions 的 Java 当前为预览版。
 
-本文介绍如何使用 Eclipse IDE 和 Apache Maven 创建[无服务器](https://azure.microsoft.com/overview/serverless-computing/)函数项目、对其进行测试和调试，然后将其部署到 Azure Functions。 
+本文介绍如何使用 Eclipse IDE 和 Apache Maven 创建[无服务器](https://azure.microsoft.com/solutions/serverless/)函数项目、对其进行测试和调试，然后将其部署到 Azure Functions。 
 
 <!-- TODO ![Access a Hello World function from the command line with cURL](./media/functions-create-java-maven/hello-azure.png) -->
 
@@ -107,3 +105,4 @@ az login
 - 有关开发 Java 函数的详细信息，请查看 [Java 函数开发人员指南](functions-reference-java.md)。
 - 使用 `azure-functions:add` Maven 目标将具有不同触发器的其他函数添加到你的项目。
 
+<!-- Update_Description: wording update -->

@@ -18,12 +18,12 @@ origin.date: 08/08/2018
 ms.date: 09/24/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 6cf48ec26df2207713e0d891a2ec9ca9a93738ed
-ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
+ms.openlocfilehash: 2b232e923def8343c2dc789d24e03054c355b8bb
+ms.sourcegitcommit: 4ead6b1d3527373b63c90680b6400a2e95b4064e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47201275"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49374972"
 ---
 # <a name="what-is-azure-virtual-network"></a>什么是 Azure 虚拟网络？
 
@@ -32,9 +32,11 @@ Azure 虚拟网络允许许多类型的 Azure 资源（例如 Azure 虚拟机 (V
 <a name="isolation"></a>
 ## <a name="isolation-and-segmentation"></a>隔离和细分
 
-可在每个 Azure [订阅](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#subscription)和 Azure [区域](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#region)中实现多个虚拟网络。 每个虚拟网络与其他虚拟网络相互隔离。 可以对每个虚拟网络执行以下操作：
-- 使用公共和专用 (RFC 1918) 地址指定自定义专用 IP 地址空间。 Azure 从分配的地址空间中向虚拟网络中的资源分配一个专用 IP 地址。
+可在每个 Azure [订阅](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#subscription)和 Azure [区域](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json)中实现多个虚拟网络。 每个虚拟网络与其他虚拟网络相互隔离。 可以对每个虚拟网络执行以下操作：
+
 <!-- Not Available on #region -->
+
+- 使用公共和专用 (RFC 1918) 地址指定自定义专用 IP 地址空间。 Azure 从分配的地址空间中向虚拟网络中的资源分配一个专用 IP 地址。
 - 将虚拟网络细分为一个或多个子网，并向每个子网分配一部分虚拟网络地址空间。
 - 使用 Azure 提供的名称解析或指定自己的 DNS 服务器以供虚拟网络中的资源使用。
 

@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/20/2018
-ms.date: 10/01/2018
+ms.date: 10/22/2018
 ms.author: v-jay
-ms.openlocfilehash: 3ae1389a1b4332aa400d0c3cb9f19b276522a928
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.openlocfilehash: 1c8c273c4e486230fb769ef5d072e67744fffc44
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426272"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453774"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>使用 Azure 媒体服务执行实时流式处理以创建多比特率流
 
@@ -167,7 +167,7 @@ ms.locfileid: "47426272"
 
 创建通道后，可以获得引入 URL。 若要获取这些 URL，通道不一定要处于“正在运行”  状态。 准备好开始将数据推送到通道时，通道必须处于“正在运行”状态。 通道开始引入数据后，可通过预览 URL 来预览流。
 
-可以选择通过 SSL 连接引入分片 MP4（平滑流式处理）实时流。 要通过 SSL 进行引入，请确保将引入 URL 更新为 HTTPS。 请注意，AMS 目前不支持对自定义域使用 SSL。  
+可以选择通过 SSL 连接引入分片 MP4（平滑流式处理）实时流。 要通过 SSL 进行引入，请确保将引入 URL 更新为 HTTPS。 目前，AMS 对自定义域不支持 SSL。  
 
 ### <a name="allowed-ip-addresses"></a>允许的 IP 地址
 可以定义允许向此通道发布视频的 IP 地址。 允许的 IP 地址可以指定为单个 IP 地址（例如“10.0.0.1”）、使用一个 IP 地址和 CIDR 子网掩码的 IP 范围（例如“10.0.0.1/22”）或使用一个 IP 地址和点分十进制子网掩码的 IP 范围（例如“10.0.0.1(255.255.252.0)”）。

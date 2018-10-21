@@ -10,14 +10,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 origin.date: 09/03/2018
-ms.date: 09/21/2018
+ms.date: 10/18/2018
 ms.author: v-junlch
-ms.openlocfilehash: ebc2c12feff823b5d0725d7bcddab9a12230aa20
-ms.sourcegitcommit: 54d9384656cee927000d77de5791c1d585d94a68
+ms.openlocfilehash: 9840760802015e0858ec144697a7309b2d3988ad
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46524054"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453863"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure Functions 的 Azure 表存储绑定
 
@@ -491,7 +491,7 @@ public int run(
 
 ## <a name="input---java-annotations"></a>输入 - Java 注释
 
-在 Java 函数运行时库中，对其值将来自表存储的参数使用 `@TableInput` 注释。  可以将此注释与本机 Java 类型、POJO 或使用了 Optional<T> 的可为 null 的值一起使用。 
+在 [Java 函数运行时库](https://docs.microsoft.com/en-us/java/api/overview/azure/functions/runtime)中，对其值将来自表存储的参数使用 `@TableInput` 注释。  可以将此注释与本机 Java 类型、POJO 或使用了 Optional<T> 的可为 null 的值一起使用。 
 
 ## <a name="input---configuration"></a>输入 - 配置
 
@@ -800,4 +800,4 @@ public static MyPoco TableOutput(
 > [!div class="nextstepaction"]
 > [详细了解 Azure Functions 触发器和绑定](functions-triggers-bindings.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

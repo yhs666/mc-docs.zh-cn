@@ -6,15 +6,15 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-origin.date: 01/29/2018
-ms.date: 09/10/2018
+origin.date: 10/09/2018
+ms.date: 10/29/2018
 ms.author: v-yiso
-ms.openlocfilehash: 8ce2c12a82a006168476a2328f30c1bba591ca82
-ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
+ms.openlocfilehash: d8a5c86356670d9641dce55a84a652b2f9c85846
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43330520"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453546"
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>在多个设备上计划作业
 
@@ -29,7 +29,8 @@ Azure IoT 中心可启用多个构建基块（如 [设备孪生属性和标记][
 * 调用直接方法
 
 ## <a name="job-lifecycle"></a>作业生命周期
-作业由解决方案后端启动，并由 IoT 中心维护。  可以通过面向服务的 URI (`{iot hub}/jobs/v2/{device id}/methods/<jobID>?api-version=2016-11-14`) 启动作业，并通过面向服务的 URI (`{iot hub}/jobs/v2/<jobId>?api-version=2016-11-14`) 查询正在执行的作业的进度。 若要在启动作业后刷新正在运行的作业的状态，请运行作业查询。
+
+作业由解决方案后端启动，并由 IoT 中心维护。 可以通过面向服务的 URI (`PUT https://<iot hub>/jobs/v2/<jobID>?api-version=2018-06-30`) 启动作业，并通过面向服务的 URI (`GET https://<iot hub>/jobs/v2/<jobID?api-version=2018-06-30`) 查询正在执行的作业的进度。 若要在启动作业后刷新正在运行的作业的状态，请运行作业查询。
 
 > [!NOTE]
 > 启动作业时，属性名称和值只能包含 US-ASCII 可打印字母数字，但下列集中的任一项除外：`$ ( ) < > @ , ; : \ " / [ ] ? = { } SP HT`。
@@ -37,67 +38,69 @@ Azure IoT 中心可启用多个构建基块（如 [设备孪生属性和标记][
 ## <a name="jobs-to-execute-direct-methods"></a>用于执行直接方法的作业
 以下代码片段显示了使用作业在一组设备上执行[直接方法][lnk-dev-methods]的 HTTPS 1.1 请求详细信息：
 
-    ```
-    PUT /jobs/v2/<jobId>?api-version=2016-11-14
+```
+PUT /jobs/v2/<jobId>?api-version=2018-06-30
 
-    Authorization: <config.sharedAccessSignature>
-    Content-Type: application/json; charset=utf-8
-    Request-Id: <guid>
-    User-Agent: <sdk-name>/<sdk-version>
+Authorization: <config.sharedAccessSignature>
+Content-Type: application/json; charset=utf-8
+Request-Id: <guid>
+User-Agent: <sdk-name>/<sdk-version>
 
-    {
-        jobId: '<jobId>',
-        type: 'scheduleDirectRequest', 
-        cloudToDeviceMethod: {
-            methodName: '<methodName>',
-            payload: <payload>,                 
-            responseTimeoutInSeconds: methodTimeoutInSeconds 
-        },
-        queryCondition: '<queryOrDevices>', // query condition
-        startTime: <jobStartTime>,          // as an ISO-8601 date string
-        maxExecutionTimeInSeconds: <maxExecutionTimeInSeconds>        
-    }
-    ```
+{
+    "jobId": "<jobId>",
+    "type": "scheduleDirectMethod",
+    "cloudToDeviceMethod": {
+        "methodName": "<methodName>",
+        "payload": <payload>,
+        "responseTimeoutInSeconds": methodTimeoutInSeconds
+    },
+    "queryCondition": "<queryOrDevices>", // query condition
+    "startTime": <jobStartTime>,          // as an ISO-8601 date string
+    "maxExecutionTimeInSeconds": <maxExecutionTimeInSeconds>
+}
+```
+
 查询条件也可以位于单个设备 ID 上或位于设备 ID 列表中，如以下示例所示：
 
 ```
-queryCondition = "deviceId = 'MyDevice1'"
-queryCondition = "deviceId IN ['MyDevice1','MyDevice2']"
-queryCondition = "deviceId IN ['MyDevice1']
+"queryCondition" = "deviceId = 'MyDevice1'"
+"queryCondition" = "deviceId IN ['MyDevice1','MyDevice2']"
+"queryCondition" = "deviceId IN ['MyDevice1']"
 ```
 [IoT 中心查询语言][lnk-query] 格外详细地介绍了 IoT 中心查询语言。
 
 ## <a name="jobs-to-update-device-twin-properties"></a>用于更新设备孪生属性的作业
 以下代码片段显示了使用作业更新设备克隆属性的 HTTPS 1.1 请求详细信息：
 
-    ```
-    PUT /jobs/v2/<jobId>?api-version=2016-11-14
-    Authorization: <config.sharedAccessSignature>
-    Content-Type: application/json; charset=utf-8
-    Request-Id: <guid>
-    User-Agent: <sdk-name>/<sdk-version>
+```
+PUT /jobs/v2/<jobId>?api-version=2018-06-30
 
-    {
-        jobId: '<jobId>',
-        type: 'scheduleTwinUpdate', 
-        updateTwin: <patch>                 // Valid JSON object
-        queryCondition: '<queryOrDevices>', // query condition
-        startTime: <jobStartTime>,          // as an ISO-8601 date string
-        maxExecutionTimeInSeconds: <maxExecutionTimeInSeconds>        // format TBD
-    }
-    ```
+Authorization: <config.sharedAccessSignature>
+Content-Type: application/json; charset=utf-8
+Request-Id: <guid>
+User-Agent: <sdk-name>/<sdk-version>
+
+{
+    "jobId": "<jobId>",
+    "type": "scheduleTwinUpdate",
+    "updateTwin": <patch>                 // Valid JSON object
+    "queryCondition": "<queryOrDevices>", // query condition
+    "startTime": <jobStartTime>,          // as an ISO-8601 date string
+    "maxExecutionTimeInSeconds": <maxExecutionTimeInSeconds>
+}
+```
 
 ## <a name="querying-for-progress-on-jobs"></a>查询作业的进度
 以下代码片段显示了用于查询作业的 HTTPS 1.1 请求详细信息：
 
-    ```
-    GET /jobs/v2/query?api-version=2016-11-14[&jobType=<jobType>][&jobStatus=<jobStatus>][&pageSize=<pageSize>][&continuationToken=<continuationToken>]
+```
+GET /jobs/v2/query?api-version=2018-06-30[&jobType=<jobType>][&jobStatus=<jobStatus>][&pageSize=<pageSize>][&continuationToken=<continuationToken>]
 
-    Authorization: <config.sharedAccessSignature>
-    Content-Type: application/json; charset=utf-8
-    Request-Id: <guid>
-    User-Agent: <sdk-name>/<sdk-version>
-    ```
+Authorization: <config.sharedAccessSignature>
+Content-Type: application/json; charset=utf-8
+Request-Id: <guid>
+User-Agent: <sdk-name>/<sdk-version>
+```
 
 从响应提供 continuationToken。  
 

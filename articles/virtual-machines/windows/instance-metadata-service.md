@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 origin.date: 10/10/2017
 ms.date: 09/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: 943ada1037c6d611279355aa32688856519f4363
-ms.sourcegitcommit: 399060a8d46534abd370693f6282e7343b371634
+ms.openlocfilehash: 350c835f84f8848420abc8dafc963a312ea1d018
+ms.sourcegitcommit: cc9e8c76454e7d194505af32c42c0f3e4e0ec9e9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455596"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49315946"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure 实例元数据服务
 
@@ -452,7 +452,7 @@ Puppet | https://github.com/keirans/azuremetadata
 10. 我更新了虚拟机规模集中的标记，但它们未显示在与 VM 不同的实例中，这是怎么回事？
    * 目前，对于规模集，仅在重启/重置映像/或对实例的磁盘更改时，向 VM 显示标记。 
 
-   ![实例元数据支持](./media/instance-metadata-service/InstanceMetadata-support.png)
+   <!-- Not Available on ![Instance Metadata Support](./media/instance-metadata-service/InstanceMetadata-support.png)-->
 
 ## <a name="next-steps"></a>后续步骤
 

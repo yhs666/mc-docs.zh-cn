@@ -6,16 +6,16 @@ author: dlepow
 manager: jeconnoc
 ms.service: batch
 ms.topic: tutorial
-origin.date: 04/19/2018
-ms.date: 09/07/2018
-ms.author: v-junlch
+origin.date: 09/25/2018
+ms.date: 10/19/2018
+ms.author: v-lingwu
 ms.custom: mvc
-ms.openlocfilehash: 44675f0c3111eb106a04981a26517f579bb0e35c
-ms.sourcegitcommit: 6489934a16ae7ec3defdbee593c0ba5763b37335
+ms.openlocfilehash: c0488f8632100f5594cac051a4445ceb07eb3045
+ms.sourcegitcommit: ee042177598431d702573217e2f3538878b6a984
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46485860"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477781"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>教程：使用 Azure Batch 渲染场景 
 
@@ -36,7 +36,7 @@ Azure Batch 提供云规模的渲染功能，按使用付费。 Batch 渲染服�
 
 [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/batch/render-scene) 上提供了本教程的示例 3ds Max 场景，以及示例 Bash 脚本和 JSON 配置文件。 3ds Max 场景来自 [Autodesk 3ds Max 示例文件](http://download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe)。 （提供的 Autodesk 3ds Max 示例文件已获得 Creative Commons Attribution-NonCommercial-Share Alike 许可。 版权所有 © Autodesk, Inc.）
 
-如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.20 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](/cli/install-azure-cli)。
+如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.20 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。
 
 ## <a name="create-a-batch-account"></a>创建批处理帐户
 

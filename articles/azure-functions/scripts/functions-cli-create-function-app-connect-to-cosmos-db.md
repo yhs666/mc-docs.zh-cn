@@ -10,15 +10,15 @@ ms.service: azure-functions
 ms.devlang: azurecli
 ms.topic: sample
 origin.date: 07/03/2018
-ms.date: 09/20/2018
+ms.date: 10/18/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 75fa44bc80578ea497f303cb3a17a6758595c214
-ms.sourcegitcommit: 54d9384656cee927000d77de5791c1d585d94a68
+ms.openlocfilehash: db348cb0aaf9811765d9523e2aa32a5bd0114acc
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46524008"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453647"
 ---
 # <a name="create-an-azure-function-that-connects-to-an-azure-cosmos-db"></a>创建用于连接到 Azure Cosmos DB 的 Azure Function
 
@@ -26,7 +26,7 @@ ms.locfileid: "46524008"
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
-如果在本地使用 CLI，请确保运行 Azure CLI 2.0 或更高版本。 若要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](/cli/install-azure-cli)。 
+如果在本地使用 CLI，请确保运行 Azure CLI 2.0 或更高版本。 若要查找版本，请运行 `az --version`。 如需进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。 
 
 ## <a name="sample-script"></a>示例脚本
 
@@ -96,7 +96,8 @@ az functionapp config appsettings set `
 
 可以在 [Azure Functions 文档](../functions-cli-samples.md)中找到其他 Azure Functions CLI 脚本示例。
 
-<!-- Update_Description: update metedata properties -->
+
+<!-- Update_Description: wording update -->
 
 
 

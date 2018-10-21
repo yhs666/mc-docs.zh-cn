@@ -3,7 +3,7 @@ title: Azure 媒体服务概述 | Microsoft Docs
 description: 本部分提供 Azure 媒体服务的概述
 services: media-services
 documentationcenter: ''
-author: yunan2016
+author: WenJason
 manager: digimobile
 editor: ''
 ms.assetid: 7a5e9723-c379-446b-b4d6-d0e41bd7d31f
@@ -12,23 +12,21 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-origin.date: 10/24/2017
-ms.date: 12/11/2017
-ms.author: v-nany
-ms.openlocfilehash: 71f29dd0f7e9c10c17f35ea35703fcb5ca866e5f
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+origin.date: 09/24/2018
+ms.date: 10/22/2018
+ms.author: v-jay
+ms.openlocfilehash: 2bb2ba26665282938d6b7668d10ffe8bd343ae47
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426194"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453717"
 ---
 # <a name="azure-media-services-overview"></a>Azure 媒体服务概述 
 
 Azure 媒体服务 (AMS) 是一个可扩展的基于云的平台，可供开发人员用来生成可缩放的媒体管理与传送应用程序。 媒体服务基于 REST API，使用这些 API 可以安全地上传、存储、编码和打包视频或音频内容，以供点播以及以实时传送视频流的形式传送到各种客户端（例如，电视、电脑和移动设备）。
 
-可以完全使用媒体服务构建端到端工作流。 也可以选择使用第三方组件来构建工作流的某些组成部分。 例如，使用第三方编码器进行编码。 然后，使用媒体服务进行上传、保护、打包和传送。
-
-可以选择实时流式传输内容，或者按需传送内容。 本主题还提供了其他相关主题的链接。
+可以完全使用媒体服务构建端到端工作流。 也可以选择使用第三方组件来构建工作流的某些组成部分。 例如，使用第三方编码器进行编码。 然后，使用媒体服务进行上传、保护、打包和传送。 可以选择实时流式传输内容，或者按需传送内容。 
 
 ## <a name="prerequisites"></a>先决条件
 

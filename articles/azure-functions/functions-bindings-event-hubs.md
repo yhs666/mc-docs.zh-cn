@@ -11,14 +11,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 origin.date: 11/08/2017
-ms.date: 09/21/2018
+ms.date: 10/18/2018
 ms.author: v-junlch
-ms.openlocfilehash: ff8dce28a89b6ca6f9d6535e0635681fdb9168fa
-ms.sourcegitcommit: 54d9384656cee927000d77de5791c1d585d94a68
+ms.openlocfilehash: 7c6c7921adabbd65061e73751c97ba8125a982a2
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46524045"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453865"
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Azure Functions 的 Azure 事件中心绑定
 
@@ -130,14 +130,15 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 
 以下示例演示 *function.json* 文件中的一个事件中心触发器绑定以及使用该绑定的 [C# 脚本函数](functions-reference-csharp.md)。 该函数记录事件中心触发器的消息正文。
 
-以下示例显示了 *function.json* 文件中的事件中心绑定数据。 第一个示例适用于 Functions 1.x，第二个示例适用于 Functions 2.x。 
+以下示例显示了 *function.json* 文件中的事件中心绑定数据。 第一个示例适用于 Functions 2.x，第二个示例适用于 Functions 1.x。 
+
 
 ```json
 {
   "type": "eventHubTrigger",
   "name": "myEventHubMessage",
   "direction": "in",
-  "path": "MyEventHub",
+  "eventHubName": "MyEventHub",
   "connection": "myEventHubReadConnectionAppSetting"
 }
 ```
@@ -146,7 +147,7 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
   "type": "eventHubTrigger",
   "name": "myEventHubMessage",
   "direction": "in",
-  "eventHubName": "MyEventHub",
+  "path": "MyEventHub",
   "connection": "myEventHubReadConnectionAppSetting"
 }
 ```
@@ -204,14 +205,15 @@ public static void Run(string[] eventHubMessages, TraceWriter log)
 
 以下示例演示 *function.json* 文件中的一个事件中心触发器绑定以及使用该绑定的 [F# 函数](functions-reference-fsharp.md)。 该函数记录事件中心触发器的消息正文。
 
-以下示例显示了 *function.json* 文件中的事件中心绑定数据。 第一个示例适用于 Functions 1.x，第二个示例适用于 Functions 2.x。 
+以下示例显示了 *function.json* 文件中的事件中心绑定数据。 第一个示例适用于 Functions 2.x，第二个示例适用于 Functions 1.x。 
+
 
 ```json
 {
   "type": "eventHubTrigger",
   "name": "myEventHubMessage",
   "direction": "in",
-  "path": "MyEventHub",
+  "eventHubName": "MyEventHub",
   "connection": "myEventHubReadConnectionAppSetting"
 }
 ```
@@ -220,7 +222,7 @@ public static void Run(string[] eventHubMessages, TraceWriter log)
   "type": "eventHubTrigger",
   "name": "myEventHubMessage",
   "direction": "in",
-  "eventHubName": "MyEventHub",
+  "path": "MyEventHub",
   "connection": "myEventHubReadConnectionAppSetting"
 }
 ```
@@ -236,14 +238,15 @@ let Run(myEventHubMessage: string, log: TraceWriter) =
 
 以下示例演示 *function.json* 文件中的一个事件中心触发器绑定以及使用该绑定的 [JavaScript 函数](functions-reference-node.md)。 此函数将读取[事件元数据](#trigger---event-metadata)并记录消息。
 
-以下示例显示了 *function.json* 文件中的事件中心绑定数据。 第一个示例适用于 Functions 1.x，第二个示例适用于 Functions 2.x。 
+以下示例显示了 *function.json* 文件中的事件中心绑定数据。 第一个示例适用于 Functions 2.x，第二个示例适用于 Functions 1.x。 
+
 
 ```json
 {
   "type": "eventHubTrigger",
   "name": "myEventHubMessage",
   "direction": "in",
-  "path": "MyEventHub",
+  "eventHubName": "MyEventHub",
   "connection": "myEventHubReadConnectionAppSetting"
 }
 ```
@@ -252,7 +255,7 @@ let Run(myEventHubMessage: string, log: TraceWriter) =
   "type": "eventHubTrigger",
   "name": "myEventHubMessage",
   "direction": "in",
-  "eventHubName": "MyEventHub",
+  "path": "MyEventHub",
   "connection": "myEventHubReadConnectionAppSetting"
 }
 ```
@@ -270,14 +273,14 @@ module.exports = function (context, eventHubMessage) {
 };
 ```
 
-若要批量接收事件，请将 function.json 文件中的 `cardinality` 设为 `many`，如以下示例所示。 第一个示例适用于 Functions 1.x，第二个示例适用于 Functions 2.x。 
+若要批量接收事件，请将 function.json 文件中的 `cardinality` 设为 `many`，如以下示例所示。 第一个示例适用于 Functions 2.x，第二个示例适用于 Functions 1.x。 
 
 ```json
 {
   "type": "eventHubTrigger",
   "name": "eventHubMessages",
   "direction": "in",
-  "path": "MyEventHub",
+  "eventHubName": "MyEventHub",
   "cardinality": "many",
   "connection": "myEventHubReadConnectionAppSetting"
 }
@@ -287,7 +290,7 @@ module.exports = function (context, eventHubMessage) {
   "type": "eventHubTrigger",
   "name": "eventHubMessages",
   "direction": "in",
-  "eventHubName": "MyEventHub",
+  "path": "MyEventHub",
   "cardinality": "many",
   "connection": "myEventHubReadConnectionAppSetting"
 }
@@ -336,11 +339,11 @@ public void eventHubProcessor(
  }
  ```
 
- 在 Java 函数运行时库中，对其值将来自事件中心的参数使用 `EventHubTrigger` 注释。 带有这些注释的参数会导致函数在事件到达时运行。  可以将此注释与本机 Java 类型、POJO 或使用了 Optional<T> 的可为 null 的值一起使用。 
+ 在 [Java 函数运行时库](https://docs.microsoft.com/en-us/java/api/overview/azure/functions/runtime)中，对其值来自事件中心的参数使用 `EventHubTrigger` 注释。 带有这些注释的参数会导致函数在事件到达时运行。  可以将此注释与本机 Java 类型、POJO 或使用了 Optional<T> 的可为 null 的值一起使用。 
 
 ## <a name="trigger---attributes"></a>触发器 - 特性
 
-在 [C# 类库](functions-dotnet-class-library.md)中，使用 `EventHubTriggerAttribute` 特性。
+在 [C# 类库](functions-dotnet-class-library.md)中，使用 [EventHubTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.EventHubs/EventHubTriggerAttribute.cs) 特性。
 
 该特性的构造函数使用事件中心的名称、使用者组的名称和包含连接字符串的应用设置的名称。 有关这些设置的详细信息，请参阅[触发器配置部分](#trigger---configuration)。 下面是 `EventHubTriggerAttribute` 特性的示例：
 
@@ -427,13 +430,13 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, Trac
 
 以下示例演示 *function.json* 文件中的一个事件中心触发器绑定以及使用该绑定的 [C# 脚本函数](functions-reference-csharp.md)。 该函数将消息写入事件中心。
 
-以下示例显示了 *function.json* 文件中的事件中心绑定数据。 第一个示例适用于 Functions 1.x，第二个示例适用于 Functions 2.x。 
+以下示例显示了 *function.json* 文件中的事件中心绑定数据。 第一个示例适用于 Functions 2.x，第二个示例适用于 Functions 1.x。 
 
 ```json
 {
     "type": "eventHub",
     "name": "outputEventHubMessage",
-    "path": "myeventhub",
+    "eventHubName": "myeventhub",
     "connection": "MyEventHubSendAppSetting",
     "direction": "out"
 }
@@ -442,7 +445,7 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, Trac
 {
     "type": "eventHub",
     "name": "outputEventHubMessage",
-    "eventHubName": "myeventhub",
+    "path": "myeventhub",
     "connection": "MyEventHubSendAppSetting",
     "direction": "out"
 }
@@ -477,13 +480,13 @@ public static void Run(TimerInfo myTimer, ICollector<string> outputEventHubMessa
 
 以下示例演示 *function.json* 文件中的一个事件中心触发器绑定以及使用该绑定的 [F# 函数](functions-reference-fsharp.md)。 该函数将消息写入事件中心。
 
-以下示例显示了 *function.json* 文件中的事件中心绑定数据。 第一个示例适用于 Functions 1.x，第二个示例适用于 Functions 2.x。 
+以下示例显示了 *function.json* 文件中的事件中心绑定数据。 第一个示例适用于 Functions 2.x，第二个示例适用于 Functions 1.x。 
 
 ```json
 {
     "type": "eventHub",
     "name": "outputEventHubMessage",
-    "path": "myeventhub",
+    "eventHubName": "myeventhub",
     "connection": "MyEventHubSendAppSetting",
     "direction": "out"
 }
@@ -492,7 +495,7 @@ public static void Run(TimerInfo myTimer, ICollector<string> outputEventHubMessa
 {
     "type": "eventHub",
     "name": "outputEventHubMessage",
-    "eventHubName": "myeventhub",
+    "path": "myeventhub",
     "connection": "MyEventHubSendAppSetting",
     "direction": "out"
 }
@@ -511,13 +514,13 @@ let Run(myTimer: TimerInfo, outputEventHubMessage: byref<string>, log: TraceWrit
 
 以下示例演示 *function.json* 文件中的一个事件中心触发器绑定以及使用该绑定的 [JavaScript 函数](functions-reference-node.md)。 该函数将消息写入事件中心。
 
-以下示例显示了 *function.json* 文件中的事件中心绑定数据。 第一个示例适用于 Functions 1.x，第二个示例适用于 Functions 2.x。 
+以下示例显示了 *function.json* 文件中的事件中心绑定数据。 第一个示例适用于 Functions 2.x，第二个示例适用于 Functions 1.x。 
 
 ```json
 {
     "type": "eventHub",
     "name": "outputEventHubMessage",
-    "path": "myeventhub",
+    "eventHubName": "myeventhub",
     "connection": "MyEventHubSendAppSetting",
     "direction": "out"
 }
@@ -526,7 +529,7 @@ let Run(myTimer: TimerInfo, outputEventHubMessage: byref<string>, log: TraceWrit
 {
     "type": "eventHub",
     "name": "outputEventHubMessage",
-    "eventHubName": "myeventhub",
+    "path": "myeventhub",
     "connection": "MyEventHubSendAppSetting",
     "direction": "out"
 }
@@ -571,7 +574,7 @@ public String sendTime(
  }
  ```
 
-在 Java 函数运行时库中，对其值将被发布到事件中心的参数使用 `@EventHubOutput` 注释。  此参数应为 `OutputBinding<T>` 类型，其中 T 是 POJO 或任何本机 Java 类型。 
+在 [Java 函数运行时库](https://docs.microsoft.com/en-us/java/api/overview/azure/functions/runtime)中，对其值将被发布到事件中心的参数使用 `@EventHubOutput` 注释。  此参数应为 `OutputBinding<T>` 类型，其中 T 是 POJO 或任何本机 Java 类型。 
 
 ## <a name="output---attributes"></a>输出 - 特性
 

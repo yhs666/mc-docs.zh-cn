@@ -9,14 +9,14 @@ ms.service: app-service-web
 ms.workload: web
 ms.topic: article
 origin.date: 06/28/2018
-ms.date: 09/03/2018
-ms.author: tdykstra
-ms.openlocfilehash: b6c8f93017f840375f14b04d8e6a209e2835be0d
-ms.sourcegitcommit: 1b682acdc2a5e0974fbff809967d7cefcbbbe8ac
+ms.date: 10/29/2018
+ms.author: v-biyu
+ms.openlocfilehash: ed2ece4f2c2f3a24b18c74673a268772bcf290fc
+ms.sourcegitcommit: 4b5ada023c9466d497c7474abf7ad71e50c3b17d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42870988"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49451583"
 ---
 # <a name="how-to-prepare-for-an-outbound-ip-address-change"></a>如何为出站 IP 地址更改做准备
 

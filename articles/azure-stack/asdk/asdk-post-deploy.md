@@ -1,5 +1,5 @@
 ---
-title: Azure Stack 开发工具包 (ASDK) 的部署后配置 | Azure
+title: Azure Stack 开发工具包 (ASDK) 的部署后配置 | Microsoft Docs
 description: 介绍在安装 Azure Stack 开发工具包 (ASDK) 之后建议做出的配置更改。
 services: azure-stack
 documentationcenter: ''
@@ -16,12 +16,12 @@ origin.date: 06/05/2018
 ms.date: 08/27/2018
 ms.author: v-junlch
 ms.reviewer: misainat
-ms.openlocfilehash: c24427ae3431a7989b8a8ef1d247d6adb3cf756c
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.openlocfilehash: 19b8111442f1feb83faf3efdaf39c20056b754c4
+ms.sourcegitcommit: 3ec1b0705c8305fc4561b9511c275edb9baa1f59
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869412"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49316011"
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>安装 ASDK 后的配置任务
 

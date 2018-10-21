@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 12/05/2016
-ms.date: 08/27/2018
+ms.date: 10/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: f1aa9b0a9a0c094d4d11c1ce92fb4f907064a195
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.openlocfilehash: 9487fbe6c1dcc3de74668922036cae6917034db0
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42871301"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453665"
 ---
 # <a name="exporting-resource-groups-that-contain-vm-extensions"></a>导出包含 VM 扩展的资源组
 
@@ -166,4 +166,5 @@ Azure Resource Manager 自动化脚本生成一个 Resource Manager 模板、一
 ```
 
 目前可以使用任何模板部署方法部署此模板。
+
 <!-- Update_Description: update meta properties -->

@@ -9,18 +9,18 @@ editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
 origin.date: 08/31/2018
-ms.date: 09/24/2018
-ms.openlocfilehash: 072906802c696f377262247744813620a8396df2
-ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
+ms.date: 10/22/2018
+ms.openlocfilehash: 93844cfe405768b42ff341642055787a68c0fc14
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46527106"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453728"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>如何配置 Azure Database for MySQL 的数据传入复制
 
 > [!NOTE]
-> 将要查看的是 Azure Database for MySQL 的新服务。 若要查看经典 MySQL Database for Azure 的文档，请访问[此页](https://docs.azure.cn/zh-cn/mysql/)。
+> 将要查看的是 Azure Database for MySQL 的新服务。 若要查看经典 MySQL Database for Azure 的文档，请访问[此页](https://docs.azure.cn/zh-cn/mysql-database-on-azure/)。
 
 本文介绍如何通过配置主服务器和副本服务器在 Azure Database for MySQL 服务中设置“数据传入复制”。 凭借“数据传入复制”，可以将在本地或虚拟机中运行的主 MySQL 服务器或其他云提供程序托管的数据库服务中的数据同步到 Azure Database for MySQL 服务中的副本。 
 
@@ -162,6 +162,9 @@ ms.locfileid: "46527106"
    - master_log_pos：正在运行的 `show master status` 中的二进制日志位置
    - master_ssl_ca：CA 证书的上下文。 如果不使用 SSL，请传入空字符串。
        - 建议以变量形式传入此参数。 有关详细信息，请参阅以下示例。
+
+> [!NOTE]
+> 如果主服务器托管在 Azure VM 中，请将“允许访问 Azure 服务”设置为“启用”，以允许主服务器和副本服务器相互通信。 从“连接安全性”选项可更改此设置。 请参阅[使用门户管理防火墙规则](howto-manage-firewall-using-portal.md)获取详细信息。
 
    **示例**
 

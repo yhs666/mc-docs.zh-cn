@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 origin.date: 02/24/2017
-ms.date: 10/30/2017
-ms.author: v-yiso
-ms.openlocfilehash: 148182223972fa22bcae34182fa38733c44292ce
-ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
+ms.date: 10/29/2018
+ms.author: v-biyu
+ms.openlocfilehash: f5b32c30c48f86ea2e20f63a8da8c71a4ec6f1b7
+ms.sourcegitcommit: 4b5ada023c9466d497c7474abf7ad71e50c3b17d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
-ms.locfileid: "23475129"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49451597"
 ---
 # <a name="azure-sdk-for-net-26-release-notes"></a>Azure SDK for .NET 2.6 发行说明
 本文档包含 Azure SDK for .NET 2.6 发行版的发行说明。 
@@ -53,9 +53,9 @@ ms.locfileid: "23475129"
     有关详细信息，请参阅[此手册](/hdinsight/hdinsight-hadoop-emulator-get-started)。
 
 ## <a name="in-role-cache-updates"></a>角色中缓存更新
-* **角色中缓存**已更新，可以使用 **Microsoft Azure 存储 SDK** 版本 4.3。 到目前为止，**角色中缓存**一直在使用 Microsoft Azure 存储 SDK 版本 1.7。
+* **角色中缓存**已更新，可以使用 **Microsoft Azure 存储 SDK** 版本 4.3。 到目前为止，**角色中缓存**一直在使用 Azure 存储 SDK 版本 1.7。
 
-    使用 Azure SDK 2.5 或以下版本的客户应更新到 Azure SDK 2.6，并选择使用新版 Microsoft Azure 存储 SDK。 
+    使用 Azure SDK 2.5 或以下版本的客户应更新到 Azure SDK 2.6，并选择使用新版 Azure 存储 SDK。 
 
     目前已计划在 2016 年 8 月 1 日删除 Azure 存储版本 2011-08-18。 从 Azure SDK 2.5 或更低版本到 2.6 的任何角色中缓存迁移必须在该日期之前完成。 有关停用 Azure 存储版本 2011-08-18 的详细信息，请参阅[有关删除 Microsoft Azure 存储服务版本的最新信息：延期到 2016 年](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/10/19/microsoft-azure-storage-service-version-removal-update-extension-to-2016.aspx)。
 

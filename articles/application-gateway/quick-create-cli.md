@@ -11,15 +11,15 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.workload: infrastructure-services
 origin.date: 02/14/2018
-ms.date: 08/22/2018
+ms.date: 10/17/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 62c0d0e94164454d40b7da85774827a0eb9d85ab
-ms.sourcegitcommit: da9f7b0825e493636d6596eb6ae95d03e0626583
+ms.openlocfilehash: f77a8b7e703e961fa67708130c5e15bc83952d33
+ms.sourcegitcommit: 4ead6b1d3527373b63c90680b6400a2e95b4064e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "41734283"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49374979"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-cli"></a>快速入门：使用 Azure 应用程序网关定向 Web 流量 - Azure CLI
 
@@ -29,7 +29,7 @@ ms.locfileid: "41734283"
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
-如果选择在本地安装并使用 CLI，本快速入门要求运行 Azure CLI 2.0.4 版或更高版本。 若要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](/cli/install-azure-cli)。
+如果选择在本地安装并使用 CLI，本快速入门要求运行 Azure CLI 2.0.4 版或更高版本。 若要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
@@ -195,4 +195,4 @@ az group delete --name myResourceGroupAG
 > [通过 Azure CLI 使用应用程序网关管理 Web 流量](./tutorial-manage-web-traffic-cli.md)
 
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

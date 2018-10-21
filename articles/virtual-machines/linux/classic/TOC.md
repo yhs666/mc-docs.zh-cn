@@ -54,5 +54,6 @@
 # 资源
 ## [价格](https://www.azure.cn/pricing/details/virtual-machines/#Linux)
 ## [定价计算器](https://www.azure.cn/pricing/calculator/)
+## [区域可用性](https://www.azure.cn/support/service-dashboard/)
 ## [视频](https://www.azure.cn/video-center/)
-<!-- ms.date: 07/30/2018 -->
+<!-- ms.date: 10/22/2018 -->

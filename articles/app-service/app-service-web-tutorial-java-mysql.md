@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: tutorial
 origin.date: 05/22/2017
-ms.date: 09/03/2018
-ms.author: v-yiso
+ms.date: 10/29/2018
+ms.author: v-biyu
 ms.custom: mvc
-ms.openlocfilehash: 91203767bf5c262cfa166bb121217b9763a95757
-ms.sourcegitcommit: 1b682acdc2a5e0974fbff809967d7cefcbbbe8ac
+ms.openlocfilehash: d1c63fac14cd56bfcba1a71154c5f3e7913e3ecd
+ms.sourcegitcommit: 4b5ada023c9466d497c7474abf7ad71e50c3b17d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42871051"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49451611"
 ---
 # <a name="tutorial-build-a-java-and-mysql-web-app-in-azure"></a>教程：在 Azure 中构建 Java 和 MySQL Web 应用
 
@@ -294,7 +294,7 @@ az webapp config appsettings set --settings SPRING_DATASOURCE_PASSWORD=Javaapp_p
 ```
 
 ### <a name="get-ftp-deployment-credentials"></a>获取 FTP 部署凭据 
-可以通过不同的方法将应用程序部署到 Azure appservice，包括 FTP、本地 Git、GitHub、Visual Studio Team Services。 就本示例来说，请通过 FTP 将此前在本地计算机上生成的 .WAR 文件部署到 Azure 应用服务。
+可以通过不同的方法将应用程序部署到 Azure appservice，包括 FTP、本地 Git、GitHub、Azure DevOps 和 BitBucket。 就本示例来说，请通过 FTP 将此前在本地计算机上生成的 .WAR 文件部署到 Azure 应用服务。
 
 若要确定要在 ftp 命令中将哪些凭据传递给 Web 应用，请在终端窗口中使用 [`az appservice web deployment list-publishing-profiles`](https://docs.azure.cn/zh-cn/cli/webapp/deployment#az-appservice-web-deployment-list-publishing-profiles) 命令： 
 

@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 03/30/2018
-ms.date: 08/27/2018
+ms.date: 10/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: db984d5218645b0350fc9acf25509d13d58a63f4
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.openlocfilehash: c2c1601995a5b5018b86dd073d083dcb808434c1
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42871681"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453509"
 ---
 # <a name="azure-virtual-machine-extensions-and-features"></a>Azure 虚拟机扩展和功能
 Azure 虚拟机 (VM) 扩展是小型应用程序，可在 Azure VM 上提供部署后配置和自动化任务，用户可以使用现有映像并将其自定义为部署的一部分，摆脱构建自定义映像的麻烦。
@@ -42,7 +42,7 @@ Azure 平台可承载许多扩展，其中包括 VM 配置、监视、安全性�
 可以在门户的 VM 边栏选项卡中的扩展下查看可用的扩展，此处显示一小部分，如需查看完整列表，可使用 CLI 工具，请参阅[了解适用于 Linux 的 VM 扩展](features-linux.md)和[了解适用于 Windows 的扩展](features-windows.md)。
 
 ## <a name="how-can-i-install-an-extension"></a>如何安装扩展？
-可以使用 Azure CLI 2.0、Azure PowerShell、Azure 资源管理器模板和 Azure 门户管理 Azure VM 扩展。 若要试用扩展，可以转到 Azure 门户，选择自定义脚本扩展，然后传入命令/脚本并运行扩展。
+可以使用 Azure CLI、Azure PowerShell、Azure 资源管理器模板和 Azure 门户管理 Azure VM 扩展。 若要试用扩展，可以转到 Azure 门户，选择自定义脚本扩展，然后传入命令/脚本并运行扩展。
 
 如果需要 CLI 或资源管理器模板在门户中添加的相同扩展，请参阅不同的扩展文档，例如 [Windows 自定义脚本扩展](custom-script-windows.md)和 [Linux 自定义脚本扩展](custom-script-linux.md)。
 
@@ -57,4 +57,5 @@ Azure 平台可承载许多扩展，其中包括 VM 配置、监视、安全性�
 * 有关 Windows 来宾代理和扩展工作原理的详细信息，请参阅[适用于 Windows 的 Azure VM 扩展和功能](features-windows.md)。  
 * 若要安装 Windows 来宾代理，请参阅 [Azure Windows 虚拟机代理概述](agent-windows.md)。  
 * 若要安装 Linux 代理，请参阅 [Azure Linux 虚拟机代理概述](agent-linux.md)。
-<!-- Update_Description: update meta properties -->
+
+<!-- Update_Description: update meta properties， wording update -->

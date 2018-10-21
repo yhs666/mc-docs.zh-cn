@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/03/2017
-ms.date: 10/08/2018
-ms.author: v-yiso
-ms.openlocfilehash: 8bf1c7ea5eb2824a4778aed97fda6981a81c2133
-ms.sourcegitcommit: 5616622f754f3b83c7120a3d1344d0344e03ca61
+ms.date: 10/29/2018
+ms.author: v-biyu
+ms.openlocfilehash: b5a793ca59a3cd2cc5bfbda1d8ac02a44df6d8ec
+ms.sourcegitcommit: 4b5ada023c9466d497c7474abf7ad71e50c3b17d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47188781"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49451607"
 ---
 # <a name="troubleshoot-slow-web-app-performance-issues-in-azure-app-service"></a>排查 Azure 应用服务中 Web 应用性能缓慢的问题
-本文帮助排查 [Azure 应用服务](./app-service-changes-existing-services.md)中 Web 应用性能缓慢的问题。
+本文帮助排查 [Azure 应用服务](./app-service/app-service-web-overview.md)中 Web 应用性能缓慢的问题。
 
 如果对本文中的任何观点存在疑问，可以联系 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/) 上的 Azure 专家。 或者，也可以提出 Azure 支持事件。 请转到 [Azure 支持站点](https://www.azure.cn/support/contact/)，并单击“**获取支持**”。
 

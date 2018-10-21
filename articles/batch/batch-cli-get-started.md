@@ -13,21 +13,21 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
 origin.date: 07/24/2018
-ms.date: 09/07/2018
-ms.author: v-junlch
+ms.date: 10/19/2018
+ms.author: v-lingwu
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: aada69ef01ffbe4ac03389bc3b39bbfa299a7333
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.openlocfilehash: 15bee38d271b6dc27fe9cfeb6e2a3259d0df1677
+ms.sourcegitcommit: ee042177598431d702573217e2f3538878b6a984
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068175"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477774"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>使用 Azure CLI 管理 Batch 资源
 
-Azure CLI 2.0 是 Azure 的命令行体验，用于管理 Azure 资源。 它可以在 macOS、Linux 和 Windows 上使用。 Azure CLI 2.0 已经过优化，可以从命令行管理 Azure 资源。 可以使用 Azure CLI 管理 Azure Batch 帐户，以及管理池、作业、任务等资源。 对于通过 Batch API、Azure 门户和 Batch PowerShell cmdlet 执行的任务，许多都可以使用 Azure CLI 来编写脚本。
+Azure CLI 是 Azure 的命令行体验，用于管理 Azure 资源。 它可以在 macOS、Linux 和 Windows 上使用。 Azure CLI 经过了优化，可从命令行管理 Azure 资源。 可以使用 Azure CLI 管理 Azure Batch 帐户，以及管理池、作业、任务等资源。 对于通过 Batch API、Azure 门户和 Batch PowerShell cmdlet 执行的任务，许多都可以使用 Azure CLI 来编写脚本。
 
-本文概述如何将 [Azure CLI 2.0 版](/cli)与 Batch 配合使用。 请参阅 [Azure CLI 2.0 入门](/cli/get-started-with-azure-cli)，大致了解如何将 CLI 与 Azure 配合使用。
+本文概述如何将 [Azure CLI 2.0 版](/cli)与 Batch 配合使用。 请参阅 [Azure CLI 入门](/cli/get-started-with-azure-cli)，大致了解如何将 CLI 与 Azure 配合使用。
 
 ## <a name="set-up-the-azure-cli"></a>设置 Azure CLI
 
@@ -48,10 +48,7 @@ Azure CLI 2.0 是 Azure 的命令行体验，用于管理 Azure 资源。 它可
 
 如有疑问，请使用 `-h` 命令行选项获取有关任何 Azure CLI 命令的帮助。
 
-> [!NOTE]
-> 早期版本的 Azure CLI 使用 `azure` 作为 CLI 命令的前缀。 在 2.0 版中，所有命令现在都带 `az` 前缀。 请务必更新脚本，对 2.0 版使用新语法。
->
->  
+
 
 另请参阅 Azure CLI 参考文档，详细了解[适用于 Batch 的 Azure CLI 命令](/cli/batch)。 
 
@@ -64,7 +61,7 @@ Azure CLI 2.0 是 Azure 的命令行体验，用于管理 Azure 资源。 它可
 
 ### <a name="log-in-to-azure"></a>登录 Azure
 
-可以通过多种不同的方式登录到 Azure，详见[使用 Azure CLI 2.0 登录](/cli/authenticate-azure-cli)：
+可以通过多种不同的方式登录到 Azure，详见[使用 Azure CLI 登录](/cli/authenticate-azure-cli)：
 
 1. [以交互方式登录](/cli/authenticate-azure-cli#az-authenticate-azure-cli-interactive-log-in)。 从命令行自行运行 Azure CLI 命令时，请以交互方式登录。
 2. [使用服务主体登录](/cli/authenticate-azure-cli#az-authenticate-azure-cli-logging-in-with-a-service-principal)。 从脚本或应用程序运行 Azure CLI 命令时，请使用服务主体登录。

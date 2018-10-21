@@ -13,19 +13,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/05/2018
-ms.date: 07/02/2018
-ms.author: v-yiso
-ms.openlocfilehash: 3c3fcdf8e48c97a4bc599a71d62c7135ada35eba
-ms.sourcegitcommit: 1b682acdc2a5e0974fbff809967d7cefcbbbe8ac
+ms.date: 10/29/2018
+ms.author: v-biyu
+ms.openlocfilehash: 0fc2ed9db6c05498e0480514db2c99931459a716
+ms.sourcegitcommit: 4b5ada023c9466d497c7474abf7ad71e50c3b17d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42871029"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49451600"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>使用 FTP/S 将应用部署到 Azure 应用服务
+
 本文介绍了如何使用 FTP 或 FTPS 将 Web 应用、移动应用后端或 API 应用部署到 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)。
 
-应用的 FTP/S 终结点已处于活动状态。 启用 FTP/S 部署不需要进行任何配置。 
+应用的 FTP/S 终结点已处于活动状态。 启用 FTP/S 部署不需要进行任何配置。
 
 ## <a name="open-ftp-dashboard"></a>打开 FTP 仪表板
 
@@ -109,4 +110,4 @@ Azure 应用服务支持通过“主动”模式和“被动”模式进行连�
 
 ## <a name="more-resources"></a>更多资源
 
-* [ 部署凭据](app-service-deploy-ftp.md)
+* [ 部署凭据](app-service-deployment-credentials.md)

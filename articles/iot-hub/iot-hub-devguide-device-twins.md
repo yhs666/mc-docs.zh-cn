@@ -7,14 +7,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 origin.date: 01/29/2018
-ms.date: 10/08/2018
+ms.date: 10/29/2018
 ms.author: v-yiso
-ms.openlocfilehash: 02263841eda041d88ab75e25a62dfa9a5cc3ecfd
-ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
+ms.openlocfilehash: eec3ff06baf8a7baa7dadda8bf54d60c0333e9c4
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523896"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453610"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>了解并在 IoT 中心内使用设备孪生
 
@@ -52,7 +52,7 @@ ms.locfileid: "46523896"
 * **报告的属性**。 与所需的属性结合使用，同步设备配置或状态。 设备应用可设置报告的属性，并且解决方案后端可进行读取和查询。
 * **设备标识属性**。 设备孪生 JSON 文档的根包含[标识注册表][lnk-identity]中存储的相应设备标识的只读属性。
 
-![][img-twin]
+![设备孪生属性的屏幕截图](./media/iot-hub-devguide-device-twins/twin.png)
 
 以下示例显示了一个设备孪生 JSON 文档：
 
@@ -149,7 +149,7 @@ ms.locfileid: "46523896"
 解决方案后端使用以下通过 HTTPS 公开的原子操作对设备孪生执行操作：
 
 * **按 ID 检索设备孪生**。此操作返回设备孪生文档，包括标记、所需的系统属性和报告的系统属性。
-* **部分更新设备孪生**。 解决方案后端可以使用此操作部分更新设备孪生中的标记或所需属性。 部分更新以 JSON 文档的形式表示，可添加或更新任何属性。 将删除设置为 `null` 的属性。 以下示例将创建值为 `{"newProperty": "newValue"}` 的新所需属性，将现有值 `existingProperty` 覆盖为 `"otherNewValue"`，并删除 `otherOldProperty`。 不会对现有的所需属性或标记进行其他任何更改：
+* **部分更新设备孪生**。 解决方案后端可以使用此操作部分更新设备孪生中的标记或所需属性。 部分更新以 JSON 文档的形式表示，可添加或更新任何属性。 将删除设置为 `null` 的属性。 以下示例创建值为 `{"newProperty": "newValue"}` 的新所需属性，将现有值 `existingProperty` 覆盖为 `"otherNewValue"`，并删除 `otherOldProperty`。 不会对现有的所需属性或标记进行其他任何更改：
 
     ```json
     {
@@ -167,7 +167,8 @@ ms.locfileid: "46523896"
 
 * **替换所需属性**。 解决方案后端可以使用此操作完全覆盖所有现有的所需属性，并使用新 JSON 文档替代 `properties/desired`。
 * **替换标记**。 解决方案后端可以使用此操作完全覆盖所有现有标记，并使用新 JSON 文档替代 `tags`。
-* **接收孪生通知**。 此操作允许解决方案后端在修改孪生时收到通知。 为此，IoT 解决方案需要创建一个路由，并且将“数据源”设置为等于 *twinChangeEvents*。 默认情况下，不会发送孪生通知，即，无此类路由预先存在。 如果更改速率太高，或由于其他原因（例如内部故障），IoT 中心可能会只发送一个包含所有更改的通知。 因此，如果应用程序需要可靠地审核和记录所有中间状态，则应使用设备到云消息。 孪生通知消息包括属性和正文。
+
+* **接收孪生通知**。 此操作允许解决方案后端在修改孪生时收到通知。 为此，IoT 解决方案需要创建一个路由，并且将“数据源”设置为等于 *twinChangeEvents*。 默认情况下没有此类路由预先存在，因此不会发送孪生通知。 如果更改速率太高，或由于其他原因（例如内部故障），IoT 中心可能会只发送一个包含所有更改的通知。 因此，如果应用程序需要可靠地审核和记录所有中间状态，则应使用设备到云消息。 孪生通知消息包括属性和正文。
 
     - 属性
 
@@ -179,11 +180,11 @@ ms.locfileid: "46523896"
     $content-encoding | utf-8 |
     deviceId | 设备 ID |
     hubName | IoT 中心的名称 |
-    operationTimestamp | [ISO8601] 操作时间戳 |
+    operationTimestamp | [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) 操作时间戳 |
     iothub-message-schema | deviceLifecycleNotification |
     opType | “replaceTwin”或“updateTwin” |
 
-    消息系统属性以 `'$'` 符号作为前缀。
+   消息系统属性以 `$` 符号作为前缀。
 
     - 正文
         
@@ -229,7 +230,8 @@ ms.locfileid: "46523896"
 ## <a name="tags-and-properties-format"></a>标记和属性格式
 标记、所需的属性和报告的属性是具有以下限制的 JSON 对象：
 
-* JSON 对象中的所有键是区分大小写的 64 字节 UTF-8 UNICODE 字符串。 允许的字符不包括 UNICODE 控制字符（段 C0 和 C1）以及 `'.'`、`' '` 和 `'$'`。
+* JSON 对象中的所有键是区分大小写的 64 字节 UTF-8 UNICODE 字符串。 允许的字符不包括 UNICODE 控制字符（段 C0 和 C1）以及 `.`、`$` 和 SP。
+
 * JSON 对象中的所有值可采用以下 JSON 类型：布尔值、数字、字符串、对象。 不允许数组。 最大整数值为 4503599627370495，而最小整数值为 -4503599627370496。
 * 标记、所需属性和报告属性中的所有 JSON 对象的最大嵌套深度为 5 层。 例如，以下对象是有效的：
 
@@ -261,7 +263,9 @@ IoT 中心对 `tags`、`properties/desired` 和 `properties/reported`（不包�
 IoT 中心拒绝将这些文档的大小增加到超出限制的所有操作，在这种情况下还会返回错误。
 
 ## <a name="device-twin-metadata"></a>设备孪生的元数据
-IoT 中心保留设备孪生所需属性和报告属性中每个 JSON 对象的上次更新时间戳。 时间戳采用 UTC，以 [ISO8601] 格式编码`YYYY-MM-DDTHH:MM:SS.mmmZ`。
+
+IoT 中心保留设备孪生所需属性和报告属性中每个 JSON 对象的上次更新时间戳。 时间戳采用 UTC，以 [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) 格式编码`YYYY-MM-DDTHH:MM:SS.mmmZ`。
+
 例如：
 
 ```json
@@ -313,11 +317,11 @@ IoT 中心保留设备孪生所需属性和报告属性中每个 JSON 对象的�
 
 ## <a name="optimistic-concurrency"></a>乐观并发
 标记、所需的属性和报告的属性都支持乐观并发。
-标记包含一个符合 [RFC7232] 规范的 ETag，它是标记的 JSON 表示形式。 可在解决方案后端上的条件更新操作中使用 ETag 来确保一致性。
+标记包含一个符合 [RFC7232](https://tools.ietf.org/html/rfc7232) 规范的 ETag，它是标记的 JSON 表示形式。 可在解决方案后端上的条件更新操作中使用 ETag 来确保一致性。
 
 设备孪生所需的属性和报告的属性不包含 ETag，但包含一个保证可递增的 `$version` 值。 更新方可以使用类似于 ETag 的版本来强制实施更新一致性。 例如，报告的属性的设备应用，或者所需的属性的解决方案后端。
 
-当监视代理（例如，监视所需属性的设备应用）必须协调检索操作结果与更新通知之间的资源争用时，版本也很有用。 [设备重新连接流][lnk-reconnection]部分提供了详细信息。
+当监视代理（例如，监视所需属性的设备应用）必须协调检索操作结果与更新通知之间的资源争用时，版本也很有用。 [设备重新连接流](iot-hub-devguide-device-twins.md#device-reconnection-flow)部分提供了详细信息。
 
 ## <a name="device-reconnection-flow"></a>设备重新连接流
 IoT 中心不会保留已断开连接设备的所需属性更新通知。 它遵循的原则是：连接的设备必须检索整个所需属性文档，此外还要订阅更新通知。 如果更新通知与完全检索之间存在资源争用的可能性，则必须确保遵循以下流：

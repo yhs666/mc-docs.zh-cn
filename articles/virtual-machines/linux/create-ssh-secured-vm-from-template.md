@@ -14,17 +14,20 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 origin.date: 05/30/2018
-ms.date: 07/30/2018
+ms.date: 10/22/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5cb84f6a21915edbd90e6e8f26b774c8882cde6d
-ms.sourcegitcommit: 35889b4f3ae51464392478a72b172d8910dd2c37
+ms.openlocfilehash: 2ed6cf4f57a3e609fb975333dc77b31be0b1a005
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39261965"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453747"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-with-azure-resource-manager-templates"></a>如何使用 Azure Resource Manager 模板创建 Linux 虚拟机
+
+本文介绍如何使用 Azure 资源管理器模板和 Azure CLI 快速部署 Linux 虚拟机 (VM)。 还可以使用 [Azure 经典 CLI](create-ssh-secured-vm-from-template-nodejs.md) 执行这些步骤。
+
 本文介绍如何使用 Azure 资源管理器模板和 Azure CLI 快速部署 Linux 虚拟机 (VM)。 
 
 ## <a name="templates-overview"></a>模板概述
@@ -71,4 +74,4 @@ ssh azureuser@<ipAddress>
 ## <a name="next-steps"></a>后续步骤
 在此示例中，创建了一个基本的 Linux VM。 若要获取包括应用程序框架或创建更复杂环境的 Resource Manager 模板，请浏览 [Azure 快速入门模板库](https://github.com/Azure/azure-quickstart-templates/)。
 
-<!--Update_Description: update meta properties  -->
+<!--Update_Description: update meta properties, wording update  -->

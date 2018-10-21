@@ -2,25 +2,25 @@
 title: 如何在 Azure Database for MySQL 中配置服务器参数
 description: 本文介绍如何使用 Azure 门户在适用于 MySQL 的 Azure 数据库中配置 MySQL 服务器参数。
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
+author: WenJason
+ms.author: v-jay
 manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
 origin.date: 07/18/2018
-ms.date: 08/27/2018
-ms.openlocfilehash: 205b08603bae87996df11920876b3b0cbadba0d6
-ms.sourcegitcommit: 6dd65fba579a2ce25c63ac69ff3b71d814a9d256
+ms.date: 10/22/2018
+ms.openlocfilehash: ed9f171c7760fe0683a5019526f884801868fbcc
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42703866"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453570"
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mysql-by-using-the-azure-portal"></a>如何使用 Azure 门户在适用于 MySQL 的 Azure 数据库中配置服务器参数
 
 > [!NOTE]
-> 将要查看的是 Azure Database for MySQL 的新服务。 若要查看经典 MySQL Database for Azure 的文档，请访问[此页](https://docs.azure.cn/zh-cn/mysql/)。
+> 将要查看的是 Azure Database for MySQL 的新服务。 若要查看经典 MySQL Database for Azure 的文档，请访问[此页](https://docs.azure.cn/zh-cn/mysql-database-on-azure/)。
 
 用于 MySQL 的 Azure 数据库支持配置某些服务器参数。 本文介绍如何使用 Azure 门户配置这些参数。 并非所有服务器参数都可调整。
 
@@ -46,8 +46,15 @@ InnoDB 缓冲池和最大连接数不可配置，因[定价层](concepts-service
 
 |**定价层**| **计算代**|**vCore(s)**|InnoDB 缓冲池 (MB)| 最大连接数|
 |---|---|---|---|--|
+|基本| 第 4 代| 1| 1024| 50|
+|基本| 第 4 代| 2| 2560| 100|
 |基本| 第 5 代| 1| 1024| 50|
 |基本| 第 5 代| 2| 2560| 100|
+|常规用途| 第 4 代| 2| 3584| 300|
+|常规用途| 第 4 代| 4| 7680| 625|
+|常规用途| 第 4 代| 8| 15360| 1250|
+|常规用途| 第 4 代| 16| 31232| 2500|
+|常规用途| 第 4 代| 32| 62976| 5000|
 |常规用途| 第 5 代| 2| 3584| 300|
 |常规用途| 第 5 代| 4| 7680| 625|
 |常规用途| 第 5 代| 8| 15360| 1250|
@@ -62,7 +69,7 @@ InnoDB 缓冲池和最大连接数不可配置，因[定价层](concepts-service
 
 |**参数**|**固定值**|
 | :------------------------ | :-------- |
-|基本层中的 innodb_file_per_table|熄灭|
+|基本层中的 innodb_file_per_table|OFF|
 |innodb_flush_log_at_trx_commit|1|
 |sync_binlog|1|
 |innodb_log_file_size|512MB|

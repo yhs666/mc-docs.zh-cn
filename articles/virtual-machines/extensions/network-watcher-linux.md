@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 02/14/2017
-ms.date: 09/24/2018
+ms.date: 10/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: e20978b9fab93056fd1386f2ba2332524e13d312
-ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
+ms.openlocfilehash: dfbdc83c08df86e569758904b326a95d293c0229
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46527098"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453708"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>适用于 Linux 的网络观察程序代理虚拟机扩展
 
@@ -88,7 +88,7 @@ ms.locfileid: "46527098"
 
 可使用 Azure 资源管理器模板部署 Azure VM 扩展。 若要部署网络观察程序代理扩展，请在模板中使用以前的 json 架构。
 
-## <a name="azure-cli-10-deployment"></a>Azure CLI 1.0 部署
+## <a name="azure-classic-cli-deployment"></a>Azure 经典 CLI 部署
 
 下面的示例将网络观察程序代理 VM 扩展部署到通过经典部署模型部署的现有 VM：
 
@@ -97,7 +97,7 @@ azure config mode asm
 azure vm extension set myVM1 NetworkWatcherAgentLinux Microsoft.Azure.NetworkWatcher 1.4
 ```
 
-## <a name="azure-cli-20-deployment"></a>Azure CLI 2.0 部署
+## <a name="azure-cli-deployment"></a>Azure CLI 部署
 
 下面的示例将网络观察程序代理 VM 扩展部署到通过资源管理器部署的现有 VM：
 
@@ -111,7 +111,7 @@ az vm extension set --resource-group myResourceGroup1 --vm-name myVM1 --name Net
 
 可以从 Azure 门户或 Azure CLI 检索有关扩展部署状态的数据。
 
-下面的示例演示使用 Azure CLI 1.0 通过经典部署模型部署的 VM 扩展的部署状态：
+下面的示例演示使用 Azure 经典 CLI 通过经典部署模型部署的 VM 扩展的部署状态：
 
 ```azurecli
 azure config mode asm
@@ -123,7 +123,7 @@ azure vm extension get myVM1
 /var/log/azure/Microsoft.Azure.NetworkWatcher.NetworkWatcherAgentLinux/
 `
 
-下面的示例演示使用 Azure CLI 2.0 通过资源管理器部署的 VM 的 NetworkWatcherAgentLinux 扩展的部署状态：
+下面的示例演示使用 Azure CLI 通过资源管理器部署的 VM 的 NetworkWatcherAgentLinux 扩展的部署状态：
 
 ```azurecli
 az vm extension show --name NetworkWatcherAgentLinux --resource-group myResourceGroup1 --vm-name myVM1
@@ -132,4 +132,5 @@ az vm extension show --name NetworkWatcherAgentLinux --resource-group myResource
 ### <a name="support"></a>支持
 
 如果对本文中的任何内容不了解，可以参阅[网络观察程序文档](/network-watcher/)或联系 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/) 上的 Azure 专家。 或者，也可以提出 Azure 支持事件。 请转到 [Azure 支持站点](https://www.azure.cn/support/contact/)并选择“获取支持”。 有关使用 Azure 支持的信息，请参阅 [Azure 支持常见问题](https://www.azure.cn/support/faq/)。
+
 <!-- Update_Description: update meta properties, wording update  -->

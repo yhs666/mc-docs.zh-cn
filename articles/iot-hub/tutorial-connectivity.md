@@ -7,15 +7,15 @@ manager: timlt
 ms.author: v-yiso
 ms.custom: mvc
 origin.date: 05/29/2018
-ms.date: 08/06/2018
+ms.date: 10/29/2018
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: f2736717abfdb0ba18d06134599cee0e0efc2366
-ms.sourcegitcommit: d4092cf6aba0d949bf612093c76f964c2bdfd0ba
+ms.openlocfilehash: 4dc964936c3485e2db78efcd095f0b3549926c8b
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39306543"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453856"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>教程：使用模拟设备测试 IoT 中心的连接性
 
@@ -33,7 +33,7 @@ ms.locfileid: "39306543"
 
 ## <a name="prerequisites"></a>先决条件
 
-在本教程中运行的 CLI 脚本使用[适用于 Azure CLI 2.0 的 Microsoft Azure IoT 扩展](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md)。 若要安装此扩展，请运行以下 CLI 命令：
+本教程中运行的 CLI 脚本使用[适用于 Azure CLI 的 Microsoft Azure IoT 扩展](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md)。 若要安装此扩展，请运行以下 CLI 命令：
 
 ```azurecli
 az extension add --name azure-cli-iot-ext
@@ -100,7 +100,7 @@ node SimulatedDevice-1.js "{your device connection string}"
 # Generate a new Base64 encoded key using the current date
 read key < <(date +%s | sha256sum | base64 | head -c 32)
 
-# Requires the IoT Extension for Azure CLI 2.0
+# Requires the IoT Extension for Azure CLI
 # az extension add --name azure-cli-iot-ext
 
 # Reset the primary device key for MyTestDevice

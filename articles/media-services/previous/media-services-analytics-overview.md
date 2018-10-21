@@ -3,7 +3,7 @@ title: 媒体服务平台上的媒体分析 | Microsoft Docs
 description: 媒体分析公共预览版概述，其中集合了企业级的语音和计算机视觉服务、合规性、安全性和全球市场宣传功能
 services: media-services
 documentationcenter: ''
-author: forester123
+author: WenJason
 manager: digimobile
 editor: ''
 ms.assetid: c56e3781-8510-4f7f-b5ff-a218c1bb6f4c
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 06/29/2017
-ms.date: 09/25/2017
-ms.author: v-johch
-ms.openlocfilehash: 4e2f06a35164488a49eabd9a411eeb92ae1a8074
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.date: 10/22/2017
+ms.author: v-jay
+ms.openlocfilehash: a7dfdb71c1401e4fff8374da55cfb3d50c4a5f97
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426417"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453623"
 ---
 # <a name="media-analytics-on-the-media-services-platform"></a>媒体服务平台上的媒体分析
 ## <a name="overview"></a>概述
@@ -93,7 +93,7 @@ Azure 媒体修订器是一种媒体分析媒体处理器，可用于在云中�
 ### <a name="rest"></a>REST
 请求：
 
-    GET https://wamsshaclus001rest-hs.chinacloudapp.cn/api/MediaProcessors()?$filter=Name%20eq%20'Azure%20Media%20OCR' HTTP/1.1
+    GET https://media.chinacloudapi.cn/api/MediaProcessors()?$filter=Name%20eq%20'Azure%20Media%20OCR' HTTP/1.1
     DataServiceVersion: 1.0;NetFx
     MaxDataServiceVersion: 3.0;NetFx
     Accept: application/json
@@ -101,7 +101,7 @@ Azure 媒体修订器是一种媒体分析媒体处理器，可用于在云中�
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer <token>
     x-ms-version: 2.12
-    Host: wamsshaclus001rest-hs.chinacloudapp.cn
+    Host: media.chinacloudapi.cn
 
 响应：
 

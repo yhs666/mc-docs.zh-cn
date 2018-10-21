@@ -8,14 +8,14 @@ keywords: 还原备份; 如何还原; 恢复点;
 ms.service: backup
 ms.topic: conceptual
 origin.date: 09/04/2017
-ms.date: 09/25/2018
+ms.date: 10/19/2018
 ms.author: v-junlch
-ms.openlocfilehash: 58b960d73420deb06bb2dec9b0c82fad3ac529b6
-ms.sourcegitcommit: a4d8c8641a6341113532d8770603d4b66cc13ced
+ms.openlocfilehash: 7538efc108bab361c10b798b5c405df4ebad6b8a
+ms.sourcegitcommit: ee042177598431d702573217e2f3538878b6a984
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47114534"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477790"
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>使用 Azure 门户还原虚拟机
 可以通过按定义的间隔创建数据快照来保护数据。 这些快照称为恢复点，存储在恢复服务保管库中。 当需要修复或重新生成虚拟机 (VM) 时，可以从保存的任何恢复点还原 VM。 还原恢复点时，可以：
@@ -240,9 +240,9 @@ ms.locfileid: "47114534"
 
    b. 创建 VM 以连接到面向 Internet 的负载均衡器。
 
-   c. 创建具有[多个 NIC 的 VM](/virtual-network/virtual-networks-multiple-nics/)。
+   c. 创建具有[多个 NIC 的 VM](../virtual-machines/windows/multiple-nics.md)。
 
-   d. 创建具有[多个保留 IP](/virtual-network/virtual-networks-reserved-public-ip/) 的 VM。
+   d. 创建具有[多个保留 IP](../virtual-network/virtual-network-multiple-ip-addresses-powershell.md) 的 VM。
 
 ## <a name="next-steps"></a>后续步骤
 既然可以还原 VM，接下来请参阅故障排除文章中有关 VM 常见错误的信息。 另请参阅有关在 VM 中管理任务的文章。

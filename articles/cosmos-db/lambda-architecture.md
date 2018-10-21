@@ -12,12 +12,12 @@ ms.topic: conceptual
 origin.date: 01/19/2018
 ms.date: 09/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: ee5973fc46c34cc6c3c5a1205ee8b10825c093a8
-ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
+ms.openlocfilehash: 719ec984c2f1264a5252da9412cb803d65a6a447
+ms.sourcegitcommit: 646d5cc64acaa91696537d09858b989336ebd3c3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47201446"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49451559"
 ---
 # <a name="azure-cosmos-db-implement-a-lambda-architecture-on-the-azure-platform"></a>Azure Cosmos DB：在 Azure 平台上实现 lambda 体系结构 
 
@@ -27,7 +27,8 @@ ms.locfileid: "47201446"
 * [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/)：本行业第一款多区域分布式多模型数据库服务。 
 * [Apache Spark for Azure HDInsight](https://www.azure.cn/home/features/hdinsight/)：用于运行大规模数据分析应用程序的处理框架。
 * Azure Cosmos DB [更改源](change-feed.md)：将新数据流式传输到批处理层供 HDInsight 处理
-* [Spark 到 Azure Cosmos DB 的连接器](spark-connector.md)
+
+<!-- Not Available on [Spark to Azure Cosmos DB Connector](spark-connector.md)-->
 
 本文介绍基于原始多层设计的 lambda 体系结构的基础知识，以及可以简化操作的、“经过重建”的 lambda 体系结构的优势。  
 

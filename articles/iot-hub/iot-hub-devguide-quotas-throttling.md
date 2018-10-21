@@ -11,12 +11,12 @@ ms.workload: na
 origin.date: 09/05/2018
 ms.author: v-yiso
 ms.date: 10/08/2018
-ms.openlocfilehash: 318477ef8907870d80643e1e303376f3ff3bc309
-ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
+ms.openlocfilehash: f3ddceb55f2f66f51e3312317e9c9e05313af49c
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523868"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453580"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>参考 - IoT 中心配额和限制
 
@@ -100,8 +100,6 @@ IoT 中心致力于降低所有操作的延迟。 但是，由于网络条件和
 此 IoT 中心开发人员指南中的其他参考主题包括：
 
 - [IoT 中心终结点][lnk-devguide-endpoints]
-- [用于设备孪生、作业和消息路由的 IoT 中心查询语言][lnk-devguide-query]
-- [IoT 中心 MQTT 支持][lnk-devguide-mqtt]
 
 [lnk-pricing]: https://www.azure.cn/pricing/details/iot-hub
 [lnk-throttle-blog]: https://azure.microsoft.com/blog/iot-hub-throttling-and-you/

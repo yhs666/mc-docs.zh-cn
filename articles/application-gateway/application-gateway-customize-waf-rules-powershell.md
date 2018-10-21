@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.custom: ''
 ms.workload: infrastructure-services
 origin.date: 07/26/2017
-ms.date: 06/07/2018
+ms.date: 10/17/2018
 ms.author: v-junlch
-ms.openlocfilehash: 5fca732b2d008005c149d094dcb1c350a009037e
-ms.sourcegitcommit: 4fe9905d17a8df9f2270543a5a0ce1762a5830c9
+ms.openlocfilehash: 8805142dd0709e36c4ddae8b18ba7c6417633001
+ms.sourcegitcommit: 4ead6b1d3527373b63c90680b6400a2e95b4064e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34855726"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49374958"
 ---
 # <a name="customize-web-application-firewall-rules-through-powershell"></a>通过 PowerShell 自定义 Web 应用程序防火墙规则
 
 > [!div class="op_single_selector"]
 > * [Azure 门户](application-gateway-customize-waf-rules-portal.md)
 > * [PowerShell](application-gateway-customize-waf-rules-powershell.md)
-> * [Azure CLI 2.0](application-gateway-customize-waf-rules-cli.md)
+> * [Azure CLI](application-gateway-customize-waf-rules-cli.md)
 
 Azure 应用程序网关 Web 应用程序防火墙 (WAF) 可为 Web 应用程序提供保护。 这些保护通过打开 Web 应用程序安全性项目 (OWASP) 核心规则集 (CRS) 来提供。 某些规则可能会导致误报，并会阻止实际流量。 出于此原因，应用程序网关提供了自定义规则组和规则的功能。 有关特定规则组和规则的详细信息，请参阅 [Web 应用程序防火墙 CRS 规则组和规则列表](application-gateway-crs-rulegroups-rules.md)。
 
@@ -99,4 +99,4 @@ Set-AzureRmApplicationGatewayWebApplicationFirewallConfiguration -ApplicationGat
 [2]: ./media/application-gateway-customize-waf-rules-portal/figure2.png
 [3]: ./media/application-gateway-customize-waf-rules-portal/figure3.png
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

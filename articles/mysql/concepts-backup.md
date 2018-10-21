@@ -2,25 +2,25 @@
 title: 在 Azure Database for MySQL 中进行备份和还原
 description: 了解如何自动备份和还原 Azure Database for MySQL 服务器。
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
+author: WenJason
+ms.author: v-jay
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
 origin.date: 02/28/2018
-ms.date: 08/13/2018
-ms.openlocfilehash: 4d7a862087d28c3d4d52634c7b7af2034c801952
-ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
+ms.date: 10/22/2018
+ms.openlocfilehash: e35b9695d1364bf5ea575b7fe55850946348f6ae
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46527156"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453563"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>在 Azure Database for MySQL 中进行备份和还原
 
 > [!NOTE] 
-> 将要查看的是 Azure Database for MySQL 的新服务。 若要查看经典 MySQL Database for Azure 的文档，请访问[此页](https://docs.azure.cn/zh-cn/mysql/)。
+> 将要查看的是 Azure Database for MySQL 的新服务。 若要查看经典 MySQL Database for Azure 的文档，请访问[此页](https://docs.azure.cn/zh-cn/mysql-database-on-azure/)。
 
 Azure Database for MySQL 可自动创建服务器备份并将其存储在用户配置的本地冗余或异地冗余存储中。 备份可以用来将服务器还原到某个时间点。 备份和还原是任何业务连续性策略的基本组成部分，因为它们可以保护数据免遭意外损坏或删除。
 
@@ -70,6 +70,8 @@ Azure Database for MySQL 最高可以提供 100% 的已预配服务器存储作�
 ### <a name="geo-restore"></a>异地还原
 
 如果已将服务器配置为进行异地冗余备份，则可将服务器还原到另一 Azure 区域，只要服务在该区域可用即可。 当服务器因其所在的区域发生事故而不可用时，异地还原是默认的恢复选项。 如果区域中出现的大规模事件导致数据库应用程序不可用，可以根据异地冗余备份将服务器还原到任何其他区域中的服务器。 提取备份后，会延迟一段时间才会将其复制到其他区域中。 此延迟可能长达一小时，因此发生灾难时，会有长达 1 小时的数据丢失风险。
+
+在异地还原过程中，可以更改的服务器配置包括计算的代、vCore、备份保持期和备份冗余选项。 不支持在异地还原过程中更改定价层（“基本”、“常规用途”或“内存优化”）或存储大小。
 
 ### <a name="perform-post-restore-tasks"></a>执行还原后任务
 

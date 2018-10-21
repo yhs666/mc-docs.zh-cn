@@ -14,14 +14,14 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 origin.date: 05/11/2018
-ms.date: 10/08/2018
-ms.author: v-yiso
-ms.openlocfilehash: f605c485ebcc69689aa8a0d3296404fbc495d3ee
-ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
+ms.date: 10/29/2018
+ms.author: v-biyu
+ms.openlocfilehash: 12dcf985c258ebbb42f7eae2c4a93fe9f1dd2b98
+ms.sourcegitcommit: 4b5ada023c9466d497c7474abf7ad71e50c3b17d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523841"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49451590"
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Azure 中 Web 应用的部署常见问题解答
 
@@ -63,13 +63,13 @@ ms.locfileid: "46523841"
 
 ## <a name="how-do-i-set-up-continuous-deployment-for-my-app-service-web-app"></a>如何为应用服务 Web 应用设置连续部署？
 
-可从 GitHub 设置连续部署。 [连续部署到应用服务](app-service-continuous-deployment.md)教程非常有用，它介绍了设置连续部署的方法。
+可以从多个资源（包括 Azure DevOps、OneDrive、GitHub、Bitbucket、Dropbox 和其他 Git 存储库）设置持续部署。 这些选项可在门户中使用。 [持续部署到应用服务](app-service-continuous-deployment.md)是很有帮助的教程，其中说明了如何设置持续部署。
 
-## <a name="how-do-i-troubleshoot-issues-with-continuous-deployment-from-github"></a>如何排查从 GitHub 进行连续部署的问题？
+## <a name="how-do-i-troubleshoot-issues-with-continuous-deployment-from-github-and-bitbucket"></a>如何对从 GitHub 和 Bitbucket 进行持续部署的问题进行故障排除？
 
-若要帮助调查从 GitHub 进行持续部署的问题，请参阅[调查持续部署](https://github.com/projectkudu/kudu/wiki/Investigating-continuous-deployment)。
+若要帮助调查从 GitHub 或 Bitbucket 进行持续部署的问题，请参阅[调查持续部署](https://github.com/projectkudu/kudu/wiki/Investigating-continuous-deployment)。
 
-## <a name="i-cant-ftp-to-my-site-and-publish-my-code-how-do-i-resolve-this"></a>无法通过 FTP 传输到我的站点并发布代码。 如何解决此问题？
+## <a name="i-cant-ftp-to-my-site-and-publish-my-code-how-do-i-resolve-this"></a>我无法通过 FTP 传输到我的站点并发布代码。 如何解决此问题？
 
 若要解决 FTP 问题，请执行以下步骤：
 

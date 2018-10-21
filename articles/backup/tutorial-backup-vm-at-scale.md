@@ -4,18 +4,18 @@ description: 同时将多个虚拟机备份到 Azure
 services: backup
 keywords: 虚拟机备份; 虚拟机备份; 备份 vm; 备份 vm; 备份 Azure vm; 备份和灾难恢复
 author: markgalioto
-ms.author: v-junlch
-origin.date: 02/14/2018
-ms.date: 09/25/2018
-ms.topic: tutorial
 ms.service: backup
+ms.topic: tutorial
+origin.date: 02/14/2018
+ms.date: 10/19/2018
+ms.author: v-lingwu
 ms.custom: mvc
-ms.openlocfilehash: a34df964947d5d91682eb27d9ebceb418ecbfa76
-ms.sourcegitcommit: a4d8c8641a6341113532d8770603d4b66cc13ced
+ms.openlocfilehash: fc03c64f9dfec8f41a4d9eba3dff3c0f27db8cae
+ms.sourcegitcommit: ee042177598431d702573217e2f3538878b6a984
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47114526"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477783"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>使用 Azure 门户备份多个虚拟机
 
@@ -45,7 +45,7 @@ ms.locfileid: "47114526"
 
 3. 在“恢复服务保管库”菜单中， 
 
-    - 在“名称”中键入“myRecoveryServicesVault”，
+    - 在“名称”中键入“myRecoveryServicesVault”。
     - 当前订阅 ID 显示在“订阅”中。 如有其他订阅，可为新保管库选择另一订阅。
     - 对于“资源组”，请选择“使用现有”，然后选择“myResourceGroup”。 如果没有“myResourceGroup”，请选择“新建”，然后键入“myResourceGroup”。
     - 从“位置”下拉菜单中选择“中国北部”。

@@ -3,7 +3,7 @@ title: 使用 AES-128 动态加密和密钥传送服务 | Microsoft Docs
 description: 借助 Azure 媒体服务，可以传送使用 AES 128 位加密密钥加密的内容。 媒体服务还提供密钥传送服务，将加密密钥传送给已授权的用户。 本主题说明如何使用 AES-128 动态加密以及如何使用密钥传送服务。
 services: media-services
 documentationcenter: ''
-author: yunan2016
+author: WenJason
 manager: digimobile
 editor: ''
 ms.assetid: 4d2c10af-9ee0-408f-899b-33fa4c1d89b9
@@ -12,22 +12,22 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/25/2017
-ms.date: 12/22/2017
-ms.author: v-nany
-ms.openlocfilehash: d3f727f70330fe320896f5eeae4e1df254cf38b8
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+origin.date: 09/18/2018
+ms.date: 10/22/2018
+ms.author: v-jay
+ms.openlocfilehash: 4b3c6dc3f6d37080e28cbf6c14a9cfd5b535010c
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426464"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453813"
 ---
 # <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>使用 AES-128 动态加密和密钥传递服务
 > [!div class="op_single_selector"]
 > * [.NET](media-services-protect-with-aes128.md)
 > * [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
 > * [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
-> 
+>  
 
 > [!NOTE]
 > 若要获取最新版本的 Java SDK 并开始使用 Java 进行开发，请参阅[用于 Azure 媒体服务的 Java 客户端 SDK 入门](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use)。 <br/>
@@ -248,8 +248,8 @@ ms.locfileid: "47426464"
 2. 将以下元素添加到 app.config 文件中定义的 appSettings：
 
     ```xml
-            <add key="Issuer" value="http://testacs.com"/>
-            <add key="Audience" value="urn:test"/>
+    <add key="Issuer" value="http://testissuer.com"/>
+    <add key="Audience" value="urn:test"/>
     ```
 
 ### <a id="example"></a>示例

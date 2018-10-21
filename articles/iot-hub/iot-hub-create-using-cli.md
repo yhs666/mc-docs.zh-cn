@@ -8,14 +8,14 @@ ms.topic: conceptual
 origin.date: 08/23/2018
 ms.author: v-yiso
 ms.date: 10/08/2018
-ms.openlocfilehash: 4ec0ff742479b969f882fe0706e93a5077d332cb
-ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
+ms.openlocfilehash: e35b43b7f7a5fd1a7aaaec8116b67ff1aad102e6
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523804"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453564"
 ---
-# <a name="create-an-iot-hub-using-azure-cli"></a>使用 Azure CLI 创建 IoT 中心
+# <a name="create-an-iot-hub-using-the-azure-cli"></a>使用 Azure CLI 创建 IoT 中心
 
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
@@ -49,7 +49,7 @@ ms.locfileid: "46523804"
     ```
 
     > [!TIP]
-    > 上一示例在美国西部位置创建资源组。 可运行 `az account list-locations -o table` 命令，查看可用位置的列表。
+    > 上一示例在美国西部位置创建资源组。 可以通过运行以下命令来查看可用位置列表： 
     >
     >``` bash
     >az account list-locations -o table

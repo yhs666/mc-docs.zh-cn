@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
 origin.date: 05/04/2017
-ms.date: 10/08/2018
-ms.author: v-yiso
+ms.date: 10/29/2018
+ms.author: v-biyu
 ms.custom: mvc
-ms.openlocfilehash: 5c92c5f5d2bd922d91fba854e7c223f1ec4df6e3
-ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
+ms.openlocfilehash: 57e684d81c89481f2583219c48427a5055349d37
+ms.sourcegitcommit: 4b5ada023c9466d497c7474abf7ad71e50c3b17d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523887"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49451619"
 ---
 # <a name="tutorial-build-a-nodejs-and-mongodb-web-app-in-azure"></a>教程：在 Azure 中生成 Node.js 和 MongoDB Web 应用
 

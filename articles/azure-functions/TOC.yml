@@ -17,24 +17,20 @@ items:
     href: functions-create-first-azure-function-azure-cli.md
   - name: 触发器
     items:
-    - name: Blob 存储
-      href: functions-create-storage-blob-triggered-function.md
     - name: Azure Cosmos DB
       href: functions-create-cosmos-db-triggered-function.md
-    - name: 计时器
-      href: functions-create-scheduled-function.md
-    - name: 通用 webhook
-      href: functions-create-generic-webhook-triggered-function.md
-    - name: GitHub Webhook
-      href: functions-create-github-webhook-triggered-function.md
+    - name: Blob 存储
+      href: functions-create-storage-blob-triggered-function.md
     - name: 队列存储
       href: functions-create-storage-queue-triggered-function.md
+    - name: 计时器
+      href: functions-create-scheduled-function.md
   - name: 集成
     items:
-    - name: 存储
-      href: functions-integrate-storage-queue-output-binding.md
     - name: Azure Cosmos DB
       href: functions-integrate-store-unstructured-data-cosmosdb.md
+    - name: 存储
+      href: functions-integrate-storage-queue-output-binding.md
   expanded: true
 - name: 教程
   items:
@@ -52,7 +48,7 @@ items:
     href: https://docs.microsoft.com/sandbox/functions-recipes/
 - name: 概念
   items:
-  - name: 比较 1.x 与 2.x
+  - name: 比较版本 1.x 和 2.x
     href: functions-versions.md
   - name: 缩放和托管
     href: functions-scale.md
@@ -142,6 +138,8 @@ items:
       href: functions-bindings-error-pages.md
   - name: 部署
     items:
+    - name: 连续部署
+      href: functions-continuous-deployment.md
     - name: Zip 部署
       href: deployment-zip-push.md
     - name: 从程序包运行
@@ -156,12 +154,18 @@ items:
       href: functions-how-to-use-azure-function-app-settings.md
     - name: 设置运行时版本
       href: set-runtime-version.md
+    - name: 手动注册扩展
+      href: install-update-binding-extensions-manual.md
     - name: 禁用函数
       href: disable-function.md
+    - name: 排查存储问题
+      href: functions-recover-storage-account.md
   - name: 集成
     items:
     - name: 连接到 SQL 数据库
       href: functions-scenario-database-table-cleanup.md
+    - name: 创建 Open API 2.0 定义
+      href: functions-api-definition-getting-started.md
   - name: Durable Functions
     items:
     - name: 安装
@@ -174,6 +178,10 @@ items:
       href: durable-functions-unit-testing.md
     - name: 使用 WebJobs SDK
       href: durable-functions-webjobs-sdk.md
+  - name: 故障排除
+    items:
+    - name: 排查存储问题
+      href: functions-recover-storage-account.md
 - name: 参考
   items:
   - name: 绑定
@@ -219,7 +227,7 @@ items:
   - name: Azure 路线图
     href: https://azure.microsoft.com/roadmap/?category=compute
   - name: 定价
-    href: https://www.azure.cn/pricing/details/functions/
+    href: https://www.azure.cn/pricing/details/azure-functions/
   - name: 定价计算器
     href: https://www.azure.cn/pricing/calculator/
   - name: 区域可用性
@@ -232,9 +240,9 @@ items:
     href: https://github.com/Azure/Azure-Functions/
   - name: 服务更新
     href: https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=
-ms.openlocfilehash: b6894170071d55290db1cb47f0b6659573fe4a7b
-ms.sourcegitcommit: 54d9384656cee927000d77de5791c1d585d94a68
+ms.openlocfilehash: 1d7101225a1b70514e2194bc03349538563b1dc2
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46524019"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453730"

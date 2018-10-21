@@ -3,7 +3,7 @@ title: 使用 AMS REST API 通过存储加密来加密内容
 description: 了解如何使用 AMS REST API 通过存储加密来加密内容。
 services: media-services
 documentationcenter: ''
-author: hayley244
+author: WenJason
 manager: digimobile
 editor: ''
 ms.assetid: a0a79f3d-76a1-4994-9202-59b91a2230e0
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/17/2018
-ms.date: 07/30/2018
-ms.author: v-haiqya
-ms.openlocfilehash: 1274d4954368b03a188050eac1a08bfdd4f4dd5d
-ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
+origin.date: 09/18/2018
+ms.date: 10/22/2018
+ms.author: v-jay
+ms.openlocfilehash: c7deebed1cade0323178849ddc5160d040a1aa7b
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39723078"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453611"
 ---
 # <a name="encrypting-your-content-with-storage-encryption"></a>通过存储加密来加密内容
 
@@ -129,7 +129,7 @@ AMS 存储加密将 **AES-CTR** 模式加密应用于整个文件。  AES-CTR �
     Accept: application/json
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
-    Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423034908&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=7eSLe1GHnxgilr3F2FPCGxdL2%2bwy%2f39XhMPGY9IizfU%3d
+    Authorization: Bearer <ENCODED JWT TOKEN>
     x-ms-version: 2.17
     Host: media.chinacloudapi.cn
 
@@ -160,7 +160,7 @@ AMS 存储加密将 **AES-CTR** 模式加密应用于整个文件。  AES-CTR �
     Accept: application/json
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
-    Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-e769-2233-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423141026&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=lDBz5YXKiWe5L7eXOHsLHc9kKEUcUiFJvrNFFSksgkM%3d
+    Authorization: Bearer <ENCODED JWT TOKEN> 
     x-ms-version: 2.17
     x-ms-client-request-id: 78d1247a-58d7-40e5-96cc-70ff0dfa7382
     Host: media.chinacloudapi.cn
@@ -200,7 +200,7 @@ AMS 存储加密将 **AES-CTR** 模式加密应用于整个文件。  AES-CTR �
     Accept: application/json
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
-    Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423034908&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=7eSLe1GHnxgilr3F2FPCGxdL2%2bwy%2f39XhMPGY9IizfU%3d
+    Authorization: Bearer <ENCODED JWT TOKEN>
     x-ms-version: 2.17
     Host: media.chinacloudapi.cn
     {
@@ -249,7 +249,7 @@ AMS 存储加密将 **AES-CTR** 模式加密应用于整个文件。  AES-CTR �
     MaxDataServiceVersion: 3.0;NetFx
     Accept: application/json
     Accept-Charset: UTF-8
-    Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-2233-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
+    Authorization: Bearer <ENCODED JWT TOKEN>
     x-ms-version: 2.17
     Host: media.chinacloudapi.cn
 
@@ -296,7 +296,7 @@ AMS 存储加密将 **AES-CTR** 模式加密应用于整个文件。  AES-CTR �
     Accept: application/json
     Accept-Charset: UTF-8
     Content-Type: application/json
-    Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423141026&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=lDBz5YXKiWe5L7eXOHsLHc9kKEUcUiFJvrNFFSksgkM%3d
+    Authorization: Bearer <ENCODED JWT TOKEN>
     x-ms-version: 2.17
     Host: media.chinacloudapi.cn
 
@@ -321,7 +321,7 @@ AMS 存储加密将 **AES-CTR** 模式加密应用于整个文件。  AES-CTR �
     MaxDataServiceVersion: 3.0;NetFx
     Accept: application/json
     Accept-Charset: UTF-8
-    Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-4ca2-2233-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
+    Authorization: Bearer <ENCODED JWT TOKEN>
     x-ms-version: 2.17
     Host: media.chinacloudapi.cn
     Content-Length: 164

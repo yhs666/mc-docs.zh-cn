@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
 origin.date: 08/24/2018
-ms.date: 10/08/2018
-ms.author: v-yiso
+ms.date: 10/29/2018
+ms.author: v-biyu
 ms.custom: mvc
-ms.openlocfilehash: 7e4b8fa628f48de3488ba6bb5c7545643f3af394
-ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
+ms.openlocfilehash: 98b98e5a3c2306ec0e75ea928d0d2a2d42b666eb
+ms.sourcegitcommit: 4b5ada023c9466d497c7474abf7ad71e50c3b17d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523880"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49451618"
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>教程：将现有的自定义 SSL 证书绑定到 Azure Web 应用
 
@@ -317,3 +317,4 @@ New-AzureRmWebAppSSLBinding `
 > * 强制实施 TLS 1.1/1.2
 > * 使用脚本自动完成 TLS 管理
 
+有关详细信息，请参阅[在 Azure 应用服务的应用程序代码中使用 SSL 证书](app-service-web-ssl-cert-load.md)。

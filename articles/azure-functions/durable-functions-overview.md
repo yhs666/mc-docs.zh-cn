@@ -9,14 +9,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 origin.date: 09/06/2018
-ms.date: 09/21/2018
+ms.date: 10/18/2018
 ms.author: v-junlch
-ms.openlocfilehash: 1c2228f6970e81aecfe20f655a5ee28dbaa93da4
-ms.sourcegitcommit: 54d9384656cee927000d77de5791c1d585d94a68
+ms.openlocfilehash: 7f14b530bb7a9c6df0cba1e05d3e00f003170362
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46524018"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453759"
 ---
 # <a name="durable-functions-overview"></a>Durable Functions 概述
 
@@ -67,7 +67,7 @@ public static async Task<object> Run(DurableOrchestrationContext ctx)
 ```js
 const df = require("durable-functions");
 
-module.exports = df(function*(ctx) {
+module.exports = df.orchestrator(function*(ctx) {
     const x = yield ctx.df.callActivityAsync("F1");
     const y = yield ctx.df.callActivityAsync("F2", x);
     const z = yield ctx.df.callActivityAsync("F3", y);
@@ -115,7 +115,7 @@ public static async Task Run(DurableOrchestrationContext ctx)
 ```js
 const df = require("durable-functions");
 
-module.exports = df(function*(ctx) {
+module.exports = df.orchestrator(function*(ctx) {
     const parallelTasks = [];
 
     // get a list of N work items to process in parallel
@@ -236,7 +236,7 @@ public static async Task Run(DurableOrchestrationContext ctx)
 const df = require("durable-functions");
 const df = require("moment");
 
-module.exports = df(function*(ctx) {
+module.exports = df.orchestrator(function*(ctx) {
     const jobId = ctx.df.getInput();
     const pollingInternal = getPollingInterval();
     const expiryTime = getExpiryTime();
@@ -301,7 +301,7 @@ public static async Task Run(DurableOrchestrationContext ctx)
 const df = require("durable-functions");
 const df = require('moment');
 
-module.exports = df(function*(ctx) {
+module.exports = df.orchestrator(function*(ctx) {
     yield ctx.df.callActivityAsync("RequestApproval");
 
     const dueTime = moment.utc(ctx.df.currentUtcDateTime).add(72, 'h');
@@ -377,4 +377,4 @@ Durable Functions 扩展使用 Azure 存储队列、表和 Blob 来持久保存�
 > [安装 Durable Functions 扩展和示例](durable-functions-install.md)
 
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->

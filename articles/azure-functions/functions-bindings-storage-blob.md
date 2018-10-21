@@ -10,14 +10,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 origin.date: 09/03/2018
-ms.date: 09/21/2018
+ms.date: 10/18/2018
 ms.author: v-junlch
-ms.openlocfilehash: bd802302064ae831b2a3e48f3227d307f216ed9e
-ms.sourcegitcommit: 54d9384656cee927000d77de5791c1d585d94a68
+ms.openlocfilehash: 2a5897ec93f8b5c8df7dc34d4c7a2d7b8ad029cb
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46524052"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453701"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Functions 的 Azure Blob 存储绑定
 
@@ -259,7 +259,7 @@ function.json 文件如下所示：
 |direction | 不适用 | 必须设置为 `in`。 在 Azure 门户中创建触发器时，会自动设置此属性。 [用法](#trigger---usage)部分中已阐述异常。 |
 |**name** | 不适用 | 表示函数代码中的 Blob 的变量的名称。 | 
 |**路径** | **BlobPath** |要监视的容器。  可以是某种 [Blob 名称模式](#trigger-blob-name-patterns)。 | 
-|**连接** | **Connection** | 包含要用于此绑定的存储连接字符串的应用设置的名称。 如果应用设置名称以“AzureWebJobs”开始，则只能在此处指定该名称的余下部分。 例如，如果将 `connection` 设置为“MyStorage”，函数运行时将会查找名为“AzureWebJobsMyStorage”的应用设置。 如果将 `connection` 留空，函数运行时将使用名为 `AzureWebJobsStorage` 的应用设置中的默认存储连接字符串。<br><br>连接字符串必须用于常规用途存储帐户，而不是用于 [Blob 存储帐户](../storage/common/storage-create-storage-account.md#blob-storage-accounts)。|
+|**连接** | **Connection** | 包含要用于此绑定的存储连接字符串的应用设置的名称。 如果应用设置名称以“AzureWebJobs”开始，则只能在此处指定该名称的余下部分。 例如，如果将 `connection` 设置为“MyStorage”，函数运行时将会查找名为“AzureWebJobsMyStorage”的应用设置。 如果将 `connection` 留空，函数运行时将使用名为 `AzureWebJobsStorage` 的应用设置中的默认存储连接字符串。<br><br>连接字符串必须属于某个常规用途存储帐户，而不能属于[Blob 存储帐户](../storage/common/storage-account-overview.md#types-of-storage-accounts)。|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -531,7 +531,7 @@ public void blobSize(@QueueTrigger(name = "filename",  queueName = "myqueue-item
  }
  ```
 
-  在 Java 函数运行时库中，对其值将来自 Blob 的参数使用 `@BlobInput` 注释。  可以将此注释与本机 Java 类型、POJO 或使用了 `Optional<T>` 的可为 null 的值一起使用。 
+  在 [Java 函数运行时库](https://docs.microsoft.com/en-us/java/api/overview/azure/functions/runtime)中，对其值将来自 Blob 的参数使用 `@BlobInput` 注释。  可以将此注释与本机 Java 类型、POJO 或使用了 `Optional<T>` 的可为 null 的值一起使用。 
 
 
 ## <a name="input---attributes"></a>输入 - 特性
@@ -577,7 +577,7 @@ public static void Run(
 |direction | 不适用 | 必须设置为 `in`。 [用法](#input---usage)部分中已阐述异常。 |
 |**name** | 不适用 | 表示函数代码中的 Blob 的变量的名称。|
 |**路径** |**BlobPath** | Blob 的路径。 | 
-|**连接** |**Connection**| 包含要用于此绑定的存储连接字符串的应用设置的名称。 如果应用设置名称以“AzureWebJobs”开始，则只能在此处指定该名称的余下部分。 例如，如果将 `connection` 设置为“MyStorage”，函数运行时将会查找名为“AzureWebJobsMyStorage”的应用设置。 如果将 `connection` 留空，函数运行时将使用名为 `AzureWebJobsStorage` 的应用设置中的默认存储连接字符串。<br><br>连接字符串必须用于常规用途存储帐户，而不是用于 [Blob 存储帐户](../storage/common/storage-create-storage-account.md#blob-storage-accounts)。|
+|**连接** |**Connection**| 包含要用于此绑定的存储连接字符串的应用设置的名称。 如果应用设置名称以“AzureWebJobs”开始，则只能在此处指定该名称的余下部分。 例如，如果将 `connection` 设置为“MyStorage”，函数运行时将会查找名为“AzureWebJobsMyStorage”的应用设置。 如果将 `connection` 留空，函数运行时将使用名为 `AzureWebJobsStorage` 的应用设置中的默认存储连接字符串。<br><br>连接字符串必须属于某个常规用途存储帐户，而不能属于[Blob 存储帐户](../storage/common/storage-account-overview.md#types-of-storage-accounts)。|
 |不适用 | **Access** | 表示是要读取还是写入。 |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -764,7 +764,7 @@ public String blobCopy(
  }
  ```
 
- 在 Java 函数运行时库中，对其值将写入 Blob 存储中的对象的函数参数使用 `@BlobOutput` 注释。  参数类型应为 `OutputBinding<T>`，其中 T 是 POJO 的任何本机 Java 类型。
+ 在 [Java 函数运行时库](https://docs.microsoft.com/en-us/java/api/overview/azure/functions/runtime)中，对其值将写入 Blob 存储中对象的函数参数使用 `@BlobOutput` 注释。  参数类型应为 `OutputBinding<T>`，其中 T 是 POJO 的任何本机 Java 类型。
 
 
 ## <a name="output---attributes"></a>输出 - 特性
@@ -809,7 +809,7 @@ public static void Run(
 |direction | 不适用 | 对于输出绑定，必须设置为 `out`。 [用法](#output---usage)部分中已阐述异常。 |
 |**name** | 不适用 | 表示函数代码中的 Blob 的变量的名称。  设置为 `$return` 可引用函数返回值。|
 |**路径** |**BlobPath** | Blob 的路径。 | 
-|**连接** |**Connection**| 包含要用于此绑定的存储连接字符串的应用设置的名称。 如果应用设置名称以“AzureWebJobs”开始，则只能在此处指定该名称的余下部分。 例如，如果将 `connection` 设置为“MyStorage”，函数运行时将会查找名为“AzureWebJobsMyStorage”的应用设置。 如果将 `connection` 留空，函数运行时将使用名为 `AzureWebJobsStorage` 的应用设置中的默认存储连接字符串。<br><br>连接字符串必须用于常规用途存储帐户，而不是用于 [Blob 存储帐户](../storage/common/storage-create-storage-account.md#blob-storage-accounts)。|
+|**连接** |**Connection**| 包含要用于此绑定的存储连接字符串的应用设置的名称。 如果应用设置名称以“AzureWebJobs”开始，则只能在此处指定该名称的余下部分。 例如，如果将 `connection` 设置为“MyStorage”，函数运行时将会查找名为“AzureWebJobsMyStorage”的应用设置。 如果将 `connection` 留空，函数运行时将使用名为 `AzureWebJobsStorage` 的应用设置中的默认存储连接字符串。<br><br>连接字符串必须属于某个常规用途存储帐户，而不能属于[Blob 存储帐户](../storage/common/storage-account-overview.md#types-of-storage-accounts)。|
 |不适用 | **Access** | 表示是要读取还是写入。 |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -853,10 +853,11 @@ public static void Run(
 
 ## <a name="next-steps"></a>后续步骤
 
-> [!div class="nextstepaction"]
-> [转到有关使用 Blob 存储触发器的快速入门](functions-create-storage-blob-triggered-function.md)
+- [详细了解 Azure Functions 触发器和绑定](functions-triggers-bindings.md)
 
+<!---
 > [!div class="nextstepaction"]
-> [详细了解 Azure Functions 触发器和绑定](functions-triggers-bindings.md)
+> [Go to a quickstart that uses a Blob storage trigger](functions-create-storage-blob-triggered-function.md)
+--->
 
 <!-- Update_Description: wording update -->

@@ -17,12 +17,12 @@ origin.date: 08/10/2018
 ms.date: 09/24/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: a5de0f8021a00d4492d849ba947e18ac30688539
-ms.sourcegitcommit: 1b1f7254343b2a3ada7b253841f86f2ff88f0a0b
+ms.openlocfilehash: b13ca28852cba7c2c0e157dc05a30ca7f38eb478
+ms.sourcegitcommit: cc9e8c76454e7d194505af32c42c0f3e4e0ec9e9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47420907"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49315947"
 ---
 # <a name="tutorial-create-and-manage-windows-vms-with-azure-powershell"></a>教程：使用 Azure PowerShell 创建和管理 Windows VM
 
@@ -37,7 +37,7 @@ Azure 虚拟机提供完全可配置的灵活计算环境。 本教程介绍 Azu
 
 <!-- Not Available on [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)] -->
 
-如果选择在本地安装并使用 PowerShell，则本教程需要 Azure PowerShell 模块 5.7.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount` 以创建与 Azure 的连接。
+如果选择在本地安装并使用 PowerShell，则本教程需要 Azure PowerShell 模块 5.7.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount` 以创建与 Azure 的连接。
 
 ## <a name="create-resource-group"></a>创建资源组
 
@@ -168,7 +168,6 @@ New-AzureRmVm `
 | [常规用途](sizes-general.md)         |Dsv3、Dv3、DSv2、Dv2、DS、D、Av2、A0-7| CPU 与内存之比均衡。 适用于开发/测试、小到中型应用程序和数据解决方案。  |
 | [计算优化](sizes-compute.md)   | Fs, F             | 高 CPU 与内存之比。 适用于中等流量的应用程序、网络设备和批处理。        |
 | [内存优化](sizes-memory.md)    | Esv3、Ev3、DSv2、DS、Dv2、D   | 较高的内存核心比。 适用于关系数据库、中到大型缓存和内存中分析。                 |
-| [GPU](sizes-gpu.md)          | NV, NC            | 专门针对大量图形绘制和视频编辑的 VM。       |
 
 <!-- Not Available on M, GS, G Series -->
 <!-- Not Available on | Storage optimized       | Ls   -->

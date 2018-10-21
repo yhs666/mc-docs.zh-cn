@@ -4,30 +4,26 @@ description: 了解 Azure Functions 的最佳做法和模式。
 services: functions
 documentationcenter: na
 author: wesmc7777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: Azure Functions, 模式, 最佳做法, Functions, 事件处理, webhook, 动态计算, 无服务体系结构
 ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 origin.date: 10/16/2017
-ms.date: 07/23/2018
+ms.date: 10/18/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b37e147c6a8f14fbcbc70b5e677d5b9a4abdfc7e
-ms.sourcegitcommit: ba07d76f8394b5dad782fd983718a8ba49a9deb2
+ms.openlocfilehash: 4c90e6345bdf23abc248e7a9d9ed15fa9d864d22
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39220253"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453821"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>优化 Azure Functions 的性能和可靠性
 
-本文为提高[无服务器](https://azure.microsoft.com/overview/serverless-computing/)函数应用的性能和可靠性提供了指南。 
+本文为提高[无服务器](https://azure.microsoft.com/solutions/serverless/)函数应用的性能和可靠性提供了指南。 
 
 ## <a name="general-best-practices"></a>常规最佳做法
 
@@ -42,9 +38,9 @@ ms.locfileid: "39220253"
 
 ### <a name="cross-function-communication"></a>跨函数通信
 
-[Durable Functions](durable-functions-overview.md) 用于管理状态转换以及多个函数之间的通信。
+[Durable Functions](durable-functions-overview.md) 和 [Azure 逻辑应用](../logic-apps/logic-apps-overview.md)用于管理状态转换以及多个函数之间的通信。
 
-如果不使用 Durable Functions 来集成多个函数，将存储队列用于跨函数通信通常是最佳做法。  主要原因是因为存储队列成本更低、更易预配。 
+如果不使用 Durable Functions 或逻辑应用来集成多个函数，将存储队列用于跨函数通信通常是最佳做法。  主要原因是因为存储队列成本更低、更易预配。 
 
 存储队列中各消息的大小限制为 64 KB。 如果需要在函数之间传递更大的消息，可使用 Azure 服务总线队列，以在标准层中支持最大为 256 KB 的消息大小，在高级层中最大为 1 MB 的消息大小。
 
@@ -78,6 +74,10 @@ ms.locfileid: "39220253"
 ## <a name="scalability-best-practices"></a>可伸缩性最佳做法
 
 有许多因素会影响函数应用实例的缩放方式。 有关[函数缩放](functions-scale.md)的文档中提供了详细信息。  下面是确保以最佳方式缩放函数应用的最佳做法。
+
+### <a name="share-and-manage-connections"></a>共享和管理连接
+
+只要可能，请重用与外部资源的连接。  请参阅[如何管理 Azure Functions 中的连接](./manage-connections.md)。
 
 ### <a name="dont-mix-test-and-production-code-in-the-same-function-app"></a>请勿在同一函数应用中混合测试和生产代码
 

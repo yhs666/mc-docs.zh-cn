@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/08/2016
-ms.date: 07/30/2018
-ms.author: v-yiso
-ms.openlocfilehash: 2fde094d52c0446c98d012216b1bda2b4a8c426b
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.date: 10/29/2018
+ms.author: v-biyu
+ms.openlocfilehash: 99f57171fcd264b2897f0ec5bc5aedaaf8b35e73
+ms.sourcegitcommit: 4b5ada023c9466d497c7474abf7ad71e50c3b17d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39167686"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49451591"
 ---
 # <a name="how-to-configure-tls-mutual-authentication-for-web-app"></a>如何为 Web 应用配置 TLS 相互身份验证
 
@@ -29,8 +29,7 @@ ms.locfileid: "39167686"
 ## <a name="overview"></a>概述
 通过为 Azure Web 应用启用不同类型的身份验证可以限制对网站的访问。 执行此操作的方法之一是在通过 TLS/SSL 发送请求时使用客户端证书进行身份验证。 此机制称为 TLS 相互身份验证或客户端证书身份验证，本文将详细说明如何将 Web 应用设置为使用客户端证书身份验证。
 
-> 
-            **注意：** 如果你通过 HTTP 而不是 HTTPS 访问你的站点，你不会收到任何客户端证书。 因此，如果应用程序需要客户端证书，则你不应允许通过 HTTP 对应用程序发出请求。
+> **注意：** 如果你通过 HTTP 而不是 HTTPS 访问你的站点，你不会收到任何客户端证书。 因此，如果应用程序需要客户端证书，则你不应允许通过 HTTP 对应用程序发出请求。
 > 
 > 
 
@@ -40,9 +39,6 @@ ms.locfileid: "39167686"
 要将 Web 应用设置为要求使用客户端证书，需要为 Web 应用添加 clientCertEnabled 站点设置并将该设置指定为 true。 也可在 SSL 证书边栏选项卡下的 Azure 门户中配置此设置。
 
 可以使用 [ARMClient 工具](https://github.com/projectkudu/ARMClient) 轻松创建 REST API 调用。 使用该工具登录之后，将需要发出以下命令：
-
->[!NOTE]
-> 使用 `ARMClient.exe login [environment name]` 登录时，`[environment name]` 应该是 `MOONCAKE`。 换而言之，用于登录 Azure 中国区的命令为 `ARMClient.exe login MOONCAKE`。
 
     ARMClient PUT subscriptions/{Subscription Id}/resourcegroups/{Resource Group Name}/providers/Microsoft.Web/sites/{Website Name}?api-version=2015-04-01 @enableclientcert.json -verbose
 

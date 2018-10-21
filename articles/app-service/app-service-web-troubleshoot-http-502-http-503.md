@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/06/2016
-ms.date: 10/30/2017
-ms.author: v-yiso
-ms.openlocfilehash: 408ac08a116f93ff646b9ca865150e2e5a5a5c47
-ms.sourcegitcommit: 6ef36b2aa8da8a7f249b31fb15a0fb4cc49b2a1b
+ms.date: 10/29/2018
+ms.author: v-biyu
+ms.openlocfilehash: 7f19aa718b03ccb9b745f7e67f4c4783e6bdcc83
+ms.sourcegitcommit: 4b5ada023c9466d497c7474abf7ad71e50c3b17d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2017
-ms.locfileid: "23475132"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49451598"
 ---
 # <a name="troubleshoot-http-errors-of-502-bad-gateway-and-503-service-unavailable-in-your-azure-web-apps"></a>排查 Azure Web 应用中的“502 错误的网关”和“503 服务不可用”HTTP 错误
 [Azure App Service](app-service-web-overview.md) 中托管的 Web 应用经常出现“502 网关错误”和“503 服务不可用”错误。 本文帮助你排查这些错误。
@@ -52,10 +52,10 @@ ms.locfileid: "23475132"
 
 ### <a name="1-observe-and-monitor-application-behavior"></a>1.观察和监视应用程序行为
 #### <a name="track-service-health"></a>跟踪服务运行状况
-每次发生服务中断或性能下降时 Azure 会进行宣传。 可以在 [Azure 门户](https://portal.azure.cn/)中跟踪服务的运行状况。
+每次发生服务中断或性能下降时 Azure 会进行宣传。 可以在 [Azure 门户](https://portal.azure.cn/)中跟踪服务的运行状况。 有关详细信息，请参阅[跟踪服务的运行状况](/monitoring-and-diagnostics/insights-service-health.md)。
 
 #### <a name="monitor-your-web-app"></a>监视 Web 应用
-此选项可让你找出应用程序是否存在任何问题。 在 Web 应用的边栏选项卡中，单击“请求和错误”磁贴。 “指标”边栏选项卡会显示所有可以添加的指标。
+此选项可让你找出应用程序是否存在任何问题。 在 Web 应用的边栏选项卡中，单击“请求和错误”磁贴。 “指标”边栏选项卡显示所有可以添加的指标。
 
 可能想要在 Web 应用中监视的一些指标包括
 
@@ -113,4 +113,4 @@ AutoHeal 会根据所选设置（例如配置更改、请求、基于内存的�
 
  ![重新启动应用以解决 HTTP 错误“502 错误的网关”和“503 服务不可用”](./media/app-service-web-troubleshoot-HTTP-502-503/2-restart.png)
 
-还可以使用 Azure Powershell 管理 Web 应用。 有关详细信息，请参阅[将 Azure PowerShell 与 Azure Resource Manager 配合使用](../powershell-azure-resource-manager.md)。
+还可以使用 Azure Powershell 管理 Web 应用。 有关详细信息，请参阅[将 Azure PowerShell 与 Azure 资源管理器配合使用](../powershell-azure-resource-manager.md)。

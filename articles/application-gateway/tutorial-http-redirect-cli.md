@@ -9,14 +9,14 @@ ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 origin.date: 07/14/2018
-ms.date: 08/22/2018
+ms.date: 10/17/2018
 ms.author: v-junlch
-ms.openlocfilehash: a58ac68f7b4c870b1cb0b96c21b080f7314a296d
-ms.sourcegitcommit: da9f7b0825e493636d6596eb6ae95d03e0626583
+ms.openlocfilehash: 3d2f947684935c9ead96f9b87cb4b650034a18a2
+ms.sourcegitcommit: 4ead6b1d3527373b63c90680b6400a2e95b4064e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "41734315"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49374982"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-cli"></a>使用 Azure CLI 创建支持 HTTP 到 HTTPS 重定向的应用程序网关
 
@@ -33,7 +33,7 @@ ms.locfileid: "41734315"
 
 如果没有 Azure 订阅，请在开始之前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
 
-如果选择在本地安装并使用 CLI，此快速入门教程要求运行 Azure CLI 2.0.4 版或更高版本。 若要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](/cli/install-azure-cli)。
+如果选择在本地安装并使用 CLI，此快速入门教程要求运行 Azure CLI 2.0.4 版或更高版本。 若要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。
 
 ## <a name="create-a-self-signed-certificate"></a>创建自签名证书
 
@@ -239,4 +239,4 @@ az network public-ip show \
 > [!div class="nextstepaction"]
 > [详细了解应用程序网关的作用](application-gateway-introduction.md)
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

@@ -8,25 +8,25 @@ manager: digimobile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-origin.date: 07/11/2018
-ms.date: 08/27/2018
-ms.openlocfilehash: 41d431bad8eac76f432378366d28ab8852e5f362
-ms.sourcegitcommit: 6dd65fba579a2ce25c63ac69ff3b71d814a9d256
+origin.date: 10/10/2018
+ms.date: 10/22/2018
+ms.openlocfilehash: abd9e683b116f3ec3602579822291c6447a0fa17
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42703879"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453734"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Azure Database for MySQL 定价层
 
 > [!NOTE]
-> 将要查看的是 Azure Database for MySQL 的新服务。 若要查看经典 MySQL Database for Azure 的文档，请访问[此页](https://docs.azure.cn/zh-cn/mysql/)。
+> 将要查看的是 Azure Database for MySQL 的新服务。 若要查看经典 MySQL Database for Azure 的文档，请访问[此页](https://docs.azure.cn/zh-cn/mysql-database-on-azure/)。
 
 在“基本”、“常规用途”和“内存优化”这三个不同的定价层中，Azure Database for MySQL 服务器可以在其中的一个定价层中创建。 定价层的差异表现在可以预配的 vCore 中的计算量、每个 vCore 的内存，以及用于存储数据的存储技术。 所有资源都在 MySQL 服务器级别预配。 一个服务器可以有一个或多个数据库。
 
 |    | **基本** | **常规用途** | **内存优化** |
 |:---|:----------|:--------------------|:---------------------|
-| 计算的代 | 第 5 代 | 第 5 代 | 第 5 代 |
+| 计算的代 | 第 4 代、第 5 代 | 第 4 代、第 5 代 | 第 5 代 |
 | vCore 数 | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16 |
 | 每个 vCore 的内存 | 2 GB | 5 GB | 10 GB |
 | 存储大小 | 5 GB 到 1 TB | 5GB 到 4TB | 5GB 到 4TB |
@@ -49,8 +49,10 @@ ms.locfileid: "42703879"
 
 | **Azure 区域** | **第 4 代** | **第 5 代** |
 |:---|:----------:|:--------------------:|
-| 中国东部 2 | X |  |
-| 中国北部 2 | X |  |
+| 中国东部 | X |  |
+| 中国东部 2 |  | X |
+| 中国北部 | X |  |
+| 中国北部 2 |  | X |
 
 ## <a name="storage"></a>存储
 
@@ -79,9 +81,9 @@ ms.locfileid: "42703879"
 
 ## <a name="scale-resources"></a>缩放资源
 
-创建服务器之后，可以独立地更改 vCore 数、定价层（基本层的操作除外）、存储量和备份保留期。 创建服务器之后，不能更改备份存储类型。 可以向上或向下调整 VCore 数。 备份保留期可以从 7 天到 35 天进行上下调整。 存储大小只能增加。 可以通过门户或 Azure CLI 缩放资源。 有关使用 Azure CLI 进行缩放的示例，请参阅[使用 Azure CLI 监视和缩放 Azure Database for MySQL 服务器](scripts/sample-scale-server.md)。
+创建服务器之后，可以独立地更改 vCore 数、硬件生成、定价层（基本层的操作除外）、存储量和备份保留期。 创建服务器之后，不能更改备份存储类型。 可以向上或向下调整 VCore 数。 备份保留期可以从 7 天到 35 天进行上下调整。 存储大小只能增加。 可以通过门户或 Azure CLI 缩放资源。 有关使用 Azure CLI 进行缩放的示例，请参阅[使用 Azure CLI 监视和缩放 Azure Database for MySQL 服务器](scripts/sample-scale-server.md)。
 
-更改 vCore 数或定价层时，将会通过新的计算分配创建原始服务器的副本。 启动并运行新服务器后，连接将切换到新服务器。 在系统切换到新服务器的短暂期间，无法建立新的连接，所有未提交的连接将会回退。 此时段不定，但大多数情况下短于一分钟。
+更改 vCore 数、硬件生成或定价层时，将会使用新的计算分配创建原始服务器的副本。 启动并运行新服务器后，连接将切换到新服务器。 在系统切换到新服务器的短暂期间，无法建立新的连接，所有未提交的连接将会回退。 此时段不定，但大多数情况下短于一分钟。
 
 缩放存储和更改备份保留期是真正的联机操作。 不会造成停机，应用程序不会受影响。 当 IOPS 随已预配存储的大小缩放时，可以通过扩大存储来增加提供给服务器的 IOPS。
 

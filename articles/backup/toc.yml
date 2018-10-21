@@ -198,7 +198,7 @@ items:
   items:
   - name: .NET
     href: /dotnet/api/microsoft.azure.management.recoveryservices.backup
-  - name: Azure CLI 2.0
+  - name: Azure CLI
     href: /cli/backup?view=azure-cli-latest
   - name: PowerShell
     href: https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup
@@ -214,9 +214,9 @@ items:
     href: https://www.azure.cn/pricing/details/backup/
   - name: 定价计算器
     href: https://www.azure.cn/pricing/calculator/
-ms.openlocfilehash: a69424862f61bdf10b5cd3abff2c5fd2e94859fe
-ms.sourcegitcommit: 85cdb61361dc61147bac991d4907f454f0684ea0
+ms.openlocfilehash: aff7a2a6f65343569e4ff485e5c35609266a0bda
+ms.sourcegitcommit: ee042177598431d702573217e2f3538878b6a984
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42709724"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477757"

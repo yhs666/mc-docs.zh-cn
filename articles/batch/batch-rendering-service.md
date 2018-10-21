@@ -3,16 +3,16 @@ title: Azure Batch 渲染概述
 description: 介绍如何使用 Azure 进行渲染，并提供 Azure Batch 渲染功能的概述
 services: batch
 author: mscurrell
-ms.author: v-junlch
 origin.date: 08/02/2018
-ms.date: 09/07/2018
+ms.date: 10/19/2018
+ms.author: v-lingwu
 ms.topic: conceptual
-ms.openlocfilehash: 7097e7f39aaa4dd414d07860b5612f9b1a7d4e8f
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.openlocfilehash: 546d2d044a32a3c70474b3d7d282f95a8a1a3c9f
+ms.sourcegitcommit: ee042177598431d702573217e2f3538878b6a984
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068263"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477770"
 ---
 # <a name="rendering-using-azure"></a>使用 Azure 进行渲染
 
@@ -70,7 +70,7 @@ Azure Batch 可用于许多工作负荷，但以下功能专门用于简化和�
   - Azure 市场中的某些 VM 映像包含流行的图形和渲染应用程序，使用它们无需自行安装这些应用程序，或者创建装有这些应用程序的自定义映像。 
 - 渲染应用程序的即用即付许可：
   - 可以选择按分钟支付应用程序的费用，此外，可以支付计算 VM 的费用（这可以避免购买许可证），有时还可以配置应用程序的许可证服务器。  付费使用也意味着，当许可证的数量不固定时，可以应对不同和意外的负载。
-  - 此外，可以结合自己的许可证使用预装的应用程序，而不是使用即用即付许可。
+  * 此外，可以结合自己的许可证使用预装的应用程序，而不是使用即用即付许可。 为此，通常需要安装本地或基于 Azure 的许可证服务器，并使用 Azure 虚拟网络将呈现池连接到许可证服务器。
 - 用于客户端设计和建模应用程序的插件：
   - 最终用户可以通过插件直接从客户端应用程序（例如 Autodesk Maya）使用 Azure Batch，以便创建池、提交作业，以及利用更多的计算容量来以更快的速度执行渲染。
 - 渲染管理器集成：

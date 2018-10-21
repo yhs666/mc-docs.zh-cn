@@ -1,5 +1,5 @@
 ---
-title: 适用于 Functions 2.x（预览版）的 Azure Cosmos DB 绑定
+title: 适用于 Functions 2.x 的 Azure Cosmos DB 绑定
 description: 了解如何在 Azure Functions 中使用 Azure Cosmos DB 触发器和绑定。
 services: functions
 documentationcenter: na
@@ -10,25 +10,25 @@ ms.service: azure-functions; cosmos-db
 ms.devlang: multiple
 ms.topic: reference
 origin.date: 11/21/2017
-ms.date: 09/21/2018
+ms.date: 10/18/2018
 ms.author: v-junlch
-ms.openlocfilehash: 52b80761d804901621c571aa8eaa6f670af79d0d
-ms.sourcegitcommit: 54d9384656cee927000d77de5791c1d585d94a68
+ms.openlocfilehash: e0c7c085156ff1a3d267c41f99839b8867a248f1
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46524053"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453868"
 ---
-# <a name="azure-cosmos-db-bindings-for-azure-functions-2x-preview"></a>适用于 Azure Functions 2.x（预览版）的 Azure Cosmos DB 绑定
+# <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>适用于 Azure Functions 2.x 的 Azure Cosmos DB 绑定
 
 > [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
-> * [版本 1 - 正式版](functions-bindings-cosmosdb.md)
-> * [版本 2 - 预览版](functions-bindings-cosmosdb-v2.md)
+> * [版本 1](functions-bindings-cosmosdb.md)
+> * [第 2 版](functions-bindings-cosmosdb-v2.md)
 
 本文介绍如何在 Azure Functions 2.x 中使用 Azure Cosmos DB 绑定。 Azure Functions 支持 Azure Cosmos DB 的触发器、输入和输出绑定。
 
 > [!NOTE]
-> 本文适用于 [Azure Functions 2.x 版](functions-versions.md)（预览版）。  若要了解如何在 Functions 1.x 中使用这些绑定，请参阅[适用于 Azure Functions 1.x 的 Azure Cosmos DB 绑定](functions-bindings-cosmosdb.md)。
+> 本文适用于 [Azure Functions 2.x](functions-versions.md)。  若要了解如何在 Functions 1.x 中使用这些绑定，请参阅[适用于 Azure Functions 1.x 的 Azure Cosmos DB 绑定](functions-bindings-cosmosdb.md)。
 >
 > 此绑定最初名为 DocumentDB。 在 Functions 2.x 版中，触发器、绑定和包均称为 Cosmos DB。
 
@@ -1695,10 +1695,11 @@ public String cosmosDbQueryById(
 
 ## <a name="next-steps"></a>后续步骤
 
-> [!div class="nextstepaction"]
-> [转到有关使用 Cosmos DB 触发器的快速入门](functions-create-cosmos-db-triggered-function.md)
+- [详细了解 Azure Functions 触发器和绑定](functions-triggers-bindings.md)
 
+<!---
 > [!div class="nextstepaction"]
-> [详细了解 Azure Functions 触发器和绑定](functions-triggers-bindings.md)
+> [Go to a quickstart that uses a Cosmos DB trigger](functions-create-cosmos-db-triggered-function.md)
+--->
 
 <!-- Update_Description: wording update -->

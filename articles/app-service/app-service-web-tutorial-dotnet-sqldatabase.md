@@ -14,19 +14,18 @@ ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
 origin.date: 06/25/2018
-ms.date: 09/03/2018
-ms.author: v-yiso
+ms.date: 10/29/2018
+ms.author: v-biyu
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 6234230b73a8af30d54ee307d7352908bc01e4a7
-ms.sourcegitcommit: 1b682acdc2a5e0974fbff809967d7cefcbbbe8ac
+ms.openlocfilehash: 7caafdd39d44a38d1765ed3a644d817a89abc754
+ms.sourcegitcommit: 4b5ada023c9466d497c7474abf7ad71e50c3b17d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42870969"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49451616"
 ---
 # <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>教程：使用 SQL 数据库在 Azure 中构建 ASP.NET 应用
 
-[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 [Azure Web 应用](app-service-web-overview.md)提供高度可缩放、自修补的 Web 托管服务。 本教程演示如何在 Azure 中部署数据驱动的 ASP.NET Web 应用，以及如何将其连接到 [Azure SQL 数据库](../sql-database/sql-database-technical-overview.md)。 完成本教程后，将拥有在 Azure 中运行并已连接到 SQL 数据库的 ASP.NET 应用。
 
 ![Azure Web 应用中已发布 ASP.NET 应用程序](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
@@ -53,9 +52,9 @@ ms.locfileid: "42870969"
 
 ## <a name="download-the-sample"></a>下载示例
 
-[下载示例项目](https://github.com/Azure-Samples/dotnet-sqldb-tutorial/archive/master.zip)。
+- [下载示例项目](https://github.com/Azure-Samples/dotnet-sqldb-tutorial/archive/master.zip)。
 
-提取（解压缩）*dotnet-sqldb-tutorial-master.zip* 文件。
+- 提取（解压缩）*dotnet-sqldb-tutorial-master.zip* 文件。
 
 此示例项目包含一个使用 [Entity Framework Code First](https://docs.microsoft.com/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application) 的基本 [ASP.NET MVC](https://www.asp.net/mvc) 创建-读取-更新-删除 (CRUD) 应用。
 
@@ -85,7 +84,6 @@ ms.locfileid: "42870969"
 
 ### <a name="sign-in-to-azure"></a>登录 Azure
 
-[!INCLUDE [azure-visual-studio-login-guide](../../includes/azure-visual-studio-login-guide.md)]
 
 在“创建应用服务”对话框中单击“添加帐户”，并登录到用户的 Azure 订阅。 如果已登录到 Azure 帐户，请确保该帐户包含 Azure 订阅。 如果登录的 Azure 帐户不包含 Azure 订阅，请单击该帐户添加正确的帐户。
 
@@ -143,6 +141,9 @@ ms.locfileid: "42870969"
 添加管理员用户名和密码。 有关密码复杂性要求，请参阅[密码策略](https://docs.microsoft.com/sql/relational-databases/security/password-policy)。
 
 请记住此用户名和密码。 随后，需要用它们来管理逻辑服务器实例。
+
+> [!IMPORTANT]
+> 虽然连接字符串中的密码已在 Visual Studio 和应用服务中受到屏蔽，但由于它实际上是保留在某个位置，因此增加了应用的受攻击面。 应用服务可以使用[托管服务标识](app-service-managed-service-identity.md)，因此根本不需要将机密保留在代码或应用配置中，这样就消除了上述风险。 有关详细信息，请参阅[后续步骤](#next-steps)。
 
 ![创建 SQL Server 实例](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database-server.png)
 
@@ -400,8 +401,6 @@ Application: 2017-04-06T23:30:54  PID[8132] Verbose     GET /Todos/Index
 
 ![在门户中导航到 Azure Web 应用](./media/app-service-web-tutorial-dotnet-sqldatabase/access-portal.png)
 
-[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
-
 已进入 Web 应用的页面。 
 
 默认情况下，门户将显示“概览”页。 在此页中可以查看应用的运行状况。 在此处还可以执行基本的管理任务，例如浏览、停止、启动、重新启动和删除。 页面左侧的选项卡显示可以打开的不同配置页。 
@@ -422,5 +421,7 @@ Application: 2017-04-06T23:30:54  PID[8132] Verbose     GET /Todos/Index
 > * 将日志从 Azure 流式传输到终端
 > * 在 Azure 门户中管理应用
 
+转到下一教程，了解如何轻松地提高 Azure SQL 数据库连接的安全性。
 
-<!--Update_Description: use Logical Server instead of Database Server-->
+> [!div class="nextstepaction"]
+> [使用托管服务标识安全地访问 SQL 数据库](app-service-web-tutorial-connect-msi.md)

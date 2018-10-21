@@ -8,15 +8,15 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.workload: infrastructure-services
 origin.date: 07/14/2018
-ms.date: 08/22/2018
+ms.date: 10/17/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: f27924374fd682079c950beb5769008c3b6f2e25
-ms.sourcegitcommit: da9f7b0825e493636d6596eb6ae95d03e0626583
+ms.openlocfilehash: 7416f6833bf415070c6ff3a55f9267df919a0ae2
+ms.sourcegitcommit: 4ead6b1d3527373b63c90680b6400a2e95b4064e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "41734349"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49374959"
 ---
 # <a name="tutorial-enable-web-application-firewall-using-the-azure-cli"></a>教程：使用 Azure CLI 启用 Web 应用程序防火墙
 
@@ -36,7 +36,7 @@ ms.locfileid: "41734349"
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
 
-如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.4 或更高版本。 若要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](/cli/install-azure-cli)。
+如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.4 或更高版本。 若要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
@@ -72,7 +72,7 @@ az network public-ip create `
 
 ## <a name="create-an-application-gateway-with-a-waf"></a>创建具有 WAF 的应用程序网关
 
-可以使用 [az network application-gateway create](/cli/network/application-gateway#az-application-gateway-create) 创建名为 *myAppGateway* 的应用程序网关。 使用 Azure CLI 创建应用程序网关时，请指定配置信息，例如容量、sku 和 HTTP 设置。 将应用程序网关分配给之前创建的 *myAGSubnet* 和 *myPublicIPSddress*。
+可以使用 [az network application-gateway create](/cli/network/application-gateway#az-application-gateway-create) 创建名为 *myAppGateway* 的应用程序网关。 使用 Azure CLI 创建应用程序网关时，请指定配置信息，例如容量、sku 和 HTTP 设置。 将应用程序网关分配给之前创建的 *myAGSubnet* 和 *myAGPublicIPAddress*。
 
 ```azurecli
 az network application-gateway create `
@@ -137,6 +137,37 @@ az vmss extension set `
   --settings '{ "fileUris": ["https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/install_nginx.sh"],"commandToExecute": "./install_nginx.sh" }'
 ```
 
+## <a name="create-a-storage-account-and-configure-diagnostics"></a>创建存储帐户和配置诊断
+
+在本教程中，应用程序网关使用存储帐户来存储用于检测和防范目的的数据。 也可以使用 Log Analytics 或事件中心来记录数据。 
+
+### <a name="create-a-storage-account"></a>创建存储帐户
+
+使用 [az storage account create](/cli/storage/account?view=azure-cli-latest#az-storage-account-create) 创建名为 *myagstore1* 的存储帐户。
+
+```azurecli
+az storage account create \
+  --name myagstore1 \
+  --resource-group myResourceGroupAG \
+  --location chinanorth \
+  --sku Standard_LRS \
+  --encryption blob
+```
+
+### <a name="configure-diagnostics"></a>配置诊断
+
+配置诊断以将数据记录到 ApplicationGatewayAccessLog、ApplicationGatewayPerformanceLog 和 ApplicationGatewayFirewallLog 日志中。 将 `<subscriptionId>` 替换为你的订阅标识符，然后使用 [az monitor diagnostic-settings create](/cli/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create) 配置诊断。
+
+```azurecli
+appgwid=$(az network application-gateway show --name myAppGateway --resource-group myResourceGroupAG --query id -o tsv)
+
+storeid=$(az storage account show --name myagstore1 --resource-group myResourceGroupAG --query id -o tsv)
+
+az monitor diagnostic-settings create --name appgwdiag --resource $appgwid \
+  --logs '[ { "category": "ApplicationGatewayAccessLog", "enabled": true, "retentionPolicy": { "days": 30, "enabled": true } }, { "category": "ApplicationGatewayPerformanceLog", "enabled": true, "retentionPolicy": { "days": 30, "enabled": true } }, { "category": "ApplicationGatewayFirewallLog", "enabled": true, "retentionPolicy": { "days": 30, "enabled": true } } ]' \
+  --storage-account $storeid
+```
+
 ## <a name="test-the-application-gateway"></a>测试应用程序网关
 
 若要获取应用程序网关的公共 IP 地址，请使用 [az network public-ip show](/cli/network/public-ip#az-network-public-ip-show)。 复制该公共 IP 地址，并将其粘贴到浏览器的地址栏。
@@ -172,4 +203,4 @@ az group delete --name myResourceGroupAG --location chinanorth
 > [!div class="nextstepaction"]
 > [使用 SSL 终端创建应用程序网关](./tutorial-ssl-cli.md)
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

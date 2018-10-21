@@ -1,6 +1,6 @@
 ---
 title: 从 Linux VM 中分离数据磁盘 - Azure | Azure
-description: 了解如何使用 CLI 2.0 或 Azure 门户从虚拟机中分离数据磁盘。
+description: 了解如何使用 Azure CLI 或 Azure 门户从 Azure 虚拟机中分离数据磁盘。
 services: virtual-machines-linux
 documentationcenter: ''
 author: rockboyfor
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.topic: article
 origin.date: 07/18/2018
-ms.date: 08/27/2018
+ms.date: 10/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: 5196d2c82a952667a437f239917dd6329e6f380f
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.openlocfilehash: 11e50281f5b0f13c4ea83417f1a391ad25f96794
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42872374"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453820"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-linux-virtual-machine"></a>如何从 Linux 虚拟机中分离数据磁盘
 
@@ -97,7 +97,7 @@ UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail 
 sudo umount /dev/sdc1 /datadrive
 ```
 
-## <a name="detach-a-data-disk-using-cli-20"></a>使用 CLI 2.0 分离数据磁盘
+## <a name="detach-a-data-disk-using-azure-cli"></a>使用 Azure CLI 分离数据磁盘 
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -126,4 +126,5 @@ az vm disk detach \
 
 ## <a name="next-steps"></a>后续步骤
 要重新使用数据磁盘，只需[将其附加到其他 VM](add-disk.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 即可。
-<!--Update_Description: wording update, add content of connect the vm to umount the disk -->
+
+<!--Update_Description: wording update, update meta properties -->

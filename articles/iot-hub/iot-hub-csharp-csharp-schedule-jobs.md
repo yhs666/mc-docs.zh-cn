@@ -11,12 +11,12 @@ ms.workload: na
 origin.date: 03/06/2018
 ms.date: 10/08/2018
 ms.author: v-yiso
-ms.openlocfilehash: 0d5624958a8c9224856cbd42b8e6a77758cbb0e1
-ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
+ms.openlocfilehash: 7f7dbc7500153766e8bb2696f201e62f1f9a0bca
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523808"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453723"
 ---
 # <a name="schedule-and-broadcast-jobs-netnet"></a>计划和广播作业 (.NET/.NET)
 
@@ -289,6 +289,8 @@ ScheduleJob，该应用使用作业来调用 LockDoor 直接方法，并在多�
 在本教程中，使用了作业来安排用于设备的直接方法以及设备孪生属性的更新。
 
 若要继续完成 IoT 中心和设备管理模式（如远程无线固件更新）的入门内容，请参阅[教程：如何进行固件更新](tutorial-firmware-update.md)。
+
+若要了解如何将 AI 部署到具有 Azure IoT Edge 的边缘设备，请参阅 [IoT Edge 入门](../iot-edge/tutorial-simulate-device-linux.md)。
 
 
 <!-- images -->

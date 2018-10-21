@@ -1,6 +1,6 @@
 ---
 title: 使用 cloud-init 将用户添加到 Azure 上的 Linux VM | Azure
-description: 如何通过 Azure CLI 2.0 使用 cloud-init 在创建期间将用户添加到 Linux VM
+description: 如何通过 Azure CLI 使用 cloud-init 在创建期间将用户添加到 Linux VM
 services: virtual-machines-linux
 documentationcenter: ''
 author: rockboyfor
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 origin.date: 11/29/2017
-ms.date: 03/19/2018
+ms.date: 10/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: 6f415fa4d4c2efc808e47103480ab807762521d3
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.openlocfilehash: 423c22c6713f2bc5d1801240eab919553dd1df7f
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
-ms.locfileid: "29965084"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453532"
 ---
 # <a name="use-cloud-init-to-add-a-user-to-a-linux-vm-in-azure"></a>使用 cloud-init 将用户添加到 Azure 中的 Linux VM
 本文介绍如何在 Azure 中使用 [cloud-init](https://cloudinit.readthedocs.io) 在预配时将用户添加到 Linux 虚拟机 (VM) 或虚拟机规模集 (VMSS)。 Azure 预配资源后，此 cloud-init 脚本将在首次启动时运行。 有关 cloud-init 如何在 Azure 以及受支持的 Linux 发行版中本机工作的详细信息，请参阅 [cloud-init 概述](using-cloud-init.md)。
@@ -45,13 +45,13 @@ users:
 > [!NOTE] 
 > #cloud-config 文件包含 `- default` 参数。 这会将用户追加到预配期间创建的现有管理员用户。 如果不 `- default` 参数创建用户 - 将覆盖 Azure 平台自动生成的管理员用户。 
 
-在部署此映像之前，需要使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create) 命令创建资源组。 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。 以下示例在“chinaeast”位置创建名为“myResourceGroup”的资源组。
+在部署此映像之前，需要使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create) 命令创建资源组。 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。 以下示例在“chinaeast”位置创建名为“myResourceGroup”的资源组。
 
 ```azurecli 
 az group create --name myResourceGroup --location chinaeast
 ```
 
-现在，使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_create) 创建 VM，并通过 `--custom-data cloud_init_add_user.txt` 指定 cloud-init 文件，如下所示：
+现在，使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) 创建 VM，并通过 `--custom-data cloud_init_add_user.txt` 指定 cloud-init 文件，如下所示：
 
 ```azurecli 
 az vm create \
@@ -91,4 +91,5 @@ myadminuser:x:1000:
 - [运行包管理器以在首次启动时更新现有包](cloudinit-update-vm.md)
 - [更改 VM 本地主机名](cloudinit-update-vm-hostname.md) 
 - [安装应用程序包、更新配置文件和注入密钥](tutorial-automate-vm-deployment.md)
+
 <!-- Update_Description: update link, wording update -->

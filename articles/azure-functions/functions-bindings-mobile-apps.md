@@ -10,16 +10,19 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 origin.date: 11/21/2017
-ms.date: 09/21/2018
+ms.date: 10/18/2018
 ms.author: v-junlch
-ms.openlocfilehash: e302534223f9ece62bb8efc979abff3f12d39916
-ms.sourcegitcommit: 54d9384656cee927000d77de5791c1d585d94a68
+ms.openlocfilehash: 34a9b2ea8e77f81bd55a4db0b1f8dd0b90796057
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46524043"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453789"
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Azure Functions 的移动应用绑定 
+
+> [!NOTE]
+> Azure 移动应用绑定仅适用于 Azure Functions 1.x。 Azure Functions 2.x 不支持这些绑定。
 
 本文介绍如何在 Azure Functions 中使用 [Azure 移动应用](../app-service-mobile/app-service-mobile-value-prop.md)绑定。 Azure Functions 支持移动应用的输入和输出绑定。
 
@@ -32,12 +35,6 @@ ms.locfileid: "46524043"
 [Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps) NuGet 包 1.x 版中提供了移动应用绑定。 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.MobileApps/) GitHub 存储库中提供了此包的源代码。
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
-
-## <a name="packages---functions-2x"></a>包 - Functions 2.x
-
-[Microsoft.Azure.WebJobs.Extensions.MobileApps](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps) NuGet 包 3.x 版中提供了移动应用绑定。 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/) GitHub 存储库中提供了此包的源代码。
-
-[!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
 ## <a name="input"></a>输入
 
@@ -331,4 +328,4 @@ public static object Run(
 > [!div class="nextstepaction"]
 > [详细了解 Azure Functions 触发器和绑定](functions-triggers-bindings.md)
 
-<!-- Update_Description: code update -->
+<!-- Update_Description: wording update --

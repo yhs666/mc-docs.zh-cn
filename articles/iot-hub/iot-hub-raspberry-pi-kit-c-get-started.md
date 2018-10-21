@@ -13,13 +13,13 @@ ms.workload: na
 origin.date: 04/11/2018
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
-ms.date: 09/10/2018
-ms.openlocfilehash: 31592815154c40f3dd48ca91b814d3e740ca9e16
-ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
+ms.date: 10/29/2018
+ms.openlocfilehash: 93255eb246a7e3eaa40301152424bc753f74f244
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43329140"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453675"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-c"></a>将 Raspberry Pi 连接到 Azure IoT 中心 (C)
 
@@ -198,7 +198,7 @@ ms.locfileid: "43329140"
 
 ## <a name="next-steps"></a>后续步骤
 
-此时已运行示例应用程序，以收集传感器数据并将其发送到 IoT 中心。 若要查看 Raspberry Pi 已发送到 IoT 中心的消息，或若要在命令行接口中将消息发送到 Raspberry Pi，请参阅[使用 iothub-explorer 管理云设备消息传送教程](./iot-hub-explorer-cloud-device-messaging.md)。
+此时已运行示例应用程序，收集传感器数据并将其发送到 IoT 中心。 若要查看 Raspberry Pi 已发送到 IoT 中心的消息或要向 Raspberry Pi 发送消息，请参阅[使用用于 Visual Studio Code 的 Azure IoT 工具包扩展在设备和 IoT 中心之间发送和接收消息](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md)。
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
 

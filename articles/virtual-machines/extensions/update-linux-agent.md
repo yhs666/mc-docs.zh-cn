@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 08/02/2017
-ms.date: 08/27/2018
+ms.date: 10/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: 49cdbd9e511c2496a6fa80cfccd79dcd68d81715
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.openlocfilehash: a7d9a5733ebf3485497da1831a1ea57bc8638a11
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42872367"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453588"
 ---
 # <a name="how-to-update-the-azure-linux-agent-on-a-vm"></a>如何更新 VM 上的 Azure Linux 代理
 
@@ -358,6 +358,7 @@ sudo systemctl restart waagent.service
 ## <a name="update-the-linux-agent-when-no-agent-package-exists-for-distribution"></a>分发不存在代理程序包时，请更新 Linux 代理
 
 通过在命令行上键入 `sudo yum install wget` 来安装 wget（某些发行版，例如 CentOS，未在默认情况下安装它，）。
+
 <!-- Not Available on Red Hat, and Oracle -->
 
 ### <a name="1-download-the-latest-version"></a>1.下载最新版本
@@ -439,4 +440,4 @@ waagent -version
 
 有关 Azure Linux 代理的详细信息，请参阅 [Azure Linux 代理自述文件](https://github.com/Azure/WALinuxAgent)。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: wording update, update meta properties -->

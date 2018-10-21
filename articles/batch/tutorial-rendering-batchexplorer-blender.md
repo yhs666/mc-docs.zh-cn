@@ -3,16 +3,16 @@ title: 使用 Azure Batch 和 Batch Explorer 渲染 Blender 场景
 description: 教程 - 如何使用 Azure Batch 和 Batch Explorer 客户端应用程序渲染 Blender 场景中的多个帧
 services: batch
 author: mscurrell
-ms.author: v-junlch
 origin.date: 08/02/2018
-ms.date: 09/07/2018
+ms.date: 10/19/2018
+ms.author: v-lingwu
 ms.topic: tutorial
-ms.openlocfilehash: ae34077571759e562a8bd7cc60d7dd2dbdff38f2
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.openlocfilehash: f6b2041a53167605e532289f05d27af415dfe263
+ms.sourcegitcommit: ee042177598431d702573217e2f3538878b6a984
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068270"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477773"
 ---
 # <a name="tutorial-render-a-blender-scene-using-batch-explorer"></a>教程：使用 Batch Explorer 渲染 Blender 场景
 
@@ -29,7 +29,7 @@ ms.locfileid: "44068270"
 
 ## <a name="prerequisites"></a>先决条件
 
-Azure Batch 帐户和关联的存储帐户。  请参阅任何 Batch 快速入门文章（例如 [CLI 文章](/batch/quick-create-cli)），了解如何创建 Batch 帐户。
+需要有一个具有关联的存储帐户的 Azure Batch 帐户。  请参阅任何 Batch 快速入门文章（例如 [CLI 文章](/batch/quick-create-cli)），了解如何创建 Batch 帐户。
 
 就本教程中指定的 VM 大小和 VM 数目来说，需要至少包含 50 个核心的低优先级核心配额；可以使用默认配额，但必须使用较小的 VM 大小，这意味着图像渲染的时间会变长。 请求提高核心配额的过程详见[此文](/batch/batch-quota-limit)。
 

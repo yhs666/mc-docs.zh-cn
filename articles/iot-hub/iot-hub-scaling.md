@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 04/02/2018
 ms.author: v-yiso
-ms.date: 06/11/2018
-ms.openlocfilehash: b806cddf115acb55530f01f9b9f2c5f2236bf2b0
-ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
+ms.date: 10/29/2018
+ms.openlocfilehash: dcba216cee988ffceb826b2ba0092088d9a1d3d2
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43329156"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453858"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>选择适用于解决方案的 IoT 中心层
 
@@ -50,7 +50,7 @@ IoT 中心的标准层启用了所有功能，是任何需要使用双向通信�
 | [监视和诊断](iot-hub-monitor-resource-health.md) | 是 | 是 |
 | [云到设备的消息传递](iot-hub-devguide-c2d-guidance.md) |   | 是 |
 | [设备孪生](iot-hub-devguide-device-twins.md)、[模块孪生](iot-hub-devguide-module-twins.md)和[设备管理](iot-hub-device-management-overview.md) |   | 是 |
-| [Azure IoT Edge](../iot-edge/how-iot-edge-works.md) |   | 是 |
+| [Azure IoT Edge](../iot-edge/about-iot-edge.md) |   | 是 |
 
 IoT 中心还提供一个免费层，用于测试和评估。 它具有标准层的所有功能，但消息传递有限额。 不能从免费层升级到基本层或标准层。 
 
@@ -129,6 +129,6 @@ IoT 中心基本层和标准层所支持的功能存在差异，也就是说，�
 [IoT Hub quotas and throttles]: ./iot-hub-devguide-quotas-throttling.md
 
 [lnk-devguide]: ./iot-hub-devguide.md
-[lnk-iotedge]: ./iot-hub-linux-iot-edge-simulated-device.md
+[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
 
 <!--Update_Description:update meta properties only-->

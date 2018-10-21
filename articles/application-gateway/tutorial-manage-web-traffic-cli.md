@@ -8,15 +8,15 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.workload: infrastructure-services
 origin.date: 07/14/2018
-ms.date: 08/22/2018
+ms.date: 10/17/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 2084537922545db51a3a5ff44182078294cf9a50
-ms.sourcegitcommit: da9f7b0825e493636d6596eb6ae95d03e0626583
+ms.openlocfilehash: e8dcebd4cb7144e0f3f65535da40766e8abb89ba
+ms.sourcegitcommit: 4ead6b1d3527373b63c90680b6400a2e95b4064e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "41734303"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49374955"
 ---
 # <a name="tutorial-manage-web-traffic-with-an-application-gateway-using-the-azure-cli"></a>教程：通过 Azure CLI 使用应用程序网关管理 Web 流量
 
@@ -33,7 +33,7 @@ ms.locfileid: "41734303"
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
 
-如果选择在本地安装并使用 CLI，此快速入门教程要求运行 Azure CLI 2.0.4 版或更高版本。 若要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](/cli/install-azure-cli)。
+如果选择在本地安装并使用 CLI，此快速入门教程要求运行 Azure CLI 2.0.4 版或更高版本。 若要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
@@ -165,4 +165,4 @@ az group delete --name myResourceGroupAG --location chinanorth
 > [!div class="nextstepaction"]
 > [使用 Web 应用程序防火墙限制 Web 流量](./tutorial-restrict-web-traffic-cli.md)
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

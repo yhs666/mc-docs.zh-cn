@@ -8,15 +8,15 @@ ms.service: batch
 ms.devlang: azurecli
 ms.topic: quickstart
 origin.date: 07/03/2018
-ms.date: 09/07/2018
-ms.author: v-junlch
+ms.date: 10/19/2018
+ms.author: v-lingwu
 ms.custom: mvc
-ms.openlocfilehash: e7091fcb2b5df52aa20d8c153fcb1b42bdb7808e
-ms.sourcegitcommit: 6489934a16ae7ec3defdbee593c0ba5763b37335
+ms.openlocfilehash: 46f323a301e30f59a051cdd41141b5dfe1ddc26f
+ms.sourcegitcommit: ee042177598431d702573217e2f3538878b6a984
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46485859"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477776"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>快速入门：使用 Azure CLI 运行第一个 Batch 作业
 
@@ -24,7 +24,7 @@ Azure CLI 用于从命令行或脚本创建和管理 Azure 资源。 本快速�
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
-如果选择在本地安装并使用 CLI，本快速入门要求运行 Azure CLI 2.0.20 版或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](/cli/install-azure-cli)。 
+如果选择在本地安装并使用 CLI，本快速入门要求运行 Azure CLI 2.0.20 版或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。 
 
 ## <a name="create-a-resource-group"></a>创建资源组
 

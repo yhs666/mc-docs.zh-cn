@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 03/30/2018
-ms.date: 08/27/2018
+ms.date: 10/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7b643d3d09221d78582d564c43710a6137ba1cdd
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.openlocfilehash: 071c5657430d02b18fa7907524bbae46548779e2
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42871706"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453660"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>适用于 Linux 的虚拟机扩展和功能
 
@@ -84,7 +84,7 @@ Azure VM 扩展在现有 VM 上运行，需要在已部署的 VM 上进行配置
 
 可使用以下方法针对现有 VM 运行扩展。
 
-### <a name="azure-cli-20"></a>Azure CLI 2.0
+### <a name="azure-cli"></a>Azure CLI
 
 Azure VM 扩展可以通过 [az vm extension set](https://docs.azure.cn/zh-cn/cli/vm/extension?view=azure-cli-latest#az-vm-extension-set) 命令针对现有 VM 运行。 下面的示例针对名为 myResourceGroup 的资源组中的名为 myVM 的 VM 运行自定义脚本扩展：
 
@@ -408,4 +408,5 @@ az vm extension delete \
 ## <a name="next-steps"></a>后续步骤
 
 有关 VM 扩展的详细信息，请参阅 [Azure 虚拟机扩展和功能概述](overview.md)。
+
 <!-- Update_Description: wording update, update meta propeties -->

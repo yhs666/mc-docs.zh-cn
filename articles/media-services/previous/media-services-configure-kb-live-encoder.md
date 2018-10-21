@@ -3,7 +3,7 @@ title: 配置 Haivision KB 编码器以将单比特率实时流发送到 Azure |
 description: 本主题说明如何配置 Haivision KB 实时编码器，以便将单比特率流发送到用于实时编码的 AMS 频道。
 services: media-services
 documentationcenter: ''
-author: yunan2016
+author: WenJason
 manager: digimobile
 editor: ''
 ms.assetid: 0d2f1e81-51a6-4ca9-894a-6dfa51ce4c70
@@ -13,18 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
 origin.date: 02/02/2018
-ms.date: 02/27/2018
-ms.author: v-nany
-ms.openlocfilehash: 0c8de899dcdd407be60843964e614ca286278469
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.date: 10/22/2018
+ms.author: v-jay
+ms.openlocfilehash: aceeea09fe637f495e3c0eed463aeb205b3c3f56
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426266"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453654"
 ---
 # <a name="use-the-haivision-kb-live-encoder-to-send-a-single-bitrate-live-stream"></a>使用 Haivision KB 实时编码器发送单比特率实时流
 > [!div class="op_single_selector"]
-> * [Elemental Live](media-services-configure-elemental-live-encoder.md)
 > * [FMLE](media-services-configure-fmle-live-encoder.md)
 > * [Haivision](media-services-configure-kb-live-encoder.md)
 > * [Tricaster](media-services-configure-tricaster-live-encoder.md)

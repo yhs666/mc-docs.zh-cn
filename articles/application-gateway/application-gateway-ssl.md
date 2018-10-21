@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 01/23/2017
-ms.date: 06/07/2018
+ms.date: 10/17/2018
 ms.author: v-junlch
-ms.openlocfilehash: 09ef8d6cff137ff71f4be090be66bae3536b16e3
-ms.sourcegitcommit: 4fe9905d17a8df9f2270543a5a0ce1762a5830c9
+ms.openlocfilehash: f8183815e33d869cb4affc0b6a540a543ba7f436
+ms.sourcegitcommit: 4ead6b1d3527373b63c90680b6400a2e95b4064e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34855752"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49374980"
 ---
 # <a name="configure-an-application-gateway-for-ssl-offload-by-using-the-classic-deployment-model"></a>使用经典部署模型配置应用程序网关以进行 SSL 卸载
 
@@ -28,7 +28,7 @@ ms.locfileid: "34855752"
 > * [Azure 门户](application-gateway-ssl-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-ssl-arm.md)
 > * [Azure 经典 PowerShell](application-gateway-ssl.md)
-> * [Azure CLI 2.0](application-gateway-ssl-cli.md)
+> * [Azure CLI](application-gateway-ssl-cli.md)
 
 可将 Azure 应用程序网关配置为在网关上终止安全套接字层 (SSL) 会话，以避免 Web 场中出现开销较高的 SSL 解密任务。 SSL 卸载还简化了 Web 应用程序的前端服务器设置与管理。
 
@@ -213,4 +213,3 @@ DnsName       : appgw-4c960426-d1e6-4aae-8670-81fd7a519a43.chinacloudapp.cn
 - [Azure 负载均衡器](https://www.azure.cn/home/features/load-balancer/)
 - [Azure 流量管理器](https://www.azure.cn/home/features/traffic-manager/)
 
-<!-- Update_Description: wording update -->

@@ -9,13 +9,13 @@ ms.devlang: csharp
 ms.topic: conceptual
 origin.date: 05/15/2017
 ms.author: v-yiso
-ms.date: 09/10/2018
-ms.openlocfilehash: f25389fc50871ae3a9d333fafc16f67c88416309
-ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
+ms.date: 10/29/2018
+ms.openlocfilehash: 9ac8c85175bc9f2d708f237a98db16c73cca1395
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523853"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453577"
 ---
 # <a name="get-started-with-device-twins-netnet"></a>设备孪生入门 (.NET/.NET)
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
@@ -43,7 +43,7 @@ ms.locfileid: "46523853"
 ## <a name="create-the-service-app"></a>创建服务应用
 本部分创建一个 .NET 控制台应用（使用 C#），该应用将位置元数据添加到与 **myDeviceId** 关联的设备孪生。 然后，该应用选择位于美国的设备来查询存储在 IoT 中心的设备孪生，然后查询报告手机网络连接的设备孪生。
 
-1. 在 Visual Studio 中，使用“**控制台应用程序**”项目模板将 Visual C# Windows 经典桌面项目添加到当前解决方案。 **AddTagsAndQuery**。
+1. 在 Visual Studio 中，使用“**控制台应用程序**”项目模板将 Visual C# Windows 经典桌面项目添加到当前解决方案。 将项目命名为 **AddTagsAndQuery**。
    
     ![新的 Visual C# Windows 经典桌面项目](./media/iot-hub-csharp-csharp-twin-getstarted/createnetapp.png)
 
@@ -231,7 +231,7 @@ ms.locfileid: "46523853"
 
 * 按照[从设备将遥测数据发送到 IoT 中心](quickstart-send-telemetry-dotnet.md)教程从设备发送遥测数据，
 * 按照[使用所需属性配置设备](tutorial-device-twins.md)教程使用设备孪生的所需属性配置设备，
-* 按照[使用直接方法](quickstart-control-device-node.md)教程以交互方式控制设备（例如从用户控制的应用打开风扇）。
+* 按照[使用直接方法](quickstart-control-device-dotnet.md)教程以交互方式控制设备（例如从用户控制的应用打开风扇）。
 
 <!-- images -->
 [img-servicenuget]: ./media/iot-hub-csharp-csharp-twin-getstarted/servicesdknuget.png

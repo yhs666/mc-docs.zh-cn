@@ -13,19 +13,20 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
 origin.date: 04/05/2018
-ms.date: 09/07/2018
-ms.author: v-junlch
+ms.date: 10/19/2018
+ms.author: v-lingli
 ms.custom: ''
-ms.openlocfilehash: 93a4dac96b4e7f07375d62afc8ed920aff78b650
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.openlocfilehash: 34dc7a8a6fb1d9a89382aa04bfef0f78be67cf2e
+ms.sourcegitcommit: ee042177598431d702573217e2f3538878b6a984
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068295"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477760"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>用于诊断评估和监视的 Batch 指标、警报和日志
 
-本文介绍如何使用 [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md) 的功能监视 Batch 帐户。 Azure Monitor 收集 Batch 帐户中资源的[指标](../monitoring-and-diagnostics/monitoring-overview-metrics.md)和[诊断日志](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)。 以各种方法收集和使用此数据可以监视 Batch 帐户及诊断问题。 还可以配置[指标警报](../monitoring-and-diagnostics/monitoring-overview-alerts.md#alerts-on-azure-monitor-data)，以便在某项指标达到指定值时收到通知。 
+ 
+本文介绍如何使用 [Azure Monitor](../azure-monitor/overview.md) 的功能监视 Batch 帐户。 Azure Monitor 收集 Batch 帐户中资源的[指标](../monitoring/monitoring-data-collection.md#metrics)和[诊断日志](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)。 以各种方法收集和使用此数据可以监视 Batch 帐户及诊断问题。 还可以配置[指标警报](../monitoring-and-diagnostics/monitoring-overview-alerts.md)，以便在某项指标达到指定值时收到通知。 
 
 ## <a name="batch-metrics"></a>Batch 指标
 

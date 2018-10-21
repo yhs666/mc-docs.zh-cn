@@ -3,24 +3,20 @@ title: Durable Functions 中的检查点和重播 - Azure
 description: 了解 Azure Functions 的 Durable Functions 扩展中的检查点和重播工作原理。
 services: functions
 author: cgillum
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 origin.date: 09/29/2017
-ms.date: 05/29/2018
+ms.date: 10/18/2018
 ms.author: v-junlch
-ms.openlocfilehash: 330328df0673062bfdcc27e315e43f5ea9065a4d
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 4abcf440779d69dd7ce67e3ee7544192a5a45147
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34567313"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453646"
 ---
 # <a name="checkpoints-and-replay-in-durable-functions-azure-functions"></a>Durable Functions 中的检查点和重播 (Azure Functions)
 
@@ -55,7 +51,7 @@ public static async Task<List<string>> Run(
 ```javascript
 const df = require("durable-functions");
 
-module.exports = df(function*(context) {
+module.exports = df.orchestrator(function*(context) {
     const output = [];
     output.push(yield context.df.callActivityAsync("E1_SayHello", "Tokyo"));
     output.push(yield context.df.callActivityAsync("E1_SayHello", "Seattle"));

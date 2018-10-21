@@ -7,22 +7,22 @@ author: ggailey777
 ms.author: v-junlch
 ms.assetid: 674a01a7-fd34-4775-8b69-893182742ae0
 origin.date: 09/10/2018
-ms.date: 09/21/2018
+ms.date: 10/18/2018
 ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: 755c9cba6b9feb2648a5e14dcae17e29ef3f482c
-ms.sourcegitcommit: 54d9384656cee927000d77de5791c1d585d94a68
+ms.openlocfilehash: 599a0ac7d9b2f8dda74525c4b399ebc94e0c2ad4
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46524044"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453766"
 ---
 # <a name="create-your-first-function-from-the-command-line"></a>从命令行创建第一个函数
 
-本快速入门主题逐步讲解如何通过命令行或终端创建第一个函数。 使用 Azure CLI 创建函数应用（托管函数的[无服务器](https://azure.microsoft.com/overview/serverless-computing/)基础结构）。 函数代码项目是使用 [Azure Functions Core Tools](functions-run-local.md)（也可用于将函数应用项目部署到 Azure）从模板生成的。
+本快速入门主题逐步讲解如何通过命令行或终端创建第一个函数。 使用 Azure CLI 创建函数应用（托管函数的[无服务器](https://azure.microsoft.com/solutions/serverless/)基础结构）。 函数代码项目是使用 [Azure Functions Core Tools](functions-run-local.md)（也可用于将函数应用项目部署到 Azure）从模板生成的。
 
 可以使用 Mac、Windows 或 Linux 计算机执行以下步骤。
 
@@ -79,7 +79,7 @@ Writing C:\functions\MyFunctionProj\MyHttpTrigger\function.json
 
 ## <a name="edit-the-function"></a>编辑函数
 
-默认情况下，模板会创建一个在发出请求时需要函数密钥的函数。 若要在 Azure 中更轻松地测试该函数，需将该函数更新为允许匿名访问。 进行此项更改的方式取决于函数项目的语言。
+默认情况下，模板会创建一个在发出请求时需要函数密钥的函数。 若要在 Azure 中更轻松地测试该函数，需将该函数更新为允许匿名访问。 进行此更改的方式取决于函数项目语言。
 
 ### <a name="c"></a>C\#
 
@@ -176,8 +176,7 @@ Http Functions:
 在以下命令中，请将 `<app_name>` 占位符替换成唯一函数应用名称，将 `<storage_name>` 替换为存储帐户名。 `<app_name>` 将用作 Function App 的默认 DNS 域，因此，该名称需要在 Azure 中的所有应用之间保持唯一。 _deployment-source-url_ 参数是 GitHub 中包含“Hello World”HTTP 触发函数的示例存储库。
 
 ```azurecli
-az functionapp create --deployment-source-url https://github.com/Azure-Samples/functions-quickstart  `
---resource-group myResourceGroup --plan <App Service plan> chinanorth `
+az functionapp create --resource-group myResourceGroup --plan <App Service plan> `
 --name <app_name> --storage-account  <storage_name>  
 ```
 在此计划中，将根据函数需要动态添加资源，你只在函数运行时付费。 有关详细信息，请参阅[选择适当的托管计划](functions-scale.md)。 
@@ -201,6 +200,20 @@ az functionapp create --deployment-source-url https://github.com/Azure-Samples/f
     // Remaining output has been truncated for readability.
 }
 ```
+
+## <a name="configure-the-function-app"></a>配置函数应用
+
+Core Tools 2.x 版创建项目时使用的模板适用于 Azure Functions 2.x 运行时。 因此，需确保 2.x 版运行时在 Azure 中使用。 将 `FUNCTIONS_WORKER_RUNTIME` 应用程序设置为 `~2` 会将函数应用固定到最新的 2.x 版本。 使用 [az functionapp config appsettings set](/cli/functionapp/config/appsettings#set) 命令设置应用程序设置。
+
+在以下 Azure CLI 命令中，<app_name> 是函数应用的名称。
+
+```azurecli
+az functionapp config appsettings set --name <app_name> \
+--resource-group myResourceGroup \
+--settings FUNCTIONS_WORKER_RUNTIME=~2
+```
+
+[!INCLUDE [functions-publish-project](../../includes/functions-publish-project.md)]
 
 [!INCLUDE [functions-test-function-code](../../includes/functions-test-function-code.md)]
 

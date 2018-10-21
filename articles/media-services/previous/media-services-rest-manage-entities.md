@@ -1,7 +1,7 @@
 ---
 title: 使用 REST 管理媒体服务实体 | Microsoft Docs
 description: 了解如何使用 REST API 管理媒体服务实体。
-author: yunan2016
+author: WenJason
 manager: digimobile
 editor: ''
 services: media-services
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/10/2017
-ms.date: 07/30/2018
-ms.author: v-nany
-ms.openlocfilehash: 276f1440a1abf132a4d3e10039ca4c3393d09073
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+origin.date: 08/19/2017
+ms.date: 10/22/2018
+ms.author: v-jay
+ms.openlocfilehash: f306d08dd4fb913f5a524ccab85c0ac79988da21
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426172"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453566"
 ---
 # <a name="managing-media-services-entities-with-rest"></a>使用 REST 管理媒体服务实体 
 > [!div class="op_single_selector"]
@@ -133,7 +133,7 @@ Azure 媒体服务是一项以 OData v3 为基础的基于 REST 的服务。 可
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
     x-ms-version: 2.17
-    Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=2f84471d-b1ae-4e75-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1337078831&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=suFkxhvPWxQVMjOYelOJfYEWkyTWJCBc02pF0N7NghI%3d
+    Authorization: Bearer <ENCODED JWT TOKEN>
     Host: media.chinacloudapi.cn
 
 ## <a name="updating-entities"></a>更新实体
@@ -147,7 +147,7 @@ Azure 媒体服务是一项以 OData v3 为基础的基于 REST 的服务。 可
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
     x-ms-version: 2.17
-    Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=2f84471d-b1ae-4e75-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1337083279&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=DMLQXWah4jO0icpfwyws5k%2b1aCDfz9KDGIGao20xk6g%3d
+    Authorization: Bearer <ENCODED JWT TOKEN>
     Host: media.chinacloudapi.cn
     Content-Length: 21
     Expect: 100-continue
@@ -165,7 +165,7 @@ Azure 媒体服务是一项以 OData v3 为基础的基于 REST 的服务。 可
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
     x-ms-version: 2.17
-    Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=2f84471d-b1ae-4e75-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1337067658&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.chinacloudapi.cn%2f&HMACSHA256=dithjGvlXR9HlyAf5DE99N5OCYkPAxsHIcsTSjm9%2fVE%3d
+    Authorization: Bearer <ENCODED JWT TOKEN>
     Host: media.chinacloudapi.cn
     Content-Length: 0
 

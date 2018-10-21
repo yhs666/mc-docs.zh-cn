@@ -6,30 +6,30 @@ author: tdykstra
 manager: cfowler
 ms.service: functions
 ms.topic: include
-origin.date: 05/03/2018
-ms.date: 05/30/2018
+origin.date: 08/29/2018
+ms.date: 10/19/2018
 ms.author: v-junlch
 ms.custom: include file
-ms.openlocfilehash: a7e83dfa62800910d9100091c53bfb5fa81e4704
-ms.sourcegitcommit: 479954e938e4e3469d6998733aa797826e4f300b
+ms.openlocfilehash: 68a374aa2a216082fd1d6f172d283e90f18e6030
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/16/2018
-ms.locfileid: "38940697"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453896"
 ---
 |语言                                 |1.x         |2.x|
 |-----------------------------------------|------------|---|
-|[C#](../articles/azure-functions/functions-reference-csharp.md)|GA|预览|
-|[JavaScript](../articles/azure-functions/functions-reference-node.md)|GA|预览|
-|[F#](../articles/azure-functions/functions-reference-fsharp.md)|GA|预览|
-|[Java](../articles/azure-functions/functions-reference-java.md)|不适用|预览|
+|[C#](../articles/azure-functions/functions-reference-csharp.md)|GA (.NET Framework 4.7)|GA (.NET Core 2)|
+|[JavaScript](../articles/azure-functions/functions-reference-node.md)|GA (Node 6)|GA（Node 8 和 10）|
+|[F#](../articles/azure-functions/functions-reference-fsharp.md)|GA (.NET Framework 4.7)|GA (.NET Core 2)|
+|[Java](../articles/azure-functions/functions-reference-java.md)|不适用|预览版 (Java 8)|
 |Python              |试验|不适用|
+|TypeScript          |试验|转译为 JavaScript 后支持|
 |PHP                 |试验|不适用|
-|TypeScript          |试验|不适用|
 |批处理（.cmd、.bat）  |试验|不适用|
 |Bash                |试验|不适用|
 |PowerShell          |试验|不适用|
 
 有关语言支持计划更改的信息，请参阅 [Azure 路线图](https://azure.microsoft.com/roadmap/?tag=functions)。
 
-<!-- ms.date: 05/30/2018 -->
+<!-- ms.date: 10/19/2018 -->

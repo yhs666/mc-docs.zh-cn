@@ -3,24 +3,23 @@ title: 使用 Azure 媒体服务实现故障转移流式处理 | Microsoft Docs
 description: 本主题说明如何实现故障转移流式处理方案。
 services: media-services
 documentationcenter: ''
-author: hayley244
+author: WenJason
 manager: digimobile
 editor: ''
-ms.assetid: fc45d849-eb0d-4739-ae91-0ff648113445
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/05/2017
-ms.date: 09/04/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 2195825174c095ca42af274ae4f44a1f392cfa7a
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+origin.date: 09/17/2018
+ms.date: 10/22/2018
+ms.author: v-jay
+ms.openlocfilehash: ae9d35a757e3010a7ef48fa7a7a59abf779f0875
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426241"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453540"
 ---
 # <a name="implement-failover-streaming-with-azure-media-services"></a>使用 Azure 媒体服务实现故障转移流式处理
 
@@ -51,11 +50,6 @@ ms.locfileid: "47426241"
 * 当前版本的媒体服务 SDK 不支持以编程方式生成会将资产与资产文件关联的 IAssetFile 信息。 应该使用 CreateFileInfos 媒体服务 REST API 来实现此目的。 
 * 不支持使用存储加密资产 (AssetCreationOptions.StorageEncrypted) 进行复制（因为两个媒体服务帐户中的加密密钥不同）。 
 * 若要使用动态打包，请确保要从中流式传输内容的流式处理终结点处于“正在运行”状态。
-
-> [!NOTE]
-> 请考虑将媒体服务[复制器工具](http://replicator.codeplex.com/)用作备用选项，以手动实现故障转移流式处理方案。 此工具可用于在两个媒体服务帐户之间复制资产。
-> 
-> 
 
 ## <a name="prerequisites"></a>先决条件
 * 在新的或现有的 Azure 订阅中拥有两个媒体服务帐户。 请参阅[如何创建媒体服务帐户](media-services-portal-create-account.md)。
@@ -860,6 +854,7 @@ ms.locfileid: "47426241"
 
             if (String.IsNullOrEmpty(acsBearerToken)) throw new ArgumentNullException("acsBearerToken");
             if (String.IsNullOrEmpty(assetId)) throw new ArgumentNullException("assetId");
+
 
             string id = assetId.Replace(":", "%");
 

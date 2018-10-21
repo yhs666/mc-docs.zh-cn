@@ -11,14 +11,14 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: ns
 origin.date: 09/07/2018
-ms.date: 10/08/2018
+ms.date: 10/29/2018
 ms.author: v-yiso
-ms.openlocfilehash: 50f7b0ab64f2abede70205ba053c71db83ca0017
-ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
+ms.openlocfilehash: ac6aea7e7080d8f8ecc31604593b763b4a4da42a
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523801"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453810"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-python"></a>快速入门：将遥测数据从设备发送到 IoT 中心并使用后端应用程序从中心读取遥测数据 (Python)
 
@@ -35,7 +35,7 @@ IoT 中心是一项 Azure 服务，用于将大量遥测数据从 IoT 设备引�
 
 本快速入门中运行的两个示例应用程序是使用 Python 编写的。 在开发计算机上需要 Python 2.7.x 或 3.5.x。
 
-可以从 [Python.org](https://www.python.org/downloads/) 为多个平台下载 Python。
+可以从 [Python.org](https://www.python.org/downloads/) 为多个平台下载 Python。所选的 Python 安装程序应基于所使用的系统体系结构。 如果系统 CPU 体系结构为 32 位，则下载 x86（它是 Python.org 上的默认安装程序），对于 64 位体系结构，需要下载 x86-64 安装程序。
 
 可以使用以下命令之一验证开发计算机上 Python 的当前版本：
 

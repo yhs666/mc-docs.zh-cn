@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 origin.date: 05/25/2018
-ms.date: 07/23/2017
-ms.author: v-yiso
-ms.openlocfilehash: ba64f492c61157f0fa5794b3e7f9da0254e7f38b
-ms.sourcegitcommit: 479954e938e4e3469d6998733aa797826e4f300b
+ms.date: 10/29/2018
+ms.author: v-biyu
+ms.openlocfilehash: 9b73dda29481997f8b9678387a6b034835068f73
+ms.sourcegitcommit: 4b5ada023c9466d497c7474abf7ad71e50c3b17d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39031741"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49451587"
 ---
 # <a name="mobile-apps-documentation"></a>移动应用文档
 
@@ -186,5 +186,28 @@ ms.locfileid: "39031741"
             </div>
         </div>
         </a>
+    </li>
+</ul>
+
+---
+
+<h2>参考</h2>
+<ul class="panelContent cardsW">
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>语言</h3>
+                        <p><a href="https://msdn.microsoft.com/library/azure/dn961176.aspx">.NET 后端 SDK</a></p>
+                        <p><a href="https://azure.github.io/azure-mobile-apps-node/">Node.js backend SDK</a></p>
+                        <p><a href="https://azure.github.io/azure-mobile-apps-android-client/">Android client SDK</a></p>
+                        <p><a href="https://azure.github.io/azure-mobile-apps-ios-client/">iOS client SDK</a></p>
+                        <p><a href="https://azure.github.io/azure-mobile-apps-js-client/">JavaScript/Cordova client SDK</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt419521.aspx">Windows/Xamarin 客户端 SDK</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
 </ul>

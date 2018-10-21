@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 origin.date: 04/19/2018
-ms.date: 06/04/2018
-ms.author: v-yiso
-ms.openlocfilehash: 5a0bfe53975e39ee76fdc0a15119c6c73074be90
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.date: 10/29/2018
+ms.author: v-biyu
+ms.openlocfilehash: 098e83d1268318fdf65c9e76d8a77a0dd6fae610
+ms.sourcegitcommit: 4b5ada023c9466d497c7474abf7ad71e50c3b17d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554120"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49451588"
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-microsoft-account-login"></a>如何将应用服务应用程序配置为使用 Microsoft 帐户登录
 
@@ -48,6 +48,8 @@ ms.locfileid: "34554120"
 
     > [!IMPORTANT]
     > 密码是一个非常重要的安全凭据。 请不要与任何人共享密码或者在客户端应用程序中分发它。
+    
+8. 单击“保存” 
 
 ## <a name="secrets"> </a>将 Microsoft 帐户信息添加到应用服务应用程序
 

@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 08/17/2017
-ms.date: 07/30/2018
+ms.date: 10/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: 5452b7a04667978c85a5cd76641ad4e984a6a91a
-ms.sourcegitcommit: 35889b4f3ae51464392478a72b172d8910dd2c37
+ms.openlocfilehash: 0c134eb43f35f4d58a1af773e65537aa4f643424
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39261919"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453870"
 ---
 # <a name="run-a-cassandra-cluster-on-linux-in-azure-with-nodejs"></a>使用 Node.js 在 Azure 中的 Linux 上运行 Cassandra 群集
 

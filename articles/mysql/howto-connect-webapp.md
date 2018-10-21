@@ -2,24 +2,25 @@
 title: 将现有的 Azure 应用服务连接到 Azure Database for MySQL
 description: 有关如何正确地将现有的 Azure 应用服务连接到 Azure Database for MySQL 的说明
 services: mysql
-author: v-chenyh
-ms.author: v-chenyh
+author: WenJason
+ms.author: v-jay
 editor: jasonwhowell
 manager: kfile
 ms.service: mysql-database
 ms.topic: article
-ms.date: 06/16/2018
-ms.openlocfilehash: d2cb716c9b437267ed1a3724bb0f907870a61b2d
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+origin.date: 09/26/2018
+ms.date: 10/22/2018
+ms.openlocfilehash: 126ee8909f0f2a1a1ec0bedcdccd2656f2c89a70
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873471"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453578"
 ---
 # <a name="connect-an-existing-azure-app-service-to-azure-database-for-mysql-server"></a>将现有的 Azure 应用服务连接到 Azure Database for MySQL 服务器
 
 > [!NOTE]
-> 将要查看的是 Azure Database for MySQL 的新服务。 若要查看经典 MySQL Database for Azure 的文档，请访问[此页](https://docs.azure.cn/zh-cn/mysql/)。
+> 将要查看的是 Azure Database for MySQL 的新服务。 若要查看经典 MySQL Database for Azure 的文档，请访问[此页](https://docs.azure.cn/zh-cn/mysql-database-on-azure/)。
 
 本主题将说明如何将现有的 Azure App Service 连接到 Azure Database for MySQL 服务器。
 
@@ -28,24 +29,15 @@ ms.locfileid: "37873471"
 
 当前有两种解决方案，都允许从 Azure 应用服务访问 Azure Database for MySQL。 这两种解决方案都涉及设置服务器级别的防火墙规则。
 
-## <a name="solution-1---create-a-firewall-rule-to-allow-all-ips"></a>解决方案 1 - 创建允许所有 IP 的防火墙规则
-Azure Database for MySQL 通过使用防火墙保护数据来确保访问安全。 从 Azure App Service 连接到 Azure Database for MySQL 服务器时，请记住应用服务的出站 IP 实际上为动态 IP。 
-
-为了确保 Azure 应用服务的可用性，建议使用此解决方案允许所有 IP。
-
-> [!NOTE]
-> Microsoft 正在研究长期的解决方案，避免允许 Azure 服务的所有 IP 连接到 Azure Database for MySQL。
+## <a name="solution-1---allow-azure-services"></a>解决方案 1 - 允许 Azure 服务
+Azure Database for MySQL 通过使用防火墙保护数据来确保访问安全。 从 Azure App Service 连接到 Azure Database for MySQL 服务器时，请记住应用服务的出站 IP 实际上为动态 IP。 选择“允许访问 Azure 服务”选项将允许应用服务连接到 MySQL 服务器。
 
 1. 在 MySQL 服务器边栏选项卡上的“设置”标题下，单击“连接安全性”，以打开 Azure Database for MySQL 的“连接安全性”边栏选项卡。
 
-   ![Azure 门户 - 单击连接安全性](./media/howto-manage-firewall-using-portal/1-connection-security.png)
+   ![Azure 门户 - 单击连接安全性](./media/howto-connect-webapp/1-connection-security.png)
 
-2. 输入“规则名称”、“起始 IP”和“结束 IP”，然后单击“保存”。
-   - 规则名称：Allow-All-IPs
-   - 起始 IP：0.0.0.0
-   - 结束 IP：255.255.255.255
-
-   ![Azure 门户 - 添加所有 IP](./media/howto-connect-webapp/1_2-add-all-ips.png)
+2. 在“允许访问 Azure 服务”中选择“开”，然后选择“保存”。
+   ![Azure 门户 - 允许 Azure 访问](./media/howto-connect-webapp/allow-azure.png)
 
 ## <a name="solution-2---create-a-firewall-rule-to-explicitly-allow-outbound-ips"></a>解决方案 2 - 创建显式允许出站 IP 的防火墙规则
 可显式添加 Azure 应用服务的所有出站 IP。

@@ -4,29 +4,25 @@ description: 了解如何在 Azure 中创建根据所定义的计划运行的函
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 ms.assetid: ba50ee47-58e0-4972-b67b-828f2dc48701
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
-ms.tgt_pltfrm: multiple
-ms.workload: na
 origin.date: 03/28/2018
-ms.date: 08/31/2018
+ms.date: 10/18/2018
 ms.author: v-junlch
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 4237ae767f6860a819fd68a4e92d2b05623201c6
-ms.sourcegitcommit: b2c9bc0ed28e73e8c43aa2041c6d875361833681
+ms.openlocfilehash: f9e0a4470059ed6b1ec8a499c3c5a80bf4a521ae
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43330834"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453791"
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>在 Azure 中创建由计时器触发的函数
 
-了解如何使用 Azure Functions 创建根据所定义的计划运行的[无服务器](https://azure.microsoft.com/overview/serverless-computing/)函数。
+了解如何使用 Azure Functions 创建根据所定义的计划运行的[无服务器](https://azure.microsoft.com/solutions/serverless/)函数。
 
 ![在 Azure 门户中创建 Function App](./media/functions-create-scheduled-function/function-app-in-portal-editor.png)
 
@@ -95,4 +91,4 @@ ms.locfileid: "43330834"
 
 有关计时器触发器的详细信息，请参阅[使用 Azure Functions 计划代码执行](functions-bindings-timer.md)。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

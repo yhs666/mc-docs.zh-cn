@@ -4,31 +4,26 @@ description: 使用 Visual Studio 创建并发布一个 HTTP 触发的 Azure 函
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: azure functions, functions, 事件处理, 计算, 无服务器体系结构
 ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
-ms.tgt_pltfrm: multiple
-ms.technology: vs-azure
-ms.workload: azure-vs
 origin.date: 05/22/2018
-ms.date: 08/31/2018
+ms.date: 10/19/2018
 ms.author: v-junlch
 ms.custom: mvc, devcenter, , vs-azure, 23113853-34f2-4f
-ms.openlocfilehash: 4901ddcf6f3175aa0a2fc5412dc52175f4d1ae67
-ms.sourcegitcommit: b2c9bc0ed28e73e8c43aa2041c6d875361833681
+ms.openlocfilehash: 1f0238289213690f031dba961eb850d7bb28bde6
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43330732"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453513"
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>使用 Visual Studio 创建你的第一个函数
 
-Azure Functions 用于在[无服务器](https://azure.microsoft.com/overview/serverless-computing/)环境中执行代码，无需先创建 VM 或发布 Web 应用程序。
+Azure Functions 用于在[无服务器](https://azure.microsoft.com/solutions/serverless/)环境中执行代码，无需先创建 VM 或发布 Web 应用程序。
 
 本文介绍如何使用 Azure Functions 的 Visual Studio 2017 工具在本地创建并测试“hello world”函数。 然后将函数代码发布到 Azure。 Visual Studio 2017 中的 Azure 开发工作负荷已随附这些工具。
 
@@ -93,4 +88,4 @@ Visual Studio 将创建一个项目，并在该项目中创建一个包含所选
 - [了解如何添加与其他服务集成的输入和输出绑定。](functions-develop-vs.md#add-bindings)
 - [详细了解如何将函数开发为 .NET 类库](functions-dotnet-class-library.md)。
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: link update -->

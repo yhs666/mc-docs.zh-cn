@@ -1,6 +1,6 @@
 ---
-title: 创建 Azure 应用程序网关 - Azure CLI 1.0 | Microsoft 文档
-description: 了解如何在资源管理器中使用 Azure CLI 1.0 创建应用程序网关
+title: 创建 Azure 应用程序网关 - Azure 经典 CLI | Microsoft Docs
+description: 了解如何在资源管理器中使用 Azure 经典 CLI 创建应用程序网关
 services: application-gateway
 documentationcenter: na
 author: vhorne
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/31/2017
-ms.date: 07/02/2018
+ms.date: 10/17/2018
 ms.author: v-junlch
-ms.openlocfilehash: 1dfafe1ab9c75925c4d156189814059ac2e19291
-ms.sourcegitcommit: f0bfa3f8dca94099a2181492952e6a575fbdbcc8
+ms.openlocfilehash: 7f313f9503a05fe9025103df46326d87616709a1
+ms.sourcegitcommit: 4ead6b1d3527373b63c90680b6400a2e95b4064e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37142571"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49374953"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-cli"></a>使用 Azure CLI 创建应用程序网关
 
@@ -30,8 +30,8 @@ ms.locfileid: "37142571"
 > * [Azure 资源管理器 PowerShell](application-gateway-create-gateway-arm.md)
 > * [Azure 经典 PowerShell](application-gateway-create-gateway.md)
 > * [Azure Resource Manager 模板](application-gateway-create-gateway-arm-template.md)
-> * [Azure CLI 1.0](application-gateway-create-gateway-cli.md)
-> * [Azure CLI 2.0](application-gateway-create-gateway-cli.md)
+> * [Azure 经典 CLI](application-gateway-create-gateway-cli.md)
+> * [Azure CLI](application-gateway-create-gateway-cli.md)
 > 
 > 
 
@@ -39,7 +39,7 @@ Azure 应用程序网关是第 7 层负载均衡器。 它在不同服务器之�
 
 ## <a name="prerequisite-install-the-azure-cli"></a>先决条件：安装 Azure CLI
 
-若要执行本文中的步骤，需要[安装适用于 Mac、Linux 和 Windows 的 Azure 命令行接口 (Azure CLI)](../xplat-cli-install.md)，还需要[登录 Azure](/cli/authenticate-azure-cli)。 
+若要执行本文中的步骤，需[安装 Azure CLI](../xplat-cli-install.md) 并[登录到 Azure](/cli/authenticate-azure-cli)。 
 
 > [!NOTE]
 > 如果没有 Azure 帐户，则需要注册一个。 请[在此处注册试用版](../active-directory/fundamentals/sign-up-organization.md)。
@@ -154,7 +154,7 @@ azure network application-gateway create `
 
 访问[创建自定义运行状况探测](application-gateway-create-probe-portal.md)，了解如何创建自定义运行状况探测
 
-访问[配置 SSL 卸载](application-gateway-ssl-arm.md)，了解如何配置 SSL 卸载并从 Web 服务器中剥离开销较高的 SSL 解密
+访问 [配置 SSL 卸载](application-gateway-ssl-arm.md)
 
 <!--Image references-->
 
@@ -163,4 +163,4 @@ azure network application-gateway create `
 [2]: ./media/application-gateway-create-gateway-cli-nodejs/figure2.png
 [3]: ./media/application-gateway-create-gateway-cli-nodejs/figure3.png
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
-origin.date: 09/11/2018
-ms.date: 09/24/2018
+origin.date: 10/05/2018
+ms.date: 10/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: eaae279e68549e3235dc031ffc6badffd5ad7b6e
-ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
+ms.openlocfilehash: 919678ef859df2f5a7e88303ec1208494e69e3e4
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46527125"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453670"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Desired State Configuration 扩展与 Azure 资源管理器模板
 
@@ -53,13 +53,13 @@ DSC 扩展继承默认扩展属性。
             "configurationArguments": {
                 "RegistrationUrl" : "registrationUrl",
                 "NodeConfigurationName" : "nodeConfigurationName"
-            },
-            "protectedSettings": {
-                "configurationArguments": {
-                    "RegistrationKey": {
-                        "userName": "NOT_USED",
-                        "Password": "registrationKey"
-                    }
+            }
+        },
+        "protectedSettings": {
+            "configurationArguments": {
+                "RegistrationKey": {
+                    "userName": "NOT_USED",
+                    "Password": "registrationKey"
                 }
             }
         }
@@ -412,4 +412,5 @@ DSC 扩展继承默认扩展属性。
 - 了解有关 [DSC 的安全凭据管理](dsc-credentials.md)的更多详细信息。
 - 获取 [Azure DSC 扩展处理程序简介](dsc-overview.md)。
 - 有关 PowerShell DSC 的详细信息，请转到 [PowerShell 文档中心](https://docs.microsoft.com/powershell/dsc/overview)。
-<!-- Update_Description: update link, wording update -->
+
+<!-- Update_Description: update meta propertes, wording update -->

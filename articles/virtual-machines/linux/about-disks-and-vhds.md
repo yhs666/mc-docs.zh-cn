@@ -7,15 +7,15 @@ ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
 ms.topic: article
 origin.date: 11/15/2017
-ms.date: 08/27/2018
+ms.date: 10/22/2018
 ms.author: v-yeche
 ms.component: disks
-ms.openlocfilehash: 739cb34fd48a2d248fbc55c1ab58cfed32da11f9
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.openlocfilehash: 5c45b786649165e33da116d84a4e6de838affcd0
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42872354"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453534"
 ---
 # <a name="about-disks-storage-for-azure-linux-vms"></a>关于用于 Azure Linux VM 的磁盘存储
 就像其他任何计算机一样，Azure 中的虚拟机将磁盘用作存储操作系统、应用程序和数据的位置。 所有 Azure 虚拟机都至少有两个磁盘，即 Linux 操作系统磁盘和临时磁盘。 操作系统磁盘基于映像创建，操作系统磁盘和该映像都存储在 Azure 存储帐户中的虚拟硬盘 (VHD) 内。 虚拟机还可以有一个或多个数据磁盘，而这些磁盘也存储为 VHD。
@@ -60,4 +60,5 @@ ms.locfileid: "42872354"
 * [附加磁盘](add-disk.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)可为 VM 添加额外的存储。
 * [创建快照](snapshot-copy-managed-disk.md)。
 * [转换为托管磁盘](convert-unmanaged-to-managed-disks.md)。
+
 <!-- Update_Description: update meta properties  -->

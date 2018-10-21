@@ -13,14 +13,14 @@ ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 08/07/2017
-ms.author: v-yiso
-ms.date: 01/29/2018
-ms.openlocfilehash: d6c1aec3aba291335d7dabc7595ffd502c6aa7b1
-ms.sourcegitcommit: a20b3fbe305d3bb4b6ddfdae98b3e0ab8a79bbfa
+ms.author: v-biyu
+ms.date: 10/29/2018
+ms.openlocfilehash: 34609ae4007791c6b57768c2cc65fce2f2e8c136
+ms.sourcegitcommit: 4b5ada023c9466d497c7474abf7ad71e50c3b17d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/22/2018
-ms.locfileid: "27984774"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49451614"
 ---
 # <a name="add-authentication-to-your-xamarin-forms-app"></a>向 Xamarin Forms 应用添加身份验证
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -392,7 +392,9 @@ Universal Windows Platform (UWP) projects, but using the **UWP** project (with n
 
 Now that you completed this basic authentication tutorial, consider continuing on to one of the following tutorials:
 
+* [Add push notifications to your app](app-service-mobile-xamarin-forms-get-started-push.md)
 
+  Learn how to add push notifications support to your app and configure your Mobile App backend to use Azure Notification Hubs to send push notifications.
 * [Enable offline sync for your app](app-service-mobile-xamarin-forms-get-started-offline-data.md)
 
   Learn how to add offline support your app using a Mobile App backend. Offline sync allows end users to interact with a mobile app - viewing, adding,

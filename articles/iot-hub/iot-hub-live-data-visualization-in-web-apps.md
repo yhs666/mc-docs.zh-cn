@@ -1,13 +1,9 @@
 ---
 title: Azure IoT 中心的实时传感器数据可视化 – Web 应用 | Azure
 description: 使用 Microsoft Azure 应用服务的 Web 应用功能可视化从传感器收集并发送到 IoT 中心的温度和湿度数据。
-services: iot-hub
-documentationcenter: ''
-author: shizn
-manager: timlt
-tags: ''
+author: rangv
+manager: ''
 keywords: 实时数据可视化, 即时数据可视化, 传感器数据可视化
-ms.assetid: e42b07a8-ddd4-476e-9bfb-903d6b033e91
 ms.service: iot-hub
 ms.devlang: arduino
 ms.topic: article
@@ -15,13 +11,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 04/11/2018
 ms.author: v-yiso
-ms.date: 10/08/2018
-ms.openlocfilehash: a00ac33956f469a982edb2e532edb5cf7e290eb1
-ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
+ms.date: 10/29/2018
+ms.openlocfilehash: f2e671f1d6312970b6d0911b7b7e8f9581ea1045
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523809"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453749"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-by-using-the-web-apps-feature-of-azure-app-service"></a>使用 Azure 应用服务的 Web 应用功能可视化 Azure IoT 中心的实时传感器数据
 
@@ -69,6 +65,7 @@ ms.locfileid: "46523809"
    |---------------------------------------|--------------------------------------------------------------|
    | Azure.IoT.IoTHub.ConnectionString     | 从 Azure CLI 获取                                      |
    | Azure.IoT.IoTHub.ConsumerGroup        | 添加到 IoT 中心的使用者组的名称  |
+   | WEBSITE_NODE_DEFAULT_VERSION          | 8.9.4                                                        |
 
    ![将包含键/值对的设置添加到 Web 应用](./media/iot-hub-live-data-visualization-in-web-apps/4_web-app-settings-key-value-azure.png)
 

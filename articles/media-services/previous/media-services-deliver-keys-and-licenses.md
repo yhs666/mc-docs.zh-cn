@@ -3,7 +3,7 @@ title: 使用 Azure 媒体服务传送 DRM 许可证或 AES 密钥 | Microsoft D
 description: 本文介绍如何使用 Azure 媒体服务来传送 PlayReady 与 AES 密钥，但余下的操作（编码、加密、流式传输）是使用本地服务器完成的。
 services: media-services
 documentationcenter: ''
-author: yunan2016
+author: WenJason
 manager: digimobile
 editor: ''
 ms.assetid: 8546c2c1-430b-4254-a88d-4436a83f9192
@@ -12,17 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/10/2017
-ms.date: 1/22/2018
-ms.author: v-johch
-ms.openlocfilehash: 6dc1b836ed9c4cd00485d81692bc5194e6867a54
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+origin.date: 09/18/2018
+ms.date: 10/22/2018
+ms.author: v-jay
+ms.openlocfilehash: 2623c96c409e70264b31eaec5158cd9ccd6be36f
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426181"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453780"
 ---
 # <a name="use-azure-media-services-to-deliver-drm-licenses-or-aes-keys"></a>使用 Azure 媒体服务传送 DRM 许可证或 AES 密钥
+
 Azure 媒体服务可引入、编码、添加内容保护，以及流式传输内容。  一些客户希望将媒体服务仅用于传送许可证和/或密钥，以及通过使用其本地服务器进行编码、加密和流式处理。 本文说明如何使用媒体服务来传送 PlayReady 许可证，但使用本地服务器来完成其余部分。 
 
 ## <a name="overview"></a>概述
@@ -43,10 +44,11 @@ Azure 媒体服务可引入、编码、添加内容保护，以及流式传输�
 
 2. 将以下元素添加到 app.config 文件中定义的 appSettings：
 
-    add key="Issuer" value="http://testacs.com"/
-    
-    add key="Audience" value="urn:test"/
-
+    ```xml
+    <add key="Issuer" value="http://testissuer.com"/>
+    <add key="Audience" value="urn:test"/>
+    ```
+ 
 ## <a name="net-code-example"></a>.NET 代码示例
 以下代码示例演示如何创建通用内容密钥，并获取 PlayReady 许可证获取 URL。 若要配置本地服务器，需要一个内容密钥、密钥 ID 和许可证获取 URL。 配置本地服务器后，可以从自己的流服务器进行流式传输。 由于加密的流指向媒体服务许可证服务器，因此播放器会从媒体服务请求许可证。 如果选择令牌身份验证，则媒体服务许可证服务器将对通过 HTTPS 发送的令牌进行验证。 如果该令牌有效，许可证服务器会将许可证传递回播放器中。 以下代码示例仅演示如何创建通用内容密钥，并获取 PlayReady 或 Widevine 许可证获取 URL。 如果想要传送 AES-128 密钥，则需要创建信封内容密钥，并获取密钥获取 URL。 有关详细信息，请参阅[使用 AES-128 动态加密和密钥传递服务](media-services-protect-with-aes128.md)。
 

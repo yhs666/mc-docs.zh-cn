@@ -7,14 +7,14 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 origin.date: 07/04/2017
-ms.date: 10/08/2018
+ms.date: 10/29/2018
 ms.author: v-yiso
-ms.openlocfilehash: 2f871e718463d2b5f2be8203b1cbd7017f5181ba
-ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
+ms.openlocfilehash: 12c80d59bc4c1689131a3b1d0ff4be1e8d215086
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523866"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453770"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-using-net"></a>通过 .NET 使用 IoT 中心将文件从设备上传到云
 
@@ -172,7 +172,7 @@ ms.locfileid: "46523866"
 
 若要进一步探索 IoT 中心的功能，请参阅：
 
-* [使用 Azure IoT Edge 将 AI 部署到边缘设备][lnk-iotedge]
+* [使用 Azure IoT Edge 将 AI 部署到边缘设备](../iot-edge/tutorial-simulate-device-linux.md)
 
 <!-- Images. -->
 
@@ -194,7 +194,6 @@ ms.locfileid: "46523866"
 [lnk-c-sdk]: ./iot-hub-device-sdk-c-intro.md
 [lnk-sdks]: ./iot-hub-devguide-sdks.md
 
-[lnk-iotedge]: ./iot-hub-windows-iot-edge-simulated-device.md
 
 
 <!--Update_Description: update wording and code-->

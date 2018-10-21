@@ -1,6 +1,6 @@
 ---
 title: 重置对 Azure Linux VM 的访问权限 | Azure
-description: 如何使用 VMAccess 扩展和 Azure CLI 2.0 在 Linux VM 上管理管理用户和重置访问权限
+description: 如何使用 VMAccess 扩展和 Azure CLI 在 Linux VM 上管理管理员用户和重置访问权限
 services: virtual-machines-linux
 documentationcenter: ''
 author: rockboyfor
@@ -14,20 +14,23 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 origin.date: 05/10/2018
-ms.date: 08/27/2018
+ms.date: 10/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: 647646b18a94a5e002e6972d9614074a09dd0193
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.openlocfilehash: 7f654b082cb610ff648e4cfb5cce427bc335d231
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42872297"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453775"
 ---
-# <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli-20"></a>配合使用 VMAccess 扩展和 Azure CLI 2.0 管理管理用户、SSH，并检查或修复 Linux VM 上的磁盘
+# <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli"></a>配合使用 VMAccess 扩展和 Azure CLI 管理管理用户、SSH，并检查或修复 Linux VM 上的磁盘
 ## <a name="overview"></a>概述
 Linux VM 上的磁盘显示错误。 不知道怎样重置 Linux VM 的根密码，或者不小心删除了 SSH 私钥。 如果在数据中心的时代发生这种情况，则需要开车到那里，并打开 KVM 访问服务器控制台。 请将 Azure VMAccess 扩展想像成该 KVM 交换机，它允许访问控制台以重置 Linux 访问或执行磁盘级维护。
 
 本文介绍：如何在 Azure VMAccess Extension 作为 Azure Resource Manager 虚拟机运行时，检查或修复磁盘、重置用户访问权限、管理行政性用户帐户，或更新 Linux 上的 SSH 配置。 如果你需要管理经典虚拟机，可以按照[经典 VM 文档](../linux/classic/reset-access-classic.md)中的说明进行操作。 
+
+> [!NOTE]
+> 如果在安装 AAD 登录扩展后使用 VMAccess 扩展来重置 VM 的密码，则需要重新运行 AAD 登录扩展以重新启用计算机的 AAD 登录。
 
 ## <a name="prerequisites"></a>先决条件
 ### <a name="operating-system"></a>操作系统
@@ -49,10 +52,10 @@ VM 访问扩展可以针对这些 Linux 分发运行：
 ## <a name="ways-to-use-the-vmaccess-extension"></a>使用 VMAccess 扩展的方法
 可通过两种方法在 Linux VM 上使用 VMAccess 扩展：
 
-* 使用 Azure CLI 2.0 和所需参数。
+* 使用 Azure CLI 以及所需的参数。
 * [使用 VMAccess 要处理和操作的原始 JSON 文件](#use-json-files-and-the-vmaccess-extension)。
 
-下面的示例使用 [az vm user](https://docs.azure.cn/zh-cn/cli/vm/user?view=azure-cli-latest) 命令。 若要执行这些步骤，需要安装最新的 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest)，并使用 [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az-login) 登录到 Azure 帐户。
+下面的示例使用 [az vm user](https://docs.azure.cn/zh-cn/cli/vm/user?view=azure-cli-latest) 命令。 若要执行这些步骤，需要安装最新的 [Azure CLI](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest)，并使用 [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az-login) 登录到 Azure 帐户。
 
 ## <a name="update-ssh-key"></a>更新 SSH 密钥
 以下示例更新名为 `myVM` 的 VM 上用户 `azureuser` 的 SSH 密钥：
@@ -258,4 +261,4 @@ az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 
 如果对本文中的任何观点存在疑问，可以联系 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/) 上的 Azure 专家。 或者，也可以提交 Azure 支持事件。 请转到 [Azure 支持站点](https://www.azure.cn/support/contact/)并选择“获取支持”。 有关使用 Azure 支持的信息，请阅读 [Azure 支持常见问题](https://www.azure.cn/support/faq/)。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: wording update, update meta properties -->

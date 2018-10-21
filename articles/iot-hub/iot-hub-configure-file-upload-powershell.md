@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 08/08/2017
 ms.author: v-yiso
 ms.date: 10/08/2018
-ms.openlocfilehash: dc814e34e905dd3dabcebcba850294995a0ede6f
-ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
+ms.openlocfilehash: 91b068d82998114a523bc468ece81a4653a9fcd8
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523906"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453818"
 ---
 # <a name="configure-iot-hub-file-uploads-using-powershell"></a>使用 PowerShell 配置 IoT 中心文件上传
 
@@ -132,7 +132,7 @@ Set-AzureRmIotHub `
 若要进一步探索 IoT 中心的功能，请参阅：
 
 * [IoT 中心开发人员指南](iot-hub-devguide.md)
-* [使用 Azure IoT Edge 将 AI 部署到边缘设备][lnk-iotedge]
+* [使用 Azure IoT Edge 将 AI 部署到边缘设备](../iot-edge/tutorial-simulate-device-linux.md)
 * [从根本上保护 IoT 解决方案][lnk-securing]
 
 [lnk-upload]: ./iot-hub-devguide-file-upload.md

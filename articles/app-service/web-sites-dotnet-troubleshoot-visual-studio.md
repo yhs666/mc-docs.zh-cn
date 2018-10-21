@@ -13,23 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 08/29/2016
-ms.date: 09/03/2018
-ms.author: v-yiso
-ms.openlocfilehash: e37b6dddf339e5dd5cce7b3ffe681eafe0c28de9
-ms.sourcegitcommit: 1b682acdc2a5e0974fbff809967d7cefcbbbe8ac
+ms.date: 10/29/2018
+ms.author: v-biyu
+ms.openlocfilehash: 58e8cf2498b2cc6f897c52b236d15f41156e5955
+ms.sourcegitcommit: 4b5ada023c9466d497c7474abf7ad71e50c3b17d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42870932"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49451625"
 ---
 # <a name="troubleshoot-a-web-app-in-azure-app-service-using-visual-studio"></a>使用 Visual Studio 对 Azure 应用服务中的 Web 应用进行故障排除
-
-[!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
-
 ## <a name="overview"></a>概述
 本教程介绍如何使用 Visual Studio 工具，通过远程运行[调试模式](https://docs.microsoft.com/visualstudio/debugger/)或查看应用程序日志和 Web 服务器日志帮助调试[应用服务](http://go.microsoft.com/fwlink/?LinkId=529714)中的 Web 应用。
-
-[!INCLUDE [azure-visual-studio-login-guide](../../includes/azure-visual-studio-login-guide.md)]
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -82,7 +77,7 @@ ms.locfileid: "42870932"
     如果要执行的 Web 应用管理任务无法在此窗口进行，请单击“在管理门户中打开”，以便在浏览器窗口中打开 Azure 门户。
 
 ## <a name="remoteview"></a>在服务器资源管理器中访问 Web 应用文件
-部署 Web 项目时，Web.config 文件中的 `customErrors` 标志通常设置为 `On` 或 `RemoteOnly`，这意味着如果出现问题你不会收到任何有帮助的错误消息。 无论发生何种错误，获得的都是类似如下所示的页面：
+部署 Web 项目时，Web.config 文件中的 `customErrors` 标志通常设置为 `On` 或 `RemoteOnly`，这意味着如果出现问题你不会获得任何有帮助的错误消息。 无论发生何种错误，获得的都是类似如下所示的页面：
 
 **'/' 应用程序中出现服务器错误：**
 
@@ -115,7 +110,7 @@ ms.locfileid: "42870932"
 
     ![详细错误消息](./media/web-sites-dotnet-troubleshoot-visual-studio/detailederror.png)
 
-    （通过以红色显示的行添加到 *Views\Home\Index.cshtml* 创建显示的错误。）
+    （通过将以红色显示的行添加到 *Views\Home\Index.cshtml* 创建显示的错误。）
 
 编辑 Web.config 文件示例演示了能够读取并编辑 Azure Web 应用上的文件使得故障排除变得更加简单，而这仅仅只是其中之一。
 
@@ -129,6 +124,7 @@ ms.locfileid: "42870932"
 1. 打开在[在 Azure 中创建 ASP.NET Web 应用](app-service-web-get-started-dotnet-framework.md)中创建的 Web 项目。
 
 2. 打开 *Controllers\HomeController.cs*。
+
 3. 删除 `About()` 方法并在其位置插入以下代码。
 
 ``` c#
@@ -192,7 +188,7 @@ public ActionResult About()
     ![设置断点](./media/web-sites-dotnet-troubleshoot-visual-studio/wjbreakpoint.png)
 4. 在“解决方案资源管理器”中，右键单击该 Web 项目（而非 WebJob 项目），并单击“发布”。
 5. 在“配置文件”下拉列表中，选择与 [Azure WebJobs SDK 入门](https://github.com/Azure/azure-webjobs-sdk/wiki)中所用相同的配置文件。
-6. 单击“设置”选项卡，将“配置”更改为“调试”，然后单击“发布”。
+6. 单击“设置”选项卡，将“配置”更改为“调试”，并单击“发布”。
 
     Visual Studio 会部署 Web 和 Web 作业项目，浏览器会打开 Web 应用的 Azure URL。
 
@@ -359,7 +355,7 @@ public ActionResult Contact()
 1. 在“解决方案资源管理器”中，右键单击该 Web 项目，并单击“发布”。
 2. 在“发布 Web”对话框中，单击“发布”。
 
-    在 Visual Studio 发布更新后，将打开一个主页的浏览器窗口（假设没有清除“连接”选项卡上的“目标 URL”）。
+    在 Visual Studio 发布更新后，会打开一个主页的浏览器窗口（假设没有清除“连接”选项卡上的“目标 URL”）。
 3. 在“服务器资源管理器”中，右键单击 Web 应用，并选择“查看流式传输日志”。
 
     ![上下文菜单中的查看流式传输日志](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-viewlogsmenu.png)
@@ -380,7 +376,7 @@ public ActionResult Contact()
     然而，如果选择“查看流式传输日志”，Visual Studio 会自动将“应用程序日志记录(文件系统)”更改为“错误”，这意味着将报告错误级日志。 为了查看所有跟踪日志，可将该设置更改为“详细”。 如果选择的严重级别低于错误，也会报告所有更高严重级别的日志。 因此，如果选择“详细”，还可查看信息、警告以及错误日志。  
 
 1. 在“服务器资源管理器”中，右键单击 Web 应用，并如之前所做单击“查看设置”。
-2. 将“应用程序日志记录(文件系统)”更改为“详细”，然后单击“保存”。
+2. 将“应用程序日志记录(文件系统)”更改为“详细”，并单击“保存”。
 
     ![将跟踪级别设置为详细](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-applogverbose.png)
 3. 现在，在显示“联系人”页面的浏览器窗口中，单击“主页”，并依次单击“关于”和“联系人”。
@@ -411,7 +407,7 @@ public ActionResult Contact()
 ## <a name="webserverlogs"></a>查看 Web 服务器日志
 Web 服务器日志将记录 Web 应用上所有的 HTTP 活动。 若要在“输出”窗口中查看这些日志，必须为 Web 应用启用日志并告知 Visual Studio 希望对其进行监视。
 
-1. 在通过“服务器资源管理器”打开的“Azure Web 应用配置”选项卡上，将“Web 服务器日志记录”的状态更改为“开启”，然后单击“保存”。
+1. 在通过“服务器资源管理器”打开的“Azure Web 应用配置”选项卡上，将“Web 服务器日志记录”的状态更改为“开启”，并单击“保存”。
 
     ![启用 Web 服务器日志记录](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-webserverloggingon.png)
     
@@ -435,7 +431,7 @@ Web 服务器日志将记录 Web 应用上所有的 HTTP 活动。 若要在“�
 ## <a name="detailederrorlogs"></a>查看详细的错误消息日志
 详细的错误日志提供了有关导致错误响应代码（400 或更大）的 HTTP 请求的一些额外信息。 若要在“输出”窗口中查看这些日志，必须为 Web 应用启用日志并告知 Visual Studio 希望对其进行监视。
 
-1. 在通过“服务器资源管理器”打开的“Azure Web 应用配置”选项卡上，将“详细的错误消息”的状态更改为“开启”，然后单击“保存”。
+1. 在通过“服务器资源管理器”打开的“Azure Web 应用配置”选项卡上，将“详细的错误消息”的状态更改为“开启”，并单击“保存”。
 
     ![启用详细的错误消息](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-detailedlogson.png)
 2. 在“输出”窗口中，单击“指定要监视的 Azure 日志”按钮。
@@ -560,7 +556,7 @@ Azure Web 应用使用 IIS 7.0 及更高版本中提供的相同失败请求跟�
 
 可以通过 FTP 直接在浏览器中查看失败请求跟踪日志，或使用 FTP 工具将其下载到本地计算机后进行本地查看。 在本节中，将直接在浏览器中查看这些日志。
 
-1. 在从“服务器资源管理器”打开的“Azure Web 应用”窗口的“配置”选项卡中，将“失败请求跟踪”的状态更改为“开启”，然后单击“保存”。
+1. 在从“服务器资源管理器”打开的“Azure Web 应用”窗口的“配置”选项卡中，将“失败请求跟踪”的状态更改为“开启”，并单击“保存”。
 
     ![启用失败请求跟踪](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-failedrequeston.png)
 2. 在显示该 Web 应用的浏览器窗口的地址栏中，向 URL 添加一个额外字符，单击 Enter 会引发 404 错误。

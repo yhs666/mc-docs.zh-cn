@@ -42,6 +42,8 @@ items:
     href: application-gateway-ssl-policy-overview.md
   - name: Web 应用程序防火墙
     href: waf-overview.md
+  - name: WAF 配置
+    href: application-gateway-waf-configuration.md
   - name: URL 路由
     href: url-route-overview.md
   - name: 多站点托管
@@ -138,6 +140,8 @@ items:
       href: application-gateway-troubleshooting-502.md
     - name: 诊断
       href: application-gateway-diagnostics.md
+  - name: 自定义错误页
+    href: custom-error.md
 - name: 参考
   items:
   - name: CRS 规则
@@ -172,9 +176,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-application-gateway
   - name: 常见问题
     href: application-gateway-faq.md
-ms.openlocfilehash: 123845b0b3312e2d92adee3bfe488d2ae8b99fc9
-ms.sourcegitcommit: da9f7b0825e493636d6596eb6ae95d03e0626583
+ms.openlocfilehash: c59a5cb6acc0c021b862aa492efcbdf1ecb63c0d
+ms.sourcegitcommit: 4ead6b1d3527373b63c90680b6400a2e95b4064e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "41734336"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49374964"

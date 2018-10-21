@@ -13,24 +13,24 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 origin.date: 09/25/2017
-ms.date: 07/30/2018
+ms.date: 10/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4b863d70e74cb87c4ca8ad993d8fbcfc3f8ab0e3
-ms.sourcegitcommit: 35889b4f3ae51464392478a72b172d8910dd2c37
+ms.openlocfilehash: f04e2b2d885b24c9e8a8b804f42795db898ea65f
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39261864"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453583"
 ---
 # <a name="create-a-copy-of-a-linux-vm-by-using-azure-cli-and-managed-disks"></a>使用 Azure CLI 和托管磁盘创建 Azure Linux VM 的副本
 
-本文说明了如何使用 Azure CLI 2.0 和 Azure Resource Manager 部署模型创建运行 Linux 的 Azure 虚拟机 (VM) 的副本。 
+本文介绍如何使用 Azure CLI 和 Azure 资源管理器部署模型创建运行 Linux 的 Azure 虚拟机 (VM) 的副本。 
 
 还可以[上传 VHD 并从中创建 VM](upload-vhd.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 
 ## <a name="prerequisites"></a>先决条件
 
--   安装 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest)
+-   安装 [Azure CLI](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest)
 
 -   使用 [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az-login) 登录到一个 Azure 帐户。
 

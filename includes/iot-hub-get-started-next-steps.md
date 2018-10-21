@@ -5,4 +5,4 @@
 - [使用 Power BI 可视化 IoT 中心的实时传感器数据](../articles/iot-hub/iot-hub-live-data-visualization-in-power-bi.md)。
 - [使用 Azure 应用服务的 Web 应用功能可视化 IoT 中心的实时传感器数据](../articles/iot-hub/iot-hub-live-data-visualization-in-web-apps.md)。
 - [使用用于 Visual Studio Code 的 Azure IoT 工具包扩展管理设备](../articles/iot-hub/iot-hub-device-management-iot-toolkit.md)
-- [使用 iothub-explorer 管理设备](../articles/iot-hub/iot-hub-device-management-iot-extension-azure-cli-2-0.md)
+- [使用逻辑应用执行远程监视和发送通知](../articles/iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps.md)

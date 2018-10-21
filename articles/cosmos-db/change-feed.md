@@ -11,12 +11,12 @@ ms.topic: conceptual
 origin.date: 03/26/2018
 ms.date: 09/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: b59fff22f1f7a6db4c6bef7b74ad96ee77649422
-ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
+ms.openlocfilehash: 2013a5cf3a1ede771f5a5f0bbced6f0606b74aa0
+ms.sourcegitcommit: 646d5cc64acaa91696537d09858b989336ebd3c3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47201396"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49451558"
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>使用 Azure Cosmos DB 中的更改源支持
 
@@ -521,10 +521,7 @@ _lsn 是仅为更改源添加的批 ID，它表示存储中的事务 ID。 许�
 
 不需要，租用集合可以固定。 不需要分区的租用集合，而且目前不支持。
 
-### <a name="can-i-read-change-feed-from-spark"></a>是否可以从 Spark 读取更改源？
-
-可以。 请参阅 [Azure Cosmos DB Spark 连接器](spark-connector.md)。 以[幻灯片](https://www.youtube.com/watch?v=P9Qz4pwKm_0&t=1519s)演示了如何将更改源作为结构化流进行处理。
-
+<!-- Not Available on ### Can I read change feed from Spark?-->
 ### <a name="if-i-am-processing-change-feed-by-using-azure-functions-say-a-batch-of-10-documents-and-i-get-an-error-at-7th-document-in-that-case-the-last-three-documents-are-not-processed-how-can-i-start-processing-from-the-failed-documentie-7th-document-in-my-next-feed"></a>如果我使用 Azure Functions 处理更改源（例如，包含 10 个文档的批），在处理第 7 个文档时遇到错误， 在这种情况下，最后 3 个文档不会得到处理。如何在下一个源中从失败的文档 （即第 7 个文档）开始处理？
 
 若要处理错误，建议的模式是使用 try-catch 块包装代码。 捕获错误，将该文档放入队列（死信），然后定义逻辑来处理已生成错误的文档。 如果批中的文档数有 200 个，并且只有一个文档失败，则使用此方法就无需丢弃整个批。

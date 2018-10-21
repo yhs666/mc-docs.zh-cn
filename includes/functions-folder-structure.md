@@ -4,40 +4,44 @@ description: include 文件
 services: functions
 author: ggailey777
 manager: jeconnoc
-ms.service: functions
+ms.service: azure-functions
 ms.topic: include
-origin.date: 08/12/2018
-ms.date: 09/21/2018
+origin.date: 09/12/2018
+ms.date: 10/19/2018
 ms.author: v-junlch
 ms.custom: include file
-ms.openlocfilehash: e1237e51bdf8b2f1f80b4f80c90d49733a371f8e
-ms.sourcegitcommit: 54d9384656cee927000d77de5791c1d585d94a68
+ms.openlocfilehash: bf4eb95b1fc5fde7a543d32e9c60b2b4940f3a11
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46524056"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49454063"
 ---
-特定函数应用中所有函数的代码位于根文件夹 (`wwwroot`) 中，其中包含主机配置文件和一个或多个子文件夹。 每个子文件夹包含单独函数的代码，如以下示例所示：
+特定函数应用中所有函数的代码均位于根项目文件夹中，其中包含主机配置文件和一个或多个子文件夹。 每个子文件夹包含单独函数的代码，表示形式如下：
 
 ```
-wwwroot
+FunctionApp
  | - host.json
- | - mynodefunction
+ | - Myfirstfunction
  | | - function.json
- | | - index.js
- | | - node_modules
- | | | - ... packages ...
- | | - package.json
- | - mycsharpfunction
+ | | - ...  
+ | - mysecondfunction
  | | - function.json
- | | - run.csx
+ | | - ...  
+ | - SharedCode
  | - bin
- | | - mycompiledcsharp.dll
 ```
 
-host.json 文件包含一些特定于运行时的配置，位于函数应用的根文件夹中。 有关可用设置的信息，请参阅 [host.json 参考](../articles/azure-functions/functions-host-json.md)。
+在 2.x 版 Functions 运行时中，函数应用中的所有函数都必须使用相同的语言辅助角色。  
 
-每个函数有一个对应的文件夹，其中包含一个或多个代码文件、function.json 配置和其他依赖项。 对于 C# 类库项目，已编译的类库 (.dll) 文件将部署到 `bin` 子文件夹。
+[host.json](../articles/azure-functions/functions-host-json.md) 文件包含一些特定于运行时的配置，位于函数应用的根文件夹中。 `bin` 文件夹包含函数应用所需的包和其他库文件。 查看函数应用项目的语言特定要求：
+
+- [C# 类库 (.csproj)](../articles/azure-functions/functions-dotnet-class-library.md#functions-class-library-project)
+- [C# 脚本 (.csx)](../articles/azure-functions/functions-reference-csharp.md#folder-structure)
+- [F# 脚本](../articles/azure-functions/functions-reference-fsharp.md#folder-structure)
+- [Java](../articles/azure-functions/functions-reference-java.md#folder-structure)
+- [JavaScript](../articles/azure-functions/functions-reference-node.md#folder-structure)
 
 
-<!-- ms.date: 09/21/2018 -->
+<!-- ms.date: 10/19/2018 -->
+

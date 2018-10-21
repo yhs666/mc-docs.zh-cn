@@ -11,12 +11,12 @@ origin.date: 04/26/2018
 ms.date: 10/08/2018
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 90b6d46551ef1aa896074acd4773b185a6e9bfef
-ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
+ms.openlocfilehash: 223e2f75d46fa3cb92ad034d684f49aa7a22ad05
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523901"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453617"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-net-back-end-and-net-device"></a>使用 .NET 后端和 .NET 设备创建 IoT 中心模块标识和模块孪生入门
 
@@ -160,7 +160,7 @@ ms.locfileid: "46523901"
 若要继续了解 IoT 中心入门知识并浏览其他 IoT 方案，请参阅：
 
 * [设备管理入门][lnk-device-management]
-* [IoT Edge 入门][lnk-iot-edge]
+* [IoT Edge 入门](../iot-edge/tutorial-simulate-device-linux.md)
 
 
 <!-- Images. -->
@@ -173,4 +173,4 @@ ms.locfileid: "46523901"
 [lnk-portal]: https://portal.azure.cn/
 
 [lnk-device-management]: iot-hub-node-node-device-management-get-started.md
-[lnk-iot-edge]: ./iot-hub-linux-iot-edge-simulated-device.md
+

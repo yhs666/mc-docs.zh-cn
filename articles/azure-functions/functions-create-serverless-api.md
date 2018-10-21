@@ -3,21 +3,20 @@ title: 使用 Azure Functions 创建无服务器 API | Microsoft Docs
 description: 如何使用 Azure Functions 创建无服务器 API
 services: functions
 author: mattchenderson
-manager: cfowler
-ms.service: functions
-ms.tgt_pltfrm: na
+manager: jeconnoc
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: tutorial
 origin.date: 05/04/2017
-ms.date: 04/11/2018
+ms.date: 10/18/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 9bd63c5298caee9d785022aa5ff64fbff3528a19
-ms.sourcegitcommit: 54d9384656cee927000d77de5791c1d585d94a68
+ms.openlocfilehash: 83faf69548b351e68acba0b9d90de0812068590f
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46524029"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453567"
 ---
 # <a name="create-a-serverless-api-using-azure-functions"></a>使用 Azure Functions 创建无服务器 API
 
@@ -55,7 +54,7 @@ ms.locfileid: "46524029"
 
 1. 单击“保存” 。
 
-可以在 [Azure Functions HTTP 和 Webhook 绑定](/azure-functions/functions-bindings-http-webhook#customizing-the-http-endpoint)中详细了解如何自定义 HTTP 函数。
+可以在 [Azure Functions HTTP 绑定](/azure-functions/functions-bindings-http-webhook#customizing-the-http-endpoint)中详细了解如何自定义 HTTP 函数。
 
 ### <a name="test-your-api"></a>测试 API
 
@@ -187,7 +186,7 @@ ms.locfileid: "46524029"
 
 以下参考文档可以帮助进一步开发 API：
 
-- [Azure Functions HTTP 和 Webhook 绑定](/azure-functions/functions-bindings-http-webhook)
+- [Azure Functions HTTP 绑定](/azure-functions/functions-bindings-http-webhook)
 - [使用 Azure Functions 代理]
 - [记录 Azure Functions API（预览版）](/azure-functions/functions-api-definition-getting-started)
 
@@ -195,3 +194,4 @@ ms.locfileid: "46524029"
 [Create your first function]: /azure-functions/functions-create-first-azure-function
 [使用 Azure Functions 代理]: /azure-functions/functions-proxies
 
+<!-- Update_Description: wording update -->

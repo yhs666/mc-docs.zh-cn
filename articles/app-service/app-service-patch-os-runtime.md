@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/02/2018
-ms.date: 10/08/2018
-ms.author: v-yiso
-ms.openlocfilehash: 25b402c2fb6b9ff4e9f43363b1b0a8771d77b6e8
-ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
+ms.date: 10/29/2018
+ms.author: v-biyu
+ms.openlocfilehash: 17f81fe2d93226a6ca57c26c81bc18d4aadc439b
+ms.sourcegitcommit: 4b5ada023c9466d497c7474abf7ad71e50c3b17d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523829"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49451592"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>Azure 应用服务中的 OS 和运行时修补
 
@@ -101,5 +101,5 @@ az webapp config set --java-version 1.8 --java-container Tomcat --java-container
 
 ## <a name="more-resources"></a>更多资源
 
-[信任中心：安全性](https://www.microsoft.com/TrustCenter/Security/default.aspx)  
+[信任中心：安全性](https://www.microsoft.com/en-us/trustcenter/security)  
 [Azure 应用服务中的 64 位 ASP.NET Core](https://gist.github.com/glennc/e705cd85c9680d6a8f1bdb62099c7ac7)

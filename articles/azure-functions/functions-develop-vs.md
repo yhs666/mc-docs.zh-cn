@@ -8,15 +8,15 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.custom: vs-azure
 ms.topic: conceptual
-origin.date: 09/12/2018
-ms.date: 09/21/2018
+origin.date: 10/08/2018
+ms.date: 10/19/2018
 ms.author: v-junlch
-ms.openlocfilehash: 15dad987a75531a257718f5ba31a4b28da91c079
-ms.sourcegitcommit: 54d9384656cee927000d77de5791c1d585d94a68
+ms.openlocfilehash: 32b17a8fd0432f1f18a836336f983031c9fe2493
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46524011"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453854"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>使用 Visual Studio 开发 Azure Functions  
 
@@ -172,7 +172,9 @@ Azure Functions Core Tools 允许在本地开发计算机上运行 Azure Functio
 
 在运行项目时，可以像测试已部署的函数一样测试代码。 有关详细信息，请参阅[在 Azure Functions 中测试代码的策略](functions-test-a-function.md)。 在调试模式下运行时，断点将按预期命中 Visual Studio。 
 
-有关如何测试队列触发的函数的示例，请参阅[队列触发的函数快速入门教程](functions-create-storage-queue-triggered-function.md#test-the-function)。  
+<!---
+For an example of how to test a queue triggered function, see the [queue triggered function quickstart tutorial](functions-create-storage-queue-triggered-function.md#test-the-function).  
+-->
 
 若要详细了解如何使用 Azure Functions 核心工具，请参阅[在本地编写 Azure 函数代码并对其进行测试](functions-run-local.md)。
 

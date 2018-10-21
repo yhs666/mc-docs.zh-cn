@@ -9,14 +9,14 @@ ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 origin.date: 07/14/2018
-ms.date: 08/22/2018
+ms.date: 10/17/2018
 ms.author: v-junlch
-ms.openlocfilehash: 1141b68201ca1e71df743252276a78795d18f8ba
-ms.sourcegitcommit: da9f7b0825e493636d6596eb6ae95d03e0626583
+ms.openlocfilehash: 5bdb7f9702ce39fabd332cd53ee1f8020d90d797
+ms.sourcegitcommit: 4ead6b1d3527373b63c90680b6400a2e95b4064e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "41734313"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49374977"
 ---
 # <a name="create-an-application-gateway-with-a-virtual-machine-scale-set-using-the-azure-cli"></a>通过 Azure CLI 使用虚拟机规模集创建应用程序网关
 
@@ -31,7 +31,7 @@ ms.locfileid: "41734313"
 
 如果没有 Azure 订阅，请在开始之前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
 
-如果选择在本地安装并使用 CLI，此快速入门教程要求运行 Azure CLI 2.0.4 版或更高版本。 若要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](/cli/install-azure-cli)。
+如果选择在本地安装并使用 CLI，此快速入门教程要求运行 Azure CLI 2.0.4 版或更高版本。 若要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
@@ -150,4 +150,4 @@ az network public-ip show `
 
 若要详细了解应用程序网关及其关联的资源，请继续阅读操作指南文章。
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

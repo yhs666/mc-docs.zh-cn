@@ -3,7 +3,7 @@ title: Azure 媒体服务概念 | Microsoft Docs
 description: 本主题提供 Azure 媒体服务概念的概述
 services: media-services
 documentationcenter: ''
-author: forester123
+author: WenJason
 manager: digimobile
 editor: ''
 ms.assetid: dcefc8bc-e2ea-4b38-a643-9010f4436fb5
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/07/2017
-ms.date: 09/25/2017
-ms.author: v-johch
-ms.openlocfilehash: 46a46e948e40535856d3f85af3ca8d27bc996b3e
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.date: 10/22/2018
+ms.author: v-jay
+ms.openlocfilehash: 0180098a243f325fd57c6b5ae2471e5b31ff8c1c
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426251"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453624"
 ---
 # <a name="azure-media-services-concepts"></a>Azure 媒体服务概念
 本部分概述最重要的媒体服务概念。
@@ -130,9 +130,9 @@ ArchiveWindowLength 还决定了客户端能够从当前实时位置按时间向
 
 有关详细信息，请参阅：
 
-* [使用能够通过 Azure 媒体服务执行实时编码的频道](media-services-manage-live-encoder-enabled-channels.md)
+* [使用能够使用 Azure 媒体服务执行实时编码的频道](media-services-manage-live-encoder-enabled-channels.md)
 * [使用从本地编码器接收多比特率实时流的频道](media-services-live-streaming-with-onprem-encoders.md)
-* [配额和限制](media-services-quotas-and-limitations.md)。
+* [配额和限制](media-services-quotas-and-limitations.md)
 
 ## <a name="protecting-content"></a>保护内容
 ### <a name="dynamic-encryption"></a>动态加密
@@ -147,7 +147,7 @@ ArchiveWindowLength 还决定了客户端能够从当前实时位置按时间向
 播放器请求流时，媒体服务使用指定的密钥通过信封加密（使用 AES）或通用加密（使用 PlayReady）来动态加密你的内容。 为了解密流，播放器会从密钥传送服务请求密钥。 为了确定用户是否有权获取密钥，服务会评估为密钥指定的授权策略。
 
 ### <a name="token-restriction"></a>令牌限制
-内容密钥授权策略可能受到一种或多种授权限制：开放、令牌限制或 IP 限制。 令牌限制策略必须附带由安全令牌服务 (STS) 颁发的令牌。 媒体服务支持采用简单 Web 令牌 (SWT) 格式和 JSON Web 令牌 (JWT) 格式的令牌。 媒体服务不提供安全令牌服务。 可以创建自定义 STS 或利用 Azure ACS 来颁发令牌。 必须将 STS 配置为创建令牌，该令牌使用指定密钥以及在令牌限制配置中指定的颁发声明进行签名。 如果令牌有效，而且令牌中的声明与为密钥（或许可证）配置的声明相匹配，则媒体服务密钥传送服务会将请求的密钥（或许可证）返回到客户端。
+内容密钥授权策略可能受到一种或多种授权限制：开放、令牌限制或 IP 限制。 令牌限制策略必须附带由安全令牌服务 (STS) 颁发的令牌。 媒体服务支持采用简单 Web 令牌 (SWT) 格式和 JSON Web 令牌 (JWT) 格式的令牌。 媒体服务不提供安全令牌服务。 可以创建自定义 STS。 必须将 STS 配置为创建令牌，该令牌使用指定密钥以及在令牌限制配置中指定的颁发声明进行签名。 如果令牌有效，而且令牌中的声明与为密钥（或许可证）配置的声明相匹配，则媒体服务密钥传送服务会将请求的密钥（或许可证）返回到客户端。
 
 配置令牌限制策略时，必须指定主验证密钥、颁发者和受众参数。 主验证密钥包含用来为令牌签名的密钥，颁发者是颁发令牌的安全令牌服务。 受众（有时称为范围）描述该令牌的意图，或者令牌授权访问的资源。 媒体服务密钥传送服务验证令牌中的这些值是否与模板中的值匹配。
 

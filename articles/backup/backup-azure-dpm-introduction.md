@@ -8,14 +8,14 @@ keywords: System Center Data Protection Manager, Data Protection Manager, dpm �
 ms.service: backup
 ms.topic: conceptual
 origin.date: 08/22/2018
-ms.date: 09/25/2018
-ms.author: v-junlch
-ms.openlocfilehash: 6387093080cb20c3b1df1671bfc78a3a7475b769
-ms.sourcegitcommit: a4d8c8641a6341113532d8770603d4b66cc13ced
+ms.date: 10/19/2018
+ms.author: v-lingwu
+ms.openlocfilehash: d2788903e50163ed18deeab99af75a84eed6be6a
+ms.sourcegitcommit: ee042177598431d702573217e2f3538878b6a984
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47114522"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477772"
 ---
 # <a name="preparing-to-back-up-workloads-to-azure-with-dpm"></a>使用 DPM 准备将工作负荷备份到 Azure
 > [!div class="op_single_selector"]

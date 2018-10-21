@@ -6,15 +6,15 @@ author: dlepow
 manager: jeconnoc
 ms.service: batch
 ms.topic: get-started-article
-origin.date: 05/15/2018
-ms.date: 09/26/2018
-ms.author: v-junlch
-ms.openlocfilehash: b63e7b10fe0c12cd9fc2e5148a694b28bee42aff
-ms.sourcegitcommit: 5616622f754f3b83c7120a3d1344d0344e03ca61
+origin.date: 06/18/2018
+ms.date: 10/19/2018
+ms.author: v-lingwu
+ms.openlocfilehash: e810f6dd7513cf60b00b889bc36fa43568a0afed
+ms.sourcegitcommit: ee042177598431d702573217e2f3538878b6a984
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47188776"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477766"
 ---
 # <a name="overview-of-batch-apis-and-tools"></a>批处理 API 和工具概述
 
@@ -61,7 +61,7 @@ ms.locfileid: "47188776"
 这些命令行工具提供的功能与批处理服务和批处理管理 API 相同： 
 
 - [批处理 PowerShell cmdlet][batch_ps]：[Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) 模块中的 Azure Batch cmdlet 可让用户使用 PowerShell 管理批处理资源。
-- [Azure CLI 2.0](/cli)：Azure 命令行界面 (Azure CLI) 是一个跨平台工具集，提供用来与许多 Azure 服务（包括 Batch 服务和 Batch 管理服务）交互的 shell 命令。 请参阅[使用 Azure CLI 管理批处理资源](batch-cli-get-started.md)，详细了解如何将 Azure CLI 与批处理配合使用。
+* [Azure CLI](/cli/azure)：Azure CLI 是一个跨平台工具集，提供用来与许多 Azure 服务（包括批处理服务和批处理管理服务）交互的 shell 命令。 请参阅[使用 Azure CLI 管理批处理资源](batch-cli-get-started.md)，详细了解如何将 Azure CLI 与批处理配合使用。
 
 ## <a name="other-tools-for-application-development"></a>适合应用程序开发的其他工具
 

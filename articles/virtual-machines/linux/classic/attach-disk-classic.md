@@ -15,14 +15,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 02/09/2017
-ms.date: 07/30/2018
+ms.date: 10/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: 276dd0036d611031004508bf3e427f32b2ea044b
-ms.sourcegitcommit: 35889b4f3ae51464392478a72b172d8910dd2c37
+ms.openlocfilehash: 36be6b5fdc64b29bf09d648896577e00990fb93a
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39261893"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453703"
 ---
 # <a name="how-to-attach-a-data-disk-to-a-linux-virtual-machine"></a>如何将数据磁盘附加到 Linux 虚拟机
 > [!IMPORTANT] 
@@ -96,7 +96,7 @@ ms.locfileid: "39261893"
 
     ![创建设备](./media/attach-disk/fdisknewpartition.png)
 
-5. 出现提示时，键入 **p** 将分区设置为主分区。 键入 **1** 将其设置为第一分区，然后键入 Enter 接受柱面的默认值。 在某些系统上，它可以显示第一个和最后一个扇区（而不是柱面）的默认值。 可以选择接受这些默认值。
+5. 出现提示时，键入 **p** 以将分区设置为主分区。 键入 **1** 将其设置为第一分区，然后键入 Enter 接受柱面的默认值。 在某些系统上，它可以显示第一个和最后一个扇区（而不是柱面）的默认值。 可以选择接受这些默认值。
 
     ![创建分区](./media/attach-disk/fdisknewpartdetails.png)
 
@@ -160,7 +160,7 @@ ms.locfileid: "39261893"
     sudo vi /etc/fstab
     ```
 
-    在此示例中，将使用在之前的步骤中创建的新 **/dev/sdc1** 设备的 UUID 值并使用装载点 **/datadrive**。 将以下行添加到 **/etc/fstab** 文件的末尾：
+    此示例使用在之前的步骤中创建的新 **/dev/sdc1** 设备的 UUID 值并使用装载点 **/datadrive**。 将以下行添加到 **/etc/fstab** 文件的末尾：
 
     ```sh
     UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail   1   2

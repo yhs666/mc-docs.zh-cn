@@ -10,12 +10,12 @@ ms.topic: conceptual
 origin.date: 05/07/2017
 ms.date: 09/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: de0d7ff9c57f0eaf1c519feb2253e1c8adf209f3
-ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
+ms.openlocfilehash: 09b3da8ae18360622250323bb188fd5ebbf75709
+ms.sourcegitcommit: 646d5cc64acaa91696537d09858b989336ebd3c3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47201321"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49451556"
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Azure Cosmos DB 常见用例
 本文概述了 Azure Cosmos DB 的几个常见用例。  本文中的建议可以作为使用 Cosmos DB 开发应用程序的一个起点。   
@@ -74,7 +74,9 @@ Azure Cosmos DB 通常用于事件寻源，可使用其[更改源](change-feed.m
 
 ![Azure Cosmos DB 订单管道参考体系结构](./media/use-cases/event-sourcing.png)
 
-此外，Azure Cosmos DB 中存储的数据可与 HDInsight 集成，通过 Apache Spark 作业进行大数据分析。 有关 Azure Cosmos DB 的 Spark 连接器的详细信息，请参阅[使用 Cosmos DB 和 HDInsight 运行 Spark 作业](spark-connector.md)。
+此外，Azure Cosmos DB 中存储的数据可与 HDInsight 集成，通过 Apache Spark 作业进行大数据分析。
+
+<!-- Not Availableon [Run a Spark job with Cosmos DB and HDInsight](spark-connector.md)-->
 
 ## <a name="gaming"></a>游戏
 数据库层是游戏应用程序的关键组件。 新式游戏可在移动/控制台客户端执行图形处理，但需依赖云传输自定义的个性化内容，例如游戏中的统计数据、社交媒体集成以及高分排行榜。 游戏通常需要单毫秒的读取和写入延迟，从而带来具有吸引力的游戏体验。 新游戏启动和功能更新期间，游戏数据库需要具备很快的速度，并且要能够处理请求速率中的大量峰值。

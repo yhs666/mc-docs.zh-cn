@@ -8,15 +8,15 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.workload: infrastructure-services
 origin.date: 07/14/2018
-ms.date: 08/22/2018
+ms.date: 10/17/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: faf04b8ceb394120263a7c03f6d46df0c10f7495
-ms.sourcegitcommit: da9f7b0825e493636d6596eb6ae95d03e0626583
+ms.openlocfilehash: 237bd4ccd75cdd4f7ea819ec2634c37f5b444208
+ms.sourcegitcommit: 4ead6b1d3527373b63c90680b6400a2e95b4064e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "41726581"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49374952"
 ---
 # <a name="tutorial-route-web-traffic-based-on-the-url-using-the-azure-cli"></a>教程 - 使用 Azure CLI 基于 URL 对 Web 流量进行路由
 
@@ -38,7 +38,7 @@ ms.locfileid: "41726581"
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
-如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.4 或更高版本。 若要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](/cli/install-azure-cli)。
+如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.4 或更高版本。 若要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
@@ -273,4 +273,4 @@ az group delete --name myResourceGroupAG --location chinanorth
 > [!div class="nextstepaction"]
 > [创建支持基于 URL 路径进行重定向的应用程序网关](./tutorial-url-redirect-cli.md)
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

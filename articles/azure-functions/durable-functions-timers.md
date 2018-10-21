@@ -3,24 +3,20 @@ title: Durable Functions 中的计时器 - Azure
 description: 了解如何实现 Azure Functions 的 Durable Functions 扩展中的持久计时器。
 services: functions
 author: cgillum
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 origin.date: 04/30/2018
-ms.date: 05/30/2018
+ms.date: 10/18/2018
 ms.author: v-junlch
-ms.openlocfilehash: 12c0de93531d7543b86d6e30597da1365637b60d
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 2c2dc9545cfde8e7564b244e4e7de81c8b450be8
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34567305"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453536"
 ---
 # <a name="timers-in-durable-functions-azure-functions"></a>Durable Functions 中的计时器 (Azure Functions)
 
@@ -62,7 +58,7 @@ public static async Task Run(
 const df = require("durable-functions");
 const moment = require("moment-js");
 
-module.exports = df(function*(context) {
+module.exports = df.orchestrator(function*(context) {
     for (let i = 0; i < 10; i++) {
         const dayOfMonth = context.df.currentUtcDateTime.getDate();
         const deadline = moment.utc(context.df.currentUtcDateTime).add(1, 'd');
@@ -116,7 +112,7 @@ public static async Task<bool> Run(
 const df = require("durable-functions");
 const moment = require("moment-js");
 
-module.exports = df(function*(context) {
+module.exports = df.orchestrator(function*(context) {
     const deadline = moment.utc(context.df.currentUtcDateTime).add(30, 's');
 
     const activityTask = context.df.callActivityAsync("GetQuote");
@@ -139,7 +135,7 @@ module.exports = df(function*(context) {
 > [!WARNING]
 > 使用 `CancellationTokenSource` 取消持久计时器 (C#) 或对返回的 `TimerTask` (JavaScript) 调用 `cancel()`（如果你的代码不会等待它完成）。 在所有未完成任务都完成或取消之前，Durable Task Framework 不会将业务流程的状态更改为“已完成”。
 
-此机制实际上不会终止正在进行的活动函数执行。 它只是允许业务流程协调程序函数忽略结果并继续运行。  [函数超时是可配置的](functions-host-json.md#functiontimeout)。
+此机制实际上不会终止正在进行的活动函数执行。 它只是允许业务流程协调程序函数忽略结果并继续运行。 [函数超时是可配置的](functions-host-json.md#functiontimeout)。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -147,4 +143,4 @@ module.exports = df(function*(context) {
 > [了解如何引发和处理外部事件](durable-functions-external-events.md)
 
 
-<!-- Update_Description: wording and code update -->
+<!-- Update_Description: code update -->

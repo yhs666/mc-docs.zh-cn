@@ -3,7 +3,7 @@ title: 配置 FMLE 编码器以发送单比特率实时流 | Microsoft Docs
 description: 本主题说明了如何配置 Flash Media Live Encoder (FMLE) 编码器，以便将单比特率流发送到 AMS 频道进行实时编码。
 services: media-services
 documentationcenter: ''
-author: forester123
+author: WenJason
 manager: digimobile
 editor: ''
 ms.assetid: 3113f333-517a-47a1-a1b3-57e200c6b2a2
@@ -13,19 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
 origin.date: 01/05/2017
-ms.date: 09/25/2017
-ms.author: v-johch
-ms.openlocfilehash: 66147aa427286bd937bc9f5634364db9418605db
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.date: 10/22/2018
+ms.author: v-jay
+ms.openlocfilehash: f667e50962bd8d2f400aa9dfe27f7abba3fa2d70
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426250"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453606"
 ---
 # <a name="use-the-fmle-encoder-to-send-a-single-bitrate-live-stream"></a>使用 FMLE 编码器发送单比特率实时流
 > [!div class="op_single_selector"]
 > * [FMLE](media-services-configure-fmle-live-encoder.md)
-> * [Elemental Live](media-services-configure-elemental-live-encoder.md)
 > * [Tricaster](media-services-configure-tricaster-live-encoder.md)
 > * [Wirecast](media-services-configure-wirecast-live-encoder.md)
 >
@@ -116,7 +115,7 @@ ms.locfileid: "47426250"
    * 比特率：192 kbps
 
      ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle5.png)
-4. 获取频道的输入 URL，以便将其分配给 FMLE 的“RTMP 终结点”。
+4. 获取频道的输入 URL，以便将其分配给 FMLE 的“RTMP 终结点” 。
 
     导航回 AMSE 工具，查看频道完成状态。 一旦状态从“正在启动”变为“正在运行”，即可获取输入 URL。
 

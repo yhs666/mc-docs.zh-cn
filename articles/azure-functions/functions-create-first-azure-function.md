@@ -4,29 +4,25 @@ description: 了解如何使用 Azure 门户创建第一个可无服务器执行
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 ms.assetid: 96cf87b9-8db6-41a8-863a-abb828e3d06d
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
-ms.tgt_pltfrm: multiple
-ms.workload: na
 origin.date: 03/28/2018
-ms.date: 08/31/2018
+ms.date: 10/18/2018
 ms.author: v-junlch
 ms.custom: mvc, devcenter, cc996988-fb4f-47
-ms.openlocfilehash: 8c8442837d60db74aa9637ffcb6f6704c189b0ff
-ms.sourcegitcommit: b2c9bc0ed28e73e8c43aa2041c6d875361833681
+ms.openlocfilehash: 6e6cf950baefe405b491c78a44ece7a56d0c426c
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43330818"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453838"
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>在 Azure 门户中创建第一个函数
 
-Azure Functions 用于在[无服务器](https://azure.microsoft.com/overview/serverless-computing/)环境中执行代码，无需先创建 VM 或发布 Web 应用程序。 在本主题中，了解如何使用 Functions 在 Azure 门户中创建“hello world”函数。
+Azure Functions 用于在[无服务器](https://azure.microsoft.com/solutions/serverless/)环境中执行代码，无需先创建 VM 或发布 Web 应用程序。 在本主题中，了解如何使用 Functions 在 Azure 门户中创建“hello world”函数。
 
 ![在 Azure 门户中创建 Function App](./media/functions-create-first-azure-function/function-app-in-portal-editor.png)
 
@@ -49,13 +45,15 @@ Azure Functions 用于在[无服务器](https://azure.microsoft.com/overview/ser
 
 ## <a name="create-function"></a>创建 HTTP 触发的函数
 
-1. 展开新的 Function App，并单击 **Functions** 旁边的 **+** 按钮。
+1. 展开新的函数应用，然后选择 **Functions** 旁边的 **+** 按钮，选择“门户中”，然后选择“继续”。
 
-2.  在“快速入门”页上，选择“WebHook + API”，选择函数的语言，然后单击“创建此函数”。 
-   
+    ![Functions 快速入门选择平台。](./media/functions-create-first-azure-function/function-app-quickstart-choose-portal.png)
+
+1. 选择“WebHook + API”，然后选择“创建”。
+
     ![Azure 门户中的函数快速入门。](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
 
-使用 HTTP 触发函数模板，采用所选语言创建函数。 本主题介绍了门户中的 C# 脚本函数，不过你可以使用任何[支持的语言](supported-languages.md)来创建函数。 
+此时将使用 HTTP 触发的函数的特定于语言模板创建函数。
 
 现在，可以通过发送 HTTP 请求来运行新函数了。
 
@@ -67,13 +65,13 @@ Azure Functions 用于在[无服务器](https://azure.microsoft.com/overview/ser
 
 2. 将函数 URL 粘贴到浏览器的地址栏中。 将查询字符串值 `&name=<yourname>` 添加到该 URL 尾部，然后按键盘上的 `Enter` 键来执行请求。 此时会看到函数返回的响应显示在浏览器中。  
 
-    以下示例演示 Microsoft Edge 浏览器中的响应（其他浏览器可能包括显示的 XML）：
+    以下示例显示了浏览器中的响应：
 
     ![浏览器中的函数响应。](./media/functions-create-first-azure-function/function-app-browser-testing.png)
 
-    请求 URL 包含通过 HTTP 访问函数默认所需的密钥。   
+    请求 URL 包含通过 HTTP 访问函数默认所需的密钥。
 
-3. 运行函数时，会在日志中写入跟踪信息。 若要查看上次执行的跟踪输出，请返回到门户中的函数，并单击屏幕底部的箭头以展开“日志”。 
+3. 运行函数时，会在日志中写入跟踪信息。 若要查看上次执行的跟踪输出，请返回到门户中的函数，并单击屏幕底部的箭头以展开“日志”。
 
    ![Azure 门户中的“函数日志”查看器。](./media/functions-create-first-azure-function/function-view-logs.png)
 
@@ -87,9 +85,7 @@ Azure Functions 用于在[无服务器](https://azure.microsoft.com/overview/ser
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
-有关详细信息，请参阅 [Azure Functions HTTP 和 webhook 绑定](functions-bindings-http-webhook.md)。
-
-
+有关详细信息，请参阅 [Azure Functions HTTP 绑定](functions-bindings-http-webhook.md)。
 
 
 <!-- Update_Description: wording update -->

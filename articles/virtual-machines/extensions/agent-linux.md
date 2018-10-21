@@ -14,15 +14,15 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 10/17/2016
-ms.date: 08/27/2018
+ms.date: 10/22/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cdd5cfc1afb0446d749cc5d799773496ebd52aed
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.openlocfilehash: 5ea4637d878449a99e8b400298f21664f6ab9458
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42871662"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453792"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>了解和使用 Azure Linux 代理
 
@@ -32,7 +32,7 @@ Azure Linux 代理 (waagent) 可以管理 Linux 与 FreeBSD 预配，以及 VM �
 > 有关详细信息，请参阅 [README](https://github.com/Azure/WALinuxAgent/blob/master/README.md)。
 > 
 > 
-<!-- URL is correct to add .md on (https://github.com/Azure/WALinuxAgent/blob/master/README.md)-->
+
 * **映像设置**
 
   * 创建用户帐户
@@ -346,4 +346,5 @@ Ubuntu 云映像利用 [cloud-init](https://launchpad.net/ubuntu/+source/cloud-i
 
   * [Ubuntu Wiki：配置交换分区](http://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
   * [将自定义数据注入到 Azure 虚拟机中](../windows/classic/inject-custom-data.md)
-<!-- Update_Description: update meta properties, wording update -->
+  
+<!-- Update_Description: update meta properties-->

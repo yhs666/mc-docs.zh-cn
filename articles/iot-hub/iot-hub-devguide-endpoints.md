@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 07/18/2018
 ms.author: v-yiso
 ms.date: 09/10/2018
-ms.openlocfilehash: 9d1e809df661ae395a01ee47d7a0902eae166d3b
-ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
+ms.openlocfilehash: 51629c24ae2592e6ea6fa0366817ae01675b61e8
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43328661"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453765"
 ---
 # <a name="reference---iot-hub-endpoints"></a>参考 - IoT 中心终结点
 
@@ -26,7 +26,7 @@ ms.locfileid: "43328661"
 ## <a name="list-of-built-in-iot-hub-endpoints"></a>内置 IoT 中心终结点列表
 Azure IoT 中心属于多租户服务，向各种执行组件公开功能。 下图显示了 IoT 中心公开的各种终结点。
 
-![IoT 中心终结点][img-endpoints]
+![IoT 中心终结点](./media/iot-hub-devguide-endpoints/endpoints.png)
 
 以下列表对这些终结点进行了说明：
 
@@ -66,38 +66,13 @@ IoT 中心当前支持将以下 Azure 服务作为附加终结点：
 * 服务总线队列
 * 服务总线主题
 
-IoT 中心需要这些服务终结点的写入权限，以便使用消息路由。 如果通过 Azure 门户配置终结点，则为你添加必要权限。 请确保将服务配置为支持预期吞吐量。 在首次配置 IoT 解决方案时，可能需要监视附加终结点，并针对实际负载进行任意的必要调整。
-
-如果消息与多个路由匹配，而这些路由全部指向同一终结点，则 IoT 中心仅向该终结点传递一次消息。 因此不必在服务总线队列或主题中配置重复数据删除。 在分区队列中，分区相关性可保障消息排序。
-
-有关可添加终结点的数量限制，请参阅 [配额和限制][lnk-devguide-quotas]。
-
-### <a name="when-using-azure-storage-containers"></a>如果使用 Azure 存储容器
-
-IoT 中心仅支持将数据以 [Apache Avro](http://avro.apache.org/) 格式作为 blob 写入 Azure 存储容器。 出现下列情况时，IoT 中心将对消息进行批处理，并将数据写入 blob：
-
-* 批达到特定大小。
-* 或者已经过了一段时间。
-
-如果没有要写入的数据，IoT 中心会写入到一个空 blob。
-
-IoT 中心默认为以下文件命名约定：
-
-```
-{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}
-```
-
-可以使用任何你希望的文件命名约定，但必须使用所有列出的令牌。
-
-### <a name="when-using-service-bus-queues-and-topics"></a>如果使用服务总线队列和主题
-
-用作 IoT 中心终结点的服务总线队列和主题不能启用“会话”或“重复项检测”。 如果启用了其中任一选项，该终结点将在 Azure 门户中显示为“无法访问”。
+有关可添加的终结点的数量限制，请参阅[配额和限制](iot-hub-devguide-quotas-throttling.md)。
 
 ## <a name="field-gateways"></a>现场网关
 
 在 IoT 解决方案中， *现场网关* 位于设备和 IoT 中心终结点之间。 它通常位于靠近设备的位置。 设备使用设备支持的协议，直接与现场网关通信。 现场网关使用 IoT 中心支持的协议连接到 IoT 中心终结点。 现场网关可能是专用硬件设备或运行自定义网关软件的低功率计算机。
 
-可使用 [Azure IoT Edge][lnk-iot-edge] 实现现场网关。 IoT Edge 提供一些功能，例如从多台设备向同一 IoT 中心连接多路复用通信。
+可使用 [Azure IoT Edge](/iot-edge/) 实现现场网关。 IoT Edge 提供一些功能，例如从多台设备向同一 IoT 中心连接多路复用通信。
 
 ## <a name="next-steps"></a>后续步骤
 此 IoT 中心开发人员指南中的其他参考主题包括：

@@ -7,12 +7,12 @@ ms.author: v-junlch
 origin.date: 08/02/2018
 ms.date: 09/07/2018
 ms.topic: conceptual
-ms.openlocfilehash: 58af0069743d892cc40a310326ae1c4b0ec03d5e
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.openlocfilehash: 7d5bab56072ea5852fd38f4f2b6a3b1a93aab25a
+ms.sourcegitcommit: ee042177598431d702573217e2f3538878b6a984
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068255"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477789"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Azure Batch 的渲染功能
 
@@ -50,6 +50,9 @@ ms.locfileid: "44068255"
 
 - [创建池](https://docs.microsoft.com/rest/api/batchservice/pool/add#request-body)时指定 `applicationLicenses` 属性。  可在字符串数组中指定以下值 -“vray”、“arnold”、“3dsmax”、“maya”。
 - 指定一个或多个应用程序时，这些应用程序的费用将与 VM 费用相加。  [Azure Batch 定价页面](https://www.azure.cn/pricing/details/batch/#graphic-rendering)上列出了应用程序价格。
+
+> [!NOTE]
+> 若改为通过连接到许可证服务器来使用渲染应用程序，则不要指定 `applicationLicenses` 属性。
 
 可以使用 Azure 门户或 Batch Explorer 选择应用程序和显示应用程序价格。
 

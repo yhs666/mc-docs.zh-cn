@@ -7,14 +7,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 origin.date: 04/13/2018
-ms.date: 08/06/2018
+ms.date: 10/29/2018
 ms.author: chrisgre
-ms.openlocfilehash: 890486c8a69c608cc8989ac603705e9be8ab9199
-ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
+ms.openlocfilehash: f34ccfe3f65d2b7af6ecc1ea93751876aa01fdc8
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43329100"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453572"
 ---
 # <a name="configure-and-monitor-iot-devices-at-scale-using-the-azure-cli"></a>使用 Azure CLI 大规模配置和监视 IoT 设备
 
@@ -173,11 +173,10 @@ az iot hub configuration delete --config-id [configuration id] \
 若要进一步探索 IoT 中心的功能，请参阅：
 
 * [IoT 中心开发人员指南](iot-hub-devguide.md)
-* [使用 Azure IoT Edge 将 AI 部署到边缘设备][lnk-iotedge]
+* [使用 Azure IoT Edge 将 AI 部署到边缘设备](../iot-edge/tutorial-simulate-device-linux.md)
 
 若要了解如何使用 IoT 中心设备预配服务启用零接触实时预配，请参阅： 
 
-* [Azure IoT 中心设备预配服务][lnk-dps]
 
 [lnk-device-twin]: iot-hub-devguide-device-twins.md
 [lnk-bulkIDs]: iot-hub-bulk-identity-mgmt.md
@@ -185,6 +184,5 @@ az iot hub configuration delete --config-id [configuration id] \
 [lnk-monitor]: iot-hub-operations-monitoring.md
 
 [lnk-devguide]: iot-hub-devguide.md
-[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
-[lnk-dps]: https://azure.microsoft.com/documentation/services/iot-dps
+
 [lnk-portal]: https://portal.azure.cn

@@ -10,12 +10,12 @@ ms.topic: conceptual
 origin.date: 03/26/2018
 ms.date: 09/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: def07aeb8a28cee9c053c331d78f56f1d12bd547
-ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
+ms.openlocfilehash: db58d10fae4a8a26e28bedf70ef761c88d5f9b9c
+ms.sourcegitcommit: 646d5cc64acaa91696537d09858b989336ebd3c3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47201409"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49451560"
 ---
 <!-- Notice in meta: 全球分布 to 多个区域分布 -->
 <!-- Notice in meta: 全球范围 to 多个数据中心范围 -->
@@ -24,7 +24,7 @@ ms.locfileid: "47201409"
 Azure 无所不在 - 遍布多个区域（跨中国的多个地理区域）并且仍在持续扩展中。 凭借其多区域存在，Azure 为其开发人员提供的差异化功能之一是能够轻松构建、部署和管理多区域分布式应用程序。 
 <!-- Notice: 全球 to 多个区域分布 -->
 
-[Azure Cosmos DB](../cosmos-db/introduction.md) 是 21Vianet 针对任务关键型应用程序提供的多区域分布式多模型数据库服务。 Azure Cosmos DB 在多个区域提供统包多区域分发、[吞吐量和存储弹性缩放](../cosmos-db/partition-data.md)、99% 情况下低至个位数的毫秒级延迟、[五个妥善定义的一致性模型](consistency-levels.md)，以及得到保证的高可用性，所有这些均由[行业领先的综合 SLA](https://www.azure.cn/support/sla/cosmos-db/) 提供支持。 Azure Cosmos DB [自动为所有数据编制索引](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)，无需客户管理架构或索引。 它是多模型服务并支持文档、键值、图和列系列数据模型。 作为一种云服务，Azure Cosmos DB 通过多租户和多区域分发实现全面彻底的精心设计。
+[Azure Cosmos DB](../cosmos-db/introduction.md) 是 21Vianet 针对任务关键型应用程序提供的多区域分布式多模型数据库服务。 Azure Cosmos DB 在多个区域提供统包多区域分发、[吞吐量和存储弹性缩放](../cosmos-db/partition-data.md)、99% 情况下低至个位数的毫秒级延迟、[五个妥善定义的一致性模型](consistency-levels.md)，以及得到保证的高可用性，所有这些均由[行业领先的综合 SLA](https://www.azure.cn/support/sla/cosmos-db/) 提供支持。 Azure Cosmos DB [自动为所有数据编制索引](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)，无需客户管理架构或索引。 它是多模型服务并支持文档和列系列数据模型。 作为一种云服务，Azure Cosmos DB 通过多租户和多区域分发实现全面彻底的精心设计。
 <!-- Not Available on Key/Value and Graph -->
 <!-- Notice: 全球分布 to 多个区域分布 -->
 
