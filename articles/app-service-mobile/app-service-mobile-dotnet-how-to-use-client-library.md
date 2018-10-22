@@ -13,14 +13,14 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 01/04/2017
-ms.author: v-yiso
-ms.date: 01/29/2018
-ms.openlocfilehash: 4a66b0873df4bb6a715582a9d7506c5041acda2d
-ms.sourcegitcommit: a20b3fbe305d3bb4b6ddfdae98b3e0ab8a79bbfa
+ms.author: v-biyu
+ms.date: 10/29/2018
+ms.openlocfilehash: 944cd649356c4cff3abf5a86fc7099511b3bce6b
+ms.sourcegitcommit: 4b5ada023c9466d497c7474abf7ad71e50c3b17d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/22/2018
-ms.locfileid: "27984769"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49451624"
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>如何使用 Azure 移动应用的托管客户端
 
@@ -86,8 +86,10 @@ public class TodoItem
 using Microsoft.WindowsAzure.MobileServices;
 ```
 
-###<a name="symbolsource"></a>如何在 Visual Studio 中使用调试符号
+> [!NOTE]
+> 请注意，在 Android 项目中引用的所有支持包必须都具有相同的版本。 对于 Android 平台，SDK 具有 `Xamarin.Android.Support.CustomTabs` 依赖项，因此，如果你的项目使用较新的支持包，请直接安装具有所需版本的此包以避免冲突。
 
+### <a name="symbolsource"></a>如何在 Visual Studio 中使用调试符号
 [SymbolSource][10]上提供了 Microsoft.Azure.Mobile 命名空间的符号。  要将 SymbolSource 与 Visual Studio 集成，请参阅 [SymbolSource 说明][11]。
 
 ##<a name="create-client"></a>创建移动应用客户端
@@ -143,7 +145,7 @@ IMobileServiceTable untypedTodoTable = client.GetTable("TodoItem");
 - [筛选返回的数据](#filtering)
 - [为返回的数据排序](#sorting)
 - [在页中返回数据](#paging)
-- [选择特定的列](#selecting)
+- [选择特定列](#selecting)
 - [按 ID 查找数据](#lookingup)
 
 >[!NOTE]
@@ -683,11 +685,11 @@ InvokeApiAsync() 方法在想要调用的 API 前附加“/api/”，除非 API 
 2. 在 Visual Studio 或 Xamarin Studio 中打开项目，并添加对 `Microsoft.IdentityModel.CLients.ActiveDirectory` NuGet 包的引用。 搜索时，请包含预发行版。
 3. 根据使用的平台，将以下代码添加到应用程序。 在每条代码中进行以下替换：
 
-    * 将 **INSERT-AUTHORITY-HERE** 替换为在其中预配应用程序的租户的名称。 格式应为 https://login.chinacloudapi.cn/contoso.onmicrosoft.com。可以在 [Azure 门户]中从 Azure Active Directory 的域选项卡复制此值。
+    * 将 **INSERT-AUTHORITY-HERE** 替换为在其中预配应用程序的租户的名称。 格式应为 https://login.chinacloudapi.cn/contoso.onmicrosoft.com。 可以在 [Azure 门户]中从 Azure Active Directory 的域选项卡复制此值。
     * 将 **INSERT-RESOURCE-ID-HERE** 替换移动应用后端的客户端 ID。 可以在门户中“Azure Active Directory 设置”下面的“高级”选项卡获取此客户端 ID。
     * 将 **INSERT-CLIENT-ID-HERE** 替换为从本机客户端应用程序复制的客户端 ID。
 
-   * 使用 HTTPS 方案将 **INSERT-REDIRECT-URI-HERE** 替换为站点的 */.auth/login/done* 终结点。 此值应类似于 https://contoso.chinacloudsites.cn/.auth/login/done。
+   * 将 **INSERT-REDIRECT-URI-HERE** 替换为站点的 */.auth/login/done* 终结点（使用 HTTPS 方案）。 此值应类似于 *https://contoso.chinacloudsites.cn/.auth/login/done*。
 
     每个平台所需的代码如下：
 
