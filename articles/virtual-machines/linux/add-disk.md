@@ -1,6 +1,6 @@
 ---
 title: 使用 Azure CLI 将数据磁盘添加到 Linux VM | Azure
-description: 了解如何使用 Azure 将持久性数据磁盘添加到 Linux VM
+description: 了解如何使用 Azure CLI 将持久性数据磁盘添加到 Linux VM
 services: virtual-machines-linux
 documentationcenter: ''
 author: rockboyfor
@@ -13,15 +13,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 origin.date: 06/13/2018
-ms.date: 07/30/2018
+ms.date: 10/22/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 78615e816e30258da5c788f120409759be0af8a8
-ms.sourcegitcommit: 35889b4f3ae51464392478a72b172d8910dd2c37
+ms.openlocfilehash: 9aea7f1aa21191bd1135cde0e3a5f7a4619e2d04
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39261878"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453685"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>将磁盘添加到 Linux VM
 本文介绍了如何将持久性磁盘附加到 VM 以便持久保存数据 - 即使 VM 由于维护或调整大小而重新预配。 
@@ -170,7 +170,7 @@ sudo mount /dev/sdc1 /datadrive
 若要确保在重新引导后自动重新装载驱动器，必须将其添加到 */etc/fstab* 文件。 此外，强烈建议在 */etc/fstab* 中使用 UUID（全局唯一标识符）来引用驱动器而不是只使用设备名称（例如 */dev/sdc1*）。 如果 OS 在启动过程中检测到磁盘错误，使用 UUID 可以避免将错误的磁盘装载到给定位置。 然后为剩余的数据磁盘分配这些设备 ID。 若要查找新驱动器的 UUID，请使用 `blkid` 实用工具：
 
 ```bash
-sudo -i blkid
+sudo blkid
 ```
 
 输出与以下示例类似：
