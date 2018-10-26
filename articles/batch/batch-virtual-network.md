@@ -6,15 +6,15 @@ author: dlepow
 manager: jeconnoc
 ms.service: batch
 ms.topic: article
-origin.date: 08/15/2018
-ms.date: 09/07/2018
-ms.author: v-junlch
-ms.openlocfilehash: 9a5389963d9dea55c6b4f64905ff6e87959a6fb0
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+origin.date: 10/15/2018
+ms.date: 10/19/2018
+ms.author: v-lingwu
+ms.openlocfilehash: 4f1812e9c9204f5bb22f1598433d6d0fa13c3b00
+ms.sourcegitcommit: ee042177598431d702573217e2f3538878b6a984
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068142"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477777"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>在虚拟网络中创建 Azure Batch 池
 
@@ -34,9 +34,12 @@ Azure Batch 池具有两个设置来允许计算节点彼此进行通信，例�
 
 - **身份验证**。 若要使用 Azure VNet，Batch 客户端 API 必须使用 Azure Active Directory (AD) 身份验证。 有关 Azure AD 的 Azure Batch 支持，请参阅[使用 Active Directory 对 Batch 服务解决方案进行身份验证](batch-aad-auth.md)。 
 
-- **一个 Azure VNet**。 若要提前准备具有一个或多个子网的 VNet，可以使用 Azure 门户、Azure PowerShell、Azure 命令行接口 (CLI) 或其他方法。 若要创建基于 Azure 资源管理器的 VNet，请参阅[创建虚拟网络](../virtual-network/manage-virtual-network.md#create-a-virtual-network)。 若要创建经典 VNet，请参阅 [Create a virtual network (classic) with multiple subnets](../virtual-network/create-virtual-network-classic.md)（创建具有多个子网的虚拟网络（经典））。
+* **一个 Azure VNet**。 参阅以下部分，了解 VNet 要求和配置。 若要提前准备具有一个或多个子网的 VNet，可以使用 Azure 门户、Azure PowerShell、Azure 命令行接口 (CLI) 或其他方法。  
+  * 若要创建基于 Azure 资源管理器的 VNet，请参阅[创建虚拟网络](../virtual-network/manage-virtual-network.md#create-a-virtual-network)。 推荐将基于资源管理器的 VNet 用于新部署，它是采用虚拟机配置的池支持的唯一选项。
+  * 若要创建经典 VNet，请参阅 [Create a virtual network (classic) with multiple subnets](../virtual-network/create-virtual-network-classic.md)（创建具有多个子网的虚拟网络（经典））。 仅云服务配置中的池支持经典 VNet。
 
-### <a name="vnet-requirements"></a>VNet 要求
+## <a name="vnet-requirements"></a>VNet 要求
+
 [!INCLUDE [batch-virtual-network-ports](../../includes/batch-virtual-network-ports.md)]
     
 ## <a name="create-a-pool-with-a-vnet-in-the-portal"></a>使用门户中的 VNet 创建池

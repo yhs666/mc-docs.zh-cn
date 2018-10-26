@@ -1,6 +1,6 @@
 ---
 title: 使用 cloud-init 在 Azure 上的 Linux VM 中更新和安装包 | Azure
-description: 在使用 Azure CLI 2.0 创建期间如何使用 cloud-init 在 Linux VM 中更新和安装包
+description: 在使用 Azure CLI 创建期间如何使用 cloud-init 在 Linux VM 中更新和安装包
 services: virtual-machines-linux
 documentationcenter: ''
 author: rockboyfor
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 origin.date: 04/20/2018
-ms.date: 06/04/2018
+ms.date: 10/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: dbe00e3982c06a68fd966371ca59b39f31abbc46
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: ec7cac00f47075a7e5d82dbb14e0341287d4cfe2
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702692"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453831"
 ---
 # <a name="use-cloud-init-to-update-and-install-packages-in-a-linux-vm-in-azure"></a>使用 cloud-init 在 Azure 的 Linux VM 中更新和安装包
 本文演示如何在 Azure 中使用 [cloud-init](https://cloudinit.readthedocs.io) 在预配时间更新 Linux 虚拟机 (VM) 或虚拟机规模集 (VMSS) 上的包。 Azure 配置资源后，这些 cloud-init 脚本将在第一次启动时运行。 有关 cloud-init 如何在 Azure 以及受支持的 Linux 发行版中本机工作的详细信息，请参阅 [cloud-init 概述](using-cloud-init.md)
@@ -85,4 +85,5 @@ ID     | Command line             | Date and time    | Action(s)      | Altered
 - [运行包管理器以在首次启动时更新现有包](cloudinit-update-vm.md)
 - [更改 VM 本地主机名](cloudinit-update-vm-hostname.md) 
 - [安装应用程序包、更新配置文件和注入密钥](tutorial-automate-vm-deployment.md)
+
 <!-- Update_Description: wording update, update link -->

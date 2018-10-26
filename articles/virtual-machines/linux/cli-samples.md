@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 03/08/2017
-ms.date: 07/30/2018
+ms.date: 10/22/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 12825eb55eee3f8246240a9724c2efa8ac2ad7c5
-ms.sourcegitcommit: 35889b4f3ae51464392478a72b172d8910dd2c37
+ms.openlocfilehash: 0f3a09fa80dfcbf5c241999f924c1de90969380c
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39261950"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453674"
 ---
 # <a name="azure-cli-samples-for-linux-virtual-machines"></a>适用于 Linux 虚拟机的 Azure CLI 示例
 
@@ -43,6 +43,7 @@ ms.locfileid: "39261950"
 | [从快照创建托管磁盘](../scripts/virtual-machines-linux-cli-sample-create-managed-disk-from-snapshot.md?toc=%2fcli%2fmodule%2ftoc.json) | 从快照创建托管磁盘。 |
 | [将托管磁盘复制到相同或不同的订阅](../scripts/virtual-machines-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fcli%2fmodule%2ftoc.json) | 将托管磁盘复制到相同或不同的订阅，但与父级托管磁盘位于同一区域。 
 | [将快照作为 VHD 导出到存储帐户](../scripts/virtual-machines-linux-cli-sample-copy-snapshot-to-storage-account.md?toc=%2fcli%2fmodule%2ftoc.json) | 将托管快照作为 VHD 导出到不同区域中的存储帐户。 |
+| [将托管磁盘的 VHD 导出到存储帐户](../scripts/virtual-machines-linux-cli-sample-copy-managed-disks-vhd.md?toc=%2fcli%2fmodule%2ftoc.json) | 将托管磁盘的基础 VHD 导出到不同区域中的存储帐户。 |
 | [将快照复制到相同或不同的订阅中](../scripts/virtual-machines-linux-cli-sample-copy-snapshot-to-same-or-different-subscription.md?toc=%2fcli%2fmodule%2ftoc.json) | 将快照复制到相同或不同订阅（但是与父快照处于相同区域中）。 |
 |**网络虚拟机**||
 | [保护虚拟机之间的网络流量](./../scripts/virtual-machines-linux-cli-sample-create-vm-nsg.md) | 创建两个虚拟机、所有相关资源以及内部和外部网络安全组 (NSG)。 |
@@ -51,6 +52,7 @@ ms.locfileid: "39261950"
 |**对虚拟机进行故障排除**||
 | [对 VM 操作系统磁盘进行故障排除](./../scripts/virtual-machines-linux-cli-sample-mount-os-disk.md) | 将一个 VM 中的操作系统磁盘作为数据磁盘装载到第二个 VM 中。 |
 | | |
+
 <!--Not Available on virtual-machines-linux-cli-sample-create-vm-oms.md -->
 
 <!--Update_Description: wording update, update link -->

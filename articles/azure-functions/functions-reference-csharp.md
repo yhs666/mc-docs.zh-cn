@@ -4,24 +4,20 @@ description: '了解如何使用 C # 脚本开发 Azure Functions。'
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: Azure Functions, Functions, 事件处理, webhook, 动态计算, 无服务体系结构
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: dotnet
 ms.topic: reference
-ms.tgt_pltfrm: multiple
-ms.workload: na
 origin.date: 12/12/2017
-ms.date: 08/31/2018
+ms.date: 10/19/2018
 ms.author: v-junlch
-ms.openlocfilehash: efd2e55ceaf18299457dd735bda179802ad61b09
-ms.sourcegitcommit: b2c9bc0ed28e73e8c43aa2041c6d875361833681
+ms.openlocfilehash: b3529888c3d504cbaea3b738efcdcafbdb3e66d3
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43330749"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453618"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Azure Functions C# 脚本 (.csx) 开发人员参考
 
@@ -40,6 +36,29 @@ Azure Functions 的 C# 脚本体验基于 [Azure WebJobs SDK](https://github.com
 *.csx* 格式允许编写更少的“样本”，因此你可以集中编写 C# 函数。 只需定义 `Run` 方法即可，无需将所有内容都包装在命名空间和类中。 像往常一样，在文件开头包含任何程序集引用和命名空间。
 
 初始化实例时，会编译函数应用的 *.csx* 文件。 此编译步骤意味着，与 C# 类库相比，冷启动之类的操作对于 C# 脚本函数来说可能需要更长的时间。 此编译步骤也说明了为何 C# 脚本函数在 Azure 门户中可以编辑，而 C# 类库则不可以编辑。
+
+## <a name="folder-structure"></a>文件夹结构
+
+C# 脚本项目的文件夹结构如下所示：
+
+```
+FunctionsProject
+ | - MyFirstFunction
+ | | - run.csx
+ | | - function.json
+ | | - function.proj
+ | - MySecondFunction
+ | | - run.csx
+ | | - function.json
+ | | - function.proj
+ | - host.json
+ | - extensions.csproj
+ | - bin
+```
+
+有一个共享的 [host.json](functions-host-json.md) 文件，可用于配置函数应用。 每个函数都具有自己的代码文件 (.csx) 和绑定配置文件 (function.json)。
+
+[2.x 版](functions-versions.md) Functions 运行时中所需的绑定扩展在 `extensions.csproj` 文件中定义，实际库文件位于 `bin` 文件夹中。 本地开发时，必须[注册绑定扩展](functions-triggers-bindings.md#local-development-azure-functions-core-tools)。 在 Azure 门户中开发函数时，系统将为你完成此注册。
 
 ## <a name="binding-to-arguments"></a>绑定到参数
 
@@ -338,8 +357,10 @@ public static Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter 
 ## <a name="referencing-custom-assemblies"></a>引用自定义程序集
 
 若要引用自定义程序集，可使用共享程序集或私有程序集：
-- 共享程序集在函数应用内的所有函数中共享。 若要引用自定义程序集，请将程序集上传到[函数应用根文件夹`bin` (wwwroot) 中名为 ](functions-reference.md#folder-structure) 的文件夹。 
-- 私有程序集是给定函数上下文的一部分，支持不同版本的旁加载。 私有程序集应上传到函数目录中的 `bin` 文件夹。 使用文件名（例如 `#r "MyAssembly.dll"`）引用程序集。 
+
+- 共享程序集在函数应用内的所有函数中共享。 若要引用自定义程序集，请将程序集上传到[函数应用根文件夹`bin` (wwwroot) 中名为 ](functions-reference.md#folder-structure) 的文件夹。
+
+- 私有程序集是给定函数上下文的一部分，支持不同版本的旁加载。 私有程序集应上传到函数目录中的 `bin` 文件夹。 使用文件名（例如 `#r "MyAssembly.dll"`）引用程序集。
 
 有关如何将文件上传到函数文件夹的信息，请参阅有关[程序包管理](#using-nuget-packages)的部分。
 
@@ -484,10 +505,10 @@ public static async Task Run(string input, Binder binder)
 | 绑定 | 属性 | 添加引用 |
 |------|------|------|
 | Cosmos DB | [`Microsoft.Azure.WebJobs.DocumentDBAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.CosmosDB"` |
-| 事件中心 | `Microsoft.Azure.WebJobs.ServiceBus.EventHubAttribute`, [`Microsoft.Azure.WebJobs.ServiceBusAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs) | `#r "Microsoft.Azure.Jobs.ServiceBus"` |
+| 事件中心 | `Microsoft.Azure.WebJobs.ServiceBus.EventHubAttribute`、`Microsoft.Azure.WebJobs.ServiceBusAccountAttribute`） | `#r "Microsoft.Azure.Jobs.ServiceBus"` |
 | Mobile Apps | [`Microsoft.Azure.WebJobs.MobileTableAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.MobileApps"` |
 | 通知中心 | [`Microsoft.Azure.WebJobs.NotificationHubAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.NotificationHubs/NotificationHubAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.NotificationHubs"` |
-| 服务总线 | [`Microsoft.Azure.WebJobs.ServiceBusAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAttribute.cs), [`Microsoft.Azure.WebJobs.ServiceBusAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/ServiceBusAccountAttribute.cs) | `#r "Microsoft.Azure.WebJobs.ServiceBus"` |
+| 服务总线 | `Microsoft.Azure.WebJobs.ServiceBusAttribute`, `Microsoft.Azure.WebJobs.ServiceBusAccountAttribute` | `#r "Microsoft.Azure.WebJobs.ServiceBus"` |
 | 存储队列 | `Microsoft.Azure.WebJobs.QueueAttribute`, [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
 | 存储 blob | `Microsoft.Azure.WebJobs.BlobAttribute`, [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
 | 存储表 | `Microsoft.Azure.WebJobs.TableAttribute`, [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |

@@ -1,20 +1,20 @@
 ---
 title: 了解 Azure IoT 中心 MQTT 支持 | Azure
 description: 开发人员指南 - 支持设备使用 MQTT 协议连接到面向设备的 IoT 中心终结点。 介绍了 Azure IoT 设备 SDK 中的内置 MQTT 支持。
-author: fsautomata
+author: rezasherafat
 manager: ''
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-origin.date: 03/05/2018
-ms.date: 09/10/2018
+origin.date: 10/15/2018
+ms.date: 10/29/2018
 ms.author: v-yiso
-ms.openlocfilehash: e870b33febd608f257fce7e8b8e45769d36dbecd
-ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
+ms.openlocfilehash: a29abf424661eceb2b5045e90eeb3f2e7fd115d3
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43328322"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453855"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>使用 MQTT 协议与 IoT 中心通信
 
@@ -101,7 +101,7 @@ IoT 中心不是功能完备的 MQTT 中转站，并未支持 MQTT v3.1.1 标准
 
 对于 MQTT 连接和断开连接数据包，IoT 中心会在**操作监视**通道上发出事件。 此事件包含的其他信息有助于排查连接问题。
 
-设备应用可以在 CONNECT 数据包中指定 Will 消息。 设备应用应该使用 `devices/{device_id}/messages/events/{property_bag}` 或 `devices/{device_id}/messages/events/{property_bag}` 作为 Will 主题名称，用于定义要作为遥测消息转发的 Will 消息。 在此情况下，如果关闭网络连接，但之前未从设备中接收到 DISCONNECT 数据包，则 IoT 中心将 CONNECT 数据包中提供的 Will 消息发送到遥测通道。 遥测通道可以是默认事件终结点或由 IoT 中心路由定义的自定义终结点。 消息具有 iothub-MessageType 属性，其中包含分配给它的 Will 的值。
+设备应用可以在 CONNECT 数据包中指定 Will 消息。 设备应用应该使用 `devices/{device_id}/messages/events/` 或 `devices/{device_id}/messages/events/{property_bag}` 作为 Will 主题名称，用于定义要作为遥测消息转发的 Will 消息。 在此情况下，如果关闭网络连接，但之前未从设备中接收到 DISCONNECT 数据包，则 IoT 中心将 CONNECT 数据包中提供的 Will 消息发送到遥测通道。 遥测通道可以是默认事件终结点或由 IoT 中心路由定义的自定义终结点。 消息具有 iothub-MessageType 属性，其中包含分配给它的 Will 的值。
 
 ### <a name="tlsssl-configuration"></a>TLS/SSL 配置
 
@@ -225,6 +225,8 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 
 ### <a name="update-device-twins-reported-properties"></a>更新设备孪生的报告属性
 
+为了更新报告属性，设备将通过指定的 MQTT 主题上的发布向 IoT 中心发出请求。 处理请求之后，IoT 中心将通过发布到另一个主题来响应更新操作的成功或失败状态。 设备可以订阅此主题，以便通知它其孪生更新请求的结果。 为了在 MQTT 中实现这种类型的请求/响应交互，我们利用了设备最初在其更新请求中提供的请求 ID (`$rid`) 的概念。 此请求 ID 也包含在 IoT 中心的响应中，以允许设备将响应与其特定的早期请求相关联。
+
 以下顺序说明了设备如何在 IoT 中心更新设备孪生中报告的属性：
 
 1. 设备必须先订阅 `$iothub/twin/res/#` 主题，以便接收 IoT 中心的操作响应。
@@ -250,6 +252,20 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 | 400 | 错误的请求。 格式不正确的 JSON |
 | 429 | 请求过多（受限），如 [IoT 中心限制][lnk-quotas]中所述 |
 | 5** | 服务器错误 |
+
+下面的 python 代码片段演示了通过 MQTT（使用 Paho MQTT 客户端）进行的孪生报告属性更新过程：
+```python
+from paho.mqtt import client as mqtt
+
+# authenticate the client with IoT Hub (not shown here)
+
+client.subscribe("$iothub/twin/res/#")
+rid = "1"
+twin_reported_property_patch = "{\"firmware_version\": \"v1.1\"}"
+client.publish("$iothub/twin/PATCH/properties/reported/?$rid=" + rid, twin_reported_property_patch, qos=0)
+```
+
+上述孪生报告属性更新操作成功后，来自 IoT 中心的发布消息将具有以下主题：`$iothub/twin/res/204/?$rid=1&$version=6`，其中 `204` 是指示成功的状态代码，`$rid=1` 对应于代码中设备提供的请求 ID，`$version` 对应于更新后设备孪生的报告属性节的版本。
 
 有关详细信息，请参阅[设备孪生开发人员指南][lnk-devguide-twin]。
 
@@ -317,7 +333,7 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 [lnk-compare]: ./iot-hub-compare-event-hubs.md
 [lnk-scaling]: ./iot-hub-scaling.md
 [lnk-devguide]: ./iot-hub-devguide.md
-[lnk-iotedge]: ./iot-hub-linux-iot-edge-simulated-device.md
+[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
 [lnk-x509]: iot-hub-security-x509-get-started.md
 
 <!--Update_Description:update meta properties and link references-->

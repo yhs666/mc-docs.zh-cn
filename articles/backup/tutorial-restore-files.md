@@ -8,15 +8,15 @@ tags: azure-resource-manager, virtual-machine-backup
 ms.service: backup
 ms.topic: tutorial
 origin.date: 02/14/2018
-ms.date: 08/22/2018
-ms.author: v-junlch
+ms.date: 10/19/2018
+ms.author: v-lingwu
 ms.custom: mvc
-ms.openlocfilehash: b8dc272692510ccc6ff8e704bbd27eb72c8875bd
-ms.sourcegitcommit: 85cdb61361dc61147bac991d4907f454f0684ea0
+ms.openlocfilehash: b1c149f3c789afea683e49fd88ea9b299c797d29
+ms.sourcegitcommit: ee042177598431d702573217e2f3538878b6a984
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42709730"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477758"
 ---
 # <a name="restore-files-to-a-virtual-machine-in-azure"></a>将文件还原到 Azure 中的虚拟机
 Azure 备份可创建恢复点，这些恢复点存储在异地冗余的恢复保管库中。 从恢复点还原时，可以还原整个 VM，也可以还原单个文件。 本文将详细介绍如何还原单个文件。 本教程介绍如何执行下列操作：
@@ -26,7 +26,7 @@ Azure 备份可创建恢复点，这些恢复点存储在异地冗余的恢复�
 > * 将恢复点连接到 VM
 > * 从恢复点还原文件
 
-如果选择在本地安装并使用 CLI，本教程需要你运行 Azure CLI 2.0.18 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](/cli/install-azure-cli)。 
+如果选择在本地安装并使用 CLI，本教程需要你运行 Azure CLI 2.0.18 或更高版本。 运行 `az --version` 即可查找版本。 如需进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。 
 
 
 ## <a name="prerequisites"></a>先决条件

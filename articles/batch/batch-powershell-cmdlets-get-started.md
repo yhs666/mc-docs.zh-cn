@@ -12,24 +12,24 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: powershell
 ms.workload: big-compute
-origin.date: 02/27/2017
-ms.date: 05/14/2018
-ms.author: v-junlch
+origin.date: 10/05/2017
+ms.date: 10/19/2018
+ms.author: v-lingwu
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5b0f6f91a42d7fb23a201e482fc8f55174d84431
-ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
+ms.openlocfilehash: 625f8252e81b98c60faa50b0331a648321f64739
+ms.sourcegitcommit: ee042177598431d702573217e2f3538878b6a984
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "34173344"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477782"
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>使用 PowerShell cmdlet 管理 Batch 资源
 
-通过 Azure Batch PowerShell cmdlet，可以执行许多与通过 Batch API、Azure 门户和 Azure 命令行界面执行的相同任务并为它们编写脚本。 本文简要介绍可用于管理 Batch 帐户和处理 Batch 资源（例如池、作业和任务）的 cmdlet。
+通过 Azure Batch PowerShell cmdlet，可以执行许多通过 Batch API、Azure 门户和 Azure 命令行接口 (CLI) 执行的任务并为它们编写脚本。 本文简要介绍可用于管理 Batch 帐户和处理 Batch 资源（例如池、作业和任务）的 cmdlet。
 
 如需 Batch cmdlet 的完整列表和详细的 cmdlet 语法，请参阅 [Azure Batch cmdlet 参考](https://docs.microsoft.com/powershell/module/azurerm.batch/#batch)。
 
-本文基于 Azure PowerShell 3.0.0 版本中的 cmdlet。 建议经常更新 Azure PowerShell 以利用服务更新和增强功能。
+本文基于 Azure Batch 模块 4.1.5 中的 cmdlet。 建议经常更新 Azure PowerShell 模块以利用服务更新和增强功能。
 
 ## <a name="prerequisites"></a>先决条件
 执行以下操作，使用 Azure PowerShell 管理 Batch 资源。
@@ -38,13 +38,13 @@ ms.locfileid: "34173344"
 - 运行 **Login-AzureRmAccount** cmdlet 连接到订阅（Azure Resource Manager 模块中随附了 Azure Batch cmdlet）：
   
     `Login-AzureRmAccount -EnvironmentName AzureChinaCloud`
-- **注册到批处理提供程序命名空间**。 此操作 **每个订阅仅需执行一次**。
+* **注册到批处理提供程序命名空间**。 执行此操作时，只需**每个订阅一次**。
   
     `Register-AzureRMResourceProvider -ProviderNamespace Microsoft.Batch`
 
 ## <a name="manage-batch-accounts-and-keys"></a>管理 Batch 帐户和密钥
 ### <a name="create-a-batch-account"></a>创建 Batch 帐户
-**New-AzureRmBatchAccount** 可在指定的资源组中创建 Batch 帐户。 如果没有资源组，可以运行 [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) cmdlet 创建一个资源组。 在 **Location** 参数中指定一个 Azure 区域，例如“中国北部”。 例如：
+**New-AzureRmBatchAccount** 可在指定的资源组中创建 Batch 帐户。 如果还没有资源组，可创建一个，方法是运行 [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) cmdlet。 在 **Location** 参数中指定一个 Azure 区域，例如“中国北部”。 例如：
 
     New-AzureRmResourceGroup -Name MyBatchResourceGroup -location "China North"
 
@@ -84,16 +84,24 @@ ms.locfileid: "34173344"
 出现提示时，确认你想要删除该帐户。 帐户删除可能需要一段时间才能完成。
 
 ## <a name="create-a-batchaccountcontext-object"></a>创建 BatchAccountContext 对象
-要在创建和管理池、作业、任务和其他资源时使用 Batch PowerShell cmdlet 进行身份验证，需先创建 BatchAccountContext 对象来存储帐户名和密钥：
 
-    $context = Get-AzureRmBatchAccountKeys -AccountName <account_name>
+可以通过共享密钥身份验证或 Azure Active Directory 身份验证进行身份验证，以便管理 Batch 资源。 若要使用 Batch PowerShell cmdlet 进行身份验证，需先创建 BatchAccountContext 对象来存储帐户凭据或标识。 将 BatchAccountContext 对象传入使用 **BatchContext** 参数的 cmdlet。 
 
-将 BatchAccountContext 对象传入使用 **BatchContext** 参数的 cmdlet。
+### <a name="shared-key-authentication"></a>共享密钥身份验证
+
+```PowerShell
+$context = Get-AzureRmBatchAccountKeys -AccountName <account_name>
+```
 
 > [!NOTE]
 > 默认情况下，帐户的主要密钥用于身份验证，但可以通过更改 BatchAccountContext 对象的 **KeyInUse** 属性，显式选择要使用的密钥：`$context.KeyInUse = "Secondary"`。
 > 
-> 
+
+### <a name="azure-active-directory-authentication"></a>Azure Active Directory 身份验证
+
+```PowerShell
+$context = Get-AzureRmBatchAccount -AccountName <account_name>
+```
 
 ## <a name="create-and-modify-batch-resources"></a>创建和修改 Batch 资源
 使用 **New-AzureBatchPool**、**New-AzureBatchJob** 和 **New-AzureBatchTask** 等 cmdlet 在批处理帐户下创建资源。 可以使用相应的 **Get-** 和 **Set-** cmdlet 来更新现有资源的属性，以及使用 **Remove-** cmdlet 来删除批处理帐户下的资源。
@@ -101,13 +109,17 @@ ms.locfileid: "34173344"
 使用这些 cmdlet 时，除了传递 BatchContext 对象，还需要创建或传递包含详细的资源设置的对象，如以下示例所示。 请参阅每个 cmdlet 的详细帮助说明来了解其他示例。
 
 ### <a name="create-a-batch-pool"></a>创建 Batch 池
-创建或更新 Batch 池时，为计算节点上的操作系统选择云服务配置或虚拟机配置（请参阅 [Batch 功能概述](batch-api-basics.md#pool)）。 如果指定云服务配置，系统会使用一个 [Azure 来宾 OS 版本](../cloud-services/cloud-services-guestos-update-matrix.md#releases)为计算节点创建映像。 如果指定虚拟机配置，则可指定一个受支持的 Linux 或 Windows VM 映像（在 [Azure 虚拟机 Marketplace][vm_marketplace] 中列出），或者提供已准备的自定义映像。
+创建或更新 Batch 池时，为计算节点上的操作系统选择云服务配置或虚拟机配置（请参阅 [Batch 功能概述](batch-api-basics.md#pool)）。 如果指定云服务配置，系统会使用一个 [Azure 来宾 OS 版本](../cloud-services/cloud-services-guestos-update-matrix.md#releases)为计算节点创建映像。 如果指定虚拟机配置，则可指定一个受支持的 Linux 或 Windows VM 映像（在 [Azure 虚拟机市场][vm_marketplace]中列出），或者提供已准备的自定义映像。
 
 运行 **New-AzureBatchPool**时，传递 PSCloudServiceConfiguration 或 PSVirtualMachineConfiguration 对象中的操作系统设置。 例如，以下 cmdlet 可以在云服务配置中新建包含小型计算节点的 Batch 池，这些节点是使用系列 3 最新操作系统版本 (Windows Server 2012) 映像的。 在此， **CloudServiceConfiguration** 参数指定 *$configuration* 变量作为 PSCloudServiceConfiguration 对象。 **BatchContext** 参数将先前定义的变量 *$context* 指定为 BatchAccountContext 对象。
 
-    $configuration = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSCloudServiceConfiguration" -ArgumentList @(4,"*")
+```PowerShell
+$imageRef = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSImageReference" -ArgumentList @("UbuntuServer","Canonical","16.04.0-LTS")
 
-    New-AzureBatchPool -Id "AutoScalePool" -VirtualMachineSize "Small" -CloudServiceConfiguration $configuration -AutoScaleFormula '$TargetDedicated=4;' -BatchContext $context
+$configuration = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSVirtualMachineConfiguration" -ArgumentList @($imageRef, "batch.node.ubuntu 16.04")
+
+New-AzureBatchPool -Id "mypool" -VirtualMachineSize "Standard_a1" -VirtualMachineConfiguration $configuration -AutoScaleFormula '$TargetDedicated=4;' -BatchContext $context
+```
 
 通过自动缩放公式确定新池中的目标计算节点数。 在本示例中，公式为 **$TargetDedicated=4**，表示池中的计算节点数最多为 4。
 

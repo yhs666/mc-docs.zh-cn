@@ -4,24 +4,20 @@ description: 了解如何使用 Azure Functions 中的触发器和绑定将代�
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: Azure Functions, Functions, 事件处理, webhook, 动态计算, 无服务体系结构
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.tgt_pltfrm: multiple
-ms.workload: na
-origin.date: 05/24/2018
-ms.date: 08/31/2018
+origin.date: 09/24/2018
+ms.date: 10/19/2018
 ms.author: v-junlch
-ms.openlocfilehash: 3400c1e6245646615b7c4eb5953f9033e2a63144
-ms.sourcegitcommit: b2c9bc0ed28e73e8c43aa2041c6d875361833681
+ms.openlocfilehash: fb755e7b29f9de59a74b4ddecc86f1e2b3126d93
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43330798"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453847"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions 触发器和绑定概念
 
@@ -165,7 +161,7 @@ function generateRandomId() {
 |使用 Visual Studio 2017 的 C# 类库|[使用 NuGet 工具](#c-class-library-with-visual-studio-2017)|[使用 NuGet 工具](#c-class-library-with-visual-studio-2017)|
 |使用 Visual Studio Code 的 C# 类库|不适用|[使用 .NET Core CLI](#c-class-library-with-visual-studio-code)|
 
-以下绑定类型例外，它们不需要显式注册，因为它们会在所有版本和环境中自动注册：HTTP、计时器和 Azure 存储（blob、队列和表）。 
+以下绑定类型例外，它们不需要显式注册，因为它们会在所有版本和环境中自动注册：HTTP 和计时器。
 
 ### <a name="azure-portal-development"></a>使用 Azure 门户进行开发
 
@@ -173,7 +169,7 @@ function generateRandomId() {
 
 创建函数或添加绑定时，如果触发器或绑定的扩展需要注册，则系统会显示提示。 单击“安装”注册扩展，以响应提示。 
 
-对于给定的函数应用，只需安装每个扩展一次。 
+对于给定的函数应用，只需安装每个扩展一次。 对于门户中不可用的受支持绑定或要更新已安装的扩展，还可以[从门户手动安装或更新 Azure Functions 绑定扩展](install-update-binding-extensions-manual.md)。  
 
 ### <a name="local-development-azure-functions-core-tools"></a>使用 Azure Functions Core Tools 进行本地开发
 
@@ -677,4 +673,4 @@ public class BlobName
 - [移动应用](functions-bindings-mobile-apps.md)
 - [外部文件](functions-bindings-external-file.md)
 
-<!-- Update_Description: code update -->
+<!-- Update_Description: wording update -->

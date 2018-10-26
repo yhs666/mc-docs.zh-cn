@@ -1,26 +1,22 @@
 ---
 title: Azure IoT 中心设备管理入门 (Python)
 description: 如何使用 IoT 中心设备管理进行远程设备重启。 使用适用于 Python 的 Azure IoT SDK 实现包含直接方法的模拟设备应用和调用直接方法的服务应用。
-services: iot-hub
-documentationcenter: .net
-author: msebolt
+author: kgremban
 manager: timlt
-editor: ''
-ms.assetid: e044006d-ffd6-469b-bc63-c182ad066e31
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 01/02/2018
-ms.date: 03/19/2018
+ms.date: 10/29/2018
 ms.author: v-yiso
-ms.openlocfilehash: 7103b7922eaf7a21823e47861137cbf4178f53f6
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 7b9b616281c1b718362b95ab411945fd85fd34e4
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939957"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453539"
 ---
 # <a name="get-started-with-device-management-python"></a>设备管理入门 (Python)
 
@@ -154,7 +150,7 @@ ms.locfileid: "38939957"
 1. 保存并关闭 **dmpatterns_getstarted_device.py** 文件。
 
 > [!NOTE]
-> 为简单起见，本教程不实现任何重试策略。 在生产代码中，应该按 MSDN 文章 [Transient Fault Handling][lnk-transient-faults]（暂时性故障处理）中所述实施重试策略（例如指数性的回退）。
+> 为简单起见，本教程不实现任何重试策略。 在生产代码中，应该按文章 [Transient Fault Handling][lnk-transient-faults]（暂时性故障处理）中所述实施重试策略（例如指数退避）。
 
 
 ## <a name="trigger-a-remote-reboot-on-the-device-using-a-direct-method"></a>使用直接方法在设备上触发远程重新启动

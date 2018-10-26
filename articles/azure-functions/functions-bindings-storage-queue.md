@@ -10,15 +10,15 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 origin.date: 09/03/2018
-ms.date: 09/21/2018
+ms.date: 10/18/2018
 ms.author: v-junlch
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: a378f26248a7efe98d755f9452f83c9de610ee39
-ms.sourcegitcommit: 54d9384656cee927000d77de5791c1d585d94a68
+ms.openlocfilehash: 1bd3f79e6efb7feab0a865a6152433d7e0093055
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46524046"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453833"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure Functions 的 Azure 队列存储绑定
 
@@ -147,11 +147,16 @@ function.json 文件如下所示：
 
 [配置](#trigger---configuration)部分解释了这些属性。
 
+> [!NOTE]
+> name 参数在 JavaScript 代码中反映为 `context.bindings.<name>`，其中包含队列项有效负载。 此有效负载也作为第二个参数传递给函数。
+
 JavaScript 代码如下所示：
 
 ```javascript
-module.exports = function (context) {
-    context.log('Node.js queue trigger function processed work item', context.bindings.myQueueItem);
+module.exports = async function (context, message) {
+    context.log('Node.js queue trigger function processed work item', message);
+    // OR access using context.bindings.<name>
+    // context.log('Node.js queue trigger function processed work item', context.bindings.myQueueItem);
     context.log('queueTrigger =', context.bindingData.queueTrigger);
     context.log('expirationTime =', context.bindingData.expirationTime);
     context.log('insertionTime =', context.bindingData.insertionTime);
@@ -245,7 +250,7 @@ module.exports = function (context) {
 |---------|---------|----------------------|
 |类型 | 不适用| 必须设置为 `queueTrigger`。 在 Azure 门户中创建触发器时，会自动设置此属性。|
 |direction| 不适用 | 只能在 *function.json* 文件中设置。 必须设置为 `in`。 在 Azure 门户中创建触发器时，会自动设置此属性。 |
-|**name** | 不适用 |表示函数代码中的队列的变量的名称。  | 
+|**name** | 不适用 |函数代码中包含队列项有效负载的变量的名称。  | 
 |**queueName** | **QueueName**| 要轮询的队列的名称。 | 
 |**连接** | **Connection** |包含要用于此绑定的存储连接字符串的应用设置的名称。 如果应用设置名称以“AzureWebJobs”开始，则只能在此处指定该名称的余下部分。 例如，如果将 `connection` 设置为“MyStorage”，函数运行时将会查找名为“AzureWebJobsMyStorage”的应用设置。 如果将 `connection` 留空，函数运行时将使用名为 `AzureWebJobsStorage` 的应用设置中的默认存储连接字符串。|
 
@@ -460,7 +465,7 @@ module.exports = function(context) {
  }
  ```
 
-在 Java 函数运行时库中，对其值将要写入队列存储的参数使用 `@QueueOutput` 注释。  参数类型应为 `OutputBinding<T>`，其中 T 是 POJO 的任何本机 Java 类型。
+在 [Java 函数运行时库](https://docs.microsoft.com/en-us/java/api/overview/azure/functions/runtime)中，对其值将写入队列存储的参数使用 `@QueueOutput` 注释。  参数类型应为 `OutputBinding<T>`，其中 T 是 POJO 的任何本机 Java 类型。
 
 
 ## <a name="output---attributes"></a>输出 - 特性
@@ -536,14 +541,15 @@ public static string Run([HttpTrigger] dynamic input,  TraceWriter log)
 
 ## <a name="next-steps"></a>后续步骤
 
+- [详细了解 Azure Functions 触发器和绑定](functions-triggers-bindings.md)
+
+<!--
 > [!div class="nextstepaction"]
-> [转到有关使用队列存储触发器的快速入门](functions-create-storage-queue-triggered-function.md)
+> [Go to a quickstart that uses a Queue storage trigger](functions-create-storage-queue-triggered-function.md)
+-->
 
 > [!div class="nextstepaction"]
 > [转到有关使用队列存储输出绑定的教程](functions-integrate-storage-queue-output-binding.md)
-
-> [!div class="nextstepaction"]
-> [详细了解 Azure Functions 触发器和绑定](functions-triggers-bindings.md)
 
 <!-- LINKS -->
 

@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 07/17/2018
 ms.date: 09/10/2018
 ms.author: v-jay
-ms.openlocfilehash: 05ea0118bdfea8af77e02b947093261353f6e25b
-ms.sourcegitcommit: e157751c560524d0bb828e987b87178130663547
+ms.openlocfilehash: 1cc670af54f76150badd4d4df46f4d48d77bcc71
+ms.sourcegitcommit: 3ec1b0705c8305fc4561b9511c275edb9baa1f59
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43651290"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49316010"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>使用 Azure 导入/导出服务从 Azure Blob 存储导出数据
 本文分步说明如何使用 Azure 导入/导出服务从 Azure Blob 存储安全地导出大量数据。 该服务要求你将空驱动器寄送到 Azure 数据中心。 该服务将数据从存储帐户导出到驱动器，然后将驱动器寄回。
@@ -43,7 +43,7 @@ ms.locfileid: "43651290"
     
     - 选择“从 Azure 导出”。 
     - 为导出作业输入一个描述性名称。 使用所选名称来跟踪作业进度。 
-        - 此名称只能包含小写字母、数字、连字符和下划线。
+        - 此名称只能包含小写字母、数字、连字符。
         - 此名称必须以字母开头，并且不得包含空格。 
     - 选择一个订阅。
     - 输入或选择一个资源组。
@@ -52,7 +52,7 @@ ms.locfileid: "43651290"
     
 3. 在“作业详细信息”中：
 
-    - 选择要导出的数据所在的存储帐户。 使用附近位置的存储帐户。
+    - 选择要导出的数据所在的存储帐户。 使用附近位置的存储帐户。 目前仅在中国东部和中国北部支持此功能。
     - 放置位置根据选定存储帐户所属的区域自动进行填充。 
     - 指定要从存储帐户导出到空驱动器的 blob 数据。 
     - 选择“全部导出”以导出存储帐户中的所有 blob 数据。
@@ -93,8 +93,6 @@ ms.locfileid: "43651290"
     - 单击“确定”以完成导出作业的创建。
 
 ## <a name="step-2-ship-the-drives"></a>步骤 2：寄送驱动器
-
-如果不知道所需的驱动器数量，请转到[检查驱动器数量](#check-the-number-of-drives)。 如果知道驱动器数量，则直接寄送驱动器。
 
 [!INCLUDE [storage-import-export-ship-drives](../../../includes/storage-import-export-ship-drives.md)]
 

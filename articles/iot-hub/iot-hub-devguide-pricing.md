@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 01/29/2018
-ms.date: 06/11/2018
+ms.date: 10/29/2018
 ms.author: v-yiso
-ms.openlocfilehash: dda1b69eb7a6f29b7820344f09545b6ca49fa022
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 4103f7b9cd2f23de0a241cfaccfe7f675694ce66
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695056"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453520"
 ---
 # <a name="azure-iot-hub-pricing-information"></a>Azure IoT 中心定价信息
 
@@ -44,7 +44,7 @@ ms.locfileid: "34695056"
 | 作业的每设备操作数 | 作业操作（例如孪生更新和方法）正常收费。 例如，如果一个作业生成 1000 个方法调用以及 1KB 的请求和正文为空的响应，则按 1000 条消息收费。 |
 
 > [!NOTE]
-> 所有大小均按以字节为单位的有效负载大小进行计算（忽略协议组帧）。 对于具有属性和正文的消息，大小以无关协议的方式计算。 有关详细信息，请参阅 [IoT 中心消息传送开发人员指南][lnk-message-size]。
+> 所有大小均按以字节为单位的有效负载大小进行计算（忽略协议组帧）。 对于具有属性和正文的消息，大小以无关协议的方式计算。 有关详细信息，请参阅 [IoT 中心消息格式](iot-hub-devguide-messages-construct.md)。
 
 ## <a name="example-1"></a>示例 1
 

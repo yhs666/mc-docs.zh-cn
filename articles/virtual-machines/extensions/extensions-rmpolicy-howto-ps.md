@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 03/23/2018
-ms.date: 08/27/2018
+ms.date: 10/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: c610ee91e621448c54ec1f42bef06f5a6b3f5e35
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.openlocfilehash: 69c1de654cba73410c80c21261f8ebfcea7d1d37
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42872356"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453733"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-windows-vms"></a>使用 Azure Policy 限制 Windows VM 上的扩展安装
 
@@ -166,4 +166,5 @@ Remove-AzureRmPolicyDefinition -Name not-allowed-vmextension-windows
 
 ## <a name="next-steps"></a>后续步骤
 有关详细信息，请参阅 [Azure Policy](../../azure-policy/azure-policy-introduction.md)。
+
 <!-- Update_Description: update meta properties, wording update -->

@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 10/06/2017
-ms.date: 09/10/2018
+ms.date: 10/29/2018
 ms.author: v-yiso
-ms.openlocfilehash: 98bfa28c19c3279072d762c998b0705c9e332ac2
-ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
+ms.openlocfilehash: cd45d623bb62b0eebaca6b9caf969d41976eee6e
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43329113"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453661"
 ---
 # <a name="schedule-and-broadcast-jobs-node"></a>计划和广播作业 (Node)
 
@@ -118,7 +118,7 @@ scheduleJobService.js，它调用模拟设备应用中的直接方法，并通�
 8. 保存并关闭 **simDevice.js** 文件。
 
 > [!NOTE]
-> 为简单起见，本教程不实现任何重试策略。 在生产代码中，应该按 MSDN 文章 [Transient Fault Handling][lnk-transient-faults]（暂时性故障处理）中所述实施重试策略（例如指数性的回退）。
+> 为简单起见，本教程不实现任何重试策略。 在生产代码中，应该按文章 [Transient Fault Handling][lnk-transient-faults]（暂时性故障处理）中所述实施重试策略（例如指数退避）。
 > 
 > 
 
@@ -268,7 +268,7 @@ scheduleJobService.js，它调用模拟设备应用中的直接方法，并通�
 [lnk-c2d-methods]: quickstart-control-device-node.md
 [lnk-dev-methods]: ./iot-hub-devguide-direct-methods.md
 [lnk-fwupdate]: ./tutorial-firmware-update.md
-[lnk-iot-edge]: ./iot-hub-linux-iot-edge-get-started.md
+[lnk-iot-edge]: ../iot-edge/tutorial-simulate-device-linux.md
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 [lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/
 [lnk-transient-faults]: https://msdn.microsoft.com/zh-cn/library/hh680901(v=pandp.50).aspx

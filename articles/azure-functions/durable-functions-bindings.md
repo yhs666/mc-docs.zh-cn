@@ -9,14 +9,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 origin.date: 09/29/2017
-ms.date: 09/21/2018
+ms.date: 10/18/2018
 ms.author: v-junlch
-ms.openlocfilehash: 8d0c6550aebc922426ec25ad3e93c2f119bbd369
-ms.sourcegitcommit: 54d9384656cee927000d77de5791c1d585d94a68
+ms.openlocfilehash: fafefa85c618fb52573d401702e8ee29fde3d4d2
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46524023"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453603"
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Durable Functions (Azure Functions) 的绑定
 
@@ -82,7 +82,7 @@ public static string Run([OrchestrationTrigger] DurableOrchestrationContext cont
 ```javascript
 const df = require("durable-functions");
 
-module.exports = df(function*(context) {
+module.exports = df.orchestrator(function*(context) {
     const name = context.df.getInput();
     return `Hello ${name}!`;
 });
@@ -111,7 +111,7 @@ public static async Task<string> Run(
 ```javascript
 const df = require("durable-functions");
 
-module.exports = df(function*(context) {
+module.exports = df.orchestrator(function*(context) {
     const name = context.df.getInput();
     const result = yield context.df.callActivityAsync("SayHello", name);
     return result;
@@ -359,4 +359,4 @@ module.exports = function (context, input) {
 > [了解检查点行为和重播行为](durable-functions-checkpointing-and-replay.md)
 
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->

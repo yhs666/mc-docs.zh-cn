@@ -3,8 +3,8 @@ title: 在 Azure 中创建 Node.js Web 应用 | Azure
 description: 数分钟内在 Azure 应用服务 Web 应用中部署第一个 Node.js Hello World。
 services: app-service\web
 documentationcenter: ''
-author: cephalin
-manager: cfowler
+author: msangapu
+manager: jeconnoc
 editor: ''
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.service: app-service-web
@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 origin.date: 08/24/2018
-ms.date: 10/08/2018
-ms.author: v-yiso
+ms.date: 10/29/2018
+ms.author: v-biyu
 ms.custom: mvc, devcenter
-ms.openlocfilehash: ce84b8d3a49e97bfbb6573170ef22973f428acbb
-ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
+ms.openlocfilehash: 518382768ba9977bab7613e45498aa85cd53369d
+ms.sourcegitcommit: 4b5ada023c9466d497c7474abf7ad71e50c3b17d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523826"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49451602"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>在 Azure 中创建 Node.js Web 应用
 
-[Azure Web 应用](app-service-web-overview.md)提供高度可缩放、自修补的 Web 托管服务。  本快速入门演示如何将 Node.js 应用部署到 Azure Web 应用中。 使用 [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) 创建 Web 应用，并使用 Git 将 Node.js 代码示例部署到 Web 应用。
+[Azure Web 应用](app-service-web-overview.md)提供高度可缩放、自修补的 Web 托管服务。  本快速入门演示如何将 Node.js 应用部署到 Azure Web 应用中。 使用 [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) 创建 Web 应用，并使用 ZipDeploy 将 Node.js 代码示例部署到 Web 应用。
 
 ![在 Azure 中运行的示例应用](./media/app-service-web-get-started-nodejs-poc/hello-world-in-browser.png)
 
@@ -41,6 +41,14 @@ ms.locfileid: "46523826"
 ## <a name="download-the-sample"></a>下载示例
 
 从 [https://github.com/Azure-Samples/nodejs-docs-hello-world/archive/master.zip](https://github.com/Azure-Samples/nodejs-docs-hello-world/archive/master.zip) 下载示例 Node.js 项目并提取 ZIP 存档。
+
+打开 _index.js_ 并找到以下行：
+
+```javascript
+var port = process.env.PORT || 1337;
+```
+
+应用服务会将 process.env.PORT 注入应用程序，因此代码将使用该变量来获知要侦听的端口。 
 
 在终端窗口中，导航到示例性 Node.js 项目的根目录（包含 _index.js_ 的目录）。
 
@@ -73,15 +81,13 @@ npm start
 
 ## <a name="create-a-web-app"></a>创建 Web 应用
 
-在终端窗口中，使用 [`az webapp create`](/cli/webapp?view=azure-cli-latest#az_webapp_create) 命令在 `myAppServicePlan` 应用服务计划中创建一个 Web 应用。 
+在 Cloud Shell 中，使用 [`az webapp create`](/cli/webapp?view=azure-cli-latest#az_webapp_create) 命令在 `myAppServicePlan` 应用服务计划中创建一个 Web 应用。 
 
-在以下示例中，将 `<app_name>` 替换为全局唯一的应用名称（有效字符是 `a-z`、`0-9` 和 `-`）。 运行时设置为 `NODE|6.9`。 若要查看所有受支持的运行时，请运行 [`az webapp list-runtimes`](/cli/webapp?view=azure-cli-latest#az_webapp_list_runtimes)。 
+在以下示例中，将 `<app_name>` 替换为全局唯一的应用名称（有效字符是 `a-z`、`0-9` 和 `-`）。
 
 ```azurecli
-# Bash
-az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "NODE|6.9"
-# PowerShell
-az --% webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "NODE|6.9"
+# Bash and Powershell
+az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name>
 ```
 
 创建 Web 应用后，Azure CLI 会显示类似于以下示例的输出：
@@ -98,6 +104,15 @@ az --% webapp create --resource-group myResourceGroup --plan myAppServicePlan --
   "enabled": true,
   < JSON data removed for brevity. >
 }
+```
+
+### <a name="set-nodejs-runtime"></a>设置 Node.js 运行时
+
+将 Node 运行时设置为 8.11.1。 <!-- To see all supported runtimes, run [`az webapp list-runtimes`](cli/webapp?view=azure-cli-latest#az-webapp-list-runtimes). -->
+
+```azurecli
+# Bash and Powershell
+az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WEBSITE_NODE_DEFAULT_VERSION=8.11.1
 ```
 
 浏览到新建的 Web 应用。 将 _&lt;应用名称>_ 替换为唯一的应用名称。
@@ -144,7 +159,7 @@ zip -r myUpdatedAppFiles.zip .
 Compress-Archive -Path * -DestinationPath myUpdatedAppFiles.zip
 ``` 
 
-将此新的 ZIP 文件部署到应用服务，使用的步骤与[上传 ZIP 文件](#upload-the-zip-file)中的相同。
+将此新的 ZIP 文件部署到应用服务，使用的步骤与[部署 ZIP 文件](#deploy-zip-file)中的步骤相同。
 
 切换回在“浏览到应用”步骤中打开的浏览器窗口，然后刷新页面。
 

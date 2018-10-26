@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 05/04/2018
-ms.date: 06/04/2018
+ms.date: 10/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: 621a4eb2ed8b05680c9a3a0f9b2beb2204bb0e44
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: 1c64704e17baeba6547d34f78b136f6edd574257
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702711"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453722"
 ---
 # <a name="prepare-a-centos-based-virtual-machine-for-azure"></a>为 Azure 准备基于 CentOS 的虚拟机
 * [为 Azure 准备 CentOS 6.x 虚拟机](#centos-6x)
@@ -39,6 +39,7 @@ ms.locfileid: "34702711"
 * 在安装 Linux 系统时，*建议*使用标准分区而不是 LVM（通常是许多安装的默认值）。 这可以避免与克隆 VM 发生 LVM 名称冲突，尤其是在需要将 OS 磁盘连接到另一个同类 VM 进行故障排除时。 [LVM](configure-lvm.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 或 [RAID](configure-raid.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 可以在数据磁盘上使用。
 * 需要装载 UDF 文件系统的内核支持。 在 Azure 上首次启动时，预配配置会通过附加到来宾的 UDF 格式媒体传递到 Linux VM。 Azure Linux 代理必须能够装载 UDF 文件系统才能读取其配置和预配 VM。
 * 低于 2.6.37 的 Linux 内核版本不支持具有更大 VM 大小的 Hyper-V 上的 NUMA。 
+
 <!-- Not Available on  Red Hat 2.6.32 kernel, and was fixed in RHEL 6.6 (kernel-2.6.32-504). Systems running custom kernels older than 2.6.37, or RHEL-based kernels older than 2.6.32-504 must set the boot parameter `numa=off` on the kernel command-line in grub.conf. For more information see Red Hat [KB 436883](https://access.redhat.com/solutions/436883). -->
 * 不要在操作系统磁盘上配置交换分区。 可以配置 Linux 代理，以在临时资源磁盘上创建交换文件。  可以在下面的步骤中找到有关此内容的详细信息。
 * Azure 上的所有 VHD 必须已将虚拟大小调整为 1MB。 从原始磁盘转换为 VHD 时，必须确保在转换前原始磁盘大小是 1MB 的倍数。 有关详细信息，请参阅 [Linux 安装说明](create-upload-generic.md#general-linux-installation-notes)。
@@ -151,7 +152,7 @@ ms.locfileid: "34702711"
         # sudo rpm -e hypervkvpd  ## (may return error if not installed, that's OK)
         # sudo yum install microsoft-hyper-v
 
-    此外，可以按照 [LIS 下载页](https://go.microsoft.com/fwlink/?linkid=403033)上的手动安装说明操作将 RPM 安装到 VM 中。
+    也可按照 [LIS 下载页](https://go.microsoft.com/fwlink/?linkid=403033) 上的手动安装说明进行操作，将 RPM 安装到 VM。
 
 12. 安装 Azure Linux 代理和依赖项：
 
@@ -171,10 +172,10 @@ ms.locfileid: "34702711"
 
     图形引导和无人参与引导不适用于云环境，在该环境中我们想要将所有日志都发送到串行端口。  根据需要可以配置 `crashkernel` 选项，但请注意此参数会使虚拟机中的可用内存量减少 128MB 或更多，这在较小的虚拟机上可能会出现问题。
 
-    >[!Important]
-    CentOS 6.5 和更早版本还必须设置内核参数 `numa=off`。
+    > [!Important]
+    > CentOS 6.5 和更早版本还必须设置内核参数 `numa=off`。
     
-<!-- Not Available on See Red Hat [KB 436883](https://access.redhat.com/solutions/436883) -->
+    <!-- Not Available on See Red Hat [KB 436883](https://access.redhat.com/solutions/436883) -->
 
 14. 请确保已安装 SSH 服务器且将其配置为在引导时启动。  这通常是默认设置。
 
@@ -299,7 +300,7 @@ ms.locfileid: "34702711"
 
         # sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 
-10. 如果生成的映像源自 **VMWare、VirtualBox 或 KVM：** 请确保 initramfs 中包括 Hyper-V 驱动程序：
+10. 如果要从 **VMware、VirtualBox 或 KVM** 生成映像：请确保 initramfs 中包含 Hyper-V 驱动程序：
 
    编辑 `/etc/dracut.conf`，添加内容：
 

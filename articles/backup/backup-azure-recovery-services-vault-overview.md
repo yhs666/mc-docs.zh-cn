@@ -7,14 +7,14 @@ manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 origin.date: 08/10/2018
-ms.date: 08/23/2018
-ms.author: v-junlch
-ms.openlocfilehash: 20fee0d6ea21290622e5efecae7a843aa19ffabe
-ms.sourcegitcommit: 85cdb61361dc61147bac991d4907f454f0684ea0
+ms.date: 10/19/2018
+ms.author: v-lingwu
+ms.openlocfilehash: d3e63ef882b2d2fca6499f1859a0c6f973f2e3aa
+ms.sourcegitcommit: ee042177598431d702573217e2f3538878b6a984
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42709654"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477763"
 ---
 # <a name="recovery-services-vaults-overview"></a>恢复服务保管库概述
 
@@ -52,6 +52,9 @@ ms.locfileid: "42709654"
 如果一个恢复服务保管库保护多个服务器，则查看恢复服务保管库可能更合乎逻辑。 可以在订阅中搜索所有恢复服务保管库，并从列表中选择一个。
 
 以下部分包含多篇文章的链接，这些文章说明了如何在每类活动中使用恢复服务保管库。
+
+> [!NOTE]
+> 如果恢复服务保管库在 24 小时内被删除，则无法以相同的名称创建它。 请使用其他资源名称或选择其他资源组，或者在 24 小时后重试。
 
 ### <a name="back-up-data"></a>备份数据
 - [备份 Azure VM](backup-azure-vms-first-look-arm.md)

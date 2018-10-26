@@ -8,14 +8,14 @@ keywords: azure vm 备份, azure vm 还原, 备份策略
 ms.service: backup
 ms.topic: conceptual
 origin.date: 08/16/2018
-ms.date: 08/23/2018
-ms.author: v-junlch
-ms.openlocfilehash: 91d2d899a11ead67ae20c25225552414b5c43164
-ms.sourcegitcommit: 85cdb61361dc61147bac991d4907f454f0684ea0
+ms.date: 10/19/2018
+ms.author: v-lingwu
+ms.openlocfilehash: 6008c4e5bfeb7b7a962dfe4ca58954f63fa36742
+ms.sourcegitcommit: ee042177598431d702573217e2f3538878b6a984
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42709726"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477788"
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>有关 Azure VM 备份服务的问题
 本文提供常见问题的解答，有助于快速了解 Azure VM 备份组件。 某些答案提供内含全面信息的文章的链接。 还可以在 [论坛](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)中发布有关 Azure 备份服务的问题。
@@ -53,6 +53,12 @@ ms.locfileid: "42709726"
 
 ### <a name="does-backup-policy-take-daylight-saving-timedst-into-account"></a>备份策略是否考虑夏令时 (DST)？
 否。 请注意，本地计算机上的日期和时间会显示当地时间以及当前夏令时偏差。 因此，由于 DST，计划备份的配置时间可能与当地时间不同。
+
+### <a name="maximum-of-how-many-data-disks-can-i-attach-to-a-vm-to-be-backed-up-by-azure-backup"></a>我可以将多少个数据磁盘附加到 Azure 备份要备份的 VM？
+Azure 备份现在支持备份最多包含 32 个磁盘的虚拟机。 若要支持 32 个磁盘，请[升级到 Azure VM 备份堆栈 V2](backup-upgrade-to-vm-backup-stack-v2.md)。 从 2018 年 9 月 24 日开始将支持启用保护的所有 VM。
+
+### <a name="does-azure-backup-support-standard-ssd-managed-disk"></a>Azure 备份是否支持标准 SSD 托管磁盘？
+Azure 备份支持[标准 SSD 托管磁盘](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/)，该磁盘是 Microsoft Azure 虚拟机的一种新型持久存储器。 [Azure VM 备份堆栈 V2](backup-upgrade-to-vm-backup-stack-v2.md) 上的托管磁盘支持它。
 
 ## <a name="restore"></a>还原
 ### <a name="how-do-i-decide-between-restoring-disks-versus-full-vm-restore"></a>如何决定是进行磁盘还原，还是进行完整的 VM 还原？

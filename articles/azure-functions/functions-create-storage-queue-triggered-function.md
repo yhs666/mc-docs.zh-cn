@@ -4,25 +4,21 @@ description: 使用 Azure Functions 创建由提交到 Azure 存储队列的消�
 services: azure-functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 ms.assetid: 361da2a4-15d1-4903-bdc4-cc4b27fc3ff4
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
-ms.tgt_pltfrm: multiple
-ms.workload: na
-origin.date: 03/28/2018
-ms.date: 07/23/2018
+origin.date: 10/01/2018
+ms.date: 10/19/2018
 ms.author: v-junlch
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: c449c0edd1ca5bbb2dda826089a5c7c5f379ef7e
-ms.sourcegitcommit: ba07d76f8394b5dad782fd983718a8ba49a9deb2
+ms.openlocfilehash: c22482039e8fe69a8172139dbeea73978e4d7050
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39220202"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453790"
 ---
 # <a name="create-a-function-triggered-by-azure-queue-storage"></a>创建由 Azure 队列存储触发的函数
 
@@ -48,24 +44,31 @@ ms.locfileid: "39220202"
 
 ## <a name="create-a-queue-triggered-function"></a>创建队列触发的函数
 
-1. 展开 Function App，单击“Functions”旁边的 + 按钮。 如果这是 Function App 中的第一个函数，请选择“自定义函数”。 此时将显示函数模板的完整集合。
+1. 展开 Function App，单击“Functions”旁边的 + 按钮。 如果这是函数应用中的第一个函数，请依次选择“门户中”、“继续”。 否则，请转到第三步。
 
-    ![Azure 门户中的 Functions 快速入门页](./media/functions-create-storage-queue-triggered-function/add-first-function.png)
+   ![Azure 门户中的 Functions 快速入门页](./media/functions-create-storage-queue-triggered-function/function-app-quickstart-choose-portal.png)
 
-2. 在搜索栏中键入 `queue`，然后选择需要用于队列存储触发器模板的语言。
+1. 依次选择“更多模板”、“完成并查看模板”。
 
-    ![选择队列存储触发器模板。](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal.png)
+    ![Functions 快速入门选择更多模板](./media/functions-create-storage-queue-triggered-function/add-first-function.png)
 
-3. 使用图像下的表中指定的设置。
+1. 在搜索字段中，键入 `queue`，然后选择“队列触发器”模板。
+
+1. 如果系统提示，请选择“安装”以在函数应用中安装 Azure 存储扩展的任何依赖项。 安装成功后，选择“继续”。
+
+    ![安装绑定扩展](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal.png)
+
+1. 使用图像下的表中指定的设置。
+
     ![配置存储队列触发的函数。](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal-2.png)
-    
+
     | 设置 | 建议的值 | 说明 |
     |---|---|---|
     | **名称** | 在 Function App 中唯一 | 此队列触发函数的名称。 |
     | **队列名称**   | myqueue-items    | 要连接到存储帐户中的队列的名称。 |
     | **存储帐户连接** | AzureWebJobStorage | 可以使用 Function App 已在使用的存储帐户连接，也可以创建一个新的存储帐户连接。  |    
 
-3. 单击“创建”以创建函数。
+1. 单击“创建”以创建函数。
 
 接下来，连接到 Azure 存储帐户并创建 **myqueue-items** 存储队列。
 

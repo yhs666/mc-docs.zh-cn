@@ -1,26 +1,23 @@
 ---
-title: 开始将物理设备连接到 Azure IoT 中心 | Azure
+title: 将物理设备连接到 Azure IoT 中心入门 | Microsoft Docs
 description: 了解如何将物理设备和板连接到 Azure IoT 中心。 设备可以将遥测数据发送到 IoT 中心，IoT 中心可以监视和管理设备。
-services: iot-hub
-documentationcenter: ''
-author: dominicbetts
+author: wesmc7777
 manager: timlt
-editor: ''
 keywords: Azure IoT 中心教程
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
+services: iot-hub
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/22/2017
 ms.author: v-yiso
-ms.date: 12/18/2017
-ms.openlocfilehash: 628ba897cd654461ad445817a580b77743283135
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.date: 10/29/2018
+ms.openlocfilehash: f680d02439ee53157dc285d2db950a06bfa34f1d
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
-ms.locfileid: "26576134"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453602"
 ---
 # <a name="azure-iot-hub-get-started-with-physical-devices-tutorials"></a>Azure IoT 中心及物理设备入门教程
 
@@ -28,12 +25,9 @@ ms.locfileid: "26576134"
 
 | IoT 设备                       | 编程语言 |
 |---------------------------------|----------------------|
-| Raspberry Pi                    | [Python][Pi_Py]、[Node.js][Pi_Nd]、[C][Pi_C]  |
-| IoT DevKit                      | [VSCode 中的 Arduino][DevKit]     |
-| Intel Edison                    | [Node.js][Ed_Nd]、[C][Ed_C]           |
-| Adafruit Feather HUZZAH ESP8266 | [Arduino][Hu_Ard]              |
-| Sparkfun ESP8266 Thing Dev      | [Arduino][Th_Ard]              |
-| Adafruit Feather M0             | [Arduino][M0_Ard]              |
+| Raspberry Pi                    | [Node.js](iot-hub-raspberry-pi-kit-node-get-started.md)、[C](iot-hub-raspberry-pi-kit-c-get-started.md)  |
+| IoT DevKit                      | [VSCode 中的 Arduino](iot-hub-arduino-iot-devkit-az3166-get-started.md)     |
+| Adafruit Feather HUZZAH ESP8266 | [Arduino](iot-hub-arduino-huzzah-esp8266-get-started.md)              |
 
 [!INCLUDE [iot-hub-get-started-extended](../../includes/iot-hub-get-started-extended.md)]
 

@@ -11,23 +11,54 @@ ms.service: azure-functions
 ms.devlang: nodejs
 ms.topic: reference
 origin.date: 03/04/2018
-ms.date: 09/21/2018
+ms.date: 10/19/2018
 ms.author: v-junlch
-ms.openlocfilehash: 3d0d10794e960ee081536088c604ec19eef605f2
-ms.sourcegitcommit: 54d9384656cee927000d77de5791c1d585d94a68
+ms.openlocfilehash: 2f413c4d15f6b0461995d8b9eea0dcf91a7664ca
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46524027"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453849"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript 开发人员指南
+本指南包含有关使用 JavaScript 编写 Azure Functions 的复杂性的信息。
 
-Azure Functions 的 JavaScript 体验可以轻松导出一个函数，可以将该函数作为 `context` 对象进行传递，用以与运行时进行通信，以及用以通过绑定来接收和发送数据。
+JavaScript 函数是导出的 `function`，它将在触发时执行（[触发器在 function.json 中配置](functions-triggers-bindings.md)）。 每个函数都传递一个 `context` 对象，该对象用于接收和发送绑定数据、日志记录以及与运行时通信。
 
-本文假定已阅读 [Azure Functions 开发人员参考](functions-reference.md)。
+本文假定你已阅读 [Azure Functions 开发人员参考](functions-reference.md)。 
+## <a name="folder-structure"></a>文件夹结构
+
+JavaScript 项目所需的文件夹结构如下所示。 请注意，可以更改此默认值：有关更多详细信息，请参阅下面的 [scriptFile](functions-reference-node.md#using-scriptfile) 部分。
+
+```
+FunctionsProject
+ | - MyFirstFunction
+ | | - index.js
+ | | - function.json
+ | - MySecondFunction
+ | | - index.js
+ | | - function.json
+ | - SharedCode
+ | | - myFirstHelperFunction.js
+ | | - mySecondHelperFunction.js
+ | - node_modules
+ | - host.json
+ | - package.json
+ | - extensions.csproj
+ | - bin
+```
+
+项目的根目录中有共享的 [host.json](functions-host-json.md) 文件，可用于配置函数应用。 每个函数都具有一个文件夹，其中包含其代码文件 (.js) 和绑定配置文件 (function.json)。
+
+[2.x 版](functions-versions.md) Functions 运行时中所需的绑定扩展在 `extensions.csproj` 文件中定义，实际库文件位于 `bin` 文件夹中。 本地开发时，必须[注册绑定扩展](functions-triggers-bindings.md#local-development-azure-functions-core-tools)。 在 Azure 门户中开发函数时，系统将为你完成此注册。
 
 ## <a name="exporting-a-function"></a>导出函数
-每个 JavaScript 函数都必须通过 `module.exports` 导出单个 `function`，以便运行时能找到该函数并运行。 此函数必须始终将 `context` 对象作为第一参数。
+
+必须通过 [`module.exports`](https://nodejs.org/api/modules.html#modules_module_exports)（或 [`exports`](https://nodejs.org/api/modules.html#modules_exports)）导出 JavaScript 函数。 默认情况下，导出的函数应该是其文件中的唯一导出（导出名为 `run` 或 `index`）。 函数的默认位置是 `index.js`，其中 `index.js` 与相应的 `function.json` 共享相同的父目录。 请注意，`function.json` 父目录的名称始终是函数的名称。 
+
+若要配置文件位置和导出函数名称，请阅读下面的[配置函数的入口点](functions-reference-node.md#configure-function-entry-point)。
+
+导出的函数入口点必须始终将 `context` 对象作为第一参数。
 
 ```javascript
 // You must include a context, other arguments are optional
@@ -35,20 +66,52 @@ module.exports = function(context, myTrigger, myInput, myOtherInput) {
     // function logic goes here :)
     context.done();
 };
+```
+```javascript
 // You can also use 'arguments' to dynamically handle inputs
-module.exports = function(context) {
+module.exports = async function(context) {
     context.log('Number of inputs: ' + arguments.length);
     // Iterates through trigger and input binding data
     for (i = 1; i < arguments.length; i++){
         context.log(arguments[i]);
     }
-    context.done();
 };
 ```
 
-输入和触发器绑定（`direction === "in"` 的绑定）可以作为参数传递给函数。 它们以与 function.json 中定义的顺序相同的顺序传递给函数。 可以使用 JavaScript [`arguments`](https://msdn.microsoft.com/library/87dw3w1k.aspx) 对象动态处理输入。 例如，如果具有 `function(context, a, b)` 并将其更改为 `function(context, a)`，仍然可以通过参考 `arguments[2]` 获取函数代码中的值 `b`。
+触发器和输入绑定（`direction === "in"` 的绑定）可以作为参数传递给函数。 它们以与 function.json 中定义的顺序相同的顺序传递给函数。 也可以使用 JavaScript [`arguments`](https://msdn.microsoft.com/library/87dw3w1k.aspx) 对象动态处理输入。 例如，如果具有 `function(context, a, b)` 并将其更改为 `function(context, a)`，仍然可以通过参考 `arguments[2]` 获取函数代码中的值 `b`。
 
 所有绑定，无论方向如何，也都使用 `context.bindings` 属性在 `context` 对象上传递。
+
+### <a name="exporting-an-async-function"></a>导出异步函数
+使用 JavaScript [`async function`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) 声明或纯 JavaScript [Promises](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)（未随 Functions v1.x 提供）时，无需显式调用 [`context.done`](#contextdone-method) 回调来表示函数已完成。 导出的异步函数/Promise 完成时，你的函数将完成。
+
+例如，这是一个简单的函数，记录它被触发并立即完成执行。
+``` javascript
+module.exports = async function (context) {
+    context.log('JavaScript trigger function processed a request.');
+};
+```
+
+导出异步函数时，还可以配置输出绑定以获取 `return` 值。 这是使用 [`context.bindings`](#contextbindings-property) 属性分配输出的另一种方法。
+
+若要使用 `return` 分配输出，请在 `function.json` 中将 `name` 属性更改为 `$return`。
+```json
+{
+  "type": "http",
+  "direction": "out",
+  "name": "$return"
+}
+```
+JavaScript 函数代码可能如下所示：
+```javascript
+module.exports = async function (context, req) {
+    context.log('JavaScript HTTP trigger function processed a request.');
+    // You can call and await an async method here
+    return {
+        body: "Hello, world!"
+    };
+}
+```
 
 ## <a name="context-object"></a>上下文对象
 运行时使用 `context` 对象将数据传入和传出函数，并能与其进行通信。
@@ -57,9 +120,9 @@ module.exports = function(context) {
 
 ```javascript
 // You must include a context, but other arguments are optional
-module.exports = function(context) {
+module.exports = function(ctx) {
     // function logic goes here :)
-    context.done();
+    ctx.done();
 };
 ```
 
@@ -110,7 +173,7 @@ context.done([err],[propertyBag])
 
 通知运行时代码已完成。 如果函数使用 JavaScript [`async function`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) 声明（使用 Functions 2.x 版本中的 Node 8+ 时可用），则不需要使用 `context.done()`。 `context.done` 回调是隐式调用的。
 
-如果你的函数不是一个异步函数，**则必须调用 `context.done`** 来告知运行时你的函数是完整的。 如果缺少它，则执行将超时。
+如果函数不是异步函数，则必须调用 `context.done` 来告知运行时函数是完整的。 如果缺少它，则执行将超时。
 
 使用 `context.done` 方法可向运行时传回用户定义的错误，以及传回包含输出绑定数据的 JSON 对象。 传递给 `context.done` 的属性将覆盖 `context.bindings` 对象中设置的任何内容。
 
@@ -163,7 +226,7 @@ context.log.warn("Something has happened.");
 
 ## <a name="writing-trace-output-to-the-console"></a>将跟踪输出写入到控制台 
 
-在 Functions 中，可以使用 `context.log` 方法将跟踪输出写入到控制台。 在 Functions v1.x 中，不能使用 `console.log` 写入到控制台。 在 Functions v2.x 中，将在函数应用级别捕获通过 `console.log` 写入的跟踪输出。 这意味着，来自 `console.log` 的输出不会关联到特定的函数调用。
+在 Functions 中，可以使用 `context.log` 方法将跟踪输出写入到控制台。 在 Functions v2.x 中，将在函数应用级别捕获通过 `console.log` 写入的跟踪输出。 这意味着来自 `console.log` 的输出不受限于特定的函数调用，因此不会显示在特定函数的日志中。 在 Functions v1.x 中，不能使用 `console.log` 写入到控制台。 
 
 调用 `context.log()` 时，消息会在默认跟踪级别（即_信息_跟踪级别）写入到控制台。 以下代码在信息跟踪级别向控制台进行写入：
 
@@ -294,22 +357,10 @@ HTTP 和 webhook 触发器以及 HTTP 输出绑定使用请求和响应对象来
 | 1.x | 6.11.2（运行时锁定） |
 | 2.x  | 活动 LTS 和当前的 Node.js 版本（推荐 8.11.1 和 10.6.0）。 使用 WEBSITE_NODE_DEFAULT_VERSION [应用设置](functions-how-to-use-azure-function-app-settings.md#settings)来设置版本。|
 
-可以通过打印任何函数的 `process.version` 来查看运行时正在使用的当前版本。
+可以通过查看上述应用设置或打印任何函数的 `process.version` 来查看运行时正在使用的当前版本。
 
-## <a name="package-management"></a>包管理
-可以通过以下步骤在 Function App 中包括包： 
-
-1. 转到 `https://<function_app_name>.scm.chinacloudsites.cn`。
-
-2. 单击“调试控制台”，选择“CMD”。 > 
-
-3. 转到 `D:\home\site\wwwroot`，然后将 package.json 文件拖到页面上半部分中的 **wwwroot** 文件夹上。  
-    还可采用其他方式将文件上传到 Function App。 有关详细信息，请参阅[如何更新 Function App 文件](functions-reference.md#fileupdate)。 
-
-4. 上传 package.json 文件后，在 **Kudu 远程执行控制台**中运行 `npm install` 命令。  
-    此操作将下载 package.json 文件中指定的包并重新启动 Function App。
-
-安装了所需的包后，可以通过调用 `require('packagename')` 将它们导入到函数中，如以下示例中所示：
+## <a name="dependency-management"></a>依赖项管理
+若要在 JavaScript 代码中使用社区库（如下面的示例所示），需要确保在 Azure 中的 Function App 上安装所有依赖项。
 
 ```javascript
 // Import the underscore.js library
@@ -322,7 +373,26 @@ module.exports = function(context) {
         .where(context.bindings.myInput.names, {first: 'Carla'});
 ```
 
-应当在  Function App 的根目录下定义一个 `package.json` 文件。 定义该文件将允许应用中的所有函数共享所缓存的相同包，从而获得最佳性能。 如果发生版本冲突，可以通过在具体函数的文件夹中添加一个 `package.json` 文件来解决冲突。  
+请注意，应在 Function App 的根目录下定义一个 `package.json` 文件。 定义该文件将允许应用中的所有函数共享所缓存的相同包，从而获得最佳性能。 如果发生版本冲突，可以通过在具体函数的文件夹中添加一个 `package.json` 文件来解决冲突。  
+
+可通过两种方法在 Function App 上安装包： 
+
+### <a name="deploying-with-dependencies"></a>使用依赖项部署
+1. 通过运行 `npm install` 在本地安装所有必需的包。
+
+2. 部署代码，并确保部署中包含 `node_modules` 文件夹。 
+
+
+### <a name="using-kudu"></a>使用 Kudu
+1. 转到  `https://<function_app_name>.scm.chinacloudsites.cn` 。
+
+2. 单击“调试控制台”，选择“CMD”。 > 
+
+3. 转到 `D:\home\site\wwwroot`，然后将 package.json 文件拖到页面上半部分中的 **wwwroot** 文件夹上。  
+    还可采用其他方式将文件上传到 Function App。 有关详细信息，请参阅[如何更新 Function App 文件](functions-reference.md#fileupdate)。 
+
+4. 上传 package.json 文件后，在 **Kudu 远程执行控制台**中运行 `npm install` 命令。  
+    此操作将下载 package.json 文件中指定的包并重新启动 Function App。
 
 ## <a name="environment-variables"></a>环境变量
 若要获取环境变量或应用设置值，请使用 `process.env`，如此处的 `GetEnvironmentVariable` 函数中所示：
@@ -343,16 +413,84 @@ function GetEnvironmentVariable(name)
     return name + ": " + process.env[name];
 }
 ```
+
+## <a name="configure-function-entry-point"></a>配置函数入口点
+
+`function.json` 属性 `scriptFile` 和 `entryPoint` 可用于配置导出函数的位置和名称。 如果 JavaScript 经过转换，这些可能很重要。
+
+### <a name="using-scriptfile"></a>使用 `scriptFile`
+
+默认情况下通过 `index.js`（与其对应的 `function.json` 共享相同父目录的文件）执行 JavaScript 函数。
+
+`scriptFile` 可用于获取如下所示的文件夹结构：
+```
+FunctionApp
+ | - host.json
+ | - myNodeFunction
+ | | - function.json
+ | - lib
+ | | - nodeFunction.js
+ | - node_modules
+ | | - ... packages ...
+ | - package.json
+```
+
+`myNodeFunction` 的 `function.json` 应包含 `scriptFile` 属性，该属性指向包含要运行的导出函数的文件。
+```json
+{
+  "scriptFile": "../lib/nodeFunction.js",
+  "bindings": [
+    ...
+  ]
+}
+```
+
+### <a name="using-entrypoint"></a>使用 `entryPoint`
+
+在 `scriptFile`（或 `index.js`）中，必须使用 `module.exports` 导出函数才能使其被找到和运行。 默认情况下，触发时执行的函数是该文件的唯一导出（导出名为 `run` 或 `index`）。
+
+这可以使用 `function.json` 中的 `entryPoint` 进行此配置：
+```json
+{
+  "entryPoint": "logFoo",
+  "bindings": [
+    ...
+  ]
+}
+```
+
+Functions v2.x 支持用户函数中的 `this` 参数，其中的函数代码可能如下所示：
+```javascript
+class MyObj {
+    constructor() {
+        this.foo = 1;
+    };
+    
+    function logFoo(context) { 
+        context.log("Foo is " + this.foo); 
+        context.done(); 
+    }
+}
+
+const myObj = new MyObj();
+module.exports = myObj;
+```
+
+请在此示例中务必注意，尽管正在导出对象，但无法保证可保留两次执行之间的状态。
+
 ## <a name="considerations-for-javascript-functions"></a>JavaScript 函数的注意事项
 
-使用 JavaScript 函数时，请注意以下两节中的注意事项。
+使用 JavaScript 函数时，请注意以下各节中的注意事项。
 
 ### <a name="choose-single-vcpu-app-service-plans"></a>选择单 vCPU 应用服务计划
 
-创建使用应用服务计划的函数应用时，建议选择单 vCPU 计划，而不是选择具有多个 vCPU 的计划。 目前，Functions 在单 vCPU VM 上运行 JavaScript 函数更为高效；使用更大的 VM 不会产生预期的性能提高。 需要时，可以通过添加更多单 vCPU VM 实例来手动扩大，也可以启用自动缩放。 有关详细信息，请参阅[手动或自动缩放实例计数](../monitoring-and-diagnostics/insights-how-to-scale.md)。    
+创建使用应用服务计划的函数应用时，建议选择单 vCPU 计划，而不是选择具有多个 vCPU 的计划。 目前，Functions 在单 vCPU VM 上运行 JavaScript 函数更为高效；使用更大的 VM 不会产生预期的性能提高。 需要时，可以通过添加更多单 vCPU VM 实例来手动扩大，也可以启用自动缩放。 有关详细信息，请参阅[手动或自动缩放实例计数](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fapp-service-web%2ftoc.json)。    
 
 ### <a name="typescript-and-coffeescript-support"></a>TypeScript 和 CoffeeScript 支持
 因为目前还不能直接支持通过运行时自动编译 TypeScript 或 CoffeeScript，因此需要在部署时在运行时外部处理此类支持。 
+
+### <a name="cold-start"></a>冷启动
+对于无服务器托管模型中开发 Azure Functions，冷启动已成为现实。 “冷启动”是指在 Function App 处于非活动状态一段时间后进行第一次启动时，将需要较长时间才能启动。 具有较大依赖项树的 JavaScript 函数尤其如此，这可能导致严重的速度缓慢情况。 若要加快此过程，（如果可能）请[将函数作为包文件运行](run-functions-from-deployment-package.md)。 默认情况下，许多部署方法都选择使用此模型，但如果遇到大型冷启动并且未通过包文件运行，此方法可能可以大幅度提速。
 
 ## <a name="next-steps"></a>后续步骤
 有关详细信息，请参阅以下资源：

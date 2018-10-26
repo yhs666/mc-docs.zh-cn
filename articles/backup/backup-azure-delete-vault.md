@@ -7,14 +7,14 @@ manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 origin.date: 07/06/2018
-ms.date: 08/23/2018
-ms.author: v-junlch
-ms.openlocfilehash: 1f3b62b804e143f05980f0be1c7e880a90affd06
-ms.sourcegitcommit: 85cdb61361dc61147bac991d4907f454f0684ea0
+ms.date: 10/19/2018
+ms.author: v-lingwu
+ms.openlocfilehash: c7ced446b42f937a4360bb478746bc6a6dc44cd1
+ms.sourcegitcommit: ee042177598431d702573217e2f3538878b6a984
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42709729"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477780"
 ---
 # <a name="delete-a-recovery-services-vault"></a>删除恢复服务保管库
 
@@ -91,6 +91,12 @@ PowerShell 可用于强制删除恢复服务保管库。 强制删除意味着�
    ```powershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>?api-version=2015-03-15
    ```
+   保管库必须为空才能删除它。 否则，你会收到错误消息指出“由于此保管库中存在现有资源，因此无法删除此保管库”。 以下命令演示了如何删除保管库中的容器：
+
+   ```powershell
+   ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>/registeredIdentities/<container name>?api-version=2016-06-01
+   ```
+   
 1. 在 Azure 门户中登录订阅，并确认保管库是否已遭删除。
 
 

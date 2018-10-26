@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 07/18/2018
 ms.author: v-yiso
 ms.date: 09/10/2018
-ms.openlocfilehash: d3230356d7ba816270032399fbde1204a0787014
-ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
+ms.openlocfilehash: 6f5b008b565bb4234e6cbfd9c2ee2a204ca73e3e
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523911"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453637"
 ---
 # <a name="control-access-to-iot-hub"></a>控制对 IoT 中心的访问
 
@@ -35,7 +35,7 @@ ms.locfileid: "46523911"
 ## <a name="access-control-and-permissions"></a>访问控制和权限
 可以通过以下方式授予 [权限](#iot-hub-permissions) ：
 
-* **IoT 中心级别的共享访问策略**。 共享访问策略可以授予任意[权限](#iot-hub-permissions)组合。 可使用 [IoT 中心资源 REST API][lnk-resource-provider-apis] 或使用 [az iot 中心策略](https://docs.microsoft.com/cli/azure/iot/hub/policy?view=azure-cli-latest) CLI 以编程方式在 [Azure 门户][lnk-management-portal]中定义策略。 新建的 IoT 中心有以下默认策略：
+* **IoT 中心级别的共享访问策略**。 共享访问策略可以授予任意[权限](#iot-hub-permissions)组合。 可使用 [IoT 中心资源 REST API](https://docs.microsoft.com/en-us/rest/api/iothub/iothubresource) 或使用 [az iot 中心策略](/cli/iot/hub/policy?view=azure-cli-latest) CLI 以编程方式在 [Azure 门户](https://portal.azure.cn)中定义策略。 新建的 IoT 中心有以下默认策略：
   
   | 共享访问策略 | 权限 |
   | -------------------- | ----------- |
@@ -45,7 +45,7 @@ ms.locfileid: "46523911"
   | registryRead | **RegistryRead** 权限 |
   | registryReadWrite | **RegistryRead** 和 **RegistryWrite** 权限 |
 
-* **每个设备的安全凭据**。 每个 IoT 中心均包含一个 [标识注册表][lnk-identity-registry]。 对于此标识注册表中的每个设备，可配置安全凭据，授予局限于相应设备终结点的 **DeviceConnect** 权限。
+* **每个设备的安全凭据**。 每个 IoT 中心都包含一个[标识注册表](iot-hub-devguide-identity-registry.md)。对于此标识注册表中的每个设备，可配置安全凭据，授予局限于相应设备终结点的 **DeviceConnect** 权限。
 
 例如，在典型的 IoT 解决方案中：
 
@@ -73,7 +73,7 @@ Azure IoT 中心可根据共享访问策略和标识注册表安全凭据验证�
 
 使用 MQTT 时，CONNECT 数据包具有用作 ClientId 的 deviceId，在 Username 字段中具有 {iothubhostname}/{deviceId}，在 Password 字段中具有 SAS 令牌。 {iothubhostname} 应该是 IoT 中心的完整 CName（例如，contoso.azure-devices.cn）。
 
-使用 [AMQP][lnk-amqp] 时，IoT 中心支持 [SASL PLAIN][lnk-sasl-plain] 和 [AMQP 基于声明的安全性][lnk-cbs]。
+使用 [AMQP](https://www.amqp.org/) 时，IoT 中心支持 [SASL PLAIN](http://tools.ietf.org/html/rfc4616) 和 [AMQP 基于声明的安全性](https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc)。
 
 如果使用 AMQP 基于声明的安全性，该标准指定如何传输这些令牌。
 
@@ -89,7 +89,7 @@ HTTPS 通过在 Authorization 请求标头中包含有效的令牌来实施身�
 #### <a name="example"></a>示例
 用户名（DeviceId 区分大小写）：`iothubname.azure-devices.net/DeviceId`
 
-密码（可使用[设备资源管理器][lnk-device-explorer]工具、CLI 扩展命令 [az iot hub generate-sas-token](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-generate-sas-token) 或[用于 Visual Studio Code 的 Azure IoT 工具包扩展](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)来生成 SAS 令牌）：
+密码（可使用[设备资源管理器](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer)工具、CLI 扩展命令 [az iot hub generate-sas-token](/cli/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-generate-sas-token) 或[用于 Visual Studio Code 的 Azure IoT 工具包扩展](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)来生成 SAS 令牌）：
 
 `SharedAccessSignature sr=iothubname.azure-devices.net%2fdevices%2fDeviceId&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501`
 
@@ -108,7 +108,7 @@ HTTPS 通过在 Authorization 请求标头中包含有效的令牌来实施身�
 ## <a name="scope-iot-hub-level-credentials"></a>设置 IoT 中心级凭据的范围
 可通过使用受限资源 URI 创建令牌，设置 IoT 中心级安全策略的范围。 例如，要从设备发送从设备到云的消息的终结点是 **/devices/{deviceId}/messages/events**。 还可以使用包含 **DeviceConnect** 权限的 IoT 中心级别共享访问策略对 resourceURI 为 **/devices/{deviceId}** 的令牌进行签名。 此方法会创建一个令牌，该令牌仅可用于代表设备 **deviceId** 发送消息。
 
-此机制类似于 [事件中心发布者策略][lnk-event-hubs-publisher-policy]，可用于实施自定义身份验证方法。
+此机制类似于[事件中心发布者策略](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-99ce67ab)，可用于实施自定义身份验证方法。
 
 ## <a name="security-tokens"></a>安全令牌
 
@@ -355,7 +355,7 @@ SharedAccessSignature sr=myhub.azure-devices.cn%2fdevices&sig=JdyscqTpXdEJs49elI
 
 * **现有的 X.509 证书**。 设备可能已有与之关联的 X.509 证书。 设备可以使用此证书向 IoT 中心进行身份验证。 适用于指纹或 CA 身份验证。 
 * **CA 签名的 X.509 证书**。 若要识别设备并通过 IoT 中心对其进行身份验证，可使用由证书颁发机构 (CA) 生成和签名的 X.509 证书。 适用于指纹或 CA 身份验证。
-* **自行生成和自签名的 X-509 证书**。 设备制造商或内部部署人员可以生成这些证书，并将相应的私钥（和证书）存储在设备上。 可以将工具（如 [OpenSSL][lnk-openssl] 和 [Windows SelfSignedCertificate][lnk-selfsigned] 实用程序）用于此目的。 仅适用于指纹身份验证。 
+* **自行生成和自签名的 X-509 证书**。 设备制造商或内部部署人员可以生成这些证书，并将相应的私钥（和证书）存储在设备上。 可以将工具（如 [OpenSSL](https://www.openssl.org/) 和 [Windows SelfSignedCertificate](https://docs.microsoft.com/en-us/powershell/module/pkiclient/new-selfsignedcertificate) 实用程序）用于此目的。 仅适用于指纹身份验证。 
 
 设备可以使用 X.509 证书或安全令牌进行身份验证，但不能同时使用这两者。
 

@@ -10,22 +10,23 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 04/26/2018
-ms.date: 09/10/2018
+ms.date: 10/29/2018
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4410922ea55ec9090cb45e5143a8687f73869fb1
-ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
+ms.openlocfilehash: d96f65c0b6ed90a79bf6454e6df27cbc50fd0f1b
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43329143"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453727"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-the-portal-and-net-device"></a>使用门户和 .NET 设备创建 IoT 中心模块标识和模块孪生入门
 
 > [!NOTE]
 > [模块标识和模块孪生](iot-hub-devguide-module-twins.md)类似于 Azure IoT 中心设备标识和设备孪生，但提供更精细的粒度。 Azure IoT 中心设备标识和设备孪生允许后端应用程序配置设备并提供设备条件的可见性，而模块标识和模块孪生为设备的各个组件提供这些功能。 在支持多个组件的设备上（例如基于操作系统的设备或固件设备），它允许每个部件拥有独立的配置和条件。
 
-本教程介绍 
+本教程介绍：
+
 1. 如何在门户中创建模块标识。 
 2. 如何使用 .NET 设备 SDK 更新设备的模块孪生。
 
@@ -67,33 +68,41 @@ ms.locfileid: "43329143"
 
 你已成功在 IoT 中心内创建模块标识。 现在尝试从模拟设备与云进行通信。 创建模块标识后，在 IoT 中心内隐式创建模块孪生。 在本节中，将在更新模块孪生报告属性的模拟设备上创建 .NET 控制台应用。
 
-1. **创建 Visual Studio 项目** - 在 Visual Studio 中，使用“控制台应用 (.NET Framework)”项目模板将 Visual C# Windows 经典桌面项目添加到现有解决方案。 确保 .NET Framework 为 4.6.1 或更高版本。 将项目命名为“UpdateModuleTwinReportedProperties”。
+## <a name="create-a-visual-studio-project"></a>创建 Visual Studio 项目
 
-    ![创建 Visual Studio 项目][13]
+在 Visual Studio 中，使用“控制台应用(.NET Framework)”项目模板将 Visual C# Windows 经典桌面项目添加到现有解决方案。 确保 .NET Framework 版本为 4.6.1 或更高。 将项目命名为“UpdateModuleTwinReportedProperties”。
 
-2. **安装最新的 Azure IoT 中心 .NET 设备 SDK** - 模块标识和模块孪生为公开预览版。 仅在 IoT 中心预发行设备 SDK 中提供它。 在 Visual Studio 中，打开“工具”>“NuGet 包管理器”>“管理解决方案的 NuGet 包”。 搜索 Microsoft.Azure.Devices.Client。 确保已选中“包括预发行版”复选框。 选择最新版本并安装。 现在可以访问所有模块功能。 
+  ![创建 Visual Studio 项目][13]
 
-    ![安装 Azure IoT 中心 .NET 服务 SDK V1.16.0-preview-005][14]
+## <a name="install-the-latest-azure-iot-hub-net-device-sdk"></a>安装最新的 Azure IoT 中心 .NET 设备 SDK
 
-3. **获取模块连接字符串** -- 现在，如果登录到 [Azure 门户][lnk-portal]。 导航到 IoT 中心并单击 IoT 设备。 查找并打开 myFirstDevice，可以看到 myFirstModule 已成功创建。 复制模块连接字符串。 下一步将需要它。
+模块标识和模块孪生为公共预览版。 仅在 IoT 中心预发行设备 SDK 中提供它。 在 Visual Studio 中，打开“工具”>“NuGet 包管理器”>“管理解决方案的 NuGet 包”。 搜索 Microsoft.Azure.Devices.Client。 确保已选中“包括预发行版”复选框。 选择最新版本并安装。 现在可以访问所有模块功能。 
 
-    ![Azure 门户模块详细信息][15]
+    ![Install Azure IoT Hub .NET service SDK V1.16.0-preview-005][14]
 
-4. **创建 UpdateModuleTwinReportedProperties 控制台应用** 在“Program.cs”文件顶部添加以下 `using` 语句：
+## <a name="get-your-module-connection-string"></a>获取模块连接字符串
+
+登录到 [Azure 门户][lnk-portal]。 导航到 IoT 中心并单击 IoT 设备。 查找并打开 myFirstDevice，可以看到 myFirstModule 已成功创建。 复制模块连接字符串。 下一步将需要它。
+
+    ![Azure portal module detail][15]
+
+## <a name="create-updatemoduletwinreportedproperties-console-app"></a>创建 UpdateModuleTwinReportedProperties 控制台应用
+
+在 **Program.cs** 文件顶部添加以下 `using` 语句：
 
     ```csharp
     using Microsoft.Azure.Devices.Client;
     using Microsoft.Azure.Devices.Shared;
     ```
 
-    将以下字段添加到 **Program** 类。 将占位符值替换为模块连接字符串。
+    Add the following fields to the **Program** class. Replace the placeholder value with the module connection string.
 
     ```csharp
     private const string ModuleConnectionString = "<Your module connection string>";
     private static ModuleClient Client = null;
     ```
 
-    将以下方法“OnDesiredPropertyChanged”添加到“Program”类：
+    Add the following method **OnDesiredPropertyChanged** to the **Program** class:
 
     ```csharp
     private static async Task OnDesiredPropertyChanged(TwinCollection desiredProperties, object userContext)
@@ -110,7 +119,7 @@ ms.locfileid: "43329143"
         }
     ```
 
-    最后，在 **Main** 方法中添加以下行：
+    Finally, add the following lines to the **Main** method:
 
     ```csharp
     static void Main(string[] args)
@@ -181,4 +190,4 @@ ms.locfileid: "43329143"
 [lnk-portal]: https://portal.azure.cn/
 
 [lnk-csharp-csharp-getstarted]: iot-hub-csharp-csharp-module-twin-getstarted.md
-[lnk-iot-edge]: ./iot-hub-linux-iot-edge-simulated-device.md
+[lnk-iot-edge]: ../iot-edge/tutorial-simulate-device-linux.md

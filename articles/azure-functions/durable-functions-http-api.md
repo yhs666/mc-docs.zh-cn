@@ -9,14 +9,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 origin.date: 09/06/2018
-ms.date: 09/21/2018
+ms.date: 10/18/2018
 ms.author: v-junlch
-ms.openlocfilehash: b59c0d1365afd703fd21791f7fe945539640b6f1
-ms.sourcegitcommit: 54d9384656cee927000d77de5791c1d585d94a68
+ms.openlocfilehash: ff79ca1cbbbf5636f8198bd30776046feeadd2ab
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46524022"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453619"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>Durable Functions 中的 HTTP API (Azure Functions)
 
@@ -101,6 +101,8 @@ Location: https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d84
 
 此协议允许通过外部客户端或支持轮询 HTTP 终结点并遵循 `Location` 标头的服务协调长时间运行的进程。 基础部分已经内置于 Durable Functions HTTP API 中。
 
+> [!NOTE]
+> 默认情况下，[Azure 逻辑应用](https://www.azure.cn/home/features/logic-apps/)提供的所有基于 HTTP 的操作都支持标准异步操作模式。 使用此功能，可在逻辑应用工作流中嵌入长时间运行的持久函数。 有关异步 HTTP 模式的逻辑应用支持的更多详细信息，请参阅 [Azure 逻辑应用工作流操作和触发器文档](../logic-apps/logic-apps-workflow-actions-triggers.md#asynchronous-patterns)。
 
 ## <a name="http-api-reference"></a>HTTP API 引用
 
@@ -219,6 +221,9 @@ HTTP 202 响应还包括 Location 响应标头，该标头引用了与上文提�
 ### <a name="get-all-instances-status"></a>获取所有实例状态
 
 还可以查询所有实例状态。 从“获取实例状态”请求中删除 `instanceId`。 参数与“获取实例状态”相同。 
+
+要记住的一件事是 `connection` 和 `code` 是可选的。 如果你在函数上有匿名身份验证，则不需要代码。
+如果不想使用 AzureWebJobsStorage 应用设置中未定义的其他 blob 存储连接字符串，则可以安全地忽略连接查询字符串参数。
 
 #### <a name="request"></a>请求
 

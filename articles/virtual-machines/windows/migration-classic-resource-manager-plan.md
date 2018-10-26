@@ -16,12 +16,12 @@ ms.topic: article
 origin.date: 04/01/2017
 ms.date: 09/24/2018
 ms.author: v-yeche
-ms.openlocfilehash: 119c410ee3b9e769dd5a15f61ca52668ae25947f
-ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
+ms.openlocfilehash: a6cf03d748eb423dec07709c2fdacc1dbb6c033e
+ms.sourcegitcommit: cc9e8c76454e7d194505af32c42c0f3e4e0ec9e9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46527181"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49315950"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>规划将 IaaS 资源从经典部署模型迁移到 Azure Resource Manager
 尽管 Azure 资源管理器提供了许多精彩功能，但请务必计划迁移，以确保一切顺利进行。 花时间进行规划可确保执行迁移活动时不会遇到问题。
@@ -138,7 +138,7 @@ ms.locfileid: "46527181"
     Get-AzureRmVMUsage -Location <azure-region>
     ```
 
-    **网络***（虚拟网络、静态公共 IP、公共 IP、网络安全组、网络接口、负载均衡器和路由表）*
+    **网络** *（虚拟网络、静态公共 IP、公共 IP、网络安全组、网络接口、负载均衡器和路由表）*
 
     ```powershell
     Get-AzureRmUsage /subscriptions/<subscription-id>/providers/Microsoft.Network/locations/<azure-region> -ApiVersion 2016-03-30 | Format-Table
@@ -178,7 +178,7 @@ ms.locfileid: "46527181"
 
 ### <a name="patterns-of-success"></a>成功模式
 
-实际迁移前，应考虑和缓解“实验室测试”部分中的技术指南。  通过充分测试，实际上迁移不属于事件。  对于生产环境，具有其他支持（如受信任的 Azure 合作伙伴或 Azure 高级服务等）会很有帮助。
+实际迁移前，应考虑和缓解“实验室测试”部分中的技术指南。  通过充分测试，实际上迁移不属于事件。  对于生产环境，具有其他支持（如受信任的 Azure.cn 合作伙伴或 Azure.cn 高级服务等）会很有帮助。
 <!-- Notice: Change Microsoft to Azure.cn-->
 
 ### <a name="pitfalls-to-avoid"></a>需避免的错误

@@ -8,13 +8,13 @@ services: iot-hub
 ms.topic: conceptual
 origin.date: 01/29/2018
 ms.author: v-yiso
-ms.date: 09/10/2018
-ms.openlocfilehash: d1dd8c48c036e12764d8db2b8e36ca025b87c7fa
-ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
+ms.date: 10/29/2018
+ms.openlocfilehash: 6f3c2e354beae50dc8e8a61f29288658e72273b3
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43330519"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453866"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IoT 中心术语表
 本文列出了一些在 IoT 中心文章中使用的常用术语。
@@ -22,13 +22,17 @@ ms.locfileid: "43330519"
 ## <a name="advanced-message-queueing-protocol"></a>高级消息队列协议
 [高级消息队列协议 (AMQP)](https://www.amqp.org/) 是 [IoT 中心](#iot-hub)支持的一种消息传送协议，适用于与设备通信。 有关 IoT 中心支持的消息传递协议的详细信息，请参阅[使用 IoT 中心发送和接收消息](./iot-hub-devguide-messaging.md)。
 
+## <a name="automatic-device-management"></a>自动设备管理
+Azure IoT 中心内的自动设备管理功能可将许多复杂且重复性的任务自动化，包括在大型设备阵列的整个生命周期内对其进行管理。 使用自动设备管理，可以根据设备的属性将一组设备指定为目标、定义所需的配置，并在设备进入管理范畴时让 IoT 中心更新这些设备。  包括[自动设备配置](iot-hub-auto-device-config.md)和 [IoT Edge 自动部署](../iot-edge/how-to-deploy-monitor.md)。
+
 ## <a name="automatic-device-configuration"></a>自动设备配置
 解决方案后端可以使用[自动设备配置](iot-hub-auto-device-config.md)将所需属性分配到一组[设备孪生](#device-twin)，并使用系统指标和自定义指标来报告状态。 
-## <a name="azure-cli"></a>Azure CLI
-[Azure CLI](../cli-install-nodejs.md) 是一个跨平台、开源、基于 shell 的命令工具，适用于在 Microsoft Azure 中创建和管理资源。 此版本的 CLI 是使用 Node.js 实现的。
 
-## <a name="azure-cli-20"></a>Azure CLI 2.0
-[Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-lastest) 是一个跨平台、开源、基于 shell 的命令工具，适用于在 Microsoft Azure 中创建和管理资源。 此预览版本的 CLI 是使用 Python 实现的。
+## <a name="azure-classic-cli"></a>Azure 经典 CLI
+[Azure 经典 CLI](../cli-install-nodejs.md) 是一个跨平台、开放源代码、基于 shell 的命令工具，适用于在 Microsoft Azure 中创建和管理资源。 此版本的 CLI 仅应用于经典部署。
+
+## <a name="azure-cli"></a>Azure CLI
+[Azure CLI](/cli/install-az-cli2) 是一个跨平台、开源、基于 shell 的命令工具，适用于在 Microsoft Azure 中创建和管理资源。
 
 
 ## <a name="azure-iot-device-sdks"></a>Azure IoT 设备 SDK
@@ -182,8 +186,8 @@ IoT 中心是一项完全托管的 Azure 服务，可在数百万个设备和一
 ## <a name="iot-solution-accelerators"></a>IoT 解决方案加速器
 Azure IoT 解决方案加速器将多个 Azure 服务一起打包到解决方案中。 利用这些解决方案，能够快速开始使用常用 IoT 方案的端到端实现。 有关详细信息，请参阅 [什么是 Azure IoT 套件？](../iot-suite/iot-suite-overview.md)
 
-## <a name="the-iot-extension-for-azure-cli-20"></a>适用于 Azure CLI 2.0 的 IoT 扩展
-[适用于 Azure CLI 2.0 的 IoT 扩展](https://github.com/Azure/azure-iot-cli-extension)是一个跨平台的命令行工具。 使用该工具可以管理 [标识注册表](#identity-registry)中的设备、向设备发送消息和文件和接收来自设备的消息和文件，以及监视 IoT 中心的操作。
+## <a name="the-iot-extension-for-azure-cli"></a>适用于 Azure CLI 的 IoT 扩展 
+[适用于 Azure CLI 的 IoT 扩展](https://github.com/Azure/azure-iot-cli-extension)是一个跨平台的命令行工具。 使用该工具可以管理 [标识注册表](#identity-registry)中的设备、向设备发送消息和文件和接收来自设备的消息和文件，以及监视 IoT 中心的操作。
 
 ## <a name="job"></a>作业
 解决方案后端可以使用[作业](iot-hub-devguide-jobs.md)来计划和跟踪在 IoT 中心注册的一组设备上的活动。 活动包括更新设备孪生[所需的属性](#desired-properties)、更新设备孪生[标记](#tags)，以及调用[直接方法](#direct-method)。 [IoT 中心](#iot-hub)还用于在[标识注册表](#identity-registry)中[导入和导出](iot-hub-devguide-identity-registry.md#import-and-export-device-identities)内容。
@@ -213,10 +217,10 @@ Azure IoT 解决方案加速器将多个 Azure 服务一起打包到解决方案
 在与[设备孪生](./iot-hub-devguide-device-twins.md)相关的语境中，报告的属性是设备孪生的一部分，和[所需属性](#desired-properties)一起用于同步设备配置或条件。 报告的属性只能由[设备应用](#device-app)设置，可由[后端应用](#back-end-app)读取和查询。
 
 ## <a name="resource-group"></a>资源组
-[Azure 资源管理器](#azure-resource-manager)使用资源组将相关的资源组合在一起。 通过使用资源组，可以对组中的所有资源同时执行操作。
+[Azure Resource Manager](#azure-resource-manager) 使用资源组将相关的资源组合在一起。 通过使用资源组，可以对组中的所有资源同时执行操作。
 
 ## <a name="retry-policy"></a>重试策略
-连接到云服务时使用重试策略来处理[暂时性错误](https://msdn.microsoft.com/zh-cn/library/hh680901(v=pandp.50).aspx)。
+连接到云服务时使用重试策略来处理[暂时性错误][]。
 ## <a name="routing-rules"></a>路由规则
 需要在 IoT 中心配置[路由规则](./iot-hub-devguide-messages-read-custom.md)，将设备到云消息路由到[内置终结点](#built-in-endpoints)或[自定义终结点](#custom-endpoints)，以供解决方案后端处理。
 
@@ -255,3 +259,6 @@ Azure 订阅是发生计费的地方。 用户创建的每个 Azure 资源或使
 
 ## <a name="x509-client-certificate"></a>X.509 客户端证书
 设备可以使用 X.509 证书在 [IoT 中心](#iot-hub)进行身份验证。 使用 X.509 证书是使用 [SAS 令牌](#shared-access-signature)的替代方案。
+
+
+[暂时性错误]: https://msdn.microsoft.com/zh-cn/library/hh680901(v=pandp.50).aspx

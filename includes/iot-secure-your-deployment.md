@@ -25,14 +25,16 @@ IoT 中心使用安全令牌对设备和服务进行身份验证，以避免在�
 可在以下文章中找到有关安全令牌结构及其用法的详细信息：
 
 -   [安全令牌结构][lnk-security-tokens]
--   [将 SAS 令牌用作设备][lnk-sas-tokens]
+-   [将 SAS 令牌当做设备使用][lnk-sas-tokens]
 
 每个 IoT 中心都有一个 [标识注册表][lnk-identity-registry] ，用于在服务中创建各设备的资源（例如包含即时云到设备消息的队列），以及允许访问面向设备的终结点。 IoT 中心标识注册表针对解决方案为设备标识和安全密钥提供安全存储。 可将单个或一组设备标识添加到允许列表或方块列表，以便完全控制设备访问。 以下文章提供有关标识注册表的结构和受支持操作的详细信息。
 
 [IoT 中心支持 MQTT、AMQP 和 HTTP 等协议][lnk-protocols]。 每个协议使用 IoT 设备到 IoT 中心的安全令牌的方式不同：
 
 * AMQP：基于 SASL PLAIN 和 AMQP 声明的安全性（若是 IoT 中心级别令牌，则为 `{policyName}@sas.root.{iothubName}`；若是设备范围令牌，则为 `{deviceId}`）。
-* MQTT：CONNECT 数据包将 `{deviceId}` 用作 `{ClientId}`，“用户名”字段中为 `{IoThubhostname}/{deviceId}`；在“密码”字段中为 SAS 令牌。
+
+* MQTT：CONNECT 数据包使用 `{deviceId}` 作为 `{ClientId}`、“用户名”字段中的 `{IoThubhostname}/{deviceId}` 以及“密码”字段中的 SAS 令牌。
+
 * HTTP：有效令牌位于授权请求标头中。
 
 IoT 中心标识注册表可用于配置每个设备的安全凭据和访问控制。 如果 IoT 解决方案已大幅投资于[自定义设备标识注册表和/或身份验证方案][lnk-custom-auth]，则可通过创建令牌服务，将该解决方案集成到具有 IoT 中心的现有基础结构中。

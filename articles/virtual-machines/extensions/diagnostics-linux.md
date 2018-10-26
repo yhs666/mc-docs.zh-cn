@@ -8,14 +8,14 @@ ms.service: virtual-machines-linux
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 origin.date: 05/09/2017
-ms.date: 09/24/2018
+ms.date: 10/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: a8da893fe2144de7db3334f3fc25b967f9dc2249
-ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
+ms.openlocfilehash: cf20aa2b61ae2362e1f34a6901657409cbb69648
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46527091"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453680"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>使用 Linux 诊断扩展监视指标和日志
 
@@ -55,7 +55,7 @@ Azure 门户不可用于启用或配置 LAD 3.0， 但可用于安装并配置 2
 ### <a name="prerequisites"></a>先决条件
 
 * Azure Linux 代理 2.2.0 版或更高版本。 大部分 Azure VM Linux 库映像包含 2.2.7 或更高版本。 运行 `/usr/sbin/waagent -version` 以确认 VM 上安装的版本。 如果 VM 正在运行较早版本的来宾代理，请按照[以下说明](/virtual-machines/linux/update-agent)将其更新。
-* **Azure CLI**。 在计算机上[设置 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest) 环境。
+* **Azure CLI**。 在计算机上[设置 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest) 环境。
 * wget 命令（如尚无，请运行 `sudo apt-get install wget`）。
 * 现有 Azure 订阅以及其中用于存储数据的现有存储帐户。
 * 支持的 Linux 发行版列表位于 https://github.com/Azure/azure-linux-extensions/tree/master/Diagnostic#supported-linux-distributions
@@ -133,10 +133,12 @@ az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnost
 Name | 值
 ---- | -----
 storageAccountName | 扩展写入数据的存储帐户的名称。
-storageAccountEndPoint | （可选）标识存储帐户所在云的终结点。 如果缺少此设置，则 LAD 默认为 Azure 公有云`https://core.chinacloudapi.cn`。 若要使用 Azure Germany、Azure 政府或 Azure China 中的存储帐户，请相应地设置此值。
+storageAccountEndPoint | （可选）标识存储帐户所在云的终结点。 如果缺少此设置，则 LAD 默认为 Azure 公有云 `https://core.windows.net`。 若要使用 Azure 德国、Azure 美国政府或 Azure 中国 (`https://core.chinacloudapi.cn`) 中的存储帐户，请相应地设置此值。
 storageAccountSasToken | Blob 服务和表服务的[帐户 SAS 令牌](https://azure.microsoft.com/blog/sas-update-account-sas-now-supports-all-storage-services/) (`ss='bt'`)，适用于容器和对象 (`srt='co'`)，用于授予添加、创建、列出、更新和写入权限 (`sp='acluw'`)。 请勿使用前导问号 (?)。
 mdsdHttpProxy | （可选）允许扩展连接到指定存储帐户和终结点所需的 HTTP 代理信息。
 sinksConfig | （可选）可将指标和事件传递到的替换目标的详细信息。 扩展所支持的每个数据接收器的具体详细信息将在下面各节中介绍。
+
+<!-- Notice: storageAccountEndPoint contains https://core.windows.net and https://core.chinacloudapi.cn-->
 
 > [!NOTE]
 > 使用 Azure 部署模板部署扩展时，必须提前创建好存储帐户和 SAS 令牌并将其传递给模板。 无法在单个模板中部署 VM、存储帐户和配置扩展。 当前不支持在模板中创建 SAS 令牌。
@@ -711,4 +713,5 @@ az vm extension set *resource_group_name* *vm_name* LinuxDiagnostic Microsoft.Az
 * 在 [Azure Monitor](../../monitoring-and-diagnostics/insights-alerts-portal.md) 中为收集的指标创建指标警报。
 * 为指标创建[监控图表](../../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)。
 * 了解如何使用指标[创建虚拟机规模集](../linux/tutorial-create-vmss.md)以控制自动缩放。
-<!-- Update_Description: update meta properties, wording update, update link -->
+
+<!-- Update_Description: update meta properties, wording update -->

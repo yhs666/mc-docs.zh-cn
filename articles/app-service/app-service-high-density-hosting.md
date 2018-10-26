@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 应用服务上使用按应用缩放进行高密度托管 | Microsoft Docs
+title: 在 Azure 应用服务上使用按应用缩放进行高密度托管 | Azure
 description: 在 Azure 应用服务上进行高密度托管
 author: btardif
 manager: erikre
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 origin.date: 01/22/2018
-ms.date: 07/30/2018
-ms.author: v-yiso
-ms.openlocfilehash: bedee80292c4123496866fed04103bfda13c6ac6
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.date: 10/29/2018
+ms.author: v-biyu
+ms.openlocfilehash: a55f5d93ed44e05fbfc4cabbcd6803f9d7bbd819
+ms.sourcegitcommit: 4b5ada023c9466d497c7474abf7ad71e50c3b17d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39167738"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49451584"
 ---
 # <a name="high-density-hosting-on-azure-app-service-using-per-app-scaling"></a>在 Azure 应用服务上使用按应用缩放进行高密度托管
 默认情况下，通过缩放应用服务应用在其中运行的[应用服务计划](azure-web-sites-web-hosting-plans-in-depth-overview.md)来缩放这些应用。 当多个应用在同一个应用服务计划中运行时，每个横向扩展实例会在计划中运行所有应用。
@@ -28,12 +28,12 @@ ms.locfileid: "39167738"
 可以在应用服务计划级别启用按应用缩放。 按应用缩放在缩放应用时独立于所属的应用服务计划。 这样，可以将一个应用服务计划扩展到 10 个实例，而将一个应用设置为仅使用 5 个实例。
 
 > [!NOTE]
-> 按应用缩放仅适用于标准、高级和独立定价层。
+> 按应用缩放仅适用于标准、高级、高级 V2 和独立定价层。
 >
 
 ## <a name="per-app-scaling-using-powershell"></a>使用 PowerShell 进行按应用缩放
 
-通过将 ```-perSiteScaling $true``` 属性传入 ```New-AzureRmAppServicePlan``` commandlet，创建按应用缩放的计划
+通过将 ```-PerSiteScaling $true``` 参数传入 ```New-AzureRmAppServicePlan``` cmdlet，创建按应用缩放的计划。
 
 ```powershell
 New-AzureRmAppServicePlan -ResourceGroupName $ResourceGroup -Name $AppServicePlan `
@@ -42,23 +42,12 @@ New-AzureRmAppServicePlan -ResourceGroupName $ResourceGroup -Name $AppServicePla
                             -NumberofWorkers 5 -PerSiteScaling $true
 ```
 
-若要通过按应用缩放更新现有的应用服务计划，请执行以下操作： 
-
-- 获取目标计划 ```Get-AzureRmAppServicePlan```
-- 在本地修改属性 ```$newASP.PerSiteScaling = $true```
-- 将更改发布回 Azure ```Set-AzureRmAppServicePlan``` 
+通过将 `-PerSiteScaling $true` 参数传入 ```Set-AzureRmAppServicePlan``` cmdlet，使用现有应用服务计划启用按应用缩放。
 
 ```powershell
-# Get the new App Service Plan and modify the "PerSiteScaling" property.
-$newASP = Get-AzureRmAppServicePlan -ResourceGroupName $ResourceGroup -Name $AppServicePlan
-$newASP
-
-#Modify the local copy to use "PerSiteScaling" property.
-$newASP.PerSiteScaling = $true
-$newASP
-    
-#Post updated app service plan back to azure
-Set-AzureRmAppServicePlan $newASP
+# Enable per-app scaling for the App Service Plan using the "PerSiteScaling" parameter.
+Set-AzureRmAppServicePlan -ResourceGroupName $ResourceGroup `
+   -Name $AppServicePlan -PerSiteScaling $true
 ```
 
 在应用级别，配置应用可以在应用服务计划中使用的实例数。

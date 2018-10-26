@@ -9,13 +9,13 @@ ms.devlang: javascript
 ms.topic: conceptual
 origin.date: 06/16/2017
 ms.author: v-yiso
-ms.date: 09/10/2018
-ms.openlocfilehash: 0fc6e9be6478639803da61fbebb00fb08e8d813d
-ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
+ms.date: 10/29/2018
+ms.openlocfilehash: 618f27b4caccde8670a2165bf452870cf738c737
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43328625"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453571"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-node"></a>使用 IoT 中心发送云到设备消息 (Node)
 
@@ -173,7 +173,7 @@ Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备�
     ![运行应用以发送云到设备的命令][img-send-command]
    
    > [!NOTE]
-   > 为简单起见，本教程不实现任何重试策略。 在生产代码中，应按 MSDN 文章 [Transient Fault Handling]（暂时性故障处理）中所述实施重试策略（例如指数性的回退）。
+   > 为简单起见，本教程不实现任何重试策略。 在生产代码中，应该按文章 [Transient Fault Handling]（暂时性故障处理）中所述实施重试策略（例如指数退避）。
    > 
    > 
 

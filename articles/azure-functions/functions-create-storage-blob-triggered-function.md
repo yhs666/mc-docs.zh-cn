@@ -4,25 +4,21 @@ description: 使用 Azure Functions 创建由添加到 Azure Blob 存储的项�
 services: azure-functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 ms.assetid: d6bff41c-a624-40c1-bbc7-80590df29ded
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
-ms.tgt_pltfrm: multiple
-ms.workload: na
-origin.date: 03/27/2018
-ms.date: 04/10/2018
+origin.date: 10/01/2018
+ms.date: 10/19/2018
 ms.author: v-junlch
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 880a890e142891624ac883022f6ac45bc104fe3e
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: c9aa8e3615f21573e9a6c4cd39eb50e2a97f9549
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939040"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453684"
 ---
 # <a name="create-a-function-triggered-by-azure-blob-storage"></a>创建由 Azure Blob 存储触发的函数
 
@@ -47,15 +43,21 @@ ms.locfileid: "38939040"
 
 ## <a name="create-a-blob-storage-triggered-function"></a>创建 Blob 存储触发的函数
 
-1. 展开 Function App，单击“Functions”旁边的 + 按钮。 如果这是 Function App 中的第一个函数，请选择“自定义函数”。 此时将显示函数模板的完整集合。
+1. 展开 Function App，单击“Functions”旁边的 + 按钮。 如果这是函数应用中的第一个函数，请依次选择“门户中”、“继续”。 否则，请转到第三步。
 
-    ![Azure 门户中的 Functions 快速入门页](./media/functions-create-storage-blob-triggered-function/add-first-function.png)
+   ![Azure 门户中的 Functions 快速入门页](./media/functions-create-storage-blob-triggered-function/function-app-quickstart-choose-portal.png)
 
-2. 在搜索栏中键入 `blob`，然后选择需要用于 Blob 存储触发器模板的语言。
+1. 依次选择“更多模板”、“完成并查看模板”。
 
-    ![选择 Blob 存储触发器模板。](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal.png)
- 
-3. 使用图像下的表中指定的设置。
+    ![Functions 快速入门选择更多模板](./media/functions-create-storage-blob-triggered-function/add-first-function.png)
+
+1. 在搜索字段中，键入 `blob`，然后选择“Blob 触发器”模板。
+
+1. 如果系统提示，请选择“安装”以在函数应用中安装 Azure 存储扩展的任何依赖项。 安装成功后，选择“继续”。
+
+    ![安装绑定扩展](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal.png)
+
+1. 使用图像下的表中指定的设置。
 
     ![创建 Blob 存储触发的函数。](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal-2.png)
 
@@ -65,7 +67,7 @@ ms.locfileid: "38939040"
     | **路径**   | samples-workitems/{name}    | 所监视的 Blob 存储中的位置。 blob 的文件名将作为 _name_ 参数传入绑定。  |
     | **存储帐户连接** | AzureWebJobsStorage | 可以使用 Function App 已在使用的存储帐户连接，也可以创建一个新的存储帐户连接。  |
 
-3. 单击“创建”以创建函数。
+1. 单击“创建”以创建函数。
 
 接下来，连接到 Azure 存储帐户并创建 **samples-workitems** 容器。
 
@@ -103,9 +105,6 @@ ms.locfileid: "38939040"
 
    ![在日志中查看消息。](./media/functions-create-storage-blob-triggered-function/functions-blob-storage-trigger-view-logs.png)
 
-    >[!NOTE]
-    > 当 Function App 在默认消耗计划中运行时，添加或更新 blob 与触发函数之间可能会有多达几分钟的延迟。 如果需要在 blob 触发的函数中降低延迟，请考虑在应用服务计划中运行 Function App。
-
 ## <a name="clean-up-resources"></a>清理资源
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
@@ -118,3 +117,4 @@ ms.locfileid: "38939040"
 
 有关 Blob 存储触发器的详细信息，请参阅 [Azure Functions Blob 存储绑定](functions-bindings-storage-blob.md)。
 
+<!-- Update_Description: wording update -->

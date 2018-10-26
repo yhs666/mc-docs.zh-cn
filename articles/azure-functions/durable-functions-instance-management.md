@@ -9,14 +9,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 origin.date: 08/31/2018
-ms.date: 09/21/2018
+ms.date: 10/18/2018
 ms.author: v-junlch
-ms.openlocfilehash: b4f92740d025f7c772a7e9e45559837c5232160c
-ms.sourcegitcommit: 54d9384656cee927000d77de5791c1d585d94a68
+ms.openlocfilehash: 90dc5aceffa69bda97af89a1a90e96226a739f19
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46524035"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453750"
 ---
 # <a name="manage-instances-in-durable-functions-azure-functions"></a>在 Durable Functions 中管理实例 (Azure Functions)
 
@@ -61,6 +61,19 @@ module.exports = function (context, input) {
 
     context.done(null);
 };
+```
+上面的代码假定已在 function.json 文件中定义名称为“starter”、类型为“orchestrationClient”的输出绑定。 如果未定义该绑定，则不会创建持久函数实例。
+
+对于要调用的持久函数，应修改 function.json 以具有业务流程客户端的绑定，如下所述
+
+```js
+{
+    "bindings": [{
+        "name":"starter",
+        "type":"orchestrationClient",
+        "direction":"out"
+    }]
+}
 ```
 
 > [!NOTE]

@@ -9,12 +9,12 @@ origin.date: 05/22/2018
 ms.date: 09/10/2018
 ms.author: v-jay
 ms.custom: include file
-ms.openlocfilehash: 95150c8135c4631b5dc63cfa2cccc09bad57db96
-ms.sourcegitcommit: e157751c560524d0bb828e987b87178130663547
+ms.openlocfilehash: e7305a5b34454600163bdf4f5781a604970bc032
+ms.sourcegitcommit: 3ec1b0705c8305fc4561b9511c275edb9baa1f59
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43649159"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49316015"
 ---
 寄送磁盘后，请返回到 Azure 门户中的“导入/导出”页面。 
 
@@ -25,6 +25,8 @@ ms.locfileid: "43649159"
  
 1. 选择并单击作业。
 2. 单击“寄送驱动器后更新作业状态和跟踪信息”。 
+   ![跟踪信息](./media/storage-import-export-data-to-blobs/status.png)
 3. 选中“标记为已寄送”旁的复选框。
+   ![标记为已寄送](./media/storage-import-export-data-to-blobs/mark-as-sent.png)
 4. 提供承运商信息和跟踪号。
 5. 在门户仪表板上跟踪作业进度。 有关每个作业状态的说明，请转到[查看作业状态](../articles/storage/common/storage-import-export-view-drive-status.md)。

@@ -2,23 +2,23 @@
 title: Azure 备份常见问题解答
 description: '针对以下常见问题的解答：包括恢复服务保管库在内的 Azure 备份功能、能够备份的内容、原理、加密和限制。 '
 services: backup
-author: markgalioto
+author: lingliw
 manager: carmonm
 keywords: 备份和灾难恢复;备份服务
 ms.service: backup
 ms.topic: conceptual
 origin.date: 08/02/2018
-ms.date: 09/25/2018
-ms.author: v-junlch
-ms.openlocfilehash: e78d8548b64221a9a9806adf96d6f75b71cae124
-ms.sourcegitcommit: a4d8c8641a6341113532d8770603d4b66cc13ced
+ms.date: 10/19/2018
+ms.author: v-lingwu
+ms.openlocfilehash: 6abdc31c3522788bb47c093a4d79c3d2a259f95a
+ms.sourcegitcommit: ee042177598431d702573217e2f3538878b6a984
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47114535"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477765"
 ---
 # <a name="questions-about-the-azure-backup-service"></a>有关 Azure 备份服务的问题
-本文解答有关 Azure 备份组件的常见问题。 某些答案提供内含全面信息的文章的链接。 单击“评论”（右侧）即可提问有关 Azure 备份的问题。 评论显示在本文末尾。 需要使用 Livefyre 帐户发表评论。 还可以在 [论坛](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)中发布有关 Azure 备份服务的问题。
+本文解答有关 Azure 备份组件的常见问题。 某些答案提供内含全面信息的文章的链接。 单击“评论”（右侧）即可提问有关 Azure 备份的问题。 评论显示在本文末尾。 还可以在 [论坛](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)中发布有关 Azure 备份服务的问题。
 
 若要快速浏览本文的各个部分，请使用右侧“本文内容”下的链接。
 
@@ -149,7 +149,7 @@ Azure 备份支持以下列表中的操作系统使用 Azure 备份服务器和 
 | Microsoft Exchange |所备份 Exchange 服务器中所有 Exchange 数据库的总和 |
 | BMR/系统状态 |所备份计算机的 BMR 或系统状态的每个副本 |
 
-如果是 Azure IaaS VM 备份，则每个 VM 最多具有 16 个数据磁盘，而每个数据磁盘存储空间最大为 4095 GB。
+如果是 Azure IaaS VM 备份，则每个 VM 最多具有 32 个数据磁盘，而每个数据磁盘存储空间最大为 4095 GB。
 
 ### <a name="is-there-a-limit-on-the-amount-of-data-held-in-a-recovery-services-vault"></a>恢复服务保管库中备份的数据量是否有限制？
 对可以备份到恢复服务保管库的数据量没有限制。

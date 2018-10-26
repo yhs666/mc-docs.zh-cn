@@ -12,26 +12,26 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 03/23/2018
-ms.date: 08/27/2018
+ms.date: 10/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: 15daa2a2df6a870cfd2b6f9240674e35ff9f2c02
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.openlocfilehash: b548d0eb5c3a1734ba47c26c5c3df03f2a716df3
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42871559"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453741"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-linux-vms"></a>使用 Azure Policy 限制 Linux VM 上的扩展安装
 
 如果想要阻止在 Linux VM 上使用或安装某些扩展，可以使用 CLI 创建 Azure Policy 以限制资源组中的 VM 扩展。 
 
-本教程在本地 Shell 中使用 CLI。 如果要在本地运行 Azure CLI，则需要安装版本 2.0.26 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 
+本教程在本地 Shell 中使用 CLI。 如果要在本地运行 Azure CLI，则需要安装版本 2.0.26 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 
 <!-- Not Available on Azure Cloud Shell -->
 ## <a name="create-a-rules-file"></a>创建规则文件
 
 若要限制可以安装哪些扩展，需要使用[规则](/azure-policy/policy-definition#policy-rule)来提供用于识别扩展的逻辑。
 
-本示例演示如何通过在本地 Shell 中创建规则文件来拒绝安装“Microsoft.OSTCExtensions”发布的扩展。如果在本地使用 CLI，则可以创建一个本地文件并将路径 (~/clouddrive) 替换为计算机上本地文件的路径。
+此示例演示了如何通过创建规则文件来拒绝安装“Microsoft.OSTCExtensions”发布的扩展。 如果在本地使用 CLI，也可以创建一个本地文件并将路径 (~/clouddrive) 替换为计算机上本地文件的路径。
 
 <!-- Not Available on Azure Cloud Shell -->
 <!-- Not Available on [bash Cloud Shell](https://shell.azure.com/bash)-->
@@ -72,10 +72,10 @@ vim ~/clouddrive/azurepolicy.rules.json
 
 还需要一个[参数](/azure-policy/policy-definition#parameters)文件，以创建一个用于传入要阻止的扩展列表的结构。 
 
-本示例演示如何在本地 Shell 中为 Linux VM 创建参数文件。如果在本地使用 CLI，也可以创建一个本地文件并将路径 (~/clouddrive) 替换为计算机上本地文件的路径。
+此示例演示如何为 Linux VM 创建参数文件。 如果在本地使用 CLI，也可以创建一个本地文件并将路径 (~/clouddrive) 替换为计算机上本地文件的路径。
+
 <!-- Not Available on Azure Cloud Shell -->
 <!-- Not Available on [bash Cloud Shell](https://shell.azure.com/bash)-->
-
 
 ```azurecli
 vim ~/clouddrive/azurepolicy.parameters.json
@@ -170,4 +170,5 @@ az policy definition delete --name 'not-allowed-vmextension-linux'
 
 ## <a name="next-steps"></a>后续步骤
 有关详细信息，请参阅 [Azure Policy](../../azure-policy/azure-policy-introduction.md)。
+
 <!-- Update_Description: wording update -->

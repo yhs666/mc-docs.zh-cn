@@ -1,6 +1,6 @@
 ---
 title: 在 Linux VM 上使用 cloud-init 配置交换文件 | Azure
-description: 如何通过 Azure CLI 2.0 使用 cloud-init 在创建期间在 Linux VM 中配置交换文件
+description: 如何在通过 Azure CLI 进行创建时使用 cloud-init 在 Linux VM 中配置交换文件
 services: virtual-machines-linux
 documentationcenter: ''
 author: rockboyfor
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 origin.date: 11/29/2017
-ms.date: 06/25/2018
+ms.date: 10/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: c9872f5cb5eca67112081d9eceebeb78cbb26a85
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.openlocfilehash: c563511bd445d995332f312b35c966650964d0de
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315519"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453524"
 ---
 # <a name="use-cloud-init-to-configure-a-swapfile-on-a-linux-vm"></a>在 Linux VM 上使用 cloud-init 配置交换文件
 本文介绍如何使用 [cloud-init](https://cloudinit.readthedocs.io) 在各种 Linux 分发版中配置交换文件。 在传统上，交换文件由 Linux 代理 (WALA) 根据分发版的需要进行配置。  本文档概述在预配期间，使用 cloud-init 按需生成交换文件的过程。  有关 cloud-init 如何在 Azure 以及受支持的 Linux 发行版中本机工作的详细信息，请参阅 [cloud-init 概述](using-cloud-init.md)
@@ -98,4 +98,5 @@ Filename                Type        Size    Used    Priority
 - [运行包管理器以在首次启动时更新现有包](cloudinit-update-vm.md)
 - [更改 VM 本地主机名](cloudinit-update-vm-hostname.md) 
 - [安装应用程序包、更新配置文件和注入密钥](tutorial-automate-vm-deployment.md)
+
 <!-- Update_Description: update link, wording update -->

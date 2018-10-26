@@ -6,22 +6,22 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
-origin.date: 05/01/2018
-ms.date: 07/09/2018
+origin.date: 09/11/2018
+ms.date: 10/29/2018
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: bac0eb3f435c8745c0d1c29ac679ed51ca6a3954
-ms.sourcegitcommit: 039d75a641edc2edd13a9371251051c20fea2bb7
+ms.openlocfilehash: 9e9d0eb6ddd9d82f959df128ede463919c6135e6
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103599"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453869"
 ---
 # <a name="tutorial-configure-message-routing-with-iot-hub"></a>教程：使用 IoT 中心配置消息路由
 
-消息路由能够将遥测数据从 IoT 设备发送到内置的与事件中心兼容的终结点或自定义终结点，例如，blob 存储、服务总线队列、服务总线主题和事件中心。 配置消息路由时，可以创建路由规则来自定义符合特定规则的路由。 设置完成后，引入的数据将通过 IoT 中心自动路由到终结点。 
+[消息路由](iot-hub-devguide-messages-d2c.md)能够将遥测数据从 IoT 设备发送到内置的与事件中心兼容的终结点或自定义终结点，例如，blob 存储、服务总线队列、服务总线主题和事件中心。 配置消息路由时，可以创建[路由查询](iot-hub-devguide-routing-query-syntax.md)来自定义符合特定条件的路由。 设置完成后，引入的数据将通过 IoT 中心自动路由到终结点。 
 
-在本教程中，可了解如何通过 IoT 中心设置和使用路由规则。 将消息从 IoT 设备路由到多项服务（包括 blob 存储和服务总线队列）的其中一项服务中。 路由到服务总线队列的消息将有逻辑应用获取并通过电子邮件发送。 没有专门设置路由的消息将发送到默认终结点，可在 Power BI 可视化中查看。
+在本教程中，可了解如何通过 IoT 中心设置和使用路由查询。 将消息从 IoT 设备路由到多项服务（包括 blob 存储和服务总线队列）的其中一项服务中。 路由到服务总线队列的消息将有逻辑应用获取并通过电子邮件发送。 没有专门设置路由的消息将发送到默认终结点，可在 Power BI 可视化中查看。
 
 将在本教程中执行以下任务：
 
@@ -40,7 +40,7 @@ ms.locfileid: "37103599"
 
 - Azure 订阅。 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
-- 安装 [Visual Studio for Windows](https://www.visualstudio.com/)。 
+- 安装 [Visual Studio](https://www.visualstudio.com/)。 
 
 - 用于分析默认终结点的流分析的 Power BI 帐户。 （[免费试用 Power BI](https://app.powerbi.com/signupredirect?pbi_source=web)。）
 
@@ -53,7 +53,7 @@ ms.locfileid: "37103599"
 
 ### <a name="using-azure-cli-locally"></a>本地使用 Azure CLI
 
-如果更想在本地使用 CLI 而非 Cloud Shell，则必须具有 Azure CLI 模块版本 2.0.30.0 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](/cli/install-azure-cli)。 
+如果更想在本地使用 CLI，则必须具有 Azure CLI 模块版本 2.0.30.0 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](/cli/install-azure-cli)。 
 
 ### <a name="using-powershell-locally"></a>本地使用 PowerShell
 
@@ -61,7 +61,7 @@ ms.locfileid: "37103599"
 
 ## <a name="set-up-resources"></a>设置资源
 
-要完成本教程，需要 IoT 中心、存储帐户和服务总线队列。 这些资源都可以通过 Azure CLI 或 Azure PowerShell 创建。 为所有资源使用相同的资源组和位置。 然后在结束时，可通过删除资源组一步删除所有内容。
+要完成本教程，需要 IoT 中心、存储帐户和服务总线队列。 这些资源可以通过 Azure CLI 或 Azure PowerShell 创建。 为所有资源使用相同的资源组和位置。 然后在结束时，可通过删除资源组一步删除所有内容。
 
 以下部分介绍如何执行所需步骤。 按照 CLI 或 PowerShell 说明操作。
 
@@ -77,10 +77,11 @@ ms.locfileid: "37103599"
 
 5. 为发送消息到中心的模拟设备创建设备标识。 保存测试阶段的密钥。
 
-### <a name="azure-cli-instructions"></a>Azure CLI 说明
+### <a name="set-up-your-resources-using-azure-cli"></a>使用 Azure CLI 设置资源
 
-使用该脚本的最简单方法即是将其复制粘贴到 Cloud Shell 中。 假设已登录，它将一次运行一行脚本。 
+将此脚本复制并粘贴到终端窗口中。 在已登录的情况下，该脚本会逐行运行。 
 
+必须全局唯一的变量已使用 `$RANDOM` 串联起来。 运行脚本时，如果已设置相应的变量，则会生成一个随机数字字符串，并将其串联到固定字符串的末尾，使其保持唯一。
 ```azurecli
 
 # This is the IOT Extension for Azure CLI.
@@ -171,9 +172,11 @@ az iot hub device-identity show --device-id $iotDeviceName \
 
 ```
 
-### <a name="powershell-instructions"></a>PowerShell 说明
+### <a name="set-up-your-resources-using-azure-powershell"></a>使用 Azure PowerShell 设置资源
 
-使用此脚本最简单的方法是打开 [PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise?view=powershell-6)，将脚本复制到剪贴板，然后将整个脚本粘贴到脚本窗口。 然后，可更改资源名称的值（如果想要更改），然后运行整个脚本。 
+将此脚本复制并粘贴到终端窗口中。 在已登录的情况下，该脚本会逐行运行。
+
+必须全局唯一的变量已使用 `$(Get-Random)` 串联起来。 运行脚本时，如果已设置相应的变量，则会生成一个随机数字字符串，并将其串联到固定字符串的末尾，使其保持唯一。
 
 ```azurepowershell
 # Log into Azure account.
@@ -278,69 +281,85 @@ New-AzureRmServiceBusQueue -ResourceGroupName $resourceGroup `
 
 ### <a name="routing-to-a-storage-account"></a>路由到存储帐户 
 
-现在为存储帐户设置路由。 定义终结点，然后为该终结点设置路由。 “级别”属性设置为“storage”的消息将自动写入存储帐户。
+现在为存储帐户设置路由。 你转到“消息路由”窗格，然后添加路由。 添加路由时，请为路由定义新的终结点。 此设置完成后，“级别”属性设置为“storage”的消息将自动写入存储帐户。
 
-1. 在 [Azure 门户](https://portal.azure.cn)中，单击“资源组”，然后选择你的资源组。 本教程使用 ContosoResources。 在资源列表下单击 IoT 中心。 本教程使用 ContosoTestHub。 单击“终结点” 。 在“终结点”窗格中，单击“+添加”。 输入以下信息：
+1. 在 [Azure 门户](https://portal.azure.cn)中，单击“资源组”，然后选择你的资源组。 本教程使用 ContosoResources。 
 
-   **名称**：为终结点输入名称。 本教程使用 storageContainer。
+2. 在资源列表下单击 IoT 中心。 本教程使用 ContosoTestHub。 
+
+3. 单击“消息路由”。 在“消息路由”窗格中，单击“+添加”。 在“添加路由”窗格中，单击终结点字段旁边的“+添加”，如下图所示：
+
+   ![显示如何开始将终结点添加到路由的屏幕截图。](./media/tutorial-routing/message-routing-add-a-route-w-storage-ep.png)
+
+4. 选择“Blob 存储”。 随即看到“添加存储终结点”窗格。 
+
+   ![显示添加终结点的屏幕截图。](./media/tutorial-routing/message-routing-add-storage-ep.png)
+
+5. 为终结点输入名称。 本教程使用 storageContainer。
+
+6. 单击“选取容器”。 将转到存储帐户列表。 选择在准备步骤中设置的存储账户。 本教程使用 **contosostorage**。 它显示该存储帐户中的容器列表。 选择在准备步骤中设置的容器。 本教程使用 contosoresults。 单击“选择”。 随即返回到“添加终结点”窗格。 
+
+7. 为其余字段使用默认值。 单击“创建”以创建存储终结点并将其添加到路由。 随即返回到“添加路由”窗格。
+
+8.  现在完成余下的路由查询信息。 此查询指定将消息发送到刚刚添加为终结点的存储容器的条件。 填充屏幕上的字段。 
+
+   **名称**：为路由查询输入名称。 本教程使用 StorageRoute。
+
+   **终结点**：选择刚刚设置的终结点。 
    
-   **终结点类型**：从下拉列表选择“Azure 存储容器”。
+   **数据源**：从下拉列表选择“设备遥测消息”。
 
-   单击“选取容器”以显示存储帐户列表。 选择存储帐户。 本教程使用 **contosostorage**。 然后选择容器。 本教程使用 contosoresults。 单击“选择”，将返回到“添加”终结点窗格。 
+   **启用路由**：确保启用了此选项。
    
-   ![显示添加终结点的屏幕截图。](./media/tutorial-routing/add-endpoint-storage-account.png)
-   
-   单击“确定”，完成添加终结点。
-   
-2. 在 IoT 中心单击“路由”。 创建一个路由规则，将消息路由到刚添加为终结点的存储容器中。 单击“路由”窗格顶部的“+添加”。 填充屏幕上的字段。 
+   **路由查询**：输入 `level="storage"` 作为查询字符串。 
 
-   **名称**：为路由规则输入名称。 本教程使用 StorageRule。
-
-   **数据源**：从下拉列表选择“设备消息”。
-
-   **终结点**：选择刚设置的终结点。 本教程使用 storageContainer。 
+   ![显示为存储帐户创建路由查询的屏幕截图。](./media/tutorial-routing/message-routing-finish-route-storage-ep.png)  
    
-   **查询字符串**：输入 `level="storage"` 作为查询字符串。 
-
-   ![显示为存储帐户创建路由规则的屏幕截图。](./media/tutorial-routing/create-a-new-routing-rule-storage.png)
-   
-   单击“保存” 。 完成后，返回到“路由”窗格，可在其中看到存储的新路由规则。 关闭“路由”窗格，将返回到资源组页。
+   单击“保存” 。 完成后，返回到“消息路由”窗格，可在其中看到存储的新路由查询。 关闭“路由”窗格，将返回到资源组页。
 
 ### <a name="routing-to-a-service-bus-queue"></a>路由到服务总线队列 
 
-现在为服务总线队列设置路由。 定义终结点，然后为该终结点设置路由。 “级别”属性设置为“critical”的消息将写入服务总线队列，这样会触发逻辑应用，然后发送具有此信息的电子邮件。 
+现在为服务总线队列设置路由。 你转到“消息路由”窗格，然后添加路由。 添加路由时，请为路由定义新的终结点。 此设置完成后，“级别”属性设置为“critical”的消息将写入服务总线队列，这样会触发逻辑应用，然后发送具有此信息的电子邮件。 
 
-1. 在资源组页上，单击你的 IoT 中心，然后单击“终结点”。 在“终结点”窗格中，单击“+添加”。 输入以下信息。
+1. 在资源组页上，单击 IoT 中心，然后单击“消息路由”。 
 
-   **名称**：为终结点输入名称。 本教程使用 CriticalQueue。 
+2. 在“消息路由”窗格中，单击“+添加”。 
 
-   **终结点类型**：从下拉列表选择“服务总线队列”。
+3. 在“添加路由”窗格中，单击终结点字段旁边的“+添加”。 选择“服务总线队列”。 随即看到“添加服务总线终结点”窗格。 
 
-   **服务总线命名空间**：从下拉列表选择适用于本教程的服务总线命名空间。 本教程使用 ContosoSBNamespace。
+   ![显示添加服务总线终结点的屏幕截图](./media/tutorial-routing/message-routing-add-sbqueue-ep.png)
 
-   **服务总线队列**：从下拉列表选择服务总线队列。 本教程使用 contososbqueue。
+4. 填写字段：
 
-   ![显示为服务总线队列添加终结点的屏幕截图。](./media/tutorial-routing/add-endpoint-sb-queue.png)
-
-   单击“确定”，保存此终结点。 该步骤完成后，关闭“终结点”窗格。 
-    
-2. 在 IoT 中心单击“路由”。 创建一个路由规则，将消息路由到刚添加为终结点的服务总线队列中。 单击“路由”窗格顶部的“+添加”。 填充屏幕上的字段。 
-
-   **名称**：为路由规则输入名称。 本教程使用 SBQueueRule. 
-
-   **数据源**：从下拉列表选择“设备消息”。
-
-   **终结点**：选择刚设置的终结点 CriticalQueue。
-
-   **查询字符串**：输入 `level="critical"` 作为查询字符串。 
-
-   ![显示为服务总线队列创建路由规则的屏幕截图。](./media/tutorial-routing/create-a-new-routing-rule-sbqueue.png)
+   **终结点名称**：输入终结点名称。 本教程使用 CriticalQueue。
    
-   单击“保存” 。 返回到“路由”窗格时，可看到这两个新的路由规则，如下所示。
+   **服务总线命名空间**：单击此字段以显示下拉列表；选择你在准备步骤中设置的服务总线命名空间。 本教程使用 ContosoSBNamespace。
 
-   ![显示刚设置的路由的屏幕截图。](./media/tutorial-routing/show-routing-rules-for-hub.png)
+   **服务总线队列**：单击此字段以显示下拉列表；从下拉列表中选择服务总线队列。 本教程使用 contososbqueue。
 
-   关闭“路由”窗格，将返回到资源组页。
+5. 单击“创建”添加服务总线队列终结点。 随即返回到“添加路由”窗格。 
+
+6.  现在完成余下的路由查询信息。 此查询指定将消息发送到刚刚添加为终结点的服务总线队列的条件。 填充屏幕上的字段。 
+
+   **名称**：为路由查询输入名称。 本教程使用 SBQueueRoute。 
+
+   **终结点**：选择刚刚设置的终结点。
+
+   **数据源**：从下拉列表选择“设备遥测消息”。
+
+   **路由查询**：输入 `level="critical"` 作为查询字符串。 
+
+   ![显示为服务总线队列创建路由查询的屏幕截图。](./media/tutorial-routing/message-routing-finish-route-sbq-ep.png)
+
+7. 单击“保存” 。 返回到“路由”窗格时，可看到这两个新的路由，如此处所示。
+
+   ![显示刚设置的路由的屏幕截图。](./media/tutorial-routing/message-routing-show-both-routes.png)
+
+8. 可以通过单击“自定义终结点”选项卡查看你设置的自定义端点。
+
+   ![显示刚刚设置的自定义终结点的屏幕截图。](./media/tutorial-routing/message-routing-show-custom-endpoints.png)
+
+9. 关闭“消息路由”窗格，返回到“资源组”窗格。
 
 ## <a name="create-a-logic-app"></a>创建逻辑应用  
 
@@ -350,8 +369,7 @@ New-AzureRmServiceBusQueue -ResourceGroupName $resourceGroup `
 
    **名称**：该字段是逻辑应用的名称。 本教程使用 ContosoLogicApp。 
 
-   
-            **订阅**：选择 Azure 订阅。
+   **订阅**：选择 Azure 订阅。
 
    **资源组**：单击“使用现有资源组”，然后选择你的资源组。 本教程使用 ContosoResources。 
 
@@ -441,11 +459,11 @@ New-AzureRmServiceBusQueue -ResourceGroupName $resourceGroup `
 
 5. 单击“保存” 。
 
-### <a name="add-an-output-to-the-stream-analytics-job"></a>向流分析作业添加输出
+### <a name="add-an-output-to-the-stream-analytics-job"></a>将输出添加到流分析作业
 
 1. 在“作业拓扑”下，单击“输出”。
 
-2. 在“输出”窗格中，单击“添加”，然后选择“Power BI”。 在出现的屏幕上，填写以下字段：
+2. 在“输出”窗格中，单击“添加”并选择“Power BI”。 在出现的屏幕上，填写以下字段：
 
    **输出别名**：输出的唯一别名。 本教程使用 contosooutputs。 
 
@@ -453,7 +471,7 @@ New-AzureRmServiceBusQueue -ResourceGroupName $resourceGroup `
 
    **表名称**：要在 Power BI 中使用的表的名称。 本教程使用 contosotable。
 
-   其余字段接受默认值。
+   在剩余字段中使用默认值。
 
 3. 单击“授权”，并登录到你的 Power BI 帐户。
 
@@ -571,13 +589,13 @@ New-AzureRmServiceBusQueue -ResourceGroupName $resourceGroup `
 
 如果想要删除已创建的所有资源，请删除资源组。 此操作会一并删除组中包含的所有资源。 在这种情况下，它会删除 IoT 中心、服务总线命名空间和队列、逻辑应用、存储帐户和资源组本身。 
 
-### <a name="clean-up-resources-in-the-power-bi-visualization"></a>清理 Power BI 可视化中的资源
+### <a name="clean-up-resources-in-the-power-bi-visualization"></a>清理 Power BI 可视化效果中的资源
 
 登录到 [Power BI](https://powerbi.microsoft.com/) 帐户。 转到你的工作区。 本教程使用“我的工作区”。 若要删除 Power BI 可视化，请转到数据集并单击“垃圾桶”图标删除该数据集。 本教程使用 contosodataset。 删除数据集时，报表也随之删除。
 
 ### <a name="clean-up-resources-using-azure-cli"></a>使用 Azure CLI 清理资源
 
-若要删除资源组，使用 [az group delete](https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-delete) 命令。
+若要删除资源组，请使用 [az group delete](https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-delete) 命令。
 
 ```azurecli
 az group delete --name $resourceGroup

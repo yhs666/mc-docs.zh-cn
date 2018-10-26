@@ -3,7 +3,7 @@ title: 更新 Azure 备份中心报告内容包
 description: 介绍如何更新 Power BI 中的 Azure 备份内容包
 services: backup
 documentationcenter: ''
-author: adigan
+author: lingiw
 manager: shivamg
 editor: ''
 ms.assetid: 59df5bec-d959-457d-8731-7b20f7f1013e
@@ -13,33 +13,33 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/24/2018
-ms.date: 08/22/2018
-ms.author: v-junlch
-ms.openlocfilehash: 93bdeac9c1a994f0f38094f48b6b862d0d8705a1
-ms.sourcegitcommit: 85cdb61361dc61147bac991d4907f454f0684ea0
+ms.date: 10/19/2018
+ms.author: v-lingwu
+ms.openlocfilehash: e6a7fda36aa29a141752661c4f55a707612a3b91
+ms.sourcegitcommit: ee042177598431d702573217e2f3538878b6a984
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42709737"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477768"
 ---
-# <a name="updating-azure-backup-central-reporting-content-pack"></a>更新 Azure 备份中心报告内容包 
+# <a name="update-the-azure-backup-central-reporting-content-pack"></a>更新 Azure 备份中心报告内容包 
 
-[Azure 备份内容包](/backup/backup-azure-configure-reports#view-reports-in-power-bi)可用于集中查看备份报表。 内容包定期更新，以添加更多的功能和进行 Bug 修复。 本文将介绍有关更新内容包、延迟此更新和逐步更新的步骤。
+[Azure 备份内容包](/backup/backup-azure-configure-reports#view-reports-in-power-bi)可用于集中查看有关备份的报告。 内容包定期更新，以添加更多的功能和进行 Bug 修复。 本文将介绍有关更新内容包、延迟此更新和逐步更新的步骤。
 
-## <a name="how-to-get-updates-to-the-content-pack"></a>如何获取内容包的更新
+## <a name="get-updates-to-the-content-pack"></a>获取内容包的更新
 
-### <a name="to-get-the-updated-content-pack"></a>获取更新的内容包
-如果未对内容包进行任何更改，则其副本将自动更新。 如果已更改内容包，则将在 PowerBI 中获得通知，并收到类似的电子邮件通知。 可选择在便利之时获取更新的内容包。 
+### <a name="get-the-updated-content-pack"></a>获取更新的内容包
+如果未对内容包的副本进行任何更改，则它会自动更新。 内容包更改时，你会收到 Power BI 中的通知和电子邮件通知。 可以选择在方便时获取更新的内容包。 
 
-### <a name="to-delay-the-update"></a>延迟更新
-最佳做法是将内容包导入到自定义工作区。 现在可对报表进行编辑。
-如上所述，如果已更改内容包，则将在 PowerBI 中看到通知。 可以选择稍后获取内容包。 
+### <a name="postpone-the-update"></a>推迟更新
+最佳做法是将内容包导入到[自定义工作区](https://youtu.be/26zyOtyHPJM?t=1m57s)。 现在可以编辑报告。
+如前所述，如果内容包发生更改，你会在 Power BI 中看到通知。 可以选择稍后获取内容包。 
 
 ## <a name="coming-soon"></a>即将支持
    
-正在更新 Azure 备份内容包，除了对 MAB 和 Azure VM 备份的当前支持外，还如 IaaS VM 备份中的 SQL 和 SC DPM 一样支持更多的工作负载。 这意味着，你很快就能够在一个中心位置查看和分析所有备份数据。
+Azure 备份内容包已更新，以支持更多工作负载。 工作负荷包括 Azure SQL Database for IaaS VM 备份和 System Center Data Protection Manager。 此支持已添加到当前对 Azure 备份和 Azure VM 备份的支持。 此支持意味着可以在一个中心位置查看和分析所有备份数据。 [也可自定义报告](https://youtu.be/26zyOtyHPJM)以满足组织的需求。
 
-为了使报表跨工作负载更有意义，即将更改预配置有 Azure 备份内容包的一组报表。 可在下方抢先了解即将推出的一组报表：
+Azure 备份内容包随附的预配置报告正在发生更改。 这些更改使得报告在工作负载方面更有意义。 可在下方抢先了解即将发布的一组报告。
 
 ### <a name="summary"></a>摘要
    

@@ -3,24 +3,20 @@ title: 在 Durable Functions 中处理外部事件 - Azure
 description: 了解如何在 Azure Functions 的 Durable Functions 扩展中处理外部事件。
 services: functions
 author: cgillum
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 origin.date: 09/29/2017
-ms.date: 05/30/2018
+ms.date: 10/18/2018
 ms.author: v-junlch
-ms.openlocfilehash: 1ce2acd2076886fdf1711fd52381e4957aa8b00a
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: e0fa514fe7a4d960cab15bf2bad0e760cc803e1a
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34567292"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453557"
 ---
 # <a name="handling-external-events-in-durable-functions-azure-functions"></a>在 Durable Functions 中处理外部事件 (Azure Functions)
 
@@ -54,7 +50,7 @@ public static async Task Run(
 ```javascript
 const df = require("durable-functions");
 
-module.exports = df(function*(context) {
+module.exports = df.orchestrator(function*(context) {
     const approved = yield context.df.waitForExternalEvent("Approval");
     if (approved) {
         // approval granted - do the approved action
@@ -100,7 +96,7 @@ public static async Task Run(
 ```javascript
 const df = require("durable-functions");
 
-module.exports = df(function*(context) {
+module.exports = df.orchestrator(function*(context) {
     const event1 = context.df.waitForExternalEvent("Event1");
     const event2 = context.df.waitForExternalEvent("Event2");
     const event3 = context.df.waitForExternalEvent("Event3");
@@ -141,9 +137,9 @@ public static async Task Run(
 #### <a name="javascript-functions-v2-only"></a>JavaScript（仅限 Functions v2）
 
 ```javascript
-const df = require("durable-functions");
+const df = require.orchestrator("durable-functions");
 
-module.exports = df(function*(context) {
+module.exports = df.orchestrator(function*(context) {
     const applicationId = context.df.getInput();
 
     const gate1 = context.df.waitForExternalEvent("CityPlanningApproval");
@@ -176,6 +172,34 @@ public static async Task Run(
     await client.RaiseEventAsync(instanceId, "Approval", true);
 }
 ```
+
+#### <a name="javascript-functions-v2-only"></a>JavaScript（仅限 Functions v2）
+在 JavaScript 中，我们必须调用 rest api 来触发持久函数正在等待的事件。
+以下代码使用“request”包。 以下方法可用于为任何持久函数实例引发任何事件
+
+```js
+function raiseEvent(instanceId, eventName) {
+        var url = `<<BASE_URL>>/runtime/webhooks/durabletask/instances/${instanceId}/raiseEvent/${eventName}?taskHub=DurableFunctionsHub`;
+        var body = <<BODY>>
+            
+        return new Promise((resolve, reject) => {
+            request({
+                url,
+                json: body,
+                method: "POST"
+            }, (e, response) => {
+                if (e) {
+                    return reject(e);
+                }
+
+                resolve();
+            })
+        });
+    }
+```
+
+<<BASE_URL>> 将是函数应用的基本 URL。 如果在本地运行代码，那么它将类似于 http://localhost:7071，或在 Azure 中为 https://<<functionappname>>.chinacloudsites.cn
+
 
 在内部，`RaiseEventAsync` 将正在等待的业务流程协调程序函数选取的消息排入队列。
 

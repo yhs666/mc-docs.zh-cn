@@ -8,20 +8,20 @@ services: iot-hub
 ms.topic: conceptual
 origin.date: 02/26/2018
 ms.author: v-yiso
-ms.date: 09/10/2018
-ms.openlocfilehash: 828c58eca6bb9b40c633fa9a9dd91c789747d88f
-ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
+ms.date: 10/29/2018
+ms.openlocfilehash: 2ed790e1f7dc5309063db85713971b047743850d
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43328969"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453740"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>用于设备和模块孪生、作业和消息路由的 IoT 中心查询语言
 
 IoT 中心提供类似于 SQL 的强大语言，用于检索有关[设备孪生][lnk-twins]和[作业][lnk-jobs]以及[消息路由][lnk-devguide-messaging-routes]的信息。 本文内容：
 
 * IoT 中心查询语言的主要功能简介，以及
-* 语言的详细说明。
+* 语言的详细说明。 有关用于消息路由的查询语言的详细信息，请参阅[消息路由中的查询](../iot-hub/iot-hub-devguide-routing-query-syntax.md)。
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
@@ -81,15 +81,14 @@ IoT 中心提供类似于 SQL 的强大语言，用于检索有关[设备孪生]
 
 ### <a name="device-twin-queries"></a>设备孪生查询
 
-IoT 中心将设备孪生公开为名为**设备**的文档集合。
-因此，以下查询将检索设备孪生的整个集：
+IoT 中心将设备孪生公开为名为**设备**的文档集合。 例如，以下查询将检索设备孪生的整个集：
 
 ```sql
 SELECT * FROM devices
 ```
 
 > [!NOTE]
-> [Azure IoT SDK][lnk-hub-sdks] 支持将大型结果分页：
+> [Azure IoT SDK][lnk-hub-sdks] 支持将大量结果分页：
 
 IoT 中心允许使用任意条件检索设备孪生筛选结果。 例如，若要接收 **location.region** 标记设置为 **CN** 的设备孪生，请使用以下查询：
 
@@ -160,7 +159,7 @@ SELECT LastActivityTime FROM devices WHERE status = 'enabled'
 
 ### <a name="module-twin-queries"></a>模块孪生查询
 
-对模块孪生进行查询类似于对设备孪生进行查询，但使用你可以查询的一个不同集合/命名空间，即不“从设备”进行查询
+对模块孪生进行查询类似于对设备孪生进行查询，但使用不同的集合/命名空间，即不“从设备”进行查询，可以查询 device.modules：
 
 ```sql
 SELECT * FROM devices.modules
@@ -172,7 +171,7 @@ SELECT * FROM devices.modules
 Select * from devices.modules where properties.reported.status = 'scanning'
 ```
 
-以下查询将仅返回指定的设备子集上具有扫描状态的所有模块孪生。
+以下查询将仅返回指定的设备子集上具有扫描状态的所有模块孪生：
 
 ```sql
 Select * from devices.modules where properties.reported.status = 'scanning' and deviceId IN ('device1', 'device2')  
@@ -303,126 +302,6 @@ WHERE devices.jobs.jobId = 'myJobId'
 * 投影，因此仅可使用 `SELECT *`。
 * 引用设备孪生和作业属性的条件（参见上一节）。
 * 执行聚合，例如 count、avg、group by。
-
-## <a name="device-to-cloud-message-routes-query-expressions"></a>设备到云消息路由查询表达式
-
-可使用[设备到云的路由][lnk-devguide-messaging-routes]配置 IoT 中心，以将设备到云的消息分派给不同的终结点。 根据针对各消息计算的表达式进行分派。
-
-路由[条件][lnk-query-expressions]使用 IoT 中心查询语言语法作为双查询和作业查询中的条件，但只有一部分函数可用。 根据消息标头和正文评估路由条件。 路由查询表达式可能只涉及到消息标头、消息正文，或者同时涉及到消息标头和消息正文。 IoT 中心假设标题和消息正文采用特定架构来路由消息，以下部分介绍了 IoT 中心正常路由所需的条件。
-
-### <a name="routing-on-message-headers"></a>根据消息标头路由
-
-IoT 中心采用消息标头的以下 JSON 表示形式来路由消息：
-
-```json
-{
-  "message": {
-    "systemProperties": {
-      "contentType": "application/json",
-      "contentEncoding": "utf-8",
-      "iothub-message-source": "deviceMessages",
-      "iothub-enqueuedtime": "2017-05-08T18:55:31.8514657Z"
-    },
-    "appProperties": {
-      "processingPath": "<optional>",
-      "verbose": "<optional>",
-      "severity": "<optional>",
-      "testDevice": "<optional>"
-    },
-    "body": "{\"Weather\":{\"Temperature\":50}}"
-  }
-}
-```
-
-消息系统属性以 `'$'` 符号作为前缀。
-用户属性始终使用其名称进行访问。 如果用户属性名与系统属性（例如 `$contentType`）完全一致，则将使用 `$contentType` 表达式检索用户属性。
-始终可以使用括号 `{}` 访问系统属性：例如，可以使用表达式 `{$contentType}` 访问系统属性 `contentType`。 将属性名称括在括号中始终可检索相应的系统属性。
-
-请记住，属性名称不区分大小写。
-
-> [!NOTE]
-> 消息属性均为字符串。 如 [开发人员指南][lnk-devguide-messaging-format]所述，目前不能在查询中使用系统属性。
->
-
-例如，如果使用 `messageType` 属性，可能需要将所有遥测和所有警报路由到两个不同的终结点。 可编写以下表达式进行遥测路由：
-
-```sql
-messageType = 'telemetry'
-```
-
-编写以下表达式进行警报消息路由：
-
-```sql
-messageType = 'alert'
-```
-
-此外，还支持布尔表达式和函数。 通过此功能可区分严重性级别，例如：
-
-```sql
-messageType = 'alerts' AND as_number(severity) <= 2
-```
-
-请参阅 [表达式和条件][lnk-query-expressions] 部分，了解受支持的运算符和函数的完整列表。
-
-### <a name="routing-on-message-bodies"></a>根据消息正文路由
-
-如果消息正文是使用 UTF-8、UTF-16 或 UTF-32 编码的正确的 JSON 格式，则 IoT 中心只能基于消息正文内容路由。 将消息的内容类型设置为 `application/json`。 在消息标头中，将内容编码设置为一个受支持的 UTF 编码。 如果未指定标题，IoT 中心不会尝试对消息评估涉及正文的任何查询表达式。 如果消息不是 JSON 消息，或者如果消息未指定内容类型和内容编码，仍可以使用消息路由基于消息标题路由该消息。
-
-下面的示例演示如何创建具有正确格式和编码 JSON 正文的消息：
-
-```csharp
-string messageBody = @"{ 
-                            ""Weather"":{ 
-                                ""Temperature"":50, 
-                                ""Time"":""2017-03-09T00:00:00.000Z"", 
-                                ""PrevTemperatures"":[ 
-                                    20, 
-                                    30, 
-                                    40 
-                                ], 
-                                ""IsEnabled"":true, 
-                                ""Location"":{ 
-                                    ""Street"":""One Microsoft Way"", 
-                                    ""City"":""Redmond"", 
-                                    ""State"":""WA"" 
-                                }, 
-                                ""HistoricalData"":[ 
-                                    { 
-                                    ""Month"":""Feb"", 
-                                    ""Temperature"":40 
-                                    }, 
-                                    { 
-                                    ""Month"":""Jan"", 
-                                    ""Temperature"":30 
-                                    } 
-                                ] 
-                            } 
-                        }"; 
- 
-// Encode message body using UTF-8 
-byte[] messageBytes = Encoding.UTF8.GetBytes(messageBody); 
- 
-using (var message = new Message(messageBytes)) 
-{ 
-    // Set message body type and content encoding. 
-    message.ContentEncoding = "utf-8"; 
-    message.ContentType = "application/json"; 
- 
-    // Add other custom application properties.  
-    message.Properties["Status"] = "Active";    
- 
-    await deviceClient.SendEventAsync(message); 
-}
-```
-
-可以在查询表达式中使用 `$body` 来路由消息。 可以在查询表达式中使用简单正文引用、正文数组引用或多个正文引用。 查询表达式还可以将正文引用与消息标头引用相结合。 例如，下面的所有查询表达式都有效：
-
-```sql
-$body.Weather.HistoricalData[0].Month = 'Feb'
-$body.Weather.Temperature = 50 AND $body.Weather.IsEnabled
-length($body.Weather.Location.State) = 2
-$body.Weather.Temperature = 50 AND Status = 'Active'
-```
 
 ## <a name="basics-of-an-iot-hub-query"></a>IoT 中心查询基础知识
 每个 IoT 中心查询都包括 SELECT 和 FROM 子句，以及可选的 WHERE 和 GROUP BY 子句。 每个查询针对 JSON 文档的集合（例如，设备孪生）运行。 FROM 子句指示要迭代的文档集合（**devices** 或 **devices.jobs**）。 然后，应用 WHERE 子句中的筛选器。 使用聚合时，将按 GROUP BY 子句中的指定对此步骤的结果分组。 对于每组，将按照 SELECT 子句中的指定生成一行。

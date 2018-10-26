@@ -8,14 +8,14 @@ tags: azure-resource-manager, virtual-machine-backup
 ms.service: backup
 ms.topic: conceptual
 origin.date: 08/01/2018
-ms.date: 08/23/2018
-ms.author: v-junlch
-ms.openlocfilehash: 5d5010b380fc8eb6856d31c41841f2d89f74b6cc
-ms.sourcegitcommit: 85cdb61361dc61147bac991d4907f454f0684ea0
+ms.date: 10/19/2018
+ms.author: v-lingwu
+ms.openlocfilehash: 2fb71cd1379879421044a1bb975a816f64025cf6
+ms.sourcegitcommit: ee042177598431d702573217e2f3538878b6a984
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42709720"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477771"
 ---
 # <a name="upgrade-to-azure-vm-backup-stack-v2"></a>升级到 Azure VM 备份堆栈 V2
 
@@ -53,7 +53,10 @@ ms.locfileid: "42709720"
 
 - 如果从快照恢复点还原高级 VM，则会在创建 VM 时使用临时存储位置。
 
-- 对于高级存储帐户，为即时恢复点创建的快照计入分配空间的 10-TB 限制。
+* 对于高级存储帐户，为即时恢复点创建的快照计入分配空间的 10-TB 限制。
+
+> [!NOTE]
+> 升级到 Azure VM 备份堆栈 V2 以获得对[标准 SSD 托管磁盘](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/)和最多 32 个数据磁盘的虚拟机的 Azure 备份支持。
 
 ## <a name="upgrade"></a>升级
 ### <a name="the-azure-portal"></a>Azure 门户
@@ -122,4 +125,5 @@ Get-AzureRmProviderFeature -FeatureName "InstantBackupandRecovery" -ProviderName
 
 增量快照用于非托管磁盘。 对于托管磁盘，Azure 备份创建的还原点集合使用 blob 快照，因此是增量快照。 
 
-<!-- Update_Description: wording update -->
+### <a name="how-to-get-standard-ssd-managed-disk-support-for-a-virtual-machine"></a>如何获得对虚拟机的标准 SSD 托管磁盘支持？
+升级到 Azure VM 备份堆栈 V2 以获得对[标准 SSD 托管磁盘](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/)的 Azure 备份支持。 升级后，还可以备份最多包含 32 个数据磁盘的虚拟机。

@@ -1,10 +1,8 @@
 ---
 title: Azure IoT 中心设备管理入门 (Node)
 description: 如何使用 IoT 中心设备管理进行远程设备重启。 使用 Azure IoT SDK for Node.js 实现包含直接方法的模拟设备应用和调用直接方法的服务应用。
-services: iot-hub
-documentationcenter: .net
 author: juanjperez
-manager: timlt
+manager: cberlin
 editor: ''
 ms.assetid: e044006d-ffd6-469b-bc63-c182ad066e31
 ms.service: iot-hub
@@ -13,14 +11,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/25/2017
-ms.date: 02/26/2018
+ms.date: 10/29/2018
 ms.author: v-yiso
-ms.openlocfilehash: 915850259bb4a095974b1d160e753f2251befcc5
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 0e733d2a3992dc023ac88c7a9bba31f6a624226f
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939120"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453816"
 ---
 # <a name="get-started-with-device-management-node"></a>设备管理入门 (Node)
 
@@ -135,7 +133,7 @@ ms.locfileid: "38939120"
 8. 保存并关闭 **dmpatterns_getstarted_device.js** 文件。
 
    >[!NOTE]
-   > 为简单起见，本教程不实现任何重试策略。 在生产代码中，应该按 MSDN 文章 [Transient Fault Handling][lnk-transient-faults]（暂时性故障处理）中所述实施重试策略（例如指数性的回退）。
+   > 为简单起见，本教程不实现任何重试策略。 在生产代码中，应该按文章 [Transient Fault Handling][lnk-transient-faults]（暂时性故障处理）中所述实施重试策略（例如指数退避）。
 
 ## <a name="trigger-a-remote-reboot-on-the-device-using-a-direct-method"></a>使用直接方法在设备上触发远程重新启动
 本部分中会创建一个 Node.js 控制台应用，该应用使用直接方法在设备上初始化远程重启。 该应用使用设备孪生查询来搜索该设备的上次重新启动时间。

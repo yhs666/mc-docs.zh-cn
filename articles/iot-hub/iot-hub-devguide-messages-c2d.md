@@ -1,25 +1,22 @@
 ---
 title: 了解 Azure IoT 中心云到设备的消息传送 | Azure
 description: 开发人员指南 - 如何在 IoT 中心使用云到设备的消息传送。 包含有关消息生命周期和配置选项的信息。
-services: iot-hub
-documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
+services: iot-hub
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 03/15/2018
 ms.author: v-yiso
-ms.date: 05/07/2018
-ms.openlocfilehash: d9551b6b40a52c6ea3e3f40e50dc85b0921e45ed
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.date: 10/29/2018
+ms.openlocfilehash: 2e17858123e5bdeec52fe2792c3941b5587684eb
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121471"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453801"
 ---
 # <a name="send-cloud-to-device-messages-from-iot-hub"></a>从 IoT 中心发送云到设备的消息
 
@@ -39,19 +36,18 @@ ms.locfileid: "32121471"
 
 下图显示了 IoT 中心内云到设备消息的生命周期状态图。
 
-![云到设备的消息生命周期][img-lifecycle]
+![云到设备的消息生命周期](./media/iot-hub-devguide-messages-c2d/lifecycle.png)
 
 IoT 中心服务向设备发送消息时，该服务会将消息状态设置为“排队”。 设备要接收消息时，IoT 中心会锁定该消息（将状态设置为“不可见”），以便让设备上的其他线程开始接收其他消息。 当设备线程完成消息的处理后，将通过*完成*消息来通知 IoT 中心。 随后 IoT 中心会将状态设置为“已完成”。
 
 设备还可以选择：
 
-* 
-            *拒绝*消息，这会使 IoT 中心将此消息设置为**死信**状态。 通过 MQTT 协议进行连接的设备无法拒绝云到设备的消息。
-* *放弃*消息，这会使 IoT 中心将消息放回队列，并将状态设置为**已排队**。 通过 MQTT 协议连接的设备无法放弃云到设备消息。
+* *拒绝*消息，这会使 IoT 中心将此消息设置为**死信**状态。 通过 MQTT 协议进行连接的设备无法拒绝云到设备的消息。
+* *放弃* 消息，这会使 IoT 中心将消息放回队列，并将状态设置为 **已排队**。 通过 MQTT 协议连接的设备无法放弃云到设备消息。
 
-线程可能无法处理消息，且不通知 IoT 中心。 在此情况下，在*可见性(或锁定)超时*时间之后，消息将从**不可见**状态自动转换回**已排队**状态。 此超时的默认值为一分钟。
+线程可能无法处理消息，且不通知 IoT 中心。 在此情况下，在*可见性(或锁定)超时*时间之后，消息从**不可见**状态自动转换回**已排队**状态。 此超时的默认值为一分钟。
 
-消息可以在“已排队”与“不可见”状态之间转换的次数，以 IoT 中心上“最大传送计数”属性中指定的次数为上限。 在该转换次数之后，IoT 中心会将消息的状态设置为**死信**。 同样，IoT 中心也会在消息的到期时间之后（请参阅[生存时间][lnk-ttl]），将消息的状态设置为“死信”。
+消息可以在“已排队”与“不可见”状态之间转换的次数，以 IoT 中心上“最大传送计数”属性中指定的次数为上限。 在该转换次数之后，IoT 中心会将消息的状态设置为“死信”。 同样，IoT 中心也会在消息的到期时间之后（请参阅[生存时间](#message-expiration-time-to-live)），将消息的状态设置为“死信”。
 
 [如何使用 IoT 中心发送云到设备的消息][lnk-c2d-tutorial]介绍如何从云端发送云到设备的消息以及如何在设备上接收这些消息。
 
@@ -67,7 +63,7 @@ IoT 中心服务向设备发送消息时，该服务会将消息状态设置为�
 * 服务中的 ExpiryTimeUtc 属性。
 * 使用了指定为 IoT 中心属性的默认生存时间的 IoT 中心。
 
-请参阅[从云到设备的配置选项][lnk-c2d-configuration]。
+请参阅[云到设备的配置选项](#cloud-to-device-configuration-options)。
 
 利用消息到期时间并避免将消息发送到已断开连接的设备的常见方法是设置较短的生存时间值。 此方法可达到与维护设备连接状态一样的效果，而且更加有效。 请求消息确认时，IoT 中心将通知你哪些设备：
 

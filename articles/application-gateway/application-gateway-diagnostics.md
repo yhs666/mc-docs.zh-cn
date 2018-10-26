@@ -11,14 +11,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 06/20/2018
-ms.date: 08/08/2018
+ms.date: 10/17/2018
 ms.author: v-junlch
-ms.openlocfilehash: e1d20ef9aeef7839c0928e7ab62b48afb9206853
-ms.sourcegitcommit: c237baac64f847301ba7f67082ffffcd81c00142
+ms.openlocfilehash: 847c8d4d631f91c3f4bbccd94f1eb7a24aecedc6
+ms.sourcegitcommit: 4ead6b1d3527373b63c90680b6400a2e95b4064e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43850812"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49374981"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>应用程序网关的后端运行状况、诊断日志和指标
 
@@ -27,6 +27,8 @@ ms.locfileid: "43850812"
 - [后端运行状况](#back-end-health)：应用程序网关提供通过 Azure 门户和 PowerShell 监视后端池中的服务器运行状况的功能。 还可通过性能诊断日志找到后端池的运行状况。
 
 - [日志](#diagnostic-logging)：通过日志记录，可出于监视目的从资源保存或使用性能、访问及其他数据。
+
+- [指标](#metrics)：应用程序网关当前有七个指标可用来查看性能计数器。
 
 ## <a name="back-end-health"></a>后端运行状况
 
@@ -57,7 +59,7 @@ ms.locfileid: "43850812"
 Get-AzureRmApplicationGatewayBackendHealth -Name ApplicationGateway1 -ResourceGroupName Contoso
 ```
 
-### <a name="view-back-end-health-through-azure-cli-20"></a>通过 Azure CLI 2.0 查看后端运行状况
+### <a name="view-back-end-health-through-azure-cli"></a>通过 Azure CLI 查看后端运行状况
 
 ```azurecli
 az network application-gateway show-backend-health --resource-group AdatumAppGatewayRG --name AdatumAppGateway
@@ -96,7 +98,6 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 
 可在 Azure 中使用不同类型的日志来对应用程序网关进行管理和故障排除。 可通过门户访问其中某些日志。 所有日志都可从 Azure Blob 存储提取并在 Excel 和 PowerBI 等各种工具中查看。 可从以下列表了解有关不同类型日志的详细信息：
 
-- 活动日志：可以使用 [Azure 活动日志](../azure-resource-manager/resource-group-audit.md)（以前称为操作日志和审核日志）查看提交到 Azure 订阅的所有操作及其状态。 默认情况下会收集活动日志条目，可在 Azure 门户中查看这些条目。
 - 访问日志：可以使用此日志来查看应用程序网关访问模式并分析重要信息，包括调用方的 IP、请求的 URL、响应延迟、返回代码、输入和输出字节数。每隔 300 秒会收集一次访问日志。 此日志包含每个应用程序网关实例的一条记录。 应用程序网关实例可由 instanceId 属性标识。
 - 性能日志：可使用此日志查看应用程序网关实例的执行情况。 此日志会捕获每个实例的性能信息，包括服务的总请求数、吞吐量（以字节为单位）、失败请求计数、正常和不正常的后端实例计数。 每隔 60 秒会收集一次性能日志。
 - 防火墙日志：可使用此日志查看通过应用程序网关（配置有 Web 应用程序防火墙）的检测模式或阻止模式记录的请求。
@@ -104,7 +105,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 > [!NOTE]
 > 日志仅适用于在 Azure Resource Manager 部署模型中部署的资源。 不能将日志用于经典部署模型中的资源。 若要更好地了解两种模型，请参阅[了解 Resource Manager 部署和经典部署](../azure-resource-manager/resource-manager-deployment-model.md)一文。
 
-可以通过三个选项来存储日志：
+可以通过 2 个选项来存储日志：
 
 - 存储帐户：如果日志存储时间较长并且需要根据情况进行查看，最好使用存储帐户。
 - 事件中心：若要集成其他安全信息和事件管理 (SEIM) 工具以获取资源警报，最好使用事件中心。
@@ -128,7 +129,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
     ```
     
 > [!TIP] 
->活动日志不需要单独的存储帐户。 使用存储来记录访问和性能需支付服务费用。
+> 使用存储来记录访问和性能需支付服务费用。
 
 ### <a name="enable-logging-through-the-azure-portal"></a>通过 Azure 门户启用日志记录
 
@@ -151,10 +152,6 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 4. 确认设置，然后单击“保存”。
 
    ![包含选择的“诊断设置”边栏选项卡][3]
-
-### <a name="activity-log"></a>活动日志
-
-默认情况下，Azure 生成活动日志。 日志在 Azure 事件日志存储中保留 90 天。 若要详细了解这些日志，请阅读[查看事件和活动日志](../azure-resource-manager/resource-group-audit.md)一文。
 
 ### <a name="access-log"></a>访问日志
 
@@ -288,13 +285,6 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 
 ```
 
-### <a name="view-and-analyze-the-activity-log"></a>查看和分析活动日志
-
-可使用以下任意方法查看和分析活动日志数据：
-
-- Azure 工具：通过 Azure PowerShell、Azure CLI、Azure REST API 或 Azure 门户检索活动日志中的信息。 [使用 Resource Manager 活动操作](../azure-resource-manager/resource-group-audit.md)一文中详细介绍了每种方法的分步说明。
-- Power BI：如果尚无 [Power BI](https://powerbi.microsoft.com/pricing) 帐户，可免费试用。 使用[适用于 Power BI 的 Azure 活动日志内容包](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/)，可以借助预配置的仪表板（可直接使用或进行自定义）分析数据。
-
 ### <a name="view-and-analyze-the-access-performance-and-firewall-logs"></a>查看并分析访问、性能和防火墙日志
 
 可以连接到存储帐户并检索访问和性能日志的 JSON 日志条目。 下载 JSON 文件后，可以将其转换为 CSV 并在 Excel、Power BI 或任何其他数据可视化工具中查看。
@@ -303,6 +293,10 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 > 如果熟悉 Visual Studio 和更改 C# 中的常量和变量值的基本概念，则可以使用 GitHub 提供的[日志转换器工具](https://github.com/Azure-Samples/networking-dotnet-log-converter)。
 > 
 > 
+
+#### <a name="analyzing-access-logs-through-goaccess"></a>通过 GoAccess 分析访问日志
+
+我们发布了一个资源管理器模板，用于安装和运行应用程序网关访问日志的常用 [GoAccess](https://goaccess.io/) 日志分析器。 GoAccess 提供了宝贵的 HTTP 流量统计信息，例如唯一访问者、请求的文件、主机、操作系统、浏览器和 HTTP 状态代码等。 有关更多详细信息，请参阅 [GitHub 的资源管理器模板文件夹中的自述文件](https://aka.ms/appgwgoaccessreadme)。
 
 ## <a name="metrics"></a>指标
 
@@ -325,37 +319,13 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 
    可以按每个后端池进行筛选来显示特定后端池中正常的/不正常的主机数。
 
+浏览到应用程序网关，并在“监视”下单击“指标”。 若要查看可用值，请选择“指标”下拉列表。
+
+在下图中可以看到过去 30 分钟显示的三个指标的示例：
+
+[![](./media/application-gateway-diagnostics/figure5.png "度量值视图")](./media/application-gateway-diagnostics/figure5-lb.png#lightbox)
+
 若要查看当前的指标列表，请参阅 [Azure Monitor 支持的指标](../monitoring-and-diagnostics/monitoring-supported-metrics.md)。
-
-### <a name="alert-rules"></a>警报规则
-
-可基于资源的指标启动警报规则。 例如，如果应用程序网关的吞吐量在指定时间段内高于、低于或等于阈值，警报即可调用 webhook 或给管理员发送电子邮件。
-
-以下示例指导创建警报规则，以在吞吐量违反阈值时给管理员发送电子邮件：
-
-1. 单击“添加指标警报”，打开“添加规则”边栏选项卡。 还可从指标边栏选项卡访问此边栏选项卡。
-
-   ![“添加指标警报”按钮][6]
-
-2. 在“添加规则”边栏选项卡中，填写名称、条件和通知部分，然后单击“确定”。
-
-   - 在“条件”选择器中，选择以下 4 个值之一：“大于”、“大于或等于”、“小于”或“小于或等于”。
-
-   - 在“时间段”选择器中，选择 5 分钟到 6 小时之间的一个时间段。
-
-   - 如果选择“电子邮件所有者、参与者和读者”，则电子邮件将基于有权访问该资源的用户动态发送。 否则，可以在“其他管理员电子邮件”框中提供用户名单并以逗号分隔。
-
-   ![“添加规则”边栏选项卡][7]
-
-如果违反阈值，用户将收到类似下图内容的电子邮件：
-
-![违反阈值电子邮件][8]
-
-创建指标警报后，会显示警报列表。 它提供所有警报规则概述。
-
-![警报和规则列表][9]
-
-若要深入了解 webhook 以及如何将其与警报搭配使用，请参阅[针对 Azure 指标警报配置 webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md)。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -12,16 +12,16 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/24/2018
-ms.date: 09/07/2018
-ms.author: v-junlch
+origin.date: 09/10/2018
+ms.date: 10/19/2018
+ms.author: v-lingwu
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2ddae747f3fe6729f527b6276c2067d146349d2a
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.openlocfilehash: b14129be0131c76d7d11ef43c8e4ce76a13b4f65
+ms.sourcegitcommit: ee042177598431d702573217e2f3538878b6a984
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068063"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477767"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Batch 服务配额和限制
 
@@ -54,7 +54,9 @@ ms.locfileid: "44068063"
 | 每个 Batch 帐户的[应用程序](batch-application-packages.md)数 |20 个 |
 | 每个应用程序的应用程序包数 |40 |
 | 最长任务生存期 | 7 天<sup>1</sup> |
-| 计算启用了节点间通信的池中的节点 | 100 |
+| [启用了节点间通信的池](batch-mpi.md)中的计算节点 | 100 |
+| [使用自定义 VM 映像创建的池](batch-custom-images.md)中的专用计算节点 | 2500 |
+| [使用自定义 VM 映像创建的池](batch-custom-images.md)中的低优先级计算节点 | 1000 |
 
 <sup>1</sup> 最长任务生存期（从添加到作业时算起到任务完成时结束）为 7 天。 已完成的任务会无限期保存；最长生存期内未完成的任务的数据不可访问。
 

@@ -8,14 +8,14 @@ keywords: 备份; 备份;
 ms.service: backup
 ms.topic: conceptual
 origin.date: 09/10/2018
-ms.date: 09/25/2018
+ms.date: 10/19/2018
 ms.author: v-junlch
-ms.openlocfilehash: 65b389b985f8895e3a8cf5271745b491b615d59b
-ms.sourcegitcommit: a4d8c8641a6341113532d8770603d4b66cc13ced
+ms.openlocfilehash: 1fee52056d1e0422344f8c998dcd4bed61a36097
+ms.sourcegitcommit: ee042177598431d702573217e2f3538878b6a984
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47114536"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477787"
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>准备环境以备份 Resource Manager 部署的虚拟机
 
@@ -47,23 +47,25 @@ ms.locfileid: "47114536"
 ## <a name="limitations-when-backing-up-and-restoring-a-vm"></a>备份和还原 VM 时的限制
 准备环境之前，请务必了解限制：
 
-- 目前不支持使用标准 SSD 备份 VM。
-- 不支持备份拥有 16 个以上数据磁盘的虚拟机。
-- 不支持备份使用保留 IP 地址且未定义终结点的虚拟机。
-- 不支持备份通过 Linux 统一密钥设置 (LUKS) 加密法加密的 Linux VM。
-- 不建议备份包含群集共享卷 (CSV) 或横向扩展文件服务器配置的 VM。 如果已备份，会造成 CSV 编写器故障。 这些操作涉及到在执行快照任务执行期间包含在群集配置中的所有 VM。 Azure 备份不支持多 VM 一致性。 
-- 备份数据不包括连接到 VM 的网络挂载驱动器。
-- 不支持在还原过程中替换现有虚拟机。 如果在 VM 存在时尝试还原 VM，还原操作会失败。
-- 不支持跨区域备份和还原。
-- 配置备份时，请确保“防火墙和虚拟网络”存储帐户设置允许从“所有网络”进行访问。
-- 对于所选的网络，为你的存储帐户配置防火墙和虚拟网络设置后，请选择“允许受信任的 Microsoft 服务访问此存储帐户”作为例外，以允许 Azure 备份服务访问网络受限的存储帐户。 网络受限的存储帐户不支持项级别的恢复。
-- 可以在 Azure 的所有公共区域中备份虚拟机。 （请参阅支持区域的[清单](https://azure.microsoft.com/regions/#services)。）在创建保管库期间，如果要寻找的区域目前不受支持，则不会在下拉列表中显示它。
-- 仅支持通过 PowerShell 还原属于多 DC 配置的域控制器 (DC) VM。 有关详细信息，请参阅[还原多 DC 域控制器](backup-azure-arm-restore-vms.md#restore-domain-controller-vms)。
-- 不支持已启用写入加速器的磁盘上的快照。 此限制会导致 Azure 备份服务无法对虚拟机的所有磁盘执行应用程序一致的快照。
-- 仅支持通过 PowerShell 还原采用以下特殊网络配置的虚拟机。 还原操作完成后，在 UI 中通过还原工作流创建的 VM 将不采用这些网络配置。 若要了解详细信息，请参阅[还原采用特殊网络配置的 VM](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations)。
-  - 采用负载均衡器配置的虚拟机（内部和外部）
-  - 使用多个保留 IP 地址的虚拟机
-  - 使用多个网络适配器的虚拟机
+* 不支持备份超过 32 个数据磁盘的虚拟机。
+* 不支持备份使用保留 IP 地址且未定义终结点的虚拟机。
+* 不支持备份通过 Linux 统一密钥设置 (LUKS) 加密法加密的 Linux VM。
+* 不建议备份包含群集共享卷 (CSV) 或横向扩展文件服务器配置的 VM。 如果已备份，会造成 CSV 编写器故障。 这些操作涉及到在执行快照任务执行期间包含在群集配置中的所有 VM。 Azure 备份不支持多 VM 一致性。
+* 备份数据不包括连接到 VM 的网络挂载驱动器。
+* 不支持在还原过程中替换现有虚拟机。 如果在 VM 存在时尝试还原 VM，还原操作会失败。
+* 不支持跨区域备份和还原。
+* 配置备份时，请确保“防火墙和虚拟网络”存储帐户设置允许从“所有网络”进行访问。
+* 对于所选的网络，为你的存储帐户配置防火墙和虚拟网络设置后，请选择“允许受信任的 Microsoft 服务访问此存储帐户”作为例外，以允许 Azure 备份服务访问网络受限的存储帐户。 网络受限的存储帐户不支持项级别的恢复。
+* 可以在 Azure 的所有公共区域中备份虚拟机。 （请参阅支持区域的[清单](https://azure.microsoft.com/regions/#services)。）在创建保管库期间，如果要寻找的区域目前不受支持，则不会在下拉列表中显示它。
+* 仅支持通过 PowerShell 还原属于多 DC 配置的域控制器 (DC) VM。 有关详细信息，请参阅[还原多 DC 域控制器](backup-azure-arm-restore-vms.md#restore-domain-controller-vms)。
+* 不支持已启用写入加速器的磁盘上的快照。 此限制会导致 Azure 备份服务无法对虚拟机的所有磁盘执行应用程序一致的快照。
+* 仅支持通过 PowerShell 还原采用以下特殊网络配置的虚拟机。 还原操作完成后，在 UI 中通过还原工作流创建的 VM 将不采用这些网络配置。 若要了解详细信息，请参阅[还原采用特殊网络配置的 VM](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations)。
+  * 采用负载均衡器配置的虚拟机（内部和外部）
+  * 使用多个保留 IP 地址的虚拟机
+  * 使用多个网络适配器的虚拟机
+
+  > [!NOTE]
+  > Azure 备份支持[标准 SSD 托管磁盘](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/)，该磁盘是 Microsoft Azure 虚拟机的一种新型持久存储器。 [Azure VM 备份堆栈 V2](backup-upgrade-to-vm-backup-stack-v2.md) 上的托管磁盘支持它。
 
 ## <a name="create-a-recovery-services-vault-for-a-vm"></a>为 VM 创建恢复服务保管库
 恢复服务保管库是用于存储在不同时间创建的备份和恢复点的实体。 恢复服务保管库还包含与受保护虚拟机关联的备份策略。

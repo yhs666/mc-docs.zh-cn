@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure CLI 1.0 创建完整的 Linux 环境 | Azure
-description: 使用 Azure CLI 1.0 从头开始创建存储、Linux VM、虚拟网络和子网、负载均衡器、NIC、公共 IP 和网络安全组。
+title: 使用 Azure 经典 CLI 创建完整的 Linux 环境 | Azure
+description: 使用 Azure 经典 CLI 从头开始创建存储、Linux VM、虚拟网络和子网、负载均衡器、NIC、公共 IP 和网络安全组。
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: rockboyfor
@@ -14,17 +14,17 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 02/09/2017
-ms.date: 07/30/2018
+ms.date: 10/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: 5ee10674faba8bb0ef67bb0e06da4c9e2e773635
-ms.sourcegitcommit: 35889b4f3ae51464392478a72b172d8910dd2c37
+ms.openlocfilehash: a8b47f59beb1e6760d35bd43968a0c49b1f1d02b
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39261902"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453753"
 ---
-# <a name="create-a-complete-linux-environment-with-the-azure-cli-10"></a>使用 Azure CLI 1.0 创建完整的 Linux 环境
-在本文中，我们将构建一个简单网络，其中包含一个负载均衡器，以及一对可用于开发和简单计算的 VM。 将以逐条命令的方式完成整个过程，直到创建两个可以从 Internet 上的任何位置连接的有效且安全的 Linux VM。 然后，便可以继续构建更复杂的网络和环境。
+# <a name="create-a-complete-linux-environment-with-the-azure-classic-cli"></a>使用 Azure 经典 CLI 创建完整的 Linux 环境
+在本文中，我们构建一个简单网络，其中包含一个负载均衡器，以及一对可用于开发和简单计算的 VM。 将以逐条命令的方式完成整个过程，直到创建两个可以从 Internet 上的任何位置连接的有效且安全的 Linux VM。 然后，便可以继续构建更复杂的网络和环境。
 
 在此过程中，你将了解 Resource Manager 部署模型提供的依赖性层次结构及其提供的功能。 明白系统是如何构建的以后，即可使用 [Azure Resource Manager 模板](../../resource-group-authoring-templates.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)更快速地重新构建系统。 此外，了解环境的各个部分如何彼此配合运行后，可以更轻松创建模板以实现自动化。
 
@@ -34,18 +34,18 @@ ms.locfileid: "39261902"
 * 端口 80 上有一个带负载均衡规则的负载均衡器。
 * 网络安全组 (NSG) 规则，阻止 VM 接受不需要的流量。
 
-若要创建此自定义环境，需要在 Resource Manager 模式 (`azure config mode arm`) 下安装最新的 [Azure CLI 1.0](../../cli-install-nodejs.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。 此外，还需要一个 JSON 分析工具。 本示例使用 [jq](https://stedolan.github.io/jq/)。
+若要创建此自定义环境，需要在资源管理器模式 (`azure config mode arm`) 下安装最新的 [Azure 经典 CLI](../../cli-install-nodejs.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。 此外，还需要一个 JSON 分析工具。 本示例使用 [jq](https://stedolan.github.io/jq/)。
 
 ## <a name="cli-versions-to-complete-the-task"></a>用于完成任务的 CLI 版本
 可以使用以下 CLI 版本之一完成任务：
 
-- [Azure CLI 1.0](#quick-commands) - 适用于经典部署模型和资源管理部署模型（本文）的 CLI
-- [Azure CLI 2.0](create-cli-complete.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) - 适用于资源管理部署模型的下一代 CLI
+- [Azure 经典 CLI](#quick-commands) - 用于经典部署模型和资源管理部署模型（本文）的 CLI
+- [Azure CLI](create-cli-complete.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) - 适用于资源管理部署模型的下一代 CLI
 
 ## <a name="quick-commands"></a>快速命令
-如果需要快速完成任务，请参阅以下部分，其中详细说明了用于将 VM 上载到 Azure 的基本命令。 本文档的余下部分（从[此处](#detailed-walkthrough)开始）提供了每个步骤的更详细信息和上下文。
+如果需要快速完成任务，请参阅以下部分，其中详细说明了用于将 VM 上载到 Azure 的基本命令。 本文档的余下部分（ [从此处开始](#detailed-walkthrough)）提供了每个步骤的更详细信息和应用背景。
 
-确保已登录 [Azure CLI 1.0](../../cli-install-nodejs.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 并使用 Resource Manager 模式：
+确保已登录 [Azure 经典 CLI](../../cli-install-nodejs.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 并使用资源管理器模式：
 
 ```azurecli
 azure config mode arm
@@ -53,7 +53,7 @@ azure config mode arm
 
 在以下示例中，请将示例参数名称替换成自己的值。 示例参数名称包括 `myResourceGroup`、`mystorageaccount` 和 `myVM`。
 
-创建资源组。 以下示例在 `chinanorth` 位置创建一个名为 `myResourceGroup` 的资源组：
+创建资源组。 以下示例在 `chinanorth` 位置创建名为 `myResourceGroup` 的资源组：
 
 ```azurecli
 azure group create -n myResourceGroup -l chinanorth
@@ -269,7 +269,7 @@ azure group export myResourceGroup
 ## <a name="detailed-walkthrough"></a>详细演练
 下面的详细步骤说明构建环境时每条命令的作用。 了解这些概念有助于构建自己的自定义开发或生产环境。
 
-确保已登录 [Azure CLI 1.0](../../cli-install-nodejs.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 并使用 Resource Manager 模式：
+确保已登录 [Azure 经典 CLI](../../cli-install-nodejs.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 并使用资源管理器模式：
 
 ```azurecli
 azure config mode arm
@@ -1284,8 +1284,9 @@ azure group deployment create --resource-group myNewResourceGroup \
   --template-file myResourceGroup.json
 ```
 
-可能需要阅读[有关通过模板进行部署的详细信息](../../resource-group-template-deploy-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。 了解如何对环境进行增量更新、如何使用参数文件，以及如何从单个存储位置访问模板。
+可能需要阅读 [有关通过模板进行部署的详细信息](../../resource-group-template-deploy-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。 了解如何对环境进行增量更新、如何使用参数文件，以及如何从单个存储位置访问模板。
 
 ## <a name="next-steps"></a>后续步骤
 现在，已准备好开始使用多个网络组件和 VM。 可以使用本文介绍的核心组件，通过此示例环境构建应用程序。
+
 <!-- Update_Description: update meta properties, update link -->

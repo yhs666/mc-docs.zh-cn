@@ -8,21 +8,21 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-origin.date: 09/16/2018
-ms.date: 09/21/2018
+origin.date: 09/22/2018
+ms.date: 10/18/2018
 ms.author: v-junlch
-ms.openlocfilehash: aa9f5093a68a32c1e78a19d352b83366df05a1b0
-ms.sourcegitcommit: 54d9384656cee927000d77de5791c1d585d94a68
+ms.openlocfilehash: 0f01081fc6a95cd85f1018d47230727b2f9b996c
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46524005"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453664"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Azure Functions 的应用设置参考
 
 函数应用中的应用设置包含对该函数应用的所有函数产生影响的全局配置选项。 在本地运行时，这些设置出现在环境变量中。 本文列出可在函数应用中使用的应用设置。
 
-[!INCLUDE [Function app settings](../../includes/functions-app-settings.md]
+[!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
 [host.json](functions-host-json.md) 文件和 [local.settings.json](functions-run-local.md#local-settings-file) 文件中提供了其他全局配置选项。
 
@@ -33,7 +33,7 @@ ms.locfileid: "46524005"
 
 |键|示例值|
 |---|------------|
-|AzureWebJobsDashboard|DefaultEndpointsProtocol=https;AccountName=[name];AccountKey=[key]|
+|AzureWebJobsDashboard|DefaultEndpointsProtocol=https;AccountName=[name];AccountKey=[key];EndpointSuffix=core.chinacloudapi.cn|
 
 ## <a name="azurewebjobsdisablehomepage"></a>AzureWebJobsDisableHomepage
 
@@ -85,7 +85,7 @@ Azure Functions 运行时针对除 HTTP 触发的函数以外的其他所有函�
 
 |键|示例值|
 |---|------------|
-|AzureWebJobsStorage|DefaultEndpointsProtocol=https;AccountName=[name];AccountKey=[key]|
+|AzureWebJobsStorage|DefaultEndpointsProtocol=https;AccountName=[name];AccountKey=[key];EndpointSuffix=core.chinacloudapi.cn|
 
 ## <a name="azurewebjobstypescriptpath"></a>AzureWebJobs_TypeScriptPath
 
@@ -105,31 +105,38 @@ Azure Functions 运行时针对除 HTTP 触发的函数以外的其他所有函�
 
 ## <a name="functionsextensionversion"></a>FUNCTIONS\_EXTENSION\_VERSION
 
-要在此函数应用中使用的 Azure Functions 运行时版本。 波浪符加主要版本号表示使用该主要版本的最新版本（例如“~1”）。 当同一主要版本的新版本可用时，会自动在函数应用中安装新版本。 若要让应用固定使用特定的版本，请使用完整版本号（例如“1.0.12345”）。 默认为“~1”。
+要在此函数应用中使用的 Functions 运行时版本。 波浪符加主要版本号表示使用该主要版本的最新版本（例如“~2”）。 当同一主要版本的新版本可用时，会自动在函数应用中安装新版本。 若要让应用固定使用特定的版本，请使用完整版本号（例如“2.0.12345”）。 默认值为“~2”。 值 `~1` 让应用固定使用运行时版本 1.x。
 
 |键|示例值|
 |---|------------|
-|FUNCTIONS\_EXTENSION\_VERSION|~1|
+|FUNCTIONS\_EXTENSION\_VERSION|~2|
 
+## <a name="functionsworkerruntime"></a>FUNCTIONS\_WORKER\_RUNTIME
+
+要在函数应用中加载的语言辅助角色运行时。  这将对应于应用程序中使用的语言（例如，“dotnet”）。 对于使用多种语言的函数，需要将这些函数发布到多个应用（每个应用程序都有相应的辅助角色运行时值）。  有效值包括 `dotnet` (C#/F#)、`node` (JavaScript) 和 `java` (Java)。
+
+|键|示例值|
+|---|------------|
+|FUNCTIONS\_WORKER\_RUNTIME|dotnet|
 
 ## <a name="websitemaxdynamicapplicationscaleout"></a>WEBSITE\_MAX\_DYNAMIC\_APPLICATION\_SCALE\_OUT
 
 函数应用可以横向扩展到的最大实例数。 默认值为无限制。
 
 > [!NOTE]
-> 此设置适用于预览版功能。
+> 此设置是预览功能 - 仅在设置的值 <= 5 时才可靠
 
 |键|示例值|
 |---|------------|
-|WEBSITE\_MAX\_DYNAMIC\_APPLICATION\_SCALE\_OUT|10 个|
+|WEBSITE\_MAX\_DYNAMIC\_APPLICATION\_SCALE\_OUT|5|
 
 ## <a name="websitenodedefaultversion"></a>WEBSITE\_NODE\_DEFAULT_VERSION
 
-默认值为“6.5.0”。
+默认值为“8.11.1”。
 
 |键|示例值|
 |---|------------|
-|WEBSITE\_NODE\_DEFAULT_VERSION|6.5.0|
+|WEBSITE\_NODE\_DEFAULT_VERSION|8.11.1|
 
 ## <a name="websiterunfrompackage"></a>WEBSITE\_RUN\_FROM\_PACKAGE
 

@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 08/30/2018
 ms.date: 09/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4f7edbd3e6d6910705c916e19dc960c4a8af67b7
-ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
+ms.openlocfilehash: 98bc253141bf1370ac869552a0dc51c785b66c14
+ms.sourcegitcommit: 646d5cc64acaa91696537d09858b989336ebd3c3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47201360"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49451555"
 ---
 # <a name="azure-container-registry-skus"></a>Azure 容器注册表 SKU
 
@@ -92,7 +92,9 @@ az acr update --name myregistry --sku Premium
 
 **Azure 容器注册表 UserVoice**
 
-在 [ACR UserVoice][container-registry-uservoice] 中提交新功能建议，以及对新功能建议进行投票。
+在 [ACR UserVoice][container-registry-uservoice] 中提交新功能建议。
+
+<!--Not Available on vote the new feature -->
 
 <!-- IMAGES -->
 [update-registry-sku]: ./media/container-registry-skus/update-registry-sku.png

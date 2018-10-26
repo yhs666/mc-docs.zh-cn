@@ -7,14 +7,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 origin.date: 04/19/2018
-ms.date: 09/10/2018
+ms.date: 10/29/2018
 ms.author: v-yiso
-ms.openlocfilehash: 65cb66f50be9a58e556a185d3f5cd656b75a7f61
-ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
+ms.openlocfilehash: b56d3c3dfc3b40c67a7524e861caf9733d9a86d6
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43329052"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453767"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-ios"></a>使用 IoT 中心发送云到设备消息 (iOS)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
@@ -28,7 +28,7 @@ Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备�
 * 在设备上接收云到设备的消息。
 * 通过解决方案后端，请求确认收到从 IoT 中心发送到设备的消息（反馈）。
 
-可以在 [IoT 中心开发人员指南][IoT Hub developer guide - C2D]中找到有关云到设备消息的详细信息。
+可以在 [IoT 中心开发人员指南的“消息”部分](iot-hub-devguide-messaging.md)中找到有关云到设备消息的详细信息。
 
 在本文结束时，运行两个 Swift iOS 项目：
 
@@ -72,7 +72,7 @@ pod install
 
 ### <a name="run-the-sample-device-application"></a>运行示例设备应用程序 
 
-1. 检索设备的连接字符串。 可以从 Azure 门户中的设备详细信息边栏选项卡复制此字符串，或者使用以下 CLI 命令检索它： 
+1. 检索设备的连接字符串。 可以从 [Azure 门户](https://portal.azure.cn)的设备详细信息边栏选项卡复制此字符串，或者使用以下 CLI 命令检索它： 
 
     ```azurecli
     az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id {YourDeviceID} --output table
@@ -90,8 +90,7 @@ pod install
 5. 保存所做更改。 
 6. 使用“生成并运行”按钮或“Command + R”组合键在设备模拟器中运行项目。 
 
-   ![运行项目](media/quickstart-send-telemetry-ios/run-sample.png)
-
+   ![运行项目](media/iot-hub-ios-swift-c2d/run-sample.png)
 
 ## <a name="simulate-a-service-device"></a>模拟服务设备
 
@@ -117,7 +116,7 @@ pod install
 
 ### <a name="run-the-sample-service-application"></a>运行示例服务应用程序
 
-1. 检索 IoT 中心的服务连接字符串。 可以从 Azure 门户上“共享访问策略”边栏选项卡中的“iothubowner”策略复制此字符串，或者使用以下 CLI 命令检索它：  
+1. 检索 IoT 中心的服务连接字符串。 可以从 [Azure 门户](https://portal.azure.cn)上“共享访问策略”边栏选项卡中的“iothubowner”策略复制此字符串，或者使用以下 CLI 命令检索它：  
 
     ```azurecli
     az iot hub show-connection-string --hub-name {YourIoTHubName} --output table
@@ -150,6 +149,7 @@ pod install
    ![查看示例 IoT 设备应用](media/iot-hub-ios-swift-c2d/view-d2c.png)
 
 2. 在模拟的服务设备上运行的“IoT 中心服务客户端示例”应用中，输入要向其发送消息的 IoT 设备的 ID。 
+
 3. 编写纯文本消息，然后单击“发送”。 
 
 单击“发送”后，系统会执行多个操作。 服务示例会将消息发送到 IoT 中心，由于前面提供了服务连接字符串，应用可以访问该 IoT 中心。 IoT 中心会检查设备 ID，将消息发送到目标设备，并向源设备发送确认回执。 在模拟的 IoT 设备上运行的应用会检查来自 IoT 中心的消息，并在屏幕上列显最新消息的文本。

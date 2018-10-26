@@ -7,14 +7,14 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
 origin.date: 08/06/2018
-ms.date: 08/22/2018
+ms.date: 10/17/2018
 ms.author: v-junlch
-ms.openlocfilehash: e22c41386888d2049f93980f5e250181359a14bd
-ms.sourcegitcommit: da9f7b0825e493636d6596eb6ae95d03e0626583
+ms.openlocfilehash: ae593af722980ae11dd1e11c9f3122ff9c81fc2f
+ms.sourcegitcommit: 4ead6b1d3527373b63c90680b6400a2e95b4064e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "41734353"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49374975"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>应用程序网关运行状况监视概述
 
@@ -97,7 +97,7 @@ $match = New-AzureRmApplicationGatewayProbeHealthResponseMatch -Body "Healthy"
 
 如果应用程序网关子网上存在网络安全组 (NSG)，则必须在应用程序网关子网上打开端口范围 65503-65534，以便接收入站流量。 这些端口是确保后端运行状况 API 正常工作所必需的。
 
-此外，不能阻止出站 Internet 连接，并且必须允许来自 AzureLoadBalancer 标记的流量。
+此外，不能阻止出站 Internet 连接，并且必须允许来自 AzureLoadBalancer 标记的入站流量。
 
 ## <a name="next-steps"></a>后续步骤
 了解应用程序网关的运行状况监视后，可以在 Azure 门户中配置[自定义运行状况探测](application-gateway-create-probe-portal.md)，或使用 PowerShell 和 Azure Resource Manager 部署模型配置[自定义运行状况探测](application-gateway-create-probe-ps.md)。

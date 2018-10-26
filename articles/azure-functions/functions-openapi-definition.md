@@ -3,27 +3,22 @@ title: 为函数创建 OpenAPI 定义 | Microsoft Docs
 description: 创建一个 OpenAPI 定义，使其他应用和服务可以在 Azure 中调用函数。
 services: functions
 keywords: OpenAPI, Swagger, 云服务, 云应用,
-documentationcenter: ''
 author: ggailey777
-manager: cfowler
-editor: ''
+manager: jeconnoc
 ms.assetid: ''
-ms.service: functions
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: azure-functions
 ms.topic: tutorial
 origin.date: 12/15/2017
-ms.date: 07/23/2018
+ms.date: 10/19/2018
 ms.author: v-junlch
 ms.reviewer: sunayv
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 157b05e848b11fb731d0cee2d69876f97306351c
-ms.sourcegitcommit: ba07d76f8394b5dad782fd983718a8ba49a9deb2
+ms.openlocfilehash: db95e65d146fc0b97b7e38ff1ef88285949a13f3
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39220200"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453679"
 ---
 # <a name="create-an-openapi-definition-for-a-function"></a>为函数创建 OpenAPI 定义
 通常使用 OpenAPI 定义（以前称为 [Swagger](http://swagger.io/) 文件）描述 REST API。 此定义中包含的信息涉及 API 中哪些操作可用，以及 API 的请求和响应数据应采用怎样的结构。
@@ -37,6 +32,9 @@ ms.locfileid: "39220200"
 > * 使用 OpenAPI 工具生成 OpenAPI 定义
 > * 修改定义以提供额外的元数据
 > * 通过调用函数测试定义
+
+> [!IMPORTANT]
+> OpenAPI 预览功能目前仅在 1.x 运行时可用。 若要了解如何创建 1.x 函数应用，[可参阅此处](./functions-versions.md#creating-1x-apps)。
 
 ## <a name="create-a-function-app"></a>创建函数应用
 
@@ -64,17 +62,22 @@ ms.locfileid: "39220200"
 1. 将 run.csx 文件的内容替换为以下代码，然后单击“保存”：
 
     ```csharp
+    #r "Newtonsoft.Json"
+
     using System.Net;
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.Extensions.Primitives;
+    using Newtonsoft.Json;
 
     const double revenuePerkW = 0.12; 
     const double technicianCost = 250; 
     const double turbineCost = 100;
 
-    public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
+    public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
     {   
-
         //Get request body
-        dynamic data = await req.Content.ReadAsAsync<object>();
+        string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
+        dynamic data = JsonConvert.DeserializeObject(requestBody);
         int hours = data.hours;
         int capacity = data.capacity;
 
@@ -90,7 +93,7 @@ ms.locfileid: "39220200"
             repairTurbine = "No";
         }
 
-        return req.CreateResponse(HttpStatusCode.OK, new{
+        return (ActionResult) new OkObjectResult(new{
             message = repairTurbine,
             revenueOpportunity = "$"+ revenueOpportunity,
             costToFix = "$"+ costToFix         
@@ -254,7 +257,7 @@ securityDefinitions:
 
 + 为 API 及其操作和参数提供友好的摘要和描述。 这对将要使用此函数的用户很重要。
 
-+ 添加的在 Microsoft Flow 的 UI 中使用的 x-ms-summary 和 x-ms-visibility。 有关详细信息，请参阅 [Microsoft Flow 中适用于自定义 API 的 OpenAPI 扩展](https://preview.flow.microsoft.com/documentation/customapi-how-to-swagger/)。
++ 添加了在逻辑应用的 UI 中使用的 x-ms-summary 和 x-ms-visibility。 有关详细信息，请参阅 [Microsoft Flow 中适用于自定义 API 的 OpenAPI 扩展](https://preview.flow.microsoft.com/documentation/customapi-how-to-swagger/)。
 
 > [!NOTE]
 > 我们将安全性定义保留为默认身份验证方法，即 API 密钥。 如果使用不同的身份验证类型，可以更改此定义部分。
@@ -301,4 +304,4 @@ securityDefinitions:
 > * 修改定义以提供额外的元数据
 > * 通过调用函数测试定义
 
-
+<!-- Update_Description: wording update -->

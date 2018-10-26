@@ -11,12 +11,12 @@ origin.date: 04/17/2018
 ms.date: 08/22/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 980a193e8ffee55fc0c585b97e04305bdbde354e
-ms.sourcegitcommit: 85cdb61361dc61147bac991d4907f454f0684ea0
+ms.openlocfilehash: 67d1822b5c5bab365fa821d3eab51680223da077
+ms.sourcegitcommit: ee042177598431d702573217e2f3538878b6a984
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42709703"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477779"
 ---
 # <a name="restore-a-disk-and-create-a-recovered-vm-in-azure"></a>在 Azure 中还原磁盘并创建恢复的 VM
 Azure 备份可创建恢复点，这些恢复点存储在异地冗余的恢复保管库中。 从恢复点还原时，可以还原整个 VM，也可以还原单个文件。 本文介绍如何使用 CLI 还原完整的 VM。 本教程介绍如何执行下列操作：
@@ -28,7 +28,7 @@ Azure 备份可创建恢复点，这些恢复点存储在异地冗余的恢复�
 
 有关使用 PowerShell 还原磁盘并创建已恢复的 VM 的信息，请参阅[使用 PowerShell 备份和还原 Azure VM](backup-azure-vms-automation.md#restore-an-azure-vm)。
 
-如果选择在本地安装并使用 CLI，本教程需要你运行 Azure CLI 2.0.18 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](/cli/install-azure-cli)。 
+如果选择在本地安装并使用 CLI，本教程需要你运行 Azure CLI 2.0.18 或更高版本。 运行 `az --version` 即可查找版本。 如需进行安装或升级，请参阅[安装 CLI](/cli/install-azure-cli)。 
 
 
 ## <a name="prerequisites"></a>先决条件

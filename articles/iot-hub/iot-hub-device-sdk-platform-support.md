@@ -2,38 +2,42 @@
 title: Azure IoT 设备 SDK 平台支持 | Microsoft Docs
 description: 概念 - Azure IoT 设备 SDK 支持的平台的列表
 author: yzhong94
-manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 origin.date: 04/01/2018
-ms.date: 09/10/2018
+ms.date: 10/29/2018
 ms.author: v-yiso
-ms.openlocfilehash: faf9acdb385295c64d8d0340d6209f73538b2a54
-ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
+ms.openlocfilehash: 5a57464ee4e16e7cd976ab2825b4917005d006a5
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523846"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453584"
 ---
 # <a name="azure-iot-sdks-platform-support"></a>Azure IoT SDK 平台支持
 
-[Azure IoT SDK](iot-hub-devguide-sdks.md) 是一组可以与 IoT 中心和设备预配服务交互的库，具有广泛的语言和平台支持。  该 SDK 在最常用平台上运行，开发人员可以按照[移植指南](https://github.com/Azure/azure-c-shared-utility/blob/master/devdoc/porting_guide.md)将 C SDK 移植到特定的平台。 
+[Azure IoT SDK](iot-hub-devguide-sdks.md) 是一组可以与 IoT 中心和设备预配服务交互的库，具有广泛的语言和平台支持。 该 SDK 在最常用平台上运行，开发人员可以按照[移植指南](https://github.com/Azure/azure-c-shared-utility/blob/master/devdoc/porting_guide.md)将 C SDK 移植到特定的平台。 
 
-Microsoft 支持各种操作系统/平台/框架，后者可以通过 Azure IoT C SDK 进行扩展。  某些是团队正式支持的，可以分成多个层，这些层表示用户可以预期的支持级别。  为平台提供全面的支持是指 Microsoft 会：
-    - 持续生成主版本和 LTS 支持的版本并对其进行端到端测试
-    - 根据需要提供安装指南或包
-    - GitHub 上的全面支持
+Microsoft 支持各种操作系统/平台/框架，后者可以通过 Azure IoT C SDK 进行扩展。 某些是团队正式支持的，可以分成多个层，这些层表示用户可以预期的支持级别。 *为平台提供全面的支持*是指 Microsoft 会：
 
-另外，许多合作伙伴已将 C SDK 移植到多个平台，他们负责维护平台抽象层 (PAL)。  [Azure IoT 认证设备目录](https://catalog.azureiotsolutions.com/)还提供了一系列已在其上测试了各种 SDK 的 OS 平台。  这些 SDK 还会定期在这些平台上进行构建，但进行的测试和提供的支持有限：
-- MBED2
-- Arduino
-- Windows CE 2013（于 2018 年 10 月弃用）
-- .NET Standard 1.3（包含 .NET Core 2.1 和 .NET Framework 4.7）
-- Xamarin iOS、Android、UWP
-- Android（包含 Java）
+    * 持续生成主版本和 LTS 支持的版本并对其运行端到端测试。
+    * 根据需要提供安装指南或包。
+    * 完全支持 GitHub 上的平台。
+
+另外，许多合作伙伴已将 C SDK 移植到多个平台，他们负责维护平台抽象层 (PAL)。 [Azure IoT 认证设备目录](https://catalog.azureiotsolutions.com/)还提供了一系列已在其上测试了各种 SDK 的 OS 平台。 这些 SDK 还会定期在这些平台上进行构建，但进行的测试和提供的支持有限：
+
+* MBED2
+* Arduino
+* Windows CE 2013（于 2018 年 10 月弃用）
+* .NET Standard 1.3（包含 .NET Core 2.1 和 .NET Framework 4.7）
+* Xamarin iOS、Android、UWP
+* Android（包含 Java）
 
 ## <a name="supported-platforms"></a>支持的平台
+
+有几个支持的平台。
+
 ### <a name="c-sdk"></a>C SDK
 | 操作系统                  | Arch | 编译器             | TLS 库       |
 |---------------------|------|----------------------|-------------------|
