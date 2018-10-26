@@ -10,12 +10,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 01/16/2017
 ms.date: 09/10/2018
-ms.openlocfilehash: e8c9a6cd2747220afa64f25485e50427e8909360
-ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
+ms.openlocfilehash: 21fd2be7043c0c00ea12b67c1cb5ef449b09a7ea
+ms.sourcegitcommit: 4ead6b1d3527373b63c90680b6400a2e95b4064e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44515707"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49374983"
 ---
 # <a name="azure-stream-analytics-on-iot-edge-preview"></a>IoT Edge 上的 Azure 流分析（预览版）
 
@@ -24,8 +24,9 @@ ms.locfileid: "44515707"
 
 IoT Edge 上的 Azure 流分析 (ASA) 可让开发人员将近乎实时的分析智能更近地部署到 IoT 设备，以便他们能够使设备生成的数据发挥出全部价值。 Azure 流分析专为实现低延迟、复原能力、有效使用带宽和合规性而设计。 企业现在可以将控制逻辑部署到接近工业运营的位置，并补充在云中完成的大数据分析。  
 
-IoT Edge 上的 Azure 流分析在 [Azure IoT Edge](https://azure.microsoft.com/campaigns/iot-edge/) 框架中运行。 在 ASA 中创建作业后，便可使用 IoT 中心部署和管理 ASA 作业。 此功能为预览版。 如果你有任何问题或反馈，可使用[此调查](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u)与产品团队联系。 
+IoT Edge 上的 Azure 流分析在 Azure IoT Edge 框架中运行。 在 ASA 中创建作业后，便可使用 IoT 中心部署和管理 ASA 作业。 此功能为预览版。 如果你有任何问题或反馈，可使用 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/contact/) 与产品团队联系。 
 
+<!--Not Available on [Azure IoT Edge](https://azure.microsoft.com/campaigns/iot-edge/)-->
 ## <a name="scenarios"></a>方案
 ![概要关系图](media/stream-analytics-edge/ASAedge_highlevel.png)
 
@@ -37,23 +38,26 @@ IoT Edge 上的 Azure 流分析在 [Azure IoT Edge](https://azure.microsoft.com/
 ## <a name="edge-jobs-in-azure-stream-analytics"></a>Azure 流分析作业中的 Edge 作业
 ### <a name="what-is-an-edge-job"></a>什么是“Edge”作业？
 
-ASA Edge 作业在 [Azure IoT Edge 运行时](/iot-edge/how-iot-edge-works)中作为模块运行。 它们由两个部分组成：
+ASA Edge 作业在 Azure IoT Edge 运行时中作为模块运行。 它们由两个部分组成：<!--Not Available on [Azure IoT Edge 运行时](/iot-edge/how-iot-edge-works)-->
 1.  负责作业定义的云部分：用户在云中定义输入、输出、查询和其他设置（无序事件等）。
 2.  本地运行的 IoT Edge 模块上的 ASA。 它包含 ASA 复杂事件处理引擎，并从云接收作业定义。 
 
-ASA 使用 IoT 中心将 Edge 作业部署到设备。 [可在此处查看有关 IoT Edge 部署](/iot-edge/module-deployment-monitoring)的详细信息。
+ASA 使用 IoT 中心将 Edge 作业部署到设备。
+<!--Not Available on  [IoT Edge deployment can be seen here](/iot-edge/module-deployment-monitoring)-->
 
 ![Edge 作业](media/stream-analytics-edge/ASAedge_job.png)
 
 ### <a name="installation-instructions"></a>安装说明
 下表描述了高级步骤： 下面的部分将进行详细说明。
-|      |步骤   | 位置     | 说明   |
+|      |步骤   | 位置     | 注释   |
 | ---   | ---   | ---       |  ---      |
 | 1   | 创建存储容器   | Azure 门户       | 存储容器用于保存作业定义，IoT 设备可在其中进行访问它们。 <br>  你可以重用任何现有的存储容器。     |
 | 2   | 创建 ASA 边缘作业   | Azure 门户      |  创建新的作业，选择“Edge”作为“宿主环境”。 <br> 这些作业从云创建/管理，并在你自己的 IoT Edge 设备上运行。     |
-| 3   | **在设备上设置 IoT Edge 环境**   | 设备      | [Windows](/iot-edge/quickstart) 或 [Linux](/iot-edge/quickstart-linux) 说明。          |
+| 3   | **在设备上设置 IoT Edge 环境**   | 设备      | Windows 或 Linux 说明。          |
 | 4   | 在 IoT Edge 设备上部署 ASA   | Azure 门户      |  ASA 作业定义被导出到之前创建的存储容器。       |
 
+<!-- Not Available on [Windows](/iot-edge/quickstart)-->
+<!-- Not Available on [Linux](/iot-edge/quickstart-linux)-->
 <!-- Not Availalble on [this step-by-step tutorial](/iot-edge/tutorial-deploy-stream-analytics)-->
 
 <!-- Not Availalble on > [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T157/player]-->
@@ -67,7 +71,9 @@ ASA 使用 IoT 中心将 Edge 作业部署到设备。 [可在此处查看有关
 
 #### <a name="create-an-asa-edge-job"></a>创建 ASA Edge 作业
 > [!Note]
-> 本教程重点介绍如何使用 Azure 门户创建 ASA 作业。 也可以[使用 Visual Studio 插件创建 ASA Edge 作业](/stream-analytics/stream-analytics-tools-for-visual-studio-edge-jobs)
+> 本教程重点介绍如何使用 Azure 门户创建 ASA 作业。 也可以使用 Visual Studio 插件创建 ASA Edge 作业
+
+<!--Not Available on [use Visual Studio plugin to create an ASA Edge job](/stream-analytics/stream-analytics-tools-for-visual-studio-edge-jobs)-->
 
 1. 在 Azure 门户创建一个新的“流分析作业”。 [在此处创建新的 ASA 作业的直接链接](https://portal.azure.cn/#create/Microsoft.StreamAnalyticsJob)。
 
@@ -92,7 +98,10 @@ ASA 使用 IoT 中心将 Edge 作业部署到设备。 [可在此处查看有关
 - 在 Edge 设备上安装 Docker 和 IoT Edge 运行时。
 - 在 IoT 中心将设备设置为“IoT Edge 设备”。
 
-这些步骤在针对 [Windows](/iot-edge/quickstart) 或 [Linux](/iot-edge/quickstart-linux) 的 IoT Edge 文档中有相关描述。  
+这些步骤在针对 Windows 或 Linux 的 IoT Edge 文档中有相关描述。  
+
+<!--Not Available on [Windows](/iot-edge/quickstart)-->
+<!--Not Available on [Linux](/iot-edge/quickstart-linux)--> 
 
 ####  <a name="deployment-asa-on-your-iot-edge-devices"></a>在 IoT Edge 设备上部署 ASA
 ##### <a name="add-asa-to-your-deployment"></a>将 ASA 添加到部署
@@ -108,8 +117,10 @@ ASA 使用 IoT 中心将 Edge 作业部署到设备。 [可在此处查看有关
 <!--Not Available on [this page](/iot-edge/module-deployment-monitoring)-->
 
 ##### <a name="configure-routes"></a>配置路由
-IoT Edge 提供了一种在模块之间，以及模块和 IoT 中心之间以声明方式路由消息的方法。 [此处](/iot-edge/module-composition)描述了完整的语法。
+IoT Edge 提供了一种在模块之间，以及模块和 IoT 中心之间以声明方式路由消息的方法。
 在 ASA 作业中创建的输入和输出的名称可以用作路由的终结点。  
+
+<!--Not Available on [here](/iot-edge/module-composition)-->
 
 ###### <a name="example"></a>示例
 ```
@@ -160,7 +171,9 @@ IoT Edge 上的 ASA 可用作 Windows 和 Linux 映像运行于 x86-64 或 Azure
 
 ### <a name="input-and-output"></a>输入和输出
 #### <a name="input-and-output-streams"></a>输入和输出流
-ASA Edge 作业可以从在 IoT Edge 设备上运行的其他模块获取输入和输出。 要与特定模块实现相互连接，你可以在部署时设置路由配置。 有关详细信息，请参阅 [IoT Edge 模块组成文档](/iot-edge/module-composition)。
+ASA Edge 作业可以从在 IoT Edge 设备上运行的其他模块获取输入和输出。 要与特定模块实现相互连接，你可以在部署时设置路由配置。
+
+<!--Not Available on [the IoT Edge module composition documentation](/iot-edge/module-composition)-->
 
 输入和输出均支持 CSV 和 JSON 格式。
 
@@ -190,12 +203,12 @@ ASA Edge 作业可以从在 IoT Edge 设备上运行的其他模块获取输入�
 ## <a name="get-help"></a>获取帮助
 如需进一步的帮助，请尝试参考 [Azure 流分析论坛](https://www.azure.cn/support/contact/)。
 
-## <a name="next-steps"></a>后续步骤
+<!--Not Available on ## Next steps-->
 
-* [Azure IoT Edge 的详细信息](/iot-edge/how-iot-edge-works)
-* [IoT Edge 教程上的 ASA ](/iot-edge/tutorial-deploy-stream-analytics)
-* [使用此调查向团队发送反馈](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u) 
-* [使用 Visual Studio 工具开发流分析 Edge 作业](/stream-analytics/stream-analytics-tools-for-visual-studio-edge-jobs)
+<!--Not Available on* [More information on Azure Iot Edge](/iot-edge/how-iot-edge-works)-->
+<!--Not Available on* [ASA on IoT Edge tutorial](/iot-edge/tutorial-deploy-stream-analytics)-->
+<!--Not Available on* [Send feedback to the team using this survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u)-->
+<!--Not Available on* [Develop Stream Analytics Edge jobs using Visual Studio tools](/stream-analytics/stream-analytics-tools-for-visual-studio-edge-jobs)-->
 
 <!--Link references-->
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md
