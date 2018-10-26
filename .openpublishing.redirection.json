@@ -11248,6 +11248,66 @@
             "source_path": "articles/automation/automation-verify-runas-authentication.md",
             "redirect_url": "/automation/manage-runas-account",
             "redirect_document_id": false
+        },
+    {
+        "source_path": "articles/azure-resource-manager/resource-manager-create-first-template.md",
+        "redirect_url": "/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/azure-resource-manager/resource-manager-vscode-extension.md",
+        "redirect_url": "/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/stream-analytics/stream-analytics-tools-for-visual-studio.md",
+        "redirect_url": "/stream-analytics/stream-analytics-quick-create-vs",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/traffic-manager/traffic-manager-create-profile.md",
+        "redirect_url": "/traffic-manager/quickstart-create-traffic-manager-profile",
+        "redirect_document_id": false
+    },
+	{
+            "source_path": "articles/sql-database/sql-database-get-started-cli.md",
+            "redirect_url": "/sql-database/sql-database-cli-samples",
+            "redirect_document_id": false
+        },
+	{
+            "source_path": "articles/sql-database/sql-database-get-started-powershell.md",
+            "redirect_url": "/sql-database/sql-database-powershell-samples",
+            "redirect_document_id": false
+        },
+	{
+            "source_path": "articles/sql-database/sql-database-managed-instance-create-tutorial-portal.md",
+            "redirect_url": "/sql-database/sql-database-managed-instance-get-started",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-managed-instance-restore-from-backup-tutorial.md",
+            "redirect_url": "/sql-database/sql-database-managed-instance-get-started-restore",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/sql-database/sql-database-resource-limits.md",
+            "redirect_url": "/sql-database/sql-database-resource-limits-logical-server",
+            "redirect_document_id": false
+        },
+	{
+            "source_path": "articles/sql-database/sql-database-single-database-monitor.md",
+            "redirect_url": "/sql-database/sql-database-monitor-tune-overview",
+            "redirect_document_id": false
+        },
+	{
+            "source_path": "articles/sql-database/sql-database-troubleshoot-performance.md",
+            "redirect_url": "/sql-database/sql-database-monitor-tune-overview",
+            "redirect_document_id": false
         }
+
+
+
+
+
   ]
 }
