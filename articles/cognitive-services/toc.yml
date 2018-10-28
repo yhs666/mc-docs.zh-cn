@@ -1,17 +1,30 @@
-- name: 概述
+items:
+- name: Azure 认知服务文档
   href: index.md
+- name: 概述
   items:
-    - name: 什么是认知服务？
-      href: Welcome.md
-- name: 入门
+  - name: 什么是认知服务？
+    href: Welcome.md
+  - name: 语言支持
+    href: language-support.md
+  expanded: true
+- name: 快速入门
   items:
-    - name: 创建帐户
-      href: cognitive-services-apis-create-account.md
-- name: 服务/API
+  - name: 创建帐户
+    href: cognitive-services-apis-create-account.md
+- name: 教程
   items:
-    - name: 计算机视觉
-      href: Computer-vision/Home.md
-    - name: 情感
-      href: Emotion/Home.md
-    - name: 人脸
-      href: Face/Overview.md
+  - name: 使用计算机视觉开发应用
+    href: ./Computer-vision/tutorials/csharptutorial.md
+- name: 资源
+  items:
+  - name: 定价
+    href: https://www.azure.cn/pricing/details/cognitive-services/
+  - name: 定价计算器
+    href: https://www.azure.cn/pricing/calculator/
+ms.openlocfilehash: e9b6a39278244ed6b059a32c08273378d84f596d
+ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50034791"

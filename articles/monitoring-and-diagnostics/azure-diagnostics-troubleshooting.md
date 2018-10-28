@@ -2,25 +2,19 @@
 title: Azure 诊断故障排除 | Microsoft Docs
 description: 排查在 Azure 虚拟机、Service Fabric 或云服务中使用 Azure 诊断时遇到的问题。
 services: monitoring-and-diagnostics
-documentationcenter: .net
-author: rboucher
-manager: carmonm
-editor: ''
-ms.assetid: 66469bce-d457-4d1e-b550-a08d2be4d28c
+author: lingliw
 ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 07/12/2017
-ms.date: 03/19/2018
-ms.author: v-yiso
-ms.openlocfilehash: 849f10ba278982d9aced829ba4132453fc6bda25
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.date: 10/22/2018
+ms.author: v-lingwu
+ms.openlocfilehash: c00b5fa1ffa69512a6749aee5584e31d8d3c4ecf
+ms.sourcegitcommit: 32373810af9c9a2210d63f16d46a708028818d5f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29870817"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49652259"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Azure 诊断故障排除
 本文介绍有关使用 Azure 诊断的故障排除信息。 有关 Azure 诊断的详细信息，请参阅 [Azure 诊断概述](azure-diagnostics.md)。
@@ -124,7 +118,7 @@ DiagnosticsPluginLauncher.exe Information: 0 : [4/16/2016 6:24:15 AM] Diagnostic
 #### <a name="is-the-host-generating-data"></a>主机是否生成数据？
 - 性能计数器：打开 perfmon 并检查计数器。
 
-- 跟踪日志：远程访问 VM 并向应用的配置文件添加 TextWriterTraceListener。  请参阅 http://msdn.microsoft.com/library/sk36c28t.aspx 来设置文本侦听器。  确保 `<trace>` 元素具有 `<trace autoflush="true">`。<br />
+- 跟踪日志：远程访问 VM 并向应用的配置文件添加 TextWriterTraceListener。  请参阅 http://msdn.microsoft.com/library/sk36c28t.aspx 设置文本侦听器。  确保 `<trace>` 元素具有 `<trace autoflush="true">`。<br />
 如果没有看到生成跟踪日志，请查看[关于跟踪日志丢失的更多信息](#more-about-trace-logs-missing)。
 
 - ETW 跟踪：远程访问 VM 并安装 PerfView。  在 PerfView 中运行“文件” > “用户命令” > “侦听 etwprovder1” > “etwprovider2”等。 侦听命令区分大小写，ETW 提供程序的逗号分隔列表之间不能有空格。 如果命令未能运行，可选择 Perfview 工具右下角的“日志”按钮，查看尝试运行的内容以及结果。  假设输入正确，则会弹出一个新窗口。 几秒钟后，即可看到 ETW 跟踪信息。
@@ -296,8 +290,6 @@ System.IO.FileLoadException: Could not load file or assembly 'System.Threading.T
 
 默认情况下，虚拟机中的门户体验会显示某些性能计数器。 如果未看到性能计数器，且知道正在生成数据，因为数据在存储中可用，此时进行以下检查：
 
-- 存储中的数据是否有英文计数器名称。 如果计数器名称不是英文，门户指标图表将无法识别它。
+- 存储中的数据是否有英文计数器名称。 如果计数器名称不是英文，门户指标图表将无法识别它。 缓解措施：将系统帐户的计算机语言更改为英语。 要执行此操作，请选择“控制面板” > “区域” > “管理” > “复制设置”。 接下来，取消选择“欢迎界面和系统帐户”，以免将自定义语言应用到系统帐户。
 
-- 如果性能计数器名称中使用了通配符(\*)，门户将无法关联配置和收集的计数器。
-
-缓解措施：将系统帐户的计算机语言更改为英语。 要执行此操作，请选择“控制面板” > “区域” > “管理” > “复制设置”。 接下来，取消选择“欢迎界面和系统帐户”，以免将自定义语言应用到系统帐户。 如果希望门户为主要消费体验，还要确保不使用通配符。
+- 如果在性能计数器名称中使用通配符 (\*)，则在将性能计数器发送到 Azure 存储接收器时，门户将无法关联已配置和已收集的计数器。 **缓解措施**：若要确保可以使用通配符并让门户展开 (\*)，请将性能计数器路由到[“Azure Monitor”接收器](azure-diagnostics-schema.md#diagnostics-extension-111)。

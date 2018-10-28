@@ -11,16 +11,16 @@ ms.workload: infrastructure
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: tutorial
-origin.date: 07/20/2018
-ms.date: 08/27/2018
+origin.date: 10/12/2018
+ms.date: 10/22/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 7459feaf40315481b2e44b8326db221991884f0c
-ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
+ms.openlocfilehash: cdcae46252b797a0d88a7f6067c4703ac646e316
+ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44515662"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50034874"
 ---
 # <a name="tutorial-learn-about-windows-virtual-machine-governance-with-azure-powershell"></a>教程：了解如何使用 Azure PowerShell 控制 Windows 虚拟机
 
@@ -28,7 +28,7 @@ ms.locfileid: "44515662"
 
 
 
-本文中的示例需要版本 6.0 或更高版本的 Azure PowerShell。 如果在本地运行 PowerShell，并且未使用 6.0 版或更高版本，请[更新版本](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。 此外，还需要运行 `Connect-AzureRmAccount -Environment AzureChinaCloud` 以创建与 Azure 的连接。 对于本地安装，还必须[下载 Azure AD PowerShell 模块](https://www.powershellgallery.com/packages/AzureAD/)来创建新的 Azure Active Directory 组。
+本文中的示例需要版本 6.0 或更高版本的 Azure PowerShell。 如果在本地运行 PowerShell，并且未使用 6.0 或更高版本，请[更新版本](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。 此外，还需要运行 `Connect-AzureRmAccount` 以创建与 Azure 的连接。 对于本地安装，还必须[下载 Azure AD PowerShell 模块](https://www.powershellgallery.com/packages/AzureAD/)来创建新的 Azure Active Directory 组。
 
 ## <a name="understand-scope"></a>了解范围
 
@@ -56,24 +56,19 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location ChinaEast
 * [网络参与者](../../role-based-access-control/built-in-roles.md#network-contributor)
 * [存储帐户参与者](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
-通常情况下，与其向单个用户分配角色，不如为需要进行相似操作的用户[创建一个 Azure Active Directory 组](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)， 然后向该组分配相应的角色。 为了简单起见，本文创建一个没有成员的 Azure Active Directory 组。 仍然可以为该组分配一个负责某个范围的角色。 
+通常情况下，与其向单个用户分配角色，不如使用其用户需要执行类似操作的 Azure Active Directory 组， 然后向该组分配相应的角色。 就本文来说，请使用现有的组来管理虚拟机，或者使用门户来[创建 Azure Active Directory 组](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)。
 
-以下示例创建一个邮件别名为 *vmDemoGroup* 且名为 *VMDemoContributors* 的 Azure Active Directory 组。 邮件别名用作组的别名。
-
-```PowerShell
-$adgroup = New-AzureADGroup -DisplayName VMDemoContributors `
-  -MailNickName vmDemoGroup `
-  -MailEnabled $false `
-  -SecurityEnabled $true
-```
-
-在命令提示返回后，组需要花费一段时间来在整个 Azure Active Directory 中传播。 等待 20 或 30 秒后，使用 [New-AzureRmRoleAssignment](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermroleassignment) 命令将新的 Azure Active Directory 组分配到资源组的“虚拟机参与者”角色。  如果在它已传播之前运行以下命令，则会收到一个错误，指出**主体<guid>在目录中不存在**。 请尝试再次运行命令。
+创建新组或找到现有组以后，请使用 [New-AzureRmRoleAssignment](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermroleassignment) 命令将 Azure Active Directory 组分配到资源组的“虚拟机参与者”角色。  
 
 ```PowerShell
-New-AzureRmRoleAssignment -ObjectId $adgroup.ObjectId `
+$adgroup = Get-AzureRmADGroup -DisplayName <your-group-name>
+
+New-AzureRmRoleAssignment -ObjectId $adgroup.id `
   -ResourceGroupName myResourceGroup `
   -RoleDefinitionName "Virtual Machine Contributor"
 ```
+
+如果收到一条错误，指出**主体 <guid> 不存在于目录中**，则表明新组未在 Azure Active Directory 中完成传播。 请尝试再次运行命令。
 
 通常情况下，请对*网络参与者*和*存储帐户参与者*重复执行此过程，确保分配用户来管理已部署的资源。 在本文中，可以跳过这些步骤。
 
@@ -126,7 +121,7 @@ New-AzureRMPolicyAssignment -Name "Audit unmanaged disks" `
 
 ## <a name="deploy-the-virtual-machine"></a>部署虚拟机
 
-分配角色和策略以后，即可部署解决方案。 默认大小为 Standard_DS1_v2，这是允许的 SKU 之一。 运行此步骤时，会提示输入凭据。 输入的值将配置为用于虚拟机的用户名和密码。
+分配角色和策略以后，即可部署解决方案。 默认大小为 Standard_DS1_v2，这是允许的 SKU 之一。 运行此步骤时，会提示输入凭据。 你输入的值将配置为用于虚拟机的用户名和密码。
 
 ```PowerShell
 New-AzureRmVm -ResourceGroupName "myResourceGroup" `
@@ -169,7 +164,7 @@ New-AzureRmResourceLock -LockLevel CanNotDelete `
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
-将会显示一个错误，指出删除操作由于某个锁而无法执行。 只有在明确删除锁以后，才能删除资源组。 该步骤显示在[清理资源](#clean-up-resources)中。
+将会显示一个错误，指出删除操作由于某个锁而无法完成。 只有在明确删除锁以后，才能删除资源组。 该步骤显示在[清理资源](#clean-up-resources)中。
 
 ## <a name="tag-resources"></a>标记资源
 
@@ -204,7 +199,6 @@ Get-AzureRmResource -Tag @{ Environment="Test"} | Where-Object {$_.ResourceType 
 ```
 
 <!-- Not Available on ### View costs by tag values-->
-
 <!-- Not Available on [!INCLUDE [Resource Manager governance tags billing](../../../includes/resource-manager-governance-tags-billing.md)]-->
 
 ## <a name="clean-up-resources"></a>清理资源
@@ -230,7 +224,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 ## <a name="next-steps"></a>后续步骤
 
-在本教程中，已创建自定义 VM 映像。 你已了解如何：
+在本教程中，你已创建了一个自定义 VM 映像。 你已了解如何：
 
 > [!div class="checklist"]
 > * 为用户分配角色
@@ -242,4 +236,5 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 > [!div class="nextstepaction"]
 > [监视虚拟机](tutorial-monitoring.md)
-<!-- Update_Description: update meta properties, update link   -->
+
+<!-- Update_Description: update meta properties, update link, wording update  -->

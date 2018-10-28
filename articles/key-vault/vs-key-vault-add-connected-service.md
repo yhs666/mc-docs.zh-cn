@@ -10,14 +10,14 @@ ms.custom: vs-azure
 ms.workload: azure-vs
 ms.topic: conceptual
 origin.date: 04/15/2018
-ms.date: 10/22/2018
+ms.date: 11/05/2018
 ms.author: v-biyu
-ms.openlocfilehash: 1b6a0a1a53be4c07e8e2db87a23282d0e037471c
-ms.sourcegitcommit: 2fdf25eb4b978855ff2832bcdcca093c141be261
+ms.openlocfilehash: da2f024acc0b96b41a742564924a551c55dc2f7d
+ms.sourcegitcommit: 8a68d9275ddb92ea45601fed96e21559999d9579
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49120617"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50026949"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>使用 Visual Studio 连接服务将 Key Vault 添加到 Web 应用程序
 
@@ -28,7 +28,7 @@ ms.locfileid: "49120617"
 ## <a name="prerequisites"></a>先决条件
 
 - **一个 Azure 订阅**。 如果没有订阅，可以注册一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
-- **Visual Studio 2017 版本 15.7**（装有 **Web 开发**工作负荷）。 [立即下载](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs)。
+- Visual Studio 2017 版本 15.7（装有 Web 开发工作负荷）。 [立即下载](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs)。
 - 对于 ASP.NET（非 Core），需要安装 .NET Framework 4.7.1 开发工具，默认情况下未安装这些工具。 若要安装这些工具，请启动 Visual Studio 安装程序，依次选择“修改”、“单个组件”，在右侧展开“ASP.NET 和 Web 开发”，然后选择“.NET Framework 4.7.1 开发工具”。
 - 已打开一个 ASP.NET 4.7.1 或 ASP.NET Core 2.0 Web 项目。
 
@@ -40,7 +40,7 @@ ms.locfileid: "49120617"
 
    ![选择“使用 Azure Key Vault 来保护机密”](./media/vs-key-vault-add-connected-service/KeyVaultConnectedService1.PNG)
 
-   如果已登录到 Visual Studio，并且有与帐户关联的 Azure 订阅，则会显示一个页面，其中提供了订阅下拉列表。
+   如果已登录到 Visual Studio，并且有与帐户关联的 Azure 订阅，则会显示一个页面，其中提供了订阅下拉列表。 请确保你已登录到 Visual Studio，并且你登录的帐户与用于 Azure 订阅的帐户相同。
 1. 选择要使用的订阅，然后选择新的或现有的 Key Vault，或选择“编辑”链接来修改自动生成的名称。
 
    ![选择订阅](./media/vs-key-vault-add-connected-service/KeyVaultConnectedService3.PNG)
@@ -139,7 +139,7 @@ ms.locfileid: "49120617"
 
 ## <a name="clean-up-resources"></a>清理资源
 
-不再需要资源组时，可将其删除。 这会删除 Key Vault 和相关的资源。 若要通过门户删除资源组，请执行以下操作：
+不再需要资源组时，可将其删除。 这会删除 Key Vault 和相关的资源。 要通过门户删除资源组，请执行以下操作：
 
 1. 在门户顶部的“搜索”框中输入资源组的名称。 在搜索结果中看到在本快速入门中使用的资源组后，请将其选中。
 2. 选择“删除资源组”。

@@ -4,18 +4,18 @@ description: 在本教程中，请将 Azure 函数作为一个模块部署到边
 author: kgremban
 manager: timlt
 ms.author: v-yiso
-origin.date: 08/22/2018
-ms.date: 10/08/2018
+origin.date: 09/21/2018
+ms.date: 11/05/2018
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: b97286ce744c254e7e753d840d1d7b9bb21c2784
-ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
+ms.openlocfilehash: 553968a161a2d66ade942494efffe962abad46fe
+ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523897"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50135826"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules-preview"></a>教程：将 Azure 函数作为 IoT Edge 模块进行部署（预览版）
 
@@ -46,7 +46,7 @@ Azure IoT Edge 设备：
 
 云资源：
 
-* Azure 中的标准层 [IoT 中心](../iot-hub/iot-hub-create-through-portal.md)。 
+* Azure 中的免费或标准层 [IoT 中心](../iot-hub/iot-hub-create-through-portal.md)。 
 
 开发资源：
 

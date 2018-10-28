@@ -9,12 +9,12 @@ origin.date: 09/10/2018
 ms.date: 10/22/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: f2b38c30d1bfb8ac13388e97c1a99d96d7a694a4
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: 729e5ee64cd92385b70694fd39e47096131c3ec4
+ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453934"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50135869"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>安装并配置本地数据网关
 当同一区域中的一个或多个 Azure Analysis Services 服务器连接到本地数据源时，需要本地数据网关。 若要了解有关网关的详细信息，请参阅[本地数据网关](analysis-services-gateway.md)。
@@ -41,90 +41,87 @@ ms.locfileid: "49453934"
 * 安装网关时，你用来登录到计算机的用户帐户必须具有“作为服务登录”权限。 安装完成后，本地数据网关服务使用 NT SERVICE\PBIEgwService 帐户作为服务登录。 可以在安装期间指定一个不同的帐户，也可以在安装完成后在“服务”中指定一个不同的帐户。 请确保组策略设置同时允许你在安装时登录的帐户以及你选择的具有“作为服务登录”权限的服务帐户。
 * 在 Azure AD 中使用与要在其中注册网关的订阅相同[租户](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant)的帐户登录到 Azure。 安装和注册网关时不支持 Azure B2B（来宾）帐户。
 * 如果数据源位于 Azure 虚拟网络 (VNet) 上，则必须配置 [AlwaysUseGateway](analysis-services-vnet-gateway.md) 服务器属性。
-<!-- * The (unified) gateway described here is not supported in Azure China Cloud, Azure Germany, and Azure China sovereign regions. Use **Dedicated On-premises gateway for Azure Analysis Services**, installed from your server's **Quick Start** in the portal. 
+<!-- * The (unified) gateway described here is not supported in Azure China Cloud, Azure Germany, and Azure China sovereign regions. Use **Dedicated On-premises gateway for Azure Analysis Services**, installed from your server's **Quick Start** in the portal. -->
 
 <a name="download"></a>
-## Download
- [Download the gateway](https://aka.ms/azureasgateway-mc)
+## <a name="download"></a>下载
+ [下载网关](https://aka.ms/azureasgateway-mc)
 
 <a name="install"></a>
-## Install
+## <a name="install"></a>安装
 
-1. Run setup.
+1. 运行安装程序。
 
-2. Select a location, accept the terms, and then click **Install**.
+2. 选择位置，接受条款，并单击“安装”。
 
-   ![Install location and license terms](media/analysis-services-gateway-install/aas-gateway-installer-accept.png)
+   ![安装位置和许可条款](media/analysis-services-gateway-install/aas-gateway-installer-accept.png)
 
-3. Sign in to Azure. The account must be in your tenant's Azure Active Directory. This account is used for the gateway administrator. Azure B2B (guest) accounts are not supported when installing and registering the gateway.
+3. 登录 Azure。 该帐户必须在租户的 Azure Active Directory 中。 这是网关管理员使用的帐户。 安装和注册网关时不支持 Azure B2B（来宾）帐户。
 
-   ![Sign in to Azure](media/analysis-services-gateway-install/aas-gateway-installer-account.png)
+   ![登录 Azure](media/analysis-services-gateway-install/aas-gateway-installer-account.png)
 
    > [!NOTE]
-   > If you sign in with a domain account, it's mapped to your organizational account in Azure AD. Your organizational account is used as the gateway administrator.
+   > 如果使用域帐户登录，它将映射到你在 Azure AD 中的组织帐户。 你的组织帐户将用作网关管理员。
 
 <a name="register"></a>
-## Register
-In order to create a gateway resource in Azure, you must register the local instance you installed with the Gateway Cloud Service. 
+## <a name="register"></a>注册
+若要在 Azure 中创建网关资源，必须将安装的本地实例注册到网关云服务。 
 
-1.  Select **Register a new gateway on this computer**.
+1.  选择“在此计算机上注册新网关”。
 
-    ![Register](media/analysis-services-gateway-install/aas-gateway-register-new.png)
+    ![注册](media/analysis-services-gateway-install/aas-gateway-register-new.png)
 
-2. Type a name and recovery key for your gateway. By default, the gateway uses your subscription's default region. If you need to select a different region, select **Change Region**.
+2. 键入网关的名称和恢复密钥。 默认情况下，网关使用订阅的默认区域。 如需选择不同的区域，请选择“更改区域”。
 
     > [!IMPORTANT]
-    > Save your recovery key in a safe place. The recovery key is required in-order to takeover, migrate, or restore a gateway. 
+    > 将恢复密钥保存在安全位置。 接管、迁移或还原网关时需要使用恢复密钥。 
 
-   ![Register](media/analysis-services-gateway-install/aas-gateway-register-name.png)
+   ![注册](media/analysis-services-gateway-install/aas-gateway-register-name.png)
 
 <a name="create-resource"></a>
-## Create an Azure gateway resource
-After you've installed and registered your gateway, you need to create a gateway resource in your Azure subscription. Sign in to Azure with the same account you used when registering the gateway.
+## <a name="create-an-azure-gateway-resource"></a>创建 Azure 网关资源
+安装并注册网关后，需在 Azure 订阅中创建网关资源。 使用注册网关时所用的同一帐户登录到 Azure。
 
-1. In Azure portal, click **Create a resource** > **Integration** > **On-premises data gateway**.
+1. 在 Azure 门户中，单击“创建资源” > “集成” > “本地数据网关”。
 
-   ![Create a gateway resource](media/analysis-services-gateway-install/aas-gateway-new-azure-resource.png)
+   ![创建网关资源](media/analysis-services-gateway-install/aas-gateway-new-azure-resource.png)
 
-2. In **Create connection gateway**, enter these settings:
+2. 在“创建连接网关”中，输入以下设置：
 
-    * **Name**: Enter a name for your gateway resource. 
+    * **名称**：输入网关资源的名称。 
 
-    * **Subscription**: Select the Azure subscription 
-    to associate with your gateway resource. 
+    * **订阅**：选择要与网关资源关联的 Azure 订阅。 
 
-      The default subscription is based on the 
-      Azure account that you used to sign in.
+      默认订阅取决于用来登录的 Azure 帐户。
 
-    * **Resource group**: Create a resource group or select an existing resource group.
+    * **资源组**：创建资源组或选择现有资源组。
 
-    * **Location**: Select the region you registered your gateway in.
+    * **位置**：选择网关的注册区域。
 
-    * **Installation Name**: If your gateway installation isn't already selected, 
-    select the gateway registered. 
+    * **安装名称**：如果尚未选择网关安装，请选择注册的网关。 
 
-    When you're done, click **Create**.
+    完成后，单击“创建”。
 
 <a name="connect-servers"></a>
-## Connect servers to the gateway resource
+## <a name="connect-servers-to-the-gateway-resource"></a>将服务器连接到网关资源
 
-1. In your Azure Analysis Services server overview, click **On-Premises Data Gateway**.
+1. 在 Azure Analysis Services 服务器概述中，单击“本地数据网关”。
 
-   ![Connect server to gateway](media/analysis-services-gateway-install/aas-gateway-connect-server.png)
+   ![将服务器连接到网关](media/analysis-services-gateway-install/aas-gateway-connect-server.png)
 
-2. In **Pick an On-Premises Data Gateway to connect**, select your gateway resource, and then click **Connect selected gateway**.
+2. 在“选择要连接的本地数据网关”中选择自己的网关资源，并单击“连接选定网关”。
 
-   ![Connect server to gateway resource](media/analysis-services-gateway-install/aas-gateway-connect-resource.png)
+   ![将服务器连接到网关资源](media/analysis-services-gateway-install/aas-gateway-connect-resource.png)
 
     > [!NOTE]
-    > If your gateway does not appear in the list, your server is likely not in the same region as the region you specified when registering the gateway. 
+    > 如果列表中不显示你的网关，很可能是你的服务器与你注册网关时指定的区域不在同一个区域。 
 
-That's it. If you need to open ports or do any troubleshooting, be sure to check out [On-premises data gateway](analysis-services-gateway.md).
+就这么简单。 如需打开端口或执行任何故障排除，请务必查看[本地数据网关](analysis-services-gateway.md)。
 
-## Next steps
-* [Manage Analysis Services](analysis-services-manage.md)   
-* [Get data from Azure Analysis Services](analysis-services-connect.md)   
-* [Use gateway for data sources on an Azure Virtual Network](analysis-services-vnet-gateway.md)
+## <a name="next-steps"></a>后续步骤
+* [管理 Analysis Services](analysis-services-manage.md)   
+* [从 Azure Analysis Services 获取数据](analysis-services-connect.md)   
+* [对 Azure 虚拟网络上的数据源使用网关](analysis-services-vnet-gateway.md)
 
 <!-- Update_Description: new articles on analysis services gateway install  -->
 <!--ms.date: 10/22/2018-->

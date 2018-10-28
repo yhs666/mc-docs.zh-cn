@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 origin.date: 01/25/2018
 ms.date: 10/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: ce5f79d33759a7e933434c45a16def1bd3e19b6e
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: ac37056ff8827b1888c8147d35fe5b9d98a67e42
+ms.sourcegitcommit: 96b58e881dba2fd02665d806d7c27d770326b0cc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453950"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49652005"
 ---
 # <a name="reset-local-windows-password-for-azure-vm-offline"></a>脱机重置 Azure VM 的本地 Windows 密码
 如果已安装 Azure 来宾代理，可以使用 [Azure 门户或 Azure PowerShell](reset-rdp.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) 重置 Azure 中 VM 的本地 Windows 密码。 此方法是重置 Azure VM 密码的主要方法。 如果遇到了 Azure 来宾代理无响应的问题，或者上传自定义映像后无法安装，可以手动重置 Windows 密码。 本文详细说明如何通过将源 OS 虚拟磁盘附加到另一个 VM 来重置本地帐户密码。 本文所述的步骤不适用于 Windows 域控制器。 
@@ -151,3 +151,5 @@ ms.locfileid: "49453950"
 
 ## <a name="next-steps"></a>后续步骤
 如果仍然无法使用远程桌面建立连接，请参阅 [RDP 故障排除指南](troubleshoot-rdp-connection.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 [详细的 RDP 故障排除指南](detailed-troubleshoot-rdp.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)探讨的是故障排除方法而不是具体的步骤。 也可以通过[提出 Azure 支持请求](https://www.azure.cn/support/contact/)来获得人工协助。
+
+<!-- Update_Description: update meta properties, wording update -->

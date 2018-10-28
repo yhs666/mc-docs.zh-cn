@@ -2,20 +2,23 @@
 title: 复制 Azure SQL 数据库 | Microsoft Docs
 description: 在相同或不同的服务器上创建现有 Azure SQL 数据库的事务一致性副本。
 services: sql-database
-author: WenJason
-manager: digimobile
 ms.service: sql-database
-ms.custom: load & move data
-origin.date: 09/14/2018
-ms.date: 10/15/2018
-ms.author: v-jay
+ms.subservice: data-movement
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.openlocfilehash: 9612a015df1463a963345a4019ce1c3bdf95eac1
-ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
+author: WenJason
+ms.author: v-jay
+ms.reviewer: ''
+manager: digimobile
+origin.date: 10/05/2018
+ms.date: 10/29/2018
+ms.openlocfilehash: 35fa48024a3b0c248ee210167d885817ca7a1a1d
+ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913844"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50135779"
 ---
 # <a name="copy-an-azure-sql-database"></a>复制 Azure SQL 数据库
 
@@ -69,7 +72,7 @@ New-AzureRmSqlDatabaseCopy -ResourceGroupName "myResourceGroup" `
 
     -- Execute on the master database.
     -- Start copying.
-    CREATE DATABASE Database1_copy AS COPY OF Database1;
+    CREATE DATABASE Database2 AS COPY OF Database1;
 
 ### <a name="copy-a-sql-database-to-a-different-server"></a>将 SQL 数据库复制到不同的服务器
 
@@ -79,7 +82,7 @@ New-AzureRmSqlDatabaseCopy -ResourceGroupName "myResourceGroup" `
 
     -- Execute on the master database of the target server (server2)
     -- Start copying from Server1 to Server2
-    CREATE DATABASE Database1_copy AS COPY OF server1.Database1;
+    CREATE DATABASE Database2 AS COPY OF server1.Database1;
 
 
 ### <a name="monitor-the-progress-of-the-copying-operation"></a>监视复制操作的进度

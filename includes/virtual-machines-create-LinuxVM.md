@@ -1,4 +1,4 @@
-1. 使用 [从 Azure CLI 1.0 连接到 Azure](https://docs.azure.cn/zh-cn/cli/authenticate-azure-cli?view=azure-cli-latest) 中列出的步骤登录到 Azure 订阅。
+1. 使用[从 Azure 经典 CLI 连接到 Azure](https://docs.azure.cn/zh-cn/cli/authenticate-azure-cli?view=azure-cli-latest) 中列出的步骤登录到 Azure 订阅。
 
 2. 确保使用经典部署模式，如下所示：
 
@@ -51,7 +51,7 @@
     ```
 
 ## <a name="next-steps"></a>后续步骤
-有关所有这些 Azure CLI 1.0 虚拟机命令的详细信息，请参阅[将 Azure CLI 1.0 与经典部署 API 配合使用](https://docs.azure.cn/zh-cn/cli/get-started-with-az-cli2?view=azure-cli-latest)。
+有关上述所有 Azure 经典CLI 虚拟机命令的详细信息，请参阅[将 Azure 经典 CLI 与经典部署 API 配合使用](https://docs.azure.cn/zh-cn/cli/get-started-with-az-cli2?view=azure-cli-latest)。
 
 <!--Update_Description: wording update, update link -->
-<!--ms.date: 01/08/2018-->
+<!--ms.date: 10/29/2018-->

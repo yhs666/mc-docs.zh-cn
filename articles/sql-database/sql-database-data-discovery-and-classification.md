@@ -2,21 +2,23 @@
 title: Azure SQL 数据库数据发现和分类 | Microsoft Docs
 description: Azure SQL 数据库数据发现和分类
 services: sql-database
-author: WenJason
-manager: digimobile
-ms.reviewer: vanto
 ms.service: sql-database
-ms.custom: security
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-origin.date: 09/10/2018
-ms.date: 10/15/2018
+author: WenJason
 ms.author: v-jay
-ms.openlocfilehash: eb79b57f4bb7c47b953094e03aff449b4eb7a645
-ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
+ms.reviewer: vanto
+manager: digimobile
+origin.date: 10/04/2018
+ms.date: 10/29/2018
+ms.openlocfilehash: 4f46b9fb0fc2a6ca9afded64fe74b6b26ecad1b9
+ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913806"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50135736"
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Azure SQL 数据库数据发现和分类
 数据发现和分类（当前为预览版）提供了内置于 Azure SQL 数据库的高级功能，可用于发现、分类、标记和保护数据库中的敏感数据。 & 
@@ -105,9 +107,9 @@ ms.locfileid: "48913806"
 > [!NOTE]
 > 如果使用 T-SQL 管理标签，则不会验证组织信息保护策略中是否存在添加到列的标签（门户建议中显示的标签集）。 因此，是否要验证这一点完全由你决定。
 
-* 添加/更新一列或多列分类：[添加敏感度分类](https://docs.microsoft.com/en-us/sql/t-sql/statements/add-sensitivity-classification-transact-sql)
-* 删除一列或多列分类：[删除敏感度分类](https://docs.microsoft.com/en-us/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
-* 查看数据库上的所有分类：[sys.sensitivity_classifications](https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
+* 添加/更新一列或多列分类：[添加敏感度分类](https://docs.microsoft.com/sql/t-sql/statements/add-sensitivity-classification-transact-sql)
+* 删除一列或多列分类：[删除敏感度分类](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
+* 查看数据库上的所有分类：[sys.sensitivity_classifications](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
 
 此外，还可以使用 REST API 通过编程方式管理分类。 已发布的 REST API 支持以下操作：
 * [创建或更新](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate) - 创建或更新给定列的敏感度标签

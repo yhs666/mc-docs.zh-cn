@@ -1,7 +1,21 @@
 ---
- title: include file description: include file services: virtual-machines-windows, virtual-machines-linux author: rockboyfor ms.service: multiple ms.topic: include ms.date:04/19/2018 ms.author: danlep ms.custom: include file
+title: include 文件
+description: include 文件
+services: virtual-machines-windows, virtual-machines-linux
+author: rockboyfor
+ms.service: multiple
+ms.topic: include
+origin.date: 09/28/2018
+ms.date: 11/12/2018
+ms.author: v-yeche
+ms.custom: include file
+ms.openlocfilehash: 57b2c1dad4e8f4a3b28a182109abfb92a7348463
+ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50035374"
 ---
-
 ## <a name="deploy-an-image-with-marketplace-terms"></a>部署具有市场条款的映像
 
 Azure 市场中的某些 VM 映像具有附加许可条款和购买条款，你必须接受这些条款，然后才能以编程方式部署这些映像。  
@@ -14,4 +28,3 @@ Azure 市场中的某些 VM 映像具有附加许可条款和购买条款，你�
 * 以编程方式接受条款
 * 以编程方式部署 VM 时提供购买计划参数
 
-<!--ms.date: 04/19/2018 -->

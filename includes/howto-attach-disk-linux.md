@@ -1,9 +1,9 @@
 有关磁盘的详细信息，请参阅[关于虚拟机的磁盘和 VHD](../articles/virtual-machines/linux/about-disks-and-vhds.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 
-<a id="attachempty"></a>
+<a name="attachempty"></a>
 
 ## <a name="attach-an-empty-disk"></a>附加空磁盘
-1. 打开 Azure CLI 1.0 并[连接到 Azure 订阅](../articles/xplat-cli-connect.md)。 确保是在 Azure 服务管理模式 (`azure config mode asm`) 下。
+1. 打开 Azure 经典 CLI 并[连接到 Azure 订阅](https://docs.azure.cn/zh-cn/cli/authenticate-azure-cli?view=azure-cli-latest)。 确保是在 Azure 服务管理模式 (`azure config mode asm`) 下。
 2. 输入 `azure vm disk attach-new` 以创建并附加新磁盘，如以下示例所示。 将 *myVM* 替换为 Linux 虚拟机的名称，并指定磁盘的大小（以 GB 为单位），在此示例中为 *100 GB*：
 
     ```azurecli
@@ -31,12 +31,12 @@
      info:    vm disk list command OK
     ```
 
-<a id="attachexisting"></a>
+<a name="attachexisting"></a>
 
 ## <a name="attach-an-existing-disk"></a>附加现有磁盘
 附加现有磁盘需要存储帐户中具有可用的 .vhd。
 
-1. 打开 Azure CLI 1.0 并[连接到 Azure 订阅](../articles/xplat-cli-connect.md)。 确保是在 Azure 服务管理模式 (`azure config mode asm`) 下。
+1. 打开 Azure 经典 CLI 并[连接到 Azure 订阅](https://docs.azure.cn/zh-cn/cli/authenticate-azure-cli?view=azure-cli-latest)。 确保是在 Azure 服务管理模式 (`azure config mode asm`) 下。
 2. 检查要附加的 VHD 是否已上传到 Azure 订阅：
 
     ```azurecli
@@ -77,7 +77,7 @@
     info:    vm disk create command OK
     ```
 
-   也可以使用 `azure vm disk upload` 将 VHD 上传到特定存储帐户中。 详细阅读命令，以管理[这里](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)的 Azure 虚拟机数据磁盘。
+   也可以使用 `azure vm disk upload` 将 VHD 上传到特定存储帐户中。 详细阅读命令，以管理[这里](https://docs.azure.cn/zh-cn/cli/get-started-with-az-cli2?view=azure-cli-latest)的 Azure 虚拟机数据磁盘。
 
 4. 现在将所需 VHD 附加到虚拟机：
 
@@ -113,3 +113,5 @@
 > 在添加数据磁盘后，需要登录到虚拟机并初始化磁盘，然后虚拟机才能使用磁盘来存储数据（有关如何初始化磁盘的详细信息，请参阅以下步骤）。
 > 
 >
+
+<!-- Update_Description: update link, wording update  -->

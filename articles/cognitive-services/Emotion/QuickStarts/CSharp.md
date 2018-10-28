@@ -1,38 +1,51 @@
 ---
-title: 情感 API C# 快速入门 | Microsoft Docs
-description: 获取信息和代码示例，帮助自己快速开始使用认知服务中的情感 API 和 C#。
+title: 快速入门：识别图像中人脸的情感 - 情感 API、C#
+titlesuffix: Azure Cognitive Services
+description: 获取信息和代码示例，以帮助你通过 C# 快速开始使用情感 API。
 services: cognitive-services
-author: alexchen2016
-manager: digimobile
+author: anrothMSFT
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: emotion
-ms.topic: article
-origin.date: 05/23/2017
-ms.date: 10/13/2017
+ms.component: emotion-api
+ms.topic: quickstart
+origin.date: 11/02/2017
+ms.date: 10/24/2018
 ms.author: v-junlch
-ms.openlocfilehash: 3a117e1070ecdd9a38fb6d00d154d704f7fe0991
-ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ROBOTS: NOINDEX
+ms.openlocfilehash: 115af08178f46266bf8ce9237bda70b36740407c
+ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
-ms.locfileid: "23407569"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50034679"
 ---
-# <a name="emotion-api-c-quick-start"></a>情感 API C# 快速入门
-本文提供信息和代码示例，帮助读者快速开始使用[情感 API 识别方法](https://dev.cognitive.azure.cn/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa)与 C# 来识别图像中一个或多个人员表达的情感。 
+# <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>快速入门：构建应用以识别图像中人脸的情感。
+
+> [!IMPORTANT]
+> 情感 API 将于 2019 年 2 月 15 日弃用。 情感识别功能现在已作为[人脸 API](/cognitive-services/face/) 的一部分正式发布。
+
+本文提供了信息和代码示例，以帮助你通过 C# 快速开始使用[情感 API识别方法](https://dev.cognitive.azure.cn/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa)。 可用它识别图像中一人或多人表达的情感。
 
 ## <a name="prerequisites"></a>先决条件
-- 在[此处](https://www.nuget.org/packages/Microsoft.ProjectOxford.Emotion/)获取 Microsoft 认知情感 API Windows SDK
+- 获取的认知服务 [情感 API Windows SDK](https://www.nuget.org/packages/Microsoft.ProjectOxford.Emotion/)。
 - 从 [Azure 门户](https://portal.azure.cn)获取订阅密钥。
 
 ## <a name="emotion-recognition-c-example-request"></a>情感识别 C# 示例请求
 
-在 Visual Studio 中创建一个新的控制台解决方案，然后将 Program.cs 替换为以下代码。 更改 `string uri` 以使用订阅密钥的获取区域，并将“Ocp-Apim-Subscription-Key”值替换为有效的订阅密钥。
+在 Visual Studio 中创建新的控制台解决方案，然后用下面的代码替换 Program.cs。 更改 `string uri`，获取购买订阅密钥时使用的区域。 将 **Ocp-Apim-Subscription-Key** 值替换为有效订阅密钥。 若要查找订阅密钥，请转到 Azure 门户。 在左侧导航窗格的“**密钥**”部分下方，浏览到所需情感 API 资源。 同样，对于“**终结点**”下列出的资源，可在“**概述**”面板中获得内容 URI。
 
-```c#
+![API 资源密钥](../../media/emotion-api/keys.png)
+
+若要处理请求的响应，请使用 `Newtonsoft.Json` 等库。 这样，可将 JSON 字符串作为一系列成为令牌的可管理对象进行管理。 若要将将此库添加到你的包，请在解决方案资源管理器中右键单击项目，并选择“**管理 Nuget 包**”。 然后搜索“**Newtonsoft**”。 第一个结果应为“**Newtonsoft.Json**”。 选择“安装”。 相克在你的应用程序中引用此库。
+
+![安装 Newtonsoft.Json](../../media/emotion-api/newtonsoft-nuget.png)
+
+```csharp
 using System;
 using System.IO;
 using System.Net.Http.Headers;
 using System.Net.Http;
+using Newtonsoft.Json.Linq;
 
 namespace CSHttpClientSample
 {
@@ -46,7 +59,7 @@ namespace CSHttpClientSample
             MakeRequest(imageFilePath);
 
             Console.WriteLine("\n\n\nWait for the result below, then hit ENTER to exit...\n\n\n");
-            Console.ReadLine();
+            Console.ReadLine(); // wait for ENTER to exit program
         }
 
         static byte[] GetImageAsByteArray(string imageFilePath)
@@ -61,7 +74,7 @@ namespace CSHttpClientSample
             var client = new HttpClient();
 
             // Request headers - replace this example key with your valid key.
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "13hc77781f7e4b19b5fcdd72a8df7156");
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "<your-subscription-key>"); //
 
             string uri = "https://api.cognitive.azure.cn/emotion/v1.0/recognize?";
             HttpResponseMessage response;
@@ -79,20 +92,42 @@ namespace CSHttpClientSample
                 responseContent = response.Content.ReadAsStringAsync().Result;
             }
 
-            //A peak at the JSON response.
+            // A peek at the raw JSON response.
             Console.WriteLine(responseContent);
+
+            // Processing the JSON into manageable objects.
+            JToken rootToken = JArray.Parse(responseContent).First;
+
+            // First token is always the faceRectangle identified by the API.
+            JToken faceRectangleToken = rootToken.First;
+
+            // Second token is all emotion scores.
+            JToken scoresToken = rootToken.Last;
+
+            // Show all face rectangle dimensions
+            JEnumerable<JToken> faceRectangleSizeList = faceRectangleToken.First.Children();
+            foreach (var size in faceRectangleSizeList) {
+                Console.WriteLine(size);
+            }
+
+            // Show all scores
+            JEnumerable<JToken> scoreList = scoresToken.First.Children();
+            foreach (var score in scoreList) {
+                Console.WriteLine(score);
+            }
         }
     }
 }
 ```
 
 ## <a name="recognize-emotions-sample-response"></a>识别情感示例响应
-成功调用返回人脸条目及其关联情感评分的数组，返回的内容已按人脸矩形大小的降序排序。 空响应表示未检测到任何人脸。 情感条目包含以下字段：
-- faceRectangle - 人脸在图像中的矩形位置。
-- scores - 图像中每张人脸的情感评分。 
+成功的调用将返回一组人脸条目及其关联表情评分。 按人脸矩形大小降序排列。 空响应指示未检测到任何人脸。 表情条目包含以下字段：
+
+- faceRectangle：图像中人脸的矩形位置
+- scores：图像中每张人脸的表情得分
 
 ```json
-application/json 
+application/json
 [
   {
     "faceRectangle": {

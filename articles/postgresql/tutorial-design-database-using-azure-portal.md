@@ -10,13 +10,13 @@ ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
 origin.date: 03/20/2018
-ms.date: 08/13/2018
-ms.openlocfilehash: d66bbc4fe4128f89fb69deb8136ec44038f30eb5
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.date: 10/29/2018
+ms.openlocfilehash: 930ba191f34caef8cb32fead57358a696111a3f9
+ms.sourcegitcommit: 1934f3a6db96e9e069f10bfc0ca47dedb1b25c8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869347"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49652575"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql-using-the-azure-portal"></a>教程：使用 Azure 门户设计 Azure Database for PostgreSQL
 
@@ -86,7 +86,7 @@ Azure Database for PostgreSQL 服务在服务器级别使用防火墙。 默认�
 
 2.  在服务器页中，选择“连接安全性”。 
 
-3.  单击“规则名称”下的文本框，添加新的防火墙规则，将连接的 IP 范围加入允许列表。 本教程中允许所有 IP，方法是键入“规则名称 = AllowAllIps”，“起始 IP = 0.0.0.0”，“结束 IP = 255.255.255.255”，并单击“保存”。 可以设置涵盖较小 IP 范围的特定防火墙规则，以便通过网络进行连接。
+3.  单击“规则名称”下的文本框，添加新的防火墙规则，将连接的 IP 范围加入允许列表。 输入 IP 范围。 单击“保存” 。
 
    ![用于 PostgreSQL 的 Azure 数据库 - 创建防火墙规则](./media/tutorial-design-database-using-azure-portal/5-firewall-2.png)
 

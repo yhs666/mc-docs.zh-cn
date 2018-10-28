@@ -1,23 +1,29 @@
 ---
-title: 情感 API Ruby 快速入门 | Microsoft Docs
-description: 获取信息和代码示例，帮助自己快速开始使用认知服务中的情感 API 和 Ruby。
+title: 快速入门：识别图像中人脸的情感 - 情感 API、Ruby
+titlesuffix: Azure Cognitive Services
+description: 获取信息和代码示例，以帮助你通过 Ruby 快速开始使用情感 API。
 services: cognitive-services
-author: alexchen2016
-manager: digimobile
+author: anrothMSFT
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: emotion
-ms.topic: article
+ms.component: emotion-api
+ms.topic: quickstart
 origin.date: 05/23/2017
-ms.date: 10/13/2017
+ms.date: 10/24/2018
 ms.author: v-junlch
-ms.openlocfilehash: f5fc2c6398e6571727e8e97353f9b97e31f1a075
-ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ROBOTS: NOINDEX
+ms.openlocfilehash: c03fdc83e27a1e92548e865b12fac65e16695685
+ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
-ms.locfileid: "23407567"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50034918"
 ---
-# <a name="emotion-api-ruby-quick-start"></a>情感 API Ruby 快速入门
+# <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>快速入门：构建应用以识别图像中人脸的情感。
+
+> [!IMPORTANT]
+> 情感 API 将于 2019 年 2 月 15 日弃用。 情感识别功能现在已作为[人脸 API](/cognitive-services/face/) 的一部分正式发布。 
+
 本文提供信息和代码示例，帮助读者快速开始使用[情感 API 识别方法](https://dev.cognitive.azure.cn/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa)与 Ruby 来识别图像中一个或多个人员表达的情感。
 
 ## <a name="prerequisite"></a>先决条件
@@ -25,7 +31,7 @@ ms.locfileid: "23407567"
 
 ## <a name="recognize-emotions-ruby-example-request"></a>识别情感 Ruby 示例请求
 
-更改 REST URL 以使用订阅密钥的获取位置，将“Ocp-Apim-Subscription-Key”值替换为有效的订阅密钥，并将照片的 URL 添加到 `body` 变量。
+更改 REST URL，以使用获取订阅密钥的位置，将“Ocp-Apim-Subscription-Key”值替换为有效的订阅密钥，并将照片 URL 添加到 `body` 变量。
 
 ```ruby
 require 'net/http'
@@ -53,10 +59,10 @@ puts response.body
 ## <a name="recognize-emotions-sample-response"></a>识别情感示例响应
 成功调用返回人脸条目及其关联情感评分的数组，返回的内容已按人脸矩形大小的降序排序。 空响应表示未检测到任何人脸。 情感条目包含以下字段：
 - faceRectangle - 人脸在图像中的矩形位置。
-- scores - 图像中每张人脸的情感评分。 
+- scores - 图像中每张人脸的情感评分。
 
 ```json
-application/json 
+application/json
 [
   {
     "faceRectangle": {

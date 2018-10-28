@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 04/24/2018
-ms.date: 06/04/2018
+ms.date: 10/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: 1fab5e2d278faf35c4827bad044709b4c54c4fa2
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.openlocfilehash: fdf66c5248d7f8596693ad56840222a86a9e039c
+ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702914"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50034870"
 ---
 # <a name="change-the-os-disk-used-by-an-azure-vm-using-the-cli"></a>使用 CLI 更改由 Azure VM 使用的 OS 磁盘
 
@@ -31,7 +31,7 @@ ms.locfileid: "34702914"
 
 请确保 VM 大小和存储类型与要附加的磁盘兼容。 例如，如果要使用的磁盘位于高级存储中，则 VM 需要能使用高级存储（如 DS 系列大小）。
 
-本文需要 Azure CLI 2.0.25 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 
+本文需要 Azure CLI 2.0.25 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 
 
 使用 [az disk list](https://docs.azure.cn/zh-cn/cli/disk?view=azure-cli-latest#list) 获取资源组中的磁盘列表。
 
@@ -70,5 +70,5 @@ az vm start \
 **后续步骤**
 
 要创建磁盘副本，请参阅[拍摄磁盘快照](snapshot-copy-managed-disk.md)。
-<!-- Update_Description: new articles on Linux swap OS disk -->
-<!--ms.date: 06/04/2018-->
+
+<!-- Update_Description: wording update, update meta properties -->

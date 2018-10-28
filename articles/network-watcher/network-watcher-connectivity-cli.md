@@ -3,8 +3,8 @@ title: 使用 Azure 网络观察程序排查连接问题 - Azure CLI 2.0 | Azure
 description: 了解如何通过 Azure CLI 2.0 使用 Azure 网络观察程序的排查连接问题功能。
 services: network-watcher
 documentationcenter: na
-author: rockboyfor
-manager: digimobile
+author: lingliwu
+manager: jeconnoc
 editor: ''
 ms.service: network-watcher
 ms.devlang: na
@@ -12,20 +12,20 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/11/2017
-ms.date: 04/30/2018
-ms.author: v-yeche
-ms.openlocfilehash: 4f6235ff0d47ea70aa688cce36e143c0d740e1bb
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.date: 10/19/2018
+ms.author: v-lingwu
+ms.openlocfilehash: 55066496a49f409b02c8bf60dc8affc510f2b199
+ms.sourcegitcommit: 32373810af9c9a2210d63f16d46a708028818d5f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121294"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49652231"
 ---
-# <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-cli-20"></a>通过 Azure CLI 2.0 使用 Azure 网络观察程序排查连接问题
+# <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-cli"></a>通过 Azure CLI 使用 Azure 网络观察程序排查连接问题
 
 > [!div class="op_single_selector"]
 > - [PowerShell](network-watcher-connectivity-powershell.md)
-> - [CLI 2.0](network-watcher-connectivity-cli.md)
+> - [Azure CLI](network-watcher-connectivity-cli.md)
 > - [Azure REST API](network-watcher-connectivity-rest.md)
 
 了解如何使用排查连接问题来验证是否可以建立从虚拟机到给定终结点的直接 TCP 连接。

@@ -3,24 +3,27 @@ title: 将 SQL Server 数据库迁移到 Azure SQL 数据库 | Microsoft 文档
 description: 了解如何将 SQL Server 数据库迁移到云中的 Azure SQL 数据库。
 keywords: 数据库迁移, SQL Server 数据库迁移, 数据库迁移工具, 迁移数据库, 迁移 SQL 数据库
 services: sql-database
-author: WenJason
-manager: digimobile
 ms.service: sql-database
-ms.custom: migrate
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-origin.date: 09/14/2018
-ms.date: 10/15/2018
+author: WenJason
 ms.author: v-jay
-ms.openlocfilehash: 3d32a4d0a72c4cae39a4052340144826670d21ab
-ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
+ms.reviewer: ''
+manager: digimobile
+origin.date: 09/14/2018
+ms.date: 10/29/2018
+ms.openlocfilehash: b4dd9ee500f1095535906653ef6c8b169ebb14c9
+ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48914017"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50135817"
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>将 SQL Server 数据库迁移到 Azure SQL 数据库
 
-本文介绍将 SQL Server 2005 或更高版本的数据库迁移到 Azure SQL 数据库中的单个或共用数据库的主要方法。 有关迁移到托管实例的信息，请参阅[将 SQL Server 实例迁移到 Azure SQL 数据库托管实例（预览）](sql-database-managed-instance-migrate.md)。 
+本文介绍将 SQL Server 2005 或更高版本的数据库迁移到 Azure SQL 数据库中的单个或共用数据库的主要方法。 有关迁移到托管实例的信息，请参阅[将 SQL Server 实例迁移到 Azure SQL 数据库托管实例](sql-database-managed-instance-migrate.md)。 
 
 ## <a name="migrate-to-a-single-database-or-a-pooled-database"></a>迁移到单个数据库或共用数据库
 将 SQL Server 2005 或更高版本的数据库迁移到 Azure SQL 数据库中的单个或共用数据库有两种主要方法。 第一种方法相对简单，但迁移过程中需要一段时间（可能较长）的停机。 第二种方法更复杂些，但在迁移过程中的停机时间大大缩短。

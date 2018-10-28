@@ -1,21 +1,24 @@
 ---
-title: 威胁检测 - Azure SQL 数据库 | Azure
-description: 威胁检测会检测异常的数据库活动，指出数据库有潜在的安全威胁。
+title: 威胁检测 - Azure SQL 数据库 | Microsoft 文档
+description: 威胁检测会检测异常的数据库活动，指出存在对单一数据库或弹性池中数据库的潜在安全威胁。
 services: sql-database
-author: Hayley244
-manager: digimobile
 ms.service: sql-database
-ms.custom: security-protect
-ms.topic: article
-origin.date: 05/17/2018
-ms.date: 08/06/2018
-ms.author: v-johch
-ms.openlocfilehash: 8d43b111417d89c4f3fad6d74e512d0fd9f30a58
-ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
+author: WenJason
+ms.author: v-jay
+ms.reviewer: vanto, carlrab
+manager: digimobile
+origin.date: 09/19/2018
+ms.date: 10/29/2018
+ms.openlocfilehash: 231b73fa52305afab28803619418404600b05e35
+ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39486743"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50135825"
 ---
 # <a name="azure-sql-database-threat-detection"></a>Azure SQL 数据库威胁检测
 

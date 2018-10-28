@@ -3,7 +3,7 @@ title: 诊断虚拟机网络路由问题 - Azure CLI | Azure
 description: 本文介绍如何使用 Azure 网络观察程序的“下一个跃点”功能来诊断虚拟机网络路由问题。
 services: network-watcher
 documentationcenter: network-watcher
-author: rockboyfor
+author: lingliw
 manager: digimobile
 editor: ''
 tags: azure-resource-manager
@@ -15,15 +15,15 @@ ms.topic: article
 ms.tgt_pltfrm: network-watcher
 ms.workload: infrastructure
 origin.date: 04/20/2018
-ms.date: 09/10/2018
-ms.author: v-yeche
+ms.date: 10/19/2018
+ms.author: v-lingwu
 ms.custom: ''
-ms.openlocfilehash: 13b24678b993c264d437562860c3e94d29fe662b
-ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
+ms.openlocfilehash: cd8139d18d8733e0e02c9aaf3eab831623435501
+ms.sourcegitcommit: 32373810af9c9a2210d63f16d46a708028818d5f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44515645"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49652234"
 ---
 # <a name="diagnose-a-virtual-machine-network-routing-problem---azure-cli"></a>诊断虚拟机网络路由问题 - Azure CLI
 
@@ -33,7 +33,7 @@ ms.locfileid: "44515645"
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-如果选择在本地安装并使用 CLI，本文要求运行 Azure CLI 2.0.28 或更高版本。 要查找已安装的版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 验证 CLI 版本以后，请运行 `az login`，以便创建与 Azure 的连接。 本文中的 CLI 命令已格式化，适合在 Bash Shell 中运行。
+如果选择在本地安装并使用 CLI，本文要求运行 Azure CLI 2.0.28 或更高版本。 要查找已安装的版本，请运行 `az --version`。 如需进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 验证 CLI 版本以后，请运行 `az login`，以便创建与 Azure 的连接。 本文中的 CLI 命令已格式化，适合在 Bash Shell 中运行。
 
 ## <a name="create-a-vm"></a>创建 VM
 

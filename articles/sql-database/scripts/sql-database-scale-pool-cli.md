@@ -2,27 +2,23 @@
 title: CLI 示例 - 缩放 SQL 弹性池 - Azure SQL 数据库 | Microsoft Docs
 description: 在 Azure SQL 数据库中缩放 SQL 弹性池的 Azure CLI 示例脚本
 services: sql-database
-documentationcenter: sql-database
-author: WenJason
-manager: digimobile
-editor: carlrab
-tags: azure-service-management
-ms.assetid: ''
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: performance
+ms.custom: ''
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: sql-database
-ms.workload: database
-origin.date: 09/14/2018
-ms.date: 10/15/2018
+author: WenJason
 ms.author: v-jay
-ms.openlocfilehash: cb971e795da60f038e6b7d8cfe3531fee634f6aa
-ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
+ms.reviewer: ''
+manager: digimobile
+origin.date: 09/20/2018
+ms.date: 10/29/2018
+ms.openlocfilehash: 980e52107a9ed960dcc44d62eef2c1a6e70a42c7
+ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913870"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50135721"
 ---
 # <a name="use-cli-to-scale-a-sql-elastic-pool-in-azure-sql-database"></a>使用 CLI 在 Azure SQL 数据库中缩放 SQL 弹性池
 
@@ -99,12 +95,12 @@ az group delete --name myResourceGroup
 
 | 命令 | 注释 |
 |---|---|
-| [az group create](https://docs.azure.cn/cli/group#az_group_create) | 创建用于存储所有资源的资源组。 |
-| [az sql server create](https://docs.azure.cn/cli/sql/server#az_sql_server_create) | 创建用于托管 SQL 数据库的逻辑服务器。 |
-| [az sql elastic-pools create](https://docs.azure.cn/cli/sql/elastic-pool#az_sql_elastic_pool_create) | 在逻辑服务器中创建弹性数据库池。 |
-| [az sql db create](https://docs.azure.cn/cli/sql/db#az_sql_db_create) | 在逻辑服务器中创建 SQL 数据库。 |
-| [az sql elastic-pools update](https://docs.azure.cn/cli/sql/elastic-pool#az_sql_elastic_pool_update) | 更新弹性数据库池，在此示例中更改分配的 eDTU。 |
-| [az group delete](https://docs.azure.cn/cli/vm/extension#az_vm_extension_set) | 删除资源组，包括所有嵌套的资源。 |
+| [az group create](/cli/group#az-group-create) | 创建用于存储所有资源的资源组。 |
+| [az sql server create](/cli/sql/server#az-sql-server-create) | 创建用于托管 SQL 数据库的逻辑服务器。 |
+| [az sql elastic-pools create](/cli/sql/elastic-pool#az-sql-elastic-pool-create) | 在逻辑服务器中创建弹性数据库池。 |
+| [az sql db create](/cli/sql/db#az-sql-db-create) | 在逻辑服务器中创建 SQL 数据库。 |
+| [az sql elastic-pools update](/cli/sql/elastic-pool#az-sql-elastic-pool-update) | 更新弹性数据库池，在此示例中更改分配的 eDTU。 |
+| [az group delete](/cli/vm/extension#az-vm-extension-set) | 删除资源组，包括所有嵌套的资源。 |
 
 ## <a name="next-steps"></a>后续步骤
 

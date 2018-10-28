@@ -1,6 +1,6 @@
 ---
 title: 教程 - 为 Linux VM 创建和管理 Azure 虚拟网络 | Azure
-description: 本教程介绍如何使用 Azure CLI 2.0 为 Linux 虚拟机创建和管理 Azure 虚拟网络
+description: 本教程介绍如何使用 Azure CLI 为 Linux 虚拟机创建和管理 Azure 虚拟网络
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: rockboyfor
@@ -14,17 +14,17 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/10/2017
-ms.date: 07/30/2018
+ms.date: 10/22/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 7db7e2df71c5ae941af84d889109147ac4881624
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.openlocfilehash: 0c4dab24449fae36b6cba23fb34570aaa6613b93
+ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295843"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50034963"
 ---
-# <a name="tutorial-create-and-manage-azure-virtual-networks-for-linux-virtual-machines-with-the-azure-cli-20"></a>教程：使用 Azure CLI 2.0 为 Linux 虚拟机创建和管理 Azure 虚拟网络
+# <a name="tutorial-create-and-manage-azure-virtual-networks-for-linux-virtual-machines-with-the-azure-cli"></a>教程：使用 Azure CLI 为 Linux 虚拟机创建和管理 Azure 虚拟网络
 
 Azure 虚拟机使用 Azure 网络进行内部和外部网络通信。 本教程将指导读者部署两个虚拟机，并为这些 VM 配置 Azure 网络。 本教程中的示例假设 VM 将要托管包含数据库后端的 Web 应用程序，但本教程并不介绍如何部署应用程序。 本教程介绍如何执行下列操作：
 
@@ -37,7 +37,7 @@ Azure 虚拟机使用 Azure 网络进行内部和外部网络通信。 本教程
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.30 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。
+如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.30 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。
 
 ## <a name="vm-networking-overview"></a>VM 网络概述
 
@@ -308,4 +308,4 @@ az network nsg rule list --resource-group myRGNetwork --nsg-name myBackendNSG --
 > [!div class="nextstepaction"]
 > [在 Azure 中备份 Linux 虚拟机](./tutorial-backup-vms.md)
 
-<!--Update_Description: update meta properties  -->
+<!--Update_Description: update meta properties -->

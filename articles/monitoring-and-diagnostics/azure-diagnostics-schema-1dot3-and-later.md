@@ -2,7 +2,7 @@
 title: Azure 诊断扩展 1.3 及更高版本的配置架构
 description: Microsoft Azure SDK 2.4 及更高版本中附带了 Azure 诊断 1.3 及更高版本的架构。
 services: azure-monitor
-author: rboucher
+author: lingliw
 manager: carmonm
 editor: ''
 ms.assetid: ''
@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: reference
-origin.date: 05/15/2017
-ms.date: 08/20/2018
-ms.author: v-yiso
-ms.openlocfilehash: 5c5d2ef69c6dc3e2370cf6ab21d98f33c8d93a48
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+origin.date: 09/20/2018
+ms.date: 10/22/2018
+ms.author: v-lingwu
+ms.openlocfilehash: 29789e3dc75402da0e4046be330edabe1c6bf2a4
+ms.sourcegitcommit: 32373810af9c9a2210d63f16d46a708028818d5f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068087"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49652256"
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Azure 诊断 1.3 及更高版本的配置架构
 > [!NOTE]
@@ -58,7 +58,7 @@ ms.locfileid: "44068087"
     <WadCfg>  
       <DiagnosticMonitorConfiguration overallQuotaInMB="10000">  
 
-        <PerformanceCounters scheduledTransferPeriod="PT1M">  
+        <PerformanceCounters scheduledTransferPeriod="PT1M", sinks="AzureMonitorSink">  
           <PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT1M" unit="percent" />  
         </PerformanceCounters>  
 
@@ -117,6 +117,12 @@ ms.locfileid: "44068087"
       </DiagnosticMonitorConfiguration>  
 
       <SinksConfig>   <!-- Added in 1.5 -->  
+        <Sink name="AzureMonitorSink">
+            <AzureMonitor> <!-- Added in 1.11 -->
+                <resourceId>{insert resourceId}</ResourceId> <!-- Parameter only needed for classic VMs and Classic Cloud Services, exclude VMSS and Resource Manager VMs-->
+                <Region>{insert Azure region of resource}</Region> <!-- Parameter only needed for classic VMs and Classic Cloud Services, exclude VMSS and Resource Manager VMs -->
+            </AzureMonitor>
+        </Sink>
         <Sink name="ApplicationInsights">   
           <ApplicationInsights>{Insert InstrumentationKey}</ApplicationInsights>   
           <Channels>   
@@ -144,7 +150,14 @@ ms.locfileid: "44068087"
   <PrivateConfig>  <!-- Added in 1.3 -->  
     <StorageAccount name="" key="" endpoint="" sasToken="{sas token}"  />  <!-- sasToken in Private config added in 1.8.1 -->  
     <EventHub Url="https://myeventhub-ns.servicebus.windows.net/diageventhub" SharedAccessKeyName="SendRule" SharedAccessKey="{base64 encoded key}" />
-   
+
+    <AzureMonitorAccount>
+        <ServicePrincipalMeta> <!-- Added in 1.11; only needed for classic VMs and Classic cloud services -->
+            <PrincipalId>{Insert service principal clientId}</PrincipalId>
+            <Secret>{Insert service principal client secret}</Secret>
+        </ServicePrincipalMeta>
+    </AzureMonitorAccount>
+
     <SecondaryStorageAccounts>
        <StorageAccount name="secondarydiagstorageaccount" key="{base64 encoded key}" endpoint="https://core.windows.net" sasToken="{sas token}" />
     </SecondaryStorageAccounts>
@@ -158,6 +171,10 @@ ms.locfileid: "44068087"
 </DiagnosticsConfiguration>  
 
 ```  
+> [!NOTE]
+> 公共配置 Azure Monitor 接收器定义有两个属性：resourceId 和 region。 这些属性仅是经典 VM 和经典云服务所必需的。 这些属性不应该用于资源管理器虚拟机或虚拟机规模集。
+> Azure Monitor 接收器还有一个额外的 Private Config 元素，它传入主体 ID 和机密。 此属性仅是经典 VM 和经典云服务所必需的。 对于资源管理器 VM 和 VMSS，可以排除 private config 元素中的 Azure Monitor 定义。
+>
 
 先前 XML 配置文件的 JSON 等效项。 
 
@@ -173,6 +190,7 @@ PublicConfig 和 PrivateConfig 是分开的，因为在大多数使用案例中�
             },
             "PerformanceCounters": {
                 "scheduledTransferPeriod": "PT1M",
+                "sinks": "AzureMonitorSink",
                 "PerformanceCounterConfiguration": [
                     {
                         "counterSpecifier": "\\Processor(_Total)\\% Processor Time",
@@ -283,6 +301,14 @@ PublicConfig 和 PrivateConfig 是分开的，因为在大多数使用案例中�
         "SinksConfig": {
             "Sink": [
                 {
+                    "name": "AzureMonitorSink",
+                    "AzureMonitor":
+                    {
+                        "ResourceId": "{insert resourceId if a classic VM or cloud service, else property not needed}",
+                        "Region": "{insert Azure region of resource if a classic VM or cloud service, else property not needed}"
+                    }
+                },
+                {
                     "name": "ApplicationInsights",
                     "ApplicationInsights": "{Insert InstrumentationKey}",
                     "Channels": {
@@ -329,6 +355,11 @@ PublicConfig 和 PrivateConfig 是分开的，因为在大多数使用案例中�
 }
 ```
 
+> [!NOTE]
+> 公共配置 Azure Monitor 接收器定义有两个属性：resourceId 和 region。 这些属性仅是经典 VM 和经典云服务所必需的。
+> 这些属性不应该用于资源管理器虚拟机或虚拟机规模集。
+>
+
 ```json
 "PrivateConfig" {
     "storageAccountName": "diagstorageaccount",
@@ -339,6 +370,12 @@ PublicConfig 和 PrivateConfig 是分开的，因为在大多数使用案例中�
         "Url": "https://myeventhub-ns.servicebus.windows.net/diageventhub",
         "SharedAccessKeyName": "SendRule",
         "SharedAccessKey": "{base64 encoded key}"
+    },
+    "AzureMonitorAccount": {
+        "ServicePrincipalMeta": {
+            "PrincipalId": "{Insert service principal client Id}",
+            "Secret": "{Insert service principal client secret}"
+        }
     },
     "SecondaryStorageAccounts": {
         "StorageAccount": [
@@ -362,6 +399,11 @@ PublicConfig 和 PrivateConfig 是分开的，因为在大多数使用案例中�
 }
 
 ```
+
+> [!NOTE]
+> Azure Monitor 接收器有一个额外的 Private Config 元素，它传入主体 ID 和机密。 此属性仅是经典 VM 和经典云服务所必需的。 对于资源管理器 VM 和 VMSS，可以排除 private config 元素中的 Azure Monitor 定义。
+>
+
 
 ## <a name="reading-this-page"></a>阅读此页  
  以下标记大致按上述示例中显示的顺序。  如果未看到预期的完整说明，请在页面中搜索元素或属性。  
@@ -413,7 +455,9 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |属性|说明|  
 |----------------|-----------------|  
 | **overallQuotaInMB** | 由 Azure 诊断收集的各类诊断数据使用的最大本地磁盘空间量。 默认设置是 4096 MB。<br />
-|**useProxyServer** | 将 Azure 诊断配置为使用在 IE 设置中设置的代理服务器设置。|  
+|**useProxyServer** | 将 Azure 诊断配置为使用在 IE 设置中设置的代理服务器设置。|
+|**sinks** | 在 1.5 中添加。 可选。 指向接收器位置以同时发送支持接收器的所有子元素的诊断数据。 接收器示例是 Application Insights 或事件中心。|  
+
 
 <br /> <br />
 
@@ -423,7 +467,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |**DiagnosticInfrastructureLogs**|启用收集 Azure 诊断生成的日志。 诊断基础结构日志可用于解决诊断系统本身的故障。 可选属性：<br /><br /> - **scheduledTransferLogLevelFilter** - 配置收集的日志的最低严重级别。<br /><br /> - **scheduledTransferPeriod** - 到存储空间的计划传输之间的时间间隔，向上舍入为最接近的分钟数。 值是 [XML“持续时间数据类型。”](http://www.w3schools.com/xml/schema_dtypes_date.asp) |  
 |**Directories**|在此页的其他位置查看说明。|  
 |**EtwProviders**|在此页的其他位置查看说明。|  
-|**指标**|在此页的其他位置查看说明。|  
+|**度量值**|在此页的其他位置查看说明。|  
 |**PerformanceCounters**|在此页的其他位置查看说明。|  
 |**WindowsEventLog**|在此页的其他位置查看说明。| 
 |**DockerSources**|在此页的其他位置查看说明。 | 

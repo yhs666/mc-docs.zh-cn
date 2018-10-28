@@ -11,17 +11,17 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-origin.date: 09/15/2018
-ms.date: 09/25/2018
+origin.date: 09/27/2018
+ms.date: 10/22/2018
 ms.author: v-junlch
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: ee216f729bbbd6fd8b498771337f80601c06a328
-ms.sourcegitcommit: 830a60c06303a8447d128a3bca8b36aa2b3b655b
+ms.openlocfilehash: c41ef4ebeef586e6545d8ff462ba378eb1cb725c
+ms.sourcegitcommit: c938756f3be94dbbf574c31620ddf911b427fc21
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47075855"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49634802"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Azure 资源的内置角色
 [基于角色的访问控制 (RBAC)](overview.md) 拥有多个内置角色定义，可将其分配给用户、组和服务主体。 角色分配是控制对 Azure 资源的访问的方式。 如果内置角色不能满足组织的特定需求，则你可以创建自己的[自定义角色](custom-roles.md)。
@@ -64,8 +64,11 @@ ms.locfileid: "47075855"
 | [经典存储帐户参与者](#classic-storage-account-contributor) | 允许管理经典存储帐户，但不允许对其进行访问。 |
 | [经典存储帐户密钥操作员服务角色](#classic-storage-account-key-operator-service-role) | 允许经典存储帐户密钥操作员在经典存储帐户上列出和再生成密钥 |
 | [经典虚拟机参与者](#classic-virtual-machine-contributor) | 允许管理经典虚拟机，但不允许访问这些虚拟机及其连接到的虚拟网络或存储帐户。 |
+| [认知服务参与者](#cognitive-services-contributor) | 允许创建、读取、更新、删除和管理认知服务的密钥。 |
 | [认知服务用户](#cognitive-services-user) | 允许读取和列出认知服务的密钥。 |
 | [Cosmos DB 帐户读者角色](#cosmos-db-account-reader-role) | 可以读取 Azure Cosmos DB 帐户数据。 请参阅 [Cosmos DB 帐户参与者](#documentdb-account-contributor)，了解如何管理 Azure Cosmos DB 帐户。 |
+| [成本管理参与者](#cost-management-contributor) | 可以查看成本和管理成本配置（例如预算、导出） |
+| [成本管理读者](#cost-management-reader) | 可以查看成本数据和配置（例如预算、导出） |
 | [Data Box 参与者](#data-box-contributor) | 可让你管理 Data Box 服务下的所有内容，但不能向其他人授予访问权限。 |
 | [Data Box 读者](#data-box-reader) | 可让你管理 Data Box 服务，但不能创建订单或编辑订单详细信息，以及向其他人授予访问权限。 |
 | [数据工厂参与者](#data-factory-contributor) | 允许管理数据工厂，但不允许访问它们。 |
@@ -74,6 +77,7 @@ ms.locfileid: "47075855"
 | [DevTest 实验室用户](#devtest-labs-user) | 允许连接、启动、重启和关闭 Azure 开发测试实验室中的虚拟机。 |
 | [DNS 区域参与者](#dns-zone-contributor) | 允许管理 Azure DNS 中的 DNS 区域和记录集，但不允许控制对其访问的人员。 |
 | [DocumentDB 帐户参与者](#documentdb-account-contributor) | 可管理 Azure Cosmos DB 帐户。 Azure Cosmos DB 以前称为 DocumentDB。 |
+| [HDInsight 域服务参与者](#hdinsight-domain-services-contributor) | 可以读取、创建、修改和删除 HDInsight 企业安全性套餐所需的域服务相关操作 |
 | [Intelligent Systems 帐户参与者](#intelligent-systems-account-contributor) | 允许管理智能系统帐户，但不允许访问这些帐户。 |
 | [密钥保管库参与者](#key-vault-contributor) | 允许管理密钥保管库，但不允许对其进行访问。 |
 | [实验室创建者](#lab-creator) | 允许在 Azure 实验室帐户下创建、管理、删除托管实验室。 |
@@ -345,6 +349,7 @@ ms.locfileid: "47075855"
 > | **操作** |  |
 > | Microsoft.Authorization/*/read | 读取角色和角色分配 |
 > | Microsoft.Network/virtualNetworks/read | 获取虚拟网络定义 |
+> | Microsoft.RecoveryServices/locations/* |  |
 > | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp 是服务使用的内部操作 |
 > | Microsoft.RecoveryServices/Vaults/backupconfig/vaultconfig/* |  |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/* | 管理备份管理操作的结果 |
@@ -365,14 +370,13 @@ ms.locfileid: "47075855"
 > | Microsoft.RecoveryServices/Vaults/monitoringAlerts/read | 获取恢复服务保管库的警报。 |
 > | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/* |  |
 > | Microsoft.RecoveryServices/Vaults/read | “获取保管库”操作获取表示“vault”类型的 Azure 资源的对象 |
-> | Microsoft.RecoveryServices/Vaults/refreshContainers/* | 管理用于获取新创建的容器的发现操作 |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/refreshContainers/action | 刷新容器列表 |
 > | Microsoft.RecoveryServices/Vaults/registeredIdentities/* | 创建和管理已注册标识 |
 > | Microsoft.RecoveryServices/Vaults/storageConfig/* |  |
 > | Microsoft.RecoveryServices/Vaults/usages/* | 创建和管理恢复服务保管库的使用情况 |
 > | Microsoft.Resources/deployments/* | 创建和管理资源组部署 |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 获取或列出资源组。 |
 > | Microsoft.Storage/storageAccounts/read | 返回存储帐户的列表，或获取指定存储帐户的属性。 |
-> | Microsoft.RecoveryServices/locations/* |  |
 > | Microsoft.Support/* | 创建和管理支持票证 |
 
 ## <a name="backup-operator"></a>备份操作员
@@ -478,9 +482,10 @@ ms.locfileid: "47075855"
 > | **操作** |  |
 > | Microsoft.Authorization/*/read | 读取角色和角色分配 |
 > | Microsoft.Billing/*/read | 读取计费信息 |
-> | Microsoft.Consumption/*/read |  |
 > | Microsoft.Commerce/*/read |  |
+> | Microsoft.Consumption/*/read |  |
 > | Microsoft.Management/managementGroups/read | 列出已通过身份验证的用户的管理组。 |
+> | Microsoft.CostManagement/*/read |  |
 > | Microsoft.Support/* | 创建和管理支持票证 |
 
 ## <a name="biztalk-contributor"></a>BizTalk 参与者
@@ -627,6 +632,31 @@ ms.locfileid: "47075855"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 获取或列出资源组。 |
 > | Microsoft.Support/* | 创建和管理支持票证 |
 
+## <a name="cognitive-services-contributor"></a>认知服务参与者
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **说明** | 允许创建、读取、更新、删除和管理认知服务的密钥。 |
+> | Id | 25fbc0a9-bd7c-42a3-aa1a-3b75d497ee68 |
+> | **操作** |  |
+> | Microsoft.Authorization/*/read | 读取角色和角色分配 |
+> | Microsoft.CognitiveServices/* |  |
+> | Microsoft.Features/features/read | 获取订阅的功能。 |
+> | Microsoft.Features/providers/features/read | 获取给定资源提供程序中某个订阅的功能。 |
+> | Microsoft.Insights/alertRules/* | 创建和管理 Insights 警报规则 |
+> | Microsoft.Insights/diagnosticSettings/* | 创建、更新或读取 Analysis Server 的诊断设置 |
+> | Microsoft.Insights/logDefinitions/read | 读取日志定义 |
+> | Microsoft.Insights/metricdefinitions/read | 读取指标定义 |
+> | Microsoft.Insights/metrics/read | 添加指标 |
+> | Microsoft.ResourceHealth/availabilityStatuses/read | 获取指定范围内所有资源的可用性状态 |
+> | Microsoft.Resources/deployments/* | 创建和管理资源组部署 |
+> | Microsoft.Resources/deployments/operations/read | 获取或列出部署操作。 |
+> | Microsoft.Resources/subscriptions/operationresults/read | 获取订阅操作结果。 |
+> | Microsoft.Resources/subscriptions/read | 获取订阅的列表。 |
+> | Microsoft.Resources/subscriptions/resourcegroups/deployments/* |  |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | 获取或列出资源组。 |
+> | Microsoft.Support/* | 创建和管理支持票证 |
+
 ## <a name="cognitive-services-user"></a>认知服务用户
 > [!div class="mx-tableFixed"]
 > | | |
@@ -663,6 +693,34 @@ ms.locfileid: "47075855"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 获取或列出资源组。 |
 > | Microsoft.Support/* | 创建和管理支持票证 |
 
+## <a name="cost-management-contributor"></a>成本管理参与者
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **说明** | 可以查看成本和管理成本配置（例如预算、导出） |
+> | Id | 434105ed-43f6-45c7-a02f-909b2ba83430 |
+> | **操作** |  |
+> | Microsoft.Consumption/* |  |
+> | Microsoft.CostManagement/* |  |
+> | Microsoft.Billing/billingPeriods/read | 列出可用的计费周期 |
+> | Microsoft.Resources/subscriptions/read | 获取订阅的列表。 |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | 获取或列出资源组。 |
+> | Microsoft.Support/* | 创建和管理支持票证 |
+
+## <a name="cost-management-reader"></a>成本管理读者
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **说明** | 可以查看成本数据和配置（例如预算、导出） |
+> | Id | 72fafb9e-0641-4937-9268-a91bfd8191a3 |
+> | **操作** |  |
+> | Microsoft.Consumption/*/read |  |
+> | Microsoft.CostManagement/*/read |  |
+> | Microsoft.Billing/billingPeriods/read | 列出可用的计费周期 |
+> | Microsoft.Resources/subscriptions/read | 获取订阅的列表。 |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | 获取或列出资源组。 |
+> | Microsoft.Support/* | 创建和管理支持票证 |
+
 ## <a name="data-box-contributor"></a>Data Box 参与者
 > [!div class="mx-tableFixed"]
 > | | |
@@ -686,7 +744,8 @@ ms.locfileid: "47075855"
 > | **操作** |  |
 > | Microsoft.Authorization/*/read | 读取角色和角色分配 |
 > | Microsoft.Databox/*/read |  |
-> | Microsoft.Databox/jobs/listsecrets/action | 列出与订单相关的未加密密码。 |
+> | Microsoft.Databox/jobs/listsecrets/action |  |
+> | Microsoft.Databox/jobs/listcredentials/action | 列出与订单相关的未加密凭据。 |
 > | Microsoft.Databox/locations/availableSkus/action | 此方法返回可用 SKU 列表。 |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | 获取指定范围内所有资源的可用性状态 |
 > | Microsoft.Support/* | 创建和管理支持票证 |
@@ -698,14 +757,14 @@ ms.locfileid: "47075855"
 > | **说明** | 允许管理数据工厂，但不允许访问它们。 |
 > | Id | 673868aa-7521-48a0-acc6-0f60742d39f5 |
 > | **操作** |  |
-> | Microsoft.Authorization/*/read | 读取角色和角色分配 |
+> | Microsoft.Authorization/*/read | 读取角色和角色分配。 |
 > | Microsoft.DataFactory/dataFactories/* | 创建和管理数据工厂，以及它们包含的子资源。 |
 > | Microsoft.DataFactory/factories/* | 创建和管理数据工厂，以及它们包含的子资源。 |
-> | Microsoft.Insights/alertRules/* | 创建和管理警报规则 |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | 获取指定范围内所有资源的可用性状态 |
-> | Microsoft.Resources/deployments/* | 创建和管理资源组部署 |
+> | Microsoft.Insights/alertRules/* | 创建和管理警报规则。 |
+> | Microsoft.ResourceHealth/availabilityStatuses/read | 获取指定范围内所有资源的可用性状态。 |
+> | Microsoft.Resources/deployments/* | 创建和管理资源组部署。 |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 获取或列出资源组。 |
-> | Microsoft.Support/* | 创建和管理支持票证 |
+> | Microsoft.Support/* | 创建和管理支持票证。 |
 
 ## <a name="data-lake-analytics-developer"></a>Data Lake Analytics 开发人员
 > [!div class="mx-tableFixed"]
@@ -818,6 +877,17 @@ ms.locfileid: "47075855"
 > | Microsoft.Resources/deployments/* | 创建和管理资源组部署 |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 获取或列出资源组。 |
 > | Microsoft.Support/* | 创建和管理支持票证 |
+
+## <a name="hdinsight-domain-services-contributor"></a>HDInsight 域服务参与者
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **说明** | 可以读取、创建、修改和删除 HDInsight 企业安全性套餐所需的域服务相关操作 |
+> | Id | 8d8d5a11-05d3-4bda-a417-a08778121c7c |
+> | **操作** |  |
+> | Microsoft.AAD/*/read |  |
+> | Microsoft.AAD/domainServices/*/read |  |
+> | Microsoft.AAD/domainServices/oucontainer/* |  |
 
 ## <a name="intelligent-systems-account-contributor"></a>Intelligent Systems 帐户参与者
 > [!div class="mx-tableFixed"]
@@ -1397,6 +1467,7 @@ ms.locfileid: "47075855"
 > | Microsoft.Sql/servers/read | 返回服务器列表，或获取指定服务器的属性。 |
 > | Microsoft.Support/* | 创建和管理支持票证 |
 > | **不操作** |  |
+> | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/databases/auditingPolicies/* | 无法编辑审核策略 |
 > | Microsoft.Sql/servers/databases/auditingSettings/* | 无法编辑审核设置 |
 > | Microsoft.Sql/servers/databases/auditRecords/read | 检索数据库 Blob 审核记录 |
@@ -1424,6 +1495,7 @@ ms.locfileid: "47075855"
 > | Microsoft.ResourceHealth/availabilityStatuses/read | 获取指定范围内所有资源的可用性状态 |
 > | Microsoft.Resources/deployments/* | 创建和管理资源组部署 |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 获取或列出资源组。 |
+> | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/auditingPolicies/* | 创建和管理 SQL 服务器审核策略 |
 > | Microsoft.Sql/servers/auditingSettings/* | 创建和管理 SQL 服务器审核设置 |
 > | Microsoft.Sql/servers/databases/auditingPolicies/* | 创建和管理 SQL 服务器数据库审核策略 |
@@ -1463,6 +1535,7 @@ ms.locfileid: "47075855"
 > | Microsoft.Sql/servers/* | 创建和管理 SQL 服务器 |
 > | Microsoft.Support/* | 创建和管理支持票证 |
 > | **不操作** |  |
+> | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/auditingPolicies/* | 无法编辑 SQL 服务器审核策略 |
 > | Microsoft.Sql/servers/auditingSettings/* | 无法编辑 SQL 服务器审核设置 |
 > | Microsoft.Sql/servers/databases/auditingPolicies/* | 无法编辑 SQL 服务器数据库审核策略 |

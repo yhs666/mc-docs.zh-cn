@@ -3,8 +3,8 @@ title: 什么是 Azure 事件中心事件处理程序主机，为何要使用它
 description: Azure 事件中心事件处理程序主机的概述和简介
 services: event-hubs
 documentationcenter: .net
-author: rockboyfor
-manager: digimobile
+author: ShubhaVijayasarathy
+manager: timlt
 editor: ''
 ms.service: event-hubs
 ms.devlang: na
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/16/2018
-ms.date: 09/30/2018
-ms.author: v-yeche
-ms.openlocfilehash: 503d12c6a195ac017585eed91b63f298139e5c1d
-ms.sourcegitcommit: 399060a8d46534abd370693f6282e7343b371634
+ms.date: 11/05/2018
+ms.author: v-biyu
+ms.openlocfilehash: 291081e8dea8fcd7fff10727077be7a9a6b1bb09
+ms.sourcegitcommit: 8a68d9275ddb92ea45601fed96e21559999d9579
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455589"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50026951"
 ---
 # <a name="azure-event-hubs-event-processor-host-overview"></a>Azure 事件中心事件处理程序主机概述
 
@@ -89,7 +89,7 @@ public class SimpleEventProcessor : IEventProcessor
 - **eventHubConnectionString：** 事件中心的连接字符串，可从 Azure 门户中检索。 此连接字符串应该对事件中心拥有“侦听”权限。
 - **storageConnectionString：** 用于内部资源管理的存储帐户。
 
-最后，使用者将 [EventProcessorHost](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost?view=azure-dotnet) 实例注册到事件中心服务。 注册操作告知事件中心服务预期使用者应用会使用其某些分区发送的事件，并且每当推送要使用的事件时，都要调用 [IEventProcessor](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor?view=azure-dotnet) 实现代码。
+最后，使用者将 [EventProcessorHost](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost?view=azure-dotnet) 实例注册到事件中心服务。 向 EventProcessorHost 实例注册事件处理程序类会启动事件处理。 注册操作告知事件中心服务预期使用者应用会使用其某些分区发送的事件，并且每当推送要使用的事件时，都要调用 [IEventProcessor](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor?view=azure-dotnet) 实现代码。
 
 ### <a name="example"></a>示例
 
@@ -141,6 +141,7 @@ public class SimpleEventProcessor : IEventProcessor
 最后，[EventProcessorHost.UnregisterEventProcessorAsync](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.unregistereventprocessorasync?view=azure-dotnet) 能够干净关闭所有分区读取器，始终应该在关闭 [EventProcessorHost](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost?view=azure-dotnet) 的实例时调用它。 否则，在由于租约过期和时期冲突而启动 **EventProcessorHost** 的其他实例时可能导致延迟。 此[博客文章](https://blogs.msdn.microsoft.com/gyan/2014/09/02/event-hubs-receiver-epoch/)详细介绍了时期管理
 
 ## <a name="lease-management"></a>租约管理
+向 EventProcessorHost 实例注册事件处理程序类会启动事件处理。 主机实例租用事件中心的一些分区，可能会从其他主机实例中获取一些租用，以实现跨所有主机实例均匀分布分区。 对于每个租用分区，主机实例先创建所提供事件处理程序类的实例，再从相应分区接收事件，并将它们传递给事件处理程序实例。 随着添加的实例和获取的租用变多，EventProcessorHost 最终会均衡所有使用者之间的负载。
 
 如前所述，跟踪表大大简化了 [EventProcessorHost.UnregisterEventProcessorAsync](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.unregistereventprocessorasync?view=azure-dotnet) 的自动缩放性。 当 **EventProcessorHost** 的实例启动时，会尽可能多地获取租约，并开始读取事件。 当租约即将过期时，**EventProcessorHost** 会尝试通过预留来续订租约。 如果租约可续订，则处理程序会继续读取，但如果租约不可续订，则会关闭读取器并调用 [CloseAsync](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.eventhubs.eventhubclient.closeasync?view=azure-dotnet)。 很适合在调用 **CloseAsync** 时针对该分区执行任何最终清理。
 

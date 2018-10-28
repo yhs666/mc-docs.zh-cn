@@ -6,14 +6,14 @@ services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 origin.date: 06/07/2018
-ms.date: 09/17/2018
-ms.author: v-yiso
-ms.openlocfilehash: b733d624035002093facfff855607a6542f53e2e
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.date: 10/22/2018
+ms.author: v-lingwu
+ms.openlocfilehash: a6cdd9e920c36e83aff01f7ca23e83a172c5e2f3
+ms.sourcegitcommit: 32373810af9c9a2210d63f16d46a708028818d5f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068194"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49652239"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>从 Azure 资源收集和使用日志数据
 
@@ -44,7 +44,7 @@ ms.locfileid: "44068194"
 可以使用与发出日志的订阅不同的订阅中的存储帐户或事件中心命名空间。 配置设置的用户必须对这两个订阅具有相应的 RBAC 访问权限。
 
 > [!NOTE]
->  当前无法将数据存档到安全虚拟网络中的存储帐户。
+>  当前无法将网络流日志存档到安全虚拟网络后的存储帐户。
 
 > [!WARNING]
 > 存储帐户中日志数据的格式将在 2018 年 11 月 1 日更改为 JSON Lines。 [请参阅此文章来了解此影响，以及如何通过更新工具来处理新格式。](./monitor-diagnostic-logs-append-blobs.md) 
@@ -143,8 +143,8 @@ Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resour
 
 目前无法使用 Azure PowerShell 配置租户诊断设置。
 
-### <a name="enable-collection-of-resource-diagnostic-logs-via-azure-cli-20"></a>通过 Azure CLI 2.0 启用资源诊断日志收集
-若要通过 Azure CLI 2.0 启用资源诊断日志收集，请使用 [az monitor diagnostic-settings create](/cli/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) 命令。
+### <a name="enable-collection-of-resource-diagnostic-logs-via-the-azure-cli"></a>通过 Azure CLI 启用资源诊断日志收集
+若要通过 Azure CLI 启用资源诊断日志收集，请使用 [az monitor diagnostic-settings create](/cli/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) 命令。
 
 要允许在存储帐户中存储诊断日志，请使用以下命令：
 

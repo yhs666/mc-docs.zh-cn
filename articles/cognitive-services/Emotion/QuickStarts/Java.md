@@ -1,24 +1,29 @@
 ---
-title: Java for Android 情感 API 快速入门 | Microsoft Docs
-description: 获取信息和代码示例，帮助自己快速开始使用认知服务中的情感 API 和 Java for Android。
+title: 快速入门：识别图像中人脸的情感 - 情感 API、Java
+description: 获取信息和代码示例，以帮助你通过 Java for Android 快速开始使用情感 API。
 services: cognitive-services
-author: alexchen2016
-manager: digimobile
+author: anrothMSFT
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: emotion
-ms.topic: article
+ms.component: emotion-api
+ms.topic: quickstart
 origin.date: 05/23/2017
-ms.date: 10/13/2017
+ms.date: 10/24/2018
 ms.author: v-junlch
-ms.openlocfilehash: bc8b3be5b2ef04c2742061a95a4a97c6be78443d
-ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ROBOTS: NOINDEX
+ms.openlocfilehash: 563a8541090aa88ddeb36a5d5cec0873431e3135
+ms.sourcegitcommit: 44ce337717bb948f5ac08217a156935f663c0f46
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
-ms.locfileid: "23407564"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50034625"
 ---
-# <a name="emotion-api-java-for-android-quick-start"></a>Java for Android 情感 API 快速入门
-本文提供信息和代码示例来帮助读者快速开始使用情感 API Android 客户端库中的[情感识别方法](https://dev.cognitive.azure.cn/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa)。 示例演示如何使用 Java 识别人员表达的情感。 
+# <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>快速入门：构建应用以识别图像中人脸的情感。
+
+> [!IMPORTANT]
+> 情感 API 将于 2019 年 2 月 15 日弃用。 情感识别功能现在已作为[人脸 API](/cognitive-services/face/) 的一部分正式发布。 
+
+本文提供信息和代码示例来帮助读者快速开始使用情感 API Android 客户端库中的[情感识别方法](https://dev.cognitive.azure.cn/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa)。 示例演示如何使用 Java 识别人员表达的情感。
 
 ## <a name="prerequisites"></a>先决条件
 - 在[此处](https://github.com/Microsoft/Cognitive-emotion-android)获取 Java for Android 情感 API SDK
@@ -78,10 +83,10 @@ public class Main
 ## <a name="recognize-emotions-sample-response"></a>识别情感示例响应
 成功调用返回人脸条目及其关联情感评分的数组，返回的内容已按人脸矩形大小的降序排序。 空响应表示未检测到任何人脸。 情感条目包含以下字段：
 - faceRectangle - 人脸在图像中的矩形位置。
-- scores - 图像中每张人脸的情感评分。 
+- scores - 图像中每张人脸的情感评分。
 
 ```json
-application/json 
+application/json
 [
   {
     "faceRectangle": {

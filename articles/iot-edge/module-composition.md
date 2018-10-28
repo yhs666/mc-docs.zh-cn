@@ -3,17 +3,18 @@ title: Azure IoT Edge 模块组合 | Microsoft 文档
 description: 了解部署清单如何声明要部署的模块、如何部署这些模块以及如何在它们之间创建消息路由。
 author: kgremban
 manager: timlt
-ms.author: kgremban
-ms.date: 06/06/2018
+ms.author: v-yiso
+origin.date: 06/06/2018
+ms.date: 11/05/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ddeee70d29f54a0691b0a13ad299003b3da338a1
-ms.sourcegitcommit: bae4e9e500e3e988ef8fa0371777ca9cc49b4e94
+ms.openlocfilehash: b69d9e0649bec8c80203266326fc1b7d31e9a6fc
+ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45584903"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50135784"
 ---
 # <a name="learn-how-to-use-deployment-manifests-to-deploy-modules-and-establish-routes"></a>了解如何使用部署清单来部署模块和建立路由
 
@@ -125,10 +126,10 @@ Edge 中心提供了一种在模块之间，以及模块和 IoT 中心之间以�
 每个路由需要源和接收器，但条件是可用于筛选消息的可选片断。 
 
 
-### <a name="source"></a>Source
+### <a name="source"></a>源
 源指定消息来自何处。 可以是以下任一值：
 
-| Source | 说明 |
+| 源 | 说明 |
 | ------ | ----------- |
 | `/*` | 来自任何设备或模块的所有设备到云的消息 |
 | `/messages/*` | 由设备或模块通过某些输出或不借助输出发送的任何设备到云的消息 |
@@ -148,12 +149,12 @@ Edge 中心提供了一种在模块之间，以及模块和 IoT 中心之间以�
 * 应用程序属性：`<propertyName>`
 * 正文属性：`$body.<propertyName>` 
 
-请参考[设备到云消息路由查询表达式](../iot-hub/iot-hub-devguide-query-language.md#device-to-cloud-message-routes-query-expressions)，查看针对消息属性创建查询的示例。
+请参考[设备到云消息路由查询表达式](../iot-hub/iot-hub-devguide-routing-query-syntax.md)，查看针对消息属性创建查询的示例。
 
 有一个 IoT Edge 特定的示例，即筛选从叶设备到网关设备的消息的情况。 来自模块的消息包含名为 connectionModuleId 的系统属性。 因此，若要将消息从叶设备直接路由到 IoT 中心，请使用以下路由来排除模块消息：
 
 ```sql
-FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO $upstream
+FROM /messages/\* WHERE NOT IS_DEFINED($connectionModuleId) INTO $upstream
 ```
 
 ### <a name="sink"></a>接收器
@@ -265,7 +266,7 @@ Edge 中心会一直存储消息，直到达到在 [Edge 中心所需属性](mod
 * 至此，你已了解如何使用 IoT Edge 模块，接下来请继续[了解开发 IoT Edge 模块的要求和工具][lnk-module-dev]。
 
 [lnk-deploy]: module-deployment-monitoring.md
-[lnk-iothub-query]: ../iot-hub/iot-hub-devguide-query-language.md
+[lnk-iothub-query]: ../iot-hub/iot-hub-devguide-routing-query-syntax.md
 [lnk-docker-create-options]: https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate
 [lnk-docker-logging-options]: https://docs.docker.com/engine/admin/logging/overview/
 [lnk-module-dev]: module-development.md

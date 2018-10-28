@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 09/17/2018
-ms.date: 09/24/2018
+ms.date: 10/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7232e91daa2c6307e11ae87c7400ee635282a954
-ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
+ms.openlocfilehash: d0c3ccd46853fa0acacea49c5de2b9c1ae31cde4
+ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46527294"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50034878"
 ---
 # <a name="time-sync-for-linux-vms-in-azure"></a>Azure 中 Linux VM 的时间同步
 
@@ -45,7 +45,7 @@ Azure 主机与内部 Azure 时间服务器同步，后者从 Microsoft 拥有�
 
 如果不进行时间同步，VM 上的时钟会累积错误。 只有一个 VM 时，效果可能不明显，除非工作负荷要求极为准确的计时。 但在大多数情况下，我们有多个互连的 VM，这些 VM 使用时间来跟踪事务，因此需确保整个部署的时间一致。 当 VM 之间的时间不同时，可能会造成以下影响：
 
-- 安全协议（如 Kerberos）或依赖于证书的技术要求跨系统确保时间一致性。 
+- 身份验证会失败。 安全协议（如 Kerberos）或依赖于证书的技术要求跨系统确保时间一致性。
 - 在一个系统中，如果日志（或其他数据）的时间不一致，则很难厘清所发生的情况。 同一事件看起来就像是在不同的时间发生，难以进行关联。
 - 如果时钟存在偏差，则可能造成计费不正确。
 
@@ -114,6 +114,7 @@ root        391      2  0 17:52 ?        00:00:00 [hv_balloon]
 ### <a name="check-for-ptp"></a>查看 PTP
 
 使用较新版的 Linux 时，可以在 VMICTimeSync 提供程序中获得精度时间协议 (PTP) 时钟源。 在较旧版的 CentOS 7.x 上，[Linux Integration Services](https://github.com/LIS/lis-next) 可以在下载后用于安装更新的驱动程序。 使用 PTP 时，Linux 设备的表示形式为 /dev/ptp*x*。 
+
 <!--Not Available on Red Hat Enterprise Linux-->
 
 查看哪些 PTP 时钟源可用。
@@ -133,6 +134,7 @@ cat /sys/class/ptp/ptp0/clock_name
 ### <a name="chrony"></a>chrony
 
 在 CentOS 7.x 上，[chrony](https://chrony.tuxfamily.org/) 配置为使用 PTP 源时钟。 网络时间协议守护程序 (ntpd) 不支持 PTP 源，因此建议使用 **chronyd**。 若要启用 PTP，请更新 **chrony.conf**。
+
 <!--Not Available on Red Hat Enterprise Linux-->
 
 ```bash
@@ -140,6 +142,7 @@ refclock PHC /dev/ptp0 poll 3 dpoll -2 offset 0
 ```
 
 有关 CentOS 和 NTP 的详细信息，请参阅 [Configure NTP](https://access.redhat.com/documentation/red_hat_enterprise_linux/7/html/system_administrators_guide/s1-configure_ntp)（配置 NTP）。 
+
 <!--Not Available on Red Hat -->
 
 有关 chrony 的详细信息，请参阅 [Using chrony](https://access.redhat.com/documentation/red_hat_enterprise_linux/7/html/system_administrators_guide/sect-using_chrony)（使用 chrony）。
@@ -154,5 +157,4 @@ refclock PHC /dev/ptp0 poll 3 dpoll -2 offset 0
 
 有关详细信息，请参阅 [Windows Server 2016 的准确时间](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time)。
 
-<!-- Update_Description: new articles on time sync -->
-<!--ms.date: 09/24/2018-->
+<!-- Update_Description: update meta properties, wording update -->

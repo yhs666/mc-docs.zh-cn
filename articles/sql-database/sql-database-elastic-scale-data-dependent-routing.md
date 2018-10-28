@@ -1,35 +1,39 @@
 ---
-title: Azure SQL 数据库数据相关路由 | Microsoft Docs
+title: 数据依赖型路由与 Azure SQL 数据库 | Microsoft Docs
 description: 如何将 .NET 应用中的 ShardMapManager 类用于数据相关路由（Azure SQL 数据库中共享数据库的一项功能）
 services: sql-database
-manager: digimobile
-author: WenJason
 ms.service: sql-database
-ms.custom: scale out apps
+subservice: elastic-scale
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-origin.date: 04/01/2018
-ms.date: 09/02/2018
+author: WenJason
 ms.author: v-jay
-ms.openlocfilehash: 21e08fbd44557d51f1358d7d934ef412a177f9a6
-ms.sourcegitcommit: 2601e68563bffe148e70cce2bf1dcbe837a40f80
+ms.reviewer: ''
+manager: digimobile
+origin.date: 10/05/2018
+ms.date: 10/29/2018
+ms.openlocfilehash: 92ae69336e22280bd5414ec50f87b685bc505a34
+ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43249794"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50135731"
 ---
-# <a name="data-dependent-routing"></a>依赖于数据的路由
-**数据依赖型路由**是使用查询中的数据将请求路由到相应数据库的功能。 在使用分片数据库时，它是一种基础模式。 请求上下文也可用于路由请求，尤其是当分片键不是查询的一部分时。 将应用程序中使用依赖于数据的路由的每个特定查询和事务限制为针对每个请求访问单一数据库。 对于 Azure SQL 数据库弹性工具，这种路由是通过 ShardMapManager（[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager)、[.NET](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager)）类实现的。
+# <a name="use-data-dependent-routing-to-route-a-query-to-appropriate-database"></a>使用数据依赖型路由可将查询路由到相应的数据库
+
+**数据依赖型路由**是使用查询中的数据将请求路由到相应数据库的功能。 在使用分片数据库时，数据依赖型路由是一种基础模式。 请求上下文也可用于路由请求，尤其是当分片键不是查询的一部分时。 将应用程序中使用依赖于数据的路由的每个特定查询和事务限制为针对每个请求访问单一数据库。 对于 Azure SQL 数据库弹性工具，这种路由是通过 ShardMapManager（[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager)、[.NET](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager)）类实现的。
 
 应用程序无需在分片环境中跟踪与不同的数据片相关联的各种连接字符串或数据库位置。 但是，[分片映射管理器](sql-database-elastic-scale-shard-map-management.md)在需要时基于分片映射中的数据以及作为应用程序请求目标的分片键值，建立与正确数据库的连接。 该键通常为 customer_id、tenant_id、date_key 或一些作为数据库请求的基础参数的其他特定标识符。 
 
-有关详细信息，请参阅[使用依赖于数据的路由扩大 SQL Server](https://technet.microsoft.com/library/cc966448.aspx)。
+有关详细信息，请参阅[使用数据依赖型路由横向扩展 SQL Server](https://technet.microsoft.com/library/cc966448.aspx)。
 
 ## <a name="download-the-client-library"></a>下载客户端库
 若要下载：
 * Java 版本的库，请参阅 [Maven 中央存储库](https://search.maven.org/#search%7Cga%7C1%7Celastic-db-tools)。
 * .NET 版本的库，请参阅 [NuGet](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)。
 
-## <a name="using-a-shardmapmanager-in-a-data-dependent-routing-application"></a>在依赖于数据的路由应用程序中使用 ShardMapManager
+## <a name="using-a-shardmapmanager-in-a-data-dependent-routing-application"></a>在数据依赖型路由应用程序中使用 ShardMapManager
 应用程序应使用工厂调用 GetSQLShardMapManager（[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.getsqlshardmapmanager)、[.NET](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory)）在初始化期间实例化 ShardMapManager。 在本示例中，将同时初始化 **ShardMapManager** 以及它所包含的特定 **ShardMap**。 本例演示 GetSqlShardMapManager 和 GetRangeShardMap（[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager.getrangeshardmap)、[.NET](https://msdn.microsoft.com/library/azure/dn824173.aspx)）方法。
 
 ```Java
@@ -43,7 +47,7 @@ RangeShardMap<int> customerShardMap = smm.GetRangeShardMap<int>("customerMap");
 ```
 
 ### <a name="use-lowest-privilege-credentials-possible-for-getting-the-shard-map"></a>尽可能使用最低特权凭据来获取分片映射
-如果应用程序本身无法处理分片映射，在工厂方法中使用的凭据应该对 **全局分片映射** 数据库仅有只读权限。 这些凭据通常与用于分发到分片映射管理器的开放连接的凭据不同。 另请参阅[用于访问弹性数据库客户端库的凭据](sql-database-elastic-scale-manage-credentials.md)。 
+如果应用程序本身无法处理分片映射，在工厂方法中使用的凭据应该对**全局分片映射**数据库具有只读权限。 这些凭据通常与用于分发到分片映射管理器的开放连接的凭据不同。 另请参阅[用于访问弹性数据库客户端库的凭据](sql-database-elastic-scale-manage-credentials.md)。 
 
 ## <a name="call-the-openconnectionforkey-method"></a>调用 OpenConnectionForKey 方法
 ShardMap.OpenConnectionForKey 方法（[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.mapper._list_shard_mapper.openconnectionforkey)、[.NET](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap)）将返回连接，该连接可随时基于 key 参数的值将命令分发到相应的数据库中。 **ShardMapManager** 将分片信息缓存在应用程序中，因此这些请求通常不会针对**全局分片映射**数据库调用数据库查找。 
@@ -59,7 +63,7 @@ public SqlConnection OpenConnectionForKey<TKey>(TKey key, string connectionStrin
 ```
 * **key** 参数在分片映射中用作查找键，以确定该请求的相应数据库。 
 * **connectionString** 用于仅传递所需连接的用户凭据。 此 connectionString 中不包含数据库名称或服务器名称，因为该方法使用 ShardMap 确定数据库和服务器。 
-* 在分片映射可能会发生更改并且行可能会由于拆分或合并操作而移到其他数据库的环境中，connectionOptions（[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.mapper._connection_options)、[.NET](https://docs.azure.cn/en-us/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.connectionoptions)）应设置为 ConnectionOptions.Validate。 在将连接传送到应用程序之前，这涉及在目标数据库上简要查询局部分片映射（而不是全局分片映射）。 
+* 在分片映射可能会发生更改并且行可能会由于拆分或合并操作而移到其他数据库的环境中，connectionOptions（[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.mapper._connection_options)、[.NET](https://docs.azure.cn/en-us/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.connectionoptions)）应设置为 ConnectionOptions.Validate。 此验证涉及在将连接传送到应用程序之前，在目标数据库上简要查询局部分片映射（而不是全局分片映射）。 
 
 如果针对局部分片映射进行的验证失败（指示缓存不正确），分片映射管理器会查询全局分片映射来获取新的正确值以供查找、更新缓存以及获取和返回相应的数据库连接。 
 
@@ -108,9 +112,9 @@ using (SqlConnection conn = customerShardMap.OpenConnectionForKey(customerId, Co
 ## <a name="integrating-with-transient-fault-handling"></a>与暂时性故障处理集成
 在云中开发数据访问应用程序的最佳实践是，确保暂时性故障由应用引起，并且确保在引发错误之前重试几次这些操作。 暂时性故障处理（[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.core.commons.transientfaulthandling?view=azure-java-stable)、[.NET](https://docs.microsoft.com/en-us/previous-versions/msp-n-p/dn440719(v=pandp.60))）中讨论了云应用程序的暂时性故障处理。 
 
-暂时性故障处理在本质上可以与依赖于数据的路由模式共存。 关键需求是重试整个数据访问请求，包括已获取依赖于数据的路由连接的 **using** 块。 可以将上述示例重写为以下内容。 
+暂时性故障处理在本质上可以与数据依赖型路由模式共存。 关键需求是重试整个数据访问请求，包括已获取依赖于数据的路由连接的 **using** 块。 可以将上述示例重写为以下内容。 
 
-### <a name="example---data-dependent-routing-with-transient-fault-handling"></a>示例 - 数据相关的路由与暂时性故障处理
+### <a name="example---data-dependent-routing-with-transient-fault-handling"></a>示例 - 数据依赖型路由与暂时性故障处理
 ```Java 
 int customerId = 12345; 
 int productId = 4321; 

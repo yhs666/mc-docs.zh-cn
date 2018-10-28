@@ -3,7 +3,7 @@ title: 对 Azure 虚拟网关和连接进行故障排除 - Azure CLI 2.0 | Azure
 description: 此页说明如何使用 Azure 网络观察程序对 Azure CLI 2.0 进行故障排除
 services: network-watcher
 documentationcenter: na
-author: rockboyfor
+author: lingliw
 manager: digimobile
 editor: ''
 ms.assetid: 2838bc61-b182-4da8-8533-27db8fdbd177
@@ -13,16 +13,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 06/19/2017
-ms.date: 08/13/2018
-ms.author: v-yeche
-ms.openlocfilehash: 4610a7e07389910f1e0c1271b2dd466d2fde0d49
-ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
+ms.date: 10/22/2018
+ms.author: v-lingwu
+ms.openlocfilehash: d080b4f95eee199097d81b713a0fbe97854d7313
+ms.sourcegitcommit: 32373810af9c9a2210d63f16d46a708028818d5f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41703884"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49652229"
 ---
-# <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-azure-cli-20"></a>使用 Azure 网络观察程序 Azure CLI 2.0 对虚拟网络网关和连接进行故障排除
+# <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-azure-cli"></a>使用 Azure 网络观察程序 Azure CLI 对虚拟网络网关和连接进行故障排除
 
 > [!div class="op_single_selector"]
 > - [Portal](diagnose-communication-problem-between-networks.md)
@@ -32,7 +32,6 @@ ms.locfileid: "41703884"
 
 网络观察程序提供了许多功能，因为它关系到了解 Azure 中的网络资源。 其中一项功能就是资源故障排除。 可以通过门户、PowerShell、CLI 或 REST API 调用资源故障排除。 调用后，网络观察程序会检查虚拟网络网关或连接的运行状况，并返回调查结果。
 
-本文使用资源管理部署模型的下一代 CLI (Azure CLI 2.0)，它适用于 Windows、Mac 和 Linux。
 
 若要执行本文中的步骤，需要[安装适用于 Mac、Linux 和 Windows 的 Azure 命令行接口 (Azure CLI)](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest)。
 

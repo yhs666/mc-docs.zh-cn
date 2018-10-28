@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 02/20/2017
-ms.date: 05/14/2018
+ms.date: 10/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: 8105bf27de19b813cd8f9850e9b697a8b3e2b1c4
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.openlocfilehash: 130ffb80b67f1c1f399fec1a2ccbd82285ec1ce3
+ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "34062033"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50034854"
 ---
 # <a name="how-to-use-freebsds-packet-filter-to-create-a-secure-firewall-in-azure"></a>如何使用 FreeBSD 的数据包筛选器在 Azure 中创建安全防火墙
 本文介绍如何通过 Azure Resource Manager 模板使用 FreeBSD 的数据包筛选器为通用 Web 服务器方案部署 NAT 防火墙。
@@ -36,7 +36,7 @@ Azure Resource Manager 模板设置一个使用 PF 执行 NAT/重定向的 FreeB
 ![pf_topology](./media/freebsd-pf-nat/pf_topology.jpg)
 
 ### <a name="deploy-through-azure-cli"></a>通过 Azure CLI 进行部署
-需要安装最新的 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) 并已使用 [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az-login) 登录到 Azure 帐户。 使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create) 创建资源组。 以下示例在 `China North` 位置创建名为 `myResourceGroup` 的资源组。
+需要安装最新版 [Azure CLI](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest)，并已使用 [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az-login) 登录 Azure 帐户。 使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create) 创建资源组。 以下示例在 `China North` 位置创建名为 `myResourceGroup` 的资源组。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -64,4 +64,5 @@ az network public-ip list --resource-group myResourceGroup
 如果想要了解 Azure 中的 FreeBSD 产品，请参阅 [Azure FreeBSD 简介](freebsd-intro-on-azure.md)。
 
 如果想要了解有关 PF 的详细信息，请参阅 [FreeBSD 手册](https://www.freebsd.org/doc/handbook/firewalls-pf.html)或 [PF - 用户指南](https://www.freebsd.org/doc/handbook/firewalls-pf.html)。
-<!-- Update_Description: update link, wording update -->
+
+<!-- Update_Description: wording update -->

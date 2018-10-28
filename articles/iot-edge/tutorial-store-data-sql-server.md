@@ -4,18 +4,18 @@ description: 了解如何使用 SQL Server 模块将数据存储到本地的 IoT
 services: iot-edge
 author: kgremban
 manager: timlt
-ms.author: kgremban
-origin.date: 08/30/2018
-ms.date: 10/08/2018
+ms.author: v-yiso
+origin.date: 09/21/2018
+ms.date: 11/05/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 88ddeb39deaba1d658bcbb836e2b42a9b73854ff
-ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
+ms.openlocfilehash: 1d7912bc14fa49fb19f7ab9738d842e3efc51921
+ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523879"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50135870"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>教程：使用 SQL Server 数据库在边缘存储数据
 
@@ -41,7 +41,7 @@ Azure IoT Edge 设备：
 
 云资源：
 
-* Azure 中的标准层 [IoT 中心](../iot-hub/iot-hub-create-through-portal.md)。 
+* Azure 中的免费或标准层 [IoT 中心](../iot-hub/iot-hub-create-through-portal.md)。 
 
 开发资源：
 
@@ -210,7 +210,7 @@ Azure IoT Edge 设备：
    * Linux 容器：
 
       ```json
-      "image": "microsoft/mssql-server-linux:2017-latest",
+      "image": "mcr.microsoft.com/mssql/server:latest",
       "createOptions": "{\"Env\": [\"ACCEPT_EULA=Y\",\"MSSQL_SA_PASSWORD=Strong!Passw0rd\"],\"HostConfig\": {\"Mounts\": [{\"Target\": \"/var/opt/mssql\",\"Source\": \"sqlVolume\",\"Type\": \"volume\"}],\"PortBindings\": {\"1433/tcp\": [{\"HostPort\": \"1401\"}]}}}"
       ```
 

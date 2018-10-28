@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 09/11/2018
-ms.date: 09/24/2018
+ms.date: 10/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: b055302ffce9f5731a25b4963ec644734a948e1e
-ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
+ms.openlocfilehash: 76470f84b51d0cef301cebcfc706eb42d5a17aed
+ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46527197"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50034835"
 ---
 # <a name="quick-steps-create-and-use-an-ssh-public-private-key-pair-for-linux-vms-in-azure"></a>快速步骤：创建和使用适用于 Azure 中 Linux VM 的 SSH 公钥-私钥对
 
@@ -40,13 +40,13 @@ ms.locfileid: "46527197"
 
 使用 `ssh-keygen` 命令生成 SSH 公钥和私钥文件。 默认情况下，这些文件在 ~/.ssh 目录中创建。 可以指定不同的位置，并指定可选的密码（通行短语）用于访问私钥文件。 如果给定的位置存在同名的 SSH 密钥对，则会覆盖这些文件。
 
-以下命令使用 RSA 加密和位长度 2048 创建 SSH 密钥对：
+以下命令使用 RSA 加密和 2048 位长度创建 SSH 密钥对：
 
 ```bash
 ssh-keygen -t rsa -b 2048
 ```
 
-如果在 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/index?view=azure-cli-latest) 中使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) 创建 VM，则可以选择性地使用 `--generate-ssh-keys` 生成 SSH 公钥和私钥文件。 除非使用 `--ssh-dest-key-path` 选项另行指定，否则将在 ~/.ssh 目录中存储密钥文件。 `--generate-ssh-keys` 选项不会覆盖现有密钥文件，而是返回错误。 在以下命令中，请将 *VMname* 和 *RGname* 替换为自己的值：
+如果通过 [Azure CLI](https://docs.azure.cn/zh-cn/cli/index?view=azure-cli-latest) 使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) 命令创建 VM，可以使用 `--generate-ssh-keys` 选项生成 SSH 公钥和私钥文件。 密钥文件存储在 ~/.ssh 目录中，除非 `--ssh-dest-key-path` 选项另有规定。 `--generate-ssh-keys` 选项不会覆盖现有密钥文件，而是返回错误。 在以下命令中，请将 *VMname* 和 *RGname* 替换为自己的值：
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -97,4 +97,5 @@ ssh azureuser@myvm.chinanorth.cloudapp.chinacloudapi.cn
 * 有关使用 SSH 密钥对的详细信息，请参阅[创建和管理 SSH 密钥对的详细步骤](create-ssh-keys-detailed.md)。
 
 * 如果使用 SSH 连接 Azure VM 时遇到问题，请参阅[排查 Azure Linux VM 的 SSH 连接问题](troubleshoot-ssh-connection.md)。
-<!--Update_Description: update link, wording update-->
+
+<!--Update_Description: wording update-->

@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 08/15/2018
 ms.author: v-yiso
 ms.date: 10/08/2018
-ms.openlocfilehash: 694c499ff8af591430cf643f426f92bebe159b6f
-ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
+ms.openlocfilehash: 00876414b08f9d3a2cb7c20cb6d3e0b5d8191ca4
+ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523900"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50135850"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>如何使用 Azure API 管理中的服务备份和还原实现灾难恢复
 通过 Azure API 管理选择发布和管理 API，即可充分利用了许多容错和基础结构功能，否则必须设计、实现和管理这些功能。 Azure 平台通过花费少量成本消除大量潜在故障。
@@ -215,6 +215,7 @@ POST https://management.azure.cnsubscriptions/{subscriptionId}/resourceGroups/{r
 有关备份/还原过程的不同演练，请查看以下资源。
 
 * [复制 Azure API 管理帐户](https://www.returngis.net/en/2015/06/replicate-azure-api-management-accounts/)
+* [使用逻辑应用自动执行 API 管理备份和还原](https://github.com/Azure/api-management-samples/tree/master/tutorials/automating-apim-backup-restore-with-logic-apps)
 * [Azure API 管理：备份和还原配置](http://blogs.msdn.com/b/stuartleeks/archive/2015/04/29/azure-api-management-backing-up-and-restoring-configuration.aspx)
 * Stuart 详述的方法与官方指南不匹配，但非常有趣。
 

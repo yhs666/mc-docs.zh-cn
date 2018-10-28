@@ -2,23 +2,28 @@
 title: 查询分片的 Azure SQL 数据库 | Microsoft Docs
 description: 使用弹性数据库客户端库运行跨分片查询。
 services: sql-database
-manager: digimobile
-author: WenJason
 ms.service: sql-database
-ms.custom: scale out apps
-ms.topic: article
-origin.date: 04/01/2018
-ms.date: 09/02/2018
+ms.subservice: elastic-scale
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
+author: WenJason
 ms.author: v-jay
-ms.openlocfilehash: 953025aac9b3393c51978844b9b9c200bbefe587
-ms.sourcegitcommit: 2601e68563bffe148e70cce2bf1dcbe837a40f80
+ms.reviewer: ''
+manager: digimobile
+origin.date: 10/05/2018
+ms.date: 10/29/2018
+ms.openlocfilehash: f4203a0deab2e53a99a8a7833a5f12328a323eb6
+ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43249829"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50135813"
 ---
-# <a name="multi-shard-querying"></a>多分片查询
+# <a name="multi-shard-querying-using-elastic-database-tools"></a>使用弹性数据库工具进行多分片查询
+
 ## <a name="overview"></a>概述
+
 可以使用[弹性数据库工具](sql-database-elastic-scale-introduction.md)创建分片数据库解决方案。 多分片查询用于诸如数据收集/报告等需要跨多个分片运行查询的任务。 （相比之下，[数据依赖型路由](sql-database-elastic-scale-data-dependent-routing.md)会在单个分片上执行所有操作。） 
 
 1. 使用 **TryGetRangeShardMap**（[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager.trygetrangeshardmap)、[.NET](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager)）、**TryGetListShardMap**（[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager.trygetlistshardmap)、[.NET](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager)）或 **GetShardMap**（[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager.getshardmap)、[.NET](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager)）方法获取 **RangeShardMap**（[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map)、[.NET](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1)）或 **ListShardMap**（[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.map._list_shard_map)、[.NET](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.listshardmap-1)）。 请参阅**[构造 ShardMapManager](sql-database-elastic-scale-shard-map-management.md#constructing-a-shardmapmanager)** 和**[获取 RangeShardMap 或 ListShardMap](sql-database-elastic-scale-shard-map-management.md#get-a-rangeshardmap-or-listshardmap)**。
@@ -29,6 +34,7 @@ ms.locfileid: "43249829"
 6. 使用 **MultiShardResultSet 或 MultiShardDataReader**（[Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.query.multishard._multi_shard_result_set)、[.NET](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.sqldatabase.elasticscale.query.multisharddatareader)）类查看结果。 
 
 ## <a name="example"></a>示例
+
 以下代码使用给定的 **ShardMap** （名为 *myShardMap*）演示多分片查询的用法。 
 
 ```csharp
@@ -54,15 +60,14 @@ using (MultiShardConnection conn = new MultiShardConnection(myShardMap.GetShards
 } 
 ```
 
-主要区别在于多分片连接的构建。 其中 SqlConnection 在单一数据库上进行操作，而 MultiShardConnection  将分片集合用作其输入。 填充分片映射中的分片集合。 然后，使用 **UNION ALL** 语义组成一个总体结果在分片集合上执行查询。 或者，也可以在命令上使用 **ExecutionOptions** 属性，以将行所源自的分片的名称添加到输出。 
+主要区别在于多分片连接的构建。 其中 SqlConnection 在单一数据库上进行操作，而 MultiShardConnection  将分片集合用作其输入。 填充分片映射中的分片集合。 然后，使用 **UNION ALL** 语义组成一个总体结果，在分片集合上执行查询。 或者，也可以在命令上使用 **ExecutionOptions** 属性，将行所源自的分片的名称添加到输出。 
 
 请注意对 myShardMap.GetShards() 的调用。 此方法可从分片映射中检索所有分片，并提供一种轻松方式在所有相关数据库上运行查询。 对通过调用 myShardMap.GetShards() 返回的集合执行 LINQ 查询，进一步优化用于多分片查询的分片集合。 多分片查询中的当前功能已随部分结果策略一起被设计为供数十至数百种分片使用。
 
 多分片查询目前存在的一个限制是，缺少对需要查询的分片和 shardlet 进行验证。 尽管依赖于数据的路由会在查询时验证给定的分片是否为分片映射的一部分，但多分片查询不会执行此检查。 这可能会导致多分片查询在已从分片映射中删除的分片上运行。
 
 ## <a name="multi-shard-queries-and-split-merge-operations"></a>多分片查询和拆分/合并操作
+
 多分片查询不会验证查询的分片上的 shardlet 是否参与了正在进行的拆分/合并操作。 （请参阅[使用弹性数据库拆分/合并工具进行缩放](sql-database-elastic-scale-overview-split-and-merge.md)。）这可能会导致不一致问题，即为同一多分片查询中的多个分片显示同一 shardlet 中的行。 请注意这些限制并在执行多分片查询时，考虑关闭正在进行的拆分/合并操作以及对分片映射的更改。
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
-
-

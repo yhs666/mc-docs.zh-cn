@@ -10,21 +10,21 @@ ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: quickstart
 origin.date: 04/01/2018
-ms.date: 10/01/2018
+ms.date: 10/29/2018
 ms.custom: mvc
-ms.openlocfilehash: 0a7c2ee37d40d27219ad7b1380d4fba1586005ac
-ms.sourcegitcommit: 3b9e31daa1ae213311d7d530225be03e4c3e6332
+ms.openlocfilehash: a42fb4f42971affa4b88025a132a6f39095f4b1e
+ms.sourcegitcommit: 1934f3a6db96e9e069f10bfc0ca47dedb1b25c8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48850721"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49652580"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-using-the-azure-cli"></a>快速入门：使用 Azure CLI 创建 Azure Database for PostgreSQL
 用于 PostgreSQL 的 Azure 数据库是一种托管服务，可用于在云中运行、管理和缩放具有高可用性的 PostgreSQL 数据库。 Azure CLI 用于从命令行或脚本创建和管理 Azure 资源。 本快速入门指南介绍了如何使用 Azure CLI 在 [Azure 资源组](https://docs.azure.cn/azure-resource-manager/resource-group-overview)中创建 Azure Database for PostgreSQL 服务器。
 
 如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
 
-如果选择在本地安装并使用 CLI，本文要求运行 Azure CLI 2.0 版或更高版本。 若要查看安装的版本，请运行 `az --version` 命令。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0]( /cli/install-azure-cli)。 
+如果选择在本地安装并使用 CLI，本文要求运行 Azure CLI 2.0 版或更高版本。 若要查看安装的版本，请运行 `az --version` 命令。 如果需要进行安装或升级，请参阅[安装 Azure CLI]( /cli/install-azure-cli)。 
 
 如果在本地运行 CLI，需要使用 [az login](/cli/authenticate-azure-cli?view=interactive-log-in) 命令登录帐户。 记下与订阅名称相对应的命令输出中的 **id** 属性。
 ```cli
@@ -38,7 +38,7 @@ az account set --subscription <subscription id>
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
-使用 [az group create](/cli/group#az_group_create) 命令创建 [Azure 资源组](../azure-resource-manager/resource-group-overview.md)。 资源组是在其中以组的形式部署和管理 Azure 资源的逻辑容器。 应提供唯一名称。 以下示例在 `chinaeast2` 位置创建名为 `myresourcegroup` 的资源组。
+使用 [az group create](/cli/group#az_group_create) 命令创建 [Azure 资源组](../azure-resource-manager/resource-group-overview.md)。 资源组是在其中以组的形式部署和管理 Azure 资源的逻辑容器。 应提供唯一名称。 以下示例在 `chinaeast` 位置创建名为 `myresourcegroup` 的资源组。
 ```cli
 az group create --name myresourcegroup --location chinaeast
 ```
@@ -60,7 +60,7 @@ ssl-enforcement | Enabled | 是否应为此服务器启用 SSL。 允许的值�
 storage-size | 51200 | 服务器的存储容量（以 MB 为单位）。 有效的 storage-size 最小为 5120MB，以 1024MB 为增量递增。 有关存储大小限制的详细信息，请参阅[定价层](./concepts-pricing-tiers.md)文档。 
 版本 | 9.6 | PostgreSQL 主版本。
 admin-user | myadmin | 管理员的登录用户名。 不能是 **azure_superuser**、**admin**、**administrator**、**root**、**guest** 或 **public**。
-admin-password | Password123 | 管理员用户的密码。 该密码必须包含 8 到 128 个字符。 密码必须含以下字符类别中的三类：英文大写字母、英文小写字母、数字和非字母数字字符。
+admin-password | *安全密码* | 管理员用户的密码。 该密码必须包含 8 到 128 个字符。 密码必须含以下字符类别中的三类：英文大写字母、英文小写字母、数字和非字母数字字符。
 
 
 sku-name 参数值遵循 {定价层}\_{计算层代}\_{vCore 数} 约定，如以下示例中所示：

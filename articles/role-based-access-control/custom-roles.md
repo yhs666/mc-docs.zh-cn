@@ -11,21 +11,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 08/07/2018
-ms.date: 08/23/2018
+origin.date: 09/24/2018
+ms.date: 10/22/2018
 ms.author: v-junlch
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 89f0b760a296f318352aa96c4d6d70478f5c095b
-ms.sourcegitcommit: 64af85591634684abc62e7f79d8270705c95c109
+ms.openlocfilehash: 11796c3e6981fc4dc7a9557c4fa9147c892a7c0b
+ms.sourcegitcommit: c938756f3be94dbbf574c31620ddf911b427fc21
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42866351"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49634800"
 ---
 # <a name="custom-roles-in-azure"></a>Azure 中的自定义角色
 
-如果[内置角色](built-in-roles.md)不能满足组织的特定需求，你可以创建自己的自定义角色。 与内置角色一样，可以将自定义角色分配到订阅、资源组和资源范围内的用户、组和服务主体。 自定义角色存储在 Azure Active Directory (Azure AD) 租户中，可以在订阅之间共享。 每个租户最多可以有 2000 个自定义角色。 可以使用 Azure PowerShell、Azure CLI 或 REST API 创建自定义角色。
+如果[内置角色](built-in-roles.md)不能满足组织的特定需求，你可以创建自己的自定义角色。 与内置角色一样，可以将自定义角色分配到订阅、资源组和资源范围内的用户、组和服务主体。 自定义角色存储在 Azure Active Directory (Azure AD) 目录中，可以在订阅之间共享。 每个目录最多可以有 2000 个自定义角色。 可以使用 Azure PowerShell、Azure CLI 或 REST API 创建自定义角色。
 
 ## <a name="custom-role-example"></a>自定义角色示例
 
@@ -93,7 +93,7 @@ ms.locfileid: "42866351"
 
 | 属性 | 必须 | 类型 | 说明 |
 | --- | --- | --- | --- |
-| `Name` | 是 | String | 自定义角色的显示名称。 此名称必须在租户中唯一。 可以包含字母、数字、空格和特殊字符。 最多包含 128 个字符。 |
+| `Name` | 是 | String | 自定义角色的显示名称。 虽然角色定义是订阅级资源，但角色定义可以在共享同一 Azure AD 目录的多个订阅中使用。 此显示名称在 Azure AD 目录范围内必须是唯一的。 可以包含字母、数字、空格和特殊字符。 最多包含 128 个字符。 |
 | `Id` | 是 | String | 自定义角色的唯一 ID。 如果使用 Azure PowerShell 和 Azure CLI，在创建新角色时会自动生成此 ID。 |
 | `IsCustom` | 是 | String | 指示此角色是否为自定义角色。 设置为 `true` 表示是自定义角色。 |
 | `Description` | 是 | String | 自定义角色的说明。 可以包含字母、数字、空格和特殊字符。 最多包含 1024 个字符。 |

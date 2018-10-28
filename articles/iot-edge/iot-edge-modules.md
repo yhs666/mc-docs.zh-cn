@@ -3,17 +3,18 @@ title: 了解 Azure IoT Edge 模块 | Microsoft 文档
 description: 了解有关 Azure IoT Edge 模块以及如何进行配置的信息
 author: kgremban
 manager: timlt
-ms.author: kgremban
-ms.date: 02/15/2018
+ms.author: v-yiso
+origin.date: 09/21/2018
+ms.date: 11/05/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9064e0da6dde6c4b30235adf771f06a4f25d709a
-ms.sourcegitcommit: bae4e9e500e3e988ef8fa0371777ca9cc49b4e94
+ms.openlocfilehash: 76f770f87fbc54d69c6d0b2f1e0970a4d8cb5cf6
+ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45584900"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50135775"
 ---
 # <a name="understand-azure-iot-edge-modules"></a>了解 Azure IoT Edge 模块
 
@@ -55,19 +56,19 @@ As use cases for Azure IoT Edge grow, new types of module images and instances w
 模块孪生是存储模块信息和配置属性的 JSON 文档。 此概念与 IoT 中心的[设备孪生][lnk-device-twin]概念类似。 模块孪生的结构与设备孪生完全相同。 用于与这两种类型的孪生进行交互的 API 也是相同的。 两者之间唯一的区别是用来实例化客户端 SDK 的标识。 
 
 ```csharp
-// Create a ModuleClient object. This ModuleClient will act on behalf of a 
-// module since it is created with a module’s connection string instead 
-// of a device connection string. 
-ModuleClient client = new ModuleClient.CreateFromEnvironmentAsync(settings); 
-await client.OpenAsync(); 
- 
-// Get the module twin 
-Twin twin = await client.GetTwinAsync(); 
+// Create a ModuleClient object. This ModuleClient will act on behalf of a 
+// module since it is created with a module’s connection string instead 
+// of a device connection string. 
+ModuleClient client = new ModuleClient.CreateFromEnvironmentAsync(settings); 
+await client.OpenAsync(); 
+ 
+// Get the module twin 
+Twin twin = await client.GetTwinAsync(); 
 ```
 
 ## <a name="offline-capabilities"></a>脱机功能
 
-Azure IoT Edge 支持在 IoT Edge 设备上执行脱机操作。 目前，这些功能有限，我们正在开发更多的方案。 
+Azure IoT Edge 支持在 IoT Edge 设备上执行脱机操作。 现在，这些功能受限。 
 
 只要满足以下要求，IoT Edge 模块可以长时间内处于脱机状态： 
 
@@ -76,7 +77,10 @@ Azure IoT Edge 支持在 IoT Edge 设备上执行脱机操作。 目前，这些
 * **在脱机状态下发送消息的模块在连接恢复时仍然会工作**。 在重新连接到 IoT 中心时，Edge 中心需要对新的模块令牌进行验证（如果以前的令牌已过期），然后才能转发模块消息。 如果模块不可用来提供新令牌，则 Edge 中心无法对模块的已存储消息进行操作。 
 * **Edge 中心利用磁盘空间来存储消息**。 默认情况下，消息存储在 Edge 中心容器的文件系统中。 有一个配置选项可用来指定改为使用装载的卷来存储消息。 在任一情况下，都需要有空间可用来存储延迟传递到 IoT 中心的消息。  
 
+公共预览版中提供了其他脱机功。能。 有关详细信息，请参阅[了解 IoT Edge 设备、模块和子设备的扩展脱机功能](offline-capabilities.md)。
+
 ## <a name="next-steps"></a>后续步骤
+ - [了解开发 IoT Edge 模块的要求和工具][lnk-mod-dev]
  - [了解 Azure IoT Edge 运行时及其体系结构][lnk-runtime]
 
 <!-- Images -->
@@ -87,3 +91,4 @@ Azure IoT Edge 支持在 IoT Edge 设备上执行脱机操作。 目前，这些
 [lnk-device-identity]: ../iot-hub/iot-hub-devguide-identity-registry.md
 [lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
 [lnk-runtime]: iot-edge-runtime.md
+[lnk-mod-dev]: module-development.md

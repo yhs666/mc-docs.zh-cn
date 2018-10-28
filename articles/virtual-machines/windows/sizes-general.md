@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-origin.date: 07/06/2018
-ms.date: 07/30/2018
+origin.date: 10/01/2018
+ms.date: 10/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: 38989ceeb0771444c2cdf8fbc676cafa86940fd7
-ms.sourcegitcommit: 62a0389a743cd18665bd127e9bf14800867008eb
+ms.openlocfilehash: adbcf5af8d73ae304fcc37f88d3a281f5748f862
+ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39624938"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50034859"
 ---
 # <a name="general-purpose-virtual-machine-sizes"></a>常规用途虚拟机大小
 

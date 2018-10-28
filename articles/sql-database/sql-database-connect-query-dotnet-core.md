@@ -1,22 +1,24 @@
 ---
-title: 使用 .NET Core 查询 Azure SQL 数据库 | Azure
+title: 使用 .NET Core 查询 Azure SQL 数据库 | Microsoft Docs
 description: 本主题介绍如何使用 .NET Core 创建连接到 Azure SQL 数据库的程序并使用 Transact-SQL 语句对其进行查询。
 services: sql-database
-author: yunan2016
-manager: digimobile
 ms.service: sql-database
-ms.custom: mvc,develop apps
+ms.subservice: development
+ms.custom: ''
 ms.devlang: dotnet
 ms.topic: quickstart
+author: WenJason
+ms.author: v-jay
+ms.reviewer: ''
+manager: digimobile
 origin.date: 04/01/2018
-ms.date: 04/17/2018
-ms.author: v-nany
-ms.openlocfilehash: a9a4916225c52739fb5b4f9d153a2271c046d093
-ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
+ms.date: 10/29/2018
+ms.openlocfilehash: fd0b76300a0c260a3a414503000d2830a2d189c1
+ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39486919"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50135873"
 ---
 # <a name="use-net-core-c-to-query-an-azure-sql-database"></a>使用 .NET Core (C#) 查询 Azure SQL 数据库
 
@@ -28,7 +30,7 @@ ms.locfileid: "39486919"
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-- 针对用于本快速入门的计算机的公共 IP 地址制定[服务器级防火墙规则](sql-database-get-started-portal.md#create-a-server-level-firewall-rule)。
+- 针对用于本快速入门的计算机的公共 IP 地址制定[服务器级防火墙规则](sql-database-get-started-portal-firewall.md)。
 
 - 已安装[适用于操作系统的 .NET Core](https://www.microsoft.com/net/core)。 
 
@@ -45,7 +47,7 @@ ms.locfileid: "39486919"
     ![ADO.NET 连接字符串](./media/sql-database-connect-query-dotnet/adonet-connection-string.png)
 
 > [!IMPORTANT]
-> 对于在其上执行本教程操作的计算机，必须为其公共 IP 地址制定防火墙规则。 如果使用其他计算机或其他公共 IP 地址，则[使用 Azure 门户创建服务器级防火墙规则](sql-database-get-started-portal.md#create-a-server-level-firewall-rule)。 
+> 对于在其上执行本教程操作的计算机，必须为其公共 IP 地址制定防火墙规则。 如果使用其他计算机或其他公共 IP 地址，则[使用 Azure 门户创建服务器级防火墙规则](sql-database-get-started-portal-firewall.md)。 
 >
   
 ## <a name="create-a-new-net-project"></a>新建 .NET 项目

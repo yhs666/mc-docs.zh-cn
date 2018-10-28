@@ -1,6 +1,6 @@
 ---
 title: 教程 - 在 Azure 中使用 SSL 证书保护 Linux Web 服务器 | Azure
-description: 本教程介绍如何通过 Azure CLI 2.0 使用 Azure Key Vault 中存储的 SSL 证书来保护运行 NGINX Web 服务器的 Linux 虚拟机。
+description: 本教程介绍如何通过 Azure CLI 使用 Azure Key Vault 中存储的 SSL 证书来保护运行 NGINX Web 服务器的 Linux 虚拟机。
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: rockboyfor
@@ -14,15 +14,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 04/30/2018
-ms.date: 09/24/2018
+ms.date: 10/22/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 055a4040ee5d8a64911b828b84b7678770ac615f
-ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
+ms.openlocfilehash: 203b72c3dd7cc0202b9d45850f0cafc6dd20ef5a
+ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46526995"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50034855"
 ---
 # <a name="tutorial-secure-a-web-server-on-a-linux-virtual-machine-in-azure-with-ssl-certificates-stored-in-key-vault"></a>教程：在 Azure 中使用 Key Vault 中存储的 SSL 证书保护 Linux 虚拟机上的 Web 服务器
 若要保护 Web 服务器，可以使用安全套接字层 (SSL) 证书来加密 Web 流量。 这些 SSL 证书可存储在 Azure Key Vault 中，并可安全部署到 Azure 中的 Linux 虚拟机 (VM)。 本教程介绍如何执行下列操作：
@@ -35,7 +35,7 @@ ms.locfileid: "46526995"
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.30 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。
+如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.30 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。
 
 ## <a name="overview"></a>概述
 Azure Key Vault 保护加密密钥和机密，例如证书或密码。 Key Vault 有助于简化证书管理过程，让我们持续掌控用于访问这些证书的密钥。 可以在 Key Vault 中创建自签名证书，或者上传已拥有的现有受信任证书。
@@ -158,4 +158,4 @@ az vm open-port \
 > [!div class="nextstepaction"]
 > [Linux 虚拟机脚本示例](./cli-samples.md)
 
-<!--Update_Description: update link, wording update-->
+<!--Update_Description: update meta properties -->

@@ -1,23 +1,24 @@
 ---
 title: Azure SQL 数据库和数据仓库防火墙规则 | Microsoft Docs
-description: 了解如何使用服务器级和数据库级防火墙规则配置 SQL 数据库和 SQL 数据仓库防火墙，以管理访问权限以及配置 SQL 数据库级防火墙规则。
-keywords: 服务器数据库防火墙
+description: 了解如何使用服务器级防火墙规则配置 SQL 数据库和 SQL 数据仓库防火墙，以管理访问权限并配置 SQL 数据库数据库级防火墙规则。
 services: sql-database
-author: WenJason
-manager: digimobile
 ms.service: sql-database
-ms.prod_service: sql-database, sql-data-warehouse
-ms.custom: security
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-origin.date: 09/07/2018
-ms.date: 10/15/2018
+author: WenJason
 ms.author: v-jay
-ms.openlocfilehash: d63ace39cfbd37ccbf1d8b8e577aedb20dd2994e
-ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
+ms.reviewer: carlrab
+manager: digimobile
+origin.date: 09/20/2018
+ms.date: 10/29/2018
+ms.openlocfilehash: 24ef6ae6f8388bbd3c718b7bcfc9d9732364cc12
+ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48914012"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50135836"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-firewall-rules"></a>Azure SQL 数据库和 SQL 数据仓库防火墙规则 
 
@@ -76,7 +77,7 @@ Azure [SQL 数据库](sql-database-technical-overview.md)和 [SQL 数据仓库](
 > 
 
 ## <a name="creating-and-managing-firewall-rules"></a>创建和管理防火墙规则
-第一个服务器级防火墙设置可以使用 [Azure 门户](https://portal.azure.cn/)进行创建，也可以使用 [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql)、[Azure CLI](/cli/sql/server/firewall-rule#az_sql_server_firewall_rule_create) 或 [REST API](https://docs.microsoft.com/rest/api/sql/firewallrules) 通过编程方式创建。 后续的服务器级防火墙规则可以使用这些方法或通过 Transact-SQL 创建和管理。 
+第一个服务器级防火墙设置可以使用 [Azure 门户](https://portal.azure.cn/)进行创建，也可以使用 [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql)、[Azure CLI](/cli/sql/server/firewall-rule#az-sql-server-firewall-rule-create) 或 [REST API](https://docs.microsoft.com/rest/api/sql/firewallrules) 通过编程方式创建。 后续的服务器级防火墙规则可以使用这些方法或通过 Transact-SQL 创建和管理。 
 
 > [!IMPORTANT]
 > 只能使用 Transact-SQL 创建和管理数据库级防火墙规则。 
@@ -168,11 +169,11 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
 ## <a name="manage-firewall-rules-using-azure-cli"></a>使用 Azure CLI 管理防火墙规则
 | Cmdlet | 级别 | 说明 |
 | --- | --- | --- |
-|[az sql server firewall-rule create](https://docs.azure.cn/cli/sql/server/firewall-rule#az_sql_server_firewall_rule_create)|服务器|配置服务器防火墙规则|
-|[az sql server firewall-rule list](https://docs.azure.cn/cli/sql/server/firewall-rule#az_sql_server_firewall_rule_list)|服务器|列出服务器上的防火墙规则|
-|[az sql server firewall-rule show](https://docs.azure.cn/cli/sql/server/firewall-rule#az_sql_server_firewall_rule_show)|服务器|显示防火墙规则的详细信息|
-|[az sql server firewall-rule update](https://docs.azure.cn/cli/sql/server/firewall-rule##az_sql_server_firewall_rule_update)|服务器|更新防火墙规则|
-|[az sql server firewall-rule delete](https://docs.azure.cn/cli/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|服务器|删除防火墙规则。|
+|[az sql server firewall-rule create](/cli/sql/server/firewall-rule#az-sql-server-firewall-rule-create)|服务器|配置服务器防火墙规则|
+|[az sql server firewall-rule list](/cli/sql/server/firewall-rule#az-sql-server-firewall-rule-list)|服务器|列出服务器上的防火墙规则|
+|[az sql server firewall-rule show](/cli/sql/server/firewall-rule#az-sql-server-firewall-rule-show)|服务器|显示防火墙规则的详细信息|
+|[az sql server firewall-rule update](/cli/sql/server/firewall-rule##az-sql-server-firewall-rule-update)|服务器|更新防火墙规则|
+|[az sql server firewall-rule delete](/cli/sql/server/firewall-rule#az-sql-server-firewall-rule-delete)|服务器|删除防火墙规则。|
 
 以下示例使用 Azure CLI 设置服务器级防火墙规则： 
 

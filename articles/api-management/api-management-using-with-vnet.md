@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 12/05/2017
 ms.author: v-yiso
 ms.date: 09/17/2018
-ms.openlocfilehash: 5e7d8d18f7b2aa60ef6c55ba77fe99b03b0066d8
-ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
+ms.openlocfilehash: 8074f71a0e76ead3f3b4d1b3bdc0a13b862cea91
+ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523921"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50135838"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>如何将 Azure API 管理与虚拟网络配合使用
 使用 Azure 虚拟网络 (VNET) 可将你的任何 Azure 资源置于可以控制其访问权限但无法通过 Internet 路由的网络中。 然后，可以使用各种 VPN 技术将这些网络连接到本地网络。 若要了解有关 Azure 虚拟网络的详细信息，请先了解以下信息：[Azure 虚拟网络概述](../virtual-network/virtual-networks-overview.md)。
@@ -109,18 +109,21 @@ ms.locfileid: "46523921"
 
 在 VNET 中托管 API 管理服务实例时，将使用下表中的端口。
 
-| 源 / 目标端口 | 方向 | 传输协议 | 源/目标 | 用途 ( * ) | 虚拟网络类型 |
-| --- | --- | --- | --- | --- | --- |
-| * / 80, 443 |入站 |TCP |INTERNET/VIRTUAL_NETWORK|客户端与 API 管理的通信|外部 |
-| * / 3443 |入站 |TCP |INTERNET/VIRTUAL_NETWORK|Azure 门户和 Powershell 的管理终结点 |外部和内部 |
-| * / 80, 443 |出站 |TCP |VIRTUAL_NETWORK/INTERNET|Azure 存储上的依赖项、Azure 服务总线和 Azure Active Directory（如果适用）。|外部和内部 |
-| * / 1433 |出站 |TCP |VIRTUAL_NETWORK / SQL|**访问 Azure SQL 终结点** |外部和内部 |
-| * / 5672 |出站 |TCP |VIRTUAL_NETWORK/INTERNET|事件中心策略日志和监视代理的依赖项 |外部和内部 |
-| * / 445 |出站 |TCP |VIRTUAL_NETWORK/INTERNET|与适用于 GIT 的 Azure 文件共享的依赖关系 |外部和内部 |
-| * / 1886 |出站 |TCP |VIRTUAL_NETWORK/INTERNET|需要为发布到资源运行状况的运行状况状态 |外部和内部 |
-| * / 25028 |出站 |TCP |VIRTUAL_NETWORK/INTERNET|连接到 SMTP 中继以发送电子邮件 |外部和内部 |
-| * / 6381 - 6383 |入站和出站 |TCP |VIRTUAL_NETWORK/VIRTUAL_NETWORK|访问 RoleInstance 之间的 Redis 缓存实例 |外部和内部 |
-| * / * | 入站 |TCP |AZURE_LOAD_BALANCER/VIRTUAL_NETWORK| Azure 基础结构负载均衡器 |外部和内部 |
+| 源 / 目标端口 | 方向          | 传输协议 | 源/目标                  | 用途 ( * )                                                 | 虚拟网络类型 |
+|------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
+| * / 80, 443                  | 入站            | TCP                | INTERNET/VIRTUAL_NETWORK            | 客户端与 API 管理的通信                      | 外部             |
+| * / 3443                     | 入站            | TCP                | APIMANAGEMENT / VIRTUAL_NETWORK       | Azure 门户和 Powershell 的管理终结点         | 外部和内部  |
+| * / 80, 443                  | 出站           | TCP                | VIRTUAL_NETWORK / Storage             | **与 Azure 存储的依赖关系**                             | 外部和内部  |
+| * / 80, 443                  | 出站           | TCP                | VIRTUAL_NETWORK/INTERNET            | Azure Active Directory（如果适用）                   | 外部和内部  |
+| * / 1433                     | 出站           | TCP                | VIRTUAL_NETWORK / SQL                 | **访问 Azure SQL 终结点**                           | 外部和内部  |
+| * / 5672                     | 出站           | TCP                | VIRTUAL_NETWORK / EventHub            | 事件中心策略日志和监视代理的依赖项 | 外部和内部  |
+| * / 445                      | 出站           | TCP                | VIRTUAL_NETWORK / Storage             | 与适用于 GIT 的 Azure 文件共享的依赖关系                      | 外部和内部  |
+| * / 1886                     | 出站           | TCP                | VIRTUAL_NETWORK/INTERNET            | 需要为发布到资源运行状况的运行状况状态          | 外部和内部  |
+| */25                       | 出站           | TCP                | VIRTUAL_NETWORK/INTERNET            | 连接到 SMTP 中继以发送电子邮件                    | 外部和内部  |
+| */587                      | 出站           | TCP                | VIRTUAL_NETWORK/INTERNET            | 连接到 SMTP 中继以发送电子邮件                    | 外部和内部  |
+| * / 25028                    | 出站           | TCP                | VIRTUAL_NETWORK/INTERNET            | 连接到 SMTP 中继以发送电子邮件                    | 外部和内部  |
+| * / 6381 - 6383              | 入站和出站 | TCP                | VIRTUAL_NETWORK/VIRTUAL_NETWORK     | 访问 RoleInstance 之间的 Redis 缓存实例          | 外部和内部  |
+| * / *                        | 入站            | TCP                | AZURE_LOAD_BALANCER/VIRTUAL_NETWORK | Azure 基础结构负载均衡器                          | 外部和内部  |
 
 >[!IMPORTANT]
 > “用途”为**粗体**的端口是成功部署 API 管理服务所必需的。 不过，阻止其他端口将导致使用和监视运行中服务的能力降级。
@@ -136,6 +139,9 @@ ms.locfileid: "46523921"
     | Azure Public | <ul><li>prod.warmpath.msftcloudes.com</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li><li>prod3-black.prod3.metrics.nsatc.net</li><li>prod3-red.prod3.metrics.nsatc.net</li></ul> |
     | Azure Government  | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul> |
     | Azure 中国 | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul> |
+* **SMTP 中继**：在主机 `ies.global.microsoft.com` 下解析的 SMTP 中继的出站网络连接。
+
+* **Azure 门户诊断**：要在虚拟网络内部使用 API 管理扩展时从 Azure 门户启用诊断日志流，需要允许在端口 443 上对 `dc.services.visualstudio.com` 进行出站访问。 这有助于排查使用扩展时可能遇到的问题。
 
 * **ExpressRoute 设置**：一种常见的客户配置是定义其自己的默认路由 (0.0.0.0/0)，以强制出站 Internet 流量改为流向本地。 此流量流一定会中断与 Azure API 管理的连接，因为出站流量会在本地被阻止，或者通过“网络地址转换”功能发送到不再与各种 Azure 终结点一起工作的一组无法识别的地址。 解决方案是在包含 Azure API 管理的子网上定义一个（或多个）用户定义的路由 ([UDR][UDRs])。 UDR 定义了要遵循的子网特定路由，而不是默认路由。
   如果可能，建议使用以下配置：
@@ -162,8 +168,6 @@ ms.locfileid: "46523921"
 
 * **资源导航链接**：部署到资源管理器样式的 vnet 子网中时，API 管理会通过创建一个资源导航链接来保留子网。 如果子网已包含来自其他提供程序的资源，则部署将**失败**。 类似地，将 API 管理服务移动到其他子网中或删除它时，将会删除该资源导航链接。
 
-* **从 Azure 门户测试 API**：从 Azure 门户测试 API 并且 API 管理实例已与内部 VNet 集成时，VNet 上配置的 DNS 服务器将用于名称解析。 如果从 Azure 门户测试时收到 404，请确保 VNet 的 DNS 服务器可以正确解析 API 管理实例的主机名。 
-
 ## <a name="subnet-size"></a>子网大小要求
 Azure 会保留每个子网中的某些 IP 地址，不可以使用这些地址。 子网的第一个和最后一个 IP 地址仅为协议一致性而保留，其他三个地址用于 Azure 服务。 有关详细信息，请参阅[使用这些子网中的 IP 地址是否有任何限制？](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
 
@@ -189,6 +193,7 @@ Azure 会保留每个子网中的某些 IP 地址，不可以使用这些地址�
 * [通过不同的部署模型连接虚拟网络](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 * [如何使用 API 检查器跟踪 Azure API 管理中的调用](api-management-howto-api-inspector.md)
 * [虚拟网络常见问题解答](../virtual-network/virtual-networks-faq.md)
+* [服务标记](../virtual-network/security-overview.md#service-tags)
 
 [api-management-using-vnet-menu]: ./media/api-management-using-with-vnet/api-management-menu-vnet.png
 [api-management-setup-vpn-select]: ./media/api-management-using-with-vnet/api-management-using-vnet-type.png

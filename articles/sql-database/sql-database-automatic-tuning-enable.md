@@ -1,24 +1,25 @@
 ---
 title: 为 Azure SQL 数据库启动自动优化 | Microsoft Docs
-description: 可轻松对 Azure SQL 数据库启用自动优化。
+description: 可以轻松地在 Azure SQL 数据库中启用自动优化。
 services: sql-database
-author: yunan2016
-manager: digimobile
-ms.assetid: ''
 ms.service: sql-database
-ms.custom: monitor & tune
-ms.topic: article
-origin.date: 04/01/2018
-ms.date: 09/02/2018
-ms.author: v-nany
-ms.openlocfilehash: 6c9412075703d6a752ea8c68ac90e985dabbaeb0
-ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
+ms.subservice: performance
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
+ms.author: v-jay
+ms.reviewer: carlrab
+manager: digimobile
+origin.date: 10/05/2018
+ms.date: 10/29/2018
+ms.openlocfilehash: 9cedbd279a911e2140ba29c8ef1833ee24acd646
+ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913948"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50135703"
 ---
-# <a name="enable-automatic-tuning"></a>启用自动优化
+# <a name="enable-automatic-tuning-to-monitor-queries-and-improve-workload-performance"></a>启用自动优化以监视查询并提高工作负荷性能
 
 Azure SQL 数据库是一种自动托管的数据服务，它会不断监视查询并识别你可以执行的操作，以提高工作负荷的性能。 可以查看建议并手动应用这些建议，或者让 Azure SQL 数据库自动应用纠正措施 - 这称为**自动优化模式**。
 
@@ -87,7 +88,7 @@ Azure SQL 数据库支持为每个数据库单独指定自动优化配置。 在
    
 将单个自动优化选项设置为 ON 时，数据库所继承的任何设置都将被替代，并会启用优化选项。 将其设置为 OFF 时，数据库所继承的任何设置亦将被替代，并会禁用优化选项。 自动优化选项（指定为 DEFAULT）将从数据库级别自动优化设置中继承配置。  
 
-了解有关用来配置自动优化的 T-SQL 选项的详细信息，请参阅[适用于 SQL 数据库逻辑服务器的 ALTER DATABASE SET 选项 (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=sql-server-2017&tabs=sqldbls#arguments-1)。
+了解有关用来配置自动优化的 T-SQL 选项的详细信息，请参阅[适用于 SQL 数据库逻辑服务器的 ALTER DATABASE SET 选项 (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current)。
 
 ## <a name="disabled-by-the-system"></a>已被系统禁用
 自动优化监视着自身在数据库上进行的一切操作，在某些情况下，它可以判断自身在数据库中无法正常运行。 在此情况下，系统将禁用自动优化。 造成此情况的主要原因是未启用查询数据存储，或在指定数据库中查询数据存储处于只读状态。

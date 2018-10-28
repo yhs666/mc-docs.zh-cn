@@ -2,26 +2,29 @@
 title: Azure SQL 数据库基于 vCore 的资源限制 - 单一数据库| Microsoft Docs
 description: 本页介绍 Azure SQL 数据库的单一数据库中一些常见的基于 vCore 的资源限制。
 services: sql-database
-author: WenJason
-manager: dogimobile
 ms.service: sql-database
-ms.custom: DBs & servers
+ms.subservice: single-database
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-origin.date: 09/14/2018
-ms.date: 10/15/2018
+author: WenJason
 ms.author: v-jay
-ms.openlocfilehash: 18386c149df0966c5e3cea8a95a87873be10d7c1
-ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
+ms.reviewer: ''
+manager: digimobile
+origin.date: 09/14/2018
+ms.date: 10/29/2018
+ms.openlocfilehash: 289aa2784eb81a2f923aec59ac0d7266ae941c04
+ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913878"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50135834"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>适用于单一数据库的 Azure SQL 数据库基于 vCore 的购买模型限制
 
 本文提供针对使用基于 vCore 的购买模型的 Azure SQL 数据库的单一数据库的详细资源限制。
 
-有关基于 DTU 的购买模型的限制，请参阅 [SQL 数据库基于 DTU 的资源限制](sql-database-dtu-resource-limits.md)。
+有关逻辑服务器上单个数据库的 DTU 购买模型限制，请参阅[逻辑服务器上的资源限制概述](sql-database-resource-limits-logical-server.md)。
 
 > [!IMPORTANT]
 > 在某些情况下，可能需要收缩数据库来回收未使用的空间。 有关详细信息，请参阅[管理 Azure SQL 数据库中的文件空间](sql-database-file-space-management.md)。
@@ -85,7 +88,7 @@ ms.locfileid: "48913878"
 |硬件代次|4|4|4|4|4|4|
 |vCore 数|1|2|4|8|16|24|
 |内存 (GB)|7|14|28|56|112|168|
-|列存储支持|是|是|是|是|是|是|
+|列存储支持|不适用|不适用|不适用|不适用|不适用|不适用|
 |内存中 OLTP 存储 (GB)|1|2|4|8|20 个|36|
 |存储类型|本地 SSD|本地 SSD|本地 SSD|本地 SSD|本地 SSD|本地 SSD|
 |最大数据大小 (GB)|1024|1024|1024|1024|1024|1024|
@@ -126,5 +129,4 @@ ms.locfileid: "48913878"
 ## <a name="next-steps"></a>后续步骤
 
 - 有关常见问题的解答，请参阅 [SQL 数据库常见问题解答](sql-database-faq.md)。
-- 有关服务器和订阅级别限制的信息，请参阅 [Azure SQL 数据库资源限制概述](sql-database-resource-limits.md)。
 - 有关常规 Azure 限制的相关信息，请参阅 [Azure 订阅和服务限制、配额和约束](../azure-subscription-service-limits.md)。

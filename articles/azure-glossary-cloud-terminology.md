@@ -4,7 +4,7 @@ description: 使用 Azure 词汇表来理解 Azure 平台上的云术语。 这�
 keywords: Azure 字典, 云术语, Azure 词汇表, 术语定义, 云名词
 services: na
 documentationcenter: na
-author: MonicaRush
+author: lingliw
 manager: jhubbard
 editor: ''
 ms.assetid: d7ac12f7-24b5-4bcd-9e4d-3d76fbd8d297
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/16/2017
-ms.date: 07/12/2018
-ms.author: v-junlch
-ms.openlocfilehash: ad5d7fdd4fe9f2b701c21f3fd60e05769ab8cabf
-ms.sourcegitcommit: 5b6a2fc55e5b16ae480bd497c3ac2c3a2fd44703
+ms.date: 10/22/2018
+ms.author: v-lingwu
+ms.openlocfilehash: 7325accd06c298c6b54135587a52eee5381a0413
+ms.sourcegitcommit: 32373810af9c9a2210d63f16d46a708028818d5f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38999208"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49652246"
 ---
 # <a name="azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Azure 词汇表：Azure 平台上的云术语字典
 
@@ -47,7 +47,7 @@ Azure 词汇表是适用于 Azure 平台的简短云术语字典。 另请参阅
 用于在 Azure 中部署资源的两个[部署模型](resource-manager-deployment-model.md)中的一个（新模型是 Azure Resource Manager）。 有些 Azure 服务仅支持资源管理器部署模型，有些仅支持经典部署模型，而有些则两种模型都支持。 每个 Azure 服务的文档中指定了其支持的模型。
 
 ## <a name="cli"></a>Azure 命令行接口 (CLI)
-一个命令行接口，可用于从 Windows、macOS 和 Linux 管理 Azure 服务。  某些服务或服务功能只能通过 PowerShell 或 CLI 来管理。 请参阅 [Azure CLI 2.0](/cli)
+一个命令行接口，可用于从 Windows、macOS 和 Linux 管理 Azure 服务。  某些服务或服务功能只能通过 PowerShell 或 CLI 来管理。 请参阅 [Azure CLI](/cli/)
 
 ## <a name="powershell"></a>Azure PowerShell
 一个命令行接口，可用于从 Windows 电脑通过命令行管理 Azure 服务。 某些服务或服务功能只能通过 PowerShell 或 CLI 来管理。

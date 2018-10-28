@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 06/28/2018
-ms.date: 07/30/2018
+ms.date: 10/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: 9c725137acf5157d08c8ffb4b43d3e44ab175647
-ms.sourcegitcommit: 35889b4f3ae51464392478a72b172d8910dd2c37
+ms.openlocfilehash: 66f35dc774495737cecaeb4042e8f7abccca60cb
+ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39261896"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50034983"
 ---
 <!--Notice: Verify successfully on bash cmdlet-->
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>使用 SMB 在 Linux VM 上装载 Azure 文件存储
@@ -31,7 +31,7 @@ ms.locfileid: "39261896"
 
 将文件从 VM 移至托管在文件存储上的 SMB 装载，可以很轻松地调试日志。 同一 SMB 共享可以通过本地方式装载到 Mac、Linux 或 Windows 工作站。 SMB 不会是实时流式处理 Linux 或应用程序日志的最佳解决方案，因为 SMB 协议并非为处理那样重的日志记录任务而构建。 专用统一的日志记录层工具（如 Fluentd）会是 SMB 之上的更好选择，可收集 Linux 和应用程序日志记录输出。
 
-本指南需要运行 Azure CLI 2.0.4 或更高版本。 若要查找版本，请运行 **az --version**。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 
+本指南需要运行 Azure CLI 2.0.4 或更高版本。 若要查找版本，请运行 **az --version**。 如需进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
@@ -105,7 +105,7 @@ sudo mount -t cifs //$STORAGEACCT.file.core.chinacloudapi.cn/myshare /mnt/MyAzur
 重新启动 Linux VM 后，已装载的 SMB 共享会在关闭过程中卸载。 若要在启动时重新装载 SMB 共享，请向 Linux /etc/fstab 添加一行。 Linux 使用 fstab 文件列出在启动过程中需要装载的文件系统。 添加 SMB 共享可确保文件存储共享是 Linux VM 的永久装载文件系统。 使用 cloud-init 可以将文件存储 SMB 共享添加到新的 VM。
 
 ```bash
-//$STORAGEACCT.file.core.chinacloudapi.cn/mystorageshare /mnt/mymountpoint cifs vers=3.0,username=mystorageaccount,password=myStorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+//myaccountname.file.core.chinacloudapi.cn/mystorageshare /mnt/mymountpoint cifs vers=3.0,username=mystorageaccount,password=myStorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
 ```
 为了提高生产环境的安全性，应将凭据存储在 fstab 之外。
 
@@ -114,4 +114,5 @@ sudo mount -t cifs //$STORAGEACCT.file.core.chinacloudapi.cn/myshare /mnt/MyAzur
 - [在创建期间使用 cloud-init 自定义 Linux VM](using-cloud-init.md)
 - [将磁盘添加到 Linux VM](add-disk.md)
 - [使用 Azure CLI 加密 Linux VM 上的磁盘](encrypt-disks.md)
-<!-- Update_Description: update link, wording update, update bash cmdlet -->
+
+<!-- Update_Description: update link, wording update -->

@@ -10,16 +10,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 09/15/2018
-ms.date: 09/25/2018
+origin.date: 09/27/2018
+ms.date: 10/22/2018
 ms.author: v-junlch
 ms.reviewer: bagovind
-ms.openlocfilehash: 5452d35bc593149af7dc3eaf084e7d20c01943d7
-ms.sourcegitcommit: 830a60c06303a8447d128a3bca8b36aa2b3b655b
+ms.openlocfilehash: 2ec2074df20408ea02ba1a011fe3d2686eeaf524
+ms.sourcegitcommit: c938756f3be94dbbf574c31620ddf911b427fc21
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47075857"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49634804"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure 资源管理器资源提供程序操作
 
@@ -492,6 +492,12 @@ ms.locfileid: "47075857"
 > | 操作 | Microsoft.Automation/automationAccounts/nodes/write | 创建或更新 Azure Automation DSC 节点 |
 > | 操作 | Microsoft.Automation/automationAccounts/objectDataTypes/fields/read | 获取 Azure 自动化 TypeField |
 > | 操作 | Microsoft.Automation/automationAccounts/providers/Microsoft.Insights/metricDefinitions/read | 获取自动化指标定义 |
+> | 操作 | Microsoft.Automation/automationAccounts/python2Packages/delete | 删除 Azure 自动化 Python 2 包 |
+> | 操作 | Microsoft.Automation/automationAccounts/python2Packages/read | 获取 Azure 自动化 Python 2 包 |
+> | 操作 | Microsoft.Automation/automationAccounts/python2Packages/write | 创建或更新 Azure 自动化 Python 2 包 |
+> | 操作 | Microsoft.Automation/automationAccounts/python3Packages/delete | 删除 Azure 自动化 Python 3 包 |
+> | 操作 | Microsoft.Automation/automationAccounts/python3Packages/read | 获取 Azure 自动化 Python 3 包 |
+> | 操作 | Microsoft.Automation/automationAccounts/python3Packages/write | 创建或更新 Azure 自动化 Python 3 包 |
 > | 操作 | Microsoft.Automation/automationAccounts/read | 获取 Azure 自动化帐户 |
 > | 操作 | Microsoft.Automation/automationAccounts/runbooks/content/read | 获取 Azure 自动化 Runbook 的内容 |
 > | 操作 | Microsoft.Automation/automationAccounts/runbooks/delete | 删除 Azure 自动化 Runbook |
@@ -1351,6 +1357,17 @@ ms.locfileid: "47075857"
 > | 操作 | Microsoft.ContentModerator/operations/read | 读取操作 |
 > | 操作 | Microsoft.ContentModerator/updateCommunicationPreference/action | 更新通信首选项 |
 
+## <a name="microsoftcostmanagement"></a>Microsoft.CostManagement
+
+> [!div class="mx-tdCol2BreakAll"]
+> | 操作类型 | 操作 | 说明 |
+> | --- | --- | --- |
+> | 操作 | Microsoft.CostManagement/dimensions/read | 按范围列出所有受支持的维度。 |
+> | 操作 | Microsoft.CostManagement/query/action | 按范围查询使用情况数据。 |
+> | 操作 | Microsoft.CostManagement/query/read | 按范围查询使用情况数据。 |
+> | 操作 | Microsoft.CostManagement/reports/action | 按范围计划使用情况数据的报告。 |
+> | 操作 | Microsoft.CostManagement/reports/read | 按范围计划使用情况数据的报告。 |
+
 ## <a name="microsoftcustomerinsights"></a>Microsoft.CustomerInsights
 
 > [!div class="mx-tdCol2BreakAll"]
@@ -1480,6 +1497,7 @@ ms.locfileid: "47075857"
 > | 操作 | Microsoft.DBforMySQL/servers/firewallRules/write | 使用指定参数创建防火墙规则，或更新现有规则。 |
 > | 操作 | Microsoft.DBforMySQL/servers/providers/Microsoft.Insights/diagnosticSettings/read | 获取资源的诊断设置 |
 > | 操作 | Microsoft.DBforMySQL/servers/providers/Microsoft.Insights/diagnosticSettings/write | 创建或更新资源的诊断设置 |
+> | 操作 | Microsoft.DBforMySQL/servers/providers/Microsoft.Insights/logDefinitions/read | 获取 MySQL 服务器的可用日志 |
 > | 操作 | Microsoft.DBforMySQL/servers/providers/Microsoft.Insights/metricDefinitions/read | 返回可用于数据库的指标类型 |
 > | 操作 | Microsoft.DBforMySQL/servers/read | 返回服务器列表，或获取指定服务器的属性。 |
 > | 操作 | Microsoft.DBforMySQL/servers/recoverableServers/read | 返回可恢复的 MySQL 服务器信息 |
@@ -1498,6 +1516,9 @@ ms.locfileid: "47075857"
 > | --- | --- | --- |
 > | 操作 | Microsoft.DBforPostgreSQL/locations/performanceTiers/read | 返回可用的性能层列表。 |
 > | 操作 | Microsoft.DBforPostgreSQL/performanceTiers/read | 返回可用的性能层列表。 |
+> | 操作 | Microsoft.DBforPostgreSQL/servers/advisors/read | 返回顾问列表 |
+> | 操作 | Microsoft.DBforPostgreSQL/servers/advisors/recommendedActions/read | 返回建议的操作列表 |
+> | 操作 | Microsoft.DBforPostgreSQL/servers/advisors/recommendedActionSessions/action | 做出建议 |
 > | 操作 | Microsoft.DBforPostgreSQL/servers/configurations/read | 返回服务器的配置列表，或获取指定配置的属性。 |
 > | 操作 | Microsoft.DBforPostgreSQL/servers/configurations/write | 更新指定配置的值 |
 > | 操作 | Microsoft.DBforPostgreSQL/servers/delete | 删除现有服务器。 |
@@ -2181,6 +2202,20 @@ ms.locfileid: "47075857"
 > | 操作 | Microsoft.Insights/Webtests/Read | 读取 webtest 配置 |
 > | 操作 | Microsoft.Insights/Webtests/Write | 写入到 webtest 配置 |
 
+## <a name="microsoftiotspaces"></a>Microsoft.IoTSpaces
+
+> [!div class="mx-tdCol2BreakAll"]
+> | 操作类型 | 操作 | 说明 |
+> | --- | --- | --- |
+> | 操作 | Microsoft.IoTSpaces/Graph/delete | 删除 Microsoft.IoTSpaces Graph 资源 |
+> | 操作 | Microsoft.IoTSpaces/Graph/providers/Microsoft.Insights/diagnosticSettings/read | 获取资源的诊断设置 |
+> | 操作 | Microsoft.IoTSpaces/Graph/providers/Microsoft.Insights/diagnosticSettings/write | 设置资源的诊断设置 |
+> | 操作 | Microsoft.IoTSpaces/Graph/providers/Microsoft.Insights/logDefinitions/read | 获取 Microsoft.IoTSpaces 服务的可用日志定义 |
+> | 操作 | Microsoft.IoTSpaces/Graph/providers/Microsoft.Insights/metricDefinitions/read | 获取 Microsoft.IoTSpaces 服务的可用指标定义 |
+> | 操作 | Microsoft.IoTSpaces/Graph/read | 获取 Microsoft.IoTSpaces Graph 资源 |
+> | 操作 | Microsoft.IoTSpaces/Graph/write | 创建 Microsoft.IoTSpaces Graph 资源 |
+> | 操作 | Microsoft.IoTSpaces/register/action | 注册 Microsoft.IoTSpaces Graph 资源提供程序的订阅以便能够创建资源 |
+
 ## <a name="microsoftkeyvault"></a>Microsoft.KeyVault
 
 > [!div class="mx-tdCol2BreakAll"]
@@ -2243,6 +2278,7 @@ ms.locfileid: "47075857"
 > | 操作 | Microsoft.LabServices/labAccounts/galleryImages/read | 读取库映像。 |
 > | 操作 | Microsoft.LabServices/labAccounts/galleryImages/write | 添加或修改库映像。 |
 > | 操作 | Microsoft.LabServices/labAccounts/GetRegionalAvailability/action | 获取实验室帐户下配置的每个大小类别的区域可用性信息 |
+> | 操作 | Microsoft.LabServices/labAccounts/labs/AddUsers/action | 将用户添加到实验室 |
 > | 操作 | Microsoft.LabServices/labAccounts/labs/delete | 删除实验室。 |
 > | 操作 | Microsoft.LabServices/labAccounts/labs/environmentSettings/ClaimAny/action | 在环境设置中为用户声明随机环境 |
 > | 操作 | Microsoft.LabServices/labAccounts/labs/environmentSettings/delete | 删除环境设置。 |
@@ -2354,8 +2390,10 @@ ms.locfileid: "47075857"
 > | 操作 | Microsoft.Logic/integrationServiceEnvironments/join/action | 加入集成服务环境。 |
 > | 操作 | Microsoft.Logic/integrationServiceEnvironments/managedApis/apiOperations/read | 读取集成服务环境托管 API 操作。 |
 > | 操作 | Microsoft.Logic/integrationServiceEnvironments/managedApis/read | 读取集成服务环境托管 API。 |
+> | 操作 | Microsoft.Logic/integrationServiceEnvironments/providers/Microsoft.Insights/metricDefinitions/read | 读取集成服务环境指标定义。 |
 > | 操作 | Microsoft.Logic/integrationServiceEnvironments/read | 读取集成服务环境。 |
 > | 操作 | Microsoft.Logic/integrationServiceEnvironments/write | 创建或更新集成服务环境。 |
+> | 操作 | Microsoft.Logic/locations/workflows/recommendOperationGroups/action | 获取工作流建议操作组。 |
 > | 操作 | Microsoft.Logic/locations/workflows/validate/action | 验证工作流。 |
 > | 操作 | Microsoft.Logic/operations/read | 获取操作。 |
 > | 操作 | Microsoft.Logic/register/action | 为给定的订阅注册 Microsoft.Logic 资源提供程序。 |
@@ -2569,6 +2607,7 @@ ms.locfileid: "47075857"
 > [!div class="mx-tdCol2BreakAll"]
 > | 操作类型 | 操作 | 说明 |
 > | --- | --- | --- |
+> | 操作 | Microsoft.Media/checknameavailability/action | 检查媒体服务帐户名称是否可用 |
 > | 操作 | Microsoft.Media/locations/checkNameAvailability/action | 检查媒体服务帐户名称是否可用 |
 > | 操作 | Microsoft.Media/mediaservices/assets/delete | 删除任何资产 |
 > | 操作 | Microsoft.Media/mediaservices/assets/getEncryptionKey/action | 获取资产加密密钥 |
@@ -2580,6 +2619,9 @@ ms.locfileid: "47075857"
 > | 操作 | Microsoft.Media/mediaservices/contentKeyPolicies/read | 读取任何内容密钥策略 |
 > | 操作 | Microsoft.Media/mediaservices/contentKeyPolicies/write | 创建或更新任何内容密钥策略 |
 > | 操作 | Microsoft.Media/mediaservices/delete | 删除任何媒体服务帐户 |
+> | 操作 | Microsoft.Media/mediaservices/eventGridFilters/delete | 删除任何事件网格筛选器 |
+> | 操作 | Microsoft.Media/mediaservices/eventGridFilters/read | 读取任何事件网格筛选器 |
+> | 操作 | Microsoft.Media/mediaservices/eventGridFilters/write | 创建或更新任何事件网格筛选器 |
 > | 操作 | Microsoft.Media/mediaservices/liveEventOperations/read | 读取任何直播事件操作 |
 > | 操作 | Microsoft.Media/mediaservices/liveEvents/delete | 删除任何直播事件 |
 > | 操作 | Microsoft.Media/mediaservices/liveEvents/liveOutputs/delete | 删除任何直播输出 |
@@ -3261,6 +3303,7 @@ ms.locfileid: "47075857"
 > | 操作 | Microsoft.OperationalInsights/workspaces/query/Alert/read | 从 Alert 表读取数据 |
 > | 操作 | Microsoft.OperationalInsights/workspaces/query/AlertHistory/read | 从 AlertHistory 表读取数据 |
 > | 操作 | Microsoft.OperationalInsights/workspaces/query/ApplicationInsights/read | 从 ApplicationInsights 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/AuditLogs/read | 从 AuditLogs 表读取数据 |
 > | 操作 | Microsoft.OperationalInsights/workspaces/query/AzureActivity/read | 从 AzureActivity 表读取数据 |
 > | 操作 | Microsoft.OperationalInsights/workspaces/query/AzureMetrics/read | 从 AzureMetrics 表读取数据 |
 > | 操作 | Microsoft.OperationalInsights/workspaces/query/BoundPort/read | 从 BoundPort 表读取数据 |
@@ -3368,6 +3411,7 @@ ms.locfileid: "47075857"
 > | 操作 | Microsoft.OperationalInsights/workspaces/query/SfBAssessmentRecommendation/read | 从 SfBAssessmentRecommendation 表读取数据 |
 > | 操作 | Microsoft.OperationalInsights/workspaces/query/SfBOnlineAssessmentRecommendation/read | 从 SfBOnlineAssessmentRecommendation 表中读取数据 |
 > | 操作 | Microsoft.OperationalInsights/workspaces/query/SharePointOnlineAssessmentRecommendation/read | 从 SharePointOnlineAssessmentRecommendation 表中读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/SigninLogs/read | 从 SigninLogs 表读取数据 |
 > | 操作 | Microsoft.OperationalInsights/workspaces/query/SPAssessmentRecommendation/read | 从 SPAssessmentRecommendation 表读取数据 |
 > | 操作 | Microsoft.OperationalInsights/workspaces/query/SQLAssessmentRecommendation/read | 从 SQLAssessmentRecommendation 表读取数据 |
 > | 操作 | Microsoft.OperationalInsights/workspaces/query/SQLQueryPerformance/read | 从 SQLQueryPerformance 表读取数据 |
@@ -3399,6 +3443,7 @@ ms.locfileid: "47075857"
 > | 操作 | Microsoft.OperationalInsights/workspaces/query/WDAVStatus/read | 从 WDAVStatus 表读取数据 |
 > | 操作 | Microsoft.OperationalInsights/workspaces/query/WDAVThreat/read | 从 WDAVThreat 表读取数据 |
 > | 操作 | Microsoft.OperationalInsights/workspaces/query/WindowsClientAssessmentRecommendation/read | 从 WindowsClientAssessmentRecommendation 表读取数据 |
+> | 操作 | Microsoft.OperationalInsights/workspaces/query/WindowsEvent/read | 从 WindowsEvent 表读取数据 |
 > | 操作 | Microsoft.OperationalInsights/workspaces/query/WindowsFirewall/read | 从 WindowsFirewall 表读取数据 |
 > | 操作 | Microsoft.OperationalInsights/workspaces/query/WindowsServerAssessmentRecommendation/read | 从 WindowsServerAssessmentRecommendation 表读取数据 |
 > | 操作 | Microsoft.OperationalInsights/workspaces/query/WireData/read | 从 WireData 表读取数据 |
@@ -4367,7 +4412,8 @@ ms.locfileid: "47075857"
 > [!div class="mx-tdCol2BreakAll"]
 > | 操作类型 | 操作 | 说明 |
 > | --- | --- | --- |
-> | 操作 | microsoft.storagesync/locations/checkNameAvailability/action | 检查存储同步服务的名称可用性 |
+> | 操作 | microsoft.storagesync/locations/checkNameAvailability/action | 检查该存储同步服务名称是否有效且未被使用。 |
+> | 操作 | microsoft.storagesync/locations/workflows/operations/read | 获取异步操作的状态 |
 > | 操作 | microsoft.storagesync/storageSyncServices/delete | 删除任何存储同步服务 |
 > | 操作 | microsoft.storagesync/storageSyncServices/providers/Microsoft.Insights/metricDefinitions/read | 获取存储同步服务的可用指标 |
 > | 操作 | microsoft.storagesync/storageSyncServices/read | 读取任何存储同步服务 |
@@ -4376,7 +4422,7 @@ ms.locfileid: "47075857"
 > | 操作 | microsoft.storagesync/storageSyncServices/registeredServers/read | 读取任何已注册服务器 |
 > | 操作 | microsoft.storagesync/storageSyncServices/registeredServers/write | 创建或更新任何已注册服务器 |
 > | 操作 | microsoft.storagesync/storageSyncServices/syncGroups/cloudEndpoints/delete | 删除任何云终结点 |
-> | 操作 | microsoft.storagesync/storageSyncServices/syncGroups/cloudEndpoints/operationresults/read | 异步备份调用的位置 API |
+> | 操作 | microsoft.storagesync/storageSyncServices/syncGroups/cloudEndpoints/operationresults/read | 获取异步备份/还原操作的状态 |
 > | 操作 | microsoft.storagesync/storageSyncServices/syncGroups/cloudEndpoints/postbackup/action | 备份后调用此操作 |
 > | 操作 | microsoft.storagesync/storageSyncServices/syncGroups/cloudEndpoints/postrestore/action | 存储后调用此操作 |
 > | 操作 | microsoft.storagesync/storageSyncServices/syncGroups/cloudEndpoints/prebackup/action | 备份前调用此操作 |
@@ -4393,6 +4439,9 @@ ms.locfileid: "47075857"
 > | 操作 | microsoft.storagesync/storageSyncServices/syncGroups/serverEndpoints/recallAction/action | 调用此操作，将文件撤回到服务器 |
 > | 操作 | microsoft.storagesync/storageSyncServices/syncGroups/serverEndpoints/write | 创建或更新任何服务器终结点 |
 > | 操作 | microsoft.storagesync/storageSyncServices/syncGroups/write | 创建或更新任何同步组 |
+> | 操作 | microsoft.storagesync/storageSyncServices/workflows/operationresults/read | 获取异步操作的状态 |
+> | 操作 | microsoft.storagesync/storageSyncServices/workflows/operations/read | 获取异步操作的状态 |
+> | 操作 | microsoft.storagesync/storageSyncServices/workflows/read | 读取工作流 |
 > | 操作 | microsoft.storagesync/storageSyncServices/write | 创建或更新任何存储同步服务 |
 
 ## <a name="microsoftstorsimple"></a>Microsoft.StorSimple

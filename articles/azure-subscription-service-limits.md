@@ -11,12 +11,12 @@ ms.topic: article
 origin.date: 09/11/2018
 ms.date: 09/26/2018
 ms.author: v-junlch
-ms.openlocfilehash: 467240a28ffef6679aa66a869e92bd96dac0309a
-ms.sourcegitcommit: 641f375fc67e8c9d6ec1296560602c0b64ab8a52
+ms.openlocfilehash: 8e5fb73c06213344764b0669d84237a327cf8665
+ms.sourcegitcommit: 32373810af9c9a2210d63f16d46a708028818d5f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47398127"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49652238"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 订阅和服务限制、配额和约束
 本文列出了一些最常见的 Azure 限制，有时也称为配额。 本文当前并不涵盖所有 Azure 服务。 随着时间的推移，此列表将进行扩展和更新，以涵盖更多平台。
@@ -129,10 +129,12 @@ ms.locfileid: "47398127"
 [!INCLUDE [traffic-manager-limits](../includes/traffic-manager-limits.md)]
 
 ### <a name="storage-limits"></a>存储限制
-有关存储帐户限制的详细信息，请参阅 [Azure 存储可伸缩性和性能目标](storage/common/storage-scalability-targets.md)。
-
 <!--like # storage accts -->
 [!INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
+
+有关存储帐户限制的详细信息，请参阅 [Azure 存储可伸缩性和性能目标](storage/common/storage-scalability-targets.md)。
+
+#### <a name="storage-resource-provider-limits"></a>存储资源提供程序限制 
 
 [!INCLUDE [azure-storage-limits-azure-resource-manager](../includes/azure-storage-limits-azure-resource-manager.md)]
 
@@ -228,6 +230,8 @@ Azure Cosmos DB 是全局缩放数据库，可对吞吐量和存储进行缩放�
 
 ### <a name="site-recovery-limits"></a>站点恢复限制
 [!INCLUDE [site-recovery-limits](../includes/site-recovery-limits.md)]
+### <a name="application-insights-limits"></a>Application Insights 限制
+[!INCLUDE [application-insights-limits](../includes/application-insights-limits.md)]
 
 ### <a name="api-management-limits"></a>API 管理限制
 [!INCLUDE [api-management-service-limits](../includes/api-management-service-limits.md)]

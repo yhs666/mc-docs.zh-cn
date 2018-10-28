@@ -3,7 +3,7 @@ title: 使用 Power BI 可视化 Azure 网络安全组流日志 | Azure
 description: 本页介绍如何使用 Power BI 可视化 NSG 流日志。
 services: network-watcher
 documentationcenter: na
-author: rockboyfor
+author: lingliw
 manager: digimobile
 editor: ''
 ms.assetid: 1e4f95fa-f5f0-4e03-bc25-008fbfc4934c
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/22/2017
 ms.date: 09/10/2018
-ms.author: v-yeche
-ms.openlocfilehash: d85138a6ea272cfd1d40eb55e3e78527889c8912
-ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
+ms.author: v-lingwu
+ms.openlocfilehash: bce2a3ca3cc6fec8489b2d369f9c8e235cdbc220
+ms.sourcegitcommit: 32373810af9c9a2210d63f16d46a708028818d5f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44515687"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49652241"
 ---
 # <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>使用 Power BI 可视化网络安全组流日志
 
@@ -28,7 +28,7 @@ ms.locfileid: "44515687"
 
 手动搜索日志文件可能难以洞察流日志数据。 本文提供一种用来可视化最新流日志和了解网络流量的解决方案。
 
-## <a name="scenario"></a>场景
+## <a name="scenario"></a>方案
 
 在以下方案中，我们会将 Power BI Desktop 连接到已配置为 NSG 流日志数据接收器的存储帐户。 连接到存储帐户后，Power BI 将下载并分析日志，提供网络安全组记录的流量的可视化形式。
 
@@ -50,7 +50,7 @@ ms.locfileid: "44515687"
 
 ![Visio 图示][1]
 
-### <a name="steps"></a>Steps
+### <a name="steps"></a>步骤
 
 1. 在 Power BI Desktop 应用程序中下载并打开以下 Power BI 模板：[网络观察程序 PowerBI 流日志模板](https://aka.ms/networkwatcherpowerbiflowlogstemplate)
 1. 输入所需的查询参数
@@ -103,13 +103,13 @@ ms.locfileid: "44515687"
 
 ![slicers][13]
 
-## <a name="conclusion"></a>结束语
+## <a name="conclusion"></a>结论
 
 本方案表明，我们可以使用网络观察程序和 Power BI 提供的网络安全组流日志来可视化和了解流量。 使用提供的模板，Power BI 可以直接从存储中下载日志并在本地对其进行处理。 加载模板所需的时间根据请求的文件数和下载文件的大小而异。
 
 可以根据需要任意自定义此模板。 在 Power BI 中使用网络安全组流日志的方式多种多样。 
 
-## <a name="notes"></a>说明
+## <a name="notes"></a>注释
 
 * 日志默认存储在 `https://{storageAccountName}.blob.core.chinacloudapi.cn/insights-logs-networksecuritygroupflowevent/` 中
 
@@ -121,7 +121,7 @@ ms.locfileid: "44515687"
 
 ## <a name="next-steps"></a>后续步骤
 
-通过访问 [Visualize Azure Network Watcher NSG flow logs using open source tools](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)（使用开源工具直观显示 Azure 网络观察程序 NSG 流日志），了解如何使用 Elastick Stack 来直观显示 NSG 流日志
+访问 [Visualize Azure Network Watcher NSG flow logs using open source tools](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)（使用开源工具直观显示 Azure 网络观察程序 NSG 流日志），了解如何使用 Elastick Stack 直观显示 NSG 流日志
 
 [1]: ./media/network-watcher-visualize-nsg-flow-logs-power-bi/figure1.png
 [2]: ./media/network-watcher-visualize-nsg-flow-logs-power-bi/figure2.png
@@ -138,3 +138,4 @@ ms.locfileid: "44515687"
 [13]: ./media/network-watcher-visualize-nsg-flow-logs-power-bi/figure13.png
 
 <!--Update_Description: update meta properties -->
+<!--Add new line-->

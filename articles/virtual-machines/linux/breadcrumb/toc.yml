@@ -1,0 +1,18 @@
+items:
+- name: Azure
+  tocHref: /
+  topicHref: /index
+  items:
+  - name: 虚拟机
+    tocHref: /active-directory/managed-identities-azure-resources/
+    topicHref: /virtual-machines/index
+    items:
+    - name: Linux
+      tocHref: /active-directory/managed-identities-azure-resources/
+      topicHref: /virtual-machines/linux/index
+ms.openlocfilehash: 0eb32c34ff75b08f3ca8e2a1782edc721bbedc37
+ms.sourcegitcommit: 96b58e881dba2fd02665d806d7c27d770326b0cc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49652022"

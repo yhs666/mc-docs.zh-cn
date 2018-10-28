@@ -16,12 +16,12 @@ ms.topic: troubleshooting
 origin.date: 05/30/2017
 ms.date: 10/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: 35cbe3b18fbed073da91b91a91238be56c6b8d6d
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: 561d424fc4b2a9bdca0d762378df51ac273aedd4
+ms.sourcegitcommit: 96b58e881dba2fd02665d806d7c27d770326b0cc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453963"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49652018"
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>针对通过 SSH 连接到 Azure Linux VM 时发生的失败、错误或被拒绝问题进行故障排除
 尝试连接到 Linux 虚拟机 (VM) 时，有多种原因可能会导致安全外壳 (SSH) 错误、SSH 连接失败或被拒绝。 本文将帮助用户找出原因并更正问题。 可以使用 Azure 门户、Azure CLI 或适用于 Linux 的 VM 访问扩展来排查和解决连接问题。
@@ -38,7 +38,9 @@ ms.locfileid: "49453963"
 3. 验证[网络安全组](../../virtual-network/security-overview.md)规则是否允许 SSH 流量。
    * 确保有一条网络安全组规则允许 SSH 流量（默认为 TCP 端口 22）。
    * 在不使用 Azure 负载均衡器的情况下无法使用端口重定向/映射。
-4. 查看 [VM 资源运行状况](../../resource-health/resource-health-overview.md)。 
+4. 查看 [VM 资源运行状况](../../service-health/resource-health-overview.md)。 
+    
+    <!-- Redirect is Correct /resource-health/XXXX.md TO /service-health/XXXX.md -->
    * 确保 VM 报告为正常。
    * 如果已启用启动诊断，请验证 VM 在日志中是否未报告启动错误。
 5. 重启 VM。
@@ -50,7 +52,7 @@ ms.locfileid: "49453963"
 可以使用以下方法之一重置凭据或 SSH 配置：
 
 * [Azure 门户](#use-the-azure-portal) - 如果需要快速重置 SSH 配置或 SSH 密钥，并且没有安装 Azure 工具，则很适合使用此方法。
-* [Azure CLI](#use-the-azure-cli) - 如果已打开命令行，则可以快速重置 SSH 配置或凭据。 也可以使用 [Azure CLI](#use-the-azure-classic-cli)
+* [Azure CLI](#use-the-azure-cli) - 如果已打开命令行，则可以快速重置 SSH 配置或凭据。 你也可以使用 [Azure 经典 CLI](#use-the-azure-classic-cli)
 * [Azure VMAccessForLinux 扩展](#use-the-vmaccess-extension) - 创建和重复使用 json 定义文件来重置 SSH 配置或用户凭据。
 
 在执行每个故障排除步骤之后，请尝试再次连接到 VM。 如果仍然无法连接，请尝试下一步。
@@ -80,6 +82,8 @@ ms.locfileid: "49453963"
 
 ## <a name="use-the-azure-cli"></a>使用 Azure CLI
 安装最新的 [Azure CLI](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) 并使用 [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az-login) 登录到 Azure 帐户（如果尚未这样做）。
+
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 如果创建并上传了自定义 Linux 磁盘映像，请确保已安装 [Azure Linux 代理](../extensions/agent-windows.md) 2.0.5 或更高版本。 在使用库映像创建的 VM 上，系统已自动安装并配置了此访问扩展。
 
@@ -253,3 +257,5 @@ az vm redeploy --resource-group myResourceGroup --name myVM
 * 如果在执行后续步骤之后仍然无法通过 SSH 连接到 VM，请参阅[更详细的故障排除步骤](detailed-troubleshoot-ssh-connection.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)，查看其他可以解决问题的步骤。
 * 有关对应用程序访问进行故障排除的详细信息，请参阅[对在 Azure 虚拟机上运行的应用程序的访问进行故障排除](../windows/troubleshoot-app-connection.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 * 有关对使用经典部署模型创建的虚拟机进行故障排除的详细信息，请参阅[如何为基于 Linux 的虚拟机重置密码或 SSH](../linux/classic/reset-access-classic.md)。
+
+<!--Update_Description: update meta properties, wording update, update link -->

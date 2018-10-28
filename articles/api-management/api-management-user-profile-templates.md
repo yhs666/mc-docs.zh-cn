@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: article
 origin.date: 01/09/2017
 ms.author: v-yiso
-ms.date: 02/26/2018
-ms.openlocfilehash: 8876fb7ba3e28b1970dc6851aeb4c119992ccfce
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.date: 11/09/2018
+ms.openlocfilehash: 99df69d34d946b1e3398779026dfd66f60e92ffc
+ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
-ms.locfileid: "29285163"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50135852"
 ---
 # <a name="user-profile-templates-in-azure-api-management"></a>Azure API 管理中的用户配置文件模板
 通过 Azure API 管理，用户能够使用一组用于配置内容的模板自定义开发人员门户页面的内容。 使用 [DotLiquid](http://dotliquidmarkup.org/) 语法和所选编辑器（例如 [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers)），以及提供的一组本地化[字符串资源](./api-management-template-resources.md#strings)、[字形资源](./api-management-template-resources.md#glyphs)和[页面控件](./api-management-page-controls.md)，即可根据这些模板的使用需要非常灵活地配置页面内容。  
   
  本部分中的模板可用于自定义开发人员门户中的用户配置文件页面的内容。  
   
--   Profile[](#Profile)  
+-   [Profile](#Profile)  
   
 -   [订阅](#Subscriptions)  
   
@@ -115,7 +115,7 @@ ms.locfileid: "29285163"
 |changePasswordUrl|字符串|相对 URL，用于更改当前用户的密码。|  
 |changeNameOrEmailUrl|字符串|相对 URL，用于更改当前用户的名称和电子邮件。|  
 |canChangePassword|布尔值|当前用户是否可更改其密码。|  
-|isSystemUser|布尔值|当前用户是否为某个内置[组的成员](./api-management-key-concepts.md#groups)。|  
+|isSystemUser|布尔值|当前用户是否为某个内置[组](./api-management-key-concepts.md#groups)的成员。|  
   
 ### <a name="sample-template-data"></a>示例模板数据  
   
@@ -285,7 +285,7 @@ ms.locfileid: "29285163"
                 <a href="#" class="btn-link" id="regenerateSecondary_{{subscription.id}}" data-bind="click: regenerateKey, text: regenerateKeyLabel">{% localized "SubscriptionListStrings|WebDevelopersRegenerateLink" %}</a>  
               </div>  
             </div>  
-            <div class="clearfix"> </div>  
+            <div class="clearfix"> </div>  
           </div>  
           <!-- /ko -->  
           {% endif %}  
@@ -568,7 +568,7 @@ ms.locfileid: "29285163"
 ```  
   
 ##  <a name="UpdateAccountInfo"></a> 更新帐户信息  
- **更新帐户信息**模板用于自定义开发人员门户中的“更新帐户信息”页。  
+ “更新帐户信息”模板用于自定义开发人员门户中的“更新帐户信息”页。  
   
  ![用户帐户信息页开发人员门户模板](./media/api-management-user-profile-templates/APIM-User-Account-Info-Page-Developer-Portal-Templates.png "APIM 用户帐户信息页开发人员门户模板")  
   

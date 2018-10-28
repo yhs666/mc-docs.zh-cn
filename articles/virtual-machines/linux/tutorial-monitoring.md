@@ -14,15 +14,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 06/06/2018
-ms.date: 07/30/2018
+ms.date: 10/22/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 25f17a63cbe6c3dc93ae827ba5e0b5ed0a4adea9
-ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
+ms.openlocfilehash: 39fa78bf002182cadf8bc52bdef3aa518c446db4
+ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39306949"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50034901"
 ---
 # <a name="tutorial-monitor-and-update-a-linux-virtual-machine-in-azure"></a>教程：监视和更新 Azure 中的 Linux 虚拟机
 
@@ -33,14 +33,16 @@ ms.locfileid: "39306949"
 > * 查看启动诊断
 > * 查看主机指标
 > * 在 VM 上启用诊断扩展
-> * 基于诊断指标创建警报 <!-- Not Available on View VM metrics-->
+> * 基于诊断指标创建警报
+
+<!-- Not Available on View VM metrics-->
 <!-- Not Available on Manage package updates-->
 <!-- Not Available on > * Monitor changes and inventory-->
 <!-- Not Available on Set up advanced monitoring-->
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.30 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。
+如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.30 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。
 
 ## <a name="create-vm"></a>创建 VM
 
@@ -134,10 +136,25 @@ Linux VM 在 Azure 中有一个与它交互的专用主机。 系统会自动收
 
 <!-- Not Available ## View VM metrics-->
 <!-- Not Available due to [Guest] in VM metrics-->
-<!-- Not Available on ## Create alerts-->
-<!-- Metric select is no option for user choice-->
+<!--Verify Create alerts successfully-->
+## <a name="create-alerts"></a>创建警报
+
+可以根据特定的性能指标创建警报。 例如，当平均 CPU 使用率超过特定的阈值或者可用磁盘空间低于特定的空间量时，警报可用于发出通知。 警报显示在 Azure 门户中，也可以通过电子邮件发送。 还可以触发 Azure 自动化 Runbook 或 Azure 逻辑应用来响应生成的警报。
+
+以下示例针对平均 CPU 使用率创建警报。
+
+1. 在 Azure 门户中选择“资源组”，选择“myResourceGroupMonitor”，并在资源列表中选择“myVM”。
+2. 选择“警报(经典)”，然后在警报窗口顶部选择“添加指标警报(经典)”。
+3. 为警报提供**名称**，例如 *myAlertRule*
+4. 若要在 CPU 百分比持续 5 分钟超过 1.0 时触发警报，请选中其他所有默认值。
+5. （可选）选中“电子邮件所有者、参与者和读者”对应的框，以便向他们发送电子邮件通知。 默认操作是在门户中显示通知。
+6. 选择“确定”按钮。
+
 <!-- Not Avaialbel ## Manage package updates-->
+<!-- Not Avaialbel ### Enable Update management-->
+<!-- Not Avaialbel ### View update assessment-->
 <!-- Not Available on ## Monitor changes and inventory-->
+<!-- Not Available on ### Enable Change and Inventory management-->
 <!-- Not Available ## Advanced monitoring -->
 ## <a name="next-steps"></a>后续步骤
 

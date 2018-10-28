@@ -3,7 +3,7 @@ title: 使用 Azure 网络观察程序安全组视图分析网络安全性 - Azu
 description: 本文将介绍如何使用 Azure CLI 2.0 通过安全组视图分析虚拟机安全性。
 services: network-watcher
 documentationcenter: na
-author: rockboyfor
+author: lingliw
 manager: digimobile
 editor: ''
 ms.assetid: a986ff4f-7e0c-4994-95e1-4ac824986500
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/22/2017
-ms.date: 08/13/2018
-ms.author: v-yeche
-ms.openlocfilehash: a320e5219e30beda573cbb01e5904f1540d84460
-ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
+ms.date: 10/22/2018
+ms.author: v-lingwu
+ms.openlocfilehash: e9a6c88e1e6557eddd89fd514314ccc637bde162
+ms.sourcegitcommit: 32373810af9c9a2210d63f16d46a708028818d5f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41704781"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49652244"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-azure-cli-20"></a>使用 Azure CLI 2.0 通过安全组视图分析虚拟机安全性
 
@@ -31,7 +31,6 @@ ms.locfileid: "41704781"
 
 安全组视图返回已应用于虚拟机的已配置的有效网络安全规则。 此功能可用于审核和诊断已在 VM 上配置以确保正确允许或拒绝流量的网络安全组和规则。 在本文中，我们将说明如何使用 Azure CLI 检索虚拟机的已配置的有效安全规则
 
-本文使用资源管理部署模型的新一代 CLI (Azure CLI 2.0)，其适用于 Windows、Mac 和 Linux。
 
 若要执行本文中的步骤，需要[安装适用于 Mac、Linux 和 Windows 的 Azure 命令行接口 (Azure CLI)](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest)。
 

@@ -1,44 +1,50 @@
 ---
-title: 情感 API 常见问题解答 | Microsoft Docs
-description: 获取有关认知服务中情感 API 的常见问题的解答。
+title: 常见问题解答 - 情感 API
+titlesuffix: Azure Cognitive Services
+description: 获取有关情感 API 的常见问题的解答。
 services: cognitive-services
-author: alexchen2016
-manager: digimobile
+author: anrothMSFT
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: emotion
-ms.topic: article
+ms.component: emotion-api
+ms.topic: conceptual
 origin.date: 01/26/2017
-ms.date: 10/13/2017
+ms.date: 10/25/2018
 ms.author: v-junlch
-ms.openlocfilehash: 793517343ecdc402109dca0489806db983280121
-ms.sourcegitcommit: e157751c560524d0bb828e987b87178130663547
+ROBOTS: NOINDEX
+ms.openlocfilehash: 188066cb9f7a01ff5244f5be6fb5cc420aed22f9
+ms.sourcegitcommit: 44ce337717bb948f5ac08217a156935f663c0f46
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "23407565"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50034673"
 ---
 # <a name="emotion-api-frequently-asked-questions"></a>情感 API 常见问题解答
+
+> [!IMPORTANT]
+> 情感 API 将于 2019 年 2 月 15 日弃用。 情感识别功能现在已作为[人脸 API](/cognitive-services/face/) 的一部分正式发布。
+
 ### <a name="if-you-cant-find-answers-to-your-questions-in-this-faq-try-asking-the-emotion-api-community-on-stackoverflowhttpsstackoverflowcomquestionstaggedproject-oxfordormicrosoft-cognitive-or-contact-help-and-support-on-uservoicehttpscognitiveuservoicecom"></a>如果在本“常见问题解答”中找不到问题的答案，请尝试在 [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) 中向情感 API 社区提问，或联系 [UserVoice 上的帮助和支持人员](https://cognitive.uservoice.com/)。  
 
 -----
 
 **问**：*情感 API 能够从哪些类型的图像中返回最佳结果？*
 
-**答**：使用无遮挡、完整的正面人脸图像可以获取最佳结果。 使用不完整的正面人脸图像会降低可靠性，在人脸被旋转 45 度或以上的图像中，情感 API 可能识别不到情感。
+**答**：使用无遮挡、完整的正面人脸图像可以获取最佳结果。 如果是部分正面人脸，可靠性会下降。如果图像中的人脸旋转角度大于 45 度，情感 API 可能无法识别情感。
 
 -----
 
 **问**：*情感 API 可以识别多少种情感？*
 
-**答**：情感 API 识别八个不同的、全球认可的情感： 
+**答**：情感 API 可以识别 8 种公认的不同情感：
 - 快乐
 - 悲伤
 - 惊讶
 - 愤怒
 - 恐惧
 - 蔑视
-- 厌恶 
-- 中性 
+- 厌恶
+- 中性
 
 -----
 
@@ -48,13 +54,13 @@ ms.locfileid: "23407565"
 
 -----
 
-**问**：*我正在传入二进制图像数据，但出现消息：“人脸图像无效”。**
+**问**：*我正在传入二进制图像数据，但却看到“人脸图像无效”错误消息。**
 
-**答**：这意味着算法在分析图像时出现问题。  
-- 支持的输入图像格式包括 JPEG、PNG、GIF（第一帧）和 BMP。 
-- 图像文件的大小不应超过 4MB
-- 可检测的面部大小范围为 36x36 到 4096x4096 像素。 不会检测超过此范围的人脸
-- 某些人脸可能因技术难题而无法检测，例如非常大的人脸角度（头部姿势），以及较大的阻挡物。 正面和接近正面的人脸可提供最佳效果
+**答**：此消息表明，算法无法分析图像。  
+- 支持的输入图像格式包括 JPEG、PNG、GIF（第一帧）和 BMP
+- 图像文件不得大于 4 MB
+- 可检测的人脸大小范围为 36 x 36 到 4096 x 4096 像素。 无法检测超出此范围的人脸
+- 某些面部可能因技术难题而无法检测，例如非常大的面部角度（头部姿势），以及较大的阻挡物。 正面和接近正面的人脸可提供最佳效果
 
 -----
 

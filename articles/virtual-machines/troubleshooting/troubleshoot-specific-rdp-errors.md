@@ -17,12 +17,12 @@ ms.topic: troubleshooting
 origin.date: 05/11/2018
 ms.date: 10/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: 6dcfb14c904cbd75c26756a05153616f7153e753
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: b1d27eec71c0ee7369d832d166e5eb1b6366e621
+ms.sourcegitcommit: 96b58e881dba2fd02665d806d7c27d770326b0cc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453956"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49652013"
 ---
 # <a name="troubleshooting-specific-rdp-error-messages-to-a-windows-vm-in-azure"></a>排查发送到 Azure 中 Windows VM 的特定 RDP 错误消息
 使用远程桌面连接到 Azure 中的 Windows 虚拟机 (VM) 时，可能会收到特定错误消息。 本文详细介绍遇到的一些更常见的错误消息，以及解决这些错误消息的故障排除步骤。 如果在使用 RDP 连接到 VM 时出现问题，但没有收到特定错误消息，请参阅[远程桌面故障排除指南](troubleshoot-rdp-connection.md)。
@@ -61,9 +61,13 @@ ms.locfileid: "49453956"
         full address:s:tailspin-azdatatier.chinacloudapp.cn:55919
         prompt for credentials:i:1
 
+    <!-- DNS cloudapp.net SHOULD BE chinacloudapp.cn -->
+
 此 RDP 文件的地址部分包含：
 
 * 包含 VM 的云服务的完全限定域名（在本例中为“tailspin-azdatatier.chinacloudapp.cn”）。
+
+<!-- DNS cloudapp.net SHOULD BE chinacloudapp.cn -->
 * 远程桌面流量终结点的外部 TCP 端口 (55919)。
 
 <a name="rdpauth"></a>
@@ -104,10 +108,12 @@ ms.locfileid: "49453956"
 
 每台 Windows 计算机都具有远程桌面用户本地组，包含可以远程登录的帐户和组。 本地 Administrators 组的成员也具有访问权限，即使在远程桌面用户本地组中未列出这些帐户。 对于已加入域的计算机，本地 Administrators 组还包含该域的域管理员。
 
-确保用于连接的帐户具有远程桌面登录权限。 解决方法是使用域管理员或本地管理员帐户通过远程桌面建立连接。 若要将所需帐户添加到远程桌面用户本地组，请使用 Azure 管理控制台管理单元（“系统工具”>“本地用户和组”>“组”>“远程桌面用户”）。
+确保用于连接的帐户具有远程桌面登录权限。 解决方法是使用域管理员或本地管理员帐户通过远程桌面建立连接。 若要将所需帐户添加到远程桌面用户本地组，请使用 Microsoft 管理控制台管理单元（“系统工具”>“本地用户和组”>“组”>“远程桌面用户”）。
 
 ## <a name="next-steps"></a>后续步骤
 如果没有发生这些错误，但在使用 RDP 连接时出现未知问题，请参阅[远程桌面故障排除指南](troubleshoot-rdp-connection.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
 
 * 有关排查访问 VM 上运行的应用程序时遇到的问题的步骤，请参阅 [Troubleshoot access to an application running on an Azure VM](../linux/troubleshoot-app-connection.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)（排查访问 Azure VM 上运行的应用程序时遇到的问题）。
 * 如果在 Azure 中使用 Secure Shell (SSH) 连接到 Linux VM 时遇到问题，请参阅[对 Azure 中到 Linux VM 的 SSH 连接进行故障排除](../linux/troubleshoot-ssh-connection.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
+
+<!--Update_Description: update meta properties, wording update -->

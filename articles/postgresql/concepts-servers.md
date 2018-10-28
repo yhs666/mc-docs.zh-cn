@@ -4,18 +4,17 @@ description: 本文提供配置和管理 Azure Database for PostgreSQL 服务器
 services: postgresql
 author: WenJason
 ms.author: v-jay
-manager: digimobile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-origin.date: 05/22/2018
-ms.date: 08/13/2018
-ms.openlocfilehash: 426222de327d6640ae56959bd623e6aa0bd73644
-ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
+origin.date: 09/27/2018
+ms.date: 10/29/2018
+ms.openlocfilehash: bd65997073e37e34344ddd3fb4c82d7e6fa2d0e3
+ms.sourcegitcommit: 1934f3a6db96e9e069f10bfc0ca47dedb1b25c8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39723001"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49652572"
 ---
 # <a name="azure-database-for-postgresql-servers"></a>Azure Database for PostgreSQL 服务器
 本文提供使用 Azure Database for PostgreSQL 服务器的注意事项和指南。
@@ -57,6 +56,7 @@ PostgreSQL 超级用户属性分配给属于托管服务的 azure_superuser。 �
 Azure Database for PostgreSQL 服务器具有两个默认数据库： 
 - postgres - 可以在创建服务器后连接到的默认数据库。
 - azure_maintenance - 此数据库用于将提供托管服务的进程与用户操作分开。 你无权访问此数据库。
+- azure_sys - 查询存储的一个数据库。 当查询存储处于关闭状态时，此数据库不会累积数据；这是默认设置。 有关详细信息，请参阅[查询存储概述](concepts-query-store.md)。
 
 
 ## <a name="server-parameters"></a>服务器参数

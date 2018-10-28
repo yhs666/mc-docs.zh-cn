@@ -15,20 +15,20 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 09/06/2016
-ms.date: 06/25/2018
+ms.date: 10/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: 6a304fd9943b894131ebf4f2bf10037f5590a20b
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.openlocfilehash: 267cf82a6657e5a88b162d0c2076bd738edb7bbd
+ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315407"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50034937"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>在 Azure 上优化 Linux VM
 通过命令行或门户创建运行 Linux 虚拟机 (VM) 是一项很简单的操作。 本教程说明如何在 Azure 平台上设置 VM 以确保优化其性能。 本主题使用 Ubuntu Server VM，不过也可以[将自己的映像作为模板](create-upload-generic.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)来创建 Linux 虚拟机。  
 
 ## <a name="prerequisites"></a>先决条件
-本主题假设已有一个有效的 Azure 订阅（[注册试用版](https://www.azure.cn/pricing/1rmb-trial/)），并已在 Azure 订阅中预配 VM。 请确保已安装最新的 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) 并使用 [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az-login) 登录到 Azure 订阅，并[创建 VM](quick-create-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
+本主题假设已有一个有效的 Azure 订阅（[注册试用版](https://www.azure.cn/pricing/1rmb-trial/)），并已在 Azure 订阅中预配 VM。 在[创建 VM](quick-create-cli.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 之前，请确保已安装最新的 [Azure CLI](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) 并使用 [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az-login) 登录到 Azure 订阅。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -37,6 +37,7 @@ ms.locfileid: "36315407"
 
 ## <a name="adding-disks-for-size-and-performance-targets"></a>添加磁盘以实现大小和性能目标
 根据 VM 大小，可以分别在 A 系列、D 系列计算机上额外附加最多 16 个、32 个磁盘，每个磁盘最大可为 1 TB。 可以根据空间和 IOps 要求以及自己的需要添加额外的磁盘。 标准存储的每个磁盘的性能目标为 500 IOps，高级存储的每个磁盘的性能目标最高为 5000 IOps。  有关高级存储磁盘的详细信息，请参阅[高级存储：适用于 Azure VM 的高性能存储](../windows/premium-storage.md)
+
 <!--Not Available 64 disks on G-Series -->
 
 对于缓存设置为“ReadOnly”或“None”的高级存储磁盘，必须在 Linux 中装入文件系统时禁用“barrier”（屏障）才能达到最高 IOps。 不需要屏障，因为写入高级存储支持的磁盘对于这些缓存设置是持久的。
@@ -46,7 +47,7 @@ ms.locfileid: "36315407"
 * 如果使用的是 **XFS**，请使用装入选项 `nobarrier` 禁用屏障（若要启用屏障，请使用 `barrier`）
 
 ## <a name="unmanaged-storage-account-considerations"></a>非托管存储帐户注意事项
-使用 Azure CLI 2.0 创建 VM 时的默认操作是使用 Azure 托管磁盘。  这些磁盘由 Azure 平台处理，无需任何准备或位置来存储它们。  非托管磁盘需要存储帐户，且需要进行更多的性能考虑。  有关托管磁盘的详细信息，请参阅 [Azure 托管磁盘概述](../windows/managed-disks-overview.md)。  以下部分概述的性能注意事项仅适用于用户使用非托管磁盘的情况。  同样，默认的和建议的存储解决方案是使用托管磁盘。
+使用 Azure CLI 创建 VM 时的默认操作是使用 Azure 托管磁盘。  这些磁盘由 Azure 平台处理，无需任何准备或位置来存储它们。  非托管磁盘需要存储帐户，且需要进行更多的性能考虑。  有关托管磁盘的详细信息，请参阅 [Azure 托管磁盘概述](../windows/managed-disks-overview.md)。  以下部分概述的性能注意事项仅适用于用户使用非托管磁盘的情况。  同样，默认的和建议的存储解决方案是使用托管磁盘。
 
 如果使用非托管磁盘创建 VM，请务必从区域与 VM 相同的存储帐户附加磁盘，以确保高度邻近性并降低网络延迟。  每个标准存储帐户最多有 20k IOps 和 500 TB 大小的容量。  此限制大约相当于 40 个重度使用的磁盘，包括 OS 磁盘和用户创建的任何数据磁盘。 高级存储帐户没有 IOps 上限，但有 32 TB 的大小限制。 
 
@@ -122,6 +123,7 @@ done
 ```
 
 对于 CentOS 发行版，只需以下命令：   
+
 <!-- Notice: Change RedHat to CentOS-->
 ```bash
 echo 'echo noop >/sys/block/sda/queue/scheduler' >> /etc/rc.local
@@ -139,4 +141,5 @@ echo 'echo noop >/sys/block/sda/queue/scheduler' >> /etc/rc.local
 * [Azure Linux 代理用户指南](../extensions/agent-linux.md)
 * [优化 Azure Linux VM 上的 MySQL 性能](classic/optimize-mysql.md)
 * [在 Linux 上配置软件 RAID](configure-raid.md)
+
 <!-- Update_Description: update meta properties, update link, wording update -->

@@ -2,21 +2,23 @@
 title: Azure SQL 数据库连接和查询快速入门 | Microsoft Docs
 description: 演示如何连接和查询 Azure SQL 数据库的 Azure SQL 数据库快速入门。
 services: sql-database
-author: yunan2016
-manager: digimobile
 ms.service: sql-database
-ms.custom: mvc
+ms.subservice: operations
+ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
+author: WenJason
+ms.author: v-jay
+ms.reviewer: ''
+manager: digimobile
 origin.date: 04/24/2018
-ms.date: 06/18/2018
-ms.author: v-nany
-ms.openlocfilehash: 1fa0b1f0896a8ca69705c515b4e5947115a0fe8f
-ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
+ms.date: 10/29/2018
+ms.openlocfilehash: b127d1a0b3b95c2c365e16faf84db760b2ec64a0
+ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913902"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50135771"
 ---
 # <a name="azure-sql-database-connect-and-query-quickstarts"></a>Azure SQL 数据库连接和查询快速入门
 
@@ -27,7 +29,7 @@ ms.locfileid: "48913902"
 | |  |
 |---|---|
 |[SQL Server Management Studio](sql-database-connect-query-ssms.md)|本快速入门演示了如何使用 SSMS 连接到 Azure SQL 数据库，并使用 Transact-SQL 语句在数据库中查询、插入、更新和删除数据。|
-|[SQL Operations Studio ](https://docs.microsoft.com/sql/sql-operations-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)|此快速入门演示如何使用 SQL Operations Studio（预览版）连接到 Azure SQL 数据库，然后使用 Transact-SQL (T-SQL) 语句创建要在 SQL Operations Studio（预览版）教程中使用的 TutorialDB。|
+|[Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)|此快速入门演示如何使用 Azure Data Studio 连接到 Azure SQL 数据库，然后使用 Transact-SQL (T-SQL) 语句创建在 Azure Data Studio 教程中使用的 TutorialDB。|
 |[Azure 门户](sql-database-connect-query-portal.md)|本快速入门演示了如何使用查询编辑器连接到 SQL 数据库，然后使用 Transact-SQL 语句在数据库中查询、插入、更新和删除数据。|
 |[Visual Studio Code](sql-database-connect-query-vscode.md)|本快速入门演示了如何使用 Visual Studio Code 连接到 Azure SQL 数据库，并使用 Transact-SQL 语句在数据库中查询、插入、更新和删除数据。|
 |[将 .NET 与 Visual Studio 配合使用](sql-database-connect-query-dotnet-visual-studio.md)|此快速入门演示如何使用 .NET framework 与 Visual Studio 来创建连接到 Azure SQL 数据库的 C# 程序，并使用 Transact-SQL 语句来查询数据。|

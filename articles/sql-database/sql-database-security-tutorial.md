@@ -11,12 +11,12 @@ origin.date: 09/27/2018
 ms.date: 10/15/2018
 ms.author: v-jay
 ms.reviewer: vanto
-ms.openlocfilehash: 9ef20527fd5ca3061a37758ccae07ad3fa24bc53
-ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
+ms.openlocfilehash: 8ee670c921b31d046a305d8aafee58af8d3c19c4
+ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913825"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50135871"
 ---
 # <a name="secure-your-azure-sql-database"></a>保护 Azure SQL 数据库
 

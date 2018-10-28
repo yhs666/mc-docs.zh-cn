@@ -1,26 +1,19 @@
 ---
 title: 常见自动缩放模式的概述 | Microsoft Docs
 description: 了解一些可在 Azure 中自动缩放资源的常见模式。
-author: anirudhcavale
-manager: orenr
-editor: ''
+author: lingliw
 services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: d37d3fda-8ef1-477c-a360-a855b418de84
 ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 05/07/2017
-ms.date: 12/11/2017
-ms.author: v-yiso
-ms.openlocfilehash: 53908cba3ef8a32a9540ed4fc14c3aae200ed875
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.date: 10/22/2018
+ms.author: v-lingwu
+ms.openlocfilehash: 030bc8e8d5fe920ef5ae7e9762db4fb90323f0f8
+ms.sourcegitcommit: 32373810af9c9a2210d63f16d46a708028818d5f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
-ms.locfileid: "26045125"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49652211"
 ---
 # <a name="overview-of-common-autoscale-patterns"></a>常见自动缩放模式的概述
 本文介绍一些常见模式，这些模式可在 Azure 中缩放资源。

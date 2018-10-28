@@ -12,14 +12,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: tutorial
 origin.date: 10/11/2017
-ms.date: 05/14/2018
+ms.date: 10/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: 801f8fa57cf19abb9e522833339d11f659904a01
-ms.sourcegitcommit: 6f08b9a457d8e23cf3141b7b80423df6347b6a88
+ms.openlocfilehash: b53418fe6ef3fe7094cd3f625c31423c634acb9c
+ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "34062038"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50034920"
 ---
 # <a name="install-the-elastic-stack-on-an-azure-vm"></a>在 Azure VM 上安装 Elastic Stack
 
@@ -37,7 +37,7 @@ ms.locfileid: "34062038"
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.4 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 
+如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.4 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
@@ -243,4 +243,5 @@ az vm open-port --port 5601 --resource-group myResourceGroup --name myVM
 > * 在 VM 上安装 Elasticsearch、Logstash 和 Kibana
 > * 通过 Logstash 将示例数据发送到 Elasticsearch 
 > * 在 Kibana 控制台中打开端口并处理数据
-<!-- Update_Description: update meta properties, wording update, update link -->
+
+<!-- Update_Description: update meta properties -->

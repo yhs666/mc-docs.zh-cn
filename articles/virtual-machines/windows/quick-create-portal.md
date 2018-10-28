@@ -14,15 +14,15 @@ ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 09/14/2018
-ms.date: 09/24/2018
+ms.date: 10/22/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 2ce8f04ef4446b6c60e9a42c091001c230c9ce9f
-ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
+ms.openlocfilehash: 30e054bb368833d9daa8c8f450b8750307f0d788
+ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46527074"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50034852"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-in-the-azure-portal"></a>快速入门：在 Azure 门户中创建 Windows 虚拟机
 
@@ -72,7 +72,7 @@ ms.locfileid: "46527074"
 
 2. 打开下载的 RDP 文件，然后在出现提示时单击“连接”。 
 
-3. 在“Windows 安全性”窗口中，依次选择“更多选择”、“使用其他帐户”。 以 *vmname*\\*username* 的形式键入用户名，输入为虚拟机创建的密码，然后单击“确定”。
+3. 在“Windows 安全性”窗口中，依次选择“更多选择”、“使用其他帐户”。 以 **localhost**\\*username* 的形式键入用户名，输入为虚拟机创建的密码，然后单击“确定”。
 
 4. 你可能会在登录过程中收到证书警告。 单击“是”或“继续”以创建连接。
 
@@ -103,4 +103,4 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 > [!div class="nextstepaction"]
 > [Azure Windows 虚拟机教程](./tutorial-manage-vm.md)
 
-<!--Update_Description: update meta properties, wording update, update link -->
+<!--Update_Description: update meta properties, wording update -->

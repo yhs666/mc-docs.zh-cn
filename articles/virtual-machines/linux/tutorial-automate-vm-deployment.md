@@ -14,15 +14,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/30/2018
-ms.date: 07/30/2018
+ms.date: 10/22/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 4ede8765a64cd3f4d0c0d3684ffb6c1110f8126b
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.openlocfilehash: 78947faa3c644d3453e6142ec89702285fea8c5e
+ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42871668"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50034964"
 ---
 # <a name="tutorial---how-to-use-cloud-init-to-customize-a-linux-virtual-machine-in-azure-on-first-boot"></a>教程 - 如何在 Azure 中的 Linux 虚拟机首次启动时使用 cloud-init 对其进行自定义
 
@@ -37,7 +37,7 @@ ms.locfileid: "42871668"
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.30 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。
+如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.30 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。
 
 ## <a name="cloud-init-overview"></a>Cloud-init 概述
 [Cloud-init](https://cloudinit.readthedocs.io) 是一种广泛使用的方法，用于在首次启动 Linux VM 时对其进行自定义。 可使用 cloud-init 来安装程序包和写入文件，或者配置用户和安全性。 在初始启动期间运行 cloud-init 时，无需额外的步骤和代理即可应用配置。
@@ -53,12 +53,14 @@ Cloud-init 还支持不同的发行版。 例如，不需使用 apt-get install 
 | CoreOS |CoreOS |CoreOS |Stable |最新 |
 | | OpenLogic | CentOS | 7-CI | 最新 |
 
-<!-- Not Available on | | RedHat | RHEL | 7-RAW-CI | latest-->
+<!-- Not Available on | | RedHat | RHEL | 7-RAW-CI | latest|-->
 
 ## <a name="create-cloud-init-config-file"></a>创建 cloud-init 配置文件
 若要运行 cloud-init，请创建一个 VM，以便安装 NGINX 并运行简单的“Hello World”Node.js 应用。 以下 cloud-init 配置会安装所需的程序包，创建 Node.js 应用，然后初始化并启动该应用。
 
-在当前 shell 中，创建名为“cloud-init.txt”的文件并粘贴下面的配置。 可使用任何想要使用的编辑器。 输入 `sensible-editor cloud-init.txt` 以创建文件并查看可用编辑器的列表。 请确保已正确复制整个 cloud-init 文件，尤其是第一行：<!-- Not Avaialble cloud shell-->
+在当前 shell 中，创建名为“cloud-init.txt”的文件并粘贴下面的配置。 可使用任何想要使用的编辑器。 输入 `sensible-editor cloud-init.txt` 以创建文件并查看可用编辑器的列表。 请确保已正确复制整个 cloud-init 文件，尤其是第一行：
+
+<!-- Not Avaialble cloud shell-->
 
 ```yaml
 #cloud-config
@@ -183,7 +185,9 @@ vm_secret=$(az vm secret format --secret "$secret")
 ### <a name="create-cloud-init-config-to-secure-nginx"></a>创建 cloud-init 配置以保护 NGINX
 创建 VM 时，证书和密钥都将存储在受保护的 /var/lib/waagent/ 目录中。 要将证书自动添加到 VM 并配置 NGINX，可使用上一示例中已更新的 cloud-init 配置。
 
-创建名为“cloud-init-secured.txt”的文件并粘贴下面的配置。 再次使用 `sensible-editor cloud-init-secured.txt` 创建文件并查看可用编辑器的列表。 请确保已正确复制整个 cloud-init 文件，尤其是第一行：<!-- Not Available on Cloud Shell -->
+创建名为“cloud-init-secured.txt”的文件并粘贴下面的配置。 再次使用 `sensible-editor cloud-init-secured.txt` 创建文件并查看可用编辑器的列表。 请确保已正确复制整个 cloud-init 文件，尤其是第一行：
+
+<!-- Not Available on Cloud Shell -->
 
 ```yaml
 #cloud-config

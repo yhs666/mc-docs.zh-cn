@@ -8,14 +8,14 @@ manager: digimobile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-origin.date: 07/21/2018
-ms.date: 08/27/2018
-ms.openlocfilehash: f6290f896423b011a3014733b351811ac9ba8d73
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+origin.date: 10/10/2018
+ms.date: 10/29/2018
+ms.openlocfilehash: e63f05daafcf8c7457c199e4c72010046d3bd812
+ms.sourcegitcommit: 1934f3a6db96e9e069f10bfc0ca47dedb1b25c8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426209"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49652578"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Azure Database for PostgreSQL 定价层
 
@@ -47,7 +47,9 @@ ms.locfileid: "47426209"
 
 | **Azure 区域** | **第 4 代** | **第 5 代** |
 |:---|:----------:|:--------------------:|
+| 中国东部 | X |  |
 | 中国东部 2 |   | X |
+| 中国北部 | X |  |
 | 中国北部 2 |   | X |
 
 ## <a name="storage"></a>存储
@@ -93,4 +95,4 @@ ms.locfileid: "47426209"
 
 - 了解如何[在门户中创建 PostgreSQL 服务器](tutorial-design-database-using-azure-portal.md)。
 - 了解如何[使用 Azure CLI 监视和缩放 Azure Database for PostgreSQL 服务器](scripts/sample-scale-server-up-or-down.md)。
-- 了解[服务限制](concepts-limits.md)。
+- 了解[服务限制](concepts-limits.md)。 

@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 04/01/2017
-ms.date: 06/25/2018
+ms.date: 10/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: 6e25afac4f203d0539cb77532f9304d7a52841a7
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.openlocfilehash: 2d74aadd8736693e3379350b040cfc0311e92927
+ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315486"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50034975"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>规划将 IaaS 资源从经典部署模型迁移到 Azure Resource Manager
 尽管 Azure Resource Manager 提供了大量令人惊叹的功能，但规划好迁移过程以确保一切顺利仍至关重要。 花时间进行规划可确保执行迁移活动时不会遇到问题。 
@@ -124,7 +124,7 @@ ms.locfileid: "36315486"
     - 网络安全组
     - 路由表
 
-    可以通过最新版 Azure CLI 2.0 使用以下命令查看当前的 Azure Resource Manager 配额。
+    可以通过最新版 Azure CLI 使用以下命令查看当前的 Azure 资源管理器配额。
 
     **计算***（核心数、可用性集数）*
 
@@ -173,6 +173,7 @@ ms.locfileid: "36315486"
 ### <a name="patterns-of-success"></a>成功模式
 
 实际迁移前，应考虑和缓解上面的“实验室测试”部分中的技术指南。  通过充分测试，实际上迁移不属于事件。  对于生产环境，具有其他支持（如受信任的 Azure.cn 合作伙伴或 Azure.cn 高级服务等）会很有帮助。
+
 <!-- Convert Microsoft to Azure.cn -->
 
 ### <a name="pitfalls-to-avoid"></a>需避免的错误
@@ -214,4 +215,5 @@ ms.locfileid: "36315486"
 * [用于帮助将 IaaS 资源从经典部署模型迁移到 Azure 资源管理器部署模型的社区工具](../windows/migration-classic-resource-manager-community-tools.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 * [查看最常见的迁移错误](migration-classic-resource-manager-errors.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 * [查看有关将 IaaS 资源从经典部署模型迁移到 Azure 资源管理器部署模型的最常见问题](migration-classic-resource-manager-faq.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+
 <!-- Update_Description: update meta properties, wording update  -->

@@ -1,22 +1,26 @@
 ---
-title: Azure SQL 数据库托管实例审核 | Azure
+title: Azure SQL 数据库托管实例审核 | Microsoft Docs
 description: 了解如何通过 T-SQL 开始使用 Azure SQL 数据库托管实例审核
 services: sql-database
-author: yunan2016
-manager: digimobile
-ms.reviewer: carlrab
 ms.service: sql-database
-ms.custom: security
-ms.topic: article
-origin.date: 03/19/2018
-ms.date: 04/19/2018
-ms.author: v-nany
-ms.openlocfilehash: 9d3a01fceb1842d34634b8b5ede422c5fe1941da
-ms.sourcegitcommit: 2601e68563bffe148e70cce2bf1dcbe837a40f80
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
+f1_keywords:
+- mi.azure.sqlaudit.general.f1
+author: WenJason
+ms.author: v-jay
+ms.reviewer: vanto
+manager: digimobile
+origin.date: 09/20/2018
+ms.date: 10/29/2018
+ms.openlocfilehash: 4f92ad18ef3bf7a1b6d68a0145aebad44f8b4c0f
+ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43249841"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50135867"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>开始使用 Azure SQL 数据库托管实例审核
 
@@ -105,13 +109,13 @@ ms.locfileid: "43249841"
     如果未指定，则 `RETENTION_DAYS` 默认值为 0（无限保留期）。
 
     了解更多信息：
-    - [托管实例、Azure SQL DB 和 SQL Server 之间的审核差异](#subheading-3)
+    - [托管实例、Azure SQL DB 和 SQL Server 之间的审核差异](#auditing-differences-between-managed-instance-azure-sql-database-and-sql-server)
     - [CREATE SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
     - [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
 
 7. 像针对 SQL Server 那样创建一个服务器审核规范或数据库审核规范：
-    - [创建服务器审核规范 T-SQL 指南](https://docs.microsoft.com/ sql/t-sql/statements/create-server-audit-specification-transact-sql)
-    - [创建数据库审核规范 T-SQL 指南](https://docs.microsoft.com/ sql/t-sql/statements/create-database-audit-specification-transact-sql)
+    - [创建服务器审核规范 T-SQL 指南](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-specification-transact-sql)
+    - [创建数据库审核规范 T-SQL 指南](https://docs.microsoft.com/sql/t-sql/statements/create-database-audit-specification-transact-sql)
 
 8. 启用在步骤 6 中创建的服务器审核：
 
@@ -126,7 +130,7 @@ ms.locfileid: "43249841"
 
 - 使用系统函数 `sys.fn_get_audit_file` (T-SQL) 以表格格式返回审核日志数据。 有关使用此函数的详细信息，请参阅 [sys.fn_get_audit_file 文档](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql)。
 
-- 有关审核日志使用方法的完整列表，请参阅 [SQL 数据库审核入门](./sql-database-auditing.md)。
+- 有关审核日志使用方法的完整列表，请参阅 [SQL 数据库审核入门](/sql-database/sql-database-auditing)。
 
 > [!IMPORTANT]
 > 对于托管实例，当前未提供从 Azure 门户查看审核记录的方法（“审核记录”窗格）。

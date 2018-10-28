@@ -7,15 +7,15 @@ ms.service: virtual-machines-linux
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 origin.date: 06/15/2017
-ms.date: 08/27/2018
+ms.date: 10/22/2018
 ms.author: v-yeche
 ms.component: disks
-ms.openlocfilehash: 7aee4bb2c618a21e55158fd4921f2102920f26b8
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.openlocfilehash: 373182b74250b62f18db645f5c9c98c83e9625a5
+ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42871672"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50034883"
 ---
 [!INCLUDE [virtual-machines-managed-disks-overview.md](../../../includes/virtual-machines-managed-disks-overview.md)]
 

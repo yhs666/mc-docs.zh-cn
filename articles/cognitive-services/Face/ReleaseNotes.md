@@ -1,72 +1,77 @@
 ---
-title: 人脸 API 服务发行说明 | Microsoft Docs
+title: 发行说明 - 人脸 API 服务
+titleSuffix: Azure Cognitive Services
 description: 人脸 API 服务的发行说明包括各个版本的版本更改历史记录。
 services: cognitive-services
-author: alexchen2016
-manager: digimobile
+author: SteveMSFT
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: face
-ms.topic: article
-origin.date: 03/17/2017
-ms.date: 10/13/2017
+ms.component: face-api
+ms.topic: conceptual
+origin.date: 03/01/2018
+ms.date: 10/24/2018
 ms.author: v-junlch
-ms.openlocfilehash: 0619e54ea702c6a6f34adca0c88a542ef0804cc3
-ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ms.openlocfilehash: f95578d02953cfb9b83e061a7a6b7568b53b3028
+ms.sourcegitcommit: 44ce337717bb948f5ac08217a156935f663c0f46
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
-ms.locfileid: "23407611"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50034660"
 ---
 # <a name="face-api-release-notes"></a>人脸 API 发行说明
 
-本文适用于 Microsoft 人脸 API 服务版本 1.0。
+本文适用于人脸 API 服务 1.0 版。
 
-### <a name="release-changes-in-may-2017"></a>2017 年 5 月版本更改
+### <a name="release-changes-in-may-2018"></a>2018 年 5 月的发布更改
 
-- **新属性**如果在 `returnFaceAttributes` 中指定了 `hair`、`makeup`、`accessory`、`occlusion`、`blur`、`exposure` 或 `noise`，可以从[人脸 - 检测](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)返回毛发、化妆、附件、光散射、模糊、曝光和噪点属性。
+- 显着改进了 `gender` 属性，还改进了 `age`、`glasses`、`facialHair`、`hair`、`makeup` 属性。 通过[人脸 - 检测](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) `returnFaceAttributes` 参数使用这些属性。 
 
-- **增强**支持在一个人员组中包含 10,000 个人员，[人脸 - 识别](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239)还支持缩放。
+- 在以下部分中将输入图像文件大小限制从 4 MB 增加到了 6 MB：[人脸 - 检测](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)、[FaceList - 添加人脸](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250)、[LargeFaceList - 添加人脸](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3)、[PersonGroup 人员 - 添加人脸](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b)和 [LargePersonGroup人员 - 添加人脸](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42)。
 
-- **列出人员 API**[人员 - 列出人员组中的人员](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395241)中支持使用附加的可选参数 `start` 和 `top` 进行分页。
+### <a name="release-changes-in-march-2018"></a>2018 年 3 月的发布更改
 
-- **增强**添加/删除人脸时，支持针对不同的人脸列表或人员组中的不同人员使用并发性。
+- 添加了百万规模容器：[LargeFaceList](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc) 和 [LargePersonGroup](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d)。 有关更多详细信息，请参阅[如何使用大规模功能](Face-API-How-to-Topics/how-to-use-large-scale.md)。
 
-### <a name="release-changes-in-march-2017"></a>2017 年 3 月版本更改
-- **新属性**如果在 `returnFaceAttributes` 中指定了 `emotion`，可以从[人脸 - 检测](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)返回情感属性。
+- 将[人脸 - 识别](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) `maxNumOfCandidatesReturned` 参数从 [1, 5] 增加到了 [1, 100]，默认为 10。
 
-- **Bug 修复**[人脸列表 - 将人脸添加到人脸列表](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250)和[人员 - 添加人员人脸](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) API 的算法已升级，确保可以使用从[人脸 - 检测](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)返回的矩形将人脸重新检测为 `targetFace`。
+### <a name="release-changes-in-may-2017"></a>2017 年 5 月的发布更改
 
-- **Bug 修复**确保将可检测的人脸大小严格控制在 36x36 到 4096x4096 像素。
+- 在[人脸 - 检测](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) `returnFaceAttributes` 参数中添加了 `hair`、`makeup`、`accessory`、`occlusion`、`blur`、`exposure` 和 `noise` 属性。
 
-### <a name="release-changes-in-november-2016"></a>2016 年 11 月版本更改
-- **人脸存储扩展**：使用人员对象（[人员 - 添加人员人脸](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b)）或人脸列表（[人脸列表 - 将人脸添加到人脸列表](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250)）时，人脸存储允许标准订阅存储更多的保存人脸，以通过人脸 API 进行识别或相似性匹配。 存储的图像按照每 1,000 张人脸 0.5 美元的每日按比例费率收费。 免费层订阅仍旧限制为总共 1,000 个人员。
+- 在 PersonGroup 和[人脸 - 识别](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239)中支持 10K 人员。
+
+- 在带可选参数 `start` 和 `top` 的 [PersonGroup 人员 - 列表](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395241)中支持分页。
+
+- 支持在针对 PersonGroup 中的不同 FaceLists 和不同人员添加/删除人脸时的并发性。
+
+### <a name="release-changes-in-march-2017"></a>2017 年 3 月的发布更改
+- 在[人脸 - 检测](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) `returnFaceAttributes` 参数中添加了 `emotion` 属性。
+
+- 修复了无法使用从[人脸 - 检测](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)返回的矩形重新将人脸检测为 [FaceList - 添加人脸](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250)和 [PersonGroup 人员 - 添加人脸](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b)中的 `targetFace`。
+
+- 修复了可检测的人脸大小，以确保它严格在 36x36 到 4096x4096 像素之间。
+
+### <a name="release-changes-in-november-2016"></a>2016 年 11 月的发布更改
+- 添加了人脸存储标准订阅以在使用 [PersonGroup 人员 - 添加人脸](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b)或 [FaceList - 添加人脸](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250)进行标识或相似性匹配时存储额外的持久性人脸。 
 
 ### <a name="release-changes-in-october-2016"></a>2016 年 10 月版本更改
-- **错误消息更改**：在[人脸列表 - 将人脸添加到人脸列表](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250)和[人员 - 添加人员人脸](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) API 中，与 targetFace 包含多个人脸相关的错误消息（英文版）已从“There are more than 1 face in the image”更改为“There is more than 1 face in the image”。
+- 在 [FaceList - 添加人脸](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250)和 [PersonGroup 人员 - 添加人脸](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b)中将 targetFace 中多个人脸的错误消息从“There are more than one face in the image”更改为“There is more than one face in the image”。
 
-### <a name="release-changes-in-july-2016"></a>2016 年 7 月版本更改
-- **人脸验证 API**：支持“人脸到人员”对象鉴定 - 以前，人脸验证请求仅支持“人脸到人脸”鉴定。 可在此处可以找到更多详细信息：[人脸 - 验证](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a)。
+### <a name="release-changes-in-july-2016"></a>2016 年 7 月的发布更改
+- 支持在[人脸 - 验证](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a)中进行人脸到人员对象身份验证。
 
-- **查找相似人脸 API**：添加了可选模式字段用于选择两种工作模式：默认的 matchPerson 工作方式与以前相同，新模式 matchFace 消除了同人筛选。 如果未指定模式字段，则行为与以前的版本相同。 可在此处可以找到更多详细信息：[人脸 - 查找相似人脸](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237)。
+- 添加了可选的 `mode` 参数，可以选择两种工作模式：[人脸 - 查找相似](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237)中的 `matchPerson` 和 `matchFace`，默认值为 `matchPerson`。
 
-- **人脸识别 API**：为用户启用了一个可选的用户指定 confidenceThreshold，用于定义某个人脸是否属于某个人员对象的置信度阈值。 可在此处可以找到更多详细信息：[人脸 - 识别](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239)。
+- 为用户添加了可选的 `confidenceThreshold` 参数，以设置一个人脸是否属于[人脸 - 识别](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239)中的 Person 对象的阈值。
 
-- **列出人员组**：“列出人员组”中添加了新的可选起点参数和顶部参数，以支持用户在列表中指定起点和人员组总数。 可在此处找到更多详细信息：[人员组 - 列出人员组](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395248)。
+- 在 [PersonGroup - 列表](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395248)中添加了可选的 `start` 和 `top` 参数，使用户能够指定要列出的起点和总 PersonGroup 数。
 
->[!NOTE]
->所有这些更改与最新版的服务兼容，对新添加的参数使用默认值不会导致用户代码发生任何更改。 
+### <a name="v10-changes-from-v0"></a>从 V0 进行的 V1.0 更改
+- 将服务根终结点从 ```https://api.cognitive.azure.cn/face/v0/``` 更改为 ```https://api.cognitive.azure.cn/face/v1.0/```。 更改已应用于：[人脸 - 检测](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)、[人脸 - 识别](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239)、[人脸 - 查找相似](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237)和[人脸 - 组](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238)。
 
-### <a name="v10-changes-from-v0"></a>V1.0 在 V0 基础上的更改
-- **API 签名**：在人脸 API V1.0 中，服务根终结点已从 ```https://api.cognitive.azure.cn/face/v0/``` 更改为 ```https://api.cognitive.azure.cn/face/v1.0/```。 API 发生了多项签名更改，包括：
- - [人脸 - 检测](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
- - [人脸 - 识别](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239)
- - [人脸 - 查找相似人脸](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237)
- - [人脸 - 分组](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238)
+- 将最小可检测人脸大小更新为 36x36 像素。 将不会检测到小于 36x36 像素的人脸。
 
-- **人脸大小**：以前版本的人脸 API 未明确说明 API 可检测到的最小人脸大小。 在 V1.0 中，API 将可检测的最小大小设置为 36x36 像素。 不会检测小于 36x36 像素的人脸。
+- 已弃用人脸 V0 中的 PersonGroup 和 Person 数据。 使用人脸 V1.0 服务无法访问这些数据。
 
-- **保存的数据**：使用人脸 V1.0 服务无法访问在人脸 V0 中设置的现有人员组和人员数据。 这种不兼容问题只会发生这一次，后续的 API 更新不再会影响保存的数据。
-
->[!NOTE]
->*人脸 API 的 V0 终结点已在 2016 年 6 月 30 日停用*。
+- 于 2016 年 6 月 30 日弃用了人脸 API 的 V0 终结点。
 

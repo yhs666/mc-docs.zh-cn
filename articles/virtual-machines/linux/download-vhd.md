@@ -14,20 +14,20 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 06/01/2018
-ms.date: 06/25/2018
+ms.date: 10/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: 1c55b582eaea33009ff46304ec53cc86e2109e2f
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.openlocfilehash: 0c7cfaaebd6f29652137db342f9c0e6675bf9a6c
+ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315648"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50034936"
 ---
 # <a name="download-a-linux-vhd-from-azure"></a>从 Azure 下载 Linux VHD
 
 本文介绍如何使用 Azure CLI 和 Azure 门户从 Azure 下载 [Linux 虚拟硬盘 (VHD)](about-disks-and-vhds.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 文件。 
 
-如果尚未安装 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest)，请安装。
+如果尚未安装 [Azure CLI](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest)，请安装。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -89,6 +89,6 @@ ms.locfileid: "36315648"
 
 ## <a name="next-steps"></a>后续步骤
 
-- 了解如何[使用 Azure CLI 2.0 上传自定义磁盘并从其创建 Linux VM](upload-vhd.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。 
+- 了解如何[通过 Azure CLI 从自定义磁盘上传并创建 Linux VM](upload-vhd.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。 
 - [使用 Azure CLI 管理 Azure 磁盘](tutorial-manage-disks.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
-<!-- Update_Description: update meta properties, update link, wording update -->
+<!-- Update_Description: update meta properties， wording update -->

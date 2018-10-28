@@ -3,8 +3,8 @@ title: 使用 .NET Standard 库从 Azure 事件中心接收事件 | Azure
 description: 使用 .NET Standard 中的 EventProcessorHost 接收消息入门
 services: event-hubs
 documentationcenter: na
-author: rockboyfor
-manager: digimobile
+author: ShubhaVijayasarathy
+manager: timlt
 editor: ''
 ms.assetid: ''
 ms.service: event-hubs
@@ -13,14 +13,14 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/16/2018
-ms.date: 09/17/2018
-ms.author: v-yeche
-ms.openlocfilehash: d405670f4880a2945654b95d95f73d94f2be563e
-ms.sourcegitcommit: 2700f127c3a8740a83fb70739c09bd266f0cc455
+ms.date: 11/05/2018
+ms.author: v-biyu
+ms.openlocfilehash: 6f7e6925597a0a06f0a95823f3b1c47fc1cb485b
+ms.sourcegitcommit: 8a68d9275ddb92ea45601fed96e21559999d9579
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45586596"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50026942"
 ---
 # <a name="get-started-receiving-messages-with-the-event-processor-host-in-net-standard"></a>使用 .NET Standard 中的事件处理程序主机接收消息入门
 
@@ -44,13 +44,18 @@ ms.locfileid: "45586596"
 ## <a name="create-an-azure-storage-account"></a>创建 Azure 存储帐户  
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。  
-2. 在门户的左侧导航窗格中，依次单击“创建资源”、“存储”、“存储帐户”。  
-3. 完成存储帐户窗口中的字段，并单击“创建”。
+2. 在门户的左导航窗格中选择“创建资源”，接着从类别中选择“存储”，然后选择“存储帐户 - Blob、文件、表、队列”。  
+3. 完成“创建存储帐户”窗口中的字段，然后选择“查看 + 创建”。 
 
     ![创建存储帐户][1]
 
-4. 看到“部署成功”消息后，单击新存储帐户名。 在“概要”窗口中单击“Blob”。 “Blob 服务”对话框打开时，单击顶部的“+ 容器”。 为容器指定名称，并关闭“Blob 服务”。  
-5. 单击左侧窗口中的“访问密钥”，复制存储容器、存储帐户的名称和 **key1** 的值。 将这些值保存到记事本或其他临时位置。  
+4. 在“查看 + 创建”页上查看这些字段的值，然后选择“创建”。 
+5. 看到“部署成功”消息后，选择新存储帐户的名称。 
+6. 在“概要”窗口中选择“Blob”。 
+7. 选择顶部的“+ 容器”。 为容器提供一个名称。  
+8. 选择左侧窗口中的“访问密钥”，复制存储容器、存储帐户的名称和 **key1** 的值。 
+
+    将这些值保存到记事本或其他临时位置。
 
 ## <a name="create-a-console-application"></a>创建控制台应用程序
 

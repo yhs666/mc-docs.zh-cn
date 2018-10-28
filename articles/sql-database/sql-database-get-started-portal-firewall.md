@@ -2,20 +2,23 @@
 title: Azure 门户：创建 SQL 数据库防火墙规则 | Microsoft Docs
 description: 创建 SQL 数据库服务器级防火墙规则
 services: sql-database
-author: WenJason
-manager: digimobile
 ms.service: sql-database
-ms.custom: mvc,DBs & servers
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: quickstart
+author: WenJason
+ms.author: v-jay
+ms.reviewer: vanto, carlrab
+manager: digimobile
 origin.date: 09/06/2018
-ms.date: 10/15/2018
-ms.author: sachinp
-ms.openlocfilehash: 05a0eac4fd5e3bfa2ed0761066e9d65f826aa1bd
-ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
+ms.date: 10/29/2018
+ms.openlocfilehash: 209d6460f3729dcd4bbe048d4360b708561760c7
+ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48914098"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50135724"
 ---
 # <a name="create-a-server-level-firewall-rule-for-your-sql-database-using-the-azure-portal"></a>使用 Azure 门户为 SQL 数据库创建服务器级防火墙规则
 
@@ -71,7 +74,7 @@ SQL 数据库服务在服务器级别创建一个防火墙。除非创建了防�
 
 - 有了数据库以后，即可使用一种偏好的工具或语言进行[连接和查询](sql-database-connect-query.md)，包括
   - [使用 SQL Server Management Studio 连接和查询](sql-database-connect-query-ssms.md)
-  - [使用 SQL Server Operations Studio 连接和查询](https://docs.microsoft.com/sql/sql-operations-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
+  - [使用 Azure Data Studio 连接和查询](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
 - 若要了解如何设计第一个数据库、创建表和插入数据，请参阅以下教程之一：
  - [使用 SSMS 设计第一个 Azure SQL 数据库](sql-database-design-first-database.md)
  - [设计 Azure SQL 数据库，并使用 C# 和 ADO.NET 进行连接](sql-database-design-first-database-csharp.md)

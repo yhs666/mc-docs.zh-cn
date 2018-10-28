@@ -10,13 +10,13 @@ ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
 origin.date: 03/20/2018
-ms.date: 10/01/2018
-ms.openlocfilehash: 1c68f4f4115ec098b5577ae10bee62b47556455d
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.date: 10/29/2018
+ms.openlocfilehash: 80bbfa5e161453695a93094a66f39a44808f5a29
+ms.sourcegitcommit: 1934f3a6db96e9e069f10bfc0ca47dedb1b25c8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426342"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49652579"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-in-the-azure-portal"></a>快速入门：在 Azure 门户中创建 Azure Database for PostgreSQL 服务器
 
@@ -79,17 +79,10 @@ ms.locfileid: "47426342"
 
 3. 在“防火墙规则”下的“规则名称”列中选择空白文本框，开始创建防火墙规则。 
 
-    本快速入门允许所有 IP 地址连接到服务器。 在每个列的文本框中填充以下值：
+   在文本框中填写将访问服务器的客户端的名称，以及起始和结束 IP 范围。 如果它是单个 IP，请为起始 IP 和结束 IP 使用相同的值。
 
-    规则名称 | 起始 IP | 结束 IP 
-    ---|---|---
-    AllowAllIps | 0.0.0.0 | 255.255.255.255
-
-     ![设置防火墙规则](./media/quickstart-create-database-portal/5-firewall-2.png)
+   ![设置防火墙规则](./media/quickstart-create-database-portal/5-firewall-2.png)
      
-      > [!NOTE]
-      > 对于生产实例，只能将防火墙规则设置为接受已知 IP 地址的传入请求。  这些设置仅作示例用。
-      >
 
 4. 在“连接安全性”页的上部工具栏中，选择“保存”。 等到指示连接安全性更新已成功完成的通知出现后，再继续操作。
 

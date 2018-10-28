@@ -2,21 +2,23 @@
 title: 创建、管理 Azure SQL 服务器和单一数据库 | Microsoft Docs
 description: 了解如何创建和管理逻辑服务器和单一数据库。
 services: sql-database
-author: WenJason
-manager: digimobile
 ms.service: sql-database
 ms.subservice: single-database
-ms.custom: DBs & servers
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-origin.date: 09/07/2018
-ms.date: 10/15/2018
+author: WenJason
 ms.author: v-jay
-ms.openlocfilehash: a3a9679891a6652155c61eae4e34d5f50e8457f4
-ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
+ms.reviewer: ''
+manager: digimobile
+origin.date: 09/20/2018
+ms.date: 10/29/2018
+ms.openlocfilehash: 15ae559dd99bc6a7f27f7c15302bcefab142c4b4
+ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913876"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50135811"
 ---
 # <a name="create-and-manage-logical-servers-and-single-databases-in-azure-sql-database"></a>在 Azure SQL 数据库中创建和管理逻辑服务器和单一数据库 
 
@@ -89,25 +91,25 @@ ms.locfileid: "48913876"
 
 | Cmdlet | 说明 |
 | --- | --- |
-|[az sql db create](/cli/sql/db#az_sql_db_create) |创建数据库|
-|[az sql db list](/cli/sql/db#az_sql_db_list)|列出某台服务器中的所有数据库和数据仓库，或者列出弹性池中的所有数据库|
-|[az sql db list-editions](/cli/sql/db#az_sql_db_list_editions)|列出可用的服务目标和存储限制|
-|[az sql db list-usages](/cli/sql/db#az_sql_db_list_usages)|返回数据库使用情况|
-|[az sql db show](/cli/sql/db#az_sql_db_show)|获取数据库或数据仓库|
-|[az sql db update](/cli/sql/db#az_sql_db_update)|更新数据库|
-|[az sql db delete](/cli/sql/db#az_sql_db_delete)|删除数据库|
-|[az group create](/cli/group#az_group_create)|创建资源组|
-|[az sql server create](/cli/sql/server#az_sql_server_create)|创建服务器|
-|[az sql server list](/cli/sql/server#az_sql_server_list)|列出服务器|
-|[az sql server list-usages](/cli/sql/server#az_sql_server_list_usages)|返回服务器使用情况|
-|[az sql server show](/cli/sql/server#az_sql_server_show)|获取服务器|
-|[az sql server update](/cli/sql/server#az_sql_server_update)|更新服务器|
-|[az sql server delete](/cli/sql/server#az_sql_server_delete)|删除服务器|
-|[az sql server firewall-rule create](/cli/sql/server/firewall-rule#az_sql_server_firewall_rule_create)|配置服务器防火墙规则|
-|[az sql server firewall-rule list](/cli/sql/server/firewall-rule#az_sql_server_firewall_rule_list)|列出服务器上的防火墙规则|
-|[az sql server firewall-rule show](/cli/sql/server/firewall-rule#az_sql_server_firewall_rule_show)|显示防火墙规则的详细信息|
-|[az sql server firewall-rule update](/cli/sql/server/firewall-rule##az_sql_server_firewall_rule_update)|更新防火墙规则|
-|[az sql server firewall-rule delete](/cli/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|删除防火墙规则。|
+|[az sql db create](/cli/sql/db#az-sql-db-create) |创建数据库|
+|[az sql db list](/cli/sql/db#az-sql-db-list)|列出某台服务器中的所有数据库和数据仓库，或者列出弹性池中的所有数据库|
+|[az sql db list-editions](/cli/sql/db#az-sql-db-list-editions)|列出可用的服务目标和存储限制|
+|[az sql db list-usages](/cli/sql/db#az-sql-db-list-usages)|返回数据库使用情况|
+|[az sql db show](/cli/sql/db#az-sql-db-show)|获取数据库或数据仓库|
+|[az sql db update](/cli/sql/db#az-sql-db-update)|更新数据库|
+|[az sql db delete](/cli/sql/db#az-sql-db-delete)|删除数据库|
+|[az group create](/cli/group#az-group-create)|创建资源组|
+|[az sql server create](/cli/sql/server#az-sql-server-create)|创建服务器|
+|[az sql server list](/cli/sql/server#az-sql-server-list)|列出服务器|
+|[az sql server list-usages](/cli/sql/server#az-sql-server-list-usages)|返回服务器使用情况|
+|[az sql server show](/cli/sql/server#az-sql-server-show)|获取服务器|
+|[az sql server update](/cli/sql/server#az-sql-server-update)|更新服务器|
+|[az sql server delete](/cli/sql/server#az-sql-server-delete)|删除服务器|
+|[az sql server firewall-rule create](/cli/sql/server/firewall-rule#az-sql-server-firewall-rule-create)|配置服务器防火墙规则|
+|[az sql server firewall-rule list](/cli/sql/server/firewall-rule#az-sql-server-firewall-rule-list)|列出服务器上的防火墙规则|
+|[az sql server firewall-rule show](/cli/sql/server/firewall-rule#az-sql-server-firewall-rule-show)|显示防火墙规则的详细信息|
+|[az sql server firewall-rule update](/cli/sql/server/firewall-rule##az-sql-server-firewall-rule-update)|更新防火墙规则|
+|[az sql server firewall-rule delete](/cli/sql/server/firewall-rule#az-sql-server-firewall-rule-delete)|删除防火墙规则。|
 
 ## <a name="transact-sql-manage-logical-servers-and-databases"></a>Transact-SQL：管理逻辑服务器和数据库
 

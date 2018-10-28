@@ -3,8 +3,8 @@ title: 使用 Visual Studio 对 Windows 排查 Docker 客户端错误 | Microsof
 description: 在 Windows 上通过使用 Visual Studio 2017 排查在使用 Visual Studio 创建 Web 应用并将其部署到 Docker 时遇到的问题。
 services: azure-container-service
 documentationcenter: na
-author: alexchen2016
-manager: digimobile
+author: lingliw
+manager: douge
 editor: ''
 ms.assetid: 346f70b9-7b52-4688-a8e8-8f53869618d3
 ms.service: multiple
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 origin.date: 10/13/2017
-ms.date: 12/05/2017
-ms.author: v-junlch
-ms.openlocfilehash: 6fbcdad030cb1b0fc5b03051380ac4148f7cb2e0
-ms.sourcegitcommit: 9498b3eb101709c74f34c512aace59d540bdd969
+ms.date: 10/22/2018
+ms.author: v-lingwu
+ms.openlocfilehash: e066866624d7b96ac262887015e05852f8cc7814
+ms.sourcegitcommit: 32373810af9c9a2210d63f16d46a708028818d5f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2017
-ms.locfileid: "26352293"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49652215"
 ---
 # <a name="troubleshoot-visual-studio-2017-development-with-docker"></a>排查使用 Docker 进行的 Visual Studio 2017 开发
 
@@ -34,9 +34,13 @@ ms.locfileid: "26352293"
 1. 选择“共享驱动器”，并共享系统驱动器和项目所在的驱动器。
 
 > [!NOTE]
-> 如果文件显示“已共享”，可能仍需要单击对话框底部的“重置凭据...”链接，以便重新启用卷共享。
+> 如果文件显示“已共享”，可能仍需要单击对话框底部的“重置凭据...”链接，以便重新启用卷共享。 若要在重置凭据后继续，可能必须重启 Visual Studio。
 
 ![共享驱动器](./media/vs-azure-tools-docker-troubleshooting-docker-errors/shareddrives.png)
+
+## <a name="mounts-denied"></a>装载被拒绝
+
+使用 Docker for macOS 时，可能会遇到引用文件夹 /usr/local/share/dotnet/sdk/NuGetFallbackFolder 错误。 将文件夹添加到 Docker 中的“文件共享”选项卡。
 
 ## <a name="unable-to-start-debugging"></a>无法开始调试
 

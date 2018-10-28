@@ -3,7 +3,7 @@ title: 使用 Azure 网络观察程序管理数据包捕获 - Azure CLI | Azure
 description: 此页说明如何使用 Azure CLI 管理网络观察程序的数据包捕获功能
 services: network-watcher
 documentationcenter: na
-author: rockboyfor
+author: lingliw
 manager: digimobile
 editor: ''
 ms.assetid: cb0c1d10-f7f2-4c34-b08c-f73452430be8
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/22/2017
-ms.date: 08/13/2018
-ms.author: v-yeche
-ms.openlocfilehash: 60b39c87cd30fe4ba37e403321686ff420945f6a
-ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
+ms.date: 10/22/2018
+ms.author: v-lingwu
+ms.openlocfilehash: 5e0398bc33a563398dab46c16150bd30d24dbe56
+ms.sourcegitcommit: 32373810af9c9a2210d63f16d46a708028818d5f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41704583"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49652247"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-azure-cli"></a>通过 Azure CLI 使用 Azure 网络观察程序管理数据包捕获
 
@@ -34,7 +34,6 @@ ms.locfileid: "41704583"
 
 本文使用资源管理部署模型的新一代 CLI (Azure CLI 2.0)，其适用于 Windows、Mac 和 Linux。
 
-若要执行本文中的步骤，需要[安装适用于 Mac、Linux 和 Windows 的 Azure 命令行接口 (Azure CLI)](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest)。
 
 本文将引导完成当前可用于数据包捕获的不同管理任务。
 
@@ -231,7 +230,7 @@ az network watcher packet-capture delete --name packetCaptureName --location chi
 
 ## <a name="download-a-packet-capture"></a>下载数据包捕获
 
-完成数据包捕获会话后，可以将捕获文件上传到 blob 存储或 VM 上的本地文件。 数据包捕获的存储位置是在创建会话时定义的。 用于访问这些保存到存储帐户的捕获文件的便利工具是 Azure 存储资源管理器，下载地址为：http://storageexplorer.com/
+完成数据包捕获会话后，可以将捕获文件上传到 blob 存储或 VM 上的本地文件。 数据包捕获的存储位置是在创建会话时定义的。 用于访问这些保存到存储帐户的捕获文件的便利工具是 Azure 存储资源管理器，下载地址为： http://storageexplorer.com/
 
 如果指定了存储帐户，则数据包捕获文件将保存到以下位置的存储帐户：
 

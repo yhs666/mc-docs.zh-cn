@@ -1,6 +1,6 @@
 ---
 title: 教程 - 使用 Azure CLI 管理 Azure 磁盘 | Azure
-description: 本教程介绍如何使用 Azure CLI 2.0 为虚拟机创建和管理 Azure 磁盘
+description: 本教程介绍如何使用 Azure CLI 为虚拟机创建和管理 Azure 磁盘
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: rockboyfor
@@ -14,17 +14,17 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/30/2018
-ms.date: 07/30/2018
+ms.date: 10/22/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 1aa075151441d172008d4e96cb2222a066f749db
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.openlocfilehash: 30094f5d717d120d3930fd2a6e32222461c743a2
+ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426278"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50034882"
 ---
-# <a name="tutorial---manage-azure-disks-with-the-azure-cli-20"></a>教程 - 使用 Azure CLI 2.0 管理 Azure 磁盘
+# <a name="tutorial---manage-azure-disks-with-the-azure-cli"></a>教程 - 使用 Azure CLI 管理 Azure 磁盘
 
 Azure 虚拟机 (VM) 使用磁盘来存储操作系统、应用程序和数据。 创建 VM 时，请务必选择适用于所需工作负荷的磁盘大小和配置。 本教程演示如何部署和管理 VM 磁盘。 学习内容：
 
@@ -37,9 +37,8 @@ Azure 虚拟机 (VM) 使用磁盘来存储操作系统、应用程序和数据�
 > * 调整磁盘大小
 > * 磁盘快照
 
-[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.30 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。
+如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.30 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。
 
 ## <a name="default-azure-disks"></a>默认 Azure 磁盘
 
@@ -51,22 +50,15 @@ Azure 虚拟机 (VM) 使用磁盘来存储操作系统、应用程序和数据�
 
 ### <a name="temporary-disk-sizes"></a>临时磁盘大小
 
-<!--Pending on B series, E series -->
-
 | 类型 | 常见大小 | 临时磁盘大小上限 (GiB) |
 |----|----|----|
 | [常规用途](sizes-general.md) | A、B、D 系列 | 1600 |
 | [计算优化](sizes-compute.md) | F 系列 | 576 |
 | [内存优化](sizes-memory.md) | D、E 和 M 系列 | 6144 |
-
-<!--Pending on E series -->
+| [GPU](sizes-gpu.md) | N 系列 | 1440 |
 
 <!-- Not Available on G series-->
-
 <!-- Not Available on | [Storage optimized](sizes-storage.md) | L series | 5630 |-->
-
-<!-- Not Available on | [GPU](sizes-gpu.md) | N series | 1440 |-->
-
 <!-- Not Available on | [High performance](sizes-hpc.md) | A and H series | 2000 |-->
 
 ## <a name="azure-data-disks"></a>Azure 数据磁盘
@@ -75,20 +67,14 @@ Azure 虚拟机 (VM) 使用磁盘来存储操作系统、应用程序和数据�
 
 ### <a name="max-data-disks-per-vm"></a>每个 VM 的最大数据磁盘数
 
-<!--Pending on E series -->
-
 | 类型 | VM 大小 | 每个 VM 的最大数据磁盘数 |
 |----|----|----|
 | [常规用途](sizes-general.md) | A、B、D 系列 | 64 |
 | [计算优化](sizes-compute.md) | F 系列 | 64 |
 | [内存优化](../virtual-machines-windows-sizes-memory.md) | D 和 E 系列 | 64 |
-
-<!--Pending on E series -->
+| [GPU](sizes-gpu.md) | N 系列 | 64 |
 
 <!-- Not Available on | [Storage optimized](../virtual-machines-windows-sizes-storage.md) | L series | 64 |-->
-
-<!-- Not Available on | [GPU](sizes-gpu.md) | N series | 64 |-->
-
 <!-- Not Available on | [High performance](sizes-hpc.md) | A and H series | 64 |-->
 
 ## <a name="vm-disk-types"></a>VM 磁盘类型
@@ -118,6 +104,8 @@ Azure 提供两种类型的磁盘。
 ## <a name="create-and-attach-disks"></a>创建并附加磁盘
 
 可创建磁盘，并将其附加到新建 VM 或现有 VM。
+
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ### <a name="attach-disk-at-vm-creation"></a>在 VM 创建时附加磁盘
 
@@ -337,4 +325,4 @@ az vm disk attach -g myResourceGroupDisk --vm-name myVM --disk $datadisk
 > [!div class="nextstepaction"]
 > [自动配置 VM](./tutorial-automate-vm-deployment.md)
 
-<!--Update_Description: update meta properties, update link -->
+<!--Update_Description: update meta properties, update link, wording update -->

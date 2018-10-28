@@ -1,19 +1,19 @@
 ---
 title: Azure Monitor PowerShell 快速启动示例
 description: 使用 PowerShell 访问 Azure Monitor 功能，例如自动缩放、警报、webhook 和搜索活动日志。
-author: rboucher
-services: azure-monitor
-ms.service: azure-monitor
+author: lingliw
+services: monitoring-and-diagnostics
+ms.service: monitoring-and-diagnostics
 ms.topic: conceptual
 origin.date: 02/14/2018
-ms.author: v-yiso
-ms.date: 09/17/2018
-ms.openlocfilehash: 93cefb830c1744020805ea06f531879b77c428ef
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.date: 10/22/2018
+ms.author: v-lingwu
+ms.openlocfilehash: c6b18f395de6efcfe66b802a952a5a14f9fb16be
+ms.sourcegitcommit: 32373810af9c9a2210d63f16d46a708028818d5f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068038"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49652219"
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Azure Monitor PowerShell 快速启动示例
 本文说明可帮助访问 Azure Monitor 功能的示例 PowerShell 命令。
@@ -200,12 +200,12 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 
 ```PowerShell
 
-$condition1 = New-AzureRmActivityLogAlertCondition -Field 'category' -Equals 'Administrative'
-$condition2 = New-AzureRmActivityLogAlertCondition -Field 'operationName' -Equals 'Microsoft.Compute/virtualMachines/write'
+$condition1 = New-AzureRmActivityLogAlertCondition -Field 'category' -Equal 'Administrative'
+$condition2 = New-AzureRmActivityLogAlertCondition -Field 'operationName' -Equal 'Microsoft.Compute/virtualMachines/write'
 $additionalWebhookProperties = New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]"
 $additionalWebhookProperties.Add('customProperty', 'someValue')
-$actionGrp1 = New-AzureRmActionGroup -ActionGroupId 'actiongr1' -WebhookProperties $dict
-Set-AzureRmActivityLogAlert -Location 'Global' -Name 'alert on VM create' -ResourceGroupName 'myResourceGroup' -Scope '/' -Action $actionGrp1 -Condition $condition1, $condition2
+$actionGrp1 = New-AzureRmActionGroup -ActionGroupId '/subscriptions/<subid>/providers/Microsoft.Insights/actiongr1' -WebhookProperty $additionalWebhookProperties
+Set-AzureRmActivityLogAlert -Location 'Global' -Name 'alert on VM create' -ResourceGroupName 'myResourceGroup' -Scope '/subscriptions/<subid>' -Action $actionGrp1 -Condition $condition1, $condition2
 
 ```
 
@@ -316,7 +316,7 @@ Remove-AzureRmLogProfile -name my_log_profile_s1
 ```
 
 ### <a name="add-a-log-profile-with-data-retention"></a>添加有数据保留期的日志配置文件
-可以用天数将 **-RetentionInDays** 属性指定为一个正整数，将保留其中的数据。
+可以用天数将 **-RetentionInDays** 属性指定为一个正整数，会在此期间保留数据。
 
 ```PowerShell
 Add-AzureRmLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -Locations global,westus,eastus,northeurope,westeurope,eastasia,southeastasia,japaneast,japanwest,northcentralus,southcentralus,eastus2,centralus,australiaeast,australiasoutheast,brazilsouth,centralindia,southindia,westindia -RetentionInDays 90

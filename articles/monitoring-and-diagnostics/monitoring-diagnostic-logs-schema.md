@@ -1,20 +1,20 @@
 ---
 title: Azure 诊断日志支持的服务和架构
 description: 了解 Azure 诊断日志支持的服务和事件架构。
-author: johnkemnetz
-services: azure-monitor
-ms.service: azure-monitor
+author: lingliw
+services: monitoring-and-diagnostics
+ms.service: monitoring-and-diagnostics
 ms.topic: reference
-origin.date: 08/21/2018
+origin.date: 10/11/2018
 ms.date: 10/22/2018
-ms.author: v-yiso
+ms.author: v-lingwu
 ms.component: logs
-ms.openlocfilehash: 2561c3295fd8f4f0d8da9ade640c24b243c4b097
-ms.sourcegitcommit: 8a5722b85c6eabbd28473d792716ad44aac3ff23
+ms.openlocfilehash: 5b5c086d70c1a522808d47724e9e3ab8c340b29c
+ms.sourcegitcommit: 32373810af9c9a2210d63f16d46a708028818d5f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49121551"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49652251"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Azure 诊断日志支持的服务、架构和类别
 
@@ -54,6 +54,8 @@ ms.locfileid: "49121551"
 | 应用程序网关 |[应用程序网关的诊断日志记录](../application-gateway/application-gateway-diagnostics.md) |
 | Azure 自动化 |[适用于 Azure 自动化的 Log Analytics](../automation/automation-manage-send-joblogs-log-analytics.md) |
 | Azure Batch |[Azure Batch 诊断日志记录](../batch/batch-diagnostics.md) |
+| Azure Database for MySQL | [Azure Database for MySQL 诊断日志](../mysql/concepts-server-logs.md#diagnostic-logs) |
+| Azure Database for PostgreSQL | [Azure Database for PostgreSQL 诊断日志](../postgresql/concepts-server-logs.md#diagnostic-logs) |
 | 认知服务 | 架构不可用。 |
 | CosmosDB | [Azure Cosmos DB 日志记录](../cosmos-db/logging.md) |
 | 适用于 PostgreSQL 的 DB |  架构不可用。 |
@@ -87,6 +89,7 @@ ms.locfileid: "49121551"
 |Microsoft.ClassicNetwork/networksecuritygroups|网络安全组规则流事件|网络安全组规则流事件|
 |Microsoft.CognitiveServices/accounts|审核|审核|
 |Microsoft.CustomerInsights/hubs|AuditEvents|AuditEvents|
+|Microsoft.DBforMySQL/servers|MySqlSlowLogs|MySQL 慢查询日志|
 |Microsoft.DBforPostgreSQL/servers|PostgreSQLLogs|PostgreSQL 服务器日志|
 |Microsoft.Devices/IotHubs|连接|连接|
 |Microsoft.Devices/IotHubs|DeviceTelemetry|设备遥测|

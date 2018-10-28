@@ -16,12 +16,12 @@ ms.topic: troubleshooting
 origin.date: 05/11/2018
 ms.date: 10/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: 84b54ea2ff18040af2d1c94a347e7fdc004ab28a
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: 8fbceea353d876d710df25c682e048764c0ecd49
+ms.sourcegitcommit: 96b58e881dba2fd02665d806d7c27d770326b0cc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453962"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49652012"
 ---
 # <a name="troubleshoot-deploying-linux-virtual-machine-issues-in-azure"></a>排查 Azure 中的 Linux 虚拟机部署问题
 
@@ -55,10 +55,7 @@ productPesIds="1234, 5678"
     - 在不同的可用性集（位于同一区域）中创建 VM。
     - 将新 VM 添加到同一虚拟网络。
 
-## <a name="how-do-i-activate-my-monthly-credit-for-visual-studio-enterprise-bizspark"></a>如何为 Visual Studio Enterprise (BizSpark) 激活月度信用额度
-
-若要激活月度信用额度，请参阅这篇[文章](https://www.azure.cn/pricing/1rmb-trial-full)。
-
+<!--Not Available on BizSpart, GPU, N-Series VB -->
 ## <a name="why-can-i-not-install-the-gpu-driver-for-an-ubuntu-nv-vm"></a>为什么我无法为 Ubuntu NV VM 安装 GPU 驱动程序？
 
 目前，仅在运行 Ubuntu Server 16.04 LTS 的 Azure NC VM 上提供 Linux GPU 支持。 有关详细信息，请参阅[在运行 Linux 的 N 系列 VM 上安装 GPU 驱动程序](../linux/n-series-driver-setup.md)。
@@ -99,3 +96,5 @@ productPesIds="1234, 5678"
 如果对本文中的任何观点存在疑问，可以联系 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/)上的 Azure 专家。
 
 或者，也可以提出 Azure 支持事件。 请转到 [Azure 支持站点](https://www.azure.cn/support/contact/)并选择 **获取支持**。
+
+<!--Update_Description: wording update, update link  -->

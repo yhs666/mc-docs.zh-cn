@@ -1,48 +1,42 @@
 ---
-title: 情感 API 概述 | Microsoft Docs
-description: 借助认知服务中的情感 API，使用 Microsoft 前沿的基于云的情感识别算法来生成更具个性化的应用。
+title: 什么是情感 API？
+titlesuffix: Azure Cognitive Services
+description: 使用基于云的情感识别算法生成更具人性化的应用。
 services: cognitive-services
-author: alexchen2016
-manager: digimobile
+author: anrothMSFT
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: emotion
-ms.topic: article
+ms.component: emotion-api
+ms.topic: overview
 origin.date: 02/06/2017
-ms.date: 10/13/2017
+ms.date: 10/25/2018
 ms.author: v-junlch
-ms.openlocfilehash: 4d45ce7f09130b13fffb69375f9c8bd7671b9c21
-ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ROBOTS: NOINDEX
+ms.openlocfilehash: 0828d2a5ad7d9744a2dfb991824ef191e812a52a
+ms.sourcegitcommit: 44ce337717bb948f5ac08217a156935f663c0f46
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
-ms.locfileid: "23407572"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50034659"
 ---
-# <a name="emotion-api"></a>情感 API
+# <a name="what-is-the-emotion-api"></a>什么是情感 API？
 
-欢迎使用 Microsoft 情感 API，它可以让你借助 Microsoft 前沿的基于云的情感识别算法生成更具个性化的应用。
+> [!IMPORTANT]
+> 情感 API 将于 2019 年 2 月 15 日弃用。 情感识别功能现在已作为[人脸 API](/cognitive-services/face/) 的一部分正式发布。 
+
+欢迎使用 Microsoft 情感 API，这允许使用 Microsoft 的基于云的情感识别算法来构建更加个性化的应用。
 
 ### <a name="emotion-recognition"></a>情感识别
 
-情感 API beta 版使用图像作为输入，通过人脸 API 针对图像中的每张人脸返回情感集的检测置信度以及人脸的范围框。 检测到的情感包括快乐、悲伤、意外、愤怒、恐惧、蔑视、厌恶或中性。 这些情感通过相同的基本面部表情在各种文化环境中全球传递，然后由情感 API 识别。 
-
-**解释结果：** 
-
-解释情感 API 生成的结果时，应该将检测到的情感解释为具有最高评分的情感，因为规范化后的评分累加为 1。 用户可以根据需要，在其应用程序中设置较高的置信度阈值。 
-
-有关情感检测的详细信息，请参阅“API 参考”： 
-  - 基本：如果用户已调用人脸 API，则可以提交人脸矩形作为输入，并使用基本层。 [API 参考](https://dev.cognitive.azure.cn/docs/services/5639d931ca73072154c1ce89/operations/56f23eb019845524ec61c4d7)
-  - 标准：如果用户未提交人脸矩形，则应使用标准模式。  [API 参考](https://dev.cognitive.azure.cn/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa)
-
-### <a name="emotion-in-video"></a>视频中的情感
-
-视频情感 API 使用视频作为输入，针对一段时间内图像中的人脸组返回情感集的检测置信度。 检测到的情感包括快乐、悲伤、惊讶、愤怒、恐惧、蔑视、厌恶或中性。 这些情感通过相同的基本面部表情在各种文化环境中全球传递，然后由情感 API 识别。
+情感 API beta 版采用图像作为输入，并返回图像中的每张脸与一组情感对应的置信度，以及来自人脸 API 的面部边界框。 可检测到的情感包括快乐、悲伤、惊讶、愤怒、恐惧、轻蔑、厌恶或中性。 这些情感通过相同的基本面部表情（可由情感 API 识别）以跨文化的通用方式进行沟通。
 
 **解释结果：**
 
-视频情感 API 针对帧中人脸的情感提供两种类型的聚合结果。 API 首先计算视频中每张人脸的情感评分，将一段时间内的结果平滑化，以提高准确性。 它返回两种类型的聚合：*windowMeanScores* 提供在帧中检测到的所有人脸的每种情感的平均评分。 应该将检测到的情感解释为具有最高评分的情感，因为规范化后的评分累加为 1。 用户可以根据需要，在其应用程序中设置较高的置信度阈值。 *windowFaceDistribution* 提供作为主导情感的每种情感所在人脸的分布。 每张人脸的主导情感已根据该人脸的最高分情感确定。 
+解释情感 API 生成的结果时，应该将检测到的情感解释为具有最高评分的情感，因为规范化后的评分累加为 1。 用户可以根据其需求在应用程序中设置一个更高的置信度阈值。
 
-由于情感会随着时间的变化而变得平缓，因此，如果曾经生成了一个视觉对象用于将结果层叠在原始视频的顶层，请从提供的时间戳中减去 250 毫秒。 
+有关情感检测的详细信息，请参阅 API 参考：
+  - 基本：如果用户已调用人脸 API，则可以提交人脸矩形作为输入，并使用基本层。 [API 参考](https://dev.cognitive.azure.cn/docs/services/5639d931ca73072154c1ce89/operations/56f23eb019845524ec61c4d7)
+  - 标准：如果用户未提交人脸矩形，则应使用标准模式。  [API 参考](https://dev.cognitive.azure.cn/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa)
 
-有关如何分析视频情感 API 结果格式的详细信息，另请查看<link to Glossary from Video API>。有关视频中情感检测的更详细信息，请参阅 [API 参考](https://dev.cognitive.azure.cn/docs/services/5639d931ca73072154c1ce89)。
-
+有关如何使用情感 API 解释流式处理视频的示例，请参阅[如何实时分析视频](/cognitive-services/emotion/emotion-api-how-to-topics/howtoanalyzevideo_emotion)。
 

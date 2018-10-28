@@ -97,8 +97,10 @@ items:
     items:
     - name: 托管磁盘
       href: managed-disks-overview.md
-    - name: 高级存储
+    - name: 高级 SSD
       href: premium-storage.md
+    - name: 标准 SSD
+      href: disks-standard-ssd.md
     - name: 高级存储性能
       href: premium-storage-performance.md
     - name: 标准存储
@@ -113,6 +115,8 @@ items:
     href: infrastructure-automation.md
   - name: 安全和策略
     href: security-policy.md
+  - name: 状态和生命周期
+    href: states-lifecycle.md
   - name: 监视
     href: monitor.md
   - name: 备份和恢复
@@ -239,6 +243,14 @@ items:
       href: manage-availability.md
   - name: 使用自动化工具
     items:
+    - name: Ansible
+      items:
+      - name: 安装和配置
+        href: ansible-install-configure.md
+      - name: 创建 Linux VM
+        href: ansible-create-vm.md
+      - name: 管理 Linux VM
+        href: ansible-manage-linux-vm.md
     - name: Terraform
       items:
       - name: 安装和配置
@@ -374,46 +386,7 @@ items:
       - name: 常见问题
         href: migration-classic-resource-manager-faq.md
   - name: 故障排除
-    items:
-    - name: SSH 连接
-      href: troubleshoot-ssh-connection.md
-      items:
-      - name: 详细故障排除步骤
-        href: detailed-troubleshoot-ssh-connection.md
-    - name: 重置 Linux VM 密码
-      href: reset-password.md
-    - name: 了解系统重启
-      href: understand-vm-reboot.md
-    - name: 启动诊断
-      href: boot-diagnostics.md
-    - name: 对应用程序的访问
-      href: troubleshoot-app-connection.md
-    - name: 分配失败
-      href: allocation-failure.md
-    - name: 分配失败 - 经典 VM
-      href: allocation-failure-classic.md
-    - name: 部署问题
-      href: troubleshoot-deploy-vm.md
-    - name: 创建 VM
-      href: troubleshoot-deployment-new-vm.md
-    - name: 设备名称已更改
-      href: troubleshoot-device-names-problems.md
-    - name: 将 VM 重新部署到新的 Azure 节点
-      href: redeploy-to-new-node.md
-    - name: 常见错误消息
-      href: error-messages.md
-    - name: VM 恢复访问
-      items:
-      - name: Azure CLI
-        href: troubleshoot-recovery-disks.md
-      - name: Azure 门户
-        href: troubleshoot-recovery-disks-portal.md
-    - name: 附加的 VHD
-      items:
-      - name: 存储资源删除错误
-        href: storage-resource-deletion-errors.md
-      - name: 附加 VHD 的 VM 意外重新启动
-        href: unexpected-reboots-attached-vhds.md
+    href: ../troubleshooting/index.md
 - name: 参考
   items:
   - name: Azure CLI
@@ -442,9 +415,9 @@ items:
     href: https://www.azure.cn/video-center/
   - name: 常见问题
     href: faq.md
-ms.openlocfilehash: 385270c5da43e11df60ac2d1b6b62e07f836427a
-ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
+ms.openlocfilehash: 18864c3b10cb2498c26620f40e41d96b9d4ab243
+ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46527121"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50034881"

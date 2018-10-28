@@ -2,24 +2,27 @@
 title: Azure SQL 数据库 - 读取副本中的查询 | Microsoft Docs
 description: Azure SQL 数据库允许使用只读副本的容量（称为“读取横向扩展”）对只读的工作负荷进行负载均衡。
 services: sql-database
-author: WenJason
-manager: digimobile
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: scale-out
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-origin.date: 09/14/2018
-ms.date: 10/15/2018
+author: WenJason
 ms.author: v-jay
-ms.openlocfilehash: 19ca4262b8dc019a2326abd72319b917050a528b
-ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
+ms.reviewer: carlrab
+manager: digimobile
+origin.date: 10/15/2018
+ms.date: 10/29/2018
+ms.openlocfilehash: 6f6768ed04e356fb6262f8a4f30d9bded77630e2
+ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913969"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50135846"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>使用只读副本对只读的查询工作负荷进行负载均衡（预览版）
 
-**读取横向扩展**允许使用只读副本的容量对 Azure SQL 数据库只读工作负荷进行负载均衡。 
+“读取扩展”允许使用一个只读副本的容量对 Azure SQL 数据库只读工作负荷进行负载均衡。
 
 ## <a name="overview-of-read-scale-out"></a>读取横向扩展的概述
 
@@ -40,11 +43,10 @@ ms.locfileid: "48913969"
 
 ## <a name="data-consistency"></a>数据一致性
 
-Always ON 的优势之一是，副本始终处于事务一致状态，但在不同的时间点，不同的副本之间可能存在较小的延迟。 读取横向扩展支持会话级一致性。 这意味着，如果只读会话在由于副本不可用而出现连接错误后重新连接，可以使用读写副本将其重定向到并非完全处于最新状态的副本。 同样，如果应用程序使用读写会话写入数据，并立即使用只读会话读取该数据，则最新的更新可能不会立即可见。 这是因为，对副本执行的事务日志重做是异步进行的。
+副本的优势之一是，它始终处于事务一致性状态，但在不同的时间点，不同的副本之间可能会有一些较小的延迟。 读取横向扩展支持会话级一致性。 这意味着，如果只读会话在由于副本不可用而出现连接错误后重新连接，可以使用读写副本将其重定向到并非完全处于最新状态的副本。 同样，如果应用程序使用读写会话写入数据，并立即使用只读会话读取该数据，则最新的更新可能不会立即可见。 这是因为，对副本执行的事务日志重做是异步进行的。
 
 > [!NOTE]
 > 区域中的复制延迟较低，且这种情况很少见。
-
 
 ## <a name="connecting-to-a-read-only-replica"></a>连接到只读副本
 
@@ -66,14 +68,14 @@ Server=tcp:<server>.database.chinacloudapi.cn;Database=<mydatabase>;User ID=<myL
 
 可通过运行以下查询来验证是否连接到只读副本。 连接到只读副本时，它将返回 READ_ONLY。
 
-
 ```SQL
 SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability')
 ```
+
 > [!NOTE]
 > 在任何给定时间，ReadOnly 会话只能访问一个 AlwaysON 副本。
 
-## <a name="enable-and-disable-read-scale-out-using-azure-powershell"></a>使用 Azure PowerShell 启用和禁用读取横向扩展
+### <a name="enable-and-disable-read-scale-out-using-azure-powershell"></a>使用 Azure PowerShell 启用和禁用读取横向扩展
 
 在 Azure PowerShell 中管理读取横向扩展需要安装 Azure PowerShell 2016 年 12 月版或更高版本。 有关最新的 PowerShell 版本，请参阅 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。
 
@@ -97,7 +99,7 @@ Set-AzureRmSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserve
 New-AzureRmSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Enabled -Edition Premium
 ```
 
-## <a name="enabling-and-disabling-read-scale-out-using-the-azure-sql-database-rest-api"></a>使用 Azure SQL 数据库 REST API 启用和禁用读取横向扩展
+### <a name="enabling-and-disabling-read-scale-out-using-the-azure-sql-database-rest-api"></a>使用 Azure SQL 数据库 REST API 启用和禁用读取横向扩展
 
 若要创建已启用读取横向扩展的数据库，或者要为现有数据库启用或禁用读取横向扩展，请按以下示例请求中所示，在 `readScale` 属性设置为 `Enabled` 或 `Disabled` 的情况下，创建或更新相应的数据库实体。
 
@@ -110,7 +112,7 @@ Body:
    {
       "readScale":"Enabled"
    }
-} 
+}
 ```
 
 有关详细信息，请参阅[数据库 - 创建或更新](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)。
@@ -120,8 +122,7 @@ Body:
 如果正在使用读取扩展在异地复制数据库（例如，作为故障转移组成员的数据库）上对只读工作负荷进行负载均衡操作，请确保主数据库和异地复制辅助数据库上都启用了读取扩展。 这可确保应用程序在故障转移后连接到新的主数据库时，具有相同的负载均衡效果。 如果要连接到启用了读取扩展的异地复制辅助数据库，则设置为 `ApplicationIntent=ReadOnly` 的会话将路由到其中一个副本，就像我们在主数据库上路由连接一样。  而未设为 `ApplicationIntent=ReadOnly` 的会话将路由到异地复制辅助数据库的主要副本，该副本也为只读。 由于异地复制辅助数据库的终结点与主数据库不同，因此之前访问辅助数据库不需要设置 `ApplicationIntent=ReadOnly`。 为确保后向兼容性，`sys.geo_replication_links` DMV 显示`secondary_allow_connections=2`（允许的任何客户端连接）。
 
 > [!NOTE]
-> 在预览期间，我们不会在辅助数据库的本地副本之间执行轮循机制或任何其他负载均衡路由。 
-
+> 在预览期间，不支持在辅助数据库的本地副本之间执行轮循机制或任何其他负载均衡路由。
 
 ## <a name="next-steps"></a>后续步骤
 

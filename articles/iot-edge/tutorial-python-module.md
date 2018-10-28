@@ -4,17 +4,18 @@ description: 本教程介绍如何使用 Python 代码创建 IoT Edge 模块并�
 services: iot-edge
 author: shizn
 manager: timlt
-ms.author: xshi
-ms.date: 06/26/2018
+ms.author: v-yiso
+origin.date: 09/21/2018
+ms.date: 11/05/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 6cf3a721dfd601fc4d4beb122f56b4a4de5fe426
-ms.sourcegitcommit: bae4e9e500e3e988ef8fa0371777ca9cc49b4e94
+ms.openlocfilehash: e3e15a905dccf7fc9d2b1c5a39db716e68309810
+ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45584916"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50135790"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-to-your-simulated-device"></a>教程：开发 Python IoT Edge 模块并将其部署到模拟设备
 
@@ -62,7 +63,7 @@ Azure IoT Edge 设备：
 
 1. 在 [Azure 门户](https://portal.azure.com)中，选择“创建资源” > “容器” > “Azure 容器注册表”。
 2. 为注册表提供一个名称，选择一个订阅，选择一个资源组，然后将 SKU 设置为“基本”。 
-3. 选择**创建**。
+3. 选择“创建” 。
 4. 创建容器注册表后，请浏览到其中，然后选择“访问密钥”。 
 5. 将“管理员用户”切换到“启用”。
 6. 复制“登录服务器”、“用户名”和“密码”的值。 本教程后面会用到这些值。 

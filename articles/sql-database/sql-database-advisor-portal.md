@@ -2,20 +2,23 @@
 title: 应用性能建议 - Azure SQL 数据库 | Microsoft Docs
 description: 可以使用 Azure 门户查找可优化 Azure SQL 数据库性能的性能建议。
 services: sql-database
-author: WenJason
-manager: digimobile
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: performance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-origin.date: 04/01/2018
-ms.date: 10/15/2018
+author: WenJason
 ms.author: v-jay
-ms.openlocfilehash: 94825a57a14c6ffbb889b7c10cb4326bf6c72986
-ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
+ms.reviewer: carlrab
+manager: digimobile
+origin.date: 04/01/2018
+ms.date: 10/29/2018
+ms.openlocfilehash: 69e4de813755c94e61b93c8349abf98d60e8fa4b
+ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48914015"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50135833"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>查找并应用性能建议
 
@@ -103,7 +106,7 @@ Azure SQL 数据库允许通过以下三个选项之一完全控制建议的启�
     ![建议的索引](./media/sql-database-automatic-tuning-enable/server.png)
 
 > [!NOTE]
-> 请注意，此时 **DROP_INDEX** 选项与使用分区切换和索引提示的应用程序不兼容，并且不应在这些情况下打开。
+> 请注意，**DROP_INDEX** 选项当前与使用分区切换和索引提示的应用程序不兼容。 
 >
 
 选择所需配置后，请单击“应用”。

@@ -16,12 +16,12 @@ ms.topic: troubleshooting
 origin.date: 05/11/2018
 ms.date: 10/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: a5d0091e4e78a4d6d39bfa2dc7797e8a9fa42284
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: 71f3dad06435e1d13bcc3896a8054fdae5f3d198
+ms.sourcegitcommit: 96b58e881dba2fd02665d806d7c27d770326b0cc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453993"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49652008"
 ---
 # <a name="troubleshoot-deploying-windows-virtual-machine-issues-in-azure"></a>排查 Azure 中的 Windows 虚拟机部署问题
 
@@ -55,10 +55,7 @@ productPesIds="1234, 5678"
     - 在不同的可用性集（位于同一区域）中创建 VM。
     - 将新 VM 添加到同一虚拟网络。
 
-## <a name="how-can-i-use-and-deploy-a-windows-client-image-into-azure"></a>如何使用 Windows 客户端映像并将其部署到 Azure？
-
-如果有相应的 Visual Studio（以前为 MSDN）订阅，可以在 Azure 中使用 Windows 7、Windows 8 或 Windows 10 开展开发/测试方案。 [本文](../windows/client-images.md)概述在 Azure 中运行 Windows 客户端和使用 Azure 库映像所要满足的条件。
-
+<!--Not Available ## How can I use and deploy a windows client image into Azure?-->
 ## <a name="how-can-i-deploy-a-virtual-machine-using-the-hybrid-use-benefit-hub"></a>如何使用混合使用权益 (HUB) 部署虚拟机？
 
 有多种不同方法可使用 Azure 混合使用权益部署 Windows 虚拟机。
@@ -81,14 +78,8 @@ productPesIds="1234, 5678"
 
  - [如何在 Azure 中使用混合使用权益](https://blogs.msdn.microsoft.com/azureedu/2016/04/13/how-can-i-use-the-hybrid-use-benefit-in-azure)
 
-## <a name="how-do-i-activate-my-monthly-credit-for-visual-studio-enterprise-bizspark"></a>如何激活 Visual Studio Enterprise (BizSpark) 的每月信用额度
-
-若要激活每月信用额度，请参阅此[文章](https://www.azure.cn/pricing/1rmb-trial-full)。
-
-## <a name="how-to-add-enterprise-devtest-to-my-enterprise-agreement-ea-to-get-access-to-window-client-images"></a>如何将企业开发/测试添加到我的企业协议 (EA) 以访问 Windows 客户端映像？
-
-只有被企业管理员授予了根据企业开发/测试套餐创建订阅权限的帐户所有者才能这样做。 帐户所有者通过 Azure 帐户门户创建订阅，并应随后将活跃 Visual Studio 订阅者作为联合管理员进行添加， 以便他们能够管理和使用开发及测试所需的资源。 有关详细信息，请参阅[企业开发/测试](https://www.azure.cn/pricing/1rmb-trial-full)。
-
+<!--Not Available ## How do I activate my monthly credit for Visual studio Enterprise (BizSpark)-->
+<!--Not Available ## How to add Enterprise Dev/Test to my Enterprise Agreement (EA) to get access to Window client images?-->
 ## <a name="my-drivers-are-missing-for-my-windows-n-series-vm"></a>我的 Windows N 系列 VM 缺少驱动程序
 
 基于 Windows 的 VM 的驱动程序位于[此处](../windows/n-series-driver-setup.md)。
@@ -99,18 +90,10 @@ productPesIds="1234, 5678"
 
 ## <a name="is-n-series-vms-available-in-my-region"></a>我所在的区域是否支持 N 系列 VM？
 
-可以从[可用产品(按区域)](https://www.azure.cn/support/service-dashboard/services) 以及[此处](https://www.azure.cn/pricing/details/virtual-machines/series/#n-series)的定价来查看可用性。
+有关可用性，可以参阅[可用产品（按区域）表](https://www.azure.cn/zh-cn/home/features/products-by-region)；有关定价，可以单击[此处](https://www.azure.cn/pricing/details/virtual-machines/)。
 
-## <a name="what-client-images-can-i-use-and-deploy-in-azure-and-how-to-i-get-them"></a>可以在 Azure 中使用和部署哪些客户端映像，以及如何获取它们？
-
-如果有相应的 Visual Studio（以前为 MSDN）订阅，可以在 Azure 中使用 Windows 7、Windows 8 或 Windows 10 开展开发/测试方案。 
-
-- Azure 库的[符合条件的开发/测试产品/服务](../windows/client-images.md#eligible-offers)中提供了 Windows 10 映像。 
-- 属于任一产品类型的 Visual Studio 订户也可以[适当地准备和创建](../windows/prepare-for-upload-vhd-image.md) 64 位 Windows 7、Windows 8 或 Windows 10 映像，并[上载到 Azure](../windows/upload-generalized-managed.md)。 仅限有效的 Visual Studio 订户用于开发/测试目的。
-
-[本文](../windows/client-images.md)概述在 Azure 中运行 Windows 客户端和使用 Azure 库映像所要满足的条件。
-
-## <a name="i-am-not-able-to-see-vm-size-family-that-i-want-when-resizing-my-vm"></a>在调整 VM 的大小时，我看不到我需要的 VM 大小系列。
+<!--Not Available ## What client images can I use and deploy in Azure, and how to I get them?-->
+## <a name="i-am-not-able-to-see-vm-size-family-that-i-want-when-resizing-my-vm"></a>重设 VM 大小时，我看不到所需的 VM 大小系列。
 
 当 VM 正在运行时，将其部署到物理服务器。 Azure 区域中的物理服务器被分在常见物理硬件群集组中。 需要将 VM 移到其他硬件群集才能重设 VM 大小，具体操作因部署 VM 所用部署模型而异。
 
@@ -130,3 +113,5 @@ productPesIds="1234, 5678"
 如果对本文中的任何观点存在疑问，可以联系 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/)上的 Azure 专家。
 
 或者，也可以提出 Azure 支持事件。 请转到 [Azure 支持站点](https://www.azure.cn/support/contact/)并选择 **获取支持**。
+
+<!--Update_Description: update link, update meta properties, wording update -->

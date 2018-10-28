@@ -2,27 +2,23 @@
 title: CLI 示例 - 移动 Azure SQL 数据库 - SQL 弹性池 | Microsoft Docs
 description: 在 SQL 弹性池中移动 SQL 数据库的 Azure CLI 示例脚本
 services: sql-database
-documentationcenter: sql-database
-author: WenJason
-manager: digimobile
-editor: carlrab
-tags: azure-service-management
-ms.assetid: ''
 ms.service: sql-database
-ms.custom: monitor & tune, mvc
+ms.subservice: data-movement
+ms.custom: ''
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: sql-database
-ms.workload: database
-origin.date: 09/14/2018
-ms.date: 10/15/2018
+author: WenJason
 ms.author: v-jay
-ms.openlocfilehash: 5b65af8121ff86717b1b73e040f3de7cf544d0f4
-ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
+ms.reviewer: ''
+manager: digimobile
+origin.date: 09/20/2018
+ms.date: 10/29/2018
+ms.openlocfilehash: 5fda81efba9380a7f93984f72e4e3d7aec3df700
+ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913795"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50135877"
 ---
 # <a name="use-cli-to-move-an-azure-sql-database-in-a-sql-elastic-pool"></a>使用 CLI 在 SQL 弹性池中移动 Azure SQL 数据库
 
@@ -108,12 +104,12 @@ az group delete --name myResourceGroup
 
 | 命令 | 注释 |
 |---|---|
-| [az group create](https://docs.azure.cn/cli/group#az_group_create) | 创建用于存储所有资源的资源组。 |
-| [az sql server create](https://docs.azure.cn/cli/sql/server#az_sql_server_create) | 创建用于托管数据库或弹性池的逻辑服务器。 |
-| [az sql elastic-pools create](https://docs.azure.cn/cli/sql/elastic-pool#az_sql_elastic_pool_create) | 在逻辑服务器中创建弹性池。 |
-| [az sql db create](https://docs.azure.cn/cli/sql/db#az_sql_db_create) | 在逻辑服务器中创建数据库作为单一数据库或入池数据库。 |
-| [az sql db update](https://docs.azure.cn/cli/sql/db#az_sql_db_update) | 更新数据库属性，或者将数据库移入、移出弹性池或在弹性池之间移动。 |
-| [az group delete](https://docs.azure.cn/cli/vm/extension#az_vm_extension_set) | 删除资源组，包括所有嵌套的资源。 |
+| [az group create](/cli/group#az-group-create) | 创建用于存储所有资源的资源组。 |
+| [az sql server create](/cli/sql/server#az-sql-server-create) | 创建用于托管数据库或弹性池的逻辑服务器。 |
+| [az sql elastic-pools create](/cli/sql/elastic-pool#az-sql-elastic-pool-create) | 在逻辑服务器中创建弹性池。 |
+| [az sql db create](/cli/sql/db#az-sql-db-create) | 在逻辑服务器中创建数据库作为单一数据库或入池数据库。 |
+| [az sql db update](/cli/sql/db#az-sql-db-update) | 更新数据库属性，或者将数据库移入、移出弹性池或在弹性池之间移动。 |
+| [az group delete](/cli/vm/extension#az-vm-extension-set) | 删除资源组，包括所有嵌套的资源。 |
 
 ## <a name="next-steps"></a>后续步骤
 

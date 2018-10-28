@@ -3,8 +3,8 @@ title: 诊断虚拟机网络流量筛选器问题 - 快速入门 - Azure CLI | A
 description: 本快速入门介绍了如何使用 Azure 网络观察程序的 IP 流验证功能来诊断虚拟机网络流量筛选器问题。
 services: network-watcher
 documentationcenter: network-watcher
-author: rockboyfor
-manager: digimobile
+author: lingliw
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 Customer intent: I need to diagnose a virtual machine (VM) network traffic filter problem that prevents communication to and from a VM.
@@ -15,15 +15,15 @@ ms.topic: quickstart
 ms.tgt_pltfrm: network-watcher
 ms.workload: infrastructure
 origin.date: 04/20/2018
-ms.date: 07/02/2018
-ms.author: v-yeche
+ms.date: 10/19/2018
+ms.author: v-lingli
 ms.custom: mvc
-ms.openlocfilehash: 5cafb8784d2a6642dd6822cb67ca951b2fe37727
-ms.sourcegitcommit: 039d75a641edc2edd13a9371251051c20fea2bb7
+ms.openlocfilehash: 320a1d73a516d7105d56c8489cddee77138153c8
+ms.sourcegitcommit: 32373810af9c9a2210d63f16d46a708028818d5f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103593"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49652220"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem---azure-cli"></a>快速入门：诊断虚拟机网络流量筛选器问题 - Azure CLI
 

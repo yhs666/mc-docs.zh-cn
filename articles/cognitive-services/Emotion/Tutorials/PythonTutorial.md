@@ -1,36 +1,41 @@
 ---
-title: 情感 API Python 教程 | Microsoft Docs
-description: 使用 Jupyter Notebook 了解如何将认知服务情感 API 与 Python 配合使用。 使用流行库可视化结果。
+title: 教程：识别图像中人脸的情感 - 情感 API、Python
+titlesuffix: Azure Cognitive Services
+description: 使用 Jupyter Notebook 了解如何通过 Python 使用情感 API。 使用流行库可视化结果。
 services: cognitive-services
-author: alexchen2016
-manager: digimobile
+author: anrothMSFT
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: emotion
-ms.topic: article
+ms.component: emotion-api
+ms.topic: tutorial
 origin.date: 05/23/2017
-ms.date: 10/13/2017
+ms.date: 10/25/2018
 ms.author: v-junlch
-ms.openlocfilehash: 14c0708993bd0b770618969ee4d579e48614efdb
-ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ROBOTS: NOINDEX
+ms.openlocfilehash: 560f7d228928d0fdceba999db5087d9515f394d2
+ms.sourcegitcommit: 44ce337717bb948f5ac08217a156935f663c0f46
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
-ms.locfileid: "23407568"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50034661"
 ---
-# <a name="emotion-api-using-python-tutorial"></a>使用 Python 的情感 API 教程
+# <a name="tutorial-use-the-emotion-api-with-a-jupyter-notebook--python"></a>教程：通过 Jupyter Notebook 和 Python 使用情感 API。
 
-为了让你轻松开始使用情感 API，下面链接的 Jupyter Notebook 演示了如何在 Python 中使用 API，以及如何使用某些流行库可视化结果。 
+> [!IMPORTANT]
+> 情感 API 将于 2019 年 2 月 15 日弃用。 情感识别功能现在已作为[人脸 API](/cognitive-services/face/) 的一部分正式发布。 
+
+为了让你轻松开始使用情感 API，下面链接的 Jupyter Notebook 演示了如何在 Python 中使用 API，以及如何使用某些流行库可视化结果。
 
 [链接到 GitHub 中的 Notebook](https://github.com/Microsoft/Cognitive-Emotion-Python/blob/master/Jupyter%20Notebook/Emotion%20Analysis%20Example.ipynb)
 
 ### <a name="using-the-jupyter-notebook"></a>使用 Jupyter Notebook
 
-若要以交互方式使用 Notebook，需要克隆并在 Jupyter 中运行 Notebook。 若要了解如何开始使用交互式 Jupyter Notebook，请遵照 http://jupyter.readthedocs.org/en/latest/install.html 上的说明。 
+若要以交互方式使用 Notebook，需要克隆并在 Jupyter 中运行 Notebook。 若要了解如何开始使用交互式 Jupyter 笔记本，请遵循 http://jupyter.readthedocs.org/en/latest/install.html 上的说明。
 
 若要使用此 Notebook，需要情感 API 的订阅密钥。 可以转到 [Azure 门户](https://portal.azure.cn)，并使用情感 API 创建一个认知服务来获取订阅密钥。 
 
 ```
-Python Example 
+Python Example
 
 #Variables
 

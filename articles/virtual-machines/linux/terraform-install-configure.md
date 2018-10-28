@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 06/19/2018
-ms.date: 08/27/2018
+ms.date: 10/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: 63f686828b76d8c61e824db2c24ae3b682f05201
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.openlocfilehash: 1b7ee98ab491e93b523d81c43f9a2c210eab0ac9
+ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42872133"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50034927"
 ---
 # <a name="install-and-configure-terraform-to-provision-vms-and-other-infrastructure-into-azure"></a>安装和配置 Terraform 以在 Azure 中预配 VM 和其他基础结构
 
@@ -65,17 +65,17 @@ az account set --subscription="${SUBSCRIPTION_ID}"
 az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/${SUBSCRIPTION_ID}"
 ```
 
-将返回 appId、password、sp_name 和 tenant。 记下 *appId* 和 *password*。
+会返回你的 `appId`、`password`、`sp_name` 和 `tenant`。 记下 `appId` 和 `password`。
 
 ## <a name="configure-terraform-environment-variables"></a>配置 Terraform 环境变量
 
 若要配置 Terraform 以使用 Azure AD 服务主体，请设置以下环境变量，然后由 [Azure Terraform 模块](https://registry.terraform.io/modules/Azure)使用这些环境变量。 如果使用的是 Azure 云而不是 Azure 公共域，则还可设置环境。
 
-- ARM_SUBSCRIPTION_ID
-- ARM_CLIENT_ID
-- ARM_CLIENT_SECRET
-- ARM_TENANT_ID
-- ARM_ENVIRONMENT
+- `ARM_SUBSCRIPTION_ID`
+- `ARM_CLIENT_ID`
+- `ARM_CLIENT_SECRET`
+- `ARM_TENANT_ID`
+- `ARM_ENVIRONMENT`
 
 可以使用以下示例 shell 脚本设置这些变量：
 
@@ -153,4 +153,5 @@ azurerm_resource_group.rg: Creation complete after 1s
 
 > [!div class="nextstepaction"]
 > [使用 Terraform 创建 Azure VM](terraform-create-complete-vm.md)
-<!-- Update_Description: update meta properties, update link -->
+
+<!-- Update_Description: update meta properties, update link, wording update -->

@@ -1,6 +1,6 @@
 ---
 title: 在 Azure 中扩展 Linux VM 上的虚拟硬盘 | Azure
-description: 了解如何使用 Azure CLI 2.0 在 Linux VM 上扩展虚拟硬盘
+description: 了解如何使用 Azure CLI 在 Linux VM 上扩展虚拟硬盘
 services: virtual-machines-linux
 documentationcenter: ''
 author: rockboyfor
@@ -13,23 +13,24 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 12/13/2017
-ms.date: 08/27/2018
+ms.date: 10/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: 95db2fd57e1ea05ea1fe2d396903c6862b6a0b6a
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.openlocfilehash: 71fd23d8398fe277f68b9901bfed94ff9b51ba2b
+ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42872377"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50034973"
 ---
 # <a name="how-to-expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>如何使用 Azure CLI 扩展 Linux VM 上的虚拟硬盘
-在 Azure 的 Linux 虚拟机 (VM) 上，操作系统 (OS) 的默认虚拟硬盘大小通常为 30 GB。 可通过[添加数据磁盘](add-disk.md)来扩充存储空间，但也可能想要扩展现有的数据磁盘。 本文详述如何使用 Azure CLI 2.0 扩展 Linux VM 的托管磁盘。 
+
+在 Azure 的 Linux 虚拟机 (VM) 上，操作系统 (OS) 的默认虚拟硬盘大小通常为 30 GB。 可通过[添加数据磁盘](add-disk.md)来扩充存储空间，但也可能想要扩展现有的数据磁盘。 本文详述如何使用 Azure CLI 扩展 Linux VM 的托管磁盘。 
 
 > [!WARNING]
 > 执行磁盘重设大小操作前请务必确保已备份数据。 有关详细信息，请参阅[在 Azure 中备份 Linux VM](tutorial-backup-vms.md)。
 
 ## <a name="expand-azure-managed-disk"></a>扩展 Azure 托管磁盘
-确保已安装了最新的 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) 并已使用 [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az-login) 登录到 Azure 帐户。
+确保已安装了最新的 [Azure CLI](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) 并已使用 [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az-login) 登录到 Azure 帐户。
 
 本文需要 Azure 中的现有 VM 已附加至少一个数据磁盘并且该磁盘已准备就绪。 如果尚无可用的 VM，请参阅[使用数据磁盘创建和准备 VM](tutorial-manage-disks.md#create-and-attach-disks)。
 
@@ -151,4 +152,5 @@ ms.locfileid: "42872377"
 
 ## <a name="next-steps"></a>后续步骤
 如需更多存储，也可[向 Linux VM 添加数据磁盘](add-disk.md)。 有关磁盘加密的详细信息，请参阅[使用 Azure CLI 加密 Linux VM 上的磁盘](encrypt-disks.md)。
+
 <!--Update_Description: update meta properties  -->

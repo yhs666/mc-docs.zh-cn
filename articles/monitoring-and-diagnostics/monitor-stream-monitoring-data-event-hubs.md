@@ -2,18 +2,18 @@
 title: 将 Azure 监视数据流式传输到事件中心
 description: 了解如何将所有 Azure 监视数据流式传输到事件中心，以将数据获取到合作伙伴 SIEM 或分析工具。
 author: johnkemnetz
-services: azure-monitor
-ms.service: azure-monitor
+services: monitoring-and-diagnostics
+ms.service: monitoring-and-diagnostics
 ms.topic: conceptual
-origin.date: 08/21/2018
-ms.author: v-yiso
+origin.date: 08/21/201
 ms.date: 10/22/2018
-ms.openlocfilehash: efac4bbee2fb76fd7be7eb749f0dda1415c0a63d
-ms.sourcegitcommit: 8a5722b85c6eabbd28473d792716ad44aac3ff23
+ms.author: v-linglwu
+ms.openlocfilehash: 7f5b01f6f289c0f18afe023ff62cac801150e76e
+ms.sourcegitcommit: 32373810af9c9a2210d63f16d46a708028818d5f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49121545"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49652248"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>将 Azure 监视数据流式传输到事件中心以便外部工具使用
 
@@ -73,7 +73,7 @@ Azure 资源将发出两种类型的监视数据：
 使用资源诊断设置将两种类型的数据发送到事件中心。 [按照本指南](./monitoring-stream-diagnostic-logs-to-event-hubs.md)在特定资源上设置资源诊断设置。 在要从其收集日志的每个资源上设置资源诊断设置。
 
 > [!TIP]
-> 可使用 Azure Policy，[在策略规则中使用 DeployIfNotExists 效果](../azure-policy/policy-definition.md#policy-rule)，确保特定范围内的每个资源始终设置了诊断设置。 DeployIfNotExists 现仅支持内置策略。
+> 可使用 Azure Policy，[在策略规则中使用 DeployIfNotExists 效果](../governance/policy/concepts/definition-structure.md#policy-rule)，确保特定范围内的每个资源始终设置了诊断设置。
 
 ## <a name="guest-os-data"></a>来宾 OS 数据
 

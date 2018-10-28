@@ -15,6 +15,38 @@ items:
     href: event-hubs-quickstart-cli.md
   - name: 创建事件中心 - Azure PowerShell
     href: event-hubs-quickstart-powershell.md
+  - name: 将事件发送到事件中心
+    items:
+    - name: .NET framework
+      href: event-hubs-dotnet-framework-getstarted-send.md
+    - name: .NET Standard
+      href: event-hubs-dotnet-standard-getstarted-send.md
+    - name: Java
+      href: event-hubs-java-get-started-send.md
+    - name: C
+      href: event-hubs-c-getstarted-send.md
+    - name: Go
+      href: event-hubs-go-get-started-send.md
+    - name: Python
+      href: event-hubs-python-get-started-send.md
+    - name: Node.js
+      href: event-hubs-node-get-started-send.md
+  - name: 从事件中心接收事件
+    items:
+    - name: .NET framework
+      href: event-hubs-dotnet-framework-getstarted-receive-eph.md
+    - name: .NET Standard
+      href: event-hubs-dotnet-standard-getstarted-receive-eph.md
+    - name: Java
+      href: event-hubs-java-get-started-receive-eph.md
+    - name: Go
+      href: event-hubs-go-get-started-receive-eph.md
+    - name: Python
+      href: event-hubs-python-get-started-receive.md
+    - name: Node.js
+      href: event-hubs-node-get-started-receive.md
+    - name: Apache Storm
+      href: event-hubs-storm-getstarted-receive.md
   expanded: true
 - name: 示例
   href: event-hubs-samples.md
@@ -43,14 +75,6 @@ items:
   items:
   - name: 创建事件中心
     href: event-hubs-create.md
-  - name: 使用 .NET Framework 发送事件
-    href: event-hubs-dotnet-framework-getstarted-send.md
-  - name: 使用 .NET Framework 接收事件
-    href: event-hubs-dotnet-framework-getstarted-receive-eph.md
-  - name: 使用 Python 发送事件
-    href: event-hubs-python-get-started-send.md
-  - name: 使用 Python 接收事件
-    href: event-hubs-python-get-started-receive.md
   - name: 可用 API
     href: event-hubs-api-overview.md
     items:
@@ -58,22 +82,6 @@ items:
       href: event-hubs-dotnet-standard-api-overview.md
     - name: .NET framework
       href: event-hubs-dotnet-framework-api-overview.md
-  - name: 发送事件
-    items:
-    - name: .NET Standard
-      href: event-hubs-dotnet-standard-getstarted-send.md
-    - name: Java
-      href: event-hubs-java-get-started-send.md
-    - name: C
-      href: event-hubs-c-getstarted-send.md
-  - name: 接收事件
-    items:
-    - name: .NET Standard
-      href: event-hubs-dotnet-standard-getstarted-receive-eph.md
-    - name: Java
-      href: event-hubs-java-get-started-receive-eph.md
-    - name: Apache Storm
-      href: event-hubs-storm-getstarted-receive.md
   - name: 捕获事件
     items:
     - name: 使用 Azure 门户启用事件中心捕获
@@ -130,9 +138,9 @@ items:
     href: https://www.azure.cn/what-is-new/
   - name: 视频
     href: https://www.azure.cn/video-center/
-ms.openlocfilehash: 640001557fc199e67b5b19f0c9c53c81d51c931a
-ms.sourcegitcommit: 399060a8d46534abd370693f6282e7343b371634
+ms.openlocfilehash: ee917f5271f84e546b631fe8ce24240c157c2676
+ms.sourcegitcommit: 8a68d9275ddb92ea45601fed96e21559999d9579
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455579"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50026964"

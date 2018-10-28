@@ -14,15 +14,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 08/08/2017
-ms.date: 07/30/2018
+ms.date: 10/22/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: c15e979086be8a2180fc934ed638476e6500ab83
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.openlocfilehash: 8a3900a5003be53925e210e109d2311a42e456e1
+ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295716"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50034985"
 ---
 # <a name="tutorial-create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-virtual-machine-in-azure"></a>教程：在 Azure 中的 Linux 虚拟机上创建 MongoDB、Express、AngularJS 和 Node.js (MEAN) 堆栈
 
@@ -38,7 +38,7 @@ ms.locfileid: "39295716"
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.30 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。
+如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.30 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。
 
 ## <a name="create-a-linux-vm"></a>创建 Linux VM
 
@@ -198,7 +198,8 @@ sudo apt-get install -y nodejs
       });
     };
     ```
-
+    
+    <!--Notice: Correct for author:req.body.author-->
 3. 在 *apps* 文件夹中，创建名为 *models* 的文件夹，并添加包含所定义的书籍模型配置的、名为 *book.js* 的文件。  
 
     ```node.js
@@ -216,7 +217,8 @@ sudo apt-get install -y nodejs
     var Book = mongoose.model('Book', bookSchema);
     module.exports = mongoose.model('Book', bookSchema); 
     ```
-
+    
+    <!--Notice: Correct for author: String-->
 ## <a name="access-the-routes-with-angularjs"></a>使用 AngularJS 访问路由
 
 [AngularJS](https://angularjs.org) 提供一个 Web 框架用于在 Web 应用程序中创建动态视图。 本教程使用 AngularJS 将网页与 Express 相连接，并针对书籍数据库执行操作。

@@ -3,21 +3,22 @@ title: 适用于 Azure SQL 数据库的虚拟网络服务终结点和规则 | Mi
 description: 将子网标记为虚拟网络服务终结点。 然后将终结点标记为适用于 Azure SQL 数据库 ACL 的虚拟网络规则。 然后，SQL 数据库就会接受来自子网上所有虚拟机和其他节点的通信。
 services: sql-database
 ms.service: sql-database
-ms.prod_service: sql-database, sql-data-warehouse
-author: WenJason
-manager: digimobile
-ms.custom: VNet Service endpoints
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-origin.date: 08/28/2018
-ms.date: 10/15/2018
-ms.reviewer: vanto
+author: WenJason
 ms.author: v-jay
-ms.openlocfilehash: 7b63fc2bd949ee099870e5f89a280c3625034cd4
-ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
+ms.reviewer: vanto, genemi
+manager: digimobile
+origin.date: 09/18/2018
+ms.date: 10/29/2018
+ms.openlocfilehash: 53bc4c479aaef2d30f51b6a9bdd0bb099bdec252
+ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48914016"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50135835"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database-and-sql-data-warehouse"></a>使用适用于 Azure SQL 数据库和 SQL 数据仓库的虚拟网络服务终结点和规则
 
@@ -126,7 +127,7 @@ RBAC 备用：
 
 对于 Azure SQL 数据库，虚拟网络规则功能具有以下限制：
 
-- Web 应用可以映射到 VNet/子网中的专用 IP。 即使已从给定 VNet/子网启用服务终结点，从 Web 应用到服务器的连接也将具有 Azure 公共 IP 源，而不是 VNet/子网源。 若要启用从 Web 应用到具有 VNet 防火墙规则的服务器的连接，必须在该服务器上**允许所有 Azure 服务**。
+- Web 应用可以映射到 VNet/子网中的专用 IP。 即使已从给定 VNet/子网启用服务终结点，从 Web 应用到服务器的连接也将具有 Azure 公共 IP 源，而不是 VNet/子网源。 若要启用从 Web 应用到具有 VNet 防火墙规则的服务器的连接，必须在该服务器上**允许 Azure 服务访问服务器**。
 
 - 在 SQL 数据库的防火墙中，每个虚拟网络规则都引用一个子网。 引用的所有这些子网都必须托管在同一个托管 SQL 数据库的地理区域内。
 
@@ -146,35 +147,28 @@ RBAC 备用：
 
 - **需要 Azure SQL 数据库公共 IP 的出站连接**：必须为 Azure SQL 数据库 IP 启用网络安全组 (NSG) 才能进行连接。 可以使用 Azure SQL 数据库的 NSG [服务标记](../virtual-network/security-overview.md#service-tags)执行此操作。
 
-#### <a name="expressroute"></a>ExpressRoute
-
-如果网络通过使用 [ ExpressRoute ][expressroute-indexmd-744v] 连接到 Azure 网络，则每个线路在 Microsoft Edge 配置有两个公共 IP 地址。 这两个 IP 地址用于通过使用 Azure 公共对等互连连接到 Azure 存储等 Microsoft 服务。
-
-若要允许从线路到 Azure SQL 数据库的通信，则必须为线路的公共 IP 地址创建 IP 网络规则。 为查找 ExpressRoute 线路的公共 IP 地址，请使用 Azure 门户开具 ExpressRoute 支持票证。
-
-
 <!--
 FYI: Re ARM, 'Azure Service Management (ASM)' was the old name of 'classic deployment model'.
 When searching for blogs about ASM, you probably need to use this old and now-forbidden name.
 -->
 
-## <a name="impact-of-removing-allow-all-azure-services"></a>删除“允许所有 Azure 服务”的影响
+## <a name="impact-of-removing-allow-azure-services-to-access-server"></a>删除“允许 Azure 服务访问服务器”的影响
 
-许多用户希望从其 Azure SQL Server 中删除“允许所有 Azure 服务”，将其替换为 VNet 防火墙规则。
+许多用户希望从其 Azure SQL Server 中删除“允许 Azure 服务访问服务器”，将其替换为 VNet 防火墙规则。
 但是，删除该项会影响以下 Azure SQLDB 功能：
 
 #### <a name="import-export-service"></a>导入/导出服务
-Azure SQLDB 导入/导出服务在 Azure 中的 VM 上运行。 这些 VM 不在 VNet 中，因此在连接到数据库时会获取 Azure IP。 删除“允许所有 Azure 服务”后，这些 VM 将无法访问数据库。
+Azure SQLDB 导入/导出服务在 Azure 中的 VM 上运行。 这些 VM 不在 VNet 中，因此在连接到数据库时会获取 Azure IP。 删除“允许 Azure 服务访问服务器”后，这些 VM 将无法访问数据库。
 可以解决此问题。 通过 DACFx API 直接在代码中运行 BACPAC 导入或导出。 确保该项部署在 VM 中且已为其所在的 VNet-子网设置防火墙规则。
 
 #### <a name="sql-database-query-editor"></a>SQL 数据库查询编辑器
-Azure SQL 数据库查询编辑器部署在 Azure 中的 VM 上。 这些 VM 不在 VNet 中。 因此，这些 VM 在连接到数据库时会获取 Azure IP。 删除“允许所有 Azure 服务”后，这些 VM 将无法访问数据库。
+Azure SQL 数据库查询编辑器部署在 Azure 中的 VM 上。 这些 VM 不在 VNet 中。 因此，这些 VM 在连接到数据库时会获取 Azure IP。 删除“允许 Azure 服务访问服务器”后，这些 VM 将无法访问数据库。
 
 #### <a name="table-auditing"></a>表审核
 目前有两种方法可以在 SQL 数据库上启用审核。 在 Azure SQL Server 上启用服务终结点后，表审核会失败。 在这里，解决办法是转为 Blob 审核。
 
 #### <a name="impact-on-data-sync"></a>对数据同步的影响
-Azure SQLDB 具有数据同步功能，可使用 Azure IP 连接到数据库。 使用服务终结点时，很可能你将关闭对逻辑服务器的“允许所有 Azure 服务”访问权限。 这将中断数据同步功能。
+Azure SQLDB 具有数据同步功能，可使用 Azure IP 连接到数据库。 使用服务终结点时，很可能你将关闭逻辑服务器的“允许 Azure 服务访问服务器”访问权限。 这将中断数据同步功能。
 
 ## <a name="impact-of-using-vnet-service-endpoints-with-azure-storage"></a>将 VNet 服务终结点与 Azure 存储配合使用的影响
 
@@ -187,7 +181,7 @@ PolyBase 通常用于将数据从存储帐户加载到 Azure SQLDW 中。 如果
 #### <a name="azure-sqldb-blob-auditing"></a>Azure SQLDB Blob 审核
 Blob 审核将审核日志推送到你自己的存储帐户。 如果此存储帐户使用 VNet 服务终结点功能，则会断开从 Azure SQLDB 到存储帐户的连接。
 
-## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>在未打开 VNET 服务终结点的情况下，将 VNET 防火墙规则添加到服务器
+## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>在未打开 VNet 服务终结点的情况下，将 VNet 防火墙规则添加到服务器
 
 早在增强此功能以前，就要求你先打开 VNet 服务终结点，然后才能在防火墙中实施实时 VNet 规则。 这些终结点已将给定的 VNet 子网关联到 Azure SQL 数据库。 但现在从 2018 年 1 月开始，你可以通过设置 **IgnoreMissingServiceEndpoint** 标志来避开此要求。
 

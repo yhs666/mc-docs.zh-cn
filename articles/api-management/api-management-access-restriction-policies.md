@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 11/28/2017
 ms.author: v-yiso
-ms.date: 08/13/2018
-ms.openlocfilehash: 19ee084c653fe580ced70aead3a742156988c357
-ms.sourcegitcommit: 98c7d04c66f18b26faae45f2406a2fa6aac39415
+ms.date: 11/05/2018
+ms.openlocfilehash: eed713069fdce2116d82c0d9101207c85c9fccb5
+ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39486972"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50135847"
 ---
 # <a name="api-management-access-restriction-policies"></a>API 管理访问限制策略
 本主题提供以下 API 管理策略的参考。 有关添加和配置策略的信息，请参阅 [API 管理中的策略](http://go.microsoft.com/fwlink/?LinkID=398186)。  
@@ -143,9 +143,6 @@ ms.locfileid: "39486972"
  `rate-limit-by-key` 策略可以对调用速率进行限制，使每个指定时段的调用不超出指定的数目，避免单个密钥的 API 使用量暴增。 密钥的值可以是任意字符串，通常使用策略表达式来提供密钥。 可以添加可选增量条件，指定在判断请求数是否达到限制时应计入哪些请求。 触发此策略时，调用方会收到`429 Too Many Requests`响应状态代码。  
   
  有关此策略的详细信息和示例，请参阅[使用 Azure API 管理进行高级请求限制](./api-management-sample-flexible-throttling.md)。  
-  
-> [!IMPORTANT]
->  每个策略文档只能使用此策略一次。  
   
 ### <a name="policy-statement"></a>策略语句  
   
@@ -297,14 +294,11 @@ ms.locfileid: "39486972"
 -   **策略范围：** 产品  
   
 ##  <a name="SetUsageQuotaByKey"></a>按密钥设置使用量配额  
- `quota-by-key` 策略允许根据密钥强制实施可续订或有生存期的调用量和/或带宽配额。 密钥的值可以是任意字符串，通常使用策略表达式来提供密钥。 可以添加可选增量条件，指定在判断请求数是否达到配额时应计入哪些请求。  
+ `quota-by-key` 策略允许根据密钥强制实施可续订或有生存期的调用量和/或带宽配额。 密钥的值可以是任意字符串，通常使用策略表达式来提供密钥。 可以添加可选增量条件，指定在判断请求数是否达到配额时应计入哪些请求。 如果多个策略增加相同的键值，则每个请求的键值仅增加一次。 达到调用限制时，调用方会收到 `403 Forbidden` 响应状态代码。
   
  有关此策略的详细信息和示例，请参阅[使用 Azure API 管理进行高级请求限制](./api-management-sample-flexible-throttling.md)。  
   
-> [!IMPORTANT]
->  每个策略文档只能使用此策略一次。  
->   
->  [策略表达式](./api-management-policy-expressions.md)不能用于此策略的任何策略属性。  
+>  [策略表达式](api-management-policy-expressions.md)不能用于此策略的任何策略属性。  
   
 ### <a name="policy-statement"></a>策略语句  
   

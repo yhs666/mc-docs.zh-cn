@@ -3,17 +3,18 @@ title: 使用 Azure IoT Edge 创建透明网关 - Windows| Microsoft Docs
 description: 使用 Azure IoT Edge 创建可为多个设备处理信息的透明网关
 author: kgremban
 manager: timlt
-ms.author: kgremban
-ms.date: 6/20/2018
+ms.author: v-yiso
+origin.date: 06/20/2018
+ms.date: 11/05/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 5ffb1b5c9889e2325eab32306b61899b37d22488
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.openlocfilehash: 10e236ec5fb321f52967b9239636b2726aa731d9
+ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068259"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50135809"
 ---
 # <a name="create-a-windows-iot-edge-device-that-acts-as-a-transparent-gateway"></a>创建充当透明网关的 Windows IoT Edge 设备
 
@@ -206,6 +207,8 @@ IoT Edge 运行时可以像模块发送的消息一样路由从下游设备发�
    ```
 
 有关消息路详细由的信息，请参阅[模块组合文章][lnk-module-composition]。
+
+[!INCLUDE [](../../includes/iot-edge-extended-offline-preview.md)]
 
 ## <a name="next-steps"></a>后续步骤
 [了解开发 IoT Edge 模块的要求和工具][lnk-module-dev]。

@@ -14,21 +14,21 @@ ms.tgt_pltfrm: command-line-interface
 ms.devlang: na
 ms.topic: article
 origin.date: 04/18/2017
-ms.date: 01/08/2018
+ms.date: 10/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0fcb030d7c5a96c028c722704d7b987240229799
-ms.sourcegitcommit: f02cdaff1517278edd9f26f69f510b2920fc6206
+ms.openlocfilehash: 33a8edf88d83e9f325016735fa58967239e3e445
+ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/05/2018
-ms.locfileid: "27604563"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50034917"
 ---
 # <a name="azure-cli-commands-in-resource-manager-mode"></a>Resource Manager 模式下的 Azure CLI 命令
 本文提供常用于在 Azure Resource Manager 部署模型中创建和管理 Azure 资源的 Azure 命令行接口 (CLI) 命令的语法和选项。 通过在 Resource Manager (arm) 模式下运行 CLI 可以访问这些命令。 本参考内容并不完整，CLI 版本可能会显示稍微不同的命令或参数。 有关 Azure 资源和资源组的一般概述，请参阅 [Azure Resource Manager 概述](../azure-resource-manager/resource-group-overview.md)。  
 
 > [!NOTE]
-> 本文介绍 Azure CLI（有时称为 Azure CLI 1.0）中的 Resource Manager 模式命令。 若要在 Resource Manager 模型中工作，还可试用下一代多平台 CLI - [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest)。
->了解有关 [旧版和新版 Azure CLI](https://docs.azure.cn/zh-cn/cli/old-and-new-clis?view=azure-cli-latest)的详细信息。
+> 本文介绍了 Azure CLI（有时亦称为“Azure 经典 CLI”）中的资源管理器模式命令。 若要使用 Resource Manager 模型，还可试用下一代多平台 CLI，即 [Azure CLI](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest)。
+> 了解有关 [旧版和新版 Azure CLI](https://docs.azure.cn/zh-cn/cli/old-and-new-clis?view=azure-cli-latest)的详细信息。
 >
 
 若要开始，请先[安装 Azure CLI](../cli-install-nodejs.md) 并[连接到 Azure 订阅](https://docs.azure.cn/zh-cn/cli/authenticate-azure-cli?view=azure-cli-latest)。
@@ -1326,9 +1326,7 @@ ms.locfileid: "27604563"
     -s, --subscription <subscription>            the subscription identifier
 
 <br>
-
-    network public-ip list [options] <resource-group>
-列出资源组中的所有公共 IP 资源。
+    network public-ip list [options] <resource-group> 列出资源组中的所有公共 IP 资源。
 
     azure network public-ip list -g myresourcegroup
 
@@ -1349,7 +1347,6 @@ ms.locfileid: "27604563"
     -g, --resource-group <resource-group>  the name of the resource group
     -s, --subscription <subscription>      the subscription identifier
 <BR>
-
     network public-ip show [options] <resource-group> <name>
 
 显示资源组中公共 IP 资源的公共 IP 属性。
@@ -1701,7 +1698,7 @@ ms.locfileid: "27604563"
     vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password
 
 > [!TIP]
-> 从 CLI 0.10 版开始，可以为某些热门应用商店映像提供“UbuntuLTS”或“Win2012R2Datacenter”之类的简短别名作为 `image-urn`。 针对选项运行 `azure help vm quick-create` 。 另外，从版本 0.10 开始， `azure vm quick-create` 默认使用高级存储，前提是所选区域提供该存储。
+> 从 CLI 0.10 版开始，可以为某些热门市场映像提供“UbuntuLTS”或“Win2012R2Datacenter”之类的简短别名作为 `image-urn`。 针对选项运行 `azure help vm quick-create` 。 另外，从版本 0.10 开始， `azure vm quick-create` 默认使用高级存储，前提是所选区域提供该存储。
 > 
 > 
 
@@ -1778,4 +1775,5 @@ ms.locfileid: "27604563"
     vm image list-offers [options] <location> <publisher>
     vm image list-skus [options] <location> <publisher> <offer>
     vm image list [options] <location> <publisher> [offer] [sku]
+
 <!-- Update_Description: update meta properties, wording update, update link  -->

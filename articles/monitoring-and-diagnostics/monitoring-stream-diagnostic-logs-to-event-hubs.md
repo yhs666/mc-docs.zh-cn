@@ -7,16 +7,16 @@ ms.service: azure-monitor
 ms.topic: conceptual
 origin.date: 07/25/2018
 ms.date: 10/22/2018
-ms.author: v-yiso
-ms.openlocfilehash: 4ace3999897b5ce77c02ae07e58ea0ba37a9c6e4
-ms.sourcegitcommit: 8a5722b85c6eabbd28473d792716ad44aac3ff23
+ms.author: v-lingwu
+ms.openlocfilehash: dd620b8bca93d5b23b16f7e714a286809b51f850
+ms.sourcegitcommit: 32373810af9c9a2210d63f16d46a708028818d5f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49121529"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49652214"
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>将 Azure 诊断日志流式传输到事件中心
-可将 **[Azure 诊断日志](monitoring-overview-of-diagnostic-logs.md)** 近实时地流式传输到任何应用程序，方法是使用门户中的内置“导出到事件中心”选项，或者通过 Azure PowerShell Cmdlet 或 Azure CLI 2.0 在诊断设置中启用事件中心授权规则 ID。
+可将 **[Azure 诊断日志](monitoring-overview-of-diagnostic-logs.md)** 以近实时方式流式传输到任何应用程序，方法是使用门户中的内置“导出到事件中心”选项，或者通过 Azure PowerShell Cmdlet 或 Azure CLI 在诊断设置中启用事件中心授权规则 ID。
 
 ## <a name="what-you-can-do-with-diagnostics-logs-and-event-hubs"></a>可以对诊断日志和事件中心执行的操作
 可以通过下述几种方式将流式传输功能用于诊断日志：
@@ -89,9 +89,9 @@ Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -EventHubAuthorizati
 
 事件中心授权规则 ID 是以下格式的字符串：`{Event Hub namespace resource ID}/authorizationrules/{key name}`，例如 `/subscriptions/{subscription ID}/resourceGroups/{resource group}/providers/Microsoft.EventHub/namespaces/{Event Hub namespace}/authorizationrules/RootManageSharedAccessKey`。 目前无法使用 PowerShell 选择特定事件中心名称。
 
-### <a name="via-azure-cli-20"></a>通过 Azure CLI 2.0
+### <a name="via-azure-cli"></a>通过 Azure CLI
 
-若要通过 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/monitor?view=azure-cli-latest) 启用流式传输，可以使用 [az monitor diagnostic-settings create](/cli/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) 命令。
+若要通过 [Azure CLI](https://docs.azure.cn/zh-cn/cli/monitor?view=azure-cli-latest) 启用流式传输，可以使用 [az monitor diagnostic-settings create](/cli/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) 命令。
 
 ```azurecli
 az monitor diagnostic-settings create --name <diagnostic name> \

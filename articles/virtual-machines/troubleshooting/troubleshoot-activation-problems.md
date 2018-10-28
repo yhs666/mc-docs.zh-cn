@@ -15,12 +15,12 @@ ms.topic: troubleshooting
 origin.date: 05/11/2018
 ms.date: 10/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: b1c948143afa96c945ae74fda8ebd478c1facca9
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: dc7fe45c96c1ab00a0ddf79bd90915f01892cc81
+ms.sourcegitcommit: 96b58e881dba2fd02665d806d7c27d770326b0cc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453937"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49652015"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>排查 Azure Windows 虚拟机激活问题
 
@@ -29,7 +29,9 @@ ms.locfileid: "49453937"
 ## <a name="understanding-azure-kms-endpoints-for-windows-product-activation-of-azure-virtual-machines"></a>了解用于对 Azure 虚拟机进行 Windows 产品激活的 Azure KMS 终结点
 Azure 使用不同的终结点进行 KMS 激活，具体取决于 VM 所在的云区域。 使用本故障排除指南时，请使用适用于你所在区域的相应 KMS 终结点。
 
-* Azure 公有云区域：kms.core.chinacloudapi.cn:1688
+* Azure 公有云区域：kms.core.windows.net:1688
+
+<!--Notice: Azure public cloud regions is correct on  core.windows.net -->
 * Azure 中国国家云区域：kms.core.chinacloudapi.cn:1688
 * Azure 德国国家云区域：kms.core.cloudapi.de:1688
 * Azure US Gov 国家云区域：kms.core.usgovcloudapi.net:1688
@@ -41,7 +43,9 @@ Azure 使用不同的终结点进行 KMS 激活，具体取决于 VM 所在的�
 **错误: 0xC004F074 软件授权服务报告无法激活计算机。无法联系任何密钥管理服务(KMS)。有关其他信息，请参阅应用程序事件日志。**
 
 ## <a name="cause"></a>原因
-通常情况下，如果未使用相应的 KMS 客户端安装密钥配置 Windows VM，或 Windows VM 与 Azure KMS 服务（kms.core.chinacloudapi.cn，端口 1668）的连接出现问题，便会出现 Azure VM 激活问题。 
+通常情况下，如果未使用相应的 KMS 客户端安装密钥配置 Windows VM，或 Windows VM 与 Azure KMS 服务（kms.core.chinacloudapi.cn，端口 1688）的连接出现问题，便会出现 Azure VM 激活问题。 
+
+<!--Notice: Port shold be 1688 -->
 
 ## <a name="solution"></a>解决方案
 
@@ -78,7 +82,9 @@ Azure 使用不同的终结点进行 KMS 激活，具体取决于 VM 所在的�
 
 ### <a name="step-2-verify-the-connectivity-between-the-vm-and-azure-kms-service"></a>第 2 步：验证 VM 与 Azure KMS 服务的连接
 
-1. 将 [PSping](http:/technet.microsoft.com/sysinternals/jj729731.aspx) 工具下载并提取到未激活的 VM 中的本地文件夹。 
+1. 将 [PSping](http://technet.microsoft.com/sysinternals/jj729731.aspx) 工具下载并提取到未激活的 VM 中的本地文件夹。 
+    
+    <!-- URL is [PSping](http://technet.microsoft.com/sysinternals/jj729731.aspx)-->
 
 2. 转到“开始”，搜索 Windows PowerShell，右键单击 Windows PowerShell，再选择“以管理员身份运行”。
 
@@ -130,3 +136,5 @@ Azure 使用不同的终结点进行 KMS 激活，具体取决于 VM 所在的�
 
 ## <a name="need-help-contact-support"></a>需要帮助？ 请联系支持人员。
 如果仍需要帮助，可 [联系支持人员](https://www.azure.cn/support/support-azure/) 来快速解决问题。
+
+<!--Update_Description: update meta properties, update link, wording update -->

@@ -1,23 +1,24 @@
 ---
 title: 创建和管理弹性池 - Azure SQL 数据库 | Microsoft Docs
 description: 创建和管理 Azure SQL 弹性池。
-keywords: 多个数据库, 数据库资源, 数据库性能
 services: sql-database
-author: WenJason
-manager: digimobile
 ms.service: sql-database
-ms.custom: DBs & servers
-origin.date: 08/01/2018
-ms.date: 09/02/2018
-ms.author: v-jay
+subservice: elastic-pool
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
+author: WenJason
+ms.author: v-jay
 ms.reviewer: carlrab
-ms.openlocfilehash: cf864d63ddeb37a15b2d0447a605ccef6989cc6d
-ms.sourcegitcommit: 2601e68563bffe148e70cce2bf1dcbe837a40f80
+manager: digimobile
+origin.date: 09/20/2018
+ms.date: 10/29/2018
+ms.openlocfilehash: 62be9bdd0d710398a51a2a9dde796e018365eb53
+ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43249717"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50135853"
 ---
 # <a name="create-and-manage-elastic-pools-in-azure-sql-database"></a>在 Azure SQL 数据库中创建和管理弹性池
 
@@ -63,7 +64,7 @@ ms.locfileid: "43249717"
 
 ## <a name="azure-cli-manage-elastic-pools-and-pooled-databases"></a>Azure CLI：管理弹性池和入池数据库
 
-若要使用 [Azure CLI](/cli/) 创建和管理 SQL 数据库弹性池，请使用下面的 [Azure CLI SQL 数据库](/cli/sql/db)命令。 使用 Powershell 在浏览器中运行 CLI，或者在 macOS、Linux 或 Windows 上[安装](/cli/install-azure-cli)它。
+若要使用 [Azure CLI](/cli/) 创建和管理 SQL 数据库弹性池，请使用下面的 [Azure CLI SQL 数据库](/cli/sql/db)命令。 在 macOS、 Linux 或 Windows 上[安装](/cli/install-azure-cli) CLI。
 
 > [!TIP]
 > 有关 Azure CLI 示例脚本，请参阅[使用 CLI 移动 SQL 弹性池中的 Azure SQL 数据库](scripts/sql-database-move-database-between-pools-cli.md)和[使用 Azure CLI 缩放 Azure SQL 数据库中的 SQL 弹性池](scripts/sql-database-scale-pool-cli.md)。
@@ -71,12 +72,12 @@ ms.locfileid: "43249717"
 
 | Cmdlet | 说明 |
 | --- | --- |
-|[az sql elastic-pool create](/cli/sql/elastic-pool#az_sql_elastic_pool_create)|创建弹性池。|
-|[az sql elastic-pool list](/cli/sql/elastic-pool#az_sql_elastic_pool_list)|返回服务器中弹性池的列表。|
-|[az sql elastic-pool list-dbs](/cli/sql/elastic-pool#az_sql_elastic_pool_list_dbs)|返回弹性池中数据库的列表。|
-|[az sql elastic-pool list-editions](/cli//sql/elastic-pool#az_sql_elastic_pool_list_editions)|还包括可用的池 DTU 设置、存储限制和每数据库设置。 为了降低冗长，默认情况下会隐藏附加的存储限制以及每数据库设置。|
-|[az sql elastic-pool update](/cli/sql/elastic-pool#az_sql_elastic_pool_update)|更新弹性池。|
-|[az sql elastic-pool delete](/cli/sql/elastic-pool#az_sql_elastic_pool_delete)|删除弹性池。|
+|[az sql elastic-pool create](/cli/sql/elastic-pool#az-sql-elastic-pool-create)|创建弹性池。|
+|[az sql elastic-pool list](/cli/sql/elastic-pool#az-sql-elastic-pool-list)|返回服务器中弹性池的列表。|
+|[az sql elastic-pool list-dbs](/cli/sql/elastic-pool#az-sql-elastic-pool-list-dbs)|返回弹性池中数据库的列表。|
+|[az sql elastic-pool list-editions](/cli/sql/elastic-pool#az-sql-elastic-pool-list-editions)|还包括可用的池 DTU 设置、存储限制和每数据库设置。 为了降低冗长，默认情况下会隐藏附加的存储限制以及每数据库设置。|
+|[az sql elastic-pool update](/cli/sql/elastic-pool#az-sql-elastic-pool-update)|更新弹性池。|
+|[az sql elastic-pool delete](/cli/sql/elastic-pool#az-sql-elastic-pool-delete)|删除弹性池。|
 
 ## <a name="transact-sql-manage-pooled-databases"></a>Transact-SQL：管理入池数据库
 

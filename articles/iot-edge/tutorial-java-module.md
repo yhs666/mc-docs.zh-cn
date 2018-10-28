@@ -4,17 +4,18 @@ description: 本教程介绍如何使用 Java 代码创建 IoT Edge 模块并将
 services: iot-edge
 author: kgremban
 manager: timlt
-ms.author: kgremban
-ms.date: 08/30/2018
+ms.author: v-yiso
+origin.date: 08/30/2018
+ms.date: 11/05/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: d4f3f97e8e3a56a389e377b1300ee99b3c7bfe8d
-ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
+ms.openlocfilehash: 0dafd0efd8f6fe3eb9217e0e29768d57f3cd674f
+ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523958"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50135819"
 ---
 # <a name="tutorial-develop-a-java-iot-edge-module-and-deploy-to-your-simulated-device"></a>教程：开发 Java IoT Edge 模块并将其部署到模拟设备
 
@@ -41,7 +42,7 @@ Azure IoT Edge 设备：
 
 云资源：
 
-* Azure 中的标准层 [IoT 中心](../iot-hub/iot-hub-create-through-portal.md)。 
+* Azure 中的免费或标准层 [IoT 中心](../iot-hub/iot-hub-create-through-portal.md)。 
 
 开发资源：
 
@@ -257,6 +258,16 @@ Azure IoT Edge 设备：
 6. 单击刷新按钮。 此时会看到新的 **JavaModule** 在运行，此外还有 **TempSensor** 模块以及 **$edgeAgent** 和 **$edgeHub** 在运行。  
 
 ## <a name="view-generated-data"></a>查看生成的数据
+
+将部署清单应用到 IoT Edge 设备以后，设备上的 IoT Edge 运行时就会收集新的部署信息并开始在其上执行操作。 在设备上运行的未包括在部署清单中的任何模块都会停止。 设备中缺失的任何模块都会启动。 
+
+可以通过 Visual Studio Code 资源管理器的“Azure IoT 中心设备”部分查看 IoT Edge 设备的状态。 展开设备的详细信息，可以看到已部署的正在运行的模块的列表。 
+
+在 IoT Edge 设备本身上，可以使用 `iotedge list` 命令查看部署模块的状态。 应该看到四个模块：两个 IoT Edge 运行时模块、tempSensor 以及在本教程中创建的自定义模块。 启动所有模块可能需要数分钟，因此如果一开始没有看到全部模块，请重新运行命令。 
+
+若要查看由任何模块生成的消息，请使用 `iotedge logs <module name>` 命令。 
+
+可以使用 Visual Studio Code 在消息到达 IoT 中心时查看它们。 
 
 1. 若要监视抵达 IoT 中心的数据，请选择省略号 (**...**)，然后选择“开始监视 D2C 消息”。
 2. 若要监视特定设备的 D2C 消息，请右键单击列表中的设备，然后选择“开始监视 D2C 消息”。

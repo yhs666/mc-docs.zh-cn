@@ -7,14 +7,15 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 08/27/2018
-ms.author: kgremban
-ms.openlocfilehash: e92adc5dbd0da6ab4f60f8cc7bf6dbe7a58694c6
-ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
+origin.date: 08/27/2018
+ms.date: 11/05/2018
+ms.author: v-yiso
+ms.openlocfilehash: 85bbc45112f68e5fec79e228f360dee91da92c3c
+ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523834"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50135857"
 ---
 # <a name="install-azure-iot-edge-runtime-on-windows-to-use-with-windows-containers"></a>在 Windows 上安装 Azure IoT Edge 运行时，以将其与 Windows 容器一起使用
 
@@ -109,6 +110,10 @@ Get-WinEvent -ea SilentlyContinue `
 ```powershell
 iotedge list
 ```
+
+## <a name="tips-and-suggestions"></a>提示和建议
+
+如果网络具有代理服务器，请按照[配置 IoT Edge 设备以通过代理服务器进行通信](how-to-configure-proxy-support.md)中的步骤进行操作，以安装并启动 IoT Edge 运行时。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -1,29 +1,36 @@
 ---
-title: 情感 API cURL 快速入门 | Microsoft Docs
-description: 获取信息和代码示例，帮助自己快速开始使用认知服务中的情感 API 和 cURL。
+title: 快速入门：识别图像中人脸的情感 - 情感 API、cURL
+titlesuffix: Azure Cognitive Services
+description: 获取信息和代码示例，以帮助你通过 cURL 快速开始使用情感 API。
 services: cognitive-services
-author: alexchen2016
-manager: digimobile
+author: anrothMSFT
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: emotion
-ms.topic: article
+ms.component: emotion-api
+ms.topic: quickstart
 origin.date: 05/23/2017
-ms.date: 10/13/2017
+ms.date: 10/24/2018
 ms.author: v-junlch
-ms.openlocfilehash: eadcb40e3a5c3d67f606e9eff21c9e9445f92eaa
-ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ROBOTS: NOINDEX
+ms.openlocfilehash: 0d57738f27a1d48ecd416657e5b12ae78aa3aaa0
+ms.sourcegitcommit: 44ce337717bb948f5ac08217a156935f663c0f46
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
-ms.locfileid: "23407566"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50034657"
 ---
-# <a name="emotion-api-curl-quick-start"></a>情感 API cURL 快速入门
-本文提供信息和代码示例，帮助读者快速开始使用[情感 API 识别方法](https://dev.cognitive.azure.cn/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa)与 cURL 来识别图像中一个或多个人员表达的情感。 
+# <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>快速入门：构建应用以识别图像中人脸的情感。
+
+> [!IMPORTANT]
+> 情感 API 将于 2019 年 2 月 15 日弃用。 情感识别功能现在已作为[人脸 API](/cognitive-services/face/) 的一部分正式发布。
+
+本文提供信息和代码示例，帮助读者快速开始使用[情感 API 识别方法](https://dev.cognitive.azure.cn/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa)与 cURL 来识别图像中一个或多个人员表达的情感。
 
 ## <a name="prerequisite"></a>先决条件
 - 从 [Azure 门户](https://portal.azure.cn)获取订阅密钥。
 
 ## <a name="recognize-emotions-curl-example-request"></a>识别情感 cURL 示例请求
+
 
 ```json
 @ECHO OFF
@@ -32,16 +39,16 @@ curl -v -X POST "https://api.cognitive.azure.cn/emotion/v1.0/recognize"
 -H "Content-Type: application/json"
 -H "Ocp-Apim-Subscription-Key: {subscription key}"
 
---data-ascii "{body}" 
+--data-ascii "{body}"
 ```
 
 ## <a name="recognize-emotions-sample-response"></a>识别情感示例响应
 成功调用返回人脸条目及其关联情感评分的数组，返回的内容已按人脸矩形大小的降序排序。 空响应表示未检测到任何人脸。 情感条目包含以下字段：
 - faceRectangle - 人脸在图像中的矩形位置。
-- scores - 图像中每张人脸的情感评分。 
+- scores - 图像中每张人脸的情感评分。
 
 ```json
-application/json 
+application/json
 [
   {
     "faceRectangle": {
@@ -62,5 +69,4 @@ application/json
     }
   }
 ]
-
 

@@ -6,20 +6,26 @@ services: azure-monitor
 ms.service: azure-monitor
 ms.topic: tutorial
 origin.date: 09/25/2017
-ms.date: 08/20/2018
-ms.author: v-yiso
+ms.date: 10/22/2018
+ms.author: v-lingwu
 ms.custom: mvc
 ms.component: metrics
-ms.openlocfilehash: 08e79074d643f7d6f83688c206da1e88bd5ac64a
-ms.sourcegitcommit: 664584f55e0a01bb6558b8d3349d41d3f05ba4d7
+ms.openlocfilehash: 4b0270c975ad24355f36322793c5eb8f9bffacb8
+ms.sourcegitcommit: 32373810af9c9a2210d63f16d46a708028818d5f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41703931"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49652222"
 ---
-# <a name="archive-azure-monitoring-data"></a>Azure 监视数据存档
+# <a name="archive-azure-metric-and-log-data-using-azure-storage"></a>使用 Azure 存储将 Azure 指标和日志数据存档
 
-Azure 环境的很多层都会生成可存档到 Azure 存储帐户的日志和指标数据。 Log Analytics 或 Azure Monitor 中的数据超过保留期之后，你可能需要执行此操作，在不可搜索的低成本存储空间中保留某时间段内监视数据的历史记录。 本教程逐步介绍如何配置 Azure 环境以将数据存档到存储帐户。
+Azure 环境的很多层都会生成可存档到 Azure 存储帐户的日志和指标数据。 在数据超过保留期之后，你可能需要执行此操作，在不可搜索的低成本存储空间中保留某时间段内监视数据的历史记录。 
+
+- Azure Monitor 平台指标可保留 93 天。 
+- 资源诊断日志仅在路由到 Log Analytics 时才显示，在其中这些日志具有至少 30 天的可配置保留期。 
+- 活动日志条目可存储 90 天。  
+
+本教程逐步介绍如何配置 Azure 环境以将数据存档到存储帐户。
 
 > [!div class="checklist"]
 > * 创建用于保存监控数据的存储帐户

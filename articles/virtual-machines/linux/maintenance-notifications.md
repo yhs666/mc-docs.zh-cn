@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 07/02/2018
-ms.date: 08/27/2018
+ms.date: 10/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: b9f42655b815663c44c7a5c1eb89a0caa27c36e0
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.openlocfilehash: 2c8d049e0d49e020d3a3949fc94888fca3ebe2b2
+ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42872042"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50034981"
 ---
 # <a name="handling-planned-maintenance-notifications-for-linux-virtual-machines"></a>处理 Linux 虚拟机的计划内维护通知
 
@@ -100,7 +100,7 @@ az vm perform-maintenance -g rgName -n vmName
 
 ## <a name="classic-deployments"></a>经典部署
 
-如果你仍在使用由经典部署模型部署的旧 VM，则可以使用 CLI 1.0 查询 VM，并启动维护。
+如果你仍有通过使用经典部署模型部署的旧 VM，则可以使用 Azure 经典 CLI 查询 VM，并启动维护。
 
 通过键入以下内容确保在正确模式下使用经典 VM：
 
@@ -175,4 +175,4 @@ azure compute virtual-machine initiate-maintenance --service-name myService --na
 
 了解如何使用[计划事件](scheduled-events.md)从 VM 内注册维护事件。
 
-<!-- Update_Description: update meta properties  -->
+<!-- Update_Description: update meta properties, wording update  -->

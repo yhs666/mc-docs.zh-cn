@@ -3,7 +3,7 @@ title: 查看 Azure 虚拟网络拓扑 | Azure
 description: 了解如何查看虚拟网络中的资源及其相互关系。
 services: network-watcher
 documentationcenter: na
-author: rockboyfor
+author: lingliw
 manager: digimobile
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 05/09/2018
-ms.date: 07/02/2018
-ms.author: v-yeche
-ms.openlocfilehash: b55953617dc06611acc53826da8c20e8835f909c
-ms.sourcegitcommit: 039d75a641edc2edd13a9371251051c20fea2bb7
+ms.date: 10/22/2018
+ms.author: v-lingwu
+ms.openlocfilehash: 98808723aaf71039cfd1d593f8bb772f1c26d888
+ms.sourcegitcommit: 32373810af9c9a2210d63f16d46a708028818d5f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103605"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49652249"
 ---
 # <a name="view-the-topology-of-an-azure-virtual-network"></a>查看 Azure 虚拟网络的拓扑
 
@@ -52,7 +52,7 @@ ms.locfileid: "37103605"
 ## <a name = "azure-cli"></a>查看拓扑 - Azure CLI
 
 可以运行后续步骤中的命令：<!-- Not Available on - In the Azure Cloud Shell-->
-- 通过在计算机中运行 CLI。 如果在计算机中运行 CLI，则本文中的步骤要求使用 Azure CLI 2.0.31 或更高版本。 运行 `az --version` 查找已安装的版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 如果在本地运行 Azure CLI，则还需运行 `az login` 以创建与 Azure 的连接。
+- 通过在计算机中运行 CLI。 如果在计算机中运行 CLI，则本文中的步骤要求使用 Azure CLI 2.0.31 或更高版本。 运行 `az --version` 查找已安装的版本。 如需进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 如果在本地运行 Azure CLI，则还需运行 `az login` 以创建与 Azure 的连接。
 
 所用帐户必须拥有所需的[权限](required-rbac-permissions.md)。
 
