@@ -1,25 +1,30 @@
 ---
-title: 情感 API C# 教程 | Microsoft Docs
-description: 探讨一个使用认知服务情感 API 来识别图像中人脸所表达的情感的基本 Windows 应用。
+title: 教程：识别图像中人脸的情感 - 情感 API、C#
+titlesuffix: Azure Cognitive Services
+description: 探索用于识别图像中人脸所表达的情感的基本 Windows 应用。
 services: cognitive-services
-author: alexchen2016
-manager: digimobile
+author: anrothMSFT
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: emotion
-ms.topic: article
+ms.component: emotion-api
+ms.topic: tutorial
 origin.date: 01/23/2017
-ms.date: 10/13/2017
+ms.date: 10/25/2018
 ms.author: v-junlch
-ms.openlocfilehash: 04d4ca950adb57b49e826490670ae9e7d3b1538b
-ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ROBOTS: NOINDEX
+ms.openlocfilehash: 8a4eb5fe574e10e9ef7e476d1d7c3d16fcb4f988
+ms.sourcegitcommit: 44ce337717bb948f5ac08217a156935f663c0f46
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
-ms.locfileid: "23407610"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50034648"
 ---
-# <a name="emotion-api-in-c35-tutorial"></a>C&#35; 中的情感 API 教程
+# <a name="tutorial-recognize-emotions-on-a-face-in-an-image"></a>教程：识别图像中人脸的情感。
 
-探讨一个使用情感 API 来识别图像中人脸所表达的情感的基本 Windows 应用程序。 在以下示例中，可以提交图像 URL 或本地存储的文件。 可以使用此开源示例作为模板，生成自己的使用情感 API 和 WPF（Windows Presentation Foundation，.NET Framework 的一部分）的 Windows 应用。
+> [!IMPORTANT]
+> 情感 API 将于 2019 年 2 月 15 日弃用。 情感识别功能现在已作为[人脸 API](/cognitive-services/face/) 的一部分正式发布。 
+
+探讨一个使用情感 API 来识别图像中人脸所表达的情感的基本 Windows 应用程序。 通过以下示例可提交图像 URL 或存储于本地的文件。 可以使用此开源示例作为模板，生成自己的使用情感 API 和 WPF（Windows Presentation Foundation，.NET Framework 的一部分）的 Windows 应用。
 
 ## <a name="Prerequisites">先决条件</a>
 #### <a name="platform-requirements"></a>平台要求  
@@ -48,23 +53,23 @@ ms.locfileid: "23407610"
 
 ## <a name="Step3">步骤 3：运行示例</a>
 1.  完成生成后，按 **F5**，或单击功能区菜单中的“开始”运行示例。
-2.  找到“情感 API”窗口，其中包含带有“在此处粘贴订阅密钥以开始”字样的**文本框**。 如以下屏幕截图所示，在文本框中粘贴订阅密钥。 可以选择通过单击“保存密钥”按钮在个人电脑或笔记本电脑上保存订阅密钥。 如果想要从系统中删除订阅密钥，请单击“删除密钥”，将密钥从个人电脑或笔记本电脑中删除。
+2.  找到“情感 API”窗口，其中包含带有“在此处粘贴订阅密钥以开始”字样的**文本框**。 如以下屏幕截图所示，在文本框中粘贴订阅密钥。 可单击“保存密钥”按钮，选择将订阅密钥保存在 PC 或笔记本电脑上。 若要从系统删除订阅密钥，请单击“删除密钥”将其从 PC 或笔记本电脑中删除。
   
     ![情感功能界面](../Images/EmotionKey.png)
 
 3.  在“选择方案”下面，单击两种方案中的一种（“使用流检测情感”或“使用 URL 检测情感”），并遵照屏幕说明操作。 Microsoft 会收到所上传的图像，并可能会使用这些图像来改进情感 API 和相关服务。 提交图像即表示你已确认遵守我们的[开发人员行为准则](https://azure.microsoft.com/en-us/support/legal/developer-code-of-conduct/)。
-4.  将在此示例应用程序中使用示例图像。 可以在[人脸 API Github 存储库](https://github.com/Microsoft/Cognitive-Face-Windows/tree/master/Data)的“数据”文件夹下找到这些图像。 请注意，需根据“公平使用”协议的许可条款使用这些图像，这意味着，这些图像可用于测试此示例，但不可用于重新发布。
+4.  我们提供了可用于此示例应用程序的示例图像。 可以在[人脸 API Github 存储库](https://github.com/Microsoft/Cognitive-Face-Windows/tree/master/Data)的“数据”文件夹下找到这些图像。 请注意，需根据“公平使用”协议的许可条款使用这些图像，这意味着，这些图像可用于测试此示例，但不可用于重新发布。
 
-## <a name="Review">查看并学习</a>
-运行应用程序后，让我们了解此示例应用如何与 Microsoft 认知服务集成。 这样，便可以更轻松地使用 Microsoft 情感 API 在此应用中继续生成项目，或开发自己的应用。 
+## <a name="Review">温故知新</a>
+运行应用程序后，让我们了解此示例应用如何与 Microsoft 认知服务集成。 这样，便可以更轻松地使用 Microsoft 情感 API 在此应用中继续生成项目，或开发自己的应用。
 
-此示例应用利用情感 API 客户端库 - Microsoft 情感 API 的精简 C# 客户端包装。 如上所述生成示例应用时，可以从 NuGet 包获取客户端库。 可以在“情感”>“Windows”>“客户端库”下面的标题为“客户端库”的文件夹（包含在根据前面[先决条件](#Prerequisites)所述下载的文件存储库中）中查看客户端库源代码。[](https://github.com/Microsoft/Cognitive-Emotion-Windows/tree/master/ClientLibrary)
- 
-还可以了解如何在“解决方案资源管理器”中使用客户端库代码：在“EmotionAPI-WPF_Samples”下面展开“DetectEmotionUsingStreamPage.xaml”，找到用于浏览到本地存储的文件的“DetectEmotionUsingStreamPage.xaml.cs”；或展开“DetectEmotionUsingURLPage.xaml”，找到上传图像 URL 时使用的“DetectEmotionUsingURLPage.xaml.cs”。 双击 .xaml.cs 文件，在 Visual Studio 的新窗口中将其打开。 
+此示例应用利用情感 API 客户端库 - Microsoft 情感 API 的精简 C# 客户端包装。 如上所述生成示例应用时，可以从 NuGet 包获取客户端库。 可以在“情感”>“Windows”>“客户端库”下面的标题为[客户端库](https://github.com/Microsoft/Cognitive-Emotion-Windows/tree/master/ClientLibrary)的文件夹（包含在根据前面[先决条件](#Prerequisites)所述下载的文件存储库中）中查看客户端库源代码。
+
+还可以了解如何在“解决方案资源管理器”中使用客户端库代码：在“EmotionAPI-WPF_Samples”下面展开“DetectEmotionUsingStreamPage.xaml”，找到用于浏览到本地存储的文件的“DetectEmotionUsingStreamPage.xaml.cs”；或展开“DetectEmotionUsingURLPage.xaml”，找到上传图像 URL 时使用的“DetectEmotionUsingURLPage.xaml.cs”。 双击 .xaml.cs 文件，在 Visual Studio 的新窗口中将其打开。
 
 让我们看看 **DetectEmotionUsingStreamPage.xaml.cs** 和 **DetectEmotionUsingURLPage.xaml.cs** 中的两个代码片段，了解情感客户端库在示例应用中的用法。 每个文件包含指出“KEY SAMPLE CODE STARTS HERE”和“KEY SAMPLE CODE ENDS HERE”的代码注释，可帮助找到下面重现的代码片段。
 
-情感 API 可将图像 URL 或二进制图像数据（八位字节流格式）作为输入进行处理。 下面介绍了这两个选项。 在这种情况下，首先都要查找一条可让你使用情感客户端库的 using 指令。 
+情感 API 可将图像 URL 或二进制图像数据（八位字节流格式）作为输入进行处理。 下面介绍了这两个选项。 在这种情况下，首先都要查找一条可让你使用情感客户端库的 using 指令。
 ```csharp
 // ----------------------------------------------------------------------- 
 // KEY SAMPLE CODE STARTS HERE 
@@ -76,9 +81,9 @@ using Microsoft.ProjectOxford.Emotion.Contract;
 // KEY SAMPLE CODE ENDS HERE 
 // ----------------------------------------------------------------------- 
 ```
-#### <a name="detectemotionusingurlpagexamlcs"></a>DetectEmotionUsingURLPage.xaml.cs 
+#### <a name="detectemotionusingurlpagexamlcs"></a>DetectEmotionUsingURLPage.xaml.cs
 
-此代码片段演示如何使用客户端库将订阅密钥和照片 URL 提交到情感 API 服务。 
+此代码片段演示如何使用客户端库将订阅密钥和照片 URL 提交到情感 API 服务。
 
 ```csharp
 // -----------------------------------------------------------------------
@@ -111,9 +116,9 @@ catch (Exception exception)
 // KEY SAMPLE CODE ENDS HERE
 // -----------------------------------------------------------------------
 ```
-#### <a name="detectemotionusingstreampagexamlcs"></a>DetectEmotionUsingStreamPage.xaml.cs 
+#### <a name="detectemotionusingstreampagexamlcs"></a>DetectEmotionUsingStreamPage.xaml.cs
 
-下面演示了如何将订阅密钥和本地存储的图像提交到情感 API。 
+下面演示了如何将订阅密钥和本地存储的图像提交到情感 API。
 
 
 ```csharp

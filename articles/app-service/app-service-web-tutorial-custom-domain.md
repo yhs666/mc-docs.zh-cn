@@ -16,12 +16,12 @@ origin.date: 06/18/2018
 ms.date: 10/29/2018
 ms.author: v-biyu
 ms.custom: mvc
-ms.openlocfilehash: eb07d76bf110a7e46a8cec85dfaf2352da275504
-ms.sourcegitcommit: 4b5ada023c9466d497c7474abf7ad71e50c3b17d
+ms.openlocfilehash: 947784345691b428eba04222c88e184e35add668
+ms.sourcegitcommit: 6deff6a4662d4537ba02f9af88d0b04b29442211
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49451621"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49963004"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-web-apps"></a>教程：将现有的自定义 DNS 名称映射到 Azure Web 应用
 
@@ -291,7 +291,7 @@ ms.locfileid: "49451621"
 
 ![在门户中导航到 Azure 应用](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
 
-## <a name="resolve-404-not-found"></a>解决“404 未找到”问题
+## <a name="resolve-404-not-found"></a>解决 404“未找到”错误
 
 如果在浏览到自定义域的 URL 时收到 HTTP 404（未找到）错误，请验证域是否使用 <a href="https://www.whatsmydns.net/" target="_blank">WhatsmyDNS.net</a> 对应用的 IP 地址进行解析。 如果没有，则可能是以下原因之一造成的：
 
