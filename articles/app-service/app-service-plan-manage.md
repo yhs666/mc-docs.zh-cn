@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 中管理应用服务计划 | Microsoft Docs
+title: 在 Azure 中管理应用服务计划
 description: 了解如何执行不同的任务来管理应用服务计划。
 keywords: 应用服务, azure 应用服务, 缩放, 应用服务计划, 更改, 创建, 管理
 services: app-service
@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
-ms.author: cephalin
-ms.openlocfilehash: 7fbae29335a69b7fa7987953807d3afe2439d4bb
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.date: 10/29/2018
+ms.author: v-biyu
+ms.openlocfilehash: bd2a616ea2b68cabc8cb104b0f75a05e3c7ee1dd
+ms.sourcegitcommit: 4b5ada023c9466d497c7474abf7ad71e50c3b17d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
-ms.locfileid: "29730628"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49451604"
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>在 Azure 中管理应用服务计划
 
@@ -47,7 +47,7 @@ ms.locfileid: "29730628"
 
    c. 对于“位置”，选择适当的位置。
 
-   d.单击“验证存储凭据”以验证存储帐户。 对于“定价层”，选择适当的服务定价层。 选择“全部查看”以查看其他定价选项，例如“免费”和“共享”。 选择定价层后，单击“选择”按钮。
+   d. 对于“定价层”，选择适当的服务定价层。 选择“全部查看”以查看其他定价选项，例如“免费”和“共享”。 选择定价层后，单击“选择”按钮。
 
 <a name="move"></a>
 
@@ -55,26 +55,23 @@ ms.locfileid: "29730628"
 
 只要源计划和目标计划在_同一个资源组和地理区域_中，就可将应用移到另一个应用服务计划。
 
+
+
+> 
+> 无法在创建计划时指定所需的 Web 空间，但可以确保在现有计划所在的 Web 空间中创建计划。 简而言之，使用同一资源组和区域组合创建的所有计划都部署到同一 Web 空间中。 例如，如果你在资源组 A 和区域 B 中创建了一个计划，那么你随后在资源组 A 和区域 B 中创建的任何计划都将部署到同一 Web 空间中。 请注意，计划在创建后无法移动 Web 空间，因此无法通过将计划移到另一个资源组来将其移到另一个计划所在的 Web 空间。
+> 
+
 1. 在 [Azure 门户](https://portal.azure.cn)中，浏览到要移动的应用。
 
-2. 在菜单上，查找“应用服务计划”部分。
+1. 在菜单上，查找“应用服务计划”部分。
 
-3. 选择“更改应用服务计划”以打开“应用服务计划”选择器。
+1. 选择“更改应用服务计划”以打开“应用服务计划”选择器。
 
    ![应用服务计划选择器。][change] 
 
-4. 在“应用服务计划”选择器中，选择要将此应用移到的现有计划。   
+1. 在“应用服务计划”选择器中，选择要将此应用移到的现有计划。   
 
-> [!IMPORTANT]
-> “选择应用服务计划”页已根据以下条件筛选： 
-> - 在同一资源组中 
-> - 在同一地理区域中 
-> - 在同一 Web 空间中  
-> 
-> Web 空间是应用服务中的逻辑构造，用于定义服务器资源的分组。 地理区域（例如“美国西部”）包含许多 Web 空间，以便分配使用应用服务的客户。 目前，不能在 Web 空间之间移动应用服务资源。 
-> 
-
-[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
+“选择应用服务计划”页仅显示与当前应用的应用服务计划位于同一资源组和地理区域的计划。
 
 每个计划都有自己的定价层。 例如，将站点从“免费”层移到“标准”层时，分配给站点的所有应用都可使用“标准”层的功能和资源。 但是，将应用从更高的分层计划移到更低的分层计划意味着不再有权访问某些功能。 如果应用使用的功能在目标计划中不可用，则会出现错误，指出哪个正在使用的功能不可用。 
 

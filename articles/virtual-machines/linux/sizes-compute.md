@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 07/06/2018
-ms.date: 07/30/2018
+ms.date: 10/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: 60ffba848d24d1a0ecc6a34161006465ccd15530
-ms.sourcegitcommit: 62a0389a743cd18665bd127e9bf14800867008eb
+ms.openlocfilehash: 56063a51a7e4a36e0c4b520e1eb3b6a3bd96b346
+ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39624931"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50034803"
 ---
 # <a name="compute-optimized-virtual-machine-sizes"></a>计算优化虚拟机大小
 
@@ -41,6 +41,4 @@ ms.locfileid: "39624931"
 ## <a name="next-steps"></a>后续步骤
 了解有关 [Azure 计算单元 (ACU)](acu.md) 如何帮助跨 Azure SKU 比较计算性能的详细信息。
 
-<!-- Update_Description: update meta properties  -->
-<!--The parent file of includes file of virtual-machines-common-sizes-compute.md-->
-<!--ms.date:07/30/2018-->
+<!-- Update_Description: update meta properties, wording update -->

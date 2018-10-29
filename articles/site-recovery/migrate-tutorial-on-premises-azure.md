@@ -9,12 +9,12 @@ origin.date: 09/12/2018
 ms.date: 09/24/2018
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: 94e2ab903204780e4188c10a9df6327078f15fcd
-ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
+ms.openlocfilehash: 83a9cb87b45869f23e11942e80af73d14b75592f
+ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47201331"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50135767"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>将本地计算机迁移到 Azure
 
@@ -116,7 +116,7 @@ ms.locfileid: "47201331"
 
 在计算机迁移到 Azure 后，应当完成许多步骤。
 
-可以在[恢复计划]( https://docs.azure.cn/site-recovery/site-recovery-runbook-automation)中使用内置的自动化脚本功能将某些步骤作为迁移过程的一部分自动执行。   
+<!-- Not Available on [recovery plans]( https://docs.azure.cn/site-recovery/site-recovery-runbook-automation)-->
 
 ### <a name="post-migration-steps-in-azure"></a>Azure 中的迁移后步骤
 
@@ -131,12 +131,14 @@ ms.locfileid: "47201331"
     - 通过使用 Azure 备份服务备份 Azure VM 来确保数据安全。 [了解详细信息]( https://docs.azure.cn/backup/quick-backup-vm-portal)。
     - 通过使用 Site Recovery 将 Azure VM 复制到次要区域，使工作负荷保持运行并持续可用。 [了解详细信息](azure-to-azure-quickstart.md)。
 - 为提高安全性，请采取以下措施：
-    - 通过 Azure 安全中心[恰时管理]( https://docs.azure.cn/security-center/security-center-just-in-time)锁定并限制入站流量访问。
+
+    <!-- Not Available on  [Just in time administration]( https://docs.azure.cn/security-center/security-center-just-in-time)-->
     - 使用[网络安全组](/virtual-network/security-overview)限制到管理终结点的网络流量。
-    - 部署 [Azure 磁盘加密](/security/azure-security-disk-encryption-overview)来帮助保护磁盘，并确保数据安全，防止被盗和未经授权的访问。
-    - 阅读关于[保护 IaaS 资源]( https://www.azure.cn/services/virtual-machines/secure-well-managed-iaas/ )的详细内容，并访问 [Azure 安全中心](https://www.azure.cn/home/features/security-center/ )。
-- 对于监视和管理：
-    - 请考虑部署 [Azure 成本管理](/cost-management/overview)来监视资源使用情况和支出。
+    
+    <!-- Not Available on  [Azure Disk Encryption](/security/azure-security-disk-encryption-overview)--> <!-- Not Available on  [securing IaaS resources]( https://www.azure.cn/services/virtual-machines/secure-well-managed-iaas/ )-->
+    <!-- Not Available on  [Azure Security Center](https://www.azure.cn/home/features/security-center/ )-->
+    <!-- Not Available on  - For monitoring and management:-->
+    <!-- Not Available on  [Azure Cost Management](/cost-management/overview)-->
 
 ### <a name="post-migration-steps-on-premises"></a>本地的迁移后步骤
 

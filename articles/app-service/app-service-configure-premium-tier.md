@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/25/2018
-ms.date: 09/03/2018
-ms.author: v-yiso
-ms.openlocfilehash: d918d8a7bbc6dd080926e19808ddc3f1cdb008e3
-ms.sourcegitcommit: 1b682acdc2a5e0974fbff809967d7cefcbbbe8ac
+ms.date: 10/29/2018
+ms.author: v-biyu
+ms.openlocfilehash: e7af8c8a2d18e43ca451c251d9938af96a8cda5c
+ms.sourcegitcommit: 4b5ada023c9466d497c7474abf7ad71e50c3b17d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42870966"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49451585"
 ---
 # <a name="configure-premiumv2-tier-for-azure-app-service"></a>为 Azure 应用服务配置 PremiumV2 层
 

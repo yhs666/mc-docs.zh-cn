@@ -4,8 +4,7 @@ description: 演示如何将 Azure 应用服务中的应用连接到新的或现
 services: app-service
 documentationcenter: ''
 author: ccompy
-manager: erikre
-editor: cephalin
+manager: stefsch
 ms.assetid: 90bc6ec6-133d-4d87-a867-fcf77da75f5a
 ms.service: app-service
 ms.workload: na
@@ -13,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/23/2017
-ms.date: 06/04/2018
-ms.author: v-yiso
-ms.openlocfilehash: 1f2e6977d341b4dd7fb114c605ca0eff48285cd8
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.date: 10/29/2018
+ms.author: v-biyu
+ms.openlocfilehash: 531c37d8e2198e9b8253175497eb7d52f98fbd71
+ms.sourcegitcommit: 4b5ada023c9466d497c7474abf7ad71e50c3b17d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554519"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49451613"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>将应用与 Azure 虚拟网络进行集成
-本文档介绍 Azure 应用服务虚拟网络集成功能，并说明如何在 [Azure 应用服务](app-service-web-overview.md) 中使用应用对其进行设置。  如果你不熟悉 Azure 虚拟网络 (VNET)，则这里需要指出的是，该功能允许你将多个 Azure 资源置于你可以控制其访问权限但无法通过 Internet 路由的网络中。  然后，用户可以使用多种 VPN 技术将这些网络连接到本地网络。  若要了解有关 Azure 虚拟网络的详细信息，请先了解以下信息： [Azure 虚拟网络概述][VNETOverview]。  
+本文档介绍 Azure 应用服务虚拟网络集成功能，并说明如何在 [Azure 应用服务](app-service-web-overview.md)中使用应用对其进行设置。  如果你不熟悉 Azure 虚拟网络 (VNET)，则这里需要指出的是，该功能允许你将多个 Azure 资源置于你可以控制其访问权限但无法通过 Internet 路由的网络中。  然后，用户可以使用多种 VPN 技术将这些网络连接到本地网络。  若要了解有关 Azure 虚拟网络的详细信息，请先了解以下信息： [Azure 虚拟网络概述][VNETOverview]。  
 
 在 Azure 中国区，Azure 应用服务只有一个窗体。  
 
@@ -37,7 +36,7 @@ VNet 集成功能：
 * 需要“标准”、“高级”或“隔离”定价计划 
 * 适用于经典 VNet 或资源管理器 VNet 
 * 支持 TCP 和 UDP
-* 适用于 Web 应用、移动应用和 API 应用
+* 适用于 Web 应用、移动应用、API 应用和 Function 应用
 * 允许应用一次只连接到 1 个 VNet
 * 允许在应用服务计划中一次最多集成 5 个 VNet 
 * 允许在应用服务计划中由多个应用使用同一个 VNet
@@ -53,19 +52,19 @@ VNet 集成不支持某些功能，其中包括：
 ### <a name="getting-started"></a>入门
 将 Web 应用连接到虚拟网络之前，需要牢记以下几点：
 
-* VNET 集成仅适用于“标准”或“高级”定价计划中的应用。  如果在启用此功能后又将应用服务计划缩放为不受支持的定价计划，应用会失去与所用 VNET 的连接。  
+* VNet 集成仅适用于“标准”、“高级”或“隔离”定价计划中的应用。 如果在启用此功能后又将应用服务计划缩放为不受支持的定价计划，应用会失去与所用 VNet 的连接。 
 * 如果目标虚拟网络已经存在，必须在连接到应用之前借助动态路由网关使网络处于点到站点 VPN 启用状态。 如果网关由静态路由配置，则无法启用点到站点虚拟专用网络 (VPN)。
-* VNET 所在的订阅必须与应用服务计划 (ASP) 所在的订阅相同。  
+* VNet 所在的订阅必须与应用服务计划 (ASP) 所在的订阅相同。
 * 如果已存在启用了点到站点的网关，并且它不在基本 SKU 中，则必须在点到站点配置中禁用 IKEV2。
 * 与 VNet 集成的应用使用为该 VNet 指定的 DNS。
 * 默认情况下，集成应用只根据 VNet 中的已定义路由将流量路由到 VNet 中。 
 
-## <a name="enabling-vnet-integration"></a>启用 VNET 集成
+## <a name="enabling-vnet-integration"></a>启用 VNet 集成
 
 可以选择将应用连接到新的或现有的虚拟网络。 如果在集成过程中创建新网络，则除了创建 VNet，系统还会预先配置动态路由网关并启用点到站点 VPN。 
 
 > [!NOTE]
-> 配置新的虚拟网络集成可能需要几分钟的时间。  
+> 配置新的虚拟网络集成可能需要几分钟的时间。 
 > 
 > 
 
@@ -78,26 +77,27 @@ VNet 集成不支持某些功能，其中包括：
 ### <a name="enabling-vnet-integration-with-a-pre-existing-vnet"></a>允许与预先存在的 VNET 进行 VNET 集成
 可以通过 VNet 集成 UI 从 VNet 列表中进行选择。 经典 VNet 会在 VNet 名称旁边的括号中加入“经典”一词进行表示。 对列表排序时，会首先列出资源管理器 VNet。 在下图中，可以看到，只能选择一个 VNet。 多种原因会导致 VNet 灰显，其中包括：
 
-* 该 VNET 属于帐户有权访问的其他订阅
-* 该 VNET 未启用点到站点连接
-* 该 VNET 没有动态路由网关
+* 该 VNet 属于帐户有权访问的其他订阅
+* 该 VNet 未启用点到站点连接
+* 该 VNet 没有动态路由网关
 
 ![][2]
 
-若要启用集成，请直接单击要集成的 VNet。 选择 VNet 以后，应用会自动重新启动，以使所做的更改生效。 
+若要启用集成，请单击要集成的 VNet。 选择 VNet 以后，应用会自动重新启动，以使所做的更改生效。 
 
 ##### <a name="enable-point-to-site-in-a-classic-vnet"></a>在经典 VNet 中启用点到站点连接
-如果 VNet 既没有网关，也没有点到站点连接，则需先进行此方面的设置。 若要对经典 VNet 进行此操作，请转到 [Azure 门户][AzurePortal]，此时会显示虚拟网络（经典）列表。 在此处单击要集成的网络，并单击 Essentials 下名为“VPN 连接”的大框。 在此处，可以创建点到站点 VPN，甚至可以让其创建网关。 如果有网关创建经验，则在完成点到站点连接以后，还需大约 30 分钟的时间才能让其就绪。 
+
+如果 VNet 既没有网关，也没有点到站点连接，则需先进行此方面的设置。 若要为经典 VNet 配置网关，请转到门户，此时会显示虚拟网络（经典）列表。 选择要集成的网络。 选择 VPN 连接。 在此处，可以创建点到站点 VPN，甚至可以让其创建网关。 网关需要大约 30 分钟才能显示。
 
 ![][8]
 
-##### <a name="enabling-point-to-site-in-a-resource-manager-vnet"></a>在 Resource Manager VNET 中启用点到站点连接
-若要使用网关和点到站点配置 Resource Manager VNET，可以使用此处（[使用 PowerShell 配置与虚拟网络的点到站点连接][V2VNETP2S]）所述的 PowerShell，或使用此处（[使用 Azure 门户配置与 VNet 的点到站点连接][V2VNETPortal]）所述的 Azure 门户。  尚未提供执行此功能的 UI。 请注意，不需要为点到站点配置创建证书。 将 WebApp 连接到 VNet 时会自动配置证书。 
+##### <a name="enabling-point-to-site-in-a-resource-manager-vnet"></a>在资源管理器 VNet 中启用点到站点连接
+若要使用网关和点到站点配置资源管理器 VNet，可以使用此处（[使用 PowerShell 配置与虚拟网络的点到站点连接][V2VNETP2S]）所述的 PowerShell，或使用此处（[使用 Azure 门户配置与 VNet 的点到站点连接][V2VNETPortal]）所述的 Azure 门户。 尚未提供执行此功能的 UI。 不需要为点到站点配置创建证书。 证书是在你使用门户将 WebApp 连接到 VNet 时自动创建的。 
 
-### <a name="creating-a-pre-configured-vnet"></a>创建预先配置的 VNET
-若要创建配置了网关和点到站点连接的新 VNET，则可使用应用服务网络 UI 来执行该操作，但仅限于 Resource Manager VNET。  若要创建配置了网关和点到站点连接的经典 VNET，则需通过“网络”用户界面手动执行该操作。 
+### <a name="creating-a-pre-configured-vnet"></a>创建预先配置的 VNet
+若要创建配置了网关和点到站点连接的新 VNet，则可使用应用服务网络 UI 来执行该操作，但仅限于资源管理器 VNet。 若要创建配置了网关和点到站点连接的经典 VNet，则需通过“网络”用户界面手动执行该操作。 
 
-如果要通过 VNET 集成 UI 创建 Resource Manager VNET，请直接选择“创建新的虚拟网络”  ，并提供以下信息：
+若要通过 VNet 集成 UI 创建资源管理器 VNet，请选择“创建新的虚拟网络”，并提供以下信息：
 
 * 虚拟网络名称
 * 虚拟网络地址块
@@ -121,14 +121,14 @@ Azure VNet 通常在专用网络地址中创建。 默认情况下，VNet 集成
 * 172.16.0.0/12 - 相当于 172.16.0.0 - 172.31.255.255 
 * 192.168.0.0/16 - 相当于 192.168.0.0 - 192.168.255.255
 
-VNET 地址空间需使用 CIDR 表示法来指定。  如果不熟悉 CIDR 表示法，则这里需要指出的是，该表示法是一种使用 IP 地址和整数（代表网络掩码）来指定地址块的方法。 举例来说，10.1.0.0/24 表示 256 个地址，10.1.0.0/25 表示 128 个地址。  IPv4 地址后接 /32 表示 1 个地址。  
+VNet 地址空间需使用 CIDR 表示法来指定。 如果不熟悉 CIDR 表示法，则这里需要指出的是，该表示法是一种使用 IP 地址和整数（代表网络掩码）来指定地址块的方法。 举例来说，10.1.0.0/24 表示 256 个地址，10.1.0.0/25 表示 128 个地址。 IPv4 地址后接 /32 表示 1 个地址。 
 
 如果在此处设置了 DNS 服务器信息，则会对 VNet 进行相应的设置。 创建 VNet 以后，可以根据 VNet 用户体验编辑此信息。 如果更改 VNet 的 DNS，则需执行“同步网络”操作。
 
 使用 VNet 集成 UI 创建经典 VNet 时，该 UI 会在与应用相同的资源组中创建 VNet。 
 
 ## <a name="how-the-system-works"></a>系统的工作方式
-实际上，该功能基于点到站点 VPN 技术将应用连接到 VNet。 Azure 应用服务中的应用具有多租户系统体系结构，与虚拟机中一样，它可以阻止直接在 VNet 中预配应用。 通过依托点到站点技术，我们将网络访问限制在托管应用的那台虚拟机。 在那些应用主机上会进一步限制对网络的访问，因此应用只能访问配置好的允许访问的网络。 
+实际上，该功能基于点到站点 VPN 技术将应用连接到 VNet。 Azure 应用服务中的应用具有多租户系统体系结构，与虚拟机中一样，它可以阻止直接在 VNet 中预配应用。 通过依托点到站点技术，我们将网络访问限制在托管应用的那台虚拟机。 在应用主机上会进一步限制对网络的访问，因此应用只能访问配置好的允许访问的网络。 
 
 ![][4]
 
@@ -141,41 +141,41 @@ VNET 地址空间需使用 CIDR 表示法来指定。  如果不熟悉 CIDR 表�
 
 在“网络功能状态”页中，可查看应用是否已连接到 VNet。 如果 VNet 网关因某种原因而关闭，则会显示为未连接。 
 
-现在，在应用级别的 VNET 集成 UI 中获得的信息与通过 ASP 获得的详细信息是相同的。  下面是信息中的各项内容：
+现在应用级别的 VNet 集成 UI 中获得的信息与你通过 ASP 获得的详细信息是相同的。 下面是信息中的各项内容：
 
 * VNet 名称 - 此链接打开 Azure 虚拟网络 UI
-* 位置 - 此项反映 VNET 的位置。  可以在其他位置与 VNET 集成。
-* 证书状态 - 可以使用证书来确保应用和 VNET 之间的 VPN 连接的安全性。  此项所反映的测试用于确保证书处于同步状态。
-* 网关状态 - 如果网关因某种原因而关闭，则应用无法访问 VNET 中的资源。  
-* VNET 地址空间 - 此项为 VNET 的 IP 地址空间。  
+* 位置 - 此项反映 VNet 的位置。 可以在其他位置与 VNet 集成。
+* 证书状态 - 可以使用证书来确保应用和 VNet 之间的 VPN 连接的安全性。 此项所反映的测试用于确保证书处于同步状态。
+* 网关状态 - 如果网关因某种原因而关闭，则应用无法访问 VNet 中的资源。 
+* VNet 地址空间 - 此项为 VNet 的 IP 地址空间。 
 * 点到站点地址空间 - 此项为 VNet 的点到站点 IP 地址空间。 应用会在此地址空间中将通信显示成来自其中一个 IP。 
 * 站点到站点地址空间 - 可以使用站点到站点 VPN 将 VNet 连接到本地资源或其他 VNet。 配置完成以后，针对该 VPN 连接定义的 IP 范围会显示在此处。
 * DNS 服务器 - 如果已为 DNS 服务器配置了 VNet，则这些服务器会列在此处。
 * 路由到 VNet 的 IP - 此项为通过 VNet 定义了路由的 IP 地址的列表，这些地址显示于此。 
 
-在 VNet 集成的应用视图中，能够执行的唯一操作是断开应用与当前所连接到的 VNet 的连接。 为此，请直接单击顶部的“断开连接”。 此操作不会更改 VNet。 VNet 及其包括网关在内的配置都保持不变。 如果随后想要删除 VNet，则需先删除其中的资源（包括网关）。 
+在 VNet 集成的应用视图中，能够执行的唯一操作是断开应用与当前所连接到的 VNet 的连接。 若要断开应用与 VNet 的连接，请在顶部断开。 此操作不会更改 VNet。 VNet 及其包括网关在内的配置都保持不变。 如果随后想要删除 VNet，则需先删除其中的资源（包括网关）。 
 
-“应用服务计划”视图包含许多其他操作。 它还可以通过其他方式进行访问，通过应用进行访问除外。 如果要访问 ASP 网络 UI，请直接打开 ASP UI，并向下滚动。 有一个名为“网络功能状态”的 UI 元素。 该元素会提供一些有关 VNet 集成的次要详细信息。 单击此 UI 会打开网络功能状态 UI。 如果随后单击“单击此处进行管理”，则会打开一个 UI，其中会列出此 ASP 中的 VNet 集成。
+“应用服务计划”视图包含许多其他操作。 它还可以通过其他方式进行访问，通过应用进行访问除外。 若要访问 ASP 网络 UI，请打开 ASP UI 并向下滚动。 选择“网络功能状态”可打开网络功能状态 UI。 选择“单击此处进行管理”可列出此 ASP 中的 VNet 集成。
 
 ![][6]
 
-查看要集成的 VNET 的位置时，ASP 的位置很好记忆。  当 VNET 位于其他位置时，出现延迟问题的可能性要大得多。  
+查看要集成的 VNet 的位置时，ASP 的位置很好记忆。 当 VNet 位于其他位置时，出现延迟问题的可能性要大得多。 
 
-通过集成的 VNET 数，可以了解到此 ASP 中与应用集成的 VNET 数，以及到底可以集成多少。  
+通过集成的 VNet 数，可以了解到此 ASP 中与应用集成的 VNet 数，以及到底可以集成多少。 
 
 要查看每个 VNet 的更多详细信息，请直接单击你感兴趣的 VNet。 除了前述详细信息，还会看到此 ASP 中正在使用该 VNet 的应用的列表。 
 
-关于操作，一共有两个主要操作。  第一个操作是允许添加驱使流量从应用进入 VNET 的路由。  第二个操作是允许同步证书和网络信息。
+关于操作，一共有两个主要操作。 第一个操作是允许添加驱使流量从应用进入 VNet 的路由。 第二个操作是允许同步证书和网络信息。
 
 ![][7]
 
-**路由** 如前所述，在 VNET 中定义的路由用于将流量从应用导入 VNET。  不过还有一些用处。当客户需要将额外的出站流量从应用发送到 VNET 中时，就需要用到此功能。  此后对流量的控制取决于客户对其 VNET 的配置。  
+**路由** 如前所述，在 VNet 中定义的路由用于将流量从应用导入 VNet。 不过还有一些用处。当客户需要将额外的出站流量从应用发送到 VNet 中时，就需要用到此功能。 此后对流量的控制取决于客户对其 VNet 的配置。 
 
-**证书** 证书状态反映了应用服务所执行的检查的结果，该检查是为了验证用于 VPN 连接的证书是否仍然有效。  启用 VNET 集成后，如果这是第一次从该 ASP 中的应用集成到该 VNET，则必须进行证书交换以确保连接的安全性。  除了证书，我们还可以获得 DNS 配置、路由以及其他类似的用于描述网络的内容。
+**证书** 证书状态反映了应用服务所执行的检查的结果，该检查是为了验证用于 VPN 连接的证书是否仍然有效。 启用 VNet 集成后，如果这是第一次从该 ASP 中的应用集成到该 VNet，则必须进行证书交换以确保连接的安全性。 除了证书，我们还可以获得 DNS 配置、路由以及其他类似的用于描述网络的内容。
 如果更改了这些证书或网络信息，则需单击“同步网络”。 注意：单击“同步网络”会导致应用与 VNet 之间的连接出现短暂的中断。 虽然应用不会重新启动，但失去连接会导致站点功能失常。 
 
 ## <a name="accessing-on-premises-resources"></a>访问本地资源
-VNet 集成功能的一大好处是，如果 VNet 通过站点到站点 VPN 连接到本地网络，则可通过应用访问本地资源。 不过，可能需要使用点到站点 IP 范围的路由来更新本地 VPN 网关才能这样做。 先设置站点到站点 VPN 以后，接着应通过用于配置该 VPN 的脚本来设置包括点到站点 VPN 在内的路由。 如果在创建站点到站点 VPN 后才添加点到站点 VPN，则需手动更新路由。 具体操作信息取决于每个网关，在此不作说明。 
+VNet 集成功能的一大好处是，如果 VNet 通过站点到站点 VPN 连接到本地网络，则可通过应用访问本地资源。 不过，可能需要使用点到站点 IP 范围的路由来更新本地 VPN 网关才能这样做。 先设置站点到站点 VPN，接着应通过用于配置该 VPN 的脚本来设置包括点到站点 VPN 在内的路由。 如果在创建站点到站点 VPN 后才添加点到站点 VPN，则需手动更新路由。 具体操作信息取决于每个网关，在此不作说明。 
 
 > [!NOTE]
 > VNET 集成功能不会将应用与包含 ExpressRoute 网关的 VNet 集成。 即使 ExpressRoute 网关是以[共存模式][VPNERCoex]配置的，vNet 集成也不会实现。
@@ -191,30 +191,30 @@ VNet 集成功能的一大好处是，如果 VNet 通过站点到站点 VPN 连�
 
 应用必须是标准或高级应用服务计划中的应用才能使用此功能。  可通 [应用服务定价][ASPricing]了解此方面费用的更多详细信息。 
 
-通过 VNET 集成连接进行传输的出站数据始终收费，即使该 VNET 是在同一数据中心。这是由系统对点到站点 VPN 的处理方式决定的。  若要了解具体的收费情况，请参阅：[数据传输定价详细信息][DataPricing]。  
+通过 VNet 集成连接进行传输的出站数据始终收费，即使该 VNet 是在同一数据中心。这是由系统对点到站点 VPN 的处理方式决定的。 若要了解具体的收费情况，请参阅：[数据传输定价详细信息][DataPricing]。 
 
-最后一项是 VNET 网关费用。  即使你不需使用网关来执行站点到站点 VPN 之类的其他功能，也仍需为网关付费，否则无法使用 VNET 集成功能。  下面是此方面费用的详细信息： [VPN 网关定价][VNETPricing]。  
+最后一项是 VNet 网关费用。 即使不需使用网关来执行站点到站点 VPN 之类的其他功能，仍需为网关付费，否则无法使用 VNet 集成功能。 下面是此方面费用的详细信息： [VPN 网关定价][VNETPricing]。 
 
 ## <a name="troubleshooting"></a>故障排除
 虽然此功能容易设置，但这并不意味着你就不会遇到问题。  如果在访问所需终结点时遇到问题，可以使用某些实用程序来测试从应用控制台发出的连接。  可以通过两种方式来体验控制台的使用。  一种方式是使用 Kudu 控制台，另一种方式是访问 Azure 门户中的控制台。  若要访问应用中的 Kudu 控制台，请转到“工具”->“Kudu”。  这相当于访问 [sitename].scm.chinacloudsites.cn。  打开后，直接转到“调试控制台”选项卡。若要访问 Azure 门户托管的控制台，请在应用中转到“工具”->“控制台”。  
 
 #### <a name="tools"></a>工具
-由于存在安全约束，ping、nslookup 和 tracert 工具无法通过控制台来使用。  为了填补这方面的空白，我们添加了两项单独的工具。  我们添加了名为 nameresolver.exe 的工具，用于测试 DNS 功能。  语法为：
+由于存在安全约束，**ping**、**nslookup** 和 **tracert** 工具无法通过控制台来使用。 为了填补这方面的空白，我们添加了两项单独的工具。 我们添加了名为 nameresolver.exe 的工具，用于测试 DNS 功能。 语法为：
 
     nameresolver.exe hostname [optional: DNS Server]
 
-可以使用 nameresolver 来检查应用所需的主机名。  可以通过这种方式来测试 DNS 是否配置错误，或者测试你是否无权访问 DNS 服务器。
+可以使用 **nameresolver** 来检查应用所依赖的主机名。 可以通过这种方式来测试 DNS 是否配置错误，或者测试你是否无权访问 DNS 服务器。
 
-下一工具适用于测试与主机的 TCP 连接情况，以及端口组合情况。  该工具名为 tcpping.exe，语法为：
+下一工具适用于测试与主机的 TCP 连接情况，以及端口组合情况。 该工具名为 **tcpping**，语法为：
 
     tcpping.exe hostname [optional: port]
 
-tcpping 实用程序会告知是否可访问特定主机和端口。 仅满足以下条件才会显示成功：存在侦听主机和端口组合的应用程序，且可从应用对指定主机和端口进行网络访问。
+**tcpping** 实用程序会告知是否可访问特定主机和端口。 仅满足以下条件才会显示成功：存在侦听主机和端口组合的应用程序，且可从应用对指定主机和端口进行网络访问。
 
 #### <a name="debugging-access-to-vnet-hosted-resources"></a>针对 VNET 托管的资源进行访问权限调试
 许多因素会阻止应用访问特定的主机和端口。  大多数情况下为以下三种情况：
 
-* **存在防火墙** 若存在防火墙，则会发生 TCP 超时。 本例中为 21 秒。 使用 tcpping 工具测试连接性。 除了防火墙外，还有多种原因可能导致 TCP 超时。 
+* **存在防火墙** 若存在防火墙，则会发生 TCP 超时。 本例中为 21 秒。 使用 **tcpping** 工具测试连接性。 除了防火墙外，还有多种原因可能导致 TCP 超时。 
 * **DNS 不可访问** DNS 超时时间为每个 DNS 服务器 3 秒。 如果具有 2 个 DNS 服务器，则超时为 6 秒。 使用 nameresolver 查看 DNS 是否正常工作。 请记住，不能使用 nslookup，因其没有使用为 VNet 配置的 DNS。
 * **无效的 P2S IP 范围** 点到站点 IP 范围点需要处于 RFC 1918 专用 IP 范围 (10.0.0.0-10.255.255.255 / 172.16.0.0-172.31.255.255 / 192.168.0.0-192.168.255.255) 内。 如果范围的 IP 超出上述范围，则操作无法正常运行。 
 
@@ -240,35 +240,29 @@ tcpping 实用程序会告知是否可访问特定主机和端口。 仅满足�
 * 应用程序所侦听的端口不同于所期望的端口。 如果要查看是否属于这种情况，用户可以转到该主机，并在命令提示符处执行“netstat -aon”。 此时会显示在相应端口上进行侦听的进程 ID。 
 * 网络安全组的配置方式导致无法从点到站点 IP 范围访问应用程序主机和端口
 
-请记住，不知道应用会使用点到站点 IP 范围中的哪个 IP，因此需允许整个范围中的 IP 进行访问。  
+请记住，由于不知道应用会使用点到站点 IP 范围中的哪个 IP，因此需允许整个范围中的 IP 进行访问。 
 
 其他调试步骤包括：
 
-* 登录到 VNET 中的其他 VM，尝试在该处访问资源主机:端口。  可以使用某些 TCP ping 实用程序来进行此类操作，甚至还可以视需要使用 telnet。  此处的目的就是确定是否可以从这个其他的 VM 进行连接。 
-* 在其他 VM 中启动应用程序，测试能否在应用的控制台中访问该主机和端口  
+* 连接到 VNet 中的某个 VM，尝试在该处访问资源主机:端口。 若要针对 TCP 访问权限进行测试，请使用 PowerShell 命令 **test-netconnection**。 语法是：test-netconnection 主机名 [可选：-Port]
+
+* 在某个 VM 中启动应用程序，测试能否在应用的控制台中访问该主机和端口
 
 #### <a name="on-premises-resources"></a>本地资源 ####
-如果应用无法访问本地资源，则首先应检查是否能够访问 VNet 中的资源。 如果可以，请尝试从 VNet 中的 VM 访问本地应用程序。 可以使用 telnet 或 TCP ping 实用程序。 如果 VM 无法访问本地资源，请确保站点到站点 VPN 连接正常。 如果正常，则请检查前述项目以及本地网关配置和状态。 
+如果应用无法访问本地资源，则请检查是否能够通过 VNet 访问该资源。 请使用 **test-netconnection** PowerShell 命令执行此操作。 如果 VM 无法访问本地资源，请确保站点到站点 VPN 连接正常。 如果正常，则请检查前述项目以及本地网关配置和状态。 
 
-现在，如果 VNET 托管的 VM 能够访问本地系统但应用无法访问，则可能是由于以下某个原因：
+如果 VNet 托管的 VM 能够访问本地系统但应用无法访问，则可能是由于以下某个原因：
 
 * 在本地网关中未使用点到站点 IP 范围对路由进行配置
 * 网络安全组阻止点到站点 IP 范围中的 IP 进行访问
 * 本地防火墙阻止来自点到站点 IP 范围的流量
-* VNET 中的用户定义路由 (UDR) 阻止点到站点型流量访问本地网络
+* VNet 中的用户定义路由 (UDR) 阻止点到站点型流量访问本地网络
 
 ## <a name="powershell-automation"></a>PowerShell 自动化
 
 可以使用 PowerShell 将应用服务与 Azure 虚拟网络进行集成。 有关就绪可运行的脚本，请参阅 [Connect an app in Azure App Service to an Azure Virtual Network](https://gallery.technet.microsoft.com/scriptcenter/Connect-an-app-in-Azure-ab7527e3)（将 Azure 应用服务中的应用连接到 Azure 虚拟网络）。
 <!--Image references-->
-[1]: ./media/web-sites-integrate-with-vnet/vnetint-upgradeplan.png
-[2]: ./media/web-sites-integrate-with-vnet/vnetint-existingvnet.png
-[3]: ./media/web-sites-integrate-with-vnet/vnetint-createvnet.png
-[4]: ./media/web-sites-integrate-with-vnet/vnetint-howitworks.png
-[5]: ./media/web-sites-integrate-with-vnet/vnetint-appmanage.png
-[6]: ./media/web-sites-integrate-with-vnet/vnetint-aspmanage.png
-[7]: ./media/web-sites-integrate-with-vnet/vnetint-aspmanagedetail.png
-[8]: ./media/web-sites-integrate-with-vnet/vnetint-vnetp2s.png
+[1]: ./media/web-sites-integrate-with-vnet/vnetint-upgradeplan.png [2]: ./media/web-sites-integrate-with-vnet/vnetint-existingvnet.png [3]: ./media/web-sites-integrate-with-vnet/vnetint-createvnet.png [4]: ./media/web-sites-integrate-with-vnet/vnetint-howitworks.png [5]: ./media/web-sites-integrate-with-vnet/vnetint-appmanage.png [6]: ./media/web-sites-integrate-with-vnet/vnetint-aspmanage.png [7]: ./media/web-sites-integrate-with-vnet/vnetint-aspmanagedetail.png [8]: ./media/web-sites-integrate-with-vnet/vnetint-vnetp2s.png
 
 <!--Links-->
 [VNETOverview]: ../virtual-network/virtual-networks-overview.md

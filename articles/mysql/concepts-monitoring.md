@@ -8,17 +8,21 @@ manager: digimobile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-origin.date: 09/17/2018
-ms.date: 09/24/2018
-ms.openlocfilehash: 4a827c347882dfafbe2dd0571b9748a1b9c3e389
-ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
+origin.date: 10/03/2018
+ms.date: 10/22/2018
+ms.openlocfilehash: cdfbe01fb1bcfad78478065589fa7a299e315da3
+ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46527166"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49453616"
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>在 Azure Database for MySQL 中进行监视
-监视服务器的相关数据有助于排查工作负荷故障及优化工作负荷。 Azure Database for MySQL 提供了各种指标来帮助用户深入了解为 MySQL 服务器提供支持的资源的行为。 
+
+> [!NOTE] 
+> 将要查看的是 Azure Database for MySQL 的新服务。 若要查看经典 MySQL Database for Azure 的文档，请访问[此页](https://docs.azure.cn/zh-cn/mysql-database-on-azure/)。
+
+监视服务器的相关数据有助于排查工作负荷故障及优化工作负荷。 Azure Database for MySQL 提供了各种指标来帮助用户深入了解服务器的行为。
 
 ## <a name="metrics"></a>指标
 所有 Azure 指标的频率都是一分钟，每个指标提供 30 天的历史记录。 其他任务包括设置自动操作、执行高级分析和存档历史记录。 有关详细信息，请参阅 [Azure 指标概述](../monitoring-and-diagnostics/monitoring-overview-metrics.md)。
@@ -42,6 +46,9 @@ ms.locfileid: "46527166"
 |seconds_behind_master|复制延迟（秒）|计数|副本服务器滞后于主服务器的秒数。|
 |network_bytes_egress|网络传出|字节|跨活动连接的网络传出。|
 |network_bytes_ingress|网络传入|字节|跨活动连接的网络传入。|
+
+## <a name="server-logs"></a>服务器日志
+可以在服务器上启用慢查询日志记录。 这些日志也可通过事件中心和存储帐户获得。 若要了解有关日志记录的详细信息，请访问[服务器日志](concepts-server-logs.md)页。
 
 ## <a name="next-steps"></a>后续步骤
 - 若要深入了解如何使用 Azure 门户、REST API 或 CLI 访问和导出指标，请参阅 [Azure 指标概述](../monitoring-and-diagnostics/monitoring-overview-metrics.md)。

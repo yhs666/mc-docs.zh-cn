@@ -13,16 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 04/25/2017
-ms.date: 07/30/2018
-ms.author: v-yiso
-ms.openlocfilehash: 66b3bb803b2d654bf77d44db5de922e668a68675
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.date: 10/29/2018
+ms.author: v-biyu
+ms.openlocfilehash: 65ce13ea79bd83abed26afdae632150d3d76f50f
+ms.sourcegitcommit: 4b5ada023c9466d497c7474abf7ad71e50c3b17d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39167867"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49451610"
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>在 Azure 应用服务中配置 Web 应用
+
 本主题介绍如何使用 [Azure 门户]配置 Web 应用。
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
@@ -160,6 +161,12 @@ Web 应用可能会使用根据 URL 路由的模块，而不是提供静态内�
 在“基本”或“标准”模式下，可以测试 HTTP 或 HTTPS 终结点的可用性，最多可测试三个地理分散的位置。 如果 HTTP 响应码为错误（4xx 或 5xx），或者响应时间超过 30 秒，则表示监视测试失败。 如果从所有指定的位置监视测试均成功，则终结点被视为可用。 
 
 有关详细信息，请参阅 [如何监视 Web 终结点状态]。
+
+> [!NOTE]
+> 如果要在注册 Azure 帐户之前开始使用 Azure 应用服务，请转到 [试用应用服务]，可在应用服务中立即创建一个生存期较短的入门 Web 应用。 不需要使用信用卡，也不需要做出承诺。
+> 
+> 
+
 ## <a name="next-steps"></a>后续步骤
 * [在 Azure 应用服务中配置自定义域名]
 * [为 Azure 应用服务中的应用启用 HTTPS]
@@ -177,7 +184,7 @@ Web 应用可能会使用根据 URL 路由的模块，而不是提供静态内�
 [Azure 应用服务中 Web 应用的监视基础知识]: ./web-sites-monitor.md
 [管道模式]: http://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
 [在 Azure 应用服务中缩放 Web 应用]: ./web-sites-scale.md
-[Try App Service]: https://azure.microsoft.com/try/app-service/
+[试用应用服务]: https://azure.microsoft.com/try/app-service/
 
 <!-- IMG List -->
 

@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
 origin.date: 06/18/2018
-ms.date: 10/08/2018
-ms.author: v-yiso
+ms.date: 10/29/2018
+ms.author: v-biyu
 ms.custom: mvc
-ms.openlocfilehash: 573c3481a598dae1c9fa16ed1382eb9d30c8edc7
-ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
+ms.openlocfilehash: eb07d76bf110a7e46a8cec85dfaf2352da275504
+ms.sourcegitcommit: 4b5ada023c9466d497c7474abf7ad71e50c3b17d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523899"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49451621"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-web-apps"></a>教程：将现有的自定义 DNS 名称映射到 Azure Web 应用
 
@@ -299,6 +299,10 @@ ms.locfileid: "46523899"
 - 浏览器客户端已缓存域的旧 IP 地址。 再次清除缓存并测试 DNS 解析。 在 Windows 计算机上，使用 `ipconfig /flushdns` 清除缓存。
 
 <a name="virtualdir"></a>
+
+## <a name="migrate-an-active-domain"></a>迁移活动域
+
+若要将实时站点及其 DNS 域名迁移到应用服务而不停机，请参阅[将活动 DNS 名称迁移到 Azure 应用服务](app-service-custom-domain-name-migrate.md)。
 
 ## <a name="redirect-to-a-custom-directory"></a>重定向到自定义目录
 
