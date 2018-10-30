@@ -1,216 +1,242 @@
 ---
-title: Java for Android 人脸 API 教程 | Microsoft Docs
-description: 创建一个使用认知服务人脸 API 来检测和定格图像中的人脸的简单 Android 应用。
+title: 教程：检测和定格图像中的人脸 - 人脸 API、Java for Android
+titleSuffix: Azure Cognitive Services
+description: 在本教程中，你将创建一个简单的 Android 应用，它使用人脸 API 来检测和定格图像中的人脸。
 services: cognitive-services
-author: alexchen2016
-manager: digimobile
+author: PatrickFarley
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: face
-ms.topic: article
-origin.date: 02/24/2017
-ms.date: 10/13/2017
+ms.component: face-api
+ms.topic: tutorial
+origin.date: 07/12/2018
+ms.date: 10/23/2018
 ms.author: v-junlch
-ms.openlocfilehash: 7e9b7d47c69d8d1bde02d0d64fff5f026bbc87fe
-ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ms.openlocfilehash: 98cdc693c074db05145b5ed1fefcaf5e6d6fa229
+ms.sourcegitcommit: 44ce337717bb948f5ac08217a156935f663c0f46
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
-ms.locfileid: "23407612"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50034636"
 ---
-# <a name="getting-started-with-face-api-in-java-for-android-tutorial"></a>Java for Android 中的人脸 API 入门教程
+# <a name="tutorial-create-an-android-app-to-detect-and-frame-faces-in-an-image"></a>教程：创建一个用于检测和定格图像中人脸的 Android 应用
 
-本教程介绍如何创建和开发一个调用人脸 API 来检测图像中的人脸的简单 Android 应用程序。 该应用程序通过定格所检测到的人脸来显示结果。     
+本教程创建一个简单的 Android 应用程序，以便使用人脸服务 Java 类库来检测图像中的人脸。 此应用程序显示一个选定的图像，其中的每个检测到的人脸都用矩形来定格。 完整的示例代码在 GitHub 上的[在 Android 上检测和定格图像中的人脸](https://github.com/Azure-Samples/cognitive-services-face-android-sample)中提供。
 
-![GettingStartedAndroid](../Images/android_getstarted2.1.PNG)
+![一张照片的 Android 屏幕截图，其中的人脸已使用红色矩形定格](../Images/android_getstarted2.1.PNG)
 
-## <a name="preparation"></a>准备工作
+本教程演示如何：
 
-若要使用本教程，需要满足以下先决条件：
+> [!div class="checklist"]
+> - 创建 Android 应用程序
+> - 安装人脸服务客户端库
+> - 使用客户端库检测图像中的人脸
+> - 围绕每个检测到的人脸绘制一个框架
 
-- 已安装 Android Studio 和 SDK
-- Android 设备（可选，用于测试） 
+## <a name="prerequisites"></a>先决条件
 
-## <a name="step1"></a>步骤 1：订阅人脸 API 并获取订阅密钥
+- 需要一个订阅密钥来运行此示例。 可从 [https://portal.azure.cn](https://portal.azure.cn) 获取订阅密钥。
+- [Android Studio](https://developer.android.com/studio/)，至少装有 SDK 22（这是人脸客户端库需要的）。
+- Maven 提供的 [com.microsoft.projectoxford:face:1.4.3](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.microsoft.projectoxford%22) 人脸客户端库。 不需下载程序包。 下面提供了安装说明。
 
-在使用任何人脸 API 之前，必须在 Azure 门户中注册以订阅人脸 API。 在本教程中，可以使用主密钥和辅助密钥。
+## <a name="create-the-project"></a>创建项目
 
-## <a name="step2"></a>步骤 2：创建应用程序框架
+请按以下步骤创建 Android 应用程序项目：
 
-此步骤创建一个 Android 应用程序项目，用于实现基本 UI 来拾取和显示图像。 只需遵照以下说明操作： 
+1. 打开 Android Studio。 本教程使用 Android Studio 3.1。
+1. 选择“启动新的 Android Studio 项目”。
+1. 在“创建 Android 项目”屏幕上根据需要修改默认字段，然后单击“下一步”。
+1. 在“目标 Android 设备”屏幕上使用下拉列表选择器选择“API 22”或更高版本，然后单击“下一步”。
+1. 选择“空活动”，然后单击“下一步”。
+1. 取消选中“后向兼容性”，然后单击“完成”。
 
-1. 打开 Android Studio。
-2. 在“文件”菜单中，单击“新建项目...”
-3. 将应用程序命名为 MyFirstApp，单击“下一步”。 
+## <a name="create-the-ui-for-selecting-and-displaying-the-image"></a>创建用于选择和显示图像的 UI
 
-    ![GettingStartAndroidNewProject](../Images/AndroidNewProject.png)
+打开 *activity_main.xml*，此时会看到布局编辑器。 选择“文本”选项卡，然后将其中的内容替换为以下代码。
 
-4. 根据需要选择目标平台，单击“下一步”。 
+```xml
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
 
-    ![GettingStartAndroidNewProject2](../Images/AndroidNewProject2.png)
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/imageView1"
+        android:layout_above="@+id/button1"
+        android:contentDescription="Image with faces to analyze"/>
 
-5. 选择“基本活动”，单击“下一步”。
-6. 如下所示为活动命名，并单击“完成”。 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Browse for face image"
+        android:id="@+id/button1"
+        android:layout_alignParentBottom="true"/>
+</RelativeLayout>
+```
 
-    ![GettingStartAndroidNewProject4](../Images/AndroidNewProject4.png)
+打开 *MainActivity.java*，然后将除第一个 `package` 语句之外的所有内容替换为以下代码。
 
-7. 打开 activity_main.xml，应会看到此活动的布局编辑器。
-8. 查看源文本文件，按如下所示编辑活动布局：           
+代码会在 `Button` 上设置一个事件处理程序，以便启动一项让用户选择图片的新活动。 选中后的图片显示在 `ImageView` 中。
 
-    ```xml
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-        android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingTop="@dimen/activity_vertical_margin"
-        android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
-     
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="fill_parent"
-            android:id="@+id/imageView1"
-            android:layout_above="@+id/button1" />
-    
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Browse"
-            android:id="@+id/button1"
-            android:layout_alignParentBottom="true" />
-    </RelativeLayout>
-    ```  
+```java
+import java.io.*;
+import android.app.*;
+import android.content.*;
+import android.net.*;
+import android.os.*;
+import android.view.*;
+import android.graphics.*;
+import android.widget.*;
+import android.provider.*;
 
-9. 打开 MainActivity.java，在文件的开头插入以下 import 指令：           
+public class MainActivity extends Activity {
+    private final int PICK_IMAGE = 1;
+    private ProgressDialog detectionProgressDialog;
 
-        import java.io.*; 
-        import android.app.*; 
-        import android.content.*; 
-        import android.net.*; 
-        import android.os.*; 
-        import android.view.*; 
-        import android.graphics.*; 
-        import android.widget.*; 
-        import android.provider.*;
-      
-    接下来，修改“浏览”按钮逻辑的 MainActivity 类的 onCreate 方法：  
-
-        private final int PICK_IMAGE = 1;
-        private ProgressDialog detectionProgressDialog;
-         
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_main);
             Button button1 = (Button)findViewById(R.id.button1);
             button1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent gallIntent = new Intent(Intent.ACTION_GET_CONTENT);
-                    gallIntent.setType("image/*");
-                    startActivityForResult(Intent.createChooser(gallIntent, "Select Picture"), PICK_IMAGE);
-                }
+                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+                intent.setType("image/*");
+                startActivityForResult(Intent.createChooser(
+                        intent, "Select Picture"), PICK_IMAGE);
+            }
         });
-         
+
         detectionProgressDialog = new ProgressDialog(this);
-        }
-        @Override
-        protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-            super.onActivityResult(requestCode, resultCode, data);
-            if (requestCode == PICK_IMAGE && resultCode == RESULT_OK && data != null && data.getData() != null) {
-                Uri uri = data.getData();
-                try {
-                    Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
-                    ImageView imageView = (ImageView) findViewById(R.id.imageView1);
-                    imageView.setImageBitmap(bitmap);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == PICK_IMAGE && resultCode == RESULT_OK &&
+                data != null && data.getData() != null) {
+            Uri uri = data.getData();
+            try {
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(
+                        getContentResolver(), uri);
+                ImageView imageView = (ImageView) findViewById(R.id.imageView1);
+                imageView.setImageBitmap(bitmap);
+
+                // Uncomment
+                //detectAndFrame(bitmap);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-            }
-        }  
-
-现在，该应用可以浏览并在窗口中显示库中的照片，如下图所示：
-
-![GettingStartAndroidUI](../Images/android_getstarted1.1.PNG)
-
-## <a name="step3"></a>步骤 3：配置人脸 API 客户端库
-
-人脸 API 是可以使用 HTTPS 请求调用的云 API。 为了方便在 .NET 平台应用程序中使用人脸 API，我们还提供了一个客户端库用于封装 Web 请求。 此示例使用客户端库来简化操作。 
-
-遵照以下说明配置客户端库： 
-
-1. 如示例中所示，从“项目”面板中找到项目的顶层 build.gradle 文件。 请注意，项目树中还有其他几个 build.gradle 文件，首先需要打开顶层的 build.gradle 文件。         
-2. 将 mavenCentral() 添加到项目的存储库。 也可以使用 Android Studio 的默认存储库 jcenter()，因为 jcenter() 是 mavenCentral() 的超集。  
-
-        allprojects {
-            repositories {
-                ...
-                mavenCentral()
-            }
         }
+    }
+}
+```
 
-3. 打开“app”项目中的 build.gradle 文件。
-4. 为 Maven 中心存储库中存储的客户端库添加一个依赖项：
+现在，应用可以通过浏览方式查找照片并将其显示在窗口中，如下图所示。
 
-        dependencies {  
-            ...  
-            compile 'com.microsoft.projectoxford:face:1.0.0'  
-        }  
+![一张包含人脸的照片的 Android 屏幕截图](../Images/android_getstarted1.1.PNG)
 
-5. 打开“app”项目中的 MainActivity.java，并插入以下 import 指令： 
-    
-        import com.microsoft.projectoxford.face.\*;  
-        import com.microsoft.projectoxford.face.contract.\*;  
-    
-   然后，在 MainActivity 类中插入以下代码：
+## <a name="configure-the-face-client-library"></a>配置人脸客户端库
 
-        private FaceServiceClient faceServiceClient =  
-                    new FaceServiceRestClient("your subscription key");  
+人脸 API 是可以使用 HTTPS 请求调用的云 API。 本教程使用人脸客户端库，该库通过封装这些 Web 请求来简化你的工作。
 
-   将上面的字符串替换为在步骤 1 中获取的订阅密钥。  
-6. 打开“app”项目中名为 AndroidManifest.xml 的文件（在 app/src/main 目录中）。 在清单元素中插入以下元素：  
+在“项目”窗格中，使用下拉列表选择器选择“Android”。 展开“Gradle 脚本”，然后打开“build.gradle (模块: 应用)”。
 
-        <uses-permission android:name="android.permission.INTERNET" />  
+为人脸客户端库 `com.microsoft.projectoxford:face:1.4.3` 添加一个依赖项，如以下屏幕截图所示，然后单击“立即同步”。
 
-7. 现在，可以从应用程序调用人脸 API。 
+![应用 build.gradle 文件的 Android Studio 屏幕截图](../Images/face-tut-java-gradle.png)
 
-## <a name="step4"></a>步骤 4：上传图像以检测人脸
+打开 **MainActivity.java**，追加以下 import 指令：
 
-检测人脸的最简便方法是上传图像文件后直接调用[人脸 - 检测](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) API。 使用客户端库时，可以使用 FaceServiceClient 的异步方法 DetectAsync 实现此目的。 每个返回的人脸包含一个指示人脸位置的矩形，以及一系列可选人脸属性。 在本示例中，我们只需检索人脸位置。 此处，需在 MainActivity 类中插入一个方法才能检测人脸： 
+```java
+import com.microsoft.projectoxford.face.*;
+import com.microsoft.projectoxford.face.contract.*;
+```
 
-    // Detect faces by uploading face images
-    // Frame faces after detection
-    
-    private void detectAndFrame(final Bitmap imageBitmap)
-    {
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        imageBitmap.compress(Bitmap.CompressFormat.JPEG, 100, outputStream);
-        ByteArrayInputStream inputStream = 
+## <a name="add-the-face-client-library-code"></a>添加人脸客户端库代码
+
+在 `MainActivity` 类中 `onCreate` 方法上面插入以下代码：
+
+```java
+private final String apiEndpoint = "https://api.cognitive.azure.cn/face/v1.0";
+private final String subscriptionKey = "<Subscription Key>";
+
+private final FaceServiceClient faceServiceClient =
+        new FaceServiceRestClient(apiEndpoint, subscriptionKey);
+```
+
+将 `<Subscription Key>` 替换为订阅密钥。 例如：
+
+```java
+subscriptionKey = "0123456789abcdef0123456789ABCDEF"
+```
+
+在“项目”窗格中展开“应用”，接着展开“清单”，然后打开 *AndroidManifest.xml*。
+
+插入以下元素作为 `manifest` 元素的直接子级：
+
+```xml
+<uses-permission android:name="android.permission.INTERNET" />
+```
+
+生成用于检查错误的项目。 现在可以调用人脸服务了。
+
+## <a name="upload-an-image-to-detect-faces"></a>上传用于检测人脸的图像
+
+检测人脸最直接的方式是调用 `FaceServiceClient.detect` 方法。 此方法包装了[检测](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) API 方法，返回一个 `Face` 数组。
+
+返回的每张`Face`均包含一个指示其位置的矩形，以及一系列可选的人脸特性。 在本示例中，只有人脸位置是必需的。
+
+如果出错，`AlertDialog` 会显示其背后的原因。
+
+将以下方法插入到 `MainActivity` 类中。
+
+```java
+// Detect faces by uploading a face image.
+// Frame faces after detection.
+private void detectAndFrame(final Bitmap imageBitmap) {
+    ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+    imageBitmap.compress(Bitmap.CompressFormat.JPEG, 100, outputStream);
+    ByteArrayInputStream inputStream =
             new ByteArrayInputStream(outputStream.toByteArray());
-        AsyncTask<InputStream, String, Face[]> detectTask =
+
+    AsyncTask<InputStream, String, Face[]> detectTask =
             new AsyncTask<InputStream, String, Face[]>() {
+                String exceptionMessage = "";
+
                 @Override
                 protected Face[] doInBackground(InputStream... params) {
                     try {
                         publishProgress("Detecting...");
                         Face[] result = faceServiceClient.detect(
-                                params[0], 
+                                params[0],
                                 true,         // returnFaceId
                                 false,        // returnFaceLandmarks
-                                null           // returnFaceAttributes: a string like "age, gender"
+                                null          // returnFaceAttributes:
+                                /* new FaceServiceClient.FaceAttributeType[] {
+                                    FaceServiceClient.FaceAttributeType.Age,
+                                    FaceServiceClient.FaceAttributeType.Gender }
+                                */
                         );
-                        if (result == null)
-                        {
-                            publishProgress("Detection Finished. Nothing detected");
+                        if (result == null){
+                            publishProgress(
+                                    "Detection Finished. Nothing detected");
                             return null;
                         }
-                        publishProgress(
-                                String.format("Detection Finished. %d face(s) detected",
-                                        result.length));
+                        publishProgress(String.format(
+                                "Detection Finished. %d face(s) detected",
+                                result.length));
                         return result;
                     } catch (Exception e) {
-                        publishProgress("Detection failed");
+                        exceptionMessage = String.format(
+                                "Detection failed: %s", e.getMessage());
                         return null;
                     }
                 }
+
                 @Override
                 protected void onPreExecute() {
                     //TODO: show progress dialog
@@ -224,88 +250,119 @@ ms.locfileid: "23407612"
                     //TODO: update face frames
                 }
             };
-        detectTask.execute(inputStream);
-    }
 
-## <a name="step5"></a>步骤 5：标记图像中的人脸
+    detectTask.execute(inputStream);
+}
 
-最后一个步骤是将上述所有步骤组合在一起，并在图像中使用框架来标记检测到的人脸。 首先，打开 MainActivity.java，在 MainActivity.java 中插入一个帮助器方法用于绘制矩形： 
+private void showError(String message) {
+    new AlertDialog.Builder(this)
+    .setTitle("Error")
+    .setMessage(message)
+    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+        }})
+    .create().show();
+}
+```
 
-    private static Bitmap drawFaceRectanglesOnBitmap(Bitmap originalBitmap, Face[] faces) {
-        Bitmap bitmap = originalBitmap.copy(Bitmap.Config.ARGB_8888, true);
-        Canvas canvas = new Canvas(bitmap);
-        Paint paint = new Paint();
-        paint.setAntiAlias(true);
-        paint.setStyle(Paint.Style.STROKE);
-        paint.setColor(Color.RED);
-        int stokeWidth = 2;
-        paint.setStrokeWidth(stokeWidth);
-        if (faces != null) {
-            for (Face face : faces) {
-                FaceRectangle faceRectangle = face.faceRectangle;
-                canvas.drawRect(
-                        faceRectangle.left,
-                        faceRectangle.top,
-                        faceRectangle.left + faceRectangle.width,
-                        faceRectangle.top + faceRectangle.height,
-                        paint);
-            }
-        }
-        return bitmap;
-    }
+## <a name="frame-faces-in-the-image"></a>定格图像中的人脸
 
-接下来，完成 detectAndFrame 方法中的 TODO 部分，以定格人脸并报告状态。   
+将以下帮助程序方法插入到 `MainActivity` 类中。 此方法围绕每个检测到的人脸绘制一个矩形。
 
-    @Override
-    protected void onPreExecute() {
-        
-        detectionProgressDialog.show();
-    }
-    @Override
-    protected void onProgressUpdate(String... progress) {
-        
-        detectionProgressDialog.setMessage(progress[0]);
-    }
-    @Override
-    protected void onPostExecute(Face[] result) {
-        
-        detectionProgressDialog.dismiss();
-        if (result == null) return;
-        ImageView imageView = (ImageView)findViewById(R.id.imageView1);
-        imageView.setImageBitmap(drawFaceRectanglesOnBitmap(imageBitmap, result));
-        imageBitmap.recycle();
-    }
- 
-最后，如下所示，从 onActivityResult 方法添加对 detectAndFrame 方法的调用。 （请注意，星号只是为了突出显示新添加的内容。 在尝试生成代码之前，必须删除星号。）  
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == PICK_IMAGE && resultCode == RESULT_OK && data != null && data.getData() != null) {
-            Uri uri = data.getData();
-            try {
-                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
-                ImageView imageView = (ImageView) findViewById(R.id.imageView1);
-                imageView.setImageBitmap(bitmap);
-     
-                **detectAndFrame(bitmap);**
-     
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+```java
+private static Bitmap drawFaceRectanglesOnBitmap(
+        Bitmap originalBitmap, Face[] faces) {
+    Bitmap bitmap = originalBitmap.copy(Bitmap.Config.ARGB_8888, true);
+    Canvas canvas = new Canvas(bitmap);
+    Paint paint = new Paint();
+    paint.setAntiAlias(true);
+    paint.setStyle(Paint.Style.STROKE);
+    paint.setColor(Color.RED);
+    paint.setStrokeWidth(10);
+    if (faces != null) {
+        for (Face face : faces) {
+            FaceRectangle faceRectangle = face.faceRectangle;
+            canvas.drawRect(
+                    faceRectangle.left,
+                    faceRectangle.top,
+                    faceRectangle.left + faceRectangle.width,
+                    faceRectangle.top + faceRectangle.height,
+                    paint);
         }
     }
+    return bitmap;
+}
+```
 
-运行此应用程序并浏览包含人脸的图像。 请等待几秒钟，让云 API 做出响应。 之后，会收到下图所示的结果： 
+在 `detectAndFrame` 方法中完成 `TODO` 注释指示的 `AsyncTask` 方法。 成功后，会在 `ImageView` 中显示包含已定格人脸的所选图像。
+
+```java
+@Override
+protected void onPreExecute() {
+    detectionProgressDialog.show();
+}
+@Override
+protected void onProgressUpdate(String... progress) {
+    detectionProgressDialog.setMessage(progress[0]);
+}
+@Override
+protected void onPostExecute(Face[] result) {
+    detectionProgressDialog.dismiss();
+    if(!exceptionMessage.equals("")){
+        showError(exceptionMessage);
+    }
+    if (result == null) return;
+    ImageView imageView = findViewById(R.id.imageView1);
+    imageView.setImageBitmap(
+            drawFaceRectanglesOnBitmap(imageBitmap, result));
+    imageBitmap.recycle();
+}
+```
+
+最后，在 `onActivityResult` 方法中取消注释对 `detectAndFrame` 方法的调用，如下所示。
+
+```java
+@Override
+protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    super.onActivityResult(requestCode, resultCode, data);
+
+    if (requestCode == PICK_IMAGE && resultCode == RESULT_OK &&
+                data != null && data.getData() != null) {
+        Uri uri = data.getData();
+        try {
+            Bitmap bitmap = MediaStore.Images.Media.getBitmap(
+                    getContentResolver(), uri);
+            ImageView imageView = findViewById(R.id.imageView1);
+            imageView.setImageBitmap(bitmap);
+
+            // Uncomment
+            detectAndFrame(bitmap);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+## <a name="run-the-app"></a>运行应用程序
+
+运行此应用程序，以浏览方式查找包含人脸的图像。 等待几秒钟，以便人脸服务响应。 然后会收到下图所示结果：
 
 ![GettingStartAndroid](../Images/android_getstarted2.1.PNG)
 
 ## <a name="summary"></a>摘要
 
-本教程已介绍人脸 API 的基本使用过程，并创建了一个应用程序来显示图像中的人脸标记。 有关人脸 API 的详细信息，请参阅操作说明和 [API 参考](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)。 
+本教程介绍了人脸服务的基本使用过程，并创建了一个应用程序来显示图像中的已定格人脸。
 
-## <a name="related"></a>相关教程
+## <a name="next-steps"></a>后续步骤
 
-- [CSharp 中的人脸 API 入门教程](FaceAPIinCSharpTutorial.md)
-- [Python 中的人脸 API 入门教程](FaceAPIinPythonTutorial.md)
+了解如何检测并使用人脸特征点。
+
+> [!div class="nextstepaction"]
+> [如何检测图像中的人脸](../Face-API-How-to-Topics/HowtoDetectFacesinImage.md)
+
+了解用于检测人脸及其特性（例如姿势、性别、年龄、头部姿势、面部毛发和眼镜）的人脸 API。
+
+> [!div class="nextstepaction"]
+> [人脸 API 参考](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)。
 

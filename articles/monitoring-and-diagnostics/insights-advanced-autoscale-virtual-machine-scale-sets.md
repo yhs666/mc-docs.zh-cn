@@ -1,38 +1,30 @@
 ---
 title: 使用 Azure 虚拟机进行高级自动缩放
 description: 使用包含多个规则和配置文件的 Resource Manager 与 VM 规模集，通过缩放操作发送电子邮件和调用 Webhook URL。
-author: anirudhcavale
-manager: orenr
-editor: ''
+author: lingliw
 services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 7e3576e2-4a2b-4736-b5ae-98c4689cdd2b
 ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 02/22/2016
-ms.date: 02/26/2018
-ms.author: v-yiso
-ms.openlocfilehash: 6655b3a0ec826c79db76884449dbaec6a1941f8d
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+ms.date: 10/22/2018
+ms.author: v-lingwu
+ms.openlocfilehash: 66ec7554929eeb8832dcce68d098feb72e546187
+ms.sourcegitcommit: 32373810af9c9a2210d63f16d46a708028818d5f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
-ms.locfileid: "29286106"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49652262"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>使用 VM 规模集的 Resource Manager 模板的高级自动缩放配置
 可以根据性能指标阈值，按循环计划或按特定日期扩展和缩减虚拟机规模集。 还可以为缩放操作配置电子邮件和 webhook 通知。 本文演示了在 VM 规模集上使用 Resource Manager 模板配置以上所有对象的示例。
 
 > [!NOTE]
-> 尽管本文演示的是适用于 VM 规模集的步骤，但这些信息也同样适用于自动缩放[云服务](/cloud-services/)和[应用服务 - Web 应用](/app-service/web/)。
-> 有关根据简单的性能指标（如 CPU）在 VM 规模集上进行简单的缩小/扩大设置的相关信息，请参阅 [Linux](../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md) 和 [Windows](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md) 文档
+> 虽然本演练说明了 VM 规模集的步骤，但相同的信息适用于自动缩放[云服务](/cloud-services/)、[应用服务 - Web应用](/app-service/web/)和 [API 管理服务](https://docs.microsoft.com/azure/api-management/api-management-key-concepts)。有关 VM 规模集上基于简单性能指标（如 CPU）的简单缩小/扩大设置，请参阅 [Linux](../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md) 和 [Windows](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md) 文档
 >
 >
 
 ## <a name="walkthrough"></a>演练
-在本演练中，将使用 [Azure 资源浏览器](https://resources.azure.cn/)来配置和更新规模集的自动缩放设置。 Azure 资源浏览器是通过 Resource Manager 模板轻松管理 Azure 资源的一种方式。 如果不熟悉 Azure 资源浏览器工具，请参阅 [此简介](https://azure.microsoft.com/blog/azure-resource-explorer-a-new-tool-to-discover-the-azure-api/)。
+本演练使用 [Azure 资源浏览器](https://resources.azure.cn/)来配置和更新规模集的自动缩放设置。 Azure 资源浏览器是通过 Resource Manager 模板轻松管理 Azure 资源的一种方式。 如果不熟悉 Azure 资源浏览器工具，请参阅 [此简介](https://azure.microsoft.com/blog/azure-resource-explorer-a-new-tool-to-discover-the-azure-api/)。
 
 1. 使用基本自动缩放设置部署新的规模集。 本文使用的是 Azure 快速入门库中的一个示例，它拥有具有基本自动缩放模板的 Windows 规模集。 Linux 规模集以相同的方式工作。
 2. 创建规模集后，请从 Azure 资源浏览器导航到规模集资源。 用户在 Microsoft.Insights 节点下会看到以下内容。
@@ -45,13 +37,13 @@ ms.locfileid: "29286106"
 
     | 配置文件和规则 | 说明 |
     |--- | --- |
-    | Profile |**基于性能/指标** |
+    | **Profile** |**基于性能/指标** |
     | 规则 |服务总线队列消息计数 > x |
     | 规则 |服务总线队列消息计数 < y |
     | 规则 |CPU% > n |
     | 规则 |CPU% < p |
-    | Profile |**工作日上午时（无规则）** |
-    | Profile |**产品发布日（无规则）** |
+    | **Profile** |**工作日上午时（无规则）** |
+    | **Profile** |**产品发布日（无规则）** |
 
 4. 以下是用于进行此演练所假设的一个缩放方案。
 

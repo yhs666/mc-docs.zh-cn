@@ -1,6 +1,6 @@
 ---
 title: 使用 CLI 管理 Azure Key Vault
-description: 使用本文通过 CLI 2.0 自动执行 Key Vault 中的常见任务
+description: 使用本文通过 Azure CLI 自动执行密钥保管库中的常见任务
 services: key-vault
 documentationcenter: ''
 author: barclayn
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 06/22/2018
-ms.date: 10/22/2018
+ms.date: 11/05/2018
 ms.author: v-biyu
-ms.openlocfilehash: b4f2d23a190aa8a04b195e618496ec324561b370
-ms.sourcegitcommit: 2fdf25eb4b978855ff2832bcdcca093c141be261
+ms.openlocfilehash: d8d99ab16f2f6bd77ae23c3e73517d38df18afdb
+ms.sourcegitcommit: 8a68d9275ddb92ea45601fed96e21559999d9579
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49120606"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50026956"
 ---
-# <a name="manage-key-vault-using-cli-20"></a>使用 CLI 2.0 管理 Key Vault
+# <a name="manage-key-vault-using-the-azure-cli"></a>使用 Azure CLI 管理密钥保管库 
 
-本文介绍如何开始使用 Azure CLI 2.0 处理 Azure Key Vault。 你可以获得以下信息：
+本文介绍如何开始使用 Azure CLI 处理 Azure 密钥保管库。  你可以获得以下信息：
 
 - 先决条件
 - 如何在 Azure 中创建强化的容器（保管库）
@@ -67,6 +67,9 @@ az account set -h
 
 - [安装 Azure CLI](/cli/install-azure-cli)
 - [Azure CLI 2.0 入门](/cli/get-started-with-azure-cli)
+## <a name="how-to-create-a-hardened-container-a-vault-in-azure"></a>如何在 Azure 中创建强化的容器（保管库）
+
+保管库是由硬件安全模块支持的安全容器。 保管库可以集中存储应用程序机密，降低安全信息意外丢失的可能性。 Key Vault 还控制并记录外界对其所存储内容的访问。 Azure Key Vault 负责处理传输层安全性 (TLS) 证书的请求和续订事宜，其提供的功能是可靠的证书生命周期管理解决方案所必需的。 在后续步骤中，将创建一个保管库。
 
 ### <a name="connect-to-your-subscriptions"></a>连接到订阅
 
@@ -141,7 +144,7 @@ Azure 帐户现已获取在此密钥保管库上执行任何作业的授权。 �
 az keyvault key create --vault-name 'ContosoKeyVault' --name 'ContosoFirstKey' --protection software
 ```
 
-如果在 .pem 文件中保留了现有的密钥，可将此文件上传到 Azure Key Vault。 可以使用软件保护密钥。 使用以下命令从 .pem 文件导入密钥，并使用软件保护该密钥：
+如果在 .pem 文件中保留了现有的密钥，可将此文件上传到 Azure Key Vault。 可以选择使用软件保护密钥。 使用以下命令从 .pem 文件导入密钥，并使用软件保护该密钥：
 
 ```azurecli
 az keyvault key import --vault-name 'ContosoKeyVault' --name 'ContosoFirstKey' --pem-file './softkey.pem' --pem-password 'Pa$$w0rd' --protection software

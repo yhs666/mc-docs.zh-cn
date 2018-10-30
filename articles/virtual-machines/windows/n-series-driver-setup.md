@@ -1,5 +1,5 @@
 ---
-title: 适用于 Windows 的 Azure N 系列驱动程序安装 | Azure
+title: 适用于 Windows 的 Azure N 系列 GPU 驱动程序安装 | Azure
 description: 如何为 Azure 中运行 Windows Server 或 Windows 的 N 系列 VM 安装 NVIDIA GPU 驱动程序
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,18 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-origin.date: 06/19/2018
-ms.date: 07/30/2018
+origin.date: 09/24/2018
+ms.date: 10/22/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6690f23e32aa5eb07567faa33128dda992ed4339
-ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
+ms.openlocfilehash: dee6b1c2996e4b0e41a501d14ac0d7f70d83966c
+ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39307082"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50034926"
 ---
-# <a name="set-up-gpu-drivers-for-n-series-vms-running-windows"></a>为运行 Windows 的 N 系列 VM 安装 GPU 驱动程序 
+# <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-windows"></a>在运行 Windows 的 N 系列 VM 上安装 NVIDIA GPU 驱动程序 
+
 若要利用运行 Windows 的 Azure N 系列 VM 的 GPU 功能，必须安装 NVIDIA GPU 驱动程序。 [NVIDIA GPU 驱动程序扩展](../extensions/hpccompute-gpu-windows.md)可在 N 系列 VM 上安装适当的 NVIDIA CUDA 或 GRID 驱动程序。 请使用 Azure 门户或工具（例如 Azure PowerShell 或 Azure 资源管理器模板）安装或管理该扩展。 有关受支持的操作系统和部署步骤，请参阅 [NVIDIA GPU 驱动程序扩展文档](../extensions/hpccompute-gpu-windows.md)。
 
 如果选择手动安装 GPU 驱动程序，本文提供了受支持的操作系统、驱动程序以及安装和验证步骤。 针对 [Linux VM](../linux/n-series-driver-setup.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 也提供了驱动程序手动安装信息。
@@ -39,7 +40,7 @@ ms.locfileid: "39307082"
 
 2. 下载、解压缩并安装 Windows 操作系统支持的驱动程序。
 
-在 Azure NV VM 上，必须在安装驱动程序后重新启动。 在 NC VM 上，不需重新启动。
+在 VM 上安装 GRID 驱动程序后，需要重启。 安装 CUDA 驱动程序后，不需要重启。
 
 ## <a name="verify-driver-installation"></a>验证驱动程序安装
 
@@ -65,10 +66,10 @@ ms.locfileid: "39307082"
   ```
   有关详细信息，请参阅[适用于 Windows 的虚拟机扩展和功能](extensions-features.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。
 
-对于使用 [Microsoft MPI](https://msdn.microsoft.com/library/bb524831(v=vs.85).aspx) 或 Intel MPI 5.x 运行的应用程序，RDMA 网络支持消息传递接口 (MPI) 流量。 
+对于使用 [Microsoft MPI](https://docs.microsoft.com/message-passing-interface/microsoft-mpi) 或 Intel MPI 5.x 运行的应用程序，RDMA 网络支持消息传递接口 (MPI) 流量。 
 
 ## <a name="next-steps"></a>后续步骤
 
 * 为 NVIDIA Tesla GPU 构建 GPU 加速应用程序的开发人员也可下载并安装最新的 [CUDA 工具包](https://developer.nvidia.com/cuda-downloads)。 有关详细信息，请参阅 [CUDA 安装指南](http://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html#axzz4ZcwJvqYi)。
-<!--The parent file of includes file of virtual-machines-n-series-windows-support.md-->
-<!--ms.date:07/30/2018-->
+
+<!-- Update_Description: wording update, update meta properties -->

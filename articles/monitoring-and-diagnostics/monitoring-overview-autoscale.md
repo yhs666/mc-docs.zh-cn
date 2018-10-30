@@ -1,31 +1,24 @@
 ---
-title: Microsoft Azure 虚拟机、云服务和 Web 应用自动缩放概述 | Microsoft Docs
-description: Microsoft Azure 自动缩放概述。 适用于虚拟机、云服务和 Web 应用。
+title: 虚拟机、云服务和 Web 应用自动缩放概述
+description: Microsoft Azure 中的自动缩放。 适用于虚拟机、虚拟机规模集、云服务和 Web 应用。
 author: rboucher
-manager: carmonm
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 74bf03be-e658-4239-a214-c12424b53e4c
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+services: rboucher
+ms.service: rboucher
 ms.topic: article
-origin.date: 03/02/2016
-ms.date: 12/11/2017
-ms.author: v-yiso
-ms.openlocfilehash: 77cfa4c6c9fb28dabbe695d3e4454af0acb74386
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+origin.date: 09/24/2018
+ms.date: 10/22/2018
+ms.author: v-lingwu
+ms.openlocfilehash: 6656eca2d418fda2bb34a14b4a55583443909754
+ms.sourcegitcommit: 32373810af9c9a2210d63f16d46a708028818d5f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
-ms.locfileid: "26045128"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49652218"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Microsoft Azure 虚拟机、云服务和 Web 应用自动缩放概述
 本文介绍了 Microsoft Azure 自动缩放是什么、其对用户的好处，以及如何开始使用它。  
 
-Azure 监视器自动缩放仅适用于[虚拟机规模集](/virtual-machine-scale-sets/)、[云服务](/cloud-services/)和[应用服务 - Web 应用](/app-service/web/)。
+Azure Monitor 自动缩放仅适用于[虚拟机规模集](/virtual-machine-scale-sets/)、[云服务](/cloud-services/)、[应用服务 - Web 应用](/app-service/web/)和 [API 管理服务](https://docs.microsoft.com/azure/api-management/api-management-key-concepts)。
 
 > [!NOTE]
 > Azure 有两个自动缩放方法。 旧版自动缩放适用于虚拟机（可用性集）。 此功能的支持有限。若要获取更快速、更可靠的自动缩放支持，建议迁移到虚拟机规模集。 本文提供了此旧技术的使用方法链接。  
@@ -65,7 +58,7 @@ Azure 监视器自动缩放仅适用于[虚拟机规模集](/virtual-machine-sca
 规则可以触发一个或多个类型的操作。
 
 * **规模** - 缩放 VM 的规模
-* **电子邮件** - 将电子邮件发送给订阅管理员、共同管理员和/或指定的其他电子邮件地址
+* **电子邮件** - 将电子邮件发送给管理员、共同管理员和/或指定的其他电子邮件地址
 * **通过 webhook 自动操作** - 调用 webhook，在 Azure 内外触发多个复杂操作。 在 Azure 中，可以启动 Azure 自动化 runbook、Azure 函数或 Azure 逻辑应用。 在 Azure 外的第三方 URL 示例包含 Slack 和 Twilio 之类的服务。
 
 ## <a name="autoscale-settings"></a>自动缩放设置
@@ -90,7 +83,7 @@ Azure 监视器自动缩放仅适用于[虚拟机规模集](/virtual-machine-sca
 
 有关代码示例，请参阅
 
-* [通过用于 VM 规模集的 Resource Manager 模板进行的高级自动缩放配置](insights-advanced-autoscale-virtual-machine-scale-sets.md)  
+* [Advanced Autoscale configuration using Resource Manager templates for VM Scale Sets（通过用于 VM 规模集的 Resource Manager 模板进行的高级自动缩放配置）](insights-advanced-autoscale-virtual-machine-scale-sets.md)  
 * [自动缩放 REST API](https://msdn.microsoft.com/library/dn931953.aspx)
 
 ## <a name="horizontal-vs-vertical-scaling"></a>水平缩放和垂直缩放
@@ -98,7 +91,7 @@ Azure 监视器自动缩放仅适用于[虚拟机规模集](/virtual-machine-sca
 
 纵向缩放与此不同。 它保持 VM 数量不变，但会增强（“提高”）或削弱（“降低”）VM 的功能。 功能按内存、CPU 速度、磁盘空间等指标衡量。垂直缩放有更多的限制。 具体取决于更大型硬件的可用性，此可用性会快速达到上限，并因区域而异。 纵向缩放通常还需要停止和重新启动 VM。
 
-有关详细信息，请参阅[使用 Azure 自动化垂直缩放 Azure 虚拟机](../virtual-machines/linux/vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
+有关详细信息，请参阅 [Vertically scale Azure virtual machine with Azure Automation](../virtual-machines/linux/vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)（使用 Azure 自动化垂直缩放 Azure 虚拟机）。
 
 ## <a name="methods-of-access"></a>访问方法
 可以通过以下方式设置自动缩放：
@@ -116,7 +109,8 @@ Azure 监视器自动缩放仅适用于[虚拟机规模集](/virtual-machine-sca
 | 虚拟机：经典 |[缩放经典虚拟机可用性集](https://blogs.msdn.microsoft.com/kaevans/2015/02/20/autoscaling-azurevirtual-machines/) |
 | 虚拟机：Windows 规模集 |[缩放 Windows 中的虚拟机规模集](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md) |
 | 虚拟机：Linux 规模集 |[缩放 Linux 中的虚拟机规模集](../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md) |
-| 虚拟机：Windows 示例 |[通过用于 VM 规模集的 Resource Manager 模板进行的高级自动缩放配置](insights-advanced-autoscale-virtual-machine-scale-sets.md) |
+| 虚拟机：Windows 示例 |[Advanced Autoscale configuration using Resource Manager templates for VM Scale Sets（通过用于 VM 规模集的 Resource Manager 模板进行的高级自动缩放配置）](insights-advanced-autoscale-virtual-machine-scale-sets.md) |
+| API 管理服务|[自动缩放 Azure API 管理实例](https://docs.microsoft.com/azure/api-management/api-management-howto-autoscale)
 
 ## <a name="next-steps"></a>后续步骤
 若要详细了解自动缩放，请使用前面列出的自动缩放演练，或参阅以下资源：

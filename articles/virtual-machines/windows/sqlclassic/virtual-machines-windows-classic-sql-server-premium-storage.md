@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 06/01/2017
-ms.date: 08/27/2018
+ms.date: 10/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: 11b6776511429376785a27b18fa9679643aab8f1
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.openlocfilehash: 72f39fac0db3be000009b16bf2b46bb9d200bf00
+ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42872301"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50034922"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>将 Azure 高级存储用于虚拟机上的 SQL Server
 ## <a name="overview"></a>概述
@@ -63,7 +63,7 @@ ms.locfileid: "42872301"
 
 ![RegionalVNET][1]
 
-可提供 Azure.cn 支持票证以迁移到区域 VNET，Azure.cn 会进行更改以完成到区域 VNET 的迁移，并更改网络配置中的 AffinityGroup 属性。 首先导出 PowerShell 中的网络配置，然后将 **VirtualNetworkSite** 元素中的 **AffinityGroup** 属性替换为 **Location** 属性。 指定 `Location = XXXX`，其中 `XXXX` 是 Azure 区域。 然后导入新配置。
+可提出要迁移到区域 VNET 的 Azure 支持票证。 随后，Azure 即会进行更改。 要完成到区域 VNET 的迁移，请更改网络配置中的 AffinityGroup 属性。 首先导出 PowerShell 中的网络配置，然后将 **VirtualNetworkSite** 元素中的 **AffinityGroup** 属性替换为 **Location** 属性。 指定 `Location = XXXX`，其中 `XXXX` 是 Azure 区域。 然后导入新配置。
 
 例如，考虑以下 VNET 配置：
 
@@ -278,8 +278,8 @@ ms.locfileid: "42872301"
     $xiostorage = Get-AzureStorageKey -StorageAccountName $newxiostorageaccountname
 
     #Set up contexts for the storage accounts:
-    $origContext = New-AzureStorageContext -Environment AzureChinaCloud -StorageAccountName $origstorageaccountname -StorageAccountKey $originalstorage.Primary
-    $destContext = New-AzureStorageContext -Environment AzureChinaCloud -StorageAccountName $newxiostorageaccountname -StorageAccountKey $xiostorage.Primary  
+    $origContext = New-AzureStorageContext -StorageAccountName $origstorageaccountname -StorageAccountKey $originalstorage.Primary
+    $destContext = New-AzureStorageContext -StorageAccountName $newxiostorageaccountname -StorageAccountKey $xiostorage.Primary  
 
 #### <a name="step-4-copy-blob-between-storage-accounts"></a>步骤 4：在存储帐户之间复制 Blob
     #Get Image VHD

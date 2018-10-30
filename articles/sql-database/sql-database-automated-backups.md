@@ -2,22 +2,23 @@
 title: Azure SQL 数据库自动化异地冗余备份 | Microsoft Docs
 description: SQL 数据库每隔几分钟会自动创建一个本地数据库备份，并使用 Azure 读取访问异地冗余存储来提供异地冗余。
 services: sql-database
-author: WenJason
-manager: digimobile
 ms.service: sql-database
-ms.custom: business continuity
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.workload: Active
-origin.date: 09/14/2018
-ms.date: 10/15/2018
+author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab
-ms.openlocfilehash: 9f308ace26f68d4470d6edee5fb4bd75a34fae58
-ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
+manager: digimobile
+origin.date: 09/25/2018
+ms.date: 10/29/2018
+ms.openlocfilehash: a65310e8490eecd7a60ea46282edf8760c6979b3
+ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913905"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50135874"
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>了解 SQL 数据库自动备份
 
@@ -59,7 +60,8 @@ SQL 数据库使用 SQL Server 技术创建[完整](https://msdn.microsoft.com/l
 * 标准服务层的保留期为 5 周。
 * 高级服务层的保留期为 5 周。
 
-如果使用[基于 vCore 的购买模型](sql-database-service-tiers-vcore.md)，则备份保留期是可配置的，最长为 35 天。 
+如果使用的是[基于 vCore 的购买模型](sql-database-service-tiers-vcore.md)，则默认的备份保留期为 7 天。
+在逻辑服务器上，可以[将备份保留期更改为最多 35 天](#how-to-change-backup-retention-period)。
 
 如果减小当前 PITR 保留期，则超过新保留期的所有现有备份将不再可用。 
 
@@ -74,7 +76,7 @@ PITR 备份是异地冗余的，受 [Azure 存储跨区域复制](../storage/com
 有关详细信息，请参阅[时间点还原](sql-database-recovery-using-backups.md#point-in-time-restore)
 
 ### <a name="backups-for-long-term-retention"></a>长期保留的备份
-SQL 数据库提供选项，用于在 Azure blob 存储中将完整备份的长期保留 (LTR) 配置为最多 10 年。 如果已启用 LTR 策略，每周完整备份将自动复制到不同的 RA-GRS 存储容器。 为了满足不同的符合性要求，可为每周、每月和/或每年备份选择不同的保留期。 存储消耗量取决于所选的备份频率和保留期。 可以使用 [LTR 定价计算器](https://azure.cn/pricing/calculator/?service=sql-database)来估算 LTR 存储成本。 
+逻辑服务器中托管的 SQL 数据库提供了选项，用于在 Azure blob 存储中将完整备份的长期保留 (LTR) 配置为最多 10 年。 如果已启用 LTR 策略，每周完整备份将自动复制到不同的 RA-GRS 存储容器。 为了满足不同的符合性要求，可为每周、每月和/或每年备份选择不同的保留期。 存储消耗量取决于所选的备份频率和保留期。 可以使用 [LTR 定价计算器](https://azure.cn/pricing/calculator/?service=sql-database)来估算 LTR 存储成本。 
 
 与 PITR 一样，LTR 备份是异地冗余的，受 [Azure 存储跨区域复制](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)的保护。
 
@@ -83,6 +85,10 @@ SQL 数据库提供选项，用于在 Azure blob 存储中将完整备份的长�
 ## <a name="are-backups-encrypted"></a>备份已加密？
 
 如果使用 TDE 加密数据库，备份（包括 LTR 备份）会自动静态加密。 为 Azure SQL 数据库启用 TDE 时，也会加密备份。 默认情况下，所有新的 Azure SQL 数据库都配置为启用 TDE。 有关 TDE 的详细信息，请参阅[使用 Azure SQL 数据库进行透明数据加密](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)。
+
+## <a name="how-does-azure-ensure-backup-integrity"></a>Azure 如何确保备份完整性
+
+Azure SQL 数据库工程团队持续不断地自动测试整个服务中数据库的自动数据库备份的还原。 还原后，数据库还会使用 DBCC CHECKDB 接收完整性检查。 在完整性检查期间发现的任何问题都将导致向工程团队发出警报。 有关 Azure SQL 数据库中数据完整性的详细信息，请参阅 [Azure SQL 数据库中的数据完整性](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/)。
 
 ## <a name="how-do-automated-backups-impact-my-compliance"></a>自动备份对符合性有哪些影响？
 

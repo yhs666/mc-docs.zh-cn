@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-origin.date: 09/05/2018
-ms.date: 09/24/2018
+origin.date: 10/01/2018
+ms.date: 10/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: c244139a4c7343678a0de98c22b75adb1b6a0d45
-ms.sourcegitcommit: f7445ba393a044179d44d2a679b03e5145c7079c
+ms.openlocfilehash: 55f20f5fb32c155743d1894a1aa2e3095c5c8c0b
+ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48876247"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50034813"
 ---
 # <a name="sizes-for-windows-virtual-machines-in-azure"></a>Azure 中 Windows 虚拟机的大小
 
@@ -31,14 +31,12 @@ ms.locfileid: "48876247"
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [常规用途](sizes-general.md)          | B、Dsv3、Dv3、DSv2、Dv2、Av2 | CPU 与内存之比平衡。 适用于测试和开发、小到中型数据库和低到中等流量 Web 服务器。 |
 | [计算优化](sizes-compute.md)        | Fsv2、Fs、F             | 高 CPU 与内存之比。 适用于中等流量的 Web 服务器、网络设备、批处理和应用程序服务器。        |
-| [内存优化](../virtual-machines-windows-sizes-memory.md)         | Esv3、Ev3、DSv2、Dv2  | 高内存与 CPU 之比。 适用于关系数据库服务器、中到大型规模的缓存和内存中分析。                 |
-<!--PENDING FOR NC series GA ANOUNCEMENT -->
+| [内存优化](../virtual-machines-windows-sizes-memory.md)         | Esv3、Ev3、M、DSv2、Dv2  | 高内存与 CPU 之比。 适用于关系数据库服务器、中到大型规模的缓存和内存中分析。                 |
+| [GPU](sizes-gpu.md)            | NCv3           | 针对大量图形绘制和视频编辑的专用虚拟机，以及带有深度学习功能的模型定型和推断 (ND)。 可选择单个或多个 GPU。       |
 
-| [GPU](sizes-gpu.md)            | NV、NC、NCv2、NCv3、ND            | 针对大量图形绘制和视频编辑的专用虚拟机，以及带有深度学习功能的模型定型和推断 (ND)。 可选择单个或多个 GPU。       |
-<!--PENDING FOR NC series GA ANOUNCEMENT -->
 <!-- Not Available M, Gs, G series -->
 <!-- Not Available [Storage optimized] Ls -->
-<!-- Not Available [GPU] NV, NC, N-series  -->
+<!-- Not Available [GPU] NV, NVv2, NC, NCv2, ND-series  -->
 <!-- Not Available [High performance compute] H  -->
 
 <br> 

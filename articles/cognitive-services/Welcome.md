@@ -1,29 +1,46 @@
 ---
-title: 什么是 Microsoft 认知服务？ | Microsoft Docs
-description: Microsoft 认知服务是可与 Azure 配合使用的一组 API、SDK 和服务，可提高应用程序的智能性、吸引力和可发现性。
+title: 什么是 Azure 认知服务？
+description: Azure 认知服务是可以与 Azure 一起用于生成智能应用程序的 API、SDK 和服务。
 services: cognitive-services
-author: alexchen2016
-manager: digimobile
+author: nitinme
+manager: cgronlund
 ms.service: cognitive-services
-ms.technology: cognitive-services
+ms.component: ''
 ms.topic: article
-origin.date: 01/02/2017
-ms.date: 10/13/2017
+origin.date: 09/12/2018
+ms.date: 10/25/2018
 ms.author: v-junlch
-ms.openlocfilehash: bef5560124395345d02ae80d304c6ed198fe64e4
-ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ms.openlocfilehash: 44db45407fe1fc5cfcc11d8259212f5455df28d5
+ms.sourcegitcommit: 44ce337717bb948f5ac08217a156935f663c0f46
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
-ms.locfileid: "23407579"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50034627"
 ---
-# <a name="what-is-cognitive-services"></a>什么是认知服务？
+# <a name="what-are-azure-cognitive-services"></a>什么是 Azure 认知服务？
 
-Microsoft 认知服务（以前称为 Project Oxford）是一组面向开发人员的 API、SDK 和服务，可提高应用程序的智能性、吸引力和可发现性。 Microsoft 认知服务是在 Microsoft 不断发展的机器学习 API 产品组合基础上的拓展，可让开发人员轻松地在其应用程序中添加智能功能 – 例如情感与视频检测；面部、语音与视觉识别；语音与语言理解。 我们的愿景是让逐渐能够观看、聆听、讲述、理解甚至思考的系统为更多的个人计算体验和生产力提供辅助。
+Azure 认知服务是 API、SDK 和服务，可帮助开发人员生成智能应用程序，无需拥有直接的 AI 或数据科学技能或知识。 Azure 认知服务是在 Microsoft 不断发展的机器学习 API 产品组合基础上的拓展，可让开发人员轻松地添加认知功能 - 例如情绪、面部和视觉识别。 Azure 认知服务的目标是帮助开发人员创建可以看、听、说、理解甚至开始推理的应用程序。 
+
+## <a name="vision-apis"></a>影像 API
+
+|服务名称|服务说明|
+|:-----------|:------------------|
+|[计算机视觉](/cognitive-services/computer-vision/)|使用计算机视觉服务，你可以访问用于处理图像并返回信息的高级算法。|
+|[人脸 API](/cognitive-services/face/)|使用人脸 API 可访问高级人脸算法，支持人脸属性检测和识别。|
+|[情感 API](/cognitive-services/emotion/home)（预览版）|情感 API 采用图像作为输入，并返回图像中的每张人脸与一组情感对应的置信度。|
+ 
+## <a name="regional-availability"></a>区域可用性
+
+认知服务中的 API 托管在不断扩大的 Microsoft 托管数据中心网络上。 你可以在 [Azure 区域列表](https://azure.microsoft.com/regions)中找到每个 API 的区域可用性。
+
+正在寻找我们尚不支持的区域？ 请在我们的 [UserVoice 论坛](https://cognitive.uservoice.com/)上填写功能申请，告诉我们你的需求。
 
 ## <a name="support"></a>支持
-在整个开发过程中，我们都会提供支持。 随时可以使用以下链接联系我们。 
+
 - 如有支持和技术问题，请在 [Stack Overflow](https://stackoverflow.com/questions/tagged/microsoft-cognitive) 上发贴
 - 如有反馈和功能请求，请访问 [UserVoice](https://cognitive.uservoice.com/)
-- 如有其他意见，请单击任何页面底部的“联系我们”
+
+## <a name="next-steps"></a>后续步骤
+
+- [创建认知服务帐户](cognitive-services-apis-create-account.md)
 

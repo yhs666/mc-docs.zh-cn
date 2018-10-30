@@ -6,33 +6,32 @@ author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
 origin.date: 03/27/2018
-ms.date: 06/25/2018
+ms.date: 11/12/2018
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 2b2c4b96bad6cd9b29ac5f8ae6c0b3bbddb2df78
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.openlocfilehash: 1b2d162c0eb16bd4a59b3c608ce17fe87f5c683f
+ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315724"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50034991"
 ---
 # <a name="regions-and-availability-for-virtual-machines-in-azure"></a>Azure 中虚拟机的区域和可用性
-Azure 在中国各地的多个数据中心运行。 这些数据中心分组到地理区域，让用户可灵活选择构建应用程序的位置。 请务必了解 Azure 中虚拟机 (VM) 运行的方式和位置，以及最大化性能、可用性和冗余的选项。 本文提供了 Azure 的可用性和冗余功能的概述。
-<!--Notice: multiple TO two -->
-<!--Notice: around the world TO China -->
+Azure 在中国的四个数据中心运行。 这些数据中心分组到地理区域，让用户可灵活选择构建应用程序的位置。 请务必了解 Azure 中虚拟机 (VM) 运行的方式和位置，以及最大化性能、可用性和冗余的选项。 本文提供了 Azure 的可用性和冗余功能的概述。
+
+!--请注意：多个到四个 --> <!--Notice: around the world TO China -->
 
 ## <a name="what-are-azure-regions"></a>什么是 Azure 区域？
-可以在规定的地理区域（例如“中国东部”或“中国北部”）创建 Azure 资源。 可查看[区域及其位置的列表](https://www.azure.cn/support/service-dashboard/)。 为了提供冗余和可用性，每个区域都设有多个数据中心。 这样，便可灵活设计应用程序，创建距离用户最近的 VM，满足任何法律、符合性或税务要求。
+可以在规定的地理区域（例如“中国东部”、“中国北部”或“中国东部 2”）中创建 Azure 资源。 可查看[区域及其位置的列表](https://www.azure.cn/support/service-dashboard/)。 为了提供冗余和可用性，每个区域都设有多个数据中心。 这样，便可灵活设计应用程序，创建距离用户最近的 VM，满足任何法律、符合性或税务要求。
 
 ## <a name="special-azure-regions"></a>特殊 Azure 区域
 在构建应用程序时，出于符合性或法律方面的考虑，可能需要使用某些特殊的 Azure 区域。 这些特殊区域包括：
 
-* **美国弗吉尼亚州政府**和**美国爱荷华州政府**
-  * 适用于美国政府代理和合作伙伴的 Azure 物理和逻辑网络隔离实例，由甄选出来的美国公民操作。 包括其他合规认证，例如 [FedRAMP](https://www.microsoft.com/en-us/TrustCenter/Compliance/FedRAMP) 和 [DISA](https://www.microsoft.com/en-us/TrustCenter/Compliance/DISA)。 详细了解 [Azure Government](https://www.azure.cn/features/gov/)。
-* **中国东部**和**中国北部**
-  * 这些区域在 Microsoft 和 21Vianet 达成唯一合作关系之后可供用户使用，有了这种关系，Microsoft 就不需直接维护相关数据中心。 请参阅有关[中国区 Azure](http://www.windowsazure.cn/) 的详细信息。
-* **德国中部**和**德国东北部**
-  * 用户可以通过数据信托模式来使用这些区域。这种方式将客户数据保留在德国，由 T-Systems（一家德国电信公司）充当德国的数据受托方来控制数据。
+<!-- Not Available on * **US Gov Virginia** and **US Gov Iowa**-->
+* **中国东部**、**中国东部 2**、**中国北部**、**中国北部 2**
+  * 这些区域在 Microsoft 和 21Vianet 达成唯一合作关系之后可供用户使用，有了这种关系，Microsoft 就不需直接维护相关数据中心。
+  
+<!-- Not Available on * **Germany Central** and **Germany Northeast**-->
 
 ## <a name="region-pairs"></a>区域对
 每个 Azure 区域都与同一地理位置内的另一区域配对。 此方法适用于跨地域复制资源（例如 VM 存储），降低因自然灾害、社会动乱、电力中断或物理网络中断而同时影响两个区域的可能性。 区域对的其他优点包括：
@@ -46,10 +45,12 @@ Azure 在中国各地的多个数据中心运行。 这些数据中心分组到�
 | 主要 | 次要 |
 |:--- |:--- |
 | 中国北部 |中国东部 |
+| 中国北部 2 |中国东部 2 |
 
 <!-- Not Available on  [list of regional pairs here](../articles/best-practices-availability-paired-regions.md#what-are-paired-regions) -->
 ## <a name="feature-availability"></a>功能可用性
-某些服务或 VM 功能（例如特定的 VM 大小或存储类型）仅在特定区域提供。 也有一些全球性 Azure 服务不需要选择特定的区域，例如 [Azure Active Directory](../articles/active-directory/active-directory-whatis.md)、[流量管理器](../articles/traffic-manager/traffic-manager-overview.md)或 Azure DNS。 若要更好地设计应用程序环境，可查看 [Azure 服务在每个区域的可用性](https://www.azure.cn/support/service-dashboard/#services)。 此外，还可以[以编程方式查询受支持的 VM 大小和每个区域中的限制](../articles/azure-resource-manager/resource-manager-sku-not-available-errors.md)。
+某些服务或 VM 功能（例如特定的 VM 大小或存储类型）仅在特定区域提供。 也有一些多区域 Azure 服务不需要选择特定的区域，例如 [Azure Active Directory](../articles/active-directory/fundamentals/active-directory-whatis.md)、[流量管理器](../articles/traffic-manager/traffic-manager-overview.md)或 Azure DNS。 若要更好地设计应用程序环境，可查看 [Azure 服务在每个区域的可用性](https://www.azure.cn/support/service-dashboard/#services)。 此外，还可以[以编程方式查询受支持的 VM 大小和每个区域中的限制](../articles/azure-resource-manager/resource-manager-sku-not-available-errors.md)。
+
 <!-- URL waiting for release on [Azure DNS](../articles/dns/dns-overview.md) -->
 
 ## <a name="storage-availability"></a>存储可用性
@@ -103,8 +104,12 @@ Azure 在中国各地的多个数据中心运行。 这些数据中心分组到�
 ### <a name="update-domains"></a>更新域
 更新域是可以同时维护或重新启动的基础硬件逻辑组。 在可用性集内创建 VM 时，Azure 平台会自动将 VM 分布到这些更新域。 Azure 平台进行定期维护时，此方法可确保至少有一个应用程序实例始终保持运行状态。 在计划内维护期间，更新域的重启顺序可能不会按序进行，但一次只重启一个更新域。
 
+![可用性集](./media/virtual-machines-common-manage-availability/ud-fd-configuration.png)
+
 ### <a name="managed-disk-fault-domains"></a>托管磁盘容错域
 对于使用 [Azure 托管磁盘](../articles/virtual-machines/windows/faq-for-disks.md)的 VM，在使用托管可用性集时，VM 与托管磁盘容错域一致。 该一致性可确保附加到 VM 的所有托管磁盘都在同一托管磁盘容错域内。 在托管可用性集中，只能创建带托管磁盘的 VM。 托管磁盘容错域的数目因区域而异 - 每个区域两个或三个托管磁盘容错域。 可以阅读有关这些适用于 [Linux VM](../articles/virtual-machines/linux/manage-availability.md?#use-managed-disks-for-vms-in-an-availability-set) 或 [Windows VM](../articles/virtual-machines/windows/manage-availability.md?#use-managed-disks-for-vms-in-an-availability-set) 的托管磁盘容错域的详细信息。
+
+![托管可用性集](./media/virtual-machines-common-manage-availability/md-fd-updated.png)
 
 <!--Not Available ## Availability zones-->
 ## <a name="next-steps"></a>后续步骤

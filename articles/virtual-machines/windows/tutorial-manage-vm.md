@@ -14,15 +14,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 08/10/2018
-ms.date: 09/24/2018
+ms.date: 10/22/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: b13ca28852cba7c2c0e157dc05a30ca7f38eb478
-ms.sourcegitcommit: cc9e8c76454e7d194505af32c42c0f3e4e0ec9e9
+ms.openlocfilehash: 1ddbe9dd597744893eac44a260e6995e8c082ba0
+ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49315947"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50034905"
 ---
 # <a name="tutorial-create-and-manage-windows-vms-with-azure-powershell"></a>教程：使用 Azure PowerShell 创建和管理 Windows VM
 
@@ -55,7 +55,7 @@ New-AzureRmResourceGroup -ResourceGroupName "myResourceGroupVM" -Location "China
 
 创建虚拟机时，可使用多个选项，例如操作系统映像、网络配置和管理凭据。 在此示例中，将创建名为“myVM”的虚拟机，它运行默认的 Windows Server 2016 Datacenter 最新版本。
 
-使用 [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential) 设置虚拟机上管理员帐户所需的用户名和密码：
+使用 [Get-Credential](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential?view=powershell-6) 设置虚拟机上管理员帐户所需的用户名和密码：
 
 ```PowerShell
 $cred = Get-Credential
@@ -123,7 +123,7 @@ WindowsServer-HUB MicrosoftWindowsServer ChinaEast
 Get-AzureRmVMImageSku -Location "ChinaEast" -PublisherName "MicrosoftWindowsServer" -Offer "WindowsServer"
 ```
 
-```powershell
+```PowerShell
 Skus                            Offer         PublisherName          Location
 ----                            -----         -------------          --------
 2008-R2-SP1                     WindowsServer MicrosoftWindowsServer ChinaEast  
@@ -167,9 +167,9 @@ New-AzureRmVm `
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [常规用途](sizes-general.md)         |Dsv3、Dv3、DSv2、Dv2、DS、D、Av2、A0-7| CPU 与内存之比均衡。 适用于开发/测试、小到中型应用程序和数据解决方案。  |
 | [计算优化](sizes-compute.md)   | Fs, F             | 高 CPU 与内存之比。 适用于中等流量的应用程序、网络设备和批处理。        |
-| [内存优化](sizes-memory.md)    | Esv3、Ev3、DSv2、DS、Dv2、D   | 较高的内存核心比。 适用于关系数据库、中到大型缓存和内存中分析。                 |
+| [内存优化](sizes-memory.md)    | Esv3、Ev3、M、DSv2、DS、Dv2、D   | 较高的内存核心比。 适用于关系数据库、中到大型缓存和内存中分析。                 |
 
-<!-- Not Available on M, GS, G Series -->
+<!-- Not Available on GS, G Series -->
 <!-- Not Available on | Storage optimized       | Ls   -->
 <!-- Not Available on | GPU           | NV, NC         -->
 <!-- Not Available on | High performance | H, A8-11    -->

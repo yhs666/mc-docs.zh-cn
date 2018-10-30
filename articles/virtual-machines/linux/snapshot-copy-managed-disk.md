@@ -12,14 +12,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 origin.date: 07/11/2018
-ms.date: 07/30/2018
+ms.date: 10/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: b6882b08377dd0138d8436f33f8656b0d4f4c6b5
-ms.sourcegitcommit: 35889b4f3ae51464392478a72b172d8910dd2c37
+ms.openlocfilehash: 2d9fbe138f85267234c6c5bef2978e460c4761d8
+ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39261952"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50034844"
 ---
 # <a name="create-a-snapshot"></a>创建快照 
 
@@ -27,7 +27,9 @@ ms.locfileid: "39261952"
 
 ## <a name="use-azure-cli"></a>使用 Azure CLI 
 
-以下示例要求已安装 Azure CLI 2.0。 若要查找版本，请运行 **az --version**。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 
+以下示例需要已安装 Azure CLI。
+
+<!-- Not Available on [Cloud Shell](https://shell.azure.com/bash)-->
 
 以下步骤说明如何使用带有 **--source-disk** 参数的 **az snapshot create** 命令创建快照。 以下示例假设 *myResourceGroup* 资源组中存在名为 *myVM* 的 VM。
 
@@ -57,6 +59,7 @@ az snapshot list \
    -g myResourceGroup \
    -o table
 ```
+
 <!--Notice: global cmdlet missing -o-->
 
 ## <a name="use-azure-portal"></a>使用 Azure 门户 
@@ -73,4 +76,5 @@ az snapshot list \
 ## <a name="next-steps"></a>后续步骤
 
  通过从快照创建托管磁盘，然后将新的托管磁盘附加为 OS 磁盘，来从快照创建虚拟机。 有关详细信息，请参阅[从快照创建 VM](./../scripts/virtual-machines-linux-cli-sample-create-vm-from-snapshot.md?toc=%2fcli%2fmodule%2ftoc.json) 脚本。
-<!-- Update_Description: update link, wording update -->
+
+<!-- Update_Description: update link, wording update, update meta properties -->

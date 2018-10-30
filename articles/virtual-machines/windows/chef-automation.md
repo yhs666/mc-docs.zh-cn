@@ -14,21 +14,21 @@ ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
 ms.topic: article
 origin.date: 05/30/2017
-ms.date: 08/27/2018
+ms.date: 10/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: 975d6c9f3b1b8c39638eab6f332bfc1dce2bf3d8
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.openlocfilehash: 29f81e45f830dedc117549bb1893eddf73a349f7
+ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42872157"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50034866"
 ---
 # <a name="automating-azure-virtual-machine-deployment-with-chef"></a>使用 Chef 自动部署 Azure 虚拟机
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 Chef 是一个强大的工具，用于提供自动化和所需的状态配置。
 
-通过最新的 cloud api 版本，Chef 提供了与 Azure 的无缝集成，使用户能够通过单个命令设置和部署配置状态。
+使用最新的云 API 版本，Chef 提供了与 Azure 的无缝集成，使得你能够通过单个命令预配和部署配置状态。
 
 本文介绍如何设置 Chef 环境来预配 Azure 虚拟机，以及如何创建策略或“指南”并将此指南部署到 Azure 虚拟机。
 
@@ -43,7 +43,7 @@ Chef 是一个强大的工具，用于提供自动化和所需的状态配置。
 
 Chef 有三个主要的体系结构组件：Chef 服务器、Chef 客户端（节点）和 Chef 工作站。
 
-Chef 服务器是管理点，针对 Chef 服务器有两种选项：托管解决方案和本地解决方案。 我们将使用托管解决方案。
+Chef 服务器是管理点，针对 Chef 服务器有两种选项：托管解决方案和本地解决方案。 我们将依照一个托管解决方案来完成本教程。
 
 Chef 客户端（节点）是位于所管理的服务器上的代理。
 
@@ -76,7 +76,7 @@ Chef 工作站是管理工作站，将在其中创建策略并执行管理命令
 ![][4]
 
 > [!NOTE]
-> 如果收到提示，警告将重置密钥，可以继续操作，因为我们尚未配置现有基础结构。
+> 如果收到提示，警告你将重置密钥，可以继续操作，因为我们尚未配置现有基础结构。
 > 
 > 
 
@@ -95,7 +95,7 @@ Chef 工作站是管理工作站，将在其中创建策略并执行管理命令
 
 PEM 文件包含组织和用于通信的管理私钥，而 knife.rb 文件包含 knife 配置。 我们将需要编辑 knife.rb 文件。
 
-在所选编辑器中打开该文件并修改“cookbook_path”（删除路径中的 /../），使其如下所示。
+在所选编辑器中打开该文件，并通过从路径中删除 /../ 来修改“cookbook_path”，使其如下所示：
 
     cookbook_path  ["#{current_dir}/cookbooks"]
 
@@ -110,7 +110,7 @@ knife.rb 文件现在应类似于以下示例。
 这些行将确保 Knife 在执行 Azure 操作期间引用 c:\chef\cookbooks 下的 cookbooks 目录并且还使用 Azure 发布设置文件。
 
 ## <a name="installing-the-chef-development-kit"></a>安装 Chef 开发工具包
-接下来，[下载并安装](http://downloads.getchef.com/chef-dk/windows) ChefDK（Chef 开发工具包），设置 Chef 工作站。
+接下来，[下载并安装](http://downloads.getchef.com/chef-dk/windows) ChefDK（Chef 开发工具包）来设置 Chef 工作站。
 
 ![][7]
 
@@ -120,7 +120,9 @@ knife.rb 文件现在应类似于以下示例。
 
 如果未包含，请务必添加这些路径！
 
-请注意，路径的顺序非常重要！ 如果 opscode 路径未采用正确的顺序，将会出现问题。
+> [!NOTE]
+> 该路径的顺序非常重要！ 如果 opscode 路径未采用正确的顺序，将会出现问题。 
+> 
 
 请先重启工作站，然后再继续操作。
 
@@ -224,7 +226,7 @@ Chef 使用指南定义用户希望在托管客户端上执行的一组命令。
 
 不要忘记，还可以从 Azure 门户使用端口 3389 通过 RDP 会话进行连接。
 
-希望这有所帮助！ 现在就使用 Azure 开始你的基础结构即代码之旅吧！
+希望这有所帮助！ 现在就使用 Azure 开始基础结构即代码之旅吧！
 
 <!--Image references-->
 [2]: media/chef-automation/2.png

@@ -13,12 +13,12 @@ ms.author: v-jay
 ms.suite: sql
 ms.prod_service: sql-database
 ms.component: data-movement
-ms.openlocfilehash: 7df719b3ac4140218633df00679426ed6c59f3df
-ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
+ms.openlocfilehash: 027d4f8d36e9a197d0f824e99dd48dee97e49ab0
+ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913932"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50135894"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>云中的新 DBA  – 管理 Azure SQL 数据库中的数据库
 
@@ -67,7 +67,6 @@ SQL 数据库严肃对待安全性和隐私性。 SQL 数据库中的安全性�
 - 保护实际数据（[透明数据加密 [TDE]](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) 和 [Always Encrypted [AE]](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine)）。 
 - 控制对敏感和特权数据的访问（[行级安全性](https://docs.microsoft.com/sql/relational-databases/security/row-level-security)和[动态数据掩码](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking)）。
 
-
 ### <a name="what-user-authentication-methods-are-offered-in-sql-database"></a>SQL 数据库中提供哪些用户身份验证方法？
 SQL 数据库中提供[两种身份验证方法](sql-database-control-access.md#authentication)： 
 - [Azure Active Directory 身份验证](sql-database-aad-authentication.md)
@@ -88,7 +87,7 @@ SQL 数据库中提供[两种身份验证方法](sql-database-control-access.md#
 ### <a name="how-do-i-limit-or-control-connectivity-access-to-my-database"></a>如何限制或控制对数据库的连接访问？
 你可以自行使用多种方法来获得应用程序的最佳连接组织方式。 
 - 防火墙规则
-- VNET 服务终结点
+- VNet 服务终结点
 - 保留 IP
 
 #### <a name="firewall"></a>防火墙
@@ -97,11 +96,11 @@ SQL 数据库中提供[两种身份验证方法](sql-database-control-access.md#
 可以在服务器级别或数据库级别创建防火墙规则。 可以通过门户或 SSMS 创建服务器级防火墙规则。 若要详细了解如何设置服务器和数据库级别的防火墙规则，请参阅：[在 SQL 数据库中创建防火墙规则](sql-database-security-tutorial.md#create-a-server-level-firewall-rule-in-the-azure-portal)。
 
 #### <a name="service-endpoints"></a>服务终结点
-默认情况下，SQL 数据库配置为“允许所有 Azure 服务”- 这意味着，Azure 中的任何虚拟机都可能会尝试连接到数据库。 这些尝试仍需经过身份验证。 但是，如果不希望数据库可供所有 Azure IP 访问，可禁用“允许所有 Azure 服务”。 此外，还可配置[VNet 服务终结点](sql-database-vnet-service-endpoint-rule-overview.md)。
+默认情况下，SQL 数据库配置为“允许 Azure 服务访问服务器”- 这表示 Azure 中的所有虚拟机都可以尝试连接到数据库。 这些尝试仍需经过身份验证。 但是，如果不想让任何 Azure IP 都可访问数据库，则可禁用“允许 Azure 服务访问服务器”。 此外，还可配置 [VNet 服务终结点](sql-database-vnet-service-endpoint-rule-overview.md)。
 
 通过服务终结点 (SE) 可以仅向自己在 Azure 中的专用虚拟网络公开关键 Azure 资源。 以此从根本上阻止了对资源的公共访问。 虚拟网络与 Azure 间的流量位于 Azure 主干网络上。 无 SE 时，可获得强制隧道数据包路由。 虚拟网络强制组织的 Internet 流量和 Azure 服务流量通过相同的路由。 借助服务终结点，可优化这进程，因为数据包直接从虚拟网络流向 Azure 主干网络上的服务。
 
-![VNET 服务终结点](./media/sql-database-manage-after-migration/vnet-service-endpoints.png) 
+![VNet 服务终结点](./media/sql-database-manage-after-migration/vnet-service-endpoints.png) 
 
 #### <a name="reserved-ips"></a>保留 IP
 另一种方法是为 VM 设置[保留 IP](../virtual-network/virtual-networks-reserved-public-ip.md)，并将服务器防火墙设置中的那些特定 VM IP 地址列入允许列表。 通过分配保留 IP，就可以避免通过更改 IP 地址来更新防火墙规则的麻烦。

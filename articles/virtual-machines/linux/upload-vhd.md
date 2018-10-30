@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure CLI 2.0 上传或复制自定义 Linux VM | Azure
-description: 使用资源管理器部署模型和 Azure CLI 2.0 上传或复制自定义的虚拟机
+title: 使用 Azure CLI 上传或复制自定义 Linux VM | Azure
+description: 使用资源管理器部署模型和 Azure CLI 上传或复制自定义的虚拟机
 services: virtual-machines-linux
 documentationcenter: ''
 author: rockboyfor
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 origin.date: 07/06/2017
-ms.date: 09/24/2018
+ms.date: 10/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: 5de221edcc3bdd91e8e79efc5a6ded3fe86eabb3
-ms.sourcegitcommit: 1b1f7254343b2a3ada7b253841f86f2ff88f0a0b
+ms.openlocfilehash: e74ac280d1813bfa439433d37ce4cb31f959d984
+ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47420905"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50034960"
 ---
-# <a name="create-a-linux-vm-from-custom-disk-with-the-azure-cli-20"></a>使用 Azure CLI 2.0 从自定义磁盘创建 Linux VM
+# <a name="create-a-linux-vm-from-custom-disk-with-the-azure-cli"></a>使用 Azure CLI 从自定义磁盘创建 Linux VM
 
 <!-- rename to create-vm-specialized -->
 
@@ -59,8 +59,8 @@ az vm create --resource-group myResourceGroup --location chinaeast --name myVM \
 > 
 > 
 
-* 确保已安装了最新的 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest) 并已使用 [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az-login) 登录到 Azure 帐户。
-<!-- URL is CORRECT ON https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest -->
+* 确保已安装了最新的 [Azure CLI](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) 并已使用 [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az-login) 登录到 Azure 帐户。
+<!-- URL is CORRECT ON install-az-cli2 redirect to install-azure-cli -->
 
 在以下示例中，请将示例参数名称替换成自己的值。 示例参数名称包括 *myResourceGroup*、*mystorageaccount* 和 *mydisks*。
 
@@ -232,4 +232,5 @@ az vm create \
 
 ## <a name="next-steps"></a>后续步骤
 准备好并上传自定义虚拟磁盘之后，可以阅读有关[使用 Resource Manager 和模板](../../azure-resource-manager/resource-group-overview.md)的详细信息。 可能还需要向新 VM [添加数据磁盘](add-disk.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。 如果需要访问在 VM 上运行的应用程序，请务必[打开端口和终结点](nsg-quickstart.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
+
 <!-- Update_Description: wording update, update meta properties -->

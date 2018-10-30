@@ -1,301 +1,287 @@
 ---
-title: 人脸 API Python 快速入门 | Microsoft Docs
-description: 获取信息和代码示例，帮助自己快速开始使用认知服务中的人脸 API 和 Python。
+title: 快速入门：检测图像中的人脸 - 人脸 API，Python
+titleSuffix: Azure Cognitive Services
+description: 在本快速入门中，使用人脸 API 和 Python 检测图像中的人脸。
 services: cognitive-services
-author: alexchen2016
-manager: digimobile
+author: PatrickFarley
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: face
-ms.topic: article
-origin.date: 06/21/2017
-ms.date: 10/13/2017
+ms.component: face-api
+ms.topic: quickstart
+origin.date: 05/24/2018
+ms.date: 10/22/2018
 ms.author: v-junlch
-ms.openlocfilehash: e7b959ff832128c57208cc70ab38ec8220237f01
-ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ms.openlocfilehash: 105769ea0dfdefbecfcb104b72d0d4af5f60c3ea
+ms.sourcegitcommit: 44ce337717bb948f5ac08217a156935f663c0f46
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
-ms.locfileid: "23407594"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50034635"
 ---
-# <a name="face-api-python-quick-starts"></a>人脸 API Python 快速入门
-本文提供信息和代码示例来帮助读者快速开始使用人脸 API 和 Python 来完成以下任务： 
-- [检测图像中的人脸](#Detect) 
-- [创建人员组](#Create)
+# <a name="quickstart-detect-faces-in-an-image-using-python"></a>快速入门：使用 Python 检测图像中的人脸
 
-在[此处](../../Computer-vision/Vision-API-How-to-Topics/HowToSubscribe.md)详细了解如何获取免费订阅密钥
+在本快速入门中，使用人脸服务检测远程图像中的人脸。 检测到的人脸用矩形标注起来，并在上方附加每个人的性别和年龄。 若要使用本地图像，请参阅[计算机视觉：使用 Python 分析本地图像](../../Computer-vision/QuickStarts/python-disk.md)中的语法。
 
-## 使用人脸 API 通过 Python 检测图像中的人脸 <a name="Detect"> </a>
-使用[“人脸 - 检测”方法](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)可以检测图像中的人脸，并返回人脸属性，包括：
-- 人脸 ID：在多种人脸 API 方案使用的唯一 ID。 
-- 人脸矩形：左侧坐标、顶部坐标、宽度和高度，指示人脸在图像中的位置。
+可在 [MyBinder](https://mybinder.org) 上以 Jupyter 笔记本的方式运行本快速入门。 要启动活页夹，请选择以下按钮：
+
+[![活页夹](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=FaceAPI.ipynb)
+
+## <a name="prerequisites"></a>先决条件
+
+需要一个订阅密钥来运行此示例。 可从 [https://portal.azure.cn](https://portal.azure.cn) 获取订阅密钥。
+
+## <a name="detect-faces-in-an-image"></a>在图像中检测人脸
+
+使用[人脸 - 检测](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)方法检测图像中的人脸并返回人脸属性，包括：
+
+- 人脸 ID：多个人脸 API 方案中使用的唯一 ID。
+- 人脸矩形：左侧、顶部、宽度和高度，指示人脸在图像中的位置。
 - 地标：27 点人脸地标数组，指向人脸组成部分的重要位置。
-- 面部属性包括年龄、性别、笑容强度、头部姿势和面部毛发。 
+- 人脸属性包括年龄、性别、笑容程度、头部姿态和面部毛发。
 
-#### <a name="face-detect-python-example-request"></a>人脸检测 Python 示例请求
+若要运行此示例，请执行以下步骤：
 
-1. 复制 Python 版本的相应部分，并将其保存到某个文件，例如 `detect_faces.py`。
-1. 将 `subscriptionKey` 值替换为有效的订阅密钥。
-1. 更改 `uri_base` 值以使用订阅密钥的获取位置。
-1. 运行示例。
+1. 将以下代码复制到新的 Python 脚本文件。
+1. 将 `<Subscription Key>` 替换为有效订阅密钥。
+1. （可选）将 `image_url` 值更改为另一个图像。
+1. 运行该脚本。
+
+### <a name="face---detect-request"></a>人脸 - 检测请求
+
+以下代码使用 Python `requests` 库调用人脸检测 API。 它将结果作为 JSON 对象返回。 API 密钥是通过 `headers` 字典传入的。 要识别的功能的类型是通过 `params` 字典传入的。
 
 ```python
-import httplib, urllib, base64, json
+import requests
+# If you are using a Jupyter notebook, uncomment the following line.
+#%matplotlib inline
+import matplotlib.pyplot as plt
+from PIL import Image
+from matplotlib import patches
+from io import BytesIO
 
-###############################################
-#### Update or verify the following values. ###
-###############################################
+# Replace <Subscription Key> with your valid subscription key.
+subscription_key = "<Subscription Key>"
+assert subscription_key
 
-# Replace the subscription_key string value with your valid subscription key.
-subscription_key = '13hc77781f7e4b19b5fcdd72a8df7156'
+face_api_url = 'https://api.cognitive.azure.cn/face/v1.0/detect'
 
-uri_base = 'api.cognitive.azure.cn'
+# Set image_url to the URL of an image that you want to analyze.
+image_url = 'https://how-old.net/Images/faces2/main007.jpg'
 
-# Request headers.
-headers = {
-    'Content-Type': 'application/json',
-    'Ocp-Apim-Subscription-Key': subscription_key,
-}
-
-# Request parameters.
-params = urllib.urlencode({
-    'returnFaceId': 'true',
-    'returnFaceLandmarks': 'false',
-    'returnFaceAttributes': 'age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise',
-})
-
-# The URL of a JPEG image to analyze.
-body = "{'url':'https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg'}"
-
-try:
-    # Execute the REST API call and get the response.
-    conn = httplib.HTTPSConnection('api.cognitive.azure.cn')
-    conn.request("POST", "/face/v1.0/detect?%s" % params, body, headers)
-    response = conn.getresponse()
-    data = response.read()
-
-    # 'data' contains the JSON data. The following formats the JSON data for display.
-    parsed = json.loads(data)
-    print ("Response:")
-    print (json.dumps(parsed, sort_keys=True, indent=2))
-    conn.close()
-
-except Exception as e:
-    print("[Errno {0}] {1}".format(e.errno, e.strerror))
-
-####################################
-
-########### Python 3.6 #############
-import http.client, urllib.request, urllib.parse, urllib.error, base64, requests, json
-
-###############################################
-#### Update or verify the following values. ###
-###############################################
-
-# Replace the subscription_key string value with your valid subscription key.
-subscription_key = '13hc77781f7e4b19b5fcdd72a8df7156'
-
-uri_base = 'https://api.cognitive.azure.cn'
-
-# Request headers.
-headers = {
-    'Content-Type': 'application/json',
-    'Ocp-Apim-Subscription-Key': subscription_key,
-}
-
-# Request parameters.
+headers = {'Ocp-Apim-Subscription-Key': subscription_key}
 params = {
     'returnFaceId': 'true',
     'returnFaceLandmarks': 'false',
-    'returnFaceAttributes': 'age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise',
+    'returnFaceAttributes': 'age,gender,headPose,smile,facialHair,glasses,' +
+    'emotion,hair,makeup,occlusion,accessories,blur,exposure,noise'
 }
+data = {'url': image_url}
+response = requests.post(face_api_url, params=params, headers=headers, json=data)
+faces = response.json()
 
-# Body. The URL of a JPEG image to analyze.
-body = {'url': 'https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg'}
-
-try:
-    # Execute the REST API call and get the response.
-    response = requests.request('POST', uri_base + '/face/v1.0/detect', json=body, data=None, headers=headers, params=params)
-
-    print ('Response:')
-    parsed = json.loads(response.text)
-    print (json.dumps(parsed, sort_keys=True, indent=2))
-
-except Exception as e:
-    print('Error:')
-    print(e)
-
-####################################    
-
+# Display the original image and overlay it with the face information.
+image = Image.open(BytesIO(requests.get(image_url).content))
+plt.figure(figsize=(8, 8))
+ax = plt.imshow(image, alpha=0.6)
+for face in faces:
+    fr = face["faceRectangle"]
+    fa = face["faceAttributes"]
+    origin = (fr["left"], fr["top"])
+    p = patches.Rectangle(
+        origin, fr["width"], fr["height"], fill=False, linewidth=2, color='b')
+    ax.axes.add_patch(p)
+    plt.text(origin[0], origin[1], "%s, %d"%(fa["gender"].capitalize(), fa["age"]),
+             fontsize=20, weight="bold", va="bottom")
+_ = plt.axis("off")
 ```
-#### <a name="face-detect-response"></a>人脸检测响应
 
-成功响应将以 JSON 格式返回。 下面是成功响应的示例： 
+### <a name="face---detect-response"></a>人脸 - 检测响应
+
+成功的响应以 JSON 格式返回，例如：
 
 ```json
-Response:
 [
   {
+    "faceId": "35102aa8-4263-4139-bfd6-185bb0f52d88",
+    "faceRectangle": {
+      "top": 208,
+      "left": 228,
+      "width": 91,
+      "height": 91
+    },
     "faceAttributes": {
-      "accessories": [],
-      "age": 22.9,
+      "smile": 1,
+      "headPose": {
+        "pitch": 0,
+        "roll": 4.3,
+        "yaw": -0.3
+      },
+      "gender": "female",
+      "age": 27,
+      "facialHair": {
+        "moustache": 0,
+        "beard": 0,
+        "sideburns": 0
+      },
+      "glasses": "NoGlasses",
+      "emotion": {
+        "anger": 0,
+        "contempt": 0,
+        "disgust": 0,
+        "fear": 0,
+        "happiness": 1,
+        "neutral": 0,
+        "sadness": 0,
+        "surprise": 0
+      },
       "blur": {
         "blurLevel": "low",
-        "value": 0.06
-      },
-      "emotion": {
-        "anger": 0.0,
-        "contempt": 0.0,
-        "disgust": 0.0,
-        "fear": 0.0,
-        "happiness": 0.0,
-        "neutral": 0.986,
-        "sadness": 0.009,
-        "surprise": 0.005
+        "value": 0
       },
       "exposure": {
         "exposureLevel": "goodExposure",
-        "value": 0.67
+        "value": 0.65
       },
-      "facialHair": {
-        "beard": 0.0,
-        "moustache": 0.0,
-        "sideburns": 0.0
-      },
-      "gender": "female",
-      "glasses": "NoGlasses",
-      "hair": {
-        "bald": 0.0,
-        "hairColor": [
-          {
-            "color": "brown",
-            "confidence": 1.0
-          },
-          {
-            "color": "black",
-            "confidence": 0.87
-          },
-          {
-            "color": "other",
-            "confidence": 0.51
-          },
-          {
-            "color": "blond",
-            "confidence": 0.08
-          },
-          {
-            "color": "red",
-            "confidence": 0.08
-          },
-          {
-            "color": "gray",
-            "confidence": 0.02
-          }
-        ],
-        "invisible": false
-      },
-      "headPose": {
-        "pitch": 0.0,
-        "roll": 0.1,
-        "yaw": -32.9
+      "noise": {
+        "noiseLevel": "low",
+        "value": 0
       },
       "makeup": {
         "eyeMakeup": true,
         "lipMakeup": true
       },
-      "noise": {
-        "noiseLevel": "low",
-        "value": 0.0
-      },
+      "accessories": [],
       "occlusion": {
-        "eyeOccluded": false,
         "foreheadOccluded": false,
+        "eyeOccluded": false,
         "mouthOccluded": false
       },
-      "smile": 0.0
-    },
-    "faceId": "49d55c17-e018-4a42-ba7b-8cbbdfae7c6f",
+      "hair": {
+        "bald": 0.06,
+        "invisible": false,
+        "hairColor": [
+          {
+            "color": "brown",
+            "confidence": 1
+          },
+          {
+            "color": "blond",
+            "confidence": 0.5
+          },
+          {
+            "color": "black",
+            "confidence": 0.34
+          },
+          {
+            "color": "red",
+            "confidence": 0.32
+          },
+          {
+            "color": "gray",
+            "confidence": 0.14
+          },
+          {
+            "color": "other",
+            "confidence": 0.03
+          }
+        ]
+      }
+    }
+  },
+  {
+    "faceId": "42502166-31bb-4ac8-81c0-a7adcb3b3e70",
     "faceRectangle": {
-      "height": 162,
-      "left": 177,
-      "top": 131,
-      "width": 162
+      "top": 109,
+      "left": 125,
+      "width": 79,
+      "height": 79
+    },
+    "faceAttributes": {
+      "smile": 1,
+      "headPose": {
+        "pitch": 0,
+        "roll": 1.7,
+        "yaw": 2.1
+      },
+      "gender": "male",
+      "age": 32,
+      "facialHair": {
+        "moustache": 0.4,
+        "beard": 0.4,
+        "sideburns": 0.4
+      },
+      "glasses": "NoGlasses",
+      "emotion": {
+        "anger": 0,
+        "contempt": 0,
+        "disgust": 0,
+        "fear": 0,
+        "happiness": 1,
+        "neutral": 0,
+        "sadness": 0,
+        "surprise": 0
+      },
+      "blur": {
+        "blurLevel": "low",
+        "value": 0.11
+      },
+      "exposure": {
+        "exposureLevel": "goodExposure",
+        "value": 0.74
+      },
+      "noise": {
+        "noiseLevel": "low",
+        "value": 0
+      },
+      "makeup": {
+        "eyeMakeup": false,
+        "lipMakeup": true
+      },
+      "accessories": [],
+      "occlusion": {
+        "foreheadOccluded": false,
+        "eyeOccluded": false,
+        "mouthOccluded": false
+      },
+      "hair": {
+        "bald": 0.02,
+        "invisible": false,
+        "hairColor": [
+          {
+            "color": "brown",
+            "confidence": 1
+          },
+          {
+            "color": "blond",
+            "confidence": 0.94
+          },
+          {
+            "color": "red",
+            "confidence": 0.76
+          },
+          {
+            "color": "gray",
+            "confidence": 0.2
+          },
+          {
+            "color": "other",
+            "confidence": 0.03
+          },
+          {
+            "color": "black",
+            "confidence": 0.01
+          }
+        ]
+      }
     }
   }
 ]
 ```
-## 使用人脸 API 通过 Python 创建人员组 <a name="Create"> </a>
-使用[“人员组 - 创建人员组”方法](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244)可以创建包含指定 personGroupId、名称和用户提供的 userData 的人员组。 人员组是“人脸 - 识别”API 的最重要参数之一。 “识别”API 会在指定的人员组中搜索人员的平面。 
 
-#### <a name="person-group---create-a-person-group-example"></a>“人员组 - 创建人员组”示例
+## <a name="next-steps"></a>后续步骤
 
-复制 Python 版本的相应部分，并将其保存到某个文件，例如 `test.py`。 将“Ocp-Apim-Subscription-Key”值替换为有效的订阅密钥，并更改 REST URL 以使用订阅密钥的获取位置。
+探索用于检测图像中人脸的人脸 API，使用矩形划分人脸，并返回年龄和性别等属性。
 
-```python
-########### Python 2.7 #############
-import httplib, urllib, base64
-
-headers = {
-    # Request headers.
-    'Content-Type': 'application/json',
-
-    # NOTE: Replace the "Ocp-Apim-Subscription-Key" value with a valid subscription key.
-    'Ocp-Apim-Subscription-Key': '13hc77781f7e4b19b5fcdd72a8df7156',
-}
-
-# Replace 'examplegroupid' with an ID you haven't used for creating a group before.
-# The valid characters for the ID include numbers, English letters in lower case, '-' and '_'. 
-# The maximum length of the ID is 64.
-personGroupId = 'examplegroupid'
-
-# The userData field is optional. The size limit for it is 16KB.
-body = "{ 'name':'group1', 'userData':'user-provided data attached to the person group' }"
-
-try:
-    conn = httplib.HTTPSConnection('api.cognitive.azure.cn')
-    conn.request("POST", "/face/v1.0/persongroups/%s" % personGroupId, body, headers)
-    response = conn.getresponse()
-
-    # 'OK' indicates success. 'Conflict' means a group with this ID already exists.
-    # If you get 'Conflict', change the value of personGroupId above and try again.
-    # If you get 'Access Denied', verify the validity of the subscription key above and try again.
-    print(response.reason)
-
-    conn.close()
-except Exception as e:
-    print("[Errno {0}] {1}".format(e.errno, e.strerror))
-####################################
-
-########### Python 3.2 #############
-import http.client, urllib.request, urllib.parse, urllib.error, base64, sys
-
-headers = {
-    # Request headers.
-    'Content-Type': 'application/json',
-
-    # NOTE: Replace the "Ocp-Apim-Subscription-Key" value with a valid subscription key.
-    'Ocp-Apim-Subscription-Key': '13hc77781f7e4b19b5fcdd72a8df7156',
-}
-
-# Replace 'examplegroupid' with an ID you haven't used for creating a group before.
-# The valid characters for the ID include numbers, English letters in lower case, '-' and '_'. 
-# The maximum length of the ID is 64.
-personGroupId = 'examplegroupid'
-
-# The userData field is optional. The size limit for it is 16KB.
-body = "{ 'name':'group1', 'userData':'user-provided data attached to the person group' }"
-
-try:
-    conn = http.client.HTTPSConnection('api.cognitive.azure.cn')
-    conn.request("PUT", "/face/v1.0/persongroups/%s" % personGroupId, body, headers)
-    response = conn.getresponse()
-
-    # 'OK' indicates success. 'Conflict' means a group with this ID already exists.
-    # If you get 'Conflict', change the value of personGroupId above and try again.
-    # If you get 'Access Denied', verify the validity of the subscription key above and try again.
-    print(response.reason)
-
-    conn.close()
-except Exception as e:
-    print(e.args)
-####################################
+> [!div class="nextstepaction"]
+> [人脸 API](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
 

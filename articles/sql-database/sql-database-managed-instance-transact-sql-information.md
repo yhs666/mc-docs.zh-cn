@@ -1,26 +1,28 @@
 ---
-title: Azure SQL 数据库托管实例的 T-SQL 差异 | Azure
+title: Azure SQL 数据库托管实例的 T-SQL 差异 | Microsoft Docs
 description: 本文讨论 Azure SQL 数据库托管实例与 SQL Server 之间的 T-SQL 差异。
 services: sql-database
-author: yunan2016
-ms.reviewer: carlrab, bonova
 ms.service: sql-database
-ms.custom: managed instance
-ms.topic: article
-origin.date: 06/22/2018
-ms.date: 08/06/2018
-ms.author: v-nany
+ms.subservice: managed-instance
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
+author: WenJason
+ms.author: v-jay
+ms.reviewer: carlrab, bonova
 manager: digimobile
-ms.openlocfilehash: 1f4debfaea96b2f390c4a6b222fe58d625e4610c
-ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
+origin.date: 08/13/2018
+ms.date: 10/29/2018
+ms.openlocfilehash: 6ff874f8117f7fc09663218772c2f7deffba15c7
+ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39486639"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50135851"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL 数据库托管实例与 SQL Server 之间的 T-SQL 差异 
 
-Azure SQL 数据库托管实例（预览版）与本地 SQL Server 数据库引擎高度兼容。 托管实例支持大多数 SQL Server 数据库引擎功能。 由于两者的语法和行为仍有一些差异，本文汇总并解释了这些差异。
+Azure SQL 数据库托管实例与本地 SQL Server 数据库引擎高度兼容。 托管实例支持大多数 SQL Server 数据库引擎功能。 由于两者的语法和行为仍有一些差异，本文汇总并解释了这些差异。
  - [T-SQL 差异和不支持的功能](#Differences)
  - [在托管实例中具有不同行为的功能](#Changes)
  - [暂时的限制和已知问题](#Issues)
@@ -268,7 +270,7 @@ WITH PRIVATE KEY ( <private_key_options> )
 
 ### <a name="replication"></a>复制 
  
-尚不支持复制。 有关复制的信息，请参阅 [SQL Server 复制](https://docs.microsoft.com/sql/relational-databases/replication/sql-server-replication)。
+复制功能在托管实例上当前为公共预览版。 有关复制的信息，请参阅 [SQL Server 复制](http://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance)。
  
 ### <a name="restore-statement"></a>RESTORE 语句 
  
@@ -332,27 +334,28 @@ WITH PRIVATE KEY ( <private_key_options> )
  - `remote proc trans` 
 - 不支持 `sp_execute_external_scripts`。 请参阅 [sp_execute_external_scripts](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql#examples)。
 - 不支持 `xp_cmdshell`。 请参阅 [xp_cmdshell](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql)。
-- 不支持 `Extended stored procedures`，包括 `sp_addextendedproc` 和 `sp_dropextendedproc`。 请参阅[扩展存储过程](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql)
+- 不支持 `Extended stored procedures`，包括 `sp_addextendedproc`  和 `sp_dropextendedproc`。 请参阅[扩展存储过程](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql)
 - 不支持 `sp_attach_db`、`sp_attach_single_file_db` 和 `sp_detach_db`。 请参阅 [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql)、[sp_attach_single_file_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql) 和 [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql)。
 - 不支持 `sp_renamedb`。 请参阅 [sp_renamedb](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-renamedb-transact-sql)。
 
-### <a name="sql-server-agent"></a>SQL Server 代理 
- 
+### <a name="sql-server-agent"></a>SQL Server 代理
+
 - SQL 代理设置为只读。 托管实例不支持过程 `sp_set_agent_properties`。  
-- 作业 - 目前仅支持 T-SQL 作业步骤（在公共预览期将添加更多步骤）。
- - 尚不支持 SSIS。 
- - 尚不支持复制  
-  - 尚不支持事务日志读取器。  
-  - 尚不支持快照。  
-  - 尚不支持分发服务器。  
-  - 不支持合并。  
+- 作业 - 目前支持 T-SQL 作业步骤
+- 目前不支持其他类型的作业步骤（在公共预览版中将添加更多步骤类型）。
+  - 不支持的复制作业包括：
+    - 事务日志读取器。  
+    - 快照。
+    - 分发服务器。  
+    - 合并。  
+  - 尚不支持 SSIS。 
   - 不支持队列读取器。  
- - 尚不支持命令外壳。 
+  - 尚不支持命令外壳。 
   - 托管实例无法访问外部资源（例如，通过 robocopy 访问网络共享）。  
- - 尚不支持 PowerShell。
- - 不支持 Analysis Services。  
+  - 尚不支持 PowerShell。
+  - 不支持 Analysis Services。  
 - 部分支持通知。
- - 支持电子邮件通知，但需要配置数据库邮件配置文件。 公共预览版中只能有一个数据库邮件配置文件，并且该配置文件必须命名为 `AzureManagedInstance_dbmail_profile`（暂时性的限制）。  
+- 支持电子邮件通知，但需要配置数据库邮件配置文件。 公共预览版中只能有一个数据库邮件配置文件，并且该配置文件必须命名为 `AzureManagedInstance_dbmail_profile`（暂时性的限制）。  
  - 不支持寻呼机。  
  - 不支持 NetSend。 
  - 尚不支持警报。
@@ -384,8 +387,6 @@ WITH PRIVATE KEY ( <private_key_options> )
 - `SERVERPROPERTY('InstanceName')` 返回 NULL，因为 SQL Server 的实例概念不适用于托管实例。 请参阅 [SERVERPROPERTY('InstanceName')](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql)。
 - `@@SERVERNAME` 返回完整的 DNS“可连接”名称，例如 my-managed-instance.wcus17662feb9ce98.database.chinacloudapi.cn。 请参阅 [@@SERVERNAME](https://docs.microsoft.com/sql/t-sql/functions/servername-transact-sql)。  
 - `SYS.SERVERS` - 返回完整的 DNS“可连接”名称，例如，为属性“name”和“data_source”返回 `myinstance.domain.database.chinacloudapi.cn`。 请参阅 [SYS.SERVERS](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-servers-transact-sql)。 
-- `@@SERVERNAME` 返回完整的 DNS“可连接”名称，例如 `my-managed-instance.wcus17662feb9ce98.database.chinacloudapi.cn`。 请参阅 [@@SERVERNAME](https://docs.microsoft.com/sql/t-sql/functions/servername-transact-sql)。  
-- `SYS.SERVERS` - 返回完整的 DNS“可连接”名称，例如，为属性“name”和“data_source”返回 `myinstance.domain.database.chinacloudapi.cn`。 请参阅 [SYS.SERVERS](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-servers-transact-sql)。 
 - `@@SERVICENAME` 返回 NULL，因为 SQL Server 的服务概念不适用于托管实例。 请参阅 [@@SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql)。   
 - 支持 `SUSER_ID`。 如果 AAD 登录名不在 sys.syslogins 中，则返回 NULL。 请参阅 [SUSER_ID](https://docs.microsoft.com/sql/t-sql/functions/suser-id-transact-sql)。  
 - 不支持 `SUSER_SID`。 返回错误数据（暂时性的已知问题）。 请参阅 [SUSER_SID](https://docs.microsoft.com/sql/t-sql/functions/suser-sid-transact-sql)。 
@@ -404,6 +405,7 @@ WITH PRIVATE KEY ( <private_key_options> )
 例如，托管实例可以将一个大小为 1.2 TB 的文件放在 4 TB 磁盘上，将 248 个文件（每个大小为 1 GB）放在单独的 128 GB 磁盘上。 在此示例中， 
 * 磁盘存储总大小为 1 x 4 TB + 248 x 128 GB = 35 TB。 
 * 实例上的数据库的总预留空间为 1 x 1.2 TB + 248 x 1 GB = 1.4 TB。
+这说明在某些情况下，由于文件分布非常具体，托管实例可能会出乎意料地达到为附加的 Azure 高级磁盘预留的 35TB。 
 
 在此示例中，只要未添加新文件，现有数据库将继续工作并且可以毫无问题地增长。 但是，由于没有足够的空间用于新磁盘驱动器，因此无法创建或还原新数据库，即使所有数据库的总大小未达到实例大小限制也是如此。 这种情况下返回的错误并不明确。
 
@@ -416,15 +418,58 @@ WITH PRIVATE KEY ( <private_key_options> )
 
 访问托管实例时，SQL Server Management Studio 和 SQL Server Data Tools 可能会出现一些问题。 将发布正式版之前，我们将解决所有工具问题。
 
-### <a name="incorrect-database-names"></a>错误的数据库名称
+### <a name="incorrect-database-names-in-some-views-logs-and-messages"></a>在某些视图、日志和消息中，数据库名称不正确
 
-托管实例在还原期间或者在某些错误消息中可能会显示 GUID 值，而不是数据库名称。 将发布正式版之前，我们将解决这些问题。
+多个系统视图、性能计数器、错误消息、XEvent 和错误日志条目显示了 GUID 数据库标识符而非实际的数据库名称。 不要依赖这些 GUID 标识符，因为它们在将来会被替换为实际的数据库名称。
 
 ### <a name="database-mail-profile"></a>数据库邮件配置文件
 只能有一个数据库邮件配置文件，并且该配置文件必须命名为 `AzureManagedInstance_dbmail_profile`。 很快将会去除此暂时性限制。
+
+### <a name="error-logs-are-not-persisted"></a>错误日志不会持久保留
+托管实例中可用的错误日志不会持久保留，并且它们的大小不包括在最大存储限制中。 在发生故障转移时可能会自动清除错误日志。
+
+### <a name="error-logs-are-verbose"></a>错误日志是详细的
+托管实例在错误日志中放置了详细信息，并且其中的许多是不相关的。 将来，错误日志中的信息量将减少。
+
+**解决方法**：使用自定义过程来读取错误日志，以便过滤掉某些不相关的条目。 有关详细信息，请参阅 [Azure SQL DB 托管实例 – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/)。
+
+### <a name="transaction-scope-on-two-databases-within-the-same-instance-is-not-supported"></a>跨同一实例中的两个数据库的事务范围不受支持
+如果在同一事务范围中将两个查询发送到了同一实例内的两个数据库，则 .Net 中的 `TransactionScope` 类不会工作。
+
+```C#
+using (var scope = new TransactionScope())
+{
+    using (var conn1 = new SqlConnection("Server=quickstartbmi.neu15011648751ff.database.chinacloudapi.cn;Database=b;User ID=myuser;Password=mypassword;Encrypt=true"))
+    {
+        conn1.Open();
+        SqlCommand cmd1 = conn1.CreateCommand();
+        cmd1.CommandText = string.Format("insert into T1 values(1)");
+        cmd1.ExecuteNonQuery();
+    }
+
+    using (var conn2 = new SqlConnection("Server=quickstartbmi.neu15011648751ff.database.chinacloudapi.cn;Database=b;User ID=myuser;Password=mypassword;Encrypt=true"))
+    {
+        conn2.Open();
+        var cmd2 = conn2.CreateCommand();
+        cmd2.CommandText = string.Format("insert into b.dbo.T2 values(2)");        cmd2.ExecuteNonQuery();
+    }
+
+    scope.Complete();
+}
+
+```
+
+虽然此代码处理同一实例内的数据，但它需要 MSDTC。
+
+**解决方法**：使用 [SqlConnection.ChangeDatabase(String)](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnection.changedatabase) 在连接上下文中使用其他数据库，而非使用两个连接。
+
+### <a name="clr-modules-and-linked-servers-sometime-cannot-reference-local-ip-address"></a>CLR 模块和链接的服务器有时无法引用本地 IP 地址
+放置在托管实例中的 CLR 模块和链接的服务器/分布式查询如果引用了当前实例，则它们有时候无法解析本地实例的 IP。 这是暂时性错误。
+
+**解决方法**：如果可能，请在 CLR 模块中使用上下文连接。
 
 ## <a name="next-steps"></a>后续步骤
 
 - 有关托管实例的详细信息，请参阅[什么是托管实例？](sql-database-managed-instance.md)
 - 有关功能和比较列表，请参阅 [SQL 常用功能](sql-database-features.md)。
-- 有关演示如何新建托管实例的教程，请参阅[创建托管实例](sql-database-managed-instance-create-tutorial-portal.md)。
+- 有关演示了如何新建托管实例的快速入门，请参阅[创建托管实例](sql-database-managed-instance-get-started.md)。

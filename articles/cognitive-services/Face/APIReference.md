@@ -1,30 +1,34 @@
 ---
-title: 人脸 API 服务的 API 参考 | Microsoft Docs
-description: API 参考提供有关以下人员管理、人员组管理、人脸列表管理和人脸算法 API 的信息。
+title: API 参考 - 人脸 API
+titleSuffix: Azure Cognitive Services
+description: 此 API 参考提供了有关人员管理、LargePersonGroup/PersonGroup 管理、LargeFaceList/FaceList 管理和人脸算法 API 的信息。
 services: cognitive-services
-author: alexchen2016
-manager: digimobile
+author: SteveMSFT
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: face
-ms.topic: article
-origin.date: 01/18/2017
-ms.date: 10/13/2017
+ms.component: face-api
+ms.topic: reference
+origin.date: 03/01/2018
+ms.date: 10/24/2018
 ms.author: v-junlch
-ms.openlocfilehash: 6ddfba3b67b60d9593b6e196f748cce6190e267c
-ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ms.openlocfilehash: 2d698e1fc9a8295ce6b47b3d38726ec3e72df33c
+ms.sourcegitcommit: 44ce337717bb948f5ac08217a156935f663c0f46
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
-ms.locfileid: "23407574"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50034658"
 ---
 # <a name="api-reference"></a>API 参考
 
+Microsoft 人脸 API 是基于云的 API，为人脸检测和识别提供先进的算法。
 
-Microsoft 人脸 API 是基于云的 API，为人脸检测和识别提供先进的算法。 可在 [Microsoft 认知服务（以前称为 Project Oxford）开发人员门户](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)中找到参考文档。
+人脸 API 涵盖了以下类别：
 
-人脸 API 包括以下类别：
-- [人员管理 API](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c)：用于管理[识别](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239)功能所用的人员平面。
-- [人员组管理 API](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244)：用于管理[识别](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239)功能所用的人员数据集。
-- [人脸列表管理 API](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b)：用于管理[查找相似人脸](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237)功能所用的人脸列表。
-- [人脸算法 API](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)：包括[检测](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)、[验证](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a)和[识别](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239)等核心功能。
+- [人脸算法 API](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)：涵盖了诸如[检测](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)、[查找相似](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237)、[验证](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a)、[识别](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239)和[分组](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238)之类的核心功能。
+- [FaceList 管理 API](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b)：用来管理用于[查找相似](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237)的 FaceList。
+- [LargePersonGroup 人员管理 API](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40)：用来管理用于[识别](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239)的 LargePersonGroup 人脸。
+- [LargePersonGroup 管理 API](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d)：用来管理用于[识别](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239)的 LargePersonGroup 数据集。
+- [LargeFaceList 管理 API](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc)：用来管理用于[查找相似](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237)的 LargeFaceList。
+- [PersonGroup Person 管理 API](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c)：用来管理用于[识别](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239)的 PersonGroup 人脸。
+- [PersonGroup 管理 API](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244)：用来管理用于[识别](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239)的 PersonGroup 数据集。
 

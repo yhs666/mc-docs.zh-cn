@@ -1,31 +1,36 @@
 ---
-title: 调用视频情感 API | Microsoft Docs
+title: 示例：对视频调用情感 API
+titlesuffix: Azure Cognitive Services
 description: 了解如何调用认知服务中的视频情感 API。
 services: cognitive-services
-author: alexchen2016
-manager: digimobile
+author: anrothMSFT
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: emotion
-ms.topic: article
+ms.component: emotion-api
+ms.topic: sample
 origin.date: 02/06/2017
-ms.date: 10/13/2017
+ms.date: 10/24/2018
 ms.author: v-junlch
-ms.openlocfilehash: 3eba19f994bd6f0697329576e1d274b516e5fc78
-ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ROBOTS: NOINDEX
+ms.openlocfilehash: dd2ed7c367a240803e513ad4f813597e5b21f39e
+ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
-ms.locfileid: "23407597"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50034863"
 ---
-# <a name="how-to-call-emotion-api-for-video"></a>如何调用视频情感 API
+# <a name="example-call-emotion-api-for-video"></a>示例：对视频调用情感 API
+
+> [!IMPORTANT]
+> 情感 API 将于 2019 年 2 月 15 日弃用。 情感识别功能现在已作为[人脸 API](/cognitive-services/face/) 的一部分正式发布。 
 
 本指南演示如何调用视频情感 API。 这些示例是使用视频情感 API 客户端库以 C# 语言编写的。
 
-### <a name="Prep">准备工作</a> 
+### <a name="Prep">准备工作</a>
 若要使用视频情感 API，需要一部包含人员的视频，最好是人正对着相机的视频。
 
-### <a name="Step1">步骤 1：授权 API 调用</a> 
-每次调用视频情感 API 都需要提供订阅密钥。 需通过查询字符串参数传递此密钥，或者在请求标头中指定此密钥。 若要通过查询字符串传递订阅密钥，请参考下面的视频情感 API 请求 URL 示例：
+### <a name="Step1">步骤 1：授权 API 调用</a>
+每次调用视频情感 API 都需要提供订阅密钥。 此密钥需要通过查询字符串参数传递，或者在请求头中指定。 若要通过查询字符串传递订阅密钥，请参考下面的视频情感 API 请求 URL 示例：
 
 ```
 https://api.cognitive.azure.cn/emotion/v1.0/recognizeInVideo&subscription-key=<Your subscription key>
@@ -42,6 +47,7 @@ ocp-apim-subscription-key: <Your subscription key>
 ```
 var emotionServiceClient = new emotionServiceClient("Your subscription key");
 ```
+可以从 [Azure 门户](https://portal.azure.cn)获取订阅密钥
 
 ### <a name="Step2">步骤 2：将视频上传到服务并检查状态</a>
 执行任何视频情感 API 调用的最基本方法是直接上传视频。 为此，可将包含应用程序/八进制流内容类型的“POST”请求连同从视频文件中读取的数据一起发送。 视频的最大大小为 100MB。
@@ -68,7 +74,7 @@ Operation videoOperation = await videoServiceClient.CreateOperationAsync(videoUr
 
 ```
 
-此上传方法对于所有视频情感 API 调用是相同的。 
+此上传方法对于所有视频情感 API 调用是相同的。
 
 上传视频后，需要执行的下一个操作是检查其状态。 由于视频文件通常比其他文件更大且更多样化，用户在执行此步骤时预期需要花费较长的处理时间。 具体时间取决于文件的大小和长度。
 

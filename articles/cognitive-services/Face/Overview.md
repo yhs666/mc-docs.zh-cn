@@ -1,90 +1,97 @@
 ---
-title: 人脸 API 服务概述 | Microsoft Docs
-description: 术语表解释了使用人脸 API 服务时可能会遇到的术语。
-author: alexchen2016
-manager: digimobile
+title: 什么是人脸 API 服务？
+titleSuffix: Azure Cognitive Services
+description: 本主题介绍人脸 API 服务和相关的术语。
+author: SteveMSFT
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: face
-ms.topic: article
-origin.date: 03/17/2017
-ms.date: 10/13/2017
+ms.component: face-api
+ms.topic: overview
+origin.date: 10/11/2018
+ms.date: 10/24/2018
 ms.author: v-junlch
-ms.openlocfilehash: a8298b1a0893524c70f7d25e7512b55ed6d5f724
-ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ms.openlocfilehash: a6fe90b08348fe529b2ee0af13e2e9117ff24942
+ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
-ms.locfileid: "23407606"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50034674"
 ---
-# <a name="face-api"></a>人脸 API
+# <a name="what-is-the-face-api-service"></a>什么是人脸 API 服务？
 
-欢迎使用 Microsoft 人脸 API，这是一个基于云的服务，提供先进的人脸算法。 人脸 API 有两个主要功能：检测人脸并提供属性，识别人脸。
+人脸 API 服务是基于云的服务，其提供的算法可用于分析图像和视频中的人脸。 人脸 API 有两个主要功能：带属性的人脸检测和人脸识别。
 
 ## <a name="face-detection"></a>人脸检测
 
-人脸 API 能够检测到最多 64 张人脸，并以极高的精度指示人脸在图像中的位置。 可通过文件（字节大小）或有效的 URL 指定图像。
+人脸 API 可以在一张图像中检测到至多 64 张人脸，并进行高精度人脸定位。 图像可以通过文件（字节流）或有效的 URL 来指定。
 
 ![概述 - 人脸检测](./Images/Face.detection.jpg)
 
-将连同检测到的每张人脸一起返回人脸矩形（包含左侧和顶部坐标，以及宽度和高度），指示人脸在图像中的位置。 人脸检测会选择性地提取一系列人脸相关属性，例如姿势、性别、年龄、头部姿势、面部毛发和眼镜。 有关详细信息，请参阅[人脸 - 检测](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)。
+指示人脸在图像中位置的人脸矩形（左边、顶边、宽度和高度）将随检测到的人脸一起返回。 人脸检测还可提取一系列人脸相关属性，例如姿势、性别、年龄、头部姿势、面部毛发和眼镜。 有关详细信息，请参阅[人脸 - 检测](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)。
 
 ## <a name="face-recognition"></a>人脸识别
 
-人脸识别广泛应用于各种场合，包括保安、自然用户界面、图像内容分析和管理、移动应用与机器人。 提供四种人脸识别功能：人脸验证、查找相似人脸、人脸分组和人员识别。
-
+标识人脸的功能在很多领域很重要，其中包括安全、自然用户界面、图像内容分析和管理、移动应用和机器人。 人脸 API 服务提供四项人脸识别功能：人脸验证、查找相似人脸、人脸分组和人员标识。
 
 ### <a name="face-verification"></a>人脸验证
 
-人脸 API 验证针对两个检测到的人脸执行鉴定，或者在一个检测的人脸与一个人员对象之间执行鉴定。 有关详细信息，请参阅[人脸 - 验证](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a)。
+人脸验证针对检测到的两个人脸执行身份验证，或由一个检测到的人脸对一个人员对象执行身份验证。 如需更多详细信息，请参阅[人脸 - 验证](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a)。
 
-### <a name="finding-similar-face"></a>查找相似人脸
+### <a name="finding-similar-faces"></a>查找相似人脸
 
-在提供了用于搜索的已检测到的目标人脸和一组候选人脸的情况下，人脸 API 服务会找出与目标人脸最相似的少量一组人脸。 支持两种工作模式：`matchFace` 和 `matchPerson`。 应用从[人脸 - 验证](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a)派生的同人阈值后，`matchPerson` 会返回相似的人脸。 `matchFace` 模式忽略同人阈值，返回最相似的候选人脸。 以下示例列出了候选人脸。      
-![概述 - 查找相似人脸](./Images/FaceFindSimilar.Candidates.jpg)查询人脸为
+提供检测到的目标人脸和一组要搜索的候选人脸，该服务即可查找与目标人脸最相似的一小组人脸。 支持两种工作模式，即 **matchFace** 和 **matchPerson**。 应用由[人脸 - 验证](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a)所得的相同人员阈值后，**matchPerson** 模式会返回相似人脸。 **matchFace** 模式会忽略相同人员阈值，并返回最相似的候选人脸。 在以下示例中，列出了候选人脸。
+![概述 - 人脸查找相似](./Images/FaceFindSimilar.Candidates.jpg) 查询人脸为此人脸。
+![概述 - 人脸查找相似](./Images/FaceFindSimilar.QueryFace.jpg)
 
-![概述 - 查找相似人脸](./Images/FaceFindSimilar.QueryFace.jpg)
-
-若要查找 4 张相似的人脸，`matchPerson` 模式会返回 (a) 和 (b)，两者属于具有查询人脸的同一个人。 `matchFace` 模式完全按要求返回 (a)、(b)、(c) 和 (d) 这 4 张候选人脸，尽管这些人脸的相似性较低。 有关详细信息，请参阅[人脸 - 查找相似人脸](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237)。
+为了查找四张相似的人脸，**matchPerson** 模式会返回 (a) 和 (b)，它们与查询人脸描述同一个人。 **matchFace** 模式返回 (a)、(b)、(c)、(d)，恰好返回四个候选项（虽然某些选项的相似度低）。 有关详细信息，请参阅 [人脸 - 查找相似](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237)。
 
 ### <a name="face-grouping"></a>人脸分组
 
-在提供一组未知人脸的情况下，人脸分组 API 会根据相似性自动将这些人脸划分成多个组。 每个组是原始未知人脸集的不相交真子集，包含相似的人脸。 可将同一组中的所有人脸视为属于同一人员对象。 有关详细信息，请参阅[人脸 - 分组](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238)。
+给定一组未知人脸，人脸分组 API 会基于相似性自动将其分为几组。 每个组是原始位置人脸集合的互不相交真子集，包含相似的人脸。 可以认为同一组中的所有人脸属于同一人。 有关详细信息，请参阅[人脸 - 分组](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238)。
 
-### <a name="face-identification"></a>人脸识别
+### <a name="person-identification"></a>人员识别
 
-使用人脸 API 可以根据检测到的人脸和人员数据库（定义为人员组，需提前创建，并可在不同的时间进行编辑）识别人员。
+人脸 API 可用于根据检测到的人脸和人员数据库标识人员。 请提前创建此数据库，可以随着时间推移对其进行编辑。
 
-下图是名为“myfriends”的人员组示例。 每个组最多可以包含 1,000 个人员对象。 同时，可为每个人员对象注册一个或多个人脸。
+下图是名为“myfriends”的数据库的示例。 每个组可以包含至多 1,000,000/10,000 个不同的人员对象。 每个人员对象可以注册最多 248 张人脸。
 
-![概述 - 人员分组](./Images/person.group.clare.jpg)
+![概述 - LargePersonGroup/PersonGroup](./Images/person.group.clare.jpg)
 
-创建并训练人员组后，可以针对该组和检测到的新人脸执行识别。 如果该人脸被识别为组中的人员对象，则返回该人员对象。
+创建和训练数据库后，可以对组使用新检测到的人脸进行标识。 如果人脸被标识为组中的某一人员，则返回该人员对象。
 
-有关人员识别的详细信息，请参阅下面所列的 API 指南：
+有关人员标识的详细信息，请参阅以下 API 指南：
 
-[人脸 - 识别](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239)  
-[人员组 - 创建人员组](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244)  
-[人员 - 创建人员](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c)  
-[人员组 - 训练人员组](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249)
+[Face - Identify](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239)（人脸 - 识别）  
+[PersonGroup - 创建](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244)  
+[PersonGroup 人员 - 创建](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c)  
+[PersonGroup - 训练](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249)  
+[LargePersonGroup - 创建](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d)  
+[LargePersonGroup 人员 - 创建](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40)  
+[LargePersonGroup - 训练](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/599ae2d16ac60f11b48b5aa4)  
 
-### <a name="face-storage"></a>人脸存储
-使用人员对象（[人员 - 添加人员人脸](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b)）或人脸列表（[人脸列表 - 将人脸添加到人脸列表](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250)）时，人脸存储允许标准订阅存储更多的保存人脸，以通过人脸 API 进行识别或相似性匹配。 存储的图像按照每 1,000 张人脸 0.5 美元的每日按比例费率收费。 免费层订阅不收费，但限制为总共 1,000 个人员。
+#### <a name="face-storage"></a>人脸存储 
 
-人脸存储的定价是每日按比例计算的。 例如，如果帐户在前半个月每天使用了 10,000 个保存人脸，而后半个月没有使用任何人脸，则只会根据存储天数计收 10,000 个人脸的费用。 或者，如果在当月的每一天都保存 1,000 个人脸数小时，然后在每天晚上将其删除，则仍会根据每天保存 1,000 个人脸来计费。
+对人脸 API 使用 LargePersonGroup/PersonGroup 人员对象（[PersonGroup 人员 - 添加人脸](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b)/[LargePersonGroup 人员 - 添加人脸](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42)）或 LargeFaceLists/FaceLists（[FaceList - 添加人脸](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250)/[LargeFaceList - 添加人脸](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3)）来进行标识或相似度匹配时，人脸存储允许标准订阅存储额外的持久化人脸。
 
-## <a name="getting-started-tutorials"></a>入门教程
+## <a name="sample-apps"></a>示例应用
+
+看看这些使用人脸 API 的示例应用程序。
+
+- [Microsoft 人脸 API：Windows 客户端库和示例](https://github.com/Microsoft/Cognitive-Face-Windows)
+  - WPF 示例应用，演示人脸检测、分析和识别的几种方案。
+- [FamilyNotes UWP 应用](https://github.com/Microsoft/Windows-appsample-familynotes)
+  - 通用 Windows 平台 (UWP) 示例应用，通过家庭便笺共享方案演示语音、Cortana、墨迹和相机。
+- [视频帧分析示例](https://github.com/microsoft/cognitive-samples-videoframeanalysis)
+  - Win32 示例应用，演示使用人脸、计算机视觉和情感 API 准实时分析实时视频流。
+
+## <a name="tutorials"></a>教程
 以下教程演示了人脸 API 的基本功能和订阅流程：
 - [CSharp 中的人脸 API 入门教程](Tutorials/FaceAPIinCSharpTutorial.md)
 - [Java for Android 中的人脸 API 入门教程](Tutorials/FaceAPIinJavaForAndroidTutorial.md)
 - [Python 中的人脸 API 入门教程](Tutorials/FaceAPIinPythonTutorial.md)
 
-## <a name="sample-apps"></a>示例应用
-看看这些利用人脸 API 的示例应用程序。
-- [FamilyNotes UWP 应用](https://github.com/Microsoft/Windows-appsample-familynotes)
- - 通用 Windows 平台 (UWP) 示例应用，演示如何通过家庭笔记共享方案使用语音、Cortana、墨迹和相机。
+## <a name="next-steps"></a>后续步骤
 
-## <a name="related-topics"></a>相关主题
-- [人脸 API 版本 1.0 发行说明](ReleaseNotes.md)
-- [如何检测图像中的人脸](Face-API-How-to-Topics/HowtoDetectFacesinImage.md)
-- [如何识别图像中的人脸](Face-API-How-to-Topics/HowtoIdentifyFacesinImage.md)
+尝试一个可实现简单人脸 API 方案的快速入门。
+- [快速入门：使用 C# 检测图像中的人脸](quickstarts/csharp.md)（提供其他语言）
 

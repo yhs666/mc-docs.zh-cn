@@ -1,5 +1,5 @@
 ---
-title: Windows 虚拟机概述 | Azure
+title: Windows 虚拟机概述 - Azure | Azure
 description: 了解如何在 Azure 中创建和管理 Windows 虚拟机。
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,16 +13,16 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 07/17/2017
-ms.date: 08/27/2018
+origin.date: 10/04/2018
+ms.date: 10/22/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 3dfaa933429e81b6ece87180c4af5b251654c8d9
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.openlocfilehash: 001bb9f3ad569341cc48a97ab8a985fbd1fe2816
+ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42871761"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50034903"
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Azure 中的 Windows 虚拟机概述
 
@@ -32,8 +32,7 @@ Azure 虚拟机 (VM) 是 Azure 提供的多种[可缩放按需分配计算资源
 
 可通过多种方式使用 Azure 虚拟机。 下面是一些示例：
 
-* 
-  **开发和测试** – 在 Azure VM 上，可以快速轻松地创建具有特定配置的计算机来满足编程和应用程序测试的需要。
+* **开发和测试** – 在 Azure VM 上，可以快速轻松地创建具有特定配置的计算机来满足编程和应用程序测试的需要。
 * **云中的应用程序** – 由于应用程序的需求会不断变化，在 Azure 中的 VM 上运行应用程序可能会节省成本。 使用 VM 时，需要支付额外的费用；关闭 VM 时，则无需付费。
 * **扩展的数据中心** – Azure 虚拟网络中的虚拟机可以轻松连接到组织的网络。
 
@@ -57,6 +56,7 @@ Azure 虚拟机 (VM) 是 Azure 提供的多种[可缩放按需分配计算资源
 
 ### <a name="locations"></a>位置
 在 Azure 中创建的所有资源分布在中国的多个[地理区域](https://www.azure.cn/support/service-dashboard/)。 创建 VM 时，区域通常称为 **位置** 。 位置指定 VM 虚拟硬盘的存储位置。
+
 <!-- Notice: Change around the world to China -->
 
 下表显示了获取可用位置列表的一些方法。
@@ -74,8 +74,7 @@ VM 的[大小](sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)由所要�
 Azure 根据 VM 的大小和操作系统[按小时进行收费](https://www.azure.cn/pricing/details/virtual-machines/)。 对于不足一小时的部分，Azure 仅根据使用的分钟数计费。 存储将另行定价和收费。
 
 ### <a name="vm-limits"></a>VM 限制
-订阅附带默认的[配额限制](../../azure-subscription-service-limits.md)，在为项目部署大量 VM 时，这些限制可能会造成影响。 每个订阅的当前限制是每区域 20 个 VM。 若要提高限制，可以[开具请求提高的支持票证](https://www.azure.cn/support/support-ticket-form)
-<!-- Not Available on [filing a support ticket requesting an increase](../../azure-supportability/resource-manager-core-quotas-request.md)-->
+订阅附带默认的[配额限制](../../azure-subscription-service-limits.md)，在为项目部署大量 VM 时，这些限制可能会造成影响。 每个订阅的当前限制是每区域 20 个 VM。 可以[开具支持票证](https://support.azure.cn/zh-cn/support/support-azure/)来请求提高限制
 
 ### <a name="operating-system-disks-and-images"></a>操作系统磁盘和映像
 虚拟机使用[虚拟硬盘 (VHD)](about-disks-and-vhds.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) 来存储其操作系统 (OS) 和数据。 VHD 还可用于存储映像，可以选择某个映像来安装 OS。 
@@ -87,12 +86,9 @@ Azure 提供许多[市场映像](https://market.azure.cn/zh-cn/marketplace/virtu
 | 方法 | 说明 |
 | --- | --- |
 | Azure 门户 |选择要使用的映像时，系统会自动指定值。 |
-| Azure PowerShell |[Get-AzureRMVMImagePublisher](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmimagepublisher) -Location "location"<BR>[Get-AzureRMVMImageOffer](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmimageoffer) -Location "location" -Publisher "publisherName"<BR>
-  [Get-AzureRMVMImageSku](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmimagesku) -Location "location" -Publisher "publisherName" -Offer "offerName" |
-| REST API |[列出映像发布者](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<BR>
-  [列出映像产品](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<BR>[列出映像 SKU](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) |
-| Azure CLI |[az vm image list-publishers](https://docs.azure.cn/zh-cn/cli/vm/image?view=azure-cli-latest#az-vm-image-list-publishers) --location "location"<BR>[az vm image list-offers](https://docs.azure.cn/zh-cn/cli/vm/image?view=azure-cli-latest#az-vm-image-list-offers) --location "location" --publisher "publisherName"<BR>
-  [az vm image list-skus](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-list-skus) --location "location" --publisher "publisherName" --offer "offerName"|
+| Azure PowerShell |[Get-AzureRMVMImagePublisher](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmimagepublisher) -Location *location*<BR>[Get-AzureRMVMImageOffer](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmimageoffer) -Location *location* -Publisher *publisherName*<BR>[Get-AzureRMVMImageSku](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmimagesku) -Location *location* -Publisher *publisherName* -Offer *offerName* |
+| REST API |[列出映像发布者](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<BR>[列出映像产品](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<BR>[列出映像 SKU](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) |
+| Azure CLI |[az vm image list-publishers](https://docs.azure.cn/zh-cn/cli/vm/image?view=azure-cli-latest#az-vm-image-list-publishers) --location *location*<BR>[az vm image list-offers](https://docs.azure.cn/zh-cn/cli/vm/image?view=azure-cli-latest#az-vm-image-list-offers) --location *location* --publisher *publisherName*<BR>[az vm image list-skus](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-list-skus) --location *location* --publisher *publisherName* --offer *offerName*|
 
 可以选择 [上传并使用自己的映像](upload-generalized-managed.md#upload-the-vhd-to-your-storage-account) ，在这种情况下，无需使用发布者名称、产品和 SKU。
 
@@ -131,7 +127,7 @@ VM 使用下表中的资源，创建 VM 时，这些资源必须存在，否则�
 | REST API |[创建或更新 VM](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-create-or-update) |
 | Azure CLI |[使用 Azure CLI 创建 VM](/virtual-machines/scripts/virtual-machines-windows-cli-sample-create-vm) |
 
-问题偶尔会不期而至。 如果遇到了问题，请查看[排查在 Azure 中创建 Windows 虚拟机时遇到的 Resource Manager 部署问题](troubleshoot-deployment-new-vm.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
+问题偶尔会不期而至。 如果遇到了问题，请查看[排查在 Azure 中创建 Windows 虚拟机时遇到的 Resource Manager 部署问题](../troubleshooting/troubleshoot-deployment-new-vm-windows.md)。
 
 ## <a name="how-do-i-manage-the-vm-that-i-created"></a>如何管理创建的 VM？
 可以使用基于浏览器的门户、支持脚本的命令行工具或直接通过 API 管理 VM。 可能要执行的一些常见管理任务包括获取有关 VM 的信息、登录到 VM、管理可用性以及执行备份。
@@ -148,10 +144,10 @@ VM 使用下表中的资源，创建 VM 时，这些资源必须存在，否则�
 | Azure CLI |有关使用 Azure CLI 管理 VM 的信息，请参阅 [Azure CLI 参考](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest)。 |
 
 ### <a name="log-on-to-the-vm"></a>登录到 VM
-使用 Azure 门户中的“连接”按钮[启动远程桌面 (RDP) 会话](connect-logon.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 尝试使用远程连接时，有时可能会出错。 如果遇到这种情况，请查看[对运行 Windows 的 Azure 虚拟机的远程桌面连接进行故障排除](troubleshoot-rdp-connection.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)中的帮助信息。
+使用 Azure 门户中的“连接”按钮[启动远程桌面 (RDP) 会话](connect-logon.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 尝试使用远程连接时，有时可能会出错。 如果遇到这种情况，请查看[对运行 Windows 的 Azure 虚拟机的远程桌面连接进行故障排除](../troubleshooting/troubleshoot-rdp-connection.md)中的帮助信息。
 
 ### <a name="manage-availability"></a>管理可用性
-了解如何[确保应用程序的高可用性](manage-availability.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)，这一点很重要。 此配置涉及到创建多个 VM，确保至少有一个 VM 在运行。
+了解如何[确保应用程序的高可用性](manage-availability.md)，这一点很重要。 此配置涉及到创建多个 VM，确保至少有一个 VM 在运行。
 
 为了使部署符合 VM 运行时间达到 99.95% 的服务级别协议，必须在[可用性集](tutorial-availability-sets.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)中部署两个或更多个运行工作负荷的 VM。 此配置可确保 VM 分布到多个容错域，并使用不同的维护时段部署到主机上。 完整 [Azure SLA](https://www.azure.cn/support/sla/virtual-machines/) 说明了 Azure 作为整体的保证可用性。
 
@@ -159,7 +155,7 @@ VM 使用下表中的资源，创建 VM 时，这些资源必须存在，否则�
 [恢复服务保管库](../../backup/backup-introduction-to-azure-backup.md)用于保护 Azure 备份和 Azure Site Recovery 服务中的数据与资产。 可以使用恢复服务保管库，[通过 PowerShell 来部署和管理采用 Resource Manager 模型部署的 VM 备份](../../backup/backup-azure-vms-automation.md)。 
 
 ## <a name="next-steps"></a>后续步骤
-* 如果打算使用 Linux VM，请查看 [Azure 和 Linux](../linux/overview.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
-* 若要深入了解有关设置基础结构的指导，请参阅[示例 Azure 基础结构演练](infrastructure-example.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
+* 如果打算使用 Linux VM，请查看 [Azure 和 Linux](../linux/overview.md)。
+* 若要深入了解有关设置基础结构的指导，请参阅[示例 Azure 基础结构演练](infrastructure-example.md)。
 
-<!--Update_Description: update meta properties, update link -->
+<!--Update_Description: update meta properties, update link， wording update -->

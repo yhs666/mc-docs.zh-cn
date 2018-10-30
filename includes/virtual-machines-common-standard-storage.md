@@ -6,32 +6,32 @@ author: rockboyfor
 ms.service: storage
 ms.topic: include
 origin.date: 06/05/2018
-ms.date: 08/27/2018
+ms.date: 11/12/2018
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 70b395817f6a84015ebfe22e664cfc637b68bd66
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.openlocfilehash: 64977ec676839e211afdddd2d5bc635d195859e3
+ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42871406"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50035023"
 ---
 # <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>高性价比标准存储以及非托管和托管 Azure VM 磁盘
 
-Azure 标准存储为运行不区分延迟的工作负荷提供可靠、低成本的磁盘支持。 它还支持 Blob、表、队列和文件。 使用标准存储，数据将存储在硬盘驱动器 (HDD) 上。 使用 VM 时，可将标准 HDD 磁盘用于开发/测试方案和不太重要的工作负荷，将高级 SSD 盘用于任务关键型生产应用程序。 所有 Azure 区域均提供标准存储。 
-<!--Not Available on Standard SSD-->
+Azure 标准存储为运行不区分延迟的工作负荷提供可靠、低成本的磁盘支持。 它还支持 Blob、表、队列和文件。 使用标准存储，数据将存储在硬盘驱动器 (HDD) 上。 使用 VM 时，可将标准 SSD 和 HDD 磁盘用于开发/测试方案和不太重要的工作负荷，将高级 SSD 磁盘用于任务关键型生产应用程序。 所有 Azure 区域均提供标准存储。 
 
-本文重点介绍标准 HDD 磁盘的使用。 有关将存储用于 blob、表、队列和文件的详细信息，请参阅[存储简介](../articles/storage/common/storage-introduction.md)。
-<!--Not Available on Standard SSD-->
+本文重点介绍标准 SSD 和 HDD 磁盘的使用。 有关将存储用于 blob、表、队列和文件的详细信息，请参阅[存储简介](../articles/storage/common/storage-introduction.md)。
 
+<!-- Verify Standard SSD is sucessfully -->
 ## <a name="disk-types"></a>磁盘类型
 
 有两种方法可为 Azure VM 创建标准磁盘：
 
-**非托管磁盘**：此类磁盘是管理用于存储与 VM 磁盘对应的 VHD 文件的存储帐户的原始方法。 VHD 文件作为页 Blob 存储在存储帐户中。 可将非托管磁盘附加到任意大小的 Azure VM，包括主要使用高级存储的 VM，如 DSv2 和 GS 系列。 Azure VM 支持附加多个标准磁盘，每个 VM 最多支持 256 TB 的存储容量。
+**非托管磁盘**：此类磁盘是管理用于存储与 VM 磁盘对应的 VHD 文件的存储帐户的原始方法。 VHD 文件作为页 Blob 存储在存储帐户中。 可将非托管磁盘附加到任意大小的 Azure VM，包括主要使用高级存储的 VM，如 DSv2 和 GS 系列。 Azure VM 支持附加多个标准磁盘，每个 VM 最多支持 256 TiB 的存储容量。 如果使用预览磁盘大小，则可以享有每 VM 2 PiB 的存储空间。
 
-[**Azure 托管磁盘**](../articles/virtual-machines/windows/managed-disks-overview.md)：此功能管理用于 VM 磁盘的存储帐户。 指定所需的类型（高级 SSD 或标准 HDD）和磁盘大小，Azure 即可创建和管理磁盘。 无需煞费苦心地将磁盘放置在多个存储帐户中，以确保保持在存储帐户的可伸缩性限制内 - Azure 将自动处理这一切。
-<!-- Not Available on Standard SSD -->
+[**Azure 托管磁盘**](../articles/virtual-machines/windows/managed-disks-overview.md)：此功能管理用于 VM 磁盘的存储帐户。 指定所需的类型（高级 SSD、标准 SSD 或标准 HDD）和磁盘大小，Azure 即可创建和管理磁盘。 无需煞费苦心地将磁盘放置在多个存储帐户中，以确保保持在存储帐户的可伸缩性限制内 - Azure 将自动处理这一切。
+
+<!-- Verify Standard SSD is sucessfully -->
 
 尽管这两种类型的磁盘都可用，但是我们建议使用托管磁盘以利用其许多功能。
 
@@ -40,17 +40,18 @@ Azure 标准存储为运行不区分延迟的工作负荷提供可靠、低成�
 有关如何使用托管磁盘创建 VM 的信息，请参阅以下文章之一。
 
 * [使用 Resource Manager 和 PowerShell 创建 VM](../articles/virtual-machines/windows/quick-create-powershell.md)
-* [使用 Azure CLI 2.0 创建 Linux VM](../articles/virtual-machines/linux/quick-create-cli.md)
+* [Create a Linux VM using the Azure CLI（使用 Azure CLI 创建 Linux VM）](../articles/virtual-machines/linux/quick-create-cli.md)
 
-## <a name="standard-storage-features"></a>标准存储功能 
+## <a name="standard-storage-features"></a>标准存储功能
 
 让我们看一下标准存储的一些功能。 有关详细信息，请参阅 [Azure 存储简介](../articles/storage/common/storage-introduction.md)。
 
-**标准存储**：Azure 标准存储支持 Azure 磁盘、Azure Blob、Azure 文件、Azure 表和 Azure 队列。 要使用标准存储服务，请从[创建 Azure 存储帐户](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account)开始。
+**标准存储**：Azure 标准存储支持 Azure 磁盘、Azure Blob、Azure 文件、Azure 表和 Azure 队列。 要使用标准存储服务，请从[创建 Azure 存储帐户](../articles/storage/common/storage-quickstart-create-account.md)开始。
 
-<!--Not Available on **Standard SSD disks:**-->
-<!--Not Available on [region availability of Standard SSD disks (Preview)](../articles/virtual-machines/windows/faq-for-disks.md#standard-ssds-azure-regions)-->
+**标准 SSD 盘：** 与标准 HDD 磁盘相比，标准 SSD 盘提供更可靠的性能，当前以预览版提供。 有关标准 SSD 盘区域可用性的详细信息，请参阅[标准 SSD 盘区域可用性](../articles/virtual-machines/windows/faq-for-disks.md#standard-ssds-azure-regions)。
+
 **标准 HDD 磁盘：** 可将标准 HDD 磁盘附加到所有 Azure VM，包括与高级存储配合使用的不同大小系列的 VM，如 DSv2 系列。 标准 HDD 磁盘只能附加到一个 VM。 但是，可以将一个或多个此类磁盘附加到 VM，最多可附加为该 VM 大小定义的最大磁盘计数。 在下一部分讲述标准存储的可伸缩性和性能目标时会详细介绍规范。
+
 <!--Not Available on GS series-->
 
 **标准页 Blob**：标准页 Blob 用于保留 VM 的永久磁盘，也可通过 REST 直接访问它（这与其他类型的 Azure Blob 类似）。 [页 Blob](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) 是 512 字节页的集合，已针对随机读写操作优化。 
@@ -66,10 +67,10 @@ Azure 标准存储为运行不区分延迟的工作负荷提供可靠、低成�
 | **资源** | **默认限制** |
 |--------------|-------------------|
 | 每个存储帐户的 TB  | 500 TB |
-| 每个存储帐户的最大入口 <sup>1</sup>（美国区域） | 如果已启用 GRS/ZRS，则为 10 Gbps；对于 LRS，为 20 Gbps |
-| 每个存储帐户的最大出口 <sup>1</sup>（美国区域） | 如果已启用 RA-GRS/GRS/ZRS，则为 20 Gbps；对于 LRS，为 30 Gbps |
-| 每个存储帐户的最大入口 <sup>1</sup>（欧洲和亚洲区域） | 如果已启用 GRS/ZRS，则为 5 Gbps；对于 LRS，为 10 Gbps |
-| 每个存储帐户的最大出口 <sup>1</sup>（欧洲和亚洲区域） | 如果已启用 RA-GRS/GRS/ZRS，则为 10 Gbps；对于 LRS，为 15 Gbps |
+| 每个存储帐户的最大入口<sup>1</sup> （美国区域） | 如果已启用 GRS/ZRS，则为 10 Gbps；对于 LRS，为 20 Gbps |
+| 每个存储帐户的最大出口<sup>1</sup> （美国区域） | 如果已启用 RA-GRS/GRS/ZRS，则为 20 Gbps；对于 LRS，为 30 Gbps |
+| 每个存储帐户的最大入口<sup>1</sup> （欧洲和亚洲区域） | 如果已启用 GRS/ZRS，则为 5 Gbps；对于 LRS，为 10 Gbps |
+| 每个存储帐户的最大出口<sup>1</sup> （欧洲和亚洲区域） | 如果已启用 RA-GRS/GRS/ZRS，则为 10 Gbps；对于 LRS，为 15 Gbps |
 | 每个存储帐户的总请求速率（假设对象大小为 1 KB） | 每秒实体或每秒消息数目最高 20,000 IOPS |
 
 <sup>1</sup>“入口”是指发送到存储帐户的所有数据（请求）。 传出是指从存储帐户接收的所有数据（响应）。
@@ -86,11 +87,11 @@ Azure 标准存储为运行不区分延迟的工作负荷提供可靠、低成�
 
 | **VM 层**            | **基本层 VM** | **标准层 VM** |
 |------------------------|-------------------|----------------------|
-| 最大磁盘大小          | 4095 GB           | 4095 GB              |
-| 每个磁盘最大 8 KB IOPS | 最大 300         | 最大 500            |
-| 每个磁盘的最大带宽 | 最高 60 MB/秒     | 最高 60 MB/秒        |
+| 最大磁盘大小          | 32,767 GiB           | 32,767 GiB        |
+| 每个磁盘最大 8 KB IOPS | 最多 2,000         | 最多 2,000        |
+| 每个磁盘的最大带宽 | 高达 500 MB/秒     | 高达 500 MB/秒      |
 
-如果工作负荷要求高性能、低延迟磁盘支持，则应考虑使用高级存储。 若要深入了解高级存储的优点，请访问[高性能高级存储和 Azure VM 磁盘](../articles/virtual-machines/windows/premium-storage.md)。 
+如果工作负荷要求高性能、低延迟磁盘支持，则应考虑使用高级存储。 若要深入了解高级存储的优点，请访问[高性能高级存储和 Azure VM 磁盘](../articles/virtual-machines/windows/premium-storage.md)。
 
 ## <a name="snapshots-and-copy-blob"></a>快照和复制 Blob
 
@@ -126,13 +127,13 @@ Azure 标准存储为运行不区分延迟的工作负荷提供可靠、低成�
 
 **托管磁盘**：标准托管磁盘的计费取决于磁盘的预配大小。 Azure 会将预配大小映射（四舍五入）到下面各表中指定的最接近的托管磁盘选项。 每个托管磁盘将映射到其中一种受支持的预配大小并相应地计费。 例如，如果创建了一个标准托管磁盘并将预配大小指定为 200 GiB，则会根据 S15 磁盘类型的定价向你收费。
 
-| 标准 HDD 托管<br>磁盘类型 | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** |
-|------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------| 
-| 磁盘大小        | 32 GiB  | 64 GiB  | 128 GiB | 256 GiB | 512 GiB | 1024 GiB (1 TiB) | 2048 GiB (2 TiB) | 4095 GiB (4 TiB) | 
+| 标准 HDD 托管<br>磁盘类型 | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** | **S60** | **S70** | **S80** |
+|------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
+| 磁盘大小        | 32 GiB  | 64 GiB  | 128 GiB | 256 GiB | 512 GiB | 1,024 GiB (1 TiB) | 2,048 GiB (2 TiB) | 4,095 GiB (4 TiB) | 8,192 GiB (8 TiB) | 16,385 GiB (16 TiB) | 32,767 GiB (32 TiB) |
 
 **快照**：对标准磁盘的快照使用的额外容量计费。 有关快照的详细信息，请参阅 [Creating a Snapshot of a Blob](https://docs.microsoft.com/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob)（创建 Blob 的快照）。
 
-**出站数据传输**：[出站数据传输](https://www.azure.cn/pricing/details/data-transfer/)（Azure 数据中心送出的数据）会产生带宽使用费。
+**出站数据传输**： [出站数据传输](https://www.azure.cn/pricing/details/data-transfer/) （Azure 数据中心送出的数据）会产生带宽使用费。
 
 **事务**：Azure 对标准存储的每 100,000 个事务收费 0.0036 美元。 事务包括对存储区的读操作和写操作。
 
@@ -142,7 +143,7 @@ Azure 标准存储为运行不区分延迟的工作负荷提供可靠、低成�
 * [虚拟机定价](https://www.azure.cn/pricing/details/virtual-machines/)
 * [托管磁盘定价](https://www.azure.cn/pricing/details/storage/)
 
-## <a name="azure-backup-service-support"></a>Azure 备份服务支持 
+## <a name="azure-backup-service-support"></a>Azure 备份服务支持
 
 可以使用 Azure 备份来备份具有非托管磁盘的虚拟机。 [更多详细信息](../articles/backup/backup-azure-vms-first-look-arm.md)。
 
@@ -152,11 +153,12 @@ Azure 标准存储为运行不区分延迟的工作负荷提供可靠、低成�
 
 * [Azure 存储简介](../articles/storage/common/storage-introduction.md)
 
-* [创建存储帐户](../articles/storage/common/storage-create-storage-account.md)
+* [创建存储帐户](../articles/storage/common/storage-quickstart-create-account.md)
 
 * [托管磁盘概述](../articles/virtual-machines/linux/managed-disks-overview.md)
 
 * [使用 Resource Manager 和 PowerShell 创建 VM](../articles/virtual-machines/windows/quick-create-powershell.md)
 
-* [使用 Azure CLI 2.0 创建 Linux VM](../articles/virtual-machines/linux/quick-create-cli.md)
+* [Create a Linux VM using the Azure CLI（使用 Azure CLI 创建 Linux VM）](../articles/virtual-machines/linux/quick-create-cli.md)
+
 <!-- Update_Description: wording update, update link -->

@@ -3,22 +3,25 @@ title: 始终加密：SQL 数据库 - Azure Key Vault | Microsoft 文档
 description: 本文演示如何使用 SQL Server Management Studio 中的始终加密向导，通过数据加密来保护 SQL 数据库中的敏感数据。
 keywords: 数据加密, 加密密钥, 云加密
 services: sql-database
-author: WenJason
-manager: digimobile
 ms.service: sql-database
-ms.custom: security
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-origin.date: 04/01/2018
-ms.date: 10/15/2018
+author: WenJason
 ms.author: v-jay
-ms.openlocfilehash: fcf01c00a84c281199a7f19e6295af5222761bb5
-ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
+ms.reviewer: ''
+manager: digimobile
+origin.date: 10/05/2018
+ms.date: 10/29/2019
+ms.openlocfilehash: b9e5be7cbfa0422fe6f7079678dbf23c05b0a36d
+ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913848"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50135792"
 ---
-# <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-azure-key-vault"></a>始终加密：保护 SQL 数据库中的敏感数据并将加密密钥存储在 Azure 密钥保管库中
+# <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-azure-key-vault"></a>Always Encrypted：保护敏感数据并将加密密钥存储在 Azure 密钥保管库中
 
 本文演示如何使用 [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt459280.aspx) 中的[始终加密向导](https://msdn.microsoft.com/library/hh213248.aspx)，通过数据加密来保护 SQL 数据库中的敏感数据。 它还包括如何将每个加密密钥存储在 Azure 密钥保管库的说明。
 
@@ -53,6 +56,7 @@ ms.locfileid: "48913848"
 
 通过运行以下脚本，可以快速创建密钥保管库。 有关这些 cmdlet 的详细说明以及有关创建和配置密钥保管库的详细信息，请参阅 [Azure 密钥保管库入门](../key-vault/key-vault-get-started.md)。
 
+```powershell
     $subscriptionName = '<your Azure subscription name>'
     $userPrincipalName = '<username@domain.com>'
     $applicationId = '<application ID from your AAD application>'
@@ -70,7 +74,7 @@ ms.locfileid: "48913848"
 
     Set-AzureRmKeyVaultAccessPolicy -VaultName $vaultName -ResourceGroupName $resourceGroupName -PermissionsToKeys create,get,wrapKey,unwrapKey,sign,verify,list -UserPrincipalName $userPrincipalName
     Set-AzureRmKeyVaultAccessPolicy  -VaultName $vaultName  -ResourceGroupName $resourceGroupName -ServicePrincipalName $applicationId -PermissionsToKeys get,wrapKey,unwrapKey,sign,verify,list
-
+```
 
 
 
@@ -105,6 +109,7 @@ ms.locfileid: "48913848"
 2. 右键单击“Clinic”数据库，并单击“新建查询”。
 3. 将以下 Transact-SQL (T-SQL) 粘贴到新查询窗口中，并“执行”它。
 
+```sql
         CREATE TABLE [dbo].[Patients](
          [PatientId] [int] IDENTITY(1,1),
          [SSN] [char](11) NOT NULL,
@@ -118,7 +123,7 @@ ms.locfileid: "48913848"
          [BirthDate] [date] NOT NULL
          PRIMARY KEY CLUSTERED ([PatientId] ASC) ON [PRIMARY] );
          GO
-
+```
 
 ## <a name="encrypt-columns-configure-always-encrypted"></a>加密列（配置始终加密）
 SSMS 提供了一个向导，通过设置列主密钥、列加密密钥和已加密列即可轻松地配置始终加密。
@@ -181,9 +186,10 @@ SSMS 提供了一个向导，通过设置列主密钥、列加密密钥和已加
 
 在包管理器控制台中运行以下 2 行代码。
 
+```powershell
     Install-Package Microsoft.SqlServer.Management.AlwaysEncrypted.AzureKeyVaultProvider
     Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
-
+```
 
 
 ## <a name="modify-your-connection-string-to-enable-always-encrypted"></a>修改连接字符串以启用始终加密
@@ -202,6 +208,7 @@ SSMS 提供了一个向导，通过设置列主密钥、列加密密钥和已加
 ### <a name="enable-always-encrypted-with-sqlconnectionstringbuilder"></a>通过 SqlConnectionStringBuilder 启用始终加密
 以下代码显示了如何通过将 [SqlConnectionStringBuilder.ColumnEncryptionSetting](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectionstringbuilder.columnencryptionsetting.aspx) 设置为[启用](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectioncolumnencryptionsetting.aspx)来启用“始终加密”。
 
+```CS
     // Instantiate a SqlConnectionStringBuilder.
     SqlConnectionStringBuilder connStringBuilder =
        new SqlConnectionStringBuilder("replace with your connection string");
@@ -209,10 +216,12 @@ SSMS 提供了一个向导，通过设置列主密钥、列加密密钥和已加
     // Enable Always Encrypted.
     connStringBuilder.ColumnEncryptionSetting =
        SqlConnectionColumnEncryptionSetting.Enabled;
+```
 
 ## <a name="register-the-azure-key-vault-provider"></a>注册 Azure 密钥保管库提供程序
 下面的代码演示如何使用 ADO.NET 驱动程序注册 Azure 密钥保管库提供程序。
 
+```C#
     private static ClientCredential _clientCredential;
 
     static void InitializeAzureKeyVaultProvider()
@@ -228,8 +237,7 @@ SSMS 提供了一个向导，通过设置列主密钥、列加密密钥和已加
        providers.Add(SqlColumnEncryptionAzureKeyVaultProvider.ProviderName, azureKeyVaultProvider);
        SqlConnection.RegisterColumnEncryptionKeyStoreProviders(providers);
     }
-
-
+```
 
 ## <a name="always-encrypted-sample-console-application"></a>始终加密示例控制台应用程序
 此示例演示了如何执行以下操作：
@@ -242,7 +250,7 @@ SSMS 提供了一个向导，通过设置列主密钥、列加密密钥和已加
 将 **Program.cs** 的内容替换为以下代码。 将 Main 方法前一行中全局 connectionString 变量的连接字符串替换为 Azure 门户中的有效连接字符串。 这是需要对此代码进行的唯一更改。
 
 运行该应用以在操作中查看始终加密。
-
+```CS
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -582,7 +590,7 @@ SSMS 提供了一个向导，通过设置列主密钥、列加密密钥和已加
         public DateTime BirthDate { get; set; }
     }
     }
-
+```
 
 
 ## <a name="verify-that-the-data-is-encrypted"></a>确保数据已加密
@@ -590,7 +598,9 @@ SSMS 提供了一个向导，通过设置列主密钥、列加密密钥和已加
 
 针对 Clinic 数据库运行以下查询。
 
+```sql
     SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
+```
 
 可以看到，加密的列不包含任何明文数据。
 
@@ -606,12 +616,13 @@ SSMS 提供了一个向导，通过设置列主密钥、列加密密钥和已加
    
     ![新建控制台应用程序](./media/sql-database-always-encrypted-azure-key-vault/ssms-connection-parameter.png)
 4. 针对 Clinic 数据库运行以下查询。
-   
-        SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
-   
-     现在，可以看到已加密列中的明文数据。
 
-    ![新建控制台应用程序](./media/sql-database-always-encrypted-azure-key-vault/ssms-plaintext.png)
+   ```sql
+      SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
+   ```
+
+     现在，可以看到已加密列中的明文数据。
+     ![新建控制台应用程序](./media/sql-database-always-encrypted-azure-key-vault/ssms-plaintext.png)
 
 
 ## <a name="next-steps"></a>后续步骤
@@ -625,5 +636,5 @@ SSMS 提供了一个向导，通过设置列主密钥、列加密密钥和已加
 * [透明数据加密](https://msdn.microsoft.com/library/bb934049.aspx)
 * [SQL Server 加密](https://msdn.microsoft.com/library/bb510663.aspx)
 * [始终加密向导](https://msdn.microsoft.com/library/mt459280.aspx)
-* [Always Encrypted 博客](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
-<!--Update_Description: update script-->
+* [始终加密博客](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
+

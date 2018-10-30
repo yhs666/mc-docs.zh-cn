@@ -4,7 +4,7 @@
 
 ## <a name="diagnostics-and-metrics"></a>诊断和指标 
 
-可以在 Azure 门户、Azure CLI、Azure PowerShell 和编程应用程序编程接口 (API) 中使用[指标](../articles/monitoring-and-diagnostics/monitoring-overview-metrics.md)来设置和监视[诊断数据](https://docs.microsoft.com/cli/azure/vm/diagnostics)收集。 例如，可以：
+可以在 Azure 门户、Azure CLI、Azure PowerShell 和编程应用程序编程接口 (API) 中使用[指标](../articles/monitoring-and-diagnostics/monitoring-overview-metrics.md)来设置和监视[诊断数据](https://docs.azure.cn/zh-cn/cli/vm/diagnostics?view=azure-cli-latest)收集。 例如，可以：
 
 - **观察 VM 的基本指标。** Azure 门户的“概述”屏幕上显示的基本指标包括 CPU 使用率、网络使用情况、总磁盘字节数以及每秒的磁盘操作数。
 
@@ -12,23 +12,24 @@
 
     VM 启动时，启动诊断代理将捕获启动输出并将其存储在 Azure 存储中。 此数据可以用于排查 VM 启动问题。 从命令行工具创建 VM 时，不会自动启用启动诊断。 在启用启动诊断之前，需要创建一个存储帐户来存储启动日志。 如果在 Azure 门户中启用启动诊断，则会自动创建一个存储帐户。
 
-    如果未在创建 VM 时启用启动诊断，可在以后随时使用 [Azure CLI](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics)、[Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmbootdiagnostics) 或 [Azure 资源管理器模板](../articles/virtual-machines/windows/extensions-diagnostics-template.md)启用它。
+    如果未在创建 VM 时启用启动诊断，可在以后随时使用 [Azure CLI](https://docs.azure.cn/zh-cn/cli/vm/boot-diagnostics?view=azure-cli-latest)、[Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmbootdiagnostics) 或 [Azure 资源管理器模板](../articles/virtual-machines/windows/extensions-diagnostics-template.md)启用它。
 
 - **启用来宾 OS 诊断数据收集。** 创建 VM 时，可以在“设置”屏幕上启用来宾 OS 诊断。 如果确实启用了诊断数据收集，[用于 Linux 的 IaaSDiagnostics 扩展](../articles/virtual-machines/linux/diagnostic-extension.md)或[用于 Windows 的 IaaSDiagnostics 扩展](../articles/virtual-machines/windows/ps-extensions-diagnostics.md)将添加到 VM，使你可以收集更多的磁盘、CPU 和内存数据。
 
     使用收集的诊断数据，可以为 VM 配置自动缩放。 还可以配置日志，以便存储数据并设置警报，从而在性能不正常时获得通知。
 
-<!-- Waiting for releasement ## Alerts -->
+## <a name="alerts"></a>警报
 
-<!-- Waiting for releasement You can create [alerts](../articles/monitoring-and-diagnostics/monitoring-overview-alerts.md) based on specific performance metrics. Examples of the issues you can be alerted about include when average CPU usage exceeds a certain threshold, or available free disk space drops below a certain amount. Alerts can be configured in the [Azure portal](../articles/monitoring-and-diagnostics/insights-alerts-portal.md), using [Azure PowerShell](../articles/monitoring-and-diagnostics/insights-alerts-powershell.md), or the [Azure CLI](../articles/monitoring-and-diagnostics/insights-alerts-command-line-interface.md). -->
+可以根据特定的性能指标创建[警报](../articles/monitoring-and-diagnostics/monitoring-overview-alerts.md)。 举例来说，可以根据以下问题生成警报，平均 CPU 使用率超过特定的阈值，或者可用磁盘空间低于特定的空间量。 可以在 [Azure 门户](../articles/monitoring-and-diagnostics/insights-alerts-portal.md)中或者使用 [Azure PowerShell](../articles/monitoring-and-diagnostics/insights-alerts-powershell.md) 或 [Azure CLI](../articles/monitoring-and-diagnostics/insights-alerts-command-line-interface.md) 来配置警报。
 
-<!-- Notice: Item 1 [警报](../articles/monitoring-and-diagnostics/monitoring-overview-alerts.md) -->
-<!-- Notice: Item 2 [Azure 门户](../articles/monitoring-and-diagnostics/insights-alerts-portal.md) -->
-<!-- Notice: Item 3 [Azure PowerShell](../articles/monitoring-and-diagnostics/insights-alerts-powershell.md) -->
-<!-- Notice: Item 4 [Azure CLI](../articles/monitoring-and-diagnostics/insights-alerts-command-line-interface.md) -->
+## <a name="azure-service-health"></a>Azure 服务运行状况
 
-<!-- Not Available ## Azure Service Health-->
-<!-- Not Available ## Azure Resource Health-->
+[Azure 服务运行状况](../articles/service-health/service-health-overview.md)会在 Azure 服务问题影响你时提供个性化的指导和支持，并且会帮助你为即将到来的计划内维护做好准备。 Azure 服务运行状况使用具有针对性和灵活性的通知提醒你和你的团队。
+
+## <a name="azure-resource-health"></a>Azure 资源运行状况
+
+[Azure 资源运行状况](../articles/service-health/resource-health-overview.md)有助于在 Azure 问题影响资源时进行诊断和获取支持。 它通知你有关资源的当前和过去运行状况的信息，并帮助你缓解问题。 在需要有关 Azure 服务问题的帮助时，资源运行状况将提供技术支持。
+
 ## <a name="logs"></a>日志
 
 [Azure 活动日志](../articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md) 是一种方便用户深入了解 Azure 中发生的订阅级别事件的订阅日志。 该日志包括从 Azure 资源管理器操作数据到服务运行状况事件更新的一系列数据。 可以在 Azure 门户中单击“活动日志”查看 VM 的日志。
@@ -40,7 +41,7 @@
 - 在 PowerBI 中使用 [PowerBI 内容包](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/)分析活动日志。
 - [将活动日志保存到存储帐户](../articles/monitoring-and-diagnostics/monitoring-archive-activity-log.md)进行存档或手动检查。 可以使用“日志配置文件”指定保留时间（天）。
 
-还可以通过使用 [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.insights/)、[Azure CLI](https://docs.microsoft.com/cli/azure/monitor) 或[监视 REST API](https://docs.microsoft.com/rest/api/monitor/) 访问活动日志数据。
+还可以通过使用 [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.insights/)、[Azure CLI](https://docs.azure.cn/zh-cn/cli/monitor?view=azure-cli-latest) 或[监视 REST API](https://docs.microsoft.com/rest/api/monitor/) 访问活动日志数据。
 
 [Azure 诊断日志](../articles/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)是 VM 发出的日志，其中提供与该 VM 的操作相关的各种频繁生成的数据。 不同于活动日志，诊断日志提供有关在 VM 中执行的操作的见解。
 
@@ -59,11 +60,11 @@
 
 <!-- Not Available - Item 1 is a service in OMS that monitors your cloud and on-premises environments to maintain their availability and performance. It collects data generated by resources in your cloud and on-premises environments and from other monitoring tools to provide analysis across multiple sources.-->
 <!-- Notice: Item 1 [Log Analytics](../articles/log-analytics/log-analytics-overview.md) -->
-- 使用[网络观察程序](../articles/network-watcher/network-watcher-monitoring-overview.md)可以在 VM 及其关联资源与所在网络相关时对其进行监视。 可以在 [Linux VM](../articles/virtual-machines/linux/extensions-nwa.md) 或 [Windows VM](../articles/virtual-machines/windows/extensions-nwa.md) 上安装网络观察程序代理扩展。-->
+- 使用[网络观察程序](../articles/network-watcher/network-watcher-monitoring-overview.md)可以在 VM 及其关联资源与所在网络相关时对其进行监视。 可以在 [Linux VM](../articles/virtual-machines/linux/extensions-nwa.md) 或 [Windows VM](../articles/virtual-machines/windows/extensions-nwa.md) 上安装网络观察程序代理扩展。
 
 ## <a name="next-steps"></a>后续步骤
 - 逐步完成[使用 Azure PowerShell 监视 Windows 虚拟机](../articles/virtual-machines/windows/tutorial-monitoring.md)或[使用 Azure CLI 监视 Linux 虚拟机](../articles/virtual-machines/linux/tutorial-monitoring.md)中的步骤。
 - 了解更多有关[监视和诊断](https://docs.microsoft.com/azure/architecture/best-practices/monitoring)的最佳做法的信息。
 
-<!--Update_Description: new articles on virtual machine monitor-->
-<!--ms.date: 10/16/2017-->
+<!--Update_Description: update meta properties, wording udpate, update link -->
+<!-- ms.date: 10/29/2018 -->

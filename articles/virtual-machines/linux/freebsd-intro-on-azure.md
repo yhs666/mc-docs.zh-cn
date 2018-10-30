@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 09/13/2017
-ms.date: 08/27/2018
+ms.date: 10/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: 54a792b76a426fc15d749f9a4d74a5de73ac04d1
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.openlocfilehash: 90aac79a36cf192b9531dbdfe3ebbc3b3ef21ffb
+ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42872093"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50034935"
 ---
 # <a name="introduction-to-freebsd-on-azure"></a>Azure FreeBSD 简介
 本文概述如何在 Azure 中运行 FreeBSD 虚拟机。
@@ -43,30 +43,31 @@ Microsoft Corporation 在 Azure 上提供预先配置了 [Azure VM 来宾代理]
 在 Azure 门户中使用来自 Azure 市场的映像部署 FreeBSD 虚拟机是一个非常简单的过程：
 
 - [Azure 市场中的 FreeBSD 10.4](https://portal.azure.cn/#create/Microsoft.FreeBSD104-ARM)
-- 
-  [Azure 市场中的 FreeBSD 11.1](https://portal.azure.cn/#create/Microsoft.FreeBSD111-ARM)
-- [Azure 市场中的 FreeBSD](https://market.azure.cn/zh-cn/marketplace/apps/Microsoft.FreeBSD)
+- [Azure 市场中的 FreeBSD 11.1](https://portal.azure.cn/#create/Microsoft.FreeBSD111-ARM)
+- [Azure 市场中的 FreeBSD 11.2](https://market.azure.cn/zh-cn/marketplace/apps/Microsoft.FreeBSD112)
+
 <!-- Notice: Current contain 10.4 and 11.1 images in Mooncake -->
+<!-- Notice: Current contain FreeBSD 11.2 in Azure Marketplace -->
 
-### <a name="create-a-freebsd-vm-through-azure-cli-20-on-freebsd"></a>通过 FreeBSD 上的 Azure CLI 2.0 创建 FreeBSD VM
-首先需要通过以下命令在 FreeBSD 计算机上安装 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/get-started-with-azure-cli?view=azure-cli-latest)。
+### <a name="create-a-freebsd-vm-through-azure-cli-on-freebsd"></a>在 FreeBSD 上通过 Azure CLI 创建 FreeBSD VM
+首先需要通过以下命令在 FreeBSD 计算机上安装 [Azure CLI](https://docs.azure.cn/zh-cn/cli/get-started-with-azure-cli?view=azure-cli-latest)。
 
-```bash 
+```bash 
 curl -L https://aka.ms/InstallAzureCli | bash
 ```
 
-如果 FreeBSD 计算机上未安装 bash，请在安装前运行以下命令。 
+如果 FreeBSD 计算机上未安装 bash，请在安装前运行以下命令。 
 
 ```bash
 sudo pkg install bash
 ```
 
-如果 FreeBSD 计算机上未安装 python，请在安装前运行以下命令。 
+如果 FreeBSD 计算机上未安装 python，请在安装前运行以下命令。 
 
 ```bash
 sudo pkg install python35
-cd /usr/local/bin 
-sudo rm /usr/local/bin/python 
+cd /usr/local/bin 
+sudo rm /usr/local/bin/python 
 sudo ln -s /usr/local/bin/python3.5 /usr/local/bin/python
 ```
 
@@ -77,7 +78,7 @@ sudo ln -s /usr/local/bin/python3.5 /usr/local/bin/python
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ```azurecli
-az login 
+az login 
 az group create --name myResourceGroup --location chinaeast
 az vm create --name myFreeBSD11 \
     --resource-group myResourceGroup \
@@ -139,6 +140,7 @@ $ sudo <COMMAND>
 [Azure VM 来宾代理](https://github.com/Azure/WALinuxAgent/) 2.2.2 存在 [已知问题](https://github.com/Azure/WALinuxAgent/pull/517)，此问题导致 Azure 上的 FreeBSD VM 预配失败。 [Azure VM 来宾代理](https://github.com/Azure/WALinuxAgent/) 2.2.3 及更高版本已修复此问题。 
 
 ## <a name="next-steps"></a>后续步骤
-* 转到 [Azure 市场](https://portal.azure.cn/#create/Microsoft.FreeBSD111-ARM)创建 FreeBSD VM。
+* 转到 [Azure 市场](https://market.azure.cn/zh-cn/marketplace/apps/Microsoft.FreeBSD112)创建 FreeBSD VM。
 
+<!--Notice: Microsoft.FreeBSD112 is correct on Azure Marketplace -->
 <!--Update_Description: update meta properties， update link, wording update -->

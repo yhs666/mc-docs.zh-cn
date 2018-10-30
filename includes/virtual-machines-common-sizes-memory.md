@@ -6,25 +6,22 @@ author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
 origin.date: 07/06/2018
-ms.date: 08/27/2018
+ms.date: 11/12/2018
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: c08b37f8ed7d206f12f90b8c6ca420a9c1d87220
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.openlocfilehash: f5dd4dde517abe031f1d2b90329a616117854615
+ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47454401"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50034990"
 ---
 内存优化 VM 大小提供适用于关系数据库服务器、中到大型规模的缓存和内存中分析的高内存 CPU 比率。 本文介绍了此分组中各个大小的 vCPU 数、数据磁盘数、NIC 数、存储吞吐量及网络带宽的相关信息。 
 
-<!-- Not Available on G, GS series -->
-
 * M 系列为云中的任何 VM 提供最高 vCPU 计数（最多 128 个 vCPU）和最大内存（最大 3.8 TiB）。  它非常适用于极大型数据库或受益于高 vCPU 计数和大量内存的其他应用程序。
 
-
 * Dv2 系列和对应的 DSv2 系列是要求更快速 vCPU、更佳临时存储性能或具有更高内存需求的应用程序的最佳选择。  它们为许多企业级应用程序提供强大的组合。
-
+    <!-- Not Available on G, GS series -->
 * Dv2 系列是原 D 系列的后续系列，其特点是 CPU 功能更强大。 Dv2 系列 CPU 比 D 系列 CPU 快大约 35%。 它基于最新一代的 2.4 GHz Intel Xeon® E5-2673 v3 2.4 GHz (Haswell) 或 E5-2673 v4 2.3 GHz (Broadwell) 处理器，通过英特尔睿频加速技术 2.0 可以达到 3.1 GHz。 Dv2 系列的内存和磁盘配置与 D 系列相同。
 
 * Ev3 系列在超线程配置中采用 E5-2673 v4 2.3 GHz (Broadwell) 处理器，针对最常规用途的工作负荷提供了更好的价值主张，因此 Ev3 适用于大多数其他云的常规用途 VM。  在磁盘和网络限制已基于核心进行了调整以适应超线程技术的同时，内存也得到了扩展（从 7 GiB/vCPU 到 8 GiB/vCPU）。  Ev3 是 D/Dv2 系列的高内存 VM 大小产品的后继产品。
@@ -50,6 +47,7 @@ ESv3 系列实例基于 2.3 GHz Intel XEON® E5-2673 v4 (Broadwell) 处理器，
 | Standard_E32s_v3&nbsp;<sup>2</sup> | 32     | 256         | 512            | 32             | 64,000 / 512 (800)                                                    | 51,200 / 768                              | 8 / 16,000                             |
 | Standard_E64s_v3&nbsp;<sup>2</sup> | 64     | 432         | 864            | 32             | 128,000/1024 (1600)                                                   | 80,000 / 1200                             | 8 / 30,000                             |
 | Standard_E64is_v3&nbsp;<sup>3</sup> | 64     | 432         | 864            | 32             | 128,000/1024 (1600)                                                   | 80,000 / 1200                             | 8 / 30,000                             |
+
 
 <sup>1</sup> Esv3 系列 VM 的 Intel® 超线程技术功能。
 
@@ -93,7 +91,7 @@ ACU：160-180 <sup>1</sup>
 
 高级存储缓存：支持
 
-写入加速器：[支持](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/how-to-enable-write-accelerator)
+写入加速器：[支持](/virtual-machines/windows/how-to-enable-write-accelerator)
 
 | 大小            | vCPU | 内存：GiB | 临时存储 (SSD) GiB | 最大数据磁盘数 | 缓存和临时存储的最大吞吐量：IOPS/MBps（以 GiB 为单位的缓存大小） | 非缓存磁盘最大吞吐量：IOPS / MBps | 最大 NIC 数/预期网络带宽 (MBps) |
 |-----------------|------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------|
@@ -112,18 +110,16 @@ ACU：160-180 <sup>1</sup>
 | Standard_M128&nbsp;<sup>2  | 128 | 2,048 | 14,336 | 64 | 250,000 / 1,600 (2,456) | 80,000 / 2,000 | 8 / 32,000 |
 | Standard_M128m&nbsp;<sup>2 | 128 | 3,892 | 14,336 | 64 | 250,000 / 1,600 (2,456) | 80,000 / 2,000 | 8 / 32,000 |
 
-
-
 <sup>1</sup> M 系列 VM 的 Intel® 超线程技术功能
 
-<sup>2</sup> 超过 64 vCPU 的 VM 需要以下受支持的来宾操作系统之一：Windows Server 2016、Ubuntu 16.04 LTS、SLES 12 SP2 和 Red Hat Enterprise Linux、CentOS 7.3 或带 LIS 4.2.1 的 Oracle Linux 7.3。
+<sup>2</sup> 超过 64 vCPU 的 VM 需要以下受支持的来宾 OS 之一：Windows Server 2016、Ubuntu 16.04 LTS、SLES 12 SP2 和 Red Hat Enterprise Linux、CentOS 7.3 或带 LIS 4.2.1 的 Oracle Linux 7.3。
 
 <sup>3</sup> 受约束的可用核心大小。
 
 <sup>4</sup> 实例与专用于单个客户的硬件隔离。
 <br>
 
-<!-- Not Available on ## GS-series <sup>1</sup> -->
+<!-- Not Available on ## GS-series-->
 
 <!-- Not Available ## G-series-->
 

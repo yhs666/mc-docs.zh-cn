@@ -11,13 +11,13 @@ ms.custom: mvc
 ms.devlang: azure-cli
 ms.topic: tutorial
 origin.date: 04/01/2018
-ms.date: 08/13/2018
-ms.openlocfilehash: 390b08099ec39254a8cf280467bc5f3dd2913d5b
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.date: 10/29/2018
+ms.openlocfilehash: c263246bc29321518cf3621d9deb636713c17cf2
+ms.sourcegitcommit: 1934f3a6db96e9e069f10bfc0ca47dedb1b25c8f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869453"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49652571"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql-using-azure-cli"></a>教程：使用 Azure CLI 设计 Azure Database for PostgreSQL 
 在本教程中，需使用 Azure CLI（命令行接口）以及其他实用工具了解如何完成以下操作：
@@ -30,9 +30,9 @@ ms.locfileid: "42869453"
 > * 更新数据
 > * 还原数据
 
-可以在自己的计算机上[安装 Azure CLI 2.0]( /cli/install-azure-cli) 以运行本教程中的命令。
+可以在自己的计算机上[安装 Azure CLI]( /cli/install-azure-cli) 以运行本教程中的命令。
 
-如果选择在本地安装并使用 CLI，本文要求运行 Azure CLI 2.0 版或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0]( /cli/install-azure-cli)。 
+如果选择在本地安装并使用 CLI，本文要求运行 Azure CLI 2.0 版或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI]( /cli/install-azure-cli)。 
 
 如果有多个订阅，请选择资源所在的相应订阅或对资源进行计费的订阅。 使用 [az account set](/cli/account#az_account_set) 命令选择帐户下的特定订阅 ID。
 ```cli
@@ -40,9 +40,9 @@ az account set --subscription 00000000-0000-0000-0000-000000000000
 ```
 
 ## <a name="create-a-resource-group"></a>创建资源组
-使用 [az group create](/cli/group#az_group_create) 命令创建 [Azure 资源组](../azure-resource-manager/resource-group-overview.md)。 资源组是在其中以组的形式部署和管理 Azure 资源的逻辑容器。 以下示例在 `chinaeast2` 位置创建名为 `myresourcegroup` 的资源组。
+使用 [az group create](/cli/group#az_group_create) 命令创建 [Azure 资源组](../azure-resource-manager/resource-group-overview.md)。 资源组是在其中以组的形式部署和管理 Azure 资源的逻辑容器。 以下示例在 `chinaeast` 位置创建名为 `myresourcegroup` 的资源组。
 ```cli
-az group create --name myresourcegroup --location chinaeast2
+az group create --name myresourcegroup --location chinaeast
 ```
 
 ## <a name="create-an-azure-database-for-postgresql-server"></a>创建 Azure Database for PostgreSQL 服务器
@@ -50,10 +50,10 @@ az group create --name myresourcegroup --location chinaeast2
 
 下面的示例使用服务器管理员登录名 `myadmin` 在资源组 `myresourcegroup` 中创建名为 `mydemoserver` 的服务器。 服务器的名称映射到 DNS 名称，因此需要在 Azure 中全局唯一。 用自己的值替换 `<server_admin_password>`。 它是第 4 代常规用途服务器，带有 2 个 2 vCore。
 ```cli
-az postgres server create --resource-group myresourcegroup --name mydemoserver --location chinaeast2 --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 --version 9.6
+az postgres server create --resource-group myresourcegroup --name mydemoserver --location chinaeast --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 9.6
 ```
 sku-name 参数值遵循 {定价层}\_{计算层代}\_{vCore 数} 约定，如以下示例中所示：
-+ `--sku-name B_Gen5_4` 映射到基本、第 5 代和 4 个 vCore。
++ `--sku-name B_Gen4_4` 映射到基本、第 4 代和 4 个 vCore。
 + `--sku-name GP_Gen5_32` 映射到常规用途、第 5 层和 32 个 vCore。
 + `--sku-name MO_Gen5_2` 映射到内存优化、第 5 层和 2 个 vCore。
 
@@ -95,13 +95,13 @@ az postgres server show --resource-group myresourcegroup --name mydemoserver
   "earliestRestoreDate": null,
   "fullyQualifiedDomainName": "mydemoserver.postgres.database.chinacloudapi.cn",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforPostgreSQL/servers/mydemoserver",
-  "location": "chinaeast2",
+  "location": "chinaeast",
   "name": "mydemoserver",
   "resourceGroup": "myresourcegroup",
   "sku": {
     "capacity": 2,
-    "family": "Gen5",
-    "name": "GP_Gen5_2",
+    "family": "Gen4",
+    "name": "GP_Gen4_2",
     "size": null,
     "tier": "GeneralPurpose"
   },

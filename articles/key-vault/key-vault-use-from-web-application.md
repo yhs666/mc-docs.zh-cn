@@ -10,14 +10,14 @@ ms.service: key-vault
 ms.workload: identity
 ms.topic: tutorial
 origin.date: 07/20/2018
-ms.date: 09/17/2018
+ms.date: 11/05/2018
 ms.author: v-biyu
-ms.openlocfilehash: 17d54976de6f4d699824215f9721d518d82c0859
-ms.sourcegitcommit: d649060b55bac3ad9f4fc2bd2962748a4b5bf715
+ms.openlocfilehash: 00d6d0b345214b80fae4b8c00beff13d675b1c02
+ms.sourcegitcommit: 8a68d9275ddb92ea45601fed96e21559999d9579
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44066171"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50026943"
 ---
 # <a name="tutorial-use-azure-key-vault-from-a-web-application"></a>教程：从 Web 应用程序使用 Azure Key Vault
 
@@ -31,7 +31,7 @@ ms.locfileid: "44066171"
 > * 在应用程序启动时检索令牌
 > * 使用证书进行身份验证
 
-如果没有 Azure 订阅，请在开始之前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial) 。
+如果没有 Azure 订阅，请创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。 。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -41,9 +41,9 @@ ms.locfileid: "44066171"
 * 已在 Azure Active Directory 中注册且有权访问密钥保管库的 Web 应用程序的客户端 ID 和客户端机密
 * Web 应用程序。 本教程演示适用于在 Azure 中部署为 Web 应用的 ASP.NET MVC 应用程序的步骤。
 
-完成 [Azure Key Vault 入门](/key-vault/key-vault-get-started)中的步骤，以获取机密 URI、客户端 ID 和客户端机密，并注册应用程序。 该 Web 应用程序将访问保管库，并需要在 Azure Active Directory 中注册。 它还需要有权访问 Key Vault。 如果它没有此访问权限，请返回入门教程中的“注册应用程序”，并重复列出的步骤。 有关创建 Azure Web 应用的详细信息，请参阅 [Web 应用概述](../app-service/app-service-web-overview.md)。
+完成 [Azure Key Vault 入门](/key-vault/key-vault-get-started)中的步骤，以获取机密 URI、客户端 ID 和客户端机密，并注册应用程序。 该 Web 应用程序将访问保管库，并必须在 Azure Active Directory 中注册。 它还需要有权访问 Key Vault。 如果它没有此访问权限，请返回入门教程中的“注册应用程序”，并重复列出的步骤。 有关创建 Azure Web 应用的详细信息，请参阅 [Web 应用概述](../app-service/app-service-web-overview.md)。
 
-此示例依赖于手动预配 Azure Active Directory 标识。 但是应当改用[托管服务标识 (MSI)](https://docs.microsoft.com/azure/active-directory/msi-overview)。 MSI 可以自动预配 Azure AD 标识。 有关详细信息，请参阅 [GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) 中的示例，以及相关的 [MSI 和应用服务与函数教程](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity)。 还可以查看特定于密钥保管库的 [MSI 教程](https://docs.azure.cn/zh-cn/key-vault/tutorial-web-application-keyvault#publish-the-web-application-to-azure)
+此示例依赖于手动预配 Azure Active Directory 标识。 但是应当改用托管服务标识 (MSI)。 MSI 可以自动预配 Azure AD 标识。 有关详细信息，请参阅 [GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) 中的示例，以及相关的“MSI 与应用服务和 Functions”教程。 还可以查看特定于密钥保管库的 [MSI 教程](https://docs.azure.cn/zh-cn/key-vault/tutorial-web-application-keyvault#publish-the-web-application-to-azure)
 
 
 ## <a id="packages"></a>添加 NuGet 包
@@ -150,8 +150,11 @@ $PfxFilePath = "c:\data\KVWebApp.pfx"
 $CerFilePath = "c:\data\KVWebApp.cer" 
 $DNSName = "MyComputer.Contoso.com" 
 $Password ="MyPassword" 
+$StoreLocation = 'CurrentUser' #be aware that LocalMachine requires elevated privileges
+$CertBeginDate = Get-Date
+$CertExpiryDate = $CertBeginDate.AddYears(1)
 $SecStringPw = ConvertTo-SecureString -String $Password -Force -AsPlainText 
-$Cert = New-SelfSignedCertificate -DnsName $DNSName -CertStoreLocation "cert:\LocalMachine\My" -NotBefore 05/15/2018 -NotAfter 05/15/2019 
+$Cert = New-SelfSignedCertificate -DnsName $DNSName -CertStoreLocation "cert:\$StoreLocation\My" -NotBefore $CertBeginDate -NotAfter $CertExpiryDate -KeySpec Signature
 Export-PfxCertificate -cert $cert -FilePath $PFXFilePath -Password $SecStringPw 
 Export-Certificate -cert $cert -FilePath $CerFilePath 
 ```
@@ -173,7 +176,7 @@ $adapp = New-AzureRmADApplication -DisplayName "KVWebApp" -HomePage "http://kvwe
 $sp = New-AzureRmADServicePrincipal -ApplicationId $adapp.ApplicationId
 
 
-Set-AzureRmKeyVaultAccessPolicy -VaultName 'contosokv' -ServicePrincipalName "http://kvwebapp" -PermissionsToSecrets all -ResourceGroupName 'contosorg'
+Set-AzureRmKeyVaultAccessPolicy -VaultName 'contosokv' -ServicePrincipalName "http://kvwebapp" -PermissionsToSecrets get,list,set,delete,backup,restore,recover,purge -ResourceGroupName 'contosorg'
 
 # get the thumbprint to use in your app settings
 $x509.Thumbprint
@@ -189,7 +192,7 @@ $x509.Thumbprint
 
 ```cs
 //Add this using statement
-using System.Security.Cryptography.X509Certificates;  
+using System.Security.Cryptography.X509Certificates;  
 
 public static class CertificateHelper
 {

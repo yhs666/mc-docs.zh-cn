@@ -12,47 +12,57 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 06/29/2018
-ms.date: 07/25/2018
+origin.date: 10/15/2018
+ms.date: 10/22/2018
 ms.author: v-junlch
 ms.reviewer: bagovind
-ms.openlocfilehash: d09d70bea3d226fb70ba9cb8b8f0c85bbb7514ef
-ms.sourcegitcommit: cce18df2de12353f0d8f01c649307a5789d59cd4
+ms.openlocfilehash: d1eb615a3da6c9550d59d44f0a2ffa4002856b68
+ms.sourcegitcommit: c938756f3be94dbbf574c31620ddf911b427fc21
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39246128"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49634797"
 ---
 # <a name="elevate-access-for-a-global-administrator-in-azure-active-directory"></a>为 Azure Active Directory 中的全局管理员提升访问权限
 
-如果你是 Azure Active Directory (Azure AD) 中的[全局管理员](../active-directory/active-directory-assign-admin-roles-azure-portal.md#global-administrator)，则有时可能需要执行以下操作：
+如果你是 Azure Active Directory (Azure AD) 中的[全局管理员](../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator)，则有时可能需要执行以下操作：
 
 - 在用户失去访问权限时重新获取对 Azure 订阅的访问权限
 - 授予其他用户或自己对 Azure 订阅的访问权限
 - 查看组织中的所有 Azure 订阅
 - 允许自动化应用（例如发票或审计应用）访问所有 Azure 订阅
 
-默认情况下，Azure AD 管理员角色和 Azure 基于角色的访问控制 (RBAC) 角色不会跨越 Azure AD 和 Azure。 但是，如果你是 Azure AD 中的全局管理员，则可提升访问权限以管理 Azure 订阅和管理组。 如果提升访问权限，你将被授予特定租户的所有订阅中的[用户访问管理员](built-in-roles.md#user-access-administrator)角色（RBAC 角色）。 借助用户访问管理员角色，你可授予其他用户对根范围 (`/`) 内的 Azure 资源的访问权限。
-
-此提升应该是临时的，并且只能在需要时执行。
+本文介绍在 Azure AD 中提升访问权限的不同方法。
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
-## <a name="elevate-access-for-a-global-administrator-using-the-azure-portal"></a>使用 Azure 门户为全局管理员提升访问权限
+## <a name="overview"></a>概述
 
-1. 登录到 [Azure 门户](https://portal.azure.cn)。
+Azure AD 和 Azure 资源彼此独立保护。 也就是说，Azure AD 角色分配不授予对 Azure 资源的访问权限，Azure 角色分配页不授予对 Azure AD 的访问权限。 如果无权访问 Azure 订阅资源（如虚拟机或存储帐户），并且想使用全局管理员权限来获取这些资源的访问权限，则请使用此功能。
+
+提升访问权限时，将分配到 Azure 中根范围 (`/`) 的[用户访问管理员](built-in-roles.md#user-access-administrator)角色。 此角色可查看所有资源，并且可用于分配目录中任何订阅中的访问权限。 可以使用 PowerShell 删除用户访问管理员角色分配。
+
+完成需在根范围执行的更改后，应删除此提升的访问权限。
+
+![提升访问权限](./media/elevate-access-global-admin/elevate-access.png)
+
+## <a name="azure-portal"></a>Azure 门户
+
+请按照这些步骤，使用 Azure 门户为全局管理员提升访问权限。
+
+1. 以全局管理员的身份登录到 [Azure 门户](https://portal.azure.cn)。
 
 1. 在导航列表中，单击“Azure Active Directory”，然后单击“属性”。
 
    ![Azure AD 属性 - 屏幕截图](./media/elevate-access-global-admin/aad-properties.png)
 
-1. 在“全局管理员可管理 Azure 订阅和管理组”下，将开关设置为“是”。
+1. 在“Azure 资源的访问管理”下，将开关设置为“是”。
 
-   ![全局管理员可管理 Azure 订阅和管理组 - 屏幕截图](./media/elevate-access-global-admin/aad-properties-global-admin-setting.png)
+   ![Azure 资源的访问管理 - 屏幕截图](./media/elevate-access-global-admin/aad-properties-global-admin-setting.png)
 
-   如果将开关设置为“是”，全局管理员帐户（当前登录用户）会在根范围 (`/`) 内添加到 Azure RBAC 的用户访问管理员角色，此角色可授予你查看和报告与 Azure AD 租户关联的所有 Azure 订阅的访问权限。
+   将开关设为“是”时，将分配到 Azure RBAC 中根范围 (/) 的用户访问管理员角色。 这将授予你在与此 Azure AD 目录关联的所有 Azure 订阅中分配角色的权限。 此开关仅适用于分配到 Azure AD 中全局管理员角色的用户。
 
-   如果将开关设置为“否”，全局管理员帐户（当前登录用户）会从 Azure RBAC 的用户访问管理员角色中删除。 你无法看到与 Azure AD 租户关联的所有 Azure 订阅，并且只能查看和管理已被授予访问权限的 Azure 订阅。
+   将开关设为“否”时，用户帐户中的 Azure RBAC 中的用户访问管理员角色将会删除。 将无法再分配在与此 Azure AD 目录关联的所有 Azure 订阅中的角色。 只能查看和管理已获取访问权限的 Azure 订阅。
 
 1. 单击“保存”，保存设置。
 
@@ -60,7 +70,9 @@ ms.locfileid: "39246128"
 
 1. 在提升访问权限下执行需要完成的任务。 完成后，将开关重新设置为“否”。
 
-## <a name="list-role-assignment-at-the-root-scope--using-powershell"></a>使用 PowerShell 列出根范围 (/) 内的角色分配
+## <a name="azure-powershell"></a>Azure PowerShell
+
+### <a name="list-role-assignment-at-the-root-scope-"></a>列出根范围 (/) 处的角色分配
 
 若要列出用户在根范围 (`/`) 内的用户访问管理员角色分配，请使用 [Get-AzureRmRoleAssignment](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermroleassignment) 命令。
 
@@ -80,7 +92,7 @@ ObjectId           : d65fd0e9-c185-472c-8f26-1dafa01f72cc
 ObjectType         : User
 ```
 
-## <a name="remove-a-role-assignment-at-the-root-scope--using-powershell"></a>使用 PowerShell 在根范围 (/) 删除角色分配
+### <a name="remove-a-role-assignment-at-the-root-scope-"></a>删除根范围 (/) 处的角色分配
 
 若要在根范围 (`/`) 删除用户的用户访问管理员角色分配，请运行 [Remove-AzureRmRoleAssignment](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermroleassignment) 命令。
 
@@ -89,7 +101,9 @@ Remove-AzureRmRoleAssignment -SignInName <username@example.com> `
   -RoleDefinitionName "User Access Administrator" -Scope "/"
 ```
 
-## <a name="elevate-access-for-a-global-administrator-using-the-rest-api"></a>使用 REST API 为全局管理员提升访问权限
+## <a name="rest-api"></a>REST API
+
+### <a name="elevate-access-for-a-global-administrator"></a>为局管理员提升访问权限
 
 使用以下基本步骤，通过 REST API 为全局管理员提升访问权限。
 
@@ -118,7 +132,7 @@ Remove-AzureRmRoleAssignment -SignInName <username@example.com> `
 
 1. 撤销用户访问管理员特权一直到再次需要时。
 
-## <a name="list-role-assignments-at-the-root-scope--using-the-rest-api"></a>使用 REST API 在根范围 (/) 列出角色分配
+### <a name="list-role-assignments-at-the-root-scope-"></a>列出根范围 (/) 处的角色分配
 
 可以在根范围 (`/`) 列出用户的所有角色分配。
 
@@ -128,7 +142,17 @@ Remove-AzureRmRoleAssignment -SignInName <username@example.com> `
    GET https://management.chinacloudapi.cn/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=principalId+eq+'{objectIdOfUser}'
    ```
 
-## <a name="remove-elevated-access-using-the-rest-api"></a>使用 REST API 撤销提升的访问权限
+### <a name="list-deny-assignments-at-the-root-scope-"></a>列出根范围 (/) 处的拒绝分配
+
+可以在根范围 (`/`) 列出用户的所有拒绝分配。
+
+- 调用 GET denyAssignments，其中 `{objectIdOfUser}` 是要检索其拒绝分配的用户的对象 ID。
+
+   ```http
+   GET https://management.chinacloudapi.cn/providers/Microsoft.Authorization/denyAssignments?api-version=2018-07-01-preview&$filter=gdprExportPrincipalId+eq+'{objectIdOfUser}'
+   ```
+
+### <a name="remove-elevated-access"></a>撤消提升的访问权限
 
 调用 `elevateAccess` 即为自己创建角色分配，因此若要撤销这些特权，需要删除分配。
 
@@ -175,16 +199,16 @@ Remove-AzureRmRoleAssignment -SignInName <username@example.com> `
 
     保存 `name` 参数中的 ID，在本例中为 `18d7d88d-d35e-4fb5-a5c3-7773c20a72d9`。
 
-2. 你还需要列出租户管理员在租户范围内的角色分配。 对于执行了提升访问权限调用的租户管理员，列出其 `principalId` 在租户范围内的所有分配。 这将为 objectid 列出租户中的所有分配。
+2. 还需要列出目录管理员在目录范围的角色分配。 对于执行了提升访问权限调用的目录管理员，列出其 `principalId` 在目录范围内的所有分配。 这将为 objectid 列出目录中的所有分配。
 
     ```http
     GET https://management.chinacloudapi.cn/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=principalId+eq+'{objectid}'
     ```
     
     >[!NOTE] 
-    >租户管理员不应拥有多个分配，如果前面的查询返回过多分配，你也可以只在租户范围级别查询所有分配，然后筛选结果：`GET https://management.chinacloudapi.cn/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()`
+    >目录管理员不应拥有多个分配，如果前面的查询返回过多分配，你也可以只在目录范围级别查询所有分配，然后筛选结果：`GET https://management.chinacloudapi.cn/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()`
         
-3. 上述调用将返回角色分配列表。 在范围 `"/"` 查找以下角色分配：`roleDefinitionId` 以第 1 步中的角色名称 ID 结尾，并且 `principalId` 与租户管理员的 objectId 一致。 
+3. 上述调用将返回角色分配列表。 在范围 `"/"` 查找以下角色分配：`roleDefinitionId` 以第 1 步中的角色名称 ID 结尾，并且 `principalId` 与目录管理员的 objectId 一致。 
     
     示例角色分配：
 
@@ -220,6 +244,7 @@ Remove-AzureRmRoleAssignment -SignInName <username@example.com> `
 
 ## <a name="next-steps"></a>后续步骤
 
+- [了解不同角色](rbac-and-directory-admin-roles.md)
 - [使用 REST 进行基于角色的访问控制](role-assignments-rest.md)
 
 <!-- Update_Description: wording update -->

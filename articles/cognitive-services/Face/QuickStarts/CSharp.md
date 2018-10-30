@@ -1,50 +1,51 @@
 ---
-title: 人脸 API C# 快速入门 | Microsoft Docs
-description: 获取信息和代码示例，帮助自己快速开始使用认知服务中的人脸 API 和 C#。
+title: 快速入门：检测图像中的人脸 - 人脸 API C#
+titleSuffix: Azure Cognitive Services
+description: 在本快速入门中，使用人脸 API 和 C# 检测图像中的人脸。
 services: cognitive-services
-author: alexchen2016
-manager: digimobile
+author: PatrickFarley
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: face
-ms.topic: article
-origin.date: 06/21/2017
-ms.date: 10/13/2017
+ms.component: face-api
+ms.topic: quickstart
+origin.date: 05/10/2018
+ms.date: 10/22/2018
 ms.author: v-junlch
-ms.openlocfilehash: 9b14415986f6988e8a2db50378da6db3f07a85ff
-ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ms.openlocfilehash: 6eb96866669561cef60d43fba5ebf66c3d0a3f88
+ms.sourcegitcommit: 44ce337717bb948f5ac08217a156935f663c0f46
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
-ms.locfileid: "23407598"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50034644"
 ---
-# <a name="face-api-c-quick-starts"></a>人脸 API C# 快速入门
-本文提供信息和代码示例来帮助读者快速开始使用人脸 API 和 C# 来完成以下任务： 
-- [检测图像中的人脸](#Detect) 
-- [创建人员组](#Create)
+# <a name="quickstart-detect-faces-in-an-image-using-c"></a>快速入门：使用 C# 检测图像中的人脸
+
+本快速入门使用人脸 API 检测图像中的人脸。
 
 ## <a name="prerequisites"></a>先决条件
-- 在[此处](https://www.nuget.org/packages/Microsoft.ProjectOxford.Face/)获取 Microsoft 人脸 API Windows SDK
-- 在[此处](../../Computer-vision/Vision-API-How-to-Topics/HowToSubscribe.md)详细了解如何获取免费订阅密钥
 
-## 使用人脸 API 通过 C# 检测图像中的人脸 <a name="Detect"> </a>
-使用[“人脸 - 检测”方法](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)可以检测图像中的人脸，并返回人脸属性，包括：
-- 人脸 ID：在多种人脸 API 方案使用的唯一 ID。 
-- 人脸矩形：左侧坐标、顶部坐标、宽度和高度，指示人脸在图像中的位置。
+需要一个订阅密钥来运行此示例。 可从 [https://portal.azure.cn](https://portal.azure.cn) 获取订阅密钥。
+
+## <a name="detect-faces-in-an-image"></a>在图像中检测人脸
+
+使用[人脸 - 检测](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)方法检测图像中的人脸并返回人脸属性，包括：
+
+- 人脸 ID：多个人脸 API 方案中使用的唯一 ID。
+- 人脸矩形：左侧、顶部、宽度和高度，指示人脸在图像中的位置。
 - 地标：27 点人脸地标数组，指向人脸组成部分的重要位置。
-- 面部属性包括年龄、性别、笑容强度、头部姿势和面部毛发。 
+- 人脸属性包括年龄、性别、笑容程度、头部姿态和面部毛发。
 
-#### <a name="face-detect-c-example-request"></a>人脸检测 C# 示例请求
+若要运行此示例，请执行以下步骤：
 
-本示例是使用人脸 API 客户端库以 C# 语言编写的。 
+1. 在 Visual Studio 中创建一个新的 Visual C# 控制台应用。
+2. 将 Program.cs 替换为以下代码。
+3. 将 `<Subscription Key>` 替换为有效订阅密钥。
+4. 运行该程序。
+5. 在提示符处，输入图像的路径。
 
-1. 在 Visual Studio 中创建新的控制台解决方案。
-1. 将 Program.cs 替换为以下代码。
-1. 将 `subscriptionKey` 值替换为有效的订阅密钥。
-1. 更改 `uriBase` 值以使用订阅密钥的获取位置。
-1. 运行该程序。
-1. 输入硬盘上某个图像的路径。
+### <a name="face---detect-request"></a>人脸 - 检测请求
 
-```c#
+```csharp
 using System;
 using System.IO;
 using System.Net.Http;
@@ -55,12 +56,8 @@ namespace CSHttpClientSample
 {
     static class Program
     {
-        // **********************************************
-        // *** Update or verify the following values. ***
-        // **********************************************
-
-        // Replace the subscriptionKey string value with your valid subscription key.
-        const string subscriptionKey = "13hc77781f7e4b19b5fcdd72a8df7156";
+        // Replace <Subscription Key> with your valid subscription key.
+        const string subscriptionKey = "<Subscription Key>";
 
         const string uriBase = "https://api.cognitive.azure.cn/face/v1.0/detect";
 
@@ -68,19 +65,33 @@ namespace CSHttpClientSample
         {
             // Get the path and filename to process from the user.
             Console.WriteLine("Detect faces:");
-            Console.Write("Enter the path to an image with faces that you wish to analzye: ");
+            Console.Write(
+                "Enter the path to an image with faces that you wish to analyze: ");
             string imageFilePath = Console.ReadLine();
 
-            // Execute the REST API call.
-            MakeAnalysisRequest(imageFilePath);
-
-            Console.WriteLine("\nPlease wait a moment for the results to appear. Then, press Enter to exit...\n");
+            if (File.Exists(imageFilePath))
+            {
+                // Execute the REST API call.
+                try
+                {
+                    MakeAnalysisRequest(imageFilePath);
+                    Console.WriteLine("\nWait a moment for the results to appear.\n");
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("\n" + e.Message + "\nPress Enter to exit...\n");
+                }
+            }
+            else
+            {
+                Console.WriteLine("\nInvalid file path.\nPress Enter to exit...\n");
+            }
             Console.ReadLine();
         }
 
 
         /// <summary>
-        /// Gets the analysis of the specified image file by using the Computer Vision REST API.
+        /// Gets the analysis of the specified image by using the Face REST API.
         /// </summary>
         /// <param name="imageFilePath">The image file.</param>
         static async void MakeAnalysisRequest(string imageFilePath)
@@ -88,10 +99,13 @@ namespace CSHttpClientSample
             HttpClient client = new HttpClient();
 
             // Request headers.
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+            client.DefaultRequestHeaders.Add(
+                "Ocp-Apim-Subscription-Key", subscriptionKey);
 
             // Request parameters. A third optional parameter is "details".
-            string requestParameters = "returnFaceId=true&returnFaceLandmarks=false&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise";
+            string requestParameters = "returnFaceId=true&returnFaceLandmarks=false" +
+                "&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses," +
+                "emotion,hair,makeup,occlusion,accessories,blur,exposure,noise";
 
             // Assemble the URI for the REST API Call.
             string uri = uriBase + "?" + requestParameters;
@@ -104,8 +118,10 @@ namespace CSHttpClientSample
             using (ByteArrayContent content = new ByteArrayContent(byteData))
             {
                 // This example uses content type "application/octet-stream".
-                // The other content types you can use are "application/json" and "multipart/form-data".
-                content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
+                // The other content types you can use are "application/json"
+                // and "multipart/form-data".
+                content.Headers.ContentType =
+                    new MediaTypeHeaderValue("application/octet-stream");
 
                 // Execute the REST API call.
                 response = await client.PostAsync(uri, content);
@@ -116,6 +132,7 @@ namespace CSHttpClientSample
                 // Display the JSON response.
                 Console.WriteLine("\nResponse:\n");
                 Console.WriteLine(JsonPrettyPrint(contentString));
+                Console.WriteLine("\nPress Enter to exit...");
             }
         }
 
@@ -127,9 +144,12 @@ namespace CSHttpClientSample
         /// <returns>The byte array of the image data.</returns>
         static byte[] GetImageAsByteArray(string imageFilePath)
         {
-            FileStream fileStream = new FileStream(imageFilePath, FileMode.Open, FileAccess.Read);
-            BinaryReader binaryReader = new BinaryReader(fileStream);
-            return binaryReader.ReadBytes((int)fileStream.Length);
+            using (FileStream fileStream =
+                new FileStream(imageFilePath, FileMode.Open, FileAccess.Read))
+            {
+                BinaryReader binaryReader = new BinaryReader(fileStream);
+                return binaryReader.ReadBytes((int)fileStream.Length);
+            }
         }
 
 
@@ -202,13 +222,12 @@ namespace CSHttpClientSample
     }
 }
 ```
-#### <a name="face-detect-response"></a>人脸检测响应
 
-成功响应将以 JSON 格式返回。 下面是成功响应的示例： 
+### <a name="face---detect-response"></a>人脸 - 检测响应
+
+成功的响应以 JSON 格式返回，例如：
 
 ```json
-Response:
-
 [
    {
       "faceId": "f7eda569-4603-44b4-8add-cd73c6dec644",
@@ -301,58 +320,11 @@ Response:
    }
 ]
 ```
-## 使用人脸 API 通过 C# 创建人员组 <a name="Create"> </a>
 
-使用[“人员组 - 创建人员组”方法](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244)可以创建包含指定 personGroupId、名称和用户提供的 userData 的人员组。
+## <a name="next-steps"></a>后续步骤
 
-#### <a name="person-group---create-a-person-group-c-example-request"></a>“人员组 - 创建人员组”C# 示例请求
+了解如何创建使用人脸服务来检测图像中的人脸的 WPF Windows 应用程序。 该应用程序围绕每张脸绘制一个框，并在状态栏上显示人脸描述。
 
-在 Visual Studio 中创建一个新的控制台解决方案，然后将 Program.cs 替换为以下代码。 更改 `string uri` 以使用订阅密钥的获取区域，并将“Ocp-Apim-Subscription-Key”值替换为有效的订阅密钥。
-
-```c#
-using System;
-using System.Net.Http.Headers;
-using System.Net.Http;
-
-namespace CSHttpClientSample
-{
-    static class Program
-    {
-        static void Main()
-        {
-            Console.WriteLine("Enter an ID for the group you wish to create:");
-            Console.WriteLine("(Use numbers, lower case letters, '-' and '_'. The maximum length of the personGroupId is 64.)");
-
-            string personGroupId = Console.ReadLine();
-            MakeCreateGroupRequest(personGroupId);
-
-            Console.WriteLine("\n\n\nWait for the result below, then hit ENTER to exit...\n\n\n");
-            Console.ReadLine();
-        }
-
-
-        static async void MakeCreateGroupRequest(string personGroupId)
-        {
-            var client = new HttpClient();
-
-            // Request headers - replace this example key with your valid key.
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "6726adbabb494773a28a7a5a21d5974a");
-
-            // Request URI string.
-            string uri = "https://api.cognitive.azure.cn/face/v1.0/persongroups/" + personGroupId;
-
-            // Here "name" is for display and doesn't have to be unique. Also, "userData" is optional.
-            string json = "{\"name\":\"My Group\", \"userData\":\"Some data related to my group.\"}";
-            HttpContent content = new StringContent(json);
-            content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-
-            HttpResponseMessage response = await client.PutAsync(uri, content);
-
-            // If the group was created successfully, you'll see "OK".
-            // Otherwise, if a group with the same personGroupId has been created before, you'll see "Conflict".
-            Console.WriteLine("Response status: " + response.StatusCode);
-        }
-    }
-}
-```
+> [!div class="nextstepaction"]
+> [教程：面向 C# 的人脸 API 入门](../Tutorials/FaceAPIinCSharpTutorial.md)
 
