@@ -1,23 +1,23 @@
 ---
-title: Azure Monitor 资源组见解 |Microsoft Docs
+title: Azure Monitor 资源组见解 | Docs
 description: 通过 Azure Monitor 了解资源组级别的分布式应用程序和服务的运行状况和性能
-services: azure-monitor
+services: monitoring-and-diagnostics
 author: NumberByColors
 manager: carmonm
-ms.service: azure-monitor
+ms.service: monitoring-and-diagnostics
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 08/29/2018
-ms.reviewer: mbullwin
-ms.author: daviste
-ms.openlocfilehash: 723006d37ed0570e32790a0bb70a3dce5a87ade8
-ms.sourcegitcommit: 8a5722b85c6eabbd28473d792716ad44aac3ff23
+origin.date: 09/19/2018
+ms.date: 10/22/2018
+ms.author: v-lingwu
+ms.openlocfilehash: 6fc78a99970be09cb7db99f32ce59271a065b4eb
+ms.sourcegitcommit: 32373810af9c9a2210d63f16d46a708028818d5f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49121606"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49652224"
 ---
 # <a name="monitor-resource-groups-with-azure-monitor-preview"></a>使用 Azure Monitor（预览版）监视资源组
 
@@ -109,6 +109,11 @@ ms.locfileid: "49121606"
 在这种情况下，如果选择编辑，将看到这组可视化效果由 Azure Monitor Metrics 提供支持。
 
  ![Azure Metrics 的性能视图的屏幕截图](.\media\resource-group-insights\0012-performance-metrics.png)
+
+## <a name="troubleshooting"></a>故障排除
+
+### <a name="enabling-access-to-alerts"></a>启用对警报的访问
+资源组的 Azure Monitor 需要特定权限才能访问资源组中的资源的警报状态。 如果在加载警报时看到错误消息，则表示你没有足够的权限。 让管理员授予你包含资源组的订阅的“所有者”或“参与者”角色。
 
 ## <a name="next-steps"></a>后续步骤
 

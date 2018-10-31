@@ -3,7 +3,7 @@ title: 使用 Azure 网络观察程序排查连接问题 - Azure REST API | Azur
 description: 了解如何通过 Azure REST API 使用 Azure 网络观察程序的排查连接问题功能。
 services: network-watcher
 documentationcenter: na
-author: rockboyfor
+author: lingliw
 manager: digimobile
 editor: ''
 ms.service: network-watcher
@@ -12,21 +12,21 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 08/02/2017
-ms.date: 04/30/2018
-ms.author: v-yeche
-ms.openlocfilehash: 0cef3a1c9f9844815c4bc99f5a0cde449fab3073
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.date: 10/22/2018
+ms.author: v-lingwu
+ms.openlocfilehash: f73dfb6860a799124eb922d33f301bf280d9a464
+ms.sourcegitcommit: 32373810af9c9a2210d63f16d46a708028818d5f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121415"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49652236"
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-rest-api"></a>通过 Azure REST API 使用 Azure 网络观察程序排查连接问题
 
 > [!div class="op_single_selector"]
 > - [Portal](network-watcher-connectivity-portal.md)
 > - [PowerShell](network-watcher-connectivity-powershell.md)
-> - [CLI 2.0](network-watcher-connectivity-cli.md)
+> - [Azure CLI](network-watcher-connectivity-cli.md)
 > - [Azure REST API](network-watcher-connectivity-rest.md)
 
 了解如何使用排查连接问题来验证是否可以建立从虚拟机到给定终结点的直接 TCP 连接。
@@ -468,7 +468,6 @@ null
 
 ## <a name="next-steps"></a>后续步骤
 
-<!--Not Available [Create an alert triggered packet capture](network-watcher-alert-triggered-packet-capture.md) -->
-访问[查看“IP 流验证”](network-watcher-check-ip-flow-verify-portal.md)，了解是否允许某些流量传入和传出 VM。
+<!--Not Available [Create an alert triggered packet capture](network-watcher-alert-triggered-packet-capture.md) --> 访问[查看“IP 流验证”](network-watcher-check-ip-flow-verify-portal.md)，了解是否允许某些流量传入和传出 VM。
 
 <!--Update_Description: update link, wording update -->

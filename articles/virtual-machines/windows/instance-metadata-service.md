@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 10/10/2017
-ms.date: 09/24/2018
+ms.date: 10/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: 350c835f84f8848420abc8dafc963a312ea1d018
-ms.sourcegitcommit: cc9e8c76454e7d194505af32c42c0f3e4e0ec9e9
+ms.openlocfilehash: 9850fc64018714c583f37c792bbc02532fbccca8
+ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49315946"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50034889"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure 实例元数据服务
 
@@ -41,6 +41,7 @@ Azure 的实例元数据服务是一个 REST 终结点，所有创建的 IaaS VM
 [Azure 美国政府版](https://azure.microsoft.com/overview/clouds/government/)              | 正式版 | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01
 [Azure 中国](https://www.azure.cn/)                                                           | 正式版 | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01
 [Azure 德国](https://azure.microsoft.com/overview/clouds/germany/)                    | 正式版 | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01
+
 <!-- [All Generally Available Global Azure Regions] Should be https://azure.microsoft.com/regions/ -->
 
 当有服务更新和/或有可用的新支持版本时，此表将更新
@@ -310,7 +311,7 @@ scheduledevents | 请参阅[计划事件](scheduled-events.md) | 2017-08-01
 
 <!-- Not Available on zone | [Availability Zone](../../availability-zones/az-overview.md) of your virtual machine | 2017-12-01 -->
 <!-- Not Available on ipv6/ipAddress | Local IPv6 address of the VM | 2017-04-02 -->
-<!-- Not Available on identity | (Preview) Managed Service Identity. See [acquire an access token](../../active-directory/managed-service-identity/how-to-use-vm-token.md) | 2018-02-01-->
+<!-- Not Available on identity | Managed identities for Azure resources. See [acquire an access token](../../active-directory/managed-service-identity/how-to-use-vm-token.md) | 2018-02-01-->
 
 ## <a name="example-scenarios-for-usage"></a>用法的示例方案  
 
@@ -333,8 +334,8 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/vmId?api
 ### <a name="placement-of-containers-data-partitions-based-faultupdate-domain"></a>基于容错/更新域放置容器、数据分区 
 
 对于某些方案，不同数据副本的放置至关重要。 例如，对于 [HDFS 副本放置](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html#Replica_Placement:_The_First_Baby_Steps)或者对于通过 [orchestrator](https://kubernetes.io/docs/user-guide/node-selection/) 放置容器，可能需要知道正在运行 VM 的 `platformFaultDomain` 和 `platformUpdateDomain`。
-<!-- Not Available on [Availability Zones](../../availability-zones/az-overview.md) -->
-可以直接通过实例元数据服务查询此数据。
+
+<!-- Not Available on [Availability Zones](../../availability-zones/az-overview.md) --> 可以直接通过实例元数据服务查询此数据。
 
 **请求**
 
@@ -383,8 +384,9 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 
 ### <a name="getting-azure-environment-where-the-vm-is-running"></a>获取 VM 所在的 Azure 环境 
 
-Azure 具有各种主权云，如 [Azure 政府](https://azure.microsoft.com/overview/clouds/government/)，有时需要 Azure 环境来制定运行时决策。 下面的示例演示如何实现此目的
+Azure 具有各种主权云，如 Azure 中国云。 有时你需要使用 Azure 环境来做出一些运行时决策。 以下示例演示如何实现此目的。
 
+<!--Not Available on [Azure China Cloud](https://azure.microsoft.com/overview/clouds/government/)-->
 **请求**
 
 ```
@@ -457,4 +459,5 @@ Puppet | https://github.com/keirans/azuremetadata
 ## <a name="next-steps"></a>后续步骤
 
 - 详细了解[计划事件](scheduled-events.md)
+
 <!--Update_Description: update meta properties, wording update, update link  -->
