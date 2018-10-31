@@ -11304,12 +11304,71 @@
             "redirect_url": "/sql-database/sql-database-monitor-tune-overview",
             "redirect_document_id": false
         },
+	{
+        "source_path": "articles/service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md",
+        "redirect_url": "/service-bus-messaging/service-bus-messaging-overview",
+        "redirect_document_id": "false"
+    },
+    {
+        "source_path": "articles/monitoring-and-diagnostics/insights-alerts-command-line-interface.md",
+        "redirect_url": "/monitoring-and-diagnostics/alert-metric-classic",
+        "redirect_document_id": "false"
+    },
+    {
+        "source_path": "articles/monitoring-and-diagnostics/insights-alerts-portal.md",
+        "redirect_url": "/monitoring-and-diagnostics/alert-metric-classic",
+        "redirect_document_id": "false"
+    },
+    {
+        "source_path": "articles/monitoring-and-diagnostics/insights-alerts-powershell.md",
+        "redirect_url": "/monitoring-and-diagnostics/alert-metric-classic",
+        "redirect_document_id": "false"
+    },
+    {
+        "source_path": "articles/monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md",
+        "redirect_url": "/monitoring-and-diagnostics/monitor-alerts-unified-log-webhook",
+        "redirect_document_id": "false"
+    },
+    {
+        "source_path": "articles/monitoring-and-diagnostics/insights-how-to-customize-monitoring.md",
+        "redirect_url": "/monitoring/monitoring-data-collection",
+        "redirect_document_id": "false"
+    },
+    {
+        "source_path": "articles/monitoring-and-diagnostics/monitor-alerts-unified-usage.md",
+        "redirect_url": "/monitoring-and-diagnostics/alert-metric",
+        "redirect_document_id": "false"
+    },
+    {
+        "source_path": "articles/monitoring-and-diagnostics/monitoring-activity-log-alerts-new-experience.md",
+        "redirect_url": "/monitoring-and-diagnostics/alert-activity-log",
+        "redirect_document_id": "false"
+    },
+    {
+        "source_path": "articles/monitoring-and-diagnostics/monitoring-get-started.md",
+        "redirect_url": "/azure-monitor/overview",
+        "redirect_document_id": "false"
+    },
+    {
+        "source_path": "articles/monitoring-and-diagnostics/monitoring-overview.md",
+        "redirect_url": "/azure-monitor/overview",
+        "redirect_document_id": "false"
+    },
+    {
+        "source_path": "articles/monitoring-and-diagnostics/monitoring-overview-azure-monitor.md",
+        "redirect_url": "/azure-monitor/overview",
+        "redirect_document_id": "True"
+    },
+    {
+        "source_path": "articles/monitoring-and-diagnostics/monitoring-overview-metrics.md",
+        "redirect_url": "/monitoring/monitoring-data-collection",
+        "redirect_document_id": "false"
+    },
         {
             "source_path": "articles/load-balancer/load-balancer-configure-sqlao.md",
             "redirect_url": "/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener",
             "redirect_document_id": false
         }
-
 
 
 
