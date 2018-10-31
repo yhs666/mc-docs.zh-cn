@@ -13,55 +13,55 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-origin.date: 03/26/2018
-ms.date: 08/27/2018
+origin.date: 09/25/2018
+ms.date: 10/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: 5d69f21648e8c82f916f84e038812a141f49e460
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.openlocfilehash: f19c0e0e1c767b191c6871709324d35e7e069790
+ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42871540"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50034965"
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>上传通用化 VHD 并使用它在 Azure 中创建新 VM
 
-本主题逐步讲解如何使用 PowerShell 将通用化 VM 的 VHD 上传到 Azure、从该 VHD 创建映像，然后从该映像创建新 VM。 可以上传从本地虚拟化工具或其他云导出的 VHD。 对新的 VM 使用[托管磁盘](managed-disks-overview.md)可以简化 VM 管理，在将 VM 置于可用性集中时提供更好的可用性。 
+本文逐步讲解如何使用 PowerShell 将通用化 VM 的 VHD 上传到 Azure、从该 VHD 创建映像，然后从该映像创建新 VM。 可以上传从本地虚拟化工具或其他云导出的 VHD。 对新的 VM 使用[托管磁盘](managed-disks-overview.md)可以简化 VM 管理，在将 VM 置于可用性集中时提供更好的可用性。 
 
-若要使用示例脚本，请参阅[将 VHD 上传到 Azure 并创建新的 VM 的示例脚本](../scripts/virtual-machines-windows-powershell-upload-generalized-script.md)
+有关示例脚本，请参阅[将 VHD 上传到 Azure 并创建新的 VM 的示例脚本](../scripts/virtual-machines-windows-powershell-upload-generalized-script.md)。
 
 ## <a name="before-you-begin"></a>准备阶段
 
-- 将任何 VHD 上传到 Azure 之前，应该遵循[准备要上传到 Azure 的 Windows VHD 或 VHDX](prepare-for-upload-vhd-image.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
+- 将任何 VHD 上传到 Azure 之前，应该遵循[准备要上传到 Azure 的 Windows VHD 或 VHDX](prepare-for-upload-vhd-image.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)中的步骤操作。
 - 开始迁移到[托管磁盘](managed-disks-overview.md)之前，请先查看[规划迁移到托管磁盘](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks)。
-- 本文需要 5.6 版本或更高版本的 AzureRM 模块。 运行 ` Get-Module -ListAvailable AzureRM.Compute` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。
+- 本文需要 5.6 或更高版本的 AzureRM 模块。 运行 ` Get-Module -ListAvailable AzureRM.Compute` 查看所用的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。
 
-## <a name="generalize-the-source-vm-using-sysprep"></a>使用 Sysprep 通用化源 VM
+## <a name="generalize-the-source-vm-by-using-sysprep"></a>使用 Sysprep 通用化源 VM
 
 Sysprep 将删除所有个人帐户信息及其他某些数据，并准备好要用作映像的计算机。 有关 Sysprep 的详细信息，请参阅 [Sysprep 概述](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview)。
 
-确保 Sysprep 支持计算机上运行的服务器角色。 有关详细信息，请参阅 [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
+确保 Sysprep 支持计算机上运行的服务器角色。 有关详细信息，请参阅 [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)（Sysprep 对服务器角色的支持）。
 
 > [!IMPORTANT]
-> 如果在首次将 VHD 上传到 Azure 之前运行 Sysprep，请确保先[准备好 VM](prepare-for-upload-vhd-image.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)，然后再运行 Sysprep。 
+> 如果计划在首次将 VHD 上传到 Azure 之前运行 Sysprep，请确保先[准备好 VM](prepare-for-upload-vhd-image.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 
 > 
 > 
 
 1. 登录到 Windows 虚拟机。
-2. 以管理员身份打开“命令提示符”窗口。 将目录切换到 **%windir%\system32\sysprep**，然后运行 `sysprep.exe`。
+2. 以管理员身份打开“命令提示符”窗口。 将目录切换到 %windir%\system32\sysprep，然后运行 `sysprep.exe`。
 3. 在“系统准备工具”对话框中，选择“进入系统全新体验(OOBE)”，确保已选中“通用化”复选框。
 4. 在“关机选项”中选择“关机”。
-5. 单击 **“确定”**。
+5. 选择“确定” 。
 
     ![启动 Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
 6. 在 Sysprep 完成时，它会关闭虚拟机。 不要重新启动 VM。
 
-## <a name="get-the-storage-account"></a>获取存储帐户
+## <a name="get-a-storage-account"></a>获取存储帐户
 
-需要在 Azure 中创建一个存储帐户用于存储上传的 VM 映像。 可以使用现有存储帐户，也可以创建新存储帐户。 
+需要在 Azure 中创建存储帐户来存储上传的 VM 映像。 可以使用现有存储帐户，也可以创建新存储帐户。 
 
-如果将使用 VHD 为 VM 创建托管磁盘，存储帐户位置必须与要创建 VM 的位置相同。
+如果要使用 VHD 为 VM 创建托管磁盘，存储帐户位置必须与要创建 VM 的位置相同。
 
-显示可用的存储帐户，请键入：
+显示可用的存储帐户，请输入：
 
 ```PowerShell
 Get-AzureRmStorageAccount | Format-Table
@@ -69,7 +69,7 @@ Get-AzureRmStorageAccount | Format-Table
 
 ## <a name="upload-the-vhd-to-your-storage-account"></a>将 VHD 上传到存储帐户
 
-使用 [Add-AzureRmVhd](https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvhd) cmdlet 将 VHD 上传到存储帐户中的容器。 本示例将文件 *myVHD.vhd* 从 *"C:\Users\Public\Documents\Virtual hard disks\"* 上传到 *myResourceGroup* 资源组中名为 *mystorageaccount* 的存储帐户。 该文件将放入名为 *mycontainer* 的容器，新文件名为 *myUploadedVHD.vhd*。
+使用 [Add-AzureRmVhd](https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvhd) cmdlet 将 VHD 上传到存储帐户中的容器。 本示例将文件 *myVHD.vhd* 从 *C:\Users\Public\Documents\Virtual hard disks\* 上传到 *myResourceGroup* 资源组中名为 *mystorageaccount* 的存储帐户。 该文件将放入名为 *mycontainer* 的容器，新文件名为 *myUploadedVHD.vhd*。
 
 ```powershell
 $rgName = "myResourceGroup"
@@ -92,7 +92,7 @@ LocalFilePath           DestinationUri
 C:\Users\Public\Doc...  https://mystorageaccount.blob.core.chinacloudapi.cn/mycontainer/myUploadedVHD.vhd
 ```
 
-完成执行此命令可能需要一段时间，具体取决于网络连接速度和 VHD 文件的大小
+完成执行此命令可能需要一段时间，具体取决于网络连接速度和 VHD 文件的大小。
 
 ### <a name="other-options-for-uploading-a-vhd"></a>用于上传 VHD 的其他选项
 
@@ -106,15 +106,15 @@ C:\Users\Public\Doc...  https://mystorageaccount.blob.core.chinacloudapi.cn/myco
     导入/导出可用于复制到标准存储帐户。 需要使用 AzCopy 等工具从标准存储复制到高级存储帐户。
 
 > [!IMPORTANT]
-> 如果使用 AzCopy 将 VHD 上传至 Azure，请确保在运行上传脚本前已设置 [/BlobType:page](/storage/common/storage-use-azcopy#blobtypeblock--page--append)。 如果目标是一个 Blob 并且未指定此选项，则默认情况下 AzCopy 会创建块 Blob。
+> 如果使用 AzCopy 将 VHD 上传至 Azure，请确保在运行上传脚本前已设置 [**/BlobType:page**](/storage/common/storage-use-azcopy#blobtypeblock--page--append)。 如果目标是一个 Blob 并且未指定此选项，则默认情况下 AzCopy 会创建块 Blob。
 > 
 > 
 
 ## <a name="create-a-managed-image-from-the-uploaded-vhd"></a>通过上传的 VHD 创建托管映像 
 
-使用通用 OS VHD 创建托管映像。 将值替换为自己的信息。
+从通用 OS VHD 创建托管映像。 将以下值替换为自己的信息。
 
-首先，设置以下参数：
+首先设置一些参数：
 
 ```powershell
 $location = "China East" 
@@ -140,7 +140,7 @@ New-AzureRmImage `
 
 ## <a name="create-the-vm"></a>创建 VM
 
-现在，你已有了一个映像，可以从该映像创建一个或多个新 VM。 本示例从“myResourceGroup”中的“myImage”创建名为“myVM”的 VM。
+现在，你已有了一个映像，可以从该映像创建一个或多个新 VM。 本示例从 *myResourceGroup* 中的 *myImage* 创建名为 *myVM* 的 VM。
 
 ```powershell
 New-AzureRmVm `
@@ -158,4 +158,5 @@ New-AzureRmVm `
 ## <a name="next-steps"></a>后续步骤
 
 登录新虚拟机。 有关详细信息，请参阅 [How to connect and log on to an Azure virtual machine running Windows](connect-logon.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)（如何连接并登录到运行 Windows 的 Azure 虚拟机）。
+
 <!-- Update_Description: update meta properties, wording update, update link -->
