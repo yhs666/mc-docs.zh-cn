@@ -11303,6 +11303,11 @@
             "source_path": "articles/sql-database/sql-database-troubleshoot-performance.md",
             "redirect_url": "/sql-database/sql-database-monitor-tune-overview",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/load-balancer/load-balancer-configure-sqlao.md",
+            "redirect_url": "/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener",
+            "redirect_document_id": false
         }
 
 
