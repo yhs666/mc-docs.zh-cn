@@ -7,32 +7,20 @@ manager: digimobile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 07/03/2018
-ms.date: 09/30/2018
+origin.date: 10/02/2018
+ms.date: 11/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 25b6c5789a085c013bb0da011ff795f7c0c2d1f6
-ms.sourcegitcommit: b8f424fbff10034c55851618f6564d52257a5e92
+ms.openlocfilehash: ac4016d3e6f3b33f87f484dd45b11f207ab18dd3
+ms.sourcegitcommit: c1020b13c8810d50b64e1f27718e9f25b5f9f043
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48876422"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50204828"
 ---
 <!-- Notice: Meta Not Available on graphs, and tables -->
 # <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>为 Azure Cosmos DB 容器和数据库设置和获取吞吐量
 
-可通过 Azure 门户或客户端 SDK 为一个 Azure Cosmos DB 容器或一组容器设置吞吐量。 
-
-**为单个容器预配吞吐量：** 为一组容器预配吞吐量时，所有这些容器共享预配的吞吐量。 为单个容器预配吞吐量可确保为该特定容器预留吞吐量。 在单个容器级别分配 RU/秒时，可以将容器创建为*固定*或*无限制*模式。 固定大小的容器上限为 10 GB，10,000 RU/s 吞吐量。 若要创建无限制容器，必须指定最低 1,000 RU/秒的吞吐量和一个[分区键](partition-data.md)。 由于数据可能需要跨多个分区拆分，因此需要选择一个基数较高（一百到几百万个非重复值）的分区键。 通过选择具有大量非重复值的分区键，可以确保 Azure Cosmos DB 能够统一缩放容器与请求。 
-<!--Not Available on /table/graph-->
-**为一组容器或一个数据库预配吞吐量：** 为一个数据库预配吞吐量可在属于该数据库的所有容器间共享吞吐量。 在 Azure Cosmos DB 数据库中，可以让一组容器共享吞吐量，也可以让容器使用专用的吞吐量。 在一组容器中分配 RU/秒时，会将属于该组的容器视为“无限制”容器，必须指定一个分区键。
-
-Azure Cosmos DB 会根据预配的吞吐量分配物理分区，以便托管容器并拆分/重新均衡分区中不断增长的数据。 容器级和数据库级吞吐量预配是不同的产品，在这两者之间切换需要将数据从源迁移到目标。 这意味着你需要创建新数据库或新集合，然后使用[批量执行程序库](bulk-executor-overview.md)迁移数据。 下图说明了不同级别的预配吞吐量：
-
-<!-- Not Available on [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md)-->
-
-![预配一个容器和一组容器的请求单位数](./media/request-units/provisioning_set_containers.png)
-
-后续部分将介绍在不同级别为 Azure Cosmos DB 帐户配置吞吐量所需的步骤。 
+可通过 Azure 门户或客户端 SDK 为一个 Azure Cosmos DB 容器或一组容器设置吞吐量。 本文介绍了为 Azure Cosmos DB 帐户配置不同粒度的吞吐量所需的步骤。
 
 ## <a name="provision-throughput-by-using-azure-portal"></a>使用 Azure 门户预配吞吐量
 
@@ -50,7 +38,7 @@ Azure Cosmos DB 会根据预配的吞吐量分配物理分区，以便托管容�
    |数据库 ID  |  提供用于标识数据库的唯一名称。 数据库是一个或多个集合的逻辑容器。 数据库名称必须包含 1 到 255 个字符，不能包含 /、\\、#、? 或尾随空格。 |
    |集合 ID  | 提供用于标识集合的唯一名称。 集合 ID 与数据库名称的字符要求相同。 |
    |存储容量   | 此值表示数据库的存储容量。 预配单个集合的吞吐量时，存储容量可以是“固定的(10 GB)”，也可以是“无限制的”。 无限制的存储容量要求为数据设置分区键。  |
-   |吞吐量   | 每个集合和数据库都可以按每秒的请求单位数来设置吞吐量。  固定存储容量的最小吞吐量为每秒 400 请求单位（RU/秒），无限制存储容量的最小吞吐量设置为 1000 RU/秒。|
+   |吞吐量   | 每个集合和数据库都可以按每秒的请求单位数来设置吞吐量。  并且集合可以具有固定或无限的存储容量。 |
 
 6. 输入这些字段的值以后，请选择“确定”以保存设置。  
 
@@ -204,6 +192,7 @@ offer.getContent().put("offerThroughput", newThroughput);
 client.replaceOffer(offer);
 ```
 
+<!-- Not Available on ## Get the request charge using Cassandra API-->
 ## <a name="get-throughput-by-using-mongodb-api-portal-metrics"></a>使用 MongoDB API 门户指标获取吞吐量
 
 准确估算 MongoDB API 数据库请求单位费用的最简单方法是使用 [Azure 门户](https://portal.azure.cn)指标。 使用“请求数”和“请求费用”图表，可以估算每个操作消耗的请求单位数，以及每个操作相对于其他操作消耗的请求单位数。
@@ -262,5 +251,4 @@ MongoDB API 支持使用自定义命令 *getLastRequestStatistics* 来检索给�
 [1]: ./media/set-throughput/api-for-mongodb-metrics.png
 
 <!-- Notice: 全球 to 多个区域 -->
-
 <!-- Update_Description: udpate meta properties, wording update -->

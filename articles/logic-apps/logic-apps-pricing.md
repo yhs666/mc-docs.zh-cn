@@ -1,34 +1,32 @@
 ---
 title: 定价和计费 - Azure 逻辑应用
 description: 了解 Azure 逻辑应用的定价和计费原理
-author: kevinlam1
-manager: anneta
-editor: ''
 services: logic-apps
-documentationcenter: ''
-ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.service: logic-apps
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: logic-apps
+author: kevinlam1
+ms.reviewer: estfan, LADocs
+ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.topic: article
-origin.date: 11/11/2017
+origin.date: 09/24/2018
 ms.author: v-yiso
-ms.date: 03/19/2018
-ms.openlocfilehash: 100208588359b05c37c3be07f6663757ae0ce810
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.date: 11/12/2018
+ms.openlocfilehash: aaade8d91cf0dc53e7ac81800dd822ef2f759845
+ms.sourcegitcommit: 3f96e40162bb6ee2e9fdb76c976517e47a1252d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939555"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50919091"
 ---
-# <a name="logic-apps-pricing-model"></a>逻辑应用定价模型
+# <a name="pricing-model-for-azure-logic-apps"></a>Azure 逻辑应用的定价模型
 
 可以在云中使用 Azure 逻辑应用创建和运行可自动缩放的集成工作流。 下面是有关逻辑应用计费和定价方式的详细信息。 
 
+<a name="consumption-pricing"></a>
+
 ## <a name="consumption-pricing-model"></a>消耗量定价模型
 
-使用新建的逻辑应用时，只需为使用的资源付费。 新逻辑应用使用消耗计划和定价模型，这意味着，将会计量逻辑应用实例执行的所有操作。 逻辑应用定义中的每个步骤都是一个操作，包括触发器、控制流步骤、对内置操作的调用，以及对连接器的调用。 有关详细信息，请参阅[逻辑应用定价](https://www.azure.cn/pricing/details/logic-apps)。
+对于通过使用公共或“全局”逻辑应用服务创建的新逻辑应用，只需根据自己的使用量付费即可。 这些逻辑应用使用基于消耗量的计划和定价模型，这意味着，将会计量逻辑应用执行的所有操作。 逻辑应用定义中的每个步骤都是一个操作，包括触发器、控制流步骤、对内置操作的调用，以及对连接器的调用。 有关详细信息，请参阅[逻辑应用定价](https://www.azure.cn/pricing/details/logic-apps)。
 
 <a name="triggers"></a>
 
@@ -48,7 +46,7 @@ ms.locfileid: "38939555"
 
 ## <a name="actions"></a>操作
 
-内置操作（例如，调用 HTTP、Azure Functions 或 API 管理的操作，以及控制流步骤）被计量为本机操作，具有各自的类型。 调用[连接器](https://docs.microsoft.com/connectors)的操作为“ApiConnection”类型。 这些连接器分类为标准或企业连接器，根据各自的[定价][pricing]进行计量。 
+内置操作（例如，调用 HTTP、Azure Functions 或 API 管理的操作，以及控制流步骤）被计量为本机操作，具有各自的类型。 调用[连接器](https://docs.microsoft.com/connectors)的操作为“ApiConnection”类型。 这些连接器分类为标准或企业连接器，根据各自的[定价][pricing]进行计量。 *预览*中的企业连接器作为标准连接器收费。
 
 所有成功和不成功的运行操作统计且计量为操作执行。 但是，由于不满足条件而跳过的操作或者由于逻辑应用在完成之前已终止而未运行的操作不会统计为操作执行。 已禁用的逻辑应用无法实例化新实例，因此，在禁用后不会产生费用
 

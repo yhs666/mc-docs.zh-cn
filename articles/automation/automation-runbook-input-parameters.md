@@ -7,15 +7,15 @@ ms.component: process-automation
 author: WenJason
 ms.author: v-jay
 origin.date: 03/16/2018
-ms.date: 10/01/2018
+ms.date: 11/05/2018
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 516f8a0c93f068c01aa71bafeec0858b1e3bdcf2
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.openlocfilehash: 132bb9c2efc0566d6e9828a2c4a6d7b6da7a472b
+ms.sourcegitcommit: d26e5d0d625a61d6b130800d10c81f47c83fb1e0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426391"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50745515"
 ---
 # <a name="runbook-input-parameters"></a>Runbook 输入参数
 
@@ -33,7 +33,7 @@ Azure 自动化中的 PowerShell 和 [PowerShell 工作流 Runbook](automation-f
 |:--- |:--- |
 | 类型 |必需。 参数值所需的数据类型。 任何 .NET 类型均有效。 |
 | Name |必需。 参数的名称。 在 Runbook 中必须唯一，并且只能包含字母、数字或下划线字符。 必须以字母开头。 |
-| 必需 |可选。 指定是否必须为该参数提供值。 如果将此项设置为 **$true**，则启动 Runbook 时必须提供一个值。 如果将此项设置为 **$false**，则值是可选的。 |
+| 必需 |可选。 指定是否必须为该参数提供值。 如果将此项设置为 **$true**，则在启动 Runbook 时必须提供一个值。 如果将此项设置为 **$false**，则值是可选的。 |
 | 默认值 |可选。 指定在启动 Runbook 时未传入值的情况下要用于参数的值。 可为任何参数设置默认值，此值会使参数自动成为可选，而不管 Mandatory 设置为何。 |
 
 Windows PowerShell 支持的输入参数属性比此处所列的多，例如验证、别名和参数集。 但是，Azure 自动化目前仅支持上述输入参数。
@@ -74,6 +74,10 @@ Param
 ```powershell
 @{"FirstName"="Joe";"MiddleName"="Bob";"LastName"="Smith"}
 ```
+> [!NOTE]
+> 如果没有将值传递到具有的默认值 `$null` 的可选 `[String]` 类型参数，则参数的值将为空字符串，而不是 `$null`。
+> 
+> 
 
 ## <a name="configure-input-parameters-in-graphical-runbooks"></a>在图形 Runbook 中配置输入参数
 
@@ -265,7 +269,7 @@ Runbook 有多种启动方式：通过 Azure 门户、Webhook、PowerShell cmdle
 ![测试并分配参数](media/automation-runbook-input-parameters/automation-06-testandassignparameters.png)
 
 ### <a name="link-a-schedule-to-a-runbook-and-assign-parameters"></a>将计划链接到 Runbook 并分配参数
-可[将计划链接](automation-schedules.md)到 Runbook，以便在特定的时间启动 Runbook。 创建计划时将指定输入参数，Runbook 在按计划启动时，将使用这些值。 只有在提供所有必需参数值之后，才可以保存计划。
+可以[将计划链接到](automation-schedules.md) Runbook，以便在特定的时间启动 Runbook。 创建计划时将指定输入参数，Runbook 在按计划启动时，将使用这些值。 只有在提供所有必需参数值之后，才可以保存计划。
 
 ![计划并分配参数](media/automation-runbook-input-parameters/automation-07-scheduleandassignparameters.png)
 

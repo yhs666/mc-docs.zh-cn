@@ -1,22 +1,21 @@
 ---
-title: Azure 自动化中的计划 | Azure
+title: Azure 自动化中的计划
 description: 自动化计划用于安排自动启动 Azure 自动化中的 Runbook。 介绍如何创建和管理计划，以便在特定的时间或按重复计划自动启动 Runbook。
 services: automation
-author: yunan2016
-manager: digimobile
-editor: tysonn
 ms.service: automation
-ms.devlang: na
-ms.topic: article
-origin.date: 05/08/2018
-ms.date: 05/28/2018
-ms.author: v-nany
-ms.openlocfilehash: 85cc40ec00dab00a2d546947e210941b7419d3a3
-ms.sourcegitcommit: 2a147231bf3d0a693adf58fceee76ab0fbcd6dbb
+ms.component: shared-capabilities
+author: WenJason
+ms.author: v-jay
+origin.date: 09/18/2018
+ms.date: 11/05/2018
+ms.topic: conceptual
+manager: digimobile
+ms.openlocfilehash: 0f36e7b7fa73711633db800c9d36542193cdbb5e
+ms.sourcegitcommit: d26e5d0d625a61d6b130800d10c81f47c83fb1e0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39335308"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50745508"
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>在 Azure 自动化中计划 Runbook
 
@@ -52,7 +51,10 @@ ms.locfileid: "39335308"
 1. 在 Azure 门户中，从你的自动化帐户中，从左侧的“共享资源”部分下选择“计划”。
 1. 单击页面顶部的“添加计划”。
 1. 在“新建计划”窗格中，键入新计划的“名称”和（可选）“说明”。
-1. 通过选择“一次”或“定期”来选择该计划是运行一次，还是按计划重复运行。 如果选择“一次”，请指定“开始时间”，并单击“创建”。 如果选择“定期”，请指定“开始时间”以及想要 Runbook 重复运行的频率（按“小时”、按“天”、按“周”或按“月”）。 如果从下拉列表中选择了“周”或“月”，则“定期选项”将出现在窗格中，选择它后，会显示“定期选项”窗格，如果已选择“周”，则可以选择星期几。 如果选择了“月”，则可以在日历上按“工作日”或每月的特定日进行选择，并最后选择是否希望在每月的最后一天运行它，单击“确定”。
+1. 通过选择“一次”或“定期”来选择该计划是运行一次，还是按计划重复运行。 如果选择“一次”，请指定“开始时间”，并单击“创建”。 如果选择“定期”，请指定“开始时间”，并且在“重复间隔”中选择想要 runbook 重复运行的频率（按“小时”、按“天”、按“周”或按“月”）。
+    1. 如果选择“周”，则会显示一周中可供选择的日期列表。 根据需要选择天数。 计划的第一次运行将在开始时间之后选择的第一天进行。
+    2. 如果选择“月”，则会看到不同的选项。 对于“每月进行次数”选项，请选择“每月天数”或“每周天数”。 如果选择“每月天数”，则会显示一个可根据需要选择天数的日历。 如果选择当月不存在的日期（例如 31 日），则计划将不会运行。 如果希望计划在最后一天运行，请在“在月份的最后一天运行”下选择“是”。 如果选择“每周天数”，则会显示“重复间隔”选项。 选择“第一”、“第二”、“第三”、“第四”或“最后”。 最后选择一天进行重复。
+1. 完成后，单击“创建”。
 
 ### <a name="to-create-a-new-schedule-with-windows-powershell"></a>使用 Windows PowerShell 创建新计划
 
@@ -75,9 +77,9 @@ $scheduleName -StartTime "7/01/2016 15:30:00" -MonthInterval 1 `
 ### <a name="to-link-a-schedule-to-a-runbook-with-the-azure-portal"></a>使用 Azure 门户将计划链接到 Runbook
 
 1. 在 Azure 门户中，从你的自动化帐户中，在左侧的“流程自动化”部分下选择“Runbook”。
-1. 单击要计划的 Runbook 的名称。
-1. 如果 Runbook 当前未链接到计划，则系统会提供“创建新计划”或“链接到现有计划”选项。
-1. 如果 Runbook 有参数，可以选择选项“修改运行设置(默认值:Azure)”，此时会显示“参数”窗格，可以在其中相应地输入信息。
+2. 单击要计划的 Runbook 的名称。
+3. 如果 Runbook 当前未链接到计划，则系统会提供“创建新计划”或“链接到现有计划”选项。
+4. 如果 Runbook 有参数，可以选择选项“修改运行设置(默认值:Azure)”，此时会显示“参数”窗格，可以在其中相应地输入信息。
 
 ### <a name="to-link-a-schedule-to-a-runbook-with-windows-powershell"></a>使用 Windows PowerShell 将计划链接到 Runbook
 
@@ -127,4 +129,4 @@ Set-AzureRmAutomationSchedule –AutomationAccountName $automationAccountName `
 
 ## <a name="next-steps"></a>后续步骤
 
-* 若要在 Azure 自动化中开始使用 Runbook，请参阅[在 Azure 自动化中启动 Runbook](automation-starting-a-runbook.md)
+* 若要在 Azure 自动化中开始使用 Runbook，请参阅 [在 Azure 自动化中启动 Runbook](automation-starting-a-runbook.md)

@@ -1,23 +1,24 @@
 ---
-title: 调用计算机视觉 API | Microsoft Docs
-description: 了解如何使用认知服务中的 REST 来调用计算机视觉 API。
+title: 示例：调用计算机视觉 API
+titlesuffix: Azure Cognitive Services
+description: 了解如何通过使用 Azure 认知服务中的 REST 调用计算机视觉 API。
 services: cognitive-services
-author: alexchen2016
-manager: digimobile
+author: KellyDF
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: computer-vision
-ms.topic: article
+ms.component: computer-vision
+ms.topic: sample
 origin.date: 01/20/2017
-ms.date: 10/13/2017
+ms.date: 10/30/2018
 ms.author: v-junlch
-ms.openlocfilehash: 9d8254f54f801d46f63e84673a6223c7c80a02a8
-ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ms.openlocfilehash: 0de015c39a94a893b4bc280de605f29e7b3d2adf
+ms.sourcegitcommit: b8e99939a5493a15b78c32e87bfbf76a8c96a84a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
-ms.locfileid: "23407614"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50408986"
 ---
-# <a name="how-to-call-computer-vision-api"></a>如何调用计算机视觉 API
+# <a name="example-how-to-call-the-computer-vision-api"></a>示例：如何调用计算机视觉 API
 
 本指南演示如何使用 REST 调用计算机视觉 API。 这些示例是使用计算机视觉 API 客户端库以 C# 编写的，也是作为 HTTP POST/GET 调用编写的。 我们将重点介绍：
 
@@ -38,7 +39,7 @@ ms.locfileid: "23407614"
 
 功能细分为：
 
-  - **选项一：** 范围内分析 - 只分析给定的模型
+  - **选项一：** 范围内分析 - 仅分析给定模型
   - **选项二：** 强化分析 - 通过分析，提供[“86 类”分类](../Category-Taxonomy.md)的更多详细信息。
   
 ### <a name="Step1">步骤 1：授权 API 调用</a> 
@@ -99,7 +100,7 @@ using (var fs = new FileStream(@"C:\Vision\Sample.jpg", FileMode.Open))
 ```
 ### <a name="here-is-how-to-get-domain-specific-analysis-in-our-case-for-celebrities"></a>下面介绍如何获取特定领域的分析（在我们的示例中为名人分析）。
 
-**选项一：** 范围内分析 - 只分析给定的模型
+**选项一：** 范围内分析 - 仅分析给定模型
 ```
 POST https://api.cognitive.azure.cn/vision/v1.0/models/celebrities/analyze
 var celebritiesResult = await visionClient.AnalyzeImageInDomainAsync(url, "celebrities");
@@ -154,7 +155,7 @@ POST https://api.cognitive.azure.cn/vision/v1.0/analyze?details=celebrities
 标记    | object    | 标记数组的顶级对象
 tags[].Name | 字符串    | 标记分类器中的关键字
 tags[].Score    | number    | 置信度，介于 0 和 1 之间。
-description  | object   | 说明的顶级对象。
+说明  | object   | 说明的顶级对象。
 description.tags[] |    字符串  | 标记列表。  如果因置信度不够而无法生成标题，则调用方能够获得的唯一信息可能就是标记。
 description.captions[].text | 字符串    | 描述图像的短语。
 description.captions[].confidence   | number    | 短语的置信度。

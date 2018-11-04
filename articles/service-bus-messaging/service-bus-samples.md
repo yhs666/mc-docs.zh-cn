@@ -1,26 +1,26 @@
 ---
-title: Azure 服务总线消息传送示例概述
+title: Azure 服务总线消息传送示例概述 | Azure
 description: 介绍服务总线消息传送示例并提供每个示例的链接
-services: service-bus
-documentationCenter: na
-author: sethmanheim
-manager: timlt
+services: service-bus-messaging
+documentationcenter: na
+author: lingliw
+manager: digimobile
 editor: ''
 ms.assetid: 0b420343-2d2a-4c65-98f1-ee0e39ef55c8
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 12/21/2017
-ms.author: v-yiso
-ms.date: 02/05/2018
-ms.openlocfilehash: 944087569ffff0a7374d8fdfd42a0b188749b586
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+origin.date: 09/21/2018
+ms.date: 10/31/2018
+ms.author: v-lingwu
+ms.openlocfilehash: aa3b84857743da36b7bd644a936d7e3ef4fcf49f
+ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
-ms.locfileid: "29285202"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50409299"
 ---
 # <a name="service-bus-messaging-samples"></a>服务总线消息传送示例
 
@@ -42,6 +42,5 @@ ms.locfileid: "29285202"
 
 有关服务总线的概念性概述，请参阅以下主题。
 
-- [服务总线消息传送概述](./service-bus-messaging-overview.md)
-- [服务总线体系结构](./service-bus-architecture.md)
-- [服务总线基础知识](./service-bus-fundamentals-hybrid-solutions.md)
+* [服务总线消息传送概述](service-bus-messaging-overview.md)
+* [服务总线体系结构](service-bus-architecture.md)

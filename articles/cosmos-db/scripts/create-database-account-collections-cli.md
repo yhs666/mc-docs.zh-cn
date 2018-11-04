@@ -13,14 +13,14 @@ ms.topic: sample
 ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 origin.date: 06/06/2017
-ms.date: 09/03/2018
+ms.date: 11/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: c27e855504e726283bfd319d532a50d01a1cfa2b
-ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
+ms.openlocfilehash: f6e456eb175fa39aa15f61c47d969c5e55abedd4
+ms.sourcegitcommit: c1020b13c8810d50b64e1f27718e9f25b5f9f043
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43164837"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50204837"
 ---
 # <a name="azure-cosmos-db-create-an-sql-api-account-using-cli"></a>Azure Cosmos DB：使用 CLI 创建 SQL API 帐户
 
@@ -28,7 +28,7 @@ ms.locfileid: "43164837"
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-如果选择在本地安装并使用 CLI，本主题要求运行 Azure CLI 2.0 版或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 
+如果选择在本地安装并使用 CLI，本主题要求运行 Azure CLI 2.0 版或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 
 
 ## <a name="sample-script"></a>示例脚本
 
@@ -95,5 +95,5 @@ az group delete --name myResourceGroup
 
 有关其他 Azure Cosmos DB CLI 脚本示例，请参见 [Azure Cosmos DB CLI 文档](../cli-samples.md)。
 
-<!--Update_Description: update meta properties， update link -->
+<!--Update_Description: update meta properties， wording update -->
  

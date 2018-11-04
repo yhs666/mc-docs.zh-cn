@@ -8,14 +8,14 @@ ms.component: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
 origin.date: 06/27/2018
-ms.date: 08/27/2018
+ms.date: 11/05/2018
 ms.custom: mvc
-ms.openlocfilehash: ad1a3dc9dcd1f443715b38c07023d564ba7868c0
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.openlocfilehash: b1a6d09547b5e865eda49e7d657214e87b11ca0a
+ms.sourcegitcommit: 7c750170ddefe7537663dfbadcc06bf27d94c586
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42872421"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50743540"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>快速入门：使用 Azure 门户在 Azure Databricks 上运行 Spark 作业
 
@@ -121,13 +121,13 @@ ms.locfileid: "42872421"
 
 将以下代码输入到 Notebook 单元格中：
 
-    %sh wget -P /tmp https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json
+    %sh wget -P /tmp https://raw.githubusercontent.com/Azure/usql/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json
 
 在单元格中按 `Shift` + `Enter`，以便运行代码。
 
 现在，请在此单元格下面的新单元格中输入以下代码（将 **FILE_SYSTEM** 和 **ACCOUNT_NAME** 替换为此前使用的值）：
 
-    dbutils.fs.cp("file:///tmp/small_radio_json.json", "abfs://<FILE_SYSTEM>@<ACCOUNT_NAME>.dfs.core.windows.net/")
+    dbutils.fs.cp("file:///tmp/small_radio_json.json", "abfss://<FILE_SYSTEM>@<ACCOUNT_NAME>.dfs.core.chinacloudapi.cn/")
 
 在单元格中按 `Shift` + `Enter`，以便运行代码。
 

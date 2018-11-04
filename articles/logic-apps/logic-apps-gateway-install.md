@@ -9,13 +9,13 @@ ms.author: v-yiso
 ms.reviewer: yshoukry, LADocs
 ms.topic: article
 origin.date: 07/20/2018
-ms.date: 10/15/2018
-ms.openlocfilehash: 6db155eb5894811805cb729704e2d7ba2454f3b3
-ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
+ms.date: 11/12/2018
+ms.openlocfilehash: 0e46d68faf0826c6cd1e048134b69f00ed7d5f7b
+ms.sourcegitcommit: 3f96e40162bb6ee2e9fdb76c976517e47a1252d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455278"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50919114"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>为 Azure 逻辑应用安装本地数据网关
 
@@ -212,7 +212,7 @@ ms.locfileid: "47455278"
 > [!NOTE]
 > 该命令只测试网络连接以及与 Azure 服务总线之间的连接。 该命令不会针对网关或者加密和存储凭据的网关云服务执行任何操作。 
 >
-> 此外，该命令仅适用于 Windows Server 2012 R2 或更高版本，以及 Windows 8.1 或更高版本。 在早期的 OS 版本上，可以使用 Telnet 来测试连接。 详细了解 [Azure 服务总线和混合解决方案](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)。
+> 此外，该命令仅适用于 Windows Server 2012 R2 或更高版本，以及 Windows 8.1 或更高版本。 在早期的 OS 版本上，可以使用 Telnet 来测试连接。 详细了解 [Azure 服务总线和混合解决方案](../service-bus-messaging/service-bus-messaging-overview.md)。
 
 结果应类似于此示例，其中的 **TcpTestSucceeded** 设置为 **True**：
 
@@ -233,7 +233,7 @@ TcpTestSucceeded       : True
 
 ## <a name="configure-ports"></a>配置端口
 
-网关与 [Azure 服务总线](https://azure.microsoft.com/services/service-bus/)建立出站连接，并在出站端口上通信：TCP 443（默认值）、5671、5672、9350 到 9354。 网关不需要入站端口。 详细了解 [Azure 服务总线和混合解决方案](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)。
+网关与 [Azure 服务总线](https://azure.microsoft.com/services/service-bus/)建立出站连接，并在出站端口上通信：TCP 443（默认值）、5671、5672、9350 到 9354。 网关不需要入站端口。 详细了解 [Azure 服务总线和混合解决方案](../service-bus-messaging/service-bus-messaging-overview.md)。
 
 网关使用以下完全限定的域名：
 

@@ -10,14 +10,14 @@ ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: tutorial
 origin.date: 05/22/2017
-ms.date: 09/30/2018
+ms.date: 11/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 5995773b1a8b0d09ba34c7ebb22259af42bad434
-ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
+ms.openlocfilehash: d65234b5240fe8873b6ec1549c7848754eebd6f2
+ms.sourcegitcommit: c1020b13c8810d50b64e1f27718e9f25b5f9f043
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47201355"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50204826"
 ---
 # <a name="nosql-tutorial-build-a-sql-api-java-console-application"></a>NoSQL 教程：构建 SQL API Java 控制台应用程序
 
@@ -27,7 +27,6 @@ ms.locfileid: "47201355"
 > * [Java](sql-api-java-get-started.md)
 > * [异步 Java](sql-api-async-java-get-started.md)
 > * [Node.js](sql-api-nodejs-get-started.md)
-> * [Node.js- v2](sql-api-nodejs-get-started-preview.md) 
 > 
 
 欢迎使用适用于 Azure Cosmos DB Java SDK 的 SQL API 的 NoSQL 教程！ 学习本教程后，将拥有一个可创建并查询 Azure Cosmos DB 资源的控制台应用程序。
@@ -200,4 +199,5 @@ Azure Cosmos DB 支持使用 [deleteDocument](https://docs.azure.cn/java/api/com
 * 在 [Query Playground](https://www.documentdb.com/sql/demo)中对示例数据集运行查询。
 
 [keys]: media/sql-api-get-started/nosql-tutorial-keys.png
+
 <!-- Update_Description: update meta properties, update link -->

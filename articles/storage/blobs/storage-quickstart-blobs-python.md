@@ -1,21 +1,20 @@
 ---
-title: Azure 快速入门 - 使用 Python 在对象存储中创建 Blob | Azure
+title: Azure 快速入门 - 使用 Python 在对象存储中创建 blob | Microsoft Docs
 description: 本快速入门将在对象 (Blob) 存储中创建存储帐户和容器。 然后，使用适用于 Python 的存储客户端库将一个 Blob 上传到 Azure 存储，下载一个 Blob，然后列出容器中的 Blob。
 services: storage
-author: forester123
-manager: josefree
+author: WenJason
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 origin.date: 04/09/2018
 ms.date: 07/30/2018
-ms.author: v-nany
-ms.openlocfilehash: b734dd7d96fb73939cea085e1aedeab9b325b6fb
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.author: v-jay
+ms.openlocfilehash: fd2969a57ce7bb19b058c8ca6011821002335e02
+ms.sourcegitcommit: 7c750170ddefe7537663dfbadcc06bf27d94c586
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295588"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50743549"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-python"></a>快速入门：使用 Python 上传、下载和列出 Blob
 
@@ -29,7 +28,7 @@ ms.locfileid: "39295588"
 
 如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
 
-[!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
+[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
 ## <a name="download-the-sample-application"></a>下载示例应用程序
 本快速入门中使用的[示例应用程序](https://github.com/Azure-Samples/storage-blobs-python-quickstart.git)是基本的 Python 应用程序。  

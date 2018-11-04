@@ -7,14 +7,14 @@ ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 origin.date: 08/27/2018
-ms.date: 09/24/2018
+ms.date: 11/05/2018
 ms.author: v-jay
-ms.openlocfilehash: eb9b578549edcf4c4a1fa065637c03cf2aac0348
-ms.sourcegitcommit: 0081fb238c35581bb527bdd704008c07079c8fbb
+ms.openlocfilehash: 67310df2960452b9ca43791a9e9a124d61a2fd63
+ms.sourcegitcommit: 7c750170ddefe7537663dfbadcc06bf27d94c586
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523670"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50743551"
 ---
 # <a name="quickstart-use-azure-storage-explorer-to-create-a-blob-in-object-storage"></a>快速入门：使用 Azure 存储资源管理器在对象存储中创建 blob
 
@@ -26,7 +26,7 @@ ms.locfileid: "46523670"
 
 本快速入门要求安装 Azure 存储资源管理器。 若要安装适用于 Windows、Macintosh 或 Linux 的 Azure 存储资源管理器，请参阅 [Azure 存储资源管理器](https://azure.microsoft.com/features/storage-explorer/)。
 
-[!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
+[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
 ## <a name="log-in-to-storage-explorer"></a>登录到存储资源管理器
 
@@ -80,7 +80,7 @@ blob 存储支持块 blob、追加 blob 和页 blob。 用于备份 IaaS VM 的 
 
 ## <a name="manage-snapshots"></a>管理快照
 
-Azure 存储资源管理器提供创建和管理 Blob [快照](storage-blob-snapshots.md)的功能。 若要创建某个 Blob 的快照，请右键单击该 Blob 并选择“创建快照”。 若要查看某个 Blob 的快照，请右键单击该 Blob 并选择“管理快照”。 当前选项卡中会显示 Blob 的快照列表。
+Azure 存储资源管理器提供创建和管理 Blob [快照](storage-blob-snapshots.md)的功能。 若要拍摄 Blob 的快照，请右键单击 Blob，然后选择“创建快照”。 若要查看某个 Blob 的快照，请右键单击该 Blob 并选择“管理快照”。 当前选项卡中会显示 Blob 的快照列表。
 
 ![Microsoft Azure 存储资源管理器 - 列出容器中的 Blob](media/storage-quickstart-blobs-storage-explorer/snapshots.png)
 

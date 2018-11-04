@@ -13,14 +13,14 @@ ms.topic: sample
 ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 origin.date: 05/23/2018
-ms.date: 09/03/2018
+ms.date: 11/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 6b0385affe36bb1aaa9374ea7a546153c9612b04
-ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
+ms.openlocfilehash: b3663a727091788094094bf03a7467d3f873d96d
+ms.sourcegitcommit: c1020b13c8810d50b64e1f27718e9f25b5f9f043
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43164669"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50204817"
 ---
 # <a name="scale-azure-cosmos-db-container-throughput-using-the-azure-cli"></a>使用 Azure CLI 缩放 Azure Cosmos DB 容器吞吐量
 
@@ -28,7 +28,7 @@ ms.locfileid: "43164669"
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-如果选择在本地安装并使用 CLI，本主题要求运行 Azure CLI 2.0 版或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 
+如果选择在本地安装并使用 CLI，本主题要求运行 Azure CLI 2.0 版或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 
 
 ## <a name="sample-script"></a>示例脚本
 

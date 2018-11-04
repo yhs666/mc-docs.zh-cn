@@ -1,26 +1,26 @@
 ---
 title: 服务总线死信队列 | Azure
 description: Azure 服务总线死信队列概述
-services: service-bus
-documentationCenter: .net
-author: sethmanheim
-manager: timlt
+services: service-bus-messaging
+documentationcenter: .net
+author: lingliw
+manager: digimobile
 editor: ''
 ms.assetid: 68b2aa38-dba7-491a-9c26-0289bc15d397
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 01/31/2018
-ms.author: v-yiso
-ms.date: 03/12/2018
-ms.openlocfilehash: d3a2f1d9ae909e57bf1f7ecb7dc4d5eee5c11460
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+origin.date: 09/26/2018
+ms.date: 10/31/2018
+ms.author: v-lingwu
+ms.openlocfilehash: 89004ca1ae6c0bc51b7a8f5c277c580437f4dcc7
+ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
-ms.locfileid: "29730830"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50409300"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>服务总线死信队列概述
 
@@ -57,7 +57,7 @@ Azure 服务总线队列和主题订阅提供一个名为“死信队列 (DLQ)�
 
 每个队列和订阅都具有 [QueueDescription.MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount) 和 [SubscriptionDescription.MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.maxdeliverycount) 属性；默认值为 10。 只要消息在 ([ReceiveMode.PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode)) 锁下传递，但已显式放弃或锁已过期，消息 [BrokeredMessage.DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) 就会递增。 [DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) 超过 [MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount) 时，该消息将移到 DLQ，并指定 `MaxDeliveryCountExceeded` 原因代码。
 
-无法禁止此行为，但可将 [MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount) 设置为非常大的数。
+无法禁止此行为，但可以将 [MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount) 设置为非常大的数。
 
 ## <a name="exceeding-timetolive"></a>超过 TimeToLive
 
@@ -107,5 +107,5 @@ while(true)
 ## <a name="next-steps"></a>后续步骤
 有关服务总线队列的详细信息，请参阅以下文章：
 
-- [服务总线队列入门](./service-bus-dotnet-get-started-with-queues.md)
-- [Azure 队列和服务总线队列比较](./service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+* [服务总线队列入门](service-bus-dotnet-get-started-with-queues.md)
+* [比较 Azure 队列和服务总线队列](service-bus-azure-and-service-bus-queues-compared-contrasted.md)

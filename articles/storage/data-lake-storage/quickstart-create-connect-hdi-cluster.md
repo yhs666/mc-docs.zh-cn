@@ -10,14 +10,14 @@ ms.service: storage
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 origin.date: 06/27/2018
-ms.date: 08/27/2018
+ms.date: 11/05/2018
 ms.author: v-jay
-ms.openlocfilehash: 686db945e4e3736bb1f292fee6f130570c847da1
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.openlocfilehash: d2da506009a9e00541e561656176bfe838c4f710
+ms.sourcegitcommit: 7c750170ddefe7537663dfbadcc06bf27d94c586
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42872465"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50743553"
 ---
 # <a name="quickstart-set-up-clusters-in-hdinsight"></a>快速入门：在 HDInsight 中设置群集
 
@@ -67,7 +67,7 @@ Hadoop 群集由用于对任务进行分布式处理的多个虚拟机（节点�
 Azure HDInsight 目前提供以下群集类型，每种类型都具有一组用于提供特定功能的组件。
 
 > [!IMPORTANT]
-> HDInsight 群集以多种类型提供，每种类型适用于单个工作负荷或技术。 不支持在一个群集上创建合并了多个类型（如 Storm 和 HBase）的群集。 如果解决方案需要分布在多种 HDInsight 群集类型上的技术，可以使用 [Azure 虚拟网络](/virtual-network)连接所需的群集类型。 
+> HDInsight 群集以多种类型提供，每种类型适用于单个工作负荷或技术。 不支持在一个群集上创建合并了多个类型（如 Storm 和 HBase）的群集。 如果解决方案需要分布在多种 HDInsight 群集类型上的技术，可以使用 [Azure 虚拟网络 ](/virtual-network)连接所需的群集类型。 
 >
 >
 
@@ -98,7 +98,7 @@ Azure HDInsight 目前提供以下群集类型，每种类型都具有一组用�
 使用 HDInsight 群集时，可以在群集创建期间配置两个用户帐户：
 
 * HTTP 用户：默认用户名为 *admin*。它使用 Azure 门户上的基本配置。 有时称为“群集用户”。
-* SSH 用户（Linux 群集）：用于通过 SSH 连接到群集。 有关详细信息，请参阅 [Use SSH with HDInsight](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。
+* SSH 用户（Linux 群集）：用于通过 SSH 连接到群集。 有关详细信息，请参阅 [将 SSH 与 HDInsight 配合使用](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md)。
 
 使用企业安全包可将 HDInsight 与 Active Directory 和 Apache Ranger 集成。 可使用企业安全数据包创建多个用户。
 
@@ -239,11 +239,11 @@ HDInsight 应用程序是用户可以在基于 Linux 的 HDInsight 群集上安�
 有关详细信息，请参阅 [使用 Bootstrap 自定义 HDInsight 群集 ](../../hdinsight/hdinsight-hadoop-customize-cluster-bootstrap.md)。
 
 ## <a name="advanced-settings-extend-clusters-with-a-virtual-network"></a>高级设置：使用虚拟网络扩展群集
-如果解决方案需要分布在多种 HDInsight 群集类型上的技术，可以使用 [Azure 虚拟网络 ](../../hdinsight/https://docs.microsoft.com/azure/virtual-network)连接所需的群集类型。 此配置允许群集以及部署到群集的任何代码直接相互通信。
+如果解决方案需要分布在多种 HDInsight 群集类型上的技术，可以使用 [Azure 虚拟网络](/virtual-network)连接所需的群集类型。 此配置允许群集以及部署到群集的任何代码直接相互通信。
 
-有关将 Azure 虚拟网络与 HDInsight 配合使用的详细信息，请参阅 [使用 Azure 虚拟网络扩展 HDInsight](../../hdinsight/hdinsight-extend-hadoop-virtual-network.md)。
+有关将 Azure 虚拟网络与 HDInsight 配合使用的详细信息，请参阅[使用 Azure 虚拟网络扩展 HDInsight](../../hdinsight/hdinsight-extend-hadoop-virtual-network.md)。
 
-有关在一个 Azure 虚拟网络中使用两种群集类型的示例，请参阅 [结合使用 Spark Structured Streaming 和 Kafka](../../hdinsight/hdinsight-apache-kafka-spark-structured-streaming.md)。 有关将 HDInsight 与虚拟网络配合使用的详细信息（包括虚拟网络的特定配置要求），请参阅[使用 Azure 虚拟网络扩展 HDInsight 功能](../../hdinsight/hdinsight-extend-hadoop-virtual-network.md)。
+有关在一个 Azure 虚拟网络中使用两种群集类型的示例，请参阅 [结合使用 Spark Structured Streaming 和 Kafka](../../hdinsight/hdinsight-apache-kafka-spark-structured-streaming.md)。 有关将 HDInsight 与虚拟网络配合使用的详细信息（包括虚拟网络的特定配置要求），请参阅 [Extend HDInsight capabilities by using Azure Virtual Network](../../hdinsight/hdinsight-extend-hadoop-virtual-network.md)（使用 Azure 虚拟网络扩展 HDInsight 功能）。
 
 ## <a name="troubleshoot-access-control-issues"></a>排查访问控制问题
 

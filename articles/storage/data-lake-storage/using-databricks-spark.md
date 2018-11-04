@@ -2,20 +2,19 @@
 title: 使用 Spark 通过 Azure Databricks 访问 Azure Data Lake Storage Gen2 预览版数据 | Microsoft Docs
 description: 了解如何在 Azure Databricks 群集上运行 Spark 查询，以便访问 Azure Data Lake Storage Gen2 存储帐户中的数据。
 services: hdinsight,storage
-tags: azure-portal
 author: WenJason
 ms.component: data-lake-storage-gen2
 ms.service: storage
 ms.topic: tutorial
 origin.date: 6/27/2018
-ms.date: 08/27/2018
+ms.date: 11/05/2018
 ms.author: v-jay
-ms.openlocfilehash: ffb982e8dd92712ba20b6c2f4d88539a7643aaf7
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.openlocfilehash: 57247bfbaedabb3bf0eb9a2c97ce1e63053ef770
+ms.sourcegitcommit: 7c750170ddefe7537663dfbadcc06bf27d94c586
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42872434"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50743520"
 ---
 # <a name="tutorial-access-azure-data-lake-storage-gen2-preview-data-with-azure-databricks-using-spark"></a>教程：使用 Spark 通过 Azure Databricks 访问 Azure Data Lake Storage Gen2 预览版数据
 
@@ -24,7 +23,6 @@ ms.locfileid: "42872434"
 > [!div class="checklist"]
 > * 创建 Databricks 群集
 > * 将非结构化数据引入存储帐户中
-> * 触发用于处理数据的 Azure Functions
 > * 对 Blob 存储中的数据运行分析
 
 ## <a name="prerequisites"></a>先决条件
@@ -38,11 +36,8 @@ ms.locfileid: "42872434"
 
 若要开始本教程，请创建新的 [Azure Data Lake Storage Gen2 帐户](quickstart-create-account.md)并为其提供唯一名称。 然后导航到存储帐户，以便检索配置设置。
 
-> [!IMPORTANT]
-> 在预览期间，Azure Functions 仅适用于使用平面命名空间创建的 Azure Data Lake Storage Gen2 帐户。
-
 1. 在“设置”下，单击“访问密钥”。
-3. 单击 **key1** 旁边的“复制”按钮，复制密钥值。
+2. 单击 **key1** 旁边的“复制”按钮，复制密钥值。
 
 本教程后面的步骤需要此帐户名称和密钥。 打开一个文本编辑器，在其中存储此帐户名称和密钥，供将来引用。
 
@@ -99,10 +94,10 @@ azcopy cp "<DOWNLOAD_FILE_PATH>" https://<ACCOUNT_NAME>.dfs.core.chinacloudapi.c
     #mount Azure Blob Storage as an HDFS file system to your databricks cluster
     #you need to specify a storage account and container to connect to. 
     #use a SAS token or an account key to connect to Blob Storage.  
-    accountname = "<insert account name>' 
-    accountkey = " <insert account key>'
-    fullname = "fs.azure.account.key." +accountname+ ".blob.core.chinacloudapi.cn"
-    accountsource = "abfs://dbricks@" +accountname+ ".blob.core.chinacloudapi.cn/folder1"
+    accountname = "<insert account name>"
+    accountkey = "<insert account key>"
+    fullname = "fs.azure.account.key." +accountname+ ".dfs.core.chinacloudapi.cn"
+    accountsource = "abfs://dbricks@" +accountname+ ".dfs.core.chinacloudapi.cn/folder1"
     #create a dataframe to read data
     flightDF = spark.read.format('csv').options(header='true', inferschema='true').load(accountsource + "/On_Time_On_Time*.csv")
     #read the all the airline csv files and write the output to parquet format for easy query
@@ -161,7 +156,7 @@ dbutils.fs.ls(source + "/temp/parquet/flights")
 acDF = spark.read.format('csv').options(header='true', inferschema='true').load(accountsource + "/<YOUR_CSV_FILE_NAME>.csv")
 acDF.write.parquet(accountsource + '/parquet/airlinecodes')
 
-#read the existing parquet file for the flights database that was created via the Azure Function
+#read the existing parquet file for the flights database that was created earlier
 flightDF = spark.read.format('parquet').options(header='true', inferschema='true').load(accountsource + "/parquet/flights")
 
 #print the schema of the dataframes

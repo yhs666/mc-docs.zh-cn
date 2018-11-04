@@ -1,26 +1,26 @@
 ---
-title: Azure 服务总线中事务处理概述
+title: Azure 服务总线中事务处理概述 | Azure
 description: Azure 服务总线原子事务和发送方式概述
-services: service-bus
-documentationCenter: .net
-author: spelluru
-manager: timlt
+services: service-bus-messaging
+documentationcenter: .net
+author: lingliw
+manager: digimobile
 editor: ''
 ms.assetid: 64449247-1026-44ba-b15a-9610f9385ed8
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 02/22/2018
-ms.date: 10/15/2018
-ms.author: v-yiso
-ms.openlocfilehash: c2af9c1a09099eabb5c98e5f576b1fb1d46e00b3
-ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
+origin.date: 09/22/2018
+ms.date: 10/31/2018
+ms.author: v-lingwu
+ms.openlocfilehash: 8a9caffffc1daebb533376b8b8cc8922718eee61
+ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455222"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50409302"
 ---
 # <a name="overview-of-service-bus-transaction-processing"></a>服务总线事务处理概述
 

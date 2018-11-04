@@ -1,20 +1,20 @@
 ---
-title: Azure 存储中的数据复制 | Azure
+title: Azure 存储中的数据复制 | Microsoft Docs
 description: 复制 Azure 存储帐户中的数据，实现持久性和高可用性。 复制选项包括本地冗余存储 (LRS)、区域冗余存储 (ZRS)、异地冗余存储 (GRS) 和读取访问异地冗余存储 (RA-GRS)。
 services: storage
-author: forester123
-manager: josefree
+author: WenJason
 ms.service: storage
 ms.topic: article
-origin.date: 01/21/2018
-ms.date: 06/11/2018
-ms.author: v-nany
-ms.openlocfilehash: a6e2eb08fe65adacf045751eb82ec4da95451ce7
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+origin.date: 10/08/2018
+ms.date: 11/05/2018
+ms.author: v-jay
+ms.component: common
+ms.openlocfilehash: 896258002a48529c79d48a2fbb23fc694647c0af
+ms.sourcegitcommit: 7c750170ddefe7537663dfbadcc06bf27d94c586
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295586"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50743531"
 ---
 # <a name="azure-storage-replication"></a>Azure 存储复制
 
@@ -40,8 +40,12 @@ ms.locfileid: "39295586"
 | 整个区域不可用时对数据进行读取访问（远程异地复制区域中） | 否                              | 否                               | 是                                  |
 | 旨在给定年份为对象提供 ___ 的持续性                                          | 至少 99.999999999%（11 个 9） | 至少 99.99999999999999%（16 个 9） | 至少 99.99999999999999%（16 个 9） |
 | 支持的存储帐户类型                                                                   | GPv1、GPv2、Blob                | GPv1、GPv2、Blob                     | GPv1、GPv2、Blob                     |
+| 读取请求的可用性 SLA | 至少为 99.9%（冷访问层为 99%） | 至少为 99.9%（冷访问层为 99%） | 至少为 99.99%（冷访问层为 99.9%） |
+| 写入请求的可用性 SLA | 至少为 99.9%（冷访问层为 99%） | 至少为 99.9%（冷访问层为 99%） | 至少为 99.9%（冷访问层为 99%） |
 
-有关不同冗余选项的定价信息，请参阅 [Azure 存储定价](https://www.azure.cn/pricing/details/storage/)。
+有关每个冗余选项的定价信息，请参阅 [Azure 存储定价](https://azure.cn/pricing/details/storage/)。 
+
+有关 Azure 存储确保持续性和可用性的信息，请参阅 [Azure 存储 SLA](https://azure.cn/support/sla/storage/)。
 
 > [!NOTE]
 > 高级存储仅支持本地冗余存储 (LRS)。 有关高级存储的信息，请参阅[高级存储：适用于 Azure 虚拟机工作负荷的高性能存储](../../virtual-machines/windows/premium-storage.md)。

@@ -1,25 +1,25 @@
 ---
 title: Azure 服务总线消息序列化和时间戳
 description: 通过时间戳保持服务总线消息的序列和顺序
-services: service-bus
+services: service-bus-messaging
 documentationcenter: ''
-author: clemensv
-manager: timlt
+author: lingliw
+manager: digimobile
 editor: ''
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/25/2018
-ms.date: 03/12/2018
-ms.author: v-yiso
-ms.openlocfilehash: e442f8546398416ea54c138d58044e96eaa2cc71
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+origin.date: 09/25/2018
+ms.date: 10/31/2018
+ms.author: v-lingwu
+ms.openlocfilehash: 37b6c33700af6f4a20d3a3ba25114a7775cfec06
+ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
-ms.locfileid: "29730981"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50409356"
 ---
 # <a name="message-sequencing-and-timestamps"></a>消息序列化和时间戳
 
@@ -51,7 +51,6 @@ SequenceNumber 值是在中转站接受并存储消息时分配给消息的唯�
 
 若要了解有关服务总线消息传送的详细信息，请参阅以下主题：
 
-* [服务总线基础知识](service-bus-fundamentals-hybrid-solutions.md)
 * [服务总线队列、主题和订阅](service-bus-queues-topics-subscriptions.md)
 * [服务总线队列入门](service-bus-dotnet-get-started-with-queues.md)
 * [如何使用服务总线主题和订阅](service-bus-dotnet-how-to-use-topics-subscriptions.md)

@@ -13,10 +13,20 @@ items:
     href: quickstart-create-basic-load-balancer-cli.md
   - name: 创建基本负载均衡器 - Azure PowerShell
     href: quickstart-create-basic-load-balancer-powershell.md
+  - name: 创建标准负载均衡器 - 门户
+    href: quickstart-load-balancer-standard-public-portal.md
+  - name: 创建标准负载均衡器 - Azure CLI
+    href: quickstart-load-balancer-standard-public-cli.md
+  - name: 创建标准负载均衡器 - Azure PowerShell
+    href: quickstart-create-standard-load-balancer-powershell.md
 - name: 教程
   items:
+  - name: 创建和管理负载均衡器
+    href: tutorial-load-balancer-standard-manage-portal.md
   - name: 对传入 VM 的内部流量进行负载均衡
     href: tutorial-load-balancer-basic-internal-portal.md
+  - name: 在负载均衡器中配置端口转发
+    href: tutorial-load-balancer-port-forwarding-portal.md
 - name: 示例
   items:
   - name: Azure CLI
@@ -25,14 +35,20 @@ items:
     href: powershell-samples.md
 - name: 概念
   items:
+  - name: 什么是负载均衡器标准版？
+    href: load-balancer-standard-overview.md
   - name: 运行状况探测
     href: load-balancer-custom-probe-overview.md
   - name: 多个前端
     href: load-balancer-multivip-overview.md
   - name: 出站连接
     href: load-balancer-outbound-connections.md
+  - name: 出站规则
+    href: load-balancer-outbound-rules-overview.md
 - name: 如何
   items:
+  - name: 配置出站规则
+    href: configure-load-balancer-outbound-cli.md
   - name: 创建基本负载均衡器（模板）
     href: load-balancer-get-started-internet-arm-template.md
   - name: 配置内部负载均衡器
@@ -56,6 +72,8 @@ items:
       href: load-balancer-multiple-ip-cli.md
     - name: 使用多个 IP 配置 (PowerShell)
       href: load-balancer-multiple-ip-powershell.md
+  - name: 使用 REST 获取负载均衡器指标
+    href: load-balancer-query-metrics-rest-api.md
   - name: 故障排除
     items:
     - name: 对 Azure 负载均衡器进行故障排除
@@ -123,9 +141,9 @@ items:
     href: https://www.azure.cn/pricing/calculator/
   - name: 服务更新
     href: https://www.azure.cn/what-is-new/
-ms.openlocfilehash: d37c0eb2e5b45fdf4f4516d85fa8f0e7c5ec7e02
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.openlocfilehash: a929961ae050dcbd0f41842d66303d7625820402
+ms.sourcegitcommit: 9be84d4dc546d66a0d9d1d2be67dd79c84b2c210
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426474"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50408836"

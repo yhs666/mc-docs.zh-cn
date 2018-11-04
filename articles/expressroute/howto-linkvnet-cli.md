@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/08/2018
 ms.author: v-yiso
-ms.date: 04/02/2018
-ms.openlocfilehash: cf9791b45f319357c6ad487384df981336f74d4c
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.date: 11/12/2018
+ms.openlocfilehash: 3463d91e7a078bc9b2e15046526e07de197b7e70
+ms.sourcegitcommit: 3f96e40162bb6ee2e9fdb76c976517e47a1252d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30155609"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50919084"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-cli"></a>使用 CLI 将虚拟网络连接到 ExpressRoute 线路
 
@@ -36,7 +36,7 @@ ms.locfileid: "30155609"
 
 ## <a name="configuration-prerequisites"></a>配置先决条件
 
-* 需要最新版本的命令行接口 (CLI)。 有关详细信息，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-lastest)。
+* 需要最新版本的命令行接口 (CLI)。 有关详细信息，请参阅[安装 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-lastest)。
 * 在开始配置之前，需要查看[先决条件](expressroute-prerequisites.md)、[路由要求](expressroute-routing.md)和[工作流](expressroute-workflows.md)。
 * 必须有一个活动的 ExpressRoute 线路。 
   * 请按说明[创建 ExpressRoute 线路](howto-circuit-cli.md)，并通过连接提供商启用该线路。 

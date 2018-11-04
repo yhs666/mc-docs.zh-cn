@@ -1,33 +1,33 @@
 ---
 title: 服务总线定价和计费
 description: 服务总线定价结构概述。
-services: service-bus
-documentationCenter: na
-author: sethmanheim
-manager: timlt
+services: service-bus-messaging
+documentationcenter: na
+author: lingliw
+manager: digimobile
 editor: ''
 ms.assetid: 7c45b112-e911-45ab-9203-a2e5abccd6e0
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 12/21/2017
-ms.author: v-yiso
-ms.date: 08/06/2018
-ms.openlocfilehash: 04b284c7ee9c5f09e58da3c2ff8ab9d297fb805c
-ms.sourcegitcommit: d4092cf6aba0d949bf612093c76f964c2bdfd0ba
+origin.date: 09/21/2018
+ms.date: 10/31/2018
+ms.author: v-lingwu
+ms.openlocfilehash: 7109ddf3e0a72025a49be447720a2fe2758115fa
+ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39306615"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50409301"
 ---
 # <a name="service-bus-pricing-and-billing"></a>服务总线定价和计费
 
 Azure 服务总线推出标准和[高级](service-bus-premium-messaging.md)两种层级。 可以创建的每个服务总线服务命名空间选择一个服务层，此服务层选择将应用于该命名空间中创建的所有实体。
 
->[!NOTE]
-> 有关当前服务总线定价的详细信息，请参阅 [Azure 服务总线定价页](https://www.azure.cn/pricing/details/messaging/)和[服务总线常见问题解答](./service-bus-faq.md#service-bus-pricing)。
+> [!NOTE]
+> 有关当前服务总线定价的详细信息，请参阅 [Azure 服务总线定价页](https://www.azure.cn/pricing/details/service-bus/)和[服务总线常见问题解答](service-bus-faq.md#pricing)。
 >
 >
 
@@ -98,8 +98,7 @@ Azure 服务总线推出标准和[高级](service-bus-premium-messaging.md)两�
 例如：
 
 1. 10,000 台设备的每一台都通过一个 AMQP 连接进行连接，并接收来自服务总线主题的命令。 设备将遥测事件发送至事件中心。 如果所有设备每天连接 12 小时，则需支付以下连接费用（未包括任何其他服务总线主题费用）：10,000 个连接 * 12 小时 * 31 天/744 = 5,000 个中转连接。 在扣除每月 1,000 个中转连接的限额后，需要按每个中转连接 0.03 美元的费率支付 4,000 个中转连接的费用，总共 120 美元。
-
-4. 10,000 台设备通过 HTTP 从服务总线队列接收消息，超时不为零。 如果所有设备每天连接 12 小时，则需要支付以下连接费用（未包括任何其他服务总线费用）：10,000 个 HTTP 接收连接 * 12 小时/天 * 31 天/744 小时 = 5,000 个中转连接。
+2. 10,000 台设备通过 HTTP 从服务总线队列接收消息，超时不为零。 如果所有设备每天连接 12 小时，则需要支付以下连接费用（未包括任何其他服务总线费用）：10,000 个 HTTP 接收连接 * 12 小时/天 * 31 天/744 小时 = 5,000 个中转连接。
 
 ### <a name="do-brokered-connection-charges-apply-to-queues-and-topicssubscriptions"></a>中转连接费用是否适用于队列和主题/订阅？
 
@@ -107,8 +106,7 @@ Azure 服务总线推出标准和[高级](service-bus-premium-messaging.md)两�
 
 ## <a name="next-steps"></a>后续步骤
 
-- 有关服务总线定价的完整详细信息，请参阅[服务总线定价页](https://www.azure.cn/pricing/details/messaging/)。
-
-* 有关服务总线定价和计费的一些常见问题解答，请参阅[服务总线常见问题解答](./service-bus-faq.md#service-bus-pricing)。
+* 有关服务总线定价的完整详细信息，请参阅[服务总线定价页](https://www.azure.cn/pricing/details/service-bus/)。
+* 有关服务总线定价和计费的一些常见问题解答，请参阅[服务总线常见问题解答](service-bus-faq.md#pricing)。
 
 [Azure portal]: https://portal.azure.cn

@@ -6,15 +6,15 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 06/12/2018
-ms.date: 09/10/2018
+ms.date: 11/05/2018
 ms.author: v-jay
 ms.component: files
-ms.openlocfilehash: e1c4d4d7c08f6235beb7942201cac066d0f4b49c
-ms.sourcegitcommit: 0081fb238c35581bb527bdd704008c07079c8fbb
+ms.openlocfilehash: c8391cea1d06f4e588092a9139ed3a145a0680dd
+ms.sourcegitcommit: 7c750170ddefe7537663dfbadcc06bf27d94c586
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523685"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50743534"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>规划 Azure 文件部署
 [Azure 文件](storage-files-introduction.md)在云中提供完全托管的文件共享，这些共享项可通过行业标准 SMB 协议进行访问。 由于 Azure 文件是完全托管的，因此在生产方案中对其进行部署比部署和管理文件服务器或 NAS 设备简单得多。 本文介绍在组织内部署 Azure 文件共享以供生产使用时应考虑的主题。
@@ -57,7 +57,7 @@ Azure 文件提供可确保数据安全的几个内置选项：
 
 * 支持以下两种在线协议的加密：SMB 3.0 加密和通过 HTTPS 的文件 REST。 默认情况下： 
     * 支持 SMB 3.0 加密的客户端通过加密通道发送和接收数据。
-    * 不支持 SMB 3.0 的客户端可通过未加密的 SMB 2.1 或 SMB 3.0 进行数据中心内通信。 请注意，不允许客户端通过未加密的 SMB 2.1 或 SMB 3.0 进行数据中心内通信。
+    * 不支持带加密功能的 SMB 3.0 的客户端可通过无加密功能的 SMB 2.1 或 SMB 3.0 进行数据中心内通信。 不允许 SMB 客户端通过无加密功能的 SMB 2.1 或 SMB 3.0 进行数据中心内通信。
     * 客户端可以通过 HTTP 或 HTTPS 与文件 REST 通信。
 * 静态加密（[Azure 存储服务加密](../common/storage-service-encryption.md?toc=%2fstorage%2ffiles%2ftoc.json)）：将为所有存储帐户启用存储服务加密 (SSE)。 静态数据使用完全托管的密钥进行加密。 静态加密不会增加存储成本，也不会降低性能。 
 * 加密数据在传输中的可选要求：选定后，Azure 文件拒绝通过未加密通道访问数据。 具体而言，仅允许具有加密连接的 HTTPS 和 SMB 3.0。 
@@ -68,7 +68,7 @@ Azure 文件提供可确保数据安全的几个内置选项：
 为了实现最大安全性，强烈建议始终启用这两个静态加密功能，并在使用新式客户端访问数据时启用数据传输加密。 例如，如需在仅支持 SMB 2.1 的 Windows Server 2008 R2 VM 上装载共享，则需要允许存储帐户接受未加密的流量，因为 SMB 2.1 不支持加密。
 
 
-## <a name="data-redundancy"></a>数据冗余
+## <a name="file-share-redundancy"></a>文件共享冗余
 Azure 文件支持两个数据冗余选项：本地冗余存储 (LRS) 和异地冗余存储 (GRS)。 以下部分描述了本地冗余存储和异地冗余存储之间的差异：
 
 ### <a name="locally-redundant-storage"></a>本地冗余存储
@@ -78,7 +78,7 @@ Azure 文件支持两个数据冗余选项：本地冗余存储 (LRS) 和异地�
 [!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-GRS.md)]
 
 ## <a name="data-growth-pattern"></a>数据增长模式
-目前，Azure 文件共享的最大大小是 5 TiB。 鉴于此当前限制，必须考虑部署 Azure 文件共享时的预期数据增长。 请注意，一个 Azure 存储帐户可以存储多个共享，存储的所有共享总容量为 500 TiB。
+目前，Azure 文件共享的最大大小是 5 TiB。 鉴于此当前限制，必须考虑部署 Azure 文件共享时的预期数据增长。 
 
 ## <a name="data-transfer-method"></a>数据传输方法
 可通过多种简单的选项将数据从现有文件共享（例如本地文件共享）批量传输到 Azure 文件。 几种常用选项包括（非详尽列表）：

@@ -2,19 +2,19 @@
 title: 确定何时使用 Azure Blob、Azure 文件或 Azure 磁盘
 description: 了解在 Azure 中存储和访问数据的不同方式有助于决定要使用的技术。
 services: storage
-author: forester123
-manager: josefree
+author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 03/28/2018
-ms.date: 06/11/2018
+ms.date: 11/05/2018
 ms.author: v-nany
-ms.openlocfilehash: aa1fe80fd1d205dad07c88cfe2289b78f157aafa
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.component: common
+ms.openlocfilehash: 174c1a3cf9914d0598399703c579961151799a8d
+ms.sourcegitcommit: 7c750170ddefe7537663dfbadcc06bf27d94c586
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295754"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50743539"
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>确定何时使用 Azure Blob、Azure 文件或 Azure 磁盘
 
@@ -57,7 +57,7 @@ Azure 文件是对 Azure 磁盘的补充。 一个磁盘每次只能附加到一
  
 ||||  
 |-|-|-|  
-|属性|**Azure 磁盘**|Azure 文件|  
+|属性|**Azure 磁盘**|**Azure 文件**|  
 |作用域|专用于单个虚拟机|跨多个虚拟机共享访问|  
 |快照和复制|是|是|  
 |配置|虚拟机启动时连接|虚拟机启动后连接|  
@@ -65,8 +65,8 @@ Azure 文件是对 Azure 磁盘的补充。 一个磁盘每次只能附加到一
 |清理|自动|手动|  
 |使用 REST 访问|无法访问 VHD 中的文件|可访问存储在共享中的文件|  
 |最大大小|4 TiB 磁盘|5 TiB 文件共享，共享中可保存 1 TiB 文件|  
-|最大 8KB IOps|500 IOps|1000 IOps|  
-|吞吐量|每个磁盘高达 60 MiB/秒|每个文件共享高达 60 MiB/秒|  
+|最大 IOPS|500 IOps|1000 IOps|  
+|吞吐量|每个磁盘高达 60 MiB/秒|目标是每个文件共享 60 MiB/秒（更高 IO 大小可以达到更高目标）|  
 
 ## <a name="next-steps"></a>后续步骤
 

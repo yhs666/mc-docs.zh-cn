@@ -1,26 +1,21 @@
 ---
 title: Azure 服务总线消息传送队列、主题和订阅概述
 description: 服务总线消息传送实体概述。
-services: service-bus
-documentationCenter: na
-author: sethmanheim
-manager: timlt
-editor: ''
-ms.assetid: a306ced4-74e9-47c6-990a-d9c47efa31d5
-ms.service: service-bus
-ms.devlang: na
+services: service-bus-messaging
+documentationcenter: na
+author: lingliw
+manager: digimobile
+ms.service: service-bus-messaging
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-origin.date: 06/18/2018
-ms.author: v-yiso
-ms.date: 08/06/2018
-ms.openlocfilehash: 19d0d9835a2cbab902d44798370b75b6543e3d74
-ms.sourcegitcommit: d4092cf6aba0d949bf612093c76f964c2bdfd0ba
+origin.date: 09/18/2018
+ms.date: 10/31/2018
+ms.author: v-lingwu
+ms.openlocfilehash: 8de22439c37145471533c311608d3947e8188734
+ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39306555"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50409388"
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>服务总线队列、主题和订阅
 Azure 服务总线支持一组基于云的、面向消息的中间件技术，包括可靠的消息队列和持久发布/订阅消息。 这些“中转”消息传送功能可被视为分离式消息传送功能，支持使用服务总线消息传送工作负载的发布-订阅、临时分离和负载均衡方案。 分离式通信具有很多优点；例如，客户端和服务器可以根据需要进行连接并以异步方式执行其操作。
@@ -31,7 +26,7 @@ Azure 服务总线支持一组基于云的、面向消息的中间件技术，�
 
 队列为一个或多个竞争使用方提供*先入先出* (FIFO) 消息传递方式。 也就是说，接收方通常会按照消息添加到队列中的顺序来接收并处理消息，并且每条消息仅由一个消息使用方接收并处理。 使用队列的主要优点是，实现应用程序组件的“临时分离”。 换而言之，创建方（发送方）和使用方（接收方）无需同时发送和接收消息，因为消息持久存储在队列中。 此外，创建方不必等待使用方的答复即可继续处理并发送更多消息。
 
-相关的优点是“负载分级”，它允许创建方和使用方以不同速率发送和接收消息。 在许多应用程序中，系统负载随时间而变化，而每个工作单元所需的处理时间通常为常量。 使用队列在消息创建方与使用方之间中继意味着，只需将消费应用程序预配为处理平均负载而非最大负载。 队列深度将随传入负载的变化而加大和减小。 这会直接根据为应用程序加载提供服务所需的基础结构的数目来节省成本。 随着负载增加，可添加更多的工作进程以从队列中读取。 每条消息仅由一个辅助进程处理。 另外，可通过基于拉取的该负载均衡，以最合理的方式使用辅助计算机，即使这些辅助计算机具有不同的处理能力（因为它们以其最大速率拉取消息）也是如此。 此模式通常称为“使用方竞争”模式。
+相关的优点是“负载分级”，它允许创建方和使用方以不同速率发送和接收消息。 在许多应用程序中，系统负载随时间而变化，而每个工作单元所需的处理时间通常为常量。 使用队列在消息创建方与使用方之间中继意味着，只需将消费应用程序预配为处理平均负载而非最大负载。 队列深度将随传入负载的变化而加大和减小。 此功能会直接根据为应用程序加载提供服务所需的基础结构的数目来节省成本。 随着负载增加，可添加更多的工作进程以从队列中读取。 每条消息仅由一个辅助进程处理。 另外，可通过基于拉取的该负载均衡，以最合理的方式使用辅助计算机，即使这些辅助计算机具有不同的处理能力（因为它们以其最大速率拉取消息）也是如此。 此模式通常称为“使用方竞争”模式。
 
 使用队列在消息创建方与使用方之间中继可在各组件之间提供固有的松散耦合。 由于创建方和使用方互不相识，因此，可升级使用方，不会对创建方产生任何影响。
 

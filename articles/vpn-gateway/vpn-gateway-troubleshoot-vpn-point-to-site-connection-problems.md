@@ -3,8 +3,8 @@ title: 排查 Azure 点到站点连接问题 | Microsoft Docs
 description: 了解如何排查点到站点连接问题。
 services: vpn-gateway
 documentationcenter: na
-author: chadmath
-manager: cshepard
+author: WenJason
+manager: digimobile
 editor: ''
 tags: ''
 ms.service: vpn-gateway
@@ -13,14 +13,14 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 05/11/2018
-ms.date: 08/13/2018
-ms.author: v-junlch
-ms.openlocfilehash: 61dd4ee949006782e7ed5ca7f1d77553fa01148a
-ms.sourcegitcommit: ec76e0b9a869eb833f76f6bebbabd2d61ed17e0c
+ms.date: 11/05/2018
+ms.author: v-jay
+ms.openlocfilehash: d9da3af901bebbf39a23bce7f349e1a6b6310480
+ms.sourcegitcommit: 3f96e40162bb6ee2e9fdb76c976517e47a1252d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "41705330"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50919096"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>故障排除：Azure 点到站点连接问题
 
@@ -52,7 +52,7 @@ ms.locfileid: "41705330"
     | Azuregateway-*GUID*.chinacloudapp.cn  | Current User\Trusted Root Certification Authorities|
     | AzureGateway-*GUID*.chinacloudapp.cn, AzureRoot.cer    | Local Computer\Trusted Root Certification Authorities|
 
-3. 转到 Users\<UserName>\AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID>，在用户和计算机的存储上手动安装证书（*.cer 文件）。
+3. 转到 C:\Users\<UserName>\AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID>，在用户和计算机的存储上手动安装证书（*.cer 文件）。
 
 若要详细了解如何安装客户端证书，请参阅[为点到站点连接生成并导出证书](vpn-gateway-certificates-point-to-site.md)。
 
@@ -277,7 +277,7 @@ SMB 协议用于文件共享访问。 连接启动时，VPN 客户端添加了�
 
 ### <a name="solution"></a>解决方案
 
-要解决此问题，请从 C:\users\username\AppData\Microsoft\Network\Connections\<VirtualNetworkId> 删除旧的 VPN 客户端配置文件，再重新运行 VPN 客户端安装程序。
+要解决此问题，请从 C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections\<VirtualNetworkId> 删除旧的 VPN 客户端配置文件，再重新运行 VPN 客户端安装程序。
 
 ## <a name="point-to-site-vpn-client-cannot-resolve-the-fqdn-of-the-resources-in-the-local-domain"></a>点到站点 VPN 客户端无法解析本地域中的资源的 FQDN
 
@@ -352,7 +352,7 @@ Azure VPN 网关类型必须是 VPN，VPN 类型必须是 RouteBased。
 
 ### <a name="solution"></a>解决方案
 
-从 C:\users\username\AppData\Microsoft\Network\Connections\<VirtualNetworkId> 删除旧的 VPN 客户端配置文件，再次运行 VPN 客户端安装程序。 
+从 C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections\<VirtualNetworkId> 删除旧的 VPN 客户端配置文件，再次运行 VPN 客户端安装程序。 
 
 ## <a name="the-vpn-client-hibernates-or-sleep-after-some-time"></a>VPN 客户端在一段时间后进入休眠状态或睡眠状态
 

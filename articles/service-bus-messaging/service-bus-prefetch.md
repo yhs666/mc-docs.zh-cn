@@ -1,25 +1,25 @@
 ---
 title: Azure 服务总线预提取消息 | Microsoft Docs
 description: 通过预提取 Azure 服务总线消息提升性能。
-services: service-bus
+services: service-bus-messaging
 documentationcenter: ''
-author: clemensv
-manager: timlt
+author: lingliw
+manager: digimobile
 editor: ''
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/30/2018
-ms.date: 09/10/2018
-ms.author: v-yiso
-ms.openlocfilehash: 48b1c33cf8e3d3339c09fc09b4335fbb1fffa34f
-ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
+origin.date: 08/30/2018
+ms.date: 10/31/2018
+ms.author: v-lingwu
+ms.openlocfilehash: 436c915e85cc281fe95d461c641698904da6b842
+ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455162"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50409371"
 ---
 # <a name="prefetch-azure-service-bus-messages"></a>预提取 Azure 服务总线消息
 
@@ -59,7 +59,6 @@ ms.locfileid: "47455162"
 
 若要了解有关服务总线消息传送的详细信息，请参阅以下主题：
 
-* [服务总线基础知识](service-bus-fundamentals-hybrid-solutions.md)
 * [服务总线队列、主题和订阅](service-bus-queues-topics-subscriptions.md)
 * [服务总线队列入门](service-bus-dotnet-get-started-with-queues.md)
 * [如何使用服务总线主题和订阅](service-bus-dotnet-how-to-use-topics-subscriptions.md)

@@ -10,15 +10,15 @@ ms.service: cosmos-db
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 03/30/2018
-ms.date: 09/30/2018
+ms.date: 11/05/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: cc2fb17ede1ad00c040e7e910a9c15664e3d79ca
-ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
+ms.openlocfilehash: e082b1bda7d73126cc9582c70c73212115be6042
+ms.sourcegitcommit: c1020b13c8810d50b64e1f27718e9f25b5f9f043
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47201383"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50204852"
 ---
 # <a name="use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>使用数据迁移工具将数据迁移到 Azure Cosmos DB 
 
@@ -28,6 +28,7 @@ ms.locfileid: "47201383"
 
 * **[SQL API](documentdb-introduction.md)** - 可以使用数据迁移工具中提供的任何源选项导入数据。
 * **[MongoDB API](mongodb-introduction.md)** - 数据迁移工具目前不支持将 Azure Cosmos DB MongoDB API 用作源或目标。 若要在 Azure Cosmos DB 中将数据迁入或迁出 MongoDB API 集合，请参阅 [Azure Cosmos DB：如何为 MongoDB API 迁移数据](mongodb-migrate.md)以获取说明。 仍可使用数据迁移工具将数据从 MongoDB 导出到 Azure Cosmos DB SQL API 集合，以便与 SQL API 配合使用。 
+
 <!--Not Available [Table API](table-introduction.md) -->
 <!--Not Available [Import data for use with the Azure Cosmos DB Table API](table-import.md) -->
 <!--Not Available [Graph API](graph-introduction.md) -->
@@ -45,7 +46,9 @@ ms.locfileid: "47201383"
 
 * [Microsoft .NET Framework 4.51](https://www.microsoft.com/download/developer-tools.aspx) 或更高版本。
 
-* 增加吞吐量：数据迁移的持续时间取决于为单个集合或一组集合设置的吞吐量。 请确保对于较大的数据迁移增加吞吐量。 完成迁移后，减少吞吐量以节约成本。 有关在 Azure 门户中增加吞吐量的详细信息，请参阅 Azure Cosmos DB 中的性能级别和定价层。
+* **增加吞吐量：** 数据迁移的持续时间取决于为单个集合或一组集合设置的吞吐量。 请确保对于较大的数据迁移增加吞吐量。 完成迁移后，减少吞吐量以节约成本。 有关在 Azure 门户中增加吞吐量的详细信息，请参阅 Azure Cosmos DB 中的性能级别和定价层。
+
+* **创建 Azure Cosmos DB 资源：** 在开始迁移数据之前，从 Azure 门户预先创建所有集合。 如果要迁移到具有数据库级别吞吐量的 Azure Cosmos DB 帐户，请确保在创建 Azure Cosmos DB 集合时提供分区键。
 
 <a name="Overviewl"></a>
 ## <a name="overview"></a>概述
@@ -64,9 +67,11 @@ ms.locfileid: "47201383"
 
 <a name="Install"></a>
 ## <a name="installation"></a>安装
-迁移工具源代码可在 GitHub 上的[此存储库](https://github.com/azure/azure-documentdb-datamigrationtool)中获得。 可以在本地下载并编译解决方案，或者[下载一个预编译的库](https://cosmosdbportalstorage.blob.core.windows.net/datamigrationtool/2018.02.28-1.8.1/dt-1.8.1.zip)，然后运行以下任一项：<!-- URL is CORRECT ON https://cosmosdbportalstorage.blob.core.windows.net/datamigrationtool -->
+迁移工具源代码可在 GitHub 上的[此存储库](https://github.com/azure/azure-documentdb-datamigrationtool)中获得。 可以在本地下载并编译解决方案，或者[下载一个预编译的库](https://cosmosdbportalstorage.blob.core.windows.net/datamigrationtool/2018.02.28-1.8.1/dt-1.8.1.zip)，然后运行以下任一项：
 
-* **Dtui.exe**︰该工具的图形界面版本
+<!-- URL is CORRECT ON https://cosmosdbportalstorage.blob.core.windows.net/datamigrationtool -->
+
+* **Dtui.exe**：该工具的图形界面版本
 * **Dt.exe**：该工具的命令行版本
 
 ## <a name="select-data-source"></a>选择数据源
@@ -78,14 +83,13 @@ ms.locfileid: "47201383"
 * [MongoDB 导出文件](#MongoDBExport)
 * [SQL Server](#SQL)
 * [CSV 文件](#CSV)
+* [Azure 表存储](#AzureTableSource)
 * [Amazon DynamoDB](#DynamoDBSource)
 * [Blob](#BlobImport)
 * [Azure Cosmos DB 集合](#SQLSource)
 * [HBase](#HBaseSource)
 * [Azure Cosmos DB 批量导入](#SQLBulkTarget)
 * [Azure Cosmos DB 顺序记录导入](#SQLSeqTarget)
-
-<!-- Not Available on * [Azure Table storage](#AzureTableSource) -->
 
 <a name="JSON"></a>
 ## <a name="import-json-files"></a>导入 JSON 文件
@@ -218,8 +222,40 @@ CSV 文件源导入程序选项可用于导入一个或多个 CSV 文件。 添�
     dt.exe /s:CsvFile /s.Files:.\Employees.csv /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /t.Collection:Employees /t.IdField:EntityID /t.CollectionThroughput:2500
 
 <a name="AzureTableSource"></a>
-<!-- Not Available on ## Import from Azure Table storage -->
+## <a name="import-from-azure-table-storage"></a>从 Azure 表存储导入
+借助 Azure 表存储源导入程序选项，可以从单个 Azure 表存储表导入。 可以选择性地筛选要导入的表实体。 
 
+从 Azure 表存储导入的数据可以输出到 Azure Cosmos DB 表和实体以用于表 API，或者输出到集合和文档以用于 SQL API。 不过，表 API 只能在命令行实用工具中用作目标，无法使用数据迁移工具用户界面导出到表 API。 有关详细信息，请参阅[导入要在 Azure Cosmos DB 表 API 中使用的数据](table-import.md)。 
+
+![Azure 表存储源选项的屏幕截图](./media/import-data/azuretablesource.png)
+
+Azure 表存储连接字符串的格式为：
+
+    DefaultEndpointsProtocol=<protocol>;AccountName=<Account Name>;AccountKey=<Account Key>;EndpointSuffix=core.chinacloudapi.cn;
+    
+    <!-- Add EndpointSuffix=core.chinacloudapi.cn for storage account-->
+
+> [!NOTE]
+> 使用验证命令来确保可以访问在连接字符串字段中指定的 Azure 表存储实例。
+> 
+> 
+
+输入要从其中导入数据的 Azure 表的名称。 可以选择指定 [筛选器](../vs-azure-tools-table-designer-construct-filter-strings.md)。
+
+Azure 表存储源导入程序选项具有下列附加选项︰
+
+1. 包括内部字段
+   1. 所有 - 包括所有内部字段（PartitionKey、RowKey 和 Timestamp）
+   2. 无 - 排除所有内部字段
+   3. RowKey - 仅包括 RowKey 字段
+2. 选择列
+   1. Azure 表存储筛选器不支持投影。 如果想要仅导入特定的 Azure 表实体属性，请将它们添加到“选择列”列表中。 将忽略其他所有实体属性。
+
+下面是一个用于从 Azure 表存储导入的命令行示例：
+
+    dt.exe /s:AzureTable /s.ConnectionString:"DefaultEndpointsProtocol=https;AccountName=<Account Name>;AccountKey=<Account Key>;EndpointSuffix=core.chinacloudapi.cn" /s.Table:metrics /s.InternalFields:All /s.Filter:"PartitionKey eq 'Partition1' and RowKey gt '00001'" /s.Projection:ObjectCount;ObjectSize  /t:DocumentDBBulk /t.ConnectionString:" AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /t.Collection:metrics /t.CollectionThroughput:2500
+
+    <!-- Add EndpointSuffix=core.chinacloudapi.cn for storage account-->
 <a name="DynamoDBSource"></a>
 ## <a name="import-from-amazon-dynamodb"></a>从 Amazon DynamoDB 导入
 借助 Amazon DynamoDB 源导入程序选项，可以从单个 Amazon DynamoDB 表中导入，并且可以选择筛选要导入的实体。 提供多个模板，以便尽可能简化导入设置。
@@ -249,8 +285,7 @@ Amazon DynamoDB 连接字符串的格式为：
 
 下面是一个用于从 Azure Blob 存储导入 JSON 文件的命令行示例：
 
-    dt.exe /s:JsonFile /s.Files:"blobs://<account key>@account.blob.core.chinacloudapi.cn:443/importcontainer/.*" /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;EndpointSuffix=core.chinacloudapi.cn" /t.Collection:doctest
-    <!-- Add EndpointSuffix=core.chinacloudapi.cn for storage account-->
+    dt.exe /s:JsonFile /s.Files:"blobs://<account key>@account.blob.core.chinacloudapi.cn:443/importcontainer/.*" /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>" /t.Collection:doctest
     
 <a name="SQLSource"></a>
 ## <a name="import-from-a-sql-api-collection"></a>从 SQL API 集合导入
@@ -514,6 +549,14 @@ Azure Cosmos DB - 顺序记录导入程序具有下列高级附加选项：
       }
     ]
     }]
+
+下面是用于将 JSON 文件导出到 Azure Blob 存储的命令行示例：
+
+```
+dt.exe /ErrorDetails:All /s:DocumentDB /s.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB database_name>" /s.Collection:<CosmosDB collection_name>
+/t:JsonFile /t.File:"blobs://<Storage account key>@<Storage account name>.blob.core.chinacloudapi.cn:443/<Container_name>/<Blob_name>"
+/t.Overwrite
+```
 
 ## <a name="advanced-configuration"></a>高级配置
 在高级配置屏幕中，指定要向其中写入错误的日志文件的位置。 本页适用的规则如下：

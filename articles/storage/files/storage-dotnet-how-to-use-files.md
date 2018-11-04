@@ -1,26 +1,21 @@
 ---
-title: 使用 .NET 针对 Azure 文件进行开发 | Azure
+title: 使用 .NET 针对 Azure 文件进行开发 | Microsoft Docs
 description: 了解如何开发使用 Azure 文件来存储文件数据的 .NET 应用程序和服务。
 services: storage
-documentationcenter: .net
-author: forester123
-manager: aungoo
-editor: tysonn
-ms.assetid: 6a889ee1-1e60-46ec-a592-ae854f9fb8b6
+author: WenJason
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
 origin.date: 11/22/2017
-ms.date: 07/02/2018
-ms.author: v-johch
-ms.openlocfilehash: 90f37c9961a4558d2bec9621b9ab3fed5e134910
-ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
+ms.date: 11/05/2018
+ms.author: v-jay
+ms.component: files
+ms.openlocfilehash: b2c903a9645d791427a0062d7940697f62f7d6d5
+ms.sourcegitcommit: 7c750170ddefe7537663dfbadcc06bf27d94c586
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103098"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50743552"
 ---
 # <a name="develop-for-azure-files-with-net"></a>使用 .NET 针对 Azure 文件进行开发
 
@@ -461,7 +456,7 @@ Console.WriteLine(serviceProperties.MinuteMetrics.RetentionDays);
 Console.WriteLine(serviceProperties.MinuteMetrics.Version);
 ```
 
-还可以参考 [Azure 文件故障排除文章](storage-troubleshoot-windows-file-connection-problems.md) 了解有关端到端故障排除指南。
+此外，有关端到端故障排除指南可以参考 [Azure 文件故障排除文章](storage-troubleshoot-windows-file-connection-problems.md)。
 
 ## <a name="next-steps"></a>后续步骤
 请参阅以下链接，获取有关 Azure 文件的更多信息。

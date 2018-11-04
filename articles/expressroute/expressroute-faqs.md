@@ -7,13 +7,13 @@ ms.service: expressroute
 ms.topic: conceptual
 origin.date: 08/29/2018
 ms.author: v-yiso
-ms.date: 10/15/2018
-ms.openlocfilehash: b0dcc8a75c542a05c7eb9a7101b47e799275441f
-ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
+ms.date: 11/12/2018
+ms.openlocfilehash: d53dec0e5a5ca6c6c63358d8dfb24b09f13ff277
+ms.sourcegitcommit: 3f96e40162bb6ee2e9fdb76c976517e47a1252d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455274"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50919119"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute 常见问题
 
@@ -325,3 +325,11 @@ Office 365 服务要求启用高级版外接程序。 有关费用，请参阅[�
 * 在 2017 年 8 月 1 日之前配置的 ExpressRoute 线路的 Microsoft 对等互连会通过 Microsoft 对等互连播发所有服务前缀，即使未定义路由筛选器。
 
 * 在 2017 年 8 月 1 日或之后配置的 ExpressRoute 线路的 Microsoft 对等互连的任何前缀只在将路由筛选器附加到线路之后才会播发。 默认情况下，不会显示任何前缀。
+
+## <a name="expressRouteDirect"></a>ExpressRoute Direct（预览版）
+
+[!INCLUDE [ExpressRoute Direct](../../includes/expressroute-direct-faq-include.md)]
+
+## <a name="globalreach"></a>Global Reach（预览版）
+
+[!INCLUDE [Global Reach](../../includes/expressroute-global-reach-faq-include.md)]

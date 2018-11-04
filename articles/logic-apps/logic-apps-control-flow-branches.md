@@ -3,20 +3,18 @@ title: 创建或联接并行分支 - Azure 逻辑应用 | Microsoft Docs
 description: 如何创建或联接 Azure 逻辑应用中的工作流的并行分支
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: v-yiso
-manager: jeconnoc
-origin.date: 03/05/2018
-ms.topic: article
+origin.date: 10/10/2018
 ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.date: 07/02/2018
-ms.openlocfilehash: 7455c469efd61944ae5f448f7a2950f7b00df33f
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.date: 11/12/2018
+ms.openlocfilehash: 5c0ab69e51fdadb8da81271a6fb4a557e76730ab
+ms.sourcegitcommit: 3f96e40162bb6ee2e9fdb76c976517e47a1252d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315373"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50919099"
 ---
 # <a name="create-or-join-parallel-branches-for-workflow-actions-in-azure-logic-apps"></a>创建或联接 Azure 逻辑应用中的工作流的并行分支
 
@@ -33,7 +31,7 @@ ms.locfileid: "36315373"
 
 <a name="parallel-branches"></a>
 
-## <a name="add-a-parallel-branch"></a>添加并行分支
+## <a name="add-parallel-branch"></a>添加并行分支
 
 若要同时运行独立的步骤，可以在现有步骤旁边添加平行分支。 
 
@@ -47,19 +45,31 @@ ms.locfileid: "36315373"
 
 1. 在 <a href="https://portal.azure.cn" target="_blank">Azure 门户</a>的逻辑应用设计器中打开逻辑应用。
 
-2. 将鼠标指针悬停在要添加平行分支的步骤上方的箭头上。
-
-3. 选择**加号** (**+**)，选择“添加并行分支”，并选择要添加的项。
+1. 将指针悬停在要添加平行分支的步骤上方的箭头上。 选择出现的加号 (+)，然后选择“添加并行分支”。 
 
    ![添加并行分支](media/logic-apps-control-flow-branches/add-parallel-branch.png)
 
-   所选项现在将显示在并行分支中。
+1. 在搜索框中，查找并选择所需的操作。
 
-4. 对于每个并行分支，添加所需的步骤。 若要将顺序操作添加到并行分支，请将鼠标指针移动到要添加顺序操作的操作下。 选择**加号** (**+**) 并选择要添加的步骤。
+   ![查找并选择所需的操作](media/logic-apps-control-flow-branches/find-select-parallel-action.png)
 
-   ![将顺序步骤添加到并行分支](media/logic-apps-control-flow-branches/add-sequential-action-parallel-branch.png)
+   现在，所选操作将在并行分支中显示，例如：
 
-5. 若要将分支重新合并在一起，请[联接平行分支](#join-branches)。 
+   ![查找并选择所需的操作](media/logic-apps-control-flow-branches/added-parallel-branch.png)
+
+1. 现在，在每个并行分支中添加所需的步骤。 若要将其他操作添加到分支，请将指针移动到要添加顺序操作的操作下。 选择出现的加号 (+)，然后选择“添加操作”。
+
+   ![将顺序操作添加到并行分支](media/logic-apps-control-flow-branches/add-sequential-action.png)
+
+1. 在搜索框中，查找并选择所需的操作。
+
+   ![查找并选择顺序操作](media/logic-apps-control-flow-branches/find-select-sequential-action.png)
+
+   现在，所选操作将在当前分支中显示，例如：
+
+   ![查找并选择顺序操作](media/logic-apps-control-flow-branches/added-sequential-action.png)
+
+若要将分支重新合并在一起，请[联接平行分支](#join-branches)。 
 
 <a name="parallel-json"></a>
 
@@ -111,11 +121,17 @@ ms.locfileid: "36315373"
 
 1. 在 [Azure 门户](https://portal.azure.cn)中的逻辑应用设计器中查找并打开逻辑应用。 
 
-2. 在要联接的平行分支下，添加要执行的步骤。
+1. 在想要联接的平行分支下，选择 **新建步骤**。 
 
-   ![添加用于联接平行分支的步骤](media/logic-apps-control-flow-branches/join-steps.png)
+   ![添加要联接的步骤](media/logic-apps-control-flow-branches/add-join-step.png)
+
+1. 在搜索框中，查找并选择操作，作为联接分支的步骤。
+
+   ![查找并选择联接平行分支的操作](media/logic-apps-control-flow-branches/join-steps.png)
 
    现在已合并并行分支。
+
+   ![已联接的分支](media/logic-apps-control-flow-branches/joined-branches.png)
 
 <a name="join-json"></a>
 

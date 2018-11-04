@@ -4,6 +4,7 @@ description: 了解 Azure 逻辑应用的工作流定义语言函数
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
+ms.author: v-yiso
 manager: jeconnoc
 editor: ''
 documentationcenter: ''
@@ -13,14 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 origin.date: 08/15/2018
-ms.date: 10/15/2018
-ms.author: v-yiso
-ms.openlocfilehash: a1d64f233902463fc28f4ddda83ea9b0099f021c
-ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
+ms.date: 11/12/2018
+ms.openlocfilehash: 14830d0bcb7b4689250676cc4d328d6c1c6c665e
+ms.sourcegitcommit: 3f96e40162bb6ee2e9fdb76c976517e47a1252d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455290"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50919126"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Azure 逻辑应用中工作流定义语言的函数引用
 
@@ -87,7 +87,7 @@ ms.locfileid: "47455290"
 | [indexOf](../logic-apps/workflow-definition-language-functions-reference.md#indexof) | 返回子字符串的起始位置。 | 
 | [lastIndexOf](../logic-apps/workflow-definition-language-functions-reference.md#lastindexof) | 返回最后一次出现的子字符串的起始位置。 | 
 | [replace](../logic-apps/workflow-definition-language-functions-reference.md#replace) | 将子字符串替换为指定的字符串，并返回更新的字符串。 | 
-| [split](../logic-apps/workflow-definition-language-functions-reference.md#split) | 返回一个数组，该数组包含字符串中的所有字符，并使用特定的分隔符分隔每个字符。 | 
+| [split](../logic-apps/workflow-definition-language-functions-reference.md#split) | 根据原始字符串中指定的分隔符字符，从较大字符串中返回一个包含子字符串（以逗号分隔）的数组。 | 
 | [startsWith](../logic-apps/workflow-definition-language-functions-reference.md#startswith) | 检查字符串是否以特定的子字符串开头。 | 
 | [substring](../logic-apps/workflow-definition-language-functions-reference.md#substring) | 返回字符串中的字符，从指定的位置开始。 | 
 | [toLower](../logic-apps/workflow-definition-language-functions-reference.md#toLower) | 返回小写格式的字符串。 | 
@@ -498,7 +498,7 @@ addDays('<timestamp>', <days>, '<format>'?)
 | --------- | -------- | ---- | ----------- | 
 | <*timestamp*> | 是 | String | 包含时间戳的字符串 | 
 | <*days*> | 是 | Integer | 要加上的正负天数 | 
-| <*format*> | 否 | String | [单一格式的说明符](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings)或[自定义格式的模式](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)。 时间戳的默认格式为 ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddT:mm:ss:fffffffK)，这符合 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 并保留了时区信息。 |
+| <*format*> | 否 | String | [单一格式的说明符](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings)或[自定义格式的模式](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)。 时间戳的默认格式为[“o”](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings)(yyyy-MM-ddT:mm:ss:fffffffK)，这符合 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 标准并保留了时区信息。 |
 ||||| 
 
 | 返回值 | 类型 | 说明 | 
@@ -695,7 +695,7 @@ addToTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 | 参数 | 必须 | 类型 | 说明 | 
 | --------- | -------- | ---- | ----------- | 
 | <*timestamp*> | 是 | String | 包含时间戳的字符串 | 
-| <*interval*> | 是 | Integer | 要添加的指定时间单位数 | 
+| <*间隔*> | 是 | Integer | 要添加的指定时间单位数 | 
 | <*timeUnit*> | 是 | String | 要与 *interval* 一起使用的时间单位：“Second”、“Minute”、“Hour”、“Day”、“Week”、“Month”、“Year” | 
 | <*format*> | 否 | String | [单一格式的说明符](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings)或[自定义格式的模式](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)。 时间戳的默认格式为 ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddT:mm:ss:fffffffK)，这符合 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 并保留了时区信息。 |
 ||||| 
@@ -1899,7 +1899,7 @@ getFutureTime(<interval>, <timeUnit>, <format>?)
 
 | 参数 | 必须 | 类型 | 说明 | 
 | --------- | -------- | ---- | ----------- | 
-| <*interval*> | 是 | Integer | 要减去的指定时间单位数 | 
+| <*间隔*> | 是 | Integer | 要减去的指定时间单位数 | 
 | <*timeUnit*> | 是 | String | 要与 *interval* 一起使用的时间单位：“Second”、“Minute”、“Hour”、“Day”、“Week”、“Month”、“Year” | 
 | <*format*> | 否 | String | [单一格式的说明符](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings)或[自定义格式的模式](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)。 时间戳的默认格式为 ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddT:mm:ss:fffffffK)，这符合 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 并保留了时区信息。 | 
 ||||| 
@@ -1941,7 +1941,7 @@ getPastTime(<interval>, <timeUnit>, <format>?)
 
 | 参数 | 必须 | 类型 | 说明 | 
 | --------- | -------- | ---- | ----------- | 
-| <*interval*> | 是 | Integer | 要减去的指定时间单位数 | 
+| <*间隔*> | 是 | Integer | 要减去的指定时间单位数 | 
 | <*timeUnit*> | 是 | String | 要与 *interval* 一起使用的时间单位：“Second”、“Minute”、“Hour”、“Day”、“Week”、“Month”、“Year” | 
 | <*format*> | 否 | String | [单一格式的说明符](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings)或[自定义格式的模式](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)。 时间戳的默认格式为 ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddT:mm:ss:fffffffK)，这符合 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 并保留了时区信息。 | 
 ||||| 
@@ -3021,32 +3021,32 @@ skip([0, 1, 2, 3], 1)
 
 ### <a name="split"></a>split
 
-返回一个数组，它包含某个字符串中的所有字符并且以分隔符分隔每个字符。
+根据原始字符串中指定的分隔符字符，返回一个包含子字符串（以逗号分隔）的数组。 
 
 ```
-split('<text>', '<separator>')
+split('<text>', '<delimiter>')
 ```
 
 | 参数 | 必须 | 类型 | 说明 | 
 | --------- | -------- | ---- | ----------- | 
-| <*text*> | 是 | String | 包含要拆分的字符的字符串 |  
-| <*separator*> | 是 | String | 出现在结果数组中的每个字符之间的分隔符 | 
+| <*text*> | 是 | String | 根据原始字符串中指定的分隔符将分隔成子字符串的字符串 |  
+| <*delimiter*> | 是 | String | 原始字符串中用作分隔符的字符 | 
 ||||| 
 
 | 返回值 | 类型 | 说明 | 
 | ------------ | ---- | ----------- | 
-| [<*char1*><*separator*><*char2*><*separator*>...] | Array | 基于指定字符串中的所有项创建的结果数组 |
+| [<*substring1*>,<*substring2*>,...] | Array | 一个数组，其中包含从原始字符串返回以逗号分隔的子字符串 |
 |||| 
 
 *示例* 
 
-此示例基于指定字符串创建数组，以逗号作为分隔符分隔各个字符：
+此示例根据作为分隔符的指定字符，从指定字符串创建具有子字符串的数组： 
 
 ```
-split('abc', ',')
+split('a_b_c', '_')
 ```
 
-并返回以下结果：`[a, b, c]`
+并将此数组作为以下结果返回：`["a","b","c"]`
 
 <a name="startOfDay"></a>
 
@@ -3298,7 +3298,7 @@ subtractFromTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 | 参数 | 必须 | 类型 | 说明 | 
 | --------- | -------- | ---- | ----------- | 
 | <*timestamp*> | 是 | String | 包含时间戳的字符串 | 
-| <*interval*> | 是 | Integer | 要减去的指定时间单位数 | 
+| <*间隔*> | 是 | Integer | 要减去的指定时间单位数 | 
 | <*timeUnit*> | 是 | String | 要与 *interval* 一起使用的时间单位：“Second”、“Minute”、“Hour”、“Day”、“Week”、“Month”、“Year” | 
 | <*format*> | 否 | String | [单一格式的说明符](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings)或[自定义格式的模式](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)。 时间戳的默认格式为 ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddT:mm:ss:fffffffK)，这符合 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 并保留了时区信息。 | 
 ||||| 

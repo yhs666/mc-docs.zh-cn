@@ -1,26 +1,26 @@
 ---
 title: 使用 Azure Resource Manager 模板创建 Azure 服务总线命名空间和队列 | Azure
 description: 使用 Azure Resource Manager 模板创建服务总线命名空间和队列
-services: service-bus
+services: service-bus-messaging
 documentationcenter: .net
-author: sethmanheim
-manager: timlt
+author: lingliw
+manager: digimobile
 editor: ''
 ms.assetid: a6bfb5fd-7b98-4588-8aa1-9d5f91b599b6
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-origin.date: 04/11/2018
-ms.date: 04/30/2018
-ms.author: v-yiso
-ms.openlocfilehash: 2050d38c55d317e2f2e70adf09b1d709dde1c43a
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+origin.date: 09/11/2018
+ms.date: 10/31/2018
+ms.author: v-lingwu
+ms.openlocfilehash: 8c84d1c3462ef7bb52aa44eae5e9b13508c9de0a
+ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31781880"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50409350"
 ---
 # <a name="create-a-service-bus-namespace-and-a-queue-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 模板创建服务总线命名空间和队列
 
@@ -33,10 +33,10 @@ ms.locfileid: "31781880"
 > [!NOTE]
 > 以下 Azure Resource Manager 模板可供下载和部署。
 > 
-> * [创建包含队列和授权规则的服务总线命名空间](./service-bus-resource-manager-namespace-auth-rule.md)
-> * [创建包含主题和订阅的服务总线命名空间](./service-bus-resource-manager-namespace-topic.md)
-> * [创建服务总线命名空间](./service-bus-resource-manager-namespace.md)
-> * [创建包含主题、订阅和规则的服务总线命名空间](./service-bus-resource-manager-namespace-topic-with-rule.md)
+> * [创建包含队列和授权规则的服务总线命名空间](service-bus-resource-manager-namespace-auth-rule.md)
+> * [创建包含主题和订阅的服务总线命名空间](service-bus-resource-manager-namespace-topic.md)
+> * [创建服务总线命名空间](service-bus-resource-manager-namespace.md)
+> * [创建包含主题、订阅和规则的服务总线命名空间](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
 > 若要查找最新模板，请访问 [Azure 快速入门模板][Azure Quickstart Templates]库并搜索“服务总线”。
 > 
@@ -46,11 +46,11 @@ ms.locfileid: "31781880"
 
 使用此模板，将部署包含队列的服务总线命名空间。
 
-[服务总线队列](./service-bus-queues-topics-subscriptions.md#queues)为一个或多个竞争使用方提供先入先出 (FIFO) 消息传送方式。
+[服务总线队列](service-bus-queues-topics-subscriptions.md#queues)为一个或多个竞争使用方提供先入先出 (FIFO) 消息传送方式。
 
 若要自动运行部署，请单击以下按钮：
 
-[![“部署到 Azure”](./media/service-bus-resource-manager-namespace-queue/deploybutton.png)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-servicebus-create-queue%2Fazuredeploy.json)
+[![部署到 Azure](./media/service-bus-resource-manager-namespace-queue/deploybutton.png)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-servicebus-create-queue%2Fazuredeploy.json)
 
 ## <a name="parameters"></a>parameters
 
@@ -144,12 +144,12 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 
 现在，已使用 Azure 资源管理器创建并部署了资源，请通过查看以下文章了解如何管理这些资源：
 
-* [使用 PowerShell 管理服务总线](./service-bus-manage-with-ps.md)
+* [使用 PowerShell 管理服务总线](service-bus-manage-with-ps.md)
 * [使用服务总线资源管理器管理服务总线资源](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 
   [Authoring Azure Resource Manager Templates]: ../azure-resource-manager/resource-group-authoring-templates.md
   [Service Bus namespace and queue template]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/
-  [Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/?term=service+bus
+[Azure Quickstart Templates]: https://github.com/Azure/azure-quickstart-templates/?term=service+bus
   [Learn more about Service Bus queues]: ./service-bus-queues-topics-subscriptions.md
   [Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/powershell-azure-resource-manager.md
   [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md

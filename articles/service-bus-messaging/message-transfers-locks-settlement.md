@@ -1,25 +1,25 @@
 ---
 title: Azure 服务总线消息传输、锁定和处置 | Microsoft Docs
 description: 服务总线消息传输和处置操作概述
-services: service-bus
+services: service-bus-messaging
 documentationcenter: ''
-author: clemensv
-manager: timlt
+author: lingliw
+manager: digimobile
 editor: ''
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/25/2018
-ms.date: 10/15/2018
-ms.author: v-yiso
-ms.openlocfilehash: c5eb864ce774011090962e85de415970510359e5
-ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
+origin.date: 09/25/2018
+ms.date: 10/31/2018
+ms.author: v-lingwu
+ms.openlocfilehash: 956a9c6455c75a41768d9622a900bb0f3a98aef7
+ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455207"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50409378"
 ---
 # <a name="message-transfers-locks-and-settlement"></a>消息传输、锁定和处置
 
@@ -89,7 +89,7 @@ await Task.WhenAll(tasks);
 for (int i = 0; i < 100; i++)
 {
 
-  client.SendAsync(message); // DON’T DO THIS
+  client.SendAsync(message); // DON'T DO THIS
 }
 ```
 
@@ -127,7 +127,6 @@ for (int i = 0; i < 100; i++)
 
 若要了解有关服务总线消息传送的详细信息，请参阅以下主题：
 
-* [服务总线基础知识](service-bus-fundamentals-hybrid-solutions.md)
 * [服务总线队列、主题和订阅](service-bus-queues-topics-subscriptions.md)
 * [服务总线队列入门](service-bus-dotnet-get-started-with-queues.md)
 * [如何使用服务总线主题和订阅](service-bus-dotnet-how-to-use-topics-subscriptions.md)

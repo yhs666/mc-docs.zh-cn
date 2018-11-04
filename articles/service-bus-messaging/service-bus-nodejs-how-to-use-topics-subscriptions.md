@@ -1,25 +1,26 @@
 ---
 title: 如何通过 Node.js 使用 Azure 服务总线主题和订阅 | Azure
 description: 了解如何通过 Node.js 应用在 Azure 中使用服务总线主题和订阅。
-services: service-bus
-documentationCenter: nodejs
-author: spelluru
-manager: timlt
+services: service-bus-messaging
+documentationcenter: nodejs
+author: lingliw
+manager: digimobile
 editor: ''
 ms.assetid: b9f5db85-7b6c-4cc7-bd2c-bd3087c99875
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 10/15/2018
-ms.author: v-yiso
-ms.openlocfilehash: c550d3b82dfa0c52998bf843d0fa5062a2ff415d
-ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
+origin.date: 08/10/2018
+ms.date: 10/31/2018
+ms.author: v-lingwu
+ms.openlocfilehash: 52fdc6f632b40430a6eddda9cf208b3690a9b66a
+ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455281"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50409393"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs"></a>如何通过 Node.js 使用服务总线主题和订阅
 

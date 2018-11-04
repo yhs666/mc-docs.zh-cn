@@ -6,15 +6,15 @@ documentationcenter: na
 author: WenJason
 ms.service: vpn-gateway
 ms.topic: article
-origin.date: 04/12/2018
-ms.date: 10/01/2018
+origin.date: 09/05/2018
+ms.date: 11/05/2018
 ms.author: v-jay
-ms.openlocfilehash: e100c20f15e5a17ca72fa88bea8951a85e13f856
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.openlocfilehash: 934dfa7d546c5f383d971f01f2b05fb130df22c7
+ms.sourcegitcommit: 3f96e40162bb6ee2e9fdb76c976517e47a1252d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426354"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50919093"
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-using-powershell"></a>使用 PowerShell 为点到站点连接生成和导出证书
 

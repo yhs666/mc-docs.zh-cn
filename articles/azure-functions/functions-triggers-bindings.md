@@ -12,12 +12,12 @@ ms.topic: reference
 origin.date: 09/24/2018
 ms.date: 10/19/2018
 ms.author: v-junlch
-ms.openlocfilehash: fb755e7b29f9de59a74b4ddecc86f1e2b3126d93
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: 6fc26b997ef4e70169fa14ddbc066a4d156638b3
+ms.sourcegitcommit: 9be84d4dc546d66a0d9d1d2be67dd79c84b2c210
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453847"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50408830"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions 触发器和绑定概念
 
@@ -668,7 +668,6 @@ public class BlobName
 - [服务总线](functions-bindings-service-bus.md)
 - [Azure Cosmos DB](functions-bindings-cosmosdb.md)
 - [Microsoft Graph](functions-bindings-microsoft-graph.md)
-- [SendGrid](functions-bindings-sendgrid.md)
 - [通知中心](functions-bindings-notification-hubs.md)
 - [移动应用](functions-bindings-mobile-apps.md)
 - [外部文件](functions-bindings-external-file.md)

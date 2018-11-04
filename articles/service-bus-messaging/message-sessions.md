@@ -1,25 +1,25 @@
 ---
 title: Azure 服务总线消息会话
 description: 使用会话处理一系列 Azure 服务总线消息。
-services: service-bus
+services: service-bus-messaging
 documentationcenter: ''
-author: clemensv
-manager: timlt
+author: lingliw
+manager: digimobile
 editor: ''
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/02/2018
-ms.date: 09/10/2018
-ms.author: v-yiso
-ms.openlocfilehash: 036ad910a2cd445621c26f8c71bd3164fbf0c54e
-ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
+origin.date: 09/02/2018
+ms.date: 10/31/2018
+ms.author: v-lingwu
+ms.openlocfilehash: 51fab23d65251faf7272d7ef44c7c12f36a14079
+ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43328986"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50409307"
 ---
 # <a name="message-sessions-first-in-first-out-fifo"></a>消息会话：先进先出 (FIFO) 
 
@@ -82,7 +82,6 @@ ms.locfileid: "43328986"
 
 若要了解有关服务总线消息传送的详细信息，请参阅以下主题：
 
-* [服务总线基础知识](service-bus-fundamentals-hybrid-solutions.md)
 * [服务总线队列、主题和订阅](service-bus-queues-topics-subscriptions.md)
 * [服务总线队列入门](service-bus-dotnet-get-started-with-queues.md)
 * [如何使用服务总线主题和订阅](service-bus-dotnet-how-to-use-topics-subscriptions.md)

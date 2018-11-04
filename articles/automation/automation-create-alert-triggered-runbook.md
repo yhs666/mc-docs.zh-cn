@@ -6,16 +6,16 @@ ms.service: automation
 ms.component: process-automation
 author: WenJason
 ms.author: v-jay
-origin.date: 03/15/2018
-ms.date: 10/01/2018
+origin.date: 09/18/2018
+ms.date: 11/05/2018
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: fe167d7cd8dca8968ef0f8afff26bf740c01f4fe
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.openlocfilehash: 616bca4d7113bb825aca1d9ddad38e53acdffc88
+ms.sourcegitcommit: d26e5d0d625a61d6b130800d10c81f47c83fb1e0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426448"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50745504"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>使用警报触发 Azure 自动化 Runbook
 
@@ -36,11 +36,11 @@ ms.locfileid: "47426448"
 
 ## <a name="create-a-runbook-to-handle-alerts"></a>创建 Runbook 以处理警报
 
-若要对警报使用自动化，需要有一个 Runbook，其中包含用于管理传递到 Runbook 的警报 JSON 有效负载的逻辑。 下面的示例 Runbook 必须从 Azure 警报调用。 
+若要对警报使用自动化，需要有一个 Runbook，其中包含用于管理传递到 Runbook 的警报 JSON 有效负载的逻辑。 下面的示例 Runbook 必须从 Azure 警报调用。
 
-如前面部分所述，每种警报类型都有不同的架构。 该脚本采用警报中 `WebhookData` Runbook 输入参数的 Webhook 数据。 然后，该脚本对 JSON 有效负载进行评估，确定所用的警报类型。 
+如前面部分所述，每种警报类型都有不同的架构。 该脚本采用警报中 `WebhookData` Runbook 输入参数的 Webhook 数据。 然后，该脚本对 JSON 有效负载进行评估，确定所用的警报类型。
 
-此示例使用来自 VM 的警报。 它从有效负载中检索 VM 数据，然后使用该信息停止运行 VM。 必须在运行该 Runbook 的自动化帐户中建立连接。
+此示例使用来自 VM 的警报。 它从有效负载中检索 VM 数据，然后使用该信息停止运行 VM。 必须在运行该 Runbook 的自动化帐户中建立连接。 使用警报触发 Runbook 时，检查触发的 Runbook 中的警报状态非常重要。 每次警报更改状态时，都会触发 Runbook。 警报具有多个状态，最常见的两个状态是 `Activated` 和 `Resolved`。 在 Runbook 逻辑中检查此状态，以确保 Runbook 不会运行多次。 本文中的示例仅演示了如何查找 `Activated` 警报。
 
 该 Runbook 使用 **AzureRunAsConnection** [运行方式帐户](automation-create-runas-account.md)在 Azure 中进行身份验证，以便对 VM 执行管理操作。
 
@@ -208,10 +208,10 @@ ms.locfileid: "47426448"
    ![“添加操作组”页](./media/automation-create-alert-triggered-runbook/add-action-group.png)
 1. 若要创建操作组，请选择“确定”。
 
-可以在创建的[活动日志警报](/monitoring-and-diagnostics/monitoring-activity-log-alerts?toc=%2fautomation%2ftoc.json)和[准实时警报](/monitoring-and-diagnostics/monitor-alerts-unified-usage?toc=%2fautomation%2ftoc.json#create-an-alert-rule-with-the-azure-portal)中使用此操作组。
+可以在创建的[活动日志警报](../monitoring-and-diagnostics/monitoring-activity-log-alerts.md?toc=%2fautomation%2ftoc.json)和[准实时警报](../monitoring-and-diagnostics/monitoring-overview-alerts.md?toc=%2fautomation%2ftoc.json)中使用此操作组。
 
 ## <a name="next-steps"></a>后续步骤
 
 * 有关使用 Webhook 启动自动化 Runbook 的详细信息，请参阅[从 Webhook 启动 Runbook](automation-webhooks.md)。
 * 有关以不同方式启动 Runbook 的详细信息，请参阅[启动 Runbook](automation-starting-a-runbook.md)。
-* 若要了解如何创建活动日志警报，请参阅[创建活动日志警报](/monitoring-and-diagnostics/monitoring-activity-log-alerts?toc=%2fautomation%2ftoc.json)。
+* 若要了解如何创建活动日志警报，请参阅[创建活动日志警报](../monitoring-and-diagnostics/monitoring-activity-log-alerts.md?toc=%2fautomation%2ftoc.json)。

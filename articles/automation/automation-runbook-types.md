@@ -4,18 +4,18 @@ description: '介绍可以在 Azure 自动化中使用的不同 Runbook 类型�
 services: automation
 ms.service: automation
 ms.component: process-automation
-author: georgewallace
-ms.author: gwallace
+author: WenJason
+ms.author: v-jay
 origin.date: 09/11/2018
-ms.date: 10/01/2018
+ms.date: 11/05/2018
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: a9359a13fde1a686ec1b4d190fd1918c8a655d43
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.openlocfilehash: f5e7bfeefee98f260425d3370ff815f004b63fa8
+ms.sourcegitcommit: d26e5d0d625a61d6b130800d10c81f47c83fb1e0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426311"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50745507"
 ---
 # <a name="azure-automation-runbook-types"></a>Azure 自动化 Runbook 类型
 
@@ -31,7 +31,7 @@ Azure 自动化支持多种类型的 Runbook，下表进行了简要描述。  �
 
 ## <a name="graphical-runbooks"></a>图形 Runbook
 
-使用 Azure 门户中的图形编辑器创建和编辑[图形](automation-runbook-types.md#graphical-runbooks) Runbook 和图形 PowerShell 工作流 Runbook。  可以将其导出到某个文件，然后将其导入另一个自动化帐户，但无法使用其他工具来创建或编辑图形 Runbook。  图形 Runbook 会生成 PowerShell 代码，但你无法直接查看或修改这些代码。 无法将图形 Runbook 转换成某种[文本格式](automation-runbook-types.md)，也无法将文本 Runbook 转换成图形格式。 在导入过程中，可以将图形 runbook 转换为图形 PowerShell 工作流 runbook，反之亦然。
+使用 Azure 门户中的图形编辑器创建和编辑[图形](automation-runbook-types.md#graphical-runbooks) Runbook 和图形 PowerShell 工作流 Runbook。  可以将其导出到某个文件，然后将其导入另一个自动化帐户，但无法使用其他工具来创建或编辑图形 Runbook。  图形 Runbook 会生成 PowerShell 代码，但你无法直接查看或修改这些代码。 无法将图形 Runbook 转换成某种 [文本格式](automation-runbook-types.md)，也无法将文本 Runbook 转换成图形格式。 在导入过程中，可以将图形 runbook 转换为图形 PowerShell 工作流 runbook，反之亦然。
 
 ### <a name="advantages"></a>优点
 
@@ -68,7 +68,7 @@ Azure 自动化支持多种类型的 Runbook，下表进行了简要描述。  �
 以下是当前 PowerShell Runbook 的已知问题。
 
 * PowerShell Runbook 无法检索未加密且值为 null 的[变量资产](automation-variables.md)。
-* PowerShell Runbook 无法检索名称中包含 *~* 的[变量资产](automation-variables.md)。
+* PowerShell Runbook 不能检索名称中包含 [变量资产](automation-variables.md) 的 *~* 。
 * 在 PowerShell Runbook 中，处于循环状态的 Get-Process 在经历大约 80 次迭代后可能会崩溃。
 * 如果 PowerShell Runbook 尝试一次性将极大量的数据写入输出流中，则可能会发生故障。   通常情况下，在处理大型对象时，可以只输出所需信息，从而避免出现这种问题。  例如，不需要输出 *Get-Process* 这样的内容，只需通过 *Get-Process | Select ProcessName, CPU* 输出所需字段即可。
 
@@ -80,7 +80,7 @@ PowerShell 工作流 Runbook 是基于 [Windows PowerShell 工作流](automation
 
 * 通过 PowerShell 工作流代码实现所有复杂的逻辑。
 * 在发生错误时，使用[检查点](automation-powershell-workflow.md#checkpoints)恢复 Runbook。
-* 使用[并行处理](automation-powershell-workflow.md#parallel-processing)并行执行多个操作。
+* 使用 [并行处理](automation-powershell-workflow.md#parallel-processing) 并行执行多个操作。
 * 能够以子 Runbook 的形式包括其他图形 Runbook 和 PowerShell 工作流 Runbook，以创建高级工作流。
 
 ### <a name="limitations"></a>限制
@@ -102,6 +102,7 @@ PowerShell 工作流 Runbook 是基于 [Windows PowerShell 工作流](automation
 
 * 必须熟悉 Python 脚本。
 * 目前仅支持 Python 2，这意味着特定于 Python 3 的函数将会失败。
+* 若要使用第三方库，必须[将软件包导入](python-packages.md)自动化帐户以进行使用。
 
 ## <a name="considerations"></a>注意事项
 

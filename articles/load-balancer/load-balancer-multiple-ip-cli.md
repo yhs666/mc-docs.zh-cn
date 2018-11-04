@@ -1,11 +1,11 @@
 <!-- need to be verified -->
 
 ---
-title: 使用 Azure CLI 在多个 IP 配置上进行负载均衡 | Azure
+title: 使用 Azure CLI 在多个 IP 配置上进行负载均衡 | Microsoft 文档
 description: 了解如何使用 Azure CLI 将多个 IP 地址分配给虚拟机。
 services: virtual-network
 documentationcenter: na
-author: rockboyfor
+author: WenJason
 manager: digimobile
 editor: ''
 tags: azure-resource-manager
@@ -16,8 +16,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 06/25/2018
-ms.date: 07/23/2018
-ms.author: v-yeche
+ms.date: 11/05/2018
+ms.author: v-jay
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-using-azure-cli"></a>使用 Azure CLI 在多个 IP 配置上进行负载均衡
 
@@ -29,7 +29,7 @@ ms.author: v-yeche
 
 若要实现本文中所述的方案，请完成以下步骤：
 
-1. 按照所链接的文章中的步骤[安装和配置 Azure CLI]((/cli/install-azure-cli?view=azure-cli-latest))，然后登录到 Azure 帐户。
+1. 按照所链接的文章中的步骤[安装和配置 Azure CLI](/cli/install-azure-cli?view=azure-cli-latest)，然后登录到 Azure 帐户。
 2. [创建一个资源组](../virtual-machines/linux/create-cli-complete.md?toc=%2fvirtual-network%2ftoc.json)并将其命名为 *contosofabrikam*，如下所示：<!-- Not Available create-resource-group --> 
 
     ```azurecli
@@ -102,7 +102,7 @@ ms.author: v-yeche
     az network nic create --resource-group contosofabrikam --location chinaeast --subnet-vnet-name myVnet --subnet-name mySubnet --name VM1Nic1 --ip-config-name NIC1-ipconfig1
     az network nic create --resource-group contosofabrikam --location chinaeast --subnet-vnet-name myVnet --subnet-name mySubnet --name VM1Nic2 --ip-config-name VM1-ipconfig1 --public-ip-name myPublicIP --lb-address-pool-ids "/subscriptions/<your subscription ID>/resourceGroups/contosofabrikam/providers/Microsoft.Network/loadBalancers/mylb/backendAddressPools/contosopool"
     az network nic ip-config create --resource-group contosofabrikam --nic-name VM1Nic2 --name VM1-ipconfig2 --lb-address-pool-ids "/subscriptions/<your subscription ID>/resourceGroups/contosofabrikam/providers/Microsoft.Network/loadBalancers/mylb/backendAddressPools/fabrikampool"
-    az vm create --resource-group contosofabrikam --name VM1 --location chinaeast --os-type linux --nic-names VM1Nic1,VM1Nic2  --vnet-name VNet1 --vnet-subnet-name Subnet1 --availset-name myAvailabilitySet --vm-size Standard_DS3_v2 --storage-account-name mystorageaccount1 --image-urn canonical:UbuntuServer:16.04.0-LTS:latest --admin-username <your username>  --admin-password <your password>
+    az vm create --resource-group contosofabrikam --name VM1 --location chinaeast --os-type linux --nic-names VM1Nic1,VM1Nic2  --vnet-name VNet1 --vnet-subnet-name Subnet1 --availability-set myAvailabilitySet --vm-size Standard_DS3_v2 --storage-account-name mystorageaccount1 --image-urn canonical:UbuntuServer:16.04.0-LTS:latest --admin-username <your username>  --admin-password <your password>
     ```
 
 12. 为第二个 VM 重复步骤 10-11：

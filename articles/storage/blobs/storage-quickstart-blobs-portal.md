@@ -2,20 +2,19 @@
 title: Azure 快速入门 - 使用 Azure 门户在对象存储中创建 blob | Microsoft Docs
 description: 本快速入门将在对象 (Blob) 存储中使用 Azure 门户。 然后，使用该 Azure 门户将一个 Blob 上传到 Azure 存储，下载一个 Blob，然后列出容器中的 Blob。
 services: storage
-author: forester123
-manager: josefree
+author: WenJason
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 origin.date: 04/09/2018
-ms.date: 06/11/2018
-ms.author: v-nany
-ms.openlocfilehash: 3501ee7ccc6ed221957e036d0e1bcedd5b89d511
-ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
+ms.date: 11/05/2018
+ms.author: v-jay
+ms.openlocfilehash: b32d5acc8d195af7052ed90a96e6ff797cbfabf8
+ms.sourcegitcommit: 7c750170ddefe7537663dfbadcc06bf27d94c586
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103038"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50743548"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-the-azure-portal"></a>快速入门：使用 Azure 门户上传、下载和列出 Blob
 
@@ -25,7 +24,7 @@ ms.locfileid: "37103038"
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
-[!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
+[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
 ## <a name="create-a-container"></a>创建容器
 

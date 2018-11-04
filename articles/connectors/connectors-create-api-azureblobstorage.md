@@ -5,19 +5,19 @@ author: ecfan
 manager: jeconnoc
 ms.author: v-yiso
 origin.date: 05/21/2018
-ms.date: 07/02/2018
+ms.date: 11/12/2018
 ms.topic: article
 ms.service: logic-apps
 services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 86fbf360ed520a575c060c6427641b244f0319ce
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: 58fcbee5900524cd5a35681c5bc46a3646125a4c
+ms.sourcegitcommit: 3f96e40162bb6ee2e9fdb76c976517e47a1252d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939831"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50919080"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-with-azure-logic-apps"></a>使用 Azure 逻辑应用在 Azure Blob 存储中创建和管理 Blob
 
@@ -25,10 +25,11 @@ ms.locfileid: "38939831"
 
 假定你有一个在 Azure 网站上进行更新的工具。 它充当逻辑应用的触发器。 当此事件发生时，可以让逻辑应用更新 Blob 存储容器中的某些文件，这是逻辑应用中的一项操作。 
 
-如果没有 Azure 订阅，请<a href="https://www.azure.cn/pricing/1rmb-trial/" target="_blank">注册一个 Azure 试用帐户</a>。 如果不熟悉逻辑应用，请查看[什么是 Azure 逻辑应用](../logic-apps/logic-apps-overview.md)和[快速入门：创建第一个逻辑应用](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
+如果不熟悉逻辑应用，请查看[什么是 Azure 逻辑应用](../logic-apps/logic-apps-overview.md)和[快速入门：创建第一个逻辑应用](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 如需特定于连接器的技术信息，请参阅 <a href="https://docs.microsoft.com/connectors/azureblobconnector/" target="blank">Azure Blob 存储连接器参考</a>。
 
 ## <a name="prerequisites"></a>先决条件
+如果没有 Azure 订阅，请<a href="https://www.azure.cn/pricing/1rmb-trial/" target="_blank">注册一个 Azure 试用帐户</a>。 
 
 * [Azure 存储帐户和存储容器](../storage/blobs/storage-quickstart-blobs-portal.md)
 

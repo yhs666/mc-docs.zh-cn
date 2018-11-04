@@ -3,8 +3,8 @@ title: 使用共享访问签名进行 Azure 服务总线访问控制
 description: 根据如何使用共享访问签名进行服务总线访问控制，并详细介绍如何使用 Azure 服务总线进行 SAS 授权。
 services: service-bus-messaging
 documentationcenter: na
-author: sethmanheim
-manager: timlt
+author: lingliw
+manager: digimobile
 editor: ''
 ms.assetid: ''
 ms.service: service-bus-messaging
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 02/14/2018
-ms.date: 04/30/2018
-ms.author: v-yiso
-ms.openlocfilehash: 58ba8d6a0573d17089c03f45fe2718dea61054de
-ms.sourcegitcommit: c4437642dcdb90abe79a86ead4ce2010dc7a35b5
+origin.date: 09/14/2018
+ms.date: 10/31/2018
+ms.author: v-lingwu
+ms.openlocfilehash: 5a269bbdf08e1668b8a5c27db191c0386ab06951
+ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31782141"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50409400"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>使用共享访问签名进行服务总线访问控制
 
@@ -40,7 +40,7 @@ SAS 可以根据授权规则来保护对服务总线的访问。 可以在命名
 
 每个服务总线命名空间和服务总线实体都有一个由规则构成的共享访问授权策略。 命名空间级别的策略应用到该命名空间中的所有实体，不管这些实体各自的策略配置如何。
 
-对于每个授权策略规则，需要确定三个信息片段：**名称**、**范围**和**权限**。 **名称** 只是该范围内的唯一名称。 范围也很简单：它是相关资源的 URI。 对于服务总线命名空间，范围是完全限定的域名 (FQDN)，例如 `https://<yournamespace>.servicebus.windows.net/`。
+对于每个授权策略规则，需要确定三个信息片段：**名称**、**范围**和**权限**。 **名称** 只是该范围内的唯一名称。 范围也很简单：它是相关资源的 URI。 对于服务总线命名空间，范围是完全限定的域名 (FQDN)，例如 `https://<yournamespace>.servicebus.chinacloudapi.cn/`。
 
 策略规则授予的权限可以是以下各项的组合：
 
@@ -302,7 +302,6 @@ AMQP 消息包含一组属性，比简单消息包含更多信息。 SAS 令牌�
 
 若要了解有关服务总线消息传送的详细信息，请参阅以下主题。
 
-* [服务总线基础知识](./service-bus-fundamentals-hybrid-solutions.md)
 * [服务总线队列、主题和订阅](./service-bus-queues-topics-subscriptions.md)
 * [如何使用服务总线队列](./service-bus-dotnet-get-started-with-queues.md)
 * [如何使用服务总线主题和订阅](./service-bus-dotnet-how-to-use-topics-subscriptions.md)

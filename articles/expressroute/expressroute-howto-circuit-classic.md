@@ -6,14 +6,14 @@ author: ganesr
 ms.service: expressroute
 ms.topic: conceptual
 origin.date: 07/26/2018
-ms.date: 09/17/2018
+ms.date: 11/12/2018
 ms.author: v-yiso
-ms.openlocfilehash: 4c2d37429c975a8e44db06da7cba457b07a247e6
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.openlocfilehash: 87227a4dd6b5157be83eabffaa79c67d9d3314b3
+ms.sourcegitcommit: 3f96e40162bb6ee2e9fdb76c976517e47a1252d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068095"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50919098"
 ---
 # <a name="modify-an-expressroute-circuit-using-powershell-classic"></a>使用 PowerShell 修改 ExpressRoute 线路（经典）
 
@@ -47,7 +47,7 @@ Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRou
 
 1. 使用提升的权限打开 PowerShell 控制台，并连接到帐户。 使用下面的示例来帮助连接：
 
-  ```powershel
+  ```powershell
   Connect-AzureRmAccount -Environment AzureChinaCloud
   ```
 2. 检查该帐户的订阅。

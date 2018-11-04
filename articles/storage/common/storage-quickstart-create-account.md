@@ -6,16 +6,16 @@ author: WenJason
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-origin.date: 09/11/2018
-ms.date: 09/24/2018
+origin.date: 09/18/2018
+ms.date: 11/05/2018
 ms.author: v-jay
 ms.component: common
-ms.openlocfilehash: a73fc782bc418528b486302d4dd3cd8a360eca57
-ms.sourcegitcommit: 0081fb238c35581bb527bdd704008c07079c8fbb
+ms.openlocfilehash: 1fa366cf4df5a0ea28e83a16a0fde75227d7352c
+ms.sourcegitcommit: 7c750170ddefe7537663dfbadcc06bf27d94c586
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523713"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50743528"
 ---
 # <a name="create-a-storage-account"></a>创建存储帐户
 
@@ -41,7 +41,7 @@ ms.locfileid: "46523713"
 
 ### <a name="install-the-cli-locally"></a>在本地安装 CLI
 
-也可在本地安装和使用 Azure CLI。 本快速入门需要运行 Azure CLI 2.0.4 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](/cli/install-azure-cli)。 
+也可在本地安装和使用 Azure CLI。 本快速入门需要运行 Azure CLI 2.0.4 或更高版本。 运行 `az --version` 即可查找版本。 如需进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。 
 
 ---
 
@@ -70,26 +70,21 @@ az login
 
 ---
 
-## <a name="create-a-resource-group"></a>创建资源组
+## <a name="create-a-storage-account"></a>创建存储帐户
 
-Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。 有关资源组的详细信息，请参阅 [Azure Resource Manager 概述](../../azure-resource-manager/resource-group-overview.md)。
+现在可以创建存储帐户。
+
+每个存储帐户都必须属于 Azure 资源组。 资源组是对 Azure 资源进行分组的逻辑容器。 在创建存储帐户时，可以选择创建新的资源组，也可以使用现有资源组。 本快速入门介绍了如何创建新资源组。 
+
+可以使用常规用途 v2 存储帐户访问所有 Azure 存储服务：Blob、文件、队列、表和磁盘。 本快速入门创建常规用途 v2 存储帐户，但创建任何类型的存储帐户的步骤都相似。   
 
 # <a name="portaltabportal"></a>[Portal](#tab/portal)
 
-若要在 Azure 门户中创建资源组，请执行以下步骤：
-
-1. 在 Azure 门户中展开左侧的菜单，打开服务菜单，然后选择“资源组”。
-2. 单击“添加”按钮添加新的资源组。
-3. 输入新资源组的名称。
-4. 选择要在其中创建新资源组的订阅。
-5. 选择资源组的位置。
-6. 单击“创建”  按钮。  
-
-![显示 Azure 门户中资源组创建情况的屏幕截图](./media/storage-quickstart-create-account/create-resource-group.png)
+[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 
-若要通过 PowerShell 创建新的资源组，请使用 [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) 命令： 
+首先，使用 [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) 命令，通过 PowerShell 创建新的资源组： 
 
 ```powershell
 # put resource group in a variable so you can use the same group name going forward,
@@ -105,57 +100,7 @@ Get-AzureRmLocation | select Location
 $location = "chinaeast"
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
-
-若要通过 Azure CLI 创建新的资源组，请使用 [az group create](/cli/group#az_group_create) 命令。 
-
-```azurecli
-az group create \
-    --name storage-quickstart-resource-group \
-    --location chinaeast
-```
-
-如果不确定为 `--location` 参数指定哪个区域，可使用 [az account list-locations](/cli/account#az_account_list) 命令检索订阅支持的区域的列表。
-
-```azurecli
-az account list-locations \
-    --query "[].{Region:name}" \
-    --out table
-```
-
----
-
-## <a name="create-a-storage-account"></a>创建存储帐户
-
-Azure 存储提供以下类型的存储帐户：
-
-- **常规用途帐户：** 使用常规用途存储帐户可以访问所有 Azure 存储服务：Blob、文件、队列和表。 可以在标准层或高级层中创建常规用途存储帐户。 本文中的示例演示如何在标准层（默认的存储帐户类型）中创建常规用途存储帐户。 
-    
-    常规用途 v2 帐户是常规用途存储帐户的最新版本。 我们建议将新存储帐户创建为**常规用途 v2 帐户**，以利用这些帐户提供的较新功能。  
-
-- **Blob 存储帐户：** Blob 存储帐户是用于存储非结构化对象数据的专用存储帐户。 Blob 存储帐户提供的持久性、可用性、可伸缩性和性能特性与常规用途 v2 存储帐户提供的相同。 Blob 存储帐户支持存储块 Blob和追加 Blob，但不支持存储页 Blob。
-
-有关存储帐户类型的详细信息，请参阅 [Azure 存储帐户概述](storage-account-overview.md)。
-
-# <a name="portaltabportal"></a>[Portal](#tab/portal)
-
-若要在 Azure 门户中创建常规用途 v2 存储帐户，请执行以下步骤：
-
-1. 在 Azure 门户中展开左侧的菜单，打开服务菜单，然后选择“所有服务”。 然后向下滚动到“存储”，接着选择“存储帐户”。 在显示的“存储帐户”窗口中，选择“添加”。
-2. 输入存储帐户的名称。
-3. 将“帐户类型”字段设置为“StorageV2 (常规用途 v2)”。
-4. 将“复制”字段保持设置为“本地冗余存储(LRS)”。 或者，可以选择“异地冗余存储(GRS)”或“读取访问异地冗余存储(RA-GRS)”。
-5. 将以下字段设置为默认值：“部署模型”、“性能”、“需要安全传输”。
-6. 选择要在其中创建存储帐户的订阅。
-7. 在“资源组”部分选择“使用现有资源组”，然后选择在上一部分创建的资源组。
-8. 选择新存储帐户的位置。
-9. 单击“创建”以创建存储帐户。      
-
-![显示 Azure 门户中存储帐户创建情况的屏幕截图](./media/storage-quickstart-create-account/create-account-portal.png)
-
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
-
-若要使用本地冗余存储 (LRS) 从 PowerShell 创建常规用途 v2 存储帐户，请使用 [New-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/New-AzureRmStorageAccount) 命令： 
+然后，创建具有本地冗余存储 (LRS) 的常规用途 v2 存储帐户。 使用 [New-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/New-AzureRmStorageAccount) 命令： 
 
 ```powershell
 New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
@@ -175,7 +120,23 @@ New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-若要使用本地冗余存储从 Azure CLI 创建常规用途 v2 存储帐户，请使用 [az storage account create](/cli/storage/account#az_storage_account_create) 命令。
+首先，使用 [az group create](/cli/group#az_group_create) 命令，通过 Azure CLI 创建新的资源组。 
+
+```azurecli
+az group create \
+    --name storage-quickstart-resource-group \
+    --location chinaeast
+```
+
+如果不确定为 `--location` 参数指定哪个区域，可使用 [az account list-locations](/cli/account#az_account_list) 命令检索订阅支持的区域的列表。
+
+```azurecli
+az account list-locations \
+    --query "[].{Region:name}" \
+    --out table
+```
+
+然后，创建具有本地冗余存储的常规用途 v2 存储帐户。 使用 [az storage account create](/cli/storage/account#az_storage_account_create) 命令：
 
 ```azurecli
 az storage account create \

@@ -2,23 +2,21 @@
 title: 使用 AzCopy 将本地数据迁移到 Azure 存储 | Microsoft 文档
 description: 使用 AzCopy 将数据迁移或复制到 blob、表和文件内容或从其中迁移或复制出数据。 轻松将本地存储中的数据迁移到 Azure 存储中。
 services: storage
-author: yunan2016
-manager: digimobile
+author: WenJason
 ms.service: storage
-ms.tgt_pltfrm: na
-ms.devlang: azcopy
 ms.topic: tutorial
 origin.date: 12/14/2017
-ms.date: 01/29/2018
-ms.author: v-nany
-ms.openlocfilehash: fe806cd0b84f645262555f86f6e30f776170b65f
-ms.sourcegitcommit: 0081fb238c35581bb527bdd704008c07079c8fbb
+ms.date: 11/05/2018
+ms.author: v-jay
+ms.component: common
+ms.openlocfilehash: 1cdf22d9d2d1645894c658d347c10829e53ecb75
+ms.sourcegitcommit: 7c750170ddefe7537663dfbadcc06bf27d94c586
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523681"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50743554"
 ---
-#  <a name="migrate-on-premises-data-to-cloud-storage-by-using-azcopy"></a>使用 AzCopy 将本地数据迁移到云存储
+#  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-by-using-azcopy"></a>教程：使用 AzCopy 将本地数据迁移到云存储
 
 AzCopy 是一个命令行工具，借助该工具，可使用简单命令将数据复制到 Azure Blob 存储、Azure 文件和 Azure 表存储或从其中复制出数据。 这些命令旨在实现最佳性能。 可在文件系统和存储帐户之间或在存储帐户之间复制数据。  
 
@@ -39,7 +37,7 @@ AzCopy 是一个命令行工具，借助该工具，可使用简单命令将数�
 
 要完成本教程，请下载最新版本的 AzCopy on [Linux](/storage/common/storage-use-azcopy-linux#download-and-install-azcopy) 或 AzCopy on [Windows](http://aka.ms/downloadazcopy)。 
 
-[!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
+[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
 >[!NOTE]
 >如果希望能够将 blob 从辅助区域下载到本地存储或反向操作，可将“复制”设置为“读取-访问-异地冗余存储”。 选择此选项会创建一个[异地冗余存储](/storage/common/storage-redundancy)帐户。 
@@ -71,7 +69,7 @@ AzCopy 是一个命令行工具，借助该工具，可使用简单命令将数�
         --recursive
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
-    AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.chinacloudapi.cn/mycontainer /DestKey: key /S
+    AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.chinacloudapi.cn/mycontainer /DestKey:<key> /S
 ---
 
 将 `<key>` 和 `key` 替换为帐户密钥。 在 Azure 门户中，可通过选择存储帐户中“设置”下的“访问密钥”来检索账户密钥。 选择一个密钥，将其粘贴到 AzCopy 命令中。 如果指定的目标容器不存在，则 AzCopy 将创建它并将文件上传到其中。 将源路径更新为数据目录，并将目标 URL 中的 myaccount 替换为存储帐户名称。
@@ -92,7 +90,7 @@ AzCopy 是一个命令行工具，借助该工具，可使用简单命令将数�
     --exclude-older
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
-    AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.chinacloudapi.cn/mycontainer /DestKey: key /S /XO
+    AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.chinacloudapi.cn/mycontainer /DestKey:<key>/S /XO
 ---
 
 ## <a name="create-a-scheduled-task-or-cron-job"></a>创建计划任务或 cron 作业 
@@ -105,7 +103,7 @@ AzCopy 是一个命令行工具，借助该工具，可使用简单命令将数�
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
     cd C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy
-    AzCopy /Source: C:\myfolder  /Dest:https://myaccount.blob.core.chinacloudapi.cn/mycontainer /DestKey: key /V /XO /XN >C:\Path\to\logfolder\azcopy%date:~-4,4%%date:~-7,2%%date:~-10,2%%time:~-11,2%%time:~-8,2%%time:~-5,2%.log
+    AzCopy /Source: C:\myfolder  /Dest:https://myaccount.blob.core.chinacloudapi.cn/mycontainer /DestKey:<key> /V /XO /XN >C:\Path\to\logfolder\azcopy%date:~-4,4%%date:~-7,2%%date:~-10,2%%time:~-11,2%%time:~-8,2%%time:~-5,2%.log
 ---
 
 使用详细 `--verbose` (Linux) 或 `/V` (Windows) 选项运行 AzCopy。 输出会重定向到日志文件。 

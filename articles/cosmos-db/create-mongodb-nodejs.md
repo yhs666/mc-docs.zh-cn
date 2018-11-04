@@ -10,14 +10,14 @@ ms.custom: quick start connect, mvc, devcenter
 ms.devlang: nodejs
 ms.topic: quickstart
 origin.date: 06/19/2017
-ms.date: 09/30/2018
+ms.date: 11/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: f2e75784b0d9b711fd096a3b63e22c689f96d2fd
-ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
+ms.openlocfilehash: ca895ee0be0a7d17953d76b1e64ff5db88877838
+ms.sourcegitcommit: c1020b13c8810d50b64e1f27718e9f25b5f9f043
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47201366"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50204827"
 ---
 # <a name="azure-cosmos-db-migrate-an-existing-nodejs-mongodb-web-app"></a>Azure Cosmos DB：迁移现有的 Node.js MongoDB Web 应用 
 
@@ -29,7 +29,9 @@ ms.locfileid: "47201366"
 > * [Xamarin](create-mongodb-xamarin.md)
 > * [Golang](create-mongodb-golang.md)
 >  
+
 Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务。 可快速创建和查询文档数据库，这些数据库受益于 Azure Cosmos DB 核心的多区域分布和水平缩放功能。 
+
 <!-- Not Available on Key/Value and Graph -->
 <!-- Notice: globally TO multiple-region -->
 
@@ -41,7 +43,7 @@ Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-如果选择在本地安装并使用 CLI，本主题要求运行 Azure CLI 2.0 版或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 
+如果选择在本地安装并使用 CLI，本主题要求运行 Azure CLI 2.0 版或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 
 
 ## <a name="prerequisites"></a>先决条件 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。 
@@ -97,9 +99,10 @@ az login
 ## <a name="add-the-azure-cosmos-db-module"></a>添加 Azure Cosmos DB 模块
 
 如果使用已安装的 Azure CLI，请运行 `az` 命令，检查是否已安装 `cosmosdb` 组件。 如果 `cosmosdb` 在基本命令列表中，请继续执行下一个命令。
+
 <!-- Not Available on Azure Cloud Shell-->
 
-如果 `cosmosdb` 不在基本命令列表中，请重装 [Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。
+如果 `cosmosdb` 不在基本命令列表中，请重装 [Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
@@ -128,7 +131,7 @@ az cosmosdb create --name <cosmosdb-name> --resource-group myResourceGroup --kin
 创建 Azure Cosmos DB 帐户后，Azure CLI 会显示类似于以下示例的信息： 
 
 > [!NOTE]
-> 此示例使用 JSON 作为 Azure CLI 输出格式，此为默认设置。 若要使用其他输出格式，请参阅 [Azure CLI 2.0 命令的输出格式](https://docs.azure.cn/zh-cn/cli/format-output-azure-cli?view=azure-cli-latest)。
+> 此示例使用 JSON 作为 Azure CLI 输出格式，此为默认设置。 若要使用其他输出格式，请参阅 [Azure CLI 命令的输出格式](https://docs.azure.cn/zh-cn/cli/format-output-azure-cli?view=azure-cli-latest)。
 
 ```json
 {

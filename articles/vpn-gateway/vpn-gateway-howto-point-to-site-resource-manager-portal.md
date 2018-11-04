@@ -1,27 +1,20 @@
 ---
 title: 使用点到站点和本机 Azure 证书身份验证将计算机连接到 Azure 虚拟网络：Azure 门户 | Microsoft Docs
-description: 使用 P2S 和自签名证书或 CA 颁发的证书将 Windows 和 Mac OS X 客户端安全地连接到 Azure 虚拟网络。 本文使用 Azure 门户。
+description: 使用 P2S 和自签名证书或 CA 颁发的证书将 Windows、Mac OS X 和 Linux 客户端安全地连接到 Azure 虚拟网络。 本文使用 Azure 门户。
 services: vpn-gateway
-documentationcenter: na
 author: WenJason
-manager: digimobile
-editor: ''
 tags: azure-resource-manager
-ms.assetid: a15ad327-e236-461f-a18e-6dbedbf74943
 ms.service: vpn-gateway
-ms.devlang: na
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-origin.date: 03/19/2018
-ms.date: 09/02/2018
+ms.topic: conceptual
+origin.date: 09/06/2018
+ms.date: 11/05/2018
 ms.author: v-jay
-ms.openlocfilehash: ea33bcc96185d97aa53ecaa460e0c1632bf04582
-ms.sourcegitcommit: e17577aca6df1a41d3ec164f33189f0435c5e060
+ms.openlocfilehash: 785f0b2525fec3daa4e38c9b20b6560530b46e27
+ms.sourcegitcommit: 3f96e40162bb6ee2e9fdb76c976517e47a1252d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43252774"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50919115"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>使用本机 Azure 证书身份验证配置与 VNet 的点到站点连接：Azure 门户
 
@@ -62,7 +55,6 @@ ms.locfileid: "43252774"
 ## <a name="createvnet"></a>1.创建虚拟网络
 
 开始之前，请确保拥有 Azure 订阅。 如果还没有 Azure 订阅，可以注册一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
-
 [!INCLUDE [Basic Point-to-Site VNet](../../includes/vpn-gateway-basic-p2s-vnet-rm-portal-include.md)]
 
 ## <a name="gatewaysubnet"></a>2.添加网关子网

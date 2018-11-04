@@ -1,25 +1,25 @@
 ---
 title: Azure 服务总线消息延迟
 description: 服务总线消息的延迟传送
-services: service-bus
+services: service-bus-messaging
 documentationcenter: ''
-author: clemensv
-manager: timlt
+author: lingliw
+manager: digimobile
 editor: ''
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/26/2018
-ms.date: 03/12/2018
-ms.author: v-yiso
-ms.openlocfilehash: 591a1d67adb05a9f5e7894db93c64e78b6d72ffa
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+origin.date: 09/26/2018
+ms.date: 10/31/2018
+ms.author: v-lingwu
+ms.openlocfilehash: f34f66c6fb1493718201e3d55feaba45c8852877
+ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
-ms.locfileid: "29730770"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50409309"
 ---
 # <a name="message-deferral"></a>消息延迟
 
@@ -39,7 +39,7 @@ ms.locfileid: "29730770"
 
 若要检索延迟的消息，其所有者在延迟它时需负责记住 [SequenceNumber](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.sequencenumber#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_SequenceNumber)。 知道已延迟消息的序列号的任何接收器以后可使用 `Receive(sequenceNumber)` 显式接收该消息。
 
-如果由于处理消息的特定资源暂时不可用，因而无法处理该消息，但同时又不能立即暂停消息处理，则将该消息搁置几分钟的方法是在要延后几分钟的[计划消息](message-sequencing.md)中记住 SequenceNumber，并在计划的消息到达时重新检索已延迟的消息。 请注意，如果消息处理程序依赖于使用某个数据库来执行所有操作，而该数据库暂时不可用，则不应使用延迟，而应全面暂停接收消息，直到数据库再次可用。
+如果由于处理消息的特定资源暂时不可用，因而无法处理该消息，但同时又不能立即暂停消息处理，则将该消息搁置几分钟的方法是在要延后几分钟的[计划消息](message-sequencing.md)中记住 SequenceNumber，并在计划的消息到达时重新检索已延迟的消息。 如果消息处理程序依赖于使用某个数据库来执行所有操作，而该数据库暂时不可用，则不应使用延迟，而应全面暂停接收消息，直到数据库再次可用。
 
 延迟消息不会影响消息过期，也就是说，延迟的消息仍会按照最初计划的时间过期，然后被移到死信队列（如果已采用此配置）。
 
@@ -47,7 +47,6 @@ ms.locfileid: "29730770"
 
 若要了解有关服务总线消息传送的详细信息，请参阅以下主题：
 
-* [服务总线基础知识](service-bus-fundamentals-hybrid-solutions.md)
 * [服务总线队列、主题和订阅](service-bus-queues-topics-subscriptions.md)
 * [服务总线队列入门](service-bus-dotnet-get-started-with-queues.md)
 * [如何使用服务总线主题和订阅](service-bus-dotnet-how-to-use-topics-subscriptions.md)

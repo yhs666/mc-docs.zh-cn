@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 7cafe14dad51e37f222c5ffa50192fd05ed8ec93
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: aaa097fe6ae196f8dd342bb23e046fce77ebcd56
+ms.sourcegitcommit: 9be84d4dc546d66a0d9d1d2be67dd79c84b2c210
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453683"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50408827"
 documentType: LandingData
 title: Azure Functions 文档
 metadata:
@@ -96,4 +96,4 @@ sections:
     - title: REST
       html: <p><a href="/azure-functions/functions-api-definition">OpenAPI</a></p>
     - title: 绑定
-      html: <p><a href="/azure-functions/functions-bindings-storage-blob">Blob 存储</a></p><p><a href="/azure-functions/functions-bindings-documentdb">Azure Cosmos DB</a></p><p><a href="/azure-functions/functions-bindings-event-hubs">事件中心</a></p><p><a href="/azure-functions/functions-bindings-external-file">外部文件</a></p><p><a href="/azure-functions/functions-bindings-http-webhook">HTTP 和 webhook</a></p><p><a href="/azure-functions/functions-bindings-mobile-apps">移动应用</a></p><p><a href="/azure-functions/functions-bindings-notification-hubs">通知中心</a></p><p><a href="/azure-functions/functions-bindings-storage-queue">队列存储</a></p><p><a href="/azure-functions/functions-bindings-sendgrid">SendGrid</a></p><p><a href="/azure-functions/functions-bindings-service-bus">服务总线</a></p><p><a href="/azure-functions/functions-bindings-storage-table">表存储</a></p><p><a href="/azure-functions/functions-bindings-timer">计时器</a></p>
+      html: <p><a href="/azure-functions/functions-bindings-storage-blob">Blob 存储</a></p><p><a href="/azure-functions/functions-bindings-documentdb">Azure Cosmos DB</a></p><p><a href="/azure-functions/functions-bindings-event-hubs">事件中心</a></p><p><a href="/azure-functions/functions-bindings-external-file">外部文件</a></p><p><a href="/azure-functions/functions-bindings-http-webhook">HTTP 和 webhook</a></p><p><a href="/azure-functions/functions-bindings-mobile-apps">移动应用</a></p><p><a href="/azure-functions/functions-bindings-notification-hubs">通知中心</a></p><p><a href="/azure-functions/functions-bindings-storage-queue">队列存储</a></p><p><a href="/azure-functions/functions-bindings-service-bus">服务总线</a></p><p><a href="/azure-functions/functions-bindings-storage-table">表存储</a></p><p><a href="/azure-functions/functions-bindings-timer">计时器</a></p>

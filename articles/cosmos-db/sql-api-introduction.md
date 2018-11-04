@@ -10,18 +10,19 @@ ms.component: cosmosdb-sql
 ms.devlang: na
 ms.topic: overview
 origin.date: 05/22/2017
-ms.date: 09/03/2018
+ms.date: 11/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: ae9ce847bd050301017122b6e5beaaa1a10539a5
-ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
+ms.openlocfilehash: aa1b879c41ea5a6bc9ac8e85c721683a74748c5b
+ms.sourcegitcommit: c1020b13c8810d50b64e1f27718e9f25b5f9f043
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43164711"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50204847"
 ---
 # <a name="introduction-to-azure-cosmos-db-sql-api"></a>Azure Cosmos DB：SQL API 简介
 
-[Azure Cosmos DB](introduction.md) 是 21Vianet 针对任务关键型应用程序提供的多区域分布式多模型数据库服务。 Azure Cosmos DB 在多个区域内提供[统包式数据分发](distribute-data-globally.md)、[弹性缩放中国各地的吞吐量和存储空间](partition-data.md)、99% 情况下低至个位数的毫秒级延迟、[五个妥善定义的一致性级别](consistency-levels.md)，以及得到保证的高可用性，所有这些均由[行业领先的 SLA](https://www.azure.cn/support/sla/cosmos-db/) 提供支持。 Azure Cosmos DB [自动为数据编制索引](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)，无需客户管理架构和索引。 它采用多种模型，支持文档和列式数据模型。
+[Azure Cosmos DB](introduction.md) 是 21Vianet 针对任务关键型应用程序提供的多区域分布式多模型数据库服务。 Azure Cosmos DB 在多个区域内提供[统包式数据分发](distribute-data-globally.md)、[弹性缩放中国各地的吞吐量和存储空间](partition-data.md)、99% 情况下低至个位数的毫秒级延迟、[五个妥善定义的一致性级别](consistency-levels.md)，以及得到保证的高可用性，所有这些均由[行业领先的 SLA](https://www.azure.cn/support/sla/cosmos-db/) 提供支持。 Azure Cosmos DB [自动为数据编制索引](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)，不需要你管理架构和索引。 它采用多种模型，支持文档和列式数据模型。
+
 <!-- Not Available on Graph, Key/Value -->
 <!-- Notice in meta: 全球范围 to 多个数据中心范围 -->
 
@@ -75,7 +76,7 @@ Azure Cosmos DB 通过 REST API 公开资源，可以使用能够发出 HTTP/HTT
 | [Java SDK](http://go.microsoft.com/fwlink/?LinkID=402380) |[Java 库](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb) |
 | [JavaScript SDK](https://github.com/Azure/azure-cosmos-js) |[JavaScript 库](https://github.com/Azure/azure-cosmos-js) |
 | 不适用 |[服务器端 JavaScript SDK](https://github.com/Azure/azure-cosmosdb-js-server) |
-| [Python SDK](https://pypi.python.org/pypi/pydocumentdb) |[Python 库](http://azure.github.io/azure-documentdb-python/) |
+| [Python SDK](https://pypi.python.org/pypi/pydocumentdb) |[Python 库](https://github.com/Azure/azure-cosmos-python) |
 | 不适用 | [适用于 MongoDB 的 API](mongodb-introduction.md)
 
 使用 [Azure Cosmos DB 模拟器](local-emulator.md)可在本地通过 SQL API 开发和测试应用程序，无需创建 Azure 订阅且不会产生任何费用。 如果对应用程序在模拟器中的工作情况感到满意，则可以切换到在云中使用 Azure Cosmos DB 帐户。
@@ -98,4 +99,5 @@ Cosmos DB 中的 JavaScript 执行是在关系型数据库系统所支持的概�
 已有 Azure 帐户？ 然后，可以根据[快速入门](../cosmos-db/create-sql-api-dotnet.md)开始使用 Azure Cosmos DB，这些快速入门将引导创建帐户并开始使用 Cosmos DB。
 
 [1]: ./media/sql-api-introduction/json-database-resources1.png
+
 <!-- Update_Description: update meta properties, update link -->

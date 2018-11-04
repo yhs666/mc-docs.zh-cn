@@ -1,9 +1,9 @@
 ---
-title: 创建内部负载均衡器 - Azure CLI 经典 | Azure
-description: 了解如何在经典部署模型中使用 Azure CLI 创建内部负载均衡器
+title: 创建内部负载均衡器 - Azure 经典 CLI | Microsoft 文档
+description: 了解如何在经典部署模型中使用 Azure 经典 CLI 创建内部负载均衡器
 services: load-balancer
 documentationcenter: na
-author: rockboyfor
+author: WenJason
 manager: digimobile
 editor: ''
 tags: azure-service-management
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 01/23/2017
-ms.date: 06/18/2018
-ms.author: v-yeche
-ms.openlocfilehash: a2fd2de5af949e3d19143a6da62d716e9d8b7f4d
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+origin.date: 06/18/2018
+ms.date: 11/05/2018
+ms.author: v-jay
+ms.openlocfilehash: bf5c526aac4ed4628ad9bcb54dc611e536949cdc
+ms.sourcegitcommit: 9be84d4dc546d66a0d9d1d2be67dd79c84b2c210
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39167798"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50408841"
 ---
-# <a name="get-started-creating-an-internal-load-balancer-classic-using-the-azure-cli"></a>开始使用 Azure CLI 创建内部负载均衡器（经典）
+# <a name="get-started-creating-an-internal-load-balancer-using-the-azure-classic-cli"></a>开始使用 Azure 经典 CLI 创建内部负载均衡器
 
 > [!div class="op_single_selector"]
 > * [PowerShell](../load-balancer/load-balancer-get-started-ilb-classic-ps.md)
@@ -33,7 +33,7 @@ ms.locfileid: "39167798"
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
 > [!IMPORTANT]
-> Azure 具有用于创建和处理资源的两个不同的部署模型：[Resource Manager 和经典](../azure-resource-manager/resource-manager-deployment-model.md)。  本文介绍使用经典部署模型的情况。 Azure 建议大多数新部署使用 Resource Manager 模型。 了解如何[使用 Resource Manager 模型执行这些步骤](load-balancer-get-started-ilb-arm-cli.md)。
+> Azure 具有用于创建和处理资源的两个不同的部署模型：[Resource Manager 和经典](../azure-resource-manager/resource-manager-deployment-model.md)。  本文介绍使用经典部署模型的情况。 Azure 建议大多数新部署使用 Resource Manager 模型。 了解如何 [使用 Resource Manager 模型执行这些步骤](load-balancer-get-started-ilb-arm-cli.md)。
 
 [!INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
@@ -45,11 +45,11 @@ ms.locfileid: "39167798"
 2. 添加与虚拟机对应的、可接收传入流量的终结点。
 3. 配置服务器，以将其流量发送到内部负载均衡实例的虚拟 IP (VIP) 地址。
 
-## <a name="step-by-step-creating-an-internal-load-balancer-using-cli"></a>使用 CLI 逐步创建内部负载均衡器
+## <a name="step-by-step-creating-an-internal-load-balancer-using-classic-cli"></a>使用经典 CLI 逐步创建内部负载均衡器
 
 本指南演示如何基于上述方案创建内部负载均衡器。
 
-1. 如果从未使用过 Azure CLI，请参阅 [Install and Configure the Azure CLI](../cli-install-nodejs.md)（安装和配置 Azure CLI），并按照说明进行操作，直到选择 Azure 帐户和订阅。
+1. 如果从未使用过经典 CLI，请参阅[安装和配置 Azure CLI](../cli-install-nodejs.md)，并按照说明进行操作，直到选择 Azure 帐户和订阅。
 2. 运行 **azure config mode** 命令以切换到经典模式，如下所示。
 
     ```azurecli

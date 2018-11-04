@@ -3,7 +3,7 @@ title: 为 Azure 站点到站点连接配置强制隧道：经典 | Microsoft Do
 description: 如何重定向或“强制”所有 Internet 绑定的流量路由回本地位置。
 services: vpn-gateway
 documentationcenter: na
-author: alexchen2016
+author: WenJason
 manager: digimobile
 editor: ''
 tags: azure-service-management
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 08/01/2017
-ms.date: 08/31/2017
-ms.author: v-junlch
-ms.openlocfilehash: a50872a863ab6599bca3b1ce16eb87b73888eb1c
-ms.sourcegitcommit: b69abfec4a5baf598ddb25f640beaa9dd1fdf5a9
+ms.date: 11/05/2018
+ms.author: v-jay
+ms.openlocfilehash: f8246434c712adbb3c258d360e468b311b889817
+ms.sourcegitcommit: 3f96e40162bb6ee2e9fdb76c976517e47a1252d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/01/2017
-ms.locfileid: "21944695"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50919087"
 ---
 # <a name="configure-forced-tunneling-using-the-classic-deployment-model"></a>使用经典部署模型配置强制隧道
 
@@ -38,14 +38,14 @@ ms.locfileid: "21944695"
 > 
 
 ## <a name="requirements-and-considerations"></a>要求和注意事项
-在 Azure 中，可通过虚拟网络用户定义路由配置强制隧道 (UDR)。 将流量重定向到本地站点，这是 Azure VPN 网关的默认路由。 以下部分列出了 Azure 虚拟网络路由和路由表的当前限制：
+在 Azure 中，可通过虚拟网络用户定义路由 (UDR) 配置强制隧道。 将流量重定向到本地站点，这是 Azure VPN 网关的默认路由。 以下部分列出了 Azure 虚拟网络路由和路由表的当前限制：
 
 * 每个虚拟网络子网具有内置的系统路由表。 系统路由表具有以下三组路由：
 
-  * **本地 VNet 路由：** 直接路由到同一个虚拟网络中的目标虚拟机
-  * **本地路由：** 路由到 Azure VPN 网关
+  * 本地 VNet 路由：直接路由到同一个虚拟网络中的目标 VM。
+  * 本地路由：路由到 Azure VPN 网关。
   * **默认路由：** 直接路由到 Internet。 如果要将数据包发送到不包含在前面两个路由中的专用 IP 地址，数据包会被删除。
-* 在发布的用户定义路由中，可以创建路由表来添加默认路由，并将路由表关联到 VNet 子网，在这些子网中启用强制隧道。
+* 随着用户定义路由的发布，可以创建路由表来添加默认路由，然后将路由表关联到 VNet 子网，在这些子网启用强制隧道。
 * 需要在连接到虚拟网络的跨界本地站点中，设置一个“默认站点”。
 * 强制隧道必须关联到具有动态路由 VPN 网关（而非静态网关）的 VNet。
 * ExpressRoute 强制隧道不是通过此机制配置的，而是通过 ExpressRoute BGP 对等会话播发默认路由来启用的。 有关详细信息，请参阅 [ExpressRoute 文档](/expressroute/)。
@@ -57,7 +57,7 @@ ms.locfileid: "21944695"
 
 ![强制隧道](./media/vpn-gateway-about-forced-tunneling/forced-tunnel.png)
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="before-you-begin"></a>准备阶段
 在开始配置之前，请确认具有以下各项。
 
 * Azure 订阅。 如果还没有 Azure 订阅，可以注册一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
@@ -105,7 +105,7 @@ ms.locfileid: "21944695"
     </VirtualNetworkSite>
 ```
 
-在本示例中，虚拟网络“MultiTier-VNet”具有三个子网：“Frontend”、“Midtier”和“Backend”子网，并且具有四个跨界连接：一个“DefaultSiteHQ”和三个“Branch”。 
+在本示例中，虚拟网络“MultiTier-VNet”具有三个子网：“前端”、“中间层”和“后端子网”，并且具有四个跨界连接：一个“DefaultSiteHQ” 和三个 Branch。 
 
 以下步骤将“DefaultSiteHQ”设置为使用强制隧道的默认站点连接，并将中间层和后端子网配置为使用强制隧道。
 

@@ -3,8 +3,8 @@ title: Azure 服务总线高级和标准消息传送定价层概述
 description: 服务总线高级和标准消息传送层
 services: service-bus-messaging
 documentationcenter: .net
-author: djrosanova
-manager: timlt
+author: lingliw
+manager: digimobile
 editor: ''
 ms.assetid: e211774d-821c-4d79-8563-57472d746c58
 ms.service: service-bus-messaging
@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 04/30/2018
-ms.author: v-yiso
-ms.date: 10/15/2018
-ms.openlocfilehash: c2e3949c2d1d3695eb7e12d32f5c2f8e429520a0
-ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
+origin.date: 08/30/2018
+ms.date: 10/31/2018
+ms.author: v-lingwu
+ms.openlocfilehash: d5087fce0bbd726f34a9159cde17bb13fc3bc60c
+ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455143"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50409305"
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>服务总线高级和标准消息传送层
 
@@ -40,7 +40,7 @@ ms.locfileid: "47455143"
 
 **服务总线高级消息传送**在 CPU 和内存级别提供资源隔离，以便每个客户工作负荷以隔离方式运行。 此资源容器称为 *消息传送单元*。 每个高级命名空间至少会分配一个消息传送单元。 可以为每个服务总线高级命名空间购买 1、2 或 4 个消息传送单元。 单一工作负荷或实体可以跨多个消息传送单元，尽管计费以 24 小时或每天的费率收取，但仍然可以随意更改消息传送单元数。 这会为基于服务总线的解决方案提供可预测和稳定的性能。
 
-此性能不仅更易于预测和实现，而且速度更快。 服务总线高级消息传送以在 [Azure 事件中心](/event-hubs/)引入的存储引擎为基础。 使用高级消息传送，峰值性能比使用标准层快得多。
+此性能不仅更易于预测和实现，而且速度更快。 服务总线高级消息传送以在 [Azure 事件中心](https://www.azure.cn/home/features/event-hubs/)引入的存储引擎为基础。 使用高级消息传送，峰值性能比使用标准层快得多。
 
 ## <a name="premium-messaging-technical-differences"></a>高级消息传送技术差异
 
@@ -62,7 +62,7 @@ ms.locfileid: "47455143"
 
 ![create-premium-namespace][create-premium-namespace]
 
-也可以[使用 Azure 资源管理器模板创建高级命名空间](https://azure.microsoft.com/resources/templates/101-servicebus-pn-ar/)。
+也可以[使用 Azure 资源管理器模板创建高级命名空间](https://github.com/Azure/azure-quickstart-templates/tree/master/101-servicebus-pn-ar/)。
 
 ## <a name="next-steps"></a>后续步骤
 

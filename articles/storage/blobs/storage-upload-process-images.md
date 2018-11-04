@@ -8,15 +8,15 @@ ms.service: storage
 ms.devlang: dotnet
 ms.topic: tutorial
 origin.date: 02/20/2018
-ms.date: 09/24/2018
+ms.date: 11/05/2018
 ms.author: v-jay
 ms.custom: mvc
-ms.openlocfilehash: f8144beb27a2467d6c75066246a714e65288c589
-ms.sourcegitcommit: 0081fb238c35581bb527bdd704008c07079c8fbb
+ms.openlocfilehash: a6d0497aa6e5e8c536a15cca55ef8ec7215990b8
+ms.sourcegitcommit: 7c750170ddefe7537663dfbadcc06bf27d94c586
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523711"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50743537"
 ---
 # <a name="upload-image-data-in-the-cloud-with-azure-storage"></a>使用 Azure 存储在云中上传图像数据
 
@@ -34,20 +34,20 @@ ms.locfileid: "46523711"
 > * 将 Web 应用部署到 Azure
 > * 与 Web 应用进行交互
 
-如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.4 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/cli/install-azure-cli)。 
+如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.4 或更高版本。 运行 `az --version` 即可查找版本。 如需进行安装或升级，请参阅[安装 Azure CLI]( /cli/install-azure-cli)。 
 
 ## <a name="create-a-resource-group"></a>创建资源组 
 
 使用 [az group create](https://docs.azure.cn/cli/group#az_group_create) 命令创建资源组。 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。
- 
+
 以下示例创建名为 `myResourceGroup` 的资源组。
- 
+
 ```azurecli 
 az group create --name myResourceGroup --location chinanorth 
-``` 
+```
 
 ## <a name="create-a-storage-account"></a>创建存储帐户
- 
+
 此示例将图像上传到 Azure 存储帐户中的 blob 容器。 存储帐户提供唯一的命名空间来存储和访问 Azure 存储数据对象。 使用 [az storage account create](https://docs.azure.cn/cli/storage/account#az_storage_account_create) 命令在创建的资源组中创建存储帐户。 
 
 在以下命令中，请将 `<blob_storage_account>` 占位符替换成自己的 Blob 存储帐户的全局唯一名称。  
@@ -56,55 +56,55 @@ az group create --name myResourceGroup --location chinanorth
 az storage account create --name <blob_storage_account> \
 --location chinanorth --resource-group myResourceGroup \
 --sku Standard_LRS --kind blobstorage --access-tier hot 
-``` 
- 
+```
+
 ## <a name="create-blob-storage-containers"></a>创建 blob 存储容器
 
 应用使用 Blob 存储帐户中的两个容器。 这些容器类似于文件夹，用于存储 blob。 images 容器是应用在其中上传完整分辨率图像的位置。 
 
 使用 [az storage account keys list](https://docs.azure.cn/cli/storage/account/keys#az_storage_account_keys_list) 命令获取存储帐户密钥。 然后使用此密钥通过 [az storage container create](https://docs.azure.cn/cli/storage/container#az_storage_container_create) 命令创建两个容器。  
- 
-在此例中，`<blob_storage_account>` 是你创建的 Blob 存储帐户的名称。 images 容器公共访问权限设置为 `off`，thumbnails 容器公共访问权限设置为 `container`。 `container` 公共访问权限设置使访问网页的人员可以查看缩略图。
- 
-```azurecli 
-$blobStorageAccount="<blob_storage_account>"
 
-$blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
--n $blobStorageAccount --query [0].value --output tsv) 
+在此例中，`<blob_storage_account>` 是你创建的 Blob 存储帐户的名称。 images 容器公共访问权限设置为 `off`，thumbnails 容器公共访问权限设置为 `container`。 `container` 公共访问权限设置使访问网页的人员可以查看缩略图。
+
+```azurecli 
+blobStorageAccount=<blob_storage_account>
+
+blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
+-n $blobStorageAccount --query [0].value --output tsv)
 
 az storage container create -n images --account-name $blobStorageAccount \
---account-key $blobStorageAccountKey --public-access off 
+--account-key $blobStorageAccountKey --public-access off
 
 az storage container create -n thumbnails --account-name $blobStorageAccount \
 --account-key $blobStorageAccountKey --public-access container
 
-echo "Make a note of your blob storage account key..." 
-echo $blobStorageAccountKey 
-``` 
+echo "Make a note of your blob storage account key..."
+echo $blobStorageAccountKey
+```
 
 记下 blob 存储帐户名称和密钥。 示例应用使用这些设置连接到存储帐户以上传图像。 
 
-## <a name="create-an-app-service-plan"></a>创建应用服务计划 
+## <a name="create-an-app-service-plan"></a>创建应用服务计划
 
-[应用服务计划](../../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)指定托管应用的 Web 服务器场的位置、大小和功能。 
+[应用服务计划](../../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)指定托管应用的 Web 服务器场的位置、大小和功能。
 
 使用 [az appservice plan create](https://docs.azure.cn/cli/appservice/plan#az_appservice_plan_create) 命令创建应用服务计划。 
 
-以下示例在免费定价层中创建名为 `myAppServicePlan` 的应用服务计划： 
+以下示例在免费定价层中创建名为 `myAppServicePlan` 的应用服务计划：
 
 ```azurecli 
-az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku FREE 
-``` 
+az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku FREE
+```
 
-## <a name="create-a-web-app"></a>创建 Web 应用 
+## <a name="create-a-web-app"></a>创建 Web 应用
 
 Web 应用为从 GitHub 示例存储库部署的示例应用代码提供承载空间。 使用 [az webapp create](/cli/webapp#az_webapp_create) 命令在 `myAppServicePlan` 应用服务计划中创建一个 [Web 应用](../../app-service/app-service-web-overview.md)。  
- 
+
 在以下命令中，将 `<web_app>` 替换为唯一名称（有效字符是 `a-z`、`0-9` 和 `-`）。 如果 `<web_app>` 不是唯一名称，将收到错误消息：“具有给定名称 `<web_app>` 的网站已存在”。 Web 应用的默认 URL 为 `https://<web_app>.chinacloudsites.cn`。  
 
 ```azurecli
-az webapp create --name <web_app> --resource-group myResourceGroup --plan myAppServicePlan 
-``` 
+az webapp create --name <web_app> --resource-group myResourceGroup --plan myAppServicePlan
+```
 
 ## <a name="deploy-the-sample-app-from-the-github-repository"></a>从 GitHub 存储库部署示例应用
 
@@ -116,13 +116,13 @@ az webapp create --name <web_app> --resource-group myResourceGroup --plan myAppS
 az webapp deployment source config --name <web_app> \
 --resource-group myResourceGroup --branch master --manual-integration \
 --repo-url https://github.com/WenJason/storage-blob-upload-from-webapp
-``` 
+```
 
-## <a name="configure-web-app-settings"></a>配置 Web 应用设置 
+## <a name="configure-web-app-settings"></a>配置 Web 应用设置
 
 示例 Web 应用使用 [Azure 存储客户端库](https://docs.azure.cn/zh-cn/dotnet/api/overview/storage)请求用于上传图像的访问令牌。 在 Web 应用的应用设置中设置存储 SDK 使用的存储帐户凭据。 使用 [az webapp config appsettings set](/cli/webapp/config/appsettings#az_webapp_config_appsettings_set) 命令将应用设置添加到已部署的应用。 
 
-在下面的命令中，`<blob_storage_account>` 是 Blob 存储帐户的名称，`<blob_storage_key>` 是关联密钥。 将 `<web_app>` 替换为在上一步中创建的 Web 应用的名称。     
+在下面的命令中，`<blob_storage_account>` 是 Blob 存储帐户的名称，`<blob_storage_key>` 是关联密钥。 将 `<web_app>` 替换为在上一步中创建的 Web 应用的名称。
 
 ```azurecli 
 az webapp config appsettings set --name <web_app> --resource-group myResourceGroup \
@@ -130,11 +130,11 @@ az webapp config appsettings set --name <web_app> --resource-group myResourceGro
 AzureStorageConfig__ImageContainer=images  \
 AzureStorageConfig__ThumbnailContainer=thumbnails \
 AzureStorageConfig__AccountKey=<blob_storage_key>  
-``` 
+```
 
-Web 应用已部署并配置之后，你可以在应用中测试图像上传功能。   
+Web 应用已部署并配置之后，你可以在应用中测试图像上传功能。
 
-## <a name="upload-an-image"></a>上传映像 
+## <a name="upload-an-image"></a>上传映像
 
 若要测试 Web 应用，请浏览到已发布应用的 URL。 Web 应用的默认 URL 为 `https://<web_app>.chinacloudsites.cn`。 选择“上传照片”区域以选择并上传文件，或是将文件拖放到该区域上。 如果成功上传，图像会消失。
 

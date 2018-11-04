@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 10/19/2017
 ms.author: v-yiso
 ms.date: 12/11/2017
-ms.openlocfilehash: fe74bf4491e6b0a3ba7f1147c186ad08391ceaaf
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.openlocfilehash: 443ed0141b03e793183fd0657276583499178d30
+ms.sourcegitcommit: 3f96e40162bb6ee2e9fdb76c976517e47a1252d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
-ms.locfileid: "26044741"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50919102"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-cli"></a>使用 CLI 创建和修改 ExpressRoute 线路
 
@@ -35,9 +35,9 @@ ms.locfileid: "26044741"
 > * [PowerShell（经典）](expressroute-howto-circuit-classic.md)
 > 
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="before-you-begin"></a>准备阶段
 
-* 在开始之前，请安装最新版本的 CLI 命令（2.0 或更高版本）。 有关安装 CLI 命令的信息，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-lastest) 和 [Azure CLI 2.0 入门](https://docs.azure.cn/zh-cn/cli/get-started-with-azure-cli?view=azure-cli-lastest)。
+* 在开始之前，请安装最新版本的 CLI 命令（2.0 或更高版本）。 有关安装 CLI 命令的信息，请参阅[安装 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-lastest) 和 [Azure CLI 入门](https://docs.azure.cn/zh-cn/cli/get-started-with-azure-cli?view=azure-cli-lastest)。
 * 在开始配置之前，请查看[先决条件](expressroute-prerequisites.md)和[工作流](expressroute-workflows.md)。
 
 ## <a name="create"></a>创建和预配 ExpressRoute 线路
@@ -70,7 +70,7 @@ az account set --subscription "<subscription ID>"
 az network express-route list-service-providers
 ```
 
-响应类似于以下示例：
+其响应类似于如下示例：
 
 ```azurecli
 [
@@ -171,7 +171,7 @@ az network express-route list-service-providers
 
 查看此响应以检查你的连接服务提供商是否已在此处列出。 请记下以下信息，稍后在创建线路时需要用到：
 
-* 名称
+* Name
 * PeeringLocations
 * BandwidthsOffered
 
@@ -204,7 +204,7 @@ az group create -n ExpressRouteResourceGroup -l "China North"
 az network express-route create --bandwidth 200 -n MyCircuit --peering-location "Beijing" -g ExpressRouteResourceGroup --provider "Beijing Telecom Ethernet" -l "China North" --sku-family MeteredData --sku-tier Standard
 ```
 
-响应将包含服务密钥。
+响应包含服务密钥。
 
 ### <a name="4-list-all-expressroute-circuits"></a>4.列出所有 ExpressRoute 线路
 
@@ -284,7 +284,7 @@ az network express-route list -h
 az network express-route show --resource-group ExpressRouteResourceGroup --name MyCircuit
 ```
 
-响应类似于以下示例：
+其响应类似于如下示例：
 
 ```azurecli
 "allowClassicOperations": false,
@@ -320,7 +320,7 @@ az network express-route show --resource-group ExpressRouteResourceGroup --name 
 有关分步说明，请参阅 [ExpressRoute 线路路由配置](howto-routing-cli.md)一文，了解如何创建和修改线路对等互连。
 
 > [!IMPORTANT]
-> 这些说明只适用于由提供第 2 层连接服务的服务提供商创建的线路。 如果服务提供商提供第 3 层托管服务（通常是 IP VPN，如 MPLS），则连接服务提供商将为你配置和管理路由。
+> 这些说明仅适用于由提供第 2 层连接服务的服务提供商创建的线路。 如果服务提供商提供第 3 层托管服务（通常是 IP VPN，如 MPLS），则连接服务提供商会配置和管理路由。
 > 
 > 
 
@@ -352,7 +352,7 @@ az network express-route update -n MyCircuit -g ExpressRouteResourceGroup --sku-
 ### <a name="to-disable-the-expressroute-premium-add-on"></a>禁用 ExpressRoute 高级版外接程序
 
 > [!IMPORTANT]
-> 如果使用的资源超出了标准线路允许的范围，此操作可能会失败。
+> 如果使用的资源超出标准线路允许的范围，此操作可能会失败。
 > 
 > 
 
@@ -406,7 +406,7 @@ az network express-route update -n MyCircuit -g ExpressRouteResourceGroup --sku-
 * 如果 ExpressRoute 线路服务提供商预配状态为“正在预配”或“已预配”，则必须与服务提供商合作，在他们那一端取消预配线路。 在服务提供商取消对线路的预配并通知我们之前，我们会继续保留资源并收费。
 * 如果服务提供商已取消预配线路，则可以删除此线路。 取消预配线路后，服务提供商预配状态会被设置为“未预配”。 这样就会停止对线路的计费。
 
-可以通过运行以下命令来删除 ExpressRoute 线路：
+可以通过运行以下命令删除 ExpressRoute 线路：
 
 ```azurecli
 az network express-route delete  -n MyCircuit -g ExpressRouteResourceGroup

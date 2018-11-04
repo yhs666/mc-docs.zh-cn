@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 06/29/2017
 ms.date: 08/28/2017
 ms.author: v-haiqya
-ms.openlocfilehash: 720621965beb510cdbd2bc673509c75edcce821d
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.openlocfilehash: 79c9eb4cd18c5023267ad6f897cbca0bb412c119
+ms.sourcegitcommit: 7c750170ddefe7537663dfbadcc06bf27d94c586
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295799"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50743542"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>为导入作业准备硬盘驱动器
 
@@ -117,8 +117,7 @@ H,Format,SilentMode,Encrypt,
 | 字段 | 值 |
 | --- | --- |
 | DriveLetter | [必需]<br/> 作为目标提供给工具的每个驱动器上需有一个简单的 NTFS 卷，并分配有一个驱动器号。<br/> <br/>示例：R 或 r |
-| FormatOption | [必需] Format &#124; AlreadyFormatted<br/><br/> **Format**：如指定此值，将格式化磁盘上的所有数据。 <br/>
-            **AlreadyFormatted**：如果指定此值，工具会跳过格式化。 |
+| FormatOption | [必需] Format &#124; AlreadyFormatted<br/><br/> **Format**：如指定此值，将格式化磁盘上的所有数据。 <br/>**AlreadyFormatted**：如果指定此值，工具会跳过格式化。 |
 | SilentOrPromptOnFormat | [必需] SilentMode &#124; PromptOnFormat<br/><br/>SilentMode：提供此值可让用户以无提示模式运行该工具。 <br/>PromptOnFormat：该工具在每次格式化时都会提示用户确认是否确实希望执行此操作。<br/><br/>如果未设置，命令将中止并显示错误消息：“SilentOrPromptOnFormat 的值 none 不正确” |
 | Encryption | [必需] Encrypt &#124; AlreadyEncrypted<br/> 此字段的值确定要加密哪个磁盘，不加密哪个磁盘。 <br/><br/>Encrypt：工具将格式化驱动器。 如果“FormatOption”字段的值为“Format”，则此字段的值必须是“Encrypt”。 如果在此情况下指定了“AlreadyEncrypted”，则会导致错误“指定 Format 时，也必须指定 Encrypt”。<br/>AlreadyEncrypted：工具将使用“ExistingBitLockerKey”字段中提供的 BitLockerKey 来加密驱动器。 如果“FormatOption”字段的值为“AlreadyFormatted”，则此字段的值可以是“Encrypt”或“AlreadyEncrypted” |
 | ExistingBitLockerKey | [必需] 如果“Encryption”字段的值为“AlreadyEncrypted”<br/> 此字段的值是与特定磁盘关联的 BitLocker 密钥。 <br/><br/>如果“Encryption”字段的值为“Encrypt”，应将此字段留空。  如果在这种情况下指定 BitLocker 密钥，将导致错误“不应指定 Bitlocker 密钥”。<br/>  示例：060456-014509-132033-080300-252615-584177-672089-411631|
@@ -132,7 +131,7 @@ H,Format,SilentMode,Encrypt,
 将单个/多个目录复制到单个/多个磁盘（取决于在 CSV 文件中指定的内容）的第一个复制会话。可以使用 PrepImport 命令调用 WAImportExport 工具，在第一个复制会话中使用一个新的复制会话来复制目录和/或文件：
 
 ```
-WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>] DataSet:<dataset.csv>
+WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>] /DataSet:<dataset.csv>
 ```
 
 **示例：**
@@ -415,7 +414,7 @@ WAImportExport 工具逐批读取和写入文件，每个批最多包含 100000 
 * [设置 Azure 导入/导出工具](storage-import-export-tool-setup.md)
 * [在导入过程中设置属性和元数据](storage-import-export-tool-setting-properties-metadata-import.md)
 * [为导入作业准备硬盘驱动器的示例工作流](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow.md)
-* [常用命令快速参考](storage-import-export-tool-quick-reference.md) 
+* [常用命令快速参考](storage-import-export-tool-quick-reference.md) 
 * [使用复制日志文件查看作业状态](storage-import-export-tool-reviewing-job-status-v1.md)
 * [修复导入作业](storage-import-export-tool-repairing-an-import-job-v1.md)
 * [修复导出作业](storage-import-export-tool-repairing-an-export-job-v1.md)

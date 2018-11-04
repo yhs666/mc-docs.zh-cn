@@ -1,25 +1,25 @@
 ---
 title: Azure 服务总线消息过期 | Microsoft Docs
 description: Azure 服务总线消息的过期时间和生存时间
-services: service-bus
+services: service-bus-messaging
 documentationcenter: ''
-author: clemensv
-manager: timlt
+author: lingliw
+manager: digimobile
 editor: ''
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/26/2018
-ms.date: 03/12/2018
-ms.author: v-yiso
-ms.openlocfilehash: 6dde759c0e4712ab0eafc3eabf40d5ca2da90a74
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+origin.date: 09/26/2018
+ms.date: 10/31/2018
+ms.author: v-lingwu
+ms.openlocfilehash: 408a917dbe0445e9f6450f3c685f45d40d165189
+ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
-ms.locfileid: "29731203"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50409304"
 ---
 # <a name="message-expiration-time-to-live"></a>消息过期时间（生存时间）
 
@@ -60,7 +60,6 @@ ms.locfileid: "29731203"
 
 若要了解有关服务总线消息传送的详细信息，请参阅以下主题：
 
-* [服务总线基础知识](service-bus-fundamentals-hybrid-solutions.md)
 * [服务总线队列、主题和订阅](service-bus-queues-topics-subscriptions.md)
 * [服务总线队列入门](service-bus-dotnet-get-started-with-queues.md)
 * [如何使用服务总线主题和订阅](service-bus-dotnet-how-to-use-topics-subscriptions.md)

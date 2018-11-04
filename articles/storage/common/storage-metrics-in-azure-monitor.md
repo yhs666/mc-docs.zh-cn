@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 09/05/2017
 ms.date: 09/24/2018
 ms.author: v-jay
-ms.openlocfilehash: 6690c08d453795cb24931be1e031e04fac7a2bc4
-ms.sourcegitcommit: 0081fb238c35581bb527bdd704008c07079c8fbb
+ms.openlocfilehash: 44c0180dd5da4832be2352dc27af6c449dc1cdca
+ms.sourcegitcommit: 7c750170ddefe7537663dfbadcc06bf27d94c586
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523724"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50743559"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Azure Monitor 中的 Azure 存储指标
 
@@ -25,7 +25,7 @@ Azure Monitor 提供统一的用户界面用于监视不同的 Azure 服务。 �
 
 Azure Monitor 提供多种访问指标的方法。 可从 [Azure 门户](https://portal.azure.cn)、Azure Monitor API（REST 和 .Net）与分析解决方案（例如 Operation Management Suite 和事件中心）访问指标。 有关详细信息，请参阅 [Azure Monitor 指标](../../monitoring-and-diagnostics/monitoring-overview-metrics.md)。
 
-默认情况下，已启用指标，并且可访问过去 30 天的数据。 如需将数据保留更长一段时间，可将指标数据存档到 Azure 存储帐户。 可在 Azure Monitor 的 [诊断设置](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) 中完成这种配置。
+默认情况下，已启用指标，并且可访问过去 93 天的数据。 如需将数据保留更长一段时间，可将指标数据存档到 Azure 存储帐户。 可在 Azure Monitor 的 [诊断设置](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) 中完成这种配置。
 
 ### <a name="access-metrics-in-the-azure-portal"></a>在 Azure 门户中访问指标
 
@@ -51,7 +51,7 @@ Azure Monitor 提供 [REST API](https://docs.microsoft.com/rest/api/monitor/) �
 # Login to Azure and enter your credentials when prompted.
 > armclient login Mooncake
 
-> armclient GET /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/providers/microsoft.insights/metricdefinitions?api-version=2017-05-01-preview
+> armclient GET /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/providers/microsoft.insights/metricdefinitions?api-version=2018-01-01
 
 ```
 
@@ -95,7 +95,7 @@ Azure Monitor 提供 [REST API](https://docs.microsoft.com/rest/api/monitor/) �
 以下示例演示如何读取帐户级别的指标数据：
 
 ```
-> armclient GET "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/providers/microsoft.insights/metrics?metric=Availability&api-version=2017-05-01-preview&aggregation=Average&interval=PT1H"
+> armclient GET "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/providers/microsoft.insights/metrics?metricnames=Availability&api-version=2018-01-01&aggregation=Average&interval=PT1H"
 
 ```
 

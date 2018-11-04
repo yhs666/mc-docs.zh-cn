@@ -3,7 +3,7 @@ title: 云服务的多个 VIP
 description: 概述 MultiVIP，以及如何在云服务上设置多个 VIP
 services: load-balancer
 documentationcenter: na
-author: rockboyfor
+author: WenJason
 manager: digimobile
 ms.assetid: 85f6d26a-3df5-4b8e-96a1-92b2793b5284
 ms.service: load-balancer
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/25/2017
-ms.date: 11/20/2017
-ms.author: v-yeche
-ms.openlocfilehash: 1b05c3223165fad64394215196222ca6cd7b9d5a
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.date: 11/05/2018
+ms.author: v-jay
+ms.openlocfilehash: 21e2c97efdb9652bbffb88da9b387f69f270193c
+ms.sourcegitcommit: 9be84d4dc546d66a0d9d1d2be67dd79c84b2c210
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39167843"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50408831"
 ---
 # <a name="configure-multiple-vips-for-a-cloud-service"></a>为云服务配置多个 VIP
 
@@ -39,7 +39,7 @@ ms.locfileid: "39167843"
 默认情况下，VIP 是动态的，这意味着，分配给云服务的实际 IP 地址会随着时间改变。 为了防止发生这种情况，可以为服务保留 VIP。 若要详细了解保留 VIP，请参阅[保留的公共 IP](../virtual-network/virtual-networks-reserved-public-ip.md)。
 
 > [!NOTE]
-> 有关 VIP 和保留 IP 的定价信息，请参阅 [IP 地址定价](https://www.azure.cn/pricing/details/reserved-ip-addresses/)。
+> 有关 VIP 和保留 IP 的定价信息，请参阅 [IP 地址定价](https://www.azure.cn/pricing/details/ip-addresses/)。
 
 可以使用 PowerShell 来验证云服务使用的 VIP、添加和删除 VIP、将 VIP 关联到终结点，以及在特定 VIP 上配置负载均衡。
 
@@ -110,7 +110,7 @@ $deployment.VirtualIPs
 * **Vip2** 和 **Vip3** 未使用，因为它们没有任何 IP 地址。 仅当已将某个终结点关联到 VIP 时，才会使用相应的 VIP。
 
 > [!NOTE]
-> 你的订阅将只收取额外的 VIP 费用（在 VIP 与终结点关联后收取）。 有关定价的详细信息，请参阅 [IP 地址定价](https://www.azure.cn/pricing/details/reserved-ip-addresses/)。
+> 你的订阅将只收取额外的 VIP 费用（在 VIP 与终结点关联后收取）。 有关定价的详细信息，请参阅 [IP 地址定价](https://www.azure.cn/pricing/details/ip-addresses/)。
 
 ## <a name="how-to-associate-a-vip-to-an-endpoint"></a>如何将 VIP 关联到终结点
 

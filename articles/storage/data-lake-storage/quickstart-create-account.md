@@ -8,14 +8,14 @@ ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 origin.date: 06/27/2018
-ms.date: 08/27/2018
+ms.date: 11/05/2018
 ms.author: v-jay
-ms.openlocfilehash: e8a40275cff4c4024803f2968d2bc7f9f8fe8f74
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.openlocfilehash: 4ea25da821f238869516b35757bf58336ff29c07
+ms.sourcegitcommit: 7c750170ddefe7537663dfbadcc06bf27d94c586
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42872440"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50743532"
 ---
 # <a name="quickstart-create-an-azure-data-lake-storage-gen2-preview-storage-account"></a>快速入门：创建 Azure Data Lake Storage Gen2 预览版存储帐户
 
@@ -49,7 +49,7 @@ Azure Data Lake Storage Gen2 预览版帐户[支持分层命名空间服务](int
 > [!NOTE]
 > 必须将新的存储帐户创建为 **StorageV2(常规用途 v2 )** 类型才能利用 Data Lake Storage Gen2 功能。  
 
-有关存储帐户类型的详细信息，请参阅 [Azure 存储帐户选项](../common/storage-account-options.md)。
+有关存储帐户的详细信息，请参阅 [Azure 存储帐户概述](../common/storage-account-overview.md)。
 
 为存储帐户命名时，请记住以下规则：
 

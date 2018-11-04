@@ -2,8 +2,6 @@
 title: 生成基于计划的自动化工作流 - Azure 逻辑应用
 description: 教程 - 如何使用 Azure 逻辑应用创建基于计划的重复自动化工作流
 services: logic-apps
-documentationcenter: ''
-ms.assetid: ''
 ms.service: logic-apps
 ms.workload: logic-apps
 ms.tgt_pltfrm: na
@@ -12,15 +10,15 @@ ms.topic: tutorial
 ms.custom: mvc
 origin.date: 01/12/2018
 ms.author: v-yiso
-ms.date: 10/15/2018
-ms.openlocfilehash: ab43b6f55028d4df7c410b821504d5ae5857c900
-ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
+ms.date: 11/12/2018
+ms.openlocfilehash: cd979437c3a7472951e8a749c56937b0f4d0d9be
+ms.sourcegitcommit: 3f96e40162bb6ee2e9fdb76c976517e47a1252d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455260"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50919113"
 ---
-# <a name="check-traffic-with-a-schedule-based-logic-app"></a>使用基于计划的逻辑应用检查流量
+# <a name="check-traffic-on-a-schedule-with-azure-logic-apps"></a>使用 Azure 逻辑应用按计划检查流量
 
 可以通过 Azure 逻辑应用自动完成按计划运行的工作流。 本教程介绍如何通过计划程序触发器生成[逻辑应用](../logic-apps/logic-apps-overview.md)。该触发器每个工作日早晨运行，用于检查两个地点之间的行程时间，包括交通情况。 如果该时间超过特定的限制，逻辑应用会发送一封电子邮件，其中包括到达目的地所需的行程时间和额外时间。
 

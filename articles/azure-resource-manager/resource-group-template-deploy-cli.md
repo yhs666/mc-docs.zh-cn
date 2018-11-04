@@ -13,12 +13,12 @@ ms.workload: na
 origin.date: 08/06/2018
 ms.date: 09/03/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7cecc0989d1a41a851049f9355a032592d98361b
-ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
+ms.openlocfilehash: 9ad48e8c5e1b52c66c1913dbda3178f24fbff1f7
+ms.sourcegitcommit: c1020b13c8810d50b64e1f27718e9f25b5f9f043
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43164874"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50204811"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>使用 Resource Manager 模板和 Azure CLI 部署资源
 
@@ -196,8 +196,6 @@ az group deployment validate \
   "properties": null
 }
 ```
-
-[!INCLUDE [resource-manager-deployments](../../includes/resource-manager-deployments.md)]
 
 若要使用完整模式，请使用 `mode` 参数：
 

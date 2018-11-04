@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-origin.date: 09/13/2018
+origin.date: 10/12/2018
 ms.author: v-yiso
-ms.date: 10/22/2018
-ms.openlocfilehash: d20a78709d1037a9bd2a50a413a808eb2162c7c9
-ms.sourcegitcommit: 8a5722b85c6eabbd28473d792716ad44aac3ff23
+ms.date: 11/12/2018
+ms.openlocfilehash: ade2492f9a3e68e7823c26039db24cabecfe3a2a
+ms.sourcegitcommit: 3f96e40162bb6ee2e9fdb76c976517e47a1252d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49121552"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50919108"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure 来宾 OS 版本和 SDK 兼容性对照表
 提供适用于云服务的最新 Azure 来宾 OS 版本的最新信息。 此信息可帮助在禁用来宾 OS 之前规划升级路径。 如果根据 [Azure 来宾 OS 更新设置][Azure Guest OS Update Settings]中所述将角色配置为使用自动进行来宾 OS 更新，则不一定要阅读本页面。
@@ -43,6 +43,9 @@ ms.locfileid: "49121552"
 不确定如何更新来宾 OS？ 查看[此处的][cloud updates]。
 
 ## <a name="news-updates"></a>新闻更新
+
+###### <a name="october-12-2018"></a>**2018 年 10 月12 日**
+9 月版来宾 OS 已发布。
 
 ###### <a name="september-12-2018"></a>**2018 年 9 月 12 日**
 8 月版来宾 OS 已发布。

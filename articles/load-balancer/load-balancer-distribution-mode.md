@@ -1,9 +1,9 @@
 ---
-title: 配置 Azure 负载均衡器分发模式 | Azure
+title: 配置 Azure 负载均衡器分配模式 | Microsoft Docs
 description: 如何配置 Azure 负载均衡器的分配模式以支持源 IP 关联。
 services: load-balancer
 documentationcenter: na
-author: rockboyfor
+author: WenJason
 manager: digimobile
 ms.assetid: 7df27a4d-67a8-47d6-b73e-32c0c6206e6e
 ms.service: load-balancer
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/25/2017
-ms.date: 04/30/2018
-ms.author: v-yeche
-ms.openlocfilehash: 2cb05834fcc3c572a0e01f67b801ecc08825f8bf
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.date: 11/05/2018
+ms.author: v-jay
+ms.openlocfilehash: 0d9261ddb7af50c5ac3711de05bcbcd6fd589e96
+ms.sourcegitcommit: 9be84d4dc546d66a0d9d1d2be67dd79c84b2c210
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121380"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50408838"
 ---
 # <a name="configure-the-distribution-mode-for-azure-load-balancer"></a>配置 Azure 负载均衡器的分配模式
 
@@ -49,7 +49,15 @@ Azure 负载均衡器的默认分配模式是 5 元组哈希。 元组由源 IP�
 
 ## <a name="configure-source-ip-affinity-settings"></a>配置源 IP 关联设置
 
-对于虚拟机，可以使用 Azure PowerShell 来更改超时设置。 将 Azure 终结点添加到虚拟机并配置负载均衡器分配模式：
+对于使用资源管理器部署的虚拟机，请使用 PowerShell 更改现有负载均衡规则上的负载均衡器分发设置。 这将更新分发模式： 
+
+```powershell 
+$lb = Get-AzureRmLoadBalancer -Name MyLb -ResourceGroupName MyLbRg 
+$lb.LoadBalancingRules[0].LoadDistribution = 'sourceIp' 
+Set-AzureRmLoadBalancer -LoadBalancer $lb 
+```
+
+对于经典虚拟机，请使用 Azure PowerShell 更改分发设置。 将 Azure 终结点添加到虚拟机并配置负载均衡器分配模式：
 
 ```powershell
 Get-AzureVM -ServiceName mySvc -Name MyVM1 | Add-AzureEndpoint -Name HttpIn -Protocol TCP -PublicPort 80 -LocalPort 8080 -LoadBalancerDistribution sourceIP | Update-AzureVM

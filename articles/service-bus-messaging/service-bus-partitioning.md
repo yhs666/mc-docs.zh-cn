@@ -1,26 +1,20 @@
 ---
 title: 创建分区的 Azure 服务总线队列和主题 | Azure
 description: 介绍如何使用多个消息中转站对服务总线队列和主题进行分区。
-services: service-bus
-documentationcenter: na
-author: sethmanheim
-manager: timlt
-editor: ''
-ms.assetid: a0c7d5a2-4876-42cb-8344-a1fc988746e7
-ms.service: service-bus
-ms.devlang: na
+services: service-bus-messaging
+author: lingliw
+manager: digimobile
+ms.service: service-bus-messaging
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-origin.date: 06/06/2018
-ms.author: v-yiso
-ms.date: 07/16/2018
-ms.openlocfilehash: ea0cc2c872ca2654b90472e669d96cd9849dc459
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+origin.date: 09/06/2018
+ms.date: 10/31/2018
+ms.author: v-lingwu
+ms.openlocfilehash: de8e05d3545382c77c471e006bd2cb4ef7623b10
+ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873584"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50409392"
 ---
 # <a name="partitioned-queues-and-topics"></a>分区队列和主题
 
@@ -74,7 +68,7 @@ ns.CreateTopic(td);
 
 SessionId：如果消息已设置 [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid) 属性，则服务总线会将 SessionID 用作分区键。 这样一来，属于同一会话的所有消息都由同一消息中转站处理。 会话使服务总线得以保证消息顺序以及会话状态的一致性。
 
-PartitionKey：如果消息已设置 [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) 属性但未设置 [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid) 属性，则服务总线将 [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) 属性值用作分区键。 如果消息同时具有 [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid) 和 [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) 属性集，这两个属性必须相同。 如果 [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) 属性设置为与 [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid) 属性不同的值，则服务总线返回无效操作异常。 如果发送方发送非会话感知事务消息，应使用 [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) 属性。 分区键可确保事务中所发送的所有消息都由同一个消息传送中转站处理。
+PartitionKey：如果消息已设置 [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) 属性但未设置 [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid) 属性，则服务总线将 [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) 属性值用作分区键。 如果消息同时具有 [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid) 且未设置 [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) 属性集，这两个属性必须相同。 如果 [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) 属性设置为与 [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid) 属性不同的值，则服务总线返回无效操作异常。 如果发送方发送非会话感知事务消息，应使用 [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) 属性。 分区键可确保事务中所发送的所有消息都由同一个消息传送中转站处理。
 
 MessageId：如果队列或主题将 [RequiresDuplicateDetection](/dotnet/api/microsoft.azure.management.servicebus.models.sbqueue.requiresduplicatedetection) 属性设置为“true”且未设置 [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid) 或 [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey) 属性，则 [MessageId](/dotnet/api/microsoft.azure.servicebus.message.messageid) 属性值将充当分区键。 （如果发送应用程序不这样做，Microsoft .NET 和 AMQP 库会自动分配消息 ID。）） 在这种情况下，同一消息的所有副本都由同一消息中转站处理。 此 ID 使服务总线能够检测并消除重复的消息。 如果 [RequiresDuplicateDetection](/dotnet/api/microsoft.azure.management.servicebus.models.sbqueue.requiresduplicatedetection) 属性未设置为“true”，服务总线不考虑将 [MessageId](/dotnet/api/microsoft.azure.servicebus.message.messageid) 属性用作分区键。
 
@@ -150,18 +144,8 @@ committableTransaction.Commit();
 ## <a name="next-steps"></a>后续步骤
 在 [AMQP 1.0 协议指南](service-bus-amqp-protocol-guide.md)中了解 AMQP 1.0 消息传送规范的核心概念。
 
-[Service Bus architecture]: ./service-bus-architecture.md
 [Azure portal]: https://portal.azure.cn
-[QueueDescription.EnablePartitioning]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.enablepartitioning
-[TopicDescription.EnablePartitioning]: /dotnet/api/microsoft.servicebus.messaging.topicdescription.enablepartitioning
-[BrokeredMessage.SessionId]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid
-[BrokeredMessage.PartitionKey]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage.partitionkey
-[SessionId]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid
-[PartitionKey]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage.partitionkey
-[QueueDescription.RequiresDuplicateDetection]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.requiresduplicatedetection
-[BrokeredMessage.MessageId]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage.messageid
-[MessageId]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage.messageid
-[MessagingFactorySettings.OperationTimeout]: /dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout
-[OperationTimeout]: /dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout
-[QueueDescription.ForwardTo]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.forwardto
-[AMQP 1.0 support for Service Bus partitioned queues and topics]: ./service-bus-amqp-protocol-guide.md
+[QueueDescription.EnablePartitioning]: https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicebus.messaging.queuedescription.enablepartitioning
+[TopicDescription.EnablePartitioning]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.topicdescription.enablepartitioning
+[QueueDescription.ForwardTo]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.queuedescription.forwardto
+[AMQP 1.0 support for Service Bus partitioned queues and topics]:?view=azure-dotnet service-bus-partitioned-queues-and-topics-amqp-overview.md

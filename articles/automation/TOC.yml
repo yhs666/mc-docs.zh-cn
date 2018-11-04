@@ -51,6 +51,8 @@ items:
     - name: Runbook 输出
       href: automation-runbook-output-and-messages.md
     - name: 源代码管理集成
+      href: source-control-integration.md
+    - name: 源代码管理集成 - 传统
       href: automation-source-control-integration.md
   - name: 自动化
     items:
@@ -68,6 +70,8 @@ items:
       href: automation-managing-data.md
     - name: 将 JSON 对象传递到 Azure 自动化 Runbook
       href: automation-pass-json-string.md
+    - name: 管理 Python 2 程序包
+      href: python-packages.md
   - name: 状态配置
     items:
     - name: 状态配置概述
@@ -128,9 +132,9 @@ items:
     href: https://www.azure.cn/zh-cn/pricing/details/automation/
   - name: 定价计算器
     href: https://www.azure.cn/zh-cn/pricing/calculator/automation/
-ms.openlocfilehash: 084d2c1f13eb715cfb40549e41c172e3b63e9393
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.openlocfilehash: bdeeaa42581ae5a11311f89e63bf38ad38dadcaa
+ms.sourcegitcommit: d26e5d0d625a61d6b130800d10c81f47c83fb1e0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426102"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50745519"

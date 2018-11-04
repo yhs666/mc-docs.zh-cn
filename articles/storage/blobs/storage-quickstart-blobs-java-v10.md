@@ -3,19 +3,18 @@ title: Azure 快速入门：使用 Java 存储 SDK V10 在对象存储中创建 
 description: 本快速入门介绍如何使用 Java 存储 SDK 在对象 (Azure Blob) 存储中创建容器、上传文件、列出对象以及进行下载。
 services: storage
 author: WenJason
-manager: digimobile
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 origin.date: 07/02/2018
-ms.date: 09/10/2018
+ms.date: 11/05/2018
 ms.author: v-jay
-ms.openlocfilehash: 9f028b642effa2f88199c4e80286d998cf31dbf5
-ms.sourcegitcommit: e157751c560524d0bb828e987b87178130663547
+ms.openlocfilehash: fbf4a1f0f4ce7ead81e5bbbefd5e51c482d67f1f
+ms.sourcegitcommit: 7c750170ddefe7537663dfbadcc06bf27d94c586
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43650790"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50743538"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-by-using-the-java-storage-sdk-v10-preview"></a>快速入门：使用 Java 存储 SDK V10（预览版）上传、下载和列出 Blob
 
@@ -30,7 +29,7 @@ ms.locfileid: "43650790"
 
 如果没有 Azure 订阅，请在开始之前创建一个[试用帐户](https://www.azure.cn/en-us/pricing/1rmb-trial-full/?form-type=identityauth)。
 
-[!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
+[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
 ## <a name="download-the-sample-application"></a>下载示例应用程序
 

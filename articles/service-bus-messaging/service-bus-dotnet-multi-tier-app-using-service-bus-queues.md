@@ -1,26 +1,22 @@
 ---
 title: 使用 Azure 服务总线创建 .NET 多层应用程序 | Azure
 description: 本 .NET 教程可帮助你在 Azure 中开发使用服务总线队列在各层之间进行通信的多层应用。
-services: service-bus
-documentationCenter: .net
-author: sethmanheim
-manager: timlt
-editor: ''
-ms.assetid: 1b8608ca-aa5a-4700-b400-54d65b02615c
-ms.service: service-bus
-ms.workload: tbd
-ms.tgt_pltfrm: na
+services: service-bus-messaging
+documentationcenter: .net
+author: lingliw
+manager: digimobile
+ms.service: service-bus-messaging
 ms.devlang: dotnet
-ms.topic: get-started-article
-origin.date: 06/05/2018
-ms.author: v-yiso
-ms.date: 07/16/2018
-ms.openlocfilehash: 112c4c2325e185b263cc60ca57681b80cbaf8869
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.topic: article
+origin.date: 09/05/2018
+ms.date: 10/31/2018
+ms.author: v-lingwu
+ms.openlocfilehash: 2faa2d08efb7a2f78c7ba1a2c1ccd3f751c2afd6
+ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873398"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50409391"
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>使用 Azure 服务总线队列创建 .NET 多层应用程序
 
@@ -28,10 +24,10 @@ ms.locfileid: "37873398"
 
 可以学习以下技能：
 
--   如何通过单个下载和安装来使计算机能够进行 Azure 开发。
--   如何使用 Visual Studio 针对 Azure 进行开发。
--   如何使用 Web 角色和辅助角色在 Azure 中创建多层应用程序。
--   如何使用服务总线队列在各层之间进行通信。
+* 如何通过单个下载和安装来使计算机能够进行 Azure 开发。
+* 如何使用 Visual Studio 针对 Azure 进行开发。
+* 如何使用 Web 角色和辅助角色在 Azure 中创建多层应用程序。
+* 如何使用服务总线队列在各层之间进行通信。
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
@@ -115,7 +111,7 @@ ms.locfileid: "37873398"
        }
    }
    ```
-2. 在“解决方案资源管理器”中，双击“Controllers\HomeController.cs”。 在文件顶部添加以下 **using** 语句以包括针对你刚创建的模型以及服务总线的命名空间。
+2. 在“解决方案资源管理器”中，双击“Controllers\HomeController.cs”。 **using** 语句以包括针对你刚创建的模型以及服务总线的命名空间。
    
    ```csharp
    using FrontendWebRole.Models;
@@ -328,7 +324,7 @@ ms.locfileid: "37873398"
 
 2.  在 Visual Studio 的“解决方案资源管理器”中，右键单击“MultiTierApp”项目下的“角色”文件夹。
 
-3.  单击“添加”，并单击“新建辅助角色项目”。 此时会显示“添加新角色项目”对话框。
+3.  单击“添加”，并单击“新建辅助角色项目”。 此时显示“添加新角色项目”对话框。
 
     ![][26]
 
@@ -340,7 +336,7 @@ ms.locfileid: "37873398"
 
 6.  将在“创建服务总线命名空间”部分的步骤 9 中获取的连接字符串复制到剪贴板。
 
-7.  在“解决方案资源管理器”中，右键单击在步骤 5 中创建的“OrderProcessingRole”（确保右键单击“角色”下的“OrderProcessingRole”而不是类）。 然后单击“属性”。
+7.  在“解决方案资源管理器”中，右键单击你在步骤 5 中创建的“OrderProcessingRole”（确保右键单击“角色”下的“OrderProcessingRole”而不是类）。 然后单击“属性”。
 
 8.  在“属性”对话框的“设置”选项卡中，在“Microsoft.ServiceBus.ConnectionString”的“值”框内单击，并粘贴在步骤 6 中复制的终结点值。
 
@@ -348,7 +344,7 @@ ms.locfileid: "37873398"
 
 9.  从队列中处理订单时，创建一个 **OnlineOrder** 类来表示这些订单。 可以重用已创建的类。 在“解决方案资源管理器”中，右键单击“OrderProcessingRole”类（右键单击类图标，而不是角色）。 单击“添加”，并单击“现有项”。
 
-10. 浏览到 **FrontendWebRole\Models** 的子文件夹，然后双击“OnlineOrder.cs”以将其添加到此项目中。
+10. 浏览到 **FrontendWebRole\Models** 的子文件夹，并双击“OnlineOrder.cs”以将其添加到此项目中。
 
 11. 在 **WorkerRole.cs** 中，将 **QueueName** 变量的值 `"ProcessingQueue"` 更改为 `"OrdersQueue"`，如以下代码所示。
 
@@ -383,7 +379,6 @@ ms.locfileid: "37873398"
 
 若要了解有关服务总线的详细信息，请参阅以下资源：  
 
-* [服务总线基础知识](service-bus-fundamentals-hybrid-solutions.md)
 * [服务总线队列入门][sbacomqhowto]
 * [服务总线服务页][sbacom]  
 
@@ -412,7 +407,6 @@ ms.locfileid: "37873398"
   [26]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/SBNewWorkerRole.png
   [28]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-40.png
 
-  [sbdocs]: /service-bus-messaging/  
   [sbacom]: ../service-bus/index.md  
   [sbacomqhowto]: ./service-bus-dotnet-get-started-with-queues.md  
   [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36

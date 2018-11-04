@@ -10,15 +10,15 @@ ms.component: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
 origin.date: 03/09/2018
-ms.date: 09/30/2018
+ms.date: 11/05/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b59471fb12750d8187b909abd41672652a94edf
-ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
+ms.openlocfilehash: f501a54c87fdada427e59b5c336c8a6720f24a41
+ms.sourcegitcommit: c1020b13c8810d50b64e1f27718e9f25b5f9f043
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47201290"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50204810"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>适用于 SQL API 的 Azure Cosmos DB .NET SDK：下载和发行说明
 > [!div class="op_single_selector"]
@@ -59,4 +59,5 @@ ms.locfileid: "47201290"
 
 ## <a name="see-also"></a>另请参阅
 若要了解有关 Cosmos DB 的详细信息，请参阅 [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) 服务页。
+
 <!-- Update_Description: update meta properties, wording update -->

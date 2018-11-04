@@ -5,16 +5,16 @@ services: storage
 author: WenJason
 ms.service: storage
 ms.topic: article
-origin.date: 06/13/2018
-ms.date: 09/24/2018
+origin.date: 08/16/2018
+ms.date: 11/05/2018
 ms.author: v-jay
 ms.component: common
-ms.openlocfilehash: c1bcc7541d707da3d4f664d153d9c0691e4343f4
-ms.sourcegitcommit: 0081fb238c35581bb527bdd704008c07079c8fbb
+ms.openlocfilehash: c648005a93b74fb30687edf3399ee6d2d37722dd
+ms.sourcegitcommit: 7c750170ddefe7537663dfbadcc06bf27d94c586
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523708"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50743543"
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>对 Azure 存储 使用 Azure PowerShell
 

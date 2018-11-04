@@ -9,14 +9,14 @@ ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: conceptual
 origin.date: 01/08/2018
-ms.date: 09/03/2018
+ms.date: 11/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 9a616fd86b8d0f70f34dc9f076d4d66d514b59b1
-ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
+ms.openlocfilehash: d74d7fa01c518c165748f90364577a0cd0c99daa
+ms.sourcegitcommit: c1020b13c8810d50b64e1f27718e9f25b5f9f043
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43164700"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50204825"
 ---
 # <a name="azure-cosmos-db-using-the-mongoose-framework-with-azure-cosmos-db"></a>Azure Cosmos DB：将 Mongoose 框架与 Azure Cosmos DB 配合使用
 
@@ -51,7 +51,11 @@ Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务
 
 1. 将一个新文件添加到该文件夹，并将此文件命名为 ```index.js```。
 1. 使用一个 ```npm install``` 选项安装所需的包：
-    * Mongoose：```npm install mongoose --save```
+    * Mongoose：```npm install mongoose@5 --save```
+
+    > [!Note]
+    > 下面的 Mongoose 示例连接基于 Mongoose 5+，后者自早期版本以来已发生变化。
+
     * Dotenv（若要从 .env 文件加载机密）：```npm install dotenv --save```
 
     >[!Note]
@@ -66,19 +70,21 @@ Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务
 1. 将 Cosmos DB 连接字符串和 Cosmos DB 名称添加到 ```.env``` 文件。
 
     ```JavaScript
-    COSMOSDB_CONNSTR={Your MongoDB Connection String Here}
-    COSMOSDB_DBNAME={Your DB Name Here}
+    COSMOSDB_CONNSTR=mongodb://{cosmos-user}.documents.azure.cn:10255/{dbname}
+    COSMODDB_USER=cosmos-user
+    COSMOSDB_PASSWORD=cosmos-secret
     ```
 
 1. 将以下代码添加到 index.js 末尾，以使用 Mongoose 框架连接到 Azure Cosmos DB。
     ```JavaScript
-    mongoose.connect(process.env.COSMOSDB_CONNSTR+process.env.COSMOSDB_DBNAME+"?ssl=true&replicaSet=globaldb"); //Creates a new DB, if it doesn't already exist
-
-    var db = mongoose.connection;
-    db.on('error', console.error.bind(console, 'connection error:'));
-    db.once('open', function() {
-    console.log("Connected to DB");
-    });
+    mongoose.connect(process.env.COSMOSDB_CONNSTR+"?ssl=true&replicaSet=globaldb", {
+      auth: {
+        user: process.env.COSMODDB_USER,
+        password: process.env.COSMOSDB_PASSWORD
+      }
+    })
+    .then(() => console.log('Connection to CosmosDB successful'))
+    .catch((err) => console.error(err));
     ```
     >[!Note]
     > 此处的环境变量是使用“dotenv”npm 包以 process.env.{variableName} 加载的。
@@ -308,4 +314,5 @@ Mongoose 还存在称作[鉴别器](http://mongoosejs.com/docs/discriminators.ht
 
 [alldata]: ./media/mongodb-mongoose/mongo-collections-alldata.png
 [mutiple-coll]: ./media/mongodb-mongoose/mongo-mutliple-collections.png
-<!-- Update_Description: update meta properties  -->
+
+<!-- Update_Description: update meta properties， wording update -->

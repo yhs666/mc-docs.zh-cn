@@ -9,14 +9,14 @@ ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
 origin.date: 03/26/2018
-ms.date: 09/30/2018
+ms.date: 11/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 2013a5cf3a1ede771f5a5f0bbced6f0606b74aa0
-ms.sourcegitcommit: 646d5cc64acaa91696537d09858b989336ebd3c3
+ms.openlocfilehash: 2c2b3cbe040e742d4120dffcad93d52e84d9c753
+ms.sourcegitcommit: c1020b13c8810d50b64e1f27718e9f25b5f9f043
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49451558"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50204850"
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>使用 Azure Cosmos DB 中的更改源支持
 
@@ -79,7 +79,7 @@ Azure Cosmos DB 中的更改源支持的工作原理是：侦听 Azure Cosmos DB
 
 <!-- Not Available Serverless -->
 <a name="azure-functions"></a>
-## <a name="using-azure-functions"></a>使用 Azure Functions 
+## <a name="using-azure-functions"></a>使用 Azure Functions 
 
 如果使用的是 Azure Functions，则若要连接到 Azure Cosmos DB 更改源，最简单的方法是向 Azure Functions 应用添加 Azure Cosmos DB 触发器。 在 Azure Functions 应用中创建 Azure Cosmos DB 触发器时，请选择要连接到的 Azure Cosmos DB 集合。然后，每当出现集合更改时，系统就会触发该函数。 
 
@@ -117,8 +117,8 @@ Azure Cosmos DB 中的更改源支持的工作原理是：侦听 Azure Cosmos DB
     ```csharp
     FeedResponse pkRangesResponse = await client.ReadPartitionKeyRangeFeedAsync(
         collectionUri,
-        new FeedOptions
-            {RequestContinuation = pkRangesResponseContinuation });
+        new FeedOptions
+            {RequestContinuation = pkRangesResponseContinuation });
 
     partitionKeyRanges.AddRange(pkRangesResponse);
     pkRangesResponseContinuation = pkRangesResponse.ResponseContinuation;
@@ -128,29 +128,29 @@ Azure Cosmos DB 中的更改源支持的工作原理是：侦听 Azure Cosmos DB
 
     ```csharp
     foreach (PartitionKeyRange pkRange in partitionKeyRanges){
-        string continuation = null;
-        checkpoints.TryGetValue(pkRange.Id, out continuation);
-        IDocumentQuery<Document> query = client.CreateDocumentChangeFeedQuery(
-            collectionUri,
-            new ChangeFeedOptions
-            {
-                PartitionKeyRangeId = pkRange.Id,
-                StartFromBeginning = true,
-                RequestContinuation = continuation,
-                MaxItemCount = -1,
-                // Set reading time: only show change feed results modified since StartTime
-                StartTime = DateTime.Now - TimeSpan.FromSeconds(30)
-            });
-        while (query.HasMoreResults)
-            {
-                FeedResponse<dynamic> readChangesResponse = query.ExecuteNextAsync<dynamic>().Result;
+        string continuation = null;
+        checkpoints.TryGetValue(pkRange.Id, out continuation);
+        IDocumentQuery<Document> query = client.CreateDocumentChangeFeedQuery(
+            collectionUri,
+            new ChangeFeedOptions
+            {
+                PartitionKeyRangeId = pkRange.Id,
+                StartFromBeginning = true,
+                RequestContinuation = continuation,
+                MaxItemCount = -1,
+                // Set reading time: only show change feed results modified since StartTime
+                StartTime = DateTime.Now - TimeSpan.FromSeconds(30)
+            });
+        while (query.HasMoreResults)
+            {
+                FeedResponse<dynamic> readChangesResponse = query.ExecuteNextAsync<dynamic>().Result;
 
-                foreach (dynamic changedDocument in readChangesResponse)
-                    {
-                         Console.WriteLine("document: {0}", changedDocument);
-                    }
-                checkpoints[pkRange.Id] = readChangesResponse.ResponseContinuation;
-            }
+                foreach (dynamic changedDocument in readChangesResponse)
+                    {
+                         Console.WriteLine("document: {0}", changedDocument);
+                    }
+                checkpoints[pkRange.Id] = readChangesResponse.ResponseContinuation;
+            }
     }
     ```
 
@@ -168,13 +168,13 @@ Azure Cosmos DB 中的更改源支持的工作原理是：侦听 Azure Cosmos DB
 因此，检查点数组只是保留每个分区的 LSN。 但是，如果不想处理分区、检查点、LSN、启动时间等项，则可选择较简单的选项，即使用更改源处理器库。
 
 <a name="change-feed-processor"></a>
-## <a name="using-the-change-feed-processor-library"></a>使用更改源处理器库 
+## <a name="using-the-change-feed-processor-library"></a>使用更改源处理器库 
 
 借助 [Azure Cosmos DB 更改源处理器库](/cosmos-db/sql-api-sdk-dotnet-changefeed)，可以轻松地在多个使用者之间分配事件处理负载。 此库简化了跨分区和多个并行工作的线程读取更改的过程。
 
 更改源处理器库的主要好处是，不需管理每个分区和继续标记，也不需手动轮询每个集合。
 
-更改源处理器库简化了跨分区的以及并行工作的多个线程中的更改的读取。  它通过租用机制自动管理跨分区读取更改的过程。 如下图中所示，如果启动两个使用更改源处理器库的客户端，它们会在彼此之间划分工作。 继续增加客户端的数量时，这些客户端仍在内部分配工作。
+更改源处理器库简化了跨分区的以及并行工作的多个线程中的更改的读取。  它通过租用机制自动管理跨分区读取更改的过程。 如下图中所示，如果启动两个使用更改源处理器库的客户端，它们会在彼此之间划分工作。 继续增加客户端的数量时，这些客户端仍在内部分配工作。
 
 ![Azure Cosmos DB 更改源的分布式处理](./media/change-feed/change-feed-output.png)
 
@@ -354,19 +354,13 @@ Azure Cosmos DB 中的更改源支持的工作原理是：侦听 Azure Cosmos DB
                     CollectionName = this.leaseCollectionName
                 };
             DocumentFeedObserverFactory docObserverFactory = new DocumentFeedObserverFactory();
-            ChangeFeedOptions feedOptions = new ChangeFeedOptions();
-
-            /* ie customize StartFromBeginning so change feed reads from beginning
-                can customize MaxItemCount, PartitonKeyRangeId, RequestContinuation, SessionToken and StartFromBeginning
-            */
-
-            feedOptions.StartFromBeginning = true;
 
             ChangeFeedProcessorOptions feedProcessorOptions = new ChangeFeedProcessorOptions();
 
             // ie. customizing lease renewal interval to 15 seconds
             // can customize LeaseRenewInterval, LeaseAcquireInterval, LeaseExpirationInterval, FeedPollDelay 
             feedProcessorOptions.LeaseRenewInterval = TimeSpan.FromSeconds(15);
+            feedProcessorOptions.StartFromBeginning = true;
 
             this.builder
                 .WithHostName(hostName)

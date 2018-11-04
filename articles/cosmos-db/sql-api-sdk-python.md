@@ -9,16 +9,16 @@ ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: python
 ms.topic: reference
-origin.date: 05/08/2018
-ms.date: 07/02/2018
+origin.date: 09/24/2018
+ms.date: 11/05/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1aea1150ac3000dca45ccd6d422930332dc69a0e
-ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
+ms.openlocfilehash: 542fd5c44c267963c37e66b5ef638653ee588c8e
+ms.sourcegitcommit: c1020b13c8810d50b64e1f27718e9f25b5f9f043
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37070322"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50204842"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>适用于 SQL API 的 Azure Cosmos DB Python SDK：发行说明和资源
 > [!div class="op_single_selector"]
@@ -38,13 +38,13 @@ ms.locfileid: "37070322"
 
 <table>
 
-<tr><td>**下载 SDK**</td><td>[PyPI](https://pypi.python.org/pypi/pydocumentdb)</td></tr>
+<tr><td>**下载 SDK**</td><td>[PyPI](https://pypi.org/project/azure-cosmos)</td></tr>
 
-<tr><td>**API 文档**</td><td>[Python API 参考文档](https://docs.microsoft.com/python/api/pydocumentdb?view=azure-python)</td></tr>
+<tr><td>**API 文档**</td><td>[Python API 参考文档](https://docs.microsoft.com/python/api/overview/azure/cosmosdb?view=azure-python)</td></tr>
 
-<tr><td>**SDK 安装说明**</td><td>[Python SDK 安装说明](http://azure.github.io/azure-documentdb-python/)</td></tr>
+<tr><td>**SDK 安装说明**</td><td>[Python SDK 安装说明](https://github.com/Azure/azure-cosmos-python)</td></tr>
 
-<tr><td>**参与 SDK**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-python)</td></tr>
+<tr><td>**参与 SDK**</td><td>[GitHub](https://github.com/Azure/azure-cosmos-python)</td></tr>
 
 <tr><td>**入门**</td><td>[Python SDK 入门](sql-api-python-application.md)</td></tr>
 
@@ -59,4 +59,5 @@ ms.locfileid: "37070322"
 
 ## <a name="see-also"></a>另请参阅
 若要了解有关 Cosmos DB 的详细信息，请参阅 [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) 服务页。
+
 <!-- Update_Description: update meta properties, wording update -->

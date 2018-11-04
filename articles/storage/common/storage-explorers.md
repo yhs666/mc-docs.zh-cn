@@ -1,26 +1,20 @@
 ---
-title: 适用于 Azure 存储的工具 | Azure
+title: 适用于 Azure 存储的工具 | Microsoft Docs
 description: 可用于查看 Azure 存储数据或与之交互的工具列表。
 services: storage
-documentationcenter: ''
-author: forester123
-manager: digimobile
-editor: tysonn
-ms.assetid: e4748642-98c4-437e-b0ed-4f9641c2e894
+author: WenJason
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 09/06/2017
-ms.date: 10/16/2017
-ms.author: v-johch
-ms.openlocfilehash: 6a3f9625efe2a18a7a75f492a7696625392f2c3b
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.date: 11/05/2018
+ms.author: v-jay
+ms.component: common
+ms.openlocfilehash: b6219126971df0003d86002051e7431ce15b9c34
+ms.sourcegitcommit: 7c750170ddefe7537663dfbadcc06bf27d94c586
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295681"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50743547"
 ---
 # <a name="azure-storage-client-tools"></a>Azure 存储客户端工具
 Azure 存储用户经常要使用 Azure 存储客户端工具查看其数据或者与数据交互。 下表列出了可用于实现此目的的多种工具。 在每个能够枚举和/或访问数据抽象的块中打上“X”。 该表还指明了工具是否免费。 “试用”表示存在试用版，但完整版产品不是免费的。 “是/否”表示有一个免费版本，而提供的其他版本需要购买。

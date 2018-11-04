@@ -1,23 +1,25 @@
 ---
-title: 计算机视觉 API 常见问题解答 | Microsoft Docs
-description: 获取有关 Microsoft 认知服务中计算机视觉 API 的常见问题的解答。
+title: 计算机视觉 API 常见问题解答
+titlesuffix: Azure Cognitive Services
+description: 获取 Azure 认知服务中计算机视觉 API 的常见问题解答。
 services: cognitive-services
-author: alexchen2016
-manager: digimobile
+author: KellyDF
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: computer-vision
-ms.topic: article
+ms.component: computer-vision
+ms.topic: conceptual
 origin.date: 01/26/2017
-ms.date: 10/13/2017
+ms.date: 10/30/2018
 ms.author: v-junlch
-ms.openlocfilehash: 4149261122c2b8cc8e799a5b018b6b99eff17d74
-ms.sourcegitcommit: e157751c560524d0bb828e987b87178130663547
+ms.openlocfilehash: e3ec41a77f7b3169d4059fd8edb1e3c1b24b7ae0
+ms.sourcegitcommit: b8e99939a5493a15b78c32e87bfbf76a8c96a84a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "23407590"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50408979"
 ---
 # <a name="computer-vision-api-frequently-asked-questions"></a>计算机视觉 API 常见问题解答
+
 ### <a name="if-you-cant-find-answers-to-your-questions-in-this-faq-try-asking-the-computer-vision-api-community-on-stackoverflowhttpsstackoverflowcomquestionstaggedproject-oxfordormicrosoft-cognitive-or-contact-help-and-support-on-uservoicehttpscognitiveuservoicecom"></a>如果在本“常见问题解答”中找不到问题的答案，请尝试在 [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) 中向计算机视觉 API 社区提问，或联系 [UserVoice 上的帮助和支持人员](https://cognitive.uservoice.com/)
 
 -----
@@ -43,7 +45,7 @@ ms.locfileid: "23407590"
 | 丹麦语 (da-DK)  | 荷兰语 (nl-NL)     | 英语           | 芬兰语 (fi-FI)            |法语 (fr-FR)
 | 德语 (de-DE)  | 希腊语 (el-GR)     | 匈牙利语 (hu-HU) | 意大利语 (it-IT)            | 日语 (ja-JP)
 | 韩语 (ko-KR)  | 挪威语 (nb-NO) | 波兰语 (pl-PL)    | 葡萄牙语 (pt-BR) (pt-PT) | 俄语 (ru-RU)
-| 西班牙语 (es-ES)   | 瑞典语 (sv-SV)     | 土耳其语 (tr-TU)   |                            |
+| 西班牙语 (es-ES)   | 瑞典语 (sv-SV)     | 土耳其语 (tr-TR)   |                            |
 
 -----
 

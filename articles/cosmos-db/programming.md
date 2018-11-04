@@ -9,14 +9,14 @@ ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 03/26/2018
-ms.date: 09/30/2018
+ms.date: 11/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 93556237ace113a2a665188fca31cb2462dd0f4d
-ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
+ms.openlocfilehash: 96f17d601217b0a04664c71b688ade0b28f3d909
+ms.sourcegitcommit: c1020b13c8810d50b64e1f27718e9f25b5f9f043
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47201385"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50204848"
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Azure Cosmos DB 服务器端编程：存储过程、数据库触发器和 UDF
 
@@ -93,7 +93,7 @@ client.executeStoredProcedureAsync('dbs/testdb/colls/testColl/sprocs/helloWorld'
     });
 ```
 
-上下文对象提供对所有可在 Cosmos DB 存储上执行的操作的访问，以及对请求和响应对象的访问。 在本例中，请使用响应对象来设置发送回客户端的响应的主体。 有关详细信息，请参阅 [Azure Cosmos DB JavaScript 服务器 SDK 文档](https://azure.github.io/azure-cosmosdb-js-server/)。  
+上下文对象提供对所有可在 Cosmos DB 存储上执行的操作的访问，以及对请求和响应对象的访问。 在本例中，请使用响应对象来设置发送回客户端的响应的主体。 有关详细信息，请参阅 [Azure Cosmos DB JavaScript 服务器端 API 参考](https://azure.github.io/azure-cosmosdb-js-server/)。  
 
 让我们扩展此示例，并将更多数据库相关的功能添加到存储过程中。 存储过程可以创建、更新、读取、查询和删除集合内部的文档和附件。    
 
@@ -505,7 +505,7 @@ client.createUserDefinedFunctionAsync('dbs/testdb/colls/testColl', taxUdf)
 ```
 
 ## <a name="javascript-language-integrated-query-api"></a>JavaScript 语言集成的查询 API
-除了使用 Azure Cosmos DB 的 SQL 语法发起查询外，服务器端 SDK 还允许在没有任何 SQL 知识的情况下使用流畅的 JavaScript 接口来执行优化的查询。 JavaScript 查询 API 允许使用与 ECMAScript5 的数组内置项类似的语法以及 Lodash 之类的热门 JavaScript 库，通过将谓词函数传递到可链接的函数调用中以编程方式生成查询。 查询由将使用 Azure Cosmos DB 的索引有效执行的 JavaScript 运行时进行分析。
+除了使用 Azure Cosmos DB 的 SQL 语法发起查询外，[服务器端 SDK](https://azure.github.io/azure-cosmosdb-js-server/) 还允许在没有任何 SQL 知识的情况下使用流畅的 JavaScript 接口来执行优化的查询。 JavaScript 查询 API 允许使用与 ECMAScript5 的数组内置项类似的语法以及 Lodash 之类的热门 JavaScript 库，通过将谓词函数传递到可链接的函数调用中以编程方式生成查询。 查询由将使用 Azure Cosmos DB 的索引有效执行的 JavaScript 运行时进行分析。
 
 > [!NOTE]
 > `__`（双下划线）是 `getContext().getCollection()` 的别名。
@@ -825,12 +825,11 @@ foreach (Book book in client.CreateDocumentQuery(UriFactory.CreateDocumentCollec
 
 还可以查找以下参考和资源，可帮助了解更多有关 Azure Cosmos DB 服务器端编程的信息：
 
-* [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md)
+* [Azure Cosmos DB JavaScript 服务器端 API 参考](https://azure.github.io/azure-cosmosdb-js-server/)
 * [DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases)
-* [JSON](http://www.json.org/) 
 * [JavaScript ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm)
 * [安全和可移植的数据库扩展性](http://dl.acm.org/citation.cfm?id=276339) 
 * [面向服务的数据库体系结构](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
 * [在 Microsoft SQL 服务器中托管 .NET 运行时](http://dl.acm.org/citation.cfm?id=1007669)
 
-<!--Update_Description: update meta properties, update link -->
+<!--Update_Description: update meta properties, update link, wording update -->

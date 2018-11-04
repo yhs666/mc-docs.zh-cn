@@ -8,12 +8,12 @@ ms.topic: get-started-article
 origin.date: 06/07/2018
 ms.date: 09/24/2018
 ms.author: v-jay
-ms.openlocfilehash: 769129a2bfdda0e443ad5c4320baac4bd88838b8
-ms.sourcegitcommit: 0081fb238c35581bb527bdd704008c07079c8fbb
+ms.openlocfilehash: 2d03631d28ea9806558c63dabe5e24efb634d19e
+ms.sourcegitcommit: 7c750170ddefe7537663dfbadcc06bf27d94c586
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523726"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50743558"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>在 Windows 中使用 Azure 文件共享
 [Azure 文件](storage-files-introduction.md)是易于使用的云文件系统。 可以在 Windows 和 Windows Server 中无缝使用 Azure 文件共享。 本文介绍在 Windows 和 Windows Server 中使用 Azure 文件共享时的注意事项。
@@ -89,7 +89,7 @@ $storageAccountKeys = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceG
 # The cmdkey utility is a command-line (rather than PowerShell) tool. We use Invoke-Expression to allow us to 
 # consume the appropriate values from the storage account variables. The value given to the add parameter of the
 # cmdkey utility is the host address for the storage account, <storage-account>.file.core.chinacloudapi.cn for Azure 
-# Public Regions. $storageAccount.Context.FileEndpoint is used because non-Public Azure regions, such as soverign 
+# Public Regions. $storageAccount.Context.FileEndpoint is used because non-Public Azure regions, such as sovereign 
 # clouds or Azure Stack deployments, will have different hosts for Azure file shares (and other storage resources).
 Invoke-Expression -Command "cmdkey /add:$([System.Uri]::new($storageAccount.Context.FileEndPoint).Host) " + `
     "/user:AZURE\$($storageAccount.StorageAccountName) /pass:$($storageAccountKeys[0].Value)"
@@ -150,7 +150,7 @@ if ($fileShare -eq $null) {
 
 # The value given to the root parameter of the New-PSDrive cmdlet is the host address for the storage account, 
 # <storage-account>.file.core.chinacloudapi.cn for Azure Public Regions. $fileShare.StorageUri.PrimaryUri.Host is 
-# used because non-Public Azure regions, such as soverign clouds or Azure Stack deployments, will have different 
+# used because non-Public Azure regions, such as sovereign clouds or Azure Stack deployments, will have different 
 # hosts for Azure file shares (and other storage resources).
 $password = ConvertTo-SecureString -String $storageAccountKeys[0].Value -AsPlainText -Force
 $credential = New-Object System.Management.Automation.PSCredential -ArgumentList "AZURE\$($storageAccount.StorageAccountName)", $password

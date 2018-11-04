@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 08/27/2018
-ms.date: 10/01/2018
+origin.date: 10/01/2018
+ms.date: 11/05/2018
 ms.author: v-jay
-ms.openlocfilehash: 45aca17155d28fc3d78ab24a8c3321064c1770cf
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.openlocfilehash: f41c2094ccf3ed47f8ca0cb3358ac22fce18aad6
+ms.sourcegitcommit: 9be84d4dc546d66a0d9d1d2be67dd79c84b2c210
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426473"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50408847"
 ---
 # <a name="outbound-connections-in-azure"></a>Azure 中的出站连接
 
@@ -68,15 +68,15 @@ Azure 负载均衡器和相关资源是使用 [Azure 资源管理器](#arm)时�
 
 使用负载均衡器的公共 IP 地址前端的临时端口区分由 VM 产生的各个流。 创建出站流后，SNAT 动态使用[预先分配的临时端口](#preallocatedports)。 在此情况下，用于 SNAT 的临时端口被称为 SNAT 端口。
 
-SNAT 端口是根据[了解 SNAT 和 PAT](#snat) 部分中所述预先分配的。 它们是可能会耗尽的有限资源。 因此了解它们的[使用](#pat)方式很重要。 请查看[管理 SNAT 耗尽](#snatexhaust)，了解如何根据需要进行设计和缓解。
+SNAT 端口是按照[了解 SNAT 和 PAT](#snat) 部分中所述预先分配的。 它们是可能会耗尽的有限资源。 因此了解它们的[使用](#pat)方式很重要。 请查看[管理 SNAT 耗尽](#snatexhaust)，了解如何根据需要进行设计和缓解。
 
-如果[多个（公共）IP 地址与一个负载均衡器基本版相关联](load-balancer-multivip-overview.md)，则所有这些公共 IP 地址都是[出站流的候选项，并且会选择其中的一个](#multivipsnat)。  
+如果[多个公共 IP 地址与一个负载均衡器基本版相关联](load-balancer-multivip-overview.md)，则所有这些公共 IP 地址都是[出站流的候选项](#multivipsnat)，并且会随机选择其中一个。  
 
 <!-- Not Available on [Log Analytics for Load Balancer](load-balancer-monitor-log.md)-->
 <!-- Not Available on [alert event logs](load-balancer-monitor-log.md#alert-event-log)-->
 ### <a name="defaultsnat"></a>方案 3：无实例级公共 IP 地址的独立 VM
 
-在此场景中，VM 不是公共负载均衡器池的一部分（也不是内部标准负载均衡器池的一部分），并且没有分配给它的 ILPIP 地址。 当 VM 创建出站流时，Azure 将此出站流的专用源 IP 地址转换为公共源 IP 地址。 用于此出站流的公共 IP 地址是不可配置的，并且不会影响订阅的公共 IP 资源限制。
+在此场景中，VM 不是公共负载均衡器池的一部分（也不是内部标准负载均衡器池的一部分），并且没有分配给它的 ILPIP 地址。 当 VM 创建出站流时，Azure 将此出站流的专用源 IP 地址转换为公共源 IP 地址。 用于此出站流的公共 IP 地址是不可配置的，并且不会影响订阅的公共 IP 资源限制。 此公共 IP 地址不属于你，不能保留。 如果重新部署 VM 或可用性集或 VMSS，则将释放此公共 IP 地址并请求新的公共 IP 地址。 请不要使用此方案将 IP 地址加入允许列表。 而是使用其他两个方案之一，其中你显式声明出站方案和要用于出站连接的公共 IP 地址。
 
 >[!IMPORTANT] 
 >仅当附加了内部基本负载均衡器时，此场景才适用。 如果已将内部标准负载均衡器附加到 VM，则场景 3 不适用。  除了使用内部标准负载均衡器以外，还必须显式创建[场景 1](#ilpip) 或[场景 2](#lb)。
@@ -93,7 +93,22 @@ SNAT 端口是根据[了解 SNAT 和 PAT](#snat) 部分中所述预先分配的�
 
 ### <a name="multife"></a>对出站流使用多个前端
 
-<!-- Not Available on #### Load Balancer Standard -->
+#### <a name="load-balancer-standard"></a>负载均衡器标准版
+
+存在[多个（公共）IP 前端](load-balancer-multivip-overview.md)时，负载均衡器标准版同时使用出站流的所有候选项。 如果对出站连接启用了负载均衡规则，则每个前端的可用预分配 SNAT 端口数将会倍增。
+
+可以使用一个新的负载均衡规则选项，来禁止对出站连接使用某个前端 IP 地址：
+
+```json    
+      "loadBalancingRules": [
+        {
+          "disableOutboundSnat": false
+        }
+      ]
+```
+
+此选项通常默认为 _false_，表示此规则将在负载均衡规则的后端池中设定关联 VM 的出站 SNAT。  可将此选项更改为 _true_，防止负载均衡器对此负载均衡规则的后端池中 VM 的出站连接使用关联的前端 IP 地址。  此外，仍可以根据[多个组合方案](#combinations)中所述，为出站流指定特定的 IP 地址。
+
 #### <a name="load-balancer-basic"></a>负载均衡器基本版
 
 当[多个（公共）IP 前端](load-balancer-multivip-overview.md)适用于出站流时，负载均衡器基本版将选择单个前端用于出站流。 此项选择不可配置，应将选择算法视为随机。 可以根据[多个组合方案](#combinations)中所述，为出站流指定特定的 IP 地址。
@@ -150,7 +165,11 @@ Azure 向每个 VM 的 NIC IP 配置预先分配 SNAT 端口。 将 IP 配置添
 | 201-400 | 128 |
 | 401-800 | 64 |
 | 801-1,000 | 32 |
-<!-- Not Available on Standard Load Balancer in NOTE --> 请记住，可用的 SNAT 端口数不会直接转换为流数。 可以针对多个唯一目标重用单个 SNAT 端口。 仅当需要使流保持唯一时，才使用端口。 有关设计和缓解指导，请参阅[如何管理这项可耗尽的资源](#snatexhaust)；另请参阅介绍 [PAT](#pat) 的部分。
+
+>[!NOTE]
+> 结合[多个前端](load-balancer-multivip-overview.md)使用标准负载均衡器时，上表中[每个前端 IP 地址的可用 SNAT 端口数目将会倍增](#multivipsnat)。 例如，如果某个后端池包含 50 个 VM 和 2 个负载均衡规则，并且每个 VM 使用独立的前端 IP 地址，则该后端池将为每个 IP 配置使用 2048 个 (2 x 1024) SNAT 端口。 参阅有关[多个前端](#multife)的详细信息。
+
+请记住，可用的 SNAT 端口数不会直接转换为流数。 可以针对多个唯一目标重用单个 SNAT 端口。 仅当需要使流保持唯一时，才使用端口。 有关设计和缓解指导，请参阅[如何管理这项可耗尽的资源](#snatexhaust)；另请参阅介绍 [PAT](#pat) 的部分。
 
 更改后端池大小可能会影响建立的某些流。 如果后端池大小递增并转换为下一层，则在转换为下一个更大的后端池层期间，一半的预先分配 SNAT 端口将被回收。 与回收的 SNAT 端口关联的流会超时，必须重新建立连接。 如果尝试新流，则只要预先分配的端口可用，则该流就能立即成功。
 
@@ -237,12 +256,12 @@ SNAT 端口分配特定于 IP 传输协议（TCP 和 UDP 是分别维护的）�
 
 ## <a name="limitations"></a>限制
 - 在门户中配置负载均衡规则时，不能将 DisableOutboundSnat 用作选项。  请改用 REST、模板或客户端工具。
-<!-- Not Available on Standare Load Balancer -->
+<!-- Not Available -->
 
 ## <a name="next-steps"></a>后续步骤
 
 - 详细了解[负载均衡器](load-balancer-overview.md)。
-<!-- Not Avaiable on - Learn more about [Standard Load Balancer](load-balancer-standard-overview.md) -->
+- 详细了解[标准负载均衡器](load-balancer-standard-overview.md)。
 - 详细了解[网络安全组](../virtual-network/security-overview.md)。
 <!-- Not Avaiable on  [networking capabilities](../networking/networking-overview.md) -->
 <!--Update_Description: update meta properties, wording update, update link -->

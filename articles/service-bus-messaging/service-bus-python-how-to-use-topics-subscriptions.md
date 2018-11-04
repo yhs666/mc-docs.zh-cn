@@ -1,26 +1,26 @@
 ---
 title: 如何通过 Python 使用 Azure 服务总线主题 | Microsoft Docs
 description: 了解如何使用 Python 中的 Azure 服务总线主题和订阅
-services: service-bus
-documentationCenter: python
-authors: sethmanheim
-manager: timlt
+services: service-bus-messaging
+documentationcenter: python
+author: lingliw
+manager: digimobile
 editor: ''
 ms.assetid: c4f1d76c-7567-4b33-9193-3788f82934e4
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-origin.date: 04/20/2018
-ms.author: v-yiso
-ms.date: 09/18/2017
-ms.openlocfilehash: 130e1bd411b1bdaf61488aea9262b90a9a04e9f0
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+origin.date: 09/20/2018
+ms.date: 10/31/2018
+ms.author: v-lingwu
+ms.openlocfilehash: 4ebcda74e8a8d52aa370e157513bc7539c6e738e
+ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939527"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50409372"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-python"></a>如何通过 Python 使用服务总线主题和订阅
 
@@ -76,7 +76,8 @@ bus_service.create_topic('mytopic', topic_options)
 > 
 
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>创建具有默认 (MatchAll) 筛选器的订阅
-**MatchAll** 筛选器是默认筛选器，在创建新订阅时未指定筛选器的情况下使用。 使用 **MatchAll** 筛选器时，发布到主题的所有消息都会置于订阅的虚拟队列中。 以下示例创建名为 `AllMessages` 的订阅，并使用默认的 **MatchAll** 筛选器。
+
+如果在创建新订阅时未指定任何筛选器，则将使用默认的 MatchAll 筛选器。 使用 **MatchAll** 筛选器时，发布到主题的所有消息都会置于订阅的虚拟队列中。 以下示例创建名为 `AllMessages` 的订阅，并使用默认的 **MatchAll** 筛选器。
 
 ```python
 bus_service.create_subscription('mytopic', 'AllMessages')
@@ -88,7 +89,7 @@ bus_service.create_subscription('mytopic', 'AllMessages')
 
 订阅支持的最灵活的一种筛选器是 **SqlFilter**，它实现了一部分 SQL92 功能。 SQL 筛选器对发布到主题的消息的属性进行操作。 有关可用于 SQL 筛选器的表达式的详细信息，请参阅 [SqlFilter.SqlExpression][SqlFilter.SqlExpression] 语法。
 
-可使用 ServiceBusService 对象的 create\_rule 方法向订阅添加筛选器。 此方法允许向现有订阅中添加新筛选器。
+可使用 **ServiceBusService** 对象的 **create\_rule** 方法向订阅添加筛选器。 此方法允许向现有订阅中添加新筛选器。
 
 > [!NOTE]
 > 由于默认筛选器会自动应用到所有新订阅，因此，必须首先删除默认筛选器，否则 **MatchAll** 会替代你可能指定的任何其他筛选器。 可以使用 ServiceBusService 对象的 `delete_rule` 方法删除默认规则。
@@ -135,21 +136,22 @@ for i in range(5):
     bus_service.send_topic_message('mytopic', msg)
 ```
 
-服务总线主题在[标准层](service-bus-premium-messaging.md)中支持的最大消息大小为 256 KB，在[高级层](service-bus-premium-messaging.md)中则为 1 MB。 标头最大大小为 64 KB，其中包括标准和自定义应用程序属性。 一个主题中包含的消息数量不受限制，但消息的总大小受限制。 此主题大小是在创建时定义的，上限为 5 GB。 有关配额的详细信息，请参阅 [服务总线配额][]。
+服务总线主题在[标准层](service-bus-premium-messaging.md)中支持的最大消息大小为 256 KB，在[高级层](service-bus-premium-messaging.md)中则为 1 MB。 标头最大大小为 64 KB，其中包括标准和自定义应用程序属性。 一个主题中包含的消息数量不受限制，但消息的总大小受限制。 此主题大小是在创建时定义的，上限为 5 GB。 有关配额的详细信息，请参阅[服务总线配额][Service Bus quotas]。
 
 ## <a name="receive-messages-from-a-subscription"></a>从订阅接收消息
-对 ServiceBusService 对象使用 receive\_subscription\_message 方法可从订阅接收消息：
+
+对 ServiceBusService 对象使用 `receive_subscription_message` 方法可从订阅接收消息：
 
 ```python
 msg = bus_service.receive_subscription_message('mytopic', 'LowMessages', peek_lock=False)
 print(msg.body)
 ```
 
-参数 peek\_lock 设置为“False”时，将在读取消息后将其从订阅删除。 通过将参数 peek\_lock 设置为“True”，可读取（扫视）并锁定消息而不会将其从队列中删除。
+参数 `peek_lock` 设置为“False”时，会在读取消息后将其从订阅删除。 通过将参数 `peek_lock` 设置为“True”，可读取（速览）并锁定消息而不会将其从队列中删除。
 
-在接收过程中读取并删除消息的行为是最简单的模式，并且最适合在发生故障时应用程序可以容忍不处理消息的情况。 为了理解此行为，可以考虑这样一种情形：使用方发出接收请求，但在处理该请求前发生了崩溃。 由于服务总线会将消息标记为“已使用”，因此当应用程序重启并重新开始使用消息时，它会遗漏在发生崩溃前使用的消息。
+在接收过程中读取并删除消息的行为是最简单的模式，并且最适合在发生故障时应用程序可以容忍不处理消息的情况。 为了理解此行为，可以考虑这样一种情形：使用方发出接收请求，但在处理该请求前发生了崩溃。 由于服务总线已将消息标记为“已使用”，因此当应用程序重新启动并重新开始使用消息时，它会漏掉在发生崩溃前使用的消息。
 
-如果将 peek\_lock 参数设置为“True”，则接收将变成一个两阶段操作，从而可支持无法容忍遗漏消息的应用程序。 当 Service Bus 收到请求时，它会查找下一条要使用的消息，锁定该消息以防其他使用者接收，并将该消息返回到应用程序。 应用程序处理完消息（或安全存储该消息以供将来处理）后，会通过对 Message 对象调用 delete 方法来完成接收过程的第二个阶段。 **delete** 方法会将消息标记为已使用，并将其从订阅中删除。
+如果将 `peek_lock` 参数设置为“True”，则接收会变成一个两阶段操作，从而可支持无法容忍遗漏消息的应用程序。 当 Service Bus 收到请求时，它会查找下一条要使用的消息，锁定该消息以防其他使用者接收，并将该消息返回到应用程序。 应用程序处理完消息（或安全存储该消息以供将来处理）后，会通过对 Message 对象调用 `delete` 方法完成接收过程的第二个阶段。 `delete` 方法会将消息标记为已使用，并将其从订阅中删除。
 
 ```python
 msg = bus_service.receive_subscription_message('mytopic', 'LowMessages', peek_lock=True)
@@ -165,7 +167,7 @@ Service Bus 提供了相关功能来帮助你轻松地从应用程序错误或�
 
 另外，还存在与订阅中已锁定消息关联的超时，并且如果应用程序无法在锁定超时到期之前处理消息（例如，如果应用程序崩溃），则服务总线将自动解锁该消息并使其可再次被接收。
 
-如果应用程序在处理消息之后，但在调用 `delete` 方法之前崩溃，则在应用程序重启时会将该消息重新传送给它。 此行为通常称作*至少处理一次*，即每条消息将至少被处理一次，但在某些情况下，同一消息可能会被重新传送。 如果方案无法容忍重复处理，则应用程序开发人员应向其应用程序添加更多逻辑以处理重复消息传送。 为此，可以使用消息的 **MessageId** 属性，该属性在各次传送尝试中保持不变。
+如果应用程序在处理消息之后，但在调用 `delete` 方法之前崩溃，则在应用程序重启时会将该消息重新传送给它。 经常会调用此行为。 至少处理一次*，即每条消息将至少被处理一次，但在某些情况下，同一消息可能会被重新传送。 如果方案无法容忍重复处理，则应用程序开发人员应向其应用程序添加更多逻辑以处理重复消息传送。 为此，可以使用消息的 **MessageId** 属性，该属性在各次传送尝试中保持不变。
 
 ## <a name="delete-topics-and-subscriptions"></a>删除主题和订阅
 主题和订阅具有持久性，必须通过 [Azure 门户][Azure portal]或以编程方式显式删除。 以下示例演示如何删除名为 `mytopic`的主题：
@@ -184,11 +186,11 @@ bus_service.delete_subscription('mytopic', 'HighMessages')
 
 现在，已了解有关 Service Bus 主题的基础知识，单击下面的链接可了解更多信息。
 
--   请参阅[队列、主题和订阅][]。
--   [SqlFilter.SqlExpression][]参考。
+* 请参阅[队列、主题和订阅][Queues, topics, and subscriptions]。
+* [SqlFilter.SqlExpression][SqlFilter.SqlExpression] 参考。
 
 [Azure portal]: https://portal.azure.cn
 [Azure Python package]: https://pypi.python.org/pypi/azure  
-[队列、主题和订阅]: ./service-bus-queues-topics-subscriptions.md
+[Queues, topics, and subscriptions]: ./service-bus-queues-topics-subscriptions.md
 [SqlFilter.SqlExpression]: ./service-bus-messaging-sql-filter.md
-[服务总线配额]: ./service-bus-quotas.md
+[Service Bus quotas]: ./service-bus-quotas.md

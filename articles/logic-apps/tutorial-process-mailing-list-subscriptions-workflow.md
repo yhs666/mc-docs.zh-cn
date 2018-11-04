@@ -1,12 +1,7 @@
 ---
 title: 生成处理邮件列表请求所需的审批工作流 - Azure 逻辑应用
-description: 本教程介绍如何使用 Azure 逻辑应用来创建自动化审批工作流，以便处理邮件列表订阅
-author: ecfan
-manager: anneta
-editor: ''
+description: 教程 - 如何使用 Azure 逻辑应用来创建自动化审批工作流，以便处理邮件列表订阅
 services: logic-apps
-documentationcenter: ''
-ms.assetid: ''
 ms.service: logic-apps
 ms.workload: logic-apps
 ms.tgt_pltfrm: na
@@ -15,15 +10,15 @@ ms.topic: tutorial
 ms.custom: mvc
 origin.date: 01/12/2018
 ms.author: v-yiso
-ms.date: 03/19/2018
-ms.openlocfilehash: 65dd373ed74f0277f6334848eb1d7db2c22b4e8c
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.date: 11/12/2018
+ms.openlocfilehash: 34591c6243361332ba2cef372274d09fe80b51dc
+ms.sourcegitcommit: 3f96e40162bb6ee2e9fdb76c976517e47a1252d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29870795"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50919112"
 ---
-# <a name="manage-mailing-list-requests-with-a-logic-app"></a>使用逻辑应用管理邮件列表请求
+# <a name="manage-mailing-list-requests-with-azure-logic-apps"></a>使用 Azure 逻辑应用管理邮件列表请求
 
 Azure 逻辑应用有助于跨 Azure 服务、Microsoft 服务、其他软件即服务 (SaaS) 应用以及本地系统自动完成工作流和集成数据。 本教程介绍如何生成[逻辑应用](../logic-apps/logic-apps-overview.md)，以便处理针对 [MailChimp](https://mailchimp.com/) 服务托管的邮件列表的订阅请求。
 此逻辑应用会监视电子邮件帐户中是否存在这些请求，发送这些请求进行审批，并向邮件列表添加批准的成员。

@@ -11,18 +11,40 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-origin.date: 09/13/2018
+origin.date: 10/12/2018
 ms.author: v-yiso
-ms.date: 10/22/2018
-ms.openlocfilehash: b59f2dc5093dd61870a0f7bafed1b19187815d79
-ms.sourcegitcommit: 8a5722b85c6eabbd28473d792716ad44aac3ff23
+ms.date: 11/12/2018
+ms.openlocfilehash: 4f6eedbbbc69325be2617d3e1e4694c1d73a4592
+ms.sourcegitcommit: 3f96e40162bb6ee2e9fdb76c976517e47a1252d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49121556"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50919124"
 ---
 # <a name="azure-guest-os"></a>Azure 来宾 OS
 下表显示了适用于 Azure 来宾 OS 的 Microsoft 安全响应中心 (MSRC) 更新。 要确定特定的更新是否适用于使用的来宾 OS，请搜索本文。 引入这些更新的特定[系列][family-explain]始终会包含这些更新。
+
+## <a name="september-guest-os"></a>9 月来宾 OS
+| 产品类别 | 上层知识库文章 | 漏洞描述 | 来宾 OS | 首次引入日期 |
+| --- | --- | --- | --- | --- |
+| Rel 18-09 | [4457131] | Windows 10 安全性 | 5.23 | 2018 年 9 月 11 日 |
+| Rel 18-09 | [4457145] | 仅 Windows 安全性 | 2.78 | 2018 年 9 月 11 日 |
+| Rel 18-09 | [4457140] | 仅 Windows 安全性 | 3.65 | 2018 年 9 月 11 日 |
+| Rel 18-09 | [4457143] | 仅 Windows 安全性 | 4.58 | 2018 年 9 月 11 日 |
+| Rel 18-09 | [4457055]、[4457030] | .NET 3.5、4.5 安全性 | 2.78 | 2018 年 9 月 11 日 |
+| Rel 18-09 | [4457053]、[4457029] | .NET 3.5、4.x 安全性 | 3.65 | 2018 年 9 月 11 日 |
+| Rel 18-09 | [4457056]、[4457028] | .NET 3.5、4.x 安全性 | 4.58 | 2018 年 9 月 11 日 |
+| Rel 18-09 | [4457146] | 闪烁 | 3.65、4.58、5.23 | 2018 年 9 月 11 日 |
+| Rel 18-09 | [4457426] | Internet Explorer | 2.78、3.65、4.58 | 2018 年 9 月 11 日 |
+| 不适用 | [4343900] | 8 月非安全性汇总 | 2.78 | 2018 年 8 月 14 日 |
+| 不适用 | [4344152] | 8 月非安全性 .NET 3.5 汇总 | 2.78 | 2018 年 8 月 14 日 |
+| 不适用 | [4344149] | 8 月非安全性 .NET 4x 汇总 | 2.78 | 2018 年 8 月 14 日 |
+| 不适用 | [4343901] | 8 月非安全性汇总 | 3.65 | 2018 年 8 月 14 日 |
+| 不适用 | [4344150] | 8 月非安全性 .NET 3.5 汇总 | 3.65 | 2018 年 8 月 14 日 |
+| 不适用 | [4344148] | 8 月非安全性 .NET 4x 汇总 | 3.65 | 2018 年 8 月 14 日 |
+| 不适用 | [4343898] | 8 月非安全性汇总 | 4.58 | 2018 年 8 月 14 日 |
+| 不适用 | [4344153] | 8 月非安全性 .NET 3.5 汇总 | 4.58 | 2018 年 8 月 14 日 |
+| 不适用 | [4344147] | 8 月非安全性 .NET 4x 汇总 | 4.58 | 2018 年 8 月 14 日 |
 
 ## <a name="august-guest-os"></a>8 月来宾 OS
 | 产品类别 | 上层知识库文章 | 漏洞描述 | 来宾 OS | 首次引入日期 |
@@ -717,6 +739,49 @@ ms.locfileid: "49121556"
 | 不适用 |[2999802] |在 Windows 中打印时，虚线变成实线 |4.15、3.22、2.34 |2015 年 1 月 13 日 |
 | 不适用 |[2896881] |在 Windows 中登录期间使用 AddPrinterConnection VBScript 命令映射用户的打印机时，登录时间过长 |4.15、3.22、2.34 |2015 年 1 月 13 日 |
 
+[4457131]: http://support.microsoft.com/kb/4457131
+[4457145]: http://support.microsoft.com/kb/4457145
+[4457140]: http://support.microsoft.com/kb/4457140
+[4457143]: http://support.microsoft.com/kb/4457143
+[4457055]: http://support.microsoft.com/kb/4457055
+[4457030]: http://support.microsoft.com/kb/4457030
+[4457053]: http://support.microsoft.com/kb/4457053
+[4457029]: http://support.microsoft.com/kb/4457029
+[4457056]: http://support.microsoft.com/kb/4457056
+[4457028]: http://support.microsoft.com/kb/4457028
+[4457146]: http://support.microsoft.com/kb/4457146
+[4457426]: http://support.microsoft.com/kb/4457426
+[4343900]: http://support.microsoft.com/kb/4343900
+[4344152]: http://support.microsoft.com/kb/4344152
+[4344149]: http://support.microsoft.com/kb/4344149
+[4343901]: http://support.microsoft.com/kb/4343901
+[4344150]: http://support.microsoft.com/kb/4344150
+[4344148]: http://support.microsoft.com/kb/4344148
+[4343898]: http://support.microsoft.com/kb/4343898
+[4344153]: http://support.microsoft.com/kb/4344153
+[4344147]: http://support.microsoft.com/kb/4344147
+
+[4457131]: http://support.microsoft.com/kb/4457131
+[4457145]: http://support.microsoft.com/kb/4457145
+[4457140]: http://support.microsoft.com/kb/4457140
+[4457143]: http://support.microsoft.com/kb/4457143
+[4457055]: http://support.microsoft.com/kb/4457055
+[4457030]: http://support.microsoft.com/kb/4457030
+[4457053]: http://support.microsoft.com/kb/4457053
+[4457029]: http://support.microsoft.com/kb/4457029
+[4457056]: http://support.microsoft.com/kb/4457056
+[4457028]: http://support.microsoft.com/kb/4457028
+[4457146]: http://support.microsoft.com/kb/4457146
+[4457426]: http://support.microsoft.com/kb/4457426
+[4343900]: http://support.microsoft.com/kb/4343900
+[4344152]: http://support.microsoft.com/kb/4344152
+[4344149]: http://support.microsoft.com/kb/4344149
+[4343901]: http://support.microsoft.com/kb/4343901
+[4344150]: http://support.microsoft.com/kb/4344150
+[4344148]: http://support.microsoft.com/kb/4344148
+[4343898]: http://support.microsoft.com/kb/4343898
+[4344153]: http://support.microsoft.com/kb/4344153
+[4344147]: http://support.microsoft.com/kb/4344147
 
 [4343887]: http://support.microsoft.com/kb/4343887
 [4343899]: http://support.microsoft.com/kb/4343899

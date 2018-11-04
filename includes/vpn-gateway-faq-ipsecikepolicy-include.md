@@ -1,3 +1,21 @@
+---
+title: include 文件
+description: include 文件
+services: vpn-gateway
+author: WenJason
+ms.service: vpn-gateway
+ms.topic: include
+origin.date: 03/21/2018
+ms.date: 11/05/2018
+ms.author: v-jay
+ms.custom: include file
+ms.openlocfilehash: e2d7238a6750b1520c9df3160e8adf3d34fecf95
+ms.sourcegitcommit: 3f96e40162bb6ee2e9fdb76c976517e47a1252d9
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50919415"
+---
 ### <a name="is-custom-ipsecike-policy-supported-on-all-azure-vpn-gateway-skus"></a>是否所有 Azure VPN 网关 SKU 都支持自定义 IPsec/IKE 策略？
 自定义 IPsec/IKE 策略在 Azure VpnGw1、VpnGw2、VpnGw3、标准 VPN 网关和高性能 VPN 网关上受支持。 不支持基本 SKU。
 
@@ -32,21 +50,21 @@
 ### <a name="does-everything-need-to-match-between-the-azure-vpn-gateway-policy-and-my-on-premises-vpn-device-configurations"></a>Azure VPN 网关策略与本地 VPN 设备配置是否需完全匹配？
 本地 VPN 设备配置必须匹配，或者必须包含可在 Azure IPsec/IKE 策略中指定的以下算法和参数：
 
-- IKE 加密算法
-- IKE 完整性算法
-- DH 组
-- IPsec 加密算法
-- IPsec 完整性算法
-- PFS 组
-- 流量选择器 (*)
+* IKE 加密算法
+* IKE 完整性算法
+* DH 组
+* IPsec 加密算法
+* IPsec 完整性算法
+* PFS 组
+* 流量选择器 (*)
 
 SA 生存期是本地规范，不需匹配。
 
 如果启用 **UsePolicyBasedTrafficSelectors**，则需确保对于本地网络（本地网关）前缀与 Azure 虚拟网络前缀的所有组合，VPN 设备都定义了与之匹配的流量选择器（而不是任意到任意）。 例如，如果本地网络前缀为 10.1.0.0/16 和 10.2.0.0/16，虚拟网络前缀为 192.168.0.0/16 和 172.16.0.0/16，则需指定以下流量选择器：
-- 10.1.0.0/16 <====> 192.168.0.0/16
-- 10.1.0.0/16 <====> 172.16.0.0/16
-- 10.2.0.0/16 <====> 192.168.0.0/16
-- 10.2.0.0/16 <====> 172.16.0.0/16
+* 10.1.0.0/16 <====> 192.168.0.0/16
+* 10.1.0.0/16 <====> 172.16.0.0/16
+* 10.2.0.0/16 <====> 192.168.0.0/16
+* 10.2.0.0/16 <====> 172.16.0.0/16
 
 有关详细信息，请参阅[连接多个基于策略的本地 VPN 设备](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md)。
 
@@ -59,7 +77,7 @@ SA 生存期是本地规范，不需匹配。
 | 2                         | DHGroup2                 | PFS2         | 1024 位 MODP  |
 | 14                        | DHGroup14<br>DHGroup2048 | PFS2048      | 2048 位 MODP  |
 | 19                        | ECP256                   | ECP256       | 256 位 ECP    |
-| 20 个                        | ECP384                   | ECP284       | 384 位 ECP    |
+| 20 个                        | ECP384                   | ECP384       | 384 位 ECP    |
 | 24                        | DHGroup24                | PFS24        | 2048 位 MODP  |
 |                           |                          |              |                |
 
@@ -85,5 +103,3 @@ SA 生存期是本地规范，不需匹配。
 
 ### <a name="does-custom-ipsecike-policy-work-on-expressroute-connection"></a>能否在 ExpressRoute 连接上使用自定义 IPsec/IKE 策略？
 否。 只能通过 Azure VPN 网关在 S2S VPN 和 VNet 到 VNet 连接上使用 IPsec/IKE 策略。
-
-<!-- ms.date: 10/10/2017 -->

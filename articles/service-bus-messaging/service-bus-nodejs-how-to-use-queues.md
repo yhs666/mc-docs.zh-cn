@@ -1,26 +1,26 @@
 ---
 title: 如何通过 Node.js 使用服务总线队列 | Azure
 description: 了解如何在来自 Node.js 应用程序的 Azure 中使用服务总线队列。
-services: service-bus
-documentationCenter: nodejs
-author: sethmanheim
-manager: timlt
+services: service-bus-messaging
+documentationcenter: nodejs
+author: lingliw
+manager: digimobile
 editor: ''
 ms.assetid: a87a00f9-9aba-4c49-a0df-f900a8b67b3f
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-origin.date: 08/10/2017
-ms.author: v-yiso
-ms.date: 07/16/2018
-ms.openlocfilehash: ee0e766506d2fda58c54c96fc616f3e0cfd01373
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+origin.date: 09/10/2018
+ms.date: 10/31/2018
+ms.author: v-lingwu
+ms.openlocfilehash: 51e8aa083f4f0901704cb7ea3c47adcc968a32f7
+ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939328"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50409360"
 ---
 # <a name="how-to-use-service-bus-queues-with-nodejs"></a>如何通过 Node.js 使用服务总线队列
 
@@ -141,7 +141,7 @@ serviceBusService.sendQueueMessage('myqueue', message, function(error){
 });
 ```
 
-服务总线队列在[标准层](service-bus-premium-messaging.md)中支持的最大消息大小为 256 KB，在[高级层](service-bus-premium-messaging.md)中则为 1 MB。 标头最大大小为 64 KB，其中包括标准和自定义应用程序属性。 一个队列中包含的消息数量不受限制，但消息的总大小受限制。 此队列大小是在创建时定义的，上限为 5 GB。 有关配额的详细信息，请参阅[服务总线配额][Service Bus quotas]。
+服务总线队列在[标准层](service-bus-premium-messaging.md)中支持的最大消息大小为 256 KB，在[高级层](service-bus-premium-messaging.md)中则为 1 MB。 标头最大大小为 64 KB，其中包括标准和自定义应用程序属性。 一个队列可包含的消息数不受限制，但消息的总大小受限。 此队列大小是在创建时定义的，上限为 5 GB。 有关配额的详细信息，请参阅[服务总线配额][Service Bus quotas]。
 
 ## <a name="receive-messages-from-a-queue"></a>从队列接收消息
 对 ServiceBusService 对象使用 `receiveQueueMessage` 方法可从队列接收消息。 默认情况下，消息被读取后即从队列删除；但是可以读取（速览）并锁定消息而不将其从队列删除，只要将可选参数 `isPeekLock` 设置为“true”即可。
@@ -190,6 +190,5 @@ Service Bus 提供了相关功能来帮助你轻松地从应用程序错误或�
   [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
   [Queues, topics, and subscriptions]: ./service-bus-queues-topics-subscriptions.md
 [Create and deploy a Node.js application to an Azure Website]: ../app-service/app-service-web-get-started-nodejs.md
-[Node.js Cloud Service with Storage]:../cosmos-db/table-storage-cloud-service-nodejs.md
 [Node.js Web Application with Storage]:../cosmos-db/table-storage-how-to-use-nodejs.md
   [Service Bus quotas]: ./service-bus-quotas.md

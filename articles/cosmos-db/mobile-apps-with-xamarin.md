@@ -8,14 +8,14 @@ ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: tutorial
 origin.date: 11/15/2017
-ms.date: 09/30/2018
+ms.date: 11/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 5a398c57f048c6c69b52e3918a0fcba27ddc9397
-ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
+ms.openlocfilehash: 9deff44a7fd2ea89ee69fe1b6c3632840394e2e4
+ms.sourcegitcommit: c1020b13c8810d50b64e1f27718e9f25b5f9f043
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47201445"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50204820"
 ---
 # <a name="build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>使用 Xamarin 和 Azure Cosmos DB 生成移动应用程序
 
@@ -23,7 +23,6 @@ ms.locfileid: "47201445"
 > * [.NET](sql-api-dotnet-application.md)
 > * [Java](sql-api-java-application.md)
 > * [Node.js](sql-api-nodejs-application.md)
-> * [Node.js- v2](sql-api-nodejs-application-preview.md)
 > * [Python](sql-api-python-application.md)
 > * [Xamarin](mobile-apps-with-xamarin.md)
 > 

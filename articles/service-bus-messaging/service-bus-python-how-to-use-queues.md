@@ -1,26 +1,26 @@
 ---
 title: 如何通过 Python 使用 Azure 服务总线队列 | Azure
 description: 了解如何通过 Python 使用 Azure 服务总线队列。
-services: service-bus
-documentationCenter: python
-author: sethmanheim
-manager: timlt
+services: service-bus-messaging
+documentationcenter: python
+author: lingliw
+manager: digimobile
 editor: ''
 ms.assetid: b95ee5cd-3b31-459c-a7f3-cf8bcf77858b
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-origin.date: 04/30/2018
-ms.author: v-yiso
-ms.date: 06/04/2018
-ms.openlocfilehash: c8a8f0473db459406e2189ee1bb577b699f114e7
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+origin.date: 08/30/2018
+ms.date: 10/31/2018
+ms.author: v-lingwu
+ms.openlocfilehash: c85a00d255dac2571670c1d0b184b4718458500d
+ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939293"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50409322"
 ---
 # <a name="how-to-use-service-bus-queues-with-python"></a>如何通过 Python 使用服务总线队列
 
@@ -79,22 +79,21 @@ msg = Message(b'Test Message')
 bus_service.send_queue_message('taskqueue', msg)
 ```
 
-服务总线队列在[标准层](service-bus-premium-messaging.md)中支持的最大消息大小为 256 KB，在[高级层](service-bus-premium-messaging.md)中则为 1 MB。 标头最大大小为 64 KB，其中包括标准和自定义应用程序属性。 一个队列中包含的消息数量不受限制，但消息的总大小受限制。 此队列大小在创建时定义，上限为 5 GB。 有关配额的详细信息，请参阅 [服务总线配额][]。
+服务总线队列在[标准层](service-bus-premium-messaging.md)中支持的最大消息大小为 256 KB，在[高级层](service-bus-premium-messaging.md)中则为 1 MB。 标头最大大小为 64 KB，其中包括标准和自定义应用程序属性。 一个队列可包含的消息数不受限制，但消息的总大小受限。 此队列大小是在创建时定义的，上限为 5 GB。 有关配额的详细信息，请参阅[服务总线配额][Service Bus quotas]。
 
 ## <a name="receive-messages-from-a-queue"></a>从队列接收消息
-
-对“ServiceBusService”对象使用“接收”**\_队列\_消息**的方法可从队列接收消息：
+对 ServiceBusService 对象使用 `receive_queue_message` 方法可从队列接收消息：
 
 ```python
 msg = bus_service.receive_queue_message('taskqueue', peek_lock=False)
 print(msg.body)
 ```
 
-“速览”**\_锁定**参数设置为 **False** 时，将在读取消息后将其从队列中删除。 通过将参数 peek\_lock 设置为“True”，可读取（扫视）并锁定消息而不会将其从队列中删除。
+`peek_lock` 参数设置为“False”时，会在读取消息后将其从队列中删除。 通过将参数 `peek_lock` 设置为“True”，可读取（速览）并锁定消息而不会将其从队列中删除。
 
 在接收过程中读取并删除消息的行为是最简单的模式，并且最适合应用程序允许出现故障时不处理消息的情况。 为了理解这一点，可以考虑这样一种情形：使用方发出接收请求，但在处理该请求前发生了崩溃。 由于服务总线会将消息标记为“已使用”，因此当应用程序重启并重新开始使用消息时，它会遗漏在发生崩溃前使用的消息。
 
-如果将 peek\_lock 参数设置为“True”，则接收将变成一个两阶段操作，从而可支持无法容忍遗漏消息的应用程序。 当 Service Bus 收到请求时，它会查找下一条要使用的消息，锁定该消息以防其他使用者接收，并将该消息返回到应用程序。 应用程序处理完消息（或安全存储该消息以供将来处理）后，会通过对 **Message** 对象调用“删除”方法来完成接收过程的第二个阶段。 **delete** 方法会将消息标记为“已使用”并将其从队列中删除。
+如果将 `peek_lock` 参数设置为“True”，则接收会变成一个两阶段操作，从而可支持无法容忍遗漏消息的应用程序。 当 Service Bus 收到请求时，它会查找下一条要使用的消息，锁定该消息以防其他使用者接收，并将该消息返回到应用程序。 应用程序处理完消息（或安全存储该消息以供将来处理）后，会通过对 **Message** 对象调用“删除”方法来完成接收过程的第二个阶段。 **delete** 方法会将消息标记为“已使用”并将其从队列中删除。
 
 ```python
 msg = bus_service.receive_queue_message('taskqueue', peek_lock=True)
@@ -119,4 +118,4 @@ Service Bus 提供了相关功能来帮助你轻松地从应用程序错误或�
 [Azure portal]: https://portal.azure.cn
 [Python Azure Service Bus package]: https://pypi.python.org/pypi/azure-servicebus  
 [Queues, Topics, and Subscriptions]: ./service-bus-queues-topics-subscriptions.md
-[服务总线配额]: ./service-bus-quotas.md
+[Service Bus quotas]: ./service-bus-quotas.md

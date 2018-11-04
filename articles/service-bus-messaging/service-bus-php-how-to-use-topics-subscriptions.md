@@ -1,26 +1,26 @@
 ---
 title: 如何通过 PHP 使用服务总线主题 | Azure
 description: 了解如何通过 PHP 使用 Azure 中的服务总线主题。
-services: service-bus
-documentationCenter: php
-authors: sethmanheim
-manager: timlt
+services: service-bus-messaging
+documentationcenter: php
+author: lingliw
+manager: digimobile
 editor: ''
 ms.assetid: faaa4bbd-f6ef-42ff-aca7-fc4353976449
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-origin.date: 10/06/2017
-ms.author: v-yiso
-ms.date: 10/15/2018
-ms.openlocfilehash: 32cac7dcff7491cf8416924e004d705dbe49d082
-ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
+origin.date: 09/06/2018
+ms.date: 10/31/2018
+ms.author: v-lingwu
+ms.openlocfilehash: 106d80d823efa5e1084b5cc2f594c78668dfad34
+ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455235"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50409386"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-php"></a>如何通过 PHP 使用服务总线主题和订阅
 
@@ -73,7 +73,7 @@ use WindowsAzure\Common\ServicesBuilder;
 Endpoint=[yourEndpoint];SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[Primary Key]
 ```
 
-其中，Endpoint 的格式通常为 `https://[yourNamespace].servicebus.chinacloudapi.cn`。
+其中，`Endpoint` 的格式通常为 `https://[yourNamespace].servicebus.chinacloudapi.cn`。
 
 若要创建任何 Azure 服务客户端，必须使用 `ServicesBuilder` 类。 方法：
 
@@ -133,7 +133,7 @@ catch(ServiceException $e){
 主题订阅也是使用 `ServiceBusRestProxy->createSubscription` 方法创建的。 订阅已命名，并且具有一个限制传递到订阅的虚拟队列的消息集的可选筛选器。
 
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>创建具有默认 (MatchAll) 筛选器的订阅
-**MatchAll** 筛选器是默认筛选器，在创建新订阅时未指定筛选器的情况下使用。 使用 **MatchAll** 筛选器时，发布到主题的所有消息都会置于订阅的虚拟队列中。 以下示例创建名为“mysubscription”的订阅，并使用默认的 **MatchAll** 筛选器。
+如果在创建新订阅时未指定任何筛选器，则将使用默认的 MatchAll 筛选器。 使用 **MatchAll** 筛选器时，发布到主题的所有消息都会置于订阅的虚拟队列中。 以下示例创建名为“mysubscription”的订阅，并使用默认的 **MatchAll** 筛选器。
 
 ```php
 require_once 'vendor/autoload.php';
@@ -338,7 +338,7 @@ $serviceBusRestProxy->deleteSubscription("mytopic", "mysubscription");
 ```
 
 ## <a name="next-steps"></a>后续步骤
-现在，已了解服务总线队列的基础知识，请参阅[队列、主题和订阅][Queues, topics, and subscriptions] 以获取更多信息。
+有关详细信息，请参阅[队列、主题和订阅][Queues, topics, and subscriptions]。
 
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md

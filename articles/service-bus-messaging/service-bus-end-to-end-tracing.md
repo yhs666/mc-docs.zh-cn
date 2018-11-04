@@ -3,23 +3,23 @@ title: Azure 服务总线端到端跟踪和诊断
 description: 服务总线客户端诊断和端到端跟踪概述
 services: service-bus-messaging
 documentationcenter: ''
-author: lmolkova
-manager: timlt
+author: lingliw
+manager: digimobile
 editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/18/2017
-ms.date: 10/15/2018
-ms.author: v-yiso
-ms.openlocfilehash: 838e4179c339fe731e265f9fd7b99d78efe8b1fc
-ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
+origin.date: 09/18/2018
+ms.date: 10/31/2018
+ms.author: v-lingwu
+ms.openlocfilehash: 1f7b3c4c171c8a60ebab8c730af0d83675168ba4
+ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455244"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50409384"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>通过服务总线消息传递进行分布式跟踪和关联
 
@@ -228,7 +228,6 @@ serviceBusLogger.LogInformation($"{currentActivity.OperationName} is finished, D
 
 ## <a name="next-steps"></a>后续步骤
 
-* [服务总线基础知识](service-bus-fundamentals-hybrid-solutions.md)
 * [Application Insights 关联](../application-insights/application-insights-correlation.md)
 * 参阅 [Application Insights 监视依赖项](../application-insights/app-insights-asp-net-dependencies.md)，了解 REST、SQL 或其他外部资源是否会降低性能。
 * [使用 Application Insights .NET SDK 跟踪自定义操作](../application-insights/application-insights-custom-operations-tracking.md)

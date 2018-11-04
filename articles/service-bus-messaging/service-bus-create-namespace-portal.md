@@ -1,33 +1,32 @@
 ---
 title: 如何在 Azure 门户中创建服务总线命名空间
 description: 使用 Azure 门户创建服务总线命名空间。
-services: service-bus
-documentationCenter: .net
-author: sethmanheim
-manager: timlt
+services: service-bus-messaging
+documentationcenter: .net
+author: lingliw
+manager: digimobile
 editor: ''
 ms.assetid: fbb10e62-b133-4851-9d27-40bd844db3ba
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-origin.date: 06/29/2018
-ms.author: v-yiso
-ms.date: 08/06/2018
-ms.openlocfilehash: 8c2b1a6fdd1286a46c0af033f1109e8c30624505
-ms.sourcegitcommit: d4092cf6aba0d949bf612093c76f964c2bdfd0ba
+origin.date: 09/26/2018
+ms.date: 10/31/2018
+ms.author: v-lingwu
+ms.openlocfilehash: 066f819a746f6877226148a11aa55fd7f75c00b5
+ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39306611"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50409321"
 ---
 # <a name="create-a-service-bus-namespace-using-the-azure-portal"></a>使用 Azure 门户创建服务总线命名空间。
 
 命名空间是一个适用于所有消息传送组件的作用域容器。 多个队列和主题可以位于一个命名空间中，命名空间通常用作应用程序容器。 可以使用两种方法来创建服务总线命名空间：
 
 1. Azure 门户（这篇文章）
-
 2. [Resource Manager 模板][create-namespace-using-arm]
 
 ## <a name="create-a-namespace-in-the-azure-portal"></a>在 Azure 门户中创建命名空间

@@ -2,26 +2,20 @@
 title: 关于进行跨界 Azure 连接的 VPN 设备 | Microsoft 文档
 description: 本文介绍用于 S2S VPN 网关跨界连接的 VPN 设备和 IPsec 参数。 提供了指向配置说明和示例的链接。
 services: vpn-gateway
-documentationcenter: na
-author: yushwang
-manager: rossort
-editor: ''
-tags: azure-resource-manager, azure-service-management
-ms.assetid: ba449333-2716-4b7f-9889-ecc521e4d616
+author: WenJason
+manager: digimobile
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 03/29/2018
-ms.date: 07/10/2018
-ms.author: v-junlch
-ms.openlocfilehash: eb54f622e99eafdd0267418b2d084a99f70a2db7
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+origin.date: 10/05/2018
+ms.date: 11/05/2018
+ms.author: v-jay
+ms.openlocfilehash: 9f802eacb0e75426f98a93931dc427d15c022147
+ms.sourcegitcommit: 3f96e40162bb6ee2e9fdb76c976517e47a1252d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426462"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50919117"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>关于用于站点到站点 VPN 网关连接的 VPN 设备和 IPsec/IKE 参数
 
@@ -33,10 +27,10 @@ ms.locfileid: "47426462"
 
 ### <a name="items-to-note-when-viewing-the-tables"></a>查看表时的注意事项：
 
-- Azure VPN 网关的术语已更改。 只有名称已更改。 没有功能更改。
-  - 静态路由 = PolicyBased
-  - 动态路由 = RouteBased
-- 除非另有说明，否则高性能 VPN 网关和 RouteBased VPN 网关的规范相同。 例如，经验证与 RouteBased VPN 网关兼容的 VPN 设备也与高性能 VPN 网关兼容。
+* Azure VPN 网关的术语已更改。 只有名称已更改。 没有功能更改。
+  * 静态路由 = PolicyBased
+  * 动态路由 = RouteBased
+* 除非另有说明，否则高性能 VPN 网关和 RouteBased VPN 网关的规范相同。 例如，经验证与 RouteBased VPN 网关兼容的 VPN 设备也与高性能 VPN 网关兼容。
 
 ## <a name="devicetable"></a>验证的 VPN 设备和设备配置指南
 
@@ -70,7 +64,7 @@ ms.locfileid: "47426462"
 | Juniper |SSG |ScreenOS 6.2 |[配置示例](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SSG) |[配置示例](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SSG) |
 | Microsoft |路由和远程访问服务 |Windows Server 2012 |不兼容 |[配置示例](http://go.microsoft.com/fwlink/p/?LinkId=717761) |
 | 打开系统 AG |任务控制安全网关 |不适用 |[配置指南](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |不兼容 |
-| Palo Alto Networks |运行 PAN-OS 的所有设备 |PAN-OS<br>PolicyBased：6.1.5 或更高版本<br>RouteBased：7.1.4 |[配置指南](https://live.paloaltonetworks.com/t5/Configuration-Articles/How-to-Configure-VPN-Tunnel-Between-a-Palo-Alto-Networks/ta-p/59065) |[配置指南](https://live.paloaltonetworks.com/t5/Integration-Articles/Configuring-IKEv2-VPN-for-Microsoft-Azure-Environment/ta-p/60340) |
+| Palo Alto Networks |运行 PAN-OS 的所有设备 |PAN-OS<br>PolicyBased：6.1.5 或更高版本<br>RouteBased：7.1.4 |[配置指南](https://live.paloaltonetworks.com/t5/Configuration-Articles/How-to-Configure-VPN-Tunnel-Between-a-Palo-Alto-Networks/ta-p/59065) |[配置指南](https://knowledgebase.paloaltonetworks.com/KCSArticleDetail?id=kA10g000000Cm6WCAS) |
 | ShareTech | Next Generation UTM（NU 系列） | 9.0.1.3 | 不兼容 | [配置指南](http://www.sharetech.com.tw/images/file/Solution/NU_UTM/S2S_VPN_with_Azure_Route_Based_en.pdf) |
 | SonicWall |TZ 系列、NSA 系列<br>SuperMassive 系列<br>E 类 NSA 系列 |SonicOS 5.8.x<br>SonicOS 5.9.x<br>SonicOS 6.x |不兼容 |[配置指南](https://www.sonicwall.com/support/knowledge-base/170505320011694) |
 | Sophos | XG 下一代防火墙 | XG v17 | | [配置指南](https://community.sophos.com/kb/127546) |
@@ -115,8 +109,8 @@ ms.locfileid: "47426462"
 | &lt;SP_AzureNetworkSubnetMask&gt; |指定子网掩码。 示例：255.255.0.0 |
 | &lt;SP_OnPremisesNetworkIpRange&gt; |指定本地范围。 示例：10.2.1.0 |
 | &lt;SP_OnPremisesNetworkSubnetMask&gt; |指定本地子网掩码。 示例：255.255.255.0 |
-| &lt;SP_AzureGatewayIpAddress&gt; |此信息特定于虚拟网络，位于门户的“网关 IP 地址”中。 |
-| &lt;SP_PresharedKey&gt; |此信息特定于虚拟网络，位于门户的“管理密钥”中。 |
+| &lt;SP_AzureGatewayIpAddress&gt; |此信息特定于虚拟网络，位于管理门户的“网关 IP 地址”中。 |
+| &lt;SP_PresharedKey&gt; |此信息特定于虚拟网络，位于管理门户的“管理密钥”中。 |
 
 ## <a name="ipsec"></a>IPsec/IKE 参数
 
@@ -128,9 +122,9 @@ ms.locfileid: "47426462"
 
 在下面的表中：
 
-- SA = 安全关联
-- IKE 阶段 1 也称“主模式”
-- IKE 阶段 2 也称“快速模式”
+* SA = 安全关联
+* IKE 阶段 1 也称“主模式”
+* IKE 阶段 2 也称“快速模式”
 
 ### <a name="ike-phase-1-main-mode-parameters"></a>IKE 阶段 1（主模式）参数
 
@@ -200,8 +194,8 @@ ms.locfileid: "47426462"
 | 25|AES128        |SHA256            |14           |
 | 26|3DES          |SHA1              |14           |
 
-- 可以使用 RouteBased 和 HighPerformance VPN 网关指定 IPsec ESP NULL 加密。 基于 Null 的加密不对传输中的数据提供保护，仅应在需要最大吞吐量和最小延迟时才使用。 客户端可以在 VNet 到 VNet 通信方案中选择使用此方法，或者在解决方案中的其他位置应用加密时使用此方法。
-- 若要通过 Internet 建立跨界连接，请使用默认的 Azure VPN 网关设置以及上表中列出的加密和哈希算法，确保关键通信的安全性。
+* 可以使用 RouteBased 和 HighPerformance VPN 网关指定 IPsec ESP NULL 加密。 基于 Null 的加密不对传输中的数据提供保护，仅应在需要最大吞吐量和最小延迟时才使用。 客户端可以在 VNet 到 VNet 通信方案中选择使用此方法，或者在解决方案中的其他位置应用加密时使用此方法。
+* 若要通过 Internet 建立跨界连接，请使用默认的 Azure VPN 网关设置以及上表中列出的加密和哈希算法，确保关键通信的安全性。
 
 ## <a name="known"></a>已知的设备兼容性问题
 

@@ -1,9 +1,9 @@
 ---
-title: Azure 负载均衡器的多个前端 | Azure
+title: Azure 负载均衡器的多个前端 | Microsoft Docs
 description: Azure 负载均衡器上的多个前端概述
 services: load-balancer
 documentationcenter: na
-author: rockboyfor
+author: WenJason
 manager: digimobile
 editor: ''
 ms.assetid: 748e50cd-3087-4c2e-a9e1-ac0ecce4f869
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/22/2018
-ms.date: 04/30/2018
-ms.author: v-yeche
-ms.openlocfilehash: 86209003eb0ac7ac4d248a05975ab3e1090c0566
-ms.sourcegitcommit: 0fedd16f5bb03a02811d6bbe58caa203155fd90e
+ms.date: 11/05/2018
+ms.author: v-jay
+ms.openlocfilehash: b962e37e3f1dbf67c3b86ae4ae899e8f47bd7b01
+ms.sourcegitcommit: 9be84d4dc546d66a0d9d1d2be67dd79c84b2c210
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32121494"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50408840"
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Azure 负载均衡器的多个前端
 
@@ -135,7 +135,7 @@ DIP 是入站流量的目标。 在后端池中，每个 VM 公开 DIP 上唯一
 
 * 只有 IaaS VM 支持多个前端配置。
 * 使用浮点 IP 规则时，应用程序必须为出站流使用主要 IP 配置。 如果应用程序绑定到来宾 OS 中环回接口上配置的前端 IP 地址，则无法使用 Azure 的 SNAT 来重写出站流，此时流处理会失败。
-* 公共 IP 地址会影响计费。 有关详细信息，请参阅 [IP 地址定价](https://www.azure.cn/pricing/details/reserved-ip-addresses/)
+* 公共 IP 地址会影响计费。 有关详细信息，请参阅 [IP 地址定价](https://www.azure.cn/pricing/details/ip-addresses/)
 * 订阅有所限制。 有关详细信息，请参阅[服务限制](../azure-subscription-service-limits.md#networking-limits)。
 
 ## <a name="next-steps"></a>后续步骤

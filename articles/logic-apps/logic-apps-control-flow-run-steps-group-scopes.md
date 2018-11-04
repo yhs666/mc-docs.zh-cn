@@ -6,19 +6,19 @@ ms.service: logic-apps
 author: ecfan
 ms.author: v-yiso
 manager: jeconnoc
-origin.date: 03/05/2018
+origin.date: 10/03/2018
 ms.topic: article
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.date: 04/23/2018
-ms.openlocfilehash: 49db28fab497e524859e43b011e4f66821976bf3
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.date: 11/12/2018
+ms.openlocfilehash: c5801d7fe0949d883dbf42d54deef6018655e1fc
+ms.sourcegitcommit: 3f96e40162bb6ee2e9fdb76c976517e47a1252d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315628"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50919103"
 ---
-# <a name="create-scopes-that-run-workflow-actions-based-on-group-status-in-azure-logic-apps"></a>基于 Azure 逻辑应用中的组状态创建运行工作流操作的范围
+# <a name="run-actions-based-on-group-status-with-scopes-in-azure-logic-apps"></a>基于组状态，在 Azure 逻辑应用中的范围内运行操作
 
 若要仅在另一组操作成功或失败后运行操作，请在范围内对这些操作进行分组。 如果你希望将各个操作组织为逻辑组，评估该组的状态并执行基于作用域状态的操作，则此结构非常有用。 当某个作用域中的所有操作都完成运行后，该作用域也确定了其自己的状态。 例如，当希望实现[异常和错误处理](../logic-apps/logic-apps-exception-handling.md#scopes)时可以使用作用域。 
 
@@ -90,45 +90,50 @@ ms.locfileid: "36315628"
       | **运输日期/时间类型** | 无 | 仅适用于运输模式。 | 
       ||||  
 
-4. 添加一个条件，用以检查当前交通状况下的旅行时间是否超出了指定时间。 对于本例，请执行此图下的步骤：
+1. [添加条件](../logic-apps/logic-apps-control-flow-conditional-statement.md)，检查当前交通状况下的旅行时间是否超出了指定时间。 对于本示例，请遵循以下步骤：
 
-   ![构建条件](./media/logic-apps-control-flow-run-steps-group-scopes/build-condition.png)
+   1. 重命名条件并提供以下说明：交通时间是否超过指定时间
 
-   1. 重命名条件并提供以下说明：**If traffic time more than specified time**
+   1. 在最左侧的列中，单击“选择值”框内部，会显示动态内容列表。 从该列表中，选择“旅行期间 - 交通”字段（以秒为单位）。 
 
-   2. 从参数列表中，选择“旅行期间 - 交通”字段（以秒为单位）。 
+      ![构建条件](./media/logic-apps-control-flow-run-steps-group-scopes/build-condition.png)
 
-   3. 对于比较运算符，选择以下运算符：**大于**
+   1. 在中间的框中选择此运算符：大于
 
-   4. 对于比较值，输入 **600**，这是秒数，等于 10 分钟。
+   1. 在最右侧的列中，输入此比较值（以秒为单位，相当于 10 分钟）：600
 
-5. 在条件的 **If true** 分支中，为你的电子邮件提供程序添加一个“发送电子邮件”操作。 设置此操作的详细信息，如此图下的表中所示：
+      完成后，条件如以下示例所示：
+
+      ![已完成的条件](./media/logic-apps-control-flow-run-steps-group-scopes/finished-condition.png)
+
+1. 在“If true”分支中，为电子邮件提供程序添加一个“发送电子邮件”操作。 按照此图像下的步骤设置此操作：
 
    ![向“If true”分支添加“发送电子邮件”操作](./media/logic-apps-control-flow-run-steps-group-scopes/send-email.png)
 
-   1. 对于“收件人”字段，输入你的电子邮件地址以进行测试。
+   1. 在“收件人”字段中，输入电子邮件地址以进行测试。
 
-   2. 对于“主题”字段，输入以下文本：
+   1. 在“主题”字段中，输入以下文本：
 
       ```Time to leave: Traffic more than 10 minutes```
 
-   3. 对于“正文”字段，输入带尾随空格的以下文本： 
+   1. 在“正文”字段中，输入带尾随空格的以下文本： 
 
       ```Travel time: ```
 
       当光标出现在“正文”字段中时，动态内容列表将保持打开状态，以便你可以选择此时可用的任何参数。
 
-   4. 在动态内容列表中，选择“表达式”。
+   1. 在动态内容列表中，选择“表达式”。
 
-   5. 查找并选择 **div( )** 函数。
+   1. 查找并选择“div()”函数。 
+   将游标置于函数的括号内。
 
-   6. 在光标位于函数的括号内时，选择“动态内容”以便接下来可以添加“旅行期间 - 交通”参数。
-
-   7. 在动态参数列表中的“获取路线”下，选择“旅行期间 - 交通”字段。
+   1. 游标位于函数的括号内时，选择“动态内容”，以便显示动态内容列表。 
+   
+   1. 在“获取路线”部分，选择“旅行期间 - 交通”字段。
 
       ![选择“旅行期间 - 交通”](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-2.png)
 
-   8. 在此字段解析为 JSON 格式后，添加一个**逗号** (```,```)，后跟数字 ```60```，以便将“旅行期间 - 交通”中的值从秒转换为分钟。 
+   1. 在此字段解析为 JSON 格式后，添加一个**逗号** (```,```)，后跟数字 ```60```，以便将“旅行期间 - 交通”中的值从秒转换为分钟。 
    
       ```
       div(body('Get_route')?['travelDurationTraffic'],60)
@@ -138,15 +143,15 @@ ms.locfileid: "36315628"
 
       ![完成表达式](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-3.png)  
 
-   9. 当完成时，确保选择“确定”。
+   1. 完成后，选择“确定”。
 
-  10. 在表达式解析后，添加带有前导空格的以下文本：``` minutes```
+  1. 在表达式解析后，添加带有前导空格的以下文本：``` minutes```
   
       “正文”字段现在如下例所示：
 
       ![完成的“正文”字段](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-4.png)
 
-6. 保存逻辑应用。
+1. 保存逻辑应用。
 
 接下来，添加一个作用域，以便可以对特定操作进行分组并评估它们的状态。
 
@@ -154,43 +159,71 @@ ms.locfileid: "36315628"
 
 1. 如果尚未打开逻辑应用，则在逻辑应用设计器中打开逻辑应用。 
 
-2. 在所需的工作流位置添加一个作用域。 例如：
+1. 在所需的工作流位置添加一个作用域。 例如，若要在逻辑应用工作流中的现有步骤之间添加范围，请按照下列步骤操作： 
 
-   * 若要在逻辑应用工作流中的现有步骤之间添加作用域，请将指针移动到要添加作用域的箭头上方。 
-   选择**加号** (**+**) >“添加作用域”。
+   1. 将指针移到要添加范围的箭头上。 
+   选择“加号”(+) >“添加操作”。
 
-     ![添加作用域](./media/logic-apps-control-flow-run-steps-group-scopes/add-scope.png)
+      ![添加作用域](./media/logic-apps-control-flow-run-steps-group-scopes/add-scope.png)
 
-     如果想要在工作流末尾添加条件，请在逻辑应用的底部选择“+ 新建步骤”>“...更多”>“添加作用域”。
+   1. 在搜索框中，输入“范围”作为筛选器。 
+   选择“范围”操作。
 
-3. 现在，添加要在作用域内运行的步骤，或拖动要在作用域内运行的现有步骤。 对于本例，请将以下操作拖动到作用域中：
+## <a name="add-steps-to-scope"></a>将步骤添加到范围
+
+1. 现在，添加要在作用域内运行的步骤，或拖动要在作用域内运行的现有步骤。 对于本例，请将以下操作拖动到作用域中：
       
    * **获取路线**
-   * **If traffic time more than specified time**，这包括 **true** 和 **false** 分支
+   * 交通时间是否超过指定时间，包括“true”和“false”分支
 
    现在，逻辑应用如下例所示：
 
    ![添加的作用域](./media/logic-apps-control-flow-run-steps-group-scopes/scope-added.png)
 
-4. 在作用域下，添加一个条件，用以检查作用域的状态。 重命名条件并提供以下说明：**If scope failed**
+1. 在作用域下，添加一个条件，用以检查作用域的状态。 重命名条件并提供以下说明：**If scope failed**
 
    ![添加用以检查作用域状态的条件](./media/logic-apps-control-flow-run-steps-group-scopes/add-condition-check-scope-status.png)
   
-5. 构建以下表达式，用以检查作用域的状态是否等于 `Failed` 或 `Aborted`。
+1. 在此条件下，添加这些表达式，检查范围的状态是否等于“失败”或“已中止”。 
 
-   ![添加用以检查作用域状态的表达式](./media/logic-apps-control-flow-run-steps-group-scopes/build-expression-check-scope-status.png)
+   1. 要添加其他行，请选择“添加”。 
 
-   或者，若要以文本形式输入此表达式，请选择“在高级模式下编辑”。
+   1. 在每一行中，单击左侧框内部，以显示动态内容列表。 
+   在动态内容列表中，选择“表达式”。 在编辑框中，输入此表达式，然后选择“确定”： 
+   
+      `result('Scope')[0]['status']`
 
-   ```@equals('@result(''Scope'')[0][''status'']', 'Failed, Aborted')```
+      ![添加用以检查作用域状态的表达式](./media/logic-apps-control-flow-run-steps-group-scopes/check-scope-status.png)
 
-6. 在 **If true** 和 **If false** 分支中，添加要执行的操作，例如，发送电子邮件或消息。
+   1. 对于这两行，选择“等于”作为其运算符。 
+   
+   1. 对于比较值，在第一行中输入 `Failed`。 
+   在第二行中，输入 `Aborted`。 
 
-   ![添加用以检查作用域状态的表达式](./media/logic-apps-control-flow-run-steps-group-scopes/handle-true-false-branches.png)
+      完成后，条件如以下示例所示：
+
+      ![添加用以检查作用域状态的表达式](./media/logic-apps-control-flow-run-steps-group-scopes/check-scope-status-finished.png)
+
+      现在，设置条件的 `runAfter` 属性，以便条件检查范围状态并运行在后续步骤中定义的匹配操作。
+
+   1. 在“范围是否失败”条件中，选择“省略号”(...) 按钮，然后选择“配置在之后运行”。
+
+      ![配置“runAfter”属性](./media/logic-apps-control-flow-run-steps-group-scopes/configure-run-after.png)
+
+   1. 选择所有这些范围状态：“成功”、“失败”、“跳过”、“已超时”
+
+      ![选择范围状态](./media/logic-apps-control-flow-run-steps-group-scopes/select-run-after-statuses.png)
+
+   1. 完成后，选择“完成”。 
+   该条件现在显示“信息”图标。
+
+1. 在“If true”和“If false”分支中，根据每个范围状态添加要执行的操作，例如，发送电子邮件或消息。
+
+   ![根据范围状态添加要采取的操作](./media/logic-apps-control-flow-run-steps-group-scopes/handle-true-false-branches.png)
 
 7. 保存逻辑应用。
 
-已完成的逻辑应用现在看起来如下例所示，其中所有形状都已展开：
+已完成的逻辑应用如下例所示：
 
 ![带作用域的已完成逻辑应用](./media/logic-apps-control-flow-run-steps-group-scopes/scopes-overview.png)
 
@@ -211,7 +244,7 @@ ms.locfileid: "36315628"
     "recurrence": {
        "frequency": "Minute",
        "interval": 1
-    },
+    }
   }
 }
 ```
@@ -225,7 +258,7 @@ ms.locfileid: "36315628"
         "type": "ApiConnection",
         "inputs": {
           "body": {
-            "Body": "Scope failed",
+            "Body": "Scope failed. Scope status: @{result('Scope')[0]['status']}",
             "Subject": "Scope failed",
             "To": "<your-email@domain.com>"
           },
@@ -246,7 +279,7 @@ ms.locfileid: "36315628"
           "type": "ApiConnection",
           "inputs": {
             "body": {
-              "Body": "None",
+              "Body": "Scope succeeded. Scope status: @{result('Scope')[0]['status']}",
               "Subject": "Scope succeeded",
               "To": "<your-email@domain.com>"
             },
@@ -262,10 +295,28 @@ ms.locfileid: "36315628"
         }
       }
     },
-    "expression": "@equals('@result(''Scope'')[0][''status'']', 'Failed, Aborted')",
+    "expression": {
+      "or": [ 
+         {
+            "equals": [ 
+              "@result('Scope')[0]['status']", 
+              "Failed"
+            ]
+         },
+         {
+            "equals": [
+               "@result('Scope')[0]['status']", 
+               "Aborted"
+            ]
+         } 
+      ]
+    },
     "runAfter": {
       "Scope": [
-        "Succeeded"
+        "Failed",
+        "Skipped",
+        "Succeeded",
+        "TimedOut"
       ]
     }
   },
@@ -292,7 +343,7 @@ ms.locfileid: "36315628"
         },
         "runAfter": {}
       },
-      "If_traffic_time_more_than_specified_time": {
+      "If_traffic_time_is_more_than_specified_time": {
         "type": "If",
         "actions": {
           "Send_mail_when_traffic_exceeds_10_minutes": {
@@ -314,7 +365,16 @@ ms.locfileid: "36315628"
             "runAfter": {}
           }
         },
-        "expression": "@greater(body('Get_route')?['travelDurationTraffic'], 600)",
+        "expression": {
+          "and" : [
+            {
+               "greater": [ 
+                  "@body('Get_route')?['travelDurationTraffic']", 
+                  600
+               ]
+            }
+          ]
+        },
         "runAfter": {
           "Get_route": [
             "Succeeded"
@@ -324,7 +384,7 @@ ms.locfileid: "36315628"
     },
     "runAfter": {}
   }
-}
+},
 ```
 
 ## <a name="get-support"></a>获取支持

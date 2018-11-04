@@ -3,23 +3,23 @@ title: 从 Azure Active Directory 访问控制服务迁移到共享访问签名�
 description: 将应用程序从访问控制服务迁移到 SAS
 services: service-bus-messaging
 documentationcenter: ''
-author: clemensv
-manager: timlt
+author: lingliw
+manager: digimobile
 editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/21/2017
-ms.author: sethm
-ms.date: 10/15/2018
-ms.openlocfilehash: efaf6ea23a32899d5c9f6a2ff7c7d3f06a368aae
-ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
+origin.date: 09/21/2018
+ms.date: 10/31/2018
+ms.author: v-lingwu
+ms.openlocfilehash: 1b1978711a45f2d0639117f508a5ad0c4b93ba2c
+ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455257"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50409318"
 ---
 # <a name="migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>从 Azure Active Directory 访问控制服务迁移到共享访问签名授权
 
@@ -67,5 +67,3 @@ SAS 规则并不是帐户，而是与权限相关联的命名签名密钥。 因
 
 * [服务总线身份验证和授权](service-bus-authentication-and-authorization.md)
 * [附有共享访问签名的服务总线身份验证](service-bus-sas.md)
-* [服务总线基础知识](service-bus-fundamentals-hybrid-solutions.md)
-

@@ -3,8 +3,8 @@ title: Azure 服务总线 SQLFilter 语法参考 | Azure
 description: 有关 SqlFilter 语法的详细信息。
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
-manager: timlt
+author: lingliw
+manager: digimobile
 editor: ''
 ms.assetid: ''
 ms.service: service-bus-messaging
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 02/05/2018
-ms.author: v-yiso
-ms.date: 10/15/2018
-ms.openlocfilehash: 02074cc0cea9dfabfb3f7106dba55d9420421797
-ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
+origin.date: 09/05/2018
+ms.date: 10/31/2018
+ms.author: v-lingwu
+ms.openlocfilehash: 2572838b30e2a1b2332463426ced640ca1012c4a
+ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455280"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50409369"
 ---
 # <a name="sqlfilter-syntax"></a>SQLFilter 语法
 

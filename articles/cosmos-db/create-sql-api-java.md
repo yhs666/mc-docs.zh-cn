@@ -10,14 +10,14 @@ ms.custom: quick start connect, mvc, devcenter
 ms.devlang: java
 ms.topic: quickstart
 origin.date: 03/26/2018
-ms.date: 09/30/2018
+ms.date: 11/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 07117f546ea4d6b073aa9f71f1bc3f589b1b3026
-ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
+ms.openlocfilehash: c150277fcea90b200a0b8913498984a245a293ef
+ms.sourcegitcommit: c1020b13c8810d50b64e1f27718e9f25b5f9f043
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47201370"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50204821"
 ---
 # <a name="azure-cosmos-db-create-a-document-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB：使用 Java 和 Azure 门户创建文档数据库
 
@@ -25,12 +25,12 @@ ms.locfileid: "47201370"
 > * [.NET](create-sql-api-dotnet.md)
 > * [Java](create-sql-api-java.md)
 > * [Node.js](create-sql-api-nodejs.md)
-> * [Node.js- v2](create-sql-api-nodejs-preview.md)
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
 >  
 
 Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务。 使用 Azure Cosmos DB，可以快速创建和查询托管文档数据库。
+
 <!-- NOTICE: 全球分布 TO 多区域分布 -->
 <!-- NOTICE: globally TO multiple-region  -->
 <!-- Not Available on Key/Value and Graph databases-->

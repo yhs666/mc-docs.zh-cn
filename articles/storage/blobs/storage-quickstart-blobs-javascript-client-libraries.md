@@ -3,27 +3,26 @@ title: Azure 快速入门 - 在浏览器中使用 JavaScript 和 HTML 在对象�
 description: 了解如何通过 BlobService 实例在 HTML 页面中使用 JavaScript 上传、列出和删除 Blob。
 services: storage
 keywords: 存储, javascript, html
-author: forester123
-manager: josefree
+author: WenJason
 ms.custom: mvc
 ms.service: storage
-ms.author: v-johch
+ms.author: v-jay
 origin.date: 04/06/2018
-ms.date: 05/07/2018
+ms.date: 11/05/2018
 ms.topic: quickstart
-ms.openlocfilehash: e3933fe1301e6ff9d3b2bc95f93dd3e5c541c5ca
-ms.sourcegitcommit: e157751c560524d0bb828e987b87178130663547
+ms.openlocfilehash: 41f988baaad304fae8f63a8c185645944e52d1c3
+ms.sourcegitcommit: 7c750170ddefe7537663dfbadcc06bf27d94c586
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43651308"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50743557"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
 # <a name="quickstart-upload-list-and-delete-blobs-using-javascripthtml-in-the-browser"></a>快速入门：在浏览器中使用 JavaScript/HTML 上传、列出和删除 Blob
 本快速入门演示如何通过完全在浏览器中运行的代码管理 blob。 此处使用的方法演示如何使用所需的安全措施确保对 blob 存储帐户的受保护访问。 若要完成本快速入门，需要一个 [Azure 订阅](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
 
-[!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
+[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
 ## <a name="setting-up-storage-account-cors-rules"></a>设置存储帐户 CORS 规则 
 必须先将帐户配置为启用[跨域资源共享](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services)（简称 CORS），然后 Web 应用程序才能从客户端访问 Blob 存储。 

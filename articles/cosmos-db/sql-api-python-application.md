@@ -10,15 +10,15 @@ ms.component: cosmosdb-sql
 ms.devlang: python
 ms.topic: tutorial
 origin.date: 02/23/2017
-ms.date: 09/30/2018
+ms.date: 11/05/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4a63e67903d5f84d47b4084cf17490658609b29f
-ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
+ms.openlocfilehash: a50667fca752ef86ab645b4a3ae815b728acf40e
+ms.sourcegitcommit: c1020b13c8810d50b64e1f27718e9f25b5f9f043
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47201399"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50204834"
 ---
 # <a name="build-a-python-flask-web-application-using-azure-cosmos-db"></a>构建使用 Azure Cosmos DB 的 Python Flask Web 应用程序
 
@@ -26,7 +26,6 @@ ms.locfileid: "47201399"
 > * [.NET](sql-api-dotnet-application.md)
 > * [Java](sql-api-java-application.md)
 > * [Node.js](sql-api-nodejs-application.md)
-> * [Node.js- v2](sql-api-nodejs-application-preview.md)
 > * [Python](sql-api-python-application.md)
 > * [Xamarin](mobile-apps-with-xamarin.md)
 > 
@@ -437,4 +436,5 @@ def vote():
 有关 Azure、Visual Studio 和 Python 的详细信息，请参阅 [Python 开发人员中心](/develop/python/)。 
 
 有关其他 Python Flask 教程，请参阅 [The Flask Mega-Tutorial, Part I: Hello, World!](http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world)（Flask 大型教程，第 I 部分：Hello, World!）。
+
 <!-- Update_Description: update meta properties, update link -->

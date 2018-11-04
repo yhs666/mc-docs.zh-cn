@@ -1,24 +1,21 @@
 ---
 title: 使用 Azure 服务总线提高性能的最佳做法
 description: 介绍如何使用服务总线在交换中转消息时优化性能。
-services: service-bus
+services: service-bus-messaging
 documentationcenter: na
-author: spelluru
-manager: timlt
-ms.service: service-bus
-ms.devlang: na
+author: lingliw
+manager: digimobile
+ms.service: service-bus-messaging
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-origin.date: 06/14/2018
-ms.author: v-yiso
-ms.date: 10/15/2018
-ms.openlocfilehash: c8a951e8f61111c2b7d32485df31d19aee9d4922
-ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
+origin.date: 09/14/2018
+ms.date: 10/31/2018
+ms.author: v-lingwu
+ms.openlocfilehash: ce0d914a848ac44828257691261dab5479301cf5
+ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455231"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50409385"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>使用服务总线消息传递改进性能的最佳实践
 
@@ -75,7 +72,7 @@ AMQP 和 SBMP 都很高效，因为只要存在消息工厂，就可以保持与
 ## <a name="receive-mode"></a>接收模式
 在创建队列或订阅客户端时，可以指定接收模式：*扫视-锁定*或*接收和删除*。 默认接收模式是 [PeekLock][PeekLock]。 在此模式下操作时，客户端发送请求以从服务总线接收消息。 客户端收到消息后，会发送完成消息的请求。
 
-如果将接收模式设置为 [ReceiveAndDelete][ReceiveAndDelete] 时，这两个步骤将合并到单个请求中。 这些步骤减少了操作的总体数目，并可以提高总消息吞吐量。 性能提高的同时也会产生丢失消息的风险。
+将接收模式设置为 [ReceiveAndDelete][ReceiveAndDelete]时，这两个步骤将合并到单个请求中。 这些步骤减少了操作的总体数目，并可以提高总消息吞吐量。 性能提高的同时也会产生丢失消息的风险。
 
 服务总线不支持“接收并删除”操作的事务。 此外，在客户端想要延迟消息或将其放入[死信队列](./service-bus-dead-letter-queues.md)的情况下，需要使用扫视-锁定语义。
 
@@ -164,7 +161,7 @@ namespaceManager.CreateQueue(qd);
 
 服务总线有一项专门用于开发的功能，该功能永远不应在生产配置中使用：[TopicDescription.EnableFilteringMessagesBeforePublishing][]。
 
-向主题添加了新规则或筛选器时，可以使用 [TopicDescription.EnableFilteringMessagesBeforePublishing][] 验证新的筛选器表达式是否按预期工作。
+将新的规则或筛选器添加到主题时，可使用 [TopicDescription.EnableFilteringMessagesBeforePublishing][] 验证新的筛选器表达式是否按预期工作。
 
 ## <a name="scenarios"></a>方案
 以下各节介绍典型的消息传递方案，并概述首选服务总线设置。 吞吐速率分为小（小于 1 条消息/秒）、中等（1 条消息/秒或更大，但不超过 100 条消息/秒）和高（100 条消息/秒或更大）。 客户端数分为小（5 个或更少）、中等（5 个以上但小于或等于 20 个）和大（超过 20 个）。

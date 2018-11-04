@@ -1,25 +1,25 @@
 ---
 title: Azure 服务总线暂停消息实体
 description: 暂停和重新激活 Azure 服务总线消息实体。
-services: service-bus
+services: service-bus-messaging
 documentationcenter: ''
-author: clemensv
-manager: timlt
+author: lingliw
+manager: digimobile
 editor: ''
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/26/2018
-ms.date: 03/12/2018
-ms.author: v-yiso
-ms.openlocfilehash: a014dc2080d6e9650abba9ae6122ed6ca6cb69aa
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+origin.date: 09/26/2018
+ms.date: 10/31/2018
+ms.author: v-lingwu
+ms.openlocfilehash: 902bc25ff3a2029287dc5f337cae6c916ef8a3f3
+ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
-ms.locfileid: "29730750"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50409303"
 ---
 # <a name="suspend-and-reactivate-messaging-entities-disable"></a>暂停（禁用）和重新激活消息实体
 
@@ -60,10 +60,8 @@ Set-AzureRmServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName m
 
 若要了解有关服务总线消息传送的详细信息，请参阅以下主题：
 
-* [服务总线基础知识](service-bus-fundamentals-hybrid-solutions.md)
 * [服务总线队列、主题和订阅](service-bus-queues-topics-subscriptions.md)
 * [服务总线队列入门](service-bus-dotnet-get-started-with-queues.md)
 * [如何使用服务总线主题和订阅](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 
 [1]: ./media/entity-suspend/queue-disable.png
-

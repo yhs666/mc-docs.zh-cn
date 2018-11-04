@@ -10,14 +10,14 @@ ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: tutorial
 origin.date: 08/22/2017
-ms.date: 09/30/2018
+ms.date: 11/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 09af5cefe655256a14be41b7ae6faaa8cc7fa7c0
-ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
+ms.openlocfilehash: ebae4232e5b196f704f4aef0269481be168d9982
+ms.sourcegitcommit: c1020b13c8810d50b64e1f27718e9f25b5f9f043
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47201421"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50204851"
 ---
 # <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>使用 Azure Cosmos DB 和 SQL API 构建 Java Web 应用程序
 
@@ -25,7 +25,6 @@ ms.locfileid: "47201421"
 > * [.NET](sql-api-dotnet-application.md)
 > * [Java](sql-api-java-application.md)
 > * [Node.js](sql-api-nodejs-application.md)
-> * [Node.js- v2](sql-api-nodejs-application-preview.md)
 > * [Python](sql-api-python-application.md)
 > * [Xamarin](mobile-apps-with-xamarin.md)
 > 
@@ -762,4 +761,5 @@ GitHub 上的 [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) 
 20. 在“服务器”选项卡上，右键单击“localhost 上的 Tomcat v7.0 服务器”，并单击“重新启动”。
 21. 在浏览器中，导航到 http://localhost:8080/azure-documentdb-java-sample/ 并开始向任务列表添加内容。 请注意，如果更改了默认端口值，请将 8080 更改成选择的值。
 22. 要将项目部署到 Azure 网站，请参阅[步骤 6.将应用程序部署到 Azure 网站](#Deploy)。
+
 <!-- Update_Description: update meta properties, wording update, update link -->

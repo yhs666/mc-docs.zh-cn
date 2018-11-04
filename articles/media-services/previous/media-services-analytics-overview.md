@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 06/29/2017
-ms.date: 10/22/2017
+ms.date: 10/29/2017
 ms.author: v-jay
-ms.openlocfilehash: a7dfdb71c1401e4fff8374da55cfb3d50c4a5f97
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: 5881a32e560c6b1973a34b56eac9ebbe286caefc
+ms.sourcegitcommit: 3f96e40162bb6ee2e9fdb76c976517e47a1252d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453623"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50919101"
 ---
 # <a name="media-analytics-on-the-media-services-platform"></a>媒体服务平台上的媒体分析
 ## <a name="overview"></a>概述
@@ -108,7 +108,7 @@ Azure 媒体修订器是一种媒体分析媒体处理器，可用于在云中�
     . . .
 
     {  
-       "odata.metadata":"https://wamsshaclus001rest-hs.chinacloudapp.cn/api/$metadata#MediaProcessors",
+       "odata.metadata":"https://media.chinacloudapi.cn/api/$metadata#MediaProcessors",
        "value":[  
           {  
              "Id":"nb:mpid:UUID:074c3899-d9fb-448f-9ae1-4ebcbe633056",

@@ -3,25 +3,25 @@ title: Azure 服务总线诊断日志
 description: 了解如何为 Azure 中的服务总线设置诊断日志。
 keywords: ''
 documentationcenter: .net
-services: service-bus
-author: banisadr
-manager: timlt
+services: service-bus-messaging
+author: lingliw
+manager: digimobile
 editor: ''
 ms.assetid: ''
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-origin.date: 02/05/2018
-ms.date: 03/12/2018
-ms.author: v-yiso
-ms.openlocfilehash: a08e7e0799ba4fe5be34c90be7a3dc5bf321415a
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+origin.date: 09/05/2018
+ms.date: 10/31/2018
+ms.author: v-lingwu
+ms.openlocfilehash: d92b22f80c03fe06a9359798eec7643b192cceae
+ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
-ms.locfileid: "29731159"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50409346"
 ---
 # <a name="service-bus-diagnostic-logs"></a>服务总线诊断日志
 
@@ -47,7 +47,7 @@ ms.locfileid: "29731159"
 
     ![更改诊断日志的状态](./media/service-bus-diagnostic-logs/image3.png)
 
-5.  设置所需的存档目标；例如存储帐户或事件中心。
+5.  设置所需的存档目标；例如存储帐户、事件中心或 Azure Log Analytics。
 
 6.  保存新的诊断设置。
 

@@ -1,22 +1,22 @@
 ---
 title: 我在 Azure 自动化中的第一个 PowerShell Runbook
 description: 本教程指导创建、测试和发布一个简单的 PowerShell Runbook。
-documentationcenter: ''
-author: yunan2016
-manager: digimobile
 keywords: azure powershell, powershell 脚本教程, powershell 自动化
 services: automation
 ms.service: automation
-ms.workload: tbd
+ms.component: process-automation
+author: WenJason
+ms.author: v-jay
 origin.date: 03/16/2018
-ms.date: 07/23/2018
-ms.author: v-nany
-ms.openlocfilehash: 460766f2b625c14fa57ebc9d1744d6547604c60b
-ms.sourcegitcommit: 2a147231bf3d0a693adf58fceee76ab0fbcd6dbb
+ms.date: 11/05/2018
+ms.topic: conceptual
+manager: digimobile
+ms.openlocfilehash: 362aa7665bbf217c64d54083f52a8df43788a870
+ms.sourcegitcommit: d26e5d0d625a61d6b130800d10c81f47c83fb1e0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39335326"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50745509"
 ---
 # <a name="my-first-powershell-runbook"></a>我的第一个 PowerShell Runbook
 
@@ -26,7 +26,7 @@ ms.locfileid: "39335326"
 > * [PowerShell 工作流](automation-first-runbook-textual.md)
 > * [Python](automation-first-runbook-textual-python2.md)
 
-本教程介绍了如何在 Azure 自动化中创建 [PowerShell Runbook](automation-runbook-types.md#powershell-runbooks) 。 从一个简单的 Runbook 开始，将测试和发布该 Runbook，同时了解如何跟踪 Runbook 作业的状态。 然后，通过修改 Runbook 来实际管理 Azure 资源，这种情况下会启动 Azure 虚拟机。 最后，通过添加 Runbook 参数使此 Runbook 更稳健。
+本教程指导你在 Azure 自动化中创建 [PowerShell Runbook](automation-runbook-types.md#powershell-runbooks) 。 从一个简单的 Runbook 开始，将测试和发布该 Runbook，同时了解如何跟踪 Runbook 作业的状态。 然后，通过修改 Runbook 来实际管理 Azure 资源，这种情况下会启动 Azure 虚拟机。 最后，通过添加 Runbook 参数使此 Runbook 更稳健。
 
 ## <a name="prerequisites"></a>先决条件
 要完成本教程，需要以下各项：
@@ -59,7 +59,7 @@ ms.locfileid: "39335326"
 
 1. 单击“测试窗格”打开测试窗格  。
 2. 单击“启动”以启动测试  。 这应该是唯一的已启用选项。
-3. 将创建一个 [Runbook 作业](automation-runbook-execution.md) 并显示其状态。
+3. 创建一个 [Runbook 作业](automation-runbook-execution.md)并显示其状态。
 
    作业状态一开始为“排队”，表示正在等待云中的 Runbook 辅助角色变为可用状态。 在某个辅助角色认领此作业后，作业状态将变为“正在启动”，然后当 Runbook 实际开始运行时，此状态将变为“正在运行”。  
 
@@ -84,7 +84,18 @@ ms.locfileid: "39335326"
 12. 可以单击此作业，打开在启动 Runbook 时查看过的“作业”窗格。 这样便可以回溯并查看为特定 Runbook 创建的任何作业的详细信息。
 
 ## <a name="step-5---add-authentication-to-manage-azure-resources"></a>步骤 5 - 添加身份验证来管理 Azure 资源
-已经测试并发布 Runbook，但到目前为止它不执行任何有用的操作。 需要让其管理 Azure 资源。 然而，除非使用[先决条件](#prerequisites)中提到的凭据对其进行身份验证，否则它将无法进行管理。 可使用 Connect-AzureRmAccount cmdlet 实现此目的。
+已经测试并发布 Runbook，但到目前为止它不执行任何有用的操作。 需要让其管理 Azure 资源。 然而，除非使用[先决条件](#prerequisites)中提到的凭据对其进行身份验证，否则它将无法进行管理。 可使用 Connect-AzureRmAccount cmdlet 实现此目的。 如果要跨多个订阅管理资源，则需要使用 **-AzureRmContext** 参数以及 [Get-AzureRmContext](https://docs.microsoft.com/powershell/module/azurerm.profile/get-azurermcontext)。
+
+   ```powershell
+   $Conn = Get-AutomationConnection -Name AzureRunAsConnection
+   Add-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
+   -EnvironmentName AzureChinaCloud `
+-ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+
+   $AzureContext = Select-AzureRmSubscription -SubscriptionId $ServicePrincipalConnection.SubscriptionID
+
+   Get-AzureRmVM -ResourceGroupName myResourceGroup -AzureRmContext $AzureContext
+   ```
 
 1. 通过单击 MyFirstRunbook-PowerShell 页上的“编辑”打开文本编辑器。
 2. 由于不再需要 **Write-Output** 行，因此请直接删除它。
@@ -150,7 +161,7 @@ PowerShell Runbook 与 PowerShell 工作流 Runbook 具有相同的生命周期�
 
 ## <a name="next-steps"></a>后续步骤
 * 若要开始使用图形 Runbook，请参阅 [我的第一个图形 Runbook](automation-first-runbook-graphical.md)
-* 若要开始使用 PowerShell 工作流 Runbook，请参阅[我的第一个 PowerShell 工作流 Runbook](automation-first-runbook-textual.md)
+* 若要开始使用 PowerShell 工作流 Runbook，请参阅 [我的第一个 PowerShell 工作流 Runbook](automation-first-runbook-textual.md)
 * 若要了解有关 Runbook 类型、其优点和限制的详细信息，请参阅 [Azure 自动化 Runbook 类型](automation-runbook-types.md)
 * 有关 PowerShell 脚本支持功能的详细信息，请参阅 [Azure 自动化中的本机 PowerShell 脚本支持](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)
 

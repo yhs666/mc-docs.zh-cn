@@ -7,14 +7,14 @@ ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 origin.date: 04/09/2018
-ms.date: 09/24/2018
+ms.date: 11/05/2018
 ms.author: v-jay
-ms.openlocfilehash: 2338c3ea2d88a869a5c37b8ad8ceb6c1c0a683c0
-ms.sourcegitcommit: 0081fb238c35581bb527bdd704008c07079c8fbb
+ms.openlocfilehash: cd4a25eeedab9dff5f58f47e76cf9c556ac84fd3
+ms.sourcegitcommit: 7c750170ddefe7537663dfbadcc06bf27d94c586
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523716"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50743533"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-java-sdk-v7"></a>快速入门：使用 Java SDK V7 上传、下载和列出 Blob
 
@@ -32,7 +32,7 @@ ms.locfileid: "46523716"
 
 如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
 
-[!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
+[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
 ## <a name="download-the-sample-application"></a>下载示例应用程序
 

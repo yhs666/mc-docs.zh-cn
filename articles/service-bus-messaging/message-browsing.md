@@ -1,25 +1,25 @@
 ---
 title: Azure 服务总线消息浏览
 description: 浏览和速览服务总线消息
-services: service-bus
+services: service-bus-messaging
 documentationcenter: ''
-author: clemensv
-manager: timlt
+author: lingliw
+manager: digimobile
 editor: ''
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/25/2018
-ms.date: 10/15/2018
-ms.author: v-yiso
-ms.openlocfilehash: 321327b7b01275c0c497252e872b35efe0f47773
-ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
+origin.date: 09/25/2018
+ms.date: 10/31/2018
+ms.author: v-lingwu
+ms.openlocfilehash: 91dc26ba44abc4d4b918c5cb248aa40e1d75d9cc
+ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455131"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50409297"
 ---
 # <a name="message-browsing"></a>消息浏览
 
@@ -47,7 +47,6 @@ Peek 还会返回锁定的消息，以及当前由其他接收程序处理但尚
 
 若要了解有关服务总线消息传送的详细信息，请参阅以下主题：
 
-* [服务总线基础知识](service-bus-fundamentals-hybrid-solutions.md)
 * [服务总线队列、主题和订阅](service-bus-queues-topics-subscriptions.md)
 * [服务总线队列入门](service-bus-dotnet-get-started-with-queues.md)
 * [如何使用服务总线主题和订阅](service-bus-dotnet-how-to-use-topics-subscriptions.md)

@@ -8,15 +8,15 @@ ms.author: v-yiso
 manager: jeconnoc
 ms.topic: reference
 origin.date: 06/22/2018
-ms.date: 09/03/2018
+ms.date: 11/12/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 67ff811aae25d1e79998d906dcea46e58813fd4a
-ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
+ms.openlocfilehash: 717dec6fd2e31728363ae5dba995bab9bcd18d0e
+ms.sourcegitcommit: 3f96e40162bb6ee2e9fdb76c976517e47a1252d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455288"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50919122"
 ---
 # <a name="trigger-and-action-types-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Azure 逻辑应用中工作流定义语言的触发器和操作类型引用
 
@@ -64,7 +64,7 @@ ms.locfileid: "47455288"
 
 | 值 | 类型 | 说明 | 
 |-------|------|-------------| 
-| <array-with-conditions> | Array | 数组，其中包含一个或多个决定是否运行工作流的[条件](#trigger-conditions) | 
+| <array-with-conditions> | Array | 数组，其中包含一个或多个决定是否运行工作流的[条件](#trigger-conditions)。 仅适用于触发器。 | 
 | <runtime-config-options> | JSON 对象 | 通过设置 `runtimeConfiguration` 属性可更改触发器运行时行为。 有关详细信息，请参阅[运行时配置设置](#runtime-config-options)。 | 
 | <splitOn-expression> | String | 对于返回数组的触发器，可指定一个将数组项[拆分或解除批处理*到多个工作流实例进行处理的表达式*](#split-on-debatch)。 | 
 | <operation-option> | String | 通过设置 `operationOptions` 属性可更改默认行为。 有关详细信息，请参阅[操作选项](#operation-options)。 | 
@@ -659,7 +659,7 @@ ms.locfileid: "47455288"
 
 ## <a name="trigger-conditions"></a>触发条件
 
-对于任何触发器，可包括一个数组，该数组中含有一个或多个决定工作流是否应该运行的条件表达式。 若要将 `conditions` 属性添加到逻辑应用，请在代码视图编辑器中打开逻辑应用。
+对于任何触发器且仅对于触发器，可包括一个数组，其中包含一个或多个决定工作流是否应该运行的条件表达式。 若要将 `conditions` 属性添加到逻辑应用中的触发器，请在代码视图编辑器中打开逻辑应用。
 
 例如，可通过引用 `conditions` 属性中触发器的状态代码，指定触发器仅在站点返回内部服务器错误时触发：
 
@@ -1739,7 +1739,7 @@ ID,Product_Name
 | 值 | 类型 | 说明 | 
 |-------|------|-------------| 
 | <number-of-units> | Integer | 对于 Delay 操作，要等待的单位数 | 
-| <*interval*> | String | 对于 Delay 操作，要等待的时间间隔：“秒”、“分”、“小时”、“天”、“周”、“月” | 
+| <*间隔*> | String | 对于 Delay 操作，要等待的时间间隔：“秒”、“分”、“小时”、“天”、“周”、“月” | 
 | <date-time-stamp> | String | 对于 Delay Until 操作，执行的恢复日期和时间。 该值必须使用 [UTC 日期时间格式](https://en.wikipedia.org/wiki/Coordinated_Universal_Time)。 | 
 |||| 
 
@@ -2320,7 +2320,7 @@ ID,Product_Name
 
 ### <a name="change-trigger-concurrency"></a>更改触发器并发
 
-默认情况下，逻辑应用实例以并发方式同时或并行（最多达到[默认限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)）运行。 因此，每个触发器实例会在上一个活动逻辑应用实例完成运行前触发。 此限制可控制后端系统接收的请求数。 
+默认情况下，逻辑应用实例以并发方式同时或并行（最多达到[默认限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)）运行。 因此，每个触发器实例会在上一个逻辑应用实例完成运行前触发。 此限制可控制后端系统接收的请求数。 
 
 若要更改此默认限制，可使用代码视图编辑器或逻辑应用设计器，因为通过设计器更改并发设置会添加或更新基础触发器定义中的 `runtimeConfiguration.concurrency.runs` 属性，反之亦然。 此属性控制可并行运行的最大逻辑应用实例数。 
 
@@ -2387,7 +2387,7 @@ ID,Product_Name
 
 #### <a name="edit-in-logic-apps-designer"></a>在逻辑应用设计器中编辑
 
-1. 在“For each”操作的右上角选择省略号 (...) 按钮，然后选择“设置”。
+1. 在“For each”操作中，从右上角选择省略号 (...) 按钮，然后选择“设置”。
 
 2. 在“并发控制”下，将“替代默认值”设为“开启”。 
 
@@ -2401,7 +2401,7 @@ ID,Product_Name
 
 可等待的运行数也具有[默认限制](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)，该默认限制可以更改。 但是，逻辑应用达到等待运行数限制后，逻辑应用引擎不再接受新的运行。 请求和 webhook 触发器返回 429 错误，并且重复的触发器会开始跳过轮询尝试。
 
-若要更改等待运行数的默认限制，请在基础触发器定义中添加 `runtimeConfiguration.concurency.maximumWaitingRuns` 属性，并将其值设为 `0` - `100` 之间的某个值。 
+若要更改等待运行数的默认限制，请在基础触发器定义中添加 `runtimeConfiguration.concurency.maximumWaitingRuns` 属性，并将其值设为 `0` 和 `100` 之间的某个值。 
 
 ```json
 "<trigger-name>": {

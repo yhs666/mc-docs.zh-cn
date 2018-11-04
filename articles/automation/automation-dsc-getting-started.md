@@ -10,12 +10,12 @@ origin.date: 08/08/2018
 ms.date: 09/10/2018
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 17a6d15e30a20e6de3f20e1b126d9b0be89fa8c6
-ms.sourcegitcommit: 2700f127c3a8740a83fb70739c09bd266f0cc455
+ms.openlocfilehash: 17d07195ef76ae32de7d4af0b0728a3acc9d4cf3
+ms.sourcegitcommit: d26e5d0d625a61d6b130800d10c81f47c83fb1e0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45586627"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50745518"
 ---
 # <a name="getting-started-with-azure-automation-state-configuration"></a>Azure Automation State Configuration 入门
 
@@ -62,7 +62,7 @@ ms.locfileid: "45586627"
     ```
 1. 将文件另存为 `TestConfig.ps1`。
 
-此配置调用每个节点块中的一个资源（[WindowsFeature 资源](https://msdn.microsoft.com/powershell/dsc/windowsfeatureresource)），以确保存在（或不存在）**Web-Server** 功能。
+此配置调用每个节点块中的一个资源（[WindowsFeature 资源](https://docs.microsoft.com/powershell/dsc/windowsfeatureresource)），以确保存在（或不存在）**Web-Server** 功能。
 
 ## <a name="importing-a-configuration-into-azure-automation"></a>将配置导入 Azure 自动化
 
@@ -76,7 +76,7 @@ ms.locfileid: "45586627"
 
    ![**导入配置**边栏选项卡的屏幕截图](./media/automation-dsc-getting-started/AddConfig.png)
 
-1. 单击“确定”。
+1. 单击 **“确定”**。
 
 ## <a name="viewing-a-configuration-in-azure-automation"></a>查看 Azure 自动化中的配置
 

@@ -4,18 +4,18 @@ description: 本文介绍现在如何才能更新在 Azure 自动化中默认提
 services: automation
 ms.service: automation
 ms.component: process-automation
-author: georgewallace
-ms.author: gwallace
-origin.date: 03/16/2018
-ms.date: 09/10/2018
+author: WenJason
+ms.author: v-jay
+origin.date: 09/19/2018
+ms.date: 11/05/2018
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: f18233f96f4dec6225da88f446ae8dc93eaab8c4
-ms.sourcegitcommit: 1b60848d25bbd897498958738644a4eb9cf3a302
+ms.openlocfilehash: a05b45423dbe7232cb6d1bf942a4dc5a5fb8ad46
+ms.sourcegitcommit: d26e5d0d625a61d6b130800d10c81f47c83fb1e0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43731200"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50745503"
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>如何在 Azure 自动化中更新 Azure PowerShell 模块
 
@@ -30,7 +30,11 @@ ms.locfileid: "43731200"
 
 1. 在自动化帐户的“模块”页中有一个名为“更新 Azure 模块”的选项。 该选项始终处于启用状态。<br><br> ![“模块”页中的“更新 Azure 模块”选项](media/automation-update-azure-modules/automation-update-azure-modules-option.png)
 
-2. 单击“更新 Azure 模块”，会出现一条询问是否要继续的确认通知。<br><br> ![更新 Azure 模块通知](media/automation-update-azure-modules/automation-update-azure-modules-popup.png)
+  > [!NOTE]
+  > 在更新 Azure 模块之前，建议在一个测试自动化帐户中更新它们，以确保现有脚本按预期工作。
+  >
+
+2. 单击“更新 Azure 模块”，会出现一条询问是否要继续的确认通知。<br><br> ![“更新 Azure 模块”通知](media/automation-update-azure-modules/automation-update-azure-modules-popup.png)
 
 3. 单击“是”，模块更新过程开始。 更新过程大约需要 15-20 分钟来更新以下模块：
 
@@ -45,12 +49,14 @@ ms.locfileid: "43731200"
 
     如果模块已经是最新的，则该过程只需几秒钟即可完成。 更新过程完成后将收到通知。<br><br> ![“更新 Azure 模块”更新状态](media/automation-update-azure-modules/automation-update-azure-modules-updatestatus.png)
 
+    .NET core AzureRm 模块 (AzureRm.*.Core) 在 Azure 自动化中不受支持，并且无法导入。
+
 > [!NOTE]
-> 当运行新的计划作业时，Azure 自动化将在自动化帐户中使用最新模块。    
+> 当运行新的计划作业时，Azure 自动化将在自动化帐户中使用最新模块。  
 
 如果在 Runbook 中使用这些 Azure PowerShell 模块中的 cmdlet，需要大约每月运行一次此更新过程，以确保拥有最新的模块。 更新模块时，Azure 自动化使用 AzureRunAsConnection 连接进行身份验证，如果服务主体已过期或不再以订阅级别存在，模块更新将失败。
 
 ## <a name="next-steps"></a>后续步骤
 
-* 要详细了解集成模块以及如何创建自定义模块以进一步会自动化与其他系统、服务或解决方案集成，请参阅[集成模块](automation-integration-modules.md)。
+* 若要详细了解集成模块以及如何创建自定义模块来进一步与其他系统、服务或解决方案集成自动化，请参阅 [集成模块](automation-integration-modules.md)。
 
