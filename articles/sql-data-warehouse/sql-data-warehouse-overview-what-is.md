@@ -50,17 +50,17 @@ SQL 数据仓库通过列存储将数据存储到关系表中。 此格式可显
 [1]: ./media/sql-data-warehouse-overview-what-is/dwarchitecture.png
 
 <!--Article references-->
-<!-- Not Available [Create support ticket]: ./sql-data-warehouse-get-started-create-support-ticket.md--> [加载示例数据]：./sql-data-warehouse-load-sample-databases.md <!-- Not Available on [create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md -->
-[迁移文档]：./sql-data-warehouse-overview-migrate.md <!-- Not Available [SQL Data Warehouse solution partners]: ./sql-data-warehouse-partner-business-intelligence.md -->
-[集成工具概述]：./sql-data-warehouse-overview-integrate.md [备份和还原概述]：./sql-data-warehouse-restore-database-overview.md [Azure 词汇表]：../azure-glossary-cloud-terminology.md
+<!-- Not Available [Create support ticket]: ./sql-data-warehouse-get-started-create-support-ticket.md--> [加载示例数据]: ./sql-data-warehouse-load-sample-databases.md <!-- Not Available on [create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md -->
+[迁移文档]: ./sql-data-warehouse-overview-migrate.md <!-- Not Available [SQL Data Warehouse solution partners]: ./sql-data-warehouse-partner-business-intelligence.md -->
+[集成工具概述]: ./sql-data-warehouse-overview-integrate.md [备份和还原概述]: ./sql-data-warehouse-restore-database-overview.md [Azure 词汇表]: ../azure-glossary-cloud-terminology.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
-<!--Not Available [Customer success stories]: https://azure.microsoft.com/en-us/case-studies/?service=sql-data-warehouse --> [博客]：https://www.azure.cn/blog/tags/SQL%20数据库 <!--Not Available [Customer Advisory Team blogs]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/ -->
-[功能请求]： https://www.azure.cn/support/support-ticket-form/?l=zh-cn [MSDN 论坛]： https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSQLDataWarehouse <!--Not Available [Stack Overflow forum]: http://stackoverflow.com/questions/tagged/azure-sqldw-->
+<!--Not Available [Customer success stories]: https://azure.microsoft.com/en-us/case-studies/?service=sql-data-warehouse --> [博客]: https://www.azure.cn/blog/tags/SQL%20数据库 <!--Not Available [Customer Advisory Team blogs]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/ -->
+[功能请求]: https://www.azure.cn/support/support-ticket-form/?l=zh-cn [MSDN 论坛]: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSQLDataWarehouse <!--Not Available [Stack Overflow forum]: http://stackoverflow.com/questions/tagged/azure-sqldw-->
 <!--Not Available on [Twitter]: https://twitter.com/hashtag/SQLDW -->
 <!--Not Available on [Videos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse -->
-[SQL 数据仓库的 SLA]： https://www.azure.cn/support/sla/sql-data-warehouse/ [批量许可]： http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=37 [服务级别协议]： https://www.azure.cn/support/legal/sla/
+[SQL 数据仓库的 SLA]: https://www.azure.cn/support/sla/sql-data-warehouse/ [批量许可]: http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=37 [服务级别协议]: https://www.azure.cn/support/legal/sla/
 
 <!--Update_Description: update meta properties, wording update, update link -->

@@ -105,10 +105,10 @@ SQL 数据仓库使用 Azure 存储保护用户数据。  由于数据通过 Azu
 [1]: ./media/sql-data-warehouse-overview-what-is/dwarchitecture.png
 
 <!--Article references-->
-<!-- Not Available [Create support ticket]: ./sql-data-warehouse-get-started-create-support-ticket.md--> [加载示例数据]：./sql-data-warehouse-load-sample-databases.md <!-- Not Avaialble on [create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md -->
+<!-- Not Available [Create support ticket]: ./sql-data-warehouse-get-started-create-support-ticket.md--> [加载示例数据]: ./sql-data-warehouse-load-sample-databases.md <!-- Not Avaialble on [create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md -->
 <!-- Not contains Sample choice in selectbox so that we can not following the process -->
-[迁移文档]：./sql-data-warehouse-overview-migrate.md <!-- Not Avaialble on [SQL Data Warehouse solution partners]: ./sql-data-warehouse-partner-business-intelligence.md -->
-[集成工具概述]：./sql-data-warehouse-overview-integrate.md [备份和还原概述]：./sql-data-warehouse-restore-database-overview.md [Azure 词汇表]：../azure-glossary-cloud-terminology.md
+[迁移文档]: ./sql-data-warehouse-overview-migrate.md <!-- Not Avaialble on [SQL Data Warehouse solution partners]: ./sql-data-warehouse-partner-business-intelligence.md -->
+[集成工具概述]: ./sql-data-warehouse-overview-integrate.md [备份和还原概述]: ./sql-data-warehouse-restore-database-overview.md [Azure 词汇表]: ../azure-glossary-cloud-terminology.md
 
 <!--MSDN references-->
 
