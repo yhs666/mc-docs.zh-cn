@@ -84,6 +84,6 @@ ms.locfileid: "36315732"
 [在可用性集中配置多个虚拟机以确保冗余]: #configure-multiple-virtual-machines-in-an-availability-set-for-redundancy
 [将每个应用程序层配置到不同的可用性集中]: #configure-each-application-tier-into-separate-availability-sets
 [将负载均衡器与可用性集组合在一起]: #combine-a-load-balancer-with-availability-sets
-<!-- Not Avaiable on [Avoid single instance virtual machines in availability sets]: #avoid-single-instance-virtual-machines-in-availability-sets --> [为可用性集中的 VM 使用托管磁盘]：#use-managed-disks-for-vms-in-an-availability-set <!-- Not Available on [Use availability zones to protect from datacenter level failures]: #use-availability-zones-to-protect-from-datacenter-level-failures-->>
+<!-- Not Avaiable on [Avoid single instance virtual machines in availability sets]: #avoid-single-instance-virtual-machines-in-availability-sets --> [为可用性集中的 VM 使用托管磁盘]: #use-managed-disks-for-vms-in-an-availability-set <!-- Not Available on [Use availability zones to protect from datacenter level failures]: #use-availability-zones-to-protect-from-datacenter-level-failures-->>
 
 <!-- Update_Description: update meta properties, wording update, update link -->

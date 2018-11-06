@@ -336,7 +336,7 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
 [Azure Quickstart Templates]:  https://github.com/Azure/azure-quickstart-templates/?term=event+hubs
-<!-- Not Available on [Azure Resources naming conventions]: https://www.azure.cn/documentation/articles/guidance-naming-conventions/--> [事件中心和“允许捕获到存储”模板]： https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-capture<!-- Not Available on [Event hub and enable Capture to Azure Data Lake Store template]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-capture-for-adls-->>
+<!-- Not Available on [Azure Resources naming conventions]: https://www.azure.cn/documentation/articles/guidance-naming-conventions/--> [事件中心和“允许捕获到存储”模板]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-capture<!-- Not Available on [Event hub and enable Capture to Azure Data Lake Store template]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-capture-for-adls-->>
 
 <!-- Update_Description: new articles on event hubs resource manager namespace event hub enbale capture -->
 <!--ms.date: 09/17/2018-->

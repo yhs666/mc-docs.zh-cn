@@ -300,6 +300,6 @@ com.microsoft.azure.eventprocessorhost.EventProcessorHost 类提供了 2 个构�
 
 <!-- Images -->
 <!-- Not Available on [11]: ./media/service-bus-event-hubs-get-started-receive-ephjava/create-eph-csharp2.png -->
-<!-- Not Available on [12]: ./media/service-bus-event-hubs-get-started-receive-ephjava/create-eph-csharp3.png --> [试用帐户]：https://www.azure.cn/pricing/1rmb-trial/
+<!-- Not Available on [12]: ./media/service-bus-event-hubs-get-started-receive-ephjava/create-eph-csharp3.png --> [试用帐户]: https://www.azure.cn/pricing/1rmb-trial/
 
 <!--Update_Description: update meta properties, wording update -->

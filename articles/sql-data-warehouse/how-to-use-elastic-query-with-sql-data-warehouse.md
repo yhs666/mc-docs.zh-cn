@@ -153,7 +153,7 @@ ms.locfileid: "49089043"
 
 <!--Article references-->
 
-<!-- Not Available on [SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop/ --> [使用 SQL 数据仓库配置弹性查询]：tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md [反馈页]： https://feedback.azure.com/forums/307516-sql-data-warehouse [Azure SQL 数据库弹性查询概述]：../sql-database/sql-database-elastic-query-overview.md
+<!-- Not Available on [SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop/ --> [使用 SQL 数据仓库配置弹性查询]: tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md [反馈页]: https://feedback.azure.com/forums/307516-sql-data-warehouse [Azure SQL 数据库弹性查询概述]: ../sql-database/sql-database-elastic-query-overview.md
 
 <!--MSDN references-->
 

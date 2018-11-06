@@ -351,7 +351,7 @@ GROUP BY p.[BrandName]
 
 <!--Article references-->
 <!-- Not Avaiable on [Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md -->
-<!-- Need to append when sample SQL Server has been implement in Mooncake--> [将数据加载到 SQL 数据仓库]：sql-data-warehouse-overview-load.md [SQL 数据仓库开发概述]：sql-data-warehouse-overview-develop.md [管理列存储索引]：sql-data-warehouse-tables-index.md [统计信息]：sql-data-warehouse-tables-statistics.md [CTAS]：sql-data-warehouse-develop-ctas.md [标签]：sql-data-warehouse-develop-label.md
+<!-- Need to append when sample SQL Server has been implement in Mooncake--> [将数据加载到 SQL 数据仓库]: sql-data-warehouse-overview-load.md [SQL 数据仓库开发概述]: sql-data-warehouse-overview-develop.md [管理列存储索引]: sql-data-warehouse-tables-index.md [统计信息]: sql-data-warehouse-tables-statistics.md [CTAS]: sql-data-warehouse-develop-ctas.md [标签]: sql-data-warehouse-develop-label.md
 
 <!--MSDN references-->
 [CREATE EXTERNAL DATA SOURCE]: https://msdn.microsoft.com/library/dn935022.aspx

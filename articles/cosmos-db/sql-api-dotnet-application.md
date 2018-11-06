@@ -11,15 +11,15 @@ ms.workload: azure-vs
 ms.devlang: dotnet
 ms.topic: tutorial
 origin.date: 08/03/2017
-ms.date: 09/30/2018
+ms.date: 11/05/2018
 ms.author: v-yeche
 ms.custom: devcenter, vs-azure
-ms.openlocfilehash: 6340f5c66f15c479fae70cc540c2e7adfaa2b6b2
-ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
+ms.openlocfilehash: bad0217643208bae57ceea68acccd77be672074b
+ms.sourcegitcommit: c1020b13c8810d50b64e1f27718e9f25b5f9f043
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47201395"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50204849"
 ---
 <a name="_Toc395809351"></a>
 # <a name="aspnet-mvc-tutorial-web-application-development-with-azure-cosmos-db"></a>ASP.NET MVC 教程：开发采用 Azure Cosmos DB 的 Web 应用程序
@@ -28,7 +28,6 @@ ms.locfileid: "47201395"
 > * [.NET](sql-api-dotnet-application.md)
 > * [Java](sql-api-java-application.md)
 > * [Node.js](sql-api-nodejs-application.md)
-> * [Node.js- v2](sql-api-nodejs-application-preview.md)
 > * [Python](sql-api-python-application.md)
 > * [Xamarin](mobile-apps-with-xamarin.md)
 > 
@@ -562,4 +561,6 @@ ms.locfileid: "47201395"
 
 若要向应用程序添加其他功能，请查看 [Azure Cosmos DB .NET 库](https://docs.azure.cn/zh-cn/dotnet/api/overview/cosmosdb?view=azure-dotnet)中提供的 API，并欢迎在 [GitHub][GitHub] 上的 Azure Cosmos DB .NET 库中补充内容。 
 
-<!-- Not Available on [\*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError --> [Visual Studio Express]： http://www.visualstudio.com/products/visual-studio-express-vs.aspx [Microsoft Web 平台安装程序]： http://www.microsoft.com/web/downloads/platform.aspx [防止跨站点请求伪造]： http://go.microsoft.com/fwlink/?LinkID=517254 [ASP.NET MVC 中的基本 CRUD 操作]： http://go.microsoft.com/fwlink/?LinkId=317598 [GitHub]： https://github.com/Azure-Samples/documentdb-net-todo-app <!-- Update_Description: update meta properties, update link  -->
+<!-- Not Available on [\*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError --> [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx [Microsoft Web 平台安装程序]: http://www.microsoft.com/web/downloads/platform.aspx [防止跨站点请求伪造]: http://go.microsoft.com/fwlink/?LinkID=517254 [ASP.NET MVC 中的基本 CRUD 操作]: http://go.microsoft.com/fwlink/?LinkId=317598 [GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
+
+<!-- Update_Description: update meta properties, update link  -->

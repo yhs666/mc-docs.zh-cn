@@ -164,7 +164,7 @@ $GeoRestoredDatabase.status
 
 <!--Article references-->
 [Azure SQL Database business continuity overview]: ../sql-database/sql-database-business-continuity.md
-<!-- Not available for support ticket[Request a DTU quota change]: sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change--> [在恢复后配置数据库]：../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery [如何安装和配置 Azure PowerShell]： https://docs.microsoft.com/powershell/azureps-cmdlets-docs [概述]：./sql-data-warehouse-restore-database-overview.md [门户]：./sql-data-warehouse-restore-database-portal.md [PowerShell]：./sql-data-warehouse-restore-database-powershell.md [REST]：./sql-data-warehouse-restore-database-rest-api.md [在恢复后配置数据库]：../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recoveryy
+<!-- Not available for support ticket[Request a DTU quota change]: sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change--> [在恢复后配置数据库]: ../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery [如何安装和配置 Azure PowerShell]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs [概述]: ./sql-data-warehouse-restore-database-overview.md [门户]: ./sql-data-warehouse-restore-database-portal.md [PowerShell]: ./sql-data-warehouse-restore-database-powershell.md [REST]: ./sql-data-warehouse-restore-database-rest-api.md [在恢复后配置数据库]: ../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recoveryy
 
 <!--MSDN references-->
 [Restore-AzureRmSqlDatabase]: https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase

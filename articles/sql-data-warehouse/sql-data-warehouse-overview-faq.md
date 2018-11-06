@@ -107,4 +107,4 @@ A. 可在[连接字符串]页找到 DW 驱动程序支持
 [容量限制]: ./sql-data-warehouse-service-capacity-limits.md
 [数据类型]: ./sql-data-warehouse-tables-data-types.md
 [不支持的表功能]: ./sql-data-warehouse-tables-overview.md#unsupported-table-features
-<!-- Not Available on [Azure Data Lake Store]: ./sql-data-warehouse-load-from-azure-data-lake-store.md --> [Azure 存储 Blob]：./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md [数据库项目功能请求]：https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/13313247-database-project-from-visual-studio-to-support-azu [MSDN]：https://msdn.microsoft.com/library/azure/mt163685.aspx [概述]：./sql-data-warehouse-overview-faq.mdd
+<!-- Not Available on [Azure Data Lake Store]: ./sql-data-warehouse-load-from-azure-data-lake-store.md --> [Azure 存储 Blob]: ./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md [数据库项目功能请求]: https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/13313247-database-project-from-visual-studio-to-support-azu [MSDN]: https://msdn.microsoft.com/library/azure/mt163685.aspx [概述]: ./sql-data-warehouse-overview-faq.mdd

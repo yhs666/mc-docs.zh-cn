@@ -169,12 +169,12 @@ PolyBase 还支持名为“递归文件夹遍历”的功能。 可以使用此�
 [AZCopy]: ../storage/common/storage-use-azcopy.md
 <!-- Not Available [ADF Copy]: ../data-factory/data-factory-data-movement-activities.md -->
 <!-- Not Available [ADF samples]: ../data-factory/data-factory-samples.md-->
-<!-- Not Available [ADF Copy examples]: ../data-factory/data-factory-copy-activity-tutorial-using-visual-studio.md--> [开发概述]：sql-data-warehouse-overview-develop.md [迁移架构]：sql-data-warehouse-migrate-schema.md [将解决方案迁移到 SQL 数据仓库]：sql-data-warehouse-overview-migrate.md [SQL 数据仓库开发概述]：sql-data-warehouse-overview-develop.md [使用 bcp 将数据载入 SQL 数据仓库]：https://docs.microsoft.com/sql/tools/bcp-utility [使用 PolyBase 将数据载入 SQL 数据仓库]：load-data-wideworldimportersdw.mdd
+<!-- Not Available [ADF Copy examples]: ../data-factory/data-factory-copy-activity-tutorial-using-visual-studio.md--> [开发概述]: sql-data-warehouse-overview-develop.md [迁移架构]: sql-data-warehouse-migrate-schema.md [将解决方案迁移到 SQL 数据仓库]: sql-data-warehouse-overview-migrate.md [SQL 数据仓库开发概述]: sql-data-warehouse-overview-develop.md [使用 bcp 将数据载入 SQL 数据仓库]: https://docs.microsoft.com/sql/tools/bcp-utility [使用 PolyBase 将数据载入 SQL 数据仓库]: load-data-wideworldimportersdw.mdd
 
 <!--MSDN references-->
 
 <!--Other Web references-->
-<!-- Not Available [Azure Data Factory]: https://www.azure.cn/home/features/data-factory/ --> [ExpressRoute]：https://www.azure.cn/home/features/expressroute/ [ExpressRoute 文档]：/expressroute/
+<!-- Not Available [Azure Data Factory]: https://www.azure.cn/home/features/data-factory/ --> [ExpressRoute]: https://www.azure.cn/home/features/expressroute/ [ExpressRoute 文档]: /expressroute/
 
 [production version]: http://aka.ms/downloadazcopy/
 [preview version]: http://aka.ms/downloadazcopypr/

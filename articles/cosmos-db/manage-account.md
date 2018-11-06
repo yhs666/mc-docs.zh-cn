@@ -107,6 +107,6 @@ ms.locfileid: "37070168"
 [5]: ./media/manage-account/documentdb_change_consistency-1.png
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
-<!-- Not Available on [bcdr]: /best-practices-availability-paired-regions/ --> [一致性]：consistency-levels.md [azureregions]：https://www.azure.cn/support/service-dashboard/#services [套餐]：https://www.azure.cn/pricing/details/cosmos-db/
+<!-- Not Available on [bcdr]: /best-practices-availability-paired-regions/ --> [一致性]: consistency-levels.md [azureregions]: https://www.azure.cn/support/service-dashboard/#services [套餐]: https://www.azure.cn/pricing/details/cosmos-db/
 
 <!-- Update_Description: update meta properties  -->
