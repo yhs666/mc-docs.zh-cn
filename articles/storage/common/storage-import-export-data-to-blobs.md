@@ -6,15 +6,15 @@ services: storage
 ms.service: storage
 ms.topic: article
 origin.date: 07/17/2018
-ms.date: 09/10/2018
+ms.date: 11/05/2018
 ms.author: v-jay
 ms.component: common
-ms.openlocfilehash: 58bc332d8a556cd3827bcddfdad3c90a1e01354a
-ms.sourcegitcommit: 3ec1b0705c8305fc4561b9511c275edb9baa1f59
+ms.openlocfilehash: 42b2b82f36072a2b688a82c31ae45d014636b010
+ms.sourcegitcommit: 3f96e40162bb6ee2e9fdb76c976517e47a1252d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49316007"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50919094"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>使用 Azure 导入/导出服务将数据导入到 Azure Blob 存储
 
@@ -93,7 +93,7 @@ ms.locfileid: "49316007"
 
     - 选择“导入到 Azure”。
     - 输入导入作业的描述性名称。 可使用此名称来跟踪作业进度。
-        - 此名称只能包含小写字母、数字、连字符。
+        - 此名称可以包含大写和小写字母、数字、连字符。
         - 此名称必须以字母开头，并且不得包含空格。
     - 选择一个订阅。
     - 输入或选择一个资源组。  

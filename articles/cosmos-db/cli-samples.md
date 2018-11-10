@@ -10,18 +10,18 @@ ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: sample
 origin.date: 11/29/2017
-ms.date: 08/13/2018
+ms.date: 11/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 43d5ca50736d2a041a1161218fe6e3cc3c497328
-ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
+ms.openlocfilehash: 80c5d8392df6e388265dfd2162da428d33b784bd
+ms.sourcegitcommit: c1020b13c8810d50b64e1f27718e9f25b5f9f043
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41705163"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50204818"
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db"></a>用于 Azure Cosmos DB 的 Azure CLI 示例
 
-下表包括用于 Azure Cosmos DB 的示例 Azure CLI 脚本的链接。 所有 Azure Cosmos DB CLI 命令参考页可在 [Azure CLI 2.0 参考](https://docs.azure.cn/zh-cn/cli/cosmosdb?view=azure-cli-latest)中找到。
+下表包括用于 Azure Cosmos DB 的示例 Azure CLI 脚本的链接。 [Azure CLI 参考](https://docs.azure.cn/zh-cn/cli/cosmosdb?view=azure-cli-latest)中收录了所有 Azure Cosmos DB CLI 命令的参考页。
 
 | |  |
 |---|---|
@@ -32,17 +32,18 @@ ms.locfileid: "41705163"
 | [缩放容器吞吐量](scripts/scale-collection-throughput-cli.md) | 更改容器上预配的吞吐量。|
 |[将 Azure Cosmos DB 数据库帐户复制到多个区域中并配置故障转移优先级](scripts/scale-multiregion-cli.md)|多数据中心将帐户数据复制到具有指定故障转移优先级的多个区域中。|
 |**保护 Azure Cosmos DB**||
-| [获取帐户密钥](scripts/secure-get-account-key-cli.md) | 获取帐户的主要和辅助主写入密钥以及主要和辅助只读密钥。|
+| [获取帐户密钥](scripts/secure-get-account-key-cli.md) | 获取帐户的主要和辅助主写入密钥以及主要和辅助只读密钥。|
 | [获取 MongoDB 连接字符串](scripts/secure-mongo-connection-string-cli.md) | 获取用于将 MongoDB 应用连接到 Azure Cosmos DB 帐户的连接字符串。|
 |[重新生成帐户密钥](scripts/secure-regenerate-key-cli.md)|重新生成帐户的主密钥或只读密钥。|
 |[创建防火墙](scripts/create-firewall-cli.md)| 创建入站 IP 访问控制策略，仅允许从获批准的一组计算机和/或云服务访问帐户。|
 |**高可用性、灾难恢复、备份和还原**||
-|[配置故障转移策略](scripts/ha-failover-policy-cli.md)|为帐户所复制的每个区域设置故障转移优先级。|
+|[配置故障转移策略](scripts/ha-failover-policy-cli.md)|为在其中复制帐户的每个区域设置故障转移优先级。|
 |**将 Azure Cosmos DB 连接到资源**||
 |[将 Web 应用连接到 Azure Cosmos DB](../app-service/scripts/app-service-cli-app-service-documentdb.md)|创建并连接 Azure Cosmos DB 数据库和 Azure Web 应用。|
 |||
+
+<!--Not Available on [Create a Gremlin API account](scripts/create-graph-database-account-cli.md)-->
 <!--NOTICES: Line 35 全球范围 to 多个数据中心范围  -->
 <!--NOTICE: Line 35 Globally TO Multiple data-center-->
-
 
 <!--Update_Description: update meta properties -->

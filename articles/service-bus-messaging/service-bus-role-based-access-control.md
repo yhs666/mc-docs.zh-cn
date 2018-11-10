@@ -1,30 +1,30 @@
 ---
-title: Azure 服务总线基于角色的访问控制 (RBAC) 预览版
+title: Azure 服务总线基于角色的访问控制 (RBAC) 预览版 | Azure
 description: Azure 服务总线基于角色的访问控制
-services: service-bus
+services: service-bus-messaging
 documentationcenter: na
-author: spelluru
-manager: timlt
+author: lingliw
+manager: digimobile
 editor: ''
 ms.assetid: ''
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 12/19/2017
-ms.date: 10/15/2018
-ms.author: v-yiso
-ms.openlocfilehash: 36cb46bd321d54dc5ac8fd24e44a8d80997e9b2c
-ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
+origin.date: 09/19/2018
+ms.date: 10/31/2018
+ms.author: v-lingwu
+ms.openlocfilehash: ff88d1233b24852a9279db76cda56382fb857043
+ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455103"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50409319"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Active Directory 基于角色的访问控制（预览版）
 
-Microsoft Azure 基于 Azure Active Directory (Azure AD) 针对资源和应用程序提供了集成的访问控制管理功能。 使用 Azure AD，可以专门为基于 Azure 的应用程序管理用户帐户和应用程序，还可以将现有的 Active Directory 基础结构与 Azure AD 联合起来以实现公司范围内的单一登录，该单一登录还涵盖了 Azure 资源和 Azure 托管的应用程序。 然后，你可以将那些 Azure AD 用户和应用程序标识分配给全局和特定于服务的角色以授予对 Azure 资源的访问权限。
+Azure 基于 Azure Active Directory (Azure AD) 针对资源和应用程序提供了集成的访问控制管理功能。 使用 Azure AD，可以专门为基于 Azure 的应用程序管理用户帐户和应用程序，还可以将现有的 Active Directory 基础结构与 Azure AD 联合起来以实现公司范围内的单一登录，该单一登录还涵盖了 Azure 资源和 Azure 托管的应用程序。 然后，可将那些 Azure AD 用户和应用程序标识分配给多区域和特定于服务的角色，以便授予对 Azure 资源的访问权限。
 
 对于 Azure 服务总线，通过 Azure 门户和 Azure 资源管理 API 对命名空间和所有相关资源的管理已使用*基于角色的访问控制* (RBAC) 模型进行了保护。 针对运行时操作的 RBAC 目前为公共预览版。 
 
@@ -48,9 +48,9 @@ Microsoft Azure 基于 Azure Active Directory (Azure AD) 针对资源和应用�
 
 ### <a name="create-a-service-bus-namespace"></a>创建服务总线命名空间
 
-接下来，在支持 RBAC 预览版的 Azure 区域（**美国东部**、**美国东部 2** 或**西欧**）之一中[创建服务总线消息传递命名空间](service-bus-create-namespace-portal.md)。 
+接下来，在支持 RBAC 预览版的 Azure 区域（**中国东部**、**中国东部 2** 或**中国北部**）之一中[创建服务总线消息传递命名空间](service-bus-create-namespace-portal.md)。 
 
-在创建命名空间后，在门户上导航到其“访问控制(标识和访问管理)”页面，然后单击“添加”将 Azure AD 用户帐户添加到“所有者”角色。 如果你使用自己的用户帐户并且已创建了命名空间，则已获得“所有者”角色。 若要向角色添加一个不同的帐户，请在“添加权限”面板的“选择”字段中搜索 Web 应用程序的名称，然后单击该条目。 。
+在创建命名空间后，在门户上导航到其“访问控制(IAM)”页面，然后单击“添加”将 Azure AD 用户帐户添加到“所有者”角色。 如果你使用自己的用户帐户并且已创建了命名空间，则已获得“所有者”角色。 若要向角色添加一个不同的帐户，请在“添加权限”面板的“选择”字段中搜索 Web 应用程序的名称，然后单击该条目。 然后单击“保存” 。
 
 ![](./media/service-bus-role-based-access-control/rbac1.PNG)
 
@@ -71,7 +71,7 @@ Microsoft Azure 基于 Azure Active Directory (Azure AD) 针对资源和应用�
 - `tenantId`：设置为 **TenantId** 值。
 - `clientId`：设置为 **ApplicationId** 值。 
 - `clientSecret`：如果希望使用客户端机密进行登录，请在 Azure AD 中创建它。 此外，请使用 Web 应用或 API 而非本机应用。 另外，请在之前创建的命名空间中将该应用添加到 **Access Control (IAM)** 下。
-- `serviceBusNamespaceFQDN`：设置为新创建的服务总线命名空间的完整 DNS 名称，例如 `example.servicebus.windows.net`。
+- `serviceBusNamespaceFQDN`：设置为新创建的服务总线命名空间的完整 DNS 名称，例如 `example.servicebus.chinacloudapi.cn`。
 - `queueName`：设置为你创建的队列的名称。
 - 在前面的步骤中你在应用中指定的重定向 URI。
  
@@ -81,7 +81,6 @@ Microsoft Azure 基于 Azure Active Directory (Azure AD) 针对资源和应用�
 
 若要了解有关服务总线消息传送的详细信息，请参阅以下主题。
 
-* [服务总线基础知识](service-bus-fundamentals-hybrid-solutions.md)
 * [服务总线队列、主题和订阅](service-bus-queues-topics-subscriptions.md)
 * [服务总线队列入门](service-bus-dotnet-get-started-with-queues.md)
 * [如何使用服务总线主题和订阅](service-bus-dotnet-how-to-use-topics-subscriptions.md)

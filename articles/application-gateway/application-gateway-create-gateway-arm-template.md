@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 origin.date: 07/31/2017
 ms.date: 06/07/2018
 ms.author: v-junlch
-ms.openlocfilehash: 2f9c3b2b9e13ad1dcdef8665ef616e78e4e89405
-ms.sourcegitcommit: 4fe9905d17a8df9f2270543a5a0ce1762a5830c9
+ms.openlocfilehash: 90e0ae79fe4d1c8194b8743b294f050e7438574a
+ms.sourcegitcommit: fd50465d4726b5fb0e0fa0787ec3ff43dc7914b4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34855739"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50919402"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>使用 Azure Resource Manager 模板创建应用程序网关
 
@@ -187,21 +187,27 @@ Azure 应用程序网关是第 7 层负载均衡器。 它可在云端或本地�
 
 “单击部署”是另一种使用 Azure 资源管理器模板的方式。 这是将模板与 Azure 门户配合使用的简便方法。
 
-1. 转到[创建具有 Web 应用程序防火墙的应用程序网关](https://azure.microsoft.com/documentation/templates/101-application-gateway-waf/)。
+1. 转到 [Azure 门户](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-application-gateway-waf%2fazuredeploy.json)。
 
-1. 单击 **“部署到 Azure”**。
-
-    ![“部署到 Azure”](./media/application-gateway-create-gateway-arm-template/deploytoazure.png)
-    
 1. 在门户上填写部署模板的参数，并单击“确定”。
 
-    ![parameters](./media/application-gateway-create-gateway-arm-template/ibiza1.png)
+    ![参数](./media/application-gateway-create-gateway-arm-template/ibiza1.png)
     
-1. 选择“我同意上述条款和条件”，并单击“购买”。
+1. 单击“编辑模板”，检查并更新模板。 单击“保存”。
+
+    ![参数](./media/application-gateway-create-gateway-arm-template/ibiza2.png)
+
+1. 单击“查看法律条款”，查看法律条款。 单击“创建”。 
+
+    ![参数](./media/application-gateway-create-gateway-arm-template/ibiza3.png)
 
 1. 在“自定义部署”边栏选项卡上，单击“创建” 。
 
-## <a name="providing-certificate-data-to-resource-manager-templates"></a>对 Resource Manager 模板提供证书数据
+    ![参数](./media/application-gateway-create-gateway-arm-template/ibiza4.png)
+
+
+
+## <a name="providing-certificate-data-to-resource-manager-templates"></a>向 Resource Manager 模板提供证书数据
 
 如果将 SSL 与模板一起使用，需要提供 base64 字符串格式的证书，而不是上传证书。 若要将 .pfx 或 .cer 转换为 base64 字符串，请运行以下命令之一。 以下命令将证书转换为可提供给模板的 base64 字符串。 预期输出为一个字符串，它可以存储在变量中，并粘贴到模板中。
 

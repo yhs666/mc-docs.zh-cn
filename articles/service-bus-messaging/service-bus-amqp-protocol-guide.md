@@ -3,24 +3,24 @@ title: Azure 服务总线和事件中心内的 AMQP 1.0 协议指南 | Azure
 description: Azure 服务总线和事件中心内 AMQP 1.0 协议的表达与描述指南
 services: service-bus-messaging,event-hubs
 documentationcenter: .net
-author: clemensv
-manager: timlt
+author: lingliw
+manager: digimobile
 editor: ''
 ms.assetid: d2d3d540-8760-426a-ad10-d5128ce0ae24
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 04/30/2018
-ms.author: v-yiso
-ms.date: 06/04/2018
-ms.openlocfilehash: 10949e87685d06fa3fb122ba0595d043f6210979
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+origin.date: 09/26/2018
+ms.date: 10/31/2018
+ms.author: v-lingwu
+ms.openlocfilehash: 200f0d035cfd8b889e7032ddbd3c7ea6c999db77
+ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554611"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50409397"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Azure 服务总线和事件中心内的 AMQP 1.0 协议指南
 
@@ -78,7 +78,7 @@ Azure 服务总线随时都需要使用 TLS。 它支持通过 TCP 端口 5671 �
 
 会话具有基于时段的流量控制模型；创建会话时，每一方声明它愿意在接收时段内接受的帧数。 当各方交换帧时，已传输的帧将填满该时段，传输在时段已满时停止，直到该时段使用流程行为原语进行重置或扩展为止（行为原语是 AMQP 术语，表示在双方之间交换的协议级别手势）。
 
-这种基于时段的模型大致类似于 TCP 基于时段的流量控制概念，但属于套接字内的会话级别。 协议具有允许多个并发会话的概念，因此高优先级的流量可能冲过限制的正常流量，就像高速公路上的快速车道一样。
+这种基于时段的模型大致类似于 TCP 基于时段的流量控制概念，但属于套接字内的会话级别。 协议提出了一个概念：允许多个并发会话，因此高优先级流量的速度可能快于受限制的正常流量，就像高速公路上有一个快速车道一样。
 
 Azure 服务总线目前只对每个连接使用一个会话。 服务总线标准版和事件中心的服务总线帧大小上限为 262,144 字节 (256 KB)。 服务总线高级版则为 1,048,576 (1 MB)。 服务总线不强加任何特定会话级别限制时段，但是在链接级别流量控制中定期重置时段（请参阅[下一部分](#links)）。
 
@@ -96,7 +96,7 @@ AMQP 通过链接传输消息。 链接是在能以单个方向传输消息的�
 
 链接具有名称并与节点关联。 如一开始所述，节点是容器内的通信实体。
 
-在服务总线中，节点直接等同于队列、主题、订阅或队列或订阅的死信子队列。 AMQP 中使用的节点名称因此是服务总线命名空间内实体的相对名称。 如果队列名为 **myqueue**，这也是它的 AMQP 节点名称。 主题订阅遵循 HTTP API 约定归类为“订阅”资源集合，因此订阅 **sub** 或主题 **mytopic** 具有 AMQP 节点名称 **mytopic/subscriptions/sub**。
+在服务总线中，节点直接等同于队列、主题、订阅，或队列或订阅的死信子队列。 AMQP 中使用的节点名称因此是服务总线命名空间内实体的相对名称。 如果队列名为 `myqueue`，则该名称也是它的 AMQP 节点名称。 主题订阅遵循 HTTP API 约定归类为“订阅”资源集合，因此订阅 **sub** 或主题 **mytopic** 具有 AMQP 节点名称 **mytopic/subscriptions/sub**。
 
 正在连接的客户端也必须使用本地节点名称来创建链接；服务总线不规范这些节点名称，并且不进行解释。 AMQP 1.0 客户端堆栈通常使用方案，以确保这些暂时节点名称是客户端范围内的唯一名称。
 
@@ -266,7 +266,7 @@ AMQP 1.0 规范定义进一步的处置状态（称为“已接收”），其�
 
 #### <a name="starting-a-transaction"></a>启动事务
 
-开始事务性工作。 控制器必须从协调器获取一个 `txn-id`。 通过发送 `declare` 类型消息完成此操作。 如果声明成功，协调器会响应一个 `declared` 的处置结果，其中包含分配的 `txn-id`。
+开始事务性工作。 控制器必须从协调器获取一个 `txn-id`。 通过发送 `declare` 类型消息完成此操作。 如果声明成功，协调器会响应一个处置结果，其中包含分配的 `txn-id`。
 
 | 客户端（控制器） | | 服务总线（协调器） |
 | --- | --- | --- |
@@ -277,7 +277,7 @@ AMQP 1.0 规范定义进一步的处置状态（称为“已接收”），其�
 
 #### <a name="discharging-a-transaction"></a>释放事务
 
-控制器会通过向协调器发送 `discharge` 消息来推断事务性工作。 控制器通过在释放正文上设置 `fail` 标志，指示它希望提交或回滚该事务性工作。 如果协调器无法完成释放操作，消息将被拒绝且结果中带有 `transaction-error`。
+控制器通过向协调器发送 `discharge` 消息来推断事务性工作。 控制器通过在释放正文上设置 `fail` 标志，指示它希望提交或回滚该事务性工作。 如果协调器无法完成释放操作，消息将被拒绝且结果中带有 `transaction-error`。
 
 > 请注意：fail=true 表示事务回滚，fail=false 表示提交。
 
@@ -393,13 +393,13 @@ name 属性标识应与此令牌关联的实体。 在服务总线中，这是�
 
 创建连接和会话后，将链接附加到 $cbs 节点和发送 put-token 请求是唯一允许的操作。 必须在创建连接后的 20 秒内使用对某个实体节点的 put-token 请求成功创建有效的令牌，否则服务总线将单方面断开连接。
 
-客户端后续负责跟踪令牌过期时间。 令牌过期时，服务总线将立即删除相应实体连接上的所有链接。 若要避免这种情况，客户端随时可以通过具有相同 put-token 手势的虚拟 $cbs 管理节点，使用新的令牌来替换节点的令牌，且不干扰在不同链接上流动的有效负载流量。
+客户端后续负责跟踪令牌过期时间。 令牌过期时，服务总线立即删除相应实体连接上的所有链接。 为防止出现问题，客户端随时可以通过具有相同 put-token 手势的虚拟 $cbs 管理节点，使用新的令牌来替换节点的令牌，且不干扰在不同链接上流动的有效负载流量。
 
 ### <a name="send-via-functionality"></a>发送方式功能
 
-[发送方式/传输发送者](service-bus-transactions.md#transfers-and-send-via)功能让服务总线能通过另一个实体将给定消息转发到目标实体。 这主要用于在单个事务中执行跨实体的操作。
+[发送方式/传输发送者](service-bus-transactions.md#transfers-and-send-via)功能让服务总线能通过另一个实体将给定消息转发到目标实体。 此功能用于在单个事务中执行跨实体的操作。
 
-借助此项功能，可以创建发送程序并建立指向 `via-entity` 的链接。 在建立链接时，会传递其他信息以建立此链接上的消息/传输的正确目标。 附加成功后，此链接上发送的所有消息都将自动通过 via-entity 转发到 destination-entity。 
+借助此项功能，可以创建发送程序并建立指向 `via-entity` 的链接。 在建立链接时，会传递其他信息以建立此链接上的消息/传输的正确目标。 附加成功后，此链接上发送的所有消息都会自动通过 via-entity 转发到 destination-entity。 
 
 > 请注意：在建立此链接前，via-entity 和 destination-entity 都需要通过身份验证。
 
@@ -412,9 +412,9 @@ name 属性标识应与此令牌关联的实体。 在服务总线中，这是�
 
 若要了解有关 AMQP 的详细信息，请访问以下链接：
 
-- [服务总线 AMQP 概述]
-- [针对服务总线分区队列和主题的 AMQP 1.0 支持]
-- [适用于 Windows Server 的服务总线中的 AMQP]
+* [服务总线 AMQP 概述]
+* [针对服务总线分区队列和主题的 AMQP 1.0 支持]
+* [适用于 Windows Server 的服务总线中的 AMQP]
 
 [this video course]: https://www.youtube.com/playlist?list=PLmE4bZU0qx-wAP02i0I7PJWvDWoCytEjD
 [1]: ./media/service-bus-amqp-protocol-guide/amqp1.png

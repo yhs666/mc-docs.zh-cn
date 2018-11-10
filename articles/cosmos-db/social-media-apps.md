@@ -9,14 +9,14 @@ ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 06/27/2018
-ms.date: 09/30/2018
+ms.date: 11/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 64de270567b376cbf9dbe6baf270b52741362a49
-ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
+ms.openlocfilehash: d069d2bd0210e599d81a98fc422dde6ee9636b5e
+ms.sourcegitcommit: c1020b13c8810d50b64e1f27718e9f25b5f9f043
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47201315"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50204835"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>使用 Azure Cosmos DB 进行社交
 生活在大规模互连的社会中，这意味着有时候你也成了社交网络中的一部分。 使用社交网络与朋友、同事和家人保持联系，有时还会与有共同兴趣的人分享我们的激情。
@@ -27,7 +27,7 @@ ms.locfileid: "47201315"
 
 那么，如何存储此数据以及存储在何处？
 
-很多人可能使用过 SQL 数据库，或至少了解[数据的关系建模](https://en.wikipedia.org/wiki/Relational_model)，还可能忍不住开始绘制以下类似图形：
+你们当中许多人可能有使用 SQL 数据库的经验，或者至少对 [关系建模数据](https://en.wikipedia.org/wiki/Relational_model) 有所了解，那么你们可能会忍不住想要开始绘制类似以下图形：
 
 ![说明相对关系模型的关系图](./media/social-media-apps/social-media-apps-sql.png) 
 

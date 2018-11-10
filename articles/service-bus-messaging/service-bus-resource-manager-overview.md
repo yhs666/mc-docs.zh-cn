@@ -1,26 +1,26 @@
 ---
-title: 使用资源管理器模板创建 Azure 服务总线资源
+title: 使用资源管理器模板创建 Azure 服务总线资源 | Azure
 description: 使用 Azure Resource Manager 模板自动创建服务总线资源
-services: service-bus
+services: service-bus-messaging
 documentationcenter: .net
-author: sethmanheim
-manager: timlt
+author: lingliw
+manager: digimobile
 editor: ''
 ms.assetid: 24f6a207-0fa4-49cf-8a58-963f9e2fd655
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-origin.date: 04/11/2018
-ms.author: v-yiso
-ms.date: 09/10/2018
-ms.openlocfilehash: 47ae43891fe2beced4b7fab77aebef92850094db
-ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
+origin.date: 09/11/2018
+ms.date: 10/31/2018
+ms.author: v-lingwu
+ms.openlocfilehash: ac4bfea7417f7e4ea174996f690b00a8aa23a605
+ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455155"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50409355"
 ---
 # <a name="create-service-bus-resources-using-azure-resource-manager-templates"></a>使用 Azure Resource Manager 模板创建服务总线资源
 
@@ -34,13 +34,14 @@ Azure Resource Manager 模板可帮助你定义要为解决方案部署的资源
 >
 
 ## <a name="service-bus-resource-manager-templates"></a>服务总线 Resource Manager 模板
+
 这些服务总线 Azure Resource Manager 模板可供下载和部署。 单击以下链接可获得有关每个链接的详细信息，其中包含指向 GitHub 上的模板的链接：
 
-- [创建服务总线命名空间](./service-bus-resource-manager-namespace.md)
-- [创建包含队列的服务总线命名空间](./service-bus-resource-manager-namespace-queue.md)
-- [创建包含主题和订阅的服务总线命名空间](./service-bus-resource-manager-namespace-topic.md)
-- [创建包含队列和授权规则的服务总线命名空间](./service-bus-resource-manager-namespace-auth-rule.md)
-- [创建包含主题、订阅和规则的服务总线命名空间](./service-bus-resource-manager-namespace-topic-with-rule.md)
+* [创建服务总线命名空间](service-bus-resource-manager-namespace.md)
+* [创建包含队列的服务总线命名空间](service-bus-resource-manager-namespace-queue.md)
+* [创建包含主题和订阅的服务总线命名空间](service-bus-resource-manager-namespace-topic.md)
+* [创建包含队列和授权规则的服务总线命名空间](service-bus-resource-manager-namespace-auth-rule.md)
+* [创建包含主题、订阅和规则的服务总线命名空间](service-bus-resource-manager-namespace-topic-with-rule.md)
 
 ## <a name="deploy-with-powershell"></a>使用 PowerShell 进行部署
 
@@ -48,11 +49,11 @@ Azure Resource Manager 模板可帮助你定义要为解决方案部署的资源
 
 1. 安装 PowerShell。
 2. 创建模板和（可选）参数文件。
-2. 在 PowerShell 中，登录到 Azure 帐户。
-3. 创建新资源组（如果不存在）。
-4. 测试部署。
-5. 如果需要，设置部署模式。
-6. 部署模板。
+3. 在 PowerShell 中，登录到 Azure 帐户。
+4. 创建新资源组（如果不存在）。
+5. 测试部署。
+6. 如果需要，设置部署模式。
+7. 部署模板。
 
 有关部署 Azure Resource Manager 模板的完整信息，请参阅 [使用 Azure Resource Manager 模板部署资源][Deploy resources with Azure Resource Manager templates]。
 
@@ -66,7 +67,7 @@ Azure Resource Manager 模板可帮助你定义要为解决方案部署的资源
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "serviceBusNamespaceName": {
@@ -184,14 +185,14 @@ Set-AzureRmContext -SubscriptionID <YourSubscriptionId>
 如果没有现有的资源组，请使用 **New-AzureRmResourceGroup** 命令创建新的资源组。 提供资源组的名称，以及要使用的位置。 例如：
 
 ```powershell
-New-AzureRmResourceGroup -Name MyDemoRG -Location "China East"
+New-AzureRmResourceGroup -Name MyDemoRG -Location "China North"
 ```
 
 如果成功，则会显示新的资源组的摘要。
 
 ```powershell
 ResourceGroupName : MyDemoRG
-Location          : chinaeast
+Location          : chinanorth
 ProvisioningState : Succeeded
 Tags              :
 ResourceId        : /subscriptions/<GUID>/resourceGroups/MyDemoRG
@@ -263,4 +264,4 @@ Parameters        :
 
 [Azure Resource Manager overview]: ../azure-resource-manager/resource-group-overview.md
 [Deploy resources with Azure Resource Manager templates]: ../azure-resource-manager/resource-group-template-deploy.md
-[Azure Quickstart Templates gallery]: https://azure.microsoft.com/en-us/documentation/templates/?term=service+bus
+[Azure Quickstart Templates gallery]: https://github.com/Azure/azure-quickstart-templates/?term=service+bus

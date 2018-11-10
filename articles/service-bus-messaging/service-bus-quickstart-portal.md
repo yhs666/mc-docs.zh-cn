@@ -1,26 +1,26 @@
 ---
-title: 快速入门 - 使用 Azure 门户通过 Azure 服务总线发送和接收消息 | Microsoft Docs
+title: 快速入门 - 使用 Azure 门户通过 Azure 服务总线发送和接收消息 | Azure
 description: 本快速入门介绍如何使用 Azure 门户发送和接收服务总线消息
 services: service-bus-messaging
-author: sethmanheim
-manager: timlt
+author: lingliw
+manager: digimobile
 ms.service: service-bus-messaging
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
-origin.date: 05/22/2018
-ms.date: 08/06/2018
-ms.author: v-yiso
-ms.openlocfilehash: c1c1f95d7fa510d49d02c622fda68515518161ef
-ms.sourcegitcommit: d4092cf6aba0d949bf612093c76f964c2bdfd0ba
+origin.date: 09/22/2018
+ms.date: 10/31/2018
+ms.author: v-lingwu
+ms.openlocfilehash: cb0a0434c2c78dcfb17731c5701f4d413ae6ed54
+ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39306603"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50409373"
 ---
 # <a name="quickstart-send-and-receive-messages-using-the-azure-portal-and-net"></a>快速入门：使用 Azure 门户和 .NET 发送和接收消息
 
-Microsoft Azure 服务总线是一种提供安全消息传送和绝对可靠性的企业集成消息中转站。 典型的服务总线方案通常涉及将两个或更多应用程序、服务或进程彼此解耦以及传输状态或数据更改。 此类方案可能涉及在其他应用程序或服务中计划多个批处理作业，或触发订单履行。 例如，零售公司可能会将其销售点数据发送到后端办公系统或区域配送中心，以便进行补货和库存更新。 在这种情况下，客户端应用会将消息发送到服务总线队列并从中接收消息。  
+Azure 服务总线是一种提供安全消息传送和绝对可靠性的企业集成消息中转站。 典型的服务总线方案通常涉及将两个或更多应用程序、服务或进程彼此解耦以及传输状态或数据更改。 此类方案可能涉及在其他应用程序或服务中计划多个批处理作业，或触发订单履行。 例如，零售公司可能会将其销售点数据发送到后端办公系统或区域配送中心，以便进行补货和库存更新。 在这种情况下，客户端应用会将消息发送到服务总线队列并从中接收消息。  
 
 ![队列](./media/service-bus-quickstart-portal/quick-start-queue.png)
 
@@ -93,15 +93,15 @@ Microsoft Azure 服务总线是一种提供安全消息传送和绝对可靠性�
 
 4. 复制在[获取管理凭据](#obtain-the-management-credentials)部分获得的连接字符串和队列名称。
 
-5. 在命令提示符窗口中键入以下命令：
+5.  在命令提示符窗口中键入以下命令：
 
    ```shell
    dotnet build
    ```
 
-6. 导航到 `bin\Debug\netcoreapp2.0` 文件夹。
+6.  导航到 `bin\Debug\netcoreapp2.0` 文件夹。
 
-7. 键入以下命令以运行程序。 请务必将 `myConnectionString` 替换为先前获取的值，将 `myQueueName` 替换为所创建队列的名称：
+7.  键入以下命令以运行程序。 请务必将 `myConnectionString` 替换为先前获取的值，将 `myQueueName` 替换为所创建队列的名称：
 
    ```shell
    dotnet BasicSendReceiveQuickStart.dll -ConnectionString "myConnectionString" -QueueName "myQueueName"
@@ -255,8 +255,7 @@ static async Task ProcessMessagesAsync(Message message, CancellationToken token)
 > [!div class="nextstepaction"]
 > [使用 Azure 门户更新库存](./service-bus-tutorial-topics-subscriptions-portal.md)
 
-
-[free account]: https://www.azure.cn/pricing/1rmb-trial
+[试用帐户]: https://www.azure.cn/pricing/1rmb-trial/
 [完全限定域名]: https://wikipedia.org/wiki/Fully_qualified_domain_name
 [Azure portal]: https://portal.azure.cn/
 

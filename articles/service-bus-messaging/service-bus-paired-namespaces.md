@@ -1,26 +1,26 @@
 ---
-title: 服务总线配对命名空间 |Azure
+title: Azure 服务总线配对命名空间 | Azure
 description: 配对命名空间实现的详细信息和成本
-services: service-bus
-documentationCenter: na
-author: sethmanheim
-manager: timlt
+services: service-bus-messaging
+documentationcenter: na
+author: lingliw
+manager: digimobile
 editor: ''
 ms.assetid: 2440c8d3-ed2e-47e0-93cf-ab7fbb855d2e
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 12/21/2017
-ms.author: v-yiso
-ms.date: 02/05/2018
-ms.openlocfilehash: 7e3cf00411f22d9437898917200b2b05515b8967
-ms.sourcegitcommit: 3629fd4a81f66a7d87a4daa00471042d1f79c8bb
+origin.date: 09/21/2018
+ms.date: 10/31/2018
+ms.author: v-lingwu
+ms.openlocfilehash: ecbd5744339a4d30d93895c52e1dcdbd903365be
+ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2018
-ms.locfileid: "29285266"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50409398"
 ---
 # <a name="paired-namespace-implementation-details-and-cost-implications"></a>配对命名空间实现详细信息和成本影响
 

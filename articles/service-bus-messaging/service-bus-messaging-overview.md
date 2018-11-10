@@ -1,27 +1,27 @@
 ---
-title: Azure 服务总线消息传送概述 | Microsoft Docs
+title: Azure 服务总线消息传送概述 | Azure
 description: 介绍服务总线消息传送
-services: service-bus
+services: service-bus-messaging
 documentationcenter: ''
-author: spelluru
-manager: timlt
+author: lingliw
+manager: digimobile
 editor: ''
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.topic: overview
-origin.date: 05/22/2018
-ms.date: 07/16/2018
+origin.date: 09/22/2018
+ms.date: 10/31/2018
 ms.custom: mvc
-ms.author: v-yiso
-ms.openlocfilehash: 5efda1c3428ddf50eae49a098f6d7884b8a17613
-ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
+ms.author: v-lingwu
+ms.openlocfilehash: e6558f90ef0d283f23ffbe70c16a5e868cd12127
+ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455195"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50409376"
 ---
 # <a name="what-is-azure-service-bus"></a>什么是 Azure 服务总线？
 
-Microsoft Azure 服务总线是一种完全托管的企业集成消息中转站。 服务总线最常用于将应用程序与服务彼此解耦，是一种用于异步数据和状态传输的可靠且安全的平台。 数据通过消息在不同的应用程序和服务之间传输。 消息采用二进制格式，可能包含 JSON、XML 或纯文本。 
+Azure 服务总线是一种完全托管的企业集成消息中转站。 服务总线最常用于将应用程序与服务彼此解耦，是一种用于异步数据和状态传输的可靠且安全的平台。 数据通过消息在不同的应用程序和服务之间传输。 消息采用二进制格式，可能包含 JSON、XML 或纯文本。 
 
 一些常见的消息传送方案包括：
 
@@ -40,7 +40,7 @@ Microsoft Azure 服务总线是一种完全托管的企业集成消息中转站�
 
 ![队列](./media/service-bus-messaging-overview/about-service-bus-queue.png)
 
-队列中的消息会排队，并在到达时加盖时间戳。 获得接受后，消息会安全地存储在冗余存储中。 消息以拉取模式传送，即按请求传送消息。
+队列中的消息会排队，并在到达时加盖时间戳。 获得接受后，消息会安全地存储在冗余存储中。 消息以拉取模式传送，即按请求传送消息。 **
 
 ## <a name="topics"></a>主题
 
@@ -62,7 +62,7 @@ Microsoft Azure 服务总线是一种完全托管的企业集成消息中转站�
 
 ### <a name="auto-forwarding"></a>自动转发
 
-[通过自动转发](service-bus-auto-forwarding.md)功能可将队列或订阅连接到作为相同命名空间组成部分的另一个队列或主题。 启用自动转发时，服务总线会自动删除放置在第一个队列或订阅（源）中的消息，并将其放入第二个队列或主题（目标）中。
+通过[自动转发](service-bus-auto-forwarding.md)功能，可以将队列或订阅链接到属于同一命名空间的另一个队列或主题。 启用自动转发时，服务总线会自动删除放置在第一个队列或订阅（源）中的消息，并将其放入第二个队列或主题（目标）中。
 
 ### <a name="dead-lettering"></a>死信
 
@@ -96,9 +96,9 @@ Microsoft Azure 服务总线是一种完全托管的企业集成消息中转站�
 
 如果出现错误，导致客户端怀疑某个发送操作的结果，则可使用[重复项检测](duplicate-detection.md)，此功能支持发送程序重新发送相同的消息，并让队列或主题放弃任何重复的副本，这样就消除了这些情况下的各种怀疑。
 
-### <a name="sas-rbac-and-msi"></a>SAS、RBAC 和 MSI
+### <a name="sas-rbac-and-managed-identities-for-azure-resources"></a>适用于 Azure 资源的 SAS、RBAC 和托管标识
 
-服务总线支持多种安全协议，例如[共享访问签名](service-bus-sas.md) (SAS)、[基于角色的访问控制](service-bus-role-based-access-control.md) (RBAC)、[托管服务标识](service-bus-managed-service-identity.md) (MSI)。
+服务总线支持多种安全协议，例如[共享访问签名](service-bus-sas.md) (SAS)、[基于角色的访问控制](service-bus-role-based-access-control.md) (RBAC)、[适用于 Azure 资源的托管标识](service-bus-managed-service-identity.md)。
 
 ### <a name="geo-disaster-recovery"></a>异地灾难恢复
 
@@ -116,7 +116,9 @@ Microsoft Azure 服务总线是一种完全托管的企业集成消息中转站�
 
 服务总线与以下 Azure 服务完全集成：
 
-- [函数](/azure-functions/) 
+- [逻辑应用](https://www.azure.cn/home/features/logic-apps/) 
+- [函数](/azure-functions/) 
+- [Dynamics 365](https://dynamics.microsoft.com)
 - [流分析](/stream-analytics/)
  
 ## <a name="next-steps"></a>后续步骤

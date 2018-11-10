@@ -1,21 +1,21 @@
 ---
-title: 教程 - 通过 Azure 门户使用发布/订阅渠道和主题筛选器更新零售库存分类 | Microsoft Docs
+title: 教程 - 通过 Azure 门户使用发布/订阅渠道和主题筛选器更新零售库存分类 | Azure
 description: 本教程介绍如何从主题和订阅发送和接收消息，以及如何使用 .NET 添加和使用筛选器规则
 services: service-bus-messaging
-author: spelluru
-manager: timlt
-ms.author: v-yiso
-origin.date: 05/22/2018
-ms.date: 10/15/2018
+author: lingliw
+manager: digimobile
+ms.author: v-lingwu
+origin.date: 09/22/2018
+ms.date: 10/31/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: a7db1c6fd52d94a6ed7d3b10a6dcb721bd0c327d
-ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
+ms.openlocfilehash: 14d5598ae812c5c5785d083b240c18e6a75e536b
+ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455233"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50409383"
 ---
 # <a name="tutorial-update-inventory-using-azure-portal-and-topicssubscriptions"></a>教程：使用 Azure 门户和主题/订阅更新库存
 
@@ -74,7 +74,6 @@ Microsoft Azure 服务总线是一种多租户云消息传送服务，可以在�
 4. 在“策略: RootManageSharedAccessKey”窗口中，单击“主连接字符串”旁边的“复制”按钮，将连接字符串复制到剪贴板供以后使用。 将此值粘贴到记事本或其他某个临时位置。
 
     ![连接字符串][connection-string]
-    
 5. 重复上述步骤，将**主键**的值复制和粘贴到临时位置，供以后使用。
 
 ## <a name="create-a-topic-and-subscriptions"></a>创建主题和订阅
@@ -452,7 +451,7 @@ private async Task ReceiveMessages(string subscription)
 > [!div class="nextstepaction"]
 > [使用 PowerShell 和主题/订阅更新库存](service-bus-tutorial-topics-subscriptions-powershell.md)
 
-[试用帐户]: https://www.azure.cn/pricing/1rmb-trial
+[试用帐户]: https://www.azure.cn/pricing/1rmb-trial/
 [完全限定域名]: https://wikipedia.org/wiki/Fully_qualified_domain_name
 [Azure portal]: https://portal.azure.cn/
 

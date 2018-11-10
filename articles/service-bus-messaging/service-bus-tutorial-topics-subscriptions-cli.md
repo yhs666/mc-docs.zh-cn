@@ -1,25 +1,25 @@
 ---
-title: 教程 - 通过 Azure CLI 使用发布/订阅频道和主题筛选器更新零售库存分类 | Microsoft Docs
+title: 教程 - 通过 Azure CLI 使用发布/订阅渠道和主题筛选器更新零售库存分类 | Azure
 description: 在本教程中，你将了解如何从主题和订阅发送和接收消息，以及如何使用 Azure CLI 添加和使用筛选器规则
 services: service-bus-messaging
-author: spelluru
-manager: timlt
-ms.author: v-yiso
-origin.date: 05/22/2018
-ms.date: 10/15/2018
+author: lingliw
+manager: digimobile
+ms.author: v-lingwu
+origin.date: 09/22/2018
+ms.date: 10/31/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: fdcf6ef7bcbee381b6530ba831bb9eba8fc56ac3
-ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
+ms.openlocfilehash: 803dbdb3f7d4f1eeff8bc21a392bd9f11687c90b
+ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455213"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50409390"
 ---
 # <a name="tutorial-update-inventory-using-cli-and-topicssubscriptions"></a>教程：使用 CLI 和主题/订阅更新库存
 
-Microsoft Azure 服务总线是一种多租户云消息传送服务，可以在应用程序和服务之间发送信息。 异步操作可实现灵活的中转消息传送、结构化的先进先出 (FIFO) 消息传送以及发布/订阅功能。 本教程展示了如何使用 Azure CLI 和 Java 在零售库存方案中将服务总线主题和订阅与发布/订阅频道配合使用。
+Azure 服务总线是一种多租户云消息传送服务，可以在应用程序和服务之间发送信息。 异步操作可实现灵活的中转消息传送、结构化的先进先出 (FIFO) 消息传送以及发布/订阅功能。 本教程展示了如何使用 Azure CLI 和 Java 在零售库存方案中将服务总线主题和订阅与发布/订阅频道配合使用。
 
 本教程介绍如何执行下列操作：
 > [!div class="checklist"]
@@ -40,11 +40,12 @@ Microsoft Azure 服务总线是一种多租户云消息传送服务，可以在�
 若要使用 Java 开发服务总线应用，必须安装以下项：
 
 - [Java 开发工具包](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)最新版本。
-- [Azure CLI](/cli)
+- [Azure CLI](https://docs.azure.cn/zh-cn/cli/index?view=azure-cli-latest)
 - [Apache Maven](https://maven.apache.org) 3.0 或更高版本。
 
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.4 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0]( /cli/install-azure-cli)。
+如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.4 或更高版本。 运行 `az --version` 即可查找版本。 如需进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。
 
 ## <a name="service-bus-topics-and-subscriptions"></a>服务总线主题和订阅
 
@@ -345,5 +346,5 @@ public CompletableFuture<Void> receiveAllMessageFromSubscription(String subscrip
 
 [试用帐户]: https://www.azure.cn/pricing/1rmb-trial
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
-[Install Azure CLI 2.0]: /cli/install-azure-cli
-[az group create]: /cli/group#az_group_create
+[Install the Azure CLI]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
+[az group create]: https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_create

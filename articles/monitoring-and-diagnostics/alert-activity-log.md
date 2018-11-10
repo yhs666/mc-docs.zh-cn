@@ -2,19 +2,19 @@
 title: 在 Azure Monitor 中创建、查看和管理活动日志警报
 description: 如何从 Azure 门户、资源模板和 PowerShell 创建活动日志警报。
 author: lingliw
-services: monitoring-and-diagnostics
-ms.service: monitoring-and-diagnostics
+services: azure-monitor
+ms.service: azure-monitor
 ms.topic: conceptual
 origin.date: 09/15/2018
-ms.date: 10/22/2018
+ms.date: 11/05/2018
 ms.author: v-lingwu
 ms.component: alerts
-ms.openlocfilehash: a9bcfe95081a3f594b648ef7b5486e6d1ce0a1d5
-ms.sourcegitcommit: 32373810af9c9a2210d63f16d46a708028818d5f
+ms.openlocfilehash: 088d6a8c1e4ebabbf289f72dac13882317c1af37
+ms.sourcegitcommit: 92a941c705f0a76483dea5b708054c53e8c9666b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49652352"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50235274"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-using-azure-monitor"></a>使用 Azure Monitor 创建、查看和管理活动日志警报  
 
@@ -84,9 +84,9 @@ ms.locfileid: "49652352"
 
 4. 在“定义警报规则详细信息”下提供以下详细信息：
 
-    - **警报规则名称** – 新警报规则的名称
-    - **说明** – 新警报规则的说明
-    - **将警报保存到资源组** – 选择要在其中保存此新规则的资源组。
+    - **警报规则名称** - 新警报规则的名称
+    - **说明** - 新警报规则的说明
+    - **将警报保存到资源组** - 选择要在其中保存此新规则的资源组。
 
 5. 在“操作组”下，从下拉菜单中指定要分配到此新警报规则的操作组。 或者，[创建新的操作组](monitoring-action-groups.md)并将其分配到新规则。 若要创建新组，请单击“+ 新建组”。
 
@@ -97,11 +97,9 @@ ms.locfileid: "49652352"
 
     可以启用、禁用、编辑或删除规则。 [详细了解](#view-and-manage-activity-log-alert-rules-in-azure-portal)如何管理活动日志规则。
 
-
 另外，可以通过简单的类比来理解在活动日志上创建警报规则时可以基于的条件，那就是通过 [Azure 门户中的活动日志](monitoring-overview-activity-logs.md#query-the-activity-log-in-the-azure-portal)浏览或筛选事件。 在 Azure Monitor - 活动日志中，可以筛选或查找所需的事件，然后使用“添加活动日志警报”按钮创建警报，然后按照教程中上文所述的步骤 4 继续前进。
-    
+
  ![ 从活动日志添加警报](./media/monitoring-activity-log-alerts-new-experience/add-activity-log.png)
-    
 
 ### <a name="view-and-manage-in-azure-portal"></a>在 Azure 门户中查看和管理
 
@@ -126,7 +124,6 @@ ms.locfileid: "49652352"
     ![ 管理警报规则](./media/monitoring-activity-log-alerts-new-experience/activity-log-rule-edit-page.png)
 
 4.  可以禁用、启用或删除规则。 根据步骤 2 中的详述选择规则后，在窗口顶部选择相应的选项。
-
 
 ## <a name="azure-resource-template"></a>Azure 资源模板
 若要使用资源管理器模板创建活动日志警报，需要创建 `microsoft.insights/activityLogAlerts` 类型的资源。 然后，填充所有相关属性。 下面是用于创建活动日志警报的模板。
@@ -218,7 +215,6 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile sampl
 az group deployment create --resource-group myRG --template-file sampleActivityLogAlert.json --parameters @sampleActivityLogAlert.parameters.json
 ```
 *sampleActivityLogAlert.parameters.json* 文件包含为创建警报规则时所需的参数提供的值。
-
 
 ## <a name="next-steps"></a>后续步骤
 

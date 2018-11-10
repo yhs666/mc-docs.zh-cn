@@ -1,26 +1,26 @@
 ---
-title: 使用 Azure 资源管理器模板创建服务总线消息命名空间
+title: 使用 Azure 资源管理器模板创建服务总线消息传送命名空间 | Azure
 description: 使用 Azure 资源管理器模板创建服务总线消息命名空间
-services: service-bus
-documentationCenter: .net
-author: sethmanheim
-manager: timlt
+services: service-bus-messaging
+documentationcenter: .net
+author: lingliw
+manager: digimobile
 editor: ''
 ms.assetid: dc0d6482-6344-4cef-8644-d4573639f5e4
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-origin.date: 04/11/2018
-ms.author: v-yiso
-ms.date: 04/30/2018
-ms.openlocfilehash: ba4bb332d9054bf554055bc28586a8ca4ffa908e
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+origin.date: 09/11/2018
+ms.date: 10/31/2018
+ms.author: v-lingwu
+ms.openlocfilehash: c2c755ffd10ca3ca728ac23825869c1b2d7461c9
+ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695109"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50409368"
 ---
 # <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 模板创建服务总线命名空间
 
@@ -44,7 +44,7 @@ ms.locfileid: "34695109"
 
 ## <a name="what-will-you-deploy"></a>将部署什么内容？
 
-使用此模板，可以部署包含[标准或高级](https://www.azure.cn/pricing/details/messaging/) SKU 的服务总线命名空间。
+使用此模板，可以部署包含[标准或高级](https://www.azure.cn/pricing/details/service-bus/) SKU 的服务总线命名空间。
 
 若要自动运行部署，请单击以下按钮：
 
@@ -70,7 +70,7 @@ ms.locfileid: "34695109"
 
 ### <a name="servicebussku"></a>serviceBusSKU
 
-要创建的服务总线 [SKU](https://www.azure.cn/pricing/details/messaging/) 的名称。
+要创建的服务总线 [SKU](https://www.azure.cn/pricing/details/service-bus/) 的名称。
 
 ```json
 "serviceBusSku": { 
@@ -150,7 +150,7 @@ azure group deployment create <my-resource-group> <my-deployment-name> --templat
 
   [Authoring Azure Resource Manager Templates]: ../azure-resource-manager/resource-group-authoring-templates.md
   [Service Bus namespace template]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-servicebus-create-namespace/
-[Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/?term=service+bus
+[Azure Quickstart Templates]: https://github.com/Azure/azure-quickstart-templates/?term=service+bus
   [Service Bus pricing and billing]: ./service-bus-pricing-billing.md
   [Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/powershell-azure-resource-manager.md
   [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md

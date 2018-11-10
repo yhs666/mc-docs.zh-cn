@@ -1,22 +1,22 @@
 ---
-title: Azure 服务总线 IP 连接筛选器
+title: Azure 服务总线 IP 连接筛选器 | Azure
 description: 如何使用 IP 筛选阻止特定 IP 地址到 Azure 服务总线的连接。
 services: service-bus
 documentationcenter: ''
-author: clemensv
-manager: timlt
+author: lingliw
+manager: digimobile
 ms.service: service-bus
 ms.devlang: na
 ms.topic: article
-origin.date: 06/26/2018
-ms.date: 08/06/2018
-ms.author: v-yiso
-ms.openlocfilehash: a167252baf873d752a3f404d6908f33fe3d2ed03
-ms.sourcegitcommit: d4092cf6aba0d949bf612093c76f964c2bdfd0ba
+origin.date: 09/26/2018
+ms.date: 10/31/2018
+ms.author: v-lingwu
+ms.openlocfilehash: d5933f5d0c11a6d07680107a474c7d6b8e377069
+ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39306646"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50409358"
 ---
 # <a name="use-ip-filters"></a>使用 IP 筛选器
 
@@ -60,7 +60,7 @@ IP 筛选器规则按顺序应用，与 IP 地址匹配的第一条规则决定�
 
 ```json
 {  
-   "$schema":"http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+   "$schema":"https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
    "contentVersion":"1.0.0.0",
    "parameters":{     
           "namespaceName":{  
@@ -116,4 +116,4 @@ IP 筛选器规则按顺序应用，与 IP 地址匹配的第一条规则决定�
 
 [lnk-deploy]: ../azure-resource-manager/resource-group-template-deploy.md
 [lnk-vnet]: service-bus-service-endpoints.md
-[express-route]:  /azure/expressroute/expressroute-faqs#supported-services
+[express-route]:  /expressroute/expressroute-faqs#supported-services

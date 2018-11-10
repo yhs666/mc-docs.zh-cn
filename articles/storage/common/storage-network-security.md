@@ -1,31 +1,26 @@
 ---
-title: 配置 Azure 存储防火墙和虚拟网络 | Azure
+title: 配置 Azure 存储防火墙和虚拟网络 | Microsoft Docs
 description: 配置存储帐户的分层网络安全性。
 services: storage
-documentationcenter: ''
 author: WenJason
-manager: digimobile
-editor: cbrooks
 ms.service: storage
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage
 origin.date: 10/25/2017
-ms.date: 06/11/2018
+ms.date: 11/05/2018
 ms.author: v-nany
-ms.openlocfilehash: 77d4865d30fff082588655b8c0274c6790035ce0
-ms.sourcegitcommit: 0081fb238c35581bb527bdd704008c07079c8fbb
+ms.component: common
+ms.openlocfilehash: d85425e58fc87bd14ff222cdf7c5ff6f6e236b9d
+ms.sourcegitcommit: 7c750170ddefe7537663dfbadcc06bf27d94c586
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523721"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50743550"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>配置 Azure 存储防火墙和虚拟网络
 Azure 存储提供一种分层安全模型，用于保护存储帐户，使其仅可供一组特定的许可网络访问。  配置网络规则时，只有来自许可网络的应用程序才能访问存储帐户。  从许可网络进行调用时，应用程序仍需获得正确的授权（有效的访问密钥或 SAS 令牌）才能访问存储帐户。
 
 > [!IMPORTANT]
-> 启用存储帐户的防火墙规则将阻止访问传入的数据请求，包括来自其他 Azure 服务的数据。  这包括使用门户、写入日志等。对于参与的服务，可通过以下的[异常](/storage/common/storage-network-security#exceptions)部分重新启用功能。  若要访问门户，需要从已设置的可信边界（IP 或 VNet）内的计算机进行访问。
+> 启用存储帐户的防火墙规则将阻止访问传入的数据请求，包括来自其他 Azure 服务的数据。  这包括使用门户、写入日志等。通过允许服务实例的子网，可以授予在 VNet 内运行的 Azure 服务相应访问权限。  防火墙将阻止不在 VNet 内运行的 Azure 服务。  可以通过下面所述的[例外](/storage/common/storage-network-security#exceptions)机制启用有限数量的方案。  若要访问门户，需要从已设置的可信边界（IP 或 VNet）内的计算机进行访问。
 >
 
 ## <a name="scenarios"></a>方案
@@ -76,7 +71,7 @@ Update-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" 
 ```    
 
 #### <a name="cliv2"></a>CLIv2
-1. [安装 Azure CLI 2.0](https://docs.azure.cn/cli/install-azure-cli) 并[登录](https://docs.azure.cn/cli/authenticate-azure-cli)。
+1. [安装 Azure CLI](/cli/install-azure-cli) 并[登录](/cli/authenticate-azure-cli)。
 2. 显示存储帐户默认规则的状态。
 ```azurecli
 az storage account show --resource-group "myresourcegroup" --name "mystorageaccount" --query networkRuleSet.defaultAction
@@ -100,7 +95,7 @@ az storage account update --name "mystorageaccount" --resource-group "myresource
 每个存储帐户最多可支持 100 个虚拟网络规则，这些规则可与 [IP 网络规则](#grant-access-from-an-internet-ip-range)组合使用。
 
 ### <a name="available-virtual-network-regions"></a>可用的虚拟网络区域
-服务终结点一般在位于同一 Azure 区域的虚拟网络和服务实例之间运行。  对 Azure 存储使用服务终结点时，此范围扩大到包含[配对区域](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)。  这样一来，不仅可以在区域性故障转移期间提供连续性，还允许对只读异地冗余存储 (RA-GRS) 实例进行无缝访问。  允许从虚拟网络访问存储帐户的网络规则同样允许访问所有 RA-GRS 实例。
+服务终结点一般在位于同一 Azure 区域的虚拟网络和服务实例之间运行。  对 Azure 存储使用服务终结点时，此范围扩大到包含配对区域。  这样一来，不仅可以在区域性故障转移期间提供连续性，还允许对只读异地冗余存储 (RA-GRS) 实例进行无缝访问。  允许从虚拟网络访问存储帐户的网络规则同样允许访问所有 RA-GRS 实例。
 
 在区域性服务中断期间计划灾难恢复时，应该在配对区域中提前预配虚拟网络。 应启用 Azure 存储的服务终结点，并向异地冗余存储帐户应用允许从这些备用虚拟网络进行访问的网络规则。
 
@@ -158,7 +153,7 @@ Remove-AzureRmStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -Na
 >
 
 #### <a name="cliv2"></a>CLIv2
-1. [安装 Azure CLI 2.0](https://docs.azure.cn/cli/install-azure-cli) 并[登录](https://docs.azure.cn/cli/authenticate-azure-cli)。
+1. [安装 Azure CLI](/cli/install-azure-cli) 并[登录](/cli/authenticate-azure-cli)。
 2. 列出虚拟网络规则
 ```azurecli
 az storage account network-rule list --resource-group "myresourcegroup" --account-name "mystorageaccount" --query virtualNetworkRules
@@ -203,7 +198,7 @@ IP 网络规则仅适用于**公共 Internet** IP 地址。  IP 规则不允许�
 ### <a name="configuring-access-from-on-premises-networks"></a>配置从本地网络的访问
 若要使用 IP 网络规则授予本地网络访问存储帐户的权限，则必须标识网络所用的面向 Internet 的 IP 地址。  若要获得帮助，请联系网络管理员。
 
-如果网络使用 [ExpressRoute](https://docs.azure.cn/expressroute/expressroute-introduction) 连接到 Azure 网络，那么每条线路在 Microsoft Edge 均配置有两个公共 IP 地址，用于通过 [Azure 公共对等互连](/expressroute/expressroute-circuit-peerings#expressroute-routing-domains)连接到 Azure 存储等 Azure 服务。  若要允许从线路访问 Azure 存储，则必须为线路的公共 IP 地址创建 IP 网络规则。  若要查找 ExpressRoute 线路的公共 IP 地址，请通过 Azure 门户[开具 ExpressRoute 支持票证](https://portal.azure.cn/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)。
+如果网络使用 [ExpressRoute](https://docs.azure.cn/expressroute/expressroute-introduction) 连接到 Azure 网络，那么每条线路在 Microsoft Edge 均配置有两个公共 IP 地址，用于通过 [Azure 公共对等互连](/expressroute/expressroute-circuit-peerings#expressroute-routing-domains)连接到 Azure 存储等 Azure 服务。  若要允许从线路访问 Azure 存储，则必须为线路的公共 IP 地址创建 IP 网络规则。  若要查找 ExpressRoute 线路的公共 IP 地址，请通过 Azure 门户[开具 ExpressRoute 支持票证](https://portal.azure.cn/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)。
 
 
 ### <a name="managing-ip-network-rules"></a>管理 IP 网络规则
@@ -249,7 +244,7 @@ Remove-AzureRMStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -Ac
 >
 
 #### <a name="cliv2"></a>CLIv2
-1. [安装 Azure CLI 2.0](https://docs.azure.cn/cli/install-azure-cli) 并[登录](https://docs.azure.cn/cli/authenticate-azure-cli)。
+1. [安装 Azure CLI](/cli/install-azure-cli) 并[登录](/cli/authenticate-azure-cli)。
 2. 列出 IP 网络规则
 ```azurecli
 az storage account network-rule list --resource-group "myresourcegroup" --account-name "mystorageaccount" --query ipRules
@@ -294,6 +289,7 @@ az storage account network-rule remove --resource-group "myresourcegroup" --acco
 |Azure 备份|Microsoft.Backup|在 IAAS 虚拟机中备份和还原非托管磁盘。 （不是托管磁盘的必需操作）。 [了解详细信息](https://docs.azure.cn/backup/backup-introduction-to-azure-backup)。|
 |Azure 事件中心|Microsoft.EventHub|使用事件中心捕获功能存档数据。  [了解详细信息](/event-hubs/event-hubs-capture-overview)。|
 |Azure 网络|Microsoft.Networking|存储和分析网络流量日志。  [了解详细信息](/network-watcher/network-watcher-packet-capture-overview)。|
+|Azure Monitor|Microsoft.Insights| 允许将监视数据写入安全存储帐户[了解详细信息](/monitoring-and-diagnostics/monitoring-roles-permissions-security#monitoring-and-secured-Azure-storage-and-networks)。|
 ||||
 
 ### <a name="storage-analytics-data-access"></a>存储分析数据访问
@@ -331,7 +327,7 @@ Update-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" 
 >
 
 #### <a name="cliv2"></a>CLIv2
-1. [安装 Azure CLI 2.0](https://docs.azure.cn/cli/install-azure-cli) 并[登录](https://docs.azure.cn/cli/authenticate-azure-cli)。
+1. [安装 Azure CLI](/cli/install-azure-cli) 并[登录](/cli/authenticate-azure-cli)。
 2. 显示存储帐户的网络规则例外。
 ```azurecli
 az storage account show --resource-group "myresourcegroup" --name "mystorageaccount" --query networkRuleSet.bypass

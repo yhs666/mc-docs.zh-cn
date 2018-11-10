@@ -1,26 +1,26 @@
 ---
-title: 使用 PowerShell 管理 Azure 服务总线资源
+title: 使用 PowerShell 管理 Azure 服务总线资源 | Azure
 description: 使用 PowerShell 模块创建和管理服务总线资源
-services: service-bus
+services: service-bus-messaging
 documentationcenter: .NET
-author: sethmanheim
-manager: timlt
+author: lingliw
+manager: digimobile
 editor: ''
 ms.assetid: ''
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 12/21/2017
-ms.author: v-yiso
-ms.date: 08/06/2018
-ms.openlocfilehash: eadca5673ef043485ffd8874012ceb05673b2469
-ms.sourcegitcommit: d4092cf6aba0d949bf612093c76f964c2bdfd0ba
+origin.date: 09/21/2018
+ms.date: 10/31/2018
+ms.author: v-lingwu
+ms.openlocfilehash: 410000eb8751d50647dd339bc78ba23397e78f16
+ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39306620"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50409348"
 ---
 # <a name="use-powershell-to-manage-service-bus-resources"></a>使用 PowerShell 管理服务总线资源
 
@@ -32,7 +32,7 @@ Azure PowerShell 是一个脚本编写环境，可用于控制和自动执行 Az
 
 在开始之前，需要符合以下先决条件：
 
-* Azure 订阅。 
+* Azure 订阅。 有关如何获取订阅的详细信息，请参阅[购买选项][购买选项]、[会员套餐][会员套餐]或[试用帐户][试用帐户]。
 * 配备 Azure PowerShell 的计算机。 有关说明，请参阅 [Azure PowerShell cmdlet 入门](https://docs.microsoft.com/powershell/azure/get-started-azureps)。
 * 大致了解 PowerShell 脚本、NuGet 包和 .NET Framework。
 
@@ -48,8 +48,7 @@ Azure PowerShell 是一个脚本编写环境，可用于控制和自动执行 Az
 
 * `$Namespace` 是要使用的服务总线命名空间的名称。
 * `$Location` 标识我们要在其中预配命名空间的数据中心。
-* 
-            `$CurrentNamespace` 存储我们检索（或创建）的引用命名空间。
+* `$CurrentNamespace` 存储我们检索（或创建）的引用命名空间。
 
 在实际脚本中，`$Namespace` 和 `$Location` 可作为参数传递。
 

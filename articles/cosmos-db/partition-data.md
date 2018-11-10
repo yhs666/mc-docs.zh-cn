@@ -8,15 +8,15 @@ ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 07/26/2018
-ms.date: 09/30/2018
+ms.date: 11/05/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8049152bade32afa2e97d9de4d1284a6e2643fcd
-ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
+ms.openlocfilehash: e35eab3e36bc89462c5b5314575fce1c66c643aa
+ms.sourcegitcommit: c1020b13c8810d50b64e1f27718e9f25b5f9f043
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47201328"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50204846"
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中分区和缩放
 
@@ -96,20 +96,21 @@ Azure Cosmos DB 使用基于哈希的分区。 写入某个项时，Azure Cosmos
 <a name="prerequisites"></a>
 ## <a name="prerequisites-for-partitioning"></a>分区的先决条件
 
-可在 Azure 门户中以固定或无限制模式创建 Azure Cosmos DB 容器。 固定大小的容器上限为 10 GB，10,000 RU/s 吞吐量。 若要以无限制模式创建容器，必须指定一个分区键，以及最低 1,000 RU/秒的吞吐量。 也可将 Azure Cosmos DB 容器配置为在一组容器之间共享吞吐量，该组中的每个容器必须指定一个分区键，可以无限增长。 下面是分区和缩放时要考虑的先决条件：<!-- Not Available on Table and Graph -->
-* 在 Azure 门户中创建容器（例如集合）时，请选择“无限制”存储容量选项，以利用无限缩放。 若要按照[分区的工作原理](#how-does-partitioning-work)中所述将物理分区自动拆分为 **p1** 和 **p2**，必须创建吞吐量为 1,000 RU/秒或更高的容器（或者在一组容器之间共享吞吐量），并且必须提供分区键。 
+可以“固定”或“无限制”模式创建 Azure Cosmos DB 容器。 固定大小的容器上限为 10 GB，10,000 RU/s 吞吐量。 若要以无限制模式创建容器，必须指定一个分区键，以及最低 1,000 RU/秒的吞吐量。 还可以创建 Azure Cosmos DB 容器，以便它们共享吞吐量。 在这种情况下，每个容器必须指定一个分区键，并且它可以无限增长。 
 
-* 如果在 Azure 门户或以编程方式创建了容器，并且初始吞吐量为 1,000 RU/秒或更高，另外还提供了分区键，则可以利用无限缩放，且无需对容器进行更改。 这包括**固定**容器，前提是创建的初始容器至少具有 1,000 RU/秒的吞吐量，并且指定了分区键。
+<!-- Not Available on Table and Graph --> 下面是分区和缩放时要考虑的先决条件：
+
+* 在 Azure 门户中创建容器（例如集合）时，请选择“无限制”存储容量选项，以利用无限缩放。 若要按照[分区的工作原理](#how-does-partitioning-work)一文中所述将物理分区自动拆分为 **p1** 和 **p2**，必须创建吞吐量为 1,000 RU/秒或更高的容器（或者在一组容器之间共享吞吐量），并且必须提供分区键。 
+
+<!-- Not Available on Table and Graph -->
+* 如果创建初始吞吐量大于或等于 1,000 RU/秒的容器并提供分区键，则可以利用无限制缩放而无需对容器进行任何更改。 这意味着即使你创建了**固定**容器，如果创建的初始容器的吞吐量至少为 1,000 RU/秒，并且指定了分区键，则该容器也将充当无限容器。
 
 * 可以将一组容器中包含的所有配置为共享吞吐量的容器视为“无限制”容器。
 
 如果创建的**固定**容器没有分区键或吞吐量小于 1,000 RU/秒，则无法自动缩放该容器。 若要将数据从固定的容器迁移到无限制容器，则需使用[数据迁移工具](import-data.md)或[更改源库](change-feed.md)。 
 
-<a name="PartitionedGraph"></a>
-<!--Not Available on ## Requirements for partitioned graph-->
-
 <a name="designing-for-partitioning"></a>
-## <a name="create-partition-key"></a>创建分区键 
+##  <a name="create-a-partition-key"></a>创建分区键 
 随时可以使用 Azure 门户或 Azure CLI 创建容器并对其进行缩放。 本部分介绍如何使用每个 API 创建容器及指定预配的吞吐量和分区键。
 
 ### <a name="sql-api"></a>SQL API

@@ -1,25 +1,25 @@
 ---
-title: 快速入门 - 使用 Azure CLI 和 Java 通过 Azure 服务总线发送和接收消息 | Microsoft Docs
+title: 快速入门 - 使用 Azure CLI 和 Java 通过 Azure 服务总线发送和接收消息 | Azure
 description: 本快速入门介绍如何使用 Azure CLI 和示例 Java 应用程序发送和接收 Azure 服务总线消息
 services: service-bus-messaging
-author: sethmanheim
-manager: timlt
+author: lingliw
+manager: digimobile
 ms.service: service-bus-messaging
 ms.devlang: java
 ms.topic: quickstart
-origin.date: 05/22/2018
-ms.date: 07/19/2018
-ms.author: v-yiso
-ms.openlocfilehash: 40f8608ce75a9fce6f8c86b4547ce201dcc1f323
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+origin.date: 09/22/2018
+ms.date: 10/31/2018
+ms.author: v-lingwu
+ms.openlocfilehash: 20a37c1135cbccdd5ebcc00d7b5ae07047a9a9ae
+ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873762"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50409375"
 ---
 # <a name="quickstart-send-and-receive-messages-using-azure-cli-and-java"></a>快速入门：使用 Azure CLI 和 Java 发送和接收消息
 
-Microsoft Azure 服务总线是一种提供安全消息传送和可靠性的企业集成消息中转站。 典型的服务总线方案通常涉及将两个或更多应用程序、服务或进程彼此解耦（应用程序不需同时联机）、传输状态或数据更改，以及在应用程序之间发送消息。 
+Azure 服务总线是一种提供安全消息传送和可靠性的企业集成消息中转站。 典型的服务总线方案通常涉及将两个或更多应用程序、服务或进程彼此解耦（应用程序不需同时联机）、传输状态或数据更改，以及在应用程序之间发送消息。 
 
 例如，零售公司可能会将其销售点数据发送到后端办公系统或区域配送中心，以便进行补货和库存更新。 在这种情况下，客户端应用会将消息发送到服务总线队列并从中接收消息：
 
@@ -27,8 +27,9 @@ Microsoft Azure 服务总线是一种提供安全消息传送和可靠性的企�
 
 本快速入门介绍如何使用 Azure CLI 和服务总线 Java 库通过服务总线来发送和接收消息。 最后，如果对更多的技术细节感兴趣，可以[阅读说明](#understand-the-sample-code)，了解示例代码的重要元素。
 
-如果没有 Azure 订阅，可以在开始前创建一个[免费帐户][]。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户][]。
 
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ## <a name="log-in-to-azure"></a>登录 Azure
 
@@ -36,7 +37,7 @@ Microsoft Azure 服务总线是一种提供安全消息传送和可靠性的企�
 
 ## <a name="use-cli-to-create-resources"></a>使用 CLI 创建资源
 
-在终端窗口中的 Bash 提示符下，发出以下命令以预配服务总线资源。 请务必将所有占位符替换为适当的值：
+在 Cloud Shell 中的 Bash 提示符下，发出以下命令以预配服务总线资源。 请务必将所有占位符替换为适当的值：
 
 ```azurecli
 # Create a resource group
@@ -268,7 +269,7 @@ void registerReceiver(QueueClient queueClient) throws Exception {
 > [!div class="nextstepaction"]
 > [使用 CLI 和 Java 更新库存](./service-bus-tutorial-topics-subscriptions-cli.md)
 
-[trial account]: https://www.azure.cn/pricing/1rmb-trial
+[试用帐户]: https://www.azure.cn/pricing/1rmb-trial/
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
-[Install Azure CLI 2.0]: /cli/install-azure-cli
+[Install the Azure CLI]: https://docs.azure.cn/zh-cn/cli/install-azure-cli
 [az group create]: /cli/group#az_group_create

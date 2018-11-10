@@ -1,26 +1,26 @@
 ---
-title: 使用 Azure Resource Manager 模板创建 Azure 服务总线主题订阅和规则 | Azure Docs
+title: 使用 Azure 资源管理器模板创建 Azure 服务总线主题订阅和规则 | Azure
 description: 使用 Azure Resource Manager 模板创建包含主题、订阅和规则的服务总线命名空间
-services: service-bus
+services: service-bus-messaging
 documentationcenter: .net
-author: sethmanheim
-manager: timlt
+author: lingliw
+manager: digimobile
 editor: ''
 ms.assetid: 9e0aaf58-0214-4bca-bd00-d29c08f9b1bc
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-origin.date: 04/11/2018
-ms.author: v-yiso
-ms.date: 07/16/2018
-ms.openlocfilehash: f8aa81358ac933dbaeef31411fdfad463ad86ac6
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+origin.date: 09/11/2018
+ms.date: 10/31/2018
+ms.author: v-lingwu
+ms.openlocfilehash: ce995669270e7bd6827c47ac2fd0fc33c1acc73a
+ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873365"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50409366"
 ---
 # <a name="create-a-service-bus-namespace-with-topic-subscription-and-rule-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 模板创建包含主题、订阅和规则的服务总线命名空间
 
@@ -44,7 +44,8 @@ ms.locfileid: "37873365"
 > 
 > 
 
-## <a name="what-will-you-deploy"></a>将部署什么内容？
+## <a name="what-do-you-deploy"></a>要部署什么？
+
 使用此模板，你将部署包含主题、订阅和规则（筛选器）的服务总线命名空间。
 
 [服务总线主题和订阅](./service-bus-queues-topics-subscriptions.md#topics-and-subscriptions)以“发布/订阅”模式提供一对多的通信形式。 使用主题和订阅时，分布式应用程序的组件之间不会直接通信，它们会通过用作中介的主题来交换消息。主题订阅类似于虚拟队列，接收发送至该主题的消息副本。 通过订阅中的筛选器，可以指定发送到主题的哪些消息应该在特定主题订阅中显示。
@@ -183,8 +184,8 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 * [使用服务总线资源管理器管理服务总线资源](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
-[Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/?term=service+bus
-[Learn more about Service Bus topics and subscriptions]: ./service-bus-queues-topics-subscriptions.md
+[Azure Quickstart Templates]: https://github.com/Azure/azure-quickstart-templates/?term=service+bus
+[Learn more about Service Bus topics and subscriptions]: service-bus-queues-topics-subscriptions.md
 [Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/powershell-azure-resource-manager.md
 [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md
 [Recommended naming conventions for Azure resources]: https://azure.microsoft.com/en-us/documentation/articles/guidance-naming-conventions.md

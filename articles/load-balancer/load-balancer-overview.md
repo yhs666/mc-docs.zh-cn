@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 08/20/2018
-ms.date: 10/01/2018
+ms.date: 11/05/2018
 ms.author: v-jay
 ms.custom: mvc
-ms.openlocfilehash: 7f8ea1bc60f179fb058e719e733d0fd4b61e00d5
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.openlocfilehash: 8854f678791d15ad43f3ecea33fa5e973554885d
+ms.sourcegitcommit: 9be84d4dc546d66a0d9d1d2be67dd79c84b2c210
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426326"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50408846"
 ---
 # <a name="what-is-azure-load-balancer"></a>什么是 Azure 负载均衡器？
 
@@ -32,7 +32,7 @@ ms.locfileid: "47426326"
 
 此外，公共负载均衡器还可将虚拟网络中虚拟机 (VM) 的专用 IP 地址转换为公共 IP 地址，从而为这些虚拟机提供出站连接。
 
-<!-- Not Available on Azure Load Balancer is available in two different SKUs: Basic and Standard.  There are differences in scale, features, and pricing.  Any scenario possible with Basic Load Balancer can also be created with Standard Load Balancer, although the approach might differ slightly.  As you learn about Load Balancer, it is important to familiarize yourself with the fundamentals and SKU-specific differences.-->
+Azure 负载均衡器以两种 SKU 提供：“基本”和“标准”。 规模、功能和定价方面有差异。 尽管使用基本负载均衡器可以实现的任何场景也可以通过标准负载均衡器来创建，但创建方法略有不同。 在学习负载均衡器的过程中，必须熟悉基础知识和 SKU 方面的差异。
 
 ## <a name="why-use-load-balancer"></a>为何使用负载均衡器？ 
 
@@ -89,7 +89,7 @@ ms.locfileid: "47426326"
 
     为确定后端池中实例的运行状况，负载均衡器会使用定义的运行状况探测。 当探测无法响应时，负载均衡器会停止向状况不良的实例发送新连接。 现有连接不受影响，会一直保留到应用程序终止了流、发生空闲超时或 VM 关闭为止。
      
-    负载均衡器为 TCP 和 HTTP 终结点提供了[不同的运行状况探测类型](load-balancer-custom-probe-overview.md#types)。
+    负载均衡器为 TCP、HTTP 和 HTTPS 终结点提供了[不同的运行状况探测类型](load-balancer-custom-probe-overview.md#types)。
 
     此外，使用经典云服务时允许使用其他类型：[来宾代理](load-balancer-custom-probe-overview.md#guestagent)。  这应作为运行状况探测的最后手段，当其他选择可行时不推荐使用此选择。
     
@@ -102,10 +102,27 @@ ms.locfileid: "47426326"
 
     有关详细信息，请参阅[出站连接](load-balancer-outbound-connections.md)。
 
-<!-- Not Available on Standard Load Balancer has additional SKU-specific abilities beyond these fundamentals.  Review the remainder of this article for details.-->
+除这些基本功能以外，标准负载均衡器还提供其他特定于 SKU 的功能。 有关详细信息，请查看本文的余下部分。
 
-<a name="skus"></a>
-<!-- Not Available on ##  Load Balancer SKU comparison-->
+## <a name="skus"></a>负载均衡器 SKU 的比较
+
+负载均衡器支持“基本”和“标准”SKU，两者的方案规模、功能和定价有差别。 使用基本负载均衡器可以实现的任何场景也可以通过标准负载均衡器来创建。 事实上，这两个 SKU 的 API 类似，都可以通过 SKU 的规范来调用。 从 2017-08-01 API 开始，提供了负载均衡器和公开 IP 的支持性 SKU 的 API。 这两个 SKU 具有相同的常规 API 和结构。
+
+但是，根据所选的 SKU，完整的方案配置可能略有不同。 如果某篇文章仅适用于特定的 SKU，负载均衡器文档中会做出相应的标识。 请参阅下表来比较和了解差别。 有关详细信息，请参阅[标准负载均衡器概述](load-balancer-standard-overview.md)。
+
+>[!NOTE]
+> 新设计应采用标准负载均衡器。 
+
+独立 VM、可用性集和虚拟机规模集只能连接到一个 SKU，永远无法同时连接到两个 SKU。 与公共 IP 地址配合使用时，负载均衡器和公共 IP 地址 SKU 必须匹配。 负载均衡器和公共 IP SKU 不可变。
+
+最佳做法是显式指定 SKU，尽管目前不强制要求这样做._  目前，请尽量将必需的更改保持在最低限度。 如果未指定 SKU，则认为有意使用基本 SKU 的 2017-08-01 API 版本。
+
+>[!IMPORTANT]
+>标准负载均衡器是一款新的负载均衡器产品，在很大程度上是基本负载均衡器的超集。 这两款产品之间存在重要的且有意而为的差异。 使用基本负载均衡器可以实现的任何端到端方案也可以通过标准负载均衡器来创建。 如果你惯于使用基本负载均衡器，则应该也对标准负载均衡器很熟悉，能够理解两者之间在最新行为差异，以及这种差异造成的影响。 请认真阅读本部分。
+
+[!INCLUDE [comparison table](../../includes/load-balancer-comparison-table.md)]
+
+有关详细信息，请参阅[负载均衡器的服务限制](https://docs.azure.cn/zh-cn/azure-subscription-service-limits#load-balancer)。 有关标准负载均衡器的详细信息，请参阅[概述](load-balancer-standard-overview.md)。
 
 ## <a name="concepts"></a>概念
 
@@ -139,7 +156,7 @@ ms.locfileid: "47426326"
 *图：使用公共和内部负载均衡器对多层应用程序进行负载均衡*
 
 ## <a name="pricing"></a>定价
-<!-- Not Available on Standard Load Balancer is a charged product based on number of load balancing rules configured and all inbound and outbound data processed. For Standard Load Balancer pricing information, visit the [Load Balancer Pricing](https://www.azure.cn/pricing/details/load-balancer/) page.-->
+根据配置的负载均衡规则数量以及处理的入站和出站数据量计收标准负载均衡器的费用。
 
 基本负载均衡器是免费提供的。
 
@@ -147,7 +164,7 @@ ms.locfileid: "47426326"
 ## <a name="limitations"></a>限制
 
 - 负载均衡器属于 TCP 或 UDP 产品，用于对这些特定的 IP 协议进行负载均衡和端口转发。  负载均衡规则和入站 NAT 规则支持 TCP 和 UDP，但不支持其他 IP 协议（包括 ICMP）。 负载均衡器不会终止、响应 UDP 或 TCP 流的有效负载，也不与之交互。 它不是一个代理。 必须使用负载均衡或入站 NAT 规则（TCP 或 UDP）中所用的同一协议在带内成功验证与前端的连接，并且必须至少有一个虚拟机为客户端生成了响应，这样才能看到前端发出的响应。  未从前端负载均衡器收到带内响应即表明没有任何虚拟机能够做出响应。  在虚拟机都不能做出响应的情况下，无法与负载均衡器前端交互。  这一点也适用于出站连接，其中的[端口伪装 SNAT](load-balancer-outbound-connections.md#snat) 仅支持 TCP 和 UDP；其他任何 IP 协议（包括 ICMP）也会失败。  分配实例级公共 IP 地址即可缓解问题。
-- 公共负载均衡器在将虚拟网络中的专用 IP 地址转换为公共 IP 地址时提供[出站连接](load-balancer-outbound-connections.md)，而内部负载均衡器则与此不同，它不会将出站发起连接转换为内部负载均衡器的前端，因为两者都位于专用 IP 地址空间中。  这可以避免不需要转换的唯一内部 IP 地址空间内发生 SNAT 端口耗尽。  负面影响是，如果来自后端池中 VM 的出站流尝试流向其所在池中的内部负载均衡器前端，并映射回到自身，则这两个流的分支不会匹配，并且该流将会失败。  如果该流未映射回到后端池中的同一 VM（在前端中创建了流的 VM），则该流将会成功。   如果流映射回到自身，则出站流显示为源自 VM 并发往前端，并且相应的入站流显示为源自 VM 并发往自身。 从来宾 OS 的角度看，同一流的入站和出站部分在虚拟机内部不匹配。 TCP 堆栈不会将同一流的这两半看作是同一流的组成部分，因为源和目标不匹配。  当流映射到后端池中的任何其他 VM 时，流的两半将会匹配，且 VM 可以成功响应流。  此方案的缺点在于，当流返回到发起该流的同一后端时将出现间歇性的连接超时。 可通过几种常用解决方法来可靠地实现此方案（从后端池发起流，并将其传送到后端池的相应内部负载均衡器前端），包括在内部负载均衡器后方插入代理层，或[使用 DSR 式规则](load-balancer-multivip-overview.md)。  客户可将内部负载均衡器与任何第三方代理相结合，或使用内部[应用程序网关](../application-gateway/application-gateway-introduction.md)替代限制为 HTTP 的代理方案。 尽管可以使用公共负载均衡器来缓解问题，但最终的方案很容易导致 [SNAT 耗尽](load-balancer-outbound-connections.md#snat)，除非有精心的管理，否则应避免这种做法。
+- 公共负载均衡器在将虚拟网络中的专用 IP 地址转换为公共 IP 地址时提供[出站连接](load-balancer-outbound-connections.md)，而内部负载均衡器则与此不同，它不会将出站发起连接转换为内部负载均衡器的前端，因为两者都位于专用 IP 地址空间中。  这可以避免不需要转换的唯一内部 IP 地址空间内发生 SNAT 端口耗尽。  负面影响是，如果来自后端池中 VM 的出站流尝试流向其所在池中的内部负载均衡器前端，并映射回到自身，则这两个流的分支不会匹配，并且该流将会失败。  如果该流未映射回到后端池中的同一 VM（在前端中创建了流的 VM），则该流将会成功。   如果流映射回到自身，则出站流显示为源自 VM 并发往前端，并且相应的入站流显示为源自 VM 并发往自身。 从来宾 OS 的角度看，同一流的入站和出站部分在虚拟机内部不匹配。 TCP 堆栈不会将同一流的这两半看作是同一流的组成部分，因为源和目标不匹配。  当流映射到后端池中的任何其他 VM 时，流的两半将会匹配，且 VM 可以成功响应流。  此方案的缺点在于，当流返回到发起该流的同一后端时将出现间歇性的连接超时。 可通过几种常用解决方法来可靠地实现此方案（从后端池发起流，并将其传送到后端池的相应内部负载均衡器前端），包括在内部负载均衡器后方插入代理层，或[使用 DSR 式规则](load-balancer-multivip-overview.md)。  客户可将内部负载均衡器与任何第三方代理相结合，或使用内部[应用程序网关](../application-gateway/application-gateway-introduction.md)替代限制为 HTTP/HTTPS 的代理方案。 尽管可以使用公共负载均衡器来缓解问题，但最终的方案很容易导致 [SNAT 耗尽](load-balancer-outbound-connections.md#snat)，除非有精心的管理，否则应避免这种做法。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -10,18 +10,18 @@ ms.custom: ''
 ms.devlang: nodejs
 ms.topic: conceptual
 origin.date: 02/26/2018
-ms.date: 09/03/2018
+ms.date: 11/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 41e48dc6672618cbbf1e6abd2b2acc7e0aa790e3
-ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
+ms.openlocfilehash: 2fcce59c7f8e199196b9be443b3aea3ee6bb2d7f
+ms.sourcegitcommit: c1020b13c8810d50b64e1f27718e9f25b5f9f043
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43164844"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50204807"
 ---
 # <a name="how-to-multiple-region-distribute-reads-using-read-preference-with-the-azure-cosmos-db-mongodb-api"></a>如何在 Azure Cosmos DB MongoDB API 中使用读取首选项在多个区域分配读取操作 
 
-本文介绍如何在 Azure Cosmos DB 的 MongoDB API 中使用 [MongoDB 读取首选项](https://docs.mongodb.com/manual/core/read-preference/)设置全局分配读取操作。 
+本文介绍如何在 Azure Cosmos DB 的 MongoDB API 中使用 [MongoDB 读取首选项](https://docs.mongodb.com/manual/core/read-preference/)设置在多个区域分配读取操作。 
 <!-- Notice: globally to multiple-region -->
 
 ## <a name="prerequisites"></a>先决条件 
@@ -114,6 +114,28 @@ MongoDB 提供以下读取首选项模式供客户端使用：
   });
 ```
 
+还可以通过在连接字符串 URI 选项中将 `readPreference` 作为参数传递来设置读取首选项：
+
+```javascript
+const MongoClient = require('mongodb').MongoClient;
+const assert = require('assert');
+
+// Connection URL
+const url = 'mongodb://localhost:27017?ssl=true&replicaSet=globaldb&readPreference=nearest';
+
+// Database Name
+const dbName = 'myproject';
+
+// Use connect method to connect to the Server
+MongoClient.connect(url, function(err, client) {
+  console.log("Connected correctly to server");
+
+  const db = client.db(dbName);
+
+  client.close();
+});
+```
+
 请参阅其他平台（例如 [.NET](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-dotnet-geo-readpreference) 和 [Java](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-java-geo-readpreference)）的相应示例应用程序存储库。
 
 ## <a name="read-using-tags"></a>使用标记读取
@@ -155,4 +177,5 @@ MongoDB 提供以下读取首选项模式供客户端使用：
 * [将 MongoDB 数据导入 Azure Cosmos DB](mongodb-migrate.md)
 * [设置多区域复制的 Azure Cosmos DB 帐户并将其与 MongoDB API 配合使用](tutorial-global-distribution-mongodb.md)
 * [通过模拟器在本地开发](local-emulator.md)
+
 <!-- Update_Description: update meta properties, wording update -->

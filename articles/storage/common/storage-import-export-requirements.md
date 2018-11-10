@@ -5,16 +5,16 @@ author: WenJason
 services: storage
 ms.service: storage
 ms.topic: article
-origin.date: 07/19/2018
-ms.date: 09/24/2018
+origin.date: 10/04/2018
+ms.date: 11/05/2018
 ms.author: v-jay
 ms.component: common
-ms.openlocfilehash: 520a5335aaab5d2bfbf6c77b2b00e96914a0faa5
-ms.sourcegitcommit: 0081fb238c35581bb527bdd704008c07079c8fbb
+ms.openlocfilehash: c6b81f09025abaed992bc46172d26f3bfb36ec2d
+ms.sourcegitcommit: 7c750170ddefe7537663dfbadcc06bf27d94c586
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523669"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50743521"
 ---
 # <a name="azure-importexport-system-requirements"></a>Azure 导入/导出系统要求
 
@@ -35,7 +35,6 @@ ms.locfileid: "46523669"
 
 Azure 导入/导出服务支持以下类型的存储帐户：
 
-- 常规用途 v2 存储帐户
 - 常规用途 v1 存储帐户（经典部署或 Azure 资源管理器部署）
 - Blob 存储帐户
 
@@ -44,7 +43,7 @@ Azure 导入/导出服务支持以下类型的存储帐户：
 每个作业只能用于将数据传入/传出一个存储帐户。 换言之，一个导入/导出作业不能跨多个存储帐户。 有关创建新存储帐户的信息，请参阅[如何创建存储帐户](storage-quickstart-create-account.md)。
 
 > [!IMPORTANT] 
-> Azure 导入导出服务不支持已启用[虚拟网络服务终结点](../../virtual-network/virtual-network-service-endpoints-overview.md)功能的存储帐户。 
+> Azure 导入导出服务不支持已启用 [虚拟网络服务终结点](../../virtual-network/virtual-network-service-endpoints-overview.md) 功能的存储帐户。 
 
 ## <a name="supported-storage-types"></a>支持的存储类型
 

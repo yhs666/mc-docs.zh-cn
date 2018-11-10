@@ -6,14 +6,14 @@ services: storage
 ms.service: storage
 ms.topic: article
 origin.date: 07/17/2018
-ms.date: 09/10/2018
+ms.date: 11/05/2018
 ms.author: v-jay
-ms.openlocfilehash: 1cc670af54f76150badd4d4df46f4d48d77bcc71
-ms.sourcegitcommit: 3ec1b0705c8305fc4561b9511c275edb9baa1f59
+ms.openlocfilehash: 1bcde25129fe2a78695096c319b4158381b7afa9
+ms.sourcegitcommit: 3f96e40162bb6ee2e9fdb76c976517e47a1252d9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49316010"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50919085"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>使用 Azure 导入/导出服务从 Azure Blob 存储导出数据
 本文分步说明如何使用 Azure 导入/导出服务从 Azure Blob 存储安全地导出大量数据。 该服务要求你将空驱动器寄送到 Azure 数据中心。 该服务将数据从存储帐户导出到驱动器，然后将驱动器寄回。
@@ -43,7 +43,7 @@ ms.locfileid: "49316010"
     
     - 选择“从 Azure 导出”。 
     - 为导出作业输入一个描述性名称。 使用所选名称来跟踪作业进度。 
-        - 此名称只能包含小写字母、数字、连字符。
+        - 此名称可以包含大写和小写字母、数字、连字符。
         - 此名称必须以字母开头，并且不得包含空格。 
     - 选择一个订阅。
     - 输入或选择一个资源组。
@@ -53,7 +53,7 @@ ms.locfileid: "49316010"
 3. 在“作业详细信息”中：
 
     - 选择要导出的数据所在的存储帐户。 使用附近位置的存储帐户。 目前仅在中国东部和中国北部支持此功能。
-    - 放置位置根据选定存储帐户所属的区域自动进行填充。 
+    - 放置位置会根据选定存储帐户所属的区域自动进行填充。 
     - 指定要从存储帐户导出到空驱动器的 blob 数据。 
     - 选择“全部导出”以导出存储帐户中的所有 blob 数据。
     
@@ -113,72 +113,6 @@ ms.locfileid: "49316010"
 
 导出已完成。 此时可以手动删除作业，或在 90 天后自动删除作业。
 
-
-## <a name="check-the-number-of-drives"></a>检查驱动器数量
-
-此*可选*步骤有助于确定导出作业所需的驱动器数量。 在运行[受支持 OS 版本](storage-import-export-requirements.md#supported-operating-systems)的 Windows 系统上执行此步骤。
-
-1. 在 Windows 系统上[下载 WAImportExport 版本 1](https://www.microsoft.com/en-us/download/details.aspx?id=42659)。 
-2. 解压缩到默认文件夹 `waimportexportv1`。 例如，`C:\WaImportExportV1`。
-3. 使用管理权限打开 PowerShell 或命令行窗口。 若要将目录切换到解压缩的文件夹，请运行以下命令：
-    
-    `cd C:\WaImportExportV1`
-
-4. 若要检查选定 blob 所需的磁盘数量，请运行以下命令：
-
-    `WAImportExport.exe PreviewExport /sn:<Storage account name> /sk:<Storage account key> /ExportBlobListFile:<Path to XML blob list file> /DriveSize:<Size of drives used>`
-
-    下表介绍了这些参数：
-    
-    |命令行参数|说明|  
-    |--------------------------|-----------------|  
-    |**/logdir:**|可选。 日志目录。 详细日志文件将写入此目录。 如果未指定，则使用当前目录作为日志目录。|  
-    |**/sn:**|必需。 导出作业的存储帐户的名称。|  
-    |**/sk:**|仅当未指定容器 SAS 时才是必需的。 导出作业的存储帐户的帐户密钥。|  
-    |**/csas:**|仅当未指定存储帐户密钥时才是必需的。 用于列出要在导出作业中导出的 Blob 的容器 SAS。|  
-    |**/ExportBlobListFile:**|必需。 包含要导出的 Blob 的 Blob 路径列表或 Blob 路径前缀的 XML 文件的路径。 导入/导出服务 REST API 的[放置作业](https://docs.microsoft.com/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate)操作的 `BlobListBlobPath` 元素中使用的文件格式。|  
-    |**/DriveSize:**|必需。 用于导出作业的驱动器大小，*例如* 500 GB、1.5 TB。|  
-
-    请参阅 [PreviewExport 命令示例](#example-of-previewexport-command)。
- 
-5. 检查能否读取/写入要寄送的用于导出作业的驱动器。
-
-### <a name="example-of-previewexport-command"></a>PreviewExport 命令示例
-
-以下示例演示了 `PreviewExport` 命令：  
-  
-```  
-WAImportExport.exe PreviewExport /sn:bobmediaaccount /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GELxmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /ExportBlobListFile:C:\WAImportExport\mybloblist.xml /DriveSize:500GB    
-```  
-  
-导出 Blob 列表文件可能包含 Blob 名称和 Blob 前缀，如下所示：  
-  
-```xml 
-<?xml version="1.0" encoding="utf-8"?>  
-<BlobList>  
-<BlobPath>pictures/animals/koala.jpg</BlobPath>  
-<BlobPathPrefix>/vhds/</BlobPathPrefix>  
-<BlobPathPrefix>/movies/</BlobPathPrefix>  
-</BlobList>  
-```
-
-Azure 导入/导出工具可列出要导出的所有 Blob，在考虑所有必要开销的情况下计算如何将其打包到指定大小的驱动器，并估算保存 Blob 和驱动器使用情况信息所需的驱动器数量。  
-  
-下面是一个省略了信息性日志的输出示例：  
-  
-```  
-Number of unique blob paths/prefixes:   3  
-Number of duplicate blob paths/prefixes:        0  
-Number of nonexistent blob paths/prefixes:      1  
-  
-Drive size:     500.00 GB  
-Number of blobs that can be exported:   6  
-Number of blobs that cannot be exported:        2  
-Number of drives needed:        3  
-        Drive #1:       blobs = 1, occupied space = 454.74 GB  
-        Drive #2:       blobs = 3, occupied space = 441.37 GB  
-        Drive #3:       blobs = 2, occupied space = 131.28 GB    
-```
 
 ## <a name="examples-of-valid-blob-paths"></a>有效 blob 路径示例
 

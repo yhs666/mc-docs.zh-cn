@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-origin.date: 05/11/2018
-ms.date: 07/30/2018
-ms.author: v-yeche
-ms.openlocfilehash: 451f1a6864af31edbbda4ed88e6f0297501e7715
-ms.sourcegitcommit: 3691ddcfde4382a8a034e8d2278d5e10d38a4d5e
+origin.date: 07/30/2018
+ms.date: ''
+ms.author: v-dazen
+ms.openlocfilehash: 78cf50cf5bfd2efda802f7c0b6b689b6466a4a45
+ms.sourcegitcommit: 92a941c705f0a76483dea5b708054c53e8c9666b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41704909"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50235275"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>排查 Azure Windows 虚拟机激活问题
 
@@ -31,14 +31,14 @@ ms.locfileid: "41704909"
 ## <a name="understanding-azure-kms-endpoints-for-windows-product-activation-of-azure-virtual-machines"></a>了解用于对 Azure 虚拟机进行 Windows 产品激活的 Azure KMS 终结点
 Azure 使用不同的终结点进行 KMS 激活，具体取决于 VM 所在的云区域。 使用本故障排除指南时，请使用适用于你所在区域的相应 KMS 终结点。
 
-* Azure 公有云区域：kms.core.windows.net:1688 <!--Notice: Azure public cloud regions is correct on -->
+* Azure 公有云区域：kms.core.chinacloudapi.cn:1688 <!--Notice: Azure public cloud regions is correct on -->
 * Azure 中国国家云区域：kms.core.chinacloudapi.cn:1688
 * Azure 德国国家云区域：kms.core.cloudapi.de:1688
 * Azure US Gov 国家云区域：kms.core.usgovcloudapi.net:1688
 
 ## <a name="symptom"></a>症状
 
-尝试激活 Azure Windows VM 时，会看到类似于以下示例的错误消息：
+尝试激活 Azure Windows VM 时，会收到类似于以下示例的错误消息：
 
 **错误: 0xC004F074 软件授权服务报告无法激活计算机。无法联系任何密钥管理服务(KMS)。有关其他信息，请参阅应用程序事件日志。**
 
@@ -49,7 +49,7 @@ Azure 使用不同的终结点进行 KMS 激活，具体取决于 VM 所在的�
 ## <a name="solution"></a>解决方案
 
 >[!NOTE]
->如果使用的是站点间 VPN 和强制隧道，请参阅[使用 Azure 自定义路由通过强制隧道启用 KMS 激活](http://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx)。 
+>如果使用的是站点到站点 VPN 和强制隧道，请参阅 [Use Azure custom routes to enable KMS activation with forced tunneling](http://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx)（使用 Azure 自定义路由通过强制隧道启用 KMS 激活）。 
 >
 >如果使用的是 ExpressRoute 且已发布默认路由，请参阅 [Azure VM 可能无法通过 ExpressRoute 激活](http://blogs.msdn.com/b/mast/archive/2015/12/01/azure-vm-may-fail-to-activate-over-expressroute.aspx)。
 
@@ -59,7 +59,7 @@ Azure 使用不同的终结点进行 KMS 激活，具体取决于 VM 所在的�
 
 这一步不适用于 Windows 2012 或 Windows 2008 R2。 因为使用的自动虚拟机激活 (AVMA) 功能仅受 Windows Server 2016 和 Windows Server 2012 R2 支持。
 
-1. 在提升的命令提示符处，运行 **slmgr.vbs /dlv**。 检查输出中的 Description 值，并确定是通过零售 (RETAIL channel) 还是通过卷 (VOLUME_KMSCLIENT) 许可证介质创建的：
+1. 在提升的命令提示符处，运行 **slmgr.vbs /dlv**。 检查输出中的 Description 值，并确定它是通过零售（RETAIL 渠道）还是批量 (VOLUME_KMSCLIENT) 许可证介质创建的：
 
     ```
     cscript c:\windows\system32\slmgr.vbs /dlv
@@ -106,9 +106,9 @@ Azure 使用不同的终结点进行 KMS 激活，具体取决于 VM 所在的�
 
   请注意，如果从虚拟网络中删除所有 DNS 服务器，VM 会使用 Azure 的内部 DNS 服务。 此服务可以解析 kms.core.chinacloudapi.cn。
 
-此外，还要验证来宾防火墙是否未配置为阻止激活尝试。
+另请验证是否未以会阻止激活尝试的方式配置来宾防火墙。
 
-5. 验证成功连接到 kms.core.chinacloudapi.cn 后，在提升的 Windows PowerShell 提示符处运行以下命令。 此命令可多次尝试激活。
+5. 验证成功连接到 kms.core.chinacloudapi.cn 后，请在提升的 Windows PowerShell 提示符处运行以下命令。 此命令可多次尝试激活。
 
     ```
     1..12 | % { iex "$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /ato" ; start-sleep 5 }

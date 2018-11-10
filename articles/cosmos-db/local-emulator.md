@@ -10,14 +10,14 @@ ms.service: cosmos-db
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 04/20/2018
-ms.date: 09/30/2018
+ms.date: 11/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 9c21f645d2de64e6a6492166baf8df7d116d1aa3
-ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
+ms.openlocfilehash: 5a15d21c335d1fa2dee323469291a7b0e8787d17
+ms.sourcegitcommit: c1020b13c8810d50b64e1f27718e9f25b5f9f043
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47201435"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50204854"
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>将 Azure Cosmos DB 模拟器用于本地开发和测试
 
@@ -36,10 +36,10 @@ ms.locfileid: "47201435"
 </tr>
 </table>
 
-为方便进行开发，Azure Cosmos DB 模拟器提供了一个模拟 Azure Cosmos DB 服务的本地环境。 使用 Azure Cosmos DB 模拟器可在本地开发和测试应用程序，无需创建 Azure 订阅且不会产生任何费用。 如果对应用程序在 Azure Cosmos DB 模拟器中的工作情况感到满意，则可以切换到在云中使用 Azure Cosmos DB 帐户。
+为方便进行开发，Azure Cosmos DB 模拟器提供了一个模拟 Azure Cosmos DB 服务的本地环境。 使用 Azure Cosmos DB 模拟器可在本地开发和测试应用程序，无需创建 Azure 订阅且不会产生任何费用。 如果对应用程序在 Azure Cosmos DB 模拟器中的工作情况感到满意，则可以切换到在云中使用 Azure Cosmos DB 帐户。 
 
-> [!NOTE]
-> 目前，模拟器中的数据资源管理器仅完全支持 SQL API 集合和 MongoDB 集合。 
+目前，模拟器中的数据资源管理器仅完全支持 SQL API 集合和 MongoDB 集合。
+
 <!-- Not Avaiable on Table, Graph, and Cassandra -->
 
 本文涵盖以下任务： 
@@ -50,15 +50,13 @@ ms.locfileid: "47201435"
 > * 在模拟器中使用数据资源管理器
 > * 导出 SSL 证书
 > * 从命令行调用模拟器
-> * 在适用于 Windows 的 Docker 上运行模拟器
+> * 在用于 Windows 的 Docker 上运行模拟器
 > * 收集跟踪文件
 > * 故障排除
 
-<!-- Not Available on VIDEO -->
-
 ## <a name="how-the-emulator-works"></a>模拟器的工作原理
 
-Azure Cosmos DB 模拟器提供对 Azure Cosmos DB 服务的高保真模拟。 它支持和 Azure Cosmos DB 相同的功能，包括支持创建和查询 JSON 文档、预配集合和调整集合的规模，以及执行存储过程和触发器。 可以使用 Azure Cosmos DB 模拟器开发和测试应用程序，并通过对 Azure Cosmos DB 的连接终结点进行单一配置更改将其部署到多区域范围的 Azure。
+Azure Cosmos DB 模拟器提供对 Azure Cosmos DB 服务的高保真模拟。 它支持和 Azure Cosmos DB 相同的功能，包括支持创建和查询 JSON 文档、预配集合和调整集合的规模，以及执行存储过程和触发器。 可以使用 Azure Cosmos DB 模拟器开发和测试应用程序，并通过直接对 Azure Cosmos DB 的连接终结点进行单一配置更改将其部署到多区域范围的 Azure。
 <!-- Notice: 全球 to 多个区域 -->
 
 虽然模拟 Azure Cosmos DB 服务很逼真，但模拟器的实现不同于服务。 例如，模拟器使用标准 OS 组件，例如用于暂留的本地文件系统和用于连接的 HTTPS 协议堆栈。 不可使用依赖于 Azure 基础结构的功能，如多区域复制、读/写的单位数毫秒延迟，以及可调整的一致性级别。
@@ -68,13 +66,14 @@ Azure Cosmos DB 模拟器提供对 Azure Cosmos DB 服务的高保真模拟。 �
 由于 Azure Cosmos DB 模拟器提供在本地开发人员工作站上运行的模拟环境，因此模拟器与云中的 Azure Cosmos DB 帐户之间的功能存在一些差异：
 
 * 目前，模拟器中的数据资源管理器仅支持 SQL API 集合和 MongoDB 集合，
+
+<!-- Not Available on Table, Graph, and Cassandra APIs-->
 * Azure Cosmos DB 模拟器只支持一个固定的帐户和公开的主密钥。  在 Azure Cosmos DB 模拟器中无法重新生成密钥。
 * Azure Cosmos DB 模拟器不是可缩放的服务，并且不支持大量集合。
 * Azure Cosmos DB 模拟器不模拟不同的 [Azure Cosmos DB 一致性级别](consistency-levels.md)。
 * Azure Cosmos DB 模拟器不模拟[多区域复制](distribute-data-globally.md)。
 * Azure Cosmos DB 模拟器不支持服务配额替代，而 Azure Cosmos DB 服务支持（例如文档大小限制、增加的已分区集合存储）。
 * 由于 Azure Cosmos DB 模拟器副本不一定能反映 Azure Cosmos DB 服务的最新更改，因此应使用 [Azure Cosmos DB Capacity Planner](https://www.documentdb.com/capacityplanner) 准确估计应用程序的生产吞吐量 (RU) 需求。
-<!-- Not Available on Table, Graph, and Cassandra APIs are not yet supported -->
 
 ## <a name="system-requirements"></a>系统要求
 Azure Cosmos DB 模拟器具有以下硬件和软件要求：
@@ -152,7 +151,7 @@ Azure Cosmos DB 模拟器启动时，会在浏览器中自动打开 Azure Cosmos
 > [!NOTE] 
 > 如果使用“/Key”选项启动仿真器，请使用生成的密钥而不是“C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==”
 
-默认情况下，使用 Azure Cosmos DB 模拟器，可创建多达 25 个单区集合或 1 个已分区集合。 有关如何更改此值的详细信息，请参阅[设置 PartitionCount 值](#set-partitioncount)。
+默认情况下，使用 Azure Cosmos DB 模拟器，可创建多达 25 个单分区集合或 1 个已分区集合。 有关如何更改此值的详细信息，请参阅[设置 PartitionCount 值](#set-partitioncount)。
 
 ## <a name="export-the-ssl-certificate"></a>导出 SSL 证书
 
@@ -307,7 +306,7 @@ Azure Cosmos DB 模拟器启动时，会在浏览器中自动打开 Azure Cosmos
 <a name="set-partitioncount"></a>
 ## 更改集合数
 
-默认情况下，使用 Azure Cosmos DB 模拟器可创建多达 25 个单区集合或 1 个已分区集合。 通过修改 **PartitionCount** 值，可以创建最多 250 个单分区集合或 10 个已分区集合，或两者的任意组合（不得超过 250 个单分区，其中 1 个已分区集合 = 25 个单分区集合）。
+默认情况下，使用 Azure Cosmos DB 模拟器，可创建多达 25 个单分区集合或 1 个已分区集合。 通过修改 **PartitionCount** 值，可以创建最多 250 个单分区集合或 10 个已分区集合，或两者的任意组合（不得超过 250 个单分区，其中 1 个已分区集合 = 25 个单分区集合）。
 
 如果在已超过当前分区计数后尝试创建集合，则模拟器会引发 ServiceUnavailable 异常，并收到以下消息。
 
@@ -323,7 +322,7 @@ Azure Cosmos DB 模拟器启动时，会在浏览器中自动打开 Azure Cosmos
 2. 删除文件夹 C:\Users\user_name\AppData\Local\CosmosDBEmulator 中的所有模拟器数据。
 3. 通过在系统任务栏上右键单击“Azure Cosmos DB 模拟器”图标，并单击“退出”，退出所有打开的实例。 退出所有实例可能需要一分钟。
 4. 安装最新版的 [Azure Cosmos DB 模拟器](https://aka.ms/cosmosdb-emulator)。
-5. 通过设置一个 <= 250 的值启动具有 PartitionCount 标志的模拟器。 例如：`C:\Program Files\Azure CosmosDB Emulator>CosmosDB.Emulator.exe /PartitionCount=100`。
+5. 通过设置一个 <= 250 的值启动具有 PartitionCount 标志的模拟器。 例如：`C:\Program Files\Azure Cosmos DB Emulator> CosmosDB.Emulator.exe /PartitionCount=100`。
 
 ## <a name="controlling-the-emulator"></a>控制模拟器
 
@@ -389,7 +388,7 @@ Import-Module Microsoft.Azure.CosmosDB.Emulator
 
 安装[用于 Windows 的 Docker](https://www.docker.com/docker-windows) 后，通过右键单击工具栏上的 Docker 图标并选择“切换到 Windows 容器”切换到 Windows 容器。
 
-接下来，通过从常用的 shell 运行以下命令，从 Docker 中心拉取模拟器映像。
+接下来，通过从你喜欢使用的 shell 运行以下命令，从 Docker 中心拉取模拟器映像。
 
 ```     
 docker pull microsoft/azure-cosmosdb-emulator 
@@ -411,7 +410,7 @@ docker run -v $env:LOCALAPPDATA\CosmosDBEmulatorCert:C:\CosmosDB.Emulator\Cosmos
 响应类似于以下内容：
 
 ```
-Starting Emulator
+Starting emulator
 Emulator Endpoint: https://172.20.229.193:8081/
 Master Key: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
 Exporting SSL Certificate
@@ -448,7 +447,7 @@ cd $env:LOCALAPPDATA\CosmosDBEmulatorCert
 
 - 如果安装了新版本的模拟器并遇到错误，请务必重置数据。 重置数据的方法如下：在系统任务栏上右键单击“Azure Cosmos DB 模拟器”图标，然后单击“重置数据...”。 如果这样做无法修复错误，则可卸载并重新安装该应用。 有关说明，请参阅[卸载本地模拟器](#uninstall)。
 
-- 如果 Azure Cosmos DB 模拟器崩溃，请从 c:\Users\user_name\AppData\Local\CrashDumps 文件夹收集转储文件、进行压缩并将其附加到电子邮件，发送至 [Azure 支持](https://www.azure.cn/support/contact/)。
+- 如果 Azure Cosmos DB 模拟器崩溃，请从 c:\Users\user_name\AppData\Local\CrashDumps 文件夹收集转储文件，对其进行压缩，然后将其附加到电子邮件发送至 [Azure 支持](https://www.azure.cn/support/contact/)。
 
 - 如果在 CosmosDB.StartupEntryPoint.exe 中遇到崩溃，请从管理员命令提示符运行以下命令：`lodctr /R` 
 
@@ -456,7 +455,7 @@ cd $env:LOCALAPPDATA\CosmosDBEmulatorCert
 
 - 如果出现“服务不可用”消息，则可能表示模拟器无法初始化网络堆栈。 检查是否安装了 Pulse 安全客户端或 Juniper 网络客户端，因为这些客户端的网络筛选器驱动程序可能会导致问题。 卸载第三方网络筛选器驱动程序通常可修复此问题。
 
-- 在模拟器运行时，如果计算机进入睡眠模式或运行任何 OS 更新，你可能会看到“服务当前不可用”消息。 通过右键单击 Windows 通知托盘上显示的图标，并选择“重置数据”，来重置模拟器。
+- 在模拟器运行时，如果计算机进入了睡眠模式或运行了任何 OS 更新，则你可能会看到“服务当前不可用”消息。 请重置模拟器，方法如下：右键单击 Windows 通知托盘中显示的图标并选择“重置数据”。
 
 <a name="trace-files"></a>
 ### <a name="collect-trace-files"></a>收集跟踪文件
@@ -464,7 +463,7 @@ cd $env:LOCALAPPDATA\CosmosDBEmulatorCert
 若要收集调试跟踪，请在管理命令提示符下运行以下命令：
 
 1. `cd /d "%ProgramFiles%\Azure Cosmos DB Emulator"`
-2. `CosmosDB.Emulator.exe /shutdown`。 监视系统任务栏，确保该程序已关闭，这可能需要一分钟时间。 也可以直接在 Azure Cosmos DB 模拟器用户界面中单击“退出” 。
+2. `CosmosDB.Emulator.exe /shutdown`。 监视系统任务栏，确保该程序已关闭，这可能需要一分钟时间。 还可以直接在 Azure Cosmos DB 模拟器用户界面中单击“退出”。
 3. `CosmosDB.Emulator.exe /starttraces`
 4. `CosmosDB.Emulator.exe`
 5. 再现问题。 如果数据资源管理器无法运行，只需等待几秒钟，待浏览器打开以捕获错误。
@@ -478,55 +477,7 @@ cd $env:LOCALAPPDATA\CosmosDBEmulatorCert
 1. 通过在系统任务栏上右键单击“Azure Cosmos DB 模拟器”图标，然后单击“退出”，退出所有打开的本地模拟器实例。 退出所有实例可能需要一分钟。
 2. 在 Windows 搜索框中，键入“应用和功能”，然后单击“应用和功能(系统设置)”结果。
 3. 在应用列表中，滚动到“Azure Cosmos DB 模拟器”并将其选中，单击“卸载”，然后确认并再次单击“卸载”。
-4. 卸载应用后，导航到 C:\Users\<user>\AppData\Local\CosmosDBEmulator 并删除该文件夹。 
-
-## <a name="change-list"></a>更改列表
-
-可以通过右键单击任务栏上的本地模拟器图标并单击“关于”菜单项来查看版本号。
-
-### <a name="1220-released-on-april-20-2018"></a>1.22.0。 2018 年 4 月 20 日发布
-
-除了更新与 Cosmos DB 云服务配套的模拟器服务之外，我们还在其中包括了改进的 PowerShell 文档和其他一些 bug 修复。
-
-### <a name="12106-released-on-march-27-2018"></a>2018 年 3 月 27 日发布的 1.21.0.6 版
-
-除了更新与 Cosmos DB 云服务配套的模拟器服务之外，我们还在此版本中包括了一项新功能和两个 bug 修复。
-
-#### <a name="features"></a>功能
-
-1. Start-CosmosDbEmulator 命令现在包括了启动选项。
-
-#### <a name="bug-fixes"></a>Bug 修复
-
-1. Microsoft.Azure.CosmosDB.Emulator PowerShell 模块现在会确保加载 `ServiceControllerStatus` 枚举。
-
-2. Microsoft.Azure.CosmosDB.Emulator PowerShell 模块现在包括了一个清单；第一个版本中遗漏了此清单。
-
-### <a name="1201084-released-on-february-14-2018"></a>1.20.108.4 在 2018 年 2 月 14 日发布
-
-此版本有一项新功能，并有两个 Bug 修复。 感谢帮我们找到并修复这些问题的客户。
-
-#### <a name="bug-fixes"></a>Bug 修复
-
-1. 模拟器现在适用于带 1 个或 2 个核心（或虚拟 CPU）的计算机
-
-   Cosmos DB 分配的任务可执行各种服务。 分配的任务数是主机上核心数的倍数。 默认的倍数适用于核心数很大的生产环境。 但在配置了 1 个或 2 个处理器的计算机上，应用该倍数时，并不会分配用于执行这些服务的任务。
-
-   我们通过向模拟器添加替代配置纠正了此问题。 我们现在应用的倍数为 1。 现在，分配用来执行各项服务的任务数等于主机上的核心数。
-
-   要不是因为我们为此版本做了其他事情，就会已解决此问题。 我们发现，许多开发/测试环境托管的模拟器有 1 到 2 个核心。
-
-2. 模拟器不再要求安装 Microsoft Visual C++ 2015 Redistributable。
-
-   我们发现，Windows（台式机版本和服务器版本）的全新安装不包括这个可再发行软件包。 因此，我们现在将这个可再发行二进制文件与模拟器捆绑在一起。
-
-#### <a name="features"></a>功能
-
-我们交谈过的许多客户都说：如果模拟器是可编脚本的就好了。 因此，在此版本中，我们添加了一些脚本功能。 模拟器现在包括一个用于自行启动、停止、获取状态和卸载的 PowerShell 模块：`Microsoft.Azure.CosmosDB.Emulator`。 
-
-### <a name="120911-released-on-january-26-2018"></a>2018 年 1 月 26 日发布 1.20.91.1 版
-
-* 默认情况下启用了 MongoDB 聚合管道。
+4. 卸载应用后，导航到 `C:\Users\<user>\AppData\Local\CosmosDBEmulator` 并删除该文件夹。 
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -541,9 +492,9 @@ cd $env:LOCALAPPDATA\CosmosDBEmulatorCert
 > * 从命令行调用模拟器
 > * 收集跟踪文件
 
-在本教程中，已了解如何使用本地模拟器进行免费的本地开发。 现在可以继续学习下一教程，了解如何导出模拟器 SSL 证书。 
+在本教程中，你已了解了如何使用本地模拟器进行免费的本地开发。 现在可以继续学习下一教程，了解如何导出模拟器 SSL 证书。 
 
 > [!div class="nextstepaction"]
 > [导出 Azure Cosmos DB 模拟器证书](local-emulator-export-ssl-certificates.md)
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties, wording update, update link -->

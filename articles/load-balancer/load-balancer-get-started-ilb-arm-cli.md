@@ -1,9 +1,9 @@
 ---
-title: 创建内部的基本负载均衡器 - Azure CLI 2.0 | Azure
-description: 了解如何使用 Azure CLI 2.0 创建内部负载均衡器
+title: 创建内部基本负载均衡器 - Azure CLI | Microsoft Docs
+description: 了解如何使用 Azure CLI 创建内部负载均衡器
 services: load-balancer
 documentationcenter: na
-author: rockboyfor
+author: WenJason
 manager: digimobile
 editor: ''
 tags: azure-resource-manager
@@ -14,22 +14,22 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 06/27/2018
-ms.date: 07/23/2018
-ms.author: v-yeche
-ms.openlocfilehash: d795ae7eb63c62bf36e3c17ccc7284336952ac0d
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.date: 11/05/2018
+ms.author: v-jay
+ms.openlocfilehash: 591afb59e1f385b571645fe1c7b85722ce40d448
+ms.sourcegitcommit: 9be84d4dc546d66a0d9d1d2be67dd79c84b2c210
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39167807"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50408845"
 ---
-# <a name="create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli-20"></a>使用 Azure CLI 2.0 创建内部负载均衡器以对 VM 进行负载均衡
+# <a name="create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli"></a>使用 Azure CLI 创建内部负载均衡器以对 VM 进行负载均衡
 
 本文介绍如何创建内部负载均衡器，以便对 VM 进行负载均衡。 为了测试负载均衡器，请部署两个运行 Ubuntu 服务器的虚拟机 (VM)，以便对 Web 应用进行负载均衡。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)] 
 
-如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.28 版或更高版本。 若要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。
+本教程要求运行 Azure CLI 2.0.28 或更高版本。 若要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
@@ -90,7 +90,7 @@ ms.locfileid: "39167807"
 
 ### <a name="create-the-load-balancer-rule"></a>创建负载均衡器规则
 
-负载均衡器规则定义传入流量的前端 IP 配置和用于接收流量的后端 IP 池，以及所需源和目标端口。 使用 [az network lb rule create](https://docs.azure.cn/zh-cn/cli/network/lb/rule?view=azure-cli-latest#create) 创建负载均衡器规则 *myLoadBalancerRuleWeb*，以便侦听前端池 *myFrontEndPool* 中的端口 80，并且将经过负载均衡的网络流量发送到也使用端口 80 的后端地址池 *myBackEndPool*。 
+负载均衡器规则定义传入流量的前端 IP 配置和用于接收流量的后端 IP 池，以及所需源和目标端口。 使用 [az network lb rule create](https://docs.azure.cn/zh-cn/cli/network/lb/rule?view=azure-cli-latest#create) 创建负载均衡器规则 *myHTTPRule*，以便侦听前端池 *myFrontEnd* 中的端口 80，并且将经过负载均衡的网络流量发送到也使用端口 80 的后端地址池 *myBackEndPool*。 
 
 ```azurecli
   az network lb rule create \
@@ -111,7 +111,7 @@ ms.locfileid: "39167807"
 
 ### <a name="create-nics"></a>创建 NIC
 
-使用 [az network nic create](https://docs.azure.cn/zh-cn/cli/network/nic?view=azure-cli-latest#az_network_nic_create) 创建两个网络接口，并将它们与专用 IP 地址和网络安全组关联。 
+使用 [az network nic create](/cli/network/nic#az-network-nic-create) 创建两个网络接口，并将它们与专用 IP 地址关联。 
 
 ```azurecli
 for i in `seq 1 2`; do
@@ -185,7 +185,7 @@ runcmd:
   - nodejs index.js
 ``` 
  
-使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az_vm_create) 创建虚拟机。
+使用 [az vm create](/cli/vm#az-vm-create) 创建虚拟机。
 
  ```azurecli
 for i in `seq 1 2`; do
@@ -229,7 +229,7 @@ VM 可能需要几分钟才能部署好。
 
 ## <a name="clean-up-resources"></a>清理资源
 
-如果不再需要资源组、负载均衡器和所有相关的资源，可以使用 [az group delete](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az_group_delete) 命令将其删除。
+如果不再需要资源组、负载均衡器和所有相关的资源，可以使用 [az group delete](/cli/group#az-group-delete) 命令将其删除。
 
 ```azurecli 
   az group delete --name myResourceGroupILB

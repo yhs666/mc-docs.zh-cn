@@ -1,33 +1,28 @@
 ---
 title: Azure 服务总线常见问题 (FAQ) | Azure
 description: 回答了一些关于 Azure 服务总线的常见问题。
-services: service-bus
-documentationCenter: na
-authors: sethmanheim
-manager: timlt
-editor: ''
-ms.assetid: cc75786d-3448-4f79-9fec-eef56c0027ba
-ms.service: service-bus
-ms.devlang: na
+services: service-bus-messaging
+author: lingliw
+manager: digimobile
+ms.service: service-bus-messaging
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-origin.date: 06/05/2018
-ms.author: v-yiso
-ms.date: 07/16/2018
-ms.openlocfilehash: 604fb15f090c6d7b2e8a2812c97a6b3040593b25
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+origin.date: 09/05/2018
+ms.date: 10/31/2018
+ms.author: v-lingwu
+ms.openlocfilehash: 18c4c29c9b2973434495834b2b940c2224fea3da
+ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873587"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50409362"
 ---
 # <a name="service-bus-faq"></a>服务总线常见问题解答
-本文讨论了一些关于 Microsoft Azure 服务总线的常见问题解答。 还可以访问 [Azure 支持常见问题解答](http://go.microsoft.com/fwlink/?LinkID=185083)了解常规的 Azure 定价和支持信息。
+
+本文讨论了一些关于 Azure 服务总线的常见问题解答。 还可以访问 [Azure 支持常见问题解答](https://www.azure.cn/support/faq/)了解常规的 Azure 定价和支持信息。
 
 ## <a name="general-questions-about-azure-service-bus"></a>关于 Azure 服务总线的一般问题
 ### <a name="what-is-azure-service-bus"></a>什么是 Azure 服务总线？
-[Azure 服务总线](service-bus-messaging-overview.md)是一个异步消息传送云平台，可允许在分离的系统之间发送数据。 Microsoft 以服务的形式提供此功能，这表示不需要托管任何自有硬件就能使用它。
+[Azure 服务总线](service-bus-messaging-overview.md) 是一个异步消息传送云平台，可让你在分离的系统之间发送数据。 Azure 以服务的形式提供此功能，这表示不需要托管任何自有硬件就能使用它。
 
 ### <a name="what-is-a-service-bus-namespace"></a>什么是服务总线命名空间？
 [命名空间](service-bus-create-namespace-portal.md)提供了用于对应用程序中的服务总线资源进行寻址的范围容器。 必须创建命名空间才能使用服务总线，而且这也是开始使用的第一步。
@@ -52,13 +47,10 @@ ms.locfileid: "37873587"
 ### <a name="what-should-i-know-before-creating-entities"></a>创建实体前的须知事项有哪些？
 队列和主题的以下属性是固定不变的。 预配实体时，请考虑此限制，因为必须创建新的替代实体才可修改这些属性。
 
--   分区
-
--   会话
-
--   重复检测
-
--   快速实体
+* 分区
+* 会话
+* 重复检测
+* 快速实体
 
 ## <a name="service-bus-pricing"></a> 定价
 本部分回答了一些关于服务总线定价结构的常见问题。
@@ -82,9 +74,9 @@ ms.locfileid: "37873587"
 有关服务总线限制和配额的列表，请参阅[服务总线配额概述][Quotas overview]。
 
 ### <a name="does-service-bus-have-any-usage-quotas"></a>服务总线是否有任何使用率配额？
-默认情况下，对于任何云服务，Microsoft 每月都会设置聚合的使用率配额，此配额基于客户的所有订阅进行计算。 如果你需要更多配额，可以随时联系客户服务，以便了解你的需求并相应地调整这些限制。 对于服务总线，总用量配额是每月 50 亿条消息。
+默认情况下，对于任何云服务，Azure 都会设置一个聚合的每月使用率配额，此配额基于客户的所有订阅进行计算。 如果你需要更多配额，可以随时联系客户服务，以便了解你的需求并相应地调整这些限制。 对于服务总线，总用量配额是每月 50 亿条消息。
 
-虽然 Microsoft 保留禁用在给定月份超过使用配额的客户帐户的权利，但仍然会在采取任何措施前发送电子邮件通知，并多次尝试与客户联系。 超过这些配额的客户仍需负责超出配额的费用。
+Azure 保留禁用在给定月份超过使用配额的客户帐户的权利，但仍然会在采取任何措施前发送电子邮件通知并多次尝试与客户联系。 超过这些配额的客户仍需负责超出配额的费用。
 
 至于 Azure 上的其他服务，服务总线会强制使用一组特定配额，以确保资源的公平使用。 可以在[服务总线配额概述][Quotas overview]中找到有关这些配额的更多详细信息。
 
@@ -93,7 +85,7 @@ ms.locfileid: "37873587"
 有关可能的服务总线异常的列表，请参阅[异常概述][Exceptions overview]。
 
 ### <a name="what-is-a-shared-access-signature-and-which-languages-support-generating-a-signature"></a>什么是共享访问签名？哪些语言支持生成签名？
-共享访问签名是基于 SHA–256 安全哈希或 URI 的身份验证机制。 有关如何在 Node、PHP、Java 和 C\# 中生成自有签名的信息，请参阅[共享访问签名][Shared Access Signatures]一文。
+共享访问签名是基于 SHA - 256 安全哈希或 URI 的身份验证机制。 有关如何在 Node、PHP、Java 和 C\# 中生成自有签名的信息，请参阅[共享访问签名][Shared Access Signatures]一文。
 
 ## <a name="subscription-and-namespace-management"></a>订阅和命名空间管理
 ### <a name="how-do-i-migrate-a-namespace-to-another-azure-subscription"></a>如何将命名空间迁移到另一个 Azure 订阅中？
@@ -111,7 +103,7 @@ ms.locfileid: "37873587"
 ```powershell
 # Create a new resource group in target subscription
 Select-AzureRmSubscription -SubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff'
-New-AzureRmResourceGroup -Name 'targetRG' -Location 'East US'
+New-AzureRmResourceGroup -Name 'targetRG' -Location 'China East'
 
 # Move namespace from source subscription to target subscription
 Select-AzureRmSubscription -SubscriptionId 'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa'
@@ -124,12 +116,11 @@ Move-AzureRmResource -DestinationResourceGroupName 'targetRG' -DestinationSubscr
 
 - [Azure 服务总线高级版简介（博客文章）](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
 - [服务总线概述](./service-bus-messaging-overview.md)
-- [Azure 服务总线体系结构概述](./service-bus-fundamentals-hybrid-solutions.md)
 - [服务总线队列入门](./service-bus-dotnet-get-started-with-queues.md)
 
 [Best practices for performance improvements using Service Bus]: ./service-bus-performance-improvements.md
 [Best practices for insulating applications against Service Bus outages and disasters]: ./service-bus-outages-disasters.md
-[Pricing overview]: https://www.azure.cn/pricing/details/messaging/
+[Pricing overview]: https://www.azure.cn/pricing/details/service-bus/
 [Quotas overview]: ./service-bus-quotas.md
 [Exceptions overview]: ./service-bus-messaging-exceptions.md
 [Shared Access Signatures]: ./service-bus-sas.md

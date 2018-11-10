@@ -1,41 +1,40 @@
 ---
-title: Azure Cosmos DB：使用 Node.js 和 SQL API 构建应用 | Azure
+title: Azure Cosmos DB：使用 JavaScript SDK 生成 Node.js 应用以管理 Azure Cosmos DB SQL API 数据 | Azure
 description: 演示了一个可以用来连接到 Azure Cosmos DB SQL API 并进行查询的 Node.js 代码示例
 services: cosmos-db
 author: rockboyfor
-manager: digimobile
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.custom: quick start connect, mvc
 ms.devlang: nodejs
 ms.topic: quickstart
-origin.date: 04/10/2018
-ms.date: 09/30/2018
+origin.date: 09/24/2018
+ms.date: 11/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 15eec8fe8ffb8ddd613f9d21533a088a565bf7b5
-ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
+ms.openlocfilehash: fdc364ed01932414a78baf9ae17601a5cb4f7c78
+ms.sourcegitcommit: c1020b13c8810d50b64e1f27718e9f25b5f9f043
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47201255"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50204803"
 ---
-# <a name="azure-cosmos-db-build-a-sql-api-app-with-nodejs-and-the-azure-portal"></a>Azure Cosmos DB：使用 Node.js 和 Azure 门户构建 SQL API 应用
+# <a name="azure-cosmos-db-build-a-nodejs-app-using-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Azure Cosmos DB：使用 JavaScript SDK 生成 Node.js 应用，用于管理 Azure Cosmos DB SQL API 数据
 
 > [!div class="op_single_selector"]
 > * [.NET](create-sql-api-dotnet.md)
 > * [Java](create-sql-api-java.md)
 > * [Node.js](create-sql-api-nodejs.md)
-> * [Node.js- v2](create-sql-api-nodejs-preview.md)
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
 >  
 
 Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务。 可快速创建和查询文档数据库，这些数据库受益于 Azure Cosmos DB 核心的多区域分布和水平缩放功能。 
+
 <!-- NOTICE: 全球分布 TO 多区域分布 -->
 <!-- NOTICE: globally TO multiple-region  -->
 <!-- Not Available on Graph databases -->
 
-本快速入门教程演示如何使用 Azure 门户创建 Azure Cosmos DB [SQL API](sql-api-introduction.md) 帐户、文档数据库和集合。 然后将构建并运行基于 [SQL Node.js API](sql-api-sdk-node.md) 构建的控制台应用。
+本快速入门演示如何使用 Azure 门户创建 Azure Cosmos DB [SQL API](sql-api-introduction.md) 帐户、文档数据库和容器， 然后生成并运行基于 [SQL JavaScript SDK](sql-api-sdk-node.md) 的控制台应用。 本快速入门使用 2.0 版的 [JavaScript SDK](https://www.npmjs.com/package/@azure/cosmos)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -43,7 +42,7 @@ Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 * 此外：
-    * [Node.js](https://nodejs.org/en/) 版本 v0.10.29 或更高版本
+    * [Node.js](https://nodejs.org/en/) v6.0.0 或更高版本
     * [Git](http://git-scm.com/)
 
 ## <a name="create-a-database-account"></a>创建数据库帐户
@@ -64,7 +63,7 @@ Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务
 
 ## <a name="clone-the-sample-application"></a>克隆示例应用程序
 
-现在，请克隆 GitHub 中的 SQL API 应用，设置连接字符串，并运行该应用。 你会看到以编程方式处理数据是多么容易。 
+现在，请克隆 GitHub 中的 SQL API 应用，设置连接字符串，然后运行该应用。
 
 1. 打开命令提示符，新建一个名为“git-samples”的文件夹，然后关闭命令提示符。
 
@@ -81,65 +80,61 @@ Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务
 3. 运行下列命令以克隆示例存储库。 此命令在计算机上创建示例应用程序的副本。
 
     ```bash
-    git clone https://github.com/Azure-Samples/azure-cosmos-db-documentdb-nodejs-getting-started.git
+    git clone https://github.com/Azure-Samples/azure-cosmos-db-sql-api-nodejs-getting-started.git
     ```
 
 ## <a name="review-the-code"></a>查看代码
 
 此步骤是可选的。 如果有意了解如何使用代码创建数据库资源，可以查看以下代码片段。 否则，可以直接跳转到[更新连接字符串](#update-your-connection-string)。 
 
-以下代码片段全部摘自 app.js 文件。
+注意，如果你熟悉旧版 JavaScript SDK，则可能习惯于看到术语“集合”和“文档”。 由于 Azure Cosmos DB 支持[多 API 模型](/cosmos-db/introduction#key-capabilities)，因此 2.0+ 版的 JavaScript SDK 使用通用术语“容器”（可能为集合），并使用“项”来描述容器的内容。
 
-* 对 `documentClient` 进行初始化。
+<!-- Not Available on graph, or table-->
+
+以下代码片段全部摘自 **app.js** 文件。
+
+* 对 `CosmosClient` 进行初始化。
 
     ```nodejs
-    var client = new documentClient(config.endpoint, { "masterKey": config.primaryKey });
+    const client = new CosmosClient({ endpoint: endpoint, auth: { masterKey: masterKey } });
     ```
 
 * 会创建一个新数据库。
 
     ```nodejs
-    client.createDatabase(config.database, (err, created) => {
-        if (err) reject(err)
-        else resolve(created);
-    });
+    const { database } = await client.databases.createIfNotExists({ id: databaseId });
     ```
 
-* 将创建一个新集合。
+* 将创建新容器（集合）。
 
     ```nodejs
-    client.createCollection(databaseUrl, config.collection, { offerThroughput: 400 }, (err, created) => {
-        if (err) reject(err)
-        else resolve(created);
-    });
+    const { container } = await client.database(databaseId).containers.createIfNotExists({ id: containerId });
     ```
 
-* 此时会创建一些文档。
+* 将创建新项（文档）。
 
     ```nodejs
-    client.createDocument(collectionUrl, document, (err, created) => {
-        if (err) reject(err)
-        else resolve(created);
-    });
+    const { item } = await client.database(databaseId).container(containerId).items.create(itemBody);
     ```
 
 * 对 JSON 执行 SQL 查询。
 
     ```nodejs
-    client.queryDocuments(
-        collectionUrl,
-        'SELECT VALUE r.children FROM root r WHERE r.lastName = "Andersen"'
-    ).toArray((err, results) => {
-        if (err) reject(err)
-        else {
-            for (var queryResult of results) {
-                let resultString = JSON.stringify(queryResult);
-                console.log(`\tQuery returned ${resultString}`);
+    const querySpec = {
+        query: "SELECT VALUE r.children FROM root r WHERE r.lastName = @lastName",
+        parameters: [
+            {
+                name: "@lastName",
+                value: "Andersen"
             }
-            console.log();
-            resolve(results);
-        }
-    });
+        ]
+    };
+
+    const { result: results } = await client.database(databaseId).container(containerId).items.query(querySpec).toArray();
+    for (var queryResult of results) {
+        let resultString = JSON.stringify(queryResult);
+        console.log(`\tQuery returned ${resultString}\n`);
+    }
     ```    
 
 ## <a name="update-your-connection-string"></a>更新连接字符串
@@ -158,7 +153,7 @@ Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务
 
 4. 然后从门户复制“主密钥”的值，并在 `config.js` 中将其设为 `config.primaryKey` 的值。 现已使用与 Azure Cosmos DB 进行通信所需的所有信息更新应用。 
 
-    `config.primaryKey "FILLME"`
+    `config.primaryKey = "FILLME"`
 
 ## <a name="run-the-app"></a>运行应用程序
 1. 在终端中运行 `npm install`，安装所需的 npm 模块
@@ -181,4 +176,5 @@ Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务
 
 > [!div class="nextstepaction"]
 > [将数据导入 Azure Cosmos DB](import-data.md)
-<!-- Update_Description: update meta properties, update link -->
+
+<!-- Update_Description: update meta properties, wording update, update link -->

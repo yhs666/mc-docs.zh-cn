@@ -4,20 +4,19 @@ description: 查看有关 Azure 文件的常见问题解答。
 services: storage
 author: WenJason
 ms.service: storage
-origin.date: 07/19/2018
-ms.date: 09/10/2018
+origin.date: 10/04/2018
+ms.date: 11/05/2018
 ms.author: v-jay
 ms.component: files
-ms.openlocfilehash: 82122732ba7fd8822e2b5ecab9577a770cb33e47
-ms.sourcegitcommit: e157751c560524d0bb828e987b87178130663547
+ms.openlocfilehash: 237ba0e1584f2ff66010c3be8b91090b2667ae82
+ms.sourcegitcommit: 7c750170ddefe7537663dfbadcc06bf27d94c586
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43651407"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50743555"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>有关 Azure 文件的常见问题解答 (FAQ)
 [Azure 文件](storage-files-introduction.md)在云端提供完全托管的文件共享，这些共享项可通过行业标准的[服务器消息块 (SMB) 协议](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)进行访问。 你可以在云或 Windows、Linux 和 macOS 的本地部署同时装载 Azure 文件共享。 另外，你也可以使用 Azure 文件同步在 Windows Server 计算机上缓存 Azure 文件共享，以在靠近使用数据的位置实现快速访问。
-
 
 ## <a name="general"></a>常规
 * <a id="why-files-useful"></a>
@@ -73,7 +72,7 @@ ms.locfileid: "43651407"
 ## <a name="security-authentication-and-access-control"></a>安全性、身份验证和访问控制
 * <a id="ad-support"></a>
 **Azure 文件是否支持基于 Active Directory 的身份验证和访问控制？**  
-    Azure 文件提供了两种方法来管理访问控制：
+    Azure 文件还提供了另外两种方法来管理访问控制：
 
     - 你可以使用共享访问签名 (SAS) 生成在指定时间间隔内有效的具有特定权限的令牌。 例如，可以生成在 10 分钟后到期、对特定文件具有只读访问权限的令牌。 只要拥有此有效令牌，就可以在 10 分钟内拥有对给定文件的只读访问权限。 目前，仅通过 REST API 或客户端库支持共享的访问签名密钥。 你必须使用存储帐户密钥通过 SMB 装载 Azure 文件共享。
 
@@ -82,31 +81,38 @@ ms.locfileid: "43651407"
 
 * <a id="encryption-at-rest"></a>
 **如何确保已静态加密 Azure 件共享？**  
+
     Azure 存储服务加密默认在所有区域启用。 对于这些区域，你无需执行任何操作来启用加密。 对其他区域，请参阅[服务器端加密](../common/storage-service-encryption.md?toc=%2fstorage%2ffiles%2ftoc.json)。
 
 * <a id="access-via-browser"></a>
 **如何使用 Web 浏览器提供对特定文件的访问权限？**  
+
     你可以使用共享访问签名生成在指定时间间隔内有效的、具有特定权限的令牌。 例如，可以生成一个在设定时段内对特定文件具有只读访问权限的令牌。 只要拥有此 URL，就可以在令牌有效期间，直接通过任意 Web 浏览器访问文件。 你可以从类似存储资源管理器的 UI 轻松生成共享的访问签名密钥。
 
 * <a id="file-level-permissions"></a>
 **能否对共享中的文件夹指定只读或只写权限？**  
+
     如果使用 SMB 装载文件共享，则不具有文件夹级的控制权限。 但是，如果使用 REST API 或客户端库创建共享访问签名，则可以在共享内的文件夹上指定只读或只写权限。
 
 * <a id="ip-restrictions"></a>
 **是否对 Azure 文件共享实现 IP 限制？**  
+
     是的。 可以在存储帐户级别对 Azure 文件共享的权限进行限制。 有关详细信息，请参阅[配置 Azure 存储防火墙和虚拟网络](../common/storage-network-security.md?toc=%2fstorage%2ffiles%2ftoc.json)。
 
 * <a id="data-compliance-policies"></a>
 **Azure 文件支持哪些数据符合性策略？**  
-   Azure 文件所依据的存储体系结构与 Azure 存储中的其他存储服务使用的相同。 Azure 文件实施的数据符合性策略也与其他 Azure 存储服务使用的相同。 有关 Azure 存储数据符合性的详细信息，可以下载并参阅 [Azure 数据保护文档](http://go.microsoft.com/fwlink/?LinkID=398382&clcid=0x409)，以及访问 [Azure 信任中心](https://www.azure.cn/support/trust-center/)。
+
+   Azure 文件所依据的存储体系结构与 Azure 存储中的其他存储服务使用的相同。 Azure 文件实施的数据符合性策略也与其他 Azure 存储服务使用的相同。 有关 Azure 存储数据符合性的详细信息，可以访问 [Azure 信任中心](https://www.azure.cn/support/trust-center/)。
 
 ## <a name="on-premises-access"></a>本地访问
 * <a id="expressroute-not-required"></a>
 **必须使用 Azure ExpressRoute 才能在本地连接到 Azure 文件或使用 Azure 文件同步吗？**  
+
     否。 ExpressRoute 不是访问 Azure 文件共享的必要条件。 如果要直接在本地装载 Azure 文件共享，则只需打开端口 445（TCP 出站）即可进行 Internet 访问（这是 SMB 用于进行通信的端口）。 如果正在使用 Azure 文件同步，则只需端口 443（TCP 出站）即可进行 HTTPS 访问（无需 SMB）。 但是，你可以将 ExpressRoute 与这些访问选项中任意一项一起使用。
 
 * <a id="mount-locally"></a>
 **如何才能在本地计算机上装载 Azure 文件共享？**  
+
     可以使用 SMB 协议装载文件共享，只要端口 445（TCP 出站）处于打开状态，且客户端支持 SMB 3.0 协议（例如，如果使用的是 Windows 10 或 Windows Server 2016）。 如果端口 445 被组织的策略或 ISP 阻止，则可使用 Azure 文件同步访问 Azure 文件共享。
 
 ## <a name="backup"></a>Backup
@@ -115,6 +121,7 @@ ms.locfileid: "43651407"
     可以使用定期[共享快照](storage-snapshots-files.md)来防止意外删除。 此外，也可以使用 AzCopy、RoboCopy 或能够备份已装载文件共享的第三方备份工具。 Azure 备份提供 Azure 文件的备份。 深入了解[通过 Azure 备份服务备份 Azure 文件共享](https://docs.microsoft.com/en-us/azure/backup/backup-azure-files)。
 
 ## <a name="share-snapshots"></a>共享快照
+
 ### <a name="share-snapshots-general"></a>共享快照：常规问题
 * <a id="what-are-snaphots"></a>
 **什么是文件共享快照？**  
@@ -135,6 +142,7 @@ ms.locfileid: "43651407"
 * <a id="snapshot-limits"></a>
 **对我可使用的共享快照数有限制吗？**  
     是的。 Azure 文件可以最多保留 200 张共享快照。 共享快照不计入共享配额，因此，对所有共享快照使用的总空间没有单独的共享限制。 存储帐户限制仍然适用。 在达到 200 个共享快照之后，必须删除旧的共享快照才可创建新的共享快照。
+
 * <a id="snapshot-cost"></a>
 **共享快照的费用是多少？**  
     快照按标准事务和标准存储收费。 快照在本质上是递增的。 基本快照即是共享本身。 所有的后续快照均是递增的，并且只会存储与之前快照的不同之处。 这意味着，如果工作负荷改动极小，则帐单上显示的增量更改也很小。 有关标准 Azure 文件的定价信息，请参阅[定价页](https://azure.microsoft.com/pricing/details/storage/files/)。 目前，查看共享快照已用大小的方法是比较计费的容量与使用的容量。 我们致力于开发改进报告的工具。
@@ -156,7 +164,7 @@ ms.locfileid: "43651407"
 ### <a name="manage-share-snapshots"></a>管理共享快照
 * <a id="browse-snapshots-linux"></a>
 **是否可以在 Linux 中浏览共享快照？**  
-    可以使用 Azure CLI 2.0 在 Linux 上创建、列出、浏览和还原共享快照。
+    可以使用 Azure CLI 在 Linux 中创建、列出、浏览和还原共享快照。
 
 * <a id="copy-snapshots-to-other-storage-account"></a>
 **是否可以将共享快照复制到不同的存储帐户？**  

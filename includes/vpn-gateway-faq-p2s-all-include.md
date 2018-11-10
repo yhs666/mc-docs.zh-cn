@@ -1,5 +1,5 @@
 ---
- title: include 文件 description: include 文件 services: vpn-gateway author: WenJason ms.service: vpn-gateway ms.topic: include origin.date: 07/30/2018 ms.date: 09/02/2018 ms.author: v-jay ms.custom: include file
+ title: include 文件 description: include 文件 services: vpn-gateway author: WenJason ms.service: vpn-gateway ms.topic: include origin.date: 07/30/2018 ms.date: 11/05/2018 ms.author: v-jay ms.custom: include file
 ---
 ### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>在我的点到站点配置中，可以有多少 VPN 客户端终结点？
 
@@ -16,8 +16,7 @@
 * Windows Server 2012 R2（仅 64 位）
 * Windows Server 2016（仅 64 位）
 * Windows 10
-* Mac OS X 版本 10.11 (El Capitan)
-* Mac OS X 版本 10.12 (Sierra)
+* Mac OS X 版本 10.11 或更高版本
 * Linux (StrongSwan)
 * iOS
 

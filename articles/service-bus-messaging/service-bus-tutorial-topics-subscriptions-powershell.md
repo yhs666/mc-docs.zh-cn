@@ -1,25 +1,25 @@
 ---
-title: 教程 - 通过 Azure PowerShell 使用发布/订阅频道和主题筛选器更新零售库存分类 | Microsoft Docs
+title: 教程 - 通过 Azure PowerShell 使用发布/订阅渠道和主题筛选器更新零售库存分类 | Azure
 description: 在本教程中，你将了解如何从主题和订阅发送和接收消息，以及如何使用 Azure PowerShell 添加和使用筛选器规则
 services: service-bus-messaging
-author: spelluru
-manager: timlt
-ms.author: v-yiso
-origin.date: 05/22/2018
-ms.date: 10/15/2018
+author: lingliw
+manager: digimobile
+ms.author: v-lingwu
+origin.date: 09/22/2018
+ms.date: 10/31/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 3f8a033537d360ec8e5fdb276c0d394e281bdb21
-ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
+ms.openlocfilehash: d6d843460dc7b280df2ef91e7db13f45ffcc0640
+ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455094"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50409339"
 ---
 # <a name="tutorial-update-inventory-using-powershell-and-topicssubscriptions"></a>教程：使用 PowerShell 和主题/订阅更新库存
 
-Microsoft Azure 服务总线是一种多租户云消息传送服务，可以在应用程序和服务之间发送信息。 异步操作可实现灵活的中转消息传送、结构化的先进先出 (FIFO) 消息传送以及发布/订阅功能。 
+Azure 服务总线是一种多租户云消息传送服务，可以在应用程序和服务之间发送信息。 异步操作可实现灵活的中转消息传送、结构化的先进先出 (FIFO) 消息传送以及发布/订阅功能。 
 
 本教程展示了如何使用 PowerShell 创建消息命名空间并在该命名空间中创建队列，以及如何获取该命名空间上的授权凭据，以便将消息发送到服务总线队列及从中接收消息。 然后该过程展示了如何使用 [.NET Standard 库](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus)从此队列发送和接收消息。
 
@@ -46,6 +46,7 @@ Microsoft Azure 服务总线是一种多租户云消息传送服务，可以在�
 
 本教程要求运行最新版本的 Azure PowerShell。 如需进行安装或升级，请参阅[安装和配置 Azure PowerShell][]。
 
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ## <a name="sign-in-to-azure"></a>登录 Azure
 
@@ -53,19 +54,19 @@ Microsoft Azure 服务总线是一种多租户云消息传送服务，可以在�
 
 1. 安装服务总线 PowerShell 模块：
 
-   ```azurepowershell
+   ```PowerShell
    Install-Module AzureRM.ServiceBus
    ```
 
 2. 运行以下命令来登录到 Azure：
 
-   ```azurepowershell
-   Login-AzureRmAccount -Environment AzureChinaCloud
+   ```PowerShell
+   Login-AzureRmAccount -EnvironmentName AzureChinaCloud
    ```
 
 4. 设置当前的订阅上下文，或者查看当前处于活动状态的订阅：
 
-   ```azurepowershell
+   ```PowerShell
    Select-AzureRmSubscription -SubscriptionName "MyAzureSubName" 
    Get-AzureRmContext
    ```
@@ -74,12 +75,12 @@ Microsoft Azure 服务总线是一种多租户云消息传送服务，可以在�
 
 登录到 Azure 后，发出以下命令来预配服务总线资源。 请务必将所有占位符替换为适当的值：
 
-```azurepowershell
+```PowerShell
 # Create a resource group 
-New-AzureRmResourceGroup –Name my-resourcegroup –Location chinaeast
+New-AzureRmResourceGroup -Name my-resourcegroup -Location chinanorth2
 
 # Create a Messaging namespace
-New-AzureRmServiceBusNamespace -ResourceGroupName my-resourcegroup -NamespaceName namespace-name -Location chinaeast
+New-AzureRmServiceBusNamespace -ResourceGroupName my-resourcegroup -NamespaceName namespace-name -Location chinanorth2
 
 # Create a queue 
 New-AzureRmServiceBusQueue -ResourceGroupName my-resourcegroup -NamespaceName namespace-name -Name queue-name -EnablePartitioning $False
@@ -108,7 +109,7 @@ Get-AzureRmServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespac
 
 4. 如果尚未这样做，请使用以下 PowerShell cmdlet 获取连接字符串。 请务必将 `my-resourcegroup` 和 `namespace-name` 替换为具体值： 
 
-   ```azurepowershell
+   ```PowerShell
    Get-AzureRmServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespace-name -Name RootManageSharedAccessKey
    ```
 5. 在 PowerShell 提示符下，键入以下命令：
@@ -130,7 +131,7 @@ Get-AzureRmServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespac
 
 运行以下命令来删除资源组、命名空间和所有相关资源：
 
-```powershell
+```PowerShell
 Remove-AzureRmResourceGroup -Name my-resourcegroup
 ```
 
@@ -285,5 +286,5 @@ static async Task ProcessMessagesAsync(Message message, CancellationToken token)
 > [!div class="nextstepaction"]
 > [使用 PowerShell 和主题/订阅更新库存](service-bus-tutorial-topics-subscriptions-cli.md)
 
-[试用帐户]: https://www.azure.cn/pricing/1rmb-trial
-[安装和配置 Azure PowerShell]: https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps
+[试用帐户]: https://www.azure.cn/pricing/1rmb-trial/
+[安装和配置 Azure PowerShell]: https://docs.microsoft.com/powershell/azure/install-azurerm-ps

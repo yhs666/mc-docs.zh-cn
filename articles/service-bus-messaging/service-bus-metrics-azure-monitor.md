@@ -1,26 +1,21 @@
 ---
-title: Azure Monitor 中的 Azure 服务总线指标（预览版）
+title: Azure Monitor 中的 Azure 服务总线指标（预览版）| Azure
 description: 使用 Azure 监视来监视服务总线实体
-services: service-bus
+services: service-bus-messaging
 documentationcenter: .NET
-author: spelluru
-manager: timlt
-editor: ''
-ms.assetid: ''
-ms.service: service-bus
-ms.devlang: na
+author: lingliw
+manager: digimobile
+ms.service: service-bus-messaging
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-origin.date: 05/31/2018
-ms.date: 10/15/2018
-ms.author: v-yiso
-ms.openlocfilehash: 08075fcf72316b619c2028e8487ce3a6fd9ebd6e
-ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
+origin.date: 09/24/2018
+ms.date: 10/31/2018
+ms.author: v-lingwu
+ms.openlocfilehash: 6c0bc855a20bd3f107751fec9af6d562e95e7488
+ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455275"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50409351"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Azure Monitor 中的 Azure 服务总线指标（预览版）
 
@@ -43,7 +38,7 @@ Azure Monitor 提供多种访问指标的方法。 可通过 [Azure 门户](http
 
 ![][1]
 
-也可以直接通过命名空间来访问指标。 为此，请选择命名空间，然后单击“指标（预览版）”。 若要显示筛选到实体范围的指标，请选择实体，然后单击“指标（预览版）”。
+也可以直接通过命名空间来访问指标。 为此，请选择命名空间，然后单击“指标(预览版)”。 若要显示筛选到实体范围的指标，请选择实体，然后单击“指标（预览版）”。
 
 ![][2]
 

@@ -1,26 +1,26 @@
 ---
-title: 快速入门 - 向/从 Azure 服务总线发送和接收消息 | Microsoft Docs
+title: 快速入门 - 通过 Azure 服务总线发送和接收消息 | Azure
 description: 此快速入门介绍如何使用 PowerShell 和 .NET Standard 客户端发送和接收服务总线消息
 services: service-bus-messaging
-author: sethmanheim
-manager: timlt
+author: lingliw
+manager: digimobile
 ms.service: service-bus-messaging
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
-orign.date: 05/22/2018
-ms.date: 07/16/2018
-ms.author: v-yiso
-ms.openlocfilehash: 14102577278404677e39e6428e53da314a7739a5
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+origin.date: 09/22/2018
+ms.date: 10/31/2018
+ms.author: v-lingwu
+ms.openlocfilehash: fc7f91f4994c65ddf527cfe3d65d45044015efde
+ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873758"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50409308"
 ---
 # <a name="quickstart-send-and-receive-messages-using-azure-powershell-and-net"></a>快速入门：使用 Azure PowerShell 和 .NET 发送和接收消息
 
-Microsoft Azure 服务总线是一种提供安全消息传递和绝对可靠性的企业集成消息中转站。 典型的服务总线方案通常涉及将两个或更多应用程序、服务或进程彼此解耦以及传输状态或数据更改。 此类方案可能涉及在其他应用程序或服务中计划多个批处理作业，或触发订单履行。 例如，零售公司可能会将其销售点数据发送到后端办公系统或区域配送中心，以便进行补货和库存更新。 在这种情况下，客户端应用会将消息发送到服务总线队列并从中接收消息。
+Azure 服务总线是一种提供安全消息传送和绝对可靠性的企业集成消息中转站。 典型的服务总线方案通常涉及将两个或更多应用程序、服务或进程彼此解耦以及传输状态或数据更改。 此类方案可能涉及在其他应用程序或服务中计划多个批处理作业，或触发订单履行。 例如，零售公司可能会将其销售点数据发送到后端办公系统或区域配送中心，以便进行补货和库存更新。 在这种情况下，客户端应用会将消息发送到服务总线队列并从中接收消息。
 
 ![队列](./media/service-bus-quickstart-powershell/quick-start-queue.png)
 
@@ -41,19 +41,19 @@ Microsoft Azure 服务总线是一种提供安全消息传递和绝对可靠性�
 
 1. 首先，如果尚未安装服务总线 PowerShell 模块，请安装：
 
-   ```azurepowershell
+   ```PowerShell
    Install-Module AzureRM.ServiceBus
    ```
 
 2. 运行以下命令以登录到 Azure：
 
-   ```azurepowershell
-   Login-AzureRmAccount
+   ```PowerShell
+   Login-AzureRmAccount -EnvironmentName AzureChinaCloud
    ```
 
 3. 发出以下命令来设置当前的订阅上下文，或者查看当前活动的订阅：
 
-   ```azurepowershell
+   ```PowerShell
    Select-AzureRmSubscription -SubscriptionName "MyAzureSubName" 
    Get-AzureRmContext
    ```
@@ -62,12 +62,12 @@ Microsoft Azure 服务总线是一种提供安全消息传递和绝对可靠性�
 
 在 PowerShell 提示符下，发出以下命令以预配服务总线资源。 请务必将所有占位符替换为适当的值：
 
-```azurepowershell
+```PowerShell
 # Create a resource group 
-New-AzureRmResourceGroup –Name my-resourcegroup –Location eastus
+New-AzureRmResourceGroup -Name my-resourcegroup -Location chinaeast
 
 # Create a Messaging namespace
-New-AzureRmServiceBusNamespace -ResourceGroupName my-resourcegroup -NamespaceName namespace-name -Location eastus
+New-AzureRmServiceBusNamespace -ResourceGroupName my-resourcegroup -NamespaceName namespace-name -Location chinaeast
 
 # Create a queue 
 New-AzureRmServiceBusQueue -ResourceGroupName my-resourcegroup -NamespaceName namespace-name -Name queue-name -EnablePartitioning $False
@@ -92,21 +92,21 @@ Get-AzureRmServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespac
 
 3. 导航到示例文件夹 `azure-service-bus\samples\DotNet\GettingStarted\BasicSendReceiveQuickStart\BasicSendReceiveQuickStart`。
 
-4. 如果尚未这样做，请使用以下 PowerShell cmdlet 获取连接字符串。 请务必将 `my-resourcegroup` 和 `namespace-name` 替换为具体值： 
+4. 请使用以下 PowerShell cmdlet 获取连接字符串（如果尚未这样做）。 请务必将 `my-resourcegroup` 和 `namespace-name` 替换为具体值： 
 
-   ```azurepowershell
-   Get-AzureRmServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespace-name -Name RootManageSharedAccessKey
+   ```PowerShell
+   Get-AzureRmServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespace-name -Name RootManageSharedAccessKey
    ```
 
-5. 在 PowerShell 提示符下，键入以下命令：
+5.  在 PowerShell 提示符下，键入以下命令：
 
    ```shell
    dotnet build
    ```
 
-6. 导航到 `bin\Debug\netcoreapp2.0` 文件夹。
+6.  导航到 `bin\Debug\netcoreapp2.0` 文件夹。
 
-7. 键入以下命令以运行程序。 请务必将 `myConnectionString` 替换为先前获取的值，将 `myQueueName` 替换为所创建队列的名称：
+7.  键入以下命令以运行程序。 请务必将 `myConnectionString` 替换为先前获取的值，将 `myQueueName` 替换为所创建队列的名称：
 
    ```shell
    dotnet BasicSendReceiveQuickStart.dll -ConnectionString "myConnectionString" -QueueName "myQueueName"
@@ -120,7 +120,7 @@ Get-AzureRmServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespac
 
 运行以下命令来删除资源组、命名空间和所有相关资源：
 
-```powershell
+```PowerShell
 Remove-AzureRmResourceGroup -Name my-resourcegroup
 ```
 

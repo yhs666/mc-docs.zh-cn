@@ -1,0 +1,99 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 9a3584177886453ae66096d817cf6844d91a2886
+ms.sourcegitcommit: b8e99939a5493a15b78c32e87bfbf76a8c96a84a
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50409145"
+documentType: LandingData
+title: 计算机视觉 API 文档
+metadata:
+  title: 计算机视觉 API 文档 - 快速入门、教程和 API 参考 - Azure 认知服务 | Microsoft Docs
+  description: 了解如何使用计算机视觉处理图像并返回信息。 教程介绍了如何构建使用该 API 的应用。
+  services: cognitive-services
+  author: nitinme
+  manager: cgronlun
+  ms.service: cognitive-services
+  ms.component: computer-vision
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+origin.date: 09/24/2018
+ms.date: 10/30/2018
+ms.author: v-junlch
+abstract:
+  description: 使用基于云的计算机视觉 API，开发人员可以访问用于处理图像并返回信息的高级算法。 通过上传图像或指定图像 URL，Microsoft 计算机视觉算法可以基于输入和用户选择以不同方式分析可视内容。 使用快速入门、教程和示例，了解如何以不同的方式分析可视内容。
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: ../media/index/computer-vision-landing-page-video.png
+      width: 250
+    title: 使用视觉 API 在应用中注入智能 (05:41)
+    href: https://azure.microsoft.com/resources/videos/connect-2017-microsoft-cognitive-services-put-intelligence-into-your-business-apps/
+    width: 250
+sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: /cognitive-services/computer-vision/home
+      html: <p>了解计算机视觉 API。</p>
+      image:
+        src: ../media/index/i_overview.svg
+      title: 什么是计算机视觉？
+    - href: /cognitive-services/computer-vision/vision-api-how-to-topics/howtosubscribe
+      html: <p>了解如何获取计算机视觉 API 的订阅密钥。</p>
+      image:
+        src: ../media/index/i_tasks.svg
+      title: 计算机视觉 API 的订阅密钥
+    - href: /cognitive-services/computer-vision/vision-api-how-to-topics/howtocallvisionapi
+      html: <p>了解有关计算机视觉 API 调用的基础知识。</p>
+      image:
+        src: ../media/index/i_tasks.svg
+      title: 调用计算机视觉 API
+- title: 5 分钟快速入门
+  items:
+  - type: paragraph
+    text: 使用以下语言分析图像、生成缩略图，以及从图像中提取文本：
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: media/index/logo_java.svg
+      text: Java
+      href: QuickStarts/Java.md
+    - image:
+        src: media/index/logo_nodejs.svg
+      text: Node.js
+      href: QuickStarts/JavaScript.md
+    - image:
+        src: media/index/logo_python.svg
+      text: Python
+      href: QuickStarts/Python.md
+- title: 分步教程
+  items:
+  - type: paragraph
+    text: 了解如何使用计算机视觉开发应用程序：
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="Tutorials/java-tutorial.md">Java 教程</a>
+    - html: <a href="Tutorials/javascript-tutorial.md">JavaScript 教程</a>
+    - html: <a href="Tutorials/PythonTutorial.md">Python 教程</a>
+- title: 参考
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: API
+      html: <p><a href="https://dev.cognitive.azure.cn/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa">计算机视觉 API v1.0</a></p>
+    - title: SDK
+      html: <p><a href="https://github.com/Microsoft/Cognitive-vision-windows">Windows</a></p> <p><a href="https://docs.microsoft.com/javascript/api/overview/azure/cognitive-services?view=azure-node-latest#vision-modules">Node.js</a></p> <p><a href="https://docs.microsoft.com/python/api/overview/azure/cognitive-services?view=azure-python#vision-modules">Python</a></p> <p><a href="https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.0/computervision">Go</a></p> <p><a href="https://github.com/Microsoft/Cognitive-vision-android">Android</a></p> <p><a href="https://github.com/DanilaVladi/Microsoft-Cognitive-Services-Swift-SDK">Swift</a></p>
+    - title: PowerShell
+      html: <p><a href="https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/?view=azurermps-4.4.1#cognitive_services">Azure PowerShell</a></p>
+    - title: CLI
+      html: <p><a href="/cli/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list">Azure CLI</a></p>

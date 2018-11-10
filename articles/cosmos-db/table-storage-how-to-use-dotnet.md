@@ -1,5 +1,5 @@
 ---
-title: 通过 .NET 开始使用 Azure 表存储 | Azure
+title: 通过 .NET 开始使用 Azure 表存储和 Azure Cosmos DB 表 API | Azure
 description: 使用 Azure 表存储将结构化数据存储在云中。
 services: cosmos-db
 author: rockboyfor
@@ -9,14 +9,14 @@ ms.component: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
 origin.date: 08/17/2018
-ms.date: 09/30/2018
+ms.date: 11/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 592acde55ea0e8c1da9ae412ac965412c9513786
-ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
+ms.openlocfilehash: d0e34c238add52ad54b568adc1ee64564f526e6c
+ms.sourcegitcommit: c1020b13c8810d50b64e1f27718e9f25b5f9f043
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47201451"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50204844"
 ---
 # <a name="get-started-with-azure-table-storage-using-net"></a>通过 .NET 开始使用 Azure 表存储
 <!--Not Available on Azure Cosmos DB Table API -->
@@ -82,6 +82,7 @@ ms.locfileid: "47201451"
 * [适用于 .NET 的 Azure 存储通用库（预览版）](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common)。 - 使用小于或等于 9.0.0.1 (<= 9.0.0.1) 的版本。
 
 * [用于 .NET 的 Azure Cosmos DB 表库](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table)。 使用此包能够以编程方式访问 Azure 表存储帐户中的数据资源。 此库目前仅适用于 .NET Standard，尚不可用于 .NET Core。
+
 <!--Not Available on or Azure Cosmos DB Table API account.-->
 * [适用于 .NET 的 Azure Configuration Manager 库](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)：此包提供用于分析配置文件中连接字符串的类，而不考虑应用程序在何处运行。
 
@@ -106,6 +107,7 @@ ms.locfileid: "47201451"
 可从两个环境中选择用于运行本指南中示例的环境：
 
 * 可针对云中的 Azure 存储帐户运行代码。 
+
 <!-- Not Available on * You can run your code against an Azure Cosmos DB account in the cloud. -->
 * 可针对 Azure 存储模拟器运行代码。 存储模拟器是模拟云中 Azure 存储帐户的本地环境。 应用程序处于开发阶段时，可以选择使用模拟器免费测试和调试代码。 模拟器使用已知帐户和密钥。 有关详细信息，请参阅[使用 Azure 存储模拟器进行开发和测试](../storage/common/storage-use-emulator.md)。
 
@@ -125,7 +127,6 @@ ms.locfileid: "47201451"
 
 > [!NOTE]
 > 帐户密钥类似于存储帐户的 root 密码。 始终要小心保护存储帐户密钥。 避免将其分发给其他用户、对其进行硬编码或将其保存在其他人可以访问的纯文本文件中。 如果认为密钥可能已泄漏，请使用 Azure 门户重新生成密钥。
-> 
 > 
 
 若要配置连接字符串，请从 Visual Studio 中的解决方案资源管理器打开 `app.config` 文件。 添加 `<appSettings>` 元素的内容，如下所示。 请将 `account-name` 替换为帐户名称，将 `account-key` 替换为帐户访问密钥。

@@ -7,42 +7,34 @@ manager: digimobile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 06/26/2018
-ms.date: 09/30/2018
+origin.date: 10/02/2018
+ms.date: 11/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: 92ef60a693f563447137dda1cfa360d5fd9da895
-ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
+ms.openlocfilehash: 5d85c4284fb0aec21cb140173d15840fe524166b
+ms.sourcegitcommit: c1020b13c8810d50b64e1f27718e9f25b5f9f043
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47201348"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50204839"
 ---
-# <a name="request-units-in-azure-cosmos-db"></a>Azure Cosmos DB 中的请求单位数
+# <a name="throughput-and-request-units-in-azure-cosmos-db"></a>Azure Cosmos DB 中的吞吐量和请求单位
 
-[Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) 是世纪互联的多区域分布式多模型数据库。 使用 Azure Cosmos DB，无需租用虚拟机、部署软件或监视数据库。 Azure Cosmos DB 由我们的顶级工程师负责运营和持续监视，可以提供一流的可用性、性能和数据保护。 可以使用自己选择的 API 访问数据，例如 [SQL](documentdb-introduction.md)、[MongoDB](mongodb-introduction.md)。 这两种 API 原生均受支持。
-<!-- Not Available on Graph -->
-<!-- Notice: 全球 to 多个区域 -->
-<!-- Not Available on [Table API](table-introduction.md) -->
+Azure Cosmos DB 资源根据预配的吞吐量和存储进行计费。 Azure Cosmos DB 吞吐量是以**每秒请求单位数（RU/秒）** 表示的。 Azure Cosmos DB 支持具有不同操作（范围从简单读取和写入到复杂查询等）的各种 API。 每个请求根据为请求提供服务所需的计算量使用请求单位。 操作的请求单位数是确定性的。 可以使用响应标头来跟踪 Azure Cosmos DB 中的任何操作使用的请求单位数。 若要提供可预测的性能，应当预留以 100 RU/秒为单位的吞吐量。 可以使用 Azure Cosmos DB [请求单位计算器](https://www.documentdb.com/capacityplanner)来估计吞吐量需求。
 
-Azure Cosmos DB 的货币是*请求单位 (RU)*。 借助请求单位，无需保留读取/写入容量或预配 CPU、内存和 IOPS。 Azure Cosmos DB 支持具有不同操作（范围从简单读取和写入到复杂查询等）的各种 API。 并非所有请求都是相同的，因此系统会根据请求所需的计算量为它们分配规范化数量的请求单位。 操作的请求单位数是确定性的。 可以通过响应标头跟踪 Azure Cosmos DB 中的任何操作消耗的请求单位数。 
-<!-- Notice: 全球 to 多个区域 -->
-<!-- Notice: Not Avaiable on Graph -->
+<!-- Not Available on Graph --> 在 Azure Cosmos DB 中，可以在两个粒度级别预配吞吐量： 
 
-若要提供可预测的性能，需要以 100 RU/秒为单位保留吞吐量。 可以使用 Azure Cosmos DB [请求单位计算器](https://www.documentdb.com/capacityplanner)来[估计吞吐量需求](request-units.md#estimating-throughput-needs)。
+1. **Azure Cosmos DB 容器：** 为某个容器预配的吞吐量将仅预留给该特定的容器使用。 在容器级别分配吞吐量（RU/秒）时，可以将容器创建为**固定**或**无限制**模式。 
 
-![吞吐量计算器][5]
-<!-- Notice: The URL is suit for Mooncake [request unit calculator](https://www.documentdb.com/capacityplanner)-->
+    固定大小的容器的最大吞吐量限制为 10,000 RU/秒，存储限制为 10 GB。 若要创建无限制容器，必须指定最低 1,000 RU/秒的吞吐量和一个[分区键](partition-data.md)。 由于数据可能跨多个分区拆分，因此必须选择一个基数较高（一百到几百万个非重复值）的分区键。 通过选择具有大量非重复值的分区键，Azure Cosmos DB 可以确保统一地缩放对集合、表和图形的请求。 
 
-阅读本文后，可以回答以下问题：
+2. **Azure Cosmos DB 数据库：** 为某个数据库预配的吞吐量由该数据库内的所有容器共享。 在数据库级别预配吞吐量时，可以选择显式排除某些容器，并改为在容器级别为这些容器预配吞吐量。 数据库级吞吐量要求所有集合都使用分区键进行创建。 在数据库级别分配吞吐量时，属于此数据库的容器应当使用分区键进行创建，因为每个集合都是一个**无限制的**容器。  
 
-* Azure Cosmos DB 中的请求单位和请求费用是什么？
-* 如何在 Azure Cosmos DB 中指定一个或一组容器的请求单位容量？
-* 如何评估应用程序的请求单位需求？
-* 如何在 Azure Cosmos DB 中指定一个或一组容器的请求单位容量？
+    Azure Cosmos DB 会根据预配的吞吐量分配物理分区，以便托管容器并随着数据的增长在各个分区之间拆分数据。 下图说明了不同级别的预配吞吐量：
 
-由于 Azure Cosmos DB 是多模型数据库，因此请务必注意，本文针对 Azure Cosmos DB 中的所有数据模型和 API。 本文使用“容器”等通用术语来泛指集合，使用“项”来泛指文档、节点或实体。
-<!-- Not Available on Graph API-->
-<!-- Not Available on Table API-->
+    ![预配一个容器和一组容器的请求单位数](./media/request-units/provisioning_set_containers.png)
+
+    > [!NOTE] 
+    > 在容器级别预配吞吐量与在数据库级别预配吞吐量是不同的套餐，在这两者之间切换需要将数据从源迁移到目标。 这意味着你需要创建新数据库或新集合，然后使用[批量执行程序库](bulk-executor-overview.md)或 [Azure 数据工厂](../data-factory/connector-azure-cosmos-db.md)迁移数据。
 
 ## <a name="request-units-and-request-charges"></a>请求单位和请求费用
 
