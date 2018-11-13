@@ -14,16 +14,16 @@ origin.date: 07/24/2018
 ms.date: 08/27/2018
 ms.author: v-jay
 ms.reviewer: johnhas
-ms.openlocfilehash: d4707d41e9e6002c735af333b87ec2dd430febea
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.openlocfilehash: 2c13b4cd7c58ed4e216545d191e1fefd177d5c44
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869704"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195389"
 ---
 # <a name="monitor-a-test-with-azure-stack-validation-as-a-service"></a>使用 Azure Stack 验证即服务监视测试
 
-[!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
+[!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 可以通过查看正在进行的或已完成的测试套件的“操作”页面来监视测试的执行。 该页详细说明了测试的状态及其操作。
 
@@ -39,7 +39,7 @@ ms.locfileid: "42869704"
 
 5. 选择“查看操作”。
 
-![替代文本](media\image4.png)
+![Alt text](media\image4.png)
 
 对于已完成运行的测试，可以从测试摘要页面通过单击测试的上下文菜单 **[...]** 中的“下载日志”来下载日志。Azure Stack 合作伙伴可以使用这些日志来调试失败测试的问题。
 
@@ -59,8 +59,8 @@ ms.locfileid: "42869704"
 | 列 | 说明 |
 | --- | --- |
 | 测试名称 | 测试的名称。 引用验证编号。 |
-| 创建时间 | 测试轮次的创建时间。 |
-| 启动时间 | 测试轮次开始运行的时间。 |
+| 已创建 | 测试轮次的创建时间。 |
+| 已启动 | 测试轮次开始运行的时间。 |
 | 持续时间 | 运行测试轮次花费的时间长度。 |
 | 状态 | 测试轮次的结果（成功或失败）。 |
 | 代理名称 | 代理的完全限定域名。 |
@@ -92,7 +92,7 @@ ms.locfileid: "42869704"
 
 **测试信息**
 
-| 名称 | 说明 |
+| Name | 说明 |
 | -- | -- |
 | 测试名称 | 测试的名称，例如“OEM Update on Azure Stack 1806 RC Validation”。 |
 | 测试版本 | 测试的版本，例如 5.1.4.0。 |

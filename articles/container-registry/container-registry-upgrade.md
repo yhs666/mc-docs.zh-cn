@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-registry
 ms.topic: article
 origin.date: 08/28/2018
-ms.date: 09/30/2018
+ms.date: 11/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: c9602de13f1ba50319f46ce91faaa11d15f44c5b
-ms.sourcegitcommit: 646d5cc64acaa91696537d09858b989336ebd3c3
+ms.openlocfilehash: b1a5f53dab362f2826eaeace6ca3d4f3f46ab10d
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49451557"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195396"
 ---
 # <a name="upgrade-a-classic-container-registry"></a>升级经典容器注册表
 
@@ -33,6 +33,7 @@ Azure 容器注册表 (ACR) 分为多个服务层（[称为“SKU”](container-
 * 映像和标记删除支持
 
 <!--Not Available on * [Geo-replication](container-registry-geo-replication.md)-->
+
 * [Webhook](container-registry-webhook.md)
 
 经典注册表依赖 Azure 在你创建注册表时在 Azure 订阅中自动预配的存储帐户。 相比之下，基本、标准和高级 SKU 通过以透明方式处理映像的存储来利用 Azure 的[高级存储功能](container-registry-storage.md)。 不在自己的订阅中创建单独的存储帐户。
@@ -134,4 +135,5 @@ az acr update --name myclassicregistry --sku Premium
 [az-acr-update]: https://docs.azure.cn/zh-cn/cli/acr?view=azure-cli-latest#az-acr-update
 [azure-cli]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
 [azure-portal]: https://portal.azure.cn
+
 <!-- Update_Description: wording update, update meta properties -->

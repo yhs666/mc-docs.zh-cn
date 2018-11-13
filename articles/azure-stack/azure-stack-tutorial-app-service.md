@@ -3,8 +3,8 @@ title: 将 Web 和 API 应用提供给 Azure Stack 用户使用 | Microsoft Docs
 description: 有关安装应用服务资源提供程序并创建套餐，使 Azure Stack 用户能够创建 Web 和 API 应用的教程。
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-origin.date: 06/05/2018
-ms.date: 06/27/2018
-ms.author: v-junlch
+origin.date: 10/15/2018
+ms.date: 11/12/2018
+ms.author: v-jay
 ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: 2133a2599df4cba2f558cefd7bd79ec0c01ad0ef
-ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
+ms.openlocfilehash: 83f0a0253ecee4afd07d7b60015ac7bccf9b9b80
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48848795"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195345"
 ---
 # <a name="tutorial-make-web-and-api-apps-available-to-your-azure-stack-users"></a>教程：将 Web 和 API 应用提供给 Azure Stack 用户使用
 

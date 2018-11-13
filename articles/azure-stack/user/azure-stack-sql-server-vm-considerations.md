@@ -3,8 +3,8 @@ title: Azure Stack 虚拟机中 SQL Server 的性能最佳做法
 description: 提供在 Azure Stack 虚拟机中进行 SQL Server 性能优化的最佳做法。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/31/2018
-ms.date: 06/27/2018
-ms.author: v-junlch
+origin.date: 09/28/2018
+ms.date: 11/12/2018
+ms.author: v-jay
 ms.reviewer: anajod
-ms.openlocfilehash: c34502afa8742ec22fcf618235eabac8753af36d
-ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
+ms.openlocfilehash: d973d85d9aa4d07781d9a300c5e4729907e8bba6
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37027278"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195458"
 ---
 # <a name="optimize-sql-server-performance"></a>优化 SQL Server 性能
 
@@ -99,8 +99,8 @@ Azure Stack 虚拟机上有三种主要磁盘类型：
 
 - **将数据磁盘用于数据和日志文件。** 如果不使用磁盘条带化，请使用支持高级存储的虚拟机中的两个数据磁盘，一个磁盘包含日志文件，另一个包含数据和 TempDB 文件。 每个数据磁盘均提供可观的 IOPS 和带宽（MB/秒），具体取决于虚拟机系列，如 [Azure Stack 中支持的虚拟机大小](/azure-stack/user/azure-stack-vm-sizes)中所述。 如果使用磁盘条带化方法（例如存储空间），请将所有数据文件和日志文件（包括 TempDB）放在同一驱动器上。 此配置可以为你提供最大数目的 IOPS 供 SQL Server 使用，不管哪个文件在特定时刻需要它们。
 
-    > [!NOTE]  
-    > 在门户中预配 SQL Server 虚拟机时，可以编辑存储配置。 Azure Stack 根据配置来配置一个或多个磁盘。 多个磁盘会组合成一个存储池。 数据文件和日志文件一起位于此配置中。
+> [!NOTE]  
+> 在门户中预配 SQL Server 虚拟机时，可以编辑存储配置。 Azure Stack 根据配置来配置一个或多个磁盘。 多个磁盘会组合成一个存储池。 数据文件和日志文件一起位于此配置中。
 
 - **磁盘条带化：** 为提高吞吐量，可以添加更多的数据磁盘，并使用磁盘条带化。 若要确定所需数据磁盘数，请分析日志文件以及数据和 TempDB 文件所需的 IOPS 数和带宽。 请注意，IOPS 限制是按数据磁盘来设置的，取决于虚拟机系列而不是虚拟机大小。 但是，网络带宽限制取决于虚拟机大小。 请参阅 [Azure Stack 中的虚拟机大小](/azure-stack/user/azure-stack-vm-sizes)中的表，了解更多详细信息。 遵循以下指南：
 
@@ -112,12 +112,12 @@ Azure Stack 虚拟机上有三种主要磁盘类型：
 
             例如，以下 PowerShell 创建新的存储池时将交错大小设为 64 KB，将列数设为 2：
 
-            ```PowerShell  
-            $PoolCount = Get-PhysicalDisk -CanPool $True
-            $PhysicalDisks = Get-PhysicalDisk | Where-Object {$_.FriendlyName -like "*2" -or $_.FriendlyName -like "*3"}
+          ```PowerShell  
+          $PoolCount = Get-PhysicalDisk -CanPool $True
+          $PhysicalDisks = Get-PhysicalDisk | Where-Object {$_.FriendlyName -like "*2" -or $_.FriendlyName -like "*3"}
 
-            New-StoragePool -FriendlyName "DataFiles" -StorageSubsystemFriendlyName "Storage Spaces*" -PhysicalDisks $PhysicalDisks | New-VirtualDisk -FriendlyName "DataFiles" -Interleave 65536 -NumberOfColumns 2 -ResiliencySettingName simple -UseMaximumSize |Initialize-Disk -PartitionStyle GPT -PassThru |New-Partition -AssignDriveLetter -UseMaximumSize |Format-Volume -FileSystem NTFS -NewFileSystemLabel "DataDisks"  -AllocationUnitSize 65536 -Confirm:$false
-            ```
+          New-StoragePool -FriendlyName "DataFiles" -StorageSubsystemFriendlyName "Storage Spaces*" -PhysicalDisks $PhysicalDisks | New-VirtualDisk -FriendlyName "DataFiles" -Interleave 65536 -NumberOfColumns 2 -ResiliencySettingName simple –UseMaximumSize |Initialize-Disk -PartitionStyle GPT -PassThru |New-Partition -AssignDriveLetter -UseMaximumSize |Format-Volume -FileSystem NTFS -NewFileSystemLabel "DataDisks" -AllocationUnitSize 65536 -Confirm:$false
+          ```
 
 - 根据负载预期确定与你的存储池相关联的磁盘数。 请记住，不同的虚拟机大小允许不同数量的附加数据磁盘。 有关详细信息，请参阅 [Azure Stack 中支持的虚拟机大小](/azure-stack/user/azure-stack-vm-sizes)。
 - 若要获取针对数据磁盘的最大可能 IOPS，建议添加[虚拟机大小](/azure-stack/user/azure-stack-vm-sizes)支持的最大数量的数据磁盘并使用磁盘条带化。
@@ -162,4 +162,3 @@ Azure Stack 虚拟机上有三种主要磁盘类型：
 ## <a name="next-steps"></a>后续步骤
 
 [使用 Azure Stack 的服务或开发适用于 Azure Stack 的应用](azure-stack-considerations.md)
-

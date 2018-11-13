@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/10/2018
-ms.date: 10/15/2018
+ms.date: 11/12/2018
 ms.author: v-jay
-ms.openlocfilehash: a7ac55be0da11de3d22374ab9627e8f19b179181
-ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
+ms.openlocfilehash: 01b639f63170a2164ac1acbfacd912f2fd308d0e
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48848733"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195547"
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>在 Azure Stack 中管理更新概述
 
@@ -47,6 +47,13 @@ Azure Stack 包含协调 Azure 软件更新应用程序的更新资源提供程�
 
 我们强烈建议你向用户通知任何维护操作，并尽可能将正常维护时段安排在非工作时间。 维护操作可能会同时影响租户工作负荷和门户操作。
 
+
+- 在开始安装此更新之前，请使用以下参数运行 [Test-AzureStack](azure-stack-diagnostic-test.md)，以验证 Azure Stack 的状态并解决发现的所有操作问题，包括所有警告和故障。 另外，请查看活动警报，并解决所有需要采取措施的警报。  
+
+  ```PowerShell
+  Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary
+  ``` 
+
 ## <a name="using-the-update-tile-to-manage-updates"></a>使用“更新”磁贴管理更新
 从管理员门户中管理更新。 Azure Stack 操作员可以使用仪表板中的“更新”磁贴执行以下操作：
 
@@ -68,7 +75,6 @@ Azure Stack 包含协调 Azure 软件更新应用程序的更新资源提供程�
 
 - [Azure Stack 服务策略](azure-stack-servicing-policy.md) 
 - [Azure Stack 中的区域管理](azure-stack-region-management.md)     
-
 
 
 <!-- Update_Description: wording update -->

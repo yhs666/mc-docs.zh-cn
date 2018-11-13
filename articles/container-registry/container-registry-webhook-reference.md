@@ -3,18 +3,17 @@ title: Azure 容器注册表 Webhook 架构参考
 description: Azure 容器注册表的 Webhook 请求 JSON 有效负载参考。
 services: container-registry
 author: rockboyfor
-manager: digimobile
 ms.service: container-registry
 ms.topic: article
 origin.date: 12/02/2017
-ms.date: 07/02/2018
+ms.date: 11/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: c8fd5ee529641cc88bb39811b0de81297d8ca44b
-ms.sourcegitcommit: 5b6a2fc55e5b16ae480bd497c3ac2c3a2fd44703
+ms.openlocfilehash: f17fea34d7fb8eb05cb2719b7de5c22c592a786e
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38999202"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195527"
 ---
 # <a name="azure-container-registry-webhook-reference"></a>Azure 容器注册表 Webhook 参考
 
@@ -167,5 +166,5 @@ az acr repository delete -n MyRegistry --repository MyRepository --tag MyTag --m
 ## <a name="next-steps"></a>后续步骤
 
 [使用 Azure 容器注册表 webhook](container-registry-webhook.md)
-<!-- Update_Description: new article on container registry webhook reference -->
-<!--ms.date: 07/02/2018-->
+
+<!-- Update_Description: update meta properties -->

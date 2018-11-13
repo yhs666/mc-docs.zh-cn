@@ -3,8 +3,8 @@ title: Azure Stack 管理基础知识 | Microsoft Docs
 description: 了解对 Azure Stack 进行管理需要知道哪些知识。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: 856738a7-1510-442a-88a8-d316c67c757c
 ms.service: azure-stack
@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/08/2018
-ms.date: 06/26/2018
-ms.author: v-junlch
-ms.openlocfilehash: 0f46979e9eb321431b09c7d695dd10a9f9b23465
-ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
+origin.date: 10/15/2018
+ms.date: 11/12/2018
+ms.author: v-jay
+ms.openlocfilehash: d94ccaed3f1d7fedd9a7fe79427d5225bfbb1efb
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37027137"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195556"
 ---
 # <a name="azure-stack-administration-basics"></a>Azure Stack 管理基础知识
 如果不熟悉 Azure Stack 管理，则需要了解几项事情。 本指南概述了 Azure Stack 操作员角色，以及需要告知用户哪些东西才能让他们快速提高工作效率。
@@ -123,8 +123,7 @@ Azure Stack 使用 Azure 资源管理器作为其基础的部署、管理和组�
 
 如果使用 PowerShell，用户可能需要先注册资源提供程序，然后才能使用服务。 （资源提供程序用于管理服务。 例如，网络资源提供程序用于管理虚拟网络、网络接口和负载均衡器之类的资源。）用户必须[安装](user/azure-stack-powershell-install.md) PowerShell，[下载](user/azure-stack-powershell-download.md)更多的模块，然后[配置](user/azure-stack-powershell-configure-user.md) PowerShell（包括资源提供程序注册）。
 
-
-  **订阅套餐**
+**订阅套餐**
 
 在访问服务之前，用户必须[订阅套餐](azure-stack-subscribe-plan-provision-vm.md)，该产品/服务是你以操作员身份创建的。
 
@@ -146,8 +145,6 @@ Azure Stack 使用 Azure 资源管理器作为其基础的部署、管理和组�
 
 ## <a name="next-steps"></a>后续步骤
 
-- [Azure Stack 中的区域管理](azure-stack-region-management.md)
+[Azure Stack 中的区域管理](azure-stack-region-management.md)
 
 
-
-<!-- Update_Description: wording update -->

@@ -3,8 +3,8 @@ title: Start-AzsReadinessChecker cmdlet 参考 | Microsoft Docs
 description: Azure Stack 就绪性检查器模块的 PowerShell cmdlet 帮助。
 services: azure-stack
 documentationcenter: ''
-author: brenduns
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 05/08/2018
-ms.date: 05/24/2018
-ms.author: v-junlch
+origin.date: 09/26/2018
+ms.date: 11/12/2018
+ms.author: v-jay
 ms.reviewer: ''
-ms.openlocfilehash: 743199cf72e732a24fd2822e335909b73bffa3de
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 5fbf68236fac383f0735a5776930325f9e449153
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475156"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195427"
 ---
 # <a name="start-azsreadinesschecker-cmdlet-reference"></a>Start-AzsReadinessChecker cmdlet 参考
 
@@ -178,7 +178,7 @@ Start-AzsReadinessChecker
 $regionName = 'east'
 $externalFQDN = 'azurestack.contoso.com'
 $subjectHash = [ordered]@{"OU"="AzureStack";"O"="Microsoft";"L"="Redmond";"ST"="Washington";"C"="US"}
-Start-AzsReadinessChecker -regionName $regionName -externalFQDN $externalFQDN -subjectName $subjectHash -IdentitySystem ADFS -requestType MultipleCSR
+Start-AzsReadinessChecker -regionName $regionName -externalFQDN $externalFQDN -subject $subjectHash -IdentitySystem ADFS -requestType MultipleCSR
 ```
 
 在此示例中，Start-AzsReadinessChecker 针对区域名称为“east”、外部 FQDN 为“azurestack.contoso.com”的 ADFS Azure Stack 部署所适用的证书生成多个证书签名请求 (CSR)
@@ -599,4 +599,3 @@ ACSBlob、ACSQueue、ACSTable、ADFS、Admin Portal、ARM Admin、ARM Public、G
 |接受通配符： |False             |
 
  
-

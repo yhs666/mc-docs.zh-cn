@@ -6,15 +6,15 @@ manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 origin.date: 09/10/2018
-ms.date: 10/22/2018
+ms.date: 11/22/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 729e5ee64cd92385b70694fd39e47096131c3ec4
-ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
+ms.openlocfilehash: 3a8a0b18a8d4ce5cf15baa2e95e7fba45955f78b
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50135869"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195353"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>安装并配置本地数据网关
 当同一区域中的一个或多个 Azure Analysis Services 服务器连接到本地数据源时，需要本地数据网关。 若要了解有关网关的详细信息，请参阅[本地数据网关](analysis-services-gateway.md)。
@@ -123,5 +123,4 @@ ms.locfileid: "50135869"
 * [从 Azure Analysis Services 获取数据](analysis-services-connect.md)   
 * [对 Azure 虚拟网络上的数据源使用网关](analysis-services-vnet-gateway.md)
 
-<!-- Update_Description: new articles on analysis services gateway install  -->
-<!--ms.date: 10/22/2018-->
+<!-- Update_Description: update meta properties  -->

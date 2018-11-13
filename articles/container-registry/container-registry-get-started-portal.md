@@ -3,19 +3,18 @@ title: 快速入门 - 使用 Azure 门户在 Azure 中创建专用 Docker 注册
 description: 快速了解如何使用 Azure 门户创建专用 Docker 容器注册表。
 services: container-registry
 author: rockboyfor
-manager: digimobile
 ms.service: container-registry
 ms.topic: quickstart
 origin.date: 03/03/2018
-ms.date: 07/02/2018
+ms.date: 11/12/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 4ad71d1c3a465da25dd37c96ee31c494f7ec6d3c
-ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
+ms.openlocfilehash: 1182e6045a39a7f2e1d15bbbb4ba4c937d116287
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41705401"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195400"
 ---
 # <a name="quickstart-create-a-container-registry-using-the-azure-portal"></a>快速入门：使用 Azure 门户创建容器注册表
 
@@ -119,7 +118,7 @@ v1: digest: sha256:f2867748615cc327d31c68b1172cc03c0544432717c4d2ba2c1c2d34b18c6
 
 ![在 Azure 门户中创建容器注册表][qs-portal-08]
 
-<!-- Not Availble on ## Next stepsvvvvvvvvvvvvvvvvvvvvv-->
+<!-- Not Availble on ## Next steps-->
 
 
 <!-- Not Availble on > [Azure Container Instances tutorials][container-instances-tutorial-prepare-app]-->
@@ -150,4 +149,8 @@ v1: digest: sha256:f2867748615cc327d31c68b1172cc03c0544432717c4d2ba2c1c2d34b18c6
 [docker-windows]: https://docs.docker.com/docker-for-windows/
 
 <!-- LINKS - internal -->
-<!-- Not Availble on [container-instances-tutorial-prepare-app]: ../container-instances/container-instances-tutorial-prepare-app.md--> [container-registry-skus]：container-registry-skus.md <!-- Update_Description: update link, wording update -->
+<!-- Not Availble on [container-instances-tutorial-prepare-app]: ../container-instances/container-instances-tutorial-prepare-app.md-->
+
+[container-registry-skus]: container-registry-skus.md
+
+<!-- Update_Description: update link, wording update -->

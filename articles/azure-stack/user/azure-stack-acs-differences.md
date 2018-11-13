@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 origin.date: 09/05/2018
-ms.date: 10/15/2018
+ms.date: 11/12/2018
 ms.author: v-jay
 ms.reviwer: xiaofmao
-ms.openlocfilehash: c71e6a24d2f2c25fdc2af192eca1c9d1c8493788
-ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
+ms.openlocfilehash: ff682b583bcfee27e3a6de1d74967c5cdcc56f66
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48848791"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195543"
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Azure Stack 存储：差异和注意事项
 
@@ -42,7 +42,6 @@ Azure Stack 存储是 Azure Stack 中的一组存储云服务。 Azure Stack 存
 |托管磁盘|支持高级和标准版|使用版本 1808 或更高版本时支持。
 |Blob 名称|1,024 个字符（2,048 字节）|880 个字符（1,760 字节）
 |块 Blob 大小上限|4.75 TB（100 MB X 50,000 块）|4.75 TB（100 MB x 50,000 块），适用于 1802 更新或更高版本。 50,000 X 4 MB（约 195 GB），适用于以前的版本。
-|页 Blob 快照复制|支持备份已附加到运行中 VM 的 Azure 非托管 VM 磁盘|尚不支持。
 |页 Blob 增量快照复制|支持高级和标准 Azure 页 Blob|尚不支持。
 |适用于 Blob 存储的存储层|热存储层、冷存储层和存档存储层。|尚不支持。
 适用于 Blob 存储的软删除|预览|尚不支持。

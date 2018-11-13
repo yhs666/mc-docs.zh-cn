@@ -1,26 +1,26 @@
 ---
-title: 从 GitHub 下载 Azure Stack 工具 | Azure
+title: 从 GitHub 下载 Azure Stack 工具 | Microsoft Docs
 description: 了解如何下载操作 Azure Stack 时所需的工具。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-origin.date: 05/10/2018
-ms.date: 08/27/2018
-ms.author: v-junlch
+origin.date: 09/28/2018
+ms.date: 11/12/2018
+ms.author: v-jay
 ms.reviewer: thoroet
-ms.openlocfilehash: 0247a3be1a17e44e7c2352badde590b1428829b5
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.openlocfilehash: f4d2a13d87232614e5f69eb5ae906c8d5650f71b
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869425"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195551"
 ---
 # <a name="download-azure-stack-tools-from-github"></a>从 GitHub 下载 Azure Stack 工具
 

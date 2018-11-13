@@ -3,8 +3,8 @@ title: 在不同 Azure Stack 开发工具包环境中的两个虚拟网络之间
 description: 逐步指导云管理员在两个单节点 Azure Stack 开发工具包环境之间创建站点到站点 VPN 连接。
 services: azure-stack
 documentationcenter: ''
-author: brenduns
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: 3f1b4e02-dbab-46a3-8e11-a777722120ec
 ms.service: azure-stack
@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 07/10/2017
-ms.date: 07/20/2018
-ms.author: v-junlch
+origin.date: 09/12/2018
+ms.date: 11/12/2018
+ms.author: v-jay
 ms.reviewer: scottnap
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4250e2e9d6b6b484d443cad2503bf91f0122be7b
-ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
+ms.openlocfilehash: d2745f02d2a1bc59241b807509c306c1cb0b6331
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48848875"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195572"
 ---
 # <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-azure-stack-development-kit-environments"></a>在不同 Azure Stack 开发工具包环境中的两个虚拟网络之间创建站点到站点 VPN 连接
 ## <a name="overview"></a>概述

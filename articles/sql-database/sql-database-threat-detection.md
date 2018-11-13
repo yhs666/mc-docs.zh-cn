@@ -13,12 +13,12 @@ ms.reviewer: vanto, carlrab
 manager: digimobile
 origin.date: 09/19/2018
 ms.date: 10/29/2018
-ms.openlocfilehash: 231b73fa52305afab28803619418404600b05e35
-ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
+ms.openlocfilehash: 09d57887016a9089be840df9f4b89021fc7e1152
+ms.sourcegitcommit: 3e4e199e1a9938465496408f66153a58d75d1154
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50135825"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "50982924"
 ---
 # <a name="azure-sql-database-threat-detection"></a>Azure SQL 数据库威胁检测
 
@@ -64,7 +64,7 @@ SQL 威胁检测提供新的安全层，在发生异常活动时会提供安全�
 
 ## <a name="explore-threat-detection-alerts-for-your-database-in-the-azure-portal"></a>在 Azure 门户中为数据库检测威胁检测警报
 
-SQL 数据库威胁检测功能将其警报与 [Azure 安全中心](https://azure.microsoft.com/services/security-center/)集成。 Azure 门户中“数据库和 SQL ATP”边栏选项卡内的“实时 SQL 威胁检测”磁贴会跟踪活动威胁的状态。
+Azure 门户中“数据库和 SQL ATP”边栏选项卡内的“实时 SQL 威胁检测”磁贴会跟踪活动威胁的状态。
 
 单击“威胁检测警报”以启动“Azure 安全中心警报”页，并获取在数据库中检测到的活动 SQL 威胁的概述。
 

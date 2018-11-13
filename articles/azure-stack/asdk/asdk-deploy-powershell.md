@@ -3,8 +3,8 @@ title: 部署 Azure Stack - PowerShell | Microsoft Docs
 description: 本文介绍如何使用 PowerShell 从命令行安装 ASDK。
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
@@ -13,16 +13,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.custom: ''
-origin.date: 06/07/2018
-ms.date: 06/27/2018
-ms.author: v-junlch
+origin.date: 09/10/2018
+ms.date: 11/12/2018
+ms.author: v-jay
 ms.reviewer: misainat
-ms.openlocfilehash: 8f4c3b7bd32c6590759966b75760f14ab20165d4
-ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
+ms.openlocfilehash: 12ba072a14bceaf894b224c87e245abef790cd7c
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37027133"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195476"
 ---
 # <a name="deploy-the-asdk-from-the-command-line"></a>从命令行部署 ASDK
 ASDK 是一个测试和开发环境，可以在部署后用来评估和演示 Azure Stack 功能和服务。 若要启动并运行该工具包，需要准备环境硬件并运行一些脚本（这将需要几个小时）。 之后便可以登录到管理员门户和用户门户，开始使用 Azure Stack。
@@ -92,6 +92,8 @@ ASDK 是一个测试和开发环境，可以在部署后用来评估和演示 Az
   ```
 
 进行 ASDK 安装后数分钟，系统会提示输入 Azure AD 凭据。 必须提供 Azure AD 租户的全局管理员凭据。 
+
+部署后，不需要 Azure Active Directory 全局管理员权限。 但是，某些操作可能需要全局管理员凭据。 例如，资源提供程序安装程序脚本或需要授予权限的新功能。 可以临时复原帐户的全局管理员权限，也可以使用单独的全局管理员帐户，该帐户是*默认提供程序订阅*的所有者。
 
 ### <a name="deploy-azure-stack-using-ad-fs"></a>使用 AD FS 部署 Azure Stack 
 若要**使用 AD FS 作为标识提供者**来部署开发工具包，请运行以下 PowerShell 命令（只需添加 -UseADFS 参数）： 

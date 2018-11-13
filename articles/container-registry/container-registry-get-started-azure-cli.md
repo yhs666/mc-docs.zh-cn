@@ -3,23 +3,24 @@ title: 快速入门 - 使用 Azure CLI 在 Azure 中创建专用 Docker 注册�
 description: 快速了解如何使用 Azure CLI 创建专用 Docker 容器注册表。
 services: container-registry
 author: rockboyfor
-manager: digimobile
 ms.service: container-registry
 ms.topic: quickstart
 origin.date: 03/03/2018
-ms.date: 09/30/2018
+ms.date: 11/12/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 35a6bb0e92bded63f535240e77ece620f04ab7d4
-ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
+ms.openlocfilehash: 1c9d771f7635d48551352b63976911bcc07b1d18
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47201438"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195365"
 ---
 # <a name="quickstart-create-a-container-registry-using-the-azure-cli"></a>快速入门：使用 Azure CLI 创建容器注册表
 
-Azure 容器注册表是托管的 Docker 容器注册表服务，用于存储专用的 Docker 容器映像。 本指南详述了如何使用 Azure CLI 创建 Azure 容器注册表实例，将容器映像推送到注册表中。<!-- Not Availablle on  finally deploying the container from your registry into Azure Container Instances (ACI)-->
+Azure 容器注册表是托管的 Docker 容器注册表服务，用于存储专用的 Docker 容器映像。 本指南详述了如何使用 Azure CLI 创建 Azure 容器注册表实例，将容器映像推送到注册表中。
+
+<!-- Not Availablle on  finally deploying the container from your registry into Azure Container Instances (ACI)-->
 
 本快速入门需要运行 Azure CLI 2.0.27 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI][azure-cli]。
 
@@ -34,6 +35,7 @@ Azure 容器注册表是托管的 Docker 容器注册表服务，用于存储专
 ```azurecli
 az group create --name myResourceGroup --location chinanorth
 ```
+
 <!--Notice:  Currently the Container Registry is only valid on ChinaNorth-->
 
 ## <a name="create-a-container-registry"></a>创建容器注册表
@@ -70,6 +72,8 @@ az acr create --resource-group myResourceGroup --name myContainerRegistry007 --s
   "type": "Microsoft.ContainerRegistry/registries"
 }
 ```
+
+<!--Notice:  Currently the Container Registry is only valid on ChinaNorth-->
 
 在本快速入门的剩余部分，`<acrName>` 是容器注册表名称的占位符。
 
@@ -173,6 +177,11 @@ az group delete --name myResourceGroup
 [az-group-create]: https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create
 [az-group-delete]: https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-delete
 [azure-cli]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
+
 <!--Not Available on [az-container-show]: https://docs.azure.cn/zh-cn/cli/container?view=azure-cli-latest#az-container-show-->
-<!--Not Available on [container-instances-tutorial-prepare-app]: ../container-instances/container-instances-tutorial-prepare-app.md--> [container-registry-skus]: container-registry-skus.md <!--Not Available on [container-registry-auth-aci]: container-registry-auth-aci.md-->
-<!-- Update_Description: wording update, updat meta properties -->>
+<!--Not Available on [container-instances-tutorial-prepare-app]: ../container-instances/container-instances-tutorial-prepare-app.md-->
+
+[container-registry-skus]: container-registry-skus.md
+
+<!--Not Available on [container-registry-auth-aci]: container-registry-auth-aci.md-->
+<!-- Update_Description: wording update, updat meta properties -->

@@ -6,15 +6,15 @@ manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: quickstart
 origin.date: 07/03/2018
-ms.date: 08/06/2018
+ms.date: 11/12/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: befd486cade2b52e41ac13322e9952a509df77ea
-ms.sourcegitcommit: c6205500afd23ac00f2829fe51858b51a622eaf1
+ms.openlocfilehash: 2bbad8dd441f4e7529e2925579d3ad57cb68e13f
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39487845"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195473"
 ---
 <!--Notice: Verified successfully-->
 # <a name="quickstart-configure-server-firewall---portal"></a>快速入门：配置服务器防火墙 - 门户
@@ -34,7 +34,7 @@ ms.locfileid: "39487845"
 
 1. 单击服务器打开“概述”页。 
 2. 在“设置” > “防火墙” > “启用防火墙”，单击“开”。
-3. 若要允许从 Power BI 服务进行 DirectQuery 访问，请在“允许从Power BI 访问”中，请单击“开”。  
+3. 若要允许从 Power BI 服务进行 DirectQuery 访问，请在“允许从Power BI 访问”中，单击“开”。  
 4. （可选）指定一个或多个 IP 地址范围。 输入每个范围的名称、起始和结束 IP 地址。 
 5. 单击“保存” 。
 
@@ -50,4 +50,4 @@ ms.locfileid: "39487845"
 > [!div class="nextstepaction"]
 > [教程：将示例模型添加到服务器](analysis-services-create-sample-model.md)
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update -->

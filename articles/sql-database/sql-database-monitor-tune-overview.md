@@ -13,12 +13,12 @@ ms.reviewer: carlrab
 manager: digimobile
 origin.date: 10/15/2018
 ms.date: 10/29/2018
-ms.openlocfilehash: a31c13349e8d67907c6d2ebf3e8a52f24f30a4cb
-ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
+ms.openlocfilehash: 78ad344bf2eab2d6ffb15993e6e526c520d53eea
+ms.sourcegitcommit: 3e4e199e1a9938465496408f66153a58d75d1154
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50135872"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "50982923"
 ---
 # <a name="monitoring-and-performance-tuning"></a>监视和性能优化
 
@@ -78,7 +78,7 @@ Azure SQL 数据库由系统自动管理，它是一个灵活的数据服务，�
 
 ## <a name="overview-of-monitoring-database-performance-in-azure-sql-database"></a>在 Azure SQL 数据库中监视数据库性能概述
 
-若要监视 Azure 中的 SQL 数据库的性能，首先需要监视所选数据库性能级别相关的资源利用率。 监视功能可帮助确定数据库是否超出容量，或者因资源超限而遇到问题，并确定是否有必要调整[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)或[基于 vCore 的购买模型](sql-database-service-tiers-vcore.md)中数据库的计算大小和服务层。 可以使用以下图形工具或使用 SQL [动态管理视图 (DMV)](sql-database-monitoring-with-dmvs.md) 在 [Azure 门户](https://portal.azure.com)中监视数据库。
+若要监视 Azure 中的 SQL 数据库的性能，首先需要监视所选数据库性能级别相关的资源利用率。 监视功能可帮助确定数据库是否超出容量，或者因资源超限而遇到问题，并确定是否有必要调整[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)或[基于 vCore 的购买模型](sql-database-service-tiers-vcore.md)中数据库的计算大小和服务层。 可以使用以下图形工具或使用 SQL [动态管理视图 (DMV)](sql-database-monitoring-with-dmvs.md) 在 [Azure 门户](https://portal.azure.cn)中监视数据库。
 
 Azure SQL 数据库使得你可以通过查看[性能优化建议](sql-database-advisor.md)找到机会来改进和优化查询性能，无需更改资源。 缺少索引与查询优化不足是数据库性能不佳的常见原因。 可以应用这些优化建议来改进你的工作负荷的性能。
 还可以通过应用所有已确定的建议并确认它们改进了数据库性能来让 Azure SQL 数据库[自动优化查询性能](sql-database-automatic-tuning.md)。 在监视数据库性能并对其进行故障排除方面，有以下选项可供选择：

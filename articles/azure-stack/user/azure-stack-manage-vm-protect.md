@@ -3,8 +3,8 @@ title: 保护在 Azure Stack 上部署的 VM | Microsoft Docs
 description: 有关如何保护在 Azure Stack 上部署的虚拟机的指南。
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: 4e5833cf-4790-4146-82d6-737975fb06ba
 ms.service: azure-stack
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 05/14/2018
-ms.date: 05/23/2018
-ms.author: v-junlch
+origin.date: 10/15/2018
+ms.date: 11/12/2018
+ms.author: v-jay
 ms.reviewer: hector.linares
-ms.openlocfilehash: 57b431cce5cd9e2c13418f85b3dbcaf096c76cfb
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 7eee91cd0600c9caa4e534871015e2d2f19fe293
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475073"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195361"
 ---
 # <a name="protect-virtual-machines-deployed-on-azure-stack"></a>保护在 Azure Stack 上部署的虚拟机
 
@@ -42,9 +42,9 @@ Azure Stack 基础结构服务的恢复计划**不**包括恢复用户 VM、存�
 
 如果 Azure Stack 云较长时间处于脱机状态或者永久性不可恢复，则需要实施一个具有以下用途的恢复计划：
 
-- 确保故障时间最短
-- 使关键 VM（例如数据库服务器）保持运行
-- 使应用程序可以持续为用户请求提供服务
+* 确保故障时间最短
+* 使关键 VM（例如数据库服务器）保持运行
+* 使应用程序可以持续为用户请求提供服务
 
 Azure Stack 云的操作员负责创建针对底层 Azure Stack 基础结构和服务的恢复计划。 若要进行详细了解，请阅读[从灾难性数据丢失中恢复](/azure-stack/azure-stack-backup-recover-data)一文。
 
@@ -99,7 +99,7 @@ RTO 和 RPO 属于业务要求。 开展风险评估的目的是定义应用程�
     - 在载入大量新的 VM 时考虑进行交错式备份（如果必须备份）。
     - 评估可以有效地捕获和传输备份数据的备份产品，尽量减少解决方案上的资源内容。
     - 评估可以通过增量备份或差异备份有效存储备份数据的备份产品，尽量减少为环境中的所有 VM 创建完整备份的需求。
- - **还原**
+ - **Restore**
     - 备份产品可以还原虚拟磁盘、现有 VM 中的应用程序数据，或者整个 VM 资源和关联的虚拟磁盘。 所需的还原方案取决于你计划如何还原应用程序，并且会影响应用程序的恢复时间。 例如，从模板重新部署 SQL Server 并还原数据库而不是还原整个 VM 或 VM 集可能会更容易。
 
 ### <a name="replicationmanual-failover"></a>复制/手动故障转移
@@ -116,7 +116,7 @@ RTO 和 RPO 属于业务要求。 开展风险评估的目的是定义应用程�
  
 ### <a name="high-availabilityautomatic-failover"></a>高可用性/自动故障转移
 
-如果企业在使用应用程序时只能容忍数秒或数分钟的停机时间和最低程度的数据丢失，则需考虑为此类应用程序提供高可用性配置。 根据设计，高可用性应用程序可以自动快速从故障中恢复。 对于本地硬件故障，Azure Stack 基础结构使用两个架顶式交换机在物理网络中实现高可用性。 对于计算级别故障，Azure Stack 在一个缩放单位中使用多个节点。 在 VM 级别，可以组合使用规模集与容错域，确保节点故障不会导致应用程序无法使用。
+如果企业在使用应用程序时只能容忍数秒或数分钟的停机时间和最低程度的数据丢失，则需考虑为此类应用程序提供高可用性配置。 根据设计，高可用性应用程序可以自动快速从故障中恢复。 对于本地硬件故障，Azure Stack 基础结构使用两个架顶式交换机在物理网络中实现高可用性。 对于计算级别故障，Azure Stack 在一个缩放单元中使用多个节点。 在 VM 级别，可以组合使用规模集与容错域，确保节点故障不会导致应用程序无法使用。
 
 与规模集一起组合使用时，应用程序需要本机高可用性支持，或者需要支持使用群集软件。 例如，对于使用同步提交模式的数据库，Microsoft SQL Server 提供本机高可用性支持。 但是，如果只能支持异步复制，则会存在某种程度的数据丢失。 也可将应用程序部署到故障转移群集，由其中的群集软件处理应用程序的自动故障转移。
 

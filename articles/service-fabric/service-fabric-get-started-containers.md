@@ -15,12 +15,12 @@ ms.workload: NA
 origin.date: 05/18/2018
 ms.date: 10/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: 27bf7ad68f8903aa578ccf8b18fb485e1b72a27f
-ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
+ms.openlocfilehash: 6fbf468eed3433fa5e8bffc51a59df9b69a08380
+ms.sourcegitcommit: caa089a6221a4925943f1ea516ca58ae62da0dff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49089240"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "50982960"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>在 Windows 上创建第一个 Service Fabric 容器应用程序
 > [!div class="op_single_selector"]
@@ -44,8 +44,12 @@ ms.locfileid: "49089240"
 
   若要确定使用容器的 Windows Server 版本，请在开发计算机上从 Windows 命令提示符运行 `ver` 命令：
 
-  * 如果版本包含 x.x.14323.x，[创建群集](service-fabric-cluster-creation-via-portal.md)时请选择 WindowsServer 2016-Datacenter-with-Containers 作为操作系统。 还可以通过 Party 群集[免费试用 Service Fabric](https://aka.ms/tryservicefabric)。
-  * 如果版本包含 x.x.16299.x，[创建群集](service-fabric-cluster-creation-via-portal.md)时请选择 WindowsServerSemiAnnual Datacenter-Core-1709-with-Containers 作为操作系统。 但是，不能使用 Party 群集。
+  * 如果版本包含 x.x.14323.x，[创建群集](service-fabric-cluster-creation-via-portal.md)时请选择 WindowsServer 2016-Datacenter-with-Containers 作为操作系统。
+
+  <!-- Not Available on [try Service Fabric for free](https://aka.ms/tryservicefabric)-->
+  * 如果版本包含 x.x.16299.x，[创建群集](service-fabric-cluster-creation-via-portal.md)时请选择 WindowsServerSemiAnnual Datacenter-Core-1709-with-Containers 作为操作系统。
+  
+  <!-- Not Available on  You cannot use a party cluster-->
 
 * 一个位于 Azure 容器注册表中的注册表 - 在 Azure 订阅中[创建容器注册表](../container-registry/container-registry-get-started-portal.md)。
 

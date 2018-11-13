@@ -13,12 +13,12 @@ ms.reviewer: vanto, carlrab
 manager: digimobile
 origin.date: 10/05/2018
 ms.date: 10/29/2018
-ms.openlocfilehash: e051a7e760d8953a4e54d78494c2286c9e854406
-ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
+ms.openlocfilehash: 19a1fda30cf84c7b6b9495c6d4cda10cdb888842
+ms.sourcegitcommit: 3e4e199e1a9938465496408f66153a58d75d1154
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50135885"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "50982920"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql"></a>使用 Azure Active Directory 身份验证进行 SQL 身份验证
 
@@ -114,7 +114,7 @@ Azure Active Directory 身份验证支持使用 Azure AD 标识连接到数据�
 - [Microsoft JDBC Driver 6.0 for SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) 支持 Azure AD 身份验证。 另外，请参阅[设置连接属性](https://msdn.microsoft.com/library/ms378988.aspx)。   
 - PolyBase 无法使用 Azure AD 身份验证进行身份验证。   
 - Azure 门户的“导入数据库”和“导出数据库”边栏选项卡支持 SQL 数据库的 Azure AD 身份验证。 PowerShell 命令也支持使用 Azure AD 身份验证的导入和导出。   
-- SQL 数据库和 SQL 数据仓库通过 CLI 支持 Azure AD 身份验证。 有关详细信息，请参阅[使用 SQL 数据库或 SQL 数据仓库配置和管理 Azure Active Directory 身份验证](sql-database-aad-authentication-configure.md)和 [SQL Server - az sql server](https://docs.microsoft.com/cli/azure/sql/server)。
+- SQL 数据库和 SQL 数据仓库通过 CLI 支持 Azure AD 身份验证。 有关详细信息，请参阅[使用 SQL 数据库或 SQL 数据仓库配置和管理 Azure Active Directory 身份验证](sql-database-aad-authentication-configure.md)和 [SQL Server - az sql server](/cli/sql/server)。
 
 ## <a name="next-steps"></a>后续步骤
 

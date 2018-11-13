@@ -3,24 +3,24 @@ title: 将外部监视解决方案与 Azure Stack 集成 | Microsoft Docs
 description: 了解如何将 Azure Stack 与数据中心内的外部监视解决方案集成。
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-origin.date: 05/10/2018
-ms.date: 05/24/2018
-ms.author: v-junlch
+origin.date: 10/15/2018
+ms.date: 11/12/2018
+ms.author: v-jay
 ms.reviewer: thoroet
-ms.openlocfilehash: 96c2c37556acc5308a32d72e6ee2aafd6b3ffe57
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 5b0b034c9f16d466474b388ec9835385fb430dd6
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34475055"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195354"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>将外部监视解决方案与 Azure Stack 集成
 
@@ -37,7 +37,7 @@ ms.locfileid: "34475055"
 
 下图演示 Azure Stack 集成系统、硬件生命周期主机、外部监视解决方案与外部票证/数据收集系统之间的流量流。
 
-![显示 Azure Stack、监视与票证解决方案之间的流量的示意图。](./media/azure-stack-integrate-monitor/MonitoringIntegration.png)  
+![显示 Azure Stack、监视与票证解决方案之间的流量的示意图。](media/azure-stack-integrate-monitor/MonitoringIntegration.png)  
 
 本文介绍如何将 Azure Stack 与外部监视解决方案（例如 System Center Operations Manager 和 Nagios）集成。 此外，还介绍如何使用 PowerShell 或 REST API 调用以编程方式处理警报。
 
@@ -62,7 +62,7 @@ ms.locfileid: "34475055"
 
 下图演示了 Azure Stack 与现有 System Center 部署的集成。 可以进一步使用 System Center Orchestrator 或 Service Management Automation (SMA) 将 Service Manager 自动化，以便在 Azure Stack 中运行操作。
 
-![演示与 OM、Service Manager 和 SMA 集成的示意图。](./media/azure-stack-integrate-monitor/SystemCenterIntegration.png)
+![演示与 OM、Service Manager 和 SMA 集成的示意图。](media/azure-stack-integrate-monitor/SystemCenterIntegration.png)
 
 ## <a name="integrate-with-nagios"></a>与 Nagios 集成
 

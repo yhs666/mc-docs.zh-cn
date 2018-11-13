@@ -14,16 +14,16 @@ origin.date: 07/24/2018
 ms.date: 08/27/2018
 ms.author: v-jay
 ms.reviewer: johnhas
-ms.openlocfilehash: 05e23505544c97f2f4b10f25f1f2d2b6707e162a
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.openlocfilehash: 8d16441d1a1d2be2be2a415f131e90dfb9ee077b
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869677"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195478"
 ---
 # <a name="known-issues-for-validation-as-a-service"></a>验证即服务的已知问题
 
-[!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
+[!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 以下是 Azure Stack 验证即服务的已知问题。
 

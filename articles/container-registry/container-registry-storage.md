@@ -3,18 +3,17 @@ title: Azure 容器注册表中的映像存储
 description: 详述如何在 Azure 容器注册表中存储 Docker 容器映像，包括安全性、冗余和容量。
 services: container-registry
 author: rockboyfor
-manager: digimobile
 ms.service: container-registry
 ms.topic: article
 origin.date: 03/21/2018
-ms.date: 09/30/2018
+ms.date: 11/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4c86722fb0d9de1ef42ccf07c1f4259f158c5113
-ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
+ms.openlocfilehash: cb1b30d6d3d7cd0742c98e0c1a42abffdf09bcbb
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47201253"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195375"
 ---
 # <a name="container-image-storage-in-azure-container-registry"></a>Azure 容器注册表中的容器映像存储
 
@@ -58,4 +57,5 @@ Azure 使用异地冗余存储方案来防止容器映像丢失。 Azure 容器�
 [pricing]: http://aka.ms/acr/pricing
 
 <!-- LINKS - Internal -->
+
 <!-- Update_Description: update meta properties, wording update -->

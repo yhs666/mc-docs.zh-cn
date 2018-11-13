@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: container-registry
 ms.topic: include
 origin.date: 08/30/2018
-ms.date: 9/30/2018
+ms.date: 11/12/2018
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 3a2e8efe6e99ee64485b4e54a1fe6f3961b09726
-ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
+ms.openlocfilehash: 6ea12c87c5b0dd904002a9cba804a7756fc3f63a
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47201460"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51210053"
 ---
 | 资源 | 基本 | 标准 | 高级 |
 |---|---|---|---|---|
@@ -28,7 +28,8 @@ ms.locfileid: "47201460"
 
 <!-- Not Available on [Supported](/container-registry/container-registry-geo-replication)-->
 <!-- Not Available on [Supported][content-trust]-->
-<sup>1</sup> 指定的存储空间上限是每层包含** 的存储空间量。 对于超出这些限制的图像存储，将每日针对每 GiB 进行额外收费。 有关费率的信息，请参阅[容器注册表定价][pricing]。
+
+<sup>1</sup>指定的存储空间上限是每层的包含的存储空间量。 对于超出这些限制的图像存储，将每日针对每 GiB 进行额外收费。 有关费率的信息，请参阅[容器注册表定价][pricing]。
 
 <sup>2</sup>读取操作数、写入操作数和带宽是最小估计值。 ACR 旨在随使用情况增多提升性能。
 
@@ -43,4 +44,4 @@ ms.locfileid: "47201460"
 <!-- Not Available on [geo-replication]: ../articles/container-registry/container-registry-geo-replication.md-->
 <!-- Not Available on [content-trust]: ../articles/container-registry/container-registry-content-trust.md-->
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties  -->

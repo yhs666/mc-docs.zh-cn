@@ -3,18 +3,17 @@ title: Azure 容器注册表中的最佳做法
 description: 通过遵循这些最佳做法，了解如何有效使用 Azure 容器注册表。
 services: container-registry
 author: rockboyfor
-manager: digimobile
 ms.service: container-registry
-ms.topic: quickstart
-origin.date: 04/10/2018
-ms.date: 08/27/2018
+ms.topic: article
+origin.date: 09/27/2018
+ms.date: 11/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 6385ec6ad886dab9135c1da143033416c79e6476
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.openlocfilehash: 7433ef0bb8e053aa783109f236757e49dd4f7d54
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42872312"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195570"
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Azure 容器注册表的最佳做法
 
@@ -62,33 +61,28 @@ Azure 容器注册表的身份验证有两种主要方案：单个身份验证�
 ## <a name="manage-registry-size"></a>管理注册表大小
 
 每个[容器注册表 SKU][container-registry-skus] 的存储约束旨在与典型方案保持一致，即基本 SKU 适用于入门，标准 SKU 适用于大部分生产应用程序，高级 SKU 适用于超大规模提升性能。 在注册表的整个生命周期中，应定期删除未使用的内容，管理注册表大小。
+
 <!-- Not Available on [geo-replication][container-registry-geo-replication]-->
 
-在 Azure 门户的容器注册表“概述”中，可以查看注册表的当前使用情况：
+使用 Azure CLI 命令 [az acr show-usage][az-acr-show-usage] 显示注册表的当前大小：
+
+```console
+$ az acr show-usage --resource-group myResourceGroup --name myregistry --output table
+NAME      LIMIT         CURRENT VALUE    UNIT
+--------  ------------  ---------------  ------
+Size      536870912000  185444288        Bytes
+Webhooks  100                            Count
+```
+
+此外，在 Azure 门户的注册表“概述”中，还可以找到当前已用存储：
 
 ![Azure 门户中的注册表使用情况信息][registry-overview-quotas]
 
-可以使用 [Azure CLI][azure-cli] 或 [Azure 门户][azure-portal]管理注册表大小。 仅托管 SKU（基本、标准、高级）支持删除存储库和映像--不能在经典注册表中删除存储库、映像或标记。
+### <a name="delete-image-data"></a>删除映像数据
 
-### <a name="delete-in-azure-cli"></a>在 Azure CLI 中删除
+Azure 容器注册表支持多种从容器注册表中删除映像数据的方法。 可以按标记或程序清单摘要删除映像，也可以删除整个存储库。
 
-使用 [az acr repository delete][az-acr-repository-delete] 命令可删除存储库或其中的内容。
-
-若要删除存储库（包括存储库中的所有标记和映像层数据），请在执行 [az acr repository delete][az-acr-repository-delete] 命令时仅指定存储库名称。 在以下示例中，我们删除 *myapplication* 存储库以及该存储库中的所有标记和映像层数据。
-
-```azurecli
-az acr repository delete --name myregistry --repository myapplication
-```
-
-也可使用 `--tag` 和 `--manifest` 参数删除存储库中的映像数据。 有关这些参数的详细信息，请参阅 [az acr repository delete 命令参考][az-acr-repository-delete]。
-
-### <a name="delete-in-azure-portal"></a>在 Azure 门户中进行删除
-
-若要在 Azure 门户中删除注册表中的存储库，请首先导航到容器注册表。 然后在“服务”下选择“存储库”，右键单击要删除的存储库。 选择“删除”即可删除该存储库以及其所包含的 Docker 映像。
-
-![在 Azure 门户中删除存储库][delete-repository-portal]
-
-也可使用类似的方式删除存储库中的标记。 导航到存储库，在“标记”下右键单击要删除的标记，然后选择“删除”。
+有关从注册表中删除映像数据（包括无标记映像，有时称为“无关联”映像或“孤立”映像）的详细信息，请参阅[删除 Azure 容器注册表中的容器映像](container-registry-delete.md)。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -100,6 +94,10 @@ Azure 容器注册表可用于多层（称为 SKU），每层提供不同功能�
 
 <!-- LINKS - Internal -->
 [az-acr-repository-delete]: https://docs.azure.cn/zh-cn/cli/acr/repository?view=azure-cli-latest#az-acr-repository-delete
+[az-acr-show-usage]: https://docs.azure.cn/zh-cn/cli/acr?view=azure-cli-latest#az-acr-show-usage
 [azure-cli]: https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest
 [azure-portal]: https://portal.azure.cn
-<!-- Not Available on [container-registry-geo-replication]: container-registry-geo-replication.md--> [container-registry-skus]: container-registry-skus.md <!-- Update_Description: update meta properties, wording update -->>
+
+<!-- Not Available on [container-registry-geo-replication]: container-registry-geo-replication.md--> [container-registry-skus]: container-registry-skus.md
+
+<!-- Update_Description: update meta properties, wording update, update link -->

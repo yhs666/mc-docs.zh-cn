@@ -3,8 +3,8 @@ title: Azure Stack 故障排除 | Microsoft Docs
 description: Azure Stack 开发工具包 (ASDK) 故障排除信息。
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/22/2018
-ms.date: 04/23/2018
-ms.author: v-junlch
+origin.date: 10/15/2018
+ms.date: 11/12/2018
+ms.author: v-jay
 ms.reviewer: misainat
-ms.openlocfilehash: 8041273aba4c5f34aae3937f6ac12f2faffb9b6f
-ms.sourcegitcommit: 85828a2cbfdb58d3ce05c6ef0bc4a24faf4d247b
+ms.openlocfilehash: 4355d0d19fb8bab98c6d41d80ed3cf8bb6097495
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31805395"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195504"
 ---
 # <a name="azure-stack-development-kit-asdk-troubleshooting"></a>Azure Stack 开发工具包 (ASDK) 故障排除
 本文档提供 ASDK 的一般故障排除信息。 如果本文未阐述你所遇到的问题，请务必查看 [Azure Stack MSDN 论坛](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)以获取更多帮助和信息。  
@@ -60,8 +60,8 @@ ms.locfileid: "31805395"
 ### <a name="i-have-deleted-some-virtual-machines-but-still-see-the-vhd-files-on-disk-is-this-behavior-expected"></a>我已删除某些虚拟机，但仍在磁盘上看到 VHD 文件。 这是预期行为吗？
 是的，这是预期行为。 设计此行为的原因如下：
 
-- 删除 VM 时，不会删除 VHD。 磁盘是资源组中的独立资源。
-- 删除存储帐户后，Azure 资源管理器会立即反映删除结果，但其中的磁盘仍保留在存储中，直到运行垃圾收集为止。
+* 删除 VM 时，不会删除 VHD。 磁盘是资源组中的独立资源。
+* 删除存储帐户后，Azure 资源管理器会立即反映删除结果，但其中的磁盘仍保留在存储中，直到运行垃圾收集为止。
 
 如果看到“孤立的”VHD，必须知道它们是否包含在已删除的存储帐户的文件夹中。 如果未删除存储帐户，则正常情况下，这些 VHD 仍在存储帐户中。
 

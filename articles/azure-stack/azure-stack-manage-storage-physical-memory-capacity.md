@@ -3,8 +3,8 @@ title: 管理 Azure Stack 的物理内存容量 | Microsoft Docs
 description: 监视和管理 Azure Stack 的可用存储空间。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: 84518E90-75E1-4037-8D4E-497EAC72AAA1
 ms.service: azure-stack
@@ -12,30 +12,29 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 05/08/2018
-ms.date: 05/24/2018
-ms.author: v-junlch
+origin.date: 09/28/2018
+ms.date: 11/12/2018
+ms.author: v-jay
 ms.reviewer: Thomas.Roettinger
-ms.openlocfilehash: d5af2781f8e2b9d8c773ed63554b19f9bad4ef0c
-ms.sourcegitcommit: 036cf9a41a8a55b6f778f927979faa7665f4f15b
+ms.openlocfilehash: 1f29d5d6ab8683b7456dd7a2af8e0159540ca0b9
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2018
-ms.locfileid: "34474900"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195553"
 ---
-<!---Loc Comment: Please, check the comment in coversation section---> 
 # <a name="manage-physical-memory-capacity-for-azure-stack"></a>管理 Azure Stack 的物理内存容量
 
 *适用于：Azure Stack 集成系统*
 
-若要增加 Azure Stack 的总可用内存容量，可以添加更多内存。 在 Azure Stack 中，物理服务器也称为*缩放单位节点*。 所有属于单一缩放单位的缩放单位节点都必须具有相同的内存量。
+若要增加 Azure Stack 的总可用内存容量，可以添加更多内存。 在 Azure Stack 中，物理服务器也称为*缩放单元节点*。 所有属于单一缩放单元的缩放单元节点都必须具有相同的内存量。
 
 > [!note]  
 > 继续之前，请参阅硬件制造商文档，了解制造商是否支持物理内存升级。 OEM 硬件供应商支持合同可能会要求供应商进行物理服务器机架放置和设备固件更新。
 
-以下流程图显示将内存添加到每个缩放单位节点的一般过程。
+以下流程图显示将内存添加到每个缩放单元节点的一般过程。
 
-![将内存添加到每个缩放单位节点](media\azure-stack-manage-storage-physical-capacity\process-to-add-memory-to-scale-unit.png)
+![将内存添加到每个缩放单元节点](media\azure-stack-manage-storage-physical-capacity\process-to-add-memory-to-scale-unit.png)
 
 ## <a name="add-memory-to-an-existing-node"></a>将内存添加到现有节点
 以下步骤提供添加内存过程的高级概述。 
@@ -44,7 +43,7 @@ ms.locfileid: "34474900"
 请勿在未参考 OEM 提供的文档的情况下按照这些步骤操作。
 
 > [!Warning]  
-由于不支持滚动内存升级，因此必须关闭整个缩放单位。
+由于不支持滚动内存升级，因此必须关闭整个缩放单元。
 
 1. 按照[启动和停止 Azure Stack](azure-stack-start-and-stop.md) 一文中所述的步骤，停止 Azure Stack。
 2. 使用硬件制造商的文档升级每台物理计算机上的内存。

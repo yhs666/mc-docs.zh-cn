@@ -7,16 +7,16 @@ manager: digimobile
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-origin.date: 08/22/2018
-ms.date: 10/15/2018
+origin.date: 09/27/2018
+ms.date: 11/12/2018
 ms.author: v-jay
 ms.reviewer: adshar
-ms.openlocfilehash: bf0ed788fb9e3b266b4990256f069accc34e09c9
-ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
+ms.openlocfilehash: c2c23664e2230c47a3d00e43f67e4f8aaa704a56
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48848820"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195393"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Azure Stack 诊断工具
 
@@ -145,14 +145,6 @@ if($s)
  |群集|iDns|PXE|     |
  |   |   |   |    |
 
-
-### <a name="bkmk_gui"></a>使用图形用户界面收集日志
-也可利用在主 Azure Stack 工具 GitHub 工具存储库 http://aka.ms/AzureStackTools 中提供的开源 Azure Stack 工具，而不必为 Get-AzureStackLog cmdlet 提供所需的参数来检索 Azure Stack 日志。
-
-**ERCS_AzureStackLogs.ps1** PowerShell 脚本存储在 GitHub 工具存储库中，并定期进行更新。 若要确保使用发布的最新版本，应直接从 http://aka.ms/ERCS 下载该版本。 从 PowerShell 管理会话启动以后，此脚本会连接到特权终结点并使用提供的参数运行 Get-AzureStackLog。 如果未提供参数，此脚本会默认通过图形用户界面提示你提供参数。
-
-若要详细了解 ERCS_AzureStackLogs.ps1 PowerShell 脚本，可以查看脚本的[自述文件](https://github.com/Azure/AzureStack-Tools/blob/master/Support/ERCS_Logs/ReadMe.md)，位于 Azure Stack 工具 GitHub 存储库中。 
-
 ### <a name="additional-considerations"></a>其他注意事项
 
 * 此命令需要一些时间来运行，具体取决于日志所收集的角色。 影响因素还包括指定用于日志收集的时限，以及 Azure Stack 环境中的节点数。
@@ -171,5 +163,3 @@ if($s)
 ## <a name="next-steps"></a>后续步骤
 [Azure Stack 故障排除](azure-stack-troubleshooting.md)
 
-
-<!-- Update_Description: wording update -->

@@ -3,18 +3,17 @@ title: 删除 Azure 容器注册表中的映像资源
 description: 详细介绍如何通过删除容器映像数据有效管理注册表大小。
 services: container-registry
 author: rockboyfor
-manager: digimobile
 ms.service: container-registry
 ms.topic: article
 origin.date: 07/27/2018
-ms.date: 08/27/2018
+ms.date: 11/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: aaae6b320d94623362578b1d4409fecb9209568f
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.openlocfilehash: be42a2fa09c3c7472ce4a6f82c948a08c8ffaefa
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42872427"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195460"
 ---
 # <a name="delete-container-images-in-azure-container-registry"></a>删除 Azure 容器注册表中的容器映像
 
@@ -336,5 +335,4 @@ if ($enableDelete) {
 [az-acr-repository-show-manifests]: https://docs.azure.cn/zh-cn/cli/acr/repository?view=azure-cli-latest#az-acr-repository-show-manifests
 [az-acr-repository-untag]: https://docs.azure.cn/zh-cn/cli/acr/repository?view=azure-cli-latest#az-acr-repository-untag
 
-<!-- Update_Description: new articles on container registry delete -->
-<!--ms.date: 08/27/2018-->
+<!-- Update_Description: update meta properties -->

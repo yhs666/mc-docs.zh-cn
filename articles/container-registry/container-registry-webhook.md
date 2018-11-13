@@ -3,18 +3,17 @@ title: Azure 容器注册表 webhook
 description: 了解如何使用 webhook 在注册表存储库中发生特定操作时触发事件。
 services: container-registry
 author: rockboyfor
-manager: digimobile
 ms.service: container-registry
 ms.topic: article
 origin.date: 08/20/2017
-ms.date: 08/27/2018
+ms.date: 11/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7ea66fbb43aa610e26f258640acee31961503cc0
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.openlocfilehash: 996e58a2fdcf9ff1c96f49df567ae60dc930bf0b
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42872330"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195340"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>使用 Azure 容器注册表 webhook
 
@@ -103,4 +102,4 @@ az acr webhook delete --registry mycontainerregistry --name myacrwebhook01
 [Azure 容器注册表 Webhook 架构参考](container-registry-webhook-reference.md)
 
 <!--Not Available on  ### Event Grid events-->
-<!-- Update_Description: wording update, update meta properties -->
+<!-- Update_Description: update meta properties -->

@@ -51,11 +51,11 @@ items:
   - name: PowerShell
     href: http://docs.microsoft.com/powershell/module/azurerm.containerregistry#container_registry
   - name: .NET
-    href: https://docs.azure.cn/zh-cn/dotnet/api/overview/containerregistry
+    href: http://docs.microsoft.com/dotnet/api/overview/azure/containerregistry
   - name: Python
     href: https://docs.microsoft.com/python/api/overview/azure/container-registry
   - name: Java
-    href: https://docs.microsoft.com/java/api/containerregistry
+    href: http://docs.microsoft.com/java/api/overview/azure/containerregistry
   - name: Node.js
     href: http://docs.microsoft.com/javascript/api/overview/azure/container-registry
   - name: Webhook 架构
@@ -70,9 +70,9 @@ items:
     href: https://www.azure.cn/support/support-azure/
   - name: 视频
     href: https://www.azure.cn/video-center/
-ms.openlocfilehash: 5e5fe81b7d1d28528dd52967e71311ff40c23252
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.openlocfilehash: 366cf1f9e388231c1fa2db0df0b5eb632df6a2e5
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42871820"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195471"

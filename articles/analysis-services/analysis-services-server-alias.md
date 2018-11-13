@@ -5,16 +5,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 07/03/2018
-ms.date: 08/06/2018
+origin.date: 10/11/2018
+ms.date: 11/12/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: c4537a0cf572d18f497b020072fb5928edffea99
-ms.sourcegitcommit: c6205500afd23ac00f2829fe51858b51a622eaf1
+ms.openlocfilehash: 6edb5f75e04242e0d3f03c5603f2ca5201fa24c6
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39487791"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195538"
 ---
 # <a name="alias-server-names"></a>服务器别名
 

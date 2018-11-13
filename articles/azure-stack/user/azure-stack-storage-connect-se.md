@@ -3,23 +3,23 @@ title: 将存储资源管理器连接到 Azure Stack 订阅或存储帐户 | Mic
 description: 了解如何将存储资源管理器连接到 Azure Stack 订阅
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
-manager: femila
+author: WenJason
+manager: digimobile
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 06/15/2018
-ms.date: 06/27/2018
-ms.author: v-junlch
+origin.date: 10/10/2018
+ms.date: 11/12/2018
+ms.author: v-jay
 ms.reviewer: xiaofmao
-ms.openlocfilehash: b876e398188467f2d08a799547f2f7858336bfa8
-ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
+ms.openlocfilehash: b08bc96b485f4f852c712a58621bfef5eafa7b37
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37027100"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195404"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-subscription-or-a-storage-account"></a>将存储资源管理器连接到 Azure Stack 订阅或存储帐户
 
@@ -98,18 +98,18 @@ ms.locfileid: "37027100"
 1. 选择“管理帐户”。 资源管理器会列出你登录到的 Microsoft 订阅。
 2. 选择“添加帐户”连接到 Azure Stack 订阅。
 
-    ![添加帐户](./media/azure-stack-storage-connect-se/add-an-account.png)
+    ![添加帐户](media/azure-stack-storage-connect-se/add-an-account.png)
 
 3. 选择“**下一步**”。 在“连接到 Azure 存储”对话框中的“Azure 环境”下，选择“使用自定义环境”，然后单击“下一步”。
 
-    ![连接到 Azure 存储](./media/azure-stack-storage-connect-se/connect-to-azure-storage.png)
+    ![连接到 Azure 存储](media/azure-stack-storage-connect-se/connect-to-azure-storage.png)
 
 4. 输入 Azure Stack 自定义环境的所需信息。 
 
     | 字段 | 注释 |
     | ---   | ---   |
     | 环境名称 | 用户可以自定义此字段。 |
-    | Azure 资源管理器终结点 | Azure Stack 开发工具包的 Azure 资源管理器资源终结点示例。<br>对于运营商：https://adminmanagement.local.azurestack.external <br> 对于用户：https://management.local.azurestack.external |
+    | Azure 资源管理器终结点 | Azure Stack 开发工具包的 Azure 资源管理器资源终结点示例。<br>对于运营商： https://adminmanagement.local.azurestack.external <br> 对于用户： https://management.local.azurestack.external |
 
     如果使用 Azure Stack 集成系统且不知道管理终结点，请与运营商联系。
 
@@ -154,8 +154,8 @@ ms.locfileid: "37027100"
 
 ## <a name="next-steps"></a>后续步骤
 
-- [存储资源管理器入门](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
-- [Azure Stack 存储：差异和注意事项](azure-stack-acs-differences.md)
-- 若要了解有关 Azure 存储的详细信息，请参阅 [Azure 存储简介](../../storage/common/storage-introduction.md)
+* [存储资源管理器入门](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
+* [Azure Stack 存储：差异和注意事项](azure-stack-acs-differences.md)
+* 若要了解有关 Azure 存储的详细信息，请参阅 [Azure 存储简介](../../storage/common/storage-introduction.md)
 
 <!-- Update_Description: wording update -->

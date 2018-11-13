@@ -3,8 +3,8 @@ title: 向 Azure 报告 Azure Stack 用量数据 | Microsoft Docs
 description: 了解如何在 Azure Stack 中设置用量数据报告。
 services: azure-stack
 documentationcenter: ''
-author: brenduns
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.service: azure-stack
 ms.workload: na
@@ -12,15 +12,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/30/2018
-ms.date: 06/27/2018
-ms.author: v-junlch
+ms.date: 11/12/2018
+ms.author: v-jay
 ms.reviewer: alfredop
-ms.openlocfilehash: 4bbc34e4f10e4af7f7b127f52d0f5f3f0254ed91
-ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
+ms.openlocfilehash: fa8f12b7ab2b4be470d53a3937a9008bc5a878be
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37027169"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195521"
 ---
 # <a name="report-azure-stack-usage-data-to-azure"></a>向 Azure 报告 Azure Stack 用量数据 
 
@@ -32,7 +32,7 @@ ms.locfileid: "37027169"
 > 根据即用即付付费模式购买许可证的 Azure Stack 多节点用户必须配置用量数据报告。 对于根据容量计费模式购买许可证的客户而言，用量数据报告是可选的（请参阅[购买方式页](https://azure.microsoft.com/overview/azure-stack/how-to-buy/)）。 对于 Azure Stack 开发工具包用户，Azure Stack 操作员可以报告用量数据并测试此功能。 但是，用户无需为产生的任何用量付费。 
 
 
-![计费流](./media/azure-stack-usage-reporting/billing-flow.png)
+![计费流](media/azure-stack-usage-reporting/billing-flow.png)
 
 用量数据通过 Azure Bridge 从 Azure Stack 发送到 Azure。 在 Azure 中，商务系统会处理用量数据并生成帐单。 生成帐单之后，Azure 订阅所有者可以从 [Azure 帐户中心](https://account.windowsazure.cn/Subscriptions)查看和下载帐单。 若要了解 Azure Stack 的许可方式，请参阅 [Azure Stack 打包和定价文档](https://go.microsoft.com/fwlink/?LinkId=842847&clcid=0x409)。
 
@@ -57,7 +57,7 @@ ms.locfileid: "37027169"
 
 如果已使用 CSP 订阅注册 Azure Stack，则可以查看用量和费用，查看方法与查看 Azure 消耗量相同。 Azure Stack 用量将包含在可通过[合作伙伴中心](https://partnercenter.microsoft.com/partner/home)获取的发票和对帐文件中。 对帐文件每月更新。 如果需要访问最新的 Azure Stack 用量信息，可以使用合作伙伴中心 API。
 
-   ![合作伙伴中心](./media/azure-stack-usage-reporting/partner-center.png)
+   ![合作伙伴中心](media/azure-stack-usage-reporting/partner-center.png)
 
 
 ## <a name="view-usage---enterprise-agreement-subscriptions"></a>查看用量 - 企业协议订阅
@@ -68,7 +68,7 @@ ms.locfileid: "37027169"
 
 如果已使用其他任何订阅类型（例如，即用即付订阅）注册 Azure Stack，则可以在 Azure 帐户中心查看用量和费用。 以 Azure 帐户管理员身份登录到 [Azure 帐户中心](https://account.windowsazure.cn/Subscriptions)，选择用于注册 Azure Stack 的 Azure 订阅。 可以查看 Azure Stack 用量数据，以及针对使用的每个资源收取的费用，如下图所示：
 
-   ![计费流](./media/azure-stack-usage-reporting/pricing-details.png)
+   ![计费流](media/azure-stack-usage-reporting/pricing-details.png)
 
 对于 Azure Stack 开发工具包，我们不会收取 Azure Stack 资源费用，因此价格显示为 $0.00。
 
@@ -97,19 +97,13 @@ ms.locfileid: "37027169"
 
 在 Azure Stack 开发工具包中，用量数据报告需要全球 Azure 系统中创建的订阅。 在某个主权云（Azure 政府、Azure 德国和 Azure 中国云）中创建的订阅无法注册到 Azure，因此不支持用量数据报告。
 
-## <a name="how-can-users-identify-azure-stack-usage-data-in-the-azure-billing-portal"></a>用户如何在 Azure 计费门户中确定 Azure Stack 用量数据？
-
-用户可以在用量详细信息文件中查看 Azure Stack 用量数据。 若要了解如何获取用量详细信息文件，请参阅[从 Azure 帐户中心下载用量文件](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-from-the-account-center-csv)一文。 用量详细信息文件包含的 Azure Stack 计量可用于标识 Azure Stack 存储和 VM。 在 Azure Stack 中使用的所有资源都在名为“Azure Stack”的区域下报告。
-
 ## <a name="why-doesnt-the-usage-reported-in-azure-stack-match-the-report-generated-from-azure-account-center"></a>为何 Azure Stack 中报告的用量与从 Azure 帐户中心生成的报告不匹配？
 
 Azure Stack 用量 API 报告用量数据的时间与 Azure 帐户中心报告用量数据的时间始终存在延迟。 之所以发生这种延迟，是因为需要将用量数据从 Azure Stack 上传到 Azure 商务系统。 由于这种延迟，在午夜之前短暂发生的用量可能要在第二天才显示在 Azure 中。 如果使用 [Azure Stack 用量 API](azure-stack-provider-resource-api.md) 并将结果与 Azure 计费门户中报告的用量相比较，则可能会看到差异。
 
 ## <a name="next-steps"></a>后续步骤
 
-- [提供者使用情况 API](azure-stack-provider-resource-api.md)  
-- [租户使用情况 API](azure-stack-tenant-resource-usage-api.md)
-- [使用情况常见问题](azure-stack-usage-related-faq.md)
-- [以云服务提供商身份管理使用情况和计费](azure-stack-add-manage-billing-as-a-csp.md)
-
-<!-- Update_Description: wording update -->
+* [提供者使用情况 API](azure-stack-provider-resource-api.md)  
+* [租户使用情况 API](azure-stack-tenant-resource-usage-api.md)
+* [使用情况常见问题](azure-stack-usage-related-faq.md)
+* [以云服务提供商身份管理使用情况和计费](azure-stack-add-manage-billing-as-a-csp.md)

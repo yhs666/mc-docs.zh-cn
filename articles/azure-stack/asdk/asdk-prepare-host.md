@@ -3,8 +3,8 @@ title: 准备 Azure Stack 开发工具包 (ASDK) 主机 | Microsoft Docs
 description: 介绍如何准备用于 ASDK 安装的 Azure Stack 开发工具包 (ASDK) 主机。
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/22/2018
-ms.date: 04/23/2018
-ms.author: v-junlch
+ms.date: 11/12/2018
+ms.author: v-jay
 ms.reviewer: misainat
-ms.openlocfilehash: 4b77d75c7a89f3e9e544861c9496ff5b2cc9a4da
-ms.sourcegitcommit: 85828a2cbfdb58d3ce05c6ef0bc4a24faf4d247b
+ms.openlocfilehash: 86532cf3285e97f1f007ff6189b06be050568f3b
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31805339"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195374"
 ---
 # <a name="prepare-the-asdk-host-computer"></a>准备 ASDK 主机
 在主机上安装 ASDK 之前，必须先准备好用于安装的 ASDK 环境。 准备好开发工具包主机之后，该主机会从 CloudBuilder.vhdx 虚拟机硬盘启动，以开始进行 ASDK 部署。
@@ -46,18 +46,17 @@ ms.locfileid: "31805339"
 
 4. 从提升了权限的 PowerShell 控制台启动 **C:\AzureStack_Installer\asdk-installer.ps1** 脚本，然后单击“准备环境”。
 
-    ![](./media/asdk-prepare-host/1.PNG) 
+    ![](media/asdk-prepare-host/1.PNG) 
 
 5. 在安装程序的“选择 Cloudbuilder vhdx”页上浏览到 **cloudbuilder.vhdx** 文件并将其选中，该文件是在[前述步骤](asdk-download.md)中下载并提取的。 如果需要向开发工具包主机添加其他驱动程序，则也可选择在此页上启用“添加驱动程序”复选框。 单击“下一步”。  
 
-    ![](./media/asdk-prepare-host/2.PNG)
+    ![](media/asdk-prepare-host/2.PNG)
 
 6. 在“可选设置”页上，提供开发工具包主机 的本地管理员帐户信息，然后单击“下一步”。 还可以提供以下可选设置的值：
   - **Computername**：此选项设置开发工具包主机的名称。 名称必须符合 FQDN 要求，且长度不得超过 15 个字符。 默认值是由 Windows 生成的随机计算机名称。
-  - **时区**：设置开发工具包主机的时区。 默认为“(UTC-8:00)太平洋时间(美国和加拿大)”。
   - **静态 IP 配置**：将部署设置为使用静态 IP 地址。 否则，当安装程序重启到 cloudbuilder.vhx 中时，会使用 DHCP 来配置网络接口。
 
-    ![](./media/asdk-prepare-host/3.PNG)
+    ![](media/asdk-prepare-host/3.PNG)
 
   > [!IMPORTANT]
   > 如果在此步骤中未提供本地管理员凭据，则在设置开发工具包过程中重启计算机后，需要直接访问或通过 KVM 访问主机。
@@ -69,7 +68,7 @@ ms.locfileid: "31805339"
 14. 但准备过程指示“已完成”时，单击“下一步”。
 15. 单击“立即重新启动”，将开发工具包主机启动到 cloudbuilder.vhdx 中，然后[继续部署过程](asdk-install.md)。
 
-    ![](./media/asdk-prepare-host/4.PNG)
+    ![](media/asdk-prepare-host/4.PNG)
 
 
 ## <a name="next-steps"></a>后续步骤

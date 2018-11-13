@@ -16,12 +16,12 @@ ms.topic: article
 origin.date: 07/12/2018
 ms.date: 10/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: 2474854eed9d930d70a87523319aa9194f9aa7e3
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: 3e7d94e329224bc3b574b620bba3d19ab1312ae8
+ms.sourcegitcommit: caa089a6221a4925943f1ea516ca58ae62da0dff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453522"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "50982961"
 ---
 # <a name="convert-azure-managed-disks-storage-from-standard-to-premium-and-vice-versa"></a>Azure 标准与高级托管磁盘存储的相互转换
 
@@ -106,8 +106,44 @@ az disk update --sku $sku --name $diskName --resource-group $rgName
 az vm start --ids $vmId 
 ```
 
-<!-- Not Available on ## Convert a managed disk from standard HDD to standard SSD, and vice versa-->
-<!-- Notice: sku StandardSSD_LRS is invalid on MC-->
+## <a name="convert-a-managed-disk-from-standard-hdd-to-standard-ssd-and-vice-versa"></a>将托管磁盘在标准 HDD 与标准 SSD 之间相互转换
+
+以下示例展示如何将 VM 的单个磁盘从标准 HDD 切换到标准 SSD。
+
+ ```azurecli
+
+#resource group that contains the managed disk
+rgName='yourResourceGroup'
+
+#Name of your managed disk
+diskName='yourManagedDiskName'
+
+#Choose between Standard_LRS and StandardSSD_LRS based on your scenario
+sku='StandardSSD_LRS'
+
+#Get the parent VM Id 
+vmId=$(az disk show --name $diskName --resource-group $rgName --query managedBy --output tsv)
+
+#Deallocate the VM before changing the disk type
+az vm deallocate --ids $vmId 
+
+# Update the sku
+az disk update --sku $sku --name $diskName --resource-group $rgName 
+
+az vm start --ids $vmId 
+```
+
+## <a name="convert-using-the-azure-portal"></a>使用 Azure 门户进行转换
+
+还可以使用 Azure 门户将非托管磁盘转换为托管磁盘。
+
+1. 登录到 [Azure 门户](https://portal.azure.com)。
+2. 从门户的 VM 列表中选择 VM。
+3. 在 VM 的边栏选项卡中，从菜单中选择“磁盘”。
+4. 在“磁盘”边栏选项卡的顶部，选择“迁移到托管磁盘”。
+5. 如果 VM 位于可用性集中，则“迁移到托管磁盘”边栏选项卡上会出现“首先需要转换可用性集”的警告。 此警告应该有一个链接，单击该链接即可转换可用性集。 转换可用性集后，或者如果 VM 不在可用性集中，请单击“迁移”以启动将磁盘迁移到托管磁盘的过程。 
+
+VM 将会停止并在完成迁移后重新启动。
 
 ## <a name="next-steps"></a>后续步骤
 

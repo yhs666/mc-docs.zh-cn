@@ -12,14 +12,14 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/17/2018
-ms.date: 10/15/2018
+ms.date: 11/12/2018
 ms.author: v-jay
-ms.openlocfilehash: ad66285189234a0849867ac3fbfc931fd1bb3177
-ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
+ms.openlocfilehash: deb536948de0ed3992d56cca87fba2481f2fdd1a
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48848802"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195426"
 ---
 # <a name="get-up-and-running-with-powershell-in-azure-stack"></a>在 Azure Stack 中使用 PowerShell 启动并运行
 
@@ -58,21 +58,21 @@ Install-Module -Name AzureRm.BootStrapper -Force
 
   ```PowerShell  
     Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
-    Install-Module -Name AzureStack -RequiredVersion 1.5.0 -Force
+    Install-Module -Name AzureStack -RequiredVersion 1.5.0
   ```
 
   - Azure Stack 1807 或更早版本。
 
   ```PowerShell  
     Use-AzureRmProfile -Profile 2017-03-09-profile -Force
-    Install-Module -Name AzureStack -RequiredVersion 1.4.0 -Force
+    Install-Module -Name AzureStack -RequiredVersion 1.4.0
   ```
 
   - Azure Stack 1804 或更早版本。
 
   ```PowerShell  
     Use-AzureRmProfile -Profile 2017-03-09-profile -Force
-    Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
+    Install-Module -Name AzureStack -RequiredVersion 1.2.11
   ```
 
 下载 Azure Stack 工具并进行连接。

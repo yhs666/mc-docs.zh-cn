@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/10/2018
-ms.date: 10/15/2018
+origin.date: 09/27/2018
+ms.date: 11/12/2018
 ms.author: v-jay
 ms.reviewer: alfredop
-ms.openlocfilehash: 49658303b9a400abc369e84e9d05de17775e1496
-ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
+ms.openlocfilehash: b6e2d61be7dd3cf07e9df7a21c9d102db9ef6d78
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48848915"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195494"
 ---
 # <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Azure Stack 用量 API 的常见问题解答
 
@@ -66,7 +66,7 @@ ms.locfileid: "48848915"
 **计量 ID**：B9FF3CD0-28AA-4762-84BB-FF8FBAEA6A90  
 **计量名称**：TableTransactions  
 **单元**：请求计数（以万为单位）  
-**说明**：表服务请求数（以万为单位）。  
+**说明**：表服务请求数（以 10,000 计）。  
   
 **计量 ID**：50A1AEAF-8ECA-48A0-8973-A5B3077FEE0D  
 **计量名称**：TableDataTransIn  
@@ -81,7 +81,7 @@ ms.locfileid: "48848915"
 **计量 ID**：43DAF82B-4618-444A-B994-40C23F7CD438  
 **计量名称**：BlobTransactions  
 **单元**：请求计数（以万为单位）  
-**说明**：Blob 服务请求数（以万为单位）。  
+**说明**：Blob 服务请求数（以 10,000 计）。  
   
 **计量 ID**：9764F92C-E44A-498E-8DC1-AAD66587A810  
 **计量名称**：BlobDataTransIn  
@@ -96,7 +96,7 @@ ms.locfileid: "48848915"
 **计量 ID**：EB43DD12-1AA6-4C4B-872C-FAF15A6785EA  
 **计量名称**：QueueTransactions  
 **单元**：请求计数（以万为单位）  
-**说明**：队列服务请求数（以万为单位）。  
+**说明**：队列服务请求数（以 10,000 计）。  
   
 **计量 ID**：E518E809-E369-4A45-9274-2017B29FFF25  
 **计量名称**：QueueDataTransIn  
@@ -321,11 +321,6 @@ ms.locfileid: "48848915"
 **单元**：GB  
 **说明**：总传入请求响应字节数 + 总传出请求字节数 + 总传入 FTP 请求响应类型数 + 总传入 Web 部署请求响应字节数。  
   
-
-## <a name="how-do-the-azure-stack-usage-apis-compare-to-the-azure-usage-apihttpsmsdnmicrosoftcomlibraryazure1ea5b323-54bb-423d-916f-190de96c6a3c-currently-in-public-preview"></a>Azure Stack 用量 API 与 [Azure 用量 API](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c)（目前为公共预览版）有何差别？
-* 租户用量 API 与 Azure API 相同，但有一点除外：Azure Stack 目前不支持 *showDetails* 标志。
-* 提供程序用量 API 只适用于 Azure Stack。
-* 目前，Azure Stack 不提供 Azure 中所提供的[费率卡 API](https://msdn.microsoft.com/library/azure/mt219004.aspx)。
 
 ## <a name="what-is-the-difference-between-usage-time-and-reported-time"></a>使用时间与报告时间有何差别？
 用量数据报告包含两个主要时间值：

@@ -6,15 +6,15 @@ manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 origin.date: 07/03/2018
-ms.date: 08/06/2018
+ms.date: 11/12/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5eaff476e8e05930d13e39409a46e150f60907c1
-ms.sourcegitcommit: c6205500afd23ac00f2829fe51858b51a622eaf1
+ms.openlocfilehash: 6316d0cc6dc77cfd7e2f54805a6717b10ca8d373
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39487781"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195439"
 ---
 # <a name="authentication-and-user-permissions"></a>身份验证和用户权限
 Azure Analysis Services 使用 Azure Active Directory (Azure AD) 进行标识管理和用户身份验证。 在相同订阅中，创建、管理或连接到 Azure Analysis Services 服务器的任何用户均需具备 [Azure AD 租户](../active-directory/fundamentals/active-directory-administer.md)中的有效用户标识。

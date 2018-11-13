@@ -14,16 +14,16 @@ origin.date: 07/24/2018
 ms.date: 08/27/2018
 ms.author: v-jay
 ms.reviewer: John.Haskin
-ms.openlocfilehash: 99a52707c41c79534db355ec2ece961a3cd225d3
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.openlocfilehash: dae5d0705d546988b46218977ee3835cd0fbbd11
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869680"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195362"
 ---
 # <a name="release-notes---1803"></a>发行说明 - 1803
 
-[!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
+[!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 ## <a name="1803"></a>1803
 

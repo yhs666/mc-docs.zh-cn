@@ -3,8 +3,8 @@ title: 评估 Azure Stack 开发工具包 | Microsoft Docs
 description: 了解如何部署用于评估目的的 Azure Stack 开发工具包。
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-origin.date: 06/04/2018
-ms.date: 06/26/2018
-ms.author: v-junlch
+origin.date: 10/15/2018
+ms.date: 11/12/2018
+ms.author: v-jay
 ms.custom: mvc
-ms.openlocfilehash: daad1f989ab639a29b3f2d3725a279c7bfd6dfab
-ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
+ms.openlocfilehash: 4697a36fa298abd021d5845d24c39781de9c207c
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37027220"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195339"
 ---
 # <a name="quickstart-evaluate-the-azure-stack-development-kit"></a>快速入门：评估 Azure Stack 开发工具包
 
@@ -93,4 +93,3 @@ ms.locfileid: "37027220"
 ## <a name="next-steps"></a>后续步骤
 
 祝贺！ 完成本快速入门中的步骤以后，你就有了一个包含[管理员](https://adminportal.local.azurestack.external)门户和[用户](https://portal.local.azurestack.external)门户的 ASDK 环境。
-

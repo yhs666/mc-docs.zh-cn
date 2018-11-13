@@ -7,15 +7,15 @@ manager: digimobile
 ms.service: container-registry
 ms.topic: article
 origin.date: 01/23/2018
-ms.date: 09/30/2018
+ms.date: 11/12/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e84b051d2f1514a17b88888668c53af964cef384
-ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
+ms.openlocfilehash: d66a03fe91e3c1363d9804fcd5ef43da1f99c54c
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47201304"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195381"
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>使用私有 Docker 容器注册表进行身份验证
 
@@ -48,8 +48,9 @@ az acr login --name <acrName>
 服务主体在推送和拉取方案中启用到注册表的“无外设”连接，如下所示：
 
   * *读者*：从注册表到业务流程系统（包括 Kubernetes、DC/OS 和 Docker Swarm）的容器部署。 还可从容器注册表进行拉取并推送到相关 Azure 服务，例如 [应用服务](../app-service/index.yml)、[Batch](../batch/index.yml) 和 [Service Fabric](/service-fabric/) 等。
-  <!-- Not Available on [AKS](../aks/index.yml)-->
-  * *参与者*：生成容器映像并将它们推送到注册表的持续集成和部署解决方案（如 Azure DevOps 或 Jenkins）。
+      
+      <!-- Not Available on [AKS](../aks/index.yml)-->
+  * 参与者：生成容器映像并将它们推送到注册表的持续集成和部署解决方案（如 Azure Pipelines 或 Jenkins）。
 
 > [!TIP]
 > 可通过运行 [az ad sp reset-credentials](https://docs.azure.cn/zh-cn/cli/ad/sp?view=azure-cli-latest#az-ad-sp-reset-credentials) 命令重新生成服务主体的密码。
@@ -99,4 +100,5 @@ az acr update -n <acrName> --admin-enabled true
 
 <!-- IMAGES -->
 [auth-portal-01]: ./media/container-registry-authentication/auth-portal-01.png
+
 <!-- Update_Description: update meta properties, wording update -->

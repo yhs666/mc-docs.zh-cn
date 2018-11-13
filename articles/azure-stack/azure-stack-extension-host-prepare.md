@@ -5,18 +5,18 @@ services: azure-stack
 keywords: ''
 author: WenJason
 ms.author: digimobile
-origin.date: 09/05/2018
-ms.date: 10/15/2018
+origin.date: 09/26/2018
+ms.date: 11/12/2018
 ms.topic: article
 ms.service: azure-stack
 ms.reviewer: thoroet
 manager: digimobile
-ms.openlocfilehash: aed92d67c89740c14148524dd6fbe4963951bc62
-ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
+ms.openlocfilehash: 04186e022b9325783cf3241e23028be29fe6880a
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48849130"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195569"
 ---
 # <a name="prepare-for-extension-host-for-azure-stack"></a>为 Azure Stack 准备扩展主机
 
@@ -71,7 +71,7 @@ Azure Stack 就绪性检查器工具能够为两个新的必需 SSL 证书创建
     ```PowerShell  
     $pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString 
 
-    Start-AzsReadinessChecker -CertificatePath c:\certificates -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD -ExtensionHostFeature $true
+    Start-AzsReadinessChecker -CertificatePath c:\certificates -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD -ExtensionHostFeature
     ```
 
 5. 将证书放在合适的目录中。

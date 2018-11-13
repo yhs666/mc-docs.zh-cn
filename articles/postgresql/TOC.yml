@@ -50,8 +50,6 @@ items:
       href: concepts-supported-versions.md
     - name: PostgreSQL 扩展
       href: concepts-extensions.md
-    - name: 服务器日志
-      href: concepts-server-logs.md
     - name: 高可用性
       href: concepts-high-availability.md
   - name: 资源
@@ -74,8 +72,20 @@ items:
       href: concepts-business-continuity.md
     - name: 备份和还原
       href: concepts-backup.md
-  - name: 监视
-    href: concepts-monitoring.md
+  - name: 监视和优化
+    items:
+    - name: 监视和优化
+      href: concepts-monitoring.md
+    - name: 服务器日志
+      href: concepts-server-logs.md
+    - name: 查询存储
+      items:
+      - name: 查询存储
+        href: concepts-query-store.md
+      - name: Query Store 使用方案
+        href: concepts-query-store-scenarios.md
+      - name: 查询存储最佳做法
+        href: concepts-query-store-best-practices.md
   - name: 开发
     items:
     - name: 连接库
@@ -152,9 +162,9 @@ items:
         href: https://aka.ms/postg-powerbi-vid
   - name: 支持选项
     href: https://www.azure.cn/zh-cn/support/contact/
-ms.openlocfilehash: a3c5c6904c3ff61239c782a575289d53b08df36f
-ms.sourcegitcommit: 3b9e31daa1ae213311d7d530225be03e4c3e6332
+ms.openlocfilehash: 6dfb2ebcb5b174177063f8bff6dbb0c8515a9c80
+ms.sourcegitcommit: 3e4e199e1a9938465496408f66153a58d75d1154
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48850722"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "50982922"

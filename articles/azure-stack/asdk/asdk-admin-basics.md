@@ -3,8 +3,8 @@ title: Azure Stack 开发工具包基础知识 | Microsoft Docs
 description: 介绍如何对 Azure Stack 开发工具包 (ASDK) 执行基本的管理任务。
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/07/2018
-ms.date: 06/27/2018
-ms.author: v-junlch
+origin.date: 10/15/2018
+ms.date: 11/12/2018
+ms.author: v-jay
 ms.reviewer: misainat
-ms.openlocfilehash: c6c1c5c7e39dee52e6409b734e4c4b1ec4bfa78a
-ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
+ms.openlocfilehash: eeb5245a71cdc0be23b1db8eb18467185a0f3051
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37027217"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195467"
 ---
 # <a name="asdk-administration-basics"></a>ASDK 管理基础知识 
 如果你不熟悉 Azure Stack 开发工具包 (ASDK) 的管理，请参考本文。 本指南概述评估环境中 Azure Stack 操作员的角色，以及如何确保测试用户快速提高工作效率。
@@ -67,6 +67,5 @@ Azure Stack 使用 Azure 资源管理器作为其基础的部署、管理和组�
 
 ## <a name="next-steps"></a>后续步骤
 [部署 ASDK](asdk-install.md)
-
 
 <!-- Update_Description: link update -->

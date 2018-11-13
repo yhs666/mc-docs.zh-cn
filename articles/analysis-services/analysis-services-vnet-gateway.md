@@ -5,16 +5,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 07/03/2018
-ms.date: 10/22/2018
+origin.date: 10/22/2018
+ms.date: 11/22/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6f47a0f0e0165a9813074cae1513359a4a703538
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: 68cfdf5d3816821a0dcb79fc0eccf657ccb66a58
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453973"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195464"
 ---
 # <a name="use-gateway-for-data-sources-on-an-azure-virtual-network-vnet"></a>为 Azure 虚拟网络 (VNet) 上的数据源使用网关
 
@@ -39,5 +39,4 @@ ms.locfileid: "49453973"
 [安装并配置本地数据网关](analysis-services-gateway-install.md)   
 [Azure 虚拟网络 (VNET)](../virtual-network/virtual-networks-overview.md)
 
-<!-- Update_Description: new articles on analysis services vnet gateway  -->
-<!--ms.date: 10/22/2018-->
+<!-- Update_Description: update meta properties  -->

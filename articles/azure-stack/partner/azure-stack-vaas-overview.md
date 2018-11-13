@@ -14,16 +14,16 @@ origin.date: 07/24/2018
 ms.date: 08/27/2018
 ms.author: v-jay
 ms.reviewer: johnhas
-ms.openlocfilehash: 45c4726d266302ab63107b0168cacc16cd772d2a
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.openlocfilehash: 36d74968d12b311df85e2476ee5a441a4015e65c
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869684"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195435"
 ---
 # <a name="what-is-validation-as-a-service-for-azure-stack"></a>什么是适用于 Azure Stack 的验证即服务？
 
-[!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
+[!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 验证即服务 (VaaS) 是一项原生 Azure 服务，它适用于与 Azure 联合对 Azure Stack 产品/服务进行工程设计的解决方案合作伙伴。 解决方案合作伙伴可以使用该服务检查其解决方案是否满足 Azure 的要求以及是否可以按预期与 Azure Stack 配合工作。
 
