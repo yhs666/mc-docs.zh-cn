@@ -1,6 +1,6 @@
 ---
-title: 将 Kubernetes 群集部署到 Azure Stack | Microsoft Docs
-description: 了解如何将 Kubernetes 群集部署到 Azure Stack。
+title: 将 Kubernetes 部署到 Azure Stack | Microsoft Docs
+description: 了解如何将 Kubernetes 部署到 Azure Stack。
 services: azure-stack
 documentationcenter: ''
 author: WenJason
@@ -11,35 +11,37 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/12/2018
-ms.date: 10/15/2018
+origin.date: 10/09/2018
+ms.date: 11/12/2018
 ms.author: v-jay
 ms.reviewer: waltero
-ms.openlocfilehash: 2c4fa4044e2c7e0bc9279e3ab2e7bea3d416d3aa
-ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
+ms.openlocfilehash: 237e8bf317a71c4d937d5068c1159fdd4466e061
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48848822"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195351"
 ---
-# <a name="deploy-a-kubernetes-cluster-to-azure-stack"></a>将 Kubernetes 群集部署到 Azure Stack
+# <a name="deploy-kubernetes-to-azure-stack"></a>将 Kubernetes 部署到 Azure Stack
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 > [!Note]  
-> Azure Stack 上的 AKS（Azure Kubernetes 服务）引擎目前以个人预览版提供。 Azure Stack 操作员需请求 Kubernetes 市场项的访问权限，该项是根据本文中的说明进行操作所必需的。
+> Azure Stack 上的 Kubernetes 现为预览版。
 
 下面的文章着眼于使用 Azure 资源管理器解决方案模板通过单个协调的操作为 Kubernetes 部署和预配资源。 需收集有关 Azure Stack 安装的必需信息，生成模板，然后再部署到云。
 
 ## <a name="kubernetes-and-containers"></a>Kubernetes 和容器
 
-可以使用 Azure 资源管理器模板来安装 Kubernetes，该模板由 Azure Stack 上的 Azure Kubernetes 服务 (AKS) 引擎生成。 [Kubernetes](https://kubernetes.io) 是一个开源系统，可以自动部署、缩放和管理容器中的应用程序。 [容器](https://www.docker.com/what-container)受限于映像，与 VM 类似。 与 VM 不同的是，容器映像只包含运行应用程序所需的资源，例如代码、执行代码所需的运行时、特定库以及设置。
+可以使用由 Azure Stack 上的 ACS 引擎生成的 Azure 资源管理器模板来安装 Kubernetes。 [Kubernetes](https://kubernetes.io) 是一个开源系统，可以自动部署、缩放和管理容器中的应用程序。 [容器](https://www.docker.com/what-container)受限于映像，与 VM 类似。 与 VM 不同的是，容器映像只包含运行应用程序所需的资源，例如代码、执行代码所需的运行时、特定库以及设置。
 
 可以使用 Kubernetes 执行以下操作：
 
 - 开发可以大规模伸缩、升级并可快速部署的应用程序。 
 - 通过不同的 Helm 应用程序简化应用程序的设计并改进其可靠性。 [Helm](https://github.com/kubernetes/helm) 是一种开放源打包工具，有助于安装和管理 Kubernetes 应用程序的生命周期。
 - 轻松监视和诊断具有缩放和升级功能的应用程序的运行状况。
+
+将仅对为你的群集提供支持的节点所需的计算使用量收费。 有关详细信息，请参阅 [Azure Stack 中的使用量和计费](/azure-stack/azure-stack-billing-and-chargeback)。
 
 ## <a name="prerequisites"></a>先决条件 
 
@@ -55,12 +57,18 @@ ms.locfileid: "48848822"
 
 3. 检查你在 Azure Stack 租户门户中是否有有效的订阅，以及是否有足够的公共 IP 地址来添加新的应用程序。
 
-    此群集不能部署到 Azure Stack **管理员**订阅。 必须使用用户**订阅。 
+    此群集不能部署到 Azure Stack **管理员**订阅。 必须使用**用户**订阅。 
+
+4. 如果你的市场中没有 Kubernetes 群集，请联系 Azure Stack 的管理员。
 
 ## <a name="create-a-service-principal-in-azure-ad"></a>在 Azure AD 中创建服务主体
 
 1. 登录到全球 [Azure 门户](http://portal.azure.cn)。
-2. 检查是否已使用与 Azure Stack 实例关联的 Azure AD 租户登录。
+
+2. 检查是否已使用与 Azure Stack 实例关联的 Azure AD 租户登录。 可以通过单击 Azure 工具栏上的筛选器图标切换你的登录。
+
+    ![选择你的 AD 租户](media/azure-stack-solution-template-kubernetes-deploy/tenantselector.png)
+
 3. 创建 Azure AD 应用程序。
 
     a. 选择“Azure Active Directory” > “+ 应用注册” > “新建应用程序注册”。
@@ -84,26 +92,25 @@ ms.locfileid: "48848822"
     c. 选择“其他安全性验证” 。 记下密钥字符串。 在创建群集时需要此密钥字符串。 此密钥称为“服务主体客户端机密”。
 
 
-
 ## <a name="give-the-service-principal-access"></a>为服务主体提供访问权限
 
 为服务主体提供对订阅的访问权限，使该主体能够创建资源。
 
 1.  登录到 [Azure Stack 门户](https://portal.local.azurestack.external/)。
 
-2. 选择“更多服务” > “订阅”。
+2. 选择“所有服务” > “订阅”。
 
-3. 选择已创建的订阅。
+3. 选择你的操作员创建的用于使用 Kubernetes 群集的订阅。
 
 4. 选择“访问控制(IAM)”，然后选择“+ 添加”。
 
-5. 选择“所有者”角色。
+5. 选择“参与者”角色。
 
 6. 选择为服务主体创建的应用程序名称。 可能需要在搜索框中键入名称。
 
 7. 单击“保存” 。
 
-## <a name="deploy-a-kubernetes-cluster"></a>部署 Kubernetes 群集
+## <a name="deploy-a-kubernetes"></a>部署 Kubernetes
 
 1. 打开 [Azure Stack 门户](https://portal.local.azurestack.external)。
 
@@ -111,9 +118,23 @@ ms.locfileid: "48848822"
 
     ![部署解决方案模板](media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
 
-3. 在“创建 Kubernetes 群集”中选择“基本设置”。
+### <a name="1-basics"></a>1.基础知识
+
+1. 在“创建 Kubernetes 群集”中选择“基本信息”。
 
     ![部署解决方案模板](media/azure-stack-solution-template-kubernetes-deploy/02_kub_config_basic.png)
+
+2. 选择**订阅** ID。
+
+3. 输入新资源组的名称，或者选择现有资源组。 资源名称必须为字母数字，且必须小写。
+
+4. 选择资源组的“位置”。 这是为 Azure Stack 安装选择的区域。
+
+### <a name="2-kubernetes-cluster-settings"></a>2.Kubernetes 群集设置
+
+1. 在“创建 Kubernetes 群集”中选择“Kubernetes 群集设置”。
+
+    ![部署解决方案模板](media/azure-stack-solution-template-kubernetes-deploy/03_kub_config_settings.png)
 
 2. 输入 **Linux VM 管理员用户名**。 构成 Kubernetes 群集和 DVM 的 Linux 虚拟机的用户名。
 
@@ -124,29 +145,32 @@ ms.locfileid: "48848822"
     > [!Note]  
     > 为每个群集使用新且唯一的主配置文件 DNS 前缀。
 
-5. 输入**代理池配置文件计数**。 此计数包含群集中的代理数。 其范围为 1 到 4。
+5. 选择“Kubernetes 主池配置文件计数”。 此计数包含主池中的节点数。 其范围为 1 到 7。 此值应当为奇数。
 
-6. 输入**服务主体 ClientId**，供 Kubernetes Azure 云提供程序使用。
+6. 选择“Kubernetes 主 VM 的 VMSize”。
 
-7. 输入在创建服务主体应用程序时创建的**服务主体客户端机密**。
+7. 选择“Kubernetes 节点池配置文件计数”。 此计数包含群集中的代理数。 
 
-8. 输入 **Kubernetes Azure 云提供程序版本**。 这是 Kubernetes Azure 提供程序的版本。 Azure Stack 为每个 Azure Stack 版本发布了自定义的 Kubernetes 内部版本。
+8. 选择“存储配置文件”。 可以选择“Blob 磁盘”或“托管磁盘”。 这指定 Kubernetes 节点 VM 的 VM 大小。 
 
-9. 选择**订阅** ID。
+9. 输入**服务主体 ClientId**，供 Kubernetes Azure 云提供程序使用。 创建服务主体时标识为应用程序 ID 的客户端 ID。
 
-10. 输入新资源组的名称，或者选择现有资源组。 资源名称必须为字母数字，且必须小写。
+10. 输入在创建服务主体时创建的**服务主体客户端机密**。
 
-11. 选择资源组的“位置”。 这是为 Azure Stack 安装选择的区域。
+11. 输入 **Kubernetes Azure 云提供程序版本**。 这是 Kubernetes Azure 提供程序的版本。 Azure Stack 为每个 Azure Stack 版本发布了自定义的 Kubernetes 内部版本。
 
-### <a name="specify-the-azure-stack-settings"></a>指定 Azure Stack 设置
+### <a name="3-summary"></a>3.摘要
 
-1. 选择“Azure Stack 戳设置”。
+1. 选择“摘要”。 此边栏选项卡显示针对 Kubernetes 群集配置设置的验证消息。
 
-    ![部署解决方案模板](media/azure-stack-solution-template-kubernetes-deploy/03_kub_config_settings.png)
+    ![部署解决方案模板](media/azure-stack-solution-template-kubernetes-deploy/04_preview.png)
 
-2. 输入**租户 Arm 终结点**。 这是在连接后即可为 Kubernetes 群集创建资源组的 Azure 资源管理器终结点。 需从集成系统的 Azure Stack 操作员处获取此终结点。 对于 Azure Stack 开发工具包 (ASDK)，可以使用 `https://management.local.azurestack.external`。
+2. 复查你的设置。
 
-3. 输入租户的**租户 ID**。 如果不知道如何查找此值，请参阅[获取租户 ID](/azure-resource-manager/resource-group-create-service-principal-portal#get-tenant-id)。 
+3. 选择“确定”以部署群集。
+
+> [!TIP]  
+>  如果对你的部署有疑问，可以在 [Azure Stack 论坛](https://social.msdn.microsoft.com/Forums/zh-CN/home)中发布问题或查看是否已经有人已回答了该问题。 
 
 ## <a name="connect-to-your-cluster"></a>连接到群集
 

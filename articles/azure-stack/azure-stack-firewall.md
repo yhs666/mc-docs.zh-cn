@@ -3,8 +3,8 @@ title: Azure Stack 集成系统的 Azure Stack 防火墙计划 | Microsoft Docs
 description: 介绍了多节点 Azure Stack Azure 连接部署的 Azure Stack 防火墙注意事项。
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/23/2018
-ms.date: 06/26/2018
-ms.author: v-junlch
+origin.date: 10/15/2018
+ms.date: 11/12/2018
+ms.author: v-jay
 ms.reviewer: wfayed
-ms.openlocfilehash: 7dbf7c3d16d79f0b75b096b61ce55c6b3907273d
-ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
+ms.openlocfilehash: b4930a29bd566400fc47b3ab2fee40d605c15ff8
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37027071"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195511"
 ---
 # <a name="azure-stack-firewall-integration"></a>Azure Stack 防火墙集成
 建议使用防火墙设备来帮助保护 Azure Stack。 虽然防火墙可以发挥很多作用，例如抵御分布式拒绝服务 (DDOS) 工具、执行入侵检测和内容检查，但是它们也可能会成为 Azure 存储服务（例如 blob、表和队列）的吞吐量瓶颈。
@@ -67,5 +67,3 @@ Azure 资源管理器（管理员）、管理员门户和 Key Vault（管理员�
 ## <a name="next-steps"></a>后续步骤
 [Azure Stack PKI 要求](azure-stack-pki-certs.md)
 
-
-<!-- Update_Description: image update -->

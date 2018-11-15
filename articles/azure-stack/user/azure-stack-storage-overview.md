@@ -3,23 +3,23 @@ title: Azure Stack 存储简介
 description: 了解 Azure Stack 存储
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
-manager: femila
+author: WenJason
+manager: digimobile
 ms.assetid: 092aba28-04bc-44c0-90e1-e79d82f4ff42
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 05/21/2018
-ms.date: 06/27/2018
-ms.author: v-junlch
-ms.openlocfilehash: 67285b0a3f08d6f54d5c07cc2b893a134e4f5989
-ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
+origin.date: 09/28/2018
+ms.date: 11/12/2018
+ms.author: v-jay
+ms.openlocfilehash: 53791e2ab475f1b3bafd071584f865ce6d714428
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37027184"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195436"
 ---
 # <a name="introduction-to-azure-stack-storage"></a>Azure Stack 存储简介
 
@@ -47,7 +47,7 @@ Azure Stack 存储提供以下三个服务：
 
 Azure Stack 存储帐户是可让你访问 Azure Stack 存储服务的安全帐户。 存储帐户为存储资源提供唯一的命名空间。 下图显示了存储帐户中 Azure Stack 存储资源之间的关系：
 
-![Azure Stack 存储概述](./media/azure-stack-storage-overview/AzureStackStorageOverview.png)
+![Azure Stack 存储概述](media/azure-stack-storage-overview/AzureStackStorageOverview.png)
 
 ### <a name="blob-storage"></a>Blob 存储
 
@@ -97,5 +97,4 @@ Blob 存储提供三种类型的 blob：
 - [与 Azure 一致的存储：差异和注意事项](azure-stack-acs-differences.md)
 
 - 若要了解有关 Azure 存储的详细信息，请参阅 [Azure 存储简介](../../storage/common/storage-introduction.md)
-
 <!-- Update_Description: wording update -->

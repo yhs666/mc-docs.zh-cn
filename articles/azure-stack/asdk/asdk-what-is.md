@@ -3,8 +3,8 @@ title: Azure Stack 开发工具包 (ASDK) 简介 | Microsoft Docs
 description: 介绍 ASDK 的概念以及进行 Azure Stack 评估的常见用例。
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
@@ -13,16 +13,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
-origin.date: 06/07/2018
-ms.date: 06/27/2018
-ms.author: v-junlch
+origin.date: 10/15/2018
+ms.date: 11/12/2018
+ms.author: v-jay
 ms.reviewer: misainat
-ms.openlocfilehash: 8822efd0cca109cfde4572870ac8ad85b39cb3e2
-ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
+ms.openlocfilehash: 334cde6d2e43f124cde1a1500230c559d33e7f3d
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37027073"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195373"
 ---
 # <a name="what-is-the-azure-stack-development-kit"></a>什么是 Azure Stack 开发工具包？
 [Azure Stack 集成系统](../azure-stack-poc.md)的大小范围为 4 到 12 个节点，由硬件合作伙伴和 Microsoft 共同提供支持。 使用 Azure Stack 集成系统可为生产工作负荷启用新方案。 如果你是 Azure Stack 操作员，想要管理集成系统基础结构并提供服务，请参阅[操作员文档](/azure-stack)。
@@ -37,6 +37,11 @@ Azure Stack 开发工具包 (ASDK) 用于对 Azure Stack 进行单节点部署�
 ASDK 旨在为以下人员提供 Azure 一致性混合云体验：
 - **管理员**（Azure Stack 操作员）。 ASDK 是适用于评估和了解可用 Azure Stack 服务的资源。
 - **开发人员**。 ASDK 可以用来在本地（开发/测试环境）开发混合应用程序或现代应用程序。 这样就可以在进行 Azure Stack 生产部署的同时或之前重复地获得开发体验。 
+
+观看此短视频，了解有关 ASDK 的详细信息：
+
+> [!VIDEO https://www.youtube.com/embed/dbVWDrl00MM]
+
 
 ## <a name="asdk-and-multi-node-azure-stack-differences"></a>ASDK 和多节点 Azure Stack 的差异
 单节点 ASDK 部署在一些应该注意的重要方面不同于多节点 Azure Stack 部署。
@@ -76,6 +81,4 @@ Azure Stack 会持续增加对其他 Azure 服务的支持。 若要了解 Azure
 
 
 ## <a name="next-steps"></a>后续步骤
-若要开始评估 Azure Stack，需先准备开发工具包主机服务器计算机，然后[安装 ASDK](asdk-install.md)。 之后便可以登录到管理员门户和用户门户，开始使用 Azure Stack。
-
-<!-- Update_Description: link update -->
+若要开始评估 Azure Stack，需要先[下载最新 ASDK](asdk-download.md) 并准备 ASDK 主机。 准备开发工具包主机后，可以安装 ASDK 并登录管理员和用户门户以开始使用 Azure Stack。

@@ -3,8 +3,8 @@ title: Azure Stack 开发工具包 (ASDK) 部署先决条件 | Microsoft Docs
 description: 查看 Azure Stack 开发工具包 (ASDK) 的环境和硬件要求。
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/21/2018
-ms.date: 04/23/2018
-ms.author: v-junlch
+origin.date: 09/10/2018
+ms.date: 11/12/2018
+ms.author: v-jay
 ms.reviewer: misainat
-ms.openlocfilehash: de7ca187f60b16dbd7b1a3945c7dce129296e137
-ms.sourcegitcommit: 3ec1b0705c8305fc4561b9511c275edb9baa1f59
+ms.openlocfilehash: ddae2b91595da2d39396948909e5fbab75cd84c3
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49316009"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195489"
 ---
 # <a name="azure-stack-deployment-planning-considerations"></a>Azure Stack 部署规划注意事项
 在部署 Azure Stack 开发工具包 (ASDK) 之前，请确保开发工具包主机满足本文中所述的要求。
@@ -44,19 +44,19 @@ ms.locfileid: "49316009"
 
 **HBA 配置选项**
 
-- （首选）简单 HBA
-- RAID HBA - 适配器必须在“直通”模式下配置
-- RAID HBA - 磁盘应配置为单磁盘，RAID-0
+* （首选）简单 HBA
+* RAID HBA - 适配器必须在“直通”模式下配置
+* RAID HBA - 磁盘应配置为单磁盘，RAID-0
 
 **支持的总线和介质类型组合**
 
-- SATA HDD
-- SAS HDD
-- RAID HDD
-- RAID SSD（如果介质类型为“未指定/未知”<sup>*</sup>）
-- SATA SSD + SATA HDD
-- SAS SSD + SAS HDD
-- NVMe
+* SATA HDD
+* SAS HDD
+* RAID HDD
+* RAID SSD（如果介质类型为“未指定/未知”<sup>*</sup>）
+* SATA SSD + SATA HDD
+* SAS SSD + SAS HDD
+* NVMe
 
 <sup>*</sup> 没有直通功能的 RAID 控制器无法识别此介质类型。 此类控制器会将 HDD 和 SSD 都标记为“未指定”。 在这种情况下，SSD 将用作持久存储而不是缓存设备。 因此，可以在这些 SSD 上部署开发工具包。
 
@@ -67,7 +67,7 @@ ms.locfileid: "49316009"
 ## <a name="operating-system"></a>操作系统
 |  | **要求** |
 | --- | --- |
-| **OS 版本** |Windows Server 2012 R2 或更高版本。 在部署开始之前，操作系统版本不是很重要，因为你会将主机启动到 VHD 中，而该 VHD 已包括在 Azure Stack 安装中。 OS 和所有必需的修补程序已集成到映像中。 请勿使用任何密钥来激活在开发工具包中使用的任何 Windows Server 实例。 |
+| **OS 版本** |Windows Server 2016 或更高版本。 在部署开始之前，操作系统版本不是很重要，因为你会将主机启动到 VHD 中，而该 VHD 已包括在 Azure Stack 安装中。 操作系统和所有必需的修补程序已集成到映像中。 请勿使用任何密钥来激活在开发工具包中使用的任何 Windows Server 实例。 |
 
 > [!TIP]
 > 安装操作系统后，可以使用[适用于 Azure Stack 的部署检查器](https://gallery.technet.microsoft.com/Deployment-Checker-for-50e0f51b)来确认硬件是否满足所有要求。
@@ -95,6 +95,8 @@ ms.locfileid: "49316009"
    | 具有有效的中国区 Azure 订阅的工作或学校帐户 |是 |
    | 具有有效的美国政府版 Azure 订阅的工作或学校帐户 |是 |
 
+部署后，不需要 Azure Active Directory 全局管理员权限。 但是，某些操作可能需要全局管理员凭据。 例如，资源提供程序安装程序脚本或需要授予权限的新功能。 可以临时复原帐户的全局管理员权限，也可以使用单独的全局管理员帐户，该帐户是*默认提供程序订阅*的所有者。
+
 ## <a name="network"></a>网络
 ### <a name="switch"></a>Switch
 交换机上的一个可用于开发工具包计算机的端口。  
@@ -104,12 +106,12 @@ ms.locfileid: "49316009"
 ### <a name="subnet"></a>子网
 请勿将开发工具包计算机连接到以下子网：
 
-- 192.168.200.0/24
-- 192.168.100.0/27
-- 192.168.101.0/26
-- 192.168.102.0/24
-- 192.168.103.0/25
-- 192.168.104.0/25
+* 192.168.200.0/24
+* 192.168.100.0/27
+* 192.168.101.0/26
+* 192.168.102.0/24
+* 192.168.103.0/25
+* 192.168.104.0/25
 
 这些子网是为开发工具包环境中的内部网络保留的。
 

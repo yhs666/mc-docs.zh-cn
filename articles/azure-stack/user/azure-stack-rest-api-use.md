@@ -3,23 +3,23 @@ title: 使用 Azure Stack API | Microsoft Docs
 description: 了解如何从 Azure 检索身份验证令牌，以向 Azure Stack 发出 API 请求。
 services: azure-stack
 documentationcenter: ''
-author: cblackuk
-manager: femila
+author: WenJason
+manager: digimobile
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/02/2018
-ms.date: 07/20/2018
-ms.author: v-junlch
+origin.date: 10/10/2018
+ms.date: 11/12/2018
+ms.author: v-jay
 ms.reviewer: thoroet
-ms.openlocfilehash: 8dcae97496c1ef04d5eed4f666d81358772f5a27
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.openlocfilehash: b6fe11c5fa0c05aabbd6dd5e44a376d5891fbf5f
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168502"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195432"
 ---
 <!--  cblackuk and charliejllewellyn. This is a community contribution by cblackuk-->
 
@@ -35,7 +35,7 @@ ms.locfileid: "39168502"
 
 查看配合常规 REST 客户端（例如 **cURL**）使用 Azure Stack REST API 的整个过程有助于了解基础请求，该过程还显示了应可以在响应有效负载中收到的内容。
 
-另外，本文并未探究可用于检索令牌的所有选项，例如交互式登录或创建专用应用 ID。 若要获取有关这些主题的信息，请参阅 [Azure REST API 参考](https://docs.microsoft.com/rest/api/)。
+本文并未探索可用于检索令牌的所有选项，例如交互式登录或创建专用应用 ID。 若要获取有关这些主题的信息，请参阅 [Azure REST API 参考](https://docs.microsoft.com/rest/api/)。
 
 ## <a name="get-a-token-from-azure"></a>从 Azure 获取令牌
 

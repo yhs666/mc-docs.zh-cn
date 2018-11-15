@@ -1,10 +1,10 @@
 ---
-title: 在 Azure Stack 中使用 PowerShell 部署模板 | Azure
+title: 在 Azure Stack 中使用 PowerShell 部署模板 | Microsoft Docs
 description: 使用 PowerShell 将模板部署到 Azure Stack。
 services: azure-stack
 documentationcenter: ''
-author: brenduns
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: 12fe32d7-0a1a-4c02-835d-7b97f151ed0f
 ms.service: azure-stack
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/15/2018
-ms.date: 08/27/2018
-ms.author: v-junlch
+origin.date: 09/18/2018
+ms.date: 11/12/2018
+ms.author: v-jay
 ms.reviewer: ''
-ms.openlocfilehash: 5e6581fd625c6fa456167d8d4f5fe22dc27b1b75
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.openlocfilehash: 5ed4e8b9e271ee53f3ceee8cc656b7bff4617460
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869327"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195392"
 ---
 # <a name="deploy-a-template-to-azure-stack-using-powershell"></a>使用 PowerShell 将模板部署到 Azure Stack
 
@@ -36,39 +36,37 @@ ms.locfileid: "42869327"
 >[!NOTE]
 >在尝试此示例之前，请确保已为 Azure Stack 用户[配置了 PowerShell](azure-stack-powershell-configure-user.md)。
 
-1. 转到 <http://aka.ms/AzureStackGitHub> 并找到 **101-simple-windows-vm** 模板。 将该模板保存到此位置：C:\\templates\\azuredeploy-101-simple-windows-vm.json。
+1. 转到 [http://aka.ms/AzureStackGitHub](http://aka.ms/AzureStackGitHub) 并找到 **101-simple-windows-vm** 模板。 将该模板保存到此位置：C:\\templates\\azuredeploy-101-simple-windows-vm.json。
 2. 打开权限提升的 PowerShell 命令提示符。
 3. 将以下脚本中的*用户名*和*密码*替换为你的用户名和密码，然后运行脚本。
 
    ```PowerShell
-       # Set Deployment Variables
-       $myNum = "001" #Modify this per deployment
-       $RGName = "myRG$myNum"
-       $myLocation = "local"
+   # Set deployment variables
+   $myNum = "001" #Modify this per deployment
+   $RGName = "myRG$myNum"
+   $myLocation = "local"
    
-       # Create Resource Group for Template Deployment
-       New-AzureRmResourceGroup -Name $RGName -Location $myLocation
+   # Create resource group for template deployment
+   New-AzureRmResourceGroup -Name $RGName -Location $myLocation
    
-       # Deploy Simple IaaS Template
-       New-AzureRmResourceGroupDeployment `
-           -Name myDeployment$myNum `
-           -ResourceGroupName $RGName `
-           -TemplateFile c:\templates\azuredeploy-101-simple-windows-vm.json `
-           -NewStorageAccountName mystorage$myNum `
-           -DnsNameForPublicIP mydns$myNum `
-           -AdminUsername <username> `
-           -AdminPassword ("<password>" | ConvertTo-SecureString -AsPlainText -Force) `
-           -VmName myVM$myNum `
-           -WindowsOSVersion 2012-R2-Datacenter
+   # Deploy simple IaaS template
+   New-AzureRmResourceGroupDeployment `
+       -Name myDeployment$myNum `
+       -ResourceGroupName $RGName `
+       -TemplateFile c:\templates\azuredeploy-101-simple-windows-vm.json `
+       -NewStorageAccountName mystorage$myNum `
+       -DnsNameForPublicIP mydns$myNum `
+       -AdminUsername <username> `
+       -AdminPassword ("<password>" | ConvertTo-SecureString -AsPlainText -Force) `
+       -VmName myVM$myNum `
+       -WindowsOSVersion 2012-R2-Datacenter
    ```
 
    >[!IMPORTANT]
-   >每次运行此脚本时，都应递增“$myNum”参数的值，以避免覆盖你的部署。
+   >每次运行此脚本时，都应递增 `$myNum` 参数的值，以避免覆盖你的部署。
 
-4. 打开 Azure Stack 门户，选择“浏览”，然后选择“虚拟机”以查找新虚拟机 (*myDeployment001*)。
+4. 打开 Azure Stack 门户，选择“浏览”，然后选择“虚拟机”以查找新虚拟机 (**myDeployment001**)。
 
 ## <a name="next-steps"></a>后续步骤
 
 [通过 Visual Studio 部署模板](azure-stack-deploy-template-visual-studio.md)
-
-<!-- Update_Description: wording update -->

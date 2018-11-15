@@ -1,10 +1,10 @@
 ---
-title: 为 Azure Stack 开发模板 | Azure
+title: 为 Azure Stack 开发模板 | Microsoft 文档
 description: 了解 Azure Stack 模板的最佳做法
 services: azure-stack
 documentationcenter: ''
-author: brenduns
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: 8a5bc713-6f51-49c8-aeed-6ced0145e07b
 ms.service: azure-stack
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/15/2018
-ms.date: 08/27/2018
-ms.author: v-junlch
+origin.date: 09/19/2018
+ms.date: 11/12/2018
+ms.author: v-jay
 ms.reviewer: jeffgo
-ms.openlocfilehash: d802634c98060c1f0b8ac9628e5cc802f279b7d4
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.openlocfilehash: 04c7dc43c9c5c6886e98a68dd68935b9e65e0f22
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869501"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195531"
 ---
 # <a name="azure-resource-manager-template-considerations"></a>Azure 资源管理器模板注意事项
 
@@ -35,15 +35,17 @@ ms.locfileid: "42869501"
 
 ## <a name="public-namespaces"></a>公共命名空间
 
-由于 Azure Stack 托管在数据中心中，它的服务终结点命名空间与 Azure 公有云不同。 因此，如果尝试将 Azure 资源管理器模板部署到 Azure Stack，这些模板中的硬编码公共终结点会失败。 可以使用 *reference* 和 *concatenate* 函数动态构建服务终结点，以便在部署期间从资源提供程序检索值。 例如，不需要在模板中硬编码 *blob.core.chinacloudapi.cn*，检索 **primaryEndpoints.blob** 即可动态设置 *osDisk.URI* 终结点：
+由于 Azure Stack 托管在数据中心中，它的服务终结点命名空间与 Azure 公有云不同。 因此，如果尝试将 Azure 资源管理器模板部署到 Azure Stack，这些模板中的硬编码公共终结点会失败。 可以使用 *reference* 和 *concatenate* 函数动态构建服务终结点，以便在部署期间从资源提供程序检索值。 例如，不需要在模板中硬编码 *blob.core.chinacloudapi.cn*，检索 [primaryEndpoints.blob](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-vm-windows-create/azuredeploy.json#L175) 即可动态设置 *osDisk.URI* 终结点：
 
-     "osDisk": {"name": "osdisk","vhd": {"uri":
-     "[concat(reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), '2015-06-15').primaryEndpoints.blob, variables('vmStorageAccountContainerName'),
-      '/',variables('OSDiskName'),'.vhd')]"}}
+```json
+"osDisk": {"name": "osdisk","vhd": {"uri":
+"[concat(reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), '2015-06-15').primaryEndpoints.blob, variables('vmStorageAccountContainerName'),
+ '/',variables('OSDiskName'),'.vhd')]"}}
+```
 
 ## <a name="api-versioning"></a>API 版本控制
 
-Azure 服务版本在 Azure 和 Azure Stack 之间可能有所不同。 每个资源都需要有 **apiVersion** 属性，用于定义所提供的功能。 若要确保 API 版本在 Azure Stack 中兼容，以下 API 版本适用于每个资源提供程序：
+Azure 服务版本在 Azure 和 Azure Stack 之间可能有所不同。 每个资源都需要有 **apiVersion** 属性，用于定义所提供的功能。 为了确保 API 版本在 Azure Stack 中兼容，以下 API 版本对于每个资源提供程序有效：
 
 | 资源提供程序 | apiVersion |
 | --- | --- |
@@ -68,20 +70,22 @@ Azure 资源管理器[函数](../../azure-resource-manager/resource-group-templa
 
 ## <a name="resource-location"></a>资源位置
 
-在部署过程中，Azure 资源管理器模板使用位置属性来放置资源。 在 Azure 中，位置是指中国北部等区域。 在 Azure Stack 中，位置有所不同，因为 Azure Stack 在数据中心内。 若要确保模板可在 Azure 和 Azure Stack 之间转移，在部署单个资源时应引用资源组位置。 可以使用 `[resourceGroup().Location]` 执行此操作，以确保所有资源均继承资源组位置。 以下摘录是在部署存储帐户时使用此函数的示例：
+在部署过程中，Azure 资源管理器模板使用 `location` 属性来放置资源。 在 Azure 中，位置是指中国北部等区域。 在 Azure Stack 中，位置有所不同，因为 Azure Stack 在数据中心内。 若要确保模板可在 Azure 和 Azure Stack 之间转移，在部署单个资源时应引用资源组位置。 可以使用 `[resourceGroup().Location]` 执行此操作，以确保所有资源均继承资源组位置。 以下代码是在部署存储帐户时使用此函数的示例：
 
-    "resources": [
-    {
-      "name": "[variables('storageAccountName')]",
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "[variables('apiVersionStorage')]",
-      "location": "[resourceGroup().location]",
-      "comments": "This storage account is used to store the VM disks",
-      "properties": {
-      "accountType": "Standard_GRS"
-      }
-    }
-    ]
+```json
+"resources": [
+{
+  "name": "[variables('storageAccountName')]",
+  "type": "Microsoft.Storage/storageAccounts",
+  "apiVersion": "[variables('apiVersionStorage')]",
+  "location": "[resourceGroup().location]",
+  "comments": "This storage account is used to store the VM disks",
+  "properties": {
+  "accountType": "Standard_GRS"
+  }
+}
+]
+```
 
 ## <a name="next-steps"></a>后续步骤
 

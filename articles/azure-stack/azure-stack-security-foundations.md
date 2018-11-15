@@ -1,5 +1,5 @@
 ---
-title: 了解 Azure Stack 的安全控制措施 | Microsoft Docs
+title: 了解 Azure Stack 的安全控制措施
 description: 向服务管理员介绍应用于 Azure Stack 的安全控制措施
 services: azure-stack
 documentationcenter: ''
@@ -11,21 +11,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/12/2018
-ms.date: 10/15/2018
+origin.date: 10/09/2018
+ms.date: 11/12/2018
 ms.author: v-jay
-ms.openlocfilehash: f2ba14ba3e0a2dcf6f7561094cc2639acea43a35
-ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
+ms.openlocfilehash: ae91c9819c1f87b06158bc89f619ddf6f13470c5
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48848914"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195383"
 ---
 # <a name="azure-stack-infrastructure-security-posture"></a>Azure Stack 基础结构安全局势
 
 *适用于：Azure Stack 集成系统*
 
-安全考虑因素与合规性是使用混合云的主要推动因素。 Azure Stack 针对这些方案而设计。因此，在采用 Azure Stack 时，必须知道现有的控制措施。
+安全考虑因素与合规性是使用混合云的主要推动因素。 Azure Stack 是针对这些方案设计的。 本文介绍了针对 Azure Stack 实施的安全控制措施。
 
 两个安全局势层在 Azure Stack 中共存。 第一层是 Azure Stack 基础结构，其中包括 Azure 资源管理器之前的硬件组件。 第一层包括管理员门户和租户门户。 第二层由租户创建、部署和管理的工作负荷组成。 第二层包括虚拟机和应用程序服务网站等项。
 
@@ -58,7 +58,7 @@ Azure Stack 基础结构使用许多机密（例如密码）来运行。 其中�
 ## <a name="code-integrity"></a>代码完整性
 Azure Stack 使用最新的 Windows Server 2016 安全功能。 其中一个功能是 Windows Defender Device Guard，它提供应用程序允许列表功能，确保只有经过授权的代码能在 Azure Stack 基础结构中运行。 
 
-经过授权的代码是由 Microsoft 或 OEM 合作伙伴签名的代码，包含在 Microsoft 定义的策略中指定的允许软件列表内。 换而言之，只能执行已批准在 Azure Stack 基础结构中运行的软件。 系统会阻止任何执行未经授权代码的企图并生成审核。
+经授权的代码是由 Microsoft 或 OEM 合作伙伴签名的。 已签名的经授权代码包括在由 Microsoft 定义的策略中指定的允许的软件列表中。 换而言之，只能执行已批准在 Azure Stack 基础结构中运行的软件。 系统会阻止任何执行未经授权代码的企图并生成审核。
 
 Device Guard 策略也会阻止第三方代理或软件在 Azure Stack 基础结构中运行。
 
@@ -68,7 +68,7 @@ Azure Stack 中的另一个 Windows Server 2016 安全功能是 Windows Defender
 ## <a name="antimalware"></a>反恶意软件
 Azure Stack 中的每个组件（Hyper-V 主机和虚拟机）受到 Windows Defender Antivirus 的保护。
 
-在联网场景中，防病毒定义和引擎更新每天应用多次。 在离线场景中，反恶意软件更新作为 Azure Stack 的每月更新的一部分应用。 有关详细信息，请参阅[在 Azure Stack上更新 Windows Defender Antivirus](azure-stack-security-av.md)
+在联网场景中，防病毒定义和引擎更新每天应用多次。 在离线场景中，反恶意软件更新作为 Azure Stack 的每月更新的一部分应用。 有关详细信息，请参阅[更新 Azure Stack 上的 Windows Defender Antivirus](azure-stack-security-av.md)。
 
 ## <a name="constrained-administration-model"></a>受约束的管理模型
 Azure Stack 中的管理是使用三个入口点来控制的，其中每个入口点有特定的用途： 
@@ -77,15 +77,27 @@ Azure Stack 中的管理是使用三个入口点来控制的，其中每个入�
 3. 对于特定的低级操作（例如数据中心集成或支持方案），Azure Stack 公开一个称作[特权终结点](azure-stack-privileged-endpoint.md)的 PowerShell 终结点。 此终结点只公开一组已添加到允许列表的 cmdlet，并且经常接受审核。
 
 ## <a name="network-controls"></a>网络控制措施
-Azure Stack 基础结构随附多个网络访问控制列表 (ACL) 层。 ACL 可防止用户对基础结构组件进行未经授权的访问，并将基础结构通信限制为基础结构在运行时需要访问的路径。 
+Azure Stack 基础结构附带了多个网络访问控制列表 (ACL) 层。 ACL 可防止用户对基础结构组件进行未经授权的访问，并将基础结构通信限制为基础结构在运行时需要访问的路径。 
 
 在三个层中实施网络 ACL：
 1.  机架顶部交换机
 2.  软件定义的网络
 3.  主机和 VM 操作系统防火墙
 
+## <a name="regulatory-compliance"></a>法规符合性
+
+Azure Stack 已通过了由第三方独立的审核公司执行的正式评估。 因此，我们提供了介绍 Azure Stack 基础结构如何满足多个主要符合性标准的适用控制措施的文档。 此文档不是 Azure Stack 的认证，因为标准包括多个与人员相关的和多个与流程相关的控制措施。 但是，客户可以使用此文档来启动其认证流程。
+
+评估包括以下标准：
+
+- [PCI-DSS](https://www.pcisecuritystandards.org/pci_security/) 适用于支付卡行业。
+- [CSA Cloud Control Matrix](https://cloudsecurityalliance.org/group/cloud-controls-matrix/#_overview) 是跨多个标准的综合性映射，这些标准包括 FedRAMP Moderate、ISO27001、HIPAA、HITRUST、ITAR、NIST SP800-53 和其他标准。
+- [FedRAMP High](https://www.fedramp.gov/fedramp-releases-high-baseline/) 适用于政府客户。
+
+可以在 [Microsoft 服务信任门户](https://servicetrust.microsoft.com/ViewPage/Blueprint)上找到符合性文档。 符合性指南是受保护的资源并且要求你使用 Azure 云服务凭据进行登录。
+
 ## <a name="next-steps"></a>后续步骤
 
 - [了解如何在 Azure Stack 中轮换机密](azure-stack-rotate-secrets.md)
-
-<!-- Update_Description: wording update -->
+- [适用于 Azure Stack 的 PCI-DSS 和 CSA-CCM 文档](https://servicetrust.microsoft.com/ViewPage/TrustDocuments)
+- [适用于 Azure Stack 的 DoD 和 NIST 文档](https://servicetrust.microsoft.com/ViewPage/Blueprint)

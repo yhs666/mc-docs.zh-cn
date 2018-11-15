@@ -2,24 +2,24 @@
 title: Azure Stack 数据中心集成 - DNS
 description: 了解如何将 Azure Stack DNS 与数据中心 DNS 集成
 services: azure-stack
-author: jeffgilb
-manager: femila
+author: WenJason
+manager: digimobile
 ms.service: azure-stack
 ms.topic: article
-origin.date: 02/28/2018
-ms.date: 08/27/2018
-ms.author: v-junlch
+origin.date: 10/15/2018
+ms.date: 11/12/2018
+ms.author: v-jay
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: 1a5e656a2481151a82d97d3166e21c880912988b
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.openlocfilehash: 39bd4f01ccab87c12dd2821334385dfb0a2f9b4b
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869487"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195548"
 ---
 # <a name="azure-stack-datacenter-integration---dns"></a>Azure Stack 数据中心集成 - DNS
-若要从 Azure Stack 外部访问 Azure Stack 终结点（`portal`、`adminportal`、`management`、`adminmanagement` 等），需将 Azure Stack DNS 服务与托管 DNS 区域（需在 Azure Stack 中使用）的 DNS 服务器集成。
+若要能够从 Azure Stack 外部访问 Azure Stack 终结点（**门户**、**adminportal**、**管理**、**adminmanagement** 等），需将 Azure Stack DNS 服务与托管 DNS 区域（要在 Azure Stack 中使用）的 DNS 服务器集成。
 
 ## <a name="azure-stack-dns-namespace"></a>Azure Stack DNS 命名空间
 部署 Azure Stack 时，必须提供与 DNS 相关的一些重要信息。

@@ -5,29 +5,35 @@ services: container-registry
 author: rockboyfor
 ms.service: container-registry
 ms.topic: include
-origin.date: 04/23/2018
-ms.date: 07/02/2018
+origin.date: 08/03/2018
+ms.date: 11/12/2018
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: c334f1df61d4ca7cabe4ebb5f9a67171d6143aa4
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.openlocfilehash: 1379a0cf84b461e8cdea6bec64b4b9b09c059625
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873896"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195575"
 ---
 ## <a name="create-a-service-principal"></a>创建服务主体
 
-若要创建可以访问容器注册表的服务主体，可以使用以下脚本。 使用容器注册表的名称更新 `ACR_NAME` 变量，并可选择性地更新 [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] 命令中的 `--role` 值以授予不同权限。 必须已安装 [Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest) 才能使用此脚本。
+若要创建可以访问容器注册表的服务主体，请在本地安装的 [Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest) 中运行以下脚本。 此脚本已针对 Bash Shell 格式化。
+
+运行脚本之前，请将 `ACR_NAME` 变量更新为容器注册表的名称。 `SERVICE_PRINCIPAL_NAME` 值必须在 Azure Active Directory 租户中唯一。 如果收到“`'http://acr-service-principal' already exists.`”错误，请为服务主体指定另一名称。
+
+如果需要授予其他权限，可以选择修改 [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] 命令中的 `--role` 值。
 
 运行脚本后，请记下服务主体的 **ID** 和**密码**。 获得其凭据后，可以配置应用程序和服务使其作为服务主体对容器注册表进行身份验证。
+
+<!-- URL is D:\gitrep\azure-docs-cli-python-samples\container-registry\service-principal-create\service-principal-create.sh-->
 
 ```
 #!/bin/bash
 
-# Modify for your environment. The ACR_NAME is the name of your Azure Container
-# Registry, and the SERVICE_PRINCIPAL_NAME can be any unique name within your
-# subscription (you can use the default below).
+# Modify for your environment.
+# ACR_NAME: The name of your Azure Container Registry
+# SERVICE_PRINCIPAL_NAME: Must be unique within your AD tenant
 ACR_NAME=<container-registry-name>
 SERVICE_PRINCIPAL_NAME=acr-service-principal
 
@@ -55,6 +61,8 @@ echo "Service principal password: $SP_PASSWD"
 
 以下脚本使用 [az role assignment create][az-role-assignment-create] 命令向 `SERVICE_PRINCIPAL_ID` 变量中指定的服务主体授予“拉取”权限。 如果要授予不同的访问级别，请调整 `--role` 值。
 
+<!-- URL is D:\gitrep\azure-docs-cli-python-samples\container-registry\service-principal-assign-role\service-principal-assign-role.sh-->
+
 ```
 #!/bin/bash
 
@@ -79,3 +87,4 @@ az role assignment create --assignee $SERVICE_PRINCIPAL_ID --scope $ACR_REGISTRY
 [az-ad-sp-create-for-rbac]: https://docs.azure.cn/zh-cn/cli/ad/sp?view=azure-cli-latest#az_ad_sp_create_for_rbac
 [az-role-assignment-create]: https://docs.azure.cn/zh-cn/cli/role/assignment?view=azure-cli-latest#az_role_assignment_create
 
+<!-- Update_Description: wording update, update meta properties -->

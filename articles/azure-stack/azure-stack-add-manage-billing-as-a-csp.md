@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/30/2018
-ms.date: 10/15/2018
+origin.date: 10/15/2018
+ms.date: 11/12/2018
 ms.author: v-jay
 ms.reviewer: alfredo
-ms.openlocfilehash: e3eb2d92d484068a689a29979efbde149a2c1aac
-ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
+ms.openlocfilehash: 231f0cd746efd0d8721726cb6a8ccd37099efcdd
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48848768"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195434"
 ---
 # <a name="manage-usage-and-billing-for-azure-stack-as-a-cloud-service-provider"></a>管理充当云服务提供商的 Azure Stack 的使用情况和计费 
 
@@ -34,9 +34,9 @@ ms.locfileid: "48848768"
 
 **以 CSP 身份添加使用情况跟踪的步骤**
 
-![以云服务提供商身份启用使用情况跟踪和管理功能的过程。](media\azure-stack-add-manage-billing-as-a-csp\process-add-useage-as-a-csp.png)
+[ ![以云服务提供商身份启用使用情况和管理的过程](media\azure-stack-add-manage-billing-as-a-csp\process-add-useage-as-a-csp.png "以云服务提供商身份启用使用情况和管理的过程") ](media\azure-stack-add-manage-billing-as-a-csp\process-add-useage-as-a-csp.png#lightbox)
 
-## <a name="create-a-csp-or-cspss-subscription"></a>创建 CSP 或 CSPSS 订阅
+## <a name="create-a-csp-or-apss-subscription"></a>创建 CSP 或 APSS 订阅
 
 ### <a name="cloud-service-provider-subscription-types"></a>云服务提供商订阅类型
 
@@ -45,13 +45,13 @@ ms.locfileid: "48848768"
  - 云服务提供商 
  - 合作伙伴共享服务订阅 
 
-#### <a name="csp-shared-services"></a>CSP 共享服务
+#### <a name="azure-partner-shared-services"></a>Azure 合作伙伴共享服务
 
-在直接 CSP 或 CSP 分销商运营 Azure Stack 的情况下，应首选云服务提供商共享服务 (CSPSS) 订阅进行注册。
+直接 CSP 或 CSP 经销商运营 Azure Stack 时，应首选使用 Azure 合作伙伴共享服务 (APSS) 订阅进行注册。
 
-CSPSS 订阅与共享服务租户相关联。 注册 Azure Stack 时，需提供帐户的凭据，该帐户是订阅的所有者。 用于注册 Azure Stack 的帐户可以不同于用于部署的管理员帐户。 而且，这两个帐户不需要属于同一个域。 换言之，可以使用已经使用过的租户进行部署。 例如，可以使用 ContosoCSP.partner.onmschina.cn 进行部署，然后使用另一租户（例如 IURContosoCSP.partner.onmschina.cn）进行注册。 需要记住，在进行日常 Azure Stack 管理时，使用 ContosoCSP.partner.onmschina.cn 登录。 需要执行注册操作时，则使用 IURContosoCSP.partner.onmschina.cn 登录到 Azure。
+APSS 订阅与共享服务租户相关联。 注册 Azure Stack 时，需提供帐户的凭据，该帐户是订阅的所有者。 用于注册 Azure Stack 的帐户可以不同于用于部署的管理员帐户。 而且，这两个帐户不需要属于同一个域。 换言之，可以使用已经使用过的租户进行部署。 例如，可以使用 ContosoCSP.partner.onmschina.cn 进行部署，然后使用另一租户（例如 IURContosoCSP.partner.onmschina.cn）进行注册。 需要记住，在进行日常 Azure Stack 管理时，使用 ContosoCSP.partner.onmschina.cn 登录。 需要执行注册操作时，则使用 IURContosoCSP.partner.onmschina.cn 登录到 Azure。
 
-请参阅下文，以便获取 CSPSS 订阅的说明以及如何创建订阅的指导：[添加 Azure 合作伙伴共享服务](https://msdn.microsoft.com/partner-center/shared-services)。
+请参阅下文，以便获取 APSS 订阅的说明以及如何创建订阅的指导：[添加 Azure 合作伙伴共享服务](https://msdn.microsoft.com/partner-center/shared-services)。
 
 #### <a name="csp-subscriptions"></a>CSP 订阅
 
@@ -59,7 +59,7 @@ CSPSS 订阅与共享服务租户相关联。 注册 Azure Stack 时，需提供
 
 ## <a name="register-azure-stack"></a>注册 Azure Stack
 
-使用按照前一部分中的信息创建的 CSPSS 订阅向 Azure 注册 Azure Stack。 有关详细信息，请参阅[将 Azure Stack 注册到 Azure 订阅](azure-stack-registration.md)。
+使用按照前一部分中的信息创建的 APSS 订阅向 Azure 注册 Azure Stack。 有关详细信息，请参阅[将 Azure Stack 注册到 Azure 订阅](azure-stack-registration.md)。
 
 ## <a name="add-end-customer"></a>添加最终客户
 
@@ -73,7 +73,7 @@ Azure Stack 可以通过注册执行以下操作：
  - 将 Azure Stack 使用情况数据转发到 Azure Commerce，并对 Azure 订阅计费。
  - 使用多租户 Azure Stack 部署时，在另一订阅上报告每个客户的使用情况。 使用多租户时，Azure Stack 可以在同一 Azure Stack 实例上支持不同的组织。
 
-每个 Azure Stack 都有一个默认的订阅和许多租户订阅。 默认订阅是当没有特定于租户的订阅时对其进行收费的一个 Azure 订阅。 它必须是所注册的第一个订阅。 若要使用多租户使用情况报告，订阅必须是 CSP 或 CSPSS 订阅。
+每个 Azure Stack 都有一个默认的订阅和许多租户订阅。 默认订阅是当没有特定于租户的订阅时对其进行收费的一个 Azure 订阅。 它必须是所注册的第一个订阅。 若要使用多租户使用情况报告，订阅必须是 CSP 或 APSS 订阅。
 
 然后，对于每个将要使用 Azure Stack 的租户，使用 Azure 订阅对注册进行更新。 租户订阅必须是 CSP 类型，并且必须汇总到拥有默认订阅的合作伙伴处。 换言之，无法注册其他人的客户。
 

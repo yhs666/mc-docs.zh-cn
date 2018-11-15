@@ -3,8 +3,8 @@ title: Azure Stack 支持的来宾操作系统 | Microsoft Docs
 description: 在 Azure Stack 上可以使用这些来宾操作系统。
 services: azure-stack
 documentationcenter: ''
-author: Brenduns
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/11/2018
-ms.date: 07/20/2018
-ms.author: v-junlch
-ms.reviewer: JeffGoldner
-ms.openlocfilehash: 83d8a255806bd8c08655d087cbdef397ffaf611f
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+origin.date: 09/26/2018
+ms.date: 11/12/2018
+ms.author: v-jay
+ms.reviewer: ''
+ms.openlocfilehash: da97e3d92e551f6d9fa6e3837836e2bb0ce53f1d
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168391"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195421"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack"></a>Azure Stack 支持的来宾操作系统
 
@@ -41,11 +41,12 @@ Azure Stack 支持下表中列出的 Windows 来宾操作系统：
 | Windows Server 2008 SP2 | 64 位 |  自带映像 |
 | Windows 10 *（请参见注释 1）* | 64 位，Pro 和 Enterprise | 自带映像 |
 
-***注释 1：****若要在 Azure Stack 上部署 Windows 10 客户端操作系统，必须具备 [Windows 每用户授权](https://www.microsoft.com/en-us/Licensing/product-licensing/windows10.aspx)，或者通过合格多租户托管商 ([QMTH](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx)) 购买。*
+> [!NOTE]
+> 若要在 Azure Stack 上部署 Windows 10 客户端操作系统，必须具备 [Windows 每用户授权](https://www.microsoft.com/en-us/Licensing/product-licensing/windows10.aspx)，或者通过合格多租户托管商 ([QMTH](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx)) 购买。
 
 市场映像可用于即用即付或 BYOL (EA/SPLA) 授权。 不支持在单个 Azure Stack 实例上同时使用这两者。 在部署期间，Azure Stack 会将适当版本的来宾代理注入到映像中。
 
- Datacenter 版本可在市场中下载；客户可以自带包含其他版本的服务器映像。 市场中未提供 Windows 客户端映像。
+Datacenter 版本可在市场中下载；客户可以自带包含其他版本的服务器映像。 市场中未提供 Windows 客户端映像。
 
 ## <a name="linux"></a>Linux
 
@@ -71,8 +72,11 @@ Azure Stack 支持下表中列出的 Windows 来宾操作系统：
 | Ubuntu 16.04-LTS | 64 位 | Canonical | 是 |
 | Ubuntu 18.04-LTS | 64 位 | Canonical | 是 |
 
-将来可能支持其他 Linux 发行版。
-
 有关 Red Hat Enterprise Linux 支持信息，请参阅 [Red Hat 和 Azure Stack：常见问题解答](https://access.redhat.com/articles/3413531)。
 
-<!-- Update_Description: wording update -->
+## <a name="next-steps"></a>后续步骤
+
+有关 Azure Stack 市场的详细信息，请参阅以下文章：
+
+[下载市场项](azure-stack-download-azure-marketplace-item.md)  
+[创建和发布市场项](azure-stack-create-and-publish-marketplace-item.md)

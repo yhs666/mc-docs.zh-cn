@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/05/2018
-ms.date: 10/15/2018
+origin.date: 09/28/2018
+ms.date: 11/12/2018
 ms.author: v-jay
 ms.reviewer: ppacent
-ms.openlocfilehash: 523013d00e3dcc499c1618ebf1b61df8746ee5ca
-ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
+ms.openlocfilehash: 4f7d5bb6c9ea2d23cbab4334cd5e481e83a26448
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48848844"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195545"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure Stack 公钥基础结构证书要求
 
@@ -40,7 +40,7 @@ Azure Stack 有一个公共基础结构网络，该网络使用分配给少量 A
 - Azure Stack 基础结构必须能够通过网络访问证书中发布的证书颁发机构的证书吊销列表 (CRL) 位置。 此 CRL 必须是 http 终结点
 - 轮换证书时，证书必须由签署部署时提供的证书的同一内部证书颁发机构颁发，或者由上述任何公共证书颁发机构颁发
 - 不支持使用自签名证书
-- 对于部署和轮换，可以使用单一证书覆盖证书的“使用者名称”和“使用者可选名称(SAN)”字段中的所有命名空间，也可以为下面你计划使用的 Azure Stack 服务所需的每个命名空间使用单独的证书。 注意：这两种方法都需要将通配符用于需要它们的终结点，例如 **KeyVault** 和 **KeyVaultInternal**。 
+- 对于部署和轮换，可以使用单一证书覆盖证书的“使用者名称”和“使用者可选名称(SAN)”字段中的所有命名空间，也可以为下面你计划使用的 Azure Stack 服务所需的每个命名空间使用单独的证书。 这两种方法都需要将通配符用于需要它们的终结点，例如 **KeyVault** 和 **KeyVaultInternal**。 
 - 证书签名算法必须是 3DES。 算法不能是 SHA1，因为算法必须更可靠。 
 - 证书格式必须是 PFX，因为安装 Azure Stack 时需要公钥和私钥。 
 - 证书 pfx 文件的“密钥用途”字段中必须包含“数字签名”和“KeyEncipherment”值。

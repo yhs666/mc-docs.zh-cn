@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/12/2018
-ms.date: 10/15/2018
+ms.date: 11/12/2018
 ms.author: v-jay
-ms.openlocfilehash: 3984164b615df4f112a247bf57475db16ae7a500
-ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
+ms.openlocfilehash: d03d57f90c07c22dcd2596275c8fb34acc06edde
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48848920"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195567"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>将应用服务资源提供程序添加到 Azure Stack
 
@@ -28,8 +28,8 @@ ms.locfileid: "48848920"
 
 根据本文中的指南在 Azure Stack 中部署应用服务。
 
->[!IMPORTANT]  
->请将 1807 更新应用于 Azure Stack 集成系统，或部署最新的 Azure Stack 开发工具包 (ASDK)，然后部署 Azure 应用服务 1.3。
+> [!IMPORTANT]  
+> 请将 1807 更新应用于 Azure Stack 集成系统，或部署最新的 Azure Stack 开发工具包 (ASDK)，然后部署 Azure 应用服务 1.3。
 
 可以让用户能够创建 Web 应用程序和 API 应用程序。 若要让用户创建这些应用程序，必须：
 
@@ -261,7 +261,9 @@ ms.locfileid: "48848920"
  - [MySQL 资源提供程序](azure-stack-mysql-resource-provider-deploy.md)
 
 <!--Links-->
+[Azure_Stack_App_Service_preview_installer]: /sql-database/sql-vulnerability-assessment
 [App_Service_Deployment]: http://go.microsoft.com/fwlink/?LinkId=723982
+[AppServiceHelperScripts]: /sql-database/sql-vulnerability-assessment
 
 <!--Image references-->
 [1]: ./media/azure-stack-app-service-deploy/app-service-installer.png

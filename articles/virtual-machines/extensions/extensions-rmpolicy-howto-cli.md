@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 origin.date: 03/23/2018
 ms.date: 10/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: b548d0eb5c3a1734ba47c26c5c3df03f2a716df3
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: 3619f4e5b2ecd7eab6be3bd1507a4fa05021adbc
+ms.sourcegitcommit: caa089a6221a4925943f1ea516ca58ae62da0dff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453741"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "50982957"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-linux-vms"></a>使用 Azure Policy 限制 Linux VM 上的扩展安装
 
@@ -102,7 +102,7 @@ vim ~/clouddrive/azurepolicy.parameters.json
 
 策略定义是用于存储想要使用的配置的对象。 策略定义使用规则和参数文件定义策略。 使用 [az policy definition create](https://docs.azure.cn/zh-cn/cli/role/assignment?view=azure-cli-latest#az-role-assignment-create) 创建策略定义。
 
-在此示例中，规则和参数是在 cloud shell 中创建并存储为 .json 文件的文件。
+在此示例中，规则和参数是在本地 shell 中创建并存储为 .json 文件的文件。
 
 ```azurecli
 az policy definition create \

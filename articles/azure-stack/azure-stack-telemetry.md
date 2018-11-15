@@ -3,8 +3,8 @@ title: Azure Stack 遥测 | Microsoft Docs
 description: 介绍如何使用 PowerShell 配置 Azure Stack 遥测设置。
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 06/07/2018
-ms.date: 06/26/2018
-ms.author: v-junlch
+origin.date: 10/15/2018
+ms.date: 11/12/2018
+ms.author: v-jay
 ms.reviewer: comartin
-ms.openlocfilehash: a698c2c26bafecbd07f168b914f0f2430a477bb6
-ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
+ms.openlocfilehash: 18c810ef9a747a24c4cf1a340e485d76db36fb76
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37027170"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195380"
 ---
 # <a name="azure-stack-telemetry"></a>Azure Stack 遥测
 
@@ -164,9 +164,4 @@ if($psSession)
 
 ## <a name="next-steps"></a>后续步骤
 
-- [下载 Azure Stack 开发工具包部署包](https://azure.microsoft.com/overview/azure-stack/try/?v=try)
-
-- [部署 Azure Stack 开发工具包](azure-stack-run-powershell-script.md)
-
-
-<!-- Update_Description: wording update -->
+[将 Azure Stack 注册到 Azure](azure-stack-registration.md)

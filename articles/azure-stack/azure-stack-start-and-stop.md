@@ -3,8 +3,8 @@ title: 启动和停止 Azure Stack | Microsoft Docs
 description: 了解如何启动和关闭 Azure Stack。
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: 43BF9DCF-F1B7-49B5-ADC5-1DA3AF9668CA
 ms.service: azure-stack
@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/09/2018
-ms.date: 07/20/2018
-ms.author: v-junlch
+origin.date: 10/15/2018
+ms.date: 11/12/2018
+ms.author: v-jay
 ms.reviewer: misainat
-ms.openlocfilehash: 69aac07d386f9771c5f762dce2bbbe95cd21219c
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.openlocfilehash: dd1d63b440611ec8af24e06ecdb68a1c2ac5ea6e
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168286"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195454"
 ---
 # <a name="start-and-stop-azure-stack"></a>启动和停止 Azure Stack
 应该遵循本文中的过程正确关闭再重启 Azure Stack 服务。 关闭将物理关闭整个 Azure Stack 环境的电源。 启动会启动所有基础结构角色，并将租户资源返回到关闭之前的电源状态。
@@ -37,7 +37,7 @@ ms.locfileid: "39168286"
 3. 从 PEP 运行：
 
     ```powershell
-    Stop-AzureStack
+      Stop-AzureStack
     ```
 
 4. 等待所有物理 Azure Stack 节点关闭电源。
@@ -64,7 +64,7 @@ ms.locfileid: "39168286"
 2. 从 PEP 运行：
 
     ```powershell
-    Get-ActionStatus Start-AzureStack
+      Get-ActionStatus Start-AzureStack
     ```
 
 ## <a name="troubleshoot-startup-and-shutdown-of-azure-stack"></a>针对 Azure Stack的启动和关闭进行故障排除
@@ -76,21 +76,19 @@ ms.locfileid: "39168286"
 2. 运行： 
 
     ```powershell
-    Test-AzureStack
-    ```
+      Test-AzureStack
+      ```
 
 3. 查看输出并解决任何运行状况错误。 有关详细信息，请参阅[运行 Azure Stack 的验证测试](azure-stack-diagnostic-test.md)。
 
 4. 运行：
 
     ```powershell
-    Start-AzureStack
+      Start-AzureStack
     ```
 
 5. 如果运行 **Start-AzureStack** 的结果为失败，请联系 Microsoft 客户服务支持。 
 
 ## <a name="next-steps"></a>后续步骤 
 
-若要详细了解 Azure Stack 诊断工具和问题日志记录，请参阅 [Azure Stack 诊断工具](azure-stack-diagnostics.md)。
-
-<!-- Update_Description: wording update -->
+详细了解 [Azure Stack 诊断工具](azure-stack-diagnostics.md)

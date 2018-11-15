@@ -11,15 +11,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/17/2018
-ms.date: 10/15/2018
+ms.date: 11/12/2018
 ms.author: v-jay
 ms.reviewer: sijuman
-ms.openlocfilehash: 8325b87919349912eebabc3b171f706b9cfb21e5
-ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
+ms.openlocfilehash: ad6888522a11b67ed967208b40f823be8a4957da
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48848841"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195474"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack"></a>管理 Azure Stack 中的 API 版本配置文件
 
@@ -78,16 +78,17 @@ API 配置文件可与使用 Azure 资源管理器的工具（例如 PowerShell�
 
 可以借助代码示例，通过配置文件将采用偏好语言的解决方案与 Azure Stack 相集成。 目前可以找到以下语言的指导和示例：
 
+- **.NET** 可以使用 .NET API 配置文件获取资源提供程序包中每个资源类型的最新且最稳定的版本。 有关详细信息，请参阅[在 Azure Stack 中将 API 版本配置文件与 .NET 配合使用](azure-stack-version-profiles-net.md)。
 - **PowerShell**  
 可以使用通过 PowerShell 库提供的 **AzureRM.Bootstrapper** 模块来获取使用 API 版本配置文件所需的 PowerShell cmdlet。 有关信息，请参阅[使用适用于 PowerShell 的 API 版本配置文件](azure-stack-version-profiles-powershell.md)。
-- **Azure CLI 2.0**  
-可将环境配置更新为使用 Azure Stack 特定的 API 版本配置文件。 有关信息，请参阅[使用适用于 Azure CLI 2.0 的 API 版本配置文件](azure-stack-version-profiles-azurecli2.md)。
+- **Azure CLI**  
+可将环境配置更新为使用 Azure Stack 特定的 API 版本配置文件。 有关信息，请参阅[使用适用于 Azure CLI 的 API 版本配置文件](azure-stack-version-profiles-azurecli2.md)。
 - **GO**  
 在 GO SDK 中，配置文件结合了不同服务的不同版本的不同资源类型。 配置文件在 profiles/ 路径下提供，其版本采用 **YYYY-MM-DD** 格式。 有关信息，请参阅[为 GO 使用 API 版本配置文件](azure-stack-version-profiles-go.md)。
 - **Ruby**  
 用于 Azure Stack 资源管理器的 Ruby SDK 提供了相关工具来帮助构建和管理基础结构。 该 SDK 中的资源提供程序包括了采用 Ruby 语言的计算、虚拟网络和存储提供程序。 有关信息，请参阅[将 API 版本配置文件与 Ruby 配合使用](azure-stack-version-profiles-ruby.md)
 - **Python**  
-- Python SDK 支持 API 版本配置文件将不同的云平台（例如 Azure Stack 和 Azure 公有云）用作目标。 可以使用 API 配置文件为混合云创建解决方案。 有关信息，请参阅[将 API 版本配置文件与 Python 配合使用](azure-stack-version-profiles-python.md)
+Python SDK 支持 API 版本配置文件将不同的云平台（例如 Azure Stack 和 Azure 公有云）用作目标。 可以使用 API 配置文件为混合云创建解决方案。 有关信息，请参阅[将 API 版本配置文件与 Python 配合使用](azure-stack-version-profiles-python.md)
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -16,12 +16,12 @@ origin.date: 09/12/2018
 ms.date: 10/15/2018
 ms.author: v-jay
 ms.reviewer: scottnap
-ms.openlocfilehash: 98f869091a5e81d0b3bc54b09d909a408420f248
-ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
+ms.openlocfilehash: 8928d8b4696d77865e8ef973be934e82c4a3ba58
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48848863"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195369"
 ---
 # <a name="connect-azure-stack-to-azure-using-vpn"></a>使用 VPN 将 Azure Stack 连接到 Azure
 
@@ -34,7 +34,7 @@ ms.locfileid: "48848863"
 若要完成连接配置，请确保在开始之前准备好以下各项：
 
 * 直接连接到 Internet 的 Azure Stack 集成系统（多节点）部署。 必须能够从公共 Internet 直接连接到外部公共 IP 地址范围。
-* 有效的 Azure 订阅。 如果没有 Azure 订阅，可[在此处创建一个 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/?b=17.06)。
+* 有效的 Azure 订阅。 如果没有 Azure 订阅，可[在此处创建一个试用 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/?b=17.06)。
 
 ### <a name="vpn-connection-diagram"></a>VPN 连接关系图
 

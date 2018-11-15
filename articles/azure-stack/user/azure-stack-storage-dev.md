@@ -2,20 +2,20 @@
 title: Azure Stack 存储开发工具入门 | Microsoft Docs
 description: 使用 Azure Stack 存储开发工具的入门指南
 services: azure-stack
-author: mabriggs
-ms.author: v-junlch
-origin.date: 07/03/2018
-ms.date: 07/20/2018
+author: WenJason
+ms.author: v-jay
+origin.date: 10/10/2018
+ms.date: 11/12/2018
 ms.topic: get-started-article
 ms.service: azure-stack
-manager: femila
+manager: digimobile
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 0f0d2192e953fce986f28015088855a73d4c5c03
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.openlocfilehash: 6f23f3c9d89c1b8c95dc48a86a231f5edeb28496
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168454"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195395"
 ---
 # <a name="get-started-with-azure-stack-storage-development-tools"></a>Azure Stack 存储开发工具入门
 
@@ -40,22 +40,24 @@ Azure Stack 存储支持的 REST API 版本是 2017-04-17、2016-05-31、2015-12
 | Java | 6.1.0 | Maven 包：<br>http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/6.1.0<br> <br>GitHub 版本：<br>https://github.com/Azure/azure-storage-java/releases/tag/v6.1.0 | 连接字符串设置 |
 | Node.js | 2.7.0 | NPM 链接：<br>https://www.npmjs.com/package/azure-storage<br>（运行：`npm install azure-storage@2.7.0`）<br> <br>Github 版本：<br>https://github.com/Azure/azure-storage-node/releases/tag/v2.7.0 | 服务实例声明 |
 | C++ | 3.1.0 | Nuget 包：<br>https://www.nuget.org/packages/wastorage.v140/3.1.0<br> <br>GitHub 版本：<br>https://github.com/Azure/azure-storage-cpp/releases/tag/v3.1.0 | 连接字符串设置 |
-| PHP | 1.0.0 | GitHub 版本：<br>常见：https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-common<br>Blob：https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-blob<br>队列：<br>https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-queue<br>表：https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-table<br> <br>通过编辑器进行安装（若要了解更多内容，[请参阅下面的详细信息](#install-php-client-via-composer---current)。） | 连接字符串设置 |
+| PHP | 1.0.0 | GitHub 版本：<br>常见： https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-common<br>Blob： https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-blob<br>队列：<br>https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-queue<br>表： https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-table<br> <br>通过编辑器进行安装（若要了解更多内容，[请参阅下面的详细信息](#install-php-client-via-composer---current)。） | 连接字符串设置 |
 | Python | 1.0.0 | GitHub 版本：<br>常见：<br>https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-common<br>Blob：<br>https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-blob<br>队列：<br>https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-queue | 服务实例声明 |
-| Ruby | 1.0.1 | RubyGems 包：<br>常见：<br>https://rubygems.org/gems/azure-storage-common/versions/1.0.1<br>Blob：https://rubygems.org/gems/azure-storage-blob/versions/1.0.1<br>队列：https://rubygems.org/gems/azure-storage-queue/versions/1.0.1<br>表：https://rubygems.org/gems/azure-storage-table/versions/1.0.1<br> <br>GitHub 版本：<br>常见：https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-common<br>Blob：https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-blob<br>队列：https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-queue<br>表：https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-table | 连接字符串设置 |
+| Ruby | 1.0.1 | RubyGems 包：<br>常见：<br>https://rubygems.org/gems/azure-storage-common/versions/1.0.1<br>Blob： https://rubygems.org/gems/azure-storage-blob/versions/1.0.1<br>队列： https://rubygems.org/gems/azure-storage-queue/versions/1.0.1<br>表： https://rubygems.org/gems/azure-storage-table/versions/1.0.1<br> <br>GitHub 版本：<br>常见： https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-common<br>Blob： https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-blob<br>队列： https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-queue<br>表： https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-table | 连接字符串设置 |
 
 #### <a name="install-php-client-via-composer---current"></a>通过编辑器安装 PHP 客户端 - 当前
 
 若要通过编辑器进行安装，请执行以下操作（以 Blob 为例）：
 
 1. 在项目的根目录中，使用以下代码创建一个名为 **composer.json** 的文件：
-    ```php
-      {
-        "require": {
-        "Microsoft/azure-storage-blob":"1.0.0"
-        }
+
+  ```php
+    {
+      "require": {
+      "Microsoft/azure-storage-blob":"1.0.0"
       }
-    ```
+    }
+  ```
+
 2. 将 [composer.phar](http://getcomposer.org/composer.phar) 下载到项目根目录。
 3. 运行：`php composer.phar install`。
 
@@ -76,13 +78,15 @@ Azure Stack 存储支持的 REST API 版本是 2017-04-17、2016-05-31、2015-12
 若要通过编辑器安装，请执行以下操作：
 
 1. 在项目的根目录中，使用以下代码创建一个名为 **composer.json** 的文件：
-    ```php
-      {
-            "require":{
-            "Microsoft/azure-storage":"0.15.0"
-            }
-      }
-    ```
+
+  ```php
+    {
+          "require":{
+          "Microsoft/azure-storage":"0.15.0"
+          }
+    }
+  ```
+
 2. 将 [composer.phar](http://getcomposer.org/composer.phar) 下载到项目根目录中。
 3. 运行：`php composer.phar install`。
 
@@ -173,38 +177,39 @@ EndpointSuffix=local.azurestack.external
 
 以下 Azure Blob 存储教程适用于 Azure Stack。 请注意前面[示例](#examples)部分中所述的 Azure Stack 特定终结点后缀需求。
 
-- [通过 .NET 开始使用 Azure Blob 存储](../../storage/blobs/storage-dotnet-how-to-use-blobs.md)
-- [如何通过 Java 使用 Blob 存储](../../storage/blobs/storage-java-how-to-use-blob-storage.md)
-- [如何通过 Node.js 使用 Blob 存储](../../storage/blobs/storage-nodejs-how-to-use-blob-storage.md)
-- [如何通过 C++ 使用 Blob 存储](../../storage/blobs/storage-c-plus-plus-how-to-use-blobs.md)
-- [如何通过 Python 使用 Azure Blob 存储](../../storage/blobs/storage-python-how-to-use-blob-storage.md)
+* [通过 .NET 开始使用 Azure Blob 存储](../../storage/blobs/storage-dotnet-how-to-use-blobs.md)
+* [如何通过 Java 使用 Blob 存储](../../storage/blobs/storage-java-how-to-use-blob-storage.md)
+* [如何通过 Node.js 使用 Blob 存储](../../storage/blobs/storage-nodejs-how-to-use-blob-storage.md)
+* [如何通过 C++ 使用 Blob 存储](../../storage/blobs/storage-c-plus-plus-how-to-use-blobs.md)
+* [如何通过 PHP 使用 Blob 存储](../../storage/blobs/storage-php-how-to-use-blobs.md)
+* [如何通过 Python 使用 Azure Blob 存储](../../storage/blobs/storage-python-how-to-use-blob-storage.md)
+* [如何通过 Ruby 使用 Blob 存储](../../storage/blobs/storage-ruby-how-to-use-blob-storage.md)
 
 ## <a name="queue-storage"></a>队列存储
 
 以下 Azure 队列存储教程适用于 Azure Stack。 请注意前面[示例](#examples)部分中所述的 Azure Stack 特定终结点后缀需求。
 
-- [通过 .NET 开始使用 Azure 队列存储](../../storage/queues/storage-dotnet-how-to-use-queues.md)
-- [如何通过 Java 使用队列存储](../../storage/queues/storage-java-how-to-use-queue-storage.md)
-- [如何通过 Node.js 使用队列存储](../../storage/queues/storage-nodejs-how-to-use-queues.md)
-- [如何通过 C++ 使用队列存储](../../storage/queues/storage-c-plus-plus-how-to-use-queues.md)
-- [如何通过 PHP 使用队列存储](../../storage/queues/storage-php-how-to-use-queues.md)
-- [如何通过 Python 使用队列存储](../../storage/queues/storage-python-how-to-use-queue-storage.md)
-- [如何通过 Ruby 使用队列存储](../../storage/queues/storage-ruby-how-to-use-queue-storage.md)
+* [通过 .NET 开始使用 Azure 队列存储](../../storage/queues/storage-dotnet-how-to-use-queues.md)
+* [如何通过 Java 使用队列存储](../../storage/queues/storage-java-how-to-use-queue-storage.md)
+* [如何通过 Node.js 使用队列存储](../../storage/queues/storage-nodejs-how-to-use-queues.md)
+* [如何通过 C++ 使用队列存储](../../storage/queues/storage-c-plus-plus-how-to-use-queues.md)
+* [如何通过 PHP 使用队列存储](../../storage/queues/storage-php-how-to-use-queues.md)
+* [如何通过 Python 使用队列存储](../../storage/queues/storage-python-how-to-use-queue-storage.md)
+* [如何通过 Ruby 使用队列存储](../../storage/queues/storage-ruby-how-to-use-queue-storage.md)
 
 ## <a name="table-storage"></a>表存储
 
 以下 Azure 表存储教程适用于 Azure Stack。 请注意前面[示例](#examples)部分中所述的 Azure Stack 特定终结点后缀需求。
 
-- [通过 .NET 开始使用 Azure 表存储](../../cosmos-db/table-storage-how-to-use-dotnet.md)
-- [如何通过 Java 使用表存储](../../cosmos-db/table-storage-how-to-use-java.md)
-- [如何通过 Node.js 使用 Azure 表存储](../../cosmos-db/table-storage-how-to-use-nodejs.md)
-- [如何通过 C++ 使用表存储](../../cosmos-db/table-storage-how-to-use-c-plus.md)
-- [如何通过 PHP 使用表存储](../../cosmos-db/table-storage-how-to-use-php.md)
-- [如何在 Python 中使用表存储](../../cosmos-db/table-storage-how-to-use-python.md)
-- [如何通过 Ruby 使用表存储](../../cosmos-db/table-storage-how-to-use-ruby.md)
+* [通过 .NET 开始使用 Azure 表存储](../../cosmos-db/table-storage-how-to-use-dotnet.md)
+* [如何通过 Java 使用表存储](../../cosmos-db/table-storage-how-to-use-java.md)
+* [如何通过 Node.js 使用 Azure 表存储](../../cosmos-db/table-storage-how-to-use-nodejs.md)
+* [如何通过 C++ 使用表存储](../../cosmos-db/table-storage-how-to-use-c-plus.md)
+* [如何通过 PHP 使用表存储](../../cosmos-db/table-storage-how-to-use-php.md)
+* [如何在 Python 中使用表存储](../../cosmos-db/table-storage-how-to-use-python.md)
+* [如何通过 Ruby 使用表存储](../../cosmos-db/table-storage-how-to-use-ruby.md)
 
 ## <a name="next-steps"></a>后续步骤
 
-- [Azure 存储简介](../../storage/common/storage-introduction.md)
-
+* [Azure 存储简介](../../storage/common/storage-introduction.md)
 <!-- Update_Description: update metedata properties -->

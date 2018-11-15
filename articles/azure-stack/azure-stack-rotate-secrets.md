@@ -12,15 +12,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/06/2018
-ms.date: 10/15/2018
+ms.date: 11/12/2018
 ms.author: v-jay
 ms.reviewer: ppacent
-ms.openlocfilehash: e4ff294486f9589160532c0ddc345be0d98acfd9
-ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
+ms.openlocfilehash: ed8069ff1ac7e1c8085afadacdaf15e9d85c2561
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48848840"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195355"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>在 Azure Stack 中轮换机密
 
@@ -82,7 +82,8 @@ Azure Stack 使用各种机密来维持 Azure Stack 基础结构资源与服务�
 
    > [!IMPORTANT]  
    > 请确保未在环境中成功执行机密轮换。 如果已执行机密轮换，请在执行机密轮换之前将 Azure Stack 更新为版本 1807 或更高版本。 
-1.  在执行任何维护操作之前通知用户。 将普通的维护时间段尽量安排在非营业时间。 维护操作可能会同时影响用户工作负荷和门户操作。
+1.  在 Azure Stack 机密轮换期间，操作员可能会注意到警报打开并自动关闭。  此行为是预期行为，可以忽略警报。  操作员可以通过运行 Test-AzureStack 来验证这些警报的有效性。  对于使用 SCOM 监视 Azure Stack 系统的操作人员来说，将系统置于维护模式将阻止这些警报到达其 ITSM 系统，但如果 Azure Stack 系统无法访问，则将继续发出警报。 
+2. 在执行任何维护操作之前通知用户。 将普通的维护时间段尽量安排在非营业时间。 维护操作可能会同时影响用户工作负荷和门户操作。
     > [!note]  
     > 后续步骤仅适用于轮换 Azure Stack 外部机密。
 3. 准备新的替换外部证书集。 新集与 [Azure Stack PKI 证书要求](/azure-stack/azure-stack-pki-certs)中所述的证书规范匹配。
@@ -233,5 +234,4 @@ Remove-PSSession -Session $PEPSession
 ## <a name="next-steps"></a>后续步骤
 
 [详细了解 Azure Stack 安全性](azure-stack-security-foundations.md)
-
 <!-- Update_Description: wording update -->

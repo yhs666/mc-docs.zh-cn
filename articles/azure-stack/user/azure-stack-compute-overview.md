@@ -7,15 +7,15 @@ manager: digimobile
 ms.service: azure-stack
 ms.topic: get-started-article
 origin.date: 09/05/2018
-ms.date: 10/15/2018
+ms.date: 11/12/2018
 ms.author: v-jay
 ms.reviewer: kivenkat
-ms.openlocfilehash: 418313c98ee599a133cc07fbabfeb52c9a84dd7c
-ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
+ms.openlocfilehash: 04f0afb7aecf802b6618ddc252fafc568745418b
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48848885"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195382"
 ---
 # <a name="introduction-to-azure-stack-virtual-machines"></a>Azure Stack 虚拟机简介
 

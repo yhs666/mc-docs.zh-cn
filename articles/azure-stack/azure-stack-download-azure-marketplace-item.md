@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 09/13/2018
-ms.date: 10/15/2018
+origin.date: 10/09/2018
+ms.date: 11/12/2018
 ms.author: v-jay
-ms.reviewer: jeffgo
-ms.openlocfilehash: 00ba81ceb7a88e672a72c7e5833a44a91b172926
-ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
+ms.reviewer: ''
+ms.openlocfilehash: 85d2d033e39e8c61dfa0217a3bc1c9b95148bfc2
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48848905"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195534"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>将市场项从 Azure 下载到 Azure Stack
 
@@ -122,15 +122,15 @@ Azure Stack 部署必须已建立 Internet 连接，并且[已注册到 Azure](a
 
    ```
 
-5. 运行以下脚本，导入联合模块并启动工具。 请将 *destination folder path* 替换为从 Azure 市场下载的文件的存储位置。   
+5. 通过运行以下命令导入联合模块并启动工具。 请将 `Destination folder path` 替换为从 Azure 市场下载的文件的存储位置。   
 
    ```PowerShell  
    Import-Module .\Syndication\AzureStack.MarketplaceSyndication.psm1
 
-   Sync-AzSOfflineMarketplaceItem `
-     -destination "Destination folder path" `
-     -AzureTenantID $AzureContext.Tenant.TenantId `
-     -AzureSubscriptionId $AzureContext.Subscription.Id  
+   Sync-AzSOfflineMarketplaceItem 
+      -Destination "Destination folder path in quotes" `
+      -AzureTenantID $AzureContext.Tenant.TenantId `
+      -AzureSubscriptionId $AzureContext.Subscription.Id 
    ```
 
 6. 当工具运行时，系统会提示输入 Azure 帐户凭据。 登录到已经用来注册过 Azure Stack 的 Azure 帐户。 登录成功以后，应会看到下图所示的屏幕，其中显示了可用市场项的列表。  

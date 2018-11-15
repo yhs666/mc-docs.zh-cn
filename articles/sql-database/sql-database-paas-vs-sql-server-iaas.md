@@ -14,12 +14,12 @@ ms.reviewer: ''
 manager: digimobile
 origin.date: 10/15/2018
 ms.date: 10/29/2018
-ms.openlocfilehash: bd22ac67eb77fc1223bdc03a3422a8b4eaef2a9d
-ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
+ms.openlocfilehash: c67b2ec39e5660e32fb56f4ef2e4cf9d4948ea86
+ms.sourcegitcommit: 3e4e199e1a9938465496408f66153a58d75d1154
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50135816"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "50982927"
 ---
 # <a name="choose-a-cloud-sql-server-option-azure-sql-paas-database-or-sql-server-on-azure-vms-iaas"></a>选择云 SQL Server 选项：Azure SQL (PaaS) 数据库或 Azure VM 上的 SQL Server (IaaS)
 
@@ -131,7 +131,7 @@ ms.locfileid: "50135816"
 
 ### <a name="administration"></a>管理
 
-对许多企业来说，决定过渡到到云服务的关键在于降低管理复杂度。 Microsoft 使用 IaaS 和 PaaS 管理底层基础结构和自动复制所有数据以提供灾难恢复，配置及升级数据库软件，管理负载均衡，并在数据中心发生服务器故障时执行透明的故障转移。
+对许多企业来说，决定过渡到到云服务的关键在于降低管理复杂度。 Azure 使用 IaaS 和 PaaS 管理底层基础结构和自动复制所有数据以提供灾难恢复，配置及升级数据库软件，管理负载均衡，并在数据中心发生服务器故障时执行透明的故障转移。
 
 - 使用 **Azure SQL 数据库**可以继续管理数据库，但不再需要管理数据库引擎、服务器操作系统或硬件。  可以继续管理的项目示例包括数据库和登录、索引和查询优化，以及审核和安全性。 此外，在另一个数据中心配置高可用性只需极少量的配置和管理。
 - 使用 **Azure VM 上的 SQL Server**，可以完全掌控操作系统和 SQL Server 实例配置。 使用 VM，可以决定何时更新/升级操作系统与数据库软件，以及何时安装任何其他软件（例如防病毒软件）。 提供的某些自动化功能可以大大简化修补、备份和高可用性。 此外，还可以控制 VM 的大小、磁盘数目及其存储配置。 Azure 允许根据需要更改 VM 的大小。 有关信息，请参阅 [Azure 的虚拟机和云服务大小](../virtual-machines/windows/sizes.md)。

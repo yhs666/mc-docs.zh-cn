@@ -1,25 +1,25 @@
 ---
-title: 在 Azure Stack 中运行验证测试 | Azure
+title: 在 Azure Stack 中运行验证测试 | Microsoft Docs
 description: 如何收集日志文件以在 Azure Stack 中进行诊断。
 services: azure-stack
-author: mattbriggs
-manager: femila
+author: WenJason
+manager: digimobile
 cloud: azure-stack
-ms.assetid: D44641CB-BF3C-46FE-BCF1-D7F7E1D01AFA
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: PowerShell
 ms.topic: article
-origin.date: 07/19/2018
-ms.date: 08/27/2018
-ms.author: v-junlch
-ms.openlocfilehash: 6faa6676e24f489ffee9fa39bbb44d4544be3ec9
-ms.sourcegitcommit: bc7679a5ad24ea9120c44fc771e88a08b5d8b207
+origin.date: 10/15/2018
+ms.date: 11/12/2018
+ms.author: v-jay
+ms.reviewer: hectorl
+ms.openlocfilehash: 01bc2822bfe0e3d8b175377a969fe7ada6e9c55b
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "42998371"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195429"
 ---
 # <a name="run-a-validation-test-for-azure-stack"></a>为 Azure Stack 运行验证测试
 
@@ -64,7 +64,7 @@ ms.locfileid: "42998371"
 
 | 参数               | 值           | 必须 | 默认 |
 | ---                     | ---             | ---      | ---     |
-| ServiceAdminCredentials | PSCredential    | 否       | FALSE   |
+| ServiceAdminCredentials | String    | 否       | FALSE   |
 | DoNotDeployTenantVm     | SwitchParameter | 否       | FALSE   |
 | AdminCredential         | PSCredential    | 否       | 不可用      |
 | 列出                    | SwitchParameter | 否       | FALSE   |
@@ -106,7 +106,7 @@ Test-AzureStack cmdlet 支持以下通用参数：Verbose、Debug、ErrorAction�
 > [!Note]  
 > 不能使用 Active Directory 联合服务 (AD FS) 凭据运行云方案。 只能通过 PEP 访问 **Test-AzureStack** cmdlet。 但是，PEP 不支持 AD FS 凭据。
 
-以 UPN 格式 serviceadmin@contoso.partner.onmschina.cn (AAD) 键入云管理员用户名。 出现提示时，键入云管理员帐户的密码。
+以 UPN 格式 serviceadmin@contoso.partner.onmschina.cn (Azure AD) 键入云管理员用户名。 出现提示时，键入云管理员帐户的密码。
 
 在 PEP 会话中，运行：
 

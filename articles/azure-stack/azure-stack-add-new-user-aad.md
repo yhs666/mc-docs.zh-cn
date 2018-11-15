@@ -3,8 +3,8 @@ title: 在 Azure Active Directory 中添加新的 Azure Stack 租户帐户 | Mic
 description: 部署 Azure Stack 开发工具包后，需要至少创建一个租户用户帐户，以便浏览租户门户。
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: a75d5c88-5b9e-4e9a-a6e3-48bbfa7069a7
 ms.service: azure-stack
@@ -12,42 +12,52 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/21/2018
-ms.date: 06/26/2018
-ms.author: v-junlch
+origin.date: 09/17/2018
+ms.date: 11/12/2018
+ms.author: v-jay
 ms.reviewer: unknown
-ms.openlocfilehash: 8d6bde9c2fa6b338a46c1400dd8437f711671d5f
-ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
+ms.openlocfilehash: 77c833b66b2511f023d7e39fad84d7d1e6c923c0
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37027069"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195552"
 ---
 # <a name="add-a-new-azure-stack-tenant-account-in-azure-active-directory"></a>在 Azure Active Directory 中添加新的 Azure Stack 租户帐户
 
-  [部署 Azure Stack 开发工具包](azure-stack-run-powershell-script.md)后，需要租户用户帐户，以便浏览租户门户并测试套餐和计划。 可以[使用 Azure 门户](#create-an-azure-stack-tenant-account-using-the-azure-portal)或[使用 PowerShell](#create-an-azure-stack-tenant-account-using-powershell) 创建租户帐户。
+[部署 Azure Stack 开发工具包](azure-stack-run-powershell-script.md)后，需要租户用户帐户，以便浏览租户门户并测试套餐和计划。 可以[使用 Azure 门户](#create-an-azure-stack-tenant-account-using-the-azure-portal)或[使用 PowerShell](#create-an-azure-stack-tenant-account-using-powershell) 创建租户帐户。
 
 ## <a name="create-an-azure-stack-tenant-account-using-the-azure-portal"></a>使用 Azure 门户创建 Azure Stack 租户帐户
+
 必须具有 Azure 订阅才能使用 Azure 门户。
 
 1. 登录到 [Azure](https://portal.azure.cn)。
-2. 在 Azure 左侧导航栏中，单击“Active Directory”。
-3. 在目录列表中，单击要用于 Azure Stack 的目录或创建一个新目录。
-4. 在此目录页上，单击“用户”。
-5. 单击“添加用户”。
-6. 在“添加用户”向导的“用户类型”列表中，选择“组织中的新用户”。
-7. 在“用户名”框中，键入用户的名称。
-8. 在 **@** 框中，选择适当的条目。
-9. 单击“下一步”箭头。
-10. 在向导的“用户配置文件”页中，键入**名字**、**姓氏**和**显示名称**。
-11. 在“角色”列表中，选择“用户”。
-12. 单击“下一步”箭头。
-13. 在“获取临时密码”页上，单击“创建”。
-14. 复制**新密码**。
-15. 使用新帐户登录到 Azure。 出现提示时更改密码。
-16. 使用新帐户登录到 `https://portal.local.azurestack.external`，以查看租户门户。
+2. 在左侧导航栏中，选择“Active Directory”并切换到要用于 Azure Stack 的目录，或者创建一个新目录。
+3. 选择“Azure Active Directory” > “用户” > “新建用户”。
+
+    ![“用户 - 所有用户”页，其中突出显示了“新建用户”](media/azure-stack-add-new-user-aad/new-user-all-users.png)
+
+4. 在“用户”页上，填写所需的信息。
+
+    ![添加新用户，包含用户信息的“用户”页](media/azure-stack-add-new-user-aad/new-user-user.png)
+
+    - **名称（必填）。** 新用户的名字和姓氏。 例如，Mary Parker。
+    - **用户名（必填）。** 新用户的用户名。 例如，mary@contoso.com。
+        用户名的域名部分必须是初始默认域名 <_yourdomainname_>.partner.onmschina.cn，或者是一个自定义域名，例如 contoso.com。 若要详细了解如何创建自定义域名，请参阅[如何向 Azure Active Directory 添加自定义域名](../active-directory/fundamentals/add-custom-domain.md)。
+    - **个人资料。** （可选）你可以添加关于用户的详细信息。 也可以在以后添加用户信息。 有关添加用户信息的详细信息，请参阅[如何添加或更改用户个人资料信息](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md)。
+    - **目录角色。**  选择“用户”。
+
+5. 选中“显示密码”并复制“密码”框中提供的自动生成的密码。 在初始登录过程中需要此密码。
+
+6. 选择“创建” 。
+
+    此时将创建用户并将其添加到 Azure AD 租户中。
+
+7. 使用新帐户登录到 Azure 门户。 出现提示时更改密码。
+8. 使用新帐户登录到 `https://portal.local.azurestack.external`，以查看租户门户。
 
 ## <a name="create-an-azure-stack-tenant-account-using-powershell"></a>使用 PowerShell 创建 Azure Stack 租户帐户
+
 如果没有 Azure 订阅，则无法使用 Azure 门户添加租户用户帐户。 在这种情况下，可以改用适用于 Windows PowerShell 的 Azure Active Directory 模块。
 
 > [!NOTE]
@@ -75,5 +85,3 @@ ms.locfileid: "37027069"
 1. 使用新帐户登录到 Azure。 出现提示时更改密码。
 2. 使用新帐户登录到 `https://portal.local.azurestack.external`，以查看租户门户。
 
-
-<!-- Update_Description: wording update -->

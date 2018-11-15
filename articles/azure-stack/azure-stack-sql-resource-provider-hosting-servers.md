@@ -3,28 +3,31 @@ title: Azure Stack 上的 SQL 宿主服务器 | Microsoft Docs
 description: 如何添加 SQL 实例以通过 SQL 适配器资源提供程序进行预配。
 services: azure-stack
 documentationCenter: ''
-author: jeffgilb
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/10/2018
-ms.date: 07/20/2018
-ms.author: v-junlch
-ms.reviewer: jeffgo
-ms.openlocfilehash: 8218f812e5b3401c0a97ae0bd096d2fe456f6acd
-ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
+origin.date: 09/27/2018
+ms.date: 11/12/2018
+ms.author: v-jay
+ms.reviewer: quying
+ms.openlocfilehash: ce0f29268f96be18423632617b82a5340d535ecc
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48848918"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195411"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>为 SQL 资源提供程序添加托管服务器
 
 可以在 [Azure Stack](azure-stack-poc.md) 中的虚拟机 (VM) 上或者在 Azure Stack 环境外部的 VM 上托管 SQL 实例，前提是 SQL 资源提供程序能够连接到该实例。
+
+> [!NOTE]
+> 应在 SQL 资源提供程序服务器上创建 SQL 数据库。 SQL 资源提供程序应在默认提供程序订阅中创建，而 SQL 托管服务器则应在可计费用户订阅中创建。 资源提供程序服务器不应用于托管用户数据库。
 
 ## <a name="overview"></a>概述
 
@@ -194,5 +197,4 @@ ms.locfileid: "48848918"
 ## <a name="next-steps"></a>后续步骤
 
 [添加数据库](azure-stack-sql-resource-provider-databases.md)
-
 <!-- Update_Description: wording update -->

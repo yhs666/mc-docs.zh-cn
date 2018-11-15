@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/05/2018
-ms.date: 10/15/2018
+ms.date: 11/12/2018
 ms.author: v-jay
 ms.reviewer: hectorl
-ms.openlocfilehash: 3bd3ebf8549eef58f9bdcf4b2c5b3ddf877d26ca
-ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
+ms.openlocfilehash: 509a946907d863b283cfe8f8c02ea8f7a9391c8e
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48848889"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195484"
 ---
 # <a name="back-up-azure-stack"></a>备份 Azure Stack
 
@@ -39,15 +39,48 @@ ms.locfileid: "48848889"
 ```
 
 ### <a name="start-azure-stack-backup-with-job-progress-tracking"></a>启动 Azure Stack 备份，并进行作业进度跟踪
-使用 Start-AzSBackup 启动新备份并使用 -AsJob 变量跟踪备份作业进度。
+使用带 **-AsJob** 参数的 Start-AzSBackup 启动新备份，并将其另存为变量以跟踪备份作业进度。
+
+> [!NOTE]
+> 备份作业将在作业完成前约 10-15 分钟在门户中显示为成功完成。
+>
+> 因此，通过下面的代码可以更好地观察实际状态。
+
+> [!IMPORTANT]
+> 最初引入了 1 毫秒延迟是因为代码执行太快，无法正确注册作业，它返回时不带 **PSBeginTime**，从而不带作业的**状态**。
 
 ```powershell
-    $backupjob = Start-AzsBackup -Force -AsJob 
-    "Start time: " + $backupjob.PSBeginTime;While($backupjob.State -eq "Running"){("Job is currently: " `
-    + $backupjob.State+" ;Duration: " + (New-TimeSpan -Start ($backupjob.PSBeginTime) `
-    -End (Get-Date)).Minutes);Start-Sleep -Seconds 30};$backupjob.Output
+    $BackupJob = Start-AzsBackup -Force -AsJob
+    While (!$BackupJob.PSBeginTime) {
+        Start-Sleep -Milliseconds 1
+    }
+    Write-Host "Start time: $($BackupJob.PSBeginTime)"
+    While ($BackupJob.State -eq "Running") {
+        Write-Host "Job is currently: $($BackupJob.State) - Duration: $((New-TimeSpan -Start ($BackupJob.PSBeginTime) -End (Get-Date)).ToString().Split(".")[0])"
+        Start-Sleep -Seconds 30
+    }
 
-    if($backupjob.State -eq "Completed"){Get-AzsBackup | where {$_.BackupId -eq $backupjob.Output.BackupId}}
+    If ($BackupJob.State -eq "Completed") {
+        Get-AzsBackup | Where-Object {$_.BackupId -eq $BackupJob.Output.BackupId}
+        $Duration = $BackupJob.Output.TimeTakenToCreate
+        $Pattern = '^P?T?((?<Years>\d+)Y)?((?<Months>\d+)M)?((?<Weeks>\d+)W)?((?<Days>\d+)D)?(T((?<Hours>\d+)H)?((?<Minutes>\d+)M)?((?<Seconds>\d*(\.)?\d*)S)?)$'
+        If ($Duration -match $Pattern) {
+            If (!$Matches.ContainsKey("Hours")) {
+                $Hours = ""
+            } 
+            Else {
+                $Hours = ($Matches.Hours).ToString + 'h '
+            }
+            $Minutes = ($Matches.Minutes)
+            $Seconds = [math]::round(($Matches.Seconds))
+            $Runtime = '{0}{1:00}m {2:00}s' -f $Hours, $Minutes, $Seconds
+        }
+        Write-Host "BackupJob: $($BackupJob.Output.BackupId) - Completed with Status: $($BackupJob.Output.Status) - It took: $($Runtime) to run" -ForegroundColor Green
+    }
+    ElseIf ($BackupJob.State -ne "Completed") {
+        $BackupJob
+        $BackupJob.Output
+    }
 ```
 
 ## <a name="confirm-backup-has-completed"></a>确认备份已完成

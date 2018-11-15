@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 02/22/2018
-ms.date: 10/15/2018
+origin.date: 10/09/2018
+ms.date: 11/12/2018
 ms.author: v-jay
 ms.reviewer: ''
-ms.openlocfilehash: bce1c35f3f2eba9c9f976fb58298ab9a24c27db7
-ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
+ms.openlocfilehash: a99a9354ccd48fed8c75bb16f2a45fb13f96e78f
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48848911"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195549"
 ---
 # <a name="overview-of-identity-for-azure-stack"></a>Azure Stack 的标识概述
 
@@ -60,7 +60,7 @@ Azure Stack 要求使用 Active Directory 所支持的 Azure Active Directory (A
 
 在 Azure Stack 中，用户帐户：
 
-- 以 *username@domain* 格式创建。 尽管 AD FS 可将用户帐户映射到 Active Directory 实例，但 AD FS 不支持使用 *\<域>\<别名>* 格式。
+- 以 *username@domain* 格式创建。 尽管 AD FS 可将用户帐户映射到 Active Directory 实例，但 AD FS 不支持使用 *\\\<域>\\\<别名>* 格式。
 - 可以设置为使用多重身份验证。
 - 限制为它们首先注册到的目录，即其组织的目录。
 - 可从本地目录导入。 如需详细信息，请参阅[将本地目录与 Azure Active Directory 集成](/active-directory/connect/active-directory-aadconnect)。 
@@ -144,7 +144,7 @@ Azure Stack 的标识包括用户帐户、组和服务主体。
 |层    |各层之间的身份验证  |
 |---------|---------|
 |工具与客户端，例如管理门户     | 为了访问或修改 Azure Stack 中的资源，工具和客户端将使用 [JSON Web 令牌](/active-directory/develop/active-directory-token-and-claims)来调用 Azure 资源管理器。 <br>Azure 资源管理器验证 JSON Web 令牌并扫视所颁发令牌中的声明，以评估用户或服务主体在 Azure Stack 中的授权级别。 |
-|Azure 资源管理器及其核心服务     |Azure 资源管理器与资源提供程序通信，以传输用户的通信。 <br> 传输通过 [Azure 资源管理器模板](/azure-stack/user/azure-stack-arm-templates.md)使用直接命令式调用或声明式调用。|
+|Azure 资源管理器及其核心服务     |Azure 资源管理器与资源提供程序通信，以传输用户的通信。 <br> 传输通过 [Azure 资源管理器模板](/azure-stack/user/azure-stack-arm-templates)使用直接命令式调用或声明式调用。|
 |资源提供程序     |传递给资源提供程序的调用通过基于证书的身份验证进行保护。 <br>随后，Azure 资源管理器和资源提供程序持续通过 API 通信。 对于从 Azure 资源管理器 收到的每个调用，资源提供程序使用该证书来验证调用。|
 |基础结构和业务逻辑     |资源提供程序使用所选的身份验证模式与业务逻辑和基础结构通信。 Azure Stack 随附的默认资源提供程序使用 Windows 身份验证来保护此通信。|
 
@@ -195,7 +195,7 @@ Azure Stack 中基于角色的访问控制 (RBAC) 与 Azure 中的实现一致�
 
 ### <a name="authenticate-with-azure-cli"></a>使用 Azure CLI 进行身份验证
 
-有关使用 Azure PowerShell 在 Azure Stack 中进行身份验证的信息，请参阅[安装和配置与 Azure Stack 配合使用的 Azure CLI](/azure-stack/user/azure-stack-connect-cli.md)。
+有关使用 Azure PowerShell 在 Azure Stack 中进行身份验证的信息，请参阅[安装和配置与 Azure Stack 配合使用的 Azure CLI](/azure-stack/user/azure-stack-connect-cli)。
 
 ## <a name="next-steps"></a>后续步骤
 

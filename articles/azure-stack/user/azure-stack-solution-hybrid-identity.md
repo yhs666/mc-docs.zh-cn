@@ -15,12 +15,12 @@ origin.date: 05/22/2018
 ms.date: 06/27/2018
 ms.author: v-junlch
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 1f6eb0ab166f9f7cf5c34e740fae13ddc1279c32
-ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
+ms.openlocfilehash: 5cc8d8d5cf880651909c424368c5f20b6f549bc9
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37027136"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195324"
 ---
 # <a name="tutorial-configure-hybrid-cloud-identity-for-azure-and-azure-stack-applications"></a>教程：为 Azure 和 Azure Stack 应用程序配置混合云标识
 
@@ -30,18 +30,25 @@ ms.locfileid: "37027136"
 
 有两个选项可用来向全球 Azure 和 Azure Stack 中的应用程序授予访问权限。
 
- - 当 Azure Stack 与 Internet 建立了不间断的连接时，可以使用 Azure Active Directory (Azure AD)。
- - 当 Azure Stack 从 Internet 断开了连接时，可以使用 Azure Directory 联合身份验证服务 (AD FS)。
+ * 当 Azure Stack 与 Internet 建立了不间断的连接时，可以使用 Azure Active Directory (Azure AD)。
+ * 当 Azure Stack 从 Internet 断开了连接时，可以使用 Azure Directory 联合身份验证服务 (AD FS)。
 
 使用服务主体向 Azure Stack 应用程序授予访问权限，以便在 Azure Stack 中使用 Azure 资源管理器进行部署或配置。
 
 在本教程中，我们将构建一个示例环境来完成以下任务：
 
 > [!div class="checklist"]
-> * 在全球 Azure 和 Azure Stack 中建立一个混合标识
-> * 检索用于访问 Azure Stack API 的令牌。
+> - 在全球 Azure 和 Azure Stack 中建立一个混合标识
+> - 检索用于访问 Azure Stack API 的令牌。
 
 必须拥有 Azure Stack 操作员权限才能完成本教程中的步骤。
+
+> [!Tip]  
+> ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
+> Azure Stack 是 Azure 的扩展。 Azure Stack 将云计算的灵活性和创新性带入你的本地环境，并支持唯一的混合云，以允许你在任何地方构建和部署混合应用。  
+> 
+> 白皮书[混合应用程序的设计注意事项](https://aka.ms/hybrid-cloud-applications-pillars)回顾了设计、部署和运行混合应用程序所需的软件质量的要素（位置、可伸缩性、可用性、复原能力、可管理性和安全性）。 这些设计注意事项有助于优化混合应用程序设计，从而最大限度地减少生产环境中的难题。
+
 
 ## <a name="create-a-service-principal-for-azure-ad-in-the-portal"></a>在门户中创建适用于 Azure AD 的服务主体
 

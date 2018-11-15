@@ -13,12 +13,12 @@ ms.reviewer: ''
 manager: digimobile
 origin.date: 10/15/2018
 ms.date: 10/29/2018
-ms.openlocfilehash: fed46139f94558450f700d99dfe5e4a1387899fd
-ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
+ms.openlocfilehash: b19314a5e8b6e906691cab685e899ae2b72158e7
+ms.sourcegitcommit: 3e4e199e1a9938465496408f66153a58d75d1154
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50135829"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "50982919"
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>解析迁移到 SQL 数据库的过程中的 Transact-SQL 差异
 
@@ -26,7 +26,7 @@ ms.locfileid: "50135829"
 
 ## <a name="overview"></a>概述
 
-Microsoft SQL Server 和 Azure SQL 数据库都完全支持应用程序使用的大多数 Transact-SQL 功能。 例如，核心 SQL 组件（如数据类型、运算符、字符串、算术、逻辑和光标函数等）在 SQL Server 和 SQL 数据库中的工作方式相同。 但是，DDL（数据定义语言）和 DML（数据操作语言）元素中的一些 T-SQL 差异导致存在仅部分受支持的 T-SQL 语句和查询（我们会在本文后面的内容中介绍）。
+SQL Server 和 Azure SQL 数据库都完全支持应用程序使用的大多数 Transact-SQL 功能。 例如，核心 SQL 组件（如数据类型、运算符、字符串、算术、逻辑和光标函数等）在 SQL Server 和 SQL 数据库中的工作方式相同。 但是，DDL（数据定义语言）和 DML（数据操作语言）元素中的一些 T-SQL 差异导致存在仅部分受支持的 T-SQL 语句和查询（我们会在本文后面的内容中介绍）。
 
 此外，还有一些功能和语法根本不受支持，因为 Azure SQL 数据库旨在将功能与 master 数据库和操作系统的依赖项隔离。 因此，大多数服务器级活动不适用于 SQL 数据库。 T-SQL 语句和选项在配置服务器级选项、操作系统组件或指定文件系统配置时不可用。 需要此类功能时，通常是以某种其他方式从 SQL 数据库或从其他 Azure 功能或服务获取相应的替代项。
 

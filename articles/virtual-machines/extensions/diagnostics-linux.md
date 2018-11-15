@@ -10,12 +10,12 @@ ms.topic: article
 origin.date: 05/09/2017
 ms.date: 10/22/2018
 ms.author: v-yeche
-ms.openlocfilehash: cf20aa2b61ae2362e1f34a6901657409cbb69648
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: 18695dbdcc54ec034a578654467d9667ee9e9701
+ms.sourcegitcommit: caa089a6221a4925943f1ea516ca58ae62da0dff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453680"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "50982963"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>使用 Linux 诊断扩展监视指标和日志
 
@@ -133,11 +133,12 @@ az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnost
 Name | 值
 ---- | -----
 storageAccountName | 扩展写入数据的存储帐户的名称。
-storageAccountEndPoint | （可选）标识存储帐户所在云的终结点。 如果缺少此设置，则 LAD 默认为 Azure 公有云 `https://core.windows.net`。 若要使用 Azure 德国、Azure 美国政府或 Azure 中国 (`https://core.chinacloudapi.cn`) 中的存储帐户，请相应地设置此值。
+storageAccountEndPoint | （可选）标识存储帐户所在云的终结点。 如果缺少此设置，则 LAD 默认为 Azure 公有云 `https://core.windows.net`。 若要使用 Azure 中国 (`https://core.chinacloudapi.cn`) 中的存储帐户，请相应地设置此值。
 storageAccountSasToken | Blob 服务和表服务的[帐户 SAS 令牌](https://azure.microsoft.com/blog/sas-update-account-sas-now-supports-all-storage-services/) (`ss='bt'`)，适用于容器和对象 (`srt='co'`)，用于授予添加、创建、列出、更新和写入权限 (`sp='acluw'`)。 请勿使用前导问号 (?)。
 mdsdHttpProxy | （可选）允许扩展连接到指定存储帐户和终结点所需的 HTTP 代理信息。
 sinksConfig | （可选）可将指标和事件传递到的替换目标的详细信息。 扩展所支持的每个数据接收器的具体详细信息将在下面各节中介绍。
 
+<!-- Not Available on Line 131 Azure Germany, Azure US Government-->
 <!-- Notice: storageAccountEndPoint contains https://core.windows.net and https://core.chinacloudapi.cn-->
 
 > [!NOTE]

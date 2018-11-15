@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 09/17/2018
-ms.date: 10/15/2018
+ms.date: 11/12/2018
 ms.author: v-jay
 ms.reviewer: thoroet
-ms.openlocfilehash: 62efbdea48c6e277fc7c3803af50681889f02444
-ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
+ms.openlocfilehash: 9b15859dd240f24856fcae9823518464fbfc5bcc
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48848833"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195558"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack"></a>在 Azure Stack 中添加更多的缩放单元节点
 
@@ -143,4 +143,4 @@ Azure Stack 操作员可以通过添加更多的物理计算机来提高现有�
 
 
 ## <a name="next-steps"></a>后续步骤 
-查看[节点操作](azure-stack-node-actions.md) 
+[添加公共 IP 地址](azure-stack-add-ips.md) 

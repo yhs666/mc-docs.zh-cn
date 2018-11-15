@@ -1,10 +1,10 @@
 ---
-title: 创建并上传可在 Azure Stack 中使用的 Red Hat Enterprise Linux VHD | Azure
+title: 创建并上传 Red Hat Enterprise Linux VHD，以供在 Azure Stack 中使用 | Microsoft Docs
 description: 了解如何创建和上传包含 Red Hat Linux 操作系统的 Azure 虚拟硬盘 (VHD)。
 services: azure-stack
 documentationcenter: ''
-author: JeffGoldner
-manager: BradleyB
+author: WenJason
+manager: digimobile
 editor: ''
 tags: ''
 ms.assetid: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/15/2018
-ms.date: 08/27/2018
-ms.author: v-junlch
-ms.openlocfilehash: d2a67a04e021fd8c31e05befb13f5f4a80e97fc4
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.date: 11/12/2018
+ms.author: v-jay
+ms.openlocfilehash: e721be7c10314e5fc22e19b59e42da923ff911df
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869415"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195568"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack"></a>为 Azure Stack 准备基于 Red Hat 的虚拟机
 
@@ -82,7 +82,7 @@ ms.locfileid: "42869415"
     sudo subscription-manager register --auto-attach --username=XXX --password=XXX
     ```
 
-7. 在 grub 配置中修改内核引导行，以使其包含 Azure 的其他内核参数。 若要执行此修改，请在文本编辑器中打开 `/etc/default/grub` 并编辑 `GRUB_CMDLINE_LINUX` 参数。 例如：
+7. 在 grub 配置中修改内核引导行，使其包含 Azure 的其他内核参数。 若要执行此修改，请在文本编辑器中打开 `/etc/default/grub` 并修改 `GRUB_CMDLINE_LINUX` 参数。 例如：
 
     ```sh
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
@@ -140,6 +140,7 @@ ms.locfileid: "42869415"
     ```
 
 14. 如果使用的系统是通过企业证书颁发机构部署的，则 RHEL 虚拟机不会信任 Azure Stack 根证书。 需将该证书放入受信任的根存储。 请参阅[将受信任的根证书添加到服务器](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html)。
+
 15. 运行以下命令可取消对虚拟机的预配并且对其进行准备以便在 Azure 上进行预配：
 
     ```bash
@@ -301,6 +302,7 @@ ms.locfileid: "42869415"
     ```
 
 17. 如果使用的系统是通过企业证书颁发机构部署的，则 RHEL 虚拟机不会信任 Azure Stack 根证书。 需将该证书放入受信任的根存储。 请参阅[将受信任的根证书添加到服务器](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html)。
+
 18. 运行以下命令可取消对虚拟机的预配并且对其进行准备以便在 Azure 上进行预配：
 
     ```bash
@@ -386,7 +388,7 @@ ms.locfileid: "42869415"
     sudo subscription-manager register --auto-attach --username=XXX --password=XXX
     ```
 
-5. 在 grub 配置中修改内核引导行，以使其包含 Azure 的其他内核参数。 若要执行此修改，请在文本编辑器中打开 `/etc/default/grub` 并编辑 `GRUB_CMDLINE_LINUX` 参数。 例如：
+5. 在 grub 配置中修改内核引导行，使其包含 Azure 的其他内核参数。 若要执行此修改，请在文本编辑器中打开 `/etc/default/grub` 并修改 `GRUB_CMDLINE_LINUX` 参数。 例如：
 
     ```sh
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
@@ -458,6 +460,7 @@ ms.locfileid: "42869415"
     ```
 
 13. 如果使用的系统是通过企业证书颁发机构部署的，则 RHEL 虚拟机不会信任 Azure Stack 根证书。 需将该证书放入受信任的根存储。 请参阅[将受信任的根证书添加到服务器](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html)。
+
 14. 运行以下命令可取消对虚拟机的预配并且对其进行准备以便在 Azure 上进行预配：
 
     ```bash
@@ -640,7 +643,7 @@ ms.locfileid: "42869415"
 
 6. 在启动选项的末尾输入 `inst.ks=<the location of the kickstart file>` ，并按 **Enter**键。
 
-7. 等待安装完成。 完成后，虚拟机会自动关闭。 Linux VHD 现已准备好上传到 Azure。
+7. 等待安装完成。 完成后，虚拟机将自动关闭。 现在，准备将 Linux VHD 上传到 Azure。
 
 ## <a name="known-issues"></a>已知问题
 

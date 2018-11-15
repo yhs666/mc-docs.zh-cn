@@ -3,8 +3,8 @@ title: 什么是 Azure Stack？ | Microsoft Docs
 description: 使用 Azure Stack 可在数据中心内运行 Azure 服务。
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: d9e6aee1-4cba-4df5-b5a3-6f38da9627a3
 ms.service: azure-stack
@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-origin.date: 06/04/2018
-ms.date: 06/26/2018
-ms.author: v-junlch
+origin.date: 10/15/2018
+ms.date: 11/12/2018
+ms.author: v-jay
 ms.reviewer: unknown
 ms.custom: mvc
-ms.openlocfilehash: 95627d5f06a75f18b1a1fc9aeefbe2971ab73710
-ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
+ms.openlocfilehash: 711878e937c3d861f77ddd87876515deac443af3
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37027132"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195423"
 ---
 # <a name="what-is-azure-stack"></a>什么是 Azure Stack？
 
@@ -42,13 +42,13 @@ Microsoft [Azure Stack 开发工具包 (ASDK)](asdk/asdk-what-is.md) 是 Azure S
 
 ASDK 具有以下限制：
 
-- ASDK 与单个 Azure Active Directory (Azure AD) 或 Active Directory 联合身份验证服务 (AD FS) 标识提供者相关联。 可在此目录中创建多个用户，并将订阅分配给每个用户。
-- 由于 Azure Stack 组件部署在一台主机上，可用作租户资源的物理资源有限。 此配置不适用于规模或性能评估。
-- 由于只有一台主机和 NIC 部署要求方面的原因，网络方案会受到限制。
+* ASDK 与单个 Azure Active Directory (Azure AD) 或 Active Directory 联合身份验证服务 (AD FS) 标识提供者相关联。 可在此目录中创建多个用户，并将订阅分配给每个用户。
+* 由于 Azure Stack 组件部署在一台主机上，可用作租户资源的物理资源有限。 此配置不适用于规模或性能评估。
+* 由于只有一台主机和 NIC 部署要求方面的原因，网络方案会受到限制。
 
 ## <a name="next-steps"></a>后续步骤
 
-- [主要功能和概念](azure-stack-key-features.md)
-- [Azure Stack：Azure 的扩展 (pdf)](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/)
+[主要功能和概念](azure-stack-key-features.md)
 
+[Azure Stack：Azure 的扩展 (pdf)](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/)
 <!-- Update_Description: wording update -->

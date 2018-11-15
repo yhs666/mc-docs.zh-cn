@@ -16,12 +16,12 @@ ms.topic: article
 origin.date: 12/15/2015
 ms.date: 05/21/2018
 ms.author: v-yeche
-ms.openlocfilehash: e30b7a6be6a94e64750544306f3d6f650b70e1b2
-ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
+ms.openlocfilehash: 3abb854f0270076bed49fd87da47e7093c247546
+ms.sourcegitcommit: caa089a6221a4925943f1ea516ca58ae62da0dff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "34173343"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "50982959"
 ---
 # <a name="set-up-tomcat7-on-a-linux-virtual-machine-with-azure"></a>使用 Azure 在 Linux 虚拟机上设置 Tomcat7
 Apache Tomcat（简称 Tomcat，以前也称为 Jakarta Tomcat）是由 Apache Software Foundation (ASF) 开发的一个开源 Web 服务器和 servlet 容器。 Tomcat 实现了 Sun Microsystems 提出的 Java Servlet 和 JavaServer Pages (JSP) 规范。 Tomcat 提供用于运行 Java 代码的纯 Java HTTP Web 服务器环境。 在最简单的配置中，Tomcat 在单个操作系统进程中运行。 此进程运行 Java 虚拟机 (JVM)。 浏览器向 Tomcat 发出的每个 HTTP 请求在 Tomcat 进程中作为单独线程进行处理。  
@@ -38,7 +38,7 @@ Apache Tomcat（简称 Tomcat，以前也称为 Jakarta Tomcat）是由 Apache S
 * 如何准备适用于 Tomcat7 的虚拟机。
 * 如何安装 Tomcat7。
 
-本文假设读者已拥有 Azure 订阅。  如果没有，可在 [Azure 网站](https://www.azure.cn/)上注册一个免费试用订阅。 如果已有 MSDN 订阅，请参阅 [Azure 特价：MSDN 权益](https://www.azure.cn/offers/ms-mc-arz-msdn/)。 若要了解有关 Azure 的详细信息，请参阅[什么是 Azure？](https://www.azure.cn/home/features/what-is-azure/)。
+本文假设读者已拥有 Azure 订阅。  如果没有，可在 [Azure 网站](https://www.azure.cn/)上注册一个免费试用订阅。 如果已有 MSDN 订阅，请参阅 [Azure 特价：MSDN 权益](https://www.azure.cn/offers/ms-mc-arz-msdn/)。 若要了解有关 Azure 的详细信息，请参阅 [什么是 Azure？](https://www.azure.cn/home/features/what-is-azure/)。
 
 本文假设读者具备 Tomcat 和 Linux 的基本实践知识。  
 
@@ -72,7 +72,10 @@ SSH 是面向系统管理员的重要工具。 但是，我们并不建议基于
 3. 对于“SSH 身份验证密钥”，请从 publicKey.pem 文件中复制密钥值，其中包含由 PuTTYgen 生成的公钥。  
 ![门户中的“SSH 身份验证密钥”框][4]
 
-4. 根据需要配置其他设置，并单击 **“创建”**。  
+4. 根据需要配置其他设置，例如“大小”和“设置”，然后在摘要面板中单击“确定”。  
+![单击“确定”以创建虚拟机][media/setup-tomcat/virtual-machines-linux-setup-tomcat7-linux-04-chenye-add-summary.png]
+
+<!--Notice: Edward alter Size and Setting configuration with images -->
 
 ## <a name="phase-2-prepare-your-virtual-machine-for-tomcat7"></a>阶段 2：准备用于 Tomcat7 的虚拟机
 在此阶段，我们将为 Tomcat 流量配置终结点，并连接到新的虚拟机。
@@ -90,12 +93,12 @@ TCP 端口 8080 是 Tomcat 用来侦听的默认端口号。 如果使用 Azure 
 
    1. 对于终结点，请在“终结点”中输入终结点的名称，然后在“公用端口”中输入 80。  
 
-      如果将其设置为 80，则无需在 URL 中包括用于访问 Tomcat 的端口号。 例如，http://tomcatdemo.chinacloudapp.cn。    
+      如果将其设置为 80，则无需在 URL 中包括用于访问 Tomcat 的端口号。 例如， http://tomcatdemo.chinacloudapp.cn。    
 
-      如果将其设置为其他值（例如 81），则需要将端口号添加到 URL 才能访问 Tomcat。 例如，http://tomcatdemo.chinacloudapp.cn:81/。
+      如果将其设置为其他值（例如 81），则需要将端口号添加到 URL 才能访问 Tomcat。 例如， http://tomcatdemo.chinacloudapp.cn:81/。
    2. 在“专用端口”中输入 8080。 默认情况下，Tomcat 侦听 TCP 端口 8080。 如果更改了 Tomcat 的默认侦听端口，应将“专用端口”更新为与 Tomcat 侦听端口相同。  
       ![显示“添加”命令、“公共端口”和“专用端口”的 UI 屏幕截图][7]
-4. 单击“确定”将该终结点添加到虚拟机。
+4. 单击“确定”  将该终结点添加到虚拟机。
 
 ### <a name="step-2-connect-to-the-image-you-created"></a>步骤 2：连接到创建的映像
 可以选择用于连接到虚拟机的任何 SSH 工具。 本示例使用 PuTTY。  

@@ -3,8 +3,8 @@ title: Azure Stack 集成系统的 Azure 注册 | Microsoft Docs
 description: 介绍多节点 Azure Stack Azure 连接部署的 Azure 注册过程。
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/13/2018
-ms.date: 08/27/2018
-ms.author: v-junlch
+origin.date: 10/09/2018
+ms.date: 11/12/2018
+ms.author: v-jay
 ms.reviewer: brbartle
-ms.openlocfilehash: 2cb7437abeac522a5b81c9a8c7c924a2b8f89f1e
-ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
+ms.openlocfilehash: d13e96d364b244763f31547a2a6c42c547e3849c
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48848913"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195505"
 ---
 # <a name="register-azure-stack-with-azure"></a>将 Azure Stack 注册到 Azure
 
@@ -46,15 +46,15 @@ ms.locfileid: "48848913"
 
 将 Azure Stack 注册到 Azure 之前，必须准备好：
 
-- Azure 订阅的订阅 ID。 若要获取该 ID，请登录到 Azure，单击“所有服务”。 然后，在“常规”类别下，选择“订阅”，单击要使用的订阅，然后可以在“概要”下找到订阅 ID。
+- Azure 订阅的订阅 ID。 注册仅支持 EA、CSP 或 CSP 共享服务订阅。 CSP 需要确定是[使用 CSP 订阅还是使用 APSS 订阅](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-apss-subscription)。<br><br>若要获取该 ID，请登录到 Azure，单击“所有服务”。 然后，在“常规”类别下，选择“订阅”，单击要使用的订阅，然后可以在“概要”下找到订阅 ID。
 
-- 订阅所有者的帐户用户名和密码（支持 MSA/2FA 帐户）。
+- 订阅所有者的帐户用户名和密码。
 
 - 用户帐户必须有权访问 Azure 订阅并且有权在与该订阅关联的目录中创建标识应用程序和服务主体。
 
 - 已注册 Azure Stack 资源提供程序（请参阅下面的“注册 Azure Stack 资源提供程序”部分以了解详细信息）。
 
-注册后，不需要 Azure Active Directory 全局管理员权限。 但是，某些操作可能需要全局管理员凭据。 例如，资源提供程序安装程序脚本或需要授予权限的新功能。 可以临时复原帐户的全局管理员权限，也可以使用单独的全局管理员帐户，该帐户是*默认提供程序订阅*的所有者。
+注册后，不需要 Azure Active Directory 全局管理员权限。 但是，某些操作可能需要全局管理员凭据。 例如，资源提供程序安装程序脚本或需要授予权限的新功能。 可以临时复原帐户的全局管理员权限，也可以使用单独的全局管理员帐户（该帐户应是*默认提供程序订阅*的所有者）。
 
 如果没有符合这些要求的 Azure 订阅，可[在此处创建一个 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/?b=17.06)。 注册 Azure Stack 不会对 Azure 订阅收取任何费用。
 
@@ -86,12 +86,25 @@ Azure Stack 部署可能处于“已连接”或“已断开连接”状态。
 
  - **已连接**  
  “已连接”意味着 Azure Stack 已部署，因此可以连接到 Internet 和 Azure。 可以将 Azure Active Directory (Azure AD) 或 Active Directory 联合身份验证服务 (AD FS) 用于标识存储。 对于已连接的部署，可供选择的有两种计费模型：即用即付或基于容量。
-    - [使用**即用即付**计费模型将连接的 Azure Stack 注册到 Azure](#register-a-connected-azure-stack-with-azure-using-the-pay-as-you-use-billing-model)
-    - [使用**容量**计费模型将连接的 Azure Stack 注册到 Azure](#register-a-connected-azure-stack-with-azure-using-the-capacity-billing-model)
+    - [使用**即用即付**计费模型将连接的 Azure Stack 注册到 Azure](#register-connected-with-pay-as-you-go-billing)
+    - [使用**容量**计费模型将连接的 Azure Stack 注册到 Azure](#register-connected-with-capacity-billing)
 
  - **已断开连接**  
  使用从 Azure 部署断开连接选项，可以在没有 Internet 连接的情况下部署和使用 Azure Stack。 但是，使用断开连接部署，你将受限于一个 AD FS 标识存储和基于容量的计费模型。
-    - [使用**容量**计费模型注册已断开连接的 Azure Stack](#register-a-disconnected-Azure-Stack-using-the-capacity-billing-model)
+    - [使用**容量**计费模型注册已断开连接的 Azure Stack](#register-disconnected-with-capacity-billing)
+
+### <a name="determine-a-unique-registration-name-to-use"></a>确定要使用的唯一注册名称 
+将 Azure Stack 注册到 Azure 时，必须提供唯一的注册名称。 将 Azure Stack 订阅与 Azure 注册关联的简便方法是使用 Azure Stack **云 ID**。 
+
+> [!NOTE]
+> 使用基于容量的计费模型的 Azure Stack 注册将需要在这些年度订阅到期后重新注册时更改唯一名称，除非你[删除过期的注册](azure-stack-registration.md#change-the-subscription-you-use)并重新注册到 Azure。
+
+若要确定 Azure Stack 部署的云 ID，请在可以访问特权终结点的计算机上以管理员身份打开 PowerShell，运行以下命令，并记录 **CloudID** 值： 
+
+```powershell
+Run: Enter-PSSession -ComputerName <privileged endpoint computer name> -ConfigurationName PrivilegedEndpoint
+Run: get-azurestackstampinformation 
+```
 
 ## <a name="register-connected-with-pay-as-you-go-billing"></a>使用即用即付计费模型注册连接的 Azure Stack
 
@@ -195,11 +208,11 @@ Azure Stack 部署可能处于“已连接”或“已断开连接”状态。
       -PrivilegedEndpointCredential $CloudAdminCred `
       -PrivilegedEndpoint <PrivilegedEndPoint computer name> `
       -AgreementNumber <EA agreement number> `
-      -BillingModel Capacity
+      -BillingModel Capacity `
       -RegistrationName $RegistrationName
   ```
    > [!Note]  
-   > 可以通过 **Set-AzsRegistration** cmdlet 的 UsageReportingEnabled 参数禁用使用情况报告。 将此参数设置为 false。 例如：`UsageReportingEnabled
+   > 可以通过将参数设置为 false 来使用 **Set-AzsRegistration** cmdlet 的 UsageReportingEnabled 参数禁用使用情况报告。 
    
   有关 Set-AzsRegistration cmdlet 的详细信息，请参阅[注册参考](#registration-reference)。
 
@@ -255,7 +268,7 @@ Azure Stack 部署可能处于“已连接”或“已断开连接”状态。
 若要获取激活密钥，请运行以下 PowerShell cmdlet：  
 
   ```Powershell
-  $RegistrationResourceName = "AzureStack-<Cloud Id for the Environment to register>"
+  $RegistrationResourceName = "AzureStack-<unique-registration-name>"
   $KeyOutputFilePath = "$env:SystemDrive\ActivationKey.txt"
   $ActivationKey = Get-AzsActivationKey -RegistrationName $RegistrationResourceName -KeyOutputFilePath $KeyOutputFilePath
   ```
@@ -303,12 +316,12 @@ Azure Stack 部署可能处于“已连接”或“已断开连接”状态。
 
 #### <a name="change-the-subscription-you-use"></a>更改使用的订阅
 
-若要更改使用的订阅，必须先运行 **Remove-AzsRegistration** cmdlet，然后确保登录到正确的 Azure PowerShell 上下文，最后使用任何已更改的参数来运行 **Set-AzsRegistration**：
+若要更改使用的订阅，必须先运行 **Remove-AzsRegistration** cmdlet，然后确保已登录到正确的 Azure PowerShell 上下文，最后使用任何已更改的参数（包括\<计费模型\>）来运行 **Set-AzsRegistration**：
 
   ```PowerShell  
   Remove-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint
   Set-AzureRmContext -SubscriptionId $NewSubscriptionId
-  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel PayAsYouUse -RegistrationName $RegistrationName
+  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel <billing model> -RegistrationName $RegistrationName
   ```
 
 #### <a name="change-the-billing-model-or-how-to-offer-features"></a>更改计费模型或功能提供方式
@@ -316,7 +329,7 @@ Azure Stack 部署可能处于“已连接”或“已断开连接”状态。
 若要更改安装的计费模型或功能提供方式，可以调用注册函数来设置新值。 不需要先删除当前注册：
 
   ```PowerShell  
-  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel PayAsYouUse -RegistrationName $RegistrationName
+  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel <billing model> -RegistrationName $RegistrationName
   ```
 
 ### <a name="renew-or-change-registration-in-disconnected-environments"></a>在离线环境中续订或更改注册
@@ -349,7 +362,7 @@ Azure Stack 部署可能处于“已连接”或“已断开连接”状态。
 或者，可以使用注册名称：
 
   ```Powershell
-  $registrationName = "AzureStack-<Cloud ID of Azure Stack Environment>"
+  $registrationName = "AzureStack-<unique-registration-name>"
   Unregister-AzsEnvironment -RegistrationName $registrationName
   ```
 

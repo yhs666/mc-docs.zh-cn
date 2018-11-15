@@ -7,16 +7,16 @@ manager: digimobile
 ms.service: azure-stack
 ms.topic: article
 origin.date: 09/13/2018
-ms.date: 10/15/2018
+ms.date: 11/12/2018
 ms.author: v-jay
 ms.reviewer: wamota
 keywords: ''
-ms.openlocfilehash: 519720557727c3b7603902d8734e5f5d267da52f
-ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
+ms.openlocfilehash: 4ef9325484dca725aeb4a5242259c5ac49880cb1
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48848787"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195377"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack 数据中心集成 - 发布终结点
 
@@ -79,6 +79,7 @@ Azure Stack 仅支持透明代理服务器。 如果部署中的透明代理上�
 |Windows Defender|.wdcp.microsoft.com<br>.wdcpalt.microsoft.com<br>*.updates.microsoft.com<br>*.download.microsoft.com<br>https://msdl.microsoft.com/download/symbols<br>http://www.microsoft.com/pkiops/crl<br>http://www.microsoft.com/pkiops/certs<br>http://crl.microsoft.com/pki/crl/products<br>http://www.microsoft.com/pki/certs<br>https://secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|
 |NTP|     |UDP|123|
 |DNS|     |TCP<br>UDP|53|
+|CRL|     |HTTPS|443|
 |     |     |     |     |
 
 > [!Note]  

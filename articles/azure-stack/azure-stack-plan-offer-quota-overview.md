@@ -3,8 +3,8 @@ title: Azure Stack 计划、套餐、配额和订阅概述 | Microsoft Docs
 description: 向云操作员介绍 Azure Stack 计划、套餐、配额和订阅。
 services: azure-stack
 documentationcenter: ''
-author: brenduns
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: 3dc92e5c-c004-49db-9a94-783f1f798b98
 ms.service: azure-stack
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 06/07/2018
-ms.date: 06/26/2018
-ms.author: v-junlch
+origin.date: 10/12/2018
+ms.date: 11/12/2018
+ms.author: v-jay
 ms.reviewer: ''
-ms.openlocfilehash: afd576b4df2835c355599371fd02c6e142b395eb
-ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
+ms.openlocfilehash: 75c8cc9284a9ce59455d23422f837bce45baae59
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37027111"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195550"
 ---
 # <a name="plan-offer-quota-and-subscription-overview"></a>计划、套餐、配额和订阅概述
 
@@ -43,7 +43,7 @@ ms.locfileid: "37027111"
 
 创建套餐之后，用户可以订阅该套餐，以访问它提供的服务和资源。 用户可以根据需要订阅任意数量的产品/服务。 下图显示了某个用户订阅两个产品/服务的简单示例。 每个套餐包含一个或两个计划，每个计划可让用户访问服务。
 
-![包含套餐和计划的租户订阅](./media/azure-stack-key-features/image4.png)
+![包含套餐和计划的租户订阅](media/azure-stack-key-features/image4.png)
 
 ## <a name="plans"></a>计划
 
@@ -51,9 +51,9 @@ ms.locfileid: "37027111"
 
 ### <a name="quotas"></a>配额
 
-为了帮助管理云容量，可以使用预配置的配额，或者为计划中的每个服务创建新配额。 配额定义用户订阅可以部署或使用的资源上限。 例如，配额可能允许用户最多创建五个虚拟机 (VM)。 可在虚拟机上设置其他配额，例如 RAM 和 CPU 核心。
+为了帮助管理云容量，可以使用预配置的配额，或者为计划中的每个服务创建新配额。 配额定义用户订阅可以部署或使用的资源上限。 例如，配额可能允许用户最多创建五个虚拟机 (VM)。
 
-可按区域配置配额。 例如，为区域 A 提供计算服务的计划的配额可以是具有 4-GB RAM 和 8 个 CPU 核心的两个 VM。
+可按区域配置配额。 例如，为区域 A 提供计算服务的计划的配额可以是两个 VM。
 
 >[!NOTE]
 >在 Azure Stack 开发工具包中，只有一个区域（名为 *local*）可用。
@@ -72,12 +72,11 @@ ms.locfileid: "37027111"
 
 套餐是创建的一个或多个计划的组，使用户能够订阅这些产品/服务。 例如，套餐 Alpha 可以包含计划 A 和计划 B，这两个计划分别提供一组计算服务和一组存储与网络服务。
 
-
-  [创建套餐](azure-stack-create-offer.md)时，必须至少包含一个基本计划，但也可以创建用户可添加到其订阅中的附加计划。
+[创建套餐](azure-stack-create-offer.md)时，必须至少包含一个基本计划，但也可以创建用户可添加到其订阅中的附加计划。
 
 ## <a name="subscriptions"></a>订阅
 
-订阅是用户访问套餐的方式。 如果你是服务提供商的 Azure Stack 操作员，则用户（租户）可通过订阅你的套餐来购买你的服务。 如果你是组织的 Azure Stack 操作员，则用户（员工）可以订阅你提供的服务，而无需付费。
+订阅是用户访问套餐的方式。 如果你是服务提供商的 Azure Stack 操作员，则用户（租户）可通过订阅你的产品/服务来购买你的服务。 如果你是组织的 Azure Stack 操作员，则用户（员工）可以订阅你提供的服务，而无需付费。
 
 用户与套餐的每种组合都是一个唯一的订阅。 一个用户可订阅多个套餐，但每个订阅只适用于一个套餐。 计划、套餐与配额仅适用于每个唯一的订阅，而不能在订阅之间共享。 用户创建的每个资源都与一个订阅相关联。
 
@@ -87,6 +86,4 @@ ms.locfileid: "37027111"
 
 ## <a name="next-steps"></a>后续步骤
 
-[创建计划](azure-stack-create-plan.md)
-
-<!-- Update_Description: wording update -->
+有关计划和产品/服务的详细信息，请参阅[创建计划](azure-stack-create-plan.md)。

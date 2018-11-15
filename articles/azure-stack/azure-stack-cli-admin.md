@@ -3,8 +3,8 @@ title: 为 Azure Stack 用户启用 Azure CLI | Microsoft Docs
 description: 了解如何使用跨平台命令行接口 (CLI) 管理和部署 Azure Stack 上的资源
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: f576079c-5384-4c23-b5a4-9ae165d1e3c3
 ms.service: azure-stack
@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/11/2018
-ms.date: 06/26/2018
-ms.author: v-junlch
-ms.openlocfilehash: 9d2e8e3aebb8f22541ed1d1172c3088d76b01bb4
-ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
+origin.date: 09/28/2018
+ms.date: 11/12/2018
+ms.author: v-jay
+ms.openlocfilehash: e39e50b8d6dbbe7d2271ad3990358d95945ca989
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37027128"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195451"
 ---
 # <a name="enable-azure-cli-for-azure-stack-users"></a>为 Azure Stack 用户启用 Azure CLI
 
@@ -28,10 +28,9 @@ ms.locfileid: "37027128"
 
 可以向 Azure Stack 的用户提供 CA 根证书，使他们能够在其开发计算机上使用 Azure CLI。 用户需使用该证书通过 CLI 管理资源。
 
-- 如果用户通过 Azure Stack 开发工具包外部的工作站使用 CLI，**Azure Stack CA 根证书**是必需的。  
+* 如果用户通过 Azure Stack 开发工具包外部的工作站使用 CLI，**Azure Stack CA 根证书**是必需的。  
 
-- 
-  **虚拟机别名终结点**提供在部署 VM 时以单个参数形式引用映像发布者、产品/服务、SKU 和版本的别名，如“UbuntuLTS”或“Win2012Datacenter”。  
+* **虚拟机别名终结点**提供在部署 VM 时以单个参数形式引用映像发布者、产品/服务、SKU 和版本的别名，如“UbuntuLTS”或“Win2012Datacenter”。  
 
 以下部分介绍如何获取这些值。
 
@@ -70,10 +69,7 @@ Azure Stack 操作员应设置可公开访问的终结点来托管虚拟机别�
 
 ## <a name="next-steps"></a>后续步骤
 
-- [使用 Azure CLI 部署模板](user/azure-stack-deploy-template-command-line.md)
-
+- [使用 Azure CLI 部署模板](../user/azure-stack-deploy-template-command-line.md)
 - [使用 PowerShell 连接](azure-stack-connect-powershell.md)
-
 - [管理用户权限](azure-stack-manage-permissions.md)
-
 <!-- Update_Description: wording update -->

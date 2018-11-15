@@ -1,25 +1,25 @@
 ---
-title: 适用于 Azure Stack 存储的工具 | Azure
+title: Azure Stack 存储的工具 | Microsoft Docs
 description: 了解 Azure Stack 存储数据传送工具
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
-manager: femila
+author: WenJason
+manager: digimobile
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-origin.date: 07/03/2018
-ms.date: 08/27/2018
-ms.author: v-junlch
+origin.date: 10/10/2018
+ms.date: 11/12/2018
+ms.author: v-jay
 ms.reviewer: xiaofmao
-ms.openlocfilehash: ca4d2557266c2b06f5788c07d9b0c0336d7c7dd4
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.openlocfilehash: 1224f99a7e19db4eca990a691cbec5fc8203a958
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869556"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195557"
 ---
 # <a name="use-data-transfer-tools-for-azure-stack-storage"></a>使用 Azure Stack 存储的数据传输工具
 
@@ -158,7 +158,7 @@ Azure PowerShell 是一个模块，它提供的 cmdlet 用于管理 Azure 和 Az
 ```PowerShell  
 # begin
 
-$ARMEvnName = "AzureStackUser" # set AzureStackUser as your Azure Stack environemnt name
+$ARMEvnName = "AzureStackUser" # set AzureStackUser as your Azure Stack environment name
 $ARMEndPoint = "https://management.local.azurestack.external" 
 $GraphAudiance = "https://graph.chinacloudapi.cn/" 
 $AADTenantName = "<myDirectoryTenantName>.partner.onmschina.cn" 
@@ -247,7 +247,7 @@ Azure CLI 是 Azure 的命令行体验，用于管理 Azure 资源。 可以将�
 
 Azure CLI 经过优化，可用于从命令行管理 Azure 资源，以及生成可以针对 Azure 资源管理器运行的自动化脚本。 它提供 Azure Stack 门户所提供的许多功能，包括各种数据访问功能。
 
-Azure Stack 需要 Azure CLI 2.0 版。 若要详细了解如何通过 Azure Stack 来安装和配置 Azure CLI，请参阅[安装和配置 Azure Stack CLI](azure-stack-version-profiles-azurecli2.md)。 若要详细了解如何使用 Azure CLI 2.0 来执行多个可利用 Azure Stack 存储帐户中资源的任务，请参阅[将 Azure CLI2.0 与 Azure 存储配合使用](../../storage/storage-azure-cli.md)
+Azure Stack 需要 Azure CLI 2.0 版或更高版本。 若要详细了解如何通过 Azure Stack 来安装和配置 Azure CLI，请参阅[安装和配置 Azure Stack CLI](azure-stack-version-profiles-azurecli2.md)。 若要详细了解如何使用 Azure CLI 执行多个可利用 Azure Stack 存储帐户中资源的任务，请参阅[将 Azure CLI 与 Azure 存储配合使用](../../storage/storage-azure-cli.md)
 
 ### <a name="azure-cli-sample-script-for-azure-stack"></a>适用于 Azure Stack 的 Azure CLI 示例脚本
 

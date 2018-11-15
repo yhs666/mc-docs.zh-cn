@@ -5,16 +5,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: overview
-origin.date: 08/27/2018
-ms.date: 09/24/2018
+origin.date: 10/03/2018
+ms.date: 11/12/2018
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: e1c15c50629329fea44d5842e62ca32487f3469e
-ms.sourcegitcommit: 21b81b5cd326b6900fa7274b3b073aecd01111aa
+ms.openlocfilehash: b7839fc39f3e71dccdc3764f47778c607ac34259
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49121673"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195535"
 ---
 # <a name="what-is-azure-analysis-services"></a>什么是 Azure Analysis Services？
 
@@ -39,6 +39,7 @@ Azure Analysis Services 集成许多 Azure 服务，因此可以生成复杂的�
 ## <a name="the-right-tier-when-you-need-it"></a>符合需要的层级
 
 可在基本层和标准层中使用 Azure Analysis Services。 每个层中的计划成本因处理能力、QPU 数和内存大小而异。 创建服务器时，会在层内选择计划。 可以在同一层内上下更改计划，或者升级到更高的层，但不能从较高的层降级到较低的层。
+
 <!-- Not Available on **Developer** -->
 
 <!-- Not Available on ### Developer tier-->
@@ -64,6 +65,7 @@ Azure Analysis Services 集成许多 Azure 服务，因此可以生成复杂的�
 <!--Notice: Standared tier from S0,S1,S2,S4 in Mooncake-->
 
 ## <a name="availability-by-region"></a>按区域列出的可用性
+
 “中国北部”区域目前支持 Azure Analysis Services。 支持的计划和查询副本可用性取决于所选的区域。 计划和查询副本可用性可能会根据每个区域的需求和可用资源而变化。 
 
 ### <a name="china"></a>中国
@@ -88,7 +90,7 @@ Azure Analysis Services 集成许多 Azure 服务，因此可以生成复杂的�
 
 Azure Analysis Services 兼容 SQL Server Analysis Services Enterprise Edition 中已有的多个强大功能。 Azure Analysis Services 支持 1200 和更高[兼容级别](analysis-services-compat-level.md)的表格模型。 表格模型属于关系建模构造（模型、表、列），在表格元数据对象定义中以表格模型脚本语言 (TMSL) 和表格对象模型 (TOM) 代码阐述。 支持分区、透视图、行级安全性、双向关系和转换*。 Azure Analysis Services 不支持多维模型和 PowerPivot for Sharepoint。
 
-支持内存中模式和 DirectQuery 模式的表格模型。 内存中模式（默认）表格模型支持多个数据源。 由于模型数据经过高度压缩并缓存在内存中，因此，此模式可针对大量数据提供最快的查询响应。 此外，它还针对复杂数据集和查询提供最高的灵活性。 分区可以实现增量加载、提高并行度，并减少内存消耗。 其他高级数据建模功能（例如计算表）和所有 DAX 函数均受支持。 必须刷新（处理）内存中模型才能更新数据源中的缓存数据。 借助 Azure 服务主体支持，使用 PowerShell 、TOM、TMSL 和 REST 的无人参与刷新操作可灵活确保模型数据始终保持最新。 
+支持内存中模式和 DirectQuery 模式的表格模型。 内存中模式（默认）表格模型支持多个数据源。 由于模型数据经过高度压缩并缓存在内存中，因此，此模式可针对大量数据提供最快的查询响应。 此外，它还针对复杂数据集和查询提供最高的灵活性。 分区可以实现增量加载、提高并行度，并减少内存消耗。 其他高级数据建模功能（例如计算表）和所有 DAX 函数均受支持。 必须刷新（处理）内存中模型才能更新数据源中的缓存数据。 借助 Azure 服务主体支持，使用 PowerShell、TOM、TMSL 和 REST 的无人参与刷新操作可灵活确保模型数据始终保持最新。 
 
 DirectQuery 模式* 利用后端关系数据库进行存储和查询执行。 支持单个 SQL Server、SQL Server 数据仓库、Azure SQL 数据库、Azure SQL 数据仓库、Oracle 和 Teradata 数据源中的极大型数据集。 后端数据集可以超出可用的服务器资源内存。 不需要复杂的数据模型刷新方案。 此外还存在一些限制（例如，受限的数据源类型、DAX 公式限制），并且某些高级数据建模功能不受支持。 在确定最合适的模式之前，请参阅[直接查询模式](https://docs.microsoft.com/sql/analysis-services/tabular-models/directquery-mode-ssas-tabular)。
 
@@ -170,10 +172,9 @@ Azure Analysis Services 受 [Microsoft 联机服务条款](http://www.microsoftv
 
 ## <a name="monitoring-and-diagnostics"></a>监视和诊断
 
-Azure Analysis Services 与 Azure 指标集成，提供多种多样的资源特定指标来帮助监视服务器的性能与运行状况。 有关详细信息，请参阅[监视服务器指标](analysis-services-monitor.md)。 使用 [Azure 资源诊断日志](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)记录指标。 监视日志并将其发送到 [Azure 存储](https://www.azure.cn/home/features/storage/)，将日志流式传输到 [Azure 事件中心](https://www.azure.cn/home/features/event-hubs/)。若要了解详细信息，请参阅[设置诊断日志记录](analysis-services-logging.md)。
-<!--Not Available on [Log Analytics](https://www.azure.cn/home/features/log-analytics/)-->
+Azure Analysis Services 与 Azure 指标集成，提供多种多样的资源特定指标来帮助监视服务器的性能与运行状况。 有关详细信息，请参阅[监视服务器指标](analysis-services-monitor.md)。 使用 [Azure 资源诊断日志](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)记录指标。 监视日志并将其发送到 [Azure 存储](https://www.azure.cn/home/features/storage/)，将日志流式传输到 [Azure 事件中心](https://www.azure.cn/home/features/event-hubs/)。若要了解详细信息，请参阅[设置诊断日志记录](analysis-services-logging.md)。若要了解详细信息，请参阅[设置诊断日志记录](analysis-services-logging.md)。
 
-有关详细信息，请参阅[设置诊断日志记录](analysis-services-logging.md)。
+<!--Not Available on [Log Analytics](https://www.azure.cn/home/features/log-analytics/)-->
 
 Azure Analysis Services 还支持使用[动态管理视图 (DMV)](https://docs.microsoft.com/sql/analysis-services/instances/use-dynamic-management-views-dmvs-to-monitor-analysis-services)。 DMV 基于 SQL 语法，能够与返回元数据和监视有关服务器实例的信息的架构行集相对接。
 
@@ -194,7 +195,8 @@ Azure Analysis Services 还支持使用[动态管理视图 (DMV)](https://docs.m
 文档团队会审查你的供稿，如果获得批准，你的 GitHub 帐户名会显示为供稿人。
 <!--Not Avaible on [Docs contributor guide](/contribute/)-->
 
-<!-- Not Available on [GitHub Issues](/teamblog/a-new-feedback-system-is-coming-to-docs)-->
+Azure Analysis Services 文档还包含 [GitHub 问题](https://docs.microsoft.com/zh-cn/teamblog/a-new-feedback-system-is-coming-to-docs)。 可以提供有关产品或文档的反馈， 使用文章底部的“反馈”即可。 SQL Server Analysis Services 文档尚未启用“GitHub 问题”。 
+
 <!-- Not Available on ## Blogs-->
 <!-- Not Available on ## Community-->
 ## <a name="next-steps"></a>后续步骤
@@ -207,4 +209,5 @@ Azure Analysis Services 还支持使用[动态管理视图 (DMV)](https://docs.m
 
 > [!div class="nextstepaction"]
 > [快速入门：创建服务器 - PowerShell](analysis-services-create-powershell.md)
+
 <!-- Update_Description: update meta properties, wording update, update link -->

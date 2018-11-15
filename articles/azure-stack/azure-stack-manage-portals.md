@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/05/2018
-ms.date: 06/26/2018
+origin.date: 09/12/2018
+ms.date: 11/12/2018
 ms.author: v-jay
-ms.openlocfilehash: 2c229171c27992fedecbe1e35101f9be9301ae5e
-ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
+ms.openlocfilehash: 5f2d25733606b246e1a75bebb579c148b9b98643
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48848854"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195463"
 ---
 # <a name="using-the-administrator-portal-in-azure-stack"></a>在 Azure Stack 中使用管理员门户
 
@@ -89,5 +89,4 @@ Azure Stack 操作员可在管理员门户中为用户（包括自己）添加�
 ## <a name="next-steps"></a>后续步骤
 
 - [Azure Stack 中的区域管理](azure-stack-region-management.md)
-
 <!-- Update_Description: wording update -->

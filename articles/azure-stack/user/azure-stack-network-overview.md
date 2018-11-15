@@ -2,20 +2,20 @@
 title: Azure Stack 网络简介 | Microsoft Docs
 description: 了解 Azure Stack 网络
 services: azure-stack
-author: mattbriggs
-manager: femila
+author: WenJason
+manager: digimobile
 ms.service: azure-stack
 ms.topic: get-started-article
-origin.date: 05/21/2018
-ms.date: 06/27/2018
-ms.author: v-junlch
+origin.date: 09/28/2018
+ms.date: 11/12/2018
+ms.author: v-jay
 ms.reviewer: scottnap
-ms.openlocfilehash: 08312d5cd833345443c2e4b7d14d2ca1113100ec
-ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
+ms.openlocfilehash: 79f4c5fc7e726875464d213d444ba7e27f917755
+ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37027162"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51195341"
 ---
 # <a name="introduction-to-azure-stack-networking"></a>Azure Stack 网络简介
 
@@ -43,6 +43,5 @@ Azure Stack 提供可以结合使用或单独使用的各种网络功能：
 
 ## <a name="next-steps"></a>后续步骤
 
-- [Azure Stack 网络注意事项](azure-stack-network-differences.md)
-
+* [Azure Stack 网络注意事项](azure-stack-network-differences.md)
 <!-- Update_Description: wording update -->
