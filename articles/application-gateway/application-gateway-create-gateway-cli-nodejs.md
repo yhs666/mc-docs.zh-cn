@@ -17,11 +17,11 @@ origin.date: 07/31/2017
 ms.date: 10/17/2018
 ms.author: v-junlch
 ms.openlocfilehash: 7f313f9503a05fe9025103df46326d87616709a1
-ms.sourcegitcommit: 4ead6b1d3527373b63c90680b6400a2e95b4064e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49374953"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663032"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-cli"></a>使用 Azure CLI 创建应用程序网关
 

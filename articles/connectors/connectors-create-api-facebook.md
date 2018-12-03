@@ -17,11 +17,11 @@ origin.date: 11/07/2016
 ms.author: v-yiso
 ms.date: 03/26/2018
 ms.openlocfilehash: 56a6725f26f2b65735c7e840c2a46b2711be649e
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939570"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663633"
 ---
 # <a name="get-started-with-the-facebook-connector"></a>Facebook 连接器入门
 连接到 Facebook，发布到时间线、获取页面源等。 通过 Facebook，可以：

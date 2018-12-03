@@ -17,11 +17,11 @@ ms.date: 06/27/2018
 ms.author: v-junlch
 ms.reviewer: ''
 ms.openlocfilehash: 885545834e010bee6ea5199f32be325234948025
-ms.sourcegitcommit: 8a17603589d38b4ae6254bb9fc125d668442ea1b
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37027122"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648542"
 ---
 # <a name="validate-azure-registration"></a>验证 Azure 注册 
 使用 Azure Stack 就绪性检查器工具 (AzsReadinessChecker) 验证 Azure 订阅是否已准备好与 Azure Stack 配合使用。 在开始 Azure Stack 部署之前，请验证注册。 就绪性检查器会验证下列项：

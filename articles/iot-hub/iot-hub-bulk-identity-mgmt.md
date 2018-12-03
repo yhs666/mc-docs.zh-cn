@@ -10,11 +10,11 @@ origin.date: 07/03/2017
 ms.author: v-yiso
 ms.date: 09/10/2018
 ms.openlocfilehash: 345ea2f724112d0fab5393d717f52ab6a5ce3c30
-ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43328954"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657401"
 ---
 # <a name="manage-your-iot-hub-device-identities-in-bulk"></a>批量管理 IoT 中心设备标识
 
@@ -22,7 +22,7 @@ ms.locfileid: "43328954"
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-导入和导出操作在 *作业* 的上下文中进行，可让用户对 IoT 中心执行批量服务操作。
+*作业*的上下文中发生导入和导出操作，可允许对 IoT 中心执行批量服务操作。
 
 **RegistryManager** 类包括使用**作业**框架的 **ExportDevicesAsync** 和 **ImportDevicesAsync** 方法。 这些方法可以导出、导入和同步整个 IoT 中心标识注册表。
 

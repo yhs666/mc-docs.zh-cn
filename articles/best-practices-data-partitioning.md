@@ -17,11 +17,11 @@ origin.date: 01/09/2017
 ms.date: 02/14/2017
 ms.author: v-junlch
 ms.openlocfilehash: 458f088d0b9caff48e082de3d04eccb836cc9f79
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939066"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656630"
 ---
 # <a name="data-partitioning-guidance"></a>数据分区指南
 [!INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
@@ -43,7 +43,7 @@ ms.locfileid: "38939066"
 - **提高可用性**。 跨多个服务器隔离数据可避免单点故障。 如果服务器发生故障，或正在进行计划的维护，只有该分区中的数据不可用。 其他分区上的操作可以继续进行。 增加分区的数量可减少无法使用的数据百分比，从而减轻单个服务器故障造成的相对影响。 复制每个分区可以进一步减少单个分区故障影响操作的可能性。 它还可以隔离必须持续高度可用的重要数据和具有较低可用性要求的低价值数据（例如日志文件）。
 - **提高安全性**。 根据数据的性质及其分区方式，可以将机密和非机密数据隔离到不同的分区，因而隔离到不同的服务器或数据存储。 然后，便可以针对机密数据专门进行安全优化。
 - **提供操作灵活性**。 使用分区可以从多方面优化操作、最大程度提高管理效率及降低成本。 例如，可以根据数据在每个分区中的重要性定义不同的策略，以管理、监视、备份和还原及其他管理任务。
-- **将数据存储和使用模式相匹配**。 分区允许根据数据存储提供的成本和内置功能，将每个分区部署在不同类型的数据存储上。 例如，大型二进制数据可存储在 Blob 数据存储中，而结构化程度更高的数据则可保存在文档数据库中。 有关详细信息，请参阅 Microsoft 网站上模式与实践指南 [Data access for highly-scalable solutions: Using SQL, NoSQL, and polyglot persistence]（高度可缩放解决方案的数据访问：使用 SQL、NoSQL 和 Polyglot 持续性）中的 [构建多语言解决方案]。
+- **将数据存储和使用模式相匹配**。 分区允许根据数据存储提供的成本和内置功能，将每个分区部署在不同类型的数据存储上。 例如，大型二进制数据可存储在 Blob 数据存储中，而结构化程度更高的数据则可保存在文档数据库中。 有关详细信息，请参阅 Microsoft 网站上模式与实践指南 [Data access for highly-scalable solutions: Using SQL, NoSQL, and polyglot persistence]（高度可缩放解决方案的数据访问：使用 SQL、NoSQL 和 Polyglot 持续性）中的 [Building a polyglot solution]（构建 Polyglot 解决方案）。
 
 有些系统不实施分区，因为分区被视为额外的成本，而不是一项优势。 持有这种观点的常见原因包括：
 
@@ -131,7 +131,7 @@ ms.locfileid: "38939066"
 
 请注意，某些云环境会根据基础结构边界分配资源。 请确保所选边界的限制可在数据存储、处理能力和带宽等方面提供足够的空间，以满足数据量的预期增长。
 
-例如，如果你使用 Azure 表存储，繁忙的分片所需的资源可能会超过可供单一分区处理请求的资源。 （单一分区在给定时间段内可处理的请求数量是有限制的。 请参阅 Microsoft 网站上的 [Azure 存储伸缩性和性能目标]页以了解详细信息。）
+例如，如果你使用 Azure 表存储，繁忙的分片所需的资源可能会超过可供单一分区处理请求的资源。 （单一分区在给定时间段内可处理的请求数量是有限制的。 请参阅 Microsoft 网站上的 [Azure 存储可伸缩性和性能目标]（Azure 存储伸缩性和性能目标）页以了解详细信息。）
 
  在此情况下，可能需要对分片进行重新分区以分散负载。 如果这些表的总大小或吞吐量超过存储帐户的容量，可能需要创建其他存储帐户并跨帐户分散表。 如果存储帐户的数目超过订阅可用的帐户数目，可能需要使用多个订阅。
 
@@ -197,7 +197,7 @@ ms.locfileid: "38939066"
 不同的数据存储技术通常提供自身的功能来支持分区。 以下部分汇总了 Azure 应用程序常用的数据存储所实施的选项， 并描述了设计出可充分利用这些功能的应用程序时的考虑因素。
 
 ## <a name="partitioning-strategies-for-azure-sql-database"></a>Azure SQL 数据库的分区策略
-Azure SQL 数据库是在云中运行的关系数据库即服务。 它基于 Microsoft SQL Server。 关系数据库将信息分割成表，每个表以一系列的行保存有关实体的信息。 每个行包含的列保存实体各个字段的数据。 Microsoft 网站上的 [什么是 Azure SQL 数据库？] 页提供了有关创建和使用 SQL 数据库的详细文档。
+Azure SQL 数据库是在云中运行的关系数据库即服务。 它基于 Microsoft SQL Server。 关系数据库将信息分割成表，每个表以一系列的行保存有关实体的信息。 每个行包含的列保存实体各个字段的数据。 Microsoft 网站上的 [什么是 Azure SQL 数据库？]（什么是 Azure SQL 数据库？）页提供了有关创建和使用 SQL 数据库的详细文档。
 
 ## <a name="horizontal-partitioning-with-elastic-database"></a>使用弹性数据库进行水平分区
 单个 SQL 数据库对其包含的数据列施加了限制。 吞吐量受体系结构因素及数据库支持的并发连接数的约束。 Azure SQL 数据库的弹性数据库功能支持 SQL 数据库的水平缩放。 使用弹性数据库，可以将数据分区到分布于多个 SQL 数据库的分片中。 此外，还可以随着需要处理的数据量的增长和缩减，增加或删除分片。 使用弹性数据库还有助于在数据库之间分散负载，以减少争用。
@@ -209,7 +209,7 @@ Azure SQL 数据库是在云中运行的关系数据库即服务。 它基于 Mi
 
 程序员负责将数据集与 shardlet 键相关联。 独立的 SQL 数据库充当全局分片映射管理器。 此数据库包含系统中所有分片和 shardlet 的列表。 访问数据的客户端应用程序先连接到全局分片映射管理器数据库，以获取它在本地缓存的分片映射副本（列出分片和 shardlet）。
 
-然后，应用程序使用这项信息将数据请求路由发送到相应的分片。 此功能隐藏在 Azure SQL 数据库弹性数据库客户端库（以 NuGet 包的形式提供）中的一系列 API 之后。 Microsoft 网站上的 [弹性数据库功能概述] 页提供了有关弹性数据库的更全面介绍。
+然后，应用程序使用这项信息将数据请求路由发送到相应的分片。 此功能隐藏在 Azure SQL 数据库弹性数据库客户端库（以 NuGet 包的形式提供）中的一系列 API 之后。 Microsoft 网站上的 [Elastic Database features overview] （弹性数据库功能概述）页提供了有关弹性数据库的更全面介绍。
 
 > [!NOTE]
 > 可以复制全局分片映射管理器数据库，以减少延迟并提高可用性。 如果使用某个高级定价层实施数据库，可以配置活动异地复制以持续将数据复制到不同区域中的数据库。 在用户所在的每个区域中创建数据库的副本。 然后将应用程序配置为连接到此副本，以获取分片映射。
@@ -240,7 +240,7 @@ Azure SQL 数据库是在云中运行的关系数据库即服务。 它基于 Mi
 - 将一起使用的数据分组到同一个分片，并避免执行需要访问保存在多个分片中的数据的操作。 请记住，使用弹性数据库时，分片本身就是 SQL 数据库，而 Azure SQL 数据库不支持跨数据库联接（这些操作必须在客户端执行）。 另请记住，使用 Azure SQL 数据库时，引用完整性条件约束、触发器和一个数据库中的存储过程无法引用另一个数据库中的对象。 因此请不要设计在分片之间具有依赖性的系统。 但是，SQL 数据库可以包含表（保存查询和其他操作常用的引用数据副本）。 这些表并不一定属于任何特定 shardlet。 跨分片复制此数据有助于消除联接跨数据库的数据的需要。 在理想的情况下，此类数据应该是静态或缓慢移动的，以最大限度地减少复制工作量并减少数据变陈旧的可能性。
 
     > [!NOTE]
-    > 尽管 Azure SQL 数据库不支持跨数据库联接，但可以使用弹性数据库 API 执行跨分片查询。 这些查询可以透明方式循环访问分片映射引用的所有 shardlet 中保存的数据。 弹性数据库 API 将跨分片查询分解成一系列独立查询（每个数据库一个），然后将结果合并在一起。 有关详细信息，请参阅 Microsoft 网站上的 [多分片查询] 页。
+    > 尽管 Azure SQL 数据库不支持跨数据库联接，但可以使用弹性数据库 API 执行跨分片查询。 这些查询可以透明方式循环访问分片映射引用的所有 shardlet 中保存的数据。 弹性数据库 API 将跨分片查询分解成一系列独立查询（每个数据库一个），然后将结果合并在一起。 有关详细信息，请参阅 Microsoft 网站上的 [Multi-shard querying] （多分片查询）页。
 
 - 存储在属于相同分片映射的 shardlet 中的数据应该具有相同的架构。 例如，创建的列表分片映射不应指向包含租户数据的某些 shardlet 和其他包含产品信息的 shardlet。 弹性数据库不会强制实施此规则，但如果每个 shardlet 都有不同的架构，则数据管理和查询会变得非常复杂。 在上述示例中，不错的解决方案是创建两个列表分片映射；一个引用租户数据，另一个指向产品信息。 请记住，属于不同 shardlet 的数据可以存储在相同的分片中。
 
@@ -255,7 +255,7 @@ Azure SQL 数据库是在云中运行的关系数据库即服务。 它基于 Mi
 
 顾名思义，弹性数据库可在数据量缩小和增大时，让系统添加和删除分片。 Azure SQL 数据库弹性数据库客户端库中的 API 可让应用程序动态创建和删除分片（并以透明方式更新分片映射管理器）。 但删除分片是破坏性操作，还需要删除该分片中的所有数据。
 
-如果应用程序需要将一个分片拆分成两个独立的分片或者将分片组合在一起，弹性数据库可提供独立的拆分/合并服务。 此服务在云托管的服务中（开发人员必须创建此云托管服务）运行，并安全地在分片之间迁移数据。 有关详细信息，请参阅 Microsoft 网站上的主题 [使用弹性数据库拆分/合并工具进行缩放]。
+如果应用程序需要将一个分片拆分成两个独立的分片或者将分片组合在一起，弹性数据库可提供独立的拆分/合并服务。 此服务在云托管的服务中（开发人员必须创建此云托管服务）运行，并安全地在分片之间迁移数据。 有关详细信息，请参阅 Microsoft 网站上的主题 [Scaling using the Elastic Database split-merge tool] （使用弹性数据库拆分/合并工具进行缩放）。
 
 ## <a name="partitioning-strategies-for-azure-storage"></a>Azure 存储的分区策略
 Azure 存储提供用于管理数据的三个抽象：
@@ -267,10 +267,10 @@ Azure 存储提供用于管理数据的三个抽象：
 表存储和 Blob 存储本质上是经过优化的键-值存储，可以分别保存结构化和非结构化数据。 存储队列提供用于构建松散耦合且可缩放应用程序的机制。 表存储、Blob 存储和存储队列在 Azure 存储帐户的上下文中创建。 存储帐户支持三种形式的冗余：
 
 - **本地冗余存储**，可以维护单个数据中心内的三个数据副本。 这种形式的冗余可防范硬件故障，但无法防范涉及整个数据中心的灾难。
-- **区域冗余存储空间**，可以维护在相同区域中跨不同数据中心（或跨两个地理位置靠近近的区域）分散的三个数据副本。 这种形式的冗余可以防范单个数据中心发生的灾难，但无法防范影响整个区域的大规模网络中断。 请注意，区域冗余存储空间目前仅适用于块 Blob。
+- **区域冗余存储**，可以维护在相同区域中跨不同数据中心（或跨两个地理位置靠近近的区域）分散的三个数据副本。 这种形式的冗余可以防范单个数据中心发生的灾难，但无法防范影响整个区域的大规模网络中断。 请注意，区域冗余存储空间目前仅适用于块 Blob。
 - **异地冗余存储**，可维护六个数据副本。三个副本在一个区域中（用户所在的区域），另外三个副本在远程区域中。 这种形式的冗余提供最高级别的灾难保护。
 
-Microsoft 已发布 Azure 存储的缩放性目标。 有关详细信息，请参阅 Microsoft 网站上的 [Azure 存储伸缩性和性能目标]页。 目前，总存储帐户容量不能超过 500 TB。 （这包括保存在表存储、Blob 存储中的数据大小和保存在存储队列中的未处理消息大小）。
+Microsoft 已发布 Azure 存储的缩放性目标。 有关详细信息，请参阅 Microsoft 网站上的 [Azure 存储可伸缩性和性能目标]（Azure 存储伸缩性和性能目标）页。 目前，总存储帐户容量不能超过 500 TB。 （这包括保存在表存储、Blob 存储中的数据大小和保存在存储队列中的未处理消息大小）。
 
 请求速率上限（假设为 1-KB 实体、Blob 或消息大小）为 20 KBps。 如果系统可能会超过这些限制，请考虑跨多个存储帐户分散负载。 单个 Azure 订阅可以创建多达 100 个存储帐户。 但是，请注意这些限制会随时更改。
 
@@ -280,7 +280,7 @@ Azure 表存储是存储的键/值，专为分区而设计。 所有实体都存
 - **分区键**。 这是一个字符串值，确定 Azure 表存储会在哪个分区中放置实体。 具有相同分区键的所有实体存储在同一分区中。
 - **行键**。 这是另一个字符串值，用于标识分区中的实体。 分区中的所有实体已按此键的词法升序排序。 每个实体的分区键/行键组合必须是唯一的，且长度不能超过 1 KB。
 
-实体数据的剩余部分由应用程序定义的字段组成。 没有强制实施特定的架构，每个行可以包含一组不同的应用程序定义字段。 唯一的限制是实体的大小上限（包括分区和行键）目前为 1 MB。 表的大小上限为 200 TB，但是这些数字将来可能会更改。 （请查看 Microsoft 网站上的 [Azure 存储伸缩性和性能目标]页以了解有关这些限制的最新信息。）
+实体数据的剩余部分由应用程序定义的字段组成。 没有强制实施特定的架构，每个行可以包含一组不同的应用程序定义字段。 唯一的限制是实体的大小上限（包括分区和行键）目前为 1 MB。 表的大小上限为 200 TB，但是这些数字将来可能会更改。 （请查看 Microsoft 网站上的 [Azure 存储可伸缩性和性能目标]（Azure 存储伸缩性和性能目标）页以了解有关这些限制的最新信息。）
 
 如果尝试存储的实体超过此容量，请考虑将它们拆分成多个表。 使用垂直分区，并将字段分割成很有可能一起访问的组。
 
@@ -306,7 +306,7 @@ Azure 表存储使用分区键来确定如何存储数据。 如果将具有先�
     > [!TIP]
     > 如果实体有一个自然键，请使用它作为分区键，并指定空白字符串作为行键。 如果实体具有包含两个属性的复合键，请选择变化最慢的属性作为分区键，另一个属性作为行键。 如果实体有两个以上的键属性，请使用属性的串联来提供分区键和行键。
 
-- 如果使用分区和行键以外的字段定期执行查找数据的查询，请考虑实施 [索引表模式]。
+- 如果使用分区和行键以外的字段定期执行查找数据的查询，请考虑实施 [Index Table Pattern]。
 - 如果使用单调递增或递减序列（例如 "0001"、"0002"、"0003"，依次类推）生成分区键，而每个分区只包含有限的数据量，则 Azure 表存储可以物理方式将同一服务器上的这些分区分组在一起。 这个机制假设应用程序很可能在连续范围的分区中执行查询（范围查询），并已针对此情况进行优化。 但是，这种方法可能会导致热点聚焦在单个服务器上，因为新实体的所有插入可能集中在连续范围的其中一端。 这也会降低伸缩性。 若要跨服务器更平均地分散负载，请考虑编写分区键哈希，使序列更加随机。
 - Azure 表存储支持属于相同分区的实体的事务操作。 这意味着，应用程序可以原子单位的形式执行多次插入、更新、删除、替换或合并操作（前提是事务不包含 100 个以上的实体，且请求负载不超过 4 MB）。 跨多个分区的操作不是事务式的，并且可能需要按 [Data consistency primer]（数据一致性入门）中所述实施最终一致性。 有关表存储和事务的详细信息，请转到 Microsoft 网站上的 [Performing entity group transactions] （执行实体组事务）页。
 - 出于以下原因，请特别注意分区键的粒度：
@@ -317,7 +317,7 @@ Azure 表存储使用分区键来确定如何存储数据。 如果将具有先�
 有关 Azure 表存储中的分区的更多信息，请参阅 Microsoft 网站上的 [Azure 存储表设计指南] 一文。
 
 ## <a name="partitioning-azure-blob-storage"></a>将 Azure Blob 存储分区
-Azure Blob 存储可让你保存大型二进制对象 -- 目前可保存高达 200 GB 的块 Blob 或 1 TB 的页 Blob。 （有关最新信息，请转到 Microsoft 网站上的 [Azure 存储伸缩性和性能目标]页。）） 在方案中使用块 Blob，例如，需要在其中快速上传或下载大量数据的数据流。 对需要随机而不是串行访问部分数据的应用程序使用页 Blob。
+Azure Blob 存储可让你保存大型二进制对象 -- 目前可保存高达 200 GB 的块 Blob 或 1 TB 的页 Blob。 （有关最新信息，请转到 Microsoft 网站上的 [Azure 存储可伸缩性和性能目标]（Azure 存储伸缩性和性能目标）页。）） 在方案中使用块 Blob，例如，需要在其中快速上传或下载大量数据的数据流。 对需要随机而不是串行访问部分数据的应用程序使用页 Blob。
 
 每个 Blob（块或页）保存在 Azure 存储帐户中的容器内。 可以使用容器将具有相同安全要求的相关 Blob 分组在一起，不过，这种分组是逻辑性的而不是物理性的。 在容器中，每个 Blob 都有唯一的名称。
 
@@ -358,7 +358,7 @@ Azure 服务总线使用消息中转站处理发送到服务总线队列或主�
 确定是否或者如何将服务总线消息队列或主题分区时，请注意以下几点：
 
 - 服务总线队列和主题在服务总线命名空间的范围内创建。 服务总线当前允许为每个命名空间最多创建 100 个分区的队列或主题。
-- 每个服务总线命名空间施加了可用资源的配额，例如每个主题的订阅数目、每秒并发发送和接收请求的数目，以及可创建的并发连接的最大数目。 Microsoft 网站上的 [服务总线配额]页上描述了这些配额。 如果预期会超过这些值，请创建更多包含自身队列和主题的命名空间，并跨这些命名空间分散工作。 例如，在每个区域的全局应用程序中创建不同的命名空间，并将应用程序实例配置为使用最接近命名空间中的队列和主题。
+- 每个服务总线命名空间施加了可用资源的配额，例如每个主题的订阅数目、每秒并发发送和接收请求的数目，以及可创建的并发连接的最大数目。 Microsoft 网站上的 [Service Bus quotas]（服务总线配额）页上描述了这些配额。 如果预期会超过这些值，请创建更多包含自身队列和主题的命名空间，并跨这些命名空间分散工作。 例如，在每个区域的全局应用程序中创建不同的命名空间，并将应用程序实例配置为使用最接近命名空间中的队列和主题。
 - 作为事务一部分发送的消息必须指定分区键。 这可能是 *SessionId*、*PartitionKey* 或 *MessageId* 属性。 作为相同事务一部分发送的所有消息必须指定相同的分区键，因为它们需要由相同的消息代理进程进行处理。 无法在同一事务中将消息发送到不同队列或主题。
 - 无法将分区的队列或主题配置为在空闲状态时自动删除。
 - 如果要构建跨平台解决方案或混合解决方案，当前无法将分区的队列和主题与高级消息队列协议 (AMQP) 配合使用。
@@ -405,7 +405,7 @@ Azure 搜索将可搜索的内容存储为数据库中的 JSON 文档。 可以�
 每个分区最多可以包含 1500 万个文档或占用 300 GB 存储空间（取两者中较小者）。 最多可以创建 50 个索引。 服务的性能因文档的复杂性、可用索引以及网络延迟的影响而有所不同。 一般而言，单个副本 (1 SU) 每秒应该可以处理 15 个查询 (QPS)，不过，我们建议使用你自己的数据执行基准计算，以获取更精确的吞吐量测量值。 
 
 > [!NOTE]
-> 可以将有限的一组数据类型存储在可搜索文档中，这些类型包括字符串、布尔值、数字数据、日期时间数据和一些地理数据。 有关详细信息，请参阅 Microsoft 网站上的 [支持的数据类型（Azure 搜索）]页。
+> 可以将有限的一组数据类型存储在可搜索文档中，这些类型包括字符串、布尔值、数字数据、日期时间数据和一些地理数据。 有关详细信息，请参阅 Microsoft 网站上的 [支持的数据类型（Azure 搜索）]（支持的数据类型（Azure 搜索））页。
 
 只能有限地控制 Azure 搜索如何对每个服务实例的数据分区。 但是，在全局环境中，可以通过使用以下任一策略将服务本身分区，以进一步提高性能并减少延迟和争用：
 
@@ -418,7 +418,7 @@ Azure 搜索将可搜索的内容存储为数据库中的 JSON 文档。 可以�
 当搜索的数据存在明显的区域性差异时，最适合使用此方法。
 
 ## <a name="partitioning-strategies-for-azure-redis-cache"></a>Azure Redis 缓存的分区策略
-Azure Redis 缓存在云中提供基于 Redis 键-值数据存储的共享缓存服务。 顾名思义，Azure Redis 缓存旨在用作缓存解决方案。 它只用于保存暂时性数据，而不是用作永久性的数据存储。 如果缓存不可用，利用 Azure Redis 缓存的应用程序应可继续工作。 Azure Redis 缓存支持主要/辅助复制，可提供高可用性，但目前缓存大小上限为 53 GB。 如果需要更多的空间，则必须创建更多缓存。 有关详细信息，请转到 Microsoft 网站上的 [Azure Redis 缓存]页。
+Azure Redis 缓存在云中提供基于 Redis 键-值数据存储的共享缓存服务。 顾名思义，Azure Redis 缓存旨在用作缓存解决方案。 它只用于保存暂时性数据，而不是用作永久性的数据存储。 如果缓存不可用，利用 Azure Redis 缓存的应用程序应可继续工作。 Azure Redis 缓存支持主要/辅助复制，可提供高可用性，但目前缓存大小上限为 53 GB。 如果需要更多的空间，则必须创建更多缓存。 有关详细信息，请转到 Microsoft 网站上的 [Azure Redis 缓存] （Azure Redis 缓存）页。
 
 将 Redis 数据存储分区涉及到跨 Redis 服务的实例拆分数据。 每个实例构成单个分区。 Azure Redis 缓存抽象化幕后的 Redis 服务，而不直接公开它们。 实施分区的最简单方法是创建多个 Azure Redis 缓存实例，并在其中分散数据。
 
@@ -498,7 +498,7 @@ Redis 网站上的 [Partitioning: how to split data among multiple Redis instanc
 ## <a name="online-migration"></a>联机迁移
 执行联机迁移更复杂，但是用户比较不受干扰，因为数据在整个过程中保持可用。 该过程与脱机迁移类似，不同之处在于，原始分片不会标记为脱机（步骤 1）。 根据迁移过程的数据粒度（例如，是逐项还是逐分片执行的），客户端应用程序中的数据访问代码可能需要处理保存在两个位置（原始分片和新分片）的数据的读取和写入。
 
-有关支持联机迁移的解决方案示例，请参阅 Microsoft 网站上的文章 [使用弹性数据库拆分/合并工具进行缩放]。
+有关支持联机迁移的解决方案示例，请参阅 Microsoft 网站上的文章 [Scaling using the Elastic Database split-merge tool] 。
 
 ## <a name="related-patterns-and-guidance"></a>相关模式和指南
 考虑有关实现数据一致性的策略时，以下模式也可能与方案相关：
@@ -506,42 +506,42 @@ Redis 网站上的 [Partitioning: how to split data among multiple Redis instanc
 - Microsoft 网站上的 [Data consistency primer] （数据一致性入门）页介绍了在云等分布式环境中保持一致性的策略。
 - Microsoft 网站上的 [Data partitioning guidance] （数据分区指南）页笼统概述了如何设计分区以符合分布式解决方案中的各种条件。
 - Microsoft 网站上介绍的 [分片模式] 汇总了有关分片数据的常见策略。
-- Microsoft 网站上介绍的 [索引表模式] 演示了如何基于数据创建辅助索引。 此方法可让应用程序使用未引用集合主键的查询快速检索数据。
-- Microsoft 网站上介绍的 [具体化视图模式] 介绍了如何生成预先填充的视图，用于汇总数据以支持快速查询操作。 如果包含汇总数据的分区分布在多个站点上，此方法可能对分区的数据存储很有用。
+- Microsoft 网站上介绍的 [Index Table Pattern] 演示了如何基于数据创建辅助索引。 此方法可让应用程序使用未引用集合主键的查询快速检索数据。
+- Microsoft 网站上介绍的 [Materialized View Pattern] 介绍了如何生成预先填充的视图，用于汇总数据以支持快速查询操作。 如果包含汇总数据的分区分布在多个站点上，此方法可能对分区的数据存储很有用。
 
 ## <a name="more-information"></a>详细信息
-- Microsoft 网站上的 [什么是 Azure SQL 数据库？] 页提供了有关如何创建和使用 SQL 数据库的详细文档。
-- Microsoft 网站上的 [弹性数据库功能概述] 页提供了有关弹性数据库的综合介绍。
-- Microsoft 网站上的 [使用弹性数据库拆分/合并工具进行缩放] 页包含有关使用拆分/合并服务管理弹性数据库分片的信息。
-- Microsoft 网站上的 [Azure 存储伸缩性和性能目标](https://msdn.microsoft.com/zh-cn/library/azure/dn249410.aspx)页介绍了 Azure 存储的当前大小和吞吐量限制。
+- Microsoft 网站上的 [什么是 Azure SQL 数据库？]（什么是 Azure SQL 数据库？）页提供了有关如何创建和使用 SQL 数据库的详细文档。
+- Microsoft 网站上的 [Elastic Database features overview] 页提供了有关弹性数据库的综合介绍。
+- Microsoft 网站上的 [Scaling using the Elastic Database split-merge tool] 页包含有关使用拆分/合并服务管理弹性数据库分片的信息。
+- Microsoft 网站上的 [Azure storage scalability and performance targets（Azure 存储伸缩性和性能目标）](https://msdn.microsoft.com/zh-cn/library/azure/dn249410.aspx)页介绍了 Azure 存储的当前大小和吞吐量限制。
 - Microsoft 网站上的 [Performing entity group transactions] （执行实体组事务）页提供了有关通过存储在 Azure 表存储的实体执行事务操作的详细信息。
 - Microsoft 网站上的 [Azure 存储表设计指南] 一文包含有关在 Azure 表存储中分区数据的详细信息。
-- Microsoft 网站上的 [支持的数据类型（Azure 搜索）]页汇总了可以在可搜索文档和索引中使用的数据类型。
-- Microsoft 网站上的 [Azure Redis 缓存]页提供了 Azure Redis 缓存的介绍。
+- Microsoft 网站上的 [支持的数据类型（Azure 搜索）]（支持的数据类型（Azure 搜索））页汇总了可以在可搜索文档和索引中使用的数据类型。
+- Microsoft 网站上的 [Azure Redis 缓存] （Azure Redis 缓存）页提供了 Azure Redis 缓存的介绍。
 - Redis 网站上的 [Partitioning: how to split data among multiple Redis instances] （分区：如何在多个 Redis 实例之间拆分数据）页提供了有关如何使用 Redis 实施分区的信息。
 - Microsoft 网站上的 [Running Redis on a CentOS Linux VM in Azure]（在 Azure 中的 CentOS Linux VM 上运行 Redis）页逐步讲解了一个示例，演示如何构建和配置作为 Azure VM 运行的 Redis 节点。
 - Redis 网站上的 [Data types] （数据类型）页介绍了可在 Redis 和 Azure Redis 缓存中使用的数据类型。
 
 [Azure Redis 缓存]: https://www.azure.cn/home/features/redis-cache/
-[Azure 存储伸缩性和性能目标]:./storage/common/storage-scalability-targets.md
+[Azure 存储可伸缩性和性能目标]:./storage/common/storage-scalability-targets.md
 [Azure 存储表设计指南]:./cosmos-db/table-storage-design-guide.md
-[构建多语言解决方案]: https://msdn.microsoft.com/zh-cn/library/dn313279.aspx
+[Building a polyglot solution]: https://msdn.microsoft.com/zh-cn/library/dn313279.aspx
 [Data Access for Highly-Scalable Solutions: Using SQL, NoSQL, and Polyglot Persistence]: https://msdn.microsoft.com/zh-cn/library/dn271399.aspx
 [Data consistency primer]: http://aka.ms/Data-Consistency-Primer
 [Data Partitioning Guidance]: https://msdn.microsoft.com/zh-cn/library/dn589795.aspx
 [Data Types]: http://redis.io/topics/data-types
-[弹性数据库功能概述]:./sql-database/sql-database-elastic-scale-introduction.md
+[Elastic Database features overview]:./sql-database/sql-database-elastic-scale-introduction.md
 [Federations Migration Utility]: https://code.msdn.microsoft.com/vstudio/Federations-Migration-ce61e9c1
-[索引表模式]: http://aka.ms/Index-Table-Pattern
-[具体化视图模式]: http://aka.ms/Materialized-View-Pattern
-[多分片查询]:./sql-database/sql-database-elastic-scale-multishard-querying.md
+[Index Table Pattern]: http://aka.ms/Index-Table-Pattern
+[Materialized View Pattern]: http://aka.ms/Materialized-View-Pattern
+[Multi-shard querying]:./sql-database/sql-database-elastic-scale-multishard-querying.md
 [Partitioning: how to split data among multiple Redis instances]: http://redis.io/topics/partitioning
 [Performance levels in DocumentDB]:./documentdb/documentdb-performance-levels.md
 [Performing Entity Group Transactions]: https://msdn.microsoft.com/zh-cn/library/azure/dd894038.aspx
 [Redis 群集教程]: http://redis.io/topics/cluster-tutorial
 [Running Redis on a CentOS Linux VM in Azure]: http://blogs.msdn.com/b/tconte/archive/2012/06/08/running-redis-on-a-centos-linux-vm-in-windows-azure.aspx
-[使用弹性数据库拆分/合并工具进行缩放]:./sql-database/sql-database-elastic-scale-overview-split-and-merge.md
-[服务总线配额]:./service-bus-messaging/service-bus-quotas.md
+[Scaling using the Elastic Database split-merge tool]:./sql-database/sql-database-elastic-scale-overview-split-and-merge.md
+[Service Bus quotas]:./service-bus-messaging/service-bus-quotas.md
 [分片模式]: http://aka.ms/Sharding-Pattern
 [支持的数据类型（Azure 搜索）]:  https://msdn.microsoft.com/zh-cn/library/azure/dn798938.aspx
 [Transactions]: http://redis.io/topics/transactions

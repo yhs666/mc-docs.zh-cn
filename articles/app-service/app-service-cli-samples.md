@@ -18,11 +18,11 @@ ms.date: 01/02/2018
 ms.author: v-yiso
 ms.custom: mvc
 ms.openlocfilehash: 51d2e221b695ee704b19d91ec3884de0a9df44bc
-ms.sourcegitcommit: 51f9fe7a93207e6b9d61e09b7abf56a7774ee856
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/25/2017
-ms.locfileid: "27546577"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651871"
 ---
 # <a name="azure-cli-samples"></a>Azure CLI 示例
 

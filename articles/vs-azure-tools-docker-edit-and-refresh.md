@@ -12,11 +12,11 @@ origin.date: 09/11/2018
 ms.date: 09/26/2018
 ms.author: v-junlch
 ms.openlocfilehash: 4f5099dd589e94c0d300f69132c6a0ec6bb332fb
-ms.sourcegitcommit: 641f375fc67e8c9d6ec1296560602c0b64ab8a52
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47398126"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645320"
 ---
 # <a name="debugging-apps-in-a-local-docker-container"></a>在本地 Docker 容器中调试应用
 ## <a name="overview"></a>概述
@@ -97,7 +97,7 @@ Visual Studio 2017 提供了在本地 Docker 容器中进行开发以及对应�
 
 ## <a name="presentations"></a>演示
 - [Steve Lasker：VS Live Las Vegas 2016 - Docker e2e](https://github.com/SteveLasker/Presentations/blob/master/VSLive2016/Vegas/)
-- [ASP.NET Core @ 版本 2016 简介 - 你在哪里演示](https://channel9.msdn.com/Events/Build/2016/B810)
+- [ASP.NET Core @ build 2016 简介 - 其中你在演示中](https://channel9.msdn.com/Events/Build/2016/B810)
 - [在容器中开发 .NET 应用，第 9 频道](https://blogs.msdn.microsoft.com/stevelasker/2016/02/19/developing-asp-net-apps-in-docker-containers/)
 
 [2]: ./media/vs-azure-tools-docker-edit-and-refresh/breakpoint.png

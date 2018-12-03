@@ -16,11 +16,11 @@ origin.date: 02/22/2017
 ms.date: 08/13/2018
 ms.author: v-yeche
 ms.openlocfilehash: 7e41596a64264b1528712749c266acba97408f08
-ms.sourcegitcommit: e3a4f5a6b92470316496ba03783e911f90bb2412
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41704783"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661504"
 ---
 # <a name="visualize-network-traffic-patterns-to-and-from-your-vms-using-open-source-tools"></a>使用开源工具将传入和传出 VM 的网络流量模式可视化
 
@@ -50,7 +50,7 @@ Azure 网络观察程序允许在网络中执行数据包捕获，以提供捕�
 
 向 CapAnalysis 提供链接时，请务必在存储 Blob URL 的后面追加 SAS 令牌。  为此，请从存储帐户导航到“共享访问签名”，指定允许的权限，按“生成 SAS”按钮创建令牌。 然后，可将此 SAS 令牌追加到数据包捕获存储 Blob URL 的后面。
 
-生成的 URL 应如以下 URL 所示：http://storageaccount.blob.core.chinacloudapi.cn/container/location?addSASkeyhere
+生成的 URL 应如以下 URL 所示： http://storageaccount.blob.core.chinacloudapi.cn/container/location?addSASkeyhere
 
 ### <a name="analyzing-packet-captures"></a>分析数据包捕获
 

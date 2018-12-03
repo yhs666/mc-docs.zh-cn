@@ -2,26 +2,20 @@
 title: 使用基于 Linux 的 HDInsight 进行脚本操作开发 - Azure | Azure
 description: 了解如何使用 Bash 脚本自定义基于 Linux 的 HDInsight 群集。 利用 HDInsight 的脚本操作功能，可在群集创建期间或之后运行脚本。 脚本可用于更改群集配置设置或安装其他软件。
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-ms.assetid: cf4c89cd-f7da-4a10-857f-838004965d3e
+author: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 origin.date: 04/10/2018
-ms.date: 08/27/2018
+ms.date: 11/19/2018
 ms.author: v-yiso
-ms.openlocfilehash: c1af7428fcc78dafb918615edbd70875cdf42efe
-ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
+ms.openlocfilehash: d039f0ce8c11afa9abb7357202bac8e4ba1df3bc
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41704943"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663132"
 ---
 # <a name="script-action-development-with-hdinsight"></a>使用 HDInsight 进行脚本操作开发
 
@@ -40,7 +34,7 @@ ms.locfileid: "41704943"
 | --- |:---:|:---:|
 | Azure 门户 |✓ |✓ |
 | Azure PowerShell |✓ |✓ |
-| Azure CLI 1.0 |&nbsp; |✓ |
+| Azure 经典 CLI |&nbsp; |✓ |
 | HDInsight .NET SDK |✓ |✓ |
 | Azure Resource Manager 模板 |✓ |&nbsp; |
 

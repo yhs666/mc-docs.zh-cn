@@ -17,11 +17,11 @@ origin.date: 04/26/2017
 ms.date: 06/07/2018
 ms.author: v-junlch
 ms.openlocfilehash: 7eaaece9d409227ef0db377695e00b78c96d35d5
-ms.sourcegitcommit: 4fe9905d17a8df9f2270543a5a0ce1762a5830c9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34855747"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652252"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-by-using-powershell-for-azure-resource-manager"></a>使用适用于 Azure Resource Manager 的 PowerShell 创建 Azure 应用程序网关的自定义探测
 

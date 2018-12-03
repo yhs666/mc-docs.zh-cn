@@ -15,11 +15,11 @@ ms.date: 08/27/2018
 ms.author: v-jay
 ms.reviewer: johnhas
 ms.openlocfilehash: 1975977f45c8ddf7c6a08d03524b39ac72e97078
-ms.sourcegitcommit: 9dda276bc6675d7da3070ea6145079f1538588ef
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42869695"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659554"
 ---
 # <a name="validate-a-new-azure-stack-solution"></a>验证新的 Azure Stack 解决方案
 
@@ -71,31 +71,31 @@ Azure Stack 解决方案是与 Azure 共同商定的一个硬件物料清单 (Bo
 
 添加以下环境参数：
 
-| 测试轮次信息 | 必需 | 说明 |
+| 测试轮次信息 | 必须 | 说明 |
 | --- | --- | --- | --- |
-| Azure Stack 内部版本 | 必需 | Azure Stack 内部版本号（例如 20170501.1）值必须是有效的 Azure Stack 内部版本号或版本，例如 1.0.170330.9 |
-| 租户 ID | 必需 | Active Directory 租户 ID。 这必须是一个 GUID（例如 ECA23256-6BA0-4F27-8E4D-AFB02F088363） |
-| 区域 | 必需 | Azure Stack 部署区域 |
-| 租户资源管理器终结点 | 必需 | 租户 Azure 资源管理器操作的终结点（例如 https://management.loc-ext.domain.com)） |
-| 管理员资源管理器终结点 | 非必需 | 租户 Azure 资源管理器操作的终结点（例如 https://management.loc-ext.domain.com)） |
-| 外部 FQDN | 非必需 | 用作终结点后缀的外部完全限定的域名。 （例如 local.azurestack.external 或 redmond.contoso.com） |
-| 节点数 | 必需 | 解决方案中的节点数。 |
+| Azure Stack 内部版本 | 必须 | Azure Stack 内部版本号（例如 20170501.1）值必须是有效的 Azure Stack 内部版本号或版本，例如 1.0.170330.9 |
+| 租户 ID | 必须 | Active Directory 租户 ID。 这必须是一个 GUID（例如 ECA23256-6BA0-4F27-8E4D-AFB02F088363） |
+| 区域 | 必须 | Azure Stack 部署区域 |
+| 租户资源管理器终结点 | 必须 | 租户 Azure 资源管理器操作的终结点（例如 https://management.loc-ext.domain.com)） |
+| 管理员资源管理器终结点 | 不是必需 | 租户 Azure 资源管理器操作的终结点（例如 https://management.loc-ext.domain.com)） |
+| 外部 FQDN | 不是必需 | 用作终结点后缀的外部完全限定的域名。 （例如 local.azurestack.external 或 redmond.contoso.com） |
+| 节点数 | 必须 | 解决方案中的节点数。 |
 
 ## <a name="add-common-test-parameters"></a>添加常用测试参数
 
 添加以下常用测试参数：
 
-| 测试轮次信息 | 必需 | 说明 |
+| 测试轮次信息 | 必须 | 说明 |
 | --- | --- | --- |
-| 租户用户名 | 必需 | 租户用户名（例如 tenant@contoso.partner.onmschina.cn） |
-| 租户密码 | 必需 | 租户的密码。 |
-| 服务管理员用户名 | 非必需 | 租户用户名（例如 tenant@contoso.partner.onmschina.cn） |
-| 服务管理员密码 | 非必需 | 服务管理员用户名（例如 serviceadmin@contoso.partner.onmschina.cn） |
-| 云管理员用户名 | 非必需 | Azure Stack 域管理员帐户（例如 contoso\cloudadmin） |
-| 云管理员密码 | 非必需 | |
-|  诊断连接字符串 | 非必需 | 在执行测试期间要将诊断日志复制到的 Azure 存储帐户的 SAS URI。 请参阅[创建 Azure 存储 blob 来存储日志](azure-stack-vaas-set-up-account.md#create-an-azure-storage-blob-to-store-logs)。 <br><br>**诊断连接字符串**常用参数的值将由服务进行存储，并且在调度时提供给工作流中使用此参数的所有测试。 如果 SAS URL 在 30 天内失效，则会在常用参数页面上提示你输入新的 SAS URL。 |
-| 标记 - 名称 | 非必需 |  可以输入的用来标记工作流的描述性标记。 这是标记的名称。 |
-| 标记 - 值 | 非必需 | 可以输入的用来标记工作流的描述性标记。 这是标记的值。 |
+| 租户用户名 | 必须 | 租户用户名（例如 tenant@contoso.partner.onmschina.cn） |
+| 租户密码 | 必须 | 租户的密码。 |
+| 服务管理员用户名 | 不是必需 | 租户用户名（例如 tenant@contoso.partner.onmschina.cn） |
+| 服务管理员密码 | 不是必需 | 服务管理员用户名（例如 serviceadmin@contoso.partner.onmschina.cn） |
+| 云管理员用户名 | 不是必需 | Azure Stack 域管理员帐户（例如 contoso\cloudadmin） |
+| 云管理员密码 | 不是必需 | |
+|  诊断连接字符串 | 不是必需 | 在执行测试期间要将诊断日志复制到的 Azure 存储帐户的 SAS URI。 请参阅[创建 Azure 存储 blob 来存储日志](azure-stack-vaas-set-up-account.md#create-an-azure-storage-blob-to-store-logs)。 <br><br>**诊断连接字符串**常用参数的值将由服务进行存储，并且在调度时提供给工作流中使用此参数的所有测试。 如果 SAS URL 在 30 天内失效，则会在常用参数页面上提示你输入新的 SAS URL。 |
+| 标记 - 名称 | 不是必需 |  可以输入的用来标记工作流的描述性标记。 这是标记的名称。 |
+| 标记 - 值 | 不是必需 | 可以输入的用来标记工作流的描述性标记。 这是标记的值。 |
 
 ## <a name="next-steps"></a>后续步骤
 

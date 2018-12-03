@@ -17,11 +17,11 @@ ms.date: 04/02/2018
 ms.author: v-yiso
 ms.custom: mvc
 ms.openlocfilehash: 48748f051cada5dd3257842309372ef528d90816
-ms.sourcegitcommit: 61fc3bfb9acd507060eb030de2c79de2376e7dd3
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30155467"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646195"
 ---
 # <a name="azure-resource-manager-templates-for-web-apps"></a>Web 应用的 Azure 资源管理器模板
 

@@ -18,11 +18,11 @@ ms.author: v-jay
 ms.reviewer: prchint
 ms.custom: mvc
 ms.openlocfilehash: 788ec717a0978e44ac6da180f61836ef6878dfc8
-ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51195616"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656915"
 ---
 # <a name="azure-stack-compute-capacity-planning"></a>Azure Stack 计算容量规划
 [Azure Stack 上支持的 VM 大小](./user/azure-stack-vm-sizes.md)是在 Azure 上支持的 VM 大小的子集。 Azure 在多方面施加资源限制，以避免资源（服务器本地和服务级别）的过度消耗。 如果未对租户使用资源施加一些限制，则当一些租户过度使用资源时，另一些租户的体验就会变差。 VM 的网络出口在 Azure Stack 上有与 Azure 限制一致的带宽上限。 就存储资源来说，在 Azure Stack 上实施存储 IOPS 限制可以避免租户因访问存储而造成资源过度使用。  

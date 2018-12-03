@@ -10,11 +10,11 @@ ms.date: 08/27/2018
 ms.author: v-yeche
 ms.custom: include file
 ms.openlocfilehash: 7c857796bcb6a3c1835cb3fba9fa1895fe9f7db8
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42871163"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659517"
 ---
 Azure 计算单位 (ACU) 这一概念提供一种比较 Azure SKU 的计算 (CPU) 性能的方法。 这有助于轻松确定最有可能满足性能需求的 SKU。  ACU 目前在小型 (Standard_A1) VM 上标准为 100，而所有其他 SKU 表示 SKU 在运行标准基准测试时大约可以有多快。 
 

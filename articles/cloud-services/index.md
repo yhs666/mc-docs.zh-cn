@@ -14,11 +14,11 @@ origin.date: 01/23/2017
 ms.date: 06/20/2017
 ms.author: v-yiso
 ms.openlocfilehash: d7ad07cc3606c4df22a73822be9ed0852b6ae11e
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
-ms.locfileid: "20184681"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659063"
 ---
 # <a name="cloud-services-documentation"></a>云服务文档
 

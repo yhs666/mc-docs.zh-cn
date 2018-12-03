@@ -1,5 +1,5 @@
 ---
-title: 快速入门：检测图像中的人脸 - 人脸 API，PHP
+title: 快速入门：使用 REST API 和 PHP 检测图像中的人脸
 titleSuffix: Azure Cognitive Services
 description: 在本快速入门中，你将使用人脸 API 和 PHP 检测图像中的人脸。
 services: cognitive-services
@@ -9,16 +9,16 @@ ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
 origin.date: 05/30/2018
-ms.date: 10/22/2018
+ms.date: 11/23/2018
 ms.author: v-junlch
-ms.openlocfilehash: 20b08c2302a2258802f45867dc76c099e7ffff7d
-ms.sourcegitcommit: 44ce337717bb948f5ac08217a156935f663c0f46
+ms.openlocfilehash: ff574e254198ec3becbd52d8fb050d9383d39773
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50034632"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672748"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-php"></a>快速入门：使用 PHP 检测图像中的人脸
+# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-php"></a>快速入门：使用 REST API 和 PHP 检测图像中的人脸
 
 本快速入门使用人脸 API 检测图像中的人脸。
 

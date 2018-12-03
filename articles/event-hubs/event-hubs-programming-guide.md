@@ -10,11 +10,11 @@ origin.date: 08/12/2018
 ms.date: 09/30/2018
 ms.author: v-yeche
 ms.openlocfilehash: e7427d3989e46f6e06a28083dfad522cbce0a6bf
-ms.sourcegitcommit: 399060a8d46534abd370693f6282e7343b371634
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455588"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658876"
 ---
 # <a name="event-hubs-programming-guide"></a>事件中心编程指南
 

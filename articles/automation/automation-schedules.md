@@ -11,11 +11,11 @@ ms.date: 11/05/2018
 ms.topic: conceptual
 manager: digimobile
 ms.openlocfilehash: 0f36e7b7fa73711633db800c9d36542193cdbb5e
-ms.sourcegitcommit: d26e5d0d625a61d6b130800d10c81f47c83fb1e0
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50745508"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651348"
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>在 Azure 自动化中计划 Runbook
 

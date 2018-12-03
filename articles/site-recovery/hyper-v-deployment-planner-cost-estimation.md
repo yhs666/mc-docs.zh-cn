@@ -5,16 +5,16 @@ services: site-recovery
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
-ms.topic: article
-origin.date: 07/06/2018
-ms.date: 09/17/2018
+ms.topic: conceptual
+origin.date: 10/11/2018
+ms.date: 11/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: 2e995dabafcec57a426038f1b098964d6735e9ed
-ms.sourcegitcommit: fb353628b721f124b82a30155ca5f78bbb7fa60b
+ms.openlocfilehash: 309cddf2490529717f2b8e70253e2258d74d1c82
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47424055"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662707"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Azure Site Recovery 部署规划器成本估算报表 
 
@@ -167,5 +167,6 @@ Azure Site Recovery 部署规划器报表以[建议](hyper-v-deployment-planner-
 
 ## <a name="next-steps"></a>后续步骤
 详细了解如何[使用 Site Recovery 将 Hyper-V VM 转移到 Azure 进行保护](hyper-v-azure-tutorial.md)。
-<!-- Update_Description: update meta properties, wording update  -->
+
+<!-- Update_Description: update meta properties  -->
 

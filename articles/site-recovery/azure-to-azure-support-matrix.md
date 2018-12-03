@@ -8,14 +8,14 @@ ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 origin.date: 09/10/2018
-ms.date: 09/24/2018
+ms.date: 11/19/2018
 ms.author: v-yeche
-ms.openlocfilehash: 337d344d959b9f532eb24a008316395522381d2d
-ms.sourcegitcommit: 691993753d89211238991e41a817b70ccc7cb0df
+ms.openlocfilehash: c9d9bd69f51da075f9a040d1101fc23d10a3eea5
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50135474"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655668"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>用于在 Azure 区域之间进行复制的支持矩阵
 
@@ -65,7 +65,9 @@ ms.locfileid: "50135474"
 - Debian 8[（受支持的内核版本）](#supported-debian-kernel-versions-for-azure-virtual-machines)
 - SUSE Linux Enterprise Server 12 SP1、SP2、SP3 [（受支持的内核版本）](#supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines)
 - SUSE Linux Enterprise Server 11 SP3
-- SUSE Linux Enterprise Server 11 SP4 <!-- Not Available - Oracle Enterprise Linux 6.4, 6.5 -->
+- SUSE Linux Enterprise Server 11 SP4
+
+<!-- Not Available - Oracle Enterprise Linux 6.4, 6.5 -->
 
 （不支持复制计算机从 SLES 11 SP3 升级到 SLES 11 SP4。 如果已将复制计算机从 SLES 11SP3 升级到 SLES 11 SP4，则需要禁用复制，并在升级后再次对计算机启用保护。）
 
@@ -102,6 +104,7 @@ Debian 8 | 9.16 | 3.16.0-4-amd64 到 3.16.0-5-amd64、4.9.0-0.bpo.4-amd64 到 4.
 
 **版本** | **移动服务版本** | **内核版本** |
 --- | --- | --- |
+SUSE Linux Enterprise Server 12（SP1、SP2、SP3） | 9.19 | SP1 3.12.49-11-default 到 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default 到 3.12.74-60.64.93-default</br></br> SP2 4.4.21-69-default 到 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default 到 4.4.121-92.80-default</br></br>SP3 4.4.73-5-default 到 4.4.140-94.42-default |
 SUSE Linux Enterprise Server 12（SP1、SP2、SP3） | 9.18 | SP1 3.12.49-11-default 到 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default 到 3.12.74-60.64.93-default</br></br> SP2 4.4.21-69-default 到 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default 到 4.4.121-92.80-default</br></br>SP3 4.4.73-5-default 到 4.4.138-94.39-default |
 SUSE Linux Enterprise Server 12（SP1、SP2、SP3） | 9.17 | SP1 3.12.49-11-default 到 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default 到 3.12.74-60.64.88-default</br></br> SP2 4.4.21-69-default 到 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default</br></br>SP3 4.4.73-5-default 到 4.4.126-94.22-default |
 
@@ -117,9 +120,9 @@ SUSE Linux Enterprise Server 12（SP1、SP2、SP3） | 9.17 | SP1 3.12.49-11-def
 
 地理群集 | **Azure 区域**
 -- | --
-中国 | 中国东部、中国北部
+中国 | 中国东部、中国东部 2、中国北部、中国北部 2
 
-<!-- Not Available on China East 2 and China North 2 region till 09/25/2018 -->
+<!-- Available on China East 2 and China North 2 region on 11/14/2018 -->
 
 ## <a name="support-for-vmdisk-management"></a>VM/磁盘管理支持
 
@@ -156,7 +159,7 @@ Azure 库映像 - 第三方发布 | 支持 | 只要 VM 在 Site Recovery 支持�
 高级托管磁盘 | 在支持 Azure Site Recovery 的 Azure 区域中受支持。 |
 存储空间 | 支持 |         
 静态加密 (SSE) | 支持 | SSE 是存储帐户的默认设置。   
-Azure 磁盘加密 (ADE) | 不支持 |
+适用于 Linux OS 的 Azure 磁盘加密 (ADE) | 不支持 |
 热添加/移除磁盘 | 不支持 | 如果在 VM 上添加或删除数据磁盘，需要先禁用复制然后重新为 VM 启用复制。
 排除磁盘 | 不支持|   默认情况下，排除临时磁盘。
 存储空间直通  | 不支持|
@@ -169,6 +172,7 @@ ZRS | 不支持 |
 虚拟网络的 Azure 存储防火墙  | 否 | 不支持访问用于存储复制数据的缓存存储帐户上特定的 Azure 虚拟网络。
 常规用途 V2 存储帐户（包括热存储层和冷存储层） | 否 | 与常规用途 V1 存储帐户相比，事务成本大幅增加
 
+<!--Not Available on Line 156 Azure Disk Encryption (ADE) for Windows OS, Reason: Encryption failed on 11/14/2018 -->
 >[!IMPORTANT]
 > 确保观察 [Linux](../virtual-machines/linux/disk-scalability-targets.md) 或 [Windows](../virtual-machines/windows/disk-scalability-targets.md) 虚拟机的 VM 磁盘可伸缩性和性能目标，以避免任何性能问题。 如果遵从默认设置，Site Recovery 将基于源配置创建所需的磁盘和存储帐户。 如果自定义和选择自己的设置，请确保遵循源 VM 的磁盘可伸缩性和性能目标。
 

@@ -17,11 +17,11 @@ origin.date: 07/18/2016
 ms.author: v-yiso
 ms.date: 03/26/2018
 ms.openlocfilehash: 28ac4f76452f86c6c63f1419865658c93e576585
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30072533"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653096"
 ---
 # <a name="get-started-with-the-request-and-response-components"></a>请求和响应组件入门
 借助逻辑应用中的请求和响应组件，可以实时响应事件。

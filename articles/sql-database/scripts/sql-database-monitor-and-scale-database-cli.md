@@ -14,11 +14,11 @@ manager: digimobile
 origin.date: 10/02/2018
 ms.date: 10/29/2018
 ms.openlocfilehash: dc42c3a9da98bde1ae97884f1a10fa74c176b454
-ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50135744"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666473"
 ---
 # <a name="use-cli-to-monitor-and-scale-a-single-sql-database"></a>使用 CLI 监视和缩放单一 SQL 数据库
 

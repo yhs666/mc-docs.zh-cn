@@ -16,11 +16,11 @@ origin.date: 01/29/2018
 ms.date: 09/07/2018
 ms.author: v-junlch
 ms.openlocfilehash: 213a34986c049460864fbcc1b0dd7d00a628e8cc
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068021"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658397"
 ---
 # <a name="cli-example-create-and-manage-a-windows-pool-in-azure-batch"></a>CLI 示例：在 Azure Batch 中创建和管理 Windows 池
 

@@ -11,11 +11,11 @@ origin.date: 08/23/2018
 ms.date: 10/15/2018
 ms.author: v-jay
 ms.openlocfilehash: 3c436216f5c588f02ac5cd3444fb7300634737ab
-ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913976"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649585"
 ---
 # <a name="managing-rolling-upgrades-of-cloud-applications-using-sql-database-active-geo-replication"></a>使用 SQL 数据库活动异地复制管理云应用程序的滚动升级
 > [!NOTE]

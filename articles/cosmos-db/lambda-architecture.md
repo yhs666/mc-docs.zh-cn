@@ -13,11 +13,11 @@ origin.date: 01/19/2018
 ms.date: 09/30/2018
 ms.author: v-yeche
 ms.openlocfilehash: 719ec984c2f1264a5252da9412cb803d65a6a447
-ms.sourcegitcommit: 646d5cc64acaa91696537d09858b989336ebd3c3
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49451559"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666582"
 ---
 # <a name="azure-cosmos-db-implement-a-lambda-architecture-on-the-azure-platform"></a>Azure Cosmos DB：在 Azure 平台上实现 lambda 体系结构 
 

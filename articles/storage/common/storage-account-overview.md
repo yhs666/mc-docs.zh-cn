@@ -10,11 +10,11 @@ ms.date: 09/24/2018
 ms.author: v-jay
 ms.component: common
 ms.openlocfilehash: 8fb1346551ae4067f3c6ec0a142838692f9bc314
-ms.sourcegitcommit: 7c750170ddefe7537663dfbadcc06bf27d94c586
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50743544"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647058"
 ---
 # <a name="azure-storage-account-overview"></a>Azure 存储帐户概述
 

@@ -15,11 +15,11 @@ manager: digimobile
 origin.date: 10/05/2018
 ms.date: 10/29/2019
 ms.openlocfilehash: b9e5be7cbfa0422fe6f7079678dbf23c05b0a36d
-ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50135792"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666870"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-azure-key-vault"></a>Always Encrypted：保护敏感数据并将加密密钥存储在 Azure 密钥保管库中
 

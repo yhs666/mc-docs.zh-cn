@@ -16,11 +16,11 @@ origin.date: 08/09/2017
 ms.date: 09/04/2017
 ms.author: v-haiqya
 ms.openlocfilehash: b8becd79a8a8a0d63f0f96566eddeb2fff58846d
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426460"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648661"
 ---
 # <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-the-azure-portal"></a>如何通过 Azure 门户使用本地编码器实时传送视频流
 > [!div class="op_single_selector"]

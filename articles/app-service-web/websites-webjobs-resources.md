@@ -16,15 +16,15 @@ origin.date: 03/25/2017
 ms.date: 10/09/2017
 ms.author: v-yiso
 ms.openlocfilehash: 2e97fd4facd5287a1ba88d458665dc087196cb97
-ms.sourcegitcommit: 1b7e4b8bfdaf910f1552d9b7b1a64e40e75c72dc
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/22/2017
-ms.locfileid: "22146549"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651891"
 ---
 # <a name="azure-webjobs-documentation-resources"></a>Azure Web 作业文档资源
 ## <a name="overview"></a>概述
-本主题提供了有关如何使用 Azure Web 作业和 Azure WebJobs SDK 的文档资源的链接。 通过使用 Azure Web 作业，可以方便地在[应用服务 Web 应用、API 应用或移动应用](../app-service/app-service-value-prop-what-is.md)的上下文中将脚本或程序作为后台进程运行。 可以上传和运行可执行文件，例如 cmd、bat、exe (.NET)、ps1、sh、php、py、js 和 jar。 这些程序将按计划 (cron) 或者连续地以 Web 作业的形式运行。
+本主题提供了有关如何使用 Azure Web 作业和 Azure WebJobs SDK 的文档资源的链接。 通过使用 Azure Web 作业，可以方便地在[应用服务 Web 应用、API 应用或移动应用](../app-service/app-service-value-prop-what-is.md)的上下文中将脚本或程序作为后台进程运行。 可以上传和运行可执行文件，例如 cmd、bat、exe (.NET)、ps1、sh、php、py、js 和 jar。 这些程序按计划 (cron) 或者连续地以 Web 作业的形式运行。
 
 [WebJobs SDK](/app-service-web/websites-dotnet-webjobs-sdk) 用于简化针对 Web 作业执行的常见任务（如图像处理、队列处理、RSS 聚合、文件维护和发送电子邮件）编写的代码。 WebJobs SDK 的内置功能使用 Azure 存储和 Service Bus，用于计划任务和处理错误，以及用于许多其他常见方案。 此外，还可以扩展其设计，且拥有 [用于扩展的开源存储库](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview)。 
 
@@ -52,7 +52,7 @@ Azure 门户中的 Web 作业仪表板提供了强大的管理功能，可让你
 另请参阅以下有关[部署 Web 作业](#deploy)及[测试和调试 Web 作业](#debug)的部分。
 
 ## <a name="deploy"></a>部署 Web 作业
-* [如何使用 Visual Studio 部署 Azure Web 作业](websites-dotnet-deploy-webjobs.md)
+* [如何使用 Visual Studio 部署 Azure 作业](websites-dotnet-deploy-webjobs.md)
 * [如何使用 Azure 门户部署 Web 作业](web-sites-create-web-jobs.md)
 * [启用 Azure Web 作业的命令行或连续传送](https://azure.microsoft.com/blog/2014/08/18/enabling-command-line-or-continuous-delivery-of-azure-webjobs/)
 * [使用 Web 作业通过 Git 将 .NET 控制台应用程序部署到 Azure](http://blog.amitapple.com/post/73574681678/git-deploy-console-app/)
@@ -60,7 +60,7 @@ Azure 门户中的 Web 作业仪表板提供了强大的管理功能，可让你
 * [将自定义服务部署为 Azure Web 作业](http://withouttheloop.com/articles/2015-06-23-deploying-custom-services-as-azure-webjobs/)
 
 ## <a name="schedule"></a>计划 Web 作业
-* [“添加 Azure Web 作业”对话框](websites-dotnet-deploy-webjobs.md#configure)
+* [添加 Azure Web 作业对话框](websites-dotnet-deploy-webjobs.md#configure)
 * [在 Azure 门户中创建计划的 Web 作业](web-sites-create-web-jobs.md#CreateScheduledCRON)
 * [将计划程序作业挂接到 Web 作业](http://blog.davidebbo.com/2015/05/scheduled-webjob.html)
 * [通过 cron 表达式计划 Azure Web 作业](http://blog.amitapple.com/post/2015/06/scheduling-azure-webjobs/)

@@ -13,15 +13,15 @@ ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 11/23/2017
-ms.date: 09/10/2018
+ms.date: 11/12/2018
 ms.author: v-yeche
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 2a9d9cd4c7c353ecd88b57327f0e64b6762fee93
-ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
+ms.openlocfilehash: 9c477e838ef84c0d892ed2b66763e467718e3d4f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44515660"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662399"
 ---
 # <a name="quickstart-deploy-a-java-spring-boot-application-to-service-fabric"></a>快速入门：将 Java Spring Boot 应用程序部署到 Service Fabric
 
@@ -177,6 +177,7 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
 
 <!-- Not Avaialble on Party cluster -->
 
+登录并加入 Linux 群集。 通过单击 **PFX** 链接，将 PFX 证书下载到计算机。
 > [!Note]
 > Spring Boot 服务配置为侦听端口 8080 上的传入流量。 请确保此端口在群集中处于打开状态。 如果使用的是合作群集，此端口已处于打开状态。
 >
@@ -184,7 +185,7 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
 Service Fabric 提供多种可以用来管理群集及其应用程序的工具：
 
 * Service Fabric Explorer，一种基于浏览器的工具。
-* Service Fabric 命令行界面 (CLI)，在 Azure CLI 2.0 基础上运行。
+* Service Fabric 命令行界面 (CLI)，在 Azure CLI 基础上运行。
 * PowerShell 命令。
 
 在本快速入门中，请使用 Service Fabric CLI 和 Service Fabric Explorer。
@@ -288,4 +289,5 @@ Service Fabric Explorer 在所有 Service Fabric 群集中运行，并能通过�
 
 > [!div class="nextstepaction"]
 > [部署 Java 应用](./service-fabric-tutorial-create-java-app.md)
+
 <!-- Update_Description: update meta properties, wording update  -->

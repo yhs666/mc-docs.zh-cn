@@ -12,11 +12,11 @@ origin.date: 03/01/2018
 ms.date: 10/23/2018
 ms.author: v-junlch
 ms.openlocfilehash: 0b512fdd81ea01bbd65ae33291d4680f9de7f12a
-ms.sourcegitcommit: 44ce337717bb948f5ac08217a156935f663c0f46
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50034671"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650251"
 ---
 # <a name="how-to-detect-faces-in-image"></a>如何检测图像中的人脸
 

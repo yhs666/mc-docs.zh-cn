@@ -16,11 +16,11 @@ origin.date: 08/07/2017
 ms.date: 10/30/2017
 ms.author: v-johch
 ms.openlocfilehash: 788c3c2b58373debc7654d154bcafbbbe74c092d
-ms.sourcegitcommit: 0081fb238c35581bb527bdd704008c07079c8fbb
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523701"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666744"
 ---
 # <a name="introduction-to-queues"></a>队列简介
 

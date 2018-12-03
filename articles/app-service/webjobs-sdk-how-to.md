@@ -15,11 +15,11 @@ origin.date: 04/27/2018
 ms.date: 06/04/2018
 ms.author: tdykstra
 ms.openlocfilehash: 13f1c26aae63de63f37dd265d23617e093d23524
-ms.sourcegitcommit: 092d9ef3f2509ca2ebbd594e1da4048066af0ee3
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36315474"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666999"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>如何使用 Azure WebJobs SDK 进行事件驱动的后台处理
 

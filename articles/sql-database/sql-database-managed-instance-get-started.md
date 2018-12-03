@@ -11,16 +11,16 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: Carlrab
 manager: digimobile
-origin.date: 09/23/2018
-ms.date: 10/29/2018
-ms.openlocfilehash: d16f138d58edcda209b241119dcfe8e435d90ab4
-ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
+origin.date: 11/01/2018
+ms.date: 12/03/2018
+ms.openlocfilehash: c95658bf80dce3b1052a158c27ace1d83f222cad
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50135941"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672629"
 ---
-# <a name="create-an-azure-sql-database-managed-instance"></a>创建 Azure SQL 数据库托管实例
+# <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>快速入门：创建 Azure SQL 数据库托管实例
 
 本快速入门分步介绍了如何在 Azure 门户中创建 Azure SQL 数据库[托管实例](sql-database-managed-instance.md)。 
 

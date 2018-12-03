@@ -12,11 +12,11 @@ ms.topic: sample
 ms.custom: mvc
 ms.date: 06/15/2018
 ms.openlocfilehash: 5f0b708fd2a5a7f44daa87274b35d39e3688c94f
-ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39722927"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654493"
 ---
 # <a name="azure-cli-samples-for-azure-database-for-mysql"></a>用于 MySQL 的 Azure 数据库的 Azure CLI 示例 
 

@@ -11,11 +11,11 @@ ms.date: 11/05/2018
 ms.topic: conceptual
 manager: digimobile
 ms.openlocfilehash: f5e7bfeefee98f260425d3370ff815f004b63fa8
-ms.sourcegitcommit: d26e5d0d625a61d6b130800d10c81f47c83fb1e0
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50745507"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659156"
 ---
 # <a name="azure-automation-runbook-types"></a>Azure 自动化 Runbook 类型
 

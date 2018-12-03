@@ -1,24 +1,26 @@
 ---
 title: 使用 Java 查询 Azure SQL 数据库 | Microsoft Docs
-description: 本主题介绍如何使用 Java 创建连接到 Azure SQL 数据库的程序并使用 Transact-SQL 语句对其进行查询。
+description: 本主题介绍如何使用 Java 创建可连接到 Azure SQL 数据库的程序并使用 Transact-SQL 语句对其进行查询。
 services: sql-database
-author: WenJason
-manager: digimobile
 ms.service: sql-database
-ms.custom: mvc,develop apps
+ms.subservice: development
+ms.custom: ''
 ms.devlang: java
 ms.topic: quickstart
-origin.date: 04/01/2018
-ms.date: 10/15/2018
+author: WenJason
 ms.author: v-jay
-ms.openlocfilehash: 998ee9af4a78b90b989d215e65abca2204ce8b81
-ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
+ms.reviewer: ''
+manager: digimobile
+origin.date: 11/01/2018
+ms.date: 12/03/2018
+ms.openlocfilehash: 655e94fe9eb4423fd6c7a9b78e3434d09fb02195
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913924"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672540"
 ---
-# <a name="use-java-to-query-an-azure-sql-database"></a>使用 Java 查询 Azure SQL 数据库
+# <a name="quickstart-use-java-to-query-an-azure-sql-database"></a>快速入门：使用 Java 查询 Azure SQL 数据库
 
 本快速入门演示了如何使用 [Java](https://docs.microsoft.com/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server) 连接到 Azure SQL 数据库，然后使用 Transact-SQL 语句查询数据。
 

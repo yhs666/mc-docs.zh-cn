@@ -16,11 +16,11 @@ origin.date: 01/23/2018
 ms.author: v-yiso
 ms.date: 10/15/2018
 ms.openlocfilehash: 9bb7bffb0f688decd5de5b6c75d5d15b1ab1d978
-ms.sourcegitcommit: adb8dc2ab6c7c5499ac4a521c3c68bba8521cd44
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455146"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651165"
 ---
 # <a name="azure-relay-hybrid-connections-net-standard-api-overview"></a>Azure 中继混合连接 .NET 标准 API 概述
 

@@ -15,11 +15,11 @@ origin.date: 11/08/2017
 ms.date: 02/26/2018
 ms.author: v-yiso
 ms.openlocfilehash: bdc160707d5e6d5e0936708698e007cff6e817e9
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939333"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666595"
 ---
 # <a name="edit-an-api"></a>编辑 API
 

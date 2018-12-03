@@ -16,11 +16,11 @@ origin.date: 09/11/2018
 ms.date: 10/08/2018
 ms.author: v-junlch
 ms.openlocfilehash: 46fe21a53d40bc445f455752b8d09ba3c6a850da
-ms.sourcegitcommit: 71f203d04b212d2bfbf4f227693c2b8fe209db22
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48850512"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657016"
 ---
 # <a name="how-to-configure-a-new-multi-tenant-application"></a>如何配置新的多租户应用程序
 

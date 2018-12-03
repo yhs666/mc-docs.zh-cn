@@ -16,11 +16,11 @@ origin.date: 01/23/2017
 ms.date: 06/18/2018
 ms.author: v-yeche
 ms.openlocfilehash: da5e07fef9edef0ee0db9b30c48aa32c48342d41
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39167677"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52664172"
 ---
 # <a name="get-started-creating-an-internet-facing-load-balancer-for-cloud-services"></a>开始为云服务创建面向 Internet 的负载均衡器
 

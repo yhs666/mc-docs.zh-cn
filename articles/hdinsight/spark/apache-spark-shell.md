@@ -18,11 +18,11 @@ origin.date: 01/09/2018
 ms.date: 02/26/2018
 ms.author: v-yiso
 ms.openlocfilehash: 4c28fe619f9877e339a1a0d8722099c6ee55178b
-ms.sourcegitcommit: 71cc4b7ee5ea4bb27fcc9986dcfcb9dcaff0afaa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/24/2018
-ms.locfileid: "29552291"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661148"
 ---
 # <a name="run-spark-from-the-spark-shell"></a>从 Spark Shell 运行 Spark
 

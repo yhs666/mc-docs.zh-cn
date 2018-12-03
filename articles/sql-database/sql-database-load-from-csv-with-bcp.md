@@ -11,11 +11,11 @@ origin.date: 04/01/2018
 ms.date: 04/17/2018
 ms.author: v-haiqya
 ms.openlocfilehash: 0c21d155029f5c948dabc75357770f2c5717e790
-ms.sourcegitcommit: 7ea906b9ec4f501f53b088ea6348465f31d6ebdc
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39486757"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651032"
 ---
 # <a name="load-data-from-csv-into-azure-sql-database-flat-files"></a>将数据从 CSV 加载到 Azure SQL 数据库（平面文件）
 可以使用 bcp 命令行实用程序将数据从 CSV 文件导入 Azure SQL 数据库。

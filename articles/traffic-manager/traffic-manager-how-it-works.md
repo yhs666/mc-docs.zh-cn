@@ -16,11 +16,11 @@ origin.date: 07/25/2018
 ms.date: 09/17/2018
 ms.author: v-yeche
 ms.openlocfilehash: 0e4221e4186bb97963c30e33adaa80ebe3407535
-ms.sourcegitcommit: 96d06c506983906a92ff90a5f67199f8f7e10996
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45587798"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650163"
 ---
 # <a name="how-traffic-manager-works"></a>流量管理器的工作原理
 
@@ -33,15 +33,15 @@ ms.locfileid: "45587798"
 
 当客户端尝试连接到某个服务时，必须先将该服务的 DNS 名称解析成 IP 地址。 然后，客户端就可以连接到该 IP 地址以访问相关服务。
 
-**需要了解的最重要一点是，流量管理器在 DNS 级别工作。**  流量管理器根据流量路由方法的规则，使用 DNS 将客户端导向到特定的服务终结点。 客户端**直接**连接到选定的终结点。 流量管理器不是代理或网关。 流量管理器看不到流量在客户端与服务之间传递。
+**需要了解的最重要一点是，流量管理器在 DNS 级别工作。**  流量管理器根据流量路由方法的规则，使用 DNS 将客户端导向到特定的服务终结点。 客户端 **直接**连接到选定的终结点。 流量管理器不是代理或网关。 流量管理器看不到流量在客户端与服务之间传递。
 
 ## <a name="traffic-manager-example"></a>流量管理器示例
 
 Contoso Corp 开发了一个新的合作伙伴门户。 此门户的 URL 为 https://partners.contoso.com/login.aspx。 该应用程序托管在三个 Azure 区域中。 为了改善可用性并最大程度地提高多区域性能，他们使用流量管理器将客户端流量分配到最近的可用终结点。
 
-为了实现此配置，他们完成以下步骤：
+若要实现此配置，需要完成以下步骤：
 
-1. 部署服务的三个实例。 这些部署的 DNS 名称为“contoso-east.chinacloudapp.cn”、“contoso-north.chinacloudapp.cn”和“contoso-east2.chinacloudapp.cn”。
+1. 部署其服务的三个实例。 这些部署的 DNS 名称为“contoso-east.chinacloudapp.cn”、“contoso-north.chinacloudapp.cn”和“contoso-east2.chinacloudapp.cn”。
 2. 创建一个名为“contoso.trafficmanager.cn”的流量管理器配置文件，并将该文件配置为对三个终结点使用“性能”流量路由方法。
 * 使用 DNS CNAME 记录将其虚构域名“partners.contoso.com”配置为指向“contoso.trafficmanager.cn”。
 <!--Notice: us map east, eu map north, asia map east2 -->
@@ -71,7 +71,7 @@ Contoso Corp 开发了一个新的合作伙伴门户。 此门户的 URL 为 htt
 7. 递归 DNS 服务将结果合并，向客户端返回单个 DNS 响应。
 8. 客户端接收 DNS 结果，并连接到给定的 IP 地址。 客户端直接连接到应用程序服务终结点，而不是通过流量管理器连接。 由于这是一个 HTTPS 终结点，客户端将执行必要的 SSL/TLS 握手，然后针对“/login.aspx”页面发出 HTTP GET 请求。
 
-递归 DNS 服务缓存它所收到的 DNS 响应。 客户端设备上的 DNS 解析程序也会缓存结果。 通过缓存可以加快后续 DNS 查询的响应速度，因为使用的是缓存中的数据，不需要查询其他名称服务器。 缓存的持续时间取决于每个 DNS 记录的“生存时间”(TTL) 属性。 该属性值越小，缓存过期时间就越短，因此访问流量管理器名称服务器所需的往返次数就越多。 如果指定较大的值，则意味着从故障终结点定向流量需要更长的时间。 使用流量管理器，可以将流量管理器 DNS 响应中使用的 TTL 配置为最短 0 秒，最长 2,147,483,647 秒（符合[ RFC-1035 ](https://www.ietf.org/rfc/rfc1035.txt)的最大范围），从而可选择使应用程序的需求实现最佳平衡的值。
+递归 DNS 服务缓存它所收到的 DNS 响应。 客户端设备上的 DNS 解析程序也会缓存结果。 通过缓存可以加快后续 DNS 查询的响应速度，因为使用的是缓存中的数据，不需要查询其他名称服务器。 缓存的持续时间取决于每个 DNS 记录的“生存时间”(TTL) 属性。 该属性值越小，缓存过期时间就越短，因此访问流量管理器名称服务器所需的往返次数就越多。 如果指定较大的值，则意味着从故障终结点定向流量需要更长的时间。 使用流量管理器，可以将流量管理器 DNS 响应中使用的 TTL 配置为低至 0 秒、高至 2,147,483,647 秒（符合 [RFC-1035](https://www.ietf.org/rfc/rfc1035.txt) 的最大范围），从而可通过选择值对应用程序的需求进行最佳平衡。
 
 ## <a name="next-steps"></a>后续步骤
 

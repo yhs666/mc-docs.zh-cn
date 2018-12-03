@@ -17,11 +17,11 @@ origin.date: 09/27/2016
 ms.date: 01/05/2017
 ms.author: v-dazen
 ms.openlocfilehash: bf53844a56dff0d0b14263d33ee9166b555dd2f4
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
-ms.locfileid: "20186071"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657925"
 ---
 # <a name="manage-virtual-machines-in-a-virtual-machine-scale-set"></a>在虚拟机规模集中管理虚拟机
 使用本文中的任务在虚拟机规模集中管理虚拟机。
@@ -33,7 +33,7 @@ ms.locfileid: "20186071"
 ## <a name="display-information-about-a-scale-set"></a>显示有关规模集的信息
 可获取有关规模集的常规信息，也称为实例视图。 或者可以获取更具体的信息，如规模集中资源的相关信息。
 
-将带引号的值替换为资源组和规模集的名称，然后运行该命令：
+将带引号的值替换为资源组和规模集的名称，并运行该命令：
 
     Get-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name"
 
@@ -93,7 +93,7 @@ ms.locfileid: "20186071"
         Settings                                : {"xmlCfg":"...","storageAccount":"astore"}
     ProvisioningState                           : Succeeded
 
-将带引号的值替换为资源组和规模集的名称。 将 *#* 替换为要获取其相关信息的虚拟机的实例标识符，然后运行该命令：
+将带引号的值替换为资源组和规模集的名称。 将 *#* 替换为要获取其相关信息的虚拟机的实例标识符，并运行该命令：
 
     Get-AzureRmVmssVM -ResourceGroupName "resource group name" -VMScaleSetName "scale set name" -InstanceId #
 
@@ -147,7 +147,7 @@ ms.locfileid: "20186071"
       ProvisioningState           : Succeeded
 
 ## <a name="start-a-virtual-machine-in-a-scale-set"></a>启动规模集中的虚拟机
-将带引号的值替换为资源组和规模集的名称。 将 *#* 替换为要启动的虚拟机的标识符，然后运行该命令：
+将带引号的值替换为资源组和规模集的名称。 将 *#* 替换为要启动的虚拟机的标识符，并运行该命令：
 
     Start-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name" -InstanceId #
 
@@ -170,7 +170,7 @@ ms.locfileid: "20186071"
 不使用 -InstanceId 参数即可启动规模集中的所有虚拟机。
 
 ## <a name="stop-a-virtual-machine-in-a-scale-set"></a>停止规模集中的虚拟机
-将带引号的值替换为资源组和规模集的名称。 将 *#* 替换为要停止的虚拟机的标识符，然后运行该命令：
+将带引号的值替换为资源组和规模集的名称。 将 *#* 替换为要停止的虚拟机的标识符，并运行该命令：
 
     Stop-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name" -InstanceId #
 
@@ -193,21 +193,21 @@ ms.locfileid: "20186071"
 若要停止但不解除分配虚拟机，请使用 -StayProvisioned 参数。 不使用 -InstanceId 参数即可停止规模集中的所有虚拟机。
 
 ## <a name="restart-a-virtual-machine-in-a-scale-set"></a>重启规模集中的虚拟机
-将带引号的值替换为资源组和规模集的名称。 将 *#* 替换为要重启的虚拟机的标识符，然后运行该命令：
+将带引号的值替换为资源组和规模集的名称。 将 *#* 替换为要重启的虚拟机的标识符，并运行该命令：
 
     Restart-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name" -InstanceId #
 
 不使用 -InstanceId 参数即可重启规模集中的所有虚拟机。
 
 ## <a name="remove-a-virtual-machine-from-a-scale-set"></a>从规模集中删除虚拟机
-将带引号的值替换为资源组和规模集的名称。 将 *#* 替换为要删除的虚拟机的标识符，然后运行该命令：  
+将带引号的值替换为资源组和规模集的名称。 将 *#* 替换为要删除的虚拟机的标识符，并运行该命令：  
 
     Remove-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name" -InstanceId #
 
 不使用 -InstanceId 参数即可一次性删除整个虚拟机规模集。
 
 ## <a name="change-the-capacity-of-a-scale-set"></a>更改规模集的容量
-通过更改规模集的容量，可添加或删除虚拟机。 获取要更改的规模集，按需设置容量，然后使用新容量更新规模集。 在这些命令中，将带引号的值替换为资源组和规模集的名称。
+通过更改规模集的容量，可添加或删除虚拟机。 获取要更改的规模集，按需设置容量，并使用新容量更新规模集。 在这些命令中，将带引号的值替换为资源组和规模集的名称。
 
     $vmss = Get-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name"
     $vmss.sku.capacity = 5

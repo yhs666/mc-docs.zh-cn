@@ -17,11 +17,11 @@ origin.date: 04/30/2018
 ms.date: 06/12/2018
 ms.author: v-junlch
 ms.openlocfilehash: d0894b20087027d5ea5be080d196da8be9d9fc4c
-ms.sourcegitcommit: 67637a8503872820f5cdd80fd0ccc68251553e33
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2018
-ms.locfileid: "35568491"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661311"
 ---
 # <a name="download-vpn-device-template-using-powershell"></a>使用 PowerShell 下载 VPN 设备模板
 

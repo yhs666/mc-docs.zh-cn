@@ -15,11 +15,11 @@ origin.date: 08/15/2018
 ms.author: v-yiso
 ms.date: 09/17/2018
 ms.openlocfilehash: 7c7d676268fe6c9790f11648419ef3c8a25dfead
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068032"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649189"
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>如何将 Azure API 管理服务实例部署到多个 Azure 区域
 

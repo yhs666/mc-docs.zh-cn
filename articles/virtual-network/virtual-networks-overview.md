@@ -19,11 +19,11 @@ ms.date: 09/24/2018
 ms.author: v-yeche
 ms.custom: mvc
 ms.openlocfilehash: 2b232e923def8343c2dc789d24e03054c355b8bb
-ms.sourcegitcommit: 4ead6b1d3527373b63c90680b6400a2e95b4064e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49374972"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647218"
 ---
 # <a name="what-is-azure-virtual-network"></a>什么是 Azure 虚拟网络？
 

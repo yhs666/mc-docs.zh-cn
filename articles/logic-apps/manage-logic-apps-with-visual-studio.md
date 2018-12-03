@@ -17,11 +17,11 @@ origin.date: 03/15/2018
 ms.author: v-yiso
 ms.date: 07/02/2018
 ms.openlocfilehash: db49c7f6f63db681ef9844752e20583cc52a410e
-ms.sourcegitcommit: 1b682acdc2a5e0974fbff809967d7cefcbbbe8ac
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42870999"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658510"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>使用 Visual Studio 管理逻辑应用
 

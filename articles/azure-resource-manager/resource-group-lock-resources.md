@@ -16,11 +16,11 @@ origin.date: 02/21/2018
 ms.date: 09/03/2018
 ms.author: v-yeche
 ms.openlocfilehash: 31cad67b96c58d79ef9c4b79e750e391ec33c9c6
-ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43164964"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661452"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>锁定资源，以防止意外更改 
 

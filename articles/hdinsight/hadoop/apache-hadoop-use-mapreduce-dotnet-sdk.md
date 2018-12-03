@@ -16,11 +16,11 @@ origin.date: 05/16/2018
 ms.date: 08/27/2018
 ms.author: v-yiso
 ms.openlocfilehash: 0186736f9773576831f24eec2a0534cf68d31cb1
-ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41705098"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648687"
 ---
 # <a name="run-mapreduce-jobs-using-hdinsight-net-sdk"></a>使用 HDInsight .NET SDK 运行 MapReduce 作业
 [!INCLUDE [mapreduce-selector](../../../includes/hdinsight-selector-use-mapreduce.md)]

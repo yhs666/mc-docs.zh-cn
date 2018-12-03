@@ -16,11 +16,11 @@ origin.date: 05/18/2017
 ms.author: v-yiso
 ms.date: 10/22/2018
 ms.openlocfilehash: 2ffde0faed27e99c6ceba64c9a734fded7eb6d02
-ms.sourcegitcommit: 8a5722b85c6eabbd28473d792716ad44aac3ff23
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49121541"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649712"
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>如何创建和部署云服务
 Azure 门户提供了两种创建和部署云服务的方法：*快速创建*和*自定义创建*。

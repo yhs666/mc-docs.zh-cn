@@ -18,11 +18,11 @@ origin.date: 05/30/2017
 ms.date: 05/21/2018
 ms.author: v-yeche
 ms.openlocfilehash: 86380dd64d5c4900e3238154b0396538b87afcb0
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34305806"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659329"
 ---
 # <a name="create-a-virtual-machine-running-windows-in-the-azure-portal"></a>在 Azure 门户中创建运行 Windows 的虚拟机
 > [!div class="op_single_selector"]

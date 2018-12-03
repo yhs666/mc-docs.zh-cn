@@ -11,11 +11,11 @@ origin.date: 02/28/2018
 ms.date: 09/10/2018
 ms.author: v-yiso
 ms.openlocfilehash: f51bbfdd1350b394241110dcdfa868b33e834ed2
-ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43330490"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662144"
 ---
 # <a name="use-iot-devkit-az3166-with-azure-functions-and-cognitive-services-to-make-a-language-translator"></a>将 IoT DevKit AZ3166 与 Azure Functions 和认知服务配合使用生成语言翻译
 

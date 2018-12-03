@@ -16,11 +16,11 @@ origin.date: 07/05/2017
 ms.author: v-yiso
 ms.date: 01/29/2018
 ms.openlocfilehash: 195c931a00477a99ae7de2b72a2f9e1cd3643ace
-ms.sourcegitcommit: a20b3fbe305d3bb4b6ddfdae98b3e0ab8a79bbfa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/22/2018
-ms.locfileid: "27984744"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646232"
 ---
 # <a name="add-authentication-to-your-windows-app"></a>向 Windows 应用添加身份验证
 

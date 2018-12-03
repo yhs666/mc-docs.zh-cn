@@ -15,11 +15,11 @@ origin.date: 10/01/2016
 ms.date: 01/29/2018
 ms.author: v-yiso
 ms.openlocfilehash: 659df6282bee3f9c2d21fb256b5e379090ec81f1
-ms.sourcegitcommit: a20b3fbe305d3bb4b6ddfdae98b3e0ab8a79bbfa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/22/2018
-ms.locfileid: "27984756"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652580"
 ---
 # <a name="enable-offline-sync-for-your-android-mobile-app"></a>为 Android 移动应用启用脱机同步
 
@@ -29,7 +29,7 @@ ms.locfileid: "27984756"
 
 本教程介绍适用于 Android 的 Azure 移动应用的脱机同步功能。 借助脱机同步，最终用户即使在没有网络连接时也能够与移动应用进行交互（查看、添加或修改数据）。 更改存储在本地数据库中；设备重新联机后，这些更改会与远程后端同步。
 
-对于首次体验 Azure 移动应用的读者，请先完成 [Create an Android App]（创建 Android 应用）教程。 如果不使用下载的快速入门服务器项目，必须将数据访问扩展包添加到项目。 有关服务器扩展包的详细信息，请参阅[使用适用于 Azure 移动应用的 .NET 后端服务器 SDK](./app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)。
+对于首次体验 Azure 移动应用的读者，请先完成 [创建 Android 应用]（创建 Android 应用）教程。 如果不使用下载的快速入门服务器项目，必须将数据访问扩展包添加到项目。 有关服务器扩展包的详细信息，请参阅[使用适用于 Azure 移动应用的 .NET 后端服务器 SDK](./app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)。
 
 若要了解有关脱机同步功能的详细信息，请参阅 [Offline Data Sync in Azure Mobile Apps]（Azure 移动应用中的脱机数据同步）主题。
 
@@ -123,4 +123,4 @@ ms.locfileid: "27984756"
 
 [Offline Data Sync in Azure Mobile Apps]: ./app-service-mobile-offline-data-sync.md
 
-[Create an Android App]: ./app-service-mobile-android-get-started.md
+[创建 Android 应用]: ./app-service-mobile-android-get-started.md

@@ -18,11 +18,11 @@ origin.date: 01/19/2018
 ms.date: 03/26/2018
 ms.author: maxluk
 ms.openlocfilehash: 9a311a6f36731c2b30101ba542f6040b55905dba
-ms.sourcegitcommit: 41a236135b2eaf3d104aa1edaac00356f04807df
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30077677"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52667238"
 ---
 # <a name="create-a-spark-machine-learning-pipeline"></a>创建 Spark 机器学习管道
 

@@ -10,11 +10,11 @@ ms.date: 09/10/2018
 ms.author: v-jay
 ms.component: common
 ms.openlocfilehash: fd4ddd30d7254e1f9f78047743f1748289adecda
-ms.sourcegitcommit: e157751c560524d0bb828e987b87178130663547
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43652595"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657026"
 ---
 # <a name="azure-storage-metrics-migration"></a>Azure 存储指标迁移
 

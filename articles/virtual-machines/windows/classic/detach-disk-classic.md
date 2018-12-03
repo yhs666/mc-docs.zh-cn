@@ -18,11 +18,11 @@ origin.date: 02/24/2017
 ms.date: 05/21/2018
 ms.author: v-yeche
 ms.openlocfilehash: 7cef492a8c98156490c2cc5debfc72cb951ebdd1
-ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "34173255"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657665"
 ---
 # <a name="how-to-detach-a-disk-from-a-windows-virtual-machine"></a>如何从 Windows 虚拟机分离磁盘
 > [!IMPORTANT]

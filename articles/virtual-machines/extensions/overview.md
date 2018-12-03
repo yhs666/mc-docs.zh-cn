@@ -17,11 +17,11 @@ origin.date: 03/30/2018
 ms.date: 10/22/2018
 ms.author: v-yeche
 ms.openlocfilehash: c2c1601995a5b5018b86dd073d083dcb808434c1
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453509"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649971"
 ---
 # <a name="azure-virtual-machine-extensions-and-features"></a>Azure 虚拟机扩展和功能
 Azure 虚拟机 (VM) 扩展是小型应用程序，可在 Azure VM 上提供部署后配置和自动化任务，用户可以使用现有映像并将其自定义为部署的一部分，摆脱构建自定义映像的麻烦。

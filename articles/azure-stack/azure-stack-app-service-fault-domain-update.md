@@ -16,11 +16,11 @@ origin.date: 09/05/2018
 ms.date: 10/15/2018
 ms.author: v-jay
 ms.openlocfilehash: bf4a51eb5167fcf6680c4e770805afb06eacf103
-ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48848907"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651229"
 ---
 # <a name="how-to-redistribute-azure-app-service-on-azure-stack-across-fault-domains"></a>如何跨容错域在 Azure Stack 上重新分配 Azure 应用服务
 

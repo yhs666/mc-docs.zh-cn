@@ -11,11 +11,11 @@ origin.date: 06/15/2017
 ms.date: 10/13/2017
 ms.author: v-junlch
 ms.openlocfilehash: a28c15a4eee93e1ef71ea4c96d3d68d5e7590928
-ms.sourcegitcommit: 9b2b3a5aede3a66aaa5453e027f1e7a56a022d49
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/13/2017
-ms.locfileid: "23407626"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659402"
 ---
 # <a name="computer-vision-java-quick-starts"></a>计算机视觉 Java 快速入门
 
@@ -38,8 +38,8 @@ ms.locfileid: "23407626"
 - 完整句子中图像内容的说明。
 - 图像包含的任何人脸的坐标、性别和年龄。
 - ImageType（剪贴画或线条绘图）。
-- 主色、强调色，或者图像是否为黑白色。
-- 在此[分类](/cognitive-services/computer-vision/category-taxonomy)中定义的类别。
+- 主色、主题色或图像是否为黑白。
+- 此[分类](/cognitive-services/computer-vision/category-taxonomy)中定义的类别。
 - 图像是否包含成人或性暗示内容？
 
 ### <a name="analyze-an-image-java-example-request"></a>分析图像 Java 示例请求

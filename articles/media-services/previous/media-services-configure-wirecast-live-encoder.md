@@ -16,11 +16,11 @@ origin.date: 01/05/2017
 ms.date: 09/24/2018
 ms.author: v-jay
 ms.openlocfilehash: 338a4127fcc7347c03812c7c726021b97d81b494
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426227"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656261"
 ---
 # <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>使用 Wirecast 编码器发送单比特率实时流
 > [!div class="op_single_selector"]
@@ -121,7 +121,7 @@ ms.locfileid: "47426227"
     “编码”字段现在有新建的配置文件可供选择。
 
     请确保选择新的配置文件。
-7. 获取频道的输入 URL，以便将其分配给 Wirecast 的“RTMP 终结点”。
+7. 获取频道的输入 URL，以便将其分配给 Wirecast 的“RTMP 终结点” 。
 
     导航回 AMSE 工具，查看频道完成状态。 一旦状态从“正在启动”变为“正在运行”，即可获取输入 URL。
 

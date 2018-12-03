@@ -16,11 +16,11 @@ origin.date: 07/18/2017
 ms.date: 09/17/2018
 ms.author: v-yiso
 ms.openlocfilehash: df4d45d526235999497d0a5276ecfdfa703880b0
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068127"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666621"
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-powershell"></a>使用 PowerShell 为 Azure 云服务中的角色启用远程桌面连接
 
@@ -47,7 +47,7 @@ $remoteusercredentials = Get-Credential
 
 此命令显示一个对话框，用于以安全方式为远程用户输入用户名和密码。
 
-由于 PowerShell 有助于实现自动化方案，因此还可以通过无需用户交互的方式设置 **PSCredential** 对象。 为此，需要设置一个安全密码。 首先指定纯文本密码，并使用 [ConvertTo-SecureString](https://technet.microsoft.com/library/hh849818.aspx)将其转换为安全字符串。 接下来，需要使用 [ConvertFrom-SecureString](https://technet.microsoft.com/library/hh849814.aspx) 将此安全字符串转换为加密的标准字符串。 现在可以使用 [Set-Content](https://technet.microsoft.com/library/ee176959.aspx) 将此加密的标准字符串保存到文件。
+由于 PowerShell 有助于实现自动化方案，因此还可以通过无需用户交互的方式设置 **PSCredential** 对象。 为此，需要设置一个安全密码。 首先指定纯文本密码，并使用 [ConvertTo-SecureString](https://technet.microsoft.com/library/hh849818.aspx)将其转换为安全字符串。 接下来，需要使用 [ConvertFrom-SecureString](https://technet.microsoft.com/library/hh849814.aspx) 将此安全字符串转换为加密的标准字符串。 现在，可以使用 [Set-Content](https://technet.microsoft.com/library/ee176959.aspx)将此加密的标准字符串保存到文件。
 
 还可以创建安全密码文件，这样就不需要每次都键入密码。 此外，安全密码文件比纯文本文件安全。 使用以下 PowerShell 创建安全密码文件：
 

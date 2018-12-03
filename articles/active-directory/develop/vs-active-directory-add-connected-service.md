@@ -12,14 +12,14 @@ ms.workload: azure-vs
 ms.devlang: multiple
 ms.topic: conceptual
 origin.date: 03/12/2018
-ms.date: 09/03/2018
+ms.date: 11/08/2018
 ms.author: v-junlch
-ms.openlocfilehash: 801029a924334b6021d65afd1e2a48a8d667372a
-ms.sourcegitcommit: 562cde32fc2271238f3d1ef5d2cc5ed037bdec2d
+ms.openlocfilehash: 865d135bf7bd240f4072722a29fb7834359f1d90
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43531575"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52664566"
 ---
 # <a name="adding-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>在 Visual Studio 中使用连接服务添加 Azure Active Directory
 
@@ -36,7 +36,7 @@ ms.locfileid: "43531575"
 
 ### <a name="connect-to-azure-active-directory-using-the-connected-services-dialog"></a>使用“连接服务”对话框连接到 Azure Active Directory
 
-1. 在 Visual Studio 中，创建或打开 ASP.NET MVC 项目或 ASP.NET Web API 项目。 可以使用 MVC、Web API、单页面应用程序、Azure API 应用、Azure 移动应用和 Azure 移动服务模板。
+1. 在 Visual Studio 中，创建或打开 ASP.NET MVC 项目或 ASP.NET Web API 项目。 可以使用 MVC、Web API、单页应用程序、Azure API 应用、Azure 移动应用和 Azure 移动服务模板。
 
 1. 选择“项目”>“添加连接服务...”菜单命令，或双击解决方案资源管理器中项目下的“连接的服务”节点。
 
@@ -79,4 +79,4 @@ ms.locfileid: "43531575"
 - [Azure Active Directory 的身份验证方案](authentication-scenarios.md)
 - [向 ASP.NET Web 应用添加 Microsoft 登录功能](quickstart-v1-aspnet-webapp.md)
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

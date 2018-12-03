@@ -17,11 +17,11 @@ origin.date: 03/30/2018
 ms.date: 05/25/2018
 ms.author: v-junlch
 ms.openlocfilehash: f8a3adc61dbae55540b68593ce02bfae5d2a68b6
-ms.sourcegitcommit: e50f668257c023ca59d7a1df9f1fe02a51757719
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/26/2018
-ms.locfileid: "34554700"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666549"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>教程：在 ASP.NET 中创建缓存端排行榜
 
@@ -182,7 +182,7 @@ ms.locfileid: "34554700"
 
 1. 在 Visual Studio 中生成项目。 
 
-1. 在“解决方案资源管理器”中，右键单击“Controllers”文件夹，然后选择“添加”，再选择“控制器”。
+1. 在“解决方案资源管理器”中，右键单击“Controllers”文件夹，选择“添加”，再选择“控制器”。
 
 1. 选择“使用实体框架的包含视图的 MVC 5 控制器”并单击“添加”。 如果在单击“添加”后出现错误，请确保已先生成该项目。
 
@@ -192,7 +192,7 @@ ms.locfileid: "34554700"
 
     ![配置控制器](./media/cache-web-app-cache-aside-leaderboard/cache-configure-controller.png)
 
-1. 在“解决方案资源管理器”中展开“Global.asax”，然后双击“Global.asax.cs”将其打开。
+1. 在“解决方案资源管理器”中展开“Global.asax”，并双击“Global.asax.cs”将其打开。
 
     ![Global.asax.cs](./media/cache-web-app-cache-aside-leaderboard/cache-global-asax.png)
 
@@ -255,7 +255,7 @@ ms.locfileid: "34554700"
 
 在快速入门中，我们已安装 *StackExchange.Redis* 客户端库包。 我们还配置了要在本地使用的 *CacheConnection* 应用设置，以及发布的应用服务。 在本教程中请使用相同的客户端库以及 *TeamsController* 中的 *CacheConnection* 信息。
 
-1. 在“解决方案资源管理器”中，展开“Controllers”文件夹，然后双击“TeamsController.cs”将其打开。
+1. 在“解决方案资源管理器”中，展开“Controllers”文件夹，并双击“TeamsController.cs”将其打开。
 
     ![团队控制器](./media/cache-web-app-cache-aside-leaderboard/cache-teamscontroller.png)
 
@@ -356,7 +356,7 @@ ms.locfileid: "34554700"
 
 1. 将以下三种方法添加到 `TeamsController` 类，以便实现在以前的代码片段中添加的 switch 语句中的 `playGames`、`clearCache` 和 `rebuildDB` 操作类型。
 
-    `PlayGames` 方法可以通过对赛季进行模拟来更新团队统计信息，将结果保存到数据库，然后从缓存中清除现已过时的数据。
+    `PlayGames` 方法可以通过对赛季进行模拟来更新团队统计信息，将结果保存到数据库，并从缓存中清除现已过时的数据。
 
     ```csharp
     void PlayGames()
@@ -664,8 +664,7 @@ ms.locfileid: "34554700"
    | 设置       | 建议的值 | 说明 |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **数据库名称** | *ContosoTeamsDatabase* | 如需有效的数据库名称，请参阅 [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)（数据库标识符）。 |
-   | **订阅** | 
-            *订阅*  | 选择用于创建缓存和托管应用服务的同一订阅。 |
+   | **订阅** | *订阅*  | 选择用于创建缓存和托管应用服务的同一订阅。 |
    | **资源组**  | *TestResourceGroup* | 单击“使用现有项”，并使用缓存和应用服务所在的同一资源组。 |
    | **选择源** | **空白数据库** | 从空白数据库开始。 |
 
@@ -674,7 +673,7 @@ ms.locfileid: "34554700"
    | 设置       | 建议的值 | 说明 |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **服务器名称** | 任何全局唯一名称 |  |
-   | **服务器管理员登录名** | 任何有效的名称 | 有关有效的登录名，请参阅 [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)（数据库标识符）。 |
+   | **服务器管理员登录名** | 任何有效的名称 | 如需有效的登录名，请参阅 [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)（数据库标识符）。 |
    | **密码** | 任何有效的密码 | 密码必须至少有 8 个字符，且必须包含以下类别中的三个类别的字符：大写字符、小写字符、数字以及非字母数字字符。 |
    | **位置** | *华北* | 选择创建缓存和应用服务的同一区域。 |
 

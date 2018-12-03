@@ -13,11 +13,11 @@ origin.date: 04/11/2018
 ms.date: 08/06/2018
 ms.author: v-yiso
 ms.openlocfilehash: b3cbb18e43df36999b4536fd8d8b8143f2ca2ebd
-ms.sourcegitcommit: d4092cf6aba0d949bf612093c76f964c2bdfd0ba
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39306561"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657768"
 ---
 # <a name="save-iot-hub-messages-that-contain-sensor-data-to-your-azure-blob-storage"></a>将包含传感器数据的 IoT 中心消息保存到 Azure Blob 存储
 
@@ -61,8 +61,7 @@ ms.locfileid: "39306561"
 
    * **需要安全传输**：选择 `Disabled`。
 
-   * 
-            **订阅**：选择 Azure 订阅。
+   * **订阅**：选择 Azure 订阅。
 
    * **资源组**：使用 IoT 中心所用的同一资源组。
 

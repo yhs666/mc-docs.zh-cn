@@ -11,11 +11,11 @@ ms.topic: conceptual
 origin.date: 04/20/2017
 ms.date: 05/07/2018
 ms.openlocfilehash: 0ff64bd02cae465e5956a81bc71791e519b6cde2
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33815397"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657393"
 ---
 # <a name="programmatically-create-a-stream-analytics-job-monitor"></a>以编程方式创建流分析作业监视器
 

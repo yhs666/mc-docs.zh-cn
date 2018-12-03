@@ -17,11 +17,11 @@ origin.date: 12/05/2016
 ms.date: 05/21/2018
 ms.author: v-yeche
 ms.openlocfilehash: 524010e751c0b6de624e30dc43c9bb630e8f6ac7
-ms.sourcegitcommit: 1804be2eacf76dd7993225f316cd3c65996e5fbb
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34256583"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659334"
 ---
 # <a name="exporting-resource-groups-that-contain-vm-extensions"></a>导出包含 VM 扩展的资源组
 

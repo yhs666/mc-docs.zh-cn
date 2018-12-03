@@ -16,11 +16,11 @@ origin.date: 07/31/2018
 ms.date: 09/10/2018
 ms.author: v-yeche
 ms.openlocfilehash: 7978677b7aade478f301e3df27adeb972263df98
-ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44515644"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651949"
 ---
 # <a name="sfctl-store"></a>sfctl store
 针对群集映像存储执行基本文件级别操作。
@@ -29,7 +29,7 @@ ms.locfileid: "44515644"
 
 |命令|说明|
 | --- | --- |
-| delete | 删除现有的映像存储内容。 |
+| 删除 | 删除现有的映像存储内容。 |
 | root-info | 获取映像存储根目录中的内容信息。 |
 | stat | 获取映像存储内容信息。 |
 

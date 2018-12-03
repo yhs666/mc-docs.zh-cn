@@ -1,6 +1,6 @@
 ---
 title: 暂存云服务部署 (Node.js) | Azure
-description: 了解如何使用虚拟 IP (VIP) 交换将 Azure 应用程序部署到过渡环境，再将其部署到生产环境。
+description: 了解如何使用虚拟 IP (VIP) 交换将 Azure 应用程序部署到过渡环境，此后再将其部署到生产环境。
 services: cloud-services
 documentationcenter: nodejs
 author: craigshoemaker
@@ -16,11 +16,11 @@ origin.date: 08/17/2017
 ms.date: 12/11/2017
 ms.author: v-yiso
 ms.openlocfilehash: c145e63f868bac83a7c9759c4a62820abdd3d28b
-ms.sourcegitcommit: 2291ca1f5cf86b1402c7466d037a610d132dbc34
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/01/2017
-ms.locfileid: "26044645"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651296"
 ---
 # <a name="staging-an-application-in-azure"></a>在 Azure 中暂存应用程序
 
@@ -60,7 +60,7 @@ ms.locfileid: "26044645"
 在过渡环境中验证应用程序的升级版本后，可以通过交换过渡和生产环境的虚拟 PI (VIP)，快速使应用程序可用于生产环境。
 
 > [!NOTE]
-> 此步骤假定已将应用程序部署到生产环境，并且暂存了它的升级版本。
+> 此步骤假定您已将应用程序部署到生产环境，并且暂存了它的升级版本。
 
 1.  登录到 [Azure 经典门户]，单击“云服务”，然后选择服务名称。
 

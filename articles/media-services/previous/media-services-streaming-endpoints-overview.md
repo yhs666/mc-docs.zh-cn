@@ -3,7 +3,7 @@ title: Azure 媒体服务流式处理终结点概述 | Microsoft 文档
 description: 本主题提供 Azure 媒体服务流式处理终结点的概述。
 services: media-services
 documentationcenter: ''
-author: forester123
+author: WenJason
 writer: juliako
 manager: digimobile
 editor: ''
@@ -13,15 +13,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/29/2017
-ms.date: 09/25/2017
-ms.author: v-johch
-ms.openlocfilehash: 137edc51e1407310705dc5599f115bad6fd89398
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+origin.date: 10/24/2018
+ms.date: 12/03/2018
+ms.author: v-jay
+ms.openlocfilehash: a44a96c53ba38b7f771385f5948033d5272e4414
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426175"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672922"
 ---
 # <a name="streaming-endpoints-overview"></a>流式处理终结点概述 
 
@@ -89,6 +89,7 @@ CDN|Azure CDN、第三方 CDN 或没有 CDN。|Azure CDN、第三方 CDN 或没�
 IP 筛选/G20/自定义主机|是|是
 渐进式下载|是|是
 建议的用法 |建议用于绝大多数的流式处理方案。|专业用途。
+
 
 ## <a name="migration-between-types"></a>类型之间的迁移
 

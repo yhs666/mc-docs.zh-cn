@@ -15,12 +15,12 @@ ms.topic: get-started-article
 origin.date: 09/18/2018
 ms.date: 10/22/2018
 ms.author: v-jay
-ms.openlocfilehash: eae066bd2727b5db0589d5fd9b545aa77f6ccd70
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: 3fc6004fcdbab981e54bf824bde7dcc929471590
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453555"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52673051"
 ---
 # <a name="get-started-with-the-java-client-sdk-for-azure-media-services"></a>用于 Azure 媒体服务的 Java 客户端 SDK 入门
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
@@ -119,7 +119,7 @@ ms.locfileid: "49453555"
         // This is using the default Adaptive Streaming encoding preset. 
         // You can choose to use a custom preset, or any other sample defined preset. 
         // In addition you can use other processors, like Speech Analyzer, or Redactor if desired.
-        private static String preferedEncoder = "Media Encoder Standard";
+        private static String preferredEncoder = "Media Encoder Standard";
         private static String encodingPreset = "Adaptive Streaming";
 
         public static void main(String[] args)
@@ -217,7 +217,7 @@ ms.locfileid: "49453555"
 
             // Retrieve the list of Media Processors that match the name
             ListResult<MediaProcessorInfo> mediaProcessors = mediaService
-                            .list(MediaProcessor.list().set("$filter", String.format("Name eq '%s'", preferedEncoder)));
+                            .list(MediaProcessor.list().set("$filter", String.format("Name eq '%s'", preferredEncoder)));
 
             // Use the latest version of the Media Processor
             MediaProcessorInfo mediaProcessor = null;

@@ -16,11 +16,11 @@ origin.date: 03/14/2018
 ms.date: 10/22/2018
 ms.author: v-yiso
 ms.openlocfilehash: e55a60cd5d30165957ff1cff8a3dc24b115c21c4
-ms.sourcegitcommit: 8a5722b85c6eabbd28473d792716ad44aac3ff23
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49121520"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661502"
 ---
 # <a name="visualize-interactive-query-hive-data-with-microsoft-power-bi-using-direct-query-in-azure-hdinsight"></a>在 Azure HDInsight 中使用 Microsoft Power BI 通过直接查询直观显示交互式查询 Hive 数据
 

@@ -15,11 +15,11 @@ origin.date: 09/19/2018
 ms.date: 11/12/2018
 ms.author: v-jay
 ms.openlocfilehash: aa6766995b6f8ef81e238614be3acf2ccd789b96
-ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51195562"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649894"
 ---
 # <a name="using-dns-in-azure-stack"></a>使用 Azure Stack 中的 DNS
 

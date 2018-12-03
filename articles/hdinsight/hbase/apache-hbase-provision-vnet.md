@@ -12,11 +12,11 @@ origin.date: 02/22/2018
 ms.date: 09/17/2018
 ms.author: v-yiso
 ms.openlocfilehash: 724c44ae6a030cff1a9bae4abc2d2e1adaa7a929
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068199"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659728"
 ---
 # <a name="create-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>在 Azure 虚拟网络中的 HDInsight 上创建 HBase 群集
 了解如何在 [Azure 虚拟网络][1]中创建 Azure HDInsight HBase 群集。
@@ -72,7 +72,7 @@ ms.locfileid: "44068199"
 
 完成教程之后，可能要删除群集。 有了 HDInsight，便可以将数据存储在 Azure 存储中，因此可以在群集不用时安全地删除群集。 此外，还需要支付 HDInsight 群集费用，即使未使用。 由于群集费用高于存储空间费用数倍，因此在不使用群集时将其删除可以节省费用。 有关删除群集的说明，请参阅[使用 Azure 门户在 HDInsight 中管理 Hadoop 群集](../hdinsight-administer-use-management-portal.md#delete-clusters)。
 
-要开始处理新 HBase 群集，可以按照[开始在 HDInsight 中将 HBase 与 Hadoop 配合使用](./apache-hbase-tutorial-get-started-linux.md)中的步骤操作。
+要开始处理新 HBase 群集，可以按照 [开始在 HDInsight 中将 HBase 与 Hadoop 配合使用](./apache-hbase-tutorial-get-started-linux.md)中的步骤操作。
 
 ## <a name="connect-to-the-hbase-cluster-using-hbase-java-rpc-apis"></a>使用 HBase Java RPC API 连接到 HBase 群集。
 1. 将基础结构即服务 (IaaS) 虚拟机创建到相同的 Azure 虚拟网络和子网中。 有关创建新 IaaS 虚拟机的说明，请参阅[创建运行 Windows Server 的虚拟机](../../virtual-machines/windows/quick-create-portal.md)。 按照本文档中的步骤操作时，必须使用以下值进行网络配置：

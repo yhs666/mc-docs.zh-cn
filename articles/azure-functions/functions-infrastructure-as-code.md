@@ -18,11 +18,11 @@ origin.date: 05/25/2017
 ms.date: 05/29/2018
 ms.author: v-junlch
 ms.openlocfilehash: 8a73bf8ffb0aa679cde00b8ce8429260aa22510e
-ms.sourcegitcommit: 54d9384656cee927000d77de5791c1d585d94a68
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46524024"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645622"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>为 Azure Functions 中的函数应用自动执行资源部署
 

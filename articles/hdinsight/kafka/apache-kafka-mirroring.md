@@ -17,11 +17,11 @@ origin.date: 05/01/2018
 ms.date: 06/25/2018
 ms.author: v-yiso
 ms.openlocfilehash: c35b20d0b57e11c9ca17280cef0097d8fc9e38e8
-ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36747450"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657435"
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>使用 MirrorMaker 通过 Kafka on HDInsight 复制 Apache Kafka 主题
 
@@ -306,6 +306,6 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 服务的�
 
 * [Apache Kafka MirrorMaker 文档](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) 。
 * [Apache Kafka on HDInsight 入门](apache-kafka-get-started.md)
-* [将 Apache Spark 与 Kafka on HDInsight 结合使用](../hdinsight-apache-spark-with-kafka.md)
+* [Use Apache Spark with Kafka on HDInsight（将 Apache Spark 与 Kafka on HDInsight 配合使用）](../hdinsight-apache-spark-with-kafka.md)
 * [将 Apache Storm 与 Kafka on HDInsight 结合使用](../hdinsight-apache-storm-with-kafka.md)
 * [通过 Azure 虚拟网络连接到 Kafka](apache-kafka-connect-vpn-gateway.md)

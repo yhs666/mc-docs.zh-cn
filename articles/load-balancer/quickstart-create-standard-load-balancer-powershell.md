@@ -4,25 +4,23 @@ description: 本快速入门介绍如何使用 PowerShell 创建标准负载均�
 services: load-balancer
 documentationcenter: na
 author: WenJason
-manager: digimobile
-tags: azure-resource-manager
 Customer intent: I want to create a Standard Load balancer so that I can load balance internet traffic to VMs.
 ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: qucikstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 08/22/2018
-ms.date: 11/05/2018
+ms.date: 11/26/2018
 ms.author: v-jay
 ms:custom: mvc
-ms.openlocfilehash: 481ef103b0ac6eb196419ed4495321614a373058
-ms.sourcegitcommit: 9be84d4dc546d66a0d9d1d2be67dd79c84b2c210
+ms.openlocfilehash: 4bb5bfa1a855b5fcb6dfd982169b8c697af48bca
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50408864"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672675"
 ---
 # <a name="get-started"></a>快速入门：使用 Azure PowerShell 创建标准负载均衡器
 本快速入门介绍如何使用 Azure PowerShell 创建标准负载均衡器。 为了测试负载均衡器，需要部署两台运行 Windows 服务器的虚拟机 (VM)，并在 VM 之间对一个 Web 应用进行负载均衡。 若要了解有关标准负载均衡器的详细信息，请参阅[什么是标准负载均衡器](load-balancer-standard-overview.md)。
@@ -124,7 +122,7 @@ $natrule2 = New-AzureRmLoadBalancerInboundNatRuleConfig `
 
 ### <a name="create-load-balancer"></a>创建负载均衡器
 
-使用 [New-AzureRmLoadBalancer](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermloadbalancer) 创建标准负载均衡器。 以下示例使用在前面的步骤中创建的前端 IP 配置、后端池、运行状况探测、负载均衡规则和 NAT 规则创建名为 myLoadBalancer 的公用标准负载均衡器：
+使用 [New-AzureRmLoadBalancer](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermloadbalancer) 创建标准负载均衡器。 以下示例使用在前面的步骤中创建的前端 IP 配置、后端池、运行状况探测、负载均衡规则和 NAT 规则创建名为 myLoadBalancer 的公用基本负载均衡器：
 
 ```powershell
 $lb = New-AzureRmLoadBalancer `
@@ -201,10 +199,10 @@ $rule2 = New-AzureRmNetworkSecurityRuleConfig `
 使用 [New-AzureRmNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermnetworksecuritygroup) 创建网络安全组。
 
 ```powershell
-$nsg = New-AzureRmNetworkSecurityGroup`
+$nsg = New-AzureRmNetworkSecurityGroup `
 -ResourceGroupName 'myResourceGroupLB' `
 -Location 'ChinaEast' `
--Name 'myNetworkSecurityGroup'`
+-Name 'myNetworkSecurityGroup' `
 -SecurityRules $rule1,$rule2
 ```
 
@@ -334,7 +332,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroupLB
 
 ## <a name="next-steps"></a>后续步骤
 
-本快速入门介绍了如何创建标准负载均衡器，向其附加 VM，配置负载均衡器流量规则、运行状况探测，然后测试负载均衡器。 若要了解有关 Azure 负载均衡器的详细信息，请继续学习 Azure 负载均衡器教程。
+本快速入门介绍了如何创建基本负载均衡器，向其附加 VM，配置负载均衡器流量规则、运行状况探测，然后测试负载均衡器。 若要了解有关 Azure 负载均衡器的详细信息，请继续学习 Azure 负载均衡器教程。
 
 > [!div class="nextstepaction"]
 > [Azure 负载均衡器教程](tutorial-load-balancer-basic-internal-portal.md)

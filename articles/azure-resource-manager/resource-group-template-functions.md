@@ -16,11 +16,11 @@ origin.date: 08/03/2018
 ms.date: 09/03/2018
 ms.author: v-yeche
 ms.openlocfilehash: bff7d8dbdded5cd55738c821af8b62ae563e3fac
-ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43164838"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657291"
 ---
 # <a name="azure-resource-manager-template-functions"></a>Azure Resource Manager 模板函数
 本文介绍可以在 Azure 资源管理器模板中使用的所有函数。

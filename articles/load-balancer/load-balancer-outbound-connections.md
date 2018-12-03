@@ -4,23 +4,20 @@ description: 本文介绍 Azure 如何使 VM 与公共 Internet 服务通信。
 services: load-balancer
 documentationcenter: na
 author: WenJason
-manager: digimobile
-editor: ''
-ms.assetid: 5f666f2a-3a63-405a-abcd-b2e34d40e001
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 10/01/2018
-ms.date: 11/05/2018
+ms.date: 11/26/2018
 ms.author: v-jay
-ms.openlocfilehash: f41c2094ccf3ed47f8ca0cb3358ac22fce18aad6
-ms.sourcegitcommit: 9be84d4dc546d66a0d9d1d2be67dd79c84b2c210
+ms.openlocfilehash: 8ee290538d1ae802af8562ebc4527aa7b91b5ee4
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50408847"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672840"
 ---
 # <a name="outbound-connections-in-azure"></a>Azure 中的出站连接
 
@@ -40,7 +37,7 @@ Azure 使用源网络地址转换 (SNAT) 来执行此功能。 当多个专用 I
 
 ## <a name="scenarios"></a>方案概述
 
-Azure 负载均衡器和相关资源是使用 [Azure 资源管理器](#arm)时显式定义的。  Azure 目前提供三种不同的方法实现 Azure 资源管理器资源的出站连接。 
+Azure 负载均衡器和相关资源是使用 [Azure 资源管理器](/azure-resource-manager/resource-group-overview)时显式定义的。  Azure 目前提供三种不同的方法实现 Azure 资源管理器资源的出站连接。 
 
 | 方案 | 方法 | IP 协议 | 说明 |
 | --- | --- | --- | --- |
@@ -76,7 +73,7 @@ SNAT 端口是按照[了解 SNAT 和 PAT](#snat) 部分中所述预先分配的�
 <!-- Not Available on [alert event logs](load-balancer-monitor-log.md#alert-event-log)-->
 ### <a name="defaultsnat"></a>方案 3：无实例级公共 IP 地址的独立 VM
 
-在此场景中，VM 不是公共负载均衡器池的一部分（也不是内部标准负载均衡器池的一部分），并且没有分配给它的 ILPIP 地址。 当 VM 创建出站流时，Azure 将此出站流的专用源 IP 地址转换为公共源 IP 地址。 用于此出站流的公共 IP 地址是不可配置的，并且不会影响订阅的公共 IP 资源限制。 此公共 IP 地址不属于你，不能保留。 如果重新部署 VM 或可用性集或 VMSS，则将释放此公共 IP 地址并请求新的公共 IP 地址。 请不要使用此方案将 IP 地址加入允许列表。 而是使用其他两个方案之一，其中你显式声明出站方案和要用于出站连接的公共 IP 地址。
+在此场景中，VM 不是公共负载均衡器池的一部分（也不是内部标准负载均衡器池的一部分），并且没有分配给它的 ILPIP 地址。 当 VM 创建出站流时，Azure 将此出站流的专用源 IP 地址转换为公共源 IP 地址。 用于此出站流的公共 IP 地址是不可配置的，并且不会影响订阅的公共 IP 资源限制。 此公共 IP 地址不属于你，不能保留。 如果重新部署 VM、可用性集或虚拟机规模集，则将释放此公共 IP 地址并请求新的公共 IP 地址。 请不要使用此方案将 IP 地址加入允许列表。 而是使用其他两个方案之一，其中你显式声明出站方案和要用于出站连接的公共 IP 地址。
 
 >[!IMPORTANT] 
 >仅当附加了内部基本负载均衡器时，此场景才适用。 如果已将内部标准负载均衡器附加到 VM，则场景 3 不适用。  除了使用内部标准负载均衡器以外，还必须显式创建[场景 1](#ilpip) 或[场景 2](#lb)。
@@ -107,7 +104,7 @@ SNAT 端口是根据[了解 SNAT 和 PAT](#snat) 部分中所述预先分配的�
       ]
 ```
 
-此选项通常默认为 _false_，表示此规则将在负载均衡规则的后端池中设定关联 VM 的出站 SNAT。  可将此选项更改为 _true_，防止负载均衡器对此负载均衡规则的后端池中 VM 的出站连接使用关联的前端 IP 地址。  此外，仍可以根据[多个组合方案](#combinations)中所述，为出站流指定特定的 IP 地址。
+通常，`disableOutboundSnat` 选项默认为 _false_，表示此规则将为负载均衡规则的后端池中关联的 VM 编制出站 SNAT。 可将 `disableOutboundSnat` 更改为 _true_，防止负载均衡器对此负载均衡规则的后端池中 VM 的出站连接使用关联的前端 IP 地址。  此外，仍可以根据[多个组合方案](#combinations)中所述，为出站流指定特定的 IP 地址。
 
 #### <a name="load-balancer-basic"></a>负载均衡器基本版
 
@@ -153,7 +150,6 @@ UDP SNAT 端口由与 TCP SNAT 端口不同的算法管理。  负载均衡器�
 >标准 SKU SNAT 编程依据 IP 传输协议并且派生自负载均衡规则。  如果只存在一个 TCP 负载均衡规则，则 SNAT 仅可用于 TCP。 如果只有一个 TCP 负载均衡规则并且 UDP 需要出站 SNAT，请创建从同一个前端到同一个后端池的 UDP 负载均衡规则。  这将触发针对 UDP 的 SNAT 编程。  不需要采用工作规则或运行状况探测。  无论在负载均衡规则中指定了什么传输协议，基本 SKU SNAT 都始终针对 IP 传输协议编写 SNAT 程序。
 
 Azure 向每个 VM 的 NIC IP 配置预先分配 SNAT 端口。 将 IP 配置添加到池后，将会根据后端池的大小预先分配此 IP 配置的 SNAT 端口。 创建出站流后，当流关闭或[空闲超时](#idletimeout)时，[PAT](#pat) 动态使用（不超过预先分配的限制）和释放这些端口。
-<!-- Archor Should be #idletimeout -->
 
 下表显示了针对后端池大小层的 SNAT 端口预分配：
 
@@ -221,7 +217,7 @@ SNAT 端口分配特定于 IP 传输协议（TCP 和 UDP 是分别维护的）�
 
 #### <a name="multifesnat"></a>使用多个前端
 
-使用公共标准负载均衡器时，可[为出站连接分配多个前端 IP 地址](#multife)，并[将可用的 SNAT 端口数倍增](#preallocatedports)。  需要创建前端 IP 配置、规则和后端池，以触发通过 SNAT 连接到前端公共 IP 的编程。  该规则不需要运行，并且运行状况探测不需要成功。  如果对入站连接（而不仅仅是出站连接）也使用多个前端，应使用自定义的运行状况探测来确保可靠性。
+使用公共标准负载均衡器时，可[为出站连接分配多个前端 IP 地址](#multife)，并[将可用的 SNAT 端口数倍增](#preallocatedports)。  创建前端 IP 配置、规则和后端池，以触发将 SNAT 编程到前端公共 IP。  该规则不需要运行，并且运行状况探测不需要成功。  如果对入站连接（而不仅仅是出站连接）也使用多个前端，应使用自定义的运行状况探测来确保可靠性。
 
 >[!NOTE]
 >在大多数情况下，SNAT 端口耗尽是设计不当的征兆。  在使用更多前端来添加 SNAT 端口之前，请确保已了解端口耗尽的原因。  否则可能会忽视问题，导致以后出现故障。
@@ -230,7 +226,7 @@ SNAT 端口分配特定于 IP 传输协议（TCP 和 UDP 是分别维护的）�
 
 [预分配端口](#preallocatedports)是根据后端池大小分配的并且分组到各个层中，这样，当某些端口必须重新分配以适应后端池更大的下一个层时，可以最大限度地减少中断。  有可能可以通过将后端池扩展到给定层的最大大小来提高给定前端的 SNAT 端口利用率。  这需要应用程序高效地进行横向扩展。
 
-例如，后端池中的 2 台虚拟机对于每个 IP 配置将有 1024 个 SNAT 端口可用，整个部署总共有 2048 个 SNAT 端口。  如果部署已增加到 50 台虚拟机，虽然每台虚拟机的预分配端口数保持不变，但整个部署可以使用 51,200 (50 x 1024) 个 SNAT 端口。  如果希望横向扩展部署，请检查每层的[预分配端口](#preallocatedports)的数量以确保将横向扩展规划为各自层的最大容量。  在上述示例中，如果选择了横向扩展到 51 个而非 50 个实例，则你将提升到下一个层，最终，每台 VM 的 SNAT 端口数以及端口总数会更少。
+例如，后端池中的两个虚拟机对于每个 IP 配置将有 1024 个 SNAT 端口可用，整个部署总共有 2048 个 SNAT 端口。  如果部署已增加到 50 台虚拟机，虽然每台虚拟机的预分配端口数保持不变，但整个部署可以使用 51,200 (50 x 1024) 个 SNAT 端口。  如果希望横向扩展部署，请检查每层的[预分配端口](#preallocatedports)的数量以确保将横向扩展规划为各自层的最大容量。  在上述示例中，如果选择了横向扩展到 51 个而非 50 个实例，则你将提升到下一个层，最终，每台 VM 的 SNAT 端口数以及端口总数会更少。
 
 如果横向扩展到后端池较大的下一层，并且需要重新分配已分配端口，则部分出站连接可能会超时。  如果仅使用部分 SNAT 端口，则在后端池较大的下一层中横向扩展无意义。  每次移动到后端池的下一层时，半数现有端口将重新分配。  如果不希望发生此行为，则需要将部署规划为层大小。  或者确保应用程序可以根据需要进行检测和重试。  TCP keepalive 可以帮助检测 SNAT 端口何时由于被重新分配而不再工作。
 

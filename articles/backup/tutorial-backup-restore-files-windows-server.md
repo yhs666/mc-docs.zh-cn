@@ -12,11 +12,11 @@ ms.date: 07/06/2018
 ms.author: v-junlch
 ms.custom: mvc
 ms.openlocfilehash: dcaef43f58e5921c62ecddda733339a4012d6b6a
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873469"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659806"
 ---
 # <a name="recover-files-from-azure-to-a-windows-server"></a>将文件从 Azure 恢复到 Windows Server
 

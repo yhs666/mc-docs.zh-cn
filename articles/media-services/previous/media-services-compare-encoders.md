@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/05/2017
-ms.date: 06/25/2018
-ms.author: v-nany
-ms.openlocfilehash: fc32782a2bbade264b518764f3bcd0da1a316983
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+origin.date: 10/24/2018
+ms.date: 12/03/2018
+ms.author: v-jay
+ms.openlocfilehash: 26161624dabe0817b6f5a2156fafbe926092c637
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426327"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52673110"
 ---
 # <a name="comparison-of-azure-on-demand-media-encoders"></a>Azure 点播媒体编码器之间的对比
 

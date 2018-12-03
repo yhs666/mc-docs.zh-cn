@@ -18,11 +18,11 @@ origin.date: 09/07/2018
 ms.date: 10/15/2018
 ms.author: v-jay
 ms.openlocfilehash: 690845bee4edd4906ee67b15d26f087831064904
-ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913802"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663663"
 ---
 # <a name="use-powershell-to-configure-an-active-geo-replication-failover-group-for-a-single-azure-sql-database"></a>使用 PowerShell 为单个 Azure SQL 数据库配置活动异地复制故障转移组
 

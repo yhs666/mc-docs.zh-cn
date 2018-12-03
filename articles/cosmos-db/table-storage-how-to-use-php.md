@@ -12,11 +12,11 @@ origin.date: 04/05/2018
 ms.date: 09/03/2018
 ms.author: v-yeche
 ms.openlocfilehash: f2fd17a64393d53b816c5926af31cc19e70ae1fe
-ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43164792"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652169"
 ---
 # <a name="how-to-use-azure-storage-table-service-from-php"></a>如何通过 PHP 使用 Azure 存储表服务
 <!-- Not Available on  Cosmos DB Table API -->

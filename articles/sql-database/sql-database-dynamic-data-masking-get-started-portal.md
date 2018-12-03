@@ -11,11 +11,11 @@ origin.date: 04/01/2018
 ms.date: 09/02/2018
 ms.author: v-jay
 ms.openlocfilehash: 849e72e6f2c025641890ff2924220499914dcb35
-ms.sourcegitcommit: 2601e68563bffe148e70cce2bf1dcbe837a40f80
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43249633"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644538"
 ---
 # <a name="get-started-with-sql-database-dynamic-data-masking-with-the-azure-portal"></a>Azure 门户的 SQL 数据库动态数据掩码入门
 

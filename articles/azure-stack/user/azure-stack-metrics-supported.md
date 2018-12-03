@@ -15,11 +15,11 @@ origin.date: 09/05/2018
 ms.date: 10/15/2018
 ms.author: v-jay
 ms.openlocfilehash: d4371756681d28e26c221c1384604ee8255b73d0
-ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48849141"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653425"
 ---
 # <a name="supported-metrics-with-azure-monitor-on-azure-stack"></a>Azure Stack 上的 Azure Monitor 支持的指标
 

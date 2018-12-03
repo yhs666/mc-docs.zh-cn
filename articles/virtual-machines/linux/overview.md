@@ -17,11 +17,11 @@ ms.date: 10/22/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017, mvc
 ms.openlocfilehash: 69d4cea99b80981fc59dbd398c224e3ddc6c157b
-ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50034978"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662757"
 ---
 # <a name="azure-and-linux"></a>Azure 和 Linux
 Azure 是一个不断增长的集成公有云服务集合，包括分析、虚拟机、数据库、移动、网络、存储和 Web&mdash;是托管解决方案的理想选择。  Azure 提供可缩放的计算平台，允许即用即付，而无需投资购买本地硬件。  Azure 允许根据客户端所需的任何规模，随时扩展和缩减解决方案。

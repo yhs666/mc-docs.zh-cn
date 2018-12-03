@@ -14,11 +14,11 @@ manager: digimobile
 origin.date: 10/05/2018
 ms.date: 10/29/2018
 ms.openlocfilehash: 1a69867910531edfc72934514ae68c02d68108b9
-ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50135705"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656343"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>以最短的停机时间动态缩放数据库资源
 

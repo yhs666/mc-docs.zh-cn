@@ -10,11 +10,11 @@ origin.date: 06/14/2018
 ms.date: 10/15/2018
 ms.author: v-jay
 ms.openlocfilehash: 876764da5f3dd5142b017ef39373469f5f3358b0
-ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48914018"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658757"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>使用 Transact-SQL (T-SQL) 创建和管理弹性数据库作业
 

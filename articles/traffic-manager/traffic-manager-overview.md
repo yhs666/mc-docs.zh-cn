@@ -16,11 +16,11 @@ origin.date: 07/25/2018
 ms.date: 09/17/2018
 ms.author: v-yeche
 ms.openlocfilehash: e9a441d30a0f51ad877e8902c433e361821967fa
-ms.sourcegitcommit: 96d06c506983906a92ff90a5f67199f8f7e10996
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45586841"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660427"
 ---
 # <a name="what-is-traffic-manager"></a>什么是流量管理器？
 Azure 流量管理器是一种基于 DNS 的流量负载均衡器，可以在全球 Azure 区域内以最佳方式向服务分配流量，同时提供高可用性和响应性。

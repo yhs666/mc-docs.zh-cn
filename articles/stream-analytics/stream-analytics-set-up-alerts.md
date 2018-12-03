@@ -11,11 +11,11 @@ ms.topic: conceptual
 origin.date: 06/26/2017
 ms.date: 07/02/2018
 ms.openlocfilehash: e04efefa6d9e0c04f0822fe36455eb45415bda88
-ms.sourcegitcommit: 18810626635f601f20550a0e3e494aa44a547f0e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37405390"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650790"
 ---
 # <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>为 Azure 流分析作业设置警报
 可以设置警报，以便在指标达到指定的条件时触发警报。 例如，可为如下条件设置警报：
@@ -41,7 +41,7 @@ ms.locfileid: "37405390"
 
       ![为 Azure 流分析作业设置警报](./media/stream-analytics-set-up-alerts/stream-analytics-add-alert.png)  
 
-有关在 Azure 门户中配置警报的详细信息，请参阅[接收警报通知](../monitoring-and-diagnostics/monitoring-overview-alerts.md)。  
+有关在 Azure 门户中配置警报的详细信息，请参阅 [接收警报通知](../monitoring-and-diagnostics/monitoring-overview-alerts.md)。  
 <!-- URL insights-receive-alert-notifications.md Redirect to monitoring-overview-alerts.md-->
 
 ## <a name="get-help"></a>获取帮助

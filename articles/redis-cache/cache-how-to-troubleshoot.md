@@ -16,11 +16,11 @@ origin.date: 01/06/2017
 ms.date: 09/07/2018
 ms.author: v-junlch
 ms.openlocfilehash: d30c729964910a29921926d6f51a835039f62af4
-ms.sourcegitcommit: 40456700212200e707d6cb3147cf96ad161d3ff2
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44269536"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653761"
 ---
 # <a name="how-to-troubleshoot-azure-redis-cache"></a>如何排查 Azure Redis 缓存问题
 
@@ -33,7 +33,7 @@ ms.locfileid: "44269536"
 - [StackExchange.Redis 超时异常](#stackexchangeredis-timeout-exceptions) - 此部分说明如何在使用 StackExchange.Redis 客户端时排查问题。
 
 > [!NOTE]
-> 本指南中的多个故障排除步骤包括了运行 Redis 命令和监视各种性能指标的说明。 有关详细信息和说明，请参阅[其他信息](#additional-information)部分的文章。
+> 本指南中的多个故障排除步骤包括了运行 Redis 命令和监视各种性能指标的说明。 如需更多信息和说明，请参阅 [其他信息](#additional-information) 部分的文章。
 > 
 > 
 
@@ -49,7 +49,7 @@ ms.locfileid: "44269536"
 
 ### <a name="memory-pressure-on-the-client"></a>客户端内存压力
 #### <a name="problem"></a>问题
-客户端计算机上出现的内存压力会导致各种性能问题，这些问题可能会延迟对 Redis 实例所发送的无延迟数据的处理。 出现内存压力时，系统通常必须将数据从物理内存以分页方式转移到磁盘上的虚拟内存。 此分页错误导致系统性能显著下降。
+客户端计算机上出现的内存压力会导致各种性能问题，这些问题可能会延迟对 Redis 实例所发送的无延迟数据的处理。 出现内存压力时，系统通常必须将数据从物理内存以分页方式转移到磁盘上的虚拟内存。 此 *分页错误* 导致系统的性能显著下降。
 
 #### <a name="measurement"></a>度量
 1. 监视计算机上的内存使用情况，确保所用内存不超出可用内存。 
@@ -63,14 +63,14 @@ ms.locfileid: "44269536"
 流量激增时，如果 `ThreadPool` 设置不佳，则可能导致对 Redis 服务器已发送但尚未在客户端上使用的数据的处理出现延迟。
 
 #### <a name="measurement"></a>度量
-使用[此类](https://github.com/JonCole/SampleCode/blob/master/ThreadPoolMonitor/ThreadPoolLogger.cs)代码监视 `ThreadPool` 统计信息随时间变化的情况。 也可查看 StackExchange.Redis 发出的 `TimeoutException` 消息。 下面是一个示例：
+使用[此类](https://github.com/JonCole/SampleCode/blob/master/ThreadPoolMonitor/ThreadPoolLogger.cs)代码监视 `ThreadPool` 统计信息随时间变化的情况。 也可查看 StackExchange.Redis 发出的 `TimeoutException` 消息。 以下是示例：
 
     System.TimeoutException: Timeout performing EVAL, inst: 8, mgr: Inactive, queue: 0, qu: 0, qs: 0, qc: 0, wr: 0, wq: 0, in: 64221, ar: 0, 
     IOCP: (Busy=6,Free=999,Min=2,Max=1000), WORKER: (Busy=7,Free=8184,Min=2,Max=8191)
 
 在上面的消息中，有几个需要注意的问题：
 
-1. 请注意，在 `IOCP` 部分和 `WORKER` 部分，`Busy` 值大于 `Min` 值。 这意味着 `ThreadPool` 设置需要调整。
+1. 请注意，在 `IOCP` 节和 `WORKER` 节中，`Busy` 值大于 `Min` 值。 这意味着 `ThreadPool` 设置需要调整。
 2. 也可参看 `in: 64221`。 这表示已在内核套接字层收到了 64211 字节，但这些字节尚未被应用程序（例如 StackExchange.Redis）读取。 这通常意味着，应用程序从网络读取数据的速度没有服务器向你发送数据的速度快。
 
 #### <a name="resolution"></a>解决方法
@@ -81,7 +81,7 @@ ms.locfileid: "44269536"
 客户端 CPU 使用率过高表示系统跟不上所要求执行的工作的进度。 这意味着，客户端可能无法及时处理 Redis 发出的响应，即使 Redis 发送响应的速度很快。
 
 #### <a name="measurement"></a>度量
-通过 Azure 门户或关联的性能计数器监视系统范围的 CPU 使用率。 请注意，不要监视进程 CPU，因为即使单个进程的 CPU 使用率低，系统的总体 CPU 使用率也可能高。 注意与超时相对应的 CPU 使用率峰值。 由于 CPU 使用率高，可能还会在 `TimeoutException` 错误消息中看到 `in: XXX` 值高，如[流量激增](#burst-of-traffic)部分所述。
+通过 Azure 门户或关联的性能计数器监视系统范围的 CPU 使用率。 请注意，不要监视 *进程* CPU，因为即使单个进程的 CPU 使用率低，系统的总体 CPU 使用率也可能高。 注意与超时相对应的 CPU 使用率峰值。 由于 CPU 使用率较高，因此可能还会在 `TimeoutException` 错误消息中看到较高的 `in: XXX` 值，如[流量激增](#burst-of-traffic)部分所述。
 
 > [!NOTE]
 > StackExchange.Redis 1.1.603 及更高版本在 `TimeoutException` 错误消息中包括了 `local-cpu` 指标。 确保使用最新版本的 [StackExchange.Redis NuGet 包](https://www.nuget.org/packages/StackExchange.Redis/)。 我们会不断对代码中的 Bug 进行修正，以便更好地应对超时情况。因此，请务必使用最新的版本。
@@ -96,7 +96,7 @@ ms.locfileid: "44269536"
 不同的客户端计算机体系结构对于可提供的网络带宽存在不同的限制。 如果客户端超出可用带宽，则客户端的数据处理速度将赶不上服务器的数据发送速度。 这种情况下会导致超时。
 
 #### <a name="measurement"></a>度量
-使用[此类](https://github.com/JonCole/SampleCode/blob/master/BandWidthMonitor/BandwidthLogger.cs)代码监视带宽使用随时间变化的情况。 在对权限有限制的某些环境（例如 Azure 网站）中，此代码可能无法成功运行。
+使用 [此类](https://github.com/JonCole/SampleCode/blob/master/BandWidthMonitor/BandwidthLogger.cs)代码监视带宽使用随时间变化的情况。 在对权限有限制的某些环境（例如 Azure 网站）中，此代码可能无法成功运行。
 
 #### <a name="resolution"></a>解决方法
 增加客户端 VM 大小或减少网络带宽消耗。
@@ -129,7 +129,7 @@ ms.locfileid: "44269536"
 我本以为某些数据会出现在我的 Azure Redis 缓存实例中，但这些数据似乎并不在那里。
 
 #### <a name="resolution"></a>解决方法
-请参阅 [What happened to my data in Redis?](https://gist.github.com/JonCole/b6354d92a2d51c141490f10142884ea4#file-whathappenedtomydatainredis-md)（我在 Redis 中的数据发生了什么情况？），了解可能的原因和解决方法。
+请参阅[我在 Redis 中的数据发生了什么情况？](https://gist.github.com/JonCole/b6354d92a2d51c141490f10142884ea4#file-whathappenedtomydatainredis-md)，了解可能的原因和解决方法。
 
 ## <a name="server-side-troubleshooting"></a>服务器端故障排除
 此部分讨论如何排查因缓存服务器出现状况而发生的问题。
@@ -140,7 +140,7 @@ ms.locfileid: "44269536"
 
 ### <a name="memory-pressure-on-the-server"></a>服务器上的内存压力
 #### <a name="problem"></a>问题
-服务器端的内存压力会导致各种性能问题，从而延缓对请求的处理。 出现内存压力时，系统通常必须将数据从物理内存以分页方式转移到磁盘上的虚拟内存。 此分页错误导致系统性能显著下降。 这种内存压力可能有多个原因： 
+服务器端的内存压力会导致各种性能问题，从而延缓对请求的处理。 出现内存压力时，系统通常必须将数据从物理内存以分页方式转移到磁盘上的虚拟内存。 此 *分页错误* 导致系统的性能显著下降。 这种内存压力可能有多个原因： 
 
 1. 缓存中填满了数据。 
 2. Redis 出现大量内存碎片，大多数情况下是因为存储了大型对象。 
@@ -162,7 +162,7 @@ Redis 公开了两个指标，可以通过这两个指标来确定此问题。 �
 CPU 使用率高可能意味着，客户端可能无法及时处理 Redis 发出的响应，即使 Redis 发送响应的速度很快。
 
 #### <a name="measurement"></a>度量
-通过 Azure 门户或关联的性能计数器监视系统范围的 CPU 使用率。 请注意，不要监视进程 CPU，因为即使单个进程的 CPU 使用率低，系统的总体 CPU 使用率也可能高。 注意与超时相对应的 CPU 使用率峰值。
+通过 Azure 门户或关联的性能计数器监视系统范围的 CPU 使用率。 请注意，不要监视 *进程* CPU，因为即使单个进程的 CPU 使用率低，系统的总体 CPU 使用率也可能高。 注意与超时相对应的 CPU 使用率峰值。
 
 #### <a name="resolution"></a>解决方法
 - 查看任何建议和警报中所述[Redis 缓存顾问](cache-configure.md#redis-cache-advisor)。
@@ -226,18 +226,18 @@ StackExchange.Redis 使用名为 `synctimeout` 的配置设置进行同步操作
    
         synctimeout=2000,cachename.redis.cache.chinacloudapi.cn,abortConnect=false,ssl=true,password=...
 2. 确保使用最新版本的 [StackExchange.Redis NuGet 包](https://www.nuget.org/packages/StackExchange.Redis/)。 我们会不断对代码中的 Bug 进行修正，以便更好地应对超时情况。因此，请务必使用最新的版本。
-3. 如果请求受服务器或客户端上的带宽限制的约束，则需要更长时间才能完成，因此会导致超时。 若要了解超时是否由服务器上的网络带宽造成，请参阅[超出服务器端带宽](#server-side-bandwidth-exceeded)。 若要了解超时是否由客户端网络带宽造成，请参阅[超出客户端带宽](#client-side-bandwidth-exceeded)。
+3. 如果请求受服务器或客户端上的带宽限制的约束，则需要更长时间才能完成，因此会导致超时。 若要了解超时是否是服务器上的网络带宽造成的，请参阅 [超出服务器端带宽](#server-side-bandwidth-exceeded)。 若要了解超时是否由客户端网络带宽造成，请参阅[超出客户端带宽](#client-side-bandwidth-exceeded)。
 4. 操作是否占用了服务器或客户端上的大量 CPU？
    
    - 看看操作是否占用了客户端上的大量 CPU，如果是的话，则可能会导致请求无法在 `synctimeout` 时间间隔内得到处理，从而导致超时。 改用更大型客户端或者将负载分散也许有助于控制这种情况。 
-   - 查看操作是否占用了服务器上的大量 CPU，方法是监视`CPU` [缓存性能指标](cache-how-to-monitor.md#available-metrics-and-reporting-intervals)。 如果请求传入时 Redis 处于 CPU 被大量占用的情况，则可能会导致这些请求超时。 为了解决此问题，可以将负载分散到高级缓存的多个分片中，也可以升级缓存大小或定价层。 有关详细信息，请参阅[超出服务器端带宽](#server-side-bandwidth-exceeded)。
-5. 是否存在需要在服务器上进行长时间处理的命令？ 长时间运行的命令需要在 Redis 服务器上进行长时间的处理，可能会导致超时。 下面是长时间运行的命令的一些示例：密钥数量很大的 `mget`、`keys *` 或编写质量差的 lua 脚本。 可以使用 redis-cli 客户端或[Redis 控制台](cache-configure.md#redis-console)连接到 Azure Redis 缓存实例，并运行 [SlowLog](http://redis.io/commands/slowlog) 命令，查看是否有请求的处理时间超出预期。 Redis 服务器和 StackExchange.Redis 适合处理多个小型请求，而不适合处理寥寥数个大型请求。 将数据拆分成更小的块可能会解决问题。 
+   - 看看操作是否占用了服务器上的大量 CPU，方法是监视 `CPU`[缓存性能指标](cache-how-to-monitor.md#available-metrics-and-reporting-intervals)。 如果请求传入时 Redis 处于 CPU 被大量占用的情况，则可能会导致这些请求超时。 为了解决此问题，可以将负载分散到高级缓存的多个分片中，也可以升级缓存大小或定价层。 有关详细信息，请参阅 [Server Side Bandwidth Exceeded](#server-side-bandwidth-exceeded)（超出服务器端带宽）。
+5. 是否存在需要在服务器上进行长时间处理的命令？ 长时间运行的命令需要在 Redis 服务器上进行长时间的处理，可能会导致超时。 下面是长时间运行的命令的一些示例：密钥数量很大的 `mget`、`keys *` 或编写质量差的 lua 脚本。 可以使用 redis-cli 客户端或 [Redis 控制台](cache-configure.md#redis-console)连接到 Azure Redis 缓存实例，然后运行 [SlowLog](http://redis.io/commands/slowlog) 命令，查看是否有请求的处理时间超出预期。 Redis 服务器和 StackExchange.Redis 适合处理多个小型请求，而不适合处理寥寥数个大型请求。 将数据拆分成更小的块可能会解决问题。 
    
-    若要了解如何使用 redis-cli 和 stunnel 连接到 Azure Redis 缓存 SSL 终结点，请参阅 [Announcing ASP.NET Session State Provider for Redis Preview Release](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx)（宣布推出用于 Redis 的 ASP.NET 会话状态提供程序预览版）博客文章。 有关详细信息，请参阅 [SlowLog](http://redis.io/commands/slowlog)。
-6. Redis 服务器负载过高可能会导致超时。 可以通过监视 `Redis Server Load` [缓存性能指标](cache-how-to-monitor.md#available-metrics-and-reporting-intervals)来监视服务器负载。 服务器负载值为 100（最大值）表示 Redis 服务器正忙于处理请求，没有空闲时间。 若要查看某些请求是否占用了服务器的全部处理能力，请按上一段中的说明运行 SlowLog 命令。 有关详细信息，请参阅 [CPU 使用率/服务器负载过高](#high-cpu-usage-server-load)。
+    若要了解如何使用 redis-cli 和 stunnel 连接到 Azure Redis 缓存 SSL 终结点，请参阅博客文章： [Announcing ASP.NET Session State Provider for Redis Preview Release](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) （宣布推出适用于 Redis 的 ASP.NET 会话状态提供程序预览版）。 有关详细信息，请参阅 [SlowLog](http://redis.io/commands/slowlog)。
+6. Redis 服务器负载过高可能会导致超时。 可以通过监视 `Redis Server Load` [缓存性能指标](cache-how-to-monitor.md#available-metrics-and-reporting-intervals)来监视服务器负载。 服务器负载值为 100（最大值）表示 Redis 服务器正忙于处理请求，没有空闲时间。 若要查看某些请求是否占用了服务器的全部处理能力，请按上一段中的说明运行 SlowLog 命令。 有关详细信息，请参阅 [High CPU usage / Server Load](#high-cpu-usage-server-load)（CPU 使用率/服务器负载过高）。
 7. 客户端上是否存在其他可能导致网络故障的事件？ 查看客户端（Web 角色、辅助角色或 Iaas VM）上是否存在如下事件：向上或向下缩放客户端实例数目、部署新版客户端或启用自动缩放。在我们的测试中，我们发现进行自动缩放或向上/向下缩放可能导致出站网络连接失去连接数秒钟的时间。 StackExchange.Redis 代码可以灵活应对此类事件，并且会重新连接。 在这个重新连接的时间内，队列中的请求可能会超时。
 8. 在向 Redis 缓存发出数个小型请求之前，是否存在导致超时的大型请求？ 错误消息中的参数 `qs` 会告诉你，多少请求从客户端发送到了服务器，但尚未进行响应处理。 此值可能会持续增加，因为 StackExchange.Redis 使用单个 TCP 连接，一次只能读取一个响应。 即使第一个操作超时，也不会阻止数据通过服务器进行传输，在此操作完成之前，系统会阻止其他请求，导致超时。 降低超时概率的一种解决方案是确保缓存对于工作负荷来说足够大，并将大的值拆分成较小的块。 另一种可能的解决方案是使用客户端中的 `ConnectionMultiplexer` 对象池，在发送新请求时选择负载最小的 `ConnectionMultiplexer`。 这样可以防止因为某个请求超时而导致其他请求也超时。
-9. 如果使用 `RedisSessionStateprovider`，请确保正确设置重试超时时间。 `retrytimeoutInMilliseconds` 应高于 `operationTimeoutinMilliseonds`，否则无法执行重试。 在下面的示例中，`retrytimeoutInMilliseconds` 设置为 3000。 有关详细信息，请参阅[用于 Azure Redis 缓存的 ASP.NET 会话状态提供程序](cache-aspnet-session-state-provider.md)和 [How to use the configuration parameters of Session State Provider and Output Cache Provider](https://github.com/Azure/aspnet-redis-providers/wiki/Configuration)（如何使用会话状态提供程序和输出缓存提供程序的配置参数）。
+9. 如果使用的是 `RedisSessionStateprovider`，请确保已经正确设置了重试超时。 `retrytimeoutInMilliseconds` 应高于 `operationTimeoutinMilliseonds`，否则无法执行重试。 在下面的示例中， `retrytimeoutInMilliseconds` 设置为 3000。 有关详细信息，请参阅 [Azure Redis 缓存的 ASP.NET 会话状态提供程序](cache-aspnet-session-state-provider.md)和 [How to use the configuration parameters of Session State Provider and Output Cache Provider](https://github.com/Azure/aspnet-redis-providers/wiki/Configuration)（如何使用会话状态提供程序和输出缓存提供程序的配置参数）。
 
     <add
       name="AFRedisCacheSessionStateProvider"
@@ -253,13 +253,13 @@ StackExchange.Redis 使用名为 `synctimeout` 的配置设置进行同步操作
       retryTimeoutInMilliseconds="3000" />
 
 
-1. 通过[监视](cache-how-to-monitor.md#available-metrics-and-reporting-intervals) `Used Memory RSS` 和 `Used Memory`，了解 Azure Redis 缓存服务器上的内存使用情况。 如果实施了逐出策略，则当 `Used_Memory` 达到缓存大小时，Redis 就会开始逐出密钥。 理想情况下，`Used memory` 应只稍高于 `Used Memory RSS`。 差异过大意味着会出现内存碎片（内部或外部）。 如果 `Used Memory RSS` 小于 `Used Memory`，则意味着操作系统已更换部分缓存内存。 如果发生这种情况，则会出现明显的延迟。 由于 Redis 无法控制如何将其分配内容映射到内存页，`Used Memory RSS` 过高通常是由于内存使用剧增的缘故。 当 Redis 释放内存以后，内存会送回给分配器，而分配器不一定会将内存送回给系统。 `Used Memory` 值与操作系统所报告的内存消耗量可能存在差异。 这可能是因为内存由 Redis 使用并释放后，并未送回给系统。 为了减少内存问题，可执行以下步骤。
+1. 通过[监视](cache-how-to-monitor.md#available-metrics-and-reporting-intervals) `Used Memory RSS` 和 `Used Memory`，了解 Azure Redis 缓存服务器上的内存使用情况。 如果实施了逐出策略，则当 `Used_Memory` 达到缓存大小时，Redis 就会开始逐出密钥。 理想情况下，`Used Memory RSS` 应只稍高于 `Used memory`。 差异过大意味着会出现内存碎片（内部或外部）。 如果 `Used Memory RSS` 小于 `Used Memory`，则意味着部分缓存内存已由操作系统更换。 如果发生这种情况，则会出现明显的延迟。 由于 Redis 无法控制如何将其分配内容映射到内存页， `Used Memory RSS` 过高通常是由于内存使用剧增的缘故。 当 Redis 释放内存以后，内存会送回给分配器，而分配器不一定会将内存送回给系统。 `Used Memory` 值与操作系统所报告的内存消耗量可能存在差异。 这可能是因为内存由 Redis 使用并释放后，并未送回给系统。 为了减少内存问题，可执行以下步骤。
    
    - 通过升级提高缓存大小，消除系统的内存限制。
    - 对密钥设置过期时间，以便主动逐出过旧的值。
    - 监视 `used_memory_rss` 缓存指标。 当此值接近缓存大小时，就可能会出现性能问题。 将数据分布到多个分片（如果使用的是高级缓存），或者通过升级来提高缓存大小。
    
-   有关详细信息，请参阅[服务器上的内存压力](#memory-pressure-on-the-server)。
+   有关详细信息，请参阅 [Memory Pressure on the server](#memory-pressure-on-the-server)（服务器上的内存压力）。
 
 ## <a name="additional-information"></a>其他信息
 - [我应使用哪种 Redis 缓存产品和大小？](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)

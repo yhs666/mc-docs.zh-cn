@@ -15,11 +15,11 @@ author: thraka
 ms.author: v-yiso
 manager: timlt
 ms.openlocfilehash: eb7bcbbaef151ff604230796bfb696d81b257f5b
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34695038"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658997"
 ---
 # <a name="azure-cloud-services-definition-webrole-schema"></a>Azure 云服务定义 WebRole 架构
 Azure Web 角色是针对 IIS 7 所支持的 Web 应用程序编程（例如 ASP.NET、PHP、Windows Communication Foundation 和 FastCGI）自定义的角色。
@@ -131,7 +131,7 @@ Azure Web 角色是针对 IIS 7 所支持的 Web 应用程序编程（例如 ASP
 
 [环境](#Environment)
 
-[Variable](#Variable)
+[变量](#Variable)
 
 [RoleInstanceValue](#RoleInstanceValue)
 

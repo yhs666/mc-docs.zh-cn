@@ -16,14 +16,14 @@ origin.date: 12/16/2016
 ms.date: 08/28/2017
 ms.author: v-haiqya
 ms.openlocfilehash: 463116599aad262446020d0925c7b74239cd20fe
-ms.sourcegitcommit: 0f2694b659ec117cee0110f6e8554d96ee3acae8
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/25/2017
-ms.locfileid: "21135012"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662355"
 ---
 # <a name="retrieving-state-information-for-an-importexport-job"></a>检索导入/导出作业的状态信息
-可以调用 [获取作业](https://docs.microsoft.com/rest/api/storageimportexport/jobs#Jobs_Get) 操作来检索有关导入和导出作业的信息。 返回的信息包括：
+可以调用[获取作业](https://docs.microsoft.com/rest/api/storageimportexport/jobs#Jobs_Get)操作来检索有关导入和导出作业的信息。 返回的信息包括：
 
 -   作业的当前状态。
 
@@ -33,7 +33,7 @@ ms.locfileid: "21135012"
 
 -   包含错误日志和详细日志记录信息的 Blob 的 URI（如果已启用）。
 
-以下部分说明了“ `Get Job` ”操作返回的信息。
+以下部分说明了“`Get Job`”操作返回的信息。
 
 ## <a name="job-states"></a>作业状态
 下面的表格和状态图描述了作业在其生命周期内经历的各种状态。 可通过调用“ `Get Job` ”操作来确定作业的当前状态。

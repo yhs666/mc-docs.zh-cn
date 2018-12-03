@@ -17,11 +17,11 @@ ms.date: 07/25/2018
 ms.author: v-junlch
 ms.reviewer: bagovind
 ms.openlocfilehash: 65fe56491ebc956d5dde0ae67c1222b0cd2adc1c
-ms.sourcegitcommit: cce18df2de12353f0d8f01c649307a5789d59cd4
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39246121"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647426"
 ---
 # <a name="manage-access-using-rbac-and-the-rest-api"></a>使用 RBAC 和 REST API 管理访问权限
 

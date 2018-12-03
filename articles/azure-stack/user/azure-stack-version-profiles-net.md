@@ -16,12 +16,12 @@ origin.date: 09/25/2018
 ms.date: 11/12/2018
 ms.author: v-jay
 ms.reviewer: sijuman
-ms.openlocfilehash: db33ca6c37c1b7b161d2d81aafb32dcf8f5a03d3
-ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
+ms.openlocfilehash: 4fdc41a83c045edb50989d586c417623d927a39c
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51195639"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672866"
 ---
 # <a name="use-api-version-profiles-with-net-in-azure-stack"></a>在 Azure Stack 中将 API 版本配置文件与 .NET 配合使用
 
@@ -292,7 +292,7 @@ public override void InitializeServiceClient<T>(ServiceClient<T> client)
   [**租户 ID]: ../azure-stack-identity-overview.md
   [**订阅 ID]: ../azure-stack-plan-offer-quota-overview.md#subscriptions
   [**Azure Stack 资源管理器终结点]: azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint
-  [API 配置文件的摘要]: user/azure-stack-version-profiles.md#summary-of-api-profiles
+  [API 配置文件的摘要]: /azure-stack-version-profiles.md#summary-of-api-profiles
   [针对虚拟机、vNet、资源组和存储帐户的测试项目]: https://github.com/seyadava/azure-sdk-for-net-samples/tree/master/TestProject
   [使用 Azure PowerShell 创建具有证书的服务主体]: ../azure-stack-create-service-principals.md
   [使用测试资源管理器运行单元测试]: https://docs.microsoft.com/visualstudio/test/run-unit-tests-with-test-explorer?view=vs-2017。

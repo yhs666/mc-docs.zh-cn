@@ -15,11 +15,11 @@ origin.date: 04/30/2018
 ms.date: 06/25/2018
 ms.author: v-yiso
 ms.openlocfilehash: e98bd076260250cf9f3fc9c68756134a71d5f9ee
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068040"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52664595"
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>构建适用于 Apache HBase 的 Java 应用程序
 
@@ -147,7 +147,7 @@ ms.locfileid: "44068040"
    > [!NOTE]
    > 也可以通过代码设置配置值。 请参阅 `CreateTable` 示例中的注释。
 
-    此部分还将配置 [Maven 编译器插件](http://maven.apache.org/plugins/maven-compiler-plugin/)和 [Maven 阴影插件](http://maven.apache.org/plugins/maven-shade-plugin/)。 该编译器插件用于编译拓扑。 该阴影插件用于防止在由 Maven 构建的 JAR 程序包中复制许可证。 此插件用于防止在 HDInsight 群集上运行时出现“重复的许可证文件”错误。 将 maven-shade-plugin 用于 `ApacheLicenseResourceTransformer` 实现可防止发生此错误。
+    此部分还会配置 [Maven 编译器插件](http://maven.apache.org/plugins/maven-compiler-plugin/)和 [Maven 阴影插件](http://maven.apache.org/plugins/maven-shade-plugin/)。 该编译器插件用于编译拓扑。 该阴影插件用于防止在由 Maven 构建的 JAR 程序包中复制许可证。 此插件用于防止在 HDInsight 群集上运行时出现“重复的许可证文件”错误。 将 maven-shade-plugin 用于 `ApacheLicenseResourceTransformer` 实现可防止发生此错误。
 
     maven-shade-plugin 还会生成 uber jar，其中包含应用程序所需的所有依赖项。
 

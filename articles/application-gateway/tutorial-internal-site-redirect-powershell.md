@@ -14,11 +14,11 @@ origin.date: 01/23/2018
 ms.date: 08/07/2018
 ms.author: v-junlch
 ms.openlocfilehash: 11b3340e35a768ff81e17208c7f7b8130e47e404
-ms.sourcegitcommit: a1c6a743b4be62477e7debfc9ea5f03afca2bc8f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39625132"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650159"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-azure-powershell"></a>使用 Azure PowerShell 创建支持内部重定向的应用程序网关
 
@@ -296,7 +296,7 @@ Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublic
 
 ## <a name="test-the-application-gateway"></a>测试应用程序网关
 
-在浏览器的地址栏中输入域名。 例如，http://www.contoso.com。
+在浏览器的地址栏中输入域名。 例如， http://www.contoso.com。
 
 ![在应用程序网关中测试 contoso 站点](./media/tutorial-internal-site-redirect-powershell/application-gateway-iistest.png)
 

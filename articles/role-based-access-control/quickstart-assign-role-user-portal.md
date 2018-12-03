@@ -15,11 +15,11 @@ origin.date: 06/11/2018
 ms.date: 07/02/2018
 ms.author: v-junlch
 ms.openlocfilehash: 15fee29c955ec866705b5a0bf4fa1e412db7a027
-ms.sourcegitcommit: a20c461541ba7db541c01c8a18fc4cff48e3d2d5
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37361234"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666766"
 ---
 # <a name="quickstart-grant-access-for-a-user-using-rbac-and-the-azure-portal"></a>快速入门：使用 RBAC 和 Azure 门户授予用户访问权限
 

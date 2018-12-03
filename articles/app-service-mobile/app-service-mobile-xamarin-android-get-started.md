@@ -16,11 +16,11 @@ origin.date: 10/01/2016
 ms.date: 10/29/2018
 ms.author: v-biyu
 ms.openlocfilehash: adcf2386af9b36ebc7893754e2a04e4b77cd714b
-ms.sourcegitcommit: 4b5ada023c9466d497c7474abf7ad71e50c3b17d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49451586"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650935"
 ---
 #<a name="create-a-xamarinandroid-app"></a>创建 Xamarin.Android 应用
 

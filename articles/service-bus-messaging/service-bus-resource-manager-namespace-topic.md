@@ -16,11 +16,11 @@ origin.date: 09/11/2018
 ms.date: 10/31/2018
 ms.author: v-lingwu
 ms.openlocfilehash: 08ac7b5a73d2953e394263bbe3b00d481f9d7ee0
-ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50409357"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652546"
 ---
 # <a name="create-a-service-bus-namespace-with-topic-and-subscription-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 模板创建包含主题和订阅的服务总线命名空间
 

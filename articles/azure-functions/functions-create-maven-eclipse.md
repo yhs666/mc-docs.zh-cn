@@ -14,11 +14,11 @@ ms.date: 10/18/2018
 ms.author: v-junlch
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 5a997e6bb68a9b7be9fcc0a37f7ead43798792cb
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453525"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657267"
 ---
 # <a name="create-your-first-function-with-java-and-eclipse-preview"></a>使用 Java 和 Eclipse 创建第一个函数（预览版）
 

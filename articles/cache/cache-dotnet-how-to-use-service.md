@@ -12,15 +12,15 @@ origin.date: 08/18/2015
 ms.date: 06/21/2017
 ms.author: v-yiso
 ms.openlocfilehash: 1210eda18ded876cc6e79aada319985d6eed9ca1
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
-ms.locfileid: "20184650"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663133"
 ---
 # <a name="how-to-use-azure-managed-cache-service"></a>如何使用 Azure 托管缓存服务
 
-本指南演示如何开始使用 **Azure 托管缓存服务**。 示例是用 C\# 代码编写的且使用了 .NET API。 涉及的应用场景包括**创建和配置缓存**、**配置缓存客户端**、 **在缓存中添加和删除对象、在缓存中存储 ASP.NET 会话状态**以及**使用缓存启用 ASP.NET 页面输出缓存**。 有关使用 Azure 缓存的详细信息，请参阅[后续步骤][]部分。
+本指南演示如何开始使用 **Azure 托管缓存服务**。 示例是用 C\# 代码编写的且使用了 .NET API。 涉及的应用场景包括**创建和配置缓存**、**配置缓存客户端**、 **在缓存中添加和删除对象、在缓存中存储 ASP.NET 会话状态**以及**使用缓存启用 ASP.NET 页面输出缓存**。 有关使用 Azure 缓存的详细信息，请参阅[Next Steps][]部分。
 
 >有关为应用程序选择正确的 Azure 缓存产品的指导，请参阅[哪种 Azure 缓存产品适合我？][]
 
@@ -181,9 +181,9 @@ PS C:\>
 
 NuGet 包可执行多项操作：将所需配置添加到应用程序的 config 文件，并且将添加所需的程序集引用。 对于云服务项目，它还将缓存客户端诊断级别设置添加到云服务的 ServiceConfiguration.cscfg 文件。
 
->对于 ASP.NET Web 项目，缓存 NuGet 包还将两个注释掉的节添加到 web.config 中。 第一个节允许会话状态存储在缓存中，第二个节启用 ASP.NET 页面输出缓存。 有关详细信息，请参阅[如何在缓存中存储 ASP.NET 会话状态]和[如何在缓存中存储 ASP.NET 页面输出缓存][]。
+>对于 ASP.NET Web 项目，缓存 NuGet 包还将两个注释掉的节添加到 web.config 中。第一个节允许会话状态存储在缓存中，第二个节启用 ASP.NET 页面输出缓存。 有关详细信息，请参阅[如何在缓存中存储 ASP.NET 会话状态]和[如何在缓存中存储 ASP.NET 页面输出缓存][]。
 
-NuGet 包将以下配置元素添加到应用程序的 web.config 或 app.config 中。 将 **dataCacheClients** 节和 **cacheDiagnostics** 节添加到 **configSections** 元素之下。 如果 **configSections** 元素不存在，则会创建一个作为 **configuration** 元素的子级。
+NuGet 包将以下配置元素添加到应用程序的 web.config 或 app.config 中。将 **dataCacheClients** 节和 **cacheDiagnostics** 节添加到 **configSections** 元素之下。 如果 **configSections** 元素不存在，则会创建一个作为 **configuration** 元素的子级。
 
 ```
 <configSections>
@@ -390,11 +390,11 @@ TimeSpan timeRemaining = item.Timeout;
 </system.web>-->
 ```
 
->在安装缓存 NuGet 包后，如果 web.config 没有包含此注释掉的节，请确保从[安装 NuGet 包管理器][]安装了最新的 NuGet 包管理器，然后卸载并重新安装该包。
+>在安装缓存 NuGet 包后，如果 web.config 没有包含此注释掉的节，请确保从[NuGet 包管理器安装][]安装了最新的 NuGet 包管理器，然后卸载并重新安装该包。
 
 若要启用用于 Azure Cache 的会话状态提供程序，请取消注释指定的节。 在提供的代码段中指定了默认缓存。 若要使用不同的缓存，请在 **cacheName** 属性中指定所需缓存。
 
-有关使用托管缓存服务会话状态提供程序的详细信息，请参阅[用于 Azure Cache 的会话状态提供程序][]。
+有关使用托管缓存服务会话状态提供程序的详细信息，请参阅[用于 Azure 缓存的会话状态提供程序][]。
 
 <a name="store-page"></a>
 ## <a name="how-to-store-aspnet-page-output-caching-in-the-cache"></a>如何在缓存中存储 ASP.NET 页面输出缓存
@@ -416,7 +416,7 @@ TimeSpan timeRemaining = item.Timeout;
 </caching>-->
 ```
 
->在安装缓存 NuGet 包后，如果 web.config 没有包含此注释掉的节，请确保从[安装 NuGet 包管理器][]安装了最新的 NuGet 包管理器，然后卸载并重新安装该包。
+>在安装缓存 NuGet 包后，如果 web.config 没有包含此注释掉的节，请确保从[NuGet 包管理器安装][]安装了最新的 NuGet 包管理器，然后卸载并重新安装该包。
 
 若要启用用于 Azure Cache 的输出缓存提供程序，请取消注释指定的节。 在提供的代码段中指定了默认缓存。 若要使用不同的缓存，请在 **cacheName** 属性中指定所需缓存。
 
@@ -428,7 +428,7 @@ TimeSpan timeRemaining = item.Timeout;
 
 在此示例中，缓存的页面数据将保留在缓存中 60 秒，并且将为每个参数组合缓存不同版本的页面。 有关可用选项的详细信息，请参阅 [OutputCache 指令][]。
 
-有关使用用于 Azure Cache 的输出缓存提供程序的详细信息，请参阅[用于 Azure Cache 的输出缓存提供程序][]。
+有关使用用于 Azure Cache 的输出缓存提供程序的详细信息，请参阅[用于 Azure 缓存的输出缓存提供程序][]。
 
 <a name="next-steps"></a>
 ## <a name="next-steps"></a>后续步骤
@@ -440,7 +440,7 @@ TimeSpan timeRemaining = item.Timeout;
 -   查看示例：[托管缓存服务示例][]
 
 <!-- INTRA-TOPIC LINKS -->
-[后续步骤]: #next-steps
+[Next Steps]: #next-steps
 [What is Azure Managed Cache Service?]: #what-is
 [Create an Azure Cache]: #create-cache
 [Which type of caching is right for me?]: #choosing-cache
@@ -476,9 +476,9 @@ TimeSpan timeRemaining = item.Timeout;
 <!-- LINKS -->
 [Azure 管理门户]: https://manage.windowsazure.cn/
 [How to: Configure a Cache Client Programmatically]: http://msdn.microsoft.com/zh-cn/library/windowsazure/gg618003.aspx
-[用于 Azure Cache 的会话状态提供程序]: https://msdn.microsoft.com/zh-cn/library/azure/dn386101.aspx
+[用于 Azure 缓存的会话状态提供程序]: https://msdn.microsoft.com/zh-cn/library/azure/dn386101.aspx
 [Azure AppFabric Cache: Caching Session State]: http://www.microsoft.com/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
-[用于 Azure Cache 的输出缓存提供程序]: https://msdn.microsoft.com/zh-cn/library/vstudio/hdxfb6cy(v=vs.100).aspx
+[用于 Azure 缓存的输出缓存提供程序]: https://msdn.microsoft.com/zh-cn/library/vstudio/hdxfb6cy(v=vs.100).aspx
 [Azure Shared Caching]: http://msdn.microsoft.com/zh-cn/library/windowsazure/gg278356.aspx
 [Team Blog]: http://blogs.msdn.com/b/windowsazure/
 [How to Configure Virtual Machine Sizes]: https://msdn.microsoft.com/zh-cn/library/azure/ee814754.aspx
@@ -490,7 +490,7 @@ TimeSpan timeRemaining = item.Timeout;
 [托管缓存服务]: http://go.microsoft.com/fwlink/?LinkId=320830
 [OutputCache 指令]: https://msdn.microsoft.com/zh-cn/library/hdxfb6cy.aspx
 [故障排除和诊断]: https://msdn.microsoft.com/zh-cn/library/azure/dn386117.aspx
-[安装 NuGet 包管理器]: http://go.microsoft.com/fwlink/?LinkId=240311
+[NuGet 包管理器安装]: http://go.microsoft.com/fwlink/?LinkId=240311
 [缓存定价详细信息]: https://www.azure.cn/pricing/details/cache//
 [Management Portal]: https://manage.windowsazure.cn/
 [缓存产品/服务]: https://msdn.microsoft.com/zh-cn/library/azure/dn386114.aspx

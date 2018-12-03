@@ -17,11 +17,11 @@ origin.date: 03/30/2017
 ms.date: 05/21/2018
 ms.author: v-yeche
 ms.openlocfilehash: 66be7838419bf8b1e25ebea92a9d3a733f405203
-ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "34173320"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647128"
 ---
 # <a name="how-to-install-and-configure-trend-micro-deep-security-as-a-service-on-a-windows-vm"></a>如何在 Windows VM 上安装和配置 Trend Micro Deep Security 即服务
 > [!IMPORTANT]

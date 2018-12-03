@@ -15,11 +15,11 @@ origin.date: 04/23/2018
 ms.date: 07/02/2018
 ms.author: v-jay
 ms.openlocfilehash: 14fc41c3209d01c7f6e716b5b8ec7ed2b9f221b3
-ms.sourcegitcommit: e157751c560524d0bb828e987b87178130663547
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43651604"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652934"
 ---
 # <a name="table-design-patterns"></a>表设计模式
 本文介绍适用于表服务解决方案的一些模式。 此外，还将了解如何实际解决其他表存储设计文章中提出的一些问题和权衡。 下图总结了不同模式之间的关系：  

@@ -16,11 +16,11 @@ origin.date: 04/14/2018
 ms.date: 07/09/2018
 ms.author: v-junlch
 ms.openlocfilehash: 583c431b532cb257087f9e36f4e6f821b570f98d
-ms.sourcegitcommit: e950fe5260c519e05f8c5bbf193a8ef733a6a2d2
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37936331"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662161"
 ---
 # <a name="azure-notification-hubs-secure-push"></a>Azure 通知中心安全推送
 > [!div class="op_single_selector"]
@@ -164,7 +164,7 @@ ms.locfileid: "37936331"
 1. 在 Visual Studio 中运行此 **AppBackend** Web API 应用程序。 显示 ASP.NET 网页。
 2. 在 Visual Studio 中运行此 NotifyUserWindowsPhone (Windows Phone 8.1) Windows Phone 应用。 Windows Phone 模拟器自动运行并加载应用程序。
 3. 在 **NotifyUserWindowsPhone** 应用 UI 中，输入用户名和密码。 这些信息可以是任意字符串，但必须是相同的值。
-4. 在 NotifyUserWindowsPhone 应用 UI 中，单击“登录并注册”。 然后单击“发送推送”。
+4. 在 NotifyUserWindowsPhone 应用 UI 中，单击“登录并注册”。 然后单击“发送推送” 。
 
 [3]: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push3.png
 [12]: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push12.png

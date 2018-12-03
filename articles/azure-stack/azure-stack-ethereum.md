@@ -13,11 +13,11 @@ ms.reviewer: seyadava
 ms.custom: mvc
 manager: femila
 ms.openlocfilehash: 020d66ff7e8a7f83c90159cd732325598c5d4b61
-ms.sourcegitcommit: 8a99d90ab1e883295aed43eb9ef2c9bc58456139
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48848890"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651853"
 ---
 # <a name="tutorial-use-the-azure-stack-ethereum-blockchain-solution-template"></a>教程：使用 Azure Stack Ethereum 区块链解决方案模板
 

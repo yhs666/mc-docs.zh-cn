@@ -9,11 +9,11 @@ origin.date: 08/11/2018
 ms.author: v-yiso
 ms.date: 09/17/2018
 ms.openlocfilehash: 5add0c9688eca17e010e47b28e74939d389dcde6
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068071"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645697"
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>监视使用情况和预估成本
 

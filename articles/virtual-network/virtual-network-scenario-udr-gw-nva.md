@@ -16,11 +16,11 @@ origin.date: 05/05/2016
 ms.date: 12/11/2017
 ms.author: v-yeche
 ms.openlocfilehash: 432b592f852d90f1fbaeef90aecbdb1ff2713586
-ms.sourcegitcommit: 4c64f6d07fc471fb6589b18843995dca1cbfbeb1
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/08/2017
-ms.locfileid: "26576231"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659127"
 ---
 # <a name="virtual-appliance-scenario"></a>虚拟设备方案
 在较大的 Azure 客户中，一种常见情况是需要向 Internet 公开某个双层应用程序，同时允许从本地数据中心访问后端层。 本文档将指导你实施一种使用用户定义的路由 (UDR)、VPN 网关和网络虚拟设备部署双层环境的方案，该方案可满足以下要求：
@@ -44,7 +44,7 @@ ms.locfileid: "26576231"
 可以使用当前可用的如下所述的不同功能在 Azure 中部署上述环境。
 
 * **虚拟网络 (VNet)**。 Azure VNet 在形式上与本地网络相似，可分段为一个或多个子网，以提供流量隔离和关注点分离。
-* **虚拟设备**。 有多个合作伙伴在 Azure 应用商店中提供了虚拟设备，可对上述三种防火墙使用这些设备。 
+* **虚拟设备**。 有多个合作伙伴在 Azure 市场中提供了虚拟设备，可对上述三种防火墙使用这些设备。 
 * **用户定义的路由 (UDR)**。 路由表可以包含 Azure 网络使用的 UDR 来控制数据包在 VNet 中的流动。 这些路由表可应用到子网。 Azure 中的最新功能之一是将路由表应用到 GatewaySubnet，从而能够通过混合连接将传入 Azure VNet 的所有流量转发到虚拟设备。
 * **IP 转发**。 默认情况下，仅当数据包目标 IP 地址与 NIC IP 地址匹配时，Azure 网络引擎才将数据包转发到虚拟网络接口卡 (NIC)。 因此，如果 UDR 定义必须将数据包发送到给定的虚拟设备，则 Azure 网络引擎会丢弃该数据包。 为了确保将数据包传送到并非数据包实际目标的 VM（在本例中为虚拟设备），需要为虚拟设备启用 IP 转发。
 * **网络安全组 (NSG)**。 以下示例未使用 NSG，但可以在此解决方案中使用应用到子网和/或 NIC 的 NSG 来进一步筛选传入和传出子网与 NIC 的流量。
@@ -67,9 +67,9 @@ ms.locfileid: "26576231"
   * **azsn4**。 管理子网，专门用于提供对所有防火墙虚拟设备的管理访问权限。 此子网仅包含解决方案中使用的每个防火墙虚拟设备的 NIC。
   * **GatewaySubnet**。 ExpressRoute 和 VPN 网关在 Azure VNet 与其他网络之间提供连接所需的 Azure 混合连接子网。 
 * **azurevnet** 网络中有 3 个防火墙虚拟设备。 
-  * **AZF1**。 在 Azure 中使用公共 IP 地址资源向公共 Internet 公开的外部防火墙。 需要确保从应用商店或者直接从设备供应商那里获取一个模板用于预配 3-NIC 虚拟设备。
+  * **AZF1**。 在 Azure 中使用公共 IP 地址资源向公共 Internet 公开的外部防火墙。 需要确保从市场或者直接从设备供应商那里获取一个模板用于预配 3-NIC 虚拟设备。
   * **AZF2**。 用于控制 **azsn2** 与 **azsn3** 之间流量的内部防火墙。 这也是一个 3-NIC 虚拟设备。
-  * **AZF3**。 管理员可从本地数据中心访问的管理防火墙，它已连接到用于管理所有防火墙设备的管理子网。 可以在应用商店中查找 2-NIC 虚拟设备模板，或者直接向设备供应商请求提供此类模板。
+  * **AZF3**。 管理员可从本地数据中心访问的管理防火墙，它已连接到用于管理所有防火墙设备的管理子网。 可以在市场中查找 2-NIC 虚拟设备模板，或者直接向设备供应商请求提供此类模板。
 
 ## <a name="user-defined-routing-udr"></a>用户定义的路由 (UDR)
 Azure 中的每个子网可以链接到用于定义该子网中发起的流量路由方式的 UDR 表。 如果未定义 UDR，Azure 使用默认路由来允许流量从一个子网流向另一个子网。 若要更好地理解 UDR，请访问[什么是用户定义的路由和 IP 转发](virtual-networks-udr-overview.md)。

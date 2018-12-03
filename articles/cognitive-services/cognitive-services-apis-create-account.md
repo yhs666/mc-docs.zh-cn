@@ -11,11 +11,11 @@ origin.date: 02/01/2018
 ms.date: 10/25/2018
 ms.author: v-junlch
 ms.openlocfilehash: ef1a0fcce3ad81386566cce5a31497eb89c0c496
-ms.sourcegitcommit: 44ce337717bb948f5ac08217a156935f663c0f46
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50034666"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645619"
 ---
 # <a name="quickstart-create-a-cognitive-services-account-in-the-azure-portal"></a>快速入门：在 Azure 门户中创建认知服务帐户
 

@@ -9,7 +9,7 @@ items:
   items:
   - name: 在 Azure 门户中创建
     href: quick-create-portal.md
-  - name: 使用 Azure CLI 2.0 创建
+  - name: 使用 Azure CLI 创建
     href: quick-create-cli.md
   - name: 使用 Azure PowerShell 创建
     href: quick-create-powershell.md
@@ -24,25 +24,25 @@ items:
   items:
   - name: 1 - 创建/管理规模集
     items:
-    - name: Azure CLI 2.0
+    - name: Azure CLI
       href: tutorial-create-and-manage-cli.md
     - name: Azure PowerShell
       href: tutorial-create-and-manage-powershell.md
   - name: 2 - 使用数据磁盘
     items:
-    - name: Azure CLI 2.0
+    - name: Azure CLI
       href: tutorial-use-disks-cli.md
     - name: Azure PowerShell
       href: tutorial-use-disks-powershell.md
   - name: 3 - 使用自定义 VM 映像
     items:
-    - name: Azure CLI 2.0
+    - name: Azure CLI
       href: tutorial-use-custom-image-cli.md
     - name: Azure PowerShell
       href: tutorial-use-custom-image-powershell.md
   - name: 4 - 将应用部署到规模集
     items:
-    - name: Azure CLI 2.0
+    - name: Azure CLI
       href: tutorial-install-apps-cli.md
     - name: Azure PowerShell
       href: tutorial-install-apps-powershell.md
@@ -50,7 +50,7 @@ items:
       href: tutorial-install-apps-template.md
   - name: 5 - 自动缩放规模集
     items:
-    - name: Azure CLI 2.0
+    - name: Azure CLI
       href: tutorial-autoscale-cli.md
     - name: Azure PowerShell
       href: tutorial-autoscale-powershell.md
@@ -58,7 +58,7 @@ items:
       href: tutorial-autoscale-template.md
 - name: 示例
   items:
-  - name: Azure CLI 2.0
+  - name: Azure CLI
     href: cli-samples.md
   - name: PowerShell
     href: powershell-samples.md
@@ -188,7 +188,7 @@ items:
     items:
     - name: 常见管理任务
       items:
-      - name: 使用 Azure CLI 2.0
+      - name: 使用 Azure CLI
         href: virtual-machine-scale-sets-manage-cli.md
       - name: 使用 Azure PowerShell
         href: virtual-machine-scale-sets-manage-powershell.md
@@ -230,9 +230,9 @@ items:
     href: https://www.azure.cn/pricing/calculator/
   - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-vm-scale-set
-ms.openlocfilehash: 694c1f2d22e73e41953623103d864c9ba581cf9a
-ms.sourcegitcommit: 399060a8d46534abd370693f6282e7343b371634
+ms.openlocfilehash: dbd59e978c8daea1b63572e9019d3775f084cdd3
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455592"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648152"

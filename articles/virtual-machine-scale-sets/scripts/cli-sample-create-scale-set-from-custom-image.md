@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 2.0 示例 - 使用自定义 VM 映像 | Microsoft Docs
-description: Azure CLI 2.0 示例
+title: Azure CLI 示例 - 使用自定义 VM 映像 | Microsoft Docs
+description: Azure CLI 示例
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -14,17 +14,17 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 03/27/2018
-ms.date: 08/13/2018
+ms.date: 11/14/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 9dc6ca9968f9e799dbf91d13a666bd80d31930dd
-ms.sourcegitcommit: 56ed1b03d83f222db6118fe1e2f2485a9488507f
+ms.openlocfilehash: 052d2ebf97a60e4d1b2d96e1479592eb26b8b182
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "41705326"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657168"
 ---
-# <a name="create-a-virtual-machine-scale-set-from-a-custom-vm-image-with-the-azure-cli-20"></a>使用 Azure CLI 2.0 从自定义 VM 映像创建虚拟机规模集
+# <a name="create-a-virtual-machine-scale-set-from-a-custom-vm-image-with-the-azure-cli"></a>使用 Azure CLI 基于自定义 VM 映像创建虚拟机规模集
 此脚本创建使用自定义 VM 映像作为 VM 实例源的虚拟机规模集。
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
@@ -71,8 +71,8 @@ az group delete --name myResourceGroup
 | [az group delete](/cli/ad/group#delete) | 删除资源组，包括所有嵌套的资源。 |
 
 ## <a name="next-steps"></a>后续步骤
-有关 Azure CLI 2.0 的详细信息，请参阅 [Azure CLI 2.0 文档](/cli/overview)。
+有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](/cli/overview)。
 
-可以在 [Azure 虚拟机规模集文档](../cli-samples.md)中找到其他虚拟机规模集 Azure CLI 2.0 脚本示例。
+可以在 [Azure 虚拟机规模集文档](../cli-samples.md)中找到其他虚拟机规模集 Azure CLI 脚本示例。
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

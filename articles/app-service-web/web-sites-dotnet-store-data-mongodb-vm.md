@@ -17,17 +17,17 @@ origin.date: 02/29/2016
 ms.date: 03/17/2017
 ms.author: v-dazen
 ms.openlocfilehash: 57c2bc38f3cdd8e938fb7e3f74d7be9c911498e1
-ms.sourcegitcommit: 86616434c782424b2a592eed97fa89711a2a091c
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2017
-ms.locfileid: "20452766"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660344"
 ---
 # <a name="create-a-web-app-in-azure-that-connects-to-mongodb-running-on-a-virtual-machine"></a>在 Azure 中创建连接到虚拟机上运行的 MongoDB 的 Web 应用
 
 [!INCLUDE [azure-sdk-developer-differences](../../includes/azure-sdk-developer-differences.md)]
 
-使用 Git，可以将 ASP.NET 应用程序部署到 Azure 应用服务 Web 应用。 在本教程中，你将构建一个简单的前端 ASP.NET MVC 任务列表应用程序，该程序将连接至在 Azure 内的虚拟机中运行的 MongoDB 数据库。  [MongoDB][MongoDB] 是一个受欢迎的开源、高性能 NoSQL 数据库。 在开发计算机上运行并测试 ASP.NET 应用程序后，可使用 Git 将其上传到应用服务 Web 应用。
+使用 Git，可以将 ASP.NET 应用程序部署到 Azure 应用服务 Web 应用。 在本教程中，将构建一个简单的前端 ASP.NET MVC 任务列表应用程序，该程序将连接至在 Azure 内的虚拟机中运行的 MongoDB 数据库。  [MongoDB][MongoDB] 是一个受欢迎的开源、高性能 NoSQL 数据库。 在开发计算机上运行并测试 ASP.NET 应用程序后，可使用 Git 将其上传到应用服务 Web 应用。
 
 ## <a name="background-knowledge"></a>背景知识
 以下知识对学习本教程有帮助（但并非必需）：
@@ -35,7 +35,7 @@ ms.locfileid: "20452766"
 * MongoDB 的 C# 驱动程序。 有关针对 MongoDB 开发 C# 应用程序的更多信息，请参阅 MongoDB [CSharp 语言中心][MongoC#LangCenter]。 
 * ASP .NET Web 应用程序框架。 可通过 [ASP.net 网站][ASP.NET]进行全面了解。
 * ASP .NET MVC Web 应用程序框架。 可通过 [ASP.NET MVC 网站][MVCWebSite]进行全面了解。
-* Azure。 你可以先阅读 [Azure][WindowsAzure]上的文章。
+* Azure。 可以先阅读 [Azure][WindowsAzure]上的文章。
 
 ## <a name="prerequisites"></a>先决条件
 * [Visual Studio Express 2013 for Web][VSEWeb] 或 [Visual Studio 2013][VSUlt]
@@ -47,28 +47,28 @@ ms.locfileid: "20452766"
 <a id="virtualmachine"></a> 
 
 ## <a name="create-a-virtual-machine-and-install-mongodb"></a>创建虚拟机和安装 MongoDB
-本教程假定你已在 Azure 中创建了一个虚拟机。 创建虚拟机后，你需要在该虚拟机上安装 MongoDB：
+本教程假定已在 Azure 中创建了一个虚拟机。 创建虚拟机后，需要在该虚拟机上安装 MongoDB：
 
 * 若要创建 Windows 虚拟机并安装 MongoDB，请参阅 [Install MongoDB on a virtual machine running Windows Server in Azure][InstallMongoOnWindowsVM]（在 Azure 中运行 Windows Server 的虚拟机上安装 MongoDB）。
 
-在 Azure 中创建虚拟机并安装 MongoDB 后，请务必记住该虚拟机的 DNS 名称（例如“testlinuxvm.chinacloudapp.cn”）以及在终结点中指定的 MongoDB 的外部端口。  本教程后面的步骤中将会用到此信息。
+在 Azure 中创建虚拟机并安装 MongoDB 后，请务必记住该虚拟机的 DNS 名称（例如“testlinuxvm.chinacloudapp.cn”）以及在终结点中指定的 MongoDB 的外部端口。  本教程后面的步骤中会用到此信息。
 
 <a id="createapp"></a>
 
 ## <a name="create-the-application"></a>创建应用程序
-在本部分中，将使用 Visual Studio 创建一个名为“My Task List”的 ASP.NET 应用程序，并执行到 Azure 应用服务 Web 应用的初始部署。 将在本地运行该应用程序，但它将连接到 Azure 上的虚拟机并使用在此处创建的 MongoDB 实例。
+本部分使用 Visual Studio 创建一个名为“My Task List”的 ASP.NET 应用程序，并执行到 Azure 应用服务 Web 应用的初始部署。 将在本地运行该应用程序，但其将连接到在 Azure 上的虚拟机并使用在此处创建的 MongoDB 实例。
 
 1. 在 Visual Studio 中，单击“新建项目”。
 
     ![新项目开始页面][StartPageNewProject]
-2. 在“新建项目”窗口中的左侧窗格中，选择“Visual C#”，然后选择“Web”。 在中间窗格中，选择“ASP.NET Web 应用程序”。 在底部，将项目命名为“MyTaskListApp”，然后单击“确定”。
+2. 在“新建项目”窗口中的左侧窗格中，选择“Visual C#”，并选择“Web”。 在中间窗格中，选择“ASP.NET Web 应用程序”。 在底部，将项目命名为“MyTaskListApp”，并单击“确定”。
 
-    ![“新建项目”对话框][NewProjectMyTaskListApp]
-3. 在“新建 ASP.NET 项目”对话框中，选择“MVC”，然后单击“确定”。
+    ![新建项目对话框][NewProjectMyTaskListApp]
+3. 在“新建 ASP.NET 项目”对话框中，选择“MVC”，并单击“确定”。
 
     ![选择 MVC 模板][VS2013SelectMVCTemplate]
 4. 如果尚未登录 Azure，系统会提示用户登录。 按提示登录到 Azure。
-5. 在登录后，可以开始配置应用服务 Web 应用。 指定“Web 应用名称”、“应用服务计划”、“资源组”和“区域”，然后单击“创建”。
+5. 在登录后，可以开始配置应用服务 Web 应用。 指定“Web 应用名称”、“应用服务计划”、“资源组”和“区域”，并单击“创建”。
 
     ![](./media/web-sites-dotnet-store-data-mongodb-vm/VSConfigureWebAppSettings.png)
 6. 在项目创建完成后，等待 Web 应用在 Azure 应用服务中完成创建，如“Azure 应用服务活动”窗口中所指示。 然后，单击“立即将 MyTaskListApp 发布到此 Web 应用”。
@@ -83,7 +83,7 @@ MongoDB 通过驱动程序为 C# 应用程序提供客户端支持，需要在�
 
 安装 MongoDB C# 驱动程序的步骤：
 
-1. 在“解决方案资源管理器”中，右键单击“MyTaskListApp”项目，然后选择“管理 NuGet 包”。
+1. 在“解决方案资源管理器”中，右键单击“MyTaskListApp”项目，并选择“管理 NuGet 包”。
 
     ![管理 NuGet 包][VS2013ManageNuGetPackages]
 2. 在“管理 NuGet 包”窗口的左侧窗格中，单击“联机”。 在右侧的“联机搜索”框中，键入“mongodb.driver”。  单击“安装”以安装此驱动程序。
@@ -98,7 +98,7 @@ MongoDB C# 驱动程序现已安装。  对 **MongoDB.Bson**、**MongoDB.Driver*
 ![MongoDB C# 驱动程序引用][MongoDBCSharpDriverReferences]
 
 ## <a name="add-a-model"></a>添加模型
-在“解决方案资源管理器”内，右键单击“模型”文件夹并添加一个新类，并将其命名为 *TaskModel.cs*。  在 *TaskModel.cs* 中，将现有代码替换为以下代码：
+在“解决方案资源管理器”内，右键单击“模型”文件夹并添加一个新类，并将其命名为 *TaskModel.cs*。  在“解决方案资源管理器”中，右键单击“Models”文件夹，选择 *TaskModel.cs*中，将现有代码替换为以下代码：
 
     using System;
     using System.Collections.Generic;
@@ -319,7 +319,7 @@ MongoDB C# 驱动程序现已安装。  对 **MongoDB.Bson**、**MongoDB.Driver*
     }
 
 ## <a name="set-up-the-styles"></a>设置样式
-若要更改页面顶部的标题，请在“解决方案资源管理器”中打开 *Views\Shared\\_Layout.cshtml* 文件，将导航条标头中的“Application name”替换为“My Task List Application”，以使其类似于如下内容：
+要更改页面顶部的标题，请在“解决方案资源管理器”中打开 *Views\Shared\\_Layout.cshtml* 文件，将导航条标头中的“Application name”替换为“My Task List Application”，以使其类似于如下内容：
 
      @Html.ActionLink("My Task List Application", "Index", "Home", null, new { @class = "navbar-brand" })
 
@@ -413,23 +413,23 @@ MongoDB C# 驱动程序现已安装。  对 **MongoDB.Bson**、**MongoDB.Driver*
 
 将 `<vm-dns-name>` 替换为运行 MongoDB 的虚拟机（在本教程的 [创建虚拟机并安装 MongoDB][Create a virtual machine and install MongoDB] 步骤中创建）的 DNS 名。  若要查找虚拟机的 DNS 名称，请转到 Azure 门户，选择“虚拟机”并找到“DNS 名称”。
 
-如果虚拟机的 DNS 名是“testlinuxvm.chinacloudapp.cn”而 MongoDB 在默认端口 27017 进行侦听，连接字符串代码行将如下所示：
+如果虚拟机的 DNS 名是“testlinuxvm.chinacloudapp.cn”而 MongoDB 在默认端口 27017 进行侦听，连接字符串代码行会如下所示：
 
     private string connectionString = "mongodb://testlinuxvm.chinacloudapp.cn";
 
-如果虚拟机终结点为 MongoDB 指定了不同的外部端口，你可在连接字符串中指定端口：
+如果虚拟机终结点为 MongoDB 指定了不同的外部端口，可在连接字符串中指定端口：
 
      private string connectionString = "mongodb://testlinuxvm.chinacloudapp.cn:12345";
 
 有关 MongoDB 连接字符串的详细信息，请参阅 [连接][MongoConnectionStrings]。
 
 ## <a name="test-the-local-deployment"></a>测试本地部署
-若要在开发计算机上运行应用程序，请从“调试”菜单中选择“启动调试”或按 **F5**。 IIS Express 将启动，浏览器将打开并显示该应用程序的主页。  可以添加一个新任务，而后将其添加到在 Azure 中的虚拟机上运行的 MongoDB 数据库。
+若要在开发计算机上运行应用程序，请从“调试”菜单中选择“启动调试”或按 **F5**。 IIS Express 启动，浏览器打开并显示该应用程序的主页。  可以添加一个新任务，而后将其添加到在 Azure 中的虚拟机上运行的 MongoDB 数据库。
 
 ![My Task List 应用程序][TaskListAppBlank]
 
 ## <a name="publish-to-azure-app-service-web-apps"></a>发布到 Azure 应用服务 Web 应用
-在本部分中，将向 Azure 应用服务 Web 应用发布所做的更改。
+本部分向 Azure 应用服务 Web 应用发布所做的更改。
 
 1. 在“解决方案资源管理器”中，再次右键单击“MyTaskListApp”，并单击“发布”。
 2. 单击“发布”。

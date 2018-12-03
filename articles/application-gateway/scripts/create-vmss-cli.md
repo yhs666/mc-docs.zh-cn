@@ -16,11 +16,11 @@ ms.date: 08/22/2018
 ms.author: v-junlch
 ms.custom: mvc
 ms.openlocfilehash: fecee8b66591174ff0928dd2ae95324c8a28eb1e
-ms.sourcegitcommit: da9f7b0825e493636d6596eb6ae95d03e0626583
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "41734296"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647458"
 ---
 # <a name="manage-web-traffic-using-the-azure-cli"></a>使用 Azure CLI 管理 Web 流量
 

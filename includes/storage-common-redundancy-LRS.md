@@ -10,11 +10,11 @@ ms.date: 09/10/2018
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: b43b3f6186c026255db39e760579f6eb01585218
-ms.sourcegitcommit: e157751c560524d0bb828e987b87178130663547
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43649830"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658588"
 ---
 本地冗余存储 (LRS) 设计为在一年中提供至少 99.999999999%（11 个 9）的对象持久性，它将数据复制到一个存储缩放单元中。 该存储缩放单元托管在你在其中创建存储帐户的区域中的一个数据中心内。 只有在数据已写入到所有副本后，到 LRS 存储帐户的写入请求才会成功返回。 这些副本各自驻留在同一存储缩放单元中的不同容错域和更新域中。
 

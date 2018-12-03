@@ -14,11 +14,11 @@ ms.date: 10/18/2018
 ms.author: v-junlch
 ms.custom: mvc
 ms.openlocfilehash: ef4222dec224b6bd9ef91b03edad20913a18c470
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453666"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662101"
 ---
 # <a name="create-a-function-app-in-an-app-service-plan"></a>在应用服务计划中创建 Function App
 

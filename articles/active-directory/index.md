@@ -14,11 +14,11 @@ origin.date: 08/16/2018
 ms.date: 10/12/2018
 ms.author: v-junlch
 ms.openlocfilehash: 37427e60ae86fc7898f356ab90a9111d2ef74196
-ms.sourcegitcommit: 21b81b5cd326b6900fa7274b3b073aecd01111aa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49121664"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657199"
 ---
 # <a name="azure-active-directory-documentation"></a>Azure Active Directory 文档
 

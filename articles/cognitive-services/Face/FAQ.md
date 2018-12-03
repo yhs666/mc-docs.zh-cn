@@ -12,11 +12,11 @@ origin.date: 01/26/2017
 ms.date: 10/24/2018
 ms.author: v-junlch
 ms.openlocfilehash: 709cafee69bfb9e6501f23b7b148e46976f033b9
-ms.sourcegitcommit: 44ce337717bb948f5ac08217a156935f663c0f46
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50034670"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644349"
 ---
 # <a name="face-api-frequently-asked-questions"></a>人脸 API 常见问题解答
 

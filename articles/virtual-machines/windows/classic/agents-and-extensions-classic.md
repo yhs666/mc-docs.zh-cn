@@ -19,11 +19,11 @@ ms.date: 05/21/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 2a3459362149fdd7ca05266a10e61be49ac19e7e
-ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "34173267"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661974"
 ---
 # <a name="about-the-virtual-machine-agent-and-extensions-for-windows-vms"></a>关于适用于 Windows VM 的虚拟机代理和扩展
 

@@ -15,11 +15,11 @@ origin.date: 04/20/2018
 ms.date: 07/30/2018
 ms.author: v-yiso
 ms.openlocfilehash: c9b6a5284d18f3581ac1c8635961c86b35875ede
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168025"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52667171"
 ---
 # <a name="inbound-and-outbound-ip-addresses-in-azure-app-service"></a>Azure 应用服务中的入站和出站 IP 地址
 

@@ -1,35 +1,21 @@
 ---
-title: 使用 Azure DNS 管理 DNS 记录集和记录 | Microsoft Docs
+title: 使用 Azure DNS 管理 DNS 记录集和记录
 description: Azure DNS 在托管域时具有管理 DNS 记录集和记录的功能。
 services: dns
-documentationcenter: na
-author: yunan2016
-manager: digimobile
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 18ed44a1-7bfe-454f-964e-922ad978264a
+author: WenJason
 ms.service: dns
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-origin.date: 08/16/2016
-ms.date: 12/18/2017
-ms.author: v-nany
-ms.openlocfilehash: a7d276aeadc5de05ef66d19477797a07fb6d4b76
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+origin.date: 10/6/2018
+ms.date: 11/12/2018
+ms.author: v-jay
+ms.openlocfilehash: 7abe47fdabc2259905d72c6132ffbb1c28a2d381
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426206"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662647"
 ---
 # <a name="manage-dns-records-and-record-sets-by-using-the-azure-portal"></a>使用 Azure 门户管理 DNS 记录和记录集
-
-> [!div class="op_single_selector"]
-> * [Azure 门户](dns-operations-recordsets-portal.md)
-> * [Azure CLI 1.0](dns-operations-recordsets-cli-nodejs.md)
-> * [Azure CLI 2.0](dns-operations-recordsets-cli.md)
-> * [PowerShell](dns-operations-recordsets.md)
 
 本文演示如何通过使用 Azure 门户来管理 DNS 区域的记录集和记录。
 
@@ -96,7 +82,7 @@ Azure 门户可用于从记录集中删除记录。 请注意，从记录集中�
 
 1. 在记录集的“**记录集属性**”边栏选项卡中，搜单击“**删除**”。
 
-    ![删除记录集](./media/dns-operations-recordsets-portal/deleterecordset500.png)
+    ![删除记录集](./media/dns-operations-recordsets-portal/deleterecordset500.PNG)
 
 2. 将出现一条消息，询问你是否想要删除记录集。
 3. 验证该名称与要删除的记录集是否匹配，并单击“**是**”。

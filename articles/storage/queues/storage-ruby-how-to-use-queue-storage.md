@@ -16,11 +16,11 @@ origin.date: 12/08/2016
 ms.date: 10/16/2017
 ms.author: v-johch
 ms.openlocfilehash: 4ec28e40076b0136c6e90f17e1ba9218e593ed63
-ms.sourcegitcommit: 0081fb238c35581bb527bdd704008c07079c8fbb
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523722"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649457"
 ---
 # <a name="how-to-use-queue-storage-from-ruby"></a>如何通过 Ruby 使用队列存储
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]

@@ -11,11 +11,11 @@ origin.date: 09/14/2018
 ms.date: 10/15/2018
 ms.author: v-jay
 ms.openlocfilehash: e0564b4f6880e7416619646a819fab74e09dc86d
-ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913777"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651403"
 ---
 # <a name="scaling-out-with-azure-sql-database"></a>Scaling out with Azure SQL Database（使用 Azure SQL 数据库进行扩展）
 可以使用 **弹性数据库** 工具轻松地扩展 Azure SQL 数据库。 借助这些工具和功能，可以使用 Azure SQL 数据库中的数据库资源来为事务工作负荷，尤其是服务型软件 (SaaS) 应用程序创建解决方案。 弹性数据库包括：

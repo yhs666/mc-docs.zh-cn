@@ -15,11 +15,11 @@ origin.date: 04/23/2018
 ms.date: 07/02/2018
 ms.author: sngun
 ms.openlocfilehash: edadbaad51dac56ecedc0b9561f4121768546ed9
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939523"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650039"
 ---
 # <a name="introduction-to-table-storage-in-azure"></a>Azure 中的表存储简介
 

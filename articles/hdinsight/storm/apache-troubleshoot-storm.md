@@ -15,11 +15,11 @@ origin.date: 11/02/2017
 ms.date: 05/21/2018
 ms.author: v-yiso
 ms.openlocfilehash: b81ecd2488371dc4216d6e48a44858560563b5ea
-ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34449983"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663730"
 ---
 # <a name="troubleshoot-storm-by-using-azure-hdinsight"></a>使用 Azure HDInsight 对 Storm 进行故障排除
 

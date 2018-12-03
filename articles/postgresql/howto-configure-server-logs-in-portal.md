@@ -10,11 +10,11 @@ ms.service: postgresql
 ms.topic: article
 ms.date: 06/22/2018
 ms.openlocfilehash: 5fd430dfe057c6f9d6723dbe00752f30cf1bdbe5
-ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39723064"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656603"
 ---
 # <a name="configure-and-access-server-logs-in-the-azure-portal"></a>在 Azure 门户中配置和访问服务器日志
 

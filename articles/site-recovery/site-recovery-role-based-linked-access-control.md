@@ -13,11 +13,11 @@ ms.date: 07/23/2018
 ms.topic: conceptual
 ms.author: v-yeche
 ms.openlocfilehash: 9f7ccbc099448cf7a1fc4eb70a41741ea2cf4193
-ms.sourcegitcommit: f7ff09be9f3be5e3eb795e383c0c670f480f233d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39169038"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655967"
 ---
 # <a name="use-role-based-access-control-to-manage-site-recovery-access"></a>使用基于角色的访问控制管理 Site Recovery 访问权限
 

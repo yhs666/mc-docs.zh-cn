@@ -16,11 +16,11 @@ origin.date: 08/07/2017
 ms.date: 03/19/2018
 ms.author: v-yeche
 ms.openlocfilehash: deb7cd79c2adddc8db94af6872586ce15249b1a2
-ms.sourcegitcommit: 5bf041000d046683f66442e21dc6b93cb9d2f772
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2018
-ms.locfileid: "29965329"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654872"
 ---
 # <a name="provision-a-sql-server-virtual-machine-using-azure-powershell-classic"></a>使用 Azure PowerShell 预配 SQL Server 虚拟机（经典）
 
@@ -32,7 +32,7 @@ ms.locfileid: "29965329"
 有关此主题中的 Resource Manager 版本，请参阅[使用 Azure PowerShell Resource Manager 预配 SQL Server 虚拟机](../sql/virtual-machines-windows-ps-sql-create.md)。
 
 ### <a name="install-and-configure-powershell"></a>安装和配置 PowerShell：
-1. 如果没有 Azure 帐户，请访问 [Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。
+1. 如果没有 Azure 帐户，请访问 [Azure 试用](https://www.azure.cn/pricing/1rmb-trial/)。
 2. [下载和安装最新 Azure PowerShell 命令](https://docs.microsoft.com/powershell/azure/overview)。
 3. 启动 Windows PowerShell，并使用 **Add-AzureAccount -Environment AzureChinaCloud** 命令将其连接到 Azure 订阅。
 
@@ -201,7 +201,7 @@ New-AzureVM -ServiceName $svcname -VMs $vm1
 
 ## <a name="next-steps"></a>后续步骤
 
-你可以在[虚拟机文档](../classic/create-powershell.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)中找到有关使用 PowerShell 预配虚拟机的其他说明。
+可以在 [虚拟机文档](../classic/create-powershell.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)中找到使用 PowerShell 设置虚拟机的其他说明。
 
 在许多情况下，下一步是将数据库迁移到此新的 SQL Server VM。 有关数据库迁移指南，请参阅[将数据库迁移到 Azure VM 上的 SQL Server](../sql/virtual-machines-windows-migrate-sql.md?toc=%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)。
 

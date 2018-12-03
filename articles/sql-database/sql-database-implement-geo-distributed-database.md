@@ -2,23 +2,25 @@
 title: 实现地理分散的 Azure SQL 数据库解决方案 | Microsoft Docs
 description: 了解如何配置 Azure SQL 数据库和应用程序以便故障转移到复制的数据库，以及如何测试故障转移。
 services: sql-database
-author: WenJason
-manager: digimobile
 ms.service: sql-database
-ms.custom: mvc,business continuity
-ms.topic: tutorial
-origin.date: 09/07/2018
-ms.date: 10/15/2018
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
+author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab
-ms.openlocfilehash: d76aa392f7ff78a651a6286c443dfe48a1e97cfb
-ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
+manager: craigg
+origin.date: 11/01/2018
+ms.date: 12/06/2018
+ms.openlocfilehash: ce431dfa848f4c039d1934d409474f6fb1b0e12b
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48914001"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672735"
 ---
-# <a name="implement-a-geo-distributed-database"></a>实现地理分散的数据库
+# <a name="tutorial-implement-a-geo-distributed-database"></a>教程：实现地理分散的数据库
 
 在本教程中，将配置 Azure SQL 数据库和应用程序以便故障转移到远程区域中，然后测试故障转移计划。 你将学习如何执行以下操作： 
 

@@ -16,11 +16,11 @@ origin.date: 08/10/2018
 ms.date: 10/31/2018
 ms.author: v-lingwu
 ms.openlocfilehash: d3173075d443c2058f02d3cb467a9a2b0c905402
-ms.sourcegitcommit: eafcafa2b6c442ad5b13c24d889ecbecf1c6b3f4
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50409347"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660675"
 ---
 # <a name="how-to-use-the-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>如何将 Java 消息服务 (JMS) API 用于服务总线和 AMQP 1.0
 

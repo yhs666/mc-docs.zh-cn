@@ -16,11 +16,11 @@ origin.date: 07/31/2018
 ms.date: 09/10/2018
 ms.author: v-yeche
 ms.openlocfilehash: 655ac1e67338ef7e93d463b10dc4af5fbde1c0f6
-ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44515718"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650412"
 ---
 # <a name="sfctl-application"></a>sfctl application
 创建、删除和管理应用程序及应用程序类型。
@@ -30,7 +30,7 @@ ms.locfileid: "44515718"
 |命令|说明|
 | --- | --- |
 | create | 使用指定说明创建 Service Fabric 应用程序。 |
-| delete | 删除现有 Service Fabric 应用程序。 |
+| 删除 | 删除现有 Service Fabric 应用程序。 |
 | deployed | 获取部署在 Service Fabric 节点上的应用程序的相关信息。 |
 | deployed-health | 获取部署在 Service Fabric 节点上的应用程序的运行状况。 |
 | deployed-list | 获取部署在 Service Fabric 节点上的应用程序的列表。 |
@@ -59,7 +59,7 @@ ms.locfileid: "44515718"
 | --- | --- |
 | --app-name [必需] | 应用程序名称，包括“fabric\:”URI 方案。 |
 | --app-type [必需] | 在应用程序清单中找到的应用程序类型名称。 |
-| --app-version [必需] | 应用程序清单中定义的应用程序类型的版本。 |
+| --app-version [必需] | 应用程序清单中定义的应用程序类型版本。 |
 | --max-node-count | Service Fabric 为此应用程序保留的容量的最大节点数。 请注意，这并不表示此应用程序的服务放置在所有这些节点上。 |
 | --metrics | 应用程序容量指标说明的 JSON 编码列表。 指标定义为一个名称，与应用程序所在的每个节点的一组容量关联。 |
 | --min-node-count | Service Fabric 为此应用程序保留的容量的最小节点数。 请注意，这并不表示此应用程序的服务放置在所有这些节点上。 |
@@ -86,7 +86,7 @@ ms.locfileid: "44515718"
 |参数|说明|
 | --- | --- |
 | --application-id [必需] | 应用程序的标识。 这通常是不带“fabric\:”URI 方案的应用程序全名。 从版本 6.0 开始，分层名称以“\~”字符隔开。 例如，如果应用程序名称为“fabric\:/myapp/app1”，则 6.0 及更高版本中的应用程序标识为“myapp\~app1”，在以前的版本中为“myapp/app1”。 |
-| --force-remove | 强制删除 Service Fabric 应用程序或服务，跳过正常关闭序列。 若因服务代码中的问题而无法正常关闭副本，导致删除应用程序或服务操作超时，可使用此参数强制删除该应用程序或服务。 |
+| --force-remove | 强制删除 Service Fabric 应用程序或服务，跳过正常关闭序列。 若因服务代码中的问题而无法正常关闭副本，导致应用程序或服务删除超时，可使用此参数强制删除该应用程序或服务。 |
 | --timeout -t | 服务器超时，以秒为单位。  默认值\: 60。 |
 
 ### <a name="global-arguments"></a>全局参数
@@ -159,7 +159,7 @@ ms.locfileid: "44515718"
 |参数|说明|
 | --- | --- |
 | --node-name [必需] | 节点的名称。 |
-| --continuation-token | 继续标记参数用于获取下一组结果。 如果单个响应无法容纳来自系统的结果，则 API 响应中包括含有非空值的继续标记。 当此值传递到下一个 API 调用时，API 返回下一组结果。 如果没有更多结果，则该继续标记不包含值。 不应将此参数的值进行 URL 编码。 |
+| --continuation-token | 继续标记参数用于获取下一组结果。 如果单个响应无法容纳来自系统的结果，则 API 响应中包括含有非空值的继续标记。 当此值传递到下一个 API 调用时，API 返回下一组结果。 如果没有更多结果，则继续标记不包含值。 不应将此参数的值进行 URL 编码。 |
 | --include-health-state | 包含实体的运行状况。 如果此参数为 false 或未指定，则返回的运行状况为“Unknown”。 设置为 true，查询将并行转到节点和运行状况系统服务，然后将结果合并。 因此，查询开销更高，并可能需要更长的时间。 |
 | --max-results | 作为分页查询的一部分返回的最大结果数。 此参数定义返回结果数的上限。 如果根据配置中定义的最大消息大小限制，无法将这些结果容纳到消息中，则返回的结果数可能小于指定的最大结果数。 如果此参数为零或者未指定，则分页查询包含返回消息中最多可容纳的结果数。 |
 | --timeout -t | 服务器超时，以秒为单位。  默认值\: 60。 |
@@ -234,7 +234,7 @@ ms.locfileid: "44515718"
 | --- | --- |
 | --application-definition-kind-filter | 用来筛选 ApplicationDefinitionKind，它是用来定义 Service Fabric 应用程序的机制。  <br> - Default - 默认值，它执行与选择“所有”时相同的功能。 值为 0。  <br> - All - 与任何 ApplicationDefinitionKind 值输入匹配的筛选器。 值为 65535。  <br> - ServiceFabricApplicationDescription - 与 ApplicationDefinitionKind 值 ServiceFabricApplicationDescription 输入匹配的筛选器。 值为 1。  <br> - Compose - 与 ApplicationDefinitionKind 值 Compose 输入匹配的筛选器。 值为 2。 |
 | --application-type-name | 用于筛选要查询的应用程序的应用程序类型名称。 此值不应包含应用程序类型版本。 |
-| --continuation-token | 继续标记参数用于获取下一组结果。 如果单个响应无法容纳来自系统的结果，则 API 响应中包括含有非空值的继续标记。 当此值传递到下一个 API 调用时，API 返回下一组结果。 如果没有更多结果，则该继续标记不包含值。 不应将此参数的值进行 URL 编码。 |
+| --continuation-token | 继续标记参数用于获取下一组结果。 如果单个响应无法容纳来自系统的结果，则 API 响应中包括含有非空值的继续标记。 当此值传递到下一个 API 调用时，API 返回下一组结果。 如果没有更多结果，则继续标记不包含值。 不应将此参数的值进行 URL 编码。 |
 | --exclude-application-parameters | 该标志指定应用程序参数是否排除在结果之外。 |
 | --max-results | 作为分页查询的一部分返回的最大结果数。 此参数定义返回结果数的上限。 如果根据配置中定义的最大消息大小限制，无法将这些结果容纳到消息中，则返回的结果数可能小于指定的最大结果数。 如果此参数为零或者未指定，则分页查询包含返回消息中最多可容纳的结果数。 |
 | --timeout -t | 服务器超时，以秒为单位。  默认值\: 60。 |
@@ -303,8 +303,8 @@ ms.locfileid: "44515718"
 
 |参数|说明|
 | --- | --- |
-| --application-package-download-uri | “.sfpkg”应用程序包的路径，可使用 HTTP 或 HTTPS 协议从该处下载应用程序包。 <br><br> 仅适用于预配种类的外部存储。 应用程序包可以存储在外部存储中，该存储提供 GET 操作来下载文件。 支持的协议为 HTTP 和 HTTPS，并且路径必须允许读取访问权限。 |
-| --application-type-build-path | 仅适用于预配种类的映像存储。 应用程序包在先前的上传操作中指定的映像存储中的相对路径。 |
+| --application-package-download-uri | “.sfpkg”应用程序包的路径，可使用 HTTP 或 HTTPS 协议从该处下载应用程序包。 <br><br> 仅适用于预配种类的外部存储。 应用程序包可以存储在外部存储中，该存储提供 GET 操作来下载文件。 支持的协议为 HTTP 和 HTTPS。路径必须允许读取访问权限。 |
+| --application-type-build-path | 仅适用于预配种类的映像存储。 应用程序包在映像存储中的相对路径，该存储是在先前的上传操作中指定的。 |
 | --application-type-name | 仅适用于预配种类的外部存储。 应用程序类型名称表示在应用程序清单中找到的应用程序类型的名称。 |
 | --application-type-version | 仅适用于预配种类的外部存储。 应用程序类型版本表示在应用程序清单中找到的应用程序类型的版本。 |
 | --external-provision | 可以从其中注册或预配应用程序包的位置。 指示预配针对之前上传到外部存储的应用程序包。 应用程序包以扩展名 *.sfpkg 结尾。 |
@@ -362,7 +362,7 @@ ms.locfileid: "44515718"
 | --- | --- |
 | --application-type-name [必需] | 应用程序类型的名称。 |
 | --application-type-version | 应用程序类型的版本。 |
-| --continuation-token | 继续标记参数用于获取下一组结果。 如果单个响应无法容纳来自系统的结果，则 API 响应中包括含有非空值的继续标记。 当此值传递到下一个 API 调用时，API 返回下一组结果。 如果没有更多结果，则该继续标记不包含值。 不应将此参数的值进行 URL 编码。 |
+| --continuation-token | 继续标记参数用于获取下一组结果。 如果单个响应无法容纳来自系统的结果，则 API 响应中包括含有非空值的继续标记。 当此值传递到下一个 API 调用时，API 返回下一组结果。 如果没有更多结果，则继续标记不包含值。 不应将此参数的值进行 URL 编码。 |
 | --exclude-application-parameters | 该标志指定应用程序参数是否排除在结果之外。 |
 | --max-results | 作为分页查询的一部分返回的最大结果数。 此参数定义返回结果数的上限。 如果根据配置中定义的最大消息大小限制，无法将这些结果容纳到消息中，则返回的结果数可能小于指定的最大结果数。 如果此参数为零或者未指定，则分页查询包含返回消息中最多可容纳的结果数。 |
 | --timeout -t | 服务器超时，以秒为单位。  默认值\: 60。 |
@@ -387,7 +387,7 @@ ms.locfileid: "44515718"
 |参数|说明|
 | --- | --- |
 | --application-type-definition-kind-filter | 用来筛选 ApplicationTypeDefinitionKind，它是用来定义 Service Fabric 应用程序类型的机制。  <br> - Default - 默认值，它执行与选择“所有”时相同的功能。 值为 0。  <br> - All - 与任何 ApplicationTypeDefinitionKind 值输入匹配的筛选器。 值为 65535。  <br> - ServiceFabricApplicationPackage - 将输入与 ApplicationTypeDefinitionKind 值 ServiceFabricApplicationPackage 进行匹配的筛选器。 值为 1。  <br> - Compose - 与 ApplicationTypeDefinitionKind 值 Compose 输入匹配的筛选器。 值为 2。 |
-| --continuation-token | 继续标记参数用于获取下一组结果。 如果单个响应无法容纳来自系统的结果，则 API 响应中包括含有非空值的继续标记。 当此值传递到下一个 API 调用时，API 返回下一组结果。 如果没有更多结果，则该继续标记不包含值。 不应将此参数的值进行 URL 编码。 |
+| --continuation-token | 继续标记参数用于获取下一组结果。 如果单个响应无法容纳来自系统的结果，则 API 响应中包括含有非空值的继续标记。 当此值传递到下一个 API 调用时，API 返回下一组结果。 如果没有更多结果，则继续标记不包含值。 不应将此参数的值进行 URL 编码。 |
 | --exclude-application-parameters | 该标志指定应用程序参数是否排除在结果之外。 |
 | --max-results | 作为分页查询的一部分返回的最大结果数。 此参数定义返回结果数的上限。 如果根据配置中定义的最大消息大小限制，无法将这些结果容纳到消息中，则返回的结果数可能小于指定的最大结果数。 如果此参数为零或者未指定，则分页查询包含返回消息中最多可容纳的结果数。 |
 | --timeout -t | 服务器超时，以秒为单位。  默认值\: 60。 |
@@ -412,7 +412,7 @@ ms.locfileid: "44515718"
 |参数|说明|
 | --- | --- |
 | --application-type-name    [必需] | 应用程序类型的名称。 |
-| --application-type-version [必需] | 应用程序清单中定义的应用程序类型的版本。 |
+| --application-type-version [必需] | 应用程序清单中定义的应用程序类型版本。 |
 | --async-parameter | 此标志指示取消预配是否应当以异步方式进行。 当设置为 true 时，取消预配操作将在请求被系统接受时返回，并且取消预配操作继续进行，没有任何超时限制。 默认值为 false。 但是，对于已预配的大型应用程序包，建议将其设置为 true。 |
 | --timeout -t | 服务器超时，以秒为单位。  默认值\: 60。 |
 
@@ -440,18 +440,18 @@ ms.locfileid: "44515718"
 | --parameters [必需] | 升级应用程序时应用的应用程序参数替代的 JSON 编码列表。 |
 | --default-service-health-policy | 默认使用的健康策略的 JSON 编码规范，用于评估服务类型的运行状况。 |
 | --failure-action | 监视的升级违反监视策略或健康策略时要执行的操作。 |
-| --force-restart | 即使代码版本没有改变，也在升级过程中强制重新启动进程。 |
-| --health-check-retry-timeout | 执行失败操作前，当应用程序或群集不正常时，重试运行状况评估所需的时间。 以毫秒为单位。  默认值\: PT0H10M0S。 |
+| --force-restart | 即使代码版本没有改变，也在升级过程中强制重启进程。 |
+| --health-check-retry-timeout | 在应用程序或群集不正常的情况下，执行失败操作前重试运行状况评估所需的时间。 以毫秒为单位。  默认值\: PT0H10M0S。 |
 | --health-check-stable-duration | 升级继续到下一升级域之前，应用程序或群集必须保持正常的时长。 以毫秒为单位。  默认值\: PT0H2M0S。 |
-| --health-check-wait-duration | 应用运行状况策略之前，完成升级域后等待的时间长度。 以毫秒为单位。  默认值\: 0。 |
+| --health-check-wait-duration | 应用健康策略之前，完成升级域后等待的时间长度。 以毫秒为单位。  默认值\: 0。 |
 | --max-unhealthy-apps | 允许的已部署的不正常应用程序的最大百分比。 由介于 0 到 100 间的数字表示。 |
 | --mode | 在滚动升级期间用于监视运行状况的模式。  默认值\: UnmonitoredAuto。 |
-| --replica-set-check-timeout | 出现意外问题时，阻止处理升级域并防止可用性丢失的最大时长。 以秒为度量单位。 |
+| --replica-set-check-timeout | 出现意外问题时，阻止升级域的处理并防止可用性丢失的最大时长。 以秒为度量单位。 |
 | --service-health-policy | 包含每个服务类型名称的服务类型健康策略的 JSON 编码映射。 映射默认为空。 |
 | --timeout -t | 服务器超时，以秒为单位。  默认值\: 60。 |
 | --upgrade-domain-timeout | 执行 FailureAction 前，每个升级域需等待的时长。 以毫秒为单位。  默认值\: P10675199DT02H48M05.4775807S。 |
 | --upgrade-timeout | 执行 FailureAction 前，完成整个升级需等待的时长。 以毫秒为单位。  默认值\: P10675199DT02H48M05.4775807S。 |
-| --warning-as-error | 将运行状况评估警告的严重级别视为与与错误相同。 |
+| --warning-as-error | 将运行状况评估警告的严重级别视为与错误相同。 |
 
 ### <a name="global-arguments"></a>全局参数
 

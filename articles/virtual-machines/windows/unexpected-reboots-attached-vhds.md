@@ -13,11 +13,11 @@ origin.date: 05/01/2018
 ms.date: 06/04/2018
 ms.author: v-yeche
 ms.openlocfilehash: 486278109ddfbd32e29e8fa77121acf34fb66944
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702956"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659157"
 ---
 # <a name="troubleshoot-unexpected-reboots-of-vms-with-attached-vhds"></a>排查附加 VHD 的 VM 意外重启
 

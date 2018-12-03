@@ -16,11 +16,11 @@ origin.date: 07/09/2018
 ms.date: 08/27/2018
 ms.author: ashish
 ms.openlocfilehash: 75173d59380d819d60794e7184e98052b81b859d
-ms.sourcegitcommit: bae4e9e500e3e988ef8fa0371777ca9cc49b4e94
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45584868"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663781"
 ---
 # <a name="use-ambari-to-optimize-hdinsight-cluster-configurations"></a>使用 Ambari 优化 HDInsight 群集配置
 
@@ -211,7 +211,7 @@ Hadoop 作业通常会遇到 I/O 瓶颈。 压缩数据能够加快 I/O 和总�
 
     d. 在“添加属性”窗口中，输入 `mapred.map.output.compression.codec` 作为键，输入 `org.apache.hadoop.io.compress.SnappyCodec` 作为值。
 
-    e. 单击 **“添加”**。
+    e. 单击“添加” 。
 
     ![Hive 自定义属性](./media/hdinsight-changing-configs-via-ambari/hive-custom-property.png)
 

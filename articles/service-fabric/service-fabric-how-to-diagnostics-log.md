@@ -16,11 +16,11 @@ origin.date: 03/27/2018
 ms.date: 08/20/2018
 ms.author: v-yeche
 ms.openlocfilehash: 1e4d159d932a8ebe22852ade4c19eccbd42aa21e
-ms.sourcegitcommit: 6174eee82d2df8373633a0790224c41e845db33c
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41705094"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651496"
 ---
 # <a name="add-logging-to-your-service-fabric-application"></a>向 Service Fabric 应用程序添加日志记录
 

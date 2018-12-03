@@ -6,6 +6,9 @@ items:
   - name: 组件版本控制
     href: ../hdinsight-component-versioning.md
     maintainContext: true
+  - name: HDInsight 4.0
+    href: ../hdinsight-version-release.md
+    maintainContext: true
 - name: 入门
   items:
   - name: 从交互式查询开始
@@ -191,7 +194,7 @@ items:
       - name: 使用 .NET SDK
         href: ../hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md
         maintainContext: true
-      - name: 使用 Azure CLI
+      - name: 使用 Azure 经典 CLI
         href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
         maintainContext: true
       - name: 使用 Azure 门户
@@ -213,7 +216,7 @@ items:
       - name: 使用 Azure PowerShell
         href: ../hdinsight-administer-use-powershell.md
         maintainContext: true
-      - name: 使用 Azure CLI
+      - name: 使用 Azure 经典 CLI
         href: ../hdinsight-administer-use-command-line.md
         maintainContext: true
       maintainContext: true
@@ -304,26 +307,6 @@ items:
     maintainContext: true
 - name: 企业就绪情况
   items:
-  - name: 企业安全性
-    items:
-    - name: 概述
-      href: ../domain-joined/apache-domain-joined-introduction.md
-      maintainContext: true
-    - name: 企业安全性计划
-      href: ../domain-joined/apache-domain-joined-architecture.md
-      maintainContext: true
-    - name: 在 HDInsight 中配置企业安全性
-      href: ../domain-joined/apache-domain-joined-configure.md
-      maintainContext: true
-    - name: 使用 Azure AD DS 在 HDInsight 中配置企业安全性
-      href: ../domain-joined/apache-domain-joined-configure-using-azure-adds.md
-      maintainContext: true
-    - name: 配置 Hive 策略
-      href: ../domain-joined/apache-domain-joined-run-hive.md
-      maintainContext: true
-    - name: 使用企业安全性管理群集
-      href: ../domain-joined/apache-domain-joined-manage.md
-      maintainContext: true
   - name: 保护数据
     href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
     maintainContext: true
@@ -340,9 +323,15 @@ items:
   - name: 代码示例
     href: https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight
   - name: Azure PowerShell
-    href: https://docs.microsoft.com/en-us/powershell/module/azurerm.hdinsight
-  - name: .NET (Hadoop)
-    href: https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet
+    href: /powershell/module/azurerm.hdinsight
+  - name: .NET SDK
+    href: /dotnet/api/overview/hdinsight?view=azure-dotnet
+  - name: Python SDK
+    href: https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python
+  - name: Java SDK
+    href: /java/api/overview/hdinsight?view=azure-java-preview
+  - name: Go SDK
+    href: ../hdinsight-go-sdk-overview.md
   - name: .NET (HBase)
     href: https://www.nuget.org/packages/Microsoft.HBase.Client/
   - name: .NET (Avro)
@@ -355,15 +344,18 @@ items:
   items:
   - name: 发行说明
     href: ../hdinsight-release-notes.md
+    items:
+    - name: 已存档的发行说明
+      href: ../hdinsight-release-notes-archive.md
     maintainContext: true
   - name: 定价计算器
     href: https://www.azure.cn/pricing/calculator/
   - name: 适用于 HDInsight 的 Windows 工具
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 45d7fb7baadbf703dac896a8da2bce79b87e831e
-ms.sourcegitcommit: 8a5722b85c6eabbd28473d792716ad44aac3ff23
+ms.openlocfilehash: b96debee18edfc971fc3b2f26de5da02cda780db
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49121539"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654400"

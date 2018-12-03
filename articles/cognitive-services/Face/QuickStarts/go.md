@@ -1,5 +1,5 @@
 ---
-title: 快速入门：检测图像中的人脸 - 人脸 API，Go
+title: 快速入门：使用 REST API 和 Go 检测图像中的人脸
 titleSuffix: Azure Cognitive Services
 description: 在该快速入门中，使用人脸 API 和 Go 检测图像中的人脸。
 services: cognitive-services
@@ -9,16 +9,16 @@ ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
 origin.date: 06/25/2018
-ms.date: 10/22/2018
+ms.date: 11/23/2018
 ms.author: v-junlch
-ms.openlocfilehash: ecd8683d03a2c637de07bdf33e18b0835208ca9b
-ms.sourcegitcommit: 44ce337717bb948f5ac08217a156935f663c0f46
+ms.openlocfilehash: 5548ab60927c52e521cc1292cb34a38cf8bd7aac
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50034680"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672755"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-go"></a>快速入门：使用 Go 检测图像中的人脸
+# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-go"></a>快速入门：使用 REST API 和 Go 检测图像中的人脸
 
 本快速入门使用人脸 API 检测图像中的人脸。
 

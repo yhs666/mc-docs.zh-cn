@@ -16,11 +16,11 @@ origin.date: 01/26/2018
 ms.author: v-yiso
 ms.date: 06/25/2018
 ms.openlocfilehash: 531909ab76ea6dc494138a80811853f5f28906a7
-ms.sourcegitcommit: d5a43984d1d756b78a2424257269d98154b88896
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36747452"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651843"
 ---
 # <a name="configure-spark-settings"></a>配置 Spark 设置
 

@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
-origin.date: 10/04/2018
-ms.date: 10/29/2018
-ms.openlocfilehash: c31e8aacb60d90c102e5766ed058a9d64a31688b
-ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
+origin.date: 10/24/2018
+ms.date: 12/03/2018
+ms.openlocfilehash: 0793ce1db68980ca1c4231a04a7a69e8349dc29a
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50135726"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672761"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>管理 Azure SQL 数据库长期备份保留
 

@@ -17,11 +17,11 @@ ms.date: 07/24/2018
 ms.author: v-junlch
 ms.reviewer: bagovind
 ms.openlocfilehash: 137728ceb9bd687083f4e56740fc4dce9decc9e4
-ms.sourcegitcommit: cce18df2de12353f0d8f01c649307a5789d59cd4
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39246146"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658153"
 ---
 # <a name="create-custom-roles-using-the-rest-api"></a>使用 REST API 创建自定义角色
 

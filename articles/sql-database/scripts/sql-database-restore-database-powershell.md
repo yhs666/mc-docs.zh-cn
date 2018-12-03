@@ -18,11 +18,11 @@ origin.date: 09/07/2018
 ms.date: 10/15/2018
 ms.author: v-jay
 ms.openlocfilehash: 3894d81eb3f4a5c45855947cbdc4e70f20f98028
-ms.sourcegitcommit: d8b4e1fbda8720bb92cc28631c314fa56fa374ed
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913980"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649205"
 ---
 # <a name="use-powershell-to-restore-an-azure-sql-database-from-backups"></a>使用 PowerShell 从备份还原 Azure SQL 数据库
 

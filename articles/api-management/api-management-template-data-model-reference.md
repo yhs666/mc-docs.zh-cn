@@ -16,11 +16,11 @@ origin.date: 12/05/2017
 ms.author: v-yiso
 ms.date: 03/19/2018
 ms.openlocfilehash: b004ca96c8277a05c39bbf4752842ff4c1311725
-ms.sourcegitcommit: ad7accbbd1bc7ce0aeb2b58ce9013b7cafa4668b
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29870510"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651744"
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Azure API 管理模板数据模型参考
 本主题介绍数据模型中常用项目的实体和类型表示形式，这些数据模型适用于 Azure API 管理中的开发人员门户模板。  

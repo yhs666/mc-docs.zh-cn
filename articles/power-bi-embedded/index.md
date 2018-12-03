@@ -14,11 +14,11 @@ origin.date: 09/28/2017
 ms.date: 07/18/2018
 ms.author: v-junlch
 ms.openlocfilehash: c5d5f0f67157162b77ef0c8a9b72e8a1c77b1837
-ms.sourcegitcommit: c82fb6f03079951442365db033227b07c55700ea
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168491"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666514"
 ---
 # <a name="power-bi-embedded-documentation"></a>Power BI Embedded 文档
 

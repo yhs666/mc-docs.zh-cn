@@ -16,11 +16,11 @@ origin.date: 07/30/2018
 ms.date: ''
 ms.author: v-dazen
 ms.openlocfilehash: 78cf50cf5bfd2efda802f7c0b6b689b6466a4a45
-ms.sourcegitcommit: 92a941c705f0a76483dea5b708054c53e8c9666b
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50235275"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654860"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>排查 Azure Windows 虚拟机激活问题
 

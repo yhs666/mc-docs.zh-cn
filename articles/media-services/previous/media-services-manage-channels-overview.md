@@ -16,11 +16,11 @@ origin.date: 08/20/2018
 ms.date: 10/01/2018
 ms.author: v-jay
 ms.openlocfilehash: 78fe35f6b576d7710bf639c1e2c2718e3fa8c4cf
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426446"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658421"
 ---
 # <a name="overview-of-live-streaming-using-azure-media-services"></a>使用 Azure 媒体服务实时传送视频流概述
 

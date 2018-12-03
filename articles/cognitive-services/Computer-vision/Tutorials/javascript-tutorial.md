@@ -12,11 +12,11 @@ origin.date: 09/19/2017
 ms.date: 10/30/2018
 ms.author: v-junlch
 ms.openlocfilehash: aad8e0ee2fbb0a630ea89b84efd94e6f7f2362f4
-ms.sourcegitcommit: b8e99939a5493a15b78c32e87bfbf76a8c96a84a
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50408994"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661643"
 ---
 # <a name="tutorial-computer-vision-api-javascript"></a>教程：计算机视觉 API JavaScript
 

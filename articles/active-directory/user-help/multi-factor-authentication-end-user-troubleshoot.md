@@ -14,11 +14,11 @@ ms.date: 08/27/2018
 ms.author: v-junlch
 ms.reviewer: kexia
 ms.openlocfilehash: 5e328774d503549f7801c0c9395c953ccf7f1170
-ms.sourcegitcommit: 75c2b5cdaf25ede92e080f6c48ca17d2f4ded4fb
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43115525"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653813"
 ---
 # <a name="get-help-with-two-step-verification"></a>获取有关双重验证的帮助
 

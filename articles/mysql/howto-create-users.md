@@ -11,11 +11,11 @@ ms.topic: article
 origin.date: 02/28/2018
 ms.date: 08/13/2018
 ms.openlocfilehash: 3d9071a782f8dcbcbb08bf2c521966b4ea7a6bd7
-ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39723036"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656697"
 ---
 # <a name="create-users-in-azure-database-for-mysql-server"></a>在 Azure Database for MySQL 服务器中创建用户 
 

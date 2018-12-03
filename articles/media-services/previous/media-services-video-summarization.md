@@ -16,11 +16,11 @@ origin.date: 12/09/2017
 ms.date: 12/25/2017
 ms.author: v-nany
 ms.openlocfilehash: 59103a281de5b18c2da0e17723b0c19cf928b26f
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426410"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651822"
 ---
 # <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>使用 Azure 媒体视频缩略图创建视频摘要
 ## <a name="overview"></a>概述

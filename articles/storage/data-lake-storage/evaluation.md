@@ -10,11 +10,11 @@ ms.date: 08/27/2018
 ms.service: storage
 ms.component: data-lake-storage-gen2
 ms.openlocfilehash: f4bbcf4a47f0e799616d93dfa0e056fcd69fb19a
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42872461"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656791"
 ---
 # <a name="guidance-for-azure-data-lake-storage-gen1-customers"></a>Azure Data Lake Storage Gen1 客户指南
 

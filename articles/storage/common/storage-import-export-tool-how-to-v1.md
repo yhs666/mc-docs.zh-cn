@@ -16,11 +16,11 @@ origin.date: 01/15/2017
 ms.date: 10/16/2017
 ms.author: v-johch
 ms.openlocfilehash: c420c113d49ea41dcfc4741050eac5712388a7eb
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295723"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656810"
 ---
 # <a name="using-the-azure-importexport-tool-classic-deployment-model"></a>使用 Azure 导入/导出工具（经典部署模型）
 

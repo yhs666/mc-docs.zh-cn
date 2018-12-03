@@ -3,24 +3,20 @@ title: Durable Functions 中的版本控制 - Azure
 description: 了解如何在 Azure Functions 的 Durable Functions 扩展中实现版本控制。
 services: functions
 author: cgillum
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 origin.date: 09/29/2017
-ms.date: 04/13/2018
+ms.date: 11/22/2018
 ms.author: v-junlch
-ms.openlocfilehash: d24a9da0b0eec1d150ed6b48f2edb216fd1fb0c5
-ms.sourcegitcommit: f97c9253d16fac8be0266c9473c730ebd528e542
+ms.openlocfilehash: 6248f9999b998334d3daacb9a5a6631a8987b9bc
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31585441"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672870"
 ---
 # <a name="versioning-in-durable-functions-azure-functions"></a>Durable Functions 中的版本控制 (Azure Functions)
 
@@ -128,11 +124,23 @@ public static Task Run([OrchestrationTrigger] DurableOrchestrationContext contex
 
 ```json
 {
-    "durableTask": {
-        "HubName": "MyTaskHubV2"
+    "extensions": {
+        "durableTask": {
+            "HubName": "MyTaskHubV2"
+        }
     }
 }
 ```
+
+> [!NOTE]
+> 对于 V1 Functions，*host.json* 应改为像这样配置
+>```json
+>{
+>    "durableTask": {
+>        "HubName": "MyTaskHubV2"
+>    }
+>}
+>```
 
 默认值为 `DurableFunctionsHub`。
 
@@ -148,3 +156,4 @@ public static Task Run([OrchestrationTrigger] DurableOrchestrationContext contex
 > [!div class="nextstepaction"]
 > [了解如何处理性能和缩放问题](durable-functions-perf-and-scale.md)
 
+<!-- Update_Description: wording update -->

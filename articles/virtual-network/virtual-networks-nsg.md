@@ -16,11 +16,11 @@ origin.date: 02/11/2016
 ms.date: 05/07/2018
 ms.author: v-yeche
 ms.openlocfilehash: f9fbc3b16e5a960878b37075d694eb0df8a4a4f5
-ms.sourcegitcommit: 0b63440e7722942ee1cdabf5245ca78759012500
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33815479"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645162"
 ---
 # <a name="filter-network-traffic-with-network-security-groups"></a>使用网络安全组筛选网络流量
 

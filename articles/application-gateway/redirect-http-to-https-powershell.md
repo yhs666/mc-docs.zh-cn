@@ -13,11 +13,11 @@ origin.date: 07/13/2018
 ms.date: 08/08/2018
 ms.author: v-junlch
 ms.openlocfilehash: 2c3835cf449a41cb53e58cb0dddd2041acd18905
-ms.sourcegitcommit: a1c6a743b4be62477e7debfc9ea5f03afca2bc8f
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39625152"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52648789"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-azure-powershell"></a>使用 Azure PowerShell 创建支持 HTTP 到 HTTPS 重定向的应用程序网关
 

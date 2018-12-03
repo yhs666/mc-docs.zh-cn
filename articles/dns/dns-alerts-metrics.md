@@ -16,11 +16,11 @@ origin.date: 04/17/2018
 ms.date: 09/17/2018
 ms.author: v-jay
 ms.openlocfilehash: 949e0d956182d08f8d8f131935f86e82e3b737a6
-ms.sourcegitcommit: 1471663f5f5a1c4e1fbead7c4d351610cb0086bb
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44363581"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52667200"
 ---
 # <a name="azure-dns-metrics"></a>Azure DNS 指标
 Azure DNS 是 DNS 域的托管服务，它使用 Azure 基础结构提供名称解析。 本文介绍 Azure DNS 服务的指标。

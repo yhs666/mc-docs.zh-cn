@@ -9,11 +9,11 @@ origin.date: 09/06/2018
 ms.date: 10/01/2018
 ms.author: v-jay
 ms.openlocfilehash: b98999e62e6cd0f708a27e2c260d3845674814c4
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426491"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659096"
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-using-linux-strongswan-cli"></a>使用 Linux strongSwan CLI 为点到站点连接生成和导出证书
 

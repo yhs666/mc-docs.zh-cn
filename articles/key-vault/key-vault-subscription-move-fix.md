@@ -16,11 +16,11 @@ origin.date: 01/07/2017
 ms.date: 07/10/2018
 ms.author: v-junlch
 ms.openlocfilehash: e2ff445d80a11fc2dc8bc2e3beeb0d3b3a0d3610
-ms.sourcegitcommit: 56aa1615ef7402444111495f72afbdd6b2dfff78
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "41704102"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651126"
 ---
 # <a name="change-a-key-vault-tenant-id-after-a-subscription-move"></a>订阅移动后更改密钥保管库租户 ID
 ### <a name="q-my-subscription-was-moved-from-tenant-a-to-tenant-b-how-do-i-change-the-tenant-id-for-my-existing-key-vault-and-set-correct-acls-for-principals-in-tenant-b"></a>问：我的订阅已从租户 A 移动到租户 B。如何更改我的现有密钥保管库的租户 ID，并为租户 B 中的主体设置正确的 ACL？

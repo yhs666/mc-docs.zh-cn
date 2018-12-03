@@ -11,11 +11,11 @@ ms.date: 11/05/2018
 ms.topic: conceptual
 manager: digimobile
 ms.openlocfilehash: b4d8b41cc99444a7d8ced7c1c7cad556aaeb483a
-ms.sourcegitcommit: d26e5d0d625a61d6b130800d10c81f47c83fb1e0
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50745552"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658491"
 ---
 # <a name="source-control-integration-in-azure-automation---legacy"></a>Azure 自动化中的源代码管理集成 - 传统
 

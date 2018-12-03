@@ -13,11 +13,11 @@ origin.date: 05/07/2018
 ms.date: 07/23/2018
 ms.author: v-yiso
 ms.openlocfilehash: 2692d06e7ef999282b7111da4cf2c7540a25b454
-ms.sourcegitcommit: 479954e938e4e3469d6998733aa797826e4f300b
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39031778"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662778"
 ---
 # <a name="quickstart-create-a-spark-cluster-in-hdinsight-using-template"></a>快速入门：使用模板在 HDInsight 中创建 Spark 群集
 

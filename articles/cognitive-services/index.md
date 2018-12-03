@@ -7,15 +7,15 @@ author: nitinme
 manager: cgronlun
 ms.service: cognitive-services
 ms.author: v-junlch
-origin.date: 09/24/2018
-ms.date: 10/25/2018
+origin.date: 10/23/2018
+ms.date: 11/26/2018
 ms.topic: hub-page
-ms.openlocfilehash: 5e6dd29bcaa76c1b109fc5e68259da2d33c4c3f1
-ms.sourcegitcommit: 44ce337717bb948f5ac08217a156935f663c0f46
+ms.openlocfilehash: 525288ab9843eda13c7c15d360ce2448d7e0a52e
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50034630"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672981"
 ---
 <h1>Azure 认知服务文档</h1>
         <p style="font-size: 1.12rem;margin-bottom: 1rem;">了解如何将智能算法构建到应用、网站和机器人中，从而使它们通过自然的沟通方式观察、倾听、说出和理解用户需求。 教程、快速入门、API 参考和示例演示了操作方法。</p>
@@ -73,10 +73,9 @@ ms.locfileid: "50034630"
                     </div>
                     <div class="cardText">
                         <h3>使用计算机视觉分析图像</h3>
-                        <p><a href="/cognitive-services/Computer-vision/quickstarts-sdk/csharp-analyze-sdk">使用 C#</a></p>
-                        <p><a href="/cognitive-services/Computer-vision/Quickstarts/java-analyze">使用 Java</a></p>
-                        <p><a href="/cognitive-services/Computer-vision/Quickstarts/node-analyze">使用 Node.js</a></p>
-                        <p><a href="/cognitive-services/Computer-vision/Quickstarts/python-analyze">使用 Python</a></p>
+                        <p><a href="/cognitive-services/Computer-vision/Quickstarts/CSharp">使用 C#</a></p>
+                        <p><a href="/cognitive-services/Computer-vision/Quickstarts/Java">使用 Java</a></p>
+                        <p><a href="/cognitive-services/Computer-vision/Quickstarts/Python">使用 Python</a></p>
                     </div>
                 </div>
             </div>
@@ -84,16 +83,6 @@ ms.locfileid: "50034630"
     </li>    
 </ul>
 
-<h2>分步教程</h2>
-<ul class="cardsM panelContent singlePanelContent cols cols3" style="display:flex!important;">
-    <li>
-        <a class="card" href="/cognitive-services/Computer-vision/tutorials/csharptutorial" data-linktype="external"><img class="cardImage" alt="" src="media/index/i_tasks.svg" data-linktype="external">
-            <div class="cardText">
-                <h3>使用计算机视觉 API 创建应用</h3>
-            </div>
-        </a>
-    </li>
-</ul>
 
 <h2>认知服务 API</h2>
 <ul class="cardsF panelContent singlePanelContent" style="display:flex!important;">
@@ -104,7 +93,6 @@ ms.locfileid: "50034630"
                     <div class="cardText">
                         <h3>视觉 API</h3>
                         <p><a href="/cognitive-services/computer-vision/">计算机视觉</a></p>
-                        <p><a href="/cognitive-services/emotion/home"><span>情感 API&nbsp;<sup style="font-size:70%">预览</sup></span></a></p>
                         <p><a href="/cognitive-services/face/">人脸 API</a></p>
                     </div>
                 </div>

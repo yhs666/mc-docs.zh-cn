@@ -12,11 +12,11 @@ origin.date: 03/21/2018
 ms.date: 06/11/2018
 ms.author: v-johch
 ms.openlocfilehash: 813ac8a0193fdf8adf4be62e94d61e579fd95bb0
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939225"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52645495"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>如何通过 iOS 使用 Blob 存储
 
@@ -217,12 +217,9 @@ Azure 存储中的每个 Blob 都必须驻留在一个容器中。 以下示例�
 以下示例演示如何列出容器中的所有 Blob。 执行此操作时，应注意以下参数：     
 
 * **continuationToken** - 继续标记表示列出操作应开始的位置。 如果未提供标记，它会从开头列出 Blob。 可以列出任意数目的 Blob，从零到最大集。 即使此方法返回零个结果，如果 `results.continuationToken` 不为空，则服务中也可能存在更多 blob 未列出。
-* 
-            **prefix** - 可以指定用于 blob 列出的前缀。 将仅列出以该前缀开头的 blob。
-* 
-            **useFlatBlobListing** - 如 [命名和引用容器和 blob](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata) 部分中所述，虽然 Blob 服务是平面存储方案，但可以通过命名具有路径信息的 blob 来创建虚拟层次结构。 但是，目前不支持非平面列表。 此功能即将支持。 目前，此值应为 **YES**。
-* 
-            **blobListingDetails** - 可以指定在列出 blob 时要包含哪些项
+* **prefix** - 可以指定用于 blob 列出的前缀。 将仅列出以该前缀开头的 blob。
+* **useFlatBlobListing** - 如 [命名和引用容器和 blob](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata) 部分中所述，虽然 Blob 服务是平面存储方案，但可以通过命名具有路径信息的 blob 来创建虚拟层次结构。 但是，目前不支持非平面列表。 此功能即将支持。 目前，此值应为 **YES**。
+* **blobListingDetails** - 可以指定在列出 blob 时要包含哪些项
   * _AZSBlobListingDetailsNone_：仅列出已提交的 Blob，不返回 Blob 元数据。
   * _AZSBlobListingDetailsSnapshots_：列出已提交的 blob 和 blob 快照。
   * _AZSBlobListingDetailsMetadata_：检索列表中返回的每个 Blob 的 Blob 元数据。

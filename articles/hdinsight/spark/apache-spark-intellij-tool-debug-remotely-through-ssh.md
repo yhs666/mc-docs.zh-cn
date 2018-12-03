@@ -19,11 +19,11 @@ origin.date: 11/25/2017
 ms.date: 04/16/2018
 ms.author: v-yiso
 ms.openlocfilehash: e44ce11131cd32d96c32bacfaaef72dec5dad2f0
-ms.sourcegitcommit: ffb8b1527965bb93e96f3e325facb1570312db82
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/09/2018
-ms.locfileid: "30941386"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52666858"
 ---
 # <a name="debug-spark-applications-locally-or-remotely-on-an-hdinsight-cluster-with-azure-toolkit-for-intellij-through-ssh"></a>使用用于 IntelliJ 的 Azure 工具包通过 SSH 本地或远程调试 HDInsight 群集上的 Spark 应用程序
 

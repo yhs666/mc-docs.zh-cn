@@ -8,15 +8,15 @@ ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 origin.date: 08/29/2018
-ms.date: 10/15/2018
+ms.date: 11/26/2018
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: f7bc6856ae4736ef079d72401979a757864c471b
-ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
+ms.openlocfilehash: df696d11b4bf1ab4927a7925079b10494b10fecc
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49089261"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672796"
 ---
 # <a name="restoring-azure-sql-data-warehouse"></a>还原 Azure SQL 数据仓库 
 本文介绍如何在 Azure 门户和 PowerShell 中执行以下操作：
@@ -25,10 +25,6 @@ ms.locfileid: "49089261"
 - 从自动还原点或用户定义的还原点进行还原
 - 从已删除的数据库进行还原
 - 从用户定义的还原点创建数据仓库的副本
-
-> [!NOTE]
-> 截至 8 月 27 日，由于已知的回归，已禁用跨服务器还原。 我们将此问题视为需要解决的首要问题，正在努力进行修复。 由此产生的不便，我们深表歉意。
->
 
 ## <a name="before-you-begin"></a>准备阶段
 **验证 DTU 容量。** 每个 SQL 数据仓库都由一个具有默认 DTU 配额的 SQL 服务器（例如 myserver.database.chinacloudapi.cn）托管。  在还原 SQL 数据仓库之前，请确保 SQL Server 的剩余 DTU 配额足够进行数据库还原。 若要了解如何计算所需 DTU 或请求更多的 DTU，请参阅 [请求 DTU 配额更改][Request a DTU quota change]。
@@ -227,6 +223,7 @@ $RestoredDatabase.status
 <!--Article references-->
 [Azure SQL Database business continuity overview]: ../sql-database/sql-database-business-continuity.md
 [Request a DTU quota change]: https://support.windowsazure.cn/support/support-azure
+[Configure your database after recovery]: ../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery
 [How to install and configure Azure PowerShell]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
 [Overview]: ./sql-data-warehouse-restore-database-overview.md
 [Portal]: ./sql-data-warehouse-restore-database-portal.md

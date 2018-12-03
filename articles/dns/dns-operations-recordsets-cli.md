@@ -1,9 +1,9 @@
 ---
-title: 使用 Azure CLI 2.0 管理 Azure DNS 中的 DNS 记录 | Microsoft 文档
-description: 在 Azure DNS 上托管域时管理 Azure DNS 上的 DNS 记录集和记录。 记录集和记录上的操作的所有 CLI 2.0 命令。
+title: 使用 Azure CLI 管理 Azure DNS 中的 DNS 记录 | Microsoft 文档
+description: 在 Azure DNS 上托管域时管理 Azure DNS 上的 DNS 记录集和记录。
 services: dns
 documentationcenter: na
-author: yunan2016
+author: WenJason
 manager: digimobile
 ms.assetid: 5356a3a5-8dec-44ac-9709-0c2b707f6cb5
 ms.service: dns
@@ -13,25 +13,25 @@ ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 origin.date: 05/15/2018
-ms.date: 05/28/2018
-ms.author: v-nany
-ms.openlocfilehash: 88441933d96d82fd54ae01d52dc46fbaffbf828d
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.date: 11/26/2018
+ms.author: v-jay
+ms.openlocfilehash: 0a803b58289eeee5896afaca3d2aca82852cd6e9
+ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426234"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52672602"
 ---
-# <a name="manage-dns-records-and-recordsets-in-azure-dns-using-the-azure-cli-20"></a>使用 Azure CLI 2.0 管理 Azure DNS 中的 DNS 记录和记录集
+# <a name="manage-dns-records-and-recordsets-in-azure-dns-using-the-azure-cli"></a>使用 Azure CLI 管理 Azure DNS 中的 DNS 记录和记录集
 
 > [!div class="op_single_selector"]
 > * [Azure 门户](dns-operations-recordsets-portal.md)
-> * [Azure CLI 2.0](dns-operations-recordsets-cli.md)
+> * [Azure CLI](dns-operations-recordsets-cli.md)
 > * [PowerShell](dns-operations-recordsets.md)
 
-本文介绍如何使用适用于 Windows、Mac 和 Linux 的跨平台 Azure 命令行接口 (CLI) 2.0 管理 DNS 区域的 DNS 记录。 也可以使用 [Azure PowerShell](dns-operations-recordsets.md) 或 [Azure 门户](dns-operations-recordsets-portal.md)管理 DNS 记录。
+本文介绍如何使用适用于 Windows、Mac 和 Linux 的跨平台 Azure CLI 管理 DNS 区域的 DNS 记录。 也可以使用 [Azure PowerShell](dns-operations-recordsets.md) 或 [Azure 门户](dns-operations-recordsets-portal.md)管理 DNS 记录。
 
-本文中的示例假设你[已安装 Azure CLI 2.0、已登录，并且已创建一个 DNS 区域](dns-operations-dnszones-cli.md)。
+本文中的示例假设读者[已安装 Azure CLI、已登录，并且已创建一个 DNS 区域](dns-operations-dnszones-cli.md)。
 
 ## <a name="introduction"></a>简介
 

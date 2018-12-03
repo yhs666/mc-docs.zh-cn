@@ -16,11 +16,11 @@ origin.date: 05/23/2018
 ms.date: 10/15/2018
 ms.author: v-yeche
 ms.openlocfilehash: 752df5e2244cfe7d5e2090f1eaf33b061548fda9
-ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49088973"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647045"
 ---
 # <a name="containerize-your-service-fabric-reliable-services-and-reliable-actors-on-windows"></a>在 Windows 上容器化 Service Fabric Reliable Services 和 Reliable Actors
 

@@ -14,11 +14,11 @@ ms.date: 07/02/2018
 ms.author: v-yeche
 ms.custom: mvc
 ms.openlocfilehash: 882870552aa1a739c61499a44faf2387f69aae89
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939822"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52656076"
 ---
 # <a name="set-up-azure-cosmos-db-multiple-region-distribution-using-the-mongodb-api"></a>使用 MongoDB API 设置 Azure Cosmos DB 多区域分发
 

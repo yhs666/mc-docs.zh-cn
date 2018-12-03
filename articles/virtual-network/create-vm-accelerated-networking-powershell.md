@@ -16,11 +16,11 @@ origin.date: 01/04/2018
 ms.date: 10/29/2018
 ms.author: v-yeche
 ms.openlocfilehash: 76201f7b63356c3bc08d7a70150273e2c67af738
-ms.sourcegitcommit: 691993753d89211238991e41a817b70ccc7cb0df
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50135478"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52661652"
 ---
 # <a name="create-a-windows-virtual-machine-with-accelerated-networking"></a>创建具有加速网络的 Windows 虚拟机
 

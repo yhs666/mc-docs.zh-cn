@@ -17,11 +17,11 @@ origin.date: 09/12/2017
 ms.date: 10/29/2018
 ms.author: v-biyu
 ms.openlocfilehash: adb0905a22d946de51418b2f7d19c9ca4d288baf
-ms.sourcegitcommit: 4b5ada023c9466d497c7474abf7ad71e50c3b17d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49451620"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52650951"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>使用 Visual Studio 开发和部署 WebJobs - Azure 应用服务
 
@@ -109,7 +109,7 @@ ms.locfileid: "49451620"
 
     ![“新建 Azure Web 作业项目”菜单项](./media/websites-dotnet-deploy-webjobs/nawj.png)
 
-    此时显示[添加 Azure Web 作业](#configure) 对话框。
+    此时显示[添加 Azure Web 作业](#configure)对话框。
 2. 完成[“添加 Azure Web 作业”](#configure)对话框，并单击“确定”。
 
 ## <a id="configure"></a>添加 Azure Web 作业对话框

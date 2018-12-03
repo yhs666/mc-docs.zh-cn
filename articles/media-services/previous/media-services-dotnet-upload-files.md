@@ -16,11 +16,11 @@ origin.date: 08/21/2018
 ms.date: 10/01/2018
 ms.author: v-jay
 ms.openlocfilehash: 75c7d7c61d6c2de93dd91d2608825c2e668f0801
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426340"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649491"
 ---
 # <a name="upload-files-into-a-media-services-account-using-net"></a>使用 .NET 将文件上传到媒体服务帐户
 > [!div class="op_single_selector"]

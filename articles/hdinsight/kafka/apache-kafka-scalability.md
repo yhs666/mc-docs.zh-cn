@@ -16,11 +16,11 @@ origin.date: 05/30/2018
 ms.date: 07/23/2018
 ms.author: v-yiso
 ms.openlocfilehash: ddb04210f115cab1aa355a021d86c0d034f30190
-ms.sourcegitcommit: 479954e938e4e3469d6998733aa797826e4f300b
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39031752"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52667292"
 ---
 # <a name="configure-storage-and-scalability-for-apache-kafka-on-hdinsight"></a>在 HDInsight 上为 Apache Kafka 配置存储和可伸缩性
 

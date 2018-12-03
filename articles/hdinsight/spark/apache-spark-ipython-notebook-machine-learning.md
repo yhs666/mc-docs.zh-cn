@@ -16,11 +16,11 @@ origin.date: 05/07/2018
 ms.date: 06/25/2018
 ms.author: v-yiso
 ms.openlocfilehash: 3092cba426a5ef85230fc8e87a0587f8fa264c8d
-ms.sourcegitcommit: bbc130e25163b6d3af6616d57c0b6efef63796a2
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37914584"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662285"
 ---
 # <a name="tutorial-build-a-spark-machine-learning-application-in-hdinsight"></a>教程：在 HDInsight 中生成 Spark 机器学习应用程序 
 

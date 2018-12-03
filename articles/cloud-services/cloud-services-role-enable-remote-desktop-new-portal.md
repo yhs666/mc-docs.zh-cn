@@ -16,11 +16,11 @@ origin.date: 11/28/2016
 ms.date: 04/09/2018
 ms.author: v-yiso
 ms.openlocfilehash: 84061012b6844d160673fa4c32900c02cf558ee3
-ms.sourcegitcommit: 4e2ee8ad9e6f30e31d3f0c24c716cc78f780dbf5
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/30/2018
-ms.locfileid: "30293817"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52664315"
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services"></a>为 Azure 云服务中的角色设置远程桌面连接
 > [!div class="op_single_selector"]

@@ -16,11 +16,11 @@ origin.date: 07/17/2017
 ms.date: 09/04/2017
 ms.author: v-haiqya
 ms.openlocfilehash: bdeb2cbac11f8a19904362c6bacd0eb5bc52479e
-ms.sourcegitcommit: a2d696471d511c6df876172d2f7b9c341a37c512
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219481"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652092"
 ---
 # <a name="managing-assets-and-related-entities-with-media-services-net-sdk"></a>使用媒体服务 .NET SDK 管理资产和相关的实体
 > [!div class="op_single_selector"]

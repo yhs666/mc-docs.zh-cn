@@ -12,11 +12,11 @@ origin.date: 10/15/2018
 ms.date: 11/12/2018
 tags: connectors
 ms.openlocfilehash: 61481cc28e371241f4c7166126f4291afb918ece
-ms.sourcegitcommit: 3f96e40162bb6ee2e9fdb76c976517e47a1252d9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50919107"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662836"
 ---
 # <a name="create-monitor-and-manage-ftp-files-by-using-azure-logic-apps"></a>使用 Azure 逻辑应用创建、监视和管理 FTP 文件
 

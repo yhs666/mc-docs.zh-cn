@@ -9,11 +9,11 @@ ms.date: 6/15/2018
 ms.author: chrisgre
 ms.custom: include file
 ms.openlocfilehash: 3e48d94f49240961c1b23198378b4ee7bc9f42da
-ms.sourcegitcommit: bae4e9e500e3e988ef8fa0371777ca9cc49b4e94
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45584869"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662837"
 ---
 > [!div class="op_single_selector"]
 > * [Azure 门户](../articles/iot-edge/how-to-deploy-monitor.md)

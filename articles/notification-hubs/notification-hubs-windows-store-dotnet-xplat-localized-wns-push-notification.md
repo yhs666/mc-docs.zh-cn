@@ -17,11 +17,11 @@ origin.date: 04/14/2018
 ms.date: 09/10/2018
 ms.author: v-junlch
 ms.openlocfilehash: fae677c0041598249167090891f492c31b71434e
-ms.sourcegitcommit: 1471663f5f5a1c4e1fbead7c4d351610cb0086bb
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44363584"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52649860"
 ---
 # <a name="tutorial-push-localized-notifications-to-windows-apps-by-using-azure-notification-hubs"></a>教程：使用 Azure 通知中心向 Windows 应用推送本地化通知
 > [!div class="op_single_selector"]

@@ -16,11 +16,11 @@ origin.date: 01/12/2017
 ms.date: 08/28/2017
 ms.author: v-haiqya
 ms.openlocfilehash: eadacd15814fbc6f353272eb7e18a2f7a4176cbb
-ms.sourcegitcommit: 3583af94b935af10fcd4af3f4c904cf0397af798
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37103068"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647649"
 ---
 # <a name="azure-storage-samples-using-java"></a>使用 Java 的 Azure 存储示例
 

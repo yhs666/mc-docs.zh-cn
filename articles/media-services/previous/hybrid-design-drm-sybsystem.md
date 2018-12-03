@@ -16,11 +16,11 @@ origin.date: 07/17/2017
 ms.date: 05/28/2018
 ms.author: v-johch
 ms.openlocfilehash: bc087a0208c202c1fd3808f03abb2c4af7e0641a
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426452"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52667028"
 ---
 # <a name="hybrid-design-of-drm-subsystems"></a>DRM 子系统的混合设计
 

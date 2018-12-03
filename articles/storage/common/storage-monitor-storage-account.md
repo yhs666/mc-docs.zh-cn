@@ -10,11 +10,11 @@ ms.date: 09/10/2018
 ms.author: v-jay
 ms.component: common
 ms.openlocfilehash: f4637c8387231b50e49c1494cc9b6fda2af85f14
-ms.sourcegitcommit: e157751c560524d0bb828e987b87178130663547
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43650587"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52653663"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>监视 Azure 门户中的存储帐户
 

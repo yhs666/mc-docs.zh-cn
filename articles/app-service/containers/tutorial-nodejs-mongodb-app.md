@@ -17,11 +17,11 @@ ms.author: v-yiso
 ms.custom: mvc
 ms.date: 10/16/2017
 ms.openlocfilehash: 0fc23e2a9e9fa1db7d7178ff9c83a80fa0ab9a79
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939724"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654277"
 ---
 # <a name="build-a-nodejs-and-mongodb-web-app-in-azure-web-apps-for-containers"></a>在用于容器的 Azure Web 应用中生成 Node.js 和 MongoDB Web 应用
 
@@ -293,7 +293,7 @@ remote: Handling node.js deployment.
 .
 remote: Deployment successful.
 To https://<app_name>.scm.chinacloudsites.cn/<app_name>.git
- * [new branch]      master -> master
+ * [new branch]      master -> master
 ``` 
 
 可能已注意到，部署过程先运行 `npm install`，再运行 [Gulp](http://gulpjs.com/)。 应用服务在部署期间不会运行 Gulp 或 Grunt 任务，因此该示例存储库的根目录中有两个额外文件用于启用它： 

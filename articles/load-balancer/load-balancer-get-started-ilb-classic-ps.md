@@ -17,11 +17,11 @@ origin.date: 01/23/2017
 ms.date: 06/18/2018
 ms.author: v-yeche
 ms.openlocfilehash: feb039aea6f234a990377bab075d4dc9476d2a0b
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939962"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647954"
 ---
 # <a name="get-started-creating-an-internal-load-balancer-classic-using-powershell"></a>开始使用 PowerShell 创建内部负载均衡器（经典）
 

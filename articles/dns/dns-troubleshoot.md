@@ -16,11 +16,11 @@ origin.date: 01/20/2017
 ms.date: 12/18/2017
 ms.author: v-nany
 ms.openlocfilehash: 756e0cdf19721c3472307ed511e7b2c034c2c5e4
-ms.sourcegitcommit: 04071a6ddf4e969464d815214d6fdd9813c5c5a9
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47426399"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52647833"
 ---
 # <a name="azure-dns-troubleshooting-guide"></a>Azure DNS 疑难解答指南
 

@@ -16,11 +16,11 @@ origin.date: 08/29/2016
 ms.date: 10/29/2018
 ms.author: v-biyu
 ms.openlocfilehash: 58e8cf2498b2cc6f897c52b236d15f41156e5955
-ms.sourcegitcommit: 4b5ada023c9466d497c7474abf7ad71e50c3b17d
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49451625"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52657138"
 ---
 # <a name="troubleshoot-a-web-app-in-azure-app-service-using-visual-studio"></a>使用 Visual Studio 对 Azure 应用服务中的 Web 应用进行故障排除
 ## <a name="overview"></a>概述

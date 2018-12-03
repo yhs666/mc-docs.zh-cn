@@ -17,11 +17,11 @@ ms.date: 11/12/2018
 ms.author: v-jay
 ms.reviewer: justini
 ms.openlocfilehash: 25821396c83d8d7e1d813fcab81bdd4a6b3ef152
-ms.sourcegitcommit: e8a0b7c483d88bd3c88ed47ed2f7637dec171a17
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51195397"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52652310"
 ---
 # <a name="azure-stack-1808-update"></a>Azure Stack 1808 更新
 

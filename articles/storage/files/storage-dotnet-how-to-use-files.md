@@ -11,11 +11,11 @@ ms.date: 11/05/2018
 ms.author: v-jay
 ms.component: files
 ms.openlocfilehash: b2c903a9645d791427a0062d7940697f62f7d6d5
-ms.sourcegitcommit: 7c750170ddefe7537663dfbadcc06bf27d94c586
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50743552"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654523"
 ---
 # <a name="develop-for-azure-files-with-net"></a>使用 .NET 针对 Azure 文件进行开发
 

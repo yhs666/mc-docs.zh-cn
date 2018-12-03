@@ -16,11 +16,11 @@ origin.date: 12/01/2016
 ms.date: 01/03/2017
 ms.author: v-yiso
 ms.openlocfilehash: be88f1d3fd90b5d96ca53f44cc813922df4092e0
-ms.sourcegitcommit: 033f4f0e41d31d256b67fc623f12f79ab791191e
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2017
-ms.locfileid: "20184578"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655819"
 ---
 # <a name="how-to-scale-a-cloud-service-in-powershell"></a>如何在 PowerShell 中缩放云服务
 
@@ -66,7 +66,7 @@ Get-AzureRole -ServiceName '<your_service_name>' -RoleName '<your_role_name>'
 Set-AzureRole -ServiceName '<your_service_name>' -RoleName '<your_role_name>' -Slot <target_slot> -Count <desired_instances>
 ```
 
-当预配并启动新实例时，此 cmdlet 将立即阻止。 在此期间，如果打开一个新的 PowerShell 窗口，然后调用 **Get-AzureRole** （如前面所示），将看到新的目标实例计数。 如果在门户中查看角色状态，应看到新实例正在启动：
+当预配并启动新实例时，此 cmdlet 立即阻止。 在此期间，如果打开一个新的 PowerShell 窗口，并调用 **Get-AzureRole** （如前面所示），将看到新的目标实例计数。 如果在门户中查看角色状态，应看到新实例正在启动：
 
 ![VM 实例正在门户中启动](./media/cloud-services-how-to-scale-powershell/role-instance-starting.png)
 
