@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: storage
 ms.topic: include
 origin.date: 06/05/2018
-ms.date: 07/30/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 626066ea5c17af79344db369e3e16c483ed17f3c
-ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
+ms.openlocfilehash: 2a8dff8b1adcb11c2a6a380de000ccf7f475c86d
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39307257"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52676394"
 ---
 # <a name="using-managed-disks-in-azure-resource-manager-templates"></a>在 Azure 资源管理器模板中使用托管磁盘
 
@@ -97,7 +97,7 @@ ms.locfileid: "39307257"
 
 ### <a name="default-managed-disk-settings"></a>默认的托管磁盘设置
 
-若要创建带托管磁盘的 VM，无需再创建存储帐户资源，可如下所示更新虚拟机资源。 特别要注意，`apiVersion` 反映 `2017-03-30`，并且 `osDisk` 和 `dataDisks` 不再为 VHD 引用特定 URI。 如果部署时未指定其他属性，磁盘将使用[标准 LRS 存储](../articles/storage/common/storage-redundancy.md)。 如果未指定任何名称，则 OS 磁盘采用格式 `<VMName>_OsDisk_1_<randomstring>`，每个数据磁盘采用格式 `<VMName>_disk<#>_<randomstring>`。 默认情况下，Azure 磁盘加密处于禁用状态；缓存对于 OS 磁盘为“读/写”，对于数据磁盘则为“无”。 你可能会注意到以下示例中仍然存在一个存储帐户依赖项，但这仅用于诊断的存储，磁盘存储并不需要。
+若要创建带托管磁盘的 VM，无需再创建存储帐户资源，可如下所示更新虚拟机资源。 特别要注意，`apiVersion` 反映 `2017-03-30`，并且 `osDisk` 和 `dataDisks` 不再为 VHD 引用特定 URI。 如果部署时未指定其他属性，磁盘将根据 VM 大小使用存储类型。 例如，如果使用支持“高级”的 VM 大小（名称中有“s”的大小，如 Standard_D2s_v3），则系统将使用 Premium_LRS 存储。 使用磁盘的 SKU 设置指定存储类型。 如果未指定任何名称，则 OS 磁盘采用格式 `<VMName>_OsDisk_1_<randomstring>`，每个数据磁盘采用格式 `<VMName>_disk<#>_<randomstring>`。 默认情况下，Azure 磁盘加密处于禁用状态；缓存对于 OS 磁盘为“读/写”，对于数据磁盘则为“无”。 你可能会注意到以下示例中仍然存在一个存储帐户依赖项，但这仅用于诊断的存储，磁盘存储并不需要。
 
 ```json
 {
@@ -259,5 +259,5 @@ ms.locfileid: "39307257"
 * 访问文档 [Microsoft.Compute/virtualMachines template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.compute/virtualmachines)（Microsoft.Compute/virtualMachines 模板参考），查看虚拟机资源的模板参考文档。
 * 请访问 [Microsoft.Compute/disks 模板参考](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.compute/disks)文档，查看磁盘资源的模板参考文档。
 * 有关如何使用 Azure 虚拟机规模集中的托管磁盘的信息，请访问[将数据磁盘与规模集配合使用](/virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks)文档。
+
 <!--Update_Description: wording update, update link-->
-<!--ms.date: 07/30/2018-->

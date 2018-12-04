@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 03/06/2018
-ms.date: 10/08/2018
+ms.date: 12/03/2018
 ms.author: v-yiso
-ms.openlocfilehash: 7f7dbc7500153766e8bb2696f201e62f1f9a0bca
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: 413dec4f92923ff41b05cbfac4e3172022e8dcad
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453723"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675625"
 ---
 # <a name="schedule-and-broadcast-jobs-netnet"></a>计划和广播作业 (.NET/.NET)
 
@@ -54,10 +54,17 @@ ScheduleJob，该应用使用作业来调用 LockDoor 直接方法，并在多�
 * Visual Studio 2017。
 * 有效的 Azure 帐户。 如果没有帐户，可以创建一个[试用帐户][lnk-free-trial]，只需几分钟即可完成。
 
-[!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
+## <a name="create-an-iot-hub"></a>创建 IoT 中心
 
-[!INCLUDE [iot-hub-get-started-create-device-identity-portal](../../includes/iot-hub-get-started-create-device-identity-portal.md)]
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
+### <a name="retrieve-connection-string-for-iot-hub"></a>检索 IoT 中心的连接字符串
+
+[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
+
+## <a name="register-a-new-device-in-the-iot-hub"></a>在 IoT 中心内注册新设备
+
+[!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
 ## <a name="create-a-simulated-device-app"></a>创建模拟设备应用程序
 在本部分中，会创建一个 .NET 控制台应用，用于响应解决方案后端调用的直接方法。
@@ -290,7 +297,7 @@ ScheduleJob，该应用使用作业来调用 LockDoor 直接方法，并在多�
 
 若要继续完成 IoT 中心和设备管理模式（如远程无线固件更新）的入门内容，请参阅[教程：如何进行固件更新](tutorial-firmware-update.md)。
 
-若要了解如何将 AI 部署到具有 Azure IoT Edge 的边缘设备，请参阅 [IoT Edge 入门](../iot-edge/tutorial-simulate-device-linux.md)。
+若要了解如何将 AI 部署到具有 Azure IoT Edge 的边缘设备，请参阅 [IoT Edge 入门](../iot-edge/quickstart-linux.md)。
 
 
 <!-- images -->

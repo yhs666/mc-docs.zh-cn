@@ -9,23 +9,23 @@ ms.component: cosmosdb-sql
 ms.devlang: na
 ms.topic: reference
 origin.date: 08/19/2018
-ms.date: 09/03/2018
+ms.date: 12/03/2018
 ms.author: v-yeche
-ms.openlocfilehash: 0352d7017d05bc6b49edd522b1723c1f1e705ef0
-ms.sourcegitcommit: aee279ed9192773de55e52e628bb9e0e9055120e
+ms.openlocfilehash: 920a60a8557df133eeb18e80d168775c35482749
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43164953"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675647"
 ---
 # <a name="azure-cosmos-db-sql-syntax-reference"></a>Azure Cosmos DB SQL 语法参考
 
-Azure Cosmos DB 支持使用熟悉的 SQL（结构化查询语言）风格的语法对分层 JSON 文档执行文档查询，不需要使用显式架构或创建辅助索引。 本文提供 SQL 查询语言（与 SQL API 帐户兼容）的参考/语法文档。 有关使用示例数据的 SQL 查询演练，请参阅[查询 Azure Cosmos DB 数据](sql-api-sql-query.md)。  
+Azure Cosmos DB 支持使用熟悉的 SQL（结构化查询语言）风格的语法对分层 JSON 文档执行文档查询，不需要使用显式架构或创建辅助索引。 本文提供与 SQL API 帐户兼容的 SQL 查询语言的文档。 有关示例 SQL 查询的演练，请参阅 [Cosmos DB 中的 SQL 查询](how-to-sql-query.md)。  
 
-请访问[查询板块](http://www.documentdb.com/sql/demo)，你可以在其中尝试 Azure Cosmos DB，并针对数据集运行 SQL 查询。  
+请访问[查询操场](http://www.documentdb.com/sql/demo)，可在其中尝试 Cosmos DB，并针对数据集运行 SQL 查询。  
 
 ## <a name="select-query"></a>SELECT 查询  
-每个查询按 ANSI-SQL 标准由 SELECT 子句和可选的 FROM 和 WHERE 子句组成。 通常，对于每个查询，已枚举 FROM 子句中的源。 然后将 WHERE 子句中的筛选器应用到源以检索 JSON 文档的子集。 最后，使用 SELECT 子句以投影选择列表中请求的 JSON 值。 语法约定部分中以表格方式显示了用于描述 SELECT 语句的约定。 有关示例，请参阅 [SELECT 查询示例](sql-api-sql-query.md#SelectClause)
+每个查询按 ANSI-SQL 标准由 SELECT 子句和可选的 FROM 和 WHERE 子句组成。 通常，对于每个查询，已枚举 FROM 子句中的源。 然后将 WHERE 子句中的筛选器应用到源以检索 JSON 文档的子集。 最后，使用 SELECT 子句以投影选择列表中请求的 JSON 值。 语法约定部分中以表格方式显示了用于描述 SELECT 语句的约定。 有关示例，请参阅 [SELECT 查询示例](how-to-sql-query.md#SelectClause)
 
 **语法**  
 
@@ -61,7 +61,7 @@ SELECT 语句中的子句必须按照以上所示进行排序。 任何可选子
 
 ### <a name="whitespace-characters-and-comments"></a>空白字符和注释  
 
-不属于带引号的字符串或带引号的标识符的一部分的所有空格字符都不是该语言语法的一部分，在分析过程中会被忽略。  
+不属于带引号的字符串或带引号的标识符中的所有空格字符也不属于语言语法的一部分，在解析过程中将被忽略。  
 
 该查询语言支持 T-SQL 样式的注释，例如  
 
@@ -71,7 +71,7 @@ SELECT 语句中的子句必须按照以上所示进行排序。 任何可选子
 
 <a name="bk_select_query"></a>
 ##  <a name="select-clause"></a>SELECT 子句  
-SELECT 语句中的子句必须采用上面显示的顺序。 任何可选子句都可以省略。 但是，如果使用可选子句，则它们必须以正确的顺序出现。 有关示例，请参阅 [SELECT 查询示例](sql-api-sql-query.md#SelectClause)
+SELECT 语句中的子句必须采用上面显示的顺序。 任何可选子句都可以省略。 但是，如果使用可选子句，则它们必须以正确的顺序出现。 有关示例，请参阅 [SELECT 查询示例](how-to-sql-query.md#SelectClause)。
 
 **语法**  
 
@@ -114,7 +114,7 @@ SELECT <select_specification>
 
 只有 FROM 子句仅声明了一个别名时，`SELECT *` 语法才有效。 `SELECT *` 提供了标识投影，在不需要投影时可能十分有用。 只有当指定了 FROM 子句并且仅引入了单个输入源时，SELECT * 才有效。  
 
-请注意，`SELECT <select_list>` 和 `SELECT *` 是“语法糖”，还可以使用简单的 SELECT 语句以另外的方式来表达，如下所示。  
+`SELECT <select_list>` 和 `SELECT *` 是“语法糖”，可另外使用简单的 SELECT 语句表示，如下所示。  
 
 1. `SELECT * FROM ... AS from_alias ...`  
 
@@ -135,7 +135,7 @@ SELECT <select_specification>
 
 <a name="bk_from_clause"></a>
 ##  <a name="from-clause"></a>FROM 子句  
-指定源或联接的源。 FROM 子句是可选的，除非稍后在查询中对源进行筛选或投影。 此子句的目的在于指定必须对其执行查询的数据源。 通常情况下，整个集合作为源，但可以将集合的子集指定为源。 如果未指定此子句，其他子句仍将继续执行，如同 FROM 子句提供了单个文档。 有关示例，请参阅 [FROM 子句示例](sql-api-sql-query.md#FromClause)
+指定源或联接的源。 FROM 子句是可选的，除非稍后在查询中对源进行筛选或投影。 此子句的目的在于指定必须对其执行查询的数据源。 通常情况下，整个容器作为源，但可以改为指定容器的子集作为源。 如果未指定此子句，其他子句仍将继续执行，如同 FROM 子句提供了单个文档。 有关示例，请参阅 [FROM 子句示例](how-to-sql-query.md#FromClause)
 
 **语法**  
 
@@ -146,98 +146,98 @@ FROM <from_specification>
         <from_source> {[ JOIN <from_source>][,...n]}  
 
 <from_source> ::=   
-          <collection_expression> [[AS] input_alias]  
-        | input_alias IN <collection_expression>  
+          <container_expression> [[AS] input_alias]  
+        | input_alias IN <container_expression>  
 
-<collection_expression> ::=   
+<container_expression> ::=   
         ROOT   
-     | collection_name  
+     | container_name  
      | input_alias  
-     | <collection_expression> '.' property_name  
-     | <collection_expression> '[' "property_name" | array_index ']'  
+     | <container_expression> '.' property_name  
+     | <container_expression> '[' "property_name" | array_index ']'  
 ```  
 
 **参数**  
 
 - `<from_source>`  
 
-  指定数据源，可以带别名，也可以不带别名。 如果未指定别名，则会使用以下规则从 `<collection_expression>` 推断别名：  
+  指定数据源，可以带别名，也可以不带别名。 如果未指定别名，则会使用以下规则从 `<container_expression>` 推断别名：  
 
-  -  如果表达式为 collection_name，那么 collection_name 将用作别名。  
+  -  如果表达式为 container_name，那么 container_name 将用作别名。  
 
-  -  如果表达式是 `<collection_expression>`，则会将 property_name 用作别名。 如果表达式是一个 collection_name，则会将 collection_name 用作别名。  
+  -  如果表达式是 `<container_expression>`，则会将 property_name 用作别名。 如果表达式为 container_name，那么 container_name 将用作别名。  
 
 - AS `input_alias`  
 
-  指定 `input_alias` 是由基础集合表达式返回的值集。  
+  指定 `input_alias` 为基础容器表达式返回的一组值。  
 
 - `input_alias` IN  
 
-  指定 `input_alias` 应当表示通过遍历由基础集合表达式返回的每个数组的所有数组元素而获得的值集。 将忽略基础集合表达式返回的不是数组的任何值。  
+  指定 `input_alias` 应表示通过遍历由基础容器表达式返回的每个数组的所有数组元素获得的一组值。 基础容器表达式返回的非数组的任何值都将被忽略。  
 
-- `<collection_expression>`  
+- `<container_expression>`  
 
-  指定要用来检索文档的集合表达式。  
+  指定要用于检索文档的容器表达式。  
 
 - `ROOT`  
 
-  指定应当从默认的、当前所连接的集合检索文档。  
+  指定应从当前连接的默认容器中检索文档。  
 
-- `collection_name`  
+- `container_name`  
 
-  指定应当从提供的集合检索文档。 集合的名称必须与当前连接到的集合的名称匹配。  
+  指定应从当前提供的容器中检索文档。 容器的名称必须匹配当前连接到的容器名称。  
 
 - `input_alias`  
 
   指定应当从由提供的别名定义的其他源检索文档。  
 
-- `<collection_expression> '.' property_`  
+- `<container_expression> '.' property_`  
 
-  指定应通过访问由指定集合表达式检索的所有文档的 `property_name` 属性或 array_index 数组元素来检索文档。  
+  指定应通过访问由指定容器表达式检索的所有文档的 `property_name` 属性或 array_index 数组元素来检索文档。  
 
-- `<collection_expression> '[' "property_name" | array_index ']'`  
+- `<container_expression> '[' "property_name" | array_index ']'`  
 
-  指定应当通过访问由指定集合表达式检索到的所有文档的 `property_name` 属性或 array_index 数组元素来检索文档。  
+  指定应通过访问由指定容器表达式检索的所有文档的 `property_name` 属性或 array_index 数组元素来检索文档。  
 
 **备注**  
 
-在 `<from_source>(` 中提供或推断出的所有别名都必须是唯一的。 语法 `<collection_expression>.`property_name 与 `<collection_expression>' ['"property_name"']'` 相同。 但是，如果属性名称包含非标识符字符，可以使用后一种语法。  
+在 `<from_source>(` 中提供或推断出的所有别名都必须是唯一的。 语法 `<container_expression>.`property_name 与 `<container_expression>' ['"property_name"']'` 相同。 但是，如果属性名称包含非标识符字符，则可以使用后一种语法。  
 
 ### <a name="handling-missing-properties-missing-array-elements-and-undefined-values"></a>处理未命中属性、未命中数组元素和未定义值
 
-如果某个集合表达式访问属性或数组元素并且该值不存在，则将忽略该值并且不做进一步处理。  
+如果某个容器表达式访问属性或数组元素，但该值不存在，将忽略该值，且不会做进一步处理。  
 
-### <a name="collection-expression-context-scoping"></a>集合表达式上下文范围  
+### <a name="container-expression-context-scoping"></a>容器表达式上下文范围  
 
-集合表达式的作用域可以是集合或文档：  
+容器表达式的范围可以是集合或文档：  
 
--   如果集合表达式的基础源是 ROOT 或 `collection_name`，则表达式的作用域是集合。 这样的表达式表示直接从集合检索到的文档集，不依赖于其他集合表达式的处理。  
+-   如果容器表达式的基础源是 ROOT 或 `container_name`，则表达式的范围是容器。 此类表达式表示从容器中直接检索的一组文档，且不依赖于其他容器表达式的处理。  
 
--   如果集合表达式的基础源是在查询中在前面引入的 `input_alias`，则表达式的作用域是文档。 这样的表达式表示通过在与具有别名的集合关联的集拥有的每个文档的作用域中对集合表达式进行计算而获得的文档集。  结果集将是通过针对基础集中的每个文档对集合表达式进行计算而获得的并集。  
+-   如果容器表达式的基础源是之前在查询中引入的 `input_alias`，则表达式的范围是文档。 此类表达式表示通过计算每个文档范围内的容器表达式获得的一组文档，该文档属于与别名容器相关联的集。  结果集为多个集的合并，通过计算基础集中每个文档的容器表达式获得。  
 
 ### <a name="joins"></a>联接 
 
-在当前版本中，Azure Cosmos DB 支持内联。 其他联接功能即将推出。 
+在当前发布的版本中，Cosmos DB 支持内联。 其他联接功能即将推出。 
 
-内联可获得参与联接的集的完整叉积。 N 向联接的结果是一个 N 元素元组集，其中，元组中的每个值都与参与联接的具有别名的集相关联，并且可以通过在其他子句中引用该别名进行访问。 有关示例，请参阅 [JOIN 关键字示例](sql-api-sql-query.md#Joins)
+内联可获得参与联接的集的完整叉积。 N 向联接的结果是一个 N 元素元组集，其中，元组中的每个值都与参与联接的具有别名的集相关联，并且可以通过在其他子句中引用该别名进行访问。 有关示例，请参阅 [JOIN 关键字示例](how-to-sql-query.md#Joins)
 
 联接的计算取决于参与其中的各个集的上下文作用域：  
 
--  集合集 A 与以集合为作用域的集 B 之间的联接将生成集 A 与 B 中所有元素的叉积。
+-  容器集 A 和容器范围的集 B 之间的联接，会导致集 A 和集 B 的所有元素产生叉积。
 
 -   集 A 与以文档为作用域的集 B 之间的联接将生成通过针对集 A 中的每个文档对以文档为作用域的集 B 进行计算而得到的所有集的并集。  
 
- 在当前版本中，查询处理器最多支持一个以集合为作用域的表达式。  
+ 在当前发布的版本中，查询处理器支持一个容器范围的表达式的最大值。  
 
 ### <a name="examples-of-joins"></a>联接示例  
 
 请看下面的 FROM 子句：`<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`  
 
- 让每个源定义 `input_alias1, input_alias2, …, input_aliasN`。 此 FROM 子句返回一个 N 元组集（包含 N 个值的元组）。 每个元组拥有通过对它们相应的集遍历所有集合别名所产生的值。  
+ 让每个源定义 `input_alias1, input_alias2, …, input_aliasN`。 此 FROM 子句返回一个 N 元组集（包含 N 个值的元组）。 每个元组拥有通过对它们相应的集遍历所有容器别名所产生的值。  
 
 示例 1 - 2 个源  
 
-- 让 `<from_source1>` 以集合为作用域并表示集 {A, B, C}。  
+- 让 `<from_source1>` 的范围为容器，并表示集 {A, B, C}。  
 
 - 让 `<from_source2>` 以文档为作用域，引用 input_alias1 并表示以下集：  
 
@@ -255,7 +255,7 @@ FROM <from_specification>
 
 示例 2 - 3 个源  
 
-- 让 `<from_source1>` 以集合为作用域并表示集 {A, B, C}。  
+- 让 `<from_source1>` 的范围为容器，并表示集 {A, B, C}。  
 
 - 让 `<from_source2>` 以文档为作用域，引用 `input_alias1` 并表示以下集：  
 
@@ -282,9 +282,9 @@ FROM <from_specification>
 
 示例 3 - 3 个源  
 
-- 让 <from_source1> 以集合为作用域并表示集 {A, B, C}。  
+- 让 <from_source1> 的范围为容器，并表示集 {A, B, C}。  
 
-- 让 `<from_source1>` 以集合为作用域并表示集 {A, B, C}。  
+- 让 `<from_source1>` 的范围为容器，并表示集 {A, B, C}。  
 
 - 让 <from_source2> 以文档为作用域，引用 input_alias1 并表示以下集：  
 
@@ -315,7 +315,7 @@ FROM <from_specification>
 
 <a name="bk_where_clause"></a>
 ##  <a name="where-clause"></a>WHERE 子句  
- 指定查询返回的文档的搜索条件。 有关示例，请参阅 [WHERE 子句示例](sql-api-sql-query.md#WhereClause)
+ 指定查询返回的文档的搜索条件。 有关示例，请参阅 [WHERE 子句示例](how-to-sql-query.md#WhereClause)
 
  **语法**  
 
@@ -337,11 +337,11 @@ WHERE <filter_condition>
 
  **备注**  
 
- 指定为筛选条件的表达式的求值结果必须为 true，才会返回文档。 只有布尔值 true 满足条件，任何其他值（undefined、null、false、数字、数组或对象）都不满足条件。  
+ 指定为筛选条件的表达式的求值结果必须为 true，才会返回文档。 只有当布尔值为 true 才可以满足条件，任何其他值：未定义、null、false、数字、数组或对象均不满足条件。  
 
 <a name="bk_orderby_clause"></a>
 ##  <a name="order-by-clause"></a>ORDER BY 子句  
- 指定查询返回的结果的排序顺序。 有关示例，请参阅 [ORDER BY 子句示例](sql-api-sql-query.md#OrderByClause)
+ 指定查询返回的结果的排序顺序。 有关示例，请参阅 [ORDER BY 子句示例](how-to-sql-query.md#OrderByClause)
 
  **语法**  
 
@@ -376,13 +376,13 @@ ORDER BY <sort_specification>
 
  **备注**  
 
- 虽然查询语法支持多个排序依据属性，但Azure Cosmos DB 查询运行时仅支持依据单个属性进行排序，并且仅支持依据属性名称进行排序，也就是说，不支持依据计算属性进行排序。 排序还要求索引策略针对该属性和指定类型包括具有最高精度的范围索引。 有关详细信息，请参阅索引策略文档。  
+ 虽然查询语法支持多个排序依据属性，但 Cosmos DB 查询运行时支持仅按单个属性排序，以及仅按属性名称排序（不支持按计算属性排序）。 排序还要求索引策略针对该属性和指定类型包括具有最高精度的范围索引。 有关详细信息，请参阅索引策略文档。  
 
 <a name="bk_scalar_expressions"></a>
 ##  <a name="scalar-expressions"></a>标量表达式  
- 标量表达式是符号和运算符的组合，可以对该组合进行计算来获得单个值。 简单表达式可以是常量、属性引用、数组元素引用、别名引用或函数调用。 可以使用运算符将简单表达式组合成复杂表达式。 有关示例，请参阅[标量表达式示例](sql-api-sql-query.md#scalar-expressions)
+ 标量表达式是符号和运算符的组合，可以对该组合进行计算来获得单个值。 简单表达式可以是常量、属性引用、数组元素引用、别名引用或函数调用。 可以使用运算符将简单表达式组合成复杂表达式。 有关示例，请参阅[标量表达式示例](how-to-sql-query.md#scalar-expressions)
 
- 有关标量表达式可以具有的值的详细信息，请参阅[常量](#bk_constants)部分。  
+ 有关标量表达式可能包含的值的详细信息，请参阅[常数](#bk_constants)部分。  
 
  **语法**  
 
@@ -430,7 +430,7 @@ ORDER BY <sort_specification>
 
 -   `<scalar_expression>'['"property_name"|array_index']'`  
 
-     表示名为 `property_name` 的属性的值或对象/数组中索引为 `array_index` 的数组元素的值。 如果该属性/数组索引不存在，或者在不是对象/数组的值上引用了该属性/数组索引，则表达式的求值结果将是 undefined 值。  
+     表示名为 `property_name` 的属性的值或对象/数组中索引为 `array_index` 的数组元素的值。 如果不存在属性/数组索引，或对非对象/数组的值引用了属性/数组索引，则表达式的求值结果为未定义值。  
 
 -   `unary_operator <scalar_expression>`  
 
@@ -466,7 +466,7 @@ ORDER BY <sort_specification>
 
  **备注**  
 
- 调用内置的或用户定义的标量函数时，必须定义所有参数。 如果有任何参数未定义，则不会调用函数，并且结果将是 undefined。  
+ 调用内置或用户定义的标量函数时，必须定义所有参数。 如果有任何参数未定义，则不会调用函数，并且结果将是 undefined。  
 
  在创建对象时，将跳过任何分配有 undefined 值的属性并且不会将其包括在创建的对象中。  
 
@@ -524,9 +524,9 @@ ORDER BY <sort_specification>
 
  **备注**  
 
- 在 Azure Cosmos DB 中，在从数据库中实际检索到值之前，值的类型通常未知。 为了支持查询的高效执行，大多数运算符具有严格的类型要求。 另外，运算符本身不执行隐式转换。  
+ 在 Cosmos DB 中，通常在数据库中检索到值时，才知道其类型。 为了支持查询的高效执行，大多数运算符具有严格的类型要求。 另外，运算符本身不执行隐式转换。  
 
- 这意味着诸如 SELECT * FROM ROOT r WHERE r.Age = 21 的查询将仅返回 Age 属性等于数字 21 的文档。 Age 属性等于字符串 "21" 或字符串 "0021" 的文档将不会匹配，因为表达式 "21" = 21 的求值结果是 undefined。 这允许更好地使用索引，因为查找特定值（即数字 21）比搜索不确定数目的可能匹配项（即数字 21 或字符串 "21"、"021"、"21.0" …）更为快速。 这与 JavaScript 针对不同类型的值采用运算符进行计算时的方式不同。  
+ 这意味着诸如 SELECT * FROM ROOT r WHERE r.Age = 21 的查询将仅返回 Age 属性等于数字 21 的文档。 Age 属性等于字符串 "21" 或字符串 "0021" 的文档将不会匹配，因为表达式 "21" = 21 的求值结果是 undefined。 这样可以更好地利用索引，因为查找特定值（例如数字 21）比搜索不确定个数的可能匹配项（数字 21 或字符串 "21"、"021"、"21.0"...）更快。 这与 JavaScript 针对不同类型的值采用运算符进行计算时的方式不同。  
 
  **数组和对象的相等和比较**  
 
@@ -641,7 +641,7 @@ ORDER BY <sort_specification>
 
 <a name="bk_query_perf_guidelines"></a>
 ##  <a name="query-performance-guidelines"></a>查询性能准则  
- 对于大型集合，为了使查询高效执行，应当使用可通过一个或多个索引来发挥作用的筛选器。  
+ 为了能够对大型容器高效地执行查询，应使用可通过由一个或多个索引服务的筛选器。  
 
  对于索引查找，将考虑以下筛选器：  
 
@@ -649,15 +649,15 @@ ORDER BY <sort_specification>
 
 -   对文档路径表达式和数字常量使用范围运算符（<、\<=、>、>=）。  
 
--   文档路径表达式代表对所引用的数据库集合中的文档中的常量路径进行标识的任何表达式。  
+-   文档路径表达式代表任何可从引用的数据库容器识别文档中常量路径的表达式。  
 
  **文档路径表达式**  
 
- 文档路径表达式是数据库文档集合中的文档上的属性或数组索引器评估器的路径的表达式。 此路径可用于在数据库集合的文档中直接标识筛选器中引用的值的位置。  
+ 文档路径表达式代表属性或数组索引器评估者在数据库容器文档中的一个文档当中的路径。 此路径可用于直接在数据库容器中的文档内识别筛选器中引用的值的位置。  
 
  若要将表达式视为文档路径表达式，它应当：  
 
-1.  直接引用集合根路径。  
+1.  直接引用容器根。  
 
 2.  引用某个文档路径表达式的属性或常量数组索引器  
 
@@ -676,7 +676,7 @@ ORDER BY <sort_specification>
     |other_terminal|以文字详细描述的终端（标记）。|  
     |标识符|标识符。 仅允许以下字符：a-z A-Z 0-9 _第一个字符不能为数字。|  
     |"字符串"|带引号的字符串。 允许任何有效的字符串。 请参阅 string_literal 的说明。|  
-    |'符号'|属于语法的一部分的文字符号。|  
+    |'符号'|属于语法的一部分的文本符号。|  
     |&#124;（竖线）|语法项的备选方法。 只能使用指定项之一。|  
     |[ ] /（方括号）|方括号中包含一个或多个可选项。|  
     |[ ,...n ]|表示前面的项可以重复 n 次。 各个实例以逗号分隔。|  
@@ -684,15 +684,15 @@ ORDER BY <sort_specification>
 
 <a name="bk_built_in_functions"></a>
 ##  <a name="built-in-functions"></a>内置函数  
- Azure Cosmos DB 提供了许多内置 SQL 函数。 下面列出了内置函数的类别。  
+ Cosmos DB 提供多个内置 SQL 函数。 下面列出了内置函数的类别。  
 
 |函数|说明|  
 |--------------|-----------------|  
 |[数学函数](#bk_mathematical_functions)|每个数学函数均执行一个计算，通常基于作为参数提供的输出值，并返回数值。|  
 |[类型检查函数](#bk_type_checking_functions)|类型检查函数允许检查 SQL 查询内表达式的类型。|  
 |[字符串函数](#bk_string_functions)|字符串函数对字符串输入值执行运算，并返回字符串、数值或布尔值。|  
-|[数组函数](#bk_array_functions)|数组函数对数组输入值执行运算，并返回数值、布尔值或数组值。|  
-|[空间函数](#bk_spatial_functions)|空间函数对空间对象输入值执行运算，并返回数值或布尔值。|  
+|[数组函数](#bk_array_functions)|该数组函数对数组输入值执行操作，并返回数值、布尔值或数组值。|  
+|[空间函数](#bk_spatial_functions)|该空间函数对控件对象输入值执行操作，并返回数值或布尔值。|  
 
 <a name="bk_mathematical_functions"></a>
 ###  <a name="mathematical-functions"></a>数学函数  
@@ -1073,7 +1073,7 @@ EXP (<numeric_expression>)
 
  常量 **e** (2.718281…) 是自然对数的底。  
 
- 某个数字的指数是对常量 **e** 执行该次数的乘幂计算。 例如，EXP(1.0) = e^1.0 = 2.71828182845905，EXP(10) = e^10 = 22026.4657948067。  
+ 某个数字的指数是对常量 **e** 执行该次数的乘幂计算。 例如 EXP(1.0) = e^1.0 = 2.71828182845905，EXP(10) = e^10 = 22026.4657948067。  
 
  某个数字的自然对数的指数是该数字本身：EXP (LOG (n)) = n。 某个数字的指数的自然对数是该数字本身：LOG (EXP (n)) = n。  
 
@@ -1581,7 +1581,7 @@ IS_ARRAY(<expression>)
 
  **示例**  
 
- 以下示例使用 IS_ARRAY 函数检查 JSON 布尔、数字、字符串、null、对象、数组和 undefined 类型的对象。  
+ 以下示例使用 IS_ARRAY 函数检查了 JSON 布尔值、数字、字符串、null、对象、数组和未定义类型的对象。  
 
 ```  
 SELECT   
@@ -1622,7 +1622,7 @@ IS_BOOL(<expression>)
 
  **示例**  
 
- 以下示例使用 IS_BOOL 函数检查 JSON 布尔、数字、字符串、null、对象、数组和 undefined 类型的对象。  
+ 以下示例使用 IS_BOOL 函数检查了 JSON 布尔值、数字、字符串、null、对象、数组和未定义类型的对象。  
 
 ```  
 SELECT   
@@ -1700,7 +1700,7 @@ IS_NULL(<expression>)
 
  **示例**  
 
- 以下示例使用 IS_NUMBER 函数检查 JSON 布尔、数字、字符串、null、对象、数组和 undefined 类型的对象。  
+ 以下示例使用 IS_NULL 函数检查了 JSON 布尔值、数字、字符串、null、对象、数组和未定义类型的对象。  
 
 ```  
 SELECT   
@@ -1741,7 +1741,7 @@ IS_NUMBER(<expression>)
 
  **示例**  
 
- 以下示例使用 IS_NUMBER 函数检查 JSON 布尔、数字、字符串、null、对象、数组和 undefined 类型的对象。  
+ 以下示例使用 IS_NULL 函数检查了 JSON 布尔值、数字、字符串、null、对象、数组和未定义类型的对象。  
 
 ```  
 SELECT   
@@ -1782,7 +1782,7 @@ IS_OBJECT(<expression>)
 
  **示例**  
 
- 以下示例使用 IS_OBJECT 函数检查 JSON 布尔、数字、字符串、null、对象、数组和 undefined 类型的对象。  
+ 以下示例使用 IS_OBJECT 函数检查了 JSON 布尔值、数字、字符串、null、对象、数组和未定义类型的对象。  
 
 ```  
 SELECT   
@@ -1803,7 +1803,7 @@ SELECT
 
 <a name="bk_is_primitive"></a>
 ####  <a name="isprimitive"></a>IS_PRIMITIVE  
- 返回一个布尔值，指示指定表达式的类型是否为基元（字符串、布尔值、数字或 null）。  
+ 返回一个布尔值，指示指定表达式的类型是否为一个（字符串、布尔、数值或 null）。  
 
  **语法**  
 
@@ -1864,7 +1864,7 @@ IS_STRING(<expression>)
 
  **示例**  
 
- 以下示例使用 IS_STRING 函数检查 JSON 布尔、数字、字符串、null、对象、数组和 undefined 类型的对象。  
+ 以下示例使用 IS_STRING 函数检查了 JSON 布尔值、数字、字符串、null、对象、数组和未定义类型的对象。  
 
 ```  
 SELECT   
@@ -2490,7 +2490,7 @@ FROM food
 JOIN n IN food.nutrients
 ```
  下面是结果集。  
- ```
+```
 [{"nutrientID":"305"},
 {"nutrientID":"306","nutritionVal":"30"},
 {"nutrientID":"307","nutritionVal":"912"},
@@ -2723,20 +2723,30 @@ ARRAY_SLICE (<arr_expr>, <num_expr> [, <num_expr>])
 
 -   `num_expr`  
 
-     是任何有效的数值表达式。  
+     用于开始数组的从零开始的数字索引。 负值可用于指定相对于数组最后一个元素的起始索引，即 -1 引用数组中最后一个元素。  
+
+-   `num_expr`  
+
+     结果数组中的最大元素数。    
 
  **返回类型**  
 
- 返回一个布尔值。  
+ 返回一个数组表达式。  
 
  **示例**  
 
- 以下示例演示了如何使用 ARRAY_SLICE 获取数组的一部分。  
+ 以下示例展示了如何使用 ARRAY_SLICE 获取数组的不同切片。  
 
 ```  
 SELECT   
            ARRAY_SLICE(["apples", "strawberries", "bananas"], 1),  
-           ARRAY_SLICE(["apples", "strawberries", "bananas"], 1, 1)  
+           ARRAY_SLICE(["apples", "strawberries", "bananas"], 1, 1),
+           ARRAY_SLICE(["apples", "strawberries", "bananas"], -2, 1),
+           ARRAY_SLICE(["apples", "strawberries", "bananas"], -2, 2),
+           ARRAY_SLICE(["apples", "strawberries", "bananas"], 1, 0),
+           ARRAY_SLICE(["apples", "strawberries", "bananas"], 1, 1000),
+           ARRAY_SLICE(["apples", "strawberries", "bananas"], 1, -100)      
+
 ```  
 
  下面是结果集。  
@@ -2744,13 +2754,18 @@ SELECT
 ```  
 [{  
            "$1": ["strawberries", "bananas"],   
-           "$2": ["strawberries"]  
-       }]  
+           "$2": ["strawberries"],
+           "$3": ["strawberries"],  
+           "$4": ["strawberries", "bananas"], 
+           "$5": [],
+           "$6": ["strawberries", "bananas"],
+           "$7": [] 
+}]  
 ```  
 
 <a name="bk_spatial_functions"></a>
 ###  <a name="spatial-functions"></a>空间函数  
- 下面的标量函数对空间对象输入值执行运算，并返回数值或布尔值。  
+ 以下标量函数对标量对象输入值执行操作，并返回数值或布尔值。  
 
 ||||  
 |-|-|-|  
@@ -2864,7 +2879,7 @@ ST_INTERSECTS (<spatial_expr>, <spatial_expr>)
 
  **示例**  
 
- 以下示例演示了如何查找与给定的多边形相交的所有区域。  
+ 以下示例介绍了如何查找与给定多边形相交的所有区域。  
 
 ```  
 SELECT a.id   
@@ -2962,6 +2977,9 @@ SELECT ST_ISVALIDDETAILED({
 ```  
 
 ## <a name="next-steps"></a>后续步骤  
- [Azure Cosmos DB 的 SQL 语法和 SQL 查询](sql-api-sql-query.md)   
- [Azure Cosmos DB 文档](/cosmos-db/)
-<!-- Update_Description: update meta properties, add bk_trim content -->
+
+- [Cosmos DB 的 SQL 语法和 SQL 查询](how-to-sql-query.md)
+
+- [Cosmos DB 文档](/cosmos-db/)
+
+<!-- Update_Description: update meta properties, wording update -->

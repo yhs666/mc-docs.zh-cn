@@ -3,8 +3,8 @@ title: Azure 事件中心示例 | Azure
 description: Azure 事件中心示例
 services: event-hubs
 documentationcenter: na
-author: rockboyfor
-manager: digimobile
+author: ShubhaVijayasarathy
+manager: timlt
 editor: ''
 ms.assetid: ''
 ms.service: event-hubs
@@ -13,17 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 07/17/2018
-ms.date: 09/17/2018
-ms.author: v-yeche
-ms.openlocfilehash: 3cb7c4e96b5594a07d7c2959d6707c65d8cb26b1
-ms.sourcegitcommit: 2700f127c3a8740a83fb70739c09bd266f0cc455
+ms.date: 12/10/2018
+ms.author: v-biyu
+ms.openlocfilehash: a411dbb8101cb576c8bd7ad40b616e2ba1ce1558
+ms.sourcegitcommit: 547436d67011c6fe58538cfb60b5b9c69db1533a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45586578"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52676899"
 ---
 # <a name="event-hubs-samples"></a>事件中心示例 
-可以在 [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples) 上找到事件中心示例。 这些示例演示了 [Azure 事件中心](/event-hubs/)的主要功能。 本文分类并介绍了可用的示例，每个示例均具有链接。
+可以在 [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples) 上找到事件中心示例。 这些示例演示了 [Azure 事件中心](/event-hubs/)的主要功能。 本文对可用示例进行了分类和介绍，每个示例均具有链接。
 
 ## <a name="net-samples"></a>.NET 示例
 
@@ -46,11 +46,25 @@ ms.locfileid: "45586578"
 | [AutoScaleOnIngress](https://github.com/Azure/azure-event-hubs/blob/master/samples/Java/Benchmarks/AutoScaleOnIngress) | 此示例说明了事件中心如何自动在高负载中纵向扩展。 该示例将以刚好超过事件中心配置速率的速率发送事件，使导致事件中心纵向扩展。 | 
 | [IngressBenchmark](https://github.com/Azure/azure-event-hubs/blob/master/samples/Java/Benchmarks/IngressBenchmark) | 此示例允许测量入口速率。 | 
 
+## <a name="python-samples"></a>Python 示例
+可在 [azure-event-hubs-python](https://github.com/Azure/azure-event-hubs-python/tree/master/examples) GitHub 存储库中找到 Azure 事件中心的 Python 示例。
+
+## <a name="nodejs-samples"></a>Node.js 示例
+可在 [azure-event-hubs-node](https://github.com/Azure/azure-event-hubs-node) GitHub 存储库中找到 Azure 事件中心的 Node.js 示例。
+
+## <a name="go-samples"></a>Go 示例
+可在 [azure-event-hubs-go](https://github.com/Azure/azure-event-hubs-go/tree/master/_examples) GitHub 存储库中找到 Azure 事件中心的 Go 示例。
+
+## <a name="azure-cli-samples"></a>Azure CLI 示例
+可在 [azure-event-hubs](https://github.com/Azure/azure-event-hubs/tree/master/samples/Management/CLI) GitHub 存储库中找到 Azure 事件中心的 Azure CLI 示例。
+
+## <a name="azure-powershell-samples"></a>Azure PowerShell 示例
+可在 [azure-event-hubs](https://github.com/Azure/azure-event-hubs/tree/master/samples/Management/PowerShell) GitHub 存储库中找到 Azure 事件中心的 Azure PowerShell 示例。
 ## <a name="next-steps"></a>后续步骤
-参阅以下文章可以了解有关事件中心的详细信息：
+可在以下文章中了解有关事件中心的详细信息：
 
 - [事件中心概述](event-hubs-what-is-event-hubs.md)
 - [事件中心功能](event-hubs-features.md)
-- [事件中心常见问题解答](event-hubs-faq.md)
+- [事件中心常见问题](event-hubs-faq.md)
 
 <!--Update_Description: update meta properties, wording update, update reference link-->

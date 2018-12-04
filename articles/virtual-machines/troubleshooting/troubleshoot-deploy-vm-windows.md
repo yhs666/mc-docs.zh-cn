@@ -13,15 +13,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-origin.date: 05/11/2018
-ms.date: 10/22/2018
+origin.date: 11/01/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 71f3dad06435e1d13bcc3896a8054fdae5f3d198
-ms.sourcegitcommit: 96b58e881dba2fd02665d806d7c27d770326b0cc
+ms.openlocfilehash: b944ab1e813d6257d2b5280bfba732682249a41e
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49652008"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675544"
 ---
 # <a name="troubleshoot-deploying-windows-virtual-machine-issues-in-azure"></a>排查 Azure 中的 Windows 虚拟机部署问题
 
@@ -72,7 +72,7 @@ productPesIds="1234, 5678"
 
  - [Azure 混合使用权益概述](https://www.azure.cn/pricing/hybrid-use-benefit/)
 
- - [可下载的常见问题解答](http://download.microsoft.com/download/4/2/1/4211AC94-D607-4A45-B472-4B30EDF437DE/Windows_Server_Azure_Hybrid_Use_FAQ_EN_US.pdf)
+ - [可下载的常见问题解答](https://download.microsoft.com/download/4/2/1/4211AC94-D607-4A45-B472-4B30EDF437DE/Windows_Server_Azure_Hybrid_Use_FAQ_EN_US.pdf)
 
  - [适用于 Windows Server 和 Windows 客户端的 Azure 混合使用权益](../windows/hybrid-use-benefit-licensing.md)。
 

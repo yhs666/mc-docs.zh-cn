@@ -1,19 +1,18 @@
 ---
 title: 了解指标警报在 Azure Monitor 中的工作原理。
 description: 获取指标警报功能的概述，以及它们在 Azure Monitor 中的工作原理。
-author: lingliw
-ms.author: v-lingwu
-origin.date: 09/18/2018
-ms.date: 11/05/2018
+author: snehithm
+ms.author: snmuvva
+ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.component: alerts
-ms.openlocfilehash: 1a22a469ec96775646abd74b5672f76837aeaea3
-ms.sourcegitcommit: 92a941c705f0a76483dea5b708054c53e8c9666b
+ms.openlocfilehash: 441f09cfd4aa7ab272660014e725f5c30a37d6cc
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50235357"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675634"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>了解指标警报在 Azure Monitor 中的工作原理
 

@@ -5,21 +5,21 @@ author: kgremban
 manager: timlt
 ms.author: v-yiso
 origin.date: 09/21/2018
-ms.date: 11/05/2018
+ms.date: 12/10/2018
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 63e2df3d586120fb645e8b0ca7c8b9df0d7a4a5f
-ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
+ms.openlocfilehash: 0524eced939d302fa9e82594f842d0520b2bccf6
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50135785"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675422"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module-preview"></a>教程：将 Azure 流分析作为 IoT Edge 模块（预览版）进行部署
 
-许多 IoT 解决方案使用分析服务来了解从 IoT 设备到达云的数据。 使用 Azure IoT Edge 时，可以获取 [Azure 流分析][azure-stream]逻辑，将其转到设备中。 在边缘处理遥测流可以减少上传数据量，缩短对可操作见解进行响应的时间。
+许多 IoT 解决方案使用分析服务来了解从 IoT 设备到达云的数据。 使用 Azure IoT Edge 时，可以获取 [Azure 流分析](/stream-analytics/)逻辑，将其转到设备中。 在边缘处理遥测流可以减少上传数据量，缩短对可操作见解进行响应的时间。
 
 Azure IoT Edge 和 Azure 流分析已集成，因此可以在 Azure 门户中创建一项 Azure 流分析作业，然后将其作为 IoT Edge 模块进行部署，不需额外的代码。  
 
@@ -208,7 +208,7 @@ Azure IoT Edge 设备：
 
     应会看到新的流分析模块与 IoT Edge 代理模块和 IoT Edge 中心在同时运行。
 
-    ![模块输出][7]
+    ![模块输出](./media/tutorial-deploy-stream-analytics/module_output2.png)
 
 ## <a name="view-data"></a>查看数据
 
@@ -220,7 +220,7 @@ Azure IoT Edge 设备：
    iotedge list  
    ```
 <!--
-   ![Docker output][8]
+   ![Docker output](./media/tutorial-deploy-stream-analytics/docker_output.png)
 -->
 1. 查看所有系统日志和指标数据。 使用流分析模块名称：
 
@@ -230,7 +230,7 @@ Azure IoT Edge 设备：
 
 应该可以看到，机器温度逐渐升高，在 30 秒内达到了 70 度。 然后，流分析模块触发重置，机器温度下降到 21 度。 
 
-   ![Docker 日志][9]
+   ![Docker 日志](./media/tutorial-deploy-stream-analytics/docker_log.png)
 
 ## <a name="clean-up-resources"></a>清理资源 
 
@@ -248,7 +248,7 @@ Azure IoT Edge 设备：
 本教程介绍了如何配置 Azure 流分析作业来分析 IoT Edge 设备中的数据， 然后介绍了如何将此 Azure 流分析模块加载到 IoT Edge 设备，以便处理并响应本地出现的温度增高情况，并将聚合的数据流发送到云。 若要了解 Azure IoT Edge 如何为企业创建更多解决方案，请继续学习其他教程。
 
 > [!div class="nextstepaction"] 
-> [将 Azure 机器学习模型作为一个模块部署][lnk-ml-tutorial]
+> [将 Azure 机器学习模型作为一个模块部署](tutorial-deploy-machine-learning.md)
 
 <!-- Images. -->
 [4]: ./media/tutorial-deploy-stream-analytics/add_device.png

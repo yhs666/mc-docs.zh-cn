@@ -3,7 +3,7 @@ title: 在 Azure API 管理中导入和发布第一个 API
 description: 了解如何在 API 管理中导入和发布第一个 API。
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: mikebudzynski
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
 origin.date: 06/15/2018
-ms.date: 07/16/2018
+ms.date: 12/03/2018
 ms.author: v-yiso
-ms.openlocfilehash: 07aa4509740cdb6f6efb0548487d1bdf64b8b004
-ms.sourcegitcommit: 3d17c1b077d5091e223aea472e15fcb526858930
+ms.openlocfilehash: d84e505abe42ccd09e12b56e06b4f006ff40c130
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37873397"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675419"
 ---
 # <a name="import-and-publish-your-first-api"></a>导入和发布第一个 API 
 
@@ -39,7 +39,8 @@ ms.locfileid: "37873397"
 
 ## <a name="prerequisites"></a>先决条件
 
-完成以下快速入门：[创建 Azure API 管理实例](get-started-create-service-instance.md)。
++ 了解 [Azure API 管理术语](api-management-terminology.md)。
++ 完成以下快速入门：[创建 Azure API 管理实例](get-started-create-service-instance.md)。
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -72,18 +73,18 @@ ms.locfileid: "37873397"
     
 3. 选择“创建” 。
 
+> [!TIP]
+> 如果在导入自己的 API 定义时遇到问题，请[查看已知问题和限制的列表](api-management-api-import-restrictions.md)。
+
 ## <a name="test-the-new-apim-api-in-the-azure-portal"></a>在 Azure 门户中测试新的 APIM API
 
-可直接从 Azure 门户调用操作，这样可以方便地查看和测试 API 的操作。  
+![测试 API 映射](./media/api-management-get-started/01-import-first-api-01.png)
+
+可直接从 Azure 门户调用操作，这样可以方便地查看和测试 API 的操作。
+
 1. 从“API”选项卡选择在上一步骤中创建的 API。
 2. 按“测试”选项卡。
-
-    ![测试 API](./media/api-management-get-started/test-api.png)
-    
-3. 单击“GetSpeakers”。
-
-    该页显示查询参数（在此示例中无）和标头的字段。 其中一个标头是“Ocp-Apim-Subscription-Key”，适用于和此 API 关联的产品订阅密钥。 将自动填充该密钥。
-    
+3. 单击“GetSpeakers”。 该页显示查询参数（在此示例中无）和标头的字段。 其中一个标头是“Ocp-Apim-Subscription-Key”，适用于和此 API 关联的产品订阅密钥。 将自动填充该密钥。
 4. 按“发送”。
 
     后端以“200 正常”和某些数据做出响应。

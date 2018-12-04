@@ -3,20 +3,20 @@ title: 什么是 Azure 事件中心？ | Azure
 description: 了解 Azure 事件中心 - 每秒可引入数百万个事件的大数据流式处理服务。
 services: event-hubs
 documentationcenter: na
-author: rockboyfor
-manager: digimobile
+author: ShubhaVijayasarathy
+manager: timlt
 ms.service: event-hubs
 ms.topic: overview
 ms.custom: mvc
 origin.date: 08/01/2018
-ms.date: 09/17/2018
-ms.author: v-yeche
-ms.openlocfilehash: 987420cf5f3cc1b22ccb5dbe67d4d40b27276cb9
-ms.sourcegitcommit: 2700f127c3a8740a83fb70739c09bd266f0cc455
+ms.date: 12/10/2018
+ms.author: v-biyu
+ms.openlocfilehash: 26094ef67ad86956b9960b0e3cadd1ebbc82baae
+ms.sourcegitcommit: 547436d67011c6fe58538cfb60b5b9c69db1533a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45586575"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52676916"
 ---
 # <a name="what-is-azure-event-hubs"></a>什么是 Azure 事件中心？
 
@@ -81,8 +81,13 @@ Azure 事件中心还能与 [Azure Functions](/azure-functions/) 集成，以构
 
 若要开始使用事件中心，请参阅以下文章：
 
-* [将数据引入事件中心](event-hubs-quickstart-portal.md)
-* [事件中心功能概述](event-hubs-features.md)
-* [常见问题](event-hubs-faq.md)
+1. **创建事件中心**：[Azure 门户](event-hubs-create.md)、[Azure CLI](event-hubs-quickstart-cli.md)、[Azure PowerShell](event-hubs-quickstart-powershell.md)、[Azure 资源管理器模板](event-hubs-resource-manager-namespace-event-hub.md)
+2. **将事件发送到事件中心**：[.NET Standard](event-hubs-dotnet-standard-getstarted-send.md)、[.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)、[Java](event-hubs-java-get-started-send.md)、[Python](event-hubs-python-get-started-send.md)、[Node.js](event-hubs-node-get-started-send.md)、[Go](event-hubs-go-get-started-send.md)、[C](event-hubs-c-getstarted-send.md)
+3. 从事件中心接收事件：[.NET Standard](event-hubs-dotnet-standard-getstarted-receive-eph.md)、[.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)、[Java](event-hubs-java-get-started-receive-eph.md)、[Python](event-hubs-python-get-started-receive.md)、[Node.js](event-hubs-node-get-started-receive.md)、[Go](event-hubs-go-get-started-receive-eph.md)、[Apache Storm](event-hubs-storm-getstarted-receive.md)   
+
+若要了解有关事件中心的详细信息，请参阅以下文章：
+
+- [事件中心功能概述](event-hubs-features.md)
+- [常见问题解答](event-hubs-faq.md)。
 
 <!-- Update_Description: wording update -->

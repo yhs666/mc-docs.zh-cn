@@ -2,20 +2,20 @@
 title: 使用 Python 从 Azure 事件中心接收事件 | Azure
 description: 使用 Python 从 Azure 事件中心接收事件入门
 services: event-hubs
-author: rockboyfor
-manager: digimobile
+author: ShubhaVijayasarathy
+manager: femila
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
 origin.date: 07/26/2018
-ms.date: 09/30/2018
-ms.author: v-yeche
-ms.openlocfilehash: 56d8050fca2cfece368e0bc87571b1645cacb481
-ms.sourcegitcommit: 399060a8d46534abd370693f6282e7343b371634
+ms.date: 12/10/2018
+ms.author: v-biyu
+ms.openlocfilehash: f6157938c2d839bce238067e90df096aa5e49e9b
+ms.sourcegitcommit: 547436d67011c6fe58538cfb60b5b9c69db1533a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455613"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52676881"
 ---
 <!-- Verify Error -->
 
@@ -37,6 +37,7 @@ Azure 事件中心是一个具备高度伸缩性的事件管理系统，每秒�
 - 现有事件中心命名空间和事件中心。 请按[本文](event-hubs-create.md)中的说明创建以下实体。 
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
+
 
 ## <a name="install-python-package"></a>安装 Python 包
 
@@ -108,22 +109,14 @@ finally:
 ```bash
 start python recv.py
 ```
-
+ 
 ## <a name="next-steps"></a>后续步骤
-
-若要发送事件，请参阅[相应的发送文章](event-hubs-python-get-started-send.md)。
-
-若要了解有关事件中心的详细信息，请访问以下页面：
-
-* [事件中心概述][Event Hubs overview]
-* [创建事件中心](event-hubs-create.md)
-* [事件中心常见问题解答](event-hubs-faq.md)
+在本快速入门中，你已创建从事件中心接收消息的 Python 应用程序。 若要了解如何使用 Python 将事件发送到事件中心，请参阅[从事件中心发送事件 - Python ](event-hubs-python-get-started-send.md)。
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-about.md
 [Visual Studio Code]: https://code.visualstudio.com/
 [trial account]: https://www.azure.cn/pricing/1rmb-trial/
-
 <!-- Update_Description: new articles on event hubs python get started receive -->
 
 <!--ms.date: 09/30/2018-->

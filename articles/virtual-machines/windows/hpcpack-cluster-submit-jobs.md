@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 origin.date: 05/14/2018
-ms.date: 08/27/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: de73da9cee145ef31b706b5a6ed4266ceb3f3a56
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.openlocfilehash: 4b22cb12bb8cbc615c96013c74c45ab4094b3b79
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42871576"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675483"
 ---
 # <a name="submit-hpc-jobs-from-an-on-premises-computer-to-an-hpc-pack-cluster-deployed-in-azure"></a>将 HPC 作业从本地计算机提交到部署在 Azure 中的 HPC Pack 群集
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -36,9 +36,9 @@ ms.locfileid: "42871576"
 * **HPC Pack 安装媒体** - 若要安装 HPC Pack 客户端实用工具，可从[下载中心](https://www.microsoft.com/download/details.aspx?id=56360)下载最新版的 HPC Pack 免费安装包。 确保下载与头节点 VM 上安装的版本相同的 HPC Pack 版本。
 
 ## <a name="step-1-install-and-configure-the-web-components-on-the-head-node"></a>步骤 1：在头节点上安装并配置 Web 组件
-要使 REST 接口可通过 HTTPS 将作业提交到群集，请确保在 HPC Pack 头节点上配置了 HPC Pack Web 组件。 若尚未安装，必须先运行 HpcWebComponents.msi 安装文件来安装 Web 组件。 然后，通过运行 HPC PowerShell 脚本“Set-HPCWebComponents.ps1”配置组件。
+要使 REST 接口可通过 HTTPS 将作业提交到群集，请确保在 HPC Pack 头节点上配置了 HPC Pack Web 组件。 若尚未安装，必须先运行 HpcWebComponents.msi 安装文件来安装 Web 组件。 然后，运行 HPC PowerShell 脚本 **Set-HPCWebComponents.ps1**来配置组件。
 
-有关详细过程，请参阅[安装 Microsoft HPC Pack Web 组件](http://technet.microsoft.com/library/hh314627.aspx)。
+有关详细过程，请参阅[安装 Microsoft HPC Pack Web 组件](https://technet.microsoft.com/library/hh314627.aspx)。
 
 > [!TIP]
 > HPC Pack 群集的某些 Azure 快速入门模板会自动安装并配置 Web 组件。
@@ -143,9 +143,9 @@ ms.locfileid: "42871576"
 
     b. 单击“Windows 凭据” > “添加普通凭据”。
 
-    c. 指定 Internet 地址（例如，https://&lt;HeadNodeDnsName&gt;.chinacloudapp.cn/HpcScheduler 或 https://&lt;HeadNodeDnsName&gt;.&lt;region&gt;.cloudapp.chinacloudapi.cn/HpcScheduler），以及配置的群集管理员或另一群集用户的用户名 (&lt;DomainName&gt;\\&lt;UserName&gt;) 和密码。
+    c. 指定 Internet 地址（例如， https://&lt;HeadNodeDnsName&gt;.chinacloudapp.cn/HpcScheduler 或 https://&lt;HeadNodeDnsName&gt;.&lt;region&gt;.cloudapp.chinacloudapi.cn/HpcScheduler），以及配置的群集管理员或另一群集用户的用户名 (&lt;DomainName&gt;\\&lt;UserName&gt;) 和密码。
 1. 在客户端计算机上启动 HPC 作业管理器。
-1. 在“选择头节点”对话框中，键入头节点在 Azure 中的 URL（例如，https://&lt;HeadNodeDnsName&gt;.chinacloudapp.cn 或 https://&lt;HeadNodeDnsName&gt;.&lt;region&gt;.cloudapp.chinacloudapi.cn）。
+1. 在“选择头节点”对话框中，键入头节点在 Azure 中的 URL（例如， https://&lt;HeadNodeDnsName&gt;.chinacloudapp.cn 或 https://&lt;HeadNodeDnsName&gt;.&lt;region&gt;.cloudapp.chinacloudapi.cn）。
 
     HPC 作业管理器会打开并显示头节点上的作业列表。
 
@@ -171,9 +171,10 @@ ms.locfileid: "42871576"
 1. 若要查看提交的作业的结果，请单击作业 ID，然后单击“查看任务”查看命令输出（在“输出”下方）。
 
 ## <a name="next-steps"></a>后续步骤
-* 也可以使用 [HPC Pack REST API](http://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx) 将作业提交到 Azure 群集。
+* 还可以使用 [HPC Pack REST API](https://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx)将作业提交到 Azure 群集。
 * 若要从 Linux 客户端提交群集作业，请参阅 [HPC Pack 2012 R2 SDK 和示例代码](https://www.microsoft.com/download/details.aspx?id=41633)中的 Python 示例。
 
 <!--Image references-->
 [jobsubmit]: ./media/virtual-machines-windows-hpcpack-cluster-submit-jobs/jobsubmit.png
+
 <!-- Update_Description: update meta properties, wording update  -->

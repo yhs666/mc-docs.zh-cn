@@ -10,14 +10,14 @@ ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: sample
 origin.date: 02/08/2018
-ms.date: 07/02/2018
+ms.date: 12/03/2018
 ms.author: v-yeche
-ms.openlocfilehash: 64ede28b45fd317c4933629c9a301e943292adb6
-ms.sourcegitcommit: 4ce5b9d72bde652b0807e0f7ccb8963fef5fc45a
+ms.openlocfilehash: 4a30c81fdd064be814c8c7c2927847ba7040fe5a
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37070201"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675640"
 ---
 # <a name="azure-cosmos-db-java-examples-for-the-sql-api"></a>Azure Cosmos DB：SQL API 的 Java 示例
 
@@ -134,7 +134,7 @@ $ cd azure-documentdb-java
 | [执行简单的跨分区文档查询](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/DocumentQuerySamples.java#L108-L129) | [DocumentClient.queryDocuments](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._feed_options.setenablecrosspartitionquery) |
 | [按查询排序](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/DocumentQuerySamples.java#L132-L154) | [FeedResponse<T>.getQueryIterator](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._feed_response.getqueryiterator) |
 
-有关编写查询的详细信息，请参阅 [Azure Cosmos DB 中的 SQL 查询](sql-api-sql-query.md)。
+有关编写查询的详细信息，请参阅 [Azure Cosmos DB 中的 SQL 查询](how-to-sql-query.md)。
 
 ## <a name="offer-examples"></a>优惠示例
 [OfferCrudSamples](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/OfferCrudSamples.java) 文件演示如何执行以下任务：
@@ -150,8 +150,7 @@ $ cd azure-documentdb-java
 | 任务 | API 参考 |
 | --- | --- |
 | [创建单分区集合](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/SinglePartitionCollectionDocumentCrudSample.java#L164-L207) | [DocumentClient.createCollection](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._document_client.createcollection) |
-| 
-  [更改单分区集合的吞吐量优惠](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/SinglePartitionCollectionDocumentCrudSample.java#L209-L223) | [DocumentClient.replaceOffer](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._document_client.replaceoffer) |
+| [更改单分区集合的吞吐量优惠](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/SinglePartitionCollectionDocumentCrudSample.java#L209-L223) | [DocumentClient.replaceOffer](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb._document_client.replaceoffer) |
 
 ## <a name="stored-procedure-examples"></a>存储过程示例
 [StoredProcedureSamples](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/StoredProcedureSamples.java) 文件演示如何执行以下任务：

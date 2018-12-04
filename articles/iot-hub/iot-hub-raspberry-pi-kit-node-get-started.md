@@ -12,12 +12,12 @@ origin.date: 04/11/2018
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
 ms.date: 10/29/2018
-ms.openlocfilehash: 37d180c23c3597df14b122a79e3382126a8b59d5
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: cbe4be54bbefe7424f1ec213b18bff37df02daef
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453851"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675437"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>将 Raspberry Pi 连接到 Azure IoT 中心 (Node.js)
 
@@ -66,7 +66,17 @@ ms.locfileid: "49453851"
 > [!NOTE] 
 > 如果没有可选项，可以使用模拟的传感器数据。
 
-[!INCLUDE [iot-hub-get-started-create-hub-and-device](../../includes/iot-hub-get-started-create-hub-and-device.md)]
+## <a name="create-an-iot-hub"></a>创建 IoT 中心
+
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
+
+### <a name="retrieve-connection-string-for-iot-hub"></a>检索 IoT 中心的连接字符串
+
+[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
+
+## <a name="register-a-new-device-in-the-iot-hub"></a>在 IoT 中心内注册新设备
+
+[!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
 ## <a name="setup-raspberry-pi"></a>设置 Raspberry Pi
 

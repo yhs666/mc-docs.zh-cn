@@ -10,12 +10,12 @@ ms.topic: conceptual
 origin.date: 09/24/2018
 ms.date: 11/05/2018
 ms.author: v-yeche
-ms.openlocfilehash: cb1d4d4068c0182a2c29f724dbab4e37c8928cc9
-ms.sourcegitcommit: c1020b13c8810d50b64e1f27718e9f25b5f9f043
+ms.openlocfilehash: b89e3eb9514d7810192e2e939e864a5c22818881
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50204864"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675645"
 ---
 # <a name="how-azure-cosmos-db-enables-turnkey-multiple-region-distribution"></a>Azure Cosmos DB 如何启用统包式多区域分配
 Azure Cosmos DB 提供了以下功能，方便用户轻松编写多区域分布式应用程序。 可以通过 Azure Cosmos DB 的基于资源提供程序的 [REST API](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/) 以及 Azure 门户来获取这些功能。
@@ -30,11 +30,13 @@ Azure 通过上线[新区域](https://www.azure.cn/support/service-dashboard/)�
 <a name="MultiMasterSupport"></a>
 ### <a name="multi-master-support"></a>多主数据库支持
 Azure Cosmos DB 为多个主区域提供本机服务器端支持，这些主区域同等参与随处写入模型。 此支持通过[财力支持的 SLA](https://www.azure.cn/support/sla/cosmos-db/) 提供 <10 ms 的写入延迟和 99.999% 的写入可用性。 多主数据库适用于所有 API，包括 [SQL](sql-api-introduction.md)、[MongoDB](mongodb-introduction.md) 以及 Cosmos DB 的所有 SDK 语言。 对于具有多主数据库功能的帐户，Azure Cosmos DB 支持 4 种不同的一致性级别（有限过期、会话、一致前缀和最终）。
-<!-- Not Available on [Cassandra](cassandra-introduction.md), [Graph](graph-introduction.md), and [Table](table-introduction.md)-->
+<!-- Not Available on [Cassandra](cassandra-introduction.md)-->
+<!-- Not Available on [Graph](graph-introduction.md)-->
+<!-- Not Available on [Table](table-introduction.md)-->
 
 <a name="UnlimitedRegionsPerAccount"></a>
-<!--Not Available on ### Associating an unlimited number of regions with your Azure Cosmos DB database account-->
 
+<!--Not Available on ### Associating an unlimited number of regions with your Azure Cosmos DB database account-->
 <a name="PolicyBasedGeoFencing"></a>
 ### <a name="policy-based-geo-fencing"></a>基于策略的地域隔离
 Azure Cosmos DB 采用了支持基于策略的地理围栏。 地域隔离是一个重要组件，确保遵循数据监管与法规遵循限制，防止将特定的地区与帐户相关联。 地域隔离的例子包括但不限于：多区域分配的范围不能超出主权云（例如中国和德国）界定的区域。 策略是使用 Azure 订阅的元数据控制的。

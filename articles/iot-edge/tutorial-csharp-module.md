@@ -3,30 +3,32 @@ title: Azure IoT Edge C# 教程 | Microsoft Docs
 description: 本教程介绍如何使用 C# 代码创建 IoT Edge 模块并将其部署到边缘设备。
 services: iot-edge
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: v-yiso
 origin.date: 09/21/2018
-ms.date: 11/05/2018
+ms.date: 12/10/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 2a85ba004ba2017a8f012bd1c39162a83957777d
-ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
+ms.openlocfilehash: 25df658dc0ae6e82613b1e948f152dcd0aa4e6ae
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50135889"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675633"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-and-deploy-to-your-simulated-device"></a>教程：开发 C# IoT Edge 模块并将其部署到模拟设备
 
-可以使用 Azure IoT Edge 模块部署代码，直接将业务逻辑实现到 IoT Edge 设备。 本教程详细介绍如何创建并部署用于筛选传感器数据的 IoT Edge 模块。 将使用的模拟 IoT Edge 设备是在 [Windows][lnk-tutorial1-win] 或 [Linux][lnk-tutorial1-lin] 快速入门的“在模拟设备上部署 Azure IoT Edge”中创建的。 本教程介绍如何执行下列操作：    
+可以使用 Azure IoT Edge 模块部署代码，直接将业务逻辑实现到 IoT Edge 设备。 本教程详细介绍如何创建并部署用于筛选传感器数据的 IoT Edge 模块。 将使用的模拟 IoT Edge 设备是在 [Windows](quickstart.md) 或 [Linux](quickstart-linux.md) 快速入门的“在模拟设备上部署 Azure IoT Edge”中创建的。 本教程介绍如何执行下列操作：    
 
 > [!div class="checklist"]
-> * 使用 Visual Studio Code 创建基于 .NET Core 2.0 SDK 的 IoT Edge 模块
+> * 使用 Visual Studio Code 创建基于 .NET Core 2.1 SDK 的 IoT Edge 模块。
 > * 使用 Visual Studio Code 和 Docker 创建 Docker 映像并将其发布到注册表。
 > * 将模块部署到 IoT Edge 设备。
 > * 查看生成的数据。
 
+>[!NOTE]
+>也可[使用 Visual Studio 2017 开发、调试和部署 IoT Edge 模块](how-to-visual-studio-develop-csharp-module.md)。
 
 在本教程中创建的 IoT Edge 模块可以筛选由设备生成的温度数据。 它只在温度高于指定阈值的情况下，向上游发送消息。 在边缘进行的此类分析适用于减少传递到云中和存储在云中的数据量。 
 
@@ -142,7 +144,7 @@ VS Code 窗口将加载你的 IoT Edge 解决方案空间。 解决方案工作�
 
     ```csharp
     // Register a callback for messages that are received by the module.
-    // await ioTHubModuleClient.SetImputMessageHandlerAsync("input1", PipeMessage, iotHubModuleClient);
+    // await ioTHubModuleClient.SetInputMessageHandlerAsync("input1", PipeMessage, iotHubModuleClient);
 
     // Read the TemperatureThreshold value from the module twin's desired properties
     var moduleTwin = await ioTHubModuleClient.GetTwinAsync();
@@ -267,7 +269,7 @@ VS Code 窗口将加载你的 IoT Edge 解决方案空间。 解决方案工作�
 
 3. 在 deployment.template.json 文件中，**registryCredentials** 节存储 Docker 注册表凭据。 实际的用户名和密码对存储在 git 忽略的 .env 文件中。  
 
-4. 将 **CSharpModule** 模块孪生添加到部署清单。 在 **moduleContent** 节底部的 **$edgeHub** 模块孪生后面插入以下 JSON 内容： 
+4. 将 **CSharpModule** 模块孪生添加到部署清单。 在 **modulesContent** 节底部的 **$edgeHub** 模块孪生后面插入以下 JSON 内容： 
     ```json
         "CSharpModule": {
             "properties.desired":{
@@ -300,7 +302,7 @@ VS Code 窗口将加载你的 IoT Edge 解决方案空间。 解决方案工作�
 
 5. 选择 **config** 文件夹中的 **deployment.json** 文件，然后单击“选择 Edge 部署清单”。 不要使用 deployment.template.json 文件。 
 
-6. 单击刷新按钮。 此时会看到新的 **CSharpModule** 在运行，此外还有 **TempSensor** 模块以及 **$edgeAgent** 和 **$edgeHub** 在运行。  
+6. 单击“刷新”按钮。 此时会看到新的 **CSharpModule** 在运行，此外还有 **TempSensor** 模块以及 **$edgeAgent** 和 **$edgeHub** 在运行。  
 
 ## <a name="view-generated-data"></a>查看生成的数据
 

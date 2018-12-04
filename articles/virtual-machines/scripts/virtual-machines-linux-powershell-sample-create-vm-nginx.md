@@ -14,15 +14,15 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 03/01/2017
-ms.date: 09/24/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 7ecbb968b33e0b2afc660ca68b0cfae7d62b0eb5
-ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
+ms.openlocfilehash: c9f4a759daebcd223b3102836456db4a3b332513
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46527203"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675577"
 ---
 # <a name="create-an-nginx-vm-with-powershell"></a>使用 PowerShell 创建 NGINX VM
 
@@ -129,4 +129,5 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 有关 Azure PowerShell 模块的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/overview)。
 
 可以在 [Azure Linux VM 文档](../linux/powershell-samples.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)中找到其他虚拟机 PowerShell 脚本示例。
+
 <!--Update_Description: update meta properties -->

@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/22/2018
-ms.date: 09/24/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 136ff4860fc75dc1367b34788e826cf7fdd33030
-ms.sourcegitcommit: 1742417f2a77050adf80a27c2d67aff4c456549e
+ms.openlocfilehash: 58ff6e52c6d5193e8670d4aecd1e161203b07f2a
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46527167"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675586"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Azure 元数据服务：适用于 Windows VM 的计划事件
 
@@ -43,7 +43,7 @@ ms.locfileid: "46527167"
 - 事件日志记录
 - 正常关闭 
 
-使用计划事件，应用程序可以发现维护的发生，并触发任务以限制其影响。  
+使用计划事件，应用程序可以发现维护的发生，并触发任务以限制其影响。 启用计划事件可在执行维护活动之前为虚拟机提供最少的时间。 有关详细信息，请参阅下面的“事件计划”部分。
 
 预定事件提供以下用例中的事件：
 - 平台启动维护（例如主机 OS 更新）
@@ -72,7 +72,7 @@ Azure 元数据服务公开在 VM 中使用可访问的 REST 终结点运行虚�
 > 支持的计划事件的前一预览版 {latest} 发布为 api-version。 此格式不再受支持，并且将在未来弃用。
 
 ### <a name="enabling-and-disabling-scheduled-events"></a>启用和禁用计划事件
-首次为事件发出请求时，为服务启用了计划事件。 首次调用时应该会延迟响应最多两分钟。
+首次为事件发出请求时，为服务启用了计划事件。 首次调用时应该会延迟响应最多两分钟。 你应定期查询终结点，以便检测到即将发生的维护事件以及正在执行的维护活动的状态。
 
 如果 24 小时未发出请求，将为服务禁用计划事件。
 
@@ -111,6 +111,7 @@ curl http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01 -H @
     ]
 }
 ```
+DocumentIncarnation 是一个 ETag，它提供了一种简单的方法来检查自上次查询以来事件有效负载是否已更改。
 
 ### <a name="event-properties"></a>事件属性
 |属性  |  说明 |
@@ -227,4 +228,5 @@ foreach($event in $scheduledEvents.Events)
 - 在 [Azure 实例元数据计划事件 Github 存储库](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm)中查看预定事件代码示例
 - 有关 API 的更多信息，请参阅[实例元数据服务](instance-metadata-service.md)。
 - 了解 [Azure 中 Windows 虚拟机的计划内维护](planned-maintenance.md)。
+
 <!-- Update_Description: update meta properties, wording update  -->

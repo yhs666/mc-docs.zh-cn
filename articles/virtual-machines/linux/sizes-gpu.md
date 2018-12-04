@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 09/24/2018
-ms.date: 10/22/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 89d00b9ebe061ec6109321429f74db967eb9e033
-ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
+ms.openlocfilehash: c0552e6993bd42e2c842bdebd11371c01dff1c64
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50034814"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675500"
 ---
 # <a name="gpu-optimized-virtual-machine-sizes"></a>GPU 优化虚拟机大小
 
@@ -51,4 +51,4 @@ ms.locfileid: "50034814"
 ## <a name="next-steps"></a>后续步骤
 了解有关 [Azure 计算单元 (ACU)](acu.md) 如何帮助跨 Azure SKU 比较计算性能的详细信息。
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties -->

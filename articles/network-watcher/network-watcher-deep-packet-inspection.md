@@ -3,7 +3,7 @@ title: 使用 Azure 网络观察程序执行数据包检查 | Azure
 description: 本文介绍如何在 VM 中使用网络观察程序执行深度数据包检查
 services: network-watcher
 documentationcenter: na
-author: rockboyfor
+author: lingliw
 manager: digimobile
 editor: ''
 ms.assetid: 7b907d00-9c35-40f5-a61e-beb7b782276f
@@ -13,20 +13,20 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/22/2017
-ms.date: 11/13/2017
-ms.author: v-yeche
-ms.openlocfilehash: c8d5ac81dff50d0f0a5d4d3032e47ab2f802e692
-ms.sourcegitcommit: 81faeb249bcf9c8a84f571ce8d4ca033b224c0e9
+ms.date: 11/26/2018
+ms.author: v-lingwu
+ms.openlocfilehash: 3d5653fdf81bfe28297292e7c66a3a451a2a8715
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "24104658"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675520"
 ---
 # <a name="packet-inspection-with-azure-network-watcher"></a>使用 Azure 网络观察程序执行数据包检查
 
 使用网络观察程序的数据包捕获功能，可在门户、PowerShell、CLI 中以及通过 SDK 和 REST API 以编程方式在 Azure VM 上启动和管理捕获会话。 借助数据包捕获，可通过以随时可用的格式提供信息，来解决需要数据包级数据的方案。 利用免费工具检查数据，可以检测传入和传出 VM 的通信并洞察网络流量。 数据包捕获数据的一些示例用途包括：调查网络或应用程序问题、检测网络滥用和入侵企图，或保持合规性。 本文介绍如何使用流行的开源工具打开网络观察程序提供的数据包捕获文件。 此外，还举例说明了如何计算连接延迟、识别异常流量，以及检查网络统计信息。
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="before-you-begin"></a>准备阶段
 
 本文会回顾以前运行的有关数据包捕获的一些预配置方案。 这些方案演示了可以通过查看数据包捕获访问的功能。 本方案使用 [WireShark](https://www.wireshark.org/) 来检查数据包捕获。
 

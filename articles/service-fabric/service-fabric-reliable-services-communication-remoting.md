@@ -15,12 +15,12 @@ ms.workload: required
 origin.date: 09/20/2017
 ms.date: 10/15/2018
 ms.author: v-yeche
-ms.openlocfilehash: c7a958d7f2ce3ef2f9c81327527b5115f9b1606f
-ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
+ms.openlocfilehash: 66f78116b3570105ec62639dd04e0cf31b7a7b82
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49089188"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675592"
 ---
 # <a name="service-remoting-in-c-with-reliable-services"></a>通过 Reliable Services 使用 C# 进行服务远程处理
 
@@ -316,6 +316,7 @@ string message = await helloWorldClient.HelloWorldAsync();
           });
   ```
 
+<a name="upgrade-from-remoting-v1-to-remoting-v2interfacecompatible"></a>
 ## <a name="upgrade-from-remoting-v1-to-remoting-v2-interface-compatible"></a>从远程处理 V1 升级到远程处理 V2（与接口兼容）。
 
 若要从 V1 升级到 V2（与接口兼容，称为 V2_1），必须执行双步升级。 请按以下顺序执行步骤。

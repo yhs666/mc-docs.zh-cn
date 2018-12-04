@@ -14,15 +14,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 05/04/2017
-ms.date: 07/30/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: b339d89cf332e0a5085ea4c9d623639a65d91f95
-ms.sourcegitcommit: 62a0389a743cd18665bd127e9bf14800867008eb
+ms.openlocfilehash: f03995b48920ec7a84b1bd1f8e5635749eb53db4
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39624937"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675626"
 ---
 # <a name="tutorial-monitor-and-update-a-windows-virtual-machine-in-azure"></a>教程：监视和更新 Azure 中的 Windows 虚拟机
 
@@ -46,13 +46,13 @@ Azure 监视使用代理从 Azure VM 收集启动和性能数据，将此数据�
 
 若要在本教程中配置 Azure 监视和更新管理，需要 Azure 中的 Windows VM。 首先，使用 [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential) 设置 VM 的管理员用户名和密码：
 
-```powershell
+```PowerShell
 $cred = Get-Credential
 ```
 
 现在，使用 [New-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm) 创建 VM。 以下示例在“ChinaEast”位置创建一个名为 myVM 的 VM。 如果资源组 *myResourceGroupMonitorMonitor* 和支持的网络资源不存在，则会创建它们：
 
-```powershell
+```PowerShell
 New-AzureRmVm `
     -ResourceGroupName "myResourceGroupMonitor" `
     -Name "myVM" `
@@ -119,7 +119,9 @@ Windows VM 在 Azure 中有一个与它交互的专用主机 VM。 系统会自�
 <!-- Not Available on ## Manage Windows updates -->
 <!-- Not Available on ## Monitor changes and inventory-->
 <!-- Not Availabel on(Log Analytics) ## Advanced monitoring-->
+
 ## <a name="next-steps"></a>后续步骤
+
 在本教程中，你已使用 Azure 安全中心配置并查看了 VM。 你已了解如何：
 
 > [!div class="checklist"]

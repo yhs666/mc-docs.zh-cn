@@ -1,6 +1,6 @@
 ---
 title: 保护密钥保管库 | Microsoft Docs
-description: 管理用于管理保管库、密钥和机密的密钥保管库的访问权限。 密钥保管库的身份验证和授权模型，以及如何保护密钥保管库
+description: 管理用于管理 Azure Key Vault、密钥和机密的密钥保管库的访问权限。 密钥保管库的身份验证和授权模型以及如何保护密钥保管库。
 services: key-vault
 documentationcenter: ''
 author: amitbapat
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 05/10/2017
-ms.date: 11/05/2018
+ms.date: 12/10/2018
 ms.author: v-biyu
-ms.openlocfilehash: 756260b701246082847894fb8d293c45e89e64fb
-ms.sourcegitcommit: 8a68d9275ddb92ea45601fed96e21559999d9579
+ms.openlocfilehash: d00a09c8c1ba03ad2c234a94b86443db06827f42
+ms.sourcegitcommit: 547436d67011c6fe58538cfb60b5b9c69db1533a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50026952"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52676922"
 ---
 # <a name="secure-your-key-vault"></a>保护密钥保管库
 Azure Key Vault 是用于保护加密密钥和机密（例如证书、连接字符串、密码）的云服务。 由于这些数据极其机密且对业务至关重要，因此必须保护对 Key Vault 的访问，以便只有经过授权的应用程序和用户才能获取访问权限。 
@@ -47,10 +47,13 @@ Azure Key Vault 是用于保护加密密钥和机密（例如证书、连接字�
 ## <a name="authentication-using-azure-active-directory"></a>使用 Azure Active Directory 进行身份验证
 在 Azure 订阅中创建 Key Vault 时，该 Key Vault 会自动关联到该订阅的 Azure Active Directory 租户。 所有调用方（用户和应用程序）必须在此租户中注册，并且必须执行身份验证才能访问 Key Vault。 此项要求适用于管理平面访问和数据平面访问。 在这两种情况下，应用程序可通过两种方式访问密钥保管库：
 
-- **用户+ 应用访问** - 通常适用于代表登录用户访问密钥保管库的应用程序。 Azure PowerShell 和 Azure 门户就是这种访问类型的例子。 向用户授予访问权限有两种方法：一种方法是向用户授予访问权限，使他们可以从任何应用程序访问密钥保管库，另一种方法是授予用户仅当使用特定的应用程序时访问密钥保管库的权限（称之为复合标识）。 
+* **用户+应用访问** - 适用于代表已登录用户访问密钥保管库的应用程序。 此类访问的示例有 Azure PowerShell 和 Azure 门户。 可通过两种方法向用户授予访问权限： 
+- 向用户授予访问权限，以便他们可以从任何应用程序访问密钥保管库。
+- 仅在用户使用特定应用程序时向用户授予访问密钥保管库的权限（称为复合标识）。
+
 * **仅限应用的访问** - 适用于作为守护程序服务或后台作业运行的应用程序。 向应用程序的标识授予访问密钥保管库的权限。
 
-在这两种类型的应用程序中，应用程序均通过 Azure Active Directory 使用任一[支持的身份验证方法](../active-directory/develop/active-directory-authentication-scenarios.md)进行身份验证，并获取令牌。 使用的身份验证方法取决于应用程序类型。 然后，应用程序使用此令牌并将 REST API 请求发送到密钥保管库。 在管理平面访问模式中，请求会通过 Azure Resource Manager 终结点路由。 访问数据平面时，应用程序直接与密钥保管库终结点对话。 请参阅有关[整个身份验证流](../active-directory/develop/active-directory-protocols-oauth-code.md)的详细信息。 
+在这两种类型的应用程序中，应用程序均通过 Azure Active Directory 使用任一[支持的身份验证方法](https://docs.azure.cn/zh-cn/active-directory/develop/authentication-scenarios)进行身份验证，并获取令牌。 使用的身份验证方法取决于应用程序类型。 然后，应用程序使用此令牌并将 REST API 请求发送到密钥保管库。 在管理平面访问模式中，请求会通过 Azure Resource Manager 终结点路由。 访问数据平面时，应用程序直接与密钥保管库终结点对话。 请参阅有关[整个身份验证流](https://docs.azure.cn/zh-cn/active-directory/develop/v1-protocols-oauth-code)的详细信息。 
 
 应用程序请求其令牌的资源名称会有所不同，具体取决于应用程序访问的是管理平面还是数据平面。 因此，根据具体的 Azure 环境，资源名称是本部分稍后提供的表格中所述的管理平面或数据平面终结点。
 
@@ -233,10 +236,10 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzureR
 - [Managing Role-Based Access Control with the REST API（使用 REST API 管理基于角色的访问控制）](../role-based-access-control/role-assignments-rest.md)
   
   此文说明如何使用 REST API 来管理 RBAC。
-- 
+
   
   
-- [使用 OAuth 2.0 和 Azure Active Directory 授权访问 Web 应用程序](../active-directory/develop/active-directory-protocols-oauth-code.md)
+- [使用 OAuth 2.0 和 Azure Active Directory 授权访问 Web 应用程序](https://docs.azure.cn/zh-cn/active-directory/develop/v1-protocols-oauth-code)
   
   此文介绍使用 Azure Active Directory 进行身份验证时遵循的整个 OAuth 2.0 流程。
   

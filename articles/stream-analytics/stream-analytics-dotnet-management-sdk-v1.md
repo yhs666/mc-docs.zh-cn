@@ -2,20 +2,20 @@
 title: 用于 Azure 流分析的管理 .NET SDK v1.x
 description: 流分析管理 .NET SDK 入门。 了解如何设置和运行分析作业。 创建项目、输入、输出和转换。
 services: stream-analytics
-author: rockboyfor
-ms.author: v-yeche
+author: lingliw
+ms.author: v-lingwu
 manager: digimobile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 03/06/2017
-ms.date: 06/18/2018
-ms.openlocfilehash: 9e9501712ff392cd7efaa1abb5e97602a0f95d23
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.date: 11/26/2018
+ms.openlocfilehash: 242833893d9e79f6549332bce668428ffc602d0f
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "35416805"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675427"
 ---
 # <a name="management-net-sdk-v1x-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>Management .NET SDK v1.x：使用用于 .NET 的 Azure 流分析 API 设置和运行分析作业
 了解如何通过 Management .NET SDK 使用用于 .NET 的流分析 API 设置和运行分析作业。 设置项目、创建输入和输出源、转换，以及开始和停止作业。 就分析作业来说，可以从 Blob 存储或事件中心流式传输数据。
@@ -128,7 +128,7 @@ Azure 流分析是一种完全托管的服务，可以在云中通过流式数�
     // Create Stream Analytics management client
     StreamAnalyticsManagementClient client = new StreamAnalyticsManagementClient(aadTokenCredentials);
 
-resourceGroupName 变量的值应该与你在先决条件步骤中创建或选取的资源组的名称相同。
+**resourceGroupName** 变量的值应该与你在先决条件步骤中创建或选取的资源组的名称相同。
 
 若要自动执行凭据演示方面的作业创建，请参阅[使用 Azure Resource Manager 对服务主体进行身份验证](../azure-resource-manager/resource-group-authenticate-service-principal.md)。
 
@@ -289,8 +289,7 @@ resourceGroupName 变量的值应该与你在先决条件步骤中创建或选�
     LongRunningOperationResponse jobStopResponse = client.StreamingJobs.Stop(resourceGroupName, streamAnalyticsJobName);
 
 ## <a name="delete-a-stream-analytics-job"></a>删除流分析作业
-
-            **Delete** 方法会删除作业以及基础性的子资源，包括作业的输入、输出和转换。
+**Delete** 方法会删除作业以及基础性的子资源，包括作业的输入、输出和转换。
 
     // Delete a Stream Analytics job
     LongRunningOperationResponse jobDeleteResponse = client.StreamingJobs.Delete(resourceGroupName, streamAnalyticsJobName);
@@ -325,6 +324,6 @@ resourceGroupName 变量的值应该与你在先决条件步骤中创建或选�
 
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
-<!-- File Not Exist on[stream.analytics.developer.guide]: stream-analytics-developer-guide.md --> [stream.analytics.scale.jobs]：stream-analytics-scale-jobs.md [stream.analytics.query.language.reference]：http://go.microsoft.com/fwlink/?LinkID=513299 [stream.analytics.rest.api.reference]：http://go.microsoft.com/fwlink/?LinkId=5173011
+<!-- File Not Exist on[stream.analytics.developer.guide]: stream-analytics-developer-guide.md --> [stream.analytics.scale.jobs]：stream-analytics-scale-jobs.md [stream.analytics.query.language.reference]： http://go.microsoft.com/fwlink/?LinkID=513299 [stream.analytics.rest.api.reference]： http://go.microsoft.com/fwlink/?LinkId=5173011
 
 <!-- Update_Description: wording update, update meta properties -->

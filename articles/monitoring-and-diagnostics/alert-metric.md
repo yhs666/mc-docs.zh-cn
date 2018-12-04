@@ -5,15 +5,15 @@ author: lingliw
 ms.service: azure-monitor
 ms.topic: conceptual
 origin.date: 09/18/2018
-ms.date: 11/05/2018
+ms.date: 11/26/2018
 ms.author: v-lingwu
 ms.component: alerts
-ms.openlocfilehash: 2b1623ba97dd15272ab500a1edb5a4297769ee59
-ms.sourcegitcommit: 92a941c705f0a76483dea5b708054c53e8c9666b
+ms.openlocfilehash: 4b45d617f6069cf5a6d8ae43bebbf13c5760c6ac
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50235348"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675620"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>使用 Azure Monitor 创建、查看和管理指标警报
 

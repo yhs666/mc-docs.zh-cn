@@ -1,17 +1,18 @@
 > [!div class="op_single_selector"]
-> * [Windows 上的 C](../articles/iot-suite/iot-suite-connecting-devices.md)
-> * [Linux 上的 C](../articles/iot-suite/iot-suite-connecting-devices-linux.md)
-> * [Node.js（通用）](../articles/iot-suite/iot-suite-connecting-devices-node.md)
-> * [Raspberry Pi 上的 Node.js](../articles/iot-suite/iot-suite-connecting-pi-node.md)
-> * [Raspberry Pi 上的 C](../articles/iot-suite/iot-suite-connecting-pi-c.md)
+> * [Windows 上的 C](../articles/iot-accelerators/iot-accelerators-connecting-devices.md)
+> * [Linux 上的 C](../articles/iot-accelerators/iot-accelerators-connecting-devices-linux.md)
+> * [Raspberry Pi 上的 C](../articles/iot-accelerators/iot-accelerators-connecting-pi-c.md)
+> * [Node.js（通用）](../articles/iot-accelerators/iot-accelerators-connecting-devices-node.md)
+> * [Raspberry Pi 上的 Node.js](../articles/iot-accelerators/iot-accelerators-connecting-pi-node.md)
+> * [MXChip IoT DevKit](../articles/iot-accelerators/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2.md)
 
-本教程实施一个可将以下遥测数据发送到远程监视[预配置解决方案](../articles/iot-suite/iot-suite-what-are-preconfigured-solutions.md)的**冷却器**设备：
+本教程实施一个可将以下遥测数据发送到远程监视[解决方案加速器](../articles/iot-accelerators/about-iot-accelerators.md)的“冷却器”设备：
 
 * 温度
 * 压力
 * 湿度
 
-为简单起见，代码会生成**冷却器**的示例遥测值。 可以通过将真实的传感器连接到设备并发送真实的遥测数据，在本示例的基础上融会贯通。
+为简单起见，代码会生成冷却器的示例遥测值。 可以通过将真实的传感器连接到设备并发送真实的遥测数据，在本示例的基础上融会贯通。
 
 示例设备还会：
 
@@ -22,49 +23,42 @@
 要完成此教程，需要一个有效的 Azure 帐户。 如果没有帐户，可以创建一个试用帐户，只需几分钟即可完成。 有关详细信息，请参阅 [Azure 试用][lnk-1rmb-trial]。
 
 ## <a name="before-you-start"></a>开始之前
-在为设备编写任何代码之前，必须先预配远程监视预配置解决方案，并在该解决方案中预配新的自定义设备。
 
-### <a name="provision-your-remote-monitoring-preconfigured-solution"></a>预配远程监视预配置解决方案
+在为设备编写任何代码之前，部署远程监视解决方案加速器，并向该解决方案添加一个新的物理设备。
 
-本教程中创建的**冷却器**设备会将数据发送到[远程监视](../articles/iot-suite/iot-suite-remote-monitoring-explore.md)预配置解决方案的实例中。 如果尚未在 Azure 帐户中预配远程监视预配置解决方案，请参阅[部署远程监视预配置解决方案](../articles/iot-suite/iot-suite-remote-monitoring-deploy.md)
+### <a name="deploy-your-remote-monitoring-solution-accelerator"></a>部署远程监视解决方案加速器
 
-预配好远程监视解决方案后，单击“启动”  ，在浏览器中打开解决方案仪表板。
+本教程中创建的“冷却器”设备会将数据发送到[远程监视](../articles/iot-accelerators/quickstart-remote-monitoring-deploy.md)解决方案加速器的实例中。 如果尚未在 Azure 帐户中预配远程监视解决方案加速器，请参阅[部署远程监视解决方案加速器](../articles/iot-accelerators/quickstart-remote-monitoring-deploy.md)
+
+当远程监视解决方案的部署过程完成后，单击“启动”，以在浏览器中打开解决方案仪表板。
 
 ![解决方案仪表板](media/iot-suite-selector-connecting/dashboard.png)
 
-### <a name="provision-your-device-in-the-remote-monitoring-solution"></a>在远程监视方案中预配设备
+### <a name="add-your-device-to-the-remote-monitoring-solution"></a>将设备添加到远程监视解决方案
 
 > [!NOTE]
-> 如果已在解决方案中预配了设备，则可以跳过此步骤。 创建客户端应用程序时需要设备凭据。
+> 如果已在解决方案中添加了设备，则可以跳过此步骤。 不过，下一步骤需要设备连接字符串。 可以从 [Azure 门户](https://portal.azure.cn)或使用 [az iot](/cli/azure/iot?view=azure-cli-latest) CLI 工具检索设备的连接字符串。
 
-连接到预配置解决方案的设备必须能够使用有效凭据对 IoT 中心识别自身。 可以在解决方案的“设备”页中检索设备凭据。 本教程后文中的客户端应用程序要采用该设备凭据。
+对于连接到解决方案加速器的设备，该设备必须使用有效的凭据将自身标识到 IoT 中心。 将设备添加到解决方案时，有机会保存包含这些凭据的设备连接字符串。 在本教程中，稍后会在客户端应用程序中添加设备连接字符串。
 
 若要在远程监视解决方案中添加设备，请在解决方案中的“设备”页上完成以下步骤：
 
-1. 选择“预配”，并选择“物理”作为**设备类型**：
+1. 选择“+ 新建设备”，并选择“物理”作为设备类型：
 
-    ![预配物理设备](media/iot-suite-selector-connecting/devicesprovision.png)
+    ![添加物理设备](media/iot-suite-selector-connecting/devicesprovision.png)
 
-1. 输入 **Physical-chiller** 作为设备 ID。 选择“对称密钥”和“自动生成密钥”选项：
+1. 输入 Physical-chiller 作为设备 ID。 选择“对称密钥”和“自动生成密钥”选项：
 
     ![选择设备选项](media/iot-suite-selector-connecting/devicesoptions.png)
 
-若要找到设备在连接到预配置解决方案时必须使用的凭据，请在浏览器中导航到 Azure 门户。 登录到订阅。
+1. 选择“应用”。 然后记下设备 ID、主密钥和连接字符串主密钥值：
 
-1. 找到包含远程监视解决方案所用 Azure 服务的资源组。 该资源组与预配的远程监视解决方案同名。
+    ![检索凭据](media/iot-suite-selector-connecting/credentials.png)
 
-1. 在此资源组中导航到 IoT 中心。 然后选择“IoT 设备”：
+现在，你已向远程监视解决方案加速器添加了物理设备，并记下了其设备连接字符串。 在以下各部分中，你将实现使用设备连接字符串连接到解决方案的客户端应用程序。
 
-    ![设备资源管理器](media/iot-suite-selector-connecting/deviceexplorer.png)
+客户端应用程序实现内置的冷却器设备模型。 解决方案加速器设备模型指定有关设备的以下信息：
 
-1. 选择在远程监视解决方案中的“设备”页上创建的**设备 ID**。
-
-1. 记下“设备 ID”和“设备密钥”值。 添加用于将设备连接到解决方案的代码时，将要使用这些值。
-
-现已在远程监视预配置解决方案中预配了一个物理设备。 在以下部分中，我们将会实现使用设备凭据连接到解决方案的客户端应用程序。
-
-客户端应用程序实现内置的**冷却器**设备模型。 预配置解决方案设备模型指定有关设备的以下信息：
-
-* 设备报告给解决方案的属性。 例如，**冷却器**设备报告有关其固件和位置的信息。
-* 由设备发送到解决方案的遥测数据类型。 例如，**冷却器**设备发送温度、湿度和压力值。
-* 可以在解决方案中计划的、要在设备上运行的方法。 例如，**冷却器**设备必须实现 **Reboot**、**FirmwareUpdate**、**EmergencyValveRelease** 和 **IncreasePressuree** 方法。
+* 设备报告给解决方案的属性。 例如，冷却器设备报告有关其固件和位置的信息。
+* 由设备发送到解决方案的遥测数据类型。 例如，冷却器设备发送温度、湿度和压力值。
+* 从解决方案可计划的在设备上运行的方法。 例如，冷却器设备必须实现 Reboot、FirmwareUpdate、EmergencyValveRelease 和 IncreasePressure 方法。

@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 origin.date: 06/15/2018
-ms.date: 10/22/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: b6a17dca394906d5a2db2855b3b10a0e096f9ff4
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: ea235b301ac099367c1e031dbe2f378925c7d941
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453969"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675543"
 ---
 # <a name="how-to-reset-local-linux-password-on-azure-vms"></a>如何在 Azure VM 上重置本地 Linux 密码
 
@@ -105,6 +105,8 @@ ms.locfileid: "49453969"
 
 ## <a name="next-steps"></a>后续步骤
 
-* [Troubleshoot Azure VM by attaching OS disk to another Azure VM](http://social.technet.microsoft.com/wiki/contents/articles/18710.troubleshoot-azure-vm-by-attaching-os-disk-to-another-azure-vm.aspx)（通过将 OS 磁盘附加到另一个 Azure VM 对 Azure VM 进行故障排除）
+* [Troubleshoot Azure VM by attaching OS disk to another Azure VM](https://social.technet.microsoft.com/wiki/contents/articles/18710.troubleshoot-azure-vm-by-attaching-os-disk-to-another-azure-vm.aspx)（通过将 OS 磁盘附加到另一个 Azure VM 对 Azure VM 进行故障排除）
 
 * [Azure CLI: How to delete and re-deploy a VM from VHD](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/azure-cli-how-to-delete-and-re-deploy-a-vm-from-vhd/)（Azure CLI：如何从 VHD 删除和重新部署 VM）
+
+<!-- Update_Description: wording update, update link -->

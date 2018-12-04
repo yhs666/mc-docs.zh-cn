@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 08/25/2017
 ms.author: v-yiso
 ms.date: 09/10/2018
-ms.openlocfilehash: 7183f6de1c98dbb4a5bc0524f0d8ec97a03922f2
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: d9644aaeb9f1ddba08469a8cd442380ed779609f
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453817"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675491"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>适用于 C 的 Azure IoT 设备 SDK
 
@@ -572,4 +572,4 @@ serializer_deinit();
 
 若要进一步探索 IoT 中心的功能，请参阅：
 
-* [使用 Azure IoT Edge 将 AI 部署到边缘设备](../iot-edge/tutorial-simulate-device-linux.md)
+* [使用 Azure IoT Edge 将 AI 部署到边缘设备](../iot-edge/quickstart-linux.md)

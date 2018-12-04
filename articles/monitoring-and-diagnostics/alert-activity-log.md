@@ -6,15 +6,15 @@ services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 origin.date: 09/15/2018
-ms.date: 11/05/2018
+ms.date: 11/26/2018
 ms.author: v-lingwu
 ms.component: alerts
-ms.openlocfilehash: 088d6a8c1e4ebabbf289f72dac13882317c1af37
-ms.sourcegitcommit: 92a941c705f0a76483dea5b708054c53e8c9666b
+ms.openlocfilehash: 9334a719975ddc4e2197b8c26ed4ca492a5e9b20
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50235274"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675627"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-using-azure-monitor"></a>使用 Azure Monitor 创建、查看和管理活动日志警报  
 
@@ -44,11 +44,11 @@ ms.locfileid: "50235274"
 1. 在 Azure 门户中，选择“监视” > “警报”
 2. 单击“警报”窗口顶部的“新建警报规则”。
 
-     ![新建警报规则](./media/monitor-alerts-unified/AlertsPreviewOption.png)
+     ![新建警报规则](media/alert-activity-log/AlertsPreviewOption.png)
 
      此时将显示“创建规则”窗口。
 
-      ![新建警报规则选项](./media/monitoring-activity-log-alerts-new-experience/create-new-alert-rule-options.png)
+      ![新建警报规则选项](media/alert-activity-log/create-new-alert-rule-options.png)
 
 3. 在“定义警报条件”下提供以下信息，然后单击“完成”。
 
@@ -58,7 +58,7 @@ ms.locfileid: "50235274"
 
     > 可以为活动日志信号选择资源、资源组或整个订阅。
 
-    **预警目标示例视图** ![选择目标](./media/monitoring-activity-log-alerts-new-experience/select-target.png)
+    **预警目标示例视图** ![选择目标](media/alert-activity-log/select-target.png)
 
     - 在“目标条件”下，单击“添加条件”，将会显示目标的所有可用信号，包括来自各种**活动日志**的那些信号；**监视服务**名称中追加了类别名称。
 
@@ -68,7 +68,7 @@ ms.locfileid: "50235274"
 
     **添加条件屏幕**
 
-    ![添加条件](./media/monitoring-activity-log-alerts-new-experience/add-criteria.png)
+    ![添加条件](media/alert-activity-log/add-criteria.png)
 
     **历史记录时间**：可以绘制在过去 6/12/24 小时内或过去一周内为所选操作提供的事件。
 
@@ -80,7 +80,7 @@ ms.locfileid: "50235274"
 
         应用了警报逻辑的示例信号图：
 
-        ![ 已选择条件](./media/monitoring-activity-log-alerts-new-experience/criteria-selected.png)
+        ![ 已选择条件](media/alert-activity-log/criteria-selected.png)
 
 4. 在“定义警报规则详细信息”下提供以下详细信息：
 
@@ -99,19 +99,19 @@ ms.locfileid: "50235274"
 
 另外，可以通过简单的类比来理解在活动日志上创建警报规则时可以基于的条件，那就是通过 [Azure 门户中的活动日志](monitoring-overview-activity-logs.md#query-the-activity-log-in-the-azure-portal)浏览或筛选事件。 在 Azure Monitor - 活动日志中，可以筛选或查找所需的事件，然后使用“添加活动日志警报”按钮创建警报，然后按照教程中上文所述的步骤 4 继续前进。
 
- ![ 从活动日志添加警报](./media/monitoring-activity-log-alerts-new-experience/add-activity-log.png)
+ ![ 从活动日志添加警报](media/alert-activity-log/add-activity-log.png)
 
 ### <a name="view-and-manage-in-azure-portal"></a>在 Azure 门户中查看和管理
 
 1. 在 Azure 门户中，单击“监视” > “警报”，然后单击窗口左上角的“管理规则”。
 
-    ![ 管理警报规则](./media/monitoring-activity-log-alerts-new-experience/manage-alert-rules.png)
+    ![ 管理警报规则](media/alert-activity-log/manage-alert-rules.png)
 
     此时将显示可用规则的列表。
 
 2. 搜索要修改的活动日志规则。
 
-    ![ 搜索活动日志警报规则](./media/monitoring-activity-log-alerts-new-experience/searth-activity-log-rule-to-edit.png)
+    ![ 搜索活动日志警报规则](media/alert-activity-log/searth-activity-log-rule-to-edit.png)
 
     可以使用可用的筛选器（“订阅”、“资源组”、“资源”、“信号类型”或“状态”）来查找想要编辑的活动规则。
 
@@ -121,7 +121,7 @@ ms.locfileid: "50235274"
 
 3.  选择规则并双击以编辑规则选项。 进行所需的更改，然后单击“保存”。
 
-    ![ 管理警报规则](./media/monitoring-activity-log-alerts-new-experience/activity-log-rule-edit-page.png)
+    ![ 管理警报规则](media/alert-activity-log/activity-log-rule-edit-page.png)
 
 4.  可以禁用、启用或删除规则。 根据步骤 2 中的详述选择规则后，在窗口顶部选择相应的选项。
 

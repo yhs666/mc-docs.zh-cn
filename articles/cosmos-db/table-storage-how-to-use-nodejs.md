@@ -9,14 +9,14 @@ ms.component: cosmosdb-table
 ms.devlang: nodejs
 ms.topic: sample
 origin.date: 04/05/2018
-ms.date: 09/30/2018
+ms.date: 12/03/2018
 ms.author: v-yeche
-ms.openlocfilehash: 084c6b66ca41860aca0f84cd3a7e68cd5c67dd5f
-ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
+ms.openlocfilehash: c40718f1cc353efb5f0bea19dec0d4f318faa436
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47201374"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675574"
 ---
 # <a name="how-to-use-azure-table-storage-from-nodejs"></a>如何通过 Node.js 使用 Azure 表存储
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -118,7 +118,7 @@ var tableSvc = azure.createTableService().withFilter(retryOperations);
 * **PartitionKey** - 确定实体存储在其中的分区。
 * **RowKey** - 唯一标识分区内的实体。
 
-PartitionKey 和 RowKey 都必须是字符串值。 有关详细信息，请参阅 [Understanding the Table Service Data Model](http://msdn.microsoft.com/library/azure/dd179338.aspx)（了解表服务数据模型）。
+PartitionKey 和 RowKey 都必须是字符串值。 有关详细信息，请参阅 [Understanding the Table Service Data Model](https://msdn.microsoft.com/library/azure/dd179338.aspx)（了解表服务数据模型）。
 
 下面是如何定义实体的示例。 请注意，dueDate 被定义为一种类型的 Edm.DateTime。 可以选择指定类型。如果未指定类型，系统会进行推断。
 
@@ -455,4 +455,6 @@ tableSAS = tableSvc.generateSharedAccessSignature('hometasks', { Id: 'user2' });
 * GitHub 上的 [Azure Storage SDK for Node.js](https://github.com/Azure/azure-storage-node) 存储库。
 * [面向 Node.js 开发人员的 Azure](https://docs.microsoft.com/javascript/azure/?view=azure-node-latest)
 * [在 Azure 中创建 Node.js Web 应用](../app-service/app-service-web-get-started-nodejs.md)
-* [构建 Node.js 应用程序并将其部署到 Azure 云服务](../cloud-services/cloud-services-nodejs-develop-deploy-app.md)（使用 Windows PowerShell）<!--Update_Description: update meta properties, wording update, update link -->
+* [构建 Node.js 应用程序并将其部署到 Azure 云服务](../cloud-services/cloud-services-nodejs-develop-deploy-app.md)（使用 Windows PowerShell）
+
+<!--Update_Description: update meta properties, wording update, update link -->

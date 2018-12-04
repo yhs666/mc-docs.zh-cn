@@ -13,13 +13,13 @@ ms.devlang: dotnet
 ms.topic: hero-article
 origin.date: 05/25/2018
 ms.author: v-biyu
-ms.date: 10/29/2018
-ms.openlocfilehash: e19112c5bcb38ad0dc4741a44a8182329084c336
-ms.sourcegitcommit: 4b5ada023c9466d497c7474abf7ad71e50c3b17d
+ms.date: 12/03/2018
+ms.openlocfilehash: bbece01ff7d00aedc425cd2e18e769d76ac52344
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49451605"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675458"
 ---
 # <a name="create-a-xamarinforms-app-with-azure"></a>使用 Azure 创建 Xamarin.Forms 应用
 
@@ -184,6 +184,7 @@ ms.locfileid: "49451605"
 
 如果在生成解决方案时遇到问题，请运行 NuGet 包管理器并将其更新到 Xamarin.Forms 的最新版本，然后在 Android 项目中更新 Xamarin.Android 支持包。 快速入门项目并非始终包含最新版本。
 
+请注意，在 Android 项目中引用的所有支持包必须都具有相同的版本。 对于 Android 平台，[Azure 移动应用 NuGet 包](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/)具有 `Xamarin.Android.Support.CustomTabs` 依赖项，因此，如果你的项目使用较新的支持包，则你需要直接安装具有所需版本的此包以避免冲突。
 ## <a name="next-steps"></a>后续步骤
 
 * [向应用添加身份验证](./app-service-mobile-xamarin-forms-get-started-users.md)  

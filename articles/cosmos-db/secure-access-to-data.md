@@ -10,12 +10,12 @@ ms.topic: conceptual
 origin.date: 08/19/2018
 ms.date: 09/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 36c2d7d49b59de7ca9908f7cac79f67f0196c0fb
-ms.sourcegitcommit: 7aa5ec1a312fd37754bf17a692605212f6b716cd
+ms.openlocfilehash: 79f4b8298ebdacf20d4bb656a0ee2494a2a0dbc0
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47201327"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675499"
 ---
 # <a name="securing-access-to-azure-cosmos-db-data"></a>保护对 Azure Cosmos DB 数据的访问
 本文概述了如何保护对存储在 [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) 中的数据的访问。
@@ -41,7 +41,7 @@ Azure Cosmos DB 使用两种类型的密钥来验证用户身份并提供其数�
 
 Azure Cosmos DB 帐户除了有两个主密钥以外，还有两个只读密钥。 这些只读密钥只允许针对帐户执行读取操作。 只读密钥不提供对资源的读取权限。
 
-可以使用 Azure 门户检索和重新生成主要、辅助、只读和读写主密钥。 有关说明，请参阅[查看、复制和重新生成访问密钥](manage-account.md#keys)。
+可以使用 Azure 门户检索和重新生成主要、辅助、只读和读写主密钥。 有关说明，请参阅[查看、复制和重新生成访问密钥](manage-with-cli.md#regenerate-account-key)。
 
 ![Azure 门户中的访问控制 (IAM) - 演示 NoSQL 数据库安全性](./media/secure-access-to-data/nosql-database-security-master-key-portal.png)
 
@@ -198,6 +198,6 @@ DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 
 ## <a name="next-steps"></a>后续步骤
 * 若要详细了解 Cosmos DB 数据库安全性，请参阅 [Cosmos DB：数据库安全性](database-security.md)。
-* 若要了解如何管理主密钥和只读密钥，请参阅[如何管理 Azure Cosmos DB 帐户](manage-account.md#keys)。
 * 若要了解如何构造 Azure Cosmos DB 授权令牌，请参阅 [Azure Cosmos DB 资源的访问控制](https://docs.microsoft.com/rest/api/cosmos-db/access-control-on-cosmosdb-resources)。
+
 <!-- Update_Description: update meta properties, wording update -->

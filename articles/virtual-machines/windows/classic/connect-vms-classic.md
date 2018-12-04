@@ -15,14 +15,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 06/06/2017
-ms.date: 05/21/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4a5affda67e31f266477f530e58dea9f7fec2421
-ms.sourcegitcommit: c3084384ec9b4d313f4cf378632a27d1668d6a6d
+ms.openlocfilehash: 9099a80b6c162ea6a635c178f88fb8b9a4c4d688
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2018
-ms.locfileid: "34173296"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675610"
 ---
 # <a name="connect-windows-virtual-machines-created-with-the-classic-deployment-model-with-a-virtual-network-or-cloud-service"></a>将使用经典部署模型创建的 Windows 虚拟机连接到虚拟网络或云服务
 > [!IMPORTANT]

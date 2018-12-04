@@ -2,20 +2,20 @@
 title: 使用 PowerShell 监视和管理 Azure 流分析作业
 description: 本文说明如何使用 Azure PowerShell 和 cmdlet 监视和管理 Azure 流分析作业。
 services: stream-analytics
-author: rockboyfor
-ms.author: v-yeche
+author: lingliw
+ms.author: v-lingwu
 manager: digimobile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 03/28/2017
-ms.date: 09/30/2018
-ms.openlocfilehash: a5d5933aa02b8cefc5de4b25976409c6db2e91b8
-ms.sourcegitcommit: 432984d85afe6f3da8f211bae0fa98a556785ee8
+ms.date: 11/26/2018
+ms.openlocfilehash: afc166142a26a3dc667f7fc29c4cf7ab917beb2c
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455397"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675548"
 ---
 # <a name="monitor-and-manage-stream-analytics-jobs-with-azure-powershell-cmdlets"></a>使用 Azure PowerShell cmdlet 监视和管理流分析作业
 了解如何使用可执行基本流分析任务的 Azure PowerShell cmdlet 和 PowerShell 脚本来监视和管理流分析资源。
@@ -453,7 +453,7 @@ Azure PowerShell 1.0：
 * [Azure 流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure 流分析管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-[msdn-switch-azuremode]: http://msdn.microsoft.com/library/dn722470.aspx
+[msdn-switch-azuremode]: https://msdn.microsoft.com/library/dn722470.aspx
 [powershell-install]: /powershell-install-configure/
 [msdn-rest-api-create-stream-analytics-job]: https://msdn.microsoft.com/library/dn834994.aspx
 [msdn-rest-api-create-stream-analytics-input]: https://msdn.microsoft.com/library/dn835010.aspx
@@ -466,8 +466,8 @@ Azure PowerShell 1.0：
 <!--Not Available on [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md-->
 
 [stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
-[stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
+[stream.analytics.query.language.reference]: https://go.microsoft.com/fwlink/?LinkID=513299
+[stream.analytics.rest.api.reference]: https://go.microsoft.com/fwlink/?LinkId=517301
 
 <!--Update_Description: update meta properties, update link, wording update -->
 

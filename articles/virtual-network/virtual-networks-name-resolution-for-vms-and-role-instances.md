@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 origin.date: 02/14/2018
 ms.date: 09/10/2018
 ms.author: v-yeche
-ms.openlocfilehash: a7ab0e4aee62d0266a481f42760377cfcda48d1b
-ms.sourcegitcommit: 4ead6b1d3527373b63c90680b6400a2e95b4064e
+ms.openlocfilehash: 146a48b9475700a0edd3b881ec646dd10fb2a0a9
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49374984"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675599"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Azure 虚拟网络中资源的名称解析
 
@@ -206,7 +206,7 @@ DNS 转发还可用于在虚拟网络之间进行 DNS 解析，可以通过本�
 
 使用 Azure 资源管理器部署模型时，可为虚拟网络和网络接口指定 DNS 服务器。 有关详细信息，请参阅[管理虚拟网络](manage-virtual-network.md)和[管理网络接口](virtual-network-network-interface.md)。
 
-使用经典部署模型时，可以在 Azure 门户或[网络配置文件](https://msdn.microsoft.com/library/azure/jj157100)中指定虚拟网络的 DNS 服务器。 对于云服务器，可以通过[服务配置文件](https://msdn.microsoft.com/library/azure/ee758710)或者在 PowerShell 中使用 [New-AzureVM](https://docs.microsoft.com/powershell/module/azure/new-azurevm) 指定 DNS 服务器。
+使用经典部署模型时，可以在 Azure 门户或[网络配置文件](https://msdn.microsoft.com/library/azure/jj157100)中指定虚拟网络的 DNS 服务器。 对于云服务器，可以通过[服务配置文件](https://msdn.microsoft.com/library/azure/ee758710)或者在 PowerShell 中使用 [New-AzureVM](https://docs.microsoft.com/powershell/module/servicemanagement/azure/new-azurevm) 指定 DNS 服务器。
 
 > [!NOTE]
 > 如果更改已部署的虚拟网络或虚拟机的 DNS 设置，则需重启每个受影响的 VM，所做的更改才会生效。

@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/06/2016
-ms.date: 10/29/2018
+ms.date: 12/03/2018
 ms.author: v-biyu
-ms.openlocfilehash: 7f19aa718b03ccb9b745f7e67f4c4783e6bdcc83
-ms.sourcegitcommit: 4b5ada023c9466d497c7474abf7ad71e50c3b17d
+ms.openlocfilehash: b599293488d3d6e5c8c8e02402e2e49054506b89
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49451598"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675545"
 ---
 # <a name="troubleshoot-http-errors-of-502-bad-gateway-and-503-service-unavailable-in-your-azure-web-apps"></a>排查 Azure Web 应用中的“502 错误的网关”和“503 服务不可用”HTTP 错误
 [Azure App Service](app-service-web-overview.md) 中托管的 Web 应用经常出现“502 网关错误”和“503 服务不可用”错误。 本文帮助你排查这些错误。
@@ -74,6 +74,16 @@ ms.locfileid: "49451598"
 <a name="collect" />
 
 ### <a name="2-collect-data"></a>2.收集数据
+#### <a name="use-the-azure-app-service-support-portal"></a>使用 Azure 应用服务支持门户
+在 Web 应用中，可通过查看 HTTP 日志、事件日志、进程转储等信息来排查与 Web 应用相关的问题。 可以使用支持门户 (**http://&lt;your app name>.scm.chinacloudsites.cn/Support**) 访问所有这些信息
+
+Azure 应用服务支持门户具有三个不同的选项卡，用于支持常见故障排除方案的三个步骤：
+
+1. 观察当前行为
+2. 通过收集诊断信息和运行内置分析器进行分析
+3. 缓解
+
+
 
 #### <a name="use-the-kudu-debug-console"></a>使用 Kudu 调试控制台
 Web应用随附可用于调试、浏览和上传文件的调试控制台，以及用于获取环境相关信息的 JSON 终结点。 此控制台称为 Web 应用的 *Kudu 控制台*或 *SCM 仪表板*。

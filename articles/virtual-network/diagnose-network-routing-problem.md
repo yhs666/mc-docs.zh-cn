@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 05/30/2018
-ms.date: 07/23/2018
+ms.date: 11/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 016ac4376a93fec4d66bf8d2223af47471fca03f
-ms.sourcegitcommit: 6d4ae5e324dbad3cec8f580276f49da4429ba1a7
+ms.openlocfilehash: d7ad6f2a0ba71014246936da5a99b2dab3c42b04
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39168013"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675591"
 ---
 # <a name="diagnose-a-virtual-machine-routing-problem"></a>诊断虚拟机路由问题
 
@@ -55,12 +55,13 @@ ms.locfileid: "39168013"
 
 ## <a name="diagnose-using-powershell"></a>使用 PowerShell 诊断
 
-可以通过从计算机运行 PowerShell 来运行命令。 如果在计算机上运行 PowerShell，需要 *AzureRM* PowerShell 模块 6.0.1 或更高版本。 在计算机上运行 `Get-Module -ListAvailable AzureRM`，找到已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需要运行 `Login-AzureRmAccount -EnvironmentName AzureChinaCloud`，以使用拥有[所需权限](virtual-network-network-interface.md#permissions)的帐户登录到 Azure。
+可以通过从计算机运行 PowerShell 来运行命令。 如果在计算机上运行 PowerShell，需要 *AzureRM* PowerShell 模块 6.0.1 或更高版本。 在计算机上运行 `Get-Module -ListAvailable AzureRM`，找到已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需要运行 `Login-AzureRmAccount`，以使用拥有[所需权限](virtual-network-network-interface.md#permissions)的帐户登录到 Azure。
+
 <!-- Not Available on [Azure Cloud Shell](https://shell.azure.com/powershell)-->
 
-使用 [Get-AzureRmEffectiveRouteTable](https://docs.microsoft.com/zh-cn/powershell/module/azurerm.network/get-azurermeffectiveroutetable) 获取网络接口的有效路由。 以下示例获取资源组 *myResourceGroup* 中名为 *myVMVMNic* 的网络接口的有效路由：
+使用 [Get-AzureRmEffectiveRouteTable](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermeffectiveroutetable) 获取网络接口的有效路由。 以下示例获取资源组 *myResourceGroup* 中名为 *myVMVMNic* 的网络接口的有效路由：
 
-```powershell
+```PowerShell
 Get-AzureRmEffectiveRouteTable `
   -NetworkInterfaceName myVMVMNic `
   -ResourceGroupName myResourceGroup `
@@ -71,7 +72,7 @@ Get-AzureRmEffectiveRouteTable `
 
 如果不知道网络接口的名称，但知道网络接口所附加到的 VM 的名称，则运行以下命令会返回附加到 VM 的所有网络接口的 ID：
 
-```powershell
+```PowerShell
 $VM = Get-AzureRmVM -Name myVM `
   -ResourceGroupName myResourceGroup
 $VM.NetworkProfile
@@ -90,6 +91,7 @@ NetworkInterfaces
 ## <a name="diagnose-using-azure-cli"></a>使用 Azure CLI 诊断
 
 可以通过从计算机运行 CLI 来运行命令。 本文需要 Azure CLI 2.0.32 或更高版本。 运行 `az --version` 查找已安装的版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 如果在本地运行 Azure CLI，则还需要运行 `az login`，并使用拥有[所需权限](virtual-network-network-interface.md#permissions)的帐户登录到 Azure。
+
 <!-- Not Available on [Azure Cloud Shell](https://shell.azure.com/bash)-->
 
 使用 [az network nic show-effective-route-table](https://docs.azure.cn/zh-cn/cli/network/nic?view=azure-cli-latest#az-network-nic-show-effective-route-table) 获取网络接口的有效路由。 以下示例获取资源组 *myResourceGroup* 中名为 *myVMVMNic* 的网络接口的有效路由：
@@ -135,6 +137,7 @@ az vm show \
     - 网络安全组规则可能会影响通信。 有关详细信息，请参阅[诊断虚拟机网络流量筛选器问题](diagnose-network-traffic-filter-problem.md)。
 - 尽管 Azure 会将默认路由分配到每个 Azure 网络接口，但如果已将多个网络接口附加到 VM，则只会为主要网络接口或 VM 操作系统中的网关分配默认路由 (0.0.0.0/0)。 了解如何为附加到 [Windows](../virtual-machines/windows/multiple-nics.md?toc=%2fvirtual-network%2ftoc.json#configure-guest-os-for-multiple-nics) 或 [Linux](../virtual-machines/linux/multiple-nics.md?toc=%2fvirtual-network%2ftoc.json#configure-guest-os-for-multiple-nics) VM 的辅助网络接口创建默认路由。 详细了解[主要和辅助网络接口](virtual-network-network-interface-vm.md#constraints)。
 
+<a name="additional-dignosis"></a>
 ## <a name="additional-diagnosis"></a>其他诊断
 
 * 若要运行快速测试来确定发往某个位置的流量的下一跃点类型，请使用 Azure 网络观察程序的[下一跃点](../network-watcher/diagnose-vm-network-routing-problem.md?toc=%2fvirtual-network%2ftoc.json)功能。 下一跃点告知发往指定位置的流量的下一跃点类型是什么。
@@ -146,5 +149,5 @@ az vm show \
 
 - 了解[路由表和路由](manage-route-table.md)的所有任务、属性和设置。
 - 了解所有的[下一跃点类型、系统路由以及 Azure 如何选择路由](virtual-networks-udr-overview.md)。
-<!-- Update_Description: new articles on diagnose network routing problem -->
-<!--ms.date: 07/23/2018-->
+
+<!-- Update_Description: wording update -->

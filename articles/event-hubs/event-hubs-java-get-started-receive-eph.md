@@ -2,20 +2,20 @@
 title: 使用 Java 从 Azure 事件中心接收事件 | Azure
 description: 使用 Java 从事件中心接收入门
 services: event-hubs
-author: rockboyfor
-manager: digimobile
+author: ShubhaVijayasarathy
+manager: timlt
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
 origin.date: 08/26/2018
-ms.date: 09/30/2018
-ms.author: v-yeche
-ms.openlocfilehash: b03e2d9ac8def716cd9dfb2b1f7259b03db371fa
-ms.sourcegitcommit: 399060a8d46534abd370693f6282e7343b371634
+ms.date: 12/10/2018
+ms.author: v-biyu
+ms.openlocfilehash: 73a010b00053d7673fb8268b10b68119fce6bf30
+ms.sourcegitcommit: 547436d67011c6fe58538cfb60b5b9c69db1533a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455578"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52676880"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-java"></a>使用 Java 从 Azure 事件中心接收事件
 
@@ -44,14 +44,14 @@ ms.locfileid: "47455578"
 
 1. 登录到 [Azure 门户][Azure portal]，然后单击屏幕左侧的“+创建资源”。
 2. 单击“存储”，并单击“存储帐户”。 在“创建存储帐户”窗口中，键入存储帐户的名称。 填写其余字段，选择所需区域，然后单击“创建”。
-
+   
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage2.png)
 
 3. 单击新创建的存储帐户，并单击“访问密钥”：
-
+   
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage3.png)
 
-    将 key1 值复制到临时区域，以供本教程后面使用。
+    将 key1 值复制到临时位置。 本教程后面部分需要使用它。
 
 ### <a name="create-a-java-project-using-the-eventprocessor-host"></a>EventProcessor Host 创建一个 Java 项目
 
@@ -73,11 +73,11 @@ ms.locfileid: "47455578"
 对于不同类型的生成环境，可以从 [Maven 中央存储库][Maven Package]显式获取最新发布的 JAR 文件。  
 
 1. 对于下面的示例，请首先在你最喜欢的 Java 开发环境中为控制台/shell 应用程序创建一个新的 Maven 项目。 此类名为 `ErrorNotificationHandler`。     
-
+   
     ```java
     import java.util.function.Consumer;
     import com.microsoft.azure.eventprocessorhost.ExceptionReceivedEventArgs;
-
+   
     public class ErrorNotificationHandler implements Consumer<ExceptionReceivedEventArgs>
     {
         @Override
@@ -88,7 +88,7 @@ ms.locfileid: "47455578"
     }
     ```
 2. 使用以下代码创建名为 `EventProcessorSample`的新类。 将占位符替换为创建事件中心和存储帐户时所使用的值：
-
+   
    ```java
    package com.microsoft.azure.eventhubs.samples.eventprocessorsample;
 
@@ -108,7 +108,7 @@ ms.locfileid: "47455578"
    {
        public static void main(String args[]) throws InterruptedException, ExecutionException
        {
-              String consumerGroupName = "$Default";
+           String consumerGroupName = "$Default";
            String namespaceName = "----NamespaceName----";
            String eventHubName = "----EventHubName----";
            String sasKeyName = "----SharedAccessSignatureKeyName----";
@@ -116,13 +116,13 @@ ms.locfileid: "47455578"
            String storageConnectionString = "----AzureStorageConnectionString----";
            String storageContainerName = "----StorageContainerName----";
            String hostNamePrefix = "----HostNamePrefix----";
-
+        
            ConnectionStringBuilder eventHubConnectionString = new ConnectionStringBuilder()
                 .setNamespaceName(namespaceName)
                 .setEventHubName(eventHubName)
                 .setSasKeyName(sasKeyName)
                 .setSasKey(sasKey);
-
+        
            EventProcessorHost host = new EventProcessorHost(
                 EventProcessorHost.createHostName(hostNamePrefix),
                 eventHubName,
@@ -130,7 +130,7 @@ ms.locfileid: "47455578"
                 eventHubConnectionString.toString(),
                 storageConnectionString,
                 storageContainerName);
-
+        
            System.out.println("Registering host named " + host.getHostName());
            EventProcessorOptions options = new EventProcessorOptions();
            options.setExceptionNotification(new ErrorNotificationHandler());
@@ -150,7 +150,7 @@ ms.locfileid: "47455578"
            .thenAccept((unused) ->
            {
                System.out.println("Press enter to stop.");
-                 try 
+               try 
                {
                    System.in.read();
                }
@@ -160,8 +160,8 @@ ms.locfileid: "47455578"
                }
            })
            .thenCompose((unused) ->
-            {
-                return host.unregisterEventProcessor();
+           {
+               return host.unregisterEventProcessor();
            })
            .exceptionally((e) ->
            {
@@ -173,12 +173,12 @@ ms.locfileid: "47455578"
                return null;
            })
            .get(); // Wait for everything to finish before exiting main!
-
+        
            System.out.println("End of sample");
        }
     ```
 3. 使用以下代码另外创建一个名为 `EventProcessor` 的类：
-
+   
     ```java
     public static class EventProcessor implements IEventProcessor
     {
@@ -197,7 +197,7 @@ ms.locfileid: "47455578"
         {
             System.out.println("SAMPLE: Partition " + context.getPartitionId() + " is closing for reason " + reason.toString());
         }
-
+        
         // onError is called when an error occurs in EventProcessorHost code that is tied to this partition, such as a receiver failure.
         @Override
         public void onError(PartitionContext context, Throwable error)
@@ -218,7 +218,7 @@ ms.locfileid: "47455578"
                     System.out.println("SAMPLE (" + context.getPartitionId() + "," + data.getSystemProperties().getOffset() + "," +
                             data.getSystemProperties().getSequenceNumber() + "): " + new String(data.getBytes(), "UTF8"));
                     eventCount++;
-
+                    
                     // Checkpointing persists the current position in the event stream for this partition and means that the next
                     // time any host opens an event processor on this event hub+consumer group+partition combination, it will start
                     // receiving at the event after this one. 
@@ -226,7 +226,7 @@ ms.locfileid: "47455578"
                     if ((checkpointBatchingCount % 5) == 0)
                     {
                         System.out.println("SAMPLE: Partition " + context.getPartitionId() + " checkpointing at " +
-                               data.getSystemProperties().getOffset() + "," + data.getSystemProperties().getSequenceNumber());
+                            data.getSystemProperties().getOffset() + "," + data.getSystemProperties().getSequenceNumber());
                         // Checkpoints are created asynchronously. It is important to wait for the result of checkpointing
                         // before exiting onEvents or before creating the next checkpoint, to detect errors and to ensure proper ordering.
                         context.checkpoint(data).get();
@@ -248,7 +248,7 @@ ms.locfileid: "47455578"
 
 在使用者检索消息之前，必须先由发布者将消息发布到分区。 值得注意的是，当使用 com.microsoft.azure.eventhubs.EventHubClient 对象上的 sendSync() 方法同步将消息发布到事件中心时，可以将消息发送到特定分区或以循环方式分发到所有可用分区，具体取决于 是否指定了分区键。
 
-当指定了表示分区键的字符串时，将对该键进行哈希处理以确定要将事件发送到哪个分区。
+如果指定了表示分区键的字符串，则将对该键进行哈希处理以确定事件将发送到的分区。
 
 如果未设置分区键，则消息将循环分发到所有可用分区
 
@@ -274,23 +274,18 @@ eventHubClient.sendSync(sendEvent, partitionKey);
 
 默认检查点管理器使用 blob 存储，但是，如果你使用自己的实现替代了 EPH 使用的检查点管理器，则可以使用所需的任何存储来为你的检查点管理器实现提供支持。
 
-你必须创建一个实现了接口 com.microsoft.azure.eventprocessorhost.ICheckpointManager 的类
+创建一个类，用于实现 com.microsoft.azure.eventprocessorhost.ICheckpointManager
 
 使用检查点管理器的自定义实现 (com.microsoft.azure.eventprocessorhost.ICheckpointManager)
 
-在你的实现中，你可以替代默认检查点机制并根据你自己的数据存储（SQL Server、CosmosDB、Redis 缓存，等等）实现我们自己的检查点。 对于为你的检查点管理器实现提供支持的存储，建议使其可供为使用者组处理事件的所有 EPH 实例访问。
+在你的实现中，你可以替代默认检查点机制并根据你自己的数据存储（SQL Server、CosmosDB、Redis 缓存，等等）实现我们自己的检查点。 对于用于为检查点管理器实现提供支持的存储，建议使其可供为使用者组处理事件的所有 EPH 实例访问。
 
-你可以使用你的环境中将提供的任何数据存储。
+你可以使用你的环境中提供的任何数据存储。
 
 com.microsoft.azure.eventprocessorhost.EventProcessorHost 类提供了 2 个构造函数，可以使用它们来替代你的 EventProcessorHost 的检查点管理器。
 
 ## <a name="next-steps"></a>后续步骤
-
-访问以下链接可以了解有关事件中心的详细信息：
-
-* [事件中心概述](event-hubs-what-is-event-hubs.md)
-* [创建事件中心](event-hubs-create.md)
-* [事件中心常见问题](event-hubs-faq.md)
+在本快速入门中，你已创建从事件中心接收消息的 Java 应用程序。 要了解如何使用 Java 将事件发送到事件中心，请参阅[从事件中心发送事件 - Java](event-hubs-java-get-started-send.md)。
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md

@@ -12,15 +12,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-origin.date: 05/18/2018
-ms.date: 10/22/2018
+origin.date: 10/31/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: aadf1921866e8db640bb5853a268972f781f7a34
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: 583cfe5cfb7bb1efc5473ca60ee390a2e20cc73d
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453947"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675414"
 ---
 # <a name="install-the-azure-virtual-machine-agent-in-offline-mode"></a>在脱机模式下安装 Azure 虚拟机代理 
 

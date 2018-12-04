@@ -1,3 +1,17 @@
+---
+author: rockboyfor
+ms.service: virtual-machines-sql
+ms.topic: include
+origin.date: 10/26/2018
+ms.date: 11/26/2018
+ms.author: v-yeche
+ms.openlocfilehash: 7c1632dcaf699bf50ad92f92c415fcf7fa2e4ba4
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52677059"
+---
 ### <a name="configure-a-dns-label-for-the-public-ip-address"></a>配置用于公共 IP 地址的 DNS 标签
 
 若要从 Internet 连接到 SQL Server 数据库引擎，请考虑创建用于公共 IP 地址的 DNS 标签。 可以通过 IP 地址进行连接，但 DNS 标签可以创建更容易标识的 A 记录，并可抽象基础性公共 IP 地址。
@@ -34,3 +48,5 @@
 1. 单击“连接” 。
 
     ![ssms 连接](./media/virtual-machines-sql-server-connection-steps/rm-ssms-connect.png)
+    
+<!--Update_Description: wording update, update link-->

@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/16/2018
-ms.date: 10/15/2018
+ms.date: 11/12/2018
 ms.author: v-yeche
-ms.openlocfilehash: 1b62d592fe8a93b82bc885c778ff2a1a25031dea
-ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
+ms.openlocfilehash: 67d1a290ebf045c187548918dd1bedfa8aa05d30
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49089190"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675629"
 ---
 # <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>使用 Azure 资源管理器创建 Service Fabric 群集 
 > [!div class="op_single_selector"]
@@ -33,13 +33,12 @@ ms.locfileid: "49089190"
 
 群集安全性是在首次设置群集时配置的，以后无法更改。 在设置群集之前，请先阅读 [Service Fabric 群集安全性方案][service-fabric-cluster-security]。 在 Azure 中，Service Fabric 使用 x509 证书来保护群集及其终结点，对客户端进行身份验证以及对数据进行加密。 另外，还建议使用 Azure Active Directory 来保护对管理终结点的访问。 在创建群集之前，必须先创建 Azure AD 租户和用户。  有关详细信息，请阅读[设置 Azure AD 来对客户端进行身份验证](service-fabric-cluster-creation-setup-aad.md)。
 
-若要创建生产群集以运行生产工作负载，我们建议你首先阅读[生产就绪情况核对清单](service-fabric-production-readiness-checklist.md)。
-
+<!-- Not Available on If you are creating a production cluster to run production workloads, we recommend you first read through the [production readiness checklist](service-fabric-production-readiness-checklist.md)-->
 ## <a name="prerequisites"></a>先决条件 
 在本文中，使用 Service Fabric RM powershell 或 Azure CLI 模块部署群集：
 
 * [Azure PowerShell 4.1 或更高版本][azure-powershell]
-* [Azure CLI 2.0 或更高版本][azure-CLI]
+* [Azure CLI 版本 2.0 及更高版本][azure-CLI]
 
 以下为关于 Service Fabric 模块的参考文档：
 * [AzureRM.ServiceFabric](https://docs.microsoft.com/powershell/module/azurerm.servicefabric)

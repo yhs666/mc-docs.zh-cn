@@ -10,12 +10,12 @@ ms.workload: identity
 origin.date: 10/12/2017
 ms.date: 10/22/2018
 ms.author: v-biyu
-ms.openlocfilehash: 88e78da34ddffed7e008e87c1caa34512a47ae74
-ms.sourcegitcommit: 2fdf25eb4b978855ff2832bcdcca093c141be261
+ms.openlocfilehash: 454c4cdfe00a403175e2ef0bf71fee6e251bbce2
+ms.sourcegitcommit: 547436d67011c6fe58538cfb60b5b9c69db1533a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49120609"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52676894"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Azure 密钥保管库开发人员指南
 
@@ -146,7 +146,6 @@ ms.locfileid: "49120609"
 - [Key Vault 软删除行为](key-vault-ovw-soft-delete.md)介绍了一种可以恢复已删除的对象的功能（不管是有意还是无意删除）。
 - [Key Vault 客户端限制](key-vault-ovw-throttling.md)介绍了有关限制的基本概念，并针对应用提供了限制方法。
 - [Key Vault 存储帐户密钥概述](key-vault-ovw-storage-keys.md)介绍了 Key Vault 与 Azure 存储帐户密钥的集成。
-- [Key Vault 安全体系](key-vault-ovw-security-worlds.md)介绍了区域与安全领域之间的关系。
 
 ## <a name="social"></a>社交
 

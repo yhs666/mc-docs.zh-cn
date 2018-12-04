@@ -8,14 +8,14 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 origin.date: 08/24/2017
-ms.date: 10/08/2018
+ms.date: 12/03/2018
 ms.author: v-yiso
-ms.openlocfilehash: 641989da9476db81d3cfc9ec181eb1b3380f9df1
-ms.sourcegitcommit: 26dc6b7bb21df0761a99d25f5e04c9140344852f
+ms.openlocfilehash: 40b604b621206cc70d0263d2a0f9f1a7e62be1e3
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523874"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675457"
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>使用 IoT 中心 (.NET) 将消息从云发送到设备
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
@@ -196,7 +196,7 @@ Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备�
    ![应用接收消息](./media/iot-hub-csharp-csharp-c2d/sendc2d2.png)
 
 > [!NOTE]
-> 为简单起见，本教程不实现任何重试策略。 在生产代码中，应按 MSDN 文章 [Transient Fault Handling]（暂时性故障处理）中所述实施重试策略（例如指数性的回退）。
+> 为简单起见，本教程不实现任何重试策略。 在生产代码中，应该按文章 [Transient Fault Handling]（暂时性故障处理）中所述实施重试策略（例如指数退避）。
 > 
 > 
 
@@ -223,7 +223,7 @@ Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备�
 [IoT Hub Developer Guide]: ./iot-hub-devguide.md
 [Get started with IoT Hub]: quickstart-send-telemetry-dotnet.md
 [lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/
-[Azure IoT 远程监视解决方案加速器]: /iot-suite/
+[Azure IoT 远程监视解决方案加速器]: /iot-accelerators/
 [Azure IoT device SDKs]: ./iot-hub-devguide-sdks.md
 
 <!--Update_Description: update wording and some links-->

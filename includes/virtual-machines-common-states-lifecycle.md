@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
 origin.date: 08/09/2018
-ms.date: 08/27/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: ff0c8768c5da080262b60ca399f869fdb4626717
-ms.sourcegitcommit: 30046a74ddf15969377ae0f77360a472299f71ab
+ms.openlocfilehash: e9f45620d0944ee1a65e25095cfadda80fe610b2
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44515987"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52676395"
 ---
 Azure 虚拟机 (VM) 经历的不同状态可以归类为“预配”状态和“电源”状态。 本文旨在介绍这些状态并专门突出显示了何时会对客户收取实例使用费用。 
 
@@ -30,10 +30,10 @@ Azure 虚拟机 (VM) 经历的不同状态可以归类为“预配”状态和�
 <table>
 <tr>
 <th>
-省/直辖市/自治区
+状态
 </th>
 <th>
-说明
+描述
 </th>
 <th>
 实例使用计费
@@ -176,7 +176,7 @@ Azure 虚拟机 (VM) 经历的不同状态可以归类为“预配”状态和�
 <p><b>状态</b></p>
 </td>
 <td width="366">
-<p>说明</p>
+<p>描述</p>
 </td>
 </tr>
 <tr>
@@ -283,5 +283,5 @@ Azure 虚拟机 (VM) 经历的不同状态可以归类为“预配”状态和�
 <!-- Not Available on [Resource Explorer] (https://resources.azure.com/)-->
 
 预配状态在 VM 属性和实例视图中可见。 电源状态在 VM 的实例视图中提供。
-<!-- Update_Description: new articles on virtual machine states lifecycle -->
-<!--ms.date: 08/27/2018-->
+
+<!-- Update_Description: update meta properties, wording update -->

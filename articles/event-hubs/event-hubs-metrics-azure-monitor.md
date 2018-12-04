@@ -3,8 +3,8 @@ title: Azure Monitor（预览版）中的 Azure 事件中心指标 | Azure
 description: 使用 Azure 监视来监视事件中心
 services: event-hubs
 documentationcenter: .NET
-author: rockboyfor
-manager: digimobile
+author: ShubhaVijayasarathy
+manager: timlt
 editor: ''
 ms.assetid: ''
 ms.service: event-hubs
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/16/2018
-ms.date: 09/17/2018
-ms.author: v-yeche
-ms.openlocfilehash: c15cabda1077fcbab104b4344f918b5f471b81bc
-ms.sourcegitcommit: 2700f127c3a8740a83fb70739c09bd266f0cc455
+ms.date: 12/10/2018
+ms.author: v-biyu
+ms.openlocfilehash: d256153b36f439527c171d43f6a4de85731fc8cc
+ms.sourcegitcommit: 547436d67011c6fe58538cfb60b5b9c69db1533a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45586654"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52676882"
 ---
 # <a name="azure-event-hubs-metrics-in-azure-monitor-preview"></a>Azure Monitor（预览版）中的 Azure 事件中心指标
 
@@ -30,7 +30,7 @@ Azure Monitor 提供了统一的用户界面，可用于监视各种 Azure 服�
 
 ## <a name="access-metrics"></a>访问指标
 
-Azure Monitor 提供多种访问指标的方法。 可通过 [Azure 门户](https://portal.azure.cn)或使用 Azure Monitor API（REST 和 .NET）与分析解决方案（例如事件中心）访问指标。 有关详细信息，请参阅 [Azure Monitor 指标](../monitoring-and-diagnostics/monitoring-overview-metrics.md#access-metrics-via-the-rest-api)。
+Azure Monitor 提供多种访问指标的方法。 可通过 [Azure 门户](https://portal.azure.cn)或使用 Azure Monitor API（REST 和 .NET）与分析解决方案（例如事件中心）访问指标。 有关详细信息，请参阅 [Azure Monitor 指标](https://docs.azure.cn/zh-cn/monitoring-and-diagnostics/monitoring-overview-metrics#access-metrics-via-the-rest-api)。
 <!-- Not Available on Operation Management Suite-->
 
 默认情况下，已启用指标，并且可访问最近 30 天的数据。 如需将数据保留更长一段时间，可将指标数据存档到 Azure 存储帐户。 可在 Azure Monitor 的 [诊断设置](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) 中完成这种配置。
@@ -69,7 +69,6 @@ Azure Monitor 提供多种访问指标的方法。 可通过 [Azure 门户](http
 | 成功的请求（预览）   | 在指定期间内向 Azure 事件中心服务发送成功的请求数。 <br/><br/> 单位：计数 <br/> 聚合类型：总计 <br/> 维度：EntityName |
 | 服务器错误（预览） | 由于 Azure 事件中心服务发生错误，在指定期间内未处理的请求数。 <br/><br/>单位：计数 <br/> 聚合类型：总计 <br/> 维度：EntityName |
 |用户错误数（预览版）|由于存在用户错误，在指定期间内未处理的请求数。<br/><br/> 单位：计数 <br/> 聚合类型：总计 <br/> 维度：EntityName|
-|限制的请求数（预览版）|由于超出吞吐量单位用量而被限制的请求数。<br/><br/> 单位：计数 <br/> 聚合类型：总计 <br/> 维度：EntityName|
 |超出配额的错误（预览）|超出可用配额的请求数。 有关事件中心配额的详细信息，请参阅[本文](event-hubs-quotas.md)。<br/><br/> 单位：计数 <br/> 聚合类型：总计 <br/> 维度：EntityName|
 
 ## <a name="throughput-metrics"></a>吞吐量指标
@@ -120,8 +119,8 @@ Azure 事件中心支持对 Azure Monitor 中的指标使用以下维度。 为�
 
 有关事件中心的详细信息，请访问以下链接：
 
-* 使用 [事件中心教程](event-hubs-dotnet-standard-getstarted-send.md)
-* [事件中心常见问题解答](event-hubs-faq.md)
+* 开始使用[事件中心教程](event-hubs-dotnet-standard-getstarted-send.md)
+* [事件中心常见问题](event-hubs-faq.md)
 * [使用事件中心的示例应用程序](https://github.com/Azure/azure-event-hubs/tree/master/samples)
 
 [1]: ./media/event-hubs-metrics-azure-monitor/event-hubs-monitor1.png

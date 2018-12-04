@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 10/11/2017
+origin.date: 10/23/2018
 ms.author: v-yiso
-ms.date: 11/12/2018
-ms.openlocfilehash: 17da3c97def7c1540944e630696f4e1a8786438b
-ms.sourcegitcommit: 3f96e40162bb6ee2e9fdb76c976517e47a1252d9
+ms.date: 12/10/2018
+ms.openlocfilehash: dcb7280a9432f42b98c9803f4a3b74b80ac3e393
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50919092"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675623"
 ---
 # <a name="create-and-modify-routing-for-an-expressroute-circuit-using-cli"></a>使用 CLI 为 ExpressRoute 线路创建和修改路由
 
@@ -174,7 +174,7 @@ az network express-route peering update --vlan-id 500 -g ExpressRouteResourceGro
 可以运行以下示例来删除对等互连配置：
 
 > [!WARNING]
-> 运行此示例前，必须确保已从 ExpressRoute 线路取消链接所有虚拟网络。 
+> 运行此示例前，必须确保已删除所有虚拟网络和 ExpressRoute Global Reach 连接。 
 > 
 > 
 

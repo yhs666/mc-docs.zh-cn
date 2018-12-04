@@ -14,15 +14,15 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 03/27/2018
-ms.date: 05/14/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 96b7ea8fd3aad9732985143dd21bd72b63df1c5e
-ms.sourcegitcommit: 00c8a6a07e6b98a2b6f2f0e8ca4090853bb34b14
+ms.openlocfilehash: c92f1d6acfee79af49ace9191d409513d0daff63
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38939759"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675508"
 ---
 # <a name="manage-the-availability-of-linux-virtual-machines"></a>管理 Linux 虚拟机的可用性
 
@@ -35,6 +35,4 @@ ms.locfileid: "38939759"
 ## <a name="next-steps"></a>后续步骤
 若要了解对虚拟机进行负载均衡的详细信息，请参阅[对虚拟机进行负载均衡](../virtual-machines-linux-load-balance.md)。
 
-<!--The parent file of includes file of virtual-machines-common-manage-availability.md-->
-<!--ms.date:05/14/2017-->
 <!--Update_Description: update meta properties -->

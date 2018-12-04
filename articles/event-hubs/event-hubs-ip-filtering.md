@@ -3,28 +3,28 @@ title: Azure 事件中心 IP 连接筛选器 | Azure
 description: 使用 IP 筛选阻止从特定 IP 地址到 Azure 事件中心的连接。
 services: event-hubs
 documentationcenter: ''
-author: rockboyfor
-manager: digimobile
+author: spelluru
+manager: timlt
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
 origin.date: 08/26/2018
-ms.date: 09/30/2018
-ms.author: v-yeche
-ms.openlocfilehash: b45e7b3fa28e0dfde64e011bb42529ca100b0a14
-ms.sourcegitcommit: 399060a8d46534abd370693f6282e7343b371634
+ms.date: 12/10/2018
+ms.author: v-biyu
+ms.openlocfilehash: 8093ae702399733602b8b1e49429714037371bfe
+ms.sourcegitcommit: 547436d67011c6fe58538cfb60b5b9c69db1533a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47455577"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52676897"
 ---
 # <a name="use-ip-filters"></a>使用 IP 筛选器
 
-对于只能通过某些已知站点访问 Azure 事件中心的方案，可使用 IP 筛选器功能配置相关规则，以拒绝或接受源自特定 IPv4 地址的流量。 例如，这些地址可能是企业 NAT 网关地址。
+对于只应通过某些已知站点访问 Azure 事件中心的方案，可使用 IP 筛选器功能配置相关规则，以拒绝或接受源自特定 IPv4 地址的流量。 例如，这些地址可能是企业 NAT 网关地址。
 
 ## <a name="when-to-use"></a>何时使用
 
-下面是两个重要用例，在要针对特定 IP 地址阻止事件中心终结点接收流量时，这两个用例非常有用：
+下面是两个重要用例，在要针对特定 IP 地址阻止事件中心接收流量时，这两个用例非常有用：
 
 - 事件中心应仅从指定范围内的 IP 地址接收流量并拒绝任何其他流量。 例如，结合使用事件中心和 [Azure Express Route][express-route]，以创建到本地基础结构的专用连接。 
 - 需要拒绝来自事件中心管理员已标识为可疑地址的 IP 地址的流量。
@@ -48,9 +48,9 @@ IP 筛选器规则将按顺序应用，与 IP 地址匹配的第一个规则决�
 > [!NOTE]
 > 拒绝 IP 地址即可阻止其他 Azure 服务（例如门户中的 Azure 流分析、Azure 虚拟机或设备资源管理器）与事件中心交互。
 
-### <a name="creating-a-virtual-network-rule-with-azure-resource-manager-templates"></a>使用 Azure 资源管理器模板创建虚拟网络规则
+### <a name="creating-an-ip-filter-rule-with-azure-resource-manager-templates"></a>使用 Azure 资源管理器模板创建 IP 筛选器规则
 
-以下资源管理器模板可用于向现有的事件中心命名空间添加虚拟网络规则。
+以下资源管理器模板可用于向现有的事件中心命名空间添加 IP 筛选器规则。
 
 模板参数：
 
@@ -60,7 +60,7 @@ IP 筛选器规则将按顺序应用，与 IP 地址匹配的第一个规则决�
 
 ```json
 {  
-   "$schema":"https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+   "$schema":"http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
    "contentVersion":"1.0.0.0",
    "parameters":{     
           "namespaceName":{  
@@ -108,15 +108,9 @@ IP 筛选器规则将按顺序应用，与 IP 地址匹配的第一个规则决�
 
 ## <a name="next-steps"></a>后续步骤
 
-若要限制事件中心到 Azure 虚拟网络的访问，请参阅以下链接：
-
-- [事件中心的虚拟网络服务终结点][lnk-vnet]
-
 <!-- Links -->
 
 [express-route]:  /expressroute/expressroute-faqs#supported-services
 [lnk-deploy]: ../azure-resource-manager/resource-group-template-deploy.md
-[lnk-vnet]: event-hubs-service-endpoints.md
 
 <!-- Update_Description: update meta properties -->
-

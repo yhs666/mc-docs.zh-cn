@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 origin.date: 04/11/2018
 ms.author: v-yiso
-ms.date: 09/10/2018
-ms.openlocfilehash: 4af59ea02258fd59d1be16d85dc48e1b82625f66
-ms.sourcegitcommit: f78d6cbc290bf31a03ce4810035478b7092caafa
+ms.date: 12/03/2018
+ms.openlocfilehash: 130a1897bc458c7dae7989c5ef5609d4c5c2835e
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43329012"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675463"
 ---
 # <a name="connect-adafruit-feather-huzzah-esp8266-to-azure-iot-hub-in-the-cloud"></a>将 Adafruit Feather HUZZAH ESP8266 连接到云中的 Azure IoT 中心
 
@@ -66,8 +66,17 @@ ms.locfileid: "43329012"
 * 试验板
 * M/M 跳线
 
+## <a name="create-an-iot-hub"></a>创建 IoT 中心
 
-[!INCLUDE [iot-hub-get-started-create-hub-and-device](../../includes/iot-hub-get-started-create-hub-and-device.md)]
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
+
+### <a name="retrieve-connection-string-for-iot-hub"></a>检索 IoT 中心的连接字符串
+
+[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
+
+## <a name="register-a-new-device-in-the-iot-hub"></a>在 IoT 中心内注册新设备
+
+[!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
 ## <a name="connect-feather-huzzah-esp8266-with-the-sensor-and-your-computer"></a>将 Feather HUZZAH ESP8266 与传感器和计算机相连接
 在此部分中，将传感器连接到开发板。 然后，将设备插入计算机以供进一步使用。

@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-origin.date: 10/01/2018
-ms.date: 10/22/2018
+origin.date: 11/14/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 55f20f5fb32c155743d1894a1aa2e3095c5c8c0b
-ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
+ms.openlocfilehash: a19d4e71b6b8bc67ba6ca1c22c9f30b088280147
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50034813"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675555"
 ---
 # <a name="sizes-for-windows-virtual-machines-in-azure"></a>Azure 中 Windows 虚拟机的大小
 
@@ -34,6 +34,7 @@ ms.locfileid: "50034813"
 | [内存优化](../virtual-machines-windows-sizes-memory.md)         | Esv3、Ev3、M、DSv2、Dv2  | 高内存与 CPU 之比。 适用于关系数据库服务器、中到大型规模的缓存和内存中分析。                 |
 | [GPU](sizes-gpu.md)            | NCv3           | 针对大量图形绘制和视频编辑的专用虚拟机，以及带有深度学习功能的模型定型和推断 (ND)。 可选择单个或多个 GPU。       |
 
+<!-- Not Available DC series -->
 <!-- Not Available M, Gs, G series -->
 <!-- Not Available [Storage optimized] Ls -->
 <!-- Not Available [GPU] NV, NVv2, NC, NCv2, ND-series  -->
@@ -51,7 +52,7 @@ ms.locfileid: "50034813"
 有关使用 REST API 来查询 VM 大小的信息，请参阅以下文章：
 
 - [List available virtual machine sizes for resizing](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes)（列出可用的虚拟机大小以便调整大小）
-- [List available virtual machine sizes for a subscription](https://docs.microsoft.com/rest/api/compute/virtualmachinesizes/list)（列出订阅的可用虚拟机大小）
+- [List available virtual machine sizes for a subscription](https://docs.microsoft.com/rest/api/compute/virtualmachines/listall)（列出订阅的可用虚拟机大小）
 - [List available virtual machine sizes in an availability set](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes)（列出可用性集中的可用虚拟机大小）
 
 ## <a name="acu"></a>ACU
@@ -69,11 +70,10 @@ ms.locfileid: "50034813"
 - [计算优化](sizes-compute.md)
 - [内存优化](../virtual-machines-windows-sizes-memory.md)
 - [GPU 优化](sizes-gpu.md)
-
-<!-- Not Available on - [Storage optimized](../virtual-machines-windows-sizes-storage.md) -->
-<!-- Not Available on - [High performance compute](sizes-hpc.md)-->
 - 查看[上一代](sizes-previous-gen.md)页，了解 A Standard、Dv1（D1-4 和 D11-14 v1）
 
+<!-- Not Available on Line 67 - [Storage optimized](../virtual-machines-windows-sizes-storage.md) -->
+<!-- Not Available on - [High performance compute](sizes-hpc.md)-->
 <!-- Not Available on A8-A11 series-->
 
 <!--Update_Description: update meta properties, update link, wording update -->

@@ -6,14 +6,14 @@ author: ganesr
 ms.service: expressroute
 ms.topic: conceptual
 origin.date: 07/26/2018
-ms.date: 11/12/2018
+ms.date: 12/10/2018
 ms.author: v-yiso
-ms.openlocfilehash: 87227a4dd6b5157be83eabffaa79c67d9d3314b3
-ms.sourcegitcommit: 3f96e40162bb6ee2e9fdb76c976517e47a1252d9
+ms.openlocfilehash: 090185d7766b81370be0881ca3db4bac61be92ec
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50919098"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675511"
 ---
 # <a name="modify-an-expressroute-circuit-using-powershell-classic"></a>使用 PowerShell 修改 ExpressRoute 线路（经典）
 
@@ -30,7 +30,7 @@ ms.locfileid: "50919098"
 
 **关于 Azure 部署模型**
 
-[!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+[!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## <a name="before-you-begin"></a>准备阶段
 

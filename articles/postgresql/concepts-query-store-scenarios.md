@@ -7,20 +7,20 @@ ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
 origin.date: 09/26/2018
-ms.date: 10/29/2018
-ms.openlocfilehash: 4c437c47d4ffad36da12cbc745ffc2eb3e833b16
-ms.sourcegitcommit: 1934f3a6db96e9e069f10bfc0ca47dedb1b25c8f
+ms.date: 12/03/2018
+ms.openlocfilehash: 5208c58cd1abe9e7457ad2655eb49de6d48454d8
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49652584"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675635"
 ---
 # <a name="usage-scenarios-for-query-store"></a>查询存储的使用方案
 
-适用于：Azure Database for PostgreSQL 9.6 和 10
+**适用于：** Azure Database for PostgreSQL 9.6 和 10
 
 > [!IMPORTANT]
-> 查询存储功能在有限的一些区域为公共预览版。
+> 查询存储功能目前以公共预览版提供。
 
 可以在各种场景中使用查询存储，在这些场景中，跟踪和维护可预测的工作负载性能至关重要。 请考虑以下示例： 
 - 识别和优化消耗最高的查询 

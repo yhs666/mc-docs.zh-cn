@@ -17,15 +17,15 @@ origin.date: 02/15/2018
 ms.date: 03/12/2018
 ms.author: v-yiso
 ms.openlocfilehash: 1bb9ae8d975d23d2cd3bb9911b3c588752547b31
-ms.sourcegitcommit: 34925f252c9d395020dc3697a205af52ac8188ce
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/02/2018
-ms.locfileid: "29731168"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646264"
 ---
 # <a name="configure-domain-joined-hdinsight-sandbox-environment"></a>配置已加入域的 HDInsight 沙盒环境
 
-了解如何使用独立的Active Directory 和 [Apache Ranger](http://hortonworks.com/apache/ranger/) 安装 Azure HDInsight 群集，以便利用强身份验证和丰富的基于角色的访问控制 (RBAC) 策略。 有关详细信息，请参阅[引入已加入域的 HDInsight 群集](apache-domain-joined-introduction.md)。 
+了解如何使用独立的Active Directory 和 [Apache Ranger](http://hortonworks.com/apache/ranger/) 安装 Azure HDInsight 群集，以便利用强身份验证和丰富的基于角色的访问控制 (RBAC) 策略。 有关详细信息，请参阅 [Introduce Domain-joined HDInsight clusters](apache-domain-joined-introduction.md)（已加入域的 HDInsight 群集简介）。 
 
 > [!IMPORTANT]
 > 默认情况下，此设置只能在使用 Azure 存储帐户时使用。 
@@ -75,12 +75,12 @@ ms.locfileid: "29731168"
     - **新建存储帐户名称**：输入 Azure 存储帐户名称。 PDC、BDC 和 HDInsight 群集将使用这个新的存储帐户作为默认存储帐户。
     - **管理员用户名**：输入域管理员用户名。
     - **管理员密码**：输入域管理员密码。
-    - **域名**：默认名称为 *contoso.com*。如果更改域名，则还必须更新“安全 LDAP 证书”字段和“组织单位 DN”字段。
+    - **域名**：默认名称为 *contoso.com*。  如果更改域名，则还必须更新“安全 LDAP 证书”字段和“组织单位 DN”字段。
     - **DNS 前缀**：负载均衡器使用的公共 IP 地址的 DNS 前缀。
     - **群集名称**：输入 HDInsight 群集的名称。
     - **群集类型**：请勿更改此值。 若想更改群集类型，请使用最后一步中的特定模板。
     - **安全 Ldap 证书密码**：除非更改“安全 LDAP 证书”字段，否则使用默认值。
-    模板中的某些值是硬编码值，例如，辅助节点实例计数为 2。  若要更改硬编码值，请单击**编辑模板**。
+    模板中的某些值是硬编码值，例如，辅助节点实例计数为 2。  若要更改硬编码值，请单击“编辑模板”。
 
     ![已加入域的 HDInsight 群集编辑模板](./media/apache-domain-joined-configure/hdinsight-domain-joined-edit-template.png)
 
@@ -133,14 +133,14 @@ ms.locfileid: "29731168"
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 2. 打开资源组，然后打开主域控制器 (PDC) 虚拟机。 默认 PDC 名称为 adPDC。 
-3. 单击**连接**，使用远程桌面连接到 PDC。
+3. 单击“连接”，使用远程桌面连接到 PDC。
 
     ![已加入域的 HDInsight 连接 PDC 远程桌面](./media/apache-domain-joined-configure/hdinsight-domain-joined-remote-desktop-pdc.png)
 
 
 **添加 Active Directory 证书服务**
 
-4. 打开**服务器管理器**（如果尚未打开）。
+4. 打开“服务器管理器”（如果尚未打开）。
 5. 单击“管理”，然后单击“添加角色和功能”。
 
     ![已加入域的 HDInsight 添加角色和功能](./media/apache-domain-joined-configure/hdinsight-domain-joined-add-roles.png)
@@ -208,12 +208,12 @@ ms.locfileid: "29731168"
 
         ![已加入域的 HDInsight 高级设置域](./media/apache-domain-joined-configure/hdinsight-domain-joined-portal-advanced-domain-settings.png)
         
-        - 域名：输入在[创建 Active Directory](#create-an-active-directory)中使用的域名。
-        - 域用户名：输入在[创建 Active Directory](#create-an-active-directory)中使用的 AD 管理员用户名。
+        - 域名：输入在 [创建 Active Directory](#create-an-active-directory)中使用的域名。
+        - 域用户名：输入在 [创建 Active Directory](#create-an-active-directory)中使用的 AD 管理员用户名。
         - 组织单位：相关示例请参阅屏幕截图。
         - LDAPS URL：相关示例请参阅屏幕截图
-        - 访问用户组：输入在[创建 AD 用户和组](#optionally-createad-users-and-groups)中创建的用户组名称
-    - 虚拟网络：选择在[创建 Active Directory](#create-an-active-directory)中创建的虚拟网络。 模板中所用的默认名称为 **adVNET**。
+        - 访问用户组：输入在 [创建 AD 用户和组](#optionally-createad-users-and-groups)中创建的用户组名称
+    - 虚拟网络：选择在 [创建 Active Directory](#create-an-active-directory)中创建的虚拟网络。 模板中所用的默认名称为 **adVNET**。
     - 子网：模板中所用的默认名称为 **adSubnet**。
 
 

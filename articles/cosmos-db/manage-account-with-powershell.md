@@ -10,14 +10,14 @@ ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 04/21/2017
-ms.date: 11/05/2018
+ms.date: 12/03/2018
 ms.author: v-yeche
-ms.openlocfilehash: 140ef4a6f180a0a51e05a14ce6418da3d56a0f61
-ms.sourcegitcommit: c1020b13c8810d50b64e1f27718e9f25b5f9f043
+ms.openlocfilehash: b3aae55d529efda97460b01d21c8f0160b298814
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50204841"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675639"
 ---
 # <a name="create-an-azure-cosmos-db-account-using-powershell"></a>使用 PowerShell 创建 Azure Cosmos DB 帐户
 
@@ -205,6 +205,7 @@ ms.locfileid: "50204841"
 * 若要使用 Node.js 进行连接，请参阅[使用 Node.js 和 MongoDB 应用进行连接和查询](create-mongodb-nodejs.md)。
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
+
 [powershell-install-configure]: /powershell-install-configure
 [scaling-globally]: distribute-data-globally.md#EnableGlobalDistribution
 [distribute-data-globally]: distribute-data-globally.md

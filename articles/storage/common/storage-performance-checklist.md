@@ -16,11 +16,11 @@ origin.date: 12/08/2016
 ms.date: 10/16/2017
 ms.author: v-johch
 ms.openlocfilehash: a0e7b0c3fdb4f5922d416aabbbf2105e457d55c7
-ms.sourcegitcommit: 878351dae58cf32a658abcc07f607af5902c9dfa
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295778"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646731"
 ---
 # <a name="azure-storage-performance-and-scalability-checklist"></a>Azure 存储性能和可伸缩性清单
 ## <a name="overview"></a>概述
@@ -84,8 +84,7 @@ ms.locfileid: "39295778"
 | &nbsp; | 队列 |批量检索 |[是否会使用单个“Get”操作检索多个消息？](#subheading42) |
 | &nbsp; | 队列 |轮询频率 |[是否会进行足够频繁的轮询，以减少感知到的应用程序的延迟？](#subheading43) |
 | &nbsp; | 队列 |更新消息 |[是否会使用 UpdateMessage 来存储消息处理进度，这样，在发生错误时则无需重新处理整个消息？](#subheading44) |
-| &nbsp; | 队列 |体系结构 |
-            [是否会将长时间运行的工作负载置于关键路径之外，以便使用队列来提高整个应用程序的可伸缩性，再进行独立的伸缩？](#subheading45) |
+| &nbsp; | 队列 |体系结构 |[是否会将长时间运行的工作负载置于关键路径之外，以便使用队列来提高整个应用程序的可伸缩性，再进行独立的伸缩？](#subheading45) |
 
 ## <a name="allservices"></a>所有服务
 本部分列出的经过验证的做法适用于任何 Azure 存储服务（Blob、表、队列或文件）。  
@@ -227,7 +226,7 @@ ThreadPool.SetMinThreads(100,100); //(Determine the right number for your applic
 #### <a name="subheading46"></a>并发访问单个对象的多个客户端
 如果拥有并发访问单个对象的大量客户端，则需要要考虑每个对象和存储帐户的可伸缩性目标。 可以访问单个对象的客户端的具体数量根据各种因素（如同时请求对象的客户端数量、对象的大小、网络连接等）而有所不同。
 
-如果对象可以通过 CDN 来进行分发（如网站服务提供的图像或视频），则应该使用 CDN。 请参阅 [](#subheading5)。
+如果对象可以通过 CDN 来进行分发（如网站服务提供的图像或视频），则应该使用 CDN。 参阅[此处](#subheading5)。
 
 在其他情况下，例如在数据保密的科学模拟下，有两个选项。 第一个选项是错开工作负荷的访问，以确保在某个时间段内访问对象，而不是同时访问对象。 另一个选项是暂时将对象复制到多个存储帐户，从而增加每个对象和存储帐户内的 IOPS 总数。 经过有限的测试，我们发现大约 25 台 VM 可以同时并行下载 100GB 的 Blob（每台 VM 使用 32 个线程并行化下载）。 如果有 100 个客户端需要访问某个对象，请先将该对象复制到另一个存储帐户，然后让前 50 台 VM 访问第一个 Blob，让剩下的 50 台 VM 访问第二个 Blob。 结果根据应用程序的行为而有所不同，因此应该在设计期间对此进行测试。 
 

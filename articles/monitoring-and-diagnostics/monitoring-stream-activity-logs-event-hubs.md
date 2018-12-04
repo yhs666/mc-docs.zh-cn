@@ -1,19 +1,20 @@
 ---
 title: 将 Azure 活动日志流式传输到事件中心
 description: 了解如何将 Azure 活动日志流式传输到事件中心。
-author: johnkemnetz
+author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 origin.date: 07/25/2018
-ms.author: v-yiso
-ms.date: 09/17/2018
-ms.openlocfilehash: 7a64b12db3b11c50a208a73d1a354ef1732f8a50
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.date: 11/26/2018
+ms.author: v-lingwu
+ms.component: activitylog
+ms.openlocfilehash: ad1a3c680d36558ebaaa472fcd5b75e5abc823eb
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068010"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675449"
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>将 Azure 活动日志流式传输到事件中心
 可以选择下列两种方式之一将 [Azure 活动日志](monitoring-overview-activity-logs.md)准实时流式传输到任何应用程序：

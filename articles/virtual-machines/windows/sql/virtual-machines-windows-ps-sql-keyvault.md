@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 04/30/2018
-ms.date: 08/27/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 547e00256b381b77742115596dcdb76e20f3cd8c
-ms.sourcegitcommit: bdffde936fa2a43ea1b5b452b56d307647b5d373
+ms.openlocfilehash: ec025ad53bbea00070d93137d3422bd215d508ce
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42872382"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675541"
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-resource-manager"></a>在 Azure 虚拟机上配置 SQL Server 的 Azure Key Vault 集成 (Resource Manager)
 
@@ -30,7 +30,7 @@ ms.locfileid: "42872382"
 > * [经典](../sqlclassic/virtual-machines-windows-classic-ps-sql-keyvault.md)
 
 ## <a name="overview"></a>概述
-SQL Server 加密功能多种多样，包括[透明数据加密 (TDE)](https://msdn.microsoft.com/library/bb934049.aspx)、[列级加密 (CLE)](https://msdn.microsoft.com/library/ms173744.aspx) 和[备份加密](https://msdn.microsoft.com/library/dn449489.aspx)。 这些加密形式要求管理和存储用于加密的加密密钥。 Azure Key Vault (AKV) 服务专用于在一个高度可用的安全位置改进这些密钥的安全性和管理。 [SQL Server 连接器](http://www.microsoft.com/download/details.aspx?id=45344) 使 SQL Server 能够使用 Azure 密钥保管库中的这些密钥。
+SQL Server 加密功能多种多样，包括[透明数据加密 (TDE)](https://msdn.microsoft.com/library/bb934049.aspx)、[列级加密 (CLE)](https://msdn.microsoft.com/library/ms173744.aspx) 和[备份加密](https://msdn.microsoft.com/library/dn449489.aspx)。 这些加密形式要求管理和存储用于加密的加密密钥。 Azure Key Vault (AKV) 服务专用于在一个高度可用的安全位置改进这些密钥的安全性和管理。 [SQL Server 连接器](https://www.microsoft.com/download/details.aspx?id=45344) 使 SQL Server 能够使用 Azure 密钥保管库中的这些密钥。
 
 如果在本地计算机上运行 SQL Server，请[按照此处步骤通过本地 SQL Server 计算机访问 Azure 密钥保管库](https://msdn.microsoft.com/library/dn198405.aspx)。 但对于 Azure VM 中的 SQL Server，可以通过使用 *Azure 密钥保管库集成* 功能节省时间。
 
@@ -72,4 +72,4 @@ SQL Server 加密功能多种多样，包括[透明数据加密 (TDE)](https://m
 [!INCLUDE [AKV Integration Next Steps](../../../../includes/virtual-machines-sql-server-akv-next-steps.md)]
 
 
-<!--Update_Description: update meta data -->
+<!--Update_Description: update meta porperties, wording update -->

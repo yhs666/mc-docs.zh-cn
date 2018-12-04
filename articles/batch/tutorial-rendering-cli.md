@@ -2,24 +2,24 @@
 title: 在云中渲染场景 - Azure Batch
 description: 教程 - 如何使用 Batch 渲染服务和 Azure 命令行界面通过 Arnold 来渲染 Autodesk 3ds Max 场景
 services: batch
-author: dlepow
-manager: jeconnoc
+author: lingliw
+manager: digimobile
 ms.service: batch
 ms.topic: tutorial
-origin.date: 09/25/2018
-ms.date: 10/19/2018
+origin.date: 10/24/2018
+ms.date: 11/26/2018
 ms.author: v-lingwu
 ms.custom: mvc
-ms.openlocfilehash: c0488f8632100f5594cac051a4445ceb07eb3045
-ms.sourcegitcommit: ee042177598431d702573217e2f3538878b6a984
+ms.openlocfilehash: b0ac587d6bfac416b43875ca220eaacbd756c298
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477781"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675527"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>教程：使用 Azure Batch 渲染场景 
 
-Azure Batch 提供云规模的渲染功能，按使用付费。 Batch 渲染服务支持 Autodesk Maya、3ds Max、Arnold、V-Ray 等渲染应用。 本教程介绍如何执行相关步骤，以便使用 Azure 命令行界面通过 Batch 来渲染小型场景。 你将学习如何执行以下操作：
+Azure Batch 提供云规模的渲染功能，按使用付费。 Azure Batch 支持渲染应用，包括 Autodesk Maya、3ds Max、Arnold 和 V-Ray。 本教程介绍如何执行相关步骤，以便使用 Azure 命令行界面通过 Batch 来渲染小型场景。 你将学习如何执行以下操作：
 
 > [!div class="checklist"]
 > * 将场景上传到 Azure 存储
@@ -28,9 +28,7 @@ Azure Batch 提供云规模的渲染功能，按使用付费。 Batch 渲染服�
 > * 缩放池并渲染多帧场景
 > * 下载渲染的输出
 
-本教程使用 Batch，通过 [Arnold](https://www.autodesk.com/products/arnold/overview) 光线跟踪渲染器来渲染 3ds Max 场景。 
-
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+本教程使用 Batch，通过 [Arnold](https://www.autodesk.com/products/arnold/overview) 光线跟踪渲染器来渲染 3ds Max 场景。 Batch 池使用一个 Azure 市场映像，该映像中预安装了提供按使用付费的许可的图形和渲染应用程序。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -174,7 +172,7 @@ az storage account generate-sas \
     --permissions w \
     --resource-types co \
     --services b \
-    --expiry 2018-11-15
+    --expiry 2019-11-15
 ```
 
 记下该命令返回的令牌，如下所示。 在稍后的步骤中会使用此令牌。

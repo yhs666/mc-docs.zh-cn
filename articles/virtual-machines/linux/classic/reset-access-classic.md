@@ -18,11 +18,11 @@ origin.date: 04/30/2018
 ms.date: 06/04/2018
 ms.author: v-yeche
 ms.openlocfilehash: 326b45e2521154f7b1978db8049b79fe14d04b73
-ms.sourcegitcommit: 6f42cd6478fde788b795b851033981a586a6db24
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "34702709"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52658376"
 ---
 # <a name="how-to-reset-a-linux-vm-password-or-ssh-key-fix-the-ssh-configuration-and-check-disk-consistency-using-the-vmaccess-extension"></a>如何使用 VMAccess 扩展重置 Linux VM 密码或 SSH 密钥、修复 SSH 配置，以及检查磁盘一致性
 如果因为忘记密码、安全外壳 (SSH) 密钥不正确或 SSH 配置出现问题而不能连接到 Azure 上的 Linux 虚拟机，请使用 VMAccessForLinux 扩展通过 Azure CLI 重置密码或 SSH 密钥、修复 SSH 配置以及检查磁盘一致性。 
@@ -66,7 +66,7 @@ ms.locfileid: "34702709"
         }
     ```
 
-2. 运行以下命令（请将 **myVM** 替换为自己的虚拟机名称）。
+2. 运行以下命令（请将 **myVM**替换为自己的虚拟机名称）。
 
     ```   
         azure vm extension set myVM VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
@@ -82,7 +82,7 @@ ms.locfileid: "34702709"
         "ssh_key":"mySSHKey"
         }
     ```
-2. 运行以下命令（请将 **myVM** 替换为自己的虚拟机名称）。
+2. 运行以下命令（请将 **myVM**替换为自己的虚拟机名称）。
 
         azure vm extension set myVM VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
 
@@ -98,7 +98,7 @@ ms.locfileid: "34702709"
         }
     ```
 
-2. 运行以下命令（请将 **myVM** 替换为自己的虚拟机名称）。
+2. 运行以下命令（请将 **myVM**替换为自己的虚拟机名称）。
 
     ```   
         azure vm extension set MyVM VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
@@ -109,7 +109,7 @@ ms.locfileid: "34702709"
 
 如果忘记用户名，可以使用 VMAccess 创建具有 sudo 权限的新用户帐户。 在这种情况下，不会修改现有的用户名和密码。
 
-若要创建具有密码访问权限的新 sudo 用户，请使用[“重置密码”](#pwresetcli)中的脚本并指定新用户名。
+若要创建具有密码访问权限的新 sudo 用户，请使用 [重置密码](#pwresetcli) 中的脚本并指定新用户名。
 
 若要创建具有 SSH 密钥访问权限的新 sudo 用户，请使用[“重置 SSH 密钥”](#sshkeyresetcli) 中的脚本并指定新用户名。
 
@@ -132,7 +132,7 @@ ms.locfileid: "34702709"
         }
     ```
 
-2. 运行以下命令（请将 **myVM** 替换为自己的虚拟机名称）。 
+2. 运行以下命令（请将 **myVM**替换为自己的虚拟机名称）。 
 
     ```   
         azure vm extension set myVM VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
@@ -142,7 +142,7 @@ ms.locfileid: "34702709"
 ## <a name="delete-a-user"></a>删除用户
 如果想要不登录 VM 就直接删除用户帐户，可以使用此脚本。
 
-1. 创建包含以下内容的名为 PrivateConf.json 的文件（请将 **removeUserName** 替换为要删除的用户名）。 
+1. 创建包含以下内容的名为 PrivateConf.json 的文件（请将 **removeUserName**替换为要删除的用户名）。 
 
     ```   
         {
@@ -150,7 +150,7 @@ ms.locfileid: "34702709"
         }
     ```
 
-2. 运行以下命令（请将 **myVM** 替换为自己的虚拟机名称）。 
+2. 运行以下命令（请将 **myVM**替换为自己的虚拟机名称）。 
 
     ```   
         azure vm extension set myVM VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json

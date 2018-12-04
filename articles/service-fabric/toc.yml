@@ -58,8 +58,8 @@ items:
       href: service-fabric-tutorial-scale-cluster.md
     - name: 3- 升级群集运行时
       href: service-fabric-tutorial-upgrade-cluster.md
-    - name: 4- 部署 API 管理与 Service Fabric
-      href: service-fabric-tutorial-deploy-api-management.md
+    - name: 4- 删除群集
+      href: service-fabric-tutorial-delete-cluster.md
 - name: 示例
   items:
   - name: 代码示例
@@ -167,12 +167,6 @@ items:
         href: service-fabric-dnsservice.md
       - name: 反向代理
         href: service-fabric-reverseproxy.md
-      - name: 设置和配置反向代理
-        href: service-fabric-reverseproxy-setup.md
-      - name: 配置反向代理以进行安全通信
-        href: service-fabric-reverseproxy-configure-secure-communication.md
-      - name: 反向代理诊断
-        href: service-fabric-reverse-proxy-diagnostics.md
       - name: ASP.NET Core
         href: service-fabric-reliable-services-communication-aspnetcore.md
     - name: 应用程序生命周期
@@ -400,6 +394,8 @@ items:
       href: service-fabric-get-started-tomcat.md
     - name: 配置安全性
       items:
+      - name: 与 API 管理集成
+        href: service-fabric-tutorial-deploy-api-management.md
       - name: 管理应用程序机密
         href: service-fabric-application-secret-management.md
       - name: 配置反向代理以进行安全通信
@@ -434,6 +430,8 @@ items:
       href: service-fabric-visualstudio-configure-secure-connections.md
     - name: 在 VS 中调试 .NET 服务
       href: service-fabric-debugging-your-application.md
+    - name: 使用 Service Fabric 和 VS 调试 Windows 容器
+      href: service-fabric-how-to-debug-windows-containers.md
     - name: 常见错误和异常
       href: service-fabric-errors-and-exceptions.md
     - name: 在本地监视和诊断
@@ -514,6 +512,12 @@ items:
         href: service-fabric-set-up-continuous-integration.md
       - name: 使用 Jenkins 部署 Linux 应用程序
         href: service-fabric-cicd-your-linux-applications-with-jenkins.md
+  - name: 设置和配置反向代理
+    items:
+    - name: 设置和配置反向代理
+      href: service-fabric-reverseproxy-setup.md
+    - name: 配置反向代理以进行安全通信
+      href: service-fabric-reverseproxy-configure-secure-communication.md
   - name: 创建和管理群集
     items:
     - name: Azure 上的群集
@@ -550,8 +554,6 @@ items:
         href: service-fabric-cluster-rollover-cert-cn.md
       - name: 管理群集证书
         href: service-fabric-cluster-security-update-certs-azure.md
-      - name: Delete
-        href: service-fabric-cluster-delete.md
       - name: 远程连接到群集节点 VM
         href: service-fabric-cluster-remote-connect-to-azure-cluster-node.md
     - name: 独立群集
@@ -592,6 +594,8 @@ items:
         href: service-fabric-diagnostics-event-aggregation-eventflow.md
     - name: 监视群集
       items:
+      - name: 查询 EventStore API
+        href: service-fabric-diagnostics-eventstore-query.md
       - name: Windows Azure 诊断
         href: service-fabric-diagnostics-event-aggregation-wad.md
       - name: Linux Azure 诊断
@@ -604,6 +608,8 @@ items:
         href: service-fabric-understand-and-troubleshoot-with-system-health-reports.md
       - name: 查看运行状况报告
         href: service-fabric-view-entities-aggregated-health.md
+    - name: 诊断反向代理事件
+      href: service-fabric-reverse-proxy-diagnostics.md
     - name: 对本地群集进行故障排除
       href: service-fabric-troubleshoot-local-cluster-setup.md
   - name: 最佳实践
@@ -657,7 +663,9 @@ items:
   - name: .NET
     href: https://docs.azure.cn/zh-cn/dotnet/api/overview/service-fabric?view=azure-dotnet
   - name: REST
-    href: https:/docs.microsoft.com/rest/api/servicefabric
+    href: https://docs.microsoft.com/rest/api/servicefabric
+  - name: Service Fabric 事件
+    href: service-fabric-diagnostics-event-generation-operational.md
   - name: 配置群集设置和结构升级策略
     href: service-fabric-cluster-fabric-settings.md
   - name: 服务模型 XML 架构
@@ -685,6 +693,8 @@ items:
     href: https://www.azure.cn/pricing/details/service-fabric/
   - name: 定价计算器
     href: https://www.azure.cn/pricing/calculator/
+  - name: 疑难解答指南
+    href: https://github.com/Azure/Service-Fabric-Troubleshooting-Guides
   - name: 代码示例
     href: http://aka.ms/servicefabricsamples
   - name: 支持选项
@@ -695,9 +705,9 @@ items:
     href: https://www.azure.cn/what-is-new/
   - name: 视频
     href: https://www.azure.cn/video-center/
-ms.openlocfilehash: dc884ad9ac4be2a6b739e06c040bcdbdbda64719
-ms.sourcegitcommit: c596d3a0f0c0ee2112f2077901533a3f7557f737
+ms.openlocfilehash: 3738ace21069f2f602007f802ab95e149d1480ac
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49089104"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675563"

@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 11/28/2017
 ms.author: v-yiso
 ms.date: 11/05/2018
-ms.openlocfilehash: eed713069fdce2116d82c0d9101207c85c9fccb5
-ms.sourcegitcommit: b8f95f5d6058b1ac1ce28aafea3f82b9a1e9ae24
+ms.openlocfilehash: 1975a0ac0e6d22419712098277fe2f513e846cf0
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50135847"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675535"
 ---
 # <a name="api-management-access-restriction-policies"></a>API 管理访问限制策略
 本主题提供以下 API 管理策略的参考。 有关添加和配置策略的信息，请参阅 [API 管理中的策略](http://go.microsoft.com/fwlink/?LinkID=398186)。  
@@ -527,5 +527,5 @@ ms.locfileid: "50135847"
 
 + [API 管理中的策略](api-management-howto-policies.md)
 + [转换 API](transform-api.md)
-+ [策略参考](api-management-policy-reference.md)，获取策略语句及其设置的完整列表
++ [策略参考](api-management-policies.md)，获取策略语句及其设置的完整列表
 + [策略示例](policy-samples.md)   

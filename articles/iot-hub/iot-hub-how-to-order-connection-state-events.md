@@ -13,12 +13,12 @@ ms.workload: na
 origin.date: 07/06/2018
 ms.date: 10/29/2018
 ms.author: v-yiso
-ms.openlocfilehash: 0877dcc2d2b79e920caccfd4434d8f230487d856
-ms.sourcegitcommit: 2d33477aeb0f2610c23e01eb38272a060142c85d
+ms.openlocfilehash: b88174a5a63dcc429f96accf57b0dd8352f4340f
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49453595"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675560"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>使用 Azure Cosmos DB 将来自 Azure IoT 中心的设备连接事件排序
 
@@ -333,11 +333,5 @@ ms.locfileid: "49453595"
 3. 选择“删除” 。 
 
 若要在 Azure 门户中删除 Azure Cosmos DB 帐户，请右键单击该帐户名，然后单击“删除帐户”。 参阅有关[删除 Azure Cosmos DB 帐户](https://docs.microsoft.com/azure/cosmos-db/manage-account#delete)的详细说明。
-
-## <a name="next-steps"></a>后续步骤
-
-* 详细了解如何[通过使用事件网格触发操作来对 IoT 中心事件做出反应](../iot-hub/iot-hub-event-grid.md)
-* [请尝试学习 IoT 中心事件教程](../event-grid/publish-iot-hub-events-to-logic-apps.md)
-* 了解[事件网格](../event-grid/overview.md)的其他作用
 
 

@@ -10,14 +10,14 @@ ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: tutorial
 origin.date: 08/22/2017
-ms.date: 11/05/2018
+ms.date: 12/03/2018
 ms.author: v-yeche
-ms.openlocfilehash: ebae4232e5b196f704f4aef0269481be168d9982
-ms.sourcegitcommit: c1020b13c8810d50b64e1f27718e9f25b5f9f043
+ms.openlocfilehash: f3b1dbdfc891b9b53995ff2923363c32b8307253
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50204851"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675630"
 ---
 # <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>使用 Azure Cosmos DB 和 SQL API 构建 Java Web 应用程序
 
@@ -51,7 +51,7 @@ ms.locfileid: "50204851"
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-* [Java 开发工具包 (JDK) 7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html)。
+* [Java 开发工具包 (JDK) 7+](https://docs.azure.cn/zh-cn/java/java-supported-jdk-runtime?view=azure-java-stable)。
 * [Eclipse IDE for Java EE Developers。](http://www.eclipse.org/downloads/packages/release/luna/sr1/eclipse-ide-java-ee-developers)
 * [已启用 Java 运行时环境（例如 Tomcat 或 Jetty）的 Azure 网站。](../app-service/app-service-web-get-started-java.md)
 

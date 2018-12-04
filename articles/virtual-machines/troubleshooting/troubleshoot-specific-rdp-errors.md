@@ -14,15 +14,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
-origin.date: 05/11/2018
-ms.date: 10/22/2018
+origin.date: 10/31/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: b1d27eec71c0ee7369d832d166e5eb1b6366e621
-ms.sourcegitcommit: 96b58e881dba2fd02665d806d7c27d770326b0cc
+ms.openlocfilehash: dd653adc94e7eeec9a9ab90a8b5a1971e63a951c
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49652013"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675516"
 ---
 # <a name="troubleshooting-specific-rdp-error-messages-to-a-windows-vm-in-azure"></a>排查发送到 Azure 中 Windows VM 的特定 RDP 错误消息
 使用远程桌面连接到 Azure 中的 Windows 虚拟机 (VM) 时，可能会收到特定错误消息。 本文详细介绍遇到的一些更常见的错误消息，以及解决这些错误消息的故障排除步骤。 如果在使用 RDP 连接到 VM 时出现问题，但没有收到特定错误消息，请参阅[远程桌面故障排除指南](troubleshoot-rdp-connection.md)。

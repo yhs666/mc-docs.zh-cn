@@ -14,14 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 12/13/2017
-ms.date: 07/30/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 5c86c71f502cd8cb2a2cfe99af833b9c7905f426
-ms.sourcegitcommit: 720d22231ec4b69082ca03ac0f400c983cb03aa1
+ms.openlocfilehash: 37ac3887426384094ec9a19d97bc63243d7e50d7
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39307051"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675609"
 ---
 [!INCLUDE [virtual-machines-common-infrastructure-automation](../../../includes/virtual-machines-common-infrastructure-automation.md)]
+
 <!-- Update_Description: update meta properties -->

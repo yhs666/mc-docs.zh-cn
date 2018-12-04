@@ -8,13 +8,14 @@ manager: digimobile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 06/21/2018
-ms.openlocfilehash: 32d6296054cec6337029dcfe62fb8b5b2c26088b
-ms.sourcegitcommit: 15355a03ed66b36c9a1a84c3d9db009668dec0e3
+origin.date: 02/28/2018
+ms.date: 12/03/2018
+ms.openlocfilehash: 36483ef55f758fa4c02639de1768f2f84175af06
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "39723111"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675413"
 ---
 # <a name="connection-libraries-for-azure-database-for-postgresql"></a>Azure Database for PostgreSQL 的连接库
 本文列出了开发人员在开发要连接到的应用程序和查询 Azure Database for PostgreSQL 时可使用的库和驱动程序。
@@ -25,13 +26,13 @@ ms.locfileid: "39723111"
 | **语言** | 客户端接口 | 其他信息 | **下载** |
 |--------------|----------------------------------------------------------------|-------------------------------------|--------------------------------------------------------------------|
 | Python | [psycopg](http://initd.org/psycopg/) | 符合 DB API 2.0 规范 | [下载](http://initd.org/psycopg/download/) |
-| PHP | [php-pgsql](https://php.net/manual/en/book.pgsql.php) | 数据库扩展 | [安装](https://secure.php.net/manual/en/pgsql.installation.php) |
+| PHP | [php-pgsql](https://secure.php.net/manual/en/book.pgsql.php) | 数据库扩展 | [安装](https://secure.php.net/manual/en/pgsql.installation.php) |
 | Node.js | [Pg npm 包](https://www.npmjs.com/package/pg) | 纯 JavaScript 非阻止客户端 | [安装](https://www.npmjs.com/package/pg) |
-| Java | [JDBC](http://jdbc.postgresql.org/) | 类型 4 JDBC 驱动程序 | [下载](https://jdbc.postgresql.org/download.html)  |
+| Java | [JDBC](https://jdbc.postgresql.org/) | 类型 4 JDBC 驱动程序 | [下载](https://jdbc.postgresql.org/download.html)  |
 | Ruby | [Pg gem](https://deveiate.org/code/pg/) | Ruby 接口 | [下载](https://rubygems.org/downloads/pg-0.20.0.gem) |
 | Go | [Package pq](https://godoc.org/github.com/lib/pq) | 纯 Go 语言 postgres 驱动程序 | [安装](https://github.com/lib/pq/blob/master/README.md) |
-| C\#/ .NET | [Npgsql](http://www.npgsql.org/) | ADO.NET 数据提供程序 | [下载](https://www.microsoft.com/net/) |
-| ODBC | [psqlODBC](https://odbc.postgresql.org/) | ODBC 驱动程序 | [下载](http://www.postgresql.org/ftp/odbc/versions/) |
+| C\#/ .NET | [Npgsql](https://www.npgsql.org/) | ADO.NET 数据提供程序 | [下载](https://www.microsoft.com/net/) |
+| ODBC | [psqlODBC](https://odbc.postgresql.org/) | ODBC 驱动程序 | [下载](https://www.postgresql.org/ftp/odbc/versions/) |
 | C | [libpq](https://www.postgresql.org/docs/9.6/static/libpq.html) | 主要 C 语言接口 | 已含 |
 | C++ | [libpqxx](http://pqxx.org/) | 新样式 C++ 接口 | [下载](http://pqxx.org/download/software/) |
 

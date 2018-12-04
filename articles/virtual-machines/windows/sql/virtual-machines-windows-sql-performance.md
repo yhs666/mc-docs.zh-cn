@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 09/26/2018
-ms.date: 10/22/2018
+ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: f9073f1b536b1cf88125153eea590b48de911393
-ms.sourcegitcommit: c5529b45bd838791379d8f7fe90088828a1a67a1
+ms.openlocfilehash: 588a492620e66f0242bb455a55a6cb94e01d0adc
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50034987"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675631"
 ---
 # <a name="performance-guidelines-for-sql-server-in-azure-virtual-machines"></a>Azure 虚拟机中的 SQL Server 的性能准则
 
@@ -59,15 +59,13 @@ ms.locfileid: "50034987"
 
 <!-- Not Available on [GS-series](../sizes-memory.md#gs-series)-->
 <!-- Not Available on [Ls-series](../sizes-storage.md)-->
-
 ## <a name="storage-guidance"></a>存储指导原则
 
-DS 系列（以及 DSv2 系列）VM 支持[高级存储](../premium-storage.md)。 对于所有生产工作负荷，建议使用高级存储。
+DS 系列（以及 DSv2 系列和 GS 系列）VM 支持[高级存储](../premium-storage.md)。 对于所有生产工作负荷，建议使用高级存储。
 
 <!--Not Available on GS-series -->
-
 > [!WARNING]
-> 标准存储具有不同的延迟和带宽，建议仅用于开发/测试工作负荷。 生产工作负荷应使用高级存储。
+> 标准存储具有不同的延迟和带宽，建议仅用于开发/测试工作负荷。 这包括新的标准 SSD 存储。 生产工作负荷应使用高级存储。
 
 此外，我们建议在 SQL Server 虚拟机所在的数据中心内创建 Azure 存储帐户，以减小传输延迟。 创建存储帐户时应禁用异地复制，因为无法保证在多个磁盘上的写入顺序一致。 相反，请考虑在两个 Azure 数据中心之间配置一个 SQL Server 灾难恢复技术。 有关详细信息，请参阅 [Azure 虚拟机中 SQL Server 的高可用性和灾难恢复](virtual-machines-windows-sql-high-availability-dr.md)。
 
@@ -96,7 +94,6 @@ D 系列、Dv2 系列和 G 系列 VM 上的临时驱动器基于 SSD。 如果�
 对于支持高级存储的 VM（DS 系列和 DSv2 系列），我们建议将 TempDB 存储在支持高级存储且已启用读取缓存的磁盘上。 这项建议有一种例外情况；如果 TempDB 的使用是写入密集型的，则可以通过将 TempDB 存储在本地 **D** 驱动器（在这些计算机大小上也是基于 SSD）上来实现更高性能。
 
 <!--Not Available on GS-series -->
-
 ### <a name="data-disks"></a>数据磁盘数
 
 * **将数据磁盘用于数据和日志文件**：如果不使用磁盘条带化，请使用两个高级存储 [P30 磁盘](../premium-storage.md#scalability-and-performance-targets)，一个磁盘包含日志文件，另一个包含数据和 TempDB 文件。 每个高级存储磁盘均根据其大小提供了许多 IOP 和带宽 (MB/s)，如[使用高级存储磁盘](../premium-storage.md)一文中所述。 如果使用磁盘条带化技术，例如存储空间，则可实现最佳性能，因为将具有两个池，一个用于日志文件，另一个用于数据文件。 但是，如果你打算使用 SQL Server 故障转移群集实例 (FCI)，则必须配置单个池。
@@ -174,7 +171,7 @@ D 系列、Dv2 系列和 G 系列 VM 上的临时驱动器基于 SSD。 如果�
     ![SQL 数据日志和备份文件](./media/virtual-machines-windows-sql-performance/sql_server_default_data_log_backup_locations.png)
 * 建立锁定的页以减少 IO 和任何分页活动。 有关详细信息，请参阅 [Enable the Lock Pages in Memory Option (Windows)](https://msdn.microsoft.com/library/ms190730.aspx)（启用在内存中锁定页面的选项 (Windows)）。
 
-* 如果运行的是 SQL Server 2012，安装 Service Pack 1 Cumulative Update 10。 此更新包含修复程序，适用于在 SQL Server 2012 中执行“select into temporary table”语句时出现 I/O 性能不良的情况。 有关信息，请参阅此 [知识库文章](http://support.microsoft.com/kb/2958012)。
+* 如果运行的是 SQL Server 2012，安装 Service Pack 1 Cumulative Update 10。 此更新包含修复程序，适用于在 SQL Server 2012 中执行“select into temporary table”语句时出现 I/O 性能不良的情况。 有关信息，请参阅此 [知识库文章](https://support.microsoft.com/kb/2958012)。
 
 * 请考虑在传入/传出 Azure 时压缩所有数据文件。
 

@@ -2,17 +2,17 @@
 title: Azure Batch 渲染器管理器支持
 description: 通过 Azure Batch 渲染器管理器集成将 Azure 用于渲染
 services: batch
-author: mscurrell
-ms.author: v-junlch
+author: lingliw
+ms.author: v-lingwu
 origin.date: 08/02/2018
-ms.date: 09/07/2018
+ms.date: 11/26/2018
 ms.topic: conceptual
-ms.openlocfilehash: 75031d276e3521a1bebb87c6d4bb1fe212035b73
-ms.sourcegitcommit: d828857e3408e90845c14f0324e6eafa7aacd512
+ms.openlocfilehash: fc96c8127fb61348d8d87bf1ceb491310ed99417
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44068313"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675471"
 ---
 # <a name="using-azure-batch-with-render-farm-managers"></a>将 Azure Batch 与渲染器场管理器配合使用
 
@@ -22,9 +22,9 @@ Azure 为常用的渲染器管理器提供内置支持或加载项。 然后，�
 
 支持以下渲染器管理器：
 
-- [PipelineFX Qube!](https://www.pipelinefx.com/)
-- [Royal Render](http://www.royalrender.de/)
-- [Thinkbox Deadline](https://deadline.thinkboxsoftware.com/)
+* [PipelineFX Qube!](https://www.pipelinefx.com/)
+* [Royal Render](http://www.royalrender.de/)
+* [Thinkbox Deadline](https://deadline.thinkboxsoftware.com/)
 
 ## <a name="using-azure-with-pipelinefx-qube"></a>将 Azure 与 PipelineFX Qube 配合使用
 
@@ -34,7 +34,7 @@ Azure 为常用的渲染器管理器提供内置支持或加载项。 然后，�
 
 Royal Render 内置了 Azure 和 Azure Batch 集成，可以通过基于 Azure 的 VM 来扩展渲染器场。 有关摘要，请查看[帮助文件](http://www.royalrender.de/help8/index.html?Cloudrendering.html)。
 
-有关 Royal Render 客户使用 Azure 集成的示例，请参阅 [Jellyfish Pictures 客户案例](https://customers.microsoft.com/en-gb/story/jellyfishpictures)。
+有关 Royal Render 客户使用 Azure 集成的示例，请参阅 [Jellyfish Pictures 客户案例](https://customers.microsoft.com/story/jellyfishpictures)。
 
 ## <a name="using-azure-with-thinkbox-deadline"></a>将 Azure 与 Thinkbox Deadline 配合使用
 

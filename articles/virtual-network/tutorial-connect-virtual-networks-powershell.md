@@ -18,12 +18,12 @@ origin.date: 03/13/2018
 ms.date: 06/11/2018
 ms.author: v-yeche
 ms.custom: ''
-ms.openlocfilehash: eaf27337bf1b5f992cd826e0e7a920b541893a93
-ms.sourcegitcommit: 5616622f754f3b83c7120a3d1344d0344e03ca61
+ms.openlocfilehash: d2b1041b76aa3538df0cefd56da4dcb6740db8fb
+ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47188778"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52675624"
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-powershell"></a>通过 PowerShell 使用虚拟网络对等互连连接虚拟网络
 
@@ -36,7 +36,7 @@ ms.locfileid: "47188778"
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
-<!--[!INCLUDE [cloud-shell-powershell](../../../includes/cloud-shell-powershell.md)]-->
+<!--[!INCLUDE [cloud-shell-powershell](../../../includes/cloud-shell-powershell.md)-->
 
 如果选择在本地安装并使用 PowerShell，则本文需要 Azure PowerShell 模块 5.4.1 或更高版本。 运行 ` Get-Module -ListAvailable AzureRM` 查找已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzureRmAccount -Environment AzureChinaCloud ` 以创建与 Azure 的连接。 
 
