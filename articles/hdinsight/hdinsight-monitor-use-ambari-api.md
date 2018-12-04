@@ -18,11 +18,11 @@ ms.date: 05/28/2018
 ms.author: v-yiso
 ROBOTS: NOINDEX
 ms.openlocfilehash: 584af9b7f2da09b9a17d848dcd6900eeb3a39408
-ms.sourcegitcommit: c732858a9dec4902d5aec48245e2d84f422c3fd6
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34450092"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52643478"
 ---
 # <a name="monitor-hadoop-clusters-in-hdinsight-using-the-ambari-api"></a>使用 Ambari API 在 HDInsight 中监视 Hadoop 群集
 了解如何使用 Ambari API 监视 HDInsight 群集。

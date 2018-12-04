@@ -10,11 +10,11 @@ ms.date: 09/26/2018
 ms.author: v-junlch
 ms.custom: include file
 ms.openlocfilehash: 37844d21d5f67a91d81f4a4276b8268eb8812982
-ms.sourcegitcommit: 641f375fc67e8c9d6ec1296560602c0b64ab8a52
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47398144"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52643475"
 ---
 以下限制适用于 Azure 备份。
 

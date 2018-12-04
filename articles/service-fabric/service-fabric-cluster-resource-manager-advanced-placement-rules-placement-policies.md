@@ -16,11 +16,11 @@ origin.date: 08/18/2017
 ms.date: 07/09/2018
 ms.author: v-yeche
 ms.openlocfilehash: 21c5e5429c89247f33d53278ba761453b3ddc4c3
-ms.sourcegitcommit: 292f22020e00c607229c1693229f25fb2837d8af
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37910584"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52643477"
 ---
 # <a name="placement-policies-for-service-fabric-services"></a>Service Fabric 服务的放置策略
 放置策略是可用于在某些不常见的特定情况下控制服务位置的附加规则。 这些情况可能包括：
